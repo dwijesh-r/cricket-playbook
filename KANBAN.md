@@ -1,7 +1,7 @@
 # Cricket Playbook - Sprint Kanban
 
 **Last Updated:** 2026-01-19
-**Sprint:** Foundation Sprint
+**Sprint:** Analytics Sprint
 **Owner:** Tom Brady (Product Owner)
 
 ---
@@ -11,9 +11,7 @@
 | Task | Owner | Priority | Notes |
 |------|-------|----------|-------|
 | External player attributes (LHB/RHB, bowling style) | Brock Purdy | Low | Requires ESPNcricinfo enrichment |
-| Analytics layer - batting metrics | Stephen Curry | High | SR, average, boundaries |
-| Analytics layer - bowling metrics | Stephen Curry | High | Economy, wickets, dot ball % |
-| Visualization templates | Kevin De Bruyne | Medium | After analytics ready |
+| Visualization templates | Kevin De Bruyne | Medium | Analytics layer ready |
 | Editorial templates | LeBron James | Low | Magazine structure |
 
 ---
@@ -41,6 +39,9 @@
 | **Add `is_wicketkeeper` flag** | Brock Purdy | 2026-01-19 | Andy Flower ✅ |
 | **Add `match_phase` column** | Brock Purdy | 2026-01-19 | Andy Flower ✅ |
 | **GitHub Actions workflow** | Brock Purdy | 2026-01-19 | Tom Brady ✅ |
+| **Analytics layer - batting metrics** | Stephen Curry | 2026-01-19 | Tom Brady ✅ |
+| **Analytics layer - bowling metrics** | Stephen Curry | 2026-01-19 | Tom Brady ✅ |
+| **Player comparison views** | Stephen Curry | 2026-01-19 | Tom Brady ✅ |
 
 ---
 
@@ -56,31 +57,62 @@
 
 | Metric | Value |
 |--------|-------|
-| Tasks Completed | 8 |
+| Tasks Completed | 14 |
 | Tasks In Progress | 0 |
 | Tasks Blocked | 0 |
-| Tasks in Backlog | 8 |
+| Tasks in Backlog | 3 |
 
 ---
 
 ## 🎯 Sprint Goals
 
-### Foundation Sprint (Current)
+### Foundation Sprint (Complete)
 - [x] Data ingestion pipeline
 - [x] Schema design and implementation
 - [x] QA certification
 - [x] Domain review
-- [ ] GitHub Actions setup
+- [x] GitHub Actions setup
 
-### Next Sprint: Analytics
-- [ ] Core batting metrics
-- [ ] Core bowling metrics
-- [ ] Player comparison views
+### Analytics Sprint (Current)
+- [x] Core batting metrics
+- [x] Core bowling metrics
+- [x] Player comparison views
 - [ ] Sample visualizations
 
 ---
 
 ## 📝 Notes
+
+**Stephen Curry's Analytics Report (2026-01-19):**
+
+> Analytics layer v1.0.0 is live with 17 views.
+>
+> **Batting Views (6):**
+> - `analytics_batting_career` - Career stats with SR, avg, boundaries
+> - `analytics_batting_by_phase` - Powerplay/middle/death splits
+> - `analytics_batting_by_tournament` - Per-tournament stats
+> - `analytics_batting_by_season` - Yearly progression
+> - `analytics_top_run_scorers` - Leaderboard (10+ innings)
+> - `analytics_best_strike_rates` - Qualified batters (500+ balls)
+> - `analytics_powerplay_hitters` - PP specialists (200+ balls)
+>
+> **Bowling Views (6):**
+> - `analytics_bowling_career` - Career stats with economy, avg, SR
+> - `analytics_bowling_by_phase` - Phase splits
+> - `analytics_bowling_by_tournament` - Per-tournament stats
+> - `analytics_top_wicket_takers` - Leaderboard (10+ matches)
+> - `analytics_best_economy` - Qualified bowlers (500+ balls)
+> - `analytics_death_over_specialists` - Death overs (200+ balls)
+>
+> **Matchup Views (2):**
+> - `analytics_batter_vs_bowler` - Head-to-head
+> - `analytics_batter_vs_team` - Batter vs opposition
+>
+> **Team Views (2):**
+> - `analytics_team_batting` - Team batting aggregates
+> - `analytics_team_bowling` - Team bowling aggregates
+>
+> All views include sample size indicators per Andy Flower's recommendation.
 
 **Tom Brady's Assessment (2026-01-19):**
 
@@ -91,11 +123,7 @@
 > - Derived player roles working (with noted caveats)
 > - Clean separation of concerns across agents
 >
-> Concerns:
-> - 68 JSON parse errors need investigation (low priority)
-> - External enrichment (batting style, etc.) deferred - acceptable for now
->
-> Next priority: GitHub Actions for reproducible, automated ingestion. Then hand off to Stephen Curry for analytics layer.
+> Analytics layer now complete - 17 views ready for visualization.
 
 ---
 

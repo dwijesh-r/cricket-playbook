@@ -1,0 +1,35 @@
+{
+  "data_version": "1.0.0",
+  "ingested_at": "2026-01-19T12:27:39.867324",
+  "stats": {
+    "zip_files_processed": 17,
+    "matches_processed": 9289,
+    "balls_processed": 2137915,
+    "players_found": 7864,
+    "teams_found": 285,
+    "venues_found": 531,
+    "tournaments_found": 426
+  },
+  "errors": [
+    "BBL_Male.zip/1023647.json: 3",
+    "BBL_Male.zip/756767.json: 3",
+    "BBL_Male.zip/654069.json: 3",
+    "BBL_Male.zip/1195586.json: 3",
+    "CPL_Male.zip/1269710.json: 3",
+    "CPL_Male.zip/1185850.json: 3",
+    "CSA_T20_Challenge_Male.zip/1299613.json: 3",
+    "Hundred_Male.zip/1417822.json: 3",
+    "ILT20_Male.zip/1501325.json: 3",
+    "IPL_Male.zip/1082625.json: 3",
+    "IPL_Male.zip/1175365.json: 3",
+    "IPL_Male.zip/1178426.json: 3",
+    "IPL_Male.zip/1216493.json: 3",
+    "IPL_Male.zip/1216512.json: 3",
+    "IPL_Male.zip/1216517.json: 3",
+    "IPL_Male.zip/1216547.json: 3",
+    "IPL_Male.zip/1254077.json: 3",
+    "IPL_Male.zip/1473469.json: 3",
+    "IPL_Male.zip/392190.json: 3",
+    "IPL_Male.zip/419121.json: 3"
+  ]
+}

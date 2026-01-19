@@ -120,5 +120,5 @@ This database contains ball-by-ball T20 cricket data from Cricsheet.
 
 ## Generated
 
-Generated: 2026-01-19T12:27:39.868498
-Data Version: 1.0.0
+Generated: 2026-01-19T12:46:12.415720
+Data Version: 1.1.0

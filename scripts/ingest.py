@@ -30,7 +30,7 @@ DB_PATH = PROJECT_ROOT / "data" / "cricket_playbook.duckdb"
 MANIFEST_PATH = PROJECT_ROOT / "data" / "manifests" / "manifest.json"
 SCHEMA_DOC_PATH = PROJECT_ROOT / "data" / "processed" / "schema.md"
 
-DATA_VERSION = "1.0.0"
+DATA_VERSION = "1.1.0"  # Added WK detection + match_phase
 
 
 def generate_id(text: str) -> str:
@@ -50,6 +50,31 @@ def parse_over_ball(over_decimal: float) -> tuple[int, int]:
     return over, ball
 
 
+def get_match_phase(over: int, balls_per_over: int = 6) -> str:
+    """
+    Determine match phase based on over number.
+    - Powerplay: overs 0-5 (1-6 in cricket terms)
+    - Middle: overs 6-14 (7-15 in cricket terms)
+    - Death: overs 15-19 (16-20 in cricket terms)
+
+    For The Hundred (5-ball overs), adjusts accordingly.
+    """
+    if balls_per_over == 5:  # The Hundred
+        if over < 5:
+            return "powerplay"
+        elif over < 15:
+            return "middle"
+        else:
+            return "death"
+    else:  # Standard T20
+        if over < 6:
+            return "powerplay"
+        elif over < 15:
+            return "middle"
+        else:
+            return "death"
+
+
 class CricketIngester:
     """Main ingestion class for Cricsheet data."""
 
@@ -63,6 +88,9 @@ class CricketIngester:
         self.powerplays = []
         self.balls = []
         self.player_match_perf = []
+
+        # Track wicketkeeper candidates (fielders in stumping dismissals)
+        self.stumping_fielders = defaultdict(int)  # player_id -> stumping count
 
         self.stats = {
             "zip_files": 0,
@@ -390,9 +418,14 @@ class CricketIngester:
                         # Detect wicket keeper (stumped dismissals)
                         if wicket_type == "stumped" and fielder_id:
                             player_perf_tracker[(fielder_id, bowling_team_id)]["did_keep_wicket"] = True
+                            self.stumping_fielders[fielder_id] += 1  # Track for WK detection
 
                     # Is legal ball?
                     is_legal = extra_type not in ("wides", "noballs")
+
+                    # Determine match phase
+                    balls_per_over = info.get("balls_per_over", 6)
+                    match_phase = get_match_phase(over_num, balls_per_over)
 
                     # Create ball record
                     ball_id = f"{match_id}_{innings_idx}_{over_num}_{ball_idx}"
@@ -418,6 +451,7 @@ class CricketIngester:
                         "player_out_id": player_out_id,
                         "fielder_id": fielder_id,
                         "is_legal_ball": is_legal,
+                        "match_phase": match_phase,
                         "data_version": DATA_VERSION,
                         "ingested_at": datetime.now().isoformat(),
                         "source_file": source_file
@@ -463,10 +497,11 @@ class CricketIngester:
             self.stats["errors"].append(f"{zip_path.name}: {str(e)}")
 
     def derive_player_roles(self):
-        """Derive primary role for each player based on match data."""
+        """Derive primary role and wicketkeeper status for each player based on match data."""
         player_batting = defaultdict(int)
         player_bowling = defaultdict(int)
         player_top6_batting = defaultdict(int)
+        player_keeping = defaultdict(int)  # Matches where they kept wicket
 
         for perf in self.player_match_perf:
             pid = perf["player_id"]
@@ -476,17 +511,28 @@ class CricketIngester:
                     player_top6_batting[pid] += 1
             if perf["did_bowl"]:
                 player_bowling[pid] += 1
+            if perf["did_keep_wicket"]:
+                player_keeping[pid] += 1
 
         for player_id, player in self.players.items():
             matches = player["matches_played"]
             if matches == 0:
                 player["primary_role"] = "Unknown"
+                player["is_wicketkeeper"] = False
                 continue
 
             bat_pct = player_batting[player_id] / matches
             bowl_pct = player_bowling[player_id] / matches
             top6_pct = player_top6_batting[player_id] / matches if player_batting[player_id] > 0 else 0
 
+            # Wicketkeeper detection:
+            # - Has at least 3 stumpings as fielder, OR
+            # - Kept wicket in >30% of matches played
+            stumpings = self.stumping_fielders.get(player_id, 0)
+            keep_pct = player_keeping[player_id] / matches
+            player["is_wicketkeeper"] = stumpings >= 3 or keep_pct > 0.3
+
+            # Primary role determination
             if bowl_pct > 0.5 and top6_pct < 0.3:
                 player["primary_role"] = "Bowler"
             elif top6_pct > 0.5 and bowl_pct < 0.2:
@@ -499,6 +545,7 @@ class CricketIngester:
                 player["primary_role"] = "Bowler"
 
         self.stats["players_found"] = len(self.players)
+        self.stats["wicketkeepers_found"] = sum(1 for p in self.players.values() if p.get("is_wicketkeeper"))
 
     def load_to_duckdb(self):
         """Load all data into DuckDB."""
@@ -748,6 +795,7 @@ This database contains ball-by-ball T20 cricket data from Cricsheet.
         print(f"  Matches: {self.stats['matches_processed']:,}")
         print(f"  Balls: {self.stats['balls_processed']:,}")
         print(f"  Players: {self.stats['players_found']:,}")
+        print(f"  Wicketkeepers: {self.stats.get('wicketkeepers_found', 0):,}")
         print(f"  Teams: {len(self.teams):,}")
         print(f"  Venues: {len(self.venues):,}")
         print(f"  Errors: {len(self.stats['errors'])}")

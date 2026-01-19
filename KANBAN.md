@@ -10,8 +10,6 @@
 
 | Task | Owner | Priority | Notes |
 |------|-------|----------|-------|
-| Add `is_wicketkeeper` flag to players | Brock Purdy | Medium | Per Andy Flower review |
-| Add `match_phase` derived column | Brock Purdy | Medium | powerplay/middle/death |
 | External player attributes (LHB/RHB, bowling style) | Brock Purdy | Low | Requires ESPNcricinfo enrichment |
 | GitHub Actions for automated ingestion | Brock Purdy | High | `workflow_dispatch` trigger |
 | Analytics layer - batting metrics | Stephen Curry | High | SR, average, boundaries |
@@ -41,6 +39,8 @@
 | Structure review | Tom Brady | 2026-01-19 | APPROVED |
 | Git repo setup | - | 2026-01-19 | ✅ |
 | Virtual environment + deps | - | 2026-01-19 | ✅ |
+| **Add `is_wicketkeeper` flag** | Brock Purdy | 2026-01-19 | Andy Flower ✅ |
+| **Add `match_phase` column** | Brock Purdy | 2026-01-19 | Andy Flower ✅ |
 
 ---
 

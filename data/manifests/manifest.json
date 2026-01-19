@@ -1,6 +1,6 @@
 {
-  "data_version": "1.0.0",
-  "ingested_at": "2026-01-19T12:27:39.867324",
+  "data_version": "1.1.0",
+  "ingested_at": "2026-01-19T12:46:12.414926",
   "stats": {
     "zip_files_processed": 17,
     "matches_processed": 9289,

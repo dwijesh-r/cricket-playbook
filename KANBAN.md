@@ -11,7 +11,6 @@
 | Task | Owner | Priority | Notes |
 |------|-------|----------|-------|
 | External player attributes (LHB/RHB, bowling style) | Brock Purdy | Low | Requires ESPNcricinfo enrichment |
-| GitHub Actions for automated ingestion | Brock Purdy | High | `workflow_dispatch` trigger |
 | Analytics layer - batting metrics | Stephen Curry | High | SR, average, boundaries |
 | Analytics layer - bowling metrics | Stephen Curry | High | Economy, wickets, dot ball % |
 | Visualization templates | Kevin De Bruyne | Medium | After analytics ready |
@@ -41,6 +40,7 @@
 | Virtual environment + deps | - | 2026-01-19 | ✅ |
 | **Add `is_wicketkeeper` flag** | Brock Purdy | 2026-01-19 | Andy Flower ✅ |
 | **Add `match_phase` column** | Brock Purdy | 2026-01-19 | Andy Flower ✅ |
+| **GitHub Actions workflow** | Brock Purdy | 2026-01-19 | Tom Brady ✅ |
 
 ---
 

@@ -1,0 +1,123 @@
+name: Data Ingestion Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      full_refresh:
+        description: 'Download all leagues (true) or just IPL for testing (false)'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+
+    env:
+      # Cricsheet T20 JSON download URLs
+      CRICSHEET_BASE: "https://cricsheet.org/downloads"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Create data directories
+        run: |
+          mkdir -p data/raw data/processed data/manifests
+
+      - name: Download Cricsheet data
+        run: |
+          cd data/raw
+
+          if [ "${{ inputs.full_refresh }}" == "true" ]; then
+            echo "📥 Full refresh - downloading all T20 leagues..."
+
+            # Domestic T20 leagues
+            curl -sLO "$CRICSHEET_BASE/ipl_json.zip"          # IPL
+            curl -sLO "$CRICSHEET_BASE/bbl_json.zip"          # Big Bash
+            curl -sLO "$CRICSHEET_BASE/psl_json.zip"          # Pakistan Super League
+            curl -sLO "$CRICSHEET_BASE/cpl_json.zip"          # Caribbean Premier League
+            curl -sLO "$CRICSHEET_BASE/ntb_json.zip"          # T20 Blast (England)
+            curl -sLO "$CRICSHEET_BASE/hnd_json.zip"          # The Hundred
+            curl -sLO "$CRICSHEET_BASE/sat_json.zip"          # SA20
+            curl -sLO "$CRICSHEET_BASE/ilt_json.zip"          # ILT20
+            curl -sLO "$CRICSHEET_BASE/lpl_json.zip"          # Lanka Premier League
+            curl -sLO "$CRICSHEET_BASE/mlc_json.zip"          # MLC
+            curl -sLO "$CRICSHEET_BASE/ssm_json.zip"          # Super Smash
+            curl -sLO "$CRICSHEET_BASE/sma_json.zip"          # SMAT
+            curl -sLO "$CRICSHEET_BASE/cst_json.zip"          # CSA T20 Challenge
+
+            # International T20s
+            curl -sLO "$CRICSHEET_BASE/t20s_json.zip"         # T20 Internationals
+
+          else
+            echo "📥 Quick test - downloading IPL only..."
+            curl -sLO "$CRICSHEET_BASE/ipl_json.zip"
+          fi
+
+          echo ""
+          echo "Downloaded files:"
+          ls -lh *.zip 2>/dev/null || echo "No files downloaded"
+
+      - name: Run ingestion pipeline
+        run: |
+          python scripts/ingest.py
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ingestion-artifacts-${{ github.run_number }}
+          path: |
+            data/manifests/manifest.json
+            data/processed/schema.md
+            data/processed/QA_CERTIFICATE_*.md
+            data/processed/STRUCTURE_REVIEW_*.md
+          retention-days: 30
+
+      - name: Upload database
+        uses: actions/upload-artifact@v4
+        with:
+          name: cricket-database-${{ github.run_number }}
+          path: data/cricket_playbook.duckdb
+          retention-days: 7
+          compression-level: 9
+
+      - name: Generate summary
+        run: |
+          echo "## 🏏 Ingestion Complete!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          echo "### Statistics" >> $GITHUB_STEP_SUMMARY
+          python3 << 'EOF' >> $GITHUB_STEP_SUMMARY
+          import json
+          with open('data/manifests/manifest.json') as f:
+              m = json.load(f)
+          print(f"| Metric | Value |")
+          print(f"|--------|-------|")
+          print(f"| Matches | {m['stats']['matches_processed']:,} |")
+          print(f"| Balls | {m['stats']['balls_processed']:,} |")
+          print(f"| Players | {m['stats']['players_found']:,} |")
+          print(f"| Teams | {m['stats']['teams_found']:,} |")
+          print(f"| Tournaments | {m['stats']['tournaments_found']:,} |")
+          print(f"| Errors | {len(m.get('errors', []))} |")
+          EOF
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Artifacts" >> $GITHUB_STEP_SUMMARY
+          echo "- 📊 **Database**: \`cricket_playbook.duckdb\` (download from Artifacts)" >> $GITHUB_STEP_SUMMARY
+          echo "- 📋 **Manifest**: Ingestion log with stats" >> $GITHUB_STEP_SUMMARY
+          echo "- 📝 **Schema**: Table documentation" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Data Version" >> $GITHUB_STEP_SUMMARY
+          echo "\`$(cat data/manifests/manifest.json | python3 -c 'import json,sys; print(json.load(sys.stdin)[\"data_version\"])')\`" >> $GITHUB_STEP_SUMMARY

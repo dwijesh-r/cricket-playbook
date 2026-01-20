@@ -229,11 +229,11 @@ def generate_team_stat_pack(conn, team_name: str) -> str:
             CASE match_phase WHEN 'powerplay' THEN 1 WHEN 'middle' THEN 2 WHEN 'death' THEN 3 END
     """).fetchall()
 
-    md.append("| Player | Phase | Inn | Runs | Balls | SR | Avg | Bound% | Dot% |")
-    md.append("|--------|-------|-----|------|-------|-----|-----|--------|------|")
+    md.append("| Player | Phase | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Sample |")
+    md.append("|--------|-------|-----|------|-------|-----|-----|--------|------|--------|")
     for row in phase_batting:
         name, phase, inn, runs, balls, sr, avg, bound, dot, sample = row
-        md.append(f"| {name} | {phase} | {inn or 0} | {runs or 0} | {balls or 0} | {sr or '-'} | {avg or '-'} | {bound or '-'} | {dot or '-'} |")
+        md.append(f"| {name} | {phase} | {inn or 0} | {runs or 0} | {balls or 0} | {sr or '-'} | {avg or '-'} | {bound or '-'} | {dot or '-'} | {sample or '-'} |")
 
     # ==========================================================================
     # SECTION 5: SQUAD BOWLING ANALYSIS
@@ -278,12 +278,12 @@ def generate_team_stat_pack(conn, team_name: str) -> str:
             CASE bpd.match_phase WHEN 'powerplay' THEN 1 WHEN 'middle' THEN 2 WHEN 'death' THEN 3 END
     """).fetchall()
 
-    md.append("| Bowler | Phase | Overs | Wkts | Econ | Dot% | %Overs | %Wkts | Efficiency |")
-    md.append("|--------|-------|-------|------|------|------|--------|-------|------------|")
+    md.append("| Bowler | Phase | Overs | Wkts | Econ | Dot% | %Overs | %Wkts | Efficiency | Sample |")
+    md.append("|--------|-------|-------|------|------|------|--------|-------|------------|--------|")
     for row in phase_dist:
         name, phase, overs, wkts, econ, dot, pct_ov, pct_wk, eff, sample = row
         eff_str = f"+{eff}" if eff and eff > 0 else str(eff or '-')
-        md.append(f"| {name} | {phase} | {overs or 0:.1f} | {wkts or 0} | {econ or '-'} | {dot or '-'} | {pct_ov or '-'}% | {pct_wk or '-'}% | {eff_str} |")
+        md.append(f"| {name} | {phase} | {overs or 0:.1f} | {wkts or 0} | {econ or '-'} | {dot or '-'} | {pct_ov or '-'}% | {pct_wk or '-'}% | {eff_str} | {sample or '-'} |")
 
     # ==========================================================================
     # SECTION 6: KEY PLAYER VS OPPOSITION MATCHUPS
@@ -316,11 +316,11 @@ def generate_team_stat_pack(conn, team_name: str) -> str:
         """).fetchall()
 
         if vs_team:
-            md.append("| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs |")
-            md.append("|------------|-----|------|-------|-----|-----|--------|------|------|")
+            md.append("| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |")
+            md.append("|------------|-----|------|-------|-----|-----|--------|------|------|--------|")
             for row in vs_team:
                 opp, inn, runs, balls, sr, avg, bound, dot, outs, sample = row
-                md.append(f"| {opp} | {inn} | {runs} | {balls} | {sr or '-'} | {avg or '-'} | {bound or '-'} | {dot or '-'} | {outs} |")
+                md.append(f"| {opp} | {inn} | {runs} | {balls} | {sr or '-'} | {avg or '-'} | {bound or '-'} | {dot or '-'} | {outs} | {sample or '-'} |")
 
     # ==========================================================================
     # SECTION 7: KEY BOWLER VS OPPOSITION
@@ -352,11 +352,11 @@ def generate_team_stat_pack(conn, team_name: str) -> str:
         """).fetchall()
 
         if vs_team:
-            md.append("| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% |")
-            md.append("|------------|---------|-------|------|------|------|-----|-----|------|--------|")
+            md.append("| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |")
+            md.append("|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|")
             for row in vs_team:
                 opp, m, balls, runs, wkts, econ, avg, sr, dot, bound, sample = row
-                md.append(f"| {opp} | {m} | {balls} | {runs} | {wkts} | {econ or '-'} | {avg or '-'} | {sr or '-'} | {dot or '-'} | {bound or '-'} |")
+                md.append(f"| {opp} | {m} | {balls} | {runs} | {wkts} | {econ or '-'} | {avg or '-'} | {sr or '-'} | {dot or '-'} | {bound or '-'} | {sample or '-'} |")
 
     # ==========================================================================
     # SECTION 8: PLAYER VENUE PERFORMANCE
@@ -379,12 +379,12 @@ def generate_team_stat_pack(conn, team_name: str) -> str:
     """).fetchall()
 
     if batter_venues:
-        md.append("| Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% |")
-        md.append("|--------|-------|-----|------|-------|-----|-----|--------|")
+        md.append("| Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% | Sample |")
+        md.append("|--------|-------|-----|------|-------|-----|-----|--------|--------|")
         for row in batter_venues:
             name, venue, inn, runs, balls, sr, avg, bound, sample = row
             venue_short = venue[:35] + "..." if len(venue) > 35 else venue
-            md.append(f"| {name} | {venue_short} | {inn} | {runs} | {balls} | {sr or '-'} | {avg or '-'} | {bound or '-'} |")
+            md.append(f"| {name} | {venue_short} | {inn} | {runs} | {balls} | {sr or '-'} | {avg or '-'} | {bound or '-'} | {sample or '-'} |")
 
     # ==========================================================================
     # SECTION 9: INSIGHTS & RECOMMENDATIONS

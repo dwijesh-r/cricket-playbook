@@ -1,6 +1,6 @@
 # Lucknow Super Giants (LSG) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-20 19:43
+**Generated:** 2026-01-20 20:05
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -91,13 +91,13 @@
 |-------|---------|------|-------|-----|-----|
 | Bharat Ratna Shri Atal Bihari Vajpayee E... | 21 | 3311 | 2456 | 134.81 | 26.28 |
 | Wankhede Stadium, Mumbai | 6 | 1005 | 720 | 139.58 | 25.77 |
-| Eden Gardens, Kolkata | 4 | 713 | 480 | 148.54 | 29.71 |
 | Dr DY Patil Sports Academy, Mumbai | 4 | 663 | 478 | 138.7 | 34.89 |
+| Eden Gardens, Kolkata | 4 | 713 | 480 | 148.54 | 29.71 |
 | MA Chidambaram Stadium, Chepauk, Chennai | 3 | 473 | 337 | 140.36 | 23.65 |
-| Maharashtra Cricket Association Stadium,... | 3 | 392 | 323 | 121.36 | 18.67 |
-| Sawai Mansingh Stadium, Jaipur | 3 | 478 | 360 | 132.78 | 28.12 |
-| Brabourne Stadium, Mumbai | 3 | 523 | 357 | 146.5 | 32.69 |
 | Rajiv Gandhi International Stadium, Uppa... | 3 | 519 | 333 | 155.86 | 43.25 |
+| Brabourne Stadium, Mumbai | 3 | 523 | 357 | 146.5 | 32.69 |
+| Sawai Mansingh Stadium, Jaipur | 3 | 478 | 360 | 132.78 | 28.12 |
+| Maharashtra Cricket Association Stadium,... | 3 | 392 | 323 | 121.36 | 18.67 |
 
 ---
 
@@ -122,24 +122,24 @@
 
 ### 4.2 Phase-wise Batting (Qualified players)
 
-| Player | Phase | Inn | Runs | Balls | SR | Avg | Bound% | Dot% |
-|--------|-------|-----|------|-------|-----|-----|--------|------|
-| Abdul Samad | middle | 30 | 243 | 195 | 124.62 | 24.3 | 14.87 | 37.44 |
-| Abdul Samad | death | 41 | 498 | 290 | 171.72 | 18.44 | 22.76 | 31.03 |
-| Aiden Markram | powerplay | 33 | 366 | 287 | 127.53 | 36.6 | 19.51 | 45.3 |
-| Aiden Markram | middle | 41 | 832 | 641 | 129.8 | 32.0 | 12.48 | 25.27 |
-| Aiden Markram | death | 19 | 242 | 134 | 180.6 | 24.2 | 23.88 | 19.4 |
-| Ayush Badoni | middle | 30 | 420 | 333 | 126.13 | 35.0 | 13.51 | 31.53 |
-| Ayush Badoni | death | 31 | 514 | 313 | 164.22 | 25.7 | 20.13 | 25.24 |
-| Mitchell Marsh | powerplay | 32 | 518 | 347 | 149.28 | 39.85 | 23.34 | 44.67 |
-| Mitchell Marsh | middle | 30 | 566 | 420 | 134.76 | 37.73 | 16.67 | 33.33 |
-| Mitchell Marsh | death | 19 | 208 | 135 | 154.07 | 13.0 | 20.74 | 36.3 |
-| Nicholas Pooran | powerplay | 16 | 179 | 113 | 158.41 | 29.83 | 26.55 | 49.56 |
-| Nicholas Pooran | middle | 67 | 1276 | 764 | 167.02 | 44.0 | 23.3 | 32.59 |
-| Nicholas Pooran | death | 51 | 838 | 476 | 176.05 | 28.9 | 24.58 | 31.3 |
-| Rishabh Pant | powerplay | 55 | 428 | 350 | 122.29 | 53.5 | 19.71 | 49.14 |
-| Rishabh Pant | middle | 106 | 2125 | 1556 | 136.57 | 40.09 | 17.1 | 32.13 |
-| Rishabh Pant | death | 59 | 1000 | 492 | 203.25 | 24.39 | 31.5 | 29.67 |
+| Player | Phase | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Sample |
+|--------|-------|-----|------|-------|-----|-----|--------|------|--------|
+| Abdul Samad | middle | 30 | 243 | 195 | 124.62 | 24.3 | 14.87 | 37.44 | MEDIUM |
+| Abdul Samad | death | 41 | 498 | 290 | 171.72 | 18.44 | 22.76 | 31.03 | MEDIUM |
+| Aiden Markram | powerplay | 33 | 366 | 287 | 127.53 | 36.6 | 19.51 | 45.3 | MEDIUM |
+| Aiden Markram | middle | 41 | 832 | 641 | 129.8 | 32.0 | 12.48 | 25.27 | HIGH |
+| Aiden Markram | death | 19 | 242 | 134 | 180.6 | 24.2 | 23.88 | 19.4 | MEDIUM |
+| Ayush Badoni | middle | 30 | 420 | 333 | 126.13 | 35.0 | 13.51 | 31.53 | MEDIUM |
+| Ayush Badoni | death | 31 | 514 | 313 | 164.22 | 25.7 | 20.13 | 25.24 | MEDIUM |
+| Mitchell Marsh | powerplay | 32 | 518 | 347 | 149.28 | 39.85 | 23.34 | 44.67 | MEDIUM |
+| Mitchell Marsh | middle | 30 | 566 | 420 | 134.76 | 37.73 | 16.67 | 33.33 | MEDIUM |
+| Mitchell Marsh | death | 19 | 208 | 135 | 154.07 | 13.0 | 20.74 | 36.3 | MEDIUM |
+| Nicholas Pooran | powerplay | 16 | 179 | 113 | 158.41 | 29.83 | 26.55 | 49.56 | MEDIUM |
+| Nicholas Pooran | middle | 67 | 1276 | 764 | 167.02 | 44.0 | 23.3 | 32.59 | HIGH |
+| Nicholas Pooran | death | 51 | 838 | 476 | 176.05 | 28.9 | 24.58 | 31.3 | MEDIUM |
+| Rishabh Pant | powerplay | 55 | 428 | 350 | 122.29 | 53.5 | 19.71 | 49.14 | MEDIUM |
+| Rishabh Pant | middle | 106 | 2125 | 1556 | 136.57 | 40.09 | 17.1 | 32.13 | HIGH |
+| Rishabh Pant | death | 59 | 1000 | 492 | 203.25 | 24.39 | 31.5 | 29.67 | MEDIUM |
 
 ---
 
@@ -164,35 +164,35 @@
 
 *Shows % of overs bowled and % of wickets taken in each phase*
 
-| Bowler | Phase | Overs | Wkts | Econ | Dot% | %Overs | %Wkts | Efficiency |
-|--------|-------|-------|------|------|------|--------|-------|------------|
-| A Nortje | powerplay | 74.0 | 22 | 8.22 | 45.95 | 40.5% | 36.1% | -4.4 |
-| A Nortje | middle | 36.3 | 12 | 8.26 | 36.24 | 19.9% | 19.7% | -0.2 |
-| A Nortje | death | 72.3 | 27 | 9.88 | 30.41 | 39.6% | 44.3% | +4.7 |
-| AK Markram | powerplay | 7.0 | 1 | 8.14 | 40.48 | 22.5% | 16.7% | -5.8 |
-| AK Markram | middle | 24.0 | 5 | 8.88 | 20.83 | 77.0% | 83.3% | +6.3 |
-| AK Markram | death | 0.2 | 0 | 6.0 | - | 0.5% | -% | -0.5 |
-| Akash Singh | powerplay | 24.2 | 6 | 9.14 | 44.14 | 70.7% | 66.7% | -4.1 |
-| Akash Singh | middle | 8.0 | 2 | 9.38 | 16.67 | 23.4% | 22.2% | -1.2 |
-| Akash Singh | death | 2.0 | 1 | 13.5 | 8.33 | 5.9% | 11.1% | +5.3 |
-| Avesh Khan | powerplay | 96.8 | 22 | 9.22 | 42.51 | 35.9% | 25.0% | -10.9 |
-| Avesh Khan | middle | 71.0 | 24 | 7.75 | 36.15 | 26.3% | 27.3% | +1.0 |
-| Avesh Khan | death | 102.0 | 42 | 9.46 | 27.29 | 37.8% | 47.7% | +9.9 |
-| DS Rathi | powerplay | 15.0 | 2 | 7.93 | 33.33 | 28.8% | 14.3% | -14.6 |
-| DS Rathi | middle | 27.0 | 8 | 7.67 | 30.86 | 51.9% | 57.1% | +5.2 |
-| DS Rathi | death | 10.0 | 4 | 9.5 | 25.0 | 19.2% | 28.6% | +9.3 |
-| MR Marsh | powerplay | 17.7 | 6 | 8.6 | 44.34 | 18.9% | 16.2% | -2.7 |
-| MR Marsh | middle | 55.5 | 19 | 7.24 | 29.73 | 59.5% | 51.4% | -8.1 |
-| MR Marsh | death | 20.2 | 12 | 10.66 | 28.93 | 21.6% | 32.4% | +10.8 |
-| Mohammed Shami | powerplay | 245.0 | 51 | 7.58 | 48.98 | 56.4% | 38.3% | -18.0 |
-| Mohammed Shami | middle | 77.0 | 16 | 8.34 | 30.3 | 17.7% | 12.0% | -5.7 |
-| Mohammed Shami | death | 112.5 | 66 | 10.51 | 26.22 | 25.9% | 49.6% | +23.7 |
-| Mohsin Khan | powerplay | 39.0 | 11 | 7.72 | 51.28 | 48.1% | 40.7% | -7.4 |
-| Mohsin Khan | middle | 19.0 | 5 | 7.37 | 37.72 | 23.5% | 18.5% | -4.9 |
-| Mohsin Khan | death | 23.0 | 11 | 10.04 | 33.33 | 28.4% | 40.7% | +12.3 |
-| PWH de Silva | powerplay | 10.0 | 4 | 9.9 | 43.33 | 7.5% | 8.7% | +1.2 |
-| PWH de Silva | middle | 103.0 | 30 | 8.3 | 31.23 | 77.4% | 65.2% | -12.2 |
-| PWH de Silva | death | 20.0 | 12 | 8.4 | 37.5 | 15.0% | 26.1% | +11.0 |
+| Bowler | Phase | Overs | Wkts | Econ | Dot% | %Overs | %Wkts | Efficiency | Sample |
+|--------|-------|-------|------|------|------|--------|-------|------------|--------|
+| A Nortje | powerplay | 74.0 | 22 | 8.22 | 45.95 | 40.5% | 36.1% | -4.4 | HIGH |
+| A Nortje | middle | 36.3 | 12 | 8.26 | 36.24 | 19.9% | 19.7% | -0.2 | HIGH |
+| A Nortje | death | 72.3 | 27 | 9.88 | 30.41 | 39.6% | 44.3% | +4.7 | HIGH |
+| AK Markram | powerplay | 7.0 | 1 | 8.14 | 40.48 | 22.5% | 16.7% | -5.8 | MEDIUM |
+| AK Markram | middle | 24.0 | 5 | 8.88 | 20.83 | 77.0% | 83.3% | +6.3 | MEDIUM |
+| AK Markram | death | 0.2 | 0 | 6.0 | - | 0.5% | -% | -0.5 | MEDIUM |
+| Akash Singh | powerplay | 24.2 | 6 | 9.14 | 44.14 | 70.7% | 66.7% | -4.1 | MEDIUM |
+| Akash Singh | middle | 8.0 | 2 | 9.38 | 16.67 | 23.4% | 22.2% | -1.2 | MEDIUM |
+| Akash Singh | death | 2.0 | 1 | 13.5 | 8.33 | 5.9% | 11.1% | +5.3 | MEDIUM |
+| Avesh Khan | powerplay | 96.8 | 22 | 9.22 | 42.51 | 35.9% | 25.0% | -10.9 | HIGH |
+| Avesh Khan | middle | 71.0 | 24 | 7.75 | 36.15 | 26.3% | 27.3% | +1.0 | HIGH |
+| Avesh Khan | death | 102.0 | 42 | 9.46 | 27.29 | 37.8% | 47.7% | +9.9 | HIGH |
+| DS Rathi | powerplay | 15.0 | 2 | 7.93 | 33.33 | 28.8% | 14.3% | -14.6 | HIGH |
+| DS Rathi | middle | 27.0 | 8 | 7.67 | 30.86 | 51.9% | 57.1% | +5.2 | HIGH |
+| DS Rathi | death | 10.0 | 4 | 9.5 | 25.0 | 19.2% | 28.6% | +9.3 | HIGH |
+| MR Marsh | powerplay | 17.7 | 6 | 8.6 | 44.34 | 18.9% | 16.2% | -2.7 | HIGH |
+| MR Marsh | middle | 55.5 | 19 | 7.24 | 29.73 | 59.5% | 51.4% | -8.1 | HIGH |
+| MR Marsh | death | 20.2 | 12 | 10.66 | 28.93 | 21.6% | 32.4% | +10.8 | HIGH |
+| Mohammed Shami | powerplay | 245.0 | 51 | 7.58 | 48.98 | 56.4% | 38.3% | -18.0 | HIGH |
+| Mohammed Shami | middle | 77.0 | 16 | 8.34 | 30.3 | 17.7% | 12.0% | -5.7 | HIGH |
+| Mohammed Shami | death | 112.5 | 66 | 10.51 | 26.22 | 25.9% | 49.6% | +23.7 | HIGH |
+| Mohsin Khan | powerplay | 39.0 | 11 | 7.72 | 51.28 | 48.1% | 40.7% | -7.4 | HIGH |
+| Mohsin Khan | middle | 19.0 | 5 | 7.37 | 37.72 | 23.5% | 18.5% | -4.9 | HIGH |
+| Mohsin Khan | death | 23.0 | 11 | 10.04 | 33.33 | 28.4% | 40.7% | +12.3 | HIGH |
+| PWH de Silva | powerplay | 10.0 | 4 | 9.9 | 43.33 | 7.5% | 8.7% | +1.2 | HIGH |
+| PWH de Silva | middle | 103.0 | 30 | 8.3 | 31.23 | 77.4% | 65.2% | -12.2 | HIGH |
+| PWH de Silva | death | 20.0 | 12 | 8.4 | 37.5 | 15.0% | 26.1% | +11.0 | HIGH |
 
 ---
 
@@ -203,76 +203,76 @@
 
 ### Rishabh Pant
 
-| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs |
-|------------|-----|------|-------|-----|-----|--------|------|------|
-| Sunrisers Hyderabad | 18 | 556 | 385 | 144.42 | 42.77 | 19.48 | 32.99 | 13 |
-| Royal Challengers Bengaluru | 13 | 532 | 339 | 156.93 | 53.2 | 21.53 | 30.97 | 10 |
-| Chennai Super Kings | 12 | 437 | 287 | 152.26 | 48.56 | 19.86 | 29.27 | 9 |
-| Mumbai Indians | 18 | 408 | 296 | 137.84 | 24.0 | 18.92 | 38.85 | 17 |
-| Rajasthan Royals | 12 | 399 | 257 | 155.25 | 49.88 | 21.01 | 31.13 | 8 |
-| Kolkata Knight Riders | 16 | 384 | 259 | 148.26 | 24.0 | 20.85 | 34.36 | 16 |
-| Punjab Kings | 15 | 217 | 184 | 117.93 | 15.5 | 15.76 | 41.85 | 14 |
-| Gujarat Lions | 4 | 190 | 102 | 186.27 | 47.5 | 28.43 | 29.41 | 4 |
-| Gujarat Titans | 5 | 184 | 107 | 171.96 | 92.0 | 26.17 | 30.84 | 2 |
-| Lucknow Super Giants | 4 | 157 | 113 | 138.94 | 52.33 | 21.24 | 38.05 | 3 |
-| Rising Pune Supergiant | 4 | 73 | 61 | 119.67 | 18.25 | 14.75 | 44.26 | 4 |
+| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
+|------------|-----|------|-------|-----|-----|--------|------|------|--------|
+| Sunrisers Hyderabad | 18 | 556 | 385 | 144.42 | 42.77 | 19.48 | 32.99 | 13 | HIGH |
+| Royal Challengers Bengaluru | 13 | 532 | 339 | 156.93 | 53.2 | 21.53 | 30.97 | 10 | HIGH |
+| Chennai Super Kings | 12 | 437 | 287 | 152.26 | 48.56 | 19.86 | 29.27 | 9 | HIGH |
+| Mumbai Indians | 18 | 408 | 296 | 137.84 | 24.0 | 18.92 | 38.85 | 17 | HIGH |
+| Rajasthan Royals | 12 | 399 | 257 | 155.25 | 49.88 | 21.01 | 31.13 | 8 | HIGH |
+| Kolkata Knight Riders | 16 | 384 | 259 | 148.26 | 24.0 | 20.85 | 34.36 | 16 | HIGH |
+| Punjab Kings | 15 | 217 | 184 | 117.93 | 15.5 | 15.76 | 41.85 | 14 | HIGH |
+| Gujarat Lions | 4 | 190 | 102 | 186.27 | 47.5 | 28.43 | 29.41 | 4 | HIGH |
+| Gujarat Titans | 5 | 184 | 107 | 171.96 | 92.0 | 26.17 | 30.84 | 2 | HIGH |
+| Lucknow Super Giants | 4 | 157 | 113 | 138.94 | 52.33 | 21.24 | 38.05 | 3 | HIGH |
+| Rising Pune Supergiant | 4 | 73 | 61 | 119.67 | 18.25 | 14.75 | 44.26 | 4 | MEDIUM |
 
 ### Nicholas Pooran
 
-| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs |
-|------------|-----|------|-------|-----|-----|--------|------|------|
-| Sunrisers Hyderabad | 9 | 352 | 175 | 201.14 | 88.0 | 30.29 | 24.0 | 4 |
-| Delhi Capitals | 9 | 305 | 157 | 194.27 | 33.89 | 30.57 | 33.76 | 9 |
-| Kolkata Knight Riders | 11 | 304 | 183 | 166.12 | 38.0 | 24.04 | 37.16 | 8 |
-| Chennai Super Kings | 11 | 257 | 166 | 154.82 | 32.13 | 21.69 | 35.54 | 8 |
-| Mumbai Indians | 10 | 244 | 137 | 178.1 | 30.5 | 25.55 | 32.85 | 8 |
-| Royal Challengers Bengaluru | 10 | 215 | 128 | 167.97 | 26.88 | 23.44 | 35.94 | 8 |
-| Rajasthan Royals | 11 | 211 | 149 | 141.61 | 26.38 | 16.78 | 36.24 | 8 |
-| Gujarat Titans | 7 | 189 | 118 | 160.17 | 47.25 | 20.34 | 36.44 | 4 |
-| Punjab Kings | 7 | 177 | 116 | 152.59 | 29.5 | 20.69 | 30.17 | 6 |
+| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
+|------------|-----|------|-------|-----|-----|--------|------|------|--------|
+| Sunrisers Hyderabad | 9 | 352 | 175 | 201.14 | 88.0 | 30.29 | 24.0 | 4 | HIGH |
+| Delhi Capitals | 9 | 305 | 157 | 194.27 | 33.89 | 30.57 | 33.76 | 9 | HIGH |
+| Kolkata Knight Riders | 11 | 304 | 183 | 166.12 | 38.0 | 24.04 | 37.16 | 8 | HIGH |
+| Chennai Super Kings | 11 | 257 | 166 | 154.82 | 32.13 | 21.69 | 35.54 | 8 | HIGH |
+| Mumbai Indians | 10 | 244 | 137 | 178.1 | 30.5 | 25.55 | 32.85 | 8 | HIGH |
+| Royal Challengers Bengaluru | 10 | 215 | 128 | 167.97 | 26.88 | 23.44 | 35.94 | 8 | HIGH |
+| Rajasthan Royals | 11 | 211 | 149 | 141.61 | 26.38 | 16.78 | 36.24 | 8 | HIGH |
+| Gujarat Titans | 7 | 189 | 118 | 160.17 | 47.25 | 20.34 | 36.44 | 4 | HIGH |
+| Punjab Kings | 7 | 177 | 116 | 152.59 | 29.5 | 20.69 | 30.17 | 6 | HIGH |
 
 ### Aiden Markram
 
-| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs |
-|------------|-----|------|-------|-----|-----|--------|------|------|
-| Kolkata Knight Riders | 8 | 294 | 207 | 142.03 | 42.0 | 17.39 | 30.43 | 7 |
-| Gujarat Titans | 6 | 189 | 132 | 143.18 | 37.8 | 16.67 | 28.03 | 5 |
-| Mumbai Indians | 7 | 183 | 134 | 136.57 | 36.6 | 14.93 | 26.87 | 5 |
-| Rajasthan Royals | 5 | 156 | 113 | 138.05 | 52.0 | 16.81 | 29.2 | 3 |
-| Punjab Kings | 6 | 140 | 95 | 147.37 | 35.0 | 21.05 | 28.42 | 4 |
-| Chennai Super Kings | 6 | 130 | 97 | 134.02 | 21.67 | 14.43 | 27.84 | 6 |
-| Delhi Capitals | 6 | 121 | 92 | 131.52 | 20.17 | 15.22 | 35.87 | 6 |
-| Royal Challengers Bengaluru | 5 | 98 | 85 | 115.29 | 24.5 | 11.76 | 32.94 | 4 |
-| Sunrisers Hyderabad | 3 | 83 | 73 | 113.7 | 27.67 | 12.33 | 35.62 | 3 |
-| Lucknow Super Giants | 3 | 40 | 34 | 117.65 | 13.33 | 8.82 | 23.53 | 3 |
+| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
+|------------|-----|------|-------|-----|-----|--------|------|------|--------|
+| Kolkata Knight Riders | 8 | 294 | 207 | 142.03 | 42.0 | 17.39 | 30.43 | 7 | HIGH |
+| Gujarat Titans | 6 | 189 | 132 | 143.18 | 37.8 | 16.67 | 28.03 | 5 | HIGH |
+| Mumbai Indians | 7 | 183 | 134 | 136.57 | 36.6 | 14.93 | 26.87 | 5 | HIGH |
+| Rajasthan Royals | 5 | 156 | 113 | 138.05 | 52.0 | 16.81 | 29.2 | 3 | HIGH |
+| Punjab Kings | 6 | 140 | 95 | 147.37 | 35.0 | 21.05 | 28.42 | 4 | MEDIUM |
+| Chennai Super Kings | 6 | 130 | 97 | 134.02 | 21.67 | 14.43 | 27.84 | 6 | MEDIUM |
+| Delhi Capitals | 6 | 121 | 92 | 131.52 | 20.17 | 15.22 | 35.87 | 6 | MEDIUM |
+| Royal Challengers Bengaluru | 5 | 98 | 85 | 115.29 | 24.5 | 11.76 | 32.94 | 4 | MEDIUM |
+| Sunrisers Hyderabad | 3 | 83 | 73 | 113.7 | 27.67 | 12.33 | 35.62 | 3 | MEDIUM |
+| Lucknow Super Giants | 3 | 40 | 34 | 117.65 | 13.33 | 8.82 | 23.53 | 3 | MEDIUM |
 
 ### Mitchell Marsh
 
-| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs |
-|------------|-----|------|-------|-----|-----|--------|------|------|
-| Sunrisers Hyderabad | 7 | 236 | 147 | 160.54 | 39.33 | 24.49 | 36.05 | 6 |
-| Rajasthan Royals | 4 | 151 | 101 | 149.5 | 50.33 | 21.78 | 39.6 | 3 |
-| Mumbai Indians | 4 | 132 | 81 | 162.96 | 33.0 | 24.69 | 32.1 | 4 |
-| Royal Challengers Bengaluru | 6 | 131 | 105 | 124.76 | 26.2 | 14.29 | 37.14 | 5 |
-| Delhi Capitals | 3 | 130 | 91 | 142.86 | 43.33 | 17.58 | 29.67 | 3 |
-| Gujarat Titans | 2 | 121 | 68 | 177.94 | 60.5 | 27.94 | 33.82 | 2 |
-| Punjab Kings | 8 | 118 | 95 | 124.21 | 16.86 | 15.79 | 43.16 | 7 |
-| Kolkata Knight Riders | 5 | 101 | 74 | 136.49 | 20.2 | 17.57 | 41.89 | 5 |
-| Chennai Super Kings | 6 | 91 | 80 | 113.75 | 18.2 | 16.25 | 48.75 | 5 |
+| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
+|------------|-----|------|-------|-----|-----|--------|------|------|--------|
+| Sunrisers Hyderabad | 7 | 236 | 147 | 160.54 | 39.33 | 24.49 | 36.05 | 6 | HIGH |
+| Rajasthan Royals | 4 | 151 | 101 | 149.5 | 50.33 | 21.78 | 39.6 | 3 | HIGH |
+| Mumbai Indians | 4 | 132 | 81 | 162.96 | 33.0 | 24.69 | 32.1 | 4 | MEDIUM |
+| Royal Challengers Bengaluru | 6 | 131 | 105 | 124.76 | 26.2 | 14.29 | 37.14 | 5 | HIGH |
+| Delhi Capitals | 3 | 130 | 91 | 142.86 | 43.33 | 17.58 | 29.67 | 3 | MEDIUM |
+| Gujarat Titans | 2 | 121 | 68 | 177.94 | 60.5 | 27.94 | 33.82 | 2 | MEDIUM |
+| Punjab Kings | 8 | 118 | 95 | 124.21 | 16.86 | 15.79 | 43.16 | 7 | MEDIUM |
+| Kolkata Knight Riders | 5 | 101 | 74 | 136.49 | 20.2 | 17.57 | 41.89 | 5 | MEDIUM |
+| Chennai Super Kings | 6 | 91 | 80 | 113.75 | 18.2 | 16.25 | 48.75 | 5 | MEDIUM |
 
 ### Ayush Badoni
 
-| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs |
-|------------|-----|------|-------|-----|-----|--------|------|------|
-| Punjab Kings | 6 | 174 | 116 | 150.0 | 34.8 | 17.24 | 31.03 | 5 |
-| Gujarat Titans | 6 | 139 | 100 | 139.0 | 34.75 | 17.0 | 31.0 | 4 |
-| Delhi Capitals | 6 | 129 | 80 | 161.25 | 32.25 | 21.25 | 27.5 | 4 |
-| Chennai Super Kings | 4 | 123 | 76 | 161.84 | 61.5 | 14.47 | 25.0 | 2 |
-| Mumbai Indians | 6 | 108 | 75 | 144.0 | 21.6 | 17.33 | 32.0 | 5 |
-| Kolkata Knight Riders | 4 | 84 | 78 | 107.69 | 28.0 | 8.97 | 33.33 | 3 |
-| Sunrisers Hyderabad | 4 | 83 | 53 | 156.6 | 27.67 | 24.53 | 24.53 | 3 |
-| Rajasthan Royals | 6 | 75 | 64 | 117.19 | 15.0 | 10.94 | 31.25 | 5 |
-| Royal Challengers Bengaluru | 4 | 47 | 51 | 92.16 | 11.75 | 11.76 | 47.06 | 4 |
+| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
+|------------|-----|------|-------|-----|-----|--------|------|------|--------|
+| Punjab Kings | 6 | 174 | 116 | 150.0 | 34.8 | 17.24 | 31.03 | 5 | HIGH |
+| Gujarat Titans | 6 | 139 | 100 | 139.0 | 34.75 | 17.0 | 31.0 | 4 | HIGH |
+| Delhi Capitals | 6 | 129 | 80 | 161.25 | 32.25 | 21.25 | 27.5 | 4 | MEDIUM |
+| Chennai Super Kings | 4 | 123 | 76 | 161.84 | 61.5 | 14.47 | 25.0 | 2 | MEDIUM |
+| Mumbai Indians | 6 | 108 | 75 | 144.0 | 21.6 | 17.33 | 32.0 | 5 | MEDIUM |
+| Kolkata Knight Riders | 4 | 84 | 78 | 107.69 | 28.0 | 8.97 | 33.33 | 3 | MEDIUM |
+| Sunrisers Hyderabad | 4 | 83 | 53 | 156.6 | 27.67 | 24.53 | 24.53 | 3 | MEDIUM |
+| Rajasthan Royals | 6 | 75 | 64 | 117.19 | 15.0 | 10.94 | 31.25 | 5 | MEDIUM |
+| Royal Challengers Bengaluru | 4 | 47 | 51 | 92.16 | 11.75 | 11.76 | 47.06 | 4 | MEDIUM |
 
 ---
 
@@ -281,75 +281,75 @@
 
 ### Mohammed Shami
 
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|
-| Rajasthan Royals | 15 | 341 | 489 | 20 | 8.6 | 24.45 | 17.05 | 42.23 | 21.99 |
-| Sunrisers Hyderabad | 14 | 300 | 389 | 18 | 7.78 | 21.61 | 16.67 | 39.33 | 17.33 |
-| Kolkata Knight Riders | 15 | 348 | 443 | 17 | 7.64 | 26.06 | 20.47 | 41.38 | 16.67 |
-| Delhi Capitals | 10 | 228 | 283 | 17 | 7.45 | 16.65 | 13.41 | 48.68 | 19.3 |
-| Royal Challengers Bengaluru | 13 | 292 | 452 | 15 | 9.29 | 30.13 | 19.47 | 34.25 | 22.95 |
-| Chennai Super Kings | 15 | 329 | 414 | 14 | 7.55 | 29.57 | 23.5 | 40.73 | 16.41 |
-| Mumbai Indians | 15 | 330 | 482 | 14 | 8.76 | 34.43 | 23.57 | 38.79 | 21.52 |
-| Punjab Kings | 9 | 180 | 337 | 6 | 11.23 | 56.17 | 30.0 | 37.78 | 33.33 |
-| Lucknow Super Giants | 5 | 102 | 119 | 6 | 7.0 | 19.83 | 17.0 | 45.1 | 16.67 |
-| Rising Pune Supergiant | 3 | 49 | 91 | 2 | 11.14 | 45.5 | 24.5 | 20.41 | 26.53 |
-| Gujarat Lions | 3 | 66 | 108 | 2 | 9.82 | 54.0 | 33.0 | 33.33 | 24.24 |
-| Gujarat Titans | 2 | 42 | 74 | 2 | 10.57 | 37.0 | 21.0 | 28.57 | 30.95 |
+| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
+|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
+| Rajasthan Royals | 15 | 341 | 489 | 20 | 8.6 | 24.45 | 17.05 | 42.23 | 21.99 | HIGH |
+| Sunrisers Hyderabad | 14 | 300 | 389 | 18 | 7.78 | 21.61 | 16.67 | 39.33 | 17.33 | HIGH |
+| Delhi Capitals | 10 | 228 | 283 | 17 | 7.45 | 16.65 | 13.41 | 48.68 | 19.3 | HIGH |
+| Kolkata Knight Riders | 15 | 348 | 443 | 17 | 7.64 | 26.06 | 20.47 | 41.38 | 16.67 | HIGH |
+| Royal Challengers Bengaluru | 13 | 292 | 452 | 15 | 9.29 | 30.13 | 19.47 | 34.25 | 22.95 | HIGH |
+| Mumbai Indians | 15 | 330 | 482 | 14 | 8.76 | 34.43 | 23.57 | 38.79 | 21.52 | HIGH |
+| Chennai Super Kings | 15 | 329 | 414 | 14 | 7.55 | 29.57 | 23.5 | 40.73 | 16.41 | HIGH |
+| Lucknow Super Giants | 5 | 102 | 119 | 6 | 7.0 | 19.83 | 17.0 | 45.1 | 16.67 | HIGH |
+| Punjab Kings | 9 | 180 | 337 | 6 | 11.23 | 56.17 | 30.0 | 37.78 | 33.33 | HIGH |
+| Gujarat Lions | 3 | 66 | 108 | 2 | 9.82 | 54.0 | 33.0 | 33.33 | 24.24 | MEDIUM |
+| Rising Pune Supergiant | 3 | 49 | 91 | 2 | 11.14 | 45.5 | 24.5 | 20.41 | 26.53 | MEDIUM |
+| Gujarat Titans | 2 | 42 | 74 | 2 | 10.57 | 37.0 | 21.0 | 28.57 | 30.95 | MEDIUM |
 
 ### Avesh Khan
 
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|
-| Sunrisers Hyderabad | 9 | 192 | 282 | 14 | 8.81 | 20.14 | 13.71 | 39.06 | 20.83 |
-| Kolkata Knight Riders | 8 | 180 | 249 | 13 | 8.3 | 19.15 | 13.85 | 40.0 | 19.44 |
-| Mumbai Indians | 7 | 156 | 220 | 13 | 8.46 | 16.92 | 12.0 | 40.38 | 20.51 |
-| Rajasthan Royals | 7 | 150 | 210 | 12 | 8.4 | 17.5 | 12.5 | 35.33 | 17.33 |
-| Chennai Super Kings | 10 | 207 | 318 | 9 | 9.22 | 35.33 | 23.0 | 36.23 | 24.15 |
-| Gujarat Titans | 7 | 159 | 244 | 8 | 9.21 | 30.5 | 19.88 | 27.04 | 20.75 |
-| Punjab Kings | 11 | 227 | 360 | 8 | 9.52 | 45.0 | 28.38 | 32.16 | 23.79 |
-| Royal Challengers Bengaluru | 8 | 186 | 298 | 6 | 9.61 | 49.67 | 31.0 | 31.72 | 24.19 |
-| Delhi Capitals | 6 | 120 | 173 | 4 | 8.65 | 43.25 | 30.0 | 37.5 | 23.33 |
-| Lucknow Super Giants | 2 | 42 | 54 | 1 | 7.71 | 54.0 | 42.0 | 23.81 | 9.52 |
+| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
+|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
+| Sunrisers Hyderabad | 9 | 192 | 282 | 14 | 8.81 | 20.14 | 13.71 | 39.06 | 20.83 | HIGH |
+| Kolkata Knight Riders | 8 | 180 | 249 | 13 | 8.3 | 19.15 | 13.85 | 40.0 | 19.44 | HIGH |
+| Mumbai Indians | 7 | 156 | 220 | 13 | 8.46 | 16.92 | 12.0 | 40.38 | 20.51 | HIGH |
+| Rajasthan Royals | 7 | 150 | 210 | 12 | 8.4 | 17.5 | 12.5 | 35.33 | 17.33 | HIGH |
+| Chennai Super Kings | 10 | 207 | 318 | 9 | 9.22 | 35.33 | 23.0 | 36.23 | 24.15 | HIGH |
+| Gujarat Titans | 7 | 159 | 244 | 8 | 9.21 | 30.5 | 19.88 | 27.04 | 20.75 | HIGH |
+| Punjab Kings | 11 | 227 | 360 | 8 | 9.52 | 45.0 | 28.38 | 32.16 | 23.79 | HIGH |
+| Royal Challengers Bengaluru | 8 | 186 | 298 | 6 | 9.61 | 49.67 | 31.0 | 31.72 | 24.19 | HIGH |
+| Delhi Capitals | 6 | 120 | 173 | 4 | 8.65 | 43.25 | 30.0 | 37.5 | 23.33 | HIGH |
+| Lucknow Super Giants | 2 | 42 | 54 | 1 | 7.71 | 54.0 | 42.0 | 23.81 | 9.52 | MEDIUM |
 
 ### Anrich Nortje
 
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|
-| Kolkata Knight Riders | 6 | 134 | 182 | 13 | 8.15 | 14.0 | 10.31 | 42.54 | 19.4 |
-| Chennai Super Kings | 7 | 168 | 255 | 10 | 9.11 | 25.5 | 16.8 | 32.74 | 20.24 |
-| Mumbai Indians | 8 | 174 | 275 | 9 | 9.48 | 30.56 | 19.33 | 41.38 | 24.71 |
-| Rajasthan Royals | 6 | 144 | 208 | 8 | 8.67 | 26.0 | 18.0 | 39.58 | 21.53 |
-| Royal Challengers Bengaluru | 4 | 96 | 111 | 7 | 6.94 | 15.86 | 13.71 | 36.46 | 13.54 |
-| Sunrisers Hyderabad | 9 | 210 | 323 | 6 | 9.23 | 53.83 | 35.0 | 34.29 | 22.38 |
-| Punjab Kings | 4 | 90 | 124 | 4 | 8.27 | 31.0 | 22.5 | 44.44 | 22.22 |
-| Gujarat Titans | 3 | 66 | 118 | 4 | 10.73 | 29.5 | 16.5 | 37.88 | 27.27 |
+| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
+|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
+| Kolkata Knight Riders | 6 | 134 | 182 | 13 | 8.15 | 14.0 | 10.31 | 42.54 | 19.4 | HIGH |
+| Chennai Super Kings | 7 | 168 | 255 | 10 | 9.11 | 25.5 | 16.8 | 32.74 | 20.24 | HIGH |
+| Mumbai Indians | 8 | 174 | 275 | 9 | 9.48 | 30.56 | 19.33 | 41.38 | 24.71 | HIGH |
+| Rajasthan Royals | 6 | 144 | 208 | 8 | 8.67 | 26.0 | 18.0 | 39.58 | 21.53 | HIGH |
+| Royal Challengers Bengaluru | 4 | 96 | 111 | 7 | 6.94 | 15.86 | 13.71 | 36.46 | 13.54 | MEDIUM |
+| Sunrisers Hyderabad | 9 | 210 | 323 | 6 | 9.23 | 53.83 | 35.0 | 34.29 | 22.38 | HIGH |
+| Gujarat Titans | 3 | 66 | 118 | 4 | 10.73 | 29.5 | 16.5 | 37.88 | 27.27 | MEDIUM |
+| Punjab Kings | 4 | 90 | 124 | 4 | 8.27 | 31.0 | 22.5 | 44.44 | 22.22 | MEDIUM |
 
 ### Wanindu Hasaranga
 
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|
-| Chennai Super Kings | 6 | 120 | 192 | 9 | 9.6 | 21.33 | 13.33 | 33.33 | 19.17 |
-| Kolkata Knight Riders | 5 | 102 | 134 | 7 | 7.88 | 19.14 | 14.57 | 34.31 | 17.65 |
-| Punjab Kings | 5 | 114 | 162 | 6 | 8.53 | 27.0 | 19.0 | 31.58 | 15.79 |
-| Sunrisers Hyderabad | 2 | 30 | 26 | 5 | 5.2 | 5.2 | 6.0 | 50.0 | 10.0 |
-| Rajasthan Royals | 4 | 96 | 113 | 4 | 7.06 | 28.25 | 24.0 | 37.5 | 12.5 |
-| Mumbai Indians | 2 | 48 | 79 | 4 | 9.88 | 19.75 | 12.0 | 31.25 | 22.92 |
-| Lucknow Super Giants | 4 | 84 | 116 | 4 | 8.29 | 29.0 | 21.0 | 34.52 | 15.48 |
-| Delhi Capitals | 4 | 90 | 148 | 3 | 9.87 | 49.33 | 30.0 | 31.11 | 23.33 |
-| Gujarat Titans | 3 | 72 | 90 | 3 | 7.5 | 30.0 | 24.0 | 29.17 | 12.5 |
-| Royal Challengers Bengaluru | 2 | 42 | 62 | 1 | 8.86 | 62.0 | 42.0 | 21.43 | 16.67 |
+| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
+|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
+| Chennai Super Kings | 6 | 120 | 192 | 9 | 9.6 | 21.33 | 13.33 | 33.33 | 19.17 | HIGH |
+| Kolkata Knight Riders | 5 | 102 | 134 | 7 | 7.88 | 19.14 | 14.57 | 34.31 | 17.65 | HIGH |
+| Punjab Kings | 5 | 114 | 162 | 6 | 8.53 | 27.0 | 19.0 | 31.58 | 15.79 | HIGH |
+| Sunrisers Hyderabad | 2 | 30 | 26 | 5 | 5.2 | 5.2 | 6.0 | 50.0 | 10.0 | MEDIUM |
+| Rajasthan Royals | 4 | 96 | 113 | 4 | 7.06 | 28.25 | 24.0 | 37.5 | 12.5 | MEDIUM |
+| Mumbai Indians | 2 | 48 | 79 | 4 | 9.88 | 19.75 | 12.0 | 31.25 | 22.92 | MEDIUM |
+| Lucknow Super Giants | 4 | 84 | 116 | 4 | 8.29 | 29.0 | 21.0 | 34.52 | 15.48 | MEDIUM |
+| Delhi Capitals | 4 | 90 | 148 | 3 | 9.87 | 49.33 | 30.0 | 31.11 | 23.33 | MEDIUM |
+| Gujarat Titans | 3 | 72 | 90 | 3 | 7.5 | 30.0 | 24.0 | 29.17 | 12.5 | MEDIUM |
+| Royal Challengers Bengaluru | 2 | 42 | 62 | 1 | 8.86 | 62.0 | 42.0 | 21.43 | 16.67 | MEDIUM |
 
 ### Mitchell Marsh
 
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|
-| Sunrisers Hyderabad | 5 | 108 | 114 | 8 | 6.33 | 14.25 | 13.5 | 41.67 | 12.04 |
-| Royal Challengers Bengaluru | 5 | 76 | 136 | 6 | 10.74 | 22.67 | 12.67 | 27.63 | 26.32 |
-| Chennai Super Kings | 5 | 72 | 103 | 6 | 8.58 | 17.17 | 12.0 | 22.22 | 16.67 |
-| Deccan Chargers | 2 | 42 | 54 | 4 | 7.71 | 13.5 | 10.5 | 33.33 | 19.05 |
-| Mumbai Indians | 3 | 48 | 50 | 3 | 6.25 | 16.67 | 16.0 | 54.17 | 14.58 |
-| Kolkata Knight Riders | 3 | 42 | 63 | 3 | 9.0 | 21.0 | 14.0 | 28.57 | 19.05 |
-| Punjab Kings | 5 | 98 | 152 | 2 | 9.31 | 76.0 | 49.0 | 29.59 | 21.43 |
+| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
+|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
+| Sunrisers Hyderabad | 5 | 108 | 114 | 8 | 6.33 | 14.25 | 13.5 | 41.67 | 12.04 | HIGH |
+| Royal Challengers Bengaluru | 5 | 76 | 136 | 6 | 10.74 | 22.67 | 12.67 | 27.63 | 26.32 | MEDIUM |
+| Chennai Super Kings | 5 | 72 | 103 | 6 | 8.58 | 17.17 | 12.0 | 22.22 | 16.67 | MEDIUM |
+| Deccan Chargers | 2 | 42 | 54 | 4 | 7.71 | 13.5 | 10.5 | 33.33 | 19.05 | MEDIUM |
+| Mumbai Indians | 3 | 48 | 50 | 3 | 6.25 | 16.67 | 16.0 | 54.17 | 14.58 | MEDIUM |
+| Kolkata Knight Riders | 3 | 42 | 63 | 3 | 9.0 | 21.0 | 14.0 | 28.57 | 19.05 | MEDIUM |
+| Punjab Kings | 5 | 98 | 152 | 2 | 9.31 | 76.0 | 49.0 | 29.59 | 21.43 | MEDIUM |
 
 ---
 
@@ -357,42 +357,42 @@
 
 ### 8.1 Top Batters by Venue
 
-| Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% |
-|--------|-------|-----|------|-------|-----|-----|--------|
-| A Badoni | Bharat Ratna Shri Atal Bihari Vajpa... | 17 | 376 | 264 | 142.42 | 34.18 | 15.53 |
-| A Badoni | Wankhede Stadium, Mumbai | 5 | 130 | 91 | 142.86 | 32.5 | 16.48 |
-| AK Markram | Bharat Ratna Shri Atal Bihari Vajpa... | 7 | 252 | 164 | 153.66 | 36.0 | 20.73 |
-| AK Markram | Rajiv Gandhi International Stadium,... | 10 | 249 | 199 | 125.13 | 31.13 | 12.06 |
-| AK Markram | Wankhede Stadium, Mumbai | 6 | 122 | 106 | 115.09 | 24.4 | 11.32 |
-| AK Markram | Eden Gardens, Kolkata | 3 | 115 | 67 | 171.64 | 38.33 | 22.39 |
-| AK Markram | Brabourne Stadium, Mumbai | 2 | 110 | 61 | 180.33 | 110.0 | 27.87 |
-| AK Markram | Maharashtra Cricket Association Sta... | 3 | 106 | 76 | 139.47 | 53.0 | 15.79 |
-| Abdul Samad | Rajiv Gandhi International Stadium,... | 7 | 137 | 107 | 128.04 | 45.67 | 15.89 |
-| JP Inglis | Sawai Mansingh Stadium, Jaipur | 2 | 105 | 54 | 194.44 | 105.0 | 31.48 |
-| MR Marsh | Bharat Ratna Shri Atal Bihari Vajpa... | 7 | 267 | 169 | 157.99 | 38.14 | 22.49 |
-| MR Marsh | Dr DY Patil Sports Academy, Mumbai | 3 | 177 | 130 | 136.15 | 59.0 | 17.69 |
-| MR Marsh | Narendra Modi Stadium, Ahmedabad | 1 | 117 | 64 | 182.81 | 117.0 | 28.13 |
-| N Pooran | Bharat Ratna Shri Atal Bihari Vajpa... | 21 | 405 | 288 | 140.63 | 27.0 | 18.4 |
-| N Pooran | Dubai International Cricket Stadium | 9 | 280 | 172 | 162.79 | 35.0 | 20.93 |
-| N Pooran | Eden Gardens, Kolkata | 3 | 190 | 98 | 193.88 | 95.0 | 30.61 |
-| N Pooran | Wankhede Stadium, Mumbai | 9 | 176 | 106 | 166.04 | 19.56 | 24.53 |
-| N Pooran | Rajiv Gandhi International Stadium,... | 3 | 162 | 65 | 249.23 | 162.0 | 40.0 |
-| N Pooran | Dr DY Patil Sports Academy, Mumbai | 4 | 108 | 74 | 145.95 | 108.0 | 16.22 |
-| N Pooran | Sawai Mansingh Stadium, Jaipur | 3 | 104 | 69 | 150.72 | 104.0 | 18.84 |
-| N Pooran | M Chinnaswamy Stadium, Bengaluru | 2 | 102 | 40 | 255.0 | 102.0 | 42.5 |
-| RR Pant | Arun Jaitley Stadium | 14 | 478 | 302 | 158.28 | 39.83 | 22.85 |
-| RR Pant | Dubai International Cricket Stadium | 12 | 340 | 280 | 121.43 | 37.78 | 14.29 |
-| RR Pant | Feroz Shah Kotla | 10 | 290 | 175 | 165.71 | 29.0 | 24.0 |
-| RR Pant | Bharat Ratna Shri Atal Bihari Vajpa... | 8 | 254 | 171 | 148.54 | 36.29 | 22.22 |
-| RR Pant | Wankhede Stadium, Mumbai | 10 | 248 | 173 | 143.35 | 27.56 | 21.39 |
-| RR Pant | Arun Jaitley Stadium, Delhi | 5 | 209 | 133 | 157.14 | 52.25 | 21.8 |
-| RR Pant | M.Chinnaswamy Stadium | 3 | 160 | 98 | 163.27 | 53.33 | 22.45 |
-| RR Pant | Wankhede Stadium | 3 | 125 | 55 | 227.27 | 62.5 | 40.0 |
-| RR Pant | Narendra Modi Stadium, Ahmedabad | 5 | 120 | 84 | 142.86 | 60.0 | 17.86 |
-| RR Pant | Sharjah Cricket Stadium | 5 | 114 | 90 | 126.67 | 28.5 | 15.56 |
-| RR Pant | Dr. Y.S. Rajasekhara Reddy ACA-VDCA... | 4 | 113 | 71 | 159.15 | 28.25 | 18.31 |
-| RR Pant | Maharashtra Cricket Association Sta... | 2 | 110 | 67 | 164.18 | 55.0 | 20.9 |
-| RR Pant | Dr. Y.S. Rajasekhara Reddy ACA-VDCA... | 3 | 106 | 63 | 168.25 | 35.33 | 25.4 |
+| Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% | Sample |
+|--------|-------|-----|------|-------|-----|-----|--------|--------|
+| A Badoni | Bharat Ratna Shri Atal Bihari Vajpa... | 17 | 376 | 264 | 142.42 | 34.18 | 15.53 | HIGH |
+| A Badoni | Wankhede Stadium, Mumbai | 5 | 130 | 91 | 142.86 | 32.5 | 16.48 | MEDIUM |
+| AK Markram | Bharat Ratna Shri Atal Bihari Vajpa... | 7 | 252 | 164 | 153.66 | 36.0 | 20.73 | HIGH |
+| AK Markram | Rajiv Gandhi International Stadium,... | 10 | 249 | 199 | 125.13 | 31.13 | 12.06 | HIGH |
+| AK Markram | Wankhede Stadium, Mumbai | 6 | 122 | 106 | 115.09 | 24.4 | 11.32 | HIGH |
+| AK Markram | Eden Gardens, Kolkata | 3 | 115 | 67 | 171.64 | 38.33 | 22.39 | MEDIUM |
+| AK Markram | Brabourne Stadium, Mumbai | 2 | 110 | 61 | 180.33 | 110.0 | 27.87 | MEDIUM |
+| AK Markram | Maharashtra Cricket Association Sta... | 3 | 106 | 76 | 139.47 | 53.0 | 15.79 | MEDIUM |
+| Abdul Samad | Rajiv Gandhi International Stadium,... | 7 | 137 | 107 | 128.04 | 45.67 | 15.89 | HIGH |
+| JP Inglis | Sawai Mansingh Stadium, Jaipur | 2 | 105 | 54 | 194.44 | 105.0 | 31.48 | MEDIUM |
+| MR Marsh | Bharat Ratna Shri Atal Bihari Vajpa... | 7 | 267 | 169 | 157.99 | 38.14 | 22.49 | HIGH |
+| MR Marsh | Dr DY Patil Sports Academy, Mumbai | 3 | 177 | 130 | 136.15 | 59.0 | 17.69 | HIGH |
+| MR Marsh | Narendra Modi Stadium, Ahmedabad | 1 | 117 | 64 | 182.81 | 117.0 | 28.13 | MEDIUM |
+| N Pooran | Bharat Ratna Shri Atal Bihari Vajpa... | 21 | 405 | 288 | 140.63 | 27.0 | 18.4 | HIGH |
+| N Pooran | Dubai International Cricket Stadium | 9 | 280 | 172 | 162.79 | 35.0 | 20.93 | HIGH |
+| N Pooran | Eden Gardens, Kolkata | 3 | 190 | 98 | 193.88 | 95.0 | 30.61 | MEDIUM |
+| N Pooran | Wankhede Stadium, Mumbai | 9 | 176 | 106 | 166.04 | 19.56 | 24.53 | HIGH |
+| N Pooran | Rajiv Gandhi International Stadium,... | 3 | 162 | 65 | 249.23 | 162.0 | 40.0 | MEDIUM |
+| N Pooran | Dr DY Patil Sports Academy, Mumbai | 4 | 108 | 74 | 145.95 | 108.0 | 16.22 | MEDIUM |
+| N Pooran | Sawai Mansingh Stadium, Jaipur | 3 | 104 | 69 | 150.72 | 104.0 | 18.84 | MEDIUM |
+| N Pooran | M Chinnaswamy Stadium, Bengaluru | 2 | 102 | 40 | 255.0 | 102.0 | 42.5 | MEDIUM |
+| RR Pant | Arun Jaitley Stadium | 14 | 478 | 302 | 158.28 | 39.83 | 22.85 | HIGH |
+| RR Pant | Dubai International Cricket Stadium | 12 | 340 | 280 | 121.43 | 37.78 | 14.29 | HIGH |
+| RR Pant | Feroz Shah Kotla | 10 | 290 | 175 | 165.71 | 29.0 | 24.0 | HIGH |
+| RR Pant | Bharat Ratna Shri Atal Bihari Vajpa... | 8 | 254 | 171 | 148.54 | 36.29 | 22.22 | HIGH |
+| RR Pant | Wankhede Stadium, Mumbai | 10 | 248 | 173 | 143.35 | 27.56 | 21.39 | HIGH |
+| RR Pant | Arun Jaitley Stadium, Delhi | 5 | 209 | 133 | 157.14 | 52.25 | 21.8 | HIGH |
+| RR Pant | M.Chinnaswamy Stadium | 3 | 160 | 98 | 163.27 | 53.33 | 22.45 | MEDIUM |
+| RR Pant | Wankhede Stadium | 3 | 125 | 55 | 227.27 | 62.5 | 40.0 | MEDIUM |
+| RR Pant | Narendra Modi Stadium, Ahmedabad | 5 | 120 | 84 | 142.86 | 60.0 | 17.86 | MEDIUM |
+| RR Pant | Sharjah Cricket Stadium | 5 | 114 | 90 | 126.67 | 28.5 | 15.56 | MEDIUM |
+| RR Pant | Dr. Y.S. Rajasekhara Reddy ACA-VDCA... | 4 | 113 | 71 | 159.15 | 28.25 | 18.31 | MEDIUM |
+| RR Pant | Maharashtra Cricket Association Sta... | 2 | 110 | 67 | 164.18 | 55.0 | 20.9 | MEDIUM |
+| RR Pant | Dr. Y.S. Rajasekhara Reddy ACA-VDCA... | 3 | 106 | 63 | 168.25 | 35.33 | 25.4 | MEDIUM |
 
 ---
 

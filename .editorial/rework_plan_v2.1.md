@@ -186,11 +186,11 @@ PERCENT_RANK() OVER (ORDER BY strike_rate) AS sr_percentile
 - [x] Impact metrics (boundary%, dot%) - DONE (already in all views)
 - [x] README and documentation (DONE - stat_packs/README.md created)
 
-### Sprint 2.3 (Future)
-- [ ] Percentile rankings
-- [ ] IPL average comparisons
-- [ ] CLI runner and tests
-- [ ] Schema validation
+### Sprint 2.3 (Future) - COMPLETED
+- [x] Percentile rankings (DONE - 4 percentile views created)
+- [x] IPL average comparisons (DONE - 4 benchmark views created)
+- [x] CLI runner and tests (DONE - run_stat_packs.sh, 65 pytest tests)
+- [x] Schema validation (DONE - validate_schema.py, 33 checks)
 
 ---
 

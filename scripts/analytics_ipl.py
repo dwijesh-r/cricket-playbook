@@ -1137,6 +1137,238 @@ def create_squad_integration_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_team_roster")
 
 
+def create_percentile_views(conn: duckdb.DuckDBPyConnection):
+    """Create views with percentile rankings for key metrics."""
+
+    print("\nCreating percentile ranking views...")
+
+    # IPL Batting Career with Percentiles (minimum 500 balls for ranking)
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_batting_percentiles AS
+        WITH qualified_batters AS (
+            SELECT *
+            FROM analytics_ipl_batting_career
+            WHERE balls_faced >= 500
+        )
+        SELECT
+            player_id,
+            player_name,
+            innings,
+            runs,
+            balls_faced,
+            strike_rate,
+            batting_average,
+            boundary_pct,
+            dot_ball_pct,
+            sample_size,
+            ROUND(PERCENT_RANK() OVER (ORDER BY strike_rate) * 100, 1) as sr_percentile,
+            ROUND(PERCENT_RANK() OVER (ORDER BY batting_average) * 100, 1) as avg_percentile,
+            ROUND(PERCENT_RANK() OVER (ORDER BY boundary_pct) * 100, 1) as boundary_percentile,
+            ROUND(PERCENT_RANK() OVER (ORDER BY dot_ball_pct DESC) * 100, 1) as dot_ball_percentile
+        FROM qualified_batters
+    """)
+    print("  - analytics_ipl_batting_percentiles")
+
+    # IPL Bowling Career with Percentiles (minimum 300 balls for ranking)
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_bowling_percentiles AS
+        WITH qualified_bowlers AS (
+            SELECT *
+            FROM analytics_ipl_bowling_career
+            WHERE balls_bowled >= 300
+        )
+        SELECT
+            player_id,
+            player_name,
+            matches_bowled,
+            balls_bowled,
+            overs_bowled,
+            wickets,
+            economy_rate,
+            bowling_average,
+            bowling_strike_rate,
+            dot_ball_pct,
+            boundary_conceded_pct,
+            sample_size,
+            ROUND(PERCENT_RANK() OVER (ORDER BY economy_rate DESC) * 100, 1) as economy_percentile,
+            ROUND(PERCENT_RANK() OVER (ORDER BY bowling_average DESC) * 100, 1) as avg_percentile,
+            ROUND(PERCENT_RANK() OVER (ORDER BY bowling_strike_rate DESC) * 100, 1) as sr_percentile,
+            ROUND(PERCENT_RANK() OVER (ORDER BY dot_ball_pct) * 100, 1) as dot_ball_percentile
+        FROM qualified_bowlers
+    """)
+    print("  - analytics_ipl_bowling_percentiles")
+
+    # Phase-wise batting percentiles
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_batter_phase_percentiles AS
+        WITH qualified AS (
+            SELECT *
+            FROM analytics_ipl_batter_phase
+            WHERE balls_faced >= 100
+        )
+        SELECT
+            player_id,
+            player_name,
+            match_phase,
+            innings,
+            runs,
+            balls_faced,
+            strike_rate,
+            batting_average,
+            boundary_pct,
+            dot_ball_pct,
+            sample_size,
+            ROUND(PERCENT_RANK() OVER (PARTITION BY match_phase ORDER BY strike_rate) * 100, 1) as sr_percentile,
+            ROUND(PERCENT_RANK() OVER (PARTITION BY match_phase ORDER BY batting_average) * 100, 1) as avg_percentile,
+            ROUND(PERCENT_RANK() OVER (PARTITION BY match_phase ORDER BY boundary_pct) * 100, 1) as boundary_percentile
+        FROM qualified
+    """)
+    print("  - analytics_ipl_batter_phase_percentiles")
+
+    # Phase-wise bowling percentiles
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_bowler_phase_percentiles AS
+        WITH qualified AS (
+            SELECT *
+            FROM analytics_ipl_bowler_phase
+            WHERE balls_bowled >= 60
+        )
+        SELECT
+            player_id,
+            player_name,
+            match_phase,
+            matches,
+            balls_bowled,
+            overs,
+            wickets,
+            economy_rate,
+            bowling_average,
+            dot_ball_pct,
+            boundary_conceded_pct,
+            sample_size,
+            ROUND(PERCENT_RANK() OVER (PARTITION BY match_phase ORDER BY economy_rate DESC) * 100, 1) as economy_percentile,
+            ROUND(PERCENT_RANK() OVER (PARTITION BY match_phase ORDER BY dot_ball_pct) * 100, 1) as dot_ball_percentile
+        FROM qualified
+    """)
+    print("  - analytics_ipl_bowler_phase_percentiles")
+
+
+def create_benchmark_views(conn: duckdb.DuckDBPyConnection):
+    """Create IPL-wide benchmark/average views for comparison."""
+
+    print("\nCreating IPL benchmark views...")
+
+    # IPL-wide batting averages by phase
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_batting_benchmarks AS
+        WITH ipl_matches AS (
+            SELECT dm.match_id
+            FROM dim_match dm
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+        )
+        SELECT
+            fb.match_phase,
+            COUNT(DISTINCT fb.match_id) as matches,
+            SUM(fb.batter_runs) as total_runs,
+            SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) as total_balls,
+            SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END) as total_wickets,
+            ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) as avg_strike_rate,
+            ROUND(SUM(fb.batter_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END), 0), 2) as avg_batting_avg,
+            ROUND((SUM(CASE WHEN fb.batter_runs = 4 THEN 1 ELSE 0 END) + SUM(CASE WHEN fb.batter_runs = 6 THEN 1 ELSE 0 END)) * 100.0 /
+                  NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) as avg_boundary_pct,
+            ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 /
+                  NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) as avg_dot_ball_pct
+        FROM fact_ball fb
+        WHERE fb.match_id IN (SELECT match_id FROM ipl_matches)
+        GROUP BY fb.match_phase
+    """)
+    print("  - analytics_ipl_batting_benchmarks")
+
+    # IPL-wide bowling averages by phase
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_bowling_benchmarks AS
+        WITH ipl_matches AS (
+            SELECT dm.match_id
+            FROM dim_match dm
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+        )
+        SELECT
+            fb.match_phase,
+            COUNT(DISTINCT fb.match_id) as matches,
+            SUM(fb.total_runs) as total_runs,
+            SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) as total_balls,
+            SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END) as total_wickets,
+            ROUND(SUM(fb.total_runs) * 6.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) as avg_economy,
+            ROUND(SUM(fb.total_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END), 0), 2) as avg_bowling_avg,
+            ROUND(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END), 0), 2) as avg_bowling_sr,
+            ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 THEN 1 ELSE 0 END) * 100.0 /
+                  NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) as avg_dot_ball_pct
+        FROM fact_ball fb
+        WHERE fb.match_id IN (SELECT match_id FROM ipl_matches)
+        GROUP BY fb.match_phase
+    """)
+    print("  - analytics_ipl_bowling_benchmarks")
+
+    # Batting vs Bowler Type benchmarks
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_vs_bowler_type_benchmarks AS
+        WITH ipl_matches AS (
+            SELECT dm.match_id
+            FROM dim_match dm
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+        )
+        SELECT
+            COALESCE(sq.bowling_style, bc.bowling_style, 'Unknown') as bowler_type,
+            COUNT(*) as total_balls,
+            SUM(fb.batter_runs) as total_runs,
+            SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) as total_dismissals,
+            ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*), 0), 2) as avg_strike_rate,
+            ROUND(SUM(fb.batter_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END), 0), 2) as avg_batting_avg,
+            ROUND((SUM(CASE WHEN fb.batter_runs = 4 THEN 1 ELSE 0 END) + SUM(CASE WHEN fb.batter_runs = 6 THEN 1 ELSE 0 END)) * 100.0 /
+                  NULLIF(COUNT(*), 0), 2) as avg_boundary_pct
+        FROM fact_ball fb
+        JOIN dim_player dp_bowl ON fb.bowler_id = dp_bowl.player_id
+        LEFT JOIN ipl_2026_squads sq ON dp_bowl.player_id = sq.player_id
+        LEFT JOIN dim_bowler_classification bc ON dp_bowl.player_id = bc.player_id
+        WHERE fb.match_id IN (SELECT match_id FROM ipl_matches)
+          AND fb.is_legal_ball = TRUE
+        GROUP BY COALESCE(sq.bowling_style, bc.bowling_style, 'Unknown')
+    """)
+    print("  - analytics_ipl_vs_bowler_type_benchmarks")
+
+    # Overall IPL career benchmarks (qualified players only)
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_career_benchmarks AS
+        SELECT
+            'batting' as category,
+            COUNT(*) as qualified_players,
+            ROUND(AVG(strike_rate), 2) as avg_strike_rate,
+            ROUND(AVG(batting_average), 2) as avg_batting_avg,
+            ROUND(AVG(boundary_pct), 2) as avg_boundary_pct,
+            ROUND(AVG(dot_ball_pct), 2) as avg_dot_ball_pct,
+            ROUND(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY strike_rate), 2) as median_strike_rate,
+            ROUND(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY batting_average), 2) as median_batting_avg
+        FROM analytics_ipl_batting_career
+        WHERE balls_faced >= 500
+        UNION ALL
+        SELECT
+            'bowling' as category,
+            COUNT(*) as qualified_players,
+            ROUND(AVG(economy_rate), 2) as avg_economy,
+            ROUND(AVG(bowling_average), 2) as avg_bowling_avg,
+            ROUND(AVG(dot_ball_pct), 2) as avg_dot_ball_pct,
+            ROUND(AVG(boundary_conceded_pct), 2) as avg_boundary_pct,
+            ROUND(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY economy_rate), 2) as median_economy,
+            ROUND(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY bowling_average), 2) as median_bowling_avg
+        FROM analytics_ipl_bowling_career
+        WHERE balls_bowled >= 300
+    """)
+    print("  - analytics_ipl_career_benchmarks")
+
+
 def verify_views(conn: duckdb.DuckDBPyConnection):
     """Verify all views are working with sample queries."""
 
@@ -1232,7 +1464,7 @@ def main():
     print("="*60)
     print("Cricket Playbook - IPL 2026 Analytics Layer")
     print("Author: Stephen Curry")
-    print("Version: 2.0.0")
+    print("Version: 2.1.0")
     print("="*60)
     print()
 
@@ -1252,6 +1484,8 @@ def main():
     create_team_venue_views(conn)
     create_t20_comparison_views(conn)
     create_squad_integration_views(conn)
+    create_percentile_views(conn)
+    create_benchmark_views(conn)
 
     # Verify
     verify_views(conn)

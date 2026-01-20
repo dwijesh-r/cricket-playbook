@@ -1,6 +1,6 @@
 # Chennai Super Kings (CSK) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-20 19:37
+**Generated:** 2026-01-20 19:43
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -102,8 +102,8 @@
 | Eden Gardens | 11 | 1488 | 1241 | 119.9 | 26.11 |
 | MA Chidambaram Stadium | 9 | 1240 | 1034 | 119.92 | 30.24 |
 | M Chinnaswamy Stadium | 7 | 1004 | 754 | 133.16 | 25.74 |
-| Sawai Mansingh Stadium | 6 | 846 | 703 | 120.34 | 26.44 |
 | Sheikh Zayed Stadium | 6 | 932 | 709 | 131.45 | 35.85 |
+| Feroz Shah Kotla | 6 | 982 | 713 | 137.73 | 39.28 |
 
 ---
 
@@ -303,8 +303,8 @@
 | Delhi Capitals | 6 | 137 | 194 | 10 | 8.5 | 19.4 | 13.7 | 36.5 | 18.98 |
 | Chennai Super Kings | 9 | 215 | 281 | 9 | 7.84 | 31.22 | 23.89 | 40.47 | 17.21 |
 | Rajasthan Royals | 9 | 197 | 320 | 9 | 9.75 | 35.56 | 21.89 | 40.1 | 26.4 |
-| Kolkata Knight Riders | 8 | 156 | 239 | 8 | 9.19 | 29.88 | 19.5 | 45.51 | 25.0 |
 | Royal Challengers Bengaluru | 6 | 138 | 232 | 8 | 10.09 | 29.0 | 17.25 | 34.78 | 26.09 |
+| Kolkata Knight Riders | 8 | 156 | 239 | 8 | 9.19 | 29.88 | 19.5 | 45.51 | 25.0 |
 | Gujarat Titans | 6 | 126 | 157 | 7 | 7.48 | 22.43 | 18.0 | 42.86 | 19.84 |
 | Lucknow Super Giants | 4 | 84 | 132 | 6 | 9.43 | 22.0 | 14.0 | 50.0 | 26.19 |
 | Sunrisers Hyderabad | 3 | 60 | 102 | 4 | 10.2 | 25.5 | 15.0 | 43.33 | 28.33 |
@@ -314,8 +314,8 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|
 | Sunrisers Hyderabad | 9 | 192 | 282 | 14 | 8.81 | 20.14 | 13.71 | 39.06 | 20.83 |
-| Mumbai Indians | 7 | 156 | 220 | 13 | 8.46 | 16.92 | 12.0 | 40.38 | 20.51 |
 | Kolkata Knight Riders | 8 | 180 | 249 | 13 | 8.3 | 19.15 | 13.85 | 40.0 | 19.44 |
+| Mumbai Indians | 7 | 156 | 220 | 13 | 8.46 | 16.92 | 12.0 | 40.38 | 20.51 |
 | Rajasthan Royals | 7 | 150 | 210 | 12 | 8.4 | 17.5 | 12.5 | 35.33 | 17.33 |
 | Chennai Super Kings | 10 | 207 | 318 | 9 | 9.22 | 35.33 | 23.0 | 36.23 | 24.15 |
 | Gujarat Titans | 7 | 159 | 244 | 8 | 9.21 | 30.5 | 19.88 | 27.04 | 20.75 |
@@ -333,11 +333,11 @@
 | Delhi Capitals | 12 | 214 | 291 | 12 | 8.16 | 24.25 | 17.83 | 32.24 | 15.89 |
 | Punjab Kings | 9 | 168 | 255 | 7 | 9.11 | 36.43 | 24.0 | 30.95 | 17.86 |
 | Sunrisers Hyderabad | 7 | 131 | 212 | 7 | 9.71 | 30.29 | 18.71 | 27.48 | 19.08 |
-| Mumbai Indians | 7 | 147 | 204 | 6 | 8.33 | 34.0 | 24.5 | 29.93 | 16.33 |
 | Royal Challengers Bengaluru | 7 | 138 | 192 | 6 | 8.35 | 32.0 | 23.0 | 31.16 | 14.49 |
+| Mumbai Indians | 7 | 147 | 204 | 6 | 8.33 | 34.0 | 24.5 | 29.93 | 16.33 |
 | Chennai Super Kings | 8 | 138 | 195 | 4 | 8.48 | 48.75 | 34.5 | 36.23 | 15.94 |
-| Lucknow Super Giants | 3 | 54 | 95 | 3 | 10.56 | 31.67 | 18.0 | 31.48 | 24.07 |
 | Rising Pune Supergiant | 3 | 72 | 85 | 3 | 7.08 | 28.33 | 24.0 | 40.28 | 12.5 |
+| Lucknow Super Giants | 3 | 54 | 95 | 3 | 10.56 | 31.67 | 18.0 | 31.48 | 24.07 |
 | Gujarat Titans | 3 | 48 | 93 | 1 | 11.63 | 93.0 | 48.0 | 25.0 | 29.17 |
 
 ### Rahul Chahar
@@ -361,8 +361,8 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|
 | Royal Challengers Bengaluru | 8 | 168 | 190 | 15 | 6.79 | 12.67 | 11.2 | 35.71 | 9.52 |
 | Delhi Capitals | 7 | 132 | 195 | 8 | 8.86 | 24.38 | 16.5 | 38.64 | 19.7 |
-| Chennai Super Kings | 6 | 120 | 134 | 6 | 6.7 | 22.33 | 20.0 | 33.33 | 10.83 |
 | Mumbai Indians | 7 | 126 | 160 | 6 | 7.62 | 26.67 | 21.0 | 32.54 | 13.49 |
+| Chennai Super Kings | 6 | 120 | 134 | 6 | 6.7 | 22.33 | 20.0 | 33.33 | 10.83 |
 | Kolkata Knight Riders | 6 | 126 | 212 | 5 | 10.1 | 42.4 | 25.2 | 32.54 | 23.81 |
 | Sunrisers Hyderabad | 5 | 114 | 138 | 5 | 7.26 | 27.6 | 22.8 | 32.46 | 13.16 |
 | Rajasthan Royals | 3 | 55 | 83 | 4 | 9.05 | 20.75 | 13.75 | 25.45 | 14.55 |

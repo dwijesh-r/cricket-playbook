@@ -1,6 +1,6 @@
 # Punjab Kings (PBKS) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-20 19:37
+**Generated:** 2026-01-20 19:43
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -94,11 +94,11 @@
 | Punjab Cricket Association Stadium, Moha... | 35 | 5210 | 4029 | 129.31 | 25.67 |
 | Dubai International Cricket Stadium | 11 | 1679 | 1244 | 134.97 | 27.98 |
 | Eden Gardens | 11 | 1651 | 1257 | 131.34 | 27.52 |
-| Wankhede Stadium | 11 | 1831 | 1317 | 139.03 | 30.52 |
 | Punjab Cricket Association IS Bindra Sta... | 11 | 1692 | 1239 | 136.56 | 31.33 |
+| Wankhede Stadium | 11 | 1831 | 1317 | 139.03 | 30.52 |
 | Maharaja Yadavindra Singh International ... | 10 | 1468 | 1129 | 130.03 | 18.82 |
-| M Chinnaswamy Stadium | 10 | 1430 | 1104 | 129.53 | 23.06 |
 | Punjab Cricket Association IS Bindra Sta... | 10 | 1697 | 1173 | 144.67 | 36.11 |
+| M Chinnaswamy Stadium | 10 | 1430 | 1104 | 129.53 | 23.06 |
 | Himachal Pradesh Cricket Association Sta... | 9 | 1415 | 1053 | 134.38 | 30.11 |
 | Feroz Shah Kotla | 9 | 1138 | 980 | 116.12 | 21.47 |
 
@@ -235,8 +235,8 @@
 | Mumbai Indians | 15 | 342 | 235 | 145.53 | 28.5 | 20.43 | 36.17 | 12 |
 | Royal Challengers Bengaluru | 15 | 307 | 192 | 159.9 | 27.91 | 21.88 | 31.25 | 11 |
 | Punjab Kings | 9 | 269 | 159 | 169.18 | 53.8 | 23.9 | 30.82 | 5 |
-| Rajasthan Royals | 13 | 212 | 180 | 117.78 | 21.2 | 12.22 | 38.33 | 10 |
 | Chennai Super Kings | 9 | 212 | 136 | 155.88 | 35.33 | 20.59 | 28.68 | 6 |
+| Rajasthan Royals | 13 | 212 | 180 | 117.78 | 21.2 | 12.22 | 38.33 | 10 |
 | Delhi Capitals | 9 | 206 | 157 | 131.21 | 41.2 | 14.65 | 34.39 | 5 |
 | Kolkata Knight Riders | 12 | 159 | 113 | 140.71 | 17.67 | 19.47 | 38.94 | 9 |
 | Sunrisers Hyderabad | 8 | 143 | 98 | 145.92 | 28.6 | 20.41 | 35.71 | 5 |
@@ -295,8 +295,8 @@
 | Punjab Kings | 21 | 445 | 605 | 31 | 8.16 | 19.52 | 14.35 | 32.36 | 15.73 |
 | Mumbai Indians | 21 | 486 | 655 | 30 | 8.09 | 21.83 | 16.2 | 36.21 | 15.84 |
 | Sunrisers Hyderabad | 22 | 511 | 675 | 29 | 7.93 | 23.28 | 17.62 | 31.9 | 13.7 |
-| Delhi Capitals | 20 | 427 | 573 | 23 | 8.05 | 24.91 | 18.57 | 33.49 | 14.99 |
 | Chennai Super Kings | 19 | 408 | 475 | 23 | 6.99 | 20.65 | 17.74 | 37.01 | 11.76 |
+| Delhi Capitals | 20 | 427 | 573 | 23 | 8.05 | 24.91 | 18.57 | 33.49 | 14.99 |
 | Rajasthan Royals | 14 | 285 | 300 | 18 | 6.32 | 16.67 | 15.83 | 38.6 | 9.47 |
 | Royal Challengers Bengaluru | 10 | 234 | 303 | 10 | 7.77 | 30.3 | 23.4 | 28.63 | 12.39 |
 | Gujarat Lions | 5 | 114 | 147 | 8 | 7.74 | 18.38 | 14.25 | 32.46 | 14.04 |
@@ -317,8 +317,8 @@
 | Deccan Chargers | 8 | 174 | 184 | 9 | 6.34 | 20.44 | 19.33 | 39.08 | 10.92 |
 | Sunrisers Hyderabad | 13 | 270 | 330 | 8 | 7.33 | 41.25 | 33.75 | 39.63 | 15.19 |
 | Pune Warriors | 5 | 102 | 86 | 6 | 5.06 | 14.33 | 17.0 | 48.04 | 8.82 |
-| Rising Pune Supergiant | 3 | 66 | 67 | 3 | 6.09 | 22.33 | 22.0 | 27.27 | 4.55 |
 | Gujarat Lions | 4 | 84 | 100 | 3 | 7.14 | 33.33 | 28.0 | 36.9 | 15.48 |
+| Rising Pune Supergiant | 3 | 66 | 67 | 3 | 6.09 | 22.33 | 22.0 | 27.27 | 4.55 |
 | Mumbai Indians | 6 | 119 | 121 | 2 | 6.1 | 60.5 | 59.5 | 42.02 | 10.92 |
 
 ### Arshdeep Singh
@@ -327,9 +327,9 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|
 | Rajasthan Royals | 11 | 257 | 416 | 18 | 9.71 | 23.11 | 14.28 | 37.35 | 24.9 |
 | Sunrisers Hyderabad | 11 | 255 | 322 | 15 | 7.58 | 21.47 | 17.0 | 36.86 | 15.69 |
-| Kolkata Knight Riders | 10 | 190 | 265 | 11 | 8.37 | 24.09 | 17.27 | 43.16 | 21.58 |
-| Royal Challengers Bengaluru | 11 | 212 | 335 | 11 | 9.48 | 30.45 | 19.27 | 33.02 | 22.64 |
 | Chennai Super Kings | 9 | 188 | 258 | 11 | 8.23 | 23.45 | 17.09 | 35.11 | 20.21 |
+| Royal Challengers Bengaluru | 11 | 212 | 335 | 11 | 9.48 | 30.45 | 19.27 | 33.02 | 22.64 |
+| Kolkata Knight Riders | 10 | 190 | 265 | 11 | 8.37 | 24.09 | 17.27 | 43.16 | 21.58 |
 | Mumbai Indians | 9 | 197 | 313 | 10 | 9.53 | 31.3 | 19.7 | 35.03 | 24.37 |
 | Lucknow Super Giants | 6 | 132 | 185 | 10 | 8.41 | 18.5 | 13.2 | 33.33 | 20.45 |
 | Delhi Capitals | 8 | 150 | 220 | 6 | 8.8 | 36.67 | 25.0 | 30.0 | 18.67 |
@@ -343,8 +343,8 @@
 | Rajasthan Royals | 5 | 114 | 134 | 9 | 7.05 | 14.89 | 12.67 | 46.49 | 15.79 |
 | Royal Challengers Bengaluru | 7 | 142 | 165 | 8 | 6.97 | 20.63 | 17.75 | 44.37 | 17.61 |
 | Punjab Kings | 5 | 107 | 159 | 6 | 8.92 | 26.5 | 17.83 | 36.45 | 22.43 |
-| Mumbai Indians | 5 | 88 | 117 | 5 | 7.98 | 23.4 | 17.6 | 43.18 | 19.32 |
 | Sunrisers Hyderabad | 8 | 146 | 258 | 5 | 10.6 | 51.6 | 29.2 | 28.08 | 23.97 |
+| Mumbai Indians | 5 | 88 | 117 | 5 | 7.98 | 23.4 | 17.6 | 43.18 | 19.32 |
 | Chennai Super Kings | 6 | 138 | 250 | 4 | 10.87 | 62.5 | 34.5 | 26.09 | 26.81 |
 | Kolkata Knight Riders | 2 | 48 | 78 | 2 | 9.75 | 39.0 | 24.0 | 33.33 | 25.0 |
 | Lucknow Super Giants | 2 | 42 | 48 | 1 | 6.86 | 48.0 | 42.0 | 40.48 | 11.9 |
@@ -360,9 +360,9 @@
 | Delhi Capitals | 6 | 69 | 114 | 3 | 9.91 | 38.0 | 23.0 | 21.74 | 20.29 |
 | Sunrisers Hyderabad | 7 | 83 | 116 | 3 | 8.39 | 38.67 | 27.67 | 22.89 | 15.66 |
 | Gujarat Titans | 3 | 36 | 71 | 2 | 11.83 | 35.5 | 18.0 | 27.78 | 27.78 |
-| Chennai Super Kings | 6 | 78 | 120 | 1 | 9.23 | 120.0 | 78.0 | 26.92 | 16.67 |
 | Gujarat Lions | 3 | 42 | 62 | 1 | 8.86 | 62.0 | 42.0 | 26.19 | 21.43 |
 | Royal Challengers Bengaluru | 8 | 72 | 138 | 1 | 11.5 | 138.0 | 72.0 | 13.89 | 23.61 |
+| Chennai Super Kings | 6 | 78 | 120 | 1 | 9.23 | 120.0 | 78.0 | 26.92 | 16.67 |
 
 ---
 

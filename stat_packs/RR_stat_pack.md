@@ -1,6 +1,6 @@
 # Rajasthan Royals (RR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-20 19:37
+**Generated:** 2026-01-20 19:43
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -103,7 +103,7 @@
 | Wankhede Stadium | 8 | 1317 | 902 | 146.01 | 29.27 |
 | Sheikh Zayed Stadium | 8 | 1115 | 864 | 129.05 | 29.34 |
 | Feroz Shah Kotla | 7 | 1006 | 813 | 123.74 | 23.95 |
-| MA Chidambaram Stadium, Chepauk | 6 | 989 | 720 | 137.36 | 30.91 |
+| Sharjah Cricket Stadium | 6 | 892 | 693 | 128.72 | 20.27 |
 
 ---
 
@@ -332,8 +332,8 @@
 | Sunrisers Hyderabad | 12 | 288 | 422 | 13 | 8.79 | 32.46 | 22.15 | 36.46 | 19.79 |
 | Punjab Kings | 9 | 216 | 235 | 11 | 6.53 | 21.36 | 19.64 | 38.89 | 11.11 |
 | Kolkata Knight Riders | 15 | 312 | 427 | 10 | 8.21 | 42.7 | 31.2 | 37.82 | 19.55 |
-| Gujarat Lions | 4 | 90 | 120 | 6 | 8.0 | 20.0 | 15.0 | 37.78 | 18.89 |
 | Lucknow Super Giants | 5 | 114 | 154 | 6 | 8.11 | 25.67 | 19.0 | 35.09 | 17.54 |
+| Gujarat Lions | 4 | 90 | 120 | 6 | 8.0 | 20.0 | 15.0 | 37.78 | 18.89 |
 | Rising Pune Supergiant | 4 | 84 | 94 | 5 | 6.71 | 18.8 | 16.8 | 41.67 | 15.48 |
 | Rajasthan Royals | 9 | 210 | 274 | 5 | 7.83 | 54.8 | 42.0 | 36.19 | 16.19 |
 | Gujarat Titans | 5 | 114 | 128 | 4 | 6.74 | 32.0 | 28.5 | 39.47 | 13.16 |
@@ -349,8 +349,8 @@
 | Sunrisers Hyderabad | 9 | 168 | 233 | 9 | 8.32 | 25.89 | 18.67 | 35.12 | 16.07 |
 | Royal Challengers Bengaluru | 9 | 204 | 287 | 8 | 8.44 | 35.88 | 25.5 | 32.35 | 15.69 |
 | Punjab Kings | 5 | 99 | 162 | 5 | 9.82 | 32.4 | 19.8 | 38.38 | 25.25 |
-| Gujarat Titans | 5 | 96 | 140 | 3 | 8.75 | 46.67 | 32.0 | 29.17 | 17.71 |
 | Rajasthan Royals | 8 | 168 | 208 | 3 | 7.43 | 69.33 | 56.0 | 33.93 | 14.29 |
+| Gujarat Titans | 5 | 96 | 140 | 3 | 8.75 | 46.67 | 32.0 | 29.17 | 17.71 |
 
 ### Jofra Archer
 
@@ -360,8 +360,8 @@
 | Punjab Kings | 9 | 215 | 307 | 11 | 8.57 | 27.91 | 19.55 | 40.0 | 19.07 |
 | Delhi Capitals | 5 | 115 | 133 | 9 | 6.94 | 14.78 | 12.78 | 42.61 | 14.78 |
 | Chennai Super Kings | 7 | 162 | 158 | 8 | 5.85 | 19.75 | 20.25 | 45.06 | 10.49 |
-| Sunrisers Hyderabad | 5 | 121 | 188 | 6 | 9.32 | 31.33 | 20.17 | 39.67 | 23.97 |
 | Kolkata Knight Riders | 8 | 177 | 211 | 6 | 7.15 | 35.17 | 29.5 | 50.85 | 16.95 |
+| Sunrisers Hyderabad | 5 | 121 | 188 | 6 | 9.32 | 31.33 | 20.17 | 39.67 | 23.97 |
 | Royal Challengers Bengaluru | 7 | 166 | 233 | 3 | 8.42 | 77.67 | 55.33 | 42.17 | 21.08 |
 | Gujarat Titans | 2 | 48 | 78 | 2 | 9.75 | 39.0 | 24.0 | 31.25 | 22.92 |
 
@@ -374,8 +374,8 @@
 | Delhi Capitals | 8 | 138 | 191 | 8 | 8.3 | 23.88 | 17.25 | 36.96 | 21.01 |
 | Mumbai Indians | 7 | 138 | 248 | 7 | 10.78 | 35.43 | 19.71 | 30.43 | 28.26 |
 | Lucknow Super Giants | 3 | 66 | 95 | 7 | 8.64 | 13.57 | 9.43 | 36.36 | 18.18 |
-| Kolkata Knight Riders | 8 | 174 | 339 | 5 | 11.69 | 67.8 | 34.8 | 29.31 | 31.03 |
 | Chennai Super Kings | 5 | 114 | 181 | 5 | 9.53 | 36.2 | 22.8 | 25.44 | 20.18 |
+| Kolkata Knight Riders | 8 | 174 | 339 | 5 | 11.69 | 67.8 | 34.8 | 29.31 | 31.03 |
 | Sunrisers Hyderabad | 7 | 138 | 189 | 4 | 8.22 | 47.25 | 34.5 | 34.78 | 16.67 |
 | Gujarat Titans | 3 | 47 | 63 | 2 | 8.04 | 31.5 | 23.5 | 27.66 | 17.02 |
 | Punjab Kings | 4 | 66 | 84 | 1 | 7.64 | 84.0 | 66.0 | 31.82 | 15.15 |
@@ -400,8 +400,8 @@
 | RA Jadeja | Eden Gardens | 11 | 183 | 129 | 141.86 | 45.75 | 17.83 |
 | RA Jadeja | Sawai Mansingh Stadium | 8 | 155 | 120 | 129.17 | 38.75 | 14.17 |
 | RA Jadeja | Saurashtra Cricket Association Stad... | 8 | 135 | 117 | 115.38 | 22.5 | 10.26 |
-| RA Jadeja | Wankhede Stadium | 10 | 129 | 96 | 134.38 | 14.33 | 15.63 |
 | RA Jadeja | M Chinnaswamy Stadium, Bengaluru | 3 | 129 | 75 | 172.0 | 129.0 | 22.67 |
+| RA Jadeja | Wankhede Stadium | 10 | 129 | 96 | 134.38 | 14.33 | 15.63 |
 | RA Jadeja | Nehru Stadium | 5 | 101 | 90 | 112.22 | 33.67 | 13.33 |
 | RK Singh | Eden Gardens, Kolkata | 19 | 497 | 310 | 160.32 | 45.18 | 21.61 |
 | RK Singh | Wankhede Stadium, Mumbai | 5 | 109 | 79 | 137.97 | 27.25 | 20.25 |

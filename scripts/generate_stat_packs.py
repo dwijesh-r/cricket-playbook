@@ -446,6 +446,7 @@ def generate_team_stat_pack(conn, team_name: str) -> str:
     """).fetchall()
 
     md.append("\n### 9.3 Potential Spin Vulnerabilities\n")
+    md.append("*Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*\n")
     if vs_spin:
         for name, btype, balls, runs, sr, outs, avg in vs_spin:
             md.append(f"- **{name}** vs {btype}: SR {sr}, Avg {avg or 'N/A'} ({balls} balls)")

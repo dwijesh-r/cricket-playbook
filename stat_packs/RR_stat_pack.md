@@ -1,6 +1,6 @@
 # Rajasthan Royals (RR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-20 10:46
+**Generated:** 2026-01-20 19:37
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -103,7 +103,7 @@
 | Wankhede Stadium | 8 | 1317 | 902 | 146.01 | 29.27 |
 | Sheikh Zayed Stadium | 8 | 1115 | 864 | 129.05 | 29.34 |
 | Feroz Shah Kotla | 7 | 1006 | 813 | 123.74 | 23.95 |
-| Sharjah Cricket Stadium | 6 | 892 | 693 | 128.72 | 20.27 |
+| MA Chidambaram Stadium, Chepauk | 6 | 989 | 720 | 137.36 | 30.91 |
 
 ---
 
@@ -228,16 +228,13 @@
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs |
 |------------|-----|------|-------|-----|-----|--------|------|------|
 | Kolkata Knight Riders | 28 | 473 | 351 | 134.76 | 33.79 | 15.1 | 33.33 | 14 |
+| Royal Challengers Bengaluru | 27 | 452 | 339 | 133.33 | 30.13 | 14.45 | 30.38 | 15 |
+| Delhi Capitals | 25 | 436 | 305 | 142.95 | 29.07 | 16.72 | 27.87 | 15 |
+| Punjab Kings | 23 | 391 | 306 | 127.78 | 26.07 | 14.71 | 34.64 | 15 |
 | Mumbai Indians | 25 | 379 | 313 | 121.09 | 21.06 | 12.78 | 34.82 | 18 |
-| Royal Challengers Bangalore | 23 | 283 | 236 | 119.92 | 20.21 | 12.29 | 34.75 | 14 |
-| Sunrisers Hyderabad | 18 | 277 | 220 | 125.91 | 30.78 | 13.18 | 28.18 | 9 |
 | Rajasthan Royals | 18 | 277 | 215 | 128.84 | 46.17 | 13.02 | 27.91 | 6 |
-| Delhi Daredevils | 16 | 275 | 211 | 130.33 | 25.0 | 14.69 | 31.75 | 11 |
-| Kings XI Punjab | 15 | 272 | 213 | 127.7 | 27.2 | 15.02 | 35.68 | 10 |
-| Royal Challengers Bengaluru | 4 | 169 | 103 | 164.08 | 169.0 | 19.42 | 20.39 | 1 |
-| Delhi Capitals | 9 | 161 | 94 | 171.28 | 40.25 | 21.28 | 19.15 | 4 |
+| Sunrisers Hyderabad | 18 | 277 | 220 | 125.91 | 30.78 | 13.18 | 28.18 | 9 |
 | Pune Warriors | 4 | 124 | 83 | 149.4 | 31.0 | 18.07 | 30.12 | 4 |
-| Punjab Kings | 8 | 119 | 93 | 127.96 | 23.8 | 13.98 | 32.26 | 5 |
 | Deccan Chargers | 6 | 107 | 113 | 94.69 | 21.4 | 7.96 | 41.59 | 5 |
 | Gujarat Titans | 7 | 106 | 67 | 158.21 | 26.5 | 17.91 | 22.39 | 4 |
 | Lucknow Super Giants | 5 | 100 | 85 | 117.65 | 25.0 | 12.94 | 31.76 | 4 |
@@ -249,54 +246,50 @@
 |------------|-----|------|-------|-----|-----|--------|------|------|
 | Punjab Kings | 8 | 338 | 223 | 151.57 | 42.25 | 23.32 | 34.98 | 8 |
 | Mumbai Indians | 8 | 290 | 166 | 174.7 | 41.43 | 30.12 | 40.36 | 7 |
+| Royal Challengers Bengaluru | 9 | 272 | 178 | 152.81 | 30.22 | 25.28 | 37.64 | 9 |
 | Chennai Super Kings | 8 | 266 | 165 | 161.21 | 33.25 | 27.27 | 40.0 | 8 |
 | Sunrisers Hyderabad | 8 | 265 | 170 | 155.88 | 33.13 | 25.29 | 37.06 | 8 |
 | Lucknow Super Giants | 5 | 203 | 145 | 140.0 | 40.6 | 20.0 | 35.86 | 5 |
 | Kolkata Knight Riders | 6 | 202 | 121 | 166.94 | 40.4 | 30.58 | 42.15 | 5 |
 | Delhi Capitals | 7 | 178 | 136 | 130.88 | 25.43 | 19.12 | 41.18 | 7 |
-| Royal Challengers Bengaluru | 4 | 169 | 98 | 172.45 | 42.25 | 30.61 | 31.63 | 4 |
 | Gujarat Titans | 7 | 140 | 108 | 129.63 | 28.0 | 20.37 | 50.93 | 5 |
-| Royal Challengers Bangalore | 5 | 103 | 80 | 128.75 | 20.6 | 18.75 | 45.0 | 5 |
 
 ### Shubham Dubey
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs |
 |------------|-----|------|-------|-----|-----|--------|------|------|
 | Mumbai Indians | 12 | 278 | 204 | 136.27 | 34.75 | 17.65 | 38.73 | 8 |
+| Royal Challengers Bengaluru | 7 | 255 | 165 | 154.55 | 63.75 | 21.21 | 35.76 | 4 |
 | Kolkata Knight Riders | 8 | 245 | 186 | 131.72 | 40.83 | 14.52 | 35.48 | 6 |
-| Royal Challengers Bangalore | 3 | 193 | 105 | 183.81 | 96.5 | 25.71 | 29.52 | 2 |
+| Punjab Kings | 10 | 197 | 134 | 147.01 | 19.7 | 18.66 | 32.09 | 10 |
 | Lucknow Super Giants | 5 | 182 | 117 | 155.56 | 45.5 | 21.37 | 35.04 | 4 |
 | Delhi Capitals | 9 | 168 | 117 | 143.59 | 18.67 | 16.24 | 31.62 | 9 |
-| Punjab Kings | 8 | 162 | 103 | 157.28 | 20.25 | 21.36 | 29.13 | 8 |
 | Gujarat Titans | 8 | 160 | 105 | 152.38 | 26.67 | 16.19 | 27.62 | 6 |
 | Rajasthan Royals | 5 | 135 | 95 | 142.11 | 27.0 | 17.89 | 32.63 | 5 |
 | Sunrisers Hyderabad | 7 | 119 | 86 | 138.37 | 19.83 | 16.28 | 36.05 | 6 |
 | Chennai Super Kings | 4 | 105 | 81 | 129.63 | 52.5 | 16.05 | 37.04 | 2 |
-| Royal Challengers Bengaluru | 4 | 62 | 60 | 103.33 | 31.0 | 13.33 | 46.67 | 2 |
-| Kings XI Punjab | 2 | 35 | 31 | 112.9 | 17.5 | 9.68 | 41.94 | 2 |
 
 ### Riyan Parag
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs |
 |------------|-----|------|-------|-----|-----|--------|------|------|
 | Kolkata Knight Riders | 8 | 225 | 132 | 170.45 | 28.13 | 25.76 | 37.12 | 8 |
-| Punjab Kings | 9 | 196 | 128 | 153.13 | 28.0 | 19.53 | 32.03 | 7 |
+| Royal Challengers Bengaluru | 8 | 198 | 143 | 138.46 | 28.29 | 17.48 | 31.47 | 7 |
+| Punjab Kings | 10 | 196 | 130 | 150.77 | 24.5 | 19.23 | 33.08 | 8 |
 | Delhi Capitals | 10 | 194 | 160 | 121.25 | 24.25 | 16.25 | 44.38 | 8 |
 | Sunrisers Hyderabad | 9 | 183 | 122 | 150.0 | 26.14 | 19.67 | 28.69 | 7 |
 | Gujarat Titans | 8 | 180 | 124 | 145.16 | 30.0 | 15.32 | 29.84 | 6 |
 | Lucknow Super Giants | 6 | 138 | 98 | 140.82 | 27.6 | 14.29 | 30.61 | 5 |
 | Mumbai Indians | 6 | 129 | 89 | 144.94 | 43.0 | 21.35 | 33.71 | 3 |
 | Chennai Super Kings | 7 | 122 | 102 | 119.61 | 24.4 | 11.76 | 33.33 | 5 |
-| Royal Challengers Bangalore | 4 | 106 | 81 | 130.86 | 35.33 | 14.81 | 27.16 | 3 |
-| Royal Challengers Bengaluru | 4 | 92 | 62 | 148.39 | 23.0 | 20.97 | 37.1 | 4 |
 
 ### Shimron Hetmyer
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs |
 |------------|-----|------|-------|-----|-----|--------|------|------|
 | Sunrisers Hyderabad | 12 | 282 | 179 | 157.54 | 31.33 | 19.55 | 30.17 | 9 |
-| Punjab Kings | 7 | 187 | 100 | 187.0 | 46.75 | 27.0 | 29.0 | 4 |
-| Royal Challengers Bangalore | 8 | 178 | 123 | 144.72 | 44.5 | 17.89 | 38.21 | 4 |
+| Royal Challengers Bengaluru | 12 | 235 | 159 | 147.8 | 33.57 | 18.87 | 33.96 | 7 |
+| Punjab Kings | 9 | 204 | 119 | 171.43 | 34.0 | 24.37 | 33.61 | 6 |
 | Gujarat Titans | 7 | 172 | 112 | 153.57 | 34.4 | 18.75 | 30.36 | 5 |
 | Chennai Super Kings | 8 | 140 | 100 | 140.0 | 28.0 | 16.0 | 30.0 | 5 |
 | Kolkata Knight Riders | 10 | 127 | 83 | 153.01 | 25.4 | 16.87 | 33.73 | 5 |
@@ -304,7 +297,6 @@
 | Lucknow Super Giants | 4 | 78 | 55 | 141.82 | 26.0 | 16.36 | 38.18 | 3 |
 | Rajasthan Royals | 3 | 74 | 49 | 151.02 | 24.67 | 22.45 | 38.78 | 3 |
 | Delhi Capitals | 4 | 69 | 37 | 186.49 | - | 21.62 | 18.92 | 0 |
-| Royal Challengers Bengaluru | 4 | 57 | 36 | 158.33 | 19.0 | 22.22 | 19.44 | 3 |
 
 ---
 
@@ -315,44 +307,36 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|
-| Royal Challengers Bangalore | 27 | 534 | 649 | 26 | 7.29 | 24.96 | 20.54 | 34.08 | 12.17 |
-| Kolkata Knight Riders | 29 | 523 | 642 | 22 | 7.37 | 29.18 | 23.77 | 34.03 | 13.38 |
+| Royal Challengers Bengaluru | 31 | 612 | 772 | 26 | 7.57 | 29.69 | 23.54 | 33.17 | 13.24 |
+| Delhi Capitals | 29 | 496 | 650 | 22 | 7.86 | 29.55 | 22.55 | 29.84 | 14.11 |
 | Rajasthan Royals | 23 | 412 | 480 | 22 | 6.99 | 21.82 | 18.73 | 32.77 | 10.44 |
+| Kolkata Knight Riders | 29 | 523 | 642 | 22 | 7.37 | 29.18 | 23.77 | 34.03 | 13.38 |
 | Mumbai Indians | 33 | 534 | 754 | 21 | 8.47 | 35.9 | 25.43 | 30.9 | 17.23 |
-| Delhi Capitals | 12 | 233 | 331 | 13 | 8.52 | 25.46 | 17.92 | 28.33 | 15.88 |
-| Kings XI Punjab | 18 | 336 | 470 | 13 | 8.39 | 36.15 | 25.85 | 26.19 | 14.58 |
+| Punjab Kings | 27 | 504 | 666 | 20 | 7.93 | 33.3 | 25.2 | 29.96 | 14.09 |
 | Sunrisers Hyderabad | 24 | 427 | 504 | 10 | 7.08 | 50.4 | 42.7 | 30.21 | 9.84 |
-| Delhi Daredevils | 17 | 263 | 319 | 9 | 7.28 | 35.44 | 29.22 | 31.18 | 12.55 |
 | Deccan Chargers | 5 | 108 | 114 | 8 | 6.33 | 14.25 | 13.5 | 39.81 | 9.26 |
 | Gujarat Titans | 7 | 132 | 171 | 7 | 7.77 | 24.43 | 18.86 | 27.27 | 12.88 |
-| Punjab Kings | 9 | 168 | 196 | 7 | 7.0 | 28.0 | 24.0 | 37.5 | 13.1 |
 | Pune Warriors | 4 | 96 | 100 | 3 | 6.25 | 33.33 | 32.0 | 39.58 | 9.38 |
 | Lucknow Super Giants | 6 | 84 | 116 | 3 | 8.29 | 38.67 | 28.0 | 26.19 | 16.67 |
-| Rising Pune Supergiants | 2 | 48 | 56 | 2 | 7.0 | 28.0 | 24.0 | 39.58 | 8.33 |
+| Rising Pune Supergiant | 4 | 84 | 115 | 3 | 8.21 | 38.33 | 28.0 | 34.52 | 14.29 |
 | Chennai Super Kings | 3 | 44 | 55 | 2 | 7.5 | 27.5 | 22.0 | 34.09 | 11.36 |
-| Rising Pune Supergiant | 2 | 36 | 59 | 1 | 9.83 | 59.0 | 36.0 | 27.78 | 22.22 |
-| Royal Challengers Bengaluru | 4 | 78 | 123 | 0 | 9.46 | - | - | 26.92 | 20.51 |
 
 ### Sandeep Sharma
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|
-| Royal Challengers Bangalore | 18 | 407 | 528 | 26 | 7.78 | 20.31 | 15.65 | 42.26 | 18.18 |
+| Royal Challengers Bengaluru | 21 | 470 | 646 | 29 | 8.25 | 22.28 | 16.21 | 38.94 | 19.57 |
 | Mumbai Indians | 16 | 349 | 427 | 24 | 7.34 | 17.79 | 14.54 | 45.27 | 16.62 |
-| Delhi Daredevils | 10 | 222 | 259 | 14 | 7.0 | 18.5 | 15.86 | 47.3 | 16.22 |
-| Sunrisers Hyderabad | 12 | 288 | 422 | 13 | 8.79 | 32.46 | 22.15 | 36.46 | 19.79 |
+| Delhi Capitals | 19 | 432 | 517 | 20 | 7.18 | 25.85 | 21.6 | 40.51 | 15.97 |
 | Chennai Super Kings | 17 | 362 | 533 | 13 | 8.83 | 41.0 | 27.85 | 33.43 | 20.17 |
+| Sunrisers Hyderabad | 12 | 288 | 422 | 13 | 8.79 | 32.46 | 22.15 | 36.46 | 19.79 |
+| Punjab Kings | 9 | 216 | 235 | 11 | 6.53 | 21.36 | 19.64 | 38.89 | 11.11 |
 | Kolkata Knight Riders | 15 | 312 | 427 | 10 | 8.21 | 42.7 | 31.2 | 37.82 | 19.55 |
-| Kings XI Punjab | 5 | 120 | 123 | 8 | 6.15 | 15.38 | 15.0 | 40.0 | 9.17 |
 | Gujarat Lions | 4 | 90 | 120 | 6 | 8.0 | 20.0 | 15.0 | 37.78 | 18.89 |
 | Lucknow Super Giants | 5 | 114 | 154 | 6 | 8.11 | 25.67 | 19.0 | 35.09 | 17.54 |
-| Delhi Capitals | 9 | 210 | 258 | 6 | 7.37 | 43.0 | 35.0 | 33.33 | 15.71 |
+| Rising Pune Supergiant | 4 | 84 | 94 | 5 | 6.71 | 18.8 | 16.8 | 41.67 | 15.48 |
 | Rajasthan Royals | 9 | 210 | 274 | 5 | 7.83 | 54.8 | 42.0 | 36.19 | 16.19 |
 | Gujarat Titans | 5 | 114 | 128 | 4 | 6.74 | 32.0 | 28.5 | 39.47 | 13.16 |
-| Rising Pune Supergiants | 2 | 48 | 50 | 3 | 6.25 | 16.67 | 16.0 | 45.83 | 14.58 |
-| Punjab Kings | 4 | 96 | 112 | 3 | 7.0 | 37.33 | 32.0 | 37.5 | 13.54 |
-| Royal Challengers Bengaluru | 3 | 63 | 118 | 3 | 11.24 | 39.33 | 21.0 | 17.46 | 28.57 |
-| Rising Pune Supergiant | 2 | 36 | 44 | 2 | 7.33 | 22.0 | 18.0 | 36.11 | 16.67 |
 
 ### Ravi Bishnoi
 
@@ -361,44 +345,40 @@
 | Mumbai Indians | 12 | 270 | 357 | 13 | 7.93 | 27.46 | 20.77 | 31.48 | 15.56 |
 | Kolkata Knight Riders | 10 | 226 | 266 | 11 | 7.06 | 24.18 | 20.55 | 35.4 | 13.27 |
 | Delhi Capitals | 10 | 228 | 310 | 11 | 8.16 | 28.18 | 20.73 | 35.96 | 17.11 |
-| Sunrisers Hyderabad | 9 | 168 | 233 | 9 | 8.32 | 25.89 | 18.67 | 35.12 | 16.07 |
 | Chennai Super Kings | 8 | 174 | 231 | 9 | 7.97 | 25.67 | 19.33 | 36.78 | 17.82 |
-| Royal Challengers Bangalore | 8 | 186 | 256 | 8 | 8.26 | 32.0 | 23.25 | 32.26 | 15.05 |
+| Sunrisers Hyderabad | 9 | 168 | 233 | 9 | 8.32 | 25.89 | 18.67 | 35.12 | 16.07 |
+| Royal Challengers Bengaluru | 9 | 204 | 287 | 8 | 8.44 | 35.88 | 25.5 | 32.35 | 15.69 |
 | Punjab Kings | 5 | 99 | 162 | 5 | 9.82 | 32.4 | 19.8 | 38.38 | 25.25 |
 | Gujarat Titans | 5 | 96 | 140 | 3 | 8.75 | 46.67 | 32.0 | 29.17 | 17.71 |
 | Rajasthan Royals | 8 | 168 | 208 | 3 | 7.43 | 69.33 | 56.0 | 33.93 | 14.29 |
-
-### Sam Curran
-
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|
-| Rajasthan Royals | 9 | 192 | 305 | 12 | 9.53 | 25.42 | 16.0 | 35.42 | 24.48 |
-| Delhi Capitals | 8 | 138 | 191 | 8 | 8.3 | 23.88 | 17.25 | 36.96 | 21.01 |
-| Mumbai Indians | 7 | 138 | 248 | 7 | 10.78 | 35.43 | 19.71 | 30.43 | 28.26 |
-| Lucknow Super Giants | 3 | 66 | 95 | 7 | 8.64 | 13.57 | 9.43 | 36.36 | 18.18 |
-| Royal Challengers Bangalore | 5 | 108 | 155 | 5 | 8.61 | 31.0 | 21.6 | 25.93 | 14.81 |
-| Kolkata Knight Riders | 8 | 174 | 339 | 5 | 11.69 | 67.8 | 34.8 | 29.31 | 31.03 |
-| Chennai Super Kings | 5 | 114 | 181 | 5 | 9.53 | 36.2 | 22.8 | 25.44 | 20.18 |
-| Sunrisers Hyderabad | 7 | 138 | 189 | 4 | 8.22 | 47.25 | 34.5 | 34.78 | 16.67 |
-| Royal Challengers Bengaluru | 4 | 72 | 145 | 3 | 12.08 | 48.33 | 24.0 | 26.39 | 31.94 |
-| Gujarat Titans | 3 | 47 | 63 | 2 | 8.04 | 31.5 | 23.5 | 27.66 | 17.02 |
-| Punjab Kings | 2 | 36 | 38 | 1 | 6.33 | 38.0 | 36.0 | 41.67 | 11.11 |
-| Kings XI Punjab | 2 | 30 | 46 | 0 | 9.2 | - | - | 20.0 | 20.0 |
 
 ### Jofra Archer
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|
 | Mumbai Indians | 7 | 169 | 208 | 12 | 7.38 | 17.33 | 14.08 | 42.6 | 14.79 |
+| Punjab Kings | 9 | 215 | 307 | 11 | 8.57 | 27.91 | 19.55 | 40.0 | 19.07 |
+| Delhi Capitals | 5 | 115 | 133 | 9 | 6.94 | 14.78 | 12.78 | 42.61 | 14.78 |
 | Chennai Super Kings | 7 | 162 | 158 | 8 | 5.85 | 19.75 | 20.25 | 45.06 | 10.49 |
-| Delhi Capitals | 4 | 96 | 103 | 8 | 6.44 | 12.88 | 12.0 | 41.67 | 12.5 |
-| Kings XI Punjab | 6 | 143 | 184 | 7 | 7.72 | 26.29 | 20.43 | 44.76 | 16.78 |
-| Kolkata Knight Riders | 8 | 177 | 211 | 6 | 7.15 | 35.17 | 29.5 | 50.85 | 16.95 |
 | Sunrisers Hyderabad | 5 | 121 | 188 | 6 | 9.32 | 31.33 | 20.17 | 39.67 | 23.97 |
-| Punjab Kings | 3 | 72 | 123 | 4 | 10.25 | 30.75 | 18.0 | 30.56 | 23.61 |
-| Royal Challengers Bangalore | 5 | 118 | 173 | 2 | 8.8 | 86.5 | 59.0 | 39.83 | 21.19 |
+| Kolkata Knight Riders | 8 | 177 | 211 | 6 | 7.15 | 35.17 | 29.5 | 50.85 | 16.95 |
+| Royal Challengers Bengaluru | 7 | 166 | 233 | 3 | 8.42 | 77.67 | 55.33 | 42.17 | 21.08 |
 | Gujarat Titans | 2 | 48 | 78 | 2 | 9.75 | 39.0 | 24.0 | 31.25 | 22.92 |
-| Royal Challengers Bengaluru | 2 | 48 | 60 | 1 | 7.5 | 60.0 | 48.0 | 47.92 | 20.83 |
+
+### Sam Curran
+
+| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% |
+|------------|---------|-------|------|------|------|-----|-----|------|--------|
+| Rajasthan Royals | 9 | 192 | 305 | 12 | 9.53 | 25.42 | 16.0 | 35.42 | 24.48 |
+| Royal Challengers Bengaluru | 9 | 180 | 300 | 8 | 10.0 | 37.5 | 22.5 | 26.11 | 21.67 |
+| Delhi Capitals | 8 | 138 | 191 | 8 | 8.3 | 23.88 | 17.25 | 36.96 | 21.01 |
+| Mumbai Indians | 7 | 138 | 248 | 7 | 10.78 | 35.43 | 19.71 | 30.43 | 28.26 |
+| Lucknow Super Giants | 3 | 66 | 95 | 7 | 8.64 | 13.57 | 9.43 | 36.36 | 18.18 |
+| Kolkata Knight Riders | 8 | 174 | 339 | 5 | 11.69 | 67.8 | 34.8 | 29.31 | 31.03 |
+| Chennai Super Kings | 5 | 114 | 181 | 5 | 9.53 | 36.2 | 22.8 | 25.44 | 20.18 |
+| Sunrisers Hyderabad | 7 | 138 | 189 | 4 | 8.22 | 47.25 | 34.5 | 34.78 | 16.67 |
+| Gujarat Titans | 3 | 47 | 63 | 2 | 8.04 | 31.5 | 23.5 | 27.66 | 17.02 |
+| Punjab Kings | 4 | 66 | 84 | 1 | 7.64 | 84.0 | 66.0 | 31.82 | 15.15 |
 
 ---
 
@@ -464,7 +444,9 @@
 
 ### 9.3 Potential Spin Vulnerabilities
 
-- **R Parag** vs Leg-spin: SR 112.7, Avg 23.67 (63 balls)
+*Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
+
+- **RK Singh** vs Left-arm orthodox: SR 108.14, Avg 31.0 (86 balls)
 
 ---
 

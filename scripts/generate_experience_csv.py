@@ -17,7 +17,7 @@ from pathlib import Path
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_DIR = SCRIPT_DIR.parent
 DB_PATH = PROJECT_DIR / "data" / "cricket_playbook.duckdb"
-OUTPUT_PATH = PROJECT_DIR / ".data" / "ipl_2026_squad_experience.csv"
+OUTPUT_PATH = PROJECT_DIR / "outputs" / "ipl_2026_squad_experience.csv"
 
 
 def generate_experience_csv():

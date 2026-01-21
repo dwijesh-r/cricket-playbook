@@ -26,7 +26,7 @@ python scripts/generate_stat_packs.py
 | Total T20 Matches | 9,357 |
 | IPL Matches | 1,169 |
 | Ball-by-ball Records | 2,137,915 |
-| IPL 2026 Squad Players | 231 |
+| IPL 2026 Squad Players | 234 |
 | Bowler Classifications | 280 (98.8% coverage) |
 | Analytics Views | 34 |
 
@@ -34,29 +34,42 @@ python scripts/generate_stat_packs.py
 
 ```
 cricket-playbook/
-├── data/                          # Data files
-│   ├── cricket_playbook.duckdb    # Main DuckDB database
+├── config/                        # Configuration
+│   ├── agents/                    # Agent definitions (12 agents)
+│   ├── templates/                 # Output templates
+│   └── CONSTITUTION.md            # Agent framework
+├── data/                          # Source data
+│   ├── cricket_playbook.duckdb    # Main DuckDB database (159MB)
 │   ├── ipl_2026_squads.csv        # IPL 2026 team rosters
 │   ├── ipl_2026_player_contracts.csv
-│   └── bowler_classifications.csv # Bowling style mappings
+│   ├── bowler_classifications.csv # Bowling style mappings
+│   └── raw/                       # Source ZIP files (18 T20 datasets)
+├── outputs/                       # Generated outputs
+│   ├── player_tags.json           # Multi-tag classification
+│   ├── bowler_handedness_matchup.csv
+│   └── ipl_2026_squad_experience.csv
 ├── scripts/                       # Python scripts
 │   ├── analytics_ipl.py           # Creates 34 analytics views
 │   ├── generate_stat_packs.py     # Generates team stat packs
-│   ├── run_stat_packs.sh          # CLI runner with validation
+│   ├── player_clustering_v2.py    # K-means clustering model
+│   ├── bowler_handedness_matchup.py # LHB/RHB analysis
+│   ├── run_stat_packs.sh          # CLI runner
 │   └── validate_schema.py         # Schema validation (33 checks)
-├── stat_packs/                    # Generated team stat packs
-│   ├── CSK_stat_pack.md
-│   ├── MI_stat_pack.md
-│   ├── RCB_stat_pack.md
-│   └── ... (10 teams)
-├── tests/                         # Test suite
-│   └── test_stat_packs.py         # 65 pytest smoke tests
+├── stat_packs/                    # Generated team stat packs (10 teams)
+├── tests/                         # Test suite (65 pytest tests)
 ├── notebooks/                     # Jupyter notebooks
+│   ├── explore.ipynb              # Data exploration
 │   └── view_explorer.ipynb        # Interactive SQL queries
-└── .editorial/                    # Editorial documents
-    ├── rework_plan_v2.1.md
-    ├── sprint_review_2026-01-20.md
-    └── flower_review_v2.1.md
+├── editorial/                     # Reviews & analysis
+│   ├── flower_reviews/            # Cricket domain reviews
+│   ├── sprint_reviews/            # Sprint summaries
+│   └── clustering/                # Clustering PRD & archetypes
+├── founder_review/                # Founder review & responses
+├── ml_ops/                        # ML operations
+│   ├── model_registry.json        # Model versioning
+│   └── deployment_manifest.md     # Deployment status
+└── docs/                          # Documentation
+    └── PRD_CRICKET_PLAYBOOK.md    # Product requirements
 ```
 
 ## Analytics Views
@@ -144,10 +157,13 @@ Open `notebooks/view_explorer.ipynb` in VS Code or Jupyter to run interactive SQ
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v2.5.0 | 2026-01-21 | Clustering V2, LHB/RHB matchups, ML Ops, repo reorganization |
+| v2.4.0 | 2026-01-21 | Founder Review #1 fixes, uncapped player handling |
+| v2.3.0 | 2026-01-21 | Multi-tag classification, phase specialists |
+| v2.2.0 | 2026-01-20 | Player clustering (K-means, 10 archetypes) |
 | v2.1.0 | 2026-01-20 | Percentiles, benchmarks, tests, CLI |
 | v2.0.0 | 2026-01-19 | IPL 2026 squads, 26 analytics views |
-| v1.1.0 | 2026-01-18 | Match phase column, wicketkeeper detection |
-| v1.0.0 | 2026-01-17 | Initial data ingestion |
+| v1.0.0 | 2026-01-17 | Initial data ingestion (9,357 matches) |
 
 ## Team
 
@@ -155,10 +171,13 @@ Open `notebooks/view_explorer.ipynb` in VS Code or Jupyter to run interactive SQ
 |-------|------|
 | Tom Brady | Product Owner |
 | Stephen Curry | Analytics Lead |
-| Andy Flower | Cricket Technical Advisor |
+| Andy Flower | Cricket Domain Expert |
 | Brock Purdy | Data Pipeline |
-| Brad Stevens | Performance & Accountability |
-| N'Golo Kanté | QA |
+| N'Golo Kanté | QA Engineer |
+| Brad Stevens | Requirements & Architecture |
+| Ime Udoka | ML Ops Engineer |
+| Kevin de Bruyne | Visualization Editor |
+| Virat Kohli | Editorial Agent |
 
 ## License
 
@@ -166,4 +185,4 @@ Internal use only - Cricket Playbook Editorial Team
 
 ---
 
-*Cricket Playbook v2.1.0 - IPL 2026 Analytics Platform*
+*Cricket Playbook v2.5.0 - IPL 2026 Analytics Platform*

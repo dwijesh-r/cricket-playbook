@@ -24,7 +24,7 @@ from pathlib import Path
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_DIR = SCRIPT_DIR.parent
 DB_PATH = PROJECT_DIR / "data" / "cricket_playbook.duckdb"
-OUTPUT_DIR = PROJECT_DIR / ".data"
+OUTPUT_DIR = PROJECT_DIR / "outputs"
 
 
 def get_batter_features(conn) -> pd.DataFrame:

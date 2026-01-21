@@ -34,7 +34,7 @@ warnings.filterwarnings('ignore')
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_DIR = SCRIPT_DIR.parent
 DB_PATH = PROJECT_DIR / "data" / "cricket_playbook.duckdb"
-OUTPUT_DIR = PROJECT_DIR / ".data"
+OUTPUT_DIR = PROJECT_DIR / "outputs"
 
 # Recent seasons for weighting (2x weight)
 RECENT_SEASONS = [2021, 2022, 2023, 2024, 2025]

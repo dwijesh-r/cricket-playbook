@@ -2,7 +2,7 @@ team_name,player_name,player_id,role,bowling_arm,bowling_type,batting_hand,batte
 Lucknow Super Giants,Mitchell Marsh,3d8feaf8,All-rounder,Right-arm,Fast,Right-hand,All-Round Finisher,Workhorse Seamer,MIDDLE_ORDER|PP_DOMINATOR|PACE_SPECIALIST,WORKHORSE
 Chennai Super Kings,Khaleel Ahmed,a2f46292,Bowler,Left-arm,Fast,Left-hand,,Workhorse Seamer,,WORKHORSE|PRESSURE_BUILDER
 Chennai Super Kings,Nathan Ellis,9eb1455b,Bowler,Right-arm,Fast,Right-hand,,Workhorse Seamer,,WORKHORSE
-Chennai Super Kings,Aman Khan,eef2536f,All-rounder,Right-arm,Off-spin,Left-hand,,Workhorse Seamer,,DEATH_SPECIALIST
+Chennai Super Kings,Aman Khan,378daa89,All-rounder,Right-arm,Off-spin,Left-hand,,Workhorse Seamer,,DEATH_SPECIALIST
 Mumbai Indians,Trent Boult,a818c1be,Bowler,Left-arm,Fast,Left-hand,,Workhorse Seamer,,NEW_BALL_SPECIALIST|PP_ELITE|PRESSURE_BUILDER|PROVEN_WICKET_TAKER
 Mumbai Indians,Mohammed Izhar,2f49c897,Bowler,Right-arm,Fast,Right-hand,,Workhorse Seamer,,WORKHORSE|PRESSURE_BUILDER|PROVEN_WICKET_TAKER
 Delhi Capitals,Mitchell Starc,3fb19989,Bowler,Left-arm,Fast,Left-hand,,Workhorse Seamer,,DEATH_SPECIALIST|DEATH_ELITE|PRESSURE_BUILDER
@@ -210,7 +210,7 @@ Sunrisers Hyderabad,Onkar Tarmale,,Batter,Right-arm,Fast,Right-hand,,,,
 Sunrisers Hyderabad,Sakib Hussain,280fff14,Bowler,Right-arm,Fast,Right-hand,,,,
 Sunrisers Hyderabad,Praful Hinge,,Bowler,Right-arm,Fast,Right-hand,,,,
 Gujarat Titans,Rahul Tewatia,39a2dfa8,All-rounder,Right-arm,Leg-spin,Left-hand,,,ACCUMULATOR|PACE_SPECIALIST,MIDDLE_OVERS_CONTROLLER
-Gujarat Titans,Shahrukh Khan,f088b960,Batter,Right-arm,Medium,Right-hand,,,ACCUMULATOR|PACE_SPECIALIST,
+Gujarat Titans,Shahrukh Khan,7dcb9bc9,Batter,Right-arm,Medium,Right-hand,,,ACCUMULATOR|PACE_SPECIALIST,
 Gujarat Titans,Sai Kishore,c7a995d3,Bowler,Left-arm,Left-arm orthodox,Left-hand,,,,WORKHORSE
 Gujarat Titans,Glenn Phillips,9a46c4e5,All-rounder,Right-arm,Off-spin,Right-hand,,,,
 Gujarat Titans,Arshad Khan,12314277,All-rounder,Right-arm,Medium,Right-hand,,,,PART_TIMER

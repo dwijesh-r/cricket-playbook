@@ -2,16 +2,19 @@
 """
 Cricket Playbook - Bowler vs LHB/RHB Matchup Analysis
 Author: Stephen Curry (Analytics Lead)
-Sprint: 2.5 - LHB/RHB Matchup Tags
+Sprint: 2.6 - Enhanced with Wickets & Strike Rate (Founder Review #2)
 
 Analyzes bowler performance against left-handed vs right-handed batters
 and generates matchup tags.
 
 Tags Generated:
-- LHB_SPECIALIST: Economy vs LHB at least 1.5 better than vs RHB
-- RHB_SPECIALIST: Economy vs RHB at least 1.5 better than vs LHB
-- LHB_VULNERABLE: Economy vs LHB at least 1.5 worse than vs RHB
-- RHB_VULNERABLE: Economy vs RHB at least 1.5 worse than vs LHB
+- LHB_SPECIALIST: Economy vs LHB at least 1.0 better than vs RHB
+- RHB_SPECIALIST: Economy vs RHB at least 1.0 better than vs LHB
+- LHB_VULNERABLE: Economy vs LHB at least 1.0 worse than vs RHB
+- RHB_VULNERABLE: Economy vs RHB at least 1.0 worse than vs LHB
+- LHB_WICKET_TAKER: Better bowling SR vs LHB (takes wickets more frequently)
+- RHB_WICKET_TAKER: Better bowling SR vs RHB (takes wickets more frequently)
+- LHB_PRESSURE / RHB_PRESSURE: Higher dot ball % vs respective hand
 """
 
 import duckdb
@@ -110,13 +113,25 @@ def calculate_matchup_differential(df: pd.DataFrame) -> pd.DataFrame:
             'economy_diff': lhb_row['economy'] - rhb_row['economy'],
             'dot_pct_diff': lhb_row['dot_pct'] - rhb_row['dot_pct'],
             'boundary_pct_diff': lhb_row['boundary_pct'] - rhb_row['boundary_pct'],
+            # Strike rate differential (lower SR = takes wickets more often)
+            # Negative = better vs LHB (lower SR means quicker wickets)
+            'strike_rate_diff': (lhb_row['strike_rate'] or 999) - (rhb_row['strike_rate'] or 999),
+            # Wickets per 100 balls differential
+            'wickets_per_100_lhb': (lhb_row['wickets'] * 100 / lhb_row['balls']) if lhb_row['balls'] > 0 else 0,
+            'wickets_per_100_rhb': (rhb_row['wickets'] * 100 / rhb_row['balls']) if rhb_row['balls'] > 0 else 0,
         })
 
     return pd.DataFrame(results)
 
 
-def assign_handedness_tags(df: pd.DataFrame, economy_threshold: float = 1.0) -> pd.DataFrame:
-    """Assign LHB/RHB matchup tags based on differential."""
+def assign_handedness_tags(df: pd.DataFrame, economy_threshold: float = 1.0, sr_threshold: float = 6.0) -> pd.DataFrame:
+    """Assign LHB/RHB matchup tags based on differential.
+
+    Args:
+        df: DataFrame with matchup differentials
+        economy_threshold: Min economy difference for specialist/vulnerable tags (default 1.0)
+        sr_threshold: Min strike rate difference for wicket-taker tags (default 6.0 balls)
+    """
 
     tags = []
 
@@ -138,6 +153,16 @@ def assign_handedness_tags(df: pd.DataFrame, economy_threshold: float = 1.0) -> 
             player_tags.append('LHB_VULNERABLE')
         elif eco_diff <= -economy_threshold:
             player_tags.append('RHB_VULNERABLE')
+
+        # Strike rate / wicket-taking tags (lower SR = takes wickets faster)
+        sr_diff = row['strike_rate_diff']
+        # Need at least 3 wickets vs that hand to qualify
+        if sr_diff <= -sr_threshold and row['lhb_wickets'] >= 3:
+            # Better SR vs LHB (takes wickets more frequently)
+            player_tags.append('LHB_WICKET_TAKER')
+        elif sr_diff >= sr_threshold and row['rhb_wickets'] >= 3:
+            # Better SR vs RHB
+            player_tags.append('RHB_WICKET_TAKER')
 
         # Add dot ball differential tags
         dot_diff = row['dot_pct_diff']
@@ -165,8 +190,13 @@ def print_analysis(df: pd.DataFrame):
     lhb_specialists = df[df['handedness_tags'].apply(lambda x: 'LHB_SPECIALIST' in x)]
     rhb_specialists = df[df['handedness_tags'].apply(lambda x: 'RHB_SPECIALIST' in x)]
 
+    lhb_wicket_takers = df[df['handedness_tags'].apply(lambda x: 'LHB_WICKET_TAKER' in x)]
+    rhb_wicket_takers = df[df['handedness_tags'].apply(lambda x: 'RHB_WICKET_TAKER' in x)]
+
     print(f"\n  LHB Specialists (economy ≥1.0 better vs lefties): {len(lhb_specialists)}")
     print(f"  RHB Specialists (economy ≥1.0 better vs righties): {len(rhb_specialists)}")
+    print(f"  LHB Wicket Takers (better SR vs lefties): {len(lhb_wicket_takers)}")
+    print(f"  RHB Wicket Takers (better SR vs righties): {len(rhb_wicket_takers)}")
 
     # Top LHB specialists
     print("\n  TOP LHB SPECIALISTS:")
@@ -210,7 +240,8 @@ def update_player_tags_json(matchup_df: pd.DataFrame):
             existing_tags = set(bowler.get('tags', []))
             new_tags = set(handedness_lookup[player_id])
             # Remove old handedness tags first
-            existing_tags -= {'LHB_SPECIALIST', 'RHB_SPECIALIST', 'LHB_VULNERABLE', 'RHB_VULNERABLE', 'LHB_PRESSURE', 'RHB_PRESSURE'}
+            existing_tags -= {'LHB_SPECIALIST', 'RHB_SPECIALIST', 'LHB_VULNERABLE', 'RHB_VULNERABLE',
+                            'LHB_PRESSURE', 'RHB_PRESSURE', 'LHB_WICKET_TAKER', 'RHB_WICKET_TAKER'}
             # Add new ones
             existing_tags.update(new_tags)
             bowler['tags'] = list(existing_tags)
@@ -235,7 +266,7 @@ def save_matchup_data(df: pd.DataFrame):
         'bowler_id', 'bowler_name',
         'lhb_balls', 'lhb_economy', 'lhb_strike_rate', 'lhb_wickets',
         'rhb_balls', 'rhb_economy', 'rhb_strike_rate', 'rhb_wickets',
-        'economy_diff', 'handedness_tags'
+        'economy_diff', 'strike_rate_diff', 'handedness_tags'
     ]].copy()
 
     # Convert tags list to string

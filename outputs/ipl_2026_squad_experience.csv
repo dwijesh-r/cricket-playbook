@@ -9,8 +9,8 @@ Chennai Super Kings,Ayush Mhatre,b2b4f545,Batter,Medium,,False,7.0,127.0,240.0,1
 Chennai Super Kings,Shreyas Gopal,7a8bd078,Bowler,Leg-spin,,False,22.0,169.0,180.0,106.51,51.0,991.0,52.0,8.22
 Chennai Super Kings,Rahul Chahar,2ed569a0,Bowler,Leg-spin,,False,22.0,124.0,129.0,104.03,78.0,1670.0,75.0,7.81
 Chennai Super Kings,Matthew Short,a90e53ec,All-rounder,Off-spin,,False,6.0,92.0,117.0,127.17,3.0,24.0,0.0,6.25
+Chennai Super Kings,Aman Khan,378daa89,All-rounder,Medium,,False,10.0,104.0,115.0,110.58,1.0,6.0,0.0,13.0
 Chennai Super Kings,Urvil Patel,cf59b3f0,Wicketkeeper,Medium,,False,3.0,32.0,68.0,212.5,0.0,0.0,0.0,0.0
-Chennai Super Kings,Aman Khan,eef2536f,All-rounder,Medium,,False,13.0,37.0,62.0,167.57,75.0,1619.0,87.0,9.25
 Chennai Super Kings,Noor Ahmad,efc04be7,Bowler,Left-arm wrist spin,,False,11.0,35.0,20.0,57.14,37.0,792.0,48.0,8.24
 Chennai Super Kings,Nathan Ellis,9eb1455b,Bowler,Fast,,False,5.0,25.0,19.0,76.0,17.0,378.0,19.0,8.78
 Chennai Super Kings,Akeal Hosein,4d7f517e,Bowler,Left-arm orthodox,,False,1.0,10.0,16.0,160.0,1.0,24.0,1.0,10.25
@@ -53,8 +53,8 @@ Gujarat Titans,Jos Buttler,99b75528,Wicketkeeper,Medium,,False,119.0,2747.0,4120
 Gujarat Titans,Shubman Gill,b4b99816,Batter,Off-spin,,False,114.0,2774.0,3866.0,139.37,0.0,0.0,0.0,0.0
 Gujarat Titans,Sai Sudharsan,d5130a30,Batter,Medium,,False,40.0,1221.0,1793.0,146.85,0.0,0.0,0.0,0.0
 Gujarat Titans,Rahul Tewatia,39a2dfa8,All-rounder,Leg-spin,,False,76.0,807.0,1112.0,137.79,52.0,843.0,32.0,7.95
+Gujarat Titans,Shahrukh Khan,7dcb9bc9,Batter,Off-spin,,False,48.0,491.0,732.0,149.08,3.0,18.0,1.0,9.67
 Gujarat Titans,Rashid Khan,5f547c8b,Bowler,Leg-spin,,False,66.0,359.0,585.0,162.95,136.0,3189.0,158.0,7.23
-Gujarat Titans,Shahrukh Khan,f088b960,Batter,Off-spin,,False,36.0,444.0,585.0,131.76,1.0,2.0,0.0,18.0
 Gujarat Titans,Washington Sundar,f19ccfad,All-rounder,Off-spin,,False,43.0,404.0,511.0,126.49,63.0,1119.0,39.0,7.76
 Gujarat Titans,Anuj Rawat,c8f5f961,Wicketkeeper,Medium,,False,21.0,267.0,318.0,119.1,0.0,0.0,0.0,0.0
 Gujarat Titans,Kagiso Rabada,e62dd25d,Bowler,Fast,,False,30.0,200.0,215.0,107.5,84.0,1904.0,119.0,8.85
@@ -196,6 +196,7 @@ Royal Challengers Bengaluru,Bhuvneshwar Kumar,2e81a32d,Bowler,Fast,,False,71.0,3
 Royal Challengers Bengaluru,Romario Shepherd,c5aef772,All-rounder,Fast,,False,12.0,85.0,185.0,217.65,15.0,210.0,10.0,11.89
 Royal Challengers Bengaluru,Jacob Bethell,3c55c703,All-rounder,Left-arm orthodox,,False,2.0,39.0,67.0,171.79,0.0,0.0,0.0,0.0
 Royal Challengers Bengaluru,Swapnil Singh,983f2f61,All-rounder,Left-arm orthodox,,False,9.0,45.0,51.0,113.33,14.0,162.0,7.0,8.93
+Royal Challengers Bengaluru,Rasikh Salam Dar,b8527c3d,Bowler,Fast,,False,6.0,40.0,40.0,100.0,13.0,231.0,10.0,10.7
 Royal Challengers Bengaluru,Josh Hazlewood,03806cf8,Bowler,Fast,,False,7.0,29.0,19.0,65.52,39.0,867.0,57.0,8.44
 Royal Challengers Bengaluru,Yash Dayal,7210d461,Bowler,Fast,,False,4.0,9.0,4.0,44.44,43.0,872.0,41.0,9.72
 Royal Challengers Bengaluru,Abhinandan Singh,uncapped_abhinandan_singh,Bowler,Fast,,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
@@ -203,7 +204,6 @@ Royal Challengers Bengaluru,Jacob Duffy,dadbdb68,Bowler,Fast,,False,0.0,0.0,0.0,
 Royal Challengers Bengaluru,Jordan Cox,ff154ecd,Wicketkeeper,Medium,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 Royal Challengers Bengaluru,Kanishk Chouhan,uncapped_kanishk_chouhan,Bowler,Leg-spin,,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 Royal Challengers Bengaluru,Mangesh Yadav,b1ad996b,Bowler,Fast,,False,0.0,0.0,0.0,0.0,6.0,121.0,9.0,9.32
-Royal Challengers Bengaluru,Rasikh Salam Dar,uncapped_rasikh_salam_dar,Bowler,Fast,,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 Royal Challengers Bengaluru,Satvik Deswal,,Bowler,Left-arm wrist spin,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 Royal Challengers Bengaluru,Suyash Sharma,9440ef41,Bowler,Leg-spin,,False,0.0,0.0,0.0,0.0,27.0,558.0,18.0,8.98
 Royal Challengers Bengaluru,Vicky Ostwal,uncapped_vicky_ostwal,Bowler,Left-arm orthodox,,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

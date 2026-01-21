@@ -1661,8 +1661,10 @@
       "economy": 8.09,
       "wickets": 221.0,
       "tags": [
+        "PROVEN_WICKET_TAKER",
+        "RHB_SPECIALIST",
         "MIDDLE_OVERS_CONTROLLER",
-        "PROVEN_WICKET_TAKER"
+        "LHB_VULNERABLE"
       ]
     },
     {
@@ -1671,10 +1673,11 @@
       "economy": 7.87,
       "wickets": 198.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
         "PP_ELITE",
-        "PRESSURE_BUILDER",
-        "PROVEN_WICKET_TAKER"
+        "RHB_PRESSURE",
+        "NEW_BALL_SPECIALIST",
+        "PROVEN_WICKET_TAKER",
+        "PRESSURE_BUILDER"
       ]
     },
     {
@@ -1706,10 +1709,11 @@
       "economy": 7.29,
       "wickets": 187.0,
       "tags": [
-        "MIDDLE_OVERS_CONTROLLER",
+        "LHB_PRESSURE",
+        "SPINNER",
         "MID_OVERS_ELITE",
-        "PROVEN_WICKET_TAKER",
-        "SPINNER"
+        "MIDDLE_OVERS_CONTROLLER",
+        "PROVEN_WICKET_TAKER"
       ]
     },
     {
@@ -1718,10 +1722,12 @@
       "economy": 7.43,
       "wickets": 183.0,
       "tags": [
+        "PROVEN_WICKET_TAKER",
+        "RHB_VULNERABLE",
         "DEATH_SPECIALIST",
+        "LHB_SPECIALIST",
         "DEATH_ELITE",
-        "PRESSURE_BUILDER",
-        "PROVEN_WICKET_TAKER"
+        "PRESSURE_BUILDER"
       ]
     },
     {
@@ -1766,8 +1772,10 @@
       "economy": 7.75,
       "wickets": 170.0,
       "tags": [
+        "PROVEN_WICKET_TAKER",
+        "RHB_SPECIALIST",
         "MIDDLE_OVERS_CONTROLLER",
-        "PROVEN_WICKET_TAKER"
+        "LHB_VULNERABLE"
       ]
     },
     {
@@ -1787,8 +1795,10 @@
       "economy": 9.03,
       "wickets": 151.0,
       "tags": [
+        "PROVEN_WICKET_TAKER",
         "WORKHORSE",
-        "PROVEN_WICKET_TAKER"
+        "RHB_SPECIALIST",
+        "LHB_VULNERABLE"
       ]
     },
     {
@@ -1797,9 +1807,10 @@
       "economy": 7.2,
       "wickets": 150.0,
       "tags": [
-        "MIDDLE_OVERS_CONTROLLER",
+        "PROVEN_WICKET_TAKER",
         "MID_OVERS_ELITE",
-        "PROVEN_WICKET_TAKER"
+        "MIDDLE_OVERS_CONTROLLER",
+        "LHB_PRESSURE"
       ]
     },
     {
@@ -1820,10 +1831,13 @@
       "economy": 8.71,
       "wickets": 144.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
         "PP_ELITE",
-        "PRESSURE_BUILDER",
+        "NEW_BALL_SPECIALIST",
+        "LHB_SPECIALIST",
+        "LHB_PRESSURE",
         "PROVEN_WICKET_TAKER",
+        "RHB_VULNERABLE",
+        "PRESSURE_BUILDER",
         "PACER"
       ]
     },
@@ -1846,6 +1860,8 @@
       "wickets": 134.0,
       "tags": [
         "WORKHORSE",
+        "RHB_SPECIALIST",
+        "LHB_VULNERABLE",
         "PROVEN_WICKET_TAKER",
         "PACER"
       ]
@@ -1868,9 +1884,12 @@
       "economy": 7.48,
       "wickets": 128.0,
       "tags": [
-        "MIDDLE_OVERS_CONTROLLER",
+        "RHB_SPECIALIST",
         "MID_OVERS_ELITE",
-        "PROVEN_WICKET_TAKER"
+        "MIDDLE_OVERS_CONTROLLER",
+        "LHB_VULNERABLE",
+        "PROVEN_WICKET_TAKER",
+        "RHB_PRESSURE"
       ]
     },
     {
@@ -1879,8 +1898,10 @@
       "economy": 9.66,
       "wickets": 123.0,
       "tags": [
-        "PART_TIMER",
+        "RHB_SPECIALIST",
+        "LHB_VULNERABLE",
         "PROVEN_WICKET_TAKER",
+        "PART_TIMER",
         "PACER"
       ]
     },
@@ -1890,9 +1911,10 @@
       "economy": 8.85,
       "wickets": 119.0,
       "tags": [
+        "PROVEN_WICKET_TAKER",
         "WORKHORSE",
-        "PRESSURE_BUILDER",
-        "PROVEN_WICKET_TAKER"
+        "RHB_PRESSURE",
+        "PRESSURE_BUILDER"
       ]
     },
     {
@@ -1901,8 +1923,9 @@
       "economy": 8.96,
       "wickets": 110.0,
       "tags": [
+        "PROVEN_WICKET_TAKER",
         "WORKHORSE",
-        "PROVEN_WICKET_TAKER"
+        "LHB_PRESSURE"
       ]
     },
     {
@@ -1932,12 +1955,15 @@
       "economy": 7.98,
       "wickets": 106.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
         "PP_ELITE",
-        "DEATH_ELITE",
-        "PRESSURE_BUILDER",
+        "RHB_SPECIALIST",
+        "NEW_BALL_SPECIALIST",
+        "PACER",
+        "RHB_PRESSURE",
+        "LHB_VULNERABLE",
         "PROVEN_WICKET_TAKER",
-        "PACER"
+        "DEATH_ELITE",
+        "PRESSURE_BUILDER"
       ]
     },
     {
@@ -1957,12 +1983,14 @@
       "economy": 7.8,
       "wickets": 102.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
         "PP_ELITE",
-        "DEATH_ELITE",
-        "PRESSURE_BUILDER",
+        "RHB_SPECIALIST",
+        "NEW_BALL_SPECIALIST",
+        "PACER",
+        "LHB_VULNERABLE",
         "PROVEN_WICKET_TAKER",
-        "PACER"
+        "DEATH_ELITE",
+        "PRESSURE_BUILDER"
       ]
     },
     {
@@ -2013,8 +2041,10 @@
       "economy": 8.59,
       "wickets": 96.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
         "PP_ELITE",
+        "NEW_BALL_SPECIALIST",
+        "LHB_VULNERABLE",
+        "RHB_SPECIALIST",
         "PRESSURE_BUILDER"
       ]
     },
@@ -2036,8 +2066,10 @@
       "economy": 7.57,
       "wickets": 93.0,
       "tags": [
+        "RHB_SPECIALIST",
+        "MID_OVERS_ELITE",
         "MIDDLE_OVERS_CONTROLLER",
-        "MID_OVERS_ELITE"
+        "LHB_VULNERABLE"
       ]
     },
     {
@@ -2048,6 +2080,7 @@
       "tags": [
         "WORKHORSE",
         "PP_ELITE",
+        "RHB_PRESSURE",
         "PRESSURE_BUILDER",
         "PACER"
       ]
@@ -2103,6 +2136,7 @@
       "economy": 8.21,
       "wickets": 88.0,
       "tags": [
+        "LHB_PRESSURE",
         "WORKHORSE",
         "PRESSURE_BUILDER"
       ]
@@ -2122,8 +2156,11 @@
       "economy": 8.44,
       "wickets": 86.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
         "PP_ELITE",
+        "RHB_PRESSURE",
+        "NEW_BALL_SPECIALIST",
+        "LHB_VULNERABLE",
+        "RHB_SPECIALIST",
         "PRESSURE_BUILDER",
         "PACER"
       ]
@@ -2144,7 +2181,9 @@
       "economy": 8.57,
       "wickets": 83.0,
       "tags": [
-        "WORKHORSE"
+        "RHB_SPECIALIST",
+        "WORKHORSE",
+        "LHB_VULNERABLE"
       ]
     },
     {
@@ -2153,9 +2192,11 @@
       "economy": 7.88,
       "wickets": 82.0,
       "tags": [
-        "MIDDLE_OVERS_CONTROLLER",
+        "SPINNER",
         "MID_OVERS_ELITE",
-        "SPINNER"
+        "MIDDLE_OVERS_CONTROLLER",
+        "LHB_VULNERABLE",
+        "RHB_SPECIALIST"
       ]
     },
     {
@@ -2247,6 +2288,7 @@
       "economy": 8.31,
       "wickets": 72.0,
       "tags": [
+        "LHB_PRESSURE",
         "WORKHORSE"
       ]
     },
@@ -2256,8 +2298,9 @@
       "economy": 8.66,
       "wickets": 71.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
+        "LHB_PRESSURE",
         "PP_ELITE",
+        "NEW_BALL_SPECIALIST",
         "PRESSURE_BUILDER",
         "PACER"
       ]
@@ -2291,7 +2334,9 @@
       "economy": 8.87,
       "wickets": 69.0,
       "tags": [
+        "RHB_SPECIALIST",
         "WORKHORSE",
+        "LHB_VULNERABLE",
         "PACER"
       ]
     },
@@ -2354,8 +2399,10 @@
       "wickets": 63.0,
       "tags": [
         "WORKHORSE",
+        "SPINNER",
         "MID_OVERS_ELITE",
-        "SPINNER"
+        "LHB_VULNERABLE",
+        "RHB_SPECIALIST"
       ]
     },
     {
@@ -2387,7 +2434,9 @@
       "economy": 9.31,
       "wickets": 61.0,
       "tags": [
-        "WORKHORSE"
+        "RHB_SPECIALIST",
+        "WORKHORSE",
+        "LHB_VULNERABLE"
       ]
     },
     {
@@ -2396,7 +2445,10 @@
       "economy": 9.86,
       "wickets": 59.0,
       "tags": [
-        "PART_TIMER"
+        "LHB_PRESSURE",
+        "RHB_VULNERABLE",
+        "PART_TIMER",
+        "LHB_SPECIALIST"
       ]
     },
     {
@@ -2405,7 +2457,9 @@
       "economy": 8.93,
       "wickets": 59.0,
       "tags": [
+        "RHB_SPECIALIST",
         "WORKHORSE",
+        "LHB_VULNERABLE",
         "PACER"
       ]
     },
@@ -2437,8 +2491,10 @@
       "economy": 8.44,
       "wickets": 57.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
         "PP_ELITE",
+        "NEW_BALL_SPECIALIST",
+        "LHB_VULNERABLE",
+        "RHB_SPECIALIST",
         "PRESSURE_BUILDER"
       ]
     },
@@ -2469,7 +2525,10 @@
       "economy": 8.22,
       "wickets": 52.0,
       "tags": [
-        "WORKHORSE"
+        "LHB_PRESSURE",
+        "WORKHORSE",
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST"
       ]
     },
     {
@@ -2496,8 +2555,11 @@
       "economy": 7.88,
       "wickets": 48.0,
       "tags": [
+        "LHB_PRESSURE",
         "WORKHORSE",
         "PP_ELITE",
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST",
         "PRESSURE_BUILDER",
         "PACER"
       ]
@@ -2508,6 +2570,7 @@
       "economy": 8.24,
       "wickets": 48.0,
       "tags": [
+        "LHB_PRESSURE",
         "WORKHORSE"
       ]
     },
@@ -2528,6 +2591,7 @@
       "economy": 8.95,
       "wickets": 47.0,
       "tags": [
+        "LHB_PRESSURE",
         "DEATH_SPECIALIST"
       ]
     },
@@ -2557,7 +2621,10 @@
       "economy": 8.53,
       "wickets": 46.0,
       "tags": [
-        "WORKHORSE"
+        "RHB_SPECIALIST",
+        "WORKHORSE",
+        "LHB_VULNERABLE",
+        "RHB_PRESSURE"
       ]
     },
     {
@@ -2590,8 +2657,9 @@
       "economy": 8.34,
       "wickets": 45.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
+        "LHB_PRESSURE",
         "PP_ELITE",
+        "NEW_BALL_SPECIALIST",
         "PRESSURE_BUILDER",
         "PACER"
       ]
@@ -2602,7 +2670,9 @@
       "economy": 9.98,
       "wickets": 44.0,
       "tags": [
-        "PART_TIMER"
+        "RHB_SPECIALIST",
+        "PART_TIMER",
+        "LHB_VULNERABLE"
       ]
     },
     {
@@ -2632,6 +2702,8 @@
       "economy": 8.8,
       "wickets": 42.0,
       "tags": [
+        "RHB_SPECIALIST",
+        "LHB_VULNERABLE",
         "DEATH_SPECIALIST",
         "PACER"
       ]
@@ -2642,7 +2714,9 @@
       "economy": 8.22,
       "wickets": 42.0,
       "tags": [
+        "RHB_VULNERABLE",
         "MIDDLE_OVERS_CONTROLLER",
+        "LHB_SPECIALIST",
         "PACER"
       ]
     },
@@ -2662,9 +2736,12 @@
       "economy": 7.28,
       "wickets": 41.0,
       "tags": [
-        "MIDDLE_OVERS_CONTROLLER",
+        "LHB_PRESSURE",
+        "SPINNER",
         "MID_OVERS_ELITE",
-        "SPINNER"
+        "MIDDLE_OVERS_CONTROLLER",
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST"
       ]
     },
     {
@@ -2693,6 +2770,7 @@
       "economy": 9.68,
       "wickets": 40.0,
       "tags": [
+        "LHB_PRESSURE",
         "PART_TIMER",
         "PRESSURE_BUILDER"
       ]
@@ -2780,7 +2858,10 @@
       "economy": 8.6,
       "wickets": 37.0,
       "tags": [
-        "WORKHORSE"
+        "LHB_PRESSURE",
+        "WORKHORSE",
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST"
       ]
     },
     {
@@ -2830,7 +2911,10 @@
       "economy": 9.66,
       "wickets": 36.0,
       "tags": [
-        "PART_TIMER"
+        "LHB_PRESSURE",
+        "RHB_VULNERABLE",
+        "PART_TIMER",
+        "LHB_SPECIALIST"
       ]
     },
     {
@@ -2849,7 +2933,8 @@
       "economy": 10.55,
       "wickets": 36.0,
       "tags": [
-        "PART_TIMER"
+        "PART_TIMER",
+        "RHB_PRESSURE"
       ]
     },
     {
@@ -2868,8 +2953,9 @@
       "economy": 8.15,
       "wickets": 35.0,
       "tags": [
-        "MIDDLE_OVERS_CONTROLLER",
-        "SPINNER"
+        "LHB_PRESSURE",
+        "SPINNER",
+        "MIDDLE_OVERS_CONTROLLER"
       ]
     },
     {
@@ -2922,7 +3008,9 @@
       "economy": 8.91,
       "wickets": 32.0,
       "tags": [
-        "WORKHORSE"
+        "RHB_SPECIALIST",
+        "WORKHORSE",
+        "LHB_VULNERABLE"
       ]
     },
     {
@@ -2931,8 +3019,9 @@
       "economy": 8.43,
       "wickets": 31.0,
       "tags": [
+        "SPINNER",
         "MIDDLE_OVERS_CONTROLLER",
-        "SPINNER"
+        "RHB_PRESSURE"
       ]
     },
     {
@@ -2963,6 +3052,8 @@
       "wickets": 30.0,
       "tags": [
         "WORKHORSE",
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST",
         "PRESSURE_BUILDER"
       ]
     },
@@ -2972,7 +3063,9 @@
       "economy": 9.19,
       "wickets": 30.0,
       "tags": [
+        "RHB_SPECIALIST",
         "WORKHORSE",
+        "LHB_VULNERABLE",
         "PACER"
       ]
     },
@@ -2982,7 +3075,10 @@
       "economy": 9.88,
       "wickets": 30.0,
       "tags": [
+        "LHB_PRESSURE",
+        "RHB_VULNERABLE",
         "PART_TIMER",
+        "LHB_SPECIALIST",
         "PACER"
       ]
     },
@@ -2992,7 +3088,10 @@
       "economy": 9.53,
       "wickets": 29.0,
       "tags": [
+        "LHB_PRESSURE",
+        "RHB_VULNERABLE",
         "PART_TIMER",
+        "LHB_SPECIALIST",
         "PRESSURE_BUILDER"
       ]
     },
@@ -3024,6 +3123,9 @@
       "tags": [
         "WORKHORSE",
         "PP_ELITE",
+        "RHB_PRESSURE",
+        "LHB_VULNERABLE",
+        "RHB_SPECIALIST",
         "PRESSURE_BUILDER"
       ]
     },
@@ -3068,6 +3170,7 @@
       "economy": 8.91,
       "wickets": 28.0,
       "tags": [
+        "LHB_PRESSURE",
         "WORKHORSE",
         "PACER"
       ]
@@ -3165,9 +3268,10 @@
       "economy": 7.53,
       "wickets": 25.0,
       "tags": [
-        "MIDDLE_OVERS_CONTROLLER",
+        "SPINNER",
         "MID_OVERS_ELITE",
-        "SPINNER"
+        "MIDDLE_OVERS_CONTROLLER",
+        "RHB_PRESSURE"
       ]
     },
     {
@@ -3205,8 +3309,11 @@
       "economy": 7.4,
       "wickets": 25.0,
       "tags": [
+        "MID_OVERS_ELITE",
         "MIDDLE_OVERS_CONTROLLER",
-        "MID_OVERS_ELITE"
+        "LHB_VULNERABLE",
+        "RHB_SPECIALIST",
+        "RHB_PRESSURE"
       ]
     },
     {
@@ -3215,7 +3322,9 @@
       "economy": 9.55,
       "wickets": 24.0,
       "tags": [
+        "RHB_VULNERABLE",
         "PART_TIMER",
+        "LHB_SPECIALIST",
         "PACER"
       ]
     },
@@ -3246,7 +3355,10 @@
       "economy": 10.19,
       "wickets": 23.0,
       "tags": [
+        "LHB_PRESSURE",
+        "RHB_VULNERABLE",
         "PART_TIMER",
+        "LHB_SPECIALIST",
         "PACER"
       ]
     },
@@ -3257,6 +3369,9 @@
       "wickets": 23.0,
       "tags": [
         "WORKHORSE",
+        "RHB_PRESSURE",
+        "LHB_VULNERABLE",
+        "RHB_SPECIALIST",
         "PRESSURE_BUILDER",
         "PACER"
       ]
@@ -3290,8 +3405,9 @@
       "economy": 9.72,
       "wickets": 22.0,
       "tags": [
+        "SPINNER",
         "PART_TIMER",
-        "SPINNER"
+        "RHB_PRESSURE"
       ]
     },
     {
@@ -3312,6 +3428,9 @@
       "economy": 9.93,
       "wickets": 22.0,
       "tags": [
+        "RHB_PRESSURE",
+        "LHB_VULNERABLE",
+        "RHB_SPECIALIST",
         "PART_TIMER",
         "PACER"
       ]
@@ -3345,7 +3464,9 @@
       "economy": 9.77,
       "wickets": 21.0,
       "tags": [
+        "RHB_VULNERABLE",
         "PART_TIMER",
+        "LHB_SPECIALIST",
         "PACER"
       ]
     },
@@ -3367,7 +3488,9 @@
       "wickets": 21.0,
       "tags": [
         "WORKHORSE",
-        "SPINNER"
+        "SPINNER",
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST"
       ]
     },
     {
@@ -3378,6 +3501,9 @@
       "tags": [
         "WORKHORSE",
         "PP_ELITE",
+        "RHB_PRESSURE",
+        "LHB_VULNERABLE",
+        "RHB_SPECIALIST",
         "PACER"
       ]
     },
@@ -3387,8 +3513,11 @@
       "economy": 8.42,
       "wickets": 20.0,
       "tags": [
+        "LHB_PRESSURE",
         "WORKHORSE",
-        "SPINNER"
+        "SPINNER",
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST"
       ]
     },
     {
@@ -3429,7 +3558,10 @@
       "economy": 8.78,
       "wickets": 19.0,
       "tags": [
-        "WORKHORSE"
+        "LHB_PRESSURE",
+        "WORKHORSE",
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST"
       ]
     },
     {
@@ -3438,6 +3570,8 @@
       "economy": 9.6,
       "wickets": 19.0,
       "tags": [
+        "RHB_SPECIALIST",
+        "LHB_VULNERABLE",
         "PART_TIMER",
         "PACER"
       ]
@@ -3573,6 +3707,9 @@
       "economy": 9.96,
       "wickets": 17.0,
       "tags": [
+        "RHB_PRESSURE",
+        "LHB_VULNERABLE",
+        "RHB_SPECIALIST",
         "PART_TIMER",
         "PRESSURE_BUILDER"
       ]
@@ -3615,9 +3752,12 @@
       "economy": 7.58,
       "wickets": 15.0,
       "tags": [
+        "LHB_PRESSURE",
         "WORKHORSE",
         "PP_ELITE",
-        "SPINNER"
+        "SPINNER",
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST"
       ]
     },
     {
@@ -3636,7 +3776,9 @@
       "economy": 10.24,
       "wickets": 15.0,
       "tags": [
-        "PART_TIMER"
+        "RHB_SPECIALIST",
+        "PART_TIMER",
+        "LHB_VULNERABLE"
       ]
     },
     {
@@ -3698,8 +3840,11 @@
       "economy": 8.8,
       "wickets": 14.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
+        "LHB_PRESSURE",
         "PP_ELITE",
+        "NEW_BALL_SPECIALIST",
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST",
         "PRESSURE_BUILDER",
         "PACER"
       ]
@@ -3732,6 +3877,7 @@
       "economy": 8.37,
       "wickets": 14.0,
       "tags": [
+        "LHB_PRESSURE",
         "WORKHORSE"
       ]
     },
@@ -4078,6 +4224,7 @@
       "economy": 8.96,
       "wickets": 10.0,
       "tags": [
+        "LHB_PRESSURE",
         "WORKHORSE",
         "SPINNER"
       ]
@@ -4098,7 +4245,10 @@
       "economy": 11.96,
       "wickets": 10.0,
       "tags": [
-        "PART_TIMER"
+        "LHB_PRESSURE",
+        "RHB_VULNERABLE",
+        "PART_TIMER",
+        "LHB_SPECIALIST"
       ]
     },
     {
@@ -4199,6 +4349,7 @@
       "economy": 9.54,
       "wickets": 9.0,
       "tags": [
+        "LHB_PRESSURE",
         "PART_TIMER"
       ]
     },
@@ -4230,6 +4381,8 @@
       "wickets": 9.0,
       "tags": [
         "WORKHORSE",
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST",
         "PACER"
       ]
     },
@@ -4348,7 +4501,9 @@
       "economy": 9.72,
       "wickets": 7.0,
       "tags": [
-        "PART_TIMER"
+        "RHB_SPECIALIST",
+        "PART_TIMER",
+        "LHB_VULNERABLE"
       ]
     },
     {
@@ -4385,6 +4540,9 @@
       "economy": 10.39,
       "wickets": 6.0,
       "tags": [
+        "RHB_PRESSURE",
+        "LHB_VULNERABLE",
+        "RHB_SPECIALIST",
         "PART_TIMER",
         "PACER"
       ]
@@ -4405,8 +4563,11 @@
       "economy": 7.69,
       "wickets": 6.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
+        "LHB_PRESSURE",
         "PP_ELITE",
+        "NEW_BALL_SPECIALIST",
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST",
         "PACER"
       ]
     },
@@ -4449,9 +4610,12 @@
       "economy": 9.41,
       "wickets": 5.0,
       "tags": [
+        "LHB_PRESSURE",
         "WORKHORSE",
-        "PRESSURE_BUILDER",
-        "SPINNER"
+        "SPINNER",
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST",
+        "PRESSURE_BUILDER"
       ]
     },
     {

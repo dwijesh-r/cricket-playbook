@@ -79,20 +79,37 @@
 | Regenerate experience CSV (234 players) | Stephen Curry | DONE |
 | Founder re-validation | Founder | **PENDING** |
 
+### v2.5 - Clustering V2 & LHB/RHB Matchups (2026-01-21)
+| Task | Owner | Sign-off |
+|------|-------|----------|
+| Clustering V2: Batting position feature | Stephen Curry | DONE |
+| Clustering V2: Wickets per phase for bowlers | Stephen Curry | DONE |
+| Clustering V2: Recency weighting (2021-2025) | Stephen Curry | DONE |
+| Clustering V2: PCA variance analysis (83.6% batters, 63.8% bowlers) | Stephen Curry | DONE |
+| Clustering V2: Correlation cleanup | Stephen Curry | DONE |
+| Ime Udoka agent file | Brock Purdy | DONE |
+| ML Ops: Model registry | Ime Udoka | DONE |
+| ML Ops: Deployment manifest | Ime Udoka | DONE |
+| Brad Stevens: Agent & requirements review | Brad Stevens | DONE |
+| Bowler vs LHB/RHB matchup analysis | Stephen Curry | DONE |
+| LHB/RHB matchup tags (140 bowlers analyzed) | Stephen Curry | DONE |
+| V2 Cluster labels validation | Andy Flower | **PENDING** |
+
 ---
 
-## IN PROGRESS - Awaiting Founder Validation
+## IN PROGRESS
 
 | Task | Owner | Status |
 |------|-------|--------|
-| Founder Review #1 validation | Founder | Ready for review |
+| Founder Review #1 data validation | Founder | Deferred |
+| Andy Flower V2 cluster labels review | Andy Flower | Pending |
 
-### Sprint 2.4 Summary
-- **13 uncapped players** marked with zeroed stats
-- **24 bowling types** corrected
-- **2 dual-type bowlers** supported (Livingstone, Mendis)
-- **RCB squad** fixed (4 players added/replaced)
-- **234 total players** in regenerated CSV
+### Sprint 2.5 Summary
+- **Clustering V2**: Batting position + wickets per phase + recency weighting
+- **PCA Variance**: Batters 83.6%, Bowlers 63.8% (exceeds 50% target)
+- **LHB/RHB Matchups**: 140 bowlers analyzed, 26 LHB specialists, 34 RHB specialists
+- **ML Ops**: Model registry + deployment manifest created
+- **New Agent**: Ime Udoka (ML Ops Engineer)
 
 ---
 

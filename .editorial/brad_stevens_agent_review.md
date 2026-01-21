@@ -42,27 +42,26 @@ This review assesses the current agent team structure, identifies capability gap
 
 ### Identified Gaps
 
-#### 1. **No Dedicated Visualization Agent**
-- **Gap:** No agent focused on data visualization, charts, and presentation
-- **Impact:** Stat packs are text-heavy; no graphical outputs
-- **Recommendation:** Add visualization specialist
+#### 1. **Visualization Agent** - AVAILABLE
+- **Agent:** Kevin de Bruyne (Visualization Editor)
+- **Status:** Active in roster
+- **Capabilities:** Data visualization, charts, graphical outputs
 
-#### 2. **No Frontend/UI Agent**
-- **Gap:** Dashboard UI is in "Future" backlog with no owner (TBD)
-- **Impact:** No interactive interface for end users
-- **Recommendation:** Add UI/UX agent when ready for dashboard
+#### 2. **Editorial/Content Agent** - AVAILABLE
+- **Agent:** Virat Kohli (Editorial Agent)
+- **Status:** Active in roster
+- **Capabilities:** Broadcast-ready content, editorial polish
 
-#### 3. **No ML Ops / Model Deployment Agent**
-- **Gap:** Clustering models run ad-hoc; no model versioning or deployment pipeline
-- **Impact:** Models not production-ready
-- **Recommendation:** Add ML Ops capability to Brock Purdy or new agent
+#### 3. **ML Ops / Model Deployment Agent** - ADDED
+- **Agent:** Ime Udoka (ML Ops Engineer)
+- **Status:** Added in Sprint 2.5
+- **Capabilities:** Model versioning, deployment, monitoring
 
-#### 4. **No Editorial/Content Agent**
-- **Gap:** Stat packs need editorial polish for broadcast use
-- **Impact:** Raw analytics output may need human editing
-- **Recommendation:** Add content editor agent for broadcast-ready outputs
+#### 4. **Frontend/UI Agent** - NOT NEEDED NOW
+- **Status:** Deferred - Dashboard UI in "Future" backlog
+- **Decision:** Will add when ready for dashboard development
 
-#### 5. **No Real-Time Data Agent**
+#### 5. **Real-Time Data Agent** - FUTURE
 - **Gap:** All data is historical batch processing
 - **Impact:** Cannot provide live match analytics
 - **Recommendation:** Future consideration for live data feeds
@@ -136,13 +135,19 @@ This review assesses the current agent team structure, identifies capability gap
 
 ## Part 5: Agent Enhancement Proposals
 
-### Proposed New Agents
+### Current Agent Roster (Updated)
 
-| Agent Name | Role | Justification |
-|------------|------|---------------|
-| **Klay Thompson** | Visualization Specialist | Charts, graphs, visual stat representations |
-| **Pat Riley** | Editorial Director | Broadcast-ready content, narrative insights |
-| **Ime Udoka** | ML Ops Engineer | Model versioning, deployment, monitoring |
+| Agent Name | Role | Status |
+|------------|------|--------|
+| **Tom Brady** | Product Owner | Active |
+| **Andy Flower** | Cricket Domain Expert | Active |
+| **Stephen Curry** | Analytics Lead | Active |
+| **Brock Purdy** | Data Pipeline | Active |
+| **N'Golo Kanté** | QA Engineer | Active |
+| **Kevin de Bruyne** | Visualization Editor | Active |
+| **Virat Kohli** | Editorial Agent | Active |
+| **Brad Stevens** | Requirements & Architecture | Active |
+| **Ime Udoka** | ML Ops Engineer | Added Sprint 2.5 |
 
 ### Agent Skill Upgrades
 

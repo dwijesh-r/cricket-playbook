@@ -66,25 +66,56 @@
 | player_tags.json export | Stephen Curry | Tom Brady |
 | Squad CSV with tags (69 batters, 86 bowlers) | Stephen Curry | Tom Brady |
 
+### v2.4 - Founder Review #1 Fixes (2026-01-21)
+| Task | Owner | Sign-off |
+|------|-------|----------|
+| Schema: is_ipl_uncapped flag | Brock Purdy | DONE |
+| Schema: bowling_type_secondary column | Brock Purdy | DONE |
+| Fix 13 player ID mismatches (uncapped) | Brock Purdy | DONE |
+| Correct 24 bowling type classifications | Andy Flower | DONE |
+| RCB squad: Replace Raqibul with Rasikh | Andy Flower | DONE |
+| RCB squad: Add Vicky Ostwal, Vihaan Malhotra, Kanishk Chouhan | Andy Flower | DONE |
+| Dual-type support (Livingstone, Mendis) | Brock Purdy | DONE |
+| Regenerate experience CSV (234 players) | Stephen Curry | DONE |
+| Founder re-validation | Founder | **PENDING** |
+
 ---
 
-## IN PROGRESS
+## IN PROGRESS - Awaiting Founder Validation
 
 | Task | Owner | Status |
 |------|-------|--------|
-| Bowler vs LHB/RHB matchup tags | Stephen Curry | In development |
+| Founder Review #1 validation | Founder | Ready for review |
+
+### Sprint 2.4 Summary
+- **13 uncapped players** marked with zeroed stats
+- **24 bowling types** corrected
+- **2 dual-type bowlers** supported (Livingstone, Mendis)
+- **RCB squad** fixed (4 players added/replaced)
+- **234 total players** in regenerated CSV
 
 ---
 
 ## BACKLOG
 
-### High Priority (v2.4)
+### Sprint 2.5 - Clustering V2 (After Data Fixes)
+| Task | Owner | Description |
+|------|-------|-------------|
+| Add batting position feature | Stephen Curry | avg_entry_point for batters |
+| Add wickets/SR per phase for bowlers | Stephen Curry | Wicket-taking vs containing analysis |
+| Implement recency weighting (2021-2025) | Stephen Curry | 2x weight for recent seasons |
+| PCA variance analysis (target 50%) | Stephen Curry | Variance explanation reporting |
+| Feature correlation cleanup | Stephen Curry | Remove r > 0.9 features |
+| Validate player classifications | Andy Flower | Dhoni, Buttler, Nortje, etc. |
+
+### Previously Planned (v2.4 - Deferred)
 | Task | Owner | Description |
 |------|-------|-------------|
 | Integrate tags into stat packs | Stephen Curry | Add archetype + tags to player tables |
 | Squad balance analysis | Andy Flower | Team composition by archetype/tags |
 | Venue normalization | Brock Purdy | "Arun Jaitley" vs "Feroz Shah Kotla" |
 | Recent form weighting | Stephen Curry | 2024/2025 season emphasis |
+| Bowler vs LHB/RHB matchup tags | Stephen Curry | Handedness matchup analysis |
 
 ### Medium Priority (v2.5)
 | Task | Owner | Description |

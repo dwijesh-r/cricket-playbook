@@ -1,0 +1,4514 @@
+{
+  "batters": [
+    {
+      "player_name": "V Kohli",
+      "player_id": "ba607b88",
+      "overall_sr": 133.23,
+      "tags": [
+        "MIDDLE_ORDER",
+        "DEATH_SPECIALIST",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "RG Sharma",
+      "player_id": "740742ef",
+      "overall_sr": 132.57,
+      "tags": [
+        "MIDDLE_ORDER",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER"
+      ]
+    },
+    {
+      "player_name": "S Dhawan",
+      "player_id": "0a476045",
+      "overall_sr": 127.67,
+      "tags": [
+        "ANCHOR",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "DA Warner",
+      "player_id": "dcce6f09",
+      "overall_sr": 140.37,
+      "tags": [
+        "PLAYMAKER",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "SK Raina",
+      "player_id": "1dc12ab9",
+      "overall_sr": 137.44,
+      "tags": [
+        "MIDDLE_ORDER"
+      ]
+    },
+    {
+      "player_name": "AM Rahane",
+      "player_id": "29e95537",
+      "overall_sr": 125.14,
+      "tags": [
+        "ANCHOR"
+      ]
+    },
+    {
+      "player_name": "MS Dhoni",
+      "player_id": "4a8a2e3b",
+      "overall_sr": 138.22,
+      "tags": [
+        "FINISHER",
+        "CONSISTENT",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "KL Rahul",
+      "player_id": "b17e2f24",
+      "overall_sr": 136.42,
+      "tags": [
+        "PLAYMAKER",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "RV Uthappa",
+      "player_id": "1c17e270",
+      "overall_sr": 130.94,
+      "tags": [
+        "PLAYMAKER"
+      ]
+    },
+    {
+      "player_name": "KD Karthik",
+      "player_id": "c03f1114",
+      "overall_sr": 135.74,
+      "tags": [
+        "FINISHER",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "F du Plessis",
+      "player_id": "3355b542",
+      "overall_sr": 136.14,
+      "tags": [
+        "PLAYMAKER",
+        "DEATH_SPECIALIST",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "G Gambhir",
+      "player_id": "bb345e0b",
+      "overall_sr": 124.25,
+      "tags": [
+        "ANCHOR"
+      ]
+    },
+    {
+      "player_name": "AB de Villiers",
+      "player_id": "c4487b84",
+      "overall_sr": 152.18,
+      "tags": [
+        "MIDDLE_ORDER",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "CONSISTENT",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "AT Rayudu",
+      "player_id": "70d205c9",
+      "overall_sr": 128.22,
+      "tags": [
+        "MIDDLE_ORDER"
+      ]
+    },
+    {
+      "player_name": "SV Samson",
+      "player_id": "a4cc73aa",
+      "overall_sr": 139.67,
+      "tags": [
+        "MIDDLE_ORDER",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER"
+      ]
+    },
+    {
+      "player_name": "CH Gayle",
+      "player_id": "db584dad",
+      "overall_sr": 149.64,
+      "tags": [
+        "EXPLOSIVE_OPENER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "CONSISTENT",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "MK Pandey",
+      "player_id": "93b4fc78",
+      "overall_sr": 121.85,
+      "tags": [
+        "MIDDLE_ORDER"
+      ]
+    },
+    {
+      "player_name": "SA Yadav",
+      "player_id": "271f83cd",
+      "overall_sr": 149.27,
+      "tags": [
+        "MIDDLE_ORDER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "CONSISTENT",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "SR Watson",
+      "player_id": "4329fbb5",
+      "overall_sr": 138.51,
+      "tags": [
+        "PLAYMAKER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER"
+      ]
+    },
+    {
+      "player_name": "SS Iyer",
+      "player_id": "85ec8e33",
+      "overall_sr": 133.73,
+      "tags": [
+        "MIDDLE_ORDER",
+        "DEATH_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "Shubman Gill",
+      "player_id": "b4b99816",
+      "overall_sr": 139.37,
+      "tags": [
+        "PLAYMAKER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "JC Buttler",
+      "player_id": "99b75528",
+      "overall_sr": 149.98,
+      "tags": [
+        "EXPLOSIVE_OPENER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "RA Jadeja",
+      "player_id": "fe93fd9d",
+      "overall_sr": 130.98,
+      "tags": [
+        "ACCUMULATOR",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "Q de Kock",
+      "player_id": "372455c4",
+      "overall_sr": 134.4,
+      "tags": [
+        "PLAYMAKER",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER"
+      ]
+    },
+    {
+      "player_name": "RR Pant",
+      "player_id": "919a3be2",
+      "overall_sr": 148.17,
+      "tags": [
+        "MIDDLE_ORDER",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER"
+      ]
+    },
+    {
+      "player_name": "PA Patel",
+      "player_id": "b5da6c24",
+      "overall_sr": 121.19,
+      "tags": [
+        "ANCHOR"
+      ]
+    },
+    {
+      "player_name": "KA Pollard",
+      "player_id": "a757b0d8",
+      "overall_sr": 148.22,
+      "tags": [
+        "FINISHER"
+      ]
+    },
+    {
+      "player_name": "WP Saha",
+      "player_id": "fe11caa6",
+      "overall_sr": 127.79,
+      "tags": [
+        "ANCHOR",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "YK Pathan",
+      "player_id": "3c6ffae8",
+      "overall_sr": 143.74,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "JH Kallis",
+      "player_id": "86dc8f2e",
+      "overall_sr": 109.67,
+      "tags": [
+        "ANCHOR"
+      ]
+    },
+    {
+      "player_name": "DA Miller",
+      "player_id": "d67d5f00",
+      "overall_sr": 139.1,
+      "tags": [
+        "FINISHER",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "BB McCullum",
+      "player_id": "b8a55852",
+      "overall_sr": 132.6,
+      "tags": [
+        "PLAYMAKER",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "Ishan Kishan",
+      "player_id": "752f7486",
+      "overall_sr": 138.09,
+      "tags": [
+        "PLAYMAKER",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER"
+      ]
+    },
+    {
+      "player_name": "M Vijay",
+      "player_id": "4b57e452",
+      "overall_sr": 121.93,
+      "tags": [
+        "ANCHOR"
+      ]
+    },
+    {
+      "player_name": "Yuvraj Singh",
+      "player_id": "1c914163",
+      "overall_sr": 130.15,
+      "tags": [
+        "MIDDLE_ORDER",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "N Rana",
+      "player_id": "fb2d1dda",
+      "overall_sr": 137.16,
+      "tags": [
+        "MIDDLE_ORDER",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER"
+      ]
+    },
+    {
+      "player_name": "MA Agarwal",
+      "player_id": "00ea847a",
+      "overall_sr": 134.31,
+      "tags": [
+        "PLAYMAKER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER"
+      ]
+    },
+    {
+      "player_name": "SR Tendulkar",
+      "player_id": "d2c2b2d5",
+      "overall_sr": 120.25,
+      "tags": [
+        "ANCHOR"
+      ]
+    },
+    {
+      "player_name": "SPD Smith",
+      "player_id": "30a45b23",
+      "overall_sr": 128.96,
+      "tags": [
+        "MIDDLE_ORDER",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "R Dravid",
+      "player_id": "0184dc35",
+      "overall_sr": 115.76,
+      "tags": [
+        "ANCHOR",
+        "SIX_HITTER"
+      ]
+    },
+    {
+      "player_name": "SE Marsh",
+      "player_id": "508a1ea7",
+      "overall_sr": 133.03,
+      "tags": [
+        "MIDDLE_ORDER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "CONSISTENT",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "HH Pandya",
+      "player_id": "dbe50b21",
+      "overall_sr": 147.64,
+      "tags": [
+        "FINISHER"
+      ]
+    },
+    {
+      "player_name": "RD Gaikwad",
+      "player_id": "45a43fe2",
+      "overall_sr": 138.16,
+      "tags": [
+        "PLAYMAKER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "GJ Maxwell",
+      "player_id": "b681e71e",
+      "overall_sr": 155.83,
+      "tags": [
+        "MIDDLE_ORDER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "SIX_HITTER"
+      ]
+    },
+    {
+      "player_name": "DR Smith",
+      "player_id": "35205dfc",
+      "overall_sr": 135.9,
+      "tags": [
+        "PLAYMAKER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "V Sehwag",
+      "player_id": "8ba8195d",
+      "overall_sr": 156.78,
+      "tags": [
+        "EXPLOSIVE_OPENER",
+        "PP_DOMINATOR",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "KS Williamson",
+      "player_id": "d027ba9f",
+      "overall_sr": 125.99,
+      "tags": [
+        "MIDDLE_ORDER",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "RA Tripathi",
+      "player_id": "77255a9e",
+      "overall_sr": 138.43,
+      "tags": [
+        "PLAYMAKER"
+      ]
+    },
+    {
+      "player_name": "JP Duminy",
+      "player_id": "2e8994e7",
+      "overall_sr": 124.4,
+      "tags": [
+        "FINISHER",
+        "CONSISTENT",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "AJ Finch",
+      "player_id": "b8d490fd",
+      "overall_sr": 128.84,
+      "tags": [
+        "ANCHOR",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "MEK Hussey",
+      "player_id": "48fd7349",
+      "overall_sr": 122.8,
+      "tags": [
+        "ANCHOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "AD Russell",
+      "player_id": "bbd41817",
+      "overall_sr": 176.03,
+      "tags": [
+        "FINISHER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "AC Gilchrist",
+      "player_id": "2b6e6dec",
+      "overall_sr": 139.51,
+      "tags": [
+        "PLAYMAKER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "DPMD Jayawardene",
+      "player_id": "d18f9182",
+      "overall_sr": 123.42,
+      "tags": [
+        "MIDDLE_ORDER"
+      ]
+    },
+    {
+      "player_name": "MK Tiwary",
+      "player_id": "26e5cabf",
+      "overall_sr": 117.38,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "AR Patel",
+      "player_id": "2e171977",
+      "overall_sr": 134.36,
+      "tags": [
+        "ACCUMULATOR",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "D Padikkal",
+      "player_id": "2c25d4f5",
+      "overall_sr": 126.74,
+      "tags": [
+        "ANCHOR"
+      ]
+    },
+    {
+      "player_name": "YBK Jaiswal",
+      "player_id": "6c19c6e5",
+      "overall_sr": 153.4,
+      "tags": [
+        "EXPLOSIVE_OPENER",
+        "PP_DOMINATOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "MP Stoinis",
+      "player_id": "d9273ee7",
+      "overall_sr": 145.44,
+      "tags": [
+        "FINISHER",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "KC Sangakkara",
+      "player_id": "6b71e6cf",
+      "overall_sr": 121.81,
+      "tags": [
+        "MIDDLE_ORDER"
+      ]
+    },
+    {
+      "player_name": "Mandeep Singh",
+      "player_id": "c3a96caf",
+      "overall_sr": 123.18,
+      "tags": [
+        "MIDDLE_ORDER"
+      ]
+    },
+    {
+      "player_name": "N Pooran",
+      "player_id": "3241e3fd",
+      "overall_sr": 169.48,
+      "tags": [
+        "FINISHER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "CONSISTENT",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "KH Pandya",
+      "player_id": "5b8c830e",
+      "overall_sr": 132.63,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "NV Ojha",
+      "player_id": "890946a0",
+      "overall_sr": 118.81,
+      "tags": [
+        "MIDDLE_ORDER",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "S Dube",
+      "player_id": "a4e37e47",
+      "overall_sr": 144.11,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "KK Nair",
+      "player_id": "944533a5",
+      "overall_sr": 131.93,
+      "tags": [
+        "MIDDLE_ORDER"
+      ]
+    },
+    {
+      "player_name": "PP Shaw",
+      "player_id": "8b3e9c7c",
+      "overall_sr": 147.81,
+      "tags": [
+        "EXPLOSIVE_OPENER",
+        "PP_DOMINATOR",
+        "MIDDLE_OVERS_ACCELERATOR"
+      ]
+    },
+    {
+      "player_name": "SC Ganguly",
+      "player_id": "725529bc",
+      "overall_sr": 107.32,
+      "tags": [
+        "ANCHOR",
+        "DEATH_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "SS Tiwary",
+      "player_id": "709b0bac",
+      "overall_sr": 120.97,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "B Sai Sudharsan",
+      "player_id": "d5130a30",
+      "overall_sr": 146.85,
+      "tags": [
+        "EXPLOSIVE_OPENER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "CONSISTENT",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "S Badrinath",
+      "player_id": "3576e47e",
+      "overall_sr": 119.29,
+      "tags": [
+        "MIDDLE_ORDER"
+      ]
+    },
+    {
+      "player_name": "DJ Bravo",
+      "player_id": "87e562a9",
+      "overall_sr": 130.43,
+      "tags": [
+        "FINISHER"
+      ]
+    },
+    {
+      "player_name": "DJ Hooda",
+      "player_id": "73ad96ed",
+      "overall_sr": 128.3,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "EJG Morgan",
+      "player_id": "d2a6c0e6",
+      "overall_sr": 122.71,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "JM Bairstow",
+      "player_id": "abb83e27",
+      "overall_sr": 146.58,
+      "tags": [
+        "EXPLOSIVE_OPENER",
+        "PP_DOMINATOR",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "BJ Hodge",
+      "player_id": "b57f8a9a",
+      "overall_sr": 125.9,
+      "tags": [
+        "ACCUMULATOR",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "Abhishek Sharma",
+      "player_id": "f29185a1",
+      "overall_sr": 163.9,
+      "tags": [
+        "EXPLOSIVE_OPENER",
+        "PP_DOMINATOR",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "R Parag",
+      "player_id": "04a418e8",
+      "overall_sr": 142.36,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "DJ Hussey",
+      "player_id": "fd835ab3",
+      "overall_sr": 123.55,
+      "tags": [
+        "MIDDLE_ORDER"
+      ]
+    },
+    {
+      "player_name": "VR Iyer",
+      "player_id": "a24be938",
+      "overall_sr": 137.45,
+      "tags": [
+        "PLAYMAKER"
+      ]
+    },
+    {
+      "player_name": "SP Narine",
+      "player_id": "9d430b40",
+      "overall_sr": 166.67,
+      "tags": [
+        "EXPLOSIVE_OPENER",
+        "PP_DOMINATOR",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "AK Markram",
+      "player_id": "6a26221c",
+      "overall_sr": 135.59,
+      "tags": [
+        "MIDDLE_ORDER",
+        "DEATH_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "Tilak Varma",
+      "player_id": "b0482a1d",
+      "overall_sr": 145.25,
+      "tags": [
+        "MIDDLE_ORDER",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "TM Dilshan",
+      "player_id": "5bdcdb72",
+      "overall_sr": 115.18,
+      "tags": [
+        "ANCHOR"
+      ]
+    },
+    {
+      "player_name": "SO Hetmyer",
+      "player_id": "48a1d7b7",
+      "overall_sr": 152.63,
+      "tags": [
+        "FINISHER",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "KM Jadhav",
+      "player_id": "99d63244",
+      "overall_sr": 124.66,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "V Shankar",
+      "player_id": "0994d0ae",
+      "overall_sr": 130.2,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "IK Pathan",
+      "player_id": "5fa06777",
+      "overall_sr": 120.78,
+      "tags": [
+        "ACCUMULATOR",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "CA Lynn",
+      "player_id": "45eda7c8",
+      "overall_sr": 141.23,
+      "tags": [
+        "PLAYMAKER",
+        "PP_DOMINATOR",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "MR Marsh",
+      "player_id": "3d8feaf8",
+      "overall_sr": 143.24,
+      "tags": [
+        "MIDDLE_ORDER",
+        "PP_DOMINATOR",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "P Simran Singh",
+      "player_id": "9418198b",
+      "overall_sr": 153.28,
+      "tags": [
+        "EXPLOSIVE_OPENER",
+        "PP_DOMINATOR",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER"
+      ]
+    },
+    {
+      "player_name": "H Klaasen",
+      "player_id": "235c2bb6",
+      "overall_sr": 171.49,
+      "tags": [
+        "FINISHER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "CONSISTENT",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "LMP Simmons",
+      "player_id": "89f64c19",
+      "overall_sr": 127.24,
+      "tags": [
+        "ANCHOR",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "MM Ali",
+      "player_id": "bb351c23",
+      "overall_sr": 140.26,
+      "tags": [
+        "MIDDLE_ORDER",
+        "SIX_HITTER"
+      ]
+    },
+    {
+      "player_name": "Y Venugopal Rao",
+      "player_id": "fe763256",
+      "overall_sr": 118.39,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "M Vohra",
+      "player_id": "c03e2850",
+      "overall_sr": 130.8,
+      "tags": [
+        "PLAYMAKER",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER"
+      ]
+    },
+    {
+      "player_name": "LRPL Taylor",
+      "player_id": "b61a3e1a",
+      "overall_sr": 124.33,
+      "tags": [
+        "MIDDLE_ORDER"
+      ]
+    },
+    {
+      "player_name": "R Tewatia",
+      "player_id": "39a2dfa8",
+      "overall_sr": 137.79,
+      "tags": [
+        "ACCUMULATOR",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "HH Gibbs",
+      "player_id": "e1d1b294",
+      "overall_sr": 110.06,
+      "tags": [
+        "ANCHOR"
+      ]
+    },
+    {
+      "player_name": "ML Hayden",
+      "player_id": "d8699ab7",
+      "overall_sr": 138.72,
+      "tags": [
+        "PLAYMAKER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "MC Henriques",
+      "player_id": "32198ae0",
+      "overall_sr": 127.39,
+      "tags": [
+        "ACCUMULATOR",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "DP Conway",
+      "player_id": "df5a6881",
+      "overall_sr": 140.26,
+      "tags": [
+        "PLAYMAKER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "CL White",
+      "player_id": "d0513f63",
+      "overall_sr": 126.86,
+      "tags": [
+        "ACCUMULATOR",
+        "DEATH_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "RK Singh",
+      "player_id": "0a509d6b",
+      "overall_sr": 146.53,
+      "tags": [
+        "FINISHER",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "A Symonds",
+      "player_id": "bd77eb62",
+      "overall_sr": 130.74,
+      "tags": [
+        "MIDDLE_ORDER",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "KP Pietersen",
+      "player_id": "39f01cdb",
+      "overall_sr": 134.91,
+      "tags": [
+        "MIDDLE_ORDER",
+        "CONSISTENT",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "SM Curran",
+      "player_id": "e94915e6",
+      "overall_sr": 137.52,
+      "tags": [
+        "FINISHER",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "RM Patidar",
+      "player_id": "c740ea83",
+      "overall_sr": 154.52,
+      "tags": [
+        "MIDDLE_ORDER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "R Ashwin",
+      "player_id": "495d42a5",
+      "overall_sr": 118.32,
+      "tags": [
+        "ACCUMULATOR",
+        "PACE_SPECIALIST",
+        "VULNERABLE_VS_SPIN"
+      ]
+    },
+    {
+      "player_name": "MS Bisla",
+      "player_id": "5afd4539",
+      "overall_sr": 114.0,
+      "tags": [
+        "ANCHOR",
+        "SIX_HITTER"
+      ]
+    },
+    {
+      "player_name": "BA Stokes",
+      "player_id": "e087956b",
+      "overall_sr": 134.53,
+      "tags": [
+        "MIDDLE_ORDER"
+      ]
+    },
+    {
+      "player_name": "A Badoni",
+      "player_id": "872b03f7",
+      "overall_sr": 138.96,
+      "tags": [
+        "ACCUMULATOR",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "JA Morkel",
+      "player_id": "c3d35165",
+      "overall_sr": 142.82,
+      "tags": [
+        "ACCUMULATOR",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "STR Binny",
+      "player_id": "bd17b45f",
+      "overall_sr": 129.03,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "TM Head",
+      "player_id": "12b610c2",
+      "overall_sr": 171.81,
+      "tags": [
+        "EXPLOSIVE_OPENER",
+        "PP_DOMINATOR",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "DEATH_SPECIALIST",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "GC Smith",
+      "player_id": "72861603",
+      "overall_sr": 111.3,
+      "tags": [
+        "ANCHOR",
+        "SIX_HITTER"
+      ]
+    },
+    {
+      "player_name": "LS Livingstone",
+      "player_id": "50c6bc2b",
+      "overall_sr": 160.46,
+      "tags": [
+        "MIDDLE_ORDER",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "Shakib Al Hasan",
+      "player_id": "7dc35884",
+      "overall_sr": 125.28,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "JM Sharma",
+      "player_id": "800d2d97",
+      "overall_sr": 157.8,
+      "tags": [
+        "FINISHER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER"
+      ]
+    },
+    {
+      "player_name": "Harbhajan Singh",
+      "player_id": "8b5b6769",
+      "overall_sr": 139.07,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "PD Salt",
+      "player_id": "3d284ca3",
+      "overall_sr": 177.48,
+      "tags": [
+        "EXPLOSIVE_OPENER",
+        "PP_DOMINATOR",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER"
+      ]
+    },
+    {
+      "player_name": "AD Mathews",
+      "player_id": "896d78ad",
+      "overall_sr": 126.35,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "TL Suman",
+      "player_id": "aaa1b522",
+      "overall_sr": 117.98,
+      "tags": [
+        "MIDDLE_ORDER",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "AM Nayar",
+      "player_id": "a45a5e8d",
+      "overall_sr": 117.28,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "PP Chawla",
+      "player_id": "98ae73b1",
+      "overall_sr": 111.23,
+      "tags": [
+        "ACCUMULATOR",
+        "PACE_SPECIALIST",
+        "VULNERABLE_VS_SPIN"
+      ]
+    },
+    {
+      "player_name": "GJ Bailey",
+      "player_id": "5056011d",
+      "overall_sr": 122.55,
+      "tags": [
+        "FINISHER"
+      ]
+    },
+    {
+      "player_name": "ST Jayasuriya",
+      "player_id": "f233bbb4",
+      "overall_sr": 145.18,
+      "tags": [
+        "EXPLOSIVE_OPENER",
+        "MIDDLE_OVERS_ACCELERATOR"
+      ]
+    },
+    {
+      "player_name": "N Wadhera",
+      "player_id": "d1a60072",
+      "overall_sr": 143.51,
+      "tags": [
+        "MIDDLE_ORDER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "SIX_HITTER",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "M Shahrukh Khan",
+      "player_id": "7dcb9bc9",
+      "overall_sr": 149.08,
+      "tags": [
+        "ACCUMULATOR",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "Shashank Singh",
+      "player_id": "26989d80",
+      "overall_sr": 157.76,
+      "tags": [
+        "FINISHER",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "CONSISTENT",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "Abdul Samad",
+      "player_id": "8e514b4c",
+      "overall_sr": 152.78,
+      "tags": [
+        "FINISHER",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "TH David",
+      "player_id": "f1f99156",
+      "overall_sr": 174.79,
+      "tags": [
+        "FINISHER",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER"
+      ]
+    },
+    {
+      "player_name": "E Lewis",
+      "player_id": "0ebfb1ad",
+      "overall_sr": 137.11,
+      "tags": [
+        "PLAYMAKER",
+        "PP_DOMINATOR",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "M Manhas",
+      "player_id": "c42aaf71",
+      "overall_sr": 109.36,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "C Green",
+      "player_id": "eaa76d3c",
+      "overall_sr": 154.7,
+      "tags": [
+        "MIDDLE_ORDER",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "CONSISTENT",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "JD Ryder",
+      "player_id": "91ffa6c6",
+      "overall_sr": 132.75,
+      "tags": [
+        "PLAYMAKER"
+      ]
+    },
+    {
+      "player_name": "RS Bopara",
+      "player_id": "7ca5e05d",
+      "overall_sr": 117.22,
+      "tags": [
+        "MIDDLE_ORDER"
+      ]
+    },
+    {
+      "player_name": "Shahbaz Ahmed",
+      "player_id": "f9e6e7ef",
+      "overall_sr": 122.2,
+      "tags": [
+        "ACCUMULATOR",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "SN Khan",
+      "player_id": "f088b960",
+      "overall_sr": 131.76,
+      "tags": [
+        "ACCUMULATOR",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "Dhruv Jurel",
+      "player_id": "bcf325d2",
+      "overall_sr": 153.85,
+      "tags": [
+        "FINISHER",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "JJ Roy",
+      "player_id": "d1c36f5c",
+      "overall_sr": 139.23,
+      "tags": [
+        "PLAYMAKER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "SIX_HITTER"
+      ]
+    },
+    {
+      "player_name": "Abishek Porel",
+      "player_id": "ad3b6e95",
+      "overall_sr": 150.23,
+      "tags": [
+        "EXPLOSIVE_OPENER",
+        "PP_DOMINATOR",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "T Stubbs",
+      "player_id": "85b3fab2",
+      "overall_sr": 163.57,
+      "tags": [
+        "FINISHER",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "Gurkeerat Singh",
+      "player_id": "6eb146d2",
+      "overall_sr": 121.09,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "CJ Anderson",
+      "player_id": "8abdf100",
+      "overall_sr": 127.79,
+      "tags": [
+        "MIDDLE_ORDER"
+      ]
+    },
+    {
+      "player_name": "A Mishra",
+      "player_id": "6b19d823",
+      "overall_sr": 91.37,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "PC Valthaty",
+      "player_id": "25eeb281",
+      "overall_sr": 121.98,
+      "tags": [
+        "ANCHOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "HM Amla",
+      "player_id": "e798611a",
+      "overall_sr": 142.12,
+      "tags": [
+        "PLAYMAKER",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "Washington Sundar",
+      "player_id": "f19ccfad",
+      "overall_sr": 126.49,
+      "tags": [
+        "ACCUMULATOR",
+        "PACE_SPECIALIST",
+        "VULNERABLE_VS_SPIN"
+      ]
+    },
+    {
+      "player_name": "PJ Cummins",
+      "player_id": "ded9240e",
+      "overall_sr": 153.0,
+      "tags": [
+        "ACCUMULATOR",
+        "PACE_SPECIALIST",
+        "VULNERABLE_VS_SPIN"
+      ]
+    },
+    {
+      "player_name": "CH Morris",
+      "player_id": "fb66ce1f",
+      "overall_sr": 155.67,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "DT Christian",
+      "player_id": "2a2e6343",
+      "overall_sr": 116.75,
+      "tags": [
+        "ACCUMULATOR",
+        "VULNERABLE_VS_SPIN"
+      ]
+    },
+    {
+      "player_name": "CA Pujara",
+      "player_id": "d4f9dbd4",
+      "overall_sr": 100.0,
+      "tags": [
+        "ANCHOR",
+        "VULNERABLE_VS_SPIN",
+        "VULNERABLE_VS_PACE"
+      ]
+    },
+    {
+      "player_name": "OA Shah",
+      "player_id": "7bf96684",
+      "overall_sr": 130.41,
+      "tags": [
+        "ACCUMULATOR",
+        "CONSISTENT"
+      ]
+    },
+    {
+      "player_name": "SW Billings",
+      "player_id": "c16d4035",
+      "overall_sr": 130.65,
+      "tags": [
+        "MIDDLE_ORDER"
+      ]
+    },
+    {
+      "player_name": "JP Faulkner",
+      "player_id": "808f425a",
+      "overall_sr": 137.24,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "MK Lomror",
+      "player_id": "da934ee8",
+      "overall_sr": 141.67,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "Nithish Kumar Reddy",
+      "player_id": "aad0c365",
+      "overall_sr": 133.24,
+      "tags": [
+        "MIDDLE_ORDER",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "Rashid Khan",
+      "player_id": "5f547c8b",
+      "overall_sr": 162.95,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "J Botha",
+      "player_id": "7c503806",
+      "overall_sr": 114.25,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "AL Menaria",
+      "player_id": "8291f939",
+      "overall_sr": 113.28,
+      "tags": [
+        "MIDDLE_ORDER",
+        "SPIN_SPECIALIST",
+        "VULNERABLE_VS_PACE"
+      ]
+    },
+    {
+      "player_name": "LR Shukla",
+      "player_id": "b1451597",
+      "overall_sr": 115.71,
+      "tags": [
+        "ACCUMULATOR",
+        "PACE_SPECIALIST",
+        "VULNERABLE_VS_SPIN"
+      ]
+    },
+    {
+      "player_name": "B Kumar",
+      "player_id": "2e81a32d",
+      "overall_sr": 91.43,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "SA Asnodkar",
+      "player_id": "ae091d39",
+      "overall_sr": 125.52,
+      "tags": [
+        "ANCHOR"
+      ]
+    },
+    {
+      "player_name": "GH Vihari",
+      "player_id": "94253925",
+      "overall_sr": 89.03,
+      "tags": [
+        "MIDDLE_ORDER",
+        "VULNERABLE_VS_SPIN",
+        "VULNERABLE_VS_PACE"
+      ]
+    },
+    {
+      "player_name": "A Raghuvanshi",
+      "player_id": "d7017798",
+      "overall_sr": 145.14,
+      "tags": [
+        "MIDDLE_ORDER"
+      ]
+    },
+    {
+      "player_name": "DB Ravi Teja",
+      "player_id": "b720a5d6",
+      "overall_sr": 119.05,
+      "tags": [
+        "ACCUMULATOR",
+        "PACE_SPECIALIST",
+        "VULNERABLE_VS_SPIN"
+      ]
+    },
+    {
+      "player_name": "P Kumar",
+      "player_id": "e938e1bc",
+      "overall_sr": 108.97,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "MV Boucher",
+      "player_id": "f3cb53a1",
+      "overall_sr": 128.34,
+      "tags": [
+        "ACCUMULATOR"
+      ]
+    },
+    {
+      "player_name": "RR Rossouw",
+      "player_id": "cad00a4d",
+      "overall_sr": 154.58,
+      "tags": [
+        "MIDDLE_ORDER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER",
+        "PACE_SPECIALIST",
+        "VULNERABLE_VS_SPIN"
+      ]
+    },
+    {
+      "player_name": "NLTC Perera",
+      "player_id": "0f12f9df",
+      "overall_sr": 138.36,
+      "tags": [
+        "ACCUMULATOR",
+        "PACE_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "JR Hopes",
+      "player_id": "2498e163",
+      "overall_sr": 136.72,
+      "tags": [
+        "PLAYMAKER",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "Azhar Mahmood",
+      "player_id": "9a158001",
+      "overall_sr": 128.05,
+      "tags": [
+        "ACCUMULATOR",
+        "SPIN_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "WG Jacks",
+      "player_id": "9caf69a1",
+      "overall_sr": 153.31,
+      "tags": [
+        "EXPLOSIVE_OPENER",
+        "PP_DOMINATOR",
+        "MIDDLE_OVERS_ACCELERATOR",
+        "DEATH_SPECIALIST",
+        "SIX_HITTER"
+      ]
+    },
+    {
+      "player_name": "JEC Franklin",
+      "player_id": "cf73ad76",
+      "overall_sr": 109.0,
+      "tags": [
+        "MIDDLE_ORDER",
+        "SPIN_SPECIALIST"
+      ]
+    }
+  ],
+  "bowlers": [
+    {
+      "player_name": "YS Chahal",
+      "player_id": "57ee1fde",
+      "economy": 8.09,
+      "wickets": 221.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "PROVEN_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "B Kumar",
+      "player_id": "2e81a32d",
+      "economy": 7.87,
+      "wickets": 198.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PROVEN_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "SP Narine",
+      "player_id": "9d430b40",
+      "economy": 6.93,
+      "wickets": 192.0,
+      "tags": [
+        "WORKHORSE",
+        "MID_OVERS_ELITE",
+        "PRESSURE_BUILDER",
+        "PROVEN_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "PP Chawla",
+      "player_id": "98ae73b1",
+      "economy": 8.07,
+      "wickets": 192.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "PROVEN_WICKET_TAKER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "R Ashwin",
+      "player_id": "495d42a5",
+      "economy": 7.29,
+      "wickets": 187.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "PROVEN_WICKET_TAKER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "JJ Bumrah",
+      "player_id": "462411b3",
+      "economy": 7.43,
+      "wickets": 183.0,
+      "tags": [
+        "DEATH_SPECIALIST",
+        "DEATH_ELITE",
+        "PRESSURE_BUILDER",
+        "PROVEN_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "DJ Bravo",
+      "player_id": "87e562a9",
+      "economy": 8.53,
+      "wickets": 183.0,
+      "tags": [
+        "DEATH_SPECIALIST",
+        "PROVEN_WICKET_TAKER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "A Mishra",
+      "player_id": "6b19d823",
+      "economy": 7.46,
+      "wickets": 174.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "PROVEN_WICKET_TAKER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "SL Malinga",
+      "player_id": "a12e1d51",
+      "economy": 7.4,
+      "wickets": 170.0,
+      "tags": [
+        "DEATH_SPECIALIST",
+        "DEATH_ELITE",
+        "PRESSURE_BUILDER",
+        "PROVEN_WICKET_TAKER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "RA Jadeja",
+      "player_id": "fe93fd9d",
+      "economy": 7.75,
+      "wickets": 170.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "PROVEN_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "Rashid Khan",
+      "player_id": "5f547c8b",
+      "economy": 7.23,
+      "wickets": 158.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "PROVEN_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "HV Patel",
+      "player_id": "f986ca1a",
+      "economy": 9.03,
+      "wickets": 151.0,
+      "tags": [
+        "WORKHORSE",
+        "PROVEN_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "Harbhajan Singh",
+      "player_id": "8b5b6769",
+      "economy": 7.2,
+      "wickets": 150.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "PROVEN_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "Sandeep Sharma",
+      "player_id": "ce820073",
+      "economy": 8.13,
+      "wickets": 146.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PROVEN_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "UT Yadav",
+      "player_id": "cc1e8c68",
+      "economy": 8.71,
+      "wickets": 144.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PROVEN_WICKET_TAKER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "TA Boult",
+      "player_id": "a818c1be",
+      "economy": 8.48,
+      "wickets": 143.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PROVEN_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "MM Sharma",
+      "player_id": "759ac88f",
+      "economy": 8.83,
+      "wickets": 134.0,
+      "tags": [
+        "WORKHORSE",
+        "PROVEN_WICKET_TAKER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Mohammed Shami",
+      "player_id": "8cf9814c",
+      "economy": 8.81,
+      "wickets": 133.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PROVEN_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "AR Patel",
+      "player_id": "2e171977",
+      "economy": 7.48,
+      "wickets": 128.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "PROVEN_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "AD Russell",
+      "player_id": "bbd41817",
+      "economy": 9.66,
+      "wickets": 123.0,
+      "tags": [
+        "PART_TIMER",
+        "PROVEN_WICKET_TAKER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "K Rabada",
+      "player_id": "e62dd25d",
+      "economy": 8.85,
+      "wickets": 119.0,
+      "tags": [
+        "WORKHORSE",
+        "PRESSURE_BUILDER",
+        "PROVEN_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "JD Unadkat",
+      "player_id": "1e66c162",
+      "economy": 8.96,
+      "wickets": 110.0,
+      "tags": [
+        "WORKHORSE",
+        "PROVEN_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "Mohammed Siraj",
+      "player_id": "2f49c897",
+      "economy": 8.96,
+      "wickets": 109.0,
+      "tags": [
+        "WORKHORSE",
+        "PRESSURE_BUILDER",
+        "PROVEN_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "SN Thakur",
+      "player_id": "1abb78f8",
+      "economy": 9.52,
+      "wickets": 107.0,
+      "tags": [
+        "PART_TIMER",
+        "PROVEN_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "A Nehra",
+      "player_id": "96fd40ae",
+      "economy": 7.98,
+      "wickets": 106.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "DEATH_ELITE",
+        "PRESSURE_BUILDER",
+        "PROVEN_WICKET_TAKER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "R Vinay Kumar",
+      "player_id": "41eb4a4f",
+      "economy": 8.55,
+      "wickets": 105.0,
+      "tags": [
+        "WORKHORSE",
+        "PROVEN_WICKET_TAKER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Z Khan",
+      "player_id": "91a4a398",
+      "economy": 7.8,
+      "wickets": 102.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "DEATH_ELITE",
+        "PRESSURE_BUILDER",
+        "PROVEN_WICKET_TAKER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Kuldeep Yadav",
+      "player_id": "8d2c70ad",
+      "economy": 8.15,
+      "wickets": 102.0,
+      "tags": [
+        "WORKHORSE",
+        "PROVEN_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "CV Varun",
+      "player_id": "5b7ab5a9",
+      "economy": 7.72,
+      "wickets": 100.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "PROVEN_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "DW Steyn",
+      "player_id": "8fd1a8f5",
+      "economy": 7.08,
+      "wickets": 97.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "DEATH_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Arshdeep Singh",
+      "player_id": "244048f6",
+      "economy": 9.19,
+      "wickets": 97.0,
+      "tags": [
+        "DEATH_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "I Sharma",
+      "player_id": "5bb1a1c4",
+      "economy": 8.59,
+      "wickets": 96.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER"
+      ]
+    },
+    {
+      "player_name": "CH Morris",
+      "player_id": "fb66ce1f",
+      "economy": 8.24,
+      "wickets": 95.0,
+      "tags": [
+        "DEATH_SPECIALIST",
+        "DEATH_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "KH Pandya",
+      "player_id": "5b8c830e",
+      "economy": 7.57,
+      "wickets": 93.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE"
+      ]
+    },
+    {
+      "player_name": "SR Watson",
+      "player_id": "4329fbb5",
+      "economy": 8.11,
+      "wickets": 92.0,
+      "tags": [
+        "WORKHORSE",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "RP Singh",
+      "player_id": "c3d1402f",
+      "economy": 8.17,
+      "wickets": 90.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "P Kumar",
+      "player_id": "e938e1bc",
+      "economy": 7.94,
+      "wickets": 90.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "KK Ahmed",
+      "player_id": "a2f46292",
+      "economy": 9.15,
+      "wickets": 89.0,
+      "tags": [
+        "WORKHORSE",
+        "PRESSURE_BUILDER"
+      ]
+    },
+    {
+      "player_name": "PP Ojha",
+      "player_id": "6c6591ab",
+      "economy": 7.58,
+      "wickets": 89.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "DL Chahar",
+      "player_id": "23eeb873",
+      "economy": 8.21,
+      "wickets": 88.0,
+      "tags": [
+        "WORKHORSE",
+        "PRESSURE_BUILDER"
+      ]
+    },
+    {
+      "player_name": "Avesh Khan",
+      "player_id": "eef2536f",
+      "economy": 9.25,
+      "wickets": 87.0,
+      "tags": [
+        "DEATH_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "DS Kulkarni",
+      "player_id": "d2a989fc",
+      "economy": 8.44,
+      "wickets": 86.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "JA Morkel",
+      "player_id": "c3d35165",
+      "economy": 8.39,
+      "wickets": 85.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "KV Sharma",
+      "player_id": "119678fd",
+      "economy": 8.57,
+      "wickets": 83.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    },
+    {
+      "player_name": "Imran Tahir",
+      "player_id": "acee4cc4",
+      "economy": 7.88,
+      "wickets": 82.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "IK Pathan",
+      "player_id": "5fa06777",
+      "economy": 7.96,
+      "wickets": 80.0,
+      "tags": [
+        "WORKHORSE",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "PJ Cummins",
+      "player_id": "ded9240e",
+      "economy": 9.04,
+      "wickets": 79.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    },
+    {
+      "player_name": "HH Pandya",
+      "player_id": "dbe50b21",
+      "economy": 9.36,
+      "wickets": 78.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    },
+    {
+      "player_name": "M Morkel",
+      "player_id": "5bb5a915",
+      "economy": 7.87,
+      "wickets": 77.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "L Balaji",
+      "player_id": "b2b50355",
+      "economy": 8.27,
+      "wickets": 76.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "RD Chahar",
+      "player_id": "2ed569a0",
+      "economy": 7.81,
+      "wickets": 75.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER"
+      ]
+    },
+    {
+      "player_name": "M Prasidh Krishna",
+      "player_id": "85e0cf10",
+      "economy": 8.95,
+      "wickets": 74.0,
+      "tags": [
+        "WORKHORSE",
+        "PRESSURE_BUILDER"
+      ]
+    },
+    {
+      "player_name": "MM Patel",
+      "player_id": "f0f628c7",
+      "economy": 7.67,
+      "wickets": 74.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Ravi Bishnoi",
+      "player_id": "df064e1a",
+      "economy": 8.31,
+      "wickets": 72.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    },
+    {
+      "player_name": "MJ McClenaghan",
+      "player_id": "51a3c5ef",
+      "economy": 8.66,
+      "wickets": 71.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "R Bhatia",
+      "player_id": "33a364a6",
+      "economy": 7.55,
+      "wickets": 71.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "AB Dinda",
+      "player_id": "66b30f71",
+      "economy": 8.32,
+      "wickets": 69.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "KA Pollard",
+      "player_id": "a757b0d8",
+      "economy": 8.87,
+      "wickets": 69.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "T Natarajan",
+      "player_id": "ce794613",
+      "economy": 9.05,
+      "wickets": 68.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    },
+    {
+      "player_name": "SK Trivedi",
+      "player_id": "3d7e087f",
+      "economy": 7.75,
+      "wickets": 65.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "MA Starc",
+      "player_id": "3fb19989",
+      "economy": 8.93,
+      "wickets": 65.0,
+      "tags": [
+        "DEATH_SPECIALIST",
+        "DEATH_ELITE",
+        "PRESSURE_BUILDER"
+      ]
+    },
+    {
+      "player_name": "JH Kallis",
+      "player_id": "86dc8f2e",
+      "economy": 8.09,
+      "wickets": 65.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Mustafizur Rahman",
+      "player_id": "0a8fce53",
+      "economy": 8.26,
+      "wickets": 65.0,
+      "tags": [
+        "DEATH_SPECIALIST",
+        "DEATH_ELITE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Shakib Al Hasan",
+      "player_id": "7dc35884",
+      "economy": 7.54,
+      "wickets": 63.0,
+      "tags": [
+        "WORKHORSE",
+        "MID_OVERS_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "M Muralitharan",
+      "player_id": "4ba44e19",
+      "economy": 6.91,
+      "wickets": 63.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "PRESSURE_BUILDER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "MG Johnson",
+      "player_id": "f5180fe6",
+      "economy": 8.44,
+      "wickets": 61.0,
+      "tags": [
+        "WORKHORSE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "A Nortje",
+      "player_id": "acdc62f5",
+      "economy": 9.31,
+      "wickets": 61.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    },
+    {
+      "player_name": "SM Curran",
+      "player_id": "e94915e6",
+      "economy": 9.86,
+      "wickets": 59.0,
+      "tags": [
+        "PART_TIMER"
+      ]
+    },
+    {
+      "player_name": "JP Faulkner",
+      "player_id": "808f425a",
+      "economy": 8.93,
+      "wickets": 59.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "JC Archer",
+      "player_id": "5574750c",
+      "economy": 8.13,
+      "wickets": 59.0,
+      "tags": [
+        "WORKHORSE",
+        "PP_ELITE",
+        "PRESSURE_BUILDER"
+      ]
+    },
+    {
+      "player_name": "S Kaul",
+      "player_id": "dcf81436",
+      "economy": 8.79,
+      "wickets": 58.0,
+      "tags": [
+        "DEATH_SPECIALIST",
+        "DEATH_ELITE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "JR Hazlewood",
+      "player_id": "03806cf8",
+      "economy": 8.44,
+      "wickets": 57.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER"
+      ]
+    },
+    {
+      "player_name": "SK Warne",
+      "player_id": "bb18be76",
+      "economy": 7.36,
+      "wickets": 57.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "JO Holder",
+      "player_id": "0f721006",
+      "economy": 8.98,
+      "wickets": 53.0,
+      "tags": [
+        "DEATH_SPECIALIST",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "S Gopal",
+      "player_id": "7a8bd078",
+      "economy": 8.22,
+      "wickets": 52.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    },
+    {
+      "player_name": "TU Deshpande",
+      "player_id": "46a9bea1",
+      "economy": 10.04,
+      "wickets": 51.0,
+      "tags": [
+        "PART_TIMER"
+      ]
+    },
+    {
+      "player_name": "LH Ferguson",
+      "player_id": "2f9d0389",
+      "economy": 9.13,
+      "wickets": 51.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    },
+    {
+      "player_name": "NM Coulter-Nile",
+      "player_id": "56ab442f",
+      "economy": 7.88,
+      "wickets": 48.0,
+      "tags": [
+        "WORKHORSE",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Noor Ahmad",
+      "player_id": "efc04be7",
+      "economy": 8.24,
+      "wickets": 48.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    },
+    {
+      "player_name": "S Nadeem",
+      "player_id": "9d80c5e1",
+      "economy": 7.63,
+      "wickets": 48.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "M Pathirana",
+      "player_id": "64839cb3",
+      "economy": 8.95,
+      "wickets": 47.0,
+      "tags": [
+        "DEATH_SPECIALIST"
+      ]
+    },
+    {
+      "player_name": "SB Jakati",
+      "player_id": "c8179c68",
+      "economy": 8.15,
+      "wickets": 47.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "TG Southee",
+      "player_id": "13c35c9e",
+      "economy": 8.83,
+      "wickets": 47.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "PWH de Silva",
+      "player_id": "a97c8ec2",
+      "economy": 8.53,
+      "wickets": 46.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    },
+    {
+      "player_name": "RJ Harris",
+      "player_id": "12eddf28",
+      "economy": 7.82,
+      "wickets": 45.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "A Kumble",
+      "player_id": "0c2730df",
+      "economy": 6.77,
+      "wickets": 45.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "PRESSURE_BUILDER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "S Aravind",
+      "player_id": "957532de",
+      "economy": 8.34,
+      "wickets": 45.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "MP Stoinis",
+      "player_id": "d9273ee7",
+      "economy": 9.98,
+      "wickets": 44.0,
+      "tags": [
+        "PART_TIMER"
+      ]
+    },
+    {
+      "player_name": "VR Aaron",
+      "player_id": "0a3d54b9",
+      "economy": 9.22,
+      "wickets": 44.0,
+      "tags": [
+        "WORKHORSE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "YK Pathan",
+      "player_id": "3c6ffae8",
+      "economy": 7.55,
+      "wickets": 42.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "AJ Tye",
+      "player_id": "7c7d63a2",
+      "economy": 8.8,
+      "wickets": 42.0,
+      "tags": [
+        "DEATH_SPECIALIST",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "MC Henriques",
+      "player_id": "32198ae0",
+      "economy": 8.22,
+      "wickets": 42.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "GJ Maxwell",
+      "player_id": "b681e71e",
+      "economy": 8.35,
+      "wickets": 41.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "MM Ali",
+      "player_id": "bb351c23",
+      "economy": 7.28,
+      "wickets": 41.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "Yash Dayal",
+      "player_id": "7210d461",
+      "economy": 9.72,
+      "wickets": 41.0,
+      "tags": [
+        "PART_TIMER"
+      ]
+    },
+    {
+      "player_name": "R Sharma",
+      "player_id": "5d9a1a73",
+      "economy": 7.11,
+      "wickets": 40.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "Harshit Rana",
+      "player_id": "77b1aa15",
+      "economy": 9.68,
+      "wickets": 40.0,
+      "tags": [
+        "PART_TIMER",
+        "PRESSURE_BUILDER"
+      ]
+    },
+    {
+      "player_name": "Iqbal Abdulla",
+      "player_id": "85aae393",
+      "economy": 7.34,
+      "wickets": 40.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "S Sreesanth",
+      "player_id": "6b8eb6e5",
+      "economy": 8.32,
+      "wickets": 40.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Washington Sundar",
+      "player_id": "f19ccfad",
+      "economy": 7.76,
+      "wickets": 39.0,
+      "tags": [
+        "WORKHORSE",
+        "MID_OVERS_ELITE"
+      ]
+    },
+    {
+      "player_name": "P Awana",
+      "player_id": "1a0c3177",
+      "economy": 8.4,
+      "wickets": 39.0,
+      "tags": [
+        "WORKHORSE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "DT Christian",
+      "player_id": "2a2e6343",
+      "economy": 8.28,
+      "wickets": 38.0,
+      "tags": [
+        "WORKHORSE",
+        "MID_OVERS_ELITE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "PJ Sangwan",
+      "player_id": "9fc0ef64",
+      "economy": 8.88,
+      "wickets": 38.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "DE Bollinger",
+      "player_id": "45c2196c",
+      "economy": 7.46,
+      "wickets": 37.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "DEATH_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "MR Marsh",
+      "player_id": "3d8feaf8",
+      "economy": 8.6,
+      "wickets": 37.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    },
+    {
+      "player_name": "MS Gony",
+      "player_id": "ae78bc32",
+      "economy": 8.9,
+      "wickets": 37.0,
+      "tags": [
+        "WORKHORSE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "M Markande",
+      "player_id": "a9fd84fb",
+      "economy": 9.01,
+      "wickets": 37.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    },
+    {
+      "player_name": "Yuvraj Singh",
+      "player_id": "1c914163",
+      "economy": 7.53,
+      "wickets": 36.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "M Theekshana",
+      "player_id": "f24c6701",
+      "economy": 8.4,
+      "wickets": 36.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "VG Arora",
+      "player_id": "7c3b3b78",
+      "economy": 9.66,
+      "wickets": 36.0,
+      "tags": [
+        "PART_TIMER"
+      ]
+    },
+    {
+      "player_name": "M Jansen",
+      "player_id": "81c36ee9",
+      "economy": 9.63,
+      "wickets": 36.0,
+      "tags": [
+        "PART_TIMER",
+        "PRESSURE_BUILDER"
+      ]
+    },
+    {
+      "player_name": "Mukesh Kumar",
+      "player_id": "2cffab74",
+      "economy": 10.55,
+      "wickets": 36.0,
+      "tags": [
+        "PART_TIMER"
+      ]
+    },
+    {
+      "player_name": "Harpreet Brar",
+      "player_id": "c05edf8e",
+      "economy": 8.12,
+      "wickets": 35.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE"
+      ]
+    },
+    {
+      "player_name": "M Ashwin",
+      "player_id": "e2db2409",
+      "economy": 8.15,
+      "wickets": 35.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "WD Parnell",
+      "player_id": "3a60e0b5",
+      "economy": 8.03,
+      "wickets": 35.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "DEATH_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "P Negi",
+      "player_id": "f62772e5",
+      "economy": 7.99,
+      "wickets": 34.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "KK Cooper",
+      "player_id": "557153ca",
+      "economy": 8.22,
+      "wickets": 33.0,
+      "tags": [
+        "DEATH_SPECIALIST",
+        "DEATH_ELITE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "R Tewatia",
+      "player_id": "39a2dfa8",
+      "economy": 7.95,
+      "wickets": 32.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER"
+      ]
+    },
+    {
+      "player_name": "R Sai Kishore",
+      "player_id": "c7a995d3",
+      "economy": 8.91,
+      "wickets": 32.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    },
+    {
+      "player_name": "A Zampa",
+      "player_id": "14f96089",
+      "economy": 8.43,
+      "wickets": 31.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "M Kartik",
+      "player_id": "abfeb126",
+      "economy": 7.4,
+      "wickets": 31.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "NLTC Perera",
+      "player_id": "0f12f9df",
+      "economy": 8.86,
+      "wickets": 31.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "Shivam Mavi",
+      "player_id": "c38d3503",
+      "economy": 8.86,
+      "wickets": 30.0,
+      "tags": [
+        "WORKHORSE",
+        "PRESSURE_BUILDER"
+      ]
+    },
+    {
+      "player_name": "CR Woakes",
+      "player_id": "4c5d73db",
+      "economy": 9.19,
+      "wickets": 30.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "CJ Jordan",
+      "player_id": "ffe699c0",
+      "economy": 9.88,
+      "wickets": 30.0,
+      "tags": [
+        "PART_TIMER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Umran Malik",
+      "player_id": "81c08fa3",
+      "economy": 9.53,
+      "wickets": 29.0,
+      "tags": [
+        "PART_TIMER",
+        "PRESSURE_BUILDER"
+      ]
+    },
+    {
+      "player_name": "AB Agarkar",
+      "player_id": "fa463154",
+      "economy": 9.01,
+      "wickets": 29.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Azhar Mahmood",
+      "player_id": "9a158001",
+      "economy": 7.9,
+      "wickets": 29.0,
+      "tags": [
+        "DEATH_SPECIALIST",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "L Ngidi",
+      "player_id": "f834dcfc",
+      "economy": 8.73,
+      "wickets": 29.0,
+      "tags": [
+        "WORKHORSE",
+        "PP_ELITE",
+        "PRESSURE_BUILDER"
+      ]
+    },
+    {
+      "player_name": "PV Tambe",
+      "player_id": "6aed7e79",
+      "economy": 7.87,
+      "wickets": 28.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "DP Nannes",
+      "player_id": "c404f58a",
+      "economy": 7.57,
+      "wickets": 28.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "DEATH_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "DL Vettori",
+      "player_id": "d7c6af50",
+      "economy": 6.9,
+      "wickets": 28.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "BA Stokes",
+      "player_id": "e087956b",
+      "economy": 8.91,
+      "wickets": 28.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "A Singh",
+      "player_id": "5b040b81",
+      "economy": 8.11,
+      "wickets": 28.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "AD Mathews",
+      "player_id": "896d78ad",
+      "economy": 8.31,
+      "wickets": 27.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "MF Maharoof",
+      "player_id": "ab89348d",
+      "economy": 7.6,
+      "wickets": 27.0,
+      "tags": [
+        "WORKHORSE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Mohsin Khan",
+      "player_id": "c33d8116",
+      "economy": 8.62,
+      "wickets": 27.0,
+      "tags": [
+        "WORKHORSE",
+        "PRESSURE_BUILDER"
+      ]
+    },
+    {
+      "player_name": "DR Smith",
+      "player_id": "35205dfc",
+      "economy": 9.18,
+      "wickets": 26.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "Harmeet Singh",
+      "player_id": "2a72fd4f",
+      "economy": 8.15,
+      "wickets": 26.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "J Botha",
+      "player_id": "7c503806",
+      "economy": 7.07,
+      "wickets": 25.0,
+      "tags": [
+        "WORKHORSE",
+        "MID_OVERS_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "B Lee",
+      "player_id": "dd09ff8e",
+      "economy": 7.72,
+      "wickets": 25.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "DEATH_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "SK Raina",
+      "player_id": "1dc12ab9",
+      "economy": 7.53,
+      "wickets": 25.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "Naveen-ul-Haq",
+      "player_id": "c0c411cb",
+      "economy": 9.31,
+      "wickets": 25.0,
+      "tags": [
+        "DEATH_SPECIALIST",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "R Dhawan",
+      "player_id": "26a85969",
+      "economy": 8.36,
+      "wickets": 25.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Yash Thakur",
+      "player_id": "4b31f3a3",
+      "economy": 10.59,
+      "wickets": 25.0,
+      "tags": [
+        "PART_TIMER"
+      ]
+    },
+    {
+      "player_name": "MJ Santner",
+      "player_id": "e4a0deae",
+      "economy": 7.4,
+      "wickets": 25.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE"
+      ]
+    },
+    {
+      "player_name": "AS Rajpoot",
+      "player_id": "db31895a",
+      "economy": 9.55,
+      "wickets": 24.0,
+      "tags": [
+        "PART_TIMER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "GB Hogg",
+      "player_id": "f708a0bc",
+      "economy": 7.66,
+      "wickets": 23.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "JP Duminy",
+      "player_id": "2e8994e7",
+      "economy": 7.5,
+      "wickets": 23.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "Akash Madhwal",
+      "player_id": "4bd09374",
+      "economy": 10.19,
+      "wickets": 23.0,
+      "tags": [
+        "PART_TIMER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Navdeep Saini",
+      "player_id": "21d4e29b",
+      "economy": 9.08,
+      "wickets": 23.0,
+      "tags": [
+        "WORKHORSE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "SW Tait",
+      "player_id": "addfb70e",
+      "economy": 8.47,
+      "wickets": 23.0,
+      "tags": [
+        "DEATH_SPECIALIST",
+        "DEATH_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "STR Binny",
+      "player_id": "bd17b45f",
+      "economy": 7.71,
+      "wickets": 22.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Shahbaz Ahmed",
+      "player_id": "f9e6e7ef",
+      "economy": 9.72,
+      "wickets": 22.0,
+      "tags": [
+        "PART_TIMER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "BW Hilfenhaus",
+      "player_id": "f3171936",
+      "economy": 8.02,
+      "wickets": 22.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Basil Thampi",
+      "player_id": "871e9faf",
+      "economy": 9.93,
+      "wickets": 22.0,
+      "tags": [
+        "PART_TIMER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Sohail Tanvir",
+      "player_id": "64d43928",
+      "economy": 6.68,
+      "wickets": 22.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "DEATH_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "VY Mahesh",
+      "player_id": "93a17209",
+      "economy": 9.04,
+      "wickets": 21.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "AS Joseph",
+      "player_id": "b0946605",
+      "economy": 9.77,
+      "wickets": 21.0,
+      "tags": [
+        "PART_TIMER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "RE van der Merwe",
+      "player_id": "05c2ca46",
+      "economy": 6.98,
+      "wickets": 21.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "K Gowtham",
+      "player_id": "90de905a",
+      "economy": 8.42,
+      "wickets": 21.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "C Sakariya",
+      "player_id": "2cdce1be",
+      "economy": 8.77,
+      "wickets": 20.0,
+      "tags": [
+        "WORKHORSE",
+        "PP_ELITE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Mujeeb Ur Rahman",
+      "player_id": "7d92277a",
+      "economy": 8.42,
+      "wickets": 20.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "A Symonds",
+      "player_id": "bd77eb62",
+      "economy": 7.9,
+      "wickets": 20.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "JP Behrendorff",
+      "player_id": "4933f499",
+      "economy": 9.23,
+      "wickets": 19.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "AD Mascarenhas",
+      "player_id": "3edb58fc",
+      "economy": 7.11,
+      "wickets": 19.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "NT Ellis",
+      "player_id": "9eb1455b",
+      "economy": 8.78,
+      "wickets": 19.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    },
+    {
+      "player_name": "RP Meredith",
+      "player_id": "64775749",
+      "economy": 9.6,
+      "wickets": 19.0,
+      "tags": [
+        "PART_TIMER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "KW Richardson",
+      "player_id": "dfc4d8b5",
+      "economy": 8.58,
+      "wickets": 19.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "J Suchith",
+      "player_id": "4125d931",
+      "economy": 8.63,
+      "wickets": 19.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "Suyash Sharma",
+      "player_id": "9440ef41",
+      "economy": 8.98,
+      "wickets": 18.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    },
+    {
+      "player_name": "CH Gayle",
+      "player_id": "db584dad",
+      "economy": 8.18,
+      "wickets": 18.0,
+      "tags": [
+        "WORKHORSE",
+        "MID_OVERS_ELITE",
+        "DEATH_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "A Ashish Reddy",
+      "player_id": "1c2a64cd",
+      "economy": 9.16,
+      "wickets": 18.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "IC Pandey",
+      "player_id": "e0407c01",
+      "economy": 7.91,
+      "wickets": 18.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Anureet Singh",
+      "player_id": "69be866a",
+      "economy": 9.26,
+      "wickets": 18.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "BB Sran",
+      "player_id": "d8b2f218",
+      "economy": 9.53,
+      "wickets": 18.0,
+      "tags": [
+        "PART_TIMER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "WPUJC Vaas",
+      "player_id": "bcce309e",
+      "economy": 7.74,
+      "wickets": 18.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "BJ Hodge",
+      "player_id": "b57f8a9a",
+      "economy": 7.95,
+      "wickets": 17.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "Bipul Sharma",
+      "player_id": "c18496e1",
+      "economy": 8.18,
+      "wickets": 17.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER"
+      ]
+    },
+    {
+      "player_name": "Vijaykumar Vyshak",
+      "player_id": "54e52590",
+      "economy": 10.4,
+      "wickets": 17.0,
+      "tags": [
+        "PART_TIMER"
+      ]
+    },
+    {
+      "player_name": "Mukesh Choudhary",
+      "player_id": "765a4731",
+      "economy": 9.96,
+      "wickets": 17.0,
+      "tags": [
+        "PART_TIMER",
+        "PRESSURE_BUILDER"
+      ]
+    },
+    {
+      "player_name": "CRD Fernando",
+      "player_id": "342d8ade",
+      "economy": 7.85,
+      "wickets": 17.0,
+      "tags": [
+        "DEATH_SPECIALIST",
+        "DEATH_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "D Wiese",
+      "player_id": "aa8d28ae",
+      "economy": 9.06,
+      "wickets": 16.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "C Green",
+      "player_id": "eaa76d3c",
+      "economy": 9.23,
+      "wickets": 16.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Mohammad Nabi",
+      "player_id": "62af8546",
+      "economy": 7.58,
+      "wickets": 15.0,
+      "tags": [
+        "WORKHORSE",
+        "PP_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "G Coetzee",
+      "player_id": "3204c99f",
+      "economy": 10.77,
+      "wickets": 15.0,
+      "tags": [
+        "PART_TIMER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Kartik Tyagi",
+      "player_id": "5d2eea49",
+      "economy": 10.24,
+      "wickets": 15.0,
+      "tags": [
+        "PART_TIMER"
+      ]
+    },
+    {
+      "player_name": "YA Abdulla",
+      "player_id": "4353bba5",
+      "economy": 8.93,
+      "wickets": 15.0,
+      "tags": [
+        "WORKHORSE",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "RG Sharma",
+      "player_id": "740742ef",
+      "economy": 8.18,
+      "wickets": 15.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    },
+    {
+      "player_name": "LR Shukla",
+      "player_id": "b1451597",
+      "economy": 8.75,
+      "wickets": 15.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "JR Hopes",
+      "player_id": "2498e163",
+      "economy": 9.37,
+      "wickets": 14.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "AC Thomas",
+      "player_id": "b552a935",
+      "economy": 7.92,
+      "wickets": 14.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "DR Sams",
+      "player_id": "caf69bf7",
+      "economy": 8.8,
+      "wickets": 14.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "R Rampaul",
+      "player_id": "d68e7f48",
+      "economy": 7.05,
+      "wickets": 14.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "KA Jamieson",
+      "player_id": "68c56d09",
+      "economy": 9.72,
+      "wickets": 14.0,
+      "tags": [
+        "PART_TIMER",
+        "PRESSURE_BUILDER"
+      ]
+    },
+    {
+      "player_name": "DS Rathi",
+      "player_id": "13fc5c6d",
+      "economy": 8.37,
+      "wickets": 14.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    },
+    {
+      "player_name": "SJ Srivastava",
+      "player_id": "2049f3a0",
+      "economy": 9.45,
+      "wickets": 14.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "KR Sen",
+      "player_id": "2e78f685",
+      "economy": 9.86,
+      "wickets": 14.0,
+      "tags": [
+        "PART_TIMER"
+      ]
+    },
+    {
+      "player_name": "ST Jayasuriya",
+      "player_id": "f233bbb4",
+      "economy": 8.08,
+      "wickets": 13.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "S Lamichhane",
+      "player_id": "b410bd3d",
+      "economy": 8.49,
+      "wickets": 13.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "CR Brathwaite",
+      "player_id": "e342e5fb",
+      "economy": 9.07,
+      "wickets": 13.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "LS Livingstone",
+      "player_id": "50c6bc2b",
+      "economy": 9.06,
+      "wickets": 13.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    },
+    {
+      "player_name": "RR Powar",
+      "player_id": "5d096f3d",
+      "economy": 7.58,
+      "wickets": 13.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "PRESSURE_BUILDER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "PVD Chameera",
+      "player_id": "327b58d3",
+      "economy": 10.0,
+      "wickets": 13.0,
+      "tags": [
+        "PART_TIMER",
+        "PRESSURE_BUILDER"
+      ]
+    },
+    {
+      "player_name": "TK Curran",
+      "player_id": "e86754b2",
+      "economy": 10.89,
+      "wickets": 13.0,
+      "tags": [
+        "PART_TIMER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Ankit Sharma",
+      "player_id": "24d94623",
+      "economy": 7.41,
+      "wickets": 12.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "Arshad Khan",
+      "player_id": "12314277",
+      "economy": 11.63,
+      "wickets": 12.0,
+      "tags": [
+        "PART_TIMER"
+      ]
+    },
+    {
+      "player_name": "Joginder Sharma",
+      "player_id": "9f961c14",
+      "economy": 9.87,
+      "wickets": 12.0,
+      "tags": [
+        "PART_TIMER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "GD McGrath",
+      "player_id": "ee7d0c82",
+      "economy": 6.78,
+      "wickets": 12.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "BA Bhatt",
+      "player_id": "dc4686e6",
+      "economy": 8.27,
+      "wickets": 12.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "Azmatullah Omarzai",
+      "player_id": "8f6dd463",
+      "economy": 9.92,
+      "wickets": 12.0,
+      "tags": [
+        "PART_TIMER"
+      ]
+    },
+    {
+      "player_name": "AN Ahmed",
+      "player_id": "2af1b6d2",
+      "economy": 8.98,
+      "wickets": 12.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "K Kartikeya",
+      "player_id": "f6d8a7ab",
+      "economy": 8.77,
+      "wickets": 12.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "Karanveer Singh",
+      "player_id": "1647bd37",
+      "economy": 9.5,
+      "wickets": 12.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "VRV Singh",
+      "player_id": "034b4b7d",
+      "economy": 9.15,
+      "wickets": 12.0,
+      "tags": [
+        "WORKHORSE",
+        "DEATH_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "R McLaren",
+      "player_id": "c654af19",
+      "economy": 9.46,
+      "wickets": 12.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "S Badree",
+      "player_id": "76388dc8",
+      "economy": 7.65,
+      "wickets": 11.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "A Chandila",
+      "player_id": "99b202b3",
+      "economy": 6.28,
+      "wickets": 11.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "TS Mills",
+      "player_id": "245c97cb",
+      "economy": 10.02,
+      "wickets": 11.0,
+      "tags": [
+        "PART_TIMER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "RS Bopara",
+      "player_id": "7ca5e05d",
+      "economy": 8.77,
+      "wickets": 11.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "V Nigam",
+      "player_id": "5ffc0565",
+      "economy": 9.26,
+      "wickets": 11.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    },
+    {
+      "player_name": "Simarjeet Singh",
+      "player_id": "30df8c66",
+      "economy": 10.28,
+      "wickets": 11.0,
+      "tags": [
+        "PART_TIMER",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Pankaj Singh",
+      "player_id": "e32d22f6",
+      "economy": 9.44,
+      "wickets": 11.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "J Little",
+      "player_id": "9061a703",
+      "economy": 8.97,
+      "wickets": 11.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "JL Pattinson",
+      "player_id": "f752db61",
+      "economy": 9.04,
+      "wickets": 11.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Abhishek Sharma",
+      "player_id": "f29185a1",
+      "economy": 9.09,
+      "wickets": 11.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    },
+    {
+      "player_name": "SM Pollock",
+      "player_id": "88fccd6c",
+      "economy": 6.67,
+      "wickets": 11.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "DJG Sammy",
+      "player_id": "c03c6200",
+      "economy": 9.0,
+      "wickets": 11.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "CJ Anderson",
+      "player_id": "8abdf100",
+      "economy": 10.61,
+      "wickets": 11.0,
+      "tags": [
+        "PART_TIMER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Lalit Yadav",
+      "player_id": "ad427b5c",
+      "economy": 8.96,
+      "wickets": 10.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "DJ Hooda",
+      "player_id": "73ad96ed",
+      "economy": 8.71,
+      "wickets": 10.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "Akash Deep",
+      "player_id": "0a67aec0",
+      "economy": 11.96,
+      "wickets": 10.0,
+      "tags": [
+        "PART_TIMER"
+      ]
+    },
+    {
+      "player_name": "SC Ganguly",
+      "player_id": "725529bc",
+      "economy": 8.04,
+      "wickets": 10.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "BCJ Cutting",
+      "player_id": "2e11c706",
+      "economy": 9.18,
+      "wickets": 10.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "R Shepherd",
+      "player_id": "c5aef772",
+      "economy": 11.89,
+      "wickets": 10.0,
+      "tags": [
+        "PART_TIMER"
+      ]
+    },
+    {
+      "player_name": "Rasikh Salam",
+      "player_id": "b8527c3d",
+      "economy": 10.7,
+      "wickets": 10.0,
+      "tags": [
+        "PART_TIMER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "V Pratap Singh",
+      "player_id": "d718440b",
+      "economy": 8.82,
+      "wickets": 10.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "MN Samuels",
+      "player_id": "f846de6a",
+      "economy": 7.99,
+      "wickets": 9.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "AG Murtaza",
+      "player_id": "ef5da05c",
+      "economy": 7.32,
+      "wickets": 9.0,
+      "tags": [
+        "WORKHORSE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "AM Nayar",
+      "player_id": "a45a5e8d",
+      "economy": 8.46,
+      "wickets": 9.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "JDP Oram",
+      "player_id": "3eac9d95",
+      "economy": 9.16,
+      "wickets": 9.0,
+      "tags": [
+        "DEATH_SPECIALIST",
+        "DEATH_ELITE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "Akash Singh",
+      "player_id": "b483905d",
+      "economy": 9.54,
+      "wickets": 9.0,
+      "tags": [
+        "PART_TIMER"
+      ]
+    },
+    {
+      "player_name": "KP Appanna",
+      "player_id": "d92e42f5",
+      "economy": 8.08,
+      "wickets": 9.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "J Theron",
+      "player_id": "dec8e038",
+      "economy": 8.39,
+      "wickets": 9.0,
+      "tags": [
+        "DEATH_SPECIALIST",
+        "DEATH_ELITE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "V Shankar",
+      "player_id": "0994d0ae",
+      "economy": 8.67,
+      "wickets": 9.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "JDS Neesham",
+      "player_id": "9219eff0",
+      "economy": 9.5,
+      "wickets": 8.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "DJ Hussey",
+      "player_id": "fd835ab3",
+      "economy": 9.18,
+      "wickets": 8.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "AA Chavan",
+      "player_id": "29d72eb2",
+      "economy": 8.2,
+      "wickets": 8.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "BAW Mendis",
+      "player_id": "ea0cdc12",
+      "economy": 7.2,
+      "wickets": 8.0,
+      "tags": [
+        "WORKHORSE",
+        "MID_OVERS_ELITE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "SB Styris",
+      "player_id": "57efa3be",
+      "economy": 7.72,
+      "wickets": 8.0,
+      "tags": [
+        "WORKHORSE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "JD Ryder",
+      "player_id": "91ffa6c6",
+      "economy": 7.98,
+      "wickets": 8.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "KC Cariappa",
+      "player_id": "edb3d4f8",
+      "economy": 9.69,
+      "wickets": 8.0,
+      "tags": [
+        "PART_TIMER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "J Yadav",
+      "player_id": "81049310",
+      "economy": 6.88,
+      "wickets": 8.0,
+      "tags": [
+        "WORKHORSE",
+        "PP_ELITE",
+        "MID_OVERS_ELITE",
+        "PRESSURE_BUILDER"
+      ]
+    },
+    {
+      "player_name": "A Mithun",
+      "player_id": "66cf56a5",
+      "economy": 9.94,
+      "wickets": 7.0,
+      "tags": [
+        "PART_TIMER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "M Ntini",
+      "player_id": "20a941bb",
+      "economy": 7.34,
+      "wickets": 7.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "R Parag",
+      "player_id": "04a418e8",
+      "economy": 9.72,
+      "wickets": 7.0,
+      "tags": [
+        "PART_TIMER"
+      ]
+    },
+    {
+      "player_name": "AF Milne",
+      "player_id": "350bb1b1",
+      "economy": 9.83,
+      "wickets": 7.0,
+      "tags": [
+        "PART_TIMER"
+      ]
+    },
+    {
+      "player_name": "Y Venugopal Rao",
+      "player_id": "fe763256",
+      "economy": 9.39,
+      "wickets": 6.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "Zeeshan Ansari",
+      "player_id": "36619795",
+      "economy": 9.87,
+      "wickets": 6.0,
+      "tags": [
+        "PART_TIMER"
+      ]
+    },
+    {
+      "player_name": "Fazalhaq Farooqi",
+      "player_id": "e9c7f0d0",
+      "economy": 10.39,
+      "wickets": 6.0,
+      "tags": [
+        "PART_TIMER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "C de Grandhomme",
+      "player_id": "94d7f855",
+      "economy": 8.97,
+      "wickets": 6.0,
+      "tags": [
+        "WORKHORSE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "DJ Willey",
+      "player_id": "7f048519",
+      "economy": 7.69,
+      "wickets": 6.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "S Kaushik",
+      "player_id": "1da489ff",
+      "economy": 8.94,
+      "wickets": 6.0,
+      "tags": [
+        "MIDDLE_OVERS_CONTROLLER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "S Tyagi",
+      "player_id": "c24a2c5d",
+      "economy": 8.73,
+      "wickets": 6.0,
+      "tags": [
+        "WORKHORSE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "VS Malik",
+      "player_id": "5f26df4f",
+      "economy": 7.84,
+      "wickets": 6.0,
+      "tags": [
+        "NEW_BALL_SPECIALIST",
+        "PP_ELITE",
+        "PRESSURE_BUILDER",
+        "PACER"
+      ]
+    },
+    {
+      "player_name": "HR Shokeen",
+      "player_id": "0c9652b0",
+      "economy": 9.41,
+      "wickets": 5.0,
+      "tags": [
+        "WORKHORSE",
+        "PRESSURE_BUILDER",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "TM Dilshan",
+      "player_id": "5bdcdb72",
+      "economy": 8.15,
+      "wickets": 5.0,
+      "tags": [
+        "WORKHORSE",
+        "SPINNER"
+      ]
+    },
+    {
+      "player_name": "V Kohli",
+      "player_id": "ba607b88",
+      "economy": 8.87,
+      "wickets": 4.0,
+      "tags": [
+        "WORKHORSE"
+      ]
+    }
+  ],
+  "tag_definitions": {
+    "batter_archetypes": {
+      "EXPLOSIVE_OPENER": "High PP workload (>40%), SR > 145",
+      "PLAYMAKER": "High PP workload (>40%), SR 130-145",
+      "ANCHOR": "High PP workload (>40%), SR < 130",
+      "FINISHER": "High death workload (>30%), death SR > 170",
+      "ACCUMULATOR": "High death workload (>25%)",
+      "MIDDLE_ORDER": "Balanced phase distribution"
+    },
+    "batter_tags": {
+      "PP_DOMINATOR": "PP SR > 145 with >30% PP workload",
+      "MIDDLE_OVERS_ACCELERATOR": "Middle overs SR > 140",
+      "DEATH_SPECIALIST": "Death overs SR > 180",
+      "SIX_HITTER": "Death boundary% > 25%",
+      "CONSISTENT": "Average > 35",
+      "SPIN_SPECIALIST": "SR vs spin > 20 better than vs pace",
+      "PACE_SPECIALIST": "SR vs pace > 20 better than vs spin",
+      "VULNERABLE_VS_SPIN": "SR vs spin < 105",
+      "VULNERABLE_VS_PACE": "SR vs pace < 105"
+    },
+    "bowler_archetypes": {
+      "NEW_BALL_SPECIALIST": "PP workload >45%, PP economy < 8",
+      "MIDDLE_OVERS_CONTROLLER": "Mid workload >60%, mid economy < 8",
+      "DEATH_SPECIALIST": "Death workload >30%, death economy < 10",
+      "WORKHORSE": "Balanced phase distribution, moderate economy",
+      "PART_TIMER": "Economy > 9.5"
+    },
+    "bowler_tags": {
+      "PP_ELITE": "PP workload >40%, economy < 8",
+      "MID_OVERS_ELITE": "Mid workload >50%, economy < 7.5",
+      "DEATH_ELITE": "Death workload >25%, economy < 9.5",
+      "PRESSURE_BUILDER": "Overall dot ball% > 38%",
+      "PROVEN_WICKET_TAKER": "100+ IPL wickets",
+      "SPINNER": "Spin bowling style",
+      "PACER": "Pace bowling style"
+    }
+  }
+}

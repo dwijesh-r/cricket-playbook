@@ -1,0 +1,105 @@
+{
+  "registry_version": "1.0.0",
+  "last_updated": "2026-01-21",
+  "maintainer": "Ime Udoka (ML Ops Engineer)",
+
+  "models": {
+    "player_clustering_v1": {
+      "version": "1.0.0",
+      "status": "deprecated",
+      "created_date": "2026-01-20",
+      "script": "scripts/player_clustering.py",
+      "algorithm": "K-Means",
+      "features": {
+        "batters": ["overall_sr", "overall_avg", "overall_boundary", "overall_dot", "pp_sr", "pp_boundary", "pp_dot", "mid_sr", "mid_boundary", "mid_dot", "death_sr", "death_boundary", "death_dot"],
+        "bowlers": ["overall_economy", "overall_avg", "overall_sr", "overall_dot", "overall_boundary", "pp_economy", "pp_dot", "pp_boundary", "mid_economy", "mid_dot", "mid_boundary", "death_economy", "death_dot", "death_boundary", "pp_pct", "mid_pct", "death_pct"]
+      },
+      "hyperparameters": {
+        "n_clusters": 5,
+        "random_state": 42,
+        "n_init": 10
+      },
+      "sample_size_requirements": {
+        "batters_min_balls": 500,
+        "bowlers_min_balls": 300
+      },
+      "outputs": {
+        "batters_clustered": 129,
+        "bowlers_clustered": 206
+      },
+      "issues": [
+        "No batting position feature",
+        "No wickets per phase for bowlers",
+        "No recency weighting",
+        "No PCA variance reporting"
+      ]
+    },
+
+    "player_clustering_v2": {
+      "version": "2.0.0",
+      "status": "active",
+      "created_date": "2026-01-21",
+      "script": "scripts/player_clustering_v2.py",
+      "algorithm": "K-Means",
+      "improvements": [
+        "Added avg_batting_position feature",
+        "Added wickets per phase for bowlers",
+        "Implemented recency weighting (2021-2025)",
+        "Added PCA variance analysis",
+        "Added correlation cleanup (r > 0.9)"
+      ],
+      "features": {
+        "batters": ["overall_sr", "overall_avg", "overall_boundary", "overall_dot", "avg_batting_position", "pp_sr", "mid_sr", "death_sr"],
+        "bowlers": ["overall_economy", "overall_sr", "overall_dot", "overall_boundary", "pp_economy", "pp_dot", "mid_economy", "mid_dot", "death_economy", "death_dot", "pp_pct", "mid_pct", "death_pct", "pp_wickets", "mid_wickets", "death_wickets"]
+      },
+      "features_removed_by_correlation": ["pp_boundary", "mid_boundary", "death_boundary"],
+      "hyperparameters": {
+        "n_clusters": 5,
+        "random_state": 42,
+        "n_init": 10
+      },
+      "sample_size_requirements": {
+        "batters_min_balls": 300,
+        "bowlers_min_balls": 200
+      },
+      "pca_variance": {
+        "batters": {
+          "components_for_50pct": 2,
+          "total_components": 8,
+          "variance_3pc": 0.836
+        },
+        "bowlers": {
+          "components_for_50pct": 2,
+          "total_components": 16,
+          "variance_3pc": 0.638
+        }
+      },
+      "outputs": {
+        "batters_clustered": 173,
+        "bowlers_clustered": 268
+      },
+      "validation": {
+        "founder_review_items": {
+          "batting_position_added": true,
+          "wickets_per_phase_added": true,
+          "recency_weighting_implemented": true,
+          "pca_50pct_target_met": true
+        },
+        "player_validations": {
+          "JC_Buttler": "Cluster 3 (Elite explosive, Pos 2.1) - CORRECT",
+          "SA_Yadav": "Cluster 3 (Elite explosive, Pos 3.2) - CORRECT",
+          "RR_Pant": "Cluster 3 (Elite explosive) - CORRECT",
+          "MS_Dhoni": "Pending Andy Flower review",
+          "A_Nortje": "Pending bowler cluster review"
+        }
+      }
+    }
+  },
+
+  "quality_gates": {
+    "pca_variance_target": 0.50,
+    "correlation_threshold": 0.90,
+    "min_players_per_cluster": 10,
+    "andy_flower_validation_required": true
+  }
+}

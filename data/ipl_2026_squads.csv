@@ -1,232 +1,232 @@
-team_name,player_name,player_id,role,bowling_arm,bowling_type,batting_hand
-Chennai Super Kings,Ruturaj Gaikwad,45a43fe2,Batter,Right-arm,Medium,Right-hand
-Chennai Super Kings,Sanju Samson,a4cc73aa,Wicketkeeper,Right-arm,Medium,Right-hand
-Chennai Super Kings,MS Dhoni,4a8a2e3b,Wicketkeeper,Right-arm,Medium,Right-hand
-Chennai Super Kings,Shivam Dube,a4e37e47,All-rounder,Right-arm,Medium,Left-hand
-Chennai Super Kings,Dewald Brevis,844e79d1,All-rounder,Right-arm,Off-spin,Right-hand
-Chennai Super Kings,Ayush Mhatre,b2b4f545,Batter,Right-arm,Medium,Right-hand
-Chennai Super Kings,Noor Ahmad,efc04be7,Bowler,Left-arm,Left-arm wrist spin,Left-hand
-Chennai Super Kings,Khaleel Ahmed,a2f46292,Bowler,Left-arm,Fast,Left-hand
-Chennai Super Kings,Nathan Ellis,9eb1455b,Bowler,Right-arm,Fast,Right-hand
-Chennai Super Kings,Jamie Overton,59559bc2,All-rounder,Right-arm,Fast,Right-hand
-Chennai Super Kings,Anshul Kamboj,fcc21ace,Bowler,Right-arm,Fast,Right-hand
-Chennai Super Kings,Gurjapneet Singh,6eb146d2,Bowler,Left-arm,Fast,Left-hand
-Chennai Super Kings,Shreyas Gopal,7a8bd078,Bowler,Right-arm,Leg-spin,Right-hand
-Chennai Super Kings,Mukesh Choudhary,765a4731,Bowler,Left-arm,Fast,Left-hand
-Chennai Super Kings,Prashant Veer,e148e6bd,All-rounder,Right-arm,Off-spin,Right-hand
-Chennai Super Kings,Kartik Sharma,119678fd,Wicketkeeper,Right-arm,Medium,Right-hand
-Chennai Super Kings,Matthew Short,a90e53ec,All-rounder,Right-arm,Off-spin,Right-hand
-Chennai Super Kings,Aman Khan,eef2536f,All-rounder,Right-arm,Off-spin,Left-hand
-Chennai Super Kings,Sarfaraz Khan,f088b960,Batter,Right-arm,Leg-spin,Right-hand
-Chennai Super Kings,Akeal Hosein,4d7f517e,Bowler,Left-arm,Left-arm orthodox,Left-hand
-Chennai Super Kings,Urvil Patel,cf59b3f0,Wicketkeeper,Right-arm,Medium,Right-hand
-Chennai Super Kings,Ramakrishna Ghosh,,Bowler,Right-arm,Fast,Right-hand
-Chennai Super Kings,Matt Henry,e84ac20c,Bowler,Right-arm,Fast,Right-hand
-Chennai Super Kings,Rahul Chahar,2ed569a0,Bowler,Right-arm,Leg-spin,Right-hand
-Chennai Super Kings,Zak Foulkes,30f92334,Bowler,Right-arm,Fast,Right-hand
-Mumbai Indians,Rohit Sharma,740742ef,Batter,Right-arm,Off-spin,Right-hand
-Mumbai Indians,Jasprit Bumrah,462411b3,Bowler,Right-arm,Fast,Right-hand
-Mumbai Indians,Suryakumar Yadav,271f83cd,Batter,Right-arm,Off-spin,Right-hand
-Mumbai Indians,Hardik Pandya,dbe50b21,All-rounder,Right-arm,Fast,Right-hand
-Mumbai Indians,Tilak Varma,b0482a1d,All-rounder,Right-arm,Off-spin,Left-hand
-Mumbai Indians,Trent Boult,a818c1be,Bowler,Left-arm,Fast,Left-hand
-Mumbai Indians,Deepak Chahar,23eeb873,Bowler,Right-arm,Fast,Right-hand
-Mumbai Indians,Mitchell Santner,e4a0deae,All-rounder,Left-arm,Left-arm orthodox,Left-hand
-Mumbai Indians,Quinton de Kock,372455c4,Wicketkeeper,Right-arm,Medium,Left-hand
-Mumbai Indians,Naman Dhir,fffa744b,All-rounder,Left-arm,Left-arm orthodox,Left-hand
-Mumbai Indians,AM Ghazanfar,9ca68676,Bowler,Right-arm,Off-spin,Right-hand
-Mumbai Indians,Ryan Rickelton,e66732f8,Batter,Right-arm,Medium,Left-hand
-Mumbai Indians,Robin Minz,bafd0398,Wicketkeeper,Right-arm,Medium,Right-hand
-Mumbai Indians,Raj Bawa,ba6b2f91,All-rounder,Right-arm,Fast,Left-hand
-Mumbai Indians,Will Jacks,9caf69a1,All-rounder,Right-arm,Off-spin,Right-hand
-Mumbai Indians,Shardul Thakur,1abb78f8,All-rounder,Right-arm,Fast,Right-hand
-Mumbai Indians,Sherfane Rutherford,d014d5ac,All-rounder,Right-arm,Medium,Left-hand
-Mumbai Indians,Danish Malewar,,Batter,Right-arm,Leg-spin,Right-hand
-Mumbai Indians,Corbin Bosch,172dff15,All-rounder,Right-arm,Fast,Right-hand
-Mumbai Indians,Atharva Ankolekar,d6cd318e,Bowler,Left-arm,Left-arm orthodox,Left-hand
-Mumbai Indians,Mayank Markande,a9fd84fb,Bowler,Right-arm,Leg-spin,Right-hand
-Mumbai Indians,Raghu Sharma,5b615e7c,Bowler,Right-arm,Fast,Right-hand
-Mumbai Indians,Ashwani Kumar,d45c29b1,Bowler,Right-arm,Fast,Right-hand
-Mumbai Indians,Mohammed Izhar,2f49c897,Bowler,Right-arm,Fast,Right-hand
-Royal Challengers Bengaluru,Virat Kohli,ba607b88,Batter,Right-arm,Medium,Right-hand
-Royal Challengers Bengaluru,Rajat Patidar,c740ea83,Batter,Right-arm,Off-spin,Right-hand
-Royal Challengers Bengaluru,Phil Salt,3d284ca3,Wicketkeeper,Right-arm,Medium,Right-hand
-Royal Challengers Bengaluru,Tim David,f1f99156,Batter,Right-arm,Off-spin,Right-hand
-Royal Challengers Bengaluru,Josh Hazlewood,03806cf8,Bowler,Right-arm,Fast,Left-hand
-Royal Challengers Bengaluru,Bhuvneshwar Kumar,2e81a32d,Bowler,Right-arm,Fast,Right-hand
-Royal Challengers Bengaluru,Krunal Pandya,5b8c830e,All-rounder,Left-arm,Left-arm orthodox,Left-hand
-Royal Challengers Bengaluru,Yash Dayal,7210d461,Bowler,Left-arm,Fast,Left-hand
-Royal Challengers Bengaluru,Jitesh Sharma,800d2d97,Wicketkeeper,Right-arm,Medium,Right-hand
-Royal Challengers Bengaluru,Suyash Sharma,9440ef41,Bowler,Right-arm,Leg-spin,Right-hand
-Royal Challengers Bengaluru,Jacob Bethell,3c55c703,All-rounder,Left-arm,Left-arm orthodox,Left-hand
-Royal Challengers Bengaluru,Devdutt Padikkal,2c25d4f5,Batter,Right-arm,Medium,Left-hand
-Royal Challengers Bengaluru,Swapnil Singh,983f2f61,All-rounder,Left-arm,Left-arm orthodox,Left-hand
-Royal Challengers Bengaluru,Venkatesh Iyer,a24be938,All-rounder,Right-arm,Medium,Left-hand
-Royal Challengers Bengaluru,Romario Shepherd,c5aef772,All-rounder,Right-arm,Fast,Right-hand
-Royal Challengers Bengaluru,Raqibul Hasan,17efdeb8,Batter,Right-arm,Medium,Right-hand
-Royal Challengers Bengaluru,Satvik Deswal,,Bowler,Left-arm,Left-arm wrist spin,Left-hand
-Royal Challengers Bengaluru,Abhinandan Singh,244048f6,Bowler,Right-arm,Fast,Right-hand
-Royal Challengers Bengaluru,Mangesh Yadav,b1ad996b,Bowler,Left-arm,Fast,Left-hand
-Royal Challengers Bengaluru,Jacob Duffy,dadbdb68,Bowler,Right-arm,Fast,Right-hand
-Royal Challengers Bengaluru,Jordan Cox,ff154ecd,Wicketkeeper,Right-arm,Medium,Right-hand
-Kolkata Knight Riders,Rinku Singh,0a509d6b,Batter,Right-arm,Medium,Left-hand
-Kolkata Knight Riders,Sunil Narine,9d430b40,All-rounder,Right-arm,Off-spin,Left-hand
-Kolkata Knight Riders,Varun Chakravarthy,5b7ab5a9,Bowler,Right-arm,Off-spin,Right-hand
-Kolkata Knight Riders,Harshit Rana,77b1aa15,Bowler,Right-arm,Fast,Right-hand
-Kolkata Knight Riders,Ajinkya Rahane,29e95537,Batter,Right-arm,Medium,Right-hand
-Kolkata Knight Riders,Ramandeep Singh,be24ead0,All-rounder,Right-arm,Medium,Right-hand
-Kolkata Knight Riders,Vaibhav Arora,7c3b3b78,Bowler,Right-arm,Fast,Right-hand
-Kolkata Knight Riders,Angkrish Raghuvanshi,d7017798,Batter,Right-arm,Medium,Right-hand
-Kolkata Knight Riders,Rovman Powell,650d5e49,Batter,Right-arm,Medium,Right-hand
-Kolkata Knight Riders,Manish Pandey,93b4fc78,Batter,Right-arm,Medium,Right-hand
-Kolkata Knight Riders,Umran Malik,81c08fa3,Bowler,Right-arm,Fast,Right-hand
-Kolkata Knight Riders,Anukul Roy,e4cdf230,All-rounder,Left-arm,Left-arm orthodox,Left-hand
-Kolkata Knight Riders,Cameron Green,19b9f399,All-rounder,Right-arm,Fast,Left-hand
-Kolkata Knight Riders,Matheesha Pathirana,64839cb3,Bowler,Right-arm,Fast,Right-hand
-Kolkata Knight Riders,Finn Allen,b52ffbbd,Wicketkeeper,Right-arm,Medium,Right-hand
-Kolkata Knight Riders,Tim Seifert,4663bd23,Wicketkeeper,Right-arm,Medium,Right-hand
-Kolkata Knight Riders,Rahul Tripathi,77255a9e,Batter,Right-arm,Leg-spin,Right-hand
-Kolkata Knight Riders,Rachin Ravindra,ba5e1069,All-rounder,Left-arm,Left-arm orthodox,Left-hand
-Kolkata Knight Riders,Akash Deep,0a67aec0,Bowler,Right-arm,Fast,Right-hand
-Kolkata Knight Riders,Prashant Solanki,c695b423,Bowler,Left-arm,Left-arm orthodox,Left-hand
-Kolkata Knight Riders,Kartik Tyagi,5d2eea49,Bowler,Right-arm,Fast,Right-hand
-Kolkata Knight Riders,Tejasvi Singh,0bf15e52,Wicketkeeper,Right-arm,Medium,Right-hand
-Kolkata Knight Riders,Sarthak Ranjan,d7cdefa9,Bowler,Right-arm,Fast,Right-hand
-Kolkata Knight Riders,Daksh Kamra,1a628a92,All-rounder,Right-arm,Medium,Right-hand
-Delhi Capitals,KL Rahul,b17e2f24,Wicketkeeper,Right-arm,Medium,Right-hand
-Delhi Capitals,Axar Patel,2e171977,All-rounder,Left-arm,Left-arm orthodox,Left-hand
-Delhi Capitals,Kuldeep Yadav,8d2c70ad,Bowler,Left-arm,Left-arm wrist spin,Left-hand
-Delhi Capitals,Mitchell Starc,3fb19989,Bowler,Left-arm,Fast,Left-hand
-Delhi Capitals,T Natarajan,ce794613,Bowler,Left-arm,Fast,Left-hand
-Delhi Capitals,Tristan Stubbs,85b3fab2,All-rounder,Right-arm,Medium,Right-hand
-Delhi Capitals,Mukesh Kumar,2cffab74,Bowler,Right-arm,Fast,Right-hand
-Delhi Capitals,Ashutosh Sharma,84d9c311,All-rounder,Right-arm,Off-spin,Right-hand
-Delhi Capitals,Abhishek Porel,ad3b6e95,Wicketkeeper,Right-arm,Medium,Right-hand
-Delhi Capitals,Karun Nair,944533a5,Batter,Right-arm,Off-spin,Right-hand
-Delhi Capitals,Nitish Rana,fb2d1dda,Batter,Left-arm,Left-arm orthodox,Left-hand
-Delhi Capitals,Sameer Rizvi,f89d3b11,Batter,Right-arm,Medium,Right-hand
-Delhi Capitals,Dushmantha Chameera,327b58d3,Bowler,Right-arm,Fast,Right-hand
-Delhi Capitals,Vipraj Nigam,5ffc0565,Batter,Right-arm,Medium,Right-hand
-Delhi Capitals,Madhav Tiwari,fb5f69e4,All-rounder,Right-arm,Medium,Right-hand
-Delhi Capitals,Tripurana Vijay,51ec3919,Batter,Right-arm,Medium,Right-hand
-Delhi Capitals,Ajay Mandal,31ee319e,All-rounder,Right-arm,Medium,Right-hand
-Delhi Capitals,Pathum Nissanka,8ee36b18,Batter,Right-arm,Off-spin,Right-hand
-Delhi Capitals,Kyle Jamieson,68c56d09,Bowler,Right-arm,Fast,Right-hand
-Delhi Capitals,Lungi Ngidi,f834dcfc,Bowler,Right-arm,Fast,Right-hand
-Delhi Capitals,Ben Duckett,5f26f677,Batter,Right-arm,Medium,Left-hand
-Delhi Capitals,David Miller,d67d5f00,Batter,Right-arm,Off-spin,Left-hand
-Delhi Capitals,Prithvi Shaw,8b3e9c7c,Batter,Right-arm,Leg-spin,Right-hand
-Delhi Capitals,Sahil Parakh,,All-rounder,Right-arm,Leg-spin,Left-hand
-Delhi Capitals,Auqib Nabi Dar,557550a4,Bowler,Right-arm,Fast,Right-hand
-Punjab Kings,Shreyas Iyer,85ec8e33,Batter,Right-arm,Leg-spin,Right-hand
-Punjab Kings,Arshdeep Singh,244048f6,Bowler,Left-arm,Fast,Left-hand
-Punjab Kings,Yuzvendra Chahal,57ee1fde,Bowler,Right-arm,Leg-spin,Right-hand
-Punjab Kings,Marcus Stoinis,d9273ee7,All-rounder,Right-arm,Fast,Right-hand
-Punjab Kings,Marco Jansen,81c36ee9,All-rounder,Left-arm,Fast,Left-hand
-Punjab Kings,Shashank Singh,26989d80,All-rounder,Right-arm,Medium,Right-hand
-Punjab Kings,Nehal Wadhera,d1a60072,Batter,Right-arm,Medium,Right-hand
-Punjab Kings,Prabhsimran Singh,9418198b,Wicketkeeper,Right-arm,Medium,Right-hand
-Punjab Kings,Priyansh Arya,b5797845,Batter,Right-arm,Medium,Left-hand
-Punjab Kings,Azmatullah Omarzai,8f6dd463,All-rounder,Right-arm,Fast,Right-hand
-Punjab Kings,Vijaykumar Vyshak,54e52590,Bowler,Right-arm,Fast,Right-hand
-Punjab Kings,Yash Thakur,4b31f3a3,Bowler,Right-arm,Fast,Right-hand
-Punjab Kings,Harpreet Brar,c05edf8e,All-rounder,Left-arm,Left-arm orthodox,Left-hand
-Punjab Kings,Lockie Ferguson,2f9d0389,Bowler,Right-arm,Fast,Right-hand
-Punjab Kings,Vishnu Vinod,0494fa6e,Wicketkeeper,Right-arm,Medium,Right-hand
-Punjab Kings,Xavier Bartlett,3b53243a,Bowler,Right-arm,Fast,Right-hand
-Punjab Kings,Suryansh Shedge,970ddd24,All-rounder,Right-arm,Off-spin,Right-hand
-Punjab Kings,Pyla Avinash,,Batter,Right-arm,Fast,Right-hand
-Punjab Kings,Musheer Khan,d621b427,All-rounder,Left-arm,Left-arm orthodox,Left-hand
-Punjab Kings,Harnoor Singh,8b5b6769,Batter,Right-arm,Medium,Left-hand
-Punjab Kings,Cooper Connolly,fe366f34,All-rounder,Left-arm,Left-arm orthodox,Left-hand
-Punjab Kings,Ben Dwarshuis,e1b9f3a9,Bowler,Left-arm,Fast,Left-hand
-Rajasthan Royals,Yashasvi Jaiswal,6c19c6e5,Batter,Left-arm,Left-arm orthodox,Left-hand
-Rajasthan Royals,Riyan Parag,04a418e8,All-rounder,Right-arm,Off-spin,Right-hand
-Rajasthan Royals,Dhruv Jurel,bcf325d2,Wicketkeeper,Right-arm,Medium,Right-hand
-Rajasthan Royals,Shimron Hetmyer,48a1d7b7,Batter,Right-arm,Medium,Left-hand
-Rajasthan Royals,Jofra Archer,5574750c,Bowler,Right-arm,Fast,Right-hand
-Rajasthan Royals,Ravindra Jadeja,fe93fd9d,All-rounder,Left-arm,Left-arm orthodox,Left-hand
-Rajasthan Royals,Sam Curran,e94915e6,All-rounder,Left-arm,Fast,Left-hand
-Rajasthan Royals,Vaibhav Suryavanshi,470f446b,Batter,Left-arm,Medium,Left-hand
-Rajasthan Royals,Tushar Deshpande,46a9bea1,Bowler,Right-arm,Fast,Right-hand
-Rajasthan Royals,Sandeep Sharma,ce820073,Bowler,Right-arm,Fast,Right-hand
-Rajasthan Royals,Nandre Burger,465aa633,Bowler,Right-arm,Fast,Right-hand
-Rajasthan Royals,Kwena Maphaka,107c26fb,Bowler,Left-arm,Fast,Left-hand
-Rajasthan Royals,Lhuan-dre Pretorius,60aa2db3,All-rounder,Right-arm,Fast,Right-hand
-Rajasthan Royals,Yudhvir Singh,4885bbe6,All-rounder,Right-arm,Medium,Right-hand
-Rajasthan Royals,Shubham Dubey,a4e37e47,Batter,Right-arm,Medium,Right-hand
-Rajasthan Royals,Ravi Bishnoi,df064e1a,Bowler,Right-arm,Leg-spin,Right-hand
-Rajasthan Royals,Adam Milne,350bb1b1,Bowler,Right-arm,Fast,Right-hand
-Rajasthan Royals,Kuldeep Sen,2e78f685,Bowler,Right-arm,Fast,Right-hand
-Rajasthan Royals,Aman Rao,0420f51f,Wicketkeeper,Right-arm,Medium,Right-hand
-Rajasthan Royals,Ravi Singh,0a509d6b,Batter,Right-arm,Medium,Right-hand
-Rajasthan Royals,Donovan Ferreira,f0af99a7,Batter,Right-arm,Off-spin,Right-hand
-Rajasthan Royals,Yash Raj Punja,,Bowler,Right-arm,Leg-spin,Right-hand
-Rajasthan Royals,Vignesh Puthur,1e030637,Bowler,Right-arm,Leg-spin,Right-hand
-Rajasthan Royals,Sushant Mishra,c562ac6d,Bowler,Left-arm,Fast,Left-hand
-Rajasthan Royals,Brijesh Sharma,c18496e1,All-rounder,Right-arm,Medium,Right-hand
-Sunrisers Hyderabad,Heinrich Klaasen,235c2bb6,Wicketkeeper,Right-arm,Medium,Right-hand
-Sunrisers Hyderabad,Pat Cummins,ded9240e,Bowler,Right-arm,Fast,Right-hand
-Sunrisers Hyderabad,Travis Head,12b610c2,Batter,Left-arm,Left-arm orthodox,Left-hand
-Sunrisers Hyderabad,Abhishek Sharma,f29185a1,All-rounder,Left-arm,Left-arm orthodox,Left-hand
-Sunrisers Hyderabad,Ishan Kishan,752f7486,Wicketkeeper,Right-arm,Medium,Left-hand
-Sunrisers Hyderabad,Harshal Patel,f986ca1a,Bowler,Right-arm,Fast,Right-hand
-Sunrisers Hyderabad,Nitish Kumar Reddy,aad0c365,All-rounder,Right-arm,Fast,Right-hand
-Sunrisers Hyderabad,Liam Livingstone,50c6bc2b,All-rounder,Right-arm,Leg-spin,Right-hand
-Sunrisers Hyderabad,Brydon Carse,cad40f5e,Bowler,Right-arm,Fast,Right-hand
-Sunrisers Hyderabad,Kamindu Mendis,08548b13,All-rounder,Left-arm,Left-arm orthodox,Left-hand
-Sunrisers Hyderabad,Jaydev Unadkat,1e66c162,Bowler,Left-arm,Fast,Left-hand
-Sunrisers Hyderabad,Eshan Malinga,5750bcb4,Bowler,Right-arm,Fast,Right-hand
-Sunrisers Hyderabad,Zeeshan Ansari,36619795,Bowler,Left-arm,Left-arm orthodox,Left-hand
-Sunrisers Hyderabad,Aniket Verma,a3b0600d,Batter,Right-arm,Medium,Right-hand
-Sunrisers Hyderabad,Ravichandran Smaran,,Batter,Right-arm,Medium,Left-hand
-Sunrisers Hyderabad,Harsh Dubey,25228673,Bowler,Right-arm,Off-spin,Right-hand
-Sunrisers Hyderabad,Jack Edwards,f787e0eb,All-rounder,Right-arm,Off-spin,Right-hand
-Sunrisers Hyderabad,Shivang Kumar,8998a68f,Bowler,Right-arm,Fast,Right-hand
-Sunrisers Hyderabad,Krains Fuletra,,All-rounder,Left-arm,Left-arm wrist spin,Right-hand
-Sunrisers Hyderabad,Salil Arora,263f1761,Batter,Right-arm,Medium,Right-hand
-Sunrisers Hyderabad,Amit Kumar,d45c29b1,All-rounder,Right-arm,Fast,Right-hand
-Sunrisers Hyderabad,Shivam Mavi,c38d3503,Bowler,Right-arm,Fast,Right-hand
-Sunrisers Hyderabad,Onkar Tarmale,,Batter,Right-arm,Fast,Right-hand
-Sunrisers Hyderabad,Sakib Hussain,280fff14,Bowler,Right-arm,Fast,Right-hand
-Sunrisers Hyderabad,Praful Hinge,,Bowler,Right-arm,Fast,Right-hand
-Gujarat Titans,Shubman Gill,b4b99816,Batter,Right-arm,Off-spin,Right-hand
-Gujarat Titans,Rashid Khan,5f547c8b,Bowler,Right-arm,Leg-spin,Right-hand
-Gujarat Titans,Jos Buttler,99b75528,Wicketkeeper,Right-arm,Medium,Right-hand
-Gujarat Titans,Mohammed Siraj,2f49c897,Bowler,Right-arm,Fast,Right-hand
-Gujarat Titans,Kagiso Rabada,e62dd25d,Bowler,Right-arm,Fast,Right-hand
-Gujarat Titans,Prasidh Krishna,85e0cf10,Bowler,Right-arm,Fast,Right-hand
-Gujarat Titans,Sai Sudharsan,d5130a30,Batter,Right-arm,Medium,Left-hand
-Gujarat Titans,Washington Sundar,f19ccfad,All-rounder,Right-arm,Off-spin,Left-hand
-Gujarat Titans,Rahul Tewatia,39a2dfa8,All-rounder,Right-arm,Leg-spin,Left-hand
-Gujarat Titans,Shahrukh Khan,f088b960,Batter,Right-arm,Medium,Right-hand
-Gujarat Titans,Sai Kishore,c7a995d3,Bowler,Left-arm,Left-arm orthodox,Left-hand
-Gujarat Titans,Glenn Phillips,9a46c4e5,All-rounder,Right-arm,Off-spin,Right-hand
-Gujarat Titans,Arshad Khan,12314277,All-rounder,Right-arm,Medium,Right-hand
-Gujarat Titans,Gurnoor Brar,99258814,All-rounder,Left-arm,Left-arm orthodox,Left-hand
-Gujarat Titans,Ishant Sharma,5bb1a1c4,Bowler,Right-arm,Fast,Right-hand
-Gujarat Titans,Jayant Yadav,81049310,All-rounder,Right-arm,Off-spin,Right-hand
-Gujarat Titans,Kumar Kushagra,57ca01b3,Wicketkeeper,Right-arm,Medium,Right-hand
-Gujarat Titans,Anuj Rawat,c8f5f961,Wicketkeeper,Right-arm,Medium,Left-hand
-Gujarat Titans,Nishant Sindhu,3cea23da,All-rounder,Left-arm,Left-arm orthodox,Left-hand
-Gujarat Titans,Manav Suthar,025c4400,Bowler,Left-arm,Left-arm orthodox,Left-hand
-Lucknow Super Giants,Rishabh Pant,919a3be2,Wicketkeeper,Right-arm,Medium,Left-hand
-Lucknow Super Giants,Nicholas Pooran,3241e3fd,Wicketkeeper,Right-arm,Medium,Left-hand
-Lucknow Super Giants,Mayank Yadav,c6355538,Bowler,Right-arm,Fast,Right-hand
-Lucknow Super Giants,Avesh Khan,eef2536f,Bowler,Right-arm,Fast,Right-hand
-Lucknow Super Giants,Abdul Samad,8e514b4c,Batter,Right-arm,Leg-spin,Right-hand
-Lucknow Super Giants,Mohsin Khan,c33d8116,Bowler,Left-arm,Fast,Left-hand
-Lucknow Super Giants,Ayush Badoni,872b03f7,Batter,Right-arm,Leg-spin,Right-hand
-Lucknow Super Giants,Mitchell Marsh,3d8feaf8,All-rounder,Right-arm,Fast,Right-hand
-Lucknow Super Giants,Aiden Markram,6a26221c,All-rounder,Right-arm,Off-spin,Right-hand
-Lucknow Super Giants,Matthew Breetzke,35f173a0,Batter,Right-arm,Medium,Right-hand
-Lucknow Super Giants,Manimaran Siddharth,cf0ccafa,Bowler,Left-arm,Left-arm orthodox,Left-hand
-Lucknow Super Giants,Himmat Singh,ebcfef83,All-rounder,Right-arm,Off-spin,Right-hand
-Lucknow Super Giants,Digvesh Rathi,13fc5c6d,Wicketkeeper,Right-arm,Medium,Right-hand
-Lucknow Super Giants,Akash Singh,b483905d,Bowler,Left-arm,Fast,Left-hand
-Lucknow Super Giants,Mohammed Shami,8cf9814c,Bowler,Right-arm,Fast,Right-hand
-Lucknow Super Giants,Josh Inglis,989889ff,Wicketkeeper,Right-arm,Medium,Right-hand
-Lucknow Super Giants,Wanindu Hasaranga,a97c8ec2,All-rounder,Right-arm,Leg-spin,Right-hand
-Lucknow Super Giants,Anrich Nortje,acdc62f5,Bowler,Right-arm,Fast,Right-hand
-Lucknow Super Giants,Arjun Tendulkar,44aac2f0,Bowler,Left-arm,Fast,Left-hand
-Lucknow Super Giants,Arshin Kulkarni,2d140b79,All-rounder,Right-arm,Off-spin,Right-hand
+team_name,player_name,player_id,role,bowling_arm,bowling_type,batting_hand,batter_classification,bowler_classification
+Chennai Super Kings,Ruturaj Gaikwad,45a43fe2,Batter,Right-arm,Medium,Right-hand,Elite Top-Order,
+Chennai Super Kings,Sanju Samson,a4cc73aa,Wicketkeeper,Right-arm,Medium,Right-hand,Power Finisher,
+Chennai Super Kings,MS Dhoni,4a8a2e3b,Wicketkeeper,Right-arm,Medium,Right-hand,,
+Chennai Super Kings,Shivam Dube,a4e37e47,All-rounder,Right-arm,Medium,Left-hand,,
+Chennai Super Kings,Dewald Brevis,844e79d1,All-rounder,Right-arm,Off-spin,Right-hand,,
+Chennai Super Kings,Ayush Mhatre,b2b4f545,Batter,Right-arm,Medium,Right-hand,,
+Chennai Super Kings,Noor Ahmad,efc04be7,Bowler,Left-arm,Left-arm wrist spin,Left-hand,,
+Chennai Super Kings,Khaleel Ahmed,a2f46292,Bowler,Left-arm,Fast,Left-hand,,Workhorse Seamer
+Chennai Super Kings,Nathan Ellis,9eb1455b,Bowler,Right-arm,Fast,Right-hand,,Workhorse Seamer
+Chennai Super Kings,Jamie Overton,59559bc2,All-rounder,Right-arm,Fast,Right-hand,,
+Chennai Super Kings,Anshul Kamboj,fcc21ace,Bowler,Right-arm,Fast,Right-hand,,
+Chennai Super Kings,Gurjapneet Singh,6eb146d2,Bowler,Left-arm,Fast,Left-hand,,
+Chennai Super Kings,Shreyas Gopal,7a8bd078,Bowler,Right-arm,Leg-spin,Right-hand,,
+Chennai Super Kings,Mukesh Choudhary,765a4731,Bowler,Left-arm,Fast,Left-hand,,
+Chennai Super Kings,Prashant Veer,e148e6bd,All-rounder,Right-arm,Off-spin,Right-hand,,
+Chennai Super Kings,Kartik Sharma,119678fd,Wicketkeeper,Right-arm,Medium,Right-hand,,Holding Spinner
+Chennai Super Kings,Matthew Short,a90e53ec,All-rounder,Right-arm,Off-spin,Right-hand,,
+Chennai Super Kings,Aman Khan,eef2536f,All-rounder,Right-arm,Off-spin,Left-hand,,Workhorse Seamer
+Chennai Super Kings,Sarfaraz Khan,f088b960,Batter,Right-arm,Leg-spin,Right-hand,,
+Chennai Super Kings,Akeal Hosein,4d7f517e,Bowler,Left-arm,Left-arm orthodox,Left-hand,,
+Chennai Super Kings,Urvil Patel,cf59b3f0,Wicketkeeper,Right-arm,Medium,Right-hand,,
+Chennai Super Kings,Ramakrishna Ghosh,,Bowler,Right-arm,Fast,Right-hand,,
+Chennai Super Kings,Matt Henry,e84ac20c,Bowler,Right-arm,Fast,Right-hand,,
+Chennai Super Kings,Rahul Chahar,2ed569a0,Bowler,Right-arm,Leg-spin,Right-hand,,Middle-Overs Spinner
+Chennai Super Kings,Zak Foulkes,30f92334,Bowler,Right-arm,Fast,Right-hand,,
+Mumbai Indians,Rohit Sharma,740742ef,Batter,Right-arm,Off-spin,Right-hand,All-Round Finisher,
+Mumbai Indians,Jasprit Bumrah,462411b3,Bowler,Right-arm,Fast,Right-hand,,Powerplay Assassin
+Mumbai Indians,Suryakumar Yadav,271f83cd,Batter,Right-arm,Off-spin,Right-hand,Power Finisher,
+Mumbai Indians,Hardik Pandya,dbe50b21,All-rounder,Right-arm,Fast,Right-hand,All-Round Finisher,Expensive Option
+Mumbai Indians,Tilak Varma,b0482a1d,All-rounder,Right-arm,Off-spin,Left-hand,Elite Top-Order,
+Mumbai Indians,Trent Boult,a818c1be,Bowler,Left-arm,Fast,Left-hand,,Workhorse Seamer
+Mumbai Indians,Deepak Chahar,23eeb873,Bowler,Right-arm,Fast,Right-hand,,Powerplay Assassin
+Mumbai Indians,Mitchell Santner,e4a0deae,All-rounder,Left-arm,Left-arm orthodox,Left-hand,,
+Mumbai Indians,Quinton de Kock,372455c4,Wicketkeeper,Right-arm,Medium,Left-hand,Power Finisher,
+Mumbai Indians,Naman Dhir,fffa744b,All-rounder,Left-arm,Left-arm orthodox,Left-hand,,
+Mumbai Indians,AM Ghazanfar,9ca68676,Bowler,Right-arm,Off-spin,Right-hand,,
+Mumbai Indians,Ryan Rickelton,e66732f8,Batter,Right-arm,Medium,Left-hand,,
+Mumbai Indians,Robin Minz,bafd0398,Wicketkeeper,Right-arm,Medium,Right-hand,,
+Mumbai Indians,Raj Bawa,ba6b2f91,All-rounder,Right-arm,Fast,Left-hand,,
+Mumbai Indians,Will Jacks,9caf69a1,All-rounder,Right-arm,Off-spin,Right-hand,,
+Mumbai Indians,Shardul Thakur,1abb78f8,All-rounder,Right-arm,Fast,Right-hand,,Expensive Option
+Mumbai Indians,Sherfane Rutherford,d014d5ac,All-rounder,Right-arm,Medium,Left-hand,,
+Mumbai Indians,Danish Malewar,,Batter,Right-arm,Leg-spin,Right-hand,,
+Mumbai Indians,Corbin Bosch,172dff15,All-rounder,Right-arm,Fast,Right-hand,,
+Mumbai Indians,Atharva Ankolekar,d6cd318e,Bowler,Left-arm,Left-arm orthodox,Left-hand,,
+Mumbai Indians,Mayank Markande,a9fd84fb,Bowler,Right-arm,Leg-spin,Right-hand,,
+Mumbai Indians,Raghu Sharma,5b615e7c,Bowler,Right-arm,Fast,Right-hand,,
+Mumbai Indians,Ashwani Kumar,d45c29b1,Bowler,Right-arm,Fast,Right-hand,,
+Mumbai Indians,Mohammed Izhar,2f49c897,Bowler,Right-arm,Fast,Right-hand,,Workhorse Seamer
+Royal Challengers Bengaluru,Virat Kohli,ba607b88,Batter,Right-arm,Medium,Right-hand,Elite Top-Order,
+Royal Challengers Bengaluru,Rajat Patidar,c740ea83,Batter,Right-arm,Off-spin,Right-hand,Power Finisher,
+Royal Challengers Bengaluru,Phil Salt,3d284ca3,Wicketkeeper,Right-arm,Medium,Right-hand,,
+Royal Challengers Bengaluru,Tim David,f1f99156,Batter,Right-arm,Off-spin,Right-hand,,
+Royal Challengers Bengaluru,Josh Hazlewood,03806cf8,Bowler,Right-arm,Fast,Left-hand,,Powerplay Assassin
+Royal Challengers Bengaluru,Bhuvneshwar Kumar,2e81a32d,Bowler,Right-arm,Fast,Right-hand,,Powerplay Assassin
+Royal Challengers Bengaluru,Krunal Pandya,5b8c830e,All-rounder,Left-arm,Left-arm orthodox,Left-hand,,Middle-Overs Spinner
+Royal Challengers Bengaluru,Yash Dayal,7210d461,Bowler,Left-arm,Fast,Left-hand,,Expensive Option
+Royal Challengers Bengaluru,Jitesh Sharma,800d2d97,Wicketkeeper,Right-arm,Medium,Right-hand,,
+Royal Challengers Bengaluru,Suyash Sharma,9440ef41,Bowler,Right-arm,Leg-spin,Right-hand,,
+Royal Challengers Bengaluru,Jacob Bethell,3c55c703,All-rounder,Left-arm,Left-arm orthodox,Left-hand,,
+Royal Challengers Bengaluru,Devdutt Padikkal,2c25d4f5,Batter,Right-arm,Medium,Left-hand,All-Round Finisher,
+Royal Challengers Bengaluru,Swapnil Singh,983f2f61,All-rounder,Left-arm,Left-arm orthodox,Left-hand,,
+Royal Challengers Bengaluru,Venkatesh Iyer,a24be938,All-rounder,Right-arm,Medium,Left-hand,All-Round Finisher,
+Royal Challengers Bengaluru,Romario Shepherd,c5aef772,All-rounder,Right-arm,Fast,Right-hand,,
+Royal Challengers Bengaluru,Raqibul Hasan,17efdeb8,Batter,Right-arm,Medium,Right-hand,,
+Royal Challengers Bengaluru,Satvik Deswal,,Bowler,Left-arm,Left-arm wrist spin,Left-hand,,
+Royal Challengers Bengaluru,Abhinandan Singh,,Bowler,Right-arm,Fast,Right-hand,,
+Royal Challengers Bengaluru,Mangesh Yadav,b1ad996b,Bowler,Left-arm,Fast,Left-hand,,
+Royal Challengers Bengaluru,Jacob Duffy,dadbdb68,Bowler,Right-arm,Fast,Right-hand,,
+Royal Challengers Bengaluru,Jordan Cox,ff154ecd,Wicketkeeper,Right-arm,Medium,Right-hand,,
+Kolkata Knight Riders,Rinku Singh,0a509d6b,Batter,Right-arm,Medium,Left-hand,,
+Kolkata Knight Riders,Sunil Narine,9d430b40,All-rounder,Right-arm,Off-spin,Left-hand,Aggressive Opener,Middle-Overs Spinner
+Kolkata Knight Riders,Varun Chakravarthy,5b7ab5a9,Bowler,Right-arm,Off-spin,Right-hand,,Middle-Overs Spinner
+Kolkata Knight Riders,Harshit Rana,77b1aa15,Bowler,Right-arm,Fast,Right-hand,,Expensive Option
+Kolkata Knight Riders,Ajinkya Rahane,29e95537,Batter,Right-arm,Medium,Right-hand,Elite Top-Order,
+Kolkata Knight Riders,Ramandeep Singh,be24ead0,All-rounder,Right-arm,Medium,Right-hand,,
+Kolkata Knight Riders,Vaibhav Arora,7c3b3b78,Bowler,Right-arm,Fast,Right-hand,,Expensive Option
+Kolkata Knight Riders,Angkrish Raghuvanshi,d7017798,Batter,Right-arm,Medium,Right-hand,,
+Kolkata Knight Riders,Rovman Powell,650d5e49,Batter,Right-arm,Medium,Right-hand,,
+Kolkata Knight Riders,Manish Pandey,93b4fc78,Batter,Right-arm,Medium,Right-hand,Anchor,
+Kolkata Knight Riders,Umran Malik,81c08fa3,Bowler,Right-arm,Fast,Right-hand,,
+Kolkata Knight Riders,Anukul Roy,e4cdf230,All-rounder,Left-arm,Left-arm orthodox,Left-hand,,
+Kolkata Knight Riders,Cameron Green,19b9f399,All-rounder,Right-arm,Fast,Left-hand,,
+Kolkata Knight Riders,Matheesha Pathirana,64839cb3,Bowler,Right-arm,Fast,Right-hand,,
+Kolkata Knight Riders,Finn Allen,b52ffbbd,Wicketkeeper,Right-arm,Medium,Right-hand,,
+Kolkata Knight Riders,Tim Seifert,4663bd23,Wicketkeeper,Right-arm,Medium,Right-hand,,
+Kolkata Knight Riders,Rahul Tripathi,77255a9e,Batter,Right-arm,Leg-spin,Right-hand,All-Round Finisher,
+Kolkata Knight Riders,Rachin Ravindra,ba5e1069,All-rounder,Left-arm,Left-arm orthodox,Left-hand,,
+Kolkata Knight Riders,Akash Deep,0a67aec0,Bowler,Right-arm,Fast,Right-hand,,
+Kolkata Knight Riders,Prashant Solanki,c695b423,Bowler,Left-arm,Left-arm orthodox,Left-hand,,
+Kolkata Knight Riders,Kartik Tyagi,5d2eea49,Bowler,Right-arm,Fast,Right-hand,,Expensive Option
+Kolkata Knight Riders,Tejasvi Singh,0bf15e52,Wicketkeeper,Right-arm,Medium,Right-hand,,
+Kolkata Knight Riders,Sarthak Ranjan,d7cdefa9,Bowler,Right-arm,Fast,Right-hand,,
+Kolkata Knight Riders,Daksh Kamra,1a628a92,All-rounder,Right-arm,Medium,Right-hand,,
+Delhi Capitals,KL Rahul,b17e2f24,Wicketkeeper,Right-arm,Medium,Right-hand,Elite Top-Order,
+Delhi Capitals,Axar Patel,2e171977,All-rounder,Left-arm,Left-arm orthodox,Left-hand,,Middle-Overs Spinner
+Delhi Capitals,Kuldeep Yadav,8d2c70ad,Bowler,Left-arm,Left-arm wrist spin,Left-hand,,Middle-Overs Spinner
+Delhi Capitals,Mitchell Starc,3fb19989,Bowler,Left-arm,Fast,Left-hand,,Workhorse Seamer
+Delhi Capitals,T Natarajan,ce794613,Bowler,Left-arm,Fast,Left-hand,,Workhorse Seamer
+Delhi Capitals,Tristan Stubbs,85b3fab2,All-rounder,Right-arm,Medium,Right-hand,,
+Delhi Capitals,Mukesh Kumar,2cffab74,Bowler,Right-arm,Fast,Right-hand,,Expensive Option
+Delhi Capitals,Ashutosh Sharma,84d9c311,All-rounder,Right-arm,Off-spin,Right-hand,,
+Delhi Capitals,Abhishek Porel,ad3b6e95,Wicketkeeper,Right-arm,Medium,Right-hand,,
+Delhi Capitals,Karun Nair,944533a5,Batter,Right-arm,Off-spin,Right-hand,All-Round Finisher,
+Delhi Capitals,Nitish Rana,fb2d1dda,Batter,Left-arm,Left-arm orthodox,Left-hand,All-Round Finisher,
+Delhi Capitals,Sameer Rizvi,f89d3b11,Batter,Right-arm,Medium,Right-hand,,
+Delhi Capitals,Dushmantha Chameera,327b58d3,Bowler,Right-arm,Fast,Right-hand,,Expensive Option
+Delhi Capitals,Vipraj Nigam,5ffc0565,Batter,Right-arm,Medium,Right-hand,,
+Delhi Capitals,Madhav Tiwari,fb5f69e4,All-rounder,Right-arm,Medium,Right-hand,,
+Delhi Capitals,Tripurana Vijay,51ec3919,Batter,Right-arm,Medium,Right-hand,,
+Delhi Capitals,Ajay Mandal,31ee319e,All-rounder,Right-arm,Medium,Right-hand,,
+Delhi Capitals,Pathum Nissanka,8ee36b18,Batter,Right-arm,Off-spin,Right-hand,,
+Delhi Capitals,Kyle Jamieson,68c56d09,Bowler,Right-arm,Fast,Right-hand,,
+Delhi Capitals,Lungi Ngidi,f834dcfc,Bowler,Right-arm,Fast,Right-hand,,Workhorse Seamer
+Delhi Capitals,Ben Duckett,5f26f677,Batter,Right-arm,Medium,Left-hand,,
+Delhi Capitals,David Miller,d67d5f00,Batter,Right-arm,Off-spin,Left-hand,Anchor,
+Delhi Capitals,Prithvi Shaw,8b3e9c7c,Batter,Right-arm,Leg-spin,Right-hand,,
+Delhi Capitals,Sahil Parakh,,All-rounder,Right-arm,Leg-spin,Left-hand,,
+Delhi Capitals,Auqib Nabi Dar,557550a4,Bowler,Right-arm,Fast,Right-hand,,
+Punjab Kings,Shreyas Iyer,85ec8e33,Batter,Right-arm,Leg-spin,Right-hand,Elite Top-Order,
+Punjab Kings,Arshdeep Singh,244048f6,Bowler,Left-arm,Fast,Left-hand,,Workhorse Seamer
+Punjab Kings,Yuzvendra Chahal,57ee1fde,Bowler,Right-arm,Leg-spin,Right-hand,,Middle-Overs Spinner
+Punjab Kings,Marcus Stoinis,d9273ee7,All-rounder,Right-arm,Fast,Right-hand,All-Round Finisher,Expensive Option
+Punjab Kings,Marco Jansen,81c36ee9,All-rounder,Left-arm,Fast,Left-hand,,Expensive Option
+Punjab Kings,Shashank Singh,26989d80,All-rounder,Right-arm,Medium,Right-hand,,
+Punjab Kings,Nehal Wadhera,d1a60072,Batter,Right-arm,Medium,Right-hand,,
+Punjab Kings,Prabhsimran Singh,9418198b,Wicketkeeper,Right-arm,Medium,Right-hand,,
+Punjab Kings,Priyansh Arya,b5797845,Batter,Right-arm,Medium,Left-hand,,
+Punjab Kings,Azmatullah Omarzai,8f6dd463,All-rounder,Right-arm,Fast,Right-hand,,
+Punjab Kings,Vijaykumar Vyshak,54e52590,Bowler,Right-arm,Fast,Right-hand,,
+Punjab Kings,Yash Thakur,4b31f3a3,Bowler,Right-arm,Fast,Right-hand,,Expensive Option
+Punjab Kings,Harpreet Brar,c05edf8e,All-rounder,Left-arm,Left-arm orthodox,Left-hand,,
+Punjab Kings,Lockie Ferguson,2f9d0389,Bowler,Right-arm,Fast,Right-hand,,Workhorse Seamer
+Punjab Kings,Vishnu Vinod,0494fa6e,Wicketkeeper,Right-arm,Medium,Right-hand,,
+Punjab Kings,Xavier Bartlett,3b53243a,Bowler,Right-arm,Fast,Right-hand,,
+Punjab Kings,Suryansh Shedge,970ddd24,All-rounder,Right-arm,Off-spin,Right-hand,,
+Punjab Kings,Pyla Avinash,,Batter,Right-arm,Fast,Right-hand,,
+Punjab Kings,Musheer Khan,d621b427,All-rounder,Left-arm,Left-arm orthodox,Left-hand,,
+Punjab Kings,Harnoor Singh,8b5b6769,Batter,Right-arm,Medium,Left-hand,,Middle-Overs Spinner
+Punjab Kings,Cooper Connolly,fe366f34,All-rounder,Left-arm,Left-arm orthodox,Left-hand,,
+Punjab Kings,Ben Dwarshuis,e1b9f3a9,Bowler,Left-arm,Fast,Left-hand,,
+Rajasthan Royals,Yashasvi Jaiswal,6c19c6e5,Batter,Left-arm,Left-arm orthodox,Left-hand,,
+Rajasthan Royals,Riyan Parag,04a418e8,All-rounder,Right-arm,Off-spin,Right-hand,,
+Rajasthan Royals,Dhruv Jurel,bcf325d2,Wicketkeeper,Right-arm,Medium,Right-hand,,
+Rajasthan Royals,Shimron Hetmyer,48a1d7b7,Batter,Right-arm,Medium,Left-hand,,
+Rajasthan Royals,Jofra Archer,5574750c,Bowler,Right-arm,Fast,Right-hand,,Powerplay Assassin
+Rajasthan Royals,Ravindra Jadeja,fe93fd9d,All-rounder,Left-arm,Left-arm orthodox,Left-hand,,Middle-Overs Spinner
+Rajasthan Royals,Sam Curran,e94915e6,All-rounder,Left-arm,Fast,Left-hand,All-Round Finisher,Expensive Option
+Rajasthan Royals,Vaibhav Suryavanshi,470f446b,Batter,Left-arm,Medium,Left-hand,,
+Rajasthan Royals,Tushar Deshpande,46a9bea1,Bowler,Right-arm,Fast,Right-hand,,Expensive Option
+Rajasthan Royals,Sandeep Sharma,ce820073,Bowler,Right-arm,Fast,Right-hand,,Workhorse Seamer
+Rajasthan Royals,Nandre Burger,465aa633,Bowler,Right-arm,Fast,Right-hand,,
+Rajasthan Royals,Kwena Maphaka,107c26fb,Bowler,Left-arm,Fast,Left-hand,,
+Rajasthan Royals,Lhuan-dre Pretorius,60aa2db3,All-rounder,Right-arm,Fast,Right-hand,,
+Rajasthan Royals,Yudhvir Singh,4885bbe6,All-rounder,Right-arm,Medium,Right-hand,,
+Rajasthan Royals,Shubham Dubey,a4e37e47,Batter,Right-arm,Medium,Right-hand,,
+Rajasthan Royals,Ravi Bishnoi,df064e1a,Bowler,Right-arm,Leg-spin,Right-hand,,Middle-Overs Spinner
+Rajasthan Royals,Adam Milne,350bb1b1,Bowler,Right-arm,Fast,Right-hand,,
+Rajasthan Royals,Kuldeep Sen,2e78f685,Bowler,Right-arm,Fast,Right-hand,,
+Rajasthan Royals,Aman Rao,0420f51f,Wicketkeeper,Right-arm,Medium,Right-hand,,
+Rajasthan Royals,Ravi Singh,0a509d6b,Batter,Right-arm,Medium,Right-hand,,
+Rajasthan Royals,Donovan Ferreira,f0af99a7,Batter,Right-arm,Off-spin,Right-hand,,
+Rajasthan Royals,Yash Raj Punja,,Bowler,Right-arm,Leg-spin,Right-hand,,
+Rajasthan Royals,Vignesh Puthur,1e030637,Bowler,Right-arm,Leg-spin,Right-hand,,
+Rajasthan Royals,Sushant Mishra,c562ac6d,Bowler,Left-arm,Fast,Left-hand,,
+Rajasthan Royals,Brijesh Sharma,c18496e1,All-rounder,Right-arm,Medium,Right-hand,,
+Sunrisers Hyderabad,Heinrich Klaasen,235c2bb6,Wicketkeeper,Right-arm,Medium,Right-hand,,
+Sunrisers Hyderabad,Pat Cummins,ded9240e,Bowler,Right-arm,Fast,Right-hand,,Workhorse Seamer
+Sunrisers Hyderabad,Travis Head,12b610c2,Batter,Left-arm,Left-arm orthodox,Left-hand,Aggressive Opener,
+Sunrisers Hyderabad,Abhishek Sharma,f29185a1,All-rounder,Left-arm,Left-arm orthodox,Left-hand,Aggressive Opener,
+Sunrisers Hyderabad,Ishan Kishan,752f7486,Wicketkeeper,Right-arm,Medium,Left-hand,Power Finisher,
+Sunrisers Hyderabad,Harshal Patel,f986ca1a,Bowler,Right-arm,Fast,Right-hand,,Workhorse Seamer
+Sunrisers Hyderabad,Nitish Kumar Reddy,aad0c365,All-rounder,Right-arm,Fast,Right-hand,,
+Sunrisers Hyderabad,Liam Livingstone,50c6bc2b,All-rounder,Right-arm,Leg-spin,Right-hand,Power Finisher,
+Sunrisers Hyderabad,Brydon Carse,cad40f5e,Bowler,Right-arm,Fast,Right-hand,,
+Sunrisers Hyderabad,Kamindu Mendis,08548b13,All-rounder,Left-arm,Left-arm orthodox,Left-hand,,
+Sunrisers Hyderabad,Jaydev Unadkat,1e66c162,Bowler,Left-arm,Fast,Left-hand,,Workhorse Seamer
+Sunrisers Hyderabad,Eshan Malinga,5750bcb4,Bowler,Right-arm,Fast,Right-hand,,
+Sunrisers Hyderabad,Zeeshan Ansari,36619795,Bowler,Left-arm,Left-arm orthodox,Left-hand,,
+Sunrisers Hyderabad,Aniket Verma,a3b0600d,Batter,Right-arm,Medium,Right-hand,,
+Sunrisers Hyderabad,Ravichandran Smaran,,Batter,Right-arm,Medium,Left-hand,,
+Sunrisers Hyderabad,Harsh Dubey,25228673,Bowler,Right-arm,Off-spin,Right-hand,,
+Sunrisers Hyderabad,Jack Edwards,f787e0eb,All-rounder,Right-arm,Off-spin,Right-hand,,
+Sunrisers Hyderabad,Shivang Kumar,8998a68f,Bowler,Right-arm,Fast,Right-hand,,
+Sunrisers Hyderabad,Krains Fuletra,,All-rounder,Left-arm,Left-arm wrist spin,Right-hand,,
+Sunrisers Hyderabad,Salil Arora,263f1761,Batter,Right-arm,Medium,Right-hand,,
+Sunrisers Hyderabad,Amit Kumar,d45c29b1,All-rounder,Right-arm,Fast,Right-hand,,
+Sunrisers Hyderabad,Shivam Mavi,c38d3503,Bowler,Right-arm,Fast,Right-hand,,Workhorse Seamer
+Sunrisers Hyderabad,Onkar Tarmale,,Batter,Right-arm,Fast,Right-hand,,
+Sunrisers Hyderabad,Sakib Hussain,280fff14,Bowler,Right-arm,Fast,Right-hand,,
+Sunrisers Hyderabad,Praful Hinge,,Bowler,Right-arm,Fast,Right-hand,,
+Gujarat Titans,Shubman Gill,b4b99816,Batter,Right-arm,Off-spin,Right-hand,Elite Top-Order,
+Gujarat Titans,Rashid Khan,5f547c8b,Bowler,Right-arm,Leg-spin,Right-hand,,Middle-Overs Spinner
+Gujarat Titans,Jos Buttler,99b75528,Wicketkeeper,Right-arm,Medium,Right-hand,Power Finisher,
+Gujarat Titans,Mohammed Siraj,2f49c897,Bowler,Right-arm,Fast,Right-hand,,Workhorse Seamer
+Gujarat Titans,Kagiso Rabada,e62dd25d,Bowler,Right-arm,Fast,Right-hand,,Workhorse Seamer
+Gujarat Titans,Prasidh Krishna,85e0cf10,Bowler,Right-arm,Fast,Right-hand,,Workhorse Seamer
+Gujarat Titans,Sai Sudharsan,d5130a30,Batter,Right-arm,Medium,Left-hand,Elite Top-Order,
+Gujarat Titans,Washington Sundar,f19ccfad,All-rounder,Right-arm,Off-spin,Left-hand,,Holding Spinner
+Gujarat Titans,Rahul Tewatia,39a2dfa8,All-rounder,Right-arm,Leg-spin,Left-hand,,
+Gujarat Titans,Shahrukh Khan,f088b960,Batter,Right-arm,Medium,Right-hand,,
+Gujarat Titans,Sai Kishore,c7a995d3,Bowler,Left-arm,Left-arm orthodox,Left-hand,,
+Gujarat Titans,Glenn Phillips,9a46c4e5,All-rounder,Right-arm,Off-spin,Right-hand,,
+Gujarat Titans,Arshad Khan,12314277,All-rounder,Right-arm,Medium,Right-hand,,
+Gujarat Titans,Gurnoor Brar,99258814,All-rounder,Left-arm,Left-arm orthodox,Left-hand,,
+Gujarat Titans,Ishant Sharma,5bb1a1c4,Bowler,Right-arm,Fast,Right-hand,,Workhorse Seamer
+Gujarat Titans,Jayant Yadav,81049310,All-rounder,Right-arm,Off-spin,Right-hand,,
+Gujarat Titans,Kumar Kushagra,57ca01b3,Wicketkeeper,Right-arm,Medium,Right-hand,,
+Gujarat Titans,Anuj Rawat,c8f5f961,Wicketkeeper,Right-arm,Medium,Left-hand,,
+Gujarat Titans,Nishant Sindhu,3cea23da,All-rounder,Left-arm,Left-arm orthodox,Left-hand,,
+Gujarat Titans,Manav Suthar,025c4400,Bowler,Left-arm,Left-arm orthodox,Left-hand,,
+Lucknow Super Giants,Rishabh Pant,919a3be2,Wicketkeeper,Right-arm,Medium,Left-hand,Power Finisher,
+Lucknow Super Giants,Nicholas Pooran,3241e3fd,Wicketkeeper,Right-arm,Medium,Left-hand,Aggressive Opener,
+Lucknow Super Giants,Mayank Yadav,c6355538,Bowler,Right-arm,Fast,Right-hand,,
+Lucknow Super Giants,Avesh Khan,eef2536f,Bowler,Right-arm,Fast,Right-hand,,Workhorse Seamer
+Lucknow Super Giants,Abdul Samad,8e514b4c,Batter,Right-arm,Leg-spin,Right-hand,,
+Lucknow Super Giants,Mohsin Khan,c33d8116,Bowler,Left-arm,Fast,Left-hand,,Powerplay Assassin
+Lucknow Super Giants,Ayush Badoni,872b03f7,Batter,Right-arm,Leg-spin,Right-hand,,
+Lucknow Super Giants,Mitchell Marsh,3d8feaf8,All-rounder,Right-arm,Fast,Right-hand,All-Round Finisher,Workhorse Seamer
+Lucknow Super Giants,Aiden Markram,6a26221c,All-rounder,Right-arm,Off-spin,Right-hand,Elite Top-Order,
+Lucknow Super Giants,Matthew Breetzke,35f173a0,Batter,Right-arm,Medium,Right-hand,,
+Lucknow Super Giants,Manimaran Siddharth,cf0ccafa,Bowler,Left-arm,Left-arm orthodox,Left-hand,,
+Lucknow Super Giants,Himmat Singh,ebcfef83,All-rounder,Right-arm,Off-spin,Right-hand,,
+Lucknow Super Giants,Digvesh Rathi,13fc5c6d,Wicketkeeper,Right-arm,Medium,Right-hand,,Holding Spinner
+Lucknow Super Giants,Akash Singh,b483905d,Bowler,Left-arm,Fast,Left-hand,,
+Lucknow Super Giants,Mohammed Shami,8cf9814c,Bowler,Right-arm,Fast,Right-hand,,Workhorse Seamer
+Lucknow Super Giants,Josh Inglis,989889ff,Wicketkeeper,Right-arm,Medium,Right-hand,,
+Lucknow Super Giants,Wanindu Hasaranga,a97c8ec2,All-rounder,Right-arm,Leg-spin,Right-hand,,Middle-Overs Spinner
+Lucknow Super Giants,Anrich Nortje,acdc62f5,Bowler,Right-arm,Fast,Right-hand,,Workhorse Seamer
+Lucknow Super Giants,Arjun Tendulkar,44aac2f0,Bowler,Left-arm,Fast,Left-hand,,
+Lucknow Super Giants,Arshin Kulkarni,2d140b79,All-rounder,Right-arm,Off-spin,Right-hand,,

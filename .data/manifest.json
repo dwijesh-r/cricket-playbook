@@ -1,0 +1,125 @@
+{
+  "name": "Cricket Playbook Data Warehouse",
+  "version": "2.0.0",
+  "generated_at": "2026-01-20T11:04:02.880931",
+  "database": "data/cricket_playbook.duckdb",
+  "source": "Cricsheet (https://cricsheet.org)",
+  "tables": {
+    "dim_match": {
+      "row_count": 9357,
+      "description": "Match-level metadata"
+    },
+    "dim_player": {
+      "row_count": 7864,
+      "description": "Player master with derived attributes"
+    },
+    "dim_team": {
+      "row_count": 285,
+      "description": "Team master"
+    },
+    "dim_venue": {
+      "row_count": 531,
+      "description": "Venue/ground information"
+    },
+    "dim_tournament": {
+      "row_count": 426,
+      "description": "Tournament metadata"
+    },
+    "dim_player_name_history": {
+      "row_count": 7888,
+      "description": "Player name changes over time"
+    },
+    "fact_ball": {
+      "row_count": 2137915,
+      "description": "Ball-by-ball delivery records"
+    },
+    "fact_player_match_performance": {
+      "row_count": 195510,
+      "description": "Player participation per match"
+    },
+    "fact_powerplay": {
+      "row_count": 19167,
+      "description": "Powerplay definitions per innings"
+    },
+    "ipl_2026_squads": {
+      "row_count": 231,
+      "description": "IPL 2026 squad composition"
+    },
+    "ipl_2026_contracts": {
+      "row_count": 231,
+      "description": "IPL 2026 contract details"
+    }
+  },
+  "views": {
+    "total_count": 43,
+    "categories": {
+      "base_analytics": 17,
+      "ipl_specific": 26
+    },
+    "names": [
+      "analytics_batter_vs_bowler",
+      "analytics_batter_vs_team",
+      "analytics_batting_by_phase",
+      "analytics_batting_by_season",
+      "analytics_batting_by_tournament",
+      "analytics_batting_career",
+      "analytics_best_economy",
+      "analytics_best_strike_rates",
+      "analytics_bowling_by_phase",
+      "analytics_bowling_by_tournament",
+      "analytics_bowling_career",
+      "analytics_death_over_specialists",
+      "analytics_ipl_batter_phase",
+      "analytics_ipl_batter_venue",
+      "analytics_ipl_batter_venue_phase",
+      "analytics_ipl_batter_vs_bowler",
+      "analytics_ipl_batter_vs_bowler_phase",
+      "analytics_ipl_batter_vs_bowler_type",
+      "analytics_ipl_batter_vs_bowler_type_phase",
+      "analytics_ipl_batter_vs_team",
+      "analytics_ipl_batter_vs_team_phase",
+      "analytics_ipl_batting_career",
+      "analytics_ipl_bowler_phase",
+      "analytics_ipl_bowler_phase_distribution",
+      "analytics_ipl_bowler_venue",
+      "analytics_ipl_bowler_venue_phase",
+      "analytics_ipl_bowler_vs_batter_phase",
+      "analytics_ipl_bowler_vs_team",
+      "analytics_ipl_bowler_vs_team_phase",
+      "analytics_ipl_bowling_career",
+      "analytics_ipl_squad_batting",
+      "analytics_ipl_squad_batting_phase",
+      "analytics_ipl_squad_bowling",
+      "analytics_ipl_squad_bowling_phase",
+      "analytics_ipl_team_roster",
+      "analytics_powerplay_hitters",
+      "analytics_t20_batter_phase",
+      "analytics_t20_batter_vs_bowler_type",
+      "analytics_t20_bowler_phase",
+      "analytics_team_batting",
+      "analytics_team_bowling",
+      "analytics_top_run_scorers",
+      "analytics_top_wicket_takers"
+    ]
+  },
+  "coverage": {
+    "total_matches": 9357,
+    "ipl_matches": 1169,
+    "total_ball_records": 2137915,
+    "total_players": 7864,
+    "ipl_2026_squad_players": 231,
+    "player_id_mapping_rate": 0.957,
+    "date_range": {
+      "earliest": "2005-02-17",
+      "latest": "2026-01-15"
+    }
+  },
+  "pipeline": {
+    "ingestion_script": "scripts/ingest.py",
+    "analytics_scripts": [
+      "scripts/analytics.py",
+      "scripts/analytics_ipl.py"
+    ],
+    "stat_pack_generator": "scripts/generate_stat_packs.py"
+  }
+}

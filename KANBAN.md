@@ -1,7 +1,7 @@
 # Cricket Playbook - Sprint Kanban
 
-**Last Updated:** 2026-01-20
-**Current Version:** v2.2.0
+**Last Updated:** 2026-01-21
+**Current Version:** v2.3.0
 **Owner:** Tom Brady (Product Owner)
 
 ---
@@ -44,12 +44,27 @@
 | Task | Owner | Sign-off |
 |------|-------|----------|
 | K-means clustering model | Stephen Curry | Tom Brady |
-| Batter clusters (5 archetypes, 87 players) | Stephen Curry | Andy Flower |
-| Bowler clusters (5 archetypes, 152 players) | Stephen Curry | Andy Flower |
-| Cluster label definitions | Andy Flower | Pending User Review |
+| Batter clusters (5 archetypes, 129 players) | Stephen Curry | Andy Flower |
+| Bowler clusters (5 archetypes, 206 players) | Stephen Curry | Andy Flower |
+| Player Clustering PRD | Tom Brady | APPROVED |
 | Squad CSV with classifications | Stephen Curry | Tom Brady |
-| Player ID collision fix (Abhinandan/Arshdeep) | Brock Purdy | Tom Brady |
-| Player experience export | Stephen Curry | Tom Brady |
+| Player ID collision fix | Brock Purdy | Tom Brady |
+| Elbow curve analysis | Stephen Curry | Tom Brady |
+
+### v2.3 - Multi-Tag Classification (2026-01-21)
+| Task | Owner | Sign-off |
+|------|-------|----------|
+| Player experience CSV (231 players) | Stephen Curry | Tom Brady |
+| Enhanced feature extraction (15 dimensions) | Stephen Curry | Andy Flower |
+| Batter archetype tags (5 primary) | Andy Flower | Tom Brady |
+| Batter secondary tags (9 types) | Andy Flower | Tom Brady |
+| Bowler archetype tags (5 primary) | Andy Flower | Tom Brady |
+| Bowler secondary tags (6 types) | Andy Flower | Tom Brady |
+| Phase specialist detection (PP/Mid/Death) | Stephen Curry | Andy Flower |
+| Spin vs Pace matchup analysis | Stephen Curry | Andy Flower |
+| Vulnerability tagging | Andy Flower | Tom Brady |
+| player_tags.json export | Stephen Curry | Tom Brady |
+| Squad CSV with tags (69 batters, 86 bowlers) | Stephen Curry | Tom Brady |
 
 ---
 
@@ -57,26 +72,27 @@
 
 | Task | Owner | Status |
 |------|-------|--------|
-| User review of cluster archetypes | Andy Flower | Awaiting feedback |
+| Bowler vs LHB/RHB matchup tags | Stephen Curry | In development |
 
 ---
 
 ## BACKLOG
 
-### High Priority (v2.3)
+### High Priority (v2.4)
 | Task | Owner | Description |
 |------|-------|-------------|
-| Integrate clusters into stat packs | Stephen Curry | Add archetype labels to player tables |
-| Squad balance analysis | Andy Flower | Team composition by archetype |
+| Integrate tags into stat packs | Stephen Curry | Add archetype + tags to player tables |
+| Squad balance analysis | Andy Flower | Team composition by archetype/tags |
 | Venue normalization | Brock Purdy | "Arun Jaitley" vs "Feroz Shah Kotla" |
+| Recent form weighting | Stephen Curry | 2024/2025 season emphasis |
 
-### Medium Priority (v2.4)
+### Medium Priority (v2.5)
 | Task | Owner | Description |
 |------|-------|-------------|
 | Situational analysis views | Stephen Curry | Chase vs set, pressure moments |
 | Partnership analytics | Stephen Curry | Batting pair analysis |
-| Recent form weighting | Stephen Curry | 2024/2025 season emphasis |
 | Player comparison tool | Stephen Curry | Side-by-side output |
+| Matchup probability matrix | Stephen Curry | Archetype vs archetype expected performance |
 
 ### Low Priority (Future)
 | Task | Owner | Description |
@@ -95,8 +111,9 @@
 | v1.0 | 5 | Data pipeline, 9,357 matches |
 | v2.0 | 6 | 231 players, 26 views, stat packs |
 | v2.1 | 9 | 34 views, 65 tests, CLI |
-| v2.2 | 7 | 10 archetypes, clustering model |
-| **Total** | **27** | |
+| v2.2 | 7 | 10 archetypes, clustering PRD |
+| v2.3 | 11 | Multi-tag system, phase specialists |
+| **Total** | **38** | |
 
 ---
 
@@ -109,39 +126,43 @@
 | Bowling Coverage | 98.8% | PASS |
 | Analytics Views | 34 | ACTIVE |
 | Stat Packs | 10/10 | GENERATED |
+| Players Tagged | 155 | ACTIVE |
 
 ---
 
-## Next Steps (Tom Brady Recommendation)
+## Tagging System Summary (v2.3)
 
-### Immediate
-1. **User Review** - Approve/modify Andy Flower's cluster archetypes
-2. **Integrate Classifications** - Add archetypes to stat pack player tables
-3. **Squad Balance** - Per-team archetype distribution analysis
+### Batter Tags
+| Tag Category | Count | Examples |
+|--------------|-------|----------|
+| EXPLOSIVE_OPENER | 15 | Jaiswal, Salt, Narine |
+| PLAYMAKER | 24 | Kohli, Rahul, Warner |
+| ANCHOR | 21 | Dhoni, Dube, Samson |
+| FINISHER | 21 | Pandya, Miller, Russell |
+| ACCUMULATOR | 49 | Various middle-order |
+| PP_DOMINATOR | 12 | High powerplay SR |
+| DEATH_SPECIALIST | 8 | High death SR |
+| SPIN_SPECIALIST | 15 | SR >130 vs spin |
+| PACE_SPECIALIST | 11 | SR >130 vs pace |
+| VULNERABLE_VS_SPIN | 6 | SR <105 vs spin |
+| VULNERABLE_VS_PACE | 4 | SR <105 vs pace |
+| SIX_HITTER | 14 | Six% >8% |
 
-### Short-term (v2.3)
-4. Venue name normalization
-5. Partnership analytics
-6. Recent form weighting
-
-### Medium-term (v2.4)
-7. Situational analysis (chase/set, pressure)
-8. Broadcast export formats
+### Bowler Tags
+| Tag Category | Count | Examples |
+|--------------|-------|----------|
+| NEW_BALL_SPECIALIST | 43 | Bumrah, Boult, Starc |
+| MIDDLE_OVERS_CONTROLLER | 50 | Rashid, Ashwin, Narine |
+| DEATH_SPECIALIST | 19 | Malinga, Bumrah, Archer |
+| WORKHORSE | 112 | Shami, Siraj, Chahar |
+| PART_TIMER | 44 | All-rounders |
+| PP_ELITE | 18 | Top PP economy |
+| MID_OVERS_ELITE | 23 | Top mid economy |
+| DEATH_ELITE | 14 | Top death economy |
+| PRESSURE_BUILDER | 38 | Dot ball% >38% |
+| PROVEN_WICKET_TAKER | 12 | 100+ IPL wickets |
 
 ---
 
-## Team Status
-
-| Agent | Role | Availability |
-|-------|------|--------------|
-| Tom Brady | Product Owner | Available |
-| Stephen Curry | Analytics Lead | Available |
-| Andy Flower | Cricket Advisor | Awaiting feedback |
-| Brock Purdy | Data Pipeline | Available |
-| N'Golo Kanté | QA | Available |
-| Brad Stevens | Performance | On standby |
-
----
-
-*Cricket Playbook v2.2.0 - IPL 2026 Analytics Platform*
+*Cricket Playbook v2.3.0 - IPL 2026 Analytics Platform*
 *Maintained by Tom Brady, Product Owner*

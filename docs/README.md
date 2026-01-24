@@ -22,7 +22,7 @@ The Product Requirements Document defines:
 - **Analytics Views**: 34 DuckDB views for career stats, phase analysis, matchups
 - **Player Classification**: K-means clustering with 5 batter + 5 bowler archetypes
 - **Output Formats**: Team stat packs, CSV exports, JSON tags
-- **Quality Gates**: Schema validation (33 checks), smoke tests (77 tests)
+- **Quality Gates**: Schema validation (33 checks), smoke tests (76 tests)
 
 **Key Sections:**
 1. Executive Summary
@@ -87,4 +87,4 @@ Comprehensive CI/CD and codebase maintenance recommendations by Brad Stevens.
 
 ---
 
-*Cricket Playbook v2.7.0*
+*Cricket Playbook v2.8.0*

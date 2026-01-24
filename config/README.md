@@ -57,4 +57,4 @@ Founder (submits review PDF)
 
 ---
 
-*Cricket Playbook v2.7.0*
+*Cricket Playbook v2.8.0*

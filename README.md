@@ -24,11 +24,13 @@ python scripts/generate_stat_packs.py
 | Metric | Value |
 |--------|-------|
 | Total T20 Matches | 9,357 |
-| IPL Matches | 1,169 |
+| **IPL Analytics Data** | **2023-2025 (219 matches)** |
 | Ball-by-ball Records | 2,137,915 |
-| IPL 2026 Squad Players | 234 |
+| IPL 2026 Squad Players | 231 |
 | Bowler Classifications | 280 (98.8% coverage) |
 | Analytics Views | 34 |
+
+**Note:** All IPL analytics use 2023-2025 data only (219 matches) to account for stat drift due to game evolution. Historical data (2008-2022) is available but not used for player classifications or stat packs.
 
 ## Project Structure
 
@@ -142,25 +144,28 @@ All views include sample size indicators:
 
 **Algorithm:** K-means clustering with PCA dimensionality reduction
 
-**Batter Clusters:**
-| Cluster | Label | Description |
-|---------|-------|-------------|
-| 0 | CLASSIC_OPENER | Traditional openers at position 1.8, platform builders |
-| 1 | ACCUMULATOR | Middle-order stabilizers (#3-4) |
-| 2 | DEATH_FINISHER | Lower-order finishers (#5-6) |
-| 3 | ELITE_EXPLOSIVE | Match-winners with 158+ SR across phases |
-| 4 | POWER_OPENER | Aggressive openers with 163+ SR |
+**Batter Role Tags:**
+| Tag | Count | Description |
+|-----|-------|-------------|
+| EXPLOSIVE_OPENER | 15 | Aggressive openers with 163+ SR |
+| PLAYMAKER | 24 | Creative stroke-makers, adaptable |
+| ANCHOR | 21 | Stabilizers, build innings |
+| ACCUMULATOR | 49 | Consistent run-scorers |
+| MIDDLE_ORDER | 45 | Middle-order specialists (#3-5) |
+| FINISHER | 21 | Death-overs specialists |
 
-**Bowler Clusters:**
-| Cluster | Label | Description |
-|---------|-------|-------------|
-| 0 | DEATH_SPECIALIST | Dual-phase premium seamers (PP + Death) |
-| 1 | DEVELOPING | Higher economy options, mixed phases |
-| 2 | SPIN_CONTROLLER | Elite middle-overs spinners (71% middle overs) |
-| 3 | NEW_BALL_PACER | Opening bowlers (48% powerplay focus) |
-| 4 | SECONDARY_OPTION | Backup bowlers, part-time options |
+**Bowler Role Tags:**
+| Tag | Count | Description |
+|-----|-------|-------------|
+| PACER | 116 | Fast/medium-fast bowlers |
+| SPINNER | 68 | Spin bowlers |
+| WORKHORSE | 112 | High-volume, multi-phase bowlers |
+| NEW_BALL_SPECIALIST | 43 | Opening bowlers |
+| MIDDLE_OVERS_CONTROLLER | 50 | Middle-phase specialists |
+| DEATH_SPECIALIST | 19 | Death-overs specialists |
+| PART_TIMER | 44 | Part-time bowling options |
 
-**PCA Variance:** 83.6% (batters), 63.8% (bowlers)
+**PCA Variance:** 76.8% (batters), 63.4% (bowlers)
 
 ### Matchup Tags
 
@@ -211,7 +216,8 @@ Open `notebooks/view_explorer.ipynb` in VS Code or Jupyter to run interactive SQ
 
 | Version | Date | Changes |
 |---------|------|---------|
-| v2.7.0 | 2026-01-24 | Founder Review #3 fixes, phase tags, dismissal quality metrics, Andy Flower V2 validation |
+| v2.8.0 | 2026-01-25 | **2023+ data filter**, standardized cluster labels, CSV schema docs, Andy Flower review |
+| v2.7.0 | 2026-01-24 | Founder Review #3 fixes, phase tags, dismissal quality metrics |
 | v2.6.0 | 2026-01-23 | Founder Review #2 fixes, entry point analysis, batter vs bowling type matchups |
 | v2.5.0 | 2026-01-21 | Clustering V2, LHB/RHB matchups, ML Ops, repo reorganization |
 | v2.4.0 | 2026-01-21 | Founder Review #1 fixes, uncapped player handling |
@@ -220,6 +226,30 @@ Open `notebooks/view_explorer.ipynb` in VS Code or Jupyter to run interactive SQ
 | v2.1.0 | 2026-01-20 | Percentiles, benchmarks, tests, CLI |
 | v2.0.0 | 2026-01-19 | IPL 2026 squads, 26 analytics views |
 | v1.0.0 | 2026-01-17 | Initial data ingestion (9,357 matches) |
+
+---
+
+## Next Steps
+
+### Sprint 2.9 - Production Readiness
+
+| Priority | Task | Owner | Status |
+|----------|------|-------|--------|
+| P0 | Add GitHub Actions CI workflow (lint + test) | Brad Stevens | Planned |
+| P0 | Pre-commit hooks (Ruff, mypy) | Brad Stevens | Planned |
+| P1 | Model serialization with joblib | Ime Udoka | Planned |
+| P1 | Add recency weighting option (toggle 2023+ vs weighted) | Stephen Curry | Planned |
+| P2 | Interactive dashboard (Streamlit/Gradio) | Kevin de Bruyne | Planned |
+| P2 | Great Expectations data validation | Brock Purdy | Planned |
+| P3 | API endpoint for real-time queries | Jayson Tatum | Planned |
+
+### Backlog
+
+- **Venue-specific analysis:** Pitch conditions, toss impact
+- **Form tracking:** Rolling 10-match performance
+- **Opposition-specific tactics:** Matchup recommendations per opponent
+- **Historical trend analysis:** Year-over-year player evolution
+- **Injury/availability tracking:** Squad fitness monitoring
 
 ## Team
 
@@ -241,4 +271,4 @@ Internal use only - Cricket Playbook Editorial Team
 
 ---
 
-*Cricket Playbook v2.7.0 - IPL 2026 Analytics Platform*
+*Cricket Playbook v2.8.0 - IPL 2026 Analytics Platform*

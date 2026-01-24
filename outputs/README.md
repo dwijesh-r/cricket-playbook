@@ -387,4 +387,4 @@ All outputs include confidence indicators:
 
 ---
 
-*Cricket Playbook v2.7.0 - Sprint 2.7 (Founder Review #3)*
+*Cricket Playbook v2.8.0 - Sprint 2.8 (Andy Flower Review)*

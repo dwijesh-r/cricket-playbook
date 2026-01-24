@@ -41,16 +41,17 @@ Machine learning operations, model versioning, and deployment tracking.
 | `boundary_pct` | (4s + 6s) / total balls | Medium |
 | `dot_pct` | Dot balls / total balls | Low |
 
-**PCA Variance Explained:** 83.6% (2 components)
+**PCA Variance Explained:** 76.8% (3 components)
 
-**Cluster Assignments:**
-| Cluster | Label | Key Characteristics |
-|---------|-------|---------------------|
-| 0 | CLASSIC_OPENER | Position 1.8, platform builders, steady SR |
-| 1 | ACCUMULATOR | Position 3.8, middle-order stabilizers |
-| 2 | DEATH_FINISHER | Position 4.6, lower-order finishers |
-| 3 | ELITE_EXPLOSIVE | SR 158+, match-winners across phases |
-| 4 | POWER_OPENER | Position 2.3, aggressive openers 163+ SR |
+**Role Tags Generated:**
+| Tag | Count | Key Characteristics |
+|-----|-------|---------------------|
+| EXPLOSIVE_OPENER | 15 | Position 1-2, aggressive openers 163+ SR |
+| PLAYMAKER | 24 | Creative stroke-makers, adaptable across phases |
+| ANCHOR | 21 | Stabilizers, build innings, lower SR but consistent |
+| ACCUMULATOR | 49 | Position 3-4, middle-order stabilizers |
+| MIDDLE_ORDER | 45 | Position 3-5, middle-order specialists |
+| FINISHER | 21 | Position 5-7, death-overs specialists |
 
 ### Bowler Features
 
@@ -63,16 +64,18 @@ Machine learning operations, model versioning, and deployment tracking.
 | `death_wickets_pct` | % of wickets at death | Medium |
 | `dot_pct` | Dot balls / total balls | Low |
 
-**PCA Variance Explained:** 63.8% (2 components)
+**PCA Variance Explained:** 63.4% (3 components)
 
-**Cluster Assignments:**
-| Cluster | Label | Key Characteristics |
-|---------|-------|---------------------|
-| 0 | DEATH_SPECIALIST | PP 43.8%, Death 31.8% (dual-phase) |
-| 1 | DEVELOPING | Higher economy, mixed phases |
-| 2 | SPIN_CONTROLLER | Middle 71.3%, elite spinners |
-| 3 | NEW_BALL_PACER | PP 47.7%, opening bowlers |
-| 4 | SECONDARY_OPTION | Middle 61.9%, backup options |
+**Role Tags Generated:**
+| Tag | Count | Key Characteristics |
+|-----|-------|---------------------|
+| PACER | 116 | Fast/medium-fast bowlers |
+| SPINNER | 68 | Spin bowlers (all types) |
+| WORKHORSE | 112 | High-volume, multi-phase bowlers |
+| NEW_BALL_SPECIALIST | 43 | Opening bowlers, powerplay focus |
+| MIDDLE_OVERS_CONTROLLER | 50 | Middle-phase specialists, economy focus |
+| DEATH_SPECIALIST | 19 | Death-overs specialists |
+| PART_TIMER | 44 | Part-time bowling options |
 
 ### Hyperparameters
 
@@ -180,12 +183,16 @@ Before production deployment:
 
 ---
 
+## Data Range
+
+**Important:** All models now use **IPL 2023-2025 data only** (219 matches) to account for stat drift due to game evolution. This ensures classifications reflect current player form.
+
 ## Known Limitations
 
 1. **Small sample bias:** Players with <100 balls may have volatile classifications
-2. **Recency bias:** Model uses full IPL history (2008-2025), not weighted by recency
+2. **Recent data only:** Model uses 2023-2025 data (3 seasons), may miss career trends
 3. **Context ignorance:** Doesn't account for pitch conditions, opposition strength
-4. **Cluster overlap:** Some players near cluster boundaries may be misclassified
+4. **Tag overlap:** Some players may have multiple role tags (e.g., FINISHER + MIDDLE_ORDER)
 
 ---
 
@@ -197,4 +204,4 @@ Before production deployment:
 
 ---
 
-*Cricket Playbook v2.7.0 - Sprint 2.7*
+*Cricket Playbook v2.8.0 - Sprint 2.8*

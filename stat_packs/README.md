@@ -1,7 +1,8 @@
 # IPL 2026 Stat Packs
 
-**Version:** 2.7.0
-**Generated:** 2026-01-24
+**Version:** 2.8.0
+**Generated:** 2026-01-25
+**Data Range:** IPL 2023-2025 (219 matches)
 **Prepared by:** Cricket Playbook Analytics Team
 
 ---
@@ -77,23 +78,26 @@ Each stat pack contains 9 sections:
 
 Stat packs integrate with the **K-means Clustering V2** model for player archetypes.
 
-### Batter Clusters
-| Cluster | Label | Description |
-|---------|-------|-------------|
-| 0 | CLASSIC_OPENER | Traditional openers, platform builders |
-| 1 | ACCUMULATOR | Middle-order stabilizers (#3-4) |
-| 2 | DEATH_FINISHER | Lower-order finishers (#5-6) |
-| 3 | ELITE_EXPLOSIVE | Match-winners with 158+ SR |
-| 4 | POWER_OPENER | Aggressive openers with 163+ SR |
+### Batter Role Tags
+| Tag | Description |
+|-----|-------------|
+| EXPLOSIVE_OPENER | Aggressive openers with 163+ SR |
+| PLAYMAKER | Creative stroke-makers, adaptable |
+| ANCHOR | Stabilizers, build innings |
+| ACCUMULATOR | Middle-order stabilizers (#3-4) |
+| MIDDLE_ORDER | Middle-order specialists (#3-5) |
+| FINISHER | Death-overs specialists (#5-7) |
 
-### Bowler Clusters
-| Cluster | Label | Description |
-|---------|-------|-------------|
-| 0 | DEATH_SPECIALIST | Dual-phase premium seamers |
-| 1 | DEVELOPING | Higher economy, mixed phases |
-| 2 | SPIN_CONTROLLER | Elite middle-overs spinners |
-| 3 | NEW_BALL_PACER | Opening bowlers |
-| 4 | SECONDARY_OPTION | Backup bowlers, part-timers |
+### Bowler Role Tags
+| Tag | Description |
+|-----|-------------|
+| PACER | Fast/medium-fast bowlers |
+| SPINNER | Spin bowlers (all types) |
+| WORKHORSE | High-volume, multi-phase bowlers |
+| NEW_BALL_SPECIALIST | Opening bowlers, powerplay focus |
+| MIDDLE_OVERS_CONTROLLER | Middle-phase specialists |
+| DEATH_SPECIALIST | Death-overs specialists |
+| PART_TIMER | Part-time bowling options |
 
 ### Player Tags
 
@@ -120,10 +124,12 @@ See `outputs/README.md` for complete tag documentation.
 
 | Source | Records | Coverage |
 |--------|---------|----------|
-| IPL Matches | 1,169 | 2008-2025 |
+| **IPL Analytics Data** | **219** | **2023-2025 only** |
 | Total T20 Matches | 9,357 | Global T20 cricket |
 | Ball-by-ball records | 2,137,915 | All deliveries |
 | Bowler Classifications | 280 | 98.8% of IPL balls |
+
+**Note:** All stat pack analytics use 2023-2025 IPL data only to reflect current player form and game evolution.
 
 ## Franchise Aliases
 
@@ -203,4 +209,4 @@ For questions or issues:
 
 ---
 
-*Cricket Playbook Analytics Engine v2.7.0*
+*Cricket Playbook Analytics Engine v2.8.0*

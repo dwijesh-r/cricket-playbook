@@ -2,11 +2,34 @@
 
 Generated data artifacts from analytics scripts.
 
+---
+
+## Data Range
+
+**IMPORTANT:** All outputs currently use **full IPL history (2008-2025)**, not filtered to recent years.
+
+| Output File | Data Range | Notes |
+|-------------|------------|-------|
+| `player_tags.json` | 2008-2025 | Full IPL history |
+| `bowler_handedness_matchup.csv` | 2008-2025 | Full IPL history |
+| `batter_bowling_type_matchup.csv` | 2008-2025 | Full IPL history |
+| `batter_bowling_type_detail.csv` | 2008-2025 | Full IPL history |
+| `bowler_phase_performance.csv` | 2008-2025 | Full IPL history |
+| `batter_entry_points.csv` | 2008-2025 | Full IPL history |
+| `bowler_over_timing.csv` | 2008-2025 | Full IPL history |
+| `ipl_2026_squad_experience.csv` | 2008-2025 | Full IPL history |
+
+**Founder Review Note:** Recency weighting (2x for 2021-2025 data) was recommended in Review #1 but has not yet been implemented. All calculations currently weight all seasons equally.
+
+**Last Updated:** 2026-01-24
+
+---
+
 ## Contents
 
 | File | Description | Script |
 |------|-------------|--------|
-| `player_tags.json` | Multi-tag classification for 155 players | `player_clustering_v2.py` |
+| `player_tags.json` | Multi-tag classification for 377 players | `player_clustering_v2.py` |
 | `bowler_handedness_matchup.csv` | LHB/RHB matchup analysis (140 bowlers) | `bowler_handedness_matchup.py` |
 | `batter_bowling_type_matchup.csv` | Batter vs pace/spin matchup | `batter_bowling_type_matchup.py` |
 | `batter_bowling_type_detail.csv` | Detailed bowling type breakdown | `batter_bowling_type_matchup.py` |

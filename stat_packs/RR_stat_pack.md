@@ -1,6 +1,6 @@
 # Rajasthan Royals (RR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-24 20:45
+**Generated:** 2026-01-24 21:02
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -12,9 +12,9 @@
 
 | Player | Role | Bowling | Batting | Price (Cr) | Type | Joined |
 |--------|------|---------|---------|------------|------|--------|
-| Yashasvi Jaiswal | Batter | Leg-spin | Left-hand | 18.00 | Retained | 2020 |
+| Yashasvi Jaiswal | Batter | Left-arm orthodox | Left-hand | 18.00 | Retained | 2020 |
 | Ravindra Jadeja | All-rounder | Left-arm orthodox | Left-hand | 17.50 | Traded | 2026 |
-| Riyan Parag | All-rounder | Leg-spin | Right-hand | 14.00 | Retained | 2019 |
+| Riyan Parag | All-rounder | Off-spin | Right-hand | 14.00 | Retained | 2019 |
 | Dhruv Jurel | Wicketkeeper | Medium | Right-hand | 14.00 | Retained | 2022 |
 | Jofra Archer | Bowler | Fast | Right-hand | 12.50 | Retained | 2018 |
 | Shimron Hetmyer | Batter | Medium | Left-hand | 11.00 | Retained | 2022 |
@@ -24,17 +24,17 @@
 | Sandeep Sharma | Bowler | Fast | Right-hand | 4.00 | Retained | 2014 |
 | Nandre Burger | Bowler | Fast | Right-hand | 3.50 | Retained | 2024 |
 | Kwena Maphaka | Bowler | Fast | Left-hand | 1.50 | Retained | 2025 |
-| Vaibhav Suryavanshi | Batter | Left-arm orthodox | Left-hand | 1.10 | Retained | 2025 |
+| Vaibhav Suryavanshi | Batter | Medium | Left-hand | 1.10 | Retained | 2025 |
 | Shubham Dubey | Batter | Medium | Right-hand | 0.80 | Retained | 2022 |
 | Donovan Ferreira | Batter | Off-spin | Right-hand | 0.75 | Auction | 2026 |
 | Yudhvir Singh | All-rounder | Medium | Right-hand | 0.35 | Retained | 2024 |
-| Lhuan-dre Pretorius | All-rounder | - | Right-hand | 0.30 | Retained | 2025 |
+| Lhuan-dre Pretorius | All-rounder | Fast | Right-hand | 0.30 | Retained | 2025 |
 | Kuldeep Sen | Bowler | Fast | Right-hand | 0.30 | Auction | 2026 |
 | Aman Rao | Wicketkeeper | Medium | Right-hand | 0.30 | Auction | 2026 |
-| Ravi Singh | Batter | Leg-spin | Right-hand | 0.30 | Auction | 2026 |
+| Ravi Singh | Batter | Medium | Right-hand | 0.30 | Auction | 2026 |
 | Adam Milne | Bowler | Fast | Right-hand | 0.30 | Auction | 2026 |
 | Yash Raj Punja | Bowler | Leg-spin | Right-hand | 0.30 | Auction | 2026 |
-| Vignesh Puthur | Bowler | Left-arm wrist spin | Right-hand | 0.30 | Auction | 2026 |
+| Vignesh Puthur | Bowler | Leg-spin | Right-hand | 0.30 | Auction | 2026 |
 | Sushant Mishra | Bowler | Fast | Left-hand | 0.30 | Auction | 2026 |
 | Brijesh Sharma | All-rounder | Medium | Right-hand | 0.30 | Auction | 2026 |
 
@@ -50,12 +50,12 @@
 **Batter Archetypes:**
 
 - **ACCUMULATOR**: Ravindra Jadeja, Riyan Parag, Shubham Dubey
-- **FINISHER**: Sam Curran, Shimron Hetmyer, Dhruv Jurel
+- **FINISHER**: Sam Curran, Ravi Singh, Shimron Hetmyer, Dhruv Jurel
 
 **Bowler Archetypes:**
 
 - **DEATH_SPECIALIST**: Sam Curran
-- **MIDDLE_OVERS_CONTROLLER**: Ravindra Jadeja
+- **MIDDLE_OVERS_CONTROLLER**: Brijesh Sharma, Ravindra Jadeja
 - **WORKHORSE**: Jofra Archer, Ravi Bishnoi
 
 ### 1.3 Key Player Tags
@@ -64,19 +64,21 @@
 
 | Player | Tags |
 |--------|------|
-| Ravindra Jadeja | SPECIALIST_VS_PACE, VULNERABLE_VS_OFF_SPIN, VULNERABLE_VS_SPIN, VULNERABLE_VS_LEG_SPIN, ACCUMULATOR (+6 more) |
-| Riyan Parag | SPECIALIST_VS_PACE, ACCUMULATOR, SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, VULNERABLE_VS_LEG_SPIN, RHB_WICKET_TAKER (+3 more) |
-| Sam Curran | SPECIALIST_VS_PACE, FINISHER, VULNERABLE_VS_LEG_SPIN, SPECIALIST_VS_LEFT_ARM_SPIN, DEATH_SPECIALIST (+8 more) |
-| Shimron Hetmyer | SPECIALIST_VS_PACE, PACE_SPECIALIST, FINISHER |
-| Shubham Dubey | SPECIALIST_VS_PACE, ACCUMULATOR, SPECIALIST_VS_LEG_SPIN, SPECIALIST_VS_SPIN |
-| Yashasvi Jaiswal | SPECIALIST_VS_PACE, EXPLOSIVE_OPENER, SPECIALIST_VS_OFF_SPIN, SPECIALIST_VS_LEFT_ARM_SPIN, PP_DOMINATOR (+5 more) |
+| Brijesh Sharma | MIDDLE_OVERS_CONTROLLER |
+| Ravindra Jadeja | PACE_SPECIALIST, SPECIALIST_VS_PACE, ACCUMULATOR, VULNERABLE_VS_LEFT_ARM_SPIN, LHB_VULNERABLE (+3 more) |
+| Riyan Parag | SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, SPECIALIST_VS_PACE, ACCUMULATOR, RHB_WICKET_TAKER, PART_TIMER (+2 more) |
+| Sam Curran | FINISHER, SPECIALIST_VS_OFF_SPIN, DEATH_SPECIALIST, PACE_SPECIALIST, VULNERABLE_VS_LEG_SPIN (+9 more) |
+| Ravi Singh | FINISHER, DEATH_SPECIALIST, PACE_SPECIALIST, SIX_HITTER, SPECIALIST_VS_PACE |
+| Shimron Hetmyer | FINISHER, SPECIALIST_VS_PACE, PACE_SPECIALIST |
+| Shubham Dubey | SPECIALIST_VS_SPIN, SPECIALIST_VS_PACE, ACCUMULATOR |
+| Yashasvi Jaiswal | DEATH_SPECIALIST, PACE_SPECIALIST, EXPLOSIVE_OPENER, PP_DOMINATOR, SIX_HITTER (+3 more) |
 | Adam Milne | PART_TIMER |
-| Jofra Archer | PP_BEAST, PRESSURE_BUILDER, PP_ELITE, WORKHORSE |
+| Jofra Archer | PP_BEAST, WORKHORSE, LHB_VULNERABLE, PRESSURE_BUILDER, LHB_WICKET_TAKER (+2 more) |
 | Kuldeep Sen | PART_TIMER |
-| Ravi Bishnoi | WORKHORSE, LHB_PRESSURE |
-| Sandeep Sharma | NEW_BALL_SPECIALIST, PP_ELITE, PRESSURE_BUILDER, PROVEN_WICKET_TAKER |
-| Tushar Deshpande | DEATH_LIABILITY, PART_TIMER, RHB_WICKET_TAKER |
-| Dhruv Jurel | SPECIALIST_VS_PACE, FINISHER, SPECIALIST_VS_LEG_SPIN, PACE_SPECIALIST, SPECIALIST_VS_SPIN |
+| Ravi Bishnoi | RHB_VULNERABLE, WORKHORSE, LHB_SPECIALIST, LHB_WICKET_TAKER, MIDDLE_OVERS_LIABILITY (+1 more) |
+| Sandeep Sharma | RHB_WICKET_TAKER, PRESSURE_BUILDER, PROVEN_WICKET_TAKER, NEW_BALL_SPECIALIST, DEATH_LIABILITY (+1 more) |
+| Tushar Deshpande | RHB_WICKET_TAKER, DEATH_LIABILITY, PART_TIMER |
+| Dhruv Jurel | FINISHER, PACE_SPECIALIST, SPECIALIST_VS_LEG_SPIN, SPECIALIST_VS_SPIN, SPECIALIST_VS_PACE |
 
 ---
 
@@ -138,7 +140,7 @@
 | Wankhede Stadium | 8 | 1317 | 902 | 146.01 | 29.27 |
 | Sheikh Zayed Stadium | 8 | 1115 | 864 | 129.05 | 29.34 |
 | Feroz Shah Kotla | 7 | 1006 | 813 | 123.74 | 23.95 |
-| MA Chidambaram Stadium, Chepauk | 6 | 989 | 720 | 137.36 | 30.91 |
+| Punjab Cricket Association Stadium, Moha... | 6 | 962 | 714 | 134.73 | 28.29 |
 
 ---
 
@@ -148,27 +150,30 @@
 
 | Player | Role | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | 50s | 100s | Sample |
 |--------|------|-----|------|-------|-----|-----|--------|------|-----|------|--------|
-| Ravindra Jadeja | All-rounder | 194 | 3260 | 2489 | 130.98 | 28.35 | 14.34 | 31.62 | 5 | 0 | HIGH |
-| Yashasvi Jaiswal | Batter | 66 | 2166 | 1412 | 153.4 | 34.94 | 24.86 | 39.31 | 17 | 2 | HIGH |
-| Shubham Dubey | Batter | 75 | 1859 | 1290 | 144.11 | 30.98 | 17.83 | 34.57 | 10 | 0 | HIGH |
-| Riyan Parag | All-rounder | 72 | 1566 | 1100 | 142.36 | 27.47 | 18.0 | 34.0 | 7 | 0 | HIGH |
-| Shimron Hetmyer | Batter | 78 | 1482 | 971 | 152.63 | 29.64 | 19.16 | 32.85 | 5 | 0 | HIGH |
-| Sam Curran | All-rounder | 53 | 997 | 725 | 137.52 | 24.93 | 17.38 | 34.62 | 6 | 0 | HIGH |
+| Yashasvi Jaiswal | Batter | 43 | 1619 | 1009 | 160.46 | 41.51 | 26.46 | 37.96 | 14 | 2 | HIGH |
+| Shubham Dubey | Batter | 42 | 1171 | 775 | 151.1 | 35.48 | 18.84 | 33.16 | 7 | 0 | HIGH |
+| Riyan Parag | All-rounder | 35 | 1044 | 683 | 152.86 | 36.0 | 19.91 | 32.5 | 5 | 0 | HIGH |
+| Ravi Singh | Batter | 36 | 848 | 557 | 152.24 | 35.33 | 19.93 | 32.68 | 4 | 0 | HIGH |
+| Ravindra Jadeja | All-rounder | 37 | 758 | 541 | 140.11 | 32.96 | 15.71 | 26.8 | 3 | 0 | HIGH |
 | Dhruv Jurel | Wicketkeeper | 35 | 680 | 442 | 153.85 | 30.91 | 20.14 | 30.32 | 4 | 0 | HIGH |
+| Sam Curran | All-rounder | 30 | 660 | 500 | 132.0 | 26.4 | 15.6 | 33.0 | 4 | 0 | HIGH |
+| Shimron Hetmyer | Batter | 35 | 651 | 428 | 152.1 | 27.13 | 18.46 | 31.78 | 2 | 0 | HIGH |
 | Vaibhav Suryavanshi | Batter | 7 | 252 | 121 | 208.26 | 36.0 | 34.71 | 37.19 | 2 | 1 | LOW |
 | Yudhvir Singh | All-rounder | 4 | 22 | 16 | 137.5 | 5.5 | 18.75 | 50.0 | 0 | 0 | LOW |
 | Donovan Ferreira | Batter | 3 | 9 | 14 | 64.29 | 3.0 | - | 50.0 | 0 | 0 | LOW |
 | Lhuan-dre Pretorius | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
-| Aman Rao | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
-| Ravi Singh | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Brijesh Sharma | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
+| Aman Rao | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
 ### 4.2 Phase-wise Batting (Qualified players)
 
 | Player | Phase | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|------|--------|
+| Brijesh Sharma | death | 16 | 172 | 109 | 157.8 | 34.4 | 17.43 | 26.61 | MEDIUM |
 | Dhruv Jurel | middle | 22 | 247 | 200 | 123.5 | 27.44 | 15.0 | 38.5 | MEDIUM |
 | Dhruv Jurel | death | 25 | 410 | 229 | 179.04 | 31.54 | 24.02 | 22.71 | MEDIUM |
+| Ravi Singh | middle | 39 | 455 | 406 | 112.07 | 28.44 | 10.84 | 35.22 | MEDIUM |
+| Ravi Singh | death | 34 | 608 | 317 | 191.8 | 30.4 | 29.34 | 29.97 | MEDIUM |
 | Ravindra Jadeja | middle | 121 | 1338 | 1207 | 110.85 | 39.35 | 10.44 | 35.71 | HIGH |
 | Ravindra Jadeja | death | 150 | 1818 | 1195 | 152.13 | 23.61 | 17.82 | 26.03 | HIGH |
 | Riyan Parag | middle | 51 | 875 | 662 | 132.18 | 41.67 | 15.11 | 31.87 | HIGH |
@@ -191,18 +196,17 @@
 
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
-| Ravindra Jadeja | Left-arm o | 225 | 676.0 | 170 | 7.75 | 30.84 | 23.86 | 31.85 | 13.24 | HIGH |
-| Sandeep Sharma | Fast | 136 | 506.8 | 146 | 8.13 | 28.23 | 20.83 | 38.61 | 17.63 | HIGH |
-| Ravi Bishnoi | Leg-spin | 76 | 272.2 | 72 | 8.31 | 31.43 | 22.68 | 34.23 | 16.41 | HIGH |
-| Jofra Archer | Fast | 52 | 203.5 | 59 | 8.13 | 28.05 | 20.69 | 42.83 | 17.53 | HIGH |
-| Sam Curran | Fast | 63 | 208.8 | 59 | 9.86 | 34.9 | 21.24 | 31.44 | 22.83 | HIGH |
-| Tushar Deshpande | Fast | 46 | 161.0 | 51 | 10.04 | 31.71 | 18.94 | 35.3 | 23.5 | HIGH |
-| Kuldeep Sen | Fast | 12 | 40.2 | 14 | 9.86 | 28.29 | 17.21 | 34.44 | 23.65 | MEDIUM |
+| Tushar Deshpande | Fast | 39 | 137.0 | 47 | 9.91 | 28.87 | 17.49 | 36.01 | 22.75 | HIGH |
+| Ravindra Jadeja | Left-arm o | 44 | 141.8 | 38 | 7.95 | 29.68 | 22.39 | 29.96 | 13.75 | HIGH |
+| Ravi Bishnoi | Leg-spin | 39 | 131.2 | 35 | 9.0 | 33.71 | 22.49 | 31.64 | 18.42 | HIGH |
+| Sandeep Sharma | Fast | 32 | 120.5 | 32 | 8.92 | 33.59 | 22.59 | 30.15 | 18.53 | HIGH |
+| Sam Curran | Fast | 32 | 100.8 | 27 | 10.45 | 39.04 | 22.41 | 29.26 | 25.12 | HIGH |
+| Jofra Archer | Fast | 17 | 65.7 | 13 | 9.85 | 49.77 | 30.31 | 37.06 | 22.59 | MEDIUM |
 | Yudhvir Singh | Medium | 9 | 23.2 | 8 | 11.09 | 32.13 | 17.38 | 38.85 | 29.5 | LOW |
-| Riyan Parag | Leg-spin | 30 | 49.2 | 7 | 9.72 | 68.29 | 42.14 | 22.03 | 17.63 | HIGH |
 | Nandre Burger | Fast | 5 | 17.0 | 7 | 8.94 | 21.71 | 14.57 | 45.1 | 22.55 | LOW |
-| Adam Milne | Fast | 10 | 34.5 | 7 | 9.83 | 48.43 | 29.57 | 33.33 | 23.19 | MEDIUM |
-| Vignesh Puthur | Left-arm w | 5 | 12.0 | 6 | 9.08 | 18.17 | 12.0 | 33.33 | 18.06 | LOW |
+| Kuldeep Sen | Fast | 5 | 15.0 | 6 | 10.4 | 26.0 | 15.0 | 30.0 | 24.44 | LOW |
+| Vignesh Puthur | Leg-spin | 5 | 12.0 | 6 | 9.08 | 18.17 | 12.0 | 33.33 | 18.06 | LOW |
+| Riyan Parag | Off-spin | 11 | 23.0 | 3 | 8.61 | 66.0 | 46.0 | 24.64 | 13.77 | MEDIUM |
 | Kwena Maphaka | Fast | 4 | 11.0 | 2 | 13.45 | 74.0 | 33.0 | 33.33 | 39.39 | LOW |
 
 ### 5.2 Bowler Phase Distribution
@@ -211,35 +215,27 @@
 
 | Bowler | Phase | Overs | Wkts | Econ | Dot% | %Overs | %Wkts | Efficiency | Sample |
 |--------|-------|-------|------|------|------|--------|-------|------------|--------|
-| AF Milne | powerplay | 16.0 | 2 | 9.31 | 40.63 | 46.4% | 28.6% | -17.8 | MEDIUM |
-| AF Milne | middle | 9.0 | 1 | 9.56 | 24.07 | 26.1% | 14.3% | -11.8 | MEDIUM |
-| AF Milne | death | 9.5 | 4 | 9.47 | 29.82 | 27.5% | 57.1% | +29.6 | MEDIUM |
-| JC Archer | powerplay | 91.0 | 23 | 6.23 | 56.04 | 44.7% | 39.0% | -5.7 | HIGH |
-| JC Archer | middle | 36.0 | 11 | 6.97 | 42.59 | 17.7% | 18.6% | +1.0 | HIGH |
-| JC Archer | death | 76.5 | 25 | 9.96 | 27.23 | 37.6% | 42.4% | +4.8 | HIGH |
-| KR Sen | powerplay | 7.0 | 2 | 9.14 | 33.33 | 17.4% | 14.3% | -3.1 | MEDIUM |
-| KR Sen | middle | 23.0 | 8 | 7.78 | 36.96 | 57.3% | 57.1% | -0.1 | MEDIUM |
-| KR Sen | death | 10.2 | 4 | 12.79 | 29.51 | 25.3% | 28.6% | +3.3 | MEDIUM |
-| R Parag | powerplay | 2.0 | 1 | 8.0 | 33.33 | 4.1% | 14.3% | +10.2 | MEDIUM |
-| R Parag | middle | 45.0 | 6 | 9.27 | 22.22 | 91.5% | 85.7% | -5.8 | MEDIUM |
-| R Parag | death | 2.2 | 0 | 13.38 | 7.69 | 4.4% | -% | -4.4 | MEDIUM |
-| RA Jadeja | powerplay | 24.0 | 6 | 8.13 | 40.28 | 3.6% | 3.6% | - | HIGH |
-| RA Jadeja | middle | 564.0 | 134 | 7.4 | 31.59 | 83.4% | 79.3% | -4.1 | HIGH |
-| RA Jadeja | death | 88.0 | 29 | 8.76 | 31.25 | 13.0% | 17.2% | +4.1 | HIGH |
-| Ravi Bishnoi | powerplay | 20.0 | 2 | 8.65 | 42.5 | 7.3% | 2.8% | -4.6 | HIGH |
-| Ravi Bishnoi | middle | 212.0 | 50 | 7.8 | 32.94 | 77.9% | 69.4% | -8.4 | HIGH |
-| Ravi Bishnoi | death | 40.2 | 20 | 9.14 | 36.93 | 14.8% | 27.8% | +13.0 | HIGH |
-| S Dube | middle | 14.0 | 2 | 10.0 | 19.05 | 67.7% | 40.0% | -27.7 | MEDIUM |
-| S Dube | death | 6.7 | 3 | 10.95 | 20.0 | 32.3% | 60.0% | +27.7 | MEDIUM |
-| SM Curran | powerplay | 95.0 | 11 | 8.17 | 39.65 | 45.5% | 18.6% | -26.8 | HIGH |
-| SM Curran | middle | 49.0 | 14 | 10.29 | 24.83 | 23.5% | 23.7% | +0.3 | HIGH |
-| SM Curran | death | 64.8 | 34 | 11.03 | 24.42 | 31.0% | 57.6% | +26.6 | HIGH |
-| Sandeep Sharma | powerplay | 281.0 | 62 | 6.9 | 48.4 | 55.4% | 42.5% | -13.0 | HIGH |
-| Sandeep Sharma | middle | 102.0 | 22 | 7.9 | 28.27 | 20.1% | 15.1% | -5.1 | HIGH |
-| Sandeep Sharma | death | 123.8 | 62 | 9.96 | 24.9 | 24.4% | 42.5% | +18.0 | HIGH |
-| TU Deshpande | powerplay | 79.0 | 17 | 8.66 | 44.51 | 49.1% | 33.3% | -15.7 | HIGH |
-| TU Deshpande | middle | 30.0 | 7 | 9.07 | 23.33 | 18.6% | 13.7% | -4.9 | HIGH |
-| TU Deshpande | death | 52.0 | 27 | 11.1 | 28.21 | 32.3% | 52.9% | +20.6 | HIGH |
+| JC Archer | powerplay | 34.0 | 6 | 7.88 | 45.1 | 51.8% | 46.2% | -5.6 | HIGH |
+| JC Archer | middle | 12.0 | 2 | 8.17 | 36.11 | 18.3% | 15.4% | -2.9 | HIGH |
+| JC Archer | death | 19.7 | 5 | 12.15 | 23.73 | 29.9% | 38.5% | +8.5 | HIGH |
+| R Parag | powerplay | 1.0 | 0 | 6.0 | 50.0 | 4.3% | -% | -4.3 | MEDIUM |
+| R Parag | middle | 21.0 | 3 | 8.14 | 23.81 | 91.3% | 100.0% | +8.7 | MEDIUM |
+| R Parag | death | 1.0 | 0 | 11.0 | 16.67 | 4.3% | -% | -4.3 | MEDIUM |
+| RA Jadeja | powerplay | 2.0 | 0 | 6.5 | 25.0 | 1.4% | -% | -1.4 | HIGH |
+| RA Jadeja | middle | 135.2 | 37 | 7.62 | 30.58 | 95.3% | 97.4% | +2.1 | HIGH |
+| RA Jadeja | death | 4.7 | 1 | 13.29 | 14.29 | 3.3% | 2.6% | -0.7 | HIGH |
+| Ravi Bishnoi | powerplay | 7.0 | 0 | 10.86 | 33.33 | 5.3% | -% | -5.3 | HIGH |
+| Ravi Bishnoi | middle | 106.0 | 27 | 8.3 | 30.82 | 80.8% | 77.1% | -3.7 | HIGH |
+| Ravi Bishnoi | death | 18.2 | 8 | 10.51 | 35.78 | 13.9% | 22.9% | +9.0 | HIGH |
+| SM Curran | powerplay | 41.0 | 3 | 8.78 | 40.24 | 40.7% | 11.1% | -29.6 | HIGH |
+| SM Curran | middle | 30.0 | 10 | 11.0 | 22.78 | 29.8% | 37.0% | +7.3 | HIGH |
+| SM Curran | death | 29.8 | 14 | 11.33 | 20.67 | 29.6% | 51.9% | +22.3 | HIGH |
+| Sandeep Sharma | powerplay | 52.0 | 8 | 7.38 | 40.71 | 43.2% | 25.0% | -18.2 | HIGH |
+| Sandeep Sharma | middle | 23.0 | 1 | 8.26 | 19.57 | 19.1% | 3.1% | -16.0 | HIGH |
+| Sandeep Sharma | death | 45.5 | 23 | 10.07 | 23.44 | 37.8% | 71.9% | +34.1 | HIGH |
+| TU Deshpande | powerplay | 68.0 | 16 | 8.53 | 43.87 | 49.6% | 34.0% | -15.6 | HIGH |
+| TU Deshpande | middle | 21.0 | 5 | 8.0 | 27.78 | 15.3% | 10.6% | -4.7 | HIGH |
+| TU Deshpande | death | 48.0 | 26 | 11.15 | 28.47 | 35.0% | 55.3% | +20.3 | HIGH |
 | Yudhvir Singh | powerplay | 14.2 | 6 | 9.95 | 47.06 | 61.2% | 75.0% | +13.8 | MEDIUM |
 | Yudhvir Singh | middle | 6.0 | 1 | 11.67 | 30.56 | 25.9% | 12.5% | -13.4 | MEDIUM |
 | Yudhvir Singh | death | 3.0 | 1 | 12.0 | 16.67 | 12.9% | 12.5% | -0.4 | MEDIUM |
@@ -250,23 +246,6 @@
 
 *Top batters' performance against each IPL team*
 
-
-### Ravindra Jadeja
-
-| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
-|------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Kolkata Knight Riders | 28 | 473 | 351 | 134.76 | 33.79 | 15.1 | 33.33 | 14 | HIGH |
-| Royal Challengers Bengaluru | 27 | 452 | 339 | 133.33 | 30.13 | 14.45 | 30.38 | 15 | HIGH |
-| Delhi Capitals | 25 | 436 | 305 | 142.95 | 29.07 | 16.72 | 27.87 | 15 | HIGH |
-| Punjab Kings | 23 | 391 | 306 | 127.78 | 26.07 | 14.71 | 34.64 | 15 | HIGH |
-| Mumbai Indians | 25 | 379 | 313 | 121.09 | 21.06 | 12.78 | 34.82 | 18 | HIGH |
-| Rajasthan Royals | 18 | 277 | 215 | 128.84 | 46.17 | 13.02 | 27.91 | 6 | HIGH |
-| Sunrisers Hyderabad | 18 | 277 | 220 | 125.91 | 30.78 | 13.18 | 28.18 | 9 | HIGH |
-| Pune Warriors | 4 | 124 | 83 | 149.4 | 31.0 | 18.07 | 30.12 | 4 | MEDIUM |
-| Deccan Chargers | 6 | 107 | 113 | 94.69 | 21.4 | 7.96 | 41.59 | 5 | HIGH |
-| Gujarat Titans | 7 | 106 | 67 | 158.21 | 26.5 | 17.91 | 22.39 | 4 | MEDIUM |
-| Lucknow Super Giants | 5 | 100 | 85 | 117.65 | 25.0 | 12.94 | 31.76 | 4 | MEDIUM |
-| Chennai Super Kings | 5 | 99 | 72 | 137.5 | 24.75 | 15.28 | 30.56 | 4 | MEDIUM |
 
 ### Yashasvi Jaiswal
 
@@ -311,25 +290,55 @@
 | Mumbai Indians | 6 | 129 | 89 | 144.94 | 43.0 | 21.35 | 33.71 | 3 | MEDIUM |
 | Chennai Super Kings | 7 | 122 | 102 | 119.61 | 24.4 | 11.76 | 33.33 | 5 | HIGH |
 
-### Shimron Hetmyer
+### Ravi Singh
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Sunrisers Hyderabad | 12 | 282 | 179 | 157.54 | 31.33 | 19.55 | 30.17 | 9 | HIGH |
-| Royal Challengers Bengaluru | 12 | 235 | 159 | 147.8 | 33.57 | 18.87 | 33.96 | 7 | HIGH |
-| Punjab Kings | 9 | 204 | 119 | 171.43 | 34.0 | 24.37 | 33.61 | 6 | HIGH |
-| Gujarat Titans | 7 | 172 | 112 | 153.57 | 34.4 | 18.75 | 30.36 | 5 | HIGH |
-| Chennai Super Kings | 8 | 140 | 100 | 140.0 | 28.0 | 16.0 | 30.0 | 5 | HIGH |
-| Kolkata Knight Riders | 10 | 127 | 83 | 153.01 | 25.4 | 16.87 | 33.73 | 5 | MEDIUM |
-| Mumbai Indians | 9 | 99 | 78 | 126.92 | 14.14 | 16.67 | 41.03 | 7 | MEDIUM |
-| Lucknow Super Giants | 4 | 78 | 55 | 141.82 | 26.0 | 16.36 | 38.18 | 3 | MEDIUM |
-| Rajasthan Royals | 3 | 74 | 49 | 151.02 | 24.67 | 22.45 | 38.78 | 3 | MEDIUM |
-| Delhi Capitals | 4 | 69 | 37 | 186.49 | - | 21.62 | 18.92 | 0 | MEDIUM |
+| Sunrisers Hyderabad | 7 | 197 | 134 | 147.01 | 39.4 | 17.91 | 27.61 | 5 | HIGH |
+| Chennai Super Kings | 8 | 167 | 138 | 121.01 | 27.83 | 15.22 | 39.86 | 6 | HIGH |
+| Lucknow Super Giants | 5 | 167 | 84 | 198.81 | 55.67 | 30.95 | 27.38 | 3 | MEDIUM |
+| Gujarat Titans | 4 | 119 | 83 | 143.37 | 39.67 | 18.07 | 38.55 | 3 | MEDIUM |
+| Royal Challengers Bengaluru | 6 | 104 | 78 | 133.33 | 26.0 | 15.38 | 29.49 | 4 | MEDIUM |
+| Delhi Capitals | 5 | 101 | 67 | 150.75 | 20.2 | 19.4 | 29.85 | 5 | MEDIUM |
+| Rajasthan Royals | 5 | 100 | 59 | 169.49 | 100.0 | 23.73 | 28.81 | 1 | MEDIUM |
+| Mumbai Indians | 7 | 96 | 80 | 120.0 | 16.0 | 15.0 | 41.25 | 6 | MEDIUM |
+
+### Ravindra Jadeja
+
+| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
+|------------|-----|------|-------|-----|-----|--------|------|------|--------|
+| Kolkata Knight Riders | 28 | 473 | 351 | 134.76 | 33.79 | 15.1 | 33.33 | 14 | HIGH |
+| Royal Challengers Bengaluru | 27 | 452 | 339 | 133.33 | 30.13 | 14.45 | 30.38 | 15 | HIGH |
+| Delhi Capitals | 25 | 436 | 305 | 142.95 | 29.07 | 16.72 | 27.87 | 15 | HIGH |
+| Punjab Kings | 23 | 391 | 306 | 127.78 | 26.07 | 14.71 | 34.64 | 15 | HIGH |
+| Mumbai Indians | 25 | 379 | 313 | 121.09 | 21.06 | 12.78 | 34.82 | 18 | HIGH |
+| Rajasthan Royals | 18 | 277 | 215 | 128.84 | 46.17 | 13.02 | 27.91 | 6 | HIGH |
+| Sunrisers Hyderabad | 18 | 277 | 220 | 125.91 | 30.78 | 13.18 | 28.18 | 9 | HIGH |
+| Pune Warriors | 4 | 124 | 83 | 149.4 | 31.0 | 18.07 | 30.12 | 4 | MEDIUM |
+| Deccan Chargers | 6 | 107 | 113 | 94.69 | 21.4 | 7.96 | 41.59 | 5 | HIGH |
+| Gujarat Titans | 7 | 106 | 67 | 158.21 | 26.5 | 17.91 | 22.39 | 4 | MEDIUM |
+| Lucknow Super Giants | 5 | 100 | 85 | 117.65 | 25.0 | 12.94 | 31.76 | 4 | MEDIUM |
+| Chennai Super Kings | 5 | 99 | 72 | 137.5 | 24.75 | 15.28 | 30.56 | 4 | MEDIUM |
 
 ---
 
 ## 7. Key Bowler vs Opposition
 
+
+### Tushar Deshpande
+
+| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
+|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
+| Gujarat Titans | 6 | 140 | 245 | 8 | 10.5 | 30.63 | 17.5 | 30.71 | 27.14 | HIGH |
+| Rajasthan Royals | 4 | 96 | 141 | 8 | 8.81 | 17.63 | 12.0 | 32.29 | 19.79 | MEDIUM |
+| Punjab Kings | 4 | 84 | 162 | 7 | 11.57 | 23.14 | 12.0 | 35.71 | 30.95 | MEDIUM |
+| Sunrisers Hyderabad | 5 | 90 | 151 | 7 | 10.07 | 21.57 | 12.86 | 27.78 | 24.44 | MEDIUM |
+| Kolkata Knight Riders | 6 | 117 | 167 | 5 | 8.56 | 33.4 | 23.4 | 46.15 | 22.22 | HIGH |
+| Mumbai Indians | 3 | 66 | 85 | 5 | 7.73 | 17.0 | 13.2 | 39.39 | 16.67 | MEDIUM |
+| Royal Challengers Bengaluru | 5 | 96 | 187 | 4 | 11.69 | 46.75 | 24.0 | 34.38 | 31.25 | MEDIUM |
+| Lucknow Super Giants | 6 | 121 | 175 | 4 | 8.68 | 43.75 | 30.25 | 33.88 | 18.18 | HIGH |
+| Chennai Super Kings | 3 | 72 | 114 | 2 | 9.5 | 57.0 | 36.0 | 36.11 | 23.61 | MEDIUM |
+| Delhi Capitals | 4 | 84 | 106 | 1 | 7.57 | 106.0 | 84.0 | 38.1 | 17.86 | MEDIUM |
 
 ### Ravindra Jadeja
 
@@ -344,27 +353,10 @@
 | Sunrisers Hyderabad | 24 | 427 | 504 | 10 | 7.08 | 50.4 | 42.7 | 30.21 | 9.84 | HIGH |
 | Deccan Chargers | 5 | 108 | 114 | 8 | 6.33 | 14.25 | 13.5 | 39.81 | 9.26 | HIGH |
 | Gujarat Titans | 7 | 132 | 171 | 7 | 7.77 | 24.43 | 18.86 | 27.27 | 12.88 | HIGH |
-| Pune Warriors | 4 | 96 | 100 | 3 | 6.25 | 33.33 | 32.0 | 39.58 | 9.38 | MEDIUM |
-| Rising Pune Supergiant | 4 | 84 | 115 | 3 | 8.21 | 38.33 | 28.0 | 34.52 | 14.29 | MEDIUM |
 | Lucknow Super Giants | 6 | 84 | 116 | 3 | 8.29 | 38.67 | 28.0 | 26.19 | 16.67 | MEDIUM |
+| Rising Pune Supergiant | 4 | 84 | 115 | 3 | 8.21 | 38.33 | 28.0 | 34.52 | 14.29 | MEDIUM |
+| Pune Warriors | 4 | 96 | 100 | 3 | 6.25 | 33.33 | 32.0 | 39.58 | 9.38 | MEDIUM |
 | Chennai Super Kings | 3 | 44 | 55 | 2 | 7.5 | 27.5 | 22.0 | 34.09 | 11.36 | MEDIUM |
-
-### Sandeep Sharma
-
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Royal Challengers Bengaluru | 21 | 470 | 646 | 29 | 8.25 | 22.28 | 16.21 | 38.94 | 19.57 | HIGH |
-| Mumbai Indians | 16 | 349 | 427 | 24 | 7.34 | 17.79 | 14.54 | 45.27 | 16.62 | HIGH |
-| Delhi Capitals | 19 | 432 | 517 | 20 | 7.18 | 25.85 | 21.6 | 40.51 | 15.97 | HIGH |
-| Chennai Super Kings | 17 | 362 | 533 | 13 | 8.83 | 41.0 | 27.85 | 33.43 | 20.17 | HIGH |
-| Sunrisers Hyderabad | 12 | 288 | 422 | 13 | 8.79 | 32.46 | 22.15 | 36.46 | 19.79 | HIGH |
-| Punjab Kings | 9 | 216 | 235 | 11 | 6.53 | 21.36 | 19.64 | 38.89 | 11.11 | HIGH |
-| Kolkata Knight Riders | 15 | 312 | 427 | 10 | 8.21 | 42.7 | 31.2 | 37.82 | 19.55 | HIGH |
-| Gujarat Lions | 4 | 90 | 120 | 6 | 8.0 | 20.0 | 15.0 | 37.78 | 18.89 | MEDIUM |
-| Lucknow Super Giants | 5 | 114 | 154 | 6 | 8.11 | 25.67 | 19.0 | 35.09 | 17.54 | HIGH |
-| Rising Pune Supergiant | 4 | 84 | 94 | 5 | 6.71 | 18.8 | 16.8 | 41.67 | 15.48 | MEDIUM |
-| Rajasthan Royals | 9 | 210 | 274 | 5 | 7.83 | 54.8 | 42.0 | 36.19 | 16.19 | HIGH |
-| Gujarat Titans | 5 | 114 | 128 | 4 | 6.74 | 32.0 | 28.5 | 39.47 | 13.16 | HIGH |
 
 ### Ravi Bishnoi
 
@@ -380,33 +372,22 @@
 | Gujarat Titans | 5 | 96 | 140 | 3 | 8.75 | 46.67 | 32.0 | 29.17 | 17.71 | MEDIUM |
 | Rajasthan Royals | 8 | 168 | 208 | 3 | 7.43 | 69.33 | 56.0 | 33.93 | 14.29 | HIGH |
 
-### Sam Curran
+### Sandeep Sharma
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Rajasthan Royals | 9 | 192 | 305 | 12 | 9.53 | 25.42 | 16.0 | 35.42 | 24.48 | HIGH |
-| Royal Challengers Bengaluru | 9 | 180 | 300 | 8 | 10.0 | 37.5 | 22.5 | 26.11 | 21.67 | HIGH |
-| Delhi Capitals | 8 | 138 | 191 | 8 | 8.3 | 23.88 | 17.25 | 36.96 | 21.01 | HIGH |
-| Mumbai Indians | 7 | 138 | 248 | 7 | 10.78 | 35.43 | 19.71 | 30.43 | 28.26 | HIGH |
-| Lucknow Super Giants | 3 | 66 | 95 | 7 | 8.64 | 13.57 | 9.43 | 36.36 | 18.18 | MEDIUM |
-| Kolkata Knight Riders | 8 | 174 | 339 | 5 | 11.69 | 67.8 | 34.8 | 29.31 | 31.03 | HIGH |
-| Chennai Super Kings | 5 | 114 | 181 | 5 | 9.53 | 36.2 | 22.8 | 25.44 | 20.18 | HIGH |
-| Sunrisers Hyderabad | 7 | 138 | 189 | 4 | 8.22 | 47.25 | 34.5 | 34.78 | 16.67 | HIGH |
-| Gujarat Titans | 3 | 47 | 63 | 2 | 8.04 | 31.5 | 23.5 | 27.66 | 17.02 | MEDIUM |
-| Punjab Kings | 4 | 66 | 84 | 1 | 7.64 | 84.0 | 66.0 | 31.82 | 15.15 | MEDIUM |
-
-### Jofra Archer
-
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Mumbai Indians | 7 | 169 | 208 | 12 | 7.38 | 17.33 | 14.08 | 42.6 | 14.79 | HIGH |
-| Punjab Kings | 9 | 215 | 307 | 11 | 8.57 | 27.91 | 19.55 | 40.0 | 19.07 | HIGH |
-| Delhi Capitals | 5 | 115 | 133 | 9 | 6.94 | 14.78 | 12.78 | 42.61 | 14.78 | HIGH |
-| Chennai Super Kings | 7 | 162 | 158 | 8 | 5.85 | 19.75 | 20.25 | 45.06 | 10.49 | HIGH |
-| Kolkata Knight Riders | 8 | 177 | 211 | 6 | 7.15 | 35.17 | 29.5 | 50.85 | 16.95 | HIGH |
-| Sunrisers Hyderabad | 5 | 121 | 188 | 6 | 9.32 | 31.33 | 20.17 | 39.67 | 23.97 | HIGH |
-| Royal Challengers Bengaluru | 7 | 166 | 233 | 3 | 8.42 | 77.67 | 55.33 | 42.17 | 21.08 | HIGH |
-| Gujarat Titans | 2 | 48 | 78 | 2 | 9.75 | 39.0 | 24.0 | 31.25 | 22.92 | MEDIUM |
+| Royal Challengers Bengaluru | 21 | 470 | 646 | 29 | 8.25 | 22.28 | 16.21 | 38.94 | 19.57 | HIGH |
+| Mumbai Indians | 16 | 349 | 427 | 24 | 7.34 | 17.79 | 14.54 | 45.27 | 16.62 | HIGH |
+| Delhi Capitals | 19 | 432 | 517 | 20 | 7.18 | 25.85 | 21.6 | 40.51 | 15.97 | HIGH |
+| Sunrisers Hyderabad | 12 | 288 | 422 | 13 | 8.79 | 32.46 | 22.15 | 36.46 | 19.79 | HIGH |
+| Chennai Super Kings | 17 | 362 | 533 | 13 | 8.83 | 41.0 | 27.85 | 33.43 | 20.17 | HIGH |
+| Punjab Kings | 9 | 216 | 235 | 11 | 6.53 | 21.36 | 19.64 | 38.89 | 11.11 | HIGH |
+| Kolkata Knight Riders | 15 | 312 | 427 | 10 | 8.21 | 42.7 | 31.2 | 37.82 | 19.55 | HIGH |
+| Lucknow Super Giants | 5 | 114 | 154 | 6 | 8.11 | 25.67 | 19.0 | 35.09 | 17.54 | HIGH |
+| Gujarat Lions | 4 | 90 | 120 | 6 | 8.0 | 20.0 | 15.0 | 37.78 | 18.89 | MEDIUM |
+| Rising Pune Supergiant | 4 | 84 | 94 | 5 | 6.71 | 18.8 | 16.8 | 41.67 | 15.48 | MEDIUM |
+| Rajasthan Royals | 9 | 210 | 274 | 5 | 7.83 | 54.8 | 42.0 | 36.19 | 16.19 | HIGH |
+| Gujarat Titans | 5 | 114 | 128 | 4 | 6.74 | 32.0 | 28.5 | 39.47 | 13.16 | HIGH |
 
 ---
 
@@ -431,6 +412,8 @@
 | RA Jadeja | Wankhede Stadium | 10 | 129 | 96 | 134.38 | 14.33 | 15.63 | MEDIUM |
 | RA Jadeja | M Chinnaswamy Stadium, Bengaluru | 3 | 129 | 75 | 172.0 | 129.0 | 22.67 | MEDIUM |
 | RA Jadeja | Nehru Stadium | 5 | 101 | 90 | 112.22 | 33.67 | 13.33 | MEDIUM |
+| RK Singh | Eden Gardens, Kolkata | 19 | 497 | 310 | 160.32 | 45.18 | 21.61 | HIGH |
+| RK Singh | Wankhede Stadium, Mumbai | 5 | 109 | 79 | 137.97 | 27.25 | 20.25 | MEDIUM |
 | S Dube | MA Chidambaram Stadium, Chepauk, Ch... | 20 | 494 | 318 | 155.35 | 32.93 | 20.13 | HIGH |
 | S Dube | Wankhede Stadium, Mumbai | 12 | 275 | 212 | 129.72 | 25.0 | 17.92 | HIGH |
 | S Dube | Dr DY Patil Sports Academy, Mumbai | 4 | 143 | 84 | 170.24 | 47.67 | 21.43 | MEDIUM |
@@ -460,9 +443,9 @@
 
 ### 9.1 Death Bowling Options
 
-- **RA Jadeja**: 88.0 overs, 29 wickets, 8.76 economy (over-performs)
-- **Ravi Bishnoi**: 40.2 overs, 20 wickets, 9.14 economy (over-performs)
-- **JC Archer**: 76.5 overs, 25 wickets, 9.96 economy (over-performs)
+- **Sandeep Sharma**: 45.5 overs, 23 wickets, 10.07 economy (over-performs)
+- **Ravi Bishnoi**: 18.2 overs, 8 wickets, 10.51 economy (over-performs)
+- **TU Deshpande**: 48.0 overs, 26 wickets, 11.15 economy (over-performs)
 
 ### 9.2 Powerplay Batting Options
 
@@ -472,7 +455,7 @@
 
 *Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
 
-*No significant spin vulnerabilities identified*
+- **RK Singh** vs Left-arm orthodox: SR 108.14, Avg 31.0 (86 balls)
 
 ---
 

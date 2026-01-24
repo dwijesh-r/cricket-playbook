@@ -1,6 +1,6 @@
 # Chennai Super Kings (CSK) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-24 20:44
+**Generated:** 2026-01-24 21:02
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -14,7 +14,7 @@
 |--------|------|---------|---------|------------|------|--------|
 | Sanju Samson | Wicketkeeper | Medium | Right-hand | 18.00 | Traded | 2026 |
 | Ruturaj Gaikwad | Batter | Medium | Right-hand | 18.00 | Retained | 2019 |
-| Prashant Veer | All-rounder | Left-arm orthodox | Right-hand | 14.20 | Auction | 2026 |
+| Prashant Veer | All-rounder | Off-spin | Right-hand | 14.20 | Auction | 2026 |
 | Kartik Sharma | Wicketkeeper | Medium | Right-hand | 14.20 | Auction | 2026 |
 | Shivam Dube | All-rounder | Medium | Left-hand | 12.00 | Retained | 2024 |
 | Noor Ahmad | Bowler | Left-arm wrist spin | Left-hand | 10.00 | Retained | 2025 |
@@ -31,7 +31,7 @@
 | Sarfaraz Khan | Batter | Leg-spin | Right-hand | 0.50 | Auction | 2026 |
 | Zak Foulkes | Bowler | Fast | Right-hand | 0.40 | Auction | 2026 |
 | Akeal Hosein | Bowler | Left-arm orthodox | Left-hand | 0.40 | Auction | 2026 |
-| Aman Khan | All-rounder | Medium | Left-hand | 0.30 | Auction | 2026 |
+| Aman Khan | All-rounder | Off-spin | Left-hand | 0.30 | Auction | 2026 |
 | Urvil Patel | Wicketkeeper | Medium | Right-hand | 0.30 | Auction | 2026 |
 | Ramakrishna Ghosh | Bowler | Fast | Right-hand | 0.30 | Auction | 2026 |
 | Mukesh Choudhary | Bowler | Fast | Left-hand | 0.30 | Retained | 2022 |
@@ -65,17 +65,19 @@
 
 | Player | Tags |
 |--------|------|
-| Shivam Dube | SPECIALIST_VS_PACE, ACCUMULATOR, SPECIALIST_VS_LEG_SPIN, SPECIALIST_VS_SPIN |
-| Ruturaj Gaikwad | SPECIALIST_VS_PACE, CONSISTENT, SPECIALIST_VS_LEFT_ARM_SPIN, SPECIALIST_VS_LEG_SPIN, PLAYMAKER (+2 more) |
+| Shivam Dube | SPECIALIST_VS_SPIN, SPECIALIST_VS_PACE, ACCUMULATOR |
+| Ruturaj Gaikwad | PLAYMAKER, CONSISTENT, MIDDLE_OVERS_ACCELERATOR, SPECIALIST_VS_SPIN, SPECIALIST_VS_LEFT_ARM_SPIN (+1 more) |
 | Sarfaraz Khan | SPECIALIST_VS_PACE, ACCUMULATOR, PACE_SPECIALIST, VULNERABLE_VS_LEG_SPIN |
-| Khaleel Ahmed | DEATH_LIABILITY, LHB_VULNERABLE, WORKHORSE, PRESSURE_BUILDER, RHB_SPECIALIST |
+| Gurjapneet Singh | VULNERABLE_VS_PACE, ACCUMULATOR |
+| Khaleel Ahmed | LHB_VULNERABLE, PRESSURE_BUILDER, WORKHORSE, DEATH_LIABILITY, RHB_SPECIALIST |
 | Mukesh Choudhary | PART_TIMER, PRESSURE_BUILDER, RHB_SPECIALIST, RHB_PRESSURE, LHB_VULNERABLE |
-| Nathan Ellis | WORKHORSE, RHB_VULNERABLE, LHB_SPECIALIST, LHB_PRESSURE |
+| Nathan Ellis | WORKHORSE, RHB_VULNERABLE, LHB_PRESSURE, LHB_SPECIALIST |
 | Noor Ahmad | WORKHORSE, LHB_PRESSURE |
-| Rahul Chahar | MIDDLE_OVERS_CONTROLLER |
+| Rahul Chahar | LHB_SPECIALIST, RHB_VULNERABLE, LHB_WICKET_TAKER, MIDDLE_OVERS_CONTROLLER |
 | Shreyas Gopal | WORKHORSE, RHB_VULNERABLE, LHB_SPECIALIST, LHB_PRESSURE |
-| MS Dhoni | SPECIALIST_VS_PACE, VULNERABLE_VS_OFF_SPIN, VULNERABLE_VS_SPIN, FINISHER, CONSISTENT (+1 more) |
-| Sanju Samson | SPECIALIST_VS_PACE, MIDDLE_ORDER, SPECIALIST_VS_LEFT_ARM_SPIN, DEATH_SPECIALIST, SPECIALIST_VS_LEG_SPIN (+2 more) |
+| Kartik Sharma | LHB_VULNERABLE, WORKHORSE, RHB_PRESSURE, MIDDLE_OVERS_LIABILITY, RHB_SPECIALIST |
+| MS Dhoni | FINISHER, PACE_SPECIALIST, CONSISTENT, SPECIALIST_VS_PACE |
+| Sanju Samson | DEATH_SPECIALIST, SPECIALIST_VS_LEG_SPIN, SIX_HITTER, SPECIALIST_VS_SPIN, MIDDLE_ORDER (+1 more) |
 
 ---
 
@@ -136,7 +138,7 @@
 | Eden Gardens | 11 | 1488 | 1241 | 119.9 | 26.11 |
 | MA Chidambaram Stadium | 9 | 1240 | 1034 | 119.92 | 30.24 |
 | M Chinnaswamy Stadium | 7 | 1004 | 754 | 133.16 | 25.74 |
-| Feroz Shah Kotla | 6 | 982 | 713 | 137.73 | 39.28 |
+| Sawai Mansingh Stadium | 6 | 846 | 703 | 120.34 | 26.44 |
 | Sheikh Zayed Stadium | 6 | 932 | 709 | 131.45 | 35.85 |
 
 ---
@@ -147,25 +149,27 @@
 
 | Player | Role | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | 50s | 100s | Sample |
 |--------|------|-----|------|-------|-----|-----|--------|------|-----|------|--------|
-| MS Dhoni | Wicketkeeper | 241 | 5439 | 3935 | 138.22 | 39.13 | 16.24 | 33.72 | 24 | 0 | HIGH |
-| Sanju Samson | Wicketkeeper | 171 | 4704 | 3368 | 139.67 | 31.78 | 17.76 | 34.41 | 29 | 3 | HIGH |
-| Ruturaj Gaikwad | Batter | 70 | 2502 | 1811 | 138.16 | 41.7 | 18.0 | 34.35 | 22 | 2 | HIGH |
-| Shivam Dube | All-rounder | 75 | 1859 | 1290 | 144.11 | 30.98 | 17.83 | 34.57 | 10 | 0 | HIGH |
-| Sarfaraz Khan | Batter | 36 | 585 | 444 | 131.76 | 22.5 | 17.34 | 34.23 | 1 | 0 | HIGH |
-| Dewald Brevis | All-rounder | 16 | 455 | 297 | 153.2 | 28.44 | 21.21 | 37.71 | 2 | 0 | MEDIUM |
+| Ruturaj Gaikwad | Batter | 34 | 1295 | 891 | 145.34 | 44.66 | 19.08 | 32.55 | 11 | 1 | HIGH |
+| Sanju Samson | Wicketkeeper | 38 | 1178 | 780 | 151.03 | 38.0 | 20.64 | 32.05 | 9 | 0 | HIGH |
+| Shivam Dube | All-rounder | 42 | 1171 | 775 | 151.1 | 35.48 | 18.84 | 33.16 | 7 | 0 | HIGH |
+| MS Dhoni | Wicketkeeper | 36 | 461 | 271 | 170.11 | 30.73 | 23.62 | 31.0 | 0 | 0 | HIGH |
+| Dewald Brevis | All-rounder | 9 | 294 | 184 | 159.78 | 32.67 | 20.65 | 32.61 | 2 | 0 | LOW |
 | Ayush Mhatre | Batter | 7 | 240 | 127 | 188.98 | 34.29 | 33.07 | 32.28 | 1 | 0 | LOW |
 | Matthew Short | All-rounder | 6 | 117 | 92 | 127.17 | 19.5 | 20.65 | 48.91 | 0 | 0 | LOW |
-| Aman Khan | All-rounder | 10 | 115 | 104 | 110.58 | 12.78 | 13.46 | 48.08 | 1 | 0 | MEDIUM |
+| Aman Khan | All-rounder | 9 | 110 | 101 | 108.91 | 13.75 | 12.87 | 48.51 | 1 | 0 | LOW |
 | Urvil Patel | Wicketkeeper | 3 | 68 | 32 | 212.5 | 22.67 | 34.38 | 34.38 | 0 | 0 | LOW |
+| Sarfaraz Khan | Batter | 4 | 53 | 61 | 86.89 | 13.25 | 8.2 | 45.9 | 0 | 0 | LOW |
+| Kartik Sharma | Wicketkeeper | 6 | 35 | 21 | 166.67 | 8.75 | 23.81 | 38.1 | 0 | 0 | LOW |
 | Jamie Overton | All-rounder | 2 | 15 | 7 | 214.29 | - | 28.57 | 28.57 | 0 | 0 | LOW |
 | Prashant Veer | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
-| Kartik Sharma | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
 ### 4.2 Phase-wise Batting (Qualified players)
 
 | Player | Phase | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|------|--------|
 | Dewald Brevis | middle | 12 | 321 | 207 | 155.07 | 32.1 | 19.81 | 34.78 | MEDIUM |
+| Kartik Sharma | middle | 11 | 97 | 105 | 92.38 | 16.17 | 7.62 | 40.95 | MEDIUM |
+| Kartik Sharma | death | 33 | 248 | 181 | 137.02 | 14.59 | 15.47 | 35.36 | MEDIUM |
 | MS Dhoni | middle | 168 | 1912 | 1898 | 100.74 | 49.03 | 8.9 | 39.62 | HIGH |
 | MS Dhoni | death | 197 | 3468 | 1965 | 176.49 | 35.39 | 23.41 | 26.97 | HIGH |
 | Ruturaj Gaikwad | powerplay | 67 | 1196 | 929 | 128.74 | 46.0 | 19.05 | 43.38 | HIGH |
@@ -187,20 +191,18 @@
 
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
-| Khaleel Ahmed | Fast | 71 | 259.3 | 89 | 9.15 | 26.65 | 17.48 | 41.32 | 22.43 | HIGH |
-| Rahul Chahar | Leg-spin | 78 | 278.3 | 75 | 7.81 | 28.99 | 22.27 | 34.49 | 14.25 | HIGH |
-| Shreyas Gopal | Leg-spin | 51 | 165.2 | 52 | 8.22 | 26.12 | 19.06 | 31.99 | 15.24 | HIGH |
 | Noor Ahmad | Left-arm w | 37 | 132.0 | 48 | 8.24 | 22.67 | 16.5 | 34.47 | 15.4 | HIGH |
-| Nathan Ellis | Fast | 17 | 63.0 | 19 | 8.78 | 29.11 | 19.89 | 30.95 | 17.72 | MEDIUM |
-| Mukesh Choudhary | Fast | 16 | 52.5 | 17 | 9.96 | 30.76 | 18.53 | 41.59 | 26.03 | MEDIUM |
+| Khaleel Ahmed | Fast | 37 | 129.7 | 41 | 9.69 | 30.63 | 18.98 | 42.67 | 24.94 | HIGH |
+| Rahul Chahar | Leg-spin | 24 | 81.7 | 18 | 8.29 | 37.61 | 27.22 | 30.61 | 16.12 | MEDIUM |
+| Nathan Ellis | Fast | 12 | 46.0 | 15 | 8.8 | 27.0 | 18.4 | 28.99 | 17.39 | MEDIUM |
 | Anshul Kamboj | Fast | 11 | 31.5 | 10 | 9.14 | 28.8 | 18.9 | 39.15 | 21.69 | MEDIUM |
-| Shivam Dube | Medium | 15 | 20.7 | 5 | 10.79 | 44.6 | 24.8 | 19.35 | 20.16 | MEDIUM |
-| Matt Henry | Fast | 6 | 17.0 | 2 | 10.76 | 91.5 | 51.0 | 30.39 | 25.49 | LOW |
-| Dewald Brevis | Off-spin | 1 | 0.5 | 1 | 16.0 | 8.0 | 3.0 | 33.33 | 66.67 | LOW |
+| Shreyas Gopal | Leg-spin | 3 | 7.0 | 3 | 9.57 | 22.33 | 14.0 | 23.81 | 14.29 | LOW |
+| Shivam Dube | Medium | 2 | 3.0 | 1 | 15.67 | 47.0 | 18.0 | 11.11 | 33.33 | LOW |
+| Matt Henry | Fast | 4 | 12.0 | 1 | 9.33 | 112.0 | 72.0 | 33.33 | 19.44 | LOW |
 | Akeal Hosein | Left-arm o | 1 | 4.0 | 1 | 10.25 | 41.0 | 24.0 | 20.83 | 25.0 | LOW |
+| Mukesh Choudhary | Fast | 3 | 7.0 | 1 | 14.0 | 98.0 | 42.0 | 30.95 | 42.86 | LOW |
 | Jamie Overton | Fast | 3 | 6.0 | 0 | 14.0 | - | - | 25.0 | 30.56 | LOW |
 | Matthew Short | Off-spin | 3 | 4.0 | 0 | 6.25 | - | - | 45.83 | 12.5 | LOW |
-| Aman Khan | Medium | 1 | 1.0 | 0 | 13.0 | - | - | 16.67 | 33.33 | LOW |
 
 ### 5.2 Bowler Phase Distribution
 
@@ -211,26 +213,20 @@
 | A Kamboj | powerplay | 26.0 | 8 | 8.58 | 41.03 | 82.5% | 80.0% | -2.5 | MEDIUM |
 | A Kamboj | middle | 5.0 | 1 | 9.8 | 30.0 | 15.9% | 10.0% | -5.9 | MEDIUM |
 | A Kamboj | death | 0.5 | 1 | 6.0 | 33.33 | 1.6% | 10.0% | +8.4 | MEDIUM |
-| KK Ahmed | powerplay | 150.0 | 36 | 8.26 | 48.11 | 57.8% | 40.0% | -17.8 | HIGH |
-| KK Ahmed | middle | 42.0 | 16 | 8.14 | 33.33 | 16.2% | 17.8% | +1.6 | HIGH |
-| KK Ahmed | death | 67.3 | 38 | 10.34 | 31.19 | 26.0% | 42.2% | +16.3 | HIGH |
-| Mukesh Choudhary | powerplay | 37.0 | 12 | 9.0 | 46.4 | 70.5% | 70.6% | +0.1 | HIGH |
-| Mukesh Choudhary | middle | 7.0 | 3 | 8.29 | 40.48 | 13.3% | 17.6% | +4.3 | HIGH |
-| Mukesh Choudhary | death | 8.5 | 2 | 12.59 | 21.57 | 16.2% | 11.8% | -4.4 | HIGH |
-| NT Ellis | powerplay | 17.0 | 4 | 7.06 | 44.12 | 27.0% | 21.1% | -5.9 | HIGH |
-| NT Ellis | middle | 23.0 | 6 | 7.26 | 28.26 | 36.5% | 31.6% | -4.9 | HIGH |
-| NT Ellis | death | 23.0 | 9 | 10.7 | 23.91 | 36.5% | 47.4% | +10.9 | HIGH |
+| KK Ahmed | powerplay | 86.0 | 20 | 8.45 | 49.22 | 66.3% | 48.8% | -17.5 | HIGH |
+| KK Ahmed | middle | 13.0 | 3 | 8.54 | 29.49 | 10.0% | 7.3% | -2.7 | HIGH |
+| KK Ahmed | death | 30.7 | 18 | 11.58 | 29.89 | 23.7% | 43.9% | +20.3 | HIGH |
+| KV Sharma | middle | 54.5 | 19 | 10.18 | 28.13 | 90.1% | 82.6% | -7.5 | HIGH |
+| KV Sharma | death | 6.0 | 4 | 9.0 | 22.22 | 9.9% | 17.4% | +7.5 | HIGH |
+| NT Ellis | powerplay | 12.0 | 4 | 7.17 | 38.89 | 26.1% | 26.7% | +0.6 | MEDIUM |
+| NT Ellis | middle | 17.0 | 5 | 7.47 | 27.45 | 37.0% | 33.3% | -3.6 | MEDIUM |
+| NT Ellis | death | 17.0 | 6 | 10.47 | 23.53 | 37.0% | 40.0% | +3.0 | MEDIUM |
 | Noor Ahmad | powerplay | 9.0 | 2 | 8.33 | 40.74 | 6.8% | 4.3% | -2.6 | HIGH |
 | Noor Ahmad | middle | 101.8 | 32 | 7.9 | 32.24 | 77.1% | 68.1% | -9.1 | HIGH |
 | Noor Ahmad | death | 21.2 | 13 | 7.65 | 42.52 | 16.0% | 27.7% | +11.6 | HIGH |
-| RD Chahar | powerplay | 12.0 | 3 | 7.83 | 48.61 | 4.3% | 4.0% | -0.3 | HIGH |
-| RD Chahar | middle | 239.0 | 58 | 7.64 | 33.96 | 85.9% | 77.3% | -8.5 | HIGH |
-| RD Chahar | death | 27.3 | 14 | 7.76 | 32.93 | 9.8% | 18.7% | +8.8 | HIGH |
-| S Dube | middle | 14.0 | 2 | 10.0 | 19.05 | 67.7% | 40.0% | -27.7 | MEDIUM |
-| S Dube | death | 6.7 | 3 | 10.95 | 20.0 | 32.3% | 60.0% | +27.7 | MEDIUM |
-| S Gopal | powerplay | 19.0 | 8 | 7.95 | 43.86 | 11.5% | 15.4% | +3.9 | HIGH |
-| S Gopal | middle | 137.0 | 38 | 8.29 | 30.66 | 82.9% | 73.1% | -9.9 | HIGH |
-| S Gopal | death | 9.2 | 6 | 6.33 | 27.27 | 5.5% | 11.5% | +6.0 | HIGH |
+| RD Chahar | powerplay | 1.0 | 0 | 9.0 | 33.33 | 1.2% | -% | -1.2 | HIGH |
+| RD Chahar | middle | 69.0 | 13 | 8.01 | 31.4 | 84.5% | 72.2% | -12.3 | HIGH |
+| RD Chahar | death | 11.7 | 5 | 9.0 | 25.71 | 14.3% | 27.8% | +13.5 | HIGH |
 
 ---
 
@@ -239,22 +235,19 @@
 *Top batters' performance against each IPL team*
 
 
-### MS Dhoni
+### Ruturaj Gaikwad
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Royal Challengers Bengaluru | 34 | 898 | 628 | 142.99 | 39.04 | 16.88 | 32.48 | 23 | HIGH |
-| Mumbai Indians | 38 | 772 | 589 | 131.07 | 38.6 | 15.96 | 36.67 | 20 | HIGH |
-| Delhi Capitals | 32 | 731 | 527 | 138.71 | 34.81 | 16.32 | 33.78 | 21 | HIGH |
-| Punjab Kings | 29 | 705 | 462 | 152.6 | 41.47 | 19.7 | 33.55 | 17 | HIGH |
-| Rajasthan Royals | 26 | 583 | 454 | 128.41 | 38.87 | 12.56 | 31.5 | 15 | HIGH |
-| Kolkata Knight Riders | 30 | 568 | 443 | 128.22 | 43.69 | 13.77 | 33.18 | 13 | HIGH |
-| Sunrisers Hyderabad | 21 | 498 | 348 | 143.1 | 45.27 | 18.39 | 35.34 | 11 | HIGH |
-| Deccan Chargers | 10 | 280 | 246 | 113.82 | 31.11 | 11.38 | 34.55 | 9 | HIGH |
-| Pune Warriors | 5 | 134 | 89 | 150.56 | 44.67 | 16.85 | 23.6 | 3 | MEDIUM |
-| Lucknow Super Giants | 5 | 86 | 30 | 286.67 | 86.0 | 53.33 | 20.0 | 1 | MEDIUM |
-| Gujarat Lions | 4 | 83 | 69 | 120.29 | 41.5 | 13.04 | 43.48 | 2 | MEDIUM |
-| Gujarat Titans | 5 | 48 | 31 | 154.84 | 16.0 | 19.35 | 35.48 | 3 | MEDIUM |
+| Sunrisers Hyderabad | 7 | 394 | 257 | 153.31 | 65.67 | 20.23 | 29.18 | 6 | HIGH |
+| Gujarat Titans | 7 | 350 | 245 | 142.86 | 50.0 | 18.78 | 35.1 | 7 | HIGH |
+| Kolkata Knight Riders | 8 | 325 | 242 | 134.3 | 46.43 | 17.77 | 35.54 | 7 | HIGH |
+| Mumbai Indians | 9 | 291 | 191 | 152.36 | 41.57 | 22.51 | 37.17 | 7 | HIGH |
+| Rajasthan Royals | 8 | 273 | 204 | 133.82 | 45.5 | 16.18 | 32.84 | 6 | HIGH |
+| Delhi Capitals | 9 | 242 | 187 | 129.41 | 30.25 | 16.04 | 34.22 | 8 | HIGH |
+| Punjab Kings | 9 | 238 | 212 | 112.26 | 29.75 | 13.21 | 37.26 | 8 | HIGH |
+| Royal Challengers Bengaluru | 9 | 198 | 165 | 120.0 | 24.75 | 16.36 | 41.82 | 8 | HIGH |
+| Lucknow Super Giants | 4 | 183 | 108 | 169.44 | 61.0 | 21.3 | 23.15 | 3 | HIGH |
 
 ### Sanju Samson
 
@@ -272,20 +265,6 @@
 | Rising Pune Supergiant | 4 | 134 | 97 | 138.14 | 44.67 | 16.49 | 32.99 | 3 | MEDIUM |
 | Gujarat Lions | 4 | 91 | 56 | 162.5 | 30.33 | 19.64 | 32.14 | 3 | MEDIUM |
 
-### Ruturaj Gaikwad
-
-| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
-|------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Sunrisers Hyderabad | 7 | 394 | 257 | 153.31 | 65.67 | 20.23 | 29.18 | 6 | HIGH |
-| Gujarat Titans | 7 | 350 | 245 | 142.86 | 50.0 | 18.78 | 35.1 | 7 | HIGH |
-| Kolkata Knight Riders | 8 | 325 | 242 | 134.3 | 46.43 | 17.77 | 35.54 | 7 | HIGH |
-| Mumbai Indians | 9 | 291 | 191 | 152.36 | 41.57 | 22.51 | 37.17 | 7 | HIGH |
-| Rajasthan Royals | 8 | 273 | 204 | 133.82 | 45.5 | 16.18 | 32.84 | 6 | HIGH |
-| Delhi Capitals | 9 | 242 | 187 | 129.41 | 30.25 | 16.04 | 34.22 | 8 | HIGH |
-| Punjab Kings | 9 | 238 | 212 | 112.26 | 29.75 | 13.21 | 37.26 | 8 | HIGH |
-| Royal Challengers Bengaluru | 9 | 198 | 165 | 120.0 | 24.75 | 16.36 | 41.82 | 8 | HIGH |
-| Lucknow Super Giants | 4 | 183 | 108 | 169.44 | 61.0 | 21.3 | 23.15 | 3 | HIGH |
-
 ### Shivam Dube
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
@@ -301,23 +280,24 @@
 | Sunrisers Hyderabad | 7 | 119 | 86 | 138.37 | 19.83 | 16.28 | 36.05 | 6 | MEDIUM |
 | Chennai Super Kings | 4 | 105 | 81 | 129.63 | 52.5 | 16.05 | 37.04 | 2 | MEDIUM |
 
-### Sarfaraz Khan
-
-| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
-|------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Chennai Super Kings | 6 | 125 | 105 | 119.05 | 25.0 | 12.38 | 32.38 | 5 | HIGH |
-| Rajasthan Royals | 5 | 99 | 61 | 162.3 | 49.5 | 24.59 | 26.23 | 2 | MEDIUM |
-| Sunrisers Hyderabad | 4 | 76 | 37 | 205.41 | 38.0 | 35.14 | 27.03 | 2 | MEDIUM |
-| Delhi Capitals | 4 | 63 | 51 | 123.53 | 15.75 | 19.61 | 35.29 | 4 | MEDIUM |
-| Punjab Kings | 5 | 59 | 43 | 137.21 | 19.67 | 18.6 | 32.56 | 3 | MEDIUM |
-| Mumbai Indians | 4 | 50 | 39 | 128.21 | 12.5 | 17.95 | 43.59 | 4 | MEDIUM |
-| Lucknow Super Giants | 2 | 40 | 36 | 111.11 | 40.0 | 11.11 | 33.33 | 1 | MEDIUM |
-| Gujarat Titans | 1 | 30 | 34 | 88.24 | 30.0 | 5.88 | 38.24 | 1 | MEDIUM |
-
 ---
 
 ## 7. Key Bowler vs Opposition
 
+
+### Noor Ahmad
+
+| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
+|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
+| Mumbai Indians | 5 | 114 | 162 | 7 | 8.53 | 23.14 | 16.29 | 34.21 | 16.67 | HIGH |
+| Royal Challengers Bengaluru | 5 | 120 | 170 | 7 | 8.5 | 24.29 | 17.14 | 34.17 | 19.17 | HIGH |
+| Kolkata Knight Riders | 3 | 60 | 59 | 7 | 5.9 | 8.43 | 8.57 | 45.0 | 11.67 | MEDIUM |
+| Rajasthan Royals | 5 | 98 | 154 | 6 | 9.43 | 25.67 | 16.33 | 29.59 | 19.39 | MEDIUM |
+| Punjab Kings | 4 | 90 | 122 | 6 | 8.13 | 20.33 | 15.0 | 30.0 | 14.44 | MEDIUM |
+| Lucknow Super Giants | 4 | 96 | 78 | 3 | 4.88 | 26.0 | 32.0 | 44.79 | 6.25 | MEDIUM |
+| Sunrisers Hyderabad | 3 | 65 | 103 | 3 | 9.51 | 34.33 | 21.67 | 29.23 | 20.0 | MEDIUM |
+| Chennai Super Kings | 3 | 54 | 68 | 3 | 7.56 | 22.67 | 18.0 | 27.78 | 11.11 | MEDIUM |
+| Delhi Capitals | 4 | 71 | 104 | 2 | 8.79 | 52.0 | 35.5 | 30.99 | 19.72 | MEDIUM |
 
 ### Khaleel Ahmed
 
@@ -326,55 +306,13 @@
 | Punjab Kings | 12 | 268 | 366 | 17 | 8.19 | 21.53 | 15.76 | 40.3 | 19.4 | HIGH |
 | Mumbai Indians | 8 | 175 | 254 | 12 | 8.71 | 21.17 | 14.58 | 44.57 | 23.43 | HIGH |
 | Delhi Capitals | 6 | 137 | 194 | 10 | 8.5 | 19.4 | 13.7 | 36.5 | 18.98 | HIGH |
-| Chennai Super Kings | 9 | 215 | 281 | 9 | 7.84 | 31.22 | 23.89 | 40.47 | 17.21 | HIGH |
 | Rajasthan Royals | 9 | 197 | 320 | 9 | 9.75 | 35.56 | 21.89 | 40.1 | 26.4 | HIGH |
+| Chennai Super Kings | 9 | 215 | 281 | 9 | 7.84 | 31.22 | 23.89 | 40.47 | 17.21 | HIGH |
 | Kolkata Knight Riders | 8 | 156 | 239 | 8 | 9.19 | 29.88 | 19.5 | 45.51 | 25.0 | HIGH |
 | Royal Challengers Bengaluru | 6 | 138 | 232 | 8 | 10.09 | 29.0 | 17.25 | 34.78 | 26.09 | HIGH |
 | Gujarat Titans | 6 | 126 | 157 | 7 | 7.48 | 22.43 | 18.0 | 42.86 | 19.84 | HIGH |
 | Lucknow Super Giants | 4 | 84 | 132 | 6 | 9.43 | 22.0 | 14.0 | 50.0 | 26.19 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 60 | 102 | 4 | 10.2 | 25.5 | 15.0 | 43.33 | 28.33 | MEDIUM |
-
-### Rahul Chahar
-
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Kolkata Knight Riders | 10 | 204 | 255 | 15 | 7.5 | 17.0 | 13.6 | 41.18 | 14.22 | HIGH |
-| Chennai Super Kings | 13 | 294 | 301 | 15 | 6.14 | 20.07 | 19.6 | 36.73 | 8.84 | HIGH |
-| Rajasthan Royals | 9 | 200 | 277 | 10 | 8.31 | 27.7 | 20.0 | 28.0 | 14.5 | HIGH |
-| Delhi Capitals | 10 | 219 | 256 | 9 | 7.01 | 28.44 | 24.33 | 38.81 | 14.16 | HIGH |
-| Sunrisers Hyderabad | 8 | 168 | 206 | 8 | 7.36 | 25.75 | 21.0 | 37.5 | 14.29 | HIGH |
-| Punjab Kings | 6 | 144 | 161 | 7 | 6.71 | 23.0 | 20.57 | 35.42 | 9.72 | HIGH |
-| Royal Challengers Bengaluru | 10 | 216 | 320 | 6 | 8.89 | 53.33 | 36.0 | 31.94 | 18.06 | HIGH |
-| Lucknow Super Giants | 4 | 84 | 129 | 3 | 9.21 | 43.0 | 28.0 | 27.38 | 17.86 | MEDIUM |
-| Gujarat Titans | 3 | 51 | 75 | 1 | 8.82 | 75.0 | 51.0 | 23.53 | 15.69 | MEDIUM |
-| Mumbai Indians | 4 | 72 | 125 | 0 | 10.42 | - | - | 23.61 | 25.0 | MEDIUM |
-
-### Shreyas Gopal
-
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Royal Challengers Bengaluru | 8 | 168 | 190 | 15 | 6.79 | 12.67 | 11.2 | 35.71 | 9.52 | HIGH |
-| Delhi Capitals | 7 | 132 | 195 | 8 | 8.86 | 24.38 | 16.5 | 38.64 | 19.7 | HIGH |
-| Chennai Super Kings | 6 | 120 | 134 | 6 | 6.7 | 22.33 | 20.0 | 33.33 | 10.83 | HIGH |
-| Mumbai Indians | 7 | 126 | 160 | 6 | 7.62 | 26.67 | 21.0 | 32.54 | 13.49 | HIGH |
-| Kolkata Knight Riders | 6 | 126 | 212 | 5 | 10.1 | 42.4 | 25.2 | 32.54 | 23.81 | HIGH |
-| Sunrisers Hyderabad | 5 | 114 | 138 | 5 | 7.26 | 27.6 | 22.8 | 32.46 | 13.16 | HIGH |
-| Rajasthan Royals | 3 | 55 | 83 | 4 | 9.05 | 20.75 | 13.75 | 25.45 | 14.55 | MEDIUM |
-| Punjab Kings | 8 | 132 | 214 | 3 | 9.73 | 71.33 | 44.0 | 21.97 | 18.18 | HIGH |
-
-### Noor Ahmad
-
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Kolkata Knight Riders | 3 | 60 | 59 | 7 | 5.9 | 8.43 | 8.57 | 45.0 | 11.67 | MEDIUM |
-| Mumbai Indians | 5 | 114 | 162 | 7 | 8.53 | 23.14 | 16.29 | 34.21 | 16.67 | HIGH |
-| Royal Challengers Bengaluru | 5 | 120 | 170 | 7 | 8.5 | 24.29 | 17.14 | 34.17 | 19.17 | HIGH |
-| Rajasthan Royals | 5 | 98 | 154 | 6 | 9.43 | 25.67 | 16.33 | 29.59 | 19.39 | MEDIUM |
-| Punjab Kings | 4 | 90 | 122 | 6 | 8.13 | 20.33 | 15.0 | 30.0 | 14.44 | MEDIUM |
-| Sunrisers Hyderabad | 3 | 65 | 103 | 3 | 9.51 | 34.33 | 21.67 | 29.23 | 20.0 | MEDIUM |
-| Chennai Super Kings | 3 | 54 | 68 | 3 | 7.56 | 22.67 | 18.0 | 27.78 | 11.11 | MEDIUM |
-| Lucknow Super Giants | 4 | 96 | 78 | 3 | 4.88 | 26.0 | 32.0 | 44.79 | 6.25 | MEDIUM |
-| Delhi Capitals | 4 | 71 | 104 | 2 | 8.79 | 52.0 | 35.5 | 30.99 | 19.72 | MEDIUM |
 
 ---
 
@@ -385,6 +323,7 @@
 | Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|--------|
 | D Brevis | Narendra Modi Stadium, Ahmedabad | 2 | 103 | 61 | 168.85 | 51.5 | 22.95 | MEDIUM |
+| Gurkeerat Singh | Punjab Cricket Association Stadium,... | 7 | 120 | 100 | 120.0 | 20.0 | 16.0 | HIGH |
 | MS Dhoni | MA Chidambaram Stadium, Chepauk | 43 | 1142 | 799 | 142.93 | 39.38 | 15.89 | HIGH |
 | MS Dhoni | Maharashtra Cricket Association Sta... | 16 | 421 | 302 | 139.4 | 60.14 | 16.23 | HIGH |
 | MS Dhoni | M Chinnaswamy Stadium | 8 | 309 | 174 | 177.59 | 61.8 | 27.01 | HIGH |
@@ -439,8 +378,8 @@
 ### 9.1 Death Bowling Options
 
 - **Noor Ahmad**: 21.2 overs, 13 wickets, 7.65 economy (over-performs)
-- **RD Chahar**: 27.3 overs, 14 wickets, 7.76 economy (over-performs)
-- **KK Ahmed**: 67.3 overs, 38 wickets, 10.34 economy (over-performs)
+- **RD Chahar**: 11.7 overs, 5 wickets, 9.0 economy (over-performs)
+- **NT Ellis**: 17.0 overs, 6 wickets, 10.47 economy (over-performs)
 
 ### 9.2 Powerplay Batting Options
 

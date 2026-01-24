@@ -1,6 +1,6 @@
 # Royal Challengers Bengaluru (RCB) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-24 20:45
+**Generated:** 2026-01-24 21:02
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -19,6 +19,7 @@
 | Jitesh Sharma | Wicketkeeper | Medium | Right-hand | 11.00 | Retained | 2025 |
 | Bhuvneshwar Kumar | Bowler | Fast | Right-hand | 10.75 | Retained | 2025 |
 | Venkatesh Iyer | All-rounder | Medium | Left-hand | 7.00 | Auction | 2026 |
+| Raqibul Hasan | Batter | Medium | Right-hand | 6.00 | Retained | 2025 |
 | Krunal Pandya | All-rounder | Left-arm orthodox | Left-hand | 5.75 | Retained | 2025 |
 | Yash Dayal | Bowler | Fast | Left-hand | 5.00 | Retained | 2022 |
 | Tim David | Batter | Off-spin | Right-hand | 3.00 | Retained | 2025 |
@@ -28,19 +29,15 @@
 | Romario Shepherd | All-rounder | Fast | Right-hand | 2.00 | Auction | 2026 |
 | Jacob Duffy | Bowler | Fast | Right-hand | 0.75 | Auction | 2026 |
 | Swapnil Singh | All-rounder | Left-arm orthodox | Left-hand | 0.50 | Retained | 2024 |
-| Mangesh Yadav | Bowler | Fast | Left-hand | 0.30 | Auction | 2026 |
 | Abhinandan Singh | Bowler | Fast | Right-hand | 0.30 | Retained | 2025 |
+| Mangesh Yadav | Bowler | Fast | Left-hand | 0.30 | Auction | 2026 |
 | Jordan Cox | Wicketkeeper | Medium | Right-hand | 0.30 | Auction | 2026 |
 | Satvik Deswal | Bowler | Left-arm wrist spin | Left-hand | 0.00 | - | - |
-| Rasikh Salam Dar | Bowler | Fast | Right-hand | 0.00 | - | - |
-| Vicky Ostwal | Bowler | Left-arm orthodox | Left-hand | 0.00 | - | - |
-| Vihaan Malhotra | Batter | Medium | Right-hand | 0.00 | - | - |
-| Kanishk Chouhan | Bowler | Leg-spin | Right-hand | 0.00 | - | - |
 
-**Total Squad Size:** 24 players
-**Total Spend:** ₹109.85 Cr
+**Total Squad Size:** 21 players
+**Total Spend:** ₹115.85 Cr
 
-**Role Breakdown:** All-rounder: 5, Batter: 5, Bowler: 11, Wicketkeeper: 3
+**Role Breakdown:** All-rounder: 5, Batter: 5, Bowler: 8, Wicketkeeper: 3
 
 ### 1.2 Player Archetypes (K-means V2 Model)
 
@@ -64,20 +61,19 @@
 
 | Player | Tags |
 |--------|------|
-| Krunal Pandya | SPECIALIST_VS_PACE, ACCUMULATOR, VULNERABLE_VS_OFF_SPIN, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, MIDDLE_OVERS_CONTROLLER (+5 more) |
+| Krunal Pandya | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, VULNERABLE_VS_SPIN, SPECIALIST_VS_PACE, ACCUMULATOR, LHB_VULNERABLE (+5 more) |
 | Romario Shepherd | PART_TIMER |
-| Venkatesh Iyer | SPECIALIST_VS_PACE, SPECIALIST_VS_SPIN, VULNERABLE_VS_LEFT_ARM_SPIN, PLAYMAKER |
-| Devdutt Padikkal | SPECIALIST_VS_PACE, VULNERABLE_VS_OFF_SPIN, SPECIALIST_VS_LEFT_ARM_SPIN, SPECIALIST_VS_LEG_SPIN, ANCHOR (+1 more) |
-| Rajat Patidar | SPECIALIST_VS_PACE, SPIN_SPECIALIST, MIDDLE_ORDER, SPECIALIST_VS_LEFT_ARM_SPIN, DEATH_SPECIALIST (+4 more) |
-| Tim David | SPECIALIST_VS_PACE, FINISHER, VULNERABLE_VS_LEG_SPIN, DEATH_SPECIALIST, SIX_HITTER (+1 more) |
-| Virat Kohli | SPECIALIST_VS_PACE, CONSISTENT, DEATH_SPECIALIST, SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, MIDDLE_ORDER (+1 more) |
-| Bhuvneshwar Kumar | VULNERABLE_VS_PACE, ACCUMULATOR, RHB_PRESSURE, RHB_WICKET_TAKER, PRESSURE_BUILDER (+5 more) |
-| Josh Hazlewood | PP_ELITE, PRESSURE_BUILDER, RHB_SPECIALIST, RHB_PRESSURE, LHB_VULNERABLE (+1 more) |
-| Rasikh Salam Dar | PART_TIMER, LHB_WICKET_TAKER, PACER |
-| Suyash Sharma | MIDDLE_OVERS_LIABILITY, WORKHORSE |
-| Yash Dayal | DEATH_LIABILITY, PART_TIMER, PP_LIABILITY |
-| Jitesh Sharma | SPECIALIST_VS_PACE, FINISHER, VULNERABLE_VS_LEFT_ARM_SPIN, DEATH_SPECIALIST, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN (+3 more) |
-| Phil Salt | SPECIALIST_VS_PACE, EXPLOSIVE_OPENER, PP_DOMINATOR, DEATH_SPECIALIST, SIX_HITTER (+2 more) |
+| Venkatesh Iyer | VULNERABLE_VS_LEFT_ARM_SPIN, SPECIALIST_VS_PACE, SPECIALIST_VS_LEG_SPIN, PLAYMAKER |
+| Devdutt Padikkal | ANCHOR, VULNERABLE_VS_LEFT_ARM_SPIN, SPECIALIST_VS_PACE |
+| Rajat Patidar | DEATH_SPECIALIST, MIDDLE_OVERS_ACCELERATOR, SPECIALIST_VS_LEG_SPIN, SIX_HITTER, SPIN_SPECIALIST (+4 more) |
+| Tim David | FINISHER, DEATH_SPECIALIST, SIX_HITTER, SPECIALIST_VS_PACE |
+| Virat Kohli | SPECIALIST_VS_OFF_SPIN, DEATH_SPECIALIST, CONSISTENT, SPECIALIST_VS_LEG_SPIN, SPECIALIST_VS_SPIN (+4 more) |
+| Bhuvneshwar Kumar | VULNERABLE_VS_PACE, ACCUMULATOR, RHB_WICKET_TAKER, PRESSURE_BUILDER, PROVEN_WICKET_TAKER (+3 more) |
+| Josh Hazlewood | LHB_VULNERABLE, RHB_SPECIALIST, PRESSURE_BUILDER, PP_ELITE, NEW_BALL_SPECIALIST |
+| Suyash Sharma | WORKHORSE, MIDDLE_OVERS_LIABILITY |
+| Yash Dayal | RHB_WICKET_TAKER, PP_LIABILITY, PART_TIMER |
+| Jitesh Sharma | FINISHER, DEATH_SPECIALIST, MIDDLE_OVERS_ACCELERATOR, SIX_HITTER, SPECIALIST_VS_SPIN (+1 more) |
+| Phil Salt | DEATH_SPECIALIST, EXPLOSIVE_OPENER, PP_DOMINATOR, MIDDLE_OVERS_ACCELERATOR, SIX_HITTER (+2 more) |
 
 ---
 
@@ -134,11 +130,11 @@
 | M Chinnaswamy Stadium, Bengaluru | 19 | 3325 | 2178 | 152.66 | 29.17 |
 | M.Chinnaswamy Stadium | 15 | 2491 | 1691 | 147.31 | 29.31 |
 | Dubai International Cricket Stadium | 12 | 1707 | 1388 | 122.98 | 27.1 |
-| Eden Gardens | 10 | 1479 | 1089 | 135.81 | 29.58 |
 | Wankhede Stadium | 10 | 1599 | 1186 | 134.82 | 30.17 |
+| Eden Gardens | 10 | 1479 | 1089 | 135.81 | 29.58 |
 | Wankhede Stadium, Mumbai | 9 | 1560 | 1046 | 149.14 | 37.14 |
-| Sharjah Cricket Stadium | 8 | 1150 | 940 | 122.34 | 28.05 |
 | MA Chidambaram Stadium, Chepauk | 8 | 1204 | 958 | 125.68 | 23.15 |
+| Sharjah Cricket Stadium | 8 | 1150 | 940 | 122.34 | 28.05 |
 | Rajiv Gandhi International Stadium, Uppa... | 8 | 1118 | 867 | 128.95 | 21.09 |
 
 ---
@@ -149,19 +145,19 @@
 
 | Player | Role | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | 50s | 100s | Sample |
 |--------|------|-----|------|-------|-----|-----|--------|------|-----|------|--------|
-| Virat Kohli | Batter | 259 | 8661 | 6501 | 133.23 | 39.91 | 16.37 | 32.98 | 71 | 8 | HIGH |
-| Devdutt Padikkal | Batter | 74 | 1806 | 1425 | 126.74 | 25.8 | 17.4 | 39.65 | 12 | 1 | HIGH |
-| Krunal Pandya | All-rounder | 114 | 1756 | 1324 | 132.63 | 22.81 | 16.47 | 36.78 | 2 | 0 | HIGH |
-| Venkatesh Iyer | All-rounder | 56 | 1468 | 1068 | 137.45 | 29.96 | 18.82 | 38.39 | 13 | 1 | HIGH |
-| Rajat Patidar | Batter | 38 | 1111 | 719 | 154.52 | 31.74 | 20.03 | 31.15 | 10 | 1 | HIGH |
+| Virat Kohli | Batter | 44 | 2037 | 1390 | 146.55 | 56.58 | 19.14 | 28.71 | 22 | 3 | HIGH |
 | Phil Salt | Wicketkeeper | 34 | 1056 | 595 | 177.48 | 34.06 | 29.92 | 36.3 | 10 | 0 | HIGH |
-| Jitesh Sharma | Wicketkeeper | 47 | 991 | 628 | 157.8 | 25.41 | 22.13 | 35.51 | 1 | 0 | HIGH |
-| Tim David | Batter | 44 | 846 | 484 | 174.79 | 33.84 | 23.55 | 30.58 | 1 | 0 | HIGH |
-| Romario Shepherd | All-rounder | 12 | 185 | 85 | 217.65 | 26.43 | 34.12 | 32.94 | 1 | 0 | MEDIUM |
+| Venkatesh Iyer | All-rounder | 34 | 916 | 611 | 149.92 | 31.59 | 20.62 | 34.7 | 8 | 1 | HIGH |
+| Jitesh Sharma | Wicketkeeper | 37 | 757 | 485 | 156.08 | 24.42 | 21.65 | 36.08 | 1 | 0 | HIGH |
+| Rajat Patidar | Batter | 27 | 707 | 440 | 160.68 | 28.28 | 21.14 | 30.45 | 7 | 0 | MEDIUM |
+| Tim David | Batter | 35 | 659 | 395 | 166.84 | 34.68 | 21.77 | 31.39 | 1 | 0 | HIGH |
+| Devdutt Padikkal | Batter | 28 | 546 | 415 | 131.57 | 21.0 | 18.31 | 38.55 | 4 | 0 | MEDIUM |
+| Krunal Pandya | All-rounder | 32 | 430 | 355 | 121.13 | 21.5 | 13.24 | 38.87 | 1 | 0 | HIGH |
+| Romario Shepherd | All-rounder | 9 | 127 | 45 | 282.22 | 25.4 | 48.89 | 22.22 | 1 | 0 | LOW |
 | Jacob Bethell | All-rounder | 2 | 67 | 39 | 171.79 | 33.5 | 30.77 | 35.9 | 1 | 0 | LOW |
-| Swapnil Singh | All-rounder | 9 | 51 | 45 | 113.33 | 10.2 | 13.33 | 44.44 | 0 | 0 | LOW |
+| Swapnil Singh | All-rounder | 6 | 39 | 25 | 156.0 | 19.5 | 24.0 | 40.0 | 0 | 0 | LOW |
+| Raqibul Hasan | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Jordan Cox | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
-| Vihaan Malhotra | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
 ### 4.2 Phase-wise Batting (Qualified players)
 
@@ -193,16 +189,15 @@
 
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
-| Bhuvneshwar Kumar | Fast | 190 | 703.7 | 198 | 7.87 | 27.98 | 21.32 | 41.4 | 17.24 | HIGH |
-| Krunal Pandya | Left-arm o | 132 | 399.7 | 93 | 7.57 | 32.52 | 25.78 | 31.65 | 12.89 | HIGH |
-| Josh Hazlewood | Fast | 39 | 144.5 | 57 | 8.44 | 21.39 | 15.21 | 43.37 | 20.53 | HIGH |
-| Yash Dayal | Fast | 43 | 145.3 | 41 | 9.72 | 34.44 | 21.27 | 35.21 | 22.59 | HIGH |
+| Bhuvneshwar Kumar | Fast | 44 | 160.0 | 44 | 9.23 | 33.57 | 21.82 | 37.81 | 22.5 | HIGH |
+| Krunal Pandya | Left-arm o | 39 | 121.0 | 32 | 7.92 | 29.94 | 22.69 | 31.68 | 14.74 | HIGH |
+| Yash Dayal | Fast | 34 | 113.3 | 30 | 9.85 | 37.2 | 22.67 | 33.97 | 22.65 | HIGH |
+| Josh Hazlewood | Fast | 15 | 53.0 | 25 | 8.77 | 18.6 | 12.72 | 45.91 | 22.96 | MEDIUM |
 | Suyash Sharma | Leg-spin | 27 | 93.0 | 18 | 8.98 | 46.39 | 31.0 | 31.9 | 18.82 | MEDIUM |
-| Romario Shepherd | Fast | 15 | 35.0 | 10 | 11.89 | 41.6 | 21.0 | 30.0 | 28.57 | MEDIUM |
-| Rasikh Salam Dar | Fast | 13 | 38.5 | 10 | 10.7 | 41.2 | 23.1 | 29.87 | 24.68 | MEDIUM |
 | Mangesh Yadav | Fast | 6 | 20.2 | 9 | 9.32 | 20.89 | 13.44 | 47.11 | 23.97 | LOW |
-| Swapnil Singh | Left-arm o | 14 | 27.0 | 7 | 8.93 | 34.43 | 23.14 | 24.07 | 16.05 | MEDIUM |
-| Venkatesh Iyer | Medium | 9 | 13.5 | 3 | 10.74 | 48.33 | 27.0 | 18.52 | 23.46 | LOW |
+| Romario Shepherd | Fast | 12 | 26.0 | 7 | 12.23 | 45.43 | 22.29 | 25.64 | 28.85 | MEDIUM |
+| Swapnil Singh | Left-arm o | 9 | 17.0 | 6 | 8.88 | 25.17 | 17.0 | 28.43 | 18.63 | LOW |
+| Venkatesh Iyer | Medium | 1 | 1.0 | 0 | 28.0 | - | - | - | 100.0 | LOW |
 
 ### 5.2 Bowler Phase Distribution
 
@@ -210,34 +205,27 @@
 
 | Bowler | Phase | Overs | Wkts | Econ | Dot% | %Overs | %Wkts | Efficiency | Sample |
 |--------|-------|-------|------|------|------|--------|-------|------------|--------|
-| B Kumar | powerplay | 389.8 | 80 | 6.44 | 53.48 | 55.4% | 40.4% | -15.0 | HIGH |
-| B Kumar | middle | 70.3 | 10 | 8.37 | 26.54 | 10.0% | 5.1% | -4.9 | HIGH |
-| B Kumar | death | 243.5 | 108 | 9.19 | 26.35 | 34.6% | 54.5% | +19.9 | HIGH |
-| JR Hazlewood | powerplay | 81.0 | 24 | 7.42 | 51.03 | 56.1% | 42.1% | -14.0 | HIGH |
-| JR Hazlewood | middle | 22.2 | 11 | 7.85 | 38.35 | 15.3% | 19.3% | +4.0 | HIGH |
-| JR Hazlewood | death | 41.3 | 22 | 10.09 | 31.05 | 28.6% | 38.6% | +10.0 | HIGH |
-| KH Pandya | powerplay | 91.0 | 17 | 7.78 | 39.01 | 22.8% | 18.7% | -4.1 | HIGH |
-| KH Pandya | middle | 275.0 | 58 | 7.08 | 28.79 | 68.8% | 63.7% | -5.1 | HIGH |
-| KH Pandya | death | 33.7 | 16 | 7.99 | 35.15 | 8.4% | 17.6% | +9.2 | HIGH |
+| B Kumar | powerplay | 99.0 | 25 | 8.11 | 47.47 | 61.9% | 56.8% | -5.1 | HIGH |
+| B Kumar | middle | 13.0 | 1 | 10.0 | 21.79 | 8.1% | 2.3% | -5.9 | HIGH |
+| B Kumar | death | 48.0 | 18 | 10.46 | 22.22 | 30.0% | 40.9% | +10.9 | HIGH |
+| JR Hazlewood | powerplay | 28.0 | 12 | 7.46 | 54.17 | 52.8% | 48.0% | -4.8 | HIGH |
+| JR Hazlewood | middle | 10.2 | 5 | 8.95 | 37.7 | 19.2% | 20.0% | +0.8 | HIGH |
+| JR Hazlewood | death | 14.8 | 8 | 10.38 | 35.96 | 28.0% | 32.0% | +4.0 | HIGH |
+| KH Pandya | powerplay | 30.0 | 4 | 8.6 | 34.44 | 24.8% | 12.5% | -12.3 | HIGH |
+| KH Pandya | middle | 82.0 | 25 | 7.26 | 30.28 | 67.8% | 78.1% | +10.4 | HIGH |
+| KH Pandya | death | 9.0 | 3 | 8.89 | 35.19 | 7.4% | 9.4% | +1.9 | HIGH |
 | MP Yadav | powerplay | 6.0 | 2 | 12.0 | 47.22 | 29.8% | 22.2% | -7.5 | MEDIUM |
 | MP Yadav | middle | 11.0 | 4 | 7.73 | 48.48 | 54.5% | 44.4% | -10.1 | MEDIUM |
 | MP Yadav | death | 3.2 | 3 | 6.95 | 42.11 | 15.7% | 33.3% | +17.6 | MEDIUM |
-| R Shepherd | powerplay | 4.0 | 2 | 9.0 | 50.0 | 11.4% | 20.0% | +8.6 | MEDIUM |
-| R Shepherd | middle | 24.0 | 5 | 11.42 | 27.08 | 68.6% | 50.0% | -18.6 | MEDIUM |
-| R Shepherd | death | 7.0 | 3 | 12.86 | 28.57 | 20.0% | 30.0% | +10.0 | MEDIUM |
-| Rasikh Salam | powerplay | 9.0 | 0 | 10.22 | 35.19 | 23.4% | -% | -23.4 | MEDIUM |
-| Rasikh Salam | middle | 19.0 | 7 | 10.05 | 27.19 | 49.4% | 70.0% | +20.6 | MEDIUM |
-| Rasikh Salam | death | 10.5 | 3 | 10.76 | 30.16 | 27.3% | 30.0% | +2.7 | MEDIUM |
+| R Shepherd | powerplay | 2.0 | 1 | 10.5 | 33.33 | 7.7% | 14.3% | +6.6 | MEDIUM |
+| R Shepherd | middle | 19.0 | 4 | 11.37 | 24.56 | 73.1% | 57.1% | -15.9 | MEDIUM |
+| R Shepherd | death | 5.0 | 2 | 14.0 | 26.67 | 19.2% | 28.6% | +9.3 | MEDIUM |
 | Suyash Sharma | powerplay | 3.0 | 3 | 7.33 | 38.89 | 3.2% | 16.7% | +13.4 | HIGH |
 | Suyash Sharma | middle | 78.0 | 13 | 8.63 | 32.91 | 83.9% | 72.2% | -11.6 | HIGH |
 | Suyash Sharma | death | 12.0 | 2 | 10.33 | 23.61 | 12.9% | 11.1% | -1.8 | HIGH |
-| Swapnil Singh | powerplay | 7.0 | 5 | 8.57 | 45.24 | 25.9% | 71.4% | +45.5 | MEDIUM |
-| Swapnil Singh | middle | 20.0 | 2 | 8.85 | 16.67 | 74.1% | 28.6% | -45.5 | MEDIUM |
-| V Kohli | middle | 37.5 | 3 | 7.89 | 20.44 | 89.6% | 75.0% | -14.6 | MEDIUM |
-| V Kohli | death | 4.3 | 1 | 12.46 | 23.08 | 10.4% | 25.0% | +14.6 | MEDIUM |
-| Yash Dayal | powerplay | 73.0 | 16 | 9.27 | 40.87 | 50.2% | 39.0% | -11.2 | HIGH |
-| Yash Dayal | middle | 34.2 | 9 | 8.17 | 33.66 | 23.5% | 22.0% | -1.6 | HIGH |
-| Yash Dayal | death | 38.2 | 16 | 10.14 | 25.76 | 26.3% | 39.0% | +12.8 | HIGH |
+| Yash Dayal | powerplay | 58.0 | 11 | 9.29 | 39.08 | 51.2% | 36.7% | -14.5 | HIGH |
+| Yash Dayal | middle | 26.2 | 6 | 7.95 | 33.12 | 23.1% | 20.0% | -3.1 | HIGH |
+| Yash Dayal | death | 29.2 | 13 | 10.8 | 24.57 | 25.7% | 43.3% | +17.6 | HIGH |
 
 ---
 
@@ -265,36 +253,18 @@
 | Pune Warriors | 5 | 128 | 100 | 128.0 | 25.6 | 14.0 | 29.0 | 5 | HIGH |
 | Kochi Tuskers Kerala | 2 | 50 | 51 | 98.04 | 50.0 | 13.73 | 49.02 | 1 | MEDIUM |
 
-### Devdutt Padikkal
+### Phil Salt
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Rajasthan Royals | 7 | 310 | 207 | 149.76 | 62.0 | 20.77 | 29.95 | 5 | HIGH |
-| Chennai Super Kings | 10 | 283 | 215 | 131.63 | 31.44 | 16.74 | 36.74 | 9 | HIGH |
-| Punjab Kings | 9 | 239 | 187 | 127.81 | 26.56 | 17.65 | 41.18 | 9 | HIGH |
-| Mumbai Indians | 8 | 188 | 137 | 137.23 | 23.5 | 21.17 | 38.69 | 8 | HIGH |
-| Delhi Capitals | 9 | 177 | 143 | 123.78 | 19.67 | 17.48 | 41.26 | 9 | HIGH |
-| Kolkata Knight Riders | 8 | 160 | 138 | 115.94 | 22.86 | 14.49 | 37.68 | 7 | HIGH |
-| Sunrisers Hyderabad | 7 | 157 | 155 | 101.29 | 22.43 | 13.55 | 48.39 | 7 | HIGH |
-| Royal Challengers Bengaluru | 6 | 115 | 97 | 118.56 | 19.17 | 14.43 | 39.18 | 6 | MEDIUM |
-| Lucknow Super Giants | 3 | 94 | 68 | 138.24 | 31.33 | 23.53 | 41.18 | 3 | MEDIUM |
-| Gujarat Titans | 7 | 79 | 78 | 101.28 | 11.29 | 14.1 | 53.85 | 7 | MEDIUM |
-
-### Krunal Pandya
-
-| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
-|------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Delhi Capitals | 19 | 414 | 281 | 147.33 | 41.4 | 18.15 | 30.6 | 10 | HIGH |
-| Sunrisers Hyderabad | 15 | 261 | 175 | 149.14 | 23.73 | 21.14 | 38.86 | 11 | HIGH |
-| Punjab Kings | 13 | 208 | 142 | 146.48 | 20.8 | 19.72 | 32.39 | 10 | HIGH |
-| Kolkata Knight Riders | 14 | 182 | 143 | 127.27 | 20.22 | 16.08 | 38.46 | 9 | HIGH |
-| Royal Challengers Bengaluru | 13 | 163 | 155 | 105.16 | 14.82 | 12.9 | 46.45 | 11 | HIGH |
-| Chennai Super Kings | 11 | 139 | 109 | 127.52 | 13.9 | 16.51 | 43.12 | 10 | HIGH |
-| Rajasthan Royals | 11 | 135 | 118 | 114.41 | 22.5 | 10.17 | 34.75 | 6 | HIGH |
-| Mumbai Indians | 6 | 72 | 64 | 112.5 | 36.0 | 7.81 | 35.94 | 2 | MEDIUM |
-| Rising Pune Supergiant | 3 | 65 | 54 | 120.37 | 21.67 | 12.96 | 33.33 | 3 | MEDIUM |
-| Gujarat Titans | 6 | 56 | 49 | 114.29 | 14.0 | 16.33 | 44.9 | 4 | MEDIUM |
-| Gujarat Lions | 3 | 53 | 34 | 155.88 | 53.0 | 20.59 | 26.47 | 1 | MEDIUM |
+| Punjab Kings | 7 | 199 | 110 | 180.91 | 39.8 | 29.09 | 33.64 | 5 | HIGH |
+| Sunrisers Hyderabad | 4 | 175 | 107 | 163.55 | 43.75 | 22.43 | 28.04 | 4 | HIGH |
+| Royal Challengers Bengaluru | 3 | 165 | 79 | 208.86 | 55.0 | 35.44 | 30.38 | 3 | MEDIUM |
+| Lucknow Super Giants | 3 | 150 | 77 | 194.81 | 75.0 | 37.66 | 31.17 | 2 | MEDIUM |
+| Delhi Capitals | 3 | 119 | 61 | 195.08 | 39.67 | 36.07 | 44.26 | 3 | MEDIUM |
+| Rajasthan Royals | 3 | 101 | 69 | 146.38 | 33.67 | 23.19 | 43.48 | 3 | MEDIUM |
+| Kolkata Knight Riders | 2 | 61 | 34 | 179.41 | 30.5 | 35.29 | 41.18 | 2 | MEDIUM |
+| Chennai Super Kings | 4 | 52 | 34 | 152.94 | 13.0 | 26.47 | 47.06 | 4 | MEDIUM |
 
 ### Venkatesh Iyer
 
@@ -309,6 +279,19 @@
 | Chennai Super Kings | 6 | 116 | 95 | 122.11 | 19.33 | 18.95 | 49.47 | 6 | MEDIUM |
 | Rajasthan Royals | 4 | 109 | 90 | 121.11 | 27.25 | 13.33 | 35.56 | 4 | MEDIUM |
 | Lucknow Super Giants | 4 | 70 | 49 | 142.86 | 23.33 | 22.45 | 38.78 | 3 | MEDIUM |
+
+### Jitesh Sharma
+
+| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
+|------------|-----|------|-------|-----|-----|--------|------|------|--------|
+| Rajasthan Royals | 6 | 180 | 116 | 155.17 | 45.0 | 20.69 | 30.17 | 4 | HIGH |
+| Mumbai Indians | 5 | 153 | 77 | 198.7 | 76.5 | 28.57 | 23.38 | 2 | MEDIUM |
+| Lucknow Super Giants | 5 | 118 | 59 | 200.0 | 29.5 | 30.51 | 30.51 | 4 | MEDIUM |
+| Gujarat Titans | 5 | 110 | 75 | 146.67 | 22.0 | 22.67 | 45.33 | 5 | MEDIUM |
+| Sunrisers Hyderabad | 6 | 109 | 65 | 167.69 | 21.8 | 24.62 | 33.85 | 5 | MEDIUM |
+| Delhi Capitals | 6 | 93 | 85 | 109.41 | 15.5 | 14.12 | 44.71 | 6 | MEDIUM |
+| Royal Challengers Bengaluru | 4 | 76 | 55 | 138.18 | 19.0 | 18.18 | 38.18 | 4 | MEDIUM |
+| Chennai Super Kings | 5 | 66 | 42 | 157.14 | 13.2 | 21.43 | 40.48 | 5 | MEDIUM |
 
 ### Rajat Patidar
 
@@ -335,8 +318,8 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Punjab Kings | 25 | 544 | 676 | 34 | 7.46 | 19.88 | 16.0 | 42.46 | 16.73 | HIGH |
 | Kolkata Knight Riders | 30 | 654 | 850 | 32 | 7.8 | 26.56 | 20.44 | 40.67 | 18.04 | HIGH |
-| Mumbai Indians | 21 | 450 | 533 | 23 | 7.11 | 23.17 | 19.57 | 45.11 | 15.11 | HIGH |
 | Delhi Capitals | 23 | 546 | 674 | 23 | 7.41 | 29.3 | 23.74 | 41.76 | 16.3 | HIGH |
+| Mumbai Indians | 21 | 450 | 533 | 23 | 7.11 | 23.17 | 19.57 | 45.11 | 15.11 | HIGH |
 | Rajasthan Royals | 20 | 459 | 655 | 20 | 8.56 | 32.75 | 22.95 | 40.09 | 22.22 | HIGH |
 | Royal Challengers Bengaluru | 23 | 497 | 676 | 18 | 8.16 | 37.56 | 27.61 | 40.85 | 21.53 | HIGH |
 | Chennai Super Kings | 22 | 488 | 588 | 14 | 7.23 | 42.0 | 34.86 | 43.44 | 15.37 | HIGH |
@@ -353,8 +336,8 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Punjab Kings | 19 | 330 | 417 | 12 | 7.58 | 34.75 | 27.5 | 30.61 | 13.33 | HIGH |
 | Sunrisers Hyderabad | 14 | 235 | 277 | 12 | 7.07 | 23.08 | 19.58 | 32.34 | 11.49 | HIGH |
-| Kolkata Knight Riders | 16 | 283 | 329 | 11 | 6.98 | 29.91 | 25.73 | 35.69 | 13.43 | HIGH |
 | Royal Challengers Bengaluru | 17 | 366 | 415 | 11 | 6.8 | 37.73 | 33.27 | 30.33 | 9.84 | HIGH |
+| Kolkata Knight Riders | 16 | 283 | 329 | 11 | 6.98 | 29.91 | 25.73 | 35.69 | 13.43 | HIGH |
 | Delhi Capitals | 19 | 290 | 370 | 11 | 7.66 | 33.64 | 26.36 | 28.28 | 13.45 | HIGH |
 | Chennai Super Kings | 14 | 240 | 321 | 10 | 8.03 | 32.1 | 24.0 | 33.75 | 16.25 | HIGH |
 | Mumbai Indians | 6 | 132 | 174 | 8 | 7.91 | 21.75 | 16.5 | 34.09 | 17.42 | HIGH |
@@ -362,34 +345,6 @@
 | Gujarat Titans | 6 | 138 | 142 | 6 | 6.17 | 23.67 | 23.0 | 35.51 | 8.7 | HIGH |
 | Gujarat Lions | 4 | 78 | 81 | 3 | 6.23 | 27.0 | 26.0 | 37.18 | 10.26 | MEDIUM |
 | Rising Pune Supergiant | 4 | 72 | 101 | 0 | 8.42 | - | - | 31.94 | 16.67 | MEDIUM |
-
-### Josh Hazlewood
-
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Rajasthan Royals | 6 | 138 | 178 | 10 | 7.74 | 17.8 | 13.8 | 50.72 | 21.01 | HIGH |
-| Delhi Capitals | 7 | 156 | 215 | 9 | 8.27 | 23.89 | 17.33 | 41.67 | 20.51 | HIGH |
-| Lucknow Super Giants | 3 | 66 | 78 | 9 | 7.09 | 8.67 | 7.33 | 50.0 | 15.15 | MEDIUM |
-| Punjab Kings | 6 | 127 | 212 | 7 | 10.02 | 30.29 | 18.14 | 36.22 | 25.2 | HIGH |
-| Kolkata Knight Riders | 3 | 72 | 90 | 6 | 7.5 | 15.0 | 12.0 | 43.06 | 18.06 | MEDIUM |
-| Chennai Super Kings | 3 | 72 | 72 | 5 | 6.0 | 14.4 | 14.4 | 51.39 | 12.5 | MEDIUM |
-| Sunrisers Hyderabad | 3 | 66 | 78 | 5 | 7.09 | 15.6 | 13.2 | 45.45 | 16.67 | MEDIUM |
-| Gujarat Titans | 3 | 68 | 117 | 3 | 10.32 | 39.0 | 22.67 | 35.29 | 26.47 | MEDIUM |
-| Mumbai Indians | 4 | 78 | 118 | 3 | 9.08 | 39.33 | 26.0 | 43.59 | 26.92 | MEDIUM |
-
-### Yash Dayal
-
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Rajasthan Royals | 7 | 150 | 244 | 8 | 9.76 | 30.5 | 18.75 | 40.0 | 27.33 | HIGH |
-| Chennai Super Kings | 7 | 132 | 197 | 7 | 8.95 | 28.14 | 18.86 | 32.58 | 19.7 | HIGH |
-| Kolkata Knight Riders | 5 | 115 | 236 | 6 | 12.31 | 39.33 | 19.17 | 28.7 | 32.17 | HIGH |
-| Delhi Capitals | 4 | 72 | 106 | 5 | 8.83 | 21.2 | 14.4 | 37.5 | 22.22 | MEDIUM |
-| Punjab Kings | 6 | 103 | 130 | 4 | 7.57 | 32.5 | 25.75 | 41.75 | 15.53 | HIGH |
-| Sunrisers Hyderabad | 5 | 108 | 147 | 3 | 8.17 | 49.0 | 36.0 | 33.33 | 16.67 | HIGH |
-| Lucknow Super Giants | 3 | 54 | 92 | 3 | 10.22 | 30.67 | 18.0 | 35.19 | 27.78 | MEDIUM |
-| Gujarat Titans | 3 | 66 | 72 | 2 | 6.55 | 36.0 | 33.0 | 37.88 | 12.12 | MEDIUM |
-| Royal Challengers Bengaluru | 2 | 48 | 73 | 1 | 9.13 | 73.0 | 48.0 | 27.08 | 22.92 | MEDIUM |
 
 ---
 
@@ -460,9 +415,9 @@
 
 ### 9.1 Death Bowling Options
 
-- **KH Pandya**: 33.7 overs, 16 wickets, 7.99 economy (over-performs)
-- **B Kumar**: 243.5 overs, 108 wickets, 9.19 economy (over-performs)
-- **JR Hazlewood**: 41.3 overs, 22 wickets, 10.09 economy (over-performs)
+- **Suyash Sharma**: 12.0 overs, 2 wickets, 10.33 economy (workload matches output)
+- **JR Hazlewood**: 14.8 overs, 8 wickets, 10.38 economy (over-performs)
+- **B Kumar**: 48.0 overs, 18 wickets, 10.46 economy (over-performs)
 
 ### 9.2 Powerplay Batting Options
 

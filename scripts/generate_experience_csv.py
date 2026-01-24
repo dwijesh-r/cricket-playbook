@@ -37,15 +37,13 @@ def generate_experience_csv():
             s.player_id,
             s.role,
             s.bowling_type,
-            s.bowling_type_secondary,
-            s.batting_hand,
-            s.is_ipl_uncapped
+            s.bowling_style,
+            s.batting_hand
         FROM ipl_2026_squads s
         ORDER BY s.team_name, s.player_name
     """).df()
 
     print(f"  Total players in squad: {len(squad_df)}")
-    print(f"  Uncapped players: {squad_df['is_ipl_uncapped'].sum()}")
 
     # Get batting stats for capped players
     batting_stats = conn.execute("""
@@ -75,23 +73,22 @@ def generate_experience_csv():
     # Merge with bowling stats
     result_df = result_df.merge(bowling_stats, on='player_id', how='left')
 
-    # For uncapped players, set all stats to 0
-    uncapped_mask = result_df['is_ipl_uncapped'] == True
+    # Define stat columns
     stat_columns = [
         'ipl_batting_innings', 'ipl_batting_balls', 'ipl_batting_runs', 'ipl_batting_sr',
         'ipl_bowling_matches', 'ipl_bowling_balls', 'ipl_bowling_wickets', 'ipl_bowling_economy'
     ]
 
-    for col in stat_columns:
-        result_df.loc[uncapped_mask, col] = 0
-
     # Fill NaN with 0 for stats
     result_df[stat_columns] = result_df[stat_columns].fillna(0)
 
+    # Identify uncapped players (no batting innings and no bowling matches)
+    result_df['is_uncapped'] = (result_df['ipl_batting_innings'] == 0) & (result_df['ipl_bowling_matches'] == 0)
+
     # Select final columns for output
     output_df = result_df[[
-        'team_name', 'player_name', 'player_id', 'role', 'bowling_type',
-        'bowling_type_secondary', 'is_ipl_uncapped',
+        'team_name', 'player_name', 'player_id', 'role', 'bowling_type', 'bowling_style',
+        'batting_hand', 'is_uncapped',
         'ipl_batting_innings', 'ipl_batting_balls', 'ipl_batting_runs', 'ipl_batting_sr',
         'ipl_bowling_matches', 'ipl_bowling_balls', 'ipl_bowling_wickets', 'ipl_bowling_economy'
     ]]
@@ -112,20 +109,12 @@ def generate_experience_csv():
     print("\n  Players per team:")
     team_counts = output_df.groupby('team_name').size()
     for team, count in team_counts.items():
-        uncapped = output_df[(output_df['team_name'] == team) & (output_df['is_ipl_uncapped'] == True)].shape[0]
+        uncapped = output_df[(output_df['team_name'] == team) & (output_df['is_uncapped'] == True)].shape[0]
         print(f"    {team}: {count} players ({uncapped} uncapped)")
 
-    # Print uncapped players
-    print("\n  Uncapped players (stats set to 0):")
-    uncapped_players = output_df[output_df['is_ipl_uncapped'] == True]
-    for _, row in uncapped_players.iterrows():
-        print(f"    - {row['player_name']} ({row['team_name']})")
-
-    # Print dual-type bowlers
-    print("\n  Dual-type bowlers:")
-    dual_type = output_df[output_df['bowling_type_secondary'].notna() & (output_df['bowling_type_secondary'] != '')]
-    for _, row in dual_type.iterrows():
-        print(f"    - {row['player_name']}: {row['bowling_type']} + {row['bowling_type_secondary']}")
+    # Count uncapped players
+    uncapped_count = output_df['is_uncapped'].sum()
+    print(f"\n  Total uncapped players (no IPL 2023+ stats): {uncapped_count}")
 
     conn.close()
 

@@ -29,6 +29,9 @@ PROJECT_DIR = SCRIPT_DIR.parent
 DB_PATH = PROJECT_DIR / "data" / "cricket_playbook.duckdb"
 OUTPUT_DIR = PROJECT_DIR / "outputs"
 
+# Data filter - only use recent IPL seasons (2023 onwards)
+IPL_MIN_DATE = '2023-01-01'
+
 # Minimum balls faced to consider for analysis
 MIN_BALLS_VS_TYPE = 30  # ~5 overs
 
@@ -68,6 +71,7 @@ def get_batter_vs_bowling_type(conn) -> pd.DataFrame:
             JOIN dim_player dp ON fb.batter_id = dp.player_id
             JOIN ipl_2026_squads sq ON fb.bowler_id = sq.player_id
             WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '{min_date}'
               AND sq.bowling_type IS NOT NULL
             GROUP BY fb.batter_id, dp.current_name, sq.bowling_type
         )
@@ -88,7 +92,7 @@ def get_batter_vs_bowling_type(conn) -> pd.DataFrame:
         FROM batter_vs_type
         WHERE balls >= {min_balls}
         ORDER BY batter_name, bowling_type
-    """.format(min_balls=MIN_BALLS_VS_TYPE)).df()
+    """.format(min_balls=MIN_BALLS_VS_TYPE, min_date=IPL_MIN_DATE)).df()
 
     return df
 

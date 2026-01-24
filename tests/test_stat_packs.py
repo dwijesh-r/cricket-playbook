@@ -125,13 +125,13 @@ class TestDataIntegrity:
         assert result[0] >= 1000, "Should have at least 1000 IPL matches"
 
     def test_kohli_exists_in_batting(self, db_connection):
-        """Verify Virat Kohli exists in batting stats."""
+        """Verify Virat Kohli exists in batting stats (2023+ data only)."""
         result = db_connection.execute("""
             SELECT runs FROM analytics_ipl_batting_career
             WHERE player_name LIKE '%Kohli%'
         """).fetchone()
         assert result is not None, "Virat Kohli should exist in batting stats"
-        assert result[0] > 8000, "Kohli should have more than 8000 IPL runs"
+        assert result[0] > 1500, "Kohli should have more than 1500 IPL runs (2023-2025)"
 
     def test_all_10_teams_in_squads(self, db_connection):
         """Verify all 10 IPL teams are in squads."""
@@ -217,12 +217,13 @@ class TestPercentileRankings:
         assert result[1] <= 100, "Max percentile should be <= 100"
 
     def test_qualified_batters_count(self, db_connection):
-        """Verify qualified batters threshold (500 balls)."""
+        """Verify qualified batters threshold (500 balls, 2023+ data)."""
         result = db_connection.execute("""
             SELECT COUNT(*), MIN(balls_faced)
             FROM analytics_ipl_batting_percentiles
         """).fetchone()
-        assert result[0] > 100, "Should have at least 100 qualified batters"
+        # With 2023+ filter (219 matches), fewer batters qualify for 500 ball threshold
+        assert result[0] > 25, "Should have at least 25 qualified batters (2023-2025)"
         assert result[1] >= 500, "All batters should have >= 500 balls faced"
 
 

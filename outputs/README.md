@@ -6,20 +6,20 @@ Generated data artifacts from analytics scripts.
 
 ## Data Range
 
-**IMPORTANT:** All outputs currently use **full IPL history (2008-2025)**, not filtered to recent years.
+**IMPORTANT:** All outputs now use **recent IPL seasons (2023-2025)** to account for stat drift due to evolution of the game.
 
 | Output File | Data Range | Notes |
 |-------------|------------|-------|
-| `player_tags.json` | 2008-2025 | Full IPL history |
-| `bowler_handedness_matchup.csv` | 2008-2025 | Full IPL history |
-| `batter_bowling_type_matchup.csv` | 2008-2025 | Full IPL history |
-| `batter_bowling_type_detail.csv` | 2008-2025 | Full IPL history |
-| `bowler_phase_performance.csv` | 2008-2025 | Full IPL history |
-| `batter_entry_points.csv` | 2008-2025 | Full IPL history |
-| `bowler_over_timing.csv` | 2008-2025 | Full IPL history |
-| `ipl_2026_squad_experience.csv` | 2008-2025 | Full IPL history |
+| `player_tags.json` | 2023-2025 | Recent 3 IPL seasons (219 matches) |
+| `bowler_handedness_matchup.csv` | 2023-2025 | Recent 3 IPL seasons |
+| `batter_bowling_type_matchup.csv` | 2023-2025 | Recent 3 IPL seasons |
+| `batter_bowling_type_detail.csv` | 2023-2025 | Recent 3 IPL seasons |
+| `bowler_phase_performance.csv` | 2023-2025 | Recent 3 IPL seasons |
+| `batter_entry_points.csv` | 2023-2025 | Recent 3 IPL seasons |
+| `bowler_over_timing.csv` | 2023-2025 | Recent 3 IPL seasons |
+| `ipl_2026_squad_experience.csv` | 2023-2025 | Recent 3 IPL seasons |
 
-**Founder Review Note:** Recency weighting (2x for 2021-2025 data) was recommended in Review #1 but has not yet been implemented. All calculations currently weight all seasons equally.
+**Founder Review Note:** Per Review #3, data is now filtered to 2023+ instead of using recency weighting. This ensures stats reflect current player form and game evolution.
 
 **Last Updated:** 2026-01-24
 
@@ -186,7 +186,7 @@ The `player_tags.json` contains multi-dimensional tags for players.
 - Phase tags: 30-50 overs depending on phase
 - Entry point analysis: 15 innings minimum
 
-**Data Source:** All IPL matches 2008-2025 (1,169 matches)
+**Data Source:** IPL matches 2023-2025 (219 matches: 74 in 2023, 71 in 2024, 74 in 2025)
 
 ---
 

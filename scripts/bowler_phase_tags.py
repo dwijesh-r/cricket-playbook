@@ -20,6 +20,10 @@ PROJECT_DIR = SCRIPT_DIR.parent
 DB_PATH = PROJECT_DIR / "data" / "cricket_playbook.duckdb"
 OUTPUT_DIR = PROJECT_DIR / "outputs"
 
+# Data filter - only use recent IPL seasons (2023 onwards)
+# This accounts for drift in stats due to evolution of the game
+IPL_MIN_DATE = '2023-01-01'  # IPL 2023, 2024, 2025
+
 # Minimum overs to qualify for phase tags
 MIN_PP_OVERS = 30
 MIN_MIDDLE_OVERS = 50
@@ -37,7 +41,7 @@ DEATH_LIABILITY_ECO = 10.5
 def get_bowler_phase_stats(conn) -> pd.DataFrame:
     """Get bowler performance by match phase."""
 
-    df = conn.execute("""
+    df = conn.execute(f"""
         SELECT
             fb.bowler_id,
             dp.current_name as bowler_name,
@@ -55,6 +59,7 @@ def get_bowler_phase_stats(conn) -> pd.DataFrame:
         JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
         JOIN dim_player dp ON fb.bowler_id = dp.player_id
         WHERE dt.tournament_name = 'Indian Premier League'
+          AND dm.match_date >= '{IPL_MIN_DATE}'
           AND fb.match_phase IS NOT NULL
         GROUP BY fb.bowler_id, dp.current_name, fb.match_phase
         ORDER BY bowler_name, match_phase

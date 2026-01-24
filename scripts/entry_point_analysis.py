@@ -26,6 +26,10 @@ PROJECT_DIR = SCRIPT_DIR.parent
 DB_PATH = PROJECT_DIR / "data" / "cricket_playbook.duckdb"
 OUTPUT_DIR = PROJECT_DIR / "outputs"
 
+# Data filter - only use recent IPL seasons (2023 onwards)
+# This accounts for drift in stats due to evolution of the game
+IPL_MIN_DATE = '2023-01-01'  # IPL 2023, 2024, 2025
+
 # Minimum innings to include
 MIN_INNINGS = 15  # Increased from 5 per Founder Review #3
 
@@ -34,7 +38,7 @@ def get_batter_entry_points(conn) -> pd.DataFrame:
     """Calculate entry ball for each batter in each innings."""
 
     # Get all batting appearances with the ball they faced first
-    df = conn.execute("""
+    df = conn.execute(f"""
         WITH innings_balls AS (
             SELECT
                 fb.match_id,
@@ -48,6 +52,7 @@ def get_batter_entry_points(conn) -> pd.DataFrame:
             JOIN dim_match dm ON fb.match_id = dm.match_id
             JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
             WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '{IPL_MIN_DATE}'
         ),
         first_ball AS (
             SELECT
@@ -131,7 +136,7 @@ def calculate_batter_entry_stats(entry_df: pd.DataFrame) -> pd.DataFrame:
 def get_bowler_over_distribution(conn) -> pd.DataFrame:
     """Calculate when bowlers typically bowl their overs."""
 
-    df = conn.execute("""
+    df = conn.execute(f"""
         WITH bowler_overs AS (
             SELECT
                 fb.match_id,
@@ -144,6 +149,7 @@ def get_bowler_over_distribution(conn) -> pd.DataFrame:
             JOIN dim_match dm ON fb.match_id = dm.match_id
             JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
             WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '{IPL_MIN_DATE}'
               AND fb.is_legal_ball
             GROUP BY fb.match_id, fb.innings, fb.bowler_id, fb.over
         )

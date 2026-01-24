@@ -1,235 +1,232 @@
-team_name,player_name,player_id,role,bowling_type,bowling_type_secondary,is_ipl_uncapped,ipl_batting_innings,ipl_batting_balls,ipl_batting_runs,ipl_batting_sr,ipl_bowling_matches,ipl_bowling_balls,ipl_bowling_wickets,ipl_bowling_economy
-Chennai Super Kings,MS Dhoni,4a8a2e3b,Wicketkeeper,Medium,,False,241.0,3935.0,5439.0,138.22,0.0,0.0,0.0,0.0
-Chennai Super Kings,Sanju Samson,a4cc73aa,Wicketkeeper,Medium,,False,171.0,3368.0,4704.0,139.67,0.0,0.0,0.0,0.0
-Chennai Super Kings,Ruturaj Gaikwad,45a43fe2,Batter,Medium,,False,70.0,1811.0,2502.0,138.16,0.0,0.0,0.0,0.0
-Chennai Super Kings,Shivam Dube,a4e37e47,All-rounder,Medium,,False,75.0,1290.0,1859.0,144.11,15.0,124.0,5.0,10.79
-Chennai Super Kings,Sarfaraz Khan,f088b960,Batter,Leg-spin,,False,36.0,444.0,585.0,131.76,1.0,2.0,0.0,18.0
-Chennai Super Kings,Dewald Brevis,844e79d1,All-rounder,Off-spin,,False,16.0,297.0,455.0,153.2,1.0,3.0,1.0,16.0
-Chennai Super Kings,Ayush Mhatre,b2b4f545,Batter,Medium,,False,7.0,127.0,240.0,188.98,0.0,0.0,0.0,0.0
-Chennai Super Kings,Shreyas Gopal,7a8bd078,Bowler,Leg-spin,,False,22.0,169.0,180.0,106.51,51.0,991.0,52.0,8.22
-Chennai Super Kings,Rahul Chahar,2ed569a0,Bowler,Leg-spin,,False,22.0,124.0,129.0,104.03,78.0,1670.0,75.0,7.81
-Chennai Super Kings,Matthew Short,a90e53ec,All-rounder,Off-spin,,False,6.0,92.0,117.0,127.17,3.0,24.0,0.0,6.25
-Chennai Super Kings,Aman Khan,378daa89,All-rounder,Medium,,False,10.0,104.0,115.0,110.58,1.0,6.0,0.0,13.0
-Chennai Super Kings,Urvil Patel,cf59b3f0,Wicketkeeper,Medium,,False,3.0,32.0,68.0,212.5,0.0,0.0,0.0,0.0
-Chennai Super Kings,Noor Ahmad,efc04be7,Bowler,Left-arm wrist spin,,False,11.0,35.0,20.0,57.14,37.0,792.0,48.0,8.24
-Chennai Super Kings,Nathan Ellis,9eb1455b,Bowler,Fast,,False,5.0,25.0,19.0,76.0,17.0,378.0,19.0,8.78
-Chennai Super Kings,Akeal Hosein,4d7f517e,Bowler,Left-arm orthodox,,False,1.0,10.0,16.0,160.0,1.0,24.0,1.0,10.25
-Chennai Super Kings,Anshul Kamboj,fcc21ace,Bowler,Fast,,False,6.0,14.0,16.0,114.29,11.0,189.0,10.0,9.14
-Chennai Super Kings,Jamie Overton,59559bc2,All-rounder,Fast,,False,2.0,7.0,15.0,214.29,3.0,36.0,0.0,14.0
-Chennai Super Kings,Mukesh Choudhary,765a4731,Bowler,Fast,,False,2.0,6.0,6.0,100.0,16.0,315.0,17.0,9.96
-Chennai Super Kings,Khaleel Ahmed,a2f46292,Bowler,Fast,,False,6.0,9.0,2.0,22.22,71.0,1556.0,89.0,9.15
-Chennai Super Kings,Gurjapneet Singh,uncapped_gurjapneet_singh,Bowler,Fast,,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Chennai Super Kings,Kartik Sharma,uncapped_kartik_sharma,Wicketkeeper,Medium,,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Chennai Super Kings,Matt Henry,e84ac20c,Bowler,Fast,,False,0.0,0.0,0.0,0.0,6.0,102.0,2.0,10.76
-Chennai Super Kings,Prashant Veer,e148e6bd,All-rounder,Left-arm orthodox,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Chennai Super Kings,Ramakrishna Ghosh,,Bowler,Fast,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Chennai Super Kings,Zak Foulkes,30f92334,Bowler,Fast,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Delhi Capitals,KL Rahul,b17e2f24,Wicketkeeper,Medium,,False,135.0,3828.0,5222.0,136.42,0.0,0.0,0.0,0.0
-Delhi Capitals,David Miller,d67d5f00,Batter,Off-spin,,False,133.0,2212.0,3077.0,139.1,0.0,0.0,0.0,0.0
-Delhi Capitals,Nitish Rana,fb2d1dda,Batter,Off-spin,,False,112.0,2080.0,2853.0,137.16,26.0,192.0,10.0,8.47
-Delhi Capitals,Axar Patel,2e171977,All-rounder,Left-arm orthodox,,False,123.0,1426.0,1916.0,134.36,160.0,3315.0,128.0,7.48
-Delhi Capitals,Prithvi Shaw,8b3e9c7c,Batter,Leg-spin,,False,79.0,1280.0,1892.0,147.81,0.0,0.0,0.0,0.0
-Delhi Capitals,Karun Nair,944533a5,Batter,Off-spin,,False,76.0,1284.0,1694.0,131.93,0.0,0.0,0.0,0.0
-Delhi Capitals,Tristan Stubbs,85b3fab2,All-rounder,Off-spin,,False,30.0,431.0,705.0,163.57,5.0,36.0,4.0,11.5
-Delhi Capitals,Abhishek Porel,ad3b6e95,Wicketkeeper,Medium,,False,29.0,440.0,661.0,150.23,0.0,0.0,0.0,0.0
-Delhi Capitals,Ashutosh Sharma,84d9c311,All-rounder,Off-spin,,False,18.0,236.0,393.0,166.53,0.0,0.0,0.0,0.0
-Delhi Capitals,Kuldeep Yadav,8d2c70ad,Bowler,Left-arm wrist spin,,False,37.0,232.0,201.0,86.64,96.0,2064.0,102.0,8.15
-Delhi Capitals,Sameer Rizvi,f89d3b11,Batter,Medium,,False,9.0,122.0,172.0,140.98,0.0,0.0,0.0,0.0
-Delhi Capitals,Vipraj Nigam,5ffc0565,Batter,Leg-spin,,False,8.0,78.0,142.0,182.05,13.0,234.0,11.0,9.26
-Delhi Capitals,Mitchell Starc,3fb19989,Bowler,Fast,,False,21.0,119.0,111.0,93.28,50.0,1059.0,65.0,8.93
-Delhi Capitals,Kyle Jamieson,68c56d09,Bowler,Fast,,False,9.0,60.0,65.0,108.33,13.0,258.0,14.0,9.72
-Delhi Capitals,Dushmantha Chameera,327b58d3,Bowler,Fast,,False,10.0,42.0,53.0,126.19,19.0,384.0,13.0,10.0
-Delhi Capitals,Mukesh Kumar,2cffab74,Bowler,Fast,,False,5.0,18.0,10.0,55.56,32.0,636.0,36.0,10.55
-Delhi Capitals,Madhav Tiwari,fb5f69e4,All-rounder,Medium,,False,1.0,4.0,3.0,75.0,1.0,6.0,0.0,14.0
-Delhi Capitals,T Natarajan,ce794613,Bowler,Fast,,False,2.0,5.0,3.0,60.0,63.0,1362.0,68.0,9.05
-Delhi Capitals,Ajay Mandal,31ee319e,All-rounder,Medium,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Delhi Capitals,Auqib Nabi Dar,557550a4,Bowler,Fast,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Delhi Capitals,Ben Duckett,5f26f677,Batter,Medium,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Delhi Capitals,Lungi Ngidi,f834dcfc,Bowler,Fast,,False,1.0,2.0,0.0,0.0,16.0,372.0,29.0,8.73
-Delhi Capitals,Pathum Nissanka,8ee36b18,Batter,Off-spin,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Delhi Capitals,Sahil Parakh,,All-rounder,Leg-spin,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Delhi Capitals,Tripurana Vijay,51ec3919,Batter,Medium,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Gujarat Titans,Jos Buttler,99b75528,Wicketkeeper,Medium,,False,119.0,2747.0,4120.0,149.98,0.0,0.0,0.0,0.0
-Gujarat Titans,Shubman Gill,b4b99816,Batter,Off-spin,,False,114.0,2774.0,3866.0,139.37,0.0,0.0,0.0,0.0
-Gujarat Titans,Sai Sudharsan,d5130a30,Batter,Medium,,False,40.0,1221.0,1793.0,146.85,0.0,0.0,0.0,0.0
-Gujarat Titans,Rahul Tewatia,39a2dfa8,All-rounder,Leg-spin,,False,76.0,807.0,1112.0,137.79,52.0,843.0,32.0,7.95
-Gujarat Titans,Shahrukh Khan,7dcb9bc9,Batter,Off-spin,,False,48.0,491.0,732.0,149.08,3.0,18.0,1.0,9.67
-Gujarat Titans,Rashid Khan,5f547c8b,Bowler,Leg-spin,,False,66.0,359.0,585.0,162.95,136.0,3189.0,158.0,7.23
-Gujarat Titans,Washington Sundar,f19ccfad,All-rounder,Off-spin,,False,43.0,404.0,511.0,126.49,63.0,1119.0,39.0,7.76
-Gujarat Titans,Anuj Rawat,c8f5f961,Wicketkeeper,Medium,,False,21.0,267.0,318.0,119.1,0.0,0.0,0.0,0.0
-Gujarat Titans,Kagiso Rabada,e62dd25d,Bowler,Fast,,False,30.0,200.0,215.0,107.5,84.0,1904.0,119.0,8.85
-Gujarat Titans,Arshad Khan,12314277,All-rounder,Medium,,False,11.0,88.0,124.0,140.91,19.0,272.0,12.0,11.63
-Gujarat Titans,Mohammed Siraj,2f49c897,Bowler,Fast,,False,21.0,121.0,112.0,92.56,108.0,2300.0,109.0,8.96
-Gujarat Titans,Glenn Phillips,9a46c4e5,All-rounder,Off-spin,,False,8.0,54.0,65.0,120.37,4.0,30.0,2.0,8.0
-Gujarat Titans,Ishant Sharma,5bb1a1c4,Bowler,Fast,,False,21.0,69.0,57.0,82.61,117.0,2419.0,96.0,8.59
-Gujarat Titans,Jayant Yadav,81049310,All-rounder,Off-spin,,False,4.0,36.0,40.0,111.11,20.0,390.0,8.0,6.88
-Gujarat Titans,Sai Kishore,c7a995d3,Bowler,Left-arm orthodox,,False,4.0,16.0,18.0,112.5,25.0,441.0,32.0,8.91
-Gujarat Titans,Prasidh Krishna,85e0cf10,Bowler,Fast,,False,7.0,24.0,9.0,37.5,66.0,1500.0,74.0,8.95
-Gujarat Titans,Kumar Kushagra,57ca01b3,Wicketkeeper,Medium,,False,3.0,7.0,3.0,42.86,0.0,0.0,0.0,0.0
-Gujarat Titans,Manav Suthar,025c4400,Bowler,Left-arm orthodox,,False,1.0,2.0,1.0,50.0,1.0,12.0,0.0,13.0
-Gujarat Titans,Gurnoor Brar,99258814,All-rounder,Fast,,False,0.0,0.0,0.0,0.0,1.0,18.0,0.0,14.0
-Gujarat Titans,Nishant Sindhu,3cea23da,All-rounder,Left-arm orthodox,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Kolkata Knight Riders,Ajinkya Rahane,29e95537,Batter,Medium,,False,183.0,4021.0,5032.0,125.14,1.0,6.0,1.0,5.0
-Kolkata Knight Riders,Manish Pandey,93b4fc78,Batter,Medium,,False,161.0,3235.0,3942.0,121.85,0.0,0.0,0.0,0.0
-Kolkata Knight Riders,Rahul Tripathi,77255a9e,Batter,Leg-spin,,False,98.0,1655.0,2291.0,138.43,1.0,6.0,0.0,12.0
-Kolkata Knight Riders,Sunil Narine,9d430b40,All-rounder,Off-spin,,False,118.0,1068.0,1780.0,166.67,187.0,4345.0,192.0,6.93
-Kolkata Knight Riders,Rinku Singh,0a509d6b,Batter,Off-spin,,False,51.0,750.0,1099.0,146.53,0.0,0.0,0.0,0.0
-Kolkata Knight Riders,Angkrish Raghuvanshi,d7017798,Batter,Medium,,False,18.0,319.0,463.0,145.14,0.0,0.0,0.0,0.0
-Kolkata Knight Riders,Rachin Ravindra,ba5e1069,All-rounder,Left-arm orthodox,,False,18.0,284.0,413.0,145.42,2.0,12.0,0.0,3.5
-Kolkata Knight Riders,Rovman Powell,650d5e49,Batter,Medium,,False,23.0,249.0,365.0,146.59,2.0,18.0,1.0,11.67
-Kolkata Knight Riders,Ramandeep Singh,be24ead0,All-rounder,Medium,,False,20.0,135.0,217.0,160.74,4.0,40.0,6.0,9.6
-Kolkata Knight Riders,Harshit Rana,77b1aa15,Bowler,Fast,,False,10.0,55.0,59.0,107.27,32.0,649.0,40.0,9.68
-Kolkata Knight Riders,Anukul Roy,e4cdf230,All-rounder,Left-arm orthodox,,False,7.0,25.0,26.0,104.0,10.0,160.0,6.0,8.18
-Kolkata Knight Riders,Tim Seifert,4663bd23,Wicketkeeper,Medium,,False,3.0,23.0,26.0,113.04,0.0,0.0,0.0,0.0
-Kolkata Knight Riders,Varun Chakravarthy,5b7ab5a9,Bowler,Off-spin,,False,11.0,47.0,26.0,55.32,83.0,1890.0,100.0,7.72
-Kolkata Knight Riders,Akash Deep,0a67aec0,Bowler,Fast,,False,5.0,14.0,25.0,178.57,14.0,278.0,10.0,11.96
-Kolkata Knight Riders,Umran Malik,81c08fa3,Bowler,Fast,,False,5.0,15.0,23.0,153.33,26.0,494.0,29.0,9.53
-Kolkata Knight Riders,Finn Allen,b52ffbbd,Wicketkeeper,Medium,,False,3.0,18.0,14.0,77.78,4.0,90.0,2.0,9.07
-Kolkata Knight Riders,Kartik Tyagi,5d2eea49,Bowler,Fast,,False,6.0,16.0,13.0,81.25,20.0,422.0,15.0,10.24
-Kolkata Knight Riders,Vaibhav Arora,7c3b3b78,Bowler,Fast,,False,9.0,24.0,9.0,37.5,32.0,639.0,36.0,9.66
-Kolkata Knight Riders,Cameron Green,19b9f399,All-rounder,Fast,,False,0.0,0.0,0.0,0.0,1.0,17.0,0.0,8.47
-Kolkata Knight Riders,Daksh Kamra,1a628a92,All-rounder,Leg-spin,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Kolkata Knight Riders,Matheesha Pathirana,64839cb3,Bowler,Fast,,False,0.0,0.0,0.0,0.0,32.0,702.0,47.0,8.95
-Kolkata Knight Riders,Prashant Solanki,c695b423,Bowler,Leg-spin,,False,0.0,0.0,0.0,0.0,2.0,36.0,2.0,6.5
-Kolkata Knight Riders,Sarthak Ranjan,d7cdefa9,Bowler,Fast,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Kolkata Knight Riders,Tejasvi Singh,0bf15e52,Wicketkeeper,Medium,,False,0.0,0.0,0.0,0.0,1.0,24.0,1.0,8.5
-Lucknow Super Giants,Rishabh Pant,919a3be2,Wicketkeeper,Medium,,False,123.0,2398.0,3553.0,148.17,0.0,0.0,0.0,0.0
-Lucknow Super Giants,Nicholas Pooran,3241e3fd,Wicketkeeper,Medium,,False,86.0,1353.0,2293.0,169.48,0.0,0.0,0.0,0.0
-Lucknow Super Giants,Aiden Markram,6a26221c,All-rounder,Off-spin,,False,55.0,1062.0,1440.0,135.59,19.0,187.0,6.0,8.82
-Lucknow Super Giants,Mitchell Marsh,3d8feaf8,All-rounder,Fast,,False,49.0,902.0,1292.0,143.24,34.0,560.0,37.0,8.6
-Lucknow Super Giants,Ayush Badoni,872b03f7,Batter,Off-spin,,False,46.0,693.0,963.0,138.96,7.0,35.0,4.0,8.57
-Lucknow Super Giants,Abdul Samad,8e514b4c,Batter,Leg-spin,,False,51.0,485.0,741.0,152.78,6.0,56.0,2.0,12.75
-Lucknow Super Giants,Josh Inglis,989889ff,Wicketkeeper,Medium,,False,11.0,171.0,278.0,162.57,0.0,0.0,0.0,0.0
-Lucknow Super Giants,Mohammed Shami,8cf9814c,Bowler,Fast,,False,27.0,89.0,84.0,94.38,119.0,2607.0,133.0,8.81
-Lucknow Super Giants,Wanindu Hasaranga,a97c8ec2,All-rounder,Leg-spin,,False,19.0,88.0,81.0,92.05,37.0,798.0,46.0,8.53
-Lucknow Super Giants,Avesh Khan,eef2536f,Bowler,Fast,,False,13.0,37.0,62.0,167.57,75.0,1619.0,87.0,9.25
-Lucknow Super Giants,Anrich Nortje,acdc62f5,Bowler,Fast,,False,13.0,49.0,49.0,100.0,48.0,1096.0,61.0,9.31
-Lucknow Super Giants,Mohsin Khan,c33d8116,Bowler,Fast,,False,5.0,24.0,25.0,104.17,23.0,486.0,27.0,8.62
-Lucknow Super Giants,Matthew Breetzke,35f173a0,Batter,Medium,,False,1.0,12.0,14.0,116.67,0.0,0.0,0.0,0.0
-Lucknow Super Giants,Arjun Tendulkar,44aac2f0,Bowler,Fast,,False,1.0,9.0,13.0,144.44,5.0,73.0,3.0,9.62
-Lucknow Super Giants,Arshin Kulkarni,2d140b79,All-rounder,Off-spin,,False,2.0,8.0,9.0,112.5,0.0,0.0,0.0,0.0
-Lucknow Super Giants,Digvesh Rathi,13fc5c6d,Wicketkeeper,Leg-spin,,False,1.0,3.0,1.0,33.33,13.0,312.0,14.0,8.37
-Lucknow Super Giants,Akash Singh,b483905d,Bowler,Fast,,False,0.0,0.0,0.0,0.0,10.0,205.0,9.0,9.54
-Lucknow Super Giants,Himmat Singh,ebcfef83,All-rounder,Off-spin,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Lucknow Super Giants,Manimaran Siddharth,cf0ccafa,Bowler,Left-arm orthodox,,False,0.0,0.0,0.0,0.0,5.0,97.0,3.0,8.66
-Lucknow Super Giants,Mayank Yadav,c6355538,Bowler,Fast,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Mumbai Indians,Rohit Sharma,740742ef,Batter,Off-spin,,False,266.0,5315.0,7046.0,132.57,32.0,339.0,15.0,8.18
-Mumbai Indians,Suryakumar Yadav,271f83cd,Batter,Off-spin,,False,151.0,2888.0,4311.0,149.27,1.0,6.0,0.0,8.0
-Mumbai Indians,Quinton de Kock,372455c4,Wicketkeeper,Medium,,False,115.0,2462.0,3309.0,134.4,0.0,0.0,0.0,0.0
-Mumbai Indians,Hardik Pandya,dbe50b21,All-rounder,Fast,,False,140.0,1862.0,2749.0,147.64,107.0,1628.0,78.0,9.36
-Mumbai Indians,Tilak Varma,b0482a1d,All-rounder,Off-spin,,False,51.0,1032.0,1499.0,145.25,4.0,22.0,0.0,7.64
-Mumbai Indians,Will Jacks,9caf69a1,All-rounder,Off-spin,,False,19.0,302.0,463.0,153.31,13.0,138.0,8.0,9.61
-Mumbai Indians,Sherfane Rutherford,d014d5ac,All-rounder,Medium,,False,20.0,288.0,397.0,137.85,6.0,41.0,1.0,8.78
-Mumbai Indians,Naman Dhir,fffa744b,All-rounder,Off-spin,,False,19.0,216.0,392.0,181.48,5.0,52.0,0.0,8.77
-Mumbai Indians,Ryan Rickelton,e66732f8,Batter,Medium,,False,14.0,255.0,388.0,152.16,0.0,0.0,0.0,0.0
-Mumbai Indians,Shardul Thakur,1abb78f8,All-rounder,Fast,,False,40.0,232.0,325.0,140.09,102.0,2070.0,107.0,9.52
-Mumbai Indians,Deepak Chahar,23eeb873,Bowler,Fast,,False,16.0,84.0,117.0,139.29,95.0,1915.0,88.0,8.21
-Mumbai Indians,Mitchell Santner,e4a0deae,All-rounder,Left-arm orthodox,,False,19.0,103.0,110.0,106.8,31.0,603.0,25.0,7.4
-Mumbai Indians,Trent Boult,a818c1be,Bowler,Fast,,False,24.0,81.0,85.0,104.94,119.0,2683.0,143.0,8.48
-Mumbai Indians,Jasprit Bumrah,462411b3,Bowler,Fast,,False,27.0,78.0,68.0,87.18,145.0,3337.0,183.0,7.43
-Mumbai Indians,Mayank Markande,a9fd84fb,Bowler,Leg-spin,,False,10.0,42.0,48.0,114.29,37.0,720.0,37.0,9.01
-Mumbai Indians,Corbin Bosch,172dff15,All-rounder,Fast,,False,2.0,32.0,47.0,146.88,2.0,42.0,1.0,8.0
-Mumbai Indians,Raj Bawa,ba6b2f91,All-rounder,Fast,,False,3.0,18.0,19.0,105.56,0.0,0.0,0.0,0.0
-Mumbai Indians,Robin Minz,bafd0398,Wicketkeeper,Medium,,False,2.0,15.0,6.0,40.0,0.0,0.0,0.0,0.0
-Mumbai Indians,AM Ghazanfar,9ca68676,Bowler,Off-spin,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Mumbai Indians,Ashwani Kumar,d45c29b1,Bowler,Fast,,False,0.0,0.0,0.0,0.0,7.0,123.0,11.0,11.41
-Mumbai Indians,Atharva Ankolekar,d6cd318e,Bowler,Left-arm orthodox,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Mumbai Indians,Danish Malewar,,Batter,Leg-spin,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Mumbai Indians,Mohammed Izhar,uncapped_mohammed_izhar,Bowler,Fast,,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Mumbai Indians,Raghu Sharma,5b615e7c,Bowler,Fast,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Punjab Kings,Shreyas Iyer,85ec8e33,Batter,Leg-spin,,False,131.0,2790.0,3731.0,133.73,1.0,6.0,0.0,7.0
-Punjab Kings,Marcus Stoinis,d9273ee7,All-rounder,Fast,,False,99.0,1393.0,2026.0,145.44,71.0,888.0,44.0,9.98
-Punjab Kings,Prabhsimran Singh,9418198b,Wicketkeeper,Medium,,False,52.0,884.0,1355.0,153.28,0.0,0.0,0.0,0.0
-Punjab Kings,Shashank Singh,26989d80,All-rounder,Medium,,False,33.0,490.0,773.0,157.76,4.0,30.0,1.0,10.4
-Punjab Kings,Nehal Wadhera,d1a60072,Batter,Medium,,False,31.0,501.0,719.0,143.51,2.0,17.0,0.0,7.76
-Punjab Kings,Priyansh Arya,b5797845,Batter,Medium,,False,18.0,298.0,545.0,182.89,0.0,0.0,0.0,0.0
-Punjab Kings,Harpreet Brar,c05edf8e,All-rounder,Left-arm orthodox,,False,26.0,203.0,244.0,120.2,46.0,811.0,35.0,8.12
-Punjab Kings,Marco Jansen,81c36ee9,All-rounder,Fast,,False,20.0,129.0,141.0,109.3,35.0,735.0,36.0,9.63
-Punjab Kings,Azmatullah Omarzai,8f6dd463,All-rounder,Fast,,False,9.0,74.0,99.0,133.78,15.0,288.0,12.0,9.92
-Punjab Kings,Lockie Ferguson,2f9d0389,Bowler,Fast,,False,8.0,46.0,72.0,156.52,49.0,1023.0,51.0,9.13
-Punjab Kings,Vishnu Vinod,0494fa6e,Wicketkeeper,Medium,,False,6.0,56.0,56.0,100.0,0.0,0.0,0.0,0.0
-Punjab Kings,Yuzvendra Chahal,57ee1fde,Bowler,Leg-spin,,False,17.0,86.0,37.0,43.02,172.0,3791.0,221.0,8.09
-Punjab Kings,Arshdeep Singh,244048f6,Bowler,Fast,,False,13.0,46.0,31.0,67.39,81.0,1714.0,97.0,9.19
-Punjab Kings,Vijaykumar Vyshak,54e52590,Bowler,Fast,,False,4.0,12.0,14.0,116.67,16.0,333.0,17.0,10.4
-Punjab Kings,Xavier Bartlett,3b53243a,Bowler,Fast,,False,1.0,15.0,11.0,73.33,4.0,60.0,2.0,9.6
-Punjab Kings,Suryansh Shedge,970ddd24,All-rounder,Medium,,False,3.0,11.0,7.0,63.64,1.0,18.0,0.0,13.33
-Punjab Kings,Ben Dwarshuis,e1b9f3a9,Bowler,Fast,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Punjab Kings,Cooper Connolly,fe366f34,All-rounder,Left-arm orthodox,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Punjab Kings,Harnoor Singh,uncapped_harnoor_singh,Batter,Medium,,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Punjab Kings,Musheer Khan,d621b427,All-rounder,Left-arm orthodox,,False,1.0,3.0,0.0,0.0,1.0,12.0,1.0,13.5
-Punjab Kings,Pyla Avinash,,Batter,Fast,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Punjab Kings,Yash Thakur,4b31f3a3,Bowler,Fast,,False,0.0,0.0,0.0,0.0,21.0,443.0,25.0,10.59
-Rajasthan Royals,Ravindra Jadeja,fe93fd9d,All-rounder,Left-arm orthodox,,False,194.0,2489.0,3260.0,130.98,225.0,4056.0,170.0,7.75
-Rajasthan Royals,Yashasvi Jaiswal,6c19c6e5,Batter,Leg-spin,,False,66.0,1412.0,2166.0,153.4,1.0,1.0,0.0,36.0
-Rajasthan Royals,Shubham Dubey,a4e37e47,Batter,Medium,,False,75.0,1290.0,1859.0,144.11,15.0,124.0,5.0,10.79
-Rajasthan Royals,Riyan Parag,04a418e8,All-rounder,Leg-spin,,False,72.0,1100.0,1566.0,142.36,30.0,295.0,7.0,9.72
-Rajasthan Royals,Shimron Hetmyer,48a1d7b7,Batter,Medium,,False,78.0,971.0,1482.0,152.63,0.0,0.0,0.0,0.0
-Rajasthan Royals,Sam Curran,e94915e6,All-rounder,Fast,,False,53.0,725.0,997.0,137.52,63.0,1253.0,59.0,9.86
-Rajasthan Royals,Dhruv Jurel,bcf325d2,Wicketkeeper,Medium,,False,35.0,442.0,680.0,153.85,0.0,0.0,0.0,0.0
-Rajasthan Royals,Jofra Archer,5574750c,Bowler,Fast,,False,30.0,174.0,262.0,150.57,52.0,1221.0,59.0,8.13
-Rajasthan Royals,Vaibhav Suryavanshi,470f446b,Batter,Left-arm orthodox,,False,7.0,121.0,252.0,208.26,0.0,0.0,0.0,0.0
-Rajasthan Royals,Sandeep Sharma,ce820073,Bowler,Fast,,False,26.0,74.0,60.0,81.08,136.0,3041.0,146.0,8.13
-Rajasthan Royals,Ravi Bishnoi,df064e1a,Bowler,Leg-spin,,False,16.0,66.0,45.0,68.18,76.0,1633.0,72.0,8.31
-Rajasthan Royals,Tushar Deshpande,46a9bea1,Bowler,Fast,,False,8.0,22.0,28.0,127.27,46.0,966.0,51.0,10.04
-Rajasthan Royals,Adam Milne,350bb1b1,Bowler,Fast,,False,6.0,29.0,23.0,79.31,10.0,207.0,7.0,9.83
-Rajasthan Royals,Yudhvir Singh,4885bbe6,All-rounder,Medium,,False,4.0,16.0,22.0,137.5,9.0,139.0,8.0,11.09
-Rajasthan Royals,Donovan Ferreira,f0af99a7,Batter,Off-spin,,False,3.0,14.0,9.0,64.29,0.0,0.0,0.0,0.0
-Rajasthan Royals,Kwena Maphaka,107c26fb,Bowler,Fast,,False,1.0,2.0,8.0,400.0,4.0,66.0,2.0,13.45
-Rajasthan Royals,Aman Rao,0420f51f,Wicketkeeper,Medium,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Rajasthan Royals,Brijesh Sharma,uncapped_brijesh_sharma,All-rounder,Medium,,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Rajasthan Royals,Kuldeep Sen,2e78f685,Bowler,Fast,,False,1.0,3.0,0.0,0.0,12.0,241.0,14.0,9.86
-Rajasthan Royals,Lhuan-dre Pretorius,60aa2db3,All-rounder,,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Rajasthan Royals,Nandre Burger,465aa633,Bowler,Fast,,False,0.0,0.0,0.0,0.0,5.0,102.0,7.0,8.94
-Rajasthan Royals,Ravi Singh,uncapped_ravi_singh,Batter,Leg-spin,,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Rajasthan Royals,Sushant Mishra,c562ac6d,Bowler,Fast,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Rajasthan Royals,Vignesh Puthur,1e030637,Bowler,Left-arm wrist spin,,False,0.0,0.0,0.0,0.0,5.0,72.0,6.0,9.08
-Rajasthan Royals,Yash Raj Punja,,Bowler,Leg-spin,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Royal Challengers Bengaluru,Virat Kohli,ba607b88,Batter,Medium,,False,259.0,6501.0,8661.0,133.23,26.0,251.0,4.0,8.87
-Royal Challengers Bengaluru,Devdutt Padikkal,2c25d4f5,Batter,Medium,,False,74.0,1425.0,1806.0,126.74,0.0,0.0,0.0,0.0
-Royal Challengers Bengaluru,Krunal Pandya,5b8c830e,All-rounder,Left-arm orthodox,,False,114.0,1324.0,1756.0,132.63,132.0,2398.0,93.0,7.57
-Royal Challengers Bengaluru,Venkatesh Iyer,a24be938,All-rounder,Medium,,False,56.0,1068.0,1468.0,137.45,9.0,81.0,3.0,10.74
-Royal Challengers Bengaluru,Rajat Patidar,c740ea83,Batter,Off-spin,,False,38.0,719.0,1111.0,154.52,0.0,0.0,0.0,0.0
-Royal Challengers Bengaluru,Phil Salt,3d284ca3,Wicketkeeper,Medium,,False,34.0,595.0,1056.0,177.48,0.0,0.0,0.0,0.0
-Royal Challengers Bengaluru,Jitesh Sharma,800d2d97,Wicketkeeper,Medium,,False,47.0,628.0,991.0,157.8,0.0,0.0,0.0,0.0
-Royal Challengers Bengaluru,Tim David,f1f99156,Batter,Off-spin,,False,44.0,484.0,846.0,174.79,0.0,0.0,0.0,0.0
-Royal Challengers Bengaluru,Bhuvneshwar Kumar,2e81a32d,Bowler,Fast,,False,71.0,350.0,320.0,91.43,190.0,4222.0,198.0,7.87
-Royal Challengers Bengaluru,Romario Shepherd,c5aef772,All-rounder,Fast,,False,12.0,85.0,185.0,217.65,15.0,210.0,10.0,11.89
-Royal Challengers Bengaluru,Jacob Bethell,3c55c703,All-rounder,Left-arm orthodox,,False,2.0,39.0,67.0,171.79,0.0,0.0,0.0,0.0
-Royal Challengers Bengaluru,Swapnil Singh,983f2f61,All-rounder,Left-arm orthodox,,False,9.0,45.0,51.0,113.33,14.0,162.0,7.0,8.93
-Royal Challengers Bengaluru,Rasikh Salam Dar,b8527c3d,Bowler,Fast,,False,6.0,40.0,40.0,100.0,13.0,231.0,10.0,10.7
-Royal Challengers Bengaluru,Josh Hazlewood,03806cf8,Bowler,Fast,,False,7.0,29.0,19.0,65.52,39.0,867.0,57.0,8.44
-Royal Challengers Bengaluru,Yash Dayal,7210d461,Bowler,Fast,,False,4.0,9.0,4.0,44.44,43.0,872.0,41.0,9.72
-Royal Challengers Bengaluru,Abhinandan Singh,uncapped_abhinandan_singh,Bowler,Fast,,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Royal Challengers Bengaluru,Jacob Duffy,dadbdb68,Bowler,Fast,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Royal Challengers Bengaluru,Jordan Cox,ff154ecd,Wicketkeeper,Medium,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Royal Challengers Bengaluru,Kanishk Chouhan,uncapped_kanishk_chouhan,Bowler,Leg-spin,,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Royal Challengers Bengaluru,Mangesh Yadav,b1ad996b,Bowler,Fast,,False,0.0,0.0,0.0,0.0,6.0,121.0,9.0,9.32
-Royal Challengers Bengaluru,Satvik Deswal,,Bowler,Left-arm wrist spin,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Royal Challengers Bengaluru,Suyash Sharma,9440ef41,Bowler,Leg-spin,,False,0.0,0.0,0.0,0.0,27.0,558.0,18.0,8.98
-Royal Challengers Bengaluru,Vicky Ostwal,uncapped_vicky_ostwal,Bowler,Left-arm orthodox,,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Royal Challengers Bengaluru,Vihaan Malhotra,uncapped_vihaan_malhotra,Batter,Medium,,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Sunrisers Hyderabad,Ishan Kishan,752f7486,Wicketkeeper,Medium,,False,112.0,2171.0,2998.0,138.09,1.0,1.0,0.0,24.0
-Sunrisers Hyderabad,Abhishek Sharma,f29185a1,All-rounder,Left-arm orthodox,,False,74.0,1108.0,1816.0,163.9,32.0,336.0,11.0,9.09
-Sunrisers Hyderabad,Heinrich Klaasen,235c2bb6,Wicketkeeper,Medium,,False,45.0,863.0,1480.0,171.49,0.0,0.0,0.0,0.0
-Sunrisers Hyderabad,Travis Head,12b610c2,Batter,Off-spin,,False,37.0,667.0,1146.0,171.81,6.0,58.0,2.0,11.69
-Sunrisers Hyderabad,Liam Livingstone,50c6bc2b,All-rounder,Leg-spin,Off-spin,False,47.0,655.0,1051.0,160.46,27.0,312.0,13.0,9.06
-Sunrisers Hyderabad,Pat Cummins,ded9240e,Bowler,Fast,,False,48.0,400.0,612.0,153.0,72.0,1617.0,79.0,9.04
-Sunrisers Hyderabad,Nitish Kumar Reddy,aad0c365,All-rounder,Medium,,False,22.0,364.0,485.0,133.24,12.0,139.0,5.0,11.01
-Sunrisers Hyderabad,Harshal Patel,f986ca1a,Bowler,Fast,,False,41.0,229.0,270.0,117.9,116.0,2425.0,151.0,9.03
-Sunrisers Hyderabad,Aniket Verma,a3b0600d,Batter,Medium,,False,12.0,142.0,236.0,166.2,0.0,0.0,0.0,0.0
-Sunrisers Hyderabad,Jaydev Unadkat,1e66c162,Bowler,Fast,,False,27.0,166.0,197.0,118.67,111.0,2274.0,110.0,8.96
-Sunrisers Hyderabad,Kamindu Mendis,08548b13,All-rounder,Off-spin,Left-arm orthodox,False,5.0,68.0,92.0,135.29,4.0,42.0,2.0,8.57
-Sunrisers Hyderabad,Shivam Mavi,c38d3503,Bowler,Fast,,False,11.0,56.0,51.0,91.07,32.0,649.0,30.0,8.86
-Sunrisers Hyderabad,Amit Kumar,uncapped_amit_kumar,All-rounder,Leg-spin,,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Sunrisers Hyderabad,Brydon Carse,cad40f5e,Bowler,Fast,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Sunrisers Hyderabad,Eshan Malinga,5750bcb4,Bowler,Fast,,False,0.0,0.0,0.0,0.0,7.0,160.0,13.0,9.15
-Sunrisers Hyderabad,Harsh Dubey,25228673,Bowler,Left-arm orthodox,,False,0.0,0.0,0.0,0.0,3.0,60.0,5.0,9.8
-Sunrisers Hyderabad,Jack Edwards,f787e0eb,All-rounder,Off-spin,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Sunrisers Hyderabad,Krains Fuletra,,All-rounder,Left-arm wrist spin,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Sunrisers Hyderabad,Onkar Tarmale,,Batter,Fast,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Sunrisers Hyderabad,Praful Hinge,,Bowler,Fast,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Sunrisers Hyderabad,Ravichandran Smaran,,Batter,Medium,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Sunrisers Hyderabad,Sakib Hussain,280fff14,Bowler,Fast,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Sunrisers Hyderabad,Salil Arora,263f1761,Batter,Medium,,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Sunrisers Hyderabad,Shivang Kumar,uncapped_shivang_kumar,Bowler,Left-arm wrist spin,,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Sunrisers Hyderabad,Zeeshan Ansari,36619795,Bowler,Left-arm orthodox,,False,0.0,0.0,0.0,0.0,10.0,203.0,6.0,9.87
+team_name,player_name,player_id,role,bowling_type,bowling_style,batting_hand,is_uncapped,ipl_batting_innings,ipl_batting_balls,ipl_batting_runs,ipl_batting_sr,ipl_bowling_matches,ipl_bowling_balls,ipl_bowling_wickets,ipl_bowling_economy
+Chennai Super Kings,Ruturaj Gaikwad,45a43fe2,Batter,Medium,Right-arm pace,Right-hand,False,34.0,891.0,1295.0,145.34,0.0,0.0,0.0,0.0
+Chennai Super Kings,Sanju Samson,a4cc73aa,Wicketkeeper,Medium,Right-arm pace,Right-hand,False,38.0,780.0,1178.0,151.03,0.0,0.0,0.0,0.0
+Chennai Super Kings,Shivam Dube,a4e37e47,All-rounder,Medium,Right-arm pace,Left-hand,False,42.0,775.0,1171.0,151.1,2.0,18.0,1.0,15.67
+Chennai Super Kings,MS Dhoni,4a8a2e3b,Wicketkeeper,Medium,Right-arm pace,Right-hand,False,36.0,271.0,461.0,170.11,0.0,0.0,0.0,0.0
+Chennai Super Kings,Dewald Brevis,844e79d1,All-rounder,Off-spin,Right-arm off-spin,Right-hand,False,9.0,184.0,294.0,159.78,0.0,0.0,0.0,0.0
+Chennai Super Kings,Ayush Mhatre,b2b4f545,Batter,Medium,Right-arm pace,Right-hand,False,7.0,127.0,240.0,188.98,0.0,0.0,0.0,0.0
+Chennai Super Kings,Matthew Short,a90e53ec,All-rounder,Off-spin,Right-arm off-spin,Right-hand,False,6.0,92.0,117.0,127.17,3.0,24.0,0.0,6.25
+Chennai Super Kings,Aman Khan,378daa89,All-rounder,Off-spin,Right-arm off-spin,Left-hand,False,9.0,101.0,110.0,108.91,0.0,0.0,0.0,0.0
+Chennai Super Kings,Urvil Patel,cf59b3f0,Wicketkeeper,Medium,Right-arm pace,Right-hand,False,3.0,32.0,68.0,212.5,0.0,0.0,0.0,0.0
+Chennai Super Kings,Sarfaraz Khan,f088b960,Batter,Leg-spin,Right-arm leg-spin,Right-hand,False,4.0,61.0,53.0,86.89,0.0,0.0,0.0,0.0
+Chennai Super Kings,Kartik Sharma,119678fd,Wicketkeeper,Medium,Right-arm pace,Right-hand,False,6.0,21.0,35.0,166.67,21.0,363.0,24.0,10.21
+Chennai Super Kings,Rahul Chahar,2ed569a0,Bowler,Leg-spin,Right-arm leg-spin,Right-hand,False,4.0,24.0,21.0,87.5,24.0,490.0,18.0,8.29
+Chennai Super Kings,Noor Ahmad,efc04be7,Bowler,Left-arm wrist spin,Left-arm wrist spin,Left-hand,False,11.0,35.0,20.0,57.14,37.0,792.0,48.0,8.24
+Chennai Super Kings,Akeal Hosein,4d7f517e,Bowler,Left-arm orthodox,Left-arm orthodox,Left-hand,False,1.0,10.0,16.0,160.0,1.0,24.0,1.0,10.25
+Chennai Super Kings,Anshul Kamboj,fcc21ace,Bowler,Fast,Right-arm pace,Right-hand,False,6.0,14.0,16.0,114.29,11.0,189.0,10.0,9.14
+Chennai Super Kings,Jamie Overton,59559bc2,All-rounder,Fast,Right-arm pace,Right-hand,False,2.0,7.0,15.0,214.29,3.0,36.0,0.0,14.0
+Chennai Super Kings,Khaleel Ahmed,a2f46292,Bowler,Fast,Left-arm pace,Left-hand,False,1.0,2.0,1.0,50.0,37.0,778.0,41.0,9.69
+Chennai Super Kings,Nathan Ellis,9eb1455b,Bowler,Fast,Right-arm pace,Right-hand,False,2.0,7.0,1.0,14.29,12.0,276.0,15.0,8.8
+Chennai Super Kings,Gurjapneet Singh,6eb146d2,Bowler,Fast,Left-arm pace,Left-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Chennai Super Kings,Matt Henry,e84ac20c,Bowler,Fast,Right-arm pace,Right-hand,False,0.0,0.0,0.0,0.0,4.0,72.0,1.0,9.33
+Chennai Super Kings,Mukesh Choudhary,765a4731,Bowler,Fast,Left-arm pace,Left-hand,False,0.0,0.0,0.0,0.0,3.0,42.0,1.0,14.0
+Chennai Super Kings,Prashant Veer,e148e6bd,All-rounder,Off-spin,Right-arm off-spin,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Chennai Super Kings,Ramakrishna Ghosh,,Bowler,Fast,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Chennai Super Kings,Shreyas Gopal,7a8bd078,Bowler,Leg-spin,Right-arm leg-spin,Right-hand,False,0.0,0.0,0.0,0.0,3.0,42.0,3.0,9.57
+Chennai Super Kings,Zak Foulkes,30f92334,Bowler,Fast,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Delhi Capitals,KL Rahul,b17e2f24,Wicketkeeper,Medium,Right-arm pace,Right-hand,False,36.0,981.0,1333.0,135.88,0.0,0.0,0.0,0.0
+Delhi Capitals,Axar Patel,2e171977,All-rounder,Left-arm orthodox,Left-arm orthodox,Left-hand,False,36.0,547.0,781.0,142.78,39.0,762.0,27.0,7.86
+Delhi Capitals,Tristan Stubbs,85b3fab2,All-rounder,Medium,Right-arm pace,Right-hand,False,28.0,427.0,703.0,164.64,5.0,36.0,4.0,11.5
+Delhi Capitals,Nitish Rana,fb2d1dda,Batter,Left-arm orthodox,Left-arm orthodox,Left-hand,False,27.0,460.0,672.0,146.09,8.0,65.0,3.0,8.58
+Delhi Capitals,Abhishek Porel,ad3b6e95,Wicketkeeper,Medium,Right-arm pace,Right-hand,False,29.0,440.0,661.0,150.23,0.0,0.0,0.0,0.0
+Delhi Capitals,David Miller,d67d5f00,Batter,Off-spin,Right-arm off-spin,Left-hand,False,32.0,436.0,622.0,142.66,0.0,0.0,0.0,0.0
+Delhi Capitals,Ashutosh Sharma,84d9c311,All-rounder,Off-spin,Right-arm off-spin,Right-hand,False,18.0,236.0,393.0,166.53,0.0,0.0,0.0,0.0
+Delhi Capitals,Prithvi Shaw,8b3e9c7c,Batter,Leg-spin,Right-arm leg-spin,Right-hand,False,16.0,205.0,304.0,148.29,0.0,0.0,0.0,0.0
+Delhi Capitals,Karun Nair,944533a5,Batter,Off-spin,Right-arm off-spin,Right-hand,False,8.0,115.0,198.0,172.17,0.0,0.0,0.0,0.0
+Delhi Capitals,Sameer Rizvi,f89d3b11,Batter,Medium,Right-arm pace,Right-hand,False,9.0,122.0,172.0,140.98,0.0,0.0,0.0,0.0
+Delhi Capitals,Vipraj Nigam,5ffc0565,Batter,Medium,Right-arm pace,Right-hand,False,8.0,78.0,142.0,182.05,13.0,234.0,11.0,9.26
+Delhi Capitals,Kuldeep Yadav,8d2c70ad,Bowler,Left-arm wrist spin,Left-arm wrist spin,Left-hand,False,20.0,105.0,96.0,91.43,39.0,870.0,41.0,7.82
+Delhi Capitals,Mitchell Starc,3fb19989,Bowler,Fast,Left-arm pace,Left-hand,False,10.0,21.0,15.0,71.43,24.0,479.0,31.0,10.67
+Delhi Capitals,Dushmantha Chameera,327b58d3,Bowler,Fast,Right-arm pace,Right-hand,False,3.0,14.0,10.0,71.43,7.0,120.0,4.0,12.35
+Delhi Capitals,Mukesh Kumar,2cffab74,Bowler,Fast,Right-arm pace,Right-hand,False,5.0,18.0,10.0,55.56,32.0,636.0,36.0,10.55
+Delhi Capitals,Madhav Tiwari,fb5f69e4,All-rounder,Medium,Right-arm pace,Right-hand,False,1.0,4.0,3.0,75.0,1.0,6.0,0.0,14.0
+Delhi Capitals,Ajay Mandal,31ee319e,All-rounder,Medium,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Delhi Capitals,Auqib Nabi Dar,557550a4,Bowler,Fast,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Delhi Capitals,Ben Duckett,5f26f677,Batter,Medium,Right-arm pace,Left-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Delhi Capitals,Kyle Jamieson,68c56d09,Bowler,Fast,Right-arm pace,Right-hand,False,2.0,5.0,0.0,0.0,4.0,90.0,5.0,9.8
+Delhi Capitals,Lungi Ngidi,f834dcfc,Bowler,Fast,Right-arm pace,Right-hand,False,1.0,2.0,0.0,0.0,2.0,48.0,4.0,10.13
+Delhi Capitals,Pathum Nissanka,8ee36b18,Batter,Off-spin,Right-arm off-spin,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Delhi Capitals,Sahil Parakh,,All-rounder,Leg-spin,Right-arm leg-spin,Left-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Delhi Capitals,T Natarajan,ce794613,Bowler,Fast,Left-arm pace,Left-hand,False,0.0,0.0,0.0,0.0,28.0,603.0,30.0,9.33
+Delhi Capitals,Tripurana Vijay,51ec3919,Batter,Medium,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Gujarat Titans,Shubman Gill,b4b99816,Batter,Off-spin,Right-arm off-spin,Right-hand,False,44.0,1263.0,1966.0,155.66,0.0,0.0,0.0,0.0
+Gujarat Titans,Sai Sudharsan,d5130a30,Batter,Medium,Right-arm pace,Left-hand,False,35.0,1108.0,1648.0,148.74,0.0,0.0,0.0,0.0
+Gujarat Titans,Jos Buttler,99b75528,Wicketkeeper,Medium,Right-arm pace,Right-hand,False,38.0,865.0,1289.0,149.02,0.0,0.0,0.0,0.0
+Gujarat Titans,Shahrukh Khan,7dcb9bc9,Batter,Medium,Right-arm pace,Right-hand,False,30.0,269.0,462.0,171.75,3.0,18.0,1.0,9.67
+Gujarat Titans,Rahul Tewatia,39a2dfa8,All-rounder,Leg-spin,Right-arm leg-spin,Left-hand,False,30.0,242.0,374.0,154.55,2.0,13.0,0.0,6.92
+Gujarat Titans,Rashid Khan,5f547c8b,Bowler,Leg-spin,Right-arm leg-spin,Right-hand,False,25.0,157.0,272.0,173.25,44.0,994.0,46.0,8.76
+Gujarat Titans,Washington Sundar,f19ccfad,All-rounder,Off-spin,Right-arm off-spin,Left-hand,False,11.0,141.0,193.0,136.88,14.0,201.0,6.0,9.88
+Gujarat Titans,Anuj Rawat,c8f5f961,Wicketkeeper,Medium,Right-arm pace,Left-hand,False,12.0,148.0,189.0,127.7,0.0,0.0,0.0,0.0
+Gujarat Titans,Arshad Khan,12314277,All-rounder,Medium,Right-arm pace,Right-hand,False,11.0,88.0,124.0,140.91,19.0,272.0,12.0,11.63
+Gujarat Titans,Glenn Phillips,9a46c4e5,All-rounder,Off-spin,Right-arm off-spin,Right-hand,False,5.0,22.0,39.0,177.27,2.0,18.0,1.0,6.67
+Gujarat Titans,Kagiso Rabada,e62dd25d,Bowler,Fast,Right-arm pace,Right-hand,False,7.0,24.0,29.0,120.83,21.0,475.0,20.0,10.02
+Gujarat Titans,Sai Kishore,c7a995d3,Bowler,Left-arm orthodox,Left-arm orthodox,Left-hand,False,4.0,16.0,18.0,112.5,20.0,345.0,26.0,9.27
+Gujarat Titans,Mohammed Siraj,2f49c897,Bowler,Fast,Right-arm pace,Right-hand,False,4.0,14.0,16.0,114.29,43.0,966.0,50.0,8.96
+Gujarat Titans,Kumar Kushagra,57ca01b3,Wicketkeeper,Medium,Right-arm pace,Right-hand,False,3.0,7.0,3.0,42.86,0.0,0.0,0.0,0.0
+Gujarat Titans,Ishant Sharma,5bb1a1c4,Bowler,Fast,Right-arm pace,Right-hand,False,3.0,8.0,2.0,25.0,24.0,422.0,24.0,9.75
+Gujarat Titans,Manav Suthar,025c4400,Bowler,Left-arm orthodox,Left-arm orthodox,Left-hand,False,1.0,2.0,1.0,50.0,1.0,12.0,0.0,13.0
+Gujarat Titans,Gurnoor Brar,99258814,All-rounder,Left-arm orthodox,Left-arm orthodox,Left-hand,False,0.0,0.0,0.0,0.0,1.0,18.0,0.0,14.0
+Gujarat Titans,Jayant Yadav,81049310,All-rounder,Off-spin,Right-arm off-spin,Right-hand,False,0.0,0.0,0.0,0.0,1.0,24.0,0.0,6.5
+Gujarat Titans,Nishant Sindhu,3cea23da,All-rounder,Left-arm orthodox,Left-arm orthodox,Left-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Gujarat Titans,Prasidh Krishna,85e0cf10,Bowler,Fast,Right-arm pace,Right-hand,False,0.0,0.0,0.0,0.0,15.0,354.0,25.0,8.58
+Kolkata Knight Riders,Ajinkya Rahane,29e95537,Batter,Medium,Right-arm pace,Right-hand,False,35.0,649.0,958.0,147.61,0.0,0.0,0.0,0.0
+Kolkata Knight Riders,Rinku Singh,0a509d6b,Batter,Medium,Right-arm pace,Left-hand,False,36.0,557.0,848.0,152.24,0.0,0.0,0.0,0.0
+Kolkata Knight Riders,Sunil Narine,9d430b40,All-rounder,Off-spin,Right-arm off-spin,Left-hand,False,36.0,439.0,755.0,171.98,40.0,888.0,40.0,7.58
+Kolkata Knight Riders,Rahul Tripathi,77255a9e,Batter,Leg-spin,Right-arm leg-spin,Right-hand,False,24.0,382.0,493.0,129.06,0.0,0.0,0.0,0.0
+Kolkata Knight Riders,Angkrish Raghuvanshi,d7017798,Batter,Medium,Right-arm pace,Right-hand,False,18.0,319.0,463.0,145.14,0.0,0.0,0.0,0.0
+Kolkata Knight Riders,Rachin Ravindra,ba5e1069,All-rounder,Left-arm orthodox,Left-arm orthodox,Left-hand,False,18.0,284.0,413.0,145.42,2.0,12.0,0.0,3.5
+Kolkata Knight Riders,Manish Pandey,93b4fc78,Batter,Medium,Right-arm pace,Right-hand,False,13.0,240.0,294.0,122.5,0.0,0.0,0.0,0.0
+Kolkata Knight Riders,Ramandeep Singh,be24ead0,All-rounder,Medium,Right-arm pace,Right-hand,False,16.0,96.0,172.0,179.17,1.0,4.0,0.0,13.5
+Kolkata Knight Riders,Rovman Powell,650d5e49,Batter,Medium,Right-arm pace,Right-hand,False,11.0,82.0,115.0,140.24,1.0,12.0,1.0,9.0
+Kolkata Knight Riders,Harshit Rana,77b1aa15,Bowler,Fast,Right-arm pace,Right-hand,False,8.0,53.0,57.0,107.55,30.0,619.0,39.0,9.64
+Kolkata Knight Riders,Anukul Roy,e4cdf230,All-rounder,Left-arm orthodox,Left-arm orthodox,Left-hand,False,6.0,23.0,26.0,113.04,7.0,106.0,4.0,8.6
+Kolkata Knight Riders,Akash Deep,0a67aec0,Bowler,Fast,Right-arm pace,Right-hand,False,4.0,12.0,25.0,208.33,9.0,165.0,5.0,12.65
+Kolkata Knight Riders,Umran Malik,81c08fa3,Bowler,Fast,Right-arm pace,Right-hand,False,1.0,7.0,19.0,271.43,9.0,126.0,5.0,11.14
+Kolkata Knight Riders,Vaibhav Arora,7c3b3b78,Bowler,Fast,Right-arm pace,Right-hand,False,5.0,11.0,4.0,36.36,27.0,532.0,33.0,9.74
+Kolkata Knight Riders,Varun Chakravarthy,5b7ab5a9,Bowler,Off-spin,Right-arm off-spin,Right-hand,False,3.0,10.0,2.0,20.0,41.0,917.0,58.0,8.15
+Kolkata Knight Riders,Cameron Green,19b9f399,All-rounder,Fast,Right-arm pace,Left-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Kolkata Knight Riders,Daksh Kamra,1a628a92,All-rounder,Medium,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Kolkata Knight Riders,Finn Allen,b52ffbbd,Wicketkeeper,Medium,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Kolkata Knight Riders,Kartik Tyagi,5d2eea49,Bowler,Fast,Right-arm pace,Right-hand,False,0.0,0.0,0.0,0.0,4.0,61.0,1.0,14.16
+Kolkata Knight Riders,Matheesha Pathirana,64839cb3,Bowler,Fast,Right-arm pace,Right-hand,False,0.0,0.0,0.0,0.0,30.0,661.0,45.0,9.0
+Kolkata Knight Riders,Prashant Solanki,c695b423,Bowler,Left-arm orthodox,Left-arm orthodox,Left-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Kolkata Knight Riders,Sarthak Ranjan,d7cdefa9,Bowler,Fast,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Kolkata Knight Riders,Tejasvi Singh,0bf15e52,Wicketkeeper,Medium,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Kolkata Knight Riders,Tim Seifert,4663bd23,Wicketkeeper,Medium,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Lucknow Super Giants,Nicholas Pooran,3241e3fd,Wicketkeeper,Medium,Right-arm pace,Left-hand,False,43.0,751.0,1381.0,183.89,0.0,0.0,0.0,0.0
+Lucknow Super Giants,Aiden Markram,6a26221c,All-rounder,Off-spin,Right-arm off-spin,Right-hand,False,37.0,670.0,913.0,136.27,13.0,127.0,5.0,8.88
+Lucknow Super Giants,Mitchell Marsh,3d8feaf8,All-rounder,Fast,Right-arm pace,Right-hand,False,26.0,516.0,816.0,158.14,11.0,169.0,13.0,9.76
+Lucknow Super Giants,Ayush Badoni,872b03f7,Batter,Leg-spin,Right-arm leg-spin,Right-hand,False,35.0,563.0,802.0,142.45,5.0,23.0,2.0,9.91
+Lucknow Super Giants,Rishabh Pant,919a3be2,Wicketkeeper,Medium,Right-arm pace,Left-hand,False,26.0,489.0,715.0,146.22,0.0,0.0,0.0,0.0
+Lucknow Super Giants,Abdul Samad,8e514b4c,Batter,Leg-spin,Right-arm leg-spin,Right-hand,False,32.0,326.0,515.0,157.98,1.0,2.0,0.0,18.0
+Lucknow Super Giants,Josh Inglis,989889ff,Wicketkeeper,Medium,Right-arm pace,Right-hand,False,11.0,171.0,278.0,162.57,0.0,0.0,0.0,0.0
+Lucknow Super Giants,Wanindu Hasaranga,a97c8ec2,All-rounder,Leg-spin,Right-arm leg-spin,Right-hand,False,10.0,43.0,42.0,97.67,19.0,420.0,20.0,9.07
+Lucknow Super Giants,Anrich Nortje,acdc62f5,Bowler,Fast,Right-arm pace,Right-hand,False,9.0,37.0,41.0,110.81,18.0,414.0,18.0,10.94
+Lucknow Super Giants,Avesh Khan,eef2536f,Bowler,Fast,Right-arm pace,Right-hand,False,7.0,18.0,31.0,172.22,37.0,787.0,40.0,9.96
+Lucknow Super Giants,Mohammed Shami,8cf9814c,Bowler,Fast,Right-arm pace,Right-hand,False,6.0,16.0,15.0,93.75,26.0,571.0,34.0,9.25
+Lucknow Super Giants,Matthew Breetzke,35f173a0,Batter,Medium,Right-arm pace,Right-hand,False,1.0,12.0,14.0,116.67,0.0,0.0,0.0,0.0
+Lucknow Super Giants,Arjun Tendulkar,44aac2f0,Bowler,Fast,Left-arm pace,Left-hand,False,1.0,9.0,13.0,144.44,5.0,73.0,3.0,9.62
+Lucknow Super Giants,Arshin Kulkarni,2d140b79,All-rounder,Off-spin,Right-arm off-spin,Right-hand,False,2.0,8.0,9.0,112.5,0.0,0.0,0.0,0.0
+Lucknow Super Giants,Mohsin Khan,c33d8116,Bowler,Fast,Left-arm pace,Left-hand,False,2.0,8.0,2.0,25.0,14.0,288.0,13.0,10.33
+Lucknow Super Giants,Digvesh Rathi,13fc5c6d,Wicketkeeper,Medium,Right-arm pace,Right-hand,False,1.0,3.0,1.0,33.33,13.0,312.0,14.0,8.37
+Lucknow Super Giants,Akash Singh,b483905d,Bowler,Fast,Left-arm pace,Left-hand,False,0.0,0.0,0.0,0.0,9.0,181.0,9.0,9.51
+Lucknow Super Giants,Himmat Singh,ebcfef83,All-rounder,Off-spin,Right-arm off-spin,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Lucknow Super Giants,Manimaran Siddharth,cf0ccafa,Bowler,Left-arm orthodox,Left-arm orthodox,Left-hand,False,0.0,0.0,0.0,0.0,5.0,97.0,3.0,8.66
+Lucknow Super Giants,Mayank Yadav,c6355538,Bowler,Fast,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Mumbai Indians,Suryakumar Yadav,271f83cd,Batter,Off-spin,Right-arm off-spin,Right-hand,False,43.0,964.0,1667.0,172.93,0.0,0.0,0.0,0.0
+Mumbai Indians,Rohit Sharma,740742ef,Batter,Off-spin,Right-arm off-spin,Right-hand,False,45.0,804.0,1167.0,145.15,0.0,0.0,0.0,0.0
+Mumbai Indians,Tilak Varma,b0482a1d,All-rounder,Off-spin,Right-arm off-spin,Left-hand,False,37.0,730.0,1102.0,150.96,2.0,10.0,0.0,9.0
+Mumbai Indians,Hardik Pandya,dbe50b21,All-rounder,Fast,Right-arm pace,Right-hand,False,40.0,539.0,786.0,145.83,37.0,576.0,28.0,10.16
+Mumbai Indians,Quinton de Kock,372455c4,Wicketkeeper,Medium,Right-arm pace,Left-hand,False,23.0,403.0,545.0,135.24,0.0,0.0,0.0,0.0
+Mumbai Indians,Will Jacks,9caf69a1,All-rounder,Off-spin,Right-arm off-spin,Right-hand,False,19.0,302.0,463.0,153.31,13.0,138.0,8.0,9.61
+Mumbai Indians,Naman Dhir,fffa744b,All-rounder,Left-arm orthodox,Left-arm orthodox,Left-hand,False,19.0,216.0,392.0,181.48,5.0,52.0,0.0,8.77
+Mumbai Indians,Ryan Rickelton,e66732f8,Batter,Medium,Right-arm pace,Left-hand,False,14.0,255.0,388.0,152.16,0.0,0.0,0.0,0.0
+Mumbai Indians,Sherfane Rutherford,d014d5ac,All-rounder,Medium,Right-arm pace,Left-hand,False,11.0,184.0,291.0,158.15,0.0,0.0,0.0,0.0
+Mumbai Indians,Shardul Thakur,1abb78f8,All-rounder,Fast,Right-arm pace,Right-hand,False,17.0,99.0,152.0,153.54,28.0,520.0,25.0,10.53
+Mumbai Indians,Mitchell Santner,e4a0deae,All-rounder,Left-arm orthodox,Left-arm orthodox,Left-hand,False,13.0,54.0,56.0,103.7,19.0,363.0,15.0,7.64
+Mumbai Indians,Corbin Bosch,172dff15,All-rounder,Fast,Right-arm pace,Right-hand,False,2.0,32.0,47.0,146.88,2.0,42.0,1.0,8.0
+Mumbai Indians,Deepak Chahar,23eeb873,Bowler,Fast,Right-arm pace,Right-hand,False,5.0,27.0,38.0,140.74,32.0,591.0,29.0,8.95
+Mumbai Indians,Trent Boult,a818c1be,Bowler,Fast,Left-arm pace,Left-hand,False,10.0,33.0,32.0,96.97,41.0,894.0,51.0,8.62
+Mumbai Indians,Mayank Markande,a9fd84fb,Bowler,Leg-spin,Right-arm leg-spin,Right-hand,False,3.0,13.0,21.0,161.54,17.0,360.0,20.0,9.32
+Mumbai Indians,Mohammed Izhar,2f49c897,Bowler,Fast,Right-arm pace,Right-hand,False,4.0,14.0,16.0,114.29,43.0,966.0,50.0,8.96
+Mumbai Indians,Jasprit Bumrah,462411b3,Bowler,Fast,Right-arm pace,Right-hand,False,5.0,13.0,12.0,92.31,25.0,595.0,38.0,6.69
+Mumbai Indians,Raj Bawa,ba6b2f91,All-rounder,Fast,Right-arm pace,Left-hand,False,1.0,4.0,8.0,200.0,0.0,0.0,0.0,0.0
+Mumbai Indians,Robin Minz,bafd0398,Wicketkeeper,Medium,Right-arm pace,Right-hand,False,2.0,15.0,6.0,40.0,0.0,0.0,0.0,0.0
+Mumbai Indians,AM Ghazanfar,9ca68676,Bowler,Off-spin,Right-arm off-spin,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Mumbai Indians,Ashwani Kumar,d45c29b1,Bowler,Fast,Right-arm pace,Right-hand,False,0.0,0.0,0.0,0.0,7.0,123.0,11.0,11.41
+Mumbai Indians,Atharva Ankolekar,d6cd318e,Bowler,Left-arm orthodox,Left-arm orthodox,Left-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Mumbai Indians,Danish Malewar,,Batter,Leg-spin,Right-arm leg-spin,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Mumbai Indians,Raghu Sharma,5b615e7c,Bowler,Fast,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Punjab Kings,Prabhsimran Singh,9418198b,Wicketkeeper,Medium,Right-arm pace,Right-hand,False,46.0,818.0,1291.0,157.82,0.0,0.0,0.0,0.0
+Punjab Kings,Marcus Stoinis,d9273ee7,All-rounder,Fast,Right-arm pace,Right-hand,False,40.0,618.0,956.0,154.69,21.0,234.0,10.0,10.38
+Punjab Kings,Shreyas Iyer,85ec8e33,Batter,Leg-spin,Right-arm leg-spin,Right-hand,False,31.0,582.0,955.0,164.09,0.0,0.0,0.0,0.0
+Punjab Kings,Nehal Wadhera,d1a60072,Batter,Medium,Right-arm pace,Right-hand,False,31.0,501.0,719.0,143.51,2.0,17.0,0.0,7.76
+Punjab Kings,Shashank Singh,26989d80,All-rounder,Medium,Right-arm pace,Right-hand,False,28.0,443.0,704.0,158.92,2.0,18.0,1.0,10.67
+Punjab Kings,Priyansh Arya,b5797845,Batter,Medium,Right-arm pace,Left-hand,False,18.0,298.0,545.0,182.89,0.0,0.0,0.0,0.0
+Punjab Kings,Harpreet Brar,c05edf8e,All-rounder,Left-arm orthodox,Left-arm orthodox,Left-hand,False,17.0,108.0,138.0,127.78,31.0,523.0,26.0,8.24
+Punjab Kings,Marco Jansen,81c36ee9,All-rounder,Fast,Left-arm pace,Left-hand,False,16.0,119.0,132.0,110.92,25.0,507.0,27.0,10.12
+Punjab Kings,Azmatullah Omarzai,8f6dd463,All-rounder,Fast,Right-arm pace,Right-hand,False,9.0,74.0,99.0,133.78,15.0,288.0,12.0,9.92
+Punjab Kings,Vishnu Vinod,0494fa6e,Wicketkeeper,Medium,Right-arm pace,Right-hand,False,3.0,30.0,37.0,123.33,0.0,0.0,0.0,0.0
+Punjab Kings,Vijaykumar Vyshak,54e52590,Bowler,Fast,Right-arm pace,Right-hand,False,4.0,12.0,14.0,116.67,16.0,333.0,17.0,10.4
+Punjab Kings,Xavier Bartlett,3b53243a,Bowler,Fast,Right-arm pace,Right-hand,False,1.0,15.0,11.0,73.33,4.0,60.0,2.0,9.6
+Punjab Kings,Arshdeep Singh,244048f6,Bowler,Fast,Left-arm pace,Left-hand,False,4.0,11.0,8.0,72.73,44.0,957.0,57.0,9.64
+Punjab Kings,Suryansh Shedge,970ddd24,All-rounder,Off-spin,Right-arm off-spin,Right-hand,False,3.0,11.0,7.0,63.64,1.0,18.0,0.0,13.33
+Punjab Kings,Lockie Ferguson,2f9d0389,Bowler,Fast,Right-arm pace,Right-hand,False,2.0,2.0,5.0,250.0,14.0,258.0,15.0,10.81
+Punjab Kings,Ben Dwarshuis,e1b9f3a9,Bowler,Fast,Left-arm pace,Left-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Punjab Kings,Cooper Connolly,fe366f34,All-rounder,Left-arm orthodox,Left-arm orthodox,Left-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Punjab Kings,Harnoor Singh,8b5b6769,Batter,Medium,Right-arm pace,Left-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Punjab Kings,Musheer Khan,d621b427,All-rounder,Left-arm orthodox,Left-arm orthodox,Left-hand,False,1.0,3.0,0.0,0.0,1.0,12.0,1.0,13.5
+Punjab Kings,Pyla Avinash,,Batter,Fast,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Punjab Kings,Yash Thakur,4b31f3a3,Bowler,Fast,Right-arm pace,Right-hand,False,0.0,0.0,0.0,0.0,21.0,443.0,25.0,10.59
+Punjab Kings,Yuzvendra Chahal,57ee1fde,Bowler,Leg-spin,Right-arm leg-spin,Right-hand,False,0.0,0.0,0.0,0.0,42.0,935.0,55.0,9.07
+Rajasthan Royals,Yashasvi Jaiswal,6c19c6e5,Batter,Left-arm orthodox,Left-arm orthodox,Left-hand,False,43.0,1009.0,1619.0,160.46,0.0,0.0,0.0,0.0
+Rajasthan Royals,Shubham Dubey,a4e37e47,Batter,Medium,Right-arm pace,Right-hand,False,42.0,775.0,1171.0,151.1,2.0,18.0,1.0,15.67
+Rajasthan Royals,Riyan Parag,04a418e8,All-rounder,Off-spin,Right-arm off-spin,Right-hand,False,35.0,683.0,1044.0,152.86,11.0,138.0,3.0,8.61
+Rajasthan Royals,Ravi Singh,0a509d6b,Batter,Medium,Right-arm pace,Right-hand,False,36.0,557.0,848.0,152.24,0.0,0.0,0.0,0.0
+Rajasthan Royals,Ravindra Jadeja,fe93fd9d,All-rounder,Left-arm orthodox,Left-arm orthodox,Left-hand,False,37.0,541.0,758.0,140.11,44.0,851.0,38.0,7.95
+Rajasthan Royals,Dhruv Jurel,bcf325d2,Wicketkeeper,Medium,Right-arm pace,Right-hand,False,35.0,442.0,680.0,153.85,0.0,0.0,0.0,0.0
+Rajasthan Royals,Sam Curran,e94915e6,All-rounder,Fast,Left-arm pace,Left-hand,False,30.0,500.0,660.0,132.0,32.0,605.0,27.0,10.45
+Rajasthan Royals,Shimron Hetmyer,48a1d7b7,Batter,Medium,Right-arm pace,Left-hand,False,35.0,428.0,651.0,152.1,0.0,0.0,0.0,0.0
+Rajasthan Royals,Vaibhav Suryavanshi,470f446b,Batter,Medium,Left-arm pace,Left-hand,False,7.0,121.0,252.0,208.26,0.0,0.0,0.0,0.0
+Rajasthan Royals,Jofra Archer,5574750c,Bowler,Fast,Right-arm pace,Right-hand,False,9.0,54.0,67.0,124.07,17.0,394.0,13.0,9.85
+Rajasthan Royals,Ravi Bishnoi,df064e1a,Bowler,Leg-spin,Right-arm leg-spin,Right-hand,False,12.0,49.0,37.0,75.51,39.0,787.0,35.0,9.0
+Rajasthan Royals,Yudhvir Singh,4885bbe6,All-rounder,Medium,Right-arm pace,Right-hand,False,4.0,16.0,22.0,137.5,9.0,139.0,8.0,11.09
+Rajasthan Royals,Donovan Ferreira,f0af99a7,Batter,Off-spin,Right-arm off-spin,Right-hand,False,3.0,14.0,9.0,64.29,0.0,0.0,0.0,0.0
+Rajasthan Royals,Kwena Maphaka,107c26fb,Bowler,Fast,Left-arm pace,Left-hand,False,1.0,2.0,8.0,400.0,4.0,66.0,2.0,13.45
+Rajasthan Royals,Sandeep Sharma,ce820073,Bowler,Fast,Right-arm pace,Right-hand,False,3.0,11.0,8.0,72.73,32.0,723.0,32.0,8.92
+Rajasthan Royals,Tushar Deshpande,46a9bea1,Bowler,Fast,Right-arm pace,Right-hand,False,6.0,10.0,7.0,70.0,39.0,822.0,47.0,9.91
+Rajasthan Royals,Adam Milne,350bb1b1,Bowler,Fast,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Rajasthan Royals,Aman Rao,0420f51f,Wicketkeeper,Medium,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Rajasthan Royals,Brijesh Sharma,c18496e1,All-rounder,Medium,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Rajasthan Royals,Kuldeep Sen,2e78f685,Bowler,Fast,Right-arm pace,Right-hand,False,0.0,0.0,0.0,0.0,5.0,90.0,6.0,10.4
+Rajasthan Royals,Lhuan-dre Pretorius,60aa2db3,All-rounder,Fast,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Rajasthan Royals,Nandre Burger,465aa633,Bowler,Fast,Right-arm pace,Right-hand,False,0.0,0.0,0.0,0.0,5.0,102.0,7.0,8.94
+Rajasthan Royals,Sushant Mishra,c562ac6d,Bowler,Fast,Left-arm pace,Left-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Rajasthan Royals,Vignesh Puthur,1e030637,Bowler,Leg-spin,Right-arm leg-spin,Right-hand,False,0.0,0.0,0.0,0.0,5.0,72.0,6.0,9.08
+Rajasthan Royals,Yash Raj Punja,,Bowler,Leg-spin,Right-arm leg-spin,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Royal Challengers Bengaluru,Virat Kohli,ba607b88,Batter,Medium,Right-arm pace,Right-hand,False,44.0,1390.0,2037.0,146.55,0.0,0.0,0.0,0.0
+Royal Challengers Bengaluru,Phil Salt,3d284ca3,Wicketkeeper,Medium,Right-arm pace,Right-hand,False,34.0,595.0,1056.0,177.48,0.0,0.0,0.0,0.0
+Royal Challengers Bengaluru,Venkatesh Iyer,a24be938,All-rounder,Medium,Right-arm pace,Left-hand,False,34.0,611.0,916.0,149.92,1.0,6.0,0.0,28.0
+Royal Challengers Bengaluru,Jitesh Sharma,800d2d97,Wicketkeeper,Medium,Right-arm pace,Right-hand,False,37.0,485.0,757.0,156.08,0.0,0.0,0.0,0.0
+Royal Challengers Bengaluru,Rajat Patidar,c740ea83,Batter,Off-spin,Right-arm off-spin,Right-hand,False,27.0,440.0,707.0,160.68,0.0,0.0,0.0,0.0
+Royal Challengers Bengaluru,Tim David,f1f99156,Batter,Off-spin,Right-arm off-spin,Right-hand,False,35.0,395.0,659.0,166.84,0.0,0.0,0.0,0.0
+Royal Challengers Bengaluru,Devdutt Padikkal,2c25d4f5,Batter,Medium,Right-arm pace,Left-hand,False,28.0,415.0,546.0,131.57,0.0,0.0,0.0,0.0
+Royal Challengers Bengaluru,Krunal Pandya,5b8c830e,All-rounder,Left-arm orthodox,Left-arm orthodox,Left-hand,False,32.0,355.0,430.0,121.13,39.0,726.0,32.0,7.92
+Royal Challengers Bengaluru,Romario Shepherd,c5aef772,All-rounder,Fast,Right-arm pace,Right-hand,False,9.0,45.0,127.0,282.22,12.0,156.0,7.0,12.23
+Royal Challengers Bengaluru,Bhuvneshwar Kumar,2e81a32d,Bowler,Fast,Right-arm pace,Right-hand,False,16.0,101.0,79.0,78.22,44.0,960.0,44.0,9.23
+Royal Challengers Bengaluru,Jacob Bethell,3c55c703,All-rounder,Left-arm orthodox,Left-arm orthodox,Left-hand,False,2.0,39.0,67.0,171.79,0.0,0.0,0.0,0.0
+Royal Challengers Bengaluru,Swapnil Singh,983f2f61,All-rounder,Left-arm orthodox,Left-arm orthodox,Left-hand,False,6.0,25.0,39.0,156.0,9.0,102.0,6.0,8.88
+Royal Challengers Bengaluru,Yash Dayal,7210d461,Bowler,Fast,Left-arm pace,Left-hand,False,3.0,8.0,4.0,50.0,34.0,680.0,30.0,9.85
+Royal Challengers Bengaluru,Josh Hazlewood,03806cf8,Bowler,Fast,Right-arm pace,Left-hand,False,2.0,3.0,1.0,33.33,15.0,318.0,25.0,8.77
+Royal Challengers Bengaluru,Abhinandan Singh,,Bowler,Fast,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Royal Challengers Bengaluru,Jacob Duffy,dadbdb68,Bowler,Fast,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Royal Challengers Bengaluru,Jordan Cox,ff154ecd,Wicketkeeper,Medium,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Royal Challengers Bengaluru,Mangesh Yadav,b1ad996b,Bowler,Fast,Left-arm pace,Left-hand,False,0.0,0.0,0.0,0.0,6.0,121.0,9.0,9.32
+Royal Challengers Bengaluru,Raqibul Hasan,17efdeb8,Batter,Medium,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Royal Challengers Bengaluru,Satvik Deswal,,Bowler,Left-arm wrist spin,Left-arm wrist spin,Left-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Royal Challengers Bengaluru,Suyash Sharma,9440ef41,Bowler,Leg-spin,Right-arm leg-spin,Right-hand,False,0.0,0.0,0.0,0.0,27.0,558.0,18.0,8.98
+Sunrisers Hyderabad,Heinrich Klaasen,235c2bb6,Wicketkeeper,Medium,Right-arm pace,Right-hand,False,39.0,807.0,1414.0,175.22,0.0,0.0,0.0,0.0
+Sunrisers Hyderabad,Abhishek Sharma,f29185a1,All-rounder,Left-arm orthodox,Left-arm orthodox,Left-hand,False,40.0,616.0,1149.0,186.53,15.0,180.0,4.0,9.7
+Sunrisers Hyderabad,Ishan Kishan,752f7486,Wicketkeeper,Medium,Right-arm pace,Left-hand,False,42.0,764.0,1128.0,147.64,1.0,1.0,0.0,24.0
+Sunrisers Hyderabad,Travis Head,12b610c2,Batter,Left-arm orthodox,Left-arm orthodox,Left-hand,False,27.0,520.0,941.0,180.96,1.0,10.0,0.0,19.2
+Sunrisers Hyderabad,Liam Livingstone,50c6bc2b,All-rounder,Leg-spin,Right-arm leg-spin,Right-hand,False,24.0,328.0,502.0,153.05,14.0,168.0,7.0,9.14
+Sunrisers Hyderabad,Nitish Kumar Reddy,aad0c365,All-rounder,Fast,Right-arm pace,Right-hand,False,22.0,364.0,485.0,133.24,12.0,139.0,5.0,11.01
+Sunrisers Hyderabad,Aniket Verma,a3b0600d,Batter,Medium,Right-arm pace,Right-hand,False,12.0,142.0,236.0,166.2,0.0,0.0,0.0,0.0
+Sunrisers Hyderabad,Pat Cummins,ded9240e,Bowler,Fast,Right-arm pace,Right-hand,False,19.0,152.0,233.0,153.29,30.0,664.0,34.0,9.32
+Sunrisers Hyderabad,Kamindu Mendis,08548b13,All-rounder,Left-arm orthodox,Left-arm orthodox,Left-hand,False,5.0,68.0,92.0,135.29,4.0,42.0,2.0,8.57
+Sunrisers Hyderabad,Harshal Patel,f986ca1a,Bowler,Fast,Right-arm pace,Right-hand,False,10.0,51.0,40.0,78.43,40.0,840.0,54.0,9.91
+Sunrisers Hyderabad,Jaydev Unadkat,1e66c162,Bowler,Fast,Left-arm pace,Left-hand,False,6.0,33.0,33.0,100.0,21.0,378.0,19.0,9.37
+Sunrisers Hyderabad,Shivang Kumar,8998a68f,Bowler,Fast,Right-arm pace,Right-hand,False,3.0,24.0,18.0,75.0,2.0,20.0,0.0,11.4
+Sunrisers Hyderabad,Amit Kumar,d45c29b1,All-rounder,Fast,Right-arm pace,Right-hand,False,0.0,0.0,0.0,0.0,7.0,123.0,11.0,11.41
+Sunrisers Hyderabad,Brydon Carse,cad40f5e,Bowler,Fast,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Sunrisers Hyderabad,Eshan Malinga,5750bcb4,Bowler,Fast,Right-arm pace,Right-hand,False,0.0,0.0,0.0,0.0,7.0,160.0,13.0,9.15
+Sunrisers Hyderabad,Harsh Dubey,25228673,Bowler,Off-spin,Right-arm off-spin,Right-hand,False,0.0,0.0,0.0,0.0,3.0,60.0,5.0,9.8
+Sunrisers Hyderabad,Jack Edwards,f787e0eb,All-rounder,Off-spin,Right-arm off-spin,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Sunrisers Hyderabad,Krains Fuletra,,All-rounder,Left-arm wrist spin,Left-arm wrist spin,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Sunrisers Hyderabad,Onkar Tarmale,,Batter,Fast,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Sunrisers Hyderabad,Praful Hinge,,Bowler,Fast,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Sunrisers Hyderabad,Ravichandran Smaran,,Batter,Medium,Right-arm pace,Left-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Sunrisers Hyderabad,Sakib Hussain,280fff14,Bowler,Fast,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Sunrisers Hyderabad,Salil Arora,263f1761,Batter,Medium,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Sunrisers Hyderabad,Shivam Mavi,c38d3503,Bowler,Fast,Right-arm pace,Right-hand,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Sunrisers Hyderabad,Zeeshan Ansari,36619795,Bowler,Left-arm orthodox,Left-arm orthodox,Left-hand,False,0.0,0.0,0.0,0.0,10.0,203.0,6.0,9.87

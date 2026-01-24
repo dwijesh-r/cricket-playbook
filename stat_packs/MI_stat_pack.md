@@ -1,6 +1,6 @@
 # Mumbai Indians (MI) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-24 20:44
+**Generated:** 2026-01-24 21:02
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -20,7 +20,7 @@
 | Deepak Chahar | Bowler | Fast | Right-hand | 9.25 | Retained | 2025 |
 | Tilak Varma | All-rounder | Off-spin | Left-hand | 8.00 | Retained | 2022 |
 | Will Jacks | All-rounder | Off-spin | Right-hand | 5.25 | Auction | 2026 |
-| Naman Dhir | All-rounder | Off-spin | Left-hand | 5.25 | Retained | 2025 |
+| Naman Dhir | All-rounder | Left-arm orthodox | Left-hand | 5.25 | Retained | 2025 |
 | AM Ghazanfar | Bowler | Off-spin | Right-hand | 4.80 | Retained | 2025 |
 | Mitchell Santner | All-rounder | Left-arm orthodox | Left-hand | 2.00 | Retained | 2025 |
 | Ryan Rickelton | Batter | Medium | Left-hand | 1.00 | Retained | 2025 |
@@ -56,7 +56,7 @@
 
 - **DEATH_SPECIALIST**: Tilak Varma, Will Jacks, Jasprit Bumrah
 - **MIDDLE_OVERS_CONTROLLER**: Mitchell Santner
-- **WORKHORSE**: Hardik Pandya, Deepak Chahar, Mayank Markande
+- **WORKHORSE**: Hardik Pandya, Deepak Chahar, Mayank Markande, Mohammed Izhar
 
 ### 1.3 Key Player Tags
 
@@ -64,18 +64,19 @@
 
 | Player | Tags |
 |--------|------|
-| Hardik Pandya | SPECIALIST_VS_PACE, SPECIALIST_VS_OFF_SPIN, VULNERABLE_VS_LEFT_ARM_SPIN, FINISHER, DEATH_LIABILITY (+2 more) |
-| Mitchell Santner | MIDDLE_OVERS_CONTROLLER, LHB_VULNERABLE, RHB_WICKET_TAKER, RHB_PRESSURE, RHB_SPECIALIST (+2 more) |
-| Shardul Thakur | DEATH_LIABILITY, PART_TIMER, PROVEN_WICKET_TAKER |
-| Tilak Varma | SPECIALIST_VS_PACE, CONSISTENT, MIDDLE_ORDER, SPECIALIST_VS_OFF_SPIN, SPECIALIST_VS_LEFT_ARM_SPIN (+5 more) |
-| Will Jacks | SPECIALIST_VS_PACE, EXPLOSIVE_OPENER, PP_DOMINATOR, DEATH_SPECIALIST, SIX_HITTER (+2 more) |
-| Rohit Sharma | SPECIALIST_VS_PACE, VULNERABLE_VS_LEG_SPIN, DEATH_SPECIALIST, SIX_HITTER, MIDDLE_ORDER (+1 more) |
-| Suryakumar Yadav | SPECIALIST_VS_PACE, CONSISTENT, MIDDLE_ORDER, DEATH_SPECIALIST, SPECIALIST_VS_LEFT_ARM_WRIST_SPIN (+5 more) |
-| Deepak Chahar | WORKHORSE, LHB_WICKET_TAKER, LHB_PRESSURE, PRESSURE_BUILDER |
-| Jasprit Bumrah | DEATH_SPECIALIST, PRESSURE_BUILDER, LHB_WICKET_TAKER, PP_BEAST, PROVEN_WICKET_TAKER (+5 more) |
-| Mayank Markande | RHB_WICKET_TAKER, MIDDLE_OVERS_LIABILITY, WORKHORSE |
+| Hardik Pandya | FINISHER, SPECIALIST_VS_SPIN, VULNERABLE_VS_LEFT_ARM_SPIN, SPECIALIST_VS_PACE, SPECIALIST_VS_LEG_SPIN (+3 more) |
+| Mitchell Santner | LHB_VULNERABLE, MIDDLE_OVERS_CONTROLLER, RHB_PRESSURE, RHB_SPECIALIST, RHB_WICKET_TAKER (+2 more) |
+| Shardul Thakur | LHB_VULNERABLE, PROVEN_WICKET_TAKER, DEATH_LIABILITY, RHB_SPECIALIST, PART_TIMER |
+| Tilak Varma | DEATH_SPECIALIST, CONSISTENT, SPECIALIST_VS_LEG_SPIN, SIX_HITTER, SPECIALIST_VS_SPIN (+4 more) |
+| Will Jacks | DEATH_SPECIALIST, EXPLOSIVE_OPENER, PP_DOMINATOR, MIDDLE_OVERS_ACCELERATOR, SIX_HITTER (+2 more) |
+| Rohit Sharma | DEATH_SPECIALIST, VULNERABLE_VS_LEG_SPIN, VULNERABLE_VS_OFF_SPIN, SIX_HITTER, SPECIALIST_VS_SPIN (+4 more) |
+| Suryakumar Yadav | DEATH_SPECIALIST, PACE_SPECIALIST, CONSISTENT, MIDDLE_OVERS_ACCELERATOR, SPECIALIST_VS_LEG_SPIN (+5 more) |
+| Deepak Chahar | WORKHORSE, PRESSURE_BUILDER, LHB_WICKET_TAKER, LHB_PRESSURE, LHB_SPECIALIST (+1 more) |
+| Jasprit Bumrah | DEATH_SPECIALIST, PRESSURE_BUILDER, PROVEN_WICKET_TAKER, RHB_VULNERABLE, PP_BEAST (+4 more) |
+| Mayank Markande | RHB_WICKET_TAKER, WORKHORSE, MIDDLE_OVERS_LIABILITY |
+| Mohammed Izhar | WORKHORSE, PRESSURE_BUILDER, PROVEN_WICKET_TAKER |
 | Trent Boult | DEATH_LIABILITY, PROVEN_WICKET_TAKER, PP_ELITE, NEW_BALL_SPECIALIST, PRESSURE_BUILDER (+1 more) |
-| Quinton de Kock | SPECIALIST_VS_PACE, VULNERABLE_VS_OFF_SPIN, SPECIALIST_VS_LEFT_ARM_SPIN, DEATH_SPECIALIST, PLAYMAKER (+1 more) |
+| Quinton de Kock | DEATH_SPECIALIST, PLAYMAKER, SIX_HITTER, SPECIALIST_VS_SPIN, SPECIALIST_VS_PACE |
 
 ---
 
@@ -131,12 +132,12 @@
 | Wankhede Stadium | 67 | 10288 | 7769 | 132.42 | 27.43 |
 | Wankhede Stadium, Mumbai | 25 | 4207 | 2786 | 151.01 | 30.71 |
 | Eden Gardens | 13 | 2138 | 1545 | 138.38 | 32.39 |
-| Dubai International Cricket Stadium | 10 | 1449 | 1147 | 126.33 | 23.75 |
 | M Chinnaswamy Stadium | 10 | 1438 | 1117 | 128.74 | 31.26 |
+| Dubai International Cricket Stadium | 10 | 1449 | 1147 | 126.33 | 23.75 |
 | Sheikh Zayed Stadium | 9 | 1467 | 1055 | 139.05 | 33.34 |
 | Feroz Shah Kotla | 9 | 1403 | 1053 | 133.24 | 25.51 |
-| Rajiv Gandhi International Stadium, Uppa... | 8 | 1089 | 915 | 119.02 | 27.23 |
 | MA Chidambaram Stadium, Chepauk, Chennai | 8 | 1132 | 960 | 117.92 | 18.26 |
+| Rajiv Gandhi International Stadium, Uppa... | 8 | 1089 | 915 | 119.02 | 27.23 |
 | Sawai Mansingh Stadium | 7 | 923 | 818 | 112.84 | 22.51 |
 
 ---
@@ -147,19 +148,19 @@
 
 | Player | Role | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | 50s | 100s | Sample |
 |--------|------|-----|------|-------|-----|-----|--------|------|-----|------|--------|
-| Rohit Sharma | Batter | 266 | 7046 | 5315 | 132.57 | 29.98 | 17.74 | 37.84 | 49 | 2 | HIGH |
-| Suryakumar Yadav | Batter | 151 | 4311 | 2888 | 149.27 | 36.23 | 21.54 | 33.83 | 31 | 2 | HIGH |
-| Quinton de Kock | Wicketkeeper | 115 | 3309 | 2462 | 134.4 | 31.51 | 18.64 | 38.79 | 26 | 2 | HIGH |
-| Hardik Pandya | All-rounder | 140 | 2749 | 1862 | 147.64 | 28.94 | 19.12 | 33.3 | 10 | 0 | HIGH |
-| Tilak Varma | All-rounder | 51 | 1499 | 1032 | 145.25 | 39.45 | 18.12 | 31.3 | 8 | 0 | HIGH |
+| Suryakumar Yadav | Batter | 43 | 1667 | 964 | 172.93 | 47.63 | 26.35 | 31.12 | 15 | 2 | HIGH |
+| Rohit Sharma | Batter | 45 | 1167 | 804 | 145.15 | 27.14 | 22.76 | 42.04 | 8 | 1 | HIGH |
+| Tilak Varma | All-rounder | 37 | 1102 | 730 | 150.96 | 39.36 | 19.45 | 31.51 | 6 | 0 | HIGH |
+| Hardik Pandya | All-rounder | 40 | 786 | 539 | 145.83 | 24.56 | 18.55 | 32.28 | 2 | 0 | HIGH |
+| Quinton de Kock | Wicketkeeper | 23 | 545 | 403 | 135.24 | 24.77 | 18.86 | 38.96 | 5 | 0 | MEDIUM |
 | Will Jacks | All-rounder | 19 | 463 | 302 | 153.31 | 28.94 | 22.19 | 36.42 | 3 | 1 | MEDIUM |
-| Sherfane Rutherford | All-rounder | 20 | 397 | 288 | 137.85 | 24.81 | 17.71 | 38.19 | 0 | 0 | MEDIUM |
 | Naman Dhir | All-rounder | 19 | 392 | 216 | 181.48 | 28.0 | 27.78 | 29.63 | 1 | 0 | MEDIUM |
 | Ryan Rickelton | Batter | 14 | 388 | 255 | 152.16 | 29.85 | 25.1 | 41.18 | 3 | 0 | MEDIUM |
-| Shardul Thakur | All-rounder | 40 | 325 | 232 | 140.09 | 12.5 | 18.53 | 35.34 | 1 | 0 | HIGH |
-| Mitchell Santner | All-rounder | 19 | 110 | 103 | 106.8 | 13.75 | 11.65 | 45.63 | 0 | 0 | MEDIUM |
+| Sherfane Rutherford | All-rounder | 11 | 291 | 184 | 158.15 | 32.33 | 21.74 | 32.07 | 0 | 0 | MEDIUM |
+| Shardul Thakur | All-rounder | 17 | 152 | 99 | 153.54 | 12.67 | 23.23 | 33.33 | 1 | 0 | MEDIUM |
+| Mitchell Santner | All-rounder | 13 | 56 | 54 | 103.7 | 11.2 | 11.11 | 42.59 | 0 | 0 | MEDIUM |
 | Corbin Bosch | All-rounder | 2 | 47 | 32 | 146.88 | 23.5 | 18.75 | 37.5 | 0 | 0 | LOW |
-| Raj Bawa | All-rounder | 3 | 19 | 18 | 105.56 | 9.5 | 5.56 | 38.89 | 0 | 0 | LOW |
+| Raj Bawa | All-rounder | 1 | 8 | 4 | 200.0 | - | - | - | 0 | 0 | LOW |
 | Robin Minz | Wicketkeeper | 2 | 6 | 15 | 40.0 | 3.0 | - | 66.67 | 0 | 0 | LOW |
 | Danish Malewar | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
@@ -198,19 +199,19 @@
 
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
-| Jasprit Bumrah | Fast | 145 | 556.2 | 183 | 7.43 | 22.58 | 18.23 | 40.37 | 14.47 | HIGH |
-| Trent Boult | Fast | 119 | 447.2 | 143 | 8.48 | 26.51 | 18.76 | 41.37 | 20.57 | HIGH |
-| Shardul Thakur | Fast | 102 | 345.0 | 107 | 9.52 | 30.69 | 19.35 | 33.77 | 21.3 | HIGH |
-| Deepak Chahar | Fast | 95 | 319.2 | 88 | 8.21 | 29.78 | 21.76 | 42.51 | 19.63 | HIGH |
-| Hardik Pandya | Fast | 107 | 271.3 | 78 | 9.36 | 32.58 | 20.87 | 33.48 | 20.64 | HIGH |
-| Mayank Markande | Leg-spin | 37 | 120.0 | 37 | 9.01 | 29.22 | 19.46 | 29.17 | 18.47 | HIGH |
-| Mitchell Santner | Left-arm o | 31 | 100.5 | 25 | 7.4 | 29.76 | 24.12 | 34.83 | 13.93 | HIGH |
+| Trent Boult | Fast | 41 | 149.0 | 51 | 8.62 | 25.18 | 17.53 | 40.16 | 20.47 | HIGH |
+| Mohammed Izhar | Fast | 43 | 161.0 | 50 | 8.96 | 28.84 | 19.32 | 42.75 | 21.43 | HIGH |
+| Jasprit Bumrah | Fast | 25 | 99.2 | 38 | 6.69 | 17.45 | 15.66 | 45.21 | 12.94 | MEDIUM |
+| Deepak Chahar | Fast | 32 | 98.5 | 29 | 8.95 | 30.41 | 20.38 | 41.62 | 21.49 | HIGH |
+| Hardik Pandya | Fast | 37 | 96.0 | 28 | 10.16 | 34.82 | 20.57 | 32.29 | 23.44 | HIGH |
+| Shardul Thakur | Fast | 28 | 86.7 | 25 | 10.53 | 36.52 | 20.8 | 26.35 | 24.42 | MEDIUM |
+| Mayank Markande | Leg-spin | 17 | 60.0 | 20 | 9.32 | 27.95 | 18.0 | 29.17 | 18.89 | MEDIUM |
+| Mitchell Santner | Left-arm o | 19 | 60.5 | 15 | 7.64 | 30.8 | 24.2 | 33.06 | 14.88 | MEDIUM |
 | Ashwani Kumar | Fast | 7 | 20.5 | 11 | 11.41 | 21.27 | 11.18 | 28.46 | 26.83 | LOW |
 | Will Jacks | Off-spin | 13 | 23.0 | 8 | 9.61 | 27.63 | 17.25 | 30.43 | 20.29 | MEDIUM |
-| Sherfane Rutherford | Medium | 6 | 6.8 | 1 | 8.78 | 60.0 | 41.0 | 17.07 | 12.2 | LOW |
 | Corbin Bosch | Fast | 2 | 7.0 | 1 | 8.0 | 56.0 | 42.0 | 54.76 | 19.05 | LOW |
-| Tilak Varma | Off-spin | 4 | 3.7 | 0 | 7.64 | - | - | 36.36 | 18.18 | LOW |
-| Naman Dhir | Off-spin | 5 | 8.7 | 0 | 8.77 | - | - | 21.15 | 15.38 | LOW |
+| Tilak Varma | Off-spin | 2 | 1.7 | 0 | 9.0 | - | - | 30.0 | 20.0 | LOW |
+| Naman Dhir | Left-arm o | 5 | 8.7 | 0 | 8.77 | - | - | 21.15 | 15.38 | LOW |
 
 ### 5.2 Bowler Phase Distribution
 
@@ -221,29 +222,29 @@
 | Ashwani Kumar | powerplay | 5.0 | 3 | 12.0 | 33.33 | 24.4% | 27.3% | +2.9 | MEDIUM |
 | Ashwani Kumar | middle | 9.0 | 4 | 8.33 | 24.07 | 43.9% | 36.4% | -7.5 | MEDIUM |
 | Ashwani Kumar | death | 6.5 | 4 | 13.85 | 30.77 | 31.7% | 36.4% | +4.7 | MEDIUM |
-| DL Chahar | powerplay | 250.5 | 66 | 7.77 | 46.31 | 78.5% | 75.0% | -3.5 | HIGH |
-| DL Chahar | middle | 40.0 | 8 | 7.5 | 29.58 | 12.5% | 9.1% | -3.4 | HIGH |
-| DL Chahar | death | 28.7 | 14 | 9.31 | 27.33 | 9.0% | 15.9% | +6.9 | HIGH |
-| HH Pandya | powerplay | 64.0 | 12 | 9.22 | 41.41 | 23.6% | 15.4% | -8.2 | HIGH |
-| HH Pandya | middle | 156.7 | 35 | 8.13 | 31.17 | 57.7% | 44.9% | -12.9 | HIGH |
-| HH Pandya | death | 50.7 | 31 | 11.53 | 30.59 | 18.7% | 39.7% | +21.1 | HIGH |
-| JJ Bumrah | powerplay | 187.0 | 38 | 6.48 | 51.69 | 33.6% | 20.8% | -12.9 | HIGH |
-| JJ Bumrah | middle | 145.0 | 44 | 6.47 | 39.66 | 26.1% | 24.0% | -2.0 | HIGH |
-| JJ Bumrah | death | 224.2 | 101 | 8.07 | 31.38 | 40.3% | 55.2% | +14.9 | HIGH |
-| M Markande | middle | 104.0 | 33 | 8.53 | 28.69 | 86.7% | 91.7% | +5.0 | HIGH |
-| M Markande | death | 16.0 | 3 | 10.94 | 32.29 | 13.3% | 8.3% | -5.0 | HIGH |
-| MJ Santner | powerplay | 23.0 | 2 | 7.43 | 44.93 | 22.9% | 8.3% | -14.6 | HIGH |
-| MJ Santner | middle | 70.0 | 19 | 6.81 | 32.62 | 69.7% | 79.2% | +9.5 | HIGH |
-| MJ Santner | death | 7.5 | 3 | 9.33 | 24.44 | 7.5% | 12.5% | +5.0 | HIGH |
-| RG Sharma | powerplay | 8.3 | 2 | 7.68 | 44.0 | 14.7% | 13.3% | -1.4 | HIGH |
-| RG Sharma | middle | 40.0 | 6 | 7.8 | 22.08 | 70.8% | 40.0% | -30.8 | HIGH |
-| RG Sharma | death | 8.2 | 7 | 8.69 | 26.53 | 14.5% | 46.7% | +32.2 | HIGH |
-| SN Thakur | powerplay | 116.7 | 27 | 9.09 | 39.14 | 33.8% | 25.2% | -8.6 | HIGH |
-| SN Thakur | middle | 109.5 | 29 | 7.78 | 33.49 | 31.7% | 27.1% | -4.6 | HIGH |
-| SN Thakur | death | 118.8 | 51 | 10.12 | 28.75 | 34.4% | 47.7% | +13.2 | HIGH |
-| TA Boult | powerplay | 268.0 | 72 | 7.09 | 52.05 | 59.9% | 50.3% | -9.6 | HIGH |
-| TA Boult | middle | 59.0 | 16 | 8.63 | 24.29 | 13.2% | 11.2% | -2.0 | HIGH |
-| TA Boult | death | 120.2 | 55 | 10.44 | 25.94 | 26.9% | 38.5% | +11.6 | HIGH |
+| DL Chahar | powerplay | 80.3 | 23 | 8.17 | 44.4 | 81.6% | 79.3% | -2.2 | HIGH |
+| DL Chahar | middle | 11.0 | 4 | 7.82 | 31.82 | 11.2% | 13.8% | +2.6 | HIGH |
+| DL Chahar | death | 7.2 | 2 | 14.09 | 25.58 | 7.3% | 6.9% | -0.4 | HIGH |
+| HH Pandya | powerplay | 27.0 | 5 | 10.37 | 41.98 | 28.1% | 17.9% | -10.3 | HIGH |
+| HH Pandya | middle | 57.0 | 13 | 8.82 | 29.24 | 59.4% | 46.4% | -12.9 | HIGH |
+| HH Pandya | death | 12.0 | 10 | 13.08 | 25.0 | 12.5% | 35.7% | +23.2 | HIGH |
+| JJ Bumrah | powerplay | 36.0 | 10 | 6.39 | 55.09 | 36.3% | 26.3% | -10.0 | HIGH |
+| JJ Bumrah | middle | 30.0 | 7 | 5.83 | 43.89 | 30.3% | 18.4% | -11.8 | HIGH |
+| JJ Bumrah | death | 33.2 | 21 | 6.75 | 35.68 | 33.4% | 55.3% | +21.8 | HIGH |
+| M Markande | middle | 51.0 | 17 | 8.45 | 29.08 | 85.0% | 89.5% | +4.5 | HIGH |
+| M Markande | death | 9.0 | 2 | 12.67 | 29.63 | 15.0% | 10.5% | -4.5 | HIGH |
+| MJ Santner | powerplay | 10.0 | 0 | 7.4 | 41.67 | 16.5% | -% | -16.5 | HIGH |
+| MJ Santner | middle | 45.0 | 12 | 7.04 | 32.96 | 74.4% | 85.7% | +11.3 | HIGH |
+| MJ Santner | death | 5.5 | 2 | 10.91 | 18.18 | 9.1% | 14.3% | +5.2 | HIGH |
+| Mohammed Siraj | powerplay | 98.0 | 24 | 7.9 | 50.0 | 60.9% | 48.0% | -12.9 | HIGH |
+| Mohammed Siraj | middle | 21.0 | 7 | 9.05 | 24.6 | 13.0% | 14.0% | +1.0 | HIGH |
+| Mohammed Siraj | death | 42.0 | 19 | 9.07 | 34.92 | 26.1% | 38.0% | +11.9 | HIGH |
+| SN Thakur | powerplay | 29.7 | 6 | 11.02 | 28.09 | 34.2% | 24.0% | -10.2 | HIGH |
+| SN Thakur | middle | 26.2 | 6 | 8.06 | 24.2 | 30.2% | 24.0% | -6.2 | HIGH |
+| SN Thakur | death | 30.8 | 13 | 10.57 | 26.49 | 35.6% | 52.0% | +16.4 | HIGH |
+| TA Boult | powerplay | 94.0 | 32 | 7.33 | 50.35 | 63.1% | 62.7% | -0.3 | HIGH |
+| TA Boult | middle | 25.0 | 4 | 10.12 | 16.0 | 16.8% | 7.8% | -8.9 | HIGH |
+| TA Boult | death | 30.0 | 15 | 9.9 | 28.33 | 20.1% | 29.4% | +9.3 | HIGH |
 | WG Jacks | powerplay | 6.0 | 2 | 9.83 | 33.33 | 26.1% | 25.0% | -1.1 | MEDIUM |
 | WG Jacks | middle | 16.0 | 6 | 8.81 | 30.21 | 69.6% | 75.0% | +5.4 | MEDIUM |
 | WG Jacks | death | 1.0 | 0 | 10.0 | 16.67 | 4.3% | -% | -4.3 | MEDIUM |
@@ -254,6 +255,22 @@
 
 *Top batters' performance against each IPL team*
 
+
+### Suryakumar Yadav
+
+| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
+|------------|-----|------|-------|-----|-----|--------|------|------|--------|
+| Punjab Kings | 20 | 606 | 386 | 156.99 | 33.67 | 23.58 | 34.72 | 18 | HIGH |
+| Rajasthan Royals | 15 | 508 | 345 | 147.25 | 42.33 | 20.87 | 32.46 | 12 | HIGH |
+| Sunrisers Hyderabad | 19 | 500 | 322 | 155.28 | 38.46 | 25.47 | 38.2 | 13 | HIGH |
+| Royal Challengers Bengaluru | 19 | 496 | 322 | 154.04 | 35.43 | 22.98 | 34.78 | 14 | HIGH |
+| Delhi Capitals | 20 | 485 | 343 | 141.4 | 32.33 | 19.53 | 33.24 | 15 | HIGH |
+| Kolkata Knight Riders | 13 | 474 | 313 | 151.44 | 47.4 | 22.68 | 33.55 | 10 | HIGH |
+| Chennai Super Kings | 17 | 437 | 348 | 125.57 | 29.13 | 16.38 | 37.36 | 15 | HIGH |
+| Gujarat Titans | 7 | 316 | 182 | 173.63 | 52.67 | 24.73 | 26.37 | 6 | HIGH |
+| Lucknow Super Giants | 8 | 215 | 143 | 150.35 | 26.88 | 18.88 | 29.37 | 8 | HIGH |
+| Mumbai Indians | 7 | 143 | 88 | 162.5 | 35.75 | 21.59 | 21.59 | 4 | MEDIUM |
+| Rising Pune Supergiant | 2 | 90 | 65 | 138.46 | 90.0 | 18.46 | 29.23 | 1 | MEDIUM |
 
 ### Rohit Sharma
 
@@ -274,36 +291,19 @@
 | Mumbai Indians | 5 | 103 | 92 | 111.96 | 20.6 | 9.78 | 33.7 | 5 | MEDIUM |
 | Gujarat Lions | 4 | 82 | 68 | 120.59 | 27.33 | 16.18 | 42.65 | 3 | MEDIUM |
 
-### Suryakumar Yadav
+### Tilak Varma
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Punjab Kings | 20 | 606 | 386 | 156.99 | 33.67 | 23.58 | 34.72 | 18 | HIGH |
-| Rajasthan Royals | 15 | 508 | 345 | 147.25 | 42.33 | 20.87 | 32.46 | 12 | HIGH |
-| Sunrisers Hyderabad | 19 | 500 | 322 | 155.28 | 38.46 | 25.47 | 38.2 | 13 | HIGH |
-| Royal Challengers Bengaluru | 19 | 496 | 322 | 154.04 | 35.43 | 22.98 | 34.78 | 14 | HIGH |
-| Delhi Capitals | 20 | 485 | 343 | 141.4 | 32.33 | 19.53 | 33.24 | 15 | HIGH |
-| Kolkata Knight Riders | 13 | 474 | 313 | 151.44 | 47.4 | 22.68 | 33.55 | 10 | HIGH |
-| Chennai Super Kings | 17 | 437 | 348 | 125.57 | 29.13 | 16.38 | 37.36 | 15 | HIGH |
-| Gujarat Titans | 7 | 316 | 182 | 173.63 | 52.67 | 24.73 | 26.37 | 6 | HIGH |
-| Lucknow Super Giants | 8 | 215 | 143 | 150.35 | 26.88 | 18.88 | 29.37 | 8 | HIGH |
-| Mumbai Indians | 7 | 143 | 88 | 162.5 | 35.75 | 21.59 | 21.59 | 4 | MEDIUM |
-| Rising Pune Supergiant | 2 | 90 | 65 | 138.46 | 90.0 | 18.46 | 29.23 | 1 | MEDIUM |
-
-### Quinton de Kock
-
-| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
-|------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Rajasthan Royals | 12 | 468 | 329 | 142.25 | 46.8 | 18.84 | 31.91 | 10 | HIGH |
-| Royal Challengers Bengaluru | 13 | 455 | 321 | 141.74 | 35.0 | 21.18 | 38.94 | 13 | HIGH |
-| Kolkata Knight Riders | 15 | 455 | 307 | 148.21 | 35.0 | 20.52 | 38.76 | 13 | HIGH |
-| Punjab Kings | 13 | 425 | 333 | 127.63 | 35.42 | 17.12 | 37.84 | 12 | HIGH |
-| Sunrisers Hyderabad | 15 | 412 | 325 | 126.77 | 29.43 | 16.92 | 38.15 | 14 | HIGH |
-| Chennai Super Kings | 16 | 412 | 311 | 132.48 | 29.43 | 18.65 | 41.8 | 14 | HIGH |
-| Delhi Capitals | 13 | 368 | 267 | 137.83 | 33.45 | 19.48 | 36.33 | 11 | HIGH |
-| Mumbai Indians | 9 | 142 | 124 | 114.52 | 15.78 | 17.74 | 52.42 | 9 | HIGH |
-| Gujarat Titans | 4 | 94 | 64 | 146.88 | 23.5 | 20.31 | 34.38 | 4 | MEDIUM |
-| Gujarat Lions | 2 | 51 | 56 | 91.07 | 25.5 | 10.71 | 46.43 | 2 | MEDIUM |
+| Delhi Capitals | 7 | 239 | 158 | 151.27 | 34.14 | 18.99 | 28.48 | 7 | HIGH |
+| Rajasthan Royals | 5 | 222 | 158 | 140.51 | 55.5 | 15.82 | 31.65 | 4 | HIGH |
+| Chennai Super Kings | 5 | 169 | 137 | 123.36 | 56.33 | 15.33 | 36.5 | 3 | HIGH |
+| Sunrisers Hyderabad | 6 | 168 | 110 | 152.73 | 56.0 | 20.91 | 35.45 | 3 | HIGH |
+| Gujarat Titans | 7 | 162 | 105 | 154.29 | 27.0 | 18.1 | 27.62 | 6 | HIGH |
+| Royal Challengers Bengaluru | 4 | 155 | 87 | 178.16 | 77.5 | 27.59 | 31.03 | 2 | MEDIUM |
+| Punjab Kings | 6 | 137 | 83 | 165.06 | 45.67 | 19.28 | 20.48 | 3 | MEDIUM |
+| Lucknow Super Giants | 6 | 128 | 114 | 112.28 | 25.6 | 10.53 | 32.46 | 5 | HIGH |
+| Kolkata Knight Riders | 5 | 110 | 80 | 137.5 | 27.5 | 20.0 | 36.25 | 4 | MEDIUM |
 
 ### Hardik Pandya
 
@@ -321,24 +321,55 @@
 | Mumbai Indians | 4 | 65 | 43 | 151.16 | 32.5 | 20.93 | 30.23 | 2 | MEDIUM |
 | Gujarat Titans | 4 | 45 | 33 | 136.36 | 15.0 | 18.18 | 45.45 | 3 | MEDIUM |
 
-### Tilak Varma
+### Quinton de Kock
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Delhi Capitals | 7 | 239 | 158 | 151.27 | 34.14 | 18.99 | 28.48 | 7 | HIGH |
-| Rajasthan Royals | 5 | 222 | 158 | 140.51 | 55.5 | 15.82 | 31.65 | 4 | HIGH |
-| Chennai Super Kings | 5 | 169 | 137 | 123.36 | 56.33 | 15.33 | 36.5 | 3 | HIGH |
-| Sunrisers Hyderabad | 6 | 168 | 110 | 152.73 | 56.0 | 20.91 | 35.45 | 3 | HIGH |
-| Gujarat Titans | 7 | 162 | 105 | 154.29 | 27.0 | 18.1 | 27.62 | 6 | HIGH |
-| Royal Challengers Bengaluru | 4 | 155 | 87 | 178.16 | 77.5 | 27.59 | 31.03 | 2 | MEDIUM |
-| Punjab Kings | 6 | 137 | 83 | 165.06 | 45.67 | 19.28 | 20.48 | 3 | MEDIUM |
-| Lucknow Super Giants | 6 | 128 | 114 | 112.28 | 25.6 | 10.53 | 32.46 | 5 | HIGH |
-| Kolkata Knight Riders | 5 | 110 | 80 | 137.5 | 27.5 | 20.0 | 36.25 | 4 | MEDIUM |
+| Rajasthan Royals | 12 | 468 | 329 | 142.25 | 46.8 | 18.84 | 31.91 | 10 | HIGH |
+| Royal Challengers Bengaluru | 13 | 455 | 321 | 141.74 | 35.0 | 21.18 | 38.94 | 13 | HIGH |
+| Kolkata Knight Riders | 15 | 455 | 307 | 148.21 | 35.0 | 20.52 | 38.76 | 13 | HIGH |
+| Punjab Kings | 13 | 425 | 333 | 127.63 | 35.42 | 17.12 | 37.84 | 12 | HIGH |
+| Sunrisers Hyderabad | 15 | 412 | 325 | 126.77 | 29.43 | 16.92 | 38.15 | 14 | HIGH |
+| Chennai Super Kings | 16 | 412 | 311 | 132.48 | 29.43 | 18.65 | 41.8 | 14 | HIGH |
+| Delhi Capitals | 13 | 368 | 267 | 137.83 | 33.45 | 19.48 | 36.33 | 11 | HIGH |
+| Mumbai Indians | 9 | 142 | 124 | 114.52 | 15.78 | 17.74 | 52.42 | 9 | HIGH |
+| Gujarat Titans | 4 | 94 | 64 | 146.88 | 23.5 | 20.31 | 34.38 | 4 | MEDIUM |
+| Gujarat Lions | 2 | 51 | 56 | 91.07 | 25.5 | 10.71 | 46.43 | 2 | MEDIUM |
 
 ---
 
 ## 7. Key Bowler vs Opposition
 
+
+### Trent Boult
+
+| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
+|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
+| Sunrisers Hyderabad | 14 | 327 | 427 | 21 | 7.83 | 20.33 | 15.57 | 39.45 | 18.04 | HIGH |
+| Royal Challengers Bengaluru | 14 | 324 | 446 | 19 | 8.26 | 23.47 | 17.05 | 41.05 | 20.37 | HIGH |
+| Delhi Capitals | 13 | 282 | 368 | 16 | 7.83 | 23.0 | 17.63 | 44.68 | 21.63 | HIGH |
+| Kolkata Knight Riders | 11 | 246 | 323 | 14 | 7.88 | 23.07 | 17.57 | 46.34 | 20.33 | HIGH |
+| Mumbai Indians | 11 | 257 | 363 | 14 | 8.47 | 25.93 | 18.36 | 36.58 | 19.07 | HIGH |
+| Chennai Super Kings | 14 | 316 | 457 | 13 | 8.68 | 35.15 | 24.31 | 42.72 | 22.78 | HIGH |
+| Rajasthan Royals | 9 | 193 | 255 | 12 | 7.93 | 21.25 | 16.08 | 38.86 | 18.65 | HIGH |
+| Punjab Kings | 16 | 354 | 520 | 12 | 8.81 | 43.33 | 29.5 | 38.7 | 23.16 | HIGH |
+| Lucknow Super Giants | 7 | 162 | 185 | 12 | 6.85 | 15.42 | 13.5 | 49.38 | 16.67 | HIGH |
+| Gujarat Titans | 8 | 174 | 242 | 8 | 8.34 | 30.25 | 21.75 | 39.08 | 18.97 | HIGH |
+| Gujarat Lions | 2 | 48 | 77 | 2 | 9.63 | 38.5 | 24.0 | 39.58 | 33.33 | MEDIUM |
+
+### Mohammed Izhar
+
+| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
+|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
+| Delhi Capitals | 15 | 329 | 496 | 18 | 9.05 | 27.56 | 18.28 | 38.3 | 23.4 | HIGH |
+| Kolkata Knight Riders | 15 | 320 | 408 | 15 | 7.65 | 27.2 | 21.33 | 45.63 | 19.38 | HIGH |
+| Sunrisers Hyderabad | 13 | 270 | 319 | 15 | 7.09 | 21.27 | 18.0 | 47.04 | 15.93 | HIGH |
+| Mumbai Indians | 15 | 313 | 434 | 13 | 8.32 | 33.38 | 24.08 | 43.13 | 20.13 | HIGH |
+| Rajasthan Royals | 13 | 270 | 361 | 13 | 8.02 | 27.77 | 20.77 | 41.11 | 19.26 | HIGH |
+| Punjab Kings | 11 | 234 | 397 | 13 | 10.18 | 30.54 | 18.0 | 34.62 | 26.5 | HIGH |
+| Lucknow Super Giants | 7 | 162 | 237 | 7 | 8.78 | 33.86 | 23.14 | 43.83 | 23.46 | HIGH |
+| Gujarat Titans | 4 | 96 | 127 | 5 | 7.94 | 25.4 | 19.2 | 43.75 | 19.79 | MEDIUM |
+| Chennai Super Kings | 12 | 234 | 358 | 3 | 9.18 | 119.33 | 78.0 | 34.62 | 21.37 | HIGH |
 
 ### Jasprit Bumrah
 
@@ -355,68 +386,6 @@
 | Gujarat Titans | 4 | 96 | 108 | 6 | 6.75 | 18.0 | 16.0 | 46.88 | 14.58 | MEDIUM |
 | Gujarat Lions | 4 | 96 | 138 | 5 | 8.63 | 27.6 | 19.2 | 32.29 | 19.79 | MEDIUM |
 | Lucknow Super Giants | 4 | 96 | 92 | 5 | 5.75 | 18.4 | 19.2 | 48.96 | 9.38 | MEDIUM |
-
-### Trent Boult
-
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Sunrisers Hyderabad | 14 | 327 | 427 | 21 | 7.83 | 20.33 | 15.57 | 39.45 | 18.04 | HIGH |
-| Royal Challengers Bengaluru | 14 | 324 | 446 | 19 | 8.26 | 23.47 | 17.05 | 41.05 | 20.37 | HIGH |
-| Delhi Capitals | 13 | 282 | 368 | 16 | 7.83 | 23.0 | 17.63 | 44.68 | 21.63 | HIGH |
-| Kolkata Knight Riders | 11 | 246 | 323 | 14 | 7.88 | 23.07 | 17.57 | 46.34 | 20.33 | HIGH |
-| Mumbai Indians | 11 | 257 | 363 | 14 | 8.47 | 25.93 | 18.36 | 36.58 | 19.07 | HIGH |
-| Chennai Super Kings | 14 | 316 | 457 | 13 | 8.68 | 35.15 | 24.31 | 42.72 | 22.78 | HIGH |
-| Rajasthan Royals | 9 | 193 | 255 | 12 | 7.93 | 21.25 | 16.08 | 38.86 | 18.65 | HIGH |
-| Lucknow Super Giants | 7 | 162 | 185 | 12 | 6.85 | 15.42 | 13.5 | 49.38 | 16.67 | HIGH |
-| Punjab Kings | 16 | 354 | 520 | 12 | 8.81 | 43.33 | 29.5 | 38.7 | 23.16 | HIGH |
-| Gujarat Titans | 8 | 174 | 242 | 8 | 8.34 | 30.25 | 21.75 | 39.08 | 18.97 | HIGH |
-| Gujarat Lions | 2 | 48 | 77 | 2 | 9.63 | 38.5 | 24.0 | 39.58 | 33.33 | MEDIUM |
-
-### Shardul Thakur
-
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Punjab Kings | 13 | 266 | 396 | 19 | 8.93 | 20.84 | 14.0 | 35.71 | 21.43 | HIGH |
-| Sunrisers Hyderabad | 17 | 347 | 527 | 18 | 9.11 | 29.28 | 19.28 | 31.12 | 21.33 | HIGH |
-| Kolkata Knight Riders | 12 | 252 | 355 | 14 | 8.45 | 25.36 | 18.0 | 35.32 | 19.05 | HIGH |
-| Royal Challengers Bengaluru | 10 | 216 | 325 | 14 | 9.03 | 23.21 | 15.43 | 38.43 | 20.83 | HIGH |
-| Mumbai Indians | 14 | 290 | 456 | 11 | 9.43 | 41.45 | 26.36 | 32.07 | 21.38 | HIGH |
-| Rajasthan Royals | 12 | 247 | 342 | 11 | 8.31 | 31.09 | 22.45 | 37.65 | 19.43 | HIGH |
-| Delhi Capitals | 11 | 190 | 316 | 9 | 9.98 | 35.11 | 21.11 | 32.63 | 25.79 | HIGH |
-| Lucknow Super Giants | 4 | 76 | 133 | 6 | 10.5 | 22.17 | 12.67 | 23.68 | 22.37 | MEDIUM |
-| Gujarat Lions | 2 | 36 | 38 | 2 | 6.33 | 19.0 | 18.0 | 36.11 | 11.11 | MEDIUM |
-| Gujarat Titans | 4 | 90 | 133 | 2 | 8.87 | 66.5 | 45.0 | 28.89 | 17.78 | MEDIUM |
-| Chennai Super Kings | 3 | 60 | 95 | 1 | 9.5 | 95.0 | 60.0 | 31.67 | 26.67 | MEDIUM |
-
-### Deepak Chahar
-
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Delhi Capitals | 16 | 324 | 433 | 16 | 8.02 | 27.06 | 20.25 | 39.81 | 19.75 | HIGH |
-| Kolkata Knight Riders | 10 | 198 | 284 | 13 | 8.61 | 21.85 | 15.23 | 42.42 | 24.24 | HIGH |
-| Mumbai Indians | 13 | 250 | 322 | 13 | 7.73 | 24.77 | 19.23 | 46.8 | 20.4 | HIGH |
-| Sunrisers Hyderabad | 14 | 313 | 358 | 12 | 6.86 | 29.83 | 26.08 | 45.05 | 15.97 | HIGH |
-| Rajasthan Royals | 7 | 150 | 166 | 10 | 6.64 | 16.6 | 15.0 | 46.67 | 14.67 | HIGH |
-| Punjab Kings | 11 | 212 | 285 | 7 | 8.07 | 40.71 | 30.29 | 44.81 | 21.23 | HIGH |
-| Royal Challengers Bengaluru | 10 | 186 | 243 | 7 | 7.84 | 34.71 | 26.57 | 39.78 | 19.89 | HIGH |
-| Gujarat Titans | 6 | 138 | 189 | 7 | 8.22 | 27.0 | 19.71 | 34.78 | 15.94 | HIGH |
-| Chennai Super Kings | 2 | 36 | 48 | 2 | 8.0 | 24.0 | 18.0 | 44.44 | 19.44 | MEDIUM |
-| Lucknow Super Giants | 6 | 108 | 186 | 1 | 10.33 | 186.0 | 108.0 | 37.04 | 26.85 | HIGH |
-
-### Hardik Pandya
-
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Kolkata Knight Riders | 13 | 210 | 274 | 14 | 7.83 | 19.57 | 15.0 | 40.95 | 16.67 | HIGH |
-| Rajasthan Royals | 11 | 178 | 235 | 12 | 7.92 | 19.58 | 14.83 | 38.2 | 17.98 | HIGH |
-| Sunrisers Hyderabad | 13 | 204 | 301 | 12 | 8.85 | 25.08 | 17.0 | 30.39 | 18.63 | HIGH |
-| Chennai Super Kings | 13 | 198 | 265 | 10 | 8.03 | 26.5 | 19.8 | 37.37 | 17.17 | HIGH |
-| Royal Challengers Bengaluru | 12 | 174 | 293 | 7 | 10.1 | 41.86 | 24.86 | 27.01 | 24.71 | HIGH |
-| Lucknow Super Giants | 8 | 120 | 181 | 7 | 9.05 | 25.86 | 17.14 | 34.17 | 22.5 | HIGH |
-| Punjab Kings | 10 | 186 | 336 | 6 | 10.84 | 56.0 | 31.0 | 26.88 | 25.81 | HIGH |
-| Delhi Capitals | 14 | 198 | 305 | 6 | 9.24 | 50.83 | 33.0 | 34.85 | 21.72 | HIGH |
-| Gujarat Titans | 4 | 66 | 106 | 2 | 9.64 | 53.0 | 33.0 | 25.76 | 22.73 | MEDIUM |
-| Rising Pune Supergiant | 4 | 46 | 76 | 1 | 9.91 | 76.0 | 46.0 | 23.91 | 21.74 | MEDIUM |
 
 ---
 
@@ -441,8 +410,8 @@
 | Q de Kock | M.Chinnaswamy Stadium | 7 | 201 | 166 | 121.08 | 33.5 | 16.27 | HIGH |
 | Q de Kock | M Chinnaswamy Stadium | 3 | 183 | 96 | 190.63 | 61.0 | 32.29 | MEDIUM |
 | Q de Kock | Sharjah Cricket Stadium | 5 | 173 | 131 | 132.06 | 43.25 | 17.56 | HIGH |
-| Q de Kock | Feroz Shah Kotla | 8 | 157 | 133 | 118.05 | 26.17 | 19.55 | HIGH |
 | Q de Kock | Bharat Ratna Shri Atal Bihari Vajpa... | 6 | 157 | 116 | 135.34 | 26.17 | 18.97 | HIGH |
+| Q de Kock | Feroz Shah Kotla | 8 | 157 | 133 | 118.05 | 26.17 | 19.55 | HIGH |
 | Q de Kock | Arun Jaitley Stadium, Delhi | 4 | 129 | 99 | 130.3 | 43.0 | 15.15 | MEDIUM |
 | Q de Kock | Shaheed Veer Narayan Singh Internat... | 4 | 114 | 98 | 116.33 | 28.5 | 16.33 | MEDIUM |
 | Q de Kock | Maharashtra Cricket Association Sta... | 3 | 107 | 76 | 140.79 | 35.67 | 18.42 | MEDIUM |
@@ -460,8 +429,8 @@
 | RG Sharma | Maharashtra Cricket Association Sta... | 3 | 144 | 100 | 144.0 | 144.0 | 19.0 | HIGH |
 | RG Sharma | Arun Jaitley Stadium, Delhi | 5 | 140 | 105 | 133.33 | 28.0 | 19.05 | HIGH |
 | RG Sharma | Vidarbha Cricket Association Stadiu... | 3 | 131 | 104 | 125.96 | 43.67 | 16.35 | HIGH |
-| RG Sharma | Dr. Y.S. Rajasekhara Reddy ACA-VDCA... | 4 | 124 | 98 | 126.53 | 41.33 | 15.31 | MEDIUM |
 | RG Sharma | Rajiv Gandhi International Stadium,... | 3 | 124 | 76 | 163.16 | 41.33 | 27.63 | MEDIUM |
+| RG Sharma | Dr. Y.S. Rajasekhara Reddy ACA-VDCA... | 4 | 124 | 98 | 126.53 | 41.33 | 15.31 | MEDIUM |
 | SA Yadav | Wankhede Stadium, Mumbai | 21 | 885 | 473 | 187.1 | 59.0 | 30.44 | HIGH |
 | SA Yadav | Wankhede Stadium | 18 | 499 | 367 | 135.97 | 29.35 | 20.16 | HIGH |
 | SA Yadav | Sheikh Zayed Stadium | 11 | 413 | 248 | 166.53 | 68.83 | 24.6 | HIGH |
@@ -488,9 +457,9 @@
 
 ### 9.1 Death Bowling Options
 
-- **JJ Bumrah**: 224.2 overs, 101 wickets, 8.07 economy (over-performs)
-- **DL Chahar**: 28.7 overs, 14 wickets, 9.31 economy (over-performs)
-- **SN Thakur**: 118.8 overs, 51 wickets, 10.12 economy (over-performs)
+- **JJ Bumrah**: 33.2 overs, 21 wickets, 6.75 economy (over-performs)
+- **Mohammed Siraj**: 42.0 overs, 19 wickets, 9.07 economy (over-performs)
+- **TA Boult**: 30.0 overs, 15 wickets, 9.9 economy (over-performs)
 
 ### 9.2 Powerplay Batting Options
 

@@ -1,6 +1,6 @@
 # Lucknow Super Giants (LSG) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-24 20:44
+**Generated:** 2026-01-24 21:02
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -21,14 +21,14 @@
 | Wanindu Hasaranga | All-rounder | Leg-spin | Right-hand | 7.00 | Auction | 2026 |
 | Abdul Samad | Batter | Leg-spin | Right-hand | 4.20 | Retained | 2025 |
 | Mohsin Khan | Bowler | Fast | Left-hand | 4.00 | Retained | 2022 |
-| Ayush Badoni | Batter | Off-spin | Right-hand | 4.00 | Retained | 2022 |
+| Ayush Badoni | Batter | Leg-spin | Right-hand | 4.00 | Retained | 2022 |
 | Mitchell Marsh | All-rounder | Fast | Right-hand | 3.40 | Retained | 2025 |
 | Aiden Markram | All-rounder | Off-spin | Right-hand | 2.00 | Retained | 2022 |
 | Anrich Nortje | Bowler | Fast | Right-hand | 2.00 | Auction | 2026 |
 | Matthew Breetzke | Batter | Medium | Right-hand | 0.75 | Retained | 2025 |
 | Manimaran Siddharth | Bowler | Left-arm orthodox | Left-hand | 0.75 | Retained | 2024 |
 | Himmat Singh | All-rounder | Off-spin | Right-hand | 0.30 | Retained | 2025 |
-| Digvesh Rathi | Wicketkeeper | Leg-spin | Right-hand | 0.30 | Retained | 2025 |
+| Digvesh Rathi | Wicketkeeper | Medium | Right-hand | 0.30 | Retained | 2025 |
 | Akash Singh | Bowler | Fast | Left-hand | 0.30 | Retained | 2024 |
 | Arjun Tendulkar | Bowler | Fast | Left-hand | 0.30 | Traded | 2026 |
 | Arshin Kulkarni | All-rounder | Off-spin | Right-hand | 0.30 | Retained | 2025 |
@@ -59,19 +59,19 @@
 
 | Player | Tags |
 |--------|------|
-| Aiden Markram | SPECIALIST_VS_PACE, VULNERABLE_VS_LEFT_ARM_SPIN, DEATH_SPECIALIST, SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, SPECIALIST_VS_LEG_SPIN (+2 more) |
-| Mitchell Marsh | SPECIALIST_VS_PACE, SPECIALIST_VS_OFF_SPIN, PP_DOMINATOR, SPECIALIST_VS_LEG_SPIN, MIDDLE_ORDER (+6 more) |
-| Wanindu Hasaranga | RHB_PRESSURE, WORKHORSE, LHB_VULNERABLE, RHB_SPECIALIST |
-| Abdul Samad | SPECIALIST_VS_PACE, FINISHER, SPECIALIST_VS_OFF_SPIN, VULNERABLE_VS_LEG_SPIN, VULNERABLE_VS_LEFT_ARM_SPIN (+1 more) |
-| Ayush Badoni | SPECIALIST_VS_PACE, ACCUMULATOR, VULNERABLE_VS_OFF_SPIN, PACE_SPECIALIST |
-| Akash Singh | RHB_WICKET_TAKER, PART_TIMER, LHB_PRESSURE |
-| Anrich Nortje | RHB_WICKET_TAKER, WORKHORSE, LHB_VULNERABLE, RHB_SPECIALIST |
-| Avesh Khan | DEATH_SPECIALIST |
+| Aiden Markram | SPECIALIST_VS_OFF_SPIN, DEATH_SPECIALIST, SPECIALIST_VS_LEG_SPIN, SPECIALIST_VS_SPIN, MIDDLE_ORDER (+1 more) |
+| Mitchell Marsh | SPECIALIST_VS_OFF_SPIN, PACE_SPECIALIST, PP_DOMINATOR, SPECIALIST_VS_SPIN, MIDDLE_ORDER (+5 more) |
+| Wanindu Hasaranga | WORKHORSE, MIDDLE_OVERS_LIABILITY, LHB_VULNERABLE, RHB_PRESSURE, RHB_SPECIALIST |
+| Abdul Samad | FINISHER, PACE_SPECIALIST, SPECIALIST_VS_PACE |
+| Ayush Badoni | ACCUMULATOR, PACE_SPECIALIST, SPECIALIST_VS_LEFT_ARM_SPIN, SPECIALIST_VS_PACE |
+| Akash Singh | LHB_VULNERABLE, LHB_PRESSURE, RHB_SPECIALIST, PART_TIMER, RHB_WICKET_TAKER |
+| Anrich Nortje | RHB_WICKET_TAKER, LHB_VULNERABLE, WORKHORSE, DEATH_LIABILITY, RHB_PRESSURE (+1 more) |
+| Avesh Khan | DEATH_SPECIALIST, PP_LIABILITY |
 | Mohammed Shami | DEATH_LIABILITY, PROVEN_WICKET_TAKER, PP_ELITE, NEW_BALL_SPECIALIST, PRESSURE_BUILDER (+1 more) |
-| Mohsin Khan | WORKHORSE, PRESSURE_BUILDER |
-| Digvesh Rathi | WORKHORSE, LHB_WICKET_TAKER, LHB_PRESSURE |
-| Nicholas Pooran | SPECIALIST_VS_PACE, SPIN_SPECIALIST, FINISHER, CONSISTENT, SPECIALIST_VS_OFF_SPIN (+5 more) |
-| Rishabh Pant | SPECIALIST_VS_PACE, MIDDLE_ORDER, SPECIALIST_VS_LEFT_ARM_SPIN, DEATH_SPECIALIST, SPECIALIST_VS_LEG_SPIN (+3 more) |
+| Mohsin Khan | WORKHORSE, LHB_WICKET_TAKER, PRESSURE_BUILDER, LHB_PRESSURE |
+| Digvesh Rathi | WORKHORSE, LHB_PRESSURE, LHB_WICKET_TAKER |
+| Nicholas Pooran | FINISHER, SPECIALIST_VS_OFF_SPIN, CONSISTENT, MIDDLE_OVERS_ACCELERATOR, SPECIALIST_VS_LEG_SPIN (+4 more) |
+| Rishabh Pant | DEATH_SPECIALIST, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, SIX_HITTER, MIDDLE_ORDER, SPECIALIST_VS_PACE |
 
 ---
 
@@ -129,10 +129,10 @@
 | Dr DY Patil Sports Academy, Mumbai | 4 | 663 | 478 | 138.7 | 34.89 |
 | Eden Gardens, Kolkata | 4 | 713 | 480 | 148.54 | 29.71 |
 | MA Chidambaram Stadium, Chepauk, Chennai | 3 | 473 | 337 | 140.36 | 23.65 |
-| Sawai Mansingh Stadium, Jaipur | 3 | 478 | 360 | 132.78 | 28.12 |
-| Maharashtra Cricket Association Stadium,... | 3 | 392 | 323 | 121.36 | 18.67 |
 | Rajiv Gandhi International Stadium, Uppa... | 3 | 519 | 333 | 155.86 | 43.25 |
+| Sawai Mansingh Stadium, Jaipur | 3 | 478 | 360 | 132.78 | 28.12 |
 | Brabourne Stadium, Mumbai | 3 | 523 | 357 | 146.5 | 32.69 |
+| Maharashtra Cricket Association Stadium,... | 3 | 392 | 323 | 121.36 | 18.67 |
 
 ---
 
@@ -142,14 +142,14 @@
 
 | Player | Role | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | 50s | 100s | Sample |
 |--------|------|-----|------|-------|-----|-----|--------|------|-----|------|--------|
-| Rishabh Pant | Wicketkeeper | 123 | 3553 | 2398 | 148.17 | 34.83 | 20.43 | 34.11 | 21 | 2 | HIGH |
-| Nicholas Pooran | Wicketkeeper | 86 | 2293 | 1353 | 169.48 | 35.83 | 24.02 | 33.56 | 14 | 0 | HIGH |
-| Aiden Markram | All-rounder | 55 | 1440 | 1062 | 135.59 | 31.3 | 15.82 | 29.94 | 10 | 0 | HIGH |
-| Mitchell Marsh | All-rounder | 49 | 1292 | 902 | 143.24 | 29.36 | 19.84 | 38.14 | 10 | 1 | HIGH |
-| Ayush Badoni | Batter | 46 | 963 | 693 | 138.96 | 27.51 | 16.02 | 31.02 | 6 | 0 | HIGH |
-| Abdul Samad | Batter | 51 | 741 | 485 | 152.78 | 20.03 | 19.59 | 33.61 | 0 | 0 | HIGH |
+| Nicholas Pooran | Wicketkeeper | 43 | 1381 | 751 | 183.89 | 46.03 | 27.7 | 31.56 | 10 | 0 | HIGH |
+| Aiden Markram | All-rounder | 37 | 913 | 670 | 136.27 | 27.67 | 16.12 | 30.45 | 7 | 0 | HIGH |
+| Mitchell Marsh | All-rounder | 26 | 816 | 516 | 158.14 | 32.64 | 23.84 | 36.82 | 8 | 1 | MEDIUM |
+| Ayush Badoni | Batter | 35 | 802 | 563 | 142.45 | 29.7 | 16.52 | 29.66 | 5 | 0 | HIGH |
+| Rishabh Pant | Wicketkeeper | 26 | 715 | 489 | 146.22 | 32.5 | 20.45 | 37.01 | 5 | 1 | MEDIUM |
+| Abdul Samad | Batter | 32 | 515 | 326 | 157.98 | 24.52 | 21.17 | 33.74 | 0 | 0 | HIGH |
 | Josh Inglis | Wicketkeeper | 11 | 278 | 171 | 162.57 | 30.89 | 24.56 | 36.84 | 1 | 0 | MEDIUM |
-| Wanindu Hasaranga | All-rounder | 19 | 81 | 88 | 92.05 | 5.4 | 9.09 | 46.59 | 0 | 0 | MEDIUM |
+| Wanindu Hasaranga | All-rounder | 10 | 42 | 43 | 97.67 | 6.0 | 6.98 | 37.21 | 0 | 0 | MEDIUM |
 | Matthew Breetzke | Batter | 1 | 14 | 12 | 116.67 | 14.0 | 16.67 | 58.33 | 0 | 0 | LOW |
 | Arshin Kulkarni | All-rounder | 2 | 9 | 8 | 112.5 | 4.5 | 25.0 | 62.5 | 0 | 0 | LOW |
 | Digvesh Rathi | Wicketkeeper | 1 | 1 | 3 | 33.33 | 1.0 | - | 66.67 | 0 | 0 | LOW |
@@ -184,14 +184,14 @@
 
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
-| Mohammed Shami | Fast | 119 | 434.5 | 133 | 8.81 | 28.77 | 19.6 | 39.78 | 20.71 | HIGH |
-| Avesh Khan | Fast | 75 | 269.8 | 87 | 9.25 | 28.7 | 18.61 | 35.08 | 21.56 | HIGH |
-| Anrich Nortje | Fast | 48 | 182.7 | 61 | 9.31 | 27.89 | 17.97 | 37.86 | 21.81 | HIGH |
-| Wanindu Hasaranga | Leg-spin | 37 | 133.0 | 46 | 8.53 | 24.65 | 17.35 | 33.08 | 16.92 | HIGH |
-| Mitchell Marsh | Fast | 34 | 93.3 | 37 | 8.6 | 21.7 | 15.14 | 32.32 | 17.86 | HIGH |
-| Mohsin Khan | Fast | 23 | 81.0 | 27 | 8.62 | 25.85 | 18.0 | 43.0 | 19.75 | MEDIUM |
-| Akash Singh | Fast | 10 | 34.2 | 9 | 9.54 | 36.22 | 22.78 | 35.61 | 25.37 | MEDIUM |
-| Aiden Markram | Off-spin | 19 | 31.2 | 6 | 8.82 | 45.83 | 31.17 | 25.13 | 16.04 | MEDIUM |
+| Avesh Khan | Fast | 37 | 131.2 | 40 | 9.96 | 32.67 | 19.68 | 29.48 | 23.13 | HIGH |
+| Mohammed Shami | Fast | 26 | 95.2 | 34 | 9.25 | 25.88 | 16.79 | 41.86 | 22.94 | MEDIUM |
+| Wanindu Hasaranga | Leg-spin | 19 | 70.0 | 20 | 9.07 | 31.75 | 21.0 | 27.62 | 17.86 | MEDIUM |
+| Anrich Nortje | Fast | 18 | 69.0 | 18 | 10.94 | 41.94 | 23.0 | 33.82 | 27.05 | MEDIUM |
+| Mohsin Khan | Fast | 14 | 48.0 | 13 | 10.33 | 38.15 | 22.15 | 36.11 | 25.35 | MEDIUM |
+| Mitchell Marsh | Fast | 11 | 28.2 | 13 | 9.76 | 21.15 | 13.0 | 25.44 | 18.34 | MEDIUM |
+| Akash Singh | Fast | 9 | 30.2 | 9 | 9.51 | 31.89 | 20.11 | 36.46 | 25.41 | LOW |
+| Aiden Markram | Off-spin | 13 | 21.2 | 5 | 8.88 | 37.6 | 25.4 | 23.62 | 15.75 | MEDIUM |
 | Manimaran Siddharth | Left-arm o | 5 | 16.2 | 3 | 8.66 | 46.67 | 32.33 | 34.02 | 17.53 | LOW |
 | Arjun Tendulkar | Fast | 5 | 12.2 | 3 | 9.62 | 39.0 | 24.33 | 41.1 | 20.55 | LOW |
 
@@ -201,33 +201,33 @@
 
 | Bowler | Phase | Overs | Wkts | Econ | Dot% | %Overs | %Wkts | Efficiency | Sample |
 |--------|-------|-------|------|------|------|--------|-------|------------|--------|
-| A Nortje | powerplay | 74.0 | 22 | 8.22 | 45.95 | 40.5% | 36.1% | -4.4 | HIGH |
-| A Nortje | middle | 36.3 | 12 | 8.26 | 36.24 | 19.9% | 19.7% | -0.2 | HIGH |
-| A Nortje | death | 72.3 | 27 | 9.88 | 30.41 | 39.6% | 44.3% | +4.7 | HIGH |
-| AK Markram | powerplay | 7.0 | 1 | 8.14 | 40.48 | 22.5% | 16.7% | -5.8 | MEDIUM |
-| AK Markram | middle | 24.0 | 5 | 8.88 | 20.83 | 77.0% | 83.3% | +6.3 | MEDIUM |
-| AK Markram | death | 0.2 | 0 | 6.0 | - | 0.5% | -% | -0.5 | MEDIUM |
-| Akash Singh | powerplay | 24.2 | 6 | 9.14 | 44.14 | 70.7% | 66.7% | -4.1 | MEDIUM |
-| Akash Singh | middle | 8.0 | 2 | 9.38 | 16.67 | 23.4% | 22.2% | -1.2 | MEDIUM |
-| Akash Singh | death | 2.0 | 1 | 13.5 | 8.33 | 5.9% | 11.1% | +5.3 | MEDIUM |
-| Avesh Khan | powerplay | 96.8 | 22 | 9.22 | 42.51 | 35.9% | 25.0% | -10.9 | HIGH |
-| Avesh Khan | middle | 71.0 | 24 | 7.75 | 36.15 | 26.3% | 27.3% | +1.0 | HIGH |
-| Avesh Khan | death | 102.0 | 42 | 9.46 | 27.29 | 37.8% | 47.7% | +9.9 | HIGH |
+| A Nortje | powerplay | 23.0 | 7 | 9.52 | 45.65 | 33.3% | 38.9% | +5.6 | HIGH |
+| A Nortje | middle | 16.0 | 3 | 8.38 | 30.21 | 23.2% | 16.7% | -6.5 | HIGH |
+| A Nortje | death | 30.0 | 8 | 12.13 | 26.67 | 43.5% | 44.4% | +1.0 | HIGH |
+| AK Markram | powerplay | 4.0 | 1 | 10.0 | 37.5 | 18.9% | 20.0% | +1.1 | MEDIUM |
+| AK Markram | middle | 17.0 | 4 | 8.47 | 20.59 | 80.3% | 80.0% | -0.3 | MEDIUM |
+| AK Markram | death | 0.2 | 0 | 6.0 | - | 0.8% | -% | -0.8 | MEDIUM |
+| Akash Singh | powerplay | 22.2 | 6 | 9.16 | 44.36 | 73.5% | 66.7% | -6.8 | MEDIUM |
+| Akash Singh | middle | 7.0 | 2 | 10.14 | 14.29 | 23.2% | 22.2% | -1.0 | MEDIUM |
+| Akash Singh | death | 1.0 | 1 | 10.0 | 16.67 | 3.3% | 11.1% | +7.8 | MEDIUM |
+| Avesh Khan | powerplay | 38.8 | 6 | 10.92 | 32.62 | 29.6% | 14.6% | -15.0 | HIGH |
+| Avesh Khan | middle | 40.0 | 11 | 8.43 | 32.5 | 30.5% | 26.8% | -3.7 | HIGH |
+| Avesh Khan | death | 52.3 | 24 | 9.67 | 24.84 | 39.9% | 58.5% | +18.6 | HIGH |
 | DS Rathi | powerplay | 15.0 | 2 | 7.93 | 33.33 | 28.8% | 14.3% | -14.6 | HIGH |
 | DS Rathi | middle | 27.0 | 8 | 7.67 | 30.86 | 51.9% | 57.1% | +5.2 | HIGH |
 | DS Rathi | death | 10.0 | 4 | 9.5 | 25.0 | 19.2% | 28.6% | +9.3 | HIGH |
-| MR Marsh | powerplay | 17.7 | 6 | 8.6 | 44.34 | 18.9% | 16.2% | -2.7 | HIGH |
-| MR Marsh | middle | 55.5 | 19 | 7.24 | 29.73 | 59.5% | 51.4% | -8.1 | HIGH |
-| MR Marsh | death | 20.2 | 12 | 10.66 | 28.93 | 21.6% | 32.4% | +10.8 | HIGH |
-| Mohammed Shami | powerplay | 245.0 | 51 | 7.58 | 48.98 | 56.4% | 38.3% | -18.0 | HIGH |
-| Mohammed Shami | middle | 77.0 | 16 | 8.34 | 30.3 | 17.7% | 12.0% | -5.7 | HIGH |
-| Mohammed Shami | death | 112.5 | 66 | 10.51 | 26.22 | 25.9% | 49.6% | +23.7 | HIGH |
-| Mohsin Khan | powerplay | 39.0 | 11 | 7.72 | 51.28 | 48.1% | 40.7% | -7.4 | HIGH |
-| Mohsin Khan | middle | 19.0 | 5 | 7.37 | 37.72 | 23.5% | 18.5% | -4.9 | HIGH |
-| Mohsin Khan | death | 23.0 | 11 | 10.04 | 33.33 | 28.4% | 40.7% | +12.3 | HIGH |
-| PWH de Silva | powerplay | 10.0 | 4 | 9.9 | 43.33 | 7.5% | 8.7% | +1.2 | HIGH |
-| PWH de Silva | middle | 103.0 | 30 | 8.3 | 31.23 | 77.4% | 65.2% | -12.2 | HIGH |
-| PWH de Silva | death | 20.0 | 12 | 8.4 | 37.5 | 15.0% | 26.1% | +11.0 | HIGH |
+| MR Marsh | powerplay | 4.0 | 2 | 7.25 | 33.33 | 14.2% | 15.4% | +1.2 | MEDIUM |
+| MR Marsh | middle | 19.0 | 8 | 8.58 | 23.68 | 67.5% | 61.5% | -5.9 | MEDIUM |
+| MR Marsh | death | 5.2 | 3 | 12.77 | 25.81 | 18.3% | 23.1% | +4.7 | MEDIUM |
+| Mohammed Shami | powerplay | 66.0 | 22 | 8.27 | 48.99 | 69.4% | 64.7% | -4.6 | HIGH |
+| Mohammed Shami | middle | 12.0 | 3 | 9.67 | 29.17 | 12.6% | 8.8% | -3.8 | HIGH |
+| Mohammed Shami | death | 17.2 | 9 | 11.01 | 23.3 | 18.0% | 26.5% | +8.4 | HIGH |
+| Mohsin Khan | powerplay | 23.0 | 5 | 9.61 | 41.3 | 47.9% | 38.5% | -9.5 | MEDIUM |
+| Mohsin Khan | middle | 10.0 | 2 | 9.8 | 31.67 | 20.8% | 15.4% | -5.4 | MEDIUM |
+| Mohsin Khan | death | 15.0 | 6 | 10.87 | 31.11 | 31.3% | 46.2% | +14.9 | MEDIUM |
+| PWH de Silva | powerplay | 5.0 | 4 | 8.6 | 46.67 | 7.1% | 20.0% | +12.9 | HIGH |
+| PWH de Silva | middle | 58.0 | 11 | 9.16 | 24.71 | 82.9% | 55.0% | -27.9 | HIGH |
+| PWH de Silva | death | 7.0 | 5 | 7.71 | 38.1 | 10.0% | 25.0% | +15.0 | HIGH |
 
 ---
 
@@ -235,22 +235,6 @@
 
 *Top batters' performance against each IPL team*
 
-
-### Rishabh Pant
-
-| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
-|------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Sunrisers Hyderabad | 18 | 556 | 385 | 144.42 | 42.77 | 19.48 | 32.99 | 13 | HIGH |
-| Royal Challengers Bengaluru | 13 | 532 | 339 | 156.93 | 53.2 | 21.53 | 30.97 | 10 | HIGH |
-| Chennai Super Kings | 12 | 437 | 287 | 152.26 | 48.56 | 19.86 | 29.27 | 9 | HIGH |
-| Mumbai Indians | 18 | 408 | 296 | 137.84 | 24.0 | 18.92 | 38.85 | 17 | HIGH |
-| Rajasthan Royals | 12 | 399 | 257 | 155.25 | 49.88 | 21.01 | 31.13 | 8 | HIGH |
-| Kolkata Knight Riders | 16 | 384 | 259 | 148.26 | 24.0 | 20.85 | 34.36 | 16 | HIGH |
-| Punjab Kings | 15 | 217 | 184 | 117.93 | 15.5 | 15.76 | 41.85 | 14 | HIGH |
-| Gujarat Lions | 4 | 190 | 102 | 186.27 | 47.5 | 28.43 | 29.41 | 4 | HIGH |
-| Gujarat Titans | 5 | 184 | 107 | 171.96 | 92.0 | 26.17 | 30.84 | 2 | HIGH |
-| Lucknow Super Giants | 4 | 157 | 113 | 138.94 | 52.33 | 21.24 | 38.05 | 3 | HIGH |
-| Rising Pune Supergiant | 4 | 73 | 61 | 119.67 | 18.25 | 14.75 | 44.26 | 4 | MEDIUM |
 
 ### Nicholas Pooran
 
@@ -309,27 +293,26 @@
 | Rajasthan Royals | 6 | 75 | 64 | 117.19 | 15.0 | 10.94 | 31.25 | 5 | MEDIUM |
 | Royal Challengers Bengaluru | 4 | 47 | 51 | 92.16 | 11.75 | 11.76 | 47.06 | 4 | MEDIUM |
 
+### Rishabh Pant
+
+| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
+|------------|-----|------|-------|-----|-----|--------|------|------|--------|
+| Sunrisers Hyderabad | 18 | 556 | 385 | 144.42 | 42.77 | 19.48 | 32.99 | 13 | HIGH |
+| Royal Challengers Bengaluru | 13 | 532 | 339 | 156.93 | 53.2 | 21.53 | 30.97 | 10 | HIGH |
+| Chennai Super Kings | 12 | 437 | 287 | 152.26 | 48.56 | 19.86 | 29.27 | 9 | HIGH |
+| Mumbai Indians | 18 | 408 | 296 | 137.84 | 24.0 | 18.92 | 38.85 | 17 | HIGH |
+| Rajasthan Royals | 12 | 399 | 257 | 155.25 | 49.88 | 21.01 | 31.13 | 8 | HIGH |
+| Kolkata Knight Riders | 16 | 384 | 259 | 148.26 | 24.0 | 20.85 | 34.36 | 16 | HIGH |
+| Punjab Kings | 15 | 217 | 184 | 117.93 | 15.5 | 15.76 | 41.85 | 14 | HIGH |
+| Gujarat Lions | 4 | 190 | 102 | 186.27 | 47.5 | 28.43 | 29.41 | 4 | HIGH |
+| Gujarat Titans | 5 | 184 | 107 | 171.96 | 92.0 | 26.17 | 30.84 | 2 | HIGH |
+| Lucknow Super Giants | 4 | 157 | 113 | 138.94 | 52.33 | 21.24 | 38.05 | 3 | HIGH |
+| Rising Pune Supergiant | 4 | 73 | 61 | 119.67 | 18.25 | 14.75 | 44.26 | 4 | MEDIUM |
+
 ---
 
 ## 7. Key Bowler vs Opposition
 
-
-### Mohammed Shami
-
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Rajasthan Royals | 15 | 341 | 489 | 20 | 8.6 | 24.45 | 17.05 | 42.23 | 21.99 | HIGH |
-| Sunrisers Hyderabad | 14 | 300 | 389 | 18 | 7.78 | 21.61 | 16.67 | 39.33 | 17.33 | HIGH |
-| Kolkata Knight Riders | 15 | 348 | 443 | 17 | 7.64 | 26.06 | 20.47 | 41.38 | 16.67 | HIGH |
-| Delhi Capitals | 10 | 228 | 283 | 17 | 7.45 | 16.65 | 13.41 | 48.68 | 19.3 | HIGH |
-| Royal Challengers Bengaluru | 13 | 292 | 452 | 15 | 9.29 | 30.13 | 19.47 | 34.25 | 22.95 | HIGH |
-| Mumbai Indians | 15 | 330 | 482 | 14 | 8.76 | 34.43 | 23.57 | 38.79 | 21.52 | HIGH |
-| Chennai Super Kings | 15 | 329 | 414 | 14 | 7.55 | 29.57 | 23.5 | 40.73 | 16.41 | HIGH |
-| Lucknow Super Giants | 5 | 102 | 119 | 6 | 7.0 | 19.83 | 17.0 | 45.1 | 16.67 | HIGH |
-| Punjab Kings | 9 | 180 | 337 | 6 | 11.23 | 56.17 | 30.0 | 37.78 | 33.33 | HIGH |
-| Gujarat Titans | 2 | 42 | 74 | 2 | 10.57 | 37.0 | 21.0 | 28.57 | 30.95 | MEDIUM |
-| Rising Pune Supergiant | 3 | 49 | 91 | 2 | 11.14 | 45.5 | 24.5 | 20.41 | 26.53 | MEDIUM |
-| Gujarat Lions | 3 | 66 | 108 | 2 | 9.82 | 54.0 | 33.0 | 33.33 | 24.24 | MEDIUM |
 
 ### Avesh Khan
 
@@ -340,51 +323,28 @@
 | Mumbai Indians | 7 | 156 | 220 | 13 | 8.46 | 16.92 | 12.0 | 40.38 | 20.51 | HIGH |
 | Rajasthan Royals | 7 | 150 | 210 | 12 | 8.4 | 17.5 | 12.5 | 35.33 | 17.33 | HIGH |
 | Chennai Super Kings | 10 | 207 | 318 | 9 | 9.22 | 35.33 | 23.0 | 36.23 | 24.15 | HIGH |
-| Punjab Kings | 11 | 227 | 360 | 8 | 9.52 | 45.0 | 28.38 | 32.16 | 23.79 | HIGH |
 | Gujarat Titans | 7 | 159 | 244 | 8 | 9.21 | 30.5 | 19.88 | 27.04 | 20.75 | HIGH |
+| Punjab Kings | 11 | 227 | 360 | 8 | 9.52 | 45.0 | 28.38 | 32.16 | 23.79 | HIGH |
 | Royal Challengers Bengaluru | 8 | 186 | 298 | 6 | 9.61 | 49.67 | 31.0 | 31.72 | 24.19 | HIGH |
 | Delhi Capitals | 6 | 120 | 173 | 4 | 8.65 | 43.25 | 30.0 | 37.5 | 23.33 | HIGH |
 | Lucknow Super Giants | 2 | 42 | 54 | 1 | 7.71 | 54.0 | 42.0 | 23.81 | 9.52 | MEDIUM |
 
-### Anrich Nortje
+### Mohammed Shami
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Kolkata Knight Riders | 6 | 134 | 182 | 13 | 8.15 | 14.0 | 10.31 | 42.54 | 19.4 | HIGH |
-| Chennai Super Kings | 7 | 168 | 255 | 10 | 9.11 | 25.5 | 16.8 | 32.74 | 20.24 | HIGH |
-| Mumbai Indians | 8 | 174 | 275 | 9 | 9.48 | 30.56 | 19.33 | 41.38 | 24.71 | HIGH |
-| Rajasthan Royals | 6 | 144 | 208 | 8 | 8.67 | 26.0 | 18.0 | 39.58 | 21.53 | HIGH |
-| Royal Challengers Bengaluru | 4 | 96 | 111 | 7 | 6.94 | 15.86 | 13.71 | 36.46 | 13.54 | MEDIUM |
-| Sunrisers Hyderabad | 9 | 210 | 323 | 6 | 9.23 | 53.83 | 35.0 | 34.29 | 22.38 | HIGH |
-| Gujarat Titans | 3 | 66 | 118 | 4 | 10.73 | 29.5 | 16.5 | 37.88 | 27.27 | MEDIUM |
-| Punjab Kings | 4 | 90 | 124 | 4 | 8.27 | 31.0 | 22.5 | 44.44 | 22.22 | MEDIUM |
-
-### Wanindu Hasaranga
-
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Chennai Super Kings | 6 | 120 | 192 | 9 | 9.6 | 21.33 | 13.33 | 33.33 | 19.17 | HIGH |
-| Kolkata Knight Riders | 5 | 102 | 134 | 7 | 7.88 | 19.14 | 14.57 | 34.31 | 17.65 | HIGH |
-| Punjab Kings | 5 | 114 | 162 | 6 | 8.53 | 27.0 | 19.0 | 31.58 | 15.79 | HIGH |
-| Sunrisers Hyderabad | 2 | 30 | 26 | 5 | 5.2 | 5.2 | 6.0 | 50.0 | 10.0 | MEDIUM |
-| Mumbai Indians | 2 | 48 | 79 | 4 | 9.88 | 19.75 | 12.0 | 31.25 | 22.92 | MEDIUM |
-| Lucknow Super Giants | 4 | 84 | 116 | 4 | 8.29 | 29.0 | 21.0 | 34.52 | 15.48 | MEDIUM |
-| Rajasthan Royals | 4 | 96 | 113 | 4 | 7.06 | 28.25 | 24.0 | 37.5 | 12.5 | MEDIUM |
-| Gujarat Titans | 3 | 72 | 90 | 3 | 7.5 | 30.0 | 24.0 | 29.17 | 12.5 | MEDIUM |
-| Delhi Capitals | 4 | 90 | 148 | 3 | 9.87 | 49.33 | 30.0 | 31.11 | 23.33 | MEDIUM |
-| Royal Challengers Bengaluru | 2 | 42 | 62 | 1 | 8.86 | 62.0 | 42.0 | 21.43 | 16.67 | MEDIUM |
-
-### Mitchell Marsh
-
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Sunrisers Hyderabad | 5 | 108 | 114 | 8 | 6.33 | 14.25 | 13.5 | 41.67 | 12.04 | HIGH |
-| Chennai Super Kings | 5 | 72 | 103 | 6 | 8.58 | 17.17 | 12.0 | 22.22 | 16.67 | MEDIUM |
-| Royal Challengers Bengaluru | 5 | 76 | 136 | 6 | 10.74 | 22.67 | 12.67 | 27.63 | 26.32 | MEDIUM |
-| Deccan Chargers | 2 | 42 | 54 | 4 | 7.71 | 13.5 | 10.5 | 33.33 | 19.05 | MEDIUM |
-| Mumbai Indians | 3 | 48 | 50 | 3 | 6.25 | 16.67 | 16.0 | 54.17 | 14.58 | MEDIUM |
-| Kolkata Knight Riders | 3 | 42 | 63 | 3 | 9.0 | 21.0 | 14.0 | 28.57 | 19.05 | MEDIUM |
-| Punjab Kings | 5 | 98 | 152 | 2 | 9.31 | 76.0 | 49.0 | 29.59 | 21.43 | MEDIUM |
+| Rajasthan Royals | 15 | 341 | 489 | 20 | 8.6 | 24.45 | 17.05 | 42.23 | 21.99 | HIGH |
+| Sunrisers Hyderabad | 14 | 300 | 389 | 18 | 7.78 | 21.61 | 16.67 | 39.33 | 17.33 | HIGH |
+| Delhi Capitals | 10 | 228 | 283 | 17 | 7.45 | 16.65 | 13.41 | 48.68 | 19.3 | HIGH |
+| Kolkata Knight Riders | 15 | 348 | 443 | 17 | 7.64 | 26.06 | 20.47 | 41.38 | 16.67 | HIGH |
+| Royal Challengers Bengaluru | 13 | 292 | 452 | 15 | 9.29 | 30.13 | 19.47 | 34.25 | 22.95 | HIGH |
+| Chennai Super Kings | 15 | 329 | 414 | 14 | 7.55 | 29.57 | 23.5 | 40.73 | 16.41 | HIGH |
+| Mumbai Indians | 15 | 330 | 482 | 14 | 8.76 | 34.43 | 23.57 | 38.79 | 21.52 | HIGH |
+| Punjab Kings | 9 | 180 | 337 | 6 | 11.23 | 56.17 | 30.0 | 37.78 | 33.33 | HIGH |
+| Lucknow Super Giants | 5 | 102 | 119 | 6 | 7.0 | 19.83 | 17.0 | 45.1 | 16.67 | HIGH |
+| Gujarat Lions | 3 | 66 | 108 | 2 | 9.82 | 54.0 | 33.0 | 33.33 | 24.24 | MEDIUM |
+| Rising Pune Supergiant | 3 | 49 | 91 | 2 | 11.14 | 45.5 | 24.5 | 20.41 | 26.53 | MEDIUM |
+| Gujarat Titans | 2 | 42 | 74 | 2 | 10.57 | 37.0 | 21.0 | 28.57 | 30.95 | MEDIUM |
 
 ---
 
@@ -436,9 +396,9 @@
 
 ### 9.1 Death Bowling Options
 
-- **PWH de Silva**: 20.0 overs, 12 wickets, 8.4 economy (over-performs)
-- **Avesh Khan**: 102.0 overs, 42 wickets, 9.46 economy (over-performs)
 - **DS Rathi**: 10.0 overs, 4 wickets, 9.5 economy (over-performs)
+- **Avesh Khan**: 52.3 overs, 24 wickets, 9.67 economy (over-performs)
+- **Mohsin Khan**: 15.0 overs, 6 wickets, 10.87 economy (over-performs)
 
 ### 9.2 Powerplay Batting Options
 

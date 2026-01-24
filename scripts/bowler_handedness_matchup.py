@@ -27,6 +27,9 @@ PROJECT_DIR = SCRIPT_DIR.parent
 DB_PATH = PROJECT_DIR / "data" / "cricket_playbook.duckdb"
 OUTPUT_DIR = PROJECT_DIR / "outputs"
 
+# Data filter - only use recent IPL seasons (2023 onwards)
+IPL_MIN_DATE = '2023-01-01'
+
 # Minimum balls faced to consider for analysis
 MIN_BALLS_VS_HAND = 60  # ~10 overs
 
@@ -52,6 +55,7 @@ def get_bowler_vs_handedness(conn) -> pd.DataFrame:
             JOIN dim_player dp ON fb.bowler_id = dp.player_id
             JOIN ipl_2026_squads sq ON fb.batter_id = sq.player_id
             WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '{min_date}'
               AND sq.batting_hand IS NOT NULL
             GROUP BY fb.bowler_id, dp.current_name, sq.batting_hand
         )
@@ -72,7 +76,7 @@ def get_bowler_vs_handedness(conn) -> pd.DataFrame:
         FROM bowler_vs_hand
         WHERE balls >= {min_balls}
         ORDER BY bowler_name, batting_hand
-    """.format(min_balls=MIN_BALLS_VS_HAND)).df()
+    """.format(min_balls=MIN_BALLS_VS_HAND, min_date=IPL_MIN_DATE)).df()
 
     return df
 

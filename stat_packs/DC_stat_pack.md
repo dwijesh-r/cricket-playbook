@@ -1,6 +1,6 @@
 # Delhi Capitals (DC) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-24 20:44
+**Generated:** 2026-01-24 21:02
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -17,7 +17,7 @@
 | Kuldeep Yadav | Bowler | Left-arm wrist spin | Left-hand | 13.25 | Retained | 2022 |
 | Mitchell Starc | Bowler | Fast | Left-hand | 11.75 | Retained | 2024 |
 | T Natarajan | Bowler | Fast | Left-hand | 10.75 | Retained | 2024 |
-| Tristan Stubbs | All-rounder | Off-spin | Right-hand | 10.00 | Retained | 2023 |
+| Tristan Stubbs | All-rounder | Medium | Right-hand | 10.00 | Retained | 2023 |
 | Auqib Nabi Dar | Bowler | Fast | Right-hand | 8.40 | Auction | 2026 |
 | Mukesh Kumar | Bowler | Fast | Right-hand | 8.00 | Retained | 2022 |
 | Abhishek Porel | Wicketkeeper | Medium | Right-hand | 4.00 | Retained | 2023 |
@@ -30,8 +30,8 @@
 | Ben Duckett | Batter | Medium | Left-hand | 0.75 | Auction | 2026 |
 | Dushmantha Chameera | Bowler | Fast | Right-hand | 0.75 | Retained | 2024 |
 | Karun Nair | Batter | Off-spin | Right-hand | 0.50 | Retained | 2024 |
-| Nitish Rana | Batter | Off-spin | Left-hand | 0.50 | Auction | 2026 |
-| Vipraj Nigam | Batter | Leg-spin | Right-hand | 0.50 | Retained | 2025 |
+| Nitish Rana | Batter | Left-arm orthodox | Left-hand | 0.50 | Auction | 2026 |
+| Vipraj Nigam | Batter | Medium | Right-hand | 0.50 | Retained | 2025 |
 | Madhav Tiwari | All-rounder | Medium | Right-hand | 0.40 | Retained | 2025 |
 | Tripurana Vijay | Batter | Medium | Right-hand | 0.30 | Retained | 2025 |
 | Ajay Mandal | All-rounder | Medium | Right-hand | 0.30 | Retained | 2025 |
@@ -66,22 +66,22 @@
 
 | Player | Tags |
 |--------|------|
-| Axar Patel | VULNERABLE_VS_OFF_SPIN, SPIN_SPECIALIST, ACCUMULATOR, SPECIALIST_VS_LEG_SPIN, SPECIALIST_VS_SPIN (+6 more) |
-| Tristan Stubbs | SPECIALIST_VS_PACE, VULNERABLE_VS_OFF_SPIN, FINISHER, CONSISTENT, SPECIALIST_VS_LEFT_ARM_SPIN (+4 more) |
-| David Miller | SPECIALIST_VS_PACE, FINISHER, CONSISTENT, SPECIALIST_VS_LEFT_ARM_SPIN, SPECIALIST_VS_SPIN |
-| Karun Nair | SPECIALIST_VS_PACE, VULNERABLE_VS_OFF_SPIN, VULNERABLE_VS_LEFT_ARM_SPIN, MIDDLE_ORDER |
-| Nitish Rana | SPECIALIST_VS_PACE, VULNERABLE_VS_OFF_SPIN, MIDDLE_ORDER, SPECIALIST_VS_LEFT_ARM_SPIN, DEATH_SPECIALIST (+2 more) |
+| Axar Patel | SPECIALIST_VS_LEG_SPIN, SPIN_SPECIALIST, ACCUMULATOR, SPECIALIST_VS_SPIN, LHB_VULNERABLE (+5 more) |
+| Tristan Stubbs | FINISHER, DEATH_SPECIALIST, CONSISTENT, VULNERABLE_VS_OFF_SPIN, SPECIALIST_VS_LEG_SPIN (+4 more) |
+| David Miller | FINISHER, CONSISTENT, SPECIALIST_VS_LEG_SPIN, SPECIALIST_VS_SPIN |
+| Karun Nair | MIDDLE_ORDER, SPECIALIST_VS_PACE |
+| Nitish Rana | DEATH_SPECIALIST, VULNERABLE_VS_LEG_SPIN, SIX_HITTER, MIDDLE_ORDER, SPECIALIST_VS_PACE |
 | Prithvi Shaw | SPECIALIST_VS_PACE, EXPLOSIVE_OPENER, VULNERABLE_VS_LEG_SPIN, PP_DOMINATOR, VULNERABLE_VS_LEFT_ARM_SPIN (+2 more) |
 | Vipraj Nigam | WORKHORSE |
 | Dushmantha Chameera | PART_TIMER, RHB_WICKET_TAKER, PRESSURE_BUILDER, PP_LIABILITY |
-| Kuldeep Yadav | PROVEN_WICKET_TAKER, DEATH_BEAST, LHB_WICKET_TAKER, WORKHORSE |
+| Kuldeep Yadav | WORKHORSE, LHB_PRESSURE, DEATH_BEAST, PROVEN_WICKET_TAKER |
 | Kyle Jamieson | PART_TIMER, PRESSURE_BUILDER |
 | Lungi Ngidi | WORKHORSE, PP_ELITE, PRESSURE_BUILDER, RHB_SPECIALIST, RHB_PRESSURE (+1 more) |
-| Mitchell Starc | DEATH_SPECIALIST, DEATH_ELITE, PRESSURE_BUILDER |
-| Mukesh Kumar | DEATH_LIABILITY, PART_TIMER, RHB_PRESSURE |
+| Mitchell Starc | DEATH_SPECIALIST, PP_LIABILITY, PRESSURE_BUILDER, DEATH_ELITE |
+| Mukesh Kumar | DEATH_LIABILITY, RHB_PRESSURE, PART_TIMER |
 | T Natarajan | WORKHORSE |
-| Abhishek Porel | SPECIALIST_VS_PACE, EXPLOSIVE_OPENER, VULNERABLE_VS_LEG_SPIN, PP_DOMINATOR, PACE_SPECIALIST (+3 more) |
-| KL Rahul | SPECIALIST_VS_PACE, SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, PLAYMAKER, CONSISTENT |
+| Abhishek Porel | DEATH_SPECIALIST, PACE_SPECIALIST, VULNERABLE_VS_LEG_SPIN, EXPLOSIVE_OPENER, PP_DOMINATOR (+3 more) |
+| KL Rahul | SPECIALIST_VS_PACE, PLAYMAKER, CONSISTENT, SPECIALIST_VS_LEFT_ARM_SPIN, VULNERABLE_VS_OFF_SPIN (+1 more) |
 
 ---
 
@@ -139,11 +139,11 @@
 | Dubai International Cricket Stadium | 15 | 2235 | 1776 | 125.84 | 25.4 |
 | Arun Jaitley Stadium | 14 | 2223 | 1638 | 135.71 | 30.45 |
 | Wankhede Stadium, Mumbai | 10 | 1657 | 1167 | 141.99 | 25.11 |
-| Wankhede Stadium | 9 | 1266 | 1025 | 123.51 | 21.83 |
 | Eden Gardens | 9 | 1166 | 959 | 121.58 | 18.51 |
+| Wankhede Stadium | 9 | 1266 | 1025 | 123.51 | 21.83 |
 | Sharjah Cricket Stadium | 8 | 1201 | 949 | 126.55 | 28.6 |
-| M Chinnaswamy Stadium | 7 | 1115 | 825 | 135.15 | 35.97 |
 | MA Chidambaram Stadium, Chepauk | 7 | 905 | 807 | 112.14 | 21.05 |
+| M Chinnaswamy Stadium | 7 | 1115 | 825 | 135.15 | 35.97 |
 
 ---
 
@@ -153,15 +153,15 @@
 
 | Player | Role | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | 50s | 100s | Sample |
 |--------|------|-----|------|-------|-----|-----|--------|------|-----|------|--------|
-| KL Rahul | Wicketkeeper | 135 | 5222 | 3828 | 136.42 | 47.47 | 17.24 | 33.46 | 45 | 5 | HIGH |
-| David Miller | Batter | 133 | 3077 | 2212 | 139.1 | 37.07 | 16.18 | 31.06 | 14 | 1 | HIGH |
-| Nitish Rana | Batter | 112 | 2853 | 2080 | 137.16 | 27.97 | 19.33 | 39.33 | 20 | 0 | HIGH |
-| Axar Patel | All-rounder | 123 | 1916 | 1426 | 134.36 | 22.81 | 15.71 | 32.89 | 3 | 0 | HIGH |
-| Prithvi Shaw | Batter | 79 | 1892 | 1280 | 147.81 | 24.89 | 23.36 | 37.73 | 14 | 0 | HIGH |
-| Karun Nair | Batter | 76 | 1694 | 1284 | 131.93 | 24.91 | 18.22 | 38.24 | 11 | 0 | HIGH |
-| Tristan Stubbs | All-rounder | 30 | 705 | 431 | 163.57 | 47.0 | 20.42 | 22.97 | 3 | 0 | HIGH |
+| KL Rahul | Wicketkeeper | 36 | 1333 | 981 | 135.88 | 43.0 | 17.23 | 32.42 | 10 | 1 | HIGH |
+| Axar Patel | All-rounder | 36 | 781 | 547 | 142.78 | 27.89 | 18.83 | 34.19 | 3 | 0 | HIGH |
+| Tristan Stubbs | All-rounder | 28 | 703 | 427 | 164.64 | 50.21 | 20.61 | 22.72 | 3 | 0 | MEDIUM |
+| Nitish Rana | Batter | 27 | 672 | 460 | 146.09 | 26.88 | 21.96 | 37.61 | 5 | 0 | MEDIUM |
 | Abhishek Porel | Wicketkeeper | 29 | 661 | 440 | 150.23 | 25.42 | 20.91 | 32.27 | 3 | 0 | MEDIUM |
+| David Miller | Batter | 32 | 622 | 436 | 142.66 | 32.74 | 17.43 | 29.36 | 1 | 0 | HIGH |
 | Ashutosh Sharma | All-rounder | 18 | 393 | 236 | 166.53 | 28.07 | 22.03 | 31.36 | 2 | 0 | MEDIUM |
+| Prithvi Shaw | Batter | 16 | 304 | 205 | 148.29 | 19.0 | 25.37 | 38.54 | 2 | 0 | MEDIUM |
+| Karun Nair | Batter | 8 | 198 | 115 | 172.17 | 28.29 | 29.57 | 36.52 | 1 | 0 | LOW |
 | Sameer Rizvi | Batter | 9 | 172 | 122 | 140.98 | 24.57 | 19.67 | 37.7 | 1 | 0 | LOW |
 | Vipraj Nigam | Batter | 8 | 142 | 78 | 182.05 | 28.4 | 30.77 | 33.33 | 0 | 0 | LOW |
 | Madhav Tiwari | All-rounder | 1 | 3 | 4 | 75.0 | 3.0 | - | 50.0 | 0 | 0 | LOW |
@@ -205,15 +205,15 @@
 
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
-| Axar Patel | Left-arm o | 160 | 552.5 | 128 | 7.48 | 32.27 | 25.9 | 32.73 | 12.94 | HIGH |
-| Kuldeep Yadav | Left-arm w | 96 | 344.0 | 102 | 8.15 | 27.5 | 20.24 | 30.33 | 14.0 | HIGH |
-| T Natarajan | Fast | 63 | 227.0 | 68 | 9.05 | 30.21 | 20.03 | 31.06 | 19.24 | HIGH |
-| Mitchell Starc | Fast | 50 | 176.5 | 65 | 8.93 | 24.26 | 16.29 | 39.28 | 20.49 | HIGH |
+| Kuldeep Yadav | Left-arm w | 39 | 145.0 | 41 | 7.82 | 27.66 | 21.22 | 30.8 | 12.64 | HIGH |
 | Mukesh Kumar | Fast | 32 | 106.0 | 36 | 10.55 | 31.06 | 17.67 | 32.86 | 26.26 | HIGH |
-| Lungi Ngidi | Fast | 16 | 62.0 | 29 | 8.73 | 18.66 | 12.83 | 38.71 | 19.35 | MEDIUM |
-| Kyle Jamieson | Fast | 13 | 43.0 | 14 | 9.72 | 29.86 | 18.43 | 39.92 | 24.42 | MEDIUM |
-| Dushmantha Chameera | Fast | 19 | 64.0 | 13 | 10.0 | 49.23 | 29.54 | 38.02 | 24.74 | MEDIUM |
-| Tristan Stubbs | Off-spin | 5 | 6.0 | 4 | 11.5 | 17.25 | 9.0 | 33.33 | 27.78 | LOW |
+| Mitchell Starc | Fast | 24 | 79.8 | 31 | 10.67 | 27.48 | 15.45 | 38.41 | 27.56 | MEDIUM |
+| T Natarajan | Fast | 28 | 100.5 | 30 | 9.33 | 31.27 | 20.1 | 30.68 | 20.56 | MEDIUM |
+| Axar Patel | Left-arm o | 39 | 127.0 | 27 | 7.86 | 36.96 | 28.22 | 32.15 | 14.57 | HIGH |
+| Kyle Jamieson | Fast | 4 | 15.0 | 5 | 9.8 | 29.4 | 18.0 | 37.78 | 24.44 | LOW |
+| Tristan Stubbs | Medium | 5 | 6.0 | 4 | 11.5 | 17.25 | 9.0 | 33.33 | 27.78 | LOW |
+| Lungi Ngidi | Fast | 2 | 8.0 | 4 | 10.13 | 20.25 | 12.0 | 27.08 | 22.92 | LOW |
+| Dushmantha Chameera | Fast | 7 | 20.0 | 4 | 12.35 | 61.75 | 30.0 | 24.17 | 28.33 | LOW |
 | Madhav Tiwari | Medium | 1 | 1.0 | 0 | 14.0 | - | - | - | 33.33 | LOW |
 
 ### 5.2 Bowler Phase Distribution
@@ -222,33 +222,24 @@
 
 | Bowler | Phase | Overs | Wkts | Econ | Dot% | %Overs | %Wkts | Efficiency | Sample |
 |--------|-------|-------|------|------|------|--------|-------|------------|--------|
-| AR Patel | powerplay | 101.0 | 19 | 7.74 | 39.44 | 18.3% | 14.8% | -3.4 | HIGH |
-| AR Patel | middle | 389.8 | 88 | 7.04 | 31.34 | 70.6% | 68.8% | -1.8 | HIGH |
-| AR Patel | death | 61.7 | 21 | 8.81 | 30.54 | 11.2% | 16.4% | +5.2 | HIGH |
-| KA Jamieson | powerplay | 25.0 | 6 | 8.44 | 44.67 | 58.1% | 42.9% | -15.3 | MEDIUM |
-| KA Jamieson | middle | 9.0 | 5 | 8.22 | 44.44 | 20.9% | 35.7% | +14.8 | MEDIUM |
-| KA Jamieson | death | 9.0 | 3 | 12.44 | 22.22 | 20.9% | 21.4% | +0.5 | MEDIUM |
-| Kuldeep Yadav | powerplay | 10.0 | 0 | 7.9 | 31.67 | 2.9% | -% | -2.9 | HIGH |
-| Kuldeep Yadav | middle | 278.3 | 73 | 7.97 | 30.0 | 80.9% | 72.3% | -8.6 | HIGH |
-| Kuldeep Yadav | death | 55.7 | 28 | 8.14 | 31.74 | 16.2% | 27.7% | +11.5 | HIGH |
-| L Ngidi | powerplay | 25.0 | 9 | 7.52 | 50.0 | 40.3% | 31.0% | -9.3 | HIGH |
-| L Ngidi | middle | 13.0 | 5 | 8.0 | 29.49 | 21.0% | 17.2% | -3.7 | HIGH |
-| L Ngidi | death | 24.0 | 15 | 9.13 | 31.94 | 38.7% | 51.7% | +13.0 | HIGH |
-| MA Starc | powerplay | 101.0 | 25 | 8.51 | 44.22 | 57.2% | 38.5% | -18.8 | HIGH |
-| MA Starc | middle | 22.0 | 10 | 7.18 | 34.85 | 12.5% | 15.4% | +2.9 | HIGH |
-| MA Starc | death | 53.5 | 30 | 8.62 | 31.78 | 30.3% | 46.2% | +15.8 | HIGH |
+| AR Patel | powerplay | 30.0 | 6 | 8.6 | 39.44 | 23.6% | 22.2% | -1.4 | HIGH |
+| AR Patel | middle | 90.0 | 21 | 7.41 | 30.56 | 70.9% | 77.8% | +6.9 | HIGH |
+| AR Patel | death | 7.0 | 0 | 8.43 | 21.43 | 5.5% | -% | -5.5 | HIGH |
+| Kuldeep Yadav | powerplay | 1.0 | 0 | 20.0 | 16.67 | 0.7% | -% | -0.7 | HIGH |
+| Kuldeep Yadav | middle | 118.0 | 32 | 7.58 | 30.79 | 81.4% | 78.0% | -3.3 | HIGH |
+| Kuldeep Yadav | death | 26.0 | 9 | 7.58 | 31.41 | 17.9% | 22.0% | +4.0 | HIGH |
+| MA Starc | powerplay | 52.0 | 16 | 10.17 | 41.35 | 65.1% | 51.6% | -13.5 | HIGH |
+| MA Starc | middle | 8.0 | 2 | 7.5 | 35.42 | 10.0% | 6.5% | -3.6 | HIGH |
+| MA Starc | death | 19.8 | 13 | 10.29 | 31.93 | 24.8% | 41.9% | +17.1 | HIGH |
 | Mukesh Kumar | powerplay | 44.0 | 8 | 8.75 | 41.29 | 41.5% | 22.2% | -19.3 | HIGH |
 | Mukesh Kumar | middle | 22.0 | 10 | 8.91 | 30.3 | 20.8% | 27.8% | +7.0 | HIGH |
 | Mukesh Kumar | death | 40.0 | 18 | 12.28 | 25.0 | 37.7% | 50.0% | +12.3 | HIGH |
-| N Rana | powerplay | 4.2 | 0 | 8.88 | 56.0 | 13.0% | -% | -13.0 | MEDIUM |
-| N Rana | middle | 24.0 | 8 | 8.46 | 26.39 | 75.0% | 80.0% | +5.0 | MEDIUM |
-| N Rana | death | 3.8 | 2 | 6.78 | 26.09 | 12.0% | 20.0% | +8.0 | MEDIUM |
-| PVD Chameera | powerplay | 32.0 | 7 | 9.16 | 46.35 | 50.0% | 53.8% | +3.8 | HIGH |
-| PVD Chameera | middle | 15.0 | 1 | 8.33 | 27.78 | 23.4% | 7.7% | -15.7 | HIGH |
-| PVD Chameera | death | 17.0 | 5 | 11.06 | 31.37 | 26.6% | 38.5% | +11.9 | HIGH |
-| T Natarajan | powerplay | 63.0 | 15 | 8.25 | 43.92 | 27.8% | 22.1% | -5.7 | HIGH |
-| T Natarajan | middle | 71.2 | 10 | 7.63 | 25.29 | 31.4% | 14.7% | -16.6 | HIGH |
-| T Natarajan | death | 92.8 | 43 | 9.92 | 26.75 | 40.9% | 63.2% | +22.3 | HIGH |
+| PVD Chameera | powerplay | 8.0 | 0 | 13.38 | 25.0 | 40.0% | -% | -40.0 | MEDIUM |
+| PVD Chameera | middle | 5.0 | 1 | 9.6 | 13.33 | 25.0% | 25.0% | - | MEDIUM |
+| PVD Chameera | death | 7.0 | 3 | 11.57 | 30.95 | 35.0% | 75.0% | +40.0 | MEDIUM |
+| T Natarajan | powerplay | 30.0 | 6 | 8.63 | 39.44 | 29.9% | 20.0% | -9.9 | HIGH |
+| T Natarajan | middle | 28.2 | 5 | 8.13 | 25.44 | 28.0% | 16.7% | -11.4 | HIGH |
+| T Natarajan | death | 42.3 | 19 | 9.92 | 27.95 | 42.1% | 63.3% | +21.2 | HIGH |
 | V Nigam | powerplay | 8.0 | 3 | 9.25 | 45.83 | 20.5% | 30.0% | +9.5 | MEDIUM |
 | V Nigam | middle | 25.0 | 5 | 9.48 | 24.67 | 64.1% | 50.0% | -14.1 | MEDIUM |
 | V Nigam | death | 6.0 | 2 | 5.67 | 36.11 | 15.4% | 20.0% | +4.6 | MEDIUM |
@@ -277,22 +268,34 @@
 | Gujarat Lions | 2 | 51 | 36 | 141.67 | 51.0 | 19.44 | 33.33 | 1 | MEDIUM |
 | Rising Pune Supergiant | 2 | 45 | 45 | 100.0 | 22.5 | 8.89 | 42.22 | 2 | MEDIUM |
 
-### David Miller
+### Axar Patel
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Delhi Capitals | 23 | 536 | 427 | 125.53 | 41.23 | 14.29 | 33.49 | 13 | HIGH |
-| Mumbai Indians | 18 | 423 | 297 | 142.42 | 35.25 | 16.16 | 28.96 | 12 | HIGH |
-| Chennai Super Kings | 15 | 405 | 287 | 141.11 | 45.0 | 17.77 | 29.97 | 9 | HIGH |
-| Rajasthan Royals | 11 | 389 | 236 | 164.83 | 77.8 | 19.07 | 27.12 | 5 | HIGH |
-| Royal Challengers Bengaluru | 16 | 385 | 246 | 156.5 | 32.08 | 21.14 | 30.49 | 12 | HIGH |
-| Sunrisers Hyderabad | 16 | 286 | 215 | 133.02 | 28.6 | 14.42 | 31.63 | 10 | HIGH |
-| Kolkata Knight Riders | 16 | 282 | 222 | 127.03 | 31.33 | 13.96 | 34.23 | 9 | HIGH |
-| Lucknow Super Giants | 4 | 83 | 69 | 120.29 | 27.67 | 11.59 | 31.88 | 3 | MEDIUM |
-| Pune Warriors | 1 | 80 | 41 | 195.12 | - | 24.39 | 14.63 | 0 | MEDIUM |
-| Punjab Kings | 6 | 68 | 68 | 100.0 | 17.0 | 8.82 | 38.24 | 4 | MEDIUM |
-| Gujarat Lions | 2 | 46 | 37 | 124.32 | 23.0 | 10.81 | 29.73 | 2 | MEDIUM |
-| Rising Pune Supergiant | 3 | 44 | 38 | 115.79 | 22.0 | 10.53 | 36.84 | 2 | MEDIUM |
+| Royal Challengers Bengaluru | 16 | 279 | 184 | 151.63 | 34.88 | 20.65 | 30.43 | 8 | HIGH |
+| Mumbai Indians | 18 | 275 | 193 | 142.49 | 22.92 | 17.1 | 32.64 | 12 | HIGH |
+| Sunrisers Hyderabad | 14 | 207 | 161 | 128.57 | 20.7 | 13.04 | 29.19 | 10 | HIGH |
+| Kolkata Knight Riders | 18 | 203 | 166 | 122.29 | 18.45 | 13.86 | 36.14 | 11 | HIGH |
+| Gujarat Titans | 6 | 201 | 147 | 136.73 | 33.5 | 17.01 | 35.37 | 6 | HIGH |
+| Chennai Super Kings | 15 | 179 | 149 | 120.13 | 14.92 | 12.75 | 33.56 | 12 | HIGH |
+| Rajasthan Royals | 13 | 153 | 112 | 136.61 | 15.3 | 16.07 | 27.68 | 10 | HIGH |
+| Delhi Capitals | 6 | 148 | 127 | 116.54 | 37.0 | 11.81 | 36.22 | 4 | HIGH |
+| Lucknow Super Giants | 5 | 128 | 76 | 168.42 | 64.0 | 22.37 | 31.58 | 2 | MEDIUM |
+| Rising Pune Supergiant | 3 | 47 | 45 | 104.44 | 15.67 | 8.89 | 37.78 | 3 | MEDIUM |
+| Punjab Kings | 5 | 46 | 44 | 104.55 | 11.5 | 11.36 | 40.91 | 4 | MEDIUM |
+
+### Tristan Stubbs
+
+| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
+|------------|-----|------|-------|-----|-----|--------|------|------|--------|
+| Rajasthan Royals | 3 | 119 | 61 | 195.08 | 119.0 | 24.59 | 13.11 | 1 | MEDIUM |
+| Mumbai Indians | 4 | 116 | 57 | 203.51 | 58.0 | 29.82 | 22.81 | 2 | MEDIUM |
+| Lucknow Super Giants | 3 | 106 | 56 | 189.29 | 106.0 | 21.43 | 17.86 | 1 | MEDIUM |
+| Gujarat Titans | 3 | 78 | 38 | 205.26 | 78.0 | 26.32 | 10.53 | 1 | MEDIUM |
+| Royal Challengers Bengaluru | 3 | 75 | 45 | 166.67 | 75.0 | 24.44 | 15.56 | 1 | MEDIUM |
+| Sunrisers Hyderabad | 4 | 74 | 63 | 117.46 | 74.0 | 11.11 | 23.81 | 1 | MEDIUM |
+| Kolkata Knight Riders | 3 | 59 | 42 | 140.48 | 19.67 | 19.05 | 38.1 | 3 | MEDIUM |
+| Chennai Super Kings | 5 | 49 | 47 | 104.26 | 12.25 | 10.64 | 40.43 | 4 | MEDIUM |
 
 ### Nitish Rana
 
@@ -311,56 +314,20 @@
 | Gujarat Titans | 5 | 56 | 44 | 127.27 | 11.2 | 20.45 | 50.0 | 5 | MEDIUM |
 | Rising Pune Supergiant | 2 | 37 | 37 | 100.0 | 18.5 | 8.11 | 40.54 | 2 | MEDIUM |
 
-### Axar Patel
+### Abhishek Porel
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Royal Challengers Bengaluru | 16 | 279 | 184 | 151.63 | 34.88 | 20.65 | 30.43 | 8 | HIGH |
-| Mumbai Indians | 18 | 275 | 193 | 142.49 | 22.92 | 17.1 | 32.64 | 12 | HIGH |
-| Sunrisers Hyderabad | 14 | 207 | 161 | 128.57 | 20.7 | 13.04 | 29.19 | 10 | HIGH |
-| Kolkata Knight Riders | 18 | 203 | 166 | 122.29 | 18.45 | 13.86 | 36.14 | 11 | HIGH |
-| Gujarat Titans | 6 | 201 | 147 | 136.73 | 33.5 | 17.01 | 35.37 | 6 | HIGH |
-| Chennai Super Kings | 15 | 179 | 149 | 120.13 | 14.92 | 12.75 | 33.56 | 12 | HIGH |
-| Rajasthan Royals | 13 | 153 | 112 | 136.61 | 15.3 | 16.07 | 27.68 | 10 | HIGH |
-| Delhi Capitals | 6 | 148 | 127 | 116.54 | 37.0 | 11.81 | 36.22 | 4 | HIGH |
-| Lucknow Super Giants | 5 | 128 | 76 | 168.42 | 64.0 | 22.37 | 31.58 | 2 | MEDIUM |
-| Rising Pune Supergiant | 3 | 47 | 45 | 104.44 | 15.67 | 8.89 | 37.78 | 3 | MEDIUM |
-| Punjab Kings | 5 | 46 | 44 | 104.55 | 11.5 | 11.36 | 40.91 | 4 | MEDIUM |
-
-### Prithvi Shaw
-
-| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
-|------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Kolkata Knight Riders | 11 | 427 | 253 | 168.77 | 38.82 | 26.48 | 28.85 | 11 | HIGH |
-| Chennai Super Kings | 12 | 321 | 212 | 151.42 | 26.75 | 25.0 | 38.21 | 12 | HIGH |
-| Sunrisers Hyderabad | 9 | 227 | 158 | 143.67 | 28.38 | 21.52 | 37.97 | 8 | HIGH |
-| Punjab Kings | 9 | 213 | 139 | 153.24 | 26.63 | 25.18 | 41.01 | 8 | HIGH |
-| Mumbai Indians | 12 | 208 | 162 | 128.4 | 18.91 | 20.37 | 44.44 | 11 | HIGH |
-| Royal Challengers Bengaluru | 9 | 184 | 129 | 142.64 | 20.44 | 22.48 | 37.21 | 9 | HIGH |
-| Rajasthan Royals | 9 | 165 | 130 | 126.92 | 18.33 | 17.69 | 40.77 | 9 | HIGH |
-| Lucknow Super Giants | 4 | 110 | 72 | 152.78 | 27.5 | 27.78 | 43.06 | 4 | MEDIUM |
+| Rajasthan Royals | 4 | 130 | 92 | 141.3 | 32.5 | 18.48 | 30.43 | 4 | MEDIUM |
+| Mumbai Indians | 5 | 117 | 95 | 123.16 | 23.4 | 13.68 | 34.74 | 5 | MEDIUM |
+| Lucknow Super Giants | 3 | 109 | 71 | 153.52 | 36.33 | 21.13 | 30.99 | 3 | MEDIUM |
+| Sunrisers Hyderabad | 3 | 84 | 50 | 168.0 | 84.0 | 26.0 | 26.0 | 1 | MEDIUM |
+| Gujarat Titans | 4 | 83 | 46 | 180.43 | 20.75 | 28.26 | 36.96 | 4 | MEDIUM |
 
 ---
 
 ## 7. Key Bowler vs Opposition
 
-
-### Axar Patel
-
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Royal Challengers Bengaluru | 21 | 450 | 549 | 21 | 7.32 | 26.14 | 21.43 | 34.0 | 12.22 | HIGH |
-| Kolkata Knight Riders | 22 | 456 | 544 | 17 | 7.16 | 32.0 | 26.82 | 36.4 | 13.38 | HIGH |
-| Sunrisers Hyderabad | 20 | 425 | 535 | 17 | 7.55 | 31.47 | 25.0 | 30.82 | 12.71 | HIGH |
-| Rajasthan Royals | 17 | 354 | 430 | 15 | 7.29 | 28.67 | 23.6 | 34.75 | 14.12 | HIGH |
-| Mumbai Indians | 22 | 432 | 587 | 14 | 8.15 | 41.93 | 30.86 | 27.31 | 14.58 | HIGH |
-| Chennai Super Kings | 18 | 378 | 440 | 11 | 6.98 | 40.0 | 34.36 | 31.48 | 11.11 | HIGH |
-| Punjab Kings | 10 | 216 | 209 | 11 | 5.81 | 19.0 | 19.64 | 37.96 | 8.33 | HIGH |
-| Delhi Capitals | 9 | 196 | 245 | 9 | 7.5 | 27.22 | 21.78 | 32.65 | 13.78 | HIGH |
-| Gujarat Lions | 4 | 78 | 102 | 6 | 7.85 | 17.0 | 13.0 | 26.92 | 14.1 | MEDIUM |
-| Rising Pune Supergiant | 4 | 78 | 107 | 3 | 8.23 | 35.67 | 26.0 | 29.49 | 15.38 | MEDIUM |
-| Gujarat Titans | 6 | 120 | 157 | 2 | 7.85 | 78.5 | 60.0 | 35.0 | 15.0 | HIGH |
-| Lucknow Super Giants | 7 | 132 | 166 | 2 | 7.55 | 83.0 | 66.0 | 32.58 | 13.64 | HIGH |
 
 ### Kuldeep Yadav
 
@@ -369,30 +336,29 @@
 | Sunrisers Hyderabad | 15 | 324 | 429 | 19 | 7.94 | 22.58 | 17.05 | 32.72 | 14.51 | HIGH |
 | Rajasthan Royals | 11 | 246 | 302 | 12 | 7.37 | 25.17 | 20.5 | 31.3 | 12.6 | HIGH |
 | Punjab Kings | 11 | 204 | 281 | 11 | 8.26 | 25.55 | 18.55 | 27.94 | 14.71 | HIGH |
-| Kolkata Knight Riders | 5 | 102 | 123 | 10 | 7.24 | 12.3 | 10.2 | 38.24 | 13.73 | HIGH |
 | Mumbai Indians | 12 | 246 | 357 | 10 | 8.71 | 35.7 | 24.6 | 29.67 | 16.26 | HIGH |
+| Kolkata Knight Riders | 5 | 102 | 123 | 10 | 7.24 | 12.3 | 10.2 | 38.24 | 13.73 | HIGH |
 | Royal Challengers Bengaluru | 10 | 234 | 341 | 9 | 8.74 | 37.89 | 26.0 | 29.91 | 16.24 | HIGH |
 | Lucknow Super Giants | 7 | 160 | 202 | 9 | 7.58 | 22.44 | 17.78 | 31.88 | 13.13 | HIGH |
-| Gujarat Titans | 7 | 162 | 176 | 5 | 6.52 | 35.2 | 32.4 | 31.48 | 8.64 | HIGH |
 | Delhi Capitals | 6 | 122 | 178 | 5 | 8.75 | 35.6 | 24.4 | 22.95 | 13.93 | HIGH |
+| Gujarat Titans | 7 | 162 | 176 | 5 | 6.52 | 35.2 | 32.4 | 31.48 | 8.64 | HIGH |
 | Gujarat Lions | 2 | 48 | 58 | 4 | 7.25 | 14.5 | 12.0 | 31.25 | 12.5 | MEDIUM |
 | Chennai Super Kings | 8 | 168 | 236 | 4 | 8.43 | 59.0 | 42.0 | 24.4 | 14.29 | HIGH |
 | Rising Pune Supergiant | 2 | 48 | 66 | 3 | 8.25 | 22.0 | 16.0 | 37.5 | 14.58 | MEDIUM |
 
-### T Natarajan
+### Mukesh Kumar
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Kolkata Knight Riders | 10 | 216 | 341 | 15 | 9.47 | 22.73 | 14.4 | 33.8 | 23.15 | HIGH |
-| Royal Challengers Bengaluru | 10 | 198 | 260 | 12 | 7.88 | 21.67 | 16.5 | 33.33 | 16.67 | HIGH |
-| Chennai Super Kings | 6 | 144 | 235 | 10 | 9.79 | 23.5 | 14.4 | 25.0 | 22.22 | HIGH |
-| Delhi Capitals | 7 | 150 | 164 | 9 | 6.56 | 18.22 | 16.67 | 34.67 | 10.0 | HIGH |
-| Punjab Kings | 7 | 150 | 187 | 7 | 7.48 | 26.71 | 21.43 | 38.0 | 15.33 | HIGH |
-| Rajasthan Royals | 7 | 156 | 227 | 7 | 8.73 | 32.43 | 22.29 | 33.97 | 20.51 | HIGH |
-| Gujarat Titans | 4 | 90 | 158 | 3 | 10.53 | 52.67 | 30.0 | 22.22 | 26.67 | MEDIUM |
-| Lucknow Super Giants | 4 | 90 | 128 | 2 | 8.53 | 64.0 | 45.0 | 25.56 | 15.56 | MEDIUM |
-| Gujarat Lions | 2 | 34 | 51 | 1 | 9.0 | 51.0 | 34.0 | 20.59 | 14.71 | MEDIUM |
-| Mumbai Indians | 5 | 116 | 207 | 1 | 10.71 | 207.0 | 116.0 | 27.59 | 26.72 | HIGH |
+| Mumbai Indians | 4 | 84 | 175 | 8 | 12.5 | 21.88 | 10.5 | 32.14 | 35.71 | MEDIUM |
+| Lucknow Super Giants | 5 | 108 | 158 | 7 | 8.78 | 22.57 | 15.43 | 31.48 | 19.44 | HIGH |
+| Rajasthan Royals | 4 | 84 | 149 | 5 | 10.64 | 29.8 | 16.8 | 30.95 | 27.38 | MEDIUM |
+| Gujarat Titans | 4 | 87 | 134 | 5 | 9.24 | 26.8 | 17.4 | 31.03 | 22.99 | MEDIUM |
+| Chennai Super Kings | 2 | 42 | 57 | 4 | 8.14 | 14.25 | 10.5 | 26.19 | 14.29 | MEDIUM |
+| Royal Challengers Bengaluru | 4 | 75 | 122 | 3 | 9.76 | 40.67 | 25.0 | 41.33 | 26.67 | MEDIUM |
+| Punjab Kings | 3 | 54 | 100 | 2 | 11.11 | 50.0 | 27.0 | 35.19 | 29.63 | MEDIUM |
+| Sunrisers Hyderabad | 4 | 66 | 132 | 1 | 12.0 | 132.0 | 66.0 | 19.7 | 33.33 | MEDIUM |
+| Kolkata Knight Riders | 2 | 36 | 45 | 1 | 7.5 | 45.0 | 36.0 | 58.33 | 22.22 | MEDIUM |
 
 ### Mitchell Starc
 
@@ -402,25 +368,11 @@
 | Delhi Capitals | 6 | 132 | 176 | 9 | 8.0 | 19.56 | 14.67 | 42.42 | 18.94 | HIGH |
 | Lucknow Super Giants | 4 | 84 | 117 | 8 | 8.36 | 14.63 | 10.5 | 41.67 | 22.62 | MEDIUM |
 | Kolkata Knight Riders | 4 | 84 | 122 | 7 | 8.71 | 17.43 | 12.0 | 34.52 | 20.24 | MEDIUM |
-| Mumbai Indians | 6 | 119 | 178 | 7 | 8.97 | 25.43 | 17.0 | 34.45 | 21.85 | HIGH |
 | Rajasthan Royals | 6 | 138 | 177 | 7 | 7.7 | 25.29 | 19.71 | 42.03 | 18.84 | HIGH |
 | Punjab Kings | 5 | 96 | 108 | 7 | 6.75 | 15.43 | 13.71 | 45.83 | 15.63 | MEDIUM |
+| Mumbai Indians | 6 | 119 | 178 | 7 | 8.97 | 25.43 | 17.0 | 34.45 | 21.85 | HIGH |
 | Chennai Super Kings | 7 | 156 | 186 | 6 | 7.15 | 31.0 | 26.0 | 40.38 | 15.38 | HIGH |
 | Royal Challengers Bengaluru | 4 | 78 | 162 | 1 | 12.46 | 162.0 | 78.0 | 32.05 | 32.05 | MEDIUM |
-
-### Mukesh Kumar
-
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Mumbai Indians | 4 | 84 | 175 | 8 | 12.5 | 21.88 | 10.5 | 32.14 | 35.71 | MEDIUM |
-| Lucknow Super Giants | 5 | 108 | 158 | 7 | 8.78 | 22.57 | 15.43 | 31.48 | 19.44 | HIGH |
-| Gujarat Titans | 4 | 87 | 134 | 5 | 9.24 | 26.8 | 17.4 | 31.03 | 22.99 | MEDIUM |
-| Rajasthan Royals | 4 | 84 | 149 | 5 | 10.64 | 29.8 | 16.8 | 30.95 | 27.38 | MEDIUM |
-| Chennai Super Kings | 2 | 42 | 57 | 4 | 8.14 | 14.25 | 10.5 | 26.19 | 14.29 | MEDIUM |
-| Royal Challengers Bengaluru | 4 | 75 | 122 | 3 | 9.76 | 40.67 | 25.0 | 41.33 | 26.67 | MEDIUM |
-| Punjab Kings | 3 | 54 | 100 | 2 | 11.11 | 50.0 | 27.0 | 35.19 | 29.63 | MEDIUM |
-| Sunrisers Hyderabad | 4 | 66 | 132 | 1 | 12.0 | 132.0 | 66.0 | 19.7 | 33.33 | MEDIUM |
-| Kolkata Knight Riders | 2 | 36 | 45 | 1 | 7.5 | 45.0 | 36.0 | 58.33 | 22.22 | MEDIUM |
 
 ---
 
@@ -495,9 +447,9 @@
 
 ### 9.1 Death Bowling Options
 
-- **Kuldeep Yadav**: 55.7 overs, 28 wickets, 8.14 economy (over-performs)
-- **MA Starc**: 53.5 overs, 30 wickets, 8.62 economy (over-performs)
-- **AR Patel**: 61.7 overs, 21 wickets, 8.81 economy (over-performs)
+- **Kuldeep Yadav**: 26.0 overs, 9 wickets, 7.58 economy (over-performs)
+- **T Natarajan**: 42.3 overs, 19 wickets, 9.92 economy (over-performs)
+- **MA Starc**: 19.8 overs, 13 wickets, 10.29 economy (over-performs)
 
 ### 9.2 Powerplay Batting Options
 

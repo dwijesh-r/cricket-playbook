@@ -1,6 +1,6 @@
 # Delhi Capitals (DC) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-20 20:05
+**Generated:** 2026-01-24 20:44
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -17,7 +17,7 @@
 | Kuldeep Yadav | Bowler | Left-arm wrist spin | Left-hand | 13.25 | Retained | 2022 |
 | Mitchell Starc | Bowler | Fast | Left-hand | 11.75 | Retained | 2024 |
 | T Natarajan | Bowler | Fast | Left-hand | 10.75 | Retained | 2024 |
-| Tristan Stubbs | All-rounder | Medium | Right-hand | 10.00 | Retained | 2023 |
+| Tristan Stubbs | All-rounder | Off-spin | Right-hand | 10.00 | Retained | 2023 |
 | Auqib Nabi Dar | Bowler | Fast | Right-hand | 8.40 | Auction | 2026 |
 | Mukesh Kumar | Bowler | Fast | Right-hand | 8.00 | Retained | 2022 |
 | Abhishek Porel | Wicketkeeper | Medium | Right-hand | 4.00 | Retained | 2023 |
@@ -30,8 +30,8 @@
 | Ben Duckett | Batter | Medium | Left-hand | 0.75 | Auction | 2026 |
 | Dushmantha Chameera | Bowler | Fast | Right-hand | 0.75 | Retained | 2024 |
 | Karun Nair | Batter | Off-spin | Right-hand | 0.50 | Retained | 2024 |
-| Nitish Rana | Batter | Left-arm orthodox | Left-hand | 0.50 | Auction | 2026 |
-| Vipraj Nigam | Batter | Medium | Right-hand | 0.50 | Retained | 2025 |
+| Nitish Rana | Batter | Off-spin | Left-hand | 0.50 | Auction | 2026 |
+| Vipraj Nigam | Batter | Leg-spin | Right-hand | 0.50 | Retained | 2025 |
 | Madhav Tiwari | All-rounder | Medium | Right-hand | 0.40 | Retained | 2025 |
 | Tripurana Vijay | Batter | Medium | Right-hand | 0.30 | Retained | 2025 |
 | Ajay Mandal | All-rounder | Medium | Right-hand | 0.30 | Retained | 2025 |
@@ -42,6 +42,46 @@
 **Total Spend:** ₹112.95 Cr
 
 **Role Breakdown:** All-rounder: 6, Batter: 9, Bowler: 8, Wicketkeeper: 2
+
+### 1.2 Player Archetypes (K-means V2 Model)
+
+*Based on clustering analysis of IPL career performance*
+
+**Batter Archetypes:**
+
+- **ACCUMULATOR**: Axar Patel
+- **PLAYMAKER**: KL Rahul
+- **MIDDLE_ORDER**: Karun Nair, Nitish Rana
+- **FINISHER**: Tristan Stubbs, David Miller
+
+**Bowler Archetypes:**
+
+- **DEATH_SPECIALIST**: Tristan Stubbs, Mitchell Starc
+- **MIDDLE_OVERS_CONTROLLER**: Axar Patel
+- **WORKHORSE**: Kuldeep Yadav, Lungi Ngidi, T Natarajan
+
+### 1.3 Key Player Tags
+
+*Performance tags based on phase analysis, matchups, and specializations*
+
+| Player | Tags |
+|--------|------|
+| Axar Patel | VULNERABLE_VS_OFF_SPIN, SPIN_SPECIALIST, ACCUMULATOR, SPECIALIST_VS_LEG_SPIN, SPECIALIST_VS_SPIN (+6 more) |
+| Tristan Stubbs | SPECIALIST_VS_PACE, VULNERABLE_VS_OFF_SPIN, FINISHER, CONSISTENT, SPECIALIST_VS_LEFT_ARM_SPIN (+4 more) |
+| David Miller | SPECIALIST_VS_PACE, FINISHER, CONSISTENT, SPECIALIST_VS_LEFT_ARM_SPIN, SPECIALIST_VS_SPIN |
+| Karun Nair | SPECIALIST_VS_PACE, VULNERABLE_VS_OFF_SPIN, VULNERABLE_VS_LEFT_ARM_SPIN, MIDDLE_ORDER |
+| Nitish Rana | SPECIALIST_VS_PACE, VULNERABLE_VS_OFF_SPIN, MIDDLE_ORDER, SPECIALIST_VS_LEFT_ARM_SPIN, DEATH_SPECIALIST (+2 more) |
+| Prithvi Shaw | SPECIALIST_VS_PACE, EXPLOSIVE_OPENER, VULNERABLE_VS_LEG_SPIN, PP_DOMINATOR, VULNERABLE_VS_LEFT_ARM_SPIN (+2 more) |
+| Vipraj Nigam | WORKHORSE |
+| Dushmantha Chameera | PART_TIMER, RHB_WICKET_TAKER, PRESSURE_BUILDER, PP_LIABILITY |
+| Kuldeep Yadav | PROVEN_WICKET_TAKER, DEATH_BEAST, LHB_WICKET_TAKER, WORKHORSE |
+| Kyle Jamieson | PART_TIMER, PRESSURE_BUILDER |
+| Lungi Ngidi | WORKHORSE, PP_ELITE, PRESSURE_BUILDER, RHB_SPECIALIST, RHB_PRESSURE (+1 more) |
+| Mitchell Starc | DEATH_SPECIALIST, DEATH_ELITE, PRESSURE_BUILDER |
+| Mukesh Kumar | DEATH_LIABILITY, PART_TIMER, RHB_PRESSURE |
+| T Natarajan | WORKHORSE |
+| Abhishek Porel | SPECIALIST_VS_PACE, EXPLOSIVE_OPENER, VULNERABLE_VS_LEG_SPIN, PP_DOMINATOR, PACE_SPECIALIST (+3 more) |
+| KL Rahul | SPECIALIST_VS_PACE, SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, PLAYMAKER, CONSISTENT |
 
 ---
 
@@ -173,7 +213,7 @@
 | Lungi Ngidi | Fast | 16 | 62.0 | 29 | 8.73 | 18.66 | 12.83 | 38.71 | 19.35 | MEDIUM |
 | Kyle Jamieson | Fast | 13 | 43.0 | 14 | 9.72 | 29.86 | 18.43 | 39.92 | 24.42 | MEDIUM |
 | Dushmantha Chameera | Fast | 19 | 64.0 | 13 | 10.0 | 49.23 | 29.54 | 38.02 | 24.74 | MEDIUM |
-| Tristan Stubbs | Medium | 5 | 6.0 | 4 | 11.5 | 17.25 | 9.0 | 33.33 | 27.78 | LOW |
+| Tristan Stubbs | Off-spin | 5 | 6.0 | 4 | 11.5 | 17.25 | 9.0 | 33.33 | 27.78 | LOW |
 | Madhav Tiwari | Medium | 1 | 1.0 | 0 | 14.0 | - | - | - | 33.33 | LOW |
 
 ### 5.2 Bowler Phase Distribution
@@ -310,8 +350,8 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Royal Challengers Bengaluru | 21 | 450 | 549 | 21 | 7.32 | 26.14 | 21.43 | 34.0 | 12.22 | HIGH |
-| Sunrisers Hyderabad | 20 | 425 | 535 | 17 | 7.55 | 31.47 | 25.0 | 30.82 | 12.71 | HIGH |
 | Kolkata Knight Riders | 22 | 456 | 544 | 17 | 7.16 | 32.0 | 26.82 | 36.4 | 13.38 | HIGH |
+| Sunrisers Hyderabad | 20 | 425 | 535 | 17 | 7.55 | 31.47 | 25.0 | 30.82 | 12.71 | HIGH |
 | Rajasthan Royals | 17 | 354 | 430 | 15 | 7.29 | 28.67 | 23.6 | 34.75 | 14.12 | HIGH |
 | Mumbai Indians | 22 | 432 | 587 | 14 | 8.15 | 41.93 | 30.86 | 27.31 | 14.58 | HIGH |
 | Chennai Super Kings | 18 | 378 | 440 | 11 | 6.98 | 40.0 | 34.36 | 31.48 | 11.11 | HIGH |
@@ -331,8 +371,8 @@
 | Punjab Kings | 11 | 204 | 281 | 11 | 8.26 | 25.55 | 18.55 | 27.94 | 14.71 | HIGH |
 | Kolkata Knight Riders | 5 | 102 | 123 | 10 | 7.24 | 12.3 | 10.2 | 38.24 | 13.73 | HIGH |
 | Mumbai Indians | 12 | 246 | 357 | 10 | 8.71 | 35.7 | 24.6 | 29.67 | 16.26 | HIGH |
-| Lucknow Super Giants | 7 | 160 | 202 | 9 | 7.58 | 22.44 | 17.78 | 31.88 | 13.13 | HIGH |
 | Royal Challengers Bengaluru | 10 | 234 | 341 | 9 | 8.74 | 37.89 | 26.0 | 29.91 | 16.24 | HIGH |
+| Lucknow Super Giants | 7 | 160 | 202 | 9 | 7.58 | 22.44 | 17.78 | 31.88 | 13.13 | HIGH |
 | Gujarat Titans | 7 | 162 | 176 | 5 | 6.52 | 35.2 | 32.4 | 31.48 | 8.64 | HIGH |
 | Delhi Capitals | 6 | 122 | 178 | 5 | 8.75 | 35.6 | 24.4 | 22.95 | 13.93 | HIGH |
 | Gujarat Lions | 2 | 48 | 58 | 4 | 7.25 | 14.5 | 12.0 | 31.25 | 12.5 | MEDIUM |
@@ -351,8 +391,8 @@
 | Rajasthan Royals | 7 | 156 | 227 | 7 | 8.73 | 32.43 | 22.29 | 33.97 | 20.51 | HIGH |
 | Gujarat Titans | 4 | 90 | 158 | 3 | 10.53 | 52.67 | 30.0 | 22.22 | 26.67 | MEDIUM |
 | Lucknow Super Giants | 4 | 90 | 128 | 2 | 8.53 | 64.0 | 45.0 | 25.56 | 15.56 | MEDIUM |
-| Mumbai Indians | 5 | 116 | 207 | 1 | 10.71 | 207.0 | 116.0 | 27.59 | 26.72 | HIGH |
 | Gujarat Lions | 2 | 34 | 51 | 1 | 9.0 | 51.0 | 34.0 | 20.59 | 14.71 | MEDIUM |
+| Mumbai Indians | 5 | 116 | 207 | 1 | 10.71 | 207.0 | 116.0 | 27.59 | 26.72 | HIGH |
 
 ### Mitchell Starc
 
@@ -374,8 +414,8 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Mumbai Indians | 4 | 84 | 175 | 8 | 12.5 | 21.88 | 10.5 | 32.14 | 35.71 | MEDIUM |
 | Lucknow Super Giants | 5 | 108 | 158 | 7 | 8.78 | 22.57 | 15.43 | 31.48 | 19.44 | HIGH |
-| Rajasthan Royals | 4 | 84 | 149 | 5 | 10.64 | 29.8 | 16.8 | 30.95 | 27.38 | MEDIUM |
 | Gujarat Titans | 4 | 87 | 134 | 5 | 9.24 | 26.8 | 17.4 | 31.03 | 22.99 | MEDIUM |
+| Rajasthan Royals | 4 | 84 | 149 | 5 | 10.64 | 29.8 | 16.8 | 30.95 | 27.38 | MEDIUM |
 | Chennai Super Kings | 2 | 42 | 57 | 4 | 8.14 | 14.25 | 10.5 | 26.19 | 14.29 | MEDIUM |
 | Royal Challengers Bengaluru | 4 | 75 | 122 | 3 | 9.76 | 40.67 | 25.0 | 41.33 | 26.67 | MEDIUM |
 | Punjab Kings | 3 | 54 | 100 | 2 | 11.11 | 50.0 | 27.0 | 35.19 | 29.63 | MEDIUM |

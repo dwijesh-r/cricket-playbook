@@ -1,6 +1,6 @@
 # Lucknow Super Giants (LSG) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-20 20:05
+**Generated:** 2026-01-24 20:44
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -21,14 +21,14 @@
 | Wanindu Hasaranga | All-rounder | Leg-spin | Right-hand | 7.00 | Auction | 2026 |
 | Abdul Samad | Batter | Leg-spin | Right-hand | 4.20 | Retained | 2025 |
 | Mohsin Khan | Bowler | Fast | Left-hand | 4.00 | Retained | 2022 |
-| Ayush Badoni | Batter | Leg-spin | Right-hand | 4.00 | Retained | 2022 |
+| Ayush Badoni | Batter | Off-spin | Right-hand | 4.00 | Retained | 2022 |
 | Mitchell Marsh | All-rounder | Fast | Right-hand | 3.40 | Retained | 2025 |
 | Aiden Markram | All-rounder | Off-spin | Right-hand | 2.00 | Retained | 2022 |
 | Anrich Nortje | Bowler | Fast | Right-hand | 2.00 | Auction | 2026 |
 | Matthew Breetzke | Batter | Medium | Right-hand | 0.75 | Retained | 2025 |
 | Manimaran Siddharth | Bowler | Left-arm orthodox | Left-hand | 0.75 | Retained | 2024 |
 | Himmat Singh | All-rounder | Off-spin | Right-hand | 0.30 | Retained | 2025 |
-| Digvesh Rathi | Wicketkeeper | Medium | Right-hand | 0.30 | Retained | 2025 |
+| Digvesh Rathi | Wicketkeeper | Leg-spin | Right-hand | 0.30 | Retained | 2025 |
 | Akash Singh | Bowler | Fast | Left-hand | 0.30 | Retained | 2024 |
 | Arjun Tendulkar | Bowler | Fast | Left-hand | 0.30 | Traded | 2026 |
 | Arshin Kulkarni | All-rounder | Off-spin | Right-hand | 0.30 | Retained | 2025 |
@@ -37,6 +37,41 @@
 **Total Spend:** ₹116.95 Cr
 
 **Role Breakdown:** All-rounder: 5, Batter: 3, Bowler: 8, Wicketkeeper: 4
+
+### 1.2 Player Archetypes (K-means V2 Model)
+
+*Based on clustering analysis of IPL career performance*
+
+**Batter Archetypes:**
+
+- **ACCUMULATOR**: Ayush Badoni
+- **MIDDLE_ORDER**: Aiden Markram, Mitchell Marsh, Rishabh Pant
+- **FINISHER**: Abdul Samad, Nicholas Pooran
+
+**Bowler Archetypes:**
+
+- **DEATH_SPECIALIST**: Aiden Markram, Avesh Khan
+- **WORKHORSE**: Mitchell Marsh, Wanindu Hasaranga, Anrich Nortje, Mohsin Khan
+
+### 1.3 Key Player Tags
+
+*Performance tags based on phase analysis, matchups, and specializations*
+
+| Player | Tags |
+|--------|------|
+| Aiden Markram | SPECIALIST_VS_PACE, VULNERABLE_VS_LEFT_ARM_SPIN, DEATH_SPECIALIST, SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, SPECIALIST_VS_LEG_SPIN (+2 more) |
+| Mitchell Marsh | SPECIALIST_VS_PACE, SPECIALIST_VS_OFF_SPIN, PP_DOMINATOR, SPECIALIST_VS_LEG_SPIN, MIDDLE_ORDER (+6 more) |
+| Wanindu Hasaranga | RHB_PRESSURE, WORKHORSE, LHB_VULNERABLE, RHB_SPECIALIST |
+| Abdul Samad | SPECIALIST_VS_PACE, FINISHER, SPECIALIST_VS_OFF_SPIN, VULNERABLE_VS_LEG_SPIN, VULNERABLE_VS_LEFT_ARM_SPIN (+1 more) |
+| Ayush Badoni | SPECIALIST_VS_PACE, ACCUMULATOR, VULNERABLE_VS_OFF_SPIN, PACE_SPECIALIST |
+| Akash Singh | RHB_WICKET_TAKER, PART_TIMER, LHB_PRESSURE |
+| Anrich Nortje | RHB_WICKET_TAKER, WORKHORSE, LHB_VULNERABLE, RHB_SPECIALIST |
+| Avesh Khan | DEATH_SPECIALIST |
+| Mohammed Shami | DEATH_LIABILITY, PROVEN_WICKET_TAKER, PP_ELITE, NEW_BALL_SPECIALIST, PRESSURE_BUILDER (+1 more) |
+| Mohsin Khan | WORKHORSE, PRESSURE_BUILDER |
+| Digvesh Rathi | WORKHORSE, LHB_WICKET_TAKER, LHB_PRESSURE |
+| Nicholas Pooran | SPECIALIST_VS_PACE, SPIN_SPECIALIST, FINISHER, CONSISTENT, SPECIALIST_VS_OFF_SPIN (+5 more) |
+| Rishabh Pant | SPECIALIST_VS_PACE, MIDDLE_ORDER, SPECIALIST_VS_LEFT_ARM_SPIN, DEATH_SPECIALIST, SPECIALIST_VS_LEG_SPIN (+3 more) |
 
 ---
 
@@ -94,10 +129,10 @@
 | Dr DY Patil Sports Academy, Mumbai | 4 | 663 | 478 | 138.7 | 34.89 |
 | Eden Gardens, Kolkata | 4 | 713 | 480 | 148.54 | 29.71 |
 | MA Chidambaram Stadium, Chepauk, Chennai | 3 | 473 | 337 | 140.36 | 23.65 |
-| Rajiv Gandhi International Stadium, Uppa... | 3 | 519 | 333 | 155.86 | 43.25 |
-| Brabourne Stadium, Mumbai | 3 | 523 | 357 | 146.5 | 32.69 |
 | Sawai Mansingh Stadium, Jaipur | 3 | 478 | 360 | 132.78 | 28.12 |
 | Maharashtra Cricket Association Stadium,... | 3 | 392 | 323 | 121.36 | 18.67 |
+| Rajiv Gandhi International Stadium, Uppa... | 3 | 519 | 333 | 155.86 | 43.25 |
+| Brabourne Stadium, Mumbai | 3 | 523 | 357 | 146.5 | 32.69 |
 
 ---
 
@@ -285,16 +320,16 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Rajasthan Royals | 15 | 341 | 489 | 20 | 8.6 | 24.45 | 17.05 | 42.23 | 21.99 | HIGH |
 | Sunrisers Hyderabad | 14 | 300 | 389 | 18 | 7.78 | 21.61 | 16.67 | 39.33 | 17.33 | HIGH |
-| Delhi Capitals | 10 | 228 | 283 | 17 | 7.45 | 16.65 | 13.41 | 48.68 | 19.3 | HIGH |
 | Kolkata Knight Riders | 15 | 348 | 443 | 17 | 7.64 | 26.06 | 20.47 | 41.38 | 16.67 | HIGH |
+| Delhi Capitals | 10 | 228 | 283 | 17 | 7.45 | 16.65 | 13.41 | 48.68 | 19.3 | HIGH |
 | Royal Challengers Bengaluru | 13 | 292 | 452 | 15 | 9.29 | 30.13 | 19.47 | 34.25 | 22.95 | HIGH |
 | Mumbai Indians | 15 | 330 | 482 | 14 | 8.76 | 34.43 | 23.57 | 38.79 | 21.52 | HIGH |
 | Chennai Super Kings | 15 | 329 | 414 | 14 | 7.55 | 29.57 | 23.5 | 40.73 | 16.41 | HIGH |
 | Lucknow Super Giants | 5 | 102 | 119 | 6 | 7.0 | 19.83 | 17.0 | 45.1 | 16.67 | HIGH |
 | Punjab Kings | 9 | 180 | 337 | 6 | 11.23 | 56.17 | 30.0 | 37.78 | 33.33 | HIGH |
-| Gujarat Lions | 3 | 66 | 108 | 2 | 9.82 | 54.0 | 33.0 | 33.33 | 24.24 | MEDIUM |
-| Rising Pune Supergiant | 3 | 49 | 91 | 2 | 11.14 | 45.5 | 24.5 | 20.41 | 26.53 | MEDIUM |
 | Gujarat Titans | 2 | 42 | 74 | 2 | 10.57 | 37.0 | 21.0 | 28.57 | 30.95 | MEDIUM |
+| Rising Pune Supergiant | 3 | 49 | 91 | 2 | 11.14 | 45.5 | 24.5 | 20.41 | 26.53 | MEDIUM |
+| Gujarat Lions | 3 | 66 | 108 | 2 | 9.82 | 54.0 | 33.0 | 33.33 | 24.24 | MEDIUM |
 
 ### Avesh Khan
 
@@ -305,8 +340,8 @@
 | Mumbai Indians | 7 | 156 | 220 | 13 | 8.46 | 16.92 | 12.0 | 40.38 | 20.51 | HIGH |
 | Rajasthan Royals | 7 | 150 | 210 | 12 | 8.4 | 17.5 | 12.5 | 35.33 | 17.33 | HIGH |
 | Chennai Super Kings | 10 | 207 | 318 | 9 | 9.22 | 35.33 | 23.0 | 36.23 | 24.15 | HIGH |
-| Gujarat Titans | 7 | 159 | 244 | 8 | 9.21 | 30.5 | 19.88 | 27.04 | 20.75 | HIGH |
 | Punjab Kings | 11 | 227 | 360 | 8 | 9.52 | 45.0 | 28.38 | 32.16 | 23.79 | HIGH |
+| Gujarat Titans | 7 | 159 | 244 | 8 | 9.21 | 30.5 | 19.88 | 27.04 | 20.75 | HIGH |
 | Royal Challengers Bengaluru | 8 | 186 | 298 | 6 | 9.61 | 49.67 | 31.0 | 31.72 | 24.19 | HIGH |
 | Delhi Capitals | 6 | 120 | 173 | 4 | 8.65 | 43.25 | 30.0 | 37.5 | 23.33 | HIGH |
 | Lucknow Super Giants | 2 | 42 | 54 | 1 | 7.71 | 54.0 | 42.0 | 23.81 | 9.52 | MEDIUM |
@@ -332,11 +367,11 @@
 | Kolkata Knight Riders | 5 | 102 | 134 | 7 | 7.88 | 19.14 | 14.57 | 34.31 | 17.65 | HIGH |
 | Punjab Kings | 5 | 114 | 162 | 6 | 8.53 | 27.0 | 19.0 | 31.58 | 15.79 | HIGH |
 | Sunrisers Hyderabad | 2 | 30 | 26 | 5 | 5.2 | 5.2 | 6.0 | 50.0 | 10.0 | MEDIUM |
-| Rajasthan Royals | 4 | 96 | 113 | 4 | 7.06 | 28.25 | 24.0 | 37.5 | 12.5 | MEDIUM |
 | Mumbai Indians | 2 | 48 | 79 | 4 | 9.88 | 19.75 | 12.0 | 31.25 | 22.92 | MEDIUM |
 | Lucknow Super Giants | 4 | 84 | 116 | 4 | 8.29 | 29.0 | 21.0 | 34.52 | 15.48 | MEDIUM |
-| Delhi Capitals | 4 | 90 | 148 | 3 | 9.87 | 49.33 | 30.0 | 31.11 | 23.33 | MEDIUM |
+| Rajasthan Royals | 4 | 96 | 113 | 4 | 7.06 | 28.25 | 24.0 | 37.5 | 12.5 | MEDIUM |
 | Gujarat Titans | 3 | 72 | 90 | 3 | 7.5 | 30.0 | 24.0 | 29.17 | 12.5 | MEDIUM |
+| Delhi Capitals | 4 | 90 | 148 | 3 | 9.87 | 49.33 | 30.0 | 31.11 | 23.33 | MEDIUM |
 | Royal Challengers Bengaluru | 2 | 42 | 62 | 1 | 8.86 | 62.0 | 42.0 | 21.43 | 16.67 | MEDIUM |
 
 ### Mitchell Marsh
@@ -344,8 +379,8 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 5 | 108 | 114 | 8 | 6.33 | 14.25 | 13.5 | 41.67 | 12.04 | HIGH |
-| Royal Challengers Bengaluru | 5 | 76 | 136 | 6 | 10.74 | 22.67 | 12.67 | 27.63 | 26.32 | MEDIUM |
 | Chennai Super Kings | 5 | 72 | 103 | 6 | 8.58 | 17.17 | 12.0 | 22.22 | 16.67 | MEDIUM |
+| Royal Challengers Bengaluru | 5 | 76 | 136 | 6 | 10.74 | 22.67 | 12.67 | 27.63 | 26.32 | MEDIUM |
 | Deccan Chargers | 2 | 42 | 54 | 4 | 7.71 | 13.5 | 10.5 | 33.33 | 19.05 | MEDIUM |
 | Mumbai Indians | 3 | 48 | 50 | 3 | 6.25 | 16.67 | 16.0 | 54.17 | 14.58 | MEDIUM |
 | Kolkata Knight Riders | 3 | 42 | 63 | 3 | 9.0 | 21.0 | 14.0 | 28.57 | 19.05 | MEDIUM |

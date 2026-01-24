@@ -1,6 +1,6 @@
 # Sunrisers Hyderabad (SRH) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-20 20:05
+**Generated:** 2026-01-24 20:45
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -14,25 +14,25 @@
 |--------|------|---------|---------|------------|------|--------|
 | Heinrich Klaasen | Wicketkeeper | Medium | Right-hand | 23.00 | Retained | 2023 |
 | Pat Cummins | Bowler | Fast | Right-hand | 18.00 | Retained | 2020 |
-| Travis Head | Batter | Left-arm orthodox | Left-hand | 14.00 | Retained | 2024 |
+| Travis Head | Batter | Off-spin | Left-hand | 14.00 | Retained | 2024 |
 | Abhishek Sharma | All-rounder | Left-arm orthodox | Left-hand | 14.00 | Retained | 2021 |
 | Liam Livingstone | All-rounder | Leg-spin | Right-hand | 13.00 | Auction | 2026 |
 | Ishan Kishan | Wicketkeeper | Medium | Left-hand | 11.25 | Retained | 2025 |
 | Harshal Patel | Bowler | Fast | Right-hand | 8.00 | Retained | 2025 |
-| Nitish Kumar Reddy | All-rounder | Fast | Right-hand | 6.00 | Retained | 2024 |
+| Nitish Kumar Reddy | All-rounder | Medium | Right-hand | 6.00 | Retained | 2024 |
 | Eshan Malinga | Bowler | Fast | Right-hand | 1.20 | Retained | 2024 |
 | Brydon Carse | Bowler | Fast | Right-hand | 1.00 | Retained | 2025 |
 | Jaydev Unadkat | Bowler | Fast | Left-hand | 1.00 | Retained | 2025 |
-| Kamindu Mendis | All-rounder | Left-arm orthodox | Left-hand | 0.75 | Retained | 2024 |
+| Kamindu Mendis | All-rounder | Off-spin | Left-hand | 0.75 | Retained | 2024 |
 | Zeeshan Ansari | Bowler | Left-arm orthodox | Left-hand | 0.40 | Retained | 2024 |
 | Aniket Verma | Batter | Medium | Right-hand | 0.30 | Retained | 2024 |
 | Ravichandran Smaran | Batter | Medium | Left-hand | 0.30 | Retained | 2025 |
-| Harsh Dubey | Bowler | Off-spin | Right-hand | 0.30 | Retained | 2025 |
+| Harsh Dubey | Bowler | Left-arm orthodox | Right-hand | 0.30 | Retained | 2025 |
 | Jack Edwards | All-rounder | Off-spin | Right-hand | 0.30 | Auction | 2026 |
-| Shivang Kumar | Bowler | Fast | Right-hand | 0.30 | Auction | 2026 |
+| Shivang Kumar | Bowler | Left-arm wrist spin | Right-hand | 0.30 | Auction | 2026 |
 | Krains Fuletra | All-rounder | Left-arm wrist spin | Right-hand | 0.30 | Auction | 2026 |
 | Salil Arora | Batter | Medium | Right-hand | 0.30 | Auction | 2026 |
-| Amit Kumar | All-rounder | Fast | Right-hand | 0.30 | Auction | 2026 |
+| Amit Kumar | All-rounder | Leg-spin | Right-hand | 0.30 | Auction | 2026 |
 | Shivam Mavi | Bowler | Fast | Right-hand | 0.30 | Auction | 2026 |
 | Sakib Hussain | Bowler | Fast | Right-hand | 0.30 | Auction | 2026 |
 | Onkar Tarmale | Batter | Fast | Right-hand | 0.00 | - | - |
@@ -42,6 +42,39 @@
 **Total Spend:** ₹114.60 Cr
 
 **Role Breakdown:** All-rounder: 7, Batter: 5, Bowler: 11, Wicketkeeper: 2
+
+### 1.2 Player Archetypes (K-means V2 Model)
+
+*Based on clustering analysis of IPL career performance*
+
+**Batter Archetypes:**
+
+- **PLAYMAKER**: Ishan Kishan
+- **MIDDLE_ORDER**: Liam Livingstone, Nitish Kumar Reddy
+- **FINISHER**: Heinrich Klaasen
+
+**Bowler Archetypes:**
+
+- **DEATH_SPECIALIST**: Liam Livingstone
+- **WORKHORSE**: Abhishek Sharma, Harshal Patel, Jaydev Unadkat, Pat Cummins, Shivam Mavi
+
+### 1.3 Key Player Tags
+
+*Performance tags based on phase analysis, matchups, and specializations*
+
+| Player | Tags |
+|--------|------|
+| Abhishek Sharma | SPECIALIST_VS_PACE, SPIN_SPECIALIST, EXPLOSIVE_OPENER, SPECIALIST_VS_OFF_SPIN, VULNERABLE_VS_LEFT_ARM_SPIN (+5 more) |
+| Liam Livingstone | SPECIALIST_VS_PACE, VULNERABLE_VS_LEFT_ARM_SPIN, DEATH_SPECIALIST, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, SIX_HITTER (+3 more) |
+| Nitish Kumar Reddy | SPIN_SPECIALIST, SPECIALIST_VS_LEFT_ARM_SPIN, SPECIALIST_VS_LEG_SPIN, SPECIALIST_VS_SPIN, MIDDLE_ORDER |
+| Travis Head | SPECIALIST_VS_PACE, CONSISTENT, EXPLOSIVE_OPENER, PP_DOMINATOR, DEATH_SPECIALIST (+3 more) |
+| Harshal Patel | PROVEN_WICKET_TAKER, WORKHORSE, RHB_SPECIALIST, LHB_VULNERABLE |
+| Jaydev Unadkat | DEATH_LIABILITY, PROVEN_WICKET_TAKER, LHB_PRESSURE, WORKHORSE |
+| Pat Cummins | SPECIALIST_VS_PACE, VULNERABLE_VS_OFF_SPIN, VULNERABLE_VS_SPIN, ACCUMULATOR, PACE_SPECIALIST (+2 more) |
+| Shivam Mavi | DEATH_LIABILITY, RHB_VULNERABLE, WORKHORSE, LHB_SPECIALIST, PRESSURE_BUILDER |
+| Zeeshan Ansari | PART_TIMER |
+| Heinrich Klaasen | SPECIALIST_VS_PACE, SPIN_SPECIALIST, FINISHER, CONSISTENT, SPECIALIST_VS_OFF_SPIN (+5 more) |
+| Ishan Kishan | SPECIALIST_VS_PACE, SPECIALIST_VS_LEFT_ARM_SPIN, DEATH_SPECIALIST, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, PLAYMAKER (+2 more) |
 
 ---
 
@@ -100,10 +133,10 @@
 | Dubai International Cricket Stadium | 13 | 1955 | 1537 | 127.2 | 27.54 |
 | MA Chidambaram Stadium, Chepauk, Chennai | 10 | 1361 | 1166 | 116.72 | 19.72 |
 | Eden Gardens | 8 | 1149 | 954 | 120.44 | 22.53 |
-| Sharjah Cricket Stadium | 7 | 896 | 784 | 114.29 | 21.85 |
 | Wankhede Stadium | 7 | 1012 | 832 | 121.63 | 22.0 |
 | Wankhede Stadium, Mumbai | 7 | 1119 | 836 | 133.85 | 24.33 |
-| Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cric... | 6 | 902 | 720 | 125.28 | 26.53 |
+| Sharjah Cricket Stadium | 7 | 896 | 784 | 114.29 | 21.85 |
+| M Chinnaswamy Stadium | 6 | 935 | 704 | 132.81 | 28.33 |
 
 ---
 
@@ -123,9 +156,9 @@
 | Kamindu Mendis | All-rounder | 5 | 92 | 68 | 135.29 | 23.0 | 13.24 | 32.35 | 0 | 0 | LOW |
 | Jack Edwards | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Salil Arora | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
-| Amit Kumar | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Ravichandran Smaran | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Krains Fuletra | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
+| Amit Kumar | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Onkar Tarmale | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
 ### 4.2 Phase-wise Batting (Qualified players)
@@ -162,12 +195,10 @@
 | Liam Livingstone | Leg-spin | 27 | 52.0 | 13 | 9.06 | 36.23 | 24.0 | 25.96 | 18.27 | MEDIUM |
 | Eshan Malinga | Fast | 7 | 26.7 | 13 | 9.15 | 18.77 | 12.31 | 33.13 | 21.25 | LOW |
 | Abhishek Sharma | Left-arm o | 32 | 56.0 | 11 | 9.09 | 46.27 | 30.55 | 27.08 | 17.86 | HIGH |
-| Amit Kumar | Fast | 7 | 20.5 | 11 | 11.41 | 21.27 | 11.18 | 28.46 | 26.83 | LOW |
 | Zeeshan Ansari | Left-arm o | 10 | 33.8 | 6 | 9.87 | 55.67 | 33.83 | 23.15 | 20.2 | MEDIUM |
-| Nitish Kumar Reddy | Fast | 12 | 23.2 | 5 | 11.01 | 51.0 | 27.8 | 27.34 | 23.74 | MEDIUM |
-| Harsh Dubey | Off-spin | 3 | 10.0 | 5 | 9.8 | 19.6 | 12.0 | 30.0 | 20.0 | LOW |
-| Kamindu Mendis | Left-arm o | 4 | 7.0 | 2 | 8.57 | 30.0 | 21.0 | 26.19 | 16.67 | LOW |
-| Shivang Kumar | Fast | 2 | 3.3 | 0 | 11.4 | - | - | 20.0 | 25.0 | LOW |
+| Nitish Kumar Reddy | Medium | 12 | 23.2 | 5 | 11.01 | 51.0 | 27.8 | 27.34 | 23.74 | MEDIUM |
+| Harsh Dubey | Left-arm o | 3 | 10.0 | 5 | 9.8 | 19.6 | 12.0 | 30.0 | 20.0 | LOW |
+| Kamindu Mendis | Off-spin | 4 | 7.0 | 2 | 8.57 | 30.0 | 21.0 | 26.19 | 16.67 | LOW |
 
 ### 5.2 Bowler Phase Distribution
 
@@ -178,9 +209,6 @@
 | Abhishek Sharma | powerplay | 11.0 | 0 | 8.82 | 33.33 | 19.6% | -% | -19.6 | HIGH |
 | Abhishek Sharma | middle | 42.0 | 10 | 8.31 | 26.59 | 75.0% | 90.9% | +15.9 | HIGH |
 | Abhishek Sharma | death | 3.0 | 1 | 17.33 | 11.11 | 5.4% | 9.1% | +3.7 | HIGH |
-| Ashwani Kumar | powerplay | 5.0 | 3 | 12.0 | 33.33 | 24.4% | 27.3% | +2.9 | MEDIUM |
-| Ashwani Kumar | middle | 9.0 | 4 | 8.33 | 24.07 | 43.9% | 36.4% | -7.5 | MEDIUM |
-| Ashwani Kumar | death | 6.5 | 4 | 13.85 | 30.77 | 31.7% | 36.4% | +4.7 | MEDIUM |
 | E Malinga | powerplay | 4.0 | 0 | 13.75 | 20.83 | 15.0% | -% | -15.0 | MEDIUM |
 | E Malinga | middle | 13.0 | 6 | 7.38 | 34.62 | 48.8% | 46.2% | -2.6 | MEDIUM |
 | E Malinga | death | 9.7 | 7 | 9.1 | 36.21 | 36.3% | 53.8% | +17.6 | MEDIUM |
@@ -281,8 +309,8 @@
 | Mumbai Indians | 6 | 95 | 61 | 155.74 | 23.75 | 19.67 | 26.23 | 4 | MEDIUM |
 | Lucknow Super Giants | 4 | 69 | 48 | 143.75 | 23.0 | 18.75 | 37.5 | 3 | MEDIUM |
 | Punjab Kings | 3 | 54 | 38 | 142.11 | 18.0 | 15.79 | 28.95 | 3 | MEDIUM |
-| Kolkata Knight Riders | 4 | 51 | 34 | 150.0 | 17.0 | 23.53 | 38.24 | 3 | MEDIUM |
 | Rajasthan Royals | 3 | 51 | 40 | 127.5 | 25.5 | 17.5 | 42.5 | 2 | MEDIUM |
+| Kolkata Knight Riders | 4 | 51 | 34 | 150.0 | 17.0 | 23.53 | 38.24 | 3 | MEDIUM |
 
 ---
 
@@ -329,13 +357,13 @@
 | Delhi Capitals | 7 | 156 | 221 | 9 | 8.5 | 24.56 | 17.33 | 39.1 | 21.15 | HIGH |
 | Rajasthan Royals | 7 | 161 | 251 | 9 | 9.35 | 27.89 | 17.89 | 35.4 | 21.74 | HIGH |
 | Chennai Super Kings | 9 | 216 | 307 | 7 | 8.53 | 43.86 | 30.86 | 34.72 | 19.44 | HIGH |
-| Kolkata Knight Riders | 7 | 132 | 220 | 6 | 10.0 | 36.67 | 22.0 | 35.61 | 25.76 | HIGH |
 | Punjab Kings | 7 | 162 | 211 | 6 | 7.81 | 35.17 | 27.0 | 38.89 | 18.52 | HIGH |
+| Kolkata Knight Riders | 7 | 132 | 220 | 6 | 10.0 | 36.67 | 22.0 | 35.61 | 25.76 | HIGH |
 | Sunrisers Hyderabad | 5 | 119 | 152 | 4 | 7.66 | 38.0 | 29.75 | 37.82 | 15.13 | HIGH |
-| Gujarat Titans | 3 | 70 | 92 | 3 | 7.89 | 30.67 | 23.33 | 30.0 | 15.71 | MEDIUM |
 | Gujarat Lions | 2 | 48 | 70 | 3 | 8.75 | 23.33 | 16.0 | 22.92 | 18.75 | MEDIUM |
 | Lucknow Super Giants | 3 | 66 | 106 | 3 | 9.64 | 35.33 | 22.0 | 31.82 | 24.24 | MEDIUM |
 | Rising Pune Supergiant | 2 | 43 | 58 | 3 | 8.09 | 19.33 | 14.33 | 39.53 | 13.95 | MEDIUM |
+| Gujarat Titans | 3 | 70 | 92 | 3 | 7.89 | 30.67 | 23.33 | 30.0 | 15.71 | MEDIUM |
 
 ---
 

@@ -14,6 +14,7 @@ Generates comprehensive stat packs for each IPL 2026 team including:
 """
 
 import duckdb
+import json
 from pathlib import Path
 from datetime import datetime
 
@@ -22,6 +23,58 @@ SCRIPT_DIR = Path(__file__).parent
 PROJECT_DIR = SCRIPT_DIR.parent
 DB_PATH = PROJECT_DIR / "data" / "cricket_playbook.duckdb"
 OUTPUT_DIR = PROJECT_DIR / "stat_packs"
+PLAYER_TAGS_PATH = PROJECT_DIR / "outputs" / "player_tags.json"
+
+
+def load_player_tags() -> dict:
+    """Load player tags from JSON file."""
+    if not PLAYER_TAGS_PATH.exists():
+        return {"batters": [], "bowlers": []}
+    with open(PLAYER_TAGS_PATH) as f:
+        return json.load(f)
+
+
+def get_player_tags_lookup(tags_data: dict) -> dict:
+    """Create lookup dict from player_id to tags."""
+    # Cluster label tags
+    BATTER_CLUSTERS = {"ELITE_EXPLOSIVE", "POWER_OPENER", "CLASSIC_OPENER", "ACCUMULATOR", "DEATH_FINISHER", "PLAYMAKER", "MIDDLE_ORDER", "FINISHER"}
+    BOWLER_CLUSTERS = {"DEATH_SPECIALIST", "SPIN_CONTROLLER", "NEW_BALL_PACER", "DEVELOPING", "SECONDARY_OPTION", "MIDDLE_OVERS_CONTROLLER", "WORKHORSE"}
+
+    lookup = {}
+    for batter in tags_data.get("batters", []):
+        tags = batter.get("tags", [])
+        # Extract cluster from tags
+        cluster = ""
+        for tag in tags:
+            if tag in BATTER_CLUSTERS:
+                cluster = tag
+                break
+        lookup[batter["player_id"]] = {
+            "cluster": cluster,
+            "tags": tags
+        }
+
+    for bowler in tags_data.get("bowlers", []):
+        pid = bowler["player_id"]
+        tags = bowler.get("tags", [])
+        # Extract cluster from tags
+        cluster = ""
+        for tag in tags:
+            if tag in BOWLER_CLUSTERS:
+                cluster = tag
+                break
+
+        if pid in lookup:
+            # Merge bowler tags into existing entry
+            lookup[pid]["tags"].extend(tags)
+            if not lookup[pid]["cluster"] and cluster:
+                lookup[pid]["bowler_cluster"] = cluster
+        else:
+            lookup[pid] = {
+                "cluster": cluster,
+                "tags": tags
+            }
+    return lookup
 
 # Franchise name mappings for historical data
 FRANCHISE_ALIASES = {
@@ -58,7 +111,7 @@ def get_opposition_clause(team_name: str) -> str:
     return ", ".join([f"'{a}'" for a in aliases])
 
 
-def generate_team_stat_pack(conn, team_name: str) -> str:
+def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
     """Generate comprehensive stat pack for a team."""
 
     team_code = TEAM_CODES.get(team_name, team_name[:3].upper())
@@ -100,6 +153,84 @@ def generate_team_stat_pack(conn, team_name: str) -> str:
     md.append(f"\n**Total Squad Size:** {len(roster)} players")
     md.append(f"**Total Spend:** ₹{total_spend:.2f} Cr")
     md.append(f"\n**Role Breakdown:** " + ", ".join([f"{k}: {v}" for k, v in sorted(role_counts.items())]))
+
+    # ==========================================================================
+    # SECTION 1.2: PLAYER ARCHETYPES AND TAGS
+    # ==========================================================================
+    md.append("\n### 1.2 Player Archetypes (K-means V2 Model)\n")
+    md.append("*Based on clustering analysis of IPL career performance*\n")
+
+    # Get player IDs for this team
+    squad_players = conn.execute(f"""
+        SELECT player_id, player_name, role
+        FROM ipl_2026_squads
+        WHERE team_name = '{team_name}'
+        ORDER BY role, player_name
+    """).fetchall()
+
+    # Group by archetype - extract from tags
+    BATTER_CLUSTERS = ["ELITE_EXPLOSIVE", "POWER_OPENER", "CLASSIC_OPENER", "ACCUMULATOR", "DEATH_FINISHER", "PLAYMAKER", "MIDDLE_ORDER", "FINISHER"]
+    BOWLER_CLUSTERS = ["DEATH_SPECIALIST", "SPIN_CONTROLLER", "NEW_BALL_PACER", "MIDDLE_OVERS_CONTROLLER", "WORKHORSE"]
+
+    batters_by_cluster = {}
+    bowlers_by_cluster = {}
+
+    for player_id, player_name, role in squad_players:
+        if player_id in tags_lookup:
+            tags = tags_lookup[player_id].get("tags", [])
+
+            if role in ("Batter", "Wicketkeeper", "All-rounder"):
+                # Find batter cluster tag
+                for cluster in BATTER_CLUSTERS:
+                    if cluster in tags:
+                        if cluster not in batters_by_cluster:
+                            batters_by_cluster[cluster] = []
+                        batters_by_cluster[cluster].append((player_name, tags))
+                        break
+
+            if role in ("Bowler", "All-rounder"):
+                # Find bowler cluster tag
+                for cluster in BOWLER_CLUSTERS:
+                    if cluster in tags:
+                        if cluster not in bowlers_by_cluster:
+                            bowlers_by_cluster[cluster] = []
+                        bowlers_by_cluster[cluster].append((player_name, tags))
+                        break
+
+    if batters_by_cluster:
+        md.append("**Batter Archetypes:**\n")
+        for cluster in BATTER_CLUSTERS:
+            if cluster in batters_by_cluster:
+                players = batters_by_cluster[cluster]
+                player_list = ", ".join([p[0] for p in players])
+                md.append(f"- **{cluster}**: {player_list}")
+        md.append("")
+
+    if bowlers_by_cluster:
+        md.append("**Bowler Archetypes:**\n")
+        for cluster in BOWLER_CLUSTERS:
+            if cluster in bowlers_by_cluster:
+                players = bowlers_by_cluster[cluster]
+                player_list = ", ".join([p[0] for p in players])
+                md.append(f"- **{cluster}**: {player_list}")
+        md.append("")
+
+    # Show key player tags
+    md.append("### 1.3 Key Player Tags\n")
+    md.append("*Performance tags based on phase analysis, matchups, and specializations*\n")
+
+    md.append("| Player | Tags |")
+    md.append("|--------|------|")
+    for player_id, player_name, role in squad_players:
+        if player_id in tags_lookup:
+            tags = tags_lookup[player_id].get("tags", [])
+            if tags:
+                # Show up to 5 most relevant tags
+                display_tags = tags[:5]
+                tags_str = ", ".join(display_tags)
+                if len(tags) > 5:
+                    tags_str += f" (+{len(tags)-5} more)"
+                md.append(f"| {player_name} | {tags_str} |")
 
     # ==========================================================================
     # SECTION 2: TEAM HISTORICAL RECORD VS OPPOSITION
@@ -477,6 +608,12 @@ def main():
 
     conn = duckdb.connect(str(DB_PATH), read_only=True)
 
+    # Load player tags
+    print("Loading player tags...")
+    tags_data = load_player_tags()
+    tags_lookup = get_player_tags_lookup(tags_data)
+    print(f"  Loaded tags for {len(tags_lookup)} players\n")
+
     # Get all teams
     teams = conn.execute("""
         SELECT DISTINCT team_name FROM ipl_2026_squads ORDER BY team_name
@@ -489,7 +626,7 @@ def main():
         print(f"  Generating {team_code} stat pack...")
 
         try:
-            stat_pack = generate_team_stat_pack(conn, team_name)
+            stat_pack = generate_team_stat_pack(conn, team_name, tags_lookup)
 
             # Write to file
             filename = f"{team_code}_stat_pack.md"

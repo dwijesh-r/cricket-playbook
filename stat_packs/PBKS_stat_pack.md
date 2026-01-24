@@ -1,6 +1,6 @@
 # Punjab Kings (PBKS) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-20 20:05
+**Generated:** 2026-01-24 20:45
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -29,7 +29,7 @@
 | Cooper Connolly | All-rounder | Left-arm orthodox | Left-hand | 1.00 | Auction | 2026 |
 | Vishnu Vinod | Wicketkeeper | Medium | Right-hand | 0.95 | Retained | 2022 |
 | Xavier Bartlett | Bowler | Fast | Right-hand | 0.80 | Retained | 2024 |
-| Suryansh Shedge | All-rounder | Off-spin | Right-hand | 0.30 | Retained | 2025 |
+| Suryansh Shedge | All-rounder | Medium | Right-hand | 0.30 | Retained | 2025 |
 | Pyla Avinash | Batter | Fast | Right-hand | 0.30 | Retained | 2025 |
 | Musheer Khan | All-rounder | Left-arm orthodox | Left-hand | 0.30 | Retained | 2025 |
 | Harnoor Singh | Batter | Medium | Left-hand | 0.30 | Retained | 2025 |
@@ -39,6 +39,41 @@
 **Total Spend:** ₹116.05 Cr
 
 **Role Breakdown:** All-rounder: 8, Batter: 5, Bowler: 7, Wicketkeeper: 2
+
+### 1.2 Player Archetypes (K-means V2 Model)
+
+*Based on clustering analysis of IPL career performance*
+
+**Batter Archetypes:**
+
+- **MIDDLE_ORDER**: Nehal Wadhera, Shreyas Iyer
+- **FINISHER**: Marcus Stoinis, Shashank Singh
+
+**Bowler Archetypes:**
+
+- **DEATH_SPECIALIST**: Shashank Singh, Arshdeep Singh
+- **MIDDLE_OVERS_CONTROLLER**: Harpreet Brar, Yuzvendra Chahal
+- **WORKHORSE**: Lockie Ferguson
+
+### 1.3 Key Player Tags
+
+*Performance tags based on phase analysis, matchups, and specializations*
+
+| Player | Tags |
+|--------|------|
+| Azmatullah Omarzai | PART_TIMER, LHB_WICKET_TAKER |
+| Harpreet Brar | LHB_WICKET_TAKER, MIDDLE_OVERS_CONTROLLER, MID_OVERS_ELITE |
+| Marco Jansen | PART_TIMER, LHB_WICKET_TAKER, PRESSURE_BUILDER |
+| Marcus Stoinis | SPECIALIST_VS_PACE, VULNERABLE_VS_OFF_SPIN, FINISHER, SPECIALIST_VS_LEG_SPIN, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN (+5 more) |
+| Shashank Singh | SPECIALIST_VS_PACE, FINISHER, CONSISTENT, VULNERABLE_VS_LEFT_ARM_SPIN, DEATH_SPECIALIST (+3 more) |
+| Nehal Wadhera | SPECIALIST_VS_PACE, SPIN_SPECIALIST, MIDDLE_ORDER, SPECIALIST_VS_LEG_SPIN, SIX_HITTER (+2 more) |
+| Shreyas Iyer | SPECIALIST_VS_PACE, SPECIALIST_VS_OFF_SPIN, DEATH_SPECIALIST, SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, MIDDLE_ORDER |
+| Arshdeep Singh | DEATH_SPECIALIST |
+| Lockie Ferguson | DEATH_LIABILITY, WORKHORSE |
+| Vijaykumar Vyshak | PART_TIMER |
+| Yash Thakur | DEATH_LIABILITY, PART_TIMER, RHB_WICKET_TAKER |
+| Yuzvendra Chahal | PROVEN_WICKET_TAKER, RHB_SPECIALIST, LHB_VULNERABLE, MIDDLE_OVERS_CONTROLLER |
+| Prabhsimran Singh | SPECIALIST_VS_PACE, EXPLOSIVE_OPENER, VULNERABLE_VS_LEFT_ARM_SPIN, PP_DOMINATOR, DEATH_SPECIALIST (+4 more) |
 
 ---
 
@@ -93,12 +128,12 @@
 |-------|---------|------|-------|-----|-----|
 | Punjab Cricket Association Stadium, Moha... | 35 | 5210 | 4029 | 129.31 | 25.67 |
 | Wankhede Stadium | 11 | 1831 | 1317 | 139.03 | 30.52 |
-| Punjab Cricket Association IS Bindra Sta... | 11 | 1692 | 1239 | 136.56 | 31.33 |
 | Eden Gardens | 11 | 1651 | 1257 | 131.34 | 27.52 |
+| Punjab Cricket Association IS Bindra Sta... | 11 | 1692 | 1239 | 136.56 | 31.33 |
 | Dubai International Cricket Stadium | 11 | 1679 | 1244 | 134.97 | 27.98 |
 | Punjab Cricket Association IS Bindra Sta... | 10 | 1697 | 1173 | 144.67 | 36.11 |
-| M Chinnaswamy Stadium | 10 | 1430 | 1104 | 129.53 | 23.06 |
 | Maharaja Yadavindra Singh International ... | 10 | 1468 | 1129 | 130.03 | 18.82 |
+| M Chinnaswamy Stadium | 10 | 1430 | 1104 | 129.53 | 23.06 |
 | Himachal Pradesh Cricket Association Sta... | 9 | 1415 | 1053 | 134.38 | 30.11 |
 | Feroz Shah Kotla | 9 | 1138 | 980 | 116.12 | 21.47 |
 
@@ -113,7 +148,6 @@
 | Shreyas Iyer | Batter | 131 | 3731 | 2790 | 133.73 | 34.55 | 16.7 | 34.12 | 27 | 0 | HIGH |
 | Marcus Stoinis | All-rounder | 99 | 2026 | 1393 | 145.44 | 28.54 | 18.95 | 34.24 | 10 | 1 | HIGH |
 | Prabhsimran Singh | Wicketkeeper | 52 | 1355 | 884 | 153.28 | 27.1 | 23.98 | 40.16 | 9 | 1 | HIGH |
-| Harnoor Singh | Batter | 88 | 833 | 599 | 139.07 | 16.33 | 20.2 | 41.9 | 1 | 0 | HIGH |
 | Shashank Singh | All-rounder | 33 | 773 | 490 | 157.76 | 42.94 | 20.2 | 28.37 | 5 | 0 | HIGH |
 | Nehal Wadhera | Batter | 31 | 719 | 501 | 143.51 | 27.65 | 19.76 | 36.93 | 4 | 0 | HIGH |
 | Priyansh Arya | Batter | 18 | 545 | 298 | 182.89 | 30.28 | 30.54 | 35.57 | 4 | 1 | MEDIUM |
@@ -124,14 +158,13 @@
 | Suryansh Shedge | All-rounder | 3 | 7 | 11 | 63.64 | 2.33 | - | 45.45 | 0 | 0 | LOW |
 | Musheer Khan | All-rounder | 1 | 0 | 3 | - | - | - | 100.0 | 0 | 0 | LOW |
 | Cooper Connolly | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
+| Harnoor Singh | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Pyla Avinash | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
 ### 4.2 Phase-wise Batting (Qualified players)
 
 | Player | Phase | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|------|--------|
-| Harnoor Singh | middle | 18 | 147 | 139 | 105.76 | 16.33 | 14.39 | 51.08 | MEDIUM |
-| Harnoor Singh | death | 75 | 624 | 409 | 152.57 | 16.0 | 22.49 | 37.9 | MEDIUM |
 | Harpreet Brar | death | 22 | 204 | 149 | 136.91 | 25.5 | 16.11 | 33.56 | MEDIUM |
 | Marcus Stoinis | powerplay | 31 | 296 | 240 | 123.33 | 29.6 | 20.42 | 50.83 | MEDIUM |
 | Marcus Stoinis | middle | 65 | 873 | 672 | 129.91 | 29.1 | 14.43 | 33.33 | HIGH |
@@ -166,7 +199,7 @@
 | Xavier Bartlett | Fast | 4 | 10.0 | 2 | 9.6 | 48.0 | 30.0 | 46.67 | 26.67 | LOW |
 | Shashank Singh | Medium | 4 | 5.0 | 1 | 10.4 | 52.0 | 30.0 | 16.67 | 23.33 | LOW |
 | Musheer Khan | Left-arm o | 1 | 2.0 | 1 | 13.5 | 27.0 | 12.0 | 8.33 | 33.33 | LOW |
-| Suryansh Shedge | Off-spin | 1 | 3.0 | 0 | 13.33 | - | - | 5.56 | 27.78 | LOW |
+| Suryansh Shedge | Medium | 1 | 3.0 | 0 | 13.33 | - | - | 5.56 | 27.78 | LOW |
 
 ### 5.2 Bowler Phase Distribution
 
@@ -180,9 +213,6 @@
 | Azmatullah Omarzai | powerplay | 27.0 | 3 | 9.63 | 39.51 | 56.3% | 25.0% | -31.3 | MEDIUM |
 | Azmatullah Omarzai | middle | 13.0 | 6 | 8.15 | 28.21 | 27.1% | 50.0% | +22.9 | MEDIUM |
 | Azmatullah Omarzai | death | 8.0 | 3 | 12.0 | 18.75 | 16.7% | 25.0% | +8.3 | MEDIUM |
-| Harbhajan Singh | powerplay | 128.8 | 30 | 7.03 | 49.16 | 22.6% | 20.5% | -2.1 | HIGH |
-| Harbhajan Singh | middle | 395.0 | 91 | 6.89 | 33.42 | 69.4% | 62.3% | -7.1 | HIGH |
-| Harbhajan Singh | death | 45.5 | 25 | 8.11 | 33.33 | 8.0% | 17.1% | +9.1 | HIGH |
 | Harpreet Brar | powerplay | 23.0 | 2 | 10.04 | 35.51 | 17.0% | 5.7% | -11.3 | HIGH |
 | Harpreet Brar | middle | 103.0 | 30 | 7.19 | 33.98 | 76.2% | 85.7% | +9.5 | HIGH |
 | Harpreet Brar | death | 9.2 | 3 | 10.58 | 18.18 | 6.8% | 8.6% | +1.8 | HIGH |
@@ -257,20 +287,6 @@
 | Gujarat Titans | 4 | 69 | 54 | 127.78 | 17.25 | 22.22 | 53.7 | 4 | MEDIUM |
 | Mumbai Indians | 5 | 54 | 50 | 108.0 | 10.8 | 14.0 | 54.0 | 5 | MEDIUM |
 
-### Harnoor Singh
-
-| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
-|------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Chennai Super Kings | 16 | 167 | 121 | 138.02 | 15.18 | 19.83 | 46.28 | 11 | HIGH |
-| Punjab Kings | 12 | 135 | 92 | 146.74 | 15.0 | 22.83 | 43.48 | 9 | MEDIUM |
-| Delhi Capitals | 11 | 99 | 73 | 135.62 | 12.38 | 20.55 | 38.36 | 8 | MEDIUM |
-| Deccan Chargers | 4 | 82 | 37 | 221.62 | 41.0 | 37.84 | 24.32 | 2 | MEDIUM |
-| Kolkata Knight Riders | 8 | 74 | 56 | 132.14 | 14.8 | 19.64 | 50.0 | 5 | MEDIUM |
-| Royal Challengers Bengaluru | 10 | 69 | 50 | 138.0 | 11.5 | 18.0 | 30.0 | 6 | MEDIUM |
-| Rajasthan Royals | 8 | 66 | 40 | 165.0 | 66.0 | 20.0 | 25.0 | 1 | MEDIUM |
-| Rising Pune Supergiant | 2 | 52 | 32 | 162.5 | - | 28.13 | 40.63 | 0 | MEDIUM |
-| Sunrisers Hyderabad | 7 | 29 | 47 | 61.7 | 14.5 | 4.26 | 57.45 | 2 | MEDIUM |
-
 ### Shashank Singh
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
@@ -281,6 +297,17 @@
 | Kolkata Knight Riders | 3 | 97 | 57 | 170.18 | 48.5 | 22.81 | 33.33 | 2 | MEDIUM |
 | Rajasthan Royals | 4 | 78 | 54 | 144.44 | 39.0 | 16.67 | 25.93 | 2 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 50 | 32 | 156.25 | 25.0 | 21.88 | 18.75 | 2 | MEDIUM |
+
+### Nehal Wadhera
+
+| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
+|------------|-----|------|-------|-----|-----|--------|------|------|--------|
+| Rajasthan Royals | 3 | 181 | 102 | 177.45 | 60.33 | 23.53 | 24.51 | 3 | HIGH |
+| Lucknow Super Giants | 6 | 145 | 110 | 131.82 | 29.0 | 20.0 | 47.27 | 5 | HIGH |
+| Royal Challengers Bengaluru | 6 | 134 | 99 | 135.35 | 44.67 | 18.18 | 43.43 | 3 | MEDIUM |
+| Chennai Super Kings | 3 | 77 | 60 | 128.33 | 25.67 | 18.33 | 36.67 | 3 | MEDIUM |
+| Gujarat Titans | 3 | 59 | 31 | 190.32 | 19.67 | 29.03 | 29.03 | 3 | MEDIUM |
+| Mumbai Indians | 2 | 50 | 31 | 161.29 | 50.0 | 19.35 | 22.58 | 1 | MEDIUM |
 
 ---
 
@@ -295,31 +322,14 @@
 | Punjab Kings | 21 | 445 | 605 | 31 | 8.16 | 19.52 | 14.35 | 32.36 | 15.73 | HIGH |
 | Mumbai Indians | 21 | 486 | 655 | 30 | 8.09 | 21.83 | 16.2 | 36.21 | 15.84 | HIGH |
 | Sunrisers Hyderabad | 22 | 511 | 675 | 29 | 7.93 | 23.28 | 17.62 | 31.9 | 13.7 | HIGH |
-| Chennai Super Kings | 19 | 408 | 475 | 23 | 6.99 | 20.65 | 17.74 | 37.01 | 11.76 | HIGH |
 | Delhi Capitals | 20 | 427 | 573 | 23 | 8.05 | 24.91 | 18.57 | 33.49 | 14.99 | HIGH |
+| Chennai Super Kings | 19 | 408 | 475 | 23 | 6.99 | 20.65 | 17.74 | 37.01 | 11.76 | HIGH |
 | Rajasthan Royals | 14 | 285 | 300 | 18 | 6.32 | 16.67 | 15.83 | 38.6 | 9.47 | HIGH |
 | Royal Challengers Bengaluru | 10 | 234 | 303 | 10 | 7.77 | 30.3 | 23.4 | 28.63 | 12.39 | HIGH |
 | Gujarat Lions | 5 | 114 | 147 | 8 | 7.74 | 18.38 | 14.25 | 32.46 | 14.04 | HIGH |
 | Lucknow Super Giants | 7 | 162 | 269 | 8 | 9.96 | 33.63 | 20.25 | 25.93 | 20.99 | HIGH |
 | Gujarat Titans | 7 | 161 | 217 | 5 | 8.09 | 43.4 | 32.2 | 22.98 | 13.04 | HIGH |
 | Rising Pune Supergiant | 3 | 42 | 68 | 0 | 9.71 | - | - | 28.57 | 21.43 | MEDIUM |
-
-### Harnoor Singh
-
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Chennai Super Kings | 21 | 462 | 500 | 24 | 6.49 | 20.83 | 19.25 | 37.66 | 9.96 | HIGH |
-| Delhi Capitals | 22 | 489 | 558 | 22 | 6.85 | 25.36 | 22.23 | 38.24 | 12.88 | HIGH |
-| Punjab Kings | 22 | 480 | 600 | 22 | 7.5 | 27.27 | 21.82 | 31.46 | 13.54 | HIGH |
-| Royal Challengers Bengaluru | 23 | 492 | 601 | 21 | 7.33 | 28.62 | 23.43 | 38.21 | 14.02 | HIGH |
-| Kolkata Knight Riders | 19 | 378 | 456 | 15 | 7.24 | 30.4 | 25.2 | 34.39 | 13.76 | HIGH |
-| Rajasthan Royals | 13 | 276 | 360 | 11 | 7.83 | 32.73 | 25.09 | 37.68 | 16.3 | HIGH |
-| Deccan Chargers | 8 | 174 | 184 | 9 | 6.34 | 20.44 | 19.33 | 39.08 | 10.92 | HIGH |
-| Sunrisers Hyderabad | 13 | 270 | 330 | 8 | 7.33 | 41.25 | 33.75 | 39.63 | 15.19 | HIGH |
-| Pune Warriors | 5 | 102 | 86 | 6 | 5.06 | 14.33 | 17.0 | 48.04 | 8.82 | HIGH |
-| Gujarat Lions | 4 | 84 | 100 | 3 | 7.14 | 33.33 | 28.0 | 36.9 | 15.48 | MEDIUM |
-| Rising Pune Supergiant | 3 | 66 | 67 | 3 | 6.09 | 22.33 | 22.0 | 27.27 | 4.55 | MEDIUM |
-| Mumbai Indians | 6 | 119 | 121 | 2 | 6.1 | 60.5 | 59.5 | 42.02 | 10.92 | HIGH |
 
 ### Arshdeep Singh
 
@@ -328,8 +338,8 @@
 | Rajasthan Royals | 11 | 257 | 416 | 18 | 9.71 | 23.11 | 14.28 | 37.35 | 24.9 | HIGH |
 | Sunrisers Hyderabad | 11 | 255 | 322 | 15 | 7.58 | 21.47 | 17.0 | 36.86 | 15.69 | HIGH |
 | Chennai Super Kings | 9 | 188 | 258 | 11 | 8.23 | 23.45 | 17.09 | 35.11 | 20.21 | HIGH |
-| Royal Challengers Bengaluru | 11 | 212 | 335 | 11 | 9.48 | 30.45 | 19.27 | 33.02 | 22.64 | HIGH |
 | Kolkata Knight Riders | 10 | 190 | 265 | 11 | 8.37 | 24.09 | 17.27 | 43.16 | 21.58 | HIGH |
+| Royal Challengers Bengaluru | 11 | 212 | 335 | 11 | 9.48 | 30.45 | 19.27 | 33.02 | 22.64 | HIGH |
 | Mumbai Indians | 9 | 197 | 313 | 10 | 9.53 | 31.3 | 19.7 | 35.03 | 24.37 | HIGH |
 | Lucknow Super Giants | 6 | 132 | 185 | 10 | 8.41 | 18.5 | 13.2 | 33.33 | 20.45 | HIGH |
 | Delhi Capitals | 8 | 150 | 220 | 6 | 8.8 | 36.67 | 25.0 | 30.0 | 18.67 | HIGH |
@@ -343,8 +353,8 @@
 | Rajasthan Royals | 5 | 114 | 134 | 9 | 7.05 | 14.89 | 12.67 | 46.49 | 15.79 | HIGH |
 | Royal Challengers Bengaluru | 7 | 142 | 165 | 8 | 6.97 | 20.63 | 17.75 | 44.37 | 17.61 | HIGH |
 | Punjab Kings | 5 | 107 | 159 | 6 | 8.92 | 26.5 | 17.83 | 36.45 | 22.43 | HIGH |
-| Sunrisers Hyderabad | 8 | 146 | 258 | 5 | 10.6 | 51.6 | 29.2 | 28.08 | 23.97 | HIGH |
 | Mumbai Indians | 5 | 88 | 117 | 5 | 7.98 | 23.4 | 17.6 | 43.18 | 19.32 | MEDIUM |
+| Sunrisers Hyderabad | 8 | 146 | 258 | 5 | 10.6 | 51.6 | 29.2 | 28.08 | 23.97 | HIGH |
 | Chennai Super Kings | 6 | 138 | 250 | 4 | 10.87 | 62.5 | 34.5 | 26.09 | 26.81 | HIGH |
 | Kolkata Knight Riders | 2 | 48 | 78 | 2 | 9.75 | 39.0 | 24.0 | 33.33 | 25.0 | MEDIUM |
 | Lucknow Super Giants | 2 | 42 | 48 | 1 | 6.86 | 48.0 | 42.0 | 40.48 | 11.9 | MEDIUM |
@@ -360,9 +370,23 @@
 | Delhi Capitals | 6 | 69 | 114 | 3 | 9.91 | 38.0 | 23.0 | 21.74 | 20.29 | MEDIUM |
 | Sunrisers Hyderabad | 7 | 83 | 116 | 3 | 8.39 | 38.67 | 27.67 | 22.89 | 15.66 | MEDIUM |
 | Gujarat Titans | 3 | 36 | 71 | 2 | 11.83 | 35.5 | 18.0 | 27.78 | 27.78 | MEDIUM |
+| Royal Challengers Bengaluru | 8 | 72 | 138 | 1 | 11.5 | 138.0 | 72.0 | 13.89 | 23.61 | MEDIUM |
 | Gujarat Lions | 3 | 42 | 62 | 1 | 8.86 | 62.0 | 42.0 | 26.19 | 21.43 | MEDIUM |
 | Chennai Super Kings | 6 | 78 | 120 | 1 | 9.23 | 120.0 | 78.0 | 26.92 | 16.67 | MEDIUM |
-| Royal Challengers Bengaluru | 8 | 72 | 138 | 1 | 11.5 | 138.0 | 72.0 | 13.89 | 23.61 | MEDIUM |
+
+### Marco Jansen
+
+| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
+|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
+| Kolkata Knight Riders | 8 | 146 | 182 | 9 | 7.48 | 20.22 | 16.22 | 44.52 | 15.75 | HIGH |
+| Royal Challengers Bengaluru | 4 | 84 | 76 | 7 | 5.43 | 10.86 | 12.0 | 46.43 | 10.71 | MEDIUM |
+| Mumbai Indians | 3 | 66 | 116 | 5 | 10.55 | 23.2 | 13.2 | 39.39 | 28.79 | MEDIUM |
+| Rajasthan Royals | 4 | 90 | 168 | 4 | 11.2 | 42.0 | 22.5 | 30.0 | 31.11 | MEDIUM |
+| Gujarat Titans | 4 | 96 | 150 | 3 | 9.38 | 50.0 | 32.0 | 28.13 | 21.88 | MEDIUM |
+| Chennai Super Kings | 5 | 114 | 188 | 3 | 9.89 | 62.67 | 38.0 | 32.46 | 23.68 | HIGH |
+| Punjab Kings | 2 | 42 | 49 | 2 | 7.0 | 24.5 | 21.0 | 59.52 | 21.43 | MEDIUM |
+| Lucknow Super Giants | 2 | 48 | 59 | 2 | 7.38 | 29.5 | 24.0 | 45.83 | 14.58 | MEDIUM |
+| Delhi Capitals | 2 | 37 | 70 | 1 | 11.35 | 70.0 | 37.0 | 29.73 | 27.03 | MEDIUM |
 
 ---
 
@@ -372,7 +396,6 @@
 
 | Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|--------|
-| Harbhajan Singh | Wankhede Stadium | 31 | 361 | 238 | 151.68 | 25.79 | 23.11 | HIGH |
 | MP Stoinis | Bharat Ratna Shri Atal Bihari Vajpa... | 14 | 336 | 247 | 136.03 | 30.55 | 17.81 | HIGH |
 | MP Stoinis | Dubai International Cricket Stadium | 9 | 209 | 133 | 157.14 | 34.83 | 22.56 | HIGH |
 | MP Stoinis | MA Chidambaram Stadium, Chepauk, Ch... | 4 | 179 | 108 | 165.74 | 89.5 | 22.22 | HIGH |
@@ -411,9 +434,9 @@
 
 ### 9.1 Death Bowling Options
 
-- **Harbhajan Singh**: 45.5 overs, 25 wickets, 8.11 economy (over-performs)
 - **YS Chahal**: 107.2 overs, 64 wickets, 9.15 economy (over-performs)
 - **Arshdeep Singh**: 99.7 overs, 49 wickets, 9.35 economy (over-performs)
+- **LH Ferguson**: 52.2 overs, 17 wickets, 10.24 economy (over-performs)
 
 ### 9.2 Powerplay Batting Options
 
@@ -424,7 +447,6 @@
 
 *Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
 
-- **Harbhajan Singh** vs Left-arm orthodox: SR 86.15, Avg 28.0 (65 balls)
 - **Shashank Singh** vs Left-arm orthodox: SR 100.0, Avg 18.33 (55 balls)
 
 ---

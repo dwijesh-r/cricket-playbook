@@ -1,6 +1,6 @@
 # Kolkata Knight Riders (KKR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-20 20:05
+**Generated:** 2026-01-24 20:44
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -14,7 +14,7 @@
 |--------|------|---------|---------|------------|------|--------|
 | Cameron Green | All-rounder | Fast | Left-hand | 25.20 | Auction | 2026 |
 | Matheesha Pathirana | Bowler | Fast | Right-hand | 18.00 | Auction | 2026 |
-| Rinku Singh | Batter | Medium | Left-hand | 13.00 | Retained | 2018 |
+| Rinku Singh | Batter | Off-spin | Left-hand | 13.00 | Retained | 2018 |
 | Varun Chakravarthy | Bowler | Off-spin | Right-hand | 12.00 | Retained | 2020 |
 | Sunil Narine | All-rounder | Off-spin | Left-hand | 12.00 | Retained | 2012 |
 | Harshit Rana | Bowler | Fast | Right-hand | 4.00 | Retained | 2023 |
@@ -31,16 +31,52 @@
 | Anukul Roy | All-rounder | Left-arm orthodox | Left-hand | 0.40 | Retained | 2018 |
 | Finn Allen | Wicketkeeper | Medium | Right-hand | 0.30 | Auction | 2026 |
 | Tim Seifert | Wicketkeeper | Medium | Right-hand | 0.30 | Auction | 2026 |
-| Prashant Solanki | Bowler | Left-arm orthodox | Left-hand | 0.30 | Auction | 2026 |
+| Prashant Solanki | Bowler | Leg-spin | Left-hand | 0.30 | Auction | 2026 |
 | Kartik Tyagi | Bowler | Fast | Right-hand | 0.30 | Auction | 2026 |
 | Tejasvi Singh | Wicketkeeper | Medium | Right-hand | 0.30 | Auction | 2026 |
 | Sarthak Ranjan | Bowler | Fast | Right-hand | 0.30 | Auction | 2026 |
-| Daksh Kamra | All-rounder | Medium | Right-hand | 0.30 | Auction | 2026 |
+| Daksh Kamra | All-rounder | Leg-spin | Right-hand | 0.30 | Auction | 2026 |
 
 **Total Squad Size:** 24 players
 **Total Spend:** ₹107.60 Cr
 
 **Role Breakdown:** All-rounder: 6, Batter: 6, Bowler: 9, Wicketkeeper: 3
+
+### 1.2 Player Archetypes (K-means V2 Model)
+
+*Based on clustering analysis of IPL career performance*
+
+**Batter Archetypes:**
+
+- **PLAYMAKER**: Rahul Tripathi
+- **MIDDLE_ORDER**: Angkrish Raghuvanshi, Manish Pandey
+- **FINISHER**: Rinku Singh
+
+**Bowler Archetypes:**
+
+- **DEATH_SPECIALIST**: Matheesha Pathirana
+- **MIDDLE_OVERS_CONTROLLER**: Varun Chakravarthy
+- **WORKHORSE**: Sunil Narine
+
+### 1.3 Key Player Tags
+
+*Performance tags based on phase analysis, matchups, and specializations*
+
+| Player | Tags |
+|--------|------|
+| Sunil Narine | SPECIALIST_VS_PACE, SPIN_SPECIALIST, EXPLOSIVE_OPENER, VULNERABLE_VS_LEG_SPIN, PP_DOMINATOR (+11 more) |
+| Ajinkya Rahane | VULNERABLE_VS_OFF_SPIN, ANCHOR, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN |
+| Angkrish Raghuvanshi | SPECIALIST_VS_PACE, SPECIALIST_VS_SPIN, SPECIALIST_VS_LEG_SPIN, MIDDLE_ORDER |
+| Manish Pandey | VULNERABLE_VS_SPIN, VULNERABLE_VS_LEFT_ARM_SPIN, MIDDLE_ORDER |
+| Rahul Tripathi | SPECIALIST_VS_PACE, SPECIALIST_VS_OFF_SPIN, VULNERABLE_VS_LEFT_ARM_SPIN, PLAYMAKER |
+| Rinku Singh | SPECIALIST_VS_PACE, FINISHER, DEATH_SPECIALIST, SIX_HITTER, PACE_SPECIALIST |
+| Akash Deep | LHB_WICKET_TAKER, LHB_PRESSURE, PART_TIMER, LHB_SPECIALIST, RHB_VULNERABLE |
+| Harshit Rana | PART_TIMER, PRESSURE_BUILDER, LHB_PRESSURE, PP_LIABILITY |
+| Kartik Tyagi | PART_TIMER, LHB_WICKET_TAKER, LHB_VULNERABLE, RHB_SPECIALIST |
+| Matheesha Pathirana | DEATH_SPECIALIST, LHB_PRESSURE |
+| Umran Malik | LHB_PRESSURE, PRESSURE_BUILDER, LHB_WICKET_TAKER, PART_TIMER, RHB_VULNERABLE (+2 more) |
+| Vaibhav Arora | LHB_WICKET_TAKER, LHB_PRESSURE, PART_TIMER, LHB_SPECIALIST, RHB_VULNERABLE |
+| Varun Chakravarthy | MIDDLE_OVERS_CONTROLLER, PROVEN_WICKET_TAKER |
 
 ---
 
@@ -99,10 +135,10 @@
 | Sheikh Zayed Stadium | 11 | 1553 | 1298 | 119.65 | 21.57 |
 | Wankhede Stadium | 9 | 1193 | 1042 | 114.49 | 19.24 |
 | Wankhede Stadium, Mumbai | 9 | 1286 | 1005 | 127.96 | 21.08 |
-| Sharjah Cricket Stadium | 8 | 1126 | 947 | 118.9 | 20.11 |
 | Feroz Shah Kotla | 8 | 1125 | 921 | 122.15 | 23.94 |
+| Sharjah Cricket Stadium | 8 | 1126 | 947 | 118.9 | 20.11 |
+| MA Chidambaram Stadium, Chepauk | 7 | 1003 | 836 | 119.98 | 22.8 |
 | Dubai International Cricket Stadium | 7 | 1091 | 838 | 130.19 | 25.37 |
-| MA Chidambaram Stadium, Chepauk, Chennai | 7 | 930 | 715 | 130.07 | 24.47 |
 
 ---
 
@@ -169,7 +205,7 @@
 | Akash Deep | Fast | 14 | 46.3 | 10 | 11.96 | 55.4 | 27.8 | 32.01 | 29.14 | MEDIUM |
 | Ramandeep Singh | Medium | 4 | 6.7 | 6 | 9.6 | 10.67 | 6.67 | 30.0 | 20.0 | LOW |
 | Anukul Roy | Left-arm o | 10 | 26.7 | 6 | 8.18 | 36.33 | 26.67 | 35.0 | 16.88 | MEDIUM |
-| Prashant Solanki | Left-arm o | 2 | 6.0 | 2 | 6.5 | 19.5 | 18.0 | 30.56 | 8.33 | LOW |
+| Prashant Solanki | Leg-spin | 2 | 6.0 | 2 | 6.5 | 19.5 | 18.0 | 30.56 | 8.33 | LOW |
 | Cameron Green | Fast | 1 | 2.8 | 0 | 8.47 | - | - | 35.29 | 23.53 | LOW |
 | Rachin Ravindra | Left-arm o | 2 | 2.0 | 0 | 3.5 | - | - | 41.67 | - | LOW |
 
@@ -298,8 +334,8 @@
 | Punjab Kings | 27 | 624 | 719 | 36 | 6.91 | 19.97 | 17.33 | 39.9 | 12.66 | HIGH |
 | Royal Challengers Bengaluru | 21 | 504 | 575 | 27 | 6.85 | 21.3 | 18.67 | 37.9 | 12.1 | HIGH |
 | Delhi Capitals | 24 | 546 | 613 | 27 | 6.74 | 22.7 | 20.22 | 38.28 | 11.72 | HIGH |
-| Mumbai Indians | 24 | 553 | 638 | 26 | 6.92 | 24.54 | 21.27 | 40.14 | 13.56 | HIGH |
 | Chennai Super Kings | 22 | 512 | 534 | 26 | 6.26 | 20.54 | 19.69 | 35.94 | 8.59 | HIGH |
+| Mumbai Indians | 24 | 553 | 638 | 26 | 6.92 | 24.54 | 21.27 | 40.14 | 13.56 | HIGH |
 | Sunrisers Hyderabad | 27 | 624 | 706 | 17 | 6.79 | 41.53 | 36.71 | 35.9 | 10.1 | HIGH |
 | Rajasthan Royals | 20 | 468 | 562 | 14 | 7.21 | 40.14 | 33.43 | 39.1 | 13.25 | HIGH |
 | Lucknow Super Giants | 6 | 138 | 150 | 5 | 6.52 | 30.0 | 27.6 | 34.78 | 8.7 | HIGH |
@@ -328,11 +364,11 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 4 | 96 | 112 | 9 | 7.0 | 12.44 | 10.67 | 34.38 | 13.54 | MEDIUM |
 | Gujarat Titans | 5 | 109 | 148 | 8 | 8.15 | 18.5 | 13.63 | 37.61 | 17.43 | HIGH |
+| Royal Challengers Bengaluru | 3 | 72 | 107 | 7 | 8.92 | 15.29 | 10.29 | 38.89 | 22.22 | MEDIUM |
 | Mumbai Indians | 3 | 58 | 78 | 7 | 8.07 | 11.14 | 8.29 | 39.66 | 15.52 | MEDIUM |
 | Lucknow Super Giants | 4 | 92 | 117 | 7 | 7.63 | 16.71 | 13.14 | 31.52 | 13.04 | MEDIUM |
-| Royal Challengers Bengaluru | 3 | 72 | 107 | 7 | 8.92 | 15.29 | 10.29 | 38.89 | 22.22 | MEDIUM |
-| Sunrisers Hyderabad | 3 | 54 | 59 | 3 | 6.56 | 19.67 | 18.0 | 37.04 | 11.11 | MEDIUM |
 | Punjab Kings | 3 | 72 | 127 | 3 | 10.58 | 42.33 | 24.0 | 19.44 | 19.44 | MEDIUM |
+| Sunrisers Hyderabad | 3 | 54 | 59 | 3 | 6.56 | 19.67 | 18.0 | 37.04 | 11.11 | MEDIUM |
 | Rajasthan Royals | 4 | 83 | 114 | 2 | 8.24 | 57.0 | 41.5 | 32.53 | 16.87 | MEDIUM |
 | Kolkata Knight Riders | 3 | 66 | 80 | 1 | 7.27 | 80.0 | 66.0 | 31.82 | 12.12 | MEDIUM |
 
@@ -341,11 +377,11 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 6 | 132 | 168 | 8 | 7.64 | 21.0 | 16.5 | 43.18 | 16.67 | HIGH |
-| Rajasthan Royals | 4 | 84 | 139 | 6 | 9.93 | 23.17 | 14.0 | 36.9 | 27.38 | MEDIUM |
 | Lucknow Super Giants | 5 | 97 | 157 | 6 | 9.71 | 26.17 | 16.17 | 36.08 | 25.77 | MEDIUM |
+| Rajasthan Royals | 4 | 84 | 139 | 6 | 9.93 | 23.17 | 14.0 | 36.9 | 27.38 | MEDIUM |
 | Punjab Kings | 4 | 72 | 146 | 5 | 12.17 | 29.2 | 14.4 | 36.11 | 33.33 | MEDIUM |
-| Royal Challengers Bengaluru | 3 | 66 | 102 | 4 | 9.27 | 25.5 | 16.5 | 28.79 | 19.7 | MEDIUM |
 | Chennai Super Kings | 3 | 60 | 77 | 4 | 7.7 | 19.25 | 15.0 | 50.0 | 18.33 | MEDIUM |
+| Royal Challengers Bengaluru | 3 | 66 | 102 | 4 | 9.27 | 25.5 | 16.5 | 28.79 | 19.7 | MEDIUM |
 | Delhi Capitals | 3 | 66 | 94 | 3 | 8.55 | 31.33 | 22.0 | 39.39 | 22.73 | MEDIUM |
 | Mumbai Indians | 2 | 30 | 57 | 2 | 11.4 | 28.5 | 15.0 | 40.0 | 33.33 | MEDIUM |
 | Gujarat Titans | 2 | 42 | 67 | 2 | 9.57 | 33.5 | 21.0 | 26.19 | 26.19 | MEDIUM |
@@ -360,9 +396,9 @@
 | Rajasthan Royals | 3 | 66 | 126 | 4 | 11.45 | 31.5 | 16.5 | 31.82 | 30.3 | MEDIUM |
 | Lucknow Super Giants | 4 | 78 | 109 | 3 | 8.38 | 36.33 | 26.0 | 35.9 | 15.38 | MEDIUM |
 | Punjab Kings | 3 | 57 | 90 | 3 | 9.47 | 30.0 | 19.0 | 36.84 | 29.82 | MEDIUM |
-| Gujarat Titans | 2 | 48 | 77 | 1 | 9.63 | 77.0 | 48.0 | 25.0 | 25.0 | MEDIUM |
 | Mumbai Indians | 3 | 55 | 93 | 1 | 10.15 | 93.0 | 55.0 | 38.18 | 25.45 | MEDIUM |
 | Royal Challengers Bengaluru | 2 | 30 | 63 | 1 | 12.6 | 63.0 | 30.0 | 16.67 | 36.67 | MEDIUM |
+| Gujarat Titans | 2 | 48 | 77 | 1 | 9.63 | 77.0 | 48.0 | 25.0 | 25.0 | MEDIUM |
 
 ---
 
@@ -395,8 +431,8 @@
 | MK Pandey | Rajiv Gandhi International Stadium | 9 | 169 | 157 | 107.64 | 18.78 | 8.92 | HIGH |
 | MK Pandey | Rajiv Gandhi International Stadium,... | 5 | 149 | 143 | 104.2 | 37.25 | 10.49 | HIGH |
 | MK Pandey | Subrata Roy Sahara Stadium | 7 | 147 | 127 | 115.75 | 29.4 | 13.39 | HIGH |
-| MK Pandey | MA Chidambaram Stadium, Chepauk, Ch... | 4 | 128 | 119 | 107.56 | 42.67 | 10.08 | HIGH |
 | MK Pandey | Feroz Shah Kotla | 4 | 128 | 94 | 136.17 | 64.0 | 12.77 | MEDIUM |
+| MK Pandey | MA Chidambaram Stadium, Chepauk, Ch... | 4 | 128 | 119 | 107.56 | 42.67 | 10.08 | HIGH |
 | MK Pandey | Sawai Mansingh Stadium | 5 | 124 | 101 | 122.77 | 24.8 | 16.83 | HIGH |
 | MK Pandey | SuperSport Park | 1 | 114 | 73 | 156.16 | - | 19.18 | MEDIUM |
 | MK Pandey | Dr DY Patil Sports Academy | 5 | 113 | 101 | 111.88 | 22.6 | 14.85 | HIGH |
@@ -404,8 +440,8 @@
 | R Ravindra | MA Chidambaram Stadium, Chepauk, Ch... | 8 | 237 | 151 | 156.95 | 33.86 | 21.19 | HIGH |
 | RA Tripathi | Wankhede Stadium, Mumbai | 6 | 214 | 144 | 148.61 | 35.67 | 20.14 | HIGH |
 | RA Tripathi | Maharashtra Cricket Association Sta... | 7 | 183 | 129 | 141.86 | 36.6 | 22.48 | HIGH |
-| RA Tripathi | Rajiv Gandhi International Stadium,... | 8 | 174 | 126 | 138.1 | 24.86 | 23.02 | HIGH |
 | RA Tripathi | Sawai Mansingh Stadium | 9 | 174 | 140 | 124.29 | 29.0 | 12.14 | HIGH |
+| RA Tripathi | Rajiv Gandhi International Stadium,... | 8 | 174 | 126 | 138.1 | 24.86 | 23.02 | HIGH |
 | RA Tripathi | MA Chidambaram Stadium, Chepauk, Ch... | 9 | 173 | 131 | 132.06 | 19.22 | 18.32 | HIGH |
 | RA Tripathi | Eden Gardens | 3 | 140 | 80 | 175.0 | 46.67 | 30.0 | MEDIUM |
 | RA Tripathi | Dr DY Patil Sports Academy, Mumbai | 4 | 130 | 77 | 168.83 | 43.33 | 24.68 | MEDIUM |

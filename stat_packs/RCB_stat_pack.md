@@ -1,6 +1,6 @@
 # Royal Challengers Bengaluru (RCB) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-20 20:05
+**Generated:** 2026-01-24 20:45
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -19,7 +19,6 @@
 | Jitesh Sharma | Wicketkeeper | Medium | Right-hand | 11.00 | Retained | 2025 |
 | Bhuvneshwar Kumar | Bowler | Fast | Right-hand | 10.75 | Retained | 2025 |
 | Venkatesh Iyer | All-rounder | Medium | Left-hand | 7.00 | Auction | 2026 |
-| Raqibul Hasan | Batter | Medium | Right-hand | 6.00 | Retained | 2025 |
 | Krunal Pandya | All-rounder | Left-arm orthodox | Left-hand | 5.75 | Retained | 2025 |
 | Yash Dayal | Bowler | Fast | Left-hand | 5.00 | Retained | 2022 |
 | Tim David | Batter | Off-spin | Right-hand | 3.00 | Retained | 2025 |
@@ -29,15 +28,56 @@
 | Romario Shepherd | All-rounder | Fast | Right-hand | 2.00 | Auction | 2026 |
 | Jacob Duffy | Bowler | Fast | Right-hand | 0.75 | Auction | 2026 |
 | Swapnil Singh | All-rounder | Left-arm orthodox | Left-hand | 0.50 | Retained | 2024 |
-| Abhinandan Singh | Bowler | Fast | Right-hand | 0.30 | Retained | 2025 |
 | Mangesh Yadav | Bowler | Fast | Left-hand | 0.30 | Auction | 2026 |
+| Abhinandan Singh | Bowler | Fast | Right-hand | 0.30 | Retained | 2025 |
 | Jordan Cox | Wicketkeeper | Medium | Right-hand | 0.30 | Auction | 2026 |
 | Satvik Deswal | Bowler | Left-arm wrist spin | Left-hand | 0.00 | - | - |
+| Rasikh Salam Dar | Bowler | Fast | Right-hand | 0.00 | - | - |
+| Vicky Ostwal | Bowler | Left-arm orthodox | Left-hand | 0.00 | - | - |
+| Vihaan Malhotra | Batter | Medium | Right-hand | 0.00 | - | - |
+| Kanishk Chouhan | Bowler | Leg-spin | Right-hand | 0.00 | - | - |
 
-**Total Squad Size:** 21 players
-**Total Spend:** ₹115.85 Cr
+**Total Squad Size:** 24 players
+**Total Spend:** ₹109.85 Cr
 
-**Role Breakdown:** All-rounder: 5, Batter: 5, Bowler: 8, Wicketkeeper: 3
+**Role Breakdown:** All-rounder: 5, Batter: 5, Bowler: 11, Wicketkeeper: 3
+
+### 1.2 Player Archetypes (K-means V2 Model)
+
+*Based on clustering analysis of IPL career performance*
+
+**Batter Archetypes:**
+
+- **ACCUMULATOR**: Krunal Pandya
+- **PLAYMAKER**: Venkatesh Iyer
+- **MIDDLE_ORDER**: Rajat Patidar, Virat Kohli
+- **FINISHER**: Tim David, Jitesh Sharma
+
+**Bowler Archetypes:**
+
+- **MIDDLE_OVERS_CONTROLLER**: Krunal Pandya
+- **WORKHORSE**: Suyash Sharma
+
+### 1.3 Key Player Tags
+
+*Performance tags based on phase analysis, matchups, and specializations*
+
+| Player | Tags |
+|--------|------|
+| Krunal Pandya | SPECIALIST_VS_PACE, ACCUMULATOR, VULNERABLE_VS_OFF_SPIN, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, MIDDLE_OVERS_CONTROLLER (+5 more) |
+| Romario Shepherd | PART_TIMER |
+| Venkatesh Iyer | SPECIALIST_VS_PACE, SPECIALIST_VS_SPIN, VULNERABLE_VS_LEFT_ARM_SPIN, PLAYMAKER |
+| Devdutt Padikkal | SPECIALIST_VS_PACE, VULNERABLE_VS_OFF_SPIN, SPECIALIST_VS_LEFT_ARM_SPIN, SPECIALIST_VS_LEG_SPIN, ANCHOR (+1 more) |
+| Rajat Patidar | SPECIALIST_VS_PACE, SPIN_SPECIALIST, MIDDLE_ORDER, SPECIALIST_VS_LEFT_ARM_SPIN, DEATH_SPECIALIST (+4 more) |
+| Tim David | SPECIALIST_VS_PACE, FINISHER, VULNERABLE_VS_LEG_SPIN, DEATH_SPECIALIST, SIX_HITTER (+1 more) |
+| Virat Kohli | SPECIALIST_VS_PACE, CONSISTENT, DEATH_SPECIALIST, SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, MIDDLE_ORDER (+1 more) |
+| Bhuvneshwar Kumar | VULNERABLE_VS_PACE, ACCUMULATOR, RHB_PRESSURE, RHB_WICKET_TAKER, PRESSURE_BUILDER (+5 more) |
+| Josh Hazlewood | PP_ELITE, PRESSURE_BUILDER, RHB_SPECIALIST, RHB_PRESSURE, LHB_VULNERABLE (+1 more) |
+| Rasikh Salam Dar | PART_TIMER, LHB_WICKET_TAKER, PACER |
+| Suyash Sharma | MIDDLE_OVERS_LIABILITY, WORKHORSE |
+| Yash Dayal | DEATH_LIABILITY, PART_TIMER, PP_LIABILITY |
+| Jitesh Sharma | SPECIALIST_VS_PACE, FINISHER, VULNERABLE_VS_LEFT_ARM_SPIN, DEATH_SPECIALIST, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN (+3 more) |
+| Phil Salt | SPECIALIST_VS_PACE, EXPLOSIVE_OPENER, PP_DOMINATOR, DEATH_SPECIALIST, SIX_HITTER (+2 more) |
 
 ---
 
@@ -94,12 +134,12 @@
 | M Chinnaswamy Stadium, Bengaluru | 19 | 3325 | 2178 | 152.66 | 29.17 |
 | M.Chinnaswamy Stadium | 15 | 2491 | 1691 | 147.31 | 29.31 |
 | Dubai International Cricket Stadium | 12 | 1707 | 1388 | 122.98 | 27.1 |
-| Wankhede Stadium | 10 | 1599 | 1186 | 134.82 | 30.17 |
 | Eden Gardens | 10 | 1479 | 1089 | 135.81 | 29.58 |
+| Wankhede Stadium | 10 | 1599 | 1186 | 134.82 | 30.17 |
 | Wankhede Stadium, Mumbai | 9 | 1560 | 1046 | 149.14 | 37.14 |
-| Rajiv Gandhi International Stadium, Uppa... | 8 | 1118 | 867 | 128.95 | 21.09 |
-| MA Chidambaram Stadium, Chepauk | 8 | 1204 | 958 | 125.68 | 23.15 |
 | Sharjah Cricket Stadium | 8 | 1150 | 940 | 122.34 | 28.05 |
+| MA Chidambaram Stadium, Chepauk | 8 | 1204 | 958 | 125.68 | 23.15 |
+| Rajiv Gandhi International Stadium, Uppa... | 8 | 1118 | 867 | 128.95 | 21.09 |
 
 ---
 
@@ -120,8 +160,8 @@
 | Romario Shepherd | All-rounder | 12 | 185 | 85 | 217.65 | 26.43 | 34.12 | 32.94 | 1 | 0 | MEDIUM |
 | Jacob Bethell | All-rounder | 2 | 67 | 39 | 171.79 | 33.5 | 30.77 | 35.9 | 1 | 0 | LOW |
 | Swapnil Singh | All-rounder | 9 | 51 | 45 | 113.33 | 10.2 | 13.33 | 44.44 | 0 | 0 | LOW |
-| Raqibul Hasan | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Jordan Cox | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
+| Vihaan Malhotra | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
 ### 4.2 Phase-wise Batting (Qualified players)
 
@@ -154,12 +194,12 @@
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
 | Bhuvneshwar Kumar | Fast | 190 | 703.7 | 198 | 7.87 | 27.98 | 21.32 | 41.4 | 17.24 | HIGH |
-| Abhinandan Singh | Fast | 81 | 285.7 | 97 | 9.19 | 27.05 | 17.67 | 35.36 | 20.95 | HIGH |
 | Krunal Pandya | Left-arm o | 132 | 399.7 | 93 | 7.57 | 32.52 | 25.78 | 31.65 | 12.89 | HIGH |
 | Josh Hazlewood | Fast | 39 | 144.5 | 57 | 8.44 | 21.39 | 15.21 | 43.37 | 20.53 | HIGH |
 | Yash Dayal | Fast | 43 | 145.3 | 41 | 9.72 | 34.44 | 21.27 | 35.21 | 22.59 | HIGH |
 | Suyash Sharma | Leg-spin | 27 | 93.0 | 18 | 8.98 | 46.39 | 31.0 | 31.9 | 18.82 | MEDIUM |
 | Romario Shepherd | Fast | 15 | 35.0 | 10 | 11.89 | 41.6 | 21.0 | 30.0 | 28.57 | MEDIUM |
+| Rasikh Salam Dar | Fast | 13 | 38.5 | 10 | 10.7 | 41.2 | 23.1 | 29.87 | 24.68 | MEDIUM |
 | Mangesh Yadav | Fast | 6 | 20.2 | 9 | 9.32 | 20.89 | 13.44 | 47.11 | 23.97 | LOW |
 | Swapnil Singh | Left-arm o | 14 | 27.0 | 7 | 8.93 | 34.43 | 23.14 | 24.07 | 16.05 | MEDIUM |
 | Venkatesh Iyer | Medium | 9 | 13.5 | 3 | 10.74 | 48.33 | 27.0 | 18.52 | 23.46 | LOW |
@@ -170,9 +210,6 @@
 
 | Bowler | Phase | Overs | Wkts | Econ | Dot% | %Overs | %Wkts | Efficiency | Sample |
 |--------|-------|-------|------|------|------|--------|-------|------------|--------|
-| Arshdeep Singh | powerplay | 138.0 | 36 | 8.46 | 42.15 | 48.3% | 37.1% | -11.2 | HIGH |
-| Arshdeep Singh | middle | 48.0 | 12 | 8.31 | 29.17 | 16.8% | 12.4% | -4.4 | HIGH |
-| Arshdeep Singh | death | 99.7 | 49 | 9.35 | 28.93 | 34.9% | 50.5% | +15.6 | HIGH |
 | B Kumar | powerplay | 389.8 | 80 | 6.44 | 53.48 | 55.4% | 40.4% | -15.0 | HIGH |
 | B Kumar | middle | 70.3 | 10 | 8.37 | 26.54 | 10.0% | 5.1% | -4.9 | HIGH |
 | B Kumar | death | 243.5 | 108 | 9.19 | 26.35 | 34.6% | 54.5% | +19.9 | HIGH |
@@ -188,6 +225,9 @@
 | R Shepherd | powerplay | 4.0 | 2 | 9.0 | 50.0 | 11.4% | 20.0% | +8.6 | MEDIUM |
 | R Shepherd | middle | 24.0 | 5 | 11.42 | 27.08 | 68.6% | 50.0% | -18.6 | MEDIUM |
 | R Shepherd | death | 7.0 | 3 | 12.86 | 28.57 | 20.0% | 30.0% | +10.0 | MEDIUM |
+| Rasikh Salam | powerplay | 9.0 | 0 | 10.22 | 35.19 | 23.4% | -% | -23.4 | MEDIUM |
+| Rasikh Salam | middle | 19.0 | 7 | 10.05 | 27.19 | 49.4% | 70.0% | +20.6 | MEDIUM |
+| Rasikh Salam | death | 10.5 | 3 | 10.76 | 30.16 | 27.3% | 30.0% | +2.7 | MEDIUM |
 | Suyash Sharma | powerplay | 3.0 | 3 | 7.33 | 38.89 | 3.2% | 16.7% | +13.4 | HIGH |
 | Suyash Sharma | middle | 78.0 | 13 | 8.63 | 32.91 | 83.9% | 72.2% | -11.6 | HIGH |
 | Suyash Sharma | death | 12.0 | 2 | 10.33 | 23.61 | 12.9% | 11.1% | -1.8 | HIGH |
@@ -307,20 +347,6 @@
 | Rising Pune Supergiant | 4 | 90 | 109 | 3 | 7.27 | 36.33 | 30.0 | 40.0 | 14.44 | MEDIUM |
 | Deccan Chargers | 4 | 78 | 96 | 2 | 7.38 | 48.0 | 39.0 | 28.21 | 11.54 | MEDIUM |
 
-### Abhinandan Singh
-
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Rajasthan Royals | 11 | 257 | 416 | 18 | 9.71 | 23.11 | 14.28 | 37.35 | 24.9 | HIGH |
-| Sunrisers Hyderabad | 11 | 255 | 322 | 15 | 7.58 | 21.47 | 17.0 | 36.86 | 15.69 | HIGH |
-| Kolkata Knight Riders | 10 | 190 | 265 | 11 | 8.37 | 24.09 | 17.27 | 43.16 | 21.58 | HIGH |
-| Royal Challengers Bengaluru | 11 | 212 | 335 | 11 | 9.48 | 30.45 | 19.27 | 33.02 | 22.64 | HIGH |
-| Chennai Super Kings | 9 | 188 | 258 | 11 | 8.23 | 23.45 | 17.09 | 35.11 | 20.21 | HIGH |
-| Mumbai Indians | 9 | 197 | 313 | 10 | 9.53 | 31.3 | 19.7 | 35.03 | 24.37 | HIGH |
-| Lucknow Super Giants | 6 | 132 | 185 | 10 | 8.41 | 18.5 | 13.2 | 33.33 | 20.45 | HIGH |
-| Delhi Capitals | 8 | 150 | 220 | 6 | 8.8 | 36.67 | 25.0 | 30.0 | 18.67 | HIGH |
-| Gujarat Titans | 6 | 133 | 185 | 5 | 8.35 | 37.0 | 26.6 | 30.08 | 17.29 | HIGH |
-
 ### Krunal Pandya
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
@@ -360,8 +386,8 @@
 | Kolkata Knight Riders | 5 | 115 | 236 | 6 | 12.31 | 39.33 | 19.17 | 28.7 | 32.17 | HIGH |
 | Delhi Capitals | 4 | 72 | 106 | 5 | 8.83 | 21.2 | 14.4 | 37.5 | 22.22 | MEDIUM |
 | Punjab Kings | 6 | 103 | 130 | 4 | 7.57 | 32.5 | 25.75 | 41.75 | 15.53 | HIGH |
-| Lucknow Super Giants | 3 | 54 | 92 | 3 | 10.22 | 30.67 | 18.0 | 35.19 | 27.78 | MEDIUM |
 | Sunrisers Hyderabad | 5 | 108 | 147 | 3 | 8.17 | 49.0 | 36.0 | 33.33 | 16.67 | HIGH |
+| Lucknow Super Giants | 3 | 54 | 92 | 3 | 10.22 | 30.67 | 18.0 | 35.19 | 27.78 | MEDIUM |
 | Gujarat Titans | 3 | 66 | 72 | 2 | 6.55 | 36.0 | 33.0 | 37.88 | 12.12 | MEDIUM |
 | Royal Challengers Bengaluru | 2 | 48 | 73 | 1 | 9.13 | 73.0 | 48.0 | 27.08 | 22.92 | MEDIUM |
 
@@ -411,8 +437,8 @@
 | V Kohli | Narendra Modi Stadium, Ahmedabad | 6 | 200 | 156 | 128.21 | 40.0 | 14.74 | HIGH |
 | V Kohli | Sawai Mansingh Stadium, Jaipur | 3 | 193 | 136 | 141.91 | 193.0 | 16.91 | HIGH |
 | V Kohli | Saurashtra Cricket Association Stad... | 2 | 164 | 113 | 145.13 | 164.0 | 17.7 | HIGH |
-| V Kohli | Maharashtra Cricket Association Sta... | 4 | 155 | 139 | 111.51 | 38.75 | 10.79 | HIGH |
 | V Kohli | Sheikh Zayed Stadium | 6 | 155 | 140 | 110.71 | 38.75 | 12.14 | HIGH |
+| V Kohli | Maharashtra Cricket Association Sta... | 4 | 155 | 139 | 111.51 | 38.75 | 10.79 | HIGH |
 | V Kohli | Rajiv Gandhi International Stadium,... | 2 | 151 | 106 | 142.45 | 75.5 | 19.81 | HIGH |
 | V Kohli | Sawai Mansingh Stadium | 7 | 131 | 139 | 94.24 | 21.83 | 10.07 | HIGH |
 | V Kohli | Bharat Ratna Shri Atal Bihari Vajpa... | 3 | 128 | 85 | 150.59 | 42.67 | 24.71 | MEDIUM |
@@ -436,7 +462,7 @@
 
 - **KH Pandya**: 33.7 overs, 16 wickets, 7.99 economy (over-performs)
 - **B Kumar**: 243.5 overs, 108 wickets, 9.19 economy (over-performs)
-- **Arshdeep Singh**: 99.7 overs, 49 wickets, 9.35 economy (over-performs)
+- **JR Hazlewood**: 41.3 overs, 22 wickets, 10.09 economy (over-performs)
 
 ### 9.2 Powerplay Batting Options
 

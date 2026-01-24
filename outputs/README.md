@@ -233,20 +233,26 @@ The `player_tags.json` contains multi-dimensional tags for players.
 
 ### Batter Tags
 
-**Cluster Archetypes (K-means v2):**
-| Cluster | Label | Description |
-|---------|-------|-------------|
-| 0 | CLASSIC_OPENER | Traditional openers, platform builders (avg position 1.8) |
-| 1 | ACCUMULATOR | Middle-order stabilizers at #3-4 |
-| 2 | DEATH_FINISHER | Lower-order finishers at #5-6 |
-| 3 | ELITE_EXPLOSIVE | Match-winners with 158+ SR across phases |
-| 4 | POWER_OPENER | Aggressive openers with 163+ SR |
+**Role Archetypes:**
+| Tag | Count | Description |
+|-----|-------|-------------|
+| `EXPLOSIVE_OPENER` | 15 | Aggressive openers with high SR in powerplay (163+ SR) |
+| `PLAYMAKER` | 24 | Creative stroke-makers, adaptable across phases |
+| `ANCHOR` | 21 | Stabilizers who build innings, lower SR but high consistency |
+| `ACCUMULATOR` | 49 | Consistent run-scorers, reliable middle-order batters |
+| `MIDDLE_ORDER` | 45 | Middle-order specialists batting at positions 3-5 |
+| `FINISHER` | 21 | Death-overs specialists, high SR in final overs |
 
-**Secondary Tags:**
-- `PP_DOMINATOR` - Strike rate >150 in powerplay with 50+ PP balls
-- `DEATH_SPECIALIST` - Strike rate >160 at death with 30+ death balls
-- `SIX_HITTER` - Six percentage >15%
-- `CONSISTENT` - Innings count >50 with >100 balls
+**Performance Tags:**
+| Tag | Count | Criteria |
+|-----|-------|----------|
+| `PP_DOMINATOR` | 14 | Strike rate >150 in powerplay with 50+ PP balls |
+| `DEATH_SPECIALIST` | 47 | Strike rate >160 at death with 30+ death balls |
+| `MIDDLE_OVERS_ACCELERATOR` | 34 | Strong acceleration in middle overs (7-15) |
+| `SIX_HITTER` | 47 | Six percentage >15% |
+| `CONSISTENT` | 34 | Innings count >50 with >100 balls |
+| `PACE_SPECIALIST` | 40 | Excels vs pace bowling (SR ≥130, Avg ≥25) |
+| `SPIN_SPECIALIST` | 24 | Excels vs spin bowling (SR ≥130, Avg ≥25) |
 
 **Bowling Type Matchup Tags:**
 | Tag | Criteria |
@@ -267,14 +273,33 @@ The `player_tags.json` contains multi-dimensional tags for players.
 
 ### Bowler Tags
 
-**Cluster Archetypes:**
-| Cluster | Label | Phase Focus |
-|---------|-------|-------------|
-| 0 | DEATH_SPECIALIST | PP 43.8%, Death 31.8% (dual-phase seamers) |
-| 1 | DEVELOPING | Mixed phases, higher economy |
-| 2 | SPIN_CONTROLLER | Middle 71.3% (elite middle-overs spinners) |
-| 3 | NEW_BALL_PACER | PP 47.7% (opening bowlers) |
-| 4 | SECONDARY_OPTION | Middle 61.9% (part-timers, backup options) |
+**Type Tags:**
+| Tag | Count | Description |
+|-----|-------|-------------|
+| `PACER` | 116 | Fast/medium-fast bowlers |
+| `SPINNER` | 68 | Spin bowlers (off-spin, leg-spin, left-arm orthodox/wrist) |
+
+**Role Tags:**
+| Tag | Count | Description |
+|-----|-------|-------------|
+| `WORKHORSE` | 112 | High-volume bowlers, bowl multiple phases |
+| `NEW_BALL_SPECIALIST` | 43 | Opening bowlers, excel with new ball in powerplay |
+| `MIDDLE_OVERS_CONTROLLER` | 50 | Middle-phase specialists, economy-focused spinners |
+| `DEATH_SPECIALIST` | 19 | Death-overs specialists, bowl overs 16-20 |
+| `PART_TIMER` | 44 | Part-time bowlers, secondary bowling options |
+
+**Performance Tags:**
+| Tag | Count | Description |
+|-----|-------|-------------|
+| `PRESSURE_BUILDER` | 82 | High dot ball %, creates pressure |
+| `PROVEN_WICKET_TAKER` | 29 | Consistent wicket-taking ability |
+
+**Phase Elite Tags:**
+| Tag | Count | Criteria |
+|-----|-------|----------|
+| `PP_ELITE` | 52 | Top performer in powerplay phase |
+| `MID_OVERS_ELITE` | 38 | Top performer in middle overs |
+| `DEATH_ELITE` | 21 | Top performer at death |
 
 **Handedness Matchup Tags:**
 | Tag | Criteria |

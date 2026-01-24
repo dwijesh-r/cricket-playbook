@@ -1,6 +1,6 @@
 # Royal Challengers Bengaluru (RCB) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-24 21:02
+**Generated:** 2026-01-25 03:52
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -45,15 +45,19 @@
 
 **Batter Archetypes:**
 
-- **ACCUMULATOR**: Krunal Pandya
+- **EXPLOSIVE_OPENER**: Phil Salt
 - **PLAYMAKER**: Venkatesh Iyer
+- **ANCHOR**: Devdutt Padikkal
+- **ACCUMULATOR**: Krunal Pandya
 - **MIDDLE_ORDER**: Rajat Patidar, Virat Kohli
 - **FINISHER**: Tim David, Jitesh Sharma
 
 **Bowler Archetypes:**
 
-- **MIDDLE_OVERS_CONTROLLER**: Krunal Pandya
 - **WORKHORSE**: Suyash Sharma
+- **NEW_BALL_SPECIALIST**: Bhuvneshwar Kumar, Josh Hazlewood
+- **MIDDLE_OVERS_CONTROLLER**: Krunal Pandya
+- **PART_TIMER**: Romario Shepherd, Yash Dayal
 
 ### 1.3 Key Player Tags
 
@@ -130,12 +134,12 @@
 | M Chinnaswamy Stadium, Bengaluru | 19 | 3325 | 2178 | 152.66 | 29.17 |
 | M.Chinnaswamy Stadium | 15 | 2491 | 1691 | 147.31 | 29.31 |
 | Dubai International Cricket Stadium | 12 | 1707 | 1388 | 122.98 | 27.1 |
-| Wankhede Stadium | 10 | 1599 | 1186 | 134.82 | 30.17 |
 | Eden Gardens | 10 | 1479 | 1089 | 135.81 | 29.58 |
+| Wankhede Stadium | 10 | 1599 | 1186 | 134.82 | 30.17 |
 | Wankhede Stadium, Mumbai | 9 | 1560 | 1046 | 149.14 | 37.14 |
-| MA Chidambaram Stadium, Chepauk | 8 | 1204 | 958 | 125.68 | 23.15 |
-| Sharjah Cricket Stadium | 8 | 1150 | 940 | 122.34 | 28.05 |
 | Rajiv Gandhi International Stadium, Uppa... | 8 | 1118 | 867 | 128.95 | 21.09 |
+| Sharjah Cricket Stadium | 8 | 1150 | 940 | 122.34 | 28.05 |
+| MA Chidambaram Stadium, Chepauk | 8 | 1204 | 958 | 125.68 | 23.15 |
 
 ---
 
@@ -337,8 +341,8 @@
 | Punjab Kings | 19 | 330 | 417 | 12 | 7.58 | 34.75 | 27.5 | 30.61 | 13.33 | HIGH |
 | Sunrisers Hyderabad | 14 | 235 | 277 | 12 | 7.07 | 23.08 | 19.58 | 32.34 | 11.49 | HIGH |
 | Royal Challengers Bengaluru | 17 | 366 | 415 | 11 | 6.8 | 37.73 | 33.27 | 30.33 | 9.84 | HIGH |
-| Kolkata Knight Riders | 16 | 283 | 329 | 11 | 6.98 | 29.91 | 25.73 | 35.69 | 13.43 | HIGH |
 | Delhi Capitals | 19 | 290 | 370 | 11 | 7.66 | 33.64 | 26.36 | 28.28 | 13.45 | HIGH |
+| Kolkata Knight Riders | 16 | 283 | 329 | 11 | 6.98 | 29.91 | 25.73 | 35.69 | 13.43 | HIGH |
 | Chennai Super Kings | 14 | 240 | 321 | 10 | 8.03 | 32.1 | 24.0 | 33.75 | 16.25 | HIGH |
 | Mumbai Indians | 6 | 132 | 174 | 8 | 7.91 | 21.75 | 16.5 | 34.09 | 17.42 | HIGH |
 | Rajasthan Royals | 12 | 222 | 285 | 7 | 7.7 | 40.71 | 31.71 | 25.23 | 13.06 | HIGH |
@@ -397,8 +401,8 @@
 | V Kohli | Rajiv Gandhi International Stadium,... | 2 | 151 | 106 | 142.45 | 75.5 | 19.81 | HIGH |
 | V Kohli | Sawai Mansingh Stadium | 7 | 131 | 139 | 94.24 | 21.83 | 10.07 | HIGH |
 | V Kohli | Bharat Ratna Shri Atal Bihari Vajpa... | 3 | 128 | 85 | 150.59 | 42.67 | 24.71 | MEDIUM |
-| V Kohli | Eden Gardens, Kolkata | 4 | 123 | 85 | 144.71 | 41.0 | 17.65 | MEDIUM |
 | V Kohli | MA Chidambaram Stadium, Chepauk, Ch... | 5 | 123 | 113 | 108.85 | 24.6 | 11.5 | HIGH |
+| V Kohli | Eden Gardens, Kolkata | 4 | 123 | 85 | 144.71 | 41.0 | 17.65 | MEDIUM |
 | V Kohli | Arun Jaitley Stadium, Delhi | 2 | 106 | 93 | 113.98 | 53.0 | 9.68 | MEDIUM |
 | V Kohli | Punjab Cricket Association Stadium,... | 5 | 100 | 75 | 133.33 | 20.0 | 18.67 | MEDIUM |
 | VR Iyer | Eden Gardens, Kolkata | 17 | 399 | 292 | 136.64 | 24.94 | 18.49 | HIGH |

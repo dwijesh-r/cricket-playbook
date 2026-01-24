@@ -1,6 +1,6 @@
 # Sunrisers Hyderabad (SRH) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-24 21:02
+**Generated:** 2026-01-25 03:52
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -49,14 +49,15 @@
 
 **Batter Archetypes:**
 
+- **EXPLOSIVE_OPENER**: Abhishek Sharma, Travis Head
 - **PLAYMAKER**: Ishan Kishan
 - **MIDDLE_ORDER**: Liam Livingstone, Nitish Kumar Reddy
 - **FINISHER**: Heinrich Klaasen
 
 **Bowler Archetypes:**
 
-- **DEATH_SPECIALIST**: Liam Livingstone
-- **WORKHORSE**: Abhishek Sharma, Harshal Patel, Jaydev Unadkat, Pat Cummins, Shivam Mavi
+- **WORKHORSE**: Abhishek Sharma, Liam Livingstone, Harshal Patel, Jaydev Unadkat, Pat Cummins, Shivam Mavi
+- **PART_TIMER**: Zeeshan Ansari
 
 ### 1.3 Key Player Tags
 
@@ -133,10 +134,10 @@
 | Dubai International Cricket Stadium | 13 | 1955 | 1537 | 127.2 | 27.54 |
 | MA Chidambaram Stadium, Chepauk, Chennai | 10 | 1361 | 1166 | 116.72 | 19.72 |
 | Eden Gardens | 8 | 1149 | 954 | 120.44 | 22.53 |
-| Wankhede Stadium, Mumbai | 7 | 1119 | 836 | 133.85 | 24.33 |
-| Wankhede Stadium | 7 | 1012 | 832 | 121.63 | 22.0 |
 | Sharjah Cricket Stadium | 7 | 896 | 784 | 114.29 | 21.85 |
-| M Chinnaswamy Stadium | 6 | 935 | 704 | 132.81 | 28.33 |
+| Wankhede Stadium | 7 | 1012 | 832 | 121.63 | 22.0 |
+| Wankhede Stadium, Mumbai | 7 | 1119 | 836 | 133.85 | 24.33 |
+| Sheikh Zayed Stadium | 6 | 849 | 718 | 118.25 | 27.39 |
 
 ---
 
@@ -343,8 +344,8 @@
 | Delhi Capitals | 7 | 156 | 221 | 9 | 8.5 | 24.56 | 17.33 | 39.1 | 21.15 | HIGH |
 | Rajasthan Royals | 7 | 161 | 251 | 9 | 9.35 | 27.89 | 17.89 | 35.4 | 21.74 | HIGH |
 | Chennai Super Kings | 9 | 216 | 307 | 7 | 8.53 | 43.86 | 30.86 | 34.72 | 19.44 | HIGH |
-| Kolkata Knight Riders | 7 | 132 | 220 | 6 | 10.0 | 36.67 | 22.0 | 35.61 | 25.76 | HIGH |
 | Punjab Kings | 7 | 162 | 211 | 6 | 7.81 | 35.17 | 27.0 | 38.89 | 18.52 | HIGH |
+| Kolkata Knight Riders | 7 | 132 | 220 | 6 | 10.0 | 36.67 | 22.0 | 35.61 | 25.76 | HIGH |
 | Sunrisers Hyderabad | 5 | 119 | 152 | 4 | 7.66 | 38.0 | 29.75 | 37.82 | 15.13 | HIGH |
 | Gujarat Lions | 2 | 48 | 70 | 3 | 8.75 | 23.33 | 16.0 | 22.92 | 18.75 | MEDIUM |
 | Gujarat Titans | 3 | 70 | 92 | 3 | 7.89 | 30.67 | 23.33 | 30.0 | 15.71 | MEDIUM |
@@ -375,8 +376,8 @@
 | Ishan Kishan | Rajiv Gandhi International Stadium,... | 7 | 205 | 116 | 176.72 | 41.0 | 26.72 | HIGH |
 | Ishan Kishan | Sharjah Cricket Stadium | 4 | 179 | 112 | 159.82 | 89.5 | 22.32 | HIGH |
 | Ishan Kishan | Wankhede Stadium | 10 | 160 | 115 | 139.13 | 17.78 | 19.13 | HIGH |
-| Ishan Kishan | MA Chidambaram Stadium, Chepauk, Ch... | 8 | 139 | 143 | 97.2 | 17.38 | 10.49 | HIGH |
 | Ishan Kishan | Brabourne Stadium, Mumbai | 3 | 139 | 94 | 147.87 | 69.5 | 22.34 | MEDIUM |
+| Ishan Kishan | MA Chidambaram Stadium, Chepauk, Ch... | 8 | 139 | 143 | 97.2 | 17.38 | 10.49 | HIGH |
 | Ishan Kishan | Dr DY Patil Sports Academy, Mumbai | 4 | 127 | 104 | 122.12 | 31.75 | 15.38 | HIGH |
 | Ishan Kishan | Sheikh Zayed Stadium | 5 | 118 | 103 | 114.56 | 23.6 | 14.56 | HIGH |
 | Ishan Kishan | Saurashtra Cricket Association Stad... | 4 | 116 | 77 | 150.65 | 38.67 | 22.08 | MEDIUM |

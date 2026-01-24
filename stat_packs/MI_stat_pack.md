@@ -1,6 +1,6 @@
 # Mumbai Indians (MI) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-24 21:02
+**Generated:** 2026-01-25 03:52
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -48,15 +48,18 @@
 
 **Batter Archetypes:**
 
+- **EXPLOSIVE_OPENER**: Will Jacks
 - **PLAYMAKER**: Quinton de Kock
 - **MIDDLE_ORDER**: Tilak Varma, Rohit Sharma, Suryakumar Yadav
 - **FINISHER**: Hardik Pandya
 
 **Bowler Archetypes:**
 
-- **DEATH_SPECIALIST**: Tilak Varma, Will Jacks, Jasprit Bumrah
-- **MIDDLE_OVERS_CONTROLLER**: Mitchell Santner
 - **WORKHORSE**: Hardik Pandya, Deepak Chahar, Mayank Markande, Mohammed Izhar
+- **NEW_BALL_SPECIALIST**: Trent Boult
+- **MIDDLE_OVERS_CONTROLLER**: Mitchell Santner
+- **DEATH_SPECIALIST**: Tilak Varma, Will Jacks, Jasprit Bumrah
+- **PART_TIMER**: Shardul Thakur
 
 ### 1.3 Key Player Tags
 
@@ -132,13 +135,13 @@
 | Wankhede Stadium | 67 | 10288 | 7769 | 132.42 | 27.43 |
 | Wankhede Stadium, Mumbai | 25 | 4207 | 2786 | 151.01 | 30.71 |
 | Eden Gardens | 13 | 2138 | 1545 | 138.38 | 32.39 |
-| M Chinnaswamy Stadium | 10 | 1438 | 1117 | 128.74 | 31.26 |
 | Dubai International Cricket Stadium | 10 | 1449 | 1147 | 126.33 | 23.75 |
+| M Chinnaswamy Stadium | 10 | 1438 | 1117 | 128.74 | 31.26 |
 | Sheikh Zayed Stadium | 9 | 1467 | 1055 | 139.05 | 33.34 |
 | Feroz Shah Kotla | 9 | 1403 | 1053 | 133.24 | 25.51 |
 | MA Chidambaram Stadium, Chepauk, Chennai | 8 | 1132 | 960 | 117.92 | 18.26 |
 | Rajiv Gandhi International Stadium, Uppa... | 8 | 1089 | 915 | 119.02 | 27.23 |
-| Sawai Mansingh Stadium | 7 | 923 | 818 | 112.84 | 22.51 |
+| Brabourne Stadium | 7 | 1146 | 828 | 138.41 | 27.95 |
 
 ---
 
@@ -326,8 +329,8 @@
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
 | Rajasthan Royals | 12 | 468 | 329 | 142.25 | 46.8 | 18.84 | 31.91 | 10 | HIGH |
-| Royal Challengers Bengaluru | 13 | 455 | 321 | 141.74 | 35.0 | 21.18 | 38.94 | 13 | HIGH |
 | Kolkata Knight Riders | 15 | 455 | 307 | 148.21 | 35.0 | 20.52 | 38.76 | 13 | HIGH |
+| Royal Challengers Bengaluru | 13 | 455 | 321 | 141.74 | 35.0 | 21.18 | 38.94 | 13 | HIGH |
 | Punjab Kings | 13 | 425 | 333 | 127.63 | 35.42 | 17.12 | 37.84 | 12 | HIGH |
 | Sunrisers Hyderabad | 15 | 412 | 325 | 126.77 | 29.43 | 16.92 | 38.15 | 14 | HIGH |
 | Chennai Super Kings | 16 | 412 | 311 | 132.48 | 29.43 | 18.65 | 41.8 | 14 | HIGH |
@@ -384,8 +387,8 @@
 | Chennai Super Kings | 16 | 370 | 450 | 14 | 7.3 | 32.14 | 26.43 | 40.27 | 15.14 | HIGH |
 | Rising Pune Supergiant | 6 | 138 | 178 | 7 | 7.74 | 25.43 | 19.71 | 33.33 | 13.04 | HIGH |
 | Gujarat Titans | 4 | 96 | 108 | 6 | 6.75 | 18.0 | 16.0 | 46.88 | 14.58 | MEDIUM |
-| Gujarat Lions | 4 | 96 | 138 | 5 | 8.63 | 27.6 | 19.2 | 32.29 | 19.79 | MEDIUM |
 | Lucknow Super Giants | 4 | 96 | 92 | 5 | 5.75 | 18.4 | 19.2 | 48.96 | 9.38 | MEDIUM |
+| Gujarat Lions | 4 | 96 | 138 | 5 | 8.63 | 27.6 | 19.2 | 32.29 | 19.79 | MEDIUM |
 
 ---
 
@@ -410,8 +413,8 @@
 | Q de Kock | M.Chinnaswamy Stadium | 7 | 201 | 166 | 121.08 | 33.5 | 16.27 | HIGH |
 | Q de Kock | M Chinnaswamy Stadium | 3 | 183 | 96 | 190.63 | 61.0 | 32.29 | MEDIUM |
 | Q de Kock | Sharjah Cricket Stadium | 5 | 173 | 131 | 132.06 | 43.25 | 17.56 | HIGH |
-| Q de Kock | Bharat Ratna Shri Atal Bihari Vajpa... | 6 | 157 | 116 | 135.34 | 26.17 | 18.97 | HIGH |
 | Q de Kock | Feroz Shah Kotla | 8 | 157 | 133 | 118.05 | 26.17 | 19.55 | HIGH |
+| Q de Kock | Bharat Ratna Shri Atal Bihari Vajpa... | 6 | 157 | 116 | 135.34 | 26.17 | 18.97 | HIGH |
 | Q de Kock | Arun Jaitley Stadium, Delhi | 4 | 129 | 99 | 130.3 | 43.0 | 15.15 | MEDIUM |
 | Q de Kock | Shaheed Veer Narayan Singh Internat... | 4 | 114 | 98 | 116.33 | 28.5 | 16.33 | MEDIUM |
 | Q de Kock | Maharashtra Cricket Association Sta... | 3 | 107 | 76 | 140.79 | 35.67 | 18.42 | MEDIUM |

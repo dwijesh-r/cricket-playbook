@@ -1,6 +1,6 @@
 # Punjab Kings (PBKS) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-24 21:02
+**Generated:** 2026-01-25 03:52
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -46,15 +46,17 @@
 
 **Batter Archetypes:**
 
+- **EXPLOSIVE_OPENER**: Prabhsimran Singh
 - **ACCUMULATOR**: Harnoor Singh
 - **MIDDLE_ORDER**: Nehal Wadhera, Shreyas Iyer
 - **FINISHER**: Marcus Stoinis, Shashank Singh
 
 **Bowler Archetypes:**
 
-- **DEATH_SPECIALIST**: Shashank Singh, Arshdeep Singh
-- **MIDDLE_OVERS_CONTROLLER**: Harpreet Brar, Yuzvendra Chahal
 - **WORKHORSE**: Lockie Ferguson
+- **MIDDLE_OVERS_CONTROLLER**: Harpreet Brar, Yuzvendra Chahal
+- **DEATH_SPECIALIST**: Shashank Singh, Arshdeep Singh
+- **PART_TIMER**: Azmatullah Omarzai, Marco Jansen, Marcus Stoinis, Vijaykumar Vyshak, Yash Thakur
 
 ### 1.3 Key Player Tags
 
@@ -130,12 +132,12 @@
 |-------|---------|------|-------|-----|-----|
 | Punjab Cricket Association Stadium, Moha... | 35 | 5210 | 4029 | 129.31 | 25.67 |
 | Eden Gardens | 11 | 1651 | 1257 | 131.34 | 27.52 |
+| Dubai International Cricket Stadium | 11 | 1679 | 1244 | 134.97 | 27.98 |
 | Wankhede Stadium | 11 | 1831 | 1317 | 139.03 | 30.52 |
 | Punjab Cricket Association IS Bindra Sta... | 11 | 1692 | 1239 | 136.56 | 31.33 |
-| Dubai International Cricket Stadium | 11 | 1679 | 1244 | 134.97 | 27.98 |
-| Maharaja Yadavindra Singh International ... | 10 | 1468 | 1129 | 130.03 | 18.82 |
 | M Chinnaswamy Stadium | 10 | 1430 | 1104 | 129.53 | 23.06 |
 | Punjab Cricket Association IS Bindra Sta... | 10 | 1697 | 1173 | 144.67 | 36.11 |
+| Maharaja Yadavindra Singh International ... | 10 | 1468 | 1129 | 130.03 | 18.82 |
 | Himachal Pradesh Cricket Association Sta... | 9 | 1415 | 1053 | 134.38 | 30.11 |
 | Feroz Shah Kotla | 9 | 1138 | 980 | 116.12 | 21.47 |
 
@@ -340,8 +342,8 @@
 | Punjab Kings | 21 | 445 | 605 | 31 | 8.16 | 19.52 | 14.35 | 32.36 | 15.73 | HIGH |
 | Mumbai Indians | 21 | 486 | 655 | 30 | 8.09 | 21.83 | 16.2 | 36.21 | 15.84 | HIGH |
 | Sunrisers Hyderabad | 22 | 511 | 675 | 29 | 7.93 | 23.28 | 17.62 | 31.9 | 13.7 | HIGH |
-| Chennai Super Kings | 19 | 408 | 475 | 23 | 6.99 | 20.65 | 17.74 | 37.01 | 11.76 | HIGH |
 | Delhi Capitals | 20 | 427 | 573 | 23 | 8.05 | 24.91 | 18.57 | 33.49 | 14.99 | HIGH |
+| Chennai Super Kings | 19 | 408 | 475 | 23 | 6.99 | 20.65 | 17.74 | 37.01 | 11.76 | HIGH |
 | Rajasthan Royals | 14 | 285 | 300 | 18 | 6.32 | 16.67 | 15.83 | 38.6 | 9.47 | HIGH |
 | Royal Challengers Bengaluru | 10 | 234 | 303 | 10 | 7.77 | 30.3 | 23.4 | 28.63 | 12.39 | HIGH |
 | Gujarat Lions | 5 | 114 | 147 | 8 | 7.74 | 18.38 | 14.25 | 32.46 | 14.04 | HIGH |

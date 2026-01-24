@@ -1,6 +1,6 @@
 # Chennai Super Kings (CSK) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-24 21:02
+**Generated:** 2026-01-25 03:52
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -49,15 +49,16 @@
 
 **Batter Archetypes:**
 
-- **ACCUMULATOR**: Shivam Dube, Sarfaraz Khan
 - **PLAYMAKER**: Ruturaj Gaikwad
+- **ACCUMULATOR**: Shivam Dube, Sarfaraz Khan
 - **MIDDLE_ORDER**: Sanju Samson
 - **FINISHER**: MS Dhoni
 
 **Bowler Archetypes:**
 
-- **MIDDLE_OVERS_CONTROLLER**: Rahul Chahar
 - **WORKHORSE**: Khaleel Ahmed, Nathan Ellis, Noor Ahmad, Shreyas Gopal
+- **MIDDLE_OVERS_CONTROLLER**: Rahul Chahar
+- **PART_TIMER**: Mukesh Choudhary
 
 ### 1.3 Key Player Tags
 
@@ -138,8 +139,8 @@
 | Eden Gardens | 11 | 1488 | 1241 | 119.9 | 26.11 |
 | MA Chidambaram Stadium | 9 | 1240 | 1034 | 119.92 | 30.24 |
 | M Chinnaswamy Stadium | 7 | 1004 | 754 | 133.16 | 25.74 |
-| Sawai Mansingh Stadium | 6 | 846 | 703 | 120.34 | 26.44 |
-| Sheikh Zayed Stadium | 6 | 932 | 709 | 131.45 | 35.85 |
+| Maharashtra Cricket Association Stadium | 6 | 1013 | 697 | 145.34 | 44.04 |
+| Sharjah Cricket Stadium | 6 | 900 | 704 | 127.84 | 28.13 |
 
 ---
 
@@ -289,13 +290,13 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
+| Kolkata Knight Riders | 3 | 60 | 59 | 7 | 5.9 | 8.43 | 8.57 | 45.0 | 11.67 | MEDIUM |
 | Mumbai Indians | 5 | 114 | 162 | 7 | 8.53 | 23.14 | 16.29 | 34.21 | 16.67 | HIGH |
 | Royal Challengers Bengaluru | 5 | 120 | 170 | 7 | 8.5 | 24.29 | 17.14 | 34.17 | 19.17 | HIGH |
-| Kolkata Knight Riders | 3 | 60 | 59 | 7 | 5.9 | 8.43 | 8.57 | 45.0 | 11.67 | MEDIUM |
 | Rajasthan Royals | 5 | 98 | 154 | 6 | 9.43 | 25.67 | 16.33 | 29.59 | 19.39 | MEDIUM |
 | Punjab Kings | 4 | 90 | 122 | 6 | 8.13 | 20.33 | 15.0 | 30.0 | 14.44 | MEDIUM |
-| Lucknow Super Giants | 4 | 96 | 78 | 3 | 4.88 | 26.0 | 32.0 | 44.79 | 6.25 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 65 | 103 | 3 | 9.51 | 34.33 | 21.67 | 29.23 | 20.0 | MEDIUM |
+| Lucknow Super Giants | 4 | 96 | 78 | 3 | 4.88 | 26.0 | 32.0 | 44.79 | 6.25 | MEDIUM |
 | Chennai Super Kings | 3 | 54 | 68 | 3 | 7.56 | 22.67 | 18.0 | 27.78 | 11.11 | MEDIUM |
 | Delhi Capitals | 4 | 71 | 104 | 2 | 8.79 | 52.0 | 35.5 | 30.99 | 19.72 | MEDIUM |
 

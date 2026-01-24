@@ -36,9 +36,9 @@ def load_player_tags() -> dict:
 
 def get_player_tags_lookup(tags_data: dict) -> dict:
     """Create lookup dict from player_id to tags."""
-    # Cluster label tags
-    BATTER_CLUSTERS = {"ELITE_EXPLOSIVE", "POWER_OPENER", "CLASSIC_OPENER", "ACCUMULATOR", "DEATH_FINISHER", "PLAYMAKER", "MIDDLE_ORDER", "FINISHER"}
-    BOWLER_CLUSTERS = {"DEATH_SPECIALIST", "SPIN_CONTROLLER", "NEW_BALL_PACER", "DEVELOPING", "SECONDARY_OPTION", "MIDDLE_OVERS_CONTROLLER", "WORKHORSE"}
+    # Role archetype tags (from clustering)
+    BATTER_CLUSTERS = {"EXPLOSIVE_OPENER", "PLAYMAKER", "ANCHOR", "ACCUMULATOR", "MIDDLE_ORDER", "FINISHER"}
+    BOWLER_CLUSTERS = {"PACER", "SPINNER", "WORKHORSE", "NEW_BALL_SPECIALIST", "MIDDLE_OVERS_CONTROLLER", "DEATH_SPECIALIST", "PART_TIMER"}
 
     lookup = {}
     for batter in tags_data.get("batters", []):
@@ -169,8 +169,8 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
     """).fetchall()
 
     # Group by archetype - extract from tags
-    BATTER_CLUSTERS = ["ELITE_EXPLOSIVE", "POWER_OPENER", "CLASSIC_OPENER", "ACCUMULATOR", "DEATH_FINISHER", "PLAYMAKER", "MIDDLE_ORDER", "FINISHER"]
-    BOWLER_CLUSTERS = ["DEATH_SPECIALIST", "SPIN_CONTROLLER", "NEW_BALL_PACER", "MIDDLE_OVERS_CONTROLLER", "WORKHORSE"]
+    BATTER_CLUSTERS = ["EXPLOSIVE_OPENER", "PLAYMAKER", "ANCHOR", "ACCUMULATOR", "MIDDLE_ORDER", "FINISHER"]
+    BOWLER_CLUSTERS = ["PACER", "SPINNER", "WORKHORSE", "NEW_BALL_SPECIALIST", "MIDDLE_OVERS_CONTROLLER", "DEATH_SPECIALIST", "PART_TIMER"]
 
     batters_by_cluster = {}
     bowlers_by_cluster = {}

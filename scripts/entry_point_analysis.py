@@ -27,7 +27,7 @@ DB_PATH = PROJECT_DIR / "data" / "cricket_playbook.duckdb"
 OUTPUT_DIR = PROJECT_DIR / "outputs"
 
 # Minimum innings to include
-MIN_INNINGS = 5
+MIN_INNINGS = 15  # Increased from 5 per Founder Review #3
 
 
 def get_batter_entry_points(conn) -> pd.DataFrame:
@@ -197,11 +197,25 @@ def calculate_bowler_over_timing(over_df: pd.DataFrame) -> pd.DataFrame:
                 over_stats[f'over{over_num}_count'] = 0
 
         # Classify bowling role based on when they bowl
-        first_over_median = over_stats.get('over1_median', 10)
-        if first_over_median and first_over_median <= 3:
-            role_category = 'POWERPLAY_BOWLER'
-        elif first_over_median and first_over_median >= 16:
-            role_category = 'DEATH_BOWLER'
+        # Fixed: Handle 0 values properly (0 is falsy in Python!)
+        first_over_median = over_stats.get('over1_median')
+        fourth_over_median = over_stats.get('over4_median')
+
+        # Determine primary role based on first over timing
+        # PP = overs 0-5, Middle = overs 6-15, Death = overs 16-19
+        role_categories = []
+
+        if first_over_median is not None and first_over_median <= 5:
+            role_categories.append('POWERPLAY_BOWLER')
+
+        if fourth_over_median is not None and fourth_over_median >= 16:
+            role_categories.append('DEATH_BOWLER')
+
+        # If bowls both PP and death (like Malinga, Bumrah), mark as dual-phase
+        if len(role_categories) == 2:
+            role_category = 'PP_AND_DEATH_SPECIALIST'
+        elif len(role_categories) == 1:
+            role_category = role_categories[0]
         else:
             role_category = 'MIDDLE_OVERS_BOWLER'
 
@@ -253,7 +267,7 @@ def print_bowler_analysis(df: pd.DataFrame):
     print(f"\n  Bowlers analyzed: {len(df)}")
 
     # By role category
-    for cat in ['POWERPLAY_BOWLER', 'MIDDLE_OVERS_BOWLER', 'DEATH_BOWLER']:
+    for cat in ['POWERPLAY_BOWLER', 'MIDDLE_OVERS_BOWLER', 'DEATH_BOWLER', 'PP_AND_DEATH_SPECIALIST']:
         count = len(df[df['role_category'] == cat])
         print(f"  {cat}: {count}")
 
@@ -265,11 +279,19 @@ def print_bowler_analysis(df: pd.DataFrame):
         print(f"    {row['bowler_name']}: 1st over typically over {o1} ({row['match_count']} matches)")
 
     # Death specialists
-    print("\n  DEATH BOWLERS (1st over typically at death):")
+    print("\n  DEATH BOWLERS (4th over typically at death):")
     death_bowlers = df[df['role_category'] == 'DEATH_BOWLER'].head(10)
     for _, row in death_bowlers.iterrows():
+        o4 = row.get('over4_median', 'N/A')
+        print(f"    {row['bowler_name']}: 4th over typically over {o4} ({row['match_count']} matches)")
+
+    # Dual-phase specialists (PP + Death)
+    print("\n  PP AND DEATH SPECIALISTS (bowl both phases):")
+    dual_bowlers = df[df['role_category'] == 'PP_AND_DEATH_SPECIALIST'].head(10)
+    for _, row in dual_bowlers.iterrows():
         o1 = row.get('over1_median', 'N/A')
-        print(f"    {row['bowler_name']}: 1st over typically over {o1} ({row['match_count']} matches)")
+        o4 = row.get('over4_median', 'N/A')
+        print(f"    {row['bowler_name']}: 1st over={o1}, 4th over={o4} ({row['match_count']} matches)")
 
 
 def save_data(batter_df: pd.DataFrame, bowler_df: pd.DataFrame):

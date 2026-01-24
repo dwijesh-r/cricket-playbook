@@ -33,8 +33,14 @@ OUTPUT_DIR = PROJECT_DIR / "outputs"
 MIN_BALLS_VS_TYPE = 30  # ~5 overs
 
 # Thresholds for tags
+# Updated per Founder Review #3: Include quality (average), not just quantity (SR)
 SPECIALIST_SR_THRESHOLD = 130
+SPECIALIST_AVG_THRESHOLD = 25  # Minimum average to be specialist
+SPECIALIST_BPD_THRESHOLD = 20  # Minimum balls per dismissal
+
 VULNERABLE_SR_THRESHOLD = 105
+VULNERABLE_AVG_THRESHOLD = 15  # Below this average = vulnerable
+VULNERABLE_BPD_THRESHOLD = 15  # Below this balls per dismissal = vulnerable
 
 # Bowling type categories
 PACE_TYPES = ['Fast', 'Medium']
@@ -159,10 +165,17 @@ def assign_matchup_tags(raw_df: pd.DataFrame, pace_spin_df: pd.DataFrame) -> pd.
         tags_dict[batter_id] = player_tags
 
     # Now add specific bowling type tags
+    # Updated per Founder Review #3: Include average (quality) not just SR (quantity)
     for _, row in raw_df.iterrows():
         batter_id = row['batter_id']
         bowling_type = row['bowling_type']
         sr = row['strike_rate'] or 0
+        avg = row['average']  # runs per dismissal
+        balls = row['balls']
+        dismissals = row['dismissals']
+
+        # Calculate balls per dismissal
+        bpd = balls / dismissals if dismissals > 0 else 999
 
         if batter_id not in tags_dict:
             tags_dict[batter_id] = []
@@ -177,11 +190,27 @@ def assign_matchup_tags(raw_df: pd.DataFrame, pace_spin_df: pd.DataFrame) -> pd.
 
         if bowling_type in type_map:
             suffix = type_map[bowling_type]
-            if sr >= SPECIALIST_SR_THRESHOLD:
+
+            # SPECIALIST: Good SR AND good average AND doesn't get out often
+            # Example: Markram has SR 130 but avg 18 and bpd 13.75 - NOT a specialist
+            is_specialist = (
+                sr >= SPECIALIST_SR_THRESHOLD and
+                (avg is None or avg >= SPECIALIST_AVG_THRESHOLD) and
+                bpd >= SPECIALIST_BPD_THRESHOLD
+            )
+
+            # VULNERABLE: Poor SR OR poor average OR gets out too often
+            is_vulnerable = (
+                sr < VULNERABLE_SR_THRESHOLD or
+                (avg is not None and avg < VULNERABLE_AVG_THRESHOLD) or
+                (dismissals >= 3 and bpd < VULNERABLE_BPD_THRESHOLD)
+            )
+
+            if is_specialist:
                 tag = f'SPECIALIST_VS_{suffix}'
                 if tag not in tags_dict[batter_id]:
                     tags_dict[batter_id].append(tag)
-            elif sr < VULNERABLE_SR_THRESHOLD:
+            elif is_vulnerable:
                 tag = f'VULNERABLE_VS_{suffix}'
                 if tag not in tags_dict[batter_id]:
                     tags_dict[batter_id].append(tag)

@@ -45,8 +45,12 @@ cricket-playbook/
 │   ├── bowler_classifications.csv # Bowling style mappings
 │   └── raw/                       # Source ZIP files (18 T20 datasets)
 ├── outputs/                       # Generated outputs
-│   ├── player_tags.json           # Multi-tag classification
-│   ├── bowler_handedness_matchup.csv
+│   ├── player_tags.json           # Multi-tag classification (155 players)
+│   ├── bowler_handedness_matchup.csv  # LHB/RHB matchup analysis
+│   ├── batter_bowling_type_matchup.csv  # Pace/spin matchups
+│   ├── bowler_phase_performance.csv  # Phase economy tags
+│   ├── batter_entry_points.csv    # Entry position analysis
+│   ├── bowler_over_timing.csv     # Bowler over distribution
 │   └── ipl_2026_squad_experience.csv
 ├── scripts/                       # Python scripts
 │   ├── analytics_ipl.py           # Creates 34 analytics views
@@ -132,6 +136,56 @@ All views include sample size indicators:
 | MEDIUM | 100-499 balls | 60-299 balls |
 | LOW | <100 balls | <60 balls |
 
+## Player Classification Models
+
+### Clustering Model (K-means V2)
+
+**Algorithm:** K-means clustering with PCA dimensionality reduction
+
+**Batter Clusters:**
+| Cluster | Label | Description |
+|---------|-------|-------------|
+| 0 | CLASSIC_OPENER | Traditional openers at position 1.8, platform builders |
+| 1 | ACCUMULATOR | Middle-order stabilizers (#3-4) |
+| 2 | DEATH_FINISHER | Lower-order finishers (#5-6) |
+| 3 | ELITE_EXPLOSIVE | Match-winners with 158+ SR across phases |
+| 4 | POWER_OPENER | Aggressive openers with 163+ SR |
+
+**Bowler Clusters:**
+| Cluster | Label | Description |
+|---------|-------|-------------|
+| 0 | DEATH_SPECIALIST | Dual-phase premium seamers (PP + Death) |
+| 1 | DEVELOPING | Higher economy options, mixed phases |
+| 2 | SPIN_CONTROLLER | Elite middle-overs spinners (71% middle overs) |
+| 3 | NEW_BALL_PACER | Opening bowlers (48% powerplay focus) |
+| 4 | SECONDARY_OPTION | Backup bowlers, part-time options |
+
+**PCA Variance:** 83.6% (batters), 63.8% (bowlers)
+
+### Matchup Tags
+
+**Bowling Type Matchups (Batters):**
+- Tags require **three conditions** to be a specialist: SR ≥130 AND Average ≥25 AND Balls/Dismissal ≥20
+- This prevents misclassification of players with high SR but poor dismissal quality
+- Example: Aiden Markram has SR 130.9 vs left-arm orthodox but Average 18.0 and BPD 13.75 = NOT specialist
+
+**Phase Performance Tags (Bowlers):**
+| Tag | Economy Threshold | Minimum Overs |
+|-----|-------------------|---------------|
+| PP_BEAST | <7.0 | 30 |
+| PP_LIABILITY | >9.5 | 30 |
+| MIDDLE_OVERS_BEAST | <7.0 | 50 |
+| MIDDLE_OVERS_LIABILITY | >8.5 | 50 |
+| DEATH_BEAST | <8.5 | 30 |
+| DEATH_LIABILITY | >10.5 | 30 |
+
+**Handedness Tags (Bowlers):**
+- `LHB_SPECIALIST` / `RHB_SPECIALIST`: ≥5% better economy vs that handedness
+- `LHB_WICKET_TAKER` / `RHB_WICKET_TAKER`: ≥3 wickets + SR <25 vs that handedness
+- `LHB_PRESSURE` / `RHB_PRESSURE`: ≥5% higher dot ball % vs that handedness
+
+See `outputs/README.md` for complete tag documentation.
+
 ## Testing
 
 ```bash
@@ -157,6 +211,8 @@ Open `notebooks/view_explorer.ipynb` in VS Code or Jupyter to run interactive SQ
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v2.7.0 | 2026-01-24 | Founder Review #3 fixes, phase tags, dismissal quality metrics, Andy Flower V2 validation |
+| v2.6.0 | 2026-01-23 | Founder Review #2 fixes, entry point analysis, batter vs bowling type matchups |
 | v2.5.0 | 2026-01-21 | Clustering V2, LHB/RHB matchups, ML Ops, repo reorganization |
 | v2.4.0 | 2026-01-21 | Founder Review #1 fixes, uncapped player handling |
 | v2.3.0 | 2026-01-21 | Multi-tag classification, phase specialists |
@@ -185,4 +241,4 @@ Internal use only - Cricket Playbook Editorial Team
 
 ---
 
-*Cricket Playbook v2.5.0 - IPL 2026 Analytics Platform*
+*Cricket Playbook v2.7.0 - IPL 2026 Analytics Platform*

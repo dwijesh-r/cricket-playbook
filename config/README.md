@@ -13,21 +13,48 @@ config/
 
 ## Agents
 
-| Agent | Role | File |
-|-------|------|------|
-| Tom Brady | Product Owner | `tom-brady.agent.md` |
-| Stephen Curry | Analytics Lead | `stephen-curry.agent.md` |
-| Andy Flower | Cricket Domain Expert | `andy-flower.agent.md` |
-| Brock Purdy | Data Pipeline | `brock-purdy.agent.md` |
-| N'Golo Kanté | QA Engineer | `n-golo-kante.agent.md` |
-| Brad Stevens | Requirements & Architecture | `brad-stevens.agent.md` |
-| Ime Udoka | ML Ops Engineer | `ime-udoka.agent.md` |
-| Kevin de Bruyne | Visualization Editor | `kevin-de-bruyne.agent.md` |
-| Virat Kohli | Editorial Agent | `virat-kohli.agent.md` |
-| Pep Guardiola | Strategy | `pep-guardiola.agent.md` |
-| LeBron James | Leadership | `lebron-james.agent.md` |
-| Jayson Tatum | Development | `jayson-tatum.agent.md` |
+| Agent | Role | Responsibilities |
+|-------|------|------------------|
+| Tom Brady | Product Owner | Sprint planning, PRD, stakeholder coordination |
+| Stephen Curry | Analytics Lead | SQL views, clustering models, tag generation |
+| Andy Flower | Cricket Domain Expert | Cluster validation, tactical insights, label review |
+| Brock Purdy | Data Pipeline | Ingestion, schema validation, data quality |
+| N'Golo Kanté | QA Engineer | Test suite, smoke tests, regression testing |
+| Brad Stevens | Requirements & Architecture | CI/CD, code quality, best practices |
+| Ime Udoka | ML Ops Engineer | Model registry, deployment, versioning |
+| Kevin de Bruyne | Visualization Editor | Charts, dashboards, visual outputs |
+| Virat Kohli | Editorial Agent | Stat pack content, narrative insights |
+| Pep Guardiola | Strategy | Tactical analysis, team composition |
+| LeBron James | Leadership | Cross-team coordination |
+| Jayson Tatum | Development | Feature implementation |
+
+## Agent Workflows
+
+### Model Development
+```
+Stephen Curry (builds model)
+    → Andy Flower (validates labels)
+    → N'Golo Kanté (writes tests)
+    → Ime Udoka (registers in ml_ops)
+```
+
+### Data Pipeline
+```
+Brock Purdy (ingests data)
+    → Stephen Curry (creates views)
+    → N'Golo Kanté (validates schema)
+    → Tom Brady (approves for production)
+```
+
+### Founder Reviews
+```
+Founder (submits review PDF)
+    → Tom Brady (triages issues)
+    → Stephen Curry (implements fixes)
+    → N'Golo Kanté (writes regression tests)
+    → Andy Flower (validates cricket accuracy)
+```
 
 ---
 
-*Cricket Playbook v2.5.0*
+*Cricket Playbook v2.7.0*

@@ -1,7 +1,7 @@
 # IPL 2026 Stat Packs
 
-**Version:** 2.1.0
-**Generated:** 2026-01-20
+**Version:** 2.7.0
+**Generated:** 2026-01-24
 **Prepared by:** Cricket Playbook Analytics Team
 
 ---
@@ -70,6 +70,49 @@ Each stat pack contains 9 sections:
 - Death bowling options
 - Powerplay batting options
 - Potential spin vulnerabilities
+
+---
+
+## Player Classification Model
+
+Stat packs integrate with the **K-means Clustering V2** model for player archetypes.
+
+### Batter Clusters
+| Cluster | Label | Description |
+|---------|-------|-------------|
+| 0 | CLASSIC_OPENER | Traditional openers, platform builders |
+| 1 | ACCUMULATOR | Middle-order stabilizers (#3-4) |
+| 2 | DEATH_FINISHER | Lower-order finishers (#5-6) |
+| 3 | ELITE_EXPLOSIVE | Match-winners with 158+ SR |
+| 4 | POWER_OPENER | Aggressive openers with 163+ SR |
+
+### Bowler Clusters
+| Cluster | Label | Description |
+|---------|-------|-------------|
+| 0 | DEATH_SPECIALIST | Dual-phase premium seamers |
+| 1 | DEVELOPING | Higher economy, mixed phases |
+| 2 | SPIN_CONTROLLER | Elite middle-overs spinners |
+| 3 | NEW_BALL_PACER | Opening bowlers |
+| 4 | SECONDARY_OPTION | Backup bowlers, part-timers |
+
+### Player Tags
+
+Players receive multiple tags based on performance:
+
+**Matchup Tags:**
+- `SPECIALIST_VS_PACE/SPIN` - SR ≥130 AND Avg ≥25 AND BPD ≥20
+- `VULNERABLE_VS_PACE/SPIN` - SR <105 OR Avg <15 OR BPD <15
+
+**Phase Tags (Bowlers):**
+- `PP_BEAST` - Economy <7.0 in powerplay (30+ overs)
+- `DEATH_BEAST` - Economy <8.5 at death (30+ overs)
+- `PP_LIABILITY` / `DEATH_LIABILITY` - High economy in phase
+
+**Handedness Tags (Bowlers):**
+- `LHB_SPECIALIST` / `RHB_SPECIALIST` - ≥5% better economy
+- `LHB_WICKET_TAKER` / `RHB_WICKET_TAKER` - ≥3 wickets + SR <25
+
+See `outputs/README.md` for complete tag documentation.
 
 ---
 
@@ -160,4 +203,4 @@ For questions or issues:
 
 ---
 
-*Cricket Playbook Analytics Engine v2.1.0*
+*Cricket Playbook Analytics Engine v2.7.0*

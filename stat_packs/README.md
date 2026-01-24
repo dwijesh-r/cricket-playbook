@@ -143,6 +143,27 @@ Historical team names are combined under current franchise names:
 
 ---
 
+## Match Phase Definitions
+
+| Phase | Overs | Balls | Description |
+|-------|-------|-------|-------------|
+| **Powerplay** | 1-6 | 1-36 | Only 2 fielders outside 30-yard circle |
+| **Middle Overs** | 7-15 | 37-90 | 4-5 fielders allowed outside circle |
+| **Death Overs** | 16-20 | 91-120 | Final acceleration phase |
+
+## Key Metrics
+
+| Metric | Formula | Interpretation |
+|--------|---------|----------------|
+| **Strike Rate (SR)** | (Runs ÷ Balls) × 100 | >140 = aggressive, <120 = slow |
+| **Economy Rate** | (Runs ÷ Balls) × 6 | <7 = excellent, >10 = expensive |
+| **Batting Average** | Runs ÷ Dismissals | >30 = consistent |
+| **Bowling Strike Rate** | Balls ÷ Wickets | <20 = takes wickets quickly |
+| **Dot Ball %** | (Dots ÷ Balls) × 100 | Batter: lower is better. Bowler: higher is better |
+| **Boundary %** | (4s + 6s) ÷ Balls × 100 | >15% = power hitter |
+
+---
+
 ## Sample Size Indicators
 
 Stats include sample size indicators to help assess reliability:

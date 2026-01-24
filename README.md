@@ -78,6 +78,29 @@ cricket-playbook/
     └── PRD_CRICKET_PLAYBOOK.md    # Product requirements
 ```
 
+## Key Definitions
+
+### Match Phases
+
+| Phase | Overs | Description |
+|-------|-------|-------------|
+| **Powerplay** | 1-6 | Only 2 fielders outside circle, batting-friendly |
+| **Middle** | 7-15 | Consolidation phase, 4-5 fielders outside |
+| **Death** | 16-20 | Final acceleration, high-risk batting |
+
+### Core Metrics
+
+| Metric | Formula | Good Value |
+|--------|---------|------------|
+| **Strike Rate** | (Runs ÷ Balls) × 100 | >140 (T20) |
+| **Economy** | (Runs ÷ Balls) × 6 | <8.0 (T20) |
+| **Average** | Runs ÷ Dismissals | >30 (batter) |
+| **Bowling SR** | Balls ÷ Wickets | <20 (good) |
+
+See `outputs/README.md` for complete glossary with all tag criteria and thresholds.
+
+---
+
 ## Analytics Views
 
 ### Career Statistics

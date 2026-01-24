@@ -21,7 +21,138 @@ Generated data artifacts from analytics scripts.
 
 **Founder Review Note:** Per Review #3, data is now filtered to 2023+ instead of using recency weighting. This ensures stats reflect current player form and game evolution.
 
-**Last Updated:** 2026-01-24
+**Last Updated:** 2026-01-25
+
+---
+
+## Glossary & Definitions
+
+### Match Phase Definitions
+
+| Phase | Overs | Ball Range | Description |
+|-------|-------|------------|-------------|
+| **Powerplay** | 1-6 | Balls 1-36 | Only 2 fielders outside 30-yard circle. Batting-friendly phase. |
+| **Middle Overs** | 7-15 | Balls 37-90 | 4-5 fielders allowed outside circle. Consolidation phase. |
+| **Death Overs** | 16-20 | Balls 91-120 | Final acceleration phase. High-risk, high-reward batting. |
+
+### Core Batting Metrics
+
+| Metric | Formula | Description |
+|--------|---------|-------------|
+| **Strike Rate (SR)** | `(Runs / Balls) × 100` | Runs scored per 100 balls faced. Higher = more aggressive. |
+| **Batting Average (Avg)** | `Runs / Dismissals` | Runs per dismissal. Higher = more consistent. |
+| **Balls Per Dismissal (BPD)** | `Balls / Dismissals` | How many balls a batter survives per out. Higher = harder to dismiss. |
+| **Dot Ball %** | `(Dot Balls / Total Balls) × 100` | Percentage of balls with zero runs. Lower = better rotation. |
+| **Boundary %** | `((Fours + Sixes) / Total Balls) × 100` | Percentage of balls hit for boundaries. Higher = more power. |
+
+### Core Bowling Metrics
+
+| Metric | Formula | Description |
+|--------|---------|-------------|
+| **Economy Rate (Econ)** | `(Runs Conceded / Balls) × 6` | Runs conceded per over. Lower = more restrictive. |
+| **Bowling Strike Rate (SR)** | `Balls / Wickets` | Balls bowled per wicket taken. Lower = takes wickets faster. |
+| **Dot Ball %** | `(Dot Balls / Total Balls) × 100` | Percentage of balls with zero runs. Higher = more pressure. |
+| **Wickets Per Over** | `Wickets / Overs` | Average wickets taken per over bowled. |
+
+### Derived Metrics
+
+| Metric | Formula | Interpretation |
+|--------|---------|----------------|
+| **Economy Differential** | `LHB_Econ - RHB_Econ` | Negative = better vs left-handers |
+| **SR Differential** | `LHB_SR - RHB_SR` | Negative = takes wickets faster vs left-handers |
+| **Phase Economy** | Economy calculated only for balls in that phase | Phase-specific performance |
+| **Entry Ball** | Ball number when batter arrives at crease | Opener = ball 1, lower order = higher ball number |
+
+### Tag Criteria Reference
+
+#### Batter Specialist Tags (require ALL three conditions)
+
+| Tag | Strike Rate | Average | Balls/Dismissal |
+|-----|-------------|---------|-----------------|
+| `SPECIALIST_VS_PACE` | ≥ 130 | ≥ 25 | ≥ 20 |
+| `SPECIALIST_VS_SPIN` | ≥ 130 | ≥ 25 | ≥ 20 |
+| `SPECIALIST_VS_OFF_SPIN` | ≥ 130 | ≥ 25 | ≥ 20 |
+| `SPECIALIST_VS_LEG_SPIN` | ≥ 130 | ≥ 25 | ≥ 20 |
+| `SPECIALIST_VS_LEFT_ARM_SPIN` | ≥ 130 | ≥ 25 | ≥ 20 |
+
+#### Batter Vulnerable Tags (ANY one condition triggers)
+
+| Tag | Strike Rate | OR Average | OR Balls/Dismissal |
+|-----|-------------|------------|-------------------|
+| `VULNERABLE_VS_PACE` | < 105 | < 15 | < 15 |
+| `VULNERABLE_VS_SPIN` | < 105 | < 15 | < 15 |
+
+**Why three conditions?** A player like Aiden Markram has SR 130+ vs left-arm spin but Average 18.0 and BPD 13.75 — he scores quickly but gets out too often. Three conditions prevent false "specialist" labels.
+
+#### Batter Performance Tags
+
+| Tag | Criteria | Minimum Sample |
+|-----|----------|----------------|
+| `PP_DOMINATOR` | Powerplay SR > 150 | 50 PP balls |
+| `DEATH_SPECIALIST` | Death SR > 160 | 30 death balls |
+| `SIX_HITTER` | Six % > 15% | 100 balls |
+| `CONSISTENT` | 50+ innings | 100 balls |
+
+#### Bowler Phase Tags
+
+| Tag | Economy Threshold | Minimum Overs |
+|-----|-------------------|---------------|
+| `PP_BEAST` | < 7.0 | 30 overs |
+| `PP_LIABILITY` | > 9.5 | 30 overs |
+| `MIDDLE_OVERS_BEAST` | < 7.0 | 50 overs |
+| `MIDDLE_OVERS_LIABILITY` | > 8.5 | 50 overs |
+| `DEATH_BEAST` | < 8.5 | 30 overs |
+| `DEATH_LIABILITY` | > 10.5 | 30 overs |
+
+#### Bowler Elite Tags (Top Performers)
+
+| Tag | Criteria |
+|-----|----------|
+| `PP_ELITE` | Top 25% economy in powerplay |
+| `MID_OVERS_ELITE` | Top 25% economy in middle overs |
+| `DEATH_ELITE` | Top 25% economy at death |
+
+#### Bowler Handedness Tags
+
+| Tag | Criteria | Minimum Sample |
+|-----|----------|----------------|
+| `LHB_SPECIALIST` | Economy ≥ 1.0 better vs LHB than RHB | 60 balls vs each |
+| `RHB_SPECIALIST` | Economy ≥ 1.0 better vs RHB than LHB | 60 balls vs each |
+| `LHB_WICKET_TAKER` | Lower SR vs LHB (takes wickets faster) | 3+ wickets vs LHB |
+| `RHB_WICKET_TAKER` | Lower SR vs RHB | 3+ wickets vs RHB |
+| `LHB_PRESSURE` | Dot ball % ≥ 5% higher vs LHB | 60 balls vs each |
+| `RHB_PRESSURE` | Dot ball % ≥ 5% higher vs RHB | 60 balls vs each |
+| `LHB_VULNERABLE` | Economy ≥ 1.0 worse vs LHB | 60 balls vs each |
+| `RHB_VULNERABLE` | Economy ≥ 1.0 worse vs RHB | 60 balls vs each |
+
+#### Batter Entry Position Tags
+
+| Tag | Median Entry Ball | Typical Position |
+|-----|-------------------|------------------|
+| `OPENER` | ≤ 6 (over 1) | #1-2 |
+| `TOP_ORDER` | 7-24 (overs 2-4) | #3 |
+| `MIDDLE_ORDER` | 25-60 (overs 5-10) | #4-5 |
+| `LOWER_ORDER` | > 60 (over 10+) | #6-7+ |
+
+#### Bowler Role Tags
+
+| Tag | Criteria |
+|-----|----------|
+| `POWERPLAY_BOWLER` | 1st over median in overs 0-5 |
+| `DEATH_BOWLER` | 4th over median in overs 16+ |
+| `PP_AND_DEATH_SPECIALIST` | Both PP and death criteria met |
+| `MIDDLE_OVERS_BOWLER` | Neither PP nor death criteria |
+
+### Bowling Style Categories
+
+| Category | Examples |
+|----------|----------|
+| **Right-arm pace** | Fast, fast-medium, medium-fast |
+| **Left-arm pace** | Left-arm fast, left-arm medium |
+| **Right-arm off-spin** | Off-break, finger spin |
+| **Right-arm leg-spin** | Leg-break, googly |
+| **Left-arm orthodox** | Slow left-arm orthodox |
+| **Left-arm wrist spin** | Chinaman, left-arm unorthodox |
 
 ---
 

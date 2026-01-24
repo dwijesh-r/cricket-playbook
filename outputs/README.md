@@ -40,6 +40,166 @@ Generated data artifacts from analytics scripts.
 | `manifest.json` | Data generation manifest | Various |
 | `schema.md` | Schema documentation | `ingest.py` |
 
+---
+
+## CSV File Schemas
+
+### batter_bowling_type_matchup.csv
+
+**Description:** Aggregated batter performance against pace vs spin bowling (125 batters).
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `batter_id` | string | Unique player identifier |
+| `batter_name` | string | Player display name |
+| `pace_balls` | int | Total balls faced vs pace bowlers |
+| `pace_sr` | float | Strike rate vs pace (runs per 100 balls) |
+| `pace_avg` | float | Batting average vs pace (runs per dismissal) |
+| `pace_dismissals` | int | Times dismissed by pace bowlers |
+| `spin_balls` | int | Total balls faced vs spin bowlers |
+| `spin_sr` | float | Strike rate vs spin |
+| `spin_avg` | float | Batting average vs spin |
+| `spin_dismissals` | int | Times dismissed by spin bowlers |
+| `bowling_type_tags` | string | Comma-separated tags (e.g., "SPECIALIST_VS_PACE, VULNERABLE_VS_SPIN") |
+
+---
+
+### batter_bowling_type_detail.csv
+
+**Description:** Granular batter performance broken down by specific bowling type (289 records).
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `batter_id` | string | Unique player identifier |
+| `batter_name` | string | Player display name |
+| `bowling_type` | string | Bowling style (e.g., "Right-arm fast", "Leg-spin", "Left-arm orthodox") |
+| `balls` | int | Balls faced vs this bowling type |
+| `runs` | int | Runs scored vs this bowling type |
+| `dismissals` | int | Times dismissed by this bowling type |
+| `fours` | int | Boundaries (4s) hit |
+| `sixes` | int | Sixes hit |
+| `dots` | int | Dot balls faced |
+| `strike_rate` | float | Strike rate vs this bowling type |
+| `average` | float | Batting average vs this bowling type |
+| `dot_pct` | float | Dot ball percentage |
+| `boundary_pct` | float | Boundary percentage (4s + 6s) |
+
+---
+
+### batter_entry_points.csv
+
+**Description:** When batters typically come to bat in an innings (89 batters).
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `batter_id` | string | Unique player identifier |
+| `batter_name` | string | Player display name |
+| `innings_count` | int | Number of innings analyzed |
+| `mean_entry_ball` | float | Average ball number when batter arrives |
+| `median_entry_ball` | float | Median ball number (more robust to outliers) |
+| `mode_entry_ball` | int | Most common entry ball (binned to 6-ball overs) |
+| `mean_entry_over` | float | Mean entry converted to overs |
+| `median_entry_over` | float | Median entry converted to overs |
+| `mode_entry_over` | float | Mode entry converted to overs |
+| `position_category` | string | Classification: OPENER (≤6), TOP_ORDER (≤24), MIDDLE_ORDER (≤60), LOWER_ORDER (>60) |
+| `min_entry_ball` | int | Earliest entry ball across all innings |
+| `max_entry_ball` | int | Latest entry ball across all innings |
+
+---
+
+### bowler_handedness_matchup.csv
+
+**Description:** Bowler performance split by batter handedness - LHB vs RHB (78 bowlers).
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `bowler_id` | string | Unique player identifier |
+| `bowler_name` | string | Player display name |
+| `lhb_balls` | int | Balls bowled to left-handed batters |
+| `lhb_economy` | float | Economy rate vs LHB (runs per over) |
+| `lhb_strike_rate` | float | Bowling strike rate vs LHB (balls per wicket) |
+| `lhb_wickets` | int | Wickets taken vs LHB |
+| `rhb_balls` | int | Balls bowled to right-handed batters |
+| `rhb_economy` | float | Economy rate vs RHB |
+| `rhb_strike_rate` | float | Bowling strike rate vs RHB |
+| `rhb_wickets` | int | Wickets taken vs RHB |
+| `economy_diff` | float | LHB economy minus RHB economy (negative = better vs LHB) |
+| `strike_rate_diff` | float | LHB SR minus RHB SR (negative = takes wickets faster vs LHB) |
+| `handedness_tags` | string | Comma-separated tags (e.g., "LHB_SPECIALIST, RHB_VULNERABLE") |
+
+---
+
+### bowler_over_timing.csv
+
+**Description:** When bowlers typically bowl their overs in a match (67 bowlers).
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `bowler_id` | string | Unique player identifier |
+| `bowler_name` | string | Player display name |
+| `match_count` | int | Number of matches analyzed |
+| `over1_median` | int | Median match over for bowler's 1st over |
+| `over1_mode` | int | Most common match over for 1st over |
+| `over1_count` | int | Sample size for 1st over |
+| `over2_median` | int | Median match over for bowler's 2nd over |
+| `over2_mode` | int | Most common match over for 2nd over |
+| `over2_count` | int | Sample size for 2nd over |
+| `over3_median` | int | Median match over for bowler's 3rd over |
+| `over3_mode` | int | Most common match over for 3rd over |
+| `over3_count` | int | Sample size for 3rd over |
+| `over4_median` | int | Median match over for bowler's 4th over |
+| `over4_mode` | int | Most common match over for 4th over |
+| `over4_count` | int | Sample size for 4th over |
+| `role_category` | string | POWERPLAY_BOWLER, DEATH_BOWLER, PP_AND_DEATH_SPECIALIST, or MIDDLE_OVERS_BOWLER |
+
+---
+
+### bowler_phase_performance.csv
+
+**Description:** Bowler economy and wickets by match phase (208 bowlers).
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `bowler_id` | string | Unique player identifier |
+| `bowler_name` | string | Player display name |
+| `powerplay_overs` | float | Overs bowled in powerplay (overs 1-6) |
+| `powerplay_economy` | float | Economy rate in powerplay |
+| `powerplay_wickets` | int | Wickets taken in powerplay |
+| `middle_overs` | float | Overs bowled in middle phase (overs 7-15) |
+| `middle_economy` | float | Economy rate in middle overs |
+| `middle_wickets` | int | Wickets taken in middle overs |
+| `death_overs` | float | Overs bowled at death (overs 16-20) |
+| `death_economy` | float | Economy rate at death |
+| `death_wickets` | int | Wickets taken at death |
+| `phase_tags` | string | Comma-separated tags (e.g., "PP_BEAST, DEATH_LIABILITY") |
+
+---
+
+### ipl_2026_squad_experience.csv
+
+**Description:** IPL 2026 squad players with their historical IPL statistics (231 players).
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `team_name` | string | IPL franchise name (e.g., "Mumbai Indians") |
+| `player_name` | string | Player display name |
+| `player_id` | string | Unique player identifier |
+| `role` | string | Playing role (Batter, Bowler, All-rounder, Wicketkeeper) |
+| `bowling_type` | string | Primary bowling style (e.g., "Right-arm fast", "Leg-spin") |
+| `bowling_style` | string | Detailed bowling classification |
+| `batting_hand` | string | Left-hand or Right-hand |
+| `is_uncapped` | bool | True if player has no IPL 2023+ stats |
+| `ipl_batting_innings` | int | IPL batting innings (2023-2025) |
+| `ipl_batting_balls` | int | Balls faced in IPL |
+| `ipl_batting_runs` | int | Runs scored in IPL |
+| `ipl_batting_sr` | float | IPL batting strike rate |
+| `ipl_bowling_matches` | int | IPL matches bowled in |
+| `ipl_bowling_balls` | int | Balls bowled in IPL |
+| `ipl_bowling_wickets` | int | IPL wickets taken |
+| `ipl_bowling_economy` | float | IPL bowling economy rate |
+
+---
+
 ## Regenerating Outputs
 
 ```bash

@@ -266,7 +266,7 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
                 display_tags = tags[:5]
                 tags_str = ", ".join(display_tags)
                 if len(tags) > 5:
-                    tags_str += f" (+{len(tags)-5} more)"
+                    tags_str += f" (+{len(tags) - 5} more)"
                 md.append(f"| {player_name} | {tags_str} |")
 
     # ==========================================================================

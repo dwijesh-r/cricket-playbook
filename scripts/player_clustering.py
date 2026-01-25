@@ -264,9 +264,9 @@ def cluster_bowlers(df: pd.DataFrame, n_clusters: int = 5) -> pd.DataFrame:
 def analyze_clusters(df: pd.DataFrame, centers: pd.DataFrame, player_type: str):
     """Print cluster analysis for review."""
 
-    print(f"\n{'='*70}")
+    print(f"\n{'=' * 70}")
     print(f"{player_type.upper()} CLUSTER ANALYSIS")
-    print(f"{'='*70}")
+    print(f"{'=' * 70}")
 
     for cluster_id in sorted(df["cluster"].unique()):
         cluster_players = df[df["cluster"] == cluster_id]

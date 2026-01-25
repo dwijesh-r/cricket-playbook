@@ -402,7 +402,7 @@ def cluster_batters_v2(df: pd.DataFrame, n_clusters: int = 5) -> tuple:
         f"    Components for 50% variance: {pca_result['n_components_for_target']} of {pca_result['total_components']}"
     )
     print(
-        f"    Variance explained by first 3 PCs: {pca_result['cumulative_variance'][2]*100:.1f}%"
+        f"    Variance explained by first 3 PCs: {pca_result['cumulative_variance'][2] * 100:.1f}%"
     )
 
     # K-means clustering
@@ -480,7 +480,7 @@ def cluster_bowlers_v2(df: pd.DataFrame, n_clusters: int = 5) -> tuple:
         f"    Components for 50% variance: {pca_result['n_components_for_target']} of {pca_result['total_components']}"
     )
     print(
-        f"    Variance explained by first 3 PCs: {pca_result['cumulative_variance'][2]*100:.1f}%"
+        f"    Variance explained by first 3 PCs: {pca_result['cumulative_variance'][2] * 100:.1f}%"
     )
 
     kmeans = KMeans(n_clusters=n_clusters, random_state=42, n_init=10)
@@ -567,9 +567,9 @@ def validate_specific_players(batter_df: pd.DataFrame, bowler_df: pd.DataFrame):
 def analyze_clusters_v2(df: pd.DataFrame, centers: pd.DataFrame, player_type: str):
     """Print cluster analysis with V2 features."""
 
-    print(f"\n{'='*70}")
+    print(f"\n{'=' * 70}")
     print(f"{player_type.upper()} CLUSTER ANALYSIS (V2)")
-    print(f"{'='*70}")
+    print(f"{'=' * 70}")
 
     for cluster_id in sorted(df["cluster"].unique()):
         cluster_players = df[df["cluster"] == cluster_id]
@@ -690,12 +690,12 @@ def main():
     print(
         f"    Components for 50%: {batter_pca['n_components_for_target']}/{batter_pca['total_components']}"
     )
-    print(f"    First 3 PCs explain: {batter_pca['cumulative_variance'][2]*100:.1f}%")
+    print(f"    First 3 PCs explain: {batter_pca['cumulative_variance'][2] * 100:.1f}%")
     print("\n  PCA Variance (Bowlers):")
     print(
         f"    Components for 50%: {bowler_pca['n_components_for_target']}/{bowler_pca['total_components']}"
     )
-    print(f"    First 3 PCs explain: {bowler_pca['cumulative_variance'][2]*100:.1f}%")
+    print(f"    First 3 PCs explain: {bowler_pca['cumulative_variance'][2] * 100:.1f}%")
 
     conn.close()
 

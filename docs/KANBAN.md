@@ -36,19 +36,6 @@
 | S2.9-06 | GitHub Actions CI workflow | Ime Udoka | 2026-01-25 | `d320501` |
 | S2.9-07 | Pre-commit hooks (Ruff linter/formatter) | Ime Udoka | 2026-01-25 | `d320501` |
 
-### Sprint 2.8 (Prior Sprint)
-
-| ID | Task | Owner | Completed |
-|----|------|-------|-----------|
-| S2.8-01 | Filter all analytics to 2023+ data | Stephen Curry | 2026-01-25 |
-| S2.8-02 | Standardize cluster labels across codebase | Stephen Curry | 2026-01-25 |
-| S2.8-03 | CSV schema documentation | Stephen Curry | 2026-01-25 |
-| S2.8-04 | Andy Flower domain review | Andy Flower | 2026-01-25 |
-| S2.8-05 | Regenerate all stat packs (2023+ data) | Stephen Curry | 2026-01-25 |
-| S2.8-06 | Update all README files to v2.8.0 | Tom Brady | 2026-01-25 |
-| S2.8-07 | Fix generate_stat_packs.py cluster lookups | Stephen Curry | 2026-01-25 |
-| S2.8-08 | Glossary with all definitions and criteria | Tom Brady | 2026-01-25 |
-
 ---
 
 ## 🔍 REVIEW (Awaiting Founder Approval)
@@ -80,12 +67,6 @@
 - [x] Pre-commit hooks (Ruff)
 - [x] Output validation script
 
-**Outputs to Review:**
-- `outputs/batter_entry_points.csv` - All values 1-120 ✓
-- `outputs/batter_bowling_type_matchup.csv` - 422 batters (was 125) ✓
-- `outputs/bowler_phase_performance.csv` - 208 bowlers ✓
-- `stat_packs/*.md` - All 10 team stat packs regenerated ✓
-
 ---
 
 ## 🚧 IN PROGRESS
@@ -100,28 +81,174 @@
 
 ### P0 - Critical (Must Have)
 
-| ID | Task | Owner | Estimate | Dependencies |
-|----|------|-------|----------|--------------|
-| S3.0-01 | Founder Review #4 response | Tom Brady | 2h | FR-4 |
-| S3.0-02 | Address any Founder feedback | Stephen Curry | 4h | S3.0-01 |
+---
+
+#### S3.0-01: Founder Review #4 Response
+**Owner:** Tom Brady | **Estimate:** 2h | **Dependencies:** FR-4
+
+**What:** Process and document all feedback from Founder Review #4, create action items.
+
+**Why Important:** Founder reviews are our quality gates. Addressing feedback promptly ensures we're building what stakeholders need and catches issues early before they compound.
+
+**What It Involves:**
+- Consolidate all Founder feedback into actionable tickets
+- Prioritize based on severity (blockers vs nice-to-haves)
+- Update Kanban with new tasks if needed
+- Communicate timeline for fixes to stakeholders
+
+---
+
+#### S3.0-02: Address Founder Feedback
+**Owner:** Stephen Curry | **Estimate:** 4h | **Dependencies:** S3.0-01
+
+**What:** Implement all required changes identified in Founder Review #4.
+
+**Why Important:** The Founder Review is our final quality gate before production use. Any issues identified must be resolved to maintain data accuracy and stakeholder confidence.
+
+**What It Involves:**
+- Fix any data quality issues flagged
+- Update documentation if unclear
+- Regenerate outputs if calculations change
+- Re-run validation to confirm fixes
+
+---
 
 ### P1 - High (Should Have)
 
-| ID | Task | Owner | Estimate | Dependencies |
-|----|------|-------|----------|--------------|
-| S3.0-03 | Model serialization (joblib) | Ime Udoka | 3h | None |
-| S3.0-04 | Recency weighting toggle | Stephen Curry | 4h | None |
-| S3.0-05 | Unit test restructuring | N'Golo Kanté | 4h | None |
-| S3.0-06 | Andy Flower analytics implementation | Stephen Curry | 8h | See research agenda |
+---
+
+#### S3.0-03: Model Serialization (joblib)
+**Owner:** Ime Udoka | **Estimate:** 3h | **Dependencies:** None
+
+**What:** Save trained K-means clustering models to disk using joblib, enabling reuse without retraining.
+
+**Why Important:** Currently we retrain models every run, which is slow and can produce slightly different clusters each time. Serialization ensures consistency and enables deployment.
+
+**What It Involves:**
+- Modify `player_clustering_v2.py` to save models after training
+- Add version tracking to model files
+- Create model loading utility for inference
+- Document model versioning strategy
+- Test that loaded models produce identical results
+
+---
+
+#### S3.0-04: Recency Weighting Toggle
+**Owner:** Stephen Curry | **Estimate:** 4h | **Dependencies:** None
+
+**What:** Add configurable recency weighting to analytics, allowing users to choose between "all-time" and "recent form" analysis.
+
+**Why Important:** Different use cases need different weightings. Auction analysis might want career stats; match predictions might want recent form. Currently hardcoded to 2x for 2021-2025.
+
+**What It Involves:**
+- Add `--recency-mode` CLI flag (none, moderate, aggressive)
+- Modify analytics queries to apply configurable weights
+- Update documentation with weight definitions
+- Add validation that weighted stats sum correctly
+- Test with different weighting profiles
+
+---
+
+#### S3.0-05: Unit Test Restructuring
+**Owner:** N'Golo Kanté | **Estimate:** 4h | **Dependencies:** None
+
+**What:** Reorganize test suite into logical modules with proper fixtures and improved coverage.
+
+**Why Important:** Current tests are scattered and some rely on live database. Proper test structure enables CI to catch issues and gives confidence in refactoring.
+
+**What It Involves:**
+- Create `tests/unit/`, `tests/integration/` structure
+- Add pytest fixtures for mock data
+- Ensure tests can run without database (unit tests)
+- Add coverage reporting to CI
+- Target 80% coverage for core modules
+
+---
+
+#### S3.0-06: Andy Flower Analytics Implementation
+**Owner:** Stephen Curry | **Estimate:** 8h | **Dependencies:** See research agenda
+
+**What:** Implement Phase 1 metrics from Andy Flower's research: Momentum Index, Pressure Sequence Index, Clutch Factor, Death Overs Closer Rating.
+
+**Why Important:** These metrics represent our competitive advantage - novel cricket analytics that go beyond traditional stats. Fans and broadcasters want to understand *why* matches unfold, not just *what* happened.
+
+**What It Involves:**
+- Implement Momentum Index (MI) calculation
+- Build Pressure Sequence Index (PSI) detection
+- Create Clutch Factor (CF) for batters
+- Add Death Overs Closer Rating (DOCR)
+- Generate new CSV outputs with these metrics
+- Add to stat packs for team-level rollups
+
+---
 
 ### P2 - Medium (Nice to Have)
 
-| ID | Task | Owner | Estimate | Dependencies |
-|----|------|-------|----------|--------------|
-| S3.0-07 | Interactive dashboard (Streamlit) | Kevin de Bruyne | 8h | None |
-| S3.0-08 | Great Expectations validation | Brock Purdy | 6h | None |
-| S3.0-09 | Type hints (mypy strict) | Brad Stevens | 4h | None |
-| S3.0-10 | Bowler handedness matchup fixes | Stephen Curry | 3h | Similar to batter matchup |
+---
+
+#### S3.0-07: Interactive Dashboard (Streamlit)
+**Owner:** Kevin de Bruyne | **Estimate:** 8h | **Dependencies:** None
+
+**What:** Build a Streamlit web app for exploring player stats, matchups, and team comparisons interactively.
+
+**Why Important:** CSVs and markdown files are hard to explore. A dashboard lets stakeholders ask ad-hoc questions without engineering support, reducing turnaround time.
+
+**What It Involves:**
+- Setup Streamlit project structure
+- Create player search/comparison page
+- Build team stat pack viewer
+- Add matchup explorer (batter vs bowling type)
+- Include phase-wise performance charts
+- Deploy to Streamlit Cloud or internal server
+
+---
+
+#### S3.0-08: Great Expectations Validation
+**Owner:** Brock Purdy | **Estimate:** 6h | **Dependencies:** None
+
+**What:** Implement Great Expectations data validation framework for automated data quality checks.
+
+**Why Important:** Manual validation doesn't scale. Great Expectations provides declarative rules that run automatically, catching data drift and quality issues before they reach outputs.
+
+**What It Involves:**
+- Install and configure Great Expectations
+- Define expectations for each analytics table
+- Create validation checkpoints
+- Integrate with CI pipeline
+- Build data docs for transparency
+- Alert on validation failures
+
+---
+
+#### S3.0-09: Type Hints (mypy strict)
+**Owner:** Brad Stevens | **Estimate:** 4h | **Dependencies:** None
+
+**What:** Add comprehensive type hints to all Python modules and enable mypy strict mode in CI.
+
+**Why Important:** Type hints catch bugs at development time, improve IDE support, and serve as documentation. Critical for maintainability as codebase grows.
+
+**What It Involves:**
+- Add type hints to all function signatures
+- Define custom types for domain objects (PlayerId, MatchId, etc.)
+- Configure mypy with strict settings
+- Add mypy check to pre-commit and CI
+- Fix all type errors surfaced
+
+---
+
+#### S3.0-10: Bowler Handedness Matchup Fixes
+**Owner:** Stephen Curry | **Estimate:** 3h | **Dependencies:** None
+
+**What:** Apply same fixes from batter matchup to bowler handedness matchup - use analytics table, aggregate properly, add BPD criteria.
+
+**Why Important:** Consistency across all matchup outputs. Bowler handedness data likely has same issues as batter matchup (missing data, threshold applied too early).
+
+**What It Involves:**
+- Audit bowler_handedness_matchup.py for similar bugs
+- Update to use analytics tables
+- Fix aggregation order (aggregate first, then threshold)
+- Add dismissal rate to tag criteria
+- Regenerate outputs and validate
 
 ---
 
@@ -129,68 +256,170 @@
 
 ### Sprint 3.1 - API & Integration
 
-| ID | Task | Owner | Priority |
-|----|------|-------|----------|
-| S3.1-01 | REST API endpoint (FastAPI) | Jayson Tatum | P2 |
-| S3.1-02 | Real-time match simulation | Stephen Curry | P3 |
-| S3.1-03 | Webhook for live data feeds | Brock Purdy | P3 |
+---
+
+#### S3.1-01: REST API Endpoint (FastAPI)
+**Owner:** Jayson Tatum | **Priority:** P2
+
+**What:** Create a FastAPI-based REST API exposing player stats, matchups, and recommendations.
+
+**Why Important:** Enables external systems (broadcast graphics, fantasy apps, editorial tools) to consume our analytics programmatically without file transfers.
+
+**What It Involves:**
+- Design API schema (OpenAPI spec)
+- Implement endpoints: `/players`, `/matchups`, `/teams`
+- Add authentication (API keys)
+- Setup rate limiting
+- Deploy with Docker
+- Document with Swagger UI
+
+---
+
+#### S3.1-02: Real-time Match Simulation
+**Owner:** Stephen Curry | **Priority:** P3
+
+**What:** Build a match simulator that projects likely outcomes given current state (score, wickets, overs, batters).
+
+**Why Important:** "What if" scenarios for broadcast ("If Kohli stays 10 more balls, win probability jumps to...") and pre-match analysis.
+
+**What It Involves:**
+- Build Monte Carlo simulation engine
+- Use historical data for outcome probabilities
+- Implement ball-by-ball projection
+- Create visualization of probability distributions
+- Validate against actual match outcomes
+
+---
+
+#### S3.1-03: Webhook for Live Data Feeds
+**Owner:** Brock Purdy | **Priority:** P3
+
+**What:** Implement webhook receiver for live match data, enabling real-time analytics updates.
+
+**Why Important:** Currently all analysis is post-match. Live data enables real-time Momentum Index, win probability, and pressure alerts during matches.
+
+**What It Involves:**
+- Design webhook receiver endpoint
+- Handle Cricsheet or provider format
+- Update analytics incrementally (not full recompute)
+- Build event queue for reliability
+- Add monitoring for data freshness
+
+---
 
 ### Sprint 3.2 - Advanced Analytics
 
-| ID | Task | Owner | Priority |
-|----|------|-------|----------|
-| S3.2-01 | Win probability model | Stephen Curry | P2 |
-| S3.2-02 | Player form tracker (rolling 10 matches) | Stephen Curry | P2 |
-| S3.2-03 | Venue-pitch condition analysis | Andy Flower | P2 |
-| S3.2-04 | Opposition-specific tactics engine | Pep Guardiola | P3 |
+---
+
+#### S3.2-01: Win Probability Model
+**Owner:** Stephen Curry | **Priority:** P2
+
+**What:** Build a model that calculates win probability at any point in a match based on runs, wickets, overs, and required rate.
+
+**Why Important:** The foundation for turning point detection and match narrative generation. Every broadcast wants "X team has 73% chance of winning."
+
+**What It Involves:**
+- Build historical outcome dataset by match state
+- Train logistic regression or XGBoost model
+- Validate with held-out matches
+- Calculate WP after each ball
+- Identify turning points (WP delta > 8%)
+- Create visualization library
+
+---
+
+#### S3.2-02: Player Form Tracker (Rolling 10 Matches)
+**Owner:** Stephen Curry | **Priority:** P2
+
+**What:** Track player performance over rolling windows (last 5, 10, 15 matches) to identify form trends.
+
+**Why Important:** Career stats hide recent trends. A player averaging 40 career but 22 in last 10 matches is in poor form - critical for team selection.
+
+**What It Involves:**
+- Build rolling window aggregation functions
+- Track trend direction (improving/declining)
+- Compare to career baseline
+- Flag "form alerts" (significant deviation)
+- Add to player profiles in stat packs
+
+---
+
+#### S3.2-03: Venue-Pitch Condition Analysis
+**Owner:** Andy Flower | **Priority:** P2
+
+**What:** Quantify venue characteristics: pace vs spin friendly, first vs second innings advantage, boundary dimensions effect.
+
+**Why Important:** Team selection depends on venue. "Chepauk turns, play 3 spinners" is folklore - we need data-driven venue profiles.
+
+**What It Involves:**
+- Calculate pace vs spin economy by venue
+- Track 1st vs 2nd innings scoring rates
+- Analyze boundary rates by venue
+- Build venue archetype classifications
+- Integrate with pre-match team recommendations
+
+---
+
+#### S3.2-04: Opposition-Specific Tactics Engine
+**Owner:** Pep Guardiola | **Priority:** P3
+
+**What:** Generate tactical recommendations based on specific opponent lineup - who to bowl at which batter, optimal batting order.
+
+**Why Important:** Generic stats don't win matches. Knowing "Bowler X has dismissed Batter Y 4 times in 12 balls" enables targeted tactics.
+
+**What It Involves:**
+- Build head-to-head matchup matrices
+- Identify exploitable weaknesses
+- Generate bowling assignment recommendations
+- Suggest batting order changes vs specific bowlers
+- Create tactical briefing documents
+
+---
 
 ### Icebox (Unscheduled)
 
-| ID | Task | Owner | Priority |
-|----|------|-------|----------|
-| ICE-01 | Historical trend analysis (year-over-year) | Stephen Curry | P3 |
-| ICE-02 | Injury/availability tracking | Tom Brady | P3 |
-| ICE-03 | Player valuation model (auction pricing) | Stephen Curry | P3 |
-| ICE-04 | Commentary auto-generation | Virat Kohli | P3 |
-| ICE-05 | Video highlight tagging integration | Kevin de Bruyne | P4 |
+| ID | Task | Owner | Priority | Description |
+|----|------|-------|----------|-------------|
+| ICE-01 | Historical trend analysis | Stephen Curry | P3 | Year-over-year stat evolution (is T20 getting faster?) |
+| ICE-02 | Injury/availability tracking | Tom Brady | P3 | Track player availability, injury history for squad planning |
+| ICE-03 | Player valuation model | Stephen Curry | P3 | Predict auction prices based on stats, age, market dynamics |
+| ICE-04 | Commentary auto-generation | Virat Kohli | P3 | Generate narrative text from stats ("Kohli's SR drops 30 points vs left-arm spin") |
+| ICE-05 | Video highlight tagging | Kevin de Bruyne | P4 | Link stats to video timestamps for automated highlight reels |
 
 ---
 
 ## 🔬 Andy Flower Research Agenda
 
-### Groundbreaking Cricket Analytics Approaches
+### Comprehensive Analytics Research Document
 
-**Research Areas:**
+**Location:** `editorial/andy_flower_analytics_research.md`
 
-1. **Match Phase Dynamics**
-   - Momentum shift detection (when does a match "turn"?)
-   - Pressure index by ball (dot ball sequences, wicket clusters)
-   - Optimal declaration/chase timing models
+**Document Contents:**
+- 17 novel metrics with full calculations
+- Data requirements mapped to our schema
+- Feasibility ratings (Easy/Medium/Hard)
+- Implementation priority recommendations
+- **NEW: Fan's Perspective section** with 6 fan-focused metrics
 
-2. **Player Impact Beyond Stats**
-   - "Clutch" performance metric (pressure situations)
-   - Partnership value (how players combine)
-   - Fielding impact quantification
+### Fan-Focused Metrics (NEW)
 
-3. **Tactical Pattern Recognition**
-   - Field placement optimization by batter type
-   - Bowling pattern detection (line/length sequences)
-   - Batting intent classification (attack/defend/rotate)
+| Metric | Fan Question It Answers |
+|--------|------------------------|
+| **Death Overs Closer Rating (DOCR)** | "Who should bat when we need 20 off 10?" |
+| **Consistency Index (CI)** | "Is he reliable or a one-match wonder?" |
+| **Entertainment Value Score (EVS)** | "Who's exciting to watch?" |
+| **Big Match Factor (BMF)** | "Does he show up in finals?" |
+| **Value-for-Money Index (VMI)** | "Was the auction price justified?" |
+| **Team Impact Score (TIS)** | "Does he make the team better?" |
 
-4. **Contextual Performance**
-   - Toss impact by venue
-   - Dew factor modeling (2nd innings advantage)
-   - Pitch deterioration tracking
+### Implementation Phases
 
-5. **Team Composition Analytics**
-   - Optimal batting order simulation
-   - Bowling rotation strategies
-   - Impact player selection criteria
-
-**Deliverables:**
-- Research document: `editorial/andy_flower_analytics_research.md` ✓
-- Proposed metrics and calculations
-- Implementation recommendations for Stephen Curry
+| Phase | Metrics | Complexity | Timeline |
+|-------|---------|------------|----------|
+| 1 | Momentum Index, PSI, DOCR, BMF | Easy | Sprint 3.0 |
+| 2 | Match Control Index, Clutch Factor, EVS | Medium | Sprint 3.1 |
+| 3 | Win Probability, Partnership Synergy | Medium | Sprint 3.2 |
+| 4 | Full Fielding Impact, Bowling Patterns | Hard | Future |
 
 ---
 
@@ -219,41 +448,23 @@
 1. `d320501` - Entry point fix + validation + CI/CD
 2. `e085a58` - Matchup data fixes + tag criteria
 3. `ef3effd` - Player clustering ball_seq fix
-
----
-
-## Sprint 3.0 Timeline (Post-Review)
-
-```
-After Founder Review #4 Approval:
-
-Day 1-2:
-├── Tom Brady - Process Founder feedback (S3.0-01)
-└── Stephen Curry - Address any issues (S3.0-02)
-
-Day 3-5:
-├── Ime Udoka - Model serialization (S3.0-03)
-├── Stephen Curry - Recency weighting toggle (S3.0-04)
-└── N'Golo Kanté - Test restructuring (S3.0-05)
-
-Day 6-10:
-├── Stephen Curry - Andy Flower analytics (S3.0-06)
-├── Kevin de Bruyne - Dashboard prototype (S3.0-07)
-└── Sprint 3.0 review & retrospective
-```
+4. `9d2e6de` - Kanban update
 
 ---
 
 ## Agent Role Clarification
 
-| Agent | Primary Role | Sprint 2.9 Contribution |
-|-------|--------------|-------------------------|
-| **Andy Flower** | Cricket Analytics QA | Entry point bug investigation, validation script |
-| **Stephen Curry** | Analytics Lead | All bug fixes, matchup improvements |
-| **Ime Udoka** | ML Ops Engineer | CI/CD setup, pre-commit hooks |
-| **Tom Brady** | Product Owner | Kanban management, documentation |
-| **Brad Stevens** | Architecture | Standards review |
-| **N'Golo Kanté** | QA Engineer | Test coverage (pending) |
+| Agent | Primary Role | Expertise |
+|-------|--------------|-----------|
+| **Andy Flower** | Cricket Analytics QA | Domain expertise, metric design, fan perspective |
+| **Stephen Curry** | Analytics Lead | Implementation, SQL, Python, data pipelines |
+| **Ime Udoka** | ML Ops Engineer | CI/CD, deployment, model serialization |
+| **Tom Brady** | Product Owner | Roadmap, stakeholder management, documentation |
+| **Brad Stevens** | Architecture | Code quality, type safety, best practices |
+| **N'Golo Kanté** | QA Engineer | Testing, coverage, edge cases |
+| **Kevin de Bruyne** | Frontend/UX | Dashboards, visualizations |
+| **Brock Purdy** | Data Pipeline | Ingestion, validation, Great Expectations |
+| **Pep Guardiola** | Tactical Analysis | Opposition analysis, recommendations |
 
 ---
 
@@ -274,8 +485,9 @@ Day 6-10:
 | Risk | Impact | Mitigation | Status |
 |------|--------|------------|--------|
 | Founder Review delays | High | Comprehensive documentation prepared | Ready |
-| Small sample size (2023+ only) | Medium | Add optional full-history mode | Backlog |
+| Small sample size (2023+ only) | Medium | Add optional full-history mode (S3.0-04) | Backlog |
 | ball_seq bugs in other scripts | High | Grep audit completed | ✅ Fixed |
+| Missing fan engagement metrics | Medium | Andy Flower research expanded | ✅ Done |
 
 ---
 

@@ -1019,7 +1019,275 @@ Complements existing bowler archetypes.
 
 ---
 
-## 9. Sign-Off
+## 9. Fan's Perspective: Metrics That Matter to Supporters
+
+### 9.1 The Questions Fans Actually Ask
+
+Traditional stats don't answer what fans really want to know. Here are the questions I hear in every stadium:
+
+| Fan Question | Current Answer | Proposed Metric |
+|--------------|----------------|-----------------|
+| "Who should bat when we need 20 off 10?" | "Dhoni is a finisher" | **Death Overs Closer Rating** |
+| "Is he actually good or just hyped?" | "He averages 35" | **Consistency Index** |
+| "Who's the most exciting to watch?" | "He has high SR" | **Entertainment Value Score** |
+| "Why does he always fail in finals?" | "Small sample size" | **Big Match Factor** |
+| "Who's actually worth their auction price?" | "He cost 15 crores" | **Value-for-Money Index** |
+| "Who makes the team better just by being there?" | "He's a match-winner" | **Team Impact Score** |
+
+---
+
+### 9.2 Death Overs Closer Rating (DOCR)
+
+**Fan Need:** "Who do I trust when we need 36 off 18?"
+
+**What Fans Currently See:**
+- Career strike rate (includes meaningless runs)
+- "Finisher" label (no quantification)
+
+**Proposed Metric:**
+
+```
+DOCR = (
+  Death_SR_under_pressure * 0.35 +
+  Balls_per_dismissal_death * 0.25 +
+  Win_contribution_rate * 0.25 +
+  Boundary_rate_death * 0.15
+) * Phase_adjustment
+
+Where "under_pressure" = RRR > 10 OR margin < 25 runs
+```
+
+**DOCR Leaderboard Display:**
+| Rank | Player | DOCR | Death SR | Wins Closed |
+|------|--------|------|----------|-------------|
+| 1 | MS Dhoni | 94.2 | 178.5 | 47 |
+| 2 | AB de Villiers | 91.8 | 192.3 | 38 |
+| 3 | Hardik Pandya | 87.4 | 185.2 | 29 |
+
+**Why Fans Care:** They want to know who to trust, not who has the prettiest numbers.
+
+---
+
+### 9.3 Consistency Index (CI)
+
+**Fan Need:** "Is this player reliable or a one-match wonder?"
+
+**Problem with Current Stats:**
+- A player can average 40 with scores of 100, 0, 0, 0, 100
+- Another averages 40 with scores of 35, 45, 40, 38, 42
+- Same average, completely different reliability
+
+**Proposed Metric:**
+
+```
+CI = 100 - (Standard_Deviation_of_scores / Mean_score * 50)
+
+Adjusted for:
+- Minimum qualification (15+ innings)
+- Role expectation (opener vs finisher)
+- Match situation normalization
+```
+
+**CI Interpretation:**
+| CI Range | Label | Fan Translation |
+|----------|-------|-----------------|
+| 80+ | Elite Consistent | "Banks runs every game" |
+| 65-80 | Reliable | "Rarely lets you down" |
+| 50-65 | Variable | "Hit or miss" |
+| 35-50 | Inconsistent | "Frustrating to watch" |
+| <35 | Volatile | "Might score 80 or 5" |
+
+**Editorial Angle:** "Most Reliable IPL Players" rankings that fans can trust.
+
+---
+
+### 9.4 Entertainment Value Score (EVS)
+
+**Fan Need:** "Who should I tune in early to watch?"
+
+**Current Problem:**
+- Strike rate doesn't capture excitement
+- A 45(30) with 5 fours and 1 six feels different from 45(30) with 15 threes
+
+**Proposed Metric:**
+
+```
+EVS = (
+  Boundary_frequency * 25 +
+  Six_ratio * 20 +
+  Run_rate_variance * 15 +  -- Unpredictability
+  Comeback_innings_rate * 15 +  -- Drama factor
+  Aggressive_shot_ratio * 15 +
+  Finishing_drama_score * 10
+)
+```
+
+**Components Explained:**
+- **Boundary frequency:** How often do fireworks happen?
+- **Six ratio:** Sixes are more exciting than fours
+- **Run rate variance:** Does the innings have "moments"?
+- **Comeback innings:** Going from 8(12) to 45(25) is drama
+- **Finishing drama:** Close finishes with this batter
+
+**EVS Leaderboard:**
+| Rank | Player | EVS | Style |
+|------|--------|-----|-------|
+| 1 | AB de Villiers | 96.4 | 360-degree entertainer |
+| 2 | Chris Gayle | 94.1 | Six-machine |
+| 3 | Suryakumar Yadav | 91.8 | Modern entertainer |
+
+**Broadcast Use:** "Today's EVS Rating: 🔥🔥🔥🔥" before a player walks out.
+
+---
+
+### 9.5 Big Match Factor (BMF)
+
+**Fan Need:** "Does he show up when it matters?"
+
+**Current Problem:**
+- No differentiation between league stage and playoffs
+- IPL final performance buried in career averages
+
+**Proposed Metric:**
+
+```
+BMF = (Performance_in_big_matches / Performance_in_regular_matches) * 100
+
+Big matches defined as:
+- Playoffs (Qualifier, Eliminator, Final)
+- League matches with top-4 implications (last 4 games)
+- Games against arch-rivals
+- Games with title implications
+```
+
+**BMF Interpretation:**
+| BMF | Label | Fan Verdict |
+|-----|-------|-------------|
+| >120 | Big Game Player | "Lives for the big stage" |
+| 105-120 | Steps Up | "Reliable when it matters" |
+| 95-105 | Neutral | "Same player always" |
+| 80-95 | Pressure-affected | "Shrinks in big games" |
+| <80 | Struggles | "Not for knockout cricket" |
+
+**Historical Validation:**
+- Dhoni's BMF should be >130 (legendary finisher)
+- Some current stars might surprise fans negatively
+
+---
+
+### 9.6 Value-for-Money Index (VMI)
+
+**Fan Need:** "Was my team's auction spending smart?"
+
+**Auction Price Context:**
+- Fans debate auction prices endlessly
+- No objective measure of ROI exists
+
+**Proposed Metric:**
+
+```
+VMI = (Actual_Impact_Score / Expected_Impact_at_Price) * 100
+
+Expected_Impact calibrated by:
+- Historical price-to-performance correlation
+- Role-adjusted expectations
+- Age-career stage adjustment
+```
+
+**VMI Interpretation:**
+| VMI | Assessment | Fan Reaction |
+|-----|------------|--------------|
+| >150 | Steal | "Robbery in the auction!" |
+| 120-150 | Great Value | "Management got this right" |
+| 90-120 | Fair Price | "Paid market value" |
+| 70-90 | Overpaid | "Paid for reputation" |
+| <70 | Poor Investment | "What were they thinking?" |
+
+**Editorial Gold:** "Best and Worst Value Signings of IPL 2026"
+
+---
+
+### 9.7 Team Impact Score (TIS)
+
+**Fan Need:** "Does this player actually make the team better?"
+
+**Beyond Individual Stats:**
+- Some players elevate teammates
+- Others score runs but don't impact winning
+
+**Proposed Metric:**
+
+```
+TIS = (
+  Win_rate_with_player - Win_rate_without_player
+) * 100 +
+(
+  Team_NRR_with_player - Team_NRR_without_player
+) * 20 +
+(
+  Partnership_multiplier  -- Does he make partners better?
+) * 15
+```
+
+**TIS Leaders (Expected):**
+| Player | TIS | Impact Type |
+|--------|-----|-------------|
+| Rohit Sharma | +18.4 | Calming influence |
+| Rashid Khan | +22.1 | Match-winner |
+| MS Dhoni | +24.6 | Team transformer |
+
+---
+
+### 9.8 Fan-Focused Dashboard Concept
+
+**"Match Centre" for Fans:**
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  LIVE: MI vs CSK | MI 156/4 (18.2) | Need 24 off 10    │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│  MATCH CONTROL: [█████████░░] 72% CSK                  │
+│                                                         │
+│  AT THE CREASE:                                        │
+│  ┌─────────────────┐  ┌─────────────────┐              │
+│  │ H. Pandya       │  │ T. David        │              │
+│  │ DOCR: 87.4 🔥   │  │ DOCR: 71.2      │              │
+│  │ EVS: 84.2       │  │ EVS: 89.1 🔥    │              │
+│  │ Clutch: 1.18    │  │ Clutch: 0.94    │              │
+│  └─────────────────┘  └─────────────────┘              │
+│                                                         │
+│  KEY MATCHUP: Pandya vs Jadeja                         │
+│  Career: 45(28) | Tonight: 12(8) | Advantage: BATTER   │
+│                                                         │
+│  MOMENTUM: ↗️ MI gaining (3 boundaries last 2 overs)   │
+│                                                         │
+│  FAN PULSE: 78% believe MI will win (23,456 votes)     │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 9.9 Implementation Priority for Fan Metrics
+
+| Metric | Fan Appeal | Data Ready | Priority |
+|--------|------------|------------|----------|
+| Death Overs Closer Rating | ⭐⭐⭐⭐⭐ | Yes | P0 |
+| Big Match Factor | ⭐⭐⭐⭐⭐ | Yes | P0 |
+| Entertainment Value Score | ⭐⭐⭐⭐ | Yes | P1 |
+| Consistency Index | ⭐⭐⭐⭐ | Yes | P1 |
+| Value-for-Money Index | ⭐⭐⭐⭐ | Partial | P2 |
+| Team Impact Score | ⭐⭐⭐ | Yes | P2 |
+
+**Fan Engagement Potential:**
+- These metrics create debates (good for engagement)
+- Rankings generate content (listicles, comparisons)
+- Real-time metrics enhance broadcast (second-screen apps)
+
+---
+
+## 10. Sign-Off
 
 This research document represents my assessment of analytical opportunities that go beyond traditional cricket statistics. The metrics proposed here are designed to be:
 

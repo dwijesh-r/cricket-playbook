@@ -69,17 +69,32 @@ Create exportable clustering output for Founder review. Ensure it uses 2023+ dat
 
 ---
 
-#### S3.0-03: Gurjapneet Singh Mismatch Fix
-**Owner:** Brock Purdy | **Est:** 1h
+#### S3.0-03: Player ID Mismatch Audit (ALL PLAYERS)
+**Owner:** Brock Purdy | **Est:** 3h
 
-CSK stat pack shows Gurjapneet Singh mapped to Gurkeerat Singh stats. Audit all packs for similar mismatches.
+CSK stat pack shows Gurjapneet Singh mapped to Gurkeerat Singh stats.
+
+**Scope:** Comprehensive audit of ALL players across ALL stat packs:
+- Compare IPL 2026 squad names against historical player IDs
+- Flag any uncapped players incorrectly mapped to capped players
+- Check for common surname collisions (Singh, Sharma, Kumar, Pandya)
+- Verify player stats match expected career profiles
+- Generate audit report with all mismatches found and fixed
 
 ---
 
-#### S3.0-04: Sanju Samson Entry Point Fix
-**Owner:** Stephen Curry | **Est:** 2h
+#### S3.0-04: Batter Entry Point Audit (ALL PLAYERS)
+**Owner:** Stephen Curry | **Est:** 4h
 
-Sanju Samson classified as "middle order" when he bats 1-3. Root cause is likely flawed entry point logic or 2023+ filter missing.
+Sanju Samson classified as "middle order" when he bats 1-3.
+
+**Scope:** Comprehensive audit of ALL batters' entry point classifications:
+- Verify entry point logic uses 2023+ data correctly
+- Cross-check known openers (Samson, Rohit, Warner, etc.) are TOP_ORDER
+- Cross-check known finishers (Dhoni, DK, Hardik) are LOWER_ORDER
+- Identify any systematic misclassifications
+- Generate before/after comparison report
+- Ensure consistency across player_tags.json and stat packs
 
 ---
 
@@ -297,12 +312,12 @@ Setup Great Expectations for automated data quality validation.
 
 ## Agent Workload Summary
 
-| Agent | P0 | P1 | P2 | BG | Total Tasks |
-|-------|----|----|----|----|-------------|
-| **Stephen Curry** | 5 | 8 | 1 | 0 | 14 |
-| **Andy Flower** | 0 | 0 | 6 | 0 | 6 |
-| **Brock Purdy** | 1 | 0 | 0 | 1 | 2 |
-| **Ime Udoka** | 0 | 0 | 0 | 2 | 2 |
+| Agent | P0 | P1 | P2 | BG | Total Tasks | Est Hours |
+|-------|----|----|----|----|-------------|-----------|
+| **Stephen Curry** | 5 | 8 | 1 | 0 | 14 | ~38h |
+| **Andy Flower** | 0 | 0 | 6 | 0 | 6 | ~16h |
+| **Brock Purdy** | 1 | 0 | 0 | 1 | 2 | ~9h |
+| **Ime Udoka** | 0 | 0 | 0 | 2 | 2 | ~7h |
 
 ---
 

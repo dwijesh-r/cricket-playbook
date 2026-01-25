@@ -1,7 +1,7 @@
 # Cricket Playbook - Kanban Board
 
 **Product Owner:** Tom Brady
-**Version:** 2.8.0
+**Version:** 2.9.0
 **Last Updated:** 2026-01-25
 
 ---
@@ -11,13 +11,32 @@
 ```
 ┌─────────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┐
 │    BACKLOG      │    TO DO        │   IN PROGRESS   │    REVIEW       │     DONE        │
-│    (Icebox)     │  (Sprint 2.9)   │                 │                 │   (Sprint 2.8)  │
+│    (Icebox)     │  (Sprint 3.0)   │                 │                 │   (Sprint 2.9)  │
 └─────────────────┴─────────────────┴─────────────────┴─────────────────┴─────────────────┘
 ```
 
 ---
 
-## ✅ DONE (Sprint 2.8 - Completed)
+## ✅ DONE (Sprint 2.9 - Completed)
+
+### Bug Fixes & Data Quality
+
+| ID | Task | Owner | Completed | Commit |
+|----|------|-------|-----------|--------|
+| S2.9-01 | Entry point bug fix (ball_seq > 120) | Andy Flower + Stephen Curry | 2026-01-25 | `d320501` |
+| S2.9-02 | Output validation script | Andy Flower | 2026-01-25 | `d320501` |
+| S2.9-03 | Matchup missing data fix (use analytics table) | Stephen Curry | 2026-01-25 | `e085a58` |
+| S2.9-04 | Matchup tag criteria (add BPD check) | Stephen Curry | 2026-01-25 | `e085a58` |
+| S2.9-05 | Player clustering ball_seq fix | Stephen Curry | 2026-01-25 | `ef3effd` |
+
+### CI/CD & Infrastructure
+
+| ID | Task | Owner | Completed | Commit |
+|----|------|-------|-----------|--------|
+| S2.9-06 | GitHub Actions CI workflow | Ime Udoka | 2026-01-25 | `d320501` |
+| S2.9-07 | Pre-commit hooks (Ruff linter/formatter) | Ime Udoka | 2026-01-25 | `d320501` |
+
+### Sprint 2.8 (Prior Sprint)
 
 | ID | Task | Owner | Completed |
 |----|------|-------|-----------|
@@ -28,21 +47,44 @@
 | S2.8-05 | Regenerate all stat packs (2023+ data) | Stephen Curry | 2026-01-25 |
 | S2.8-06 | Update all README files to v2.8.0 | Tom Brady | 2026-01-25 |
 | S2.8-07 | Fix generate_stat_packs.py cluster lookups | Stephen Curry | 2026-01-25 |
+| S2.8-08 | Glossary with all definitions and criteria | Tom Brady | 2026-01-25 |
 
 ---
 
-## 🔍 REVIEW (Awaiting Approval)
+## 🔍 REVIEW (Awaiting Founder Approval)
 
 | ID | Task | Owner | Reviewer | Status |
 |----|------|-------|----------|--------|
-| S2.9-00 | **Founder Review #4** | Tom Brady | Founder | PENDING |
+| **FR-4** | **Founder Review #4** | Tom Brady | Founder | **READY FOR REVIEW** |
 
 ### Founder Review #4 Checklist
-- [ ] 2023+ data filter implementation
-- [ ] Standardized cluster labels (6 batter, 7 bowler roles)
-- [ ] CSV output documentation
-- [ ] Stat pack accuracy with new tags
-- [ ] README completeness
+
+**Data Quality & Accuracy:**
+- [x] 2023+ data filter implementation (219 IPL matches)
+- [x] Entry point bug fixed (max_entry_ball ≤ 120)
+- [x] Matchup data complete (422 batters, was 125)
+- [x] ball_seq bugs fixed across codebase
+
+**Cluster Labels & Tags:**
+- [x] Standardized 6 batter roles + 7 bowler roles
+- [x] Tag criteria documented with thresholds
+- [x] BPD (balls per dismissal) added to matchup tags
+
+**Documentation:**
+- [x] CSV schema documentation in outputs/README.md
+- [x] Glossary with phases, metrics, tag criteria
+- [x] All README files updated to v2.9.0
+
+**Infrastructure:**
+- [x] GitHub Actions CI workflow
+- [x] Pre-commit hooks (Ruff)
+- [x] Output validation script
+
+**Outputs to Review:**
+- `outputs/batter_entry_points.csv` - All values 1-120 ✓
+- `outputs/batter_bowling_type_matchup.csv` - 422 batters (was 125) ✓
+- `outputs/bowler_phase_performance.csv` - 208 bowlers ✓
+- `stat_packs/*.md` - All 10 team stat packs regenerated ✓
 
 ---
 
@@ -50,59 +92,57 @@
 
 | ID | Task | Owner | Priority | Notes |
 |----|------|-------|----------|-------|
-| S2.9-01 | Advanced cricket analytics research | Andy Flower | P1 | See research agenda below |
+| - | *Awaiting Founder Review #4* | - | - | - |
 
 ---
 
-## 📋 TO DO (Sprint 2.9 - Production Readiness)
+## 📋 TO DO (Sprint 3.0 - Post-Founder Review)
 
 ### P0 - Critical (Must Have)
 
 | ID | Task | Owner | Estimate | Dependencies |
 |----|------|-------|----------|--------------|
-| S2.9-02 | GitHub Actions CI workflow | **Ime Udoka** | 4h | None |
-| S2.9-03 | Pre-commit hooks setup | **Ime Udoka** | 2h | None |
-| S2.9-04 | Founder Review #4 response | Tom Brady | 2h | S2.9-00 |
-
-*Note: CI/CD reassigned from Brad Stevens to Ime Udoka (ML Ops includes DevOps)*
+| S3.0-01 | Founder Review #4 response | Tom Brady | 2h | FR-4 |
+| S3.0-02 | Address any Founder feedback | Stephen Curry | 4h | S3.0-01 |
 
 ### P1 - High (Should Have)
 
 | ID | Task | Owner | Estimate | Dependencies |
 |----|------|-------|----------|--------------|
-| S2.9-05 | Model serialization (joblib) | Ime Udoka | 3h | S2.9-03 |
-| S2.9-06 | Recency weighting toggle | Stephen Curry | 4h | None |
-| S2.9-07 | Unit test restructuring | N'Golo Kanté | 4h | S2.9-02 |
-| S2.9-08 | Andy Flower analytics implementation | Stephen Curry | 8h | S2.9-01 |
+| S3.0-03 | Model serialization (joblib) | Ime Udoka | 3h | None |
+| S3.0-04 | Recency weighting toggle | Stephen Curry | 4h | None |
+| S3.0-05 | Unit test restructuring | N'Golo Kanté | 4h | None |
+| S3.0-06 | Andy Flower analytics implementation | Stephen Curry | 8h | See research agenda |
 
 ### P2 - Medium (Nice to Have)
 
 | ID | Task | Owner | Estimate | Dependencies |
 |----|------|-------|----------|--------------|
-| S2.9-09 | Interactive dashboard (Streamlit) | Kevin de Bruyne | 8h | None |
-| S2.9-10 | Great Expectations validation | Brock Purdy | 6h | None |
-| S2.9-11 | Type hints (mypy strict) | Brad Stevens | 4h | S2.9-03 |
+| S3.0-07 | Interactive dashboard (Streamlit) | Kevin de Bruyne | 8h | None |
+| S3.0-08 | Great Expectations validation | Brock Purdy | 6h | None |
+| S3.0-09 | Type hints (mypy strict) | Brad Stevens | 4h | None |
+| S3.0-10 | Bowler handedness matchup fixes | Stephen Curry | 3h | Similar to batter matchup |
 
 ---
 
 ## 📦 BACKLOG (Future Sprints)
 
-### Sprint 2.10 - API & Integration
+### Sprint 3.1 - API & Integration
 
 | ID | Task | Owner | Priority |
 |----|------|-------|----------|
-| S2.10-01 | REST API endpoint (FastAPI) | Jayson Tatum | P2 |
-| S2.10-02 | Real-time match simulation | Stephen Curry | P3 |
-| S2.10-03 | Webhook for live data feeds | Brock Purdy | P3 |
+| S3.1-01 | REST API endpoint (FastAPI) | Jayson Tatum | P2 |
+| S3.1-02 | Real-time match simulation | Stephen Curry | P3 |
+| S3.1-03 | Webhook for live data feeds | Brock Purdy | P3 |
 
-### Sprint 2.11 - Advanced Analytics
+### Sprint 3.2 - Advanced Analytics
 
 | ID | Task | Owner | Priority |
 |----|------|-------|----------|
-| S2.11-01 | Win probability model | Stephen Curry | P2 |
-| S2.11-02 | Player form tracker (rolling 10 matches) | Stephen Curry | P2 |
-| S2.11-03 | Venue-pitch condition analysis | Andy Flower | P2 |
-| S2.11-04 | Opposition-specific tactics engine | Pep Guardiola | P3 |
+| S3.2-01 | Win probability model | Stephen Curry | P2 |
+| S3.2-02 | Player form tracker (rolling 10 matches) | Stephen Curry | P2 |
+| S3.2-03 | Venue-pitch condition analysis | Andy Flower | P2 |
+| S3.2-04 | Opposition-specific tactics engine | Pep Guardiola | P3 |
 
 ### Icebox (Unscheduled)
 
@@ -116,7 +156,7 @@
 
 ---
 
-## 🔬 Andy Flower Research Agenda (S2.9-01)
+## 🔬 Andy Flower Research Agenda
 
 ### Groundbreaking Cricket Analytics Approaches
 
@@ -148,58 +188,95 @@
    - Impact player selection criteria
 
 **Deliverables:**
-- Research document with cricket domain insights
+- Research document: `editorial/andy_flower_analytics_research.md` ✓
 - Proposed metrics and calculations
 - Implementation recommendations for Stephen Curry
 
 ---
 
-## Sprint 2.9 Timeline
+## Sprint 2.9 Summary
+
+### Key Achievements
+
+| Category | Metric | Before | After |
+|----------|--------|--------|-------|
+| Batter matchup data | Total batters | 125 | 422 |
+| Entry point validation | max_entry_ball | 136 | 120 |
+| CI/CD | Automated checks | None | Ruff + pre-commit |
+| Documentation | Glossary | Missing | Complete |
+
+### Bug Fixes Summary
+
+| Bug | Root Cause | Fix |
+|-----|------------|-----|
+| Entry point > 120 | `ball_seq` includes extras | Use legal ball count |
+| Missing matchup data | Joined only 2026 squad bowlers | Use analytics table |
+| Wrong tag criteria | Only checked SR | Added BPD check |
+| Clustering position | `ball_seq` for batting position | Use legal ball count |
+
+### Commits This Sprint
+
+1. `d320501` - Entry point fix + validation + CI/CD
+2. `e085a58` - Matchup data fixes + tag criteria
+3. `ef3effd` - Player clustering ball_seq fix
+
+---
+
+## Sprint 3.0 Timeline (Post-Review)
 
 ```
-Week 1 (Jan 27-31):
-├── Mon: Ime Udoka - CI/CD setup (S2.9-02, S2.9-03)
-├── Tue: Andy Flower - Research document complete (S2.9-01) ✓
-├── Wed: Founder Review submitted (S2.9-00)
-├── Thu: Tom Brady - Review response (S2.9-04)
-└── Fri: Ime Udoka - Model serialization (S2.9-05)
+After Founder Review #4 Approval:
 
-Week 2 (Feb 3-7):
-├── Mon: Stephen Curry - Recency weighting (S2.9-06)
-├── Tue: N'Golo Kanté - Test restructuring (S2.9-07)
-├── Wed-Thu: Stephen Curry - Analytics implementation (S2.9-08)
-└── Fri: Sprint 2.9 review & retrospective
+Day 1-2:
+├── Tom Brady - Process Founder feedback (S3.0-01)
+└── Stephen Curry - Address any issues (S3.0-02)
+
+Day 3-5:
+├── Ime Udoka - Model serialization (S3.0-03)
+├── Stephen Curry - Recency weighting toggle (S3.0-04)
+└── N'Golo Kanté - Test restructuring (S3.0-05)
+
+Day 6-10:
+├── Stephen Curry - Andy Flower analytics (S3.0-06)
+├── Kevin de Bruyne - Dashboard prototype (S3.0-07)
+└── Sprint 3.0 review & retrospective
 ```
+
+---
 
 ## Agent Role Clarification
 
-| Agent | Primary Role | CI/CD Role |
-|-------|--------------|------------|
-| **Ime Udoka** | ML Ops Engineer | **Implements** CI/CD, pre-commit, deployment |
-| **Brad Stevens** | Architecture & Best Practices | **Advises** on standards, reviews configs |
-| **Brock Purdy** | Data Pipeline | **Implements** Great Expectations (data validation) |
+| Agent | Primary Role | Sprint 2.9 Contribution |
+|-------|--------------|-------------------------|
+| **Andy Flower** | Cricket Analytics QA | Entry point bug investigation, validation script |
+| **Stephen Curry** | Analytics Lead | All bug fixes, matchup improvements |
+| **Ime Udoka** | ML Ops Engineer | CI/CD setup, pre-commit hooks |
+| **Tom Brady** | Product Owner | Kanban management, documentation |
+| **Brad Stevens** | Architecture | Standards review |
+| **N'Golo Kanté** | QA Engineer | Test coverage (pending) |
 
 ---
 
 ## Definition of Done
 
-- [ ] Code passes all tests (pytest)
-- [ ] Code passes linting (Ruff)
-- [ ] Documentation updated
-- [ ] README reflects changes
-- [ ] Committed to main branch
-- [ ] Peer reviewed (if applicable)
+- [x] Code passes all tests (pytest)
+- [x] Code passes linting (Ruff)
+- [x] Pre-commit hooks pass
+- [x] Documentation updated
+- [x] README reflects changes
+- [x] Committed to main branch
+- [ ] **Founder Review #4 approved**
 
 ---
 
 ## Blockers & Risks
 
-| Risk | Impact | Mitigation |
-|------|--------|------------|
-| Founder Review delays | High | Prepare detailed documentation |
-| Small sample size (2023+ only) | Medium | Add optional full-history mode |
-| CI/CD complexity | Low | Start with simple workflow |
+| Risk | Impact | Mitigation | Status |
+|------|--------|------------|--------|
+| Founder Review delays | High | Comprehensive documentation prepared | Ready |
+| Small sample size (2023+ only) | Medium | Add optional full-history mode | Backlog |
+| ball_seq bugs in other scripts | High | Grep audit completed | ✅ Fixed |
 
 ---
 
-*Cricket Playbook v2.8.0 - Sprint Planning*
+*Cricket Playbook v2.9.0 - Ready for Founder Review #4*

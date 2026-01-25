@@ -13,11 +13,11 @@ Follows Andy Flower's recommendations:
 
 import duckdb
 from pathlib import Path
-from datetime import datetime
 
 # Paths
 DATA_DIR = Path(__file__).parent.parent / "data"
 DB_PATH = DATA_DIR / "cricket_playbook.duckdb"
+
 
 def create_batting_views(conn: duckdb.DuckDBPyConnection):
     """Create batting analytics views."""
@@ -548,7 +548,9 @@ def verify_views(conn: duckdb.DuckDBPyConnection):
     print(f"{'Player':<25} {'Runs':>8} {'SR':>8} {'Avg':>8} {'Sample':>10}")
     print("-" * 70)
     for row in result:
-        print(f"{row[0]:<25} {row[1]:>8,} {row[2]:>8.2f} {row[3] if row[3] else 'N/A':>8} {row[4]:>10}")
+        print(
+            f"{row[0]:<25} {row[1]:>8,} {row[2]:>8.2f} {row[3] if row[3] else 'N/A':>8} {row[4]:>10}"
+        )
 
     print()
 
@@ -565,7 +567,9 @@ def verify_views(conn: duckdb.DuckDBPyConnection):
     print(f"{'Player':<25} {'Wkts':>8} {'Econ':>8} {'Avg':>8} {'Sample':>10}")
     print("-" * 70)
     for row in result:
-        print(f"{row[0]:<25} {row[1]:>8,} {row[2]:>8.2f} {row[3] if row[3] else 'N/A':>8} {row[4]:>10}")
+        print(
+            f"{row[0]:<25} {row[1]:>8,} {row[2]:>8.2f} {row[3] if row[3] else 'N/A':>8} {row[4]:>10}"
+        )
 
     print()
 

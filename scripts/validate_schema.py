@@ -141,8 +141,14 @@ def validate_tables(conn) -> tuple[int, int]:
                     print_fail(f"Table '{table_name}' missing column '{col_name}'")
                     fails += 1
                     table_pass = False
-                elif expected_type and expected_type.upper() not in existing_col_types[col_name.lower()].upper():
-                    print_warn(f"Table '{table_name}'.{col_name} type mismatch: expected {expected_type}, got {existing_col_types[col_name.lower()]}")
+                elif (
+                    expected_type
+                    and expected_type.upper()
+                    not in existing_col_types[col_name.lower()].upper()
+                ):
+                    print_warn(
+                        f"Table '{table_name}'.{col_name} type mismatch: expected {expected_type}, got {existing_col_types[col_name.lower()]}"
+                    )
 
             if table_pass:
                 print_pass(f"Table '{table_name}' structure valid")
@@ -167,7 +173,9 @@ def validate_views(conn) -> tuple[int, int]:
             # Try to query the view
             result = conn.execute(f"SELECT COUNT(*) FROM {view_name}").fetchone()
             if result[0] > 0:
-                print_pass(f"View '{view_name}' exists and has data ({result[0]:,} rows)")
+                print_pass(
+                    f"View '{view_name}' exists and has data ({result[0]:,} rows)"
+                )
                 passes += 1
             else:
                 print_warn(f"View '{view_name}' exists but has no data")
@@ -195,7 +203,7 @@ def validate_referential_integrity(conn) -> tuple[int, int]:
             FROM fact_ball fb
             LEFT JOIN dim_player dp ON fb.batter_id = dp.player_id
             WHERE dp.player_id IS NULL
-            """
+            """,
         ),
         (
             "All fact_ball.bowler_id exists in dim_player",
@@ -204,7 +212,7 @@ def validate_referential_integrity(conn) -> tuple[int, int]:
             FROM fact_ball fb
             LEFT JOIN dim_player dp ON fb.bowler_id = dp.player_id
             WHERE dp.player_id IS NULL
-            """
+            """,
         ),
         (
             "All fact_ball.match_id exists in dim_match",
@@ -213,7 +221,7 @@ def validate_referential_integrity(conn) -> tuple[int, int]:
             FROM fact_ball fb
             LEFT JOIN dim_match dm ON fb.match_id = dm.match_id
             WHERE dm.match_id IS NULL
-            """
+            """,
         ),
         (
             "All ipl_2026_squads.player_id exists in dim_player (mapped players)",
@@ -222,7 +230,7 @@ def validate_referential_integrity(conn) -> tuple[int, int]:
             FROM ipl_2026_squads sq
             LEFT JOIN dim_player dp ON sq.player_id = dp.player_id
             WHERE sq.player_id IS NOT NULL AND dp.player_id IS NULL
-            """
+            """,
         ),
     ]
 
@@ -303,7 +311,9 @@ def validate_data_quality(conn) -> tuple[int, int]:
                 print_pass(f"{description}: {result:,} (expected == {expected:,})")
                 passes += 1
             else:
-                print_fail(f"{description}: {result:,} (expected {operator} {expected:,})")
+                print_fail(
+                    f"{description}: {result:,} (expected {operator} {expected:,})"
+                )
                 fails += 1
         except Exception as e:
             print_fail(f"Error checking '{description}': {e}")
@@ -331,7 +341,7 @@ def validate_bowling_coverage(conn) -> tuple[int, int]:
         unknown_balls = sum(r[1] for r in result if r[0] == "Unknown")
         coverage = (total_balls - unknown_balls) / total_balls * 100
 
-        print(f"  Bowling style distribution:")
+        print("  Bowling style distribution:")
         for btype, balls in result:
             pct = balls / total_balls * 100
             print(f"    - {btype}: {balls:,} balls ({pct:.1f}%)")

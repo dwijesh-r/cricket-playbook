@@ -54,57 +54,72 @@ class TestDatabaseTables:
 
     def test_ipl_2026_squads_exists(self, db_connection):
         """Verify IPL 2026 squads table exists."""
-        result = db_connection.execute("SELECT COUNT(*) FROM ipl_2026_squads").fetchone()
+        result = db_connection.execute(
+            "SELECT COUNT(*) FROM ipl_2026_squads"
+        ).fetchone()
         assert result[0] >= 200, "Should have at least 200 players in squads"
 
     def test_dim_bowler_classification_exists(self, db_connection):
         """Verify bowler classification table exists."""
-        result = db_connection.execute("SELECT COUNT(*) FROM dim_bowler_classification").fetchone()
+        result = db_connection.execute(
+            "SELECT COUNT(*) FROM dim_bowler_classification"
+        ).fetchone()
         assert result[0] >= 250, "Should have at least 250 bowler classifications"
 
     def test_dim_franchise_alias_exists(self, db_connection):
         """Verify franchise alias table exists."""
-        result = db_connection.execute("SELECT COUNT(*) FROM dim_franchise_alias").fetchone()
+        result = db_connection.execute(
+            "SELECT COUNT(*) FROM dim_franchise_alias"
+        ).fetchone()
         assert result[0] >= 3, "Should have at least 3 franchise aliases"
 
 
 class TestAnalyticsViews:
     """Test that analytics views are queryable."""
 
-    @pytest.mark.parametrize("view_name", [
-        "analytics_ipl_batting_career",
-        "analytics_ipl_bowling_career",
-        "analytics_ipl_batter_phase",
-        "analytics_ipl_bowler_phase",
-        "analytics_ipl_batter_vs_bowler",
-        "analytics_ipl_batter_vs_bowler_type",
-        "analytics_ipl_batter_vs_team",
-        "analytics_ipl_bowler_vs_team",
-        "analytics_ipl_squad_batting",
-        "analytics_ipl_squad_bowling",
-    ])
+    @pytest.mark.parametrize(
+        "view_name",
+        [
+            "analytics_ipl_batting_career",
+            "analytics_ipl_bowling_career",
+            "analytics_ipl_batter_phase",
+            "analytics_ipl_bowler_phase",
+            "analytics_ipl_batter_vs_bowler",
+            "analytics_ipl_batter_vs_bowler_type",
+            "analytics_ipl_batter_vs_team",
+            "analytics_ipl_bowler_vs_team",
+            "analytics_ipl_squad_batting",
+            "analytics_ipl_squad_bowling",
+        ],
+    )
     def test_view_queryable(self, db_connection, view_name):
         """Verify that each analytics view can be queried."""
         result = db_connection.execute(f"SELECT COUNT(*) FROM {view_name}").fetchone()
         assert result[0] > 0, f"{view_name} should return results"
 
-    @pytest.mark.parametrize("view_name", [
-        "analytics_ipl_batting_percentiles",
-        "analytics_ipl_bowling_percentiles",
-        "analytics_ipl_batter_phase_percentiles",
-        "analytics_ipl_bowler_phase_percentiles",
-    ])
+    @pytest.mark.parametrize(
+        "view_name",
+        [
+            "analytics_ipl_batting_percentiles",
+            "analytics_ipl_bowling_percentiles",
+            "analytics_ipl_batter_phase_percentiles",
+            "analytics_ipl_bowler_phase_percentiles",
+        ],
+    )
     def test_percentile_views_queryable(self, db_connection, view_name):
         """Verify percentile views are queryable."""
         result = db_connection.execute(f"SELECT COUNT(*) FROM {view_name}").fetchone()
         assert result[0] > 0, f"{view_name} should return results"
 
-    @pytest.mark.parametrize("view_name", [
-        "analytics_ipl_batting_benchmarks",
-        "analytics_ipl_bowling_benchmarks",
-        "analytics_ipl_vs_bowler_type_benchmarks",
-        "analytics_ipl_career_benchmarks",
-    ])
+    @pytest.mark.parametrize(
+        "view_name",
+        [
+            "analytics_ipl_batting_benchmarks",
+            "analytics_ipl_bowling_benchmarks",
+            "analytics_ipl_vs_bowler_type_benchmarks",
+            "analytics_ipl_career_benchmarks",
+        ],
+    )
     def test_benchmark_views_queryable(self, db_connection, view_name):
         """Verify benchmark views are queryable."""
         result = db_connection.execute(f"SELECT COUNT(*) FROM {view_name}").fetchone()
@@ -262,9 +277,15 @@ class TestV2ClusteringAndFounderReview3Fixes:
 
     # CSV Paths
     BOWLER_OVER_TIMING_CSV = STAT_PACK_DIR.parent / "outputs" / "bowler_over_timing.csv"
-    BOWLER_PHASE_PERF_CSV = STAT_PACK_DIR.parent / "outputs" / "bowler_phase_performance.csv"
-    BATTER_BOWLING_TYPE_MATCHUP_CSV = STAT_PACK_DIR.parent / "outputs" / "batter_bowling_type_matchup.csv"
-    BATTER_BOWLING_TYPE_DETAIL_CSV = STAT_PACK_DIR.parent / "outputs" / "batter_bowling_type_detail.csv"
+    BOWLER_PHASE_PERF_CSV = (
+        STAT_PACK_DIR.parent / "outputs" / "bowler_phase_performance.csv"
+    )
+    BATTER_BOWLING_TYPE_MATCHUP_CSV = (
+        STAT_PACK_DIR.parent / "outputs" / "batter_bowling_type_matchup.csv"
+    )
+    BATTER_BOWLING_TYPE_DETAIL_CSV = (
+        STAT_PACK_DIR.parent / "outputs" / "batter_bowling_type_detail.csv"
+    )
 
     # =========================================================================
     # Founder Review #3 Fix: Bowler Timing Classification Bug (Issues 6, 7)
@@ -281,15 +302,17 @@ class TestV2ClusteringAndFounderReview3Fixes:
         import pandas as pd
 
         if not self.BOWLER_OVER_TIMING_CSV.exists():
-            pytest.skip(f"bowler_over_timing.csv not found at {self.BOWLER_OVER_TIMING_CSV}")
+            pytest.skip(
+                f"bowler_over_timing.csv not found at {self.BOWLER_OVER_TIMING_CSV}"
+            )
 
         df = pd.read_csv(self.BOWLER_OVER_TIMING_CSV)
-        chahar = df[df['bowler_name'] == 'DL Chahar']
+        chahar = df[df["bowler_name"] == "DL Chahar"]
 
         assert len(chahar) == 1, "DL Chahar should exist in bowler_over_timing.csv"
 
-        role = chahar.iloc[0]['role_category']
-        assert role == 'POWERPLAY_BOWLER', (
+        role = chahar.iloc[0]["role_category"]
+        assert role == "POWERPLAY_BOWLER", (
             f"DL Chahar should be POWERPLAY_BOWLER (over1_median=0), "
             f"but got {role}. This was a bug where 0 was treated as falsy."
         )
@@ -306,22 +329,26 @@ class TestV2ClusteringAndFounderReview3Fixes:
         import pandas as pd
 
         if not self.BOWLER_OVER_TIMING_CSV.exists():
-            pytest.skip(f"bowler_over_timing.csv not found at {self.BOWLER_OVER_TIMING_CSV}")
+            pytest.skip(
+                f"bowler_over_timing.csv not found at {self.BOWLER_OVER_TIMING_CSV}"
+            )
 
         df = pd.read_csv(self.BOWLER_OVER_TIMING_CSV)
-        boult = df[df['bowler_name'] == 'TA Boult']
+        boult = df[df["bowler_name"] == "TA Boult"]
 
         assert len(boult) == 1, "TA Boult should exist in bowler_over_timing.csv"
 
-        role = boult.iloc[0]['role_category']
-        assert role != 'MIDDLE_OVERS_BOWLER', (
+        role = boult.iloc[0]["role_category"]
+        assert role != "MIDDLE_OVERS_BOWLER", (
             f"TA Boult should NOT be MIDDLE_OVERS_BOWLER (over1_median=0, over2_median=2), "
             f"but got {role}. He bowls PP and death overs."
         )
         # Verify he is classified as a PP or death specialist
-        assert role in ['POWERPLAY_BOWLER', 'PP_AND_DEATH_SPECIALIST', 'DEATH_BOWLER'], (
-            f"TA Boult should be POWERPLAY_BOWLER or PP_AND_DEATH_SPECIALIST, got {role}"
-        )
+        assert role in [
+            "POWERPLAY_BOWLER",
+            "PP_AND_DEATH_SPECIALIST",
+            "DEATH_BOWLER",
+        ], f"TA Boult should be POWERPLAY_BOWLER or PP_AND_DEATH_SPECIALIST, got {role}"
 
     # =========================================================================
     # Founder Review #3 Fix: Batter Matchup Dismissal Quality (Issue 3)
@@ -341,17 +368,19 @@ class TestV2ClusteringAndFounderReview3Fixes:
         import pandas as pd
 
         if not self.BATTER_BOWLING_TYPE_MATCHUP_CSV.exists():
-            pytest.skip(f"batter_bowling_type_matchup.csv not found")
+            pytest.skip("batter_bowling_type_matchup.csv not found")
 
         df = pd.read_csv(self.BATTER_BOWLING_TYPE_MATCHUP_CSV)
-        markram = df[df['batter_name'] == 'AK Markram']
+        markram = df[df["batter_name"] == "AK Markram"]
 
-        assert len(markram) == 1, "AK Markram should exist in batter_bowling_type_matchup.csv"
+        assert (
+            len(markram) == 1
+        ), "AK Markram should exist in batter_bowling_type_matchup.csv"
 
-        tags = markram.iloc[0]['bowling_type_tags']
+        tags = markram.iloc[0]["bowling_type_tags"]
         tags_str = str(tags) if pd.notna(tags) else ""
 
-        assert 'SPECIALIST_VS_LEFT_ARM_SPIN' not in tags_str, (
+        assert "SPECIALIST_VS_LEFT_ARM_SPIN" not in tags_str, (
             f"AK Markram should NOT be SPECIALIST_VS_LEFT_ARM_SPIN. "
             f"SR 130.9 but Avg 18.0, BPD 13.75 (gets out too often). "
             f"Tags found: {tags_str}"
@@ -366,17 +395,25 @@ class TestV2ClusteringAndFounderReview3Fixes:
         import pandas as pd
 
         if not self.BATTER_BOWLING_TYPE_MATCHUP_CSV.exists():
-            pytest.skip(f"batter_bowling_type_matchup.csv not found")
+            pytest.skip("batter_bowling_type_matchup.csv not found")
 
         df = pd.read_csv(self.BATTER_BOWLING_TYPE_MATCHUP_CSV)
 
         # Check for average columns
-        assert 'pace_avg' in df.columns, "batter_bowling_type_matchup.csv should have pace_avg column"
-        assert 'spin_avg' in df.columns, "batter_bowling_type_matchup.csv should have spin_avg column"
+        assert (
+            "pace_avg" in df.columns
+        ), "batter_bowling_type_matchup.csv should have pace_avg column"
+        assert (
+            "spin_avg" in df.columns
+        ), "batter_bowling_type_matchup.csv should have spin_avg column"
 
         # Check for dismissals columns (needed to compute balls_per_dismissal)
-        assert 'pace_dismissals' in df.columns, "batter_bowling_type_matchup.csv should have pace_dismissals column"
-        assert 'spin_dismissals' in df.columns, "batter_bowling_type_matchup.csv should have spin_dismissals column"
+        assert (
+            "pace_dismissals" in df.columns
+        ), "batter_bowling_type_matchup.csv should have pace_dismissals column"
+        assert (
+            "spin_dismissals" in df.columns
+        ), "batter_bowling_type_matchup.csv should have spin_dismissals column"
 
     def test_batter_detail_has_required_columns(self):
         """
@@ -385,14 +422,24 @@ class TestV2ClusteringAndFounderReview3Fixes:
         import pandas as pd
 
         if not self.BATTER_BOWLING_TYPE_DETAIL_CSV.exists():
-            pytest.skip(f"batter_bowling_type_detail.csv not found")
+            pytest.skip("batter_bowling_type_detail.csv not found")
 
         df = pd.read_csv(self.BATTER_BOWLING_TYPE_DETAIL_CSV)
 
-        required_cols = ['batter_id', 'batter_name', 'bowling_type', 'balls',
-                        'runs', 'dismissals', 'strike_rate', 'average']
+        required_cols = [
+            "batter_id",
+            "batter_name",
+            "bowling_type",
+            "balls",
+            "runs",
+            "dismissals",
+            "strike_rate",
+            "average",
+        ]
         for col in required_cols:
-            assert col in df.columns, f"batter_bowling_type_detail.csv should have {col} column"
+            assert (
+                col in df.columns
+            ), f"batter_bowling_type_detail.csv should have {col} column"
 
     # =========================================================================
     # Founder Review #3 Fix: Phase-wise Bowler Tags (Issue 2)
@@ -408,18 +455,20 @@ class TestV2ClusteringAndFounderReview3Fixes:
         import pandas as pd
 
         if not self.BOWLER_PHASE_PERF_CSV.exists():
-            pytest.skip(f"bowler_phase_performance.csv not found")
+            pytest.skip("bowler_phase_performance.csv not found")
 
         df = pd.read_csv(self.BOWLER_PHASE_PERF_CSV)
 
         # Check phase_tags column exists
-        assert 'phase_tags' in df.columns, "bowler_phase_performance.csv should have phase_tags column"
+        assert (
+            "phase_tags" in df.columns
+        ), "bowler_phase_performance.csv should have phase_tags column"
 
         # Concatenate all tags to check for presence
-        all_tags = df['phase_tags'].dropna().str.cat(sep=', ')
+        all_tags = df["phase_tags"].dropna().str.cat(sep=", ")
 
         # Check that at least some key phase tags exist
-        expected_tags = ['PP_BEAST', 'PP_LIABILITY', 'DEATH_BEAST', 'DEATH_LIABILITY']
+        expected_tags = ["PP_BEAST", "PP_LIABILITY", "DEATH_BEAST", "DEATH_LIABILITY"]
         found_tags = [tag for tag in expected_tags if tag in all_tags]
 
         assert len(found_tags) >= 3, (
@@ -434,20 +483,29 @@ class TestV2ClusteringAndFounderReview3Fixes:
         import pandas as pd
 
         if not self.BOWLER_PHASE_PERF_CSV.exists():
-            pytest.skip(f"bowler_phase_performance.csv not found")
+            pytest.skip("bowler_phase_performance.csv not found")
 
         df = pd.read_csv(self.BOWLER_PHASE_PERF_CSV)
 
         required_cols = [
-            'bowler_id', 'bowler_name',
-            'powerplay_overs', 'powerplay_economy', 'powerplay_wickets',
-            'middle_overs', 'middle_economy', 'middle_wickets',
-            'death_overs', 'death_economy', 'death_wickets',
-            'phase_tags'
+            "bowler_id",
+            "bowler_name",
+            "powerplay_overs",
+            "powerplay_economy",
+            "powerplay_wickets",
+            "middle_overs",
+            "middle_economy",
+            "middle_wickets",
+            "death_overs",
+            "death_economy",
+            "death_wickets",
+            "phase_tags",
         ]
 
         for col in required_cols:
-            assert col in df.columns, f"bowler_phase_performance.csv missing required column: {col}"
+            assert (
+                col in df.columns
+            ), f"bowler_phase_performance.csv missing required column: {col}"
 
     def test_steyn_is_death_beast(self):
         """
@@ -458,16 +516,22 @@ class TestV2ClusteringAndFounderReview3Fixes:
         import pandas as pd
 
         if not self.BOWLER_PHASE_PERF_CSV.exists():
-            pytest.skip(f"bowler_phase_performance.csv not found")
+            pytest.skip("bowler_phase_performance.csv not found")
 
         df = pd.read_csv(self.BOWLER_PHASE_PERF_CSV)
-        steyn = df[df['bowler_name'] == 'DW Steyn']
+        steyn = df[df["bowler_name"] == "DW Steyn"]
 
         if len(steyn) == 0:
             pytest.skip("DW Steyn not found in bowler_phase_performance.csv")
 
-        tags = str(steyn.iloc[0]['phase_tags']) if pd.notna(steyn.iloc[0]['phase_tags']) else ""
-        assert 'DEATH_BEAST' in tags, f"DW Steyn should have DEATH_BEAST tag, got: {tags}"
+        tags = (
+            str(steyn.iloc[0]["phase_tags"])
+            if pd.notna(steyn.iloc[0]["phase_tags"])
+            else ""
+        )
+        assert (
+            "DEATH_BEAST" in tags
+        ), f"DW Steyn should have DEATH_BEAST tag, got: {tags}"
 
     # =========================================================================
     # V2 Cluster Validation (Andy Flower Approved)
@@ -480,19 +544,27 @@ class TestV2ClusteringAndFounderReview3Fixes:
         import pandas as pd
 
         if not self.BOWLER_OVER_TIMING_CSV.exists():
-            pytest.skip(f"bowler_over_timing.csv not found")
+            pytest.skip("bowler_over_timing.csv not found")
 
         df = pd.read_csv(self.BOWLER_OVER_TIMING_CSV)
 
         required_cols = [
-            'bowler_id', 'bowler_name', 'match_count',
-            'over1_median', 'over1_mode', 'over1_count',
-            'over2_median', 'over2_mode', 'over2_count',
-            'role_category'
+            "bowler_id",
+            "bowler_name",
+            "match_count",
+            "over1_median",
+            "over1_mode",
+            "over1_count",
+            "over2_median",
+            "over2_mode",
+            "over2_count",
+            "role_category",
         ]
 
         for col in required_cols:
-            assert col in df.columns, f"bowler_over_timing.csv missing required column: {col}"
+            assert (
+                col in df.columns
+            ), f"bowler_over_timing.csv missing required column: {col}"
 
     def test_role_categories_are_valid(self):
         """
@@ -507,18 +579,18 @@ class TestV2ClusteringAndFounderReview3Fixes:
         import pandas as pd
 
         if not self.BOWLER_OVER_TIMING_CSV.exists():
-            pytest.skip(f"bowler_over_timing.csv not found")
+            pytest.skip("bowler_over_timing.csv not found")
 
         df = pd.read_csv(self.BOWLER_OVER_TIMING_CSV)
 
         valid_categories = {
-            'POWERPLAY_BOWLER',
-            'MIDDLE_OVERS_BOWLER',
-            'DEATH_BOWLER',
-            'PP_AND_DEATH_SPECIALIST'
+            "POWERPLAY_BOWLER",
+            "MIDDLE_OVERS_BOWLER",
+            "DEATH_BOWLER",
+            "PP_AND_DEATH_SPECIALIST",
         }
 
-        actual_categories = set(df['role_category'].dropna().unique())
+        actual_categories = set(df["role_category"].dropna().unique())
         invalid = actual_categories - valid_categories
 
         assert len(invalid) == 0, (
@@ -535,11 +607,11 @@ class TestV2ClusteringAndFounderReview3Fixes:
         import pandas as pd
 
         if not self.BOWLER_OVER_TIMING_CSV.exists():
-            pytest.skip(f"bowler_over_timing.csv not found")
+            pytest.skip("bowler_over_timing.csv not found")
 
         df = pd.read_csv(self.BOWLER_OVER_TIMING_CSV)
 
-        pp_and_death = df[df['role_category'] == 'PP_AND_DEATH_SPECIALIST']
+        pp_and_death = df[df["role_category"] == "PP_AND_DEATH_SPECIALIST"]
 
         assert len(pp_and_death) > 0, (
             "PP_AND_DEATH_SPECIALIST category should have at least one bowler. "
@@ -558,22 +630,22 @@ class TestV2ClusteringAndFounderReview3Fixes:
         player_tags_path = STAT_PACK_DIR.parent / "outputs" / "player_tags.json"
 
         if not player_tags_path.exists():
-            pytest.skip(f"player_tags.json not found")
+            pytest.skip("player_tags.json not found")
 
         with open(player_tags_path) as f:
             data = json.load(f)
 
         # Find Dhoni in batters
         dhoni = None
-        for batter in data.get('batters', []):
-            if batter.get('player_name') == 'MS Dhoni':
+        for batter in data.get("batters", []):
+            if batter.get("player_name") == "MS Dhoni":
                 dhoni = batter
                 break
 
         assert dhoni is not None, "MS Dhoni should exist in player_tags.json batters"
 
-        tags = dhoni.get('tags', [])
-        assert 'FINISHER' in tags, (
+        tags = dhoni.get("tags", [])
+        assert "FINISHER" in tags, (
             f"MS Dhoni should have FINISHER tag (Andy Flower V2 cluster: DEATH_FINISHER). "
             f"Actual tags: {tags}"
         )

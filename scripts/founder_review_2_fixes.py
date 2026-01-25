@@ -24,7 +24,11 @@ PLAYER_ID_FIXES = {
     # (team, player_name): (old_id, correct_id, correct_db_name)
     ("Chennai Super Kings", "Aman Khan"): ("eef2536f", "378daa89", "Aman Hakim Khan"),
     ("Gujarat Titans", "Shahrukh Khan"): ("f088b960", "7dcb9bc9", "M Shahrukh Khan"),
-    ("Royal Challengers Bengaluru", "Rasikh Salam Dar"): ("uncapped_rasikh_salam_dar", "b8527c3d", "Rasikh Salam"),
+    ("Royal Challengers Bengaluru", "Rasikh Salam Dar"): (
+        "uncapped_rasikh_salam_dar",
+        "b8527c3d",
+        "Rasikh Salam",
+    ),
 }
 
 
@@ -35,10 +39,10 @@ def fix_squad_csv():
     df = pd.read_csv(SQUAD_CSV_PATH)
 
     for (team, player_name), (old_id, correct_id, db_name) in PLAYER_ID_FIXES.items():
-        mask = (df['team_name'] == team) & (df['player_name'] == player_name)
+        mask = (df["team_name"] == team) & (df["player_name"] == player_name)
         if mask.any():
-            old_val = df.loc[mask, 'player_id'].values[0]
-            df.loc[mask, 'player_id'] = correct_id
+            old_val = df.loc[mask, "player_id"].values[0]
+            df.loc[mask, "player_id"] = correct_id
             print(f"   {player_name} ({team}): {old_val} -> {correct_id}")
         else:
             print(f"   WARNING: {player_name} not found in {team}")
@@ -55,11 +59,14 @@ def fix_database_squad_table(conn):
 
     for (team, player_name), (old_id, correct_id, db_name) in PLAYER_ID_FIXES.items():
         # Update player_id
-        conn.execute("""
+        conn.execute(
+            """
             UPDATE ipl_2026_squads
             SET player_id = ?, is_ipl_uncapped = FALSE
             WHERE team_name = ? AND player_name = ?
-        """, [correct_id, team, player_name])
+        """,
+            [correct_id, team, player_name],
+        )
         print(f"   Updated {player_name}: {old_id} -> {correct_id}")
 
     conn.commit()
@@ -71,11 +78,14 @@ def verify_fixes(conn):
 
     for (team, player_name), (old_id, correct_id, db_name) in PLAYER_ID_FIXES.items():
         # Check squad table
-        result = conn.execute("""
+        result = conn.execute(
+            """
             SELECT player_id, is_ipl_uncapped
             FROM ipl_2026_squads
             WHERE team_name = ? AND player_name = ?
-        """, [team, player_name]).fetchone()
+        """,
+            [team, player_name],
+        ).fetchone()
 
         if result:
             pid, uncapped = result
@@ -83,7 +93,8 @@ def verify_fixes(conn):
             print(f"   {player_name}: player_id={pid}, uncapped={uncapped} [{status}]")
 
         # Check if player has IPL data
-        stats = conn.execute("""
+        stats = conn.execute(
+            """
             SELECT
                 COUNT(DISTINCT fb.match_id) as matches,
                 SUM(fb.batter_runs) FILTER (WHERE fb.batter_id = ?) as runs,
@@ -93,9 +104,13 @@ def verify_fixes(conn):
             JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
             WHERE (fb.batter_id = ? OR fb.bowler_id = ?)
               AND dt.tournament_name = 'Indian Premier League'
-        """, [correct_id, correct_id, correct_id, correct_id]).fetchone()
+        """,
+            [correct_id, correct_id, correct_id, correct_id],
+        ).fetchone()
 
-        print(f"      IPL Stats: {stats[0]} matches, {stats[1] or 0} runs, {stats[2] or 0} wickets")
+        print(
+            f"      IPL Stats: {stats[0]} matches, {stats[1] or 0} runs, {stats[2] or 0} wickets"
+        )
 
 
 def regenerate_experience_csv(conn):
@@ -104,6 +119,7 @@ def regenerate_experience_csv(conn):
 
     # Import and run the experience generator
     import sys
+
     sys.path.insert(0, str(SCRIPT_DIR))
     from generate_experience_csv import generate_experience_csv
 

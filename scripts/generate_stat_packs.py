@@ -37,8 +37,23 @@ def load_player_tags() -> dict:
 def get_player_tags_lookup(tags_data: dict) -> dict:
     """Create lookup dict from player_id to tags."""
     # Role archetype tags (from clustering)
-    BATTER_CLUSTERS = {"EXPLOSIVE_OPENER", "PLAYMAKER", "ANCHOR", "ACCUMULATOR", "MIDDLE_ORDER", "FINISHER"}
-    BOWLER_CLUSTERS = {"PACER", "SPINNER", "WORKHORSE", "NEW_BALL_SPECIALIST", "MIDDLE_OVERS_CONTROLLER", "DEATH_SPECIALIST", "PART_TIMER"}
+    BATTER_CLUSTERS = {
+        "EXPLOSIVE_OPENER",
+        "PLAYMAKER",
+        "ANCHOR",
+        "ACCUMULATOR",
+        "MIDDLE_ORDER",
+        "FINISHER",
+    }
+    BOWLER_CLUSTERS = {
+        "PACER",
+        "SPINNER",
+        "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
+        "MIDDLE_OVERS_CONTROLLER",
+        "DEATH_SPECIALIST",
+        "PART_TIMER",
+    }
 
     lookup = {}
     for batter in tags_data.get("batters", []):
@@ -49,10 +64,7 @@ def get_player_tags_lookup(tags_data: dict) -> dict:
             if tag in BATTER_CLUSTERS:
                 cluster = tag
                 break
-        lookup[batter["player_id"]] = {
-            "cluster": cluster,
-            "tags": tags
-        }
+        lookup[batter["player_id"]] = {"cluster": cluster, "tags": tags}
 
     for bowler in tags_data.get("bowlers", []):
         pid = bowler["player_id"]
@@ -70,17 +82,18 @@ def get_player_tags_lookup(tags_data: dict) -> dict:
             if not lookup[pid]["cluster"] and cluster:
                 lookup[pid]["bowler_cluster"] = cluster
         else:
-            lookup[pid] = {
-                "cluster": cluster,
-                "tags": tags
-            }
+            lookup[pid] = {"cluster": cluster, "tags": tags}
     return lookup
+
 
 # Franchise name mappings for historical data
 FRANCHISE_ALIASES = {
     "Delhi Capitals": ["Delhi Capitals", "Delhi Daredevils"],
     "Punjab Kings": ["Punjab Kings", "Kings XI Punjab"],
-    "Royal Challengers Bengaluru": ["Royal Challengers Bengaluru", "Royal Challengers Bangalore"],
+    "Royal Challengers Bengaluru": [
+        "Royal Challengers Bengaluru",
+        "Royal Challengers Bangalore",
+    ],
     "Chennai Super Kings": ["Chennai Super Kings"],
     "Mumbai Indians": ["Mumbai Indians"],
     "Kolkata Knight Riders": ["Kolkata Knight Riders"],
@@ -121,8 +134,10 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
     md = []
     md.append(f"# {team_name} ({team_code}) - IPL 2026 Stat Pack")
     md.append(f"\n**Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M')}")
-    md.append(f"**Data Source:** Cricket Playbook Analytics Engine")
-    md.append(f"**Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)")
+    md.append("**Data Source:** Cricket Playbook Analytics Engine")
+    md.append(
+        "**Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)"
+    )
     md.append("\n---\n")
 
     # ==========================================================================
@@ -148,11 +163,16 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
         price = price or 0
         total_spend += price
         role_counts[role] = role_counts.get(role, 0) + 1
-        md.append(f"| {player} | {role} | {bowling or '-'} | {batting or '-'} | {price:.2f} | {acq or '-'} | {year or '-'} |")
+        md.append(
+            f"| {player} | {role} | {bowling or '-'} | {batting or '-'} | {price:.2f} | {acq or '-'} | {year or '-'} |"
+        )
 
     md.append(f"\n**Total Squad Size:** {len(roster)} players")
     md.append(f"**Total Spend:** ₹{total_spend:.2f} Cr")
-    md.append(f"\n**Role Breakdown:** " + ", ".join([f"{k}: {v}" for k, v in sorted(role_counts.items())]))
+    md.append(
+        "\n**Role Breakdown:** "
+        + ", ".join([f"{k}: {v}" for k, v in sorted(role_counts.items())])
+    )
 
     # ==========================================================================
     # SECTION 1.2: PLAYER ARCHETYPES AND TAGS
@@ -169,8 +189,23 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
     """).fetchall()
 
     # Group by archetype - extract from tags
-    BATTER_CLUSTERS = ["EXPLOSIVE_OPENER", "PLAYMAKER", "ANCHOR", "ACCUMULATOR", "MIDDLE_ORDER", "FINISHER"]
-    BOWLER_CLUSTERS = ["PACER", "SPINNER", "WORKHORSE", "NEW_BALL_SPECIALIST", "MIDDLE_OVERS_CONTROLLER", "DEATH_SPECIALIST", "PART_TIMER"]
+    BATTER_CLUSTERS = [
+        "EXPLOSIVE_OPENER",
+        "PLAYMAKER",
+        "ANCHOR",
+        "ACCUMULATOR",
+        "MIDDLE_ORDER",
+        "FINISHER",
+    ]
+    BOWLER_CLUSTERS = [
+        "PACER",
+        "SPINNER",
+        "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
+        "MIDDLE_OVERS_CONTROLLER",
+        "DEATH_SPECIALIST",
+        "PART_TIMER",
+    ]
 
     batters_by_cluster = {}
     bowlers_by_cluster = {}
@@ -217,7 +252,9 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
 
     # Show key player tags
     md.append("### 1.3 Key Player Tags\n")
-    md.append("*Performance tags based on phase analysis, matchups, and specializations*\n")
+    md.append(
+        "*Performance tags based on phase analysis, matchups, and specializations*\n"
+    )
 
     md.append("| Player | Tags |")
     md.append("|--------|------|")
@@ -237,7 +274,9 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
     # ==========================================================================
     md.append("\n---\n")
     md.append("## 2. Historical Record vs Opposition\n")
-    md.append("*Combined records for franchise aliases (e.g., Delhi Capitals + Delhi Daredevils)*\n")
+    md.append(
+        "*Combined records for franchise aliases (e.g., Delhi Capitals + Delhi Daredevils)*\n"
+    )
 
     # Get team vs team records
     for opp_name, opp_aliases in FRANCHISE_ALIASES.items():
@@ -321,7 +360,9 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
     for row in venue_batting:
         venue, matches, runs, balls, wkts, sr, avg = row
         venue_short = venue[:40] + "..." if len(venue) > 40 else venue
-        md.append(f"| {venue_short} | {matches} | {runs} | {balls} | {sr or '-'} | {avg or '-'} |")
+        md.append(
+            f"| {venue_short} | {matches} | {runs} | {balls} | {sr or '-'} | {avg or '-'} |"
+        )
 
     # ==========================================================================
     # SECTION 4: SQUAD BATTING ANALYSIS
@@ -341,11 +382,31 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
         ORDER BY ipl_runs DESC NULLS LAST
     """).fetchall()
 
-    md.append("| Player | Role | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | 50s | 100s | Sample |")
-    md.append("|--------|------|-----|------|-------|-----|-----|--------|------|-----|------|--------|")
+    md.append(
+        "| Player | Role | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | 50s | 100s | Sample |"
+    )
+    md.append(
+        "|--------|------|-----|------|-------|-----|-----|--------|------|-----|------|--------|"
+    )
     for row in batting:
-        name, role, price, inn, runs, balls, sr, avg, bound, dot, fifties, hundreds, sample = row
-        md.append(f"| {name} | {role} | {inn or 0} | {runs or 0} | {balls or 0} | {sr or '-'} | {avg or '-'} | {bound or '-'} | {dot or '-'} | {fifties or 0} | {hundreds or 0} | {sample or '-'} |")
+        (
+            name,
+            role,
+            price,
+            inn,
+            runs,
+            balls,
+            sr,
+            avg,
+            bound,
+            dot,
+            fifties,
+            hundreds,
+            sample,
+        ) = row
+        md.append(
+            f"| {name} | {role} | {inn or 0} | {runs or 0} | {balls or 0} | {sr or '-'} | {avg or '-'} | {bound or '-'} | {dot or '-'} | {fifties or 0} | {hundreds or 0} | {sample or '-'} |"
+        )
 
     # Phase-wise batting
     md.append("\n### 4.2 Phase-wise Batting (Qualified players)\n")
@@ -360,11 +421,17 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
             CASE match_phase WHEN 'powerplay' THEN 1 WHEN 'middle' THEN 2 WHEN 'death' THEN 3 END
     """).fetchall()
 
-    md.append("| Player | Phase | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Sample |")
-    md.append("|--------|-------|-----|------|-------|-----|-----|--------|------|--------|")
+    md.append(
+        "| Player | Phase | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Sample |"
+    )
+    md.append(
+        "|--------|-------|-----|------|-------|-----|-----|--------|------|--------|"
+    )
     for row in phase_batting:
         name, phase, inn, runs, balls, sr, avg, bound, dot, sample = row
-        md.append(f"| {name} | {phase} | {inn or 0} | {runs or 0} | {balls or 0} | {sr or '-'} | {avg or '-'} | {bound or '-'} | {dot or '-'} | {sample or '-'} |")
+        md.append(
+            f"| {name} | {phase} | {inn or 0} | {runs or 0} | {balls or 0} | {sr or '-'} | {avg or '-'} | {bound or '-'} | {dot or '-'} | {sample or '-'} |"
+        )
 
     # ==========================================================================
     # SECTION 5: SQUAD BOWLING ANALYSIS
@@ -385,12 +452,32 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
         ORDER BY ipl_wickets DESC NULLS LAST
     """).fetchall()
 
-    md.append("| Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |")
-    md.append("|--------|------|---------|-------|------|------|-----|-----|------|--------|--------|")
+    md.append(
+        "| Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |"
+    )
+    md.append(
+        "|--------|------|---------|-------|------|------|-----|-----|------|--------|--------|"
+    )
     for row in bowling:
-        name, role, btype, price, matches, overs, wkts, econ, avg, sr, dot, bound, sample = row
-        btype_short = (btype or '-')[:10]
-        md.append(f"| {name} | {btype_short} | {matches or 0} | {overs or 0:.1f} | {wkts or 0} | {econ or '-'} | {avg or '-'} | {sr or '-'} | {dot or '-'} | {bound or '-'} | {sample or '-'} |")
+        (
+            name,
+            role,
+            btype,
+            price,
+            matches,
+            overs,
+            wkts,
+            econ,
+            avg,
+            sr,
+            dot,
+            bound,
+            sample,
+        ) = row
+        btype_short = (btype or "-")[:10]
+        md.append(
+            f"| {name} | {btype_short} | {matches or 0} | {overs or 0:.1f} | {wkts or 0} | {econ or '-'} | {avg or '-'} | {sr or '-'} | {dot or '-'} | {bound or '-'} | {sample or '-'} |"
+        )
 
     # Phase distribution
     md.append("\n### 5.2 Bowler Phase Distribution\n")
@@ -409,12 +496,18 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
             CASE bpd.match_phase WHEN 'powerplay' THEN 1 WHEN 'middle' THEN 2 WHEN 'death' THEN 3 END
     """).fetchall()
 
-    md.append("| Bowler | Phase | Overs | Wkts | Econ | Dot% | %Overs | %Wkts | Efficiency | Sample |")
-    md.append("|--------|-------|-------|------|------|------|--------|-------|------------|--------|")
+    md.append(
+        "| Bowler | Phase | Overs | Wkts | Econ | Dot% | %Overs | %Wkts | Efficiency | Sample |"
+    )
+    md.append(
+        "|--------|-------|-------|------|------|------|--------|-------|------------|--------|"
+    )
     for row in phase_dist:
         name, phase, overs, wkts, econ, dot, pct_ov, pct_wk, eff, sample = row
-        eff_str = f"+{eff}" if eff and eff > 0 else str(eff or '-')
-        md.append(f"| {name} | {phase} | {overs or 0:.1f} | {wkts or 0} | {econ or '-'} | {dot or '-'} | {pct_ov or '-'}% | {pct_wk or '-'}% | {eff_str} | {sample or '-'} |")
+        eff_str = f"+{eff}" if eff and eff > 0 else str(eff or "-")
+        md.append(
+            f"| {name} | {phase} | {overs or 0:.1f} | {wkts or 0} | {econ or '-'} | {dot or '-'} | {pct_ov or '-'}% | {pct_wk or '-'}% | {eff_str} | {sample or '-'} |"
+        )
 
     # ==========================================================================
     # SECTION 6: KEY PLAYER VS OPPOSITION MATCHUPS
@@ -447,11 +540,17 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
         """).fetchall()
 
         if vs_team:
-            md.append("| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |")
-            md.append("|------------|-----|------|-------|-----|-----|--------|------|------|--------|")
+            md.append(
+                "| Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |"
+            )
+            md.append(
+                "|------------|-----|------|-------|-----|-----|--------|------|------|--------|"
+            )
             for row in vs_team:
                 opp, inn, runs, balls, sr, avg, bound, dot, outs, sample = row
-                md.append(f"| {opp} | {inn} | {runs} | {balls} | {sr or '-'} | {avg or '-'} | {bound or '-'} | {dot or '-'} | {outs} | {sample or '-'} |")
+                md.append(
+                    f"| {opp} | {inn} | {runs} | {balls} | {sr or '-'} | {avg or '-'} | {bound or '-'} | {dot or '-'} | {outs} | {sample or '-'} |"
+                )
 
     # ==========================================================================
     # SECTION 7: KEY BOWLER VS OPPOSITION
@@ -483,11 +582,17 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
         """).fetchall()
 
         if vs_team:
-            md.append("| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |")
-            md.append("|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|")
+            md.append(
+                "| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |"
+            )
+            md.append(
+                "|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|"
+            )
             for row in vs_team:
                 opp, m, balls, runs, wkts, econ, avg, sr, dot, bound, sample = row
-                md.append(f"| {opp} | {m} | {balls} | {runs} | {wkts} | {econ or '-'} | {avg or '-'} | {sr or '-'} | {dot or '-'} | {bound or '-'} | {sample or '-'} |")
+                md.append(
+                    f"| {opp} | {m} | {balls} | {runs} | {wkts} | {econ or '-'} | {avg or '-'} | {sr or '-'} | {dot or '-'} | {bound or '-'} | {sample or '-'} |"
+                )
 
     # ==========================================================================
     # SECTION 8: PLAYER VENUE PERFORMANCE
@@ -510,12 +615,18 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
     """).fetchall()
 
     if batter_venues:
-        md.append("| Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% | Sample |")
-        md.append("|--------|-------|-----|------|-------|-----|-----|--------|--------|")
+        md.append(
+            "| Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% | Sample |"
+        )
+        md.append(
+            "|--------|-------|-----|------|-------|-----|-----|--------|--------|"
+        )
         for row in batter_venues:
             name, venue, inn, runs, balls, sr, avg, bound, sample = row
             venue_short = venue[:35] + "..." if len(venue) > 35 else venue
-            md.append(f"| {name} | {venue_short} | {inn} | {runs} | {balls} | {sr or '-'} | {avg or '-'} | {bound or '-'} | {sample or '-'} |")
+            md.append(
+                f"| {name} | {venue_short} | {inn} | {runs} | {balls} | {sr or '-'} | {avg or '-'} | {bound or '-'} | {sample or '-'} |"
+            )
 
     # ==========================================================================
     # SECTION 9: INSIGHTS & RECOMMENDATIONS
@@ -541,7 +652,9 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
     if death_specialists:
         for name, overs, wkts, econ, pct, eff in death_specialists:
             eff_note = "over-performs" if eff and eff > 0 else "workload matches output"
-            md.append(f"- **{name}**: {overs:.1f} overs, {wkts} wickets, {econ} economy ({eff_note})")
+            md.append(
+                f"- **{name}**: {overs:.1f} overs, {wkts} wickets, {econ} economy ({eff_note})"
+            )
     else:
         md.append("*Insufficient data for death bowling analysis*")
 
@@ -577,10 +690,14 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
     """).fetchall()
 
     md.append("\n### 9.3 Potential Spin Vulnerabilities\n")
-    md.append("*Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*\n")
+    md.append(
+        "*Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*\n"
+    )
     if vs_spin:
         for name, btype, balls, runs, sr, outs, avg in vs_spin:
-            md.append(f"- **{name}** vs {btype}: SR {sr}, Avg {avg or 'N/A'} ({balls} balls)")
+            md.append(
+                f"- **{name}** vs {btype}: SR {sr}, Avg {avg or 'N/A'} ({balls} balls)"
+            )
     else:
         md.append("*No significant spin vulnerabilities identified*")
 

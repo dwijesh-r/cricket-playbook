@@ -22,7 +22,7 @@ OUTPUT_DIR = PROJECT_DIR / "outputs"
 
 # Data filter - only use recent IPL seasons (2023 onwards)
 # This accounts for drift in stats due to evolution of the game
-IPL_MIN_DATE = '2023-01-01'  # IPL 2023, 2024, 2025
+IPL_MIN_DATE = "2023-01-01"  # IPL 2023, 2024, 2025
 
 # Minimum overs to qualify for phase tags
 MIN_PP_OVERS = 30
@@ -73,27 +73,27 @@ def pivot_phase_stats(df: pd.DataFrame) -> pd.DataFrame:
 
     results = []
 
-    for bowler_id in df['bowler_id'].unique():
-        bowler_df = df[df['bowler_id'] == bowler_id]
-        bowler_name = bowler_df['bowler_name'].iloc[0]
+    for bowler_id in df["bowler_id"].unique():
+        bowler_df = df[df["bowler_id"] == bowler_id]
+        bowler_name = bowler_df["bowler_name"].iloc[0]
 
         row = {
-            'bowler_id': bowler_id,
-            'bowler_name': bowler_name,
+            "bowler_id": bowler_id,
+            "bowler_name": bowler_name,
         }
 
-        for phase in ['powerplay', 'middle', 'death']:
-            phase_df = bowler_df[bowler_df['match_phase'] == phase]
+        for phase in ["powerplay", "middle", "death"]:
+            phase_df = bowler_df[bowler_df["match_phase"] == phase]
             if len(phase_df) > 0:
-                row[f'{phase}_overs'] = phase_df['overs'].iloc[0]
-                row[f'{phase}_economy'] = phase_df['economy'].iloc[0]
-                row[f'{phase}_wickets'] = phase_df['wickets'].iloc[0]
-                row[f'{phase}_dot_pct'] = phase_df['dot_pct'].iloc[0]
+                row[f"{phase}_overs"] = phase_df["overs"].iloc[0]
+                row[f"{phase}_economy"] = phase_df["economy"].iloc[0]
+                row[f"{phase}_wickets"] = phase_df["wickets"].iloc[0]
+                row[f"{phase}_dot_pct"] = phase_df["dot_pct"].iloc[0]
             else:
-                row[f'{phase}_overs'] = 0
-                row[f'{phase}_economy'] = None
-                row[f'{phase}_wickets'] = 0
-                row[f'{phase}_dot_pct'] = None
+                row[f"{phase}_overs"] = 0
+                row[f"{phase}_economy"] = None
+                row[f"{phase}_wickets"] = 0
+                row[f"{phase}_dot_pct"] = None
 
         results.append(row)
 
@@ -109,70 +109,89 @@ def assign_phase_tags(df: pd.DataFrame) -> pd.DataFrame:
         player_tags = []
 
         # Powerplay tags
-        if row['powerplay_overs'] and row['powerplay_overs'] >= MIN_PP_OVERS:
-            eco = row['powerplay_economy']
+        if row["powerplay_overs"] and row["powerplay_overs"] >= MIN_PP_OVERS:
+            eco = row["powerplay_economy"]
             if eco and eco <= PP_BEAST_ECO:
-                player_tags.append('PP_BEAST')
+                player_tags.append("PP_BEAST")
             elif eco and eco >= PP_LIABILITY_ECO:
-                player_tags.append('PP_LIABILITY')
+                player_tags.append("PP_LIABILITY")
 
         # Middle overs tags
-        if row['middle_overs'] and row['middle_overs'] >= MIN_MIDDLE_OVERS:
-            eco = row['middle_economy']
+        if row["middle_overs"] and row["middle_overs"] >= MIN_MIDDLE_OVERS:
+            eco = row["middle_economy"]
             if eco and eco <= MIDDLE_BEAST_ECO:
-                player_tags.append('MIDDLE_OVERS_BEAST')
+                player_tags.append("MIDDLE_OVERS_BEAST")
             elif eco and eco >= MIDDLE_LIABILITY_ECO:
-                player_tags.append('MIDDLE_OVERS_LIABILITY')
+                player_tags.append("MIDDLE_OVERS_LIABILITY")
 
         # Death overs tags
-        if row['death_overs'] and row['death_overs'] >= MIN_DEATH_OVERS:
-            eco = row['death_economy']
+        if row["death_overs"] and row["death_overs"] >= MIN_DEATH_OVERS:
+            eco = row["death_economy"]
             if eco and eco <= DEATH_BEAST_ECO:
-                player_tags.append('DEATH_BEAST')
+                player_tags.append("DEATH_BEAST")
             elif eco and eco >= DEATH_LIABILITY_ECO:
-                player_tags.append('DEATH_LIABILITY')
+                player_tags.append("DEATH_LIABILITY")
 
         tags.append(player_tags)
 
-    df['phase_tags'] = tags
+    df["phase_tags"] = tags
     return df
 
 
 def print_analysis(df: pd.DataFrame):
     """Print summary analysis."""
 
-    print("\n" + "="*70)
+    print("\n" + "=" * 70)
     print("BOWLER PHASE PERFORMANCE TAGS")
-    print("="*70)
+    print("=" * 70)
 
     # Count tags
     tag_counts = {}
-    for tags_list in df['phase_tags']:
+    for tags_list in df["phase_tags"]:
         for tag in tags_list:
             tag_counts[tag] = tag_counts.get(tag, 0) + 1
 
-    print(f"\n  Tag Distribution:")
-    for tag in ['PP_BEAST', 'PP_LIABILITY', 'MIDDLE_OVERS_BEAST', 'MIDDLE_OVERS_LIABILITY', 'DEATH_BEAST', 'DEATH_LIABILITY']:
+    print("\n  Tag Distribution:")
+    for tag in [
+        "PP_BEAST",
+        "PP_LIABILITY",
+        "MIDDLE_OVERS_BEAST",
+        "MIDDLE_OVERS_LIABILITY",
+        "DEATH_BEAST",
+        "DEATH_LIABILITY",
+    ]:
         count = tag_counts.get(tag, 0)
         print(f"    {tag}: {count}")
 
     # Top PP beasts
     print("\n  TOP POWERPLAY BEASTS:")
-    pp_beasts = df[df['phase_tags'].apply(lambda x: 'PP_BEAST' in x)].nsmallest(10, 'powerplay_economy')
+    pp_beasts = df[df["phase_tags"].apply(lambda x: "PP_BEAST" in x)].nsmallest(
+        10, "powerplay_economy"
+    )
     for _, row in pp_beasts.iterrows():
-        print(f"    {row['bowler_name']}: PP Eco {row['powerplay_economy']:.2f} ({row['powerplay_overs']:.0f} overs)")
+        print(
+            f"    {row['bowler_name']}: PP Eco {row['powerplay_economy']:.2f} ({row['powerplay_overs']:.0f} overs)"
+        )
 
     # Top death beasts
     print("\n  TOP DEATH BEASTS:")
-    death_beasts = df[df['phase_tags'].apply(lambda x: 'DEATH_BEAST' in x)].nsmallest(10, 'death_economy')
+    death_beasts = df[df["phase_tags"].apply(lambda x: "DEATH_BEAST" in x)].nsmallest(
+        10, "death_economy"
+    )
     for _, row in death_beasts.iterrows():
-        print(f"    {row['bowler_name']}: Death Eco {row['death_economy']:.2f} ({row['death_overs']:.0f} overs)")
+        print(
+            f"    {row['bowler_name']}: Death Eco {row['death_economy']:.2f} ({row['death_overs']:.0f} overs)"
+        )
 
     # Death liabilities
     print("\n  DEATH LIABILITIES:")
-    death_liab = df[df['phase_tags'].apply(lambda x: 'DEATH_LIABILITY' in x)].nlargest(10, 'death_economy')
+    death_liab = df[df["phase_tags"].apply(lambda x: "DEATH_LIABILITY" in x)].nlargest(
+        10, "death_economy"
+    )
     for _, row in death_liab.iterrows():
-        print(f"    {row['bowler_name']}: Death Eco {row['death_economy']:.2f} ({row['death_overs']:.0f} overs)")
+        print(
+            f"    {row['bowler_name']}: Death Eco {row['death_economy']:.2f} ({row['death_overs']:.0f} overs)"
+        )
 
 
 def update_player_tags_json(phase_df: pd.DataFrame):
@@ -189,32 +208,35 @@ def update_player_tags_json(phase_df: pd.DataFrame):
     # Create lookup for phase tags
     phase_lookup = {}
     for _, row in phase_df.iterrows():
-        if row['phase_tags']:
-            phase_lookup[row['bowler_id']] = row['phase_tags']
+        if row["phase_tags"]:
+            phase_lookup[row["bowler_id"]] = row["phase_tags"]
 
     # All phase tags to remove before updating
     phase_tags_set = {
-        'PP_BEAST', 'PP_LIABILITY',
-        'MIDDLE_OVERS_BEAST', 'MIDDLE_OVERS_LIABILITY',
-        'DEATH_BEAST', 'DEATH_LIABILITY',
+        "PP_BEAST",
+        "PP_LIABILITY",
+        "MIDDLE_OVERS_BEAST",
+        "MIDDLE_OVERS_LIABILITY",
+        "DEATH_BEAST",
+        "DEATH_LIABILITY",
     }
 
     # Update bowler tags
     updated_count = 0
-    for bowler in tags_data.get('bowlers', []):
-        player_id = bowler.get('player_id')
+    for bowler in tags_data.get("bowlers", []):
+        player_id = bowler.get("player_id")
         if player_id in phase_lookup:
-            existing_tags = set(bowler.get('tags', []))
+            existing_tags = set(bowler.get("tags", []))
             new_tags = set(phase_lookup[player_id])
             # Remove old phase tags first
             existing_tags -= phase_tags_set
             # Add new ones
             existing_tags.update(new_tags)
-            bowler['tags'] = list(existing_tags)
+            bowler["tags"] = list(existing_tags)
             updated_count += 1
 
     # Save updated file
-    with open(tags_path, 'w') as f:
+    with open(tags_path, "w") as f:
         json.dump(tags_data, f, indent=2)
 
     print(f"\n  Updated {updated_count} bowlers in player_tags.json")
@@ -227,24 +249,35 @@ def save_data(df: pd.DataFrame):
 
     output_path = OUTPUT_DIR / "bowler_phase_performance.csv"
 
-    output_df = df[[
-        'bowler_id', 'bowler_name',
-        'powerplay_overs', 'powerplay_economy', 'powerplay_wickets',
-        'middle_overs', 'middle_economy', 'middle_wickets',
-        'death_overs', 'death_economy', 'death_wickets',
-        'phase_tags'
-    ]].copy()
+    output_df = df[
+        [
+            "bowler_id",
+            "bowler_name",
+            "powerplay_overs",
+            "powerplay_economy",
+            "powerplay_wickets",
+            "middle_overs",
+            "middle_economy",
+            "middle_wickets",
+            "death_overs",
+            "death_economy",
+            "death_wickets",
+            "phase_tags",
+        ]
+    ].copy()
 
-    output_df['phase_tags'] = output_df['phase_tags'].apply(lambda x: ', '.join(x) if x else '')
+    output_df["phase_tags"] = output_df["phase_tags"].apply(
+        lambda x: ", ".join(x) if x else ""
+    )
     output_df.to_csv(output_path, index=False)
     print(f"\n  Phase data saved to: {output_path}")
 
 
 def main():
-    print("="*70)
+    print("=" * 70)
     print("Cricket Playbook - Bowler Phase Performance Tags")
     print("Author: Stephen Curry | Sprint 2.7")
-    print("="*70)
+    print("=" * 70)
 
     if not DB_PATH.exists():
         print(f"\nERROR: Database not found at {DB_PATH}")
@@ -279,9 +312,9 @@ def main():
 
     conn.close()
 
-    print("\n" + "="*70)
+    print("\n" + "=" * 70)
     print("BOWLER PHASE TAGS COMPLETE")
-    print("="*70)
+    print("=" * 70)
 
     return 0
 

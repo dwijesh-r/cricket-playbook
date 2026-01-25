@@ -14,10 +14,8 @@ Approach:
 
 import duckdb
 import pandas as pd
-import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
-from sklearn.decomposition import PCA
 from pathlib import Path
 
 # Paths
@@ -176,10 +174,19 @@ def cluster_batters(df: pd.DataFrame, n_clusters: int = 5) -> pd.DataFrame:
 
     # Features for clustering
     feature_cols = [
-        'overall_sr', 'overall_avg', 'overall_boundary', 'overall_dot',
-        'pp_sr', 'pp_boundary', 'pp_dot',
-        'mid_sr', 'mid_boundary', 'mid_dot',
-        'death_sr', 'death_boundary', 'death_dot'
+        "overall_sr",
+        "overall_avg",
+        "overall_boundary",
+        "overall_dot",
+        "pp_sr",
+        "pp_boundary",
+        "pp_dot",
+        "mid_sr",
+        "mid_boundary",
+        "mid_dot",
+        "death_sr",
+        "death_boundary",
+        "death_dot",
     ]
 
     # Filter to rows with all features
@@ -195,14 +202,13 @@ def cluster_batters(df: pd.DataFrame, n_clusters: int = 5) -> pd.DataFrame:
 
     # K-means clustering
     kmeans = KMeans(n_clusters=n_clusters, random_state=42, n_init=10)
-    df_clean['cluster'] = kmeans.fit_predict(X)
+    df_clean["cluster"] = kmeans.fit_predict(X)
 
     # Add cluster centers info
     centers = pd.DataFrame(
-        scaler.inverse_transform(kmeans.cluster_centers_),
-        columns=feature_cols
+        scaler.inverse_transform(kmeans.cluster_centers_), columns=feature_cols
     )
-    centers['cluster'] = range(n_clusters)
+    centers["cluster"] = range(n_clusters)
 
     return df_clean, centers
 
@@ -212,11 +218,23 @@ def cluster_bowlers(df: pd.DataFrame, n_clusters: int = 5) -> pd.DataFrame:
 
     # Features for clustering
     feature_cols = [
-        'overall_economy', 'overall_avg', 'overall_sr', 'overall_dot', 'overall_boundary',
-        'pp_economy', 'pp_dot', 'pp_boundary',
-        'mid_economy', 'mid_dot', 'mid_boundary',
-        'death_economy', 'death_dot', 'death_boundary',
-        'pp_pct', 'mid_pct', 'death_pct'
+        "overall_economy",
+        "overall_avg",
+        "overall_sr",
+        "overall_dot",
+        "overall_boundary",
+        "pp_economy",
+        "pp_dot",
+        "pp_boundary",
+        "mid_economy",
+        "mid_dot",
+        "mid_boundary",
+        "death_economy",
+        "death_dot",
+        "death_boundary",
+        "pp_pct",
+        "mid_pct",
+        "death_pct",
     ]
 
     # Filter to rows with all features
@@ -232,14 +250,13 @@ def cluster_bowlers(df: pd.DataFrame, n_clusters: int = 5) -> pd.DataFrame:
 
     # K-means clustering
     kmeans = KMeans(n_clusters=n_clusters, random_state=42, n_init=10)
-    df_clean['cluster'] = kmeans.fit_predict(X)
+    df_clean["cluster"] = kmeans.fit_predict(X)
 
     # Add cluster centers info
     centers = pd.DataFrame(
-        scaler.inverse_transform(kmeans.cluster_centers_),
-        columns=feature_cols
+        scaler.inverse_transform(kmeans.cluster_centers_), columns=feature_cols
     )
-    centers['cluster'] = range(n_clusters)
+    centers["cluster"] = range(n_clusters)
 
     return df_clean, centers
 
@@ -251,33 +268,43 @@ def analyze_clusters(df: pd.DataFrame, centers: pd.DataFrame, player_type: str):
     print(f"{player_type.upper()} CLUSTER ANALYSIS")
     print(f"{'='*70}")
 
-    for cluster_id in sorted(df['cluster'].unique()):
-        cluster_players = df[df['cluster'] == cluster_id]
-        center = centers[centers['cluster'] == cluster_id].iloc[0]
+    for cluster_id in sorted(df["cluster"].unique()):
+        cluster_players = df[df["cluster"] == cluster_id]
+        center = centers[centers["cluster"] == cluster_id].iloc[0]
 
         print(f"\n--- CLUSTER {cluster_id} ({len(cluster_players)} players) ---")
 
         # Show key characteristics
-        if player_type == 'batter':
+        if player_type == "batter":
             print(f"  Overall SR: {center['overall_sr']:.1f}")
             print(f"  Overall Avg: {center['overall_avg']:.1f}")
             print(f"  Boundary%: {center['overall_boundary']:.1f}%")
-            print(f"  PP SR: {center['pp_sr']:.1f} | Mid SR: {center['mid_sr']:.1f} | Death SR: {center['death_sr']:.1f}")
+            print(
+                f"  PP SR: {center['pp_sr']:.1f} | Mid SR: {center['mid_sr']:.1f} | Death SR: {center['death_sr']:.1f}"
+            )
             print(f"  Death Boundary%: {center['death_boundary']:.1f}%")
         else:
             print(f"  Overall Economy: {center['overall_economy']:.2f}")
             print(f"  Overall Avg: {center['overall_avg']:.1f}")
             print(f"  Dot Ball%: {center['overall_dot']:.1f}%")
-            print(f"  PP Econ: {center['pp_economy']:.2f} | Mid Econ: {center['mid_economy']:.2f} | Death Econ: {center['death_economy']:.2f}")
-            print(f"  Phase Split: PP {center['pp_pct']:.1f}% | Mid {center['mid_pct']:.1f}% | Death {center['death_pct']:.1f}%")
+            print(
+                f"  PP Econ: {center['pp_economy']:.2f} | Mid Econ: {center['mid_economy']:.2f} | Death Econ: {center['death_economy']:.2f}"
+            )
+            print(
+                f"  Phase Split: PP {center['pp_pct']:.1f}% | Mid {center['mid_pct']:.1f}% | Death {center['death_pct']:.1f}%"
+            )
 
         # Show players in cluster
-        print(f"\n  Players:")
+        print("\n  Players:")
         for _, player in cluster_players.head(10).iterrows():
-            if player_type == 'batter':
-                print(f"    - {player['player_name']} (SR: {player['overall_sr']:.1f}, Avg: {player['overall_avg']:.1f})")
+            if player_type == "batter":
+                print(
+                    f"    - {player['player_name']} (SR: {player['overall_sr']:.1f}, Avg: {player['overall_avg']:.1f})"
+                )
             else:
-                print(f"    - {player['player_name']} (Econ: {player['overall_economy']:.2f}, Wkts: {player['wickets']})")
+                print(
+                    f"    - {player['player_name']} (Econ: {player['overall_economy']:.2f}, Wkts: {player['wickets']})"
+                )
 
         if len(cluster_players) > 10:
             print(f"    ... and {len(cluster_players) - 10} more")
@@ -304,14 +331,23 @@ def save_clusters_to_db(conn, batter_df: pd.DataFrame, bowler_df: pd.DataFrame):
     """)
 
     for _, row in batter_df.iterrows():
-        conn.execute("""
+        conn.execute(
+            """
             INSERT INTO player_clusters_batters VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """, [
-            row['player_id'], row['player_name'], int(row['cluster']),
-            row['overall_sr'], row['overall_avg'], row['overall_boundary'],
-            row.get('pp_sr'), row.get('mid_sr'), row.get('death_sr'),
-            row.get('death_boundary')
-        ])
+        """,
+            [
+                row["player_id"],
+                row["player_name"],
+                int(row["cluster"]),
+                row["overall_sr"],
+                row["overall_avg"],
+                row["overall_boundary"],
+                row.get("pp_sr"),
+                row.get("mid_sr"),
+                row.get("death_sr"),
+                row.get("death_boundary"),
+            ],
+        )
 
     # Create bowler clusters table
     conn.execute("DROP TABLE IF EXISTS player_clusters_bowlers")
@@ -333,14 +369,25 @@ def save_clusters_to_db(conn, batter_df: pd.DataFrame, bowler_df: pd.DataFrame):
     """)
 
     for _, row in bowler_df.iterrows():
-        conn.execute("""
+        conn.execute(
+            """
             INSERT INTO player_clusters_bowlers VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """, [
-            row['player_id'], row['player_name'], int(row['cluster']),
-            row['overall_economy'], row['overall_avg'], row['overall_dot'],
-            row.get('pp_economy'), row.get('mid_economy'), row.get('death_economy'),
-            row.get('pp_pct'), row.get('mid_pct'), row.get('death_pct')
-        ])
+        """,
+            [
+                row["player_id"],
+                row["player_name"],
+                int(row["cluster"]),
+                row["overall_economy"],
+                row["overall_avg"],
+                row["overall_dot"],
+                row.get("pp_economy"),
+                row.get("mid_economy"),
+                row.get("death_economy"),
+                row.get("pp_pct"),
+                row.get("mid_pct"),
+                row.get("death_pct"),
+            ],
+        )
 
     print("\n  Cluster tables saved to database:")
     print("    - player_clusters_batters")
@@ -350,10 +397,10 @@ def save_clusters_to_db(conn, batter_df: pd.DataFrame, bowler_df: pd.DataFrame):
 def main():
     """Main entry point."""
 
-    print("="*70)
+    print("=" * 70)
     print("Cricket Playbook - Player Clustering Model")
     print("Author: Stephen Curry")
-    print("="*70)
+    print("=" * 70)
 
     if not DB_PATH.exists():
         print(f"ERROR: Database not found at {DB_PATH}")
@@ -377,8 +424,8 @@ def main():
     bowler_clusters, bowler_centers = cluster_bowlers(bowler_df, n_clusters=5)
 
     # Analyze and print results
-    analyze_clusters(batter_clusters, batter_centers, 'batter')
-    analyze_clusters(bowler_clusters, bowler_centers, 'bowler')
+    analyze_clusters(batter_clusters, batter_centers, "batter")
+    analyze_clusters(bowler_clusters, bowler_centers, "bowler")
 
     # Save to database
     print("\n4. Saving clusters to database...")
@@ -386,9 +433,9 @@ def main():
 
     conn.close()
 
-    print("\n" + "="*70)
+    print("\n" + "=" * 70)
     print("NEXT STEP: Andy Flower to review clusters and assign labels")
-    print("="*70)
+    print("=" * 70)
 
     return 0
 

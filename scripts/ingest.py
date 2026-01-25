@@ -16,7 +16,6 @@ Output:
 import json
 import hashlib
 import zipfile
-import os
 from pathlib import Path
 from datetime import datetime
 from collections import defaultdict
@@ -97,13 +96,15 @@ class CricketIngester:
             "matches_processed": 0,
             "balls_processed": 0,
             "players_found": 0,
-            "errors": []
+            "errors": [],
         }
 
     def extract_tournament_info(self, info: dict, source_file: str) -> str:
         """Extract or create tournament dimension."""
         event = info.get("event", {})
-        event_name = event.get("name", "Unknown") if isinstance(event, dict) else str(event)
+        event_name = (
+            event.get("name", "Unknown") if isinstance(event, dict) else str(event)
+        )
 
         # Generate tournament ID
         tournament_id = slugify(event_name)
@@ -114,7 +115,7 @@ class CricketIngester:
                 "tournament_name": event_name,
                 "country": self._infer_country(event_name),
                 "format": info.get("match_type", "T20"),
-                "gender": info.get("gender", "male")
+                "gender": info.get("gender", "male"),
             }
 
         return tournament_id
@@ -148,13 +149,18 @@ class CricketIngester:
             self.teams[team_id] = {
                 "team_id": team_id,
                 "team_name": team_name,
-                "short_name": short_name
+                "short_name": short_name,
             }
 
         return team_id
 
-    def extract_player(self, player_name: str, player_cricsheet_id: str,
-                       match_date: str, source_file: str) -> str:
+    def extract_player(
+        self,
+        player_name: str,
+        player_cricsheet_id: str,
+        match_date: str,
+        source_file: str,
+    ) -> str:
         """Extract or create player dimension with name tracking."""
         player_id = player_cricsheet_id or generate_id(player_name)
 
@@ -164,16 +170,18 @@ class CricketIngester:
                 "current_name": player_name,
                 "first_seen_date": match_date,
                 "last_seen_date": match_date,
-                "matches_played": 0
+                "matches_played": 0,
             }
             # Track initial name
-            self.player_names.append({
-                "player_id": player_id,
-                "player_name": player_name,
-                "valid_from": match_date,
-                "valid_to": None,
-                "source_file": source_file
-            })
+            self.player_names.append(
+                {
+                    "player_id": player_id,
+                    "player_name": player_name,
+                    "valid_from": match_date,
+                    "valid_to": None,
+                    "source_file": source_file,
+                }
+            )
         else:
             # Update last seen
             if match_date > self.players[player_id]["last_seen_date"]:
@@ -182,17 +190,22 @@ class CricketIngester:
                 if self.players[player_id]["current_name"] != player_name:
                     # Close previous name record
                     for record in reversed(self.player_names):
-                        if record["player_id"] == player_id and record["valid_to"] is None:
+                        if (
+                            record["player_id"] == player_id
+                            and record["valid_to"] is None
+                        ):
                             record["valid_to"] = match_date
                             break
                     # Add new name
-                    self.player_names.append({
-                        "player_id": player_id,
-                        "player_name": player_name,
-                        "valid_from": match_date,
-                        "valid_to": None,
-                        "source_file": source_file
-                    })
+                    self.player_names.append(
+                        {
+                            "player_id": player_id,
+                            "player_name": player_name,
+                            "valid_from": match_date,
+                            "valid_to": None,
+                            "source_file": source_file,
+                        }
+                    )
                     self.players[player_id]["current_name"] = player_name
 
         return player_id
@@ -208,7 +221,7 @@ class CricketIngester:
             self.venues[venue_id] = {
                 "venue_id": venue_id,
                 "venue_name": venue_name,
-                "city": city
+                "city": city,
             }
 
         return venue_id
@@ -274,7 +287,9 @@ class CricketIngester:
         pom_id = None
         if pom_name:
             pom_cricsheet_id = registry.get(pom_name)
-            pom_id = self.extract_player(pom_name, pom_cricsheet_id, match_date, source_file)
+            pom_id = self.extract_player(
+                pom_name, pom_cricsheet_id, match_date, source_file
+            )
 
         # Event info
         event = info.get("event", {})
@@ -302,37 +317,43 @@ class CricketIngester:
             "data_version": DATA_VERSION,
             "is_active": True,
             "ingested_at": datetime.now().isoformat(),
-            "source_file": source_file
+            "source_file": source_file,
         }
         self.matches.append(match_record)
 
         # Track player performances per match
-        player_perf_tracker = defaultdict(lambda: {
-            "batting_position": None,
-            "did_bat": False,
-            "did_bowl": False,
-            "did_keep_wicket": False
-        })
+        player_perf_tracker = defaultdict(
+            lambda: {
+                "batting_position": None,
+                "did_bat": False,
+                "did_bowl": False,
+                "did_keep_wicket": False,
+            }
+        )
         batting_position_counter = {1: 0, 2: 0}  # Per innings
 
         # Process innings
         for innings_idx, innings in enumerate(innings_data, start=1):
             batting_team_name = innings.get("team")
-            batting_team_id = self.extract_team(batting_team_name) if batting_team_name else None
+            batting_team_id = (
+                self.extract_team(batting_team_name) if batting_team_name else None
+            )
             bowling_team_id = team2_id if batting_team_id == team1_id else team1_id
 
             # Process powerplays
             powerplays = innings.get("powerplays", [])
             for pp_idx, pp in enumerate(powerplays, start=1):
-                self.powerplays.append({
-                    "powerplay_id": f"{match_id}_{innings_idx}_{pp_idx}",
-                    "match_id": match_id,
-                    "innings": innings_idx,
-                    "powerplay_seq": pp_idx,
-                    "powerplay_type": pp.get("type"),
-                    "from_over": pp.get("from"),
-                    "to_over": pp.get("to")
-                })
+                self.powerplays.append(
+                    {
+                        "powerplay_id": f"{match_id}_{innings_idx}_{pp_idx}",
+                        "match_id": match_id,
+                        "innings": innings_idx,
+                        "powerplay_seq": pp_idx,
+                        "powerplay_type": pp.get("type"),
+                        "from_over": pp.get("from"),
+                        "to_over": pp.get("to"),
+                    }
+                )
 
             # Process overs and deliveries
             overs = innings.get("overs", [])
@@ -357,28 +378,45 @@ class CricketIngester:
 
                     if batter_name:
                         batter_cricsheet_id = registry.get(batter_name)
-                        batter_id = self.extract_player(batter_name, batter_cricsheet_id, match_date, source_file)
-                        player_perf_tracker[(batter_id, batting_team_id)]["did_bat"] = True
+                        batter_id = self.extract_player(
+                            batter_name, batter_cricsheet_id, match_date, source_file
+                        )
+                        player_perf_tracker[(batter_id, batting_team_id)]["did_bat"] = (
+                            True
+                        )
 
                         # Track batting position
                         if batter_id not in batters_seen:
                             batters_seen.add(batter_id)
                             batting_position_counter[innings_idx] += 1
-                            player_perf_tracker[(batter_id, batting_team_id)]["batting_position"] = batting_position_counter[innings_idx]
+                            player_perf_tracker[(batter_id, batting_team_id)][
+                                "batting_position"
+                            ] = batting_position_counter[innings_idx]
 
                     if bowler_name:
                         bowler_cricsheet_id = registry.get(bowler_name)
-                        bowler_id = self.extract_player(bowler_name, bowler_cricsheet_id, match_date, source_file)
-                        player_perf_tracker[(bowler_id, bowling_team_id)]["did_bowl"] = True
+                        bowler_id = self.extract_player(
+                            bowler_name, bowler_cricsheet_id, match_date, source_file
+                        )
+                        player_perf_tracker[(bowler_id, bowling_team_id)][
+                            "did_bowl"
+                        ] = True
 
                     if non_striker_name:
                         non_striker_cricsheet_id = registry.get(non_striker_name)
-                        non_striker_id = self.extract_player(non_striker_name, non_striker_cricsheet_id, match_date, source_file)
+                        non_striker_id = self.extract_player(
+                            non_striker_name,
+                            non_striker_cricsheet_id,
+                            match_date,
+                            source_file,
+                        )
 
                         if non_striker_id not in batters_seen:
                             batters_seen.add(non_striker_id)
                             batting_position_counter[innings_idx] += 1
-                            player_perf_tracker[(non_striker_id, batting_team_id)]["batting_position"] = batting_position_counter[innings_idx]
+                            player_perf_tracker[(non_striker_id, batting_team_id)][
+                                "batting_position"
+                            ] = batting_position_counter[innings_idx]
 
                     # Runs
                     runs = delivery.get("runs", {})
@@ -390,7 +428,9 @@ class CricketIngester:
                     extras = delivery.get("extras", {})
                     extra_type = None
                     if extras:
-                        extra_type = list(extras.keys())[0]  # wides, noballs, byes, legbyes
+                        extra_type = list(extras.keys())[
+                            0
+                        ]  # wides, noballs, byes, legbyes
 
                     # Wickets
                     wickets = delivery.get("wickets", [])
@@ -406,19 +446,33 @@ class CricketIngester:
                         player_out_name = wicket.get("player_out")
                         if player_out_name:
                             player_out_cricsheet_id = registry.get(player_out_name)
-                            player_out_id = self.extract_player(player_out_name, player_out_cricsheet_id, match_date, source_file)
+                            player_out_id = self.extract_player(
+                                player_out_name,
+                                player_out_cricsheet_id,
+                                match_date,
+                                source_file,
+                            )
 
                         fielders = wicket.get("fielders", [])
                         if fielders:
                             fielder_name = fielders[0].get("name")
                             if fielder_name:
                                 fielder_cricsheet_id = registry.get(fielder_name)
-                                fielder_id = self.extract_player(fielder_name, fielder_cricsheet_id, match_date, source_file)
+                                fielder_id = self.extract_player(
+                                    fielder_name,
+                                    fielder_cricsheet_id,
+                                    match_date,
+                                    source_file,
+                                )
 
                         # Detect wicket keeper (stumped dismissals)
                         if wicket_type == "stumped" and fielder_id:
-                            player_perf_tracker[(fielder_id, bowling_team_id)]["did_keep_wicket"] = True
-                            self.stumping_fielders[fielder_id] += 1  # Track for WK detection
+                            player_perf_tracker[(fielder_id, bowling_team_id)][
+                                "did_keep_wicket"
+                            ] = True
+                            self.stumping_fielders[fielder_id] += (
+                                1  # Track for WK detection
+                            )
 
                     # Is legal ball?
                     is_legal = extra_type not in ("wides", "noballs")
@@ -430,46 +484,50 @@ class CricketIngester:
                     # Create ball record
                     ball_id = f"{match_id}_{innings_idx}_{over_num}_{ball_idx}"
 
-                    self.balls.append({
-                        "ball_id": ball_id,
-                        "match_id": match_id,
-                        "innings": innings_idx,
-                        "over": over_num,
-                        "ball": ball_idx,
-                        "ball_seq": ball_seq,
-                        "batting_team_id": batting_team_id,
-                        "bowling_team_id": bowling_team_id,
-                        "batter_id": batter_id,
-                        "bowler_id": bowler_id,
-                        "non_striker_id": non_striker_id,
-                        "batter_runs": batter_runs,
-                        "extra_runs": extra_runs,
-                        "total_runs": total_runs,
-                        "extra_type": extra_type,
-                        "is_wicket": is_wicket,
-                        "wicket_type": wicket_type,
-                        "player_out_id": player_out_id,
-                        "fielder_id": fielder_id,
-                        "is_legal_ball": is_legal,
-                        "match_phase": match_phase,
-                        "data_version": DATA_VERSION,
-                        "ingested_at": datetime.now().isoformat(),
-                        "source_file": source_file
-                    })
+                    self.balls.append(
+                        {
+                            "ball_id": ball_id,
+                            "match_id": match_id,
+                            "innings": innings_idx,
+                            "over": over_num,
+                            "ball": ball_idx,
+                            "ball_seq": ball_seq,
+                            "batting_team_id": batting_team_id,
+                            "bowling_team_id": bowling_team_id,
+                            "batter_id": batter_id,
+                            "bowler_id": bowler_id,
+                            "non_striker_id": non_striker_id,
+                            "batter_runs": batter_runs,
+                            "extra_runs": extra_runs,
+                            "total_runs": total_runs,
+                            "extra_type": extra_type,
+                            "is_wicket": is_wicket,
+                            "wicket_type": wicket_type,
+                            "player_out_id": player_out_id,
+                            "fielder_id": fielder_id,
+                            "is_legal_ball": is_legal,
+                            "match_phase": match_phase,
+                            "data_version": DATA_VERSION,
+                            "ingested_at": datetime.now().isoformat(),
+                            "source_file": source_file,
+                        }
+                    )
 
                     self.stats["balls_processed"] += 1
 
         # Save player match performances
         for (player_id, team_id), perf in player_perf_tracker.items():
-            self.player_match_perf.append({
-                "player_id": player_id,
-                "match_id": match_id,
-                "team_id": team_id,
-                "batting_position": perf["batting_position"],
-                "did_bat": perf["did_bat"],
-                "did_bowl": perf["did_bowl"],
-                "did_keep_wicket": perf["did_keep_wicket"]
-            })
+            self.player_match_perf.append(
+                {
+                    "player_id": player_id,
+                    "match_id": match_id,
+                    "team_id": team_id,
+                    "batting_position": perf["batting_position"],
+                    "did_bat": perf["did_bat"],
+                    "did_bowl": perf["did_bowl"],
+                    "did_keep_wicket": perf["did_keep_wicket"],
+                }
+            )
 
             # Increment matches played
             self.players[player_id]["matches_played"] += 1
@@ -482,8 +540,8 @@ class CricketIngester:
         self.stats["zip_files"] += 1
 
         try:
-            with zipfile.ZipFile(zip_path, 'r') as zf:
-                json_files = [f for f in zf.namelist() if f.endswith('.json')]
+            with zipfile.ZipFile(zip_path, "r") as zf:
+                json_files = [f for f in zf.namelist() if f.endswith(".json")]
 
                 for json_file in json_files:
                     try:
@@ -492,7 +550,9 @@ class CricketIngester:
                             source_file = f"{zip_path.stem}/{json_file}"
                             self.process_match(match_data, source_file)
                     except Exception as e:
-                        self.stats["errors"].append(f"{zip_path.name}/{json_file}: {str(e)}")
+                        self.stats["errors"].append(
+                            f"{zip_path.name}/{json_file}: {str(e)}"
+                        )
         except Exception as e:
             self.stats["errors"].append(f"{zip_path.name}: {str(e)}")
 
@@ -523,7 +583,11 @@ class CricketIngester:
 
             bat_pct = player_batting[player_id] / matches
             bowl_pct = player_bowling[player_id] / matches
-            top6_pct = player_top6_batting[player_id] / matches if player_batting[player_id] > 0 else 0
+            top6_pct = (
+                player_top6_batting[player_id] / matches
+                if player_batting[player_id] > 0
+                else 0
+            )
 
             # Wicketkeeper detection:
             # - Has at least 3 stumpings as fielder, OR
@@ -545,7 +609,9 @@ class CricketIngester:
                 player["primary_role"] = "Bowler"
 
         self.stats["players_found"] = len(self.players)
-        self.stats["wicketkeepers_found"] = sum(1 for p in self.players.values() if p.get("is_wicketkeeper"))
+        self.stats["wicketkeepers_found"] = sum(
+            1 for p in self.players.values() if p.get("is_wicketkeeper")
+        )
 
     def load_to_duckdb(self):
         """Load all data into DuckDB."""
@@ -559,40 +625,44 @@ class CricketIngester:
 
         # Create and load dimension tables
         print("  Loading dim_tournament...")
-        df_tournaments = pd.DataFrame(list(self.tournaments.values()))
+        df_tournaments = pd.DataFrame(list(self.tournaments.values()))  # noqa: F841
         conn.execute("CREATE TABLE dim_tournament AS SELECT * FROM df_tournaments")
 
         print("  Loading dim_team...")
-        df_teams = pd.DataFrame(list(self.teams.values()))
+        df_teams = pd.DataFrame(list(self.teams.values()))  # noqa: F841
         conn.execute("CREATE TABLE dim_team AS SELECT * FROM df_teams")
 
         print("  Loading dim_venue...")
-        df_venues = pd.DataFrame(list(self.venues.values()))
+        df_venues = pd.DataFrame(list(self.venues.values()))  # noqa: F841
         conn.execute("CREATE TABLE dim_venue AS SELECT * FROM df_venues")
 
         print("  Loading dim_player...")
-        df_players = pd.DataFrame(list(self.players.values()))
+        df_players = pd.DataFrame(list(self.players.values()))  # noqa: F841
         conn.execute("CREATE TABLE dim_player AS SELECT * FROM df_players")
 
         print("  Loading dim_player_name_history...")
-        df_player_names = pd.DataFrame(self.player_names)
-        conn.execute("CREATE TABLE dim_player_name_history AS SELECT * FROM df_player_names")
+        df_player_names = pd.DataFrame(self.player_names)  # noqa: F841
+        conn.execute(
+            "CREATE TABLE dim_player_name_history AS SELECT * FROM df_player_names"
+        )
 
         print("  Loading dim_match...")
-        df_matches = pd.DataFrame(self.matches)
+        df_matches = pd.DataFrame(self.matches)  # noqa: F841
         conn.execute("CREATE TABLE dim_match AS SELECT * FROM df_matches")
 
         print("  Loading fact_powerplay...")
-        df_powerplays = pd.DataFrame(self.powerplays)
+        df_powerplays = pd.DataFrame(self.powerplays)  # noqa: F841
         conn.execute("CREATE TABLE fact_powerplay AS SELECT * FROM df_powerplays")
 
         print("  Loading fact_ball...")
-        df_balls = pd.DataFrame(self.balls)
+        df_balls = pd.DataFrame(self.balls)  # noqa: F841
         conn.execute("CREATE TABLE fact_ball AS SELECT * FROM df_balls")
 
         print("  Loading fact_player_match_performance...")
-        df_perf = pd.DataFrame(self.player_match_perf)
-        conn.execute("CREATE TABLE fact_player_match_performance AS SELECT * FROM df_perf")
+        df_perf = pd.DataFrame(self.player_match_perf)  # noqa: F841
+        conn.execute(
+            "CREATE TABLE fact_player_match_performance AS SELECT * FROM df_perf"
+        )
 
         # Create indexes for common queries
         print("  Creating indexes...")
@@ -617,13 +687,13 @@ class CricketIngester:
                 "players_found": self.stats["players_found"],
                 "teams_found": len(self.teams),
                 "venues_found": len(self.venues),
-                "tournaments_found": len(self.tournaments)
+                "tournaments_found": len(self.tournaments),
             },
-            "errors": self.stats["errors"][:20]  # First 20 errors only
+            "errors": self.stats["errors"][:20],  # First 20 errors only
         }
 
         MANIFEST_PATH.parent.mkdir(parents=True, exist_ok=True)
-        with open(MANIFEST_PATH, 'w') as f:
+        with open(MANIFEST_PATH, "w") as f:
             json.dump(manifest, f, indent=2)
 
         print(f"\nManifest saved: {MANIFEST_PATH}")
@@ -756,7 +826,7 @@ This database contains ball-by-ball T20 cricket data from Cricsheet.
         doc += f"Data Version: {DATA_VERSION}\n"
 
         SCHEMA_DOC_PATH.parent.mkdir(parents=True, exist_ok=True)
-        with open(SCHEMA_DOC_PATH, 'w') as f:
+        with open(SCHEMA_DOC_PATH, "w") as f:
             f.write(doc)
 
         print(f"Schema doc saved: {SCHEMA_DOC_PATH}")

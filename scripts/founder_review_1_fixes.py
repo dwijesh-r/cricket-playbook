@@ -48,33 +48,79 @@ UNCAPPED_PLAYERS = [
 BOWLING_TYPE_FIXES = [
     # Single bowling type corrections
     ("Aman Khan", "Chennai Super Kings", "Medium", None, "Medium pacer, not off-spin"),
-    ("Ayush Badoni", "Lucknow Super Giants", "Off-spin", None, "Off-spin, not leg-spin"),
-    ("Prashant Veer", "Chennai Super Kings", "Left-arm orthodox", None, "Left-arm orthodox"),
+    (
+        "Ayush Badoni",
+        "Lucknow Super Giants",
+        "Off-spin",
+        None,
+        "Off-spin, not leg-spin",
+    ),
+    (
+        "Prashant Veer",
+        "Chennai Super Kings",
+        "Left-arm orthodox",
+        None,
+        "Left-arm orthodox",
+    ),
     ("Nitish Rana", "Delhi Capitals", "Off-spin", None, "Right-arm off-spin"),
     ("Tristan Stubbs", "Delhi Capitals", "Off-spin", None, "Right-arm off-spin"),
     ("Vipraj Nigam", "Delhi Capitals", "Leg-spin", None, "Right-arm leg-spin"),
     ("Shahrukh Khan", "Gujarat Titans", "Off-spin", None, "Right-arm off-spin"),
     ("Gurnoor Brar", "Gujarat Titans", "Fast", None, "Right-arm fast bowler"),
     ("Rinku Singh", "Kolkata Knight Riders", "Off-spin", None, "Right-arm off-spin"),
-    ("Prashant Solanki", "Kolkata Knight Riders", "Leg-spin", None, "Right-arm leg-spin"),
+    (
+        "Prashant Solanki",
+        "Kolkata Knight Riders",
+        "Leg-spin",
+        None,
+        "Right-arm leg-spin",
+    ),
     ("Daksh Kamra", "Lucknow Super Giants", "Leg-spin", None, "Right-arm leg-spin"),
     ("Digvesh Rathi", "Lucknow Super Giants", "Leg-spin", None, "Right-arm leg-spin"),
     ("Naman Dhir", "Mumbai Indians", "Off-spin", None, "Right-arm off-spin"),
     ("Suryansh Shedge", "Mumbai Indians", "Medium", None, "Medium pacer"),
     ("Riyan Parag", "Rajasthan Royals", "Leg-spin", None, "Right-arm leg-spin"),
     ("Yashasvi Jaiswal", "Rajasthan Royals", "Leg-spin", None, "Right-arm leg-spin"),
-    ("Vaibhav Sooryavanshi", "Rajasthan Royals", "Left-arm orthodox", None, "Left-arm orthodox"),
-    ("Vignesh Puthur", "Rajasthan Royals", "Left-arm wrist spin", None, "Left-arm chinaman"),
+    (
+        "Vaibhav Sooryavanshi",
+        "Rajasthan Royals",
+        "Left-arm orthodox",
+        None,
+        "Left-arm orthodox",
+    ),
+    (
+        "Vignesh Puthur",
+        "Rajasthan Royals",
+        "Left-arm wrist spin",
+        None,
+        "Left-arm chinaman",
+    ),
     ("Travis Head", "Sunrisers Hyderabad", "Off-spin", None, "Right-arm off-spin"),
     ("Nitish Reddy", "Sunrisers Hyderabad", "Medium", None, "Medium pacer"),
-    ("Harsh Dubey", "Sunrisers Hyderabad", "Left-arm orthodox", None, "Left-arm orthodox"),
-
+    (
+        "Harsh Dubey",
+        "Sunrisers Hyderabad",
+        "Left-arm orthodox",
+        None,
+        "Left-arm orthodox",
+    ),
     # Players who don't bowl - set to NULL
     ("Lhuan-dre Pretorius", "Gujarat Titans", None, None, "Doesn't bowl"),
-
     # Dual bowling type players
-    ("Liam Livingstone", "Sunrisers Hyderabad", "Leg-spin", "Off-spin", "Bowls both leg-spin and off-spin"),
-    ("Kamindu Mendis", "Sunrisers Hyderabad", "Off-spin", "Left-arm orthodox", "Bowls both RA off-spin and LA orthodox"),
+    (
+        "Liam Livingstone",
+        "Sunrisers Hyderabad",
+        "Leg-spin",
+        "Off-spin",
+        "Bowls both leg-spin and off-spin",
+    ),
+    (
+        "Kamindu Mendis",
+        "Sunrisers Hyderabad",
+        "Off-spin",
+        "Left-arm orthodox",
+        "Bowls both RA off-spin and LA orthodox",
+    ),
 ]
 
 # =============================================================================
@@ -88,32 +134,42 @@ RCB_FIXES = {
     "add": [
         # (player_name, role, bowling_type, batting_hand, notes)
         ("Rasikh Salam Dar", "Bowler", "Fast", "Right-hand", "Replaces Raqibul Hasan"),
-        ("Vicky Ostwal", "Bowler", "Left-arm orthodox", "Left-hand", "Missing from squad"),
+        (
+            "Vicky Ostwal",
+            "Bowler",
+            "Left-arm orthodox",
+            "Left-hand",
+            "Missing from squad",
+        ),
         ("Vihaan Malhotra", "Batter", "Medium", "Right-hand", "Missing from squad"),
         ("Kanishk Chouhan", "Bowler", "Leg-spin", "Right-hand", "Missing from squad"),
-    ]
+    ],
 }
 
 
 def apply_schema_changes(conn):
     """Add new columns to ipl_2026_squads table."""
-    print("\n" + "="*70)
+    print("\n" + "=" * 70)
     print("STEP 1: SCHEMA CHANGES")
-    print("="*70)
+    print("=" * 70)
 
     # Check if columns already exist
     cols = [c[0] for c in conn.execute("DESCRIBE ipl_2026_squads").fetchall()]
 
     if "is_ipl_uncapped" not in cols:
         print("  Adding is_ipl_uncapped column...")
-        conn.execute("ALTER TABLE ipl_2026_squads ADD COLUMN is_ipl_uncapped BOOLEAN DEFAULT FALSE")
+        conn.execute(
+            "ALTER TABLE ipl_2026_squads ADD COLUMN is_ipl_uncapped BOOLEAN DEFAULT FALSE"
+        )
         print("    - Added is_ipl_uncapped (BOOLEAN)")
     else:
         print("  is_ipl_uncapped column already exists")
 
     if "bowling_type_secondary" not in cols:
         print("  Adding bowling_type_secondary column...")
-        conn.execute("ALTER TABLE ipl_2026_squads ADD COLUMN bowling_type_secondary VARCHAR")
+        conn.execute(
+            "ALTER TABLE ipl_2026_squads ADD COLUMN bowling_type_secondary VARCHAR"
+        )
         print("    - Added bowling_type_secondary (VARCHAR)")
     else:
         print("  bowling_type_secondary column already exists")
@@ -123,31 +179,37 @@ def apply_schema_changes(conn):
 
 def fix_uncapped_players(conn):
     """Mark uncapped players and clear their incorrect player_id."""
-    print("\n" + "="*70)
+    print("\n" + "=" * 70)
     print("STEP 2: FIX UNCAPPED PLAYER MAPPINGS (P0)")
-    print("="*70)
+    print("=" * 70)
 
     for player_name, team_name, notes in UNCAPPED_PLAYERS:
         # Check if player exists
-        result = conn.execute("""
+        result = conn.execute(
+            """
             SELECT player_id FROM ipl_2026_squads
             WHERE player_name = ? AND team_name = ?
-        """, [player_name, team_name]).fetchone()
+        """,
+            [player_name, team_name],
+        ).fetchone()
 
         if result:
             old_id = result[0]
             # Generate a new unique ID for uncapped player (prefix with 'uncapped_')
             new_id = f"uncapped_{player_name.lower().replace(' ', '_')}"
 
-            conn.execute("""
+            conn.execute(
+                """
                 UPDATE ipl_2026_squads
                 SET player_id = ?, is_ipl_uncapped = TRUE
                 WHERE player_name = ? AND team_name = ?
-            """, [new_id, player_name, team_name])
+            """,
+                [new_id, player_name, team_name],
+            )
 
             print(f"  FIXED: {player_name} ({team_name})")
             print(f"         Old ID: {old_id} -> New ID: {new_id}")
-            print(f"         Marked as IPL uncapped")
+            print("         Marked as IPL uncapped")
             print(f"         Note: {notes}")
         else:
             print(f"  WARNING: {player_name} ({team_name}) not found in squad")
@@ -155,43 +217,62 @@ def fix_uncapped_players(conn):
 
 def fix_bowling_types(conn):
     """Correct bowling type classifications."""
-    print("\n" + "="*70)
+    print("\n" + "=" * 70)
     print("STEP 3: FIX BOWLING TYPE CLASSIFICATIONS (P1)")
-    print("="*70)
+    print("=" * 70)
 
     fixed_count = 0
-    for player_name, team_name, bowling_type, bowling_type_secondary, notes in BOWLING_TYPE_FIXES:
+    for (
+        player_name,
+        team_name,
+        bowling_type,
+        bowling_type_secondary,
+        notes,
+    ) in BOWLING_TYPE_FIXES:
         # Check current value
-        result = conn.execute("""
+        result = conn.execute(
+            """
             SELECT bowling_type, bowling_type_secondary FROM ipl_2026_squads
             WHERE player_name = ? AND team_name = ?
-        """, [player_name, team_name]).fetchone()
+        """,
+            [player_name, team_name],
+        ).fetchone()
 
         if result:
             old_type = result[0]
             old_secondary = result[1] if len(result) > 1 else None
 
-            conn.execute("""
+            conn.execute(
+                """
                 UPDATE ipl_2026_squads
                 SET bowling_type = ?, bowling_type_secondary = ?
                 WHERE player_name = ? AND team_name = ?
-            """, [bowling_type, bowling_type_secondary, player_name, team_name])
+            """,
+                [bowling_type, bowling_type_secondary, player_name, team_name],
+            )
 
             print(f"  FIXED: {player_name} ({team_name})")
             print(f"         bowling_type: {old_type} -> {bowling_type}")
             if bowling_type_secondary:
-                print(f"         bowling_type_secondary: {old_secondary} -> {bowling_type_secondary}")
+                print(
+                    f"         bowling_type_secondary: {old_secondary} -> {bowling_type_secondary}"
+                )
             print(f"         Note: {notes}")
             fixed_count += 1
         else:
             # Try fuzzy match
-            result = conn.execute("""
+            result = conn.execute(
+                """
                 SELECT player_name, team_name FROM ipl_2026_squads
                 WHERE player_name LIKE ? AND team_name = ?
-            """, [f"%{player_name.split()[-1]}%", team_name]).fetchall()
+            """,
+                [f"%{player_name.split()[-1]}%", team_name],
+            ).fetchall()
 
             if result:
-                print(f"  WARNING: {player_name} not found. Similar names in {team_name}:")
+                print(
+                    f"  WARNING: {player_name} not found. Similar names in {team_name}:"
+                )
                 for r in result:
                     print(f"           - {r[0]}")
             else:
@@ -202,44 +283,58 @@ def fix_bowling_types(conn):
 
 def fix_rcb_squad(conn):
     """Fix RCB squad composition."""
-    print("\n" + "="*70)
+    print("\n" + "=" * 70)
     print("STEP 4: FIX RCB SQUAD COMPOSITION (P2)")
-    print("="*70)
+    print("=" * 70)
 
     # Remove incorrect players
     for player_name, reason in RCB_FIXES["remove"]:
-        result = conn.execute("""
+        result = conn.execute(
+            """
             SELECT player_name FROM ipl_2026_squads
             WHERE player_name = ? AND team_name = 'Royal Challengers Bengaluru'
-        """, [player_name]).fetchone()
+        """,
+            [player_name],
+        ).fetchone()
 
         if result:
-            conn.execute("""
+            conn.execute(
+                """
                 DELETE FROM ipl_2026_squads
                 WHERE player_name = ? AND team_name = 'Royal Challengers Bengaluru'
-            """, [player_name])
+            """,
+                [player_name],
+            )
             print(f"  REMOVED: {player_name}")
             print(f"           Reason: {reason}")
         else:
-            print(f"  NOTE: {player_name} not found in RCB squad (may already be removed)")
+            print(
+                f"  NOTE: {player_name} not found in RCB squad (may already be removed)"
+            )
 
     # Add missing players
     for player_name, role, bowling_type, batting_hand, notes in RCB_FIXES["add"]:
         # Check if already exists
-        result = conn.execute("""
+        result = conn.execute(
+            """
             SELECT player_name FROM ipl_2026_squads
             WHERE player_name = ? AND team_name = 'Royal Challengers Bengaluru'
-        """, [player_name]).fetchone()
+        """,
+            [player_name],
+        ).fetchone()
 
         if not result:
             # Generate uncapped ID
             player_id = f"uncapped_{player_name.lower().replace(' ', '_')}"
 
-            conn.execute("""
+            conn.execute(
+                """
                 INSERT INTO ipl_2026_squads
                 (team_name, player_name, player_id, role, bowling_type, batting_hand, is_ipl_uncapped)
                 VALUES ('Royal Challengers Bengaluru', ?, ?, ?, ?, ?, TRUE)
-            """, [player_name, player_id, role, bowling_type, batting_hand])
+            """,
+                [player_name, player_id, role, bowling_type, batting_hand],
+            )
 
             print(f"  ADDED: {player_name}")
             print(f"         Role: {role}, Bowling: {bowling_type}")
@@ -250,9 +345,9 @@ def fix_rcb_squad(conn):
 
 def verify_fixes(conn):
     """Verify all fixes were applied correctly."""
-    print("\n" + "="*70)
+    print("\n" + "=" * 70)
     print("STEP 5: VERIFICATION")
-    print("="*70)
+    print("=" * 70)
 
     # Count uncapped players
     result = conn.execute("""
@@ -296,22 +391,28 @@ def verify_fixes(conn):
 
 def generate_fix_report(conn):
     """Generate a summary report of all fixes."""
-    print("\n" + "="*70)
+    print("\n" + "=" * 70)
     print("FIX REPORT SUMMARY")
-    print("="*70)
+    print("=" * 70)
 
     # Schema changes
     cols = [c[0] for c in conn.execute("DESCRIBE ipl_2026_squads").fetchall()]
     print(f"\n  Schema columns: {len(cols)}")
     print(f"    - is_ipl_uncapped: {'YES' if 'is_ipl_uncapped' in cols else 'NO'}")
-    print(f"    - bowling_type_secondary: {'YES' if 'bowling_type_secondary' in cols else 'NO'}")
+    print(
+        f"    - bowling_type_secondary: {'YES' if 'bowling_type_secondary' in cols else 'NO'}"
+    )
 
     # Data fixes
-    uncapped = conn.execute("SELECT COUNT(*) FROM ipl_2026_squads WHERE is_ipl_uncapped = TRUE").fetchone()[0]
-    dual_type = conn.execute("SELECT COUNT(*) FROM ipl_2026_squads WHERE bowling_type_secondary IS NOT NULL").fetchone()[0]
+    uncapped = conn.execute(
+        "SELECT COUNT(*) FROM ipl_2026_squads WHERE is_ipl_uncapped = TRUE"
+    ).fetchone()[0]
+    dual_type = conn.execute(
+        "SELECT COUNT(*) FROM ipl_2026_squads WHERE bowling_type_secondary IS NOT NULL"
+    ).fetchone()[0]
     total = conn.execute("SELECT COUNT(*) FROM ipl_2026_squads").fetchone()[0]
 
-    print(f"\n  Data summary:")
+    print("\n  Data summary:")
     print(f"    - Total players: {total}")
     print(f"    - Uncapped players: {uncapped}")
     print(f"    - Dual-type bowlers: {dual_type}")
@@ -321,10 +422,10 @@ def generate_fix_report(conn):
 
 
 def main():
-    print("="*70)
+    print("=" * 70)
     print("CRICKET PLAYBOOK - FOUNDER REVIEW #1 FIXES")
     print("Sprint 2.4 - Data Fix Sprint")
-    print("="*70)
+    print("=" * 70)
 
     if not DB_PATH.exists():
         print(f"ERROR: Database not found at {DB_PATH}")
@@ -342,9 +443,9 @@ def main():
         generate_fix_report(conn)
 
         conn.close()
-        print("\n" + "="*70)
+        print("\n" + "=" * 70)
         print("ALL FIXES COMPLETE")
-        print("="*70)
+        print("=" * 70)
         return 0
 
     except Exception as e:

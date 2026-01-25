@@ -17,7 +17,6 @@ New Views Created:
 
 import duckdb
 from pathlib import Path
-from datetime import datetime
 
 # Paths
 DATA_DIR = Path(__file__).parent.parent / "data"
@@ -27,7 +26,7 @@ CONTRACTS_CSV = DATA_DIR / "ipl_2026_player_contracts.csv"
 
 # Data filter - only use recent IPL seasons (2023 onwards)
 # This accounts for drift in stats due to evolution of the game
-IPL_MIN_DATE = '2023-01-01'  # IPL 2023, 2024, 2025
+IPL_MIN_DATE = "2023-01-01"  # IPL 2023, 2024, 2025
 
 
 def create_squad_tables(conn: duckdb.DuckDBPyConnection):
@@ -44,10 +43,10 @@ def create_squad_tables(conn: duckdb.DuckDBPyConnection):
         print("  - ipl_2026_squads table created")
 
         # Add bowling_style column with standardized categories
-        conn.execute(f"""
+        conn.execute("""
             ALTER TABLE ipl_2026_squads ADD COLUMN IF NOT EXISTS bowling_style VARCHAR
         """)
-        conn.execute(f"""
+        conn.execute("""
             UPDATE ipl_2026_squads
             SET bowling_style = CASE
                 WHEN bowling_arm = 'Right-arm' AND bowling_type IN ('Fast', 'Medium') THEN 'Right-arm pace'
@@ -149,7 +148,7 @@ def create_ipl_batting_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_batting_career")
 
     # IPL Batting by Phase
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_batter_phase AS
         WITH ipl_matches AS (
             SELECT dm.match_id
@@ -185,7 +184,7 @@ def create_ipl_batting_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_batter_phase")
 
     # IPL Batter vs Bowler (head-to-head)
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_batter_vs_bowler AS
         WITH ipl_matches AS (
             SELECT dm.match_id
@@ -222,7 +221,7 @@ def create_ipl_batting_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_batter_vs_bowler")
 
     # IPL Batter vs Bowler Type (using bowling_style from squads + dim_bowler_classification)
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_batter_vs_bowler_type AS
         WITH ipl_matches AS (
             SELECT dm.match_id
@@ -336,7 +335,7 @@ def create_ipl_bowling_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_bowling_career")
 
     # IPL Bowling by Phase
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_bowler_phase AS
         WITH ipl_matches AS (
             SELECT dm.match_id
@@ -379,7 +378,7 @@ def create_phase_matchup_views(conn: duckdb.DuckDBPyConnection):
     print("\nCreating phase-wise matchup views...")
 
     # IPL Batter vs Bowler by Phase
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_batter_vs_bowler_phase AS
         WITH ipl_matches AS (
             SELECT dm.match_id
@@ -417,7 +416,7 @@ def create_phase_matchup_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_batter_vs_bowler_phase")
 
     # IPL Batter vs Bowler Type by Phase (using bowling_style)
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_batter_vs_bowler_type_phase AS
         WITH ipl_matches AS (
             SELECT dm.match_id
@@ -456,7 +455,7 @@ def create_phase_matchup_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_batter_vs_bowler_type_phase")
 
     # IPL Bowler vs Batter by Phase (bowler's perspective)
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_bowler_vs_batter_phase AS
         WITH ipl_matches AS (
             SELECT dm.match_id
@@ -503,7 +502,7 @@ def create_team_venue_views(conn: duckdb.DuckDBPyConnection):
     # =========================================================================
 
     # IPL Batter vs Team (aggregate) - uses franchise aliases
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_batter_vs_team AS
         WITH ipl_matches AS (
             SELECT dm.match_id
@@ -541,7 +540,7 @@ def create_team_venue_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_batter_vs_team")
 
     # IPL Batter vs Team by Phase - uses franchise aliases
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_batter_vs_team_phase AS
         WITH ipl_matches AS (
             SELECT dm.match_id
@@ -584,7 +583,7 @@ def create_team_venue_views(conn: duckdb.DuckDBPyConnection):
     # =========================================================================
 
     # IPL Batter by Venue
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_batter_venue AS
         WITH ipl_matches AS (
             SELECT dm.match_id, dv.venue_name as venue
@@ -621,7 +620,7 @@ def create_team_venue_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_batter_venue")
 
     # IPL Batter by Venue by Phase
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_batter_venue_phase AS
         WITH ipl_matches AS (
             SELECT dm.match_id, dv.venue_name as venue
@@ -663,7 +662,7 @@ def create_team_venue_views(conn: duckdb.DuckDBPyConnection):
     # =========================================================================
 
     # IPL Bowler vs Team (aggregate) - uses franchise aliases
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_bowler_vs_team AS
         WITH ipl_matches AS (
             SELECT dm.match_id
@@ -702,7 +701,7 @@ def create_team_venue_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_bowler_vs_team")
 
     # IPL Bowler vs Team by Phase - uses franchise aliases
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_bowler_vs_team_phase AS
         WITH ipl_matches AS (
             SELECT dm.match_id
@@ -746,7 +745,7 @@ def create_team_venue_views(conn: duckdb.DuckDBPyConnection):
     # =========================================================================
 
     # IPL Bowler by Venue
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_bowler_venue AS
         WITH ipl_matches AS (
             SELECT dm.match_id, dv.venue_name as venue
@@ -784,7 +783,7 @@ def create_team_venue_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_bowler_venue")
 
     # IPL Bowler by Venue by Phase
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_bowler_venue_phase AS
         WITH ipl_matches AS (
             SELECT dm.match_id, dv.venue_name as venue
@@ -902,7 +901,7 @@ def create_t20_comparison_views(conn: duckdb.DuckDBPyConnection):
     print("\nCreating All T20 comparison views...")
 
     # All T20 Batter Phase
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_t20_batter_phase AS
         SELECT
             dp.player_id,
@@ -931,7 +930,7 @@ def create_t20_comparison_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_t20_batter_phase")
 
     # All T20 Batter vs Bowler Type (using bowling_style)
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_t20_batter_vs_bowler_type AS
         SELECT
             dp_bat.player_id as batter_id,
@@ -962,7 +961,7 @@ def create_t20_comparison_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_t20_batter_vs_bowler_type")
 
     # All T20 Bowler Phase
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_t20_bowler_phase AS
         SELECT
             dp.player_id,
@@ -998,7 +997,7 @@ def create_squad_integration_views(conn: duckdb.DuckDBPyConnection):
     print("\nCreating squad integration views...")
 
     # Squad Batting Analysis
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_squad_batting AS
         SELECT
             sq.team_name,
@@ -1033,7 +1032,7 @@ def create_squad_integration_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_squad_batting")
 
     # Squad Bowling Analysis
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_squad_bowling AS
         SELECT
             sq.team_name,
@@ -1068,7 +1067,7 @@ def create_squad_integration_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_squad_bowling")
 
     # Squad Phase-wise Batting
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_squad_batting_phase AS
         SELECT
             sq.team_name,
@@ -1093,7 +1092,7 @@ def create_squad_integration_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_squad_batting_phase")
 
     # Squad Phase-wise Bowling
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_squad_bowling_phase AS
         SELECT
             sq.team_name,
@@ -1119,7 +1118,7 @@ def create_squad_integration_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_squad_bowling_phase")
 
     # Team comparison view with contracts
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_team_roster AS
         SELECT
             sq.team_name,
@@ -1150,7 +1149,7 @@ def create_percentile_views(conn: duckdb.DuckDBPyConnection):
     print("\nCreating percentile ranking views...")
 
     # IPL Batting Career with Percentiles (minimum 500 balls for ranking)
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_batting_percentiles AS
         WITH qualified_batters AS (
             SELECT *
@@ -1177,7 +1176,7 @@ def create_percentile_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_batting_percentiles")
 
     # IPL Bowling Career with Percentiles (minimum 300 balls for ranking)
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_bowling_percentiles AS
         WITH qualified_bowlers AS (
             SELECT *
@@ -1206,7 +1205,7 @@ def create_percentile_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_bowling_percentiles")
 
     # Phase-wise batting percentiles
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_batter_phase_percentiles AS
         WITH qualified AS (
             SELECT *
@@ -1233,7 +1232,7 @@ def create_percentile_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_batter_phase_percentiles")
 
     # Phase-wise bowling percentiles
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_bowler_phase_percentiles AS
         WITH qualified AS (
             SELECT *
@@ -1266,7 +1265,7 @@ def create_benchmark_views(conn: duckdb.DuckDBPyConnection):
     print("\nCreating IPL benchmark views...")
 
     # IPL-wide batting averages by phase
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_batting_benchmarks AS
         WITH ipl_matches AS (
             SELECT dm.match_id
@@ -1293,7 +1292,7 @@ def create_benchmark_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_batting_benchmarks")
 
     # IPL-wide bowling averages by phase
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_bowling_benchmarks AS
         WITH ipl_matches AS (
             SELECT dm.match_id
@@ -1319,7 +1318,7 @@ def create_benchmark_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_bowling_benchmarks")
 
     # Batting vs Bowler Type benchmarks
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_vs_bowler_type_benchmarks AS
         WITH ipl_matches AS (
             SELECT dm.match_id
@@ -1347,7 +1346,7 @@ def create_benchmark_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_vs_bowler_type_benchmarks")
 
     # Overall IPL career benchmarks (qualified players only)
-    conn.execute(f"""
+    conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_career_benchmarks AS
         SELECT
             'batting' as category,
@@ -1379,14 +1378,14 @@ def create_benchmark_views(conn: duckdb.DuckDBPyConnection):
 def verify_views(conn: duckdb.DuckDBPyConnection):
     """Verify all views are working with sample queries."""
 
-    print("\n" + "="*60)
+    print("\n" + "=" * 60)
     print("Verifying IPL 2026 Analytics Views...")
-    print("="*60)
+    print("=" * 60)
 
     # Test IPL career batting
     print("\nTop 5 IPL Run Scorers (Career):")
     print("-" * 70)
-    result = conn.execute(f"""
+    result = conn.execute("""
         SELECT player_name, runs, innings, strike_rate, batting_average, sample_size
         FROM analytics_ipl_batting_career
         ORDER BY runs DESC
@@ -1396,12 +1395,14 @@ def verify_views(conn: duckdb.DuckDBPyConnection):
     print("-" * 70)
     for row in result:
         avg_str = f"{row[4]:.2f}" if row[4] else "N/A"
-        print(f"{row[0]:<25} {row[1]:>8,} {row[2]:>6} {row[3]:>8.2f} {avg_str:>8} {row[5]:>10}")
+        print(
+            f"{row[0]:<25} {row[1]:>8,} {row[2]:>6} {row[3]:>8.2f} {avg_str:>8} {row[5]:>10}"
+        )
 
     # Test phase-wise batting for a known player
     print("\n\nKohli's IPL Phase-wise Batting:")
     print("-" * 70)
-    result = conn.execute(f"""
+    result = conn.execute("""
         SELECT match_phase, innings, runs, balls_faced, strike_rate, boundary_pct
         FROM analytics_ipl_batter_phase
         WHERE player_name LIKE '%Kohli%'
@@ -1410,19 +1411,23 @@ def verify_views(conn: duckdb.DuckDBPyConnection):
     print(f"{'Phase':<15} {'Inn':>6} {'Runs':>8} {'Balls':>8} {'SR':>8} {'Bound%':>10}")
     print("-" * 70)
     for row in result:
-        print(f"{row[0]:<15} {row[1]:>6} {row[2]:>8} {row[3]:>8} {row[4]:>8.2f} {row[5]:>10.1f}")
+        print(
+            f"{row[0]:<15} {row[1]:>6} {row[2]:>8} {row[3]:>8} {row[4]:>8.2f} {row[5]:>10.1f}"
+        )
 
     # Test squad batting view
     print("\n\nRCB 2026 Squad Batting (Top 5 by Price):")
     print("-" * 80)
-    result = conn.execute(f"""
+    result = conn.execute("""
         SELECT player_name, role, price_cr, ipl_runs, ipl_sr, ipl_avg, ipl_sample_size
         FROM analytics_ipl_squad_batting
         WHERE team_name = 'Royal Challengers Bengaluru'
         ORDER BY price_cr DESC NULLS LAST
         LIMIT 5
     """).fetchall()
-    print(f"{'Player':<25} {'Role':<12} {'Price':>8} {'Runs':>8} {'SR':>8} {'Avg':>8} {'Sample':>10}")
+    print(
+        f"{'Player':<25} {'Role':<12} {'Price':>8} {'Runs':>8} {'SR':>8} {'Avg':>8} {'Sample':>10}"
+    )
     print("-" * 80)
     for row in result:
         price_str = f"{row[2]:.2f}" if row[2] else "N/A"
@@ -1430,12 +1435,14 @@ def verify_views(conn: duckdb.DuckDBPyConnection):
         sr_str = f"{row[4]:.2f}" if row[4] else "N/A"
         avg_str = f"{row[5]:.2f}" if row[5] else "N/A"
         sample_str = row[6] if row[6] else "N/A"
-        print(f"{row[0]:<25} {row[1]:<12} {price_str:>8} {runs_str:>8} {sr_str:>8} {avg_str:>8} {sample_str:>10}")
+        print(
+            f"{row[0]:<25} {row[1]:<12} {price_str:>8} {runs_str:>8} {sr_str:>8} {avg_str:>8} {sample_str:>10}"
+        )
 
     # Compare IPL vs All T20 for a player
     print("\n\nKohli: IPL vs All T20 (Phase-wise):")
     print("-" * 90)
-    result = conn.execute(f"""
+    result = conn.execute("""
         SELECT
             'IPL' as scope,
             match_phase,
@@ -1457,10 +1464,14 @@ def verify_views(conn: duckdb.DuckDBPyConnection):
         WHERE player_name LIKE '%Kohli%'
         ORDER BY match_phase, scope
     """).fetchall()
-    print(f"{'Scope':<10} {'Phase':<15} {'Inn':>6} {'Runs':>8} {'SR':>8} {'Bound%':>10}")
+    print(
+        f"{'Scope':<10} {'Phase':<15} {'Inn':>6} {'Runs':>8} {'SR':>8} {'Bound%':>10}"
+    )
     print("-" * 90)
     for row in result:
-        print(f"{row[0]:<10} {row[1]:<15} {row[2]:>6} {row[3]:>8} {row[4]:>8.2f} {row[5]:>10.1f}")
+        print(
+            f"{row[0]:<10} {row[1]:<15} {row[2]:>6} {row[3]:>8} {row[4]:>8.2f} {row[5]:>10.1f}"
+        )
 
     return True
 
@@ -1468,11 +1479,11 @@ def verify_views(conn: duckdb.DuckDBPyConnection):
 def main():
     """Main entry point."""
 
-    print("="*60)
+    print("=" * 60)
     print("Cricket Playbook - IPL 2026 Analytics Layer")
     print("Author: Stephen Curry")
     print("Version: 2.1.0")
-    print("="*60)
+    print("=" * 60)
     print()
 
     # Connect to database
@@ -1498,22 +1509,22 @@ def main():
     verify_views(conn)
 
     # Count views
-    result = conn.execute(f"""
+    result = conn.execute("""
         SELECT COUNT(*) FROM information_schema.tables
         WHERE table_type = 'VIEW' AND (table_name LIKE 'analytics_ipl_%' OR table_name LIKE 'analytics_t20_%')
     """).fetchone()
 
-    tables = conn.execute(f"""
+    tables = conn.execute("""
         SELECT COUNT(*) FROM information_schema.tables
         WHERE table_type = 'BASE TABLE' AND table_name LIKE 'ipl_2026_%'
     """).fetchone()
 
     print()
-    print("="*60)
-    print(f"IPL Analytics layer complete:")
+    print("=" * 60)
+    print("IPL Analytics layer complete:")
     print(f"  - {tables[0]} squad data tables created")
     print(f"  - {result[0]} analytics views created")
-    print("="*60)
+    print("=" * 60)
 
     conn.close()
     return 0

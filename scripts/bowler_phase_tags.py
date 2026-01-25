@@ -30,12 +30,18 @@ MIN_MIDDLE_OVERS = 50
 MIN_DEATH_OVERS = 30
 
 # Thresholds for tags
+# Note: Thresholds should be based on percentiles, not arbitrary values
+# Death overs median economy is ~10.8, 75th percentile is ~11.5
 PP_BEAST_ECO = 7.0
 PP_LIABILITY_ECO = 9.5
 MIDDLE_BEAST_ECO = 7.0
 MIDDLE_LIABILITY_ECO = 8.5
-DEATH_BEAST_ECO = 8.5
-DEATH_LIABILITY_ECO = 10.5
+DEATH_BEAST_ECO = 9.0  # Raised from 8.5 (was too strict)
+DEATH_LIABILITY_ECO = 12.0  # Raised from 10.5 (was below median, too harsh)
+
+# Strike rate thresholds (balls per wicket) - higher = worse
+# Median death SR is ~12.3, 75th percentile is ~15.0
+DEATH_LIABILITY_SR = 18.0  # Only liability if ALSO poor strike rate
 
 
 def get_bowler_phase_stats(conn) -> pd.DataFrame:
@@ -101,7 +107,11 @@ def pivot_phase_stats(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def assign_phase_tags(df: pd.DataFrame) -> pd.DataFrame:
-    """Assign phase performance tags based on economy."""
+    """Assign phase performance tags based on economy and strike rate.
+
+    DEATH_LIABILITY requires BOTH high economy AND poor strike rate.
+    A bowler who is expensive but takes wickets is aggressive, not a liability.
+    """
 
     tags = []
 
@@ -124,12 +134,17 @@ def assign_phase_tags(df: pd.DataFrame) -> pd.DataFrame:
             elif eco and eco >= MIDDLE_LIABILITY_ECO:
                 player_tags.append("MIDDLE_OVERS_LIABILITY")
 
-        # Death overs tags
+        # Death overs tags - requires BOTH high economy AND poor strike rate
         if row["death_overs"] and row["death_overs"] >= MIN_DEATH_OVERS:
             eco = row["death_economy"]
+            wickets = row.get("death_wickets", 0) or 0
+            balls = row["death_overs"] * 6 if row["death_overs"] else 0
+            death_sr = balls / wickets if wickets > 0 else 999
+
             if eco and eco <= DEATH_BEAST_ECO:
                 player_tags.append("DEATH_BEAST")
-            elif eco and eco >= DEATH_LIABILITY_ECO:
+            elif eco and eco >= DEATH_LIABILITY_ECO and death_sr >= DEATH_LIABILITY_SR:
+                # Only tag as liability if BOTH expensive AND poor wicket-taker
                 player_tags.append("DEATH_LIABILITY")
 
         tags.append(player_tags)

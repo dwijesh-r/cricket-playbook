@@ -2257,13 +2257,13 @@
       "economy": 8.09,
       "wickets": 221.0,
       "tags": [
-        "MIDDLE_OVERS_CONTROLLER",
-        "RHB_WICKET_TAKER",
+        "RHB_SPECIALIST",
         "LHB_VULNERABLE",
         "PROVEN_WICKET_TAKER",
-        "MIDDLE_OVERS_LIABILITY",
+        "MIDDLE_OVERS_CONTROLLER",
+        "RHB_WICKET_TAKER",
         "RHB_PRESSURE",
-        "RHB_SPECIALIST"
+        "MIDDLE_OVERS_LIABILITY"
       ]
     },
     {
@@ -2314,12 +2314,12 @@
       "economy": 7.29,
       "wickets": 187.0,
       "tags": [
-        "MIDDLE_OVERS_CONTROLLER",
-        "MID_OVERS_ELITE",
-        "PROVEN_WICKET_TAKER",
-        "PP_LIABILITY",
+        "LHB_PRESSURE",
         "SPINNER",
-        "LHB_PRESSURE"
+        "PROVEN_WICKET_TAKER",
+        "MID_OVERS_ELITE",
+        "MIDDLE_OVERS_CONTROLLER",
+        "PP_LIABILITY"
       ]
     },
     {
@@ -2328,15 +2328,15 @@
       "economy": 7.43,
       "wickets": 183.0,
       "tags": [
-        "DEATH_SPECIALIST",
-        "PRESSURE_BUILDER",
+        "DEATH_BEAST",
         "PROVEN_WICKET_TAKER",
-        "RHB_VULNERABLE",
+        "DEATH_SPECIALIST",
         "PP_BEAST",
         "LHB_WICKET_TAKER",
+        "RHB_VULNERABLE",
         "LHB_SPECIALIST",
-        "DEATH_ELITE",
-        "DEATH_BEAST"
+        "PRESSURE_BUILDER",
+        "DEATH_ELITE"
       ]
     },
     {
@@ -2412,12 +2412,11 @@
       "economy": 9.03,
       "wickets": 151.0,
       "tags": [
-        "WORKHORSE",
-        "DEATH_LIABILITY",
+        "RHB_SPECIALIST",
         "LHB_VULNERABLE",
-        "MIDDLE_OVERS_LIABILITY",
         "PROVEN_WICKET_TAKER",
-        "RHB_SPECIALIST"
+        "MIDDLE_OVERS_LIABILITY",
+        "WORKHORSE"
       ]
     },
     {
@@ -2485,14 +2484,13 @@
       "economy": 8.83,
       "wickets": 134.0,
       "tags": [
-        "RHB_WICKET_TAKER",
+        "RHB_SPECIALIST",
         "LHB_VULNERABLE",
         "PROVEN_WICKET_TAKER",
         "PACER",
-        "WORKHORSE",
-        "DEATH_LIABILITY",
+        "RHB_WICKET_TAKER",
         "MIDDLE_OVERS_LIABILITY",
-        "RHB_SPECIALIST"
+        "WORKHORSE"
       ]
     },
     {
@@ -2546,12 +2544,12 @@
       "economy": 8.85,
       "wickets": 119.0,
       "tags": [
+        "RHB_SPECIALIST",
         "LHB_VULNERABLE",
-        "PRESSURE_BUILDER",
         "PROVEN_WICKET_TAKER",
-        "PP_LIABILITY",
         "WORKHORSE",
-        "RHB_SPECIALIST"
+        "PRESSURE_BUILDER",
+        "PP_LIABILITY"
       ]
     },
     {
@@ -2846,11 +2844,11 @@
       "economy": 8.57,
       "wickets": 83.0,
       "tags": [
+        "RHB_SPECIALIST",
         "LHB_VULNERABLE",
-        "WORKHORSE",
         "RHB_PRESSURE",
         "MIDDLE_OVERS_LIABILITY",
-        "RHB_SPECIALIST"
+        "WORKHORSE"
       ]
     },
     {
@@ -2887,7 +2885,6 @@
       "tags": [
         "RHB_WICKET_TAKER",
         "WORKHORSE",
-        "DEATH_LIABILITY",
         "PP_LIABILITY"
       ]
     },
@@ -2970,12 +2967,12 @@
       "economy": 8.31,
       "wickets": 72.0,
       "tags": [
-        "RHB_VULNERABLE",
+        "LHB_PRESSURE",
         "WORKHORSE",
-        "LHB_SPECIALIST",
-        "LHB_WICKET_TAKER",
         "MIDDLE_OVERS_LIABILITY",
-        "LHB_PRESSURE"
+        "LHB_WICKET_TAKER",
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST"
       ]
     },
     {
@@ -3054,9 +3051,9 @@
       "economy": 8.93,
       "wickets": 65.0,
       "tags": [
-        "DEATH_SPECIALIST",
         "PP_LIABILITY",
         "PRESSURE_BUILDER",
+        "DEATH_SPECIALIST",
         "DEATH_ELITE"
       ]
     },
@@ -3128,12 +3125,12 @@
       "economy": 9.31,
       "wickets": 61.0,
       "tags": [
-        "RHB_WICKET_TAKER",
+        "RHB_SPECIALIST",
         "LHB_VULNERABLE",
-        "WORKHORSE",
-        "DEATH_LIABILITY",
         "RHB_PRESSURE",
-        "RHB_SPECIALIST"
+        "RHB_WICKET_TAKER",
+        "WORKHORSE",
+        "DEATH_LIABILITY"
       ]
     },
     {
@@ -3332,11 +3329,11 @@
       "economy": 8.53,
       "wickets": 46.0,
       "tags": [
-        "WORKHORSE",
-        "MIDDLE_OVERS_LIABILITY",
+        "RHB_SPECIALIST",
         "LHB_VULNERABLE",
         "RHB_PRESSURE",
-        "RHB_SPECIALIST"
+        "MIDDLE_OVERS_LIABILITY",
+        "WORKHORSE"
       ]
     },
     {
@@ -3474,9 +3471,9 @@
       "economy": 9.72,
       "wickets": 41.0,
       "tags": [
+        "PART_TIMER",
         "RHB_WICKET_TAKER",
-        "PP_LIABILITY",
-        "PART_TIMER"
+        "PP_LIABILITY"
       ]
     },
     {
@@ -3497,10 +3494,10 @@
       "economy": 9.68,
       "wickets": 40.0,
       "tags": [
-        "PRESSURE_BUILDER",
-        "PP_LIABILITY",
+        "PART_TIMER",
         "LHB_PRESSURE",
-        "PART_TIMER"
+        "PRESSURE_BUILDER",
+        "PP_LIABILITY"
       ]
     },
     {
@@ -3618,8 +3615,8 @@
       "economy": 9.01,
       "wickets": 37.0,
       "tags": [
-        "RHB_WICKET_TAKER",
         "WORKHORSE",
+        "RHB_WICKET_TAKER",
         "MIDDLE_OVERS_LIABILITY"
       ]
     },
@@ -3665,10 +3662,10 @@
       "economy": 9.63,
       "wickets": 36.0,
       "tags": [
-        "PP_LIABILITY",
-        "PRESSURE_BUILDER",
+        "PART_TIMER",
         "LHB_WICKET_TAKER",
-        "PART_TIMER"
+        "PRESSURE_BUILDER",
+        "PP_LIABILITY"
       ]
     },
     {
@@ -4780,8 +4777,8 @@
       "economy": 11.63,
       "wickets": 12.0,
       "tags": [
-        "PP_LIABILITY",
-        "PART_TIMER"
+        "PART_TIMER",
+        "PP_LIABILITY"
       ]
     },
     {

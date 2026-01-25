@@ -2,7 +2,7 @@
 """
 Cricket Playbook - Player Clustering Model V2
 Author: Stephen Curry (Analytics Lead)
-Sprint: 2.5 - Clustering Improvements
+Sprint: 2.9 - Entry Point Bug Fix
 
 V2 Improvements (from Founder Review #1):
 1. Recency weighting - 2x weight for 2021-2025 data
@@ -18,6 +18,11 @@ Changes from V1:
 - Implemented recency weighting
 - Added PCA variance reporting
 - Added correlation matrix analysis
+
+Bug Fix (Sprint 2.9):
+- Fixed avg_batting_position to use legal ball count, not ball_seq
+- ball_seq includes wides/no-balls and can exceed 120 per innings
+- Now uses cumulative legal ball count for accurate position estimation
 """
 
 import duckdb
@@ -28,7 +33,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from pathlib import Path
 import warnings
-warnings.filterwarnings('ignore')
+
+warnings.filterwarnings("ignore")
 
 # Paths
 SCRIPT_DIR = Path(__file__).parent
@@ -47,7 +53,8 @@ MIN_BALLS_BOWLER = 200  # Reduced from 300
 def get_batter_features_v2(conn) -> pd.DataFrame:
     """Extract batter feature vectors with batting position and recency weighting."""
 
-    df = conn.execute("""
+    df = conn.execute(
+        """
         WITH recent_balls AS (
             -- Get balls from recent seasons (2021+) for recency weighting
             SELECT
@@ -60,31 +67,44 @@ def get_batter_features_v2(conn) -> pd.DataFrame:
               AND (dm.season LIKE '2021%' OR dm.season LIKE '2022%' OR dm.season LIKE '2023%' OR dm.season LIKE '2024%' OR dm.season LIKE '2025%')
             GROUP BY fb.batter_id
         ),
+        legal_balls_numbered AS (
+            -- Number only legal balls within each innings (not wides/no-balls)
+            SELECT
+                fb.match_id,
+                fb.innings,
+                fb.batter_id,
+                fb.ball_seq,
+                fb.is_legal_ball,
+                SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END)
+                    OVER (PARTITION BY fb.match_id, fb.innings ORDER BY fb.ball_seq) as legal_ball_num
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+        ),
         batting_position AS (
-            -- Calculate average batting position (entry point)
+            -- Calculate average batting position using LEGAL ball count
             SELECT
                 batter_id as player_id,
                 AVG(batting_position) as avg_batting_position
             FROM (
                 SELECT
-                    fb.batter_id,
-                    fb.match_id,
-                    fb.innings,
-                    MIN(fb.ball_seq) as first_ball,
-                    -- Estimate batting position based on when they first face a ball
+                    batter_id,
+                    match_id,
+                    innings,
+                    MIN(legal_ball_num) as first_legal_ball,
+                    -- Estimate batting position based on when they first face a LEGAL ball
                     CASE
-                        WHEN MIN(fb.ball_seq) <= 6 THEN 1  -- Opener
-                        WHEN MIN(fb.ball_seq) <= 24 THEN 2  -- #3
-                        WHEN MIN(fb.ball_seq) <= 48 THEN 3  -- #4
-                        WHEN MIN(fb.ball_seq) <= 72 THEN 4  -- #5
-                        WHEN MIN(fb.ball_seq) <= 96 THEN 5  -- #6
+                        WHEN MIN(legal_ball_num) <= 6 THEN 1  -- Opener
+                        WHEN MIN(legal_ball_num) <= 24 THEN 2  -- #3
+                        WHEN MIN(legal_ball_num) <= 48 THEN 3  -- #4
+                        WHEN MIN(legal_ball_num) <= 72 THEN 4  -- #5
+                        WHEN MIN(legal_ball_num) <= 96 THEN 5  -- #6
                         ELSE 6  -- Lower order
                     END as batting_position
-                FROM fact_ball fb
-                JOIN dim_match dm ON fb.match_id = dm.match_id
-                JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
-                WHERE dt.tournament_name = 'Indian Premier League'
-                GROUP BY fb.batter_id, fb.match_id, fb.innings
+                FROM legal_balls_numbered
+                WHERE is_legal_ball = true
+                GROUP BY batter_id, match_id, innings
             ) t
             GROUP BY batter_id
         ),
@@ -149,7 +169,8 @@ def get_batter_features_v2(conn) -> pd.DataFrame:
         LEFT JOIN death d ON c.player_id = d.player_id
         LEFT JOIN recent_balls rb ON c.player_id = rb.player_id
         WHERE pp.pp_sr IS NOT NULL OR m.mid_sr IS NOT NULL
-    """.format(min_balls=MIN_BALLS_BATTER)).df()
+    """.format(min_balls=MIN_BALLS_BATTER)
+    ).df()
 
     return df
 
@@ -157,7 +178,8 @@ def get_batter_features_v2(conn) -> pd.DataFrame:
 def get_bowler_features_v2(conn) -> pd.DataFrame:
     """Extract bowler feature vectors with wickets per phase."""
 
-    df = conn.execute("""
+    df = conn.execute(
+        """
         WITH recent_balls AS (
             SELECT
                 fb.bowler_id as player_id,
@@ -268,12 +290,15 @@ def get_bowler_features_v2(conn) -> pd.DataFrame:
         LEFT JOIN wickets_by_phase wp ON c.player_id = wp.player_id
         LEFT JOIN recent_balls rb ON c.player_id = rb.player_id
         WHERE pp.pp_economy IS NOT NULL OR m.mid_economy IS NOT NULL OR d.death_economy IS NOT NULL
-    """.format(min_balls=MIN_BALLS_BOWLER)).df()
+    """.format(min_balls=MIN_BALLS_BOWLER)
+    ).df()
 
     return df
 
 
-def analyze_correlations(df: pd.DataFrame, feature_cols: list, threshold: float = 0.9) -> list:
+def analyze_correlations(
+    df: pd.DataFrame, feature_cols: list, threshold: float = 0.9
+) -> list:
     """Analyze feature correlations and return columns to drop."""
 
     numeric_df = df[feature_cols].dropna()
@@ -297,7 +322,9 @@ def analyze_correlations(df: pd.DataFrame, feature_cols: list, threshold: float 
     return to_drop
 
 
-def pca_variance_analysis(X: np.ndarray, feature_cols: list, target_variance: float = 0.5) -> dict:
+def pca_variance_analysis(
+    X: np.ndarray, feature_cols: list, target_variance: float = 0.5
+) -> dict:
     """Perform PCA and analyze variance explained."""
 
     pca = PCA()
@@ -309,11 +336,13 @@ def pca_variance_analysis(X: np.ndarray, feature_cols: list, target_variance: fl
     n_components_target = np.argmax(cumulative_variance >= target_variance) + 1
 
     result = {
-        'explained_variance_ratio': pca.explained_variance_ratio_,
-        'cumulative_variance': cumulative_variance,
-        'n_components_for_target': n_components_target,
-        'variance_at_target': cumulative_variance[n_components_target - 1] if n_components_target <= len(cumulative_variance) else cumulative_variance[-1],
-        'total_components': len(feature_cols)
+        "explained_variance_ratio": pca.explained_variance_ratio_,
+        "cumulative_variance": cumulative_variance,
+        "n_components_for_target": n_components_target,
+        "variance_at_target": cumulative_variance[n_components_target - 1]
+        if n_components_target <= len(cumulative_variance)
+        else cumulative_variance[-1],
+        "total_components": len(feature_cols),
     }
 
     return result
@@ -324,28 +353,34 @@ def cluster_batters_v2(df: pd.DataFrame, n_clusters: int = 5) -> tuple:
 
     # V2 features including batting position
     feature_cols = [
-        'overall_sr', 'overall_avg', 'overall_boundary', 'overall_dot',
-        'avg_batting_position',  # NEW: batting entry point
-        'pp_sr', 'pp_boundary',
-        'mid_sr', 'mid_boundary',
-        'death_sr', 'death_boundary'
+        "overall_sr",
+        "overall_avg",
+        "overall_boundary",
+        "overall_dot",
+        "avg_batting_position",  # NEW: batting entry point
+        "pp_sr",
+        "pp_boundary",
+        "mid_sr",
+        "mid_boundary",
+        "death_sr",
+        "death_boundary",
     ]
 
     # Filter to rows with key features
-    df_clean = df.dropna(subset=['overall_sr', 'overall_avg']).copy()
+    df_clean = df.dropna(subset=["overall_sr", "overall_avg"]).copy()
 
     # Fill missing phase data with career averages
     for col in feature_cols:
         if col in df_clean.columns:
             df_clean[col] = df_clean[col].fillna(df_clean[col].median())
 
-    print(f"\n  Correlation Analysis:")
+    print("\n  Correlation Analysis:")
     cols_to_drop = analyze_correlations(df_clean, feature_cols)
     if cols_to_drop:
         print(f"    Removing highly correlated: {cols_to_drop}")
         feature_cols = [c for c in feature_cols if c not in cols_to_drop]
     else:
-        print(f"    No features exceed r=0.9 threshold")
+        print("    No features exceed r=0.9 threshold")
 
     if len(df_clean) < n_clusters:
         print(f"  Warning: Only {len(df_clean)} batters with complete data")
@@ -356,26 +391,34 @@ def cluster_batters_v2(df: pd.DataFrame, n_clusters: int = 5) -> tuple:
     X = scaler.fit_transform(df_clean[feature_cols])
 
     # Apply recency weighting
-    if 'recency_weight' in df_clean.columns:
-        weights = df_clean['recency_weight'].values.reshape(-1, 1)
+    if "recency_weight" in df_clean.columns:
+        weights = df_clean["recency_weight"].values.reshape(-1, 1)
         X = X * np.sqrt(weights)  # Square root to moderate the effect
 
     # PCA variance analysis
-    print(f"\n  PCA Variance Analysis:")
+    print("\n  PCA Variance Analysis:")
     pca_result = pca_variance_analysis(X, feature_cols)
-    print(f"    Components for 50% variance: {pca_result['n_components_for_target']} of {pca_result['total_components']}")
-    print(f"    Variance explained by first 3 PCs: {pca_result['cumulative_variance'][2]*100:.1f}%")
+    print(
+        f"    Components for 50% variance: {pca_result['n_components_for_target']} of {pca_result['total_components']}"
+    )
+    print(
+        f"    Variance explained by first 3 PCs: {pca_result['cumulative_variance'][2]*100:.1f}%"
+    )
 
     # K-means clustering
     kmeans = KMeans(n_clusters=n_clusters, random_state=42, n_init=10)
-    df_clean['cluster'] = kmeans.fit_predict(X)
+    df_clean["cluster"] = kmeans.fit_predict(X)
 
     # Cluster centers
     centers = pd.DataFrame(
-        scaler.inverse_transform(kmeans.cluster_centers_ / np.sqrt(weights.mean()) if 'recency_weight' in df_clean.columns else kmeans.cluster_centers_),
-        columns=feature_cols
+        scaler.inverse_transform(
+            kmeans.cluster_centers_ / np.sqrt(weights.mean())
+            if "recency_weight" in df_clean.columns
+            else kmeans.cluster_centers_
+        ),
+        columns=feature_cols,
     )
-    centers['cluster'] = range(n_clusters)
+    centers["cluster"] = range(n_clusters)
 
     return df_clean, centers, pca_result
 
@@ -385,28 +428,38 @@ def cluster_bowlers_v2(df: pd.DataFrame, n_clusters: int = 5) -> tuple:
 
     # V2 features including wickets per phase
     feature_cols = [
-        'overall_economy', 'overall_sr', 'overall_dot', 'overall_boundary',
-        'pp_economy', 'pp_dot',
-        'mid_economy', 'mid_dot',
-        'death_economy', 'death_dot',
-        'pp_pct', 'mid_pct', 'death_pct',
-        'pp_wickets', 'mid_wickets', 'death_wickets'  # NEW: wickets per phase
+        "overall_economy",
+        "overall_sr",
+        "overall_dot",
+        "overall_boundary",
+        "pp_economy",
+        "pp_dot",
+        "mid_economy",
+        "mid_dot",
+        "death_economy",
+        "death_dot",
+        "pp_pct",
+        "mid_pct",
+        "death_pct",
+        "pp_wickets",
+        "mid_wickets",
+        "death_wickets",  # NEW: wickets per phase
     ]
 
-    df_clean = df.dropna(subset=['overall_economy']).copy()
+    df_clean = df.dropna(subset=["overall_economy"]).copy()
 
     # Fill missing data
     for col in feature_cols:
         if col in df_clean.columns:
             df_clean[col] = df_clean[col].fillna(df_clean[col].median())
 
-    print(f"\n  Correlation Analysis:")
+    print("\n  Correlation Analysis:")
     cols_to_drop = analyze_correlations(df_clean, feature_cols)
     if cols_to_drop:
         print(f"    Removing highly correlated: {cols_to_drop}")
         feature_cols = [c for c in feature_cols if c not in cols_to_drop]
     else:
-        print(f"    No features exceed r=0.9 threshold")
+        print("    No features exceed r=0.9 threshold")
 
     if len(df_clean) < n_clusters:
         print(f"  Warning: Only {len(df_clean)} bowlers with complete data")
@@ -416,24 +469,32 @@ def cluster_bowlers_v2(df: pd.DataFrame, n_clusters: int = 5) -> tuple:
     X = scaler.fit_transform(df_clean[feature_cols])
 
     # Apply recency weighting
-    if 'recency_weight' in df_clean.columns:
-        weights = df_clean['recency_weight'].values.reshape(-1, 1)
+    if "recency_weight" in df_clean.columns:
+        weights = df_clean["recency_weight"].values.reshape(-1, 1)
         X = X * np.sqrt(weights)
 
     # PCA variance analysis
-    print(f"\n  PCA Variance Analysis:")
+    print("\n  PCA Variance Analysis:")
     pca_result = pca_variance_analysis(X, feature_cols)
-    print(f"    Components for 50% variance: {pca_result['n_components_for_target']} of {pca_result['total_components']}")
-    print(f"    Variance explained by first 3 PCs: {pca_result['cumulative_variance'][2]*100:.1f}%")
+    print(
+        f"    Components for 50% variance: {pca_result['n_components_for_target']} of {pca_result['total_components']}"
+    )
+    print(
+        f"    Variance explained by first 3 PCs: {pca_result['cumulative_variance'][2]*100:.1f}%"
+    )
 
     kmeans = KMeans(n_clusters=n_clusters, random_state=42, n_init=10)
-    df_clean['cluster'] = kmeans.fit_predict(X)
+    df_clean["cluster"] = kmeans.fit_predict(X)
 
     centers = pd.DataFrame(
-        scaler.inverse_transform(kmeans.cluster_centers_ / np.sqrt(weights.mean()) if 'recency_weight' in df_clean.columns else kmeans.cluster_centers_),
-        columns=feature_cols
+        scaler.inverse_transform(
+            kmeans.cluster_centers_ / np.sqrt(weights.mean())
+            if "recency_weight" in df_clean.columns
+            else kmeans.cluster_centers_
+        ),
+        columns=feature_cols,
     )
-    centers['cluster'] = range(n_clusters)
+    centers["cluster"] = range(n_clusters)
 
     return df_clean, centers, pca_result
 
@@ -441,32 +502,44 @@ def cluster_bowlers_v2(df: pd.DataFrame, n_clusters: int = 5) -> tuple:
 def validate_specific_players(batter_df: pd.DataFrame, bowler_df: pd.DataFrame):
     """Validate classifications for players mentioned in Founder Review."""
 
-    print("\n" + "="*70)
+    print("\n" + "=" * 70)
     print("PLAYER CLASSIFICATION VALIDATION (Founder Review Items)")
-    print("="*70)
+    print("=" * 70)
 
     # Players to validate
     batter_checks = [
-        ('MS Dhoni', 'Should be FINISHER, good in death overs'),
-        ('Jos Buttler', 'Bats at top order (1-4) in recent years'),
-        ('Rajat Patidar', 'Bats at 1-4, explosive'),
-        ('Rishabh Pant', 'Bats at 1-4, aggressive'),
-        ('Suryakumar Yadav', 'Bats at 1-4, goes berzerk'),
+        ("MS Dhoni", "Should be FINISHER, good in death overs"),
+        ("Jos Buttler", "Bats at top order (1-4) in recent years"),
+        ("Rajat Patidar", "Bats at 1-4, explosive"),
+        ("Rishabh Pant", "Bats at 1-4, aggressive"),
+        ("Suryakumar Yadav", "Bats at 1-4, goes berzerk"),
     ]
 
     bowler_checks = [
-        ('Anrich Nortje', 'Should NOT be part-timer - specialist fast bowler'),
+        ("Anrich Nortje", "Should NOT be part-timer - specialist fast bowler"),
     ]
 
     print("\n  BATTER VALIDATIONS:")
     for player_name, note in batter_checks:
-        matches = batter_df[batter_df['player_name'].str.contains(player_name.split()[0], case=False, na=False)]
+        matches = batter_df[
+            batter_df["player_name"].str.contains(
+                player_name.split()[0], case=False, na=False
+            )
+        ]
         if len(matches) > 0:
             row = matches.iloc[0]
             print(f"\n  {row['player_name']}:")
             print(f"    Cluster: {row['cluster']}")
-            print(f"    Avg Batting Position: {row.get('avg_batting_position', 'N/A'):.1f}" if pd.notna(row.get('avg_batting_position')) else "    Avg Batting Position: N/A")
-            print(f"    Death SR: {row.get('death_sr', 'N/A'):.1f}" if pd.notna(row.get('death_sr')) else "    Death SR: N/A")
+            print(
+                f"    Avg Batting Position: {row.get('avg_batting_position', 'N/A'):.1f}"
+                if pd.notna(row.get("avg_batting_position"))
+                else "    Avg Batting Position: N/A"
+            )
+            print(
+                f"    Death SR: {row.get('death_sr', 'N/A'):.1f}"
+                if pd.notna(row.get("death_sr"))
+                else "    Death SR: N/A"
+            )
             print(f"    Overall SR: {row['overall_sr']:.1f}")
             print(f"    Note: {note}")
         else:
@@ -474,7 +547,11 @@ def validate_specific_players(batter_df: pd.DataFrame, bowler_df: pd.DataFrame):
 
     print("\n  BOWLER VALIDATIONS:")
     for player_name, note in bowler_checks:
-        matches = bowler_df[bowler_df['player_name'].str.contains(player_name.split()[0], case=False, na=False)]
+        matches = bowler_df[
+            bowler_df["player_name"].str.contains(
+                player_name.split()[0], case=False, na=False
+            )
+        ]
         if len(matches) > 0:
             row = matches.iloc[0]
             print(f"\n  {row['player_name']}:")
@@ -494,32 +571,56 @@ def analyze_clusters_v2(df: pd.DataFrame, centers: pd.DataFrame, player_type: st
     print(f"{player_type.upper()} CLUSTER ANALYSIS (V2)")
     print(f"{'='*70}")
 
-    for cluster_id in sorted(df['cluster'].unique()):
-        cluster_players = df[df['cluster'] == cluster_id]
-        center = centers[centers['cluster'] == cluster_id].iloc[0]
+    for cluster_id in sorted(df["cluster"].unique()):
+        cluster_players = df[df["cluster"] == cluster_id]
+        center = centers[centers["cluster"] == cluster_id].iloc[0]
 
         print(f"\n--- CLUSTER {cluster_id} ({len(cluster_players)} players) ---")
 
-        if player_type == 'batter':
-            print(f"  Avg Batting Position: {center.get('avg_batting_position', 'N/A'):.1f}" if 'avg_batting_position' in center else "")
-            print(f"  Overall SR: {center['overall_sr']:.1f} | Avg: {center['overall_avg']:.1f}")
+        if player_type == "batter":
+            print(
+                f"  Avg Batting Position: {center.get('avg_batting_position', 'N/A'):.1f}"
+                if "avg_batting_position" in center
+                else ""
+            )
+            print(
+                f"  Overall SR: {center['overall_sr']:.1f} | Avg: {center['overall_avg']:.1f}"
+            )
             print(f"  Boundary%: {center['overall_boundary']:.1f}%")
-            print(f"  PP SR: {center.get('pp_sr', 0):.1f} | Mid SR: {center.get('mid_sr', 0):.1f} | Death SR: {center.get('death_sr', 0):.1f}")
+            print(
+                f"  PP SR: {center.get('pp_sr', 0):.1f} | Mid SR: {center.get('mid_sr', 0):.1f} | Death SR: {center.get('death_sr', 0):.1f}"
+            )
         else:
-            print(f"  Overall Economy: {center['overall_economy']:.2f} | SR: {center.get('overall_sr', 0):.1f}")
+            print(
+                f"  Overall Economy: {center['overall_economy']:.2f} | SR: {center.get('overall_sr', 0):.1f}"
+            )
             print(f"  Dot Ball%: {center['overall_dot']:.1f}%")
-            print(f"  PP Econ: {center.get('pp_economy', 0):.2f} | Mid: {center.get('mid_economy', 0):.2f} | Death: {center.get('death_economy', 0):.2f}")
-            print(f"  Wickets - PP: {center.get('pp_wickets', 0):.0f} | Mid: {center.get('mid_wickets', 0):.0f} | Death: {center.get('death_wickets', 0):.0f}")
-            print(f"  Phase%: PP {center.get('pp_pct', 0):.1f}% | Mid {center.get('mid_pct', 0):.1f}% | Death {center.get('death_pct', 0):.1f}%")
+            print(
+                f"  PP Econ: {center.get('pp_economy', 0):.2f} | Mid: {center.get('mid_economy', 0):.2f} | Death: {center.get('death_economy', 0):.2f}"
+            )
+            print(
+                f"  Wickets - PP: {center.get('pp_wickets', 0):.0f} | Mid: {center.get('mid_wickets', 0):.0f} | Death: {center.get('death_wickets', 0):.0f}"
+            )
+            print(
+                f"  Phase%: PP {center.get('pp_pct', 0):.1f}% | Mid {center.get('mid_pct', 0):.1f}% | Death {center.get('death_pct', 0):.1f}%"
+            )
 
         # Show top players
-        print(f"\n  Players:")
+        print("\n  Players:")
         for _, player in cluster_players.head(8).iterrows():
-            if player_type == 'batter':
-                pos = f", Pos:{player.get('avg_batting_position', 0):.1f}" if pd.notna(player.get('avg_batting_position')) else ""
-                print(f"    - {player['player_name']} (SR: {player['overall_sr']:.1f}{pos})")
+            if player_type == "batter":
+                pos = (
+                    f", Pos:{player.get('avg_batting_position', 0):.1f}"
+                    if pd.notna(player.get("avg_batting_position"))
+                    else ""
+                )
+                print(
+                    f"    - {player['player_name']} (SR: {player['overall_sr']:.1f}{pos})"
+                )
             else:
-                print(f"    - {player['player_name']} (Econ: {player['overall_economy']:.2f}, Wkts: {int(player['wickets'])})")
+                print(
+                    f"    - {player['player_name']} (Econ: {player['overall_economy']:.2f}, Wkts: {int(player['wickets'])})"
+                )
 
         if len(cluster_players) > 8:
             print(f"    ... and {len(cluster_players) - 8} more")
@@ -528,10 +629,10 @@ def analyze_clusters_v2(df: pd.DataFrame, centers: pd.DataFrame, player_type: st
 def main():
     """Main entry point for V2 clustering."""
 
-    print("="*70)
+    print("=" * 70)
     print("Cricket Playbook - Player Clustering Model V2")
     print("Author: Stephen Curry | Sprint 2.5")
-    print("="*70)
+    print("=" * 70)
     print("\nV2 Improvements:")
     print("  - Batting position / entry point feature")
     print("  - Wickets per phase for bowlers")
@@ -546,9 +647,9 @@ def main():
     conn = duckdb.connect(str(DB_PATH))
 
     # Extract features
-    print("\n" + "="*70)
+    print("\n" + "=" * 70)
     print("1. EXTRACTING PLAYER FEATURES (V2)")
-    print("="*70)
+    print("=" * 70)
 
     batter_df = get_batter_features_v2(conn)
     bowler_df = get_bowler_features_v2(conn)
@@ -557,42 +658,50 @@ def main():
     print(f"  Bowlers with data: {len(bowler_df)}")
 
     # Cluster batters
-    print("\n" + "="*70)
+    print("\n" + "=" * 70)
     print("2. CLUSTERING BATTERS (V2)")
-    print("="*70)
-    batter_clusters, batter_centers, batter_pca = cluster_batters_v2(batter_df, n_clusters=5)
+    print("=" * 70)
+    batter_clusters, batter_centers, batter_pca = cluster_batters_v2(
+        batter_df, n_clusters=5
+    )
 
     # Cluster bowlers
-    print("\n" + "="*70)
+    print("\n" + "=" * 70)
     print("3. CLUSTERING BOWLERS (V2)")
-    print("="*70)
-    bowler_clusters, bowler_centers, bowler_pca = cluster_bowlers_v2(bowler_df, n_clusters=5)
+    print("=" * 70)
+    bowler_clusters, bowler_centers, bowler_pca = cluster_bowlers_v2(
+        bowler_df, n_clusters=5
+    )
 
     # Analyze clusters
-    analyze_clusters_v2(batter_clusters, batter_centers, 'batter')
-    analyze_clusters_v2(bowler_clusters, bowler_centers, 'bowler')
+    analyze_clusters_v2(batter_clusters, batter_centers, "batter")
+    analyze_clusters_v2(bowler_clusters, bowler_centers, "bowler")
 
     # Validate specific players
     validate_specific_players(batter_clusters, bowler_clusters)
 
     # Summary
-    print("\n" + "="*70)
+    print("\n" + "=" * 70)
     print("V2 CLUSTERING SUMMARY")
-    print("="*70)
+    print("=" * 70)
     print(f"\n  Batters clustered: {len(batter_clusters)}")
     print(f"  Bowlers clustered: {len(bowler_clusters)}")
-    print(f"\n  PCA Variance (Batters):")
-    print(f"    Components for 50%: {batter_pca['n_components_for_target']}/{batter_pca['total_components']}")
+    print("\n  PCA Variance (Batters):")
+    print(
+        f"    Components for 50%: {batter_pca['n_components_for_target']}/{batter_pca['total_components']}"
+    )
     print(f"    First 3 PCs explain: {batter_pca['cumulative_variance'][2]*100:.1f}%")
-    print(f"\n  PCA Variance (Bowlers):")
-    print(f"    Components for 50%: {bowler_pca['n_components_for_target']}/{bowler_pca['total_components']}")
+    print("\n  PCA Variance (Bowlers):")
+    print(
+        f"    Components for 50%: {bowler_pca['n_components_for_target']}/{bowler_pca['total_components']}"
+    )
     print(f"    First 3 PCs explain: {bowler_pca['cumulative_variance'][2]*100:.1f}%")
 
     conn.close()
 
-    print("\n" + "="*70)
+    print("\n" + "=" * 70)
     print("NEXT: Andy Flower to review V2 clusters and validate labels")
-    print("="*70)
+    print("=" * 70)
 
     return 0
 

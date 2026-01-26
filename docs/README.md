@@ -9,6 +9,7 @@ Project documentation, requirements, and technical guides.
 | Document | Description | Owner |
 |----------|-------------|-------|
 | `PRD_CRICKET_PLAYBOOK.md` | Product Requirements Document | Tom Brady |
+| `KANBAN.md` | Sprint Kanban Board (Sprint 3.0 complete) | Tom Brady |
 | `cicd_best_practices.md` | CI/CD and codebase maintenance guide | Brad Stevens |
 
 ---
@@ -67,7 +68,8 @@ Comprehensive CI/CD and codebase maintenance recommendations by Brad Stevens.
 | Location | Content |
 |----------|---------|
 | `README.md` (root) | Project overview, quick start, analytics views |
-| `outputs/README.md` | Output files, tag definitions, data ranges |
+| `outputs/README.md` | Output files (25+), tag definitions, data ranges |
+| `analysis/` | **NEW** EDA reports, entry point audit |
 | `ml_ops/README.md` | Model architecture, features, deployment gates |
 | `config/README.md` | Agent definitions, workflows |
 | `stat_packs/README.md` | Stat pack structure, player archetypes |
@@ -80,11 +82,11 @@ Comprehensive CI/CD and codebase maintenance recommendations by Brad Stevens.
 
 | Owner | Documents |
 |-------|-----------|
-| Tom Brady | PRD, main README, founder review responses |
+| Tom Brady | PRD, KANBAN, main README, founder review responses |
 | Brad Stevens | CI/CD guide, contributing guide (planned) |
-| Stephen Curry | Technical specs in ml_ops/, outputs/ |
+| Stephen Curry | Technical specs in ml_ops/, outputs/, analysis/ |
 | Andy Flower | Domain validation in editorial/clustering/ |
 
 ---
 
-*Cricket Playbook v2.8.0*
+*Cricket Playbook v3.0.1*

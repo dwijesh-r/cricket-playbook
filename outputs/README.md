@@ -11,17 +11,34 @@ Generated data artifacts from analytics scripts.
 | Output File | Data Range | Notes |
 |-------------|------------|-------|
 | `player_tags.json` | 2023-2025 | Recent 3 IPL seasons (219 matches) |
+| `player_tags_2023.json` | 2023-2025 | **NEW** Explicit 2023+ version |
 | `bowler_handedness_matchup.csv` | 2023-2025 | Recent 3 IPL seasons |
+| `bowler_handedness_matchup_2023.csv` | 2023-2025 | **NEW** Explicit 2023+ version |
 | `batter_bowling_type_matchup.csv` | 2023-2025 | Recent 3 IPL seasons |
+| `batter_bowling_type_matchup_2023.csv` | 2023-2025 | **NEW** Explicit 2023+ version |
 | `batter_bowling_type_detail.csv` | 2023-2025 | Recent 3 IPL seasons |
+| `batter_bowling_type_detail_2023.csv` | 2023-2025 | **NEW** Explicit 2023+ version |
 | `bowler_phase_performance.csv` | 2023-2025 | Recent 3 IPL seasons |
 | `batter_entry_points.csv` | 2023-2025 | Recent 3 IPL seasons |
+| `batter_entry_points_2023.csv` | 2023-2025 | **NEW** 197 batters classified |
 | `bowler_over_timing.csv` | 2023-2025 | Recent 3 IPL seasons |
 | `ipl_2026_squad_experience.csv` | 2023-2025 | Recent 3 IPL seasons |
+| `player_clustering_2023.csv` | 2023-2025 | **NEW** Clustering output |
+| `batter_consistency_index.csv` | 2023-2025 | **NEW** Consistency metrics |
+| `batter_consistency_by_year.csv` | 2023-2025 | **NEW** Yearly breakdown |
+| `partnership_synergy.csv` | 2023-2025 | **NEW** Partnership scores |
+| `partnership_synergy_by_year.csv` | 2023-2025 | **NEW** Yearly breakdown |
+| `bowler_pressure_sequences.csv` | 2023-2025 | **NEW** Pressure performance |
+| `bowler_pressure_by_year.csv` | 2023-2025 | **NEW** Yearly breakdown |
+| `bowler_role_tags.csv` | 2023-2025 | **NEW** Role classifications |
+| `team_venue_records.csv` | 2023-2025 | **NEW** Venue win/loss |
+| `team_venue_records_by_year.csv` | 2023-2025 | **NEW** Yearly breakdown |
+| `bowler_phase_distribution_grouped.csv` | 2023-2025 | **NEW** Phase tables |
+| `player_id_audit_report.md` | N/A | **NEW** 15 mismatches documented |
 
-**Founder Review Note:** Per Review #3, data is now filtered to 2023+ instead of using recency weighting. This ensures stats reflect current player form and game evolution.
+**Founder Review Note:** Per Review #4, all outputs now have explicit 2023+ versions for Founder review.
 
-**Last Updated:** 2026-01-25
+**Last Updated:** 2026-01-26
 
 ---
 
@@ -101,8 +118,11 @@ Generated data artifacts from analytics scripts.
 | `PP_LIABILITY` | > 9.5 | 30 overs |
 | `MIDDLE_OVERS_BEAST` | < 7.0 | 50 overs |
 | `MIDDLE_OVERS_LIABILITY` | > 8.5 | 50 overs |
-| `DEATH_BEAST` | < 8.5 | 30 overs |
-| `DEATH_LIABILITY` | > 10.5 | 30 overs |
+| `DEATH_BEAST` | < 9.0 | 30 overs |
+| `DEATH_LIABILITY` | > 12.0 AND SR > 18.0 | 30 overs |
+| `MIDDLE_AND_DEATH_SPECIALIST` | Bowls both phases | N/A |
+
+**Note:** DEATH_LIABILITY requires BOTH high economy (>12.0) AND poor strike rate (>18.0) to prevent mislabeling aggressive wicket-takers.
 
 #### Bowler Elite Tags (Top Performers)
 
@@ -125,14 +145,18 @@ Generated data artifacts from analytics scripts.
 | `LHB_VULNERABLE` | Economy ≥ 1.0 worse vs LHB | 60 balls vs each |
 | `RHB_VULNERABLE` | Economy ≥ 1.0 worse vs RHB | 60 balls vs each |
 
-#### Batter Entry Position Tags
+#### Batter Entry Position Tags (Revised Sprint 3.0)
 
-| Tag | Median Entry Ball | Typical Position |
-|-----|-------------------|------------------|
-| `OPENER` | ≤ 6 (over 1) | #1-2 |
-| `TOP_ORDER` | 7-24 (overs 2-4) | #3 |
-| `MIDDLE_ORDER` | 25-60 (overs 5-10) | #4-5 |
-| `LOWER_ORDER` | > 60 (over 10+) | #6-7+ |
+| Tag | Avg Entry Ball | Over Range | Notes |
+|-----|----------------|------------|-------|
+| `TOP_ORDER` | < 30 balls | Overs 1-5 | Openers + #3 |
+| `MIDDLE_ORDER` | 30-72 balls | Overs 5-12 | #4-5 |
+| `LOWER_ORDER` | > 72 balls | Overs 12+ | #6-7+ finishers |
+
+**EDA Percentiles (2023+ IPL):**
+- P25: 21.7 balls (Top Order cutoff)
+- P50: 67.8 balls (Middle Order median)
+- P75: 95.6 balls (Lower Order typical)
 
 #### Bowler Role Tags
 
@@ -518,4 +542,4 @@ All outputs include confidence indicators:
 
 ---
 
-*Cricket Playbook v2.8.0 - Sprint 2.8 (Andy Flower Review)*
+*Cricket Playbook v3.0.1 - Sprint 3.0 (Founder Review #4)*

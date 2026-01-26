@@ -1,7 +1,7 @@
 # IPL 2026 Stat Packs
 
-**Version:** 2.8.0
-**Generated:** 2026-01-25
+**Version:** 3.0.1
+**Generated:** 2026-01-26
 **Data Range:** IPL 2023-2025 (219 matches)
 **Prepared by:** Cricket Playbook Analytics Team
 
@@ -96,7 +96,8 @@ Stat packs integrate with the **K-means Clustering V2** model for player archety
 | WORKHORSE | High-volume, multi-phase bowlers |
 | NEW_BALL_SPECIALIST | Opening bowlers, powerplay focus |
 | MIDDLE_OVERS_CONTROLLER | Middle-phase specialists |
-| DEATH_SPECIALIST | Death-overs specialists |
+| DEATH_SPECIALIST | Death-overs specialists (≥1 over in 16+) |
+| MIDDLE_AND_DEATH_SPECIALIST | **NEW** Bowls both middle and death phases |
 | PART_TIMER | Part-time bowling options |
 
 ### Player Tags
@@ -109,8 +110,9 @@ Players receive multiple tags based on performance:
 
 **Phase Tags (Bowlers):**
 - `PP_BEAST` - Economy <7.0 in powerplay (30+ overs)
-- `DEATH_BEAST` - Economy <8.5 at death (30+ overs)
-- `PP_LIABILITY` / `DEATH_LIABILITY` - High economy in phase
+- `DEATH_BEAST` - Economy <9.0 at death (30+ overs)
+- `PP_LIABILITY` - Economy >9.5 in powerplay
+- `DEATH_LIABILITY` - Economy >12.0 AND Strike Rate >18.0 at death
 
 **Handedness Tags (Bowlers):**
 - `LHB_SPECIALIST` / `RHB_SPECIALIST` - ≥5% better economy
@@ -230,4 +232,4 @@ For questions or issues:
 
 ---
 
-*Cricket Playbook Analytics Engine v2.8.0*
+*Cricket Playbook Analytics Engine v3.0.1*

@@ -204,8 +204,9 @@ All views include sample size indicators:
 | PP_LIABILITY | >9.5 | 30 |
 | MIDDLE_OVERS_BEAST | <7.0 | 50 |
 | MIDDLE_OVERS_LIABILITY | >8.5 | 50 |
-| DEATH_BEAST | <8.5 | 30 |
-| DEATH_LIABILITY | >10.5 | 30 |
+| DEATH_BEAST | <9.0 | 30 |
+| DEATH_LIABILITY | >12.0 AND SR >18.0 | 30 |
+| MIDDLE_AND_DEATH_SPECIALIST | Bowls both phases | N/A |
 
 **Handedness Tags (Bowlers):**
 - `LHB_SPECIALIST` / `RHB_SPECIALIST`: ≥5% better economy vs that handedness
@@ -239,7 +240,9 @@ Open `notebooks/view_explorer.ipynb` in VS Code or Jupyter to run interactive SQ
 
 | Version | Date | Changes |
 |---------|------|---------|
-| v2.8.0 | 2026-01-25 | **2023+ data filter**, standardized cluster labels, CSV schema docs, Andy Flower review |
+| v3.0.1 | 2026-01-26 | **Sprint 3.0 Complete**: 16 new 2023+ outputs, EDA-backed thresholds, entry point audit (197 batters), player ID audit (15 mismatches), P1 features (Consistency Index, Partnership Synergy, Venue Records, Bowler Pressure) |
+| v2.9.0 | 2026-01-25 | CI/CD (GitHub Actions, pre-commit hooks), DEATH_LIABILITY threshold fix |
+| v2.8.0 | 2026-01-25 | 2023+ data filter, standardized cluster labels, CSV schema docs, Andy Flower review |
 | v2.7.0 | 2026-01-24 | Founder Review #3 fixes, phase tags, dismissal quality metrics |
 | v2.6.0 | 2026-01-23 | Founder Review #2 fixes, entry point analysis, batter vs bowling type matchups |
 | v2.5.0 | 2026-01-21 | Clustering V2, LHB/RHB matchups, ML Ops, repo reorganization |
@@ -254,25 +257,30 @@ Open `notebooks/view_explorer.ipynb` in VS Code or Jupyter to run interactive SQ
 
 ## Next Steps
 
-### Sprint 2.9 - Production Readiness
+### Sprint 3.1 - Data Quality Fixes
 
 | Priority | Task | Owner | Status |
 |----------|------|-------|--------|
-| P0 | Add GitHub Actions CI workflow (lint + test) | Brad Stevens | Planned |
-| P0 | Pre-commit hooks (Ruff, mypy) | Brad Stevens | Planned |
-| P1 | Model serialization with joblib | Ime Udoka | Planned |
-| P1 | Add recency weighting option (toggle 2023+ vs weighted) | Stephen Curry | Planned |
-| P2 | Interactive dashboard (Streamlit/Gradio) | Kevin de Bruyne | Planned |
-| P2 | Great Expectations data validation | Brock Purdy | Planned |
-| P3 | API endpoint for real-time queries | Jayson Tatum | Planned |
+| P0 | Fix 15 player ID mismatches in ETL | Brock Purdy | Planned |
+| P1 | Regenerate stat packs with fixed IDs | Stephen Curry | Planned |
+| P1 | Great Expectations pipeline integration | Brock Purdy | Planned |
+| Background | CI/CD improvements (caching, artifacts) | Ime Udoka | Planned |
+
+### Completed (Sprint 3.0)
+
+- 16 new 2023+ output files
+- Entry point audit (197 batters classified)
+- Player ID mismatch audit (15 issues documented)
+- EDA-backed threshold revision
+- Consistency Index, Partnership Synergy, Venue Records
+- Bowler Pressure Sequences, Role Tags revision
 
 ### Backlog
 
-- **Venue-specific analysis:** Pitch conditions, toss impact
-- **Form tracking:** Rolling 10-match performance
-- **Opposition-specific tactics:** Matchup recommendations per opponent
-- **Historical trend analysis:** Year-over-year player evolution
-- **Injury/availability tracking:** Squad fitness monitoring
+- **REST API:** FastAPI endpoint for real-time queries
+- **Win Probability Model:** Live match predictions
+- **Player Form Tracker:** Rolling 10-match performance
+- **Interactive Dashboard:** Streamlit/Gradio visualization
 
 ## Team
 
@@ -294,4 +302,4 @@ Internal use only - Cricket Playbook Editorial Team
 
 ---
 
-*Cricket Playbook v2.8.0 - IPL 2026 Analytics Platform*
+*Cricket Playbook v3.0.1 - IPL 2026 Analytics Platform*

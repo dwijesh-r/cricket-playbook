@@ -1,235 +1,48 @@
-# IPL 2026 Stat Packs
+# Stat Packs
 
-**Version:** 3.0.1
-**Generated:** 2026-01-26
+Team statistical reports for IPL 2026.
+
 **Data Range:** IPL 2023-2025 (219 matches)
-**Prepared by:** Cricket Playbook Analytics Team
 
 ---
 
-## Overview
+## Teams
 
-This directory contains comprehensive statistical analysis for all 10 IPL 2026 teams. Each stat pack provides detailed batting, bowling, and tactical insights for the team's squad.
-
-## Files
-
-| File | Team | Size |
-|------|------|------|
-| `CSK_stat_pack.md` | Chennai Super Kings | ~25KB |
-| `DC_stat_pack.md` | Delhi Capitals | ~27KB |
-| `GT_stat_pack.md` | Gujarat Titans | ~24KB |
-| `KKR_stat_pack.md` | Kolkata Knight Riders | ~25KB |
-| `LSG_stat_pack.md` | Lucknow Super Giants | ~23KB |
-| `MI_stat_pack.md` | Mumbai Indians | ~28KB |
-| `PBKS_stat_pack.md` | Punjab Kings | ~24KB |
-| `RCB_stat_pack.md` | Royal Challengers Bengaluru | ~26KB |
-| `RR_stat_pack.md` | Rajasthan Royals | ~26KB |
-| `SRH_stat_pack.md` | Sunrisers Hyderabad | ~22KB |
-
-## Stat Pack Structure
-
-Each stat pack contains 9 sections:
-
-### 1. Squad Overview
-- Full roster with roles, bowling types, batting hands, contract prices
-- Role breakdown summary
-
-### 2. Historical Record vs Opposition
-- Win/loss records against each IPL team
-- Includes franchise alias history (e.g., Delhi Daredevils data included in Delhi Capitals)
-
-### 3. Venue Performance
-- Team batting/bowling stats by venue
-- Home ground analysis
-
-### 4. Key Batters - IPL Career
-- Career statistics for all squad batters
-- Phase-wise breakdown (powerplay, middle, death)
-- Sample size indicators (LOW/MEDIUM/HIGH)
-
-### 5. Batter vs Bowler Type
-- Performance against different bowling styles:
-  - Right-arm pace
-  - Left-arm pace
-  - Right-arm off-spin
-  - Right-arm leg-spin
-  - Left-arm orthodox
-  - Left-arm wrist spin
-
-### 6. Key Bowlers - IPL Career
-- Career statistics for all squad bowlers
-- Phase-wise economy, wickets, dot ball %
-- Sample size indicators
-
-### 7. Bowler vs Opposition
-- Performance against each IPL team
-
-### 8. Key Matchups
-- Top batter vs bowler head-to-head records
-
-### 9. Andy Flower's Tactical Insights
-- Death bowling options
-- Powerplay batting options
-- Potential spin vulnerabilities
+| File | Team |
+|------|------|
+| `CSK_stat_pack.md` | Chennai Super Kings |
+| `DC_stat_pack.md` | Delhi Capitals |
+| `GT_stat_pack.md` | Gujarat Titans |
+| `KKR_stat_pack.md` | Kolkata Knight Riders |
+| `LSG_stat_pack.md` | Lucknow Super Giants |
+| `MI_stat_pack.md` | Mumbai Indians |
+| `PBKS_stat_pack.md` | Punjab Kings |
+| `RCB_stat_pack.md` | Royal Challengers Bengaluru |
+| `RR_stat_pack.md` | Rajasthan Royals |
+| `SRH_stat_pack.md` | Sunrisers Hyderabad |
 
 ---
 
-## Player Classification Model
+## Stat Pack Sections
 
-Stat packs integrate with the **K-means Clustering V2** model for player archetypes.
-
-### Batter Role Tags
-| Tag | Description |
-|-----|-------------|
-| EXPLOSIVE_OPENER | Aggressive openers with 163+ SR |
-| PLAYMAKER | Creative stroke-makers, adaptable |
-| ANCHOR | Stabilizers, build innings |
-| ACCUMULATOR | Middle-order stabilizers (#3-4) |
-| MIDDLE_ORDER | Middle-order specialists (#3-5) |
-| FINISHER | Death-overs specialists (#5-7) |
-
-### Bowler Role Tags
-| Tag | Description |
-|-----|-------------|
-| PACER | Fast/medium-fast bowlers |
-| SPINNER | Spin bowlers (all types) |
-| WORKHORSE | High-volume, multi-phase bowlers |
-| NEW_BALL_SPECIALIST | Opening bowlers, powerplay focus |
-| MIDDLE_OVERS_CONTROLLER | Middle-phase specialists |
-| DEATH_SPECIALIST | Death-overs specialists (≥1 over in 16+) |
-| MIDDLE_AND_DEATH_SPECIALIST | **NEW** Bowls both middle and death phases |
-| PART_TIMER | Part-time bowling options |
-
-### Player Tags
-
-Players receive multiple tags based on performance:
-
-**Matchup Tags:**
-- `SPECIALIST_VS_PACE/SPIN` - SR ≥130 AND Avg ≥25 AND BPD ≥20
-- `VULNERABLE_VS_PACE/SPIN` - SR <105 OR Avg <15 OR BPD <15
-
-**Phase Tags (Bowlers):**
-- `PP_BEAST` - Economy <7.0 in powerplay (30+ overs)
-- `DEATH_BEAST` - Economy <9.0 at death (30+ overs)
-- `PP_LIABILITY` - Economy >9.5 in powerplay
-- `DEATH_LIABILITY` - Economy >12.0 AND Strike Rate >18.0 at death
-
-**Handedness Tags (Bowlers):**
-- `LHB_SPECIALIST` / `RHB_SPECIALIST` - ≥5% better economy
-- `LHB_WICKET_TAKER` / `RHB_WICKET_TAKER` - ≥3 wickets + SR <25
-
-See `outputs/README.md` for complete tag documentation.
+1. **Squad Overview** - Full roster with roles and contracts
+2. **Historical Record** - Win/loss vs opposition
+3. **Venue Performance** - Team stats by venue
+4. **Key Batters** - Career and phase stats
+5. **Batter vs Bowler Type** - Pace/spin matchups
+6. **Key Bowlers** - Career and phase stats
+7. **Bowler vs Opposition** - Performance by team
+8. **Key Matchups** - Head-to-head records
+9. **Tactical Insights** - Andy Flower's analysis
 
 ---
 
-## Data Sources
-
-| Source | Records | Coverage |
-|--------|---------|----------|
-| **IPL Analytics Data** | **219** | **2023-2025 only** |
-| Total T20 Matches | 9,357 | Global T20 cricket |
-| Ball-by-ball records | 2,137,915 | All deliveries |
-| Bowler Classifications | 280 | 98.8% of IPL balls |
-
-**Note:** All stat pack analytics use 2023-2025 IPL data only to reflect current player form and game evolution.
-
-## Franchise Aliases
-
-Historical team names are combined under current franchise names:
-
-| Current Name | Historical Name |
-|--------------|-----------------|
-| Delhi Capitals | Delhi Daredevils |
-| Punjab Kings | Kings XI Punjab |
-| Royal Challengers Bengaluru | Royal Challengers Bangalore |
-
----
-
-## Match Phase Definitions
-
-| Phase | Overs | Balls | Description |
-|-------|-------|-------|-------------|
-| **Powerplay** | 1-6 | 1-36 | Only 2 fielders outside 30-yard circle |
-| **Middle Overs** | 7-15 | 37-90 | 4-5 fielders allowed outside circle |
-| **Death Overs** | 16-20 | 91-120 | Final acceleration phase |
-
-## Key Metrics
-
-| Metric | Formula | Interpretation |
-|--------|---------|----------------|
-| **Strike Rate (SR)** | (Runs ÷ Balls) × 100 | >140 = aggressive, <120 = slow |
-| **Economy Rate** | (Runs ÷ Balls) × 6 | <7 = excellent, >10 = expensive |
-| **Batting Average** | Runs ÷ Dismissals | >30 = consistent |
-| **Bowling Strike Rate** | Balls ÷ Wickets | <20 = takes wickets quickly |
-| **Dot Ball %** | (Dots ÷ Balls) × 100 | Batter: lower is better. Bowler: higher is better |
-| **Boundary %** | (4s + 6s) ÷ Balls × 100 | >15% = power hitter |
-
----
-
-## Sample Size Indicators
-
-Stats include sample size indicators to help assess reliability:
-
-| Indicator | Balls Faced/Bowled | Interpretation |
-|-----------|-------------------|----------------|
-| HIGH | 100+ | Reliable sample |
-| MEDIUM | 30-99 | Moderate confidence |
-| LOW | <30 | Use with caution |
-
-For phase-wise analysis:
-- HIGH: 36+ balls
-- MEDIUM: 12-35 balls
-- LOW: <12 balls
-
----
-
-## Known Limitations
-
-1. **Bowling Style Coverage:** 280 IPL bowlers are classified (98.8% ball coverage). Some historical bowlers may show as "Unknown".
-
-2. **Uncapped Players:** 10 of 231 (4.3%) players have no historical data (recent domestic players without Cricsheet IDs).
-
-3. **Venue Names:** Some venues have multiple name variants in historical data (e.g., "Arun Jaitley Stadium" vs "Feroz Shah Kotla").
-
-4. **Contract Prices:** Based on IPL 2026 auction and retention data. Verify against official IPL sources for final figures.
-
----
-
-## Regenerating Stat Packs
-
-To regenerate all stat packs:
+## Regenerating
 
 ```bash
-cd cricket-playbook
-python scripts/generate_stat_packs.py
+python scripts/generators/generate_stat_packs.py
 ```
 
-This requires:
-- DuckDB database at `data/cricket_playbook.duckdb`
-- Analytics views created by `scripts/analytics_ipl.py`
-
 ---
 
-## Usage Guidelines
-
-1. **For Editorial Use:** Verify key statistics against official IPL sources before publication.
-
-2. **Sample Sizes Matter:** Prioritize HIGH sample size stats for analysis. LOW sample stats should be presented with caveats.
-
-3. **Phase Analysis:** Use phase-wise breakdowns (powerplay/middle/death) for tactical insights rather than aggregate stats.
-
-4. **Matchup Data:** Head-to-head batter vs bowler stats are valuable but can have small samples. Always check ball counts.
-
----
-
-## Contact
-
-For questions or issues:
-- Product Owner: Tom Brady
-- Analytics: Stephen Curry
-- Cricket Domain: Andy Flower
-- Data Pipeline: Brock Purdy
-
----
-
-*Cricket Playbook Analytics Engine v3.0.1*
+*Cricket Playbook v3.1.0*

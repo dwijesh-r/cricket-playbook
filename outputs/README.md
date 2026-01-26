@@ -34,7 +34,8 @@ Generated data artifacts from analytics scripts.
 | `team_venue_records.csv` | 2023-2025 | **NEW** Venue win/loss |
 | `team_venue_records_by_year.csv` | 2023-2025 | **NEW** Yearly breakdown |
 | `bowler_phase_distribution_grouped.csv` | 2023-2025 | **NEW** Phase tables |
-| `player_id_audit_report.md` | N/A | **NEW** 15 mismatches documented |
+
+**Note:** `player_id_audit_report.md` has been moved to `analysis/` directory.
 
 **Founder Review Note:** Per Review #4, all outputs now have explicit 2023+ versions for Founder review.
 

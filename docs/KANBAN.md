@@ -1,9 +1,10 @@
 # Cricket Playbook - Kanban Board
 
 **Product Owner:** Tom Brady
-**Version:** 3.0.1
+**Version:** 3.1.0
 **Last Updated:** 2026-01-26
-**Sprint:** 3.0 - Founder Review #4 Response - **COMPLETE**
+**Current Sprint:** 3.1 - Founder Review #5 Preparation
+**Previous Sprint:** 3.0 - Founder Review #4 Response - **COMPLETE**
 
 ---
 
@@ -12,9 +13,16 @@
 ```
 ┌─────────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┐
 │    BACKLOG      │    TO DO        │   IN PROGRESS   │    REVIEW       │     DONE        │
-│    (Icebox)     │  (Sprint 3.1)   │                 │                 │   (Sprint 3.0)  │
+│    (Icebox)     │  (Sprint 3.1)   │   (Sprint 3.1)  │  (Sprint 3.1)   │   (Sprint 3.0)  │
+├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤
+│ REST API        │ S3.1-01 to -13  │                 │                 │ 22 tasks (92%)  │
+│ Win Probability │ Repo Restructure│                 │                 │ 16 new outputs  │
+│ Form Tracker    │ Founder Rev #5  │                 │                 │ 197 batters     │
+│ Dashboard       │                 │                 │                 │ 15 ID issues    │
 └─────────────────┴─────────────────┴─────────────────┴─────────────────┴─────────────────┘
 ```
+
+**Sprint 3.1 Focus:** Founder Review #5 Preparation + Repo Restructure
 
 ---
 
@@ -99,7 +107,7 @@
 - `analysis/threshold_eda_2023.md`
 
 **Audit Reports (1):**
-- `outputs/player_id_audit_report.md` (15 mismatches documented)
+- `analysis/player_id_audit_report.md` (15 mismatches documented)
 
 ### Code Changes
 
@@ -128,7 +136,7 @@
 - **15 player ID mismatches identified**
 - 6 critical (completely wrong stats)
 - Root cause: Surname collisions (Singh, Sharma, Kumar, Khan)
-- Full report: `outputs/player_id_audit_report.md`
+- Full report: `analysis/player_id_audit_report.md`
 
 ### Entry Point Audit (Stephen Curry)
 - **197 batters classified** with 2023+ data
@@ -142,22 +150,82 @@
 
 ---
 
-## 📋 TO DO (Sprint 3.1)
+## 📋 Sprint 3.1 - Founder Review #5 Preparation
 
-### Carryover from Sprint 3.0
+**Sprint Goal:** Prepare for Founder Review #5 with clean data, clean repo, and comprehensive documentation.
 
-| ID | Task | Owner | Priority |
-|----|------|-------|----------|
-| S3.1-01 | CI/CD Improvements | Ime Udoka | Background |
-| S3.1-02 | Player ID Mismatch Fixes | Brock Purdy | P0 |
+**Sprint Duration:** 2026-01-27 to 2026-02-02
 
-### New Items
+---
 
-| ID | Task | Owner | Priority |
-|----|------|-------|----------|
-| S3.1-03 | Implement Player ID corrections in ETL | Brock Purdy | P0 |
-| S3.1-04 | Regenerate stat packs with fixed IDs | Stephen Curry | P1 |
-| S3.1-05 | Great Expectations pipeline integration | Brock Purdy | P1 |
+### 🎯 Major Milestone: Founder Review #5
+
+| Phase | Description | Status |
+|-------|-------------|--------|
+| Pre-Review | Fix player IDs, regenerate outputs, clean repo | **TO DO** |
+| Review | Present to Founder for feedback | Scheduled |
+| Post-Review | Address feedback items | TBD |
+
+---
+
+### P0 - Critical (Must Have for Review)
+
+| ID | Task | Owner | Priority | Status |
+|----|------|-------|----------|--------|
+| S3.1-01 | Fix 15 Player ID mismatches in ETL | Brock Purdy | P0 | To Do |
+| S3.1-02 | Regenerate all outputs with fixed IDs | Stephen Curry | P0 | Blocked by S3.1-01 |
+| S3.1-03 | Regenerate stat packs with corrected data | Stephen Curry | P0 | Blocked by S3.1-02 |
+| S3.1-04 | Validate corrected outputs (QA) | N'Golo Kanté | P0 | Blocked by S3.1-03 |
+
+### P1 - Repo Restructure (Brad Stevens + Tom Brady)
+
+| ID | Task | Owner | Priority | Status |
+|----|------|-------|----------|--------|
+| S3.1-05 | Delete stale root KANBAN.md | Tom Brady | P1 | To Do |
+| S3.1-06 | Delete duplicate files (see proposal) | Brad Stevens | P1 | To Do |
+| S3.1-07 | Consolidate reviews into `reviews/` directory | Brad Stevens | P1 | To Do |
+| S3.1-08 | Create `docs/specs/` and move clustering docs | Brad Stevens | P1 | To Do |
+| S3.1-09 | Archive legacy scripts to `scripts/archive/` | Brad Stevens | P1 | To Do |
+| S3.1-10 | Update docs/README.md with new structure | Tom Brady | P1 | To Do |
+
+**Reference:** See `docs/REPO_RESTRUCTURE_PROPOSAL.md` for full details.
+
+### P2 - Infrastructure (Carryover)
+
+| ID | Task | Owner | Priority | Status |
+|----|------|-------|----------|--------|
+| S3.1-11 | CI/CD caching and artifacts | Ime Udoka | P2 | Deferred |
+| S3.1-12 | Great Expectations pipeline integration | Brock Purdy | P2 | To Do |
+| S3.1-13 | Model serialization completion | Ime Udoka | P2 | Partial |
+
+### Background Work
+
+| ID | Task | Owner | Status |
+|----|------|-------|--------|
+| S3.1-BG-01 | Test coverage expansion | N'Golo Kanté | To Do |
+| S3.1-BG-02 | Script documentation (README) | Brad Stevens | To Do |
+
+---
+
+### Sprint 3.1 Success Criteria
+
+- [ ] All 15 player ID mismatches fixed in ETL
+- [ ] All outputs regenerated with correct IDs
+- [ ] All 10 stat packs regenerated
+- [ ] Repo restructure Phase 1 & 2 complete
+- [ ] Founder Review #5 ready
+
+---
+
+### Dependencies
+
+```
+S3.1-01 (Fix IDs)
+    └── S3.1-02 (Regenerate outputs)
+            └── S3.1-03 (Regenerate stat packs)
+                    └── S3.1-04 (QA validation)
+                            └── Founder Review #5
+```
 
 ---
 

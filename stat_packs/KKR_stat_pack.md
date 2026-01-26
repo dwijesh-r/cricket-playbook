@@ -1,6 +1,6 @@
 # Kolkata Knight Riders (KKR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-26 05:08
+**Generated:** 2026-01-26 09:45
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -133,12 +133,12 @@
 | Eden Gardens, Kolkata | 21 | 3576 | 2338 | 152.95 | 29.07 |
 | Sheikh Zayed Stadium | 11 | 1553 | 1298 | 119.65 | 21.57 |
 | M Chinnaswamy Stadium | 11 | 1505 | 1086 | 138.58 | 23.52 |
-| Wankhede Stadium, Mumbai | 9 | 1286 | 1005 | 127.96 | 21.08 |
 | Wankhede Stadium | 9 | 1193 | 1042 | 114.49 | 19.24 |
-| Feroz Shah Kotla | 8 | 1125 | 921 | 122.15 | 23.94 |
+| Wankhede Stadium, Mumbai | 9 | 1286 | 1005 | 127.96 | 21.08 |
 | Sharjah Cricket Stadium | 8 | 1126 | 947 | 118.9 | 20.11 |
-| Dubai International Cricket Stadium | 7 | 1091 | 838 | 130.19 | 25.37 |
+| Feroz Shah Kotla | 8 | 1125 | 921 | 122.15 | 23.94 |
 | MA Chidambaram Stadium, Chepauk | 7 | 1003 | 836 | 119.98 | 22.8 |
+| MA Chidambaram Stadium, Chepauk, Chennai | 7 | 930 | 715 | 130.07 | 24.47 |
 
 ---
 
@@ -310,9 +310,9 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 4 | 96 | 112 | 9 | 7.0 | 12.44 | 10.67 | 34.38 | 13.54 | MEDIUM |
 | Gujarat Titans | 5 | 109 | 148 | 8 | 8.15 | 18.5 | 13.63 | 37.61 | 17.43 | HIGH |
-| Royal Challengers Bengaluru | 3 | 72 | 107 | 7 | 8.92 | 15.29 | 10.29 | 38.89 | 22.22 | MEDIUM |
 | Mumbai Indians | 3 | 58 | 78 | 7 | 8.07 | 11.14 | 8.29 | 39.66 | 15.52 | MEDIUM |
 | Lucknow Super Giants | 4 | 92 | 117 | 7 | 7.63 | 16.71 | 13.14 | 31.52 | 13.04 | MEDIUM |
+| Royal Challengers Bengaluru | 3 | 72 | 107 | 7 | 8.92 | 15.29 | 10.29 | 38.89 | 22.22 | MEDIUM |
 | Punjab Kings | 3 | 72 | 127 | 3 | 10.58 | 42.33 | 24.0 | 19.44 | 19.44 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 54 | 59 | 3 | 6.56 | 19.67 | 18.0 | 37.04 | 11.11 | MEDIUM |
 | Rajasthan Royals | 4 | 83 | 114 | 2 | 8.24 | 57.0 | 41.5 | 32.53 | 16.87 | MEDIUM |
@@ -330,8 +330,8 @@
 | Sunrisers Hyderabad | 27 | 624 | 706 | 17 | 6.79 | 41.53 | 36.71 | 35.9 | 10.1 | HIGH |
 | Rajasthan Royals | 20 | 468 | 562 | 14 | 7.21 | 40.14 | 33.43 | 39.1 | 13.25 | HIGH |
 | Lucknow Super Giants | 6 | 138 | 150 | 5 | 6.52 | 30.0 | 27.6 | 34.78 | 8.7 | HIGH |
-| Pune Warriors | 4 | 96 | 70 | 4 | 4.38 | 17.5 | 24.0 | 54.17 | 5.21 | MEDIUM |
 | Gujarat Titans | 4 | 90 | 121 | 4 | 8.07 | 30.25 | 22.5 | 24.44 | 13.33 | MEDIUM |
+| Pune Warriors | 4 | 96 | 70 | 4 | 4.38 | 17.5 | 24.0 | 54.17 | 5.21 | MEDIUM |
 | Rising Pune Supergiant | 4 | 94 | 106 | 3 | 6.77 | 35.33 | 31.33 | 37.23 | 12.77 | MEDIUM |
 | Gujarat Lions | 3 | 72 | 99 | 1 | 8.25 | 99.0 | 72.0 | 33.33 | 18.06 | MEDIUM |
 
@@ -343,8 +343,8 @@
 | Lucknow Super Giants | 5 | 97 | 157 | 6 | 9.71 | 26.17 | 16.17 | 36.08 | 25.77 | MEDIUM |
 | Rajasthan Royals | 4 | 84 | 139 | 6 | 9.93 | 23.17 | 14.0 | 36.9 | 27.38 | MEDIUM |
 | Punjab Kings | 4 | 72 | 146 | 5 | 12.17 | 29.2 | 14.4 | 36.11 | 33.33 | MEDIUM |
-| Royal Challengers Bengaluru | 3 | 66 | 102 | 4 | 9.27 | 25.5 | 16.5 | 28.79 | 19.7 | MEDIUM |
 | Chennai Super Kings | 3 | 60 | 77 | 4 | 7.7 | 19.25 | 15.0 | 50.0 | 18.33 | MEDIUM |
+| Royal Challengers Bengaluru | 3 | 66 | 102 | 4 | 9.27 | 25.5 | 16.5 | 28.79 | 19.7 | MEDIUM |
 | Delhi Capitals | 3 | 66 | 94 | 3 | 8.55 | 31.33 | 22.0 | 39.39 | 22.73 | MEDIUM |
 | Mumbai Indians | 2 | 30 | 57 | 2 | 11.4 | 28.5 | 15.0 | 40.0 | 33.33 | MEDIUM |
 | Gujarat Titans | 2 | 42 | 67 | 2 | 9.57 | 33.5 | 21.0 | 26.19 | 26.19 | MEDIUM |
@@ -357,11 +357,11 @@
 | Sunrisers Hyderabad | 6 | 119 | 155 | 8 | 7.82 | 19.38 | 14.88 | 39.5 | 18.49 | HIGH |
 | Delhi Capitals | 4 | 72 | 101 | 6 | 8.42 | 16.83 | 12.0 | 45.83 | 25.0 | MEDIUM |
 | Rajasthan Royals | 3 | 66 | 126 | 4 | 11.45 | 31.5 | 16.5 | 31.82 | 30.3 | MEDIUM |
-| Punjab Kings | 3 | 57 | 90 | 3 | 9.47 | 30.0 | 19.0 | 36.84 | 29.82 | MEDIUM |
 | Lucknow Super Giants | 4 | 78 | 109 | 3 | 8.38 | 36.33 | 26.0 | 35.9 | 15.38 | MEDIUM |
-| Royal Challengers Bengaluru | 2 | 30 | 63 | 1 | 12.6 | 63.0 | 30.0 | 16.67 | 36.67 | MEDIUM |
-| Gujarat Titans | 2 | 48 | 77 | 1 | 9.63 | 77.0 | 48.0 | 25.0 | 25.0 | MEDIUM |
+| Punjab Kings | 3 | 57 | 90 | 3 | 9.47 | 30.0 | 19.0 | 36.84 | 29.82 | MEDIUM |
 | Mumbai Indians | 3 | 55 | 93 | 1 | 10.15 | 93.0 | 55.0 | 38.18 | 25.45 | MEDIUM |
+| Gujarat Titans | 2 | 48 | 77 | 1 | 9.63 | 77.0 | 48.0 | 25.0 | 25.0 | MEDIUM |
+| Royal Challengers Bengaluru | 2 | 30 | 63 | 1 | 12.6 | 63.0 | 30.0 | 16.67 | 36.67 | MEDIUM |
 
 ---
 
@@ -394,8 +394,8 @@
 | MK Pandey | Rajiv Gandhi International Stadium | 9 | 169 | 157 | 107.64 | 18.78 | 8.92 | HIGH |
 | MK Pandey | Rajiv Gandhi International Stadium,... | 5 | 149 | 143 | 104.2 | 37.25 | 10.49 | HIGH |
 | MK Pandey | Subrata Roy Sahara Stadium | 7 | 147 | 127 | 115.75 | 29.4 | 13.39 | HIGH |
-| MK Pandey | Feroz Shah Kotla | 4 | 128 | 94 | 136.17 | 64.0 | 12.77 | MEDIUM |
 | MK Pandey | MA Chidambaram Stadium, Chepauk, Ch... | 4 | 128 | 119 | 107.56 | 42.67 | 10.08 | HIGH |
+| MK Pandey | Feroz Shah Kotla | 4 | 128 | 94 | 136.17 | 64.0 | 12.77 | MEDIUM |
 | MK Pandey | Sawai Mansingh Stadium | 5 | 124 | 101 | 122.77 | 24.8 | 16.83 | HIGH |
 | MK Pandey | SuperSport Park | 1 | 114 | 73 | 156.16 | - | 19.18 | MEDIUM |
 | MK Pandey | Dr DY Patil Sports Academy | 5 | 113 | 101 | 111.88 | 22.6 | 14.85 | HIGH |

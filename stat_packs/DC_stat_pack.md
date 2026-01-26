@@ -1,6 +1,6 @@
 # Delhi Capitals (DC) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-26 05:08
+**Generated:** 2026-01-26 09:45
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -337,14 +337,14 @@
 | Sunrisers Hyderabad | 15 | 324 | 429 | 19 | 7.94 | 22.58 | 17.05 | 32.72 | 14.51 | HIGH |
 | Rajasthan Royals | 11 | 246 | 302 | 12 | 7.37 | 25.17 | 20.5 | 31.3 | 12.6 | HIGH |
 | Punjab Kings | 11 | 204 | 281 | 11 | 8.26 | 25.55 | 18.55 | 27.94 | 14.71 | HIGH |
-| Mumbai Indians | 12 | 246 | 357 | 10 | 8.71 | 35.7 | 24.6 | 29.67 | 16.26 | HIGH |
 | Kolkata Knight Riders | 5 | 102 | 123 | 10 | 7.24 | 12.3 | 10.2 | 38.24 | 13.73 | HIGH |
+| Mumbai Indians | 12 | 246 | 357 | 10 | 8.71 | 35.7 | 24.6 | 29.67 | 16.26 | HIGH |
 | Royal Challengers Bengaluru | 10 | 234 | 341 | 9 | 8.74 | 37.89 | 26.0 | 29.91 | 16.24 | HIGH |
 | Lucknow Super Giants | 7 | 160 | 202 | 9 | 7.58 | 22.44 | 17.78 | 31.88 | 13.13 | HIGH |
-| Delhi Capitals | 6 | 122 | 178 | 5 | 8.75 | 35.6 | 24.4 | 22.95 | 13.93 | HIGH |
 | Gujarat Titans | 7 | 162 | 176 | 5 | 6.52 | 35.2 | 32.4 | 31.48 | 8.64 | HIGH |
-| Gujarat Lions | 2 | 48 | 58 | 4 | 7.25 | 14.5 | 12.0 | 31.25 | 12.5 | MEDIUM |
+| Delhi Capitals | 6 | 122 | 178 | 5 | 8.75 | 35.6 | 24.4 | 22.95 | 13.93 | HIGH |
 | Chennai Super Kings | 8 | 168 | 236 | 4 | 8.43 | 59.0 | 42.0 | 24.4 | 14.29 | HIGH |
+| Gujarat Lions | 2 | 48 | 58 | 4 | 7.25 | 14.5 | 12.0 | 31.25 | 12.5 | MEDIUM |
 | Rising Pune Supergiant | 2 | 48 | 66 | 3 | 8.25 | 22.0 | 16.0 | 37.5 | 14.58 | MEDIUM |
 
 ### Mukesh Kumar
@@ -368,10 +368,10 @@
 | Sunrisers Hyderabad | 7 | 152 | 204 | 13 | 8.05 | 15.69 | 11.69 | 40.13 | 19.08 | HIGH |
 | Delhi Capitals | 6 | 132 | 176 | 9 | 8.0 | 19.56 | 14.67 | 42.42 | 18.94 | HIGH |
 | Lucknow Super Giants | 4 | 84 | 117 | 8 | 8.36 | 14.63 | 10.5 | 41.67 | 22.62 | MEDIUM |
-| Mumbai Indians | 6 | 119 | 178 | 7 | 8.97 | 25.43 | 17.0 | 34.45 | 21.85 | HIGH |
 | Kolkata Knight Riders | 4 | 84 | 122 | 7 | 8.71 | 17.43 | 12.0 | 34.52 | 20.24 | MEDIUM |
-| Rajasthan Royals | 6 | 138 | 177 | 7 | 7.7 | 25.29 | 19.71 | 42.03 | 18.84 | HIGH |
 | Punjab Kings | 5 | 96 | 108 | 7 | 6.75 | 15.43 | 13.71 | 45.83 | 15.63 | MEDIUM |
+| Mumbai Indians | 6 | 119 | 178 | 7 | 8.97 | 25.43 | 17.0 | 34.45 | 21.85 | HIGH |
+| Rajasthan Royals | 6 | 138 | 177 | 7 | 7.7 | 25.29 | 19.71 | 42.03 | 18.84 | HIGH |
 | Chennai Super Kings | 7 | 156 | 186 | 6 | 7.15 | 31.0 | 26.0 | 40.38 | 15.38 | HIGH |
 | Royal Challengers Bengaluru | 4 | 78 | 162 | 1 | 12.46 | 162.0 | 78.0 | 32.05 | 32.05 | MEDIUM |
 

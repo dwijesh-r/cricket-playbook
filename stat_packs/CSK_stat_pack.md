@@ -1,6 +1,6 @@
 # Chennai Super Kings (CSK) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-26 05:08
+**Generated:** 2026-01-26 09:45
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -137,8 +137,8 @@
 | Eden Gardens | 11 | 1488 | 1241 | 119.9 | 26.11 |
 | MA Chidambaram Stadium | 9 | 1240 | 1034 | 119.92 | 30.24 |
 | M Chinnaswamy Stadium | 7 | 1004 | 754 | 133.16 | 25.74 |
-| Feroz Shah Kotla | 6 | 982 | 713 | 137.73 | 39.28 |
-| Sharjah Cricket Stadium | 6 | 900 | 704 | 127.84 | 28.13 |
+| Sheikh Zayed Stadium | 6 | 932 | 709 | 131.45 | 35.85 |
+| Maharashtra Cricket Association Stadium | 6 | 1013 | 697 | 145.34 | 44.04 |
 
 ---
 
@@ -288,14 +288,14 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Royal Challengers Bengaluru | 5 | 120 | 170 | 7 | 8.5 | 24.29 | 17.14 | 34.17 | 19.17 | HIGH |
-| Kolkata Knight Riders | 3 | 60 | 59 | 7 | 5.9 | 8.43 | 8.57 | 45.0 | 11.67 | MEDIUM |
 | Mumbai Indians | 5 | 114 | 162 | 7 | 8.53 | 23.14 | 16.29 | 34.21 | 16.67 | HIGH |
+| Kolkata Knight Riders | 3 | 60 | 59 | 7 | 5.9 | 8.43 | 8.57 | 45.0 | 11.67 | MEDIUM |
+| Royal Challengers Bengaluru | 5 | 120 | 170 | 7 | 8.5 | 24.29 | 17.14 | 34.17 | 19.17 | HIGH |
 | Rajasthan Royals | 5 | 98 | 154 | 6 | 9.43 | 25.67 | 16.33 | 29.59 | 19.39 | MEDIUM |
 | Punjab Kings | 4 | 90 | 122 | 6 | 8.13 | 20.33 | 15.0 | 30.0 | 14.44 | MEDIUM |
-| Sunrisers Hyderabad | 3 | 65 | 103 | 3 | 9.51 | 34.33 | 21.67 | 29.23 | 20.0 | MEDIUM |
-| Chennai Super Kings | 3 | 54 | 68 | 3 | 7.56 | 22.67 | 18.0 | 27.78 | 11.11 | MEDIUM |
 | Lucknow Super Giants | 4 | 96 | 78 | 3 | 4.88 | 26.0 | 32.0 | 44.79 | 6.25 | MEDIUM |
+| Chennai Super Kings | 3 | 54 | 68 | 3 | 7.56 | 22.67 | 18.0 | 27.78 | 11.11 | MEDIUM |
+| Sunrisers Hyderabad | 3 | 65 | 103 | 3 | 9.51 | 34.33 | 21.67 | 29.23 | 20.0 | MEDIUM |
 | Delhi Capitals | 4 | 71 | 104 | 2 | 8.79 | 52.0 | 35.5 | 30.99 | 19.72 | MEDIUM |
 
 ### Khaleel Ahmed
@@ -305,10 +305,10 @@
 | Punjab Kings | 12 | 268 | 366 | 17 | 8.19 | 21.53 | 15.76 | 40.3 | 19.4 | HIGH |
 | Mumbai Indians | 8 | 175 | 254 | 12 | 8.71 | 21.17 | 14.58 | 44.57 | 23.43 | HIGH |
 | Delhi Capitals | 6 | 137 | 194 | 10 | 8.5 | 19.4 | 13.7 | 36.5 | 18.98 | HIGH |
-| Rajasthan Royals | 9 | 197 | 320 | 9 | 9.75 | 35.56 | 21.89 | 40.1 | 26.4 | HIGH |
 | Chennai Super Kings | 9 | 215 | 281 | 9 | 7.84 | 31.22 | 23.89 | 40.47 | 17.21 | HIGH |
-| Royal Challengers Bengaluru | 6 | 138 | 232 | 8 | 10.09 | 29.0 | 17.25 | 34.78 | 26.09 | HIGH |
+| Rajasthan Royals | 9 | 197 | 320 | 9 | 9.75 | 35.56 | 21.89 | 40.1 | 26.4 | HIGH |
 | Kolkata Knight Riders | 8 | 156 | 239 | 8 | 9.19 | 29.88 | 19.5 | 45.51 | 25.0 | HIGH |
+| Royal Challengers Bengaluru | 6 | 138 | 232 | 8 | 10.09 | 29.0 | 17.25 | 34.78 | 26.09 | HIGH |
 | Gujarat Titans | 6 | 126 | 157 | 7 | 7.48 | 22.43 | 18.0 | 42.86 | 19.84 | HIGH |
 | Lucknow Super Giants | 4 | 84 | 132 | 6 | 9.43 | 22.0 | 14.0 | 50.0 | 26.19 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 60 | 102 | 4 | 10.2 | 25.5 | 15.0 | 43.33 | 28.33 | MEDIUM |

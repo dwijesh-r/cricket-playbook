@@ -1,6 +1,6 @@
 # Gujarat Titans (GT) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-26 05:08
+**Generated:** 2026-01-26 09:45
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -129,12 +129,12 @@
 | Wankhede Stadium, Mumbai | 6 | 954 | 707 | 134.94 | 29.81 |
 | Dr DY Patil Sports Academy, Mumbai | 4 | 599 | 480 | 124.79 | 22.19 |
 | Bharat Ratna Shri Atal Bihari Vajpayee E... | 3 | 417 | 354 | 117.8 | 18.95 |
-| Sawai Mansingh Stadium, Jaipur | 3 | 500 | 323 | 154.8 | 45.45 |
-| M Chinnaswamy Stadium, Bengaluru | 3 | 485 | 339 | 143.07 | 32.33 |
-| Brabourne Stadium, Mumbai | 3 | 515 | 357 | 144.26 | 46.82 |
-| Maharashtra Cricket Association Stadium,... | 3 | 460 | 359 | 128.13 | 27.06 |
 | Arun Jaitley Stadium, Delhi | 3 | 563 | 343 | 164.14 | 46.92 |
+| M Chinnaswamy Stadium, Bengaluru | 3 | 485 | 339 | 143.07 | 32.33 |
+| Maharashtra Cricket Association Stadium,... | 3 | 460 | 359 | 128.13 | 27.06 |
 | Eden Gardens, Kolkata | 3 | 539 | 344 | 156.69 | 59.89 |
+| Sawai Mansingh Stadium, Jaipur | 3 | 500 | 323 | 154.8 | 45.45 |
+| Brabourne Stadium, Mumbai | 3 | 515 | 357 | 144.26 | 46.82 |
 
 ---
 
@@ -307,10 +307,10 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Punjab Kings | 16 | 384 | 421 | 25 | 6.58 | 16.84 | 15.36 | 41.93 | 11.46 | HIGH |
-| Delhi Capitals | 19 | 444 | 480 | 21 | 6.49 | 22.86 | 21.14 | 36.71 | 11.04 | HIGH |
 | Mumbai Indians | 18 | 420 | 436 | 21 | 6.23 | 20.76 | 20.0 | 41.67 | 10.71 | HIGH |
-| Rajasthan Royals | 16 | 384 | 412 | 19 | 6.44 | 21.68 | 20.21 | 36.2 | 9.38 | HIGH |
+| Delhi Capitals | 19 | 444 | 480 | 21 | 6.49 | 22.86 | 21.14 | 36.71 | 11.04 | HIGH |
 | Chennai Super Kings | 18 | 426 | 579 | 19 | 8.15 | 30.47 | 22.42 | 33.33 | 16.9 | HIGH |
+| Rajasthan Royals | 16 | 384 | 412 | 19 | 6.44 | 21.68 | 20.21 | 36.2 | 9.38 | HIGH |
 | Kolkata Knight Riders | 16 | 372 | 437 | 19 | 7.05 | 23.0 | 19.58 | 35.22 | 12.63 | HIGH |
 | Royal Challengers Bengaluru | 16 | 370 | 509 | 15 | 8.25 | 33.93 | 24.67 | 31.89 | 15.95 | HIGH |
 | Lucknow Super Giants | 7 | 155 | 213 | 9 | 8.25 | 23.67 | 17.22 | 30.32 | 14.84 | HIGH |

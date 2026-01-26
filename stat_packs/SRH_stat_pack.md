@@ -1,6 +1,6 @@
 # Sunrisers Hyderabad (SRH) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-26 05:08
+**Generated:** 2026-01-26 09:45
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -135,10 +135,10 @@
 | Dubai International Cricket Stadium | 13 | 1955 | 1537 | 127.2 | 27.54 |
 | MA Chidambaram Stadium, Chepauk, Chennai | 10 | 1361 | 1166 | 116.72 | 19.72 |
 | Eden Gardens | 8 | 1149 | 954 | 120.44 | 22.53 |
+| Sharjah Cricket Stadium | 7 | 896 | 784 | 114.29 | 21.85 |
 | Wankhede Stadium, Mumbai | 7 | 1119 | 836 | 133.85 | 24.33 |
 | Wankhede Stadium | 7 | 1012 | 832 | 121.63 | 22.0 |
-| Sharjah Cricket Stadium | 7 | 896 | 784 | 114.29 | 21.85 |
-| Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cric... | 6 | 902 | 720 | 125.28 | 26.53 |
+| Sheikh Zayed Stadium | 6 | 849 | 718 | 118.25 | 27.39 |
 
 ---
 
@@ -345,13 +345,13 @@
 | Delhi Capitals | 7 | 156 | 221 | 9 | 8.5 | 24.56 | 17.33 | 39.1 | 21.15 | HIGH |
 | Rajasthan Royals | 7 | 161 | 251 | 9 | 9.35 | 27.89 | 17.89 | 35.4 | 21.74 | HIGH |
 | Chennai Super Kings | 9 | 216 | 307 | 7 | 8.53 | 43.86 | 30.86 | 34.72 | 19.44 | HIGH |
-| Kolkata Knight Riders | 7 | 132 | 220 | 6 | 10.0 | 36.67 | 22.0 | 35.61 | 25.76 | HIGH |
 | Punjab Kings | 7 | 162 | 211 | 6 | 7.81 | 35.17 | 27.0 | 38.89 | 18.52 | HIGH |
+| Kolkata Knight Riders | 7 | 132 | 220 | 6 | 10.0 | 36.67 | 22.0 | 35.61 | 25.76 | HIGH |
 | Sunrisers Hyderabad | 5 | 119 | 152 | 4 | 7.66 | 38.0 | 29.75 | 37.82 | 15.13 | HIGH |
-| Rising Pune Supergiant | 2 | 43 | 58 | 3 | 8.09 | 19.33 | 14.33 | 39.53 | 13.95 | MEDIUM |
+| Lucknow Super Giants | 3 | 66 | 106 | 3 | 9.64 | 35.33 | 22.0 | 31.82 | 24.24 | MEDIUM |
 | Gujarat Titans | 3 | 70 | 92 | 3 | 7.89 | 30.67 | 23.33 | 30.0 | 15.71 | MEDIUM |
 | Gujarat Lions | 2 | 48 | 70 | 3 | 8.75 | 23.33 | 16.0 | 22.92 | 18.75 | MEDIUM |
-| Lucknow Super Giants | 3 | 66 | 106 | 3 | 9.64 | 35.33 | 22.0 | 31.82 | 24.24 | MEDIUM |
+| Rising Pune Supergiant | 2 | 43 | 58 | 3 | 8.09 | 19.33 | 14.33 | 39.53 | 13.95 | MEDIUM |
 
 ---
 

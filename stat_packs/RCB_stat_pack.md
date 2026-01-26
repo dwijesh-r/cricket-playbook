@@ -1,6 +1,6 @@
 # Royal Challengers Bengaluru (RCB) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-26 05:08
+**Generated:** 2026-01-26 09:45
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -130,12 +130,12 @@
 | M Chinnaswamy Stadium, Bengaluru | 19 | 3325 | 2178 | 152.66 | 29.17 |
 | M.Chinnaswamy Stadium | 15 | 2491 | 1691 | 147.31 | 29.31 |
 | Dubai International Cricket Stadium | 12 | 1707 | 1388 | 122.98 | 27.1 |
-| Wankhede Stadium | 10 | 1599 | 1186 | 134.82 | 30.17 |
 | Eden Gardens | 10 | 1479 | 1089 | 135.81 | 29.58 |
+| Wankhede Stadium | 10 | 1599 | 1186 | 134.82 | 30.17 |
 | Wankhede Stadium, Mumbai | 9 | 1560 | 1046 | 149.14 | 37.14 |
-| Sharjah Cricket Stadium | 8 | 1150 | 940 | 122.34 | 28.05 |
 | MA Chidambaram Stadium, Chepauk | 8 | 1204 | 958 | 125.68 | 23.15 |
 | Rajiv Gandhi International Stadium, Uppa... | 8 | 1118 | 867 | 128.95 | 21.09 |
+| Sharjah Cricket Stadium | 8 | 1150 | 940 | 122.34 | 28.05 |
 
 ---
 
@@ -318,8 +318,8 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Punjab Kings | 25 | 544 | 676 | 34 | 7.46 | 19.88 | 16.0 | 42.46 | 16.73 | HIGH |
 | Kolkata Knight Riders | 30 | 654 | 850 | 32 | 7.8 | 26.56 | 20.44 | 40.67 | 18.04 | HIGH |
-| Mumbai Indians | 21 | 450 | 533 | 23 | 7.11 | 23.17 | 19.57 | 45.11 | 15.11 | HIGH |
 | Delhi Capitals | 23 | 546 | 674 | 23 | 7.41 | 29.3 | 23.74 | 41.76 | 16.3 | HIGH |
+| Mumbai Indians | 21 | 450 | 533 | 23 | 7.11 | 23.17 | 19.57 | 45.11 | 15.11 | HIGH |
 | Rajasthan Royals | 20 | 459 | 655 | 20 | 8.56 | 32.75 | 22.95 | 40.09 | 22.22 | HIGH |
 | Royal Challengers Bengaluru | 23 | 497 | 676 | 18 | 8.16 | 37.56 | 27.61 | 40.85 | 21.53 | HIGH |
 | Chennai Super Kings | 22 | 488 | 588 | 14 | 7.23 | 42.0 | 34.86 | 43.44 | 15.37 | HIGH |
@@ -336,9 +336,9 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Punjab Kings | 19 | 330 | 417 | 12 | 7.58 | 34.75 | 27.5 | 30.61 | 13.33 | HIGH |
 | Sunrisers Hyderabad | 14 | 235 | 277 | 12 | 7.07 | 23.08 | 19.58 | 32.34 | 11.49 | HIGH |
+| Kolkata Knight Riders | 16 | 283 | 329 | 11 | 6.98 | 29.91 | 25.73 | 35.69 | 13.43 | HIGH |
 | Royal Challengers Bengaluru | 17 | 366 | 415 | 11 | 6.8 | 37.73 | 33.27 | 30.33 | 9.84 | HIGH |
 | Delhi Capitals | 19 | 290 | 370 | 11 | 7.66 | 33.64 | 26.36 | 28.28 | 13.45 | HIGH |
-| Kolkata Knight Riders | 16 | 283 | 329 | 11 | 6.98 | 29.91 | 25.73 | 35.69 | 13.43 | HIGH |
 | Chennai Super Kings | 14 | 240 | 321 | 10 | 8.03 | 32.1 | 24.0 | 33.75 | 16.25 | HIGH |
 | Mumbai Indians | 6 | 132 | 174 | 8 | 7.91 | 21.75 | 16.5 | 34.09 | 17.42 | HIGH |
 | Rajasthan Royals | 12 | 222 | 285 | 7 | 7.7 | 40.71 | 31.71 | 25.23 | 13.06 | HIGH |
@@ -392,8 +392,8 @@
 | V Kohli | Narendra Modi Stadium, Ahmedabad | 6 | 200 | 156 | 128.21 | 40.0 | 14.74 | HIGH |
 | V Kohli | Sawai Mansingh Stadium, Jaipur | 3 | 193 | 136 | 141.91 | 193.0 | 16.91 | HIGH |
 | V Kohli | Saurashtra Cricket Association Stad... | 2 | 164 | 113 | 145.13 | 164.0 | 17.7 | HIGH |
-| V Kohli | Maharashtra Cricket Association Sta... | 4 | 155 | 139 | 111.51 | 38.75 | 10.79 | HIGH |
 | V Kohli | Sheikh Zayed Stadium | 6 | 155 | 140 | 110.71 | 38.75 | 12.14 | HIGH |
+| V Kohli | Maharashtra Cricket Association Sta... | 4 | 155 | 139 | 111.51 | 38.75 | 10.79 | HIGH |
 | V Kohli | Rajiv Gandhi International Stadium,... | 2 | 151 | 106 | 142.45 | 75.5 | 19.81 | HIGH |
 | V Kohli | Sawai Mansingh Stadium | 7 | 131 | 139 | 94.24 | 21.83 | 10.07 | HIGH |
 | V Kohli | Bharat Ratna Shri Atal Bihari Vajpa... | 3 | 128 | 85 | 150.59 | 42.67 | 24.71 | MEDIUM |

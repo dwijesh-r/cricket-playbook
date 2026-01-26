@@ -2,18 +2,23 @@
 """
 Cricket Playbook - Bowler vs LHB/RHB Matchup Analysis
 Author: Stephen Curry (Analytics Lead)
-Sprint: 2.6 - Enhanced with Wickets & Strike Rate (Founder Review #2)
+Sprint: 3.0 - Analytics Tables & Wickets/Ball Ratio (S3.0-08)
 
 Analyzes bowler performance against left-handed vs right-handed batters
 and generates matchup tags.
+
+Fixes from Sprint 3.0:
+- Uses analytics_ipl_bowler_vs_batter_handedness view (pre-computed)
+- Uses wickets/ball ratio instead of raw wicket count for wicket-taker tags
+- Consistent with batter matchup script methodology
 
 Tags Generated:
 - LHB_SPECIALIST: Economy vs LHB at least 1.0 better than vs RHB
 - RHB_SPECIALIST: Economy vs RHB at least 1.0 better than vs LHB
 - LHB_VULNERABLE: Economy vs LHB at least 1.0 worse than vs RHB
 - RHB_VULNERABLE: Economy vs RHB at least 1.0 worse than vs LHB
-- LHB_WICKET_TAKER: Better bowling SR vs LHB (takes wickets more frequently)
-- RHB_WICKET_TAKER: Better bowling SR vs RHB (takes wickets more frequently)
+- LHB_WICKET_TAKER: Higher wickets/ball ratio vs LHB (takes wickets more efficiently)
+- RHB_WICKET_TAKER: Higher wickets/ball ratio vs RHB (takes wickets more efficiently)
 - LHB_PRESSURE / RHB_PRESSURE: Higher dot ball % vs respective hand
 """
 
@@ -35,31 +40,14 @@ MIN_BALLS_VS_HAND = 60  # ~10 overs
 
 
 def get_bowler_vs_handedness(conn) -> pd.DataFrame:
-    """Get bowler performance split by batter handedness."""
+    """Get bowler performance split by batter handedness.
+
+    Uses the pre-computed analytics_ipl_bowler_vs_batter_handedness view
+    which includes wickets_per_ball ratio for better wicket-taker tagging.
+    """
 
     df = conn.execute(
-        """
-        WITH bowler_vs_hand AS (
-            SELECT
-                fb.bowler_id,
-                dp.current_name as bowler_name,
-                sq.batting_hand,
-                COUNT(*) FILTER (WHERE fb.is_legal_ball) as balls,
-                SUM(fb.batter_runs + fb.extra_runs) as runs,
-                SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) as wickets,
-                SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 THEN 1 ELSE 0 END) as dots,
-                SUM(CASE WHEN fb.batter_runs = 4 THEN 1 ELSE 0 END) as fours,
-                SUM(CASE WHEN fb.batter_runs = 6 THEN 1 ELSE 0 END) as sixes
-            FROM fact_ball fb
-            JOIN dim_match dm ON fb.match_id = dm.match_id
-            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
-            JOIN dim_player dp ON fb.bowler_id = dp.player_id
-            JOIN ipl_2026_squads sq ON fb.batter_id = sq.player_id
-            WHERE dt.tournament_name = 'Indian Premier League'
-              AND dm.match_date >= '{min_date}'
-              AND sq.batting_hand IS NOT NULL
-            GROUP BY fb.bowler_id, dp.current_name, sq.batting_hand
-        )
+        f"""
         SELECT
             bowler_id,
             bowler_name,
@@ -67,24 +55,30 @@ def get_bowler_vs_handedness(conn) -> pd.DataFrame:
             balls,
             runs,
             wickets,
-            dots,
+            dot_balls as dots,
             fours,
             sixes,
-            ROUND(runs * 6.0 / NULLIF(balls, 0), 2) as economy,
-            ROUND(balls * 1.0 / NULLIF(wickets, 0), 2) as strike_rate,
-            ROUND(dots * 100.0 / NULLIF(balls, 0), 2) as dot_pct,
-            ROUND((fours + sixes) * 100.0 / NULLIF(balls, 0), 2) as boundary_pct
-        FROM bowler_vs_hand
-        WHERE balls >= {min_balls}
+            economy,
+            strike_rate,
+            dot_pct,
+            boundary_pct,
+            wickets_per_ball,
+            sample_size
+        FROM analytics_ipl_bowler_vs_batter_handedness
+        WHERE balls >= {MIN_BALLS_VS_HAND}
         ORDER BY bowler_name, batting_hand
-    """.format(min_balls=MIN_BALLS_VS_HAND, min_date=IPL_MIN_DATE)
+    """
     ).df()
 
     return df
 
 
 def calculate_matchup_differential(df: pd.DataFrame) -> pd.DataFrame:
-    """Calculate differential between LHB and RHB performance."""
+    """Calculate differential between LHB and RHB performance.
+
+    Uses wickets_per_ball ratio from analytics view for more accurate
+    wicket-taker comparisons instead of raw wicket counts.
+    """
 
     # Pivot to get LHB and RHB side by side
     lhb = df[df["batting_hand"] == "Left-hand"].set_index("bowler_id")
@@ -98,6 +92,16 @@ def calculate_matchup_differential(df: pd.DataFrame) -> pd.DataFrame:
         lhb_row = lhb.loc[bowler_id]
         rhb_row = rhb.loc[bowler_id]
 
+        # Get wickets_per_ball from analytics view (or compute if not available)
+        lhb_wpb = lhb_row.get(
+            "wickets_per_ball",
+            lhb_row["wickets"] / lhb_row["balls"] if lhb_row["balls"] > 0 else 0,
+        )
+        rhb_wpb = rhb_row.get(
+            "wickets_per_ball",
+            rhb_row["wickets"] / rhb_row["balls"] if rhb_row["balls"] > 0 else 0,
+        )
+
         results.append(
             {
                 "bowler_id": bowler_id,
@@ -109,6 +113,7 @@ def calculate_matchup_differential(df: pd.DataFrame) -> pd.DataFrame:
                 "lhb_dot_pct": lhb_row["dot_pct"],
                 "lhb_boundary_pct": lhb_row["boundary_pct"],
                 "lhb_wickets": lhb_row["wickets"],
+                "lhb_wickets_per_ball": lhb_wpb,
                 # RHB stats
                 "rhb_balls": rhb_row["balls"],
                 "rhb_economy": rhb_row["economy"],
@@ -116,6 +121,7 @@ def calculate_matchup_differential(df: pd.DataFrame) -> pd.DataFrame:
                 "rhb_dot_pct": rhb_row["dot_pct"],
                 "rhb_boundary_pct": rhb_row["boundary_pct"],
                 "rhb_wickets": rhb_row["wickets"],
+                "rhb_wickets_per_ball": rhb_wpb,
                 # Differentials (negative = better vs LHB)
                 "economy_diff": lhb_row["economy"] - rhb_row["economy"],
                 "dot_pct_diff": lhb_row["dot_pct"] - rhb_row["dot_pct"],
@@ -124,13 +130,9 @@ def calculate_matchup_differential(df: pd.DataFrame) -> pd.DataFrame:
                 # Negative = better vs LHB (lower SR means quicker wickets)
                 "strike_rate_diff": (lhb_row["strike_rate"] or 999)
                 - (rhb_row["strike_rate"] or 999),
-                # Wickets per 100 balls differential
-                "wickets_per_100_lhb": (lhb_row["wickets"] * 100 / lhb_row["balls"])
-                if lhb_row["balls"] > 0
-                else 0,
-                "wickets_per_100_rhb": (rhb_row["wickets"] * 100 / rhb_row["balls"])
-                if rhb_row["balls"] > 0
-                else 0,
+                # Wickets per ball differential (higher = takes wickets more efficiently)
+                # Positive = better vs LHB
+                "wickets_per_ball_diff": (lhb_wpb or 0) - (rhb_wpb or 0),
             }
         )
 
@@ -138,14 +140,17 @@ def calculate_matchup_differential(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def assign_handedness_tags(
-    df: pd.DataFrame, economy_threshold: float = 1.0, sr_threshold: float = 6.0
+    df: pd.DataFrame, economy_threshold: float = 1.0, wpb_threshold: float = 0.02
 ) -> pd.DataFrame:
     """Assign LHB/RHB matchup tags based on differential.
 
     Args:
         df: DataFrame with matchup differentials
         economy_threshold: Min economy difference for specialist/vulnerable tags (default 1.0)
-        sr_threshold: Min strike rate difference for wicket-taker tags (default 6.0 balls)
+        wpb_threshold: Min wickets/ball difference for wicket-taker tags (default 0.02 = 2% more wickets per ball)
+
+    Sprint 3.0 Fix: Uses wickets/ball ratio instead of raw wicket count for wicket-taker tags.
+    This is more fair as it normalizes for the number of balls bowled vs each hand.
     """
 
     tags = []
@@ -169,14 +174,19 @@ def assign_handedness_tags(
         elif eco_diff <= -economy_threshold:
             player_tags.append("RHB_VULNERABLE")
 
-        # Strike rate / wicket-taking tags (lower SR = takes wickets faster)
-        sr_diff = row["strike_rate_diff"]
-        # Need at least 3 wickets vs that hand to qualify
-        if sr_diff <= -sr_threshold and row["lhb_wickets"] >= 3:
-            # Better SR vs LHB (takes wickets more frequently)
+        # Wicket-taking tags using wickets/ball ratio (Sprint 3.0 fix)
+        # Positive wpb_diff means higher wickets/ball ratio vs LHB
+        wpb_diff = row.get("wickets_per_ball_diff", 0) or 0
+        lhb_wpb = row.get("lhb_wickets_per_ball", 0) or 0
+        rhb_wpb = row.get("rhb_wickets_per_ball", 0) or 0
+
+        # Need meaningful wickets/ball ratio (>= 0.03 = roughly 1 wicket per 33 balls) to qualify
+        min_wpb = 0.03
+        if wpb_diff >= wpb_threshold and lhb_wpb >= min_wpb:
+            # Higher wickets/ball ratio vs LHB (takes wickets more efficiently)
             player_tags.append("LHB_WICKET_TAKER")
-        elif sr_diff >= sr_threshold and row["rhb_wickets"] >= 3:
-            # Better SR vs RHB
+        elif wpb_diff <= -wpb_threshold and rhb_wpb >= min_wpb:
+            # Higher wickets/ball ratio vs RHB
             player_tags.append("RHB_WICKET_TAKER")
 
         # Add dot ball differential tags
@@ -218,11 +228,15 @@ def print_analysis(df: pd.DataFrame):
     print(
         f"  RHB Specialists (economy ≥1.0 better vs righties): {len(rhb_specialists)}"
     )
-    print(f"  LHB Wicket Takers (better SR vs lefties): {len(lhb_wicket_takers)}")
-    print(f"  RHB Wicket Takers (better SR vs righties): {len(rhb_wicket_takers)}")
+    print(
+        f"  LHB Wicket Takers (higher wickets/ball ratio vs lefties): {len(lhb_wicket_takers)}"
+    )
+    print(
+        f"  RHB Wicket Takers (higher wickets/ball ratio vs righties): {len(rhb_wicket_takers)}"
+    )
 
     # Top LHB specialists
-    print("\n  TOP LHB SPECIALISTS:")
+    print("\n  TOP LHB SPECIALISTS (by economy differential):")
     top_lhb = df.nsmallest(10, "economy_diff")
     for _, row in top_lhb.iterrows():
         print(
@@ -230,11 +244,37 @@ def print_analysis(df: pd.DataFrame):
         )
 
     # Top RHB specialists
-    print("\n  TOP RHB SPECIALISTS:")
+    print("\n  TOP RHB SPECIALISTS (by economy differential):")
     top_rhb = df.nlargest(10, "economy_diff")
     for _, row in top_rhb.iterrows():
         print(
             f"    {row['bowler_name']}: LHB Eco {row['lhb_economy']:.2f} vs RHB Eco {row['rhb_economy']:.2f} (diff: {row['economy_diff']:.2f})"
+        )
+
+    # Top LHB wicket-takers by wickets/ball ratio
+    print("\n  TOP LHB WICKET-TAKERS (by wickets/ball ratio):")
+    top_lhb_wt = df[df["lhb_wickets_per_ball"] >= 0.03].nlargest(
+        10, "wickets_per_ball_diff"
+    )
+    for _, row in top_lhb_wt.iterrows():
+        lhb_wpb = row.get("lhb_wickets_per_ball", 0) or 0
+        rhb_wpb = row.get("rhb_wickets_per_ball", 0) or 0
+        wpb_diff = row.get("wickets_per_ball_diff", 0) or 0
+        print(
+            f"    {row['bowler_name']}: LHB {lhb_wpb:.4f} vs RHB {rhb_wpb:.4f} (diff: {wpb_diff:+.4f})"
+        )
+
+    # Top RHB wicket-takers by wickets/ball ratio
+    print("\n  TOP RHB WICKET-TAKERS (by wickets/ball ratio):")
+    top_rhb_wt = df[df["rhb_wickets_per_ball"] >= 0.03].nsmallest(
+        10, "wickets_per_ball_diff"
+    )
+    for _, row in top_rhb_wt.iterrows():
+        lhb_wpb = row.get("lhb_wickets_per_ball", 0) or 0
+        rhb_wpb = row.get("rhb_wickets_per_ball", 0) or 0
+        wpb_diff = row.get("wickets_per_ball_diff", 0) or 0
+        print(
+            f"    {row['bowler_name']}: LHB {lhb_wpb:.4f} vs RHB {rhb_wpb:.4f} (diff: {wpb_diff:+.4f})"
         )
 
     # Neutral bowlers
@@ -296,7 +336,7 @@ def save_matchup_data(df: pd.DataFrame):
 
     output_path = OUTPUT_DIR / "bowler_handedness_matchup.csv"
 
-    # Select columns for output
+    # Select columns for output (including new wickets_per_ball columns)
     output_df = df[
         [
             "bowler_id",
@@ -305,12 +345,14 @@ def save_matchup_data(df: pd.DataFrame):
             "lhb_economy",
             "lhb_strike_rate",
             "lhb_wickets",
+            "lhb_wickets_per_ball",
             "rhb_balls",
             "rhb_economy",
             "rhb_strike_rate",
             "rhb_wickets",
+            "rhb_wickets_per_ball",
             "economy_diff",
-            "strike_rate_diff",
+            "wickets_per_ball_diff",
             "handedness_tags",
         ]
     ].copy()
@@ -327,7 +369,7 @@ def save_matchup_data(df: pd.DataFrame):
 def main():
     print("=" * 70)
     print("Cricket Playbook - Bowler vs LHB/RHB Matchup Analysis")
-    print("Author: Stephen Curry | Sprint 2.5")
+    print("Author: Stephen Curry | Sprint 3.0 - Analytics Tables & Wickets/Ball Ratio")
     print("=" * 70)
 
     if not DB_PATH.exists():

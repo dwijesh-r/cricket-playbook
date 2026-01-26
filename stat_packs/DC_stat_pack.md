@@ -1,6 +1,6 @@
 # Delhi Capitals (DC) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-25 03:52
+**Generated:** 2026-01-26 05:08
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -57,10 +57,9 @@
 
 **Bowler Archetypes:**
 
-- **WORKHORSE**: Kuldeep Yadav, Lungi Ngidi, T Natarajan
-- **MIDDLE_OVERS_CONTROLLER**: Axar Patel
-- **DEATH_SPECIALIST**: Tristan Stubbs, Mitchell Starc
-- **PART_TIMER**: Dushmantha Chameera, Kyle Jamieson, Mukesh Kumar
+- **WORKHORSE**: Mitchell Starc, Mukesh Kumar, T Natarajan
+- **NEW_BALL_SPECIALIST**: Axar Patel
+- **DEATH_SPECIALIST**: Tristan Stubbs
 
 ### 1.3 Key Player Tags
 
@@ -68,22 +67,22 @@
 
 | Player | Tags |
 |--------|------|
-| Axar Patel | SPECIALIST_VS_LEG_SPIN, SPIN_SPECIALIST, ACCUMULATOR, SPECIALIST_VS_SPIN, LHB_VULNERABLE (+5 more) |
-| Tristan Stubbs | FINISHER, DEATH_SPECIALIST, CONSISTENT, VULNERABLE_VS_OFF_SPIN, SPECIALIST_VS_LEG_SPIN (+4 more) |
-| David Miller | FINISHER, CONSISTENT, SPECIALIST_VS_LEG_SPIN, SPECIALIST_VS_SPIN |
-| Karun Nair | MIDDLE_ORDER, SPECIALIST_VS_PACE |
-| Nitish Rana | DEATH_SPECIALIST, VULNERABLE_VS_LEG_SPIN, SIX_HITTER, MIDDLE_ORDER, SPECIALIST_VS_PACE |
-| Prithvi Shaw | SPECIALIST_VS_PACE, EXPLOSIVE_OPENER, VULNERABLE_VS_LEG_SPIN, PP_DOMINATOR, VULNERABLE_VS_LEFT_ARM_SPIN (+2 more) |
-| Vipraj Nigam | WORKHORSE |
-| Dushmantha Chameera | PART_TIMER, RHB_WICKET_TAKER, PRESSURE_BUILDER, PP_LIABILITY |
-| Kuldeep Yadav | WORKHORSE, LHB_PRESSURE, DEATH_BEAST, PROVEN_WICKET_TAKER |
-| Kyle Jamieson | PART_TIMER, PRESSURE_BUILDER |
-| Lungi Ngidi | WORKHORSE, PP_ELITE, PRESSURE_BUILDER, RHB_SPECIALIST, RHB_PRESSURE (+1 more) |
-| Mitchell Starc | DEATH_SPECIALIST, PP_LIABILITY, PRESSURE_BUILDER, DEATH_ELITE |
-| Mukesh Kumar | DEATH_LIABILITY, RHB_PRESSURE, PART_TIMER |
-| T Natarajan | WORKHORSE |
-| Abhishek Porel | DEATH_SPECIALIST, PACE_SPECIALIST, VULNERABLE_VS_LEG_SPIN, EXPLOSIVE_OPENER, PP_DOMINATOR (+3 more) |
-| KL Rahul | SPECIALIST_VS_PACE, PLAYMAKER, CONSISTENT, SPECIALIST_VS_LEFT_ARM_SPIN, VULNERABLE_VS_OFF_SPIN (+1 more) |
+| Axar Patel | SPECIALIST_VS_LEG_SPIN, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, SPIN_SPECIALIST, ACCUMULATOR, VULNERABLE_VS_OFF_SPIN (+8 more) |
+| Tristan Stubbs | SPECIALIST_VS_LEG_SPIN, DEATH_SPECIALIST, SIX_HITTER, SPECIALIST_VS_SPIN, SPECIALIST_VS_OFF_SPIN (+3 more) |
+| David Miller | SPECIALIST_VS_LEG_SPIN, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, SPECIALIST_VS_SPIN, FINISHER, SPECIALIST_VS_LEFT_ARM_SPIN (+1 more) |
+| Karun Nair | SPECIALIST_VS_LEG_SPIN, SPECIALIST_VS_PACE, VULNERABLE_VS_OFF_SPIN, MIDDLE_ORDER |
+| Nitish Rana | DEATH_SPECIALIST, SIX_HITTER, SPECIALIST_VS_SPIN, SPECIALIST_VS_OFF_SPIN, MIDDLE_ORDER (+2 more) |
+| Prithvi Shaw | PP_DOMINATOR, EXPLOSIVE_OPENER, VULNERABLE_VS_LEG_SPIN, SPECIALIST_VS_OFF_SPIN, MIDDLE_OVERS_ACCELERATOR (+2 more) |
+| Vipraj Nigam | WORKHORSE, MIDDLE_AND_DEATH_SPECIALIST |
+| Dushmantha Chameera | RHB_WICKET_TAKER, PP_LIABILITY, PRESSURE_BUILDER |
+| Kuldeep Yadav | MIDDLE_AND_DEATH_SPECIALIST, PROVEN_WICKET_TAKER, DEATH_BEAST, LHB_PRESSURE |
+| Kyle Jamieson | PRESSURE_BUILDER |
+| Lungi Ngidi | PRESSURE_BUILDER, LHB_VULNERABLE, PP_ELITE, RHB_PRESSURE, RHB_SPECIALIST |
+| Mitchell Starc | NEW_BALL_SPECIALIST, WORKHORSE, LHB_WICKET_TAKER, PP_LIABILITY, PRESSURE_BUILDER (+2 more) |
+| Mukesh Kumar | DEATH_LIABILITY, RHB_PRESSURE, MIDDLE_AND_DEATH_SPECIALIST, WORKHORSE, NEW_BALL_SPECIALIST |
+| T Natarajan | WORKHORSE, NEW_BALL_SPECIALIST, MIDDLE_AND_DEATH_SPECIALIST |
+| Abhishek Porel | DEATH_SPECIALIST, PP_DOMINATOR, EXPLOSIVE_OPENER, SIX_HITTER, VULNERABLE_VS_LEG_SPIN (+4 more) |
+| KL Rahul | SPECIALIST_VS_OFF_SPIN, PLAYMAKER, INCONSISTENT, SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, SPECIALIST_VS_PACE |
 
 ---
 
@@ -141,11 +140,11 @@
 | Dubai International Cricket Stadium | 15 | 2235 | 1776 | 125.84 | 25.4 |
 | Arun Jaitley Stadium | 14 | 2223 | 1638 | 135.71 | 30.45 |
 | Wankhede Stadium, Mumbai | 10 | 1657 | 1167 | 141.99 | 25.11 |
-| Eden Gardens | 9 | 1166 | 959 | 121.58 | 18.51 |
 | Wankhede Stadium | 9 | 1266 | 1025 | 123.51 | 21.83 |
+| Eden Gardens | 9 | 1166 | 959 | 121.58 | 18.51 |
 | Sharjah Cricket Stadium | 8 | 1201 | 949 | 126.55 | 28.6 |
-| M Chinnaswamy Stadium | 7 | 1115 | 825 | 135.15 | 35.97 |
 | MA Chidambaram Stadium, Chepauk | 7 | 905 | 807 | 112.14 | 21.05 |
+| M Chinnaswamy Stadium | 7 | 1115 | 825 | 135.15 | 35.97 |
 
 ---
 
@@ -342,8 +341,8 @@
 | Kolkata Knight Riders | 5 | 102 | 123 | 10 | 7.24 | 12.3 | 10.2 | 38.24 | 13.73 | HIGH |
 | Royal Challengers Bengaluru | 10 | 234 | 341 | 9 | 8.74 | 37.89 | 26.0 | 29.91 | 16.24 | HIGH |
 | Lucknow Super Giants | 7 | 160 | 202 | 9 | 7.58 | 22.44 | 17.78 | 31.88 | 13.13 | HIGH |
-| Gujarat Titans | 7 | 162 | 176 | 5 | 6.52 | 35.2 | 32.4 | 31.48 | 8.64 | HIGH |
 | Delhi Capitals | 6 | 122 | 178 | 5 | 8.75 | 35.6 | 24.4 | 22.95 | 13.93 | HIGH |
+| Gujarat Titans | 7 | 162 | 176 | 5 | 6.52 | 35.2 | 32.4 | 31.48 | 8.64 | HIGH |
 | Gujarat Lions | 2 | 48 | 58 | 4 | 7.25 | 14.5 | 12.0 | 31.25 | 12.5 | MEDIUM |
 | Chennai Super Kings | 8 | 168 | 236 | 4 | 8.43 | 59.0 | 42.0 | 24.4 | 14.29 | HIGH |
 | Rising Pune Supergiant | 2 | 48 | 66 | 3 | 8.25 | 22.0 | 16.0 | 37.5 | 14.58 | MEDIUM |
@@ -369,10 +368,10 @@
 | Sunrisers Hyderabad | 7 | 152 | 204 | 13 | 8.05 | 15.69 | 11.69 | 40.13 | 19.08 | HIGH |
 | Delhi Capitals | 6 | 132 | 176 | 9 | 8.0 | 19.56 | 14.67 | 42.42 | 18.94 | HIGH |
 | Lucknow Super Giants | 4 | 84 | 117 | 8 | 8.36 | 14.63 | 10.5 | 41.67 | 22.62 | MEDIUM |
-| Kolkata Knight Riders | 4 | 84 | 122 | 7 | 8.71 | 17.43 | 12.0 | 34.52 | 20.24 | MEDIUM |
 | Mumbai Indians | 6 | 119 | 178 | 7 | 8.97 | 25.43 | 17.0 | 34.45 | 21.85 | HIGH |
-| Punjab Kings | 5 | 96 | 108 | 7 | 6.75 | 15.43 | 13.71 | 45.83 | 15.63 | MEDIUM |
+| Kolkata Knight Riders | 4 | 84 | 122 | 7 | 8.71 | 17.43 | 12.0 | 34.52 | 20.24 | MEDIUM |
 | Rajasthan Royals | 6 | 138 | 177 | 7 | 7.7 | 25.29 | 19.71 | 42.03 | 18.84 | HIGH |
+| Punjab Kings | 5 | 96 | 108 | 7 | 6.75 | 15.43 | 13.71 | 45.83 | 15.63 | MEDIUM |
 | Chennai Super Kings | 7 | 156 | 186 | 6 | 7.15 | 31.0 | 26.0 | 40.38 | 15.38 | HIGH |
 | Royal Challengers Bengaluru | 4 | 78 | 162 | 1 | 12.46 | 162.0 | 78.0 | 32.05 | 32.05 | MEDIUM |
 
@@ -462,7 +461,13 @@
 
 *Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
 
-- **KL Rahul** vs Left-arm orthodox: SR 110.64, Avg 65.83 (357 balls)
+*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
+
+- **AR Patel** vs off-spin: SR 99.45, Avg 12.13, BPD 12.2 (183 balls)
+- **Abishek Porel** vs off-spin: SR 101.89, Avg 13.5, BPD 13.25 (53 balls)
+- **Abishek Porel** vs leg-spin: SR 107.41, Avg 14.5, BPD 13.5 (54 balls)
+- **KK Nair** vs off-spin: SR 90.72, Avg 22.0, BPD 24.25 (97 balls)
+- **PP Shaw** vs leg-spin: SR 155.83, Avg 17.0, BPD 10.91 (120 balls)
 
 ---
 

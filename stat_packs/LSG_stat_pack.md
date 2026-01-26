@@ -1,6 +1,6 @@
 # Lucknow Super Giants (LSG) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-25 03:52
+**Generated:** 2026-01-26 05:08
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -50,10 +50,9 @@
 
 **Bowler Archetypes:**
 
-- **WORKHORSE**: Mitchell Marsh, Wanindu Hasaranga, Anrich Nortje, Mohsin Khan
-- **NEW_BALL_SPECIALIST**: Mohammed Shami
-- **DEATH_SPECIALIST**: Aiden Markram, Avesh Khan
-- **PART_TIMER**: Akash Singh
+- **WORKHORSE**: Wanindu Hasaranga, Anrich Nortje, Avesh Khan, Mohammed Shami, Mohsin Khan
+- **NEW_BALL_SPECIALIST**: Akash Singh
+- **DEATH_SPECIALIST**: Aiden Markram
 
 ### 1.3 Key Player Tags
 
@@ -61,19 +60,19 @@
 
 | Player | Tags |
 |--------|------|
-| Aiden Markram | SPECIALIST_VS_OFF_SPIN, DEATH_SPECIALIST, SPECIALIST_VS_LEG_SPIN, SPECIALIST_VS_SPIN, MIDDLE_ORDER (+1 more) |
-| Mitchell Marsh | SPECIALIST_VS_OFF_SPIN, PACE_SPECIALIST, PP_DOMINATOR, SPECIALIST_VS_SPIN, MIDDLE_ORDER (+5 more) |
-| Wanindu Hasaranga | WORKHORSE, MIDDLE_OVERS_LIABILITY, LHB_VULNERABLE, RHB_PRESSURE, RHB_SPECIALIST |
-| Abdul Samad | FINISHER, PACE_SPECIALIST, SPECIALIST_VS_PACE |
-| Ayush Badoni | ACCUMULATOR, PACE_SPECIALIST, SPECIALIST_VS_LEFT_ARM_SPIN, SPECIALIST_VS_PACE |
-| Akash Singh | LHB_VULNERABLE, LHB_PRESSURE, RHB_SPECIALIST, PART_TIMER, RHB_WICKET_TAKER |
-| Anrich Nortje | RHB_WICKET_TAKER, LHB_VULNERABLE, WORKHORSE, DEATH_LIABILITY, RHB_PRESSURE (+1 more) |
-| Avesh Khan | DEATH_SPECIALIST, PP_LIABILITY |
-| Mohammed Shami | DEATH_LIABILITY, PROVEN_WICKET_TAKER, PP_ELITE, NEW_BALL_SPECIALIST, PRESSURE_BUILDER (+1 more) |
-| Mohsin Khan | WORKHORSE, LHB_WICKET_TAKER, PRESSURE_BUILDER, LHB_PRESSURE |
-| Digvesh Rathi | WORKHORSE, LHB_PRESSURE, LHB_WICKET_TAKER |
-| Nicholas Pooran | FINISHER, SPECIALIST_VS_OFF_SPIN, CONSISTENT, MIDDLE_OVERS_ACCELERATOR, SPECIALIST_VS_LEG_SPIN (+4 more) |
-| Rishabh Pant | DEATH_SPECIALIST, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, SIX_HITTER, MIDDLE_ORDER, SPECIALIST_VS_PACE |
+| Aiden Markram | SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, DEATH_SPECIALIST, SPECIALIST_VS_LEG_SPIN, SPECIALIST_VS_OFF_SPIN, MIDDLE_ORDER (+2 more) |
+| Mitchell Marsh | SPECIALIST_VS_LEG_SPIN, PP_DOMINATOR, MIDDLE_ORDER, SPECIALIST_VS_PACE, PACE_SPECIALIST (+3 more) |
+| Wanindu Hasaranga | WORKHORSE, RHB_PRESSURE, MIDDLE_OVERS_LIABILITY, RHB_SPECIALIST, LHB_VULNERABLE (+1 more) |
+| Abdul Samad | PACE_SPECIALIST, CONSISTENT, FINISHER, VULNERABLE_VS_LEFT_ARM_SPIN, VULNERABLE_VS_LEG_SPIN (+1 more) |
+| Ayush Badoni | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, ACCUMULATOR, VULNERABLE_VS_LEG_SPIN, SPECIALIST_VS_LEFT_ARM_SPIN, SPECIALIST_VS_PACE (+1 more) |
+| Akash Singh | NEW_BALL_SPECIALIST, RHB_WICKET_TAKER, LHB_PRESSURE, RHB_SPECIALIST, LHB_VULNERABLE |
+| Anrich Nortje | NEW_BALL_SPECIALIST, WORKHORSE, RHB_WICKET_TAKER, RHB_PRESSURE, RHB_SPECIALIST (+3 more) |
+| Avesh Khan | WORKHORSE, NEW_BALL_SPECIALIST, MIDDLE_AND_DEATH_SPECIALIST, PP_LIABILITY |
+| Mohammed Shami | DEATH_LIABILITY, PRESSURE_BUILDER, PROVEN_WICKET_TAKER, PP_ELITE, MIDDLE_OVERS_LIABILITY (+3 more) |
+| Mohsin Khan | NEW_BALL_SPECIALIST, WORKHORSE, LHB_WICKET_TAKER, LHB_PRESSURE, PRESSURE_BUILDER (+1 more) |
+| Digvesh Rathi | NEW_BALL_SPECIALIST, WORKHORSE, LHB_WICKET_TAKER, LHB_PRESSURE, MIDDLE_AND_DEATH_SPECIALIST |
+| Nicholas Pooran | SPECIALIST_VS_LEG_SPIN, SPIN_SPECIALIST, SPECIALIST_VS_SPIN, SPECIALIST_VS_OFF_SPIN, FINISHER (+3 more) |
+| Rishabh Pant | SPECIALIST_VS_LEG_SPIN, DEATH_SPECIALIST, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, SIX_HITTER, SPECIALIST_VS_SPIN (+4 more) |
 
 ---
 
@@ -128,13 +127,13 @@
 |-------|---------|------|-------|-----|-----|
 | Bharat Ratna Shri Atal Bihari Vajpayee E... | 21 | 3311 | 2456 | 134.81 | 26.28 |
 | Wankhede Stadium, Mumbai | 6 | 1005 | 720 | 139.58 | 25.77 |
-| Dr DY Patil Sports Academy, Mumbai | 4 | 663 | 478 | 138.7 | 34.89 |
 | Eden Gardens, Kolkata | 4 | 713 | 480 | 148.54 | 29.71 |
+| Dr DY Patil Sports Academy, Mumbai | 4 | 663 | 478 | 138.7 | 34.89 |
 | Rajiv Gandhi International Stadium, Uppa... | 3 | 519 | 333 | 155.86 | 43.25 |
 | Sawai Mansingh Stadium, Jaipur | 3 | 478 | 360 | 132.78 | 28.12 |
 | Brabourne Stadium, Mumbai | 3 | 523 | 357 | 146.5 | 32.69 |
-| Maharashtra Cricket Association Stadium,... | 3 | 392 | 323 | 121.36 | 18.67 |
 | MA Chidambaram Stadium, Chepauk, Chennai | 3 | 473 | 337 | 140.36 | 23.65 |
+| Maharashtra Cricket Association Stadium,... | 3 | 392 | 323 | 121.36 | 18.67 |
 
 ---
 
@@ -321,12 +320,12 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 9 | 192 | 282 | 14 | 8.81 | 20.14 | 13.71 | 39.06 | 20.83 | HIGH |
-| Mumbai Indians | 7 | 156 | 220 | 13 | 8.46 | 16.92 | 12.0 | 40.38 | 20.51 | HIGH |
 | Kolkata Knight Riders | 8 | 180 | 249 | 13 | 8.3 | 19.15 | 13.85 | 40.0 | 19.44 | HIGH |
+| Mumbai Indians | 7 | 156 | 220 | 13 | 8.46 | 16.92 | 12.0 | 40.38 | 20.51 | HIGH |
 | Rajasthan Royals | 7 | 150 | 210 | 12 | 8.4 | 17.5 | 12.5 | 35.33 | 17.33 | HIGH |
 | Chennai Super Kings | 10 | 207 | 318 | 9 | 9.22 | 35.33 | 23.0 | 36.23 | 24.15 | HIGH |
-| Gujarat Titans | 7 | 159 | 244 | 8 | 9.21 | 30.5 | 19.88 | 27.04 | 20.75 | HIGH |
 | Punjab Kings | 11 | 227 | 360 | 8 | 9.52 | 45.0 | 28.38 | 32.16 | 23.79 | HIGH |
+| Gujarat Titans | 7 | 159 | 244 | 8 | 9.21 | 30.5 | 19.88 | 27.04 | 20.75 | HIGH |
 | Royal Challengers Bengaluru | 8 | 186 | 298 | 6 | 9.61 | 49.67 | 31.0 | 31.72 | 24.19 | HIGH |
 | Delhi Capitals | 6 | 120 | 173 | 4 | 8.65 | 43.25 | 30.0 | 37.5 | 23.33 | HIGH |
 | Lucknow Super Giants | 2 | 42 | 54 | 1 | 7.71 | 54.0 | 42.0 | 23.81 | 9.52 | MEDIUM |
@@ -344,8 +343,8 @@
 | Chennai Super Kings | 15 | 329 | 414 | 14 | 7.55 | 29.57 | 23.5 | 40.73 | 16.41 | HIGH |
 | Lucknow Super Giants | 5 | 102 | 119 | 6 | 7.0 | 19.83 | 17.0 | 45.1 | 16.67 | HIGH |
 | Punjab Kings | 9 | 180 | 337 | 6 | 11.23 | 56.17 | 30.0 | 37.78 | 33.33 | HIGH |
-| Gujarat Lions | 3 | 66 | 108 | 2 | 9.82 | 54.0 | 33.0 | 33.33 | 24.24 | MEDIUM |
 | Rising Pune Supergiant | 3 | 49 | 91 | 2 | 11.14 | 45.5 | 24.5 | 20.41 | 26.53 | MEDIUM |
+| Gujarat Lions | 3 | 66 | 108 | 2 | 9.82 | 54.0 | 33.0 | 33.33 | 24.24 | MEDIUM |
 | Gujarat Titans | 2 | 42 | 74 | 2 | 10.57 | 37.0 | 21.0 | 28.57 | 30.95 | MEDIUM |
 
 ---
@@ -411,7 +410,10 @@
 
 *Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
 
-- **RR Pant** vs Left-arm wrist spin: SR 100.0, Avg 24.0 (72 balls)
+*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
+
+- **A Badoni** vs leg-spin: SR 108.75, Avg 17.4, BPD 16.0 (80 balls)
+- **RR Pant** vs LA wrist spin: SR 100.0, Avg 24.0, BPD 24.0 (72 balls)
 
 ---
 

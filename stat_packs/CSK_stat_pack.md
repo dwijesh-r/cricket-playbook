@@ -1,6 +1,6 @@
 # Chennai Super Kings (CSK) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-25 03:52
+**Generated:** 2026-01-26 05:08
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -56,9 +56,7 @@
 
 **Bowler Archetypes:**
 
-- **WORKHORSE**: Khaleel Ahmed, Nathan Ellis, Noor Ahmad, Shreyas Gopal
-- **MIDDLE_OVERS_CONTROLLER**: Rahul Chahar
-- **PART_TIMER**: Mukesh Choudhary
+- **WORKHORSE**: Khaleel Ahmed, Nathan Ellis
 
 ### 1.3 Key Player Tags
 
@@ -66,19 +64,19 @@
 
 | Player | Tags |
 |--------|------|
-| Shivam Dube | SPECIALIST_VS_SPIN, SPECIALIST_VS_PACE, ACCUMULATOR |
-| Ruturaj Gaikwad | PLAYMAKER, CONSISTENT, MIDDLE_OVERS_ACCELERATOR, SPECIALIST_VS_SPIN, SPECIALIST_VS_LEFT_ARM_SPIN (+1 more) |
-| Sarfaraz Khan | SPECIALIST_VS_PACE, ACCUMULATOR, PACE_SPECIALIST, VULNERABLE_VS_LEG_SPIN |
-| Gurjapneet Singh | VULNERABLE_VS_PACE, ACCUMULATOR |
-| Khaleel Ahmed | LHB_VULNERABLE, PRESSURE_BUILDER, WORKHORSE, DEATH_LIABILITY, RHB_SPECIALIST |
-| Mukesh Choudhary | PART_TIMER, PRESSURE_BUILDER, RHB_SPECIALIST, RHB_PRESSURE, LHB_VULNERABLE |
-| Nathan Ellis | WORKHORSE, RHB_VULNERABLE, LHB_PRESSURE, LHB_SPECIALIST |
-| Noor Ahmad | WORKHORSE, LHB_PRESSURE |
-| Rahul Chahar | LHB_SPECIALIST, RHB_VULNERABLE, LHB_WICKET_TAKER, MIDDLE_OVERS_CONTROLLER |
-| Shreyas Gopal | WORKHORSE, RHB_VULNERABLE, LHB_SPECIALIST, LHB_PRESSURE |
-| Kartik Sharma | LHB_VULNERABLE, WORKHORSE, RHB_PRESSURE, MIDDLE_OVERS_LIABILITY, RHB_SPECIALIST |
-| MS Dhoni | FINISHER, PACE_SPECIALIST, CONSISTENT, SPECIALIST_VS_PACE |
-| Sanju Samson | DEATH_SPECIALIST, SPECIALIST_VS_LEG_SPIN, SIX_HITTER, SPECIALIST_VS_SPIN, MIDDLE_ORDER (+1 more) |
+| Shivam Dube | SPECIALIST_VS_LEG_SPIN, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, SPECIALIST_VS_SPIN, SPECIALIST_VS_OFF_SPIN, ACCUMULATOR (+2 more) |
+| Ruturaj Gaikwad | SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, SPECIALIST_VS_LEG_SPIN, PLAYMAKER, MIDDLE_OVERS_ACCELERATOR, SPECIALIST_VS_SPIN (+2 more) |
+| Sarfaraz Khan | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, ACCUMULATOR, VULNERABLE_VS_OFF_SPIN, SPECIALIST_VS_PACE, PACE_SPECIALIST |
+| Gurjapneet Singh | ACCUMULATOR, VULNERABLE_VS_LEFT_ARM_SPIN |
+| Khaleel Ahmed | DEATH_LIABILITY, PRESSURE_BUILDER, LHB_VULNERABLE, RHB_SPECIALIST, WORKHORSE (+2 more) |
+| Mukesh Choudhary | RHB_SPECIALIST, RHB_PRESSURE, PRESSURE_BUILDER, LHB_VULNERABLE |
+| Nathan Ellis | NEW_BALL_SPECIALIST, WORKHORSE, RHB_VULNERABLE, LHB_PRESSURE, DEATH_SPECIALIST (+1 more) |
+| Noor Ahmad | LHB_PRESSURE, MIDDLE_AND_DEATH_SPECIALIST |
+| Rahul Chahar | RHB_VULNERABLE, LHB_SPECIALIST, LHB_WICKET_TAKER, MIDDLE_AND_DEATH_SPECIALIST |
+| Shreyas Gopal | LHB_SPECIALIST, LHB_PRESSURE, RHB_VULNERABLE |
+| Kartik Sharma | MIDDLE_OVERS_CONTROLLER, RHB_PRESSURE, MIDDLE_OVERS_LIABILITY, RHB_SPECIALIST, LHB_VULNERABLE |
+| MS Dhoni | VULNERABLE_VS_SPIN, CONSISTENT, VULNERABLE_VS_LEG_SPIN, FINISHER, VULNERABLE_VS_OFF_SPIN (+4 more) |
+| Sanju Samson | SPECIALIST_VS_LEG_SPIN, DEATH_SPECIALIST, SIX_HITTER, SPECIALIST_VS_SPIN, MIDDLE_ORDER (+2 more) |
 
 ---
 
@@ -133,13 +131,13 @@
 |-------|---------|------|-------|-----|-----|
 | MA Chidambaram Stadium, Chepauk | 47 | 7287 | 5536 | 131.63 | 31.55 |
 | MA Chidambaram Stadium, Chepauk, Chennai | 21 | 3310 | 2457 | 134.72 | 26.69 |
-| Dubai International Cricket Stadium | 14 | 2054 | 1650 | 124.48 | 32.09 |
 | Wankhede Stadium | 14 | 2054 | 1575 | 130.41 | 23.61 |
+| Dubai International Cricket Stadium | 14 | 2054 | 1650 | 124.48 | 32.09 |
 | Wankhede Stadium, Mumbai | 12 | 1828 | 1379 | 132.56 | 30.47 |
 | Eden Gardens | 11 | 1488 | 1241 | 119.9 | 26.11 |
 | MA Chidambaram Stadium | 9 | 1240 | 1034 | 119.92 | 30.24 |
 | M Chinnaswamy Stadium | 7 | 1004 | 754 | 133.16 | 25.74 |
-| Maharashtra Cricket Association Stadium | 6 | 1013 | 697 | 145.34 | 44.04 |
+| Feroz Shah Kotla | 6 | 982 | 713 | 137.73 | 39.28 |
 | Sharjah Cricket Stadium | 6 | 900 | 704 | 127.84 | 28.13 |
 
 ---
@@ -290,14 +288,14 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
+| Royal Challengers Bengaluru | 5 | 120 | 170 | 7 | 8.5 | 24.29 | 17.14 | 34.17 | 19.17 | HIGH |
 | Kolkata Knight Riders | 3 | 60 | 59 | 7 | 5.9 | 8.43 | 8.57 | 45.0 | 11.67 | MEDIUM |
 | Mumbai Indians | 5 | 114 | 162 | 7 | 8.53 | 23.14 | 16.29 | 34.21 | 16.67 | HIGH |
-| Royal Challengers Bengaluru | 5 | 120 | 170 | 7 | 8.5 | 24.29 | 17.14 | 34.17 | 19.17 | HIGH |
 | Rajasthan Royals | 5 | 98 | 154 | 6 | 9.43 | 25.67 | 16.33 | 29.59 | 19.39 | MEDIUM |
 | Punjab Kings | 4 | 90 | 122 | 6 | 8.13 | 20.33 | 15.0 | 30.0 | 14.44 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 65 | 103 | 3 | 9.51 | 34.33 | 21.67 | 29.23 | 20.0 | MEDIUM |
-| Lucknow Super Giants | 4 | 96 | 78 | 3 | 4.88 | 26.0 | 32.0 | 44.79 | 6.25 | MEDIUM |
 | Chennai Super Kings | 3 | 54 | 68 | 3 | 7.56 | 22.67 | 18.0 | 27.78 | 11.11 | MEDIUM |
+| Lucknow Super Giants | 4 | 96 | 78 | 3 | 4.88 | 26.0 | 32.0 | 44.79 | 6.25 | MEDIUM |
 | Delhi Capitals | 4 | 71 | 104 | 2 | 8.79 | 52.0 | 35.5 | 30.99 | 19.72 | MEDIUM |
 
 ### Khaleel Ahmed
@@ -309,8 +307,8 @@
 | Delhi Capitals | 6 | 137 | 194 | 10 | 8.5 | 19.4 | 13.7 | 36.5 | 18.98 | HIGH |
 | Rajasthan Royals | 9 | 197 | 320 | 9 | 9.75 | 35.56 | 21.89 | 40.1 | 26.4 | HIGH |
 | Chennai Super Kings | 9 | 215 | 281 | 9 | 7.84 | 31.22 | 23.89 | 40.47 | 17.21 | HIGH |
-| Kolkata Knight Riders | 8 | 156 | 239 | 8 | 9.19 | 29.88 | 19.5 | 45.51 | 25.0 | HIGH |
 | Royal Challengers Bengaluru | 6 | 138 | 232 | 8 | 10.09 | 29.0 | 17.25 | 34.78 | 26.09 | HIGH |
+| Kolkata Knight Riders | 8 | 156 | 239 | 8 | 9.19 | 29.88 | 19.5 | 45.51 | 25.0 | HIGH |
 | Gujarat Titans | 6 | 126 | 157 | 7 | 7.48 | 22.43 | 18.0 | 42.86 | 19.84 | HIGH |
 | Lucknow Super Giants | 4 | 84 | 132 | 6 | 9.43 | 22.0 | 14.0 | 50.0 | 26.19 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 60 | 102 | 4 | 10.2 | 25.5 | 15.0 | 43.33 | 28.33 | MEDIUM |
@@ -390,7 +388,11 @@
 
 *Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
 
-- **MS Dhoni** vs Left-arm orthodox: SR 109.52, Avg 42.71 (546 balls)
+*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
+
+- **MS Dhoni** vs off-spin: SR 105.74, Avg 38.55, BPD 36.45 (401 balls)
+- **MS Dhoni** vs LA orthodox: SR 109.52, Avg 42.71, BPD 39.0 (546 balls)
+- **MS Dhoni** vs leg-spin: SR 109.84, Avg 33.5, BPD 30.5 (549 balls)
 
 ---
 

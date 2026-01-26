@@ -1,6 +1,6 @@
 # Royal Challengers Bengaluru (RCB) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-25 03:52
+**Generated:** 2026-01-26 05:08
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -54,10 +54,7 @@
 
 **Bowler Archetypes:**
 
-- **WORKHORSE**: Suyash Sharma
-- **NEW_BALL_SPECIALIST**: Bhuvneshwar Kumar, Josh Hazlewood
-- **MIDDLE_OVERS_CONTROLLER**: Krunal Pandya
-- **PART_TIMER**: Romario Shepherd, Yash Dayal
+- **WORKHORSE**: Krunal Pandya, Bhuvneshwar Kumar, Josh Hazlewood, Yash Dayal
 
 ### 1.3 Key Player Tags
 
@@ -65,19 +62,18 @@
 
 | Player | Tags |
 |--------|------|
-| Krunal Pandya | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, VULNERABLE_VS_SPIN, SPECIALIST_VS_PACE, ACCUMULATOR, LHB_VULNERABLE (+5 more) |
-| Romario Shepherd | PART_TIMER |
-| Venkatesh Iyer | VULNERABLE_VS_LEFT_ARM_SPIN, SPECIALIST_VS_PACE, SPECIALIST_VS_LEG_SPIN, PLAYMAKER |
-| Devdutt Padikkal | ANCHOR, VULNERABLE_VS_LEFT_ARM_SPIN, SPECIALIST_VS_PACE |
-| Rajat Patidar | DEATH_SPECIALIST, MIDDLE_OVERS_ACCELERATOR, SPECIALIST_VS_LEG_SPIN, SIX_HITTER, SPIN_SPECIALIST (+4 more) |
-| Tim David | FINISHER, DEATH_SPECIALIST, SIX_HITTER, SPECIALIST_VS_PACE |
-| Virat Kohli | SPECIALIST_VS_OFF_SPIN, DEATH_SPECIALIST, CONSISTENT, SPECIALIST_VS_LEG_SPIN, SPECIALIST_VS_SPIN (+4 more) |
-| Bhuvneshwar Kumar | VULNERABLE_VS_PACE, ACCUMULATOR, RHB_WICKET_TAKER, PRESSURE_BUILDER, PROVEN_WICKET_TAKER (+3 more) |
-| Josh Hazlewood | LHB_VULNERABLE, RHB_SPECIALIST, PRESSURE_BUILDER, PP_ELITE, NEW_BALL_SPECIALIST |
-| Suyash Sharma | WORKHORSE, MIDDLE_OVERS_LIABILITY |
-| Yash Dayal | RHB_WICKET_TAKER, PP_LIABILITY, PART_TIMER |
-| Jitesh Sharma | FINISHER, DEATH_SPECIALIST, MIDDLE_OVERS_ACCELERATOR, SIX_HITTER, SPECIALIST_VS_SPIN (+1 more) |
-| Phil Salt | DEATH_SPECIALIST, EXPLOSIVE_OPENER, PP_DOMINATOR, MIDDLE_OVERS_ACCELERATOR, SIX_HITTER (+2 more) |
+| Krunal Pandya | SPECIALIST_VS_LEG_SPIN, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, ACCUMULATOR, VULNERABLE_VS_LEFT_ARM_SPIN, VULNERABLE_VS_OFF_SPIN (+10 more) |
+| Venkatesh Iyer | SPECIALIST_VS_LEG_SPIN, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, PLAYMAKER, VULNERABLE_VS_OFF_SPIN, SPECIALIST_VS_PACE (+1 more) |
+| Devdutt Padikkal | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, SPECIALIST_VS_LEFT_ARM_SPIN, ANCHOR |
+| Rajat Patidar | SPECIALIST_VS_LEG_SPIN, DEATH_SPECIALIST, SPIN_SPECIALIST, SIX_HITTER, SPECIALIST_VS_SPIN (+5 more) |
+| Tim David | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, DEATH_SPECIALIST, SIX_HITTER, FINISHER, VULNERABLE_VS_LEG_SPIN (+2 more) |
+| Virat Kohli | SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, DEATH_SPECIALIST, SPECIALIST_VS_LEG_SPIN, MIDDLE_ORDER, SPECIALIST_VS_PACE |
+| Bhuvneshwar Kumar | VULNERABLE_VS_SPIN, ACCUMULATOR, VULNERABLE_VS_LEG_SPIN, VULNERABLE_VS_LEFT_ARM_SPIN, VULNERABLE_VS_OFF_SPIN (+9 more) |
+| Josh Hazlewood | NEW_BALL_SPECIALIST, WORKHORSE, LHB_WICKET_TAKER, PRESSURE_BUILDER, RHB_SPECIALIST (+3 more) |
+| Suyash Sharma | MIDDLE_AND_DEATH_SPECIALIST, MIDDLE_OVERS_LIABILITY |
+| Yash Dayal | RHB_WICKET_TAKER, MIDDLE_AND_DEATH_SPECIALIST, PP_LIABILITY, WORKHORSE, NEW_BALL_SPECIALIST |
+| Jitesh Sharma | SPECIALIST_VS_LEG_SPIN, DEATH_SPECIALIST, SIX_HITTER, FINISHER, VULNERABLE_VS_LEFT_ARM_SPIN (+2 more) |
+| Phil Salt | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, DEATH_SPECIALIST, PP_DOMINATOR, EXPLOSIVE_OPENER, SIX_HITTER (+5 more) |
 
 ---
 
@@ -134,12 +130,12 @@
 | M Chinnaswamy Stadium, Bengaluru | 19 | 3325 | 2178 | 152.66 | 29.17 |
 | M.Chinnaswamy Stadium | 15 | 2491 | 1691 | 147.31 | 29.31 |
 | Dubai International Cricket Stadium | 12 | 1707 | 1388 | 122.98 | 27.1 |
-| Eden Gardens | 10 | 1479 | 1089 | 135.81 | 29.58 |
 | Wankhede Stadium | 10 | 1599 | 1186 | 134.82 | 30.17 |
+| Eden Gardens | 10 | 1479 | 1089 | 135.81 | 29.58 |
 | Wankhede Stadium, Mumbai | 9 | 1560 | 1046 | 149.14 | 37.14 |
-| Rajiv Gandhi International Stadium, Uppa... | 8 | 1118 | 867 | 128.95 | 21.09 |
 | Sharjah Cricket Stadium | 8 | 1150 | 940 | 122.34 | 28.05 |
 | MA Chidambaram Stadium, Chepauk | 8 | 1204 | 958 | 125.68 | 23.15 |
+| Rajiv Gandhi International Stadium, Uppa... | 8 | 1118 | 867 | 128.95 | 21.09 |
 
 ---
 
@@ -322,8 +318,8 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Punjab Kings | 25 | 544 | 676 | 34 | 7.46 | 19.88 | 16.0 | 42.46 | 16.73 | HIGH |
 | Kolkata Knight Riders | 30 | 654 | 850 | 32 | 7.8 | 26.56 | 20.44 | 40.67 | 18.04 | HIGH |
-| Delhi Capitals | 23 | 546 | 674 | 23 | 7.41 | 29.3 | 23.74 | 41.76 | 16.3 | HIGH |
 | Mumbai Indians | 21 | 450 | 533 | 23 | 7.11 | 23.17 | 19.57 | 45.11 | 15.11 | HIGH |
+| Delhi Capitals | 23 | 546 | 674 | 23 | 7.41 | 29.3 | 23.74 | 41.76 | 16.3 | HIGH |
 | Rajasthan Royals | 20 | 459 | 655 | 20 | 8.56 | 32.75 | 22.95 | 40.09 | 22.22 | HIGH |
 | Royal Challengers Bengaluru | 23 | 497 | 676 | 18 | 8.16 | 37.56 | 27.61 | 40.85 | 21.53 | HIGH |
 | Chennai Super Kings | 22 | 488 | 588 | 14 | 7.23 | 42.0 | 34.86 | 43.44 | 15.37 | HIGH |
@@ -396,13 +392,13 @@
 | V Kohli | Narendra Modi Stadium, Ahmedabad | 6 | 200 | 156 | 128.21 | 40.0 | 14.74 | HIGH |
 | V Kohli | Sawai Mansingh Stadium, Jaipur | 3 | 193 | 136 | 141.91 | 193.0 | 16.91 | HIGH |
 | V Kohli | Saurashtra Cricket Association Stad... | 2 | 164 | 113 | 145.13 | 164.0 | 17.7 | HIGH |
-| V Kohli | Sheikh Zayed Stadium | 6 | 155 | 140 | 110.71 | 38.75 | 12.14 | HIGH |
 | V Kohli | Maharashtra Cricket Association Sta... | 4 | 155 | 139 | 111.51 | 38.75 | 10.79 | HIGH |
+| V Kohli | Sheikh Zayed Stadium | 6 | 155 | 140 | 110.71 | 38.75 | 12.14 | HIGH |
 | V Kohli | Rajiv Gandhi International Stadium,... | 2 | 151 | 106 | 142.45 | 75.5 | 19.81 | HIGH |
 | V Kohli | Sawai Mansingh Stadium | 7 | 131 | 139 | 94.24 | 21.83 | 10.07 | HIGH |
 | V Kohli | Bharat Ratna Shri Atal Bihari Vajpa... | 3 | 128 | 85 | 150.59 | 42.67 | 24.71 | MEDIUM |
-| V Kohli | MA Chidambaram Stadium, Chepauk, Ch... | 5 | 123 | 113 | 108.85 | 24.6 | 11.5 | HIGH |
 | V Kohli | Eden Gardens, Kolkata | 4 | 123 | 85 | 144.71 | 41.0 | 17.65 | MEDIUM |
+| V Kohli | MA Chidambaram Stadium, Chepauk, Ch... | 5 | 123 | 113 | 108.85 | 24.6 | 11.5 | HIGH |
 | V Kohli | Arun Jaitley Stadium, Delhi | 2 | 106 | 93 | 113.98 | 53.0 | 9.68 | MEDIUM |
 | V Kohli | Punjab Cricket Association Stadium,... | 5 | 100 | 75 | 133.33 | 20.0 | 18.67 | MEDIUM |
 | VR Iyer | Eden Gardens, Kolkata | 17 | 399 | 292 | 136.64 | 24.94 | 18.49 | HIGH |
@@ -432,7 +428,12 @@
 
 *Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
 
-- **KH Pandya** vs Left-arm orthodox: SR 106.36, Avg 29.25 (110 balls)
+*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
+
+- **JM Sharma** vs LA orthodox: SR 174.51, Avg 14.83, BPD 8.5 (51 balls)
+- **KH Pandya** vs off-spin: SR 77.86, Avg 9.08, BPD 11.67 (140 balls)
+- **KH Pandya** vs LA orthodox: SR 106.36, Avg 29.25, BPD 27.5 (110 balls)
+- **VR Iyer** vs off-spin: SR 100.0, Avg 16.6, BPD 16.6 (83 balls)
 
 ---
 

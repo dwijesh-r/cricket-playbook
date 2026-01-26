@@ -1,6 +1,6 @@
 # Sunrisers Hyderabad (SRH) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-25 03:52
+**Generated:** 2026-01-26 05:08
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -56,8 +56,9 @@
 
 **Bowler Archetypes:**
 
-- **WORKHORSE**: Abhishek Sharma, Liam Livingstone, Harshal Patel, Jaydev Unadkat, Pat Cummins, Shivam Mavi
-- **PART_TIMER**: Zeeshan Ansari
+- **WORKHORSE**: Harshal Patel, Jaydev Unadkat, Pat Cummins
+- **MIDDLE_OVERS_CONTROLLER**: Abhishek Sharma, Zeeshan Ansari
+- **DEATH_SPECIALIST**: Liam Livingstone
 
 ### 1.3 Key Player Tags
 
@@ -65,17 +66,17 @@
 
 | Player | Tags |
 |--------|------|
-| Abhishek Sharma | SPECIALIST_VS_OFF_SPIN, EXPLOSIVE_OPENER, PP_DOMINATOR, MIDDLE_OVERS_ACCELERATOR, SPIN_SPECIALIST (+3 more) |
-| Liam Livingstone | DEATH_SPECIALIST, PACE_SPECIALIST, SPECIALIST_VS_LEG_SPIN, SIX_HITTER, MIDDLE_ORDER (+6 more) |
-| Nitish Kumar Reddy | SPECIALIST_VS_LEG_SPIN, SPIN_SPECIALIST, SPECIALIST_VS_SPIN, SPECIALIST_VS_LEFT_ARM_SPIN, MIDDLE_ORDER |
-| Travis Head | DEATH_SPECIALIST, CONSISTENT, EXPLOSIVE_OPENER, PP_DOMINATOR, MIDDLE_OVERS_ACCELERATOR (+4 more) |
-| Harshal Patel | WORKHORSE, DEATH_LIABILITY, LHB_VULNERABLE, MIDDLE_OVERS_LIABILITY, PROVEN_WICKET_TAKER (+1 more) |
-| Jaydev Unadkat | DEATH_LIABILITY, PROVEN_WICKET_TAKER, LHB_PRESSURE, WORKHORSE |
-| Pat Cummins | PACE_SPECIALIST, ACCUMULATOR, SPECIALIST_VS_PACE, RHB_WICKET_TAKER, WORKHORSE (+2 more) |
-| Shivam Mavi | DEATH_LIABILITY, RHB_VULNERABLE, WORKHORSE, LHB_SPECIALIST, PRESSURE_BUILDER |
-| Zeeshan Ansari | PART_TIMER |
-| Heinrich Klaasen | FINISHER, SPECIALIST_VS_OFF_SPIN, DEATH_SPECIALIST, CONSISTENT, MIDDLE_OVERS_ACCELERATOR (+5 more) |
-| Ishan Kishan | DEATH_SPECIALIST, PLAYMAKER, VULNERABLE_VS_LEG_SPIN, SIX_HITTER, SPECIALIST_VS_SPIN (+2 more) |
+| Abhishek Sharma | SPECIALIST_VS_LEG_SPIN, SPIN_SPECIALIST, PP_DOMINATOR, EXPLOSIVE_OPENER, SPECIALIST_VS_OFF_SPIN (+5 more) |
+| Liam Livingstone | SPECIALIST_VS_LEG_SPIN, DEATH_SPECIALIST, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, SIX_HITTER, SPECIALIST_VS_OFF_SPIN (+7 more) |
+| Nitish Kumar Reddy | SPECIALIST_VS_LEG_SPIN, SPIN_SPECIALIST, SPECIALIST_VS_OFF_SPIN, MIDDLE_ORDER, INCONSISTENT (+2 more) |
+| Travis Head | SPECIALIST_VS_LEG_SPIN, DEATH_SPECIALIST, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, PP_DOMINATOR, EXPLOSIVE_OPENER (+4 more) |
+| Harshal Patel | LHB_VULNERABLE, PROVEN_WICKET_TAKER, MIDDLE_AND_DEATH_SPECIALIST, MIDDLE_OVERS_LIABILITY, RHB_SPECIALIST (+2 more) |
+| Jaydev Unadkat | DEATH_LIABILITY, LHB_PRESSURE, PROVEN_WICKET_TAKER, MIDDLE_AND_DEATH_SPECIALIST, WORKHORSE (+1 more) |
+| Pat Cummins | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, VULNERABLE_VS_SPIN, ACCUMULATOR, VULNERABLE_VS_OFF_SPIN, SPECIALIST_VS_LEFT_ARM_SPIN (+7 more) |
+| Shivam Mavi | LHB_SPECIALIST, DEATH_LIABILITY, PRESSURE_BUILDER, RHB_VULNERABLE |
+| Zeeshan Ansari | MIDDLE_OVERS_CONTROLLER |
+| Heinrich Klaasen | SPECIALIST_VS_LEG_SPIN, DEATH_SPECIALIST, SPIN_SPECIALIST, SIX_HITTER, SPECIALIST_VS_SPIN (+5 more) |
+| Ishan Kishan | DEATH_SPECIALIST, SIX_HITTER, SPECIALIST_VS_SPIN, PLAYMAKER, VULNERABLE_VS_OFF_SPIN (+2 more) |
 
 ---
 
@@ -134,10 +135,10 @@
 | Dubai International Cricket Stadium | 13 | 1955 | 1537 | 127.2 | 27.54 |
 | MA Chidambaram Stadium, Chepauk, Chennai | 10 | 1361 | 1166 | 116.72 | 19.72 |
 | Eden Gardens | 8 | 1149 | 954 | 120.44 | 22.53 |
-| Sharjah Cricket Stadium | 7 | 896 | 784 | 114.29 | 21.85 |
-| Wankhede Stadium | 7 | 1012 | 832 | 121.63 | 22.0 |
 | Wankhede Stadium, Mumbai | 7 | 1119 | 836 | 133.85 | 24.33 |
-| Sheikh Zayed Stadium | 6 | 849 | 718 | 118.25 | 27.39 |
+| Wankhede Stadium | 7 | 1012 | 832 | 121.63 | 22.0 |
+| Sharjah Cricket Stadium | 7 | 896 | 784 | 114.29 | 21.85 |
+| Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cric... | 6 | 902 | 720 | 125.28 | 26.53 |
 
 ---
 
@@ -344,13 +345,13 @@
 | Delhi Capitals | 7 | 156 | 221 | 9 | 8.5 | 24.56 | 17.33 | 39.1 | 21.15 | HIGH |
 | Rajasthan Royals | 7 | 161 | 251 | 9 | 9.35 | 27.89 | 17.89 | 35.4 | 21.74 | HIGH |
 | Chennai Super Kings | 9 | 216 | 307 | 7 | 8.53 | 43.86 | 30.86 | 34.72 | 19.44 | HIGH |
-| Punjab Kings | 7 | 162 | 211 | 6 | 7.81 | 35.17 | 27.0 | 38.89 | 18.52 | HIGH |
 | Kolkata Knight Riders | 7 | 132 | 220 | 6 | 10.0 | 36.67 | 22.0 | 35.61 | 25.76 | HIGH |
+| Punjab Kings | 7 | 162 | 211 | 6 | 7.81 | 35.17 | 27.0 | 38.89 | 18.52 | HIGH |
 | Sunrisers Hyderabad | 5 | 119 | 152 | 4 | 7.66 | 38.0 | 29.75 | 37.82 | 15.13 | HIGH |
-| Gujarat Lions | 2 | 48 | 70 | 3 | 8.75 | 23.33 | 16.0 | 22.92 | 18.75 | MEDIUM |
-| Gujarat Titans | 3 | 70 | 92 | 3 | 7.89 | 30.67 | 23.33 | 30.0 | 15.71 | MEDIUM |
-| Lucknow Super Giants | 3 | 66 | 106 | 3 | 9.64 | 35.33 | 22.0 | 31.82 | 24.24 | MEDIUM |
 | Rising Pune Supergiant | 2 | 43 | 58 | 3 | 8.09 | 19.33 | 14.33 | 39.53 | 13.95 | MEDIUM |
+| Gujarat Titans | 3 | 70 | 92 | 3 | 7.89 | 30.67 | 23.33 | 30.0 | 15.71 | MEDIUM |
+| Gujarat Lions | 2 | 48 | 70 | 3 | 8.75 | 23.33 | 16.0 | 22.92 | 18.75 | MEDIUM |
+| Lucknow Super Giants | 3 | 66 | 106 | 3 | 9.64 | 35.33 | 22.0 | 31.82 | 24.24 | MEDIUM |
 
 ---
 
@@ -376,8 +377,8 @@
 | Ishan Kishan | Rajiv Gandhi International Stadium,... | 7 | 205 | 116 | 176.72 | 41.0 | 26.72 | HIGH |
 | Ishan Kishan | Sharjah Cricket Stadium | 4 | 179 | 112 | 159.82 | 89.5 | 22.32 | HIGH |
 | Ishan Kishan | Wankhede Stadium | 10 | 160 | 115 | 139.13 | 17.78 | 19.13 | HIGH |
-| Ishan Kishan | Brabourne Stadium, Mumbai | 3 | 139 | 94 | 147.87 | 69.5 | 22.34 | MEDIUM |
 | Ishan Kishan | MA Chidambaram Stadium, Chepauk, Ch... | 8 | 139 | 143 | 97.2 | 17.38 | 10.49 | HIGH |
+| Ishan Kishan | Brabourne Stadium, Mumbai | 3 | 139 | 94 | 147.87 | 69.5 | 22.34 | MEDIUM |
 | Ishan Kishan | Dr DY Patil Sports Academy, Mumbai | 4 | 127 | 104 | 122.12 | 31.75 | 15.38 | HIGH |
 | Ishan Kishan | Sheikh Zayed Stadium | 5 | 118 | 103 | 114.56 | 23.6 | 14.56 | HIGH |
 | Ishan Kishan | Saurashtra Cricket Association Stad... | 4 | 116 | 77 | 150.65 | 38.67 | 22.08 | MEDIUM |
@@ -413,7 +414,10 @@
 
 *Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
 
-- **LS Livingstone** vs Left-arm orthodox: SR 102.68, Avg 28.75 (112 balls)
+*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
+
+- **Ishan Kishan** vs off-spin: SR 109.28, Avg 33.18, BPD 30.36 (334 balls)
+- **LS Livingstone** vs LA orthodox: SR 102.68, Avg 28.75, BPD 28.0 (112 balls)
 
 ---
 

@@ -1,6 +1,6 @@
 # Rajasthan Royals (RR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-25 03:52
+**Generated:** 2026-01-26 05:08
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -55,11 +55,8 @@
 
 **Bowler Archetypes:**
 
-- **WORKHORSE**: Jofra Archer, Ravi Bishnoi
-- **NEW_BALL_SPECIALIST**: Sandeep Sharma
-- **MIDDLE_OVERS_CONTROLLER**: Brijesh Sharma, Ravindra Jadeja
-- **DEATH_SPECIALIST**: Sam Curran
-- **PART_TIMER**: Riyan Parag, Adam Milne, Kuldeep Sen, Tushar Deshpande
+- **WORKHORSE**: Sam Curran, Jofra Archer, Sandeep Sharma, Tushar Deshpande
+- **MIDDLE_OVERS_CONTROLLER**: Ravindra Jadeja
 
 ### 1.3 Key Player Tags
 
@@ -67,21 +64,18 @@
 
 | Player | Tags |
 |--------|------|
-| Brijesh Sharma | MIDDLE_OVERS_CONTROLLER |
-| Ravindra Jadeja | PACE_SPECIALIST, SPECIALIST_VS_PACE, ACCUMULATOR, VULNERABLE_VS_LEFT_ARM_SPIN, LHB_VULNERABLE (+3 more) |
-| Riyan Parag | SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, SPECIALIST_VS_PACE, ACCUMULATOR, RHB_WICKET_TAKER, PART_TIMER (+2 more) |
-| Sam Curran | FINISHER, SPECIALIST_VS_OFF_SPIN, DEATH_SPECIALIST, PACE_SPECIALIST, VULNERABLE_VS_LEG_SPIN (+9 more) |
-| Ravi Singh | FINISHER, DEATH_SPECIALIST, PACE_SPECIALIST, SIX_HITTER, SPECIALIST_VS_PACE |
-| Shimron Hetmyer | FINISHER, SPECIALIST_VS_PACE, PACE_SPECIALIST |
-| Shubham Dubey | SPECIALIST_VS_SPIN, SPECIALIST_VS_PACE, ACCUMULATOR |
-| Yashasvi Jaiswal | DEATH_SPECIALIST, PACE_SPECIALIST, EXPLOSIVE_OPENER, PP_DOMINATOR, SIX_HITTER (+3 more) |
-| Adam Milne | PART_TIMER |
-| Jofra Archer | PP_BEAST, WORKHORSE, LHB_VULNERABLE, PRESSURE_BUILDER, LHB_WICKET_TAKER (+2 more) |
-| Kuldeep Sen | PART_TIMER |
-| Ravi Bishnoi | RHB_VULNERABLE, WORKHORSE, LHB_SPECIALIST, LHB_WICKET_TAKER, MIDDLE_OVERS_LIABILITY (+1 more) |
-| Sandeep Sharma | RHB_WICKET_TAKER, PRESSURE_BUILDER, PROVEN_WICKET_TAKER, NEW_BALL_SPECIALIST, DEATH_LIABILITY (+1 more) |
-| Tushar Deshpande | RHB_WICKET_TAKER, DEATH_LIABILITY, PART_TIMER |
-| Dhruv Jurel | FINISHER, PACE_SPECIALIST, SPECIALIST_VS_LEG_SPIN, SPECIALIST_VS_SPIN, SPECIALIST_VS_PACE |
+| Ravindra Jadeja | VULNERABLE_VS_SPIN, ACCUMULATOR, VULNERABLE_VS_LEG_SPIN, VULNERABLE_VS_OFF_SPIN, SPECIALIST_VS_PACE (+5 more) |
+| Riyan Parag | SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, ACCUMULATOR, SPECIALIST_VS_OFF_SPIN, SPECIALIST_VS_PACE, RHB_SPECIALIST (+2 more) |
+| Sam Curran | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, DEATH_SPECIALIST, SIX_HITTER, SPECIALIST_VS_SPIN, SPECIALIST_VS_OFF_SPIN (+12 more) |
+| Ravi Singh | DEATH_SPECIALIST, SIX_HITTER, FINISHER, VULNERABLE_VS_LEFT_ARM_SPIN, VULNERABLE_VS_OFF_SPIN (+2 more) |
+| Shimron Hetmyer | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, FINISHER, SPECIALIST_VS_PACE, SPECIALIST_VS_LEFT_ARM_SPIN, PACE_SPECIALIST |
+| Shubham Dubey | SPECIALIST_VS_LEG_SPIN, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, SPECIALIST_VS_SPIN, SPECIALIST_VS_OFF_SPIN, ACCUMULATOR (+2 more) |
+| Yashasvi Jaiswal | SPECIALIST_VS_LEG_SPIN, DEATH_SPECIALIST, PP_DOMINATOR, EXPLOSIVE_OPENER, SIX_HITTER (+5 more) |
+| Jofra Archer | NEW_BALL_SPECIALIST, WORKHORSE, PRESSURE_BUILDER, RHB_SPECIALIST, PP_BEAST (+3 more) |
+| Ravi Bishnoi | LHB_WICKET_TAKER, RHB_VULNERABLE, LHB_PRESSURE, MIDDLE_OVERS_LIABILITY, MIDDLE_AND_DEATH_SPECIALIST (+1 more) |
+| Sandeep Sharma | DEATH_LIABILITY, PRESSURE_BUILDER, PROVEN_WICKET_TAKER, PP_ELITE, RHB_WICKET_TAKER (+3 more) |
+| Tushar Deshpande | DEATH_LIABILITY, RHB_WICKET_TAKER, MIDDLE_AND_DEATH_SPECIALIST, WORKHORSE, NEW_BALL_SPECIALIST |
+| Dhruv Jurel | FINISHER, VULNERABLE_VS_OFF_SPIN, SPECIALIST_VS_PACE, PACE_SPECIALIST |
 
 ---
 
@@ -143,7 +137,7 @@
 | Wankhede Stadium | 8 | 1317 | 902 | 146.01 | 29.27 |
 | Sheikh Zayed Stadium | 8 | 1115 | 864 | 129.05 | 29.34 |
 | Feroz Shah Kotla | 7 | 1006 | 813 | 123.74 | 23.95 |
-| MA Chidambaram Stadium, Chepauk | 6 | 989 | 720 | 137.36 | 30.91 |
+| Punjab Cricket Association Stadium, Moha... | 6 | 962 | 714 | 134.73 | 28.29 |
 
 ---
 
@@ -336,10 +330,10 @@
 | Gujarat Titans | 6 | 140 | 245 | 8 | 10.5 | 30.63 | 17.5 | 30.71 | 27.14 | HIGH |
 | Punjab Kings | 4 | 84 | 162 | 7 | 11.57 | 23.14 | 12.0 | 35.71 | 30.95 | MEDIUM |
 | Sunrisers Hyderabad | 5 | 90 | 151 | 7 | 10.07 | 21.57 | 12.86 | 27.78 | 24.44 | MEDIUM |
-| Kolkata Knight Riders | 6 | 117 | 167 | 5 | 8.56 | 33.4 | 23.4 | 46.15 | 22.22 | HIGH |
 | Mumbai Indians | 3 | 66 | 85 | 5 | 7.73 | 17.0 | 13.2 | 39.39 | 16.67 | MEDIUM |
-| Royal Challengers Bengaluru | 5 | 96 | 187 | 4 | 11.69 | 46.75 | 24.0 | 34.38 | 31.25 | MEDIUM |
+| Kolkata Knight Riders | 6 | 117 | 167 | 5 | 8.56 | 33.4 | 23.4 | 46.15 | 22.22 | HIGH |
 | Lucknow Super Giants | 6 | 121 | 175 | 4 | 8.68 | 43.75 | 30.25 | 33.88 | 18.18 | HIGH |
+| Royal Challengers Bengaluru | 5 | 96 | 187 | 4 | 11.69 | 46.75 | 24.0 | 34.38 | 31.25 | MEDIUM |
 | Chennai Super Kings | 3 | 72 | 114 | 2 | 9.5 | 57.0 | 36.0 | 36.11 | 23.61 | MEDIUM |
 | Delhi Capitals | 4 | 84 | 106 | 1 | 7.57 | 106.0 | 84.0 | 38.1 | 17.86 | MEDIUM |
 
@@ -356,8 +350,8 @@
 | Sunrisers Hyderabad | 24 | 427 | 504 | 10 | 7.08 | 50.4 | 42.7 | 30.21 | 9.84 | HIGH |
 | Deccan Chargers | 5 | 108 | 114 | 8 | 6.33 | 14.25 | 13.5 | 39.81 | 9.26 | HIGH |
 | Gujarat Titans | 7 | 132 | 171 | 7 | 7.77 | 24.43 | 18.86 | 27.27 | 12.88 | HIGH |
-| Lucknow Super Giants | 6 | 84 | 116 | 3 | 8.29 | 38.67 | 28.0 | 26.19 | 16.67 | MEDIUM |
 | Pune Warriors | 4 | 96 | 100 | 3 | 6.25 | 33.33 | 32.0 | 39.58 | 9.38 | MEDIUM |
+| Lucknow Super Giants | 6 | 84 | 116 | 3 | 8.29 | 38.67 | 28.0 | 26.19 | 16.67 | MEDIUM |
 | Rising Pune Supergiant | 4 | 84 | 115 | 3 | 8.21 | 38.33 | 28.0 | 34.52 | 14.29 | MEDIUM |
 | Chennai Super Kings | 3 | 44 | 55 | 2 | 7.5 | 27.5 | 22.0 | 34.09 | 11.36 | MEDIUM |
 
@@ -366,8 +360,8 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Mumbai Indians | 12 | 270 | 357 | 13 | 7.93 | 27.46 | 20.77 | 31.48 | 15.56 | HIGH |
-| Kolkata Knight Riders | 10 | 226 | 266 | 11 | 7.06 | 24.18 | 20.55 | 35.4 | 13.27 | HIGH |
 | Delhi Capitals | 10 | 228 | 310 | 11 | 8.16 | 28.18 | 20.73 | 35.96 | 17.11 | HIGH |
+| Kolkata Knight Riders | 10 | 226 | 266 | 11 | 7.06 | 24.18 | 20.55 | 35.4 | 13.27 | HIGH |
 | Chennai Super Kings | 8 | 174 | 231 | 9 | 7.97 | 25.67 | 19.33 | 36.78 | 17.82 | HIGH |
 | Sunrisers Hyderabad | 9 | 168 | 233 | 9 | 8.32 | 25.89 | 18.67 | 35.12 | 16.07 | HIGH |
 | Royal Challengers Bengaluru | 9 | 204 | 287 | 8 | 8.44 | 35.88 | 25.5 | 32.35 | 15.69 | HIGH |
@@ -386,10 +380,10 @@
 | Sunrisers Hyderabad | 12 | 288 | 422 | 13 | 8.79 | 32.46 | 22.15 | 36.46 | 19.79 | HIGH |
 | Punjab Kings | 9 | 216 | 235 | 11 | 6.53 | 21.36 | 19.64 | 38.89 | 11.11 | HIGH |
 | Kolkata Knight Riders | 15 | 312 | 427 | 10 | 8.21 | 42.7 | 31.2 | 37.82 | 19.55 | HIGH |
-| Gujarat Lions | 4 | 90 | 120 | 6 | 8.0 | 20.0 | 15.0 | 37.78 | 18.89 | MEDIUM |
 | Lucknow Super Giants | 5 | 114 | 154 | 6 | 8.11 | 25.67 | 19.0 | 35.09 | 17.54 | HIGH |
-| Rajasthan Royals | 9 | 210 | 274 | 5 | 7.83 | 54.8 | 42.0 | 36.19 | 16.19 | HIGH |
+| Gujarat Lions | 4 | 90 | 120 | 6 | 8.0 | 20.0 | 15.0 | 37.78 | 18.89 | MEDIUM |
 | Rising Pune Supergiant | 4 | 84 | 94 | 5 | 6.71 | 18.8 | 16.8 | 41.67 | 15.48 | MEDIUM |
+| Rajasthan Royals | 9 | 210 | 274 | 5 | 7.83 | 54.8 | 42.0 | 36.19 | 16.19 | HIGH |
 | Gujarat Titans | 5 | 114 | 128 | 4 | 6.74 | 32.0 | 28.5 | 39.47 | 13.16 | HIGH |
 
 ---
@@ -458,7 +452,12 @@
 
 *Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
 
-- **RK Singh** vs Left-arm orthodox: SR 108.14, Avg 31.0 (86 balls)
+*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
+
+- **RA Jadeja** vs leg-spin: SR 103.65, Avg 22.11, BPD 21.33 (384 balls)
+- **RA Jadeja** vs off-spin: SR 104.92, Avg 34.1, BPD 32.5 (325 balls)
+- **RK Singh** vs off-spin: SR 97.4, Avg 75.0, BPD 77.0 (77 balls)
+- **RK Singh** vs LA orthodox: SR 108.14, Avg 31.0, BPD 28.67 (86 balls)
 
 ---
 

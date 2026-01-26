@@ -1,6 +1,6 @@
 # Mumbai Indians (MI) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-25 03:52
+**Generated:** 2026-01-26 05:08
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -55,11 +55,9 @@
 
 **Bowler Archetypes:**
 
-- **WORKHORSE**: Hardik Pandya, Deepak Chahar, Mayank Markande, Mohammed Izhar
-- **NEW_BALL_SPECIALIST**: Trent Boult
-- **MIDDLE_OVERS_CONTROLLER**: Mitchell Santner
-- **DEATH_SPECIALIST**: Tilak Varma, Will Jacks, Jasprit Bumrah
-- **PART_TIMER**: Shardul Thakur
+- **WORKHORSE**: Hardik Pandya, Mitchell Santner, Shardul Thakur, Jasprit Bumrah, Mohammed Izhar, Trent Boult
+- **NEW_BALL_SPECIALIST**: Deepak Chahar
+- **DEATH_SPECIALIST**: Tilak Varma, Will Jacks
 
 ### 1.3 Key Player Tags
 
@@ -67,19 +65,19 @@
 
 | Player | Tags |
 |--------|------|
-| Hardik Pandya | FINISHER, SPECIALIST_VS_SPIN, VULNERABLE_VS_LEFT_ARM_SPIN, SPECIALIST_VS_PACE, SPECIALIST_VS_LEG_SPIN (+3 more) |
-| Mitchell Santner | LHB_VULNERABLE, MIDDLE_OVERS_CONTROLLER, RHB_PRESSURE, RHB_SPECIALIST, RHB_WICKET_TAKER (+2 more) |
-| Shardul Thakur | LHB_VULNERABLE, PROVEN_WICKET_TAKER, DEATH_LIABILITY, RHB_SPECIALIST, PART_TIMER |
-| Tilak Varma | DEATH_SPECIALIST, CONSISTENT, SPECIALIST_VS_LEG_SPIN, SIX_HITTER, SPECIALIST_VS_SPIN (+4 more) |
-| Will Jacks | DEATH_SPECIALIST, EXPLOSIVE_OPENER, PP_DOMINATOR, MIDDLE_OVERS_ACCELERATOR, SIX_HITTER (+2 more) |
-| Rohit Sharma | DEATH_SPECIALIST, VULNERABLE_VS_LEG_SPIN, VULNERABLE_VS_OFF_SPIN, SIX_HITTER, SPECIALIST_VS_SPIN (+4 more) |
-| Suryakumar Yadav | DEATH_SPECIALIST, PACE_SPECIALIST, CONSISTENT, MIDDLE_OVERS_ACCELERATOR, SPECIALIST_VS_LEG_SPIN (+5 more) |
-| Deepak Chahar | WORKHORSE, PRESSURE_BUILDER, LHB_WICKET_TAKER, LHB_PRESSURE, LHB_SPECIALIST (+1 more) |
-| Jasprit Bumrah | DEATH_SPECIALIST, PRESSURE_BUILDER, PROVEN_WICKET_TAKER, RHB_VULNERABLE, PP_BEAST (+4 more) |
-| Mayank Markande | RHB_WICKET_TAKER, WORKHORSE, MIDDLE_OVERS_LIABILITY |
-| Mohammed Izhar | WORKHORSE, PRESSURE_BUILDER, PROVEN_WICKET_TAKER |
-| Trent Boult | DEATH_LIABILITY, PROVEN_WICKET_TAKER, PP_ELITE, NEW_BALL_SPECIALIST, PRESSURE_BUILDER (+1 more) |
-| Quinton de Kock | DEATH_SPECIALIST, PLAYMAKER, SIX_HITTER, SPECIALIST_VS_SPIN, SPECIALIST_VS_PACE |
+| Hardik Pandya | SPECIALIST_VS_LEG_SPIN, FINISHER, SPECIALIST_VS_OFF_SPIN, SPECIALIST_VS_SPIN, SPECIALIST_VS_PACE (+5 more) |
+| Mitchell Santner | NEW_BALL_SPECIALIST, WORKHORSE, RHB_WICKET_TAKER, MID_OVERS_ELITE, MIDDLE_OVERS_CONTROLLER (+4 more) |
+| Shardul Thakur | NEW_BALL_SPECIALIST, WORKHORSE, PROVEN_WICKET_TAKER, RHB_SPECIALIST, LHB_VULNERABLE (+2 more) |
+| Tilak Varma | SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, DEATH_SPECIALIST, SPECIALIST_VS_LEG_SPIN, SIX_HITTER, SPECIALIST_VS_OFF_SPIN (+4 more) |
+| Will Jacks | DEATH_SPECIALIST, PP_DOMINATOR, EXPLOSIVE_OPENER, SIX_HITTER, VULNERABLE_VS_OFF_SPIN (+2 more) |
+| Rohit Sharma | DEATH_SPECIALIST, SIX_HITTER, VULNERABLE_VS_LEFT_ARM_SPIN, MIDDLE_ORDER, SPECIALIST_VS_PACE |
+| Suryakumar Yadav | SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, DEATH_SPECIALIST, SPECIALIST_VS_LEG_SPIN, SIX_HITTER, SPECIALIST_VS_OFF_SPIN (+5 more) |
+| Deepak Chahar | NEW_BALL_SPECIALIST, LHB_WICKET_TAKER, RHB_VULNERABLE, LHB_PRESSURE, PRESSURE_BUILDER (+1 more) |
+| Jasprit Bumrah | NEW_BALL_SPECIALIST, PROVEN_WICKET_TAKER, LHB_WICKET_TAKER, DEATH_BEAST, WORKHORSE (+4 more) |
+| Mayank Markande | RHB_WICKET_TAKER, MIDDLE_OVERS_LIABILITY, MIDDLE_AND_DEATH_SPECIALIST |
+| Mohammed Izhar | PRESSURE_BUILDER, PROVEN_WICKET_TAKER, MIDDLE_AND_DEATH_SPECIALIST, WORKHORSE, NEW_BALL_SPECIALIST |
+| Trent Boult | DEATH_LIABILITY, PRESSURE_BUILDER, PROVEN_WICKET_TAKER, PP_ELITE, MIDDLE_AND_DEATH_SPECIALIST (+3 more) |
+| Quinton de Kock | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, DEATH_SPECIALIST, SIX_HITTER, PLAYMAKER, VULNERABLE_VS_OFF_SPIN (+3 more) |
 
 ---
 
@@ -354,9 +352,9 @@
 | Kolkata Knight Riders | 11 | 246 | 323 | 14 | 7.88 | 23.07 | 17.57 | 46.34 | 20.33 | HIGH |
 | Mumbai Indians | 11 | 257 | 363 | 14 | 8.47 | 25.93 | 18.36 | 36.58 | 19.07 | HIGH |
 | Chennai Super Kings | 14 | 316 | 457 | 13 | 8.68 | 35.15 | 24.31 | 42.72 | 22.78 | HIGH |
+| Lucknow Super Giants | 7 | 162 | 185 | 12 | 6.85 | 15.42 | 13.5 | 49.38 | 16.67 | HIGH |
 | Rajasthan Royals | 9 | 193 | 255 | 12 | 7.93 | 21.25 | 16.08 | 38.86 | 18.65 | HIGH |
 | Punjab Kings | 16 | 354 | 520 | 12 | 8.81 | 43.33 | 29.5 | 38.7 | 23.16 | HIGH |
-| Lucknow Super Giants | 7 | 162 | 185 | 12 | 6.85 | 15.42 | 13.5 | 49.38 | 16.67 | HIGH |
 | Gujarat Titans | 8 | 174 | 242 | 8 | 8.34 | 30.25 | 21.75 | 39.08 | 18.97 | HIGH |
 | Gujarat Lions | 2 | 48 | 77 | 2 | 9.63 | 38.5 | 24.0 | 39.58 | 33.33 | MEDIUM |
 
@@ -367,9 +365,9 @@
 | Delhi Capitals | 15 | 329 | 496 | 18 | 9.05 | 27.56 | 18.28 | 38.3 | 23.4 | HIGH |
 | Kolkata Knight Riders | 15 | 320 | 408 | 15 | 7.65 | 27.2 | 21.33 | 45.63 | 19.38 | HIGH |
 | Sunrisers Hyderabad | 13 | 270 | 319 | 15 | 7.09 | 21.27 | 18.0 | 47.04 | 15.93 | HIGH |
+| Punjab Kings | 11 | 234 | 397 | 13 | 10.18 | 30.54 | 18.0 | 34.62 | 26.5 | HIGH |
 | Mumbai Indians | 15 | 313 | 434 | 13 | 8.32 | 33.38 | 24.08 | 43.13 | 20.13 | HIGH |
 | Rajasthan Royals | 13 | 270 | 361 | 13 | 8.02 | 27.77 | 20.77 | 41.11 | 19.26 | HIGH |
-| Punjab Kings | 11 | 234 | 397 | 13 | 10.18 | 30.54 | 18.0 | 34.62 | 26.5 | HIGH |
 | Lucknow Super Giants | 7 | 162 | 237 | 7 | 8.78 | 33.86 | 23.14 | 43.83 | 23.46 | HIGH |
 | Gujarat Titans | 4 | 96 | 127 | 5 | 7.94 | 25.4 | 19.2 | 43.75 | 19.79 | MEDIUM |
 | Chennai Super Kings | 12 | 234 | 358 | 3 | 9.18 | 119.33 | 78.0 | 34.62 | 21.37 | HIGH |
@@ -413,8 +411,8 @@
 | Q de Kock | M.Chinnaswamy Stadium | 7 | 201 | 166 | 121.08 | 33.5 | 16.27 | HIGH |
 | Q de Kock | M Chinnaswamy Stadium | 3 | 183 | 96 | 190.63 | 61.0 | 32.29 | MEDIUM |
 | Q de Kock | Sharjah Cricket Stadium | 5 | 173 | 131 | 132.06 | 43.25 | 17.56 | HIGH |
-| Q de Kock | Feroz Shah Kotla | 8 | 157 | 133 | 118.05 | 26.17 | 19.55 | HIGH |
 | Q de Kock | Bharat Ratna Shri Atal Bihari Vajpa... | 6 | 157 | 116 | 135.34 | 26.17 | 18.97 | HIGH |
+| Q de Kock | Feroz Shah Kotla | 8 | 157 | 133 | 118.05 | 26.17 | 19.55 | HIGH |
 | Q de Kock | Arun Jaitley Stadium, Delhi | 4 | 129 | 99 | 130.3 | 43.0 | 15.15 | MEDIUM |
 | Q de Kock | Shaheed Veer Narayan Singh Internat... | 4 | 114 | 98 | 116.33 | 28.5 | 16.33 | MEDIUM |
 | Q de Kock | Maharashtra Cricket Association Sta... | 3 | 107 | 76 | 140.79 | 35.67 | 18.42 | MEDIUM |
@@ -474,7 +472,10 @@
 
 *Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
 
-- **RG Sharma** vs Left-arm orthodox: SR 107.39, Avg 37.8 (704 balls)
+*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
+
+- **Q de Kock** vs off-spin: SR 107.57, Avg 31.69, BPD 29.46 (383 balls)
+- **RG Sharma** vs LA orthodox: SR 107.39, Avg 37.8, BPD 35.2 (704 balls)
 
 ---
 

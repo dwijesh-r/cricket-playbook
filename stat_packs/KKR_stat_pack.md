@@ -1,6 +1,6 @@
 # Kolkata Knight Riders (KKR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-25 03:52
+**Generated:** 2026-01-26 05:08
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -56,10 +56,7 @@
 
 **Bowler Archetypes:**
 
-- **WORKHORSE**: Sunil Narine
-- **MIDDLE_OVERS_CONTROLLER**: Varun Chakravarthy
-- **DEATH_SPECIALIST**: Matheesha Pathirana
-- **PART_TIMER**: Akash Deep, Harshit Rana, Kartik Tyagi, Umran Malik, Vaibhav Arora
+- **WORKHORSE**: Sunil Narine, Harshit Rana, Vaibhav Arora, Varun Chakravarthy
 
 ### 1.3 Key Player Tags
 
@@ -67,19 +64,19 @@
 
 | Player | Tags |
 |--------|------|
-| Sunil Narine | VULNERABLE_VS_LEG_SPIN, EXPLOSIVE_OPENER, PP_DOMINATOR, MIDDLE_OVERS_ACCELERATOR, SPIN_SPECIALIST (+11 more) |
-| Ajinkya Rahane | ANCHOR, VULNERABLE_VS_LEFT_ARM_SPIN, VULNERABLE_VS_OFF_SPIN, SPECIALIST_VS_PACE |
-| Angkrish Raghuvanshi | SPECIALIST_VS_SPIN, MIDDLE_ORDER, SPECIALIST_VS_PACE, SPECIALIST_VS_LEG_SPIN |
-| Manish Pandey | VULNERABLE_VS_SPIN, MIDDLE_ORDER, VULNERABLE_VS_LEFT_ARM_SPIN |
-| Rahul Tripathi | VULNERABLE_VS_LEG_SPIN, VULNERABLE_VS_OFF_SPIN, PLAYMAKER |
-| Rinku Singh | FINISHER, DEATH_SPECIALIST, PACE_SPECIALIST, SIX_HITTER, SPECIALIST_VS_PACE |
-| Akash Deep | LHB_PRESSURE, LHB_SPECIALIST, LHB_WICKET_TAKER, PART_TIMER, RHB_VULNERABLE |
-| Harshit Rana | PRESSURE_BUILDER, PP_LIABILITY, LHB_PRESSURE, PART_TIMER |
-| Kartik Tyagi | PART_TIMER, LHB_WICKET_TAKER, LHB_VULNERABLE, RHB_SPECIALIST |
-| Matheesha Pathirana | DEATH_SPECIALIST, LHB_PRESSURE |
-| Umran Malik | LHB_PRESSURE, PRESSURE_BUILDER, LHB_WICKET_TAKER, PART_TIMER, RHB_VULNERABLE (+2 more) |
-| Vaibhav Arora | LHB_PRESSURE, LHB_SPECIALIST, LHB_WICKET_TAKER, PART_TIMER, RHB_VULNERABLE |
-| Varun Chakravarthy | MIDDLE_OVERS_CONTROLLER, PROVEN_WICKET_TAKER |
+| Sunil Narine | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, SPIN_SPECIALIST, PP_DOMINATOR, EXPLOSIVE_OPENER, VULNERABLE_VS_SPIN (+13 more) |
+| Ajinkya Rahane | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, ANCHOR |
+| Angkrish Raghuvanshi | SPECIALIST_VS_LEG_SPIN, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, MIDDLE_ORDER, SPECIALIST_VS_PACE, CONSISTENT |
+| Manish Pandey | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, VULNERABLE_VS_LEFT_ARM_SPIN, MIDDLE_ORDER |
+| Rahul Tripathi | SPECIALIST_VS_OFF_SPIN, PLAYMAKER, INCONSISTENT, SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, SPECIALIST_VS_PACE |
+| Rinku Singh | DEATH_SPECIALIST, SIX_HITTER, FINISHER, VULNERABLE_VS_LEFT_ARM_SPIN, VULNERABLE_VS_OFF_SPIN (+2 more) |
+| Akash Deep | RHB_VULNERABLE, LHB_SPECIALIST, LHB_PRESSURE |
+| Harshit Rana | NEW_BALL_SPECIALIST, WORKHORSE, LHB_PRESSURE, PP_LIABILITY, PRESSURE_BUILDER (+1 more) |
+| Kartik Tyagi | RHB_SPECIALIST, LHB_VULNERABLE, LHB_WICKET_TAKER |
+| Matheesha Pathirana | LHB_PRESSURE, MIDDLE_AND_DEATH_SPECIALIST |
+| Umran Malik | LHB_PRESSURE, RHB_VULNERABLE, PRESSURE_BUILDER, LHB_SPECIALIST, LHB_WICKET_TAKER (+1 more) |
+| Vaibhav Arora | NEW_BALL_SPECIALIST, LHB_WICKET_TAKER, WORKHORSE, RHB_VULNERABLE, LHB_PRESSURE (+2 more) |
+| Varun Chakravarthy | PROVEN_WICKET_TAKER, NEW_BALL_SPECIALIST, MIDDLE_AND_DEATH_SPECIALIST, WORKHORSE |
 
 ---
 
@@ -136,8 +133,8 @@
 | Eden Gardens, Kolkata | 21 | 3576 | 2338 | 152.95 | 29.07 |
 | Sheikh Zayed Stadium | 11 | 1553 | 1298 | 119.65 | 21.57 |
 | M Chinnaswamy Stadium | 11 | 1505 | 1086 | 138.58 | 23.52 |
-| Wankhede Stadium | 9 | 1193 | 1042 | 114.49 | 19.24 |
 | Wankhede Stadium, Mumbai | 9 | 1286 | 1005 | 127.96 | 21.08 |
+| Wankhede Stadium | 9 | 1193 | 1042 | 114.49 | 19.24 |
 | Feroz Shah Kotla | 8 | 1125 | 921 | 122.15 | 23.94 |
 | Sharjah Cricket Stadium | 8 | 1126 | 947 | 118.9 | 20.11 |
 | Dubai International Cricket Stadium | 7 | 1091 | 838 | 130.19 | 25.37 |
@@ -267,8 +264,8 @@
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
 | Sunrisers Hyderabad | 7 | 197 | 134 | 147.01 | 39.4 | 17.91 | 27.61 | 5 | HIGH |
-| Lucknow Super Giants | 5 | 167 | 84 | 198.81 | 55.67 | 30.95 | 27.38 | 3 | MEDIUM |
 | Chennai Super Kings | 8 | 167 | 138 | 121.01 | 27.83 | 15.22 | 39.86 | 6 | HIGH |
+| Lucknow Super Giants | 5 | 167 | 84 | 198.81 | 55.67 | 30.95 | 27.38 | 3 | MEDIUM |
 | Gujarat Titans | 4 | 119 | 83 | 143.37 | 39.67 | 18.07 | 38.55 | 3 | MEDIUM |
 | Royal Challengers Bengaluru | 6 | 104 | 78 | 133.33 | 26.0 | 15.38 | 29.49 | 4 | MEDIUM |
 | Delhi Capitals | 5 | 101 | 67 | 150.75 | 20.2 | 19.4 | 29.85 | 5 | MEDIUM |
@@ -313,11 +310,11 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 4 | 96 | 112 | 9 | 7.0 | 12.44 | 10.67 | 34.38 | 13.54 | MEDIUM |
 | Gujarat Titans | 5 | 109 | 148 | 8 | 8.15 | 18.5 | 13.63 | 37.61 | 17.43 | HIGH |
+| Royal Challengers Bengaluru | 3 | 72 | 107 | 7 | 8.92 | 15.29 | 10.29 | 38.89 | 22.22 | MEDIUM |
 | Mumbai Indians | 3 | 58 | 78 | 7 | 8.07 | 11.14 | 8.29 | 39.66 | 15.52 | MEDIUM |
 | Lucknow Super Giants | 4 | 92 | 117 | 7 | 7.63 | 16.71 | 13.14 | 31.52 | 13.04 | MEDIUM |
-| Royal Challengers Bengaluru | 3 | 72 | 107 | 7 | 8.92 | 15.29 | 10.29 | 38.89 | 22.22 | MEDIUM |
-| Sunrisers Hyderabad | 3 | 54 | 59 | 3 | 6.56 | 19.67 | 18.0 | 37.04 | 11.11 | MEDIUM |
 | Punjab Kings | 3 | 72 | 127 | 3 | 10.58 | 42.33 | 24.0 | 19.44 | 19.44 | MEDIUM |
+| Sunrisers Hyderabad | 3 | 54 | 59 | 3 | 6.56 | 19.67 | 18.0 | 37.04 | 11.11 | MEDIUM |
 | Rajasthan Royals | 4 | 83 | 114 | 2 | 8.24 | 57.0 | 41.5 | 32.53 | 16.87 | MEDIUM |
 | Kolkata Knight Riders | 3 | 66 | 80 | 1 | 7.27 | 80.0 | 66.0 | 31.82 | 12.12 | MEDIUM |
 
@@ -326,15 +323,15 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Punjab Kings | 27 | 624 | 719 | 36 | 6.91 | 19.97 | 17.33 | 39.9 | 12.66 | HIGH |
-| Royal Challengers Bengaluru | 21 | 504 | 575 | 27 | 6.85 | 21.3 | 18.67 | 37.9 | 12.1 | HIGH |
 | Delhi Capitals | 24 | 546 | 613 | 27 | 6.74 | 22.7 | 20.22 | 38.28 | 11.72 | HIGH |
+| Royal Challengers Bengaluru | 21 | 504 | 575 | 27 | 6.85 | 21.3 | 18.67 | 37.9 | 12.1 | HIGH |
 | Mumbai Indians | 24 | 553 | 638 | 26 | 6.92 | 24.54 | 21.27 | 40.14 | 13.56 | HIGH |
 | Chennai Super Kings | 22 | 512 | 534 | 26 | 6.26 | 20.54 | 19.69 | 35.94 | 8.59 | HIGH |
 | Sunrisers Hyderabad | 27 | 624 | 706 | 17 | 6.79 | 41.53 | 36.71 | 35.9 | 10.1 | HIGH |
 | Rajasthan Royals | 20 | 468 | 562 | 14 | 7.21 | 40.14 | 33.43 | 39.1 | 13.25 | HIGH |
 | Lucknow Super Giants | 6 | 138 | 150 | 5 | 6.52 | 30.0 | 27.6 | 34.78 | 8.7 | HIGH |
-| Gujarat Titans | 4 | 90 | 121 | 4 | 8.07 | 30.25 | 22.5 | 24.44 | 13.33 | MEDIUM |
 | Pune Warriors | 4 | 96 | 70 | 4 | 4.38 | 17.5 | 24.0 | 54.17 | 5.21 | MEDIUM |
+| Gujarat Titans | 4 | 90 | 121 | 4 | 8.07 | 30.25 | 22.5 | 24.44 | 13.33 | MEDIUM |
 | Rising Pune Supergiant | 4 | 94 | 106 | 3 | 6.77 | 35.33 | 31.33 | 37.23 | 12.77 | MEDIUM |
 | Gujarat Lions | 3 | 72 | 99 | 1 | 8.25 | 99.0 | 72.0 | 33.33 | 18.06 | MEDIUM |
 
@@ -343,11 +340,11 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 6 | 132 | 168 | 8 | 7.64 | 21.0 | 16.5 | 43.18 | 16.67 | HIGH |
-| Rajasthan Royals | 4 | 84 | 139 | 6 | 9.93 | 23.17 | 14.0 | 36.9 | 27.38 | MEDIUM |
 | Lucknow Super Giants | 5 | 97 | 157 | 6 | 9.71 | 26.17 | 16.17 | 36.08 | 25.77 | MEDIUM |
+| Rajasthan Royals | 4 | 84 | 139 | 6 | 9.93 | 23.17 | 14.0 | 36.9 | 27.38 | MEDIUM |
 | Punjab Kings | 4 | 72 | 146 | 5 | 12.17 | 29.2 | 14.4 | 36.11 | 33.33 | MEDIUM |
-| Chennai Super Kings | 3 | 60 | 77 | 4 | 7.7 | 19.25 | 15.0 | 50.0 | 18.33 | MEDIUM |
 | Royal Challengers Bengaluru | 3 | 66 | 102 | 4 | 9.27 | 25.5 | 16.5 | 28.79 | 19.7 | MEDIUM |
+| Chennai Super Kings | 3 | 60 | 77 | 4 | 7.7 | 19.25 | 15.0 | 50.0 | 18.33 | MEDIUM |
 | Delhi Capitals | 3 | 66 | 94 | 3 | 8.55 | 31.33 | 22.0 | 39.39 | 22.73 | MEDIUM |
 | Mumbai Indians | 2 | 30 | 57 | 2 | 11.4 | 28.5 | 15.0 | 40.0 | 33.33 | MEDIUM |
 | Gujarat Titans | 2 | 42 | 67 | 2 | 9.57 | 33.5 | 21.0 | 26.19 | 26.19 | MEDIUM |
@@ -363,8 +360,8 @@
 | Punjab Kings | 3 | 57 | 90 | 3 | 9.47 | 30.0 | 19.0 | 36.84 | 29.82 | MEDIUM |
 | Lucknow Super Giants | 4 | 78 | 109 | 3 | 8.38 | 36.33 | 26.0 | 35.9 | 15.38 | MEDIUM |
 | Royal Challengers Bengaluru | 2 | 30 | 63 | 1 | 12.6 | 63.0 | 30.0 | 16.67 | 36.67 | MEDIUM |
-| Mumbai Indians | 3 | 55 | 93 | 1 | 10.15 | 93.0 | 55.0 | 38.18 | 25.45 | MEDIUM |
 | Gujarat Titans | 2 | 48 | 77 | 1 | 9.63 | 77.0 | 48.0 | 25.0 | 25.0 | MEDIUM |
+| Mumbai Indians | 3 | 55 | 93 | 1 | 10.15 | 93.0 | 55.0 | 38.18 | 25.45 | MEDIUM |
 
 ---
 
@@ -397,8 +394,8 @@
 | MK Pandey | Rajiv Gandhi International Stadium | 9 | 169 | 157 | 107.64 | 18.78 | 8.92 | HIGH |
 | MK Pandey | Rajiv Gandhi International Stadium,... | 5 | 149 | 143 | 104.2 | 37.25 | 10.49 | HIGH |
 | MK Pandey | Subrata Roy Sahara Stadium | 7 | 147 | 127 | 115.75 | 29.4 | 13.39 | HIGH |
-| MK Pandey | MA Chidambaram Stadium, Chepauk, Ch... | 4 | 128 | 119 | 107.56 | 42.67 | 10.08 | HIGH |
 | MK Pandey | Feroz Shah Kotla | 4 | 128 | 94 | 136.17 | 64.0 | 12.77 | MEDIUM |
+| MK Pandey | MA Chidambaram Stadium, Chepauk, Ch... | 4 | 128 | 119 | 107.56 | 42.67 | 10.08 | HIGH |
 | MK Pandey | Sawai Mansingh Stadium | 5 | 124 | 101 | 122.77 | 24.8 | 16.83 | HIGH |
 | MK Pandey | SuperSport Park | 1 | 114 | 73 | 156.16 | - | 19.18 | MEDIUM |
 | MK Pandey | Dr DY Patil Sports Academy | 5 | 113 | 101 | 111.88 | 22.6 | 14.85 | HIGH |
@@ -406,8 +403,8 @@
 | R Ravindra | MA Chidambaram Stadium, Chepauk, Ch... | 8 | 237 | 151 | 156.95 | 33.86 | 21.19 | HIGH |
 | RA Tripathi | Wankhede Stadium, Mumbai | 6 | 214 | 144 | 148.61 | 35.67 | 20.14 | HIGH |
 | RA Tripathi | Maharashtra Cricket Association Sta... | 7 | 183 | 129 | 141.86 | 36.6 | 22.48 | HIGH |
-| RA Tripathi | Rajiv Gandhi International Stadium,... | 8 | 174 | 126 | 138.1 | 24.86 | 23.02 | HIGH |
 | RA Tripathi | Sawai Mansingh Stadium | 9 | 174 | 140 | 124.29 | 29.0 | 12.14 | HIGH |
+| RA Tripathi | Rajiv Gandhi International Stadium,... | 8 | 174 | 126 | 138.1 | 24.86 | 23.02 | HIGH |
 | RA Tripathi | MA Chidambaram Stadium, Chepauk, Ch... | 9 | 173 | 131 | 132.06 | 19.22 | 18.32 | HIGH |
 | RA Tripathi | Eden Gardens | 3 | 140 | 80 | 175.0 | 46.67 | 30.0 | MEDIUM |
 | RA Tripathi | Dr DY Patil Sports Academy, Mumbai | 4 | 130 | 77 | 168.83 | 43.33 | 24.68 | MEDIUM |
@@ -442,10 +439,14 @@
 
 *Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
 
-- **AM Rahane** vs Left-arm wrist spin: SR 87.04, Avg 15.67 (54 balls)
-- **MK Pandey** vs Left-arm orthodox: SR 107.03, Avg 22.48 (441 balls)
-- **RK Singh** vs Left-arm orthodox: SR 108.14, Avg 31.0 (86 balls)
-- **RA Tripathi** vs Left-arm orthodox: SR 111.81, Avg 14.64 (144 balls)
+*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
+
+- **AM Rahane** vs LA wrist spin: SR 87.04, Avg 15.67, BPD 18.0 (54 balls)
+- **MK Pandey** vs LA orthodox: SR 107.03, Avg 22.48, BPD 21.0 (441 balls)
+- **RK Singh** vs off-spin: SR 97.4, Avg 75.0, BPD 77.0 (77 balls)
+- **RK Singh** vs LA orthodox: SR 108.14, Avg 31.0, BPD 28.67 (86 balls)
+- **SP Narine** vs LA orthodox: SR 175.47, Avg 9.3, BPD 5.3 (53 balls)
+- **SP Narine** vs leg-spin: SR 190.22, Avg 19.44, BPD 10.22 (92 balls)
 
 ---
 

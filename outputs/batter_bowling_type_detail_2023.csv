@@ -1,0 +1,108 @@
+batter_id,batter_name,bowling_type,balls,runs,dismissals,fours,sixes,dot_balls,strike_rate,average,dot_pct,boundary_pct
+872b03f7,A Badoni,Right-arm off-spin,35,54.0,0.0,2.0,2.0,7.0,154.29,,20.0,11.43
+872b03f7,A Badoni,Right-arm pace,36,55.0,2.0,6.0,2.0,10.0,152.78,27.5,27.78,22.22
+bbd41817,AD Russell,Right-arm pace,34,63.0,2.0,7.0,4.0,12.0,185.29,31.5,35.29,32.35
+6a26221c,AK Markram,Right-arm off-spin,40,53.0,2.0,5.0,1.0,10.0,132.5,26.5,25.0,15.0
+6a26221c,AK Markram,Right-arm pace,40,69.0,3.0,6.0,3.0,7.0,172.5,23.0,17.5,22.5
+29e95537,AM Rahane,Right-arm off-spin,44,42.0,3.0,1.0,2.0,19.0,95.45,14.0,43.18,6.82
+29e95537,AM Rahane,Right-arm pace,58,116.0,6.0,6.0,11.0,17.0,200.0,19.33,29.31,29.31
+2e171977,AR Patel,Right-arm pace,46,66.0,3.0,7.0,2.0,15.0,143.48,22.0,32.61,19.57
+8e514b4c,Abdul Samad,Right-arm pace,47,68.0,3.0,6.0,3.0,14.0,144.68,22.67,29.79,19.15
+f29185a1,Abhishek Sharma,Right-arm off-spin,43,75.0,3.0,4.0,5.0,7.0,174.42,25.0,16.28,20.93
+f29185a1,Abhishek Sharma,Right-arm pace,33,55.0,3.0,5.0,3.0,9.0,166.67,18.33,27.27,24.24
+ad3b6e95,Abishek Porel,Right-arm off-spin,31,31.0,2.0,1.0,1.0,9.0,100.0,15.5,29.03,6.45
+ad3b6e95,Abishek Porel,Right-arm pace,33,68.0,2.0,8.0,4.0,10.0,206.06,34.0,30.3,36.36
+d5130a30,B Sai Sudharsan,Left-arm pace,31,49.0,0.0,6.0,1.0,8.0,158.06,,25.81,22.58
+d5130a30,B Sai Sudharsan,Right-arm off-spin,64,103.0,1.0,9.0,5.0,16.0,160.94,103.0,25.0,21.88
+d5130a30,B Sai Sudharsan,Right-arm pace,72,117.0,6.0,15.0,4.0,22.0,162.5,19.5,30.56,26.39
+eaa76d3c,C Green,Right-arm off-spin,31,31.0,2.0,1.0,1.0,9.0,100.0,15.5,29.03,6.45
+2c25d4f5,D Padikkal,Right-arm off-spin,43,55.0,2.0,6.0,0.0,10.0,127.91,27.5,23.26,13.95
+d67d5f00,DA Miller,Right-arm pace,63,108.0,2.0,9.0,6.0,17.0,171.43,54.0,26.98,23.81
+dcce6f09,DA Warner,Left-arm pace,33,40.0,2.0,7.0,0.0,15.0,121.21,20.0,45.45,21.21
+dcce6f09,DA Warner,Right-arm off-spin,36,44.0,0.0,4.0,1.0,11.0,122.22,,30.56,13.89
+dcce6f09,DA Warner,Right-arm pace,57,64.0,1.0,10.0,0.0,26.0,112.28,64.0,45.61,17.54
+eade4650,DJ Mitchell,Right-arm pace,48,67.0,2.0,3.0,3.0,11.0,139.58,33.5,22.92,12.5
+df5a6881,DP Conway,Right-arm off-spin,46,64.0,2.0,8.0,2.0,15.0,139.13,32.0,32.61,21.74
+df5a6881,DP Conway,Right-arm pace,57,83.0,2.0,12.0,1.0,17.0,145.61,41.5,29.82,22.81
+bcf325d2,Dhruv Jurel,Right-arm pace,31,55.0,1.0,2.0,5.0,10.0,177.42,55.0,32.26,22.58
+3355b542,F du Plessis,Left-arm pace,39,89.0,2.0,10.0,6.0,13.0,228.21,44.5,33.33,41.03
+3355b542,F du Plessis,Right-arm leg-spin,55,60.0,1.0,4.0,2.0,21.0,109.09,60.0,38.18,10.91
+3355b542,F du Plessis,Right-arm off-spin,55,58.0,1.0,3.0,2.0,15.0,105.45,58.0,27.27,9.09
+3355b542,F du Plessis,Right-arm pace,91,178.0,2.0,16.0,12.0,28.0,195.6,89.0,30.77,30.77
+b681e71e,GJ Maxwell,Right-arm off-spin,47,76.0,5.0,1.0,8.0,16.0,161.7,15.2,34.04,19.15
+b681e71e,GJ Maxwell,Right-arm pace,39,56.0,1.0,1.0,7.0,18.0,143.59,56.0,46.15,20.51
+235c2bb6,H Klaasen,Right-arm pace,58,97.0,2.0,7.0,4.0,10.0,167.24,48.5,17.24,18.97
+dbe50b21,HH Pandya,Right-arm pace,58,100.0,4.0,7.0,6.0,14.0,172.41,25.0,24.14,22.41
+752f7486,Ishan Kishan,Left-arm pace,35,66.0,0.0,10.0,3.0,14.0,188.57,,40.0,37.14
+752f7486,Ishan Kishan,Right-arm off-spin,47,70.0,2.0,11.0,1.0,17.0,148.94,35.0,36.17,25.53
+752f7486,Ishan Kishan,Right-arm pace,36,47.0,2.0,5.0,2.0,15.0,130.56,23.5,41.67,19.44
+99b75528,JC Buttler,Right-arm off-spin,53,87.0,3.0,7.0,4.0,11.0,164.15,29.0,20.75,20.75
+99b75528,JC Buttler,Right-arm pace,81,119.0,3.0,14.0,4.0,29.0,146.91,39.67,35.8,22.22
+800d2d97,JM Sharma,Right-arm pace,68,104.0,6.0,8.0,7.0,26.0,152.94,17.33,38.24,22.06
+c03f1114,KD Karthik,Right-arm pace,54,98.0,4.0,10.0,7.0,21.0,181.48,24.5,38.89,31.48
+b17e2f24,KL Rahul,Left-arm pace,38,46.0,2.0,5.0,1.0,13.0,121.05,23.0,34.21,15.79
+b17e2f24,KL Rahul,Right-arm off-spin,65,89.0,2.0,6.0,3.0,17.0,136.92,44.5,26.15,13.85
+b17e2f24,KL Rahul,Right-arm pace,53,67.0,4.0,7.0,2.0,18.0,126.42,16.75,33.96,16.98
+50c6bc2b,LS Livingstone,Right-arm pace,37,76.0,5.0,8.0,4.0,11.0,205.41,15.2,29.73,32.43
+7dcb9bc9,M Shahrukh Khan,Right-arm pace,47,90.0,2.0,6.0,7.0,11.0,191.49,45.0,23.4,27.66
+00ea847a,MA Agarwal,Right-arm leg-spin,36,56.0,0.0,5.0,2.0,7.0,155.56,,19.44,19.44
+00ea847a,MA Agarwal,Right-arm pace,53,71.0,3.0,5.0,2.0,13.0,133.96,23.67,24.53,13.21
+d9273ee7,MP Stoinis,Left-arm pace,40,76.0,0.0,7.0,5.0,14.0,190.0,,35.0,30.0
+d9273ee7,MP Stoinis,Right-arm leg-spin,30,37.0,1.0,4.0,1.0,10.0,123.33,37.0,33.33,16.67
+d9273ee7,MP Stoinis,Right-arm pace,108,189.0,6.0,18.0,9.0,32.0,175.0,31.5,29.63,25.0
+4a8a2e3b,MS Dhoni,Right-arm pace,37,49.0,4.0,1.0,4.0,11.0,132.43,12.25,29.73,13.51
+3241e3fd,N Pooran,Right-arm off-spin,40,41.0,0.0,3.0,0.0,9.0,102.5,,22.5,7.5
+3241e3fd,N Pooran,Right-arm pace,67,120.0,3.0,12.0,8.0,23.0,179.1,40.0,34.33,29.85
+fb2d1dda,N Rana,Right-arm off-spin,62,93.0,4.0,10.0,3.0,15.0,150.0,23.25,24.19,20.97
+d1a60072,N Wadhera,Right-arm off-spin,52,70.0,1.0,6.0,2.0,14.0,134.62,70.0,26.92,15.38
+d1a60072,N Wadhera,Right-arm pace,46,62.0,3.0,3.0,4.0,15.0,134.78,20.67,32.61,15.22
+9418198b,P Simran Singh,Left-arm pace,37,66.0,1.0,5.0,5.0,12.0,178.38,66.0,32.43,27.03
+9418198b,P Simran Singh,Right-arm pace,66,131.0,6.0,14.0,9.0,28.0,198.48,21.83,42.42,34.85
+8b3e9c7c,PP Shaw,Right-arm pace,34,47.0,3.0,7.0,1.0,14.0,138.24,15.67,41.18,23.53
+04a418e8,R Parag,Right-arm pace,76,127.0,5.0,9.0,9.0,23.0,167.11,25.4,30.26,23.68
+fe93fd9d,RA Jadeja,Right-arm pace,52,87.0,3.0,8.0,3.0,8.0,167.31,29.0,15.38,21.15
+77255a9e,RA Tripathi,Right-arm off-spin,42,61.0,1.0,6.0,2.0,12.0,145.24,61.0,28.57,19.05
+45a43fe2,RD Gaikwad,Right-arm off-spin,45,71.0,2.0,4.0,4.0,12.0,157.78,35.5,26.67,17.78
+45a43fe2,RD Gaikwad,Right-arm pace,92,161.0,4.0,14.0,12.0,35.0,175.0,40.25,38.04,28.26
+740742ef,RG Sharma,Left-arm pace,35,43.0,3.0,5.0,2.0,19.0,122.86,14.33,54.29,20.0
+740742ef,RG Sharma,Right-arm off-spin,32,61.0,0.0,7.0,2.0,3.0,190.63,,9.38,28.13
+740742ef,RG Sharma,Right-arm pace,56,99.0,2.0,10.0,7.0,22.0,176.79,49.5,39.29,30.36
+0a509d6b,RK Singh,Right-arm off-spin,49,43.0,0.0,2.0,0.0,14.0,87.76,,28.57,4.08
+0a509d6b,RK Singh,Right-arm pace,61,101.0,1.0,8.0,5.0,19.0,165.57,101.0,31.15,21.31
+c740ea83,RM Patidar,Right-arm pace,32,52.0,5.0,4.0,4.0,12.0,162.5,10.4,37.5,25.0
+919a3be2,RR Pant,Right-arm pace,57,115.0,2.0,6.0,11.0,18.0,201.75,57.5,31.58,29.82
+cad00a4d,RR Rossouw,Right-arm off-spin,36,27.0,1.0,0.0,1.0,16.0,75.0,27.0,44.44,2.78
+0a476045,S Dhawan,Right-arm pace,62,88.0,1.0,10.0,2.0,20.0,141.94,88.0,32.26,19.35
+a4e37e47,S Dube,Right-arm off-spin,48,83.0,2.0,3.0,8.0,16.0,172.92,41.5,33.33,22.92
+a4e37e47,S Dube,Right-arm pace,123,164.0,3.0,14.0,5.0,32.0,133.33,54.67,26.02,15.45
+271f83cd,SA Yadav,Left-arm pace,30,58.0,0.0,7.0,3.0,9.0,193.33,,30.0,33.33
+271f83cd,SA Yadav,Right-arm pace,74,162.0,4.0,14.0,13.0,24.0,218.92,40.5,32.43,36.49
+e94915e6,SM Curran,Right-arm off-spin,30,34.0,0.0,2.0,1.0,9.0,113.33,,30.0,10.0
+e94915e6,SM Curran,Right-arm pace,64,84.0,2.0,7.0,3.0,23.0,131.25,42.0,35.94,15.63
+48a1d7b7,SO Hetmyer,Right-arm pace,34,66.0,0.0,3.0,5.0,4.0,194.12,,11.76,23.53
+9d430b40,SP Narine,Right-arm off-spin,38,79.0,0.0,7.0,7.0,16.0,207.89,,42.11,36.84
+9d430b40,SP Narine,Right-arm pace,30,69.0,1.0,9.0,4.0,9.0,230.0,69.0,30.0,43.33
+85ec8e33,SS Iyer,Right-arm pace,39,57.0,2.0,7.0,1.0,11.0,146.15,28.5,28.21,20.51
+a4cc73aa,SV Samson,Right-arm leg-spin,37,59.0,0.0,3.0,4.0,9.0,159.46,,24.32,18.92
+a4cc73aa,SV Samson,Right-arm off-spin,30,42.0,1.0,1.0,3.0,7.0,140.0,42.0,23.33,13.33
+a4cc73aa,SV Samson,Right-arm pace,83,131.0,2.0,13.0,6.0,27.0,157.83,65.5,32.53,22.89
+26989d80,Shashank Singh,Right-arm pace,56,110.0,0.0,13.0,4.0,8.0,196.43,,14.29,30.36
+b4b99816,Shubman Gill,Left-arm pace,47,72.0,0.0,9.0,1.0,11.0,153.19,,23.4,21.28
+b4b99816,Shubman Gill,Right-arm leg-spin,51,80.0,3.0,5.0,4.0,13.0,156.86,26.67,25.49,17.65
+b4b99816,Shubman Gill,Right-arm off-spin,72,126.0,3.0,14.0,4.0,16.0,175.0,42.0,22.22,25.0
+b4b99816,Shubman Gill,Right-arm pace,72,147.0,2.0,13.0,9.0,16.0,204.17,73.5,22.22,30.56
+85b3fab2,T Stubbs,Right-arm pace,35,75.0,0.0,5.0,5.0,4.0,214.29,,11.43,28.57
+f1f99156,TH David,Right-arm pace,55,81.0,2.0,1.0,7.0,15.0,147.27,40.5,27.27,14.55
+12b610c2,TM Head,Right-arm off-spin,56,96.0,1.0,5.0,9.0,21.0,171.43,96.0,37.5,25.0
+b0482a1d,Tilak Varma,Right-arm off-spin,49,59.0,0.0,4.0,2.0,17.0,120.41,,34.69,12.24
+b0482a1d,Tilak Varma,Right-arm pace,56,89.0,4.0,7.0,4.0,13.0,158.93,22.25,23.21,19.64
+ba607b88,V Kohli,Left-arm orthodox,33,31.0,0.0,1.0,1.0,11.0,93.94,,33.33,6.06
+ba607b88,V Kohli,Right-arm off-spin,53,54.0,1.0,1.0,1.0,12.0,101.89,54.0,22.64,3.77
+ba607b88,V Kohli,Right-arm pace,76,138.0,2.0,15.0,6.0,18.0,181.58,69.0,23.68,27.63
+0994d0ae,V Shankar,Right-arm pace,30,46.0,1.0,3.0,2.0,7.0,153.33,46.0,23.33,16.67
+a24be938,VR Iyer,Right-arm off-spin,45,49.0,3.0,3.0,2.0,19.0,108.89,16.33,42.22,11.11
+a24be938,VR Iyer,Right-arm pace,80,158.0,3.0,16.0,11.0,28.0,197.5,52.67,35.0,33.75
+fe11caa6,WP Saha,Right-arm pace,31,27.0,2.0,4.0,0.0,17.0,87.1,13.5,54.84,12.9
+6c19c6e5,YBK Jaiswal,Right-arm leg-spin,43,62.0,0.0,4.0,4.0,14.0,144.19,,32.56,18.6
+6c19c6e5,YBK Jaiswal,Right-arm off-spin,52,71.0,2.0,3.0,6.0,20.0,136.54,35.5,38.46,17.31
+6c19c6e5,YBK Jaiswal,Right-arm pace,93,148.0,4.0,23.0,5.0,41.0,159.14,37.0,44.09,30.11

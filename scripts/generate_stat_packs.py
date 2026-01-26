@@ -677,26 +677,44 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
     else:
         md.append("*Insufficient data for powerplay batting analysis*")
 
-    # Left-arm spin vulnerability check
+    # Spin vulnerability check - show ALL vulnerabilities per player
+    # Uses correct bowling type names from dim_bowler_classification
+    # Vulnerability criteria: SR < 110 OR avg < 12 OR (dismissals >= 3 AND bpd < 12)
     vs_spin = conn.execute(f"""
-        SELECT batter_name, bowler_type, balls, runs, strike_rate, dismissals, average
+        SELECT
+            batter_name,
+            bowler_type,
+            balls,
+            runs,
+            strike_rate,
+            dismissals,
+            average,
+            ROUND(balls * 1.0 / NULLIF(dismissals, 0), 2) as balls_per_dismissal
         FROM analytics_ipl_batter_vs_bowler_type
         WHERE batter_id IN (SELECT player_id FROM ipl_2026_squads WHERE team_name = '{team_name}')
-          AND bowler_type IN ('Off-spin', 'Leg-spin', 'Left-arm orthodox', 'Left-arm wrist spin')
+          AND bowler_type IN ('Right-arm off-spin', 'Right-arm leg-spin', 'Left-arm orthodox', 'Left-arm wrist spin')
           AND sample_size IN ('MEDIUM', 'HIGH')
-          AND strike_rate < 115
-        ORDER BY strike_rate ASC
-        LIMIT 5
+          AND (
+              strike_rate < 110
+              OR (average IS NOT NULL AND average < 12)
+              OR (dismissals >= 3 AND balls * 1.0 / dismissals < 12)
+          )
+        ORDER BY batter_name, strike_rate ASC
     """).fetchall()
 
     md.append("\n### 9.3 Potential Spin Vulnerabilities\n")
     md.append(
         "*Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*\n"
     )
+    md.append(
+        "*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*\n"
+    )
     if vs_spin:
-        for name, btype, balls, runs, sr, outs, avg in vs_spin:
+        for name, btype, balls, runs, sr, outs, avg, bpd in vs_spin:
+            # Format bowling type for display (shorter names)
+            btype_display = btype.replace("Right-arm ", "").replace("Left-arm ", "LA ")
             md.append(
-                f"- **{name}** vs {btype}: SR {sr}, Avg {avg or 'N/A'} ({balls} balls)"
+                f"- **{name}** vs {btype_display}: SR {sr}, Avg {avg or 'N/A'}, BPD {bpd or 'N/A'} ({balls} balls)"
             )
     else:
         md.append("*No significant spin vulnerabilities identified*")

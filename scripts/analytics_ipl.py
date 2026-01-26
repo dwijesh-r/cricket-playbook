@@ -371,6 +371,45 @@ def create_ipl_bowling_views(conn: duckdb.DuckDBPyConnection):
     """)
     print("  - analytics_ipl_bowler_phase")
 
+    # IPL Bowler vs Batter Handedness (uses ipl_2026_squads for batting_hand)
+    # Note: This covers ~80% of balls in 2023+ IPL data
+    conn.execute(f"""
+        CREATE OR REPLACE VIEW analytics_ipl_bowler_vs_batter_handedness AS
+        WITH ipl_matches AS (
+            SELECT dm.match_id
+            FROM dim_match dm
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '{IPL_MIN_DATE}'
+        )
+        SELECT
+            dp_bowl.player_id as bowler_id,
+            dp_bowl.current_name as bowler_name,
+            sq.batting_hand,
+            COUNT(*) FILTER (WHERE fb.is_legal_ball) as balls,
+            SUM(fb.batter_runs + fb.extra_runs) as runs,
+            SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) as wickets,
+            SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 THEN 1 ELSE 0 END) as dot_balls,
+            SUM(CASE WHEN fb.batter_runs = 4 THEN 1 ELSE 0 END) as fours,
+            SUM(CASE WHEN fb.batter_runs = 6 THEN 1 ELSE 0 END) as sixes,
+            ROUND(SUM(fb.batter_runs + fb.extra_runs) * 6.0 / NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as economy,
+            ROUND(COUNT(*) FILTER (WHERE fb.is_legal_ball) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END), 0), 2) as strike_rate,
+            ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 THEN 1 ELSE 0 END) * 100.0 / NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as dot_pct,
+            ROUND((SUM(CASE WHEN fb.batter_runs = 4 THEN 1 ELSE 0 END) + SUM(CASE WHEN fb.batter_runs = 6 THEN 1 ELSE 0 END)) * 100.0 / NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as boundary_pct,
+            -- Wickets per ball ratio (used for wicket-taker tags instead of raw wicket count)
+            ROUND(SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) * 1.0 / NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 4) as wickets_per_ball,
+            CASE WHEN COUNT(*) FILTER (WHERE fb.is_legal_ball) < 60 THEN 'LOW'
+                 WHEN COUNT(*) FILTER (WHERE fb.is_legal_ball) < 200 THEN 'MEDIUM'
+                 ELSE 'HIGH' END as sample_size
+        FROM fact_ball fb
+        JOIN dim_player dp_bowl ON fb.bowler_id = dp_bowl.player_id
+        JOIN ipl_2026_squads sq ON fb.batter_id = sq.player_id
+        WHERE fb.match_id IN (SELECT match_id FROM ipl_matches)
+          AND sq.batting_hand IS NOT NULL
+        GROUP BY dp_bowl.player_id, dp_bowl.current_name, sq.batting_hand
+    """)
+    print("  - analytics_ipl_bowler_vs_batter_handedness")
+
 
 def create_phase_matchup_views(conn: duckdb.DuckDBPyConnection):
     """Create phase-wise batter vs bowler matchup views."""

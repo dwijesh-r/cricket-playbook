@@ -15,9 +15,9 @@ import pandas as pd
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
-PROJECT_DIR = SCRIPT_DIR.parent
+PROJECT_DIR = SCRIPT_DIR.parent.parent  # scripts/generators -> scripts -> project root
 DB_PATH = PROJECT_DIR / "data" / "cricket_playbook.duckdb"
-OUTPUT_DIR = PROJECT_DIR / "outputs"
+OUTPUT_DIR = PROJECT_DIR / "outputs" / "matchups"
 
 # Date filter for 2023+ data
 MIN_DATE = "2023-01-01"

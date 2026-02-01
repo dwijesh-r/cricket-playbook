@@ -66,6 +66,29 @@ Pro team internal prep packaged for public consumption. We give fans a sense of 
 | Kevin de Bruyne | Misleading visuals | Tom Brady |
 | Jose Mourinho | Unrobust/unscalable solutions | Florentino Perez |
 
+### 2.3 Founder Active Collaboration
+
+The Founder is not just an approval gate - they are an **active collaborator** throughout the work.
+
+**Founder Involvement:**
+- Can provide input at any step without restarting the loop
+- Should be consulted on methodology, scope, and editorial direction decisions
+- Feedback is tuning, not rejection (incorporate and continue)
+
+**When Agents Should Seek Founder Input:**
+- Choosing between multiple valid approaches
+- Defining new metrics or thresholds
+- Editorial tone and framing decisions
+- Surprising findings that need interpretation
+- Trade-offs that affect the paid artifact
+
+**Documentation:**
+```
+FOUNDER INPUT: [Summary]
+Action Taken: [How incorporated]
+Date: [YYYY-MM-DD]
+```
+
 ---
 
 ## Section 3: Team Structure

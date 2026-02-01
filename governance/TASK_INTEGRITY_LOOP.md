@@ -324,6 +324,51 @@ Reason: [Explanation]
 Date: [YYYY-MM-DD]
 ```
 
+### Founder Active Collaboration
+
+The Founder is an **active collaborator**, not just an approval gate. Agents should:
+
+1. **Seek Input Early:** On key decisions (methodology, feature scope, editorial direction), ask the Founder before finalizing
+2. **Welcome Tuning:** Founder feedback mid-work is normal and expected, not a failure
+3. **Iterate Quickly:** Founder input doesn't restart the full loop - incorporate and continue
+
+#### When to Consult Founder
+
+| Situation | Action |
+|-----------|--------|
+| Methodology choice (e.g., which metrics to use) | Ask before implementing |
+| Feature scope unclear | Clarify with Founder |
+| Editorial tone/framing decisions | Seek Founder preference |
+| Trade-offs between options | Present options to Founder |
+| Surprising data findings | Share with Founder for interpretation |
+
+#### Founder Feedback Process
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│              FOUNDER FEEDBACK (Lightweight)                 │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  1. Agent presents work/question to Founder                 │
+│         ↓                                                   │
+│  2. Founder provides input/tuning                           │
+│         ↓                                                   │
+│  3. Agent incorporates feedback                             │
+│         ↓                                                   │
+│  4. Continue from current step (no restart)                 │
+│                                                             │
+│  Document with:                                             │
+│  FOUNDER INPUT: [Summary of feedback]                       │
+│  Action Taken: [How it was incorporated]                    │
+│  Date: [YYYY-MM-DD]                                         │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+#### Key Principle
+
+> "The Founder's vision drives the product. Active collaboration ensures we build what matters, not just what's technically correct."
+
 ---
 
 ## Tracking
@@ -334,5 +379,6 @@ All task loops are tracked in:
 
 ---
 
-*Task Integrity Loop v1.0.0*
+*Task Integrity Loop v1.1.0*
 *Cricket Playbook Governance*
+*Updated: 2026-02-01 - Added Founder Active Collaboration*

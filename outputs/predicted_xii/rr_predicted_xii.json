@@ -1,0 +1,141 @@
+{
+  "team_name": "Rajasthan Royals",
+  "team_abbrev": "RR",
+  "home_venue": "Sawai Mansingh Stadium",
+  "venue_bias": "neutral",
+  "captain": "Yashasvi Jaiswal",
+  "wicketkeeper": "Dhruv Jurel",
+  "xi": [
+    {
+      "batting_position": 1,
+      "player_id": "6c19c6e5",
+      "player_name": "Yashasvi Jaiswal",
+      "role": "Opener",
+      "batting_hand": "Left-hand",
+      "is_overseas": false,
+      "price_cr": 18.0,
+      "rationale": "Franchise cornerstone at Rs 18.0 Cr"
+    },
+    {
+      "batting_position": 2,
+      "player_id": "e94915e6",
+      "player_name": "Sam Curran",
+      "role": "Middle Order",
+      "batting_hand": "Left-hand",
+      "is_overseas": true,
+      "price_cr": 10.0,
+      "rationale": "Key player investment (10.0 Cr)"
+    },
+    {
+      "batting_position": 3,
+      "player_id": "fe93fd9d",
+      "player_name": "Ravindra Jadeja",
+      "role": "All-rounder",
+      "batting_hand": "Left-hand",
+      "is_overseas": false,
+      "price_cr": 17.5,
+      "rationale": "Franchise cornerstone at Rs 17.5 Cr. Spin bowling strength in middle overs"
+    },
+    {
+      "batting_position": 4,
+      "player_id": "04a418e8",
+      "player_name": "Riyan Parag",
+      "role": "Opener",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 14.0,
+      "rationale": "Key player investment (14.0 Cr)"
+    },
+    {
+      "batting_position": 5,
+      "player_id": "f8d66d89",
+      "player_name": "Ravi Singh",
+      "role": "Finisher",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 0.3,
+      "rationale": "Batting value"
+    },
+    {
+      "batting_position": 6,
+      "player_id": "bcf325d2",
+      "player_name": "Dhruv Jurel",
+      "role": "Wicketkeeper",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 14.0,
+      "rationale": "Key player investment (14.0 Cr)"
+    },
+    {
+      "batting_position": 7,
+      "player_id": "48a1d7b7",
+      "player_name": "Shimron Hetmyer",
+      "role": "Finisher",
+      "batting_hand": "Left-hand",
+      "is_overseas": true,
+      "price_cr": 11.0,
+      "rationale": "Key player investment (11.0 Cr)"
+    },
+    {
+      "batting_position": 8,
+      "player_id": "5574750c",
+      "player_name": "Jofra Archer",
+      "role": "Pace Bowler",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 12.5,
+      "rationale": "Key player investment (12.5 Cr). New ball specialist"
+    },
+    {
+      "batting_position": 9,
+      "player_id": "df064e1a",
+      "player_name": "Ravi Bishnoi",
+      "role": "Spinner",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 7.2,
+      "rationale": "Spin bowling strength in middle overs"
+    },
+    {
+      "batting_position": 10,
+      "player_id": "ce820073",
+      "player_name": "Sandeep Sharma",
+      "role": "Pace Bowler",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 4.0,
+      "rationale": "Tagged: pp elite, proven wicket taker"
+    },
+    {
+      "batting_position": 11,
+      "player_id": "465aa633",
+      "player_name": "Nandre Burger",
+      "role": "Pace Bowler",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 3.5,
+      "rationale": "Pace bowling depth"
+    }
+  ],
+  "impact_player": {
+    "player_id": "0420f51f",
+    "player_name": "Aman Rao",
+    "role": "Impact Player",
+    "batting_hand": "Right-hand",
+    "is_overseas": false,
+    "price_cr": 0.3,
+    "rationale": "Provides batting depth as Impact substitute"
+  },
+  "balance": {
+    "overseas_count": 4,
+    "bowling_options": 8,
+    "spinners": 4,
+    "pacers": 7,
+    "left_handers_top6": 3
+  },
+  "constraints_satisfied": true,
+  "constraint_violations": [],
+  "generation_notes": [
+    "Selected Dhruv Jurel as keeper"
+  ]
+}

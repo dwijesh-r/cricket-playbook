@@ -1,0 +1,141 @@
+{
+  "team_name": "Chennai Super Kings",
+  "team_abbrev": "CSK",
+  "home_venue": "MA Chidambaram Stadium",
+  "venue_bias": "spin",
+  "captain": "Ruturaj Gaikwad",
+  "wicketkeeper": "Sanju Samson",
+  "xi": [
+    {
+      "batting_position": 1,
+      "player_id": "45a43fe2",
+      "player_name": "Ruturaj Gaikwad",
+      "role": "Opener",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 18.0,
+      "rationale": "Franchise cornerstone at Rs 18.0 Cr. Elite top-order anchor"
+    },
+    {
+      "batting_position": 2,
+      "player_id": "b2b4f545",
+      "player_name": "Ayush Mhatre",
+      "role": "Opener",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 0.3,
+      "rationale": "Batting value"
+    },
+    {
+      "batting_position": 3,
+      "player_id": "a4cc73aa",
+      "player_name": "Sanju Samson",
+      "role": "Wicketkeeper",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 18.0,
+      "rationale": "Franchise cornerstone at Rs 18.0 Cr. Explosive death-overs finisher"
+    },
+    {
+      "batting_position": 4,
+      "player_id": "a4e37e47",
+      "player_name": "Shivam Dube",
+      "role": "All-rounder",
+      "batting_hand": "Left-hand",
+      "is_overseas": false,
+      "price_cr": 12.0,
+      "rationale": "Key player investment (12.0 Cr)"
+    },
+    {
+      "batting_position": 5,
+      "player_id": "4a8a2e3b",
+      "player_name": "MS Dhoni",
+      "role": "Finisher",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 4.0,
+      "rationale": "Primary wicketkeeper"
+    },
+    {
+      "batting_position": 6,
+      "player_id": "e148e6bd",
+      "player_name": "Prashant Veer",
+      "role": "All-rounder",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 14.2,
+      "rationale": "Key player investment (14.2 Cr)"
+    },
+    {
+      "batting_position": 7,
+      "player_id": "378daa89",
+      "player_name": "Aman Khan",
+      "role": "All-rounder",
+      "batting_hand": "Left-hand",
+      "is_overseas": false,
+      "price_cr": 0.3,
+      "rationale": "Provides batting depth and bowling option"
+    },
+    {
+      "batting_position": 8,
+      "player_id": "a2f46292",
+      "player_name": "Khaleel Ahmed",
+      "role": "Pace Bowler",
+      "batting_hand": "Left-hand",
+      "is_overseas": false,
+      "price_cr": 4.8,
+      "rationale": "Pace bowling depth"
+    },
+    {
+      "batting_position": 9,
+      "player_id": "9eb1455b",
+      "player_name": "Nathan Ellis",
+      "role": "Pace Bowler",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 2.0,
+      "rationale": "Pace bowling depth"
+    },
+    {
+      "batting_position": 10,
+      "player_id": "fcc21ace",
+      "player_name": "Anshul Kamboj",
+      "role": "Pace Bowler",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 3.4,
+      "rationale": "Pace bowling depth"
+    },
+    {
+      "batting_position": 11,
+      "player_id": "2ed569a0",
+      "player_name": "Rahul Chahar",
+      "role": "Spinner",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 1.8,
+      "rationale": "Spin bowling strength in middle overs"
+    }
+  ],
+  "impact_player": {
+    "player_id": "119678fd",
+    "player_name": "Kartik Sharma",
+    "role": "Impact Player",
+    "batting_hand": "Right-hand",
+    "is_overseas": false,
+    "price_cr": 14.2,
+    "rationale": "Provides bowling option as Impact substitute"
+  },
+  "balance": {
+    "overseas_count": 1,
+    "bowling_options": 6,
+    "spinners": 3,
+    "pacers": 8,
+    "left_handers_top6": 1
+  },
+  "constraints_satisfied": true,
+  "constraint_violations": [],
+  "generation_notes": [
+    "Selected Sanju Samson as keeper"
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "team_name": "Royal Challengers Bengaluru",
+  "team_abbrev": "RCB",
+  "home_venue": "M Chinnaswamy Stadium",
+  "venue_bias": "pace",
+  "captain": "Virat Kohli",
+  "wicketkeeper": "Phil Salt",
+  "xi": [
+    {
+      "batting_position": 1,
+      "player_id": "3d284ca3",
+      "player_name": "Phil Salt",
+      "role": "Wicketkeeper",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 11.5,
+      "rationale": "Key player investment (11.5 Cr)"
+    },
+    {
+      "batting_position": 2,
+      "player_id": "ba607b88",
+      "player_name": "Virat Kohli",
+      "role": "Opener",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 21.0,
+      "rationale": "Franchise cornerstone at Rs 21.0 Cr. Elite top-order anchor"
+    },
+    {
+      "batting_position": 3,
+      "player_id": "c740ea83",
+      "player_name": "Rajat Patidar",
+      "role": "Middle Order",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 11.0,
+      "rationale": "Key player investment (11.0 Cr). Explosive death-overs finisher"
+    },
+    {
+      "batting_position": 4,
+      "player_id": "a24be938",
+      "player_name": "Venkatesh Iyer",
+      "role": "Opener",
+      "batting_hand": "Left-hand",
+      "is_overseas": false,
+      "price_cr": 7.0,
+      "rationale": "Provides batting depth and bowling option"
+    },
+    {
+      "batting_position": 5,
+      "player_id": "2c25d4f5",
+      "player_name": "Devdutt Padikkal",
+      "role": "Middle Order",
+      "batting_hand": "Left-hand",
+      "is_overseas": false,
+      "price_cr": 2.0,
+      "rationale": "Batting value"
+    },
+    {
+      "batting_position": 6,
+      "player_id": "800d2d97",
+      "player_name": "Jitesh Sharma",
+      "role": "Finisher",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 11.0,
+      "rationale": "Key player investment (11.0 Cr)"
+    },
+    {
+      "batting_position": 7,
+      "player_id": "f1f99156",
+      "player_name": "Tim David",
+      "role": "Finisher",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 3.0,
+      "rationale": "Batting value"
+    },
+    {
+      "batting_position": 8,
+      "player_id": "5b8c830e",
+      "player_name": "Krunal Pandya",
+      "role": "All-rounder",
+      "batting_hand": "Left-hand",
+      "is_overseas": false,
+      "price_cr": 5.75,
+      "rationale": "Spin bowling strength in middle overs"
+    },
+    {
+      "batting_position": 9,
+      "player_id": "03806cf8",
+      "player_name": "Josh Hazlewood",
+      "role": "Pace Bowler",
+      "batting_hand": "Left-hand",
+      "is_overseas": true,
+      "price_cr": 12.5,
+      "rationale": "Key player investment (12.5 Cr). New ball specialist"
+    },
+    {
+      "batting_position": 10,
+      "player_id": "2e81a32d",
+      "player_name": "Bhuvneshwar Kumar",
+      "role": "Pace Bowler",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 10.75,
+      "rationale": "Key player investment (10.8 Cr). New ball specialist"
+    },
+    {
+      "batting_position": 11,
+      "player_id": "b1ad996b",
+      "player_name": "Mangesh Yadav",
+      "role": "Pace Bowler",
+      "batting_hand": "Left-hand",
+      "is_overseas": false,
+      "price_cr": 0.3,
+      "rationale": "Pace bowling depth"
+    }
+  ],
+  "impact_player": {
+    "player_id": "ff154ecd",
+    "player_name": "Jordan Cox",
+    "role": "Impact Player",
+    "batting_hand": "Right-hand",
+    "is_overseas": true,
+    "price_cr": 0.3,
+    "rationale": "Provides batting depth as Impact substitute"
+  },
+  "balance": {
+    "overseas_count": 3,
+    "bowling_options": 6,
+    "spinners": 3,
+    "pacers": 8,
+    "left_handers_top6": 2
+  },
+  "constraints_satisfied": true,
+  "constraint_violations": [],
+  "generation_notes": [
+    "Selected Phil Salt as keeper"
+  ]
+}

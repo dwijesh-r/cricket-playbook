@@ -121,5 +121,34 @@
       "scripts/analytics_ipl.py"
     ],
     "stat_pack_generator": "scripts/generate_stat_packs.py"
+  },
+  "predicted_xii": {
+    "directory": "outputs/predicted_xii/",
+    "version": "1.1",
+    "generated_at": "2026-02-02",
+    "files": {
+      "predicted_xii_2026.json": "Consolidated predictions for all 10 IPL 2026 teams",
+      "{team}_predicted_xii.json": "Individual team prediction files"
+    },
+    "methodology": "Constraint-satisfaction with weighted scoring",
+    "data_sources": [
+      "data/ipl_2026_squads.csv",
+      "data/ipl_2026_player_contracts.csv",
+      "outputs/player_tags_2023.json",
+      "outputs/matchups/batter_entry_points_2023.csv"
+    ],
+    "constraints": [
+      "Maximum 4 overseas players",
+      "Minimum 20 overs bowling coverage",
+      "At least 1 wicketkeeper",
+      "Minimum 4 primary bowling options",
+      "At least 1 spinner"
+    ],
+    "improvements_v1.1": [
+      "Fixed overseas player detection (Sunil Narine correctly marked overseas)",
+      "Added known opener mappings (Rohit Sharma, Shubman Gill open)",
+      "Added known middle-order mappings (Shivam Dube, Ravindra Jadeja in middle)",
+      "Improved batting position assignment using historical entry point data"
+    ]
   }
 }

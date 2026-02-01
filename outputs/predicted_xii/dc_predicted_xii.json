@@ -1,0 +1,141 @@
+{
+  "team_name": "Delhi Capitals",
+  "team_abbrev": "DC",
+  "home_venue": "Arun Jaitley Stadium",
+  "venue_bias": "neutral",
+  "captain": "KL Rahul",
+  "wicketkeeper": "KL Rahul",
+  "xi": [
+    {
+      "batting_position": 1,
+      "player_id": "b17e2f24",
+      "player_name": "KL Rahul",
+      "role": "Wicketkeeper",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 14.0,
+      "rationale": "Key player investment (14.0 Cr). Elite top-order anchor"
+    },
+    {
+      "batting_position": 2,
+      "player_id": "8b3e9c7c",
+      "player_name": "Prithvi Shaw",
+      "role": "Opener",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 0.3,
+      "rationale": "Batting value"
+    },
+    {
+      "batting_position": 3,
+      "player_id": "ad3b6e95",
+      "player_name": "Abhishek Porel",
+      "role": "Opener",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 4.0,
+      "rationale": "Primary wicketkeeper"
+    },
+    {
+      "batting_position": 4,
+      "player_id": "944533a5",
+      "player_name": "Karun Nair",
+      "role": "Finisher",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 0.5,
+      "rationale": "Batting value"
+    },
+    {
+      "batting_position": 5,
+      "player_id": "fb2d1dda",
+      "player_name": "Nitish Rana",
+      "role": "Middle Order",
+      "batting_hand": "Left-hand",
+      "is_overseas": false,
+      "price_cr": 0.5,
+      "rationale": "Batting value"
+    },
+    {
+      "batting_position": 6,
+      "player_id": "d67d5f00",
+      "player_name": "David Miller",
+      "role": "Middle Order",
+      "batting_hand": "Left-hand",
+      "is_overseas": true,
+      "price_cr": 2.0,
+      "rationale": "Batting value"
+    },
+    {
+      "batting_position": 7,
+      "player_id": "85b3fab2",
+      "player_name": "Tristan Stubbs",
+      "role": "Finisher",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 10.0,
+      "rationale": "Key player investment (10.0 Cr)"
+    },
+    {
+      "batting_position": 8,
+      "player_id": "3fb19989",
+      "player_name": "Mitchell Starc",
+      "role": "Pace Bowler",
+      "batting_hand": "Left-hand",
+      "is_overseas": true,
+      "price_cr": 11.75,
+      "rationale": "Key player investment (11.8 Cr). Tagged: death elite"
+    },
+    {
+      "batting_position": 9,
+      "player_id": "ce794613",
+      "player_name": "T Natarajan",
+      "role": "Pace Bowler",
+      "batting_hand": "Left-hand",
+      "is_overseas": false,
+      "price_cr": 10.75,
+      "rationale": "Key player investment (10.8 Cr)"
+    },
+    {
+      "batting_position": 10,
+      "player_id": "8d2c70ad",
+      "player_name": "Kuldeep Yadav",
+      "role": "Spinner",
+      "batting_hand": "Left-hand",
+      "is_overseas": false,
+      "price_cr": 13.25,
+      "rationale": "Key player investment (13.2 Cr). Spin bowling strength in middle overs"
+    },
+    {
+      "batting_position": 11,
+      "player_id": "f834dcfc",
+      "player_name": "Lungi Ngidi",
+      "role": "Pace Bowler",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 1.0,
+      "rationale": "Tagged: pp elite"
+    }
+  ],
+  "impact_player": {
+    "player_id": "2e171977",
+    "player_name": "Axar Patel",
+    "role": "Impact Player",
+    "batting_hand": "Left-hand",
+    "is_overseas": false,
+    "price_cr": 16.5,
+    "rationale": "Provides bowling option as Impact substitute"
+  },
+  "balance": {
+    "overseas_count": 4,
+    "bowling_options": 8,
+    "spinners": 5,
+    "pacers": 6,
+    "left_handers_top6": 2
+  },
+  "constraints_satisfied": true,
+  "constraint_violations": [],
+  "generation_notes": [
+    "Selected KL Rahul as keeper"
+  ]
+}

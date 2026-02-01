@@ -1,0 +1,147 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Predicted XII Output Schema",
+  "description": "Schema for predicted XII output files (individual team and consolidated)",
+  "type": "object",
+  "properties": {
+    "team_name": {
+      "type": "string",
+      "description": "Full franchise name"
+    },
+    "team_abbrev": {
+      "type": "string",
+      "description": "Team abbreviation (CSK, MI, etc.)"
+    },
+    "home_venue": {
+      "type": "string",
+      "description": "Primary home venue"
+    },
+    "venue_bias": {
+      "type": "string",
+      "enum": ["spin", "pace", "neutral"],
+      "description": "Home venue pitch characteristic"
+    },
+    "captain": {
+      "type": "string",
+      "description": "Predicted captain name"
+    },
+    "wicketkeeper": {
+      "type": "string",
+      "description": "Primary wicketkeeper name"
+    },
+    "xi": {
+      "type": "array",
+      "description": "Playing XI in batting order",
+      "minItems": 11,
+      "maxItems": 11,
+      "items": {
+        "type": "object",
+        "properties": {
+          "batting_position": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 11
+          },
+          "player_name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string",
+            "description": "Role in XI (Opener, Middle Order, Finisher, All-rounder, Spinner, Pace Bowler, Wicketkeeper)"
+          },
+          "batting_hand": {
+            "type": "string",
+            "enum": ["Right-hand", "Left-hand"]
+          },
+          "is_overseas": {
+            "type": "boolean"
+          },
+          "price_cr": {
+            "type": "number",
+            "description": "Auction/contract price in INR crores"
+          },
+          "rationale": {
+            "type": "string",
+            "description": "1-2 sentence selection rationale"
+          }
+        },
+        "required": ["batting_position", "player_name", "role", "is_overseas", "rationale"]
+      }
+    },
+    "impact_player": {
+      "type": ["object", "null"],
+      "description": "12th man for Impact Player substitution",
+      "properties": {
+        "player_name": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "batting_hand": {
+          "type": "string"
+        },
+        "is_overseas": {
+          "type": "boolean"
+        },
+        "price_cr": {
+          "type": "number"
+        },
+        "rationale": {
+          "type": "string"
+        }
+      }
+    },
+    "balance": {
+      "type": "object",
+      "description": "Team balance metrics",
+      "properties": {
+        "overseas_count": {
+          "type": "integer",
+          "maximum": 4
+        },
+        "bowling_options": {
+          "type": "integer",
+          "description": "Players who can bowl 4 overs"
+        },
+        "spinners": {
+          "type": "integer"
+        },
+        "pacers": {
+          "type": "integer"
+        },
+        "left_handers_top6": {
+          "type": "integer",
+          "description": "Left-hand batters in top 6"
+        }
+      }
+    },
+    "constraints_satisfied": {
+      "type": "boolean",
+      "description": "All hard constraints satisfied"
+    },
+    "constraint_violations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of constraint violations if any"
+    },
+    "generation_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Algorithm notes and warnings"
+    }
+  },
+  "required": [
+    "team_name",
+    "team_abbrev",
+    "captain",
+    "wicketkeeper",
+    "xi",
+    "balance",
+    "constraints_satisfied"
+  ]
+}

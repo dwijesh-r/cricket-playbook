@@ -1,0 +1,141 @@
+{
+  "team_name": "Mumbai Indians",
+  "team_abbrev": "MI",
+  "home_venue": "Wankhede Stadium",
+  "venue_bias": "pace",
+  "captain": "Hardik Pandya",
+  "wicketkeeper": "Quinton de Kock",
+  "xi": [
+    {
+      "batting_position": 1,
+      "player_id": "740742ef",
+      "player_name": "Rohit Sharma",
+      "role": "Middle Order",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 16.3,
+      "rationale": "Franchise cornerstone at Rs 16.3 Cr"
+    },
+    {
+      "batting_position": 2,
+      "player_id": "372455c4",
+      "player_name": "Quinton de Kock",
+      "role": "Wicketkeeper",
+      "batting_hand": "Left-hand",
+      "is_overseas": true,
+      "price_cr": 1.0,
+      "rationale": "Explosive death-overs finisher"
+    },
+    {
+      "batting_position": 3,
+      "player_id": "9caf69a1",
+      "player_name": "Will Jacks",
+      "role": "Opener",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 5.25,
+      "rationale": "Provides batting depth and bowling option"
+    },
+    {
+      "batting_position": 4,
+      "player_id": "271f83cd",
+      "player_name": "Suryakumar Yadav",
+      "role": "Middle Order",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 16.35,
+      "rationale": "Franchise cornerstone at Rs 16.4 Cr. Explosive death-overs finisher"
+    },
+    {
+      "batting_position": 5,
+      "player_id": "b0482a1d",
+      "player_name": "Tilak Varma",
+      "role": "Opener",
+      "batting_hand": "Left-hand",
+      "is_overseas": false,
+      "price_cr": 8.0,
+      "rationale": "Elite top-order anchor"
+    },
+    {
+      "batting_position": 6,
+      "player_id": "dbe50b21",
+      "player_name": "Hardik Pandya",
+      "role": "Finisher",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 16.35,
+      "rationale": "Franchise cornerstone at Rs 16.4 Cr"
+    },
+    {
+      "batting_position": 7,
+      "player_id": "462411b3",
+      "player_name": "Jasprit Bumrah",
+      "role": "Pace Bowler",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 18.0,
+      "rationale": "Franchise cornerstone at Rs 18.0 Cr. New ball specialist"
+    },
+    {
+      "batting_position": 8,
+      "player_id": "a818c1be",
+      "player_name": "Trent Boult",
+      "role": "Pace Bowler",
+      "batting_hand": "Left-hand",
+      "is_overseas": true,
+      "price_cr": 12.5,
+      "rationale": "Key player investment (12.5 Cr). Tagged: pp elite, proven wicket taker"
+    },
+    {
+      "batting_position": 9,
+      "player_id": "23eeb873",
+      "player_name": "Deepak Chahar",
+      "role": "Pace Bowler",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 9.25,
+      "rationale": "New ball specialist"
+    },
+    {
+      "batting_position": 10,
+      "player_id": "e4a0deae",
+      "player_name": "Mitchell Santner",
+      "role": "All-rounder",
+      "batting_hand": "Left-hand",
+      "is_overseas": true,
+      "price_cr": 2.0,
+      "rationale": "Provides batting depth and bowling option"
+    },
+    {
+      "batting_position": 11,
+      "player_id": "91e69e5b",
+      "player_name": "Mohammed Izhar",
+      "role": "Pace Bowler",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 0.3,
+      "rationale": "Tagged: proven wicket taker"
+    }
+  ],
+  "impact_player": {
+    "player_id": "bafd0398",
+    "player_name": "Robin Minz",
+    "role": "Impact Player",
+    "batting_hand": "Right-hand",
+    "is_overseas": false,
+    "price_cr": 0.65,
+    "rationale": "Provides batting depth as Impact substitute"
+  },
+  "balance": {
+    "overseas_count": 4,
+    "bowling_options": 10,
+    "spinners": 5,
+    "pacers": 6,
+    "left_handers_top6": 2
+  },
+  "constraints_satisfied": true,
+  "constraint_violations": [],
+  "generation_notes": [
+    "Selected Quinton de Kock as keeper"
+  ]
+}

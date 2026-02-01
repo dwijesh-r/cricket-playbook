@@ -1,14 +1,82 @@
 # Cricket Playbook - Product Requirements Document
 
-**Version:** 2.0.0
-**Last Updated:** 2026-01-20
+**Version:** 3.0.0
+**Last Updated:** 2026-02-01
 **Authors:** Tom Brady (Product Owner), Stephen Curry (Analytics Lead), Andy Flower (Cricket Domain Expert)
+**Binding Document:** Mega Review #1
 
 ---
 
-## 1. Executive Summary
+## 1. Product Vision
 
-Cricket Playbook is a comprehensive T20 cricket analytics platform built on ball-by-ball data from Cricsheet. The platform provides deep analytical insights for IPL 2026 squad planning, player evaluation, and match preparation through 43 analytics views spanning batting, bowling, matchups, and team performance.
+### 1.1 What We Are Building
+
+**Cricket Playbook is a magazine-style preview generator** - scouting-style cricket editorial that presents roles, depth charts, matchups, possible Playing XI, structures, skill-gaps, strengths, and tendencies using only freely available ball-by-ball data, structured the way professional teams internally prepare.
+
+> **Core Philosophy (Founder Mandate):**
+> "Cricket fans don't pay for analytics, they pay for confidence, narrative clarity and authority. What will make money is ruthless editorial compression, strong opinions based on transparent data and zero temptation to be only analytical heavy."
+
+### 1.2 Reference Models
+
+| Publication | What We Learn |
+|-------------|---------------|
+| **Lindy's Sports Annual** | Magazine-style previews, team-by-team breakdowns |
+| **Phil Steele's College Football Preview** | Depth charts, statistical rankings, editorial authority |
+| **Pro Team Internal Prep** | Scouting reports, matchup matrices, tactical insights |
+
+### 1.3 Unique Selling Proposition (USP)
+
+**Pro team internal prep packaged for public consumption.**
+
+We give cricket fans the "forbidden knowledge" that professional teams have - presented with confidence, narrative clarity, and authority. Not just numbers, but what the numbers mean.
+
+### 1.4 What We Are NOT
+
+- We are NOT a stats database (Cricinfo exists)
+- We are NOT a prediction engine (betting sites exist)
+- We are NOT a live match tracker (Cricbuzz exists)
+- We ARE the annual magazine you buy before the season to understand every team
+
+---
+
+## 2. Primary Artifacts (Paid Products)
+
+### 2.1 Team Stat Packs (10 per IPL season)
+
+Magazine-style team preview containing:
+
+| Section | Description | Owner |
+|---------|-------------|-------|
+| **Squad Overview** | Roster with roles, archetypes, tags, contracts | Virat Kohli |
+| **Predicted XI** | Algorithm-based best XI with explanation | Stephen Curry + Pep Guardiola |
+| **Depth Charts** | Position-by-position player rankings (9 roles) | Stephen Curry + Andy Flower |
+| **Key Matchups** | Head-to-head data for rivalry matches | Stephen Curry |
+| **Phase Analysis** | PP/Middle/Death strengths and weaknesses | Andy Flower |
+| **Tactical Insights** | Data-backed strategic observations | Andy Flower + Virat Kohli |
+| **Historical Record** | W-L vs each opponent, venue performance | Virat Kohli |
+
+### 2.2 Player Profiles (Future)
+
+Individual deep-dives for star players with career trajectory, phase evolution, and matchup tendencies.
+
+---
+
+## 3. Analytics Foundation
+
+The editorial products are powered by a comprehensive analytics warehouse built on ball-by-ball data from Cricsheet.
+
+### 3.1 Data Scale
+
+| Metric | Value |
+|--------|-------|
+| Total Matches | 9,357 |
+| IPL Matches | 1,169 |
+| Total Players | 7,864 |
+| Ball-by-Ball Records | 2,137,915 |
+| Venues Covered | 531 |
+| Tournaments | 426 |
+| Analytics Views | 43 |
+| IPL 2026 Players Tracked | 231 |
 
 ### Key Metrics
 
@@ -25,9 +93,9 @@ Cricket Playbook is a comprehensive T20 cricket analytics platform built on ball
 
 ---
 
-## 2. Data Architecture
+## 4. Data Architecture
 
-### 2.1 Star Schema Design
+### 4.1 Star Schema Design
 
 The database follows a star schema with fact tables at the center and dimension tables providing context.
 
@@ -51,9 +119,9 @@ The database follows a star schema with fact tables at the center and dimension 
 
 ---
 
-## 3. Base Tables Schema
+## 5. Base Tables Schema
 
-### 3.1 Dimension Tables
+### 5.1 Dimension Tables
 
 #### dim_match
 Match-level metadata for all T20 matches.
@@ -134,7 +202,7 @@ Tracks player name changes over time.
 | valid_to | VARCHAR | End date |
 | source_file | VARCHAR | Source of name |
 
-### 3.2 Fact Tables
+### 5.2 Fact Tables
 
 #### fact_ball
 Core fact table - one row per legal delivery.
@@ -197,7 +265,7 @@ Powerplay definitions per innings.
 | from_over | DOUBLE | Start over |
 | to_over | DOUBLE | End over |
 
-### 3.3 IPL 2026 Squad Tables
+### 5.3 IPL 2026 Squad Tables
 
 #### ipl_2026_squads
 IPL 2026 squad composition with player classifications.
@@ -225,7 +293,7 @@ Contract and acquisition details.
 
 ---
 
-## 4. Analytics Views Catalog
+## 6. Analytics Views Catalog
 
 ### 4.1 Career Statistics Views
 
@@ -314,7 +382,7 @@ Contract and acquisition details.
 
 ---
 
-## 5. Key Metrics Definitions
+## 7. Key Metrics Definitions
 
 ### 5.1 Batting Metrics
 
@@ -355,7 +423,7 @@ All views include sample size classification:
 
 ---
 
-## 6. IPL 2026 Squad Coverage
+## 8. IPL 2026 Squad Coverage
 
 | Team | Players | ID Mapped | Coverage |
 |------|---------|-----------|----------|
@@ -373,7 +441,7 @@ All views include sample size classification:
 
 ---
 
-## 7. Sample Queries
+## 9. Sample Queries
 
 ### 7.1 Player Analysis
 
@@ -425,7 +493,7 @@ ORDER BY pct_overs_in_phase DESC;
 
 ---
 
-## 8. Franchise Name Mappings
+## 10. Franchise Name Mappings
 
 **Important**: Some IPL franchises have undergone name changes. Historical data should be combined:
 
@@ -442,7 +510,7 @@ WHERE opposition IN ('Delhi Capitals', 'Delhi Daredevils')
 
 ---
 
-## 9. Revolutionary Insights (Andy Flower's Cricket Notes)
+## 11. Revolutionary Insights (Andy Flower's Cricket Notes)
 
 ### 8.1 Wicket Efficiency Metric
 The `wicket_efficiency` column in `analytics_ipl_bowler_phase_distribution` identifies bowlers who take MORE wickets than their workload suggests:
@@ -469,7 +537,7 @@ The combination of:
 
 ---
 
-## 9. Technical Notes
+## 12. Technical Notes
 
 ### 9.1 Database
 - **Engine**: DuckDB (embedded OLAP)
@@ -487,7 +555,7 @@ The combination of:
 
 ---
 
-## 10. Appendix: IPL 2026 Auction Highlights
+## 13. Appendix: IPL 2026 Auction Highlights
 
 | Player | Team | Price (Cr) | Type |
 |--------|------|------------|------|

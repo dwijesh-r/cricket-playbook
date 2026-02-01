@@ -22,15 +22,15 @@ from sklearn.preprocessing import StandardScaler
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
-PROJECT_DIR = SCRIPT_DIR.parent
+PROJECT_DIR = SCRIPT_DIR.parent.parent  # scripts/generators -> scripts -> project root
 DB_PATH = PROJECT_DIR / "data" / "cricket_playbook.duckdb"
 OUTPUT_DIR = PROJECT_DIR / "outputs"
 
 # Date filter for 2023+ data
 IPL_MIN_DATE = "2023-01-01"
 
-# Thresholds
-MIN_BALLS_VS_TYPE = 30
+# Thresholds (Updated per Andy Flower review - Sprint 4.0)
+MIN_BALLS_VS_TYPE = 50  # Increased from 30 for more stable sample
 MIN_BALLS_VS_HAND = 60
 
 # Bowling type categories
@@ -49,6 +49,89 @@ SPECIALIST_BPD_THRESHOLD = 15
 VULNERABLE_SR_THRESHOLD = 110
 VULNERABLE_AVG_THRESHOLD = 12
 VULNERABLE_BPD_THRESHOLD = 12
+
+# =============================================================================
+# MULTI-METRIC PHASE THRESHOLDS (Data-driven from IPL 2023+ percentiles)
+# Sprint 4.0 - Validated by Andy Flower (Cricket) + Tom Brady (Standards)
+# =============================================================================
+
+# BATTER PHASE THRESHOLDS - All 4 metrics per phase
+# Format: {"elite": top_25_percentile, "exploitable": bottom_25_percentile}
+BATTER_PHASE_THRESHOLDS = {
+    "powerplay": {
+        "sr": {"elite": 156.0, "exploitable": 130.0},  # 75th: 155.9, 25th: 130.5
+        "dot_pct": {
+            "elite": 38.0,
+            "exploitable": 47.0,
+        },  # 25th: 38.6, 75th: 47.2 (lower is better)
+        "balls_per_dismissal": {
+            "elite": 32.0,
+            "exploitable": 17.0,
+        },  # 75th: 31.9, 25th: 17.4
+        "boundary_pct": {"elite": 27.0, "exploitable": 21.0},  # 75th: 27.0, 25th: 21.0
+    },
+    "middle": {
+        "sr": {"elite": 157.0, "exploitable": 125.0},  # 75th: 156.7, 25th: 125.0
+        "dot_pct": {"elite": 25.0, "exploitable": 33.0},  # 25th: 25.4, 75th: 33.1
+        "balls_per_dismissal": {
+            "elite": 28.0,
+            "exploitable": 15.0,
+        },  # 75th: 28.4, 25th: 15.4
+        "boundary_pct": {"elite": 20.0, "exploitable": 14.0},  # 75th: 20.1, 25th: 13.7
+    },
+    "death": {
+        "sr": {"elite": 192.0, "exploitable": 149.0},  # 75th: 191.8, 25th: 149.2
+        "dot_pct": {"elite": 22.0, "exploitable": 33.0},  # 25th: 22.4, 75th: 32.7
+        "balls_per_dismissal": {
+            "elite": 15.0,
+            "exploitable": 9.0,
+        },  # 75th: 14.5, 25th: 9.0
+        "boundary_pct": {"elite": 28.0, "exploitable": 18.0},  # 75th: 28.0, 25th: 18.0
+    },
+}
+
+# BOWLER PHASE THRESHOLDS - All 4 metrics per phase
+BOWLER_PHASE_THRESHOLDS = {
+    "powerplay": {
+        "economy": {
+            "elite": 8.53,
+            "exploitable": 9.71,
+        },  # 25th: 8.53, 75th: 9.71 (lower is better)
+        "dot_pct": {"elite": 45.0, "exploitable": 39.0},  # 75th: 44.9, 25th: 39.4
+        "wickets_per_ball": {
+            "elite": 0.049,
+            "exploitable": 0.034,
+        },  # 75th: 0.049, 25th: 0.034
+        "boundary_pct": {
+            "elite": 21.6,
+            "exploitable": 26.4,
+        },  # 25th: 21.6, 75th: 26.4 (lower is better)
+    },
+    "middle": {
+        "economy": {"elite": 8.16, "exploitable": 9.52},  # 25th: 8.16, 75th: 9.52
+        "dot_pct": {"elite": 31.0, "exploitable": 26.0},  # 75th: 31.4, 25th: 25.6
+        "wickets_per_ball": {
+            "elite": 0.055,
+            "exploitable": 0.037,
+        },  # 75th: 0.055, 25th: 0.037
+        "boundary_pct": {"elite": 14.2, "exploitable": 19.4},  # 25th: 14.2, 75th: 19.4
+    },
+    "death": {
+        "economy": {"elite": 10.14, "exploitable": 11.42},  # 25th: 10.14, 75th: 11.42
+        "dot_pct": {"elite": 32.0, "exploitable": 26.0},  # 75th: 31.9, 25th: 25.9
+        "wickets_per_ball": {
+            "elite": 0.101,
+            "exploitable": 0.074,
+        },  # 75th: 0.101, 25th: 0.074
+        "boundary_pct": {"elite": 21.2, "exploitable": 25.3},  # 25th: 21.2, 75th: 25.3
+    },
+}
+
+# Minimum sample sizes per phase (Lowered in Sprint 4.0 to capture more players)
+# Original: Batter 50/50/30, Bowler 100/100/80
+# Lowered to improve coverage for players like Fraser-McGurk, Buttler, Dhoni
+BATTER_MIN_BALLS = {"powerplay": 30, "middle": 30, "death": 20}
+BOWLER_MIN_BALLS = {"powerplay": 60, "middle": 60, "death": 50}
 
 
 # =============================================================================
@@ -441,109 +524,509 @@ def generate_bowler_handedness_2023(conn) -> tuple:
 
 
 def generate_player_tags_2023(conn, batter_tags_dict: dict, bowler_tags_dict: dict):
-    """Generate player_tags_2023.json with 2023+ data."""
+    """Generate player_tags_2023.json with multi-metric phase tags.
 
-    print("\n3. Generating player_tags_2023.json...")
+    Sprint 4.0 - Multi-metric tagging validated by Andy Flower (Cricket) + Tom Brady (Standards)
+    Each phase uses 4 metrics: SR/Eco, Dot%, Dismissal/Wicket Rate, Boundary%
+    """
 
-    # Get additional batter stats for context
+    print("\n3. Generating player_tags_2023.json (multi-metric phase tags)...")
+
+    # Get batter stats with ALL 4 metrics per phase
     batter_career_df = conn.execute(f"""
+        WITH career AS (
+            SELECT
+                fb.batter_id as player_id,
+                dp.current_name as player_name,
+                COUNT(*) FILTER (WHERE fb.is_legal_ball) as balls_faced,
+                SUM(fb.batter_runs) as runs,
+                SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) as dismissals,
+                ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as overall_sr,
+                ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as overall_dot_pct,
+                ROUND(SUM(CASE WHEN fb.batter_runs IN (4,6) THEN 1 ELSE 0 END) * 100.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as overall_boundary_pct
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            JOIN dim_player dp ON fb.batter_id = dp.player_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '{IPL_MIN_DATE}'
+            GROUP BY fb.batter_id, dp.current_name
+            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= 100
+        ),
+        pp_stats AS (
+            SELECT
+                fb.batter_id as player_id,
+                COUNT(*) FILTER (WHERE fb.is_legal_ball) as pp_balls,
+                SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) as pp_dismissals,
+                ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as pp_sr,
+                ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as pp_dot_pct,
+                ROUND(COUNT(*) FILTER (WHERE fb.is_legal_ball) * 1.0 /
+                      NULLIF(SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END), 0), 2) as pp_balls_per_dismissal,
+                ROUND(SUM(CASE WHEN fb.batter_runs IN (4,6) THEN 1 ELSE 0 END) * 100.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as pp_boundary_pct
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '{IPL_MIN_DATE}'
+              AND fb.match_phase = 'powerplay'
+            GROUP BY fb.batter_id
+            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= {BATTER_MIN_BALLS['powerplay']}
+        ),
+        mid_stats AS (
+            SELECT
+                fb.batter_id as player_id,
+                COUNT(*) FILTER (WHERE fb.is_legal_ball) as mid_balls,
+                SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) as mid_dismissals,
+                ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as mid_sr,
+                ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as mid_dot_pct,
+                ROUND(COUNT(*) FILTER (WHERE fb.is_legal_ball) * 1.0 /
+                      NULLIF(SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END), 0), 2) as mid_balls_per_dismissal,
+                ROUND(SUM(CASE WHEN fb.batter_runs IN (4,6) THEN 1 ELSE 0 END) * 100.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as mid_boundary_pct
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '{IPL_MIN_DATE}'
+              AND fb.match_phase = 'middle'
+            GROUP BY fb.batter_id
+            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= {BATTER_MIN_BALLS['middle']}
+        ),
+        death_stats AS (
+            SELECT
+                fb.batter_id as player_id,
+                COUNT(*) FILTER (WHERE fb.is_legal_ball) as death_balls,
+                SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) as death_dismissals,
+                ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as death_sr,
+                ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as death_dot_pct,
+                ROUND(COUNT(*) FILTER (WHERE fb.is_legal_ball) * 1.0 /
+                      NULLIF(SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END), 0), 2) as death_balls_per_dismissal,
+                ROUND(SUM(CASE WHEN fb.batter_runs IN (4,6) THEN 1 ELSE 0 END) * 100.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as death_boundary_pct
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '{IPL_MIN_DATE}'
+              AND fb.match_phase = 'death'
+            GROUP BY fb.batter_id
+            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= {BATTER_MIN_BALLS['death']}
+        )
         SELECT
-            fb.batter_id as player_id,
-            dp.current_name as player_name,
-            COUNT(*) FILTER (WHERE fb.is_legal_ball) as balls_faced,
-            SUM(fb.batter_runs) as runs,
-            ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as overall_sr,
-            ROUND(SUM(CASE WHEN fb.batter_runs IN (4,6) THEN 1 ELSE 0 END) * 100.0 /
-                  NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as boundary_pct
-        FROM fact_ball fb
-        JOIN dim_match dm ON fb.match_id = dm.match_id
-        JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
-        JOIN dim_player dp ON fb.batter_id = dp.player_id
-        WHERE dt.tournament_name = 'Indian Premier League'
-          AND dm.match_date >= '{IPL_MIN_DATE}'
-        GROUP BY fb.batter_id, dp.current_name
-        HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= 100
-        ORDER BY runs DESC
+            c.*,
+            pp.pp_balls, pp.pp_sr, pp.pp_dot_pct, pp.pp_balls_per_dismissal, pp.pp_boundary_pct,
+            m.mid_balls, m.mid_sr, m.mid_dot_pct, m.mid_balls_per_dismissal, m.mid_boundary_pct,
+            d.death_balls, d.death_sr, d.death_dot_pct, d.death_balls_per_dismissal, d.death_boundary_pct
+        FROM career c
+        LEFT JOIN pp_stats pp ON c.player_id = pp.player_id
+        LEFT JOIN mid_stats m ON c.player_id = m.player_id
+        LEFT JOIN death_stats d ON c.player_id = d.player_id
+        ORDER BY c.runs DESC
     """).df()
 
-    # Get additional bowler stats
+    # Get bowler stats with ALL 4 metrics per phase
     bowler_career_df = conn.execute(f"""
+        WITH career AS (
+            SELECT
+                fb.bowler_id as player_id,
+                dp.current_name as player_name,
+                COUNT(*) FILTER (WHERE fb.is_legal_ball) as balls_bowled,
+                SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) as wickets,
+                ROUND(SUM(fb.batter_runs + fb.extra_runs) * 6.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as economy,
+                ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as dot_pct,
+                ROUND(SUM(CASE WHEN fb.batter_runs IN (4,6) THEN 1 ELSE 0 END) * 100.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as boundary_pct
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            JOIN dim_player dp ON fb.bowler_id = dp.player_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '{IPL_MIN_DATE}'
+            GROUP BY fb.bowler_id, dp.current_name
+            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= 60
+        ),
+        pp_stats AS (
+            SELECT
+                fb.bowler_id as player_id,
+                COUNT(*) FILTER (WHERE fb.is_legal_ball) as pp_balls,
+                SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) as pp_wickets,
+                ROUND(SUM(fb.batter_runs + fb.extra_runs) * 6.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as pp_economy,
+                ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as pp_dot_pct,
+                ROUND(SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) * 1.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 4) as pp_wickets_per_ball,
+                ROUND(SUM(CASE WHEN fb.batter_runs IN (4,6) THEN 1 ELSE 0 END) * 100.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as pp_boundary_pct
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '{IPL_MIN_DATE}'
+              AND fb.match_phase = 'powerplay'
+            GROUP BY fb.bowler_id
+            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= {BOWLER_MIN_BALLS['powerplay']}
+        ),
+        mid_stats AS (
+            SELECT
+                fb.bowler_id as player_id,
+                COUNT(*) FILTER (WHERE fb.is_legal_ball) as mid_balls,
+                SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) as mid_wickets,
+                ROUND(SUM(fb.batter_runs + fb.extra_runs) * 6.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as mid_economy,
+                ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as mid_dot_pct,
+                ROUND(SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) * 1.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 4) as mid_wickets_per_ball,
+                ROUND(SUM(CASE WHEN fb.batter_runs IN (4,6) THEN 1 ELSE 0 END) * 100.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as mid_boundary_pct
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '{IPL_MIN_DATE}'
+              AND fb.match_phase = 'middle'
+            GROUP BY fb.bowler_id
+            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= {BOWLER_MIN_BALLS['middle']}
+        ),
+        death_stats AS (
+            SELECT
+                fb.bowler_id as player_id,
+                COUNT(*) FILTER (WHERE fb.is_legal_ball) as death_balls,
+                SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) as death_wickets,
+                ROUND(SUM(fb.batter_runs + fb.extra_runs) * 6.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as death_economy,
+                ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as death_dot_pct,
+                ROUND(SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) * 1.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 4) as death_wickets_per_ball,
+                ROUND(SUM(CASE WHEN fb.batter_runs IN (4,6) THEN 1 ELSE 0 END) * 100.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as death_boundary_pct
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '{IPL_MIN_DATE}'
+              AND fb.match_phase = 'death'
+            GROUP BY fb.bowler_id
+            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= {BOWLER_MIN_BALLS['death']}
+        )
         SELECT
-            fb.bowler_id as player_id,
-            dp.current_name as player_name,
-            COUNT(*) FILTER (WHERE fb.is_legal_ball) as balls_bowled,
-            SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) as wickets,
-            ROUND(SUM(fb.batter_runs + fb.extra_runs) * 6.0 /
-                  NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as economy,
-            ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 THEN 1 ELSE 0 END) * 100.0 /
-                  NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as dot_pct
-        FROM fact_ball fb
-        JOIN dim_match dm ON fb.match_id = dm.match_id
-        JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
-        JOIN dim_player dp ON fb.bowler_id = dp.player_id
-        WHERE dt.tournament_name = 'Indian Premier League'
-          AND dm.match_date >= '{IPL_MIN_DATE}'
-        GROUP BY fb.bowler_id, dp.current_name
-        HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= 60
-        ORDER BY wickets DESC
+            c.*,
+            pp.pp_balls, pp.pp_economy, pp.pp_dot_pct, pp.pp_wickets_per_ball, pp.pp_boundary_pct,
+            m.mid_balls, m.mid_economy, m.mid_dot_pct, m.mid_wickets_per_ball, m.mid_boundary_pct,
+            d.death_balls, d.death_economy, d.death_dot_pct, d.death_wickets_per_ball, d.death_boundary_pct
+        FROM career c
+        LEFT JOIN pp_stats pp ON c.player_id = pp.player_id
+        LEFT JOIN mid_stats m ON c.player_id = m.player_id
+        LEFT JOIN death_stats d ON c.player_id = d.player_id
+        ORDER BY c.wickets DESC
     """).df()
 
-    # Build batters list
+    # ==========================================================================
+    # BATTER MULTI-METRIC PROFILE TAGGING
+    # ==========================================================================
     batters = []
     for _, row in batter_career_df.iterrows():
         player_id = row["player_id"]
         entry = {
             "player_name": row["player_name"],
             "player_id": player_id,
-            "overall_sr": float(row["overall_sr"]) if row["overall_sr"] else 0,
-            "tags": batter_tags_dict.get(player_id, {}).get("tags", []),
+            "overall_sr": float(row["overall_sr"])
+            if pd.notna(row["overall_sr"])
+            else 0,
+            "tags": batter_tags_dict.get(player_id, {}).get("tags", []).copy(),
         }
 
-        # Add role-based tags
-        sr = row["overall_sr"] or 0
-        boundary_pct = row["boundary_pct"] or 0
+        # --- POWERPLAY PROFILE TAGS (Multi-metric) ---
+        if pd.notna(row.get("pp_sr")) and pd.notna(row.get("pp_balls")):
+            pp = BATTER_PHASE_THRESHOLDS["powerplay"]
+            pp_sr = row["pp_sr"] or 0
+            pp_dots = row.get("pp_dot_pct") or 50
+            pp_bpd = row.get("pp_balls_per_dismissal") or 0
+            pp_boundary = row.get("pp_boundary_pct") or 0
 
-        if sr >= 150:
-            if "PLAYMAKER" not in entry["tags"]:
-                entry["tags"].append("PLAYMAKER")
-        elif sr >= 140:
-            if "AGGRESSIVE" not in entry["tags"]:
-                entry["tags"].append("AGGRESSIVE")
-        elif sr < 120 and row["balls_faced"] >= 300:
-            if "ANCHOR" not in entry["tags"]:
-                entry["tags"].append("ANCHOR")
+            # Count elite/exploitable metrics
+            pp_elite_count = sum(
+                [
+                    pp_sr >= pp["sr"]["elite"],
+                    pp_dots <= pp["dot_pct"]["elite"],
+                    (pp_bpd >= pp["balls_per_dismissal"]["elite"])
+                    if pd.notna(row.get("pp_balls_per_dismissal"))
+                    else False,
+                    pp_boundary >= pp["boundary_pct"]["elite"],
+                ]
+            )
+            pp_exploitable_count = sum(
+                [
+                    pp_sr <= pp["sr"]["exploitable"],
+                    pp_dots >= pp["dot_pct"]["exploitable"],
+                    (pp_bpd <= pp["balls_per_dismissal"]["exploitable"])
+                    if pd.notna(row.get("pp_balls_per_dismissal"))
+                    else False,
+                    pp_boundary <= pp["boundary_pct"]["exploitable"],
+                ]
+            )
 
-        if boundary_pct >= 20:
-            if "SIX_HITTER" not in entry["tags"]:
-                entry["tags"].append("SIX_HITTER")
+            # Profile-based tags (Updated Sprint 4.0 - more inclusive)
+            if pp_elite_count >= 3:
+                entry["tags"].append("PP_DOMINATOR")
+            elif (
+                pp_sr >= pp["sr"]["elite"]
+                and pp_boundary >= pp["boundary_pct"]["elite"]
+            ):
+                # Elite SR + Elite Boundary = aggressive profile
+                if pp_dots >= pp["dot_pct"]["exploitable"]:
+                    entry["tags"].append("PP_BOOM_OR_BUST")
+                else:
+                    entry["tags"].append("PP_AGGRESSOR")
+            elif pp_sr >= pp["sr"]["elite"]:
+                # Elite SR alone = still aggressive
+                entry["tags"].append("PP_AGGRESSOR")
+            elif (
+                pp_bpd
+                and pp_bpd >= pp["balls_per_dismissal"]["elite"]
+                and pp_sr < pp["sr"]["elite"]
+            ):
+                entry["tags"].append("PP_ACCUMULATOR")
+            elif pp_exploitable_count >= 2:
+                entry["tags"].append("PP_LIABILITY")
+
+        # --- MIDDLE OVERS PROFILE TAGS (Multi-metric) ---
+        if pd.notna(row.get("mid_sr")) and pd.notna(row.get("mid_balls")):
+            mid = BATTER_PHASE_THRESHOLDS["middle"]
+            mid_sr = row["mid_sr"] or 0
+            mid_dots = row.get("mid_dot_pct") or 50
+            mid_bpd = row.get("mid_balls_per_dismissal") or 0
+            mid_boundary = row.get("mid_boundary_pct") or 0
+
+            mid_elite_count = sum(
+                [
+                    mid_sr >= mid["sr"]["elite"],
+                    mid_dots <= mid["dot_pct"]["elite"],
+                    (mid_bpd >= mid["balls_per_dismissal"]["elite"])
+                    if pd.notna(row.get("mid_balls_per_dismissal"))
+                    else False,
+                    mid_boundary >= mid["boundary_pct"]["elite"],
+                ]
+            )
+            mid_exploitable_count = sum(
+                [
+                    mid_sr <= mid["sr"]["exploitable"],
+                    mid_dots >= mid["dot_pct"]["exploitable"],
+                    (mid_bpd <= mid["balls_per_dismissal"]["exploitable"])
+                    if pd.notna(row.get("mid_balls_per_dismissal"))
+                    else False,
+                    mid_boundary <= mid["boundary_pct"]["exploitable"],
+                ]
+            )
+
+            # Profile-based tags (Updated Sprint 4.0 - more inclusive)
+            if (
+                mid_bpd
+                and mid_bpd >= mid["balls_per_dismissal"]["elite"]
+                and mid_dots <= mid["dot_pct"]["elite"]
+            ):
+                entry["tags"].append("MIDDLE_ANCHOR")
+            elif (
+                mid_sr >= mid["sr"]["elite"]
+                and mid_boundary >= mid["boundary_pct"]["elite"]
+            ):
+                entry["tags"].append("MIDDLE_ACCELERATOR")
+            elif mid_sr >= mid["sr"]["elite"]:
+                # Elite SR alone = accelerator profile
+                entry["tags"].append("MIDDLE_ACCELERATOR")
+            elif mid_bpd and mid_bpd >= mid["balls_per_dismissal"]["elite"]:
+                # Elite survival alone = anchor profile
+                entry["tags"].append("MIDDLE_ANCHOR")
+            elif mid_exploitable_count >= 2:
+                entry["tags"].append("MIDDLE_LIABILITY")
+
+        # --- DEATH OVERS PROFILE TAGS (Multi-metric) ---
+        if pd.notna(row.get("death_sr")) and pd.notna(row.get("death_balls")):
+            death = BATTER_PHASE_THRESHOLDS["death"]
+            death_sr = row["death_sr"] or 0
+            death_dots = row.get("death_dot_pct") or 50
+            death_bpd = row.get("death_balls_per_dismissal") or 0
+            death_boundary = row.get("death_boundary_pct") or 0
+
+            death_elite_count = sum(
+                [
+                    death_sr >= death["sr"]["elite"],
+                    death_dots <= death["dot_pct"]["elite"],
+                    (death_bpd >= death["balls_per_dismissal"]["elite"])
+                    if pd.notna(row.get("death_balls_per_dismissal"))
+                    else False,
+                    death_boundary >= death["boundary_pct"]["elite"],
+                ]
+            )
+            death_exploitable_count = sum(
+                [
+                    death_sr <= death["sr"]["exploitable"],
+                    death_dots >= death["dot_pct"]["exploitable"],
+                    (death_bpd <= death["balls_per_dismissal"]["exploitable"])
+                    if pd.notna(row.get("death_balls_per_dismissal"))
+                    else False,
+                    death_boundary <= death["boundary_pct"]["exploitable"],
+                ]
+            )
+
+            # Profile-based tags (Updated Sprint 4.0 - more inclusive for finishers)
+            if death_elite_count >= 3:
+                # Elite in 3+ metrics = true finisher
+                entry["tags"].append("DEATH_FINISHER")
+            elif (
+                death_sr >= death["sr"]["elite"]
+                and death_boundary >= death["boundary_pct"]["elite"]
+            ):
+                if death_bpd and death_bpd >= death["balls_per_dismissal"]["elite"]:
+                    entry["tags"].append("DEATH_FINISHER")
+                else:
+                    entry["tags"].append("DEATH_HITTER")
+            elif death_sr >= death["sr"]["elite"]:
+                # Elite SR alone = hitter profile
+                entry["tags"].append("DEATH_HITTER")
+            elif death_elite_count >= 2:
+                # Elite in 2 metrics = capable finisher
+                entry["tags"].append("DEATH_FINISHER")
+            elif death_exploitable_count >= 2:
+                entry["tags"].append("DEATH_LIABILITY")
 
         batters.append(entry)
 
-    # Build bowlers list
+    # ==========================================================================
+    # BOWLER MULTI-METRIC PROFILE TAGGING
+    # ==========================================================================
     bowlers = []
     for _, row in bowler_career_df.iterrows():
         player_id = row["player_id"]
         entry = {
             "player_name": row["player_name"],
             "player_id": player_id,
-            "economy": float(row["economy"]) if row["economy"] else 0,
-            "tags": bowler_tags_dict.get(player_id, {}).get("tags", []),
+            "economy": float(row["economy"]) if pd.notna(row["economy"]) else 0,
+            "tags": bowler_tags_dict.get(player_id, {}).get("tags", []).copy(),
         }
 
-        # Add role-based tags
-        economy = row["economy"] or 10
-        dot_pct = row["dot_pct"] or 0
+        # --- POWERPLAY PROFILE TAGS (Multi-metric) ---
+        if pd.notna(row.get("pp_economy")) and pd.notna(row.get("pp_balls")):
+            pp = BOWLER_PHASE_THRESHOLDS["powerplay"]
+            pp_eco = row["pp_economy"] or 10
+            pp_dots = row.get("pp_dot_pct") or 0
+            pp_wpb = row.get("pp_wickets_per_ball") or 0
+            pp_boundary = row.get("pp_boundary_pct") or 30
 
-        if economy <= 7.0:
-            if "ECONOMICAL" not in entry["tags"]:
-                entry["tags"].append("ECONOMICAL")
-        elif economy >= 9.5:
-            if "EXPENSIVE" not in entry["tags"]:
-                entry["tags"].append("EXPENSIVE")
+            pp_elite_count = sum(
+                [
+                    pp_eco <= pp["economy"]["elite"],
+                    pp_dots >= pp["dot_pct"]["elite"],
+                    pp_wpb >= pp["wickets_per_ball"]["elite"],
+                    pp_boundary <= pp["boundary_pct"]["elite"],
+                ]
+            )
+            pp_exploitable_count = sum(
+                [
+                    pp_eco >= pp["economy"]["exploitable"],
+                    pp_dots <= pp["dot_pct"]["exploitable"],
+                    pp_wpb <= pp["wickets_per_ball"]["exploitable"],
+                    pp_boundary >= pp["boundary_pct"]["exploitable"],
+                ]
+            )
 
-        if dot_pct >= 45:
-            if "DOT_BALL_KING" not in entry["tags"]:
-                entry["tags"].append("DOT_BALL_KING")
+            # Profile-based tags
+            if (
+                pp_wpb >= pp["wickets_per_ball"]["elite"]
+                and pp_dots >= pp["dot_pct"]["elite"]
+            ):
+                entry["tags"].append("PP_STRIKE")
+            elif pp_eco <= pp["economy"]["elite"] and pp_dots >= pp["dot_pct"]["elite"]:
+                entry["tags"].append("PP_CONTAINER")
+            elif pp_exploitable_count >= 2:
+                entry["tags"].append("PP_LIABILITY")
+
+        # --- MIDDLE OVERS PROFILE TAGS (Multi-metric) ---
+        if pd.notna(row.get("mid_economy")) and pd.notna(row.get("mid_balls")):
+            mid = BOWLER_PHASE_THRESHOLDS["middle"]
+            mid_eco = row["mid_economy"] or 10
+            mid_dots = row.get("mid_dot_pct") or 0
+            mid_wpb = row.get("mid_wickets_per_ball") or 0
+            mid_boundary = row.get("mid_boundary_pct") or 30
+
+            mid_elite_count = sum(
+                [
+                    mid_eco <= mid["economy"]["elite"],
+                    mid_dots >= mid["dot_pct"]["elite"],
+                    mid_wpb >= mid["wickets_per_ball"]["elite"],
+                    mid_boundary <= mid["boundary_pct"]["elite"],
+                ]
+            )
+            mid_exploitable_count = sum(
+                [
+                    mid_eco >= mid["economy"]["exploitable"],
+                    mid_dots <= mid["dot_pct"]["exploitable"],
+                    mid_wpb <= mid["wickets_per_ball"]["exploitable"],
+                    mid_boundary >= mid["boundary_pct"]["exploitable"],
+                ]
+            )
+
+            # Profile-based tags
+            if (
+                mid_dots >= mid["dot_pct"]["elite"]
+                and mid_eco <= mid["economy"]["elite"]
+            ):
+                entry["tags"].append("MIDDLE_STRANGLER")
+            elif mid_wpb >= mid["wickets_per_ball"]["elite"]:
+                entry["tags"].append("MIDDLE_WICKET_TAKER")
+            elif mid_elite_count >= 3:
+                # Elite in 3+ metrics = complete middle overs bowler
+                entry["tags"].append("MIDDLE_STRANGLER")
+            elif mid_exploitable_count >= 2:
+                entry["tags"].append("MIDDLE_LIABILITY")
+
+        # --- DEATH OVERS PROFILE TAGS (Multi-metric) ---
+        if pd.notna(row.get("death_economy")) and pd.notna(row.get("death_balls")):
+            death = BOWLER_PHASE_THRESHOLDS["death"]
+            death_eco = row["death_economy"] or 12
+            death_dots = row.get("death_dot_pct") or 0
+            death_wpb = row.get("death_wickets_per_ball") or 0
+            death_boundary = row.get("death_boundary_pct") or 30
+
+            death_elite_count = sum(
+                [
+                    death_eco <= death["economy"]["elite"],
+                    death_dots >= death["dot_pct"]["elite"],
+                    death_wpb >= death["wickets_per_ball"]["elite"],
+                    death_boundary <= death["boundary_pct"]["elite"],
+                ]
+            )
+            death_exploitable_count = sum(
+                [
+                    death_eco >= death["economy"]["exploitable"],
+                    death_dots <= death["dot_pct"]["exploitable"],
+                    death_wpb <= death["wickets_per_ball"]["exploitable"],
+                    death_boundary >= death["boundary_pct"]["exploitable"],
+                ]
+            )
+
+            # Profile-based tags (Andy Flower's framework)
+            if (
+                death_eco <= death["economy"]["elite"]
+                and death_wpb >= death["wickets_per_ball"]["elite"]
+            ):
+                entry["tags"].append("DEATH_COMPLETE")
+            elif death_wpb >= death["wickets_per_ball"]["elite"]:
+                entry["tags"].append("DEATH_STRIKE")
+            elif death_eco <= death["economy"]["elite"]:
+                entry["tags"].append("DEATH_CONTAINER")
+            elif death_exploitable_count >= 2:
+                entry["tags"].append("DEATH_LIABILITY")
 
         bowlers.append(entry)
 
@@ -553,7 +1036,10 @@ def generate_player_tags_2023(conn, batter_tags_dict: dict, bowler_tags_dict: di
         "metadata": {
             "data_filter": f"match_date >= {IPL_MIN_DATE}",
             "generated_by": "generate_all_2023_outputs.py",
-            "sprint": "3.0",
+            "sprint": "4.0",
+            "min_balls_batter": BATTER_MIN_BALLS,
+            "min_balls_bowler": BOWLER_MIN_BALLS,
+            "note": "Empty phase tags = insufficient phase-specific sample size, not neutral performance",
         },
     }
 

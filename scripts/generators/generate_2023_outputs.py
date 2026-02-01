@@ -22,8 +22,8 @@ OUTPUT_DIR = PROJECT_DIR / "outputs" / "matchups"
 # Date filter for 2023+ data
 MIN_DATE = "2023-01-01"
 
-# Thresholds
-MIN_BALLS_VS_TYPE = 30
+# Thresholds (Updated per Andy Flower review - Sprint 4.0)
+MIN_BALLS_VS_TYPE = 50  # Increased from 30 for more stable sample
 MIN_BALLS_VS_HAND = 60
 
 # Bowling type categories

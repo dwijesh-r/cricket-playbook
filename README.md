@@ -11,7 +11,7 @@
 Cricket Playbook is a comprehensive cricket analytics system built on ball-by-ball T20 data. It provides detailed statistical analysis for all 10 IPL 2026 teams, including player performance metrics, phase-wise breakdowns, matchup analysis, and tactical insights.
 
 **Key Features:**
-- 34 DuckDB analytics views for career stats, phase analysis, and matchups
+- 35 DuckDB analytics views for career stats, phase analysis, and matchups
 - K-means clustering with 6 batter + 7 bowler archetypes
 - Multi-tag player classification system (specialist, vulnerable, phase tags)
 - Team stat packs with Andy Flower's tactical insights
@@ -64,7 +64,7 @@ scripts/generators/generate_stat_packs.py → stat_packs/
 ### The Key Numbers to Know
 - **219 matches** - IPL 2023-2025, our analysis window
 - **231 players** - IPL 2026 squad size
-- **34 views** - Analytics views in DuckDB
+- **35 views** - Analytics views in DuckDB
 - **6 batter archetypes** - EXPLOSIVE_OPENER to FINISHER
 - **7 bowler archetypes** - PACER to PART_TIMER
 

@@ -63,7 +63,7 @@ data/
 
 ### Analytics Views
 
-The database contains 34 analytics views created by `scripts/core/analytics_ipl.py`. Key views:
+The database contains 35 analytics views created by `scripts/core/analytics_ipl.py`. Key views:
 
 | View | Description |
 |------|-------------|

@@ -15,7 +15,7 @@ scripts/
 │
 ├── core/                   # Data pipeline and validation
 │   ├── ingest.py           # Load Cricsheet data into DuckDB
-│   ├── analytics_ipl.py    # Create 34 analytics views
+│   ├── analytics_ipl.py    # Create 35 analytics views
 │   └── validate_schema.py  # Run 33 schema validation checks
 │
 ├── generators/             # Output file generators
@@ -52,7 +52,7 @@ The main data pipeline scripts. Run in order.
 | Script | Description | Output |
 |--------|-------------|--------|
 | `ingest.py` | Load Cricsheet JSON into DuckDB | `data/cricket_playbook.duckdb` |
-| `analytics_ipl.py` | Create 34 analytics views | Views in DuckDB |
+| `analytics_ipl.py` | Create 35 analytics views | Views in DuckDB |
 | `validate_schema.py` | 33 schema validation checks | Pass/fail report |
 
 ```bash

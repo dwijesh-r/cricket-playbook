@@ -1,0 +1,415 @@
+{
+  "team": "LSG",
+  "team_name": "Lucknow Super Giants",
+  "overall_rating": 7.2,
+  "strongest_position": "#3 Batter",
+  "weakest_position": "Lead Spinner",
+  "vulnerabilities": [
+    "Opener: overseas dependent",
+    "#3 Batter: overseas dependent",
+    "Middle Order #4-5: overseas dependent",
+    "Finisher #6-7: overseas dependent",
+    "All-rounder (Batting-first): overseas dependent"
+  ],
+  "positions": {
+    "opener": {
+      "name": "Opener",
+      "rating": 7.8,
+      "what_works": "Elite #1 in nicholas pooran. quality backup in mitchell marsh",
+      "what_doesnt": "Overseas heavy (3 of 3). big gap between #1 and #2",
+      "overseas_count": 3,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Nicholas Pooran",
+          "player_id": "3241e3fd",
+          "score": 100.0,
+          "rationale": "Elite SR (183.9). PP Aggressor",
+          "is_overseas": true,
+          "price_cr": 21.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Mitchell Marsh",
+          "player_id": "3d8feaf8",
+          "score": 56.4,
+          "rationale": "Good SR (158.1). PP Dominator",
+          "is_overseas": true,
+          "price_cr": 3.4,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Aiden Markram",
+          "player_id": "6a26221c",
+          "score": 32.0,
+          "rationale": "Elite top-order",
+          "is_overseas": true,
+          "price_cr": 2.0,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "number_3": {
+      "name": "#3 Batter",
+      "rating": 10.0,
+      "what_works": "Elite #1 in nicholas pooran. quality backup in rishabh pant",
+      "what_doesnt": "Overseas heavy (2 of 3)",
+      "overseas_count": 2,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Nicholas Pooran",
+          "player_id": "3241e3fd",
+          "score": 100.0,
+          "rationale": "Strong in PP. Middle overs accelerator",
+          "is_overseas": true,
+          "price_cr": 21.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Rishabh Pant",
+          "player_id": "919a3be2",
+          "score": 90.8,
+          "rationale": "Highly adaptable",
+          "is_overseas": false,
+          "price_cr": 27.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Mitchell Marsh",
+          "player_id": "3d8feaf8",
+          "score": 77.7,
+          "rationale": "Strong in PP. Middle overs accelerator",
+          "is_overseas": true,
+          "price_cr": 3.4,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "middle_order": {
+      "name": "Middle Order #4-5",
+      "rating": 8.2,
+      "what_works": "Elite #1 in nicholas pooran. quality backup in rishabh pant",
+      "what_doesnt": "Overseas heavy (2 of 3)",
+      "overseas_count": 2,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Nicholas Pooran",
+          "player_id": "3241e3fd",
+          "score": 80.5,
+          "rationale": "Middle overs accelerator. Excellent vs spin",
+          "is_overseas": true,
+          "price_cr": 21.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Rishabh Pant",
+          "player_id": "919a3be2",
+          "score": 69.0,
+          "rationale": "Middle order batter",
+          "is_overseas": false,
+          "price_cr": 27.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Mitchell Marsh",
+          "player_id": "3d8feaf8",
+          "score": 57.5,
+          "rationale": "Middle overs accelerator",
+          "is_overseas": true,
+          "price_cr": 3.4,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "finisher": {
+      "name": "Finisher #6-7",
+      "rating": 7.8,
+      "what_works": "Elite #1 in rishabh pant. aiden markram as backup",
+      "what_doesnt": "Overseas heavy (2 of 3). big gap between #1 and #2",
+      "overseas_count": 2,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Rishabh Pant",
+          "player_id": "919a3be2",
+          "score": 98.9,
+          "rationale": "Death overs hitter. Six-hitting ability",
+          "is_overseas": false,
+          "price_cr": 27.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Aiden Markram",
+          "player_id": "6a26221c",
+          "score": 48.0,
+          "rationale": "Death specialist. Bowling utility",
+          "is_overseas": true,
+          "price_cr": 2.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Nicholas Pooran",
+          "player_id": "3241e3fd",
+          "score": 43.7,
+          "rationale": "Finisher",
+          "is_overseas": true,
+          "price_cr": 21.0,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "wicketkeeper": {
+      "name": "Wicketkeeper",
+      "rating": 8.5,
+      "what_works": "Elite #1 in rishabh pant. quality backup in nicholas pooran",
+      "what_doesnt": "Minimal concerns",
+      "overseas_count": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Rishabh Pant",
+          "player_id": "919a3be2",
+          "score": 84.5,
+          "rationale": "Primary keeper. Capable batter (score: 69)",
+          "is_overseas": false,
+          "price_cr": 27.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Nicholas Pooran",
+          "player_id": "3241e3fd",
+          "score": 71.8,
+          "rationale": "Primary keeper. Experienced keeper",
+          "is_overseas": true,
+          "price_cr": 21.0,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "lead_pacer": {
+      "name": "Lead Pacer",
+      "rating": 7.3,
+      "what_works": "Strong #1 with mohammed shami. quality backup in avesh khan",
+      "what_doesnt": "Minimal concerns",
+      "overseas_count": 0,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Mohammed Shami",
+          "player_id": "8cf9814c",
+          "score": 70.4,
+          "rationale": "Proven wicket-taker",
+          "is_overseas": false,
+          "price_cr": 10.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Avesh Khan",
+          "player_id": "eef2536f",
+          "score": 64.0,
+          "rationale": "Lead pacer",
+          "is_overseas": false,
+          "price_cr": 9.75,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "supporting_pacer_pp": {
+      "name": "Supporting Pacer (PP Specialist)",
+      "rating": 7.5,
+      "what_works": "Strong #1 with mohammed shami. quality backup in mitchell marsh",
+      "what_doesnt": "Room for improvement at the top",
+      "overseas_count": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Mohammed Shami",
+          "player_id": "8cf9814c",
+          "score": 66.0,
+          "rationale": "PP specialist",
+          "is_overseas": false,
+          "price_cr": 10.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Mitchell Marsh",
+          "player_id": "3d8feaf8",
+          "score": 65.0,
+          "rationale": "PP wicket-taker (SR 12.0)",
+          "is_overseas": true,
+          "price_cr": 3.4,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Arjun Tendulkar",
+          "player_id": "44aac2f0",
+          "score": 62.0,
+          "rationale": "Elite PP economy (6.3)",
+          "is_overseas": false,
+          "price_cr": 0.3,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "supporting_pacer_death": {
+      "name": "Supporting Pacer (Death Specialist)",
+      "rating": 7.4,
+      "what_works": "Strong #1 with avesh khan. quality backup in akash singh",
+      "what_doesnt": "Minimal concerns",
+      "overseas_count": 0,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Avesh Khan",
+          "player_id": "eef2536f",
+          "score": 72.0,
+          "rationale": "Death specialist",
+          "is_overseas": false,
+          "price_cr": 9.75,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Akash Singh",
+          "player_id": "b483905d",
+          "score": 62.0,
+          "rationale": "Death wicket-taker (SR 6.0)",
+          "is_overseas": false,
+          "price_cr": 0.3,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Mohammed Shami",
+          "player_id": "8cf9814c",
+          "score": 46.0,
+          "rationale": "Death wicket-taker (SR 11.5)",
+          "is_overseas": false,
+          "price_cr": 10.0,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "lead_spinner": {
+      "name": "Lead Spinner",
+      "rating": 4.4,
+      "what_works": "Aiden markram leads. manimaran siddharth as backup",
+      "what_doesnt": "Weak backup option. no standout performer",
+      "overseas_count": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Aiden Markram",
+          "player_id": "6a26221c",
+          "score": 47.0,
+          "rationale": "Lead spinner",
+          "is_overseas": true,
+          "price_cr": 2.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Manimaran Siddharth",
+          "player_id": "cf0ccafa",
+          "score": 39.0,
+          "rationale": "Lead spinner",
+          "is_overseas": false,
+          "price_cr": 0.75,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "allrounder_batting": {
+      "name": "All-rounder (Batting-first)",
+      "rating": 5.9,
+      "what_works": "Strong #1 with aiden markram. quality backup in mitchell marsh",
+      "what_doesnt": "Overseas heavy (3 of 3)",
+      "overseas_count": 3,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Aiden Markram",
+          "player_id": "6a26221c",
+          "score": 61.3,
+          "rationale": "Middle order capable (54). Bowls 4 overs",
+          "is_overseas": true,
+          "price_cr": 2.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Mitchell Marsh",
+          "player_id": "3d8feaf8",
+          "score": 54.1,
+          "rationale": "Middle order capable (58). Bowls 4 overs",
+          "is_overseas": true,
+          "price_cr": 3.4,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Wanindu Hasaranga",
+          "player_id": "a97c8ec2",
+          "score": 33.7,
+          "rationale": "Bowls 4 overs",
+          "is_overseas": true,
+          "price_cr": 7.0,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "allrounder_bowling": {
+      "name": "All-rounder (Bowling-first)",
+      "rating": 4.6,
+      "what_works": "Mitchell marsh leads. aiden markram as backup",
+      "what_doesnt": "No standout performer. overseas heavy (3 of 3)",
+      "overseas_count": 3,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Mitchell Marsh",
+          "player_id": "3d8feaf8",
+          "score": 48.9,
+          "rationale": "Handy bat (58). SR 158",
+          "is_overseas": true,
+          "price_cr": 3.4,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Aiden Markram",
+          "player_id": "6a26221c",
+          "score": 48.9,
+          "rationale": "Handy bat (54)",
+          "is_overseas": true,
+          "price_cr": 2.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Wanindu Hasaranga",
+          "player_id": "a97c8ec2",
+          "score": 35.2,
+          "rationale": "Bowling all-rounder",
+          "is_overseas": true,
+          "price_cr": 7.0,
+          "secondary_positions": []
+        }
+      ]
+    }
+  }
+}

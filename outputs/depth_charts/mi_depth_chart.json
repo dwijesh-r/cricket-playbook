@@ -1,0 +1,412 @@
+{
+  "team": "MI",
+  "team_name": "Mumbai Indians",
+  "overall_rating": 8.6,
+  "strongest_position": "#3 Batter",
+  "weakest_position": "Wicketkeeper",
+  "vulnerabilities": [
+    "Supporting Pacer (Death Specialist): overseas dependent",
+    "Wicketkeeper: thin depth (rating 4.1)"
+  ],
+  "positions": {
+    "opener": {
+      "name": "Opener",
+      "rating": 8.9,
+      "what_works": "Elite #1 in rohit sharma. quality backup in tilak varma",
+      "what_doesnt": "Big gap between #1 and #2",
+      "overseas_count": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Rohit Sharma",
+          "player_id": "740742ef",
+          "score": 97.4,
+          "rationale": "Captain. Franchise opener",
+          "is_overseas": false,
+          "price_cr": 16.3,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Tilak Varma",
+          "player_id": "b0482a1d",
+          "score": 66.2,
+          "rationale": "Good SR (151.0). Elite top-order",
+          "is_overseas": false,
+          "price_cr": 8.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Will Jacks",
+          "player_id": "9caf69a1",
+          "score": 52.8,
+          "rationale": "Good SR (153.3). PP Dominator",
+          "is_overseas": true,
+          "price_cr": 5.25,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "number_3": {
+      "name": "#3 Batter",
+      "rating": 10.0,
+      "what_works": "Elite #1 in suryakumar yadav. quality backup in tilak varma",
+      "what_doesnt": "Minimal concerns",
+      "overseas_count": 0,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Suryakumar Yadav",
+          "player_id": "271f83cd",
+          "score": 100.0,
+          "rationale": "Middle overs accelerator. Spin specialist",
+          "is_overseas": false,
+          "price_cr": 16.35,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Tilak Varma",
+          "player_id": "b0482a1d",
+          "score": 94.5,
+          "rationale": "Elite top-order. Spin specialist",
+          "is_overseas": false,
+          "price_cr": 8.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Rohit Sharma",
+          "player_id": "740742ef",
+          "score": 64.6,
+          "rationale": "Spin specialist",
+          "is_overseas": false,
+          "price_cr": 16.3,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "middle_order": {
+      "name": "Middle Order #4-5",
+      "rating": 10.0,
+      "what_works": "Elite #1 in suryakumar yadav. quality backup in tilak varma",
+      "what_doesnt": "Minimal concerns",
+      "overseas_count": 0,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Suryakumar Yadav",
+          "player_id": "271f83cd",
+          "score": 100.0,
+          "rationale": "Middle overs accelerator. Excellent vs spin",
+          "is_overseas": false,
+          "price_cr": 16.35,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Tilak Varma",
+          "player_id": "b0482a1d",
+          "score": 87.2,
+          "rationale": "Middle overs anchor. Excellent vs spin",
+          "is_overseas": false,
+          "price_cr": 8.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Rohit Sharma",
+          "player_id": "740742ef",
+          "score": 71.6,
+          "rationale": "Excellent vs spin",
+          "is_overseas": false,
+          "price_cr": 16.3,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "finisher": {
+      "name": "Finisher #6-7",
+      "rating": 10.0,
+      "what_works": "Elite #1 in suryakumar yadav. quality backup in rohit sharma",
+      "what_doesnt": "Minimal concerns",
+      "overseas_count": 0,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Suryakumar Yadav",
+          "player_id": "271f83cd",
+          "score": 100.0,
+          "rationale": "Death overs hitter. Six-hitting ability",
+          "is_overseas": false,
+          "price_cr": 16.35,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Rohit Sharma",
+          "player_id": "740742ef",
+          "score": 95.4,
+          "rationale": "Death specialist. Six-hitting ability",
+          "is_overseas": false,
+          "price_cr": 16.3,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Tilak Varma",
+          "player_id": "b0482a1d",
+          "score": 86.1,
+          "rationale": "Death overs hitter. Six-hitting ability",
+          "is_overseas": false,
+          "price_cr": 8.0,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "wicketkeeper": {
+      "name": "Wicketkeeper",
+      "rating": 4.1,
+      "what_works": "Quinton de kock leads. robin minz as backup",
+      "what_doesnt": "Weak backup option",
+      "overseas_count": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Quinton de Kock",
+          "player_id": "372455c4",
+          "score": 50.5,
+          "rationale": "Capable batter (score: 51)",
+          "is_overseas": true,
+          "price_cr": 1.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Robin Minz",
+          "player_id": "bafd0398",
+          "score": 25.0,
+          "rationale": "Wicketkeeper",
+          "is_overseas": false,
+          "price_cr": 0.65,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "lead_pacer": {
+      "name": "Lead Pacer",
+      "rating": 9.9,
+      "what_works": "Elite #1 in jasprit bumrah. quality backup in trent boult",
+      "what_doesnt": "Minimal concerns",
+      "overseas_count": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Jasprit Bumrah",
+          "player_id": "462411b3",
+          "score": 100.0,
+          "rationale": "Proven wicket-taker. Elite death eco (6.8)",
+          "is_overseas": false,
+          "price_cr": 18.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Trent Boult",
+          "player_id": "a818c1be",
+          "score": 84.7,
+          "rationale": "Proven wicket-taker",
+          "is_overseas": true,
+          "price_cr": 12.5,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "supporting_pacer_pp": {
+      "name": "Supporting Pacer (PP Specialist)",
+      "rating": 9.2,
+      "what_works": "Elite #1 in jasprit bumrah. quality backup in trent boult",
+      "what_doesnt": "Minimal concerns",
+      "overseas_count": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Jasprit Bumrah",
+          "player_id": "462411b3",
+          "score": 88.0,
+          "rationale": "Elite PP economy (7.0)",
+          "is_overseas": false,
+          "price_cr": 18.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Trent Boult",
+          "player_id": "a818c1be",
+          "score": 79.0,
+          "rationale": "PP specialist",
+          "is_overseas": true,
+          "price_cr": 12.5,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Deepak Chahar",
+          "player_id": "23eeb873",
+          "score": 70.0,
+          "rationale": "PP specialist",
+          "is_overseas": false,
+          "price_cr": 9.25,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "supporting_pacer_death": {
+      "name": "Supporting Pacer (Death Specialist)",
+      "rating": 9.4,
+      "what_works": "Elite #1 in jasprit bumrah. quality backup in trent boult",
+      "what_doesnt": "Overseas heavy (2 of 3)",
+      "overseas_count": 2,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Jasprit Bumrah",
+          "player_id": "462411b3",
+          "score": 100.0,
+          "rationale": "Elite death economy (6.8). Death wicket-taker (SR 8.3)",
+          "is_overseas": false,
+          "price_cr": 18.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Trent Boult",
+          "player_id": "a818c1be",
+          "score": 71.0,
+          "rationale": "Death wicket-taker (SR 11.2)",
+          "is_overseas": true,
+          "price_cr": 12.5,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Corbin Bosch",
+          "player_id": "172dff15",
+          "score": 65.0,
+          "rationale": "Elite death economy (4.5). Death wicket-taker (SR 12.0)",
+          "is_overseas": true,
+          "price_cr": 0.3,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "lead_spinner": {
+      "name": "Lead Spinner",
+      "rating": 6.9,
+      "what_works": "Strong #1 with mitchell santner. quality backup in mayank markande",
+      "what_doesnt": "Room for improvement at the top",
+      "overseas_count": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Mitchell Santner",
+          "player_id": "e4a0deae",
+          "score": 67.0,
+          "rationale": "Lead spinner",
+          "is_overseas": true,
+          "price_cr": 2.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Mayank Markande",
+          "player_id": "a9fd84fb",
+          "score": 58.0,
+          "rationale": "Lead spinner",
+          "is_overseas": false,
+          "price_cr": 0.3,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "allrounder_batting": {
+      "name": "All-rounder (Batting-first)",
+      "rating": 8.6,
+      "what_works": "Elite #1 in tilak varma. quality backup in naman dhir",
+      "what_doesnt": "Minimal concerns",
+      "overseas_count": 0,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Tilak Varma",
+          "player_id": "b0482a1d",
+          "score": 83.1,
+          "rationale": "Strong finisher (86). Middle order capable (87)",
+          "is_overseas": false,
+          "price_cr": 8.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Naman Dhir",
+          "player_id": "fffa744b",
+          "score": 70.8,
+          "rationale": "Strong finisher (65). Useful death bowling",
+          "is_overseas": false,
+          "price_cr": 5.25,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Hardik Pandya",
+          "player_id": "dbe50b21",
+          "score": 63.9,
+          "rationale": "Bowls 4 overs",
+          "is_overseas": false,
+          "price_cr": 16.35,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "allrounder_bowling": {
+      "name": "All-rounder (Bowling-first)",
+      "rating": 7.5,
+      "what_works": "Strong #1 with will jacks. quality backup in tilak varma",
+      "what_doesnt": "Room for improvement at the top",
+      "overseas_count": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Will Jacks",
+          "player_id": "9caf69a1",
+          "score": 68.5,
+          "rationale": "Handy bat (79). SR 153",
+          "is_overseas": true,
+          "price_cr": 5.25,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Tilak Varma",
+          "player_id": "b0482a1d",
+          "score": 67.9,
+          "rationale": "Handy bat (87). SR 151",
+          "is_overseas": false,
+          "price_cr": 8.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Hardik Pandya",
+          "player_id": "dbe50b21",
+          "score": 52.0,
+          "rationale": "Handy bat (49)",
+          "is_overseas": false,
+          "price_cr": 16.35,
+          "secondary_positions": []
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,4238 @@
+{
+  "generated_at": "2026-02-02",
+  "version": "1.0",
+  "methodology": "Position-specific weighted scoring per PRD",
+  "teams": {
+    "CSK": {
+      "team": "CSK",
+      "team_name": "Chennai Super Kings",
+      "overall_rating": 6.9,
+      "strongest_position": "#3 Batter",
+      "weakest_position": "All-rounder (Bowling-first)",
+      "vulnerabilities": [
+        "All-rounder (Bowling-first): overseas dependent",
+        "Lead Pacer: thin depth (rating 4.6)",
+        "All-rounder (Bowling-first): thin depth (rating 4.1)"
+      ],
+      "positions": {
+        "opener": {
+          "name": "Opener",
+          "rating": 7.0,
+          "what_works": "Elite #1 in ruturaj gaikwad. quality backup in ayush mhatre",
+          "what_doesnt": "Big gap between #1 and #2",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Ruturaj Gaikwad",
+              "player_id": "45a43fe2",
+              "score": 100.0,
+              "rationale": "Captain. Franchise opener",
+              "is_overseas": false,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Ayush Mhatre",
+              "player_id": "b2b4f545",
+              "score": 50.3,
+              "rationale": "Elite SR (189.0). PP Dominator",
+              "is_overseas": false,
+              "price_cr": 0.3,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Matthew Short",
+              "player_id": "a90e53ec",
+              "score": 1.0,
+              "rationale": "Opens for the team",
+              "is_overseas": true,
+              "price_cr": 1.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "number_3": {
+          "name": "#3 Batter",
+          "rating": 10.0,
+          "what_works": "Elite #1 in ruturaj gaikwad. quality backup in sanju samson",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Ruturaj Gaikwad",
+              "player_id": "45a43fe2",
+              "score": 100.0,
+              "rationale": "Elite top-order. Spin specialist",
+              "is_overseas": false,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Sanju Samson",
+              "player_id": "a4cc73aa",
+              "score": 100.0,
+              "rationale": "Spin specialist. Highly adaptable",
+              "is_overseas": false,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Shivam Dube",
+              "player_id": "a4e37e47",
+              "score": 77.0,
+              "rationale": "Spin specialist",
+              "is_overseas": false,
+              "price_cr": 12.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "middle_order": {
+          "name": "Middle Order #4-5",
+          "rating": 9.0,
+          "what_works": "Elite #1 in ruturaj gaikwad. quality backup in sanju samson",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Ruturaj Gaikwad",
+              "player_id": "45a43fe2",
+              "score": 86.8,
+              "rationale": "Middle overs anchor. Excellent vs spin",
+              "is_overseas": false,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Sanju Samson",
+              "player_id": "a4cc73aa",
+              "score": 78.8,
+              "rationale": "Excellent vs spin",
+              "is_overseas": false,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Shivam Dube",
+              "player_id": "a4e37e47",
+              "score": 64.9,
+              "rationale": "Middle overs anchor. Excellent vs spin",
+              "is_overseas": false,
+              "price_cr": 12.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "finisher": {
+          "name": "Finisher #6-7",
+          "rating": 8.0,
+          "what_works": "Elite #1 in sanju samson. quality backup in dewald brevis",
+          "what_doesnt": "Big gap between #1 and #2",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Sanju Samson",
+              "player_id": "a4cc73aa",
+              "score": 100.0,
+              "rationale": "Death overs finisher. Six-hitting ability",
+              "is_overseas": false,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Dewald Brevis",
+              "player_id": "844e79d1",
+              "score": 59.0,
+              "rationale": "Death overs finisher. Bowling utility",
+              "is_overseas": true,
+              "price_cr": 2.2,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "MS Dhoni",
+              "player_id": "4a8a2e3b",
+              "score": 38.0,
+              "rationale": "Finisher",
+              "is_overseas": false,
+              "price_cr": 4.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "wicketkeeper": {
+          "name": "Wicketkeeper",
+          "rating": 7.4,
+          "what_works": "Elite #1 in sanju samson. kartik sharma as backup",
+          "what_doesnt": "Big gap between #1 and #2",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Sanju Samson",
+              "player_id": "a4cc73aa",
+              "score": 89.4,
+              "rationale": "Primary keeper. Strong batter (score: 79)",
+              "is_overseas": false,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Kartik Sharma",
+              "player_id": "119678fd",
+              "score": 49.4,
+              "rationale": "Experienced keeper",
+              "is_overseas": false,
+              "price_cr": 14.2,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "lead_pacer": {
+          "name": "Lead Pacer",
+          "rating": 4.6,
+          "what_works": "Anshul kamboj leads. khaleel ahmed as backup",
+          "what_doesnt": "No standout performer",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Anshul Kamboj",
+              "player_id": "fcc21ace",
+              "score": 47.0,
+              "rationale": "Elite death eco (6.0)",
+              "is_overseas": false,
+              "price_cr": 3.4,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Khaleel Ahmed",
+              "player_id": "a2f46292",
+              "score": 45.0,
+              "rationale": "Lead pacer",
+              "is_overseas": false,
+              "price_cr": 4.8,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "supporting_pacer_pp": {
+          "name": "Supporting Pacer (PP Specialist)",
+          "rating": 6.7,
+          "what_works": "Strong #1 with nathan ellis. quality backup in anshul kamboj",
+          "what_doesnt": "Room for improvement at the top",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Nathan Ellis",
+              "player_id": "9eb1455b",
+              "score": 64.0,
+              "rationale": "PP specialist",
+              "is_overseas": true,
+              "price_cr": 2.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Anshul Kamboj",
+              "player_id": "fcc21ace",
+              "score": 51.0,
+              "rationale": "PP specialist",
+              "is_overseas": false,
+              "price_cr": 3.4,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Khaleel Ahmed",
+              "player_id": "a2f46292",
+              "score": 49.0,
+              "rationale": "PP specialist",
+              "is_overseas": false,
+              "price_cr": 4.8,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "supporting_pacer_death": {
+          "name": "Supporting Pacer (Death Specialist)",
+          "rating": 7.0,
+          "what_works": "Strong #1 with anshul kamboj. quality backup in khaleel ahmed",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Anshul Kamboj",
+              "player_id": "fcc21ace",
+              "score": 70.0,
+              "rationale": "Elite death economy (6.0). Death wicket-taker (SR 3.0)",
+              "is_overseas": false,
+              "price_cr": 3.4,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Khaleel Ahmed",
+              "player_id": "a2f46292",
+              "score": 50.0,
+              "rationale": "Death wicket-taker (SR 9.2)",
+              "is_overseas": false,
+              "price_cr": 4.8,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Nathan Ellis",
+              "player_id": "9eb1455b",
+              "score": 48.0,
+              "rationale": "Death specialist",
+              "is_overseas": true,
+              "price_cr": 2.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "lead_spinner": {
+          "name": "Lead Spinner",
+          "rating": 6.4,
+          "what_works": "Strong #1 with noor ahmad. rahul chahar as backup",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Noor Ahmad",
+              "player_id": "efc04be7",
+              "score": 72.6,
+              "rationale": "Lead spinner",
+              "is_overseas": true,
+              "price_cr": 10.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Rahul Chahar",
+              "player_id": "2ed569a0",
+              "score": 49.0,
+              "rationale": "Lead spinner",
+              "is_overseas": false,
+              "price_cr": 1.8,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "allrounder_batting": {
+          "name": "All-rounder (Batting-first)",
+          "rating": 5.6,
+          "what_works": "Dewald brevis leads. shivam dube as backup",
+          "what_doesnt": "Room for improvement at the top",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Dewald Brevis",
+              "player_id": "844e79d1",
+              "score": 57.9,
+              "rationale": "Bowls 4 overs",
+              "is_overseas": true,
+              "price_cr": 2.2,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Shivam Dube",
+              "player_id": "a4e37e47",
+              "score": 45.0,
+              "rationale": "Middle order capable (65)",
+              "is_overseas": false,
+              "price_cr": 12.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Aman Khan",
+              "player_id": "378daa89",
+              "score": 41.3,
+              "rationale": "Bowls 4 overs",
+              "is_overseas": false,
+              "price_cr": 0.3,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "allrounder_bowling": {
+          "name": "All-rounder (Bowling-first)",
+          "rating": 4.1,
+          "what_works": "Shivam dube leads. matthew short as backup",
+          "what_doesnt": "Weak backup option. no standout performer",
+          "overseas_count": 2,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Shivam Dube",
+              "player_id": "a4e37e47",
+              "score": 47.8,
+              "rationale": "Handy bat (65). SR 151",
+              "is_overseas": false,
+              "price_cr": 12.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Matthew Short",
+              "player_id": "a90e53ec",
+              "score": 33.5,
+              "rationale": "Bowling all-rounder",
+              "is_overseas": true,
+              "price_cr": 1.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Dewald Brevis",
+              "player_id": "844e79d1",
+              "score": 33.4,
+              "rationale": "SR 160",
+              "is_overseas": true,
+              "price_cr": 2.2,
+              "secondary_positions": []
+            }
+          ]
+        }
+      }
+    },
+    "MI": {
+      "team": "MI",
+      "team_name": "Mumbai Indians",
+      "overall_rating": 8.6,
+      "strongest_position": "#3 Batter",
+      "weakest_position": "Wicketkeeper",
+      "vulnerabilities": [
+        "Supporting Pacer (Death Specialist): overseas dependent",
+        "Wicketkeeper: thin depth (rating 4.1)"
+      ],
+      "positions": {
+        "opener": {
+          "name": "Opener",
+          "rating": 8.9,
+          "what_works": "Elite #1 in rohit sharma. quality backup in tilak varma",
+          "what_doesnt": "Big gap between #1 and #2",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Rohit Sharma",
+              "player_id": "740742ef",
+              "score": 97.4,
+              "rationale": "Captain. Franchise opener",
+              "is_overseas": false,
+              "price_cr": 16.3,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Tilak Varma",
+              "player_id": "b0482a1d",
+              "score": 66.2,
+              "rationale": "Good SR (151.0). Elite top-order",
+              "is_overseas": false,
+              "price_cr": 8.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Will Jacks",
+              "player_id": "9caf69a1",
+              "score": 52.8,
+              "rationale": "Good SR (153.3). PP Dominator",
+              "is_overseas": true,
+              "price_cr": 5.25,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "number_3": {
+          "name": "#3 Batter",
+          "rating": 10.0,
+          "what_works": "Elite #1 in suryakumar yadav. quality backup in tilak varma",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Suryakumar Yadav",
+              "player_id": "271f83cd",
+              "score": 100.0,
+              "rationale": "Middle overs accelerator. Spin specialist",
+              "is_overseas": false,
+              "price_cr": 16.35,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Tilak Varma",
+              "player_id": "b0482a1d",
+              "score": 94.5,
+              "rationale": "Elite top-order. Spin specialist",
+              "is_overseas": false,
+              "price_cr": 8.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Rohit Sharma",
+              "player_id": "740742ef",
+              "score": 64.6,
+              "rationale": "Spin specialist",
+              "is_overseas": false,
+              "price_cr": 16.3,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "middle_order": {
+          "name": "Middle Order #4-5",
+          "rating": 10.0,
+          "what_works": "Elite #1 in suryakumar yadav. quality backup in tilak varma",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Suryakumar Yadav",
+              "player_id": "271f83cd",
+              "score": 100.0,
+              "rationale": "Middle overs accelerator. Excellent vs spin",
+              "is_overseas": false,
+              "price_cr": 16.35,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Tilak Varma",
+              "player_id": "b0482a1d",
+              "score": 87.2,
+              "rationale": "Middle overs anchor. Excellent vs spin",
+              "is_overseas": false,
+              "price_cr": 8.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Rohit Sharma",
+              "player_id": "740742ef",
+              "score": 71.6,
+              "rationale": "Excellent vs spin",
+              "is_overseas": false,
+              "price_cr": 16.3,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "finisher": {
+          "name": "Finisher #6-7",
+          "rating": 10.0,
+          "what_works": "Elite #1 in suryakumar yadav. quality backup in rohit sharma",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Suryakumar Yadav",
+              "player_id": "271f83cd",
+              "score": 100.0,
+              "rationale": "Death overs hitter. Six-hitting ability",
+              "is_overseas": false,
+              "price_cr": 16.35,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Rohit Sharma",
+              "player_id": "740742ef",
+              "score": 95.4,
+              "rationale": "Death specialist. Six-hitting ability",
+              "is_overseas": false,
+              "price_cr": 16.3,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Tilak Varma",
+              "player_id": "b0482a1d",
+              "score": 86.1,
+              "rationale": "Death overs hitter. Six-hitting ability",
+              "is_overseas": false,
+              "price_cr": 8.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "wicketkeeper": {
+          "name": "Wicketkeeper",
+          "rating": 4.1,
+          "what_works": "Quinton de kock leads. robin minz as backup",
+          "what_doesnt": "Weak backup option",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Quinton de Kock",
+              "player_id": "372455c4",
+              "score": 50.5,
+              "rationale": "Capable batter (score: 51)",
+              "is_overseas": true,
+              "price_cr": 1.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Robin Minz",
+              "player_id": "bafd0398",
+              "score": 25.0,
+              "rationale": "Wicketkeeper",
+              "is_overseas": false,
+              "price_cr": 0.65,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "lead_pacer": {
+          "name": "Lead Pacer",
+          "rating": 9.9,
+          "what_works": "Elite #1 in jasprit bumrah. quality backup in trent boult",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Jasprit Bumrah",
+              "player_id": "462411b3",
+              "score": 100.0,
+              "rationale": "Proven wicket-taker. Elite death eco (6.8)",
+              "is_overseas": false,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Trent Boult",
+              "player_id": "a818c1be",
+              "score": 84.7,
+              "rationale": "Proven wicket-taker",
+              "is_overseas": true,
+              "price_cr": 12.5,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "supporting_pacer_pp": {
+          "name": "Supporting Pacer (PP Specialist)",
+          "rating": 9.2,
+          "what_works": "Elite #1 in jasprit bumrah. quality backup in trent boult",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Jasprit Bumrah",
+              "player_id": "462411b3",
+              "score": 88.0,
+              "rationale": "Elite PP economy (7.0)",
+              "is_overseas": false,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Trent Boult",
+              "player_id": "a818c1be",
+              "score": 79.0,
+              "rationale": "PP specialist",
+              "is_overseas": true,
+              "price_cr": 12.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Deepak Chahar",
+              "player_id": "23eeb873",
+              "score": 70.0,
+              "rationale": "PP specialist",
+              "is_overseas": false,
+              "price_cr": 9.25,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "supporting_pacer_death": {
+          "name": "Supporting Pacer (Death Specialist)",
+          "rating": 9.4,
+          "what_works": "Elite #1 in jasprit bumrah. quality backup in trent boult",
+          "what_doesnt": "Overseas heavy (2 of 3)",
+          "overseas_count": 2,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Jasprit Bumrah",
+              "player_id": "462411b3",
+              "score": 100.0,
+              "rationale": "Elite death economy (6.8). Death wicket-taker (SR 8.3)",
+              "is_overseas": false,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Trent Boult",
+              "player_id": "a818c1be",
+              "score": 71.0,
+              "rationale": "Death wicket-taker (SR 11.2)",
+              "is_overseas": true,
+              "price_cr": 12.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Corbin Bosch",
+              "player_id": "172dff15",
+              "score": 65.0,
+              "rationale": "Elite death economy (4.5). Death wicket-taker (SR 12.0)",
+              "is_overseas": true,
+              "price_cr": 0.3,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "lead_spinner": {
+          "name": "Lead Spinner",
+          "rating": 6.9,
+          "what_works": "Strong #1 with mitchell santner. quality backup in mayank markande",
+          "what_doesnt": "Room for improvement at the top",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Mitchell Santner",
+              "player_id": "e4a0deae",
+              "score": 67.0,
+              "rationale": "Lead spinner",
+              "is_overseas": true,
+              "price_cr": 2.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Mayank Markande",
+              "player_id": "a9fd84fb",
+              "score": 58.0,
+              "rationale": "Lead spinner",
+              "is_overseas": false,
+              "price_cr": 0.3,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "allrounder_batting": {
+          "name": "All-rounder (Batting-first)",
+          "rating": 8.6,
+          "what_works": "Elite #1 in tilak varma. quality backup in naman dhir",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Tilak Varma",
+              "player_id": "b0482a1d",
+              "score": 83.1,
+              "rationale": "Strong finisher (86). Middle order capable (87)",
+              "is_overseas": false,
+              "price_cr": 8.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Naman Dhir",
+              "player_id": "fffa744b",
+              "score": 70.8,
+              "rationale": "Strong finisher (65). Useful death bowling",
+              "is_overseas": false,
+              "price_cr": 5.25,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Hardik Pandya",
+              "player_id": "dbe50b21",
+              "score": 63.9,
+              "rationale": "Bowls 4 overs",
+              "is_overseas": false,
+              "price_cr": 16.35,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "allrounder_bowling": {
+          "name": "All-rounder (Bowling-first)",
+          "rating": 7.5,
+          "what_works": "Strong #1 with will jacks. quality backup in tilak varma",
+          "what_doesnt": "Room for improvement at the top",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Will Jacks",
+              "player_id": "9caf69a1",
+              "score": 68.5,
+              "rationale": "Handy bat (79). SR 153",
+              "is_overseas": true,
+              "price_cr": 5.25,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Tilak Varma",
+              "player_id": "b0482a1d",
+              "score": 67.9,
+              "rationale": "Handy bat (87). SR 151",
+              "is_overseas": false,
+              "price_cr": 8.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Hardik Pandya",
+              "player_id": "dbe50b21",
+              "score": 52.0,
+              "rationale": "Handy bat (49)",
+              "is_overseas": false,
+              "price_cr": 16.35,
+              "secondary_positions": []
+            }
+          ]
+        }
+      }
+    },
+    "RCB": {
+      "team": "RCB",
+      "team_name": "Royal Challengers Bengaluru",
+      "overall_rating": 8.1,
+      "strongest_position": "Opener",
+      "weakest_position": "All-rounder (Bowling-first)",
+      "vulnerabilities": [
+        "Finisher #6-7: overseas dependent",
+        "All-rounder (Batting-first): thin depth (rating 4.7)",
+        "All-rounder (Bowling-first): thin depth (rating 4.6)"
+      ],
+      "positions": {
+        "opener": {
+          "name": "Opener",
+          "rating": 10.0,
+          "what_works": "Elite #1 in virat kohli. quality backup in phil salt",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Virat Kohli",
+              "player_id": "ba607b88",
+              "score": 100.0,
+              "rationale": "Franchise opener. Elite top-order",
+              "is_overseas": false,
+              "price_cr": 21.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Phil Salt",
+              "player_id": "3d284ca3",
+              "score": 98.2,
+              "rationale": "Franchise opener. Elite SR (177.5)",
+              "is_overseas": true,
+              "price_cr": 11.5,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "number_3": {
+          "name": "#3 Batter",
+          "rating": 10.0,
+          "what_works": "Elite #1 in phil salt. quality backup in virat kohli",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Phil Salt",
+              "player_id": "3d284ca3",
+              "score": 100.0,
+              "rationale": "Strong in PP. Middle overs accelerator",
+              "is_overseas": true,
+              "price_cr": 11.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Virat Kohli",
+              "player_id": "ba607b88",
+              "score": 98.9,
+              "rationale": "Elite top-order. Highly adaptable",
+              "is_overseas": false,
+              "price_cr": 21.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Rajat Patidar",
+              "player_id": "c740ea83",
+              "score": 83.1,
+              "rationale": "Middle overs accelerator. Spin specialist",
+              "is_overseas": false,
+              "price_cr": 11.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "middle_order": {
+          "name": "Middle Order #4-5",
+          "rating": 10.0,
+          "what_works": "Elite #1 in rajat patidar. quality backup in virat kohli",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Rajat Patidar",
+              "player_id": "c740ea83",
+              "score": 100.0,
+              "rationale": "Middle overs accelerator. Excellent vs spin",
+              "is_overseas": false,
+              "price_cr": 11.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Virat Kohli",
+              "player_id": "ba607b88",
+              "score": 94.3,
+              "rationale": "Middle overs anchor",
+              "is_overseas": false,
+              "price_cr": 21.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Venkatesh Iyer",
+              "player_id": "a24be938",
+              "score": 58.0,
+              "rationale": "Middle overs anchor",
+              "is_overseas": false,
+              "price_cr": 7.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "finisher": {
+          "name": "Finisher #6-7",
+          "rating": 9.8,
+          "what_works": "Elite #1 in rajat patidar. quality backup in phil salt",
+          "what_doesnt": "Overseas heavy (2 of 3)",
+          "overseas_count": 2,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Rajat Patidar",
+              "player_id": "c740ea83",
+              "score": 99.0,
+              "rationale": "Death specialist. Six-hitting ability",
+              "is_overseas": false,
+              "price_cr": 11.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Phil Salt",
+              "player_id": "3d284ca3",
+              "score": 78.1,
+              "rationale": "Death specialist. Six-hitting ability",
+              "is_overseas": true,
+              "price_cr": 11.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Tim David",
+              "player_id": "f1f99156",
+              "score": 75.0,
+              "rationale": "Death specialist. Six-hitting ability",
+              "is_overseas": true,
+              "price_cr": 3.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "wicketkeeper": {
+          "name": "Wicketkeeper",
+          "rating": 9.5,
+          "what_works": "Elite #1 in phil salt. quality backup in jitesh sharma",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Phil Salt",
+              "player_id": "3d284ca3",
+              "score": 94.1,
+              "rationale": "Strong batter (score: 98). Experienced keeper",
+              "is_overseas": true,
+              "price_cr": 11.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Jitesh Sharma",
+              "player_id": "800d2d97",
+              "score": 82.4,
+              "rationale": "Strong batter (score: 75). Experienced keeper",
+              "is_overseas": false,
+              "price_cr": 11.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "lead_pacer": {
+          "name": "Lead Pacer",
+          "rating": 8.2,
+          "what_works": "Strong #1 with josh hazlewood. quality backup in bhuvneshwar kumar",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Josh Hazlewood",
+              "player_id": "03806cf8",
+              "score": 77.0,
+              "rationale": "Lead pacer",
+              "is_overseas": true,
+              "price_cr": 12.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Bhuvneshwar Kumar",
+              "player_id": "2e81a32d",
+              "score": 75.9,
+              "rationale": "Proven wicket-taker",
+              "is_overseas": false,
+              "price_cr": 10.75,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "supporting_pacer_pp": {
+          "name": "Supporting Pacer (PP Specialist)",
+          "rating": 8.6,
+          "what_works": "Elite #1 in josh hazlewood. quality backup in bhuvneshwar kumar",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Josh Hazlewood",
+              "player_id": "03806cf8",
+              "score": 90.0,
+              "rationale": "PP wicket-taker (SR 14.0)",
+              "is_overseas": true,
+              "price_cr": 12.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Bhuvneshwar Kumar",
+              "player_id": "2e81a32d",
+              "score": 65.0,
+              "rationale": "PP specialist",
+              "is_overseas": false,
+              "price_cr": 10.75,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Mangesh Yadav",
+              "player_id": "b1ad996b",
+              "score": 59.0,
+              "rationale": "PP wicket-taker (SR 12.0)",
+              "is_overseas": false,
+              "price_cr": 0.3,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "supporting_pacer_death": {
+          "name": "Supporting Pacer (Death Specialist)",
+          "rating": 7.5,
+          "what_works": "Strong #1 with mangesh yadav. quality backup in bhuvneshwar kumar",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Mangesh Yadav",
+              "player_id": "b1ad996b",
+              "score": 70.0,
+              "rationale": "Elite death economy (7.6). Death wicket-taker (SR 6.4)",
+              "is_overseas": false,
+              "price_cr": 0.3,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Bhuvneshwar Kumar",
+              "player_id": "2e81a32d",
+              "score": 61.0,
+              "rationale": "Death specialist",
+              "is_overseas": false,
+              "price_cr": 10.75,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Josh Hazlewood",
+              "player_id": "03806cf8",
+              "score": 59.0,
+              "rationale": "Death wicket-taker (SR 11.1)",
+              "is_overseas": true,
+              "price_cr": 12.5,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "lead_spinner": {
+          "name": "Lead Spinner",
+          "rating": 6.0,
+          "what_works": "Strong #1 with krunal pandya. suyash sharma as backup",
+          "what_doesnt": "Room for improvement at the top",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Krunal Pandya",
+              "player_id": "5b8c830e",
+              "score": 68.2,
+              "rationale": "Lead spinner",
+              "is_overseas": false,
+              "price_cr": 5.75,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Suyash Sharma",
+              "player_id": "9440ef41",
+              "score": 47.0,
+              "rationale": "Lead spinner",
+              "is_overseas": false,
+              "price_cr": 2.6,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "allrounder_batting": {
+          "name": "All-rounder (Batting-first)",
+          "rating": 4.7,
+          "what_works": "Krunal pandya leads. venkatesh iyer as backup",
+          "what_doesnt": "Room for improvement at the top",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Krunal Pandya",
+              "player_id": "5b8c830e",
+              "score": 51.2,
+              "rationale": "Bowls 4 overs",
+              "is_overseas": false,
+              "price_cr": 5.75,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Venkatesh Iyer",
+              "player_id": "a24be938",
+              "score": 47.5,
+              "rationale": "Middle order capable (58)",
+              "is_overseas": false,
+              "price_cr": 7.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Swapnil Singh",
+              "player_id": "983f2f61",
+              "score": 35.8,
+              "rationale": "Bowls 4 overs",
+              "is_overseas": false,
+              "price_cr": 0.5,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "allrounder_bowling": {
+          "name": "All-rounder (Bowling-first)",
+          "rating": 4.6,
+          "what_works": "Krunal pandya leads. swapnil singh as backup",
+          "what_doesnt": "Weak backup option",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Krunal Pandya",
+              "player_id": "5b8c830e",
+              "score": 52.7,
+              "rationale": "Primary bowler (68)",
+              "is_overseas": false,
+              "price_cr": 5.75,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Swapnil Singh",
+              "player_id": "983f2f61",
+              "score": 39.2,
+              "rationale": "Bowling all-rounder",
+              "is_overseas": false,
+              "price_cr": 0.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Venkatesh Iyer",
+              "player_id": "a24be938",
+              "score": 37.7,
+              "rationale": "Handy bat (58)",
+              "is_overseas": false,
+              "price_cr": 7.0,
+              "secondary_positions": []
+            }
+          ]
+        }
+      }
+    },
+    "KKR": {
+      "team": "KKR",
+      "team_name": "Kolkata Knight Riders",
+      "overall_rating": 6.9,
+      "strongest_position": "#3 Batter",
+      "weakest_position": "Wicketkeeper",
+      "vulnerabilities": [
+        "Opener: overseas dependent",
+        "#3 Batter: overseas dependent",
+        "Wicketkeeper: overseas dependent",
+        "All-rounder (Batting-first): overseas dependent",
+        "All-rounder (Bowling-first): overseas dependent"
+      ],
+      "positions": {
+        "opener": {
+          "name": "Opener",
+          "rating": 9.7,
+          "what_works": "Elite #1 in sunil narine. quality backup in cameron green",
+          "what_doesnt": "Overseas heavy (2 of 3)",
+          "overseas_count": 2,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Sunil Narine",
+              "player_id": "9d430b40",
+              "score": 100.0,
+              "rationale": "Franchise opener. Elite SR (172.0)",
+              "is_overseas": true,
+              "price_cr": 12.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Cameron Green",
+              "player_id": "eaa76d3c",
+              "score": 86.2,
+              "rationale": "Good SR (154.7). PP Dominator",
+              "is_overseas": true,
+              "price_cr": 25.2,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Ajinkya Rahane",
+              "player_id": "29e95537",
+              "score": 56.5,
+              "rationale": "PP Dominator. Elite top-order",
+              "is_overseas": false,
+              "price_cr": 1.5,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "number_3": {
+          "name": "#3 Batter",
+          "rating": 10.0,
+          "what_works": "Elite #1 in sunil narine. quality backup in cameron green",
+          "what_doesnt": "Overseas heavy (2 of 3)",
+          "overseas_count": 2,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Sunil Narine",
+              "player_id": "9d430b40",
+              "score": 100.0,
+              "rationale": "Strong in PP. Middle overs accelerator",
+              "is_overseas": true,
+              "price_cr": 12.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Cameron Green",
+              "player_id": "eaa76d3c",
+              "score": 100.0,
+              "rationale": "Strong in PP",
+              "is_overseas": true,
+              "price_cr": 25.2,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Rinku Singh",
+              "player_id": "0a509d6b",
+              "score": 77.6,
+              "rationale": "Highly adaptable",
+              "is_overseas": false,
+              "price_cr": 13.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "middle_order": {
+          "name": "Middle Order #4-5",
+          "rating": 5.6,
+          "what_works": "Rinku singh leads. quality backup in manish pandey",
+          "what_doesnt": "Room for improvement at the top",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Rinku Singh",
+              "player_id": "0a509d6b",
+              "score": 54.7,
+              "rationale": "Middle overs anchor",
+              "is_overseas": false,
+              "price_cr": 13.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Manish Pandey",
+              "player_id": "93b4fc78",
+              "score": 52.6,
+              "rationale": "Middle overs anchor",
+              "is_overseas": false,
+              "price_cr": 0.75,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Angkrish Raghuvanshi",
+              "player_id": "d7017798",
+              "score": 37.2,
+              "rationale": "Middle order batter",
+              "is_overseas": false,
+              "price_cr": 3.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "finisher": {
+          "name": "Finisher #6-7",
+          "rating": 7.1,
+          "what_works": "Strong #1 with rinku singh. quality backup in cameron green",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Rinku Singh",
+              "player_id": "0a509d6b",
+              "score": 79.2,
+              "rationale": "Death overs finisher. Six-hitting ability",
+              "is_overseas": false,
+              "price_cr": 13.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Cameron Green",
+              "player_id": "eaa76d3c",
+              "score": 67.8,
+              "rationale": "Death overs finisher. Bowling utility",
+              "is_overseas": true,
+              "price_cr": 25.2,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Rahul Tripathi",
+              "player_id": "77255a9e",
+              "score": 32.0,
+              "rationale": "All-round finisher. Bowling utility",
+              "is_overseas": false,
+              "price_cr": 2.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "wicketkeeper": {
+          "name": "Wicketkeeper",
+          "rating": 2.5,
+          "what_works": "Finn allen leads. tim seifert as backup",
+          "what_doesnt": "Weak backup option. no standout performer",
+          "overseas_count": 2,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Finn Allen",
+              "player_id": "b52ffbbd",
+              "score": 25.0,
+              "rationale": "Wicketkeeper",
+              "is_overseas": true,
+              "price_cr": 0.3,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Tim Seifert",
+              "player_id": "4663bd23",
+              "score": 25.0,
+              "rationale": "Wicketkeeper",
+              "is_overseas": true,
+              "price_cr": 0.3,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "lead_pacer": {
+          "name": "Lead Pacer",
+          "rating": 7.3,
+          "what_works": "Strong #1 with matheesha pathirana. quality backup in harshit rana",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Matheesha Pathirana",
+              "player_id": "64839cb3",
+              "score": 75.9,
+              "rationale": "Franchise lead pacer (18.0 Cr)",
+              "is_overseas": true,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Harshit Rana",
+              "player_id": "77b1aa15",
+              "score": 54.0,
+              "rationale": "Lead pacer",
+              "is_overseas": false,
+              "price_cr": 4.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "supporting_pacer_pp": {
+          "name": "Supporting Pacer (PP Specialist)",
+          "rating": 3.9,
+          "what_works": "Harshit rana leads. cameron green as backup",
+          "what_doesnt": "Weak backup option. no standout performer",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Harshit Rana",
+              "player_id": "77b1aa15",
+              "score": 41.0,
+              "rationale": "PP specialist",
+              "is_overseas": false,
+              "price_cr": 4.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Cameron Green",
+              "player_id": "eaa76d3c",
+              "score": 37.0,
+              "rationale": "PP specialist",
+              "is_overseas": true,
+              "price_cr": 25.2,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Vaibhav Arora",
+              "player_id": "7c3b3b78",
+              "score": 35.0,
+              "rationale": "PP specialist",
+              "is_overseas": false,
+              "price_cr": 1.8,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "supporting_pacer_death": {
+          "name": "Supporting Pacer (Death Specialist)",
+          "rating": 8.7,
+          "what_works": "Elite #1 in matheesha pathirana. quality backup in harshit rana",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Matheesha Pathirana",
+              "player_id": "64839cb3",
+              "score": 87.0,
+              "rationale": "Death wicket-taker (SR 9.9)",
+              "is_overseas": true,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Harshit Rana",
+              "player_id": "77b1aa15",
+              "score": 77.0,
+              "rationale": "Death wicket-taker (SR 11.2)",
+              "is_overseas": false,
+              "price_cr": 4.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Vaibhav Arora",
+              "player_id": "7c3b3b78",
+              "score": 54.0,
+              "rationale": "Death wicket-taker (SR 8.2)",
+              "is_overseas": false,
+              "price_cr": 1.8,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "lead_spinner": {
+          "name": "Lead Spinner",
+          "rating": 8.4,
+          "what_works": "Strong #1 with sunil narine. quality backup in varun chakravarthy",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Sunil Narine",
+              "player_id": "9d430b40",
+              "score": 79.2,
+              "rationale": "Lead spinner",
+              "is_overseas": true,
+              "price_cr": 12.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Varun Chakravarthy",
+              "player_id": "5b7ab5a9",
+              "score": 78.1,
+              "rationale": "Wicket-taker (SR 14.9)",
+              "is_overseas": false,
+              "price_cr": 12.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "allrounder_batting": {
+          "name": "All-rounder (Batting-first)",
+          "rating": 5.5,
+          "what_works": "Strong #1 with cameron green. sunil narine as backup",
+          "what_doesnt": "Weak backup option. overseas heavy (2 of 3)",
+          "overseas_count": 2,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Cameron Green",
+              "player_id": "eaa76d3c",
+              "score": 71.8,
+              "rationale": "Strong finisher (68). Bowls 4 overs",
+              "is_overseas": true,
+              "price_cr": 25.2,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Sunil Narine",
+              "player_id": "9d430b40",
+              "score": 38.5,
+              "rationale": "Bowls 4 overs",
+              "is_overseas": true,
+              "price_cr": 12.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Anukul Roy",
+              "player_id": "e4cdf230",
+              "score": 35.8,
+              "rationale": "Bowls 4 overs",
+              "is_overseas": false,
+              "price_cr": 0.4,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "allrounder_bowling": {
+          "name": "All-rounder (Bowling-first)",
+          "rating": 6.9,
+          "what_works": "Strong #1 with sunil narine. quality backup in cameron green",
+          "what_doesnt": "Overseas heavy (2 of 3)",
+          "overseas_count": 2,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Sunil Narine",
+              "player_id": "9d430b40",
+              "score": 64.6,
+              "rationale": "Primary bowler (79). SR 172",
+              "is_overseas": true,
+              "price_cr": 12.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Cameron Green",
+              "player_id": "eaa76d3c",
+              "score": 57.8,
+              "rationale": "SR 155",
+              "is_overseas": true,
+              "price_cr": 25.2,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Anukul Roy",
+              "player_id": "e4cdf230",
+              "score": 48.8,
+              "rationale": "Primary bowler (66)",
+              "is_overseas": false,
+              "price_cr": 0.4,
+              "secondary_positions": []
+            }
+          ]
+        }
+      }
+    },
+    "DC": {
+      "team": "DC",
+      "team_name": "Delhi Capitals",
+      "overall_rating": 7.3,
+      "strongest_position": "Finisher #6-7",
+      "weakest_position": "Supporting Pacer (PP Specialist)",
+      "vulnerabilities": [
+        "Supporting Pacer (PP Specialist): overseas dependent"
+      ],
+      "positions": {
+        "opener": {
+          "name": "Opener",
+          "rating": 8.2,
+          "what_works": "Elite #1 in kl rahul. quality backup in karun nair",
+          "what_doesnt": "Big gap between #1 and #2",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "KL Rahul",
+              "player_id": "b17e2f24",
+              "score": 89.9,
+              "rationale": "Franchise opener. Elite top-order",
+              "is_overseas": false,
+              "price_cr": 14.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Karun Nair",
+              "player_id": "944533a5",
+              "score": 56.5,
+              "rationale": "Elite SR (172.2). PP Aggressor",
+              "is_overseas": false,
+              "price_cr": 0.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Abhishek Porel",
+              "player_id": "ad3b6e95",
+              "score": 49.0,
+              "rationale": "Good SR (150.2). PP Dominator",
+              "is_overseas": false,
+              "price_cr": 4.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "number_3": {
+          "name": "#3 Batter",
+          "rating": 8.6,
+          "what_works": "Elite #1 in kl rahul. quality backup in karun nair",
+          "what_doesnt": "Big gap between #1 and #2",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "KL Rahul",
+              "player_id": "b17e2f24",
+              "score": 91.3,
+              "rationale": "Elite top-order. Spin specialist",
+              "is_overseas": false,
+              "price_cr": 14.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Karun Nair",
+              "player_id": "944533a5",
+              "score": 61.2,
+              "rationale": "Strong in PP. Middle overs accelerator",
+              "is_overseas": false,
+              "price_cr": 0.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "David Miller",
+              "player_id": "d67d5f00",
+              "score": 60.0,
+              "rationale": "Spin specialist",
+              "is_overseas": true,
+              "price_cr": 2.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "middle_order": {
+          "name": "Middle Order #4-5",
+          "rating": 7.9,
+          "what_works": "Strong #1 with kl rahul. quality backup in david miller",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "KL Rahul",
+              "player_id": "b17e2f24",
+              "score": 79.8,
+              "rationale": "Middle overs anchor. Excellent vs spin",
+              "is_overseas": false,
+              "price_cr": 14.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "David Miller",
+              "player_id": "d67d5f00",
+              "score": 58.5,
+              "rationale": "Middle overs anchor",
+              "is_overseas": true,
+              "price_cr": 2.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Karun Nair",
+              "player_id": "944533a5",
+              "score": 55.4,
+              "rationale": "Middle overs accelerator",
+              "is_overseas": false,
+              "price_cr": 0.5,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "finisher": {
+          "name": "Finisher #6-7",
+          "rating": 8.9,
+          "what_works": "Elite #1 in nitish rana. quality backup in tristan stubbs",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Nitish Rana",
+              "player_id": "fb2d1dda",
+              "score": 83.0,
+              "rationale": "Death specialist. Six-hitting ability",
+              "is_overseas": false,
+              "price_cr": 0.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Tristan Stubbs",
+              "player_id": "85b3fab2",
+              "score": 79.2,
+              "rationale": "Death overs finisher. Six-hitting ability",
+              "is_overseas": true,
+              "price_cr": 10.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Abhishek Porel",
+              "player_id": "ad3b6e95",
+              "score": 68.0,
+              "rationale": "Death specialist. Six-hitting ability",
+              "is_overseas": false,
+              "price_cr": 4.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "wicketkeeper": {
+          "name": "Wicketkeeper",
+          "rating": 6.8,
+          "what_works": "Elite #1 in kl rahul. abhishek porel as backup",
+          "what_doesnt": "Weak backup option. big gap between #1 and #2",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "KL Rahul",
+              "player_id": "b17e2f24",
+              "score": 90.0,
+              "rationale": "Strong batter (score: 90). Experienced keeper",
+              "is_overseas": false,
+              "price_cr": 14.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Abhishek Porel",
+              "player_id": "ad3b6e95",
+              "score": 31.5,
+              "rationale": "Wicketkeeper",
+              "is_overseas": false,
+              "price_cr": 4.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "lead_pacer": {
+          "name": "Lead Pacer",
+          "rating": 7.1,
+          "what_works": "Strong #1 with t natarajan. quality backup in mitchell starc",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "T Natarajan",
+              "player_id": "ce794613",
+              "score": 72.6,
+              "rationale": "Lead pacer",
+              "is_overseas": false,
+              "price_cr": 10.75,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Mitchell Starc",
+              "player_id": "3fb19989",
+              "score": 56.1,
+              "rationale": "Lead pacer",
+              "is_overseas": true,
+              "price_cr": 11.75,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "supporting_pacer_pp": {
+          "name": "Supporting Pacer (PP Specialist)",
+          "rating": 5.5,
+          "what_works": "Mitchell starc leads. t natarajan as backup",
+          "what_doesnt": "Overseas heavy (2 of 3)",
+          "overseas_count": 2,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Mitchell Starc",
+              "player_id": "3fb19989",
+              "score": 53.0,
+              "rationale": "PP specialist",
+              "is_overseas": true,
+              "price_cr": 11.75,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "T Natarajan",
+              "player_id": "ce794613",
+              "score": 49.0,
+              "rationale": "PP specialist",
+              "is_overseas": false,
+              "price_cr": 10.75,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Kyle Jamieson",
+              "player_id": "68c56d09",
+              "score": 45.0,
+              "rationale": "PP specialist",
+              "is_overseas": true,
+              "price_cr": 0.75,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "supporting_pacer_death": {
+          "name": "Supporting Pacer (Death Specialist)",
+          "rating": 6.9,
+          "what_works": "Strong #1 with t natarajan. quality backup in mukesh kumar",
+          "what_doesnt": "Room for improvement at the top",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "T Natarajan",
+              "player_id": "ce794613",
+              "score": 69.0,
+              "rationale": "Death wicket-taker (SR 11.5)",
+              "is_overseas": false,
+              "price_cr": 10.75,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Mukesh Kumar",
+              "player_id": "2cffab74",
+              "score": 50.0,
+              "rationale": "Death wicket-taker (SR 10.0)",
+              "is_overseas": false,
+              "price_cr": 8.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Lungi Ngidi",
+              "player_id": "f834dcfc",
+              "score": 49.0,
+              "rationale": "Death wicket-taker (SR 6.0)",
+              "is_overseas": true,
+              "price_cr": 1.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "lead_spinner": {
+          "name": "Lead Spinner",
+          "rating": 8.0,
+          "what_works": "Strong #1 with kuldeep yadav. quality backup in axar patel",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Kuldeep Yadav",
+              "player_id": "8d2c70ad",
+              "score": 79.2,
+              "rationale": "Lead spinner",
+              "is_overseas": false,
+              "price_cr": 13.25,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Axar Patel",
+              "player_id": "2e171977",
+              "score": 69.0,
+              "rationale": "Lead spinner (16.5 Cr)",
+              "is_overseas": false,
+              "price_cr": 16.5,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "allrounder_batting": {
+          "name": "All-rounder (Batting-first)",
+          "rating": 6.8,
+          "what_works": "Strong #1 with tristan stubbs. quality backup in axar patel",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Tristan Stubbs",
+              "player_id": "85b3fab2",
+              "score": 73.5,
+              "rationale": "Strong finisher (79). Useful death bowling",
+              "is_overseas": true,
+              "price_cr": 10.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Axar Patel",
+              "player_id": "2e171977",
+              "score": 63.8,
+              "rationale": "Bowls 4 overs",
+              "is_overseas": false,
+              "price_cr": 16.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Ashutosh Sharma",
+              "player_id": "84d9c311",
+              "score": 37.1,
+              "rationale": "Bowls 4 overs",
+              "is_overseas": false,
+              "price_cr": 3.8,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "allrounder_bowling": {
+          "name": "All-rounder (Bowling-first)",
+          "rating": 6.1,
+          "what_works": "Strong #1 with axar patel. quality backup in tristan stubbs",
+          "what_doesnt": "Room for improvement at the top",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Axar Patel",
+              "player_id": "2e171977",
+              "score": 67.2,
+              "rationale": "Primary bowler (69). Handy bat (43)",
+              "is_overseas": false,
+              "price_cr": 16.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Tristan Stubbs",
+              "player_id": "85b3fab2",
+              "score": 54.3,
+              "rationale": "SR 165",
+              "is_overseas": true,
+              "price_cr": 10.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Ashutosh Sharma",
+              "player_id": "84d9c311",
+              "score": 32.2,
+              "rationale": "SR 167",
+              "is_overseas": false,
+              "price_cr": 3.8,
+              "secondary_positions": []
+            }
+          ]
+        }
+      }
+    },
+    "PBKS": {
+      "team": "PBKS",
+      "team_name": "Punjab Kings",
+      "overall_rating": 7.4,
+      "strongest_position": "#3 Batter",
+      "weakest_position": "Wicketkeeper",
+      "vulnerabilities": [
+        "Supporting Pacer (PP Specialist): overseas dependent",
+        "All-rounder (Bowling-first): overseas dependent"
+      ],
+      "positions": {
+        "opener": {
+          "name": "Opener",
+          "rating": 8.4,
+          "what_works": "Elite #1 in shreyas iyer. quality backup in prabhsimran singh",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Shreyas Iyer",
+              "player_id": "85ec8e33",
+              "score": 82.8,
+              "rationale": "Good SR (164.1). Elite top-order",
+              "is_overseas": false,
+              "price_cr": 26.75,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Prabhsimran Singh",
+              "player_id": "9418198b",
+              "score": 74.0,
+              "rationale": "Franchise opener. Good SR (157.8)",
+              "is_overseas": false,
+              "price_cr": 4.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Priyansh Arya",
+              "player_id": "b5797845",
+              "score": 53.8,
+              "rationale": "Elite SR (182.9). PP Dominator",
+              "is_overseas": false,
+              "price_cr": 3.8,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "number_3": {
+          "name": "#3 Batter",
+          "rating": 10.0,
+          "what_works": "Elite #1 in shreyas iyer. quality backup in prabhsimran singh",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Shreyas Iyer",
+              "player_id": "85ec8e33",
+              "score": 96.6,
+              "rationale": "Elite top-order. Spin specialist",
+              "is_overseas": false,
+              "price_cr": 26.75,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Prabhsimran Singh",
+              "player_id": "9418198b",
+              "score": 93.0,
+              "rationale": "Strong in PP. Middle overs accelerator",
+              "is_overseas": false,
+              "price_cr": 4.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Nehal Wadhera",
+              "player_id": "d1a60072",
+              "score": 78.1,
+              "rationale": "Spin specialist. Highly adaptable",
+              "is_overseas": false,
+              "price_cr": 4.2,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "middle_order": {
+          "name": "Middle Order #4-5",
+          "rating": 9.1,
+          "what_works": "Elite #1 in shreyas iyer. quality backup in nehal wadhera",
+          "what_doesnt": "Big gap between #1 and #2",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Shreyas Iyer",
+              "player_id": "85ec8e33",
+              "score": 100.0,
+              "rationale": "Middle overs anchor",
+              "is_overseas": false,
+              "price_cr": 26.75,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Nehal Wadhera",
+              "player_id": "d1a60072",
+              "score": 68.2,
+              "rationale": "Middle overs anchor. Excellent vs spin",
+              "is_overseas": false,
+              "price_cr": 4.2,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Shashank Singh",
+              "player_id": "26989d80",
+              "score": 51.6,
+              "rationale": "Middle overs anchor",
+              "is_overseas": false,
+              "price_cr": 5.5,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "finisher": {
+          "name": "Finisher #6-7",
+          "rating": 9.7,
+          "what_works": "Elite #1 in marcus stoinis. quality backup in shashank singh",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Marcus Stoinis",
+              "player_id": "d9273ee7",
+              "score": 97.9,
+              "rationale": "Death overs hitter. All-round finisher",
+              "is_overseas": true,
+              "price_cr": 11.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Shashank Singh",
+              "player_id": "26989d80",
+              "score": 75.6,
+              "rationale": "Death overs finisher. Six-hitting ability",
+              "is_overseas": false,
+              "price_cr": 5.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Prabhsimran Singh",
+              "player_id": "9418198b",
+              "score": 75.0,
+              "rationale": "Death overs hitter. Six-hitting ability",
+              "is_overseas": false,
+              "price_cr": 4.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "wicketkeeper": {
+          "name": "Wicketkeeper",
+          "rating": 5.3,
+          "what_works": "Strong #1 with prabhsimran singh. vishnu vinod as backup",
+          "what_doesnt": "Weak backup option. big gap between #1 and #2",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Prabhsimran Singh",
+              "player_id": "9418198b",
+              "score": 67.0,
+              "rationale": "Strong batter (score: 74)",
+              "is_overseas": false,
+              "price_cr": 4.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Vishnu Vinod",
+              "player_id": "0494fa6e",
+              "score": 29.0,
+              "rationale": "Wicketkeeper",
+              "is_overseas": false,
+              "price_cr": 0.95,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "lead_pacer": {
+          "name": "Lead Pacer",
+          "rating": 7.1,
+          "what_works": "Strong #1 with arshdeep singh. quality backup in marco jansen",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Arshdeep Singh",
+              "player_id": "244048f6",
+              "score": 72.4,
+              "rationale": "Franchise lead pacer (18.0 Cr)",
+              "is_overseas": false,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Marco Jansen",
+              "player_id": "81c36ee9",
+              "score": 56.1,
+              "rationale": "Lead pacer",
+              "is_overseas": true,
+              "price_cr": 11.25,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "supporting_pacer_pp": {
+          "name": "Supporting Pacer (PP Specialist)",
+          "rating": 5.5,
+          "what_works": "Marco jansen leads. arshdeep singh as backup",
+          "what_doesnt": "Overseas heavy (2 of 3)",
+          "overseas_count": 2,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Marco Jansen",
+              "player_id": "81c36ee9",
+              "score": 53.0,
+              "rationale": "PP specialist",
+              "is_overseas": true,
+              "price_cr": 11.25,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Arshdeep Singh",
+              "player_id": "244048f6",
+              "score": 47.0,
+              "rationale": "PP specialist",
+              "is_overseas": false,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Xavier Bartlett",
+              "player_id": "3b53243a",
+              "score": 45.0,
+              "rationale": "PP specialist",
+              "is_overseas": true,
+              "price_cr": 0.8,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "supporting_pacer_death": {
+          "name": "Supporting Pacer (Death Specialist)",
+          "rating": 7.0,
+          "what_works": "Strong #1 with arshdeep singh. quality backup in yash thakur",
+          "what_doesnt": "Room for improvement at the top",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Arshdeep Singh",
+              "player_id": "244048f6",
+              "score": 66.0,
+              "rationale": "Death wicket-taker (SR 9.8)",
+              "is_overseas": false,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Yash Thakur",
+              "player_id": "4b31f3a3",
+              "score": 58.0,
+              "rationale": "Death wicket-taker (SR 11.3)",
+              "is_overseas": false,
+              "price_cr": 1.6,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Marco Jansen",
+              "player_id": "81c36ee9",
+              "score": 46.0,
+              "rationale": "Death wicket-taker (SR 8.4)",
+              "is_overseas": true,
+              "price_cr": 11.25,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "lead_spinner": {
+          "name": "Lead Spinner",
+          "rating": 6.9,
+          "what_works": "Strong #1 with harpreet brar. quality backup in yuzvendra chahal",
+          "what_doesnt": "Room for improvement at the top",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Harpreet Brar",
+              "player_id": "c05edf8e",
+              "score": 66.0,
+              "rationale": "Lead spinner",
+              "is_overseas": false,
+              "price_cr": 1.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Yuzvendra Chahal",
+              "player_id": "57ee1fde",
+              "score": 60.9,
+              "rationale": "Lead spinner (18.0 Cr)",
+              "is_overseas": false,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "allrounder_batting": {
+          "name": "All-rounder (Batting-first)",
+          "rating": 7.1,
+          "what_works": "Strong #1 with marcus stoinis. quality backup in shashank singh",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Marcus Stoinis",
+              "player_id": "d9273ee7",
+              "score": 78.5,
+              "rationale": "Strong finisher (98). Bowls 4 overs",
+              "is_overseas": true,
+              "price_cr": 11.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Shashank Singh",
+              "player_id": "26989d80",
+              "score": 63.4,
+              "rationale": "Strong finisher (76). Middle order capable (52)",
+              "is_overseas": false,
+              "price_cr": 5.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Harpreet Brar",
+              "player_id": "c05edf8e",
+              "score": 38.0,
+              "rationale": "Bowls 4 overs",
+              "is_overseas": false,
+              "price_cr": 1.5,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "allrounder_bowling": {
+          "name": "All-rounder (Bowling-first)",
+          "rating": 5.4,
+          "what_works": "Marco jansen leads. marcus stoinis as backup",
+          "what_doesnt": "No standout performer. overseas heavy (2 of 3)",
+          "overseas_count": 2,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Marco Jansen",
+              "player_id": "81c36ee9",
+              "score": 49.9,
+              "rationale": "Bowling all-rounder",
+              "is_overseas": true,
+              "price_cr": 11.25,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Marcus Stoinis",
+              "player_id": "d9273ee7",
+              "score": 49.5,
+              "rationale": "SR 155",
+              "is_overseas": true,
+              "price_cr": 11.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Harpreet Brar",
+              "player_id": "c05edf8e",
+              "score": 47.0,
+              "rationale": "Primary bowler (66)",
+              "is_overseas": false,
+              "price_cr": 1.5,
+              "secondary_positions": []
+            }
+          ]
+        }
+      }
+    },
+    "RR": {
+      "team": "RR",
+      "team_name": "Rajasthan Royals",
+      "overall_rating": 7.7,
+      "strongest_position": "#3 Batter",
+      "weakest_position": "Wicketkeeper",
+      "vulnerabilities": [
+        "Supporting Pacer (PP Specialist): overseas dependent"
+      ],
+      "positions": {
+        "opener": {
+          "name": "Opener",
+          "rating": 9.1,
+          "what_works": "Elite #1 in yashasvi jaiswal. quality backup in riyan parag",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Yashasvi Jaiswal",
+              "player_id": "6c19c6e5",
+              "score": 100.0,
+              "rationale": "Franchise opener. Good SR (160.5)",
+              "is_overseas": false,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Riyan Parag",
+              "player_id": "04a418e8",
+              "score": 70.4,
+              "rationale": "Good SR (152.9). PP Dominator",
+              "is_overseas": false,
+              "price_cr": 14.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Vaibhav Suryavanshi",
+              "player_id": "470f446b",
+              "score": 49.1,
+              "rationale": "Elite SR (208.3). PP Aggressor",
+              "is_overseas": false,
+              "price_cr": 1.1,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "number_3": {
+          "name": "#3 Batter",
+          "rating": 10.0,
+          "what_works": "Elite #1 in yashasvi jaiswal. quality backup in riyan parag",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Yashasvi Jaiswal",
+              "player_id": "6c19c6e5",
+              "score": 100.0,
+              "rationale": "Strong in PP. Spin specialist",
+              "is_overseas": false,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Riyan Parag",
+              "player_id": "04a418e8",
+              "score": 100.0,
+              "rationale": "Strong in PP. Spin specialist",
+              "is_overseas": false,
+              "price_cr": 14.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Ravindra Jadeja",
+              "player_id": "fe93fd9d",
+              "score": 75.6,
+              "rationale": "Can bat #3",
+              "is_overseas": false,
+              "price_cr": 17.5,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "middle_order": {
+          "name": "Middle Order #4-5",
+          "rating": 5.4,
+          "what_works": "Strong #1 with riyan parag. ravindra jadeja as backup",
+          "what_doesnt": "Room for improvement at the top",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Riyan Parag",
+              "player_id": "04a418e8",
+              "score": 66.6,
+              "rationale": "Middle overs anchor. Excellent vs spin",
+              "is_overseas": false,
+              "price_cr": 14.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Ravindra Jadeja",
+              "player_id": "fe93fd9d",
+              "score": 43.8,
+              "rationale": "Middle overs anchor",
+              "is_overseas": false,
+              "price_cr": 17.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Shimron Hetmyer",
+              "player_id": "48a1d7b7",
+              "score": 36.6,
+              "rationale": "Middle overs anchor",
+              "is_overseas": true,
+              "price_cr": 11.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "finisher": {
+          "name": "Finisher #6-7",
+          "rating": 9.6,
+          "what_works": "Elite #1 in yashasvi jaiswal. quality backup in sam curran",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Yashasvi Jaiswal",
+              "player_id": "6c19c6e5",
+              "score": 94.3,
+              "rationale": "Death overs hitter. Six-hitting ability",
+              "is_overseas": false,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Sam Curran",
+              "player_id": "e94915e6",
+              "score": 88.0,
+              "rationale": "Death specialist. Six-hitting ability",
+              "is_overseas": true,
+              "price_cr": 10.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Ravindra Jadeja",
+              "player_id": "fe93fd9d",
+              "score": 63.2,
+              "rationale": "Death overs finisher. Bowling utility",
+              "is_overseas": false,
+              "price_cr": 17.5,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "wicketkeeper": {
+          "name": "Wicketkeeper",
+          "rating": 5.0,
+          "what_works": "Strong #1 with dhruv jurel. aman rao as backup",
+          "what_doesnt": "Weak backup option. big gap between #1 and #2",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Dhruv Jurel",
+              "player_id": "bcf325d2",
+              "score": 64.2,
+              "rationale": "Experienced keeper",
+              "is_overseas": false,
+              "price_cr": 14.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Aman Rao",
+              "player_id": "0420f51f",
+              "score": 25.0,
+              "rationale": "Wicketkeeper",
+              "is_overseas": false,
+              "price_cr": 0.3,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "lead_pacer": {
+          "name": "Lead Pacer",
+          "rating": 7.1,
+          "what_works": "Strong #1 with sandeep sharma. quality backup in tushar deshpande",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Sandeep Sharma",
+              "player_id": "ce820073",
+              "score": 70.0,
+              "rationale": "Proven wicket-taker",
+              "is_overseas": false,
+              "price_cr": 4.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Tushar Deshpande",
+              "player_id": "46a9bea1",
+              "score": 59.9,
+              "rationale": "Lead pacer",
+              "is_overseas": false,
+              "price_cr": 6.5,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "supporting_pacer_pp": {
+          "name": "Supporting Pacer (PP Specialist)",
+          "rating": 7.0,
+          "what_works": "Strong #1 with sandeep sharma. quality backup in jofra archer",
+          "what_doesnt": "Overseas heavy (2 of 3)",
+          "overseas_count": 2,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Sandeep Sharma",
+              "player_id": "ce820073",
+              "score": 65.0,
+              "rationale": "PP specialist",
+              "is_overseas": false,
+              "price_cr": 4.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Jofra Archer",
+              "player_id": "5574750c",
+              "score": 57.0,
+              "rationale": "PP specialist",
+              "is_overseas": true,
+              "price_cr": 12.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Nandre Burger",
+              "player_id": "465aa633",
+              "score": 52.0,
+              "rationale": "PP wicket-taker (SR 15.0)",
+              "is_overseas": true,
+              "price_cr": 3.5,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "supporting_pacer_death": {
+          "name": "Supporting Pacer (Death Specialist)",
+          "rating": 7.6,
+          "what_works": "Strong #1 with sandeep sharma. quality backup in nandre burger",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Sandeep Sharma",
+              "player_id": "ce820073",
+              "score": 71.0,
+              "rationale": "Death wicket-taker (SR 9.8)",
+              "is_overseas": false,
+              "price_cr": 4.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Nandre Burger",
+              "player_id": "465aa633",
+              "score": 64.0,
+              "rationale": "Elite death economy (4.3)",
+              "is_overseas": true,
+              "price_cr": 3.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Tushar Deshpande",
+              "player_id": "46a9bea1",
+              "score": 58.0,
+              "rationale": "Death wicket-taker (SR 9.9)",
+              "is_overseas": false,
+              "price_cr": 6.5,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "lead_spinner": {
+          "name": "Lead Spinner",
+          "rating": 7.6,
+          "what_works": "Strong #1 with ravindra jadeja. quality backup in ravi bishnoi",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Ravindra Jadeja",
+              "player_id": "fe93fd9d",
+              "score": 77.0,
+              "rationale": "Lead spinner (17.5 Cr)",
+              "is_overseas": false,
+              "price_cr": 17.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Ravi Bishnoi",
+              "player_id": "df064e1a",
+              "score": 62.0,
+              "rationale": "Lead spinner",
+              "is_overseas": false,
+              "price_cr": 7.2,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "allrounder_batting": {
+          "name": "All-rounder (Batting-first)",
+          "rating": 8.2,
+          "what_works": "Elite #1 in ravindra jadeja. quality backup in sam curran",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Ravindra Jadeja",
+              "player_id": "fe93fd9d",
+              "score": 83.1,
+              "rationale": "Strong finisher (63). Bowls 4 overs",
+              "is_overseas": false,
+              "price_cr": 17.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Sam Curran",
+              "player_id": "e94915e6",
+              "score": 71.0,
+              "rationale": "Strong finisher (88). Bowls 4 overs",
+              "is_overseas": true,
+              "price_cr": 10.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Riyan Parag",
+              "player_id": "04a418e8",
+              "score": 46.5,
+              "rationale": "Middle order capable (67). Bowls 4 overs",
+              "is_overseas": false,
+              "price_cr": 14.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "allrounder_bowling": {
+          "name": "All-rounder (Bowling-first)",
+          "rating": 7.9,
+          "what_works": "Strong #1 with ravindra jadeja. quality backup in riyan parag",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Ravindra Jadeja",
+              "player_id": "fe93fd9d",
+              "score": 71.5,
+              "rationale": "Primary bowler (77). Handy bat (44)",
+              "is_overseas": false,
+              "price_cr": 17.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Riyan Parag",
+              "player_id": "04a418e8",
+              "score": 71.3,
+              "rationale": "Handy bat (67). SR 153",
+              "is_overseas": false,
+              "price_cr": 14.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Sam Curran",
+              "player_id": "e94915e6",
+              "score": 61.5,
+              "rationale": "Handy bat (88)",
+              "is_overseas": true,
+              "price_cr": 10.0,
+              "secondary_positions": []
+            }
+          ]
+        }
+      }
+    },
+    "SRH": {
+      "team": "SRH",
+      "team_name": "Sunrisers Hyderabad",
+      "overall_rating": 7.4,
+      "strongest_position": "Opener",
+      "weakest_position": "Supporting Pacer (PP Specialist)",
+      "vulnerabilities": [
+        "Opener: overseas dependent",
+        "#3 Batter: overseas dependent",
+        "Middle Order #4-5: overseas dependent",
+        "Finisher #6-7: overseas dependent",
+        "All-rounder (Batting-first): overseas dependent"
+      ],
+      "positions": {
+        "opener": {
+          "name": "Opener",
+          "rating": 10.0,
+          "what_works": "Elite #1 in travis head. quality backup in abhishek sharma",
+          "what_doesnt": "Overseas heavy (2 of 3)",
+          "overseas_count": 2,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Travis Head",
+              "player_id": "12b610c2",
+              "score": 100.0,
+              "rationale": "Franchise opener. Elite SR (181.0)",
+              "is_overseas": true,
+              "price_cr": 14.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Abhishek Sharma",
+              "player_id": "f29185a1",
+              "score": 100.0,
+              "rationale": "Franchise opener. Elite SR (186.5)",
+              "is_overseas": false,
+              "price_cr": 14.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Heinrich Klaasen",
+              "player_id": "235c2bb6",
+              "score": 89.7,
+              "rationale": "Elite SR (175.2). PP Aggressor",
+              "is_overseas": true,
+              "price_cr": 23.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "number_3": {
+          "name": "#3 Batter",
+          "rating": 10.0,
+          "what_works": "Elite #1 in travis head. quality backup in abhishek sharma",
+          "what_doesnt": "Overseas heavy (2 of 3)",
+          "overseas_count": 2,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Travis Head",
+              "player_id": "12b610c2",
+              "score": 100.0,
+              "rationale": "Strong in PP. Middle overs accelerator",
+              "is_overseas": true,
+              "price_cr": 14.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Abhishek Sharma",
+              "player_id": "f29185a1",
+              "score": 100.0,
+              "rationale": "Strong in PP. Middle overs accelerator",
+              "is_overseas": false,
+              "price_cr": 14.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Heinrich Klaasen",
+              "player_id": "235c2bb6",
+              "score": 100.0,
+              "rationale": "Strong in PP. Spin specialist",
+              "is_overseas": true,
+              "price_cr": 23.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "middle_order": {
+          "name": "Middle Order #4-5",
+          "rating": 6.6,
+          "what_works": "Strong #1 with heinrich klaasen. liam livingstone as backup",
+          "what_doesnt": "Overseas heavy (2 of 3)",
+          "overseas_count": 2,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Heinrich Klaasen",
+              "player_id": "235c2bb6",
+              "score": 74.8,
+              "rationale": "Middle overs anchor. Excellent vs spin",
+              "is_overseas": true,
+              "price_cr": 23.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Liam Livingstone",
+              "player_id": "50c6bc2b",
+              "score": 49.2,
+              "rationale": "Middle order batter",
+              "is_overseas": true,
+              "price_cr": 13.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Nitish Kumar Reddy",
+              "player_id": "aad0c365",
+              "score": 46.7,
+              "rationale": "Excellent vs spin",
+              "is_overseas": false,
+              "price_cr": 6.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "finisher": {
+          "name": "Finisher #6-7",
+          "rating": 10.0,
+          "what_works": "Elite #1 in liam livingstone. quality backup in ishan kishan",
+          "what_doesnt": "Overseas heavy (2 of 3)",
+          "overseas_count": 2,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Liam Livingstone",
+              "player_id": "50c6bc2b",
+              "score": 100.0,
+              "rationale": "Death overs finisher. Six-hitting ability",
+              "is_overseas": true,
+              "price_cr": 13.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Ishan Kishan",
+              "player_id": "752f7486",
+              "score": 91.3,
+              "rationale": "Death overs finisher. Six-hitting ability",
+              "is_overseas": false,
+              "price_cr": 11.25,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Heinrich Klaasen",
+              "player_id": "235c2bb6",
+              "score": 86.2,
+              "rationale": "Death overs finisher. Six-hitting ability",
+              "is_overseas": true,
+              "price_cr": 23.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "wicketkeeper": {
+          "name": "Wicketkeeper",
+          "rating": 8.6,
+          "what_works": "Elite #1 in heinrich klaasen. quality backup in ishan kishan",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Heinrich Klaasen",
+              "player_id": "235c2bb6",
+              "score": 87.4,
+              "rationale": "Primary keeper. Strong batter (score: 75)",
+              "is_overseas": true,
+              "price_cr": 23.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Ishan Kishan",
+              "player_id": "752f7486",
+              "score": 69.3,
+              "rationale": "Experienced keeper",
+              "is_overseas": false,
+              "price_cr": 11.25,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "lead_pacer": {
+          "name": "Lead Pacer",
+          "rating": 6.5,
+          "what_works": "Strong #1 with harshal patel. quality backup in jaydev unadkat",
+          "what_doesnt": "Room for improvement at the top",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Harshal Patel",
+              "player_id": "f986ca1a",
+              "score": 62.0,
+              "rationale": "Proven wicket-taker",
+              "is_overseas": false,
+              "price_cr": 8.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Jaydev Unadkat",
+              "player_id": "1e66c162",
+              "score": 57.0,
+              "rationale": "Proven wicket-taker",
+              "is_overseas": false,
+              "price_cr": 1.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "supporting_pacer_pp": {
+          "name": "Supporting Pacer (PP Specialist)",
+          "rating": 4.0,
+          "what_works": "Jaydev unadkat leads. pat cummins as backup",
+          "what_doesnt": "Weak backup option. no standout performer",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Jaydev Unadkat",
+              "player_id": "1e66c162",
+              "score": 49.0,
+              "rationale": "PP specialist",
+              "is_overseas": false,
+              "price_cr": 1.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Pat Cummins",
+              "player_id": "ded9240e",
+              "score": 35.0,
+              "rationale": "PP specialist",
+              "is_overseas": true,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Harshal Patel",
+              "player_id": "f986ca1a",
+              "score": 27.0,
+              "rationale": "PP specialist",
+              "is_overseas": false,
+              "price_cr": 8.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "supporting_pacer_death": {
+          "name": "Supporting Pacer (Death Specialist)",
+          "rating": 8.1,
+          "what_works": "Elite #1 in eshan malinga. quality backup in harshal patel",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Eshan Malinga",
+              "player_id": "5750bcb4",
+              "score": 82.0,
+              "rationale": "Death wicket-taker (SR 7.3)",
+              "is_overseas": false,
+              "price_cr": 1.2,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Harshal Patel",
+              "player_id": "f986ca1a",
+              "score": 66.0,
+              "rationale": "Death wicket-taker (SR 8.1)",
+              "is_overseas": false,
+              "price_cr": 8.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Pat Cummins",
+              "player_id": "ded9240e",
+              "score": 49.0,
+              "rationale": "Death specialist",
+              "is_overseas": true,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "lead_spinner": {
+          "name": "Lead Spinner",
+          "rating": 6.0,
+          "what_works": "Abhishek sharma leads. quality backup in harsh dubey",
+          "what_doesnt": "Room for improvement at the top",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Abhishek Sharma",
+              "player_id": "f29185a1",
+              "score": 56.1,
+              "rationale": "Lead spinner",
+              "is_overseas": false,
+              "price_cr": 14.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Harsh Dubey",
+              "player_id": "25228673",
+              "score": 53.0,
+              "rationale": "Wicket-taker (SR 9.6)",
+              "is_overseas": false,
+              "price_cr": 0.3,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "allrounder_batting": {
+          "name": "All-rounder (Batting-first)",
+          "rating": 6.0,
+          "what_works": "Elite #1 in liam livingstone. kamindu mendis as backup",
+          "what_doesnt": "Weak backup option. overseas heavy (2 of 3)",
+          "overseas_count": 2,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Liam Livingstone",
+              "player_id": "50c6bc2b",
+              "score": 87.8,
+              "rationale": "Strong finisher (100). Bowls 4 overs",
+              "is_overseas": true,
+              "price_cr": 13.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Kamindu Mendis",
+              "player_id": "08548b13",
+              "score": 31.9,
+              "rationale": "Bowls 4 overs",
+              "is_overseas": true,
+              "price_cr": 0.75,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Nitish Kumar Reddy",
+              "player_id": "aad0c365",
+              "score": 30.8,
+              "rationale": "Bowls 4 overs",
+              "is_overseas": false,
+              "price_cr": 6.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "allrounder_bowling": {
+          "name": "All-rounder (Bowling-first)",
+          "rating": 5.9,
+          "what_works": "Strong #1 with liam livingstone. quality backup in abhishek sharma",
+          "what_doesnt": "Room for improvement at the top",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Liam Livingstone",
+              "player_id": "50c6bc2b",
+              "score": 60.4,
+              "rationale": "Handy bat (49). SR 153",
+              "is_overseas": true,
+              "price_cr": 13.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Abhishek Sharma",
+              "player_id": "f29185a1",
+              "score": 53.0,
+              "rationale": "SR 187",
+              "is_overseas": false,
+              "price_cr": 14.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Nitish Kumar Reddy",
+              "player_id": "aad0c365",
+              "score": 39.3,
+              "rationale": "Handy bat (47)",
+              "is_overseas": false,
+              "price_cr": 6.0,
+              "secondary_positions": []
+            }
+          ]
+        }
+      }
+    },
+    "GT": {
+      "team": "GT",
+      "team_name": "Gujarat Titans",
+      "overall_rating": 7.4,
+      "strongest_position": "Opener",
+      "weakest_position": "All-rounder (Batting-first)",
+      "vulnerabilities": [
+        "All-rounder (Batting-first): thin depth (rating 3.9)",
+        "All-rounder (Bowling-first): thin depth (rating 4.1)"
+      ],
+      "positions": {
+        "opener": {
+          "name": "Opener",
+          "rating": 10.0,
+          "what_works": "Elite #1 in shubman gill. quality backup in jos buttler",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Shubman Gill",
+              "player_id": "b4b99816",
+              "score": 100.0,
+              "rationale": "Captain. Franchise opener",
+              "is_overseas": false,
+              "price_cr": 16.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Jos Buttler",
+              "player_id": "99b75528",
+              "score": 100.0,
+              "rationale": "Franchise opener. Explosive opener",
+              "is_overseas": true,
+              "price_cr": 15.75,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Sai Sudharsan",
+              "player_id": "d5130a30",
+              "score": 91.7,
+              "rationale": "Franchise opener. Explosive opener",
+              "is_overseas": false,
+              "price_cr": 8.5,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "number_3": {
+          "name": "#3 Batter",
+          "rating": 10.0,
+          "what_works": "Elite #1 in shubman gill. quality backup in sai sudharsan",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Shubman Gill",
+              "player_id": "b4b99816",
+              "score": 100.0,
+              "rationale": "Elite top-order. Spin specialist",
+              "is_overseas": false,
+              "price_cr": 16.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Sai Sudharsan",
+              "player_id": "d5130a30",
+              "score": 89.5,
+              "rationale": "Elite top-order. Spin specialist",
+              "is_overseas": false,
+              "price_cr": 8.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Jos Buttler",
+              "player_id": "99b75528",
+              "score": 82.7,
+              "rationale": "Spin specialist. Highly adaptable",
+              "is_overseas": true,
+              "price_cr": 15.75,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "middle_order": {
+          "name": "Middle Order #4-5",
+          "rating": 9.4,
+          "what_works": "Elite #1 in jos buttler. quality backup in shubman gill",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Jos Buttler",
+              "player_id": "99b75528",
+              "score": 88.3,
+              "rationale": "Middle overs anchor. Excellent vs spin",
+              "is_overseas": true,
+              "price_cr": 15.75,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Shubman Gill",
+              "player_id": "b4b99816",
+              "score": 85.5,
+              "rationale": "Middle overs anchor. Excellent vs spin",
+              "is_overseas": false,
+              "price_cr": 16.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Sai Sudharsan",
+              "player_id": "d5130a30",
+              "score": 71.8,
+              "rationale": "Middle overs anchor. Excellent vs spin",
+              "is_overseas": false,
+              "price_cr": 8.5,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "finisher": {
+          "name": "Finisher #6-7",
+          "rating": 9.3,
+          "what_works": "Elite #1 in jos buttler. quality backup in sai sudharsan",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Jos Buttler",
+              "player_id": "99b75528",
+              "score": 95.4,
+              "rationale": "Death overs finisher. Six-hitting ability",
+              "is_overseas": true,
+              "price_cr": 15.75,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Sai Sudharsan",
+              "player_id": "d5130a30",
+              "score": 71.4,
+              "rationale": "Death overs finisher. Six-hitting ability",
+              "is_overseas": false,
+              "price_cr": 8.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Shubman Gill",
+              "player_id": "b4b99816",
+              "score": 71.3,
+              "rationale": "Death overs hitter. Bowling utility",
+              "is_overseas": false,
+              "price_cr": 16.5,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "wicketkeeper": {
+          "name": "Wicketkeeper",
+          "rating": 7.4,
+          "what_works": "Elite #1 in jos buttler. anuj rawat as backup",
+          "what_doesnt": "Weak backup option. big gap between #1 and #2",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Jos Buttler",
+              "player_id": "99b75528",
+              "score": 100.0,
+              "rationale": "Primary keeper. Strong batter (score: 100)",
+              "is_overseas": true,
+              "price_cr": 15.75,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Anuj Rawat",
+              "player_id": "c8f5f961",
+              "score": 31.5,
+              "rationale": "Wicketkeeper",
+              "is_overseas": false,
+              "price_cr": 0.3,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "lead_pacer": {
+          "name": "Lead Pacer",
+          "rating": 7.7,
+          "what_works": "Elite #1 in mohammed siraj. quality backup in prasidh krishna",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Mohammed Siraj",
+              "player_id": "2f49c897",
+              "score": 80.3,
+              "rationale": "Proven wicket-taker",
+              "is_overseas": false,
+              "price_cr": 12.25,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Prasidh Krishna",
+              "player_id": "85e0cf10",
+              "score": 58.8,
+              "rationale": "Lead pacer",
+              "is_overseas": false,
+              "price_cr": 9.5,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "supporting_pacer_pp": {
+          "name": "Supporting Pacer (PP Specialist)",
+          "rating": 5.4,
+          "what_works": "Ishant sharma leads. quality backup in mohammed siraj",
+          "what_doesnt": "Room for improvement at the top",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Ishant Sharma",
+              "player_id": "5bb1a1c4",
+              "score": 56.0,
+              "rationale": "PP specialist",
+              "is_overseas": false,
+              "price_cr": 0.75,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Mohammed Siraj",
+              "player_id": "2f49c897",
+              "score": 50.0,
+              "rationale": "PP specialist",
+              "is_overseas": false,
+              "price_cr": 12.25,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Prasidh Krishna",
+              "player_id": "85e0cf10",
+              "score": 32.0,
+              "rationale": "PP specialist",
+              "is_overseas": false,
+              "price_cr": 9.5,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "supporting_pacer_death": {
+          "name": "Supporting Pacer (Death Specialist)",
+          "rating": 7.0,
+          "what_works": "Strong #1 with mohammed siraj. quality backup in prasidh krishna",
+          "what_doesnt": "Room for improvement at the top",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Mohammed Siraj",
+              "player_id": "2f49c897",
+              "score": 69.0,
+              "rationale": "Death specialist",
+              "is_overseas": false,
+              "price_cr": 12.25,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Prasidh Krishna",
+              "player_id": "85e0cf10",
+              "score": 59.0,
+              "rationale": "Death wicket-taker (SR 6.8)",
+              "is_overseas": false,
+              "price_cr": 9.5,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Ishant Sharma",
+              "player_id": "5bb1a1c4",
+              "score": 41.0,
+              "rationale": "Death specialist",
+              "is_overseas": false,
+              "price_cr": 0.75,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "lead_spinner": {
+          "name": "Lead Spinner",
+          "rating": 7.1,
+          "what_works": "Strong #1 with rashid khan. quality backup in sai kishore",
+          "what_doesnt": "Room for improvement at the top",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Rashid Khan",
+              "player_id": "5f547c8b",
+              "score": 67.8,
+              "rationale": "Lead spinner (18.0 Cr)",
+              "is_overseas": true,
+              "price_cr": 18.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Sai Kishore",
+              "player_id": "c7a995d3",
+              "score": 63.0,
+              "rationale": "Wicket-taker (SR 14.3)",
+              "is_overseas": false,
+              "price_cr": 2.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "allrounder_batting": {
+          "name": "All-rounder (Batting-first)",
+          "rating": 3.9,
+          "what_works": "Rahul tewatia leads. washington sundar as backup",
+          "what_doesnt": "Weak backup option. no standout performer",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Rahul Tewatia",
+              "player_id": "39a2dfa8",
+              "score": 43.1,
+              "rationale": "Useful death bowling. Bowls 4 overs",
+              "is_overseas": false,
+              "price_cr": 4.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Washington Sundar",
+              "player_id": "f19ccfad",
+              "score": 35.7,
+              "rationale": "Bowls 4 overs",
+              "is_overseas": false,
+              "price_cr": 3.2,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Glenn Phillips",
+              "player_id": "9a46c4e5",
+              "score": 31.8,
+              "rationale": "Bowls 4 overs",
+              "is_overseas": true,
+              "price_cr": 2.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "allrounder_bowling": {
+          "name": "All-rounder (Bowling-first)",
+          "rating": 4.1,
+          "what_works": "Rahul tewatia leads. washington sundar as backup",
+          "what_doesnt": "Weak backup option. no standout performer",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Rahul Tewatia",
+              "player_id": "39a2dfa8",
+              "score": 44.8,
+              "rationale": "SR 155",
+              "is_overseas": false,
+              "price_cr": 4.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Washington Sundar",
+              "player_id": "f19ccfad",
+              "score": 39.8,
+              "rationale": "Bowling all-rounder",
+              "is_overseas": false,
+              "price_cr": 3.2,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Glenn Phillips",
+              "player_id": "9a46c4e5",
+              "score": 34.8,
+              "rationale": "Bowling all-rounder",
+              "is_overseas": true,
+              "price_cr": 2.0,
+              "secondary_positions": []
+            }
+          ]
+        }
+      }
+    },
+    "LSG": {
+      "team": "LSG",
+      "team_name": "Lucknow Super Giants",
+      "overall_rating": 7.2,
+      "strongest_position": "#3 Batter",
+      "weakest_position": "Lead Spinner",
+      "vulnerabilities": [
+        "Opener: overseas dependent",
+        "#3 Batter: overseas dependent",
+        "Middle Order #4-5: overseas dependent",
+        "Finisher #6-7: overseas dependent",
+        "All-rounder (Batting-first): overseas dependent"
+      ],
+      "positions": {
+        "opener": {
+          "name": "Opener",
+          "rating": 7.8,
+          "what_works": "Elite #1 in nicholas pooran. quality backup in mitchell marsh",
+          "what_doesnt": "Overseas heavy (3 of 3). big gap between #1 and #2",
+          "overseas_count": 3,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Nicholas Pooran",
+              "player_id": "3241e3fd",
+              "score": 100.0,
+              "rationale": "Elite SR (183.9). PP Aggressor",
+              "is_overseas": true,
+              "price_cr": 21.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Mitchell Marsh",
+              "player_id": "3d8feaf8",
+              "score": 56.4,
+              "rationale": "Good SR (158.1). PP Dominator",
+              "is_overseas": true,
+              "price_cr": 3.4,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Aiden Markram",
+              "player_id": "6a26221c",
+              "score": 32.0,
+              "rationale": "Elite top-order",
+              "is_overseas": true,
+              "price_cr": 2.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "number_3": {
+          "name": "#3 Batter",
+          "rating": 10.0,
+          "what_works": "Elite #1 in nicholas pooran. quality backup in rishabh pant",
+          "what_doesnt": "Overseas heavy (2 of 3)",
+          "overseas_count": 2,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Nicholas Pooran",
+              "player_id": "3241e3fd",
+              "score": 100.0,
+              "rationale": "Strong in PP. Middle overs accelerator",
+              "is_overseas": true,
+              "price_cr": 21.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Rishabh Pant",
+              "player_id": "919a3be2",
+              "score": 90.8,
+              "rationale": "Highly adaptable",
+              "is_overseas": false,
+              "price_cr": 27.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Mitchell Marsh",
+              "player_id": "3d8feaf8",
+              "score": 77.7,
+              "rationale": "Strong in PP. Middle overs accelerator",
+              "is_overseas": true,
+              "price_cr": 3.4,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "middle_order": {
+          "name": "Middle Order #4-5",
+          "rating": 8.2,
+          "what_works": "Elite #1 in nicholas pooran. quality backup in rishabh pant",
+          "what_doesnt": "Overseas heavy (2 of 3)",
+          "overseas_count": 2,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Nicholas Pooran",
+              "player_id": "3241e3fd",
+              "score": 80.5,
+              "rationale": "Middle overs accelerator. Excellent vs spin",
+              "is_overseas": true,
+              "price_cr": 21.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Rishabh Pant",
+              "player_id": "919a3be2",
+              "score": 69.0,
+              "rationale": "Middle order batter",
+              "is_overseas": false,
+              "price_cr": 27.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Mitchell Marsh",
+              "player_id": "3d8feaf8",
+              "score": 57.5,
+              "rationale": "Middle overs accelerator",
+              "is_overseas": true,
+              "price_cr": 3.4,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "finisher": {
+          "name": "Finisher #6-7",
+          "rating": 7.8,
+          "what_works": "Elite #1 in rishabh pant. aiden markram as backup",
+          "what_doesnt": "Overseas heavy (2 of 3). big gap between #1 and #2",
+          "overseas_count": 2,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Rishabh Pant",
+              "player_id": "919a3be2",
+              "score": 98.9,
+              "rationale": "Death overs hitter. Six-hitting ability",
+              "is_overseas": false,
+              "price_cr": 27.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Aiden Markram",
+              "player_id": "6a26221c",
+              "score": 48.0,
+              "rationale": "Death specialist. Bowling utility",
+              "is_overseas": true,
+              "price_cr": 2.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Nicholas Pooran",
+              "player_id": "3241e3fd",
+              "score": 43.7,
+              "rationale": "Finisher",
+              "is_overseas": true,
+              "price_cr": 21.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "wicketkeeper": {
+          "name": "Wicketkeeper",
+          "rating": 8.5,
+          "what_works": "Elite #1 in rishabh pant. quality backup in nicholas pooran",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Rishabh Pant",
+              "player_id": "919a3be2",
+              "score": 84.5,
+              "rationale": "Primary keeper. Capable batter (score: 69)",
+              "is_overseas": false,
+              "price_cr": 27.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Nicholas Pooran",
+              "player_id": "3241e3fd",
+              "score": 71.8,
+              "rationale": "Primary keeper. Experienced keeper",
+              "is_overseas": true,
+              "price_cr": 21.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "lead_pacer": {
+          "name": "Lead Pacer",
+          "rating": 7.3,
+          "what_works": "Strong #1 with mohammed shami. quality backup in avesh khan",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Mohammed Shami",
+              "player_id": "8cf9814c",
+              "score": 70.4,
+              "rationale": "Proven wicket-taker",
+              "is_overseas": false,
+              "price_cr": 10.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Avesh Khan",
+              "player_id": "eef2536f",
+              "score": 64.0,
+              "rationale": "Lead pacer",
+              "is_overseas": false,
+              "price_cr": 9.75,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "supporting_pacer_pp": {
+          "name": "Supporting Pacer (PP Specialist)",
+          "rating": 7.5,
+          "what_works": "Strong #1 with mohammed shami. quality backup in mitchell marsh",
+          "what_doesnt": "Room for improvement at the top",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Mohammed Shami",
+              "player_id": "8cf9814c",
+              "score": 66.0,
+              "rationale": "PP specialist",
+              "is_overseas": false,
+              "price_cr": 10.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Mitchell Marsh",
+              "player_id": "3d8feaf8",
+              "score": 65.0,
+              "rationale": "PP wicket-taker (SR 12.0)",
+              "is_overseas": true,
+              "price_cr": 3.4,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Arjun Tendulkar",
+              "player_id": "44aac2f0",
+              "score": 62.0,
+              "rationale": "Elite PP economy (6.3)",
+              "is_overseas": false,
+              "price_cr": 0.3,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "supporting_pacer_death": {
+          "name": "Supporting Pacer (Death Specialist)",
+          "rating": 7.4,
+          "what_works": "Strong #1 with avesh khan. quality backup in akash singh",
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 0,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Avesh Khan",
+              "player_id": "eef2536f",
+              "score": 72.0,
+              "rationale": "Death specialist",
+              "is_overseas": false,
+              "price_cr": 9.75,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Akash Singh",
+              "player_id": "b483905d",
+              "score": 62.0,
+              "rationale": "Death wicket-taker (SR 6.0)",
+              "is_overseas": false,
+              "price_cr": 0.3,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Mohammed Shami",
+              "player_id": "8cf9814c",
+              "score": 46.0,
+              "rationale": "Death wicket-taker (SR 11.5)",
+              "is_overseas": false,
+              "price_cr": 10.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "lead_spinner": {
+          "name": "Lead Spinner",
+          "rating": 4.4,
+          "what_works": "Aiden markram leads. manimaran siddharth as backup",
+          "what_doesnt": "Weak backup option. no standout performer",
+          "overseas_count": 1,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Aiden Markram",
+              "player_id": "6a26221c",
+              "score": 47.0,
+              "rationale": "Lead spinner",
+              "is_overseas": true,
+              "price_cr": 2.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Manimaran Siddharth",
+              "player_id": "cf0ccafa",
+              "score": 39.0,
+              "rationale": "Lead spinner",
+              "is_overseas": false,
+              "price_cr": 0.75,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "allrounder_batting": {
+          "name": "All-rounder (Batting-first)",
+          "rating": 5.9,
+          "what_works": "Strong #1 with aiden markram. quality backup in mitchell marsh",
+          "what_doesnt": "Overseas heavy (3 of 3)",
+          "overseas_count": 3,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Aiden Markram",
+              "player_id": "6a26221c",
+              "score": 61.3,
+              "rationale": "Middle order capable (54). Bowls 4 overs",
+              "is_overseas": true,
+              "price_cr": 2.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Mitchell Marsh",
+              "player_id": "3d8feaf8",
+              "score": 54.1,
+              "rationale": "Middle order capable (58). Bowls 4 overs",
+              "is_overseas": true,
+              "price_cr": 3.4,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Wanindu Hasaranga",
+              "player_id": "a97c8ec2",
+              "score": 33.7,
+              "rationale": "Bowls 4 overs",
+              "is_overseas": true,
+              "price_cr": 7.0,
+              "secondary_positions": []
+            }
+          ]
+        },
+        "allrounder_bowling": {
+          "name": "All-rounder (Bowling-first)",
+          "rating": 4.6,
+          "what_works": "Mitchell marsh leads. aiden markram as backup",
+          "what_doesnt": "No standout performer. overseas heavy (3 of 3)",
+          "overseas_count": 3,
+          "players": [
+            {
+              "rank": 1,
+              "name": "Mitchell Marsh",
+              "player_id": "3d8feaf8",
+              "score": 48.9,
+              "rationale": "Handy bat (58). SR 158",
+              "is_overseas": true,
+              "price_cr": 3.4,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Aiden Markram",
+              "player_id": "6a26221c",
+              "score": 48.9,
+              "rationale": "Handy bat (54)",
+              "is_overseas": true,
+              "price_cr": 2.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Wanindu Hasaranga",
+              "player_id": "a97c8ec2",
+              "score": 35.2,
+              "rationale": "Bowling all-rounder",
+              "is_overseas": true,
+              "price_cr": 7.0,
+              "secondary_positions": []
+            }
+          ]
+        }
+      }
+    }
+  },
+  "cross_team_comparison": {
+    "CSK": {
+      "opener": 7.0,
+      "number_3": 10.0,
+      "middle_order": 9.0,
+      "finisher": 8.0,
+      "wicketkeeper": 7.4,
+      "lead_pacer": 4.6,
+      "lead_spinner": 6.4,
+      "allrounder": 4.8,
+      "overall": 6.9
+    },
+    "MI": {
+      "opener": 8.9,
+      "number_3": 10.0,
+      "middle_order": 10.0,
+      "finisher": 10.0,
+      "wicketkeeper": 4.1,
+      "lead_pacer": 9.9,
+      "lead_spinner": 6.9,
+      "allrounder": 8.1,
+      "overall": 8.6
+    },
+    "RCB": {
+      "opener": 10.0,
+      "number_3": 10.0,
+      "middle_order": 10.0,
+      "finisher": 9.8,
+      "wicketkeeper": 9.5,
+      "lead_pacer": 8.2,
+      "lead_spinner": 6.0,
+      "allrounder": 4.7,
+      "overall": 8.1
+    },
+    "KKR": {
+      "opener": 9.7,
+      "number_3": 10.0,
+      "middle_order": 5.6,
+      "finisher": 7.1,
+      "wicketkeeper": 2.5,
+      "lead_pacer": 7.3,
+      "lead_spinner": 8.4,
+      "allrounder": 6.2,
+      "overall": 6.9
+    },
+    "DC": {
+      "opener": 8.2,
+      "number_3": 8.6,
+      "middle_order": 7.9,
+      "finisher": 8.9,
+      "wicketkeeper": 6.8,
+      "lead_pacer": 7.1,
+      "lead_spinner": 8.0,
+      "allrounder": 6.4,
+      "overall": 7.3
+    },
+    "PBKS": {
+      "opener": 8.4,
+      "number_3": 10.0,
+      "middle_order": 9.1,
+      "finisher": 9.7,
+      "wicketkeeper": 5.3,
+      "lead_pacer": 7.1,
+      "lead_spinner": 6.9,
+      "allrounder": 6.2,
+      "overall": 7.4
+    },
+    "RR": {
+      "opener": 9.1,
+      "number_3": 10.0,
+      "middle_order": 5.4,
+      "finisher": 9.6,
+      "wicketkeeper": 5.0,
+      "lead_pacer": 7.1,
+      "lead_spinner": 7.6,
+      "allrounder": 8.1,
+      "overall": 7.7
+    },
+    "SRH": {
+      "opener": 10.0,
+      "number_3": 10.0,
+      "middle_order": 6.6,
+      "finisher": 10.0,
+      "wicketkeeper": 8.6,
+      "lead_pacer": 6.5,
+      "lead_spinner": 6.0,
+      "allrounder": 6.0,
+      "overall": 7.4
+    },
+    "GT": {
+      "opener": 10.0,
+      "number_3": 10.0,
+      "middle_order": 9.4,
+      "finisher": 9.3,
+      "wicketkeeper": 7.4,
+      "lead_pacer": 7.7,
+      "lead_spinner": 7.1,
+      "allrounder": 4.0,
+      "overall": 7.4
+    },
+    "LSG": {
+      "opener": 7.8,
+      "number_3": 10.0,
+      "middle_order": 8.2,
+      "finisher": 7.8,
+      "wicketkeeper": 8.5,
+      "lead_pacer": 7.3,
+      "lead_spinner": 4.4,
+      "allrounder": 5.2,
+      "overall": 7.2
+    }
+  }
+}

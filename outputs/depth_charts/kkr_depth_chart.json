@@ -1,0 +1,415 @@
+{
+  "team": "KKR",
+  "team_name": "Kolkata Knight Riders",
+  "overall_rating": 6.9,
+  "strongest_position": "#3 Batter",
+  "weakest_position": "Wicketkeeper",
+  "vulnerabilities": [
+    "Opener: overseas dependent",
+    "#3 Batter: overseas dependent",
+    "Wicketkeeper: overseas dependent",
+    "All-rounder (Batting-first): overseas dependent",
+    "All-rounder (Bowling-first): overseas dependent"
+  ],
+  "positions": {
+    "opener": {
+      "name": "Opener",
+      "rating": 9.7,
+      "what_works": "Elite #1 in sunil narine. quality backup in cameron green",
+      "what_doesnt": "Overseas heavy (2 of 3)",
+      "overseas_count": 2,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Sunil Narine",
+          "player_id": "9d430b40",
+          "score": 100.0,
+          "rationale": "Franchise opener. Elite SR (172.0)",
+          "is_overseas": true,
+          "price_cr": 12.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Cameron Green",
+          "player_id": "eaa76d3c",
+          "score": 86.2,
+          "rationale": "Good SR (154.7). PP Dominator",
+          "is_overseas": true,
+          "price_cr": 25.2,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Ajinkya Rahane",
+          "player_id": "29e95537",
+          "score": 56.5,
+          "rationale": "PP Dominator. Elite top-order",
+          "is_overseas": false,
+          "price_cr": 1.5,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "number_3": {
+      "name": "#3 Batter",
+      "rating": 10.0,
+      "what_works": "Elite #1 in sunil narine. quality backup in cameron green",
+      "what_doesnt": "Overseas heavy (2 of 3)",
+      "overseas_count": 2,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Sunil Narine",
+          "player_id": "9d430b40",
+          "score": 100.0,
+          "rationale": "Strong in PP. Middle overs accelerator",
+          "is_overseas": true,
+          "price_cr": 12.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Cameron Green",
+          "player_id": "eaa76d3c",
+          "score": 100.0,
+          "rationale": "Strong in PP",
+          "is_overseas": true,
+          "price_cr": 25.2,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Rinku Singh",
+          "player_id": "0a509d6b",
+          "score": 77.6,
+          "rationale": "Highly adaptable",
+          "is_overseas": false,
+          "price_cr": 13.0,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "middle_order": {
+      "name": "Middle Order #4-5",
+      "rating": 5.6,
+      "what_works": "Rinku singh leads. quality backup in manish pandey",
+      "what_doesnt": "Room for improvement at the top",
+      "overseas_count": 0,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Rinku Singh",
+          "player_id": "0a509d6b",
+          "score": 54.7,
+          "rationale": "Middle overs anchor",
+          "is_overseas": false,
+          "price_cr": 13.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Manish Pandey",
+          "player_id": "93b4fc78",
+          "score": 52.6,
+          "rationale": "Middle overs anchor",
+          "is_overseas": false,
+          "price_cr": 0.75,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Angkrish Raghuvanshi",
+          "player_id": "d7017798",
+          "score": 37.2,
+          "rationale": "Middle order batter",
+          "is_overseas": false,
+          "price_cr": 3.0,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "finisher": {
+      "name": "Finisher #6-7",
+      "rating": 7.1,
+      "what_works": "Strong #1 with rinku singh. quality backup in cameron green",
+      "what_doesnt": "Minimal concerns",
+      "overseas_count": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Rinku Singh",
+          "player_id": "0a509d6b",
+          "score": 79.2,
+          "rationale": "Death overs finisher. Six-hitting ability",
+          "is_overseas": false,
+          "price_cr": 13.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Cameron Green",
+          "player_id": "eaa76d3c",
+          "score": 67.8,
+          "rationale": "Death overs finisher. Bowling utility",
+          "is_overseas": true,
+          "price_cr": 25.2,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Rahul Tripathi",
+          "player_id": "77255a9e",
+          "score": 32.0,
+          "rationale": "All-round finisher. Bowling utility",
+          "is_overseas": false,
+          "price_cr": 2.0,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "wicketkeeper": {
+      "name": "Wicketkeeper",
+      "rating": 2.5,
+      "what_works": "Finn allen leads. tim seifert as backup",
+      "what_doesnt": "Weak backup option. no standout performer",
+      "overseas_count": 2,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Finn Allen",
+          "player_id": "b52ffbbd",
+          "score": 25.0,
+          "rationale": "Wicketkeeper",
+          "is_overseas": true,
+          "price_cr": 0.3,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Tim Seifert",
+          "player_id": "4663bd23",
+          "score": 25.0,
+          "rationale": "Wicketkeeper",
+          "is_overseas": true,
+          "price_cr": 0.3,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "lead_pacer": {
+      "name": "Lead Pacer",
+      "rating": 7.3,
+      "what_works": "Strong #1 with matheesha pathirana. quality backup in harshit rana",
+      "what_doesnt": "Minimal concerns",
+      "overseas_count": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Matheesha Pathirana",
+          "player_id": "64839cb3",
+          "score": 75.9,
+          "rationale": "Franchise lead pacer (18.0 Cr)",
+          "is_overseas": true,
+          "price_cr": 18.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Harshit Rana",
+          "player_id": "77b1aa15",
+          "score": 54.0,
+          "rationale": "Lead pacer",
+          "is_overseas": false,
+          "price_cr": 4.0,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "supporting_pacer_pp": {
+      "name": "Supporting Pacer (PP Specialist)",
+      "rating": 3.9,
+      "what_works": "Harshit rana leads. cameron green as backup",
+      "what_doesnt": "Weak backup option. no standout performer",
+      "overseas_count": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Harshit Rana",
+          "player_id": "77b1aa15",
+          "score": 41.0,
+          "rationale": "PP specialist",
+          "is_overseas": false,
+          "price_cr": 4.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Cameron Green",
+          "player_id": "eaa76d3c",
+          "score": 37.0,
+          "rationale": "PP specialist",
+          "is_overseas": true,
+          "price_cr": 25.2,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Vaibhav Arora",
+          "player_id": "7c3b3b78",
+          "score": 35.0,
+          "rationale": "PP specialist",
+          "is_overseas": false,
+          "price_cr": 1.8,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "supporting_pacer_death": {
+      "name": "Supporting Pacer (Death Specialist)",
+      "rating": 8.7,
+      "what_works": "Elite #1 in matheesha pathirana. quality backup in harshit rana",
+      "what_doesnt": "Minimal concerns",
+      "overseas_count": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Matheesha Pathirana",
+          "player_id": "64839cb3",
+          "score": 87.0,
+          "rationale": "Death wicket-taker (SR 9.9)",
+          "is_overseas": true,
+          "price_cr": 18.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Harshit Rana",
+          "player_id": "77b1aa15",
+          "score": 77.0,
+          "rationale": "Death wicket-taker (SR 11.2)",
+          "is_overseas": false,
+          "price_cr": 4.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Vaibhav Arora",
+          "player_id": "7c3b3b78",
+          "score": 54.0,
+          "rationale": "Death wicket-taker (SR 8.2)",
+          "is_overseas": false,
+          "price_cr": 1.8,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "lead_spinner": {
+      "name": "Lead Spinner",
+      "rating": 8.4,
+      "what_works": "Strong #1 with sunil narine. quality backup in varun chakravarthy",
+      "what_doesnt": "Minimal concerns",
+      "overseas_count": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Sunil Narine",
+          "player_id": "9d430b40",
+          "score": 79.2,
+          "rationale": "Lead spinner",
+          "is_overseas": true,
+          "price_cr": 12.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Varun Chakravarthy",
+          "player_id": "5b7ab5a9",
+          "score": 78.1,
+          "rationale": "Wicket-taker (SR 14.9)",
+          "is_overseas": false,
+          "price_cr": 12.0,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "allrounder_batting": {
+      "name": "All-rounder (Batting-first)",
+      "rating": 5.5,
+      "what_works": "Strong #1 with cameron green. sunil narine as backup",
+      "what_doesnt": "Weak backup option. overseas heavy (2 of 3)",
+      "overseas_count": 2,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Cameron Green",
+          "player_id": "eaa76d3c",
+          "score": 71.8,
+          "rationale": "Strong finisher (68). Bowls 4 overs",
+          "is_overseas": true,
+          "price_cr": 25.2,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Sunil Narine",
+          "player_id": "9d430b40",
+          "score": 38.5,
+          "rationale": "Bowls 4 overs",
+          "is_overseas": true,
+          "price_cr": 12.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Anukul Roy",
+          "player_id": "e4cdf230",
+          "score": 35.8,
+          "rationale": "Bowls 4 overs",
+          "is_overseas": false,
+          "price_cr": 0.4,
+          "secondary_positions": []
+        }
+      ]
+    },
+    "allrounder_bowling": {
+      "name": "All-rounder (Bowling-first)",
+      "rating": 6.9,
+      "what_works": "Strong #1 with sunil narine. quality backup in cameron green",
+      "what_doesnt": "Overseas heavy (2 of 3)",
+      "overseas_count": 2,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Sunil Narine",
+          "player_id": "9d430b40",
+          "score": 64.6,
+          "rationale": "Primary bowler (79). SR 172",
+          "is_overseas": true,
+          "price_cr": 12.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Cameron Green",
+          "player_id": "eaa76d3c",
+          "score": 57.8,
+          "rationale": "SR 155",
+          "is_overseas": true,
+          "price_cr": 25.2,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Anukul Roy",
+          "player_id": "e4cdf230",
+          "score": 48.8,
+          "rationale": "Primary bowler (66)",
+          "is_overseas": false,
+          "price_cr": 0.4,
+          "secondary_positions": []
+        }
+      ]
+    }
+  }
+}

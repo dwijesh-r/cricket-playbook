@@ -2,7 +2,7 @@
 
 **IPL 2026 Analytics Platform** for editorial and broadcast use.
 
-**Version:** 3.1.0 | **Sprint:** 3.1 | **Last Updated:** 2026-01-26
+**Version:** 4.0.0 | **Sprint:** 4.0 | **Last Updated:** 2026-02-02
 
 ---
 
@@ -16,6 +16,8 @@ Cricket Playbook is a comprehensive cricket analytics system built on ball-by-ba
 - Multi-tag player classification system (specialist, vulnerable, phase tags)
 - Team stat packs with Andy Flower's tactical insights
 - 2023-2025 data focus for current player form analysis
+- **NEW:** Predicted XII - Algorithm-generated optimal playing XI + Impact Player
+- **NEW:** Depth Charts - Position-by-position rankings with ratings (0-10 scale)
 
 ---
 
@@ -27,8 +29,10 @@ Welcome to Cricket Playbook. Here's how to get your bearings:
 
 ### First 5 Minutes
 1. **Read this README** - You're doing it. Good start.
-2. **Check `docs/KANBAN.md`** - See what we're working on right now (Sprint 3.1)
+2. **Check `docs/KANBAN.md`** - See what we're working on right now (Sprint 4.0)
 3. **Browse `stat_packs/`** - Open any team file (try `MI_stat_pack.md`). This is what we produce.
+4. **Check `outputs/predicted_xii/`** - See our algorithm-generated best XIs
+5. **Check `outputs/depth_charts/`** - See position-by-position team rankings
 
 ### Understanding the Data Flow
 ```
@@ -48,6 +52,8 @@ scripts/generators/generate_stat_packs.py → stat_packs/
 | You Want | Go Here |
 |----------|---------|
 | See the final product | `stat_packs/*.md` |
+| See predicted best XIs | `outputs/predicted_xii/` |
+| See team depth charts | `outputs/depth_charts/` |
 | Understand player tags | `outputs/tags/player_tags.json` |
 | Run SQL queries | `notebooks/view_explorer.ipynb` |
 | See how we classify players | `scripts/analysis/player_clustering_v2.py` |
@@ -331,7 +337,8 @@ python scripts/utils/validate_outputs.py
 
 | Version | Date | Changes |
 |---------|------|---------|
-| **v3.1.0** | 2026-01-26 | Repo restructure, PFF/KenPom research, comprehensive READMEs |
+| **v4.0.0** | 2026-02-02 | Predicted XII algorithm, Depth Charts, Task Integrity Loop governance |
+| v3.1.0 | 2026-01-26 | Repo restructure, PFF/KenPom research, comprehensive READMEs |
 | v3.0.1 | 2026-01-26 | Sprint 3.0: 16 new 2023+ outputs, entry point audit, player ID audit |
 | v2.9.0 | 2026-01-25 | CI/CD (GitHub Actions, pre-commit), DEATH_LIABILITY threshold fix |
 | v2.8.0 | 2026-01-25 | 2023+ data filter, standardized cluster labels, Andy Flower review |
@@ -345,16 +352,23 @@ python scripts/utils/validate_outputs.py
 
 ## Sprint Roadmap
 
-### Current: Sprint 3.1 - Founder Review #5 Preparation
+### Current: Sprint 4.0 - Foundation & Editorial Excellence
 
 | Priority | Task | Owner | Status |
 |----------|------|-------|--------|
 | P0 | Fix 15 player ID mismatches | Brock Purdy | To Do |
 | P0 | Regenerate outputs with fixed IDs | Stephen Curry | Blocked |
-| P1 | Repo restructure Phase 2 | Brad Stevens | In Progress |
+| P1 | Tactical Insights Review | Andy Flower | To Do |
 | P2 | Great Expectations integration | Brock Purdy | To Do |
 
-### Backlog
+### Completed in Sprint 4.0
+- Predicted XII algorithm (all 10 teams)
+- Depth Charts (all 10 teams)
+- Task Integrity Loop governance
+- Constitution v2.0
+
+### Backlog (Sprint 5.0+)
+- KenPom/CricPom Implementation
 - REST API (FastAPI)
 - Win Probability Model
 - Player Form Tracker
@@ -408,4 +422,4 @@ Internal use only - Cricket Playbook Editorial Team
 
 ---
 
-*Cricket Playbook v3.1.0 - IPL 2026 Analytics Platform*
+*Cricket Playbook v4.0.0 - IPL 2026 Analytics Platform*

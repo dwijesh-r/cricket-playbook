@@ -2,7 +2,7 @@
 
 Generated data artifacts organized by category.
 
-**Version:** 3.1.0 | **Data Range:** IPL 2023-2025 (219 matches) | **Last Updated:** 2026-01-26
+**Version:** 4.0.0 | **Data Range:** IPL 2023-2025 (219 matches) | **Last Updated:** 2026-02-02
 
 ---
 
@@ -13,6 +13,16 @@ outputs/
 ├── README.md               # This file
 ├── manifest.json           # Output manifest with metadata
 ├── schema.md               # Schema documentation
+│
+├── predicted_xii/          # NEW: Predicted playing XII per team
+│   ├── predicted_xii_2026.json
+│   ├── {team}_predicted_xii.json
+│   └── README.md
+│
+├── depth_charts/           # NEW: Position-by-position rankings
+│   ├── depth_charts_2026.json
+│   ├── {team}_depth_chart.json
+│   └── README.md
 │
 ├── tags/                   # Player classification files
 │   ├── player_tags.json
@@ -46,6 +56,51 @@ outputs/
     ├── team_venue_records_by_year.csv
     └── ipl_2026_squad_experience.csv
 ```
+
+---
+
+## Predicted XII (`predicted_xii/`) - NEW in v4.0
+
+Algorithm-generated optimal playing XI + Impact Player for all 10 IPL 2026 teams.
+
+| File | Description |
+|------|-------------|
+| `predicted_xii_2026.json` | Consolidated predictions for all teams |
+| `{team}_predicted_xii.json` | Individual team files (e.g., `mi_predicted_xii.json`) |
+
+**Features:**
+- Constraint-satisfaction algorithm (max 4 overseas, min 5 bowling options, at least 1 spinner)
+- Role-based selection with batting position assignment
+- Impact Player recommendation
+- Balance metrics (overseas count, bowling options, left-handers in top 6)
+
+See `predicted_xii/README.md` for full methodology.
+
+---
+
+## Depth Charts (`depth_charts/`) - NEW in v4.0
+
+Position-by-position player rankings for all 10 IPL 2026 teams.
+
+| File | Description |
+|------|-------------|
+| `depth_charts_2026.json` | Consolidated depth charts for all teams |
+| `{team}_depth_chart.json` | Individual team files (e.g., `mi_depth_chart.json`) |
+
+**9 Positions Ranked:**
+1. Opener (Top 3)
+2. #3 Batter (Top 3)
+3. Middle Order #4-5 (Top 3)
+4. Finisher #6-7 (Top 3)
+5. Wicketkeeper (Primary + Backup)
+6. Lead Pacer (Top 2)
+7. Supporting Pacer - PP & Death Specialists (Top 3 each)
+8. Lead Spinner (Top 2)
+9. All-rounder - Batting & Bowling first (Top 3 each)
+
+**Rating System:** 0-10 scale with decimals + "what works" / "what doesn't" descriptions.
+
+See `depth_charts/README.md` for full methodology.
 
 ---
 
@@ -183,6 +238,10 @@ python scripts/analysis/player_clustering_v2.py
 python scripts/analysis/batter_bowling_type_matchup.py
 python scripts/analysis/bowler_handedness_matchup.py
 python scripts/generators/sprint_3_p1_features.py
+
+# Generate new Sprint 4.0 outputs
+python scripts/generators/generate_predicted_xii.py
+python scripts/generators/generate_depth_charts.py
 ```
 
 ---
@@ -196,4 +255,4 @@ python scripts/generators/sprint_3_p1_features.py
 
 ---
 
-*Cricket Playbook v3.1.0*
+*Cricket Playbook v4.0.0*

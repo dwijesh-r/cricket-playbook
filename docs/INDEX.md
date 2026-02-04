@@ -13,7 +13,8 @@
 - [PRD](./PRD_CRICKET_PLAYBOOK.md) - Product requirements document
 
 ### Sprint Documentation
-- [Sprint 4 Plan](./SPRINT_4_PLAN.md) - Current sprint
+- [Sprint 4 Status](./sprints/SPRINT_4_STATUS_020426.md) - **Current status (2026-02-04)**
+- [Sprint 4 Plan](./SPRINT_4_PLAN.md) - Sprint plan and task breakdown
 - [Review 5 Action Plan](./REVIEW_5_ACTION_PLAN.md) - Founder Review #5 response
 - [Archived Kanban (Sprint 3)](./archive/KANBAN_sprint_3_012626_v1.md) - Historical reference
 

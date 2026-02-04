@@ -1,0 +1,218 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "ticket.schema.json",
+  "title": "Mission Control Ticket",
+  "description": "Schema for tickets in the Mission Control task board",
+  "type": "object",
+  "required": ["id", "title", "state", "priority", "created_at"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^TKT-\\d{3,}$",
+      "description": "Unique ticket identifier"
+    },
+    "epic_id": {
+      "type": "string",
+      "pattern": "^EPIC-\\d{3,}$",
+      "description": "Parent EPIC reference"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Short title of the ticket"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the work"
+    },
+    "state": {
+      "type": "string",
+      "enum": ["IDEA", "BACKLOG", "READY", "RUNNING", "BLOCKED", "REVIEW", "VALIDATION", "DONE"],
+      "description": "Current workflow state"
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["P0", "P1", "P2", "P3"],
+      "default": "P2",
+      "description": "Priority level (P0 = highest)"
+    },
+    "owner": {
+      "type": "string",
+      "description": "Agent responsible for the ticket"
+    },
+    "assignee": {
+      "type": "string",
+      "description": "Agent currently working on the ticket"
+    },
+    "sprint_id": {
+      "type": "string",
+      "pattern": "^SPRINT-\\d+$",
+      "description": "Sprint this ticket is assigned to"
+    },
+    "llm_required": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this ticket requires LLM usage"
+    },
+    "llm_budget_tokens": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Allocated token budget for LLM usage"
+    },
+    "llm_approved_by": {
+      "type": "string",
+      "description": "Who approved the LLM budget"
+    },
+    "subtasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "status"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^ST-\\d+$",
+            "description": "Subtask identifier"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "status": {
+            "type": "string",
+            "enum": ["pending", "in_progress", "done"]
+          },
+          "assignee": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Subtasks for this ticket"
+    },
+    "gates": {
+      "type": "object",
+      "properties": {
+        "florentino_gate": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["PENDING", "APPROVED", "ANALYTICS_ONLY", "NOT_APPROVED"]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+        "domain_sanity": {
+          "type": "object",
+          "properties": {
+            "jose_mourinho": {
+              "type": "string",
+              "enum": ["PENDING", "YES", "NO", "FIX"]
+            },
+            "andy_flower": {
+              "type": "string",
+              "enum": ["PENDING", "YES", "NO", "FIX"]
+            },
+            "pep_guardiola": {
+              "type": "string",
+              "enum": ["PENDING", "YES", "NO", "FIX"]
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+        "enforcement_check": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["PENDING", "PASS", "FAIL"]
+            },
+            "issues": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+        "system_check": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["PENDING", "PASS", "FAIL"]
+            },
+            "tests_passed": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "tests_total": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+        "founder_validation": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["PENDING", "APPROVED", "CHANGES_REQUESTED"]
+            },
+            "feedback": {
+              "type": "string"
+            },
+            "validated_by": {
+              "type": "string",
+              "const": "Founder"
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        }
+      },
+      "description": "Governance gate statuses"
+    },
+    "progress_pct": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "default": 0,
+      "description": "Completion percentage"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Ticket creation timestamp"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last update timestamp"
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Completion timestamp"
+    }
+  }
+}

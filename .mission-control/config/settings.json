@@ -1,0 +1,38 @@
+{
+  "mission_control": {
+    "version": "0.1.0",
+    "name": "Cricket Playbook Mission Control"
+  },
+  "workflow": {
+    "states": ["IDEA", "BACKLOG", "READY", "RUNNING", "BLOCKED", "REVIEW", "VALIDATION", "DONE"],
+    "initial_state": "IDEA",
+    "terminal_state": "DONE",
+    "priorities": ["P0", "P1", "P2", "P3"],
+    "default_priority": "P2"
+  },
+  "sprint": {
+    "default_duration_weeks": 2,
+    "archive_after_sprints": 4
+  },
+  "llm": {
+    "require_approval": true,
+    "default_budget_tokens": 100000
+  },
+  "paths": {
+    "data_dir": "data",
+    "config_dir": "config",
+    "indexes_dir": "indexes",
+    "views_dir": "views",
+    "logs_dir": "logs"
+  },
+  "id_prefixes": {
+    "ticket": "TKT",
+    "epic": "EPIC",
+    "sprint": "SPRINT",
+    "subtask": "ST"
+  },
+  "audit": {
+    "enabled": true,
+    "log_file": "logs/audit.jsonl"
+  }
+}

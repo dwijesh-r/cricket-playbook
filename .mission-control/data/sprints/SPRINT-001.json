@@ -1,0 +1,21 @@
+{
+  "id": "SPRINT-001",
+  "title": "Sprint 4",
+  "start_date": "2026-01-31",
+  "end_date": "2026-02-14",
+  "duration_weeks": 2,
+  "epics": [],
+  "tickets": [],
+  "llm_budget": {
+    "total_tokens": 100000,
+    "used_tokens": 0
+  },
+  "velocity": {
+    "planned_points": 0,
+    "completed_points": 0,
+    "burndown": []
+  },
+  "status": "ACTIVE",
+  "created_at": "2026-02-04T16:18:57.109009Z",
+  "updated_at": "2026-02-04T16:18:57.554479Z"
+}

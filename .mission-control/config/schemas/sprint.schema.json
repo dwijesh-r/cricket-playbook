@@ -1,0 +1,123 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "sprint.schema.json",
+  "title": "Mission Control Sprint",
+  "description": "Schema for Sprints in the Mission Control task board",
+  "type": "object",
+  "required": ["id", "title", "start_date", "end_date", "created_at"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^SPRINT-\\d+$",
+      "description": "Unique sprint identifier"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 150,
+      "description": "Sprint title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Sprint goals and description"
+    },
+    "duration_weeks": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4,
+      "default": 2,
+      "description": "Sprint duration in weeks"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Sprint start date"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Sprint end date"
+    },
+    "epics": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^EPIC-\\d{3,}$"
+      },
+      "description": "List of EPIC IDs in this sprint"
+    },
+    "tickets": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^TKT-\\d{3,}$"
+      },
+      "description": "List of ticket IDs in this sprint"
+    },
+    "llm_budget": {
+      "type": "object",
+      "properties": {
+        "total_tokens": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total allocated token budget"
+        },
+        "used_tokens": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0,
+          "description": "Tokens used so far"
+        },
+        "approved_by": {
+          "type": "string",
+          "description": "Who approved the budget"
+        },
+        "approved_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date budget was approved"
+        }
+      },
+      "description": "LLM token budget for the sprint"
+    },
+    "velocity": {
+      "type": "object",
+      "properties": {
+        "planned_points": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Story points planned for sprint"
+        },
+        "completed_points": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0,
+          "description": "Story points completed"
+        },
+        "burndown": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "description": "Daily burndown values"
+        }
+      },
+      "description": "Sprint velocity metrics"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["PLANNING", "ACTIVE", "COMPLETED", "CANCELLED"],
+      "default": "PLANNING",
+      "description": "Current sprint status"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Sprint creation timestamp"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last update timestamp"
+    }
+  }
+}

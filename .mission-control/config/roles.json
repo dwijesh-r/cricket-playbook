@@ -1,0 +1,125 @@
+{
+  "roles": {
+    "founder": {
+      "name": "Founder",
+      "description": "Final validation & override authority",
+      "agents": [],
+      "permissions": [
+        "create_epic",
+        "create_ticket",
+        "approve_gate_florentino",
+        "assign_to_sprint",
+        "domain_sanity",
+        "system_check",
+        "final_validation",
+        "mark_done",
+        "override_any"
+      ]
+    },
+    "product_owner": {
+      "name": "Product Owner",
+      "description": "Scope & priority decisions",
+      "agents": ["Florentino Perez"],
+      "permissions": [
+        "create_epic",
+        "create_ticket",
+        "approve_gate_florentino"
+      ]
+    },
+    "delivery_owner": {
+      "name": "Delivery Owner",
+      "description": "Workflow & execution management",
+      "agents": ["Tom Brady"],
+      "permissions": [
+        "create_epic",
+        "create_ticket",
+        "assign_to_sprint",
+        "resolve_blocker"
+      ]
+    },
+    "executor": {
+      "name": "Executor",
+      "description": "Build deliverables",
+      "agents": ["Stephen Curry", "Virat Kohli", "Kevin de Bruyne", "Brock Purdy"],
+      "permissions": [
+        "create_ticket",
+        "pick_up_ticket",
+        "submit_for_review"
+      ]
+    },
+    "validator": {
+      "name": "Validator",
+      "description": "Domain sanity checks",
+      "agents": ["Jose Mourinho", "Andy Flower", "Pep Guardiola"],
+      "permissions": [
+        "domain_sanity"
+      ]
+    },
+    "qa": {
+      "name": "QA",
+      "description": "System check & quality assurance",
+      "agents": ["N'Golo Kanté"],
+      "permissions": [
+        "system_check"
+      ]
+    },
+    "architect": {
+      "name": "Architect",
+      "description": "Governance & architecture review",
+      "agents": ["Brad Stevens"],
+      "permissions": [
+        "governance_review"
+      ]
+    },
+    "ml_ops": {
+      "name": "ML Ops",
+      "description": "Model & deployment management",
+      "agents": ["Ime Udoka"],
+      "permissions": [
+        "ml_deployment"
+      ]
+    }
+  },
+  "state_transitions": {
+    "IDEA_to_BACKLOG": {
+      "required_by": ["founder", "product_owner"],
+      "gate": "florentino_gate"
+    },
+    "BACKLOG_to_READY": {
+      "required_by": ["founder", "delivery_owner"],
+      "condition": "sprint_assigned"
+    },
+    "READY_to_RUNNING": {
+      "required_by": ["executor"],
+      "condition": "agent_picks_up"
+    },
+    "RUNNING_to_REVIEW": {
+      "required_by": ["executor"],
+      "condition": "work_submitted"
+    },
+    "RUNNING_to_BLOCKED": {
+      "required_by": ["founder", "product_owner", "delivery_owner", "executor", "validator", "qa"],
+      "condition": "blocker_identified"
+    },
+    "BLOCKED_to_READY": {
+      "required_by": ["founder", "delivery_owner"],
+      "condition": "blocker_resolved"
+    },
+    "REVIEW_to_VALIDATION": {
+      "required_by": ["qa"],
+      "condition": "all_technical_gates_pass"
+    },
+    "REVIEW_to_RUNNING": {
+      "required_by": ["validator", "qa"],
+      "condition": "gate_fix_required"
+    },
+    "VALIDATION_to_DONE": {
+      "required_by": ["founder"],
+      "gate": "founder_validation"
+    },
+    "VALIDATION_to_RUNNING": {
+      "required_by": ["founder"],
+      "condition": "founder_requests_changes"
+    }
+  }
+}

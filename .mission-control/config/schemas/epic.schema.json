@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "epic.schema.json",
+  "title": "Mission Control EPIC",
+  "description": "Schema for EPICs in the Mission Control task board",
+  "type": "object",
+  "required": ["id", "title", "owner", "created_at"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^EPIC-\\d{3,}$",
+      "description": "Unique EPIC identifier"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 150,
+      "description": "EPIC title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the EPIC"
+    },
+    "owner": {
+      "type": "string",
+      "description": "Agent responsible for the EPIC"
+    },
+    "sprint_id": {
+      "type": "string",
+      "pattern": "^SPRINT-\\d+$",
+      "description": "Sprint this EPIC is assigned to"
+    },
+    "tickets": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^TKT-\\d{3,}$"
+      },
+      "description": "List of ticket IDs in this EPIC"
+    },
+    "progress_pct": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "default": 0,
+      "description": "Roll-up completion percentage from tickets"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["PLANNING", "ACTIVE", "COMPLETED", "ARCHIVED"],
+      "default": "PLANNING",
+      "description": "Current EPIC status"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "EPIC creation timestamp"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last update timestamp"
+    },
+    "target_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Target completion date"
+    }
+  }
+}

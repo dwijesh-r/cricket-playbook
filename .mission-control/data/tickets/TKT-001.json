@@ -1,0 +1,44 @@
+{
+  "id": "TKT-001",
+  "title": "Implement Mission Control Phase 2",
+  "state": "DONE",
+  "priority": "P0",
+  "progress_pct": 100,
+  "owner": "Tom Brady",
+  "assignee": "Stephen Curry",
+  "sprint_id": "SPRINT-001",
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "Critical for sprint 4 delivery",
+      "approved_by": "Florentino Perez",
+      "date": "2026-02-04"
+    },
+    "domain_sanity": {
+      "andy_flower": "YES",
+      "date": "2026-02-04"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "issues": [],
+      "checked_by": "Brad Stevens",
+      "date": "2026-02-04"
+    },
+    "system_check": {
+      "status": "PASS",
+      "tests_passed": 25,
+      "tests_total": 25,
+      "checked_by": "N'Golo Kanté",
+      "date": "2026-02-04"
+    },
+    "founder_validation": {
+      "status": "APPROVED",
+      "feedback": "Great work! All gates passed. Ship it.",
+      "validated_by": "Founder",
+      "date": "2026-02-04"
+    }
+  },
+  "created_at": "2026-02-04T16:18:46.474435Z",
+  "updated_at": "2026-02-04T16:19:32.347193Z",
+  "completed_at": "2026-02-04T16:19:32.345658Z"
+}

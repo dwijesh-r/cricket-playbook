@@ -139,12 +139,25 @@ Home venue characteristics influence team composition:
 python scripts/generators/generate_predicted_xii.py
 ```
 
+## UI Wireframes
+
+See `docs/specs/WIREFRAMES_V1.md` for the V6 wireframe specification for Predicted XII views.
+
+**Wireframe Features:**
+- Mobile-first design (393px × 852px)
+- Tabular format for XI display
+- Balance box with overseas count
+- Archetype breakdown with phase coverage
+- Rest of Squad section
+- Algorithm confidence notes
+
 ## Version History
 
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | 2026-02-01 | Initial generation with constraint-satisfaction algorithm |
 | 1.1 | 2026-02-02 | Fixed overseas detection, improved batting position logic |
+| 1.2 | 2026-02-04 | Added nationality/age data, wireframes V6 reference |
 
 ## Author
 

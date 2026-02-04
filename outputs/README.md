@@ -2,7 +2,7 @@
 
 Generated data artifacts organized by category.
 
-**Version:** 4.0.0 | **Data Range:** IPL 2023-2025 (219 matches) | **Last Updated:** 2026-02-02
+**Version:** 4.0.0 | **Data Range:** IPL 2023-2025 (219 matches) | **Last Updated:** 2026-02-04
 
 ---
 

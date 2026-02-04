@@ -35,15 +35,18 @@
 ### Agent Personas (`/config/agents/`)
 | Agent | Role |
 |-------|------|
-| [andy_flower.md](../config/agents/andy_flower.md) | Domain Expert (Cricket) |
-| [brad_stevens.md](../config/agents/brad_stevens.md) | Ops Lead |
-| [brock_purdy.md](../config/agents/brock_purdy.md) | Data Quality |
-| [florentino_perez.md](../config/agents/florentino_perez.md) | Gate Keeper |
-| [ime_udoka.md](../config/agents/ime_udoka.md) | DevOps Lead |
-| [kevin_de_bruyne.md](../config/agents/kevin_de_bruyne.md) | Visualization |
-| [n_golo_kante.md](../config/agents/n_golo_kante.md) | QA Lead |
-| [stephen_curry.md](../config/agents/stephen_curry.md) | Analytics Lead |
-| [tom_brady.md](../config/agents/tom_brady.md) | Project Lead |
+| [andy-flower.agent.md](../config/agents/andy-flower.agent.md) | Domain Expert (Cricket) |
+| [brad-stevens.agent.md](../config/agents/brad-stevens.agent.md) | Ops Lead |
+| [brock-purdy.agent.md](../config/agents/brock-purdy.agent.md) | Data Quality |
+| [florentino-perez.agent.md](../config/agents/florentino-perez.agent.md) | Program Director |
+| [ime-udoka.agent.md](../config/agents/ime-udoka.agent.md) | DevOps Lead |
+| [jose-mourinho.agent.md](../config/agents/jose-mourinho.agent.md) | Data Scientist / Critical Review |
+| [kevin-de-bruyne.agent.md](../config/agents/kevin-de-bruyne.agent.md) | Visualization & Wireframes |
+| [lebron-james.agent.md](../config/agents/lebron-james.agent.md) | Social / Engagement |
+| [n-golo-kante.agent.md](../config/agents/n-golo-kante.agent.md) | QA Lead |
+| [stephen-curry.agent.md](../config/agents/stephen-curry.agent.md) | Analytics Lead |
+| [tom-brady.agent.md](../config/agents/tom-brady.agent.md) | Project Lead |
+| [virat-kohli.agent.md](../config/agents/virat-kohli.agent.md) | Tone & Narrative Guard |
 
 ### Templates (`/config/templates/`)
 - Agent templates and configuration files
@@ -56,7 +59,7 @@
 | File | Description |
 |------|-------------|
 | `cricket_playbook.duckdb` | Main analytics database (159MB) |
-| [ipl_2026_squads.csv](../data/ipl_2026_squads.csv) | Team rosters (231 players) |
+| [ipl_2026_squads.csv](../data/ipl_2026_squads.csv) | Team rosters (233 players, with nationality & age) |
 | [ipl_2026_player_contracts.csv](../data/ipl_2026_player_contracts.csv) | Contract/auction data |
 | [bowler_classifications_v3.csv](../data/bowler_classifications_v3.csv) | Bowler type classifications |
 
@@ -179,6 +182,7 @@
 ### Specifications (`/docs/specs/`)
 | File | Description |
 |------|-------------|
+| [WIREFRAMES_V1.md](./specs/WIREFRAMES_V1.md) | **UI Wireframes V6** - Predicted XII + Depth Chart views |
 | [player_clustering_prd.md](./specs/player_clustering_prd.md) | Clustering methodology |
 | [cluster_labels_v1.0.md](./specs/cluster_labels_v1.0.md) | Label definitions |
 
@@ -294,5 +298,5 @@ cricket-playbook/
 
 ---
 
-*Cricket Playbook v4.0.0 | SUPER SELECTOR v3.0*
+*Cricket Playbook v4.0.0 | SUPER SELECTOR v3.0 | Wireframes V6*
 *Index generated: 2026-02-04*

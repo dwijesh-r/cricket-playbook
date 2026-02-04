@@ -2,7 +2,7 @@
 
 **IPL 2026 Analytics Platform** for editorial and broadcast use.
 
-**Version:** 4.0.0 | **Sprint:** 4.0 | **Last Updated:** 2026-02-02
+**Version:** 4.0.0 | **Sprint:** 4.0 | **Last Updated:** 2026-02-04
 
 ---
 
@@ -18,6 +18,7 @@ Cricket Playbook is a comprehensive cricket analytics system built on ball-by-ba
 - 2023-2025 data focus for current player form analysis
 - **NEW:** Predicted XII - Algorithm-generated optimal playing XI + Impact Player
 - **NEW:** Depth Charts - Position-by-position rankings with ratings (0-10 scale)
+- **NEW:** Wireframes V6 - UI specification for Predicted XII + Depth Chart views (all agents 9.0+)
 
 ---
 
@@ -54,6 +55,7 @@ scripts/generators/generate_stat_packs.py → stat_packs/
 | See the final product | `stat_packs/*.md` |
 | See predicted best XIs | `outputs/predicted_xii/` |
 | See team depth charts | `outputs/depth_charts/` |
+| See UI wireframes | `docs/specs/WIREFRAMES_V1.md` |
 | Understand player tags | `outputs/tags/player_tags.json` |
 | Run SQL queries | `notebooks/view_explorer.ipynb` |
 | See how we classify players | `scripts/analysis/player_clustering_v2.py` |
@@ -63,7 +65,7 @@ scripts/generators/generate_stat_packs.py → stat_packs/
 
 ### The Key Numbers to Know
 - **219 matches** - IPL 2023-2025, our analysis window
-- **231 players** - IPL 2026 squad size
+- **233 players** - IPL 2026 squad size (with nationality & age)
 - **35 views** - Analytics views in DuckDB
 - **6 batter archetypes** - EXPLOSIVE_OPENER to FINISHER
 - **7 bowler archetypes** - PACER to PART_TIMER
@@ -182,7 +184,7 @@ cricket-playbook/
 | Total T20 Matches | 9,357 |
 | **IPL Analytics Data** | **2023-2025 (219 matches)** |
 | Ball-by-ball Records | 2,137,915 |
-| IPL 2026 Squad Players | 231 |
+| IPL 2026 Squad Players | 233 |
 | Bowler Classifications | 280 (98.8% ball coverage) |
 | Analytics Views | 34 |
 
@@ -364,6 +366,8 @@ python scripts/utils/validate_outputs.py
 ### Completed in Sprint 4.0
 - Predicted XII algorithm (all 10 teams)
 - Depth Charts (all 10 teams)
+- Wireframes V6 (UI spec, all agents 9.0+ ratings)
+- Nationality & age data added to squads CSV
 - Task Integrity Loop governance
 - Constitution v2.0
 
@@ -387,8 +391,11 @@ python scripts/utils/validate_outputs.py
 | **N'Golo Kanté** | QA Engineer | Test suite, smoke tests, regression testing |
 | **Brad Stevens** | Architecture | CI/CD, code quality, repo structure |
 | **Ime Udoka** | ML Ops Engineer | Model registry, deployment, versioning |
-| **Kevin de Bruyne** | Visualization | Charts, dashboards, visual outputs |
-| **Virat Kohli** | Editorial | Stat pack content, narrative insights |
+| **Kevin de Bruyne** | Visualization | Charts, dashboards, wireframes, visual outputs |
+| **Virat Kohli** | Tone Guard | Editorial voice, Indian audience fit |
+| **Jose Mourinho** | Data Scientist | Critical review, methodology validation |
+| **LeBron James** | Social Lead | Shareability, platform-native content |
+| **Florentino Pérez** | Program Director | Scope discipline, commercial viability |
 
 ---
 
@@ -423,3 +430,4 @@ Internal use only - Cricket Playbook Editorial Team
 ---
 
 *Cricket Playbook v4.0.0 - IPL 2026 Analytics Platform*
+*Wireframes V6 | SUPER SELECTOR v3.0*

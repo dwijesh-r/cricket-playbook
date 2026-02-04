@@ -2,7 +2,7 @@
 
 Agent definitions, templates, and framework guidelines.
 
-**Version:** 3.1.0 | **Last Updated:** 2026-01-26
+**Version:** 4.0.0 | **Last Updated:** 2026-02-04
 
 ---
 
@@ -12,7 +12,7 @@ Agent definitions, templates, and framework guidelines.
 config/
 ├── README.md           # This file
 ├── CONSTITUTION.md     # Agent framework and guidelines
-├── agents/             # Agent persona definitions (12 agents)
+├── agents/             # Agent persona definitions (14 agents)
 │   ├── tom-brady.agent.md
 │   ├── stephen-curry.agent.md
 │   ├── andy-flower.agent.md
@@ -50,8 +50,11 @@ config/
 | Agent | Role | Responsibilities |
 |-------|------|------------------|
 | **Ime Udoka** | ML Ops Engineer | Model registry, deployment, versioning, research |
-| **Kevin de Bruyne** | Visualization | Charts, dashboards, visual outputs |
-| **Virat Kohli** | Editorial | Stat pack content, narrative insights |
+| **Kevin de Bruyne** | Visualization | Charts, dashboards, wireframes, visual outputs |
+| **Virat Kohli** | Tone Guard | Editorial voice, Indian audience fit |
+| **Jose Mourinho** | Data Scientist | Critical review, methodology validation, benchmarks |
+| **Florentino Pérez** | Program Director | Scope discipline, commercial viability, USP |
+| **LeBron James** | Social Lead | Shareability, platform-native content |
 
 ### Extended Team
 
@@ -119,4 +122,4 @@ The `CONSTITUTION.md` file defines:
 
 ---
 
-*Cricket Playbook v3.1.0*
+*Cricket Playbook v4.0.0*

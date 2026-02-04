@@ -2,7 +2,7 @@
 
 Project documentation, specifications, and research.
 
-**Version:** 3.1.0 | **Last Updated:** 2026-01-26
+**Version:** 4.0.0 | **Last Updated:** 2026-02-04
 
 ---
 
@@ -16,6 +16,7 @@ docs/
 ├── REPO_RESTRUCTURE_PROPOSAL.md   # Repository reorganization plan
 ├── cicd_best_practices.md         # CI/CD and code quality guide
 ├── specs/                         # Technical specifications
+│   ├── WIREFRAMES_V1.md           # UI Wireframes V6 (Predicted XII + Depth Chart)
 │   ├── player_clustering_prd.md
 │   ├── cluster_archetypes_creative.md
 │   ├── cluster_labels_v1.0.md
@@ -42,6 +43,7 @@ docs/
 
 | Document | Description | Owner |
 |----------|-------------|-------|
+| `WIREFRAMES_V1.md` | **UI Wireframes V6** - Predicted XII + Depth Chart views (all agents 9.0+) | Kevin de Bruyne |
 | `player_clustering_prd.md` | K-means clustering model requirements | Stephen Curry |
 | `cluster_archetypes_creative.md` | Player archetype definitions and naming | Andy Flower |
 | `cluster_labels_v1.0.md` | Cluster label mappings and criteria | Stephen Curry |
@@ -108,4 +110,4 @@ Cross-sport analytics research for methodology development.
 
 ---
 
-*Cricket Playbook v3.1.0*
+*Cricket Playbook v4.0.0*

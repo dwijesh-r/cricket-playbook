@@ -2,7 +2,7 @@
 
 Python scripts organized by purpose.
 
-**Version:** 3.1.0 | **Last Updated:** 2026-01-26
+**Version:** 4.0.0 | **Last Updated:** 2026-02-04
 
 ---
 
@@ -20,6 +20,8 @@ scripts/
 │
 ├── generators/             # Output file generators
 │   ├── generate_stat_packs.py      # Generate all 10 team stat packs
+│   ├── generate_predicted_xii.py   # SUPER SELECTOR v3.0 - Predicted XI algorithm
+│   ├── generate_depth_charts.py    # Team depth chart generation
 │   ├── generate_2023_outputs.py    # Generate 2023+ filtered outputs
 │   ├── generate_all_2023_outputs.py # Batch generate all 2023+ files
 │   └── sprint_3_p1_features.py     # P1 feature outputs
@@ -71,6 +73,8 @@ Scripts that produce output files.
 | Script | Description | Output |
 |--------|-------------|--------|
 | `generate_stat_packs.py` | Generate all 10 team stat packs | `stat_packs/*.md` |
+| `generate_predicted_xii.py` | **SUPER SELECTOR v3.0** - Predicted XI algorithm | `outputs/predicted_xii/*.json` |
+| `generate_depth_charts.py` | Team depth chart generation | `outputs/depth_charts/*.json` |
 | `generate_2023_outputs.py` | Generate 2023+ filtered outputs | `outputs/*_2023.csv` |
 | `generate_all_2023_outputs.py` | Batch all 2023+ outputs | Multiple files |
 | `sprint_3_p1_features.py` | P1 feature outputs | Consistency, synergy, pressure |
@@ -181,4 +185,4 @@ pytest tests/ -v
 
 ---
 
-*Cricket Playbook v3.1.0*
+*Cricket Playbook v4.0.0*

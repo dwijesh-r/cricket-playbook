@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Control</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #1c1c1e;
+            --bg-tertiary: #2c2c2e;
+            --bg-elevated: #3a3a3c;
+            --text-primary: #ffffff;
+            --text-secondary: #8e8e93;
+            --text-tertiary: #636366;
+            --accent: #0a84ff;
+            --accent-green: #30d158;
+            --accent-yellow: #ffd60a;
+            --accent-orange: #ff9f0a;
+            --accent-red: #ff453a;
+            --accent-purple: #bf5af2;
+            --accent-pink: #ff375f;
+            --accent-teal: #64d2ff;
+            --border: rgba(255, 255, 255, 0.1);
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            position: relative;
+        }
+
+        /* Subtle animated background */
+        .bg-gradient {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-gradient::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(10, 132, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(191, 90, 242, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 40% 60%, rgba(48, 209, 88, 0.04) 0%, transparent 40%);
+            animation: bgShift 30s ease-in-out infinite;
+        }
+
+        @keyframes bgShift {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(2%, 2%) rotate(1deg); }
+            66% { transform: translate(-1%, 1%) rotate(-1deg); }
+        }
+
+        /* Grid pattern overlay */
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 52px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 100;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .nav-title {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 4px;
+            background: var(--bg-secondary);
+            padding: 4px;
+            border-radius: 8px;
+        }
+
+        .nav-tab {
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            background: none;
+            font-family: inherit;
+        }
+
+        .nav-tab:hover { color: var(--text-primary); }
+        .nav-tab.active { background: var(--bg-tertiary); color: var(--text-primary); }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-time {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .nav-btn {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover { background: rgba(10, 132, 255, 0.15); }
+
+        /* Main Container */
+        .main {
+            padding-top: 52px;
+            min-height: 100vh;
+        }
+
+        /* Views */
+        .view { display: none; }
+        .view.active { display: block; }
+
+        /* Hero Section */
+        .hero {
+            padding: 40px 24px 32px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .sprint-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+        }
+
+        .sprint-title {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .sprint-dates {
+            font-size: 17px;
+            color: var(--text-secondary);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 32px;
+        }
+
+        .stat-item {
+            background: rgba(28, 28, 30, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 24px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 40px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .stat-value.accent-green { color: var(--accent-green); }
+        .stat-value.accent-yellow { color: var(--accent-yellow); }
+        .stat-value.accent-red { color: var(--accent-red); }
+        .stat-value.accent-blue { color: var(--accent); }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 4px;
+        }
+
+        /* Board Section */
+        .board-section {
+            padding: 32px 24px;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .board-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .board-title {
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .board-filters {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: rgba(28, 28, 30, 0.8);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border-color: var(--accent);
+        }
+
+        .filter-btn.active {
+            background: rgba(10, 132, 255, 0.15);
+            color: var(--accent);
+        }
+
+        /* Agent filter dropdown */
+        .agent-filter {
+            position: relative;
+        }
+
+        .agent-filter-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .agent-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin-top: 8px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 8px;
+            min-width: 200px;
+            display: none;
+            z-index: 50;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .agent-dropdown.active { display: block; }
+
+        .agent-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .agent-option:hover { background: var(--bg-tertiary); }
+
+        .agent-option.selected { background: rgba(10, 132, 255, 0.15); }
+
+        .agent-option-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .agent-option-name {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .agent-option-count {
+            margin-left: auto;
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        /* Kanban */
+        .kanban {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 12px;
+        }
+
+        .column {
+            background: rgba(28, 28, 30, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border);
+        }
+
+        .column-header {
+            padding: 16px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .column-name {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .column-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .dot-idea { background: var(--accent-purple); }
+        .dot-backlog { background: var(--text-secondary); }
+        .dot-ready { background: var(--accent); }
+        .dot-running { background: var(--accent-yellow); box-shadow: 0 0 10px var(--accent-yellow); }
+        .dot-blocked { background: var(--accent-red); box-shadow: 0 0 10px var(--accent-red); }
+        .dot-review { background: var(--accent-orange); }
+        .dot-validation { background: var(--accent-pink); }
+        .dot-done { background: var(--accent-green); }
+
+        .column-count {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            background: var(--bg-tertiary);
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .column-body {
+            padding: 12px;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        /* Ticket Card */
+        .ticket {
+            background: rgba(44, 44, 46, 0.8);
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .ticket:hover {
+            background: var(--bg-elevated);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .ticket.filtered-out {
+            opacity: 0.3;
+            transform: scale(0.98);
+        }
+
+        .ticket-top {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        /* Agent Avatar */
+        .agent-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        /* Agent-specific colors (jersey inspired) */
+        .avatar-tom-brady { background: linear-gradient(135deg, #002244 0%, #c60c30 100%); }
+        .avatar-stephen-curry { background: linear-gradient(135deg, #1d428a 0%, #ffc72c 100%); }
+        .avatar-kevin-de-bruyne { background: linear-gradient(135deg, #6cabdd 0%, #1c2c5b 100%); }
+        .avatar-jose-mourinho { background: linear-gradient(135deg, #034694 0%, #d1d3d4 100%); }
+        .avatar-lebron-james { background: linear-gradient(135deg, #552583 0%, #fdb927 100%); }
+        .avatar-brad-stevens { background: linear-gradient(135deg, #007a33 0%, #ba9653 100%); }
+        .avatar-brock-purdy { background: linear-gradient(135deg, #aa0000 0%, #b3995d 100%); }
+        .avatar-andy-flower { background: linear-gradient(135deg, #005c2f 0%, #fce300 100%); }
+        .avatar-ngolo-kante { background: linear-gradient(135deg, #034694 0%, #d1d3d4 100%); }
+        .avatar-florentino { background: linear-gradient(135deg, #ffffff 0%, #febe10 100%); }
+        .avatar-pep-guardiola { background: linear-gradient(135deg, #6cabdd 0%, #1c2c5b 100%); }
+        .avatar-unassigned { background: var(--bg-elevated); }
+
+        .ticket-info { flex: 1; min-width: 0; }
+
+        .ticket-id {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .ticket-title {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.35;
+            margin-top: 3px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .ticket-agent {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .ticket-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .priority {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 7px;
+            border-radius: 4px;
+        }
+
+        .priority-p0 { background: rgba(255, 69, 58, 0.15); color: var(--accent-red); }
+        .priority-p1 { background: rgba(255, 159, 10, 0.15); color: var(--accent-orange); }
+        .priority-p2 { background: rgba(10, 132, 255, 0.15); color: var(--accent); }
+        .priority-p3 { background: rgba(142, 142, 147, 0.15); color: var(--text-secondary); }
+
+        .tag {
+            font-size: 10px;
+            font-weight: 500;
+            padding: 3px 7px;
+            border-radius: 4px;
+            background: var(--glass);
+            color: var(--text-secondary);
+        }
+
+        .ticket-links {
+            display: flex;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .link-btn {
+            font-size: 10px;
+            font-weight: 500;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: var(--bg-secondary);
+            color: var(--accent);
+            transition: all 0.2s ease;
+        }
+
+        .link-btn:hover { background: rgba(10, 132, 255, 0.15); }
+
+        .gate-progress {
+            display: flex;
+            gap: 3px;
+            margin-top: 10px;
+        }
+
+        .gate-step {
+            flex: 1;
+            height: 3px;
+            border-radius: 2px;
+            background: var(--bg-secondary);
+        }
+
+        .gate-step.passed { background: var(--accent-green); }
+        .gate-step.current { background: var(--accent-yellow); }
+
+        .empty-state {
+            text-align: center;
+            padding: 32px 16px;
+            color: var(--text-tertiary);
+            font-size: 13px;
+        }
+
+        /* ==================== AGENT ROSTER ==================== */
+        .roster-section {
+            padding: 32px 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .roster-header {
+            margin-bottom: 32px;
+        }
+
+        .roster-title {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+        }
+
+        .roster-subtitle {
+            font-size: 17px;
+            color: var(--text-secondary);
+        }
+
+        .roster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 16px;
+        }
+
+        .agent-card {
+            background: rgba(28, 28, 30, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .agent-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .agent-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .agent-card-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .agent-card-info h3 {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .agent-card-role {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        .agent-card-team {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 4px;
+        }
+
+        .agent-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .agent-stat {
+            text-align: center;
+            padding: 12px 8px;
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+        }
+
+        .agent-stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .agent-stat-label {
+            font-size: 10px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 2px;
+        }
+
+        .agent-priority-breakdown {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .priority-chip {
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .priority-chip.p0 { background: rgba(255, 69, 58, 0.1); color: var(--accent-red); }
+        .priority-chip.p1 { background: rgba(255, 159, 10, 0.1); color: var(--accent-orange); }
+        .priority-chip.p2 { background: rgba(10, 132, 255, 0.1); color: var(--accent); }
+        .priority-chip.p3 { background: rgba(142, 142, 147, 0.1); color: var(--text-secondary); }
+
+        .agent-progress {
+            margin-top: 16px;
+        }
+
+        .agent-progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .agent-progress-bar {
+            height: 6px;
+            background: var(--bg-tertiary);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .agent-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-teal));
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        .agent-recent {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .agent-recent-title {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+        }
+
+        .agent-recent-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+        }
+
+        .recent-status {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .recent-status.done { background: var(--accent-green); }
+        .recent-status.running { background: var(--accent-yellow); }
+        .recent-status.blocked { background: var(--accent-red); }
+
+        .recent-title {
+            flex: 1;
+            font-size: 13px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .recent-time {
+            font-size: 11px;
+            color: var(--text-tertiary);
+        }
+
+        /* Modal - same as before */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            z-index: 200;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+        }
+
+        .modal-overlay.active { display: flex; }
+
+        .modal {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 560px;
+            max-height: 85vh;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .modal-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .modal-header-content {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .modal-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .modal-subtitle {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .modal-close {
+            background: var(--bg-tertiary);
+            border: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .modal-close:hover { background: var(--bg-elevated); color: var(--text-primary); }
+
+        .modal-body {
+            padding: 24px;
+            overflow-y: auto;
+            max-height: calc(85vh - 100px);
+        }
+
+        .modal-section { margin-bottom: 24px; }
+        .modal-section:last-child { margin-bottom: 0; }
+
+        .modal-section-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+        }
+
+        .gate-list { display: flex; flex-direction: column; gap: 8px; }
+
+        .gate-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+        }
+
+        .gate-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .gate-icon.passed { background: rgba(48, 209, 88, 0.15); color: var(--accent-green); }
+        .gate-icon.pending { background: rgba(255, 214, 10, 0.15); color: var(--accent-yellow); }
+        .gate-icon.waiting { background: var(--bg-elevated); color: var(--text-tertiary); }
+
+        .gate-info { flex: 1; }
+        .gate-name { font-size: 14px; font-weight: 500; }
+        .gate-approver { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .detail-item {
+            background: var(--bg-tertiary);
+            padding: 14px;
+            border-radius: 10px;
+        }
+
+        .detail-label {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .detail-value {
+            font-size: 15px;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        .link-list { display: flex; flex-direction: column; gap: 8px; }
+
+        .modal-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+        }
+
+        .modal-link:hover { background: var(--bg-elevated); }
+        .modal-link-icon { font-size: 16px; }
+        .modal-link-text { font-size: 14px; font-weight: 500; }
+        .modal-link-arrow { margin-left: auto; color: var(--text-tertiary); }
+
+        /* Responsive */
+        @media (max-width: 1400px) {
+            .kanban { grid-template-columns: repeat(4, 1fr); }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 900px) {
+            .kanban { grid-template-columns: repeat(2, 1fr); }
+            .sprint-title, .roster-title { font-size: 36px; }
+            .nav-tabs { display: none; }
+        }
+
+        @media (max-width: 600px) {
+            .kanban { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .roster-grid { grid-template-columns: 1fr; }
+            .agent-stats { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Subtle background -->
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-brand">
+            <div class="nav-logo">⚡</div>
+            <span class="nav-title">Mission Control</span>
+        </div>
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showView('board')">Board</button>
+            <button class="nav-tab" onclick="showView('roster')">Agent Roster</button>
+        </div>
+        <div class="nav-actions">
+            <span class="nav-time" id="navTime">--:--:--</span>
+            <button class="nav-btn" onclick="loadData()">Refresh</button>
+        </div>
+    </nav>
+
+    <!-- Main -->
+    <main class="main">
+        <!-- Board View -->
+        <div class="view active" id="boardView">
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="sprint-label">Active Sprint</div>
+                    <h1 class="sprint-title">Sprint 4</h1>
+                    <p class="sprint-dates">Jan 31 — Feb 14, 2026</p>
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value accent-blue" id="statTotal">9</div>
+                            <div class="stat-label">Total</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value accent-yellow" id="statRunning">2</div>
+                            <div class="stat-label">In Progress</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value accent-red" id="statBlocked">1</div>
+                            <div class="stat-label">Blocked</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value accent-green" id="statDone">1</div>
+                            <div class="stat-label">Done</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="board-section">
+                <div class="board-header">
+                    <h2 class="board-title">Board</h2>
+                    <div class="board-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="p0">P0 Critical</button>
+                        <div class="agent-filter">
+                            <button class="filter-btn agent-filter-btn" onclick="toggleAgentDropdown()">
+                                <span id="agentFilterLabel">All Agents</span> ▾
+                            </button>
+                            <div class="agent-dropdown" id="agentDropdown"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kanban" id="kanban"></div>
+            </section>
+        </div>
+
+        <!-- Agent Roster View -->
+        <div class="view" id="rosterView">
+            <section class="roster-section">
+                <div class="roster-header">
+                    <h1 class="roster-title">Agent Roster</h1>
+                    <p class="roster-subtitle">Performance metrics and workload distribution</p>
+                </div>
+                <div class="roster-grid" id="rosterGrid"></div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-header-content">
+                    <div class="modal-avatar" id="modalAvatar">🏈</div>
+                    <div>
+                        <div class="modal-title" id="modalTitle">Ticket Title</div>
+                        <div class="modal-subtitle" id="modalSubtitle">TKT-000 · P0</div>
+                    </div>
+                </div>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <div class="modal-section-title">Task Integrity Loop</div>
+                    <div class="gate-list" id="modalGates"></div>
+                </div>
+                <div class="modal-section">
+                    <div class="modal-section-title">Details</div>
+                    <div class="detail-grid" id="modalDetails"></div>
+                </div>
+                <div class="modal-section">
+                    <div class="modal-section-title">Links</div>
+                    <div class="link-list" id="modalLinks"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Agents with roles and teams
+        const agents = {
+            'Tom Brady': { emoji: '🏈', class: 'avatar-tom-brady', role: 'Delivery Owner', team: 'New England Patriots' },
+            'Stephen Curry': { emoji: '🏀', class: 'avatar-stephen-curry', role: 'Executor', team: 'Golden State Warriors' },
+            'Kevin de Bruyne': { emoji: '⚽', class: 'avatar-kevin-de-bruyne', role: 'Visualization Lead', team: 'Manchester City' },
+            'Jose Mourinho': { emoji: '🎯', class: 'avatar-jose-mourinho', role: 'Data Science Lead', team: 'AS Roma' },
+            'LeBron James': { emoji: '👑', class: 'avatar-lebron-james', role: 'Social & Engagement', team: 'Los Angeles Lakers' },
+            'Brad Stevens': { emoji: '📋', class: 'avatar-brad-stevens', role: 'Architecture', team: 'Boston Celtics' },
+            'Brock Purdy': { emoji: '🎯', class: 'avatar-brock-purdy', role: 'Data Pipeline', team: 'San Francisco 49ers' },
+            'Andy Flower': { emoji: '🏏', class: 'avatar-andy-flower', role: 'Cricket Domain Expert', team: 'Zimbabwe Cricket' },
+            "N'Golo Kanté": { emoji: '🛡️', class: 'avatar-ngolo-kante', role: 'QA Lead', team: 'Al-Ittihad' },
+            'Florentino Perez': { emoji: '👔', class: 'avatar-florentino', role: 'Founder', team: 'Real Madrid' },
+            'Pep Guardiola': { emoji: '🧠', class: 'avatar-pep-guardiola', role: 'Tactical Analysis', team: 'Manchester City' },
+        };
+
+        const columns = [
+            { id: 'IDEA', name: 'Idea', dot: 'dot-idea' },
+            { id: 'BACKLOG', name: 'Backlog', dot: 'dot-backlog' },
+            { id: 'READY', name: 'Ready', dot: 'dot-ready' },
+            { id: 'RUNNING', name: 'Running', dot: 'dot-running' },
+            { id: 'BLOCKED', name: 'Blocked', dot: 'dot-blocked' },
+            { id: 'REVIEW', name: 'Review', dot: 'dot-review' },
+            { id: 'VALIDATION', name: 'Validation', dot: 'dot-validation' },
+            { id: 'DONE', name: 'Done', dot: 'dot-done' }
+        ];
+
+        const gates = [
+            { id: 'florentino_gate', name: 'Florentino Gate', step: 1, approver: 'Florentino Perez' },
+            { id: 'domain_sanity', name: 'Domain Sanity', step: 3, approver: 'Jose / Andy / Pep' },
+            { id: 'enforcement_check', name: 'Enforcement', step: 4, approver: 'Brad Stevens' },
+            { id: 'system_check', name: 'System Check', step: 5, approver: "N'Golo Kanté" },
+            { id: 'founder_validation', name: 'Founder Sign-off', step: 6, approver: 'Florentino Perez' }
+        ];
+
+        // Rich ticket data with time tracking
+        const tickets = [
+            {
+                id: 'TKT-001', title: 'Implement Mission Control Phase 2 - Workflow Engine',
+                state: 'DONE', priority: 'P0', assignee: 'Stephen Curry', epic: 'EPIC-001', progress: 100,
+                prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: 'scripts/mission_control/',
+                gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
+                tags: ['Backend', 'Core'], daysSpent: 3, iterations: 2
+            },
+            {
+                id: 'TKT-002', title: 'HTML Dashboard with Apple Design Language',
+                state: 'RUNNING', priority: 'P0', assignee: 'Kevin de Bruyne', epic: 'EPIC-001', progress: 75,
+                prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: 'scripts/mission_control/dashboard/',
+                gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES' },
+                tags: ['Frontend', 'UI/UX'], daysSpent: 1, iterations: 3
+            },
+            {
+                id: 'TKT-003', title: 'Agent Caricature Avatar System',
+                state: 'RUNNING', priority: 'P1', assignee: 'LeBron James', epic: 'EPIC-001', progress: 40,
+                prd: null, output: null,
+                gates: { florentino_gate: 'APPROVED' },
+                tags: ['Design', 'Assets'], daysSpent: 1, iterations: 1
+            },
+            {
+                id: 'TKT-004', title: 'Predicted XII Algorithm v3.1 Refinement',
+                state: 'REVIEW', priority: 'P1', assignee: 'Jose Mourinho', epic: 'EPIC-002', progress: 90,
+                prd: 'docs/specs/ALGORITHM_SPEC.md', output: 'outputs/predicted_xis/',
+                gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS' },
+                tags: ['Algorithm', 'Data'], daysSpent: 5, iterations: 4
+            },
+            {
+                id: 'TKT-005', title: 'Depth Chart Export to PDF/PNG',
+                state: 'BACKLOG', priority: 'P2', assignee: 'Brock Purdy', epic: 'EPIC-002', progress: 0,
+                prd: 'docs/specs/WIREFRAMES_V1.md', output: null,
+                gates: { florentino_gate: 'APPROVED' },
+                tags: ['Export', 'Sharing'], daysSpent: 0, iterations: 0
+            },
+            {
+                id: 'TKT-006', title: 'Player ID Mismatch - MI vs LSG Trade',
+                state: 'BLOCKED', priority: 'P0', assignee: 'Stephen Curry', epic: 'EPIC-003', progress: 30,
+                prd: null, output: null,
+                gates: { florentino_gate: 'APPROVED' },
+                tags: ['Bug', 'Data'], daysSpent: 2, iterations: 1
+            },
+            {
+                id: 'TKT-007', title: 'Sprint Velocity Dashboard Widget',
+                state: 'VALIDATION', priority: 'P1', assignee: 'Tom Brady', epic: 'EPIC-001', progress: 95,
+                prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: 'scripts/mission_control/views/',
+                gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
+                tags: ['Analytics', 'Dashboard'], daysSpent: 2, iterations: 2
+            },
+            {
+                id: 'TKT-008', title: 'Role Permission Matrix Implementation',
+                state: 'READY', priority: 'P2', assignee: 'Brad Stevens', epic: 'EPIC-001', progress: 0,
+                prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: null,
+                gates: { florentino_gate: 'APPROVED' },
+                tags: ['Security', 'Backend'], daysSpent: 0, iterations: 0
+            },
+            {
+                id: 'TKT-009', title: 'New IPL 2026 Season Data Pipeline',
+                state: 'IDEA', priority: 'P1', assignee: null, epic: null, progress: 0,
+                prd: null, output: null, gates: {},
+                tags: ['Data', 'Pipeline'], daysSpent: 0, iterations: 0
+            }
+        ];
+
+        let activeFilter = 'all';
+        let activeAgentFilter = null;
+
+        function getAgentInfo(name) {
+            return agents[name] || { emoji: '👤', class: 'avatar-unassigned', role: 'Unassigned', team: '' };
+        }
+
+        function getGateStatus(ticketGates, gateId) {
+            if (!ticketGates || !ticketGates[gateId]) return 'waiting';
+            const val = ticketGates[gateId];
+            if (val === 'APPROVED' || val === 'PASS' || val === 'YES') return 'passed';
+            return 'pending';
+        }
+
+        function showView(view) {
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(view + 'View').classList.add('active');
+            document.querySelector(`[onclick="showView('${view}')"]`).classList.add('active');
+        }
+
+        function initBoard() {
+            const kanban = document.getElementById('kanban');
+            kanban.innerHTML = columns.map(col => `
+                <div class="column">
+                    <div class="column-header">
+                        <span class="column-name">
+                            <span class="column-dot ${col.dot}"></span>
+                            ${col.name}
+                        </span>
+                        <span class="column-count" id="count-${col.id}">0</span>
+                    </div>
+                    <div class="column-body" id="col-${col.id}"></div>
+                </div>
+            `).join('');
+
+            // Agent dropdown
+            const dropdown = document.getElementById('agentDropdown');
+            const agentCounts = {};
+            tickets.forEach(t => {
+                if (t.assignee) agentCounts[t.assignee] = (agentCounts[t.assignee] || 0) + 1;
+            });
+
+            dropdown.innerHTML = `
+                <div class="agent-option ${!activeAgentFilter ? 'selected' : ''}" onclick="filterByAgent(null)">
+                    <div class="agent-option-avatar" style="background: var(--bg-elevated);">👥</div>
+                    <span class="agent-option-name">All Agents</span>
+                    <span class="agent-option-count">${tickets.length}</span>
+                </div>
+                ${Object.keys(agents).filter(a => agentCounts[a]).map(name => {
+                    const agent = agents[name];
+                    return `
+                        <div class="agent-option ${activeAgentFilter === name ? 'selected' : ''}" onclick="filterByAgent('${name}')">
+                            <div class="agent-option-avatar ${agent.class}">${agent.emoji}</div>
+                            <span class="agent-option-name">${name.split(' ')[0]}</span>
+                            <span class="agent-option-count">${agentCounts[name] || 0}</span>
+                        </div>
+                    `;
+                }).join('')}
+            `;
+        }
+
+        function toggleAgentDropdown() {
+            document.getElementById('agentDropdown').classList.toggle('active');
+        }
+
+        function filterByAgent(agentName) {
+            activeAgentFilter = agentName;
+            document.getElementById('agentFilterLabel').textContent = agentName ? agentName.split(' ')[0] : 'All Agents';
+            document.getElementById('agentDropdown').classList.remove('active');
+            renderBoard();
+        }
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.agent-filter')) {
+                document.getElementById('agentDropdown').classList.remove('active');
+            }
+        });
+
+        function renderBoard() {
+            columns.forEach(col => {
+                const container = document.getElementById(`col-${col.id}`);
+                const colTickets = tickets.filter(t => t.state === col.id);
+                document.getElementById(`count-${col.id}`).textContent = colTickets.length;
+
+                if (colTickets.length === 0) {
+                    container.innerHTML = '<div class="empty-state">No tickets</div>';
+                } else {
+                    container.innerHTML = colTickets.map(t => {
+                        const isFiltered = activeAgentFilter && t.assignee !== activeAgentFilter;
+                        return renderTicket(t, isFiltered);
+                    }).join('');
+                }
+            });
+            updateStats();
+        }
+
+        function renderTicket(t, isFiltered = false) {
+            const agent = getAgentInfo(t.assignee);
+            const passedGates = gates.filter(g => getGateStatus(t.gates, g.id) === 'passed').length;
+
+            return `
+                <div class="ticket ${isFiltered ? 'filtered-out' : ''}" onclick="openModal('${t.id}')">
+                    <div class="ticket-top">
+                        <div class="agent-avatar ${agent.class}" title="${t.assignee || 'Unassigned'}">${agent.emoji}</div>
+                        <div class="ticket-info">
+                            <div class="ticket-id">${t.id}</div>
+                            <div class="ticket-title">${t.title}</div>
+                            <div class="ticket-agent">${t.assignee || 'Unassigned'}</div>
+                        </div>
+                    </div>
+                    <div class="ticket-meta">
+                        <span class="priority priority-${t.priority.toLowerCase()}">${t.priority}</span>
+                        ${t.tags.slice(0, 2).map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                    ${t.prd || t.output ? `
+                        <div class="ticket-links">
+                            ${t.prd ? '<span class="link-btn">📄 PRD</span>' : ''}
+                            ${t.output ? '<span class="link-btn">📁 Output</span>' : ''}
+                        </div>
+                    ` : ''}
+                    <div class="gate-progress">
+                        ${gates.map((g, i) => `<div class="gate-step ${i < passedGates ? 'passed' : i === passedGates ? 'current' : ''}"></div>`).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderRoster() {
+            const grid = document.getElementById('rosterGrid');
+            const agentStats = {};
+
+            // Calculate stats per agent
+            Object.keys(agents).forEach(name => {
+                const agentTickets = tickets.filter(t => t.assignee === name);
+                const done = agentTickets.filter(t => t.state === 'DONE');
+                const running = agentTickets.filter(t => t.state === 'RUNNING');
+                const blocked = agentTickets.filter(t => t.state === 'BLOCKED');
+
+                agentStats[name] = {
+                    total: agentTickets.length,
+                    done: done.length,
+                    running: running.length,
+                    blocked: blocked.length,
+                    avgDays: agentTickets.length ? (agentTickets.reduce((sum, t) => sum + t.daysSpent, 0) / agentTickets.length).toFixed(1) : 0,
+                    totalIterations: agentTickets.reduce((sum, t) => sum + t.iterations, 0),
+                    p0: agentTickets.filter(t => t.priority === 'P0').length,
+                    p1: agentTickets.filter(t => t.priority === 'P1').length,
+                    p2: agentTickets.filter(t => t.priority === 'P2').length,
+                    p3: agentTickets.filter(t => t.priority === 'P3').length,
+                    tickets: agentTickets.slice(0, 3)
+                };
+            });
+
+            grid.innerHTML = Object.entries(agents)
+                .filter(([name]) => agentStats[name].total > 0)
+                .sort((a, b) => agentStats[b[0]].total - agentStats[a[0]].total)
+                .map(([name, info]) => {
+                    const stats = agentStats[name];
+                    const completionRate = stats.total ? Math.round((stats.done / stats.total) * 100) : 0;
+
+                    return `
+                        <div class="agent-card" onclick="filterByAgent('${name}'); showView('board');">
+                            <div class="agent-card-header">
+                                <div class="agent-card-avatar ${info.class}">${info.emoji}</div>
+                                <div class="agent-card-info">
+                                    <h3>${name}</h3>
+                                    <div class="agent-card-role">${info.role}</div>
+                                    <div class="agent-card-team">${info.team}</div>
+                                </div>
+                            </div>
+
+                            <div class="agent-stats">
+                                <div class="agent-stat">
+                                    <div class="agent-stat-value">${stats.total}</div>
+                                    <div class="agent-stat-label">Tickets</div>
+                                </div>
+                                <div class="agent-stat">
+                                    <div class="agent-stat-value" style="color: var(--accent-green)">${stats.done}</div>
+                                    <div class="agent-stat-label">Done</div>
+                                </div>
+                                <div class="agent-stat">
+                                    <div class="agent-stat-value">${stats.avgDays}d</div>
+                                    <div class="agent-stat-label">Avg Time</div>
+                                </div>
+                                <div class="agent-stat">
+                                    <div class="agent-stat-value">${stats.totalIterations}</div>
+                                    <div class="agent-stat-label">Iterations</div>
+                                </div>
+                            </div>
+
+                            <div class="agent-priority-breakdown">
+                                <div class="priority-chip p0">P0: ${stats.p0}</div>
+                                <div class="priority-chip p1">P1: ${stats.p1}</div>
+                                <div class="priority-chip p2">P2: ${stats.p2}</div>
+                            </div>
+
+                            <div class="agent-progress">
+                                <div class="agent-progress-label">
+                                    <span>Completion Rate</span>
+                                    <span style="color: var(--accent-green)">${completionRate}%</span>
+                                </div>
+                                <div class="agent-progress-bar">
+                                    <div class="agent-progress-fill" style="width: ${completionRate}%"></div>
+                                </div>
+                            </div>
+
+                            ${stats.tickets.length ? `
+                                <div class="agent-recent">
+                                    <div class="agent-recent-title">Recent Tickets</div>
+                                    ${stats.tickets.map(t => `
+                                        <div class="agent-recent-item">
+                                            <div class="recent-status ${t.state.toLowerCase()}"></div>
+                                            <div class="recent-title">${t.title}</div>
+                                            <div class="recent-time">${t.daysSpent}d</div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
+                }).join('');
+        }
+
+        function updateStats() {
+            document.getElementById('statTotal').textContent = tickets.length;
+            document.getElementById('statRunning').textContent = tickets.filter(t => t.state === 'RUNNING').length;
+            document.getElementById('statBlocked').textContent = tickets.filter(t => t.state === 'BLOCKED').length;
+            document.getElementById('statDone').textContent = tickets.filter(t => t.state === 'DONE').length;
+        }
+
+        function openModal(ticketId) {
+            const t = tickets.find(x => x.id === ticketId);
+            if (!t) return;
+
+            const agent = getAgentInfo(t.assignee);
+
+            document.getElementById('modalAvatar').className = `modal-avatar ${agent.class}`;
+            document.getElementById('modalAvatar').innerHTML = agent.emoji;
+            document.getElementById('modalTitle').textContent = t.title;
+            document.getElementById('modalSubtitle').textContent = `${t.id} · ${t.priority} · ${t.assignee || 'Unassigned'}`;
+
+            document.getElementById('modalGates').innerHTML = gates.map(g => {
+                const status = getGateStatus(t.gates, g.id);
+                const icon = status === 'passed' ? '✓' : status === 'pending' ? '◐' : '○';
+                return `
+                    <div class="gate-item">
+                        <div class="gate-icon ${status}">${icon}</div>
+                        <div class="gate-info">
+                            <div class="gate-name">Step ${g.step}: ${g.name}</div>
+                            <div class="gate-approver">${g.approver}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('modalDetails').innerHTML = `
+                <div class="detail-item">
+                    <div class="detail-label">Epic</div>
+                    <div class="detail-value">${t.epic || '—'}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Progress</div>
+                    <div class="detail-value">${t.progress}%</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Days Spent</div>
+                    <div class="detail-value">${t.daysSpent} days</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Iterations</div>
+                    <div class="detail-value">${t.iterations}</div>
+                </div>
+            `;
+
+            document.getElementById('modalLinks').innerHTML = `
+                ${t.prd ? `<a href="#" class="modal-link"><span class="modal-link-icon">📄</span><span class="modal-link-text">PRD Document</span><span class="modal-link-arrow">→</span></a>` : ''}
+                ${t.output ? `<a href="#" class="modal-link"><span class="modal-link-icon">📁</span><span class="modal-link-text">Output Directory</span><span class="modal-link-arrow">→</span></a>` : ''}
+                ${!t.prd && !t.output ? '<div class="empty-state">No links available</div>' : ''}
+            `;
+
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        function updateTime() {
+            document.getElementById('navTime').textContent = new Date().toLocaleTimeString('en-US', { hour12: false });
+        }
+
+        function loadData() {
+            renderBoard();
+            renderRoster();
+            updateTime();
+        }
+
+        // Filter buttons
+        document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn[data-filter]').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeFilter = btn.dataset.filter;
+                renderBoard();
+            });
+        });
+
+        // Init
+        initBoard();
+        loadData();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>

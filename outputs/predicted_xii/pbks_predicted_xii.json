@@ -18,16 +18,6 @@
     },
     {
       "batting_position": 2,
-      "player_id": "b5797845",
-      "player_name": "Priyansh Arya",
-      "role": "Opener",
-      "batting_hand": "Left-hand",
-      "is_overseas": false,
-      "price_cr": 3.8,
-      "rationale": "Batting value"
-    },
-    {
-      "batting_position": 3,
       "player_id": "85ec8e33",
       "player_name": "Shreyas Iyer",
       "role": "Opener",
@@ -37,27 +27,7 @@
       "rationale": "Franchise cornerstone at Rs 26.8 Cr. Elite top-order anchor"
     },
     {
-      "batting_position": 4,
-      "player_id": "d9273ee7",
-      "player_name": "Marcus Stoinis",
-      "role": "Middle Order",
-      "batting_hand": "Right-hand",
-      "is_overseas": true,
-      "price_cr": 11.0,
-      "rationale": "Key player investment (11.0 Cr)"
-    },
-    {
-      "batting_position": 5,
-      "player_id": "d1a60072",
-      "player_name": "Nehal Wadhera",
-      "role": "Middle Order",
-      "batting_hand": "Right-hand",
-      "is_overseas": false,
-      "price_cr": 4.2,
-      "rationale": "Batting value"
-    },
-    {
-      "batting_position": 6,
+      "batting_position": 3,
       "player_id": "26989d80",
       "player_name": "Shashank Singh",
       "role": "Finisher",
@@ -67,17 +37,57 @@
       "rationale": "Provides batting depth and bowling option"
     },
     {
-      "batting_position": 7,
-      "player_id": "8f6dd463",
-      "player_name": "Azmatullah Omarzai",
+      "batting_position": 4,
+      "player_id": "fe366f34",
+      "player_name": "Cooper Connolly",
       "role": "Pace Bowler",
-      "batting_hand": "Right-hand",
+      "batting_hand": "Left-hand",
       "is_overseas": true,
-      "price_cr": 2.4,
+      "price_cr": 1.0,
       "rationale": "Provides batting depth and bowling option"
     },
     {
+      "batting_position": 5,
+      "player_id": "d9273ee7",
+      "player_name": "Marcus Stoinis",
+      "role": "Middle Order",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 11.0,
+      "rationale": "Key player investment (11.0 Cr)"
+    },
+    {
+      "batting_position": 6,
+      "player_id": "d1a60072",
+      "player_name": "Nehal Wadhera",
+      "role": "Middle Order",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 4.2,
+      "rationale": "Batting value"
+    },
+    {
+      "batting_position": 7,
+      "player_id": "81c36ee9",
+      "player_name": "Marco Jansen",
+      "role": "All-rounder",
+      "batting_hand": "Left-hand",
+      "is_overseas": true,
+      "price_cr": 11.25,
+      "rationale": "Key player investment (11.2 Cr)"
+    },
+    {
       "batting_position": 8,
+      "player_id": "c05edf8e",
+      "player_name": "Harpreet Brar",
+      "role": "All-rounder",
+      "batting_hand": "Left-hand",
+      "is_overseas": false,
+      "price_cr": 1.5,
+      "rationale": "Provides batting depth and bowling option"
+    },
+    {
+      "batting_position": 9,
       "player_id": "244048f6",
       "player_name": "Arshdeep Singh",
       "role": "Pace Bowler",
@@ -87,7 +97,7 @@
       "rationale": "Franchise cornerstone at Rs 18.0 Cr"
     },
     {
-      "batting_position": 9,
+      "batting_position": 10,
       "player_id": "57ee1fde",
       "player_name": "Yuzvendra Chahal",
       "role": "Spinner",
@@ -95,16 +105,6 @@
       "is_overseas": false,
       "price_cr": 18.0,
       "rationale": "Franchise cornerstone at Rs 18.0 Cr. Spin bowling strength in middle overs"
-    },
-    {
-      "batting_position": 10,
-      "player_id": "81c36ee9",
-      "player_name": "Marco Jansen",
-      "role": "All-rounder",
-      "batting_hand": "Left-hand",
-      "is_overseas": true,
-      "price_cr": 11.25,
-      "rationale": "Key player investment (11.2 Cr)"
     },
     {
       "batting_position": 11,
@@ -118,25 +118,25 @@
     }
   ],
   "impact_player": {
-    "player_id": "c05edf8e",
-    "player_name": "Harpreet Brar",
+    "player_id": "b5797845",
+    "player_name": "Priyansh Arya",
     "role": "Impact Player",
     "batting_hand": "Left-hand",
     "is_overseas": false,
-    "price_cr": 1.5,
-    "rationale": "Provides bowling option as Impact substitute"
+    "price_cr": 3.8,
+    "rationale": "Provides batting depth as Impact substitute"
   },
   "balance": {
     "overseas_count": 4,
-    "bowling_options": 7,
-    "spinners": 2,
-    "pacers": 9,
+    "bowling_options": 8,
+    "spinners": 4,
+    "pacers": 7,
     "left_handers_top6": 1
   },
   "constraints_satisfied": true,
   "constraint_violations": [],
   "generation_notes": [
     "Selected Prabhsimran Singh as keeper",
-    "Overseas optimization: Swapped Pyla Avinash for Azmatullah Omarzai"
+    "Overseas optimization: Swapped Pyla Avinash for Cooper Connolly"
   ]
 }

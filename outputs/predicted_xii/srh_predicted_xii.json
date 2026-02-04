@@ -38,13 +38,13 @@
     },
     {
       "batting_position": 4,
-      "player_id": "235c2bb6",
-      "player_name": "Heinrich Klaasen",
-      "role": "Finisher",
+      "player_id": "aad0c365",
+      "player_name": "Nitish Kumar Reddy",
+      "role": "Middle Order",
       "batting_hand": "Right-hand",
-      "is_overseas": true,
-      "price_cr": 23.0,
-      "rationale": "Franchise cornerstone at Rs 23.0 Cr"
+      "is_overseas": false,
+      "price_cr": 6.0,
+      "rationale": "Provides batting depth and bowling option"
     },
     {
       "batting_position": 5,
@@ -58,26 +58,36 @@
     },
     {
       "batting_position": 6,
-      "player_id": "aad0c365",
-      "player_name": "Nitish Kumar Reddy",
-      "role": "Middle Order",
+      "player_id": "235c2bb6",
+      "player_name": "Heinrich Klaasen",
+      "role": "Finisher",
       "batting_hand": "Right-hand",
-      "is_overseas": false,
-      "price_cr": 6.0,
-      "rationale": "Provides batting depth and bowling option"
+      "is_overseas": true,
+      "price_cr": 23.0,
+      "rationale": "Franchise cornerstone at Rs 23.0 Cr"
     },
     {
       "batting_position": 7,
-      "player_id": "ded9240e",
-      "player_name": "Pat Cummins",
-      "role": "Pace Bowler",
+      "player_id": "a3b0600d",
+      "player_name": "Aniket Verma",
+      "role": "Batter",
       "batting_hand": "Right-hand",
-      "is_overseas": true,
-      "price_cr": 18.0,
-      "rationale": "Team captain. Franchise cornerstone at Rs 18.0 Cr. Elite death-overs specialist"
+      "is_overseas": false,
+      "price_cr": 0.3,
+      "rationale": "Batting value"
     },
     {
       "batting_position": 8,
+      "player_id": "08548b13",
+      "player_name": "Kamindu Mendis",
+      "role": "All-rounder",
+      "batting_hand": "Left-hand",
+      "is_overseas": true,
+      "price_cr": 0.75,
+      "rationale": "Provides batting depth and bowling option"
+    },
+    {
+      "batting_position": 9,
       "player_id": "f986ca1a",
       "player_name": "Harshal Patel",
       "role": "Pace Bowler",
@@ -87,7 +97,7 @@
       "rationale": "Tagged: proven wicket taker"
     },
     {
-      "batting_position": 9,
+      "batting_position": 10,
       "player_id": "1e66c162",
       "player_name": "Jaydev Unadkat",
       "role": "Pace Bowler",
@@ -97,7 +107,7 @@
       "rationale": "Tagged: proven wicket taker"
     },
     {
-      "batting_position": 10,
+      "batting_position": 11,
       "player_id": "c38d3503",
       "player_name": "Shivam Mavi",
       "role": "Pace Bowler",
@@ -105,30 +115,20 @@
       "is_overseas": false,
       "price_cr": 0.3,
       "rationale": "Pace bowling depth"
-    },
-    {
-      "batting_position": 11,
-      "player_id": "5750bcb4",
-      "player_name": "Eshan Malinga",
-      "role": "Pace Bowler",
-      "batting_hand": "Right-hand",
-      "is_overseas": false,
-      "price_cr": 1.2,
-      "rationale": "Pace bowling depth"
     }
   ],
   "impact_player": {
-    "player_id": "a3b0600d",
-    "player_name": "Aniket Verma",
+    "player_id": "465fbdf0",
+    "player_name": "Ravichandran Smaran",
     "role": "Impact Player",
-    "batting_hand": "Right-hand",
+    "batting_hand": "Left-hand",
     "is_overseas": false,
     "price_cr": 0.3,
     "rationale": "Provides batting depth as Impact substitute"
   },
   "balance": {
     "overseas_count": 4,
-    "bowling_options": 9,
+    "bowling_options": 8,
     "spinners": 4,
     "pacers": 7,
     "left_handers_top6": 3
@@ -136,7 +136,6 @@
   "constraints_satisfied": true,
   "constraint_violations": [],
   "generation_notes": [
-    "Selected Ishan Kishan as keeper",
-    "Captain Pat Cummins added to XI (replaced Kamindu Mendis)"
+    "Selected Ishan Kishan as keeper"
   ]
 }

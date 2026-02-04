@@ -38,13 +38,13 @@
     },
     {
       "batting_position": 4,
-      "player_id": "b52ffbbd",
-      "player_name": "Finn Allen",
-      "role": "Wicketkeeper",
+      "player_id": "93b4fc78",
+      "player_name": "Manish Pandey",
+      "role": "Middle Order",
       "batting_hand": "Right-hand",
-      "is_overseas": true,
-      "price_cr": 0.3,
-      "rationale": "Primary wicketkeeper"
+      "is_overseas": false,
+      "price_cr": 0.75,
+      "rationale": "Batting value"
     },
     {
       "batting_position": 5,
@@ -58,16 +58,6 @@
     },
     {
       "batting_position": 6,
-      "player_id": "93b4fc78",
-      "player_name": "Manish Pandey",
-      "role": "Middle Order",
-      "batting_hand": "Right-hand",
-      "is_overseas": false,
-      "price_cr": 0.75,
-      "rationale": "Batting value"
-    },
-    {
-      "batting_position": 7,
       "player_id": "0a509d6b",
       "player_name": "Rinku Singh",
       "role": "Finisher",
@@ -77,7 +67,27 @@
       "rationale": "Key player investment (13.0 Cr)"
     },
     {
+      "batting_position": 7,
+      "player_id": "7c3b3b78",
+      "player_name": "Vaibhav Arora",
+      "role": "Pace Bowler",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 1.8,
+      "rationale": "Pace bowling depth"
+    },
+    {
       "batting_position": 8,
+      "player_id": "b52ffbbd",
+      "player_name": "Finn Allen",
+      "role": "Wicketkeeper",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 0.3,
+      "rationale": "Primary wicketkeeper"
+    },
+    {
+      "batting_position": 9,
       "player_id": "64839cb3",
       "player_name": "Matheesha Pathirana",
       "role": "Pace Bowler",
@@ -87,7 +97,7 @@
       "rationale": "Franchise cornerstone at Rs 18.0 Cr"
     },
     {
-      "batting_position": 9,
+      "batting_position": 10,
       "player_id": "5b7ab5a9",
       "player_name": "Varun Chakravarthy",
       "role": "Spinner",
@@ -95,16 +105,6 @@
       "is_overseas": false,
       "price_cr": 12.0,
       "rationale": "Key player investment (12.0 Cr). Spin bowling strength in middle overs"
-    },
-    {
-      "batting_position": 10,
-      "player_id": "7c3b3b78",
-      "player_name": "Vaibhav Arora",
-      "role": "Pace Bowler",
-      "batting_hand": "Right-hand",
-      "is_overseas": false,
-      "price_cr": 1.8,
-      "rationale": "Pace bowling depth"
     },
     {
       "batting_position": 11,
@@ -131,7 +131,7 @@
     "bowling_options": 7,
     "spinners": 3,
     "pacers": 8,
-    "left_handers_top6": 2
+    "left_handers_top6": 3
   },
   "constraints_satisfied": true,
   "constraint_violations": [],

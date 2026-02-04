@@ -28,16 +28,6 @@
     },
     {
       "batting_position": 3,
-      "player_id": "9caf69a1",
-      "player_name": "Will Jacks",
-      "role": "Opener",
-      "batting_hand": "Right-hand",
-      "is_overseas": true,
-      "price_cr": 5.25,
-      "rationale": "Provides batting depth and bowling option"
-    },
-    {
-      "batting_position": 4,
       "player_id": "271f83cd",
       "player_name": "Suryakumar Yadav",
       "role": "Middle Order",
@@ -45,6 +35,16 @@
       "is_overseas": false,
       "price_cr": 16.35,
       "rationale": "Franchise cornerstone at Rs 16.4 Cr. Explosive death-overs finisher"
+    },
+    {
+      "batting_position": 4,
+      "player_id": "9caf69a1",
+      "player_name": "Will Jacks",
+      "role": "Opener",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 5.25,
+      "rationale": "Provides batting depth and bowling option"
     },
     {
       "batting_position": 5,
@@ -68,36 +68,16 @@
     },
     {
       "batting_position": 7,
-      "player_id": "462411b3",
-      "player_name": "Jasprit Bumrah",
+      "player_id": "91e69e5b",
+      "player_name": "Mohammed Izhar",
       "role": "Pace Bowler",
       "batting_hand": "Right-hand",
       "is_overseas": false,
-      "price_cr": 18.0,
-      "rationale": "Franchise cornerstone at Rs 18.0 Cr. New ball specialist"
+      "price_cr": 0.3,
+      "rationale": "Tagged: proven wicket taker"
     },
     {
       "batting_position": 8,
-      "player_id": "a818c1be",
-      "player_name": "Trent Boult",
-      "role": "Pace Bowler",
-      "batting_hand": "Left-hand",
-      "is_overseas": true,
-      "price_cr": 12.5,
-      "rationale": "Key player investment (12.5 Cr). Tagged: pp elite, proven wicket taker"
-    },
-    {
-      "batting_position": 9,
-      "player_id": "23eeb873",
-      "player_name": "Deepak Chahar",
-      "role": "Pace Bowler",
-      "batting_hand": "Right-hand",
-      "is_overseas": false,
-      "price_cr": 9.25,
-      "rationale": "New ball specialist"
-    },
-    {
-      "batting_position": 10,
       "player_id": "e4a0deae",
       "player_name": "Mitchell Santner",
       "role": "All-rounder",
@@ -107,23 +87,43 @@
       "rationale": "Provides batting depth and bowling option"
     },
     {
-      "batting_position": 11,
-      "player_id": "91e69e5b",
-      "player_name": "Mohammed Izhar",
+      "batting_position": 9,
+      "player_id": "462411b3",
+      "player_name": "Jasprit Bumrah",
       "role": "Pace Bowler",
       "batting_hand": "Right-hand",
       "is_overseas": false,
-      "price_cr": 0.3,
-      "rationale": "Tagged: proven wicket taker"
+      "price_cr": 18.0,
+      "rationale": "Franchise cornerstone at Rs 18.0 Cr. New ball specialist"
+    },
+    {
+      "batting_position": 10,
+      "player_id": "a818c1be",
+      "player_name": "Trent Boult",
+      "role": "Pace Bowler",
+      "batting_hand": "Left-hand",
+      "is_overseas": true,
+      "price_cr": 12.5,
+      "rationale": "Key player investment (12.5 Cr). Tagged: pp elite, proven wicket taker"
+    },
+    {
+      "batting_position": 11,
+      "player_id": "23eeb873",
+      "player_name": "Deepak Chahar",
+      "role": "Pace Bowler",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 9.25,
+      "rationale": "New ball specialist"
     }
   ],
   "impact_player": {
-    "player_id": "bafd0398",
-    "player_name": "Robin Minz",
+    "player_id": "fffa744b",
+    "player_name": "Naman Dhir",
     "role": "Impact Player",
-    "batting_hand": "Right-hand",
+    "batting_hand": "Left-hand",
     "is_overseas": false,
-    "price_cr": 0.65,
+    "price_cr": 5.25,
     "rationale": "Provides batting depth as Impact substitute"
   },
   "balance": {
@@ -136,6 +136,7 @@
   "constraints_satisfied": true,
   "constraint_violations": [],
   "generation_notes": [
-    "Selected Quinton de Kock as keeper"
+    "Selected Quinton de Kock as keeper",
+    "Overseas optimization: Swapped Naman Dhir for Mitchell Santner"
   ]
 }

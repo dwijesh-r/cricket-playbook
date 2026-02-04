@@ -8,16 +8,6 @@
   "xi": [
     {
       "batting_position": 1,
-      "player_id": "99b75528",
-      "player_name": "Jos Buttler",
-      "role": "Wicketkeeper",
-      "batting_hand": "Right-hand",
-      "is_overseas": true,
-      "price_cr": 15.75,
-      "rationale": "Franchise cornerstone at Rs 15.8 Cr. Explosive death-overs finisher"
-    },
-    {
-      "batting_position": 2,
       "player_id": "b4b99816",
       "player_name": "Shubman Gill",
       "role": "Opener",
@@ -27,7 +17,7 @@
       "rationale": "Franchise cornerstone at Rs 16.5 Cr. Elite top-order anchor"
     },
     {
-      "batting_position": 3,
+      "batting_position": 2,
       "player_id": "d5130a30",
       "player_name": "Sai Sudharsan",
       "role": "Opener",
@@ -37,57 +27,17 @@
       "rationale": "Elite top-order anchor"
     },
     {
+      "batting_position": 3,
+      "player_id": "99b75528",
+      "player_name": "Jos Buttler",
+      "role": "Wicketkeeper",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 15.75,
+      "rationale": "Franchise cornerstone at Rs 15.8 Cr. Explosive death-overs finisher"
+    },
+    {
       "batting_position": 4,
-      "player_id": "f19ccfad",
-      "player_name": "Washington Sundar",
-      "role": "All-rounder",
-      "batting_hand": "Left-hand",
-      "is_overseas": false,
-      "price_cr": 3.2,
-      "rationale": "Provides batting depth and bowling option"
-    },
-    {
-      "batting_position": 5,
-      "player_id": "81049310",
-      "player_name": "Jayant Yadav",
-      "role": "All-rounder",
-      "batting_hand": "Right-hand",
-      "is_overseas": false,
-      "price_cr": 0.75,
-      "rationale": "Tagged: pp elite"
-    },
-    {
-      "batting_position": 6,
-      "player_id": "5f547c8b",
-      "player_name": "Rashid Khan",
-      "role": "Spinner",
-      "batting_hand": "Right-hand",
-      "is_overseas": true,
-      "price_cr": 18.0,
-      "rationale": "Franchise cornerstone at Rs 18.0 Cr. Spin bowling strength in middle overs"
-    },
-    {
-      "batting_position": 7,
-      "player_id": "2f49c897",
-      "player_name": "Mohammed Siraj",
-      "role": "Pace Bowler",
-      "batting_hand": "Right-hand",
-      "is_overseas": false,
-      "price_cr": 12.25,
-      "rationale": "Key player investment (12.2 Cr). Tagged: proven wicket taker"
-    },
-    {
-      "batting_position": 8,
-      "player_id": "e62dd25d",
-      "player_name": "Kagiso Rabada",
-      "role": "All-rounder",
-      "batting_hand": "Right-hand",
-      "is_overseas": true,
-      "price_cr": 10.75,
-      "rationale": "Key player investment (10.8 Cr). Tagged: proven wicket taker"
-    },
-    {
-      "batting_position": 9,
       "player_id": "85e0cf10",
       "player_name": "Prasidh Krishna",
       "role": "Pace Bowler",
@@ -97,7 +47,17 @@
       "rationale": "Pace bowling depth"
     },
     {
-      "batting_position": 10,
+      "batting_position": 5,
+      "player_id": "f19ccfad",
+      "player_name": "Washington Sundar",
+      "role": "All-rounder",
+      "batting_hand": "Left-hand",
+      "is_overseas": false,
+      "price_cr": 3.2,
+      "rationale": "Provides batting depth and bowling option"
+    },
+    {
+      "batting_position": 6,
       "player_id": "9a46c4e5",
       "player_name": "Glenn Phillips",
       "role": "All-rounder",
@@ -107,36 +67,75 @@
       "rationale": "Provides batting depth and bowling option"
     },
     {
-      "batting_position": 11,
-      "player_id": "5bb1a1c4",
-      "player_name": "Ishant Sharma",
-      "role": "Pace Bowler",
+      "batting_position": 7,
+      "player_id": "39a2dfa8",
+      "player_name": "Rahul Tewatia",
+      "role": "All-rounder",
+      "batting_hand": "Left-hand",
+      "is_overseas": false,
+      "price_cr": 4.0,
+      "rationale": "Provides batting depth and bowling option"
+    },
+    {
+      "batting_position": 8,
+      "player_id": "81049310",
+      "player_name": "Jayant Yadav",
+      "role": "All-rounder",
       "batting_hand": "Right-hand",
       "is_overseas": false,
       "price_cr": 0.75,
       "rationale": "Tagged: pp elite"
+    },
+    {
+      "batting_position": 9,
+      "player_id": "5f547c8b",
+      "player_name": "Rashid Khan",
+      "role": "Spinner",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 18.0,
+      "rationale": "Franchise cornerstone at Rs 18.0 Cr. Spin bowling strength in middle overs"
+    },
+    {
+      "batting_position": 10,
+      "player_id": "2f49c897",
+      "player_name": "Mohammed Siraj",
+      "role": "Pace Bowler",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 12.25,
+      "rationale": "Key player investment (12.2 Cr). Tagged: proven wicket taker"
+    },
+    {
+      "batting_position": 11,
+      "player_id": "e62dd25d",
+      "player_name": "Kagiso Rabada",
+      "role": "Pace Bowler",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 10.75,
+      "rationale": "Key player investment (10.8 Cr). Tagged: proven wicket taker"
     }
   ],
   "impact_player": {
-    "player_id": "c7a995d3",
-    "player_name": "Sai Kishore",
+    "player_id": "5bb1a1c4",
+    "player_name": "Ishant Sharma",
     "role": "Impact Player",
-    "batting_hand": "Left-hand",
+    "batting_hand": "Right-hand",
     "is_overseas": false,
-    "price_cr": 2.0,
+    "price_cr": 0.75,
     "rationale": "Provides bowling option as Impact substitute"
   },
   "balance": {
     "overseas_count": 4,
     "bowling_options": 9,
-    "spinners": 5,
-    "pacers": 6,
+    "spinners": 6,
+    "pacers": 5,
     "left_handers_top6": 2
   },
   "constraints_satisfied": true,
   "constraint_violations": [],
   "generation_notes": [
-    "Selected Jos Buttler as keeper",
-    "Overseas optimization: Swapped Rahul Tewatia for Kagiso Rabada"
+    "Selected Jos Buttler as keeper"
   ]
 }

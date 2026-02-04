@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-02-01",
-  "version": "1.0",
-  "methodology": "Constraint-satisfaction with weighted scoring",
+  "generated_at": "2026-02-04",
+  "version": "2.0",
+  "methodology": "65% Competency / 35% Variety with constraint-satisfaction",
+  "constraints": {
+    "C1": "Captain cannot be Impact Player",
+    "C2": "Maximum 4 overseas players",
+    "C3": "Minimum 20 overs bowling coverage",
+    "C4": "At least 1 wicketkeeper",
+    "C5": "At least 1 spinner"
+  },
   "teams": {
     "CSK": {
       "team_name": "Chennai Super Kings",
@@ -43,13 +50,13 @@
         },
         {
           "batting_position": 4,
-          "player_id": "a4e37e47",
-          "player_name": "Shivam Dube",
-          "role": "All-rounder",
-          "batting_hand": "Left-hand",
-          "is_overseas": false,
-          "price_cr": 12.0,
-          "rationale": "Key player investment (12.0 Cr)"
+          "player_id": "844e79d1",
+          "player_name": "Dewald Brevis",
+          "role": "Middle Order",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 2.2,
+          "rationale": "Explosive death-overs finisher"
         },
         {
           "batting_position": 5,
@@ -63,16 +70,6 @@
         },
         {
           "batting_position": 6,
-          "player_id": "e148e6bd",
-          "player_name": "Prashant Veer",
-          "role": "All-rounder",
-          "batting_hand": "Right-hand",
-          "is_overseas": false,
-          "price_cr": 14.2,
-          "rationale": "Key player investment (14.2 Cr)"
-        },
-        {
-          "batting_position": 7,
           "player_id": "378daa89",
           "player_name": "Aman Khan",
           "role": "All-rounder",
@@ -82,7 +79,27 @@
           "rationale": "Provides batting depth and bowling option"
         },
         {
+          "batting_position": 7,
+          "player_id": "59559bc2",
+          "player_name": "Jamie Overton",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 1.5,
+          "rationale": "Provides batting depth and bowling option"
+        },
+        {
           "batting_position": 8,
+          "player_id": "efc04be7",
+          "player_name": "Noor Ahmad",
+          "role": "Spinner",
+          "batting_hand": "Left-hand",
+          "is_overseas": true,
+          "price_cr": 10.0,
+          "rationale": "Key player investment (10.0 Cr)"
+        },
+        {
+          "batting_position": 9,
           "player_id": "a2f46292",
           "player_name": "Khaleel Ahmed",
           "role": "Pace Bowler",
@@ -92,23 +109,13 @@
           "rationale": "Pace bowling depth"
         },
         {
-          "batting_position": 9,
+          "batting_position": 10,
           "player_id": "9eb1455b",
           "player_name": "Nathan Ellis",
           "role": "Pace Bowler",
           "batting_hand": "Right-hand",
           "is_overseas": true,
           "price_cr": 2.0,
-          "rationale": "Pace bowling depth"
-        },
-        {
-          "batting_position": 10,
-          "player_id": "fcc21ace",
-          "player_name": "Anshul Kamboj",
-          "role": "Pace Bowler",
-          "batting_hand": "Right-hand",
-          "is_overseas": false,
-          "price_cr": 3.4,
           "rationale": "Pace bowling depth"
         },
         {
@@ -132,16 +139,18 @@
         "rationale": "Provides bowling option as Impact substitute"
       },
       "balance": {
-        "overseas_count": 1,
-        "bowling_options": 6,
-        "spinners": 3,
-        "pacers": 8,
+        "overseas_count": 4,
+        "bowling_options": 7,
+        "spinners": 4,
+        "pacers": 7,
         "left_handers_top6": 1
       },
       "constraints_satisfied": true,
       "constraint_violations": [],
       "generation_notes": [
-        "Selected Sanju Samson as keeper"
+        "Selected Sanju Samson as keeper",
+        "Overseas optimization: Swapped Anshul Kamboj for Noor Ahmad",
+        "Overseas optimization: Swapped Shivam Dube for Jamie Overton"
       ]
     },
     "MI": {
@@ -290,7 +299,7 @@
       "team_abbrev": "RCB",
       "home_venue": "M Chinnaswamy Stadium",
       "venue_bias": "pace",
-      "captain": "Virat Kohli",
+      "captain": "Rajat Patidar",
       "wicketkeeper": "Phil Salt",
       "xi": [
         {
@@ -315,6 +324,16 @@
         },
         {
           "batting_position": 3,
+          "player_id": "ff154ecd",
+          "player_name": "Jordan Cox",
+          "role": "Wicketkeeper",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 0.3,
+          "rationale": "Primary wicketkeeper"
+        },
+        {
+          "batting_position": 4,
           "player_id": "c740ea83",
           "player_name": "Rajat Patidar",
           "role": "Middle Order",
@@ -324,7 +343,7 @@
           "rationale": "Key player investment (11.0 Cr). Explosive death-overs finisher"
         },
         {
-          "batting_position": 4,
+          "batting_position": 5,
           "player_id": "a24be938",
           "player_name": "Venkatesh Iyer",
           "role": "Opener",
@@ -334,7 +353,7 @@
           "rationale": "Provides batting depth and bowling option"
         },
         {
-          "batting_position": 5,
+          "batting_position": 6,
           "player_id": "2c25d4f5",
           "player_name": "Devdutt Padikkal",
           "role": "Middle Order",
@@ -344,7 +363,7 @@
           "rationale": "Batting value"
         },
         {
-          "batting_position": 6,
+          "batting_position": 7,
           "player_id": "800d2d97",
           "player_name": "Jitesh Sharma",
           "role": "Finisher",
@@ -354,7 +373,7 @@
           "rationale": "Key player investment (11.0 Cr)"
         },
         {
-          "batting_position": 7,
+          "batting_position": 8,
           "player_id": "f1f99156",
           "player_name": "Tim David",
           "role": "Finisher",
@@ -362,16 +381,6 @@
           "is_overseas": true,
           "price_cr": 3.0,
           "rationale": "Batting value"
-        },
-        {
-          "batting_position": 8,
-          "player_id": "5b8c830e",
-          "player_name": "Krunal Pandya",
-          "role": "All-rounder",
-          "batting_hand": "Left-hand",
-          "is_overseas": false,
-          "price_cr": 5.75,
-          "rationale": "Spin bowling strength in middle overs"
         },
         {
           "batting_position": 9,
@@ -395,35 +404,39 @@
         },
         {
           "batting_position": 11,
-          "player_id": "b1ad996b",
-          "player_name": "Mangesh Yadav",
-          "role": "Pace Bowler",
+          "player_id": "5b8c830e",
+          "player_name": "Krunal Pandya",
+          "role": "All-rounder",
           "batting_hand": "Left-hand",
           "is_overseas": false,
-          "price_cr": 0.3,
-          "rationale": "Pace bowling depth"
+          "price_cr": 5.75,
+          "rationale": "Spin bowling strength in middle overs"
         }
       ],
       "impact_player": {
-        "player_id": "ff154ecd",
-        "player_name": "Jordan Cox",
+        "player_id": "b1ad996b",
+        "player_name": "Mangesh Yadav",
         "role": "Impact Player",
-        "batting_hand": "Right-hand",
-        "is_overseas": true,
+        "batting_hand": "Left-hand",
+        "is_overseas": false,
         "price_cr": 0.3,
         "rationale": "Provides batting depth as Impact substitute"
       },
       "balance": {
-        "overseas_count": 3,
-        "bowling_options": 6,
+        "overseas_count": 4,
+        "bowling_options": 5,
         "spinners": 3,
         "pacers": 8,
         "left_handers_top6": 2
       },
-      "constraints_satisfied": true,
-      "constraint_violations": [],
+      "constraints_satisfied": false,
+      "constraint_violations": [
+        "C4: Insufficient primary bowling options (3/4)"
+      ],
       "generation_notes": [
-        "Selected Phil Salt as keeper"
+        "Selected Phil Salt as keeper",
+        "Overseas optimization: Swapped Mangesh Yadav for Jordan Cox",
+        "Constraint violations: ['C4: Insufficient primary bowling options (3/4)']"
       ]
     },
     "KKR": {
@@ -572,7 +585,7 @@
       "team_abbrev": "DC",
       "home_venue": "Arun Jaitley Stadium",
       "venue_bias": "neutral",
-      "captain": "KL Rahul",
+      "captain": "Axar Patel",
       "wicketkeeper": "KL Rahul",
       "xi": [
         {
@@ -617,13 +630,13 @@
         },
         {
           "batting_position": 5,
-          "player_id": "fb2d1dda",
-          "player_name": "Nitish Rana",
-          "role": "Middle Order",
+          "player_id": "2e171977",
+          "player_name": "Axar Patel",
+          "role": "All-rounder",
           "batting_hand": "Left-hand",
           "is_overseas": false,
-          "price_cr": 0.5,
-          "rationale": "Batting value"
+          "price_cr": 16.5,
+          "rationale": "Team captain. Key player investment (16.5 Cr). Elite spin all-rounder"
         },
         {
           "batting_position": 6,
@@ -687,13 +700,13 @@
         }
       ],
       "impact_player": {
-        "player_id": "2e171977",
-        "player_name": "Axar Patel",
+        "player_id": "f89d3b11",
+        "player_name": "Sameer Rizvi",
         "role": "Impact Player",
-        "batting_hand": "Left-hand",
+        "batting_hand": "Right-hand",
         "is_overseas": false,
-        "price_cr": 16.5,
-        "rationale": "Provides bowling option as Impact substitute"
+        "price_cr": 0.95,
+        "rationale": "Provides batting depth as Impact substitute"
       },
       "balance": {
         "overseas_count": 4,
@@ -748,16 +761,6 @@
         },
         {
           "batting_position": 4,
-          "player_id": "afb6ebee",
-          "player_name": "Pyla Avinash",
-          "role": "Pace Bowler",
-          "batting_hand": "Right-hand",
-          "is_overseas": false,
-          "price_cr": 0.3,
-          "rationale": "Batting value"
-        },
-        {
-          "batting_position": 5,
           "player_id": "d9273ee7",
           "player_name": "Marcus Stoinis",
           "role": "Middle Order",
@@ -767,7 +770,7 @@
           "rationale": "Key player investment (11.0 Cr)"
         },
         {
-          "batting_position": 6,
+          "batting_position": 5,
           "player_id": "d1a60072",
           "player_name": "Nehal Wadhera",
           "role": "Middle Order",
@@ -777,13 +780,23 @@
           "rationale": "Batting value"
         },
         {
-          "batting_position": 7,
+          "batting_position": 6,
           "player_id": "26989d80",
           "player_name": "Shashank Singh",
           "role": "Finisher",
           "batting_hand": "Right-hand",
           "is_overseas": false,
           "price_cr": 5.5,
+          "rationale": "Provides batting depth and bowling option"
+        },
+        {
+          "batting_position": 7,
+          "player_id": "8f6dd463",
+          "player_name": "Azmatullah Omarzai",
+          "role": "Pace Bowler",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 2.4,
           "rationale": "Provides batting depth and bowling option"
         },
         {
@@ -837,7 +850,7 @@
         "rationale": "Provides bowling option as Impact substitute"
       },
       "balance": {
-        "overseas_count": 3,
+        "overseas_count": 4,
         "bowling_options": 7,
         "spinners": 2,
         "pacers": 9,
@@ -846,7 +859,8 @@
       "constraints_satisfied": true,
       "constraint_violations": [],
       "generation_notes": [
-        "Selected Prabhsimran Singh as keeper"
+        "Selected Prabhsimran Singh as keeper",
+        "Overseas optimization: Swapped Pyla Avinash for Azmatullah Omarzai"
       ]
     },
     "RR": {
@@ -854,7 +868,7 @@
       "team_abbrev": "RR",
       "home_venue": "Sawai Mansingh Stadium",
       "venue_bias": "neutral",
-      "captain": "Yashasvi Jaiswal",
+      "captain": "Riyan Parag",
       "wicketkeeper": "Dhruv Jurel",
       "xi": [
         {
@@ -995,7 +1009,7 @@
       "team_abbrev": "SRH",
       "home_venue": "Rajiv Gandhi Intl Stadium",
       "venue_bias": "pace",
-      "captain": "Heinrich Klaasen",
+      "captain": "Pat Cummins",
       "wicketkeeper": "Ishan Kishan",
       "xi": [
         {
@@ -1060,13 +1074,13 @@
         },
         {
           "batting_position": 7,
-          "player_id": "08548b13",
-          "player_name": "Kamindu Mendis",
-          "role": "All-rounder",
-          "batting_hand": "Left-hand",
+          "player_id": "ded9240e",
+          "player_name": "Pat Cummins",
+          "role": "Pace Bowler",
+          "batting_hand": "Right-hand",
           "is_overseas": true,
-          "price_cr": 0.75,
-          "rationale": "Provides batting depth and bowling option"
+          "price_cr": 18.0,
+          "rationale": "Team captain. Franchise cornerstone at Rs 18.0 Cr. Elite death-overs specialist"
         },
         {
           "batting_position": 8,
@@ -1181,16 +1195,6 @@
         },
         {
           "batting_position": 5,
-          "player_id": "39a2dfa8",
-          "player_name": "Rahul Tewatia",
-          "role": "All-rounder",
-          "batting_hand": "Left-hand",
-          "is_overseas": false,
-          "price_cr": 4.0,
-          "rationale": "Provides batting depth and bowling option"
-        },
-        {
-          "batting_position": 6,
           "player_id": "81049310",
           "player_name": "Jayant Yadav",
           "role": "All-rounder",
@@ -1200,7 +1204,7 @@
           "rationale": "Tagged: pp elite"
         },
         {
-          "batting_position": 7,
+          "batting_position": 6,
           "player_id": "5f547c8b",
           "player_name": "Rashid Khan",
           "role": "Spinner",
@@ -1210,7 +1214,7 @@
           "rationale": "Franchise cornerstone at Rs 18.0 Cr. Spin bowling strength in middle overs"
         },
         {
-          "batting_position": 8,
+          "batting_position": 7,
           "player_id": "2f49c897",
           "player_name": "Mohammed Siraj",
           "role": "Pace Bowler",
@@ -1218,6 +1222,16 @@
           "is_overseas": false,
           "price_cr": 12.25,
           "rationale": "Key player investment (12.2 Cr). Tagged: proven wicket taker"
+        },
+        {
+          "batting_position": 8,
+          "player_id": "e62dd25d",
+          "player_name": "Kagiso Rabada",
+          "role": "All-rounder",
+          "batting_hand": "Right-hand",
+          "is_overseas": true,
+          "price_cr": 10.75,
+          "rationale": "Key player investment (10.8 Cr). Tagged: proven wicket taker"
         },
         {
           "batting_position": 9,
@@ -1251,25 +1265,26 @@
         }
       ],
       "impact_player": {
-        "player_id": "e62dd25d",
-        "player_name": "Kagiso Rabada",
+        "player_id": "c7a995d3",
+        "player_name": "Sai Kishore",
         "role": "Impact Player",
-        "batting_hand": "Right-hand",
-        "is_overseas": true,
-        "price_cr": 10.75,
+        "batting_hand": "Left-hand",
+        "is_overseas": false,
+        "price_cr": 2.0,
         "rationale": "Provides bowling option as Impact substitute"
       },
       "balance": {
-        "overseas_count": 3,
+        "overseas_count": 4,
         "bowling_options": 9,
-        "spinners": 6,
-        "pacers": 5,
-        "left_handers_top6": 3
+        "spinners": 5,
+        "pacers": 6,
+        "left_handers_top6": 2
       },
       "constraints_satisfied": true,
       "constraint_violations": [],
       "generation_notes": [
-        "Selected Jos Buttler as keeper"
+        "Selected Jos Buttler as keeper",
+        "Overseas optimization: Swapped Rahul Tewatia for Kagiso Rabada"
       ]
     },
     "LSG": {
@@ -1278,7 +1293,7 @@
       "home_venue": "Ekana Cricket Stadium",
       "venue_bias": "neutral",
       "captain": "Rishabh Pant",
-      "wicketkeeper": "Digvesh Rathi",
+      "wicketkeeper": "Nicholas Pooran",
       "xi": [
         {
           "batting_position": 1,
@@ -1302,16 +1317,6 @@
         },
         {
           "batting_position": 3,
-          "player_id": "13fc5c6d",
-          "player_name": "Digvesh Rathi",
-          "role": "Batter",
-          "batting_hand": "Right-hand",
-          "is_overseas": false,
-          "price_cr": 0.3,
-          "rationale": "Primary wicketkeeper"
-        },
-        {
-          "batting_position": 4,
           "player_id": "3241e3fd",
           "player_name": "Nicholas Pooran",
           "role": "Wicketkeeper",
@@ -1321,7 +1326,7 @@
           "rationale": "Franchise cornerstone at Rs 21.0 Cr. Powerplay aggressor"
         },
         {
-          "batting_position": 5,
+          "batting_position": 4,
           "player_id": "919a3be2",
           "player_name": "Rishabh Pant",
           "role": "Middle Order",
@@ -1331,7 +1336,7 @@
           "rationale": "Franchise cornerstone at Rs 27.0 Cr. Explosive death-overs finisher"
         },
         {
-          "batting_position": 6,
+          "batting_position": 5,
           "player_id": "8e514b4c",
           "player_name": "Abdul Samad",
           "role": "Finisher",
@@ -1341,7 +1346,7 @@
           "rationale": "Batting value"
         },
         {
-          "batting_position": 7,
+          "batting_position": 6,
           "player_id": "ebcfef83",
           "player_name": "Himmat Singh",
           "role": "All-rounder",
@@ -1351,7 +1356,7 @@
           "rationale": "Provides batting depth and bowling option"
         },
         {
-          "batting_position": 8,
+          "batting_position": 7,
           "player_id": "8cf9814c",
           "player_name": "Mohammed Shami",
           "role": "Pace Bowler",
@@ -1361,7 +1366,7 @@
           "rationale": "Key player investment (10.0 Cr). Tagged: pp elite, proven wicket taker"
         },
         {
-          "batting_position": 9,
+          "batting_position": 8,
           "player_id": "a97c8ec2",
           "player_name": "Wanindu Hasaranga",
           "role": "All-rounder",
@@ -1371,7 +1376,7 @@
           "rationale": "Spin bowling strength in middle overs"
         },
         {
-          "batting_position": 10,
+          "batting_position": 9,
           "player_id": "eef2536f",
           "player_name": "Avesh Khan",
           "role": "Pace Bowler",
@@ -1381,7 +1386,7 @@
           "rationale": "Pace bowling depth"
         },
         {
-          "batting_position": 11,
+          "batting_position": 10,
           "player_id": "c33d8116",
           "player_name": "Mohsin Khan",
           "role": "Pace Bowler",
@@ -1389,6 +1394,16 @@
           "is_overseas": false,
           "price_cr": 4.0,
           "rationale": "New ball specialist"
+        },
+        {
+          "batting_position": 11,
+          "player_id": "13fc5c6d",
+          "player_name": "Digvesh Rathi",
+          "role": "Spinner",
+          "batting_hand": "Right-hand",
+          "is_overseas": false,
+          "price_cr": 0.3,
+          "rationale": "Spin bowling strength in middle overs"
         }
       ],
       "impact_player": {
@@ -1402,9 +1417,9 @@
       },
       "balance": {
         "overseas_count": 4,
-        "bowling_options": 8,
-        "spinners": 4,
-        "pacers": 7,
+        "bowling_options": 9,
+        "spinners": 5,
+        "pacers": 6,
         "left_handers_top6": 2
       },
       "constraints_satisfied": true,

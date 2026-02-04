@@ -200,9 +200,17 @@ class PredictedXII:
 # =============================================================================
 
 
-def load_squads() -> dict:
-    """Load IPL 2026 squad data"""
+def load_squads() -> tuple:
+    """
+    Load IPL 2026 squad data.
+
+    Returns:
+        tuple: (squads dict, captains dict)
+        - squads: {team_name: [player_rows]}
+        - captains: {team_name: captain_player_name} from is_captain=TRUE field
+    """
     squads = {}
+    captains = {}
     squad_file = DATA_DIR / "ipl_2026_squads.csv"
 
     with open(squad_file, "r") as f:
@@ -213,7 +221,12 @@ def load_squads() -> dict:
                 squads[team] = []
             squads[team].append(row)
 
-    return squads
+            # Extract captain from is_captain field
+            is_cap = (row.get("is_captain") or "").strip().upper()
+            if is_cap == "TRUE":
+                captains[team] = row["player_name"]
+
+    return squads, captains
 
 
 def load_contracts() -> dict:
@@ -336,6 +349,8 @@ def is_overseas_player(player_name: str) -> bool:
         "Romario Shepherd",
         "Jordan Cox",
         "Jacob Duffy",
+        "Brydon Carse",
+        "Jack Edwards",
         # South African
         "Quinton de Kock",
         "Heinrich Klaasen",
@@ -968,7 +983,78 @@ def select_xi(
 
         select_player(best, len(selected) + 1, role)
 
-    # 9. Reorder batting positions based on role/classification and historical data
+    # 9. OVERSEAS OPTIMIZATION: Target exactly 4 overseas players
+    # Per algorithm spec v2: Teams should maximize overseas slots (up to 4)
+    current_overseas = sum(1 for sp in selected if sp.player.is_overseas)
+    if current_overseas < 4:
+        # Find available overseas players not in XI
+        available_overseas = [p for p in remaining if p.is_overseas]
+        available_overseas.sort(key=lambda x: x.overall_score, reverse=True)
+
+        # Find Indian players in XI that can be swapped (not keeper, not highest-value)
+        swappable_indians = []
+        for sp in selected:
+            if not sp.player.is_overseas and not sp.player.is_wicketkeeper:
+                # Don't swap very high-value players unless necessary
+                swappable_indians.append(sp)
+
+        # Sort swappable by score (lowest first - swap worst Indian players)
+        swappable_indians.sort(key=lambda x: x.player.overall_score)
+
+        # Perform swaps
+        swaps_made = 0
+        max_swaps = 4 - current_overseas
+        for overseas_player in available_overseas:
+            if swaps_made >= max_swaps:
+                break
+            if not swappable_indians:
+                break
+
+            # Find a suitable Indian to swap - prefer same role category
+            swap_target = None
+            for indian_sp in swappable_indians:
+                # Check role compatibility (bowling capability matters most)
+                indian_can_bowl = indian_sp.player.can_bowl
+                overseas_can_bowl = overseas_player.can_bowl
+
+                # Ensure we don't break bowling constraints
+                if indian_can_bowl and not overseas_can_bowl:
+                    # Would lose a bowling option - check if we have enough
+                    bowling_options = sum(
+                        1
+                        for sp in selected
+                        if sp.player.can_bowl
+                        and sp.player.bowling_overs_capability >= 4
+                    )
+                    if bowling_options <= 5:
+                        continue  # Skip this swap
+
+                swap_target = indian_sp
+                break
+
+            if swap_target:
+                # Perform the swap
+                selected.remove(swap_target)
+                remaining.append(swap_target.player)
+                remaining.remove(overseas_player)
+                swappable_indians.remove(swap_target)
+
+                new_sp = SelectedPlayer(
+                    player=overseas_player,
+                    batting_position=swap_target.batting_position,
+                    role_in_xi=swap_target.role_in_xi,
+                    rationale=generate_rationale(
+                        overseas_player, swap_target.role_in_xi
+                    ),
+                )
+                selected.append(new_sp)
+                swaps_made += 1
+                notes.append(
+                    f"Overseas optimization: Swapped {swap_target.player.player_name} "
+                    f"for {overseas_player.player_name}"
+                )
+
+    # 10. Reorder batting positions based on role/classification and historical data
     selected = reorder_batting_positions(selected, entry_points)
 
     # Check constraints
@@ -1289,8 +1375,15 @@ def fix_constraint_violations(
     return selected, violations
 
 
-def select_impact_player(xi: list, remaining: list) -> Optional[SelectedPlayer]:
-    """Select the Impact Player (12th man)"""
+def select_impact_player(
+    xi: list, remaining: list, captain_name: str = None
+) -> Optional[SelectedPlayer]:
+    """
+    Select the Impact Player (12th man).
+
+    Per IPL rules and algorithm spec v2 constraint C1:
+    The designated team captain is EXCLUDED from impact player selection.
+    """
     # Score remaining players
     for p in remaining:
         score_player(p)
@@ -1302,6 +1395,10 @@ def select_impact_player(xi: list, remaining: list) -> Optional[SelectedPlayer]:
 
     # Find best complement
     candidates = remaining.copy()
+
+    # CONSTRAINT C1: Captain CANNOT be Impact Player (IPL rule)
+    if captain_name:
+        candidates = [p for p in candidates if p.player_name != captain_name]
 
     # Filter out overseas if XI has 4
     overseas_in_xi = sum(1 for p in xi_players if p.is_overseas)
@@ -1344,17 +1441,31 @@ def select_impact_player(xi: list, remaining: list) -> Optional[SelectedPlayer]:
     )
 
 
-def identify_captain(xi: list, team: str) -> str:
-    """Identify likely captain based on price, experience, role"""
-    # Known captains (can be updated)
+def identify_captain(xi: list, team: str, squad_captains: dict = None) -> str:
+    """
+    Identify captain from CSV is_captain field first, then fall back to known list.
+
+    Per algorithm spec v2: Captain is read from ipl_2026_squads.csv is_captain=TRUE field.
+    """
+    # PRIORITY 1: Use captain from squad CSV data (is_captain=TRUE)
+    if squad_captains and team in squad_captains:
+        csv_captain = squad_captains[team]
+        # Verify captain is in XI
+        for sp in xi:
+            if sp.player.player_name == csv_captain:
+                return csv_captain
+        # If CSV captain not in XI, still return them (they should be selected)
+        return csv_captain
+
+    # PRIORITY 2: Fallback to known captains (legacy)
     KNOWN_CAPTAINS = {
         "Chennai Super Kings": "Ruturaj Gaikwad",
         "Mumbai Indians": "Hardik Pandya",
-        "Royal Challengers Bengaluru": "Virat Kohli",
+        "Royal Challengers Bengaluru": "Rajat Patidar",
         "Kolkata Knight Riders": "Ajinkya Rahane",
-        "Delhi Capitals": "KL Rahul",
+        "Delhi Capitals": "Axar Patel",
         "Punjab Kings": "Shreyas Iyer",
-        "Rajasthan Royals": "Yashasvi Jaiswal",
+        "Rajasthan Royals": "Riyan Parag",
         "Sunrisers Hyderabad": "Pat Cummins",
         "Gujarat Titans": "Shubman Gill",
         "Lucknow Super Giants": "Rishabh Pant",
@@ -1385,7 +1496,7 @@ def identify_keeper(xi: list) -> str:
 
 
 def generate_predicted_xii(
-    team: str, players: list, entry_points: dict = None
+    team: str, players: list, entry_points: dict = None, squad_captains: dict = None
 ) -> PredictedXII:
     """Generate Predicted XII for a team"""
     venue_info = HOME_VENUES.get(team, {"venue": "Unknown", "bias": "neutral"})
@@ -1395,15 +1506,15 @@ def generate_predicted_xii(
         team, players, venue_info["bias"], entry_points
     )
 
-    # Select Impact Player
-    impact = select_impact_player(xi, remaining)
-
     # Get balance metrics
     balance = get_balance_metrics(xi)
 
     # Identify captain and keeper
-    captain = identify_captain(xi, team)
+    captain = identify_captain(xi, team, squad_captains)
     keeper = identify_keeper(xi)
+
+    # Select Impact Player (captain excluded per IPL rules - Constraint C1)
+    impact = select_impact_player(xi, remaining, captain_name=captain)
 
     return PredictedXII(
         team_name=team,
@@ -1474,12 +1585,13 @@ def predicted_xii_to_dict(pxii: PredictedXII) -> dict:
 def main():
     """Main entry point"""
     print("=" * 60)
-    print("CRICKET PLAYBOOK - PREDICTED XII GENERATOR")
+    print("CRICKET PLAYBOOK - PREDICTED XII GENERATOR v2")
+    print("Algorithm: 65% Competency / 35% Variety")
     print("=" * 60)
 
     # Load data
     print("\n[1/4] Loading data...")
-    squads = load_squads()
+    squads, squad_captains = load_squads()
     contracts = load_contracts()
     tags = load_player_tags()
     entry_points = load_batting_entry_points()
@@ -1487,6 +1599,7 @@ def main():
     print(f"  - Loaded {len(squads)} teams")
     print(f"  - Loaded {len(contracts)} player contracts")
     print(f"  - Loaded {len(entry_points)} batting entry point records")
+    print(f"  - Loaded {len(squad_captains)} team captains from CSV")
 
     # Build player objects
     print("\n[2/4] Building player database...")
@@ -1507,7 +1620,7 @@ def main():
             print(f"    WARNING: No players found for {team}")
             continue
 
-        prediction = generate_predicted_xii(team, players, entry_points)
+        prediction = generate_predicted_xii(team, players, entry_points, squad_captains)
         all_predictions[team] = prediction
 
         # Print summary
@@ -1527,9 +1640,16 @@ def main():
 
     # Save consolidated JSON
     output_data = {
-        "generated_at": "2026-02-01",
-        "version": "1.0",
-        "methodology": "Constraint-satisfaction with weighted scoring",
+        "generated_at": "2026-02-04",
+        "version": "2.0",
+        "methodology": "65% Competency / 35% Variety with constraint-satisfaction",
+        "constraints": {
+            "C1": "Captain cannot be Impact Player",
+            "C2": "Maximum 4 overseas players",
+            "C3": "Minimum 20 overs bowling coverage",
+            "C4": "At least 1 wicketkeeper",
+            "C5": "At least 1 spinner",
+        },
         "teams": {},
     }
 

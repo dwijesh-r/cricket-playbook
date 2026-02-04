@@ -3,7 +3,7 @@
   "team_abbrev": "DC",
   "home_venue": "Arun Jaitley Stadium",
   "venue_bias": "neutral",
-  "captain": "KL Rahul",
+  "captain": "Axar Patel",
   "wicketkeeper": "KL Rahul",
   "xi": [
     {
@@ -48,13 +48,13 @@
     },
     {
       "batting_position": 5,
-      "player_id": "fb2d1dda",
-      "player_name": "Nitish Rana",
-      "role": "Middle Order",
+      "player_id": "2e171977",
+      "player_name": "Axar Patel",
+      "role": "All-rounder",
       "batting_hand": "Left-hand",
       "is_overseas": false,
-      "price_cr": 0.5,
-      "rationale": "Batting value"
+      "price_cr": 16.5,
+      "rationale": "Team captain. Key player investment (16.5 Cr). Elite spin all-rounder"
     },
     {
       "batting_position": 6,
@@ -118,13 +118,13 @@
     }
   ],
   "impact_player": {
-    "player_id": "2e171977",
-    "player_name": "Axar Patel",
+    "player_id": "f89d3b11",
+    "player_name": "Sameer Rizvi",
     "role": "Impact Player",
-    "batting_hand": "Left-hand",
+    "batting_hand": "Right-hand",
     "is_overseas": false,
-    "price_cr": 16.5,
-    "rationale": "Provides bowling option as Impact substitute"
+    "price_cr": 0.95,
+    "rationale": "Provides batting depth as Impact substitute"
   },
   "balance": {
     "overseas_count": 4,
@@ -136,6 +136,7 @@
   "constraints_satisfied": true,
   "constraint_violations": [],
   "generation_notes": [
-    "Selected KL Rahul as keeper"
+    "Selected KL Rahul as keeper",
+    "Captain Axar Patel added to XI (replaced Nitish Rana)"
   ]
 }

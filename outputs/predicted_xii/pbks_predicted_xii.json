@@ -38,16 +38,6 @@
     },
     {
       "batting_position": 4,
-      "player_id": "afb6ebee",
-      "player_name": "Pyla Avinash",
-      "role": "Pace Bowler",
-      "batting_hand": "Right-hand",
-      "is_overseas": false,
-      "price_cr": 0.3,
-      "rationale": "Batting value"
-    },
-    {
-      "batting_position": 5,
       "player_id": "d9273ee7",
       "player_name": "Marcus Stoinis",
       "role": "Middle Order",
@@ -57,7 +47,7 @@
       "rationale": "Key player investment (11.0 Cr)"
     },
     {
-      "batting_position": 6,
+      "batting_position": 5,
       "player_id": "d1a60072",
       "player_name": "Nehal Wadhera",
       "role": "Middle Order",
@@ -67,13 +57,23 @@
       "rationale": "Batting value"
     },
     {
-      "batting_position": 7,
+      "batting_position": 6,
       "player_id": "26989d80",
       "player_name": "Shashank Singh",
       "role": "Finisher",
       "batting_hand": "Right-hand",
       "is_overseas": false,
       "price_cr": 5.5,
+      "rationale": "Provides batting depth and bowling option"
+    },
+    {
+      "batting_position": 7,
+      "player_id": "8f6dd463",
+      "player_name": "Azmatullah Omarzai",
+      "role": "Pace Bowler",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 2.4,
       "rationale": "Provides batting depth and bowling option"
     },
     {
@@ -127,7 +127,7 @@
     "rationale": "Provides bowling option as Impact substitute"
   },
   "balance": {
-    "overseas_count": 3,
+    "overseas_count": 4,
     "bowling_options": 7,
     "spinners": 2,
     "pacers": 9,
@@ -136,6 +136,7 @@
   "constraints_satisfied": true,
   "constraint_violations": [],
   "generation_notes": [
-    "Selected Prabhsimran Singh as keeper"
+    "Selected Prabhsimran Singh as keeper",
+    "Overseas optimization: Swapped Pyla Avinash for Azmatullah Omarzai"
   ]
 }

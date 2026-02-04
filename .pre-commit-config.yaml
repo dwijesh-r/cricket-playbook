@@ -14,3 +14,22 @@ repos:
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: check-yaml
+      # Large file prevention (P3-03)
+      # Blocks files > 500KB to prevent accidental CSV/DuckDB commits
+      # Whitelisted: *.md, *.pdf (documentation can be large)
+      - id: check-added-large-files
+        args: ['--maxkb=500']
+        exclude: '\.(md|pdf)$'
+
+  # Custom naming convention hook (P3-01)
+  # Validates document naming: documentname_MMDDYY_v*.md/pdf
+  # Monitored directories: reviews/founder/, reviews/sprint/, docs/sprints/
+  # WARNING ONLY - does not block commits
+  - repo: local
+    hooks:
+      - id: check-naming-convention
+        name: Check Document Naming Convention
+        entry: python scripts/hooks/check_naming_convention.py
+        language: python
+        files: '\.(md|pdf)$'
+        verbose: true

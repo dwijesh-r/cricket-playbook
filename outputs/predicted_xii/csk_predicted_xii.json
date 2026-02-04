@@ -38,13 +38,13 @@
     },
     {
       "batting_position": 4,
-      "player_id": "a4e37e47",
-      "player_name": "Shivam Dube",
-      "role": "All-rounder",
-      "batting_hand": "Left-hand",
-      "is_overseas": false,
-      "price_cr": 12.0,
-      "rationale": "Key player investment (12.0 Cr)"
+      "player_id": "844e79d1",
+      "player_name": "Dewald Brevis",
+      "role": "Middle Order",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 2.2,
+      "rationale": "Explosive death-overs finisher"
     },
     {
       "batting_position": 5,
@@ -58,16 +58,6 @@
     },
     {
       "batting_position": 6,
-      "player_id": "e148e6bd",
-      "player_name": "Prashant Veer",
-      "role": "All-rounder",
-      "batting_hand": "Right-hand",
-      "is_overseas": false,
-      "price_cr": 14.2,
-      "rationale": "Key player investment (14.2 Cr)"
-    },
-    {
-      "batting_position": 7,
       "player_id": "378daa89",
       "player_name": "Aman Khan",
       "role": "All-rounder",
@@ -77,7 +67,27 @@
       "rationale": "Provides batting depth and bowling option"
     },
     {
+      "batting_position": 7,
+      "player_id": "59559bc2",
+      "player_name": "Jamie Overton",
+      "role": "All-rounder",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 1.5,
+      "rationale": "Provides batting depth and bowling option"
+    },
+    {
       "batting_position": 8,
+      "player_id": "efc04be7",
+      "player_name": "Noor Ahmad",
+      "role": "Spinner",
+      "batting_hand": "Left-hand",
+      "is_overseas": true,
+      "price_cr": 10.0,
+      "rationale": "Key player investment (10.0 Cr)"
+    },
+    {
+      "batting_position": 9,
       "player_id": "a2f46292",
       "player_name": "Khaleel Ahmed",
       "role": "Pace Bowler",
@@ -87,23 +97,13 @@
       "rationale": "Pace bowling depth"
     },
     {
-      "batting_position": 9,
+      "batting_position": 10,
       "player_id": "9eb1455b",
       "player_name": "Nathan Ellis",
       "role": "Pace Bowler",
       "batting_hand": "Right-hand",
       "is_overseas": true,
       "price_cr": 2.0,
-      "rationale": "Pace bowling depth"
-    },
-    {
-      "batting_position": 10,
-      "player_id": "fcc21ace",
-      "player_name": "Anshul Kamboj",
-      "role": "Pace Bowler",
-      "batting_hand": "Right-hand",
-      "is_overseas": false,
-      "price_cr": 3.4,
       "rationale": "Pace bowling depth"
     },
     {
@@ -127,15 +127,17 @@
     "rationale": "Provides bowling option as Impact substitute"
   },
   "balance": {
-    "overseas_count": 1,
-    "bowling_options": 6,
-    "spinners": 3,
-    "pacers": 8,
+    "overseas_count": 4,
+    "bowling_options": 7,
+    "spinners": 4,
+    "pacers": 7,
     "left_handers_top6": 1
   },
   "constraints_satisfied": true,
   "constraint_violations": [],
   "generation_notes": [
-    "Selected Sanju Samson as keeper"
+    "Selected Sanju Samson as keeper",
+    "Overseas optimization: Swapped Anshul Kamboj for Noor Ahmad",
+    "Overseas optimization: Swapped Shivam Dube for Jamie Overton"
   ]
 }

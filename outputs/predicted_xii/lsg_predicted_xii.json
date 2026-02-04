@@ -4,7 +4,7 @@
   "home_venue": "Ekana Cricket Stadium",
   "venue_bias": "neutral",
   "captain": "Rishabh Pant",
-  "wicketkeeper": "Digvesh Rathi",
+  "wicketkeeper": "Nicholas Pooran",
   "xi": [
     {
       "batting_position": 1,
@@ -28,16 +28,6 @@
     },
     {
       "batting_position": 3,
-      "player_id": "13fc5c6d",
-      "player_name": "Digvesh Rathi",
-      "role": "Batter",
-      "batting_hand": "Right-hand",
-      "is_overseas": false,
-      "price_cr": 0.3,
-      "rationale": "Primary wicketkeeper"
-    },
-    {
-      "batting_position": 4,
       "player_id": "3241e3fd",
       "player_name": "Nicholas Pooran",
       "role": "Wicketkeeper",
@@ -47,7 +37,7 @@
       "rationale": "Franchise cornerstone at Rs 21.0 Cr. Powerplay aggressor"
     },
     {
-      "batting_position": 5,
+      "batting_position": 4,
       "player_id": "919a3be2",
       "player_name": "Rishabh Pant",
       "role": "Middle Order",
@@ -57,7 +47,7 @@
       "rationale": "Franchise cornerstone at Rs 27.0 Cr. Explosive death-overs finisher"
     },
     {
-      "batting_position": 6,
+      "batting_position": 5,
       "player_id": "8e514b4c",
       "player_name": "Abdul Samad",
       "role": "Finisher",
@@ -67,7 +57,7 @@
       "rationale": "Batting value"
     },
     {
-      "batting_position": 7,
+      "batting_position": 6,
       "player_id": "ebcfef83",
       "player_name": "Himmat Singh",
       "role": "All-rounder",
@@ -77,7 +67,7 @@
       "rationale": "Provides batting depth and bowling option"
     },
     {
-      "batting_position": 8,
+      "batting_position": 7,
       "player_id": "8cf9814c",
       "player_name": "Mohammed Shami",
       "role": "Pace Bowler",
@@ -87,7 +77,7 @@
       "rationale": "Key player investment (10.0 Cr). Tagged: pp elite, proven wicket taker"
     },
     {
-      "batting_position": 9,
+      "batting_position": 8,
       "player_id": "a97c8ec2",
       "player_name": "Wanindu Hasaranga",
       "role": "All-rounder",
@@ -97,7 +87,7 @@
       "rationale": "Spin bowling strength in middle overs"
     },
     {
-      "batting_position": 10,
+      "batting_position": 9,
       "player_id": "eef2536f",
       "player_name": "Avesh Khan",
       "role": "Pace Bowler",
@@ -107,7 +97,7 @@
       "rationale": "Pace bowling depth"
     },
     {
-      "batting_position": 11,
+      "batting_position": 10,
       "player_id": "c33d8116",
       "player_name": "Mohsin Khan",
       "role": "Pace Bowler",
@@ -115,6 +105,16 @@
       "is_overseas": false,
       "price_cr": 4.0,
       "rationale": "New ball specialist"
+    },
+    {
+      "batting_position": 11,
+      "player_id": "13fc5c6d",
+      "player_name": "Digvesh Rathi",
+      "role": "Spinner",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 0.3,
+      "rationale": "Spin bowling strength in middle overs"
     }
   ],
   "impact_player": {
@@ -128,9 +128,9 @@
   },
   "balance": {
     "overseas_count": 4,
-    "bowling_options": 8,
-    "spinners": 4,
-    "pacers": 7,
+    "bowling_options": 9,
+    "spinners": 5,
+    "pacers": 6,
     "left_handers_top6": 2
   },
   "constraints_satisfied": true,

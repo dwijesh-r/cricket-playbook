@@ -3,7 +3,7 @@
   "team_abbrev": "RCB",
   "home_venue": "M Chinnaswamy Stadium",
   "venue_bias": "pace",
-  "captain": "Virat Kohli",
+  "captain": "Rajat Patidar",
   "wicketkeeper": "Phil Salt",
   "xi": [
     {
@@ -28,6 +28,16 @@
     },
     {
       "batting_position": 3,
+      "player_id": "ff154ecd",
+      "player_name": "Jordan Cox",
+      "role": "Wicketkeeper",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 0.3,
+      "rationale": "Primary wicketkeeper"
+    },
+    {
+      "batting_position": 4,
       "player_id": "c740ea83",
       "player_name": "Rajat Patidar",
       "role": "Middle Order",
@@ -37,7 +47,7 @@
       "rationale": "Key player investment (11.0 Cr). Explosive death-overs finisher"
     },
     {
-      "batting_position": 4,
+      "batting_position": 5,
       "player_id": "a24be938",
       "player_name": "Venkatesh Iyer",
       "role": "Opener",
@@ -47,7 +57,7 @@
       "rationale": "Provides batting depth and bowling option"
     },
     {
-      "batting_position": 5,
+      "batting_position": 6,
       "player_id": "2c25d4f5",
       "player_name": "Devdutt Padikkal",
       "role": "Middle Order",
@@ -57,7 +67,7 @@
       "rationale": "Batting value"
     },
     {
-      "batting_position": 6,
+      "batting_position": 7,
       "player_id": "800d2d97",
       "player_name": "Jitesh Sharma",
       "role": "Finisher",
@@ -67,7 +77,7 @@
       "rationale": "Key player investment (11.0 Cr)"
     },
     {
-      "batting_position": 7,
+      "batting_position": 8,
       "player_id": "f1f99156",
       "player_name": "Tim David",
       "role": "Finisher",
@@ -75,16 +85,6 @@
       "is_overseas": true,
       "price_cr": 3.0,
       "rationale": "Batting value"
-    },
-    {
-      "batting_position": 8,
-      "player_id": "5b8c830e",
-      "player_name": "Krunal Pandya",
-      "role": "All-rounder",
-      "batting_hand": "Left-hand",
-      "is_overseas": false,
-      "price_cr": 5.75,
-      "rationale": "Spin bowling strength in middle overs"
     },
     {
       "batting_position": 9,
@@ -108,34 +108,38 @@
     },
     {
       "batting_position": 11,
-      "player_id": "b1ad996b",
-      "player_name": "Mangesh Yadav",
-      "role": "Pace Bowler",
+      "player_id": "5b8c830e",
+      "player_name": "Krunal Pandya",
+      "role": "All-rounder",
       "batting_hand": "Left-hand",
       "is_overseas": false,
-      "price_cr": 0.3,
-      "rationale": "Pace bowling depth"
+      "price_cr": 5.75,
+      "rationale": "Spin bowling strength in middle overs"
     }
   ],
   "impact_player": {
-    "player_id": "ff154ecd",
-    "player_name": "Jordan Cox",
+    "player_id": "b1ad996b",
+    "player_name": "Mangesh Yadav",
     "role": "Impact Player",
-    "batting_hand": "Right-hand",
-    "is_overseas": true,
+    "batting_hand": "Left-hand",
+    "is_overseas": false,
     "price_cr": 0.3,
     "rationale": "Provides batting depth as Impact substitute"
   },
   "balance": {
-    "overseas_count": 3,
-    "bowling_options": 6,
+    "overseas_count": 4,
+    "bowling_options": 5,
     "spinners": 3,
     "pacers": 8,
     "left_handers_top6": 2
   },
-  "constraints_satisfied": true,
-  "constraint_violations": [],
+  "constraints_satisfied": false,
+  "constraint_violations": [
+    "C4: Insufficient primary bowling options (3/4)"
+  ],
   "generation_notes": [
-    "Selected Phil Salt as keeper"
+    "Selected Phil Salt as keeper",
+    "Overseas optimization: Swapped Mangesh Yadav for Jordan Cox",
+    "Constraint violations: ['C4: Insufficient primary bowling options (3/4)']"
   ]
 }

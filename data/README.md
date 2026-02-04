@@ -2,7 +2,7 @@
 
 Source data, database, and reference files.
 
-**Version:** 3.1.0 | **Last Updated:** 2026-01-26
+**Version:** 4.0.0 | **Last Updated:** 2026-02-04
 
 ---
 
@@ -81,14 +81,36 @@ The database contains 35 analytics views created by `scripts/core/analytics_ipl.
 
 | Column | Description |
 |--------|-------------|
-| `team` | Team abbreviation (CSK, MI, etc.) |
+| `team_name` | Full team name |
 | `player_name` | Player name |
 | `player_id` | Cricsheet player ID |
-| `role` | BATTER, BOWLER, ALL-ROUNDER, WK-BATTER |
-| `batting_style` | Right-hand bat, Left-hand bat |
-| `bowling_style` | Bowling type |
+| `role` | Batter, Bowler, All-rounder, Wicketkeeper |
+| `bowling_arm` | Right-arm, Left-arm |
+| `bowling_type` | Fast, Off-spin, Leg-spin, etc. |
+| `batting_hand` | Right-hand, Left-hand |
+| `batter_classification` | Elite Top-Order, Power Finisher, etc. |
+| `bowler_classification` | Workhorse Seamer, Middle-Overs Spinner, etc. |
+| `batter_tags` | Pipe-separated batter tags |
+| `bowler_tags` | Pipe-separated bowler tags |
+| `is_captain` | TRUE if team captain (NEW in v4.0) |
 
 **Records:** 231 players across 10 teams
+
+**Captains (IPL 2026):**
+| Team | Captain |
+|------|---------|
+| CSK | Ruturaj Gaikwad |
+| MI | Hardik Pandya |
+| RCB | Rajat Patidar |
+| KKR | Ajinkya Rahane |
+| RR | Riyan Parag* |
+| PBKS | Shreyas Iyer |
+| DC | Axar Patel |
+| SRH | Pat Cummins |
+| GT | Shubman Gill |
+| LSG | Rishabh Pant |
+
+*\* Subject to confirmation*
 
 ### `ipl_2026_player_contracts.csv`
 
@@ -178,4 +200,4 @@ python scripts/core/validate_schema.py
 
 ---
 
-*Cricket Playbook v3.1.0*
+*Cricket Playbook v4.0.0*

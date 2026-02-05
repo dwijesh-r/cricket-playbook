@@ -2132,19 +2132,19 @@
 
                     <div class="stats-grid">
                         <div class="stat-item">
-                            <div class="stat-value accent-blue" id="statTotal">9</div>
+                            <div class="stat-value accent-blue" id="statTotal">86</div>
                             <div class="stat-label">Total</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value accent-yellow" id="statRunning">2</div>
+                            <div class="stat-value accent-yellow" id="statRunning">5</div>
                             <div class="stat-label">In Progress</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value accent-red" id="statBlocked">1</div>
-                            <div class="stat-label">Blocked</div>
+                            <div class="stat-value accent-orange" id="statReview">10</div>
+                            <div class="stat-label">In Review</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value accent-green" id="statDone">1</div>
+                            <div class="stat-value accent-green" id="statDone">65</div>
                             <div class="stat-label">Done</div>
                         </div>
                     </div>
@@ -3435,7 +3435,7 @@
         function updateStats() {
             document.getElementById('statTotal').textContent = tickets.length;
             document.getElementById('statRunning').textContent = tickets.filter(t => t.state === 'RUNNING').length;
-            document.getElementById('statBlocked').textContent = tickets.filter(t => t.state === 'BLOCKED').length;
+            document.getElementById('statReview').textContent = tickets.filter(t => t.state === 'REVIEW').length;
             document.getElementById('statDone').textContent = tickets.filter(t => t.state === 'DONE').length;
         }
 

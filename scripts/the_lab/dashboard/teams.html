@@ -1037,6 +1037,39 @@
     <script src="data/depth_charts.js"></script>
 
     <script>
+        // Generate SQUADS from PREDICTED_XII if not loaded separately
+        const SQUADS = {};
+        if (typeof TEAM_ORDER !== 'undefined' && typeof PREDICTED_XII !== 'undefined') {
+            TEAM_ORDER.forEach(abbrev => {
+                const predicted = PREDICTED_XII[abbrev];
+                if (predicted && predicted.xi) {
+                    // Build squad from predicted XI + impact player
+                    SQUADS[abbrev] = predicted.xi.map(p => ({
+                        name: p.name,
+                        role: p.role,
+                        batting: p.batting,
+                        overseas: p.overseas,
+                        price: p.price,
+                        nationality: p.overseas ? 'Overseas' : 'Indian',
+                        ageGroup: 'Unknown'
+                    }));
+                    // Add impact player
+                    if (predicted.impactPlayer && predicted.impactPlayer.name) {
+                        SQUADS[abbrev].push({
+                            name: predicted.impactPlayer.name,
+                            role: predicted.impactPlayer.role,
+                            batting: 'Unknown',
+                            overseas: false,
+                            price: predicted.impactPlayer.price,
+                            nationality: 'Indian',
+                            ageGroup: 'Unknown',
+                            isImpact: true
+                        });
+                    }
+                }
+            });
+        }
+
         let currentTeam = 'MI';
         let compareTeam = 'CSK';
         let squadFilters = { search: '', role: '', nationality: '', ageGroup: '' };

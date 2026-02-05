@@ -325,6 +325,20 @@
         .file-info { flex: 1; }
         .file-name { font-size: 14px; font-weight: 600; }
         .file-desc { font-size: 11px; color: var(--text-tertiary); }
+        a.data-file {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+        a.data-file:hover {
+            background: var(--bg-tertiary);
+            transform: translateY(-2px);
+        }
+        .pixel-logo {
+            width: 100%;
+            height: 100%;
+            image-rendering: pixelated;
+        }
 
         /* Footer */
         .footer {
@@ -419,62 +433,62 @@
                 </div>
             </div>
             <div class="data-files">
-                <div class="data-file">
+                <a href="../../../outputs/predicted_xii/predicted_xii_2026.json" class="data-file" target="_blank">
                     <div class="file-icon">📄</div>
                     <div class="file-info">
                         <div class="file-name">predicted_xii_2026.json</div>
                         <div class="file-desc">Consolidated predicted XIIs for all teams</div>
                     </div>
-                </div>
-                <div class="data-file">
+                </a>
+                <a href="../../../outputs/depth_charts/depth_charts_2026.json" class="data-file" target="_blank">
                     <div class="file-icon">📄</div>
                     <div class="file-info">
                         <div class="file-name">depth_charts_2026.json</div>
                         <div class="file-desc">Position-by-position depth rankings</div>
                     </div>
-                </div>
-                <div class="data-file">
+                </a>
+                <a href="../../../outputs/tags/player_tags.json" class="data-file" target="_blank">
                     <div class="file-icon">📄</div>
                     <div class="file-info">
                         <div class="file-name">player_tags.json</div>
                         <div class="file-desc">155 players with performance tags</div>
                     </div>
-                </div>
-                <div class="data-file">
+                </a>
+                <a href="../../../outputs/matchups/batter_bowling_type_matchup_2023.csv" class="data-file" target="_blank">
                     <div class="file-icon">📊</div>
                     <div class="file-info">
                         <div class="file-name">batter_bowling_type_matchup.csv</div>
                         <div class="file-desc">Batter vs bowling type analysis</div>
                     </div>
-                </div>
-                <div class="data-file">
+                </a>
+                <a href="../../../outputs/metrics/batter_consistency_index_2023.csv" class="data-file" target="_blank">
                     <div class="file-icon">📊</div>
                     <div class="file-info">
                         <div class="file-name">batter_consistency_index.csv</div>
                         <div class="file-desc">Consistency metrics for batters</div>
                     </div>
-                </div>
-                <div class="data-file">
+                </a>
+                <a href="../../../outputs/metrics/partnership_synergy_2023.csv" class="data-file" target="_blank">
                     <div class="file-icon">📊</div>
                     <div class="file-info">
                         <div class="file-name">partnership_synergy.csv</div>
                         <div class="file-desc">Partnership performance analysis</div>
                     </div>
-                </div>
-                <div class="data-file">
+                </a>
+                <a href="../../../outputs/metrics/bowler_pressure_sequences_2023.csv" class="data-file" target="_blank">
                     <div class="file-icon">📊</div>
                     <div class="file-info">
                         <div class="file-name">bowler_pressure_sequences.csv</div>
                         <div class="file-desc">Bowler pressure and dot ball analysis</div>
                     </div>
-                </div>
-                <div class="data-file">
+                </a>
+                <a href="../../../stat_packs/" class="data-file" target="_blank">
                     <div class="file-icon">📋</div>
                     <div class="file-info">
                         <div class="file-name">stat_packs/*.md</div>
                         <div class="file-desc">10 team stat packs with full analysis</div>
                     </div>
-                </div>
+                </a>
             </div>
         </section>
 
@@ -490,6 +504,20 @@
     <script src="data/predicted_xii.js"></script>
 
     <script>
+        // Pixelated Team Logos (8x8 grid style)
+        const TEAM_PIXEL_LOGOS = {
+            MI: `<svg viewBox="0 0 8 8" class="pixel-logo"><rect fill="#004ba0" width="8" height="8"/><rect fill="#d4af37" x="2" y="1" width="1" height="5"/><rect fill="#d4af37" x="5" y="1" width="1" height="5"/><rect fill="#d4af37" x="3" y="2" width="1" height="1"/><rect fill="#d4af37" x="4" y="3" width="1" height="1"/><rect fill="#d4af37" x="3" y="4" width="1" height="1"/></svg>`,
+            CSK: `<svg viewBox="0 0 8 8" class="pixel-logo"><rect fill="#ffc20e" width="8" height="8"/><rect fill="#0081e9" x="3" y="1" width="2" height="2"/><rect fill="#0081e9" x="2" y="3" width="4" height="1"/><rect fill="#0081e9" x="2" y="4" width="1" height="2"/><rect fill="#0081e9" x="5" y="4" width="1" height="2"/><rect fill="#0081e9" x="3" y="6" width="2" height="1"/></svg>`,
+            RCB: `<svg viewBox="0 0 8 8" class="pixel-logo"><rect fill="#d4213d" width="8" height="8"/><rect fill="#000000" x="3" y="1" width="2" height="2"/><rect fill="#d4af37" x="2" y="3" width="4" height="1"/><rect fill="#d4af37" x="1" y="4" width="2" height="2"/><rect fill="#d4af37" x="5" y="4" width="2" height="2"/><rect fill="#000000" x="3" y="5" width="2" height="2"/></svg>`,
+            KKR: `<svg viewBox="0 0 8 8" class="pixel-logo"><rect fill="#3a225d" width="8" height="8"/><rect fill="#d4af37" x="3" y="0" width="2" height="2"/><rect fill="#d4af37" x="2" y="2" width="4" height="1"/><rect fill="#d4af37" x="2" y="3" width="1" height="3"/><rect fill="#d4af37" x="5" y="3" width="1" height="3"/><rect fill="#d4af37" x="3" y="4" width="2" height="1"/><rect fill="#d4af37" x="3" y="6" width="2" height="2"/></svg>`,
+            DC: `<svg viewBox="0 0 8 8" class="pixel-logo"><rect fill="#0078bc" width="8" height="8"/><rect fill="#ef1b23" x="2" y="1" width="4" height="1"/><rect fill="#ef1b23" x="1" y="2" width="2" height="2"/><rect fill="#ef1b23" x="5" y="2" width="2" height="2"/><rect fill="#ffffff" x="3" y="2" width="2" height="3"/><rect fill="#ef1b23" x="2" y="5" width="4" height="2"/></svg>`,
+            PBKS: `<svg viewBox="0 0 8 8" class="pixel-logo"><rect fill="#ed1b24" width="8" height="8"/><rect fill="#a7a9ac" x="3" y="1" width="2" height="2"/><rect fill="#a7a9ac" x="2" y="3" width="4" height="1"/><rect fill="#a7a9ac" x="1" y="4" width="2" height="2"/><rect fill="#a7a9ac" x="5" y="4" width="2" height="2"/><rect fill="#a7a9ac" x="3" y="6" width="2" height="1"/></svg>`,
+            RR: `<svg viewBox="0 0 8 8" class="pixel-logo"><rect fill="#ea1a85" width="8" height="8"/><rect fill="#254aa5" x="1" y="2" width="1" height="2"/><rect fill="#254aa5" x="6" y="2" width="1" height="2"/><rect fill="#d4af37" x="2" y="1" width="4" height="1"/><rect fill="#d4af37" x="2" y="2" width="1" height="1"/><rect fill="#d4af37" x="5" y="2" width="1" height="1"/><rect fill="#d4af37" x="3" y="3" width="2" height="1"/><rect fill="#254aa5" x="2" y="4" width="4" height="3"/></svg>`,
+            SRH: `<svg viewBox="0 0 8 8" class="pixel-logo"><rect fill="#f7a721" width="8" height="8"/><rect fill="#000000" x="3" y="0" width="2" height="2"/><rect fill="#000000" x="2" y="2" width="1" height="1"/><rect fill="#000000" x="5" y="2" width="1" height="1"/><rect fill="#000000" x="1" y="3" width="1" height="1"/><rect fill="#000000" x="6" y="3" width="1" height="1"/><rect fill="#000000" x="0" y="4" width="1" height="2"/><rect fill="#000000" x="7" y="4" width="1" height="2"/><rect fill="#000000" x="1" y="6" width="6" height="1"/></svg>`,
+            GT: `<svg viewBox="0 0 8 8" class="pixel-logo"><rect fill="#1c1c1c" width="8" height="8"/><rect fill="#d5a239" x="2" y="1" width="4" height="1"/><rect fill="#d5a239" x="1" y="2" width="6" height="1"/><rect fill="#d5a239" x="1" y="3" width="1" height="2"/><rect fill="#d5a239" x="6" y="3" width="1" height="2"/><rect fill="#d5a239" x="2" y="4" width="4" height="1"/><rect fill="#d5a239" x="3" y="5" width="2" height="2"/></svg>`,
+            LSG: `<svg viewBox="0 0 8 8" class="pixel-logo"><rect fill="#a72056" width="8" height="8"/><rect fill="#ffcc00" x="3" y="0" width="2" height="2"/><rect fill="#ffcc00" x="2" y="2" width="4" height="1"/><rect fill="#00b7eb" x="2" y="3" width="1" height="3"/><rect fill="#00b7eb" x="5" y="3" width="1" height="3"/><rect fill="#00b7eb" x="3" y="4" width="2" height="1"/><rect fill="#ffcc00" x="1" y="5" width="1" height="1"/><rect fill="#ffcc00" x="6" y="5" width="1" height="1"/><rect fill="#00b7eb" x="3" y="6" width="2" height="2"/></svg>`
+        };
+
         function toggleTheme() {
             const html = document.documentElement;
             const currentTheme = html.getAttribute('data-theme');
@@ -511,6 +539,7 @@
                 const team = TEAMS[abbrev];
                 const predicted = PREDICTED_XII[abbrev];
                 const rating = DEPTH_CHART_RATINGS[abbrev];
+                const pixelLogo = TEAM_PIXEL_LOGOS[abbrev] || team.icon;
 
                 const card = document.createElement('a');
                 card.href = `teams.html?team=${abbrev}`;
@@ -519,9 +548,9 @@
 
                 card.innerHTML = `
                     <div class="artifact-header">
-                        <div class="artifact-icon">${team.icon}</div>
+                        <div class="artifact-icon">${pixelLogo}</div>
                         <div>
-                            <div class="artifact-name">${team.name}</div>
+                            <div class="artifact-name">${team.fullName}</div>
                             <div class="artifact-team">Predicted XI + Impact</div>
                         </div>
                     </div>
@@ -547,13 +576,14 @@
             sorted.forEach(abbrev => {
                 const team = TEAMS[abbrev];
                 const rating = DEPTH_CHART_RATINGS[abbrev];
+                const pixelLogo = TEAM_PIXEL_LOGOS[abbrev] || team.icon;
 
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>
                         <div class="team-cell">
-                            <span class="team-emoji">${team.icon}</span>
-                            ${team.name}
+                            <span class="team-emoji" style="width:24px;height:24px;display:inline-block;">${pixelLogo}</span>
+                            ${team.fullName}
                         </div>
                     </td>
                     <td class="rating-cell">${rating.overall.toFixed(1)}</td>

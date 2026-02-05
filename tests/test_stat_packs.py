@@ -186,13 +186,14 @@ class TestStatPackFiles:
     @pytest.mark.parametrize("team", IPL_TEAMS)
     def test_stat_pack_exists(self, team):
         """Verify stat pack file exists for each team."""
-        stat_pack = STAT_PACK_DIR / f"{team}_stat_pack.md"
+        # Stat packs are in subdirectories: stat_packs/{team}/{team}_stat_pack.md
+        stat_pack = STAT_PACK_DIR / team / f"{team}_stat_pack.md"
         assert stat_pack.exists(), f"Stat pack should exist for {team}"
 
     @pytest.mark.parametrize("team", IPL_TEAMS)
     def test_stat_pack_size(self, team):
         """Verify stat pack file is not empty."""
-        stat_pack = STAT_PACK_DIR / f"{team}_stat_pack.md"
+        stat_pack = STAT_PACK_DIR / team / f"{team}_stat_pack.md"
         if stat_pack.exists():
             size = stat_pack.stat().st_size
             assert size > 10000, f"Stat pack for {team} should be > 10KB, got {size}"
@@ -200,7 +201,7 @@ class TestStatPackFiles:
     @pytest.mark.parametrize("team", IPL_TEAMS)
     def test_stat_pack_has_required_sections(self, team):
         """Verify stat pack has all required sections."""
-        stat_pack = STAT_PACK_DIR / f"{team}_stat_pack.md"
+        stat_pack = STAT_PACK_DIR / team / f"{team}_stat_pack.md"
         if stat_pack.exists():
             content = stat_pack.read_text()
             assert "## 1. Squad Overview" in content, "Missing Squad Overview"

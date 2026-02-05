@@ -551,6 +551,217 @@
             margin-top: 32px;
         }
 
+        /* How to Read Section */
+        .guide-section {
+            background: linear-gradient(135deg, rgba(10, 132, 255, 0.1) 0%, rgba(191, 90, 242, 0.1) 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .guide-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .guide-item {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .guide-item-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .guide-item-text {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .guide-item-text strong {
+            color: var(--accent);
+        }
+
+        /* Selectable Sprint Cards */
+        .sprint-card {
+            cursor: pointer;
+        }
+
+        .sprint-card.selected {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px rgba(10, 132, 255, 0.3);
+            transform: translateY(-4px);
+        }
+
+        /* Sprint Tasks Section */
+        .sprint-tasks-section {
+            margin-top: 32px;
+        }
+
+        .tasks-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .tasks-count {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .tasks-filters {
+            display: flex;
+            gap: 8px;
+        }
+
+        .filter-btn {
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .tasks-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .task-item {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.2s ease;
+        }
+
+        .task-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .task-status {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .task-status.done { background: var(--accent-green); }
+        .task-status.running { background: var(--accent); animation: pulse 1.5s infinite; }
+        .task-status.review { background: var(--accent-yellow); }
+        .task-status.validation { background: var(--accent-orange); }
+        .task-status.backlog { background: var(--text-tertiary); }
+        .task-status.ready { background: var(--accent-teal); }
+        .task-status.blocked { background: var(--accent-red); }
+        .task-status.idea { background: var(--accent-purple); }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .task-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .task-title {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .task-meta {
+            display: flex;
+            gap: 12px;
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        .task-id {
+            font-family: monospace;
+            color: var(--accent);
+        }
+
+        .task-owner {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .task-priority {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .task-priority.p0 { background: var(--accent-red); color: white; }
+        .task-priority.p1 { background: var(--accent-orange); color: white; }
+        .task-priority.p2 { background: var(--accent-yellow); color: black; }
+
+        .task-state-badge {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .task-state-badge.done { background: rgba(48, 209, 88, 0.2); color: var(--accent-green); }
+        .task-state-badge.running { background: rgba(10, 132, 255, 0.2); color: var(--accent); }
+        .task-state-badge.review { background: rgba(255, 214, 10, 0.2); color: var(--accent-yellow); }
+        .task-state-badge.validation { background: rgba(255, 159, 10, 0.2); color: var(--accent-orange); }
+        .task-state-badge.backlog { background: rgba(99, 99, 102, 0.2); color: var(--text-secondary); }
+        .task-state-badge.ready { background: rgba(100, 210, 255, 0.2); color: var(--accent-teal); }
+        .task-state-badge.blocked { background: rgba(255, 69, 58, 0.2); color: var(--accent-red); }
+        .task-state-badge.idea { background: rgba(191, 90, 242, 0.2); color: var(--accent-purple); }
+
+        .no-tasks {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-tertiary);
+            font-size: 14px;
+        }
+
         .highlights-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -635,6 +846,37 @@
             <p class="page-subtitle">Track velocity, burndown, and progress across all sprints</p>
         </header>
 
+        <!-- How to Read This Page -->
+        <section class="guide-section">
+            <h3 class="guide-title">📖 How to Read This Page</h3>
+            <div class="guide-grid">
+                <div class="guide-item">
+                    <div class="guide-item-title">📊 Burndown Chart</div>
+                    <div class="guide-item-text">
+                        Shows remaining work over time. The <strong>dashed line</strong> is the ideal pace (even daily progress). The <strong>solid line</strong> is actual progress. When actual is <strong>below ideal</strong>, the sprint is ahead of schedule. When <strong>above</strong>, it's behind.
+                    </div>
+                </div>
+                <div class="guide-item">
+                    <div class="guide-item-title">🚀 Velocity</div>
+                    <div class="guide-item-text">
+                        Measures how many <strong>story points</strong> (tasks) get completed per sprint. Higher velocity = more output. Compare across sprints to gauge team capacity. The <strong>percentage</strong> shows planned vs completed.
+                    </div>
+                </div>
+                <div class="guide-item">
+                    <div class="guide-item-title">📈 Progress Bar</div>
+                    <div class="guide-item-text">
+                        Shows <strong>% of tasks completed</strong> in a sprint. <span style="color: var(--accent-green);">Green</span> = completed sprint. <span style="color: var(--accent);">Blue</span> = active sprint. Click any sprint card to view its burndown and tasks.
+                    </div>
+                </div>
+                <div class="guide-item">
+                    <div class="guide-item-title">🎯 Sprint Cards</div>
+                    <div class="guide-item-text">
+                        <strong>Click any sprint card</strong> to select it. The burndown chart updates to show that sprint's progress, and the task list below shows all tickets in that sprint. Status badges: <strong>ACTIVE</strong> (current), <strong>COMPLETED</strong>, <strong>PLANNING</strong>.
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Sprint Timeline -->
         <section class="sprint-timeline" id="sprintTimeline">
             <!-- Sprint cards will be rendered here -->
@@ -668,6 +910,23 @@
                 <svg class="burndown-chart" id="burndownChart" viewBox="0 0 800 300">
                     <!-- Chart will be rendered here -->
                 </svg>
+            </div>
+        </section>
+
+        <!-- Sprint Tasks -->
+        <section class="sprint-tasks-section" id="sprintTasksSection">
+            <div class="tasks-header">
+                <h2 class="section-title">Sprint Tasks</h2>
+                <div class="tasks-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="done">Done</button>
+                    <button class="filter-btn" data-filter="running">Running</button>
+                    <button class="filter-btn" data-filter="pending">Pending</button>
+                </div>
+            </div>
+            <div class="tasks-count" id="tasksCount">Select a sprint to view tasks</div>
+            <div class="tasks-grid" id="tasksGrid">
+                <div class="no-tasks">👆 Click on a sprint card above to view its tasks</div>
             </div>
         </section>
 
@@ -721,8 +980,8 @@
                 status: "ACTIVE",
                 velocity: {
                     planned: 83,
-                    completed: 45,
-                    burndown: [83, 80, 75, 70, 65, 55, 45]
+                    completed: 62,
+                    burndown: [83, 80, 75, 70, 65, 55, 45, 38]
                 },
                 highlights: [
                     "Governance framework established (Constitution v2.0)",
@@ -754,6 +1013,122 @@
                 keyOutputs: []
             }
         };
+
+        // All Tickets Data (from .mission-control/data/tickets/)
+        const TICKETS = [
+            // Sprint 4.0 Tickets (SPRINT-001)
+            // Pre-Sprint
+            { id: "TKT-001", title: "Define Sprint 4 Scope", state: "DONE", priority: "P0", owner: "Florentino Pérez", sprint: "SPRINT-001" },
+            { id: "TKT-002", title: "Sprint Planning Session", state: "DONE", priority: "P0", owner: "Tom Brady", sprint: "SPRINT-001" },
+            { id: "TKT-003", title: "Create Florentino Perez agent", state: "DONE", priority: "P0", owner: "Brad Stevens", sprint: "SPRINT-001" },
+            { id: "TKT-004", title: "Create Jose Mourinho agent", state: "DONE", priority: "P0", owner: "Brad Stevens", sprint: "SPRINT-001" },
+            { id: "TKT-005", title: "Create LeBron James agent", state: "DONE", priority: "P0", owner: "Brad Stevens", sprint: "SPRINT-001" },
+            // Phase 0: Product Vision
+            { id: "TKT-006", title: "Define what CP will become", state: "DONE", priority: "P0", owner: "Florentino Pérez", sprint: "SPRINT-001" },
+            { id: "TKT-007", title: "Define who we cater to", state: "DONE", priority: "P0", owner: "Florentino Pérez", sprint: "SPRINT-001" },
+            { id: "TKT-008", title: "Define what we optimize for", state: "DONE", priority: "P0", owner: "Florentino Pérez", sprint: "SPRINT-001" },
+            { id: "TKT-009", title: "Document inspiration products", state: "DONE", priority: "P0", owner: "Tom Brady", sprint: "SPRINT-001" },
+            { id: "TKT-010", title: "Create PRD v2.0", state: "DONE", priority: "P0", owner: "Tom Brady", sprint: "SPRINT-001" },
+            { id: "TKT-011", title: "Founder approval of PRD", state: "DONE", priority: "P0", owner: "Founder", sprint: "SPRINT-001" },
+            { id: "TKT-012", title: "Archive PRD in docs/", state: "DONE", priority: "P1", owner: "Tom Brady", sprint: "SPRINT-001" },
+            // Phase 1: Governance
+            { id: "TKT-013", title: "Create Constitution v2.0", state: "DONE", priority: "P0", owner: "Tom Brady", sprint: "SPRINT-001" },
+            { id: "TKT-014", title: "Define Task Integrity Loop", state: "DONE", priority: "P0", owner: "Florentino Pérez", sprint: "SPRINT-001" },
+            { id: "TKT-015", title: "Document Florentino gate criteria", state: "DONE", priority: "P0", owner: "Florentino Pérez", sprint: "SPRINT-001" },
+            { id: "TKT-016", title: "Document domain sanity review", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
+            { id: "TKT-017", title: "Document enforcement check", state: "DONE", priority: "P0", owner: "Brad Stevens", sprint: "SPRINT-001" },
+            { id: "TKT-018", title: "Document system check", state: "DONE", priority: "P1", owner: "N'Golo Kanté", sprint: "SPRINT-001" },
+            { id: "TKT-019", title: "Document Founder Validation", state: "DONE", priority: "P0", owner: "Founder", sprint: "SPRINT-001" },
+            { id: "TKT-020", title: "Create Task Integrity Loop doc", state: "DONE", priority: "P0", owner: "Tom Brady", sprint: "SPRINT-001" },
+            { id: "TKT-021", title: "Founder approval of governance", state: "DONE", priority: "P0", owner: "Founder", sprint: "SPRINT-001" },
+            { id: "TKT-022", title: "Archive governance docs", state: "DONE", priority: "P1", owner: "Tom Brady", sprint: "SPRINT-001" },
+            // Phase 2: Data & Tags
+            { id: "TKT-023", title: "Audit player_tags.json completeness", state: "DONE", priority: "P0", owner: "Brock Purdy", sprint: "SPRINT-001" },
+            { id: "TKT-024", title: "Add batting_hand to all players", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-025", title: "Add bowling_style to all bowlers", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-026", title: "Validate SPECIALIST vs VULNERABLE", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
+            { id: "TKT-027", title: "Fix player ID mismatches", state: "DONE", priority: "P0", owner: "Brock Purdy", sprint: "SPRINT-001" },
+            { id: "TKT-028", title: "Merge all ID fixes", state: "DONE", priority: "P0", owner: "Brock Purdy", sprint: "SPRINT-001" },
+            { id: "TKT-029", title: "Regenerate all outputs", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-030", title: "Validate output integrity", state: "DONE", priority: "P0", owner: "N'Golo Kanté", sprint: "SPRINT-001" },
+            { id: "TKT-031", title: "Andy Flower review of tags", state: "DONE", priority: "P1", owner: "Andy Flower", sprint: "SPRINT-001" },
+            { id: "TKT-032", title: "Document data dictionary", state: "RUNNING", priority: "P1", owner: "Brock Purdy", sprint: "SPRINT-001" },
+            { id: "TKT-033", title: "Archive data docs", state: "BACKLOG", priority: "P2", owner: "Tom Brady", sprint: "SPRINT-001" },
+            { id: "TKT-034", title: "Founder approval of data", state: "DONE", priority: "P0", owner: "Founder", sprint: "SPRINT-001" },
+            // Phase 3: Output Quality
+            { id: "TKT-035", title: "Define stat pack sections", state: "DONE", priority: "P0", owner: "Tom Brady", sprint: "SPRINT-001" },
+            { id: "TKT-036", title: "Create stat pack template", state: "DONE", priority: "P0", owner: "Kevin de Bruyne", sprint: "SPRINT-001" },
+            { id: "TKT-037", title: "Regenerate all 10 stat packs", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-038", title: "Andy Flower review of stat packs", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
+            { id: "TKT-039", title: "Virat Kohli tone review", state: "DONE", priority: "P1", owner: "Virat Kohli", sprint: "SPRINT-001" },
+            { id: "TKT-040", title: "Define depth chart positions", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
+            { id: "TKT-041", title: "Create depth chart algorithm", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-042", title: "Generate all 10 depth charts", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-043", title: "Andy Flower review of depth charts", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
+            { id: "TKT-044", title: "Archive depth chart outputs", state: "DONE", priority: "P1", owner: "Tom Brady", sprint: "SPRINT-001" },
+            { id: "TKT-045", title: "Founder approval of outputs", state: "DONE", priority: "P0", owner: "Founder", sprint: "SPRINT-001" },
+            // Phase 4: Stat Pack Enhancement
+            { id: "TKT-046", title: "Add LHB/RHB balance section", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-047", title: "Add matchup matrix section", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-048", title: "Add phase analysis section", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-049", title: "Add key partnerships section", state: "RUNNING", priority: "P1", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-050", title: "Add pressure performance section", state: "RUNNING", priority: "P1", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-051", title: "Add venue analysis section", state: "BACKLOG", priority: "P1", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-052", title: "Add historical trends section", state: "BACKLOG", priority: "P2", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-053", title: "Add Andy Flower tactical insights", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
+            { id: "TKT-054", title: "Generate MI tactical insights", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
+            { id: "TKT-055", title: "Generate CSK tactical insights", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
+            { id: "TKT-056", title: "Generate RCB tactical insights", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
+            { id: "TKT-057", title: "Generate KKR tactical insights", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
+            { id: "TKT-058", title: "Generate DC tactical insights", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
+            { id: "TKT-059", title: "Generate remaining team insights", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
+            { id: "TKT-060", title: "Founder approval of enhancements", state: "DONE", priority: "P0", owner: "Founder", sprint: "SPRINT-001" },
+            // Phase 4.5: Predicted XII
+            { id: "TKT-061", title: "Create SUPER SELECTOR algorithm", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-062", title: "Generate all 10 Predicted XIIs", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-063", title: "Andy Flower review of XIIs", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
+            { id: "TKT-064", title: "Create wireframes for XI view", state: "DONE", priority: "P0", owner: "Kevin de Bruyne", sprint: "SPRINT-001" },
+            { id: "TKT-065", title: "Founder approval of XIIs", state: "DONE", priority: "P0", owner: "Founder", sprint: "SPRINT-001" },
+            { id: "TKT-066", title: "Archive XI outputs", state: "DONE", priority: "P1", owner: "Tom Brady", sprint: "SPRINT-001" },
+            // Phase 5: ML Ops
+            { id: "TKT-067", title: "Create model registry", state: "DONE", priority: "P1", owner: "Ime Udoka", sprint: "SPRINT-001" },
+            { id: "TKT-068", title: "Document clustering model", state: "DONE", priority: "P1", owner: "Ime Udoka", sprint: "SPRINT-001" },
+            { id: "TKT-069", title: "Create deployment manifest", state: "DONE", priority: "P1", owner: "Ime Udoka", sprint: "SPRINT-001" },
+            { id: "TKT-070", title: "Implement model versioning", state: "RUNNING", priority: "P1", owner: "Ime Udoka", sprint: "SPRINT-001" },
+            { id: "TKT-071", title: "Create model performance tests", state: "BACKLOG", priority: "P2", owner: "Ime Udoka", sprint: "SPRINT-001" },
+            { id: "TKT-072", title: "Document ML pipeline", state: "BACKLOG", priority: "P2", owner: "Ime Udoka", sprint: "SPRINT-001" },
+            { id: "TKT-073", title: "Setup model monitoring", state: "BACKLOG", priority: "P2", owner: "Ime Udoka", sprint: "SPRINT-001" },
+            { id: "TKT-074", title: "Archive ML docs", state: "BACKLOG", priority: "P2", owner: "Tom Brady", sprint: "SPRINT-001" },
+            { id: "TKT-075", title: "Founder approval of ML ops", state: "BACKLOG", priority: "P1", owner: "Founder", sprint: "SPRINT-001" },
+            // Phase 6: Testing
+            { id: "TKT-076", title: "Create smoke test suite", state: "DONE", priority: "P1", owner: "N'Golo Kanté", sprint: "SPRINT-001" },
+            { id: "TKT-077", title: "Create regression tests", state: "DONE", priority: "P1", owner: "N'Golo Kanté", sprint: "SPRINT-001" },
+            { id: "TKT-078", title: "Create output validation tests", state: "DONE", priority: "P1", owner: "N'Golo Kanté", sprint: "SPRINT-001" },
+            { id: "TKT-079", title: "Setup CI/CD pipeline", state: "DONE", priority: "P0", owner: "Brad Stevens", sprint: "SPRINT-001" },
+            { id: "TKT-080", title: "Add pre-commit hooks", state: "DONE", priority: "P1", owner: "Brad Stevens", sprint: "SPRINT-001" },
+            { id: "TKT-081", title: "Founder approval of testing", state: "DONE", priority: "P1", owner: "Founder", sprint: "SPRINT-001" },
+            // Phase 7: Script Quality
+            { id: "TKT-082", title: "Refactor generate_stat_packs.py", state: "RUNNING", priority: "P1", owner: "Brad Stevens", sprint: "SPRINT-001" },
+            { id: "TKT-083", title: "Add logging to all scripts", state: "BACKLOG", priority: "P2", owner: "Brad Stevens", sprint: "SPRINT-001" },
+            { id: "TKT-084", title: "Create script documentation", state: "BACKLOG", priority: "P2", owner: "Brad Stevens", sprint: "SPRINT-001" },
+            { id: "TKT-085", title: "Founder approval of scripts", state: "BACKLOG", priority: "P2", owner: "Founder", sprint: "SPRINT-001" },
+            // The Lab Dashboard
+            { id: "TKT-086", title: "Build The Lab dashboard", state: "DONE", priority: "P0", owner: "Kevin de Bruyne", sprint: "SPRINT-001" },
+            // Backlog (SPRINT-002)
+            { id: "TKT-087", title: "Implement Match Phase Index", state: "IDEA", priority: "P1", owner: "Stephen Curry", sprint: "SPRINT-002" },
+            { id: "TKT-088", title: "Build Clutch Performance metric", state: "IDEA", priority: "P1", owner: "Stephen Curry", sprint: "SPRINT-002" },
+            { id: "TKT-089", title: "Create CricPom (KenPom clone)", state: "IDEA", priority: "P0", owner: "Jose Mourinho", sprint: "SPRINT-002" },
+            { id: "TKT-090", title: "Build REST API (FastAPI)", state: "IDEA", priority: "P1", owner: "Brad Stevens", sprint: "SPRINT-002" },
+            { id: "TKT-091", title: "Create Win Probability model", state: "IDEA", priority: "P2", owner: "Ime Udoka", sprint: "SPRINT-002" },
+            { id: "TKT-092", title: "Build Player Form Tracker", state: "IDEA", priority: "P1", owner: "Stephen Curry", sprint: "SPRINT-002" },
+            { id: "TKT-093", title: "Create interactive dashboard", state: "IDEA", priority: "P2", owner: "Kevin de Bruyne", sprint: "SPRINT-002" },
+            { id: "TKT-094", title: "Add Great Expectations", state: "IDEA", priority: "P1", owner: "Brock Purdy", sprint: "SPRINT-002" },
+            { id: "TKT-095", title: "Implement player comparison tool", state: "IDEA", priority: "P2", owner: "Kevin de Bruyne", sprint: "SPRINT-002" }
+        ];
+
+        // Current selected sprint and filter
+        let selectedSprintId = 'SPRINT-001';
+        let currentFilter = 'all';
 
         // Render Sprint Timeline
         function renderSprintTimeline() {
@@ -925,15 +1300,79 @@
             `).join('');
         }
 
-        // Select Sprint (updates burndown chart)
+        // Select Sprint (updates burndown chart and tasks)
         function selectSprint(sprintId) {
+            selectedSprintId = sprintId;
             renderBurndownChart(sprintId);
+            renderSprintTasks(sprintId, currentFilter);
 
             // Highlight selected card
             document.querySelectorAll('.sprint-card').forEach(card => {
-                card.style.transform = '';
+                card.classList.remove('selected');
             });
-            event.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';
+            event.currentTarget.classList.add('selected');
+        }
+
+        // Render Sprint Tasks
+        function renderSprintTasks(sprintId, filter = 'all') {
+            const container = document.getElementById('tasksGrid');
+            const countEl = document.getElementById('tasksCount');
+            const sprint = SPRINTS[sprintId];
+
+            // Filter tickets for this sprint
+            let sprintTickets = TICKETS.filter(t => t.sprint === sprintId);
+
+            // Apply status filter
+            if (filter === 'done') {
+                sprintTickets = sprintTickets.filter(t => t.state === 'DONE');
+            } else if (filter === 'running') {
+                sprintTickets = sprintTickets.filter(t => ['RUNNING', 'REVIEW', 'VALIDATION'].includes(t.state));
+            } else if (filter === 'pending') {
+                sprintTickets = sprintTickets.filter(t => ['BACKLOG', 'READY', 'IDEA'].includes(t.state));
+            }
+
+            // Update count
+            const totalForSprint = TICKETS.filter(t => t.sprint === sprintId).length;
+            const doneCount = TICKETS.filter(t => t.sprint === sprintId && t.state === 'DONE').length;
+            countEl.innerHTML = `<strong>${sprint.title}</strong> • ${sprintTickets.length} tasks shown (${doneCount}/${totalForSprint} completed)`;
+
+            if (sprintTickets.length === 0) {
+                container.innerHTML = `<div class="no-tasks">No tasks match the current filter</div>`;
+                return;
+            }
+
+            container.innerHTML = sprintTickets.map(ticket => {
+                const stateClass = ticket.state.toLowerCase().replace('_', '-');
+                const priorityClass = ticket.priority.toLowerCase();
+
+                return `
+                    <div class="task-item">
+                        <div class="task-status ${stateClass}"></div>
+                        <div class="task-content">
+                            <div class="task-title">${ticket.title}</div>
+                            <div class="task-meta">
+                                <span class="task-id">${ticket.id}</span>
+                                <span class="task-owner">👤 ${ticket.owner}</span>
+                            </div>
+                        </div>
+                        <span class="task-priority ${priorityClass}">${ticket.priority}</span>
+                        <span class="task-state-badge ${stateClass}">${ticket.state}</span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Setup filter buttons
+        function setupFilters() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFilter = btn.dataset.filter;
+                    renderSprintTasks(selectedSprintId, currentFilter);
+                });
+            });
         }
 
         // Format date
@@ -963,7 +1402,15 @@
             renderSprintTimeline();
             renderVelocityGrid();
             renderBurndownChart('SPRINT-001'); // Default to current sprint
+            renderSprintTasks('SPRINT-001', 'all'); // Show current sprint tasks
             renderHighlights();
+            setupFilters();
+
+            // Auto-select current sprint card
+            setTimeout(() => {
+                const activeCard = document.querySelector('.sprint-card.active');
+                if (activeCard) activeCard.classList.add('selected');
+            }, 100);
         }
 
         // Run on load

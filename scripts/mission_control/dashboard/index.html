@@ -2854,124 +2854,126 @@
             'marathon': { name: '🏔️ Marathon', description: '5+ days', color: 'var(--accent-red)' }
         };
 
+        // All Sprint 4.0 Tickets (97 tickets)
         const tickets = [
-            {
-                id: 'TKT-001', title: 'Implement Mission Control Phase 2 - Workflow Engine',
-                state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-001', progress: 100,
-                prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: 'scripts/mission_control/',
-                gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
-                tags: ['Backend', 'Core'], daysSpent: 3, iterations: 2,
-                context: {
-                    ask: 'Build state machine with 8-state workflow and transition validation',
-                    goal: 'All tickets flow through IDEA→DONE with enforced gate checks',
-                    reason: 'PRD §2.1: "State machine with validation" — Phase 1 foundation',
-                    audible: 'Read PRD → Model states → Implement transitions → Add hooks → Test'
-                }
-            },
-            {
-                id: 'TKT-002', title: 'HTML Dashboard with Apple Design Language',
-                state: 'RUNNING', priority: 'P0', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-001', progress: 85,
-                prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: 'scripts/mission_control/dashboard/',
-                gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES' },
-                tags: ['Frontend', 'UI/UX'], daysSpent: 2, iterations: 4,
-                context: {
-                    ask: 'Create visual Kanban board with agent roster and sprint stats',
-                    goal: 'Single-page view of all tickets, states, and team activity',
-                    reason: 'PRD §8: "Phase 4 Views" — Kanban, Scoreboard, Cockpit required',
-                    audible: 'PRD review → Wireframe → HTML/CSS → Kanban → Roster → Polish'
-                }
-            },
-            {
-                id: 'TKT-003', title: 'Agent Caricature Avatar System',
-                state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'LeBron James', epic: 'EPIC-001', progress: 100,
-                prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: 'scripts/mission_control/dashboard/',
-                gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
-                tags: ['Design', 'Assets'], daysSpent: 1, iterations: 2,
-                context: {
-                    ask: 'Design 8-bit pixel avatars for all 12 agents',
-                    goal: 'Each agent instantly recognizable by team colors and features',
-                    reason: 'PRD §8.2: "Agent roster view with visual identifiers"',
-                    audible: 'Review agents → Pixel art style → Team colors → Jersey numbers → Polish'
-                }
-            },
-            {
-                id: 'TKT-004', title: 'Predicted XII Algorithm v3.1 Refinement',
-                state: 'REVIEW', priority: 'P1', effort: 'marathon', assignee: 'Jose Mourinho', epic: 'EPIC-002', progress: 90,
-                prd: 'docs/PRD_CRICKET_PLAYBOOK.md', output: 'outputs/predicted_xii/',
-                gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS' },
-                tags: ['Algorithm', 'Data'], daysSpent: 5, iterations: 4,
-                context: {
-                    ask: 'Refine predicted XI model with updated squad and form data',
-                    goal: 'Reduce prediction misses on openers and death bowlers',
-                    reason: 'PRD §4.1: "Predicted XII is core paid artifact" — Constitution §3',
-                    audible: 'Audit misses → Update features → Retrain → Backtest → Domain review'
-                }
-            },
-            {
-                id: 'TKT-005', title: 'Depth Chart Export to PDF/PNG',
-                state: 'BACKLOG', priority: 'P2', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-002', progress: 0,
-                prd: 'docs/specs/WIREFRAMES_V1.md', output: 'outputs/depth_charts/',
-                gates: { florentino_gate: 'APPROVED' },
-                tags: ['Export', 'Sharing'], daysSpent: 0, iterations: 0,
-                context: {
-                    ask: 'Add export functionality for depth charts to PDF and PNG',
-                    goal: 'One-click download of any depth chart in print-ready format',
-                    reason: 'PRD Wireframes §2.3: "Export options for all visual outputs"',
-                    audible: 'Add export button → Generate PDF → Generate PNG → Test formats'
-                }
-            },
-            {
-                id: 'TKT-006', title: 'Player ID Mismatch - MI vs LSG Trade',
-                state: 'BLOCKED', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-003', progress: 30,
-                prd: 'analysis/player_id_audit_report.md', output: 'data/',
-                gates: { florentino_gate: 'APPROVED' },
-                tags: ['Bug', 'Data'], daysSpent: 2, iterations: 1,
-                context: {
-                    ask: 'Resolve duplicate player IDs from franchise trade',
-                    goal: 'Single canonical ID per player across all historical data',
-                    reason: 'Kanté QA BLOCK: "Data integrity failure — duplicate active records"',
-                    audible: 'Identify dupes → Create ID mapping → Migrate records → QA validate'
-                }
-            },
-            {
-                id: 'TKT-007', title: 'Sprint Velocity Dashboard Widget',
-                state: 'VALIDATION', priority: 'P1', effort: 'hustle', assignee: 'Tom Brady', epic: 'EPIC-001', progress: 95,
-                prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: 'scripts/mission_control/',
-                gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
-                tags: ['Analytics', 'Dashboard'], daysSpent: 2, iterations: 2,
-                context: {
-                    ask: 'Build velocity tracking widget with burndown chart',
-                    goal: 'Show planned vs completed points and sprint health',
-                    reason: 'PRD §5.3: "Sprint schema includes velocity tracking fields"',
-                    audible: 'Define metrics → Calculate from tickets → Build chart → Integrate'
-                }
-            },
-            {
-                id: 'TKT-008', title: 'Role Permission Matrix Implementation',
-                state: 'READY', priority: 'P2', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-001', progress: 0,
-                prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: 'scripts/mission_control/workflow/',
-                gates: { florentino_gate: 'APPROVED' },
-                tags: ['Security', 'Backend'], daysSpent: 0, iterations: 0,
-                context: {
-                    ask: 'Implement role-based permissions for state transitions',
-                    goal: 'Only authorized roles can approve gates and change states',
-                    reason: 'PRD §3: "Role-Permission Matrix" — governance requirement',
-                    audible: 'Map PRD roles → Add validation layer → Test each transition'
-                }
-            },
-            {
-                id: 'TKT-009', title: 'New IPL 2026 Season Data Pipeline',
-                state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: null, epic: null, progress: 0,
-                prd: 'docs/PRD_CRICKET_PLAYBOOK.md', output: 'scripts/core/',
-                gates: {},
-                tags: ['Data', 'Pipeline'], daysSpent: 0, iterations: 0,
-                context: {
-                    ask: 'Set up Cricsheet ingestion for IPL 2026 season',
-                    goal: 'Normalized fact_ball and dimension tables ready pre-season',
-                    reason: 'PRD §2: "Data pipeline architecture" — foundational requirement',
-                    audible: 'Cricsheet source → Schema design → Ingestion script → QA cert'
-                }
-            }
+            // Pre-Sprint (TKT-001 to TKT-005)
+            { id: 'TKT-001', title: 'Define Sprint 4 Scope', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Florentino Pérez', epic: 'EPIC-001', progress: 100, tags: ['Planning'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-002', title: 'Sprint Planning Session', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-001', progress: 100, tags: ['Planning'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-003', title: 'Create Florentino Perez agent', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Brad Stevens', epic: 'EPIC-001', progress: 100, tags: ['Governance', 'Config'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-004', title: 'Create Jose Mourinho agent', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Brad Stevens', epic: 'EPIC-001', progress: 100, tags: ['Governance', 'Config'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-005', title: 'Create LeBron James agent', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Brad Stevens', epic: 'EPIC-001', progress: 100, tags: ['Governance', 'Config'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+
+            // Phase 0: Product Vision (TKT-006 to TKT-012)
+            { id: 'TKT-006', title: 'Define what CP will become', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Florentino Pérez', epic: 'EPIC-002', progress: 100, tags: ['Strategy', 'PRD'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-007', title: 'Define who we cater to', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Florentino Pérez', epic: 'EPIC-002', progress: 100, tags: ['Strategy', 'PRD'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-008', title: 'Define what we optimize for', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Florentino Pérez', epic: 'EPIC-002', progress: 100, tags: ['Strategy', 'PRD'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-009', title: 'Document inspiration products (PFF, KenPom)', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-002', progress: 100, tags: ['Research', 'PRD'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-010', title: 'Create PRD v2.0', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Tom Brady', epic: 'EPIC-002', progress: 100, tags: ['Documentation', 'PRD'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-011', title: 'Founder approval of PRD', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-002', progress: 100, tags: ['Approval'], gates: { founder_validation: 'APPROVED' } },
+            { id: 'TKT-012', title: 'Archive PRD in docs/', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-002', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED' } },
+
+            // Phase 1: Governance (TKT-013 to TKT-022)
+            { id: 'TKT-013', title: 'Create Constitution v2.0', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-003', progress: 100, tags: ['Governance', 'Documentation'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-014', title: 'Define Task Integrity Loop', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Florentino Pérez', epic: 'EPIC-003', progress: 100, tags: ['Governance', 'Process'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-015', title: 'Document Florentino gate criteria', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Florentino Pérez', epic: 'EPIC-003', progress: 100, tags: ['Governance'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-016', title: 'Document domain sanity review', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-003', progress: 100, tags: ['Governance', 'Domain'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-017', title: 'Document enforcement check', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-003', progress: 100, tags: ['Governance', 'Quality'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-018', title: 'Document system check', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'N\'Golo Kanté', epic: 'EPIC-003', progress: 100, tags: ['Governance', 'Testing'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
+            { id: 'TKT-019', title: 'Document Founder Validation', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Founder', epic: 'EPIC-003', progress: 100, tags: ['Governance'], gates: { founder_validation: 'APPROVED' } },
+            { id: 'TKT-020', title: 'Create Task Integrity Loop doc', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Tom Brady', epic: 'EPIC-003', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-021', title: 'Founder approval of governance', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-003', progress: 100, tags: ['Approval'], gates: { founder_validation: 'APPROVED' } },
+            { id: 'TKT-022', title: 'Archive governance docs', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-003', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED' } },
+
+            // Phase 2: Data & Tags (TKT-023 to TKT-034)
+            { id: 'TKT-023', title: 'Audit player_tags.json completeness', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Brock Purdy', epic: 'EPIC-004', progress: 100, tags: ['Data', 'Audit'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
+            { id: 'TKT-024', title: 'Add batting_hand to all players', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-004', progress: 100, tags: ['Data', 'Enhancement'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-025', title: 'Add bowling_style to all bowlers', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-004', progress: 100, tags: ['Data', 'Enhancement'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-026', title: 'Validate SPECIALIST vs VULNERABLE tags', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-004', progress: 100, tags: ['Domain', 'Validation'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-027', title: 'Fix player ID mismatches', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Brock Purdy', epic: 'EPIC-004', progress: 100, tags: ['Data', 'Bug'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
+            { id: 'TKT-028', title: 'Merge all ID fixes', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-004', progress: 100, tags: ['Data'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
+            { id: 'TKT-029', title: 'Regenerate all outputs with fixed IDs', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-004', progress: 100, tags: ['Data', 'Pipeline'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
+            { id: 'TKT-030', title: 'Validate output integrity', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'N\'Golo Kanté', epic: 'EPIC-004', progress: 100, tags: ['QA', 'Validation'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
+            { id: 'TKT-031', title: 'Andy Flower review of tags', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-004', progress: 100, tags: ['Domain', 'Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-032', title: 'Document data dictionary', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Brock Purdy', epic: 'EPIC-004', progress: 60, tags: ['Documentation', 'Data'], gates: { florentino_gate: 'APPROVED' } },
+            { id: 'TKT-033', title: 'Archive data docs', state: 'BACKLOG', priority: 'P2', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-004', progress: 0, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED' } },
+            { id: 'TKT-034', title: 'Founder approval of data quality', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-004', progress: 100, tags: ['Approval'], gates: { founder_validation: 'APPROVED' } },
+
+            // Phase 3: Output Quality (TKT-035 to TKT-045)
+            { id: 'TKT-035', title: 'Define stat pack sections', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Tom Brady', epic: 'EPIC-005', progress: 100, tags: ['Product', 'Spec'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-036', title: 'Create stat pack template', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-005', progress: 100, tags: ['Design', 'Template'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-037', title: 'Regenerate all 10 stat packs', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 100, tags: ['Pipeline', 'Output'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
+            { id: 'TKT-038', title: 'Andy Flower review of stat packs', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-005', progress: 100, tags: ['Domain', 'Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-039', title: 'Virat Kohli tone review', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Virat Kohli', epic: 'EPIC-005', progress: 100, tags: ['Editorial', 'Review'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-040', title: 'Define depth chart positions', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-005', progress: 100, tags: ['Domain', 'Spec'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-041', title: 'Create depth chart algorithm', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 100, tags: ['Algorithm', 'Core'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' } },
+            { id: 'TKT-042', title: 'Generate all 10 depth charts', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 100, tags: ['Pipeline', 'Output'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
+            { id: 'TKT-043', title: 'Andy Flower review of depth charts', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-005', progress: 100, tags: ['Domain', 'Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-044', title: 'Archive depth chart outputs', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-005', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED' } },
+            { id: 'TKT-045', title: 'Founder approval of outputs', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-005', progress: 100, tags: ['Approval'], gates: { founder_validation: 'APPROVED' } },
+
+            // Phase 4: Stat Pack Enhancement (TKT-046 to TKT-060)
+            { id: 'TKT-046', title: 'Add LHB/RHB balance section', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-047', title: 'Add matchup matrix section', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-048', title: 'Add phase analysis section', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-049', title: 'Add key partnerships section', state: 'RUNNING', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 40, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' } },
+            { id: 'TKT-050', title: 'Add pressure performance section', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 30, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' } },
+            { id: 'TKT-051', title: 'Add venue analysis section', state: 'BACKLOG', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 0, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' } },
+            { id: 'TKT-052', title: 'Add historical trends section', state: 'BACKLOG', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 0, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' } },
+            { id: 'TKT-053', title: 'Add Andy Flower tactical insights', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Domain', 'Content'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-054', title: 'Generate MI tactical insights', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'MI'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-055', title: 'Generate CSK tactical insights', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'CSK'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-056', title: 'Generate RCB tactical insights', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'RCB'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-057', title: 'Generate KKR tactical insights', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'KKR'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-058', title: 'Generate DC tactical insights', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'DC'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-059', title: 'Generate remaining team insights (PBKS, RR, SRH, GT, LSG)', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'Teams'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-060', title: 'Founder approval of stat pack enhancements', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-006', progress: 100, tags: ['Approval'], gates: { founder_validation: 'APPROVED' } },
+
+            // Phase 4.5: Predicted XII (TKT-061 to TKT-066)
+            { id: 'TKT-061', title: 'Create SUPER SELECTOR algorithm', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-007', progress: 100, tags: ['Algorithm', 'Core'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' } },
+            { id: 'TKT-062', title: 'Generate all 10 Predicted XIIs', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-007', progress: 100, tags: ['Pipeline', 'Output'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
+            { id: 'TKT-063', title: 'Andy Flower review of Predicted XIIs', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-007', progress: 100, tags: ['Domain', 'Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-064', title: 'Create wireframes for XI view', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-007', progress: 100, tags: ['Design', 'UI'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-065', title: 'Founder approval of Predicted XIIs', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-007', progress: 100, tags: ['Approval'], gates: { founder_validation: 'APPROVED' } },
+            { id: 'TKT-066', title: 'Archive XI outputs', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-007', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED' } },
+
+            // Phase 5: ML Ops (TKT-067 to TKT-075)
+            { id: 'TKT-067', title: 'Create model registry', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['MLOps', 'Infrastructure'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-068', title: 'Document clustering model', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['Documentation', 'ML'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-069', title: 'Create deployment manifest', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['MLOps', 'DevOps'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-070', title: 'Implement model versioning', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 50, tags: ['MLOps'], gates: { florentino_gate: 'APPROVED' } },
+            { id: 'TKT-071', title: 'Create model performance tests', state: 'BACKLOG', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 0, tags: ['Testing', 'ML'], gates: { florentino_gate: 'APPROVED' } },
+            { id: 'TKT-072', title: 'Document ML pipeline', state: 'BACKLOG', priority: 'P2', effort: 'hustle', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 0, tags: ['Documentation', 'ML'], gates: { florentino_gate: 'APPROVED' } },
+            { id: 'TKT-073', title: 'Setup model monitoring', state: 'BACKLOG', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 0, tags: ['MLOps', 'Monitoring'], gates: { florentino_gate: 'APPROVED' } },
+            { id: 'TKT-074', title: 'Archive ML docs', state: 'BACKLOG', priority: 'P2', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-008', progress: 0, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED' } },
+            { id: 'TKT-075', title: 'Founder approval of ML ops', state: 'BACKLOG', priority: 'P1', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-008', progress: 0, tags: ['Approval'], gates: {} },
+
+            // Phase 6: Testing (TKT-076 to TKT-081)
+            { id: 'TKT-076', title: 'Create smoke test suite', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'N\'Golo Kanté', epic: 'EPIC-009', progress: 100, tags: ['Testing', 'QA'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
+            { id: 'TKT-077', title: 'Create regression tests', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'N\'Golo Kanté', epic: 'EPIC-009', progress: 100, tags: ['Testing', 'QA'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
+            { id: 'TKT-078', title: 'Create output validation tests', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'N\'Golo Kanté', epic: 'EPIC-009', progress: 100, tags: ['Testing', 'QA'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
+            { id: 'TKT-079', title: 'Setup CI/CD pipeline', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-009', progress: 100, tags: ['DevOps', 'CI/CD'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
+            { id: 'TKT-080', title: 'Add pre-commit hooks', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-009', progress: 100, tags: ['DevOps', 'Quality'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
+            { id: 'TKT-081', title: 'Founder approval of testing', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-009', progress: 100, tags: ['Approval'], gates: { founder_validation: 'APPROVED' } },
+
+            // Phase 7: Script Quality (TKT-082 to TKT-085)
+            { id: 'TKT-082', title: 'Refactor generate_stat_packs.py', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 45, tags: ['Refactor', 'Code Quality'], gates: { florentino_gate: 'APPROVED' } },
+            { id: 'TKT-083', title: 'Add logging to all scripts', state: 'BACKLOG', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 0, tags: ['Logging', 'Quality'], gates: { florentino_gate: 'APPROVED' } },
+            { id: 'TKT-084', title: 'Create script documentation', state: 'BACKLOG', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 0, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED' } },
+            { id: 'TKT-085', title: 'Founder approval of script quality', state: 'BACKLOG', priority: 'P2', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-010', progress: 0, tags: ['Approval'], gates: {} },
+
+            // The Lab Dashboard (TKT-086)
+            { id: 'TKT-086', title: 'Build The Lab analytics dashboard', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Kevin de Bruyne', epic: 'EPIC-011', progress: 100, tags: ['Frontend', 'Dashboard'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+
+            // Sprint 5.0 Backlog (TKT-087 to TKT-095)
+            { id: 'TKT-087', title: 'Implement Match Phase Index', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 0, tags: ['Feature', 'Analytics'], gates: {} },
+            { id: 'TKT-088', title: 'Build Clutch Performance metric', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 0, tags: ['Feature', 'Analytics'], gates: {} },
+            { id: 'TKT-089', title: 'Create CricPom (KenPom clone)', state: 'IDEA', priority: 'P0', effort: 'marathon', assignee: 'Jose Mourinho', epic: null, progress: 0, tags: ['Feature', 'Research'], gates: {} },
+            { id: 'TKT-090', title: 'Build REST API (FastAPI)', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Brad Stevens', epic: null, progress: 0, tags: ['Backend', 'API'], gates: {} },
+            { id: 'TKT-091', title: 'Create Win Probability model', state: 'IDEA', priority: 'P2', effort: 'marathon', assignee: 'Ime Udoka', epic: null, progress: 0, tags: ['ML', 'Model'], gates: {} },
+            { id: 'TKT-092', title: 'Build Player Form Tracker', state: 'IDEA', priority: 'P1', effort: 'deep-work', assignee: 'Stephen Curry', epic: null, progress: 0, tags: ['Feature', 'Analytics'], gates: {} },
+            { id: 'TKT-093', title: 'Create interactive dashboard (React)', state: 'IDEA', priority: 'P2', effort: 'marathon', assignee: 'Kevin de Bruyne', epic: null, progress: 0, tags: ['Frontend', 'Feature'], gates: {} },
+            { id: 'TKT-094', title: 'Add Great Expectations data validation', state: 'IDEA', priority: 'P1', effort: 'deep-work', assignee: 'Brock Purdy', epic: null, progress: 0, tags: ['Data', 'Quality'], gates: {} },
+            { id: 'TKT-095', title: 'Implement player comparison tool', state: 'IDEA', priority: 'P2', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: null, progress: 0, tags: ['Feature', 'UI'], gates: {} }
         ];
 
         let activeFilter = 'all';

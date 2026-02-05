@@ -661,97 +661,68 @@
         }
 
         .intro-box {
-            width: 280px;
-            height: 340px;
-            /* Night sky gradient with stars */
-            background:
-                /* Stars - scattered white dots */
-                radial-gradient(1px 1px at 20px 30px, white, transparent),
-                radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.8), transparent),
-                radial-gradient(1px 1px at 90px 40px, white, transparent),
-                radial-gradient(1px 1px at 130px 20px, rgba(255,255,255,0.6), transparent),
-                radial-gradient(1px 1px at 160px 50px, white, transparent),
-                radial-gradient(1px 1px at 200px 25px, rgba(255,255,255,0.7), transparent),
-                radial-gradient(1px 1px at 230px 60px, white, transparent),
-                radial-gradient(1px 1px at 260px 35px, rgba(255,255,255,0.8), transparent),
-                radial-gradient(1px 1px at 70px 15px, rgba(255,255,255,0.5), transparent),
-                radial-gradient(1px 1px at 180px 10px, white, transparent),
-                radial-gradient(1.5px 1.5px at 50px 55px, rgba(255,255,200,0.9), transparent),
-                radial-gradient(1.5px 1.5px at 220px 45px, rgba(255,255,200,0.9), transparent),
-                /* Night sky gradient */
-                linear-gradient(180deg, #0a0a1a 0%, #0d1025 30%, #151530 60%, #1a1a2a 100%);
-            border: 1px solid rgba(255,215,0,0.2);
-            border-radius: 20px;
+            width: 260px;
+            height: 360px;
+            /* Clean dark gradient for trading card */
+            background: linear-gradient(180deg, #0a0a15 0%, #12121f 50%, #1a1a2e 100%);
+            /* Trading card border - gold accent */
+            border: 2px solid #d4af37;
+            border-radius: 16px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-end;
-            padding-bottom: 24px;
+            justify-content: center;
+            padding: 50px 16px 20px;
             opacity: 0;
-            transform: scale(0.85) translateY(30px);
+            transform: scale(0.9) translateY(20px);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+            box-shadow:
+                0 0 0 1px rgba(212,175,55,0.3),
+                0 4px 20px rgba(0,0,0,0.5),
+                0 8px 40px rgba(0,0,0,0.3),
+                inset 0 1px 0 rgba(255,255,255,0.1);
         }
 
-        /* ========== STADIUM BACKGROUNDS ========== */
-        /* Stadium photo-style backgrounds using CSS gradients */
+        /* ========== TRADING CARD BACKGROUNDS ========== */
+        /* Sport-specific color accents for card backgrounds */
+        .intro-box[data-sport="nfl"] {
+            background: linear-gradient(180deg, #0a1510 0%, #0f1f18 50%, #152a20 100%);
+        }
+        .intro-box[data-sport="nba"] {
+            background: linear-gradient(180deg, #15100a 0%, #201810 50%, #2a2015 100%);
+        }
+        .intro-box[data-sport="soccer"] {
+            background: linear-gradient(180deg, #0a1510 0%, #101f15 50%, #152a1a 100%);
+        }
+        .intro-box[data-sport="cricket"] {
+            background: linear-gradient(180deg, #0f100a 0%, #181a10 50%, #202515 100%);
+        }
 
-        /* Stadium atmosphere overlay - adds floodlight glow and crowd ambiance */
+        /* Subtle spotlight effect at top */
         .intro-box::before {
             content: '';
             position: absolute;
-            inset: 0;
-            background:
-                /* Floodlight glow from top */
-                radial-gradient(ellipse 80% 40% at 50% 0%, rgba(255,240,200,0.25) 0%, transparent 50%),
-                /* Vignette effect */
-                radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0,0,0,0.6) 100%);
-            pointer-events: none;
-            z-index: 2;
-        }
-
-        /* Stadium crowd/stands pattern overlay */
-        .intro-box::after {
-            content: '';
-            position: absolute;
             top: 0;
-            left: 0;
-            right: 0;
-            height: 55%;
-            background:
-                /* Stadium tier structure */
-                linear-gradient(180deg,
-                    rgba(20,20,30,0.95) 0%,
-                    rgba(30,30,40,0.9) 20%,
-                    rgba(40,40,50,0.85) 40%,
-                    rgba(50,50,60,0.7) 60%,
-                    transparent 100%
-                );
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 120px;
+            background: radial-gradient(ellipse 100% 100% at 50% 0%, rgba(255,255,255,0.08) 0%, transparent 70%);
             pointer-events: none;
             z-index: 1;
         }
 
-        /* Sport-specific stadium backgrounds */
-        .intro-box[data-sport="nfl"] {
-            background: linear-gradient(180deg,
-                #1a2a1a 0%, #2d4a2d 30%, #3a6b3a 60%, #4a8c4a 100%);
+        /* Card frame inner glow */
+        .intro-box::after {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            pointer-events: none;
+            z-index: 1;
         }
-        .intro-box[data-sport="nba"] {
-            background: linear-gradient(180deg,
-                #2a1a0a 0%, #4a3a2a 30%, #6a5a4a 60%, #8a7a6a 100%);
-        }
-        .intro-box[data-sport="soccer"] {
-            background: linear-gradient(180deg,
-                #1a2a1a 0%, #2a4a2a 30%, #3a7a3a 60%, #4a9a4a 100%);
-        }
-        .intro-box[data-sport="cricket"] {
-            background: linear-gradient(180deg,
-                #1a2a1a 0%, #2a4a2a 30%, #3a6a3a 60%, #4a8a4a 100%);
-        }
-
-        /* No playing surface needed - background IS the stadium */
-        .playing-surface { display: none; }
 
         /* Crowd silhouettes - multiple rows */
         .crowd-row {
@@ -789,12 +760,42 @@
 
         .intro-box .figure {
             width: 100%;
-            height: 220px;
+            height: 70%;
             position: relative;
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             justify-content: center;
-            z-index: 1;
+            z-index: 3;
+        }
+
+        /* ========== TRADING CARD BADGES ========== */
+        .card-badge {
+            position: absolute;
+            top: 12px;
+            z-index: 10;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 14px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .card-badge.jersey-badge {
+            left: 12px;
+            background: linear-gradient(135deg, var(--jersey-main) 0%, var(--jersey-accent) 100%);
+            color: #fff;
+            font-size: 18px;
+            min-width: 28px;
+            text-align: center;
+        }
+        .card-badge.team-badge {
+            right: 12px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            color: #fff;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .intro-box .label-group {
@@ -846,12 +847,15 @@
         /* ========== DETAILED ATHLETE SILHOUETTE SYSTEM ========== */
         .athlete {
             position: relative;
-            width: 120px;
-            height: 180px;
+            width: 160px;
+            height: 200px;
             /* Default skin tone - can be overridden per agent */
             --skin-color: #c49a6c;
             --skin-dark: #b8896a;
             --skin-light: #d4a574;
+            /* Scale up for trading card look */
+            transform: scale(1.3);
+            transform-origin: center center;
         }
 
         /* Head with detailed features */
@@ -1785,21 +1789,10 @@
                 #1a1a1a 100%);
         }
 
+        /* No arm animation - static pose for trading card look */
         .intro-box-dynamic .athlete .arm-left,
         .intro-box-dynamic .athlete .arm-right {
-            animation: arms-lift-trophy 1.4s cubic-bezier(0.34, 1.2, 0.64, 1) calc(var(--delay, 0.3s) + 0.9s) forwards;
-        }
-        .intro-box-dynamic .trophy-container {
-            animation: trophy-lift 1.4s cubic-bezier(0.34, 1.2, 0.64, 1) calc(var(--delay, 0.3s) + 0.9s) forwards;
-        }
-        .intro-box-dynamic .crowd-row {
-            animation: crowd-appear 0.5s ease calc(var(--delay, 0.3s) + 1.5s) forwards;
-        }
-        .intro-box-dynamic .crowd-row.row-2 {
-            animation-delay: calc(var(--delay, 0.3s) + 1.7s);
-        }
-        .intro-box-dynamic .crowd-row.row-3 {
-            animation-delay: calc(var(--delay, 0.3s) + 1.9s);
+            animation: none;
         }
         .intro-box-dynamic .label-group {
             animation: label-appear 0.6s ease calc(var(--delay, 0.3s) + 2.3s) forwards;
@@ -2372,13 +2365,33 @@
             }
             .intro-box {
                 width: 100%;
-                max-width: 120px;
-                height: 200px;
-                padding-bottom: 35px;
-                overflow: hidden;
+                max-width: 110px;
+                height: 160px;
+                padding: 30px 8px 12px;
+                border-width: 1.5px;
+                border-radius: 10px;
             }
             .intro-box .figure {
-                margin-top: 15px;
+                height: 60%;
+            }
+            .athlete {
+                transform: scale(0.55);
+            }
+            /* Card badges on mobile */
+            .card-badge {
+                top: 6px;
+                padding: 3px 6px;
+                font-size: 8px;
+                border-radius: 4px;
+            }
+            .card-badge.jersey-badge {
+                left: 6px;
+                font-size: 10px;
+                min-width: 18px;
+            }
+            .card-badge.team-badge {
+                right: 6px;
+                font-size: 6px;
             }
             /* Trophy ticker on mobile */
             .trophy-ticker {
@@ -2422,27 +2435,28 @@
                 letter-spacing: 0.05em;
             }
             .intro-grid {
-                gap: 6px;
-                grid-template-columns: repeat(3, minmax(90px, 110px));
+                gap: 5px;
+                grid-template-columns: repeat(3, minmax(85px, 100px));
             }
             .intro-box {
-                max-width: 110px;
-                height: 180px;
+                max-width: 100px;
+                height: 145px;
+                padding: 26px 6px 10px;
             }
-            .intro-box .figure {
-                margin-top: 10px;
+            .athlete {
+                transform: scale(0.5);
             }
-            .trophy-ticker .trophy-icon {
+            .card-badge.jersey-badge {
                 font-size: 9px;
             }
-            .trophy-ticker .trophy-text {
-                font-size: 6px;
-            }
-            .label-group .name {
+            .trophy-ticker .trophy-icon {
                 font-size: 8px;
             }
-            .label-group .trophy-name {
+            .trophy-ticker .trophy-text {
                 font-size: 5px;
+            }
+            .label-group .name {
+                font-size: 7px;
             }
         }
 
@@ -2453,34 +2467,39 @@
                 letter-spacing: 0.03em;
             }
             .intro-grid {
-                gap: 4px;
-                grid-template-columns: repeat(3, minmax(80px, 100px));
+                gap: 3px;
+                grid-template-columns: repeat(3, minmax(75px, 95px));
             }
             .intro-box {
-                max-width: 100px;
-                height: 165px;
-                border-radius: 12px;
+                max-width: 95px;
+                height: 130px;
+                padding: 22px 5px 8px;
+                border-radius: 8px;
             }
-            .intro-box .figure {
-                margin-top: 8px;
+            .athlete {
+                transform: scale(0.42);
             }
-            .trophy-ticker .trophy-icon {
+            .card-badge {
+                top: 4px;
+                padding: 2px 4px;
+            }
+            .card-badge.jersey-badge {
+                left: 4px;
                 font-size: 8px;
+                min-width: 14px;
             }
-            .trophy-ticker .trophy-text {
+            .card-badge.team-badge {
+                right: 4px;
                 font-size: 5px;
             }
-            .label-group {
-                bottom: 4px;
-            }
-            .label-group .name {
+            .trophy-ticker .trophy-icon {
                 font-size: 7px;
             }
-            .label-group .trophy-name {
+            .trophy-ticker .trophy-text {
                 font-size: 4px;
             }
-            .crowd-row {
-                display: none;
+            .label-group .name {
+                font-size: 6px;
             }
         }
 
@@ -3422,6 +3441,24 @@
             };
             const trophyIcon = trophyIcons[agent.sport] || '🏆';
 
+            // Team names for card badges
+            const teamNames = {
+                'tom-brady': 'Patriots',
+                'brock-purdy': '49ers',
+                'stephen-curry': 'Warriors',
+                'lebron-james': 'Lakers',
+                'virat-kohli': 'RCB',
+                'kdb': 'Man City',
+                'kante': 'France',
+                'jose-mourinho': 'Inter',
+                'pep-guardiola': 'Man City',
+                'florentino': 'Real Madrid',
+                'brad-stevens': 'Celtics',
+                'ime-udoka': 'Celtics',
+                'andy-flower': 'RCB'
+            };
+            const teamName = teamNames[key] || '';
+
             // Build CSS variables for inline style
             let cssVars = `--delay: ${delay}s; --jersey-main: ${agent.jersey.main}; --jersey-accent: ${agent.jersey.accent}; --shorts-color: ${agent.shorts || agent.jersey.main}; --hair-color: ${agent.hair.color};`;
 
@@ -3455,6 +3492,8 @@
                      data-agent="${key}"
                      data-sport="${agent.sport}"
                      style="${cssVars}">
+                    ${agent.jerseyNumber ? `<div class="card-badge jersey-badge">${agent.jerseyNumber}</div>` : ''}
+                    ${teamName ? `<div class="card-badge team-badge">${teamName}</div>` : ''}
                     <div class="figure">
                         ${athleteHTML}
                     </div>

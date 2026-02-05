@@ -336,16 +336,32 @@
             to { border-color: transparent; }
         }
 
-        /* Intro Animation Sequence */
+        /* ==================== INTRO ANIMATION - TROPHY LIFT ==================== */
         .intro-overlay {
             position: fixed;
             inset: 0;
             background: var(--bg-primary);
             z-index: 1000;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            animation: fade-out-intro 0.8s ease 4.2s forwards;
+            animation: fade-out-intro 1s ease 5.5s forwards;
+        }
+
+        .intro-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fade-in 0.8s ease 0.2s forwards;
+        }
+
+        @keyframes fade-in {
+            to { opacity: 1; }
         }
 
         @keyframes fade-out-intro {
@@ -355,237 +371,607 @@
         .intro-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            max-width: 780px;
+            gap: 32px;
+            max-width: 900px;
             padding: 20px;
         }
 
         .intro-box {
-            width: 240px;
-            height: 180px;
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-            border: 3px solid var(--border);
-            border-radius: 20px;
+            width: 260px;
+            height: 280px;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 2px solid var(--border);
+            border-radius: 24px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-end;
+            padding-bottom: 20px;
             opacity: 0;
-            transform: scale(0.8);
+            transform: scale(0.9) translateY(20px);
             position: relative;
             overflow: hidden;
         }
 
+        /* Stadium background effect */
+        .intro-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: radial-gradient(ellipse at center top, rgba(255,255,255,0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Crowd silhouette at bottom */
+        .intro-box::after {
+            content: '';
+            position: absolute;
+            bottom: 60px;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background:
+                radial-gradient(ellipse 8px 10px at 10% 100%, var(--text-tertiary) 50%, transparent 50%),
+                radial-gradient(ellipse 8px 10px at 20% 100%, var(--text-tertiary) 50%, transparent 50%),
+                radial-gradient(ellipse 8px 10px at 30% 100%, var(--text-tertiary) 50%, transparent 50%),
+                radial-gradient(ellipse 8px 10px at 40% 100%, var(--text-tertiary) 50%, transparent 50%),
+                radial-gradient(ellipse 8px 10px at 50% 100%, var(--text-tertiary) 50%, transparent 50%),
+                radial-gradient(ellipse 8px 10px at 60% 100%, var(--text-tertiary) 50%, transparent 50%),
+                radial-gradient(ellipse 8px 10px at 70% 100%, var(--text-tertiary) 50%, transparent 50%),
+                radial-gradient(ellipse 8px 10px at 80% 100%, var(--text-tertiary) 50%, transparent 50%),
+                radial-gradient(ellipse 8px 10px at 90% 100%, var(--text-tertiary) 50%, transparent 50%);
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
         .intro-box .figure {
             width: 100%;
-            height: 120px;
+            height: 200px;
             position: relative;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: center;
+            z-index: 1;
         }
 
-        .intro-box .label {
-            font-size: 13px;
-            color: var(--text-secondary);
-            font-weight: 700;
+        .intro-box .label-group {
+            text-align: center;
+            z-index: 2;
+            opacity: 0;
+        }
+
+        .intro-box .name {
+            font-size: 16px;
+            color: var(--text-primary);
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-top: 8px;
+            letter-spacing: 0.05em;
         }
 
-        /* Silhouette base styles */
-        .silhouette {
+        .intro-box .trophy-name {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 4px;
+        }
+
+        /* ========== ATHLETE SILHOUETTE SYSTEM ========== */
+        .athlete {
             position: relative;
-            width: 80px;
-            height: 100px;
+            width: 100px;
+            height: 160px;
         }
 
-        .silhouette .head {
-            width: 24px;
-            height: 24px;
+        /* Head with features */
+        .athlete .head {
+            width: 32px;
+            height: 36px;
             background: var(--text-primary);
-            border-radius: 50%;
+            border-radius: 50% 50% 45% 45%;
             position: absolute;
             top: 0;
             left: 50%;
             transform: translateX(-50%);
         }
 
-        .silhouette .body {
-            width: 8px;
-            height: 35px;
-            background: var(--text-primary);
+        /* Body/torso */
+        .athlete .torso {
             position: absolute;
-            top: 22px;
+            top: 34px;
             left: 50%;
             transform: translateX(-50%);
-            border-radius: 4px;
-        }
-
-        .silhouette .arm {
-            width: 6px;
-            height: 30px;
-            background: var(--text-primary);
-            position: absolute;
-            top: 24px;
-            border-radius: 3px;
-            transform-origin: top center;
-        }
-
-        .silhouette .arm-left { left: 24px; }
-        .silhouette .arm-right { right: 24px; }
-
-        .silhouette .leg {
-            width: 7px;
-            height: 38px;
-            background: var(--text-primary);
-            position: absolute;
-            top: 55px;
-            border-radius: 3px;
-            transform-origin: top center;
-        }
-
-        .silhouette .leg-left { left: 32px; }
-        .silhouette .leg-right { right: 32px; }
-
-        /* Ball elements */
-        .ball-element {
-            position: absolute;
-            font-size: 28px;
-            opacity: 0;
-        }
-
-        /* ========== TOM BRADY - THROWING ========== */
-        .intro-box-brady {
-            animation: box-appear 0.5s ease 0.3s forwards;
-            border-color: #c8102e;
-        }
-
-        .intro-box-brady .arm-right {
-            animation: brady-throw-arm 0.8s ease 1s forwards;
-        }
-
-        .intro-box-brady .football {
-            right: 15px;
-            top: 25px;
-            animation: football-fly 0.8s ease 1.3s forwards;
-        }
-
-        @keyframes brady-throw-arm {
-            0% { transform: rotate(-60deg); }
-            40% { transform: rotate(-90deg); }
-            70% { transform: rotate(30deg); }
-            100% { transform: rotate(15deg); }
-        }
-
-        @keyframes football-fly {
-            0% { opacity: 1; transform: translateX(0) rotate(0deg); }
-            100% { opacity: 1; transform: translateX(60px) translateY(-20px) rotate(360deg); }
-        }
-
-        /* ========== VIRAT KOHLI - COVER DRIVE ========== */
-        .intro-box-virat {
-            animation: box-appear 0.5s ease 1.2s forwards;
-            border-color: #004c93;
-        }
-
-        .intro-box-virat .silhouette {
-            transform: scaleX(-1);
-        }
-
-        .intro-box-virat .bat {
-            position: absolute;
-            width: 6px;
+            width: 36px;
             height: 45px;
-            background: #d4a574;
-            right: 20px;
-            top: 30px;
-            border-radius: 3px;
-            transform-origin: bottom center;
-            animation: virat-bat-swing 0.8s ease 1.9s forwards;
+            background: var(--text-primary);
+            border-radius: 8px 8px 4px 4px;
         }
 
-        .intro-box-virat .cricket {
-            left: 15px;
-            top: 40px;
-            font-size: 20px;
-            animation: cricket-deflect 0.6s ease 2.2s forwards;
-        }
-
-        @keyframes virat-bat-swing {
-            0% { transform: rotate(-45deg); }
-            40% { transform: rotate(-60deg); }
-            70% { transform: rotate(30deg); }
-            100% { transform: rotate(45deg); }
-        }
-
-        @keyframes cricket-deflect {
-            0% { opacity: 1; transform: translateX(0) translateY(0); }
-            100% { opacity: 1; transform: translateX(-50px) translateY(-30px); }
-        }
-
-        /* ========== MOURINHO - CELEBRATION ========== */
-        .intro-box-jose {
-            animation: box-appear 0.5s ease 2.1s forwards;
-            border-color: #0033a0;
-        }
-
-        .intro-box-jose .arm-left {
-            animation: jose-arm-up-left 0.6s ease 2.8s forwards;
-        }
-
-        .intro-box-jose .arm-right {
-            animation: jose-arm-up-right 0.6s ease 2.8s forwards;
-        }
-
-        .intro-box-jose .confetti {
+        /* Jersey number on torso */
+        .athlete .jersey-number {
             position: absolute;
-            font-size: 20px;
-            opacity: 0;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            font-weight: 900;
+            color: var(--bg-primary);
+            z-index: 2;
         }
 
-        .intro-box-jose .confetti-1 { left: 30%; top: 20%; animation: confetti-pop 0.8s ease 3s forwards; }
-        .intro-box-jose .confetti-2 { right: 30%; top: 15%; animation: confetti-pop 0.8s ease 3.1s forwards; }
-        .intro-box-jose .confetti-3 { left: 20%; top: 30%; animation: confetti-pop 0.8s ease 3.2s forwards; }
+        /* Arms */
+        .athlete .arm {
+            position: absolute;
+            width: 10px;
+            height: 40px;
+            background: var(--text-primary);
+            top: 36px;
+            border-radius: 5px;
+            transform-origin: top center;
+        }
+        .athlete .arm-left { left: 14px; }
+        .athlete .arm-right { right: 14px; }
 
-        @keyframes jose-arm-up-left {
+        /* Hands */
+        .athlete .hand {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--text-primary);
+            border-radius: 50%;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Legs */
+        .athlete .leg {
+            position: absolute;
+            width: 14px;
+            height: 50px;
+            background: var(--text-primary);
+            top: 76px;
+            border-radius: 4px;
+            transform-origin: top center;
+        }
+        .athlete .leg-left { left: 28px; }
+        .athlete .leg-right { right: 28px; }
+
+        /* ========== TROPHY SYSTEM ========== */
+        .trophy-container {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%) translateY(60px);
+            z-index: 3;
+        }
+
+        /* Lombardi Trophy (Super Bowl) */
+        .lombardi {
+            width: 50px;
+            height: 80px;
+            position: relative;
+        }
+        .lombardi .football {
+            width: 28px;
+            height: 18px;
+            background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 50%, #a8a8a8 100%);
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .lombardi .football::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 2px;
+            height: 12px;
+            background: #888;
+            border-radius: 1px;
+        }
+        .lombardi .stand {
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 35px;
+            background: linear-gradient(180deg, #c0c0c0 0%, #888 100%);
+        }
+        .lombardi .base {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 25px solid;
+            border-bottom-color: #c0c0c0;
+        }
+        .lombardi .base::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: -15px;
+            width: 30px;
+            height: 6px;
+            background: linear-gradient(180deg, #888 0%, #666 100%);
+            border-radius: 0 0 3px 3px;
+        }
+
+        /* IPL Trophy */
+        .ipl-trophy {
+            width: 60px;
+            height: 85px;
+            position: relative;
+        }
+        .ipl-trophy .cup {
+            width: 40px;
+            height: 30px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffec8b 30%, #daa520 70%, #b8860b 100%);
+            border-radius: 0 0 50% 50%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 12px rgba(218,165,32,0.4);
+        }
+        .ipl-trophy .handle-left,
+        .ipl-trophy .handle-right {
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            border: 4px solid #daa520;
+            border-radius: 0 50% 50% 0;
+            top: 5px;
+            background: transparent;
+        }
+        .ipl-trophy .handle-left {
+            left: 2px;
+            border-radius: 50% 0 0 50%;
+            border-right: none;
+        }
+        .ipl-trophy .handle-right {
+            right: 2px;
+            border-left: none;
+        }
+        .ipl-trophy .stem {
+            position: absolute;
+            top: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 25px;
+            background: linear-gradient(180deg, #daa520 0%, #b8860b 100%);
+        }
+        .ipl-trophy .base-top {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 8px;
+            background: linear-gradient(180deg, #daa520 0%, #8b7500 100%);
+            border-radius: 2px;
+        }
+        .ipl-trophy .base-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 12px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 2px;
+        }
+
+        /* UCL Trophy (Big Ears) */
+        .ucl-trophy {
+            width: 70px;
+            height: 85px;
+            position: relative;
+        }
+        .ucl-trophy .cup {
+            width: 32px;
+            height: 35px;
+            background: linear-gradient(135deg, #e8e8e8 0%, #c0c0c0 50%, #a8a8a8 100%);
+            border-radius: 0 0 40% 40%;
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .ucl-trophy .ear-left,
+        .ucl-trophy .ear-right {
+            position: absolute;
+            width: 18px;
+            height: 40px;
+            border: 5px solid #c0c0c0;
+            border-radius: 50% 50% 30% 30%;
+            top: 0;
+            background: transparent;
+        }
+        .ucl-trophy .ear-left {
+            left: 4px;
+            border-right: none;
+            border-radius: 50% 0 0 40%;
+        }
+        .ucl-trophy .ear-right {
+            right: 4px;
+            border-left: none;
+            border-radius: 0 50% 40% 0;
+        }
+        .ucl-trophy .stem {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 20px;
+            background: linear-gradient(180deg, #c0c0c0 0%, #888 100%);
+        }
+        .ucl-trophy .base {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 45px;
+            height: 20px;
+            background: linear-gradient(180deg, #333 0%, #1a1a1a 100%);
+            border-radius: 3px;
+        }
+        .ucl-trophy .base::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 38px;
+            height: 3px;
+            background: #c0c0c0;
+            border-radius: 1px;
+        }
+
+        /* ========== TOM BRADY - SUPER BOWL 7 ========== */
+        .intro-box-brady {
+            animation: box-appear 0.6s ease 0.3s forwards;
+        }
+
+        .intro-box-brady .athlete .torso {
+            background: linear-gradient(180deg, #c8102e 0%, #9a0c23 100%);
+        }
+
+        .intro-box-brady .athlete .arm-left,
+        .intro-box-brady .athlete .arm-right {
+            animation: arms-lift-trophy 1.2s ease 1.2s forwards;
+        }
+
+        .intro-box-brady .trophy-container {
+            animation: trophy-lift 1.2s ease 1.2s forwards;
+        }
+
+        .intro-box-brady .label-group {
+            animation: label-appear 0.5s ease 2.6s forwards;
+        }
+
+        /* Brady specific glow */
+        .intro-box-brady::before {
+            background: radial-gradient(ellipse at center top, rgba(200, 16, 46, 0.15) 0%, transparent 70%);
+        }
+
+        /* ========== VIRAT KOHLI - IPL CHAMPION ========== */
+        .intro-box-virat {
+            animation: box-appear 0.6s ease 1s forwards;
+        }
+
+        .intro-box-virat .athlete .torso {
+            background: linear-gradient(180deg, #004c93 0%, #003366 100%);
+        }
+
+        /* Virat's iconic beard */
+        .intro-box-virat .athlete .head::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 10px;
+            background: var(--text-primary);
+            border-radius: 0 0 50% 50%;
+            clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+        }
+
+        .intro-box-virat .athlete .arm-left,
+        .intro-box-virat .athlete .arm-right {
+            animation: arms-lift-trophy 1.2s ease 1.9s forwards;
+        }
+
+        .intro-box-virat .trophy-container {
+            animation: trophy-lift 1.2s ease 1.9s forwards;
+        }
+
+        .intro-box-virat .label-group {
+            animation: label-appear 0.5s ease 3.3s forwards;
+        }
+
+        /* Virat specific glow */
+        .intro-box-virat::before {
+            background: radial-gradient(ellipse at center top, rgba(0, 76, 147, 0.15) 0%, transparent 70%);
+        }
+
+        /* ========== MOURINHO - UCL WINNER ========== */
+        .intro-box-jose {
+            animation: box-appear 0.6s ease 1.7s forwards;
+        }
+
+        /* Mourinho's signature long coat */
+        .intro-box-jose .athlete .torso {
+            height: 60px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
+            border-radius: 4px 4px 0 0;
+        }
+        .intro-box-jose .athlete .torso::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 15px;
+            background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%);
+            border-radius: 0 0 4px 4px;
+        }
+
+        .intro-box-jose .athlete .leg {
+            top: 90px;
+            height: 40px;
+        }
+
+        .intro-box-jose .athlete .arm-left,
+        .intro-box-jose .athlete .arm-right {
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
+            animation: arms-lift-trophy 1.2s ease 2.6s forwards;
+        }
+
+        .intro-box-jose .trophy-container {
+            animation: trophy-lift 1.2s ease 2.6s forwards;
+        }
+
+        .intro-box-jose .label-group {
+            animation: label-appear 0.5s ease 4s forwards;
+        }
+
+        /* Mourinho specific glow */
+        .intro-box-jose::before {
+            background: radial-gradient(ellipse at center top, rgba(192, 192, 192, 0.1) 0%, transparent 70%);
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes box-appear {
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes arms-lift-trophy {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(-150deg); }
         }
 
-        @keyframes jose-arm-up-right {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(150deg); }
+        @keyframes trophy-lift {
+            0% { transform: translateX(-50%) translateY(60px); }
+            60% { transform: translateX(-50%) translateY(-10px); }
+            80% { transform: translateX(-50%) translateY(5px); }
+            100% { transform: translateX(-50%) translateY(0px); }
         }
 
-        @keyframes confetti-pop {
+        @keyframes label-appear {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Camera flash effect */
+        .flash {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0;
+            box-shadow: 0 0 20px 10px rgba(255,255,255,0.8);
+        }
+
+        .intro-box-brady .flash-1 { left: 20%; top: 30%; animation: flash 0.15s ease 2.5s; }
+        .intro-box-brady .flash-2 { right: 25%; top: 40%; animation: flash 0.15s ease 2.7s; }
+        .intro-box-brady .flash-3 { left: 35%; top: 25%; animation: flash 0.15s ease 2.9s; }
+
+        .intro-box-virat .flash-1 { left: 25%; top: 35%; animation: flash 0.15s ease 3.2s; }
+        .intro-box-virat .flash-2 { right: 20%; top: 28%; animation: flash 0.15s ease 3.4s; }
+        .intro-box-virat .flash-3 { left: 40%; top: 40%; animation: flash 0.15s ease 3.6s; }
+
+        .intro-box-jose .flash-1 { left: 30%; top: 32%; animation: flash 0.15s ease 3.9s; }
+        .intro-box-jose .flash-2 { right: 28%; top: 38%; animation: flash 0.15s ease 4.1s; }
+        .intro-box-jose .flash-3 { left: 22%; top: 42%; animation: flash 0.15s ease 4.3s; }
+
+        @keyframes flash {
             0% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1.3); }
-            100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+            100% { opacity: 0; transform: scale(0); }
         }
 
-        @keyframes box-appear {
-            to { opacity: 1; transform: scale(1); }
+        /* Confetti */
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            opacity: 0;
         }
 
-        /* Box glow effects when action happens */
-        .intro-box-brady { animation: box-appear 0.5s ease 0.3s forwards, box-glow-red 0.5s ease 1s; }
-        .intro-box-virat { animation: box-appear 0.5s ease 1.2s forwards, box-glow-navy 0.5s ease 1.9s; }
-        .intro-box-jose { animation: box-appear 0.5s ease 2.1s forwards, box-glow-royal 0.5s ease 2.8s; }
+        .intro-box-brady .confetti { background: #c8102e; }
+        .intro-box-virat .confetti { background: #ffd700; }
+        .intro-box-jose .confetti { background: #c0c0c0; }
 
-        @keyframes box-glow-red {
-            50% { box-shadow: 0 0 40px rgba(200, 16, 46, 0.6); border-color: #ffc72c; }
+        .confetti-1 { left: 15%; top: 15%; animation: confetti-fall 1.5s ease 2.6s forwards; border-radius: 2px; }
+        .confetti-2 { right: 20%; top: 10%; animation: confetti-fall 1.8s ease 2.8s forwards; border-radius: 50%; }
+        .confetti-3 { left: 40%; top: 8%; animation: confetti-fall 1.6s ease 2.7s forwards; }
+        .confetti-4 { right: 35%; top: 12%; animation: confetti-fall 2s ease 2.9s forwards; border-radius: 2px; }
+        .confetti-5 { left: 60%; top: 6%; animation: confetti-fall 1.7s ease 3s forwards; border-radius: 50%; }
+
+        .intro-box-virat .confetti-1 { animation-delay: 3.3s; }
+        .intro-box-virat .confetti-2 { animation-delay: 3.5s; }
+        .intro-box-virat .confetti-3 { animation-delay: 3.4s; }
+        .intro-box-virat .confetti-4 { animation-delay: 3.6s; }
+        .intro-box-virat .confetti-5 { animation-delay: 3.7s; }
+
+        .intro-box-jose .confetti-1 { animation-delay: 4s; }
+        .intro-box-jose .confetti-2 { animation-delay: 4.2s; }
+        .intro-box-jose .confetti-3 { animation-delay: 4.1s; }
+        .intro-box-jose .confetti-4 { animation-delay: 4.3s; }
+        .intro-box-jose .confetti-5 { animation-delay: 4.4s; }
+
+        @keyframes confetti-fall {
+            0% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(120px) rotate(720deg);
+            }
         }
-        @keyframes box-glow-navy {
-            50% { box-shadow: 0 0 40px rgba(0, 76, 147, 0.6); border-color: #ffcc00; }
+
+        /* Box glow when trophy lifts */
+        .intro-box-brady {
+            animation: box-appear 0.6s ease 0.3s forwards, box-glow 0.8s ease 2.4s;
         }
-        @keyframes box-glow-royal {
-            50% { box-shadow: 0 0 40px rgba(0, 51, 160, 0.6); border-color: #c0c0c0; }
+        .intro-box-virat {
+            animation: box-appear 0.6s ease 1s forwards, box-glow 0.8s ease 3.1s;
+        }
+        .intro-box-jose {
+            animation: box-appear 0.6s ease 1.7s forwards, box-glow 0.8s ease 3.8s;
+        }
+
+        @keyframes box-glow {
+            0%, 100% { box-shadow: none; }
+            50% { box-shadow: 0 0 60px 20px rgba(255, 215, 0, 0.3); }
         }
 
         /* Hide intro on mobile */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .intro-overlay { display: none; }
         }
 
@@ -965,58 +1351,126 @@
     <div class="bg-grid"></div>
     <div class="bg-watermark">THE LAB</div>
 
-    <!-- Intro Animation Sequence -->
+    <!-- Intro Animation Sequence - Trophy Lift -->
     <div class="intro-overlay" id="intro-overlay">
+        <div class="intro-title">Legends of the Game</div>
         <div class="intro-grid">
-            <!-- Tom Brady - Quarterback Throwing -->
+            <!-- Tom Brady - Super Bowl VII -->
             <div class="intro-box intro-box-brady">
                 <div class="figure">
-                    <div class="silhouette">
+                    <!-- Trophy -->
+                    <div class="trophy-container">
+                        <div class="lombardi">
+                            <div class="football"></div>
+                            <div class="stand"></div>
+                            <div class="base"></div>
+                        </div>
+                    </div>
+                    <!-- Athlete silhouette -->
+                    <div class="athlete">
                         <div class="head"></div>
-                        <div class="body"></div>
-                        <div class="arm arm-left"></div>
-                        <div class="arm arm-right"></div>
+                        <div class="torso"></div>
+                        <span class="jersey-number">12</span>
+                        <div class="arm arm-left"><div class="hand"></div></div>
+                        <div class="arm arm-right"><div class="hand"></div></div>
                         <div class="leg leg-left"></div>
                         <div class="leg leg-right"></div>
                     </div>
-                    <span class="ball-element football">🏈</span>
                 </div>
-                <span class="label">Tom Brady</span>
+                <!-- Camera flashes -->
+                <div class="flash flash-1"></div>
+                <div class="flash flash-2"></div>
+                <div class="flash flash-3"></div>
+                <!-- Confetti -->
+                <div class="confetti confetti-1"></div>
+                <div class="confetti confetti-2"></div>
+                <div class="confetti confetti-3"></div>
+                <div class="confetti confetti-4"></div>
+                <div class="confetti confetti-5"></div>
+                <div class="label-group">
+                    <div class="name">Tom Brady</div>
+                    <div class="trophy-name">Super Bowl LV</div>
+                </div>
             </div>
 
-            <!-- Virat Kohli - Cover Drive -->
+            <!-- Virat Kohli - IPL Champion -->
             <div class="intro-box intro-box-virat">
                 <div class="figure">
-                    <div class="silhouette">
+                    <!-- Trophy -->
+                    <div class="trophy-container">
+                        <div class="ipl-trophy">
+                            <div class="handle-left"></div>
+                            <div class="handle-right"></div>
+                            <div class="cup"></div>
+                            <div class="stem"></div>
+                            <div class="base-top"></div>
+                            <div class="base-bottom"></div>
+                        </div>
+                    </div>
+                    <!-- Athlete silhouette -->
+                    <div class="athlete">
                         <div class="head"></div>
-                        <div class="body"></div>
-                        <div class="arm arm-left"></div>
-                        <div class="arm arm-right"></div>
+                        <div class="torso"></div>
+                        <span class="jersey-number">18</span>
+                        <div class="arm arm-left"><div class="hand"></div></div>
+                        <div class="arm arm-right"><div class="hand"></div></div>
                         <div class="leg leg-left"></div>
                         <div class="leg leg-right"></div>
                     </div>
-                    <div class="bat"></div>
-                    <span class="ball-element cricket">🏏</span>
                 </div>
-                <span class="label">Virat Kohli</span>
+                <!-- Camera flashes -->
+                <div class="flash flash-1"></div>
+                <div class="flash flash-2"></div>
+                <div class="flash flash-3"></div>
+                <!-- Confetti -->
+                <div class="confetti confetti-1"></div>
+                <div class="confetti confetti-2"></div>
+                <div class="confetti confetti-3"></div>
+                <div class="confetti confetti-4"></div>
+                <div class="confetti confetti-5"></div>
+                <div class="label-group">
+                    <div class="name">Virat Kohli</div>
+                    <div class="trophy-name">IPL Champion</div>
+                </div>
             </div>
 
-            <!-- Jose Mourinho - Celebration -->
+            <!-- Jose Mourinho - UCL Winner -->
             <div class="intro-box intro-box-jose">
                 <div class="figure">
-                    <div class="silhouette">
+                    <!-- Trophy -->
+                    <div class="trophy-container">
+                        <div class="ucl-trophy">
+                            <div class="ear-left"></div>
+                            <div class="ear-right"></div>
+                            <div class="cup"></div>
+                            <div class="stem"></div>
+                            <div class="base"></div>
+                        </div>
+                    </div>
+                    <!-- Athlete silhouette -->
+                    <div class="athlete">
                         <div class="head"></div>
-                        <div class="body"></div>
-                        <div class="arm arm-left"></div>
-                        <div class="arm arm-right"></div>
+                        <div class="torso"></div>
+                        <div class="arm arm-left"><div class="hand"></div></div>
+                        <div class="arm arm-right"><div class="hand"></div></div>
                         <div class="leg leg-left"></div>
                         <div class="leg leg-right"></div>
                     </div>
-                    <span class="confetti confetti-1">🎊</span>
-                    <span class="confetti confetti-2">✨</span>
-                    <span class="confetti confetti-3">🎉</span>
                 </div>
-                <span class="label">Mourinho</span>
+                <!-- Camera flashes -->
+                <div class="flash flash-1"></div>
+                <div class="flash flash-2"></div>
+                <div class="flash flash-3"></div>
+                <!-- Confetti -->
+                <div class="confetti confetti-1"></div>
+                <div class="confetti confetti-2"></div>
+                <div class="confetti confetti-3"></div>
+                <div class="confetti confetti-4"></div>
+                <div class="confetti confetti-5"></div>
+                <div class="label-group">
+                    <div class="name">José Mourinho</div>
+                    <div class="trophy-name">UEFA Champions League</div>
+                </div>
             </div>
         </div>
     </div>

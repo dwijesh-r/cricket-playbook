@@ -528,6 +528,124 @@
             color: var(--accent-purple);
         }
 
+        /* ==================== ROADMAP / BACKLOG ==================== */
+        .roadmap-container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .roadmap-group {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .roadmap-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .roadmap-header.p0 { background: rgba(255, 69, 58, 0.1); }
+        .roadmap-header.p1 { background: rgba(255, 159, 10, 0.1); }
+        .roadmap-header.p2 { background: rgba(10, 132, 255, 0.1); }
+        .roadmap-header.future { background: rgba(142, 142, 147, 0.1); }
+
+        .priority-badge {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .priority-badge.p0 { background: var(--accent-red); color: white; }
+        .priority-badge.p1 { background: var(--accent-orange); color: #000; }
+        .priority-badge.p2 { background: var(--accent); color: white; }
+        .priority-badge.future { background: var(--text-tertiary); color: white; }
+
+        .priority-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .roadmap-items {
+            padding: 8px 0;
+        }
+
+        .roadmap-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.2s ease;
+        }
+
+        .roadmap-item:last-child {
+            border-bottom: none;
+        }
+
+        .roadmap-item:hover {
+            background: var(--glass);
+        }
+
+        .roadmap-owner {
+            flex-shrink: 0;
+            width: 120px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            padding: 2px 0;
+        }
+
+        .roadmap-task {
+            flex: 1;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .roadmap-source {
+            margin-top: 24px;
+            padding: 16px 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .roadmap-source strong {
+            color: var(--text-primary);
+        }
+
+        .roadmap-source a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .roadmap-source a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .roadmap-item {
+                flex-direction: column;
+                gap: 4px;
+            }
+            .roadmap-owner {
+                width: auto;
+            }
+        }
+
         /* ==================== AGENT ROSTER ==================== */
         .agents-grid {
             display: grid;
@@ -980,6 +1098,128 @@
 
             <div class="agents-grid" id="agentsGrid">
                 <!-- Agents will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- What's Coming / Backlog -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-label">Roadmap</div>
+                <h2 class="section-title">What's Coming</h2>
+                <p class="section-description">
+                    The backlog from Tom Brady's sprint planning, prioritized by Florentino Pérez.
+                </p>
+            </div>
+
+            <div class="roadmap-container">
+                <!-- P0 Critical -->
+                <div class="roadmap-group">
+                    <div class="roadmap-header p0">
+                        <span class="priority-badge p0">P0</span>
+                        <span class="priority-label">Critical — Sprint 4</span>
+                    </div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item">
+                            <span class="roadmap-owner">Brock Purdy</span>
+                            <span class="roadmap-task">Fix Digvesh Rathi Classification — leg-spinner marked as wicketkeeper</span>
+                        </div>
+                        <div class="roadmap-item">
+                            <span class="roadmap-owner">Stephen Curry</span>
+                            <span class="roadmap-task">Predicted XII: Fit exactly 4 overseas per team</span>
+                        </div>
+                        <div class="roadmap-item">
+                            <span class="roadmap-owner">Stephen Curry</span>
+                            <span class="roadmap-task">Depth Charts: Max 2 roles per player (currently some show 5+)</span>
+                        </div>
+                        <div class="roadmap-item">
+                            <span class="roadmap-owner">Brock Purdy</span>
+                            <span class="roadmap-task">Add Captain field to squad data</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- P1 High Priority -->
+                <div class="roadmap-group">
+                    <div class="roadmap-header p1">
+                        <span class="priority-badge p1">P1</span>
+                        <span class="priority-label">High Priority — Sprint 4/5</span>
+                    </div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item">
+                            <span class="roadmap-owner">Kevin de Bruyne</span>
+                            <span class="roadmap-task">Depth Charts: ESPN-style visual format</span>
+                        </div>
+                        <div class="roadmap-item">
+                            <span class="roadmap-owner">Stephen Curry</span>
+                            <span class="roadmap-task">Predicted XII: Use entry point analysis for positioning</span>
+                        </div>
+                        <div class="roadmap-item">
+                            <span class="roadmap-owner">Stephen Curry</span>
+                            <span class="roadmap-task">Bowler over analysis — when do bowlers bowl their overs?</span>
+                        </div>
+                        <div class="roadmap-item">
+                            <span class="roadmap-owner">Andy Flower</span>
+                            <span class="roadmap-task">Detailed Role Tags descriptions (Baselines vs Tags)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- P2 Medium Priority -->
+                <div class="roadmap-group">
+                    <div class="roadmap-header p2">
+                        <span class="priority-badge p2">P2</span>
+                        <span class="priority-label">Medium Priority — Sprint 5+</span>
+                    </div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item">
+                            <span class="roadmap-owner">Brad Stevens</span>
+                            <span class="roadmap-task">Team-wise stat pack folders (/stat_packs/MI/, /stat_packs/CSK/)</span>
+                        </div>
+                        <div class="roadmap-item">
+                            <span class="roadmap-owner">Brock Purdy</span>
+                            <span class="roadmap-task">Player ID Audit — foolproof system (15 mismatches remain)</span>
+                        </div>
+                        <div class="roadmap-item">
+                            <span class="roadmap-owner">Stephen Curry</span>
+                            <span class="roadmap-task">Add Founder override scope for manual corrections</span>
+                        </div>
+                        <div class="roadmap-item">
+                            <span class="roadmap-owner">Stephen Curry</span>
+                            <span class="roadmap-task">Offline/user-facing notebooks (work without live DB)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Future / Icebox -->
+                <div class="roadmap-group">
+                    <div class="roadmap-header future">
+                        <span class="priority-badge future">Future</span>
+                        <span class="priority-label">Icebox — Post-Season</span>
+                    </div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item">
+                            <span class="roadmap-owner">TBD</span>
+                            <span class="roadmap-task">REST API (FastAPI) for external integrations</span>
+                        </div>
+                        <div class="roadmap-item">
+                            <span class="roadmap-owner">TBD</span>
+                            <span class="roadmap-task">Win Probability Model</span>
+                        </div>
+                        <div class="roadmap-item">
+                            <span class="roadmap-owner">TBD</span>
+                            <span class="roadmap-task">Player Form Tracker</span>
+                        </div>
+                        <div class="roadmap-item">
+                            <span class="roadmap-owner">TBD</span>
+                            <span class="roadmap-task">Real-time Match Simulation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="roadmap-source">
+                <strong>Source:</strong> Sprint 4 Check-In Response (Florentino Pérez, 2026-02-04) ·
+                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/reviews/founder/sprint_4_checkin_response_020426_v1.md" target="_blank">View Full Document →</a>
             </div>
         </section>
 

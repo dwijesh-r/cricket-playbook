@@ -206,7 +206,9 @@ class TestStatPackFiles:
             content = stat_pack.read_text()
             assert "## 1. Squad Overview" in content, "Missing Squad Overview"
             assert "## 2. Historical Record" in content, "Missing Historical Record"
-            assert "## 9. Andy Flower" in content, "Missing Tactical Insights"
+            assert "## 3. Historical Trends" in content, "Missing Historical Trends"
+            assert "## 4. Venue Analysis" in content, "Missing Venue Analysis"
+            assert "## 10. Andy Flower" in content, "Missing Tactical Insights"
 
     def test_readme_exists(self):
         """Verify README.md exists in stat_packs directory."""

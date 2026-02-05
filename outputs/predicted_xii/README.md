@@ -1,5 +1,7 @@
 # Predicted XII - IPL 2026
 
+**Version:** 4.1.0 | **Last Updated:** 2026-02-05
+
 ## Overview
 
 This directory contains the predicted playing XI + Impact Player (XII) for all 10 IPL 2026 teams. The predictions are generated using a constraint-satisfaction algorithm with weighted scoring.

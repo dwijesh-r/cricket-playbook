@@ -2,7 +2,7 @@
 
 Generated data artifacts organized by category.
 
-**Version:** 4.0.0 | **Data Range:** IPL 2023-2025 (219 matches) | **Last Updated:** 2026-02-04
+**Version:** 4.1.0 | **Data Range:** IPL 2023-2025 (219 matches) | **Last Updated:** 2026-02-05
 
 ---
 
@@ -255,4 +255,4 @@ python scripts/generators/generate_depth_charts.py
 
 ---
 
-*Cricket Playbook v4.0.0*
+*Cricket Playbook v4.1.0*

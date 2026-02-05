@@ -2,7 +2,7 @@
 
 Python scripts organized by purpose for the Cricket Playbook analytics platform.
 
-**Version:** 4.2.0 | **Last Updated:** 2026-02-05
+**Version:** 4.1.0 | **Last Updated:** 2026-02-05
 
 ---
 
@@ -465,4 +465,4 @@ python scripts/generators/generate_stat_packs.py
 
 ---
 
-*Cricket Playbook v4.2.0*
+*Cricket Playbook v4.1.0*

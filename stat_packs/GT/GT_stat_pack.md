@@ -1,6 +1,6 @@
 # Gujarat Titans (GT) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-05 20:33
+**Generated:** 2026-02-05 20:52
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -94,7 +94,7 @@
 
 ---
 
-## Historical Trends (2023-2025)
+## 3. Historical Trends (2023-2025)
 
 *Season-over-season performance analysis (IPL 2023-2025)*
 
@@ -153,7 +153,7 @@
 
 ---
 
-## Venue Analysis
+## 4. Venue Analysis
 
 *Performance breakdown by venue (2023+ IPL data)*
 
@@ -170,13 +170,13 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 148.3 |
 | M Chinnaswamy Stadium | 3 | 2 | 66.7% | 171.7 |
 | Arun Jaitley Stadium | 3 | 2 | 66.7% | 196.0 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 148.3 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 175.7 |
+| Eden Gardens | 2 | 2 | 100.0% | 189.0 |
 | MA Chidambaram Stadium | 2 | 0 | 0.0% | 150.0 |
 | Wankhede Stadium | 2 | 1 | 50.0% | 169.0 |
-| Eden Gardens | 2 | 2 | 100.0% | 189.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -383,11 +383,11 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 15 | 329 | 496 | 18 | 9.05 | 27.56 | 18.28 | 38.3 | 23.4 | HIGH |
-| Sunrisers Hyderabad | 13 | 270 | 319 | 15 | 7.09 | 21.27 | 18.0 | 47.04 | 15.93 | HIGH |
 | Kolkata Knight Riders | 15 | 320 | 408 | 15 | 7.65 | 27.2 | 21.33 | 45.63 | 19.38 | HIGH |
-| Punjab Kings | 11 | 234 | 397 | 13 | 10.18 | 30.54 | 18.0 | 34.62 | 26.5 | HIGH |
+| Sunrisers Hyderabad | 13 | 270 | 319 | 15 | 7.09 | 21.27 | 18.0 | 47.04 | 15.93 | HIGH |
 | Rajasthan Royals | 13 | 270 | 361 | 13 | 8.02 | 27.77 | 20.77 | 41.11 | 19.26 | HIGH |
 | Mumbai Indians | 15 | 313 | 434 | 13 | 8.32 | 33.38 | 24.08 | 43.13 | 20.13 | HIGH |
+| Punjab Kings | 11 | 234 | 397 | 13 | 10.18 | 30.54 | 18.0 | 34.62 | 26.5 | HIGH |
 | Lucknow Super Giants | 7 | 162 | 237 | 7 | 8.78 | 33.86 | 23.14 | 43.83 | 23.46 | HIGH |
 | Gujarat Titans | 4 | 96 | 127 | 5 | 7.94 | 25.4 | 19.2 | 43.75 | 19.79 | MEDIUM |
 | Chennai Super Kings | 12 | 234 | 358 | 3 | 9.18 | 119.33 | 78.0 | 34.62 | 21.37 | HIGH |
@@ -399,9 +399,9 @@
 | Punjab Kings | 16 | 384 | 421 | 25 | 6.58 | 16.84 | 15.36 | 41.93 | 11.46 | HIGH |
 | Mumbai Indians | 18 | 420 | 436 | 21 | 6.23 | 20.76 | 20.0 | 41.67 | 10.71 | HIGH |
 | Delhi Capitals | 19 | 444 | 480 | 21 | 6.49 | 22.86 | 21.14 | 36.71 | 11.04 | HIGH |
+| Kolkata Knight Riders | 16 | 372 | 437 | 19 | 7.05 | 23.0 | 19.58 | 35.22 | 12.63 | HIGH |
 | Chennai Super Kings | 18 | 426 | 579 | 19 | 8.15 | 30.47 | 22.42 | 33.33 | 16.9 | HIGH |
 | Rajasthan Royals | 16 | 384 | 412 | 19 | 6.44 | 21.68 | 20.21 | 36.2 | 9.38 | HIGH |
-| Kolkata Knight Riders | 16 | 372 | 437 | 19 | 7.05 | 23.0 | 19.58 | 35.22 | 12.63 | HIGH |
 | Royal Challengers Bengaluru | 16 | 370 | 509 | 15 | 8.25 | 33.93 | 24.67 | 31.89 | 15.95 | HIGH |
 | Lucknow Super Giants | 7 | 155 | 213 | 9 | 8.25 | 23.67 | 17.22 | 30.32 | 14.84 | HIGH |
 | Gujarat Lions | 2 | 48 | 53 | 6 | 6.63 | 8.83 | 8.0 | 43.75 | 12.5 | MEDIUM |

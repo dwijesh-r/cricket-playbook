@@ -1,6 +1,6 @@
 # Mumbai Indians (MI) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-05 20:34
+**Generated:** 2026-02-05 20:52
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -132,7 +132,7 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** PP Chawla (22w @ 8.07), Akash Madhwal (14w @ 8.32), JP Behrendorff (14w @ 9.05)
+- **2023:** PP Chawla (22w @ 8.07), JP Behrendorff (14w @ 9.05), Akash Madhwal (14w @ 8.32)
 - **2024:** JJ Bumrah (20w @ 6.24), G Coetzee (13w @ 9.92), PP Chawla (13w @ 8.71)
 - **2025:** TA Boult (22w @ 8.74), JJ Bumrah (18w @ 6.69), HH Pandya (14w @ 9.04)
 
@@ -179,11 +179,11 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Narendra Modi Stadium | 5 | 0 | 0.0% | 169.6 |
-| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 194.7 |
-| Arun Jaitley Stadium | 3 | 2 | 66.7% | 208.3 |
+| Sawai Mansingh Stadium | 3 | 1 | 33.3% | 193.3 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 0 | 0.0% | 169.0 |
 | MA Chidambaram Stadium | 3 | 1 | 33.3% | 158.7 |
-| Sawai Mansingh Stadium | 3 | 1 | 33.3% | 193.3 |
+| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 194.7 |
+| Arun Jaitley Stadium | 3 | 2 | 66.7% | 208.3 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -194,11 +194,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -230,7 +230,7 @@
 | JJ Bumrah | Dubai International Crick | 8 | 15 | 7.0 | 12.0 |
 | SN Thakur | Dubai International Crick | 9 | 15 | 7.66 | 12.8 |
 | DL Chahar | MA Chidambaram Stadium | 11 | 14 | 8.1 | 13.86 |
-| DL Chahar | Wankhede Stadium | 13 | 13 | 9.0 | 18.0 |
+| JJ Bumrah | Sheikh Zayed Stadium | 8 | 13 | 6.5 | 14.77 |
 
 
 ---
@@ -440,9 +440,9 @@
 | Kolkata Knight Riders | 11 | 246 | 323 | 14 | 7.88 | 23.07 | 17.57 | 46.34 | 20.33 | HIGH |
 | Mumbai Indians | 11 | 257 | 363 | 14 | 8.47 | 25.93 | 18.36 | 36.58 | 19.07 | HIGH |
 | Chennai Super Kings | 14 | 316 | 457 | 13 | 8.68 | 35.15 | 24.31 | 42.72 | 22.78 | HIGH |
-| Punjab Kings | 16 | 354 | 520 | 12 | 8.81 | 43.33 | 29.5 | 38.7 | 23.16 | HIGH |
-| Rajasthan Royals | 9 | 193 | 255 | 12 | 7.93 | 21.25 | 16.08 | 38.86 | 18.65 | HIGH |
 | Lucknow Super Giants | 7 | 162 | 185 | 12 | 6.85 | 15.42 | 13.5 | 49.38 | 16.67 | HIGH |
+| Rajasthan Royals | 9 | 193 | 255 | 12 | 7.93 | 21.25 | 16.08 | 38.86 | 18.65 | HIGH |
+| Punjab Kings | 16 | 354 | 520 | 12 | 8.81 | 43.33 | 29.5 | 38.7 | 23.16 | HIGH |
 | Gujarat Titans | 8 | 174 | 242 | 8 | 8.34 | 30.25 | 21.75 | 39.08 | 18.97 | HIGH |
 | Gujarat Lions | 2 | 48 | 77 | 2 | 9.63 | 38.5 | 24.0 | 39.58 | 33.33 | MEDIUM |
 
@@ -459,8 +459,8 @@
 | Chennai Super Kings | 16 | 370 | 450 | 14 | 7.3 | 32.14 | 26.43 | 40.27 | 15.14 | HIGH |
 | Rising Pune Supergiant | 6 | 138 | 178 | 7 | 7.74 | 25.43 | 19.71 | 33.33 | 13.04 | HIGH |
 | Gujarat Titans | 4 | 96 | 108 | 6 | 6.75 | 18.0 | 16.0 | 46.88 | 14.58 | MEDIUM |
-| Lucknow Super Giants | 4 | 96 | 92 | 5 | 5.75 | 18.4 | 19.2 | 48.96 | 9.38 | MEDIUM |
 | Gujarat Lions | 4 | 96 | 138 | 5 | 8.63 | 27.6 | 19.2 | 32.29 | 19.79 | MEDIUM |
+| Lucknow Super Giants | 4 | 96 | 92 | 5 | 5.75 | 18.4 | 19.2 | 48.96 | 9.38 | MEDIUM |
 
 ---
 
@@ -485,8 +485,8 @@
 | Q de Kock | M.Chinnaswamy Stadium | 7 | 201 | 166 | 121.08 | 33.5 | 16.27 | HIGH |
 | Q de Kock | M Chinnaswamy Stadium | 3 | 183 | 96 | 190.63 | 61.0 | 32.29 | MEDIUM |
 | Q de Kock | Sharjah Cricket Stadium | 5 | 173 | 131 | 132.06 | 43.25 | 17.56 | HIGH |
-| Q de Kock | Bharat Ratna Shri Atal Bihari Vajpa... | 6 | 157 | 116 | 135.34 | 26.17 | 18.97 | HIGH |
 | Q de Kock | Feroz Shah Kotla | 8 | 157 | 133 | 118.05 | 26.17 | 19.55 | HIGH |
+| Q de Kock | Bharat Ratna Shri Atal Bihari Vajpa... | 6 | 157 | 116 | 135.34 | 26.17 | 18.97 | HIGH |
 | Q de Kock | Arun Jaitley Stadium, Delhi | 4 | 129 | 99 | 130.3 | 43.0 | 15.15 | MEDIUM |
 | Q de Kock | Shaheed Veer Narayan Singh Internat... | 4 | 114 | 98 | 116.33 | 28.5 | 16.33 | MEDIUM |
 | Q de Kock | Maharashtra Cricket Association Sta... | 3 | 107 | 76 | 140.79 | 35.67 | 18.42 | MEDIUM |
@@ -504,8 +504,8 @@
 | RG Sharma | Maharashtra Cricket Association Sta... | 3 | 144 | 100 | 144.0 | 144.0 | 19.0 | HIGH |
 | RG Sharma | Arun Jaitley Stadium, Delhi | 5 | 140 | 105 | 133.33 | 28.0 | 19.05 | HIGH |
 | RG Sharma | Vidarbha Cricket Association Stadiu... | 3 | 131 | 104 | 125.96 | 43.67 | 16.35 | HIGH |
-| RG Sharma | Dr. Y.S. Rajasekhara Reddy ACA-VDCA... | 4 | 124 | 98 | 126.53 | 41.33 | 15.31 | MEDIUM |
 | RG Sharma | Rajiv Gandhi International Stadium,... | 3 | 124 | 76 | 163.16 | 41.33 | 27.63 | MEDIUM |
+| RG Sharma | Dr. Y.S. Rajasekhara Reddy ACA-VDCA... | 4 | 124 | 98 | 126.53 | 41.33 | 15.31 | MEDIUM |
 | SA Yadav | Wankhede Stadium, Mumbai | 21 | 885 | 473 | 187.1 | 59.0 | 30.44 | HIGH |
 | SA Yadav | Wankhede Stadium | 18 | 499 | 367 | 135.97 | 29.35 | 20.16 | HIGH |
 | SA Yadav | Sheikh Zayed Stadium | 11 | 413 | 248 | 166.53 | 68.83 | 24.6 | HIGH |

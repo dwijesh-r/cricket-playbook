@@ -90,7 +90,7 @@ Welcome to Cricket Playbook. Here's how to get your bearings:
 ### First 5 Minutes
 1. **Read this README** - You're doing it. Good start.
 2. **Check `docs/KANBAN.md`** - See what we're working on right now (Sprint 4.0)
-3. **Browse `stat_packs/`** - Open any team file (try `MI_stat_pack.md`). This is what we produce.
+3. **Browse `stat_packs/`** - Open any team file (try `MI/MI_stat_pack.md`). This is what we produce.
 4. **Check `outputs/predicted_xii/`** - See our algorithm-generated best XIs
 5. **Check `outputs/depth_charts/`** - See position-by-position team rankings
 
@@ -111,7 +111,7 @@ scripts/generators/generate_stat_packs.py → stat_packs/
 
 | You Want | Go Here |
 |----------|---------|
-| See the final product | `stat_packs/*.md` |
+| See the final product | `stat_packs/{TEAM}/{TEAM}_stat_pack.md` |
 | See predicted best XIs | `outputs/predicted_xii/` |
 | See team depth charts | `outputs/depth_charts/` |
 | See UI wireframes | `docs/specs/WIREFRAMES_V1.md` |
@@ -489,5 +489,5 @@ Internal use only - Cricket Playbook Editorial Team
 
 ---
 
-*Cricket Playbook v4.0.0 - IPL 2026 Analytics Platform*
+*Cricket Playbook v4.1.0 - IPL 2026 Analytics Platform*
 *Wireframes V6 | SUPER SELECTOR v3.0*

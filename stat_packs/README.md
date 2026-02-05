@@ -2,7 +2,7 @@
 
 Team statistical reports for IPL 2026.
 
-**Data Range:** IPL 2023-2025 (219 matches)
+**Version:** 4.1.0 | **Data Range:** IPL 2023-2025 (219 matches) | **Last Updated:** 2026-02-05
 
 ---
 
@@ -10,16 +10,16 @@ Team statistical reports for IPL 2026.
 
 | File | Team |
 |------|------|
-| `CSK_stat_pack.md` | Chennai Super Kings |
-| `DC_stat_pack.md` | Delhi Capitals |
-| `GT_stat_pack.md` | Gujarat Titans |
-| `KKR_stat_pack.md` | Kolkata Knight Riders |
-| `LSG_stat_pack.md` | Lucknow Super Giants |
-| `MI_stat_pack.md` | Mumbai Indians |
-| `PBKS_stat_pack.md` | Punjab Kings |
-| `RCB_stat_pack.md` | Royal Challengers Bengaluru |
-| `RR_stat_pack.md` | Rajasthan Royals |
-| `SRH_stat_pack.md` | Sunrisers Hyderabad |
+| `CSK/CSK_stat_pack.md` | Chennai Super Kings |
+| `DC/DC_stat_pack.md` | Delhi Capitals |
+| `GT/GT_stat_pack.md` | Gujarat Titans |
+| `KKR/KKR_stat_pack.md` | Kolkata Knight Riders |
+| `LSG/LSG_stat_pack.md` | Lucknow Super Giants |
+| `MI/MI_stat_pack.md` | Mumbai Indians |
+| `PBKS/PBKS_stat_pack.md` | Punjab Kings |
+| `RCB/RCB_stat_pack.md` | Royal Challengers Bengaluru |
+| `RR/RR_stat_pack.md` | Rajasthan Royals |
+| `SRH/SRH_stat_pack.md` | Sunrisers Hyderabad |
 
 ---
 
@@ -45,4 +45,4 @@ python scripts/generators/generate_stat_packs.py
 
 ---
 
-*Cricket Playbook v3.1.0*
+*Cricket Playbook v4.1.0*

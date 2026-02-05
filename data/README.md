@@ -2,7 +2,7 @@
 
 Source data, database, and reference files.
 
-**Version:** 4.0.0 | **Last Updated:** 2026-02-04
+**Version:** 4.1.0 | **Last Updated:** 2026-02-05
 
 ---
 
@@ -368,4 +368,4 @@ python scripts/core/validate_schema.py
 
 ---
 
-*Cricket Playbook v4.0.0*
+*Cricket Playbook v4.1.0*

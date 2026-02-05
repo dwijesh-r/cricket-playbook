@@ -1,7 +1,7 @@
 # IPL 2026 Depth Charts
 
-Generated: 2026-02-02
-Version: 1.0
+Generated: 2026-02-05
+Version: 4.1.0
 
 ## Overview
 

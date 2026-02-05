@@ -1,6 +1,6 @@
 # Delhi Capitals (DC) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-05 20:33
+**Generated:** 2026-02-05 20:52
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -99,7 +99,7 @@
 
 ---
 
-## Historical Trends (2023-2025)
+## 3. Historical Trends (2023-2025)
 
 *Season-over-season performance analysis (IPL 2023-2025)*
 
@@ -132,8 +132,8 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** MR Marsh (12w @ 7.82), AR Patel (11w @ 7.17), A Nortje (10w @ 8.84)
-- **2024:** Mukesh Kumar (17w @ 10.2), KK Ahmed (17w @ 9.13), Kuldeep Yadav (16w @ 8.45)
+- **2023:** MR Marsh (12w @ 7.82), AR Patel (11w @ 7.17), Kuldeep Yadav (10w @ 7.32)
+- **2024:** KK Ahmed (17w @ 9.13), Mukesh Kumar (17w @ 10.2), Kuldeep Yadav (16w @ 8.45)
 - **2025:** Kuldeep Yadav (15w @ 7.26), MA Starc (14w @ 10.09), Mukesh Kumar (12w @ 9.67)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -161,7 +161,7 @@
 
 ---
 
-## Venue Analysis
+## 4. Venue Analysis
 
 *Performance breakdown by venue (2023+ IPL data)*
 
@@ -179,14 +179,14 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Dr. Y.S. Rajasekhara Reddy ACA-VDCA | 4 | 3 | 75.0% | 183.5 |
-| Narendra Modi Stadium | 3 | 2 | 66.7% | 141.7 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 158.0 |
 | M Chinnaswamy Stadium | 3 | 1 | 33.3% | 153.3 |
+| Narendra Modi Stadium | 3 | 2 | 66.7% | 141.7 |
+| MA Chidambaram Stadium | 2 | 1 | 50.0% | 161.5 |
 | Wankhede Stadium | 2 | 0 | 0.0% | 163.0 |
 | Rajiv Gandhi International Stadium | 2 | 1 | 50.0% | 138.5 |
-| Himachal Pradesh Cricket Associatio | 2 | 1 | 50.0% | 213.0 |
 | Sawai Mansingh Stadium | 2 | 1 | 50.0% | 190.5 |
-| MA Chidambaram Stadium | 2 | 1 | 50.0% | 161.5 |
+| Himachal Pradesh Cricket Associatio | 2 | 1 | 50.0% | 213.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -197,11 +197,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -231,8 +231,8 @@
 | MA Starc | M Chinnaswamy Stadium | 9 | 12 | 7.5 | 16.0 |
 | AR Patel | Dubai International Crick | 13 | 11 | 6.35 | 26.18 |
 | MA Starc | Dr. Y.S. Rajasekhara Redd | 3 | 10 | 9.28 | 6.4 |
-| Kuldeep Yadav | Brabourne Stadium | 4 | 10 | 7.19 | 9.6 |
 | AR Patel | Punjab Cricket Associatio | 7 | 10 | 7.04 | 14.4 |
+| Kuldeep Yadav | Brabourne Stadium | 4 | 10 | 7.19 | 9.6 |
 | T Natarajan | Dubai International Crick | 8 | 9 | 8.42 | 21.22 |
 
 
@@ -443,13 +443,13 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Mumbai Indians | 4 | 84 | 175 | 8 | 12.5 | 21.88 | 10.5 | 32.14 | 35.71 | MEDIUM |
 | Lucknow Super Giants | 5 | 108 | 158 | 7 | 8.78 | 22.57 | 15.43 | 31.48 | 19.44 | HIGH |
-| Gujarat Titans | 4 | 87 | 134 | 5 | 9.24 | 26.8 | 17.4 | 31.03 | 22.99 | MEDIUM |
 | Rajasthan Royals | 4 | 84 | 149 | 5 | 10.64 | 29.8 | 16.8 | 30.95 | 27.38 | MEDIUM |
+| Gujarat Titans | 4 | 87 | 134 | 5 | 9.24 | 26.8 | 17.4 | 31.03 | 22.99 | MEDIUM |
 | Chennai Super Kings | 2 | 42 | 57 | 4 | 8.14 | 14.25 | 10.5 | 26.19 | 14.29 | MEDIUM |
 | Royal Challengers Bengaluru | 4 | 75 | 122 | 3 | 9.76 | 40.67 | 25.0 | 41.33 | 26.67 | MEDIUM |
 | Punjab Kings | 3 | 54 | 100 | 2 | 11.11 | 50.0 | 27.0 | 35.19 | 29.63 | MEDIUM |
-| Kolkata Knight Riders | 2 | 36 | 45 | 1 | 7.5 | 45.0 | 36.0 | 58.33 | 22.22 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 66 | 132 | 1 | 12.0 | 132.0 | 66.0 | 19.7 | 33.33 | MEDIUM |
+| Kolkata Knight Riders | 2 | 36 | 45 | 1 | 7.5 | 45.0 | 36.0 | 58.33 | 22.22 | MEDIUM |
 
 ### Mitchell Starc
 
@@ -458,10 +458,10 @@
 | Sunrisers Hyderabad | 7 | 152 | 204 | 13 | 8.05 | 15.69 | 11.69 | 40.13 | 19.08 | HIGH |
 | Delhi Capitals | 6 | 132 | 176 | 9 | 8.0 | 19.56 | 14.67 | 42.42 | 18.94 | HIGH |
 | Lucknow Super Giants | 4 | 84 | 117 | 8 | 8.36 | 14.63 | 10.5 | 41.67 | 22.62 | MEDIUM |
-| Punjab Kings | 5 | 96 | 108 | 7 | 6.75 | 15.43 | 13.71 | 45.83 | 15.63 | MEDIUM |
-| Mumbai Indians | 6 | 119 | 178 | 7 | 8.97 | 25.43 | 17.0 | 34.45 | 21.85 | HIGH |
-| Rajasthan Royals | 6 | 138 | 177 | 7 | 7.7 | 25.29 | 19.71 | 42.03 | 18.84 | HIGH |
 | Kolkata Knight Riders | 4 | 84 | 122 | 7 | 8.71 | 17.43 | 12.0 | 34.52 | 20.24 | MEDIUM |
+| Mumbai Indians | 6 | 119 | 178 | 7 | 8.97 | 25.43 | 17.0 | 34.45 | 21.85 | HIGH |
+| Punjab Kings | 5 | 96 | 108 | 7 | 6.75 | 15.43 | 13.71 | 45.83 | 15.63 | MEDIUM |
+| Rajasthan Royals | 6 | 138 | 177 | 7 | 7.7 | 25.29 | 19.71 | 42.03 | 18.84 | HIGH |
 | Chennai Super Kings | 7 | 156 | 186 | 6 | 7.15 | 31.0 | 26.0 | 40.38 | 15.38 | HIGH |
 | Royal Challengers Bengaluru | 4 | 78 | 162 | 1 | 12.46 | 162.0 | 78.0 | 32.05 | 32.05 | MEDIUM |
 

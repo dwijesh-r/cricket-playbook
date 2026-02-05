@@ -2,7 +2,7 @@
 
 Output file generators for Cricket Playbook analytics.
 
-**Version:** 3.0.0 | **Last Updated:** 2026-02-05
+**Version:** 4.1.0 | **Last Updated:** 2026-02-05
 
 ---
 
@@ -59,21 +59,21 @@ python scripts/generators/generate_stat_packs.py
 - `outputs/player_tags.json` - Player classification tags
 
 #### Output
-- `stat_packs/{TEAM}_stat_pack.md` - One file per team (10 total)
+- `stat_packs/{TEAM}/{TEAM}_stat_pack.md` - One file per team (10 total)
 
 #### Output Location
 ```
 stat_packs/
-├── CSK_stat_pack.md
-├── MI_stat_pack.md
-├── RCB_stat_pack.md
-├── KKR_stat_pack.md
-├── DC_stat_pack.md
-├── PBKS_stat_pack.md
-├── RR_stat_pack.md
-├── SRH_stat_pack.md
-├── GT_stat_pack.md
-└── LSG_stat_pack.md
+├── CSK/CSK_stat_pack.md
+├── MI/MI_stat_pack.md
+├── RCB/RCB_stat_pack.md
+├── KKR/KKR_stat_pack.md
+├── DC/DC_stat_pack.md
+├── PBKS/PBKS_stat_pack.md
+├── RR/RR_stat_pack.md
+├── SRH/SRH_stat_pack.md
+├── GT/GT_stat_pack.md
+└── LSG/LSG_stat_pack.md
 ```
 
 #### Stat Pack Sections
@@ -427,4 +427,4 @@ python scripts/generators/generate_all_2023_outputs.py
 
 ---
 
-*Cricket Playbook Generators v3.0.0*
+*Cricket Playbook Generators v4.1.0*

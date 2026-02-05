@@ -1,6 +1,6 @@
 # Lucknow Super Giants (LSG) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-05 20:33
+**Generated:** 2026-02-05 20:52
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -94,7 +94,7 @@
 
 ---
 
-## Historical Trends (2023-2025)
+## 3. Historical Trends (2023-2025)
 
 *Season-over-season performance analysis (IPL 2023-2025)*
 
@@ -125,8 +125,8 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** Ravi Bishnoi (16w @ 7.58), Yash Thakur (13w @ 8.61), Naveen-ul-Haq (11w @ 7.78)
-- **2024:** Naveen-ul-Haq (14w @ 9.7), Yash Thakur (11w @ 10.8), Ravi Bishnoi (10w @ 8.53)
+- **2023:** Ravi Bishnoi (16w @ 7.58), Yash Thakur (13w @ 8.61), MA Wood (11w @ 8.35)
+- **2024:** Naveen-ul-Haq (14w @ 9.7), Yash Thakur (11w @ 10.8), Mohsin Khan (10w @ 9.75)
 - **2025:** DS Rathi (14w @ 8.13), Avesh Khan (13w @ 9.94), SN Thakur (13w @ 9.98)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -149,7 +149,7 @@
 
 ---
 
-## Venue Analysis
+## 4. Venue Analysis
 
 *Performance breakdown by venue (2023+ IPL data)*
 
@@ -167,12 +167,12 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Eden Gardens | 3 | 2 | 66.7% | 191.7 |
-| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 181.0 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 169.0 |
+| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 181.0 |
 | MA Chidambaram Stadium | 3 | 1 | 33.3% | 173.0 |
-| Wankhede Stadium | 2 | 1 | 50.0% | 187.5 |
 | Narendra Modi Stadium | 2 | 1 | 50.0% | 203.0 |
 | M Chinnaswamy Stadium | 2 | 2 | 100.0% | 197.0 |
+| Wankhede Stadium | 2 | 1 | 50.0% | 187.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -183,11 +183,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -217,8 +217,8 @@
 | Mohammed Shami | Dubai International Crick | 12 | 16 | 6.75 | 17.5 |
 | Mohammed Shami | Sharjah Cricket Stadium | 7 | 14 | 9.11 | 12.0 |
 | Mohammed Shami | Wankhede Stadium | 9 | 12 | 8.39 | 16.5 |
-| Avesh Khan | Wankhede Stadium | 7 | 11 | 8.13 | 15.09 |
 | Mohammed Shami | Punjab Cricket Associatio | 8 | 11 | 8.86 | 15.27 |
+| Avesh Khan | Wankhede Stadium | 7 | 11 | 8.13 | 15.09 |
 | A Nortje | Sharjah Cricket Stadium | 6 | 10 | 7.43 | 13.4 |
 
 
@@ -423,16 +423,16 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Rajasthan Royals | 15 | 341 | 489 | 20 | 8.6 | 24.45 | 17.05 | 42.23 | 21.99 | HIGH |
 | Sunrisers Hyderabad | 14 | 300 | 389 | 18 | 7.78 | 21.61 | 16.67 | 39.33 | 17.33 | HIGH |
-| Kolkata Knight Riders | 15 | 348 | 443 | 17 | 7.64 | 26.06 | 20.47 | 41.38 | 16.67 | HIGH |
 | Delhi Capitals | 10 | 228 | 283 | 17 | 7.45 | 16.65 | 13.41 | 48.68 | 19.3 | HIGH |
+| Kolkata Knight Riders | 15 | 348 | 443 | 17 | 7.64 | 26.06 | 20.47 | 41.38 | 16.67 | HIGH |
 | Royal Challengers Bengaluru | 13 | 292 | 452 | 15 | 9.29 | 30.13 | 19.47 | 34.25 | 22.95 | HIGH |
 | Mumbai Indians | 15 | 330 | 482 | 14 | 8.76 | 34.43 | 23.57 | 38.79 | 21.52 | HIGH |
 | Chennai Super Kings | 15 | 329 | 414 | 14 | 7.55 | 29.57 | 23.5 | 40.73 | 16.41 | HIGH |
-| Punjab Kings | 9 | 180 | 337 | 6 | 11.23 | 56.17 | 30.0 | 37.78 | 33.33 | HIGH |
 | Lucknow Super Giants | 5 | 102 | 119 | 6 | 7.0 | 19.83 | 17.0 | 45.1 | 16.67 | HIGH |
+| Punjab Kings | 9 | 180 | 337 | 6 | 11.23 | 56.17 | 30.0 | 37.78 | 33.33 | HIGH |
 | Gujarat Lions | 3 | 66 | 108 | 2 | 9.82 | 54.0 | 33.0 | 33.33 | 24.24 | MEDIUM |
-| Gujarat Titans | 2 | 42 | 74 | 2 | 10.57 | 37.0 | 21.0 | 28.57 | 30.95 | MEDIUM |
 | Rising Pune Supergiant | 3 | 49 | 91 | 2 | 11.14 | 45.5 | 24.5 | 20.41 | 26.53 | MEDIUM |
+| Gujarat Titans | 2 | 42 | 74 | 2 | 10.57 | 37.0 | 21.0 | 28.57 | 30.95 | MEDIUM |
 
 ---
 

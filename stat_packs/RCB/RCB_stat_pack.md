@@ -1,6 +1,6 @@
 # Royal Challengers Bengaluru (RCB) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-05 20:33
+**Generated:** 2026-02-05 20:52
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -95,7 +95,7 @@
 
 ---
 
-## Historical Trends (2023-2025)
+## 3. Historical Trends (2023-2025)
 
 *Season-over-season performance analysis (IPL 2023-2025)*
 
@@ -127,7 +127,7 @@
 **Top Wicket Takers by Season:**
 
 - **2023:** Mohammed Siraj (19w @ 7.2), HV Patel (14w @ 9.3), KV Sharma (10w @ 10.41)
-- **2024:** Mohammed Siraj (15w @ 8.69), Yash Dayal (15w @ 8.8), C Green (10w @ 8.21)
+- **2024:** Yash Dayal (15w @ 8.8), Mohammed Siraj (15w @ 8.69), C Green (10w @ 8.21)
 - **2025:** JR Hazlewood (22w @ 8.64), KH Pandya (17w @ 8.06), B Kumar (17w @ 9.25)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -150,7 +150,7 @@
 
 ---
 
-## Venue Analysis
+## 4. Venue Analysis
 
 *Performance breakdown by venue (2023+ IPL data)*
 
@@ -167,15 +167,15 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
-| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 176.3 |
 | Wankhede Stadium | 3 | 1 | 33.3% | 205.3 |
-| Narendra Modi Stadium | 3 | 2 | 66.7% | 189.3 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 181.7 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 176.3 |
 | Eden Gardens | 3 | 1 | 33.3% | 173.7 |
-| MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
-| Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
+| Narendra Modi Stadium | 3 | 2 | 66.7% | 189.3 |
 | Arun Jaitley Stadium | 2 | 1 | 50.0% | 173.0 |
+| MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
 | Rajiv Gandhi International Stadium | 2 | 2 | 100.0% | 196.5 |
+| Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -188,8 +188,8 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
@@ -217,12 +217,12 @@
 |--------|-------|---------|------|------|-----|
 | B Kumar | Rajiv Gandhi Internationa | 24 | 28 | 7.41 | 19.32 |
 | KH Pandya | Wankhede Stadium | 22 | 18 | 6.85 | 22.0 |
-| KH Pandya | Bharat Ratna Shri Atal Bi | 13 | 12 | 6.84 | 22.0 |
 | B Kumar | Eden Gardens | 8 | 12 | 7.65 | 15.17 |
-| JR Hazlewood | Wankhede Stadium | 5 | 9 | 7.95 | 12.67 |
+| KH Pandya | Bharat Ratna Shri Atal Bi | 13 | 12 | 6.84 | 22.0 |
 | B Kumar | Subrata Roy Sahara Stadiu | 12 | 9 | 6.98 | 27.33 |
+| JR Hazlewood | Wankhede Stadium | 5 | 9 | 7.95 | 12.67 |
 | KH Pandya | Wankhede Stadium | 5 | 9 | 7.35 | 11.33 |
-| B Kumar | Wankhede Stadium | 7 | 8 | 5.74 | 17.38 |
+| B Kumar | Rajiv Gandhi Internationa | 12 | 8 | 8.07 | 34.5 |
 
 
 ---
@@ -405,8 +405,8 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Punjab Kings | 25 | 544 | 676 | 34 | 7.46 | 19.88 | 16.0 | 42.46 | 16.73 | HIGH |
 | Kolkata Knight Riders | 30 | 654 | 850 | 32 | 7.8 | 26.56 | 20.44 | 40.67 | 18.04 | HIGH |
-| Delhi Capitals | 23 | 546 | 674 | 23 | 7.41 | 29.3 | 23.74 | 41.76 | 16.3 | HIGH |
 | Mumbai Indians | 21 | 450 | 533 | 23 | 7.11 | 23.17 | 19.57 | 45.11 | 15.11 | HIGH |
+| Delhi Capitals | 23 | 546 | 674 | 23 | 7.41 | 29.3 | 23.74 | 41.76 | 16.3 | HIGH |
 | Rajasthan Royals | 20 | 459 | 655 | 20 | 8.56 | 32.75 | 22.95 | 40.09 | 22.22 | HIGH |
 | Royal Challengers Bengaluru | 23 | 497 | 676 | 18 | 8.16 | 37.56 | 27.61 | 40.85 | 21.53 | HIGH |
 | Chennai Super Kings | 22 | 488 | 588 | 14 | 7.23 | 42.0 | 34.86 | 43.44 | 15.37 | HIGH |
@@ -479,8 +479,8 @@
 | V Kohli | Narendra Modi Stadium, Ahmedabad | 6 | 200 | 156 | 128.21 | 40.0 | 14.74 | HIGH |
 | V Kohli | Sawai Mansingh Stadium, Jaipur | 3 | 193 | 136 | 141.91 | 193.0 | 16.91 | HIGH |
 | V Kohli | Saurashtra Cricket Association Stad... | 2 | 164 | 113 | 145.13 | 164.0 | 17.7 | HIGH |
-| V Kohli | Sheikh Zayed Stadium | 6 | 155 | 140 | 110.71 | 38.75 | 12.14 | HIGH |
 | V Kohli | Maharashtra Cricket Association Sta... | 4 | 155 | 139 | 111.51 | 38.75 | 10.79 | HIGH |
+| V Kohli | Sheikh Zayed Stadium | 6 | 155 | 140 | 110.71 | 38.75 | 12.14 | HIGH |
 | V Kohli | Rajiv Gandhi International Stadium,... | 2 | 151 | 106 | 142.45 | 75.5 | 19.81 | HIGH |
 | V Kohli | Sawai Mansingh Stadium | 7 | 131 | 139 | 94.24 | 21.83 | 10.07 | HIGH |
 | V Kohli | Bharat Ratna Shri Atal Bihari Vajpa... | 3 | 128 | 85 | 150.59 | 42.67 | 24.71 | MEDIUM |

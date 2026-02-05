@@ -1,6 +1,6 @@
 # Sunrisers Hyderabad (SRH) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-05 20:33
+**Generated:** 2026-02-05 20:52
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -99,7 +99,7 @@
 
 ---
 
-## Historical Trends (2023-2025)
+## 3. Historical Trends (2023-2025)
 
 *Season-over-season performance analysis (IPL 2023-2025)*
 
@@ -134,7 +134,7 @@
 
 - **2023:** B Kumar (16w @ 8.13), M Markande (12w @ 7.83), T Natarajan (10w @ 9.04)
 - **2024:** T Natarajan (19w @ 8.48), PJ Cummins (18w @ 9.14), B Kumar (11w @ 9.33)
-- **2025:** HV Patel (16w @ 9.1), PJ Cummins (16w @ 8.85), E Malinga (13w @ 8.87)
+- **2025:** PJ Cummins (16w @ 8.85), HV Patel (16w @ 9.1), E Malinga (13w @ 8.87)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -158,7 +158,7 @@
 
 ---
 
-## Venue Analysis
+## 4. Venue Analysis
 
 *Performance breakdown by venue (2023+ IPL data)*
 
@@ -177,8 +177,8 @@
 |-------|---------|------|------|-----------|
 | MA Chidambaram Stadium | 5 | 2 | 40.0% | 142.2 |
 | Narendra Modi Stadium | 4 | 0 | 0.0% | 165.3 |
-| Arun Jaitley Stadium | 3 | 3 | 100.0% | 247.0 |
 | Eden Gardens | 3 | 1 | 33.3% | 184.0 |
+| Arun Jaitley Stadium | 3 | 3 | 100.0% | 247.0 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 186.0 |
 | Wankhede Stadium | 3 | 0 | 0.0% | 178.3 |
 
@@ -193,9 +193,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -223,11 +223,11 @@
 | HV Patel | MA Chidambaram Stadium | 5 | 13 | 5.24 | 7.85 |
 | HV Patel | Rajiv Gandhi Internationa | 7 | 11 | 8.92 | 13.64 |
 | HV Patel | Maharaja Yadavindra Singh | 5 | 11 | 8.59 | 9.27 |
-| JD Unadkat | Rajiv Gandhi Internationa | 3 | 9 | 6.17 | 8.0 |
 | JD Unadkat | M Chinnaswamy Stadium | 10 | 9 | 7.94 | 24.0 |
 | HV Patel | Wankhede Stadium | 8 | 9 | 9.07 | 18.0 |
 | PJ Cummins | Feroz Shah Kotla | 6 | 9 | 8.71 | 16.0 |
-| PJ Cummins | Narendra Modi Stadium | 5 | 8 | 8.94 | 13.5 |
+| JD Unadkat | Rajiv Gandhi Internationa | 3 | 9 | 6.17 | 8.0 |
+| HV Patel | Arun Jaitley Stadium | 5 | 8 | 8.97 | 13.88 |
 
 
 ---
@@ -435,9 +435,9 @@
 | Kolkata Knight Riders | 7 | 132 | 220 | 6 | 10.0 | 36.67 | 22.0 | 35.61 | 25.76 | HIGH |
 | Sunrisers Hyderabad | 5 | 119 | 152 | 4 | 7.66 | 38.0 | 29.75 | 37.82 | 15.13 | HIGH |
 | Gujarat Lions | 2 | 48 | 70 | 3 | 8.75 | 23.33 | 16.0 | 22.92 | 18.75 | MEDIUM |
-| Lucknow Super Giants | 3 | 66 | 106 | 3 | 9.64 | 35.33 | 22.0 | 31.82 | 24.24 | MEDIUM |
-| Rising Pune Supergiant | 2 | 43 | 58 | 3 | 8.09 | 19.33 | 14.33 | 39.53 | 13.95 | MEDIUM |
 | Gujarat Titans | 3 | 70 | 92 | 3 | 7.89 | 30.67 | 23.33 | 30.0 | 15.71 | MEDIUM |
+| Rising Pune Supergiant | 2 | 43 | 58 | 3 | 8.09 | 19.33 | 14.33 | 39.53 | 13.95 | MEDIUM |
+| Lucknow Super Giants | 3 | 66 | 106 | 3 | 9.64 | 35.33 | 22.0 | 31.82 | 24.24 | MEDIUM |
 
 ---
 

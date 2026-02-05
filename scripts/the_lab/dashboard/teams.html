@@ -643,6 +643,94 @@
         .batting-left { color: var(--accent-teal); }
         .batting-right { color: var(--text-secondary); }
 
+        /* Phil Steele Dense Table Styles */
+        .roster-table.phil-steele {
+            font-size: 12px;
+        }
+        .roster-table.phil-steele th {
+            padding: 10px 6px;
+            font-size: 9px;
+        }
+        .roster-table.phil-steele td {
+            padding: 8px 6px;
+        }
+        .compact-cell {
+            text-align: center;
+        }
+        .hand-badge {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            background: var(--bg-tertiary);
+        }
+        .hand-badge.left-hand {
+            background: rgba(100, 210, 255, 0.15);
+            color: var(--accent-teal);
+        }
+        .bowl-cell {
+            min-width: 80px;
+        }
+        .bowl-type-badge {
+            display: inline-block;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 9px;
+            font-weight: 600;
+            background: rgba(255, 69, 58, 0.12);
+            color: var(--accent-red);
+            white-space: nowrap;
+        }
+        .archetype-cell {
+            max-width: 140px;
+        }
+        .archetype-badge {
+            display: inline-block;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 9px;
+            font-weight: 600;
+            background: rgba(191, 90, 242, 0.12);
+            color: var(--accent-purple);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 130px;
+        }
+        .na-badge {
+            color: var(--text-tertiary);
+            font-size: 10px;
+        }
+        .nat-badge {
+            font-size: 14px;
+        }
+        .nat-badge.overseas {
+            filter: saturate(1.2);
+        }
+        .captain-badge {
+            display: inline-flex;
+            width: 18px;
+            height: 18px;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-orange) 100%);
+            color: #000;
+            font-size: 10px;
+            font-weight: 800;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        .captain-row {
+            background: rgba(255, 214, 10, 0.05) !important;
+        }
+        .captain-row:hover td {
+            background: rgba(255, 214, 10, 0.1) !important;
+        }
+
         /* Squad Summary */
         .squad-summary {
             display: grid;
@@ -1035,15 +1123,56 @@
     <script src="data/teams.js"></script>
     <script src="data/predicted_xii.js"></script>
     <script src="data/depth_charts.js"></script>
+    <script src="data/full_squads.js"></script>
 
     <script>
         // Generate SQUADS from PREDICTED_XII if not loaded separately
+        // Use FULL_SQUADS if available (Phil Steele style full roster)
+        // Falls back to predicted XI if full data not loaded
         const SQUADS = {};
-        if (typeof TEAM_ORDER !== 'undefined' && typeof PREDICTED_XII !== 'undefined') {
+        if (typeof FULL_SQUADS !== 'undefined' && typeof TEAM_ORDER !== 'undefined') {
+            // Use full squad data from CSV (20-25 players per team)
+            TEAM_ORDER.forEach(abbrev => {
+                const fullSquad = FULL_SQUADS[abbrev];
+                if (fullSquad && fullSquad.length > 0) {
+                    const players = fullSquad.map(p => ({
+                        name: p.name,
+                        playerId: p.playerId,
+                        role: p.role,
+                        batting: p.battingHand,
+                        bowlingArm: p.bowlingArm,
+                        bowlingType: p.bowlingType,
+                        overseas: p.nationality !== 'IND',
+                        nationality: p.nationality,
+                        age: p.age,
+                        batterClass: p.batterClass,
+                        bowlerClass: p.bowlerClass,
+                        batterTags: p.batterTags || [],
+                        bowlerTags: p.bowlerTags || [],
+                        isCaptain: p.isCaptain,
+                        price: p.price || 0,
+                        retainedStatus: p.retained ? 'Retained' : 'Auction'
+                    }));
+                    // Sort: Captain first, then by role, then alphabetically
+                    players.sort((a, b) => {
+                        if (a.isCaptain && !b.isCaptain) return -1;
+                        if (!a.isCaptain && b.isCaptain) return 1;
+                        const roleOrder = {'Batter': 1, 'Wicketkeeper': 2, 'All-rounder': 3, 'Bowler': 4};
+                        return (roleOrder[a.role] || 5) - (roleOrder[b.role] || 5);
+                    });
+                    const totalSpent = players.reduce((sum, p) => sum + (p.price || 0), 0);
+                    SQUADS[abbrev] = {
+                        squad: players,
+                        purseSpent: totalSpent,
+                        purseRemaining: 120 - totalSpent
+                    };
+                }
+            });
+        } else if (typeof TEAM_ORDER !== 'undefined' && typeof PREDICTED_XII !== 'undefined') {
+            // Fallback to predicted XI only
             TEAM_ORDER.forEach(abbrev => {
                 const predicted = PREDICTED_XII[abbrev];
                 if (predicted && predicted.xi) {
-                    // Build squad from predicted XI + impact player
                     const players = predicted.xi.map(p => ({
                         name: p.name,
                         role: p.role,
@@ -1051,10 +1180,9 @@
                         overseas: p.overseas,
                         price: p.price,
                         nationality: p.overseas ? 'Overseas' : 'IND',
-                        age: 28, // Default age
+                        age: 28,
                         retainedStatus: p.price > 10 ? 'Retained' : 'Auction'
                     }));
-                    // Add impact player
                     if (predicted.impactPlayer && predicted.impactPlayer.name) {
                         players.push({
                             name: predicted.impactPlayer.name,
@@ -1068,12 +1196,11 @@
                             isImpact: true
                         });
                     }
-                    // Calculate purse
                     const totalSpent = players.reduce((sum, p) => sum + p.price, 0);
                     SQUADS[abbrev] = {
                         squad: players,
                         purseSpent: totalSpent,
-                        purseRemaining: 120 - totalSpent // IPL purse is 120 Cr
+                        purseRemaining: 120 - totalSpent
                     };
                 }
             });
@@ -1470,57 +1597,64 @@
                 </div>
                 ${isFiltered ? `<div class="filter-count">${filterCountText}</div>` : ''}
 
-                <table class="roster-table">
+                <table class="roster-table phil-steele">
                     <thead>
                         <tr>
                             <th>#</th>
                             <th>Player</th>
                             <th>Role</th>
+                            <th>Bat</th>
+                            <th>Bowl</th>
+                            <th>Archetype</th>
                             <th>Age</th>
-                            <th>Nationality</th>
-                            <th>Batting</th>
-                            <th>Price (Cr)</th>
+                            <th>Nat</th>
                         </tr>
                     </thead>
                     <tbody>
                         ${filteredSquad.length === 0 ? `
                             <tr>
-                                <td colspan="7" style="text-align: center; padding: 32px; color: var(--text-tertiary);">
+                                <td colspan="8" style="text-align: center; padding: 32px; color: var(--text-tertiary);">
                                     No players match your filters. Try adjusting your search criteria.
                                 </td>
                             </tr>
-                        ` : filteredSquad.map((player, idx) => `
-                            <tr>
+                        ` : filteredSquad.map((player, idx) => {
+                            const archetype = player.batterClass !== '-' ? player.batterClass : player.bowlerClass !== '-' ? player.bowlerClass : '-';
+                            const bowlInfo = player.bowlingType !== '-' ? player.bowlingType : '-';
+                            const batHand = player.batting ? (player.batting.includes('Left') ? 'L' : 'R') : '-';
+                            return `
+                            <tr class="${player.isCaptain ? 'captain-row' : ''}">
                                 <td>
                                     <div class="player-number">${idx + 1}</div>
                                 </td>
                                 <td>
                                     <div class="player-name-cell">
+                                        ${player.isCaptain ? '<span class="captain-badge">©</span>' : ''}
                                         <span class="player-name-text">${player.name}</span>
                                         ${player.retainedStatus === 'Retained' ? '<span class="retained-badge">RTM</span>' : ''}
                                     </div>
                                 </td>
                                 <td>
-                                    <span class="role-badge ${getRoleClass(player.role)}">${player.role}</span>
+                                    <span class="role-badge ${getRoleClass(player.role)}">${player.role.substring(0, 3).toUpperCase()}</span>
+                                </td>
+                                <td class="compact-cell">
+                                    <span class="hand-badge ${batHand === 'L' ? 'left-hand' : ''}">${batHand}</span>
+                                </td>
+                                <td class="compact-cell bowl-cell">
+                                    ${bowlInfo !== '-' ? `<span class="bowl-type-badge">${bowlInfo}</span>` : '<span class="na-badge">-</span>'}
+                                </td>
+                                <td class="archetype-cell">
+                                    ${archetype !== '-' ? `<span class="archetype-badge">${archetype}</span>` : '<span class="na-badge">-</span>'}
                                 </td>
                                 <td>
                                     <span class="age-cell ${getAgeClass(player.age)}">${player.age}</span>
                                 </td>
                                 <td>
-                                    <span class="nationality-badge ${player.nationality !== 'IND' ? 'overseas' : ''}">
-                                        ${getFlag(player.nationality)} ${player.nationality}
+                                    <span class="nat-badge ${player.nationality !== 'IND' ? 'overseas' : ''}">
+                                        ${getFlag(player.nationality)}
                                     </span>
-                                </td>
-                                <td>
-                                    <span class="batting-badge ${player.batting === 'Left' ? 'batting-left' : 'batting-right'}">
-                                        ${player.batting === 'Left' ? '↖ Left' : '↗ Right'}
-                                    </span>
-                                </td>
-                                <td>
-                                    <span class="price-cell ${getPriceClass(player.price)}">₹${player.price.toFixed(2)}</span>
                                 </td>
                             </tr>
-                        `).join('')}
+                        `}).join('')}
                     </tbody>
                 </table>
 

@@ -166,37 +166,67 @@
             gap: 12px;
         }
 
-        .theme-toggle, .nav-btn {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
+        .theme-toggle {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
             color: var(--text-secondary);
             cursor: pointer;
-            transition: all 0.2s ease;
-            font-family: inherit;
-        }
-
-        .theme-toggle {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 16px;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            font-family: inherit;
+        }
+
+        .theme-toggle:hover {
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-elevated) 100%);
+            color: var(--accent-yellow);
+            border-color: var(--accent-yellow);
+            box-shadow: 0 0 16px rgba(255, 214, 10, 0.3);
+            transform: scale(1.05);
         }
 
         .nav-btn {
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 500;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
             color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-family: inherit;
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         }
 
-        .theme-toggle:hover, .nav-btn:hover {
-            background: var(--bg-tertiary);
+        .nav-btn:hover {
+            background: linear-gradient(135deg, rgba(10, 132, 255, 0.2) 0%, rgba(191, 90, 242, 0.2) 100%);
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(10, 132, 255, 0.3);
+            transform: translateY(-1px);
             color: var(--text-primary);
+        }
+
+        /* Dashboard button - prominent styling */
+        .nav-btn[href="index.html"] {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            color: white;
+            border: none;
+        }
+
+        .nav-btn[href="index.html"]:hover {
+            box-shadow: 0 0 24px rgba(10, 132, 255, 0.5);
+            transform: translateY(-2px);
         }
 
         /* ==================== MAIN CONTENT ==================== */

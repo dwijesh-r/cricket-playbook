@@ -319,7 +319,7 @@
             border-right: 3px solid var(--accent);
             white-space: nowrap;
             width: 0;
-            animation: typing 1.2s steps(7, end) 0.5s forwards, blink-caret 0.75s step-end infinite;
+            animation: typing 1.2s steps(7, end) 4.2s forwards, blink-caret 0.75s step-end 4.2s 4, hide-caret 0.1s ease 7.5s forwards;
         }
 
         @keyframes typing {
@@ -332,133 +332,149 @@
             50% { border-color: var(--accent); }
         }
 
-        /* Sports Legends Animations */
-        .sports-figures {
+        @keyframes hide-caret {
+            to { border-color: transparent; }
+        }
+
+        /* Intro Animation Sequence */
+        .intro-overlay {
             position: fixed;
             inset: 0;
-            pointer-events: none;
-            z-index: 1;
-            overflow: hidden;
+            background: var(--bg-primary);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fade-out-intro 0.5s ease 4s forwards;
         }
 
-        .sports-figure {
-            position: absolute;
-            opacity: 0.7;
-            transition: opacity 0.5s ease;
-            filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
+        @keyframes fade-out-intro {
+            to { opacity: 0; pointer-events: none; }
         }
 
-        [data-theme="light"] .sports-figure {
-            opacity: 0.5;
-            filter: drop-shadow(0 0 15px rgba(0,0,0,0.3));
+        .intro-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 500px;
+            padding: 20px;
         }
 
-        /* Tom Brady - Throwing Motion */
-        .figure-brady {
-            bottom: 20%;
-            left: 5%;
-            font-size: 120px;
-            animation: brady-throw 3s ease-in-out infinite;
+        .intro-box {
+            width: 200px;
+            height: 150px;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(0.8);
         }
 
-        @keyframes brady-throw {
-            0%, 100% { transform: rotate(-10deg) translateY(0); }
-            25% { transform: rotate(-25deg) translateY(-10px); }
-            50% { transform: rotate(15deg) translateY(5px); }
-            75% { transform: rotate(5deg) translateY(-5px); }
+        .intro-box .emoji {
+            font-size: 60px;
+            margin-bottom: 8px;
         }
 
-        /* Kevin de Bruyne - Kicking Motion */
-        .figure-kdb {
-            top: 15%;
-            right: 5%;
-            font-size: 110px;
-            animation: kdb-kick 2.5s ease-in-out infinite;
+        .intro-box .label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
-        @keyframes kdb-kick {
-            0%, 100% { transform: rotate(0deg) scale(1); }
-            30% { transform: rotate(-15deg) scale(0.95); }
-            60% { transform: rotate(20deg) scale(1.1); }
-            80% { transform: rotate(5deg) scale(1.05); }
+        /* Box 1: Tom Brady */
+        .intro-box-brady {
+            animation: box-appear 0.6s ease 0.2s forwards, brady-action 0.8s ease 0.8s forwards;
+            border-color: #c8102e;
+        }
+        .intro-box-brady .emoji {
+            animation: throw-motion 0.6s ease 0.8s;
         }
 
-        /* LeBron James - Dunking Motion */
-        .figure-lebron {
-            top: 25%;
-            left: 5%;
-            font-size: 115px;
-            animation: lebron-dunk 4s ease-in-out infinite;
+        /* Box 2: Kevin de Bruyne */
+        .intro-box-kdb {
+            animation: box-appear 0.6s ease 0.8s forwards, kdb-action 0.8s ease 1.4s forwards;
+            border-color: #6cabdd;
+        }
+        .intro-box-kdb .emoji {
+            animation: kick-motion 0.6s ease 1.4s;
         }
 
-        @keyframes lebron-dunk {
-            0%, 100% { transform: translateY(0) scale(1); }
-            25% { transform: translateY(-30px) scale(1.1); }
-            50% { transform: translateY(-50px) scale(1.15) rotate(-5deg); }
-            75% { transform: translateY(-20px) scale(1.05); }
+        /* Box 3: Virat Kohli */
+        .intro-box-virat {
+            animation: box-appear 0.6s ease 1.4s forwards, virat-action 0.8s ease 2s forwards;
+            border-color: #004c93;
+        }
+        .intro-box-virat .emoji {
+            animation: shot-motion 0.6s ease 2s;
         }
 
-        /* Virat Kohli - Cover Drive */
-        .figure-virat {
-            bottom: 20%;
-            right: 5%;
-            font-size: 130px;
-            animation: virat-shot 3.5s ease-in-out infinite;
+        /* Box 4: Jose Mourinho */
+        .intro-box-jose {
+            animation: box-appear 0.6s ease 2s forwards, jose-action 0.8s ease 2.6s forwards;
+            border-color: #0033a0;
+        }
+        .intro-box-jose .emoji {
+            animation: celebrate-motion 0.6s ease 2.6s;
         }
 
-        @keyframes virat-shot {
-            0%, 100% { transform: rotate(0deg) translateX(0); }
-            20% { transform: rotate(-30deg) translateX(-5px); }
-            50% { transform: rotate(45deg) translateX(15px); }
-            70% { transform: rotate(30deg) translateX(10px); }
+        @keyframes box-appear {
+            to { opacity: 1; transform: scale(1); }
         }
 
-        /* Florentino Pérez - Sideline Stance */
-        .figure-florentino {
-            bottom: 45%;
-            left: 5%;
-            font-size: 100px;
-            animation: florentino-direct 5s ease-in-out infinite;
+        @keyframes brady-action {
+            0%, 100% { border-color: #c8102e; }
+            50% { border-color: #ffc72c; box-shadow: 0 0 30px rgba(200, 16, 46, 0.5); }
         }
 
-        @keyframes florentino-direct {
-            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.35; }
-            25% { transform: translateY(-5px) rotate(-3deg); opacity: 0.4; }
-            50% { transform: translateY(0) rotate(3deg); opacity: 0.45; }
-            75% { transform: translateY(-3px) rotate(-2deg); opacity: 0.4; }
+        @keyframes kdb-action {
+            0%, 100% { border-color: #6cabdd; }
+            50% { border-color: #ffffff; box-shadow: 0 0 30px rgba(108, 171, 221, 0.5); }
         }
 
-        [data-theme="light"] .figure-florentino {
-            animation: florentino-direct-light 5s ease-in-out infinite;
+        @keyframes virat-action {
+            0%, 100% { border-color: #004c93; }
+            50% { border-color: #ffcc00; box-shadow: 0 0 30px rgba(0, 76, 147, 0.5); }
         }
 
-        @keyframes florentino-direct-light {
-            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.25; }
-            25% { transform: translateY(-5px) rotate(-3deg); opacity: 0.3; }
-            50% { transform: translateY(0) rotate(3deg); opacity: 0.35; }
-            75% { transform: translateY(-3px) rotate(-2deg); opacity: 0.3; }
+        @keyframes jose-action {
+            0%, 100% { border-color: #0033a0; }
+            50% { border-color: #c0c0c0; box-shadow: 0 0 30px rgba(0, 51, 160, 0.5); }
         }
 
-        /* Ball Animations */
-        .ball {
-            position: absolute;
-            font-size: 40px;
-            animation: float-ball 8s ease-in-out infinite;
+        @keyframes throw-motion {
+            0% { transform: rotate(-20deg); }
+            50% { transform: rotate(30deg) scale(1.2); }
+            100% { transform: rotate(0deg); }
         }
 
-        .ball-football { top: 12%; right: 15%; animation-delay: 0s; }
-        .ball-soccer { top: 18%; right: 10%; animation-delay: 1.5s; }
-        .ball-basketball { top: 30%; left: 15%; animation-delay: 3s; }
-        .ball-cricket { bottom: 15%; right: 15%; animation-delay: 4.5s; }
-
-        @keyframes float-ball {
-            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
-            50% { transform: translateY(-30px) rotate(180deg); opacity: 0.9; }
+        @keyframes kick-motion {
+            0% { transform: translateX(-10px); }
+            50% { transform: translateX(20px) scale(1.2); }
+            100% { transform: translateX(0); }
         }
 
-        /* Hide on mobile */
-        @media (max-width: 1024px) {
-            .sports-figures { display: none; }
+        @keyframes shot-motion {
+            0% { transform: rotate(-30deg); }
+            50% { transform: rotate(45deg) scale(1.2); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes celebrate-motion {
+            0% { transform: translateY(0); }
+            25% { transform: translateY(-15px) scale(1.1); }
+            50% { transform: translateY(-20px) scale(1.2); }
+            100% { transform: translateY(0) scale(1); }
+        }
+
+        /* Hide intro on mobile */
+        @media (max-width: 768px) {
+            .intro-overlay { display: none; }
         }
 
         .hero-subtitle {
@@ -837,23 +853,26 @@
     <div class="bg-grid"></div>
     <div class="bg-watermark">THE LAB</div>
 
-    <!-- Sports Legends Animations -->
-    <div class="sports-figures">
-        <!-- Tom Brady - Throwing -->
-        <div class="sports-figure figure-brady" title="Tom Brady">🏈</div>
-        <!-- Kevin de Bruyne - Kicking -->
-        <div class="sports-figure figure-kdb" title="Kevin de Bruyne">⚽</div>
-        <!-- LeBron James - Dunking -->
-        <div class="sports-figure figure-lebron" title="LeBron James">🏀</div>
-        <!-- Virat Kohli - Cover Drive -->
-        <div class="sports-figure figure-virat" title="Virat Kohli">🏏</div>
-        <!-- Florentino Pérez - The Founder -->
-        <div class="sports-figure figure-florentino" title="Florentino Pérez">🌹</div>
-        <!-- Floating Balls -->
-        <div class="ball ball-football">🏈</div>
-        <div class="ball ball-soccer">⚽</div>
-        <div class="ball ball-basketball">🏀</div>
-        <div class="ball ball-cricket">🏏</div>
+    <!-- Intro Animation Sequence -->
+    <div class="intro-overlay" id="intro-overlay">
+        <div class="intro-grid">
+            <div class="intro-box intro-box-brady">
+                <span class="emoji">🏈</span>
+                <span class="label">Tom Brady</span>
+            </div>
+            <div class="intro-box intro-box-kdb">
+                <span class="emoji">⚽</span>
+                <span class="label">De Bruyne</span>
+            </div>
+            <div class="intro-box intro-box-virat">
+                <span class="emoji">🏏</span>
+                <span class="label">Virat Kohli</span>
+            </div>
+            <div class="intro-box intro-box-jose">
+                <span class="emoji">🎉</span>
+                <span class="label">Mourinho</span>
+            </div>
+        </div>
     </div>
 
     <!-- Navigation -->
@@ -955,8 +974,8 @@
                     <p>Explore predicted XIs, depth charts, squad analysis, and tactical insights for all 10 IPL franchises.</p>
                 </a>
                 <a href="artifacts.html" class="nav-card">
-                    <div class="nav-card-icon">📁</div>
-                    <h3>Output Files</h3>
+                    <div class="nav-card-icon">📊</div>
+                    <h3>Artifacts</h3>
                     <p>Compare teams side-by-side. View all depth charts, matchup data, player tags, and metrics in one place.</p>
                 </a>
                 <a href="analysis.html" class="nav-card">

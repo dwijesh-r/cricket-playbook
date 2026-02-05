@@ -151,7 +151,7 @@
             border-right: 3px solid var(--accent-teal);
             white-space: nowrap;
             width: 0;
-            animation: typing-analysis 1s steps(13, end) 0.3s forwards, blink-caret-teal 0.75s step-end infinite;
+            animation: typing-analysis 1s steps(13, end) 0.3s forwards, blink-caret-teal 0.75s step-end 3, hide-caret 0.1s ease 2.5s forwards;
         }
         @keyframes typing-analysis {
             from { width: 0; }
@@ -160,6 +160,9 @@
         @keyframes blink-caret-teal {
             from, to { border-color: transparent; }
             50% { border-color: var(--accent-teal); }
+        }
+        @keyframes hide-caret {
+            to { border-color: transparent; }
         }
         .page-subtitle {
             font-size: 16px;

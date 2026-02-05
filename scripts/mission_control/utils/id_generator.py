@@ -31,8 +31,7 @@ class IdGenerator:
         """
         if entity_type not in cls.PREFIXES:
             raise ValueError(
-                f"Invalid entity type: {entity_type}. "
-                f"Must be one of: {list(cls.PREFIXES.keys())}"
+                f"Invalid entity type: {entity_type}. Must be one of: {list(cls.PREFIXES.keys())}"
             )
 
         prefix = cls.PREFIXES[entity_type]

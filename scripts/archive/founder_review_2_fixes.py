@@ -108,9 +108,7 @@ def verify_fixes(conn):
             [correct_id, correct_id, correct_id, correct_id],
         ).fetchone()
 
-        print(
-            f"      IPL Stats: {stats[0]} matches, {stats[1] or 0} runs, {stats[2] or 0} wickets"
-        )
+        print(f"      IPL Stats: {stats[0]} matches, {stats[1] or 0} runs, {stats[2] or 0} wickets")
 
 
 def regenerate_experience_csv(conn):

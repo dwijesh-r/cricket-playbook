@@ -142,17 +142,17 @@ def _epic_show(args: argparse.Namespace) -> int:
             print(f"❌ EPIC not found: {args.epic_id}")
             return 1
 
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print(f"EPIC: {epic.id}")
-        print(f"{'='*60}")
+        print(f"{'=' * 60}")
         print(f"Title:       {epic.title}")
         print(f"Status:      {epic.status}")
         print(f"Progress:    {epic.progress_pct}%")
-        print(f"{'─'*60}")
+        print(f"{'─' * 60}")
         print(f"Owner:       {epic.owner}")
         print(f"Sprint:      {epic.sprint_id or '-'}")
         print(f"Target Date: {epic.target_date or '-'}")
-        print(f"{'─'*60}")
+        print(f"{'─' * 60}")
         print(f"Created:     {epic.created_at or '-'}")
         print(f"Updated:     {epic.updated_at or '-'}")
 
@@ -179,7 +179,7 @@ def _epic_show(args: argparse.Namespace) -> int:
         else:
             print("  (no tickets)")
 
-        print(f"{'='*60}\n")
+        print(f"{'=' * 60}\n")
         return 0
     except Exception as e:
         print(f"❌ Error showing EPIC: {e}")

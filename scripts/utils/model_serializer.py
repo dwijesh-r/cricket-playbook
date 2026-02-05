@@ -102,9 +102,7 @@ class ModelSerializer:
         joblib.dump(model_bundle, latest_path, compress=3)
 
         # Save metadata as JSON for quick inspection
-        metadata_path = (
-            self.models_dir / f"{model_name}_v{version.replace('.', '_')}_metadata.json"
-        )
+        metadata_path = self.models_dir / f"{model_name}_v{version.replace('.', '_')}_metadata.json"
         with open(metadata_path, "w") as f:
             json.dump(model_bundle["metadata"], f, indent=2, default=str)
 
@@ -215,8 +213,7 @@ class ModelSerializer:
         """Get metadata for a specific model without loading the full model."""
         if version:
             metadata_path = (
-                self.models_dir
-                / f"{model_name}_v{version.replace('.', '_')}_metadata.json"
+                self.models_dir / f"{model_name}_v{version.replace('.', '_')}_metadata.json"
             )
         else:
             # Load from latest model
@@ -380,9 +377,7 @@ def save_clustering_models(
     }
 
 
-def load_clustering_model_for_inference(
-    player_type: str, version: Optional[str] = None
-) -> dict:
+def load_clustering_model_for_inference(player_type: str, version: Optional[str] = None) -> dict:
     """
     Load a clustering model ready for inference.
 
@@ -406,9 +401,7 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description="Model Serialization Utility")
-    parser.add_argument(
-        "action", choices=["list", "info", "hash"], help="Action to perform"
-    )
+    parser.add_argument("action", choices=["list", "info", "hash"], help="Action to perform")
     parser.add_argument("--model", "-m", help="Model name")
     parser.add_argument("--version", "-v", help="Model version")
 

@@ -400,27 +400,21 @@ def load_bowler_phase_performance() -> dict:
             reader = csv.DictReader(f)
             for row in reader:
                 metrics[row["bowler_id"]] = {
-                    "pp_overs": float(row["powerplay_overs"])
-                    if row.get("powerplay_overs")
-                    else 0,
+                    "pp_overs": float(row["powerplay_overs"]) if row.get("powerplay_overs") else 0,
                     "pp_economy": float(row["powerplay_economy"])
                     if row.get("powerplay_economy")
                     else None,
                     "pp_wickets": int(float(row["powerplay_wickets"]))
                     if row.get("powerplay_wickets")
                     else 0,
-                    "middle_overs": float(row["middle_overs"])
-                    if row.get("middle_overs")
-                    else 0,
+                    "middle_overs": float(row["middle_overs"]) if row.get("middle_overs") else 0,
                     "middle_economy": float(row["middle_economy"])
                     if row.get("middle_economy")
                     else None,
                     "middle_wickets": int(float(row["middle_wickets"]))
                     if row.get("middle_wickets")
                     else 0,
-                    "death_overs": float(row["death_overs"])
-                    if row.get("death_overs")
-                    else 0,
+                    "death_overs": float(row["death_overs"]) if row.get("death_overs") else 0,
                     "death_economy": float(row["death_economy"])
                     if row.get("death_economy")
                     else None,
@@ -455,12 +449,8 @@ def build_players(
             bowler_info = tags["bowlers"].get(player_id, {})
 
             # Parse batter/bowler tags from squad data
-            batter_tags = (
-                row.get("batter_tags", "").split("|") if row.get("batter_tags") else []
-            )
-            bowler_tags = (
-                row.get("bowler_tags", "").split("|") if row.get("bowler_tags") else []
-            )
+            batter_tags = row.get("batter_tags", "").split("|") if row.get("batter_tags") else []
+            bowler_tags = row.get("bowler_tags", "").split("|") if row.get("bowler_tags") else []
 
             # Merge with tags from player_tags_2023.json
             for tag in batter_info.get("tags", []):
@@ -563,9 +553,7 @@ def score_opener(player: Player) -> tuple:
         "Aggressive Opener",
         "Elite Top-Order",
     ]
-    opens_historically = (
-        player.avg_entry_ball is not None and player.avg_entry_ball <= 15
-    )
+    opens_historically = player.avg_entry_ball is not None and player.avg_entry_ball <= 15
 
     # Known openers bypass the standard profile check
     if not (is_known_opener or is_opener_type or is_aggressive or opens_historically):
@@ -632,9 +620,7 @@ def score_opener(player: Player) -> tuple:
         if "Captain" not in " ".join(rationale_parts):
             rationale_parts.insert(0, "Captain")
 
-    rationale = (
-        ". ".join(rationale_parts[:2]) if rationale_parts else "Opens for the team"
-    )
+    rationale = ". ".join(rationale_parts[:2]) if rationale_parts else "Opens for the team"
     return min(base_score, 100.0), rationale
 
 
@@ -647,9 +633,7 @@ def score_number_three(player: Player) -> tuple:
     rationale_parts = []
 
     # Check if player can bat #3
-    middle_entry = (
-        player.avg_entry_ball is not None and 10 <= player.avg_entry_ball <= 50
-    )
+    middle_entry = player.avg_entry_ball is not None and 10 <= player.avg_entry_ball <= 50
     is_top_order = player.batter_classification in [
         "Elite Top-Order",
         "Anchor",
@@ -710,9 +694,7 @@ def score_number_three(player: Player) -> tuple:
     # Adaptability score (5%) - lower variance = more adaptable
     # Proxy: Elite classification + multiple phase tags
     phase_tags_count = sum(
-        1
-        for tag in player.batter_tags
-        if any(p in tag for p in ["PP_", "MIDDLE_", "DEATH_"])
+        1 for tag in player.batter_tags if any(p in tag for p in ["PP_", "MIDDLE_", "DEATH_"])
     )
     if phase_tags_count >= 3:
         base_score += 5
@@ -739,17 +721,13 @@ def score_middle_order(player: Player) -> tuple:
     rationale_parts = []
 
     # Check if player can bat middle order
-    middle_entry = (
-        player.avg_entry_ball is not None and 30 <= player.avg_entry_ball <= 80
-    )
+    middle_entry = player.avg_entry_ball is not None and 30 <= player.avg_entry_ball <= 80
     is_middle_order = player.batter_classification in [
         "All-Round Finisher",
         "Anchor",
         "Power Finisher",
     ]
-    has_middle_tags = (
-        "MIDDLE_ORDER" in player.batter_tags or "MIDDLE_ANCHOR" in player.batter_tags
-    )
+    has_middle_tags = "MIDDLE_ORDER" in player.batter_tags or "MIDDLE_ANCHOR" in player.batter_tags
 
     if not (is_middle_order or middle_entry or has_middle_tags):
         return 0.0, "Not a middle order profile"
@@ -802,9 +780,7 @@ def score_middle_order(player: Player) -> tuple:
     # Apply auction bonus
     base_score *= 1 + get_auction_bonus(player.price_cr)
 
-    rationale = (
-        ". ".join(rationale_parts[:2]) if rationale_parts else "Middle order batter"
-    )
+    rationale = ". ".join(rationale_parts[:2]) if rationale_parts else "Middle order batter"
     return min(base_score, 100.0), rationale
 
 
@@ -1050,9 +1026,7 @@ def score_supporting_pacer_pp(player: Player) -> tuple:
 
     # PP Strike Rate (30%)
     if player.pp_wickets and player.pp_overs:
-        pp_sr = (
-            (player.pp_overs * 6) / player.pp_wickets if player.pp_wickets > 0 else 99
-        )
+        pp_sr = (player.pp_overs * 6) / player.pp_wickets if player.pp_wickets > 0 else 99
         if pp_sr <= 15:
             base_score += 30
             rationale_parts.append(f"PP wicket-taker (SR {pp_sr:.1f})")
@@ -1120,9 +1094,7 @@ def score_supporting_pacer_death(player: Player) -> tuple:
     # Death Strike Rate (25%)
     if player.death_wickets and player.death_overs:
         death_sr = (
-            (player.death_overs * 6) / player.death_wickets
-            if player.death_wickets > 0
-            else 99
+            (player.death_overs * 6) / player.death_wickets if player.death_wickets > 0 else 99
         )
         if death_sr <= 12:
             base_score += 25
@@ -1153,9 +1125,7 @@ def score_supporting_pacer_death(player: Player) -> tuple:
         else:
             base_score += 5
 
-    rationale = (
-        ". ".join(rationale_parts[:2]) if rationale_parts else "Death specialist"
-    )
+    rationale = ". ".join(rationale_parts[:2]) if rationale_parts else "Death specialist"
     return min(base_score, 100.0), rationale
 
 
@@ -1181,10 +1151,7 @@ def score_lead_spinner(player: Player) -> tuple:
             base_score += 18
         else:
             base_score += 10
-    elif (
-        "MIDDLE_STRANGLER" in player.bowler_tags
-        or "MID_OVERS_ELITE" in player.bowler_tags
-    ):
+    elif "MIDDLE_STRANGLER" in player.bowler_tags or "MID_OVERS_ELITE" in player.bowler_tags:
         base_score += 28
         rationale_parts.append("Middle overs specialist")
     elif "MIDDLE_OVERS_CONTROLLER" in player.bowler_tags:
@@ -1193,9 +1160,7 @@ def score_lead_spinner(player: Player) -> tuple:
     # Strike rate / wicket-taking (25%)
     if player.middle_wickets and player.middle_overs:
         middle_sr = (
-            (player.middle_overs * 6) / player.middle_wickets
-            if player.middle_wickets > 0
-            else 99
+            (player.middle_overs * 6) / player.middle_wickets if player.middle_wickets > 0 else 99
         )
         if middle_sr <= 15:
             base_score += 25
@@ -1223,20 +1188,12 @@ def score_lead_spinner(player: Player) -> tuple:
         base_score += 12
 
     # vs RHB/LHB versatility (15%)
-    if (
-        "RHB_SPECIALIST" in player.bowler_tags
-        and "LHB_WICKET_TAKER" in player.bowler_tags
-    ):
+    if "RHB_SPECIALIST" in player.bowler_tags and "LHB_WICKET_TAKER" in player.bowler_tags:
         base_score += 15
         rationale_parts.append("Versatile vs both hands")
-    elif (
-        "RHB_WICKET_TAKER" in player.bowler_tags
-        or "LHB_WICKET_TAKER" in player.bowler_tags
-    ):
+    elif "RHB_WICKET_TAKER" in player.bowler_tags or "LHB_WICKET_TAKER" in player.bowler_tags:
         base_score += 10
-    elif not (
-        "LHB_VULNERABLE" in player.bowler_tags or "RHB_VULNERABLE" in player.bowler_tags
-    ):
+    elif not ("LHB_VULNERABLE" in player.bowler_tags or "RHB_VULNERABLE" in player.bowler_tags):
         base_score += 8
 
     # Experience (15%)
@@ -1309,9 +1266,7 @@ def score_batting_allrounder(player: Player) -> tuple:
     # Apply auction bonus
     base_score *= 1 + get_auction_bonus(player.price_cr)
 
-    rationale = (
-        ". ".join(rationale_parts[:2]) if rationale_parts else "Batting all-rounder"
-    )
+    rationale = ". ".join(rationale_parts[:2]) if rationale_parts else "Batting all-rounder"
     return min(base_score, 100.0), rationale
 
 
@@ -1366,9 +1321,7 @@ def score_bowling_allrounder(player: Player) -> tuple:
     else:
         base_score += 4
 
-    rationale = (
-        ". ".join(rationale_parts[:2]) if rationale_parts else "Bowling all-rounder"
-    )
+    rationale = ". ".join(rationale_parts[:2]) if rationale_parts else "Bowling all-rounder"
     return min(base_score, 100.0), rationale
 
 
@@ -1406,9 +1359,7 @@ def rank_position(
     return ranked
 
 
-def calculate_position_rating(
-    players: List[PositionPlayer], position_name: str
-) -> float:
+def calculate_position_rating(players: List[PositionPlayer], position_name: str) -> float:
     """Calculate position depth rating out of 10"""
     if not players:
         return 1.0
@@ -1569,9 +1520,7 @@ def generate_team_depth_chart(team: str, players: List[Player]) -> DepthChart:
             bat_score, _ = score_middle_order(k)
         score, rationale = score_wicketkeeper(k, bat_score)
         if score > 0:
-            keeper_scored.append(
-                PositionPlayer(rank=0, player=k, score=score, rationale=rationale)
-            )
+            keeper_scored.append(PositionPlayer(rank=0, player=k, score=score, rationale=rationale))
 
     keeper_scored.sort(key=lambda x: x.score, reverse=True)
     for i, kp in enumerate(keeper_scored):
@@ -1610,9 +1559,7 @@ def generate_team_depth_chart(team: str, players: List[Player]) -> DepthChart:
     )
 
     # 7b. Supporting Pacer (Death Specialist)
-    death_pacer_players = rank_position(
-        players, score_supporting_pacer_death, "Death Pacer", 3
-    )
+    death_pacer_players = rank_position(players, score_supporting_pacer_death, "Death Pacer", 3)
     positions["supporting_pacer_death"] = Position(
         name="Supporting Pacer (Death Specialist)",
         rating=calculate_position_rating(death_pacer_players, "Death Pacer"),
@@ -1634,9 +1581,7 @@ def generate_team_depth_chart(team: str, players: List[Player]) -> DepthChart:
     )
 
     # 9a. All-rounder (Batting-first)
-    batting_ar_players = rank_position(
-        players, score_batting_allrounder, "Batting AR", 3
-    )
+    batting_ar_players = rank_position(players, score_batting_allrounder, "Batting AR", 3)
     positions["allrounder_batting"] = Position(
         name="All-rounder (Batting-first)",
         rating=calculate_position_rating(batting_ar_players, "Batting AR"),
@@ -1647,9 +1592,7 @@ def generate_team_depth_chart(team: str, players: List[Player]) -> DepthChart:
     )
 
     # 9b. All-rounder (Bowling-first)
-    bowling_ar_players = rank_position(
-        players, score_bowling_allrounder, "Bowling AR", 3
-    )
+    bowling_ar_players = rank_position(players, score_bowling_allrounder, "Bowling AR", 3)
     positions["allrounder_bowling"] = Position(
         name="All-rounder (Bowling-first)",
         rating=calculate_position_rating(bowling_ar_players, "Bowling AR"),
@@ -1862,9 +1805,7 @@ def main():
     print("-" * 80)
 
     comparison = generate_cross_team_comparison(all_charts)
-    sorted_teams = sorted(
-        comparison.items(), key=lambda x: x[1]["overall"], reverse=True
-    )
+    sorted_teams = sorted(comparison.items(), key=lambda x: x[1]["overall"], reverse=True)
 
     for abbrev, ratings in sorted_teams:
         print(
@@ -1883,9 +1824,7 @@ def main():
 def generate_readme(all_charts: Dict[str, DepthChart]) -> str:
     """Generate README content for the depth charts output"""
     comparison = generate_cross_team_comparison(all_charts)
-    sorted_teams = sorted(
-        comparison.items(), key=lambda x: x[1]["overall"], reverse=True
-    )
+    sorted_teams = sorted(comparison.items(), key=lambda x: x[1]["overall"], reverse=True)
 
     readme = """# IPL 2026 Depth Charts
 

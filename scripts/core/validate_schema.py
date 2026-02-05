@@ -143,8 +143,7 @@ def validate_tables(conn) -> tuple[int, int]:
                     table_pass = False
                 elif (
                     expected_type
-                    and expected_type.upper()
-                    not in existing_col_types[col_name.lower()].upper()
+                    and expected_type.upper() not in existing_col_types[col_name.lower()].upper()
                 ):
                     print_warn(
                         f"Table '{table_name}'.{col_name} type mismatch: expected {expected_type}, got {existing_col_types[col_name.lower()]}"
@@ -173,9 +172,7 @@ def validate_views(conn) -> tuple[int, int]:
             # Try to query the view
             result = conn.execute(f"SELECT COUNT(*) FROM {view_name}").fetchone()
             if result[0] > 0:
-                print_pass(
-                    f"View '{view_name}' exists and has data ({result[0]:,} rows)"
-                )
+                print_pass(f"View '{view_name}' exists and has data ({result[0]:,} rows)")
                 passes += 1
             else:
                 print_warn(f"View '{view_name}' exists but has no data")
@@ -311,9 +308,7 @@ def validate_data_quality(conn) -> tuple[int, int]:
                 print_pass(f"{description}: {result:,} (expected == {expected:,})")
                 passes += 1
             else:
-                print_fail(
-                    f"{description}: {result:,} (expected {operator} {expected:,})"
-                )
+                print_fail(f"{description}: {result:,} (expected {operator} {expected:,})")
                 fails += 1
         except Exception as e:
             print_fail(f"Error checking '{description}': {e}")

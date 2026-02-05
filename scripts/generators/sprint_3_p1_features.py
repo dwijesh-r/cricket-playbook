@@ -128,9 +128,7 @@ def assign_bowler_role_tags(df: pd.DataFrame) -> pd.DataFrame:
 
     for _, row in df.iterrows():
         player_tags = []
-        total_matches = max(
-            row["pp_matches"], row["middle_matches"], row["death_matches"], 1
-        )
+        total_matches = max(row["pp_matches"], row["middle_matches"], row["death_matches"], 1)
 
         # Calculate phase percentages
         pp_pct = row["pp_matches"] / total_matches if total_matches > 0 else 0
@@ -896,9 +894,7 @@ def create_phase_distribution_tables(conn) -> pd.DataFrame:
 # ============================================================================
 
 
-def update_player_tags_with_role_tags(
-    bowler_role_df: pd.DataFrame, consistency_df: pd.DataFrame
-):
+def update_player_tags_with_role_tags(bowler_role_df: pd.DataFrame, consistency_df: pd.DataFrame):
     """Update player_tags.json with new role tags and consistency tags."""
 
     tags_path = OUTPUT_DIR / "player_tags.json"
@@ -1026,7 +1022,7 @@ def main():
         print("\n   Sample MIDDLE_AND_DEATH_SPECIALIST:")
         for _, row in mid_death.head(5).iterrows():
             print(
-                f"     {row['bowler_name']}: Middle={row['middle_overs']:.0f}ov, Death 16+={row['total_death_balls_16plus']/6:.1f}ov"
+                f"     {row['bowler_name']}: Middle={row['middle_overs']:.0f}ov, Death 16+={row['total_death_balls_16plus'] / 6:.1f}ov"
             )
 
     # Show sample DEATH_SPECIALIST
@@ -1037,7 +1033,7 @@ def main():
         print("\n   Sample DEATH_SPECIALIST:")
         for _, row in death_spec.head(5).iterrows():
             print(
-                f"     {row['bowler_name']}: Death 16+={row['total_death_balls_16plus']/6:.1f}ov ({row['matches_with_death_16plus']} matches)"
+                f"     {row['bowler_name']}: Death 16+={row['total_death_balls_16plus'] / 6:.1f}ov ({row['matches_with_death_16plus']} matches)"
             )
 
     # Save role tags
@@ -1093,9 +1089,7 @@ def main():
 
     # Save consistency data
     consistency_df.to_csv(OUTPUT_DIR / "batter_consistency_index.csv", index=False)
-    yearly_consistency_df.to_csv(
-        OUTPUT_DIR / "batter_consistency_by_year.csv", index=False
-    )
+    yearly_consistency_df.to_csv(OUTPUT_DIR / "batter_consistency_by_year.csv", index=False)
     print(f"\n   Saved to: {OUTPUT_DIR / 'batter_consistency_index.csv'}")
     print(f"   Saved to: {OUTPUT_DIR / 'batter_consistency_by_year.csv'}")
 
@@ -1123,9 +1117,7 @@ def main():
 
     # Save partnership data
     partnership_df.to_csv(OUTPUT_DIR / "partnership_synergy.csv", index=False)
-    yearly_partnership_df.to_csv(
-        OUTPUT_DIR / "partnership_synergy_by_year.csv", index=False
-    )
+    yearly_partnership_df.to_csv(OUTPUT_DIR / "partnership_synergy_by_year.csv", index=False)
     print(f"\n   Saved to: {OUTPUT_DIR / 'partnership_synergy.csv'}")
     print(f"   Saved to: {OUTPUT_DIR / 'partnership_synergy_by_year.csv'}")
 
@@ -1143,9 +1135,9 @@ def main():
     print(f"   Analyzed {len(pressure_df)} bowler-pressure combinations")
 
     # Death pressure leaders
-    death_pressure = pressure_df[
-        pressure_df["pressure_type"] == "death_pressure"
-    ].sort_values("pressure_economy")
+    death_pressure = pressure_df[pressure_df["pressure_type"] == "death_pressure"].sort_values(
+        "pressure_economy"
+    )
     print("\n   Top 10 Death Pressure Performers:")
     for _, row in death_pressure.head(10).iterrows():
         print(
@@ -1153,9 +1145,9 @@ def main():
         )
 
     # Middle pressure leaders
-    middle_pressure = pressure_df[
-        pressure_df["pressure_type"] == "middle_pressure"
-    ].sort_values("pressure_economy")
+    middle_pressure = pressure_df[pressure_df["pressure_type"] == "middle_pressure"].sort_values(
+        "pressure_economy"
+    )
     print("\n   Top 10 Middle Pressure Performers:")
     for _, row in middle_pressure.head(10).iterrows():
         print(
@@ -1231,9 +1223,7 @@ def main():
 
         # Create comprehensive phase distribution table
         phase_dist_df = create_phase_distribution_tables(conn)
-        phase_dist_df.to_csv(
-            OUTPUT_DIR / "bowler_phase_distribution_grouped.csv", index=False
-        )
+        phase_dist_df.to_csv(OUTPUT_DIR / "bowler_phase_distribution_grouped.csv", index=False)
         print(f"\n   Saved to: {OUTPUT_DIR / 'bowler_phase_distribution_grouped.csv'}")
 
     except Exception as e:
@@ -1265,9 +1255,7 @@ def main():
     print("  S3.0-13: team_venue_records.csv, team_venue_records_by_year.csv")
     print("  S3.0-14: bowler_phase_distribution_grouped.csv")
     print("\nFeatures Implemented:")
-    print(
-        "  S3.0-09: Bowler Role Tags Revision (>=1 over in 16+, MIDDLE_AND_DEATH_SPECIALIST)"
-    )
+    print("  S3.0-09: Bowler Role Tags Revision (>=1 over in 16+, MIDDLE_AND_DEATH_SPECIALIST)")
     print("  S3.0-10: Consistency Index (overall + year-wise + quality metrics)")
     print("  S3.0-11: Partnership Synergy Score (overall + year-wise)")
     print("  S3.0-12: Pressure Sequence for Bowlers (reused definition)")

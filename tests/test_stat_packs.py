@@ -54,23 +54,17 @@ class TestDatabaseTables:
 
     def test_ipl_2026_squads_exists(self, db_connection):
         """Verify IPL 2026 squads table exists."""
-        result = db_connection.execute(
-            "SELECT COUNT(*) FROM ipl_2026_squads"
-        ).fetchone()
+        result = db_connection.execute("SELECT COUNT(*) FROM ipl_2026_squads").fetchone()
         assert result[0] >= 200, "Should have at least 200 players in squads"
 
     def test_dim_bowler_classification_exists(self, db_connection):
         """Verify bowler classification table exists."""
-        result = db_connection.execute(
-            "SELECT COUNT(*) FROM dim_bowler_classification"
-        ).fetchone()
+        result = db_connection.execute("SELECT COUNT(*) FROM dim_bowler_classification").fetchone()
         assert result[0] >= 250, "Should have at least 250 bowler classifications"
 
     def test_dim_franchise_alias_exists(self, db_connection):
         """Verify franchise alias table exists."""
-        result = db_connection.execute(
-            "SELECT COUNT(*) FROM dim_franchise_alias"
-        ).fetchone()
+        result = db_connection.execute("SELECT COUNT(*) FROM dim_franchise_alias").fetchone()
         assert result[0] >= 3, "Should have at least 3 franchise aliases"
 
 
@@ -277,9 +271,7 @@ class TestV2ClusteringAndFounderReview3Fixes:
 
     # CSV Paths
     BOWLER_OVER_TIMING_CSV = STAT_PACK_DIR.parent / "outputs" / "bowler_over_timing.csv"
-    BOWLER_PHASE_PERF_CSV = (
-        STAT_PACK_DIR.parent / "outputs" / "bowler_phase_performance.csv"
-    )
+    BOWLER_PHASE_PERF_CSV = STAT_PACK_DIR.parent / "outputs" / "bowler_phase_performance.csv"
     BATTER_BOWLING_TYPE_MATCHUP_CSV = (
         STAT_PACK_DIR.parent / "outputs" / "batter_bowling_type_matchup.csv"
     )
@@ -302,9 +294,7 @@ class TestV2ClusteringAndFounderReview3Fixes:
         import pandas as pd
 
         if not self.BOWLER_OVER_TIMING_CSV.exists():
-            pytest.skip(
-                f"bowler_over_timing.csv not found at {self.BOWLER_OVER_TIMING_CSV}"
-            )
+            pytest.skip(f"bowler_over_timing.csv not found at {self.BOWLER_OVER_TIMING_CSV}")
 
         df = pd.read_csv(self.BOWLER_OVER_TIMING_CSV)
         chahar = df[df["bowler_name"] == "DL Chahar"]
@@ -329,9 +319,7 @@ class TestV2ClusteringAndFounderReview3Fixes:
         import pandas as pd
 
         if not self.BOWLER_OVER_TIMING_CSV.exists():
-            pytest.skip(
-                f"bowler_over_timing.csv not found at {self.BOWLER_OVER_TIMING_CSV}"
-            )
+            pytest.skip(f"bowler_over_timing.csv not found at {self.BOWLER_OVER_TIMING_CSV}")
 
         df = pd.read_csv(self.BOWLER_OVER_TIMING_CSV)
         boult = df[df["bowler_name"] == "TA Boult"]
@@ -373,9 +361,7 @@ class TestV2ClusteringAndFounderReview3Fixes:
         df = pd.read_csv(self.BATTER_BOWLING_TYPE_MATCHUP_CSV)
         markram = df[df["batter_name"] == "AK Markram"]
 
-        assert (
-            len(markram) == 1
-        ), "AK Markram should exist in batter_bowling_type_matchup.csv"
+        assert len(markram) == 1, "AK Markram should exist in batter_bowling_type_matchup.csv"
 
         tags = markram.iloc[0]["bowling_type_tags"]
         tags_str = str(tags) if pd.notna(tags) else ""
@@ -437,9 +423,7 @@ class TestV2ClusteringAndFounderReview3Fixes:
             "average",
         ]
         for col in required_cols:
-            assert (
-                col in df.columns
-            ), f"batter_bowling_type_detail.csv should have {col} column"
+            assert col in df.columns, f"batter_bowling_type_detail.csv should have {col} column"
 
     # =========================================================================
     # Founder Review #3 Fix: Phase-wise Bowler Tags (Issue 2)
@@ -471,10 +455,9 @@ class TestV2ClusteringAndFounderReview3Fixes:
         expected_tags = ["PP_BEAST", "PP_LIABILITY", "DEATH_BEAST", "DEATH_LIABILITY"]
         found_tags = [tag for tag in expected_tags if tag in all_tags]
 
-        assert len(found_tags) >= 3, (
-            f"Expected at least 3 of {expected_tags} in phase_tags, "
-            f"but only found: {found_tags}"
-        )
+        assert (
+            len(found_tags) >= 3
+        ), f"Expected at least 3 of {expected_tags} in phase_tags, but only found: {found_tags}"
 
     def test_bowler_phase_performance_csv_structure(self):
         """
@@ -503,9 +486,7 @@ class TestV2ClusteringAndFounderReview3Fixes:
         ]
 
         for col in required_cols:
-            assert (
-                col in df.columns
-            ), f"bowler_phase_performance.csv missing required column: {col}"
+            assert col in df.columns, f"bowler_phase_performance.csv missing required column: {col}"
 
     def test_steyn_is_death_beast(self):
         """
@@ -524,14 +505,8 @@ class TestV2ClusteringAndFounderReview3Fixes:
         if len(steyn) == 0:
             pytest.skip("DW Steyn not found in bowler_phase_performance.csv")
 
-        tags = (
-            str(steyn.iloc[0]["phase_tags"])
-            if pd.notna(steyn.iloc[0]["phase_tags"])
-            else ""
-        )
-        assert (
-            "DEATH_BEAST" in tags
-        ), f"DW Steyn should have DEATH_BEAST tag, got: {tags}"
+        tags = str(steyn.iloc[0]["phase_tags"]) if pd.notna(steyn.iloc[0]["phase_tags"]) else ""
+        assert "DEATH_BEAST" in tags, f"DW Steyn should have DEATH_BEAST tag, got: {tags}"
 
     # =========================================================================
     # V2 Cluster Validation (Andy Flower Approved)
@@ -562,9 +537,7 @@ class TestV2ClusteringAndFounderReview3Fixes:
         ]
 
         for col in required_cols:
-            assert (
-                col in df.columns
-            ), f"bowler_over_timing.csv missing required column: {col}"
+            assert col in df.columns, f"bowler_over_timing.csv missing required column: {col}"
 
     def test_role_categories_are_valid(self):
         """
@@ -593,10 +566,9 @@ class TestV2ClusteringAndFounderReview3Fixes:
         actual_categories = set(df["role_category"].dropna().unique())
         invalid = actual_categories - valid_categories
 
-        assert len(invalid) == 0, (
-            f"Found invalid role categories: {invalid}. "
-            f"Valid categories are: {valid_categories}"
-        )
+        assert (
+            len(invalid) == 0
+        ), f"Found invalid role categories: {invalid}. Valid categories are: {valid_categories}"
 
     def test_pp_and_death_specialist_exists(self):
         """

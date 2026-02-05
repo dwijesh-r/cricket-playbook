@@ -102,9 +102,7 @@ class CricketIngester:
     def extract_tournament_info(self, info: dict, source_file: str) -> str:
         """Extract or create tournament dimension."""
         event = info.get("event", {})
-        event_name = (
-            event.get("name", "Unknown") if isinstance(event, dict) else str(event)
-        )
+        event_name = event.get("name", "Unknown") if isinstance(event, dict) else str(event)
 
         # Generate tournament ID
         tournament_id = slugify(event_name)
@@ -190,10 +188,7 @@ class CricketIngester:
                 if self.players[player_id]["current_name"] != player_name:
                     # Close previous name record
                     for record in reversed(self.player_names):
-                        if (
-                            record["player_id"] == player_id
-                            and record["valid_to"] is None
-                        ):
+                        if record["player_id"] == player_id and record["valid_to"] is None:
                             record["valid_to"] = match_date
                             break
                     # Add new name
@@ -287,9 +282,7 @@ class CricketIngester:
         pom_id = None
         if pom_name:
             pom_cricsheet_id = registry.get(pom_name)
-            pom_id = self.extract_player(
-                pom_name, pom_cricsheet_id, match_date, source_file
-            )
+            pom_id = self.extract_player(pom_name, pom_cricsheet_id, match_date, source_file)
 
         # Event info
         event = info.get("event", {})
@@ -335,9 +328,7 @@ class CricketIngester:
         # Process innings
         for innings_idx, innings in enumerate(innings_data, start=1):
             batting_team_name = innings.get("team")
-            batting_team_id = (
-                self.extract_team(batting_team_name) if batting_team_name else None
-            )
+            batting_team_id = self.extract_team(batting_team_name) if batting_team_name else None
             bowling_team_id = team2_id if batting_team_id == team1_id else team1_id
 
             # Process powerplays
@@ -381,9 +372,7 @@ class CricketIngester:
                         batter_id = self.extract_player(
                             batter_name, batter_cricsheet_id, match_date, source_file
                         )
-                        player_perf_tracker[(batter_id, batting_team_id)]["did_bat"] = (
-                            True
-                        )
+                        player_perf_tracker[(batter_id, batting_team_id)]["did_bat"] = True
 
                         # Track batting position
                         if batter_id not in batters_seen:
@@ -398,9 +387,7 @@ class CricketIngester:
                         bowler_id = self.extract_player(
                             bowler_name, bowler_cricsheet_id, match_date, source_file
                         )
-                        player_perf_tracker[(bowler_id, bowling_team_id)][
-                            "did_bowl"
-                        ] = True
+                        player_perf_tracker[(bowler_id, bowling_team_id)]["did_bowl"] = True
 
                     if non_striker_name:
                         non_striker_cricsheet_id = registry.get(non_striker_name)
@@ -428,9 +415,7 @@ class CricketIngester:
                     extras = delivery.get("extras", {})
                     extra_type = None
                     if extras:
-                        extra_type = list(extras.keys())[
-                            0
-                        ]  # wides, noballs, byes, legbyes
+                        extra_type = list(extras.keys())[0]  # wides, noballs, byes, legbyes
 
                     # Wickets
                     wickets = delivery.get("wickets", [])
@@ -470,9 +455,7 @@ class CricketIngester:
                             player_perf_tracker[(fielder_id, bowling_team_id)][
                                 "did_keep_wicket"
                             ] = True
-                            self.stumping_fielders[fielder_id] += (
-                                1  # Track for WK detection
-                            )
+                            self.stumping_fielders[fielder_id] += 1  # Track for WK detection
 
                     # Is legal ball?
                     is_legal = extra_type not in ("wides", "noballs")
@@ -550,9 +533,7 @@ class CricketIngester:
                             source_file = f"{zip_path.stem}/{json_file}"
                             self.process_match(match_data, source_file)
                     except Exception as e:
-                        self.stats["errors"].append(
-                            f"{zip_path.name}/{json_file}: {str(e)}"
-                        )
+                        self.stats["errors"].append(f"{zip_path.name}/{json_file}: {str(e)}")
         except Exception as e:
             self.stats["errors"].append(f"{zip_path.name}: {str(e)}")
 
@@ -584,9 +565,7 @@ class CricketIngester:
             bat_pct = player_batting[player_id] / matches
             bowl_pct = player_bowling[player_id] / matches
             top6_pct = (
-                player_top6_batting[player_id] / matches
-                if player_batting[player_id] > 0
-                else 0
+                player_top6_batting[player_id] / matches if player_batting[player_id] > 0 else 0
             )
 
             # Wicketkeeper detection:
@@ -642,9 +621,7 @@ class CricketIngester:
 
         print("  Loading dim_player_name_history...")
         df_player_names = pd.DataFrame(self.player_names)  # noqa: F841
-        conn.execute(
-            "CREATE TABLE dim_player_name_history AS SELECT * FROM df_player_names"
-        )
+        conn.execute("CREATE TABLE dim_player_name_history AS SELECT * FROM df_player_names")
 
         print("  Loading dim_match...")
         df_matches = pd.DataFrame(self.matches)  # noqa: F841
@@ -660,9 +637,7 @@ class CricketIngester:
 
         print("  Loading fact_player_match_performance...")
         df_perf = pd.DataFrame(self.player_match_perf)  # noqa: F841
-        conn.execute(
-            "CREATE TABLE fact_player_match_performance AS SELECT * FROM df_perf"
-        )
+        conn.execute("CREATE TABLE fact_player_match_performance AS SELECT * FROM df_perf")
 
         # Create indexes for common queries
         print("  Creating indexes...")

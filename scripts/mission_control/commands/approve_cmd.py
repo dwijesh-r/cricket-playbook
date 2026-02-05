@@ -292,9 +292,9 @@ def _approve_founder(args: argparse.Namespace) -> int:
 
         icon = "✅" if result.status == "APPROVED" else "🔄"
 
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print(f"{icon} FOUNDER VALIDATION: {result.status}")
-        print(f"{'='*60}")
+        print(f"{'=' * 60}")
         print(f"   Ticket: {args.ticket_id}")
         print(f"   Title: {ticket.title}")
         print(f"   Feedback: {args.feedback}")
@@ -312,7 +312,7 @@ def _approve_founder(args: argparse.Namespace) -> int:
             ticket.save()
             print("\n   🔄 Returned to RUNNING for changes")
 
-        print(f"{'='*60}\n")
+        print(f"{'=' * 60}\n")
         return 0
     except GateError as e:
         print(f"❌ Gate Error: {e}")
@@ -332,11 +332,11 @@ def _approve_show(args: argparse.Namespace) -> int:
 
         summary = GateValidator.get_gate_summary(ticket)
 
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print(f"Gate Status: {ticket.id}")
         print(f"Title: {ticket.title}")
         print(f"Current State: {ticket.state}")
-        print(f"{'='*60}")
+        print(f"{'=' * 60}")
 
         # Florentino Gate (Step 1)
         fg = summary["florentino_gate"]
@@ -380,12 +380,12 @@ def _approve_show(args: argparse.Namespace) -> int:
         print(f"   Status: {fv['status']}")
 
         # Overall status
-        print(f"\n{'─'*60}")
+        print(f"\n{'─' * 60}")
         if summary["task_integrity_complete"]:
             print("🎉 TASK INTEGRITY LOOP: COMPLETE")
         else:
             print("📋 TASK INTEGRITY LOOP: In Progress")
-        print(f"{'='*60}\n")
+        print(f"{'=' * 60}\n")
 
         return 0
     except Exception as e:

@@ -145,16 +145,16 @@ def _sprint_show(args: argparse.Namespace) -> int:
             print(f"❌ Sprint not found: {args.sprint_id}")
             return 1
 
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print(f"Sprint: {sprint.id}")
-        print(f"{'='*60}")
+        print(f"{'=' * 60}")
         print(f"Title:       {sprint.title}")
         print(f"Status:      {sprint.status}")
         print(f"Duration:    {sprint.duration_weeks} weeks")
-        print(f"{'─'*60}")
+        print(f"{'─' * 60}")
         print(f"Start Date:  {sprint.start_date}")
         print(f"End Date:    {sprint.end_date}")
-        print(f"{'─'*60}")
+        print(f"{'─' * 60}")
 
         # LLM Budget
         budget = sprint.llm_budget
@@ -166,14 +166,14 @@ def _sprint_show(args: argparse.Namespace) -> int:
 
         # Velocity
         velocity = sprint.velocity
-        print(f"{'─'*60}")
+        print(f"{'─' * 60}")
         print("Velocity:")
         print(f"  Planned:   {velocity.planned_points} points")
         print(f"  Completed: {velocity.completed_points} points")
         print(f"  Progress:  {velocity.completion_pct:.1f}%")
 
         # EPICs
-        print(f"{'─'*60}")
+        print(f"{'─' * 60}")
         print(f"EPICs ({len(sprint.epics)}):")
         if sprint.epics:
             from scripts.mission_control.models.epic import Epic
@@ -204,10 +204,10 @@ def _sprint_show(args: argparse.Namespace) -> int:
         else:
             print("  (no tickets)")
 
-        print(f"{'─'*60}")
+        print(f"{'─' * 60}")
         print(f"Created:     {sprint.created_at or '-'}")
         print(f"Updated:     {sprint.updated_at or '-'}")
-        print(f"{'='*60}\n")
+        print(f"{'=' * 60}\n")
         return 0
     except Exception as e:
         print(f"❌ Error showing sprint: {e}")

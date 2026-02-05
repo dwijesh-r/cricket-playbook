@@ -2147,14 +2147,6 @@
                             <div class="stat-value accent-green" id="statDone">1</div>
                             <div class="stat-label">Done</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-value accent-teal" id="statAvgDays">—</div>
-                            <div class="stat-label">Avg Days/Ticket</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value accent-purple" id="statIterations">—</div>
-                            <div class="stat-label">Total Iterations</div>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -3370,8 +3362,6 @@
                     done: done.length,
                     running: agentTickets.filter(t => t.state === 'RUNNING').length,
                     blocked: agentTickets.filter(t => t.state === 'BLOCKED').length,
-                    avgDays: agentTickets.length ? (agentTickets.reduce((sum, t) => sum + (t.daysSpent || 0), 0) / agentTickets.length).toFixed(1) : 'N/A',
-                    totalIterations: agentTickets.reduce((sum, t) => sum + (t.iterations || 0), 0) || 'N/A',
                     p0: agentTickets.filter(t => t.priority === 'P0').length,
                     p1: agentTickets.filter(t => t.priority === 'P1').length,
                     p2: agentTickets.filter(t => t.priority === 'P2').length,
@@ -3406,14 +3396,6 @@
                                 <div class="agent-stat">
                                     <div class="agent-stat-value" style="color: var(--accent-green)">${stats.done}</div>
                                     <div class="agent-stat-label">Done</div>
-                                </div>
-                                <div class="agent-stat">
-                                    <div class="agent-stat-value">${stats.avgDays}d</div>
-                                    <div class="agent-stat-label">Avg Time</div>
-                                </div>
-                                <div class="agent-stat">
-                                    <div class="agent-stat-value">${stats.totalIterations}</div>
-                                    <div class="agent-stat-label">Iterations</div>
                                 </div>
                             </div>
 
@@ -3455,16 +3437,6 @@
             document.getElementById('statRunning').textContent = tickets.filter(t => t.state === 'RUNNING').length;
             document.getElementById('statBlocked').textContent = tickets.filter(t => t.state === 'BLOCKED').length;
             document.getElementById('statDone').textContent = tickets.filter(t => t.state === 'DONE').length;
-
-            // Time tracking stats
-            const ticketsWithDays = tickets.filter(t => t.daysSpent != null);
-            const avgDays = ticketsWithDays.length > 0
-                ? (ticketsWithDays.reduce((sum, t) => sum + t.daysSpent, 0) / ticketsWithDays.length).toFixed(1)
-                : '—';
-            const totalIterations = tickets.reduce((sum, t) => sum + (t.iterations || 0), 0) || '—';
-
-            document.getElementById('statAvgDays').textContent = avgDays;
-            document.getElementById('statIterations').textContent = totalIterations;
         }
 
         function openModal(ticketId) {

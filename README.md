@@ -2,7 +2,7 @@
 
 **IPL 2026 Analytics Platform** for editorial and broadcast use.
 
-**Version:** 4.0.0 | **Sprint:** 4.0 | **Last Updated:** 2026-02-04
+**Version:** 4.1.0 | **Sprint:** 5.0 | **Last Updated:** 2026-02-05
 
 ---
 
@@ -37,10 +37,19 @@ The Lab is our user-facing analytics showcase — the "magazine version" of this
 | Page | URL | Description |
 |------|-----|-------------|
 | **Home** | [index.html](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/index.html) | Quick stats, team grid, navigation hub |
-| **Teams** | [teams.html](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/teams.html) | Predicted XIIs & squad analysis for all 10 teams |
+| **Teams** | [teams.html](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/teams.html) | Predicted XIIs, squad analysis, depth charts, team comparison |
 | **Artifacts** | [artifacts.html](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/artifacts.html) | Depth chart comparisons, all outputs gallery |
+| **Analysis** | [analysis.html](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/analysis.html) | Links to repo analysis documents |
 | **Research** | [research.html](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/research.html) | SUPER SELECTOR algorithm, PFF/KenPom methodology |
 | **About** | [about.html](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/about.html) | Vision, agents, founder section |
+
+**Key Features (v4.1):**
+- 🔍 **Global Search** — Search players across all squads
+- 🎛️ **Squad Filters** — Filter by role, nationality, age group
+- ⚔️ **Team Comparison** — Side-by-side team metrics comparison
+- 📊 **Inline Depth Charts** — Full position-by-position rankings with player scores
+- 📥 **CSV Export** — Download squad data with team summary
+- 📱 **Mobile Optimized** — Responsive design with hamburger menu
 
 ---
 
@@ -61,7 +70,12 @@ Mission Control is our internal JIRA-style system tracking sprint progress, tick
 - **8-State Workflow:** IDEA → BACKLOG → READY → RUNNING → BLOCKED → REVIEW → VALIDATION → DONE
 - **Agent Roster:** Track workload across 12 specialized AI agents
 - **Task Integrity Loop:** Enforced quality gates (Florentino, Domain Sanity, Founder Validation)
-- **Sprint Tracking:** 95 tickets across 11 EPICs with burndown visualization
+- **Sprint Tracking:** 97 tickets across 11 EPICs with burndown visualization
+
+**New in v4.1:**
+- 🔍 **Ticket Search** — Search by ID, title, assignee, or tags
+- ⏱️ **Time Tracking** — Days spent badges on tickets, sprint-level time stats
+- 📱 **Mobile Optimized** — Responsive filters and navigation
 
 See `.mission-control/README.md` for CLI usage and `governance/MISSION_CONTROL_DESIGN_020426_v1.md` for full design spec.
 
@@ -384,7 +398,8 @@ python scripts/utils/validate_outputs.py
 
 | Version | Date | Changes |
 |---------|------|---------|
-| **v4.0.0** | 2026-02-02 | Predicted XII algorithm, Depth Charts, Task Integrity Loop governance |
+| **v4.1.0** | 2026-02-05 | The Lab UX (search, filters, compare, export, inline depth charts), Mission Control (search, time tracking) |
+| v4.0.0 | 2026-02-02 | Predicted XII algorithm, Depth Charts, Task Integrity Loop governance |
 | v3.1.0 | 2026-01-26 | Repo restructure, PFF/KenPom research, comprehensive READMEs |
 | v3.0.1 | 2026-01-26 | Sprint 3.0: 16 new 2023+ outputs, entry point audit, player ID audit |
 | v2.9.0 | 2026-01-25 | CI/CD (GitHub Actions, pre-commit), DEATH_LIABILITY threshold fix |

@@ -205,9 +205,7 @@ def cluster_batters(df: pd.DataFrame, n_clusters: int = 5) -> pd.DataFrame:
     df_clean["cluster"] = kmeans.fit_predict(X)
 
     # Add cluster centers info
-    centers = pd.DataFrame(
-        scaler.inverse_transform(kmeans.cluster_centers_), columns=feature_cols
-    )
+    centers = pd.DataFrame(scaler.inverse_transform(kmeans.cluster_centers_), columns=feature_cols)
     centers["cluster"] = range(n_clusters)
 
     return df_clean, centers
@@ -253,9 +251,7 @@ def cluster_bowlers(df: pd.DataFrame, n_clusters: int = 5) -> pd.DataFrame:
     df_clean["cluster"] = kmeans.fit_predict(X)
 
     # Add cluster centers info
-    centers = pd.DataFrame(
-        scaler.inverse_transform(kmeans.cluster_centers_), columns=feature_cols
-    )
+    centers = pd.DataFrame(scaler.inverse_transform(kmeans.cluster_centers_), columns=feature_cols)
     centers["cluster"] = range(n_clusters)
 
     return df_clean, centers

@@ -113,9 +113,7 @@ def generate_batter_bowling_type_2023(conn) -> tuple:
             pace_runs = pace_df["runs"].sum()
             pace_dismissals = pace_df["dismissals"].sum()
             pace_sr = round(pace_runs * 100 / pace_balls, 2) if pace_balls > 0 else 0
-            pace_avg = (
-                round(pace_runs / pace_dismissals, 2) if pace_dismissals > 0 else None
-            )
+            pace_avg = round(pace_runs / pace_dismissals, 2) if pace_dismissals > 0 else None
         else:
             pace_balls, pace_runs, pace_dismissals, pace_sr, pace_avg = 0, 0, 0, 0, None
 
@@ -126,9 +124,7 @@ def generate_batter_bowling_type_2023(conn) -> tuple:
             spin_runs = spin_df["runs"].sum()
             spin_dismissals = spin_df["dismissals"].sum()
             spin_sr = round(spin_runs * 100 / spin_balls, 2) if spin_balls > 0 else 0
-            spin_avg = (
-                round(spin_runs / spin_dismissals, 2) if spin_dismissals > 0 else None
-            )
+            spin_avg = round(spin_runs / spin_dismissals, 2) if spin_dismissals > 0 else None
         else:
             spin_balls, spin_runs, spin_dismissals, spin_sr, spin_avg = 0, 0, 0, 0, None
 
@@ -161,9 +157,7 @@ def generate_batter_bowling_type_2023(conn) -> tuple:
             pace_sr = row["pace_sr"] or 0
             pace_avg = row["pace_avg"]
             pace_dismissals = row["pace_dismissals"] or 0
-            pace_bpd = (
-                row["pace_balls"] / pace_dismissals if pace_dismissals > 0 else 999
-            )
+            pace_bpd = row["pace_balls"] / pace_dismissals if pace_dismissals > 0 else 999
 
             if (
                 pace_sr >= SPECIALIST_SR_THRESHOLD
@@ -183,9 +177,7 @@ def generate_batter_bowling_type_2023(conn) -> tuple:
             spin_sr = row["spin_sr"] or 0
             spin_avg = row["spin_avg"]
             spin_dismissals = row["spin_dismissals"] or 0
-            spin_bpd = (
-                row["spin_balls"] / spin_dismissals if spin_dismissals > 0 else 999
-            )
+            spin_bpd = row["spin_balls"] / spin_dismissals if spin_dismissals > 0 else 999
 
             if (
                 spin_sr >= SPECIALIST_SR_THRESHOLD

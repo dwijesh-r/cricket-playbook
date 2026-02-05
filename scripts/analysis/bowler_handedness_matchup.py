@@ -215,25 +215,13 @@ def print_analysis(df: pd.DataFrame):
     lhb_specialists = df[df["handedness_tags"].apply(lambda x: "LHB_SPECIALIST" in x)]
     rhb_specialists = df[df["handedness_tags"].apply(lambda x: "RHB_SPECIALIST" in x)]
 
-    lhb_wicket_takers = df[
-        df["handedness_tags"].apply(lambda x: "LHB_WICKET_TAKER" in x)
-    ]
-    rhb_wicket_takers = df[
-        df["handedness_tags"].apply(lambda x: "RHB_WICKET_TAKER" in x)
-    ]
+    lhb_wicket_takers = df[df["handedness_tags"].apply(lambda x: "LHB_WICKET_TAKER" in x)]
+    rhb_wicket_takers = df[df["handedness_tags"].apply(lambda x: "RHB_WICKET_TAKER" in x)]
 
-    print(
-        f"\n  LHB Specialists (economy ≥1.0 better vs lefties): {len(lhb_specialists)}"
-    )
-    print(
-        f"  RHB Specialists (economy ≥1.0 better vs righties): {len(rhb_specialists)}"
-    )
-    print(
-        f"  LHB Wicket Takers (higher wickets/ball ratio vs lefties): {len(lhb_wicket_takers)}"
-    )
-    print(
-        f"  RHB Wicket Takers (higher wickets/ball ratio vs righties): {len(rhb_wicket_takers)}"
-    )
+    print(f"\n  LHB Specialists (economy ≥1.0 better vs lefties): {len(lhb_specialists)}")
+    print(f"  RHB Specialists (economy ≥1.0 better vs righties): {len(rhb_specialists)}")
+    print(f"  LHB Wicket Takers (higher wickets/ball ratio vs lefties): {len(lhb_wicket_takers)}")
+    print(f"  RHB Wicket Takers (higher wickets/ball ratio vs righties): {len(rhb_wicket_takers)}")
 
     # Top LHB specialists
     print("\n  TOP LHB SPECIALISTS (by economy differential):")
@@ -253,9 +241,7 @@ def print_analysis(df: pd.DataFrame):
 
     # Top LHB wicket-takers by wickets/ball ratio
     print("\n  TOP LHB WICKET-TAKERS (by wickets/ball ratio):")
-    top_lhb_wt = df[df["lhb_wickets_per_ball"] >= 0.03].nlargest(
-        10, "wickets_per_ball_diff"
-    )
+    top_lhb_wt = df[df["lhb_wickets_per_ball"] >= 0.03].nlargest(10, "wickets_per_ball_diff")
     for _, row in top_lhb_wt.iterrows():
         lhb_wpb = row.get("lhb_wickets_per_ball", 0) or 0
         rhb_wpb = row.get("rhb_wickets_per_ball", 0) or 0
@@ -266,9 +252,7 @@ def print_analysis(df: pd.DataFrame):
 
     # Top RHB wicket-takers by wickets/ball ratio
     print("\n  TOP RHB WICKET-TAKERS (by wickets/ball ratio):")
-    top_rhb_wt = df[df["rhb_wickets_per_ball"] >= 0.03].nsmallest(
-        10, "wickets_per_ball_diff"
-    )
+    top_rhb_wt = df[df["rhb_wickets_per_ball"] >= 0.03].nsmallest(10, "wickets_per_ball_diff")
     for _, row in top_rhb_wt.iterrows():
         lhb_wpb = row.get("lhb_wickets_per_ball", 0) or 0
         rhb_wpb = row.get("rhb_wickets_per_ball", 0) or 0

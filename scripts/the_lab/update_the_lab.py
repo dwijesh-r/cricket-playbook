@@ -201,16 +201,16 @@ const TEAMS = {{
             reigning_line = ",\n        reigning: true"
         js_content += f"""    {abbrev}: {{
         abbrev: "{abbrev}",
-        name: "{meta['name']}",
-        fullName: "{meta['fullName']}",
-        homeVenue: "{meta['homeVenue']}",
-        venueBias: "{meta['venueBias']}",
-        primaryColor: "{meta['primaryColor']}",
-        secondaryColor: "{meta.get('secondaryColor', meta['primaryColor'])}",
-        titles: {meta['titles']},
-        captain: "{meta.get('captain', '')}",
-        coach: "{meta.get('coach', '')}",
-        icon: "{meta['icon']}"{reigning_line}
+        name: "{meta["name"]}",
+        fullName: "{meta["fullName"]}",
+        homeVenue: "{meta["homeVenue"]}",
+        venueBias: "{meta["venueBias"]}",
+        primaryColor: "{meta["primaryColor"]}",
+        secondaryColor: "{meta.get("secondaryColor", meta["primaryColor"])}",
+        titles: {meta["titles"]},
+        captain: "{meta.get("captain", "")}",
+        coach: "{meta.get("coach", "")}",
+        icon: "{meta["icon"]}"{reigning_line}
     }},
 """
 
@@ -273,6 +273,9 @@ const PREDICTED_XII = {{
         impact = team.get("impact_player", {})
         balance = team.get("balance", {})
 
+        # Join xi_players outside f-string for Python 3.9 compatibility
+        xi_joined = ",\n".join(xi_players)
+
         js_content += f"""    {abbrev}: {{
         teamName: "{team.get("team_name", "")}",
         teamAbbrev: "{abbrev}",
@@ -281,7 +284,7 @@ const PREDICTED_XII = {{
         captain: "{team.get("captain", "")}",
         wicketkeeper: "{team.get("wicketkeeper", "")}",
         xi: [
-{",\\n".join(xi_players)}
+{xi_joined}
         ],
         impactPlayer: {{ name: "{impact.get("player_name", "")}", role: "{impact.get("role", "")}", price: {impact.get("price_cr", 0)} }},
         balance: {{ overseas: {balance.get("overseas_count", 0)}, bowlingOptions: {balance.get("bowling_options", 0)}, spinners: {balance.get("spinners", 0)}, pacers: {balance.get("pacers", 0)}, leftHandersTop6: {balance.get("left_handers_top6", 0)} }},
@@ -377,7 +380,7 @@ const FULL_DEPTH_CHARTS = {{
                 rationale = player.get("rationale", "").replace('"', "'")
                 players_js.append(
                     f'{{ rank: {player.get("rank", 0)}, name: "{player.get("name", "")}", '
-                    f'score: {player.get("score", 0)}, overseas: {overseas_str}, '
+                    f"score: {player.get('score', 0)}, overseas: {overseas_str}, "
                     f'price: {player.get("price_cr", 0)}, rationale: "{rationale}" }}'
                 )
 
@@ -385,10 +388,10 @@ const FULL_DEPTH_CHARTS = {{
             what_doesnt = pos.get("what_doesnt", "").replace('"', "'")
             positions_js.append(
                 f'{{ key: "{pos_key}", name: "{pos.get("name", "")}", rating: {pos.get("rating", 0)}, '
-                f'overseas: {pos.get("overseas_count", 0)}, '
+                f"overseas: {pos.get('overseas_count', 0)}, "
                 f'whatWorks: "{what_works}", '
                 f'whatDoesnt: "{what_doesnt}", '
-                f'players: [{", ".join(players_js)}] }}'
+                f"players: [{', '.join(players_js)}] }}"
             )
 
         vulnerabilities = team.get("vulnerabilities", [])
@@ -402,7 +405,7 @@ const FULL_DEPTH_CHARTS = {{
         weakest: "{team.get("weakest_position", "")}",
         vulnerabilities: [{vulnerabilities_str}],
         positions: [
-            {','.join(positions_js)}
+            {",".join(positions_js)}
         ]
     }},
 """

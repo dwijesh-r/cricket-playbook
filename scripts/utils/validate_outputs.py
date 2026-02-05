@@ -111,9 +111,7 @@ def validate_bowler_phase_performance(result: ValidationResult):
                     f"{path.name}: {len(invalid)} rows with {eco_col} outside {MIN_ECONOMY}-{MAX_ECONOMY}"
                 )
                 for _, row in invalid.head(3).iterrows():
-                    result.add_warning(
-                        f"  - {row['bowler_name']}: {eco_col}={row[eco_col]:.2f}"
-                    )
+                    result.add_warning(f"  - {row['bowler_name']}: {eco_col}={row[eco_col]:.2f}")
 
     # Check for negative values
     for col in [
@@ -127,9 +125,7 @@ def validate_bowler_phase_performance(result: ValidationResult):
         if col in df.columns:
             invalid = df[df[col] < 0]
             if len(invalid) > 0:
-                result.add_error(
-                    f"{path.name}: {len(invalid)} rows with negative {col}"
-                )
+                result.add_error(f"{path.name}: {len(invalid)} rows with negative {col}")
 
     print("    ✓ Economy rate bounds checked")
     print("    ✓ Non-negative values checked")
@@ -154,9 +150,7 @@ def validate_bowler_over_timing(result: ValidationResult):
                 valid_df = df[df[col].notna()]
                 invalid = valid_df[(valid_df[col] < 0) | (valid_df[col] > 19)]
                 if len(invalid) > 0:
-                    result.add_error(
-                        f"{path.name}: {len(invalid)} rows with {col} outside 0-19"
-                    )
+                    result.add_error(f"{path.name}: {len(invalid)} rows with {col} outside 0-19")
 
     print("    ✓ Over timing bounds checked")
 
@@ -184,9 +178,7 @@ def validate_squad_experience(result: ValidationResult):
         if col in df.columns:
             invalid = df[df[col] < 0]
             if len(invalid) > 0:
-                result.add_error(
-                    f"{path.name}: {len(invalid)} rows with negative {col}"
-                )
+                result.add_error(f"{path.name}: {len(invalid)} rows with negative {col}")
 
     # Check strike rate bounds
     if "ipl_batting_sr" in df.columns:
@@ -202,9 +194,7 @@ def validate_squad_experience(result: ValidationResult):
 
     # Check economy bounds
     if "ipl_bowling_economy" in df.columns:
-        valid_df = df[
-            (df["ipl_bowling_economy"].notna()) & (df["ipl_bowling_economy"] > 0)
-        ]
+        valid_df = df[(df["ipl_bowling_economy"].notna()) & (df["ipl_bowling_economy"] > 0)]
         outliers = valid_df[
             (valid_df["ipl_bowling_economy"] < MIN_ECONOMY)
             | (valid_df["ipl_bowling_economy"] > MAX_ECONOMY)
@@ -240,9 +230,7 @@ def validate_matchups(result: ValidationResult):
                 if df[col].dtype in ["int64", "float64"]:
                     invalid = df[df[col] < 0]
                     if len(invalid) > 0:
-                        result.add_error(
-                            f"{filename}: {len(invalid)} rows with negative {col}"
-                        )
+                        result.add_error(f"{filename}: {len(invalid)} rows with negative {col}")
 
         print("    ✓ Non-negative values checked")
 

@@ -205,9 +205,7 @@ def calculate_bowler_over_timing(over_df: pd.DataFrame) -> pd.DataFrame:
         # Calculate stats for each of their first 4 overs
         over_stats = {}
         for over_num in [1, 2, 3, 4]:
-            over_data = bowler_df[bowler_df["bowler_over_num"] == over_num][
-                "actual_over"
-            ].values
+            over_data = bowler_df[bowler_df["bowler_over_num"] == over_num]["actual_over"].values
 
             if len(over_data) > 0:
                 median_over = int(np.median(over_data))
@@ -280,9 +278,7 @@ def print_batter_analysis(df: pd.DataFrame):
 
     # Typical finishers (highest entry)
     print("\n  FINISHERS (median entry > ball 60):")
-    finishers = df[df["position_category"] == "LOWER_ORDER"].nlargest(
-        10, "median_entry_ball"
-    )
+    finishers = df[df["position_category"] == "LOWER_ORDER"].nlargest(10, "median_entry_ball")
     for _, row in finishers.iterrows():
         print(
             f"    {row['batter_name']}: median ball {row['median_entry_ball']:.0f} ({row['innings_count']} innings)"

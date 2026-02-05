@@ -182,9 +182,9 @@ def _llm_budget(args: argparse.Namespace) -> int:
         # Show current budget
         budget = sprint.llm_budget
 
-        print(f"\n{'='*50}")
+        print(f"\n{'=' * 50}")
         print(f"📊 LLM Budget: {sprint.id}")
-        print(f"{'='*50}")
+        print(f"{'=' * 50}")
         print(f"   Total:     {budget.total_tokens:,} tokens")
         print(f"   Used:      {budget.used_tokens:,} tokens")
         print(f"   Remaining: {budget.remaining_tokens:,} tokens")
@@ -199,7 +199,7 @@ def _llm_budget(args: argparse.Namespace) -> int:
         if budget.approved_by:
             print(f"\n   Approved by: {budget.approved_by}")
             print(f"   Approved on: {budget.approved_date}")
-        print(f"{'='*50}\n")
+        print(f"{'=' * 50}\n")
         return 0
     except Exception as e:
         print(f"❌ Error: {e}")
@@ -214,9 +214,9 @@ def _llm_status(args: argparse.Namespace) -> int:
         else:
             sprint = Sprint.get_active()
 
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print("📊 LLM USAGE STATUS")
-        print(f"{'='*60}")
+        print(f"{'=' * 60}")
 
         if sprint:
             budget = sprint.llm_budget
@@ -246,7 +246,7 @@ def _llm_status(args: argparse.Namespace) -> int:
         if pending:
             print(f"\n⚠️  Tickets potentially needing LLM approval: {len(pending)}")
 
-        print(f"{'='*60}\n")
+        print(f"{'=' * 60}\n")
         return 0
     except Exception as e:
         print(f"❌ Error: {e}")

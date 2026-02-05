@@ -158,18 +158,14 @@ def apply_schema_changes(conn):
 
     if "is_ipl_uncapped" not in cols:
         print("  Adding is_ipl_uncapped column...")
-        conn.execute(
-            "ALTER TABLE ipl_2026_squads ADD COLUMN is_ipl_uncapped BOOLEAN DEFAULT FALSE"
-        )
+        conn.execute("ALTER TABLE ipl_2026_squads ADD COLUMN is_ipl_uncapped BOOLEAN DEFAULT FALSE")
         print("    - Added is_ipl_uncapped (BOOLEAN)")
     else:
         print("  is_ipl_uncapped column already exists")
 
     if "bowling_type_secondary" not in cols:
         print("  Adding bowling_type_secondary column...")
-        conn.execute(
-            "ALTER TABLE ipl_2026_squads ADD COLUMN bowling_type_secondary VARCHAR"
-        )
+        conn.execute("ALTER TABLE ipl_2026_squads ADD COLUMN bowling_type_secondary VARCHAR")
         print("    - Added bowling_type_secondary (VARCHAR)")
     else:
         print("  bowling_type_secondary column already exists")
@@ -270,9 +266,7 @@ def fix_bowling_types(conn):
             ).fetchall()
 
             if result:
-                print(
-                    f"  WARNING: {player_name} not found. Similar names in {team_name}:"
-                )
+                print(f"  WARNING: {player_name} not found. Similar names in {team_name}:")
                 for r in result:
                     print(f"           - {r[0]}")
             else:
@@ -308,9 +302,7 @@ def fix_rcb_squad(conn):
             print(f"  REMOVED: {player_name}")
             print(f"           Reason: {reason}")
         else:
-            print(
-                f"  NOTE: {player_name} not found in RCB squad (may already be removed)"
-            )
+            print(f"  NOTE: {player_name} not found in RCB squad (may already be removed)")
 
     # Add missing players
     for player_name, role, bowling_type, batting_hand, notes in RCB_FIXES["add"]:
@@ -399,9 +391,7 @@ def generate_fix_report(conn):
     cols = [c[0] for c in conn.execute("DESCRIBE ipl_2026_squads").fetchall()]
     print(f"\n  Schema columns: {len(cols)}")
     print(f"    - is_ipl_uncapped: {'YES' if 'is_ipl_uncapped' in cols else 'NO'}")
-    print(
-        f"    - bowling_type_secondary: {'YES' if 'bowling_type_secondary' in cols else 'NO'}"
-    )
+    print(f"    - bowling_type_secondary: {'YES' if 'bowling_type_secondary' in cols else 'NO'}")
 
     # Data fixes
     uncapped = conn.execute(

@@ -115,9 +115,7 @@ def generate_experience_csv():
     ]
 
     # Sort by team and then by batting runs (descending) for better readability
-    output_df = output_df.sort_values(
-        ["team_name", "ipl_batting_runs"], ascending=[True, False]
-    )
+    output_df = output_df.sort_values(["team_name", "ipl_batting_runs"], ascending=[True, False])
 
     # Save to CSV
     output_df.to_csv(OUTPUT_PATH, index=False)
@@ -129,9 +127,7 @@ def generate_experience_csv():
     print("\n  Players per team:")
     team_counts = output_df.groupby("team_name").size()
     for team, count in team_counts.items():
-        uncapped = output_df[
-            (output_df["team_name"] == team) & output_df["is_uncapped"]
-        ].shape[0]
+        uncapped = output_df[(output_df["team_name"] == team) & output_df["is_uncapped"]].shape[0]
         print(f"    {team}: {count} players ({uncapped} uncapped)")
 
     # Count uncapped players

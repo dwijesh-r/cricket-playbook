@@ -210,9 +210,7 @@ def generate_batter_bowling_type_2023(conn) -> tuple:
             pace_runs = pace_df["runs"].sum()
             pace_dismissals = pace_df["dismissals"].sum()
             pace_sr = round(pace_runs * 100 / pace_balls, 2) if pace_balls > 0 else 0
-            pace_avg = (
-                round(pace_runs / pace_dismissals, 2) if pace_dismissals > 0 else None
-            )
+            pace_avg = round(pace_runs / pace_dismissals, 2) if pace_dismissals > 0 else None
         else:
             pace_balls, pace_runs, pace_dismissals, pace_sr, pace_avg = 0, 0, 0, 0, None
 
@@ -223,9 +221,7 @@ def generate_batter_bowling_type_2023(conn) -> tuple:
             spin_runs = spin_df["runs"].sum()
             spin_dismissals = spin_df["dismissals"].sum()
             spin_sr = round(spin_runs * 100 / spin_balls, 2) if spin_balls > 0 else 0
-            spin_avg = (
-                round(spin_runs / spin_dismissals, 2) if spin_dismissals > 0 else None
-            )
+            spin_avg = round(spin_runs / spin_dismissals, 2) if spin_dismissals > 0 else None
         else:
             spin_balls, spin_runs, spin_dismissals, spin_sr, spin_avg = 0, 0, 0, 0, None
 
@@ -257,9 +253,7 @@ def generate_batter_bowling_type_2023(conn) -> tuple:
             pace_sr = row["pace_sr"] or 0
             pace_avg = row["pace_avg"]
             pace_dismissals = row["pace_dismissals"] or 0
-            pace_bpd = (
-                row["pace_balls"] / pace_dismissals if pace_dismissals > 0 else 999
-            )
+            pace_bpd = row["pace_balls"] / pace_dismissals if pace_dismissals > 0 else 999
 
             if (
                 pace_sr >= SPECIALIST_SR_THRESHOLD
@@ -279,9 +273,7 @@ def generate_batter_bowling_type_2023(conn) -> tuple:
             spin_sr = row["spin_sr"] or 0
             spin_avg = row["spin_avg"]
             spin_dismissals = row["spin_dismissals"] or 0
-            spin_bpd = (
-                row["spin_balls"] / spin_dismissals if spin_dismissals > 0 else 999
-            )
+            spin_bpd = row["spin_balls"] / spin_dismissals if spin_dismissals > 0 else 999
 
             if (
                 spin_sr >= SPECIALIST_SR_THRESHOLD
@@ -299,9 +291,7 @@ def generate_batter_bowling_type_2023(conn) -> tuple:
         batter_tags_dict[batter_id] = {
             "name": row["batter_name"],
             "tags": player_tags,
-            "overall_sr": (
-                row["pace_sr"] * row["pace_balls"] + row["spin_sr"] * row["spin_balls"]
-            )
+            "overall_sr": (row["pace_sr"] * row["pace_balls"] + row["spin_sr"] * row["spin_balls"])
             / (row["pace_balls"] + row["spin_balls"])
             if (row["pace_balls"] + row["spin_balls"]) > 0
             else 0,
@@ -500,8 +490,7 @@ def generate_bowler_handedness_2023(conn) -> tuple:
             "name": row["bowler_name"],
             "tags": player_tags,
             "economy": (
-                row["lhb_economy"] * row["lhb_balls"]
-                + row["rhb_economy"] * row["rhb_balls"]
+                row["lhb_economy"] * row["lhb_balls"] + row["rhb_economy"] * row["rhb_balls"]
             )
             / (row["lhb_balls"] + row["rhb_balls"])
             if (row["lhb_balls"] + row["rhb_balls"]) > 0
@@ -574,7 +563,7 @@ def generate_player_tags_2023(conn, batter_tags_dict: dict, bowler_tags_dict: di
               AND dm.match_date >= '{IPL_MIN_DATE}'
               AND fb.match_phase = 'powerplay'
             GROUP BY fb.batter_id
-            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= {BATTER_MIN_BALLS['powerplay']}
+            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= {BATTER_MIN_BALLS["powerplay"]}
         ),
         mid_stats AS (
             SELECT
@@ -595,7 +584,7 @@ def generate_player_tags_2023(conn, batter_tags_dict: dict, bowler_tags_dict: di
               AND dm.match_date >= '{IPL_MIN_DATE}'
               AND fb.match_phase = 'middle'
             GROUP BY fb.batter_id
-            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= {BATTER_MIN_BALLS['middle']}
+            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= {BATTER_MIN_BALLS["middle"]}
         ),
         death_stats AS (
             SELECT
@@ -616,7 +605,7 @@ def generate_player_tags_2023(conn, batter_tags_dict: dict, bowler_tags_dict: di
               AND dm.match_date >= '{IPL_MIN_DATE}'
               AND fb.match_phase = 'death'
             GROUP BY fb.batter_id
-            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= {BATTER_MIN_BALLS['death']}
+            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= {BATTER_MIN_BALLS["death"]}
         )
         SELECT
             c.*,
@@ -673,7 +662,7 @@ def generate_player_tags_2023(conn, batter_tags_dict: dict, bowler_tags_dict: di
               AND dm.match_date >= '{IPL_MIN_DATE}'
               AND fb.match_phase = 'powerplay'
             GROUP BY fb.bowler_id
-            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= {BOWLER_MIN_BALLS['powerplay']}
+            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= {BOWLER_MIN_BALLS["powerplay"]}
         ),
         mid_stats AS (
             SELECT
@@ -695,7 +684,7 @@ def generate_player_tags_2023(conn, batter_tags_dict: dict, bowler_tags_dict: di
               AND dm.match_date >= '{IPL_MIN_DATE}'
               AND fb.match_phase = 'middle'
             GROUP BY fb.bowler_id
-            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= {BOWLER_MIN_BALLS['middle']}
+            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= {BOWLER_MIN_BALLS["middle"]}
         ),
         death_stats AS (
             SELECT
@@ -717,7 +706,7 @@ def generate_player_tags_2023(conn, batter_tags_dict: dict, bowler_tags_dict: di
               AND dm.match_date >= '{IPL_MIN_DATE}'
               AND fb.match_phase = 'death'
             GROUP BY fb.bowler_id
-            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= {BOWLER_MIN_BALLS['death']}
+            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= {BOWLER_MIN_BALLS["death"]}
         )
         SELECT
             c.*,
@@ -740,9 +729,7 @@ def generate_player_tags_2023(conn, batter_tags_dict: dict, bowler_tags_dict: di
         entry = {
             "player_name": row["player_name"],
             "player_id": player_id,
-            "overall_sr": float(row["overall_sr"])
-            if pd.notna(row["overall_sr"])
-            else 0,
+            "overall_sr": float(row["overall_sr"]) if pd.notna(row["overall_sr"]) else 0,
             "tags": batter_tags_dict.get(player_id, {}).get("tags", []).copy(),
         }
 
@@ -779,10 +766,7 @@ def generate_player_tags_2023(conn, batter_tags_dict: dict, bowler_tags_dict: di
             # Profile-based tags (Updated Sprint 4.0 - more inclusive)
             if pp_elite_count >= 3:
                 entry["tags"].append("PP_DOMINATOR")
-            elif (
-                pp_sr >= pp["sr"]["elite"]
-                and pp_boundary >= pp["boundary_pct"]["elite"]
-            ):
+            elif pp_sr >= pp["sr"]["elite"] and pp_boundary >= pp["boundary_pct"]["elite"]:
                 # Elite SR + Elite Boundary = aggressive profile
                 if pp_dots >= pp["dot_pct"]["exploitable"]:
                     entry["tags"].append("PP_BOOM_OR_BUST")
@@ -836,10 +820,7 @@ def generate_player_tags_2023(conn, batter_tags_dict: dict, bowler_tags_dict: di
                 and mid_dots <= mid["dot_pct"]["elite"]
             ):
                 entry["tags"].append("MIDDLE_ANCHOR")
-            elif (
-                mid_sr >= mid["sr"]["elite"]
-                and mid_boundary >= mid["boundary_pct"]["elite"]
-            ):
+            elif mid_sr >= mid["sr"]["elite"] and mid_boundary >= mid["boundary_pct"]["elite"]:
                 entry["tags"].append("MIDDLE_ACCELERATOR")
             elif mid_sr >= mid["sr"]["elite"]:
                 # Elite SR alone = accelerator profile
@@ -941,10 +922,7 @@ def generate_player_tags_2023(conn, batter_tags_dict: dict, bowler_tags_dict: di
             )
 
             # Profile-based tags
-            if (
-                pp_wpb >= pp["wickets_per_ball"]["elite"]
-                and pp_dots >= pp["dot_pct"]["elite"]
-            ):
+            if pp_wpb >= pp["wickets_per_ball"]["elite"] and pp_dots >= pp["dot_pct"]["elite"]:
                 entry["tags"].append("PP_STRIKE")
             elif pp_eco <= pp["economy"]["elite"] and pp_dots >= pp["dot_pct"]["elite"]:
                 entry["tags"].append("PP_CONTAINER")
@@ -977,10 +955,7 @@ def generate_player_tags_2023(conn, batter_tags_dict: dict, bowler_tags_dict: di
             )
 
             # Profile-based tags
-            if (
-                mid_dots >= mid["dot_pct"]["elite"]
-                and mid_eco <= mid["economy"]["elite"]
-            ):
+            if mid_dots >= mid["dot_pct"]["elite"] and mid_eco <= mid["economy"]["elite"]:
                 entry["tags"].append("MIDDLE_STRANGLER")
             elif mid_wpb >= mid["wickets_per_ball"]["elite"]:
                 entry["tags"].append("MIDDLE_WICKET_TAKER")

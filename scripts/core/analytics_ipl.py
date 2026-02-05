@@ -1434,9 +1434,7 @@ def verify_views(conn: duckdb.DuckDBPyConnection):
     print("-" * 70)
     for row in result:
         avg_str = f"{row[4]:.2f}" if row[4] else "N/A"
-        print(
-            f"{row[0]:<25} {row[1]:>8,} {row[2]:>6} {row[3]:>8.2f} {avg_str:>8} {row[5]:>10}"
-        )
+        print(f"{row[0]:<25} {row[1]:>8,} {row[2]:>6} {row[3]:>8.2f} {avg_str:>8} {row[5]:>10}")
 
     # Test phase-wise batting for a known player
     print("\n\nKohli's IPL Phase-wise Batting:")
@@ -1450,9 +1448,7 @@ def verify_views(conn: duckdb.DuckDBPyConnection):
     print(f"{'Phase':<15} {'Inn':>6} {'Runs':>8} {'Balls':>8} {'SR':>8} {'Bound%':>10}")
     print("-" * 70)
     for row in result:
-        print(
-            f"{row[0]:<15} {row[1]:>6} {row[2]:>8} {row[3]:>8} {row[4]:>8.2f} {row[5]:>10.1f}"
-        )
+        print(f"{row[0]:<15} {row[1]:>6} {row[2]:>8} {row[3]:>8} {row[4]:>8.2f} {row[5]:>10.1f}")
 
     # Test squad batting view
     print("\n\nRCB 2026 Squad Batting (Top 5 by Price):")
@@ -1503,14 +1499,10 @@ def verify_views(conn: duckdb.DuckDBPyConnection):
         WHERE player_name LIKE '%Kohli%'
         ORDER BY match_phase, scope
     """).fetchall()
-    print(
-        f"{'Scope':<10} {'Phase':<15} {'Inn':>6} {'Runs':>8} {'SR':>8} {'Bound%':>10}"
-    )
+    print(f"{'Scope':<10} {'Phase':<15} {'Inn':>6} {'Runs':>8} {'SR':>8} {'Bound%':>10}")
     print("-" * 90)
     for row in result:
-        print(
-            f"{row[0]:<10} {row[1]:<15} {row[2]:>6} {row[3]:>8} {row[4]:>8.2f} {row[5]:>10.1f}"
-        )
+        print(f"{row[0]:<10} {row[1]:<15} {row[2]:>6} {row[3]:>8} {row[4]:>8.2f} {row[5]:>10.1f}")
 
     return True
 

@@ -135,9 +135,7 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
     md.append(f"# {team_name} ({team_code}) - IPL 2026 Stat Pack")
     md.append(f"\n**Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     md.append("**Data Source:** Cricket Playbook Analytics Engine")
-    md.append(
-        "**Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)"
-    )
+    md.append("**Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)")
     md.append("\n---\n")
 
     # ==========================================================================
@@ -170,8 +168,7 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
     md.append(f"\n**Total Squad Size:** {len(roster)} players")
     md.append(f"**Total Spend:** ₹{total_spend:.2f} Cr")
     md.append(
-        "\n**Role Breakdown:** "
-        + ", ".join([f"{k}: {v}" for k, v in sorted(role_counts.items())])
+        "\n**Role Breakdown:** " + ", ".join([f"{k}: {v}" for k, v in sorted(role_counts.items())])
     )
 
     # ==========================================================================
@@ -252,9 +249,7 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
 
     # Show key player tags
     md.append("### 1.3 Key Player Tags\n")
-    md.append(
-        "*Performance tags based on phase analysis, matchups, and specializations*\n"
-    )
+    md.append("*Performance tags based on phase analysis, matchups, and specializations*\n")
 
     md.append("| Player | Tags |")
     md.append("|--------|------|")
@@ -360,9 +355,7 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
     for row in venue_batting:
         venue, matches, runs, balls, wkts, sr, avg = row
         venue_short = venue[:40] + "..." if len(venue) > 40 else venue
-        md.append(
-            f"| {venue_short} | {matches} | {runs} | {balls} | {sr or '-'} | {avg or '-'} |"
-        )
+        md.append(f"| {venue_short} | {matches} | {runs} | {balls} | {sr or '-'} | {avg or '-'} |")
 
     # ==========================================================================
     # SECTION 4: SQUAD BATTING ANALYSIS
@@ -421,12 +414,8 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
             CASE match_phase WHEN 'powerplay' THEN 1 WHEN 'middle' THEN 2 WHEN 'death' THEN 3 END
     """).fetchall()
 
-    md.append(
-        "| Player | Phase | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Sample |"
-    )
-    md.append(
-        "|--------|-------|-----|------|-------|-----|-----|--------|------|--------|"
-    )
+    md.append("| Player | Phase | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Sample |")
+    md.append("|--------|-------|-----|------|-------|-----|-----|--------|------|--------|")
     for row in phase_batting:
         name, phase, inn, runs, balls, sr, avg, bound, dot, sample = row
         md.append(
@@ -615,12 +604,8 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
     """).fetchall()
 
     if batter_venues:
-        md.append(
-            "| Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% | Sample |"
-        )
-        md.append(
-            "|--------|-------|-----|------|-------|-----|-----|--------|--------|"
-        )
+        md.append("| Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% | Sample |")
+        md.append("|--------|-------|-----|------|-------|-----|-----|--------|--------|")
         for row in batter_venues:
             name, venue, inn, runs, balls, sr, avg, bound, sample = row
             venue_short = venue[:35] + "..." if len(venue) > 35 else venue
@@ -706,9 +691,7 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
     md.append(
         "*Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*\n"
     )
-    md.append(
-        "*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*\n"
-    )
+    md.append("*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*\n")
     if vs_spin:
         for name, btype, balls, runs, sr, outs, avg, bpd in vs_spin:
             # Format bowling type for display (shorter names)

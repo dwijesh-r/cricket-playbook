@@ -117,7 +117,7 @@ def cmd_status(args: argparse.Namespace) -> int:
     from scripts.mission_control.models.sprint import Sprint
 
     print(f"\n🚀 Mission Control v{__version__}")
-    print(f"{'─'*40}")
+    print(f"{'─' * 40}")
 
     # Count entities
     tickets = Ticket.list()
@@ -154,7 +154,7 @@ def cmd_status(args: argparse.Namespace) -> int:
             if count > 0:
                 print(f"  {state}: {count}")
 
-    print(f"{'─'*40}\n")
+    print(f"{'─' * 40}\n")
     return 0
 
 

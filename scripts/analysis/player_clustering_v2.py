@@ -296,9 +296,7 @@ def get_bowler_features_v2(conn) -> pd.DataFrame:
     return df
 
 
-def analyze_correlations(
-    df: pd.DataFrame, feature_cols: list, threshold: float = 0.9
-) -> list:
+def analyze_correlations(df: pd.DataFrame, feature_cols: list, threshold: float = 0.9) -> list:
     """Analyze feature correlations and return columns to drop."""
 
     numeric_df = df[feature_cols].dropna()
@@ -322,9 +320,7 @@ def analyze_correlations(
     return to_drop
 
 
-def pca_variance_analysis(
-    X: np.ndarray, feature_cols: list, target_variance: float = 0.5
-) -> dict:
+def pca_variance_analysis(X: np.ndarray, feature_cols: list, target_variance: float = 0.5) -> dict:
     """Perform PCA and analyze variance explained."""
 
     pca = PCA()
@@ -522,9 +518,7 @@ def validate_specific_players(batter_df: pd.DataFrame, bowler_df: pd.DataFrame):
     print("\n  BATTER VALIDATIONS:")
     for player_name, note in batter_checks:
         matches = batter_df[
-            batter_df["player_name"].str.contains(
-                player_name.split()[0], case=False, na=False
-            )
+            batter_df["player_name"].str.contains(player_name.split()[0], case=False, na=False)
         ]
         if len(matches) > 0:
             row = matches.iloc[0]
@@ -548,9 +542,7 @@ def validate_specific_players(batter_df: pd.DataFrame, bowler_df: pd.DataFrame):
     print("\n  BOWLER VALIDATIONS:")
     for player_name, note in bowler_checks:
         matches = bowler_df[
-            bowler_df["player_name"].str.contains(
-                player_name.split()[0], case=False, na=False
-            )
+            bowler_df["player_name"].str.contains(player_name.split()[0], case=False, na=False)
         ]
         if len(matches) > 0:
             row = matches.iloc[0]
@@ -583,9 +575,7 @@ def analyze_clusters_v2(df: pd.DataFrame, centers: pd.DataFrame, player_type: st
                 if "avg_batting_position" in center
                 else ""
             )
-            print(
-                f"  Overall SR: {center['overall_sr']:.1f} | Avg: {center['overall_avg']:.1f}"
-            )
+            print(f"  Overall SR: {center['overall_sr']:.1f} | Avg: {center['overall_avg']:.1f}")
             print(f"  Boundary%: {center['overall_boundary']:.1f}%")
             print(
                 f"  PP SR: {center.get('pp_sr', 0):.1f} | Mid SR: {center.get('mid_sr', 0):.1f} | Death SR: {center.get('death_sr', 0):.1f}"
@@ -614,9 +604,7 @@ def analyze_clusters_v2(df: pd.DataFrame, centers: pd.DataFrame, player_type: st
                     if pd.notna(player.get("avg_batting_position"))
                     else ""
                 )
-                print(
-                    f"    - {player['player_name']} (SR: {player['overall_sr']:.1f}{pos})"
-                )
+                print(f"    - {player['player_name']} (SR: {player['overall_sr']:.1f}{pos})")
             else:
                 print(
                     f"    - {player['player_name']} (Econ: {player['overall_economy']:.2f}, Wkts: {int(player['wickets'])})"
@@ -661,17 +649,13 @@ def main():
     print("\n" + "=" * 70)
     print("2. CLUSTERING BATTERS (V2)")
     print("=" * 70)
-    batter_clusters, batter_centers, batter_pca = cluster_batters_v2(
-        batter_df, n_clusters=5
-    )
+    batter_clusters, batter_centers, batter_pca = cluster_batters_v2(batter_df, n_clusters=5)
 
     # Cluster bowlers
     print("\n" + "=" * 70)
     print("3. CLUSTERING BOWLERS (V2)")
     print("=" * 70)
-    bowler_clusters, bowler_centers, bowler_pca = cluster_bowlers_v2(
-        bowler_df, n_clusters=5
-    )
+    bowler_clusters, bowler_centers, bowler_pca = cluster_bowlers_v2(bowler_df, n_clusters=5)
 
     # Analyze clusters
     analyze_clusters_v2(batter_clusters, batter_centers, "batter")

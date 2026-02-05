@@ -127,9 +127,7 @@ def aggregate_by_pace_spin(df: pd.DataFrame) -> pd.DataFrame:
             pace_runs = pace_df["runs"].sum()
             pace_dismissals = pace_df["dismissals"].sum()
             pace_sr = round(pace_runs * 100 / pace_balls, 2) if pace_balls > 0 else 0
-            pace_avg = (
-                round(pace_runs / pace_dismissals, 2) if pace_dismissals > 0 else None
-            )
+            pace_avg = round(pace_runs / pace_dismissals, 2) if pace_dismissals > 0 else None
         else:
             pace_balls, pace_runs, pace_dismissals, pace_sr, pace_avg = 0, 0, 0, 0, None
 
@@ -140,9 +138,7 @@ def aggregate_by_pace_spin(df: pd.DataFrame) -> pd.DataFrame:
             spin_runs = spin_df["runs"].sum()
             spin_dismissals = spin_df["dismissals"].sum()
             spin_sr = round(spin_runs * 100 / spin_balls, 2) if spin_balls > 0 else 0
-            spin_avg = (
-                round(spin_runs / spin_dismissals, 2) if spin_dismissals > 0 else None
-            )
+            spin_avg = round(spin_runs / spin_dismissals, 2) if spin_dismissals > 0 else None
         else:
             spin_balls, spin_runs, spin_dismissals, spin_sr, spin_avg = 0, 0, 0, 0, None
 
@@ -166,9 +162,7 @@ def aggregate_by_pace_spin(df: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(results)
 
 
-def assign_matchup_tags(
-    raw_df: pd.DataFrame, pace_spin_df: pd.DataFrame
-) -> pd.DataFrame:
+def assign_matchup_tags(raw_df: pd.DataFrame, pace_spin_df: pd.DataFrame) -> pd.DataFrame:
     """Assign batting matchup tags based on performance vs bowling types."""
 
     tags_dict = {}
@@ -182,9 +176,7 @@ def assign_matchup_tags(
             pace_sr = row["pace_sr"] or 0
             pace_avg = row["pace_avg"]
             pace_dismissals = row["pace_dismissals"] or 0
-            pace_bpd = (
-                row["pace_balls"] / pace_dismissals if pace_dismissals > 0 else 999
-            )
+            pace_bpd = row["pace_balls"] / pace_dismissals if pace_dismissals > 0 else 999
 
             # SPECIALIST: High SR + decent average + doesn't get out too often
             is_pace_specialist = (
@@ -210,9 +202,7 @@ def assign_matchup_tags(
             spin_sr = row["spin_sr"] or 0
             spin_avg = row["spin_avg"]
             spin_dismissals = row["spin_dismissals"] or 0
-            spin_bpd = (
-                row["spin_balls"] / spin_dismissals if spin_dismissals > 0 else 999
-            )
+            spin_bpd = row["spin_balls"] / spin_dismissals if spin_dismissals > 0 else 999
 
             # SPECIALIST: High SR + decent average + doesn't get out too often
             is_spin_specialist = (
@@ -304,88 +294,58 @@ def print_analysis(df: pd.DataFrame, raw_df: pd.DataFrame):
 
     # Count tags
     pace_specialists = df[
-        df["bowling_type_tags"].apply(
-            lambda x: "SPECIALIST_VS_PACE" in x if x else False
-        )
+        df["bowling_type_tags"].apply(lambda x: "SPECIALIST_VS_PACE" in x if x else False)
     ]
     spin_specialists = df[
-        df["bowling_type_tags"].apply(
-            lambda x: "SPECIALIST_VS_SPIN" in x if x else False
-        )
+        df["bowling_type_tags"].apply(lambda x: "SPECIALIST_VS_SPIN" in x if x else False)
     ]
     pace_vulnerable = df[
-        df["bowling_type_tags"].apply(
-            lambda x: "VULNERABLE_VS_PACE" in x if x else False
-        )
+        df["bowling_type_tags"].apply(lambda x: "VULNERABLE_VS_PACE" in x if x else False)
     ]
     spin_vulnerable = df[
-        df["bowling_type_tags"].apply(
-            lambda x: "VULNERABLE_VS_SPIN" in x if x else False
-        )
+        df["bowling_type_tags"].apply(lambda x: "VULNERABLE_VS_SPIN" in x if x else False)
     ]
 
-    print(
-        f"\n  SPECIALIST_VS_PACE (SR ≥{SPECIALIST_SR_THRESHOLD}): {len(pace_specialists)}"
-    )
-    print(
-        f"  SPECIALIST_VS_SPIN (SR ≥{SPECIALIST_SR_THRESHOLD}): {len(spin_specialists)}"
-    )
-    print(
-        f"  VULNERABLE_VS_PACE (SR <{VULNERABLE_SR_THRESHOLD}): {len(pace_vulnerable)}"
-    )
-    print(
-        f"  VULNERABLE_VS_SPIN (SR <{VULNERABLE_SR_THRESHOLD}): {len(spin_vulnerable)}"
-    )
+    print(f"\n  SPECIALIST_VS_PACE (SR ≥{SPECIALIST_SR_THRESHOLD}): {len(pace_specialists)}")
+    print(f"  SPECIALIST_VS_SPIN (SR ≥{SPECIALIST_SR_THRESHOLD}): {len(spin_specialists)}")
+    print(f"  VULNERABLE_VS_PACE (SR <{VULNERABLE_SR_THRESHOLD}): {len(pace_vulnerable)}")
+    print(f"  VULNERABLE_VS_SPIN (SR <{VULNERABLE_SR_THRESHOLD}): {len(spin_vulnerable)}")
 
     # Specific type tags
     for tag_type in ["OFF_SPIN", "LEG_SPIN", "LEFT_ARM_SPIN"]:
         spec_tag = f"SPECIALIST_VS_{tag_type}"
         vuln_tag = f"VULNERABLE_VS_{tag_type}"
-        spec_count = len(
-            df[df["bowling_type_tags"].apply(lambda x: spec_tag in x if x else False)]
-        )
-        vuln_count = len(
-            df[df["bowling_type_tags"].apply(lambda x: vuln_tag in x if x else False)]
-        )
+        spec_count = len(df[df["bowling_type_tags"].apply(lambda x: spec_tag in x if x else False)])
+        vuln_count = len(df[df["bowling_type_tags"].apply(lambda x: vuln_tag in x if x else False)])
         print(f"  {spec_tag}: {spec_count}, {vuln_tag}: {vuln_count}")
 
     # Top pace specialists
     print("\n  TOP PACE SPECIALISTS:")
     top_pace = df[df["pace_balls"] >= MIN_BALLS_VS_TYPE].nlargest(10, "pace_sr")
     for _, row in top_pace.iterrows():
-        print(
-            f"    {row['batter_name']}: SR {row['pace_sr']:.1f} ({row['pace_balls']} balls)"
-        )
+        print(f"    {row['batter_name']}: SR {row['pace_sr']:.1f} ({row['pace_balls']} balls)")
 
     # Top spin specialists
     print("\n  TOP SPIN SPECIALISTS:")
     top_spin = df[df["spin_balls"] >= MIN_BALLS_VS_TYPE].nlargest(10, "spin_sr")
     for _, row in top_spin.iterrows():
-        print(
-            f"    {row['batter_name']}: SR {row['spin_sr']:.1f} ({row['spin_balls']} balls)"
-        )
+        print(f"    {row['batter_name']}: SR {row['spin_sr']:.1f} ({row['spin_balls']} balls)")
 
     # Most vulnerable vs pace
     print("\n  MOST VULNERABLE VS PACE:")
     vuln_pace = df[
-        (df["pace_balls"] >= MIN_BALLS_VS_TYPE)
-        & (df["pace_sr"] < VULNERABLE_SR_THRESHOLD)
+        (df["pace_balls"] >= MIN_BALLS_VS_TYPE) & (df["pace_sr"] < VULNERABLE_SR_THRESHOLD)
     ].nsmallest(10, "pace_sr")
     for _, row in vuln_pace.iterrows():
-        print(
-            f"    {row['batter_name']}: SR {row['pace_sr']:.1f} ({row['pace_balls']} balls)"
-        )
+        print(f"    {row['batter_name']}: SR {row['pace_sr']:.1f} ({row['pace_balls']} balls)")
 
     # Most vulnerable vs spin
     print("\n  MOST VULNERABLE VS SPIN:")
     vuln_spin = df[
-        (df["spin_balls"] >= MIN_BALLS_VS_TYPE)
-        & (df["spin_sr"] < VULNERABLE_SR_THRESHOLD)
+        (df["spin_balls"] >= MIN_BALLS_VS_TYPE) & (df["spin_sr"] < VULNERABLE_SR_THRESHOLD)
     ].nsmallest(10, "spin_sr")
     for _, row in vuln_spin.iterrows():
-        print(
-            f"    {row['batter_name']}: SR {row['spin_sr']:.1f} ({row['spin_balls']} balls)"
-        )
+        print(f"    {row['batter_name']}: SR {row['spin_sr']:.1f} ({row['spin_balls']} balls)")
 
 
 def update_player_tags_json(matchup_df: pd.DataFrame):

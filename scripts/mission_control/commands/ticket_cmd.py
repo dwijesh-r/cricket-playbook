@@ -148,23 +148,23 @@ def _ticket_show(args: argparse.Namespace) -> int:
             print(f"❌ Ticket not found: {args.ticket_id}")
             return 1
 
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print(f"Ticket: {ticket.id}")
-        print(f"{'='*60}")
+        print(f"{'=' * 60}")
         print(f"Title:       {ticket.title}")
         print(f"State:       {ticket.state}")
         print(f"Priority:    {ticket.priority}")
         print(f"Progress:    {ticket.progress_pct}%")
-        print(f"{'─'*60}")
+        print(f"{'─' * 60}")
         print(f"Owner:       {ticket.owner or '-'}")
         print(f"Assignee:    {ticket.assignee or '-'}")
         print(f"EPIC:        {ticket.epic_id or '-'}")
         print(f"Sprint:      {ticket.sprint_id or '-'}")
-        print(f"{'─'*60}")
+        print(f"{'─' * 60}")
         print(f"LLM Required: {ticket.llm_required}")
         if ticket.llm_budget_tokens:
             print(f"LLM Budget:   {ticket.llm_budget_tokens:,} tokens")
-        print(f"{'─'*60}")
+        print(f"{'─' * 60}")
         print(f"Created:     {ticket.created_at or '-'}")
         print(f"Updated:     {ticket.updated_at or '-'}")
         if ticket.completed_at:
@@ -188,7 +188,7 @@ def _ticket_show(args: argparse.Namespace) -> int:
                 status = gate_data.get("status", "PENDING")
                 print(f"  • {gate_name}: {status}")
 
-        print(f"{'='*60}\n")
+        print(f"{'=' * 60}\n")
         return 0
     except Exception as e:
         print(f"❌ Error showing ticket: {e}")

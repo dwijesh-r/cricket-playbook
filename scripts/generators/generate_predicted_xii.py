@@ -321,18 +321,14 @@ def load_batter_metrics() -> dict:
             reader = csv.DictReader(f)
             for row in reader:
                 metrics[row["batter_id"]] = {
-                    "boundary_pct": float(row["boundary_pct"])
-                    if row.get("boundary_pct")
-                    else 0.0,
+                    "boundary_pct": float(row["boundary_pct"]) if row.get("boundary_pct") else 0.0,
                     "consistency_index": float(row["consistency_index"])
                     if row.get("consistency_index")
                     else 0.0,
                     "high_impact_pct": float(row["high_impact_pct"])
                     if row.get("high_impact_pct")
                     else 0.0,
-                    "strike_rate": float(row["overall_sr"])
-                    if row.get("overall_sr")
-                    else 0.0,
+                    "strike_rate": float(row["overall_sr"]) if row.get("overall_sr") else 0.0,
                 }
 
     return metrics
@@ -496,12 +492,8 @@ def build_players(squads: dict, contracts: dict, tags: dict) -> dict:
             bowler_info = tags["bowlers"].get(player_id, {})
 
             # Parse batter/bowler tags from squad data
-            batter_tags = (
-                row.get("batter_tags", "").split("|") if row.get("batter_tags") else []
-            )
-            bowler_tags = (
-                row.get("bowler_tags", "").split("|") if row.get("bowler_tags") else []
-            )
+            batter_tags = row.get("batter_tags", "").split("|") if row.get("batter_tags") else []
+            bowler_tags = row.get("bowler_tags", "").split("|") if row.get("bowler_tags") else []
 
             # Merge with tags from player_tags_2023.json for enhanced scoring
             # Add batter tags from analysis (phase-specific tags)
@@ -731,22 +723,16 @@ def score_player(player: Player) -> None:
         # Check if batting or bowling all-rounder based on tags/classification
         if player.batter_classification in ["All-Round Finisher", "Power Finisher"]:
             # Batting all-rounder: 60% bat / 40% bowl
-            player.overall_score = (
-                player.batting_score * 0.60 + player.bowling_score * 0.40
-            )
+            player.overall_score = player.batting_score * 0.60 + player.bowling_score * 0.40
         elif player.bowler_classification in [
             "Middle-Overs Spinner",
             "Powerplay Assassin",
         ]:
             # Bowling all-rounder: 40% bat / 60% bowl
-            player.overall_score = (
-                player.batting_score * 0.40 + player.bowling_score * 0.60
-            )
+            player.overall_score = player.batting_score * 0.40 + player.bowling_score * 0.60
         else:
             # True all-rounder: 50/50
-            player.overall_score = (
-                player.batting_score * 0.50 + player.bowling_score * 0.50
-            )
+            player.overall_score = player.batting_score * 0.50 + player.bowling_score * 0.50
     elif player.role == "Wicketkeeper":
         player.overall_score = player.batting_score * 0.90 + 10  # Keeper bonus
     else:  # Batter
@@ -777,17 +763,11 @@ def check_constraints(xi: list) -> tuple:
 
     # C2: Bowling coverage (need 20 overs from 5+ options)
     bowling_overs = sum(p.bowling_overs_capability for p in players if p.can_bowl)
-    bowling_options = sum(
-        1 for p in players if p.can_bowl and p.bowling_overs_capability >= 4
-    )
+    bowling_options = sum(1 for p in players if p.can_bowl and p.bowling_overs_capability >= 4)
     if bowling_overs < 20:
-        violations.append(
-            f"C2: Insufficient bowling coverage ({bowling_overs}/20 overs)"
-        )
+        violations.append(f"C2: Insufficient bowling coverage ({bowling_overs}/20 overs)")
     if bowling_options < 5:
-        violations.append(
-            f"C2: Insufficient bowling options ({bowling_options}/5 required)"
-        )
+        violations.append(f"C2: Insufficient bowling options ({bowling_options}/5 required)")
 
     # C3: Wicketkeeper
     keepers = sum(1 for p in players if p.is_wicketkeeper)
@@ -807,9 +787,7 @@ def check_constraints(xi: list) -> tuple:
         )
     )
     if primary_bowlers < 4:
-        violations.append(
-            f"C4: Insufficient primary bowling options ({primary_bowlers}/4)"
-        )
+        violations.append(f"C4: Insufficient primary bowling options ({primary_bowlers}/4)")
 
     # C5: Spinner
     spinners = sum(1 for p in players if p.is_spinner)
@@ -828,15 +806,11 @@ def get_balance_metrics(xi: list) -> dict:
         "bowling_options": sum(
             1 for p in players if p.can_bowl and p.bowling_overs_capability >= 4
         ),
-        "total_bowling_overs": sum(
-            p.bowling_overs_capability for p in players if p.can_bowl
-        ),
+        "total_bowling_overs": sum(p.bowling_overs_capability for p in players if p.can_bowl),
         "spinners": sum(1 for p in players if p.is_spinner),
         "pacers": sum(1 for p in players if p.is_pacer),
         "wicketkeepers": sum(1 for p in players if p.is_wicketkeeper),
-        "left_handers_top6": sum(
-            1 for sp in xi[:6] if sp.player.batting_hand == "Left-hand"
-        ),
+        "left_handers_top6": sum(1 for sp in xi[:6] if sp.player.batting_hand == "Left-hand"),
         "left_handers_total": sum(1 for p in players if p.batting_hand == "Left-hand"),
     }
 
@@ -854,8 +828,7 @@ def get_role_candidates(players: list, role: str) -> list:
         # Aggressive openers, top-order batters
         for p in players:
             if any(
-                tag in p.batter_tags
-                for tag in ["EXPLOSIVE_OPENER", "PP_DOMINATOR", "PLAYMAKER"]
+                tag in p.batter_tags for tag in ["EXPLOSIVE_OPENER", "PP_DOMINATOR", "PLAYMAKER"]
             ):
                 candidates.append(p)
             elif p.batter_classification in ["Aggressive Opener", "Elite Top-Order"]:
@@ -876,10 +849,7 @@ def get_role_candidates(players: list, role: str) -> list:
     elif role == "finisher":
         # Death-overs finishers
         for p in players:
-            if any(
-                tag in p.batter_tags
-                for tag in ["FINISHER", "DEATH_SPECIALIST", "SIX_HITTER"]
-            ):
+            if any(tag in p.batter_tags for tag in ["FINISHER", "DEATH_SPECIALIST", "SIX_HITTER"]):
                 candidates.append(p)
             elif p.batter_classification in ["Power Finisher", "All-Round Finisher"]:
                 candidates.append(p)
@@ -888,14 +858,10 @@ def get_role_candidates(players: list, role: str) -> list:
         candidates = [p for p in players if p.is_wicketkeeper]
 
     elif role == "spinner":
-        candidates = [
-            p for p in players if p.is_spinner and p.bowling_overs_capability >= 4
-        ]
+        candidates = [p for p in players if p.is_spinner and p.bowling_overs_capability >= 4]
 
     elif role == "pacer":
-        candidates = [
-            p for p in players if p.is_pacer and p.bowling_overs_capability >= 4
-        ]
+        candidates = [p for p in players if p.is_pacer and p.bowling_overs_capability >= 4]
 
     elif role == "all_rounder":
         candidates = [p for p in players if p.role == "All-rounder" and p.can_bowl]
@@ -915,8 +881,7 @@ def get_role_candidates(players: list, role: str) -> list:
         candidates = [
             p
             for p in players
-            if p.bowling_overs_capability >= 4
-            and (p.role == "Bowler" or p.bowler_classification)
+            if p.bowling_overs_capability >= 4 and (p.role == "Bowler" or p.bowler_classification)
         ]
 
     return sorted(candidates, key=lambda x: x.overall_score, reverse=True)
@@ -961,9 +926,7 @@ def generate_rationale(player: Player, role_in_xi: str) -> str:
         if player.role == "All-rounder":
             rationales.append("Provides batting depth and bowling option")
         elif player.role == "Bowler":
-            rationales.append(
-                f"{"Spin" if player.is_spinner else "Pace"} bowling depth"
-            )
+            rationales.append(f"{'Spin' if player.is_spinner else 'Pace'} bowling depth")
         elif player.is_wicketkeeper:
             rationales.append("Primary wicketkeeper")
         else:
@@ -972,9 +935,7 @@ def generate_rationale(player: Player, role_in_xi: str) -> str:
     return ". ".join(rationales[:2])
 
 
-def select_xi(
-    team: str, players: list, venue_bias: str, entry_points: dict = None
-) -> tuple:
+def select_xi(team: str, players: list, venue_bias: str, entry_points: dict = None) -> tuple:
     """
     Select optimal XI using constraint-satisfaction algorithm
 
@@ -1081,9 +1042,7 @@ def select_xi(
 
     # 7. Select pace bowlers
     pacers = get_available(get_role_candidates(remaining, "pacer"))
-    pacers_selected = sum(
-        1 for sp in selected if sp.player.is_pacer and sp.player.role == "Bowler"
-    )
+    pacers_selected = sum(1 for sp in selected if sp.player.is_pacer and sp.player.role == "Bowler")
 
     # Need at least 3 pacers typically
     while pacers_selected < 3 and pacers and len(selected) < 11:
@@ -1152,8 +1111,7 @@ def select_xi(
                     bowling_options = sum(
                         1
                         for sp in selected
-                        if sp.player.can_bowl
-                        and sp.player.bowling_overs_capability >= 4
+                        if sp.player.can_bowl and sp.player.bowling_overs_capability >= 4
                     )
                     if bowling_options <= 5:
                         continue  # Skip this swap
@@ -1172,9 +1130,7 @@ def select_xi(
                     player=overseas_player,
                     batting_position=swap_target.batting_position,
                     role_in_xi=swap_target.role_in_xi,
-                    rationale=generate_rationale(
-                        overseas_player, swap_target.role_in_xi
-                    ),
+                    rationale=generate_rationale(overseas_player, swap_target.role_in_xi),
                 )
                 selected.append(new_sp)
                 swaps_made += 1
@@ -1191,9 +1147,7 @@ def select_xi(
     if not constraints_ok:
         notes.append(f"Constraint violations: {violations}")
         # Attempt backtracking fixes
-        selected, violations = fix_constraint_violations(
-            selected, remaining, violations
-        )
+        selected, violations = fix_constraint_violations(selected, remaining, violations)
         constraints_ok = len(violations) == 0
 
     return selected, remaining, constraints_ok, violations, notes
@@ -1411,9 +1365,7 @@ def reorder_batting_positions(selected: list, entry_points: dict = None) -> list
     # Sort tier 3 by entry point (lower entry = can flex higher)
     tier3_sorted = sorted(
         tiers[3],
-        key=lambda x: entry_points.get(x.player.player_id, {}).get(
-            "avg_entry_ball", 999
-        ),
+        key=lambda x: entry_points.get(x.player.player_id, {}).get("avg_entry_ball", 999),
     )
 
     # If position 4 is empty and we have tier 3 players, flex one up
@@ -1439,9 +1391,7 @@ def reorder_batting_positions(selected: list, entry_points: dict = None) -> list
     # Sort tier 4 by entry point (lower entry = can flex higher)
     tier4_sorted = sorted(
         tiers[4],
-        key=lambda x: entry_points.get(x.player.player_id, {}).get(
-            "avg_entry_ball", 999
-        ),
+        key=lambda x: entry_points.get(x.player.player_id, {}).get("avg_entry_ball", 999),
     )
 
     # Fill positions 5-6 with tier 4 players if gaps exist
@@ -1539,9 +1489,7 @@ def reorder_batting_positions(selected: list, entry_points: dict = None) -> list
     return batting_order
 
 
-def fix_constraint_violations(
-    selected: list, remaining: list, violations: list
-) -> tuple:
+def fix_constraint_violations(selected: list, remaining: list, violations: list) -> tuple:
     """Attempt to fix constraint violations via substitution"""
     # This is a simplified backtracking - for V1, we just note violations
     # A more sophisticated version would swap players
@@ -1610,7 +1558,7 @@ def select_impact_player(
         player=impact,
         batting_position=12,
         role_in_xi="Impact Player",
-        rationale=f"Provides {"batting depth" if impact.batting_score > impact.bowling_score else "bowling option"} as Impact substitute",
+        rationale=f"Provides {'batting depth' if impact.batting_score > impact.bowling_score else 'bowling option'} as Impact substitute",
         is_impact_player=True,
     )
 
@@ -1812,9 +1760,7 @@ def main():
         print(f"    XI: {', '.join(xi_names[:6])}...")
         print(f"    Overseas: {prediction.overseas_count}/4")
         print(f"    Bowling: {prediction.bowling_options} options")
-        print(
-            f"    Constraints: {'OK' if prediction.constraints_satisfied else 'VIOLATIONS'}"
-        )
+        print(f"    Constraints: {'OK' if prediction.constraints_satisfied else 'VIOLATIONS'}")
 
     # Save outputs
     print("\n[4/4] Saving outputs...")
@@ -1856,9 +1802,7 @@ def main():
 
     # Save per-team files
     for team, prediction in all_predictions.items():
-        team_file = (
-            PREDICTED_XII_DIR / f"{TEAM_ABBREV[team].lower()}_predicted_xii.json"
-        )
+        team_file = PREDICTED_XII_DIR / f"{TEAM_ABBREV[team].lower()}_predicted_xii.json"
         with open(team_file, "w") as f:
             json.dump(predicted_xii_to_dict(prediction), f, indent=2)
 

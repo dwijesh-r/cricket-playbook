@@ -281,9 +281,7 @@ def save_data(df: pd.DataFrame):
         ]
     ].copy()
 
-    output_df["phase_tags"] = output_df["phase_tags"].apply(
-        lambda x: ", ".join(x) if x else ""
-    )
+    output_df["phase_tags"] = output_df["phase_tags"].apply(lambda x: ", ".join(x) if x else "")
     output_df.to_csv(output_path, index=False)
     print(f"\n  Phase data saved to: {output_path}")
 

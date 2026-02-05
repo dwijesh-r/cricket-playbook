@@ -8,7 +8,7 @@
 
 ## Overview
 
-Cricket Playbook is a comprehensive cricket analytics system built on ball-by-ball T20 data. It provides detailed statistical analysis for all 10 IPL 2026 teams, including player performance metrics, phase-wise breakdowns, matchup analysis, and tactical insights.
+Cricket Playbook is a full-featured cricket analytics system built on ball-by-ball T20 data. It provides detailed statistical analysis for all 10 IPL 2026 teams, including player performance metrics, phase-wise breakdowns, matchup analysis, and tactical insights.
 
 **Key Features:**
 - 35 DuckDB analytics views for career stats, phase analysis, and matchups
@@ -27,10 +27,10 @@ Cricket Playbook is a comprehensive cricket analytics system built on ball-by-ba
 
 Cricket Playbook has two complementary dashboards hosted on GitHub Pages:
 
-### 🔬 The Lab — Analytics Showcase
+### 🔬 The Lab: Analytics Showcase
 > *"Where the analytics magic happens."*
 
-The Lab is our user-facing analytics showcase — the "magazine version" of this repository. Browse all IPL 2026 insights in a beautiful, structured interface.
+The Lab is our user-facing analytics showcase, the "magazine version" of this repository. Browse all IPL 2026 insights in a beautiful, structured interface.
 
 **🔗 Base URL:** https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/
 
@@ -44,16 +44,16 @@ The Lab is our user-facing analytics showcase — the "magazine version" of this
 | **About** | [about.html](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/about.html) | Vision, agents, founder section |
 
 **Key Features (v4.1):**
-- 🔍 **Global Search** — Search players across all squads
-- 🎛️ **Squad Filters** — Filter by role, nationality, age group
-- ⚔️ **Team Comparison** — Side-by-side team metrics comparison
-- 📊 **Inline Depth Charts** — Full position-by-position rankings with player scores
-- 📥 **CSV Export** — Download squad data with team summary
-- 📱 **Mobile Optimized** — Responsive design with hamburger menu
+- 🔍 **Global Search:** Search players across all squads
+- 🎛️ **Squad Filters:** Filter by role, nationality, age group
+- ⚔️ **Team Comparison:** Side-by-side team metrics comparison
+- 📊 **Inline Depth Charts:** Full position-by-position rankings with player scores
+- 📥 **CSV Export:** Download squad data with team summary
+- 📱 **Mobile Optimized:** Responsive design with hamburger menu
 
 ---
 
-### 🎯 Mission Control — Operations Dashboard
+### 🎯 Mission Control: Operations Dashboard
 > *Task management for AI agent coordination*
 
 Mission Control is our internal JIRA-style system tracking sprint progress, ticket states, and quality gates.
@@ -73,9 +73,9 @@ Mission Control is our internal JIRA-style system tracking sprint progress, tick
 - **Sprint Tracking:** 97 tickets across 11 EPICs with burndown visualization
 
 **New in v4.1:**
-- 🔍 **Ticket Search** — Search by ID, title, assignee, or tags
-- ⏱️ **Time Tracking** — Days spent badges on tickets, sprint-level time stats
-- 📱 **Mobile Optimized** — Responsive filters and navigation
+- 🔍 **Ticket Search:** Search by ID, title, assignee, or tags
+- ⏱️ **Time Tracking:** Days spent badges on tickets, sprint-level time stats
+- 📱 **Mobile Optimized:** Responsive filters and navigation
 
 See `.mission-control/README.md` for CLI usage and `governance/MISSION_CONTROL_DESIGN_020426_v1.md` for full design spec.
 
@@ -400,7 +400,7 @@ python scripts/utils/validate_outputs.py
 |---------|------|---------|
 | **v4.1.0** | 2026-02-05 | The Lab UX (search, filters, compare, export, inline depth charts), Mission Control (search, time tracking) |
 | v4.0.0 | 2026-02-02 | Predicted XII algorithm, Depth Charts, Task Integrity Loop governance |
-| v3.1.0 | 2026-01-26 | Repo restructure, PFF/KenPom research, comprehensive READMEs |
+| v3.1.0 | 2026-01-26 | Repo restructure, PFF/KenPom research, detailed READMEs |
 | v3.0.1 | 2026-01-26 | Sprint 3.0: 16 new 2023+ outputs, entry point audit, player ID audit |
 | v2.9.0 | 2026-01-25 | CI/CD (GitHub Actions, pre-commit), DEATH_LIABILITY threshold fix |
 | v2.8.0 | 2026-01-25 | 2023+ data filter, standardized cluster labels, Andy Flower review |

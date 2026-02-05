@@ -2,13 +2,13 @@
 
 **Author:** Ime Udoka, ML Ops Engineer
 **Date:** January 26, 2026
-**Purpose:** Deep dive into PFF methodology for potential application to Cricket Playbook
+**Purpose:** Examine PFF methodology for potential application to Cricket Playbook
 
 ---
 
 ## Executive Summary
 
-Pro Football Focus (PFF) has revolutionized player evaluation in American football through their systematic, play-by-play grading methodology. Their approach offers valuable lessons for cricket analytics, particularly in isolating individual contributions, contextualizing performance, and creating meaningful composite metrics.
+Pro Football Focus (PFF) changed how player evaluation works in American football through their systematic, play-by-play grading methodology. Their approach offers valuable lessons for cricket analytics, particularly in isolating individual contributions, contextualizing performance, and creating meaningful composite metrics.
 
 This document synthesizes research findings and proposes actionable applications for Cricket Playbook's player evaluation system.
 
@@ -213,7 +213,7 @@ Each position has **custom grading rubrics**:
 
 #### Offensive Linemen
 - **Two separate grades**: Pass-blocking and run-blocking
-- Per-snap efficiency is paramount
+- Per-snap efficiency matters most
 - Consistency valued over highlight plays
 - Zero-sum with defensive linemen (positive for one = negative for other)
 

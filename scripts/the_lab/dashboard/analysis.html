@@ -135,13 +135,31 @@
             max-width: 800px;
             margin: 0 auto;
         }
+        .typewriter-container {
+            display: flex;
+            justify-content: center;
+            min-height: 50px;
+            margin-bottom: 16px;
+        }
         .page-title {
             font-size: 40px;
             font-weight: 800;
-            margin-bottom: 16px;
             background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-teal) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            overflow: hidden;
+            border-right: 3px solid var(--accent-teal);
+            white-space: nowrap;
+            width: 0;
+            animation: typing-analysis 1s steps(15, end) 0.3s forwards, blink-caret-teal 0.75s step-end infinite;
+        }
+        @keyframes typing-analysis {
+            from { width: 0; }
+            to { width: 15ch; }
+        }
+        @keyframes blink-caret-teal {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--accent-teal); }
         }
         .page-subtitle {
             font-size: 16px;
@@ -325,7 +343,9 @@
 
     <main class="main">
         <header class="page-header">
-            <h1 class="page-title">📊 Analysis Documents</h1>
+            <div class="typewriter-container">
+                <h1 class="page-title">🔬 Deep Analysis</h1>
+            </div>
             <p class="page-subtitle">
                 Deep-dive reports that shaped our analytics decisions. Each document represents
                 a rigorous investigation into data quality, thresholds, and methodology validation.

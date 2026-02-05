@@ -199,11 +199,16 @@
             align-items: center;
             gap: 6px;
         }
-        .team-btn .pixel-logo {
-            width: 20px;
-            height: 20px;
+        .team-btn .pixel-logo,
+        .team-btn svg {
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            min-height: 24px;
             image-rendering: pixelated;
+            image-rendering: crisp-edges;
             border-radius: 4px;
+            display: inline-block;
         }
         .team-btn:hover {
             color: var(--text-primary);
@@ -963,6 +968,34 @@
             margin-top: 40px;
         }
 
+        /* Typewriter Animation */
+        .typewriter-container {
+            display: flex;
+            justify-content: center;
+            padding: 30px 24px 10px;
+        }
+        .typewriter-title {
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 50%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            overflow: hidden;
+            border-right: 3px solid var(--accent);
+            white-space: nowrap;
+            width: 0;
+            animation: typing-teams 1s steps(14, end) 0.3s forwards, blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing-teams {
+            from { width: 0; }
+            to { width: 14ch; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--accent); }
+        }
+
         /* Loading State */
         .loading-overlay {
             position: fixed;
@@ -1092,6 +1125,11 @@
     </div>
 
     <main class="main">
+        <!-- Page Title with Typewriter -->
+        <div class="typewriter-container">
+            <h1 class="typewriter-title">IPL 2026 Teams</h1>
+        </div>
+
         <!-- Team Selector -->
         <div class="team-selector" id="team-selector">
             <!-- Populated by JS -->
@@ -1662,7 +1700,6 @@
                                 <td>
                                     <div class="player-name-cell">
                                         <span class="player-name-text">${player.name}</span>
-                                        ${player.isCaptain ? '<span class="captain-badge">Captain</span>' : ''}
                                         ${player.retainedStatus === 'Retained' ? '<span class="retained-badge">RTM</span>' : ''}
                                     </div>
                                 </td>

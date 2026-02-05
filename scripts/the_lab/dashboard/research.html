@@ -121,13 +121,31 @@
             max-width: 800px;
             margin: 0 auto;
         }
+        .typewriter-container {
+            display: flex;
+            justify-content: center;
+            min-height: 50px;
+            margin-bottom: 16px;
+        }
         .page-title {
             font-size: 40px;
             font-weight: 800;
-            margin-bottom: 16px;
             background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            overflow: hidden;
+            border-right: 3px solid var(--accent);
+            white-space: nowrap;
+            width: 0;
+            animation: typing-research 1.2s steps(22, end) 0.3s forwards, blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing-research {
+            from { width: 0; }
+            to { width: 22ch; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--accent); }
         }
         .page-subtitle {
             font-size: 16px;
@@ -260,7 +278,9 @@
 
     <main class="main">
         <header class="page-header">
-            <h1 class="page-title">📚 Research & Methodology</h1>
+            <div class="typewriter-container">
+                <h1 class="page-title">📚 Research & Methodology</h1>
+            </div>
             <p class="page-subtitle">
                 Our analytics approach is inspired by the best in sports analytics.
                 Learn how we bring NFL's PFF and college basketball's KenPom to cricket.

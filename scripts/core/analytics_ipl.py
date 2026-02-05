@@ -19,7 +19,7 @@ import duckdb
 from pathlib import Path
 
 # Paths
-DATA_DIR = Path(__file__).parent.parent / "data"
+DATA_DIR = Path(__file__).parent.parent.parent / "data"
 DB_PATH = DATA_DIR / "cricket_playbook.duckdb"
 SQUADS_CSV = DATA_DIR / "ipl_2026_squads.csv"
 CONTRACTS_CSV = DATA_DIR / "ipl_2026_player_contracts.csv"
@@ -38,7 +38,12 @@ def create_squad_tables(conn: duckdb.DuckDBPyConnection):
     if SQUADS_CSV.exists():
         conn.execute(f"""
             CREATE OR REPLACE TABLE ipl_2026_squads AS
-            SELECT * FROM read_csv_auto('{SQUADS_CSV}')
+            SELECT * FROM read_csv('{SQUADS_CSV}',
+                header=true,
+                strict_mode=false,
+                ignore_errors=true,
+                null_padding=true,
+                delim=',')
         """)
         print("  - ipl_2026_squads table created")
 
@@ -66,7 +71,12 @@ def create_squad_tables(conn: duckdb.DuckDBPyConnection):
     if CONTRACTS_CSV.exists():
         conn.execute(f"""
             CREATE OR REPLACE TABLE ipl_2026_contracts AS
-            SELECT * FROM read_csv_auto('{CONTRACTS_CSV}')
+            SELECT * FROM read_csv('{CONTRACTS_CSV}',
+                header=true,
+                strict_mode=false,
+                ignore_errors=true,
+                null_padding=true,
+                delim=',')
         """)
         print("  - ipl_2026_contracts table created")
     else:
@@ -232,7 +242,7 @@ def create_ipl_batting_views(conn: duckdb.DuckDBPyConnection):
         SELECT
             dp_bat.player_id as batter_id,
             dp_bat.current_name as batter_name,
-            COALESCE(sq.bowling_style, bc.bowling_style, 'Unknown') as bowler_type,
+            COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') as bowler_type,
             COUNT(*) as balls,
             SUM(fb.batter_runs) as runs,
             SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) as dismissals,
@@ -254,7 +264,7 @@ def create_ipl_batting_views(conn: duckdb.DuckDBPyConnection):
         LEFT JOIN dim_bowler_classification bc ON dp_bowl.player_id = bc.player_id
         WHERE fb.is_legal_ball = TRUE
           AND fb.match_id IN (SELECT match_id FROM ipl_matches)
-        GROUP BY dp_bat.player_id, dp_bat.current_name, COALESCE(sq.bowling_style, bc.bowling_style, 'Unknown')
+        GROUP BY dp_bat.player_id, dp_bat.current_name, COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
     """)
     print("  - analytics_ipl_batter_vs_bowler_type")
 
@@ -466,7 +476,7 @@ def create_phase_matchup_views(conn: duckdb.DuckDBPyConnection):
         SELECT
             dp_bat.player_id as batter_id,
             dp_bat.current_name as batter_name,
-            COALESCE(sq.bowling_style, bc.bowling_style, 'Unknown') as bowler_type,
+            COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') as bowler_type,
             fb.match_phase,
             COUNT(*) as balls,
             SUM(fb.batter_runs) as runs,
@@ -489,7 +499,7 @@ def create_phase_matchup_views(conn: duckdb.DuckDBPyConnection):
         LEFT JOIN dim_bowler_classification bc ON dp_bowl.player_id = bc.player_id
         WHERE fb.is_legal_ball = TRUE
           AND fb.match_id IN (SELECT match_id FROM ipl_matches)
-        GROUP BY dp_bat.player_id, dp_bat.current_name, COALESCE(sq.bowling_style, bc.bowling_style, 'Unknown'), fb.match_phase
+        GROUP BY dp_bat.player_id, dp_bat.current_name, COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown'), fb.match_phase
     """)
     print("  - analytics_ipl_batter_vs_bowler_type_phase")
 
@@ -974,7 +984,7 @@ def create_t20_comparison_views(conn: duckdb.DuckDBPyConnection):
         SELECT
             dp_bat.player_id as batter_id,
             dp_bat.current_name as batter_name,
-            COALESCE(sq.bowling_style, bc.bowling_style, 'Unknown') as bowler_type,
+            COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') as bowler_type,
             COUNT(*) as balls,
             SUM(fb.batter_runs) as runs,
             SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) as dismissals,
@@ -995,7 +1005,7 @@ def create_t20_comparison_views(conn: duckdb.DuckDBPyConnection):
         LEFT JOIN ipl_2026_squads sq ON dp_bowl.player_id = sq.player_id
         LEFT JOIN dim_bowler_classification bc ON dp_bowl.player_id = bc.player_id
         WHERE fb.is_legal_ball = TRUE
-        GROUP BY dp_bat.player_id, dp_bat.current_name, COALESCE(sq.bowling_style, bc.bowling_style, 'Unknown')
+        GROUP BY dp_bat.player_id, dp_bat.current_name, COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
     """)
     print("  - analytics_t20_batter_vs_bowler_type")
 
@@ -1366,7 +1376,7 @@ def create_benchmark_views(conn: duckdb.DuckDBPyConnection):
             WHERE dt.tournament_name = 'Indian Premier League'
         )
         SELECT
-            COALESCE(sq.bowling_style, bc.bowling_style, 'Unknown') as bowler_type,
+            COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') as bowler_type,
             COUNT(*) as total_balls,
             SUM(fb.batter_runs) as total_runs,
             SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) as total_dismissals,
@@ -1380,7 +1390,7 @@ def create_benchmark_views(conn: duckdb.DuckDBPyConnection):
         LEFT JOIN dim_bowler_classification bc ON dp_bowl.player_id = bc.player_id
         WHERE fb.match_id IN (SELECT match_id FROM ipl_matches)
           AND fb.is_legal_ball = TRUE
-        GROUP BY COALESCE(sq.bowling_style, bc.bowling_style, 'Unknown')
+        GROUP BY COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
     """)
     print("  - analytics_ipl_vs_bowler_type_benchmarks")
 

@@ -18,6 +18,7 @@ sys.path.insert(0, str(project_root))
 
 # Override MISSION_CONTROL_ROOT for testing
 import scripts.mission_control as mc_module
+import scripts.mission_control.storage.json_store as json_store_module
 
 
 @pytest.fixture(scope="function")
@@ -40,14 +41,17 @@ def temp_mission_control(tmp_path):
         for schema_file in real_schemas.glob("*.json"):
             shutil.copy(schema_file, mc_root / "config" / "schemas")
 
-    # Override the module root
+    # Override the module root in both places where it's imported
     original_root = mc_module.MISSION_CONTROL_ROOT
+    original_json_store_root = json_store_module.MISSION_CONTROL_ROOT
     mc_module.MISSION_CONTROL_ROOT = mc_root
+    json_store_module.MISSION_CONTROL_ROOT = mc_root
 
     yield mc_root
 
-    # Restore original
+    # Restore originals
     mc_module.MISSION_CONTROL_ROOT = original_root
+    json_store_module.MISSION_CONTROL_ROOT = original_json_store_root
 
 
 class TestIdGenerator:
@@ -280,7 +284,7 @@ class TestTicketModel:
         assert ticket.state == "IDEA"
 
     def test_ticket_transition(self, temp_mission_control):
-        """Test ticket state transitions."""
+        """Test ticket state transitions with proper workflow."""
         from scripts.mission_control.models.ticket import Ticket
 
         Ticket._store.data_dir = temp_mission_control / "data" / "tickets"
@@ -289,9 +293,14 @@ class TestTicketModel:
         ticket = Ticket.create(title="Transition Test", priority="P1")
         assert ticket.state == "IDEA"
 
+        # Approve through Florentino Gate (required before BACKLOG)
+        # Gates is a dataclass with attribute access, not dict
+        ticket.gates.florentino_gate = {"status": "APPROVED", "approved_at": "2026-01-01"}
         ticket.transition_to("BACKLOG")
         assert ticket.state == "BACKLOG"
 
+        # Assign to sprint (required before READY)
+        ticket.sprint_id = "SPRINT-001"
         ticket.transition_to("READY")
         assert ticket.state == "READY"
 

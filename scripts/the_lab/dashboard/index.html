@@ -319,7 +319,7 @@
             border-right: 3px solid var(--accent);
             white-space: nowrap;
             width: 0;
-            animation: typing 1.2s steps(7, end) 6s forwards, blink-caret 0.75s step-end 6s 4, hide-caret 0.1s ease 9.5s forwards;
+            animation: typing 1.2s steps(7, end) 4.8s forwards, blink-caret 0.75s step-end 4.8s 4, hide-caret 0.1s ease 8s forwards;
         }
 
         @keyframes typing {
@@ -345,7 +345,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: fade-out-intro 0.8s ease 5.5s forwards;
+            animation: fade-out-intro 0.8s ease 4.2s forwards;
         }
 
         @keyframes fade-out-intro {
@@ -354,9 +354,9 @@
 
         .intro-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
-            max-width: 560px;
+            max-width: 780px;
             padding: 20px;
         }
 
@@ -484,37 +484,9 @@
             100% { opacity: 1; transform: translateX(60px) translateY(-20px) rotate(360deg); }
         }
 
-        /* ========== DE BRUYNE - KICKING ========== */
-        .intro-box-kdb {
-            animation: box-appear 0.5s ease 1.2s forwards;
-            border-color: #6cabdd;
-        }
-
-        .intro-box-kdb .leg-right {
-            animation: kdb-kick-leg 0.7s ease 1.9s forwards;
-        }
-
-        .intro-box-kdb .soccer {
-            right: 20px;
-            bottom: 35px;
-            animation: soccer-fly 0.7s ease 2.2s forwards;
-        }
-
-        @keyframes kdb-kick-leg {
-            0% { transform: rotate(-30deg); }
-            50% { transform: rotate(-50deg); }
-            80% { transform: rotate(45deg); }
-            100% { transform: rotate(20deg); }
-        }
-
-        @keyframes soccer-fly {
-            0% { opacity: 1; transform: translateX(0) translateY(0); }
-            100% { opacity: 1; transform: translateX(70px) translateY(-40px); }
-        }
-
         /* ========== VIRAT KOHLI - COVER DRIVE ========== */
         .intro-box-virat {
-            animation: box-appear 0.5s ease 2.1s forwards;
+            animation: box-appear 0.5s ease 1.2s forwards;
             border-color: #004c93;
         }
 
@@ -531,14 +503,14 @@
             top: 30px;
             border-radius: 3px;
             transform-origin: bottom center;
-            animation: virat-bat-swing 0.8s ease 2.8s forwards;
+            animation: virat-bat-swing 0.8s ease 1.9s forwards;
         }
 
         .intro-box-virat .cricket {
             left: 15px;
             top: 40px;
             font-size: 20px;
-            animation: cricket-deflect 0.6s ease 3.1s forwards;
+            animation: cricket-deflect 0.6s ease 2.2s forwards;
         }
 
         @keyframes virat-bat-swing {
@@ -555,16 +527,16 @@
 
         /* ========== MOURINHO - CELEBRATION ========== */
         .intro-box-jose {
-            animation: box-appear 0.5s ease 3s forwards;
+            animation: box-appear 0.5s ease 2.1s forwards;
             border-color: #0033a0;
         }
 
         .intro-box-jose .arm-left {
-            animation: jose-arm-up-left 0.6s ease 3.7s forwards;
+            animation: jose-arm-up-left 0.6s ease 2.8s forwards;
         }
 
         .intro-box-jose .arm-right {
-            animation: jose-arm-up-right 0.6s ease 3.7s forwards;
+            animation: jose-arm-up-right 0.6s ease 2.8s forwards;
         }
 
         .intro-box-jose .confetti {
@@ -573,9 +545,9 @@
             opacity: 0;
         }
 
-        .intro-box-jose .confetti-1 { left: 30%; top: 20%; animation: confetti-pop 0.8s ease 3.9s forwards; }
-        .intro-box-jose .confetti-2 { right: 30%; top: 15%; animation: confetti-pop 0.8s ease 4s forwards; }
-        .intro-box-jose .confetti-3 { left: 20%; top: 30%; animation: confetti-pop 0.8s ease 4.1s forwards; }
+        .intro-box-jose .confetti-1 { left: 30%; top: 20%; animation: confetti-pop 0.8s ease 3s forwards; }
+        .intro-box-jose .confetti-2 { right: 30%; top: 15%; animation: confetti-pop 0.8s ease 3.1s forwards; }
+        .intro-box-jose .confetti-3 { left: 20%; top: 30%; animation: confetti-pop 0.8s ease 3.2s forwards; }
 
         @keyframes jose-arm-up-left {
             0% { transform: rotate(0deg); }
@@ -599,15 +571,11 @@
 
         /* Box glow effects when action happens */
         .intro-box-brady { animation: box-appear 0.5s ease 0.3s forwards, box-glow-red 0.5s ease 1s; }
-        .intro-box-kdb { animation: box-appear 0.5s ease 1.2s forwards, box-glow-blue 0.5s ease 1.9s; }
-        .intro-box-virat { animation: box-appear 0.5s ease 2.1s forwards, box-glow-navy 0.5s ease 2.8s; }
-        .intro-box-jose { animation: box-appear 0.5s ease 3s forwards, box-glow-royal 0.5s ease 3.7s; }
+        .intro-box-virat { animation: box-appear 0.5s ease 1.2s forwards, box-glow-navy 0.5s ease 1.9s; }
+        .intro-box-jose { animation: box-appear 0.5s ease 2.1s forwards, box-glow-royal 0.5s ease 2.8s; }
 
         @keyframes box-glow-red {
             50% { box-shadow: 0 0 40px rgba(200, 16, 46, 0.6); border-color: #ffc72c; }
-        }
-        @keyframes box-glow-blue {
-            50% { box-shadow: 0 0 40px rgba(108, 171, 221, 0.6); border-color: #fff; }
         }
         @keyframes box-glow-navy {
             50% { box-shadow: 0 0 40px rgba(0, 76, 147, 0.6); border-color: #ffcc00; }
@@ -1014,22 +982,6 @@
                     <span class="ball-element football">🏈</span>
                 </div>
                 <span class="label">Tom Brady</span>
-            </div>
-
-            <!-- Kevin de Bruyne - Soccer Kick -->
-            <div class="intro-box intro-box-kdb">
-                <div class="figure">
-                    <div class="silhouette">
-                        <div class="head"></div>
-                        <div class="body"></div>
-                        <div class="arm arm-left"></div>
-                        <div class="arm arm-right"></div>
-                        <div class="leg leg-left"></div>
-                        <div class="leg leg-right"></div>
-                    </div>
-                    <span class="ball-element soccer">⚽</span>
-                </div>
-                <span class="label">De Bruyne</span>
             </div>
 
             <!-- Virat Kohli - Cover Drive -->

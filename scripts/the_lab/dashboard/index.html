@@ -1816,9 +1816,101 @@
             border-radius: 3px;
         }
 
-        /* Hide intro on mobile */
+        /* Mobile responsive intro */
         @media (max-width: 900px) {
-            .intro-overlay { display: none; }
+            .intro-overlay {
+                padding: 15px 10px;
+            }
+            .intro-title {
+                font-size: 14px;
+                letter-spacing: 0.15em;
+                margin-bottom: 20px;
+                padding: 0 10px;
+                line-height: 1.4;
+            }
+            .intro-grid {
+                gap: 12px;
+            }
+            .intro-box {
+                width: 105px;
+                height: 210px;
+            }
+            .athlete {
+                transform: scale(0.7);
+                transform-origin: top center;
+            }
+            .trophy-container {
+                transform: translateX(-50%) translateY(50px) scale(0.75);
+            }
+            .label-group {
+                bottom: 10px;
+            }
+            .label-group .name {
+                font-size: 11px;
+            }
+            .label-group .trophy-name {
+                font-size: 8px;
+                letter-spacing: 0.1em;
+            }
+            .crowd-row {
+                transform: scale(0.75);
+            }
+            /* Optimize confetti for mobile */
+            .confetti {
+                display: none;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .intro-title {
+                font-size: 12px;
+                letter-spacing: 0.1em;
+            }
+            .intro-box {
+                width: 95px;
+                height: 195px;
+            }
+            .athlete {
+                transform: scale(0.62);
+            }
+            .trophy-container {
+                transform: translateX(-50%) translateY(42px) scale(0.65);
+            }
+            .label-group .name {
+                font-size: 10px;
+            }
+            .label-group .trophy-name {
+                font-size: 7px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .intro-title {
+                font-size: 10px;
+                letter-spacing: 0.08em;
+            }
+            .intro-box {
+                width: 85px;
+                height: 175px;
+            }
+            .athlete {
+                transform: scale(0.55);
+            }
+            .trophy-container {
+                transform: translateX(-50%) translateY(35px) scale(0.55);
+            }
+            .intro-grid {
+                gap: 8px;
+            }
+            .label-group .name {
+                font-size: 9px;
+            }
+            .label-group .trophy-name {
+                font-size: 6px;
+            }
+            .crowd-row {
+                transform: scale(0.6);
+            }
         }
 
         .hero-subtitle {
@@ -2201,7 +2293,7 @@
     <!-- Randomly displays 3 agents from pool of 13 (12 agents + Virat Kohli) -->
     <!-- Stadium background matches dominant sport of selected agents -->
     <div class="intro-overlay" id="intro-overlay">
-        <div class="intro-title">★ Legends of the Game ★</div>
+        <div class="intro-title">The Iconic. The Trailblazers. The Future.</div>
         <div class="intro-grid" id="intro-grid">
             <!-- Dynamically populated by JavaScript -->
             <!-- Fallback: Static Tom Brady if JS fails -->
@@ -2659,8 +2751,8 @@
                 name: 'Andy Flower',
                 role: 'Cricket Expert',
                 sport: 'cricket',
-                trophy: 'world-cup-cricket',
-                trophyLabel: 'World Cup Winner',
+                trophy: 'ipl',
+                trophyLabel: 'IPL Champion',
                 jerseyNumber: null,
                 hair: { color: '#3d3d3d', style: 'grey' },
                 jersey: { main: '#003366', accent: '#cc0000' },
@@ -2699,7 +2791,7 @@
                 role: 'DevOps Lead',
                 sport: 'nba',
                 trophy: 'nba',
-                trophyLabel: 'NBA Coach',
+                trophyLabel: 'Eastern Conference Finals',
                 jerseyNumber: null,
                 hair: { color: '#0f0a08', style: 'short' },
                 jersey: { main: '#1a1a2e', accent: '#333' },

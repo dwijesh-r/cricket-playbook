@@ -15,6 +15,7 @@ const TEAMS = {
         secondaryColor: "#d4af37",
         titles: 5,
         captain: "Hardik Pandya",
+        coach: "Mahela Jayawardene",
         icon: "🔵"
     },
     CSK: {
@@ -27,6 +28,7 @@ const TEAMS = {
         secondaryColor: "#0081e9",
         titles: 5,
         captain: "Ruturaj Gaikwad",
+        coach: "Stephen Fleming",
         icon: "🦁"
     },
     RCB: {
@@ -37,9 +39,11 @@ const TEAMS = {
         venueBias: "pace",
         primaryColor: "#d4213d",
         secondaryColor: "#000000",
-        titles: 0,
+        titles: 1,
         captain: "Rajat Patidar",
-        icon: "🔴"
+        coach: "Andy Flower",
+        icon: "🔴",
+        reigning: true
     },
     KKR: {
         abbrev: "KKR",
@@ -51,6 +55,7 @@ const TEAMS = {
         secondaryColor: "#d4af37",
         titles: 3,
         captain: "Ajinkya Rahane",
+        coach: "Abhishek Nayar",
         icon: "💜"
     },
     DC: {
@@ -63,6 +68,7 @@ const TEAMS = {
         secondaryColor: "#ef1b23",
         titles: 0,
         captain: "Axar Patel",
+        coach: "Hemang Badani",
         icon: "🔷"
     },
     PBKS: {
@@ -75,6 +81,7 @@ const TEAMS = {
         secondaryColor: "#a7a9ac",
         titles: 0,
         captain: "Shreyas Iyer",
+        coach: "Ricky Ponting",
         icon: "🦁"
     },
     RR: {
@@ -87,6 +94,7 @@ const TEAMS = {
         secondaryColor: "#254aa5",
         titles: 1,
         captain: "Riyan Parag",
+        coach: "Kumar Sangakkara",
         icon: "👑"
     },
     SRH: {
@@ -99,6 +107,7 @@ const TEAMS = {
         secondaryColor: "#000000",
         titles: 1,
         captain: "Pat Cummins",
+        coach: "Daniel Vettori",
         icon: "🌅"
     },
     GT: {
@@ -111,6 +120,7 @@ const TEAMS = {
         secondaryColor: "#d5a239",
         titles: 1,
         captain: "Shubman Gill",
+        coach: "Ashish Nehra",
         icon: "🦁"
     },
     LSG: {
@@ -123,6 +133,7 @@ const TEAMS = {
         secondaryColor: "#ffcc00",
         titles: 0,
         captain: "Rishabh Pant",
+        coach: "Justin Langer",
         icon: "🦸"
     }
 };
@@ -136,4 +147,291 @@ const QUICK_STATS = {
     matchesAnalyzed: 219,
     totalReports: 86,
     dataRange: "2023-2025"
+};
+
+/**
+ * Full Squad Data - Phil Steele Style
+ * Includes: age, nationality, role, price, batting hand
+ */
+const SQUADS = {
+    MI: {
+        purseSpent: 120.45,
+        purseRemaining: 0.55,
+        squad: [
+            { name: "Rohit Sharma", age: 38, nationality: "IND", role: "Batter", price: 16.30, batting: "Right", retainedStatus: "Retained" },
+            { name: "Suryakumar Yadav", age: 34, nationality: "IND", role: "Batter", price: 16.35, batting: "Right", retainedStatus: "Retained" },
+            { name: "Hardik Pandya", age: 32, nationality: "IND", role: "All-rounder", price: 16.35, batting: "Right", retainedStatus: "Retained" },
+            { name: "Jasprit Bumrah", age: 32, nationality: "IND", role: "Bowler", price: 18.00, batting: "Right", retainedStatus: "Retained" },
+            { name: "Tilak Varma", age: 23, nationality: "IND", role: "Batter", price: 8.00, batting: "Left", retainedStatus: "Retained" },
+            { name: "Trent Boult", age: 35, nationality: "NZ", role: "Bowler", price: 12.50, batting: "Right", retainedStatus: "Auction" },
+            { name: "Deepak Chahar", age: 32, nationality: "IND", role: "Bowler", price: 9.25, batting: "Right", retainedStatus: "Auction" },
+            { name: "Will Jacks", age: 26, nationality: "ENG", role: "All-rounder", price: 5.25, batting: "Right", retainedStatus: "Auction" },
+            { name: "Naman Dhir", age: 21, nationality: "IND", role: "Batter", price: 5.25, batting: "Right", retainedStatus: "Auction" },
+            { name: "Quinton de Kock", age: 33, nationality: "SA", role: "Wicketkeeper", price: 1.00, batting: "Left", retainedStatus: "Auction" },
+            { name: "Mitchell Santner", age: 33, nationality: "NZ", role: "All-rounder", price: 2.00, batting: "Left", retainedStatus: "Auction" },
+            { name: "Reece Topley", age: 31, nationality: "ENG", role: "Bowler", price: 0.75, batting: "Left", retainedStatus: "Auction" },
+            { name: "Robin Minz", age: 22, nationality: "IND", role: "Wicketkeeper", price: 0.65, batting: "Right", retainedStatus: "Auction" },
+            { name: "Raj Bawa", age: 22, nationality: "IND", role: "All-rounder", price: 0.50, batting: "Left", retainedStatus: "Auction" },
+            { name: "Karn Sharma", age: 37, nationality: "IND", role: "Bowler", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Ryan Rickelton", age: 28, nationality: "SA", role: "Batter", price: 1.00, batting: "Left", retainedStatus: "Auction" },
+            { name: "Allah Ghazanfar", age: 19, nationality: "AFG", role: "Bowler", price: 4.80, batting: "Right", retainedStatus: "Auction" },
+            { name: "Mohammed Izhar", age: 20, nationality: "IND", role: "Bowler", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Arjun Tendulkar", age: 25, nationality: "IND", role: "All-rounder", price: 0.30, batting: "Left", retainedStatus: "Auction" },
+            { name: "Lizaad Williams", age: 31, nationality: "SA", role: "Bowler", price: 0.75, batting: "Right", retainedStatus: "Auction" },
+            { name: "Satyanarayana Raju", age: 23, nationality: "IND", role: "Bowler", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Sherfane Rutherford", age: 27, nationality: "WI", role: "All-rounder", price: 0.30, batting: "Left", retainedStatus: "Auction" },
+            { name: "Bevon Jacobs", age: 22, nationality: "IND", role: "Bowler", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Vignesh Puthur", age: 23, nationality: "IND", role: "Batter", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Ashwani Kumar", age: 25, nationality: "IND", role: "Bowler", price: 0.30, batting: "Right", retainedStatus: "Auction" }
+        ]
+    },
+    CSK: {
+        purseSpent: 117.35,
+        purseRemaining: 3.65,
+        squad: [
+            { name: "Ruturaj Gaikwad", age: 27, nationality: "IND", role: "Batter", price: 18.00, batting: "Right", retainedStatus: "Retained" },
+            { name: "Sanju Samson", age: 30, nationality: "IND", role: "Wicketkeeper", price: 18.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Shivam Dube", age: 31, nationality: "IND", role: "All-rounder", price: 12.00, batting: "Left", retainedStatus: "Retained" },
+            { name: "Noor Ahmad", age: 19, nationality: "AFG", role: "Bowler", price: 10.00, batting: "Left", retainedStatus: "Auction" },
+            { name: "MS Dhoni", age: 44, nationality: "IND", role: "Wicketkeeper", price: 4.00, batting: "Right", retainedStatus: "Retained" },
+            { name: "Khaleel Ahmed", age: 27, nationality: "IND", role: "Bowler", price: 4.80, batting: "Left", retainedStatus: "Auction" },
+            { name: "Dewald Brevis", age: 22, nationality: "SA", role: "Batter", price: 2.20, batting: "Right", retainedStatus: "Auction" },
+            { name: "Nathan Ellis", age: 31, nationality: "AUS", role: "Bowler", price: 2.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Rahul Chahar", age: 25, nationality: "IND", role: "Bowler", price: 1.80, batting: "Right", retainedStatus: "Auction" },
+            { name: "Jamie Overton", age: 30, nationality: "ENG", role: "All-rounder", price: 1.50, batting: "Right", retainedStatus: "Auction" },
+            { name: "Sam Curran", age: 26, nationality: "ENG", role: "All-rounder", price: 2.40, batting: "Left", retainedStatus: "Auction" },
+            { name: "Aman Khan", age: 24, nationality: "IND", role: "All-rounder", price: 0.30, batting: "Left", retainedStatus: "Auction" },
+            { name: "Sarfaraz Khan", age: 27, nationality: "IND", role: "Batter", price: 0.50, batting: "Right", retainedStatus: "Auction" },
+            { name: "Nishant Sindhu", age: 21, nationality: "IND", role: "All-rounder", price: 0.30, batting: "Left", retainedStatus: "Auction" },
+            { name: "R Sai Kishore", age: 28, nationality: "IND", role: "Bowler", price: 2.00, batting: "Left", retainedStatus: "Auction" },
+            { name: "Vijay Shankar", age: 34, nationality: "IND", role: "All-rounder", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Andre Siddarth", age: 23, nationality: "IND", role: "Batter", price: 0.30, batting: "Left", retainedStatus: "Auction" },
+            { name: "Devon Conway", age: 34, nationality: "NZ", role: "Batter", price: 6.25, batting: "Left", retainedStatus: "Auction" },
+            { name: "Anshul Kamboj", age: 23, nationality: "IND", role: "Bowler", price: 3.40, batting: "Right", retainedStatus: "Auction" },
+            { name: "Deepak Hooda", age: 30, nationality: "IND", role: "All-rounder", price: 1.70, batting: "Right", retainedStatus: "Auction" },
+            { name: "Mukesh Choudhary", age: 27, nationality: "IND", role: "Bowler", price: 0.30, batting: "Left", retainedStatus: "Auction" },
+            { name: "Shreyas Gopal", age: 31, nationality: "IND", role: "Bowler", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Kamlesh Nagarkoti", age: 26, nationality: "IND", role: "Bowler", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Vansh Bedi", age: 20, nationality: "IND", role: "Bowler", price: 0.55, batting: "Right", retainedStatus: "Auction" },
+            { name: "Gurjapneet Singh", age: 25, nationality: "IND", role: "Bowler", price: 0.30, batting: "Right", retainedStatus: "Auction" }
+        ]
+    },
+    RCB: {
+        purseSpent: 118.25,
+        purseRemaining: 2.75,
+        squad: [
+            { name: "Virat Kohli", age: 37, nationality: "IND", role: "Batter", price: 21.00, batting: "Right", retainedStatus: "Retained" },
+            { name: "Rajat Patidar", age: 31, nationality: "IND", role: "Batter", price: 11.00, batting: "Right", retainedStatus: "Retained" },
+            { name: "Josh Hazlewood", age: 35, nationality: "AUS", role: "Bowler", price: 12.50, batting: "Left", retainedStatus: "Auction" },
+            { name: "Phil Salt", age: 28, nationality: "ENG", role: "Wicketkeeper", price: 11.50, batting: "Right", retainedStatus: "Auction" },
+            { name: "Jitesh Sharma", age: 31, nationality: "IND", role: "Wicketkeeper", price: 11.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Bhuvneshwar Kumar", age: 36, nationality: "IND", role: "Bowler", price: 10.75, batting: "Right", retainedStatus: "Auction" },
+            { name: "Venkatesh Iyer", age: 30, nationality: "IND", role: "All-rounder", price: 7.00, batting: "Left", retainedStatus: "Auction" },
+            { name: "Krunal Pandya", age: 33, nationality: "IND", role: "All-rounder", price: 5.75, batting: "Left", retainedStatus: "Auction" },
+            { name: "Tim David", age: 29, nationality: "AUS", role: "Batter", price: 3.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Devdutt Padikkal", age: 24, nationality: "IND", role: "Batter", price: 2.00, batting: "Left", retainedStatus: "Auction" },
+            { name: "Romario Shepherd", age: 30, nationality: "WI", role: "All-rounder", price: 2.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Liam Livingstone", age: 32, nationality: "ENG", role: "All-rounder", price: 8.75, batting: "Right", retainedStatus: "Retained" },
+            { name: "Yash Dayal", age: 27, nationality: "IND", role: "Bowler", price: 5.00, batting: "Left", retainedStatus: "Retained" },
+            { name: "Swapnil Singh", age: 30, nationality: "IND", role: "Bowler", price: 0.50, batting: "Right", retainedStatus: "Auction" },
+            { name: "Manoj Bhandage", age: 26, nationality: "IND", role: "All-rounder", price: 0.30, batting: "Left", retainedStatus: "Auction" },
+            { name: "Mohit Rathee", age: 24, nationality: "IND", role: "All-rounder", price: 0.30, batting: "Left", retainedStatus: "Auction" },
+            { name: "Lungi Ngidi", age: 29, nationality: "SA", role: "Bowler", price: 1.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Jacob Bethell", age: 21, nationality: "ENG", role: "All-rounder", price: 2.60, batting: "Left", retainedStatus: "Auction" },
+            { name: "Nuwan Thushara", age: 29, nationality: "SL", role: "Bowler", price: 1.60, batting: "Right", retainedStatus: "Auction" },
+            { name: "Suyash Sharma", age: 21, nationality: "IND", role: "Bowler", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Abhinandan Singh", age: 22, nationality: "IND", role: "Batter", price: 0.30, batting: "Right", retainedStatus: "Auction" }
+        ]
+    },
+    KKR: {
+        purseSpent: 117.15,
+        purseRemaining: 3.85,
+        squad: [
+            { name: "Rinku Singh", age: 27, nationality: "IND", role: "Batter", price: 13.00, batting: "Left", retainedStatus: "Retained" },
+            { name: "Varun Chakravarthy", age: 33, nationality: "IND", role: "Bowler", price: 12.00, batting: "Right", retainedStatus: "Retained" },
+            { name: "Sunil Narine", age: 36, nationality: "WI", role: "All-rounder", price: 12.00, batting: "Left", retainedStatus: "Retained" },
+            { name: "Matheesha Pathirana", age: 22, nationality: "SL", role: "Bowler", price: 18.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Cameron Green", age: 26, nationality: "AUS", role: "All-rounder", price: 25.20, batting: "Right", retainedStatus: "Auction" },
+            { name: "Harshit Rana", age: 23, nationality: "IND", role: "Bowler", price: 4.00, batting: "Right", retainedStatus: "Retained" },
+            { name: "Angkrish Raghuvanshi", age: 20, nationality: "IND", role: "Batter", price: 3.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Rahul Tripathi", age: 34, nationality: "IND", role: "Batter", price: 2.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Vaibhav Arora", age: 26, nationality: "IND", role: "Bowler", price: 1.80, batting: "Right", retainedStatus: "Auction" },
+            { name: "Ajinkya Rahane", age: 37, nationality: "IND", role: "Batter", price: 1.50, batting: "Right", retainedStatus: "Auction" },
+            { name: "Manish Pandey", age: 36, nationality: "IND", role: "Batter", price: 0.75, batting: "Right", retainedStatus: "Auction" },
+            { name: "Moeen Ali", age: 38, nationality: "ENG", role: "All-rounder", price: 2.00, batting: "Left", retainedStatus: "Auction" },
+            { name: "Andre Russell", age: 37, nationality: "WI", role: "All-rounder", price: 12.00, batting: "Right", retainedStatus: "Retained" },
+            { name: "Finn Allen", age: 25, nationality: "NZ", role: "Wicketkeeper", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Spencer Johnson", age: 28, nationality: "AUS", role: "Bowler", price: 2.80, batting: "Left", retainedStatus: "Auction" },
+            { name: "Mayank Markande", age: 27, nationality: "IND", role: "Bowler", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Rovman Powell", age: 31, nationality: "WI", role: "Batter", price: 1.50, batting: "Right", retainedStatus: "Auction" },
+            { name: "Umran Malik", age: 25, nationality: "IND", role: "Bowler", price: 0.75, batting: "Right", retainedStatus: "Auction" },
+            { name: "Anukul Roy", age: 25, nationality: "IND", role: "All-rounder", price: 0.40, batting: "Left", retainedStatus: "Auction" },
+            { name: "Luvnith Sisodia", age: 21, nationality: "IND", role: "Wicketkeeper", price: 0.30, batting: "Left", retainedStatus: "Auction" },
+            { name: "Ramandeep Singh", age: 27, nationality: "IND", role: "All-rounder", price: 2.80, batting: "Right", retainedStatus: "Auction" },
+            { name: "Ayush Badoni", age: 25, nationality: "IND", role: "Batter", price: 0.65, batting: "Right", retainedStatus: "Auction" }
+        ]
+    },
+    DC: {
+        purseSpent: 115.30,
+        purseRemaining: 5.70,
+        squad: [
+            { name: "KL Rahul", age: 33, nationality: "IND", role: "Wicketkeeper", price: 14.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Kuldeep Yadav", age: 30, nationality: "IND", role: "Bowler", price: 13.25, batting: "Left", retainedStatus: "Retained" },
+            { name: "Mitchell Starc", age: 36, nationality: "AUS", role: "Bowler", price: 11.75, batting: "Left", retainedStatus: "Auction" },
+            { name: "T Natarajan", age: 34, nationality: "IND", role: "Bowler", price: 10.75, batting: "Left", retainedStatus: "Auction" },
+            { name: "Axar Patel", age: 31, nationality: "IND", role: "All-rounder", price: 16.50, batting: "Left", retainedStatus: "Retained" },
+            { name: "Tristan Stubbs", age: 25, nationality: "SA", role: "Batter", price: 10.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Abhishek Porel", age: 23, nationality: "IND", role: "Wicketkeeper", price: 4.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Ashutosh Sharma", age: 24, nationality: "IND", role: "Batter", price: 3.80, batting: "Right", retainedStatus: "Auction" },
+            { name: "David Miller", age: 36, nationality: "SA", role: "Batter", price: 2.00, batting: "Left", retainedStatus: "Auction" },
+            { name: "Lungi Ngidi", age: 29, nationality: "SA", role: "Bowler", price: 1.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Nitish Rana", age: 31, nationality: "IND", role: "Batter", price: 0.50, batting: "Left", retainedStatus: "Auction" },
+            { name: "Karun Nair", age: 33, nationality: "IND", role: "Batter", price: 0.50, batting: "Right", retainedStatus: "Auction" },
+            { name: "Prithvi Shaw", age: 26, nationality: "IND", role: "Batter", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Donovan Ferreira", age: 25, nationality: "SA", role: "Batter", price: 0.75, batting: "Right", retainedStatus: "Auction" },
+            { name: "Jake Fraser-McGurk", age: 23, nationality: "AUS", role: "Batter", price: 9.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Sameer Rizvi", age: 21, nationality: "IND", role: "Batter", price: 0.95, batting: "Left", retainedStatus: "Auction" },
+            { name: "Dushmantha Chameera", age: 30, nationality: "SL", role: "Bowler", price: 0.75, batting: "Right", retainedStatus: "Auction" },
+            { name: "Darshan Nalkande", age: 26, nationality: "IND", role: "All-rounder", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Ajay Mandal", age: 22, nationality: "IND", role: "All-rounder", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Mohammad Haris", age: 24, nationality: "PAK", role: "Wicketkeeper", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Manvanth Kumar", age: 21, nationality: "IND", role: "Bowler", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Faf du Plessis", age: 41, nationality: "SA", role: "Batter", price: 2.00, batting: "Right", retainedStatus: "Auction" }
+        ]
+    },
+    PBKS: {
+        purseSpent: 118.05,
+        purseRemaining: 2.95,
+        squad: [
+            { name: "Shreyas Iyer", age: 31, nationality: "IND", role: "Batter", price: 26.75, batting: "Right", retainedStatus: "Auction" },
+            { name: "Arshdeep Singh", age: 26, nationality: "IND", role: "Bowler", price: 18.00, batting: "Left", retainedStatus: "Auction" },
+            { name: "Yuzvendra Chahal", age: 35, nationality: "IND", role: "Bowler", price: 18.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Marco Jansen", age: 25, nationality: "SA", role: "All-rounder", price: 11.25, batting: "Left", retainedStatus: "Auction" },
+            { name: "Marcus Stoinis", age: 36, nationality: "AUS", role: "All-rounder", price: 11.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Shashank Singh", age: 33, nationality: "IND", role: "Batter", price: 5.50, batting: "Right", retainedStatus: "Auction" },
+            { name: "Nehal Wadhera", age: 24, nationality: "IND", role: "Batter", price: 4.20, batting: "Right", retainedStatus: "Auction" },
+            { name: "Prabhsimran Singh", age: 24, nationality: "IND", role: "Wicketkeeper", price: 4.00, batting: "Right", retainedStatus: "Retained" },
+            { name: "Priyansh Arya", age: 23, nationality: "IND", role: "Batter", price: 3.80, batting: "Left", retainedStatus: "Auction" },
+            { name: "Lockie Ferguson", age: 34, nationality: "NZ", role: "Bowler", price: 2.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Harpreet Brar", age: 30, nationality: "IND", role: "All-rounder", price: 1.50, batting: "Left", retainedStatus: "Auction" },
+            { name: "Cooper Connolly", age: 22, nationality: "AUS", role: "All-rounder", price: 1.00, batting: "Left", retainedStatus: "Auction" },
+            { name: "Glenn Maxwell", age: 37, nationality: "AUS", role: "All-rounder", price: 4.20, batting: "Right", retainedStatus: "Auction" },
+            { name: "Josh Inglis", age: 30, nationality: "AUS", role: "Wicketkeeper", price: 2.60, batting: "Right", retainedStatus: "Auction" },
+            { name: "Vishnu Vinod", age: 29, nationality: "IND", role: "Wicketkeeper", price: 0.95, batting: "Right", retainedStatus: "Auction" },
+            { name: "Musheer Khan", age: 20, nationality: "IND", role: "All-rounder", price: 0.30, batting: "Left", retainedStatus: "Auction" },
+            { name: "Aaron Hardie", age: 26, nationality: "AUS", role: "All-rounder", price: 1.25, batting: "Right", retainedStatus: "Auction" },
+            { name: "Kulwant Khejroliya", age: 30, nationality: "IND", role: "Bowler", price: 0.30, batting: "Left", retainedStatus: "Auction" },
+            { name: "Xavier Bartlett", age: 26, nationality: "AUS", role: "Bowler", price: 0.80, batting: "Right", retainedStatus: "Auction" },
+            { name: "Suryansh Shedge", age: 20, nationality: "IND", role: "All-rounder", price: 0.30, batting: "Left", retainedStatus: "Auction" },
+            { name: "Pravin Dubey", age: 29, nationality: "IND", role: "Bowler", price: 0.30, batting: "Right", retainedStatus: "Auction" }
+        ]
+    },
+    RR: {
+        purseSpent: 119.10,
+        purseRemaining: 1.90,
+        squad: [
+            { name: "Yashasvi Jaiswal", age: 23, nationality: "IND", role: "Batter", price: 18.00, batting: "Left", retainedStatus: "Retained" },
+            { name: "Ravindra Jadeja", age: 37, nationality: "IND", role: "All-rounder", price: 17.50, batting: "Left", retainedStatus: "Auction" },
+            { name: "Riyan Parag", age: 23, nationality: "IND", role: "All-rounder", price: 14.00, batting: "Right", retainedStatus: "Retained" },
+            { name: "Dhruv Jurel", age: 24, nationality: "IND", role: "Wicketkeeper", price: 14.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Jofra Archer", age: 31, nationality: "ENG", role: "Bowler", price: 12.50, batting: "Right", retainedStatus: "Auction" },
+            { name: "Shimron Hetmyer", age: 29, nationality: "WI", role: "Batter", price: 11.00, batting: "Left", retainedStatus: "Auction" },
+            { name: "Sam Curran", age: 26, nationality: "ENG", role: "All-rounder", price: 10.00, batting: "Left", retainedStatus: "Auction" },
+            { name: "Ravi Bishnoi", age: 25, nationality: "IND", role: "Bowler", price: 7.20, batting: "Right", retainedStatus: "Auction" },
+            { name: "Sandeep Sharma", age: 32, nationality: "IND", role: "Bowler", price: 4.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Sanju Samson", age: 30, nationality: "IND", role: "Wicketkeeper", price: 11.00, batting: "Right", retainedStatus: "Retained" },
+            { name: "Shubham Dubey", age: 24, nationality: "IND", role: "All-rounder", price: 0.80, batting: "Left", retainedStatus: "Auction" },
+            { name: "Kumar Kartikeya", age: 28, nationality: "IND", role: "Bowler", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Lhuan-dre Pretorius", age: 23, nationality: "SA", role: "All-rounder", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Ravi Singh", age: 24, nationality: "IND", role: "Batter", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Wanindu Hasaranga", age: 28, nationality: "SL", role: "All-rounder", price: 5.25, batting: "Right", retainedStatus: "Auction" },
+            { name: "Tushar Deshpande", age: 30, nationality: "IND", role: "Bowler", price: 6.50, batting: "Right", retainedStatus: "Auction" },
+            { name: "Fazalhaq Farooqi", age: 25, nationality: "AFG", role: "Bowler", price: 2.00, batting: "Left", retainedStatus: "Auction" },
+            { name: "Ashok Sharma", age: 25, nationality: "IND", role: "Batter", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Akash Madhwal", age: 31, nationality: "IND", role: "Bowler", price: 0.55, batting: "Right", retainedStatus: "Auction" },
+            { name: "Maheesh Theekshana", age: 25, nationality: "SL", role: "Bowler", price: 4.40, batting: "Right", retainedStatus: "Auction" }
+        ]
+    },
+    SRH: {
+        purseSpent: 116.90,
+        purseRemaining: 4.10,
+        squad: [
+            { name: "Heinrich Klaasen", age: 33, nationality: "SA", role: "Wicketkeeper", price: 23.00, batting: "Right", retainedStatus: "Retained" },
+            { name: "Travis Head", age: 31, nationality: "AUS", role: "Batter", price: 14.00, batting: "Left", retainedStatus: "Retained" },
+            { name: "Abhishek Sharma", age: 24, nationality: "IND", role: "All-rounder", price: 14.00, batting: "Left", retainedStatus: "Retained" },
+            { name: "Liam Livingstone", age: 32, nationality: "ENG", role: "All-rounder", price: 13.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Ishan Kishan", age: 27, nationality: "IND", role: "Wicketkeeper", price: 11.25, batting: "Left", retainedStatus: "Auction" },
+            { name: "Harshal Patel", age: 34, nationality: "IND", role: "Bowler", price: 8.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Nitish Kumar Reddy", age: 22, nationality: "IND", role: "All-rounder", price: 6.00, batting: "Right", retainedStatus: "Retained" },
+            { name: "Pat Cummins", age: 32, nationality: "AUS", role: "Bowler", price: 18.50, batting: "Right", retainedStatus: "Retained" },
+            { name: "Jaydev Unadkat", age: 33, nationality: "IND", role: "Bowler", price: 1.00, batting: "Left", retainedStatus: "Auction" },
+            { name: "Kamindu Mendis", age: 27, nationality: "SL", role: "All-rounder", price: 0.75, batting: "Left", retainedStatus: "Auction" },
+            { name: "Aniket Verma", age: 24, nationality: "IND", role: "Batter", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Ravichandran Smaran", age: 22, nationality: "IND", role: "Batter", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Shivam Mavi", age: 26, nationality: "IND", role: "Bowler", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Adam Zampa", age: 33, nationality: "AUS", role: "Bowler", price: 2.40, batting: "Right", retainedStatus: "Auction" },
+            { name: "Simarjeet Singh", age: 26, nationality: "IND", role: "Bowler", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Zeeshan Ansari", age: 22, nationality: "IND", role: "Bowler", price: 0.40, batting: "Left", retainedStatus: "Auction" },
+            { name: "Atharva Taide", age: 24, nationality: "IND", role: "Batter", price: 0.30, batting: "Left", retainedStatus: "Auction" },
+            { name: "Eshan Malinga", age: 20, nationality: "IND", role: "Bowler", price: 1.20, batting: "Right", retainedStatus: "Auction" },
+            { name: "Sachin Baby", age: 36, nationality: "IND", role: "Batter", price: 0.30, batting: "Left", retainedStatus: "Auction" },
+            { name: "Abhinav Manohar", age: 30, nationality: "IND", role: "Batter", price: 0.30, batting: "Right", retainedStatus: "Auction" }
+        ]
+    },
+    GT: {
+        purseSpent: 118.95,
+        purseRemaining: 2.05,
+        squad: [
+            { name: "Shubman Gill", age: 26, nationality: "IND", role: "Batter", price: 16.50, batting: "Right", retainedStatus: "Retained" },
+            { name: "Rashid Khan", age: 27, nationality: "AFG", role: "Bowler", price: 18.00, batting: "Right", retainedStatus: "Retained" },
+            { name: "Jos Buttler", age: 35, nationality: "ENG", role: "Wicketkeeper", price: 15.75, batting: "Right", retainedStatus: "Auction" },
+            { name: "Mohammed Siraj", age: 31, nationality: "IND", role: "Bowler", price: 12.25, batting: "Right", retainedStatus: "Auction" },
+            { name: "Kagiso Rabada", age: 30, nationality: "SA", role: "Bowler", price: 10.75, batting: "Right", retainedStatus: "Auction" },
+            { name: "Prasidh Krishna", age: 29, nationality: "IND", role: "Bowler", price: 9.50, batting: "Right", retainedStatus: "Auction" },
+            { name: "Sai Sudharsan", age: 23, nationality: "IND", role: "Batter", price: 8.50, batting: "Left", retainedStatus: "Retained" },
+            { name: "Rahul Tewatia", age: 31, nationality: "IND", role: "All-rounder", price: 4.00, batting: "Left", retainedStatus: "Auction" },
+            { name: "Washington Sundar", age: 26, nationality: "IND", role: "All-rounder", price: 3.20, batting: "Left", retainedStatus: "Auction" },
+            { name: "Glenn Phillips", age: 28, nationality: "NZ", role: "All-rounder", price: 2.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Jayant Yadav", age: 35, nationality: "IND", role: "All-rounder", price: 0.75, batting: "Right", retainedStatus: "Auction" },
+            { name: "Ishant Sharma", age: 37, nationality: "IND", role: "Bowler", price: 0.75, batting: "Right", retainedStatus: "Auction" },
+            { name: "Shahrukh Khan", age: 30, nationality: "IND", role: "Batter", price: 7.40, batting: "Right", retainedStatus: "Auction" },
+            { name: "Karim Janat", age: 28, nationality: "AFG", role: "All-rounder", price: 0.75, batting: "Right", retainedStatus: "Auction" },
+            { name: "Nishant Sindhu", age: 21, nationality: "IND", role: "All-rounder", price: 0.30, batting: "Left", retainedStatus: "Auction" },
+            { name: "Mahipal Lomror", age: 26, nationality: "IND", role: "All-rounder", price: 0.30, batting: "Left", retainedStatus: "Auction" },
+            { name: "Kumar Kushagra", age: 23, nationality: "IND", role: "Wicketkeeper", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Anuj Rawat", age: 25, nationality: "IND", role: "Wicketkeeper", price: 0.30, batting: "Left", retainedStatus: "Auction" },
+            { name: "Gerald Coetzee", age: 24, nationality: "SA", role: "Bowler", price: 2.40, batting: "Right", retainedStatus: "Auction" },
+            { name: "Sai Kishore", age: 28, nationality: "IND", role: "Bowler", price: 0.30, batting: "Left", retainedStatus: "Auction" },
+            { name: "Manav Suthar", age: 23, nationality: "IND", role: "Bowler", price: 0.30, batting: "Left", retainedStatus: "Auction" },
+            { name: "Gurnoor Brar", age: 24, nationality: "IND", role: "Bowler", price: 0.30, batting: "Left", retainedStatus: "Auction" }
+        ]
+    },
+    LSG: {
+        purseSpent: 117.15,
+        purseRemaining: 3.85,
+        squad: [
+            { name: "Rishabh Pant", age: 28, nationality: "IND", role: "Wicketkeeper", price: 27.00, batting: "Left", retainedStatus: "Auction" },
+            { name: "Nicholas Pooran", age: 29, nationality: "WI", role: "Wicketkeeper", price: 21.00, batting: "Left", retainedStatus: "Auction" },
+            { name: "Mohammed Shami", age: 35, nationality: "IND", role: "Bowler", price: 10.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Avesh Khan", age: 28, nationality: "IND", role: "Bowler", price: 9.75, batting: "Right", retainedStatus: "Auction" },
+            { name: "Wanindu Hasaranga", age: 28, nationality: "SL", role: "All-rounder", price: 7.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Abdul Samad", age: 23, nationality: "IND", role: "Batter", price: 4.20, batting: "Right", retainedStatus: "Auction" },
+            { name: "Mohsin Khan", age: 26, nationality: "IND", role: "Bowler", price: 4.00, batting: "Left", retainedStatus: "Auction" },
+            { name: "Ayush Badoni", age: 25, nationality: "IND", role: "Batter", price: 4.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Mitchell Marsh", age: 34, nationality: "AUS", role: "All-rounder", price: 3.40, batting: "Right", retainedStatus: "Auction" },
+            { name: "Aiden Markram", age: 31, nationality: "SA", role: "Batter", price: 2.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "David Miller", age: 36, nationality: "SA", role: "Batter", price: 0.75, batting: "Left", retainedStatus: "Auction" },
+            { name: "Digvesh Rathi", age: 26, nationality: "IND", role: "Bowler", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Himmat Singh", age: 24, nationality: "IND", role: "All-rounder", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Ravi Bishnoi", age: 25, nationality: "IND", role: "Bowler", price: 11.00, batting: "Right", retainedStatus: "Retained" },
+            { name: "Mayank Yadav", age: 23, nationality: "IND", role: "Bowler", price: 11.00, batting: "Right", retainedStatus: "Retained" },
+            { name: "Shahbaz Ahmed", age: 30, nationality: "IND", role: "All-rounder", price: 2.40, batting: "Left", retainedStatus: "Auction" },
+            { name: "Arshin Kulkarni", age: 21, nationality: "IND", role: "Batter", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Akash Deep", age: 28, nationality: "IND", role: "Bowler", price: 8.00, batting: "Right", retainedStatus: "Auction" },
+            { name: "Yuvraj Chaudhary", age: 22, nationality: "IND", role: "Bowler", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Prince Yadav", age: 23, nationality: "IND", role: "All-rounder", price: 0.30, batting: "Left", retainedStatus: "Auction" },
+            { name: "Rajvardhan Hangargekar", age: 22, nationality: "IND", role: "All-rounder", price: 0.30, batting: "Right", retainedStatus: "Auction" },
+            { name: "Matthew Breetzke", age: 27, nationality: "SA", role: "Batter", price: 0.75, batting: "Right", retainedStatus: "Auction" }
+        ]
+    }
 };

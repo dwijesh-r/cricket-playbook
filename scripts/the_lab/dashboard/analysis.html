@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis - The Lab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #1c1c1e;
+            --bg-tertiary: #2c2c2e;
+            --bg-elevated: #3a3a3c;
+            --text-primary: #ffffff;
+            --text-secondary: #8e8e93;
+            --text-tertiary: #636366;
+            --accent: #0a84ff;
+            --accent-green: #30d158;
+            --accent-yellow: #ffd60a;
+            --accent-orange: #ff9f0a;
+            --accent-red: #ff453a;
+            --accent-purple: #bf5af2;
+            --accent-pink: #ff375f;
+            --accent-teal: #64d2ff;
+            --border: rgba(255, 255, 255, 0.1);
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+        [data-theme="light"] {
+            --bg-primary: #f5f5f7;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #e5e5ea;
+            --bg-elevated: #d1d1d6;
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --text-tertiary: #8e8e93;
+            --accent: #007aff;
+            --accent-green: #28cd41;
+            --accent-yellow: #ffcc00;
+            --accent-orange: #ff9500;
+            --accent-red: #ff3b30;
+            --accent-purple: #af52de;
+            --accent-pink: #ff2d55;
+            --accent-teal: #5ac8fa;
+            --border: rgba(0, 0, 0, 0.08);
+            --glass: rgba(0, 0, 0, 0.03);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+        .bg-gradient {
+            position: fixed; inset: 0; z-index: -4;
+            background: linear-gradient(135deg, #000000 0%, #0a0a12 25%, #0d1020 50%, #0a0a15 75%, #000000 100%);
+        }
+        [data-theme="light"] .bg-gradient {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f1f3f5 100%);
+        }
+        .bg-gradient::before {
+            content: ''; position: absolute; top: -20%; right: -10%; width: 60%; height: 60%;
+            background: radial-gradient(ellipse, rgba(10, 132, 255, 0.18) 0%, transparent 70%);
+            filter: blur(80px);
+        }
+        .bg-grid {
+            position: fixed; inset: 0; z-index: -2;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        [data-theme="light"] .bg-grid {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; height: 56px;
+            background: rgba(0, 0, 0, 0.8); backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 24px; z-index: 100;
+        }
+        [data-theme="light"] .nav { background: rgba(245, 245, 247, 0.85); }
+        .nav-brand { display: flex; align-items: center; gap: 12px; }
+        .nav-logo {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px;
+        }
+        .nav-title { font-size: 16px; font-weight: 700; }
+        .nav-title span { color: var(--accent); }
+        .nav-tabs {
+            display: flex; gap: 4px;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            padding: 5px; border-radius: 12px; border: 1px solid var(--border);
+        }
+        .nav-tab {
+            padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;
+            color: var(--text-secondary); cursor: pointer; transition: all 0.25s ease;
+            border: none; background: none; font-family: inherit; text-decoration: none;
+        }
+        .nav-tab:hover { color: var(--text-primary); background: var(--bg-tertiary); }
+        .nav-tab.active {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            color: white;
+        }
+        .nav-actions { display: flex; align-items: center; gap: 10px; }
+        .theme-toggle {
+            width: 38px; height: 38px; border-radius: 10px; background: var(--bg-secondary);
+            border: 1px solid var(--border); color: var(--text-secondary);
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            font-size: 16px; transition: all 0.25s ease;
+        }
+        .theme-toggle:hover { color: var(--accent-yellow); border-color: var(--accent-yellow); }
+        .nav-btn {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border); color: var(--accent);
+            padding: 8px 16px; border-radius: 10px; font-size: 13px; font-weight: 600;
+            cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+            transition: all 0.25s ease;
+        }
+        .nav-btn:hover {
+            background: linear-gradient(135deg, rgba(10, 132, 255, 0.2) 0%, rgba(191, 90, 242, 0.2) 100%);
+            border-color: var(--accent);
+        }
+
+        .main { padding-top: 56px; min-height: 100vh; }
+
+        .page-header {
+            padding: 60px 24px 40px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .page-title {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-teal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .page-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .content { max-width: 1200px; margin: 0 auto; padding: 0 24px 60px; }
+
+        /* Section Styles */
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section-title .icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        /* Analysis Card Grid */
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+
+        .analysis-card {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+        .analysis-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(10, 132, 255, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .card-file {
+            font-size: 12px;
+            font-family: monospace;
+            color: var(--accent);
+            background: var(--glass);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .card-why {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 16px;
+        }
+        .card-why-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: var(--accent-teal);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .card-why-text {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+        .card-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(10, 132, 255, 0.3);
+        }
+
+        /* Category Badges */
+        .card-category {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .card-category.data { background: rgba(48, 209, 88, 0.2); color: var(--accent-green); }
+        .card-category.eda { background: rgba(10, 132, 255, 0.2); color: var(--accent); }
+        .card-category.audit { background: rgba(255, 159, 10, 0.2); color: var(--accent-orange); }
+        .card-category.validation { background: rgba(191, 90, 242, 0.2); color: var(--accent-purple); }
+
+        /* Footer */
+        .footer {
+            padding: 40px 24px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        .footer-text { font-size: 12px; color: var(--text-tertiary); }
+        .footer a { color: var(--accent); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .nav-tabs { display: none; }
+            .analysis-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+
+    <nav class="nav">
+        <div class="nav-brand">
+            <div class="nav-logo">🏏</div>
+            <div class="nav-title">Cricket <span>Playbook</span></div>
+        </div>
+        <div class="nav-tabs">
+            <a href="index.html" class="nav-tab">Home</a>
+            <a href="teams.html" class="nav-tab">Teams</a>
+            <a href="artifacts.html" class="nav-tab">Artifacts</a>
+            <a href="analysis.html" class="nav-tab active">Analysis</a>
+            <a href="research.html" class="nav-tab">Research</a>
+            <a href="about.html" class="nav-tab">About</a>
+        </div>
+        <div class="nav-actions">
+            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+            <a href="../../mission_control/dashboard/index.html" class="nav-btn">🎯 Mission Control</a>
+        </div>
+    </nav>
+
+    <main class="main">
+        <header class="page-header">
+            <h1 class="page-title">📊 Analysis Documents</h1>
+            <p class="page-subtitle">
+                Deep-dive reports that shaped our analytics decisions. Each document represents
+                a rigorous investigation into data quality, thresholds, and methodology validation.
+            </p>
+        </header>
+
+        <div class="content">
+            <!-- Data Quality Audits -->
+            <section>
+                <h2 class="section-title">
+                    <span class="icon">🔍</span>
+                    Data Quality Audits
+                </h2>
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <span class="card-category audit">Audit</span>
+                        <div class="card-header">
+                            <div class="card-icon">🆔</div>
+                            <div>
+                                <h3 class="card-title">Player ID Mismatch Audit</h3>
+                                <span class="card-file">player_id_audit_report.md</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Comprehensive audit identifying 15+ player ID mismatches between Cricsheet data
+                            and IPL 2026 squad files. Resolves duplicate IDs from franchise trades (MI↔LSG)
+                            and ensures data integrity across all analytics pipelines.
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this was done</div>
+                            <div class="card-why-text">
+                                Discovered during stat pack generation that some players appeared twice or had
+                                incorrect stats. This audit created canonical ID mappings used by all downstream outputs.
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/analysis/player_id_audit_report.md"
+                           target="_blank" class="card-link">
+                            📄 View on GitHub →
+                        </a>
+                    </div>
+
+                    <div class="analysis-card">
+                        <span class="card-category audit">Audit</span>
+                        <div class="card-header">
+                            <div class="card-icon">🎯</div>
+                            <div>
+                                <h3 class="card-title">Entry Point Audit</h3>
+                                <span class="card-file">entry_point_audit_report.md</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Analysis of where batters typically bat in the order (entry points). Validates
+                            our batting position classifications and ensures OPENER, MIDDLE_ORDER, and
+                            FINISHER tags align with actual match data.
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this was done</div>
+                            <div class="card-why-text">
+                                Andy Flower flagged that some "opener" tags didn't match where players actually
+                                batted. This audit provided evidence-based entry point distributions.
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/analysis/entry_point_audit_report.md"
+                           target="_blank" class="card-link">
+                            📄 View on GitHub →
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EDA & Threshold Analysis -->
+            <section>
+                <h2 class="section-title">
+                    <span class="icon">📈</span>
+                    EDA & Threshold Analysis
+                </h2>
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <span class="card-category eda">EDA</span>
+                        <div class="card-header">
+                            <div class="card-icon">📊</div>
+                            <div>
+                                <h3 class="card-title">Threshold EDA (2023+ Data)</h3>
+                                <span class="card-file">threshold_eda_2023.md</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Exploratory data analysis that determined optimal thresholds for player tags
+                            using only 2023-2025 IPL data. Establishes baselines for SPECIALIST vs VULNERABLE,
+                            PP_BEAST vs PP_LIABILITY, and other phase-specific tags.
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this was done</div>
+                            <div class="card-why-text">
+                                Original thresholds were based on all-time T20 data, causing stat drift.
+                                This EDA recalibrated all thresholds to reflect the current T20 meta (2023+).
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/analysis/threshold_eda_2023.md"
+                           target="_blank" class="card-link">
+                            📄 View on GitHub →
+                        </a>
+                    </div>
+
+                    <div class="analysis-card">
+                        <span class="card-category validation">Validation</span>
+                        <div class="card-header">
+                            <div class="card-icon">⚖️</div>
+                            <div>
+                                <h3 class="card-title">Baselines vs Tags Comparison</h3>
+                                <span class="card-file">baselines_vs_tags.md</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Systematic comparison of league-wide baselines against our player tag criteria.
+                            Validates that SPECIALIST and VULNERABLE thresholds are meaningful relative
+                            to overall IPL performance distributions.
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this was done</div>
+                            <div class="card-why-text">
+                                Jose Mourinho challenged whether our tag thresholds were statistically defensible.
+                                This analysis proved that tags represent meaningful deviations from league averages.
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/analysis/baselines_vs_tags.md"
+                           target="_blank" class="card-link">
+                            📄 View on GitHub →
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Research & Methodology -->
+            <section>
+                <h2 class="section-title">
+                    <span class="icon">📚</span>
+                    Research & Methodology
+                </h2>
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <span class="card-category data">Research</span>
+                        <div class="card-header">
+                            <div class="card-icon">🏈</div>
+                            <div>
+                                <h3 class="card-title">PFF Grading System Research</h3>
+                                <span class="card-file">pff_grading_system_research.md</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Deep-dive into Pro Football Focus's play-by-play grading methodology.
+                            Explores how context-aware evaluation and position-specific metrics
+                            can be adapted for cricket analytics.
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this was done</div>
+                            <div class="card-why-text">
+                                PFF revolutionized NFL analytics by going beyond box scores. This research
+                                informed our approach to context-aware player evaluation in cricket.
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/research/pff_grading_system_research.md"
+                           target="_blank" class="card-link">
+                            📄 View on GitHub →
+                        </a>
+                    </div>
+
+                    <div class="analysis-card">
+                        <span class="card-category data">Research</span>
+                        <div class="card-header">
+                            <div class="card-icon">🏀</div>
+                            <div>
+                                <h3 class="card-title">KenPom Methodology Research</h3>
+                                <span class="card-file">kenpom_methodology_research.md</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Analysis of KenPom's college basketball analytics — adjusted efficiency,
+                            tempo-free stats, and the "Four Factors." Foundation for our planned
+                            CricPom team rating system.
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this was done</div>
+                            <div class="card-why-text">
+                                KenPom's adjusted metrics revolutionized basketball analysis. This research
+                                explores how to create cricket equivalents for team-level efficiency ratings.
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/research/kenpom_methodology_research.md"
+                           target="_blank" class="card-link">
+                            📄 View on GitHub →
+                        </a>
+                    </div>
+
+                    <div class="analysis-card">
+                        <span class="card-category validation">Spec</span>
+                        <div class="card-header">
+                            <div class="card-icon">🎨</div>
+                            <div>
+                                <h3 class="card-title">Player Clustering PRD</h3>
+                                <span class="card-file">player_clustering_prd.md</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Product requirements document for our K-means clustering model.
+                            Defines the 6 batter archetypes (EXPLOSIVE_OPENER to FINISHER) and
+                            7 bowler archetypes (PACER to PART_TIMER).
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this was done</div>
+                            <div class="card-why-text">
+                                Before building the clustering model, we needed to define what archetypes
+                                should exist and how they map to cricket roles. This PRD aligned the team.
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/specs/player_clustering_prd.md"
+                           target="_blank" class="card-link">
+                            📄 View on GitHub →
+                        </a>
+                    </div>
+
+                    <div class="analysis-card">
+                        <span class="card-category validation">Spec</span>
+                        <div class="card-header">
+                            <div class="card-icon">🎭</div>
+                            <div>
+                                <h3 class="card-title">Cluster Archetypes (Creative)</h3>
+                                <span class="card-file">cluster_archetypes_creative.md</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Creative descriptions and narrative framing for each player archetype.
+                            Makes technical clusters accessible to fans through cricket storytelling
+                            and real-world player examples.
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this was done</div>
+                            <div class="card-why-text">
+                                Raw cluster labels (Cluster 0, 1, 2...) don't resonate with fans.
+                                This doc created the narrative layer that makes analytics accessible.
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/specs/cluster_archetypes_creative.md"
+                           target="_blank" class="card-link">
+                            📄 View on GitHub →
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Algorithm Docs -->
+            <section>
+                <h2 class="section-title">
+                    <span class="icon">⚙️</span>
+                    Algorithm Documentation
+                </h2>
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <span class="card-category data">Algorithm</span>
+                        <div class="card-header">
+                            <div class="card-icon">🎯</div>
+                            <div>
+                                <h3 class="card-title">SUPER SELECTOR Algorithm v2</h3>
+                                <span class="card-file">predicted_xii_algorithm_v2.md</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Complete specification of our Predicted XII algorithm. Covers constraint
+                            satisfaction (overseas limits, balance requirements), scoring weights,
+                            impact player selection, and tie-breaking rules.
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this was done</div>
+                            <div class="card-why-text">
+                                The Predicted XII is our flagship output. This doc ensures the algorithm
+                                is reproducible, auditable, and can be improved systematically.
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/specs/predicted_xii_algorithm_v2.md"
+                           target="_blank" class="card-link">
+                            📄 View on GitHub →
+                        </a>
+                    </div>
+
+                    <div class="analysis-card">
+                        <span class="card-category validation">Domain</span>
+                        <div class="card-header">
+                            <div class="card-icon">🌸</div>
+                            <div>
+                                <h3 class="card-title">Andy Flower Validation v2</h3>
+                                <span class="card-file">andy_flower_v2_validation.md</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Domain expert review of our clustering model outputs. Andy Flower's
+                            validation of player archetypes and recommendations for threshold
+                            adjustments based on cricket expertise.
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this was done</div>
+                            <div class="card-why-text">
+                                Data-driven models need domain validation. Andy's cricket expertise
+                                ensures our clusters map to real playing styles, not just statistical patterns.
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/specs/andy_flower_v2_validation.md"
+                           target="_blank" class="card-link">
+                            📄 View on GitHub →
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p class="footer-text">
+                Cricket Playbook Analysis Docs | <a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/analysis" target="_blank">View all on GitHub</a>
+            </p>
+        </footer>
+    </main>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '🌙' : '☀️';
+        }
+
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+    </script>
+</body>
+</html>

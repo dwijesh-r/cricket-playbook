@@ -2599,6 +2599,41 @@
                 <text x="6" y="10" font-size="6" fill="white" font-weight="bold">RM</text>
             </svg>`,
 
+            'Florentino Pérez': `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                <!-- BG: Real Madrid Gold -->
+                <rect width="64" height="64" rx="8" fill="#FEBE10"/>
+                <!-- Gray/white hair -->
+                <rect x="16" y="8" width="32" height="8" fill="#C0C0C0"/>
+                <rect x="12" y="12" width="8" height="4" fill="#D0D0D0"/>
+                <rect x="44" y="12" width="8" height="4" fill="#D0D0D0"/>
+                <!-- Face -->
+                <rect x="16" y="16" width="32" height="20" fill="#F5D4B8"/>
+                <rect x="12" y="20" width="4" height="8" fill="#F5D4B8"/>
+                <rect x="48" y="20" width="4" height="8" fill="#F5D4B8"/>
+                <!-- Eyes -->
+                <rect x="20" y="20" width="8" height="4" fill="white"/>
+                <rect x="36" y="20" width="8" height="4" fill="white"/>
+                <rect x="24" y="20" width="4" height="4" fill="#2C3E50"/>
+                <rect x="40" y="20" width="4" height="4" fill="#2C3E50"/>
+                <!-- Eyebrows -->
+                <rect x="20" y="16" width="8" height="4" fill="#808080"/>
+                <rect x="36" y="16" width="8" height="4" fill="#808080"/>
+                <!-- Nose -->
+                <rect x="28" y="24" width="8" height="4" fill="#E8C4A0"/>
+                <!-- Mouth -->
+                <rect x="24" y="30" width="16" height="4" fill="#906050"/>
+                <!-- Suit -->
+                <rect x="8" y="40" width="48" height="24" fill="#1A1A1A"/>
+                <!-- White shirt -->
+                <rect x="24" y="40" width="4" height="8" fill="white"/>
+                <rect x="36" y="40" width="4" height="8" fill="white"/>
+                <!-- Blue tie -->
+                <rect x="28" y="44" width="8" height="16" fill="#034694"/>
+                <!-- RM badge -->
+                <rect x="4" y="4" width="12" height="8" fill="#034694"/>
+                <text x="6" y="10" font-size="6" fill="white" font-weight="bold">RM</text>
+            </svg>`,
+
             'Pep Guardiola': `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                 <!-- BG: Man City Blue -->
                 <rect width="64" height="64" rx="8" fill="#6CABDD"/>
@@ -2817,6 +2852,7 @@
             'Andy Flower': { role: 'Cricket Domain Expert', team: 'Zimbabwe Cricket' },
             "N'Golo Kanté": { role: 'QA Lead', team: 'Al-Ittihad' },
             'Florentino Perez': { role: 'Founder', team: 'Real Madrid' },
+            'Florentino Pérez': { role: 'Founder', team: 'Real Madrid' },
             'Pep Guardiola': { role: 'Tactical Analysis', team: 'Manchester City' },
             'Ime Udoka': { role: 'DevOps Lead', team: 'Houston Rockets' }
         };
@@ -3246,8 +3282,8 @@
                     done: done.length,
                     running: agentTickets.filter(t => t.state === 'RUNNING').length,
                     blocked: agentTickets.filter(t => t.state === 'BLOCKED').length,
-                    avgDays: agentTickets.length ? (agentTickets.reduce((sum, t) => sum + t.daysSpent, 0) / agentTickets.length).toFixed(1) : 0,
-                    totalIterations: agentTickets.reduce((sum, t) => sum + t.iterations, 0),
+                    avgDays: agentTickets.length ? (agentTickets.reduce((sum, t) => sum + (t.daysSpent || 0), 0) / agentTickets.length).toFixed(1) : 'N/A',
+                    totalIterations: agentTickets.reduce((sum, t) => sum + (t.iterations || 0), 0) || 'N/A',
                     p0: agentTickets.filter(t => t.priority === 'P0').length,
                     p1: agentTickets.filter(t => t.priority === 'P1').length,
                     p2: agentTickets.filter(t => t.priority === 'P2').length,
@@ -3316,7 +3352,7 @@
                                         <div class="agent-recent-item">
                                             <div class="recent-status ${t.state.toLowerCase()}"></div>
                                             <div class="recent-title">${t.title}</div>
-                                            <div class="recent-time">${t.daysSpent}d</div>
+                                            <div class="recent-time">${t.daysSpent != null ? t.daysSpent + 'd' : 'N/A'}</div>
                                         </div>
                                     `).join('')}
                                 </div>
@@ -3387,11 +3423,11 @@
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">Days Spent</div>
-                    <div class="detail-value">${t.daysSpent} days</div>
+                    <div class="detail-value">${t.daysSpent != null ? t.daysSpent + ' days' : 'N/A'}</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">Iterations</div>
-                    <div class="detail-value">${t.iterations}</div>
+                    <div class="detail-value">${t.iterations != null ? t.iterations : 'N/A'}</div>
                 </div>
             `;
 

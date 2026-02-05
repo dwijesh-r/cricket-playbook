@@ -483,6 +483,217 @@
         .depth-player-name { font-size: 14px; font-weight: 600; }
         .depth-player-rationale { font-size: 11px; color: var(--text-tertiary); margin-top: 2px; }
 
+        /* Phil Steele Style Squad Roster */
+        .squad-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--border);
+        }
+        .squad-header h3 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .squad-stats {
+            display: flex;
+            gap: 20px;
+        }
+        .squad-stat {
+            text-align: center;
+        }
+        .squad-stat-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .squad-stat-label {
+            font-size: 10px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+        }
+
+        /* Phil Steele Roster Table */
+        .roster-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        .roster-table thead {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .roster-table th {
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-elevated) 100%);
+            padding: 12px 8px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            border-bottom: 2px solid var(--accent);
+        }
+        .roster-table th:first-child { border-radius: 8px 0 0 0; }
+        .roster-table th:last-child { border-radius: 0 8px 0 0; }
+        .roster-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.2s ease;
+        }
+        .roster-table tr:hover td {
+            background: var(--glass);
+        }
+        .roster-table tr:nth-child(even) td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .roster-table tr:nth-child(even):hover td {
+            background: var(--glass);
+        }
+
+        /* Player Name Column */
+        .player-name-cell {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .player-number {
+            width: 24px;
+            height: 24px;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--text-tertiary);
+        }
+        .player-name-text {
+            font-weight: 600;
+        }
+        .retained-badge {
+            background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-pink) 100%);
+            color: white;
+            font-size: 8px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Role Badge */
+        .role-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .role-batter { background: rgba(48, 209, 88, 0.15); color: var(--accent-green); }
+        .role-bowler { background: rgba(255, 69, 58, 0.15); color: var(--accent-red); }
+        .role-all-rounder { background: rgba(10, 132, 255, 0.15); color: var(--accent); }
+        .role-wicketkeeper { background: rgba(255, 214, 10, 0.15); color: var(--accent-yellow); }
+
+        /* Nationality Flag */
+        .nationality-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 8px;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .nationality-badge.overseas {
+            background: rgba(255, 159, 10, 0.15);
+            color: var(--accent-orange);
+        }
+
+        /* Price Column */
+        .price-cell {
+            font-weight: 700;
+            font-family: 'Inter', monospace;
+        }
+        .price-high { color: var(--accent-green); }
+        .price-mid { color: var(--accent-yellow); }
+        .price-low { color: var(--text-tertiary); }
+
+        /* Age Column */
+        .age-cell {
+            font-weight: 600;
+        }
+        .age-young { color: var(--accent-green); }
+        .age-prime { color: var(--text-primary); }
+        .age-veteran { color: var(--accent-orange); }
+
+        /* Batting Hand */
+        .batting-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            background: var(--bg-tertiary);
+        }
+        .batting-left { color: var(--accent-teal); }
+        .batting-right { color: var(--text-secondary); }
+
+        /* Squad Summary */
+        .squad-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+        .summary-card {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+        }
+        .summary-card h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 12px;
+        }
+        .summary-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .breakdown-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+        }
+        .breakdown-label { color: var(--text-secondary); }
+        .breakdown-value { font-weight: 600; }
+
+        /* Reigning Champion Badge */
+        .reigning-badge {
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: pulse-gold 2s ease-in-out infinite;
+        }
+        @keyframes pulse-gold {
+            0%, 100% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-tabs { display: none; }
@@ -491,6 +702,9 @@
             .team-header-content { flex-direction: column; text-align: center; }
             .team-meta { justify-content: center; flex-wrap: wrap; }
             .xi-grid { grid-template-columns: 1fr; }
+            .roster-table { font-size: 11px; }
+            .roster-table th, .roster-table td { padding: 8px 4px; }
+            .squad-summary { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
@@ -507,6 +721,7 @@
             <a href="index.html" class="nav-tab">Home</a>
             <a href="teams.html" class="nav-tab active">Teams</a>
             <a href="artifacts.html" class="nav-tab">Artifacts</a>
+            <a href="analysis.html" class="nav-tab">Analysis</a>
             <a href="research.html" class="nav-tab">Research</a>
             <a href="about.html" class="nav-tab">About</a>
         </div>
@@ -531,6 +746,7 @@
         <!-- Content Tabs -->
         <div class="content-tabs">
             <button class="content-tab active" data-tab="xi">Predicted XI</button>
+            <button class="content-tab" data-tab="squad">Full Squad</button>
             <button class="content-tab" data-tab="depth">Depth Chart</button>
             <button class="content-tab" data-tab="balance">Team Balance</button>
         </div>
@@ -540,6 +756,9 @@
             <div class="panel active" id="panel-xi">
                 <div class="xi-grid" id="xi-grid"></div>
                 <div class="impact-player" id="impact-player"></div>
+            </div>
+            <div class="panel" id="panel-squad">
+                <div id="squad-content"></div>
             </div>
             <div class="panel" id="panel-depth">
                 <div id="depth-content"></div>
@@ -594,24 +813,30 @@
             const team = TEAMS[currentTeam];
             const predicted = PREDICTED_XII[currentTeam];
             const rating = DEPTH_CHART_RATINGS[currentTeam];
+            const squadData = SQUADS[currentTeam];
 
-            // Header
+            // Header with coach and reigning badge
             const header = document.getElementById('team-header');
             header.style.setProperty('--team-color', team.primaryColor);
+            const reigningBadge = team.reigning ? '<span class="reigning-badge">🏆 Defending Champions</span>' : '';
             header.innerHTML = `
                 <div class="team-header-content">
                     <div class="team-badge">${team.icon}</div>
                     <div class="team-header-info">
-                        <h1>${team.fullName}</h1>
+                        <h1>${team.fullName} ${reigningBadge}</h1>
                         <p>IPL 2026 • ${team.homeVenue}</p>
                         <div class="team-meta">
                             <div class="meta-item">🏆 <strong>${team.titles}x</strong> Champions</div>
                             <div class="meta-item">👑 Captain: <strong>${predicted.captain}</strong></div>
+                            <div class="meta-item">🎯 Coach: <strong>${team.coach}</strong></div>
                             <div class="meta-item">⭐ Rating: <strong>${rating.overall}</strong></div>
                         </div>
                     </div>
                 </div>
             `;
+
+            // Phil Steele Style Squad Table
+            renderSquadTable(team, squadData);
 
             // Predicted XI
             const xiGrid = document.getElementById('xi-grid');
@@ -706,6 +931,213 @@
                 <p style="color: var(--text-tertiary); font-size: 14px; text-align: center;">
                     Full depth chart data available in <a href="artifacts.html" style="color: var(--accent);">Artifacts</a>
                 </p>
+            `;
+        }
+
+        function renderSquadTable(team, squadData) {
+            const squadContent = document.getElementById('squad-content');
+            const squad = squadData.squad;
+
+            // Calculate stats
+            const totalSpent = squadData.purseSpent;
+            const totalRemaining = squadData.purseRemaining;
+            const overseas = squad.filter(p => p.nationality !== 'IND').length;
+            const retained = squad.filter(p => p.retainedStatus === 'Retained').length;
+            const avgAge = (squad.reduce((sum, p) => sum + p.age, 0) / squad.length).toFixed(1);
+
+            // Role breakdown
+            const batters = squad.filter(p => p.role === 'Batter').length;
+            const bowlers = squad.filter(p => p.role === 'Bowler').length;
+            const allRounders = squad.filter(p => p.role === 'All-rounder').length;
+            const keepers = squad.filter(p => p.role === 'Wicketkeeper').length;
+
+            // Nationality flags
+            const getFlag = (nat) => {
+                const flags = {
+                    'IND': '🇮🇳', 'AUS': '🇦🇺', 'ENG': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'SA': '🇿🇦', 'NZ': '🇳🇿',
+                    'WI': '🏝️', 'AFG': '🇦🇫', 'SL': '🇱🇰', 'PAK': '🇵🇰'
+                };
+                return flags[nat] || '🌍';
+            };
+
+            // Role class
+            const getRoleClass = (role) => {
+                const classes = {
+                    'Batter': 'role-batter',
+                    'Bowler': 'role-bowler',
+                    'All-rounder': 'role-all-rounder',
+                    'Wicketkeeper': 'role-wicketkeeper'
+                };
+                return classes[role] || '';
+            };
+
+            // Price class
+            const getPriceClass = (price) => {
+                if (price >= 10) return 'price-high';
+                if (price >= 3) return 'price-mid';
+                return 'price-low';
+            };
+
+            // Age class
+            const getAgeClass = (age) => {
+                if (age <= 24) return 'age-young';
+                if (age <= 32) return 'age-prime';
+                return 'age-veteran';
+            };
+
+            squadContent.innerHTML = `
+                <div class="squad-header">
+                    <h3>📋 Full Squad Roster</h3>
+                    <div class="squad-stats">
+                        <div class="squad-stat">
+                            <div class="squad-stat-value">${squad.length}</div>
+                            <div class="squad-stat-label">Players</div>
+                        </div>
+                        <div class="squad-stat">
+                            <div class="squad-stat-value">₹${totalSpent.toFixed(1)}Cr</div>
+                            <div class="squad-stat-label">Spent</div>
+                        </div>
+                        <div class="squad-stat">
+                            <div class="squad-stat-value">${overseas}</div>
+                            <div class="squad-stat-label">Overseas</div>
+                        </div>
+                        <div class="squad-stat">
+                            <div class="squad-stat-value">${avgAge}</div>
+                            <div class="squad-stat-label">Avg Age</div>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="roster-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Player</th>
+                            <th>Role</th>
+                            <th>Age</th>
+                            <th>Nationality</th>
+                            <th>Batting</th>
+                            <th>Price (Cr)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${squad.map((player, idx) => `
+                            <tr>
+                                <td>
+                                    <div class="player-number">${idx + 1}</div>
+                                </td>
+                                <td>
+                                    <div class="player-name-cell">
+                                        <span class="player-name-text">${player.name}</span>
+                                        ${player.retainedStatus === 'Retained' ? '<span class="retained-badge">RTM</span>' : ''}
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="role-badge ${getRoleClass(player.role)}">${player.role}</span>
+                                </td>
+                                <td>
+                                    <span class="age-cell ${getAgeClass(player.age)}">${player.age}</span>
+                                </td>
+                                <td>
+                                    <span class="nationality-badge ${player.nationality !== 'IND' ? 'overseas' : ''}">
+                                        ${getFlag(player.nationality)} ${player.nationality}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="batting-badge ${player.batting === 'Left' ? 'batting-left' : 'batting-right'}">
+                                        ${player.batting === 'Left' ? '↖ Left' : '↗ Right'}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="price-cell ${getPriceClass(player.price)}">₹${player.price.toFixed(2)}</span>
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+
+                <div class="squad-summary">
+                    <div class="summary-card">
+                        <h4>Squad Composition</h4>
+                        <div class="summary-breakdown">
+                            <div class="breakdown-row">
+                                <span class="breakdown-label">Batters</span>
+                                <span class="breakdown-value">${batters}</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span class="breakdown-label">Bowlers</span>
+                                <span class="breakdown-value">${bowlers}</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span class="breakdown-label">All-rounders</span>
+                                <span class="breakdown-value">${allRounders}</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span class="breakdown-label">Wicketkeepers</span>
+                                <span class="breakdown-value">${keepers}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Auction Summary</h4>
+                        <div class="summary-breakdown">
+                            <div class="breakdown-row">
+                                <span class="breakdown-label">Total Spent</span>
+                                <span class="breakdown-value">₹${totalSpent.toFixed(2)} Cr</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span class="breakdown-label">Remaining</span>
+                                <span class="breakdown-value">₹${totalRemaining.toFixed(2)} Cr</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span class="breakdown-label">Retained</span>
+                                <span class="breakdown-value">${retained} players</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span class="breakdown-label">Bought at Auction</span>
+                                <span class="breakdown-value">${squad.length - retained} players</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Age Distribution</h4>
+                        <div class="summary-breakdown">
+                            <div class="breakdown-row">
+                                <span class="breakdown-label">Under 25</span>
+                                <span class="breakdown-value">${squad.filter(p => p.age < 25).length}</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span class="breakdown-label">25-30</span>
+                                <span class="breakdown-value">${squad.filter(p => p.age >= 25 && p.age <= 30).length}</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span class="breakdown-label">31-35</span>
+                                <span class="breakdown-value">${squad.filter(p => p.age >= 31 && p.age <= 35).length}</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span class="breakdown-label">Over 35</span>
+                                <span class="breakdown-value">${squad.filter(p => p.age > 35).length}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Nationalities</h4>
+                        <div class="summary-breakdown">
+                            <div class="breakdown-row">
+                                <span class="breakdown-label">🇮🇳 Indian</span>
+                                <span class="breakdown-value">${squad.filter(p => p.nationality === 'IND').length}</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span class="breakdown-label">🌍 Overseas</span>
+                                <span class="breakdown-value">${overseas}</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span class="breakdown-label">Countries</span>
+                                <span class="breakdown-value">${new Set(squad.map(p => p.nationality)).size}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             `;
         }
 

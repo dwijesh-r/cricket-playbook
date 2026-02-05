@@ -35,7 +35,10 @@ TEAMS_META = {
         "homeVenue": "Wankhede Stadium",
         "venueBias": "pace",
         "primaryColor": "#004ba0",
+        "secondaryColor": "#d4af37",
         "titles": 5,
+        "captain": "Hardik Pandya",
+        "coach": "Mahela Jayawardene",
         "icon": "🔵",
     },
     "CSK": {
@@ -44,7 +47,10 @@ TEAMS_META = {
         "homeVenue": "MA Chidambaram Stadium",
         "venueBias": "spin",
         "primaryColor": "#ffc20e",
+        "secondaryColor": "#0081e9",
         "titles": 5,
+        "captain": "Ruturaj Gaikwad",
+        "coach": "Stephen Fleming",
         "icon": "🦁",
     },
     "RCB": {
@@ -53,8 +59,12 @@ TEAMS_META = {
         "homeVenue": "M Chinnaswamy Stadium",
         "venueBias": "pace",
         "primaryColor": "#d4213d",
-        "titles": 0,
+        "secondaryColor": "#000000",
+        "titles": 1,
+        "captain": "Rajat Patidar",
+        "coach": "Andy Flower",
         "icon": "🔴",
+        "reigning": True,
     },
     "KKR": {
         "name": "Knight Riders",
@@ -62,7 +72,10 @@ TEAMS_META = {
         "homeVenue": "Eden Gardens",
         "venueBias": "spin",
         "primaryColor": "#3a225d",
+        "secondaryColor": "#d4af37",
         "titles": 3,
+        "captain": "Ajinkya Rahane",
+        "coach": "Abhishek Nayar",
         "icon": "💜",
     },
     "DC": {
@@ -71,7 +84,10 @@ TEAMS_META = {
         "homeVenue": "Arun Jaitley Stadium",
         "venueBias": "neutral",
         "primaryColor": "#0078bc",
+        "secondaryColor": "#ef1b23",
         "titles": 0,
+        "captain": "Axar Patel",
+        "coach": "Hemang Badani",
         "icon": "🔷",
     },
     "PBKS": {
@@ -80,7 +96,10 @@ TEAMS_META = {
         "homeVenue": "PCA Stadium, Mohali",
         "venueBias": "neutral",
         "primaryColor": "#ed1b24",
+        "secondaryColor": "#a7a9ac",
         "titles": 0,
+        "captain": "Shreyas Iyer",
+        "coach": "Ricky Ponting",
         "icon": "🦁",
     },
     "RR": {
@@ -89,7 +108,10 @@ TEAMS_META = {
         "homeVenue": "Sawai Mansingh Stadium",
         "venueBias": "neutral",
         "primaryColor": "#ea1a85",
+        "secondaryColor": "#254aa5",
         "titles": 1,
+        "captain": "Riyan Parag",
+        "coach": "Kumar Sangakkara",
         "icon": "👑",
     },
     "SRH": {
@@ -98,7 +120,10 @@ TEAMS_META = {
         "homeVenue": "Rajiv Gandhi Intl Stadium",
         "venueBias": "pace",
         "primaryColor": "#f7a721",
+        "secondaryColor": "#000000",
         "titles": 1,
+        "captain": "Pat Cummins",
+        "coach": "Daniel Vettori",
         "icon": "🌅",
     },
     "GT": {
@@ -107,7 +132,10 @@ TEAMS_META = {
         "homeVenue": "Narendra Modi Stadium",
         "venueBias": "neutral",
         "primaryColor": "#1c1c1c",
+        "secondaryColor": "#d5a239",
         "titles": 1,
+        "captain": "Shubman Gill",
+        "coach": "Ashish Nehra",
         "icon": "🦁",
     },
     "LSG": {
@@ -116,7 +144,10 @@ TEAMS_META = {
         "homeVenue": "Ekana Cricket Stadium",
         "venueBias": "neutral",
         "primaryColor": "#a72056",
+        "secondaryColor": "#ffcc00",
         "titles": 0,
+        "captain": "Rishabh Pant",
+        "coach": "Justin Langer",
         "icon": "🦸",
     },
 }
@@ -164,6 +195,9 @@ def generate_teams_js():
 const TEAMS = {{
 """
     for abbrev, meta in TEAMS_META.items():
+        reigning_line = ""
+        if meta.get("reigning"):
+            reigning_line = ",\n        reigning: true"
         js_content += f"""    {abbrev}: {{
         abbrev: "{abbrev}",
         name: "{meta['name']}",
@@ -171,8 +205,11 @@ const TEAMS = {{
         homeVenue: "{meta['homeVenue']}",
         venueBias: "{meta['venueBias']}",
         primaryColor: "{meta['primaryColor']}",
+        secondaryColor: "{meta.get('secondaryColor', meta['primaryColor'])}",
         titles: {meta['titles']},
-        icon: "{meta['icon']}"
+        captain: "{meta.get('captain', '')}",
+        coach: "{meta.get('coach', '')}",
+        icon: "{meta['icon']}"{reigning_line}
     }},
 """
 

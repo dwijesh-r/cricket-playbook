@@ -162,3 +162,27 @@ See `docs/specs/WIREFRAMES_V1.md` for the V6 wireframe specification for Predict
 ## Author
 
 Stephen Curry - Analytics Lead, Cricket Playbook
+
+---
+
+## Post Task Note: TKT-066 Archive Completion
+
+**Date:** 2026-02-05
+**Owner:** Tom Brady
+
+### What Changed
+- All 10 IPL 2026 Predicted XII files archived with JSON format
+- Consolidated file includes full methodology and constraint documentation
+- README complete with algorithm overview, known mappings, and venue bias table
+
+### Assumption Tested
+- **Hypothesis:** A constraint-satisfaction algorithm can generate realistic playing XIs
+- **Validated:** Yes - the 5 constraints (overseas cap, bowling overs, keeper, bowling options, spinner) produce balanced teams
+
+### Risk Introduced
+- Impact player selection depends on squad depth which may vary by match context
+- Batting position assignment uses 2023 entry point data - may shift with new roles
+
+### USP of This Change
+- **Buyer Value:** Pre-season XI predictions with rationale reduce pre-match prep time
+- **Preparation Burden Removed:** No manual lineup construction needed - algorithm handles constraints

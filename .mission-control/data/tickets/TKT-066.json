@@ -1,14 +1,18 @@
 {
   "id": "TKT-066",
-  "epic_id": "EPIC-006",
-  "title": "Add depth charts to stat pack template",
-  "description": "Update stat pack template to include depth chart section",
-  "state": "BACKLOG",
+  "epic_id": "EPIC-007",
+  "title": "Archive XI outputs",
+  "description": "Archive Predicted XII outputs with proper documentation and versioning",
+  "state": "DONE",
   "priority": "P1",
-  "progress_pct": 0,
-  "owner": "Virat Kohli",
+  "progress_pct": 100,
+  "owner": "Tom Brady",
   "sprint_id": "SPRINT-001",
-  "gates": {},
+  "gates": {
+    "florentino_gate": "APPROVED",
+    "system_check": "PASS"
+  },
   "created_at": "2026-02-04T00:00:00Z",
-  "updated_at": "2026-02-05T00:00:00Z"
+  "updated_at": "2026-02-05T00:00:00Z",
+  "completed_at": "2026-02-05T00:00:00Z"
 }

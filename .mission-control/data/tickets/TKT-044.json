@@ -1,14 +1,18 @@
 {
   "id": "TKT-044",
   "epic_id": "EPIC-005",
-  "title": "Create outputs/run-logs/README.md",
-  "description": "Document run-logs with purpose and schema",
-  "state": "BACKLOG",
-  "priority": "P2",
-  "progress_pct": 0,
-  "owner": "Brock Purdy",
+  "title": "Archive depth chart outputs",
+  "description": "Archive depth chart outputs with proper documentation and versioning",
+  "state": "DONE",
+  "priority": "P1",
+  "progress_pct": 100,
+  "owner": "Tom Brady",
   "sprint_id": "SPRINT-001",
-  "gates": {},
+  "gates": {
+    "florentino_gate": "APPROVED",
+    "system_check": "PASS"
+  },
   "created_at": "2026-02-03T00:00:00Z",
-  "updated_at": "2026-02-05T00:00:00Z"
+  "updated_at": "2026-02-05T00:00:00Z",
+  "completed_at": "2026-02-05T00:00:00Z"
 }

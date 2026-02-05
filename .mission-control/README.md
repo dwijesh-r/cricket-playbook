@@ -17,7 +17,7 @@ You're running a team of AI agents. They're brilliant but chaotic. Work gets los
 Every piece of work is a ticket. Every ticket follows the same 8-step journey. Every gate has a gatekeeper. Nothing slips through.
 
 ```
-💡 IDEA → 📝 BACKLOG → 🎯 READY → 🔄 RUNNING → 👀 REVIEW → ⏳ VALIDATION → ✅ DONE
+💡 IDEA → 📝 BACKLOG → 🎯 READY → 🔄 RUNNING → 👀 REVIEW → 🌹 FOUNDER REVIEW → ✅ DONE
                                         ↓
                                    🚫 BLOCKED
 ```
@@ -183,14 +183,14 @@ python scripts/mission_control/mc.py llm status
 
 ### State Icons
 ```
-💡 IDEA      = Just born
-📝 BACKLOG   = Approved, waiting
-🎯 READY     = Sprint assigned
-🔄 RUNNING   = In progress
-🚫 BLOCKED   = Stuck
-👀 REVIEW    = Technical gates
-⏳ VALIDATION = Founder review
-✅ DONE      = Shipped!
+💡 IDEA           = Just born
+📝 BACKLOG        = Approved, waiting
+🎯 READY          = Sprint assigned
+🔄 RUNNING        = In progress
+🚫 BLOCKED        = Stuck
+👀 REVIEW         = Technical gates
+🌹 FOUNDER REVIEW = Awaiting The Founder's blessing
+✅ DONE           = Shipped!
 ```
 
 ---

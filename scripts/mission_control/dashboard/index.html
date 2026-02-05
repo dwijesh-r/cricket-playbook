@@ -896,6 +896,23 @@
             background: rgba(0, 0, 0, 0.2);
         }
 
+        /* Special Founder Review Column Styling */
+        .column.founder-column {
+            border-color: rgba(196, 30, 58, 0.3);
+            background: linear-gradient(180deg, rgba(139, 0, 0, 0.08) 0%, var(--bg-secondary) 20%);
+        }
+        .column.founder-column .column-header {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.2) 0%, rgba(196, 30, 58, 0.15) 100%);
+            border-bottom-color: rgba(196, 30, 58, 0.3);
+        }
+        .column.founder-column .column-name {
+            color: #ffd700;
+        }
+        .column.founder-column .column-count {
+            background: linear-gradient(135deg, #8b0000 0%, #c41e3a 100%);
+            color: white;
+        }
+
         .column-name {
             font-size: 12px;
             font-weight: 700;
@@ -920,6 +937,15 @@
         .dot-blocked { background: var(--accent-red); box-shadow: 0 0 10px var(--accent-red); }
         .dot-review { background: var(--accent-orange); }
         .dot-validation { background: var(--accent-pink); }
+        .dot-founder {
+            background: linear-gradient(135deg, #8b0000 0%, #c41e3a 100%);
+            box-shadow: 0 0 12px rgba(196, 30, 58, 0.6);
+            animation: founder-pulse 2s ease-in-out infinite;
+        }
+        @keyframes founder-pulse {
+            0%, 100% { box-shadow: 0 0 8px rgba(196, 30, 58, 0.4); }
+            50% { box-shadow: 0 0 16px rgba(196, 30, 58, 0.8); }
+        }
         .dot-done { background: var(--accent-green); }
 
         .column-count {
@@ -2794,7 +2820,7 @@
             { id: 'RUNNING', name: 'Running', dot: 'dot-running' },
             { id: 'BLOCKED', name: 'Blocked', dot: 'dot-blocked' },
             { id: 'REVIEW', name: 'Review', dot: 'dot-review' },
-            { id: 'VALIDATION', name: 'Validation', dot: 'dot-validation' },
+            { id: 'VALIDATION', name: '🌹 Founder Review', dot: 'dot-founder', isFounder: true },
             { id: 'DONE', name: 'Done', dot: 'dot-done' }
         ];
 
@@ -3074,7 +3100,7 @@
         function initBoard() {
             const kanban = document.getElementById('kanban');
             kanban.innerHTML = columns.map(col => `
-                <div class="column" data-state="${col.id}">
+                <div class="column ${col.isFounder ? 'founder-column' : ''}" data-state="${col.id}">
                     <div class="column-header">
                         <span class="column-name">
                             <span class="column-dot ${col.dot}"></span>

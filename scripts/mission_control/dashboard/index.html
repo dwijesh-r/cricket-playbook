@@ -1722,6 +1722,12 @@
         }
 
         .modal-link:hover { background: var(--bg-elevated); }
+        .modal-link.disabled {
+            cursor: default;
+            opacity: 0.6;
+            background: var(--bg-secondary);
+        }
+        .modal-link.disabled:hover { background: var(--bg-secondary); }
         .modal-link-icon { font-size: 16px; }
         .modal-link-text { font-size: 14px; font-weight: 500; }
         .modal-link-arrow { margin-left: auto; color: var(--text-tertiary); }
@@ -3386,9 +3392,12 @@
             `;
 
             document.getElementById('modalLinks').innerHTML = `
-                ${t.prd ? `<a href="#" class="modal-link"><span class="modal-link-icon">📄</span><span class="modal-link-text">PRD Document</span><span class="modal-link-arrow">→</span></a>` : ''}
-                ${t.output ? `<a href="#" class="modal-link"><span class="modal-link-icon">📁</span><span class="modal-link-text">Output Directory</span><span class="modal-link-arrow">→</span></a>` : ''}
-                ${!t.prd && !t.output ? '<div class="empty-state">No links available</div>' : ''}
+                ${t.prd
+                    ? `<a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/${t.prd}" target="_blank" rel="noopener" class="modal-link"><span class="modal-link-icon">📄</span><span class="modal-link-text">PRD Document</span><span class="modal-link-arrow">→</span></a>`
+                    : `<div class="modal-link disabled"><span class="modal-link-icon">📄</span><span class="modal-link-text" style="color: var(--text-tertiary);">PRD — Not available yet</span></div>`}
+                ${t.output
+                    ? `<a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/${t.output}" target="_blank" rel="noopener" class="modal-link"><span class="modal-link-icon">📁</span><span class="modal-link-text">Output Directory</span><span class="modal-link-arrow">→</span></a>`
+                    : `<div class="modal-link disabled"><span class="modal-link-icon">📁</span><span class="modal-link-text" style="color: var(--text-tertiary);">Output — Not available yet</span></div>`}
             `;
 
             document.getElementById('modal').classList.add('active');

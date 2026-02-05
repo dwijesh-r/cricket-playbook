@@ -1,7 +1,7 @@
 // Full Squad Data for Phil Steele Style Roster
-// Generated from data/ipl_2026_squads.csv
+// Generated from data/ipl_2026_squads.csv + ipl_2026_player_contracts.csv
+// Includes player prices from contracts
 // 231 players across 10 IPL franchises
-// Last updated: 2026-02-05
 
 const FULL_SQUADS = {
   "LSG": [
@@ -24,7 +24,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 3.4,
+      "acquisition": "Retained"
     },
     {
       "name": "Avesh Khan",
@@ -41,7 +43,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "DEATH_SPECIALIST"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 9.75,
+      "acquisition": "Retained"
     },
     {
       "name": "Mohammed Shami",
@@ -61,7 +65,9 @@ const FULL_SQUADS = {
         "PRESSURE_BUILDER",
         "PROVEN_WICKET_TAKER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 10.0,
+      "acquisition": "Traded"
     },
     {
       "name": "Anrich Nortje",
@@ -78,7 +84,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 2.0,
+      "acquisition": "Auction"
     },
     {
       "name": "Mohsin Khan",
@@ -96,7 +104,9 @@ const FULL_SQUADS = {
         "WORKHORSE",
         "PRESSURE_BUILDER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 4.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Wanindu Hasaranga",
@@ -113,7 +123,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 7.0,
+      "acquisition": "Auction"
     },
     {
       "name": "Digvesh Rathi",
@@ -130,7 +142,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Nicholas Pooran",
@@ -150,7 +164,9 @@ const FULL_SQUADS = {
         "SPIN_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 21.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Aiden Markram",
@@ -168,7 +184,9 @@ const FULL_SQUADS = {
         "DEATH_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 2.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Rishabh Pant",
@@ -187,7 +205,9 @@ const FULL_SQUADS = {
         "SIX_HITTER"
       ],
       "bowlerTags": [],
-      "isCaptain": true
+      "isCaptain": true,
+      "price": 27.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Mayank Yadav",
@@ -202,7 +222,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 11.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Abdul Samad",
@@ -220,7 +242,9 @@ const FULL_SQUADS = {
         "PACE_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 4.2,
+      "acquisition": "Retained"
     },
     {
       "name": "Ayush Badoni",
@@ -238,7 +262,9 @@ const FULL_SQUADS = {
         "PACE_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 4.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Matthew Breetzke",
@@ -253,7 +279,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.75,
+      "acquisition": "Retained"
     },
     {
       "name": "Manimaran Siddharth",
@@ -268,7 +296,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.75,
+      "acquisition": "Retained"
     },
     {
       "name": "Himmat Singh",
@@ -283,7 +313,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Akash Singh",
@@ -300,7 +332,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "PART_TIMER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Josh Inglis",
@@ -315,7 +349,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 8.6,
+      "acquisition": "Auction"
     },
     {
       "name": "Arjun Tendulkar",
@@ -330,7 +366,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Traded"
     },
     {
       "name": "Arshin Kulkarni",
@@ -345,7 +383,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     }
   ],
   "CSK": [
@@ -365,7 +405,9 @@ const FULL_SQUADS = {
         "WORKHORSE",
         "PRESSURE_BUILDER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 4.8,
+      "acquisition": "Retained"
     },
     {
       "name": "Nathan Ellis",
@@ -382,7 +424,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 2.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Aman Khan",
@@ -399,7 +443,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "DEATH_SPECIALIST"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Rahul Chahar",
@@ -416,7 +462,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "MIDDLE_OVERS_CONTROLLER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.8,
+      "acquisition": "Auction"
     },
     {
       "name": "Kartik Sharma",
@@ -433,7 +481,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 14.2,
+      "acquisition": "Auction"
     },
     {
       "name": "Ruturaj Gaikwad",
@@ -452,7 +502,9 @@ const FULL_SQUADS = {
         "CONSISTENT"
       ],
       "bowlerTags": [],
-      "isCaptain": true
+      "isCaptain": true,
+      "price": 18.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Sanju Samson",
@@ -471,7 +523,9 @@ const FULL_SQUADS = {
         "SIX_HITTER"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 18.0,
+      "acquisition": "Traded"
     },
     {
       "name": "MS Dhoni",
@@ -490,7 +544,9 @@ const FULL_SQUADS = {
         "PACE_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 4.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Shivam Dube",
@@ -509,7 +565,9 @@ const FULL_SQUADS = {
         "MIDDLE_ORDER"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 12.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Dewald Brevis",
@@ -528,7 +586,9 @@ const FULL_SQUADS = {
         "SIX_HITTER"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 2.2,
+      "acquisition": "Retained"
     },
     {
       "name": "Ayush Mhatre",
@@ -543,7 +603,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Noor Ahmad",
@@ -560,7 +622,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 10.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Jamie Overton",
@@ -575,7 +639,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.5,
+      "acquisition": "Retained"
     },
     {
       "name": "Anshul Kamboj",
@@ -590,7 +656,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 3.4,
+      "acquisition": "Retained"
     },
     {
       "name": "Gurjapneet Singh",
@@ -607,7 +675,9 @@ const FULL_SQUADS = {
         "ACCUMULATOR"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 2.2,
+      "acquisition": "Retained"
     },
     {
       "name": "Shreyas Gopal",
@@ -624,7 +694,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Mukesh Choudhary",
@@ -642,7 +714,9 @@ const FULL_SQUADS = {
         "PART_TIMER",
         "PRESSURE_BUILDER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Prashant Veer",
@@ -657,7 +731,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 14.2,
+      "acquisition": "Auction"
     },
     {
       "name": "Matthew Short",
@@ -672,7 +748,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.0,
+      "acquisition": "Auction"
     },
     {
       "name": "Sarfaraz Khan",
@@ -690,7 +768,9 @@ const FULL_SQUADS = {
         "PACE_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.5,
+      "acquisition": "Auction"
     },
     {
       "name": "Akeal Hosein",
@@ -705,7 +785,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.4,
+      "acquisition": "Auction"
     },
     {
       "name": "Urvil Patel",
@@ -720,7 +802,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Ramakrishna Ghosh",
@@ -735,7 +819,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Matt Henry",
@@ -750,7 +836,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.2,
+      "acquisition": "Auction"
     },
     {
       "name": "Zak Foulkes",
@@ -765,7 +853,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.4,
+      "acquisition": "Auction"
     }
   ],
   "MI": [
@@ -787,7 +877,9 @@ const FULL_SQUADS = {
         "PRESSURE_BUILDER",
         "PROVEN_WICKET_TAKER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 12.5,
+      "acquisition": "Retained"
     },
     {
       "name": "Mohammed Izhar",
@@ -806,7 +898,9 @@ const FULL_SQUADS = {
         "PRESSURE_BUILDER",
         "PROVEN_WICKET_TAKER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Jasprit Bumrah",
@@ -826,7 +920,9 @@ const FULL_SQUADS = {
         "PRESSURE_BUILDER",
         "PROVEN_WICKET_TAKER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 18.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Deepak Chahar",
@@ -844,7 +940,9 @@ const FULL_SQUADS = {
         "WORKHORSE",
         "PRESSURE_BUILDER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 9.25,
+      "acquisition": "Retained"
     },
     {
       "name": "Hardik Pandya",
@@ -863,7 +961,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": true
+      "isCaptain": true,
+      "price": 16.35,
+      "acquisition": "Retained"
     },
     {
       "name": "Shardul Thakur",
@@ -881,7 +981,9 @@ const FULL_SQUADS = {
         "PART_TIMER",
         "PROVEN_WICKET_TAKER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.0,
+      "acquisition": "Auction"
     },
     {
       "name": "Rohit Sharma",
@@ -902,7 +1004,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 16.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Tilak Varma",
@@ -922,7 +1026,9 @@ const FULL_SQUADS = {
         "CONSISTENT"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 8.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Suryakumar Yadav",
@@ -944,7 +1050,9 @@ const FULL_SQUADS = {
         "PACE_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 16.35,
+      "acquisition": "Retained"
     },
     {
       "name": "Quinton de Kock",
@@ -963,7 +1071,9 @@ const FULL_SQUADS = {
         "SIX_HITTER"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.0,
+      "acquisition": "Auction"
     },
     {
       "name": "Mitchell Santner",
@@ -981,7 +1091,9 @@ const FULL_SQUADS = {
         "MIDDLE_OVERS_CONTROLLER",
         "MID_OVERS_ELITE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 2.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Naman Dhir",
@@ -996,7 +1108,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 5.25,
+      "acquisition": "Retained"
     },
     {
       "name": "AM Ghazanfar",
@@ -1011,7 +1125,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 4.8,
+      "acquisition": "Retained"
     },
     {
       "name": "Ryan Rickelton",
@@ -1026,7 +1142,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Robin Minz",
@@ -1041,7 +1159,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.65,
+      "acquisition": "Retained"
     },
     {
       "name": "Raj Bawa",
@@ -1056,7 +1176,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Will Jacks",
@@ -1077,7 +1199,9 @@ const FULL_SQUADS = {
         "SIX_HITTER"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 5.25,
+      "acquisition": "Auction"
     },
     {
       "name": "Sherfane Rutherford",
@@ -1092,7 +1216,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.5,
+      "acquisition": "Auction"
     },
     {
       "name": "Danish Malewar",
@@ -1107,7 +1233,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Corbin Bosch",
@@ -1122,7 +1250,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Atharva Ankolekar",
@@ -1137,7 +1267,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Mayank Markande",
@@ -1154,7 +1286,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Raghu Sharma",
@@ -1169,7 +1303,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Ashwani Kumar",
@@ -1184,7 +1320,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     }
   ],
   "DC": [
@@ -1205,7 +1343,9 @@ const FULL_SQUADS = {
         "DEATH_ELITE",
         "PRESSURE_BUILDER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 11.75,
+      "acquisition": "Retained"
     },
     {
       "name": "T Natarajan",
@@ -1222,7 +1362,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 10.75,
+      "acquisition": "Retained"
     },
     {
       "name": "Lungi Ngidi",
@@ -1241,7 +1383,9 @@ const FULL_SQUADS = {
         "PP_ELITE",
         "PRESSURE_BUILDER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.0,
+      "acquisition": "Auction"
     },
     {
       "name": "Axar Patel",
@@ -1263,7 +1407,9 @@ const FULL_SQUADS = {
         "MID_OVERS_ELITE",
         "PROVEN_WICKET_TAKER"
       ],
-      "isCaptain": true
+      "isCaptain": true,
+      "price": 16.5,
+      "acquisition": "Retained"
     },
     {
       "name": "Kuldeep Yadav",
@@ -1281,7 +1427,9 @@ const FULL_SQUADS = {
         "WORKHORSE",
         "PROVEN_WICKET_TAKER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 13.25,
+      "acquisition": "Retained"
     },
     {
       "name": "Mukesh Kumar",
@@ -1298,7 +1446,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "PART_TIMER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 8.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Dushmantha Chameera",
@@ -1316,7 +1466,9 @@ const FULL_SQUADS = {
         "PART_TIMER",
         "PRESSURE_BUILDER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.75,
+      "acquisition": "Retained"
     },
     {
       "name": "Karun Nair",
@@ -1333,7 +1485,9 @@ const FULL_SQUADS = {
         "MIDDLE_ORDER"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.5,
+      "acquisition": "Retained"
     },
     {
       "name": "Nitish Rana",
@@ -1352,7 +1506,9 @@ const FULL_SQUADS = {
         "SIX_HITTER"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.5,
+      "acquisition": "Auction"
     },
     {
       "name": "David Miller",
@@ -1370,7 +1526,9 @@ const FULL_SQUADS = {
         "CONSISTENT"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 2.0,
+      "acquisition": "Auction"
     },
     {
       "name": "KL Rahul",
@@ -1388,7 +1546,9 @@ const FULL_SQUADS = {
         "CONSISTENT"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 14.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Tristan Stubbs",
@@ -1408,7 +1568,9 @@ const FULL_SQUADS = {
         "CONSISTENT"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 10.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Ashutosh Sharma",
@@ -1423,7 +1585,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 3.8,
+      "acquisition": "Retained"
     },
     {
       "name": "Abhishek Porel",
@@ -1445,7 +1609,9 @@ const FULL_SQUADS = {
         "PACE_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 4.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Sameer Rizvi",
@@ -1460,7 +1626,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.95,
+      "acquisition": "Retained"
     },
     {
       "name": "Vipraj Nigam",
@@ -1477,7 +1645,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.5,
+      "acquisition": "Retained"
     },
     {
       "name": "Madhav Tiwari",
@@ -1492,7 +1662,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.4,
+      "acquisition": "Retained"
     },
     {
       "name": "Tripurana Vijay",
@@ -1507,7 +1679,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Ajay Mandal",
@@ -1522,7 +1696,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Pathum Nissanka",
@@ -1537,7 +1713,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 3.2,
+      "acquisition": "Auction"
     },
     {
       "name": "Kyle Jamieson",
@@ -1555,7 +1733,9 @@ const FULL_SQUADS = {
         "PART_TIMER",
         "PRESSURE_BUILDER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.75,
+      "acquisition": "Auction"
     },
     {
       "name": "Ben Duckett",
@@ -1570,7 +1750,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.75,
+      "acquisition": "Auction"
     },
     {
       "name": "Prithvi Shaw",
@@ -1589,7 +1771,9 @@ const FULL_SQUADS = {
         "MIDDLE_OVERS_ACCELERATOR"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Sahil Parakh",
@@ -1604,7 +1788,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Auqib Nabi Dar",
@@ -1619,7 +1805,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 8.4,
+      "acquisition": "Auction"
     }
   ],
   "PBKS": [
@@ -1638,7 +1826,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "DEATH_SPECIALIST"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 18.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Lockie Ferguson",
@@ -1655,7 +1845,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 2.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Yuzvendra Chahal",
@@ -1673,7 +1865,9 @@ const FULL_SQUADS = {
         "MIDDLE_OVERS_CONTROLLER",
         "PROVEN_WICKET_TAKER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 18.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Harnoor Singh",
@@ -1694,7 +1888,9 @@ const FULL_SQUADS = {
         "MID_OVERS_ELITE",
         "PROVEN_WICKET_TAKER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Marcus Stoinis",
@@ -1714,7 +1910,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "PART_TIMER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 11.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Marco Jansen",
@@ -1732,7 +1930,9 @@ const FULL_SQUADS = {
         "PART_TIMER",
         "PRESSURE_BUILDER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 11.25,
+      "acquisition": "Retained"
     },
     {
       "name": "Yash Thakur",
@@ -1749,7 +1949,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "PART_TIMER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.6,
+      "acquisition": "Retained"
     },
     {
       "name": "Shreyas Iyer",
@@ -1767,7 +1969,9 @@ const FULL_SQUADS = {
         "DEATH_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": true
+      "isCaptain": true,
+      "price": 26.75,
+      "acquisition": "Retained"
     },
     {
       "name": "Shashank Singh",
@@ -1788,7 +1992,9 @@ const FULL_SQUADS = {
         "PACE_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 5.5,
+      "acquisition": "Retained"
     },
     {
       "name": "Nehal Wadhera",
@@ -1808,7 +2014,9 @@ const FULL_SQUADS = {
         "SPIN_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 4.2,
+      "acquisition": "Retained"
     },
     {
       "name": "Prabhsimran Singh",
@@ -1829,7 +2037,9 @@ const FULL_SQUADS = {
         "SIX_HITTER"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 4.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Priyansh Arya",
@@ -1844,7 +2054,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 3.8,
+      "acquisition": "Retained"
     },
     {
       "name": "Azmatullah Omarzai",
@@ -1861,7 +2073,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "PART_TIMER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 2.4,
+      "acquisition": "Retained"
     },
     {
       "name": "Vijaykumar Vyshak",
@@ -1878,7 +2092,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "PART_TIMER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.8,
+      "acquisition": "Retained"
     },
     {
       "name": "Harpreet Brar",
@@ -1896,7 +2112,9 @@ const FULL_SQUADS = {
         "MIDDLE_OVERS_CONTROLLER",
         "MID_OVERS_ELITE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.5,
+      "acquisition": "Retained"
     },
     {
       "name": "Vishnu Vinod",
@@ -1911,7 +2129,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.95,
+      "acquisition": "Retained"
     },
     {
       "name": "Xavier Bartlett",
@@ -1926,7 +2146,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.8,
+      "acquisition": "Retained"
     },
     {
       "name": "Suryansh Shedge",
@@ -1941,7 +2163,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Pyla Avinash",
@@ -1956,7 +2180,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Musheer Khan",
@@ -1971,7 +2197,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Cooper Connolly",
@@ -1986,7 +2214,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.0,
+      "acquisition": "Auction"
     },
     {
       "name": "Ben Dwarshuis",
@@ -2001,7 +2231,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     }
   ],
   "RR": [
@@ -2023,7 +2255,9 @@ const FULL_SQUADS = {
         "PRESSURE_BUILDER",
         "PROVEN_WICKET_TAKER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 4.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Jofra Archer",
@@ -2042,7 +2276,9 @@ const FULL_SQUADS = {
         "PP_ELITE",
         "PRESSURE_BUILDER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 12.5,
+      "acquisition": "Retained"
     },
     {
       "name": "Ravindra Jadeja",
@@ -2063,7 +2299,9 @@ const FULL_SQUADS = {
         "MIDDLE_OVERS_CONTROLLER",
         "PROVEN_WICKET_TAKER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 17.5,
+      "acquisition": "Traded"
     },
     {
       "name": "Ravi Bishnoi",
@@ -2080,7 +2318,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 7.2,
+      "acquisition": "Auction"
     },
     {
       "name": "Sam Curran",
@@ -2102,7 +2342,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "PART_TIMER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 10.0,
+      "acquisition": "Traded"
     },
     {
       "name": "Tushar Deshpande",
@@ -2119,7 +2361,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "PART_TIMER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 6.5,
+      "acquisition": "Retained"
     },
     {
       "name": "Yashasvi Jaiswal",
@@ -2140,7 +2384,9 @@ const FULL_SQUADS = {
         "PACE_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 18.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Riyan Parag",
@@ -2159,7 +2405,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "PART_TIMER"
       ],
-      "isCaptain": true
+      "isCaptain": true,
+      "price": 14.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Dhruv Jurel",
@@ -2177,7 +2425,9 @@ const FULL_SQUADS = {
         "PACE_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 14.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Shimron Hetmyer",
@@ -2195,7 +2445,9 @@ const FULL_SQUADS = {
         "PACE_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 11.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Vaibhav Suryavanshi",
@@ -2210,7 +2462,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.1,
+      "acquisition": "Retained"
     },
     {
       "name": "Nandre Burger",
@@ -2225,7 +2479,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 3.5,
+      "acquisition": "Retained"
     },
     {
       "name": "Kwena Maphaka",
@@ -2240,7 +2496,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.5,
+      "acquisition": "Retained"
     },
     {
       "name": "Lhuan-dre Pretorius",
@@ -2255,7 +2513,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Yudhvir Singh",
@@ -2270,7 +2530,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.35,
+      "acquisition": "Retained"
     },
     {
       "name": "Shubham Dubey",
@@ -2287,7 +2549,9 @@ const FULL_SQUADS = {
         "ACCUMULATOR"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.8,
+      "acquisition": "Retained"
     },
     {
       "name": "Adam Milne",
@@ -2304,7 +2568,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "PART_TIMER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Kuldeep Sen",
@@ -2321,7 +2587,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "PART_TIMER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Aman Rao",
@@ -2336,7 +2604,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Ravi Singh",
@@ -2356,7 +2626,9 @@ const FULL_SQUADS = {
         "PACE_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Donovan Ferreira",
@@ -2371,7 +2643,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.75,
+      "acquisition": "Auction"
     },
     {
       "name": "Yash Raj Punja",
@@ -2386,7 +2660,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Vignesh Puthur",
@@ -2401,7 +2677,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Sushant Mishra",
@@ -2416,7 +2694,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Brijesh Sharma",
@@ -2433,7 +2713,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "MIDDLE_OVERS_CONTROLLER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     }
   ],
   "SRH": [
@@ -2456,7 +2738,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": true
+      "isCaptain": true,
+      "price": 18.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Harshal Patel",
@@ -2474,7 +2758,9 @@ const FULL_SQUADS = {
         "WORKHORSE",
         "PROVEN_WICKET_TAKER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 8.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Jaydev Unadkat",
@@ -2492,7 +2778,9 @@ const FULL_SQUADS = {
         "WORKHORSE",
         "PROVEN_WICKET_TAKER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Shivam Mavi",
@@ -2510,7 +2798,9 @@ const FULL_SQUADS = {
         "WORKHORSE",
         "PRESSURE_BUILDER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Travis Head",
@@ -2531,7 +2821,9 @@ const FULL_SQUADS = {
         "CONSISTENT"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 14.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Abhishek Sharma",
@@ -2553,7 +2845,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 14.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Ishan Kishan",
@@ -2572,7 +2866,9 @@ const FULL_SQUADS = {
         "SIX_HITTER"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 11.25,
+      "acquisition": "Retained"
     },
     {
       "name": "Liam Livingstone",
@@ -2594,7 +2890,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 13.0,
+      "acquisition": "Auction"
     },
     {
       "name": "Heinrich Klaasen",
@@ -2616,7 +2914,9 @@ const FULL_SQUADS = {
         "SPIN_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 23.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Nitish Kumar Reddy",
@@ -2634,7 +2934,9 @@ const FULL_SQUADS = {
         "SPIN_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 6.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Brydon Carse",
@@ -2649,7 +2951,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Kamindu Mendis",
@@ -2664,7 +2968,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.75,
+      "acquisition": "Retained"
     },
     {
       "name": "Eshan Malinga",
@@ -2679,7 +2985,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.2,
+      "acquisition": "Retained"
     },
     {
       "name": "Zeeshan Ansari",
@@ -2696,7 +3004,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "PART_TIMER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.4,
+      "acquisition": "Retained"
     },
     {
       "name": "Aniket Verma",
@@ -2711,7 +3021,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Ravichandran Smaran",
@@ -2726,7 +3038,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Harsh Dubey",
@@ -2741,7 +3055,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Jack Edwards",
@@ -2756,7 +3072,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Shivang Kumar",
@@ -2771,7 +3089,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Krains Fuletra",
@@ -2786,7 +3106,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Salil Arora",
@@ -2801,7 +3123,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Amit Kumar",
@@ -2816,7 +3140,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Onkar Tarmale",
@@ -2831,7 +3157,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.5,
+      "acquisition": "Auction"
     },
     {
       "name": "Sakib Hussain",
@@ -2846,7 +3174,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Praful Hinge",
@@ -2861,7 +3191,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.5,
+      "acquisition": "Auction"
     }
   ],
   "GT": [
@@ -2882,7 +3214,9 @@ const FULL_SQUADS = {
         "PRESSURE_BUILDER",
         "PROVEN_WICKET_TAKER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 12.25,
+      "acquisition": "Retained"
     },
     {
       "name": "Kagiso Rabada",
@@ -2901,7 +3235,9 @@ const FULL_SQUADS = {
         "PRESSURE_BUILDER",
         "PROVEN_WICKET_TAKER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 10.75,
+      "acquisition": "Retained"
     },
     {
       "name": "Prasidh Krishna",
@@ -2919,7 +3255,9 @@ const FULL_SQUADS = {
         "WORKHORSE",
         "PRESSURE_BUILDER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 9.5,
+      "acquisition": "Retained"
     },
     {
       "name": "Ishant Sharma",
@@ -2938,7 +3276,9 @@ const FULL_SQUADS = {
         "PP_ELITE",
         "PRESSURE_BUILDER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.75,
+      "acquisition": "Retained"
     },
     {
       "name": "Rashid Khan",
@@ -2959,7 +3299,9 @@ const FULL_SQUADS = {
         "MID_OVERS_ELITE",
         "PROVEN_WICKET_TAKER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 18.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Washington Sundar",
@@ -2981,7 +3323,9 @@ const FULL_SQUADS = {
         "WORKHORSE",
         "MID_OVERS_ELITE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 3.2,
+      "acquisition": "Retained"
     },
     {
       "name": "Shubman Gill",
@@ -3000,7 +3344,9 @@ const FULL_SQUADS = {
         "CONSISTENT"
       ],
       "bowlerTags": [],
-      "isCaptain": true
+      "isCaptain": true,
+      "price": 16.5,
+      "acquisition": "Retained"
     },
     {
       "name": "Sai Sudharsan",
@@ -3022,7 +3368,9 @@ const FULL_SQUADS = {
         "SPIN_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 8.5,
+      "acquisition": "Retained"
     },
     {
       "name": "Jos Buttler",
@@ -3043,7 +3391,9 @@ const FULL_SQUADS = {
         "CONSISTENT"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 15.75,
+      "acquisition": "Retained"
     },
     {
       "name": "Rahul Tewatia",
@@ -3063,7 +3413,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "MIDDLE_OVERS_CONTROLLER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 4.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Shahrukh Khan",
@@ -3081,7 +3433,9 @@ const FULL_SQUADS = {
         "PACE_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 4.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Sai Kishore",
@@ -3098,7 +3452,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 2.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Glenn Phillips",
@@ -3113,7 +3469,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 2.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Arshad Khan",
@@ -3130,7 +3488,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "PART_TIMER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Gurnoor Brar",
@@ -3145,7 +3505,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Jayant Yadav",
@@ -3165,7 +3527,9 @@ const FULL_SQUADS = {
         "MID_OVERS_ELITE",
         "PRESSURE_BUILDER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.75,
+      "acquisition": "Retained"
     },
     {
       "name": "Kumar Kushagra",
@@ -3180,7 +3544,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.65,
+      "acquisition": "Retained"
     },
     {
       "name": "Anuj Rawat",
@@ -3195,7 +3561,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Nishant Sindhu",
@@ -3210,7 +3578,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Manav Suthar",
@@ -3225,7 +3595,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     }
   ],
   "RCB": [
@@ -3246,7 +3618,9 @@ const FULL_SQUADS = {
         "PP_ELITE",
         "PRESSURE_BUILDER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 12.5,
+      "acquisition": "Retained"
     },
     {
       "name": "Bhuvneshwar Kumar",
@@ -3268,7 +3642,9 @@ const FULL_SQUADS = {
         "PRESSURE_BUILDER",
         "PROVEN_WICKET_TAKER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 10.75,
+      "acquisition": "Retained"
     },
     {
       "name": "Krunal Pandya",
@@ -3288,7 +3664,9 @@ const FULL_SQUADS = {
         "MIDDLE_OVERS_CONTROLLER",
         "MID_OVERS_ELITE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 5.75,
+      "acquisition": "Retained"
     },
     {
       "name": "Yash Dayal",
@@ -3305,7 +3683,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "PART_TIMER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 5.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Devdutt Padikkal",
@@ -3322,7 +3702,9 @@ const FULL_SQUADS = {
         "ANCHOR"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 2.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Venkatesh Iyer",
@@ -3339,7 +3721,9 @@ const FULL_SQUADS = {
         "PLAYMAKER"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 7.0,
+      "acquisition": "Auction"
     },
     {
       "name": "Virat Kohli",
@@ -3360,7 +3744,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 21.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Rajat Patidar",
@@ -3381,7 +3767,9 @@ const FULL_SQUADS = {
         "SPIN_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": true
+      "isCaptain": true,
+      "price": 11.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Phil Salt",
@@ -3402,7 +3790,9 @@ const FULL_SQUADS = {
         "SIX_HITTER"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 11.5,
+      "acquisition": "Retained"
     },
     {
       "name": "Tim David",
@@ -3421,7 +3811,9 @@ const FULL_SQUADS = {
         "SIX_HITTER"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 3.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Jitesh Sharma",
@@ -3441,7 +3833,9 @@ const FULL_SQUADS = {
         "SIX_HITTER"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 11.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Suyash Sharma",
@@ -3458,7 +3852,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "WORKHORSE"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 2.6,
+      "acquisition": "Retained"
     },
     {
       "name": "Jacob Bethell",
@@ -3473,7 +3869,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 2.6,
+      "acquisition": "Retained"
     },
     {
       "name": "Swapnil Singh",
@@ -3488,7 +3886,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.5,
+      "acquisition": "Retained"
     },
     {
       "name": "Romario Shepherd",
@@ -3505,7 +3905,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "PART_TIMER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 2.0,
+      "acquisition": "Auction"
     },
     {
       "name": "Satvik Deswal",
@@ -3520,7 +3922,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.5,
+      "acquisition": "Auction"
     },
     {
       "name": "Abhinandan Singh",
@@ -3535,7 +3939,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Retained"
     },
     {
       "name": "Mangesh Yadav",
@@ -3550,7 +3956,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Jacob Duffy",
@@ -3565,7 +3973,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.75,
+      "acquisition": "Auction"
     },
     {
       "name": "Jordan Cox",
@@ -3580,7 +3990,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Kanishk Chouhan",
@@ -3595,7 +4007,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.5,
+      "acquisition": "Auction"
     }
   ],
   "KKR": [
@@ -3622,7 +4036,9 @@ const FULL_SQUADS = {
         "PRESSURE_BUILDER",
         "PROVEN_WICKET_TAKER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 12.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Varun Chakravarthy",
@@ -3640,7 +4056,9 @@ const FULL_SQUADS = {
         "MIDDLE_OVERS_CONTROLLER",
         "PROVEN_WICKET_TAKER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 12.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Harshit Rana",
@@ -3658,7 +4076,9 @@ const FULL_SQUADS = {
         "PART_TIMER",
         "PRESSURE_BUILDER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 4.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Vaibhav Arora",
@@ -3675,7 +4095,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "PART_TIMER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.8,
+      "acquisition": "Retained"
     },
     {
       "name": "Kartik Tyagi",
@@ -3692,7 +4114,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "PART_TIMER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Rahul Tripathi",
@@ -3709,7 +4133,9 @@ const FULL_SQUADS = {
         "PLAYMAKER"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 2.0,
+      "acquisition": "Auction"
     },
     {
       "name": "Manish Pandey",
@@ -3726,7 +4152,9 @@ const FULL_SQUADS = {
         "MIDDLE_ORDER"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.75,
+      "acquisition": "Retained"
     },
     {
       "name": "Ajinkya Rahane",
@@ -3743,7 +4171,9 @@ const FULL_SQUADS = {
         "ANCHOR"
       ],
       "bowlerTags": [],
-      "isCaptain": true
+      "isCaptain": true,
+      "price": 1.5,
+      "acquisition": "Retained"
     },
     {
       "name": "Rinku Singh",
@@ -3763,7 +4193,9 @@ const FULL_SQUADS = {
         "PACE_SPECIALIST"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 13.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Ramandeep Singh",
@@ -3778,7 +4210,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 4.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Angkrish Raghuvanshi",
@@ -3795,7 +4229,9 @@ const FULL_SQUADS = {
         "MIDDLE_ORDER"
       ],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 3.0,
+      "acquisition": "Retained"
     },
     {
       "name": "Rovman Powell",
@@ -3810,7 +4246,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.5,
+      "acquisition": "Retained"
     },
     {
       "name": "Umran Malik",
@@ -3828,7 +4266,9 @@ const FULL_SQUADS = {
         "PART_TIMER",
         "PRESSURE_BUILDER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.75,
+      "acquisition": "Retained"
     },
     {
       "name": "Anukul Roy",
@@ -3843,7 +4283,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.4,
+      "acquisition": "Retained"
     },
     {
       "name": "Cameron Green",
@@ -3858,7 +4300,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 25.2,
+      "acquisition": "Auction"
     },
     {
       "name": "Matheesha Pathirana",
@@ -3875,7 +4319,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "DEATH_SPECIALIST"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 18.0,
+      "acquisition": "Auction"
     },
     {
       "name": "Finn Allen",
@@ -3890,7 +4336,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Tim Seifert",
@@ -3905,7 +4353,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Rachin Ravindra",
@@ -3920,7 +4370,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 4.0,
+      "acquisition": "Auction"
     },
     {
       "name": "Akash Deep",
@@ -3937,7 +4389,9 @@ const FULL_SQUADS = {
       "bowlerTags": [
         "PART_TIMER"
       ],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 1.6,
+      "acquisition": "Auction"
     },
     {
       "name": "Prashant Solanki",
@@ -3952,7 +4406,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Tejasvi Singh",
@@ -3967,7 +4423,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Sarthak Ranjan",
@@ -3982,7 +4440,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     },
     {
       "name": "Daksh Kamra",
@@ -3997,7 +4457,9 @@ const FULL_SQUADS = {
       "bowlerClass": "-",
       "batterTags": [],
       "bowlerTags": [],
-      "isCaptain": false
+      "isCaptain": false,
+      "price": 0.3,
+      "acquisition": "Auction"
     }
   ]
 };

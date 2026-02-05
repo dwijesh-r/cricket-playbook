@@ -185,9 +185,9 @@
             flex-wrap: wrap;
         }
         .team-btn {
-            padding: 10px 20px;
+            padding: 8px 12px;
             border-radius: 10px;
-            font-size: 14px;
+            font-size: 11px;
             font-weight: 600;
             color: var(--text-secondary);
             cursor: pointer;
@@ -195,6 +195,15 @@
             border: 1px solid var(--border);
             background: var(--bg-tertiary);
             font-family: inherit;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .team-btn .pixel-logo {
+            width: 20px;
+            height: 20px;
+            image-rendering: pixelated;
+            border-radius: 4px;
         }
         .team-btn:hover {
             color: var(--text-primary);
@@ -713,22 +722,31 @@
         }
         .captain-badge {
             display: inline-flex;
-            width: 18px;
-            height: 18px;
             align-items: center;
-            justify-content: center;
+            gap: 4px;
             background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-orange) 100%);
             color: #000;
-            font-size: 10px;
+            font-size: 9px;
             font-weight: 800;
-            border-radius: 50%;
-            margin-right: 6px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .captain-row {
-            background: rgba(255, 214, 10, 0.05) !important;
+            background: linear-gradient(90deg, rgba(255, 214, 10, 0.12) 0%, rgba(255, 159, 10, 0.08) 50%, transparent 100%) !important;
+            border-left: 3px solid var(--accent-yellow) !important;
+        }
+        .captain-row td:first-child {
+            padding-left: 5px;
         }
         .captain-row:hover td {
-            background: rgba(255, 214, 10, 0.1) !important;
+            background: rgba(255, 214, 10, 0.15) !important;
+        }
+        .captain-row .player-name-text {
+            font-weight: 700;
+            color: var(--accent-yellow);
         }
 
         /* Squad Summary */
@@ -1126,6 +1144,20 @@
     <script src="data/full_squads.js"></script>
 
     <script>
+        // Pixelated Team Logos (8x8 grid style)
+        const TEAM_PIXEL_LOGOS = {
+            MI: `<svg viewBox="0 0 8 8" class="pixel-logo"><rect fill="#004ba0" width="8" height="8"/><rect fill="#d4af37" x="2" y="1" width="1" height="5"/><rect fill="#d4af37" x="5" y="1" width="1" height="5"/><rect fill="#d4af37" x="3" y="2" width="1" height="1"/><rect fill="#d4af37" x="4" y="3" width="1" height="1"/><rect fill="#d4af37" x="3" y="4" width="1" height="1"/></svg>`,
+            CSK: `<svg viewBox="0 0 8 8" class="pixel-logo"><rect fill="#ffc20e" width="8" height="8"/><rect fill="#0081e9" x="3" y="1" width="2" height="2"/><rect fill="#0081e9" x="2" y="3" width="4" height="1"/><rect fill="#0081e9" x="2" y="4" width="1" height="2"/><rect fill="#0081e9" x="5" y="4" width="1" height="2"/><rect fill="#0081e9" x="3" y="6" width="2" height="1"/></svg>`,
+            RCB: `<svg viewBox="0 0 8 8" class="pixel-logo"><rect fill="#d4213d" width="8" height="8"/><rect fill="#000000" x="3" y="1" width="2" height="2"/><rect fill="#d4af37" x="2" y="3" width="4" height="1"/><rect fill="#d4af37" x="1" y="4" width="2" height="2"/><rect fill="#d4af37" x="5" y="4" width="2" height="2"/><rect fill="#000000" x="3" y="5" width="2" height="2"/></svg>`,
+            KKR: `<svg viewBox="0 0 8 8" class="pixel-logo"><rect fill="#3a225d" width="8" height="8"/><rect fill="#d4af37" x="3" y="0" width="2" height="2"/><rect fill="#d4af37" x="2" y="2" width="4" height="1"/><rect fill="#d4af37" x="2" y="3" width="1" height="3"/><rect fill="#d4af37" x="5" y="3" width="1" height="3"/><rect fill="#d4af37" x="3" y="4" width="2" height="1"/><rect fill="#d4af37" x="3" y="6" width="2" height="2"/></svg>`,
+            DC: `<svg viewBox="0 0 8 8" class="pixel-logo"><rect fill="#0078bc" width="8" height="8"/><rect fill="#ef1b23" x="2" y="1" width="4" height="1"/><rect fill="#ef1b23" x="1" y="2" width="2" height="2"/><rect fill="#ef1b23" x="5" y="2" width="2" height="2"/><rect fill="#ffffff" x="3" y="2" width="2" height="3"/><rect fill="#ef1b23" x="2" y="5" width="4" height="2"/></svg>`,
+            PBKS: `<svg viewBox="0 0 8 8" class="pixel-logo"><rect fill="#ed1b24" width="8" height="8"/><rect fill="#a7a9ac" x="3" y="1" width="2" height="2"/><rect fill="#a7a9ac" x="2" y="3" width="4" height="1"/><rect fill="#a7a9ac" x="1" y="4" width="2" height="2"/><rect fill="#a7a9ac" x="5" y="4" width="2" height="2"/><rect fill="#a7a9ac" x="3" y="6" width="2" height="1"/></svg>`,
+            RR: `<svg viewBox="0 0 8 8" class="pixel-logo"><rect fill="#ea1a85" width="8" height="8"/><rect fill="#254aa5" x="1" y="2" width="1" height="2"/><rect fill="#254aa5" x="6" y="2" width="1" height="2"/><rect fill="#d4af37" x="2" y="1" width="4" height="1"/><rect fill="#d4af37" x="2" y="2" width="1" height="1"/><rect fill="#d4af37" x="5" y="2" width="1" height="1"/><rect fill="#d4af37" x="3" y="3" width="2" height="1"/><rect fill="#254aa5" x="2" y="4" width="4" height="3"/></svg>`,
+            SRH: `<svg viewBox="0 0 8 8" class="pixel-logo"><rect fill="#f7a721" width="8" height="8"/><rect fill="#000000" x="3" y="1" width="2" height="1"/><rect fill="#000000" x="2" y="2" width="4" height="2"/><rect fill="#f7a721" x="3" y="2" width="2" height="1"/><rect fill="#000000" x="1" y="4" width="2" height="3"/><rect fill="#000000" x="5" y="4" width="2" height="3"/><rect fill="#000000" x="3" y="6" width="2" height="1"/></svg>`,
+            GT: `<svg viewBox="0 0 8 8" class="pixel-logo"><rect fill="#1c1c1c" width="8" height="8"/><rect fill="#d5a239" x="2" y="1" width="4" height="1"/><rect fill="#d5a239" x="1" y="2" width="6" height="1"/><rect fill="#d5a239" x="1" y="3" width="1" height="2"/><rect fill="#d5a239" x="6" y="3" width="1" height="2"/><rect fill="#d5a239" x="2" y="4" width="4" height="1"/><rect fill="#d5a239" x="3" y="5" width="2" height="2"/></svg>`,
+            LSG: `<svg viewBox="0 0 8 8" class="pixel-logo"><rect fill="#a72056" width="8" height="8"/><rect fill="#ffcc00" x="2" y="1" width="4" height="1"/><rect fill="#ffcc00" x="1" y="2" width="2" height="2"/><rect fill="#ffcc00" x="5" y="2" width="2" height="2"/><rect fill="#ffcc00" x="3" y="3" width="2" height="1"/><rect fill="#ffcc00" x="2" y="4" width="4" height="1"/><rect fill="#00b7eb" x="3" y="5" width="2" height="2"/></svg>`
+        };
+
         // Generate SQUADS from PREDICTED_XII if not loaded separately
         // Use FULL_SQUADS if available (Phil Steele style full roster)
         // Falls back to predicted XI if full data not loaded
@@ -1240,9 +1272,10 @@
             selector.innerHTML = '';
             TEAM_ORDER.forEach(abbrev => {
                 const team = TEAMS[abbrev];
+                const pixelLogo = TEAM_PIXEL_LOGOS[abbrev] || team.icon;
                 const btn = document.createElement('button');
                 btn.className = `team-btn ${abbrev === currentTeam ? 'active' : ''}`;
-                btn.textContent = abbrev;
+                btn.innerHTML = `${pixelLogo}<span>${abbrev}</span>`;
                 btn.onclick = () => selectTeam(abbrev);
                 selector.appendChild(btn);
             });
@@ -1624,12 +1657,12 @@
                             return `
                             <tr class="${player.isCaptain ? 'captain-row' : ''}">
                                 <td>
-                                    <div class="player-number">${idx + 1}</div>
+                                    <div class="player-number">${player.isCaptain ? '👑' : idx + 1}</div>
                                 </td>
                                 <td>
                                     <div class="player-name-cell">
-                                        ${player.isCaptain ? '<span class="captain-badge">©</span>' : ''}
                                         <span class="player-name-text">${player.name}</span>
+                                        ${player.isCaptain ? '<span class="captain-badge">Captain</span>' : ''}
                                         ${player.retainedStatus === 'Retained' ? '<span class="retained-badge">RTM</span>' : ''}
                                     </div>
                                 </td>

@@ -186,7 +186,8 @@ def load_player_tags():
 
 def generate_teams_js():
     """Generate teams.js with team metadata."""
-    js_content = """/**
+    timestamp = datetime.now().isoformat()
+    js_content = f"""/**
  * The Lab - Team Data
  * IPL 2026 Pre-Season Analytics
  * Auto-generated: {timestamp}
@@ -226,7 +227,7 @@ const QUICK_STATS = {
 };
 """
 
-    return js_content.format(timestamp=datetime.now().isoformat())
+    return js_content
 
 
 def generate_predicted_xii_js(data):
@@ -234,11 +235,16 @@ def generate_predicted_xii_js(data):
     if not data:
         return "// No predicted XII data found\nconst PREDICTED_XII = {};\nconst DEPTH_CHART_RATINGS = {};"
 
-    js_content = """/**
+    timestamp = datetime.now().isoformat()
+    generated_at = data.get("generated_at", "")
+    version = data.get("version", "")
+    algorithm_name = data.get("algorithm_name", "SUPER SELECTOR")
+
+    js_content = f"""/**
  * The Lab - Predicted XII Data
  * IPL 2026 Pre-Season Analytics
  * Auto-generated: {timestamp}
- * Algorithm: {algorithm}
+ * Algorithm: {algorithm_name}
  */
 
 const PREDICTED_XII_META = {{
@@ -284,19 +290,13 @@ const PREDICTED_XII = {{
 """
 
     js_content += "};\n"
-
-    return js_content.format(
-        timestamp=datetime.now().isoformat(),
-        generated_at=data.get("generated_at", ""),
-        version=data.get("version", ""),
-        algorithm=data.get("algorithm_name", ""),
-        algorithm_name=data.get("algorithm_name", "SUPER SELECTOR"),
-    )
+    return js_content
 
 
 def generate_depth_charts_js(depth_charts):
     """Generate depth_charts.js with ratings summary."""
-    js_content = """/**
+    timestamp = datetime.now().isoformat()
+    js_content = f"""/**
  * The Lab - Depth Chart Ratings
  * Auto-generated: {timestamp}
  */
@@ -314,7 +314,101 @@ const DEPTH_CHART_RATINGS = {{
 """
 
     js_content += "};\n"
-    return js_content.format(timestamp=datetime.now().isoformat())
+    return js_content
+
+
+def load_consolidated_depth_charts():
+    """Load the consolidated depth charts file with all position details."""
+    path = OUTPUTS_DIR / "depth_charts" / "depth_charts_2026.json"
+    if path.exists():
+        with open(path) as f:
+            return json.load(f)
+    return None
+
+
+def generate_full_depth_charts_js(consolidated_data):
+    """Generate full inline depth charts with all positions and players."""
+    if not consolidated_data:
+        return "// No depth chart data found\nconst FULL_DEPTH_CHARTS = {};"
+
+    timestamp = datetime.now().isoformat()
+    js_content = f"""/**
+ * The Lab - Full Depth Charts Data
+ * IPL 2026 Pre-Season Analytics
+ * Auto-generated: {timestamp}
+ */
+
+const FULL_DEPTH_CHARTS = {{
+"""
+
+    teams_data = consolidated_data.get("teams", {})
+
+    for abbrev in TEAM_ORDER:
+        if abbrev not in teams_data:
+            js_content += f"    {abbrev}: {{ positions: [] }},\n"
+            continue
+
+        team = teams_data[abbrev]
+        positions_data = team.get("positions", {})
+
+        # Position order for display
+        position_order = [
+            "opener",
+            "number_3",
+            "middle_order",
+            "finisher",
+            "wicketkeeper",
+            "all_rounder_batting",
+            "all_rounder_bowling",
+            "lead_spinner",
+            "lead_pacer",
+            "support_spinner",
+            "support_pacer",
+        ]
+
+        positions_js = []
+        for pos_key in position_order:
+            if pos_key not in positions_data:
+                continue
+            pos = positions_data[pos_key]
+            players_js = []
+            for player in pos.get("players", [])[:4]:  # Top 4 players per position
+                overseas_str = "true" if player.get("is_overseas") else "false"
+                rationale = player.get("rationale", "").replace('"', "'")
+                players_js.append(
+                    f'{{ rank: {player.get("rank", 0)}, name: "{player.get("name", "")}", '
+                    f'score: {player.get("score", 0)}, overseas: {overseas_str}, '
+                    f'price: {player.get("price_cr", 0)}, rationale: "{rationale}" }}'
+                )
+
+            what_works = pos.get("what_works", "").replace('"', "'")
+            what_doesnt = pos.get("what_doesnt", "").replace('"', "'")
+            positions_js.append(
+                f'{{ key: "{pos_key}", name: "{pos.get("name", "")}", rating: {pos.get("rating", 0)}, '
+                f'overseas: {pos.get("overseas_count", 0)}, '
+                f'whatWorks: "{what_works}", '
+                f'whatDoesnt: "{what_doesnt}", '
+                f'players: [{", ".join(players_js)}] }}'
+            )
+
+        vulnerabilities = team.get("vulnerabilities", [])
+        vulnerabilities_str = ", ".join(
+            [f'"{v.replace(chr(34), chr(39))}"' for v in vulnerabilities[:3]]
+        )
+
+        js_content += f"""    {abbrev}: {{
+        overall: {team.get("overall_rating", 0)},
+        strongest: "{team.get("strongest_position", "")}",
+        weakest: "{team.get("weakest_position", "")}",
+        vulnerabilities: [{vulnerabilities_str}],
+        positions: [
+            {','.join(positions_js)}
+        ]
+    }},
+"""
+
+    js_content += "};\n"
+    return js_content
 
 
 def main():
@@ -328,10 +422,12 @@ def main():
     print("\n📂 Loading source data...")
     predicted_xii = load_predicted_xii()
     depth_charts = load_depth_charts()
+    consolidated_depth = load_consolidated_depth_charts()
     player_tags = load_player_tags()
 
     print(f"  ✓ Predicted XII: {'Loaded' if predicted_xii else 'Not found'}")
     print(f"  ✓ Depth Charts: {len(depth_charts)} teams loaded")
+    print(f"  ✓ Consolidated Depth Charts: {'Loaded' if consolidated_depth else 'Not found'}")
     print(f"  ✓ Player Tags: {'Loaded' if player_tags else 'Not found'}")
 
     # Generate JS files
@@ -344,7 +440,7 @@ def main():
         f.write(teams_js)
     print(f"  ✓ {teams_path.name}")
 
-    # predicted_xii.js
+    # predicted_xii.js (includes ratings summary)
     predicted_js = generate_predicted_xii_js(predicted_xii)
     depth_ratings_js = generate_depth_charts_js(depth_charts)
 
@@ -355,6 +451,14 @@ def main():
         f.write("\n")
         f.write(depth_ratings_js)
     print(f"  ✓ {combined_path.name}")
+
+    # depth_charts.js (full inline depth charts)
+    if consolidated_depth:
+        full_depth_js = generate_full_depth_charts_js(consolidated_depth)
+        depth_path = DASHBOARD_DATA_DIR / "depth_charts.js"
+        with open(depth_path, "w") as f:
+            f.write(full_depth_js)
+        print(f"  ✓ {depth_path.name}")
 
     print("\n✅ Data update complete!")
     print(f"   Files written to: {DASHBOARD_DATA_DIR}")

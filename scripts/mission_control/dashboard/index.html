@@ -675,6 +675,52 @@
             margin: 0 4px;
         }
 
+        /* Time Tracking Badge */
+        .time-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 6px;
+            background: var(--bg-tertiary);
+            color: var(--text-tertiary);
+        }
+        .time-badge.fast { color: var(--accent-green); }
+        .time-badge.medium { color: var(--accent-yellow); }
+        .time-badge.slow { color: var(--accent-red); }
+
+        /* Search Box */
+        .search-box-mc {
+            position: relative;
+            min-width: 200px;
+        }
+        .search-box-mc input {
+            width: 100%;
+            padding: 10px 16px 10px 40px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.25s ease;
+        }
+        .search-box-mc input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.2);
+        }
+        .search-box-mc::before {
+            content: '🔍';
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            pointer-events: none;
+        }
+
         .filter-btn {
             background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
             border: 1px solid var(--border);
@@ -2006,7 +2052,7 @@
         /* ==================== RESPONSIVE ==================== */
         @media (max-width: 1400px) {
             .kanban { grid-template-columns: repeat(4, 1fr); }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
         @media (max-width: 900px) {
@@ -2032,6 +2078,14 @@
             .sprint-title, .roster-title, .list-title { font-size: 24px; }
             .stat-value { font-size: 28px; }
             .stat-item { padding: 16px; }
+            .board-filters { flex-direction: column; align-items: stretch; gap: 8px; }
+            .search-box-mc { min-width: 100%; order: -1; }
+            .search-box-mc input { width: 100%; }
+            .filter-btn { width: 100%; justify-content: center; }
+            .filter-dropdown { width: 100%; }
+            .filter-dropdown-btn { width: 100%; justify-content: center; }
+            .agent-filter { width: 100%; }
+            .agent-filter-btn { width: 100%; justify-content: center; }
         }
     </style>
 </head>
@@ -2093,6 +2147,14 @@
                             <div class="stat-value accent-green" id="statDone">1</div>
                             <div class="stat-label">Done</div>
                         </div>
+                        <div class="stat-item">
+                            <div class="stat-value accent-teal" id="statAvgDays">—</div>
+                            <div class="stat-label">Avg Days/Ticket</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value accent-purple" id="statIterations">—</div>
+                            <div class="stat-label">Total Iterations</div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -2101,6 +2163,11 @@
                 <div class="board-header">
                     <h2 class="board-title">Kanban Board</h2>
                     <div class="board-filters">
+                        <!-- Search Box -->
+                        <div class="search-box-mc">
+                            <input type="text" id="ticketSearch" placeholder="Search tickets..." oninput="handleTicketSearch(event)">
+                        </div>
+
                         <!-- All Tickets Button -->
                         <button class="filter-btn active" data-filter="all" onclick="resetFilters()">📋 All Tickets</button>
 
@@ -3016,6 +3083,14 @@
         let activeAgentFilter = null;
         let activePriorityFilter = 'all';
         let activeEffortFilter = 'all';
+        let searchQuery = '';
+
+        // Search handler
+        function handleTicketSearch(event) {
+            searchQuery = event.target.value.toLowerCase().trim();
+            renderBoard();
+            renderList();
+        }
 
         // Dropdown toggle function
         function toggleDropdown(dropdownId) {
@@ -3110,10 +3185,12 @@
             activeEffortFilter = 'all';
             activeFilter = 'all';
             activeAgentFilter = null;
+            searchQuery = '';
 
             document.getElementById('priorityFilterLabel').textContent = '🎯 Priority';
             document.getElementById('effortFilterLabel').textContent = '💪 Effort';
             document.getElementById('agentFilterLabel').textContent = '👥 All Agents';
+            document.getElementById('ticketSearch').value = '';
 
             updateFilterButtons();
             renderBoard();
@@ -3214,8 +3291,15 @@
                     container.innerHTML = '<div class="empty-state">No tickets</div>';
                 } else {
                     container.innerHTML = colTickets.map(t => {
+                        // Search filter
+                        let isFiltered = false;
+                        if (searchQuery) {
+                            const searchTarget = `${t.id} ${t.title} ${t.assignee || ''} ${t.tags.join(' ')}`.toLowerCase();
+                            isFiltered = !searchTarget.includes(searchQuery);
+                        }
+
                         // Agent filter
-                        let isFiltered = activeAgentFilter && t.assignee !== activeAgentFilter;
+                        isFiltered = isFiltered || (activeAgentFilter && t.assignee !== activeAgentFilter);
 
                         // Priority and effort filters
                         if (activeFilter !== 'all') {
@@ -3241,12 +3325,16 @@
         function renderTicket(t, isFiltered = false) {
             const passedGates = gates.filter(g => getGateStatus(t.gates, g.id) === 'passed').length;
 
+            // Time tracking
+            const timeClass = t.daysSpent <= 1 ? 'fast' : t.daysSpent <= 3 ? 'medium' : 'slow';
+            const timeBadge = t.daysSpent != null ? `<span class="time-badge ${timeClass}">⏱️ ${t.daysSpent}d</span>` : '';
+
             return `
                 <div class="ticket ${isFiltered ? 'filtered-out' : ''}" data-priority="${t.priority}" onclick="openModal('${t.id}')">
                     <div class="ticket-top">
                         <div class="agent-avatar" title="${t.assignee || 'Unassigned'}">${getAgentAvatarImg(t.assignee)}</div>
                         <div class="ticket-info">
-                            <div class="ticket-id">${t.id}</div>
+                            <div class="ticket-id">${t.id} ${timeBadge}</div>
                             <div class="ticket-title">${t.title}</div>
                             <div class="ticket-agent">${t.assignee || 'Unassigned'}</div>
                         </div>
@@ -3367,6 +3455,16 @@
             document.getElementById('statRunning').textContent = tickets.filter(t => t.state === 'RUNNING').length;
             document.getElementById('statBlocked').textContent = tickets.filter(t => t.state === 'BLOCKED').length;
             document.getElementById('statDone').textContent = tickets.filter(t => t.state === 'DONE').length;
+
+            // Time tracking stats
+            const ticketsWithDays = tickets.filter(t => t.daysSpent != null);
+            const avgDays = ticketsWithDays.length > 0
+                ? (ticketsWithDays.reduce((sum, t) => sum + t.daysSpent, 0) / ticketsWithDays.length).toFixed(1)
+                : '—';
+            const totalIterations = tickets.reduce((sum, t) => sum + (t.iterations || 0), 0) || '—';
+
+            document.getElementById('statAvgDays').textContent = avgDays;
+            document.getElementById('statIterations').textContent = totalIterations;
         }
 
         function openModal(ticketId) {
@@ -3456,9 +3554,15 @@
         }
 
         function renderList() {
+            // Filter tickets based on search query
+            const filteredTickets = searchQuery ? tickets.filter(t => {
+                const searchTarget = `${t.id} ${t.title} ${t.assignee || ''} ${t.tags.join(' ')}`.toLowerCase();
+                return searchTarget.includes(searchQuery);
+            }) : tickets;
+
             // Desktop Table
             const tbody = document.getElementById('ticketTableBody');
-            tbody.innerHTML = tickets.map(t => `
+            tbody.innerHTML = filteredTickets.map(t => `
                 <tr onclick="openModal('${t.id}')">
                     <td><span class="table-id">${t.id}</span></td>
                     <td><span class="table-title" title="${t.title}">${t.title}</span></td>
@@ -3484,7 +3588,7 @@
 
             // Mobile Cards
             const mobileCards = document.getElementById('mobileCards');
-            mobileCards.innerHTML = tickets.map(t => `
+            mobileCards.innerHTML = filteredTickets.map(t => `
                 <div class="mobile-card" onclick="openModal('${t.id}')">
                     <div class="mobile-card-header">
                         <div class="mobile-card-avatar">${getAgentAvatarImg(t.assignee)}</div>

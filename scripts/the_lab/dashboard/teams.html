@@ -694,23 +694,268 @@
             50% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
         }
 
+        /* Search & Filters */
+        .search-filter-bar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .search-box {
+            flex: 1;
+            min-width: 200px;
+            position: relative;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 12px 16px 12px 44px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.25s ease;
+        }
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.2);
+        }
+        .search-box::before {
+            content: '🔍';
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+        }
+        .filter-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .filter-select {
+            padding: 10px 32px 10px 14px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-size: 13px;
+            font-family: inherit;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238e8e93' d='M6 8L2 4h8z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+        }
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .export-btn {
+            padding: 10px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--accent);
+            background: transparent;
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.25s ease;
+        }
+        .export-btn:hover {
+            background: var(--accent);
+            color: white;
+        }
+        .filter-count {
+            padding: 6px 12px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        .filter-count strong {
+            color: var(--accent);
+        }
+
+        /* Compare Mode */
+        .compare-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .compare-team {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+        }
+        .compare-team-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        .compare-team-icon {
+            font-size: 32px;
+        }
+        .compare-team-name {
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .compare-team select {
+            margin-left: auto;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+            font-family: inherit;
+        }
+        .compare-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .compare-stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .compare-stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .compare-stat-value {
+            font-size: 16px;
+            font-weight: 700;
+        }
+        .compare-stat-value.better {
+            color: var(--accent-green);
+        }
+        .compare-stat-value.worse {
+            color: var(--accent-red);
+        }
+
+        /* Data Timestamp */
+        .data-timestamp {
+            text-align: center;
+            padding: 12px;
+            font-size: 11px;
+            color: var(--text-tertiary);
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+
+        /* Loading State */
+        .loading-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .loading-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .loading-spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Mobile hamburger */
+        .mobile-menu-btn {
+            display: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            font-size: 20px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 56px;
+            left: 0;
+            right: 0;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: 16px;
+            z-index: 99;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .mobile-nav.active {
+            display: flex;
+        }
+        .mobile-nav a {
+            padding: 12px 16px;
+            border-radius: 10px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+        .mobile-nav a:hover, .mobile-nav a.active {
+            background: var(--accent);
+            color: white;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-tabs { display: none; }
-            .team-selector { gap: 4px; }
+            .mobile-menu-btn { display: flex; }
+            .team-selector { gap: 4px; padding: 12px; }
             .team-btn { padding: 8px 12px; font-size: 12px; }
             .team-header-content { flex-direction: column; text-align: center; }
-            .team-meta { justify-content: center; flex-wrap: wrap; }
+            .team-meta { justify-content: center; flex-wrap: wrap; gap: 12px; }
+            .meta-item { font-size: 11px; }
             .xi-grid { grid-template-columns: 1fr; }
             .roster-table { font-size: 11px; }
             .roster-table th, .roster-table td { padding: 8px 4px; }
-            .squad-summary { grid-template-columns: 1fr 1fr; }
+            .squad-summary { grid-template-columns: 1fr; }
+            .search-filter-bar { flex-direction: column; align-items: stretch; }
+            .search-box { min-width: 100%; }
+            .filter-group { width: 100%; justify-content: space-between; }
+            .filter-select { flex: 1; min-width: 0; }
+            .compare-container { grid-template-columns: 1fr; }
+            .content-tabs { overflow-x: auto; white-space: nowrap; padding-bottom: 8px; }
+            .content-tab { flex-shrink: 0; }
         }
     </style>
 </head>
 <body>
     <div class="bg-gradient"></div>
     <div class="bg-grid"></div>
+    <div class="loading-overlay" id="loading"><div class="loading-spinner"></div></div>
 
     <nav class="nav">
         <div class="nav-brand">
@@ -726,9 +971,19 @@
             <a href="about.html" class="nav-tab">About</a>
         </div>
         <div class="nav-actions">
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
             <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
         </div>
     </nav>
+
+    <div class="mobile-nav" id="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="teams.html" class="active">Teams</a>
+        <a href="artifacts.html">Artifacts</a>
+        <a href="analysis.html">Analysis</a>
+        <a href="research.html">Research</a>
+        <a href="about.html">About</a>
+    </div>
 
     <main class="main">
         <!-- Team Selector -->
@@ -749,6 +1004,7 @@
             <button class="content-tab" data-tab="squad">Full Squad</button>
             <button class="content-tab" data-tab="depth">Depth Chart</button>
             <button class="content-tab" data-tab="balance">Team Balance</button>
+            <button class="content-tab" data-tab="compare">⚔️ Compare</button>
         </div>
 
         <!-- Content Panels -->
@@ -766,14 +1022,24 @@
             <div class="panel" id="panel-balance">
                 <div class="balance-summary" id="balance-content"></div>
             </div>
+            <div class="panel" id="panel-compare">
+                <div id="compare-content"></div>
+            </div>
+        </div>
+
+        <div class="data-timestamp" id="data-timestamp">
+            📊 Data last updated: February 5, 2026 • Source: Cricsheet ball-by-ball data (2023-2025)
         </div>
     </main>
 
     <script src="data/teams.js"></script>
     <script src="data/predicted_xii.js"></script>
+    <script src="data/depth_charts.js"></script>
 
     <script>
         let currentTeam = 'MI';
+        let compareTeam = 'CSK';
+        let squadFilters = { search: '', role: '', nationality: '', ageGroup: '' };
 
         function toggleTheme() {
             const html = document.documentElement;
@@ -782,6 +1048,19 @@
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '🌙' : '☀️';
+        }
+
+        function toggleMobileMenu() {
+            const nav = document.getElementById('mobile-nav');
+            nav.classList.toggle('active');
+        }
+
+        function showLoading() {
+            document.getElementById('loading').classList.add('active');
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').classList.remove('active');
         }
 
         const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -802,10 +1081,20 @@
 
         function selectTeam(abbrev) {
             currentTeam = abbrev;
+            // Reset filters when switching teams
+            squadFilters = { search: '', role: '', nationality: '', ageGroup: '' };
+            // Update compare team if it's the same as current
+            if (compareTeam === abbrev) {
+                compareTeam = TEAM_ORDER.find(t => t !== abbrev) || 'CSK';
+            }
             document.querySelectorAll('.team-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.textContent === abbrev);
             });
             renderTeam();
+            // Re-render compare if that tab is active
+            if (document.getElementById('panel-compare').classList.contains('active')) {
+                renderCompareView();
+            }
             history.pushState(null, '', `?team=${abbrev}`);
         }
 
@@ -905,38 +1194,136 @@
                 </div>
             `;
 
-            // Depth Chart (simplified)
+            // Depth Chart (full inline display)
             const depthContent = document.getElementById('depth-content');
-            depthContent.innerHTML = `
-                <div class="depth-section">
-                    <div class="depth-header">
-                        <div class="depth-position">📊 Depth Chart Summary</div>
-                        <div class="depth-rating">⭐ ${rating.overall}</div>
-                    </div>
-                    <div class="depth-players">
+            const fullDepth = FULL_DEPTH_CHARTS[currentTeam];
+
+            if (fullDepth && fullDepth.positions && fullDepth.positions.length > 0) {
+                const positionsHtml = fullDepth.positions.map(pos => {
+                    const ratingColor = pos.rating >= 8 ? 'var(--accent-green)' :
+                                       pos.rating >= 6 ? 'var(--accent-yellow)' : 'var(--accent-red)';
+
+                    const playersHtml = pos.players.map((p, idx) => `
                         <div class="depth-player">
-                            <div class="depth-rank primary">💪</div>
+                            <div class="depth-rank ${idx === 0 ? 'primary' : ''}">${p.rank}</div>
                             <div class="depth-player-info">
-                                <div class="depth-player-name">Strongest: ${rating.strongest}</div>
+                                <div class="depth-player-name">
+                                    ${p.name}
+                                    ${p.overseas ? '<span style="color: var(--accent-orange); font-size: 10px; margin-left: 6px;">🌍 OS</span>' : ''}
+                                </div>
+                                <div class="depth-player-rationale">${p.rationale} • ₹${p.price} Cr</div>
+                            </div>
+                            <div style="font-size: 12px; color: var(--text-tertiary);">${p.score.toFixed(0)}%</div>
+                        </div>
+                    `).join('');
+
+                    return `
+                        <div class="depth-section">
+                            <div class="depth-header">
+                                <div class="depth-position">${pos.name}</div>
+                                <div class="depth-rating" style="background: linear-gradient(135deg, ${ratingColor} 0%, ${ratingColor}80 100%);">
+                                    ⭐ ${pos.rating}/10
+                                </div>
+                            </div>
+                            <div style="font-size: 12px; margin-bottom: 12px;">
+                                <span style="color: var(--accent-green);">✓ ${pos.whatWorks}</span>
+                                ${pos.whatDoesnt !== 'Minimal concerns' ? `<br><span style="color: var(--accent-orange);">⚠️ ${pos.whatDoesnt}</span>` : ''}
+                            </div>
+                            <div class="depth-players">
+                                ${playersHtml}
                             </div>
                         </div>
-                        <div class="depth-player">
-                            <div class="depth-rank">⚠️</div>
-                            <div class="depth-player-info">
-                                <div class="depth-player-name">Weakest: ${rating.weakest}</div>
+                    `;
+                }).join('');
+
+                const vulnerabilitiesHtml = fullDepth.vulnerabilities && fullDepth.vulnerabilities.length > 0 ?
+                    `<div class="depth-section" style="border: 1px dashed var(--accent-orange); background: rgba(255, 159, 10, 0.05);">
+                        <div class="depth-header">
+                            <div class="depth-position">⚠️ Key Vulnerabilities</div>
+                        </div>
+                        <ul style="margin: 0; padding-left: 20px; color: var(--text-secondary);">
+                            ${fullDepth.vulnerabilities.map(v => `<li style="margin: 6px 0; font-size: 13px;">${v}</li>`).join('')}
+                        </ul>
+                    </div>` : '';
+
+                depthContent.innerHTML = `
+                    <div class="depth-section" style="background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-elevated) 100%); margin-bottom: 24px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <div style="font-size: 24px; font-weight: 800;">📊 Full Depth Chart</div>
+                                <div style="color: var(--text-tertiary); font-size: 13px;">Position-by-position breakdown with player rankings</div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-size: 36px; font-weight: 800; color: var(--accent);">${fullDepth.overall}</div>
+                                <div style="font-size: 11px; color: var(--text-tertiary);">Overall Rating</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap;">
+                            <div><span style="color: var(--accent-green);">💪 Strongest:</span> ${fullDepth.strongest}</div>
+                            <div><span style="color: var(--accent-orange);">⚠️ Weakest:</span> ${fullDepth.weakest}</div>
+                        </div>
+                    </div>
+                    ${vulnerabilitiesHtml}
+                    ${positionsHtml}
+                `;
+            } else {
+                depthContent.innerHTML = `
+                    <div class="depth-section">
+                        <div class="depth-header">
+                            <div class="depth-position">📊 Depth Chart Summary</div>
+                            <div class="depth-rating">⭐ ${rating.overall}</div>
+                        </div>
+                        <div class="depth-players">
+                            <div class="depth-player">
+                                <div class="depth-rank primary">💪</div>
+                                <div class="depth-player-info">
+                                    <div class="depth-player-name">Strongest: ${rating.strongest}</div>
+                                </div>
+                            </div>
+                            <div class="depth-player">
+                                <div class="depth-rank">⚠️</div>
+                                <div class="depth-player-info">
+                                    <div class="depth-player-name">Weakest: ${rating.weakest}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <p style="color: var(--text-tertiary); font-size: 14px; text-align: center;">
-                    Full depth chart data available in <a href="artifacts.html" style="color: var(--accent);">Artifacts</a>
-                </p>
-            `;
+                    <p style="color: var(--text-tertiary); font-size: 14px; text-align: center;">
+                        Full depth chart data available in <a href="artifacts.html" style="color: var(--accent);">Artifacts</a>
+                    </p>
+                `;
+            }
         }
 
         function renderSquadTable(team, squadData) {
             const squadContent = document.getElementById('squad-content');
             const squad = squadData.squad;
+
+            // Apply filters
+            let filteredSquad = squad.filter(player => {
+                // Search filter
+                if (squadFilters.search && !player.name.toLowerCase().includes(squadFilters.search.toLowerCase())) {
+                    return false;
+                }
+                // Role filter
+                if (squadFilters.role && player.role !== squadFilters.role) {
+                    return false;
+                }
+                // Nationality filter
+                if (squadFilters.nationality === 'IND' && player.nationality !== 'IND') {
+                    return false;
+                }
+                if (squadFilters.nationality === 'Overseas' && player.nationality === 'IND') {
+                    return false;
+                }
+                // Age filter
+                if (squadFilters.ageGroup) {
+                    if (squadFilters.ageGroup === 'U25' && player.age >= 25) return false;
+                    if (squadFilters.ageGroup === '25-30' && (player.age < 25 || player.age > 30)) return false;
+                    if (squadFilters.ageGroup === '31+' && player.age < 31) return false;
+                }
+                return true;
+            });
 
             // Calculate stats
             const totalSpent = squadData.purseSpent;
@@ -985,6 +1372,9 @@
                 return 'age-veteran';
             };
 
+            const isFiltered = filteredSquad.length !== squad.length;
+            const filterCountText = isFiltered ? `Showing <strong>${filteredSquad.length}</strong> of ${squad.length} players` : '';
+
             squadContent.innerHTML = `
                 <div class="squad-header">
                     <h3>📋 Full Squad Roster</h3>
@@ -1008,6 +1398,36 @@
                     </div>
                 </div>
 
+                <div class="search-filter-bar">
+                    <div class="search-box">
+                        <input type="text" id="squad-search" placeholder="Search players..." value="${squadFilters.search}" onkeyup="handleSquadSearch(event)">
+                    </div>
+                    <div class="filter-group">
+                        <select class="filter-select" id="filter-role" onchange="handleFilterChange()">
+                            <option value="">All Roles</option>
+                            <option value="Batter" ${squadFilters.role === 'Batter' ? 'selected' : ''}>Batter</option>
+                            <option value="Bowler" ${squadFilters.role === 'Bowler' ? 'selected' : ''}>Bowler</option>
+                            <option value="All-rounder" ${squadFilters.role === 'All-rounder' ? 'selected' : ''}>All-rounder</option>
+                            <option value="Wicketkeeper" ${squadFilters.role === 'Wicketkeeper' ? 'selected' : ''}>Wicketkeeper</option>
+                        </select>
+                        <select class="filter-select" id="filter-nationality" onchange="handleFilterChange()">
+                            <option value="">All Nationalities</option>
+                            <option value="IND" ${squadFilters.nationality === 'IND' ? 'selected' : ''}>🇮🇳 Indian</option>
+                            <option value="Overseas" ${squadFilters.nationality === 'Overseas' ? 'selected' : ''}>🌍 Overseas</option>
+                        </select>
+                        <select class="filter-select" id="filter-age" onchange="handleFilterChange()">
+                            <option value="">All Ages</option>
+                            <option value="U25" ${squadFilters.ageGroup === 'U25' ? 'selected' : ''}>Under 25</option>
+                            <option value="25-30" ${squadFilters.ageGroup === '25-30' ? 'selected' : ''}>25-30</option>
+                            <option value="31+" ${squadFilters.ageGroup === '31+' ? 'selected' : ''}>31+</option>
+                        </select>
+                    </div>
+                    <button class="export-btn" onclick="exportSquadCSV()">
+                        📥 Export CSV
+                    </button>
+                </div>
+                ${isFiltered ? `<div class="filter-count">${filterCountText}</div>` : ''}
+
                 <table class="roster-table">
                     <thead>
                         <tr>
@@ -1021,7 +1441,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        ${squad.map((player, idx) => `
+                        ${filteredSquad.length === 0 ? `
+                            <tr>
+                                <td colspan="7" style="text-align: center; padding: 32px; color: var(--text-tertiary);">
+                                    No players match your filters. Try adjusting your search criteria.
+                                </td>
+                            </tr>
+                        ` : filteredSquad.map((player, idx) => `
                             <tr>
                                 <td>
                                     <div class="player-number">${idx + 1}</div>
@@ -1141,13 +1567,162 @@
             `;
         }
 
+        // Filter handlers
+        function handleSquadSearch(event) {
+            squadFilters.search = event.target.value;
+            renderSquadTable(TEAMS[currentTeam], SQUADS[currentTeam]);
+        }
+
+        function handleFilterChange() {
+            squadFilters.role = document.getElementById('filter-role').value;
+            squadFilters.nationality = document.getElementById('filter-nationality').value;
+            squadFilters.ageGroup = document.getElementById('filter-age').value;
+            renderSquadTable(TEAMS[currentTeam], SQUADS[currentTeam]);
+        }
+
+        function clearFilters() {
+            squadFilters = { search: '', role: '', nationality: '', ageGroup: '' };
+            renderSquadTable(TEAMS[currentTeam], SQUADS[currentTeam]);
+        }
+
+        // Export squad to CSV
+        function exportSquadCSV() {
+            const squadData = SQUADS[currentTeam];
+            const squad = squadData.squad;
+            const team = TEAMS[currentTeam];
+
+            // CSV header
+            const headers = ['#', 'Player', 'Role', 'Age', 'Nationality', 'Batting Hand', 'Price (Cr)', 'Retained'];
+
+            // CSV rows
+            const rows = squad.map((player, idx) => [
+                idx + 1,
+                player.name,
+                player.role,
+                player.age,
+                player.nationality,
+                player.batting,
+                player.price.toFixed(2),
+                player.retainedStatus === 'Retained' ? 'Yes' : 'No'
+            ]);
+
+            // Build CSV content
+            const csvContent = [
+                headers.join(','),
+                ...rows.map(row => row.map(cell => `"${cell}"`).join(','))
+            ].join('\n');
+
+            // Add team summary
+            const summary = `\n\n"Team Summary"\n"Total Spent","₹${squadData.purseSpent.toFixed(2)} Cr"\n"Remaining","₹${squadData.purseRemaining.toFixed(2)} Cr"\n"Total Players","${squad.length}"`;
+
+            // Create and download file
+            const blob = new Blob([csvContent + summary], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `${currentTeam}_squad_ipl2026.csv`;
+            link.click();
+            URL.revokeObjectURL(link.href);
+        }
+
+        // Render Compare View
+        function renderCompareView() {
+            const compareContent = document.getElementById('compare-content');
+
+            const teamOptions = TEAM_ORDER.map(abbrev =>
+                `<option value="${abbrev}" ${abbrev === compareTeam ? 'selected' : ''}>${TEAMS[abbrev].fullName}</option>`
+            ).join('');
+
+            const team1 = TEAMS[currentTeam];
+            const team2 = TEAMS[compareTeam];
+            const squad1 = SQUADS[currentTeam];
+            const squad2 = SQUADS[compareTeam];
+            const predicted1 = PREDICTED_XII[currentTeam];
+            const predicted2 = PREDICTED_XII[compareTeam];
+            const rating1 = DEPTH_CHART_RATINGS[currentTeam];
+            const rating2 = DEPTH_CHART_RATINGS[compareTeam];
+
+            // Calculate comparison metrics
+            const metrics = [
+                { label: 'Overall Rating', val1: rating1.overall, val2: rating2.overall, higher: 'better' },
+                { label: 'Titles Won', val1: team1.titles, val2: team2.titles, higher: 'better' },
+                { label: 'Squad Size', val1: squad1.squad.length, val2: squad2.squad.length, higher: 'neutral' },
+                { label: 'Purse Spent (Cr)', val1: squad1.purseSpent.toFixed(1), val2: squad2.purseSpent.toFixed(1), higher: 'neutral' },
+                { label: 'Overseas Players', val1: squad1.squad.filter(p => p.nationality !== 'IND').length, val2: squad2.squad.filter(p => p.nationality !== 'IND').length, higher: 'neutral' },
+                { label: 'Avg Squad Age', val1: (squad1.squad.reduce((s, p) => s + p.age, 0) / squad1.squad.length).toFixed(1), val2: (squad2.squad.reduce((s, p) => s + p.age, 0) / squad2.squad.length).toFixed(1), higher: 'neutral' },
+                { label: 'Batters', val1: squad1.squad.filter(p => p.role === 'Batter').length, val2: squad2.squad.filter(p => p.role === 'Batter').length, higher: 'neutral' },
+                { label: 'Bowlers', val1: squad1.squad.filter(p => p.role === 'Bowler').length, val2: squad2.squad.filter(p => p.role === 'Bowler').length, higher: 'neutral' },
+                { label: 'All-Rounders', val1: squad1.squad.filter(p => p.role === 'All-rounder').length, val2: squad2.squad.filter(p => p.role === 'All-rounder').length, higher: 'neutral' },
+                { label: 'Left-Handers in Top 6', val1: predicted1.balance.leftHandersTop6, val2: predicted2.balance.leftHandersTop6, higher: 'neutral' },
+            ];
+
+            const getCompareClass = (metric, isTeam1) => {
+                const v1 = parseFloat(metric.val1);
+                const v2 = parseFloat(metric.val2);
+                if (metric.higher === 'neutral' || v1 === v2) return '';
+                if (isTeam1) {
+                    return v1 > v2 ? 'better' : 'worse';
+                }
+                return v2 > v1 ? 'better' : 'worse';
+            };
+
+            compareContent.innerHTML = `
+                <div class="compare-container">
+                    <div class="compare-team" style="border-top: 4px solid ${team1.primaryColor};">
+                        <div class="compare-team-header">
+                            <span class="compare-team-icon">${team1.icon}</span>
+                            <span class="compare-team-name">${team1.fullName}</span>
+                        </div>
+                        <div class="compare-stats">
+                            ${metrics.map(m => `
+                                <div class="compare-stat-row">
+                                    <span class="compare-stat-label">${m.label}</span>
+                                    <span class="compare-stat-value ${getCompareClass(m, true)}">${m.val1}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div class="compare-team" style="border-top: 4px solid ${team2.primaryColor};">
+                        <div class="compare-team-header">
+                            <span class="compare-team-icon">${team2.icon}</span>
+                            <span class="compare-team-name">${team2.fullName}</span>
+                            <select onchange="updateCompareTeam(this.value)">${teamOptions}</select>
+                        </div>
+                        <div class="compare-stats">
+                            ${metrics.map(m => `
+                                <div class="compare-stat-row">
+                                    <span class="compare-stat-label">${m.label}</span>
+                                    <span class="compare-stat-value ${getCompareClass(m, false)}">${m.val2}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: center; color: var(--text-tertiary); font-size: 13px; margin-top: 24px;">
+                    💡 Green indicates a better value, red indicates a lower value for comparative metrics.
+                </p>
+            `;
+        }
+
+        function updateCompareTeam(abbrev) {
+            if (abbrev !== currentTeam) {
+                compareTeam = abbrev;
+                renderCompareView();
+            }
+        }
+
         // Tab switching
         document.querySelectorAll('.content-tab').forEach(tab => {
             tab.addEventListener('click', () => {
                 document.querySelectorAll('.content-tab').forEach(t => t.classList.remove('active'));
                 document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
                 tab.classList.add('active');
-                document.getElementById(`panel-${tab.dataset.tab}`).classList.add('active');
+                const tabId = tab.dataset.tab;
+                document.getElementById(`panel-${tabId}`).classList.add('active');
+
+                // Render compare view when tab is clicked
+                if (tabId === 'compare') {
+                    renderCompareView();
+                }
             });
         });
 

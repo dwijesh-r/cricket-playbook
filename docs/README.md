@@ -95,6 +95,16 @@ Cross-sport analytics research for methodology development.
 | `ml_ops/README.md` | Model registry and deployment |
 | `config/README.md` | Agent and template definitions |
 | `data/README.md` | Database schema and data sources |
+| `.mission-control/README.md` | Mission Control CLI documentation |
+| `governance/README.md` | Task Integrity Loop and governance |
+
+---
+
+## Mission Control
+
+**Live Dashboard:** [https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/](https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/)
+
+All sprint tasks are tracked on Mission Control. See `governance/TASK_INTEGRITY_LOOP.md` for the mandatory quality process.
 
 ---
 

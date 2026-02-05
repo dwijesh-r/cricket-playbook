@@ -19,6 +19,23 @@ Cricket Playbook is a comprehensive cricket analytics system built on ball-by-ba
 - **NEW:** Predicted XII - Algorithm-generated optimal playing XI + Impact Player
 - **NEW:** Depth Charts - Position-by-position rankings with ratings (0-10 scale)
 - **NEW:** Wireframes V6 - UI specification for Predicted XII + Depth Chart views (all agents 9.0+)
+- **NEW:** Mission Control - Live task management dashboard
+
+---
+
+## 🚀 Mission Control Dashboard
+
+**Live URL:** [https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/](https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/)
+
+Mission Control is our JIRA-style task management system for coordinating AI agent work. It provides real-time visibility into sprint progress, ticket states, and agent workload.
+
+**What it does:**
+- **Kanban Board** - 8-state workflow (IDEA → BACKLOG → READY → RUNNING → BLOCKED → REVIEW → VALIDATION → DONE)
+- **Agent Roster** - Track workload across 11 specialized AI agents
+- **Task Integrity Loop** - Enforced quality gates before shipping
+- **Sprint Tracking** - Velocity metrics and completion rates
+
+See `.mission-control/README.md` for CLI usage and `governance/MISSION_CONTROL_DESIGN_020426_v1.md` for the full design spec.
 
 ---
 

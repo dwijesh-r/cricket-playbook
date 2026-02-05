@@ -174,6 +174,31 @@ pytest tests/ -v
 
 ---
 
+## Mission Control (`mission_control/`)
+
+Task management CLI and dashboard for coordinating agent work.
+
+**Live Dashboard:** [https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/](https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/)
+
+| Component | Description |
+|-----------|-------------|
+| `mc.py` | CLI entry point for ticket/sprint/epic management |
+| `models/` | Data models (Ticket, Epic, Sprint) |
+| `commands/` | CLI command handlers |
+| `workflow/` | State machine and transition logic |
+| `dashboard/` | Static HTML dashboard (GitHub Pages) |
+
+```bash
+# Quick commands
+python scripts/mission_control/mc.py status           # Show status
+python scripts/mission_control/mc.py ticket list      # List tickets
+python scripts/mission_control/mc.py board            # View kanban board
+```
+
+See `.mission-control/README.md` for full CLI documentation.
+
+---
+
 ## Script Owners
 
 | Script Category | Owner |
@@ -182,6 +207,7 @@ pytest tests/ -v
 | generators/ | Stephen Curry |
 | analysis/ | Stephen Curry |
 | utils/ | Ime Udoka |
+| mission_control/ | Tom Brady (ownership), Brad Stevens (architecture) |
 
 ---
 

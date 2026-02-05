@@ -570,6 +570,14 @@
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-separator {
+            width: 1px;
+            height: 24px;
+            background: var(--border);
+            margin: 0 4px;
         }
 
         .filter-btn {
@@ -952,6 +960,39 @@
             border-color: rgba(142, 142, 147, 0.2);
         }
 
+        /* Effort Level Badges */
+        .effort {
+            font-size: 9px;
+            font-weight: 600;
+            padding: 3px 6px;
+            border-radius: 4px;
+            border: 1px solid transparent;
+        }
+
+        .effort-quick-win {
+            background: linear-gradient(135deg, rgba(48, 209, 88, 0.2) 0%, rgba(48, 209, 88, 0.1) 100%);
+            color: var(--accent-green);
+            border-color: rgba(48, 209, 88, 0.3);
+        }
+
+        .effort-hustle {
+            background: linear-gradient(135deg, rgba(255, 214, 10, 0.2) 0%, rgba(255, 214, 10, 0.1) 100%);
+            color: var(--accent-yellow);
+            border-color: rgba(255, 214, 10, 0.3);
+        }
+
+        .effort-deep-work {
+            background: linear-gradient(135deg, rgba(255, 159, 10, 0.2) 0%, rgba(255, 159, 10, 0.1) 100%);
+            color: var(--accent-orange);
+            border-color: rgba(255, 159, 10, 0.3);
+        }
+
+        .effort-marathon {
+            background: linear-gradient(135deg, rgba(255, 69, 58, 0.2) 0%, rgba(255, 69, 58, 0.1) 100%);
+            color: var(--accent-red);
+            border-color: rgba(255, 69, 58, 0.3);
+        }
+
         .tag {
             font-size: 10px;
             font-weight: 500;
@@ -984,6 +1025,14 @@
             transition: all 0.25s ease;
             border: 1px solid var(--border);
             cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        a.link-btn {
+            text-decoration: none;
         }
 
         .link-btn:hover {
@@ -1871,8 +1920,22 @@
                 <div class="board-header">
                     <h2 class="board-title">Kanban Board</h2>
                     <div class="board-filters">
+                        <!-- Priority Filters -->
                         <button class="filter-btn active" data-filter="all">All</button>
-                        <button class="filter-btn" data-filter="p0">P0 Critical</button>
+                        <button class="filter-btn" data-filter="p0">🔴 P0</button>
+                        <button class="filter-btn" data-filter="p1">🟠 P1</button>
+                        <button class="filter-btn" data-filter="p2">🟡 P2</button>
+                        <button class="filter-btn" data-filter="p3">🟢 P3</button>
+
+                        <!-- Effort Filters -->
+                        <div class="filter-separator"></div>
+                        <button class="filter-btn" data-filter="quick-win">⚡ Quick Win</button>
+                        <button class="filter-btn" data-filter="hustle">🏃 Hustle</button>
+                        <button class="filter-btn" data-filter="deep-work">🧠 Deep Work</button>
+                        <button class="filter-btn" data-filter="marathon">🏔️ Marathon</button>
+
+                        <!-- Agent Filter -->
+                        <div class="filter-separator"></div>
                         <div class="agent-filter">
                             <button class="filter-btn agent-filter-btn" onclick="toggleAgentDropdown()">
                                 <span id="agentFilterLabel">All Agents</span> ▾
@@ -2529,10 +2592,18 @@
         // - Goal: Measurable outcome we're targeting
         // - Reason: PRD section reference OR Founder directive (always cite source)
         // - Audible: Step-by-step execution sequence
+        // Effort levels: Quick Win (< 1 day), Hustle (1-2 days), Deep Work (3-5 days), Marathon (5+ days)
+        const effortLevels = {
+            'quick-win': { name: '⚡ Quick Win', description: 'Under 1 day', color: 'var(--accent-green)' },
+            'hustle': { name: '🏃 Hustle', description: '1-2 days', color: 'var(--accent-yellow)' },
+            'deep-work': { name: '🧠 Deep Work', description: '3-5 days', color: 'var(--accent-orange)' },
+            'marathon': { name: '🏔️ Marathon', description: '5+ days', color: 'var(--accent-red)' }
+        };
+
         const tickets = [
             {
                 id: 'TKT-001', title: 'Implement Mission Control Phase 2 - Workflow Engine',
-                state: 'DONE', priority: 'P0', assignee: 'Stephen Curry', epic: 'EPIC-001', progress: 100,
+                state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-001', progress: 100,
                 prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: 'scripts/mission_control/',
                 gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
                 tags: ['Backend', 'Core'], daysSpent: 3, iterations: 2,
@@ -2545,7 +2616,7 @@
             },
             {
                 id: 'TKT-002', title: 'HTML Dashboard with Apple Design Language',
-                state: 'RUNNING', priority: 'P0', assignee: 'Kevin de Bruyne', epic: 'EPIC-001', progress: 85,
+                state: 'RUNNING', priority: 'P0', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-001', progress: 85,
                 prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: 'scripts/mission_control/dashboard/',
                 gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES' },
                 tags: ['Frontend', 'UI/UX'], daysSpent: 2, iterations: 4,
@@ -2558,7 +2629,7 @@
             },
             {
                 id: 'TKT-003', title: 'Agent Caricature Avatar System',
-                state: 'DONE', priority: 'P1', assignee: 'LeBron James', epic: 'EPIC-001', progress: 100,
+                state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'LeBron James', epic: 'EPIC-001', progress: 100,
                 prd: null, output: 'scripts/mission_control/dashboard/avatars.js',
                 gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
                 tags: ['Design', 'Assets'], daysSpent: 1, iterations: 2,
@@ -2571,7 +2642,7 @@
             },
             {
                 id: 'TKT-004', title: 'Predicted XII Algorithm v3.1 Refinement',
-                state: 'REVIEW', priority: 'P1', assignee: 'Jose Mourinho', epic: 'EPIC-002', progress: 90,
+                state: 'REVIEW', priority: 'P1', effort: 'marathon', assignee: 'Jose Mourinho', epic: 'EPIC-002', progress: 90,
                 prd: 'docs/specs/ALGORITHM_SPEC.md', output: 'outputs/predicted_xis/',
                 gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS' },
                 tags: ['Algorithm', 'Data'], daysSpent: 5, iterations: 4,
@@ -2584,7 +2655,7 @@
             },
             {
                 id: 'TKT-005', title: 'Depth Chart Export to PDF/PNG',
-                state: 'BACKLOG', priority: 'P2', assignee: 'Brock Purdy', epic: 'EPIC-002', progress: 0,
+                state: 'BACKLOG', priority: 'P2', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-002', progress: 0,
                 prd: 'docs/specs/WIREFRAMES_V1.md', output: null,
                 gates: { florentino_gate: 'APPROVED' },
                 tags: ['Export', 'Sharing'], daysSpent: 0, iterations: 0,
@@ -2597,7 +2668,7 @@
             },
             {
                 id: 'TKT-006', title: 'Player ID Mismatch - MI vs LSG Trade',
-                state: 'BLOCKED', priority: 'P0', assignee: 'Stephen Curry', epic: 'EPIC-003', progress: 30,
+                state: 'BLOCKED', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-003', progress: 30,
                 prd: null, output: null,
                 gates: { florentino_gate: 'APPROVED' },
                 tags: ['Bug', 'Data'], daysSpent: 2, iterations: 1,
@@ -2610,7 +2681,7 @@
             },
             {
                 id: 'TKT-007', title: 'Sprint Velocity Dashboard Widget',
-                state: 'VALIDATION', priority: 'P1', assignee: 'Tom Brady', epic: 'EPIC-001', progress: 95,
+                state: 'VALIDATION', priority: 'P1', effort: 'hustle', assignee: 'Tom Brady', epic: 'EPIC-001', progress: 95,
                 prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: 'scripts/mission_control/views/',
                 gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
                 tags: ['Analytics', 'Dashboard'], daysSpent: 2, iterations: 2,
@@ -2623,7 +2694,7 @@
             },
             {
                 id: 'TKT-008', title: 'Role Permission Matrix Implementation',
-                state: 'READY', priority: 'P2', assignee: 'Brad Stevens', epic: 'EPIC-001', progress: 0,
+                state: 'READY', priority: 'P2', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-001', progress: 0,
                 prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: null,
                 gates: { florentino_gate: 'APPROVED' },
                 tags: ['Security', 'Backend'], daysSpent: 0, iterations: 0,
@@ -2636,7 +2707,7 @@
             },
             {
                 id: 'TKT-009', title: 'New IPL 2026 Season Data Pipeline',
-                state: 'IDEA', priority: 'P1', assignee: null, epic: null, progress: 0,
+                state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: null, epic: null, progress: 0,
                 prd: null, output: null, gates: {},
                 tags: ['Data', 'Pipeline'], daysSpent: 0, iterations: 0,
                 context: {
@@ -2740,7 +2811,23 @@
                     container.innerHTML = '<div class="empty-state">No tickets</div>';
                 } else {
                     container.innerHTML = colTickets.map(t => {
-                        const isFiltered = activeAgentFilter && t.assignee !== activeAgentFilter;
+                        // Agent filter
+                        let isFiltered = activeAgentFilter && t.assignee !== activeAgentFilter;
+
+                        // Priority and effort filters
+                        if (activeFilter !== 'all') {
+                            const priorityFilters = ['p0', 'p1', 'p2', 'p3'];
+                            const effortFilters = ['quick-win', 'hustle', 'deep-work', 'marathon'];
+
+                            if (priorityFilters.includes(activeFilter)) {
+                                // Filter by priority
+                                isFiltered = isFiltered || t.priority.toLowerCase() !== activeFilter;
+                            } else if (effortFilters.includes(activeFilter)) {
+                                // Filter by effort
+                                isFiltered = isFiltered || t.effort !== activeFilter;
+                            }
+                        }
+
                         return renderTicket(t, isFiltered);
                     }).join('');
                 }
@@ -2763,12 +2850,13 @@
                     </div>
                     <div class="ticket-meta">
                         <span class="priority priority-${t.priority.toLowerCase()}">${t.priority}</span>
-                        ${t.tags.slice(0, 2).map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        ${t.effort ? `<span class="effort effort-${t.effort}">${effortLevels[t.effort]?.name || t.effort}</span>` : ''}
+                        ${t.tags.slice(0, 1).map(tag => `<span class="tag">${tag}</span>`).join('')}
                     </div>
                     ${t.prd || t.output ? `
                         <div class="ticket-links">
-                            ${t.prd ? '<span class="link-btn">📄 PRD</span>' : ''}
-                            ${t.output ? '<span class="link-btn">📁 Output</span>' : ''}
+                            ${t.prd ? `<a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/${t.prd}" target="_blank" rel="noopener" class="link-btn" onclick="event.stopPropagation()">📄 PRD</a>` : ''}
+                            ${t.output ? `<a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/${t.output}" target="_blank" rel="noopener" class="link-btn" onclick="event.stopPropagation()">📁 Output</a>` : ''}
                         </div>
                     ` : ''}
                     <div class="gate-progress">

@@ -30,6 +30,8 @@ Mission Control is the primary **task integrity and coordination layer** for thi
 It functions like a lightweight, local JIRA-style system for agents, making work visible, auditable,
 and governed without introducing autonomous decision-making.
 
+**Live Dashboard:** [https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/](https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/)
+
 All meaningful work is expected to flow through Mission Control tickets.
 
 ### What Mission Control Is Used For
@@ -41,6 +43,25 @@ All meaningful work is expected to flow through Mission Control tickets.
 - Supporting sprint planning, reviews, and retrospectives
 
 Mission Control does **not** think, plan, or decide — it coordinates.
+
+### Sprint Tasks → Mission Control Board (MANDATORY)
+
+**Owner: Tom Brady**
+
+All sprint-related tasks **MUST**:
+
+1. **Go through the Task Integrity Loop** - No exceptions. Every task follows the 8-step quality process (see `governance/TASK_INTEGRITY_LOOP.md`)
+2. **Have a corresponding ticket created** - Before work begins, a ticket must exist in Mission Control
+3. **Reflect on the board** - The dashboard must show current state at all times
+
+| Responsibility | Owner | Action |
+|----------------|-------|--------|
+| Ticket creation for sprint tasks | **Tom Brady** | Create TKT-XXX before sprint begins |
+| Board accuracy | **Tom Brady** | Ensure tickets reflect actual work state |
+| Task Integrity enforcement | **Tom Brady** | Verify all gates passed before DONE |
+| Sprint-to-board sync | **Tom Brady** | Every KANBAN item = Mission Control ticket |
+
+**If it's not on the board, it doesn't exist.** This is non-negotiable for sprint work.
 
 ---
 

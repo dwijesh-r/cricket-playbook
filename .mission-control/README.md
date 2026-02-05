@@ -2,6 +2,8 @@
 
 > "If it's not on the board, it didn't happen."
 
+**Live Dashboard:** [https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/](https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/)
+
 Welcome to Mission Control — the nerve center of Cricket Playbook operations. This is where chaos becomes clarity, where tickets flow like water through an 8-stage gauntlet, and where no work ships without the Founder's blessing.
 
 ---

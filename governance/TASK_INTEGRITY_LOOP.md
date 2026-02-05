@@ -376,9 +376,44 @@ The Founder is an **active collaborator**, not just an approval gate. Agents sho
 All task loops are tracked in:
 - Sprint KANBAN (`docs/KANBAN.md`)
 - Task-specific PRD files (`governance/tasks/`)
+- **Mission Control Board** (MANDATORY)
 
 ---
 
-*Task Integrity Loop v1.1.0*
+## Mission Control Board Integration (MANDATORY)
+
+**Owner: Tom Brady**
+
+Every task that goes through the Task Integrity Loop **MUST** be reflected on the Mission Control board.
+
+**Live Dashboard:** [https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/](https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/)
+
+### Requirements
+
+| Step | Mission Control Action | Owner |
+|------|------------------------|-------|
+| Step 0 (PRD) | Create ticket: `mc ticket create --title "..." --priority PX` | Tom Brady |
+| Step 1 (Gate) | Approve: `mc approve florentino TKT-XXX` | Florentino Pérez |
+| Step 2 (Build) | Update state: `mc ticket update TKT-XXX --state RUNNING` | Assigned Agent |
+| Steps 3-5 (Review) | Update state: `mc ticket update TKT-XXX --state REVIEW` | Tom Brady |
+| Step 6 (Validation) | Founder approval: `mc approve founder TKT-XXX` | Founder |
+| Step 7 (Ship) | Auto-transition to DONE on founder approval | System |
+
+### Tom Brady's Responsibilities
+
+1. **Before Sprint**: Create all sprint tickets on the board
+2. **During Sprint**: Ensure ticket states match actual work progress
+3. **Gate Enforcement**: Verify all gates passed before allowing DONE transition
+4. **Board Accuracy**: The dashboard must be the single source of truth
+
+### Golden Rule
+
+> **If it's not on the board, it didn't happen.**
+
+No task can be considered complete unless it has moved through all states on the Mission Control board with proper gate approvals recorded.
+
+---
+
+*Task Integrity Loop v1.2.0*
 *Cricket Playbook Governance*
-*Updated: 2026-02-01 - Added Founder Active Collaboration*
+*Updated: 2026-02-05 - Added Mission Control Board Integration (Tom Brady ownership)*

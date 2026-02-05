@@ -1,0 +1,14 @@
+{
+  "id": "TKT-040",
+  "epic_id": "EPIC-005",
+  "title": "Create outputs/matchups/README.md",
+  "description": "Document matchup outputs with purpose and schema",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "progress_pct": 0,
+  "owner": "Stephen Curry",
+  "sprint_id": "SPRINT-001",
+  "gates": {},
+  "created_at": "2026-02-03T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

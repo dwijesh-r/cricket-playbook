@@ -1,0 +1,14 @@
+{
+  "id": "TKT-068",
+  "epic_id": "EPIC-007",
+  "title": "Add ML Ops interpretation guide",
+  "description": "Document how to interpret ML outputs",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "progress_pct": 0,
+  "owner": "Andy Flower",
+  "sprint_id": "SPRINT-001",
+  "gates": {},
+  "created_at": "2026-02-05T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

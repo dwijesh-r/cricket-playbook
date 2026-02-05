@@ -1,0 +1,14 @@
+{
+  "id": "TKT-021",
+  "epic_id": "EPIC-003",
+  "title": "Create auto-updating manifest system",
+  "description": "Build automation for manifest updates on output creation",
+  "state": "BACKLOG",
+  "priority": "P2",
+  "progress_pct": 0,
+  "owner": "Brock Purdy",
+  "sprint_id": "SPRINT-001",
+  "gates": {},
+  "created_at": "2026-02-01T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

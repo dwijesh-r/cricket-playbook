@@ -1,0 +1,22 @@
+{
+  "id": "TKT-003",
+  "epic_id": "EPIC-001",
+  "title": "Create Florentino Perez agent",
+  "description": "Create the agent config file for Florentino Perez (Product Value Gate)",
+  "state": "DONE",
+  "priority": "P0",
+  "progress_pct": 100,
+  "owner": "Brad Stevens",
+  "assignee": "Brad Stevens",
+  "sprint_id": "SPRINT-001",
+  "gates": {
+    "florentino_gate": {"status": "APPROVED", "reason": "Pre-requisite for governance", "date": "2026-01-31"},
+    "domain_sanity": {"andy_flower": "YES", "date": "2026-01-31"},
+    "enforcement_check": {"status": "PASS", "issues": [], "date": "2026-01-31"},
+    "system_check": {"status": "PASS", "tests_passed": 1, "tests_total": 1, "date": "2026-01-31"},
+    "founder_validation": {"status": "APPROVED", "feedback": "Agent approved", "validated_by": "Founder", "date": "2026-01-31"}
+  },
+  "created_at": "2026-01-31T00:00:00Z",
+  "updated_at": "2026-01-31T00:00:00Z",
+  "completed_at": "2026-01-31T00:00:00Z"
+}

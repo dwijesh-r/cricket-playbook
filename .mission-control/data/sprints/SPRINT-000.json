@@ -1,0 +1,37 @@
+{
+  "id": "SPRINT-000",
+  "title": "Sprint 3.0 - Data Foundation",
+  "description": "Build core data infrastructure and initial outputs",
+  "start_date": "2026-01-15",
+  "end_date": "2026-01-29",
+  "duration_weeks": 2,
+  "epics": [],
+  "tickets": [],
+  "llm_budget": {
+    "total_tokens": 200000,
+    "used_tokens": 180000,
+    "approved_by": "Founder",
+    "approved_date": "2026-01-15"
+  },
+  "velocity": {
+    "planned_points": 50,
+    "completed_points": 48,
+    "burndown": [50, 45, 38, 30, 22, 15, 8, 2, 0]
+  },
+  "status": "COMPLETED",
+  "created_at": "2026-01-15T00:00:00Z",
+  "updated_at": "2026-01-29T00:00:00Z",
+  "summary": {
+    "highlights": [
+      "Built Cricsheet data pipeline",
+      "Created initial player tags",
+      "Generated first matchup matrices",
+      "Established notebook workflow"
+    ],
+    "key_outputs": [
+      "outputs/tags/player_tags.json",
+      "outputs/matchups/batter_bowling_type_matchup.csv",
+      "notebooks/player_analysis.ipynb"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "EPIC-005",
+  "title": "Phase 3: Output Quality & Completeness",
+  "description": "Fix incomplete matchup data and add documentation",
+  "sprint_id": "SPRINT-001",
+  "status": "IN_PROGRESS",
+  "progress_pct": 45,
+  "tickets": ["TKT-035", "TKT-036", "TKT-037", "TKT-038", "TKT-039", "TKT-040", "TKT-041", "TKT-042", "TKT-043", "TKT-044", "TKT-045"],
+  "created_at": "2026-01-31T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

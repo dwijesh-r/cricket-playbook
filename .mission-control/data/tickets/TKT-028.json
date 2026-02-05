@@ -1,0 +1,20 @@
+{
+  "id": "TKT-028",
+  "epic_id": "EPIC-004",
+  "title": "Fix bowler tags (Bumrah example)",
+  "description": "Update bowler tags based on audit findings",
+  "state": "DONE",
+  "priority": "P1",
+  "progress_pct": 100,
+  "owner": "Stephen Curry",
+  "assignee": "Stephen Curry",
+  "sprint_id": "SPRINT-001",
+  "gates": {
+    "domain_sanity": {"andy_flower": "YES", "date": "2026-02-03"},
+    "system_check": {"status": "PASS", "date": "2026-02-03"},
+    "founder_validation": {"status": "APPROVED", "validated_by": "Founder", "date": "2026-02-03"}
+  },
+  "created_at": "2026-02-03T00:00:00Z",
+  "updated_at": "2026-02-03T00:00:00Z",
+  "completed_at": "2026-02-03T00:00:00Z"
+}

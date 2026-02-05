@@ -1,0 +1,13 @@
+{
+  "id": "TKT-095",
+  "epic_id": "EPIC-011",
+  "title": "Silhouette score validation",
+  "description": "Validate clustering quality with silhouette scores",
+  "state": "IDEA",
+  "priority": "P1",
+  "progress_pct": 0,
+  "owner": "Ime Udoka",
+  "gates": {},
+  "created_at": "2026-02-05T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

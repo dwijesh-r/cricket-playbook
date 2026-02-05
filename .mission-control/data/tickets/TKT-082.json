@@ -1,0 +1,14 @@
+{
+  "id": "TKT-082",
+  "epic_id": "EPIC-009",
+  "title": "Audit all scripts for documentation",
+  "description": "Create audit report on script documentation",
+  "state": "BACKLOG",
+  "priority": "P2",
+  "progress_pct": 0,
+  "owner": "Brad Stevens",
+  "sprint_id": "SPRINT-001",
+  "gates": {},
+  "created_at": "2026-02-05T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "TKT-056",
+  "epic_id": "EPIC-006",
+  "title": "Define Predicted XI optimization criteria",
+  "description": "Document criteria for selecting optimal XI",
+  "state": "DONE",
+  "priority": "P0",
+  "progress_pct": 100,
+  "owner": "Andy Flower",
+  "assignee": "Andy Flower",
+  "sprint_id": "SPRINT-001",
+  "gates": {
+    "florentino_gate": {"status": "APPROVED", "reason": "Critical feature", "date": "2026-02-04"},
+    "domain_sanity": {"andy_flower": "YES", "pep_guardiola": "YES", "date": "2026-02-04"},
+    "founder_validation": {"status": "APPROVED", "validated_by": "Founder", "date": "2026-02-04"}
+  },
+  "created_at": "2026-02-04T00:00:00Z",
+  "updated_at": "2026-02-04T00:00:00Z",
+  "completed_at": "2026-02-04T00:00:00Z"
+}

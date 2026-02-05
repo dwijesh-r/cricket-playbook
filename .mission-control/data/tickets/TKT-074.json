@@ -1,0 +1,14 @@
+{
+  "id": "TKT-074",
+  "epic_id": "EPIC-007",
+  "title": "Jose Mourinho ecosystem analysis",
+  "description": "Comprehensive ecosystem analysis report",
+  "state": "BACKLOG",
+  "priority": "P2",
+  "progress_pct": 0,
+  "owner": "Jose Mourinho",
+  "sprint_id": "SPRINT-001",
+  "gates": {},
+  "created_at": "2026-02-05T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

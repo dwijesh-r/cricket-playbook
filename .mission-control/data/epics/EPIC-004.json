@@ -1,0 +1,11 @@
+{
+  "id": "EPIC-004",
+  "title": "Phase 2: Data & Tag Standardization",
+  "description": "Fix data issues and establish single tag nomenclature",
+  "sprint_id": "SPRINT-001",
+  "status": "IN_PROGRESS",
+  "progress_pct": 42,
+  "tickets": ["TKT-023", "TKT-024", "TKT-025", "TKT-026", "TKT-027", "TKT-028", "TKT-029", "TKT-030", "TKT-031", "TKT-032", "TKT-033", "TKT-034"],
+  "created_at": "2026-01-31T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

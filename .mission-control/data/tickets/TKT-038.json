@@ -1,0 +1,17 @@
+{
+  "id": "TKT-038",
+  "epic_id": "EPIC-005",
+  "title": "Verify all 231 players in matchups",
+  "description": "Validation report ensuring all 231 players have matchup data",
+  "state": "REVIEW",
+  "priority": "P0",
+  "progress_pct": 98,
+  "owner": "Stephen Curry",
+  "assignee": "Stephen Curry",
+  "sprint_id": "SPRINT-001",
+  "gates": {
+    "domain_sanity": {"andy_flower": "PENDING", "date": "2026-02-05"}
+  },
+  "created_at": "2026-02-03T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

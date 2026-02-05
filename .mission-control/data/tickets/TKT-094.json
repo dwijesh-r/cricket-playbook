@@ -1,0 +1,13 @@
+{
+  "id": "TKT-094",
+  "epic_id": "EPIC-011",
+  "title": "Insight Confidence Framework",
+  "description": "Framework for scoring confidence in insights",
+  "state": "IDEA",
+  "priority": "P1",
+  "progress_pct": 0,
+  "owner": "Andy Flower",
+  "gates": {},
+  "created_at": "2026-02-05T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

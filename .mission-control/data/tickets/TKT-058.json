@@ -1,0 +1,20 @@
+{
+  "id": "TKT-058",
+  "epic_id": "EPIC-006",
+  "title": "Implement depth scoring",
+  "description": "Algorithm for depth chart scoring",
+  "state": "DONE",
+  "priority": "P0",
+  "progress_pct": 100,
+  "owner": "Stephen Curry",
+  "assignee": "Stephen Curry",
+  "sprint_id": "SPRINT-001",
+  "gates": {
+    "domain_sanity": {"andy_flower": "YES", "date": "2026-02-04"},
+    "system_check": {"status": "PASS", "date": "2026-02-04"},
+    "founder_validation": {"status": "APPROVED", "validated_by": "Founder", "date": "2026-02-04"}
+  },
+  "created_at": "2026-02-04T00:00:00Z",
+  "updated_at": "2026-02-04T00:00:00Z",
+  "completed_at": "2026-02-04T00:00:00Z"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "TKT-030",
+  "epic_id": "EPIC-004",
+  "title": "Audit view counts across docs",
+  "description": "Ensure consistency in view/match counts across documents",
+  "state": "BACKLOG",
+  "priority": "P2",
+  "progress_pct": 0,
+  "owner": "Stephen Curry",
+  "sprint_id": "SPRINT-001",
+  "gates": {},
+  "created_at": "2026-02-03T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "TKT-011",
+  "epic_id": "EPIC-002",
+  "title": "Create Task PRD template",
+  "description": "Create governance/templates/TASK_PRD_TEMPLATE.md",
+  "state": "DONE",
+  "priority": "P1",
+  "progress_pct": 100,
+  "owner": "Tom Brady",
+  "assignee": "Tom Brady",
+  "sprint_id": "SPRINT-001",
+  "gates": {
+    "florentino_gate": {"status": "APPROVED", "date": "2026-02-01"},
+    "founder_validation": {"status": "APPROVED", "validated_by": "Founder", "date": "2026-02-01"}
+  },
+  "created_at": "2026-02-01T00:00:00Z",
+  "updated_at": "2026-02-01T00:00:00Z",
+  "completed_at": "2026-02-01T00:00:00Z"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "TKT-092",
+  "epic_id": "EPIC-011",
+  "title": "CI/CD artifact comparison",
+  "description": "Automated comparison of output artifacts in CI/CD",
+  "state": "IDEA",
+  "priority": "P2",
+  "progress_pct": 0,
+  "owner": "Ime Udoka",
+  "gates": {},
+  "created_at": "2026-02-05T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

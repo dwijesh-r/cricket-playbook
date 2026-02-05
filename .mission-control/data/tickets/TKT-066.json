@@ -1,0 +1,14 @@
+{
+  "id": "TKT-066",
+  "epic_id": "EPIC-006",
+  "title": "Add depth charts to stat pack template",
+  "description": "Update stat pack template to include depth chart section",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "progress_pct": 0,
+  "owner": "Virat Kohli",
+  "sprint_id": "SPRINT-001",
+  "gates": {},
+  "created_at": "2026-02-04T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

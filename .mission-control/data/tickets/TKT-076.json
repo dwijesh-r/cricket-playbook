@@ -1,0 +1,15 @@
+{
+  "id": "TKT-076",
+  "epic_id": "EPIC-008",
+  "title": "Schema validation tests",
+  "description": "Test suite for schema validation",
+  "state": "RUNNING",
+  "priority": "P0",
+  "progress_pct": 80,
+  "owner": "N'Golo Kanté",
+  "assignee": "N'Golo Kanté",
+  "sprint_id": "SPRINT-001",
+  "gates": {},
+  "created_at": "2026-02-04T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

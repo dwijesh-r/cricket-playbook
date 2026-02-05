@@ -1,0 +1,14 @@
+{
+  "id": "TKT-020",
+  "epic_id": "EPIC-003",
+  "title": "Remove committed .DS_Store files",
+  "description": "Clean up committed .DS_Store files from repo",
+  "state": "BACKLOG",
+  "priority": "P3",
+  "progress_pct": 0,
+  "owner": "Brad Stevens",
+  "sprint_id": "SPRINT-001",
+  "gates": {},
+  "created_at": "2026-02-01T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

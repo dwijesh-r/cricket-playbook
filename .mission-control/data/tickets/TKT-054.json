@@ -1,0 +1,14 @@
+{
+  "id": "TKT-054",
+  "epic_id": "EPIC-006",
+  "title": "Ensure each insight is actionable",
+  "description": "Validate all insights have actionable takeaways",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "progress_pct": 0,
+  "owner": "Andy Flower",
+  "sprint_id": "SPRINT-001",
+  "gates": {},
+  "created_at": "2026-02-04T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

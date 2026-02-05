@@ -1,0 +1,18 @@
+{
+  "id": "TKT-080",
+  "epic_id": "EPIC-008",
+  "title": "Update tests/README.md with purpose/plan",
+  "description": "Document testing strategy and plan",
+  "state": "DONE",
+  "priority": "P1",
+  "progress_pct": 100,
+  "owner": "N'Golo Kanté",
+  "assignee": "N'Golo Kanté",
+  "sprint_id": "SPRINT-001",
+  "gates": {
+    "founder_validation": {"status": "APPROVED", "validated_by": "Founder", "date": "2026-02-04"}
+  },
+  "created_at": "2026-02-04T00:00:00Z",
+  "updated_at": "2026-02-04T00:00:00Z",
+  "completed_at": "2026-02-04T00:00:00Z"
+}

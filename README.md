@@ -39,6 +39,31 @@ See `.mission-control/README.md` for CLI usage and `governance/MISSION_CONTROL_D
 
 ---
 
+## 🔬 The Lab - Analytics Showcase
+
+**Live URL:** [https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/)
+
+*"Where the analytics magic happens."*
+
+The Lab is Cricket Playbook's showcase dashboard - your all-access pass to IPL 2026 analytics. It's the "magazine version" of our repository: structured, browsable, and beautiful.
+
+**What it shows:**
+- **Team Views** - Predicted XIIs, depth charts, and squad analysis for all 10 franchises
+- **Artifact Gallery** - All outputs in one place with comparison tools
+- **Research Hub** - SUPER SELECTOR algorithm, PFF/KenPom methodology documentation
+- **About Section** - The vision, the team, the story behind Cricket Playbook
+
+**Navigation:**
+| Page | Description |
+|------|-------------|
+| Home | Quick stats, team grid, navigation cards |
+| Teams | Team-first navigation with predicted XI display |
+| Artifacts | Compare depth charts, browse all outputs |
+| Research | Algorithm docs, methodology, cross-sport research |
+| About | Vision, agents, founder section |
+
+---
+
 ## New Here? Start Here.
 
 *A guide from Tom Brady (Product Owner) and Andy Flower (Cricket Domain Expert)*

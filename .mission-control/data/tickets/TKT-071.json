@@ -1,0 +1,14 @@
+{
+  "id": "TKT-071",
+  "epic_id": "EPIC-007",
+  "title": "Agent performance review",
+  "description": "Review agent performance and create report",
+  "state": "BACKLOG",
+  "priority": "P2",
+  "progress_pct": 0,
+  "owner": "Brad Stevens",
+  "sprint_id": "SPRINT-001",
+  "gates": {},
+  "created_at": "2026-02-05T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

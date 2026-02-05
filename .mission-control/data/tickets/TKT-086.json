@@ -1,0 +1,22 @@
+{
+  "id": "TKT-086",
+  "epic_id": "EPIC-010",
+  "title": "The Lab Dashboard",
+  "description": "Build the analytics showcase dashboard - the magazine version of Cricket Playbook outputs",
+  "state": "DONE",
+  "priority": "P0",
+  "progress_pct": 100,
+  "owner": "Tom Brady",
+  "assignee": "Kevin de Bruyne",
+  "sprint_id": "SPRINT-001",
+  "gates": {
+    "florentino_gate": {"status": "APPROVED", "reason": "Critical showcase for portfolio", "date": "2026-02-05"},
+    "domain_sanity": {"andy_flower": "YES", "date": "2026-02-05"},
+    "enforcement_check": {"status": "PASS", "issues": [], "date": "2026-02-05"},
+    "system_check": {"status": "PASS", "tests_passed": 5, "tests_total": 5, "date": "2026-02-05"},
+    "founder_validation": {"status": "APPROVED", "feedback": "Excellent showcase! Ship it.", "validated_by": "Founder", "date": "2026-02-05"}
+  },
+  "created_at": "2026-02-05T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z",
+  "completed_at": "2026-02-05T00:00:00Z"
+}

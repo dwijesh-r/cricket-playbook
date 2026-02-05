@@ -1,0 +1,11 @@
+{
+  "id": "EPIC-008",
+  "title": "Phase 6: Testing & Quality",
+  "description": "Robust validation and testing",
+  "sprint_id": "SPRINT-001",
+  "status": "IN_PROGRESS",
+  "progress_pct": 17,
+  "tickets": ["TKT-076", "TKT-077", "TKT-078", "TKT-079", "TKT-080", "TKT-081"],
+  "created_at": "2026-01-31T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

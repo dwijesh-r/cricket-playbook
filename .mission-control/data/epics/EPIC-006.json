@@ -1,0 +1,11 @@
+{
+  "id": "EPIC-006",
+  "title": "Phase 4: Stat Pack Enhancement",
+  "description": "Transform stat packs to magazine-style editorial with Predicted XI and Depth Charts",
+  "sprint_id": "SPRINT-001",
+  "status": "IN_PROGRESS",
+  "progress_pct": 14,
+  "tickets": ["TKT-046", "TKT-047", "TKT-048", "TKT-049", "TKT-050", "TKT-051", "TKT-052", "TKT-053", "TKT-054", "TKT-055", "TKT-056", "TKT-057", "TKT-058", "TKT-059", "TKT-060", "TKT-061", "TKT-062", "TKT-063", "TKT-064", "TKT-065", "TKT-066"],
+  "created_at": "2026-01-31T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

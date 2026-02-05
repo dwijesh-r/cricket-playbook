@@ -337,5 +337,16 @@ Now go ship something. 🚀
 
 ---
 
+---
+
+## 🔗 Related Dashboards
+
+| Dashboard | Purpose | URL |
+|-----------|---------|-----|
+| **Mission Control** | Task tracking, sprint management | [Live](https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/) |
+| **The Lab** | Analytics showcase, outputs gallery | [Live](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/) |
+
+---
+
 *Built with ❤️ for Cricket Playbook | v0.1.0*
 *Design Spec: governance/MISSION_CONTROL_DESIGN_020426_v1.md*

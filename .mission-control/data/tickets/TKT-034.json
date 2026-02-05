@@ -1,0 +1,14 @@
+{
+  "id": "TKT-034",
+  "epic_id": "EPIC-004",
+  "title": "Add Limitations section to outputs/README",
+  "description": "Document data limitations in outputs README",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "progress_pct": 0,
+  "owner": "Andy Flower",
+  "sprint_id": "SPRINT-001",
+  "gates": {},
+  "created_at": "2026-02-03T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

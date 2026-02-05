@@ -1,0 +1,14 @@
+{
+  "id": "TKT-044",
+  "epic_id": "EPIC-005",
+  "title": "Create outputs/run-logs/README.md",
+  "description": "Document run-logs with purpose and schema",
+  "state": "BACKLOG",
+  "priority": "P2",
+  "progress_pct": 0,
+  "owner": "Brock Purdy",
+  "sprint_id": "SPRINT-001",
+  "gates": {},
+  "created_at": "2026-02-03T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "TKT-089",
+  "epic_id": "EPIC-011",
+  "title": "Toss Advantage Index",
+  "description": "Analyze toss advantage by venue and conditions",
+  "state": "IDEA",
+  "priority": "P1",
+  "progress_pct": 0,
+  "owner": "Stephen Curry",
+  "gates": {},
+  "created_at": "2026-02-05T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "TKT-070",
+  "epic_id": "EPIC-007",
+  "title": "Create notebooks/USER_GUIDE.md",
+  "description": "User guide for Jupyter notebooks",
+  "state": "BACKLOG",
+  "priority": "P2",
+  "progress_pct": 0,
+  "owner": "Stephen Curry",
+  "sprint_id": "SPRINT-001",
+  "gates": {},
+  "created_at": "2026-02-05T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

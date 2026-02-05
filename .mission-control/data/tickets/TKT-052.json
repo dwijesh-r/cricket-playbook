@@ -1,0 +1,14 @@
+{
+  "id": "TKT-052",
+  "epic_id": "EPIC-006",
+  "title": "Make insights specific and data-backed",
+  "description": "Update insights to be specific with data references",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "progress_pct": 0,
+  "owner": "Virat Kohli",
+  "sprint_id": "SPRINT-001",
+  "gates": {},
+  "created_at": "2026-02-04T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

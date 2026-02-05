@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams - The Lab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ==================== THEME SYSTEM ==================== */
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #1c1c1e;
+            --bg-tertiary: #2c2c2e;
+            --bg-elevated: #3a3a3c;
+            --text-primary: #ffffff;
+            --text-secondary: #8e8e93;
+            --text-tertiary: #636366;
+            --accent: #0a84ff;
+            --accent-green: #30d158;
+            --accent-yellow: #ffd60a;
+            --accent-orange: #ff9f0a;
+            --accent-red: #ff453a;
+            --accent-purple: #bf5af2;
+            --accent-pink: #ff375f;
+            --accent-teal: #64d2ff;
+            --border: rgba(255, 255, 255, 0.1);
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --shadow: rgba(0, 0, 0, 0.4);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #f5f5f7;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #e5e5ea;
+            --bg-elevated: #d1d1d6;
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --text-tertiary: #8e8e93;
+            --accent: #007aff;
+            --accent-green: #28cd41;
+            --accent-yellow: #ffcc00;
+            --accent-orange: #ff9500;
+            --accent-red: #ff3b30;
+            --accent-purple: #af52de;
+            --accent-pink: #ff2d55;
+            --accent-teal: #5ac8fa;
+            --border: rgba(0, 0, 0, 0.08);
+            --glass: rgba(0, 0, 0, 0.03);
+            --glass-border: rgba(0, 0, 0, 0.06);
+            --shadow: rgba(0, 0, 0, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Background */
+        .bg-gradient {
+            position: fixed;
+            inset: 0;
+            z-index: -4;
+            background: linear-gradient(135deg, #000000 0%, #0a0a12 25%, #0d1020 50%, #0a0a15 75%, #000000 100%);
+        }
+        [data-theme="light"] .bg-gradient {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f1f3f5 100%);
+        }
+        .bg-gradient::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(ellipse, rgba(10, 132, 255, 0.18) 0%, transparent 70%);
+            filter: blur(80px);
+        }
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        [data-theme="light"] .bg-grid {
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 56px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 100;
+        }
+        [data-theme="light"] .nav { background: rgba(245, 245, 247, 0.85); }
+        .nav-brand { display: flex; align-items: center; gap: 12px; }
+        .nav-logo {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        .nav-title { font-size: 16px; font-weight: 700; }
+        .nav-title span { color: var(--accent); }
+        .nav-tabs {
+            display: flex;
+            gap: 4px;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            padding: 5px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .nav-tab {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: none;
+            background: none;
+            font-family: inherit;
+            text-decoration: none;
+        }
+        .nav-tab:hover { color: var(--text-primary); background: var(--bg-tertiary); }
+        .nav-tab.active {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            color: white;
+        }
+        .nav-actions { display: flex; align-items: center; gap: 10px; }
+        .theme-toggle {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.25s ease;
+        }
+        .theme-toggle:hover { color: var(--accent-yellow); border-color: var(--accent-yellow); }
+
+        /* Main */
+        .main { padding-top: 56px; min-height: 100vh; }
+
+        /* Team Selector */
+        .team-selector {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 20px 24px;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+        .team-btn {
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: 1px solid var(--border);
+            background: var(--bg-tertiary);
+            font-family: inherit;
+        }
+        .team-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        .team-btn.active {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 16px rgba(10, 132, 255, 0.3);
+        }
+
+        /* Team Header */
+        .team-header-section {
+            padding: 40px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .team-header-card {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        .team-header-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--team-color, var(--accent));
+        }
+        .team-header-content {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .team-badge {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-elevated);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+        .team-header-info h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .team-header-info p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .team-meta {
+            display: flex;
+            gap: 24px;
+            margin-top: 16px;
+        }
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--text-tertiary);
+        }
+        .meta-item strong { color: var(--text-primary); }
+
+        /* Content Tabs */
+        .content-tabs {
+            display: flex;
+            gap: 4px;
+            padding: 0 24px;
+            max-width: 1200px;
+            margin: 0 auto 24px;
+        }
+        .content-tab {
+            padding: 12px 24px;
+            border-radius: 10px 10px 0 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: 1px solid var(--border);
+            border-bottom: none;
+            background: var(--bg-tertiary);
+            font-family: inherit;
+        }
+        .content-tab:hover { color: var(--text-primary); }
+        .content-tab.active {
+            background: var(--bg-secondary);
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* Content Panel */
+        .content-panel {
+            padding: 0 24px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .panel { display: none; }
+        .panel.active { display: block; }
+
+        /* Predicted XI Panel */
+        .xi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .player-card {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.25s ease;
+        }
+        .player-card:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+        .player-position {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+        }
+        .player-info { flex: 1; }
+        .player-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .player-role {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+        .player-meta {
+            text-align: right;
+        }
+        .player-price {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent-green);
+        }
+        .player-overseas {
+            font-size: 10px;
+            color: var(--accent-orange);
+            text-transform: uppercase;
+        }
+
+        /* Balance Summary */
+        .balance-summary {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+        .balance-summary h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .balance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 16px;
+        }
+        .balance-item {
+            text-align: center;
+            padding: 16px;
+            background: var(--bg-elevated);
+            border-radius: 10px;
+        }
+        .balance-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .balance-label {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+        .balance-status {
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-top: 4px;
+            display: inline-block;
+        }
+        .balance-status.good { background: rgba(48, 209, 88, 0.2); color: var(--accent-green); }
+        .balance-status.max { background: rgba(255, 159, 10, 0.2); color: var(--accent-orange); }
+
+        /* Impact Player */
+        .impact-player {
+            background: linear-gradient(135deg, rgba(191, 90, 242, 0.1) 0%, rgba(10, 132, 255, 0.1) 100%);
+            border: 1px dashed var(--accent-purple);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .impact-badge {
+            background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-pink) 100%);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            color: white;
+        }
+
+        /* Depth Chart Panel */
+        .depth-section {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+        .depth-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+        .depth-position {
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .depth-rating {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .depth-players {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .depth-player {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: var(--bg-elevated);
+            border-radius: 10px;
+        }
+        .depth-rank {
+            width: 28px;
+            height: 28px;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+        .depth-rank.primary { background: var(--accent); color: white; }
+        .depth-player-info { flex: 1; }
+        .depth-player-name { font-size: 14px; font-weight: 600; }
+        .depth-player-rationale { font-size: 11px; color: var(--text-tertiary); margin-top: 2px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-tabs { display: none; }
+            .team-selector { gap: 4px; }
+            .team-btn { padding: 8px 12px; font-size: 12px; }
+            .team-header-content { flex-direction: column; text-align: center; }
+            .team-meta { justify-content: center; flex-wrap: wrap; }
+            .xi-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+
+    <nav class="nav">
+        <div class="nav-brand">
+            <div class="nav-logo">🏏</div>
+            <div class="nav-title">Cricket <span>Playbook</span></div>
+        </div>
+        <div class="nav-tabs">
+            <a href="index.html" class="nav-tab">Home</a>
+            <a href="teams.html" class="nav-tab active">Teams</a>
+            <a href="artifacts.html" class="nav-tab">Artifacts</a>
+            <a href="research.html" class="nav-tab">Research</a>
+            <a href="about.html" class="nav-tab">About</a>
+        </div>
+        <div class="nav-actions">
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+        </div>
+    </nav>
+
+    <main class="main">
+        <!-- Team Selector -->
+        <div class="team-selector" id="team-selector">
+            <!-- Populated by JS -->
+        </div>
+
+        <!-- Team Header -->
+        <section class="team-header-section">
+            <div class="team-header-card" id="team-header">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- Content Tabs -->
+        <div class="content-tabs">
+            <button class="content-tab active" data-tab="xi">Predicted XI</button>
+            <button class="content-tab" data-tab="depth">Depth Chart</button>
+            <button class="content-tab" data-tab="balance">Team Balance</button>
+        </div>
+
+        <!-- Content Panels -->
+        <div class="content-panel">
+            <div class="panel active" id="panel-xi">
+                <div class="xi-grid" id="xi-grid"></div>
+                <div class="impact-player" id="impact-player"></div>
+            </div>
+            <div class="panel" id="panel-depth">
+                <div id="depth-content"></div>
+            </div>
+            <div class="panel" id="panel-balance">
+                <div class="balance-summary" id="balance-content"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="data/teams.js"></script>
+    <script src="data/predicted_xii.js"></script>
+
+    <script>
+        let currentTeam = 'MI';
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '🌙' : '☀️';
+        }
+
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        function populateTeamSelector() {
+            const selector = document.getElementById('team-selector');
+            selector.innerHTML = '';
+            TEAM_ORDER.forEach(abbrev => {
+                const team = TEAMS[abbrev];
+                const btn = document.createElement('button');
+                btn.className = `team-btn ${abbrev === currentTeam ? 'active' : ''}`;
+                btn.textContent = abbrev;
+                btn.onclick = () => selectTeam(abbrev);
+                selector.appendChild(btn);
+            });
+        }
+
+        function selectTeam(abbrev) {
+            currentTeam = abbrev;
+            document.querySelectorAll('.team-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent === abbrev);
+            });
+            renderTeam();
+            history.pushState(null, '', `?team=${abbrev}`);
+        }
+
+        function renderTeam() {
+            const team = TEAMS[currentTeam];
+            const predicted = PREDICTED_XII[currentTeam];
+            const rating = DEPTH_CHART_RATINGS[currentTeam];
+
+            // Header
+            const header = document.getElementById('team-header');
+            header.style.setProperty('--team-color', team.primaryColor);
+            header.innerHTML = `
+                <div class="team-header-content">
+                    <div class="team-badge">${team.icon}</div>
+                    <div class="team-header-info">
+                        <h1>${team.fullName}</h1>
+                        <p>IPL 2026 • ${team.homeVenue}</p>
+                        <div class="team-meta">
+                            <div class="meta-item">🏆 <strong>${team.titles}x</strong> Champions</div>
+                            <div class="meta-item">👑 Captain: <strong>${predicted.captain}</strong></div>
+                            <div class="meta-item">⭐ Rating: <strong>${rating.overall}</strong></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Predicted XI
+            const xiGrid = document.getElementById('xi-grid');
+            xiGrid.innerHTML = '';
+            predicted.xi.forEach(player => {
+                const card = document.createElement('div');
+                card.className = 'player-card';
+                card.innerHTML = `
+                    <div class="player-position">${player.position}</div>
+                    <div class="player-info">
+                        <div class="player-name">${player.name}</div>
+                        <div class="player-role">${player.role} • ${player.batting}</div>
+                    </div>
+                    <div class="player-meta">
+                        <div class="player-price">₹${player.price} Cr</div>
+                        ${player.overseas ? '<div class="player-overseas">🌍 Overseas</div>' : ''}
+                    </div>
+                `;
+                xiGrid.appendChild(card);
+            });
+
+            // Impact Player
+            const impact = document.getElementById('impact-player');
+            impact.innerHTML = `
+                <div class="impact-badge">⚡ IMPACT</div>
+                <div class="player-info">
+                    <div class="player-name">${predicted.impactPlayer.name}</div>
+                    <div class="player-role">${predicted.impactPlayer.role}</div>
+                </div>
+                <div class="player-meta">
+                    <div class="player-price">₹${predicted.impactPlayer.price} Cr</div>
+                </div>
+            `;
+
+            // Balance Content
+            const balance = predicted.balance;
+            const balanceContent = document.getElementById('balance-content');
+            balanceContent.innerHTML = `
+                <h3>Team Balance - ${team.fullName}</h3>
+                <div class="balance-grid">
+                    <div class="balance-item">
+                        <div class="balance-value">${balance.overseas}/4</div>
+                        <div class="balance-label">Overseas</div>
+                        <div class="balance-status ${balance.overseas === 4 ? 'max' : 'good'}">${balance.overseas === 4 ? 'MAX' : 'OK'}</div>
+                    </div>
+                    <div class="balance-item">
+                        <div class="balance-value">${balance.bowlingOptions}</div>
+                        <div class="balance-label">Bowling Options</div>
+                        <div class="balance-status good">✓</div>
+                    </div>
+                    <div class="balance-item">
+                        <div class="balance-value">${balance.spinners}</div>
+                        <div class="balance-label">Spinners</div>
+                        <div class="balance-status good">✓</div>
+                    </div>
+                    <div class="balance-item">
+                        <div class="balance-value">${balance.pacers}</div>
+                        <div class="balance-label">Pacers</div>
+                        <div class="balance-status good">✓</div>
+                    </div>
+                    <div class="balance-item">
+                        <div class="balance-value">${balance.leftHandersTop6}</div>
+                        <div class="balance-label">LHB in Top 6</div>
+                        <div class="balance-status good">✓</div>
+                    </div>
+                </div>
+            `;
+
+            // Depth Chart (simplified)
+            const depthContent = document.getElementById('depth-content');
+            depthContent.innerHTML = `
+                <div class="depth-section">
+                    <div class="depth-header">
+                        <div class="depth-position">📊 Depth Chart Summary</div>
+                        <div class="depth-rating">⭐ ${rating.overall}</div>
+                    </div>
+                    <div class="depth-players">
+                        <div class="depth-player">
+                            <div class="depth-rank primary">💪</div>
+                            <div class="depth-player-info">
+                                <div class="depth-player-name">Strongest: ${rating.strongest}</div>
+                            </div>
+                        </div>
+                        <div class="depth-player">
+                            <div class="depth-rank">⚠️</div>
+                            <div class="depth-player-info">
+                                <div class="depth-player-name">Weakest: ${rating.weakest}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p style="color: var(--text-tertiary); font-size: 14px; text-align: center;">
+                    Full depth chart data available in <a href="artifacts.html" style="color: var(--accent);">Artifacts</a>
+                </p>
+            `;
+        }
+
+        // Tab switching
+        document.querySelectorAll('.content-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.content-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(`panel-${tab.dataset.tab}`).classList.add('active');
+            });
+        });
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const teamParam = params.get('team');
+            if (teamParam && TEAMS[teamParam]) {
+                currentTeam = teamParam;
+            }
+            populateTeamSelector();
+            renderTeam();
+            document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "id": "EPIC-010",
+  "title": "The Lab",
+  "description": "Analytics showcase dashboard - The magazine version of Cricket Playbook outputs",
+  "sprint_id": "SPRINT-001",
+  "status": "COMPLETED",
+  "progress_pct": 100,
+  "tickets": ["TKT-086"],
+  "created_at": "2026-02-05T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

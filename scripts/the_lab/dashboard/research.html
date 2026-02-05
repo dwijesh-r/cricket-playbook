@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research & Methodology - The Lab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #1c1c1e;
+            --bg-tertiary: #2c2c2e;
+            --bg-elevated: #3a3a3c;
+            --text-primary: #ffffff;
+            --text-secondary: #8e8e93;
+            --text-tertiary: #636366;
+            --accent: #0a84ff;
+            --accent-green: #30d158;
+            --accent-yellow: #ffd60a;
+            --accent-orange: #ff9f0a;
+            --accent-red: #ff453a;
+            --accent-purple: #bf5af2;
+            --accent-pink: #ff375f;
+            --accent-teal: #64d2ff;
+            --border: rgba(255, 255, 255, 0.1);
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+        [data-theme="light"] {
+            --bg-primary: #f5f5f7;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #e5e5ea;
+            --bg-elevated: #d1d1d6;
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --text-tertiary: #8e8e93;
+            --accent: #007aff;
+            --accent-green: #28cd41;
+            --accent-yellow: #ffcc00;
+            --accent-orange: #ff9500;
+            --accent-red: #ff3b30;
+            --accent-purple: #af52de;
+            --accent-pink: #ff2d55;
+            --accent-teal: #5ac8fa;
+            --border: rgba(0, 0, 0, 0.08);
+            --glass: rgba(0, 0, 0, 0.03);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+        .bg-gradient {
+            position: fixed; inset: 0; z-index: -4;
+            background: linear-gradient(135deg, #000000 0%, #0a0a12 25%, #0d1020 50%, #0a0a15 75%, #000000 100%);
+        }
+        [data-theme="light"] .bg-gradient {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f1f3f5 100%);
+        }
+        .bg-gradient::before {
+            content: ''; position: absolute; top: -20%; right: -10%; width: 60%; height: 60%;
+            background: radial-gradient(ellipse, rgba(10, 132, 255, 0.18) 0%, transparent 70%);
+            filter: blur(80px);
+        }
+        .bg-grid {
+            position: fixed; inset: 0; z-index: -2;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        [data-theme="light"] .bg-grid {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        }
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; height: 56px;
+            background: rgba(0, 0, 0, 0.8); backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 24px; z-index: 100;
+        }
+        [data-theme="light"] .nav { background: rgba(245, 245, 247, 0.85); }
+        .nav-brand { display: flex; align-items: center; gap: 12px; }
+        .nav-logo {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px;
+        }
+        .nav-title { font-size: 16px; font-weight: 700; }
+        .nav-title span { color: var(--accent); }
+        .nav-tabs {
+            display: flex; gap: 4px;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            padding: 5px; border-radius: 12px; border: 1px solid var(--border);
+        }
+        .nav-tab {
+            padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;
+            color: var(--text-secondary); cursor: pointer; transition: all 0.25s ease;
+            border: none; background: none; font-family: inherit; text-decoration: none;
+        }
+        .nav-tab:hover { color: var(--text-primary); background: var(--bg-tertiary); }
+        .nav-tab.active {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            color: white;
+        }
+        .nav-actions { display: flex; align-items: center; gap: 10px; }
+        .theme-toggle {
+            width: 38px; height: 38px; border-radius: 10px; background: var(--bg-secondary);
+            border: 1px solid var(--border); color: var(--text-secondary);
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            font-size: 16px; transition: all 0.25s ease;
+        }
+        .theme-toggle:hover { color: var(--accent-yellow); border-color: var(--accent-yellow); }
+        .main { padding-top: 56px; min-height: 100vh; }
+
+        .page-header {
+            padding: 60px 24px 40px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .page-title {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .page-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .content { max-width: 1000px; margin: 0 auto; padding: 0 24px 60px; }
+
+        .research-card {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+        .research-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+        .research-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        .research-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .research-subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .research-content {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        .research-content h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 20px 0 12px;
+        }
+        .research-content ul {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        .research-content li {
+            margin-bottom: 8px;
+        }
+        .research-content strong {
+            color: var(--text-primary);
+        }
+
+        .priority-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+        .priority-badge.p0 { background: var(--accent-green); color: white; }
+        .priority-badge.p1 { background: var(--accent-yellow); color: black; }
+        .priority-badge.p2 { background: var(--accent-orange); color: white; }
+
+        .doc-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-elevated);
+            padding: 10px 16px;
+            border-radius: 10px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 16px;
+            transition: all 0.25s ease;
+        }
+        .doc-link:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .footer {
+            padding: 40px 24px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        .footer-text { font-size: 12px; color: var(--text-tertiary); }
+
+        @media (max-width: 768px) {
+            .nav-tabs { display: none; }
+            .research-header { flex-direction: column; align-items: center; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+
+    <nav class="nav">
+        <div class="nav-brand">
+            <div class="nav-logo">🏏</div>
+            <div class="nav-title">Cricket <span>Playbook</span></div>
+        </div>
+        <div class="nav-tabs">
+            <a href="index.html" class="nav-tab">Home</a>
+            <a href="teams.html" class="nav-tab">Teams</a>
+            <a href="artifacts.html" class="nav-tab">Artifacts</a>
+            <a href="research.html" class="nav-tab active">Research</a>
+            <a href="about.html" class="nav-tab">About</a>
+        </div>
+        <div class="nav-actions">
+            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+        </div>
+    </nav>
+
+    <main class="main">
+        <header class="page-header">
+            <h1 class="page-title">📚 Research & Methodology</h1>
+            <p class="page-subtitle">
+                Our analytics approach is inspired by the best in sports analytics.
+                Learn how we bring NFL's PFF and college basketball's KenPom to cricket.
+            </p>
+        </header>
+
+        <div class="content">
+            <!-- SUPER SELECTOR Algorithm -->
+            <article class="research-card">
+                <div class="research-header">
+                    <div class="research-icon">🎯</div>
+                    <div>
+                        <h2 class="research-title">SUPER SELECTOR Algorithm</h2>
+                        <p class="research-subtitle">Statistical Unified Player Evaluation and Ranking SELECTOR</p>
+                    </div>
+                </div>
+                <div class="research-content">
+                    <p>Our predicted XI algorithm combines multiple data sources to generate optimal team compositions:</p>
+
+                    <h4>Scoring Components</h4>
+                    <ul>
+                        <li><strong>Base Classification (0-30 pts)</strong> - Role-based scoring for position fit</li>
+                        <li><strong>Performance Tags</strong> - Phase-specific tags (PP_ELITE, DEATH_SPECIALIST, etc.)</li>
+                        <li><strong>Derived Metrics</strong> - boundary%, consistency_index, death_dot_pct</li>
+                        <li><strong>Price Tier Bonus (5-15%)</strong> - Investment level consideration</li>
+                        <li><strong>Variety Optimization</strong> - LHB/RHB balance, spin/pace mix</li>
+                    </ul>
+
+                    <h4>Hard Constraints</h4>
+                    <ul>
+                        <li><strong>C1:</strong> Captain cannot be Impact Player</li>
+                        <li><strong>C2:</strong> Maximum 4 overseas players</li>
+                        <li><strong>C3:</strong> Minimum 20 overs bowling coverage</li>
+                        <li><strong>C4:</strong> At least 1 wicketkeeper</li>
+                        <li><strong>C5:</strong> At least 1 spinner</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- PFF-Inspired Grading -->
+            <article class="research-card">
+                <div class="research-header">
+                    <div class="research-icon">🏈</div>
+                    <div>
+                        <h2 class="research-title">PFF-Inspired Grading</h2>
+                        <p class="research-subtitle">Process over outcome evaluation from Pro Football Focus</p>
+                    </div>
+                </div>
+                <div class="research-content">
+                    <p>Pro Football Focus revolutionized NFL analytics by grading every play. We adapt their methodology:</p>
+
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li><strong>Ball-by-Ball Grading</strong> - Evaluate each delivery on a -2 to +2 scale</li>
+                        <li><strong>Process Over Outcome</strong> - Good decisions that fail still get positive grades</li>
+                        <li><strong>Context Adjustments</strong> - Situation, opposition, and conditions matter</li>
+                        <li><strong>WAR (Wins Above Replacement)</strong> - Aggregate value metric</li>
+                    </ul>
+
+                    <h4>Cricket Applications</h4>
+                    <ul>
+                        <li><span class="priority-badge p0">P0</span> Batter grading vs bowling type and phase</li>
+                        <li><span class="priority-badge p0">P0</span> Bowler grading by delivery outcome quality</li>
+                        <li><span class="priority-badge p1">P1</span> Fielding impact assessment</li>
+                        <li><span class="priority-badge p2">P2</span> Captain decision grading</li>
+                    </ul>
+
+                    <a href="../../../docs/research/pff_grading_system_research.md" class="doc-link">
+                        📄 View Full PFF Research Document
+                    </a>
+                </div>
+            </article>
+
+            <!-- KenPom Efficiency -->
+            <article class="research-card">
+                <div class="research-header">
+                    <div class="research-icon">🏀</div>
+                    <div>
+                        <h2 class="research-title">KenPom Efficiency Metrics</h2>
+                        <p class="research-subtitle">Tempo-free statistics from college basketball analytics</p>
+                    </div>
+                </div>
+                <div class="research-content">
+                    <p>Ken Pomeroy's basketball ratings remove pace from the equation. We apply similar concepts:</p>
+
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li><strong>Adjusted Efficiency</strong> - Opponent-normalized performance</li>
+                        <li><strong>Tempo-Free Stats</strong> - Per-possession (or per-ball) metrics</li>
+                        <li><strong>Four Factors</strong> - Decompose performance into components</li>
+                        <li><strong>Strength of Schedule</strong> - Quality of opposition faced</li>
+                    </ul>
+
+                    <h4>Cricket Applications</h4>
+                    <ul>
+                        <li><span class="priority-badge p0">P0</span> <strong>Four Factors:</strong> Boundary%, Dot Ball%, Extras, Bowling Changes</li>
+                        <li><span class="priority-badge p0">P0</span> <strong>Venue Park Factors:</strong> Adjust for pitch and ground size</li>
+                        <li><span class="priority-badge p1">P1</span> <strong>Opposition Strength Index:</strong> Weight by opponent quality</li>
+                        <li><span class="priority-badge p1">P1</span> <strong>Adjusted Strike Rate:</strong> SR normalized by context</li>
+                    </ul>
+
+                    <a href="../../../docs/research/kenpom_methodology_research.md" class="doc-link">
+                        📄 View Full KenPom Research Document
+                    </a>
+                </div>
+            </article>
+
+            <!-- Player Clustering -->
+            <article class="research-card">
+                <div class="research-header">
+                    <div class="research-icon">🎨</div>
+                    <div>
+                        <h2 class="research-title">Player Clustering (K-Means V2)</h2>
+                        <p class="research-subtitle">Archetype-based player classification</p>
+                    </div>
+                </div>
+                <div class="research-content">
+                    <p>We use K-means clustering to identify natural player archetypes:</p>
+
+                    <h4>Batter Archetypes</h4>
+                    <ul>
+                        <li><strong>EXPLOSIVE_OPENER</strong> - High SR, PP aggression, boundary-heavy</li>
+                        <li><strong>PLAYMAKER</strong> - Consistent scoring, adaptable approach</li>
+                        <li><strong>ANCHOR</strong> - Low dot%, innings builder, lower SR</li>
+                        <li><strong>MIDDLE_ORDER</strong> - Middle overs specialist, rotation focus</li>
+                        <li><strong>FINISHER</strong> - Death overs specialist, high SR at end</li>
+                    </ul>
+
+                    <h4>Bowler Archetypes</h4>
+                    <ul>
+                        <li><strong>WORKHORSE</strong> - Consistent economy, regular overs</li>
+                        <li><strong>NEW_BALL_SPECIALIST</strong> - PP wickets, swing/seam</li>
+                        <li><strong>DEATH_SPECIALIST</strong> - Low death economy, yorker execution</li>
+                        <li><strong>WICKET_TAKER</strong> - High wickets, aggressive approach</li>
+                    </ul>
+
+                    <a href="../../../docs/specs/cluster_archetypes_creative.md" class="doc-link">
+                        📄 View Creative Archetype Descriptions
+                    </a>
+                </div>
+            </article>
+
+            <!-- Data Sources -->
+            <article class="research-card">
+                <div class="research-header">
+                    <div class="research-icon">📊</div>
+                    <div>
+                        <h2 class="research-title">Data Foundation</h2>
+                        <p class="research-subtitle">Ball-by-ball analysis from Cricsheet</p>
+                    </div>
+                </div>
+                <div class="research-content">
+                    <h4>Data Sources</h4>
+                    <ul>
+                        <li><strong>Cricsheet Ball-by-Ball</strong> - 219 IPL matches (2023-2025)</li>
+                        <li><strong>IPL 2026 Auction Data</strong> - Squad compositions and prices</li>
+                        <li><strong>Historical Records</strong> - Team vs team, venue performance</li>
+                    </ul>
+
+                    <h4>Derived Metrics (35+)</h4>
+                    <ul>
+                        <li>Batter consistency index, boundary percentage, dot ball percentage</li>
+                        <li>Partnership synergy scores, pressure sequences</li>
+                        <li>Phase-specific performance (PP, middle, death)</li>
+                        <li>Bowling type matchups, handedness analysis</li>
+                    </ul>
+
+                    <h4>Validation</h4>
+                    <ul>
+                        <li>Every insight reviewed by cricket domain expert (Andy Flower)</li>
+                        <li>8-step Task Integrity Loop via Mission Control</li>
+                        <li>Founder sign-off on all key outputs</li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+
+        <footer class="footer">
+            <p class="footer-text">
+                Cricket Playbook © 2026 | Research Documentation |
+                <a href="about.html" style="color: var(--accent);">About Us</a>
+            </p>
+        </footer>
+    </main>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '🌙' : '☀️';
+        }
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+    </script>
+</body>
+</html>

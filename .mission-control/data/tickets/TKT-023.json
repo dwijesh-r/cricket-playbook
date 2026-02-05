@@ -1,0 +1,20 @@
+{
+  "id": "TKT-023",
+  "epic_id": "EPIC-004",
+  "title": "Create data/PROVENANCE.md",
+  "description": "Document data sources and provenance",
+  "state": "DONE",
+  "priority": "P0",
+  "progress_pct": 100,
+  "owner": "Brock Purdy",
+  "assignee": "Brock Purdy",
+  "sprint_id": "SPRINT-001",
+  "gates": {
+    "florentino_gate": {"status": "APPROVED", "date": "2026-02-02"},
+    "domain_sanity": {"andy_flower": "YES", "jose_mourinho": "YES", "date": "2026-02-02"},
+    "founder_validation": {"status": "APPROVED", "validated_by": "Founder", "date": "2026-02-02"}
+  },
+  "created_at": "2026-02-02T00:00:00Z",
+  "updated_at": "2026-02-02T00:00:00Z",
+  "completed_at": "2026-02-02T00:00:00Z"
+}

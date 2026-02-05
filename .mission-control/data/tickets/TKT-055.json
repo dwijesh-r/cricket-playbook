@@ -1,0 +1,14 @@
+{
+  "id": "TKT-055",
+  "epic_id": "EPIC-006",
+  "title": "Reader experience review",
+  "description": "LeBron James review from reader perspective",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "progress_pct": 0,
+  "owner": "LeBron James",
+  "sprint_id": "SPRINT-001",
+  "gates": {},
+  "created_at": "2026-02-04T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

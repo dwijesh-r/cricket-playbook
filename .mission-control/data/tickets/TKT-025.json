@@ -1,0 +1,14 @@
+{
+  "id": "TKT-025",
+  "epic_id": "EPIC-004",
+  "title": "Move deprecated files to archive",
+  "description": "Clean data folder by moving deprecated files",
+  "state": "BACKLOG",
+  "priority": "P2",
+  "progress_pct": 0,
+  "owner": "Brock Purdy",
+  "sprint_id": "SPRINT-001",
+  "gates": {},
+  "created_at": "2026-02-02T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

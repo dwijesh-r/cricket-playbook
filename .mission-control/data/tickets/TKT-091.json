@@ -1,0 +1,13 @@
+{
+  "id": "TKT-091",
+  "epic_id": "EPIC-011",
+  "title": "DuckDB scalability",
+  "description": "Implement DuckDB for improved data scalability",
+  "state": "IDEA",
+  "priority": "P2",
+  "progress_pct": 0,
+  "owner": "Brock Purdy",
+  "gates": {},
+  "created_at": "2026-02-05T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

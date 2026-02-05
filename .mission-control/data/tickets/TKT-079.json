@@ -1,0 +1,14 @@
+{
+  "id": "TKT-079",
+  "epic_id": "EPIC-008",
+  "title": "Manifest update tests",
+  "description": "Test suite for manifest update automation",
+  "state": "BACKLOG",
+  "priority": "P2",
+  "progress_pct": 0,
+  "owner": "N'Golo Kanté",
+  "sprint_id": "SPRINT-001",
+  "gates": {},
+  "created_at": "2026-02-04T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

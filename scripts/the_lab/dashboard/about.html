@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - The Lab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #1c1c1e;
+            --bg-tertiary: #2c2c2e;
+            --bg-elevated: #3a3a3c;
+            --text-primary: #ffffff;
+            --text-secondary: #8e8e93;
+            --text-tertiary: #636366;
+            --accent: #0a84ff;
+            --accent-green: #30d158;
+            --accent-yellow: #ffd60a;
+            --accent-orange: #ff9f0a;
+            --accent-red: #ff453a;
+            --accent-purple: #bf5af2;
+            --accent-pink: #ff375f;
+            --accent-teal: #64d2ff;
+            --border: rgba(255, 255, 255, 0.1);
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+        [data-theme="light"] {
+            --bg-primary: #f5f5f7;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #e5e5ea;
+            --bg-elevated: #d1d1d6;
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --text-tertiary: #8e8e93;
+            --accent: #007aff;
+            --accent-green: #28cd41;
+            --accent-yellow: #ffcc00;
+            --accent-orange: #ff9500;
+            --accent-red: #ff3b30;
+            --accent-purple: #af52de;
+            --accent-pink: #ff2d55;
+            --accent-teal: #5ac8fa;
+            --border: rgba(0, 0, 0, 0.08);
+            --glass: rgba(0, 0, 0, 0.03);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+        .bg-gradient {
+            position: fixed; inset: 0; z-index: -4;
+            background: linear-gradient(135deg, #000000 0%, #0a0a12 25%, #0d1020 50%, #0a0a15 75%, #000000 100%);
+        }
+        [data-theme="light"] .bg-gradient {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f1f3f5 100%);
+        }
+        .bg-gradient::before {
+            content: ''; position: absolute; top: -20%; right: -10%; width: 60%; height: 60%;
+            background: radial-gradient(ellipse, rgba(10, 132, 255, 0.18) 0%, transparent 70%);
+            filter: blur(80px);
+        }
+        .bg-grid {
+            position: fixed; inset: 0; z-index: -2;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        [data-theme="light"] .bg-grid {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        }
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; height: 56px;
+            background: rgba(0, 0, 0, 0.8); backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 24px; z-index: 100;
+        }
+        [data-theme="light"] .nav { background: rgba(245, 245, 247, 0.85); }
+        .nav-brand { display: flex; align-items: center; gap: 12px; }
+        .nav-logo {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px;
+        }
+        .nav-title { font-size: 16px; font-weight: 700; }
+        .nav-title span { color: var(--accent); }
+        .nav-tabs {
+            display: flex; gap: 4px;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            padding: 5px; border-radius: 12px; border: 1px solid var(--border);
+        }
+        .nav-tab {
+            padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;
+            color: var(--text-secondary); cursor: pointer; transition: all 0.25s ease;
+            border: none; background: none; font-family: inherit; text-decoration: none;
+        }
+        .nav-tab:hover { color: var(--text-primary); background: var(--bg-tertiary); }
+        .nav-tab.active {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            color: white;
+        }
+        .nav-actions { display: flex; align-items: center; gap: 10px; }
+        .theme-toggle {
+            width: 38px; height: 38px; border-radius: 10px; background: var(--bg-secondary);
+            border: 1px solid var(--border); color: var(--text-secondary);
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            font-size: 16px; transition: all 0.25s ease;
+        }
+        .theme-toggle:hover { color: var(--accent-yellow); border-color: var(--accent-yellow); }
+        .main { padding-top: 56px; min-height: 100vh; }
+
+        .page-header {
+            padding: 60px 24px 40px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .page-title {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .page-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .content { max-width: 1000px; margin: 0 auto; padding: 0 24px 60px; }
+
+        /* Vision Card */
+        .vision-card {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 48px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .vision-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--accent-pink), var(--accent-purple), var(--accent));
+        }
+        .vision-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .vision-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .vision-text strong { color: var(--text-primary); }
+        .vision-text p { margin-bottom: 16px; }
+
+        /* Why Section */
+        .why-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 40px;
+        }
+        .why-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .problem-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        .problem-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .problem-list li::before {
+            content: '❌';
+            flex-shrink: 0;
+        }
+        .solution-text {
+            font-size: 14px;
+            color: var(--accent-green);
+            font-weight: 600;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Approach Steps */
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .approach-step {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+        .approach-number {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            margin: 0 auto 12px;
+        }
+        .approach-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .approach-desc {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        /* Audience Table */
+        .audience-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 40px;
+        }
+        .audience-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .audience-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .audience-table th {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 2px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        .audience-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+        }
+        .audience-table tr:hover td {
+            background: var(--glass);
+        }
+        .audience-emoji { font-size: 20px; }
+
+        /* Inspiration Cards */
+        .inspiration-section {
+            margin-bottom: 40px;
+        }
+        .inspiration-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .inspiration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .inspiration-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+        .inspiration-logo {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+        .inspiration-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .inspiration-desc {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        /* Agent Roster */
+        .agents-section {
+            margin-bottom: 40px;
+        }
+        .agents-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .agents-subtitle {
+            font-size: 14px;
+            color: var(--text-tertiary);
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 12px;
+        }
+        .agent-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            transition: all 0.25s ease;
+        }
+        .agent-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        .agent-avatar {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        .agent-name {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .agent-role {
+            font-size: 10px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+        }
+
+        /* Founder Card */
+        .founder-card {
+            background: linear-gradient(135deg, rgba(191, 90, 242, 0.1) 0%, rgba(255, 55, 95, 0.1) 100%);
+            border: 2px solid var(--accent-pink);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .founder-rose {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        .founder-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .founder-quote {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-style: italic;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Links Section */
+        .links-section {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
+            padding: 12px 24px;
+            border-radius: 12px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+        .link-btn:hover {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            padding: 40px 24px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        .footer-text { font-size: 12px; color: var(--text-tertiary); }
+
+        @media (max-width: 768px) {
+            .nav-tabs { display: none; }
+            .vision-card { padding: 24px; }
+            .agents-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+
+    <nav class="nav">
+        <div class="nav-brand">
+            <div class="nav-logo">🏏</div>
+            <div class="nav-title">Cricket <span>Playbook</span></div>
+        </div>
+        <div class="nav-tabs">
+            <a href="index.html" class="nav-tab">Home</a>
+            <a href="teams.html" class="nav-tab">Teams</a>
+            <a href="artifacts.html" class="nav-tab">Artifacts</a>
+            <a href="research.html" class="nav-tab">Research</a>
+            <a href="about.html" class="nav-tab active">About</a>
+        </div>
+        <div class="nav-actions">
+            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+        </div>
+    </nav>
+
+    <main class="main">
+        <header class="page-header">
+            <h1 class="page-title">🌹 About Cricket Playbook</h1>
+            <p class="page-subtitle">
+                The story behind the most comprehensive IPL analytics platform.
+                Where data meets cricket expertise.
+            </p>
+        </header>
+
+        <div class="content">
+            <!-- Vision -->
+            <article class="vision-card">
+                <h2 class="vision-title">📖 What We're Building</h2>
+                <div class="vision-text">
+                    <p>
+                        <strong>Cricket Playbook</strong> is a data-driven IPL pre-season magazine — the kind of premium
+                        content that coaches reference, commentators cite, and serious cricket analysts bookmark.
+                    </p>
+                    <p>We're building the analytics infrastructure to produce:</p>
+                    <ul style="margin-left: 20px; margin-bottom: 16px;">
+                        <li>Predicted Playing XIs for all 10 IPL franchises</li>
+                        <li>Position-by-position Depth Charts with ratings</li>
+                        <li>Player archetype classifications and matchup analysis</li>
+                        <li>Tactical insights validated by cricket domain experts</li>
+                    </ul>
+                    <p>
+                        This isn't about betting or fantasy. It's about <strong>experiencing cricket deeper</strong> —
+                        empowering fans with insights that enhance how they watch, discuss, and understand the game.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Why -->
+            <div class="why-section">
+                <h3 class="why-title">🤔 Why We're Building It</h3>
+                <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">
+                    Cricket is more than a sport in India — it's a passion. But most fans consume the game
+                    through surface-level statistics. They deserve better.
+                </p>
+                <ul class="problem-list">
+                    <li><strong>Too shallow</strong> — Basic stats, no real insight</li>
+                    <li><strong>Too academic</strong> — Methodologies nobody can apply</li>
+                    <li><strong>Too generic</strong> — Not team-specific or context-aware</li>
+                </ul>
+                <p class="solution-text">
+                    ✓ We're building data-driven analysis that empowers fans — uncovering insights that enhance
+                    how they watch, discuss, and understand cricket.
+                </p>
+            </div>
+
+            <!-- Approach -->
+            <div class="approach-grid">
+                <div class="approach-step">
+                    <div class="approach-number">1</div>
+                    <h4 class="approach-title">Data Foundation</h4>
+                    <p class="approach-desc">Cricsheet ball-by-ball data<br>219+ IPL matches, 2023-2025</p>
+                </div>
+                <div class="approach-step">
+                    <div class="approach-number">2</div>
+                    <h4 class="approach-title">Analytical Layer</h4>
+                    <p class="approach-desc">35+ derived metrics<br>K-means clustering, matchups</p>
+                </div>
+                <div class="approach-step">
+                    <div class="approach-number">3</div>
+                    <h4 class="approach-title">Domain Validation</h4>
+                    <p class="approach-desc">Every insight reviewed<br>by cricket experts (Andy Flower)</p>
+                </div>
+                <div class="approach-step">
+                    <div class="approach-number">4</div>
+                    <h4 class="approach-title">Quality Gates</h4>
+                    <p class="approach-desc">8-step Task Integrity Loop<br>via Mission Control</p>
+                </div>
+            </div>
+
+            <!-- Audience -->
+            <div class="audience-section">
+                <h3 class="audience-title">👥 Who We Cater To</h3>
+                <table class="audience-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Audience</th>
+                            <th>What They Get</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="audience-emoji">🏏</td>
+                            <td><strong>Passionate Fans</strong></td>
+                            <td>Predicted XIs, player matchups, form analysis to enhance match viewing</td>
+                        </tr>
+                        <tr>
+                            <td class="audience-emoji">🎯</td>
+                            <td><strong>Cricket Enthusiasts</strong></td>
+                            <td>Deep tactical insights, team analysis, discussion fodder</td>
+                        </tr>
+                        <tr>
+                            <td class="audience-emoji">📊</td>
+                            <td><strong>Analysts & Coaches</strong></td>
+                            <td>Methodology docs, raw metrics, research frameworks</td>
+                        </tr>
+                        <tr>
+                            <td class="audience-emoji">🌹</td>
+                            <td><strong>The Founder</strong></td>
+                            <td>Portfolio of deliverables, quality dashboard</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Inspiration -->
+            <section class="inspiration-section">
+                <h3 class="inspiration-title">💡 Our Inspiration</h3>
+                <div class="inspiration-grid">
+                    <div class="inspiration-card">
+                        <div class="inspiration-logo">🏈</div>
+                        <h4 class="inspiration-name">PFF</h4>
+                        <p class="inspiration-desc">Play-by-play grading, context-aware analysis, process over outcome</p>
+                    </div>
+                    <div class="inspiration-card">
+                        <div class="inspiration-logo">🏀</div>
+                        <h4 class="inspiration-name">KenPom</h4>
+                        <p class="inspiration-desc">Adjusted efficiency, tempo-free stats, four factors decomposition</p>
+                    </div>
+                    <div class="inspiration-card">
+                        <div class="inspiration-logo">📈</div>
+                        <h4 class="inspiration-name">CricViz / ESPN</h4>
+                        <p class="inspiration-desc">User experience, progressive disclosure, storytelling with data</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- The Founder -->
+            <div class="founder-card">
+                <div class="founder-rose">🌹</div>
+                <h3 class="founder-title">The Founder</h3>
+                <p class="founder-quote">
+                    "I'm gonna make him an offer he can't refuse."<br><br>
+                    Every deliverable. Reviewed. Approved. The Founder's blessing makes it official.
+                </p>
+            </div>
+
+            <!-- Agent Roster -->
+            <section class="agents-section">
+                <h3 class="agents-title">🎭 The Agent Roster</h3>
+                <p class="agents-subtitle">The team behind Cricket Playbook (Godfather theme, sports icons)</p>
+                <div class="agents-grid">
+                    <div class="agent-card">
+                        <div class="agent-avatar">⚽</div>
+                        <div class="agent-name">Florentino Pérez</div>
+                        <div class="agent-role">Chief Strategist</div>
+                    </div>
+                    <div class="agent-card">
+                        <div class="agent-avatar">🏈</div>
+                        <div class="agent-name">Tom Brady</div>
+                        <div class="agent-role">Product Owner</div>
+                    </div>
+                    <div class="agent-card">
+                        <div class="agent-avatar">🏀</div>
+                        <div class="agent-name">Stephen Curry</div>
+                        <div class="agent-role">Analytics Lead</div>
+                    </div>
+                    <div class="agent-card">
+                        <div class="agent-avatar">🏏</div>
+                        <div class="agent-name">Andy Flower</div>
+                        <div class="agent-role">Cricket Expert</div>
+                    </div>
+                    <div class="agent-card">
+                        <div class="agent-avatar">⚽</div>
+                        <div class="agent-name">Kevin de Bruyne</div>
+                        <div class="agent-role">Visualization</div>
+                    </div>
+                    <div class="agent-card">
+                        <div class="agent-avatar">🎯</div>
+                        <div class="agent-name">Messi</div>
+                        <div class="agent-role">QA Lead</div>
+                    </div>
+                    <div class="agent-card">
+                        <div class="agent-avatar">🔧</div>
+                        <div class="agent-name">Zinedine Zidane</div>
+                        <div class="agent-role">Tech Lead</div>
+                    </div>
+                    <div class="agent-card">
+                        <div class="agent-avatar">📋</div>
+                        <div class="agent-name">Pep Guardiola</div>
+                        <div class="agent-role">Sprint Master</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Links -->
+            <div class="links-section">
+                <a href="../../../mission_control/dashboard/index.html" class="link-btn">
+                    📡 Mission Control
+                </a>
+                <a href="https://github.com/dwijesh-r/cricket-playbook" class="link-btn" target="_blank">
+                    🐙 GitHub Repository
+                </a>
+                <a href="research.html" class="link-btn">
+                    📚 Research Docs
+                </a>
+                <a href="index.html" class="link-btn">
+                    🏠 Back to Home
+                </a>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p class="footer-text">
+                Cricket Playbook © 2026 | IPL 2026 Pre-Season Analytics<br>
+                Built with 🏏 for cricket fans everywhere
+            </p>
+        </footer>
+    </main>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '🌙' : '☀️';
+        }
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+    </script>
+</body>
+</html>

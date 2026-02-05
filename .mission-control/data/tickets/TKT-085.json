@@ -1,0 +1,14 @@
+{
+  "id": "TKT-085",
+  "epic_id": "EPIC-009",
+  "title": "Create script documentation template",
+  "description": "Template file for script documentation",
+  "state": "BACKLOG",
+  "priority": "P2",
+  "progress_pct": 0,
+  "owner": "Brad Stevens",
+  "sprint_id": "SPRINT-001",
+  "gates": {},
+  "created_at": "2026-02-05T00:00:00Z",
+  "updated_at": "2026-02-05T00:00:00Z"
+}

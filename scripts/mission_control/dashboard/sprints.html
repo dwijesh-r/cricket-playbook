@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprint History - Mission Control</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ==================== THEME SYSTEM ==================== */
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #1c1c1e;
+            --bg-tertiary: #2c2c2e;
+            --bg-elevated: #3a3a3c;
+            --text-primary: #ffffff;
+            --text-secondary: #8e8e93;
+            --text-tertiary: #636366;
+            --accent: #0a84ff;
+            --accent-green: #30d158;
+            --accent-yellow: #ffd60a;
+            --accent-orange: #ff9f0a;
+            --accent-red: #ff453a;
+            --accent-purple: #bf5af2;
+            --accent-pink: #ff375f;
+            --accent-teal: #64d2ff;
+            --border: rgba(255, 255, 255, 0.1);
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --shadow: rgba(0, 0, 0, 0.4);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #f5f5f7;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #e5e5ea;
+            --bg-elevated: #d1d1d6;
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --text-tertiary: #8e8e93;
+            --accent: #007aff;
+            --accent-green: #28cd41;
+            --accent-yellow: #ffcc00;
+            --accent-orange: #ff9500;
+            --accent-red: #ff3b30;
+            --accent-purple: #af52de;
+            --accent-pink: #ff2d55;
+            --accent-teal: #5ac8fa;
+            --border: rgba(0, 0, 0, 0.08);
+            --glass: rgba(0, 0, 0, 0.03);
+            --glass-border: rgba(0, 0, 0, 0.06);
+            --shadow: rgba(0, 0, 0, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Background Effects */
+        .bg-gradient {
+            position: fixed;
+            inset: 0;
+            z-index: -4;
+            background: linear-gradient(135deg, #000000 0%, #0a0a12 25%, #0d1020 50%, #0a0a15 75%, #000000 100%);
+        }
+
+        [data-theme="light"] .bg-gradient {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f1f3f5 100%);
+        }
+
+        .bg-gradient::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(ellipse, rgba(10, 132, 255, 0.18) 0%, transparent 70%);
+            filter: blur(80px);
+            animation: pulse-glow 8s ease-in-out infinite;
+        }
+
+        .bg-gradient::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 50%;
+            height: 50%;
+            background: radial-gradient(ellipse, rgba(191, 90, 242, 0.12) 0%, transparent 70%);
+            filter: blur(80px);
+            animation: pulse-glow 8s ease-in-out infinite 4s;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 52px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 100;
+        }
+
+        [data-theme="light"] .nav {
+            background: rgba(245, 245, 247, 0.85);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .nav-title {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-btn:hover {
+            background: linear-gradient(135deg, rgba(10, 132, 255, 0.2) 0%, rgba(191, 90, 242, 0.2) 100%);
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .theme-toggle {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.25s ease;
+        }
+
+        .theme-toggle:hover {
+            color: var(--accent-yellow);
+            border-color: var(--accent-yellow);
+        }
+
+        /* Main Container */
+        .main {
+            padding: 72px 24px 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-bottom: 32px;
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        /* Sprint Timeline */
+        .sprint-timeline {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 48px;
+            overflow-x: auto;
+            padding-bottom: 16px;
+        }
+
+        .sprint-card {
+            flex: 0 0 320px;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .sprint-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px var(--shadow);
+        }
+
+        .sprint-card.active {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px rgba(10, 132, 255, 0.2);
+        }
+
+        .sprint-card.completed {
+            border-color: var(--accent-green);
+        }
+
+        .sprint-card.planned {
+            opacity: 0.6;
+            border-style: dashed;
+        }
+
+        .sprint-status-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .sprint-status-badge.active {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            color: white;
+        }
+
+        .sprint-status-badge.completed {
+            background: var(--accent-green);
+            color: white;
+        }
+
+        .sprint-status-badge.planned {
+            background: var(--bg-elevated);
+            color: var(--text-secondary);
+        }
+
+        .sprint-header {
+            margin-bottom: 20px;
+        }
+
+        .sprint-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .sprint-dates {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .sprint-description {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        /* Progress Bar */
+        .progress-section {
+            margin-bottom: 20px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .progress-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .progress-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--bg-elevated);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-fill.green {
+            background: linear-gradient(90deg, var(--accent-green) 0%, #4ade80 100%);
+        }
+
+        .progress-fill.blue {
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-purple) 100%);
+        }
+
+        /* Sprint Stats */
+        .sprint-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .sprint-stat {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .sprint-stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .sprint-stat-label {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+        }
+
+        /* Velocity Trend Section */
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            border-radius: 2px;
+        }
+
+        /* Burndown Chart Container */
+        .chart-container {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .chart-title {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .chart-legend {
+            display: flex;
+            gap: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        .legend-color.ideal { background: var(--text-tertiary); }
+        .legend-color.actual { background: var(--accent); }
+        .legend-color.completed { background: var(--accent-green); }
+
+        /* SVG Burndown Chart */
+        .burndown-chart {
+            width: 100%;
+            height: 300px;
+        }
+
+        .chart-grid line {
+            stroke: var(--border);
+            stroke-dasharray: 4;
+        }
+
+        .chart-axis text {
+            fill: var(--text-tertiary);
+            font-size: 11px;
+        }
+
+        .ideal-line {
+            stroke: var(--text-tertiary);
+            stroke-width: 2;
+            stroke-dasharray: 8, 4;
+            fill: none;
+        }
+
+        .actual-line {
+            stroke: var(--accent);
+            stroke-width: 3;
+            fill: none;
+        }
+
+        .actual-line.completed {
+            stroke: var(--accent-green);
+        }
+
+        .chart-dot {
+            fill: var(--accent);
+            stroke: var(--bg-primary);
+            stroke-width: 2;
+        }
+
+        .chart-dot.completed {
+            fill: var(--accent-green);
+        }
+
+        /* Velocity Comparison */
+        .velocity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .velocity-card {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .velocity-sprint {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .velocity-bar-container {
+            height: 40px;
+            background: var(--bg-elevated);
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .velocity-bar {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .velocity-bar.green {
+            background: linear-gradient(90deg, var(--accent-green) 0%, #4ade80 100%);
+        }
+
+        .velocity-bar.blue {
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-purple) 100%);
+        }
+
+        .velocity-details {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        /* Sprint Highlights */
+        .highlights-section {
+            margin-top: 32px;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .highlight-sprint {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .highlight-list {
+            list-style: none;
+        }
+
+        .highlight-item {
+            font-size: 13px;
+            color: var(--text-secondary);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .highlight-item:last-child {
+            border-bottom: none;
+        }
+
+        .highlight-icon {
+            color: var(--accent-green);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 32px;
+            color: var(--text-tertiary);
+            font-size: 12px;
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-brand">
+            <div class="nav-logo">🚀</div>
+            <span class="nav-title">Mission Control</span>
+        </div>
+        <div class="nav-actions">
+            <a href="index.html" class="nav-btn">📋 Board</a>
+            <a href="about.html" class="nav-btn">ℹ️ About</a>
+            <a href="../../the_lab/dashboard/index.html" class="nav-btn">🔬 The Lab</a>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <header class="page-header">
+            <h1 class="page-title">📅 Sprint History</h1>
+            <p class="page-subtitle">Track velocity, burndown, and progress across all sprints</p>
+        </header>
+
+        <!-- Sprint Timeline -->
+        <section class="sprint-timeline" id="sprintTimeline">
+            <!-- Sprint cards will be rendered here -->
+        </section>
+
+        <!-- Velocity Trend -->
+        <section>
+            <h2 class="section-title">Velocity Trend</h2>
+            <div class="velocity-grid" id="velocityGrid">
+                <!-- Velocity cards will be rendered here -->
+            </div>
+        </section>
+
+        <!-- Burndown Chart -->
+        <section>
+            <h2 class="section-title">Sprint Burndown</h2>
+            <div class="chart-container">
+                <div class="chart-header">
+                    <span class="chart-title" id="burndownTitle">Sprint 4.0 Burndown</span>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <div class="legend-color ideal"></div>
+                            <span>Ideal</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color actual"></div>
+                            <span>Actual</span>
+                        </div>
+                    </div>
+                </div>
+                <svg class="burndown-chart" id="burndownChart" viewBox="0 0 800 300">
+                    <!-- Chart will be rendered here -->
+                </svg>
+            </div>
+        </section>
+
+        <!-- Sprint Highlights -->
+        <section class="highlights-section">
+            <h2 class="section-title">Sprint Highlights</h2>
+            <div class="highlights-grid" id="highlightsGrid">
+                <!-- Highlights will be rendered here -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Mission Control v1.0 • <a href="index.html">Back to Board</a> • <a href="../../the_lab/dashboard/index.html">The Lab</a></p>
+        </footer>
+    </main>
+
+    <script>
+        // Sprint Data
+        const SPRINTS = {
+            "SPRINT-000": {
+                id: "SPRINT-000",
+                title: "Sprint 3.0 - Data Foundation",
+                description: "Build core data infrastructure and initial outputs",
+                startDate: "2026-01-15",
+                endDate: "2026-01-29",
+                status: "COMPLETED",
+                velocity: {
+                    planned: 50,
+                    completed: 48,
+                    burndown: [50, 45, 40, 35, 28, 22, 15, 10, 5, 2, 0]
+                },
+                highlights: [
+                    "Built Cricsheet data pipeline",
+                    "Created initial player tags",
+                    "Generated first matchup matrices",
+                    "Established notebook workflow"
+                ],
+                keyOutputs: [
+                    "outputs/tags/player_tags.json",
+                    "outputs/matchups/batter_bowling_type_matchup.csv",
+                    "notebooks/player_analysis.ipynb"
+                ]
+            },
+            "SPRINT-001": {
+                id: "SPRINT-001",
+                title: "Sprint 4.0 - Foundation & Editorial Excellence",
+                description: "Establish governance framework and improve core stat pack product",
+                startDate: "2026-01-31",
+                endDate: "2026-02-14",
+                status: "ACTIVE",
+                velocity: {
+                    planned: 83,
+                    completed: 45,
+                    burndown: [83, 80, 75, 70, 65, 55, 45]
+                },
+                highlights: [
+                    "Governance framework established (Constitution v2.0)",
+                    "Mission Control fully operational",
+                    "SUPER SELECTOR algorithm deployed",
+                    "All 10 depth charts generated",
+                    "The Lab dashboard launched"
+                ],
+                keyOutputs: [
+                    "outputs/predicted_xii/predicted_xii_2026.json",
+                    "outputs/depth_charts/*.json",
+                    "scripts/the_lab/dashboard/",
+                    "governance/TASK_INTEGRITY_LOOP.md"
+                ]
+            },
+            "SPRINT-002": {
+                id: "SPRINT-002",
+                title: "Sprint 5.0 - Advanced Analytics",
+                description: "Implement Match Phase Index, Clutch Performance, and KenPom model",
+                startDate: "2026-02-17",
+                endDate: "2026-03-03",
+                status: "PLANNING",
+                velocity: {
+                    planned: 60,
+                    completed: 0,
+                    burndown: []
+                },
+                highlights: [],
+                keyOutputs: []
+            }
+        };
+
+        // Render Sprint Timeline
+        function renderSprintTimeline() {
+            const container = document.getElementById('sprintTimeline');
+            const sprintOrder = ['SPRINT-002', 'SPRINT-001', 'SPRINT-000']; // Reverse chronological
+
+            container.innerHTML = sprintOrder.map(id => {
+                const sprint = SPRINTS[id];
+                const statusClass = sprint.status.toLowerCase();
+                const progressPct = sprint.velocity.planned > 0
+                    ? Math.round((sprint.velocity.completed / sprint.velocity.planned) * 100)
+                    : 0;
+
+                return `
+                    <div class="sprint-card ${statusClass}" onclick="selectSprint('${id}')">
+                        <div class="sprint-status-badge ${statusClass}">${sprint.status}</div>
+                        <div class="sprint-header">
+                            <h3 class="sprint-name">${sprint.title}</h3>
+                            <div class="sprint-dates">${formatDate(sprint.startDate)} - ${formatDate(sprint.endDate)}</div>
+                        </div>
+                        <p class="sprint-description">${sprint.description}</p>
+                        <div class="progress-section">
+                            <div class="progress-header">
+                                <span class="progress-label">Progress</span>
+                                <span class="progress-value">${progressPct}%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill ${sprint.status === 'COMPLETED' ? 'green' : 'blue'}"
+                                     style="width: ${progressPct}%"></div>
+                            </div>
+                        </div>
+                        <div class="sprint-stats">
+                            <div class="sprint-stat">
+                                <div class="sprint-stat-value">${sprint.velocity.planned}</div>
+                                <div class="sprint-stat-label">Planned</div>
+                            </div>
+                            <div class="sprint-stat">
+                                <div class="sprint-stat-value">${sprint.velocity.completed}</div>
+                                <div class="sprint-stat-label">Completed</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Render Velocity Grid
+        function renderVelocityGrid() {
+            const container = document.getElementById('velocityGrid');
+            const completedSprints = Object.values(SPRINTS).filter(s => s.status !== 'PLANNING');
+            const maxPlanned = Math.max(...completedSprints.map(s => s.velocity.planned));
+
+            container.innerHTML = completedSprints.map(sprint => {
+                const pct = Math.round((sprint.velocity.completed / sprint.velocity.planned) * 100);
+                const barWidth = (sprint.velocity.planned / maxPlanned) * 100;
+
+                return `
+                    <div class="velocity-card">
+                        <div class="velocity-sprint">${sprint.title.split(' - ')[0]}</div>
+                        <div class="velocity-bar-container">
+                            <div class="velocity-bar ${sprint.status === 'COMPLETED' ? 'green' : 'blue'}"
+                                 style="width: ${barWidth}%">
+                                ${pct}%
+                            </div>
+                        </div>
+                        <div class="velocity-details">
+                            <span>${sprint.velocity.completed}/${sprint.velocity.planned} points</span>
+                            <span>${sprint.status}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Render Burndown Chart
+        function renderBurndownChart(sprintId) {
+            const sprint = SPRINTS[sprintId];
+            const svg = document.getElementById('burndownChart');
+            const titleEl = document.getElementById('burndownTitle');
+
+            titleEl.textContent = `${sprint.title.split(' - ')[0]} Burndown`;
+
+            const burndown = sprint.velocity.burndown;
+            if (!burndown || burndown.length === 0) {
+                svg.innerHTML = `
+                    <text x="400" y="150" text-anchor="middle" fill="var(--text-tertiary)" font-size="16">
+                        No burndown data available for planned sprints
+                    </text>
+                `;
+                return;
+            }
+
+            const planned = sprint.velocity.planned;
+            const days = burndown.length;
+            const padding = { top: 20, right: 40, bottom: 40, left: 50 };
+            const width = 800 - padding.left - padding.right;
+            const height = 300 - padding.top - padding.bottom;
+
+            // Calculate scales
+            const xScale = (i) => padding.left + (i / (days - 1)) * width;
+            const yScale = (v) => padding.top + ((planned - v) / planned) * height;
+
+            // Ideal line points
+            const idealStart = { x: padding.left, y: padding.top };
+            const idealEnd = { x: padding.left + width, y: padding.top + height };
+
+            // Actual line path
+            const actualPath = burndown.map((v, i) => {
+                const x = xScale(i);
+                const y = yScale(v);
+                return i === 0 ? `M ${x} ${y}` : `L ${x} ${y}`;
+            }).join(' ');
+
+            // Generate dots
+            const dots = burndown.map((v, i) => {
+                const x = xScale(i);
+                const y = yScale(v);
+                return `<circle class="chart-dot ${sprint.status === 'COMPLETED' ? 'completed' : ''}"
+                                cx="${x}" cy="${y}" r="5"/>`;
+            }).join('');
+
+            // Grid lines
+            const gridLines = [0, 25, 50, 75, 100].map(pct => {
+                const y = padding.top + (pct / 100) * height;
+                return `<line x1="${padding.left}" y1="${y}" x2="${padding.left + width}" y2="${y}" class="chart-grid"/>`;
+            }).join('');
+
+            // Y-axis labels
+            const yLabels = [0, 25, 50, 75, 100].map(pct => {
+                const y = padding.top + (pct / 100) * height;
+                const value = Math.round(planned * (1 - pct / 100));
+                return `<text x="${padding.left - 10}" y="${y + 4}" text-anchor="end" class="chart-axis">${value}</text>`;
+            }).join('');
+
+            // X-axis labels
+            const xLabels = burndown.map((_, i) => {
+                const x = xScale(i);
+                return `<text x="${x}" y="${height + padding.top + 20}" text-anchor="middle" class="chart-axis">Day ${i + 1}</text>`;
+            }).join('');
+
+            svg.innerHTML = `
+                <g class="chart-grid">${gridLines}</g>
+                <line class="ideal-line" x1="${idealStart.x}" y1="${idealStart.y}"
+                      x2="${idealEnd.x}" y2="${idealEnd.y}"/>
+                <path class="actual-line ${sprint.status === 'COMPLETED' ? 'completed' : ''}" d="${actualPath}"/>
+                ${dots}
+                <g class="chart-axis">${yLabels}</g>
+                <g class="chart-axis">${xLabels}</g>
+            `;
+        }
+
+        // Render Highlights
+        function renderHighlights() {
+            const container = document.getElementById('highlightsGrid');
+            const sprintsWithHighlights = Object.values(SPRINTS).filter(s => s.highlights && s.highlights.length > 0);
+
+            container.innerHTML = sprintsWithHighlights.map(sprint => `
+                <div class="highlight-card">
+                    <div class="highlight-sprint">${sprint.title}</div>
+                    <ul class="highlight-list">
+                        ${sprint.highlights.map(h => `
+                            <li class="highlight-item">
+                                <span class="highlight-icon">✓</span>
+                                <span>${h}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `).join('');
+        }
+
+        // Select Sprint (updates burndown chart)
+        function selectSprint(sprintId) {
+            renderBurndownChart(sprintId);
+
+            // Highlight selected card
+            document.querySelectorAll('.sprint-card').forEach(card => {
+                card.style.transform = '';
+            });
+            event.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';
+        }
+
+        // Format date
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        }
+
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '🌙' : '☀️';
+        }
+
+        // Initialize
+        function init() {
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+
+            // Render components
+            renderSprintTimeline();
+            renderVelocityGrid();
+            renderBurndownChart('SPRINT-001'); // Default to current sprint
+            renderHighlights();
+        }
+
+        // Run on load
+        init();
+    </script>
+</body>
+</html>

@@ -694,178 +694,64 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
         }
 
-        /* ========== STADIUM STRUCTURE ========== */
-        /* Semi-circular stadium bowl wrapping around the ground */
+        /* ========== STADIUM BACKGROUNDS ========== */
+        /* Stadium photo-style backgrounds using CSS gradients */
+
+        /* Stadium atmosphere overlay - adds floodlight glow and crowd ambiance */
         .intro-box::before {
             content: '';
             position: absolute;
-            bottom: 35%;
-            left: -15%;
-            right: -15%;
-            height: 50%;
+            inset: 0;
             background:
-                /* Stadium floodlight glow from top */
-                radial-gradient(ellipse 100% 40% at 50% 0%, rgba(255,240,180,0.2) 0%, transparent 60%),
-                /* Upper tier - darker, further back */
-                radial-gradient(ellipse 130% 80% at 50% 100%, transparent 35%, rgba(25,25,35,0.98) 36%, rgba(25,25,35,0.98) 42%, transparent 43%),
-                /* Middle tier - main seating area */
-                radial-gradient(ellipse 120% 70% at 50% 100%, transparent 40%, rgba(35,35,45,0.95) 41%, rgba(35,35,45,0.95) 50%, transparent 51%),
-                /* Lower tier - closest to pitch */
-                radial-gradient(ellipse 110% 60% at 50% 100%, transparent 48%, rgba(45,45,55,0.9) 49%, rgba(45,45,55,0.9) 60%, transparent 61%),
-                /* Stadium structural lines */
-                radial-gradient(ellipse 115% 65% at 50% 100%, transparent 44%, rgba(60,60,70,0.5) 44.5%, transparent 45%),
-                radial-gradient(ellipse 125% 75% at 50% 100%, transparent 37%, rgba(60,60,70,0.4) 37.5%, transparent 38%);
+                /* Floodlight glow from top */
+                radial-gradient(ellipse 80% 40% at 50% 0%, rgba(255,240,200,0.25) 0%, transparent 50%),
+                /* Vignette effect */
+                radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0,0,0,0.6) 100%);
             pointer-events: none;
-            z-index: 1;
+            z-index: 2;
         }
 
-        /* Detailed audience silhouettes in the semi-circular stands */
+        /* Stadium crowd/stands pattern overlay */
         .intro-box::after {
             content: '';
             position: absolute;
-            bottom: 42%;
+            top: 0;
             left: 0;
             right: 0;
-            height: 40%;
+            height: 55%;
             background:
-                /* ===== TOP TIER - Row 1 (smallest, furthest) ===== */
-                radial-gradient(ellipse 4px 5px at 15% 15%, rgba(80,70,60,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 4px 5px at 22% 13%, rgba(70,60,50,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 4px 5px at 29% 14%, rgba(90,80,70,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 4px 5px at 36% 12%, rgba(75,65,55,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 4px 5px at 43% 13%, rgba(85,75,65,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 4px 5px at 50% 11%, rgba(70,60,50,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 4px 5px at 57% 13%, rgba(80,70,60,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 4px 5px at 64% 12%, rgba(90,80,70,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 4px 5px at 71% 14%, rgba(75,65,55,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 4px 5px at 78% 13%, rgba(85,75,65,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 4px 5px at 85% 15%, rgba(70,60,50,0.9) 50%, transparent 50%),
-                /* ===== TOP TIER - Row 2 ===== */
-                radial-gradient(ellipse 5px 6px at 12% 22%, rgba(100,90,80,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 5px 6px at 19% 20%, rgba(85,75,65,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 5px 6px at 26% 21%, rgba(95,85,75,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 5px 6px at 33% 19%, rgba(80,70,60,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 5px 6px at 40% 20%, rgba(90,80,70,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 5px 6px at 47% 18%, rgba(100,90,80,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 5px 6px at 54% 20%, rgba(85,75,65,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 5px 6px at 61% 19%, rgba(95,85,75,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 5px 6px at 68% 21%, rgba(80,70,60,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 5px 6px at 75% 20%, rgba(90,80,70,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 5px 6px at 82% 22%, rgba(100,90,80,0.9) 50%, transparent 50%),
-                radial-gradient(ellipse 5px 6px at 89% 21%, rgba(85,75,65,0.9) 50%, transparent 50%),
-                /* ===== MIDDLE TIER - Row 1 ===== */
-                radial-gradient(ellipse 6px 8px at 10% 35%, rgba(110,100,90,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 6px 8px at 17% 33%, rgba(95,85,75,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 6px 8px at 24% 34%, rgba(105,95,85,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 6px 8px at 31% 32%, rgba(90,80,70,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 6px 8px at 38% 33%, rgba(100,90,80,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 6px 8px at 45% 31%, rgba(110,100,90,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 6px 8px at 52% 33%, rgba(95,85,75,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 6px 8px at 59% 32%, rgba(105,95,85,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 6px 8px at 66% 34%, rgba(90,80,70,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 6px 8px at 73% 33%, rgba(100,90,80,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 6px 8px at 80% 35%, rgba(110,100,90,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 6px 8px at 87% 34%, rgba(95,85,75,0.95) 50%, transparent 50%),
-                /* ===== MIDDLE TIER - Row 2 ===== */
-                radial-gradient(ellipse 7px 9px at 8% 46%, rgba(120,110,100,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 7px 9px at 15% 44%, rgba(105,95,85,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 7px 9px at 22% 45%, rgba(115,105,95,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 7px 9px at 29% 43%, rgba(100,90,80,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 7px 9px at 36% 44%, rgba(110,100,90,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 7px 9px at 43% 42%, rgba(120,110,100,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 7px 9px at 50% 44%, rgba(105,95,85,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 7px 9px at 57% 43%, rgba(115,105,95,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 7px 9px at 64% 45%, rgba(100,90,80,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 7px 9px at 71% 44%, rgba(110,100,90,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 7px 9px at 78% 46%, rgba(120,110,100,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 7px 9px at 85% 45%, rgba(105,95,85,0.95) 50%, transparent 50%),
-                radial-gradient(ellipse 7px 9px at 92% 44%, rgba(115,105,95,0.95) 50%, transparent 50%),
-                /* ===== LOWER TIER - Row 1 ===== */
-                radial-gradient(ellipse 8px 10px at 6% 60%, rgba(130,120,110,0.98) 50%, transparent 50%),
-                radial-gradient(ellipse 8px 10px at 13% 58%, rgba(115,105,95,0.98) 50%, transparent 50%),
-                radial-gradient(ellipse 8px 10px at 20% 59%, rgba(125,115,105,0.98) 50%, transparent 50%),
-                radial-gradient(ellipse 8px 10px at 27% 57%, rgba(110,100,90,0.98) 50%, transparent 50%),
-                radial-gradient(ellipse 8px 10px at 34% 58%, rgba(120,110,100,0.98) 50%, transparent 50%),
-                radial-gradient(ellipse 8px 10px at 41% 56%, rgba(130,120,110,0.98) 50%, transparent 50%),
-                radial-gradient(ellipse 8px 10px at 48% 58%, rgba(115,105,95,0.98) 50%, transparent 50%),
-                radial-gradient(ellipse 8px 10px at 55% 57%, rgba(125,115,105,0.98) 50%, transparent 50%),
-                radial-gradient(ellipse 8px 10px at 62% 59%, rgba(110,100,90,0.98) 50%, transparent 50%),
-                radial-gradient(ellipse 8px 10px at 69% 58%, rgba(120,110,100,0.98) 50%, transparent 50%),
-                radial-gradient(ellipse 8px 10px at 76% 60%, rgba(130,120,110,0.98) 50%, transparent 50%),
-                radial-gradient(ellipse 8px 10px at 83% 59%, rgba(115,105,95,0.98) 50%, transparent 50%),
-                radial-gradient(ellipse 8px 10px at 90% 58%, rgba(125,115,105,0.98) 50%, transparent 50%),
-                /* ===== LOWER TIER - Row 2 (front row, largest) ===== */
-                radial-gradient(ellipse 9px 12px at 4% 75%, rgba(140,130,120,1) 50%, transparent 50%),
-                radial-gradient(ellipse 9px 12px at 11% 73%, rgba(125,115,105,1) 50%, transparent 50%),
-                radial-gradient(ellipse 9px 12px at 18% 74%, rgba(135,125,115,1) 50%, transparent 50%),
-                radial-gradient(ellipse 9px 12px at 25% 72%, rgba(120,110,100,1) 50%, transparent 50%),
-                radial-gradient(ellipse 9px 12px at 32% 73%, rgba(130,120,110,1) 50%, transparent 50%),
-                radial-gradient(ellipse 9px 12px at 39% 71%, rgba(140,130,120,1) 50%, transparent 50%),
-                radial-gradient(ellipse 9px 12px at 46% 73%, rgba(125,115,105,1) 50%, transparent 50%),
-                radial-gradient(ellipse 9px 12px at 53% 72%, rgba(135,125,115,1) 50%, transparent 50%),
-                radial-gradient(ellipse 9px 12px at 60% 74%, rgba(120,110,100,1) 50%, transparent 50%),
-                radial-gradient(ellipse 9px 12px at 67% 73%, rgba(130,120,110,1) 50%, transparent 50%),
-                radial-gradient(ellipse 9px 12px at 74% 75%, rgba(140,130,120,1) 50%, transparent 50%),
-                radial-gradient(ellipse 9px 12px at 81% 74%, rgba(125,115,105,1) 50%, transparent 50%),
-                radial-gradient(ellipse 9px 12px at 88% 73%, rgba(135,125,115,1) 50%, transparent 50%),
-                radial-gradient(ellipse 9px 12px at 95% 74%, rgba(120,110,100,1) 50%, transparent 50%);
+                /* Stadium tier structure */
+                linear-gradient(180deg,
+                    rgba(20,20,30,0.95) 0%,
+                    rgba(30,30,40,0.9) 20%,
+                    rgba(40,40,50,0.85) 40%,
+                    rgba(50,50,60,0.7) 60%,
+                    transparent 100%
+                );
             pointer-events: none;
-            z-index: 2;
-            opacity: 0;
-            animation: crowd-fade-in 0.5s ease 1.5s forwards;
-        }
-
-        @keyframes crowd-fade-in {
-            to { opacity: 1; }
-        }
-
-        /* ========== PLAYING SURFACES - SEMI-CIRCULAR GROUND ========== */
-        /* The surface is a semi-circular playing area at the bottom */
-        .playing-surface {
-            position: absolute;
-            bottom: 0;
-            left: -20%;
-            right: -20%;
-            height: 50%;
-            opacity: 0;
             z-index: 1;
-            animation: surface-appear 0.5s ease var(--surface-delay, 0.8s) forwards;
-            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-            overflow: hidden;
         }
 
-        @keyframes surface-appear {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Sport-specific stadium backgrounds */
+        .intro-box[data-sport="nfl"] {
+            background: linear-gradient(180deg,
+                #1a2a1a 0%, #2d4a2d 30%, #3a6b3a 60%, #4a8c4a 100%);
+        }
+        .intro-box[data-sport="nba"] {
+            background: linear-gradient(180deg,
+                #2a1a0a 0%, #4a3a2a 30%, #6a5a4a 60%, #8a7a6a 100%);
+        }
+        .intro-box[data-sport="soccer"] {
+            background: linear-gradient(180deg,
+                #1a2a1a 0%, #2a4a2a 30%, #3a7a3a 60%, #4a9a4a 100%);
+        }
+        .intro-box[data-sport="cricket"] {
+            background: linear-gradient(180deg,
+                #1a2a1a 0%, #2a4a2a 30%, #3a6a3a 60%, #4a8a4a 100%);
         }
 
-        /* NFL Field - Clean green turf, semi-circular */
-        .surface-nfl {
-            background: radial-gradient(ellipse 80% 100% at 50% 100%, #3a6b34 0%, #2d5a27 40%, #1f4a1f 100%);
-        }
-        .surface-nfl::before { display: none; }
-        .surface-nfl::after { display: none; }
-
-        /* NBA Court - Clean hardwood floor, semi-circular */
-        .surface-nba {
-            background: radial-gradient(ellipse 80% 100% at 50% 100%, #c9a86c 0%, #b8956a 50%, #a8855a 100%);
-        }
-        .surface-nba::before { display: none; }
-        .surface-nba::after { display: none; }
-
-        /* Soccer Pitch - Clean green grass, semi-circular */
-        .surface-soccer {
-            background: radial-gradient(ellipse 80% 100% at 50% 100%, #4a9c4a 0%, #3a8c3a 50%, #2a7c2a 100%);
-        }
-        .surface-soccer::before { display: none; }
-        .surface-soccer::after { display: none; }
-
-        /* Cricket Ground - Clean green outfield, semi-circular */
-        .surface-cricket {
-            background: radial-gradient(ellipse 80% 100% at 50% 100%, #5a9c5a 0%, #4a8c4a 50%, #3a7c3a 100%);
-        }
-        .surface-cricket::before { display: none; }
-        .surface-cricket::after { display: none; }
+        /* No playing surface needed - background IS the stadium */
+        .playing-surface { display: none; }
 
         /* Crowd silhouettes - multiple rows */
         .crowd-row {
@@ -925,6 +811,27 @@
             text-transform: uppercase;
             letter-spacing: 0.08em;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* Trophy ticker below name */
+        .trophy-ticker {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 4px;
+            opacity: 0.9;
+        }
+        .trophy-ticker .trophy-icon {
+            font-size: 14px;
+        }
+        .trophy-ticker .trophy-text {
+            font-size: 10px;
+            color: #d4af37;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.6);
         }
 
         .intro-box .trophy-name {
@@ -1153,6 +1060,27 @@
         }
         .athlete.build-slim .arm {
             width: 12px;
+        }
+
+        /* ========== UPPER BODY MODE ========== */
+        /* Show only from stomach up - cleaner presentation */
+        .athlete.upper-body {
+            height: 120px;
+        }
+        .athlete.upper-body .shorts,
+        .athlete.upper-body .leg,
+        .athlete.upper-body .leg-left,
+        .athlete.upper-body .leg-right,
+        .athlete.upper-body .foot,
+        .athlete.upper-body .coat-bottom {
+            display: none !important;
+        }
+        .athlete.upper-body .torso {
+            height: 55px;
+            border-radius: 8px 8px 12px 12px;
+        }
+        .athlete.upper-body .arm {
+            height: 50px;
         }
 
         /* Feet/shoes */
@@ -2415,14 +2343,21 @@
                 opacity: 1;
             }
             .intro-title {
-                font-size: 12px;
-                letter-spacing: 0.1em;
+                font-size: 11px;
+                letter-spacing: 0.15em;
                 margin-bottom: 15px;
                 padding: 0 15px;
-                line-height: 1.4;
+                line-height: 1.8;
                 text-align: center;
                 width: 100%;
                 box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 4px;
+            }
+            .intro-title span {
+                display: block;
             }
             /* Hide stars on mobile for better centering */
             .intro-title::before,
@@ -2445,9 +2380,16 @@
             .intro-box .figure {
                 margin-top: 15px;
             }
-            /* Fix trophy positioning on mobile */
-            .intro-box .trophy-container {
-                transform: translateX(-50%) translateY(40px) scale(0.55) !important;
+            /* Trophy ticker on mobile */
+            .trophy-ticker {
+                gap: 4px;
+                margin-top: 2px;
+            }
+            .trophy-ticker .trophy-icon {
+                font-size: 10px;
+            }
+            .trophy-ticker .trophy-text {
+                font-size: 7px;
             }
             .label-group {
                 bottom: 6px;
@@ -2490,8 +2432,11 @@
             .intro-box .figure {
                 margin-top: 10px;
             }
-            .intro-box .trophy-container {
-                transform: translateX(-50%) translateY(35px) scale(0.45) !important;
+            .trophy-ticker .trophy-icon {
+                font-size: 9px;
+            }
+            .trophy-ticker .trophy-text {
+                font-size: 6px;
             }
             .label-group .name {
                 font-size: 8px;
@@ -2519,8 +2464,11 @@
             .intro-box .figure {
                 margin-top: 8px;
             }
-            .intro-box .trophy-container {
-                transform: translateX(-50%) translateY(30px) scale(0.4) !important;
+            .trophy-ticker .trophy-icon {
+                font-size: 8px;
+            }
+            .trophy-ticker .trophy-text {
+                font-size: 5px;
             }
             .label-group {
                 bottom: 4px;
@@ -3002,199 +2950,10 @@
     <!-- Randomly displays 3 agents from pool of 13 (12 agents + Virat Kohli) -->
     <!-- Stadium background matches dominant sport of selected agents -->
     <div class="intro-overlay" id="intro-overlay">
-        <div class="intro-title">The Iconic. The Trailblazers. The Future.</div>
+        <div class="intro-title"><span>The Iconic.</span><span>The Trailblazers.</span><span>The Future.</span></div>
         <div class="intro-grid" id="intro-grid">
-            <!-- Dynamically populated by JavaScript -->
-            <!-- Fallback: Static Tom Brady if JS fails -->
-            <div class="intro-box intro-box-brady">
-                <div class="crowd-row row-3">
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                </div>
-                <div class="crowd-row row-2">
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                    <div class="crowd-person"></div><div class="crowd-person"></div>
-                </div>
-                <div class="crowd-row">
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                    <div class="crowd-person"></div>
-                </div>
-                <div class="figure">
-                    <div class="trophy-container">
-                        <div class="lombardi">
-                            <div class="football"></div>
-                            <div class="stand"></div>
-                            <div class="base"></div>
-                            <div class="base-plate"></div>
-                        </div>
-                    </div>
-                    <div class="athlete">
-                        <div class="hair"></div>
-                        <div class="head">
-                            <div class="ear ear-left"></div>
-                            <div class="ear ear-right"></div>
-                        </div>
-                        <div class="neck"></div>
-                        <div class="shoulder shoulder-left"></div>
-                        <div class="shoulder shoulder-right"></div>
-                        <div class="torso"></div>
-                        <span class="jersey-number">12</span>
-                        <div class="shorts"></div>
-                        <div class="arm arm-left"><div class="hand"></div></div>
-                        <div class="arm arm-right"><div class="hand"></div></div>
-                        <div class="leg leg-left"><div class="foot"></div></div>
-                        <div class="leg leg-right"><div class="foot"></div></div>
-                    </div>
-                </div>
-                <div class="flash flash-1"></div>
-                <div class="flash flash-2"></div>
-                <div class="flash flash-3"></div>
-                <div class="confetti confetti-1"></div>
-                <div class="confetti confetti-2"></div>
-                <div class="confetti confetti-3"></div>
-                <div class="confetti confetti-4"></div>
-                <div class="confetti confetti-5"></div>
-                <div class="label-group">
-                    <div class="name">Tom Brady</div>
-                    <div class="trophy-name">7× Super Bowl Champion</div>
-                </div>
-            </div>
-
-            <!-- Virat Kohli - IPL Champion -->
-            <div class="intro-box intro-box-virat">
-                <!-- Crowd silhouettes -->
-                <div class="crowd-row row-3">
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                </div>
-                <div class="crowd-row row-2">
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                    <div class="crowd-person"></div><div class="crowd-person"></div>
-                </div>
-                <div class="crowd-row">
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                    <div class="crowd-person"></div>
-                </div>
-                <div class="figure">
-                    <!-- IPL Trophy -->
-                    <div class="trophy-container">
-                        <div class="ipl-trophy">
-                            <div class="handle-left"></div>
-                            <div class="handle-right"></div>
-                            <div class="cup"></div>
-                            <div class="node"></div>
-                            <div class="stem"></div>
-                            <div class="base-top"></div>
-                            <div class="base-mid"></div>
-                            <div class="base-bottom"></div>
-                            <div class="nameplate"></div>
-                        </div>
-                    </div>
-                    <!-- Virat Kohli silhouette -->
-                    <div class="athlete">
-                        <div class="hair"></div>
-                        <div class="head">
-                            <div class="ear ear-left"></div>
-                            <div class="ear ear-right"></div>
-                        </div>
-                        <div class="neck"></div>
-                        <div class="shoulder shoulder-left"></div>
-                        <div class="shoulder shoulder-right"></div>
-                        <div class="torso"></div>
-                        <span class="jersey-number">18</span>
-                        <div class="shorts"></div>
-                        <div class="arm arm-left"><div class="hand"></div></div>
-                        <div class="arm arm-right"><div class="hand"></div></div>
-                        <div class="leg leg-left"><div class="foot"></div></div>
-                        <div class="leg leg-right"><div class="foot"></div></div>
-                    </div>
-                </div>
-                <!-- Camera flashes -->
-                <div class="flash flash-1"></div>
-                <div class="flash flash-2"></div>
-                <div class="flash flash-3"></div>
-                <!-- Confetti (gold for IPL) -->
-                <div class="confetti confetti-1"></div>
-                <div class="confetti confetti-2"></div>
-                <div class="confetti confetti-3"></div>
-                <div class="confetti confetti-4"></div>
-                <div class="confetti confetti-5"></div>
-                <div class="label-group">
-                    <div class="name">Virat Kohli</div>
-                    <div class="trophy-name">IPL 2024 Champion</div>
-                </div>
-            </div>
-
-            <!-- José Mourinho - UCL Winner -->
-            <div class="intro-box intro-box-jose">
-                <!-- Crowd silhouettes -->
-                <div class="crowd-row row-3">
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                </div>
-                <div class="crowd-row row-2">
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                    <div class="crowd-person"></div><div class="crowd-person"></div>
-                </div>
-                <div class="crowd-row">
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                    <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
-                    <div class="crowd-person"></div>
-                </div>
-                <div class="figure">
-                    <!-- UCL Trophy (Big Ears) -->
-                    <div class="trophy-container">
-                        <div class="ucl-trophy">
-                            <div class="ear-left"></div>
-                            <div class="ear-right"></div>
-                            <div class="cup"></div>
-                            <div class="ring ring-1"></div>
-                            <div class="ring ring-2"></div>
-                            <div class="stem"></div>
-                            <div class="base"></div>
-                        </div>
-                    </div>
-                    <!-- José Mourinho silhouette -->
-                    <div class="athlete">
-                        <div class="hair"></div>
-                        <div class="head">
-                            <div class="ear ear-left"></div>
-                            <div class="ear ear-right"></div>
-                        </div>
-                        <div class="neck"></div>
-                        <div class="shoulder shoulder-left"></div>
-                        <div class="shoulder shoulder-right"></div>
-                        <div class="torso"></div>
-                        <div class="coat-bottom"></div>
-                        <div class="arm arm-left"><div class="hand"></div></div>
-                        <div class="arm arm-right"><div class="hand"></div></div>
-                        <div class="leg leg-left"><div class="foot"></div></div>
-                        <div class="leg leg-right"><div class="foot"></div></div>
-                    </div>
-                </div>
-                <!-- Camera flashes -->
-                <div class="flash flash-1"></div>
-                <div class="flash flash-2"></div>
-                <div class="flash flash-3"></div>
-                <!-- Confetti (silver for UCL) -->
-                <div class="confetti confetti-1"></div>
-                <div class="confetti confetti-2"></div>
-                <div class="confetti confetti-3"></div>
-                <div class="confetti confetti-4"></div>
-                <div class="confetti confetti-5"></div>
-                <div class="label-group">
-                    <div class="name">José Mourinho</div>
-                    <div class="trophy-name">2× UCL Champion</div>
-                </div>
-            </div>
+            <!-- Dynamically populated by JavaScript - see initIntroAnimation() -->
+            <!-- Content is generated with stadium backgrounds, upper-body athletes, and trophy tickers -->
         </div>
     </div>
 
@@ -3652,43 +3411,16 @@
 
         // Generate HTML for an agent box
         function generateAgentBox(agent, key, index, delay) {
-            const crowdHTML = `
-                <div class="crowd-row row-3">
-                    ${Array(9).fill('<div class="crowd-person"></div>').join('')}
-                </div>
-                <div class="crowd-row row-2">
-                    ${Array(8).fill('<div class="crowd-person"></div>').join('')}
-                </div>
-                <div class="crowd-row">
-                    ${Array(7).fill('<div class="crowd-person"></div>').join('')}
-                </div>
-            `;
-
-            const trophyHTML = generateTrophyHTML(agent.trophy);
             const athleteHTML = generateAthleteHTML(agent);
 
-            // Playing surface HTML
-            const surfaceHTML = `<div class="playing-surface surface-${agent.sport}" style="--surface-delay: ${delay + 0.5}s;"></div>`;
-
-            // Floodlight towers HTML
-            const floodlightsHTML = `
-                <div class="floodlight-tower tower-left" style="--tower-delay: ${delay + 0.3}s;">
-                    <div class="pole"></div>
-                    <div class="light-housing"></div>
-                    <div class="light-bulb"></div>
-                    <div class="light-bulb"></div>
-                    <div class="light-bulb"></div>
-                    <div class="beam"></div>
-                </div>
-                <div class="floodlight-tower tower-right" style="--tower-delay: ${delay + 0.4}s;">
-                    <div class="pole"></div>
-                    <div class="light-housing"></div>
-                    <div class="light-bulb"></div>
-                    <div class="light-bulb"></div>
-                    <div class="light-bulb"></div>
-                    <div class="beam"></div>
-                </div>
-            `;
+            // Trophy icon based on sport
+            const trophyIcons = {
+                'nfl': '🏈',
+                'nba': '🏀',
+                'soccer': '⚽',
+                'cricket': '🏏'
+            };
+            const trophyIcon = trophyIcons[agent.sport] || '🏆';
 
             // Build CSS variables for inline style
             let cssVars = `--delay: ${delay}s; --jersey-main: ${agent.jersey.main}; --jersey-accent: ${agent.jersey.accent}; --shorts-color: ${agent.shorts || agent.jersey.main}; --hair-color: ${agent.hair.color};`;
@@ -3723,24 +3455,18 @@
                      data-agent="${key}"
                      data-sport="${agent.sport}"
                      style="${cssVars}">
-                    ${floodlightsHTML}
-                    ${crowdHTML}
-                    ${surfaceHTML}
                     <div class="figure">
-                        <div class="trophy-container">${trophyHTML}</div>
                         ${athleteHTML}
                     </div>
                     <div class="flash flash-1"></div>
                     <div class="flash flash-2"></div>
                     <div class="flash flash-3"></div>
-                    <div class="confetti confetti-1"></div>
-                    <div class="confetti confetti-2"></div>
-                    <div class="confetti confetti-3"></div>
-                    <div class="confetti confetti-4"></div>
-                    <div class="confetti confetti-5"></div>
                     <div class="label-group">
                         <div class="name">${agent.name}</div>
-                        <div class="trophy-name">${agent.trophyLabel}</div>
+                        <div class="trophy-ticker">
+                            <span class="trophy-icon">${trophyIcon}</span>
+                            <span class="trophy-text">${agent.trophyLabel}</span>
+                        </div>
                     </div>
                 </div>
             `;
@@ -3779,7 +3505,7 @@
             const scarfHTML = agent.hasScarf ? '<div class="scarf"></div>' : '';
 
             // Build class list
-            const classList = ['athlete'];
+            const classList = ['athlete', 'upper-body']; // Always show upper body only
             if (agent.hasCoat) classList.push('has-coat');
             if (agent.hasSuit) classList.push('has-suit');
             if (agent.hasTracksuit) classList.push('has-tracksuit');

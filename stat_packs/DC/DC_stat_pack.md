@@ -1,6 +1,6 @@
 # Delhi Capitals (DC) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-26 09:45
+**Generated:** 2026-02-05 20:13
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -47,42 +47,12 @@
 
 *Based on clustering analysis of IPL career performance*
 
-**Batter Archetypes:**
-
-- **EXPLOSIVE_OPENER**: Prithvi Shaw, Abhishek Porel
-- **PLAYMAKER**: KL Rahul
-- **ACCUMULATOR**: Axar Patel
-- **MIDDLE_ORDER**: Karun Nair, Nitish Rana
-- **FINISHER**: Tristan Stubbs, David Miller
-
-**Bowler Archetypes:**
-
-- **WORKHORSE**: Mitchell Starc, Mukesh Kumar, T Natarajan
-- **NEW_BALL_SPECIALIST**: Axar Patel
-- **DEATH_SPECIALIST**: Tristan Stubbs
-
 ### 1.3 Key Player Tags
 
 *Performance tags based on phase analysis, matchups, and specializations*
 
 | Player | Tags |
 |--------|------|
-| Axar Patel | SPECIALIST_VS_LEG_SPIN, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, SPIN_SPECIALIST, ACCUMULATOR, VULNERABLE_VS_OFF_SPIN (+8 more) |
-| Tristan Stubbs | SPECIALIST_VS_LEG_SPIN, DEATH_SPECIALIST, SIX_HITTER, SPECIALIST_VS_SPIN, SPECIALIST_VS_OFF_SPIN (+3 more) |
-| David Miller | SPECIALIST_VS_LEG_SPIN, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, SPECIALIST_VS_SPIN, FINISHER, SPECIALIST_VS_LEFT_ARM_SPIN (+1 more) |
-| Karun Nair | SPECIALIST_VS_LEG_SPIN, SPECIALIST_VS_PACE, VULNERABLE_VS_OFF_SPIN, MIDDLE_ORDER |
-| Nitish Rana | DEATH_SPECIALIST, SIX_HITTER, SPECIALIST_VS_SPIN, SPECIALIST_VS_OFF_SPIN, MIDDLE_ORDER (+2 more) |
-| Prithvi Shaw | PP_DOMINATOR, EXPLOSIVE_OPENER, VULNERABLE_VS_LEG_SPIN, SPECIALIST_VS_OFF_SPIN, MIDDLE_OVERS_ACCELERATOR (+2 more) |
-| Vipraj Nigam | WORKHORSE, MIDDLE_AND_DEATH_SPECIALIST |
-| Dushmantha Chameera | RHB_WICKET_TAKER, PP_LIABILITY, PRESSURE_BUILDER |
-| Kuldeep Yadav | MIDDLE_AND_DEATH_SPECIALIST, PROVEN_WICKET_TAKER, DEATH_BEAST, LHB_PRESSURE |
-| Kyle Jamieson | PRESSURE_BUILDER |
-| Lungi Ngidi | PRESSURE_BUILDER, LHB_VULNERABLE, PP_ELITE, RHB_PRESSURE, RHB_SPECIALIST |
-| Mitchell Starc | NEW_BALL_SPECIALIST, WORKHORSE, LHB_WICKET_TAKER, PP_LIABILITY, PRESSURE_BUILDER (+2 more) |
-| Mukesh Kumar | DEATH_LIABILITY, RHB_PRESSURE, MIDDLE_AND_DEATH_SPECIALIST, WORKHORSE, NEW_BALL_SPECIALIST |
-| T Natarajan | WORKHORSE, NEW_BALL_SPECIALIST, MIDDLE_AND_DEATH_SPECIALIST |
-| Abhishek Porel | DEATH_SPECIALIST, PP_DOMINATOR, EXPLOSIVE_OPENER, SIX_HITTER, VULNERABLE_VS_LEG_SPIN (+4 more) |
-| KL Rahul | SPECIALIST_VS_OFF_SPIN, PLAYMAKER, INCONSISTENT, SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, SPECIALIST_VS_PACE |
 
 ---
 
@@ -129,22 +99,80 @@
 
 ---
 
-## 3. Venue Performance
+## Venue Analysis
 
-### 3.1 Team Batting by Venue (Top 10 by matches)
+*Performance breakdown by venue (2023+ IPL data)*
 
-| Venue | Matches | Runs | Balls | SR | Avg |
-|-------|---------|------|-------|-----|-----|
-| Feroz Shah Kotla | 56 | 8180 | 6312 | 129.59 | 26.3 |
-| Arun Jaitley Stadium, Delhi | 17 | 3003 | 2003 | 149.93 | 27.55 |
-| Dubai International Cricket Stadium | 15 | 2235 | 1776 | 125.84 | 25.4 |
-| Arun Jaitley Stadium | 14 | 2223 | 1638 | 135.71 | 30.45 |
-| Wankhede Stadium, Mumbai | 10 | 1657 | 1167 | 141.99 | 25.11 |
-| Wankhede Stadium | 9 | 1266 | 1025 | 123.51 | 21.83 |
-| Eden Gardens | 9 | 1166 | 959 | 121.58 | 18.51 |
-| Sharjah Cricket Stadium | 8 | 1201 | 949 | 126.55 | 28.6 |
-| MA Chidambaram Stadium, Chepauk | 7 | 905 | 807 | 112.14 | 21.05 |
-| M Chinnaswamy Stadium | 7 | 1115 | 825 | 135.15 | 35.97 |
+### Home Venue: Arun Jaitley Stadium
+
+- **Matches:** 17
+- **Win Rate:** 35.3% (6W - 10L)
+- **Avg Score (batting):** 185.9
+- **Highest/Lowest:** 257/128
+- **Pitch Type:** Balanced
+- **Pace SR:** 19.3 | **Spin SR:** 19.3
+
+### Away Performance
+
+| Venue | Matches | Wins | Win% | Avg Score |
+|-------|---------|------|------|-----------|
+| Dr. Y.S. Rajasekhara Reddy ACA-VDCA | 4 | 3 | 75.0% | 183.5 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 158.0 |
+| Narendra Modi Stadium | 3 | 2 | 66.7% | 141.7 |
+| M Chinnaswamy Stadium | 3 | 1 | 33.3% | 153.3 |
+| Wankhede Stadium | 2 | 0 | 0.0% | 163.0 |
+| Rajiv Gandhi International Stadium | 2 | 1 | 50.0% | 138.5 |
+| Himachal Pradesh Cricket Associatio | 2 | 1 | 50.0% | 213.0 |
+| Sawai Mansingh Stadium | 2 | 1 | 50.0% | 190.5 |
+| MA Chidambaram Stadium | 2 | 1 | 50.0% | 161.5 |
+
+### Pitch Characteristics (All IPL Venues 2023+)
+
+*Based on bowling strike rates - lower SR = more effective*
+
+| Venue | Matches | Pace SR | Spin SR | Bias |
+|-------|---------|---------|---------|------|
+| Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
+| MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
+| Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
+| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
+| Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
+
+### Venue Specialists
+
+*Squad players with exceptional performance at specific venues (min 100 runs or 5 wickets)*
+
+**Top Batting Performances:**
+
+| Player | Venue | Inn | Runs | SR | Avg |
+|--------|-------|-----|------|-----|-----|
+| KL Rahul | Dubai International Crick | 11 | 606 | 146.73 | 67.33 |
+| KL Rahul | Bharat Ratna Shri Atal Bi | 13 | 534 | 130.56 | 48.55 |
+| DA Miller | Punjab Cricket Associatio | 13 | 415 | 155.43 | 59.29 |
+| KL Rahul | Punjab Cricket Associatio | 10 | 406 | 142.46 | 50.75 |
+| KL Rahul | Wankhede Stadium | 9 | 403 | 149.81 | 57.57 |
+| AR Patel | Arun Jaitley Stadium | 17 | 392 | 161.32 | 32.67 |
+| Abishek Porel | Arun Jaitley Stadium | 11 | 366 | 161.95 | 36.6 |
+| T Stubbs | Arun Jaitley Stadium | 10 | 273 | 193.62 | 54.6 |
+
+**Top Bowling Performances:**
+
+| Player | Venue | Matches | Wkts | Econ | SR |
+|--------|-------|---------|------|------|-----|
+| Kuldeep Yadav | Eden Gardens | 21 | 21 | 8.17 | 21.24 |
+| AR Patel | Arun Jaitley Stadium | 16 | 13 | 7.66 | 23.08 |
+| MA Starc | M Chinnaswamy Stadium | 9 | 12 | 7.5 | 16.0 |
+| AR Patel | Dubai International Crick | 13 | 11 | 6.35 | 26.18 |
+| AR Patel | Punjab Cricket Associatio | 7 | 10 | 7.04 | 14.4 |
+| Kuldeep Yadav | Brabourne Stadium | 4 | 10 | 7.19 | 9.6 |
+| MA Starc | Dr. Y.S. Rajasekhara Redd | 3 | 10 | 9.28 | 6.4 |
+| T Natarajan | Dubai International Crick | 8 | 9 | 8.42 | 21.22 |
+
 
 ---
 
@@ -341,8 +369,8 @@
 | Mumbai Indians | 12 | 246 | 357 | 10 | 8.71 | 35.7 | 24.6 | 29.67 | 16.26 | HIGH |
 | Royal Challengers Bengaluru | 10 | 234 | 341 | 9 | 8.74 | 37.89 | 26.0 | 29.91 | 16.24 | HIGH |
 | Lucknow Super Giants | 7 | 160 | 202 | 9 | 7.58 | 22.44 | 17.78 | 31.88 | 13.13 | HIGH |
-| Gujarat Titans | 7 | 162 | 176 | 5 | 6.52 | 35.2 | 32.4 | 31.48 | 8.64 | HIGH |
 | Delhi Capitals | 6 | 122 | 178 | 5 | 8.75 | 35.6 | 24.4 | 22.95 | 13.93 | HIGH |
+| Gujarat Titans | 7 | 162 | 176 | 5 | 6.52 | 35.2 | 32.4 | 31.48 | 8.64 | HIGH |
 | Chennai Super Kings | 8 | 168 | 236 | 4 | 8.43 | 59.0 | 42.0 | 24.4 | 14.29 | HIGH |
 | Gujarat Lions | 2 | 48 | 58 | 4 | 7.25 | 14.5 | 12.0 | 31.25 | 12.5 | MEDIUM |
 | Rising Pune Supergiant | 2 | 48 | 66 | 3 | 8.25 | 22.0 | 16.0 | 37.5 | 14.58 | MEDIUM |
@@ -353,8 +381,8 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Mumbai Indians | 4 | 84 | 175 | 8 | 12.5 | 21.88 | 10.5 | 32.14 | 35.71 | MEDIUM |
 | Lucknow Super Giants | 5 | 108 | 158 | 7 | 8.78 | 22.57 | 15.43 | 31.48 | 19.44 | HIGH |
-| Gujarat Titans | 4 | 87 | 134 | 5 | 9.24 | 26.8 | 17.4 | 31.03 | 22.99 | MEDIUM |
 | Rajasthan Royals | 4 | 84 | 149 | 5 | 10.64 | 29.8 | 16.8 | 30.95 | 27.38 | MEDIUM |
+| Gujarat Titans | 4 | 87 | 134 | 5 | 9.24 | 26.8 | 17.4 | 31.03 | 22.99 | MEDIUM |
 | Chennai Super Kings | 2 | 42 | 57 | 4 | 8.14 | 14.25 | 10.5 | 26.19 | 14.29 | MEDIUM |
 | Royal Challengers Bengaluru | 4 | 75 | 122 | 3 | 9.76 | 40.67 | 25.0 | 41.33 | 26.67 | MEDIUM |
 | Punjab Kings | 3 | 54 | 100 | 2 | 11.11 | 50.0 | 27.0 | 35.19 | 29.63 | MEDIUM |
@@ -368,10 +396,10 @@
 | Sunrisers Hyderabad | 7 | 152 | 204 | 13 | 8.05 | 15.69 | 11.69 | 40.13 | 19.08 | HIGH |
 | Delhi Capitals | 6 | 132 | 176 | 9 | 8.0 | 19.56 | 14.67 | 42.42 | 18.94 | HIGH |
 | Lucknow Super Giants | 4 | 84 | 117 | 8 | 8.36 | 14.63 | 10.5 | 41.67 | 22.62 | MEDIUM |
-| Kolkata Knight Riders | 4 | 84 | 122 | 7 | 8.71 | 17.43 | 12.0 | 34.52 | 20.24 | MEDIUM |
 | Punjab Kings | 5 | 96 | 108 | 7 | 6.75 | 15.43 | 13.71 | 45.83 | 15.63 | MEDIUM |
-| Mumbai Indians | 6 | 119 | 178 | 7 | 8.97 | 25.43 | 17.0 | 34.45 | 21.85 | HIGH |
+| Kolkata Knight Riders | 4 | 84 | 122 | 7 | 8.71 | 17.43 | 12.0 | 34.52 | 20.24 | MEDIUM |
 | Rajasthan Royals | 6 | 138 | 177 | 7 | 7.7 | 25.29 | 19.71 | 42.03 | 18.84 | HIGH |
+| Mumbai Indians | 6 | 119 | 178 | 7 | 8.97 | 25.43 | 17.0 | 34.45 | 21.85 | HIGH |
 | Chennai Super Kings | 7 | 156 | 186 | 6 | 7.15 | 31.0 | 26.0 | 40.38 | 15.38 | HIGH |
 | Royal Challengers Bengaluru | 4 | 78 | 162 | 1 | 12.46 | 162.0 | 78.0 | 32.05 | 32.05 | MEDIUM |
 
@@ -463,11 +491,7 @@
 
 *Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
 
-- **AR Patel** vs off-spin: SR 99.45, Avg 12.13, BPD 12.2 (183 balls)
-- **Abishek Porel** vs off-spin: SR 101.89, Avg 13.5, BPD 13.25 (53 balls)
-- **Abishek Porel** vs leg-spin: SR 107.41, Avg 14.5, BPD 13.5 (54 balls)
-- **KK Nair** vs off-spin: SR 90.72, Avg 22.0, BPD 24.25 (97 balls)
-- **PP Shaw** vs leg-spin: SR 155.83, Avg 17.0, BPD 10.91 (120 balls)
+- **AR Patel** vs off-spin: SR 100.0, Avg 11.0, BPD 11.0 (77 balls)
 
 ---
 

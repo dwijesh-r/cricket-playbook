@@ -1,6 +1,6 @@
 # Punjab Kings (PBKS) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-26 09:45
+**Generated:** 2026-02-05 20:13
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -44,38 +44,12 @@
 
 *Based on clustering analysis of IPL career performance*
 
-**Batter Archetypes:**
-
-- **EXPLOSIVE_OPENER**: Prabhsimran Singh
-- **ACCUMULATOR**: Harnoor Singh
-- **MIDDLE_ORDER**: Nehal Wadhera, Shreyas Iyer
-- **FINISHER**: Marcus Stoinis, Shashank Singh
-
-**Bowler Archetypes:**
-
-- **WORKHORSE**: Azmatullah Omarzai, Harpreet Brar, Marco Jansen, Marcus Stoinis, Arshdeep Singh, Lockie Ferguson, Vijaykumar Vyshak, Yash Thakur
-- **DEATH_SPECIALIST**: Shashank Singh
-
 ### 1.3 Key Player Tags
 
 *Performance tags based on phase analysis, matchups, and specializations*
 
 | Player | Tags |
 |--------|------|
-| Azmatullah Omarzai | NEW_BALL_SPECIALIST, WORKHORSE, DEATH_SPECIALIST, LHB_WICKET_TAKER |
-| Harpreet Brar | MIDDLE_OVERS_CONTROLLER, LHB_WICKET_TAKER, WORKHORSE, MID_OVERS_ELITE, NEW_BALL_SPECIALIST |
-| Marco Jansen | PRESSURE_BUILDER, LHB_WICKET_TAKER, MIDDLE_AND_DEATH_SPECIALIST, PP_LIABILITY, WORKHORSE (+1 more) |
-| Marcus Stoinis | SPECIALIST_VS_LEG_SPIN, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, SPECIALIST_VS_SPIN, FINISHER, INCONSISTENT (+9 more) |
-| Shashank Singh | SPECIALIST_VS_LEG_SPIN, DEATH_SPECIALIST, SIX_HITTER, FINISHER, VULNERABLE_VS_LEFT_ARM_SPIN (+3 more) |
-| Harnoor Singh | VULNERABLE_VS_SPIN, ACCUMULATOR, VULNERABLE_VS_LEG_SPIN, VULNERABLE_VS_LEFT_ARM_SPIN, VULNERABLE_VS_OFF_SPIN (+5 more) |
-| Nehal Wadhera | SPECIALIST_VS_LEG_SPIN, SPIN_SPECIALIST, SIX_HITTER, MIDDLE_OVERS_ACCELERATOR, SPECIALIST_VS_SPIN (+1 more) |
-| Shreyas Iyer | DEATH_SPECIALIST, SPECIALIST_VS_PACE, SPECIALIST_VS_OFF_SPIN, MIDDLE_ORDER, SPECIALIST_VS_LEFT_ARM_WRIST_SPIN (+2 more) |
-| Arshdeep Singh | DEATH_LIABILITY, NEW_BALL_SPECIALIST, MIDDLE_AND_DEATH_SPECIALIST, WORKHORSE |
-| Lockie Ferguson | DEATH_LIABILITY, NEW_BALL_SPECIALIST, MIDDLE_AND_DEATH_SPECIALIST, WORKHORSE |
-| Vijaykumar Vyshak | WORKHORSE, MIDDLE_AND_DEATH_SPECIALIST |
-| Yash Thakur | NEW_BALL_SPECIALIST, WORKHORSE, RHB_WICKET_TAKER, MIDDLE_AND_DEATH_SPECIALIST, DEATH_LIABILITY |
-| Yuzvendra Chahal | PROVEN_WICKET_TAKER, RHB_PRESSURE, MIDDLE_OVERS_LIABILITY, RHB_SPECIALIST, LHB_VULNERABLE (+1 more) |
-| Prabhsimran Singh | SPECIALIST_VS_LEG_SPIN, DEATH_SPECIALIST, PP_DOMINATOR, EXPLOSIVE_OPENER, SIX_HITTER (+4 more) |
 
 ---
 
@@ -122,22 +96,80 @@
 
 ---
 
-## 3. Venue Performance
+## Venue Analysis
 
-### 3.1 Team Batting by Venue (Top 10 by matches)
+*Performance breakdown by venue (2023+ IPL data)*
 
-| Venue | Matches | Runs | Balls | SR | Avg |
-|-------|---------|------|-------|-----|-----|
-| Punjab Cricket Association Stadium, Moha... | 35 | 5210 | 4029 | 129.31 | 25.67 |
-| Wankhede Stadium | 11 | 1831 | 1317 | 139.03 | 30.52 |
-| Dubai International Cricket Stadium | 11 | 1679 | 1244 | 134.97 | 27.98 |
-| Eden Gardens | 11 | 1651 | 1257 | 131.34 | 27.52 |
-| Punjab Cricket Association IS Bindra Sta... | 11 | 1692 | 1239 | 136.56 | 31.33 |
-| Punjab Cricket Association IS Bindra Sta... | 10 | 1697 | 1173 | 144.67 | 36.11 |
-| Maharaja Yadavindra Singh International ... | 10 | 1468 | 1129 | 130.03 | 18.82 |
-| M Chinnaswamy Stadium | 10 | 1430 | 1104 | 129.53 | 23.06 |
-| Feroz Shah Kotla | 9 | 1138 | 980 | 116.12 | 21.47 |
-| Himachal Pradesh Cricket Association Sta... | 9 | 1415 | 1053 | 134.38 | 30.11 |
+### Home Venue: Maharaja Yadavindra Singh International Cricket Stadium
+
+- **Matches:** 15
+- **Win Rate:** 26.7% (4W - 11L)
+- **Avg Score (batting):** 165.4
+- **Highest/Lowest:** 219/101
+- **Pitch Type:** Balanced
+- **Pace SR:** 16.4 | **Spin SR:** 18.9
+
+### Away Performance
+
+| Venue | Matches | Wins | Win% | Avg Score |
+|-------|---------|------|------|-----------|
+| Himachal Pradesh Cricket Associatio | 6 | 1 | 16.7% | 177.2 |
+| Narendra Modi Stadium | 4 | 3 | 75.0% | 208.5 |
+| Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
+| Eden Gardens | 3 | 1 | 33.3% | 214.0 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
+| MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
+| M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
+| Barsapara Cricket Stadium | 2 | 2 | 100.0% | 171.0 |
+
+### Pitch Characteristics (All IPL Venues 2023+)
+
+*Based on bowling strike rates - lower SR = more effective*
+
+| Venue | Matches | Pace SR | Spin SR | Bias |
+|-------|---------|---------|---------|------|
+| Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
+| MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
+| Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
+| Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
+
+### Venue Specialists
+
+*Squad players with exceptional performance at specific venues (min 100 runs or 5 wickets)*
+
+**Top Batting Performances:**
+
+| Player | Venue | Inn | Runs | SR | Avg |
+|--------|-------|-----|------|-----|-----|
+| SS Iyer | Arun Jaitley Stadium | 14 | 491 | 126.87 | 44.64 |
+| Harbhajan Singh | Wankhede Stadium | 31 | 361 | 151.68 | 25.79 |
+| SS Iyer | Narendra Modi Stadium | 4 | 243 | 225.0 | 243.0 |
+| MP Stoinis | Dubai International Crick | 9 | 209 | 157.14 | 34.83 |
+| P Simran Singh | Himachal Pradesh Cricket  | 6 | 200 | 162.6 | 40.0 |
+| SS Iyer | Sharjah Cricket Stadium | 6 | 193 | 134.97 | 64.33 |
+| MP Stoinis | MA Chidambaram Stadium | 4 | 179 | 165.74 | 89.5 |
+| Shashank Singh | Narendra Modi Stadium | 4 | 168 | 215.38 | 168.0 |
+
+**Top Bowling Performances:**
+
+| Player | Venue | Matches | Wkts | Econ | SR |
+|--------|-------|---------|------|------|-----|
+| Harbhajan Singh | Wankhede Stadium | 47 | 49 | 7.04 | 20.94 |
+| YS Chahal | M Chinnaswamy Stadium | 25 | 33 | 8.08 | 15.97 |
+| YS Chahal | Dubai International Crick | 12 | 19 | 6.55 | 14.84 |
+| Arshdeep Singh | Dubai International Crick | 7 | 17 | 8.21 | 9.12 |
+| YS Chahal | M.Chinnaswamy Stadium | 15 | 17 | 7.13 | 18.82 |
+| YS Chahal | Wankhede Stadium | 9 | 14 | 7.16 | 13.71 |
+| Yash Thakur | Bharat Ratna Shri Atal Bi | 8 | 12 | 9.19 | 14.42 |
+| Arshdeep Singh | Wankhede Stadium | 8 | 12 | 7.04 | 14.0 |
+
 
 ---
 
@@ -325,8 +357,8 @@
 | Rajasthan Royals | 11 | 257 | 416 | 18 | 9.71 | 23.11 | 14.28 | 37.35 | 24.9 | HIGH |
 | Sunrisers Hyderabad | 11 | 255 | 322 | 15 | 7.58 | 21.47 | 17.0 | 36.86 | 15.69 | HIGH |
 | Chennai Super Kings | 9 | 188 | 258 | 11 | 8.23 | 23.45 | 17.09 | 35.11 | 20.21 | HIGH |
-| Kolkata Knight Riders | 10 | 190 | 265 | 11 | 8.37 | 24.09 | 17.27 | 43.16 | 21.58 | HIGH |
 | Royal Challengers Bengaluru | 11 | 212 | 335 | 11 | 9.48 | 30.45 | 19.27 | 33.02 | 22.64 | HIGH |
+| Kolkata Knight Riders | 10 | 190 | 265 | 11 | 8.37 | 24.09 | 17.27 | 43.16 | 21.58 | HIGH |
 | Mumbai Indians | 9 | 197 | 313 | 10 | 9.53 | 31.3 | 19.7 | 35.03 | 24.37 | HIGH |
 | Lucknow Super Giants | 6 | 132 | 185 | 10 | 8.41 | 18.5 | 13.2 | 33.33 | 20.45 | HIGH |
 | Delhi Capitals | 8 | 150 | 220 | 6 | 8.8 | 36.67 | 25.0 | 30.0 | 18.67 | HIGH |
@@ -340,12 +372,12 @@
 | Punjab Kings | 21 | 445 | 605 | 31 | 8.16 | 19.52 | 14.35 | 32.36 | 15.73 | HIGH |
 | Mumbai Indians | 21 | 486 | 655 | 30 | 8.09 | 21.83 | 16.2 | 36.21 | 15.84 | HIGH |
 | Sunrisers Hyderabad | 22 | 511 | 675 | 29 | 7.93 | 23.28 | 17.62 | 31.9 | 13.7 | HIGH |
-| Chennai Super Kings | 19 | 408 | 475 | 23 | 6.99 | 20.65 | 17.74 | 37.01 | 11.76 | HIGH |
 | Delhi Capitals | 20 | 427 | 573 | 23 | 8.05 | 24.91 | 18.57 | 33.49 | 14.99 | HIGH |
+| Chennai Super Kings | 19 | 408 | 475 | 23 | 6.99 | 20.65 | 17.74 | 37.01 | 11.76 | HIGH |
 | Rajasthan Royals | 14 | 285 | 300 | 18 | 6.32 | 16.67 | 15.83 | 38.6 | 9.47 | HIGH |
 | Royal Challengers Bengaluru | 10 | 234 | 303 | 10 | 7.77 | 30.3 | 23.4 | 28.63 | 12.39 | HIGH |
-| Gujarat Lions | 5 | 114 | 147 | 8 | 7.74 | 18.38 | 14.25 | 32.46 | 14.04 | HIGH |
 | Lucknow Super Giants | 7 | 162 | 269 | 8 | 9.96 | 33.63 | 20.25 | 25.93 | 20.99 | HIGH |
+| Gujarat Lions | 5 | 114 | 147 | 8 | 7.74 | 18.38 | 14.25 | 32.46 | 14.04 | HIGH |
 | Gujarat Titans | 7 | 161 | 217 | 5 | 8.09 | 43.4 | 32.2 | 22.98 | 13.04 | HIGH |
 | Rising Pune Supergiant | 3 | 42 | 68 | 0 | 9.71 | - | - | 28.57 | 21.43 | MEDIUM |
 
@@ -412,7 +444,6 @@
 *Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
 
 - **Harbhajan Singh** vs LA orthodox: SR 86.15, Avg 28.0, BPD 32.5 (65 balls)
-- **Harbhajan Singh** vs off-spin: SR 140.79, Avg 13.38, BPD 9.5 (76 balls)
 - **Shashank Singh** vs LA orthodox: SR 100.0, Avg 18.33, BPD 18.33 (55 balls)
 
 ---

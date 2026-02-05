@@ -1,6 +1,6 @@
 # Sunrisers Hyderabad (SRH) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-26 09:45
+**Generated:** 2026-02-05 20:13
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -47,36 +47,12 @@
 
 *Based on clustering analysis of IPL career performance*
 
-**Batter Archetypes:**
-
-- **EXPLOSIVE_OPENER**: Abhishek Sharma, Travis Head
-- **PLAYMAKER**: Ishan Kishan
-- **MIDDLE_ORDER**: Liam Livingstone, Nitish Kumar Reddy
-- **FINISHER**: Heinrich Klaasen
-
-**Bowler Archetypes:**
-
-- **WORKHORSE**: Harshal Patel, Jaydev Unadkat, Pat Cummins
-- **MIDDLE_OVERS_CONTROLLER**: Abhishek Sharma, Zeeshan Ansari
-- **DEATH_SPECIALIST**: Liam Livingstone
-
 ### 1.3 Key Player Tags
 
 *Performance tags based on phase analysis, matchups, and specializations*
 
 | Player | Tags |
 |--------|------|
-| Abhishek Sharma | SPECIALIST_VS_LEG_SPIN, SPIN_SPECIALIST, PP_DOMINATOR, EXPLOSIVE_OPENER, SPECIALIST_VS_OFF_SPIN (+5 more) |
-| Liam Livingstone | SPECIALIST_VS_LEG_SPIN, DEATH_SPECIALIST, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, SIX_HITTER, SPECIALIST_VS_OFF_SPIN (+7 more) |
-| Nitish Kumar Reddy | SPECIALIST_VS_LEG_SPIN, SPIN_SPECIALIST, SPECIALIST_VS_OFF_SPIN, MIDDLE_ORDER, INCONSISTENT (+2 more) |
-| Travis Head | SPECIALIST_VS_LEG_SPIN, DEATH_SPECIALIST, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, PP_DOMINATOR, EXPLOSIVE_OPENER (+4 more) |
-| Harshal Patel | LHB_VULNERABLE, PROVEN_WICKET_TAKER, MIDDLE_AND_DEATH_SPECIALIST, MIDDLE_OVERS_LIABILITY, RHB_SPECIALIST (+2 more) |
-| Jaydev Unadkat | DEATH_LIABILITY, LHB_PRESSURE, PROVEN_WICKET_TAKER, MIDDLE_AND_DEATH_SPECIALIST, WORKHORSE (+1 more) |
-| Pat Cummins | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, VULNERABLE_VS_SPIN, ACCUMULATOR, VULNERABLE_VS_OFF_SPIN, SPECIALIST_VS_LEFT_ARM_SPIN (+7 more) |
-| Shivam Mavi | LHB_SPECIALIST, DEATH_LIABILITY, PRESSURE_BUILDER, RHB_VULNERABLE |
-| Zeeshan Ansari | MIDDLE_OVERS_CONTROLLER |
-| Heinrich Klaasen | SPECIALIST_VS_LEG_SPIN, DEATH_SPECIALIST, SPIN_SPECIALIST, SIX_HITTER, SPECIALIST_VS_SPIN (+5 more) |
-| Ishan Kishan | DEATH_SPECIALIST, SIX_HITTER, SPECIALIST_VS_SPIN, PLAYMAKER, VULNERABLE_VS_OFF_SPIN (+2 more) |
 
 ---
 
@@ -123,22 +99,77 @@
 
 ---
 
-## 3. Venue Performance
+## Venue Analysis
 
-### 3.1 Team Batting by Venue (Top 10 by matches)
+*Performance breakdown by venue (2023+ IPL data)*
 
-| Venue | Matches | Runs | Balls | SR | Avg |
-|-------|---------|------|-------|-----|-----|
-| Rajiv Gandhi International Stadium, Uppa... | 30 | 4258 | 3410 | 124.87 | 28.39 |
-| Rajiv Gandhi International Stadium, Uppa... | 18 | 3146 | 2056 | 153.02 | 31.15 |
-| Rajiv Gandhi International Stadium | 14 | 2125 | 1579 | 134.58 | 26.56 |
-| Dubai International Cricket Stadium | 13 | 1955 | 1537 | 127.2 | 27.54 |
-| MA Chidambaram Stadium, Chepauk, Chennai | 10 | 1361 | 1166 | 116.72 | 19.72 |
-| Eden Gardens | 8 | 1149 | 954 | 120.44 | 22.53 |
-| Sharjah Cricket Stadium | 7 | 896 | 784 | 114.29 | 21.85 |
-| Wankhede Stadium, Mumbai | 7 | 1119 | 836 | 133.85 | 24.33 |
-| Wankhede Stadium | 7 | 1012 | 832 | 121.63 | 22.0 |
-| Sheikh Zayed Stadium | 6 | 849 | 718 | 118.25 | 27.39 |
+### Home Venue: Rajiv Gandhi International Stadium
+
+- **Matches:** 19
+- **Win Rate:** 42.1% (8W - 10L)
+- **Avg Score (batting):** 185.6
+- **Highest/Lowest:** 286/131
+- **Pitch Type:** Pace-friendly
+- **Pace SR:** 19.4 | **Spin SR:** 26.6
+
+### Away Performance
+
+| Venue | Matches | Wins | Win% | Avg Score |
+|-------|---------|------|------|-----------|
+| MA Chidambaram Stadium | 5 | 2 | 40.0% | 142.2 |
+| Narendra Modi Stadium | 4 | 0 | 0.0% | 165.3 |
+| Eden Gardens | 3 | 1 | 33.3% | 184.0 |
+| Arun Jaitley Stadium | 3 | 3 | 100.0% | 247.0 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 186.0 |
+| Wankhede Stadium | 3 | 0 | 0.0% | 178.3 |
+
+### Pitch Characteristics (All IPL Venues 2023+)
+
+*Based on bowling strike rates - lower SR = more effective*
+
+| Venue | Matches | Pace SR | Spin SR | Bias |
+|-------|---------|---------|---------|------|
+| Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
+| MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
+| Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
+| Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
+
+### Venue Specialists
+
+*Squad players with exceptional performance at specific venues (min 100 runs or 5 wickets)*
+
+**Top Batting Performances:**
+
+| Player | Venue | Inn | Runs | SR | Avg |
+|--------|-------|-----|------|-----|-----|
+| H Klaasen | Rajiv Gandhi Internationa | 15 | 612 | 183.23 | 61.2 |
+| Abhishek Sharma | Rajiv Gandhi Internationa | 17 | 507 | 206.94 | 31.69 |
+| TM Head | Rajiv Gandhi Internationa | 11 | 428 | 187.72 | 42.8 |
+| Ishan Kishan | Dubai International Crick | 7 | 286 | 156.28 | 71.5 |
+| Ishan Kishan | Bharat Ratna Shri Atal Bi | 4 | 219 | 146.0 | 73.0 |
+| Ishan Kishan | Rajiv Gandhi Internationa | 7 | 205 | 176.72 | 41.0 |
+| LS Livingstone | Brabourne Stadium | 4 | 196 | 188.46 | 49.0 |
+| Ishan Kishan | Sharjah Cricket Stadium | 4 | 179 | 159.82 | 89.5 |
+
+**Top Bowling Performances:**
+
+| Player | Venue | Matches | Wkts | Econ | SR |
+|--------|-------|---------|------|------|-----|
+| HV Patel | MA Chidambaram Stadium | 5 | 13 | 5.24 | 7.85 |
+| HV Patel | Maharaja Yadavindra Singh | 5 | 11 | 8.59 | 9.27 |
+| HV Patel | Rajiv Gandhi Internationa | 7 | 11 | 8.92 | 13.64 |
+| JD Unadkat | M Chinnaswamy Stadium | 10 | 9 | 7.94 | 24.0 |
+| PJ Cummins | Feroz Shah Kotla | 6 | 9 | 8.71 | 16.0 |
+| HV Patel | Wankhede Stadium | 8 | 9 | 9.07 | 18.0 |
+| JD Unadkat | Rajiv Gandhi Internationa | 3 | 9 | 6.17 | 8.0 |
+| JD Unadkat | Rajiv Gandhi Internationa | 8 | 8 | 7.88 | 18.75 |
+
 
 ---
 
@@ -158,9 +189,9 @@
 | Kamindu Mendis | All-rounder | 5 | 92 | 68 | 135.29 | 23.0 | 13.24 | 32.35 | 0 | 0 | LOW |
 | Jack Edwards | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Salil Arora | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
-| Amit Kumar | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Ravichandran Smaran | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Krains Fuletra | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
+| Amit Kumar | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Onkar Tarmale | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
 ### 4.2 Phase-wise Batting (Qualified players)
@@ -194,7 +225,6 @@
 | Pat Cummins | Fast | 30 | 110.7 | 34 | 9.32 | 30.32 | 19.53 | 35.24 | 21.84 | HIGH |
 | Jaydev Unadkat | Fast | 21 | 63.0 | 19 | 9.37 | 31.05 | 19.89 | 28.84 | 19.05 | MEDIUM |
 | Eshan Malinga | Fast | 7 | 26.7 | 13 | 9.15 | 18.77 | 12.31 | 33.13 | 21.25 | LOW |
-| Amit Kumar | Fast | 7 | 20.5 | 11 | 11.41 | 21.27 | 11.18 | 28.46 | 26.83 | LOW |
 | Liam Livingstone | Leg-spin | 14 | 28.0 | 7 | 9.14 | 36.57 | 24.0 | 23.81 | 20.24 | MEDIUM |
 | Zeeshan Ansari | Left-arm o | 10 | 33.8 | 6 | 9.87 | 55.67 | 33.83 | 23.15 | 20.2 | MEDIUM |
 | Nitish Kumar Reddy | Fast | 12 | 23.2 | 5 | 11.01 | 51.0 | 27.8 | 27.34 | 23.74 | MEDIUM |
@@ -212,9 +242,6 @@
 | Abhishek Sharma | powerplay | 8.0 | 0 | 9.5 | 29.17 | 26.7% | -% | -26.7 | MEDIUM |
 | Abhishek Sharma | middle | 20.0 | 3 | 8.5 | 31.67 | 66.7% | 75.0% | +8.3 | MEDIUM |
 | Abhishek Sharma | death | 2.0 | 1 | 20.5 | 16.67 | 6.7% | 25.0% | +18.3 | MEDIUM |
-| Ashwani Kumar | powerplay | 5.0 | 3 | 12.0 | 33.33 | 24.4% | 27.3% | +2.9 | MEDIUM |
-| Ashwani Kumar | middle | 9.0 | 4 | 8.33 | 24.07 | 43.9% | 36.4% | -7.5 | MEDIUM |
-| Ashwani Kumar | death | 6.5 | 4 | 13.85 | 30.77 | 31.7% | 36.4% | +4.7 | MEDIUM |
 | E Malinga | powerplay | 4.0 | 0 | 13.75 | 20.83 | 15.0% | -% | -15.0 | MEDIUM |
 | E Malinga | middle | 13.0 | 6 | 7.38 | 34.62 | 48.8% | 46.2% | -2.6 | MEDIUM |
 | E Malinga | death | 9.7 | 7 | 9.1 | 36.21 | 36.3% | 53.8% | +17.6 | MEDIUM |
@@ -345,11 +372,11 @@
 | Delhi Capitals | 7 | 156 | 221 | 9 | 8.5 | 24.56 | 17.33 | 39.1 | 21.15 | HIGH |
 | Rajasthan Royals | 7 | 161 | 251 | 9 | 9.35 | 27.89 | 17.89 | 35.4 | 21.74 | HIGH |
 | Chennai Super Kings | 9 | 216 | 307 | 7 | 8.53 | 43.86 | 30.86 | 34.72 | 19.44 | HIGH |
-| Punjab Kings | 7 | 162 | 211 | 6 | 7.81 | 35.17 | 27.0 | 38.89 | 18.52 | HIGH |
 | Kolkata Knight Riders | 7 | 132 | 220 | 6 | 10.0 | 36.67 | 22.0 | 35.61 | 25.76 | HIGH |
+| Punjab Kings | 7 | 162 | 211 | 6 | 7.81 | 35.17 | 27.0 | 38.89 | 18.52 | HIGH |
 | Sunrisers Hyderabad | 5 | 119 | 152 | 4 | 7.66 | 38.0 | 29.75 | 37.82 | 15.13 | HIGH |
-| Lucknow Super Giants | 3 | 66 | 106 | 3 | 9.64 | 35.33 | 22.0 | 31.82 | 24.24 | MEDIUM |
 | Gujarat Titans | 3 | 70 | 92 | 3 | 7.89 | 30.67 | 23.33 | 30.0 | 15.71 | MEDIUM |
+| Lucknow Super Giants | 3 | 66 | 106 | 3 | 9.64 | 35.33 | 22.0 | 31.82 | 24.24 | MEDIUM |
 | Gujarat Lions | 2 | 48 | 70 | 3 | 8.75 | 23.33 | 16.0 | 22.92 | 18.75 | MEDIUM |
 | Rising Pune Supergiant | 2 | 43 | 58 | 3 | 8.09 | 19.33 | 14.33 | 39.53 | 13.95 | MEDIUM |
 
@@ -416,7 +443,8 @@
 
 *Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
 
-- **Ishan Kishan** vs off-spin: SR 109.28, Avg 33.18, BPD 30.36 (334 balls)
+- **Ishan Kishan** vs off-spin: SR 104.72, Avg 31.71, BPD 30.29 (212 balls)
+- **Ishan Kishan** vs leg-spin: SR 156.82, Avg 15.33, BPD 9.78 (88 balls)
 - **LS Livingstone** vs LA orthodox: SR 102.68, Avg 28.75, BPD 28.0 (112 balls)
 
 ---

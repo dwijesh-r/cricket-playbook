@@ -1,6 +1,6 @@
 # Royal Challengers Bengaluru (RCB) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-26 09:45
+**Generated:** 2026-02-05 20:13
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -19,7 +19,6 @@
 | Jitesh Sharma | Wicketkeeper | Medium | Right-hand | 11.00 | Retained | 2025 |
 | Bhuvneshwar Kumar | Bowler | Fast | Right-hand | 10.75 | Retained | 2025 |
 | Venkatesh Iyer | All-rounder | Medium | Left-hand | 7.00 | Auction | 2026 |
-| Raqibul Hasan | Batter | Medium | Right-hand | 6.00 | Retained | 2025 |
 | Krunal Pandya | All-rounder | Left-arm orthodox | Left-hand | 5.75 | Retained | 2025 |
 | Yash Dayal | Bowler | Fast | Left-hand | 5.00 | Retained | 2022 |
 | Tim David | Batter | Off-spin | Right-hand | 3.00 | Retained | 2025 |
@@ -32,29 +31,17 @@
 | Abhinandan Singh | Bowler | Fast | Right-hand | 0.30 | Retained | 2025 |
 | Mangesh Yadav | Bowler | Fast | Left-hand | 0.30 | Auction | 2026 |
 | Jordan Cox | Wicketkeeper | Medium | Right-hand | 0.30 | Auction | 2026 |
+| Kanishk Chouhan | Bowler | Left-arm orthodox | Right-hand | 0.00 | - | - |
 | Satvik Deswal | Bowler | Left-arm wrist spin | Left-hand | 0.00 | - | - |
 
 **Total Squad Size:** 21 players
-**Total Spend:** ₹115.85 Cr
+**Total Spend:** ₹109.85 Cr
 
-**Role Breakdown:** All-rounder: 5, Batter: 5, Bowler: 8, Wicketkeeper: 3
+**Role Breakdown:** All-rounder: 5, Batter: 4, Bowler: 9, Wicketkeeper: 3
 
 ### 1.2 Player Archetypes (K-means V2 Model)
 
 *Based on clustering analysis of IPL career performance*
-
-**Batter Archetypes:**
-
-- **EXPLOSIVE_OPENER**: Phil Salt
-- **PLAYMAKER**: Venkatesh Iyer
-- **ANCHOR**: Devdutt Padikkal
-- **ACCUMULATOR**: Krunal Pandya
-- **MIDDLE_ORDER**: Rajat Patidar, Virat Kohli
-- **FINISHER**: Tim David, Jitesh Sharma
-
-**Bowler Archetypes:**
-
-- **WORKHORSE**: Krunal Pandya, Bhuvneshwar Kumar, Josh Hazlewood, Yash Dayal
 
 ### 1.3 Key Player Tags
 
@@ -62,18 +49,6 @@
 
 | Player | Tags |
 |--------|------|
-| Krunal Pandya | SPECIALIST_VS_LEG_SPIN, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, ACCUMULATOR, VULNERABLE_VS_LEFT_ARM_SPIN, VULNERABLE_VS_OFF_SPIN (+10 more) |
-| Venkatesh Iyer | SPECIALIST_VS_LEG_SPIN, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, PLAYMAKER, VULNERABLE_VS_OFF_SPIN, SPECIALIST_VS_PACE (+1 more) |
-| Devdutt Padikkal | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, SPECIALIST_VS_LEFT_ARM_SPIN, ANCHOR |
-| Rajat Patidar | SPECIALIST_VS_LEG_SPIN, DEATH_SPECIALIST, SPIN_SPECIALIST, SIX_HITTER, SPECIALIST_VS_SPIN (+5 more) |
-| Tim David | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, DEATH_SPECIALIST, SIX_HITTER, FINISHER, VULNERABLE_VS_LEG_SPIN (+2 more) |
-| Virat Kohli | SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, DEATH_SPECIALIST, SPECIALIST_VS_LEG_SPIN, MIDDLE_ORDER, SPECIALIST_VS_PACE |
-| Bhuvneshwar Kumar | VULNERABLE_VS_SPIN, ACCUMULATOR, VULNERABLE_VS_LEG_SPIN, VULNERABLE_VS_LEFT_ARM_SPIN, VULNERABLE_VS_OFF_SPIN (+9 more) |
-| Josh Hazlewood | NEW_BALL_SPECIALIST, WORKHORSE, LHB_WICKET_TAKER, PRESSURE_BUILDER, RHB_SPECIALIST (+3 more) |
-| Suyash Sharma | MIDDLE_AND_DEATH_SPECIALIST, MIDDLE_OVERS_LIABILITY |
-| Yash Dayal | RHB_WICKET_TAKER, MIDDLE_AND_DEATH_SPECIALIST, PP_LIABILITY, WORKHORSE, NEW_BALL_SPECIALIST |
-| Jitesh Sharma | SPECIALIST_VS_LEG_SPIN, DEATH_SPECIALIST, SIX_HITTER, FINISHER, VULNERABLE_VS_LEFT_ARM_SPIN (+2 more) |
-| Phil Salt | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, DEATH_SPECIALIST, PP_DOMINATOR, EXPLOSIVE_OPENER, SIX_HITTER (+5 more) |
 
 ---
 
@@ -120,22 +95,80 @@
 
 ---
 
-## 3. Venue Performance
+## Venue Analysis
 
-### 3.1 Team Batting by Venue (Top 10 by matches)
+*Performance breakdown by venue (2023+ IPL data)*
 
-| Venue | Matches | Runs | Balls | SR | Avg |
-|-------|---------|------|-------|-----|-----|
-| M Chinnaswamy Stadium | 61 | 9121 | 6746 | 135.21 | 27.39 |
-| M Chinnaswamy Stadium, Bengaluru | 19 | 3325 | 2178 | 152.66 | 29.17 |
-| M.Chinnaswamy Stadium | 15 | 2491 | 1691 | 147.31 | 29.31 |
-| Dubai International Cricket Stadium | 12 | 1707 | 1388 | 122.98 | 27.1 |
-| Eden Gardens | 10 | 1479 | 1089 | 135.81 | 29.58 |
-| Wankhede Stadium | 10 | 1599 | 1186 | 134.82 | 30.17 |
-| Wankhede Stadium, Mumbai | 9 | 1560 | 1046 | 149.14 | 37.14 |
-| MA Chidambaram Stadium, Chepauk | 8 | 1204 | 958 | 125.68 | 23.15 |
-| Rajiv Gandhi International Stadium, Uppa... | 8 | 1118 | 867 | 128.95 | 21.09 |
-| Sharjah Cricket Stadium | 8 | 1150 | 940 | 122.34 | 28.05 |
+### Home Venue: M Chinnaswamy Stadium
+
+- **Matches:** 19
+- **Win Rate:** 47.4% (9W - 10L)
+- **Avg Score (batting):** 185.2
+- **Highest/Lowest:** 262/95
+- **Pitch Type:** Pace-friendly
+- **Pace SR:** 17.6 | **Spin SR:** 22.8
+
+### Away Performance
+
+| Venue | Matches | Wins | Win% | Avg Score |
+|-------|---------|------|------|-----------|
+| Narendra Modi Stadium | 3 | 2 | 66.7% | 189.3 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 176.3 |
+| Wankhede Stadium | 3 | 1 | 33.3% | 205.3 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 181.7 |
+| Eden Gardens | 3 | 1 | 33.3% | 173.7 |
+| Arun Jaitley Stadium | 2 | 1 | 50.0% | 173.0 |
+| Rajiv Gandhi International Stadium | 2 | 2 | 100.0% | 196.5 |
+| MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
+| Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
+
+### Pitch Characteristics (All IPL Venues 2023+)
+
+*Based on bowling strike rates - lower SR = more effective*
+
+| Venue | Matches | Pace SR | Spin SR | Bias |
+|-------|---------|---------|---------|------|
+| Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
+| MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
+| Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
+| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
+| Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
+
+### Venue Specialists
+
+*Squad players with exceptional performance at specific venues (min 100 runs or 5 wickets)*
+
+**Top Batting Performances:**
+
+| Player | Venue | Inn | Runs | SR | Avg |
+|--------|-------|-----|------|-----|-----|
+| V Kohli | M Chinnaswamy Stadium | 19 | 856 | 158.23 | 53.5 |
+| V Kohli | M.Chinnaswamy Stadium | 14 | 472 | 151.28 | 36.31 |
+| PD Salt | Eden Gardens | 8 | 405 | 187.5 | 57.86 |
+| V Kohli | Wankhede Stadium | 10 | 399 | 143.01 | 66.5 |
+| V Kohli | Feroz Shah Kotla | 7 | 335 | 147.58 | 83.75 |
+| TH David | Wankhede Stadium | 14 | 320 | 186.05 | 40.0 |
+| V Kohli | Eden Gardens | 9 | 307 | 130.08 | 43.86 |
+| V Kohli | Rajiv Gandhi Internationa | 7 | 293 | 135.65 | 48.83 |
+
+**Top Bowling Performances:**
+
+| Player | Venue | Matches | Wkts | Econ | SR |
+|--------|-------|---------|------|------|-----|
+| B Kumar | Rajiv Gandhi Internationa | 24 | 28 | 7.41 | 19.32 |
+| KH Pandya | Wankhede Stadium | 22 | 18 | 6.85 | 22.0 |
+| B Kumar | Eden Gardens | 8 | 12 | 7.65 | 15.17 |
+| KH Pandya | Bharat Ratna Shri Atal Bi | 13 | 12 | 6.84 | 22.0 |
+| JR Hazlewood | Wankhede Stadium | 5 | 9 | 7.95 | 12.67 |
+| KH Pandya | Wankhede Stadium | 5 | 9 | 7.35 | 11.33 |
+| B Kumar | Subrata Roy Sahara Stadiu | 12 | 9 | 6.98 | 27.33 |
+| JR Hazlewood | M Chinnaswamy Stadium | 4 | 8 | 9.33 | 10.38 |
+
 
 ---
 
@@ -156,7 +189,6 @@
 | Romario Shepherd | All-rounder | 9 | 127 | 45 | 282.22 | 25.4 | 48.89 | 22.22 | 1 | 0 | LOW |
 | Jacob Bethell | All-rounder | 2 | 67 | 39 | 171.79 | 33.5 | 30.77 | 35.9 | 1 | 0 | LOW |
 | Swapnil Singh | All-rounder | 6 | 39 | 25 | 156.0 | 19.5 | 24.0 | 40.0 | 0 | 0 | LOW |
-| Raqibul Hasan | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Jordan Cox | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
 ### 4.2 Phase-wise Batting (Qualified players)
@@ -334,11 +366,11 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Punjab Kings | 19 | 330 | 417 | 12 | 7.58 | 34.75 | 27.5 | 30.61 | 13.33 | HIGH |
 | Sunrisers Hyderabad | 14 | 235 | 277 | 12 | 7.07 | 23.08 | 19.58 | 32.34 | 11.49 | HIGH |
+| Punjab Kings | 19 | 330 | 417 | 12 | 7.58 | 34.75 | 27.5 | 30.61 | 13.33 | HIGH |
+| Delhi Capitals | 19 | 290 | 370 | 11 | 7.66 | 33.64 | 26.36 | 28.28 | 13.45 | HIGH |
 | Kolkata Knight Riders | 16 | 283 | 329 | 11 | 6.98 | 29.91 | 25.73 | 35.69 | 13.43 | HIGH |
 | Royal Challengers Bengaluru | 17 | 366 | 415 | 11 | 6.8 | 37.73 | 33.27 | 30.33 | 9.84 | HIGH |
-| Delhi Capitals | 19 | 290 | 370 | 11 | 7.66 | 33.64 | 26.36 | 28.28 | 13.45 | HIGH |
 | Chennai Super Kings | 14 | 240 | 321 | 10 | 8.03 | 32.1 | 24.0 | 33.75 | 16.25 | HIGH |
 | Mumbai Indians | 6 | 132 | 174 | 8 | 7.91 | 21.75 | 16.5 | 34.09 | 17.42 | HIGH |
 | Rajasthan Royals | 12 | 222 | 285 | 7 | 7.7 | 40.71 | 31.71 | 25.23 | 13.06 | HIGH |
@@ -430,10 +462,10 @@
 
 *Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
 
+- **D Padikkal** vs off-spin: SR 107.41, Avg 17.4, BPD 16.2 (81 balls)
 - **JM Sharma** vs LA orthodox: SR 174.51, Avg 14.83, BPD 8.5 (51 balls)
-- **KH Pandya** vs off-spin: SR 77.86, Avg 9.08, BPD 11.67 (140 balls)
+- **KH Pandya** vs off-spin: SR 67.35, Avg 7.33, BPD 10.89 (98 balls)
 - **KH Pandya** vs LA orthodox: SR 106.36, Avg 29.25, BPD 27.5 (110 balls)
-- **VR Iyer** vs off-spin: SR 100.0, Avg 16.6, BPD 16.6 (83 balls)
 
 ---
 

@@ -1,6 +1,6 @@
 # Lucknow Super Giants (LSG) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-26 09:45
+**Generated:** 2026-02-05 20:13
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -28,7 +28,7 @@
 | Matthew Breetzke | Batter | Medium | Right-hand | 0.75 | Retained | 2025 |
 | Manimaran Siddharth | Bowler | Left-arm orthodox | Left-hand | 0.75 | Retained | 2024 |
 | Himmat Singh | All-rounder | Off-spin | Right-hand | 0.30 | Retained | 2025 |
-| Digvesh Rathi | Wicketkeeper | Medium | Right-hand | 0.30 | Retained | 2025 |
+| Digvesh Rathi | Bowler | Leg-spin | Right-hand | 0.30 | Retained | 2025 |
 | Akash Singh | Bowler | Fast | Left-hand | 0.30 | Retained | 2024 |
 | Arjun Tendulkar | Bowler | Fast | Left-hand | 0.30 | Traded | 2026 |
 | Arshin Kulkarni | All-rounder | Off-spin | Right-hand | 0.30 | Retained | 2025 |
@@ -36,23 +36,11 @@
 **Total Squad Size:** 20 players
 **Total Spend:** ₹116.95 Cr
 
-**Role Breakdown:** All-rounder: 5, Batter: 3, Bowler: 8, Wicketkeeper: 4
+**Role Breakdown:** All-rounder: 5, Batter: 3, Bowler: 9, Wicketkeeper: 3
 
 ### 1.2 Player Archetypes (K-means V2 Model)
 
 *Based on clustering analysis of IPL career performance*
-
-**Batter Archetypes:**
-
-- **ACCUMULATOR**: Ayush Badoni
-- **MIDDLE_ORDER**: Aiden Markram, Mitchell Marsh, Rishabh Pant
-- **FINISHER**: Abdul Samad, Nicholas Pooran
-
-**Bowler Archetypes:**
-
-- **WORKHORSE**: Wanindu Hasaranga, Anrich Nortje, Avesh Khan, Mohammed Shami, Mohsin Khan
-- **NEW_BALL_SPECIALIST**: Akash Singh
-- **DEATH_SPECIALIST**: Aiden Markram
 
 ### 1.3 Key Player Tags
 
@@ -60,19 +48,6 @@
 
 | Player | Tags |
 |--------|------|
-| Aiden Markram | SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, DEATH_SPECIALIST, SPECIALIST_VS_LEG_SPIN, SPECIALIST_VS_OFF_SPIN, MIDDLE_ORDER (+2 more) |
-| Mitchell Marsh | SPECIALIST_VS_LEG_SPIN, PP_DOMINATOR, MIDDLE_ORDER, SPECIALIST_VS_PACE, PACE_SPECIALIST (+3 more) |
-| Wanindu Hasaranga | WORKHORSE, RHB_PRESSURE, MIDDLE_OVERS_LIABILITY, RHB_SPECIALIST, LHB_VULNERABLE (+1 more) |
-| Abdul Samad | PACE_SPECIALIST, CONSISTENT, FINISHER, VULNERABLE_VS_LEFT_ARM_SPIN, VULNERABLE_VS_LEG_SPIN (+1 more) |
-| Ayush Badoni | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, ACCUMULATOR, VULNERABLE_VS_LEG_SPIN, SPECIALIST_VS_LEFT_ARM_SPIN, SPECIALIST_VS_PACE (+1 more) |
-| Akash Singh | NEW_BALL_SPECIALIST, RHB_WICKET_TAKER, LHB_PRESSURE, RHB_SPECIALIST, LHB_VULNERABLE |
-| Anrich Nortje | NEW_BALL_SPECIALIST, WORKHORSE, RHB_WICKET_TAKER, RHB_PRESSURE, RHB_SPECIALIST (+3 more) |
-| Avesh Khan | WORKHORSE, NEW_BALL_SPECIALIST, MIDDLE_AND_DEATH_SPECIALIST, PP_LIABILITY |
-| Mohammed Shami | DEATH_LIABILITY, PRESSURE_BUILDER, PROVEN_WICKET_TAKER, PP_ELITE, MIDDLE_OVERS_LIABILITY (+3 more) |
-| Mohsin Khan | NEW_BALL_SPECIALIST, WORKHORSE, LHB_WICKET_TAKER, LHB_PRESSURE, PRESSURE_BUILDER (+1 more) |
-| Digvesh Rathi | NEW_BALL_SPECIALIST, WORKHORSE, LHB_WICKET_TAKER, LHB_PRESSURE, MIDDLE_AND_DEATH_SPECIALIST |
-| Nicholas Pooran | SPECIALIST_VS_LEG_SPIN, SPIN_SPECIALIST, SPECIALIST_VS_SPIN, SPECIALIST_VS_OFF_SPIN, FINISHER (+3 more) |
-| Rishabh Pant | SPECIALIST_VS_LEG_SPIN, DEATH_SPECIALIST, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, SIX_HITTER, SPECIALIST_VS_SPIN (+4 more) |
 
 ---
 
@@ -119,21 +94,78 @@
 
 ---
 
-## 3. Venue Performance
+## Venue Analysis
 
-### 3.1 Team Batting by Venue (Top 10 by matches)
+*Performance breakdown by venue (2023+ IPL data)*
 
-| Venue | Matches | Runs | Balls | SR | Avg |
-|-------|---------|------|-------|-----|-----|
-| Bharat Ratna Shri Atal Bihari Vajpayee E... | 21 | 3311 | 2456 | 134.81 | 26.28 |
-| Wankhede Stadium, Mumbai | 6 | 1005 | 720 | 139.58 | 25.77 |
-| Eden Gardens, Kolkata | 4 | 713 | 480 | 148.54 | 29.71 |
-| Dr DY Patil Sports Academy, Mumbai | 4 | 663 | 478 | 138.7 | 34.89 |
-| MA Chidambaram Stadium, Chepauk, Chennai | 3 | 473 | 337 | 140.36 | 23.65 |
-| Sawai Mansingh Stadium, Jaipur | 3 | 478 | 360 | 132.78 | 28.12 |
-| Maharashtra Cricket Association Stadium,... | 3 | 392 | 323 | 121.36 | 18.67 |
-| Brabourne Stadium, Mumbai | 3 | 523 | 357 | 146.5 | 32.69 |
-| Rajiv Gandhi International Stadium, Uppa... | 3 | 519 | 333 | 155.86 | 43.25 |
+### Home Venue: Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium
+
+- **Matches:** 21
+- **Win Rate:** 42.9% (9W - 11L)
+- **Avg Score (batting):** 167.7
+- **Highest/Lowest:** 227/108
+- **Pitch Type:** Balanced
+- **Pace SR:** 18.2 | **Spin SR:** 23.2
+
+### Away Performance
+
+| Venue | Matches | Wins | Win% | Avg Score |
+|-------|---------|------|------|-----------|
+| MA Chidambaram Stadium | 3 | 1 | 33.3% | 173.0 |
+| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 181.0 |
+| Eden Gardens | 3 | 2 | 66.7% | 191.7 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 169.0 |
+| Wankhede Stadium | 2 | 1 | 50.0% | 187.5 |
+| M Chinnaswamy Stadium | 2 | 2 | 100.0% | 197.0 |
+| Narendra Modi Stadium | 2 | 1 | 50.0% | 203.0 |
+
+### Pitch Characteristics (All IPL Venues 2023+)
+
+*Based on bowling strike rates - lower SR = more effective*
+
+| Venue | Matches | Pace SR | Spin SR | Bias |
+|-------|---------|---------|---------|------|
+| Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
+| MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
+| Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
+| Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
+
+### Venue Specialists
+
+*Squad players with exceptional performance at specific venues (min 100 runs or 5 wickets)*
+
+**Top Batting Performances:**
+
+| Player | Venue | Inn | Runs | SR | Avg |
+|--------|-------|-----|------|-----|-----|
+| RR Pant | Arun Jaitley Stadium | 14 | 478 | 158.28 | 39.83 |
+| RR Pant | Feroz Shah Kotla | 10 | 290 | 165.71 | 29.0 |
+| N Pooran | Dubai International Crick | 9 | 280 | 162.79 | 35.0 |
+| MR Marsh | Bharat Ratna Shri Atal Bi | 7 | 267 | 157.99 | 38.14 |
+| AK Markram | Bharat Ratna Shri Atal Bi | 7 | 252 | 153.66 | 36.0 |
+| RR Pant | Arun Jaitley Stadium | 5 | 209 | 157.14 | 52.25 |
+| N Pooran | Eden Gardens | 3 | 190 | 193.88 | 95.0 |
+| MR Marsh | Dr DY Patil Sports Academ | 3 | 177 | 136.15 | 59.0 |
+
+**Top Bowling Performances:**
+
+| Player | Venue | Matches | Wkts | Econ | SR |
+|--------|-------|---------|------|------|-----|
+| Mohammed Shami | Narendra Modi Stadium | 14 | 20 | 7.99 | 15.5 |
+| A Nortje | Dubai International Crick | 12 | 17 | 7.89 | 15.88 |
+| Mohammed Shami | Dubai International Crick | 12 | 16 | 6.75 | 17.5 |
+| Mohammed Shami | Sharjah Cricket Stadium | 7 | 14 | 9.11 | 12.0 |
+| Mohammed Shami | Wankhede Stadium | 9 | 12 | 8.39 | 16.5 |
+| Avesh Khan | Wankhede Stadium | 7 | 11 | 8.13 | 15.09 |
+| Mohammed Shami | Punjab Cricket Associatio | 8 | 11 | 8.86 | 15.27 |
+| Avesh Khan | MA Chidambaram Stadium | 5 | 10 | 8.0 | 9.0 |
+
 
 ---
 
@@ -153,7 +185,6 @@
 | Wanindu Hasaranga | All-rounder | 10 | 42 | 43 | 97.67 | 6.0 | 6.98 | 37.21 | 0 | 0 | MEDIUM |
 | Matthew Breetzke | Batter | 1 | 14 | 12 | 116.67 | 14.0 | 16.67 | 58.33 | 0 | 0 | LOW |
 | Arshin Kulkarni | All-rounder | 2 | 9 | 8 | 112.5 | 4.5 | 25.0 | 62.5 | 0 | 0 | LOW |
-| Digvesh Rathi | Wicketkeeper | 1 | 1 | 3 | 33.33 | 1.0 | - | 66.67 | 0 | 0 | LOW |
 | Himmat Singh | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
 ### 4.2 Phase-wise Batting (Qualified players)
@@ -189,6 +220,7 @@
 | Mohammed Shami | Fast | 26 | 95.2 | 34 | 9.25 | 25.88 | 16.79 | 41.86 | 22.94 | MEDIUM |
 | Wanindu Hasaranga | Leg-spin | 19 | 70.0 | 20 | 9.07 | 31.75 | 21.0 | 27.62 | 17.86 | MEDIUM |
 | Anrich Nortje | Fast | 18 | 69.0 | 18 | 10.94 | 41.94 | 23.0 | 33.82 | 27.05 | MEDIUM |
+| Digvesh Rathi | Leg-spin | 13 | 52.0 | 14 | 8.37 | 31.07 | 22.29 | 30.45 | 16.35 | MEDIUM |
 | Mohsin Khan | Fast | 14 | 48.0 | 13 | 10.33 | 38.15 | 22.15 | 36.11 | 25.35 | MEDIUM |
 | Mitchell Marsh | Fast | 11 | 28.2 | 13 | 9.76 | 21.15 | 13.0 | 25.44 | 18.34 | MEDIUM |
 | Akash Singh | Fast | 9 | 30.2 | 9 | 9.51 | 31.89 | 20.11 | 36.46 | 25.41 | LOW |
@@ -324,8 +356,8 @@
 | Mumbai Indians | 7 | 156 | 220 | 13 | 8.46 | 16.92 | 12.0 | 40.38 | 20.51 | HIGH |
 | Rajasthan Royals | 7 | 150 | 210 | 12 | 8.4 | 17.5 | 12.5 | 35.33 | 17.33 | HIGH |
 | Chennai Super Kings | 10 | 207 | 318 | 9 | 9.22 | 35.33 | 23.0 | 36.23 | 24.15 | HIGH |
-| Gujarat Titans | 7 | 159 | 244 | 8 | 9.21 | 30.5 | 19.88 | 27.04 | 20.75 | HIGH |
 | Punjab Kings | 11 | 227 | 360 | 8 | 9.52 | 45.0 | 28.38 | 32.16 | 23.79 | HIGH |
+| Gujarat Titans | 7 | 159 | 244 | 8 | 9.21 | 30.5 | 19.88 | 27.04 | 20.75 | HIGH |
 | Royal Challengers Bengaluru | 8 | 186 | 298 | 6 | 9.61 | 49.67 | 31.0 | 31.72 | 24.19 | HIGH |
 | Delhi Capitals | 6 | 120 | 173 | 4 | 8.65 | 43.25 | 30.0 | 37.5 | 23.33 | HIGH |
 | Lucknow Super Giants | 2 | 42 | 54 | 1 | 7.71 | 54.0 | 42.0 | 23.81 | 9.52 | MEDIUM |
@@ -336,13 +368,13 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Rajasthan Royals | 15 | 341 | 489 | 20 | 8.6 | 24.45 | 17.05 | 42.23 | 21.99 | HIGH |
 | Sunrisers Hyderabad | 14 | 300 | 389 | 18 | 7.78 | 21.61 | 16.67 | 39.33 | 17.33 | HIGH |
-| Delhi Capitals | 10 | 228 | 283 | 17 | 7.45 | 16.65 | 13.41 | 48.68 | 19.3 | HIGH |
 | Kolkata Knight Riders | 15 | 348 | 443 | 17 | 7.64 | 26.06 | 20.47 | 41.38 | 16.67 | HIGH |
+| Delhi Capitals | 10 | 228 | 283 | 17 | 7.45 | 16.65 | 13.41 | 48.68 | 19.3 | HIGH |
 | Royal Challengers Bengaluru | 13 | 292 | 452 | 15 | 9.29 | 30.13 | 19.47 | 34.25 | 22.95 | HIGH |
-| Chennai Super Kings | 15 | 329 | 414 | 14 | 7.55 | 29.57 | 23.5 | 40.73 | 16.41 | HIGH |
 | Mumbai Indians | 15 | 330 | 482 | 14 | 8.76 | 34.43 | 23.57 | 38.79 | 21.52 | HIGH |
-| Lucknow Super Giants | 5 | 102 | 119 | 6 | 7.0 | 19.83 | 17.0 | 45.1 | 16.67 | HIGH |
+| Chennai Super Kings | 15 | 329 | 414 | 14 | 7.55 | 29.57 | 23.5 | 40.73 | 16.41 | HIGH |
 | Punjab Kings | 9 | 180 | 337 | 6 | 11.23 | 56.17 | 30.0 | 37.78 | 33.33 | HIGH |
+| Lucknow Super Giants | 5 | 102 | 119 | 6 | 7.0 | 19.83 | 17.0 | 45.1 | 16.67 | HIGH |
 | Gujarat Lions | 3 | 66 | 108 | 2 | 9.82 | 54.0 | 33.0 | 33.33 | 24.24 | MEDIUM |
 | Rising Pune Supergiant | 3 | 49 | 91 | 2 | 11.14 | 45.5 | 24.5 | 20.41 | 26.53 | MEDIUM |
 | Gujarat Titans | 2 | 42 | 74 | 2 | 10.57 | 37.0 | 21.0 | 28.57 | 30.95 | MEDIUM |
@@ -412,7 +444,6 @@
 
 *Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
 
-- **A Badoni** vs leg-spin: SR 108.75, Avg 17.4, BPD 16.0 (80 balls)
 - **RR Pant** vs LA wrist spin: SR 100.0, Avg 24.0, BPD 24.0 (72 balls)
 
 ---

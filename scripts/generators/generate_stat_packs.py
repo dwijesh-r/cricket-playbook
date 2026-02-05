@@ -20,7 +20,7 @@ from datetime import datetime
 
 # Paths
 SCRIPT_DIR = Path(__file__).parent
-PROJECT_DIR = SCRIPT_DIR.parent
+PROJECT_DIR = SCRIPT_DIR.parent.parent  # Go up two levels: generators -> scripts -> project root
 DB_PATH = PROJECT_DIR / "data" / "cricket_playbook.duckdb"
 OUTPUT_DIR = PROJECT_DIR / "stat_packs"
 PLAYER_TAGS_PATH = PROJECT_DIR / "outputs" / "player_tags.json"
@@ -117,11 +117,341 @@ TEAM_CODES = {
     "Lucknow Super Giants": "LSG",
 }
 
+# Home venue mappings for each IPL team
+# Note: Some teams have moved venues over the years, these are current (2023+) home grounds
+TEAM_HOME_VENUES = {
+    "Chennai Super Kings": ["MA Chidambaram Stadium, Chepauk, Chennai"],
+    "Mumbai Indians": ["Wankhede Stadium, Mumbai"],
+    "Royal Challengers Bengaluru": ["M Chinnaswamy Stadium, Bengaluru"],
+    "Kolkata Knight Riders": ["Eden Gardens, Kolkata"],
+    "Delhi Capitals": ["Arun Jaitley Stadium, Delhi"],
+    "Punjab Kings": [
+        "Maharaja Yadavindra Singh International Cricket Stadium, Mullanpur",
+        "Punjab Cricket Association IS Bindra Stadium, Mohali, Chandigarh",
+    ],
+    "Rajasthan Royals": ["Sawai Mansingh Stadium, Jaipur"],
+    "Sunrisers Hyderabad": ["Rajiv Gandhi International Stadium, Uppal, Hyderabad"],
+    "Gujarat Titans": ["Narendra Modi Stadium, Ahmedabad"],
+    "Lucknow Super Giants": [
+        "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow"
+    ],
+}
+
 
 def get_opposition_clause(team_name: str) -> str:
     """Generate SQL IN clause for opposition team names (handles aliases)."""
     aliases = FRANCHISE_ALIASES.get(team_name, [team_name])
     return ", ".join([f"'{a}'" for a in aliases])
+
+
+def generate_venue_analysis(conn, team_name: str, alias_clause: str) -> list:
+    """Generate comprehensive venue analysis section for a team.
+
+    Includes:
+    - Home venue performance (win rate, avg score, key stats)
+    - Away venue performance breakdown
+    - Venue-specific pitch characteristics (pace vs spin friendly)
+    - Venue specialists (players who perform best at specific venues)
+    """
+    md = []
+    md.append("## Venue Analysis\n")
+    md.append("*Performance breakdown by venue (2023+ IPL data)*\n")
+
+    home_venues = TEAM_HOME_VENUES.get(team_name, [])
+    home_venue_clause = ", ".join([f"'{v}'" for v in home_venues]) if home_venues else "''"
+
+    # ==========================================================================
+    # HOME VENUE PERFORMANCE
+    # ==========================================================================
+    if home_venues:
+        md.append(f"### Home Venue: {home_venues[0].split(',')[0]}\n")
+
+        # Get home venue win rate and match stats
+        home_stats = conn.execute(f"""
+            WITH ipl_matches AS (
+                SELECT dm.match_id, dv.venue_name, dt1.team_name as team1, dt2.team_name as team2,
+                       dtw.team_name as winner
+                FROM dim_match dm
+                JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
+                JOIN dim_venue dv ON dm.venue_id = dv.venue_id
+                JOIN dim_team dt1 ON dm.team1_id = dt1.team_id
+                JOIN dim_team dt2 ON dm.team2_id = dt2.team_id
+                LEFT JOIN dim_team dtw ON dm.winner_id = dtw.team_id
+                WHERE dtr.tournament_name = 'Indian Premier League'
+                  AND dm.match_date >= '2023-01-01'
+                  AND dv.venue_name IN ({home_venue_clause})
+            )
+            SELECT
+                COUNT(*) as matches,
+                SUM(CASE WHEN winner IN ({alias_clause}) THEN 1 ELSE 0 END) as wins,
+                SUM(CASE WHEN winner IS NOT NULL AND winner NOT IN ({alias_clause}) THEN 1 ELSE 0 END) as losses
+            FROM ipl_matches
+            WHERE team1 IN ({alias_clause}) OR team2 IN ({alias_clause})
+        """).fetchone()
+
+        if home_stats and home_stats[0] > 0:
+            matches, wins, losses = home_stats
+            win_pct = (wins / matches * 100) if matches > 0 else 0
+            md.append(f"- **Matches:** {matches}")
+            md.append(f"- **Win Rate:** {win_pct:.1f}% ({wins}W - {losses}L)")
+
+        # Get average score at home venue
+        home_avg_score = conn.execute(f"""
+            WITH ipl_innings AS (
+                SELECT fb.match_id, fb.innings, dv.venue_name, dt.team_name,
+                       SUM(fb.total_runs) as innings_runs
+                FROM fact_ball fb
+                JOIN dim_match dm ON fb.match_id = dm.match_id
+                JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
+                JOIN dim_venue dv ON dm.venue_id = dv.venue_id
+                JOIN dim_team dt ON fb.batting_team_id = dt.team_id
+                WHERE dtr.tournament_name = 'Indian Premier League'
+                  AND dm.match_date >= '2023-01-01'
+                  AND dv.venue_name IN ({home_venue_clause})
+                GROUP BY fb.match_id, fb.innings, dv.venue_name, dt.team_name
+            )
+            SELECT
+                COUNT(*) as innings,
+                ROUND(AVG(innings_runs), 1) as avg_score,
+                MAX(innings_runs) as highest,
+                MIN(innings_runs) as lowest
+            FROM ipl_innings
+            WHERE team_name IN ({alias_clause})
+        """).fetchone()
+
+        if home_avg_score and home_avg_score[0] > 0:
+            innings, avg_score, highest, lowest = home_avg_score
+            md.append(f"- **Avg Score (batting):** {avg_score}")
+            md.append(f"- **Highest/Lowest:** {highest}/{lowest}")
+
+        # Get pitch characteristics at home venue
+        home_pitch = conn.execute(f"""
+            WITH ipl_balls AS (
+                SELECT fb.*, dv.venue_name,
+                       COALESCE(bc.bowling_style, 'Unknown') as bowling_style
+                FROM fact_ball fb
+                JOIN dim_match dm ON fb.match_id = dm.match_id
+                JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+                JOIN dim_venue dv ON dm.venue_id = dv.venue_id
+                LEFT JOIN dim_bowler_classification bc ON fb.bowler_id = bc.player_id
+                WHERE dt.tournament_name = 'Indian Premier League'
+                  AND dm.match_date >= '2023-01-01'
+                  AND dv.venue_name IN ({home_venue_clause})
+            )
+            SELECT
+                SUM(CASE WHEN is_wicket AND bowling_style IN ('Right-arm pace', 'Left-arm pace') THEN 1 ELSE 0 END) as pace_wickets,
+                SUM(CASE WHEN is_wicket AND bowling_style IN ('Right-arm off-spin', 'Right-arm leg-spin', 'Left-arm orthodox', 'Left-arm wrist spin') THEN 1 ELSE 0 END) as spin_wickets,
+                SUM(CASE WHEN bowling_style IN ('Right-arm pace', 'Left-arm pace') THEN 1 ELSE 0 END) as pace_balls,
+                SUM(CASE WHEN bowling_style IN ('Right-arm off-spin', 'Right-arm leg-spin', 'Left-arm orthodox', 'Left-arm wrist spin') THEN 1 ELSE 0 END) as spin_balls
+            FROM ipl_balls
+        """).fetchone()
+
+        if home_pitch and home_pitch[2] and home_pitch[3]:
+            pace_wkts, spin_wkts, pace_balls, spin_balls = home_pitch
+            pace_sr = round(pace_balls / pace_wkts, 1) if pace_wkts > 0 else 0
+            spin_sr = round(spin_balls / spin_wkts, 1) if spin_wkts > 0 else 0
+
+            # Determine pitch bias
+            if pace_sr > 0 and spin_sr > 0:
+                if pace_sr < spin_sr - 5:
+                    pitch_type = "Pace-friendly"
+                elif spin_sr < pace_sr - 5:
+                    pitch_type = "Spin-friendly"
+                else:
+                    pitch_type = "Balanced"
+            else:
+                pitch_type = "Unknown"
+
+            md.append(f"- **Pitch Type:** {pitch_type}")
+            md.append(f"- **Pace SR:** {pace_sr} | **Spin SR:** {spin_sr}")
+
+        md.append("")
+
+    # ==========================================================================
+    # AWAY PERFORMANCE BREAKDOWN
+    # ==========================================================================
+    md.append("### Away Performance\n")
+
+    away_stats = conn.execute(f"""
+        WITH ipl_matches AS (
+            SELECT dm.match_id, dv.venue_name, dt1.team_name as team1, dt2.team_name as team2,
+                   dtw.team_name as winner
+            FROM dim_match dm
+            JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
+            JOIN dim_venue dv ON dm.venue_id = dv.venue_id
+            JOIN dim_team dt1 ON dm.team1_id = dt1.team_id
+            JOIN dim_team dt2 ON dm.team2_id = dt2.team_id
+            LEFT JOIN dim_team dtw ON dm.winner_id = dtw.team_id
+            WHERE dtr.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '2023-01-01'
+              AND dv.venue_name NOT IN ({home_venue_clause})
+        ),
+        venue_stats AS (
+            SELECT
+                venue_name,
+                COUNT(*) as matches,
+                SUM(CASE WHEN winner IN ({alias_clause}) THEN 1 ELSE 0 END) as wins
+            FROM ipl_matches
+            WHERE team1 IN ({alias_clause}) OR team2 IN ({alias_clause})
+            GROUP BY venue_name
+            HAVING COUNT(*) >= 2
+        ),
+        venue_scores AS (
+            SELECT dv.venue_name,
+                   ROUND(AVG(innings_runs), 1) as avg_score
+            FROM (
+                SELECT fb.match_id, fb.innings, dm.venue_id,
+                       SUM(fb.total_runs) as innings_runs
+                FROM fact_ball fb
+                JOIN dim_match dm ON fb.match_id = dm.match_id
+                JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
+                JOIN dim_team dt ON fb.batting_team_id = dt.team_id
+                WHERE dtr.tournament_name = 'Indian Premier League'
+                  AND dm.match_date >= '2023-01-01'
+                  AND dt.team_name IN ({alias_clause})
+                GROUP BY fb.match_id, fb.innings, dm.venue_id
+            ) innings
+            JOIN dim_venue dv ON innings.venue_id = dv.venue_id
+            GROUP BY dv.venue_name
+        )
+        SELECT vs.venue_name, vs.matches, vs.wins,
+               ROUND(vs.wins * 100.0 / vs.matches, 1) as win_pct,
+               COALESCE(vsc.avg_score, 0) as avg_score
+        FROM venue_stats vs
+        LEFT JOIN venue_scores vsc ON vs.venue_name = vsc.venue_name
+        ORDER BY vs.matches DESC
+        LIMIT 10
+    """).fetchall()
+
+    if away_stats:
+        md.append("| Venue | Matches | Wins | Win% | Avg Score |")
+        md.append("|-------|---------|------|------|-----------|")
+        for row in away_stats:
+            venue, matches, wins, win_pct, avg_score = row
+            venue_short = venue.split(",")[0][:35]
+            md.append(f"| {venue_short} | {matches} | {wins} | {win_pct}% | {avg_score or '-'} |")
+    else:
+        md.append("*Insufficient away match data (2023+)*")
+
+    md.append("")
+
+    # ==========================================================================
+    # PITCH BIAS INDICATORS
+    # ==========================================================================
+    md.append("### Pitch Characteristics (All IPL Venues 2023+)\n")
+    md.append("*Based on bowling strike rates - lower SR = more effective*\n")
+
+    pitch_bias = conn.execute("""
+        WITH ipl_balls AS (
+            SELECT fb.*, dv.venue_name,
+                   COALESCE(bc.bowling_style, 'Unknown') as bowling_style
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            JOIN dim_venue dv ON dm.venue_id = dv.venue_id
+            LEFT JOIN dim_bowler_classification bc ON fb.bowler_id = bc.player_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '2023-01-01'
+        ),
+        venue_pitch AS (
+            SELECT
+                venue_name,
+                COUNT(DISTINCT match_id) as matches,
+                SUM(CASE WHEN is_wicket AND bowling_style IN ('Right-arm pace', 'Left-arm pace') THEN 1 ELSE 0 END) as pace_wickets,
+                SUM(CASE WHEN is_wicket AND bowling_style IN ('Right-arm off-spin', 'Right-arm leg-spin', 'Left-arm orthodox', 'Left-arm wrist spin') THEN 1 ELSE 0 END) as spin_wickets,
+                SUM(CASE WHEN bowling_style IN ('Right-arm pace', 'Left-arm pace') THEN 1 ELSE 0 END) as pace_balls,
+                SUM(CASE WHEN bowling_style IN ('Right-arm off-spin', 'Right-arm leg-spin', 'Left-arm orthodox', 'Left-arm wrist spin') THEN 1 ELSE 0 END) as spin_balls
+            FROM ipl_balls
+            GROUP BY venue_name
+            HAVING COUNT(DISTINCT match_id) >= 5
+        )
+        SELECT
+            venue_name,
+            matches,
+            ROUND(pace_balls * 1.0 / NULLIF(pace_wickets, 0), 1) as pace_sr,
+            ROUND(spin_balls * 1.0 / NULLIF(spin_wickets, 0), 1) as spin_sr,
+            CASE
+                WHEN pace_balls * 1.0 / NULLIF(pace_wickets, 0) < spin_balls * 1.0 / NULLIF(spin_wickets, 0) - 5 THEN 'PACE'
+                WHEN spin_balls * 1.0 / NULLIF(spin_wickets, 0) < pace_balls * 1.0 / NULLIF(pace_wickets, 0) - 5 THEN 'SPIN'
+                ELSE 'BALANCED'
+            END as pitch_bias
+        FROM venue_pitch
+        ORDER BY matches DESC
+        LIMIT 10
+    """).fetchall()
+
+    if pitch_bias:
+        md.append("| Venue | Matches | Pace SR | Spin SR | Bias |")
+        md.append("|-------|---------|---------|---------|------|")
+        for row in pitch_bias:
+            venue, matches, pace_sr, spin_sr, bias = row
+            venue_short = venue.split(",")[0][:30]
+            md.append(
+                f"| {venue_short} | {matches} | {pace_sr or '-'} | {spin_sr or '-'} | {bias} |"
+            )
+
+    md.append("")
+
+    # ==========================================================================
+    # VENUE SPECIALISTS
+    # ==========================================================================
+    md.append("### Venue Specialists\n")
+    md.append(
+        "*Squad players with exceptional performance at specific venues (min 100 runs or 5 wickets)*\n"
+    )
+
+    # Batting specialists
+    batter_specialists = conn.execute(f"""
+        SELECT bv.batter_name, bv.venue, bv.innings, bv.runs, bv.strike_rate, bv.average
+        FROM analytics_ipl_batter_venue bv
+        JOIN ipl_2026_squads sq ON bv.batter_id = sq.player_id
+        WHERE sq.team_name = '{team_name}'
+          AND bv.runs >= 100
+          AND bv.sample_size IN ('MEDIUM', 'HIGH')
+          AND (bv.strike_rate >= 150 OR bv.average >= 40)
+        ORDER BY bv.runs DESC
+        LIMIT 8
+    """).fetchall()
+
+    if batter_specialists:
+        md.append("**Top Batting Performances:**\n")
+        md.append("| Player | Venue | Inn | Runs | SR | Avg |")
+        md.append("|--------|-------|-----|------|-----|-----|")
+        for row in batter_specialists:
+            name, venue, inn, runs, sr, avg = row
+            venue_short = venue.split(",")[0][:25]
+            md.append(f"| {name} | {venue_short} | {inn} | {runs} | {sr or '-'} | {avg or '-'} |")
+        md.append("")
+
+    # Bowling specialists
+    bowler_specialists = conn.execute(f"""
+        SELECT bv.bowler_name, bv.venue, bv.matches, bv.wickets, bv.economy, bv.strike_rate
+        FROM analytics_ipl_bowler_venue bv
+        JOIN ipl_2026_squads sq ON bv.bowler_id = sq.player_id
+        WHERE sq.team_name = '{team_name}'
+          AND bv.wickets >= 5
+          AND bv.sample_size IN ('MEDIUM', 'HIGH')
+          AND (bv.economy <= 8.5 OR bv.strike_rate <= 18)
+        ORDER BY bv.wickets DESC
+        LIMIT 8
+    """).fetchall()
+
+    if bowler_specialists:
+        md.append("**Top Bowling Performances:**\n")
+        md.append("| Player | Venue | Matches | Wkts | Econ | SR |")
+        md.append("|--------|-------|---------|------|------|-----|")
+        for row in bowler_specialists:
+            name, venue, matches, wkts, econ, sr = row
+            venue_short = venue.split(",")[0][:25]
+            md.append(
+                f"| {name} | {venue_short} | {matches} | {wkts} | {econ or '-'} | {sr or '-'} |"
+            )
+        md.append("")
+
+    if not batter_specialists and not bowler_specialists:
+        md.append("*No venue specialists identified in current squad*\n")
+
+    return md
 
 
 def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
@@ -311,51 +641,11 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
             md.append(f"**Win %:** {win_pct:.1f}%\n")
 
     # ==========================================================================
-    # SECTION 3: VENUE PERFORMANCE
+    # SECTION 3: VENUE ANALYSIS (NEW COMPREHENSIVE SECTION)
     # ==========================================================================
     md.append("\n---\n")
-    md.append("## 3. Venue Performance\n")
-
-    # Team batting at venues
-    md.append("### 3.1 Team Batting by Venue (Top 10 by matches)\n")
-
-    venue_batting = conn.execute(f"""
-        WITH ipl_matches AS (
-            SELECT dm.match_id, dv.venue_name as venue
-            FROM dim_match dm
-            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
-            JOIN dim_venue dv ON dm.venue_id = dv.venue_id
-            WHERE dt.tournament_name = 'Indian Premier League'
-        ),
-        team_balls AS (
-            SELECT
-                im.venue,
-                COUNT(DISTINCT fb.match_id) as matches,
-                COUNT(*) as balls,
-                SUM(fb.batter_runs) as runs,
-                SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) as wickets
-            FROM fact_ball fb
-            JOIN dim_team dt ON fb.batting_team_id = dt.team_id
-            JOIN ipl_matches im ON fb.match_id = im.match_id
-            WHERE dt.team_name IN ({alias_clause})
-              AND fb.is_legal_ball = TRUE
-            GROUP BY im.venue
-        )
-        SELECT venue, matches, runs, balls, wickets,
-               ROUND(runs * 100.0 / NULLIF(balls, 0), 2) as sr,
-               ROUND(runs * 1.0 / NULLIF(wickets, 0), 2) as avg
-        FROM team_balls
-        WHERE matches >= 3
-        ORDER BY matches DESC
-        LIMIT 10
-    """).fetchall()
-
-    md.append("| Venue | Matches | Runs | Balls | SR | Avg |")
-    md.append("|-------|---------|------|-------|-----|-----|")
-    for row in venue_batting:
-        venue, matches, runs, balls, wkts, sr, avg = row
-        venue_short = venue[:40] + "..." if len(venue) > 40 else venue
-        md.append(f"| {venue_short} | {matches} | {runs} | {balls} | {sr or '-'} | {avg or '-'} |")
+    venue_analysis = generate_venue_analysis(conn, team_name, alias_clause)
+    md.extend(venue_analysis)
 
     # ==========================================================================
     # SECTION 4: SQUAD BATTING ANALYSIS

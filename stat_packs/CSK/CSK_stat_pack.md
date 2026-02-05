@@ -1,6 +1,6 @@
 # Chennai Super Kings (CSK) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-26 09:45
+**Generated:** 2026-02-05 20:13
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -47,36 +47,12 @@
 
 *Based on clustering analysis of IPL career performance*
 
-**Batter Archetypes:**
-
-- **PLAYMAKER**: Ruturaj Gaikwad
-- **ACCUMULATOR**: Shivam Dube, Sarfaraz Khan
-- **MIDDLE_ORDER**: Sanju Samson
-- **FINISHER**: MS Dhoni
-
-**Bowler Archetypes:**
-
-- **WORKHORSE**: Khaleel Ahmed, Nathan Ellis
-
 ### 1.3 Key Player Tags
 
 *Performance tags based on phase analysis, matchups, and specializations*
 
 | Player | Tags |
 |--------|------|
-| Shivam Dube | SPECIALIST_VS_LEG_SPIN, VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, SPECIALIST_VS_SPIN, SPECIALIST_VS_OFF_SPIN, ACCUMULATOR (+2 more) |
-| Ruturaj Gaikwad | SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, SPECIALIST_VS_LEG_SPIN, PLAYMAKER, MIDDLE_OVERS_ACCELERATOR, SPECIALIST_VS_SPIN (+2 more) |
-| Sarfaraz Khan | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, ACCUMULATOR, VULNERABLE_VS_OFF_SPIN, SPECIALIST_VS_PACE, PACE_SPECIALIST |
-| Gurjapneet Singh | ACCUMULATOR, VULNERABLE_VS_LEFT_ARM_SPIN |
-| Khaleel Ahmed | DEATH_LIABILITY, PRESSURE_BUILDER, LHB_VULNERABLE, RHB_SPECIALIST, WORKHORSE (+2 more) |
-| Mukesh Choudhary | RHB_SPECIALIST, RHB_PRESSURE, PRESSURE_BUILDER, LHB_VULNERABLE |
-| Nathan Ellis | NEW_BALL_SPECIALIST, WORKHORSE, RHB_VULNERABLE, LHB_PRESSURE, DEATH_SPECIALIST (+1 more) |
-| Noor Ahmad | LHB_PRESSURE, MIDDLE_AND_DEATH_SPECIALIST |
-| Rahul Chahar | RHB_VULNERABLE, LHB_SPECIALIST, LHB_WICKET_TAKER, MIDDLE_AND_DEATH_SPECIALIST |
-| Shreyas Gopal | LHB_SPECIALIST, LHB_PRESSURE, RHB_VULNERABLE |
-| Kartik Sharma | MIDDLE_OVERS_CONTROLLER, RHB_PRESSURE, MIDDLE_OVERS_LIABILITY, RHB_SPECIALIST, LHB_VULNERABLE |
-| MS Dhoni | VULNERABLE_VS_SPIN, CONSISTENT, VULNERABLE_VS_LEG_SPIN, FINISHER, VULNERABLE_VS_OFF_SPIN (+4 more) |
-| Sanju Samson | SPECIALIST_VS_LEG_SPIN, DEATH_SPECIALIST, SIX_HITTER, SPECIALIST_VS_SPIN, MIDDLE_ORDER (+2 more) |
 
 ---
 
@@ -123,22 +99,77 @@
 
 ---
 
-## 3. Venue Performance
+## Venue Analysis
 
-### 3.1 Team Batting by Venue (Top 10 by matches)
+*Performance breakdown by venue (2023+ IPL data)*
 
-| Venue | Matches | Runs | Balls | SR | Avg |
-|-------|---------|------|-------|-----|-----|
-| MA Chidambaram Stadium, Chepauk | 47 | 7287 | 5536 | 131.63 | 31.55 |
-| MA Chidambaram Stadium, Chepauk, Chennai | 21 | 3310 | 2457 | 134.72 | 26.69 |
-| Wankhede Stadium | 14 | 2054 | 1575 | 130.41 | 23.61 |
-| Dubai International Cricket Stadium | 14 | 2054 | 1650 | 124.48 | 32.09 |
-| Wankhede Stadium, Mumbai | 12 | 1828 | 1379 | 132.56 | 30.47 |
-| Eden Gardens | 11 | 1488 | 1241 | 119.9 | 26.11 |
-| MA Chidambaram Stadium | 9 | 1240 | 1034 | 119.92 | 30.24 |
-| M Chinnaswamy Stadium | 7 | 1004 | 754 | 133.16 | 25.74 |
-| Sheikh Zayed Stadium | 6 | 932 | 709 | 131.45 | 35.85 |
-| Maharashtra Cricket Association Stadium | 6 | 1013 | 697 | 145.34 | 44.04 |
+### Home Venue: MA Chidambaram Stadium
+
+- **Matches:** 21
+- **Win Rate:** 52.4% (11W - 10L)
+- **Avg Score (batting):** 167.2
+- **Highest/Lowest:** 217/103
+- **Pitch Type:** Balanced
+- **Pace SR:** 17.6 | **Spin SR:** 20.2
+
+### Away Performance
+
+| Venue | Matches | Wins | Win% | Avg Score |
+|-------|---------|------|------|-----------|
+| Narendra Modi Stadium | 4 | 2 | 50.0% | 193.8 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 172.0 |
+| Wankhede Stadium | 3 | 2 | 66.7% | 180.3 |
+| M Chinnaswamy Stadium | 3 | 1 | 33.3% | 209.3 |
+| Eden Gardens | 2 | 2 | 100.0% | 209.0 |
+| Arun Jaitley Stadium | 2 | 1 | 50.0% | 205.0 |
+
+### Pitch Characteristics (All IPL Venues 2023+)
+
+*Based on bowling strike rates - lower SR = more effective*
+
+| Venue | Matches | Pace SR | Spin SR | Bias |
+|-------|---------|---------|---------|------|
+| Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
+| MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
+| Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
+| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
+| Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
+
+### Venue Specialists
+
+*Squad players with exceptional performance at specific venues (min 100 runs or 5 wickets)*
+
+**Top Batting Performances:**
+
+| Player | Venue | Inn | Runs | SR | Avg |
+|--------|-------|-----|------|-----|-----|
+| RD Gaikwad | MA Chidambaram Stadium | 18 | 760 | 141.79 | 54.29 |
+| S Dube | MA Chidambaram Stadium | 20 | 494 | 155.35 | 32.93 |
+| SV Samson | Sawai Mansingh Stadium | 12 | 425 | 146.05 | 60.71 |
+| MS Dhoni | Maharashtra Cricket Assoc | 16 | 421 | 139.4 | 60.14 |
+| RD Gaikwad | Dubai International Crick | 8 | 357 | 129.35 | 71.4 |
+| MS Dhoni | M Chinnaswamy Stadium | 8 | 309 | 177.59 | 61.8 |
+| MS Dhoni | Eden Gardens | 11 | 278 | 134.95 | 55.6 |
+| SV Samson | Arun Jaitley Stadium | 5 | 248 | 161.04 | 49.6 |
+
+**Top Bowling Performances:**
+
+| Player | Venue | Matches | Wkts | Econ | SR |
+|--------|-------|---------|------|------|-----|
+| S Gopal | Sawai Mansingh Stadium | 10 | 15 | 7.24 | 13.6 |
+| KK Ahmed | MA Chidambaram Stadium | 10 | 14 | 7.65 | 16.14 |
+| Noor Ahmad | Narendra Modi Stadium | 13 | 13 | 8.23 | 20.31 |
+| Noor Ahmad | MA Chidambaram Stadium | 7 | 13 | 7.96 | 11.54 |
+| RD Chahar | MA Chidambaram Stadium | 7 | 12 | 6.86 | 14.0 |
+| KK Ahmed | Rajiv Gandhi Internationa | 4 | 10 | 7.56 | 9.6 |
+| KV Sharma | Rajiv Gandhi Internationa | 17 | 10 | 8.3 | 28.7 |
+| KK Ahmed | Brabourne Stadium | 4 | 10 | 6.38 | 9.6 |
+
 
 ---
 
@@ -289,13 +320,13 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Mumbai Indians | 5 | 114 | 162 | 7 | 8.53 | 23.14 | 16.29 | 34.21 | 16.67 | HIGH |
-| Kolkata Knight Riders | 3 | 60 | 59 | 7 | 5.9 | 8.43 | 8.57 | 45.0 | 11.67 | MEDIUM |
 | Royal Challengers Bengaluru | 5 | 120 | 170 | 7 | 8.5 | 24.29 | 17.14 | 34.17 | 19.17 | HIGH |
+| Kolkata Knight Riders | 3 | 60 | 59 | 7 | 5.9 | 8.43 | 8.57 | 45.0 | 11.67 | MEDIUM |
 | Rajasthan Royals | 5 | 98 | 154 | 6 | 9.43 | 25.67 | 16.33 | 29.59 | 19.39 | MEDIUM |
 | Punjab Kings | 4 | 90 | 122 | 6 | 8.13 | 20.33 | 15.0 | 30.0 | 14.44 | MEDIUM |
+| Sunrisers Hyderabad | 3 | 65 | 103 | 3 | 9.51 | 34.33 | 21.67 | 29.23 | 20.0 | MEDIUM |
 | Lucknow Super Giants | 4 | 96 | 78 | 3 | 4.88 | 26.0 | 32.0 | 44.79 | 6.25 | MEDIUM |
 | Chennai Super Kings | 3 | 54 | 68 | 3 | 7.56 | 22.67 | 18.0 | 27.78 | 11.11 | MEDIUM |
-| Sunrisers Hyderabad | 3 | 65 | 103 | 3 | 9.51 | 34.33 | 21.67 | 29.23 | 20.0 | MEDIUM |
 | Delhi Capitals | 4 | 71 | 104 | 2 | 8.79 | 52.0 | 35.5 | 30.99 | 19.72 | MEDIUM |
 
 ### Khaleel Ahmed
@@ -322,7 +353,6 @@
 | Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|--------|
 | D Brevis | Narendra Modi Stadium, Ahmedabad | 2 | 103 | 61 | 168.85 | 51.5 | 22.95 | MEDIUM |
-| Gurkeerat Singh | Punjab Cricket Association Stadium,... | 7 | 120 | 100 | 120.0 | 20.0 | 16.0 | HIGH |
 | MS Dhoni | MA Chidambaram Stadium, Chepauk | 43 | 1142 | 799 | 142.93 | 39.38 | 15.89 | HIGH |
 | MS Dhoni | Maharashtra Cricket Association Sta... | 16 | 421 | 302 | 139.4 | 60.14 | 16.23 | HIGH |
 | MS Dhoni | M Chinnaswamy Stadium | 8 | 309 | 174 | 177.59 | 61.8 | 27.01 | HIGH |
@@ -390,9 +420,7 @@
 
 *Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
 
-- **MS Dhoni** vs off-spin: SR 105.74, Avg 38.55, BPD 36.45 (401 balls)
 - **MS Dhoni** vs LA orthodox: SR 109.52, Avg 42.71, BPD 39.0 (546 balls)
-- **MS Dhoni** vs leg-spin: SR 109.84, Avg 33.5, BPD 30.5 (549 balls)
 
 ---
 

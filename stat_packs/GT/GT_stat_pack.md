@@ -1,6 +1,6 @@
 # Gujarat Titans (GT) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-26 09:45
+**Generated:** 2026-02-05 20:13
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -42,37 +42,12 @@
 
 *Based on clustering analysis of IPL career performance*
 
-**Batter Archetypes:**
-
-- **EXPLOSIVE_OPENER**: Sai Sudharsan, Jos Buttler
-- **PLAYMAKER**: Shubman Gill
-- **ACCUMULATOR**: Rahul Tewatia, Washington Sundar, Shahrukh Khan
-
-**Bowler Archetypes:**
-
-- **WORKHORSE**: Washington Sundar, Ishant Sharma, Kagiso Rabada, Mohammed Siraj, Prasidh Krishna, Rashid Khan
-- **NEW_BALL_SPECIALIST**: Arshad Khan
-
 ### 1.3 Key Player Tags
 
 *Performance tags based on phase analysis, matchups, and specializations*
 
 | Player | Tags |
 |--------|------|
-| Arshad Khan | DEATH_SPECIALIST, NEW_BALL_SPECIALIST, PP_LIABILITY |
-| Jayant Yadav | MID_OVERS_ELITE, PRESSURE_BUILDER, PP_ELITE |
-| Rahul Tewatia | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, VULNERABLE_VS_SPIN, ACCUMULATOR, VULNERABLE_VS_LEFT_ARM_SPIN, VULNERABLE_VS_OFF_SPIN (+2 more) |
-| Washington Sundar | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, VULNERABLE_VS_SPIN, ACCUMULATOR, VULNERABLE_VS_LEG_SPIN, VULNERABLE_VS_LEFT_ARM_SPIN (+8 more) |
-| Sai Sudharsan | SPECIALIST_VS_LEG_SPIN, DEATH_SPECIALIST, SPIN_SPECIALIST, EXPLOSIVE_OPENER, SIX_HITTER (+5 more) |
-| Shahrukh Khan | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, VULNERABLE_VS_LEG_SPIN, ACCUMULATOR, SPECIALIST_VS_OFF_SPIN, PACE_SPECIALIST |
-| Shubman Gill | SPECIALIST_VS_LEG_SPIN, SPECIALIST_VS_SPIN, SPECIALIST_VS_OFF_SPIN, PLAYMAKER, MIDDLE_OVERS_ACCELERATOR (+2 more) |
-| Ishant Sharma | NEW_BALL_SPECIALIST, WORKHORSE, LHB_PRESSURE, MIDDLE_OVERS_LIABILITY, PRESSURE_BUILDER (+3 more) |
-| Kagiso Rabada | NEW_BALL_SPECIALIST, WORKHORSE, PROVEN_WICKET_TAKER, PP_LIABILITY, PRESSURE_BUILDER (+3 more) |
-| Mohammed Siraj | PRESSURE_BUILDER, PROVEN_WICKET_TAKER, MIDDLE_AND_DEATH_SPECIALIST, WORKHORSE, NEW_BALL_SPECIALIST |
-| Prasidh Krishna | NEW_BALL_SPECIALIST, WORKHORSE, LHB_WICKET_TAKER, RHB_VULNERABLE, LHB_PRESSURE (+4 more) |
-| Rashid Khan | SPECIALIST_VS_SPIN, ACCUMULATOR, VULNERABLE_VS_PACE, NEW_BALL_SPECIALIST, PROVEN_WICKET_TAKER (+8 more) |
-| Sai Kishore | RHB_WICKET_TAKER, RHB_PRESSURE, RHB_SPECIALIST, LHB_VULNERABLE, MIDDLE_AND_DEATH_SPECIALIST |
-| Jos Buttler | SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, DEATH_SPECIALIST, EXPLOSIVE_OPENER, SIX_HITTER, SPECIALIST_VS_OFF_SPIN (+4 more) |
 
 ---
 
@@ -119,22 +94,78 @@
 
 ---
 
-## 3. Venue Performance
+## Venue Analysis
 
-### 3.1 Team Batting by Venue (Top 10 by matches)
+*Performance breakdown by venue (2023+ IPL data)*
 
-| Venue | Matches | Runs | Balls | SR | Avg |
-|-------|---------|------|-------|-----|-----|
-| Narendra Modi Stadium, Ahmedabad | 23 | 4131 | 2712 | 152.32 | 35.31 |
-| Wankhede Stadium, Mumbai | 6 | 954 | 707 | 134.94 | 29.81 |
-| Dr DY Patil Sports Academy, Mumbai | 4 | 599 | 480 | 124.79 | 22.19 |
-| Bharat Ratna Shri Atal Bihari Vajpayee E... | 3 | 417 | 354 | 117.8 | 18.95 |
-| Arun Jaitley Stadium, Delhi | 3 | 563 | 343 | 164.14 | 46.92 |
-| M Chinnaswamy Stadium, Bengaluru | 3 | 485 | 339 | 143.07 | 32.33 |
-| Maharashtra Cricket Association Stadium,... | 3 | 460 | 359 | 128.13 | 27.06 |
-| Eden Gardens, Kolkata | 3 | 539 | 344 | 156.69 | 59.89 |
-| Sawai Mansingh Stadium, Jaipur | 3 | 500 | 323 | 154.8 | 45.45 |
-| Brabourne Stadium, Mumbai | 3 | 515 | 357 | 144.26 | 46.82 |
+### Home Venue: Narendra Modi Stadium
+
+- **Matches:** 22
+- **Win Rate:** 54.5% (12W - 10L)
+- **Avg Score (batting):** 192.5
+- **Highest/Lowest:** 233/89
+- **Pitch Type:** Balanced
+- **Pace SR:** 18.2 | **Spin SR:** 23.2
+
+### Away Performance
+
+| Venue | Matches | Wins | Win% | Avg Score |
+|-------|---------|------|------|-----------|
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 148.3 |
+| M Chinnaswamy Stadium | 3 | 2 | 66.7% | 171.7 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 175.7 |
+| Arun Jaitley Stadium | 3 | 2 | 66.7% | 196.0 |
+| MA Chidambaram Stadium | 2 | 0 | 0.0% | 150.0 |
+| Eden Gardens | 2 | 2 | 100.0% | 189.0 |
+| Wankhede Stadium | 2 | 1 | 50.0% | 169.0 |
+
+### Pitch Characteristics (All IPL Venues 2023+)
+
+*Based on bowling strike rates - lower SR = more effective*
+
+| Venue | Matches | Pace SR | Spin SR | Bias |
+|-------|---------|---------|---------|------|
+| Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
+| MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
+| Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
+| Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
+
+### Venue Specialists
+
+*Squad players with exceptional performance at specific venues (min 100 runs or 5 wickets)*
+
+**Top Batting Performances:**
+
+| Player | Venue | Inn | Runs | SR | Avg |
+|--------|-------|-----|------|-----|-----|
+| Shubman Gill | Narendra Modi Stadium | 25 | 1156 | 162.13 | 55.05 |
+| B Sai Sudharsan | Narendra Modi Stadium | 19 | 960 | 157.64 | 56.47 |
+| JC Buttler | Narendra Modi Stadium | 10 | 473 | 158.72 | 59.13 |
+| JC Buttler | Sawai Mansingh Stadium | 10 | 433 | 143.38 | 61.86 |
+| JC Buttler | Wankhede Stadium | 12 | 388 | 150.97 | 43.11 |
+| JC Buttler | Sawai Mansingh Stadium | 11 | 381 | 140.07 | 42.33 |
+| Shubman Gill | Sharjah Cricket Stadium | 7 | 280 | 120.17 | 46.67 |
+| JC Buttler | Eden Gardens | 4 | 236 | 168.57 | 236.0 |
+
+**Top Bowling Performances:**
+
+| Player | Venue | Matches | Wkts | Econ | SR |
+|--------|-------|---------|------|------|-----|
+| Mohammed Siraj | M Chinnaswamy Stadium | 14 | 21 | 7.67 | 15.71 |
+| M Prasidh Krishna | Narendra Modi Stadium | 11 | 20 | 7.95 | 12.75 |
+| Rashid Khan | Rajiv Gandhi Internationa | 14 | 18 | 6.21 | 18.67 |
+| K Rabada | Dubai International Crick | 13 | 16 | 8.41 | 18.38 |
+| Rashid Khan | Dubai International Crick | 11 | 14 | 5.36 | 18.86 |
+| R Sai Kishore | Narendra Modi Stadium | 10 | 13 | 8.73 | 12.0 |
+| I Sharma | Rajiv Gandhi Internationa | 17 | 12 | 7.12 | 32.5 |
+| K Rabada | Sheikh Zayed Stadium | 5 | 12 | 6.75 | 10.0 |
+
 
 ---
 
@@ -295,9 +326,9 @@
 | Delhi Capitals | 15 | 329 | 496 | 18 | 9.05 | 27.56 | 18.28 | 38.3 | 23.4 | HIGH |
 | Kolkata Knight Riders | 15 | 320 | 408 | 15 | 7.65 | 27.2 | 21.33 | 45.63 | 19.38 | HIGH |
 | Sunrisers Hyderabad | 13 | 270 | 319 | 15 | 7.09 | 21.27 | 18.0 | 47.04 | 15.93 | HIGH |
-| Punjab Kings | 11 | 234 | 397 | 13 | 10.18 | 30.54 | 18.0 | 34.62 | 26.5 | HIGH |
-| Mumbai Indians | 15 | 313 | 434 | 13 | 8.32 | 33.38 | 24.08 | 43.13 | 20.13 | HIGH |
 | Rajasthan Royals | 13 | 270 | 361 | 13 | 8.02 | 27.77 | 20.77 | 41.11 | 19.26 | HIGH |
+| Mumbai Indians | 15 | 313 | 434 | 13 | 8.32 | 33.38 | 24.08 | 43.13 | 20.13 | HIGH |
+| Punjab Kings | 11 | 234 | 397 | 13 | 10.18 | 30.54 | 18.0 | 34.62 | 26.5 | HIGH |
 | Lucknow Super Giants | 7 | 162 | 237 | 7 | 8.78 | 33.86 | 23.14 | 43.83 | 23.46 | HIGH |
 | Gujarat Titans | 4 | 96 | 127 | 5 | 7.94 | 25.4 | 19.2 | 43.75 | 19.79 | MEDIUM |
 | Chennai Super Kings | 12 | 234 | 358 | 3 | 9.18 | 119.33 | 78.0 | 34.62 | 21.37 | HIGH |
@@ -307,16 +338,16 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Punjab Kings | 16 | 384 | 421 | 25 | 6.58 | 16.84 | 15.36 | 41.93 | 11.46 | HIGH |
-| Mumbai Indians | 18 | 420 | 436 | 21 | 6.23 | 20.76 | 20.0 | 41.67 | 10.71 | HIGH |
 | Delhi Capitals | 19 | 444 | 480 | 21 | 6.49 | 22.86 | 21.14 | 36.71 | 11.04 | HIGH |
-| Chennai Super Kings | 18 | 426 | 579 | 19 | 8.15 | 30.47 | 22.42 | 33.33 | 16.9 | HIGH |
+| Mumbai Indians | 18 | 420 | 436 | 21 | 6.23 | 20.76 | 20.0 | 41.67 | 10.71 | HIGH |
 | Rajasthan Royals | 16 | 384 | 412 | 19 | 6.44 | 21.68 | 20.21 | 36.2 | 9.38 | HIGH |
+| Chennai Super Kings | 18 | 426 | 579 | 19 | 8.15 | 30.47 | 22.42 | 33.33 | 16.9 | HIGH |
 | Kolkata Knight Riders | 16 | 372 | 437 | 19 | 7.05 | 23.0 | 19.58 | 35.22 | 12.63 | HIGH |
 | Royal Challengers Bengaluru | 16 | 370 | 509 | 15 | 8.25 | 33.93 | 24.67 | 31.89 | 15.95 | HIGH |
 | Lucknow Super Giants | 7 | 155 | 213 | 9 | 8.25 | 23.67 | 17.22 | 30.32 | 14.84 | HIGH |
 | Gujarat Lions | 2 | 48 | 53 | 6 | 6.63 | 8.83 | 8.0 | 43.75 | 12.5 | MEDIUM |
-| Rising Pune Supergiant | 2 | 48 | 36 | 2 | 4.5 | 18.0 | 24.0 | 37.5 | 2.08 | MEDIUM |
 | Sunrisers Hyderabad | 6 | 138 | 216 | 2 | 9.39 | 108.0 | 69.0 | 21.74 | 16.67 | HIGH |
+| Rising Pune Supergiant | 2 | 48 | 36 | 2 | 4.5 | 18.0 | 24.0 | 37.5 | 2.08 | MEDIUM |
 
 ---
 
@@ -383,8 +414,7 @@
 
 *Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
 
-- **R Tewatia** vs off-spin: SR 105.41, Avg 29.25, BPD 27.75 (111 balls)
-- **Washington Sundar** vs leg-spin: SR 82.14, Avg 9.2, BPD 11.2 (56 balls)
+*No significant spin vulnerabilities identified*
 
 ---
 

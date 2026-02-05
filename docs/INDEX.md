@@ -1,6 +1,6 @@
 # Cricket Playbook - Repository Index
 
-**Last Updated:** 2026-02-04 | **Version:** v4.0.0 | **Algorithm:** SUPER SELECTOR v3.0
+**Last Updated:** 2026-02-05 | **Version:** v4.1.0 | **Algorithm:** SUPER SELECTOR v3.0
 
 ---
 
@@ -10,6 +10,8 @@
 |----------|-----------|
 | **Start Here** | [README](../README.md) · [CLAUDE.md](../CLAUDE.md) · [Constitution](../config/CONSTITUTION.md) |
 | **Current Sprint** | [Sprint 4 Status](./sprints/SPRINT_4_STATUS_020426.md) · [Sprint 4 Plan](./SPRINT_4_PLAN.md) |
+| **Mission Control** | [Dashboard](https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/) · [Task Integrity Loop](../governance/TASK_INTEGRITY_LOOP.md) |
+| **The Lab** | [Dashboard](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/) |
 | **Algorithm** | [SUPER SELECTOR v3.0](./SUPER_SELECTOR.md) · [PRD](../governance/tasks/PREDICTED_XII_V3_PRD.md) |
 
 ---
@@ -258,6 +260,39 @@
 
 ---
 
+## 14. Mission Control (`/scripts/mission_control/`)
+
+**Live Dashboard:** [https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/](https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/)
+
+| File | Description |
+|------|-------------|
+| `dashboard/index.html` | Main Kanban board with all tickets |
+| `dashboard/sprints.html` | Sprint tracking view |
+
+### Data Files (`.mission-control/data/`)
+| Directory | Contents |
+|-----------|----------|
+| `tickets/` | Individual ticket JSON files |
+| `sprints/` | Sprint definition files |
+| `epics/` | Epic groupings |
+
+---
+
+## 15. The Lab (`/scripts/the_lab/`)
+
+**Live Dashboard:** [https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/)
+
+| Page | Description |
+|------|-------------|
+| `index.html` | Main landing page with overview |
+| `teams.html` | Team-by-team analysis with Predicted XIs, Depth Charts, Stat Packs |
+| `analysis.html` | Cross-team comparisons and analytics |
+| `artifacts.html` | Downloadable outputs and resources |
+| `research.html` | Methodology and research documentation |
+| `about.html` | Project information |
+
+---
+
 ## Directory Tree Summary
 
 ```
@@ -289,7 +324,9 @@ cricket-playbook/
 ├── scripts/            # Python scripts
 │   ├── core/           # Pipeline
 │   ├── generators/     # Generators
-│   └── analysis/       # Analysis
+│   ├── analysis/       # Analysis
+│   ├── mission_control/ # Mission Control dashboard
+│   └── the_lab/        # The Lab analytics dashboard
 └── stat_packs/         # Team stat packs
     ├── CSK/
     ├── MI/
@@ -298,5 +335,5 @@ cricket-playbook/
 
 ---
 
-*Cricket Playbook v4.0.0 | SUPER SELECTOR v3.0 | Wireframes V6*
-*Index generated: 2026-02-04*
+*Cricket Playbook v4.1.0 | SUPER SELECTOR v3.0 | Wireframes V6*
+*Index generated: 2026-02-05*

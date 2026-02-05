@@ -1,6 +1,6 @@
 # Mumbai Indians (MI) - IPL 2026 Stat Pack
 
-**Generated:** 2026-01-26 09:45
+**Generated:** 2026-02-05 20:13
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -23,7 +23,7 @@
 | Naman Dhir | All-rounder | Left-arm orthodox | Left-hand | 5.25 | Retained | 2025 |
 | AM Ghazanfar | Bowler | Off-spin | Right-hand | 4.80 | Retained | 2025 |
 | Mitchell Santner | All-rounder | Left-arm orthodox | Left-hand | 2.00 | Retained | 2025 |
-| Ryan Rickelton | Batter | Medium | Left-hand | 1.00 | Retained | 2025 |
+| Ryan Rickelton | Wicketkeeper | Medium | Left-hand | 1.00 | Retained | 2025 |
 | Quinton de Kock | Wicketkeeper | Medium | Left-hand | 1.00 | Auction | 2026 |
 | Shardul Thakur | All-rounder | Fast | Right-hand | 1.00 | Auction | 2026 |
 | Robin Minz | Wicketkeeper | Medium | Right-hand | 0.65 | Retained | 2025 |
@@ -40,24 +40,11 @@
 **Total Squad Size:** 24 players
 **Total Spend:** ₹120.60 Cr
 
-**Role Breakdown:** All-rounder: 9, Batter: 4, Bowler: 9, Wicketkeeper: 2
+**Role Breakdown:** All-rounder: 9, Batter: 3, Bowler: 9, Wicketkeeper: 3
 
 ### 1.2 Player Archetypes (K-means V2 Model)
 
 *Based on clustering analysis of IPL career performance*
-
-**Batter Archetypes:**
-
-- **EXPLOSIVE_OPENER**: Will Jacks
-- **PLAYMAKER**: Quinton de Kock
-- **MIDDLE_ORDER**: Tilak Varma, Rohit Sharma, Suryakumar Yadav
-- **FINISHER**: Hardik Pandya
-
-**Bowler Archetypes:**
-
-- **WORKHORSE**: Hardik Pandya, Mitchell Santner, Shardul Thakur, Jasprit Bumrah, Mohammed Izhar, Trent Boult
-- **NEW_BALL_SPECIALIST**: Deepak Chahar
-- **DEATH_SPECIALIST**: Tilak Varma, Will Jacks
 
 ### 1.3 Key Player Tags
 
@@ -65,19 +52,6 @@
 
 | Player | Tags |
 |--------|------|
-| Hardik Pandya | SPECIALIST_VS_LEG_SPIN, FINISHER, SPECIALIST_VS_OFF_SPIN, SPECIALIST_VS_SPIN, SPECIALIST_VS_PACE (+5 more) |
-| Mitchell Santner | NEW_BALL_SPECIALIST, WORKHORSE, RHB_WICKET_TAKER, MID_OVERS_ELITE, MIDDLE_OVERS_CONTROLLER (+4 more) |
-| Shardul Thakur | NEW_BALL_SPECIALIST, WORKHORSE, PROVEN_WICKET_TAKER, RHB_SPECIALIST, LHB_VULNERABLE (+2 more) |
-| Tilak Varma | SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, DEATH_SPECIALIST, SPECIALIST_VS_LEG_SPIN, SIX_HITTER, SPECIALIST_VS_OFF_SPIN (+4 more) |
-| Will Jacks | DEATH_SPECIALIST, PP_DOMINATOR, EXPLOSIVE_OPENER, SIX_HITTER, VULNERABLE_VS_OFF_SPIN (+2 more) |
-| Rohit Sharma | DEATH_SPECIALIST, SIX_HITTER, VULNERABLE_VS_LEFT_ARM_SPIN, MIDDLE_ORDER, SPECIALIST_VS_PACE |
-| Suryakumar Yadav | SPECIALIST_VS_LEFT_ARM_WRIST_SPIN, DEATH_SPECIALIST, SPECIALIST_VS_LEG_SPIN, SIX_HITTER, SPECIALIST_VS_OFF_SPIN (+5 more) |
-| Deepak Chahar | NEW_BALL_SPECIALIST, LHB_WICKET_TAKER, RHB_VULNERABLE, LHB_PRESSURE, PRESSURE_BUILDER (+1 more) |
-| Jasprit Bumrah | NEW_BALL_SPECIALIST, PROVEN_WICKET_TAKER, LHB_WICKET_TAKER, DEATH_BEAST, WORKHORSE (+4 more) |
-| Mayank Markande | RHB_WICKET_TAKER, MIDDLE_OVERS_LIABILITY, MIDDLE_AND_DEATH_SPECIALIST |
-| Mohammed Izhar | PRESSURE_BUILDER, PROVEN_WICKET_TAKER, MIDDLE_AND_DEATH_SPECIALIST, WORKHORSE, NEW_BALL_SPECIALIST |
-| Trent Boult | DEATH_LIABILITY, PRESSURE_BUILDER, PROVEN_WICKET_TAKER, PP_ELITE, MIDDLE_AND_DEATH_SPECIALIST (+3 more) |
-| Quinton de Kock | VULNERABLE_VS_LEFT_ARM_WRIST_SPIN, DEATH_SPECIALIST, SIX_HITTER, PLAYMAKER, VULNERABLE_VS_OFF_SPIN (+3 more) |
 
 ---
 
@@ -124,22 +98,77 @@
 
 ---
 
-## 3. Venue Performance
+## Venue Analysis
 
-### 3.1 Team Batting by Venue (Top 10 by matches)
+*Performance breakdown by venue (2023+ IPL data)*
 
-| Venue | Matches | Runs | Balls | SR | Avg |
-|-------|---------|------|-------|-----|-----|
-| Wankhede Stadium | 67 | 10288 | 7769 | 132.42 | 27.43 |
-| Wankhede Stadium, Mumbai | 25 | 4207 | 2786 | 151.01 | 30.71 |
-| Eden Gardens | 13 | 2138 | 1545 | 138.38 | 32.39 |
-| M Chinnaswamy Stadium | 10 | 1438 | 1117 | 128.74 | 31.26 |
-| Dubai International Cricket Stadium | 10 | 1449 | 1147 | 126.33 | 23.75 |
-| Sheikh Zayed Stadium | 9 | 1467 | 1055 | 139.05 | 33.34 |
-| Feroz Shah Kotla | 9 | 1403 | 1053 | 133.24 | 25.51 |
-| Rajiv Gandhi International Stadium, Uppa... | 8 | 1089 | 915 | 119.02 | 27.23 |
-| MA Chidambaram Stadium, Chepauk, Chennai | 8 | 1132 | 960 | 117.92 | 18.26 |
-| Brabourne Stadium | 7 | 1146 | 828 | 138.41 | 27.95 |
+### Home Venue: Wankhede Stadium
+
+- **Matches:** 21
+- **Win Rate:** 61.9% (13W - 8L)
+- **Avg Score (batting):** 183.8
+- **Highest/Lowest:** 234/121
+- **Pitch Type:** Balanced
+- **Pace SR:** 18.6 | **Spin SR:** 20.9
+
+### Away Performance
+
+| Venue | Matches | Wins | Win% | Avg Score |
+|-------|---------|------|------|-----------|
+| Narendra Modi Stadium | 5 | 0 | 0.0% | 169.6 |
+| MA Chidambaram Stadium | 3 | 1 | 33.3% | 158.7 |
+| Sawai Mansingh Stadium | 3 | 1 | 33.3% | 193.3 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 0 | 0.0% | 169.0 |
+| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 194.7 |
+| Arun Jaitley Stadium | 3 | 2 | 66.7% | 208.3 |
+
+### Pitch Characteristics (All IPL Venues 2023+)
+
+*Based on bowling strike rates - lower SR = more effective*
+
+| Venue | Matches | Pace SR | Spin SR | Bias |
+|-------|---------|---------|---------|------|
+| Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
+| MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
+| Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
+| Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
+
+### Venue Specialists
+
+*Squad players with exceptional performance at specific venues (min 100 runs or 5 wickets)*
+
+**Top Batting Performances:**
+
+| Player | Venue | Inn | Runs | SR | Avg |
+|--------|-------|-----|------|-----|-----|
+| SA Yadav | Wankhede Stadium | 21 | 885 | 187.1 | 59.0 |
+| HH Pandya | Wankhede Stadium | 28 | 469 | 153.77 | 29.31 |
+| RG Sharma | Eden Gardens | 13 | 465 | 143.52 | 46.5 |
+| RG Sharma | Rajiv Gandhi Internationa | 13 | 424 | 144.22 | 47.11 |
+| SA Yadav | Sheikh Zayed Stadium | 11 | 413 | 166.53 | 68.83 |
+| Q de Kock | Wankhede Stadium | 8 | 294 | 136.74 | 42.0 |
+| RD Rickelton | Wankhede Stadium | 7 | 219 | 153.15 | 36.5 |
+| Q de Kock | Dr DY Patil Sports Academ | 4 | 218 | 167.69 | 72.67 |
+
+**Top Bowling Performances:**
+
+| Player | Venue | Matches | Wkts | Econ | SR |
+|--------|-------|---------|------|------|-----|
+| JJ Bumrah | Wankhede Stadium | 32 | 35 | 7.7 | 21.6 |
+| JJ Bumrah | Wankhede Stadium | 16 | 29 | 5.65 | 12.86 |
+| HH Pandya | Wankhede Stadium | 27 | 24 | 9.22 | 16.79 |
+| TA Boult | Wankhede Stadium | 14 | 19 | 8.05 | 17.68 |
+| SN Thakur | Dubai International Crick | 9 | 15 | 7.66 | 12.8 |
+| JJ Bumrah | Dubai International Crick | 8 | 15 | 7.0 | 12.0 |
+| DL Chahar | MA Chidambaram Stadium | 11 | 14 | 8.1 | 13.86 |
+| DL Chahar | Wankhede Stadium | 13 | 13 | 9.0 | 18.0 |
+
 
 ---
 
@@ -156,7 +185,7 @@
 | Quinton de Kock | Wicketkeeper | 23 | 545 | 403 | 135.24 | 24.77 | 18.86 | 38.96 | 5 | 0 | MEDIUM |
 | Will Jacks | All-rounder | 19 | 463 | 302 | 153.31 | 28.94 | 22.19 | 36.42 | 3 | 1 | MEDIUM |
 | Naman Dhir | All-rounder | 19 | 392 | 216 | 181.48 | 28.0 | 27.78 | 29.63 | 1 | 0 | MEDIUM |
-| Ryan Rickelton | Batter | 14 | 388 | 255 | 152.16 | 29.85 | 25.1 | 41.18 | 3 | 0 | MEDIUM |
+| Ryan Rickelton | Wicketkeeper | 14 | 388 | 255 | 152.16 | 29.85 | 25.1 | 41.18 | 3 | 0 | MEDIUM |
 | Sherfane Rutherford | All-rounder | 11 | 291 | 184 | 158.15 | 32.33 | 21.74 | 32.07 | 0 | 0 | MEDIUM |
 | Shardul Thakur | All-rounder | 17 | 152 | 99 | 153.54 | 12.67 | 23.23 | 33.33 | 1 | 0 | MEDIUM |
 | Mitchell Santner | All-rounder | 13 | 56 | 54 | 103.7 | 11.2 | 11.11 | 42.59 | 0 | 0 | MEDIUM |
@@ -201,7 +230,6 @@
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
 | Trent Boult | Fast | 41 | 149.0 | 51 | 8.62 | 25.18 | 17.53 | 40.16 | 20.47 | HIGH |
-| Mohammed Izhar | Fast | 43 | 161.0 | 50 | 8.96 | 28.84 | 19.32 | 42.75 | 21.43 | HIGH |
 | Jasprit Bumrah | Fast | 25 | 99.2 | 38 | 6.69 | 17.45 | 15.66 | 45.21 | 12.94 | MEDIUM |
 | Deepak Chahar | Fast | 32 | 98.5 | 29 | 8.95 | 30.41 | 20.38 | 41.62 | 21.49 | HIGH |
 | Hardik Pandya | Fast | 37 | 96.0 | 28 | 10.16 | 34.82 | 20.57 | 32.29 | 23.44 | HIGH |
@@ -237,9 +265,6 @@
 | MJ Santner | powerplay | 10.0 | 0 | 7.4 | 41.67 | 16.5% | -% | -16.5 | HIGH |
 | MJ Santner | middle | 45.0 | 12 | 7.04 | 32.96 | 74.4% | 85.7% | +11.3 | HIGH |
 | MJ Santner | death | 5.5 | 2 | 10.91 | 18.18 | 9.1% | 14.3% | +5.2 | HIGH |
-| Mohammed Siraj | powerplay | 98.0 | 24 | 7.9 | 50.0 | 60.9% | 48.0% | -12.9 | HIGH |
-| Mohammed Siraj | middle | 21.0 | 7 | 9.05 | 24.6 | 13.0% | 14.0% | +1.0 | HIGH |
-| Mohammed Siraj | death | 42.0 | 19 | 9.07 | 34.92 | 26.1% | 38.0% | +11.9 | HIGH |
 | SN Thakur | powerplay | 29.7 | 6 | 11.02 | 28.09 | 34.2% | 24.0% | -10.2 | HIGH |
 | SN Thakur | middle | 26.2 | 6 | 8.06 | 24.2 | 30.2% | 24.0% | -6.2 | HIGH |
 | SN Thakur | death | 30.8 | 13 | 10.57 | 26.49 | 35.6% | 52.0% | +16.4 | HIGH |
@@ -330,8 +355,8 @@
 | Kolkata Knight Riders | 15 | 455 | 307 | 148.21 | 35.0 | 20.52 | 38.76 | 13 | HIGH |
 | Royal Challengers Bengaluru | 13 | 455 | 321 | 141.74 | 35.0 | 21.18 | 38.94 | 13 | HIGH |
 | Punjab Kings | 13 | 425 | 333 | 127.63 | 35.42 | 17.12 | 37.84 | 12 | HIGH |
-| Chennai Super Kings | 16 | 412 | 311 | 132.48 | 29.43 | 18.65 | 41.8 | 14 | HIGH |
 | Sunrisers Hyderabad | 15 | 412 | 325 | 126.77 | 29.43 | 16.92 | 38.15 | 14 | HIGH |
+| Chennai Super Kings | 16 | 412 | 311 | 132.48 | 29.43 | 18.65 | 41.8 | 14 | HIGH |
 | Delhi Capitals | 13 | 368 | 267 | 137.83 | 33.45 | 19.48 | 36.33 | 11 | HIGH |
 | Mumbai Indians | 9 | 142 | 124 | 114.52 | 15.78 | 17.74 | 52.42 | 9 | HIGH |
 | Gujarat Titans | 4 | 94 | 64 | 146.88 | 23.5 | 20.31 | 34.38 | 4 | MEDIUM |
@@ -349,28 +374,14 @@
 | Sunrisers Hyderabad | 14 | 327 | 427 | 21 | 7.83 | 20.33 | 15.57 | 39.45 | 18.04 | HIGH |
 | Royal Challengers Bengaluru | 14 | 324 | 446 | 19 | 8.26 | 23.47 | 17.05 | 41.05 | 20.37 | HIGH |
 | Delhi Capitals | 13 | 282 | 368 | 16 | 7.83 | 23.0 | 17.63 | 44.68 | 21.63 | HIGH |
-| Kolkata Knight Riders | 11 | 246 | 323 | 14 | 7.88 | 23.07 | 17.57 | 46.34 | 20.33 | HIGH |
 | Mumbai Indians | 11 | 257 | 363 | 14 | 8.47 | 25.93 | 18.36 | 36.58 | 19.07 | HIGH |
+| Kolkata Knight Riders | 11 | 246 | 323 | 14 | 7.88 | 23.07 | 17.57 | 46.34 | 20.33 | HIGH |
 | Chennai Super Kings | 14 | 316 | 457 | 13 | 8.68 | 35.15 | 24.31 | 42.72 | 22.78 | HIGH |
-| Rajasthan Royals | 9 | 193 | 255 | 12 | 7.93 | 21.25 | 16.08 | 38.86 | 18.65 | HIGH |
 | Punjab Kings | 16 | 354 | 520 | 12 | 8.81 | 43.33 | 29.5 | 38.7 | 23.16 | HIGH |
+| Rajasthan Royals | 9 | 193 | 255 | 12 | 7.93 | 21.25 | 16.08 | 38.86 | 18.65 | HIGH |
 | Lucknow Super Giants | 7 | 162 | 185 | 12 | 6.85 | 15.42 | 13.5 | 49.38 | 16.67 | HIGH |
 | Gujarat Titans | 8 | 174 | 242 | 8 | 8.34 | 30.25 | 21.75 | 39.08 | 18.97 | HIGH |
 | Gujarat Lions | 2 | 48 | 77 | 2 | 9.63 | 38.5 | 24.0 | 39.58 | 33.33 | MEDIUM |
-
-### Mohammed Izhar
-
-| Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
-|------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Delhi Capitals | 15 | 329 | 496 | 18 | 9.05 | 27.56 | 18.28 | 38.3 | 23.4 | HIGH |
-| Sunrisers Hyderabad | 13 | 270 | 319 | 15 | 7.09 | 21.27 | 18.0 | 47.04 | 15.93 | HIGH |
-| Kolkata Knight Riders | 15 | 320 | 408 | 15 | 7.65 | 27.2 | 21.33 | 45.63 | 19.38 | HIGH |
-| Punjab Kings | 11 | 234 | 397 | 13 | 10.18 | 30.54 | 18.0 | 34.62 | 26.5 | HIGH |
-| Mumbai Indians | 15 | 313 | 434 | 13 | 8.32 | 33.38 | 24.08 | 43.13 | 20.13 | HIGH |
-| Rajasthan Royals | 13 | 270 | 361 | 13 | 8.02 | 27.77 | 20.77 | 41.11 | 19.26 | HIGH |
-| Lucknow Super Giants | 7 | 162 | 237 | 7 | 8.78 | 33.86 | 23.14 | 43.83 | 23.46 | HIGH |
-| Gujarat Titans | 4 | 96 | 127 | 5 | 7.94 | 25.4 | 19.2 | 43.75 | 19.79 | MEDIUM |
-| Chennai Super Kings | 12 | 234 | 358 | 3 | 9.18 | 119.33 | 78.0 | 34.62 | 21.37 | HIGH |
 
 ### Jasprit Bumrah
 
@@ -459,8 +470,8 @@
 ### 9.1 Death Bowling Options
 
 - **JJ Bumrah**: 33.2 overs, 21 wickets, 6.75 economy (over-performs)
-- **Mohammed Siraj**: 42.0 overs, 19 wickets, 9.07 economy (over-performs)
 - **TA Boult**: 30.0 overs, 15 wickets, 9.9 economy (over-performs)
+- **SN Thakur**: 30.8 overs, 13 wickets, 10.57 economy (over-performs)
 
 ### 9.2 Powerplay Batting Options
 
@@ -474,7 +485,7 @@
 
 *Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
 
-- **Q de Kock** vs off-spin: SR 107.57, Avg 31.69, BPD 29.46 (383 balls)
+- **Q de Kock** vs off-spin: SR 109.52, Avg 34.5, BPD 31.5 (252 balls)
 - **RG Sharma** vs LA orthodox: SR 107.39, Avg 37.8, BPD 35.2 (704 balls)
 
 ---

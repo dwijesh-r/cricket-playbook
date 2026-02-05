@@ -27,6 +27,10 @@
             --glass: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.08);
             --shadow: rgba(0, 0, 0, 0.4);
+            /* Intro animation unified scaling */
+            --intro-scale: 1;
+            --intro-translate-base: 70px;
+            --intro-animation-speed: 0.7s;
         }
 
         [data-theme="light"] {
@@ -423,6 +427,94 @@
                 linear-gradient(180deg, #0a0908 0%, #0c0b0a 100%);
         }
 
+        /* ========== FLOODLIGHT TOWERS ========== */
+        .floodlight-tower {
+            position: absolute;
+            top: 15px;
+            width: 16px;
+            height: 50px;
+            opacity: 0;
+            animation: tower-appear 0.4s ease var(--tower-delay, 0.5s) forwards;
+        }
+        .floodlight-tower.tower-left { left: 8%; }
+        .floodlight-tower.tower-right { right: 8%; }
+
+        @keyframes tower-appear {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .floodlight-tower .pole {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 40px;
+            background: linear-gradient(180deg, #555 0%, #333 100%);
+            border-radius: 2px;
+        }
+
+        .floodlight-tower .light-housing {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 10px;
+            background: linear-gradient(180deg, #666 0%, #444 100%);
+            border-radius: 2px 2px 4px 4px;
+        }
+
+        .floodlight-tower .light-bulb {
+            position: absolute;
+            top: 6px;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--light-color, #fff);
+            box-shadow: 0 0 6px var(--light-color, #fff), 0 0 12px var(--light-glow, rgba(255,255,255,0.5));
+            animation: bulb-flicker 2s ease-in-out infinite;
+        }
+        .floodlight-tower .light-bulb:nth-child(3) { left: 2px; animation-delay: 0.1s; }
+        .floodlight-tower .light-bulb:nth-child(4) { left: 50%; transform: translateX(-50%); animation-delay: 0.2s; }
+        .floodlight-tower .light-bulb:nth-child(5) { right: 2px; animation-delay: 0.3s; }
+
+        @keyframes bulb-flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .floodlight-tower .beam {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 60px;
+            background: linear-gradient(180deg, var(--light-glow, rgba(255,255,255,0.15)) 0%, transparent 100%);
+            clip-path: polygon(35% 0, 65% 0, 100% 100%, 0 100%);
+            pointer-events: none;
+        }
+
+        /* Sport-specific light colors */
+        .intro-box[data-sport="nfl"] .floodlight-tower {
+            --light-color: #ffffff;
+            --light-glow: rgba(255,255,255,0.4);
+        }
+        .intro-box[data-sport="nba"] .floodlight-tower {
+            --light-color: #ffaa33;
+            --light-glow: rgba(255,170,51,0.4);
+        }
+        .intro-box[data-sport="soccer"] .floodlight-tower {
+            --light-color: #fff5e6;
+            --light-glow: rgba(255,245,230,0.4);
+        }
+        .intro-box[data-sport="cricket"] .floodlight-tower {
+            --light-color: #ffd700;
+            --light-glow: rgba(255,215,0,0.4);
+        }
+
         /* Animated spotlight beams */
         .intro-overlay::before {
             content: '';
@@ -529,6 +621,133 @@
             opacity: 0;
         }
 
+        /* ========== PLAYING SURFACES ========== */
+        .playing-surface {
+            position: absolute;
+            bottom: 75px;
+            left: 8%;
+            right: 8%;
+            height: 35px;
+            opacity: 0;
+            z-index: 2;
+            animation: surface-appear 0.5s ease var(--surface-delay, 0.8s) forwards;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+
+        @keyframes surface-appear {
+            from { opacity: 0; transform: scaleY(0); }
+            to { opacity: 1; transform: scaleY(1); }
+        }
+
+        /* NFL Field - Green with yard lines */
+        .surface-nfl {
+            background: linear-gradient(180deg, #2d5a27 0%, #1e4a1e 100%);
+        }
+        .surface-nfl::before {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0;
+            left: 10%; right: 10%;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent 0px,
+                transparent 18px,
+                rgba(255,255,255,0.4) 18px,
+                rgba(255,255,255,0.4) 20px
+            );
+        }
+        .surface-nfl::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0;
+            top: 50%;
+            height: 2px;
+            background: rgba(255,255,255,0.5);
+            transform: translateY(-50%);
+        }
+
+        /* NBA Court - Hardwood with markings */
+        .surface-nba {
+            background: linear-gradient(180deg, #c9a86c 0%, #b8956a 50%, #c9a86c 100%);
+        }
+        .surface-nba::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            border: 2px solid rgba(0,0,0,0.4);
+            border-radius: 50%;
+        }
+        .surface-nba::after {
+            content: '';
+            position: absolute;
+            left: 5px; right: 5px;
+            top: 50%;
+            height: 1px;
+            background: rgba(0,0,0,0.3);
+        }
+
+        /* Soccer Pitch - Green with center circle */
+        .surface-soccer {
+            background: linear-gradient(90deg,
+                #3a8c3a 0%, #4a9c4a 10%, #3a8c3a 20%,
+                #4a9c4a 30%, #3a8c3a 40%, #4a9c4a 50%,
+                #3a8c3a 60%, #4a9c4a 70%, #3a8c3a 80%,
+                #4a9c4a 90%, #3a8c3a 100%
+            );
+        }
+        .surface-soccer::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 50%;
+        }
+        .surface-soccer::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0; bottom: 0;
+            width: 2px;
+            background: rgba(255,255,255,0.4);
+            transform: translateX(-50%);
+        }
+
+        /* Cricket Ground - Green outfield with tan pitch */
+        .surface-cricket {
+            background: linear-gradient(180deg, #4a8c4a 0%, #3a7c3a 100%);
+        }
+        .surface-cricket::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+            height: 16px;
+            background: linear-gradient(180deg, #d4b896 0%, #c4a886 100%);
+            border-radius: 2px;
+        }
+        .surface-cricket::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            height: 2px;
+            background: rgba(255,255,255,0.5);
+        }
+
         /* Crowd silhouettes - multiple rows */
         .crowd-row {
             position: absolute;
@@ -603,13 +822,17 @@
             position: relative;
             width: 120px;
             height: 180px;
+            /* Default skin tone - can be overridden per agent */
+            --skin-color: #c49a6c;
+            --skin-dark: #b8896a;
+            --skin-light: #d4a574;
         }
 
         /* Head with detailed features */
         .athlete .head {
             width: 38px;
             height: 44px;
-            background: linear-gradient(180deg, #d4a574 0%, #c49a6c 100%);
+            background: linear-gradient(180deg, var(--skin-light) 0%, var(--skin-color) 100%);
             border-radius: 50% 50% 45% 45%;
             position: absolute;
             top: 0;
@@ -626,7 +849,7 @@
             transform: translateX(-50%);
             width: 40px;
             height: 20px;
-            background: #2a2015;
+            background: var(--hair-color, #2a2015);
             border-radius: 50% 50% 0 0;
             z-index: 1;
         }
@@ -636,7 +859,7 @@
             position: absolute;
             width: 8px;
             height: 12px;
-            background: #c49a6c;
+            background: var(--skin-color);
             border-radius: 50%;
             top: 14px;
         }
@@ -651,7 +874,7 @@
             transform: translateX(-50%);
             width: 16px;
             height: 10px;
-            background: #c49a6c;
+            background: var(--skin-color);
         }
 
         /* Body/torso with jersey detail */
@@ -726,7 +949,7 @@
             position: absolute;
             width: 14px;
             height: 50px;
-            background: linear-gradient(180deg, var(--jersey-color, #333) 0%, var(--jersey-color, #333) 40%, #c49a6c 40%, #c49a6c 100%);
+            background: linear-gradient(180deg, var(--jersey-color, #333) 0%, var(--jersey-color, #333) 40%, var(--skin-color) 40%, var(--skin-color) 100%);
             top: 52px;
             border-radius: 7px;
             transform-origin: top center;
@@ -740,7 +963,7 @@
             position: absolute;
             width: 16px;
             height: 18px;
-            background: #c49a6c;
+            background: var(--skin-color);
             border-radius: 8px 8px 10px 10px;
             bottom: -8px;
             left: 50%;
@@ -748,7 +971,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        /* Legs with pants */
+        /* Legs with shorts (default) */
         .athlete .leg {
             position: absolute;
             width: 18px;
@@ -756,8 +979,8 @@
             background: linear-gradient(180deg,
                 var(--shorts-color, #222) 0%,
                 var(--shorts-color, #222) 45%,
-                #c49a6c 45%,
-                #c49a6c 82%,
+                var(--skin-color) 45%,
+                var(--skin-color) 82%,
                 #1a1a1a 82%,
                 #1a1a1a 100%);
             top: 124px;
@@ -766,6 +989,52 @@
         }
         .athlete .leg-left { left: 32px; }
         .athlete .leg-right { right: 32px; }
+
+        /* Full pants for cricket/formal attire - no visible skin on legs */
+        .athlete.has-full-pants .leg {
+            background: linear-gradient(180deg,
+                var(--pants-color, var(--shorts-color, #222)) 0%,
+                var(--pants-color, var(--shorts-color, #222)) 90%,
+                #1a1a1a 90%,
+                #1a1a1a 100%);
+        }
+
+        /* ========== BODY BUILD VARIATIONS ========== */
+        /* Muscular build (e.g., LeBron) */
+        .athlete.build-muscular .torso {
+            width: 56px;
+            height: 60px;
+        }
+        .athlete.build-muscular .shoulder {
+            width: 22px;
+            height: 24px;
+        }
+        .athlete.build-muscular .arm {
+            width: 16px;
+        }
+        .athlete.build-muscular .head {
+            width: 40px;
+            height: 46px;
+        }
+
+        /* Athletic build (e.g., Curry, Virat) */
+        .athlete.build-athletic .torso {
+            width: 48px;
+        }
+        .athlete.build-athletic .shoulder {
+            width: 17px;
+        }
+
+        /* Slim build */
+        .athlete.build-slim .torso {
+            width: 44px;
+        }
+        .athlete.build-slim .shoulder {
+            width: 15px;
+        }
+        .athlete.build-slim .arm {
+            width: 12px;
+        }
 
         /* Feet/shoes */
         .athlete .foot {
@@ -1529,7 +1798,7 @@
             border-radius: 0 0 8px 8px;
         }
         .intro-box-dynamic .athlete.has-coat .arm {
-            background: linear-gradient(180deg, var(--jersey-main) 0%, var(--jersey-main) 85%, #c49a6c 85%);
+            background: linear-gradient(180deg, var(--jersey-main) 0%, var(--jersey-main) 85%, var(--skin-color) 85%);
             height: 55px;
         }
         .intro-box-dynamic .athlete.has-coat .leg {
@@ -1552,6 +1821,151 @@
             height: 14px;
             border-radius: 0 0 50% 50%;
             clip-path: polygon(5% 0%, 95% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+        }
+
+        /* ========== BUSINESS SUIT ATTIRE ========== */
+        /* Uses CSS variables for team colors: --suit-color, --suit-dark, --suit-accent, --tie-color */
+        .intro-box-dynamic .athlete.has-suit .torso {
+            height: 68px;
+            background: linear-gradient(180deg, var(--suit-color, #1a1a2e) 0%, var(--suit-dark, #0f0f1a) 100%);
+            border-radius: 5px 5px 2px 2px;
+        }
+        .intro-box-dynamic .athlete.has-suit .torso::before { display: none; }
+        .intro-box-dynamic .athlete.has-suit .torso::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 22px;
+            height: 22px;
+            background: var(--suit-accent, #333);
+            clip-path: polygon(0 0, 50% 100%, 100% 0);
+            opacity: 0.7;
+        }
+        /* White shirt visible at collar */
+        .intro-box-dynamic .athlete.has-suit .collar {
+            position: absolute;
+            top: 46px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 10px;
+            background: #f0f0f0;
+            border-radius: 2px;
+            z-index: 1;
+        }
+        /* Tie element */
+        .intro-box-dynamic .athlete.has-suit .tie {
+            position: absolute;
+            top: 52px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 35px;
+            background: linear-gradient(180deg, var(--tie-color, #333) 0%, var(--tie-dark, #222) 100%);
+            clip-path: polygon(30% 0, 70% 0, 85% 100%, 15% 100%);
+            z-index: 2;
+        }
+        .intro-box-dynamic .athlete.has-suit .shorts { display: none; }
+        .intro-box-dynamic .athlete.has-suit .coat-bottom {
+            position: absolute;
+            top: 116px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 28px;
+            background: linear-gradient(180deg, var(--suit-dark, #0f0f1a) 0%, var(--suit-color, #1a1a2e) 100%);
+            border-radius: 0 0 10px 10px;
+        }
+        .intro-box-dynamic .athlete.has-suit .arm {
+            background: linear-gradient(180deg, var(--suit-color, #1a1a2e) 0%, var(--suit-color, #1a1a2e) 85%, var(--skin-color) 85%);
+            height: 55px;
+        }
+        .intro-box-dynamic .athlete.has-suit .leg {
+            top: 143px;
+            height: 35px;
+            background: linear-gradient(180deg, var(--suit-color, #1a1a2e) 0%, var(--suit-color, #1a1a2e) 75%, #0a0a0a 75%);
+        }
+        .intro-box-dynamic .athlete.has-suit .shoulder {
+            width: 22px;
+            top: 48px;
+            background: var(--suit-color, #1a1a2e);
+        }
+
+        /* ========== TRACKSUIT ATTIRE - Andy Flower RCB ========== */
+        /* Uses CSS variables: --tracksuit-main, --tracksuit-dark, --tracksuit-accent */
+        .intro-box-dynamic .athlete.has-tracksuit .torso {
+            height: 60px;
+            background: linear-gradient(180deg, var(--tracksuit-main, #ec1c24) 0%, var(--tracksuit-dark, #c41017) 100%);
+            border-radius: 8px 8px 4px 4px;
+        }
+        .intro-box-dynamic .athlete.has-tracksuit .torso::before { display: none; }
+        .intro-box-dynamic .athlete.has-tracksuit .torso::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background: var(--tracksuit-accent, #d4af37);
+            border-radius: 2px;
+        }
+        /* Tracksuit collar */
+        .intro-box-dynamic .athlete.has-tracksuit .collar {
+            position: absolute;
+            top: 46px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 28px;
+            height: 8px;
+            background: var(--tracksuit-collar, #000000);
+            border-radius: 3px 3px 0 0;
+            border-bottom: 2px solid var(--tracksuit-accent, #d4af37);
+        }
+        .intro-box-dynamic .athlete.has-tracksuit .shorts {
+            background: var(--tracksuit-shorts, #000000);
+        }
+        .intro-box-dynamic .athlete.has-tracksuit .arm {
+            background: linear-gradient(180deg, var(--tracksuit-main, #ec1c24) 0%, var(--tracksuit-main, #ec1c24) 85%, var(--skin-color) 85%);
+            height: 50px;
+        }
+        .intro-box-dynamic .athlete.has-tracksuit .shoulder {
+            background: var(--tracksuit-main, #ec1c24);
+        }
+
+        /* ========== SCARF FOR COACHES ========== */
+        .intro-box-dynamic .athlete.has-scarf .scarf {
+            position: absolute;
+            top: 42px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 35px;
+            height: 20px;
+            background: var(--scarf-color, #333);
+            border-radius: 0 0 8px 8px;
+            z-index: 3;
+        }
+        .intro-box-dynamic .athlete.has-scarf .scarf::before {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 5px;
+            width: 8px;
+            height: 18px;
+            background: var(--scarf-color, #333);
+            border-radius: 0 0 4px 4px;
+        }
+        .intro-box-dynamic .athlete.has-scarf .scarf::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 5px;
+            width: 8px;
+            height: 20px;
+            background: var(--scarf-color, #333);
+            border-radius: 0 0 4px 4px;
         }
 
         /* ========== ADDITIONAL TROPHIES ========== */
@@ -1816,8 +2230,32 @@
             border-radius: 3px;
         }
 
-        /* Mobile responsive intro */
+        /* Mobile responsive intro - Unified scaling system */
+        .intro-box .figure {
+            transform: scale(var(--intro-scale));
+            transform-origin: center bottom;
+            margin-top: calc((1 - var(--intro-scale)) * -40px); /* Adjust for scaling */
+        }
+        .intro-box .trophy-container {
+            transform: translateX(-50%)
+                       translateY(calc(var(--intro-translate-base) * var(--intro-scale)))
+                       scale(var(--intro-scale)) !important;
+        }
+        .intro-box .crowd-row {
+            transform: scale(var(--intro-scale));
+            transform-origin: center bottom;
+        }
+        .intro-box .playing-surface {
+            transform: scaleY(var(--intro-scale));
+            transform-origin: center bottom;
+        }
+        .intro-box .floodlight-tower {
+            transform: scale(var(--intro-scale));
+            transform-origin: top center;
+        }
+
         @media (max-width: 900px) {
+            :root { --intro-scale: 0.65; --intro-animation-speed: 0.5s; }
             .intro-overlay {
                 display: flex !important;
                 padding: 15px 10px;
@@ -1831,23 +2269,20 @@
                 line-height: 1.4;
             }
             .intro-grid {
-                gap: 12px;
+                gap: 10px;
                 max-width: 100%;
-                grid-template-columns: repeat(3, minmax(90px, 110px));
+                grid-template-columns: repeat(3, minmax(95px, 115px));
                 justify-content: center;
             }
             .intro-box {
                 width: 100%;
-                max-width: 110px;
-                height: 210px;
+                max-width: 115px;
+                height: 230px; /* Increased height to prevent cut-off */
                 padding-bottom: 15px;
+                overflow: visible; /* Allow figure to extend slightly */
             }
-            .figure {
-                transform: scale(0.7);
-                transform-origin: top center;
-            }
-            .trophy-container {
-                transform: translateX(-50%) translateY(50px) scale(0.75) !important;
+            .intro-box .figure {
+                margin-top: 20px; /* Give more room at top */
             }
             .label-group {
                 bottom: 8px;
@@ -1859,9 +2294,6 @@
                 font-size: 7px;
                 letter-spacing: 0.08em;
             }
-            .crowd-row {
-                transform: scale(0.7);
-            }
             /* Optimize for mobile performance */
             .confetti {
                 display: none;
@@ -1869,26 +2301,28 @@
             .intro-box::before {
                 display: none;
             }
+            /* Hide floodlights on smaller screens */
+            .floodlight-tower {
+                display: none;
+            }
         }
 
         @media (max-width: 500px) {
+            :root { --intro-scale: 0.55; }
             .intro-title {
                 font-size: 11px;
                 letter-spacing: 0.08em;
             }
             .intro-grid {
-                gap: 8px;
-                grid-template-columns: repeat(3, minmax(80px, 100px));
+                gap: 6px;
+                grid-template-columns: repeat(3, minmax(85px, 105px));
             }
             .intro-box {
-                max-width: 100px;
-                height: 190px;
+                max-width: 105px;
+                height: 210px;
             }
-            .figure {
-                transform: scale(0.6);
-            }
-            .trophy-container {
-                transform: translateX(-50%) translateY(40px) scale(0.65) !important;
+            .intro-box .figure {
+                margin-top: 25px;
             }
             .label-group .name {
                 font-size: 9px;
@@ -1896,30 +2330,29 @@
             .label-group .trophy-name {
                 font-size: 6px;
             }
-            .crowd-row {
-                transform: scale(0.6);
+            /* Hide surfaces on very small screens */
+            .playing-surface {
+                display: none;
             }
         }
 
         @media (max-width: 380px) {
+            :root { --intro-scale: 0.48; }
             .intro-title {
                 font-size: 9px;
                 letter-spacing: 0.05em;
             }
             .intro-grid {
-                gap: 6px;
-                grid-template-columns: repeat(3, minmax(70px, 90px));
+                gap: 5px;
+                grid-template-columns: repeat(3, minmax(75px, 95px));
             }
             .intro-box {
-                max-width: 90px;
-                height: 170px;
+                max-width: 95px;
+                height: 185px;
                 border-radius: 12px;
             }
-            .figure {
-                transform: scale(0.5);
-            }
-            .trophy-container {
-                transform: translateX(-50%) translateY(30px) scale(0.55) !important;
+            .intro-box .figure {
+                margin-top: 30px;
             }
             .label-group {
                 bottom: 5px;
@@ -2653,6 +3086,7 @@
         // ==================== AGENT INTRO SYSTEM ====================
         // All agents with their trophy moments, sports, and styling
         const AGENTS = {
+            // ========== NFL PLAYERS ==========
             'tom-brady': {
                 name: 'Tom Brady',
                 role: 'Product Owner',
@@ -2661,126 +3095,11 @@
                 trophyLabel: '7× Super Bowl Champion',
                 jerseyNumber: '12',
                 hair: { color: '#3d2b1f', style: 'short' },
-                jersey: { main: '#c8102e', accent: '#34302f' },
-                shorts: '#34302f',
+                jersey: { main: '#002244', accent: '#c60c30' }, // Patriots navy/red
+                shorts: '#002244',
+                skin: { color: '#e8c4a0', dark: '#d4b08a', light: '#f0d4b8' }, // Light Caucasian
+                build: 'athletic',
                 hasBeard: false
-            },
-            'virat-kohli': {
-                name: 'Virat Kohli',
-                role: 'Cricket Legend',
-                sport: 'cricket',
-                trophy: 'ipl',
-                trophyLabel: 'IPL 2024 Champion',
-                jerseyNumber: '18',
-                hair: { color: '#1a1410', style: 'styled' },
-                jersey: { main: '#1c3f94', accent: '#f7d100' },
-                shorts: '#1c3f94',
-                hasBeard: true,
-                beardColor: '#1a1410'
-            },
-            'jose-mourinho': {
-                name: 'José Mourinho',
-                role: 'Data Science',
-                sport: 'soccer',
-                trophy: 'ucl',
-                trophyLabel: '2× UCL Champion',
-                jerseyNumber: null,
-                hair: { color: '#6b6b6b', style: 'grey' },
-                jersey: { main: '#1a1a2e', accent: '#333' },
-                shorts: null, // Wears coat
-                hasBeard: false,
-                hasCoat: true
-            },
-            'stephen-curry': {
-                name: 'Stephen Curry',
-                role: 'Analytics Lead',
-                sport: 'nba',
-                trophy: 'nba',
-                trophyLabel: '4× NBA Champion',
-                jerseyNumber: '30',
-                hair: { color: '#2a1f15', style: 'short' },
-                jersey: { main: '#1d428a', accent: '#ffc72c' },
-                shorts: '#1d428a',
-                hasBeard: true,
-                beardColor: '#2a1f15'
-            },
-            'lebron-james': {
-                name: 'LeBron James',
-                role: 'Social & Engagement',
-                sport: 'nba',
-                trophy: 'nba',
-                trophyLabel: '4× NBA Champion',
-                jerseyNumber: '23',
-                hair: { color: '#1a1410', style: 'short' },
-                jersey: { main: '#552583', accent: '#fdb927' },
-                shorts: '#552583',
-                hasBeard: true,
-                beardColor: '#1a1410'
-            },
-            'pep-guardiola': {
-                name: 'Pep Guardiola',
-                role: 'Sprint Master',
-                sport: 'soccer',
-                trophy: 'premier-league',
-                trophyLabel: 'Treble Winner 2023',
-                jerseyNumber: null,
-                hair: { color: '#4a4a4a', style: 'bald' },
-                jersey: { main: '#6CABDD', accent: '#1C2C5B' },
-                shorts: '#1C2C5B',
-                hasBeard: true,
-                beardColor: '#4a4a4a',
-                hasCoat: true
-            },
-            'kdb': {
-                name: 'Kevin de Bruyne',
-                role: 'Visualization',
-                sport: 'soccer',
-                trophy: 'premier-league',
-                trophyLabel: 'Premier League Champion',
-                jerseyNumber: '17',
-                hair: { color: '#c9a86c', style: 'blonde' },
-                jersey: { main: '#6CABDD', accent: '#1C2C5B' },
-                shorts: '#1C2C5B',
-                hasBeard: false
-            },
-            'kante': {
-                name: "N'Golo Kanté",
-                role: 'QA Lead',
-                sport: 'soccer',
-                trophy: 'world-cup',
-                trophyLabel: 'World Cup 2018',
-                jerseyNumber: '13',
-                hair: { color: '#0f0a08', style: 'short' },
-                jersey: { main: '#002654', accent: '#ED2939' },
-                shorts: '#002654',
-                hasBeard: false
-            },
-            'florentino': {
-                name: 'Florentino Pérez',
-                role: 'Chief Strategist',
-                sport: 'soccer',
-                trophy: 'ucl',
-                trophyLabel: '6× UCL President',
-                jerseyNumber: null,
-                hair: { color: '#555555', style: 'grey' },
-                jersey: { main: '#1a1a2e', accent: '#333' },
-                shorts: null,
-                hasBeard: false,
-                hasCoat: true,
-                hasSuit: true
-            },
-            'andy-flower': {
-                name: 'Andy Flower',
-                role: 'Cricket Expert',
-                sport: 'cricket',
-                trophy: 'ipl',
-                trophyLabel: 'IPL Champion',
-                jerseyNumber: null,
-                hair: { color: '#3d3d3d', style: 'grey' },
-                jersey: { main: '#003366', accent: '#cc0000' },
-                shorts: '#003366',
-                hasBeard: false,
-                hasCoat: true
             },
             'brock-purdy': {
                 name: 'Brock Purdy',
@@ -2790,9 +3109,181 @@
                 trophyLabel: 'NFC Champion',
                 jerseyNumber: '13',
                 hair: { color: '#2a1f15', style: 'short' },
-                jersey: { main: '#aa0000', accent: '#b3995d' },
+                jersey: { main: '#aa0000', accent: '#b3995d' }, // 49ers red/gold
                 shorts: '#b3995d',
+                skin: { color: '#e8c4a0', dark: '#d4b08a', light: '#f0d4b8' }, // Light Caucasian
+                build: 'athletic',
                 hasBeard: false
+            },
+
+            // ========== NBA PLAYERS ==========
+            'stephen-curry': {
+                name: 'Stephen Curry',
+                role: 'Analytics Lead',
+                sport: 'nba',
+                trophy: 'nba',
+                trophyLabel: '4× NBA Champion',
+                jerseyNumber: '30',
+                hair: { color: '#1a1410', style: 'short' },
+                jersey: { main: '#1d428a', accent: '#ffc72c' }, // Warriors blue/gold
+                shorts: '#1d428a',
+                skin: { color: '#8d6b4a', dark: '#7a5c3e', light: '#9d7b5a' }, // Light brown
+                build: 'athletic',
+                hasBeard: true,
+                beardColor: '#1a1410'
+            },
+            'lebron-james': {
+                name: 'LeBron James',
+                role: 'Social & Engagement',
+                sport: 'nba',
+                trophy: 'nba',
+                trophyLabel: '4× NBA Champion',
+                jerseyNumber: '23',
+                hair: { color: '#1a1410', style: 'short' },
+                jersey: { main: '#552583', accent: '#fdb927' }, // Lakers purple/gold
+                shorts: '#552583',
+                skin: { color: '#5c3d2e', dark: '#4a3022', light: '#6d4a3a' }, // Dark brown
+                build: 'muscular',
+                hasBeard: true,
+                beardColor: '#1a1410'
+            },
+
+            // ========== CRICKET PLAYERS ==========
+            'virat-kohli': {
+                name: 'Virat Kohli',
+                role: 'Cricket Legend',
+                sport: 'cricket',
+                trophy: 'ipl',
+                trophyLabel: 'IPL 2025 Champion',
+                jerseyNumber: '18',
+                hair: { color: '#1a1410', style: 'styled' },
+                jersey: { main: '#ec1c24', accent: '#d4af37' }, // RCB red with gold
+                shorts: '#1a1a1a', // Cricket whites/dark
+                pantsColor: '#1a1a1a',
+                skin: { color: '#a67c52', dark: '#8a6642', light: '#b88c62' }, // Indian brown
+                build: 'athletic',
+                hasBeard: true,
+                beardColor: '#1a1410',
+                hasFullPants: true // Cricket players wear full pants
+            },
+
+            // ========== SOCCER PLAYERS ==========
+            'kdb': {
+                name: 'Kevin de Bruyne',
+                role: 'Visualization',
+                sport: 'soccer',
+                trophy: 'premier-league',
+                trophyLabel: 'Premier League Champion',
+                jerseyNumber: '17',
+                hair: { color: '#c9a86c', style: 'blonde' }, // Ginger-blonde
+                jersey: { main: '#6CABDD', accent: '#1C2C5B' }, // Man City sky blue
+                shorts: '#1C2C5B',
+                skin: { color: '#f0d4b8', dark: '#e0c4a8', light: '#ffe4c8' }, // Fair European
+                build: 'athletic',
+                hasBeard: true,
+                beardColor: '#b8956a'
+            },
+            'kante': {
+                name: "N'Golo Kanté",
+                role: 'QA Lead',
+                sport: 'soccer',
+                trophy: 'world-cup',
+                trophyLabel: 'World Cup 2018',
+                jerseyNumber: '13',
+                hair: { color: '#0f0a08', style: 'short' },
+                jersey: { main: '#002654', accent: '#ED2939' }, // France navy/red
+                shorts: '#002654',
+                skin: { color: '#4a3628', dark: '#3a2618', light: '#5a4638' }, // Dark African
+                build: 'slim', // Kanté is known for being compact
+                hasBeard: false
+            },
+
+            // ========== COACHES/EXECUTIVES - BLACK SUITS WITH TEAM ACCENTS ==========
+            'jose-mourinho': {
+                name: 'José Mourinho',
+                role: 'Data Science',
+                sport: 'soccer',
+                trophy: 'ucl',
+                trophyLabel: '2× UCL Champion',
+                jerseyNumber: null,
+                hair: { color: '#6b6b6b', style: 'grey' },
+                jersey: { main: '#1a1a1a', accent: '#010e80' }, // Black suit base
+                shorts: null,
+                skin: { color: '#d4b08a', dark: '#c4a07a', light: '#e4c09a' }, // Portuguese/Mediterranean olive
+                build: 'athletic',
+                hasBeard: false,
+                hasCoat: false,
+                hasSuit: true,
+                suitColor: '#1a1a1a', // BLACK suit
+                suitDark: '#0f0f0f',
+                suitAccent: '#010e80', // Inter blue accent on lapel
+                tieColor: '#010e80', // Inter blue tie
+                hasScarf: true,
+                scarfColor: '#010e80'
+            },
+            'pep-guardiola': {
+                name: 'Pep Guardiola',
+                role: 'Sprint Master',
+                sport: 'soccer',
+                trophy: 'premier-league',
+                trophyLabel: 'Treble Winner 2023',
+                jerseyNumber: null,
+                hair: { color: '#4a4a4a', style: 'bald' }, // Bald
+                jersey: { main: '#1a1a1a', accent: '#6cabdd' },
+                shorts: null,
+                skin: { color: '#d4b08a', dark: '#c4a07a', light: '#e4c09a' }, // Spanish/Mediterranean olive
+                build: 'slim',
+                hasBeard: true,
+                beardColor: '#4a4a4a',
+                hasCoat: false,
+                hasSuit: true,
+                suitColor: '#1a1a1a', // BLACK suit
+                suitDark: '#0f0f0f',
+                suitAccent: '#6cabdd', // City blue accent
+                tieColor: '#6cabdd', // City blue tie
+                hasScarf: true,
+                scarfColor: '#6cabdd'
+            },
+            'florentino': {
+                name: 'Florentino Pérez',
+                role: 'Chief Strategist',
+                sport: 'soccer',
+                trophy: 'ucl',
+                trophyLabel: '6× UCL President',
+                jerseyNumber: null,
+                hair: { color: '#888888', style: 'grey' }, // Silver grey
+                jersey: { main: '#1a1a1a', accent: '#febe10' },
+                shorts: null,
+                skin: { color: '#e8c4a0', dark: '#d8b490', light: '#f8d4b0' }, // Spanish fair
+                build: 'slim',
+                hasBeard: false,
+                hasCoat: false,
+                hasSuit: true,
+                suitColor: '#1a1a1a', // BLACK suit
+                suitDark: '#0f0f0f',
+                suitAccent: '#febe10', // Real Madrid gold
+                tieColor: '#febe10' // Gold tie
+            },
+            'andy-flower': {
+                name: 'Andy Flower',
+                role: 'Cricket Expert',
+                sport: 'cricket',
+                trophy: 'ipl',
+                trophyLabel: 'IPL 2025 Champion',
+                jerseyNumber: null,
+                hair: { color: '#555555', style: 'grey' },
+                jersey: { main: '#ec1c24', accent: '#000000' },
+                shorts: '#000000',
+                skin: { color: '#e8c4a0', dark: '#d4b08a', light: '#f0d4b8' }, // Zimbabwean-British fair
+                build: 'athletic',
+                hasBeard: false,
+                hasCoat: false,
+                hasTracksuit: true,
+                tracksuitMain: '#ec1c24', // RCB red
+                tracksuitDark: '#c41017',
+                tracksuitAccent: '#d4af37', // Gold trim
+                tracksuitCollar: '#000000',
+                tracksuitShorts: '#000000'
             },
             'brad-stevens': {
                 name: 'Brad Stevens',
@@ -2801,12 +3292,18 @@
                 trophy: 'nba',
                 trophyLabel: 'NBA Executive',
                 jerseyNumber: null,
-                hair: { color: '#3d2b1f', style: 'short' },
-                jersey: { main: '#007A33', accent: '#BA9653' },
+                hair: { color: '#4a3d2f', style: 'short' },
+                jersey: { main: '#1a1a1a', accent: '#007a33' },
                 shorts: null,
+                skin: { color: '#e8c4a0', dark: '#d4b08a', light: '#f0d4b8' }, // Caucasian
+                build: 'slim',
                 hasBeard: false,
-                hasCoat: true,
-                hasSuit: true
+                hasCoat: false,
+                hasSuit: true,
+                suitColor: '#1a1a1a', // BLACK suit
+                suitDark: '#0f0f0f',
+                suitAccent: '#007a33', // Celtics green accent
+                tieColor: '#007a33' // Green tie
             },
             'ime-udoka': {
                 name: 'Ime Udoka',
@@ -2816,12 +3313,18 @@
                 trophyLabel: 'Eastern Conference Finals',
                 jerseyNumber: null,
                 hair: { color: '#0f0a08', style: 'short' },
-                jersey: { main: '#1a1a2e', accent: '#333' },
+                jersey: { main: '#1a1a1a', accent: '#007a33' },
                 shorts: null,
+                skin: { color: '#6d4a3a', dark: '#5d3a2a', light: '#7d5a4a' }, // Nigerian-American brown
+                build: 'athletic',
                 hasBeard: true,
                 beardColor: '#0f0a08',
-                hasCoat: true,
-                hasSuit: true
+                hasCoat: false,
+                hasSuit: true,
+                suitColor: '#1a1a1a', // BLACK suit
+                suitDark: '#0f0f0f',
+                suitAccent: '#007a33', // Celtics green accent
+                tieColor: '#007a33' // Green tie
             }
         };
 
@@ -2889,12 +3392,65 @@
             const trophyHTML = generateTrophyHTML(agent.trophy);
             const athleteHTML = generateAthleteHTML(agent);
 
+            // Playing surface HTML
+            const surfaceHTML = `<div class="playing-surface surface-${agent.sport}" style="--surface-delay: ${delay + 0.5}s;"></div>`;
+
+            // Floodlight towers HTML
+            const floodlightsHTML = `
+                <div class="floodlight-tower tower-left" style="--tower-delay: ${delay + 0.3}s;">
+                    <div class="pole"></div>
+                    <div class="light-housing"></div>
+                    <div class="light-bulb"></div>
+                    <div class="light-bulb"></div>
+                    <div class="light-bulb"></div>
+                    <div class="beam"></div>
+                </div>
+                <div class="floodlight-tower tower-right" style="--tower-delay: ${delay + 0.4}s;">
+                    <div class="pole"></div>
+                    <div class="light-housing"></div>
+                    <div class="light-bulb"></div>
+                    <div class="light-bulb"></div>
+                    <div class="light-bulb"></div>
+                    <div class="beam"></div>
+                </div>
+            `;
+
+            // Build CSS variables for inline style
+            let cssVars = `--delay: ${delay}s; --jersey-main: ${agent.jersey.main}; --jersey-accent: ${agent.jersey.accent}; --shorts-color: ${agent.shorts || agent.jersey.main}; --hair-color: ${agent.hair.color};`;
+
+            // Add skin tone CSS variables
+            if (agent.skin) {
+                cssVars += ` --skin-color: ${agent.skin.color}; --skin-dark: ${agent.skin.dark || adjustColor(agent.skin.color, -15)}; --skin-light: ${agent.skin.light || adjustColor(agent.skin.color, 15)};`;
+            }
+
+            // Add pants color for full pants
+            if (agent.hasFullPants) {
+                cssVars += ` --pants-color: ${agent.pantsColor || agent.shorts || agent.jersey.main};`;
+            }
+
+            // Add suit-specific CSS variables
+            if (agent.hasSuit) {
+                cssVars += ` --suit-color: ${agent.suitColor || agent.jersey.main}; --suit-dark: ${agent.suitDark || adjustColor(agent.suitColor || agent.jersey.main, -20)}; --suit-accent: ${agent.suitAccent || agent.jersey.accent}; --tie-color: ${agent.tieColor || agent.jersey.accent}; --tie-dark: ${adjustColor(agent.tieColor || agent.jersey.accent, -30)};`;
+            }
+
+            // Add tracksuit-specific CSS variables
+            if (agent.hasTracksuit) {
+                cssVars += ` --tracksuit-main: ${agent.tracksuitMain || agent.jersey.main}; --tracksuit-dark: ${agent.tracksuitDark || adjustColor(agent.tracksuitMain || agent.jersey.main, -20)}; --tracksuit-accent: ${agent.tracksuitAccent || '#d4af37'}; --tracksuit-collar: ${agent.tracksuitCollar || '#000000'}; --tracksuit-shorts: ${agent.tracksuitShorts || agent.shorts || '#000000'};`;
+            }
+
+            // Add scarf CSS variable
+            if (agent.hasScarf) {
+                cssVars += ` --scarf-color: ${agent.scarfColor || agent.jersey.accent};`;
+            }
+
             return `
                 <div class="intro-box intro-box-dynamic"
                      data-agent="${key}"
                      data-sport="${agent.sport}"
-                     style="--delay: ${delay}s; --jersey-main: ${agent.jersey.main}; --jersey-accent: ${agent.jersey.accent}; --shorts-color: ${agent.shorts || agent.jersey.main}; --hair-color: ${agent.hair.color};">
+                     style="${cssVars}">
+                    ${floodlightsHTML}
                     ${crowdHTML}
+                    ${surfaceHTML}
                     <div class="figure">
                         <div class="trophy-container">${trophyHTML}</div>
                         ${athleteHTML}
@@ -2933,12 +3489,30 @@
         // Generate athlete HTML
         function generateAthleteHTML(agent) {
             const beardHTML = agent.hasBeard ? `<div class="beard" style="background: ${agent.beardColor || agent.hair.color}"></div>` : '';
-            const coatBottomHTML = agent.hasCoat ? '<div class="coat-bottom"></div>' : '';
             const jerseyNumHTML = agent.jerseyNumber ? `<span class="jersey-number">${agent.jerseyNumber}</span>` : '';
             const shortsHTML = agent.shorts ? '<div class="shorts"></div>' : '';
 
+            // Coat bottom for coat or suit wearers
+            const coatBottomHTML = (agent.hasCoat || agent.hasSuit) ? '<div class="coat-bottom"></div>' : '';
+
+            // Collar and tie for suit wearers
+            const collarHTML = (agent.hasSuit || agent.hasTracksuit) ? '<div class="collar"></div>' : '';
+            const tieHTML = agent.hasSuit ? '<div class="tie"></div>' : '';
+
+            // Scarf for coaches
+            const scarfHTML = agent.hasScarf ? '<div class="scarf"></div>' : '';
+
+            // Build class list
+            const classList = ['athlete'];
+            if (agent.hasCoat) classList.push('has-coat');
+            if (agent.hasSuit) classList.push('has-suit');
+            if (agent.hasTracksuit) classList.push('has-tracksuit');
+            if (agent.hasFullPants) classList.push('has-full-pants');
+            if (agent.hasScarf) classList.push('has-scarf');
+            if (agent.build) classList.push(`build-${agent.build}`); // muscular, athletic, slim
+
             return `
-                <div class="athlete ${agent.hasCoat ? 'has-coat' : ''} ${agent.hasSuit ? 'has-suit' : ''}">
+                <div class="${classList.join(' ')}">
                     <div class="hair" style="background: linear-gradient(180deg, ${agent.hair.color} 0%, ${adjustColor(agent.hair.color, -20)} 100%);"></div>
                     <div class="head">
                         <div class="ear ear-left"></div>
@@ -2946,8 +3520,11 @@
                         ${beardHTML}
                     </div>
                     <div class="neck"></div>
+                    ${scarfHTML}
                     <div class="shoulder shoulder-left"></div>
                     <div class="shoulder shoulder-right"></div>
+                    ${collarHTML}
+                    ${tieHTML}
                     <div class="torso"></div>
                     ${jerseyNumHTML}
                     ${shortsHTML}

@@ -2,7 +2,7 @@
 
 Python scripts organized by purpose.
 
-**Version:** 4.0.0 | **Last Updated:** 2026-02-04
+**Version:** 4.1.0 | **Last Updated:** 2026-02-05
 
 ---
 
@@ -17,6 +17,14 @@ scripts/
 │   ├── ingest.py           # Load Cricsheet data into DuckDB
 │   ├── analytics_ipl.py    # Create 35 analytics views
 │   └── validate_schema.py  # Run 33 schema validation checks
+│
+├── the_lab/                # The Lab Dashboard data pipeline
+│   ├── update_the_lab.py   # Regenerate JS data files for dashboard
+│   └── dashboard/          # Static dashboard (GitHub Pages)
+│       ├── index.html      # Home page
+│       ├── teams.html      # Team analysis with depth charts
+│       ├── analysis.html   # League-wide analysis
+│       └── data/           # Generated JS data files
 │
 ├── generators/             # Output file generators
 │   ├── generate_stat_packs.py      # Generate all 10 team stat packs
@@ -199,6 +207,34 @@ See `.mission-control/README.md` for full CLI documentation.
 
 ---
 
+## The Lab (`the_lab/`)
+
+Interactive analytics dashboard for showcasing IPL 2026 pre-season insights.
+
+**Live Dashboard:** [https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/)
+
+| Component | Description |
+|-----------|-------------|
+| `update_the_lab.py` | Data pipeline script - regenerates JS data files from JSON outputs |
+| `dashboard/index.html` | Home page with team grid and quick stats |
+| `dashboard/teams.html` | Team analysis with predicted XIs, depth charts, squad roster |
+| `dashboard/analysis.html` | League-wide analysis and trends |
+| `dashboard/data/` | Auto-generated JavaScript data files |
+
+### Key Features (v4.1)
+- **Squad Search & Filters** - Search players, filter by role/nationality/age
+- **Team Comparison View** - Side-by-side metrics comparison
+- **Inline Depth Charts** - Full position-by-position breakdown
+- **CSV Export** - Download squad data for offline analysis
+- **Phil Steele Style Roster** - Compact squad overview
+
+```bash
+# Regenerate dashboard data from outputs
+python scripts/the_lab/update_the_lab.py
+```
+
+---
+
 ## Script Owners
 
 | Script Category | Owner |
@@ -207,8 +243,9 @@ See `.mission-control/README.md` for full CLI documentation.
 | generators/ | Stephen Curry |
 | analysis/ | Stephen Curry |
 | utils/ | Ime Udoka |
+| the_lab/ | Kevin de Bruyne (visualization), Stephen Curry (data) |
 | mission_control/ | Tom Brady (ownership), Brad Stevens (architecture) |
 
 ---
 
-*Cricket Playbook v4.0.0*
+*Cricket Playbook v4.1.0*

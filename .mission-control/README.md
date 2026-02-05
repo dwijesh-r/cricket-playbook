@@ -234,6 +234,13 @@ python -m pytest tests/test_mission_control.py -v -k "test_create"
 
 ## 🔮 What's Next? (Phase 5+)
 
+### ✅ Recently Shipped (v4.1)
+- [x] **Web dashboard** - Static HTML dashboard with GitHub Pages
+- [x] **Time tracking** - Per-ticket duration badges (⏱️) and sprint velocity stats
+- [x] **Search & filter** - Filter tickets by ID, title, assignee, tags
+- [x] **Mobile responsive** - Hamburger menu and stacked filters on mobile
+- [x] **Sprint stats** - Avg Days/Ticket and Total Iterations metrics
+
 ### Immediate Enhancements
 - [ ] **Slack/Discord notifications** on state changes
 - [ ] **Auto-assignment** based on agent capacity
@@ -241,9 +248,7 @@ python -m pytest tests/test_mission_control.py -v -k "test_create"
 - [ ] **PRD migration** from existing docs
 
 ### Future Features
-- [ ] **Web dashboard** (Flask/FastAPI)
 - [ ] **GitHub integration** for auto-linking PRs
-- [ ] **Time tracking** for velocity prediction
 - [ ] **Agent performance analytics**
 
 ### Integration Ideas
@@ -348,5 +353,5 @@ Now go ship something. 🚀
 
 ---
 
-*Built with ❤️ for Cricket Playbook | v0.1.0*
+*Built with ❤️ for Cricket Playbook | v4.1.0*
 *Design Spec: governance/MISSION_CONTROL_DESIGN_020426_v1.md*

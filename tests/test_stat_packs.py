@@ -387,20 +387,20 @@ class TestV2ClusteringAndFounderReview3Fixes:
         df = pd.read_csv(self.BATTER_BOWLING_TYPE_MATCHUP_CSV)
 
         # Check for average columns
-        assert (
-            "pace_avg" in df.columns
-        ), "batter_bowling_type_matchup.csv should have pace_avg column"
-        assert (
-            "spin_avg" in df.columns
-        ), "batter_bowling_type_matchup.csv should have spin_avg column"
+        assert "pace_avg" in df.columns, (
+            "batter_bowling_type_matchup.csv should have pace_avg column"
+        )
+        assert "spin_avg" in df.columns, (
+            "batter_bowling_type_matchup.csv should have spin_avg column"
+        )
 
         # Check for dismissals columns (needed to compute balls_per_dismissal)
-        assert (
-            "pace_dismissals" in df.columns
-        ), "batter_bowling_type_matchup.csv should have pace_dismissals column"
-        assert (
-            "spin_dismissals" in df.columns
-        ), "batter_bowling_type_matchup.csv should have spin_dismissals column"
+        assert "pace_dismissals" in df.columns, (
+            "batter_bowling_type_matchup.csv should have pace_dismissals column"
+        )
+        assert "spin_dismissals" in df.columns, (
+            "batter_bowling_type_matchup.csv should have spin_dismissals column"
+        )
 
     def test_batter_detail_has_required_columns(self):
         """
@@ -445,9 +445,9 @@ class TestV2ClusteringAndFounderReview3Fixes:
         df = pd.read_csv(self.BOWLER_PHASE_PERF_CSV)
 
         # Check phase_tags column exists
-        assert (
-            "phase_tags" in df.columns
-        ), "bowler_phase_performance.csv should have phase_tags column"
+        assert "phase_tags" in df.columns, (
+            "bowler_phase_performance.csv should have phase_tags column"
+        )
 
         # Concatenate all tags to check for presence
         all_tags = df["phase_tags"].dropna().str.cat(sep=", ")
@@ -456,9 +456,9 @@ class TestV2ClusteringAndFounderReview3Fixes:
         expected_tags = ["PP_BEAST", "PP_LIABILITY", "DEATH_BEAST", "DEATH_LIABILITY"]
         found_tags = [tag for tag in expected_tags if tag in all_tags]
 
-        assert (
-            len(found_tags) >= 3
-        ), f"Expected at least 3 of {expected_tags} in phase_tags, but only found: {found_tags}"
+        assert len(found_tags) >= 3, (
+            f"Expected at least 3 of {expected_tags} in phase_tags, but only found: {found_tags}"
+        )
 
     def test_bowler_phase_performance_csv_structure(self):
         """
@@ -567,9 +567,9 @@ class TestV2ClusteringAndFounderReview3Fixes:
         actual_categories = set(df["role_category"].dropna().unique())
         invalid = actual_categories - valid_categories
 
-        assert (
-            len(invalid) == 0
-        ), f"Found invalid role categories: {invalid}. Valid categories are: {valid_categories}"
+        assert len(invalid) == 0, (
+            f"Found invalid role categories: {invalid}. Valid categories are: {valid_categories}"
+        )
 
     def test_pp_and_death_specialist_exists(self):
         """

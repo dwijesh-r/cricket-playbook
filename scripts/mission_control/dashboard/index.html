@@ -78,9 +78,9 @@
         .bg-gradient {
             position: fixed;
             inset: 0;
-            z-index: -3;
+            z-index: -4;
             background:
-                linear-gradient(135deg, var(--bg-primary) 0%, #0a0a0f 50%, #0d1117 100%);
+                linear-gradient(135deg, #000000 0%, #0a0a12 25%, #0d1020 50%, #0a0a15 75%, #000000 100%);
         }
 
         [data-theme="light"] .bg-gradient {
@@ -96,8 +96,9 @@
             right: -10%;
             width: 60%;
             height: 60%;
-            background: radial-gradient(ellipse, rgba(10, 132, 255, 0.15) 0%, transparent 70%);
-            filter: blur(60px);
+            background: radial-gradient(ellipse, rgba(10, 132, 255, 0.18) 0%, transparent 70%);
+            filter: blur(80px);
+            animation: pulse-glow 8s ease-in-out infinite;
         }
 
         /* Accent glow - bottom corner */
@@ -108,16 +109,38 @@
             left: -10%;
             width: 50%;
             height: 50%;
-            background: radial-gradient(ellipse, rgba(191, 90, 242, 0.1) 0%, transparent 70%);
-            filter: blur(60px);
+            background: radial-gradient(ellipse, rgba(191, 90, 242, 0.12) 0%, transparent 70%);
+            filter: blur(80px);
+            animation: pulse-glow 8s ease-in-out infinite 4s;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
         }
 
         [data-theme="light"] .bg-gradient::before {
-            background: radial-gradient(ellipse, rgba(0, 100, 200, 0.08) 0%, transparent 70%);
+            background: radial-gradient(ellipse, rgba(0, 100, 200, 0.1) 0%, transparent 70%);
         }
 
         [data-theme="light"] .bg-gradient::after {
-            background: radial-gradient(ellipse, rgba(120, 80, 200, 0.06) 0%, transparent 70%);
+            background: radial-gradient(ellipse, rgba(120, 80, 200, 0.08) 0%, transparent 70%);
+        }
+
+        /* Cricket Icons Pattern Layer */
+        .cricket-icons {
+            position: fixed;
+            inset: 0;
+            z-index: -3;
+            opacity: 0.025;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3C!-- Cricket Ball --%3E%3Ccircle cx='30' cy='30' r='12' fill='none' stroke='%23ffffff' stroke-width='1.5'/%3E%3Cpath d='M22 24 Q30 30 22 36' fill='none' stroke='%23ffffff' stroke-width='1'/%3E%3Cpath d='M38 24 Q30 30 38 36' fill='none' stroke='%23ffffff' stroke-width='1'/%3E%3C!-- Cricket Bat --%3E%3Crect x='140' y='20' width='8' height='35' rx='2' fill='%23ffffff' opacity='0.8'/%3E%3Crect x='141' y='55' width='6' height='15' rx='1' fill='%23ffffff' opacity='0.6'/%3E%3C!-- Stumps --%3E%3Crect x='85' y='130' width='3' height='40' fill='%23ffffff'/%3E%3Crect x='92' y='130' width='3' height='40' fill='%23ffffff'/%3E%3Crect x='99' y='130' width='3' height='40' fill='%23ffffff'/%3E%3Crect x='83' y='128' width='22' height='3' rx='1' fill='%23ffffff'/%3E%3Crect x='83' y='135' width='22' height='3' rx='1' fill='%23ffffff'/%3E%3C!-- Six/Four marker --%3E%3Ctext x='160' y='150' font-family='Arial' font-size='24' font-weight='bold' fill='%23ffffff' opacity='0.5'%3E6%3C/text%3E%3C!-- Trophy --%3E%3Cpath d='M30 100 L30 115 L25 120 L35 120 L30 115' fill='none' stroke='%23ffffff' stroke-width='1.5'/%3E%3Cellipse cx='30' cy='95' rx='10' ry='6' fill='none' stroke='%23ffffff' stroke-width='1.5'/%3E%3Cpath d='M20 95 Q15 100 20 105' fill='none' stroke='%23ffffff' stroke-width='1'/%3E%3Cpath d='M40 95 Q45 100 40 105' fill='none' stroke='%23ffffff' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 200px 200px;
+        }
+
+        [data-theme="light"] .cricket-icons {
+            opacity: 0.04;
+            filter: invert(1);
         }
 
         /* Sharp geometric grid */
@@ -126,15 +149,15 @@
             inset: 0;
             z-index: -2;
             background-image:
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 48px 48px;
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
         }
 
         [data-theme="light"] .bg-grid {
             background-image:
-                linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+                linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
         }
 
         /* Diagonal accent lines */
@@ -158,13 +181,14 @@
             background: linear-gradient(90deg, transparent, rgba(0, 100, 200, 0.2), transparent);
         }
 
-        /* Corner accent brackets */
+        /* Corner accent brackets - larger and bolder */
         .corner-accent {
             position: absolute;
-            width: 80px;
-            height: 80px;
-            border: 2px solid rgba(255, 255, 255, 0.06);
+            width: 100px;
+            height: 100px;
+            border: 2px solid rgba(10, 132, 255, 0.15);
             pointer-events: none;
+            transition: border-color 0.5s ease;
         }
 
         .corner-accent.top-left {
@@ -196,7 +220,78 @@
         }
 
         [data-theme="light"] .corner-accent {
-            border-color: rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 100, 200, 0.1);
+        }
+
+        /* Floating cricket ball decoration */
+        .floating-ball {
+            position: fixed;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(220, 50, 50, 0.08), rgba(139, 0, 0, 0.04));
+            border: 1px solid rgba(220, 50, 50, 0.1);
+            z-index: -1;
+            pointer-events: none;
+            animation: float-ball 20s ease-in-out infinite;
+        }
+
+        .floating-ball::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            transform: translateY(-50%) rotate(-20deg);
+        }
+
+        .floating-ball.ball-1 {
+            bottom: 10%;
+            right: 5%;
+            animation-delay: 0s;
+        }
+
+        .floating-ball.ball-2 {
+            top: 20%;
+            left: 3%;
+            width: 100px;
+            height: 100px;
+            animation-delay: -10s;
+            opacity: 0.6;
+        }
+
+        @keyframes float-ball {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(20px) rotate(-5deg); }
+        }
+
+        [data-theme="light"] .floating-ball {
+            background: radial-gradient(circle at 30% 30%, rgba(200, 30, 30, 0.06), rgba(139, 0, 0, 0.03));
+            border-color: rgba(200, 30, 30, 0.08);
+        }
+
+        /* "MISSION CONTROL" watermark */
+        .bg-watermark {
+            position: fixed;
+            bottom: 5%;
+            right: -5%;
+            font-size: 180px;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            color: rgba(255, 255, 255, 0.015);
+            z-index: -1;
+            pointer-events: none;
+            transform: rotate(-5deg);
+            white-space: nowrap;
+            user-select: none;
+        }
+
+        [data-theme="light"] .bg-watermark {
+            color: rgba(0, 0, 0, 0.02);
         }
 
         /* Subtle dot pattern overlay */
@@ -623,6 +718,54 @@
         }
 
         .filter-btn.active::before { opacity: 1; }
+
+        /* Filter Dropdowns (Priority, Effort) */
+        .filter-dropdown {
+            position: relative;
+        }
+
+        .filter-dropdown-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin-top: 8px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 8px;
+            min-width: 240px;
+            display: none;
+            z-index: 50;
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+
+        .filter-dropdown-menu.active { display: block; }
+
+        .filter-option {
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .filter-option:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        .filter-option.selected {
+            background: rgba(10, 132, 255, 0.15);
+            color: var(--accent);
+        }
 
         /* Agent filter dropdown */
         .agent-filter {
@@ -1863,8 +2006,12 @@
 <body>
     <!-- Sports-themed background -->
     <div class="bg-gradient"></div>
+    <div class="cricket-icons"></div>
     <div class="bg-grid"></div>
     <div class="sports-bg" id="sportsBg"></div>
+    <div class="floating-ball ball-1"></div>
+    <div class="floating-ball ball-2"></div>
+    <div class="bg-watermark">MISSION CONTROL</div>
 
     <!-- Navigation -->
     <nav class="nav">
@@ -1920,25 +2067,41 @@
                 <div class="board-header">
                     <h2 class="board-title">Kanban Board</h2>
                     <div class="board-filters">
-                        <!-- Priority Filters -->
-                        <button class="filter-btn active" data-filter="all">All</button>
-                        <button class="filter-btn" data-filter="p0">🔴 P0</button>
-                        <button class="filter-btn" data-filter="p1">🟠 P1</button>
-                        <button class="filter-btn" data-filter="p2">🟡 P2</button>
-                        <button class="filter-btn" data-filter="p3">🟢 P3</button>
+                        <!-- All Tickets Button -->
+                        <button class="filter-btn active" data-filter="all" onclick="resetFilters()">📋 All Tickets</button>
 
-                        <!-- Effort Filters -->
-                        <div class="filter-separator"></div>
-                        <button class="filter-btn" data-filter="quick-win">⚡ Quick Win</button>
-                        <button class="filter-btn" data-filter="hustle">🏃 Hustle</button>
-                        <button class="filter-btn" data-filter="deep-work">🧠 Deep Work</button>
-                        <button class="filter-btn" data-filter="marathon">🏔️ Marathon</button>
+                        <!-- Priority Dropdown -->
+                        <div class="filter-dropdown">
+                            <button class="filter-btn filter-dropdown-btn" onclick="toggleDropdown('priorityDropdown')">
+                                <span id="priorityFilterLabel">🎯 Priority</span> ▾
+                            </button>
+                            <div class="filter-dropdown-menu" id="priorityDropdown">
+                                <div class="filter-option" data-filter="all" onclick="setPriorityFilter('all')">All Priorities</div>
+                                <div class="filter-option" data-filter="p0" onclick="setPriorityFilter('p0')">🔴 P0 — Drop Everything</div>
+                                <div class="filter-option" data-filter="p1" onclick="setPriorityFilter('p1')">🟠 P1 — This Sprint</div>
+                                <div class="filter-option" data-filter="p2" onclick="setPriorityFilter('p2')">🟡 P2 — Next Sprint</div>
+                                <div class="filter-option" data-filter="p3" onclick="setPriorityFilter('p3')">🟢 P3 — Nice to Have</div>
+                            </div>
+                        </div>
+
+                        <!-- Effort Dropdown -->
+                        <div class="filter-dropdown">
+                            <button class="filter-btn filter-dropdown-btn" onclick="toggleDropdown('effortDropdown')">
+                                <span id="effortFilterLabel">💪 Effort</span> ▾
+                            </button>
+                            <div class="filter-dropdown-menu" id="effortDropdown">
+                                <div class="filter-option" data-filter="all" onclick="setEffortFilter('all')">All Effort Levels</div>
+                                <div class="filter-option" data-filter="quick-win" onclick="setEffortFilter('quick-win')">⚡ Quick Win — Under 1 day</div>
+                                <div class="filter-option" data-filter="hustle" onclick="setEffortFilter('hustle')">🏃 Hustle — 1-2 days</div>
+                                <div class="filter-option" data-filter="deep-work" onclick="setEffortFilter('deep-work')">🧠 Deep Work — 3-5 days</div>
+                                <div class="filter-option" data-filter="marathon" onclick="setEffortFilter('marathon')">🏔️ Marathon — 5+ days</div>
+                            </div>
+                        </div>
 
                         <!-- Agent Filter -->
-                        <div class="filter-separator"></div>
                         <div class="agent-filter">
                             <button class="filter-btn agent-filter-btn" onclick="toggleAgentDropdown()">
-                                <span id="agentFilterLabel">All Agents</span> ▾
+                                <span id="agentFilterLabel">👥 All Agents</span> ▾
                             </button>
                             <div class="agent-dropdown" id="agentDropdown"></div>
                         </div>
@@ -2467,6 +2630,63 @@
                 <rect x="28" y="46" width="8" height="14" fill="#CE1141"/>
             </svg>`,
 
+            // The Founder - Godfather-style avatar
+            'The Founder': `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                <!-- Dark dramatic background -->
+                <rect width="64" height="64" rx="8" fill="#0a0a0a"/>
+                <!-- Vignette effect -->
+                <defs>
+                    <radialGradient id="vignette" cx="50%" cy="40%" r="60%">
+                        <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+                    </radialGradient>
+                </defs>
+                <rect width="64" height="64" rx="8" fill="url(#vignette)"/>
+                <!-- Hair - slicked back -->
+                <rect x="16" y="8" width="32" height="8" fill="#1a1a1a"/>
+                <rect x="12" y="12" width="8" height="4" fill="#1a1a1a"/>
+                <rect x="44" y="12" width="8" height="4" fill="#1a1a1a"/>
+                <!-- Face - shadowed, serious -->
+                <rect x="16" y="16" width="32" height="20" fill="#d4a574"/>
+                <rect x="12" y="20" width="4" height="8" fill="#c49464"/>
+                <rect x="48" y="20" width="4" height="8" fill="#c49464"/>
+                <!-- Eyebrows - heavy, serious -->
+                <rect x="18" y="18" width="10" height="3" fill="#1a1a1a"/>
+                <rect x="36" y="18" width="10" height="3" fill="#1a1a1a"/>
+                <!-- Eyes - deep set, intense -->
+                <rect x="20" y="22" width="8" height="4" fill="#000000"/>
+                <rect x="36" y="22" width="8" height="4" fill="#000000"/>
+                <rect x="22" y="22" width="4" height="4" fill="#1c1c1c"/>
+                <rect x="38" y="22" width="4" height="4" fill="#1c1c1c"/>
+                <!-- Nose - strong -->
+                <rect x="28" y="26" width="8" height="6" fill="#c49464"/>
+                <!-- Mouth - thin, decisive -->
+                <rect x="24" y="32" width="16" height="2" fill="#8b6040"/>
+                <!-- Chin shadow -->
+                <rect x="20" y="34" width="24" height="4" fill="#b08050"/>
+                <!-- Suit - expensive black -->
+                <rect x="8" y="40" width="48" height="24" fill="#0a0a0a"/>
+                <!-- White collar -->
+                <rect x="24" y="40" width="4" height="10" fill="#f5f5f5"/>
+                <rect x="36" y="40" width="4" height="10" fill="#f5f5f5"/>
+                <!-- Black tie -->
+                <rect x="28" y="40" width="8" height="20" fill="#1a1a1a"/>
+                <rect x="30" y="40" width="4" height="4" fill="#2a2a2a"/>
+                <!-- Lapels -->
+                <rect x="12" y="40" width="12" height="4" fill="#1a1a1a"/>
+                <rect x="40" y="40" width="12" height="4" fill="#1a1a1a"/>
+                <!-- Suit shoulders -->
+                <rect x="8" y="40" width="8" height="16" fill="#0a0a0a"/>
+                <rect x="48" y="40" width="8" height="16" fill="#0a0a0a"/>
+                <!-- Red rose on lapel - signature -->
+                <circle cx="16" cy="48" r="4" fill="#8b0000"/>
+                <circle cx="15" cy="47" r="2" fill="#c41e3a"/>
+                <rect x="15" y="52" width="2" height="4" fill="#2d5016"/>
+                <!-- Gold ring - power symbol -->
+                <rect x="44" y="56" width="6" height="4" fill="#ffd700"/>
+                <rect x="45" y="57" width="4" height="2" fill="#b8860b"/>
+            </svg>`,
+
             'Unassigned': `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                 <!-- BG: Gray -->
                 <rect width="64" height="64" rx="8" fill="#3a3a3c"/>
@@ -2630,33 +2850,33 @@
             {
                 id: 'TKT-003', title: 'Agent Caricature Avatar System',
                 state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'LeBron James', epic: 'EPIC-001', progress: 100,
-                prd: null, output: 'scripts/mission_control/dashboard/avatars.js',
+                prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: 'scripts/mission_control/dashboard/',
                 gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
                 tags: ['Design', 'Assets'], daysSpent: 1, iterations: 2,
                 context: {
                     ask: 'Design 8-bit pixel avatars for all 12 agents',
                     goal: 'Each agent instantly recognizable by team colors and features',
-                    reason: 'Founder directive: "Agents need visual identity for dashboard"',
+                    reason: 'PRD §8.2: "Agent roster view with visual identifiers"',
                     audible: 'Review agents → Pixel art style → Team colors → Jersey numbers → Polish'
                 }
             },
             {
                 id: 'TKT-004', title: 'Predicted XII Algorithm v3.1 Refinement',
                 state: 'REVIEW', priority: 'P1', effort: 'marathon', assignee: 'Jose Mourinho', epic: 'EPIC-002', progress: 90,
-                prd: 'docs/specs/ALGORITHM_SPEC.md', output: 'outputs/predicted_xis/',
+                prd: 'docs/PRD_CRICKET_PLAYBOOK.md', output: 'outputs/predicted_xii/',
                 gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS' },
                 tags: ['Algorithm', 'Data'], daysSpent: 5, iterations: 4,
                 context: {
                     ask: 'Refine predicted XI model with updated squad and form data',
                     goal: 'Reduce prediction misses on openers and death bowlers',
-                    reason: 'Florentino Gate: "Predicted XI is core paid artifact" — Constitution §3',
+                    reason: 'PRD §4.1: "Predicted XII is core paid artifact" — Constitution §3',
                     audible: 'Audit misses → Update features → Retrain → Backtest → Domain review'
                 }
             },
             {
                 id: 'TKT-005', title: 'Depth Chart Export to PDF/PNG',
                 state: 'BACKLOG', priority: 'P2', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-002', progress: 0,
-                prd: 'docs/specs/WIREFRAMES_V1.md', output: null,
+                prd: 'docs/specs/WIREFRAMES_V1.md', output: 'outputs/depth_charts/',
                 gates: { florentino_gate: 'APPROVED' },
                 tags: ['Export', 'Sharing'], daysSpent: 0, iterations: 0,
                 context: {
@@ -2669,7 +2889,7 @@
             {
                 id: 'TKT-006', title: 'Player ID Mismatch - MI vs LSG Trade',
                 state: 'BLOCKED', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-003', progress: 30,
-                prd: null, output: null,
+                prd: 'analysis/player_id_audit_report.md', output: 'data/',
                 gates: { florentino_gate: 'APPROVED' },
                 tags: ['Bug', 'Data'], daysSpent: 2, iterations: 1,
                 context: {
@@ -2682,7 +2902,7 @@
             {
                 id: 'TKT-007', title: 'Sprint Velocity Dashboard Widget',
                 state: 'VALIDATION', priority: 'P1', effort: 'hustle', assignee: 'Tom Brady', epic: 'EPIC-001', progress: 95,
-                prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: 'scripts/mission_control/views/',
+                prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: 'scripts/mission_control/',
                 gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
                 tags: ['Analytics', 'Dashboard'], daysSpent: 2, iterations: 2,
                 context: {
@@ -2695,7 +2915,7 @@
             {
                 id: 'TKT-008', title: 'Role Permission Matrix Implementation',
                 state: 'READY', priority: 'P2', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-001', progress: 0,
-                prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: null,
+                prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: 'scripts/mission_control/workflow/',
                 gates: { florentino_gate: 'APPROVED' },
                 tags: ['Security', 'Backend'], daysSpent: 0, iterations: 0,
                 context: {
@@ -2708,12 +2928,13 @@
             {
                 id: 'TKT-009', title: 'New IPL 2026 Season Data Pipeline',
                 state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: null, epic: null, progress: 0,
-                prd: null, output: null, gates: {},
+                prd: 'docs/PRD_CRICKET_PLAYBOOK.md', output: 'scripts/core/',
+                gates: {},
                 tags: ['Data', 'Pipeline'], daysSpent: 0, iterations: 0,
                 context: {
                     ask: 'Set up Cricsheet ingestion for IPL 2026 season',
                     goal: 'Normalized fact_ball and dimension tables ready pre-season',
-                    reason: 'Founder directive: "All analytics depend on clean data foundation"',
+                    reason: 'PRD §2: "Data pipeline architecture" — foundational requirement',
                     audible: 'Cricsheet source → Schema design → Ingestion script → QA cert'
                 }
             }
@@ -2721,6 +2942,110 @@
 
         let activeFilter = 'all';
         let activeAgentFilter = null;
+        let activePriorityFilter = 'all';
+        let activeEffortFilter = 'all';
+
+        // Dropdown toggle function
+        function toggleDropdown(dropdownId) {
+            const dropdown = document.getElementById(dropdownId);
+            const allDropdowns = document.querySelectorAll('.filter-dropdown-menu');
+
+            // Close all other dropdowns first
+            allDropdowns.forEach(d => {
+                if (d.id !== dropdownId) d.classList.remove('active');
+            });
+
+            dropdown.classList.toggle('active');
+        }
+
+        // Priority filter function
+        function setPriorityFilter(filter) {
+            activePriorityFilter = filter;
+
+            // Update active filter for board rendering
+            if (filter === 'all' && activeEffortFilter === 'all') {
+                activeFilter = 'all';
+            } else if (filter !== 'all') {
+                activeFilter = filter;
+            } else {
+                activeFilter = activeEffortFilter;
+            }
+
+            // Update label
+            const label = document.getElementById('priorityFilterLabel');
+            const labels = {
+                'all': '🎯 Priority',
+                'p0': '🔴 P0',
+                'p1': '🟠 P1',
+                'p2': '🟡 P2',
+                'p3': '🟢 P3'
+            };
+            label.textContent = labels[filter] || '🎯 Priority';
+
+            // Close dropdown
+            document.getElementById('priorityDropdown').classList.remove('active');
+
+            // Update button states
+            updateFilterButtons();
+            renderBoard();
+        }
+
+        // Effort filter function
+        function setEffortFilter(filter) {
+            activeEffortFilter = filter;
+
+            // Update active filter for board rendering
+            if (filter === 'all' && activePriorityFilter === 'all') {
+                activeFilter = 'all';
+            } else if (filter !== 'all') {
+                activeFilter = filter;
+            } else {
+                activeFilter = activePriorityFilter;
+            }
+
+            // Update label
+            const label = document.getElementById('effortFilterLabel');
+            const labels = {
+                'all': '💪 Effort',
+                'quick-win': '⚡ Quick Win',
+                'hustle': '🏃 Hustle',
+                'deep-work': '🧠 Deep Work',
+                'marathon': '🏔️ Marathon'
+            };
+            label.textContent = labels[filter] || '💪 Effort';
+
+            // Close dropdown
+            document.getElementById('effortDropdown').classList.remove('active');
+
+            // Update button states
+            updateFilterButtons();
+            renderBoard();
+        }
+
+        // Update "All Tickets" button state
+        function updateFilterButtons() {
+            const allBtn = document.querySelector('[data-filter="all"]');
+            if (activePriorityFilter === 'all' && activeEffortFilter === 'all' && !activeAgentFilter) {
+                allBtn.classList.add('active');
+            } else {
+                allBtn.classList.remove('active');
+            }
+        }
+
+        // Reset all filters
+        function resetFilters() {
+            activePriorityFilter = 'all';
+            activeEffortFilter = 'all';
+            activeFilter = 'all';
+            activeAgentFilter = null;
+
+            document.getElementById('priorityFilterLabel').textContent = '🎯 Priority';
+            document.getElementById('effortFilterLabel').textContent = '💪 Effort';
+            document.getElementById('agentFilterLabel').textContent = '👥 All Agents';
+
+            updateFilterButtons();
+            renderBoard();
+        }
 
         function getAgentInfo(name) {
             return agents[name] || { role: 'Unassigned', team: '' };
@@ -2792,12 +3117,18 @@
             activeAgentFilter = agentName;
             document.getElementById('agentFilterLabel').textContent = agentName ? agentName.split(' ')[0] : 'All Agents';
             document.getElementById('agentDropdown').classList.remove('active');
+            updateFilterButtons();
             renderBoard();
         }
 
         document.addEventListener('click', (e) => {
+            // Close agent dropdown
             if (!e.target.closest('.agent-filter')) {
                 document.getElementById('agentDropdown').classList.remove('active');
+            }
+            // Close priority and effort dropdowns
+            if (!e.target.closest('.filter-dropdown')) {
+                document.querySelectorAll('.filter-dropdown-menu').forEach(d => d.classList.remove('active'));
             }
         });
 

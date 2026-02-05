@@ -540,6 +540,19 @@
             align-items: center;
             justify-content: center;
             font-size: 24px;
+            image-rendering: pixelated;
+            overflow: hidden;
+        }
+
+        .team-icon svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Pixelated logo effect */
+        .pixel-logo {
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
         }
 
         .team-info h3 {
@@ -814,6 +827,100 @@
         document.documentElement.setAttribute('data-theme', savedTheme);
         document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
 
+        // Pixelated Team Logos (8x8 grid style)
+        const TEAM_PIXEL_LOGOS = {
+            MI: `<svg viewBox="0 0 8 8" class="pixel-logo">
+                <rect fill="#004ba0" width="8" height="8"/>
+                <rect fill="#d4af37" x="2" y="1" width="1" height="5"/>
+                <rect fill="#d4af37" x="5" y="1" width="1" height="5"/>
+                <rect fill="#d4af37" x="3" y="2" width="1" height="1"/>
+                <rect fill="#d4af37" x="4" y="3" width="1" height="1"/>
+                <rect fill="#d4af37" x="3" y="4" width="1" height="1"/>
+            </svg>`,
+            CSK: `<svg viewBox="0 0 8 8" class="pixel-logo">
+                <rect fill="#ffc20e" width="8" height="8"/>
+                <rect fill="#0081e9" x="3" y="1" width="2" height="2"/>
+                <rect fill="#0081e9" x="2" y="3" width="4" height="1"/>
+                <rect fill="#0081e9" x="2" y="4" width="1" height="2"/>
+                <rect fill="#0081e9" x="5" y="4" width="1" height="2"/>
+                <rect fill="#0081e9" x="3" y="6" width="2" height="1"/>
+            </svg>`,
+            RCB: `<svg viewBox="0 0 8 8" class="pixel-logo">
+                <rect fill="#d4213d" width="8" height="8"/>
+                <rect fill="#000000" x="3" y="1" width="2" height="2"/>
+                <rect fill="#d4af37" x="2" y="3" width="4" height="1"/>
+                <rect fill="#d4af37" x="1" y="4" width="2" height="2"/>
+                <rect fill="#d4af37" x="5" y="4" width="2" height="2"/>
+                <rect fill="#000000" x="3" y="5" width="2" height="2"/>
+            </svg>`,
+            KKR: `<svg viewBox="0 0 8 8" class="pixel-logo">
+                <rect fill="#3a225d" width="8" height="8"/>
+                <rect fill="#d4af37" x="3" y="0" width="2" height="2"/>
+                <rect fill="#d4af37" x="2" y="2" width="4" height="1"/>
+                <rect fill="#d4af37" x="2" y="3" width="1" height="3"/>
+                <rect fill="#d4af37" x="5" y="3" width="1" height="3"/>
+                <rect fill="#d4af37" x="3" y="4" width="2" height="1"/>
+                <rect fill="#d4af37" x="3" y="6" width="2" height="2"/>
+            </svg>`,
+            DC: `<svg viewBox="0 0 8 8" class="pixel-logo">
+                <rect fill="#0078bc" width="8" height="8"/>
+                <rect fill="#ef1b23" x="2" y="1" width="4" height="1"/>
+                <rect fill="#ef1b23" x="1" y="2" width="2" height="2"/>
+                <rect fill="#ef1b23" x="5" y="2" width="2" height="2"/>
+                <rect fill="#ffffff" x="3" y="2" width="2" height="3"/>
+                <rect fill="#ef1b23" x="2" y="5" width="4" height="2"/>
+            </svg>`,
+            PBKS: `<svg viewBox="0 0 8 8" class="pixel-logo">
+                <rect fill="#ed1b24" width="8" height="8"/>
+                <rect fill="#a7a9ac" x="3" y="1" width="2" height="2"/>
+                <rect fill="#a7a9ac" x="2" y="3" width="4" height="1"/>
+                <rect fill="#a7a9ac" x="1" y="4" width="2" height="2"/>
+                <rect fill="#a7a9ac" x="5" y="4" width="2" height="2"/>
+                <rect fill="#a7a9ac" x="3" y="6" width="2" height="1"/>
+            </svg>`,
+            RR: `<svg viewBox="0 0 8 8" class="pixel-logo">
+                <rect fill="#ea1a85" width="8" height="8"/>
+                <rect fill="#254aa5" x="1" y="2" width="1" height="2"/>
+                <rect fill="#254aa5" x="6" y="2" width="1" height="2"/>
+                <rect fill="#d4af37" x="2" y="1" width="4" height="1"/>
+                <rect fill="#d4af37" x="2" y="2" width="1" height="1"/>
+                <rect fill="#d4af37" x="5" y="2" width="1" height="1"/>
+                <rect fill="#d4af37" x="3" y="3" width="2" height="1"/>
+                <rect fill="#254aa5" x="2" y="4" width="4" height="3"/>
+            </svg>`,
+            SRH: `<svg viewBox="0 0 8 8" class="pixel-logo">
+                <rect fill="#f7a721" width="8" height="8"/>
+                <rect fill="#000000" x="3" y="0" width="2" height="2"/>
+                <rect fill="#000000" x="2" y="2" width="1" height="1"/>
+                <rect fill="#000000" x="5" y="2" width="1" height="1"/>
+                <rect fill="#000000" x="1" y="3" width="1" height="1"/>
+                <rect fill="#000000" x="6" y="3" width="1" height="1"/>
+                <rect fill="#000000" x="0" y="4" width="1" height="2"/>
+                <rect fill="#000000" x="7" y="4" width="1" height="2"/>
+                <rect fill="#000000" x="1" y="6" width="6" height="1"/>
+            </svg>`,
+            GT: `<svg viewBox="0 0 8 8" class="pixel-logo">
+                <rect fill="#1c1c1c" width="8" height="8"/>
+                <rect fill="#d5a239" x="2" y="1" width="4" height="1"/>
+                <rect fill="#d5a239" x="1" y="2" width="6" height="1"/>
+                <rect fill="#d5a239" x="1" y="3" width="1" height="2"/>
+                <rect fill="#d5a239" x="6" y="3" width="1" height="2"/>
+                <rect fill="#d5a239" x="2" y="4" width="4" height="1"/>
+                <rect fill="#d5a239" x="3" y="5" width="2" height="2"/>
+            </svg>`,
+            LSG: `<svg viewBox="0 0 8 8" class="pixel-logo">
+                <rect fill="#a72056" width="8" height="8"/>
+                <rect fill="#ffcc00" x="3" y="0" width="2" height="2"/>
+                <rect fill="#ffcc00" x="2" y="2" width="4" height="1"/>
+                <rect fill="#00b7eb" x="2" y="3" width="1" height="3"/>
+                <rect fill="#00b7eb" x="5" y="3" width="1" height="3"/>
+                <rect fill="#00b7eb" x="3" y="4" width="2" height="1"/>
+                <rect fill="#ffcc00" x="1" y="5" width="1" height="1"/>
+                <rect fill="#ffcc00" x="6" y="5" width="1" height="1"/>
+                <rect fill="#00b7eb" x="3" y="6" width="2" height="2"/>
+            </svg>`
+        };
+
         // Populate Teams Grid
         function populateTeamsGrid() {
             const grid = document.getElementById('teams-grid');
@@ -822,6 +929,7 @@
             TEAM_ORDER.forEach(abbrev => {
                 const team = TEAMS[abbrev];
                 const rating = DEPTH_CHART_RATINGS[abbrev];
+                const pixelLogo = TEAM_PIXEL_LOGOS[abbrev] || team.icon;
 
                 const card = document.createElement('a');
                 card.href = `teams.html?team=${abbrev}`;
@@ -830,7 +938,7 @@
 
                 card.innerHTML = `
                     <div class="team-header">
-                        <div class="team-icon">${team.icon}</div>
+                        <div class="team-icon">${pixelLogo}</div>
                         <div class="team-info">
                             <h3>${team.name}</h3>
                             <p>${team.homeVenue}</p>

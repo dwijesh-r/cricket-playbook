@@ -623,16 +623,17 @@
             font-family: 'Arial Black', sans-serif;
         }
 
-        /* Shorts */
+        /* Shorts/Pants */
         .athlete .shorts {
             position: absolute;
             top: 100px;
             left: 50%;
             transform: translateX(-50%);
-            width: 44px;
-            height: 22px;
+            width: 48px;
+            height: 28px;
             background: var(--shorts-color, #222);
-            border-radius: 0 0 5px 5px;
+            border-radius: 0 0 8px 8px;
+            z-index: 1;
         }
 
         /* Shoulders/sleeves */
@@ -674,13 +675,19 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        /* Legs */
+        /* Legs with pants */
         .athlete .leg {
             position: absolute;
             width: 18px;
             height: 55px;
-            background: linear-gradient(180deg, #c49a6c 0%, #c49a6c 70%, #222 70%, #222 100%);
-            top: 120px;
+            background: linear-gradient(180deg,
+                var(--shorts-color, #222) 0%,
+                var(--shorts-color, #222) 45%,
+                #c49a6c 45%,
+                #c49a6c 82%,
+                #1a1a1a 82%,
+                #1a1a1a 100%);
+            top: 124px;
             border-radius: 5px;
             transform-origin: top center;
         }
@@ -1206,9 +1213,13 @@
         }
         .intro-box-jose .athlete .shorts { display: none; }
         .intro-box-jose .athlete .leg {
-            top: 138px;
-            height: 40px;
-            background: linear-gradient(180deg, #222 0%, #222 80%, #1a1a1a 80%);
+            top: 140px;
+            height: 38px;
+            background: linear-gradient(180deg,
+                #1a1a2e 0%,
+                #1a1a2e 75%,
+                #0a0a0a 75%,
+                #0a0a0a 100%);
         }
         .intro-box-jose .athlete .arm {
             background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 85%, #c49a6c 85%);
@@ -1946,7 +1957,7 @@
         <div class="nav-tabs">
             <a href="index.html" class="nav-tab active">🏠 Home</a>
             <a href="teams.html" class="nav-tab">🏏 Teams</a>
-            <a href="artifacts.html" class="nav-tab">📊 Artifacts</a>
+            <a href="artifacts.html" class="nav-tab">🗂️ Artifacts</a>
             <a href="analysis.html" class="nav-tab">🔬 Analysis</a>
             <a href="research.html" class="nav-tab">📚 Research</a>
             <a href="about.html" class="nav-tab">🌹 About</a>

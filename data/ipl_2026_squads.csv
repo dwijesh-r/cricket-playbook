@@ -105,7 +105,7 @@ Chennai Super Kings,Zak Foulkes,30f92334,AUS,28,Bowler,Right-arm,Fast,Right-hand
 Mumbai Indians,Mitchell Santner,e4a0deae,NZ,28,All-rounder,Left-arm,Left-arm orthodox,Left-hand,,,,MIDDLE_OVERS_CONTROLLER|MID_OVERS_ELITE
 Mumbai Indians,Naman Dhir,fffa744b,IND,26,All-rounder,Left-arm,Left-arm orthodox,Left-hand,,,,
 Mumbai Indians,AM Ghazanfar,9ca68676,AFG,24,Bowler,Right-arm,Off-spin,Right-hand,,,,
-Mumbai Indians,Ryan Rickelton,e66732f8,RSA,28,Batter,Right-arm,Medium,Left-hand,,,,
+Mumbai Indians,Ryan Rickelton,e66732f8,RSA,28,Wicketkeeper,Right-arm,Medium,Left-hand,,,,
 Mumbai Indians,Robin Minz,bafd0398,IND,26,Wicketkeeper,Right-arm,Medium,Right-hand,,,,
 Mumbai Indians,Raj Bawa,ba6b2f91,IND,26,All-rounder,Right-arm,Fast,Left-hand,,,,
 Mumbai Indians,Will Jacks,9caf69a1,ENG,28,All-rounder,Right-arm,Off-spin,Right-hand,,,EXPLOSIVE_OPENER|PP_DOMINATOR|MIDDLE_OVERS_ACCELERATOR|DEATH_SPECIALIST|SIX_HITTER,
@@ -123,7 +123,6 @@ Royal Challengers Bengaluru,Suyash Sharma,9440ef41,IND,26,Bowler,Right-arm,Leg-s
 Royal Challengers Bengaluru,Jacob Bethell,3c55c703,ENG,28,All-rounder,Left-arm,Left-arm orthodox,Left-hand,,,,
 Royal Challengers Bengaluru,Swapnil Singh,983f2f61,IND,26,All-rounder,Left-arm,Left-arm orthodox,Left-hand,,,,
 Royal Challengers Bengaluru,Romario Shepherd,c5aef772,WI,28,All-rounder,Right-arm,Fast,Right-hand,,,,PART_TIMER
-Royal Challengers Bengaluru,Raqibul Hasan,17efdeb8,BAN,28,Batter,Right-arm,Medium,Right-hand,,,,
 Royal Challengers Bengaluru,Satvik Deswal,fcf71d05,IND,26,Bowler,Left-arm,Left-arm wrist spin,Left-hand,,,,
 Royal Challengers Bengaluru,Abhinandan Singh,ee456271,IND,26,Bowler,Right-arm,Fast,Right-hand,,,,
 Royal Challengers Bengaluru,Mangesh Yadav,b1ad996b,IND,26,Bowler,Left-arm,Fast,Left-hand,,,,
@@ -230,3 +229,4 @@ Lucknow Super Giants,Akash Singh,b483905d,IND,26,Bowler,Left-arm,Fast,Left-hand,
 Lucknow Super Giants,Josh Inglis,989889ff,AUS,28,Wicketkeeper,Right-arm,Medium,Right-hand,,,,
 Lucknow Super Giants,Arjun Tendulkar,44aac2f0,IND,26,Bowler,Left-arm,Fast,Left-hand,,,,
 Lucknow Super Giants,Arshin Kulkarni,2d140b79,IND,26,All-rounder,Right-arm,Off-spin,Right-hand,,,,
+Royal Challengers Bengaluru,Kanishk Chouhan,kchouhan1,IND,23,Bowler,Left-arm,Left-arm orthodox,Right-hand,,,,

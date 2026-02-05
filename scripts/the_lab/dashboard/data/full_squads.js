@@ -1,6 +1,7 @@
 // Full Squad Data for Phil Steele Style Roster
 // Generated from data/ipl_2026_squads.csv
 // 231 players across 10 IPL franchises
+// Last updated: 2026-02-05
 
 const FULL_SQUADS = {
   "LSG": [
@@ -1017,7 +1018,7 @@ const FULL_SQUADS = {
       "playerId": "e66732f8",
       "nationality": "RSA",
       "age": 28,
-      "role": "Batter",
+      "role": "Wicketkeeper",
       "bowlingArm": "Right-arm",
       "bowlingType": "Medium",
       "battingHand": "Left-hand",
@@ -3507,21 +3508,6 @@ const FULL_SQUADS = {
       "isCaptain": false
     },
     {
-      "name": "Raqibul Hasan",
-      "playerId": "17efdeb8",
-      "nationality": "BAN",
-      "age": 28,
-      "role": "Batter",
-      "bowlingArm": "Right-arm",
-      "bowlingType": "Medium",
-      "battingHand": "Right-hand",
-      "batterClass": "-",
-      "bowlerClass": "-",
-      "batterTags": [],
-      "bowlerTags": [],
-      "isCaptain": false
-    },
-    {
       "name": "Satvik Deswal",
       "playerId": "fcf71d05",
       "nationality": "IND",
@@ -3589,6 +3575,21 @@ const FULL_SQUADS = {
       "role": "Wicketkeeper",
       "bowlingArm": "Right-arm",
       "bowlingType": "Medium",
+      "battingHand": "Right-hand",
+      "batterClass": "-",
+      "bowlerClass": "-",
+      "batterTags": [],
+      "bowlerTags": [],
+      "isCaptain": false
+    },
+    {
+      "name": "Kanishk Chouhan",
+      "playerId": "kchouhan1",
+      "nationality": "IND",
+      "age": 23,
+      "role": "Bowler",
+      "bowlingArm": "Left-arm",
+      "bowlingType": "Left-arm orthodox",
       "battingHand": "Right-hand",
       "batterClass": "-",
       "bowlerClass": "-",

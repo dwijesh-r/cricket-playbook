@@ -2207,6 +2207,11 @@
         ];
 
         // Sample ticket data
+        // Context Standard:
+        // - Ask: Specific deliverable requested
+        // - Goal: Measurable outcome we're targeting
+        // - Reason: PRD section reference OR Founder directive (always cite source)
+        // - Audible: Step-by-step execution sequence
         const tickets = [
             {
                 id: 'TKT-001', title: 'Implement Mission Control Phase 2 - Workflow Engine',
@@ -2215,10 +2220,10 @@
                 gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
                 tags: ['Backend', 'Core'], daysSpent: 3, iterations: 2,
                 context: {
-                    ask: 'Build the state machine and transition logic for ticket workflow',
-                    goal: 'Enable 8-state workflow with validation gates and hooks',
-                    reason: 'Core infrastructure needed before any other Mission Control features',
-                    audible: 'Design spec → Python models → State machine → Transition validation → Tests'
+                    ask: 'Build state machine with 8-state workflow and transition validation',
+                    goal: 'All tickets flow through IDEA→DONE with enforced gate checks',
+                    reason: 'PRD §2.1: "State machine with validation" — Phase 1 foundation',
+                    audible: 'Read PRD → Model states → Implement transitions → Add hooks → Test'
                 }
             },
             {
@@ -2228,10 +2233,10 @@
                 gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES' },
                 tags: ['Frontend', 'UI/UX'], daysSpent: 2, iterations: 4,
                 context: {
-                    ask: 'Create a visual dashboard to track tickets, agents, and sprint progress',
-                    goal: 'Provide real-time visibility into all Mission Control activity',
-                    reason: 'CLI-only is not sufficient for at-a-glance status and team coordination',
-                    audible: 'Wireframe → HTML/CSS → Kanban board → Agent roster → List view → Polish'
+                    ask: 'Create visual Kanban board with agent roster and sprint stats',
+                    goal: 'Single-page view of all tickets, states, and team activity',
+                    reason: 'PRD §8: "Phase 4 Views" — Kanban, Scoreboard, Cockpit required',
+                    audible: 'PRD review → Wireframe → HTML/CSS → Kanban → Roster → Polish'
                 }
             },
             {
@@ -2241,10 +2246,10 @@
                 gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
                 tags: ['Design', 'Assets'], daysSpent: 1, iterations: 2,
                 context: {
-                    ask: 'Design distinctive pixel art avatars for each agent',
-                    goal: 'Make agents instantly recognizable with team colors and features',
-                    reason: 'Visual identity improves UX and makes the dashboard more engaging',
-                    audible: 'Sketch concepts → 8-bit pixel style → Team colors → Jersey numbers → Review'
+                    ask: 'Design 8-bit pixel avatars for all 12 agents',
+                    goal: 'Each agent instantly recognizable by team colors and features',
+                    reason: 'Founder directive: "Agents need visual identity for dashboard"',
+                    audible: 'Review agents → Pixel art style → Team colors → Jersey numbers → Polish'
                 }
             },
             {
@@ -2254,10 +2259,10 @@
                 gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS' },
                 tags: ['Algorithm', 'Data'], daysSpent: 5, iterations: 4,
                 context: {
-                    ask: 'Improve predicted XI accuracy using updated player form data',
-                    goal: 'Achieve >80% accuracy on starting XI predictions',
-                    reason: 'Core paid artifact - directly impacts subscriber value',
-                    audible: 'Analyze misses → Feature engineering → Model tuning → Backtest → Domain review'
+                    ask: 'Refine predicted XI model with updated squad and form data',
+                    goal: 'Reduce prediction misses on openers and death bowlers',
+                    reason: 'Florentino Gate: "Predicted XI is core paid artifact" — Constitution §3',
+                    audible: 'Audit misses → Update features → Retrain → Backtest → Domain review'
                 }
             },
             {
@@ -2267,10 +2272,10 @@
                 gates: { florentino_gate: 'APPROVED' },
                 tags: ['Export', 'Sharing'], daysSpent: 0, iterations: 0,
                 context: {
-                    ask: 'Enable one-click export of depth charts to shareable formats',
-                    goal: 'Allow users to save and share depth charts externally',
-                    reason: 'Requested by 40% of beta users for social sharing',
-                    audible: 'Select chart → Choose format → Generate file → Download/Share'
+                    ask: 'Add export functionality for depth charts to PDF and PNG',
+                    goal: 'One-click download of any depth chart in print-ready format',
+                    reason: 'PRD Wireframes §2.3: "Export options for all visual outputs"',
+                    audible: 'Add export button → Generate PDF → Generate PNG → Test formats'
                 }
             },
             {
@@ -2280,10 +2285,10 @@
                 gates: { florentino_gate: 'APPROVED' },
                 tags: ['Bug', 'Data'], daysSpent: 2, iterations: 1,
                 context: {
-                    ask: 'Resolve player ID collision after mid-season trade',
-                    goal: 'Ensure unique player tracking across all franchise changes',
-                    reason: 'Data integrity issue causing duplicate stats and wrong assignments',
-                    audible: 'Identify conflicts → Map old/new IDs → Migrate historical data → Validate'
+                    ask: 'Resolve duplicate player IDs from franchise trade',
+                    goal: 'Single canonical ID per player across all historical data',
+                    reason: 'Kanté QA BLOCK: "Data integrity failure — duplicate active records"',
+                    audible: 'Identify dupes → Create ID mapping → Migrate records → QA validate'
                 }
             },
             {
@@ -2293,10 +2298,10 @@
                 gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
                 tags: ['Analytics', 'Dashboard'], daysSpent: 2, iterations: 2,
                 context: {
-                    ask: 'Add velocity tracking and burndown visualization',
-                    goal: 'Enable sprint health monitoring at a glance',
-                    reason: 'Needed for sprint planning and retrospective analysis',
-                    audible: 'Define metrics → Calculate velocity → Build chart → Integrate to dashboard'
+                    ask: 'Build velocity tracking widget with burndown chart',
+                    goal: 'Show planned vs completed points and sprint health',
+                    reason: 'PRD §5.3: "Sprint schema includes velocity tracking fields"',
+                    audible: 'Define metrics → Calculate from tickets → Build chart → Integrate'
                 }
             },
             {
@@ -2306,10 +2311,10 @@
                 gates: { florentino_gate: 'APPROVED' },
                 tags: ['Security', 'Backend'], daysSpent: 0, iterations: 0,
                 context: {
-                    ask: 'Implement role-based access control for ticket actions',
-                    goal: 'Enforce who can approve gates, transition states, and override',
-                    reason: 'Governance requirement - prevents unauthorized state changes',
-                    audible: 'Define roles → Map permissions → Add validation → Test edge cases'
+                    ask: 'Implement role-based permissions for state transitions',
+                    goal: 'Only authorized roles can approve gates and change states',
+                    reason: 'PRD §3: "Role-Permission Matrix" — governance requirement',
+                    audible: 'Map PRD roles → Add validation layer → Test each transition'
                 }
             },
             {
@@ -2318,10 +2323,10 @@
                 prd: null, output: null, gates: {},
                 tags: ['Data', 'Pipeline'], daysSpent: 0, iterations: 0,
                 context: {
-                    ask: 'Set up data ingestion for upcoming IPL 2026 season',
-                    goal: 'Have clean, normalized data ready before season start',
-                    reason: 'Foundation for all IPL 2026 analytics and predictions',
-                    audible: 'Cricsheet setup → Schema design → Ingestion script → QA validation'
+                    ask: 'Set up Cricsheet ingestion for IPL 2026 season',
+                    goal: 'Normalized fact_ball and dimension tables ready pre-season',
+                    reason: 'Founder directive: "All analytics depend on clean data foundation"',
+                    audible: 'Cricsheet source → Schema design → Ingestion script → QA cert'
                 }
             }
         ];

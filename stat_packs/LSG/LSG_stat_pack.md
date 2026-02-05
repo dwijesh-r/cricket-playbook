@@ -1,6 +1,6 @@
 # Lucknow Super Giants (LSG) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-05 20:13
+**Generated:** 2026-02-05 20:33
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -94,6 +94,61 @@
 
 ---
 
+## Historical Trends (2023-2025)
+
+*Season-over-season performance analysis (IPL 2023-2025)*
+
+### Season Performance
+
+| Season | Matches | Wins | Losses | Win% | Avg Score | Playoff |
+|--------|---------|------|--------|------|-----------|---------|
+| 2023 | 15 | 8 | 6 | 53.3% | 165.3 | Elim |
+| 2024 | 14 | 7 | 7 | 50.0% | 177.4 | No |
+| 2025 | 14 | 6 | 8 | 42.9% | 195.1 | No |
+
+### Batting Trends
+
+**Top Run Scorers by Season:**
+
+- **2023:** MP Stoinis (408 @ 145.2), KR Mayers (379 @ 137.3), N Pooran (358 @ 165.0)
+- **2024:** KL Rahul (520 @ 130.7), N Pooran (499 @ 168.6), MP Stoinis (388 @ 142.6)
+- **2025:** MR Marsh (627 @ 156.4), N Pooran (524 @ 180.7), AK Markram (445 @ 145.4)
+
+**Strike Rate Evolution (Key Batters):**
+
+| Player | 2023 | 2024 | 2025 | Trend |
+|--------|------|------|------|-------|
+| A Badoni | 128.0 | 130.6 | 140.0 | UP |
+| N Pooran | 165.0 | 168.6 | 180.7 | UP |
+
+### Bowling Trends
+
+**Top Wicket Takers by Season:**
+
+- **2023:** Ravi Bishnoi (16w @ 7.58), Yash Thakur (13w @ 8.61), Naveen-ul-Haq (11w @ 7.78)
+- **2024:** Naveen-ul-Haq (14w @ 9.7), Yash Thakur (11w @ 10.8), Ravi Bishnoi (10w @ 8.53)
+- **2025:** DS Rathi (14w @ 8.13), Avesh Khan (13w @ 9.94), SN Thakur (13w @ 9.98)
+
+**Economy Rate Evolution (Key Bowlers):**
+
+| Player | 2023 | 2024 | 2025 | Trend |
+|--------|------|------|------|-------|
+| Avesh Khan | 9.78 | - | 9.94 | STEADY |
+
+### Form Trajectory
+
+*Players trending up/down based on 2024-2025 performance comparison*
+
+**Trending UP:**
+- A Badoni: +94 runs (2024: 235 @ 130.6 -> 2025: 329 @ 140.0)
+- N Pooran: +12.1 SR (2024: 499 @ 168.6 -> 2025: 524 @ 180.7)
+
+---
+*Note: Historical trends limited to IPL 2023-2025 data. Some players may not have data across all seasons due to team changes or limited playing time.*
+
+
+---
+
 ## Venue Analysis
 
 *Performance breakdown by venue (2023+ IPL data)*
@@ -111,13 +166,13 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
-| MA Chidambaram Stadium | 3 | 1 | 33.3% | 173.0 |
-| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 181.0 |
 | Eden Gardens | 3 | 2 | 66.7% | 191.7 |
+| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 181.0 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 169.0 |
+| MA Chidambaram Stadium | 3 | 1 | 33.3% | 173.0 |
 | Wankhede Stadium | 2 | 1 | 50.0% | 187.5 |
-| M Chinnaswamy Stadium | 2 | 2 | 100.0% | 197.0 |
 | Narendra Modi Stadium | 2 | 1 | 50.0% | 203.0 |
+| M Chinnaswamy Stadium | 2 | 2 | 100.0% | 197.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -131,8 +186,8 @@
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -164,14 +219,14 @@
 | Mohammed Shami | Wankhede Stadium | 9 | 12 | 8.39 | 16.5 |
 | Avesh Khan | Wankhede Stadium | 7 | 11 | 8.13 | 15.09 |
 | Mohammed Shami | Punjab Cricket Associatio | 8 | 11 | 8.86 | 15.27 |
-| Avesh Khan | MA Chidambaram Stadium | 5 | 10 | 8.0 | 9.0 |
+| A Nortje | Sharjah Cricket Stadium | 6 | 10 | 7.43 | 13.4 |
 
 
 ---
 
-## 4. Squad Batting Analysis
+## 5. Squad Batting Analysis
 
-### 4.1 IPL Career Batting
+### 5.1 IPL Career Batting
 
 | Player | Role | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | 50s | 100s | Sample |
 |--------|------|-----|------|-------|-----|-----|--------|------|-----|------|--------|
@@ -187,7 +242,7 @@
 | Arshin Kulkarni | All-rounder | 2 | 9 | 8 | 112.5 | 4.5 | 25.0 | 62.5 | 0 | 0 | LOW |
 | Himmat Singh | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
-### 4.2 Phase-wise Batting (Qualified players)
+### 5.2 Phase-wise Batting (Qualified players)
 
 | Player | Phase | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|------|--------|
@@ -210,9 +265,9 @@
 
 ---
 
-## 5. Squad Bowling Analysis
+## 6. Squad Bowling Analysis
 
-### 5.1 IPL Career Bowling
+### 6.1 IPL Career Bowling
 
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
@@ -228,7 +283,7 @@
 | Manimaran Siddharth | Left-arm o | 5 | 16.2 | 3 | 8.66 | 46.67 | 32.33 | 34.02 | 17.53 | LOW |
 | Arjun Tendulkar | Fast | 5 | 12.2 | 3 | 9.62 | 39.0 | 24.33 | 41.1 | 20.55 | LOW |
 
-### 5.2 Bowler Phase Distribution
+### 6.2 Bowler Phase Distribution
 
 *Shows % of overs bowled and % of wickets taken in each phase*
 
@@ -264,7 +319,7 @@
 
 ---
 
-## 6. Key Batter vs Opposition
+## 7. Key Batter vs Opposition
 
 *Top batters' performance against each IPL team*
 
@@ -344,7 +399,7 @@
 
 ---
 
-## 7. Key Bowler vs Opposition
+## 8. Key Bowler vs Opposition
 
 
 ### Avesh Khan
@@ -356,8 +411,8 @@
 | Mumbai Indians | 7 | 156 | 220 | 13 | 8.46 | 16.92 | 12.0 | 40.38 | 20.51 | HIGH |
 | Rajasthan Royals | 7 | 150 | 210 | 12 | 8.4 | 17.5 | 12.5 | 35.33 | 17.33 | HIGH |
 | Chennai Super Kings | 10 | 207 | 318 | 9 | 9.22 | 35.33 | 23.0 | 36.23 | 24.15 | HIGH |
-| Punjab Kings | 11 | 227 | 360 | 8 | 9.52 | 45.0 | 28.38 | 32.16 | 23.79 | HIGH |
 | Gujarat Titans | 7 | 159 | 244 | 8 | 9.21 | 30.5 | 19.88 | 27.04 | 20.75 | HIGH |
+| Punjab Kings | 11 | 227 | 360 | 8 | 9.52 | 45.0 | 28.38 | 32.16 | 23.79 | HIGH |
 | Royal Challengers Bengaluru | 8 | 186 | 298 | 6 | 9.61 | 49.67 | 31.0 | 31.72 | 24.19 | HIGH |
 | Delhi Capitals | 6 | 120 | 173 | 4 | 8.65 | 43.25 | 30.0 | 37.5 | 23.33 | HIGH |
 | Lucknow Super Giants | 2 | 42 | 54 | 1 | 7.71 | 54.0 | 42.0 | 23.81 | 9.52 | MEDIUM |
@@ -376,14 +431,14 @@
 | Punjab Kings | 9 | 180 | 337 | 6 | 11.23 | 56.17 | 30.0 | 37.78 | 33.33 | HIGH |
 | Lucknow Super Giants | 5 | 102 | 119 | 6 | 7.0 | 19.83 | 17.0 | 45.1 | 16.67 | HIGH |
 | Gujarat Lions | 3 | 66 | 108 | 2 | 9.82 | 54.0 | 33.0 | 33.33 | 24.24 | MEDIUM |
-| Rising Pune Supergiant | 3 | 49 | 91 | 2 | 11.14 | 45.5 | 24.5 | 20.41 | 26.53 | MEDIUM |
 | Gujarat Titans | 2 | 42 | 74 | 2 | 10.57 | 37.0 | 21.0 | 28.57 | 30.95 | MEDIUM |
+| Rising Pune Supergiant | 3 | 49 | 91 | 2 | 11.14 | 45.5 | 24.5 | 20.41 | 26.53 | MEDIUM |
 
 ---
 
-## 8. Key Player Venue Performance
+## 9. Key Player Venue Performance
 
-### 8.1 Top Batters by Venue
+### 9.1 Top Batters by Venue
 
 | Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|--------|
@@ -424,21 +479,21 @@
 
 ---
 
-## 9. Andy Flower's Tactical Insights
+## 10. Andy Flower's Tactical Insights
 
 
-### 9.1 Death Bowling Options
+### 10.1 Death Bowling Options
 
 - **DS Rathi**: 10.0 overs, 4 wickets, 9.5 economy (over-performs)
 - **Avesh Khan**: 52.3 overs, 24 wickets, 9.67 economy (over-performs)
 - **Mohsin Khan**: 15.0 overs, 6 wickets, 10.87 economy (over-performs)
 
-### 9.2 Powerplay Batting Options
+### 10.2 Powerplay Batting Options
 
 - **Nicholas Pooran**: SR 158.41, Boundary% 26.55% (16 innings)
 - **Mitchell Marsh**: SR 149.28, Boundary% 23.34% (32 innings)
 
-### 9.3 Potential Spin Vulnerabilities
+### 10.3 Potential Spin Vulnerabilities
 
 *Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
 

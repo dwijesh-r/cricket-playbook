@@ -1,6 +1,6 @@
 # Rajasthan Royals (RR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-05 20:13
+**Generated:** 2026-02-05 20:33
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -99,6 +99,68 @@
 
 ---
 
+## Historical Trends (2023-2025)
+
+*Season-over-season performance analysis (IPL 2023-2025)*
+
+### Season Performance
+
+| Season | Matches | Wins | Losses | Win% | Avg Score | Playoff |
+|--------|---------|------|--------|------|-----------|---------|
+| 2023 | 14 | 7 | 7 | 50.0% | 172.8 | No |
+| 2024 | 15 | 9 | 6 | 60.0% | 176.5 | Q2 |
+| 2025 | 14 | 4 | 9 | 28.6% | 185.9 | No |
+
+### Batting Trends
+
+**Top Run Scorers by Season:**
+
+- **2023:** YBK Jaiswal (625 @ 157.4), JC Buttler (392 @ 131.5), SV Samson (362 @ 150.8)
+- **2024:** R Parag (573 @ 140.8), SV Samson (531 @ 144.7), YBK Jaiswal (435 @ 151.0)
+- **2025:** YBK Jaiswal (559 @ 155.7), R Parag (393 @ 160.4), Dhruv Jurel (333 @ 152.1)
+
+**Strike Rate Evolution (Key Batters):**
+
+| Player | 2023 | 2024 | 2025 | Trend |
+|--------|------|------|------|-------|
+| Dhruv Jurel | 163.4 | 135.4 | 152.1 | DOWN |
+| R Parag | - | 140.8 | 160.4 | UP |
+| SO Hetmyer | 145.9 | 156.9 | 134.3 | DOWN |
+| YBK Jaiswal | 157.4 | 151.0 | 155.7 | STEADY |
+
+### Bowling Trends
+
+**Top Wicket Takers by Season:**
+
+- **2023:** YS Chahal (21w @ 7.99), R Ashwin (14w @ 7.18), TA Boult (13w @ 8.07)
+- **2024:** Avesh Khan (20w @ 9.24), YS Chahal (18w @ 9.08), TA Boult (16w @ 8.07)
+- **2025:** PWH de Silva (11w @ 8.99), M Theekshana (11w @ 9.12), JC Archer (11w @ 9.14)
+
+**Economy Rate Evolution (Key Bowlers):**
+
+| Player | 2023 | 2024 | 2025 | Trend |
+|--------|------|------|------|-------|
+| Sandeep Sharma | 8.23 | 7.98 | 9.11 | DECLINING |
+
+### Form Trajectory
+
+*Players trending up/down based on 2024-2025 performance comparison*
+
+**Trending UP:**
+- Dhruv Jurel: +138 runs, +16.7 SR (2024: 195 @ 135.4 -> 2025: 333 @ 152.1)
+- SO Hetmyer: +126 runs (2024: 113 @ 156.9 -> 2025: 239 @ 134.3)
+- YBK Jaiswal: +124 runs (2024: 435 @ 151.0 -> 2025: 559 @ 155.7)
+
+**Trending DOWN:**
+- R Parag: -180 runs (2024: 573 @ 140.8 -> 2025: 393 @ 160.4)
+- SO Hetmyer: -22.6 SR (2024: 113 @ 156.9 -> 2025: 239 @ 134.3)
+
+---
+*Note: Historical trends limited to IPL 2023-2025 data. Some players may not have data across all seasons due to team changes or limited playing time.*
+
+
+---
+
 ## Venue Analysis
 
 *Performance breakdown by venue (2023+ IPL data)*
@@ -117,14 +179,14 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Barsapara Cricket Stadium | 5 | 2 | 40.0% | 173.6 |
-| Rajiv Gandhi International Stadium | 3 | 1 | 33.3% | 215.0 |
+| Eden Gardens | 3 | 2 | 66.7% | 193.3 |
+| MA Chidambaram Stadium | 3 | 1 | 33.3% | 151.7 |
 | Arun Jaitley Stadium | 3 | 1 | 33.3% | 192.3 |
 | Narendra Modi Stadium | 3 | 2 | 66.7% | 170.7 |
-| MA Chidambaram Stadium | 3 | 1 | 33.3% | 151.7 |
-| Eden Gardens | 3 | 2 | 66.7% | 193.3 |
-| Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 178.5 |
+| Rajiv Gandhi International Stadium | 3 | 1 | 33.3% | 215.0 |
 | Wankhede Stadium | 2 | 1 | 50.0% | 169.5 |
 | M Chinnaswamy Stadium | 2 | 0 | 0.0% | 188.0 |
+| Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 178.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -135,11 +197,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -168,17 +230,17 @@
 | Ravi Bishnoi | Bharat Ratna Shri Atal Bi | 19 | 19 | 8.42 | 19.74 |
 | RA Jadeja | MA Chidambaram Stadium | 21 | 18 | 6.86 | 21.61 |
 | Sandeep Sharma | Punjab Cricket Associatio | 10 | 14 | 7.78 | 15.86 |
-| RA Jadeja | Dubai International Crick | 14 | 12 | 8.05 | 19.5 |
-| JC Archer | Sawai Mansingh Stadium | 11 | 12 | 7.21 | 21.5 |
 | Sandeep Sharma | Rajiv Gandhi Internationa | 12 | 12 | 7.34 | 22.42 |
+| Ravi Bishnoi | Dubai International Crick | 9 | 12 | 6.44 | 16.0 |
+| JC Archer | Sawai Mansingh Stadium | 11 | 12 | 7.21 | 21.5 |
 | RA Jadeja | MA Chidambaram Stadium | 21 | 12 | 7.42 | 26.5 |
 
 
 ---
 
-## 4. Squad Batting Analysis
+## 5. Squad Batting Analysis
 
-### 4.1 IPL Career Batting
+### 5.1 IPL Career Batting
 
 | Player | Role | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | 50s | 100s | Sample |
 |--------|------|-----|------|-------|-----|-----|--------|------|-----|------|--------|
@@ -197,7 +259,7 @@
 | Aman Rao | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Ravi Singh | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
-### 4.2 Phase-wise Batting (Qualified players)
+### 5.2 Phase-wise Batting (Qualified players)
 
 | Player | Phase | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|------|--------|
@@ -218,9 +280,9 @@
 
 ---
 
-## 5. Squad Bowling Analysis
+## 6. Squad Bowling Analysis
 
-### 5.1 IPL Career Bowling
+### 6.1 IPL Career Bowling
 
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
@@ -237,7 +299,7 @@
 | Riyan Parag | Off-spin | 11 | 23.0 | 3 | 8.61 | 66.0 | 46.0 | 24.64 | 13.77 | MEDIUM |
 | Kwena Maphaka | Fast | 4 | 11.0 | 2 | 13.45 | 74.0 | 33.0 | 33.33 | 39.39 | LOW |
 
-### 5.2 Bowler Phase Distribution
+### 6.2 Bowler Phase Distribution
 
 *Shows % of overs bowled and % of wickets taken in each phase*
 
@@ -270,7 +332,7 @@
 
 ---
 
-## 6. Key Batter vs Opposition
+## 7. Key Batter vs Opposition
 
 *Top batters' performance against each IPL team*
 
@@ -348,21 +410,21 @@
 
 ---
 
-## 7. Key Bowler vs Opposition
+## 8. Key Bowler vs Opposition
 
 
 ### Tushar Deshpande
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Gujarat Titans | 6 | 140 | 245 | 8 | 10.5 | 30.63 | 17.5 | 30.71 | 27.14 | HIGH |
 | Rajasthan Royals | 4 | 96 | 141 | 8 | 8.81 | 17.63 | 12.0 | 32.29 | 19.79 | MEDIUM |
-| Punjab Kings | 4 | 84 | 162 | 7 | 11.57 | 23.14 | 12.0 | 35.71 | 30.95 | MEDIUM |
+| Gujarat Titans | 6 | 140 | 245 | 8 | 10.5 | 30.63 | 17.5 | 30.71 | 27.14 | HIGH |
 | Sunrisers Hyderabad | 5 | 90 | 151 | 7 | 10.07 | 21.57 | 12.86 | 27.78 | 24.44 | MEDIUM |
-| Kolkata Knight Riders | 6 | 117 | 167 | 5 | 8.56 | 33.4 | 23.4 | 46.15 | 22.22 | HIGH |
+| Punjab Kings | 4 | 84 | 162 | 7 | 11.57 | 23.14 | 12.0 | 35.71 | 30.95 | MEDIUM |
 | Mumbai Indians | 3 | 66 | 85 | 5 | 7.73 | 17.0 | 13.2 | 39.39 | 16.67 | MEDIUM |
-| Royal Challengers Bengaluru | 5 | 96 | 187 | 4 | 11.69 | 46.75 | 24.0 | 34.38 | 31.25 | MEDIUM |
+| Kolkata Knight Riders | 6 | 117 | 167 | 5 | 8.56 | 33.4 | 23.4 | 46.15 | 22.22 | HIGH |
 | Lucknow Super Giants | 6 | 121 | 175 | 4 | 8.68 | 43.75 | 30.25 | 33.88 | 18.18 | HIGH |
+| Royal Challengers Bengaluru | 5 | 96 | 187 | 4 | 11.69 | 46.75 | 24.0 | 34.38 | 31.25 | MEDIUM |
 | Chennai Super Kings | 3 | 72 | 114 | 2 | 9.5 | 57.0 | 36.0 | 36.11 | 23.61 | MEDIUM |
 | Delhi Capitals | 4 | 84 | 106 | 1 | 7.57 | 106.0 | 84.0 | 38.1 | 17.86 | MEDIUM |
 
@@ -379,9 +441,9 @@
 | Sunrisers Hyderabad | 24 | 427 | 504 | 10 | 7.08 | 50.4 | 42.7 | 30.21 | 9.84 | HIGH |
 | Deccan Chargers | 5 | 108 | 114 | 8 | 6.33 | 14.25 | 13.5 | 39.81 | 9.26 | HIGH |
 | Gujarat Titans | 7 | 132 | 171 | 7 | 7.77 | 24.43 | 18.86 | 27.27 | 12.88 | HIGH |
-| Rising Pune Supergiant | 4 | 84 | 115 | 3 | 8.21 | 38.33 | 28.0 | 34.52 | 14.29 | MEDIUM |
-| Lucknow Super Giants | 6 | 84 | 116 | 3 | 8.29 | 38.67 | 28.0 | 26.19 | 16.67 | MEDIUM |
 | Pune Warriors | 4 | 96 | 100 | 3 | 6.25 | 33.33 | 32.0 | 39.58 | 9.38 | MEDIUM |
+| Lucknow Super Giants | 6 | 84 | 116 | 3 | 8.29 | 38.67 | 28.0 | 26.19 | 16.67 | MEDIUM |
+| Rising Pune Supergiant | 4 | 84 | 115 | 3 | 8.21 | 38.33 | 28.0 | 34.52 | 14.29 | MEDIUM |
 | Chennai Super Kings | 3 | 44 | 55 | 2 | 7.5 | 27.5 | 22.0 | 34.09 | 11.36 | MEDIUM |
 
 ### Ravi Bishnoi
@@ -409,17 +471,17 @@
 | Sunrisers Hyderabad | 12 | 288 | 422 | 13 | 8.79 | 32.46 | 22.15 | 36.46 | 19.79 | HIGH |
 | Punjab Kings | 9 | 216 | 235 | 11 | 6.53 | 21.36 | 19.64 | 38.89 | 11.11 | HIGH |
 | Kolkata Knight Riders | 15 | 312 | 427 | 10 | 8.21 | 42.7 | 31.2 | 37.82 | 19.55 | HIGH |
-| Lucknow Super Giants | 5 | 114 | 154 | 6 | 8.11 | 25.67 | 19.0 | 35.09 | 17.54 | HIGH |
 | Gujarat Lions | 4 | 90 | 120 | 6 | 8.0 | 20.0 | 15.0 | 37.78 | 18.89 | MEDIUM |
+| Lucknow Super Giants | 5 | 114 | 154 | 6 | 8.11 | 25.67 | 19.0 | 35.09 | 17.54 | HIGH |
 | Rising Pune Supergiant | 4 | 84 | 94 | 5 | 6.71 | 18.8 | 16.8 | 41.67 | 15.48 | MEDIUM |
 | Rajasthan Royals | 9 | 210 | 274 | 5 | 7.83 | 54.8 | 42.0 | 36.19 | 16.19 | HIGH |
 | Gujarat Titans | 5 | 114 | 128 | 4 | 6.74 | 32.0 | 28.5 | 39.47 | 13.16 | HIGH |
 
 ---
 
-## 8. Key Player Venue Performance
+## 9. Key Player Venue Performance
 
-### 8.1 Top Batters by Venue
+### 9.1 Top Batters by Venue
 
 | Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|--------|
@@ -435,8 +497,8 @@
 | RA Jadeja | Eden Gardens | 11 | 183 | 129 | 141.86 | 45.75 | 17.83 | HIGH |
 | RA Jadeja | Sawai Mansingh Stadium | 8 | 155 | 120 | 129.17 | 38.75 | 14.17 | HIGH |
 | RA Jadeja | Saurashtra Cricket Association Stad... | 8 | 135 | 117 | 115.38 | 22.5 | 10.26 | HIGH |
-| RA Jadeja | Wankhede Stadium | 10 | 129 | 96 | 134.38 | 14.33 | 15.63 | MEDIUM |
 | RA Jadeja | M Chinnaswamy Stadium, Bengaluru | 3 | 129 | 75 | 172.0 | 129.0 | 22.67 | MEDIUM |
+| RA Jadeja | Wankhede Stadium | 10 | 129 | 96 | 134.38 | 14.33 | 15.63 | MEDIUM |
 | RA Jadeja | Nehru Stadium | 5 | 101 | 90 | 112.22 | 33.67 | 13.33 | MEDIUM |
 | SM Curran | MA Chidambaram Stadium, Chepauk, Ch... | 6 | 158 | 115 | 137.39 | 31.6 | 15.65 | HIGH |
 | SM Curran | Maharaja Yadavindra Singh Internati... | 5 | 124 | 105 | 118.1 | 24.8 | 13.33 | HIGH |
@@ -458,20 +520,20 @@
 
 ---
 
-## 9. Andy Flower's Tactical Insights
+## 10. Andy Flower's Tactical Insights
 
 
-### 9.1 Death Bowling Options
+### 10.1 Death Bowling Options
 
 - **Sandeep Sharma**: 45.5 overs, 23 wickets, 10.07 economy (over-performs)
 - **Ravi Bishnoi**: 18.2 overs, 8 wickets, 10.51 economy (over-performs)
 - **TU Deshpande**: 48.0 overs, 26 wickets, 11.15 economy (over-performs)
 
-### 9.2 Powerplay Batting Options
+### 10.2 Powerplay Batting Options
 
 - **Yashasvi Jaiswal**: SR 159.49, Boundary% 29.17% (66 innings)
 
-### 9.3 Potential Spin Vulnerabilities
+### 10.3 Potential Spin Vulnerabilities
 
 *Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
 

@@ -1,6 +1,6 @@
 # Chennai Super Kings (CSK) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-05 20:13
+**Generated:** 2026-02-05 20:33
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -99,6 +99,63 @@
 
 ---
 
+## Historical Trends (2023-2025)
+
+*Season-over-season performance analysis (IPL 2023-2025)*
+
+### Season Performance
+
+| Season | Matches | Wins | Losses | Win% | Avg Score | Playoff |
+|--------|---------|------|--------|------|-----------|---------|
+| 2023 | 16 | 10 | 5 | 62.5% | 180.8 | Final |
+| 2024 | 14 | 7 | 7 | 50.0% | 180.3 | No |
+| 2025 | 14 | 4 | 10 | 28.6% | 174.4 | No |
+
+### Batting Trends
+
+**Top Run Scorers by Season:**
+
+- **2023:** DP Conway (672 @ 136.3), RD Gaikwad (590 @ 143.6), S Dube (418 @ 150.9)
+- **2024:** RD Gaikwad (583 @ 137.2), S Dube (396 @ 152.9), DJ Mitchell (318 @ 139.5)
+- **2025:** S Dube (357 @ 123.5), RA Jadeja (301 @ 131.4), A Mhatre (240 @ 183.2)
+
+**Strike Rate Evolution (Key Batters):**
+
+| Player | 2023 | 2024 | 2025 | Trend |
+|--------|------|------|------|-------|
+| MS Dhoni | 165.1 | 196.3 | 127.3 | DOWN |
+| RD Gaikwad | 143.6 | 137.2 | 148.8 | UP |
+| S Dube | 150.9 | 152.9 | 123.5 | DOWN |
+
+### Bowling Trends
+
+**Top Wicket Takers by Season:**
+
+- **2023:** TU Deshpande (21w @ 9.46), RA Jadeja (20w @ 7.45), M Pathirana (19w @ 7.47)
+- **2024:** TU Deshpande (17w @ 8.42), Mustafizur Rahman (14w @ 8.64), M Pathirana (13w @ 7.24)
+- **2025:** Noor Ahmad (24w @ 7.95), KK Ahmed (15w @ 9.39), M Pathirana (13w @ 9.08)
+
+**Economy Rate Evolution (Key Bowlers):**
+
+
+### Form Trajectory
+
+*Players trending up/down based on 2024-2025 performance comparison*
+
+**Trending UP:**
+- RD Gaikwad: +11.6 SR (2024: 583 @ 137.2 -> 2025: 122 @ 148.8)
+
+**Trending DOWN:**
+- RD Gaikwad: -461 runs (2024: 583 @ 137.2 -> 2025: 122 @ 148.8)
+- S Dube: -29.4 SR (2024: 396 @ 152.9 -> 2025: 357 @ 123.5)
+- MS Dhoni: -69.0 SR (2024: 161 @ 196.3 -> 2025: 196 @ 127.3)
+
+---
+*Note: Historical trends limited to IPL 2023-2025 data. Some players may not have data across all seasons due to team changes or limited playing time.*
+
+
+---
+
 ## Venue Analysis
 
 *Performance breakdown by venue (2023+ IPL data)*
@@ -118,10 +175,10 @@
 |-------|---------|------|------|-----------|
 | Narendra Modi Stadium | 4 | 2 | 50.0% | 193.8 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 172.0 |
-| Wankhede Stadium | 3 | 2 | 66.7% | 180.3 |
 | M Chinnaswamy Stadium | 3 | 1 | 33.3% | 209.3 |
-| Eden Gardens | 2 | 2 | 100.0% | 209.0 |
+| Wankhede Stadium | 3 | 2 | 66.7% | 180.3 |
 | Arun Jaitley Stadium | 2 | 1 | 50.0% | 205.0 |
+| Eden Gardens | 2 | 2 | 100.0% | 209.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -132,11 +189,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -163,19 +220,19 @@
 |--------|-------|---------|------|------|-----|
 | S Gopal | Sawai Mansingh Stadium | 10 | 15 | 7.24 | 13.6 |
 | KK Ahmed | MA Chidambaram Stadium | 10 | 14 | 7.65 | 16.14 |
-| Noor Ahmad | Narendra Modi Stadium | 13 | 13 | 8.23 | 20.31 |
 | Noor Ahmad | MA Chidambaram Stadium | 7 | 13 | 7.96 | 11.54 |
+| Noor Ahmad | Narendra Modi Stadium | 13 | 13 | 8.23 | 20.31 |
 | RD Chahar | MA Chidambaram Stadium | 7 | 12 | 6.86 | 14.0 |
-| KK Ahmed | Rajiv Gandhi Internationa | 4 | 10 | 7.56 | 9.6 |
 | KV Sharma | Rajiv Gandhi Internationa | 17 | 10 | 8.3 | 28.7 |
 | KK Ahmed | Brabourne Stadium | 4 | 10 | 6.38 | 9.6 |
+| KK Ahmed | Rajiv Gandhi Internationa | 4 | 10 | 7.56 | 9.6 |
 
 
 ---
 
-## 4. Squad Batting Analysis
+## 5. Squad Batting Analysis
 
-### 4.1 IPL Career Batting
+### 5.1 IPL Career Batting
 
 | Player | Role | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | 50s | 100s | Sample |
 |--------|------|-----|------|-------|-----|-----|--------|------|-----|------|--------|
@@ -193,7 +250,7 @@
 | Jamie Overton | All-rounder | 2 | 15 | 7 | 214.29 | - | 28.57 | 28.57 | 0 | 0 | LOW |
 | Prashant Veer | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
-### 4.2 Phase-wise Batting (Qualified players)
+### 5.2 Phase-wise Batting (Qualified players)
 
 | Player | Phase | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|------|--------|
@@ -215,9 +272,9 @@
 
 ---
 
-## 5. Squad Bowling Analysis
+## 6. Squad Bowling Analysis
 
-### 5.1 IPL Career Bowling
+### 6.1 IPL Career Bowling
 
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
@@ -234,7 +291,7 @@
 | Jamie Overton | Fast | 3 | 6.0 | 0 | 14.0 | - | - | 25.0 | 30.56 | LOW |
 | Matthew Short | Off-spin | 3 | 4.0 | 0 | 6.25 | - | - | 45.83 | 12.5 | LOW |
 
-### 5.2 Bowler Phase Distribution
+### 6.2 Bowler Phase Distribution
 
 *Shows % of overs bowled and % of wickets taken in each phase*
 
@@ -260,7 +317,7 @@
 
 ---
 
-## 6. Key Batter vs Opposition
+## 7. Key Batter vs Opposition
 
 *Top batters' performance against each IPL team*
 
@@ -312,21 +369,21 @@
 
 ---
 
-## 7. Key Bowler vs Opposition
+## 8. Key Bowler vs Opposition
 
 
 ### Noor Ahmad
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Mumbai Indians | 5 | 114 | 162 | 7 | 8.53 | 23.14 | 16.29 | 34.21 | 16.67 | HIGH |
 | Royal Challengers Bengaluru | 5 | 120 | 170 | 7 | 8.5 | 24.29 | 17.14 | 34.17 | 19.17 | HIGH |
 | Kolkata Knight Riders | 3 | 60 | 59 | 7 | 5.9 | 8.43 | 8.57 | 45.0 | 11.67 | MEDIUM |
-| Rajasthan Royals | 5 | 98 | 154 | 6 | 9.43 | 25.67 | 16.33 | 29.59 | 19.39 | MEDIUM |
+| Mumbai Indians | 5 | 114 | 162 | 7 | 8.53 | 23.14 | 16.29 | 34.21 | 16.67 | HIGH |
 | Punjab Kings | 4 | 90 | 122 | 6 | 8.13 | 20.33 | 15.0 | 30.0 | 14.44 | MEDIUM |
+| Rajasthan Royals | 5 | 98 | 154 | 6 | 9.43 | 25.67 | 16.33 | 29.59 | 19.39 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 65 | 103 | 3 | 9.51 | 34.33 | 21.67 | 29.23 | 20.0 | MEDIUM |
-| Lucknow Super Giants | 4 | 96 | 78 | 3 | 4.88 | 26.0 | 32.0 | 44.79 | 6.25 | MEDIUM |
 | Chennai Super Kings | 3 | 54 | 68 | 3 | 7.56 | 22.67 | 18.0 | 27.78 | 11.11 | MEDIUM |
+| Lucknow Super Giants | 4 | 96 | 78 | 3 | 4.88 | 26.0 | 32.0 | 44.79 | 6.25 | MEDIUM |
 | Delhi Capitals | 4 | 71 | 104 | 2 | 8.79 | 52.0 | 35.5 | 30.99 | 19.72 | MEDIUM |
 
 ### Khaleel Ahmed
@@ -338,17 +395,17 @@
 | Delhi Capitals | 6 | 137 | 194 | 10 | 8.5 | 19.4 | 13.7 | 36.5 | 18.98 | HIGH |
 | Chennai Super Kings | 9 | 215 | 281 | 9 | 7.84 | 31.22 | 23.89 | 40.47 | 17.21 | HIGH |
 | Rajasthan Royals | 9 | 197 | 320 | 9 | 9.75 | 35.56 | 21.89 | 40.1 | 26.4 | HIGH |
-| Kolkata Knight Riders | 8 | 156 | 239 | 8 | 9.19 | 29.88 | 19.5 | 45.51 | 25.0 | HIGH |
 | Royal Challengers Bengaluru | 6 | 138 | 232 | 8 | 10.09 | 29.0 | 17.25 | 34.78 | 26.09 | HIGH |
+| Kolkata Knight Riders | 8 | 156 | 239 | 8 | 9.19 | 29.88 | 19.5 | 45.51 | 25.0 | HIGH |
 | Gujarat Titans | 6 | 126 | 157 | 7 | 7.48 | 22.43 | 18.0 | 42.86 | 19.84 | HIGH |
 | Lucknow Super Giants | 4 | 84 | 132 | 6 | 9.43 | 22.0 | 14.0 | 50.0 | 26.19 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 60 | 102 | 4 | 10.2 | 25.5 | 15.0 | 43.33 | 28.33 | MEDIUM |
 
 ---
 
-## 8. Key Player Venue Performance
+## 9. Key Player Venue Performance
 
-### 8.1 Top Batters by Venue
+### 9.1 Top Batters by Venue
 
 | Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|--------|
@@ -401,20 +458,20 @@
 
 ---
 
-## 9. Andy Flower's Tactical Insights
+## 10. Andy Flower's Tactical Insights
 
 
-### 9.1 Death Bowling Options
+### 10.1 Death Bowling Options
 
 - **Noor Ahmad**: 21.2 overs, 13 wickets, 7.65 economy (over-performs)
 - **RD Chahar**: 11.7 overs, 5 wickets, 9.0 economy (over-performs)
 - **NT Ellis**: 17.0 overs, 6 wickets, 10.47 economy (over-performs)
 
-### 9.2 Powerplay Batting Options
+### 10.2 Powerplay Batting Options
 
 *Insufficient data for powerplay batting analysis*
 
-### 9.3 Potential Spin Vulnerabilities
+### 10.3 Potential Spin Vulnerabilities
 
 *Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
 

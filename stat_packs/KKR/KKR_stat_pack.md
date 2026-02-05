@@ -1,6 +1,6 @@
 # Kolkata Knight Riders (KKR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-05 20:13
+**Generated:** 2026-02-05 20:33
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -98,6 +98,68 @@
 
 ---
 
+## Historical Trends (2023-2025)
+
+*Season-over-season performance analysis (IPL 2023-2025)*
+
+### Season Performance
+
+| Season | Matches | Wins | Losses | Win% | Avg Score | Playoff |
+|--------|---------|------|--------|------|-----------|---------|
+| 2023 | 14 | 6 | 8 | 42.9% | 175.9 | No |
+| 2024 | 14 | 11 | 3 | 78.6% | 190.5 | Final |
+| 2025 | 13 | 5 | 7 | 38.5% | 154.0 | No |
+
+### Batting Trends
+
+**Top Run Scorers by Season:**
+
+- **2023:** RK Singh (474 @ 142.3), N Rana (413 @ 136.3), VR Iyer (404 @ 140.3)
+- **2024:** SP Narine (488 @ 167.1), PD Salt (435 @ 174.0), VR Iyer (370 @ 155.5)
+- **2025:** AM Rahane (390 @ 141.8), A Raghuvanshi (300 @ 138.2), SP Narine (246 @ 153.8)
+
+**Strike Rate Evolution (Key Batters):**
+
+| Player | 2023 | 2024 | 2025 | Trend |
+|--------|------|------|------|-------|
+| A Raghuvanshi | - | 149.5 | 138.2 | DOWN |
+| RK Singh | 142.3 | 143.6 | 148.2 | UP |
+| SP Narine | - | 167.1 | 153.8 | DOWN |
+
+### Bowling Trends
+
+**Top Wicket Takers by Season:**
+
+- **2023:** CV Varun (20w @ 8.27), SP Narine (11w @ 7.89), Suyash Sharma (10w @ 8.28)
+- **2024:** CV Varun (21w @ 7.98), AD Russell (19w @ 9.7), Harshit Rana (19w @ 8.75)
+- **2025:** CV Varun (17w @ 7.6), VG Arora (17w @ 9.51), Harshit Rana (15w @ 9.93)
+
+**Economy Rate Evolution (Key Bowlers):**
+
+| Player | 2023 | 2024 | 2025 | Trend |
+|--------|------|------|------|-------|
+| CV Varun | 8.27 | 7.98 | 7.6 | IMPROVING |
+| Harshit Rana | 8.5 | 8.75 | 9.93 | DECLINING |
+| SP Narine | 7.89 | 6.75 | 7.79 | STEADY |
+| VG Arora | 8.36 | 8.48 | 9.51 | DECLINING |
+
+### Form Trajectory
+
+*Players trending up/down based on 2024-2025 performance comparison*
+
+**Trending UP:**
+- A Raghuvanshi: +137 runs (2024: 163 @ 149.5 -> 2025: 300 @ 138.2)
+
+**Trending DOWN:**
+- SP Narine: -242 runs, -13.3 SR (2024: 488 @ 167.1 -> 2025: 246 @ 153.8)
+- A Raghuvanshi: -11.3 SR (2024: 163 @ 149.5 -> 2025: 300 @ 138.2)
+
+---
+*Note: Historical trends limited to IPL 2023-2025 data. Some players may not have data across all seasons due to team changes or limited playing time.*
+
+
+---
+
 ## Venue Analysis
 
 *Performance breakdown by venue (2023+ IPL data)*
@@ -116,8 +178,8 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | MA Chidambaram Stadium | 4 | 3 | 75.0% | 126.3 |
-| Arun Jaitley Stadium | 3 | 1 | 33.3% | 166.3 |
 | Wankhede Stadium | 3 | 1 | 33.3% | 156.7 |
+| Arun Jaitley Stadium | 3 | 1 | 33.3% | 166.3 |
 | M Chinnaswamy Stadium | 2 | 2 | 100.0% | 193.0 |
 | Narendra Modi Stadium | 2 | 2 | 100.0% | 185.5 |
 
@@ -132,8 +194,8 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
@@ -166,14 +228,14 @@
 | VG Arora | Eden Gardens | 13 | 17 | 10.03 | 15.94 |
 | SP Narine | Eden Gardens | 21 | 16 | 7.16 | 28.88 |
 | SP Narine | Sheikh Zayed Stadium | 8 | 11 | 7.13 | 17.45 |
-| CV Varun | Dubai International Crick | 6 | 10 | 6.46 | 14.4 |
+| SP Narine | Wankhede Stadium | 7 | 10 | 6.99 | 16.3 |
 
 
 ---
 
-## 4. Squad Batting Analysis
+## 5. Squad Batting Analysis
 
-### 4.1 IPL Career Batting
+### 5.1 IPL Career Batting
 
 | Player | Role | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | 50s | 100s | Sample |
 |--------|------|-----|------|-------|-----|-----|--------|------|-----|------|--------|
@@ -193,7 +255,7 @@
 | Tejasvi Singh | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Daksh Kamra | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
-### 4.2 Phase-wise Batting (Qualified players)
+### 5.2 Phase-wise Batting (Qualified players)
 
 | Player | Phase | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|------|--------|
@@ -221,9 +283,9 @@
 
 ---
 
-## 5. Squad Bowling Analysis
+## 6. Squad Bowling Analysis
 
-### 5.1 IPL Career Bowling
+### 6.1 IPL Career Bowling
 
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
@@ -240,7 +302,7 @@
 | Rachin Ravindra | Left-arm o | 2 | 2.0 | 0 | 3.5 | - | - | 41.67 | - | LOW |
 | Ramandeep Singh | Medium | 1 | 0.7 | 0 | 13.5 | - | - | - | 25.0 | LOW |
 
-### 5.2 Bowler Phase Distribution
+### 6.2 Bowler Phase Distribution
 
 *Shows % of overs bowled and % of wickets taken in each phase*
 
@@ -272,7 +334,7 @@
 
 ---
 
-## 6. Key Batter vs Opposition
+## 7. Key Batter vs Opposition
 
 *Top batters' performance against each IPL team*
 
@@ -335,7 +397,7 @@
 
 ---
 
-## 7. Key Bowler vs Opposition
+## 8. Key Bowler vs Opposition
 
 
 ### Varun Chakravarthy
@@ -391,8 +453,8 @@
 | Lucknow Super Giants | 5 | 97 | 157 | 6 | 9.71 | 26.17 | 16.17 | 36.08 | 25.77 | MEDIUM |
 | Rajasthan Royals | 4 | 84 | 139 | 6 | 9.93 | 23.17 | 14.0 | 36.9 | 27.38 | MEDIUM |
 | Punjab Kings | 4 | 72 | 146 | 5 | 12.17 | 29.2 | 14.4 | 36.11 | 33.33 | MEDIUM |
-| Chennai Super Kings | 3 | 60 | 77 | 4 | 7.7 | 19.25 | 15.0 | 50.0 | 18.33 | MEDIUM |
 | Royal Challengers Bengaluru | 3 | 66 | 102 | 4 | 9.27 | 25.5 | 16.5 | 28.79 | 19.7 | MEDIUM |
+| Chennai Super Kings | 3 | 60 | 77 | 4 | 7.7 | 19.25 | 15.0 | 50.0 | 18.33 | MEDIUM |
 | Delhi Capitals | 3 | 66 | 94 | 3 | 8.55 | 31.33 | 22.0 | 39.39 | 22.73 | MEDIUM |
 | Gujarat Titans | 2 | 42 | 67 | 2 | 9.57 | 33.5 | 21.0 | 26.19 | 26.19 | MEDIUM |
 | Mumbai Indians | 2 | 30 | 57 | 2 | 11.4 | 28.5 | 15.0 | 40.0 | 33.33 | MEDIUM |
@@ -407,15 +469,15 @@
 | Rajasthan Royals | 3 | 66 | 126 | 4 | 11.45 | 31.5 | 16.5 | 31.82 | 30.3 | MEDIUM |
 | Lucknow Super Giants | 4 | 78 | 109 | 3 | 8.38 | 36.33 | 26.0 | 35.9 | 15.38 | MEDIUM |
 | Punjab Kings | 3 | 57 | 90 | 3 | 9.47 | 30.0 | 19.0 | 36.84 | 29.82 | MEDIUM |
-| Gujarat Titans | 2 | 48 | 77 | 1 | 9.63 | 77.0 | 48.0 | 25.0 | 25.0 | MEDIUM |
 | Mumbai Indians | 3 | 55 | 93 | 1 | 10.15 | 93.0 | 55.0 | 38.18 | 25.45 | MEDIUM |
+| Gujarat Titans | 2 | 48 | 77 | 1 | 9.63 | 77.0 | 48.0 | 25.0 | 25.0 | MEDIUM |
 | Royal Challengers Bengaluru | 2 | 30 | 63 | 1 | 12.6 | 63.0 | 30.0 | 16.67 | 36.67 | MEDIUM |
 
 ---
 
-## 8. Key Player Venue Performance
+## 9. Key Player Venue Performance
 
-### 8.1 Top Batters by Venue
+### 9.1 Top Batters by Venue
 
 | Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|--------|
@@ -445,8 +507,8 @@
 | MK Pandey | Rajiv Gandhi International Stadium | 9 | 169 | 157 | 107.64 | 18.78 | 8.92 | HIGH |
 | MK Pandey | Rajiv Gandhi International Stadium,... | 5 | 149 | 143 | 104.2 | 37.25 | 10.49 | HIGH |
 | MK Pandey | Subrata Roy Sahara Stadium | 7 | 147 | 127 | 115.75 | 29.4 | 13.39 | HIGH |
-| MK Pandey | Feroz Shah Kotla | 4 | 128 | 94 | 136.17 | 64.0 | 12.77 | MEDIUM |
 | MK Pandey | MA Chidambaram Stadium, Chepauk, Ch... | 4 | 128 | 119 | 107.56 | 42.67 | 10.08 | HIGH |
+| MK Pandey | Feroz Shah Kotla | 4 | 128 | 94 | 136.17 | 64.0 | 12.77 | MEDIUM |
 | MK Pandey | Sawai Mansingh Stadium | 5 | 124 | 101 | 122.77 | 24.8 | 16.83 | HIGH |
 | MK Pandey | SuperSport Park | 1 | 114 | 73 | 156.16 | - | 19.18 | MEDIUM |
 | MK Pandey | Dr DY Patil Sports Academy | 5 | 113 | 101 | 111.88 | 22.6 | 14.85 | HIGH |
@@ -454,8 +516,8 @@
 | R Ravindra | MA Chidambaram Stadium, Chepauk, Ch... | 8 | 237 | 151 | 156.95 | 33.86 | 21.19 | HIGH |
 | RA Tripathi | Wankhede Stadium, Mumbai | 6 | 214 | 144 | 148.61 | 35.67 | 20.14 | HIGH |
 | RA Tripathi | Maharashtra Cricket Association Sta... | 7 | 183 | 129 | 141.86 | 36.6 | 22.48 | HIGH |
-| RA Tripathi | Sawai Mansingh Stadium | 9 | 174 | 140 | 124.29 | 29.0 | 12.14 | HIGH |
 | RA Tripathi | Rajiv Gandhi International Stadium,... | 8 | 174 | 126 | 138.1 | 24.86 | 23.02 | HIGH |
+| RA Tripathi | Sawai Mansingh Stadium | 9 | 174 | 140 | 124.29 | 29.0 | 12.14 | HIGH |
 | RA Tripathi | MA Chidambaram Stadium, Chepauk, Ch... | 9 | 173 | 131 | 132.06 | 19.22 | 18.32 | HIGH |
 | RA Tripathi | Eden Gardens | 3 | 140 | 80 | 175.0 | 46.67 | 30.0 | MEDIUM |
 | RA Tripathi | Dr DY Patil Sports Academy, Mumbai | 4 | 130 | 77 | 168.83 | 43.33 | 24.68 | MEDIUM |
@@ -471,22 +533,22 @@
 
 ---
 
-## 9. Andy Flower's Tactical Insights
+## 10. Andy Flower's Tactical Insights
 
 
-### 9.1 Death Bowling Options
+### 10.1 Death Bowling Options
 
 - **SP Narine**: 17.0 overs, 8 wickets, 7.35 economy (over-performs)
 - **CV Varun**: 27.7 overs, 11 wickets, 8.42 economy (over-performs)
 - **M Pathirana**: 64.2 overs, 33 wickets, 8.65 economy (over-performs)
 
-### 9.2 Powerplay Batting Options
+### 10.2 Powerplay Batting Options
 
 - **Sunil Narine**: SR 171.13, Boundary% 31.4% (70 innings)
 - **Cameron Green**: SR 164.71, Boundary% 28.57% (16 innings)
 - **Rahul Tripathi**: SR 140.5, Boundary% 22.88% (75 innings)
 
-### 9.3 Potential Spin Vulnerabilities
+### 10.3 Potential Spin Vulnerabilities
 
 *Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
 

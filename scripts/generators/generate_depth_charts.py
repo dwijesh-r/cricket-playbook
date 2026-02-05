@@ -21,9 +21,17 @@ Positions:
 
 import json
 import csv
+import sys
 from pathlib import Path
 from dataclasses import dataclass, field
 from typing import Optional, Dict, List
+
+# Add parent directory to path for utils import
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils.logging_config import setup_logger
+
+# Initialize logger
+logger = setup_logger(__name__)
 
 
 # =============================================================================
@@ -324,6 +332,8 @@ def load_squads() -> dict:
     squads = {}
     squad_file = DATA_DIR / "ipl_2026_squads.csv"
 
+    logger.debug("Loading squads from %s", squad_file)
+
     with open(squad_file, "r") as f:
         reader = csv.DictReader(f)
         for row in reader:
@@ -332,6 +342,7 @@ def load_squads() -> dict:
                 squads[team] = []
             squads[team].append(row)
 
+    logger.info("Loaded %d teams from squad data", len(squads))
     return squads
 
 
@@ -359,6 +370,7 @@ def load_player_tags() -> dict:
     tags_file = OUTPUT_DIR / "player_tags_2023.json"
 
     if tags_file.exists():
+        logger.debug("Loading player tags from %s", tags_file)
         with open(tags_file, "r") as f:
             data = json.load(f)
 
@@ -367,6 +379,12 @@ def load_player_tags() -> dict:
 
             for bowler in data.get("bowlers", []):
                 tags["bowlers"][bowler["player_id"]] = bowler
+
+        logger.debug(
+            "Loaded tags for %d batters, %d bowlers", len(tags["batters"]), len(tags["bowlers"])
+        )
+    else:
+        logger.warning("Player tags file not found: %s", tags_file)
 
     return tags
 
@@ -1461,6 +1479,8 @@ def generate_what_doesnt(players: List[PositionPlayer], position_name: str) -> s
 
 def generate_team_depth_chart(team: str, players: List[Player]) -> DepthChart:
     """Generate complete depth chart for a team"""
+    logger.info("Generating depth chart for %s", team)
+    logger.debug("Processing %d players for %s", len(players), team)
     positions = {}
 
     # 1. Openers
@@ -1708,57 +1728,62 @@ def generate_cross_team_comparison(all_charts: Dict[str, DepthChart]) -> dict:
 
 def main():
     """Main entry point"""
-    print("=" * 60)
-    print("CRICKET PLAYBOOK - DEPTH CHARTS GENERATOR")
-    print("=" * 60)
+    logger.info("=" * 60)
+    logger.info("CRICKET PLAYBOOK - DEPTH CHARTS GENERATOR")
+    logger.info("=" * 60)
 
     # Load data
-    print("\n[1/5] Loading data...")
+    logger.info("[1/5] Loading data...")
     squads = load_squads()
     contracts = load_contracts()
     tags = load_player_tags()
     entry_points = load_entry_points()
     bowler_metrics = load_bowler_phase_performance()
 
-    print(f"  - Loaded {len(squads)} teams")
-    print(f"  - Loaded {len(contracts)} player contracts")
-    print(f"  - Loaded {len(entry_points)} batting entry points")
-    print(f"  - Loaded {len(bowler_metrics)} bowler phase records")
+    logger.info("Loaded %d teams", len(squads))
+    logger.info("Loaded %d player contracts", len(contracts))
+    logger.info("Loaded %d batting entry points", len(entry_points))
+    logger.info("Loaded %d bowler phase records", len(bowler_metrics))
 
     # Build player objects
-    print("\n[2/5] Building player database...")
+    logger.info("[2/5] Building player database...")
     team_players = build_players(squads, contracts, tags, entry_points, bowler_metrics)
 
     total_players = sum(len(p) for p in team_players.values())
-    print(f"  - Built {total_players} player profiles")
+    logger.info("Built %d player profiles", total_players)
 
     # Generate depth charts
-    print("\n[3/5] Generating Depth Charts...")
+    logger.info("[3/5] Generating Depth Charts...")
     all_charts = {}
 
     for team in IPL_TEAMS:
-        print(f"\n  {team}...")
+        logger.debug("Processing team: %s", team)
         players = team_players.get(team, [])
 
         if not players:
-            print(f"    WARNING: No players found for {team}")
+            logger.warning("No players found for %s", team)
             continue
 
         depth_chart = generate_team_depth_chart(team, players)
         all_charts[team] = depth_chart
 
-        # Print summary
-        print(f"    Overall Rating: {depth_chart.overall_rating}/10")
-        print(f"    Strongest: {depth_chart.strongest_position}")
-        print(f"    Weakest: {depth_chart.weakest_position}")
+        # Log summary
+        logger.debug(
+            "%s - Rating: %.1f/10, Strongest: %s, Weakest: %s",
+            team,
+            depth_chart.overall_rating,
+            depth_chart.strongest_position,
+            depth_chart.weakest_position,
+        )
         if depth_chart.vulnerabilities:
-            print(f"    Vulnerabilities: {depth_chart.vulnerabilities[0]}")
+            logger.debug("%s vulnerabilities: %s", team, depth_chart.vulnerabilities[0])
 
     # Save outputs
-    print("\n[4/5] Saving outputs...")
+    logger.info("[4/5] Saving outputs...")
 
     # Ensure output directory exists
     DEPTH_CHARTS_DIR.mkdir(parents=True, exist_ok=True)
+    logger.debug("Output directory: %s", DEPTH_CHARTS_DIR)
 
     # Save consolidated JSON
     output_data = {
@@ -1775,7 +1800,7 @@ def main():
     output_file = DEPTH_CHARTS_DIR / "depth_charts_2026.json"
     with open(output_file, "w") as f:
         json.dump(output_data, f, indent=2)
-    print(f"  - Saved: {output_file}")
+    logger.info("Saved consolidated output: %s", output_file)
 
     # Save per-team files
     for team, dc in all_charts.items():
@@ -1783,42 +1808,35 @@ def main():
         with open(team_file, "w") as f:
             json.dump(depth_chart_to_dict(dc), f, indent=2)
 
-    print(f"  - Saved {len(all_charts)} team files")
+    logger.info("Saved %d team files", len(all_charts))
 
     # Generate README
     readme_content = generate_readme(all_charts)
     readme_file = DEPTH_CHARTS_DIR / "README.md"
     with open(readme_file, "w") as f:
         f.write(readme_content)
-    print(f"  - Saved: {readme_file}")
+    logger.info("Saved README: %s", readme_file)
 
-    # Print summary
-    print("\n[5/5] Generation Summary")
-    print("=" * 60)
-
-    # Print cross-team comparison table
-    print("\nCROSS-TEAM DEPTH COMPARISON")
-    print("-" * 80)
-    print(
-        f"{'Team':<6} {'Open':<6} {'#3':<6} {'Mid':<6} {'Fin':<6} {'Keep':<6} {'Pace':<6} {'Spin':<6} {'AR':<6} {'Total':<6}"
-    )
-    print("-" * 80)
+    # Log summary
+    logger.info("[5/5] Generation Summary")
+    logger.info("=" * 60)
 
     comparison = generate_cross_team_comparison(all_charts)
     sorted_teams = sorted(comparison.items(), key=lambda x: x[1]["overall"], reverse=True)
 
+    logger.info("CROSS-TEAM DEPTH COMPARISON")
     for abbrev, ratings in sorted_teams:
-        print(
-            f"{abbrev:<6} {ratings['opener']:<6.1f} {ratings['number_3']:<6.1f} "
-            f"{ratings['middle_order']:<6.1f} {ratings['finisher']:<6.1f} "
-            f"{ratings['wicketkeeper']:<6.1f} {ratings['lead_pacer']:<6.1f} "
-            f"{ratings['lead_spinner']:<6.1f} {ratings['allrounder']:<6.1f} "
-            f"{ratings['overall']:<6.1f}"
+        logger.debug(
+            "%s - Overall: %.1f, Opener: %.1f, Pacer: %.1f, Spinner: %.1f",
+            abbrev,
+            ratings["overall"],
+            ratings["opener"],
+            ratings["lead_pacer"],
+            ratings["lead_spinner"],
         )
 
-    print("-" * 80)
-    print("\nReady for Domain Sanity review.")
-    print("=" * 60)
+    logger.info("Ready for Domain Sanity review.")
+    logger.info("=" * 60)
 
 
 def generate_readme(all_charts: Dict[str, DepthChart]) -> str:

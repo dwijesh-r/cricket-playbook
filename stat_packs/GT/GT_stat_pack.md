@@ -1,6 +1,6 @@
 # Gujarat Titans (GT) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-05 20:13
+**Generated:** 2026-02-05 20:33
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -94,6 +94,65 @@
 
 ---
 
+## Historical Trends (2023-2025)
+
+*Season-over-season performance analysis (IPL 2023-2025)*
+
+### Season Performance
+
+| Season | Matches | Wins | Losses | Win% | Avg Score | Playoff |
+|--------|---------|------|--------|------|-----------|---------|
+| 2023 | 17 | 11 | 6 | 64.7% | 179.6 | Final |
+| 2024 | 12 | 5 | 7 | 41.7% | 170.0 | No |
+| 2025 | 15 | 9 | 6 | 60.0% | 192.8 | Elim |
+
+### Batting Trends
+
+**Top Run Scorers by Season:**
+
+- **2023:** Shubman Gill (890 @ 152.9), WP Saha (371 @ 124.9), B Sai Sudharsan (362 @ 137.1)
+- **2024:** B Sai Sudharsan (527 @ 135.8), Shubman Gill (426 @ 144.4), DA Miller (210 @ 140.9)
+- **2025:** B Sai Sudharsan (759 @ 149.1), Shubman Gill (650 @ 149.4), JC Buttler (538 @ 159.6)
+
+**Strike Rate Evolution (Key Batters):**
+
+| Player | 2023 | 2024 | 2025 | Trend |
+|--------|------|------|------|-------|
+| B Sai Sudharsan | 137.1 | 135.8 | 149.1 | UP |
+| M Shahrukh Khan | - | 164.9 | 172.1 | UP |
+| Rashid Khan | 197.0 | 136.0 | - | DOWN |
+| Shubman Gill | 152.9 | 144.4 | 149.4 | STEADY |
+
+### Bowling Trends
+
+**Top Wicket Takers by Season:**
+
+- **2023:** Mohammed Shami (28w @ 7.92), Rashid Khan (27w @ 8.21), MM Sharma (27w @ 8.1)
+- **2024:** MM Sharma (13w @ 10.48), Rashid Khan (10w @ 8.52), UT Yadav (8w @ 9.81)
+- **2025:** M Prasidh Krishna (25w @ 8.34), R Sai Kishore (19w @ 9.07), Mohammed Siraj (16w @ 8.83)
+
+**Economy Rate Evolution (Key Bowlers):**
+
+| Player | 2023 | 2024 | 2025 | Trend |
+|--------|------|------|------|-------|
+| R Sai Kishore | - | 8.84 | 9.07 | STEADY |
+| Rashid Khan | 8.21 | 8.52 | 9.34 | DECLINING |
+
+### Form Trajectory
+
+*Players trending up/down based on 2024-2025 performance comparison*
+
+**Trending UP:**
+- B Sai Sudharsan: +232 runs, +13.3 SR (2024: 527 @ 135.8 -> 2025: 759 @ 149.1)
+- Shubman Gill: +224 runs (2024: 426 @ 144.4 -> 2025: 650 @ 149.4)
+- M Shahrukh Khan: +52 runs (2024: 127 @ 164.9 -> 2025: 179 @ 172.1)
+
+---
+*Note: Historical trends limited to IPL 2023-2025 data. Some players may not have data across all seasons due to team changes or limited playing time.*
+
+
+---
+
 ## Venue Analysis
 
 *Performance breakdown by venue (2023+ IPL data)*
@@ -113,11 +172,11 @@
 |-------|---------|------|------|-----------|
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 148.3 |
 | M Chinnaswamy Stadium | 3 | 2 | 66.7% | 171.7 |
-| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 175.7 |
 | Arun Jaitley Stadium | 3 | 2 | 66.7% | 196.0 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 175.7 |
 | MA Chidambaram Stadium | 2 | 0 | 0.0% | 150.0 |
-| Eden Gardens | 2 | 2 | 100.0% | 189.0 |
 | Wankhede Stadium | 2 | 1 | 50.0% | 169.0 |
+| Eden Gardens | 2 | 2 | 100.0% | 189.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -130,9 +189,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -163,15 +222,15 @@
 | K Rabada | Dubai International Crick | 13 | 16 | 8.41 | 18.38 |
 | Rashid Khan | Dubai International Crick | 11 | 14 | 5.36 | 18.86 |
 | R Sai Kishore | Narendra Modi Stadium | 10 | 13 | 8.73 | 12.0 |
-| I Sharma | Rajiv Gandhi Internationa | 17 | 12 | 7.12 | 32.5 |
 | K Rabada | Sheikh Zayed Stadium | 5 | 12 | 6.75 | 10.0 |
+| I Sharma | Rajiv Gandhi Internationa | 17 | 12 | 7.12 | 32.5 |
 
 
 ---
 
-## 4. Squad Batting Analysis
+## 5. Squad Batting Analysis
 
-### 4.1 IPL Career Batting
+### 5.1 IPL Career Batting
 
 | Player | Role | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | 50s | 100s | Sample |
 |--------|------|-----|------|-------|-----|-----|--------|------|-----|------|--------|
@@ -189,7 +248,7 @@
 | Jayant Yadav | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Nishant Sindhu | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
-### 4.2 Phase-wise Batting (Qualified players)
+### 5.2 Phase-wise Batting (Qualified players)
 
 | Player | Phase | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|------|--------|
@@ -211,9 +270,9 @@
 
 ---
 
-## 5. Squad Bowling Analysis
+## 6. Squad Bowling Analysis
 
-### 5.1 IPL Career Bowling
+### 6.1 IPL Career Bowling
 
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
@@ -231,7 +290,7 @@
 | Jayant Yadav | Off-spin | 1 | 4.0 | 0 | 6.5 | - | - | 33.33 | 8.33 | LOW |
 | Manav Suthar | Left-arm o | 1 | 2.0 | 0 | 13.0 | - | - | 33.33 | 33.33 | LOW |
 
-### 5.2 Bowler Phase Distribution
+### 6.2 Bowler Phase Distribution
 
 *Shows % of overs bowled and % of wickets taken in each phase*
 
@@ -264,7 +323,7 @@
 
 ---
 
-## 6. Key Batter vs Opposition
+## 7. Key Batter vs Opposition
 
 *Top batters' performance against each IPL team*
 
@@ -316,7 +375,7 @@
 
 ---
 
-## 7. Key Bowler vs Opposition
+## 8. Key Bowler vs Opposition
 
 
 ### Mohammed Siraj
@@ -324,11 +383,11 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 15 | 329 | 496 | 18 | 9.05 | 27.56 | 18.28 | 38.3 | 23.4 | HIGH |
-| Kolkata Knight Riders | 15 | 320 | 408 | 15 | 7.65 | 27.2 | 21.33 | 45.63 | 19.38 | HIGH |
 | Sunrisers Hyderabad | 13 | 270 | 319 | 15 | 7.09 | 21.27 | 18.0 | 47.04 | 15.93 | HIGH |
+| Kolkata Knight Riders | 15 | 320 | 408 | 15 | 7.65 | 27.2 | 21.33 | 45.63 | 19.38 | HIGH |
+| Punjab Kings | 11 | 234 | 397 | 13 | 10.18 | 30.54 | 18.0 | 34.62 | 26.5 | HIGH |
 | Rajasthan Royals | 13 | 270 | 361 | 13 | 8.02 | 27.77 | 20.77 | 41.11 | 19.26 | HIGH |
 | Mumbai Indians | 15 | 313 | 434 | 13 | 8.32 | 33.38 | 24.08 | 43.13 | 20.13 | HIGH |
-| Punjab Kings | 11 | 234 | 397 | 13 | 10.18 | 30.54 | 18.0 | 34.62 | 26.5 | HIGH |
 | Lucknow Super Giants | 7 | 162 | 237 | 7 | 8.78 | 33.86 | 23.14 | 43.83 | 23.46 | HIGH |
 | Gujarat Titans | 4 | 96 | 127 | 5 | 7.94 | 25.4 | 19.2 | 43.75 | 19.79 | MEDIUM |
 | Chennai Super Kings | 12 | 234 | 358 | 3 | 9.18 | 119.33 | 78.0 | 34.62 | 21.37 | HIGH |
@@ -338,22 +397,22 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Punjab Kings | 16 | 384 | 421 | 25 | 6.58 | 16.84 | 15.36 | 41.93 | 11.46 | HIGH |
-| Delhi Capitals | 19 | 444 | 480 | 21 | 6.49 | 22.86 | 21.14 | 36.71 | 11.04 | HIGH |
 | Mumbai Indians | 18 | 420 | 436 | 21 | 6.23 | 20.76 | 20.0 | 41.67 | 10.71 | HIGH |
-| Rajasthan Royals | 16 | 384 | 412 | 19 | 6.44 | 21.68 | 20.21 | 36.2 | 9.38 | HIGH |
+| Delhi Capitals | 19 | 444 | 480 | 21 | 6.49 | 22.86 | 21.14 | 36.71 | 11.04 | HIGH |
 | Chennai Super Kings | 18 | 426 | 579 | 19 | 8.15 | 30.47 | 22.42 | 33.33 | 16.9 | HIGH |
+| Rajasthan Royals | 16 | 384 | 412 | 19 | 6.44 | 21.68 | 20.21 | 36.2 | 9.38 | HIGH |
 | Kolkata Knight Riders | 16 | 372 | 437 | 19 | 7.05 | 23.0 | 19.58 | 35.22 | 12.63 | HIGH |
 | Royal Challengers Bengaluru | 16 | 370 | 509 | 15 | 8.25 | 33.93 | 24.67 | 31.89 | 15.95 | HIGH |
 | Lucknow Super Giants | 7 | 155 | 213 | 9 | 8.25 | 23.67 | 17.22 | 30.32 | 14.84 | HIGH |
 | Gujarat Lions | 2 | 48 | 53 | 6 | 6.63 | 8.83 | 8.0 | 43.75 | 12.5 | MEDIUM |
-| Sunrisers Hyderabad | 6 | 138 | 216 | 2 | 9.39 | 108.0 | 69.0 | 21.74 | 16.67 | HIGH |
 | Rising Pune Supergiant | 2 | 48 | 36 | 2 | 4.5 | 18.0 | 24.0 | 37.5 | 2.08 | MEDIUM |
+| Sunrisers Hyderabad | 6 | 138 | 216 | 2 | 9.39 | 108.0 | 69.0 | 21.74 | 16.67 | HIGH |
 
 ---
 
-## 8. Key Player Venue Performance
+## 9. Key Player Venue Performance
 
-### 8.1 Top Batters by Venue
+### 9.1 Top Batters by Venue
 
 | Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|--------|
@@ -393,22 +452,22 @@
 
 ---
 
-## 9. Andy Flower's Tactical Insights
+## 10. Andy Flower's Tactical Insights
 
 
-### 9.1 Death Bowling Options
+### 10.1 Death Bowling Options
 
 - **Mohammed Siraj**: 42.0 overs, 19 wickets, 9.07 economy (over-performs)
 - **M Prasidh Krishna**: 18.0 overs, 15 wickets, 10.28 economy (over-performs)
 - **I Sharma**: 12.3 overs, 6 wickets, 10.3 economy (over-performs)
 
-### 9.2 Powerplay Batting Options
+### 10.2 Powerplay Batting Options
 
 - **Jos Buttler**: SR 140.7, Boundary% 23.52% (95 innings)
 - **Sai Sudharsan**: SR 137.83, Boundary% 20.65% (35 innings)
 - **Shubman Gill**: SR 131.44, Boundary% 19.79% (102 innings)
 
-### 9.3 Potential Spin Vulnerabilities
+### 10.3 Potential Spin Vulnerabilities
 
 *Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
 

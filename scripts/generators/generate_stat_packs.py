@@ -15,8 +15,16 @@ Generates comprehensive stat packs for each IPL 2026 team including:
 
 import duckdb
 import json
+import sys
 from pathlib import Path
 from datetime import datetime
+
+# Add parent directory to path for utils import
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils.logging_config import setup_logger
+
+# Initialize logger
+logger = setup_logger(__name__)
 
 # Paths
 SCRIPT_DIR = Path(__file__).parent
@@ -29,9 +37,16 @@ PLAYER_TAGS_PATH = PROJECT_DIR / "outputs" / "player_tags.json"
 def load_player_tags() -> dict:
     """Load player tags from JSON file."""
     if not PLAYER_TAGS_PATH.exists():
+        logger.warning("Player tags file not found at %s", PLAYER_TAGS_PATH)
         return {"batters": [], "bowlers": []}
     with open(PLAYER_TAGS_PATH) as f:
-        return json.load(f)
+        data = json.load(f)
+        logger.debug(
+            "Loaded player tags: %d batters, %d bowlers",
+            len(data.get("batters", [])),
+            len(data.get("bowlers", [])),
+        )
+        return data
 
 
 def get_player_tags_lookup(tags_data: dict) -> dict:
@@ -144,6 +159,456 @@ def get_opposition_clause(team_name: str) -> str:
     return ", ".join([f"'{a}'" for a in aliases])
 
 
+def generate_historical_trends(conn, team_name: str, alias_clause: str) -> list:
+    """Generate historical trends section showing season-over-season performance.
+
+    Covers IPL seasons 2023-2025 and includes:
+    - Season performance summary (matches, wins, win%, avg score, playoff status)
+    - Batting trends (top run scorers, strike rate evolution)
+    - Bowling trends (top wicket takers, economy rate changes)
+    - Form trajectory (players trending up/down)
+    """
+    md = []
+    md.append("## 3. Historical Trends (2023-2025)\n")
+    md.append("*Season-over-season performance analysis (IPL 2023-2025)*\n")
+
+    seasons = ["2023", "2024", "2025"]
+
+    # ==========================================================================
+    # SEASON PERFORMANCE SUMMARY
+    # ==========================================================================
+    md.append("### Season Performance\n")
+
+    season_data = []
+    for season in seasons:
+        # Get wins/losses
+        match_stats = conn.execute(f"""
+            WITH ipl_matches AS (
+                SELECT dm.match_id, dm.season, dm.stage, dt1.team_name as team1, dt2.team_name as team2,
+                       dtw.team_name as winner
+                FROM dim_match dm
+                JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
+                JOIN dim_team dt1 ON dm.team1_id = dt1.team_id
+                JOIN dim_team dt2 ON dm.team2_id = dt2.team_id
+                LEFT JOIN dim_team dtw ON dm.winner_id = dtw.team_id
+                WHERE dtr.tournament_name = 'Indian Premier League'
+                  AND dm.season = '{season}'
+            )
+            SELECT
+                COUNT(*) as matches,
+                SUM(CASE WHEN winner IN ({alias_clause}) THEN 1 ELSE 0 END) as wins,
+                SUM(CASE WHEN winner IS NOT NULL AND winner NOT IN ({alias_clause}) THEN 1 ELSE 0 END) as losses
+            FROM ipl_matches
+            WHERE team1 IN ({alias_clause}) OR team2 IN ({alias_clause})
+        """).fetchone()
+
+        # Get average score
+        avg_score_result = conn.execute(f"""
+            WITH innings_scores AS (
+                SELECT dm.season, dt.team_name,
+                       SUM(fb.total_runs) as innings_runs
+                FROM fact_ball fb
+                JOIN dim_match dm ON fb.match_id = dm.match_id
+                JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
+                JOIN dim_team dt ON fb.batting_team_id = dt.team_id
+                WHERE dtr.tournament_name = 'Indian Premier League'
+                  AND dm.season = '{season}'
+                  AND dt.team_name IN ({alias_clause})
+                GROUP BY dm.season, dm.match_id, fb.innings, dt.team_name
+            )
+            SELECT ROUND(AVG(innings_runs), 1) as avg_score
+            FROM innings_scores
+        """).fetchone()
+
+        # Check playoff status
+        playoff_result = conn.execute(f"""
+            SELECT dm.stage
+            FROM dim_match dm
+            JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
+            JOIN dim_team dt1 ON dm.team1_id = dt1.team_id
+            JOIN dim_team dt2 ON dm.team2_id = dt2.team_id
+            WHERE dtr.tournament_name = 'Indian Premier League'
+              AND dm.season = '{season}'
+              AND dm.stage != 'None'
+              AND (dt1.team_name IN ({alias_clause}) OR dt2.team_name IN ({alias_clause}))
+            ORDER BY CASE dm.stage
+                WHEN 'Final' THEN 4
+                WHEN 'Qualifier 2' THEN 3
+                WHEN 'Qualifier 1' THEN 2
+                WHEN 'Eliminator' THEN 1
+            END DESC
+            LIMIT 1
+        """).fetchone()
+
+        matches = match_stats[0] if match_stats else 0
+        wins = match_stats[1] if match_stats else 0
+        losses = match_stats[2] if match_stats else 0
+        win_pct = round(wins * 100 / matches, 1) if matches > 0 else 0
+        avg_score = avg_score_result[0] if avg_score_result and avg_score_result[0] else "-"
+
+        # Determine playoff status
+        if playoff_result and playoff_result[0]:
+            stage = playoff_result[0]
+            if stage == "Final":
+                playoff_status = "Final"
+            elif stage == "Qualifier 1":
+                playoff_status = "Q1"
+            elif stage == "Qualifier 2":
+                playoff_status = "Q2"
+            elif stage == "Eliminator":
+                playoff_status = "Elim"
+            else:
+                playoff_status = stage[:4]
+        else:
+            playoff_status = "No"
+
+        season_data.append((season, matches, wins, losses, win_pct, avg_score, playoff_status))
+
+    md.append("| Season | Matches | Wins | Losses | Win% | Avg Score | Playoff |")
+    md.append("|--------|---------|------|--------|------|-----------|---------|")
+    for row in season_data:
+        season, matches, wins, losses, win_pct, avg_score, playoff = row
+        md.append(
+            f"| {season} | {matches} | {wins} | {losses} | {win_pct}% | {avg_score} | {playoff} |"
+        )
+
+    md.append("")
+
+    # ==========================================================================
+    # BATTING TRENDS
+    # ==========================================================================
+    md.append("### Batting Trends\n")
+    md.append("**Top Run Scorers by Season:**\n")
+
+    for season in seasons:
+        batters = conn.execute(f"""
+            WITH season_batting AS (
+                SELECT dm.season, dp.current_name as player_name,
+                       COUNT(DISTINCT fb.match_id) as innings,
+                       SUM(fb.batter_runs) as runs,
+                       COUNT(*) as balls_faced
+                FROM fact_ball fb
+                JOIN dim_match dm ON fb.match_id = dm.match_id
+                JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
+                JOIN dim_team dt ON fb.batting_team_id = dt.team_id
+                JOIN dim_player dp ON fb.batter_id = dp.player_id
+                WHERE dtr.tournament_name = 'Indian Premier League'
+                  AND dm.season = '{season}'
+                  AND dt.team_name IN ({alias_clause})
+                GROUP BY dm.season, dp.current_name
+            )
+            SELECT player_name, runs, innings,
+                   ROUND(runs * 100.0 / NULLIF(balls_faced, 0), 1) as sr
+            FROM season_batting
+            WHERE runs >= 150
+            ORDER BY runs DESC
+            LIMIT 3
+        """).fetchall()
+
+        if batters:
+            batter_str = ", ".join([f"{b[0]} ({b[1]} @ {b[3]})" for b in batters])
+            md.append(f"- **{season}:** {batter_str}")
+
+    md.append("")
+
+    # Strike rate evolution for key players
+    md.append("**Strike Rate Evolution (Key Batters):**\n")
+
+    # Get current squad batters with historical data
+    sr_evolution = conn.execute(f"""
+        WITH season_batting AS (
+            SELECT dm.season, dp.current_name as player_name, dp.player_id,
+                   SUM(fb.batter_runs) as runs,
+                   COUNT(*) as balls_faced
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
+            JOIN dim_team dt ON fb.batting_team_id = dt.team_id
+            JOIN dim_player dp ON fb.batter_id = dp.player_id
+            WHERE dtr.tournament_name = 'Indian Premier League'
+              AND dm.season IN ('2023', '2024', '2025')
+              AND dt.team_name IN ({alias_clause})
+            GROUP BY dm.season, dp.current_name, dp.player_id
+            HAVING SUM(fb.batter_runs) >= 100
+        ),
+        player_seasons AS (
+            SELECT player_name, player_id, COUNT(DISTINCT season) as seasons_played
+            FROM season_batting
+            GROUP BY player_name, player_id
+            HAVING COUNT(DISTINCT season) >= 2
+        )
+        SELECT sb.player_name, sb.season,
+               ROUND(sb.runs * 100.0 / NULLIF(sb.balls_faced, 0), 1) as sr
+        FROM season_batting sb
+        JOIN player_seasons ps ON sb.player_id = ps.player_id
+        JOIN ipl_2026_squads sq ON sb.player_id = sq.player_id
+        WHERE sq.team_name = '{team_name}'
+        ORDER BY sb.player_name, sb.season
+    """).fetchall()
+
+    if sr_evolution:
+        # Group by player
+        player_sr = {}
+        for row in sr_evolution:
+            player, season, sr = row
+            if player not in player_sr:
+                player_sr[player] = {}
+            player_sr[player][season] = sr
+
+        md.append("| Player | 2023 | 2024 | 2025 | Trend |")
+        md.append("|--------|------|------|------|-------|")
+        for player, seasons_sr in player_sr.items():
+            sr_2023 = seasons_sr.get("2023", "-")
+            sr_2024 = seasons_sr.get("2024", "-")
+            sr_2025 = seasons_sr.get("2025", "-")
+
+            # Determine trend
+            values = [v for v in [sr_2023, sr_2024, sr_2025] if v != "-"]
+            if len(values) >= 2:
+                if values[-1] > values[0] + 5:
+                    trend = "UP"
+                elif values[-1] < values[0] - 5:
+                    trend = "DOWN"
+                else:
+                    trend = "STEADY"
+            else:
+                trend = "-"
+
+            md.append(f"| {player} | {sr_2023} | {sr_2024} | {sr_2025} | {trend} |")
+
+    md.append("")
+
+    # ==========================================================================
+    # BOWLING TRENDS
+    # ==========================================================================
+    md.append("### Bowling Trends\n")
+    md.append("**Top Wicket Takers by Season:**\n")
+
+    for season in seasons:
+        bowlers = conn.execute(f"""
+            WITH season_bowling AS (
+                SELECT dm.season, dp.current_name as player_name,
+                       COUNT(DISTINCT fb.match_id) as matches,
+                       COUNT(*) as balls,
+                       SUM(fb.total_runs) as runs,
+                       SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END) as wickets
+                FROM fact_ball fb
+                JOIN dim_match dm ON fb.match_id = dm.match_id
+                JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
+                JOIN dim_team dt ON fb.bowling_team_id = dt.team_id
+                JOIN dim_player dp ON fb.bowler_id = dp.player_id
+                WHERE dtr.tournament_name = 'Indian Premier League'
+                  AND dm.season = '{season}'
+                  AND dt.team_name IN ({alias_clause})
+                GROUP BY dm.season, dp.current_name
+            )
+            SELECT player_name, wickets, matches,
+                   ROUND(runs * 6.0 / NULLIF(balls, 0), 2) as economy
+            FROM season_bowling
+            WHERE wickets >= 5
+            ORDER BY wickets DESC
+            LIMIT 3
+        """).fetchall()
+
+        if bowlers:
+            bowler_str = ", ".join([f"{b[0]} ({b[1]}w @ {b[3]})" for b in bowlers])
+            md.append(f"- **{season}:** {bowler_str}")
+
+    md.append("")
+
+    # Economy rate evolution for key bowlers
+    md.append("**Economy Rate Evolution (Key Bowlers):**\n")
+
+    econ_evolution = conn.execute(f"""
+        WITH season_bowling AS (
+            SELECT dm.season, dp.current_name as player_name, dp.player_id,
+                   COUNT(*) as balls,
+                   SUM(fb.total_runs) as runs,
+                   SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END) as wickets
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
+            JOIN dim_team dt ON fb.bowling_team_id = dt.team_id
+            JOIN dim_player dp ON fb.bowler_id = dp.player_id
+            WHERE dtr.tournament_name = 'Indian Premier League'
+              AND dm.season IN ('2023', '2024', '2025')
+              AND dt.team_name IN ({alias_clause})
+            GROUP BY dm.season, dp.current_name, dp.player_id
+            HAVING SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END) >= 5
+        ),
+        player_seasons AS (
+            SELECT player_name, player_id, COUNT(DISTINCT season) as seasons_played
+            FROM season_bowling
+            GROUP BY player_name, player_id
+            HAVING COUNT(DISTINCT season) >= 2
+        )
+        SELECT sb.player_name, sb.season,
+               ROUND(sb.runs * 6.0 / NULLIF(sb.balls, 0), 2) as economy,
+               sb.wickets
+        FROM season_bowling sb
+        JOIN player_seasons ps ON sb.player_id = ps.player_id
+        JOIN ipl_2026_squads sq ON sb.player_id = sq.player_id
+        WHERE sq.team_name = '{team_name}'
+        ORDER BY sb.player_name, sb.season
+    """).fetchall()
+
+    if econ_evolution:
+        # Group by player
+        player_econ = {}
+        for row in econ_evolution:
+            player, season, econ, wkts = row
+            if player not in player_econ:
+                player_econ[player] = {}
+            player_econ[player][season] = (econ, wkts)
+
+        md.append("| Player | 2023 | 2024 | 2025 | Trend |")
+        md.append("|--------|------|------|------|-------|")
+        for player, seasons_econ in player_econ.items():
+            e_2023 = seasons_econ.get("2023", ("-", 0))
+            e_2024 = seasons_econ.get("2024", ("-", 0))
+            e_2025 = seasons_econ.get("2025", ("-", 0))
+
+            # Determine trend (lower economy is better)
+            values = [v[0] for v in [e_2023, e_2024, e_2025] if v[0] != "-"]
+            if len(values) >= 2:
+                if values[-1] < values[0] - 0.5:
+                    trend = "IMPROVING"
+                elif values[-1] > values[0] + 0.5:
+                    trend = "DECLINING"
+                else:
+                    trend = "STEADY"
+            else:
+                trend = "-"
+
+            e23_str = f"{e_2023[0]}" if e_2023[0] != "-" else "-"
+            e24_str = f"{e_2024[0]}" if e_2024[0] != "-" else "-"
+            e25_str = f"{e_2025[0]}" if e_2025[0] != "-" else "-"
+            md.append(f"| {player} | {e23_str} | {e24_str} | {e25_str} | {trend} |")
+
+    md.append("")
+
+    # ==========================================================================
+    # FORM TRAJECTORY
+    # ==========================================================================
+    md.append("### Form Trajectory\n")
+    md.append("*Players trending up/down based on 2024-2025 performance comparison*\n")
+
+    # Batters trending up (better in 2025 than 2024)
+    trending_up = conn.execute(f"""
+        WITH season_batting AS (
+            SELECT dm.season, dp.current_name as player_name, dp.player_id,
+                   SUM(fb.batter_runs) as runs,
+                   COUNT(*) as balls,
+                   ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*), 0), 1) as sr
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
+            JOIN dim_team dt ON fb.batting_team_id = dt.team_id
+            JOIN dim_player dp ON fb.batter_id = dp.player_id
+            WHERE dtr.tournament_name = 'Indian Premier League'
+              AND dm.season IN ('2024', '2025')
+              AND dt.team_name IN ({alias_clause})
+            GROUP BY dm.season, dp.current_name, dp.player_id
+            HAVING SUM(fb.batter_runs) >= 100
+        ),
+        comparison AS (
+            SELECT
+                s25.player_name,
+                s24.runs as runs_2024, s25.runs as runs_2025,
+                s24.sr as sr_2024, s25.sr as sr_2025,
+                (s25.runs - s24.runs) as runs_diff,
+                (s25.sr - s24.sr) as sr_diff
+            FROM season_batting s25
+            JOIN season_batting s24 ON s25.player_id = s24.player_id
+            JOIN ipl_2026_squads sq ON s25.player_id = sq.player_id
+            WHERE s25.season = '2025' AND s24.season = '2024'
+              AND sq.team_name = '{team_name}'
+        )
+        SELECT player_name, runs_2024, runs_2025, sr_2024, sr_2025, runs_diff, sr_diff
+        FROM comparison
+        WHERE runs_diff > 50 OR sr_diff > 10
+        ORDER BY runs_diff DESC
+        LIMIT 3
+    """).fetchall()
+
+    if trending_up:
+        md.append("**Trending UP:**")
+        for row in trending_up:
+            player, r24, r25, sr24, sr25, r_diff, sr_diff = row
+            reasons = []
+            if r_diff > 50:
+                reasons.append(f"+{r_diff} runs")
+            if sr_diff > 10:
+                reasons.append(f"+{sr_diff:.1f} SR")
+            md.append(
+                f"- {player}: {', '.join(reasons)} (2024: {r24} @ {sr24} -> 2025: {r25} @ {sr25})"
+            )
+        md.append("")
+
+    # Players trending down
+    trending_down = conn.execute(f"""
+        WITH season_batting AS (
+            SELECT dm.season, dp.current_name as player_name, dp.player_id,
+                   SUM(fb.batter_runs) as runs,
+                   COUNT(*) as balls,
+                   ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*), 0), 1) as sr
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
+            JOIN dim_team dt ON fb.batting_team_id = dt.team_id
+            JOIN dim_player dp ON fb.batter_id = dp.player_id
+            WHERE dtr.tournament_name = 'Indian Premier League'
+              AND dm.season IN ('2024', '2025')
+              AND dt.team_name IN ({alias_clause})
+            GROUP BY dm.season, dp.current_name, dp.player_id
+            HAVING SUM(fb.batter_runs) >= 100
+        ),
+        comparison AS (
+            SELECT
+                s25.player_name,
+                s24.runs as runs_2024, s25.runs as runs_2025,
+                s24.sr as sr_2024, s25.sr as sr_2025,
+                (s25.runs - s24.runs) as runs_diff,
+                (s25.sr - s24.sr) as sr_diff
+            FROM season_batting s25
+            JOIN season_batting s24 ON s25.player_id = s24.player_id
+            JOIN ipl_2026_squads sq ON s25.player_id = sq.player_id
+            WHERE s25.season = '2025' AND s24.season = '2024'
+              AND sq.team_name = '{team_name}'
+        )
+        SELECT player_name, runs_2024, runs_2025, sr_2024, sr_2025, runs_diff, sr_diff
+        FROM comparison
+        WHERE runs_diff < -50 OR sr_diff < -10
+        ORDER BY runs_diff ASC
+        LIMIT 3
+    """).fetchall()
+
+    if trending_down:
+        md.append("**Trending DOWN:**")
+        for row in trending_down:
+            player, r24, r25, sr24, sr25, r_diff, sr_diff = row
+            reasons = []
+            if r_diff < -50:
+                reasons.append(f"{r_diff} runs")
+            if sr_diff < -10:
+                reasons.append(f"{sr_diff:.1f} SR")
+            md.append(
+                f"- {player}: {', '.join(reasons)} (2024: {r24} @ {sr24} -> 2025: {r25} @ {sr25})"
+            )
+        md.append("")
+
+    if not trending_up and not trending_down:
+        md.append("*Insufficient multi-season data for form trajectory analysis*\n")
+
+    # Add limitations note
+    md.append("---")
+    md.append(
+        "*Note: Historical trends limited to IPL 2023-2025 data. Some players may not have data across all seasons due to team changes or limited playing time.*\n"
+    )
+
+    return md
+
+
 def generate_venue_analysis(conn, team_name: str, alias_clause: str) -> list:
     """Generate comprehensive venue analysis section for a team.
 
@@ -154,7 +619,7 @@ def generate_venue_analysis(conn, team_name: str, alias_clause: str) -> list:
     - Venue specialists (players who perform best at specific venues)
     """
     md = []
-    md.append("## Venue Analysis\n")
+    md.append("## 4. Venue Analysis\n")
     md.append("*Performance breakdown by venue (2023+ IPL data)*\n")
 
     home_venues = TEAM_HOME_VENUES.get(team_name, [])
@@ -456,6 +921,7 @@ def generate_venue_analysis(conn, team_name: str, alias_clause: str) -> list:
 
 def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
     """Generate comprehensive stat pack for a team."""
+    logger.info("Generating stat pack for %s", team_name)
 
     team_code = TEAM_CODES.get(team_name, team_name[:3].upper())
     aliases = FRANCHISE_ALIASES.get(team_name, [team_name])
@@ -641,20 +1107,27 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
             md.append(f"**Win %:** {win_pct:.1f}%\n")
 
     # ==========================================================================
-    # SECTION 3: VENUE ANALYSIS (NEW COMPREHENSIVE SECTION)
+    # SECTION 3: HISTORICAL TRENDS (2023-2025)
+    # ==========================================================================
+    md.append("\n---\n")
+    historical_trends = generate_historical_trends(conn, team_name, alias_clause)
+    md.extend(historical_trends)
+
+    # ==========================================================================
+    # SECTION 4: VENUE ANALYSIS (COMPREHENSIVE SECTION)
     # ==========================================================================
     md.append("\n---\n")
     venue_analysis = generate_venue_analysis(conn, team_name, alias_clause)
     md.extend(venue_analysis)
 
     # ==========================================================================
-    # SECTION 4: SQUAD BATTING ANALYSIS
+    # SECTION 5: SQUAD BATTING ANALYSIS
     # ==========================================================================
     md.append("\n---\n")
-    md.append("## 4. Squad Batting Analysis\n")
+    md.append("## 5. Squad Batting Analysis\n")
 
     # Career batting stats
-    md.append("### 4.1 IPL Career Batting\n")
+    md.append("### 5.1 IPL Career Batting\n")
 
     batting = conn.execute(f"""
         SELECT player_name, role, price_cr,
@@ -692,7 +1165,7 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
         )
 
     # Phase-wise batting
-    md.append("\n### 4.2 Phase-wise Batting (Qualified players)\n")
+    md.append("\n### 5.2 Phase-wise Batting (Qualified players)\n")
 
     phase_batting = conn.execute(f"""
         SELECT player_name, match_phase, innings, runs, balls_faced, strike_rate,
@@ -713,13 +1186,13 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
         )
 
     # ==========================================================================
-    # SECTION 5: SQUAD BOWLING ANALYSIS
+    # SECTION 6: SQUAD BOWLING ANALYSIS
     # ==========================================================================
     md.append("\n---\n")
-    md.append("## 5. Squad Bowling Analysis\n")
+    md.append("## 6. Squad Bowling Analysis\n")
 
     # Career bowling stats
-    md.append("### 5.1 IPL Career Bowling\n")
+    md.append("### 6.1 IPL Career Bowling\n")
 
     bowling = conn.execute(f"""
         SELECT player_name, role, bowling_type, price_cr,
@@ -759,7 +1232,7 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
         )
 
     # Phase distribution
-    md.append("\n### 5.2 Bowler Phase Distribution\n")
+    md.append("\n### 6.2 Bowler Phase Distribution\n")
     md.append("*Shows % of overs bowled and % of wickets taken in each phase*\n")
 
     phase_dist = conn.execute(f"""
@@ -789,10 +1262,10 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
         )
 
     # ==========================================================================
-    # SECTION 6: KEY PLAYER VS OPPOSITION MATCHUPS
+    # SECTION 7: KEY PLAYER VS OPPOSITION MATCHUPS
     # ==========================================================================
     md.append("\n---\n")
-    md.append("## 6. Key Batter vs Opposition\n")
+    md.append("## 7. Key Batter vs Opposition\n")
     md.append("*Top batters' performance against each IPL team*\n")
 
     # Get top 5 batters by runs
@@ -832,10 +1305,10 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
                 )
 
     # ==========================================================================
-    # SECTION 7: KEY BOWLER VS OPPOSITION
+    # SECTION 8: KEY BOWLER VS OPPOSITION
     # ==========================================================================
     md.append("\n---\n")
-    md.append("## 7. Key Bowler vs Opposition\n")
+    md.append("## 8. Key Bowler vs Opposition\n")
 
     # Get top 5 bowlers by wickets
     top_bowlers = conn.execute(f"""
@@ -874,13 +1347,13 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
                 )
 
     # ==========================================================================
-    # SECTION 8: PLAYER VENUE PERFORMANCE
+    # SECTION 9: PLAYER VENUE PERFORMANCE
     # ==========================================================================
     md.append("\n---\n")
-    md.append("## 8. Key Player Venue Performance\n")
+    md.append("## 9. Key Player Venue Performance\n")
 
     # Top batter venue stats
-    md.append("### 8.1 Top Batters by Venue\n")
+    md.append("### 9.1 Top Batters by Venue\n")
 
     batter_venues = conn.execute(f"""
         SELECT bv.batter_name, bv.venue, bv.innings, bv.runs, bv.balls,
@@ -904,10 +1377,10 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
             )
 
     # ==========================================================================
-    # SECTION 9: INSIGHTS & RECOMMENDATIONS
+    # SECTION 10: INSIGHTS & RECOMMENDATIONS
     # ==========================================================================
     md.append("\n---\n")
-    md.append("## 9. Andy Flower's Tactical Insights\n")
+    md.append("## 10. Andy Flower's Tactical Insights\n")
 
     # Identify death bowling options
     death_specialists = conn.execute(f"""
@@ -923,7 +1396,7 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
         LIMIT 3
     """).fetchall()
 
-    md.append("\n### 9.1 Death Bowling Options\n")
+    md.append("\n### 10.1 Death Bowling Options\n")
     if death_specialists:
         for name, overs, wkts, econ, pct, eff in death_specialists:
             eff_note = "over-performs" if eff and eff > 0 else "workload matches output"
@@ -945,7 +1418,7 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
         LIMIT 3
     """).fetchall()
 
-    md.append("\n### 9.2 Powerplay Batting Options\n")
+    md.append("\n### 10.2 Powerplay Batting Options\n")
     if pp_hitters:
         for name, inn, runs, sr, bound in pp_hitters:
             md.append(f"- **{name}**: SR {sr}, Boundary% {bound}% ({inn} innings)")
@@ -977,7 +1450,7 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
         ORDER BY batter_name, strike_rate ASC
     """).fetchall()
 
-    md.append("\n### 9.3 Potential Spin Vulnerabilities\n")
+    md.append("\n### 10.3 Potential Spin Vulnerabilities\n")
     md.append(
         "*Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*\n"
     )
@@ -1000,38 +1473,41 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
 
 def main():
     """Generate stat packs for all 10 IPL teams."""
-
-    print("=" * 60)
-    print("Cricket Playbook - IPL 2026 Stat Pack Generator")
-    print("=" * 60)
-    print()
+    logger.info("=" * 60)
+    logger.info("Cricket Playbook - IPL 2026 Stat Pack Generator")
+    logger.info("=" * 60)
 
     # Create output directory
     OUTPUT_DIR.mkdir(exist_ok=True)
+    logger.debug("Output directory: %s", OUTPUT_DIR)
 
     # Connect to database
     if not DB_PATH.exists():
-        print(f"ERROR: Database not found at {DB_PATH}")
+        logger.error("Database not found at %s", DB_PATH)
         return 1
 
+    logger.info("Connecting to database: %s", DB_PATH)
     conn = duckdb.connect(str(DB_PATH), read_only=True)
 
     # Load player tags
-    print("Loading player tags...")
+    logger.info("Loading player tags...")
     tags_data = load_player_tags()
     tags_lookup = get_player_tags_lookup(tags_data)
-    print(f"  Loaded tags for {len(tags_lookup)} players\n")
+    logger.info("Loaded tags for %d players", len(tags_lookup))
 
     # Get all teams
     teams = conn.execute("""
         SELECT DISTINCT team_name FROM ipl_2026_squads ORDER BY team_name
     """).fetchall()
 
-    print(f"Generating stat packs for {len(teams)} teams...\n")
+    logger.info("Generating stat packs for %d teams...", len(teams))
+
+    success_count = 0
+    error_count = 0
 
     for (team_name,) in teams:
         team_code = TEAM_CODES.get(team_name, team_name[:3].upper())
-        print(f"  Generating {team_code} stat pack...")
+        logger.debug("Processing team: %s (%s)", team_name, team_code)
 
         try:
             stat_pack = generate_team_stat_pack(conn, team_name, tags_lookup)
@@ -1041,18 +1517,20 @@ def main():
             filepath = OUTPUT_DIR / filename
             filepath.write_text(stat_pack)
 
-            print(f"    -> {filepath}")
+            logger.info("Generated %s -> %s", team_code, filepath)
+            success_count += 1
         except Exception as e:
-            print(f"    ERROR: {e}")
+            logger.error("Failed to generate stat pack for %s: %s", team_name, str(e))
+            error_count += 1
 
     conn.close()
 
-    print()
-    print("=" * 60)
-    print(f"Stat packs generated in: {OUTPUT_DIR}")
-    print("=" * 60)
+    logger.info("=" * 60)
+    logger.info("Generation complete: %d succeeded, %d failed", success_count, error_count)
+    logger.info("Stat packs generated in: %s", OUTPUT_DIR)
+    logger.info("=" * 60)
 
-    return 0
+    return 0 if error_count == 0 else 1
 
 
 if __name__ == "__main__":

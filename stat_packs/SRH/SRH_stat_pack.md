@@ -1,6 +1,6 @@
 # Sunrisers Hyderabad (SRH) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-05 20:13
+**Generated:** 2026-02-05 20:33
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -99,6 +99,65 @@
 
 ---
 
+## Historical Trends (2023-2025)
+
+*Season-over-season performance analysis (IPL 2023-2025)*
+
+### Season Performance
+
+| Season | Matches | Wins | Losses | Win% | Avg Score | Playoff |
+|--------|---------|------|--------|------|-----------|---------|
+| 2023 | 14 | 4 | 10 | 28.6% | 169.7 | No |
+| 2024 | 16 | 9 | 7 | 56.2% | 190.8 | Final |
+| 2025 | 14 | 6 | 7 | 42.9% | 193.8 | No |
+
+### Batting Trends
+
+**Top Run Scorers by Season:**
+
+- **2023:** H Klaasen (448 @ 171.0), RA Tripathi (273 @ 125.8), MA Agarwal (270 @ 123.3)
+- **2024:** TM Head (567 @ 184.7), Abhishek Sharma (484 @ 195.2), H Klaasen (479 @ 163.5)
+- **2025:** H Klaasen (487 @ 165.6), Abhishek Sharma (439 @ 181.4), TM Head (374 @ 150.8)
+
+**Strike Rate Evolution (Key Batters):**
+
+| Player | 2023 | 2024 | 2025 | Trend |
+|--------|------|------|------|-------|
+| Abhishek Sharma | 136.1 | 195.2 | 181.4 | UP |
+| H Klaasen | 171.0 | 163.5 | 165.6 | DOWN |
+| Nithish Kumar Reddy | - | 137.1 | 113.0 | DOWN |
+| TM Head | - | 184.7 | 150.8 | DOWN |
+
+### Bowling Trends
+
+**Top Wicket Takers by Season:**
+
+- **2023:** B Kumar (16w @ 8.13), M Markande (12w @ 7.83), T Natarajan (10w @ 9.04)
+- **2024:** T Natarajan (19w @ 8.48), PJ Cummins (18w @ 9.14), B Kumar (11w @ 9.33)
+- **2025:** HV Patel (16w @ 9.1), PJ Cummins (16w @ 8.85), E Malinga (13w @ 8.87)
+
+**Economy Rate Evolution (Key Bowlers):**
+
+| Player | 2023 | 2024 | 2025 | Trend |
+|--------|------|------|------|-------|
+| JD Unadkat | - | 9.63 | 7.27 | IMPROVING |
+| PJ Cummins | - | 9.14 | 8.85 | STEADY |
+
+### Form Trajectory
+
+*Players trending up/down based on 2024-2025 performance comparison*
+
+**Trending DOWN:**
+- TM Head: -193 runs, -33.9 SR (2024: 567 @ 184.7 -> 2025: 374 @ 150.8)
+- Nithish Kumar Reddy: -121 runs, -24.1 SR (2024: 303 @ 137.1 -> 2025: 182 @ 113.0)
+- Abhishek Sharma: -13.8 SR (2024: 484 @ 195.2 -> 2025: 439 @ 181.4)
+
+---
+*Note: Historical trends limited to IPL 2023-2025 data. Some players may not have data across all seasons due to team changes or limited playing time.*
+
+
+---
+
 ## Venue Analysis
 
 *Performance breakdown by venue (2023+ IPL data)*
@@ -118,8 +177,8 @@
 |-------|---------|------|------|-----------|
 | MA Chidambaram Stadium | 5 | 2 | 40.0% | 142.2 |
 | Narendra Modi Stadium | 4 | 0 | 0.0% | 165.3 |
-| Eden Gardens | 3 | 1 | 33.3% | 184.0 |
 | Arun Jaitley Stadium | 3 | 3 | 100.0% | 247.0 |
+| Eden Gardens | 3 | 1 | 33.3% | 184.0 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 186.0 |
 | Wankhede Stadium | 3 | 0 | 0.0% | 178.3 |
 
@@ -134,9 +193,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -162,20 +221,20 @@
 | Player | Venue | Matches | Wkts | Econ | SR |
 |--------|-------|---------|------|------|-----|
 | HV Patel | MA Chidambaram Stadium | 5 | 13 | 5.24 | 7.85 |
-| HV Patel | Maharaja Yadavindra Singh | 5 | 11 | 8.59 | 9.27 |
 | HV Patel | Rajiv Gandhi Internationa | 7 | 11 | 8.92 | 13.64 |
-| JD Unadkat | M Chinnaswamy Stadium | 10 | 9 | 7.94 | 24.0 |
-| PJ Cummins | Feroz Shah Kotla | 6 | 9 | 8.71 | 16.0 |
-| HV Patel | Wankhede Stadium | 8 | 9 | 9.07 | 18.0 |
+| HV Patel | Maharaja Yadavindra Singh | 5 | 11 | 8.59 | 9.27 |
 | JD Unadkat | Rajiv Gandhi Internationa | 3 | 9 | 6.17 | 8.0 |
-| JD Unadkat | Rajiv Gandhi Internationa | 8 | 8 | 7.88 | 18.75 |
+| JD Unadkat | M Chinnaswamy Stadium | 10 | 9 | 7.94 | 24.0 |
+| HV Patel | Wankhede Stadium | 8 | 9 | 9.07 | 18.0 |
+| PJ Cummins | Feroz Shah Kotla | 6 | 9 | 8.71 | 16.0 |
+| PJ Cummins | Narendra Modi Stadium | 5 | 8 | 8.94 | 13.5 |
 
 
 ---
 
-## 4. Squad Batting Analysis
+## 5. Squad Batting Analysis
 
-### 4.1 IPL Career Batting
+### 5.1 IPL Career Batting
 
 | Player | Role | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | 50s | 100s | Sample |
 |--------|------|-----|------|-------|-----|-----|--------|------|-----|------|--------|
@@ -194,7 +253,7 @@
 | Amit Kumar | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Onkar Tarmale | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
-### 4.2 Phase-wise Batting (Qualified players)
+### 5.2 Phase-wise Batting (Qualified players)
 
 | Player | Phase | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|------|--------|
@@ -215,9 +274,9 @@
 
 ---
 
-## 5. Squad Bowling Analysis
+## 6. Squad Bowling Analysis
 
-### 5.1 IPL Career Bowling
+### 6.1 IPL Career Bowling
 
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
@@ -233,7 +292,7 @@
 | Kamindu Mendis | Left-arm o | 4 | 7.0 | 2 | 8.57 | 30.0 | 21.0 | 26.19 | 16.67 | LOW |
 | Shivang Kumar | Fast | 2 | 3.3 | 0 | 11.4 | - | - | 20.0 | 25.0 | LOW |
 
-### 5.2 Bowler Phase Distribution
+### 6.2 Bowler Phase Distribution
 
 *Shows % of overs bowled and % of wickets taken in each phase*
 
@@ -265,7 +324,7 @@
 
 ---
 
-## 6. Key Batter vs Opposition
+## 7. Key Batter vs Opposition
 
 *Top batters' performance against each IPL team*
 
@@ -339,12 +398,12 @@
 | Mumbai Indians | 6 | 95 | 61 | 155.74 | 23.75 | 19.67 | 26.23 | 4 | MEDIUM |
 | Lucknow Super Giants | 4 | 69 | 48 | 143.75 | 23.0 | 18.75 | 37.5 | 3 | MEDIUM |
 | Punjab Kings | 3 | 54 | 38 | 142.11 | 18.0 | 15.79 | 28.95 | 3 | MEDIUM |
-| Kolkata Knight Riders | 4 | 51 | 34 | 150.0 | 17.0 | 23.53 | 38.24 | 3 | MEDIUM |
 | Rajasthan Royals | 3 | 51 | 40 | 127.5 | 25.5 | 17.5 | 42.5 | 2 | MEDIUM |
+| Kolkata Knight Riders | 4 | 51 | 34 | 150.0 | 17.0 | 23.53 | 38.24 | 3 | MEDIUM |
 
 ---
 
-## 7. Key Bowler vs Opposition
+## 8. Key Bowler vs Opposition
 
 
 ### Harshal Patel
@@ -372,19 +431,19 @@
 | Delhi Capitals | 7 | 156 | 221 | 9 | 8.5 | 24.56 | 17.33 | 39.1 | 21.15 | HIGH |
 | Rajasthan Royals | 7 | 161 | 251 | 9 | 9.35 | 27.89 | 17.89 | 35.4 | 21.74 | HIGH |
 | Chennai Super Kings | 9 | 216 | 307 | 7 | 8.53 | 43.86 | 30.86 | 34.72 | 19.44 | HIGH |
-| Kolkata Knight Riders | 7 | 132 | 220 | 6 | 10.0 | 36.67 | 22.0 | 35.61 | 25.76 | HIGH |
 | Punjab Kings | 7 | 162 | 211 | 6 | 7.81 | 35.17 | 27.0 | 38.89 | 18.52 | HIGH |
+| Kolkata Knight Riders | 7 | 132 | 220 | 6 | 10.0 | 36.67 | 22.0 | 35.61 | 25.76 | HIGH |
 | Sunrisers Hyderabad | 5 | 119 | 152 | 4 | 7.66 | 38.0 | 29.75 | 37.82 | 15.13 | HIGH |
-| Gujarat Titans | 3 | 70 | 92 | 3 | 7.89 | 30.67 | 23.33 | 30.0 | 15.71 | MEDIUM |
-| Lucknow Super Giants | 3 | 66 | 106 | 3 | 9.64 | 35.33 | 22.0 | 31.82 | 24.24 | MEDIUM |
 | Gujarat Lions | 2 | 48 | 70 | 3 | 8.75 | 23.33 | 16.0 | 22.92 | 18.75 | MEDIUM |
+| Lucknow Super Giants | 3 | 66 | 106 | 3 | 9.64 | 35.33 | 22.0 | 31.82 | 24.24 | MEDIUM |
 | Rising Pune Supergiant | 2 | 43 | 58 | 3 | 8.09 | 19.33 | 14.33 | 39.53 | 13.95 | MEDIUM |
+| Gujarat Titans | 3 | 70 | 92 | 3 | 7.89 | 30.67 | 23.33 | 30.0 | 15.71 | MEDIUM |
 
 ---
 
-## 8. Key Player Venue Performance
+## 9. Key Player Venue Performance
 
-### 8.1 Top Batters by Venue
+### 9.1 Top Batters by Venue
 
 | Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|--------|
@@ -422,22 +481,22 @@
 
 ---
 
-## 9. Andy Flower's Tactical Insights
+## 10. Andy Flower's Tactical Insights
 
 
-### 9.1 Death Bowling Options
+### 10.1 Death Bowling Options
 
 - **HV Patel**: 56.8 overs, 35 wickets, 9.78 economy (over-performs)
 - **JD Unadkat**: 14.0 overs, 8 wickets, 10.14 economy (over-performs)
 - **PJ Cummins**: 30.7 overs, 9 wickets, 10.63 economy (workload matches output)
 
-### 9.2 Powerplay Batting Options
+### 10.2 Powerplay Batting Options
 
 - **Travis Head**: SR 184.38, Boundary% 33.97% (32 innings)
 - **Abhishek Sharma**: SR 161.84, Boundary% 27.19% (53 innings)
 - **Liam Livingstone**: SR 141.53, Boundary% 23.73% (18 innings)
 
-### 9.3 Potential Spin Vulnerabilities
+### 10.3 Potential Spin Vulnerabilities
 
 *Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
 

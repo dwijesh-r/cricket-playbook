@@ -1,6 +1,6 @@
 # Punjab Kings (PBKS) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-05 20:13
+**Generated:** 2026-02-05 20:33
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -96,6 +96,64 @@
 
 ---
 
+## Historical Trends (2023-2025)
+
+*Season-over-season performance analysis (IPL 2023-2025)*
+
+### Season Performance
+
+| Season | Matches | Wins | Losses | Win% | Avg Score | Playoff |
+|--------|---------|------|--------|------|-----------|---------|
+| 2023 | 14 | 6 | 8 | 42.9% | 182.6 | No |
+| 2024 | 14 | 5 | 9 | 35.7% | 177.6 | No |
+| 2025 | 18 | 10 | 6 | 55.6% | 181.2 | Final |
+
+### Batting Trends
+
+**Top Run Scorers by Season:**
+
+- **2023:** S Dhawan (373 @ 135.6), P Simran Singh (358 @ 146.1), JM Sharma (309 @ 150.7)
+- **2024:** Shashank Singh (354 @ 157.3), P Simran Singh (334 @ 154.6), JM Bairstow (298 @ 151.3)
+- **2025:** SS Iyer (604 @ 167.8), P Simran Singh (599 @ 159.3), Priyansh Arya (545 @ 175.8)
+
+**Strike Rate Evolution (Key Batters):**
+
+| Player | 2023 | 2024 | 2025 | Trend |
+|--------|------|------|------|-------|
+| P Simran Singh | 146.1 | 154.6 | 159.3 | UP |
+| Shashank Singh | - | 157.3 | 147.1 | DOWN |
+
+### Bowling Trends
+
+**Top Wicket Takers by Season:**
+
+- **2023:** Arshdeep Singh (17w @ 9.2), NT Ellis (13w @ 8.81), SM Curran (10w @ 9.97)
+- **2024:** HV Patel (24w @ 9.18), Arshdeep Singh (19w @ 9.46), SM Curran (16w @ 9.97)
+- **2025:** Arshdeep Singh (21w @ 8.62), YS Chahal (16w @ 9.34), M Jansen (16w @ 8.96)
+
+**Economy Rate Evolution (Key Bowlers):**
+
+| Player | 2023 | 2024 | 2025 | Trend |
+|--------|------|------|------|-------|
+| Arshdeep Singh | 9.2 | 9.46 | 8.62 | IMPROVING |
+| Harpreet Brar | 7.92 | 8.06 | 8.51 | DECLINING |
+
+### Form Trajectory
+
+*Players trending up/down based on 2024-2025 performance comparison*
+
+**Trending UP:**
+- P Simran Singh: +265 runs (2024: 334 @ 154.6 -> 2025: 599 @ 159.3)
+
+**Trending DOWN:**
+- Shashank Singh: -10.2 SR (2024: 354 @ 157.3 -> 2025: 350 @ 147.1)
+
+---
+*Note: Historical trends limited to IPL 2023-2025 data. Some players may not have data across all seasons due to team changes or limited playing time.*
+
+
+---
+
 ## Venue Analysis
 
 *Performance breakdown by venue (2023+ IPL data)*
@@ -115,13 +173,13 @@
 |-------|---------|------|------|-----------|
 | Himachal Pradesh Cricket Associatio | 6 | 1 | 16.7% | 177.2 |
 | Narendra Modi Stadium | 4 | 3 | 75.0% | 208.5 |
-| Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
 | Eden Gardens | 3 | 1 | 33.3% | 214.0 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
+| Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
 | MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
-| M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
 | Barsapara Cricket Stadium | 2 | 2 | 100.0% | 171.0 |
+| M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -132,11 +190,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -167,15 +225,15 @@
 | Arshdeep Singh | Dubai International Crick | 7 | 17 | 8.21 | 9.12 |
 | YS Chahal | M.Chinnaswamy Stadium | 15 | 17 | 7.13 | 18.82 |
 | YS Chahal | Wankhede Stadium | 9 | 14 | 7.16 | 13.71 |
-| Yash Thakur | Bharat Ratna Shri Atal Bi | 8 | 12 | 9.19 | 14.42 |
 | Arshdeep Singh | Wankhede Stadium | 8 | 12 | 7.04 | 14.0 |
+| Yash Thakur | Bharat Ratna Shri Atal Bi | 8 | 12 | 9.19 | 14.42 |
 
 
 ---
 
-## 4. Squad Batting Analysis
+## 5. Squad Batting Analysis
 
-### 4.1 IPL Career Batting
+### 5.1 IPL Career Batting
 
 | Player | Role | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | 50s | 100s | Sample |
 |--------|------|-----|------|-------|-----|-----|--------|------|-----|------|--------|
@@ -195,7 +253,7 @@
 | Harnoor Singh | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Pyla Avinash | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
-### 4.2 Phase-wise Batting (Qualified players)
+### 5.2 Phase-wise Batting (Qualified players)
 
 | Player | Phase | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|------|--------|
@@ -217,9 +275,9 @@
 
 ---
 
-## 5. Squad Bowling Analysis
+## 6. Squad Bowling Analysis
 
-### 5.1 IPL Career Bowling
+### 6.1 IPL Career Bowling
 
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
@@ -237,7 +295,7 @@
 | Musheer Khan | Left-arm o | 1 | 2.0 | 1 | 13.5 | 27.0 | 12.0 | 8.33 | 33.33 | LOW |
 | Suryansh Shedge | Off-spin | 1 | 3.0 | 0 | 13.33 | - | - | 5.56 | 27.78 | LOW |
 
-### 5.2 Bowler Phase Distribution
+### 6.2 Bowler Phase Distribution
 
 *Shows % of overs bowled and % of wickets taken in each phase*
 
@@ -273,7 +331,7 @@
 
 ---
 
-## 6. Key Batter vs Opposition
+## 7. Key Batter vs Opposition
 
 *Top batters' performance against each IPL team*
 
@@ -299,8 +357,8 @@
 | Mumbai Indians | 15 | 342 | 235 | 145.53 | 28.5 | 20.43 | 36.17 | 12 | HIGH |
 | Royal Challengers Bengaluru | 15 | 307 | 192 | 159.9 | 27.91 | 21.88 | 31.25 | 11 | HIGH |
 | Punjab Kings | 9 | 269 | 159 | 169.18 | 53.8 | 23.9 | 30.82 | 5 | HIGH |
-| Rajasthan Royals | 13 | 212 | 180 | 117.78 | 21.2 | 12.22 | 38.33 | 10 | HIGH |
 | Chennai Super Kings | 9 | 212 | 136 | 155.88 | 35.33 | 20.59 | 28.68 | 6 | HIGH |
+| Rajasthan Royals | 13 | 212 | 180 | 117.78 | 21.2 | 12.22 | 38.33 | 10 | HIGH |
 | Delhi Capitals | 9 | 206 | 157 | 131.21 | 41.2 | 14.65 | 34.39 | 5 | HIGH |
 | Kolkata Knight Riders | 12 | 159 | 113 | 140.71 | 17.67 | 19.47 | 38.94 | 9 | HIGH |
 | Sunrisers Hyderabad | 8 | 143 | 98 | 145.92 | 28.6 | 20.41 | 35.71 | 5 | MEDIUM |
@@ -347,7 +405,7 @@
 
 ---
 
-## 7. Key Bowler vs Opposition
+## 8. Key Bowler vs Opposition
 
 
 ### Arshdeep Singh
@@ -357,8 +415,8 @@
 | Rajasthan Royals | 11 | 257 | 416 | 18 | 9.71 | 23.11 | 14.28 | 37.35 | 24.9 | HIGH |
 | Sunrisers Hyderabad | 11 | 255 | 322 | 15 | 7.58 | 21.47 | 17.0 | 36.86 | 15.69 | HIGH |
 | Chennai Super Kings | 9 | 188 | 258 | 11 | 8.23 | 23.45 | 17.09 | 35.11 | 20.21 | HIGH |
-| Royal Challengers Bengaluru | 11 | 212 | 335 | 11 | 9.48 | 30.45 | 19.27 | 33.02 | 22.64 | HIGH |
 | Kolkata Knight Riders | 10 | 190 | 265 | 11 | 8.37 | 24.09 | 17.27 | 43.16 | 21.58 | HIGH |
+| Royal Challengers Bengaluru | 11 | 212 | 335 | 11 | 9.48 | 30.45 | 19.27 | 33.02 | 22.64 | HIGH |
 | Mumbai Indians | 9 | 197 | 313 | 10 | 9.53 | 31.3 | 19.7 | 35.03 | 24.37 | HIGH |
 | Lucknow Super Giants | 6 | 132 | 185 | 10 | 8.41 | 18.5 | 13.2 | 33.33 | 20.45 | HIGH |
 | Delhi Capitals | 8 | 150 | 220 | 6 | 8.8 | 36.67 | 25.0 | 30.0 | 18.67 | HIGH |
@@ -372,8 +430,8 @@
 | Punjab Kings | 21 | 445 | 605 | 31 | 8.16 | 19.52 | 14.35 | 32.36 | 15.73 | HIGH |
 | Mumbai Indians | 21 | 486 | 655 | 30 | 8.09 | 21.83 | 16.2 | 36.21 | 15.84 | HIGH |
 | Sunrisers Hyderabad | 22 | 511 | 675 | 29 | 7.93 | 23.28 | 17.62 | 31.9 | 13.7 | HIGH |
-| Delhi Capitals | 20 | 427 | 573 | 23 | 8.05 | 24.91 | 18.57 | 33.49 | 14.99 | HIGH |
 | Chennai Super Kings | 19 | 408 | 475 | 23 | 6.99 | 20.65 | 17.74 | 37.01 | 11.76 | HIGH |
+| Delhi Capitals | 20 | 427 | 573 | 23 | 8.05 | 24.91 | 18.57 | 33.49 | 14.99 | HIGH |
 | Rajasthan Royals | 14 | 285 | 300 | 18 | 6.32 | 16.67 | 15.83 | 38.6 | 9.47 | HIGH |
 | Royal Challengers Bengaluru | 10 | 234 | 303 | 10 | 7.77 | 30.3 | 23.4 | 28.63 | 12.39 | HIGH |
 | Lucknow Super Giants | 7 | 162 | 269 | 8 | 9.96 | 33.63 | 20.25 | 25.93 | 20.99 | HIGH |
@@ -383,9 +441,9 @@
 
 ---
 
-## 8. Key Player Venue Performance
+## 9. Key Player Venue Performance
 
-### 8.1 Top Batters by Venue
+### 9.1 Top Batters by Venue
 
 | Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|--------|
@@ -423,21 +481,21 @@
 
 ---
 
-## 9. Andy Flower's Tactical Insights
+## 10. Andy Flower's Tactical Insights
 
 
-### 9.1 Death Bowling Options
+### 10.1 Death Bowling Options
 
 - **M Jansen**: 11.2 overs, 8 wickets, 9.85 economy (over-performs)
 - **YS Chahal**: 33.0 overs, 21 wickets, 9.88 economy (over-performs)
 - **Arshdeep Singh**: 52.5 overs, 29 wickets, 9.96 economy (over-performs)
 
-### 9.2 Powerplay Batting Options
+### 10.2 Powerplay Batting Options
 
 - **Priyansh Arya**: SR 176.96, Boundary% 30.88% (18 innings)
 - **Prabhsimran Singh**: SR 149.57, Boundary% 25.04% (49 innings)
 
-### 9.3 Potential Spin Vulnerabilities
+### 10.3 Potential Spin Vulnerabilities
 
 *Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
 

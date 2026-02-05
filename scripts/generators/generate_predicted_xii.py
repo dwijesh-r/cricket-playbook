@@ -14,10 +14,18 @@ Per approved PRD: /governance/tasks/PREDICTED_XI_PRD.md
 
 import json
 import csv
+import sys
 from pathlib import Path
 from dataclasses import dataclass, field
 from typing import Optional
 from enum import Enum
+
+# Add parent directory to path for utils import
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils.logging_config import setup_logger
+
+# Initialize logger
+logger = setup_logger(__name__)
 
 # =============================================================================
 # CONSTANTS & CONFIGURATION
@@ -213,6 +221,8 @@ def load_squads() -> tuple:
     captains = {}
     squad_file = DATA_DIR / "ipl_2026_squads.csv"
 
+    logger.debug("Loading squads from %s", squad_file)
+
     with open(squad_file, "r") as f:
         reader = csv.DictReader(f)
         for row in reader:
@@ -226,6 +236,7 @@ def load_squads() -> tuple:
             if is_cap == "TRUE":
                 captains[team] = row["player_name"]
 
+    logger.info("Loaded %d teams from squad data", len(squads))
     return squads, captains
 
 
@@ -253,6 +264,7 @@ def load_player_tags() -> dict:
     tags_file = OUTPUT_DIR / "player_tags_2023.json"
 
     if tags_file.exists():
+        logger.debug("Loading player tags from %s", tags_file)
         with open(tags_file, "r") as f:
             data = json.load(f)
 
@@ -263,6 +275,12 @@ def load_player_tags() -> dict:
             # Index bowlers by player_id
             for bowler in data.get("bowlers", []):
                 tags["bowlers"][bowler["player_id"]] = bowler
+
+        logger.debug(
+            "Loaded tags for %d batters, %d bowlers", len(tags["batters"]), len(tags["bowlers"])
+        )
+    else:
+        logger.warning("Player tags file not found: %s", tags_file)
 
     return tags
 
@@ -1621,7 +1639,9 @@ def generate_predicted_xii(
     team: str, players: list, entry_points: dict = None, squad_captains: dict = None
 ) -> PredictedXII:
     """Generate Predicted XII for a team"""
+    logger.info("Generating predicted XII for %s", team)
     venue_info = HOME_VENUES.get(team, {"venue": "Unknown", "bias": "neutral"})
+    logger.debug("Venue info: %s (bias: %s)", venue_info["venue"], venue_info["bias"])
 
     # Select XI
     xi, remaining, constraints_ok, violations, notes = select_xi(
@@ -1708,15 +1728,14 @@ def main():
     """Main entry point"""
     global BATTER_METRICS, BOWLER_METRICS
 
-    print("=" * 70)
-    print("   CRICKET PLAYBOOK - SUPER SELECTOR v3.0")
-    print("   Statistical Unified Player Evaluation and Ranking SELECTOR")
-    print("=" * 70)
-    print("   Algorithm: Competency + Variety + Metrics-Based Scoring")
-    print("=" * 70)
+    logger.info("=" * 70)
+    logger.info("CRICKET PLAYBOOK - SUPER SELECTOR v3.0")
+    logger.info("Statistical Unified Player Evaluation and Ranking SELECTOR")
+    logger.info("=" * 70)
+    logger.info("Algorithm: Competency + Variety + Metrics-Based Scoring")
 
     # Load data
-    print("\n[1/4] Loading data...")
+    logger.info("[1/4] Loading data...")
     squads, squad_captains = load_squads()
     contracts = load_contracts()
     tags = load_player_tags()
@@ -1726,47 +1745,54 @@ def main():
     BATTER_METRICS = load_batter_metrics()
     BOWLER_METRICS = load_bowler_metrics()
 
-    print(f"  - Loaded {len(squads)} teams")
-    print(f"  - Loaded {len(contracts)} player contracts")
-    print(f"  - Loaded {len(entry_points)} batting entry point records")
-    print(f"  - Loaded {len(squad_captains)} team captains from CSV")
-    print(f"  - Loaded {len(BATTER_METRICS)} batter metrics (boundary%, consistency)")
-    print(f"  - Loaded {len(BOWLER_METRICS)} bowler metrics (death dot%)")
+    logger.info("Loaded %d teams", len(squads))
+    logger.info("Loaded %d player contracts", len(contracts))
+    logger.info("Loaded %d batting entry point records", len(entry_points))
+    logger.info("Loaded %d team captains from CSV", len(squad_captains))
+    logger.info("Loaded %d batter metrics (boundary%%, consistency)", len(BATTER_METRICS))
+    logger.info("Loaded %d bowler metrics (death dot%%)", len(BOWLER_METRICS))
 
     # Build player objects
-    print("\n[2/4] Building player database...")
+    logger.info("[2/4] Building player database...")
     team_players = build_players(squads, contracts, tags)
 
     total_players = sum(len(p) for p in team_players.values())
-    print(f"  - Built {total_players} player profiles")
+    logger.info("Built %d player profiles", total_players)
 
     # Generate predictions
-    print("\n[3/4] Generating Predicted XIIs...")
+    logger.info("[3/4] Generating Predicted XIIs...")
     all_predictions = {}
 
     for team in IPL_TEAMS:
-        print(f"\n  {team}...")
+        logger.debug("Processing team: %s", team)
         players = team_players.get(team, [])
 
         if not players:
-            print(f"    WARNING: No players found for {team}")
+            logger.warning("No players found for %s", team)
             continue
 
         prediction = generate_predicted_xii(team, players, entry_points, squad_captains)
         all_predictions[team] = prediction
 
-        # Print summary
+        # Log summary
         xi_names = [sp.player.player_name for sp in prediction.xi]
-        print(f"    XI: {', '.join(xi_names[:6])}...")
-        print(f"    Overseas: {prediction.overseas_count}/4")
-        print(f"    Bowling: {prediction.bowling_options} options")
-        print(f"    Constraints: {'OK' if prediction.constraints_satisfied else 'VIOLATIONS'}")
+        logger.debug("XI for %s: %s...", team, ", ".join(xi_names[:6]))
+        logger.debug(
+            "Overseas: %d/4, Bowling options: %d",
+            prediction.overseas_count,
+            prediction.bowling_options,
+        )
+        if not prediction.constraints_satisfied:
+            logger.warning(
+                "Constraint violations for %s: %s", team, prediction.constraint_violations
+            )
 
     # Save outputs
-    print("\n[4/4] Saving outputs...")
+    logger.info("[4/4] Saving outputs...")
 
     # Ensure output directory exists
     PREDICTED_XII_DIR.mkdir(parents=True, exist_ok=True)
+    logger.debug("Output directory: %s", PREDICTED_XII_DIR)
 
     # Save consolidated JSON
     output_data = {
@@ -1798,7 +1824,7 @@ def main():
     output_file = PREDICTED_XII_DIR / "predicted_xii_2026.json"
     with open(output_file, "w") as f:
         json.dump(output_data, f, indent=2)
-    print(f"  - Saved: {output_file}")
+    logger.info("Saved consolidated output: %s", output_file)
 
     # Save per-team files
     for team, prediction in all_predictions.items():
@@ -1806,50 +1832,29 @@ def main():
         with open(team_file, "w") as f:
             json.dump(predicted_xii_to_dict(prediction), f, indent=2)
 
-    print(f"  - Saved {len(all_predictions)} team files")
+    logger.info("Saved %d team files", len(all_predictions))
 
-    # Print summary
-    print("\n" + "=" * 60)
-    print("GENERATION SUMMARY")
-    print("=" * 60)
+    # Log summary
+    logger.info("=" * 60)
+    logger.info("GENERATION SUMMARY")
+    logger.info("=" * 60)
 
     satisfied = sum(1 for p in all_predictions.values() if p.constraints_satisfied)
-    print(f"\nTeams with all constraints satisfied: {satisfied}/{len(all_predictions)}")
+    logger.info("Teams with all constraints satisfied: %d/%d", satisfied, len(all_predictions))
 
     # List any violations
     for team, prediction in all_predictions.items():
         if not prediction.constraints_satisfied:
-            print(f"\n{team} VIOLATIONS:")
+            logger.warning("%s has constraint violations:", team)
             for v in prediction.constraint_violations:
-                print(f"  - {v}")
+                logger.warning("  - %s", v)
 
-    print("\n" + "=" * 70)
-    print("SUPER SELECTOR v3.0 - SCORING SUMMARY")
-    print("=" * 70)
-    print("""
-SCORING FORMULA:
-    PLAYER_SCORE = BASE + CLASSIFICATION + TAGS + METRICS + PRICE_BONUS
-
-BATTER METRICS USED:
-    - boundary_pct: +5/10/15 points for 20%/24%/28%+
-    - consistency_index: +4/8 points for 45/55+
-    - high_impact_pct: +3/6 points for 35%/50%+
-
-BOWLER METRICS USED:
-    - death_dot_pct: +5/10/15 points for 25%/30%/35%+
-    - death_economy: +6/12 points for 8.5/7.0 or lower
-
-NEW IN v3.0:
-    - ACCUMULATOR classification bonus (+12 pts)
-    - ACCUMULATOR tag bonus (+8 pts)
-    - Metrics-based scoring integration
-    - Entry point validation for positions
-""")
-
-    print("Algorithm Name: SUPER SELECTOR")
-    print("Full Name: Statistical Unified Player Evaluation and Ranking SELECTOR")
-    print("\nReady for Domain Sanity review.")
-    print("=" * 70)
+    logger.info("=" * 70)
+    logger.info("SUPER SELECTOR v3.0 - Generation complete")
+    logger.info("Algorithm Name: SUPER SELECTOR")
+    logger.info("Full Name: Statistical Unified Player Evaluation and Ranking SELECTOR")
+    logger.info("Ready for Domain Sanity review.")
+    logger.info("=" * 70)
 
 
 if __name__ == "__main__":

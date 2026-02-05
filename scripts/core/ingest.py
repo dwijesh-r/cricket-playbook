@@ -16,11 +16,19 @@ Output:
 import json
 import hashlib
 import zipfile
+import sys
 from pathlib import Path
 from datetime import datetime
 from collections import defaultdict
 import duckdb
 import pandas as pd
+
+# Add parent directory to path for utils import
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils.logging_config import setup_logger
+
+# Initialize logger
+logger = setup_logger(__name__)
 
 # Configuration
 PROJECT_ROOT = Path(__file__).parent.parent
@@ -519,12 +527,13 @@ class CricketIngester:
 
     def process_zip_file(self, zip_path: Path):
         """Process all JSON files in a zip archive."""
-        print(f"Processing: {zip_path.name}")
+        logger.info("Processing: %s", zip_path.name)
         self.stats["zip_files"] += 1
 
         try:
             with zipfile.ZipFile(zip_path, "r") as zf:
                 json_files = [f for f in zf.namelist() if f.endswith(".json")]
+                logger.debug("Found %d JSON files in %s", len(json_files), zip_path.name)
 
                 for json_file in json_files:
                     try:
@@ -533,8 +542,10 @@ class CricketIngester:
                             source_file = f"{zip_path.stem}/{json_file}"
                             self.process_match(match_data, source_file)
                     except Exception as e:
+                        logger.error("Error processing %s/%s: %s", zip_path.name, json_file, str(e))
                         self.stats["errors"].append(f"{zip_path.name}/{json_file}: {str(e)}")
         except Exception as e:
+            logger.error("Error opening zip file %s: %s", zip_path.name, str(e))
             self.stats["errors"].append(f"{zip_path.name}: {str(e)}")
 
     def derive_player_roles(self):
@@ -594,53 +605,56 @@ class CricketIngester:
 
     def load_to_duckdb(self):
         """Load all data into DuckDB."""
-        print(f"\nLoading to DuckDB: {DB_PATH}")
+        logger.info("Loading to DuckDB: %s", DB_PATH)
 
         # Remove existing database to start fresh
         if DB_PATH.exists():
+            logger.debug("Removing existing database")
             DB_PATH.unlink()
 
         conn = duckdb.connect(str(DB_PATH))
 
         # Create and load dimension tables
-        print("  Loading dim_tournament...")
+        logger.info("Loading dim_tournament (%d records)...", len(self.tournaments))
         df_tournaments = pd.DataFrame(list(self.tournaments.values()))  # noqa: F841
         conn.execute("CREATE TABLE dim_tournament AS SELECT * FROM df_tournaments")
 
-        print("  Loading dim_team...")
+        logger.info("Loading dim_team (%d records)...", len(self.teams))
         df_teams = pd.DataFrame(list(self.teams.values()))  # noqa: F841
         conn.execute("CREATE TABLE dim_team AS SELECT * FROM df_teams")
 
-        print("  Loading dim_venue...")
+        logger.info("Loading dim_venue (%d records)...", len(self.venues))
         df_venues = pd.DataFrame(list(self.venues.values()))  # noqa: F841
         conn.execute("CREATE TABLE dim_venue AS SELECT * FROM df_venues")
 
-        print("  Loading dim_player...")
+        logger.info("Loading dim_player (%d records)...", len(self.players))
         df_players = pd.DataFrame(list(self.players.values()))  # noqa: F841
         conn.execute("CREATE TABLE dim_player AS SELECT * FROM df_players")
 
-        print("  Loading dim_player_name_history...")
+        logger.info("Loading dim_player_name_history (%d records)...", len(self.player_names))
         df_player_names = pd.DataFrame(self.player_names)  # noqa: F841
         conn.execute("CREATE TABLE dim_player_name_history AS SELECT * FROM df_player_names")
 
-        print("  Loading dim_match...")
+        logger.info("Loading dim_match (%d records)...", len(self.matches))
         df_matches = pd.DataFrame(self.matches)  # noqa: F841
         conn.execute("CREATE TABLE dim_match AS SELECT * FROM df_matches")
 
-        print("  Loading fact_powerplay...")
+        logger.info("Loading fact_powerplay (%d records)...", len(self.powerplays))
         df_powerplays = pd.DataFrame(self.powerplays)  # noqa: F841
         conn.execute("CREATE TABLE fact_powerplay AS SELECT * FROM df_powerplays")
 
-        print("  Loading fact_ball...")
+        logger.info("Loading fact_ball (%d records)...", len(self.balls))
         df_balls = pd.DataFrame(self.balls)  # noqa: F841
         conn.execute("CREATE TABLE fact_ball AS SELECT * FROM df_balls")
 
-        print("  Loading fact_player_match_performance...")
+        logger.info(
+            "Loading fact_player_match_performance (%d records)...", len(self.player_match_perf)
+        )
         df_perf = pd.DataFrame(self.player_match_perf)  # noqa: F841
         conn.execute("CREATE TABLE fact_player_match_performance AS SELECT * FROM df_perf")
 
         # Create indexes for common queries
-        print("  Creating indexes...")
+        logger.info("Creating indexes...")
         conn.execute("CREATE INDEX idx_ball_match ON fact_ball(match_id)")
         conn.execute("CREATE INDEX idx_ball_batter ON fact_ball(batter_id)")
         conn.execute("CREATE INDEX idx_ball_bowler ON fact_ball(bowler_id)")
@@ -648,10 +662,12 @@ class CricketIngester:
         conn.execute("CREATE INDEX idx_match_date ON dim_match(match_date)")
 
         conn.close()
-        print(f"  Database size: {DB_PATH.stat().st_size / 1024 / 1024:.1f} MB")
+        db_size_mb = DB_PATH.stat().st_size / 1024 / 1024
+        logger.info("Database size: %.1f MB", db_size_mb)
 
     def generate_manifest(self):
         """Generate ingestion manifest."""
+        logger.info("Generating ingestion manifest...")
         manifest = {
             "data_version": DATA_VERSION,
             "ingested_at": datetime.now().isoformat(),
@@ -671,7 +687,7 @@ class CricketIngester:
         with open(MANIFEST_PATH, "w") as f:
             json.dump(manifest, f, indent=2)
 
-        print(f"\nManifest saved: {MANIFEST_PATH}")
+        logger.info("Manifest saved: %s", MANIFEST_PATH)
 
     def generate_schema_doc(self):
         """Generate schema documentation."""
@@ -808,22 +824,22 @@ This database contains ball-by-ball T20 cricket data from Cricsheet.
 
     def run(self):
         """Run the full ingestion pipeline."""
-        print("=" * 60)
-        print("Cricket Playbook - Data Ingestion Pipeline")
-        print("=" * 60)
+        logger.info("=" * 60)
+        logger.info("Cricket Playbook - Data Ingestion Pipeline")
+        logger.info("=" * 60)
 
         # Find all zip files
         zip_files = sorted(RAW_DIR.glob("*.zip"))
         zip_files = [z for z in zip_files if z.stem != "cricket_playbook_files"]
 
-        print(f"\nFound {len(zip_files)} zip files to process")
+        logger.info("Found %d zip files to process", len(zip_files))
 
         # Process each zip file
         for zip_path in zip_files:
             self.process_zip_file(zip_path)
 
         # Derive player roles
-        print("\nDeriving player roles...")
+        logger.info("Deriving player roles...")
         self.derive_player_roles()
 
         # Load to DuckDB
@@ -833,22 +849,22 @@ This database contains ball-by-ball T20 cricket data from Cricsheet.
         self.generate_manifest()
         self.generate_schema_doc()
 
-        # Print summary
-        print("\n" + "=" * 60)
-        print("INGESTION COMPLETE")
-        print("=" * 60)
-        print(f"  Matches: {self.stats['matches_processed']:,}")
-        print(f"  Balls: {self.stats['balls_processed']:,}")
-        print(f"  Players: {self.stats['players_found']:,}")
-        print(f"  Wicketkeepers: {self.stats.get('wicketkeepers_found', 0):,}")
-        print(f"  Teams: {len(self.teams):,}")
-        print(f"  Venues: {len(self.venues):,}")
-        print(f"  Errors: {len(self.stats['errors'])}")
+        # Log summary
+        logger.info("=" * 60)
+        logger.info("INGESTION COMPLETE")
+        logger.info("=" * 60)
+        logger.info("Matches: %s", f"{self.stats['matches_processed']:,}")
+        logger.info("Balls: %s", f"{self.stats['balls_processed']:,}")
+        logger.info("Players: %s", f"{self.stats['players_found']:,}")
+        logger.info("Wicketkeepers: %s", f"{self.stats.get('wicketkeepers_found', 0):,}")
+        logger.info("Teams: %s", f"{len(self.teams):,}")
+        logger.info("Venues: %s", f"{len(self.venues):,}")
+        logger.info("Errors: %d", len(self.stats["errors"]))
 
         if self.stats["errors"]:
-            print("\nFirst 5 errors:")
+            logger.warning("First 5 errors:")
             for err in self.stats["errors"][:5]:
-                print(f"  - {err}")
+                logger.warning("  - %s", err)
 
 
 if __name__ == "__main__":

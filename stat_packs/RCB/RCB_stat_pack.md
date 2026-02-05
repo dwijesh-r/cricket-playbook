@@ -1,6 +1,6 @@
 # Royal Challengers Bengaluru (RCB) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-05 20:13
+**Generated:** 2026-02-05 20:33
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -95,6 +95,61 @@
 
 ---
 
+## Historical Trends (2023-2025)
+
+*Season-over-season performance analysis (IPL 2023-2025)*
+
+### Season Performance
+
+| Season | Matches | Wins | Losses | Win% | Avg Score | Playoff |
+|--------|---------|------|--------|------|-----------|---------|
+| 2023 | 14 | 7 | 7 | 50.0% | 178.7 | No |
+| 2024 | 15 | 7 | 8 | 46.7% | 195.3 | Elim |
+| 2025 | 15 | 11 | 4 | 73.3% | 176.9 | Final |
+
+### Batting Trends
+
+**Top Run Scorers by Season:**
+
+- **2023:** F du Plessis (730 @ 151.1), V Kohli (639 @ 135.1), GJ Maxwell (400 @ 177.8)
+- **2024:** V Kohli (741 @ 149.1), F du Plessis (438 @ 158.7), RM Patidar (395 @ 166.7)
+- **2025:** V Kohli (657 @ 141.0), PD Salt (403 @ 169.3), RM Patidar (312 @ 138.7)
+
+**Strike Rate Evolution (Key Batters):**
+
+| Player | 2023 | 2024 | 2025 | Trend |
+|--------|------|------|------|-------|
+| RM Patidar | - | 166.7 | 138.7 | DOWN |
+| V Kohli | 135.1 | 149.1 | 141.0 | UP |
+
+### Bowling Trends
+
+**Top Wicket Takers by Season:**
+
+- **2023:** Mohammed Siraj (19w @ 7.2), HV Patel (14w @ 9.3), KV Sharma (10w @ 10.41)
+- **2024:** Mohammed Siraj (15w @ 8.69), Yash Dayal (15w @ 8.8), C Green (10w @ 8.21)
+- **2025:** JR Hazlewood (22w @ 8.64), KH Pandya (17w @ 8.06), B Kumar (17w @ 9.25)
+
+**Economy Rate Evolution (Key Bowlers):**
+
+| Player | 2023 | 2024 | 2025 | Trend |
+|--------|------|------|------|-------|
+| Yash Dayal | - | 8.8 | 9.42 | DECLINING |
+
+### Form Trajectory
+
+*Players trending up/down based on 2024-2025 performance comparison*
+
+**Trending DOWN:**
+- V Kohli: -84 runs (2024: 741 @ 149.1 -> 2025: 657 @ 141.0)
+- RM Patidar: -83 runs, -28.0 SR (2024: 395 @ 166.7 -> 2025: 312 @ 138.7)
+
+---
+*Note: Historical trends limited to IPL 2023-2025 data. Some players may not have data across all seasons due to team changes or limited playing time.*
+
+
+---
+
 ## Venue Analysis
 
 *Performance breakdown by venue (2023+ IPL data)*
@@ -112,15 +167,15 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
-| Narendra Modi Stadium | 3 | 2 | 66.7% | 189.3 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 176.3 |
 | Wankhede Stadium | 3 | 1 | 33.3% | 205.3 |
+| Narendra Modi Stadium | 3 | 2 | 66.7% | 189.3 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 181.7 |
 | Eden Gardens | 3 | 1 | 33.3% | 173.7 |
-| Arun Jaitley Stadium | 2 | 1 | 50.0% | 173.0 |
-| Rajiv Gandhi International Stadium | 2 | 2 | 100.0% | 196.5 |
 | MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
 | Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
+| Arun Jaitley Stadium | 2 | 1 | 50.0% | 173.0 |
+| Rajiv Gandhi International Stadium | 2 | 2 | 100.0% | 196.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -134,8 +189,8 @@
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -162,19 +217,19 @@
 |--------|-------|---------|------|------|-----|
 | B Kumar | Rajiv Gandhi Internationa | 24 | 28 | 7.41 | 19.32 |
 | KH Pandya | Wankhede Stadium | 22 | 18 | 6.85 | 22.0 |
-| B Kumar | Eden Gardens | 8 | 12 | 7.65 | 15.17 |
 | KH Pandya | Bharat Ratna Shri Atal Bi | 13 | 12 | 6.84 | 22.0 |
+| B Kumar | Eden Gardens | 8 | 12 | 7.65 | 15.17 |
 | JR Hazlewood | Wankhede Stadium | 5 | 9 | 7.95 | 12.67 |
-| KH Pandya | Wankhede Stadium | 5 | 9 | 7.35 | 11.33 |
 | B Kumar | Subrata Roy Sahara Stadiu | 12 | 9 | 6.98 | 27.33 |
-| JR Hazlewood | M Chinnaswamy Stadium | 4 | 8 | 9.33 | 10.38 |
+| KH Pandya | Wankhede Stadium | 5 | 9 | 7.35 | 11.33 |
+| B Kumar | Wankhede Stadium | 7 | 8 | 5.74 | 17.38 |
 
 
 ---
 
-## 4. Squad Batting Analysis
+## 5. Squad Batting Analysis
 
-### 4.1 IPL Career Batting
+### 5.1 IPL Career Batting
 
 | Player | Role | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | 50s | 100s | Sample |
 |--------|------|-----|------|-------|-----|-----|--------|------|-----|------|--------|
@@ -191,7 +246,7 @@
 | Swapnil Singh | All-rounder | 6 | 39 | 25 | 156.0 | 19.5 | 24.0 | 40.0 | 0 | 0 | LOW |
 | Jordan Cox | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
-### 4.2 Phase-wise Batting (Qualified players)
+### 5.2 Phase-wise Batting (Qualified players)
 
 | Player | Phase | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|------|--------|
@@ -215,9 +270,9 @@
 
 ---
 
-## 5. Squad Bowling Analysis
+## 6. Squad Bowling Analysis
 
-### 5.1 IPL Career Bowling
+### 6.1 IPL Career Bowling
 
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
@@ -231,7 +286,7 @@
 | Swapnil Singh | Left-arm o | 9 | 17.0 | 6 | 8.88 | 25.17 | 17.0 | 28.43 | 18.63 | LOW |
 | Venkatesh Iyer | Medium | 1 | 1.0 | 0 | 28.0 | - | - | - | 100.0 | LOW |
 
-### 5.2 Bowler Phase Distribution
+### 6.2 Bowler Phase Distribution
 
 *Shows % of overs bowled and % of wickets taken in each phase*
 
@@ -261,7 +316,7 @@
 
 ---
 
-## 6. Key Batter vs Opposition
+## 7. Key Batter vs Opposition
 
 *Top batters' performance against each IPL team*
 
@@ -341,7 +396,7 @@
 
 ---
 
-## 7. Key Bowler vs Opposition
+## 8. Key Bowler vs Opposition
 
 
 ### Bhuvneshwar Kumar
@@ -366,11 +421,11 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Sunrisers Hyderabad | 14 | 235 | 277 | 12 | 7.07 | 23.08 | 19.58 | 32.34 | 11.49 | HIGH |
 | Punjab Kings | 19 | 330 | 417 | 12 | 7.58 | 34.75 | 27.5 | 30.61 | 13.33 | HIGH |
-| Delhi Capitals | 19 | 290 | 370 | 11 | 7.66 | 33.64 | 26.36 | 28.28 | 13.45 | HIGH |
+| Sunrisers Hyderabad | 14 | 235 | 277 | 12 | 7.07 | 23.08 | 19.58 | 32.34 | 11.49 | HIGH |
 | Kolkata Knight Riders | 16 | 283 | 329 | 11 | 6.98 | 29.91 | 25.73 | 35.69 | 13.43 | HIGH |
 | Royal Challengers Bengaluru | 17 | 366 | 415 | 11 | 6.8 | 37.73 | 33.27 | 30.33 | 9.84 | HIGH |
+| Delhi Capitals | 19 | 290 | 370 | 11 | 7.66 | 33.64 | 26.36 | 28.28 | 13.45 | HIGH |
 | Chennai Super Kings | 14 | 240 | 321 | 10 | 8.03 | 32.1 | 24.0 | 33.75 | 16.25 | HIGH |
 | Mumbai Indians | 6 | 132 | 174 | 8 | 7.91 | 21.75 | 16.5 | 34.09 | 17.42 | HIGH |
 | Rajasthan Royals | 12 | 222 | 285 | 7 | 7.7 | 40.71 | 31.71 | 25.23 | 13.06 | HIGH |
@@ -380,9 +435,9 @@
 
 ---
 
-## 8. Key Player Venue Performance
+## 9. Key Player Venue Performance
 
-### 8.1 Top Batters by Venue
+### 9.1 Top Batters by Venue
 
 | Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|--------|
@@ -429,8 +484,8 @@
 | V Kohli | Rajiv Gandhi International Stadium,... | 2 | 151 | 106 | 142.45 | 75.5 | 19.81 | HIGH |
 | V Kohli | Sawai Mansingh Stadium | 7 | 131 | 139 | 94.24 | 21.83 | 10.07 | HIGH |
 | V Kohli | Bharat Ratna Shri Atal Bihari Vajpa... | 3 | 128 | 85 | 150.59 | 42.67 | 24.71 | MEDIUM |
-| V Kohli | Eden Gardens, Kolkata | 4 | 123 | 85 | 144.71 | 41.0 | 17.65 | MEDIUM |
 | V Kohli | MA Chidambaram Stadium, Chepauk, Ch... | 5 | 123 | 113 | 108.85 | 24.6 | 11.5 | HIGH |
+| V Kohli | Eden Gardens, Kolkata | 4 | 123 | 85 | 144.71 | 41.0 | 17.65 | MEDIUM |
 | V Kohli | Arun Jaitley Stadium, Delhi | 2 | 106 | 93 | 113.98 | 53.0 | 9.68 | MEDIUM |
 | V Kohli | Punjab Cricket Association Stadium,... | 5 | 100 | 75 | 133.33 | 20.0 | 18.67 | MEDIUM |
 | VR Iyer | Eden Gardens, Kolkata | 17 | 399 | 292 | 136.64 | 24.94 | 18.49 | HIGH |
@@ -442,21 +497,21 @@
 
 ---
 
-## 9. Andy Flower's Tactical Insights
+## 10. Andy Flower's Tactical Insights
 
 
-### 9.1 Death Bowling Options
+### 10.1 Death Bowling Options
 
 - **Suyash Sharma**: 12.0 overs, 2 wickets, 10.33 economy (workload matches output)
 - **JR Hazlewood**: 14.8 overs, 8 wickets, 10.38 economy (over-performs)
 - **B Kumar**: 48.0 overs, 18 wickets, 10.46 economy (over-performs)
 
-### 9.2 Powerplay Batting Options
+### 10.2 Powerplay Batting Options
 
 - **Phil Salt**: SR 176.53, Boundary% 31.3% (32 innings)
 - **Venkatesh Iyer**: SR 130.42, Boundary% 20.79% (40 innings)
 
-### 9.3 Potential Spin Vulnerabilities
+### 10.3 Potential Spin Vulnerabilities
 
 *Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
 

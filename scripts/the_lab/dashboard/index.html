@@ -337,26 +337,27 @@
             position: fixed;
             inset: 0;
             pointer-events: none;
-            z-index: -1;
+            z-index: 1;
             overflow: hidden;
         }
 
         .sports-figure {
             position: absolute;
-            opacity: 0.35;
+            opacity: 0.7;
             transition: opacity 0.5s ease;
-            filter: grayscale(30%);
+            filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
         }
 
         [data-theme="light"] .sports-figure {
-            opacity: 0.25;
+            opacity: 0.5;
+            filter: drop-shadow(0 0 15px rgba(0,0,0,0.3));
         }
 
         /* Tom Brady - Throwing Motion */
         .figure-brady {
-            bottom: 15%;
-            left: 3%;
-            font-size: 80px;
+            bottom: 20%;
+            left: 5%;
+            font-size: 120px;
             animation: brady-throw 3s ease-in-out infinite;
         }
 
@@ -369,9 +370,9 @@
 
         /* Kevin de Bruyne - Kicking Motion */
         .figure-kdb {
-            top: 20%;
+            top: 15%;
             right: 5%;
-            font-size: 70px;
+            font-size: 110px;
             animation: kdb-kick 2.5s ease-in-out infinite;
         }
 
@@ -384,9 +385,9 @@
 
         /* LeBron James - Dunking Motion */
         .figure-lebron {
-            top: 30%;
-            left: 6%;
-            font-size: 75px;
+            top: 25%;
+            left: 5%;
+            font-size: 115px;
             animation: lebron-dunk 4s ease-in-out infinite;
         }
 
@@ -399,9 +400,9 @@
 
         /* Virat Kohli - Cover Drive */
         .figure-virat {
-            bottom: 25%;
-            right: 4%;
-            font-size: 85px;
+            bottom: 20%;
+            right: 5%;
+            font-size: 130px;
             animation: virat-shot 3.5s ease-in-out infinite;
         }
 
@@ -414,9 +415,9 @@
 
         /* Florentino Pérez - Sideline Stance */
         .figure-florentino {
-            bottom: 40%;
-            left: 4%;
-            font-size: 65px;
+            bottom: 45%;
+            left: 5%;
+            font-size: 100px;
             animation: florentino-direct 5s ease-in-out infinite;
         }
 
@@ -441,18 +442,18 @@
         /* Ball Animations */
         .ball {
             position: absolute;
-            font-size: 24px;
+            font-size: 40px;
             animation: float-ball 8s ease-in-out infinite;
         }
 
-        .ball-football { top: 18%; right: 12%; animation-delay: 0s; }
-        .ball-soccer { top: 25%; right: 8%; animation-delay: 1.5s; }
-        .ball-basketball { top: 35%; left: 12%; animation-delay: 3s; }
-        .ball-cricket { bottom: 20%; right: 12%; animation-delay: 4.5s; }
+        .ball-football { top: 12%; right: 15%; animation-delay: 0s; }
+        .ball-soccer { top: 18%; right: 10%; animation-delay: 1.5s; }
+        .ball-basketball { top: 30%; left: 15%; animation-delay: 3s; }
+        .ball-cricket { bottom: 15%; right: 15%; animation-delay: 4.5s; }
 
         @keyframes float-ball {
-            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
-            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.6; }
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-30px) rotate(180deg); opacity: 0.9; }
         }
 
         /* Hide on mobile */
@@ -954,8 +955,8 @@
                     <p>Explore predicted XIs, depth charts, squad analysis, and tactical insights for all 10 IPL franchises.</p>
                 </a>
                 <a href="artifacts.html" class="nav-card">
-                    <div class="nav-card-icon">📊</div>
-                    <h3>Data Artifacts</h3>
+                    <div class="nav-card-icon">📁</div>
+                    <h3>Output Files</h3>
                     <p>Compare teams side-by-side. View all depth charts, matchup data, player tags, and metrics in one place.</p>
                 </a>
                 <a href="analysis.html" class="nav-card">

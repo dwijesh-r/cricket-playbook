@@ -1348,9 +1348,10 @@
             const header = document.getElementById('team-header');
             header.style.setProperty('--team-color', team.primaryColor);
             const reigningBadge = team.reigning ? '<span class="reigning-badge">🏆 Defending Champions</span>' : '';
+            const headerPixelLogo = TEAM_PIXEL_LOGOS[currentTeam] || team.icon;
             header.innerHTML = `
                 <div class="team-header-content">
-                    <div class="team-badge">${team.icon}</div>
+                    <div class="team-badge">${headerPixelLogo}</div>
                     <div class="team-header-info">
                         <h1>${team.fullName} ${reigningBadge}</h1>
                         <p>IPL 2026 • ${team.homeVenue}</p>
@@ -1880,6 +1881,8 @@
 
             const team1 = TEAMS[currentTeam];
             const team2 = TEAMS[compareTeam];
+            const pixelLogo1 = TEAM_PIXEL_LOGOS[currentTeam] || team1.icon;
+            const pixelLogo2 = TEAM_PIXEL_LOGOS[compareTeam] || team2.icon;
             const squad1 = SQUADS[currentTeam];
             const squad2 = SQUADS[compareTeam];
             const predicted1 = PREDICTED_XII[currentTeam];
@@ -1915,7 +1918,7 @@
                 <div class="compare-container">
                     <div class="compare-team" style="border-top: 4px solid ${team1.primaryColor};">
                         <div class="compare-team-header">
-                            <span class="compare-team-icon">${team1.icon}</span>
+                            <span class="compare-team-icon">${pixelLogo1}</span>
                             <span class="compare-team-name">${team1.fullName}</span>
                         </div>
                         <div class="compare-stats">
@@ -1929,7 +1932,7 @@
                     </div>
                     <div class="compare-team" style="border-top: 4px solid ${team2.primaryColor};">
                         <div class="compare-team-header">
-                            <span class="compare-team-icon">${team2.icon}</span>
+                            <span class="compare-team-icon">${pixelLogo2}</span>
                             <span class="compare-team-name">${team2.fullName}</span>
                             <select onchange="updateCompareTeam(this.value)">${teamOptions}</select>
                         </div>

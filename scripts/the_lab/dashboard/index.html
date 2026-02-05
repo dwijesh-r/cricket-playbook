@@ -621,131 +621,143 @@
             opacity: 0;
         }
 
-        /* ========== PLAYING SURFACES ========== */
+        /* ========== PLAYING SURFACES - FULL BACKGROUND ========== */
+        /* The surface covers the bottom portion of the intro-box as a proper ground/court */
         .playing-surface {
             position: absolute;
-            bottom: 75px;
-            left: 8%;
-            right: 8%;
-            height: 35px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 45%;
             opacity: 0;
-            z-index: 2;
+            z-index: 1;
             animation: surface-appear 0.5s ease var(--surface-delay, 0.8s) forwards;
-            border-radius: 4px;
+            border-radius: 0 0 20px 20px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
         }
 
         @keyframes surface-appear {
-            from { opacity: 0; transform: scaleY(0); }
-            to { opacity: 1; transform: scaleY(1); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        /* NFL Field - Green with yard lines */
+        /* NFL Field - Green turf with yard lines */
         .surface-nfl {
-            background: linear-gradient(180deg, #2d5a27 0%, #1e4a1e 100%);
+            background:
+                repeating-linear-gradient(90deg,
+                    rgba(255,255,255,0.15) 0px,
+                    rgba(255,255,255,0.15) 2px,
+                    transparent 2px,
+                    transparent 20px
+                ),
+                linear-gradient(180deg, #2d5a27 0%, #1a3d1a 100%);
         }
         .surface-nfl::before {
             content: '';
             position: absolute;
-            top: 0; bottom: 0;
-            left: 10%; right: 10%;
-            background: repeating-linear-gradient(
-                90deg,
-                transparent 0px,
-                transparent 18px,
-                rgba(255,255,255,0.4) 18px,
-                rgba(255,255,255,0.4) 20px
-            );
+            bottom: 25%;
+            left: 0; right: 0;
+            height: 3px;
+            background: rgba(255,255,255,0.3);
         }
         .surface-nfl::after {
             content: '';
             position: absolute;
-            left: 0; right: 0;
-            top: 50%;
-            height: 2px;
-            background: rgba(255,255,255,0.5);
-            transform: translateY(-50%);
+            bottom: 0;
+            left: 5%; right: 5%;
+            height: 20%;
+            background: rgba(200,16,46,0.2); /* End zone hint */
+            border-radius: 0 0 15px 15px;
         }
 
-        /* NBA Court - Hardwood with markings */
+        /* NBA Court - Hardwood floor with court markings */
         .surface-nba {
-            background: linear-gradient(180deg, #c9a86c 0%, #b8956a 50%, #c9a86c 100%);
+            background:
+                linear-gradient(90deg,
+                    #b8956a 0%, #c9a86c 5%, #b8956a 10%,
+                    #c9a86c 15%, #b8956a 20%, #c9a86c 25%,
+                    #b8956a 30%, #c9a86c 35%, #b8956a 40%,
+                    #c9a86c 45%, #b8956a 50%, #c9a86c 55%,
+                    #b8956a 60%, #c9a86c 65%, #b8956a 70%,
+                    #c9a86c 75%, #b8956a 80%, #c9a86c 85%,
+                    #b8956a 90%, #c9a86c 95%, #b8956a 100%
+                );
         }
         .surface-nba::before {
             content: '';
             position: absolute;
-            top: 50%;
+            bottom: 30%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            width: 24px;
-            height: 24px;
-            border: 2px solid rgba(0,0,0,0.4);
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(200,0,0,0.4);
             border-radius: 50%;
         }
         .surface-nba::after {
             content: '';
             position: absolute;
-            left: 5px; right: 5px;
-            top: 50%;
-            height: 1px;
-            background: rgba(0,0,0,0.3);
+            bottom: 0;
+            left: 20%; right: 20%;
+            height: 40%;
+            border: 2px solid rgba(200,0,0,0.3);
+            border-bottom: none;
+            border-radius: 30px 30px 0 0;
         }
 
-        /* Soccer Pitch - Green with center circle */
+        /* Soccer Pitch - Green grass with markings */
         .surface-soccer {
-            background: linear-gradient(90deg,
-                #3a8c3a 0%, #4a9c4a 10%, #3a8c3a 20%,
-                #4a9c4a 30%, #3a8c3a 40%, #4a9c4a 50%,
-                #3a8c3a 60%, #4a9c4a 70%, #3a8c3a 80%,
-                #4a9c4a 90%, #3a8c3a 100%
-            );
+            background:
+                repeating-linear-gradient(90deg,
+                    #3a8c3a 0%, #3a8c3a 10%,
+                    #4a9c4a 10%, #4a9c4a 20%
+                );
         }
         .surface-soccer::before {
             content: '';
             position: absolute;
-            top: 50%;
+            bottom: 35%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            width: 20px;
-            height: 20px;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
             border: 2px solid rgba(255,255,255,0.5);
             border-radius: 50%;
         }
         .surface-soccer::after {
             content: '';
             position: absolute;
-            left: 50%;
-            top: 0; bottom: 0;
-            width: 2px;
-            background: rgba(255,255,255,0.4);
-            transform: translateX(-50%);
+            bottom: 0;
+            left: 25%; right: 25%;
+            height: 35%;
+            border: 2px solid rgba(255,255,255,0.4);
+            border-bottom: none;
         }
 
-        /* Cricket Ground - Green outfield with tan pitch */
+        /* Cricket Ground - Green outfield with pitch strip */
         .surface-cricket {
-            background: linear-gradient(180deg, #4a8c4a 0%, #3a7c3a 100%);
+            background: radial-gradient(ellipse at center 60%, #5a9c5a 0%, #4a8c4a 40%, #3a7c3a 100%);
         }
         .surface-cricket::before {
             content: '';
             position: absolute;
-            top: 50%;
+            bottom: 20%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60%;
-            height: 16px;
-            background: linear-gradient(180deg, #d4b896 0%, #c4a886 100%);
-            border-radius: 2px;
+            transform: translateX(-50%);
+            width: 25%;
+            height: 50%;
+            background: linear-gradient(180deg, #d4b896 0%, #c4a886 50%, #b4987a 100%);
+            border-radius: 3px;
         }
         .surface-cricket::after {
             content: '';
             position: absolute;
-            top: 50%;
+            bottom: 25%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50%;
+            transform: translateX(-50%);
+            width: 20%;
             height: 2px;
-            background: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.6);
         }
 
         /* Crowd silhouettes - multiple rows */
@@ -2234,7 +2246,8 @@
         .intro-box .figure {
             transform: scale(var(--intro-scale));
             transform-origin: center bottom;
-            margin-top: calc((1 - var(--intro-scale)) * -40px); /* Adjust for scaling */
+            position: relative;
+            z-index: 5;
         }
         .intro-box .trophy-container {
             transform: translateX(-50%)
@@ -2245,53 +2258,67 @@
             transform: scale(var(--intro-scale));
             transform-origin: center bottom;
         }
-        .intro-box .playing-surface {
-            transform: scaleY(var(--intro-scale));
-            transform-origin: center bottom;
-        }
+        /* Playing surface is now full background - no scaling needed */
         .intro-box .floodlight-tower {
             transform: scale(var(--intro-scale));
             transform-origin: top center;
         }
+        /* Hair scaling fix for mobile */
+        .intro-box .athlete .hair {
+            transform-origin: center bottom;
+        }
 
         @media (max-width: 900px) {
-            :root { --intro-scale: 0.65; --intro-animation-speed: 0.5s; }
+            :root { --intro-scale: 0.6; --intro-animation-speed: 0.5s; }
             .intro-overlay {
                 display: flex !important;
                 padding: 15px 10px;
                 opacity: 1;
             }
             .intro-title {
-                font-size: 14px;
-                letter-spacing: 0.15em;
-                margin-bottom: 20px;
-                padding: 0 10px;
+                font-size: 12px;
+                letter-spacing: 0.1em;
+                margin-bottom: 15px;
+                padding: 0 15px;
                 line-height: 1.4;
+                text-align: center;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            /* Hide stars on mobile for better centering */
+            .intro-title::before,
+            .intro-title::after {
+                display: none;
             }
             .intro-grid {
-                gap: 10px;
+                gap: 8px;
                 max-width: 100%;
-                grid-template-columns: repeat(3, minmax(95px, 115px));
+                grid-template-columns: repeat(3, minmax(100px, 120px));
                 justify-content: center;
             }
             .intro-box {
                 width: 100%;
-                max-width: 115px;
-                height: 230px; /* Increased height to prevent cut-off */
-                padding-bottom: 15px;
-                overflow: visible; /* Allow figure to extend slightly */
+                max-width: 120px;
+                height: 200px;
+                padding-bottom: 35px;
+                overflow: hidden;
             }
             .intro-box .figure {
-                margin-top: 20px; /* Give more room at top */
+                margin-top: 15px;
+            }
+            /* Fix trophy positioning on mobile */
+            .intro-box .trophy-container {
+                transform: translateX(-50%) translateY(40px) scale(0.55) !important;
             }
             .label-group {
-                bottom: 8px;
+                bottom: 6px;
+                z-index: 10;
             }
             .label-group .name {
-                font-size: 10px;
+                font-size: 9px;
             }
             .label-group .trophy-name {
-                font-size: 7px;
+                font-size: 6px;
                 letter-spacing: 0.08em;
             }
             /* Optimize for mobile performance */
@@ -2308,60 +2335,62 @@
         }
 
         @media (max-width: 500px) {
-            :root { --intro-scale: 0.55; }
+            :root { --intro-scale: 0.5; }
             .intro-title {
-                font-size: 11px;
-                letter-spacing: 0.08em;
-            }
-            .intro-grid {
-                gap: 6px;
-                grid-template-columns: repeat(3, minmax(85px, 105px));
-            }
-            .intro-box {
-                max-width: 105px;
-                height: 210px;
-            }
-            .intro-box .figure {
-                margin-top: 25px;
-            }
-            .label-group .name {
-                font-size: 9px;
-            }
-            .label-group .trophy-name {
-                font-size: 6px;
-            }
-            /* Hide surfaces on very small screens */
-            .playing-surface {
-                display: none;
-            }
-        }
-
-        @media (max-width: 380px) {
-            :root { --intro-scale: 0.48; }
-            .intro-title {
-                font-size: 9px;
+                font-size: 10px;
                 letter-spacing: 0.05em;
             }
             .intro-grid {
-                gap: 5px;
-                grid-template-columns: repeat(3, minmax(75px, 95px));
+                gap: 6px;
+                grid-template-columns: repeat(3, minmax(90px, 110px));
             }
             .intro-box {
-                max-width: 95px;
-                height: 185px;
-                border-radius: 12px;
+                max-width: 110px;
+                height: 180px;
             }
             .intro-box .figure {
-                margin-top: 30px;
+                margin-top: 10px;
             }
-            .label-group {
-                bottom: 5px;
+            .intro-box .trophy-container {
+                transform: translateX(-50%) translateY(35px) scale(0.45) !important;
             }
             .label-group .name {
                 font-size: 8px;
             }
             .label-group .trophy-name {
                 font-size: 5px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            :root { --intro-scale: 0.45; }
+            .intro-title {
+                font-size: 9px;
+                letter-spacing: 0.03em;
+            }
+            .intro-grid {
+                gap: 4px;
+                grid-template-columns: repeat(3, minmax(80px, 100px));
+            }
+            .intro-box {
+                max-width: 100px;
+                height: 165px;
+                border-radius: 12px;
+            }
+            .intro-box .figure {
+                margin-top: 8px;
+            }
+            .intro-box .trophy-container {
+                transform: translateX(-50%) translateY(30px) scale(0.4) !important;
+            }
+            .label-group {
+                bottom: 4px;
+            }
+            .label-group .name {
+                font-size: 7px;
+            }
+            .label-group .trophy-name {
+                font-size: 4px;
             }
             .crowd-row {
                 display: none;
@@ -3290,7 +3319,7 @@
                 role: 'Architecture',
                 sport: 'nba',
                 trophy: 'nba',
-                trophyLabel: 'NBA Executive',
+                trophyLabel: '2024 NBA Champion',
                 jerseyNumber: null,
                 hair: { color: '#4a3d2f', style: 'short' },
                 jersey: { main: '#1a1a1a', accent: '#007a33' },

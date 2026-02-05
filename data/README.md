@@ -344,4 +344,28 @@ python scripts/core/validate_schema.py
 
 ---
 
+## Post Task Note: TKT-033 Archive Completion
+
+**Date:** 2026-02-05
+**Owner:** Tom Brady
+
+### What Changed
+- Data documentation archived at v4.0.0 with comprehensive README (348 lines)
+- PROVENANCE.md documents data sources and lineage
+- Directory structure guide for raw/, processed/, manifests/, archive/
+
+### Assumption Tested
+- **Hypothesis:** Comprehensive data documentation prevents "where is X" questions
+- **Validated:** Yes - README covers data flow, database schema, squad data, and pipeline commands
+
+### Risk Introduced
+- Documentation may drift from actual data if not updated during schema changes
+- Version number (v4.0.0) needs manual updates when data changes significantly
+
+### USP of This Change
+- **Buyer Value:** Analysts can self-serve understanding of data structure
+- **Preparation Burden Removed:** No need to ask "which table has X" or "where does Y come from"
+
+---
+
 *Cricket Playbook v4.0.0*

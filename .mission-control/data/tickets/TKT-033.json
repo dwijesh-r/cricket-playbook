@@ -1,14 +1,18 @@
 {
   "id": "TKT-033",
   "epic_id": "EPIC-004",
-  "title": "Verify PCA variance alignment",
-  "description": "Validate PCA variance values align with documentation",
-  "state": "BACKLOG",
+  "title": "Archive data docs",
+  "description": "Archive data documentation with proper versioning",
+  "state": "DONE",
   "priority": "P2",
-  "progress_pct": 0,
-  "owner": "Ime Udoka",
+  "progress_pct": 100,
+  "owner": "Tom Brady",
   "sprint_id": "SPRINT-001",
-  "gates": {},
+  "gates": {
+    "florentino_gate": "APPROVED",
+    "system_check": "PASS"
+  },
   "created_at": "2026-02-03T00:00:00Z",
-  "updated_at": "2026-02-05T00:00:00Z"
+  "updated_at": "2026-02-05T00:00:00Z",
+  "completed_at": "2026-02-05T00:00:00Z"
 }

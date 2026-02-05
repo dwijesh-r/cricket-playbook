@@ -802,12 +802,13 @@
 
         .intro-box .figure {
             width: 100%;
-            height: 70%;
+            flex: 1;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 3;
+            padding-top: 10px;
         }
 
         /* ========== TRADING CARD BADGES ========== */
@@ -896,220 +897,165 @@
             margin-top: 6px;
         }
 
-        /* ========== DETAILED ATHLETE SILHOUETTE SYSTEM ========== */
-        .athlete {
+        /* ========== JERSEY BACK DESIGN ========== */
+        /* Clean view of jersey/suit back - like a trading card */
+        .jersey-back {
+            position: relative;
+            width: 180px;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Main jersey shape */
+        .jersey-back .jersey {
             position: relative;
             width: 160px;
-            height: 200px;
-            /* Default skin tone - can be overridden per agent */
-            --skin-color: #c49a6c;
-            --skin-dark: #b8896a;
-            --skin-light: #d4a574;
-            /* Scale up for trading card look */
-            transform: scale(1.3);
-            transform-origin: center center;
-        }
-
-        /* Head with detailed features */
-        .athlete .head {
-            width: 38px;
-            height: 44px;
-            background: linear-gradient(180deg, var(--skin-light) 0%, var(--skin-color) 100%);
-            border-radius: 50% 50% 45% 45%;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        /* Hair - improved visibility against backgrounds */
-        .athlete .hair {
-            position: absolute;
-            top: -2px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 42px;
-            height: 22px;
-            background: var(--hair-color, #2a2015);
-            border-radius: 50% 50% 0 0;
-            z-index: 1;
+            height: 190px;
+            background: linear-gradient(180deg, var(--jersey-main, #333) 0%, var(--jersey-dark, #222) 100%);
+            border-radius: 30px 30px 8px 8px;
             box-shadow:
-                0 0 0 1px rgba(0,0,0,0.3),
-                0 2px 8px rgba(0,0,0,0.4);
-        }
-
-        /* Ears */
-        .athlete .ear {
-            position: absolute;
-            width: 8px;
-            height: 12px;
-            background: var(--skin-color);
-            border-radius: 50%;
-            top: 14px;
-        }
-        .athlete .ear-left { left: -3px; }
-        .athlete .ear-right { right: -3px; }
-
-        /* Neck */
-        .athlete .neck {
-            position: absolute;
-            top: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 16px;
-            height: 10px;
-            background: var(--skin-color);
-        }
-
-        /* Body/torso with jersey detail */
-        .athlete .torso {
-            position: absolute;
-            top: 48px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 55px;
-            background: var(--jersey-color, #333);
-            border-radius: 10px 10px 5px 5px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                inset 0 0 30px rgba(0,0,0,0.3),
+                0 8px 30px rgba(0,0,0,0.4);
             overflow: hidden;
         }
 
-        /* Jersey V-neck detail */
-        .athlete .torso::before {
+        /* Collar/neckline */
+        .jersey-back .jersey::before {
             content: '';
             position: absolute;
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 12px solid transparent;
-            border-right: 12px solid transparent;
-            border-top: 15px solid var(--jersey-accent, #222);
+            width: 50px;
+            height: 20px;
+            background: var(--jersey-accent, #444);
+            border-radius: 0 0 25px 25px;
         }
 
-        /* Jersey number on torso */
-        .athlete .jersey-number {
+        /* Sleeve hints on sides */
+        .jersey-back .sleeve {
             position: absolute;
-            top: 58px;
+            top: 20px;
+            width: 35px;
+            height: 50px;
+            background: linear-gradient(180deg, var(--jersey-main, #333) 0%, var(--jersey-dark, #222) 100%);
+            border-radius: 20px;
+        }
+        .jersey-back .sleeve-left {
+            left: -18px;
+            transform: rotate(-15deg);
+        }
+        .jersey-back .sleeve-right {
+            right: -18px;
+            transform: rotate(15deg);
+        }
+
+        /* Player name on back */
+        .jersey-back .player-name {
+            position: absolute;
+            top: 35px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 900;
-            color: var(--number-color, #fff);
-            z-index: 2;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            font-family: 'Arial Black', sans-serif;
+            color: var(--jersey-accent, #fff);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            white-space: nowrap;
         }
 
-        /* Shorts/Pants */
-        .athlete .shorts {
+        /* Large number on back */
+        .jersey-back .back-number {
             position: absolute;
-            top: 100px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -40%);
+            font-size: 72px;
+            font-weight: 900;
+            color: var(--jersey-accent, #fff);
+            font-family: 'Arial Black', Impact, sans-serif;
+            text-shadow:
+                3px 3px 0 rgba(0,0,0,0.3),
+                -1px -1px 0 rgba(255,255,255,0.1);
+            line-height: 1;
+        }
+
+        /* Team logo/accent stripe */
+        .jersey-back .accent-stripe {
+            position: absolute;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 48px;
-            height: 28px;
-            background: var(--shorts-color, #222);
-            border-radius: 0 0 8px 8px;
-            z-index: 1;
+            width: 80%;
+            height: 4px;
+            background: var(--jersey-accent, #444);
+            border-radius: 2px;
         }
 
-        /* Shoulders/sleeves - connected to torso */
-        .athlete .shoulder {
-            position: absolute;
-            width: 20px;
-            height: 22px;
-            background: var(--jersey-color, #333);
-            top: 48px;
-            border-radius: 10px 10px 6px 6px;
-            z-index: 1;
-        }
-        .athlete .shoulder-left { left: 5px; }
-        .athlete .shoulder-right { right: 5px; }
-
-        /* Arms with skin tone - attached to shoulders */
-        .athlete .arm {
-            position: absolute;
-            width: 16px;
-            height: 45px;
-            background: linear-gradient(180deg, var(--jersey-color, #333) 0%, var(--jersey-color, #333) 35%, var(--skin-color) 35%, var(--skin-color) 100%);
-            top: 62px;
-            border-radius: 8px;
-            transform-origin: top center;
-            box-shadow: 1px 2px 6px rgba(0,0,0,0.25);
-            z-index: 0;
-        }
-        .athlete .arm-left { left: 7px; }
-        .athlete .arm-right { right: 7px; }
-
-        /* Hands with detail */
-        .athlete .hand {
-            position: absolute;
-            width: 16px;
-            height: 18px;
-            background: var(--skin-color);
-            border-radius: 8px 8px 10px 10px;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        /* ========== SUIT BACK DESIGN ========== */
+        /* For managers and executives */
+        .jersey-back.suit-back .jersey {
+            background: linear-gradient(180deg, #1a1a20 0%, #0a0a10 100%);
+            border-radius: 20px 20px 8px 8px;
         }
 
-        /* Legs with shorts (default) */
-        .athlete .leg {
-            position: absolute;
-            width: 18px;
-            height: 55px;
-            background: linear-gradient(180deg,
-                var(--shorts-color, #222) 0%,
-                var(--shorts-color, #222) 45%,
-                var(--skin-color) 45%,
-                var(--skin-color) 82%,
-                #1a1a1a 82%,
-                #1a1a1a 100%);
-            top: 124px;
-            border-radius: 5px;
-            transform-origin: top center;
-        }
-        .athlete .leg-left { left: 32px; }
-        .athlete .leg-right { right: 32px; }
-
-        /* Full pants for cricket/formal attire - no visible skin on legs */
-        .athlete.has-full-pants .leg {
-            background: linear-gradient(180deg,
-                var(--pants-color, var(--shorts-color, #222)) 0%,
-                var(--pants-color, var(--shorts-color, #222)) 90%,
-                #1a1a1a 90%,
-                #1a1a1a 100%);
-        }
-
-        /* ========== BODY BUILD VARIATIONS ========== */
-        /* Muscular build (e.g., LeBron) */
-        .athlete.build-muscular .torso {
-            width: 56px;
-            height: 60px;
-        }
-        .athlete.build-muscular .shoulder {
-            width: 22px;
-            height: 24px;
-        }
-        .athlete.build-muscular .arm {
-            width: 16px;
-        }
-        .athlete.build-muscular .head {
+        /* Suit collar */
+        .jersey-back.suit-back .jersey::before {
             width: 40px;
-            height: 46px;
+            height: 15px;
+            background: #2a2a30;
+            border-radius: 0 0 20px 20px;
         }
 
-        /* Athletic build (e.g., Curry, Virat) */
-        .athlete.build-athletic .torso {
-            width: 48px;
+        /* Suit shoulders */
+        .jersey-back.suit-back .sleeve {
+            background: linear-gradient(180deg, #1a1a20 0%, #0a0a10 100%);
+            width: 40px;
+            height: 60px;
+            top: 15px;
         }
-        .athlete.build-athletic .shoulder {
-            width: 17px;
+
+        /* Center back seam */
+        .jersey-back.suit-back .back-seam {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 70%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+        }
+
+        /* No number for suits - show role instead */
+        .jersey-back.suit-back .back-number {
+            font-size: 16px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Suit lapel hints */
+        .jersey-back.suit-back .lapel {
+            position: absolute;
+            top: 12px;
+            width: 20px;
+            height: 40px;
+            background: linear-gradient(180deg, #2a2a35 0%, #1a1a25 100%);
+        }
+        .jersey-back.suit-back .lapel-left {
+            left: 30px;
+            transform: skewY(-10deg);
+            border-radius: 0 10px 5px 0;
+        }
+        .jersey-back.suit-back .lapel-right {
+            right: 30px;
+            transform: skewY(10deg);
+            border-radius: 10px 0 0 5px;
         }
 
         /* Slim build */
@@ -2431,8 +2377,14 @@
             .intro-box .figure {
                 height: 60%;
             }
-            .athlete {
-                transform: scale(0.55);
+            .jersey-back {
+                transform: scale(0.5);
+            }
+            .jersey-back .back-number {
+                font-size: 48px;
+            }
+            .jersey-back .player-name {
+                font-size: 10px;
             }
             /* Card badges on mobile */
             .card-badge {
@@ -2500,8 +2452,11 @@
                 height: 145px;
                 padding: 26px 6px 10px;
             }
-            .athlete {
-                transform: scale(0.5);
+            .jersey-back {
+                transform: scale(0.45);
+            }
+            .jersey-back .back-number {
+                font-size: 44px;
             }
             .card-badge.jersey-badge {
                 font-size: 9px;
@@ -2533,8 +2488,14 @@
                 padding: 22px 5px 8px;
                 border-radius: 8px;
             }
-            .athlete {
-                transform: scale(0.42);
+            .jersey-back {
+                transform: scale(0.38);
+            }
+            .jersey-back .back-number {
+                font-size: 40px;
+            }
+            .jersey-back .player-name {
+                font-size: 8px;
             }
             .card-badge {
                 top: 4px;
@@ -3517,7 +3478,8 @@
             const teamName = teamNames[key] || '';
 
             // Build CSS variables for inline style
-            let cssVars = `--delay: ${delay}s; --jersey-main: ${agent.jersey.main}; --jersey-accent: ${agent.jersey.accent}; --shorts-color: ${agent.shorts || agent.jersey.main}; --hair-color: ${agent.hair.color};`;
+            const jerseyDark = adjustColor(agent.jersey.main, -25);
+            let cssVars = `--delay: ${delay}s; --jersey-main: ${agent.jersey.main}; --jersey-dark: ${jerseyDark}; --jersey-accent: ${agent.jersey.accent}; --shorts-color: ${agent.shorts || agent.jersey.main}; --hair-color: ${agent.hair.color};`;
 
             // Add skin tone CSS variables
             if (agent.skin) {
@@ -3583,56 +3545,44 @@
             return trophies[trophyType] || trophies['ucl'];
         }
 
-        // Generate athlete HTML
+        // Generate jersey back or suit back HTML
         function generateAthleteHTML(agent) {
-            const beardStyle = agent.beardStyle || 'full'; // default to full beard
-            const beardHTML = agent.hasBeard ? `<div class="beard beard-${beardStyle}" style="background: ${agent.beardColor || agent.hair.color}"></div>` : '';
-            const jerseyNumHTML = agent.jerseyNumber ? `<span class="jersey-number">${agent.jerseyNumber}</span>` : '';
-            const shortsHTML = agent.shorts ? '<div class="shorts"></div>' : '';
+            // Check if this is a manager/executive (suit) or player (jersey)
+            const isSuit = agent.hasSuit || agent.hasCoat || agent.hasTracksuit;
 
-            // Coat bottom for coat or suit wearers
-            const coatBottomHTML = (agent.hasCoat || agent.hasSuit) ? '<div class="coat-bottom"></div>' : '';
+            // Get last name for jersey back
+            const nameParts = agent.name.split(' ');
+            const lastName = nameParts[nameParts.length - 1].toUpperCase();
 
-            // Collar and tie for suit wearers
-            const collarHTML = (agent.hasSuit || agent.hasTracksuit) ? '<div class="collar"></div>' : '';
-            const tieHTML = agent.hasSuit ? '<div class="tie"></div>' : '';
-
-            // Scarf for coaches
-            const scarfHTML = agent.hasScarf ? '<div class="scarf"></div>' : '';
-
-            // Build class list
-            const classList = ['athlete', 'upper-body']; // Always show upper body only
-            if (agent.hasCoat) classList.push('has-coat');
-            if (agent.hasSuit) classList.push('has-suit');
-            if (agent.hasTracksuit) classList.push('has-tracksuit');
-            if (agent.hasFullPants) classList.push('has-full-pants');
-            if (agent.hasScarf) classList.push('has-scarf');
-            if (agent.build) classList.push(`build-${agent.build}`); // muscular, athletic, slim
-
-            return `
-                <div class="${classList.join(' ')}">
-                    <div class="hair" style="background: linear-gradient(180deg, ${agent.hair.color} 0%, ${adjustColor(agent.hair.color, -20)} 100%);"></div>
-                    <div class="head">
-                        <div class="ear ear-left"></div>
-                        <div class="ear ear-right"></div>
-                        ${beardHTML}
+            if (isSuit) {
+                // Suit back for managers/executives
+                return `
+                    <div class="jersey-back suit-back">
+                        <div class="sleeve sleeve-left"></div>
+                        <div class="sleeve sleeve-right"></div>
+                        <div class="jersey">
+                            <div class="lapel lapel-left"></div>
+                            <div class="lapel lapel-right"></div>
+                            <div class="back-seam"></div>
+                            <div class="player-name">${lastName}</div>
+                            <div class="back-number">${agent.role || 'EXEC'}</div>
+                        </div>
                     </div>
-                    <div class="neck"></div>
-                    ${scarfHTML}
-                    <div class="shoulder shoulder-left"></div>
-                    <div class="shoulder shoulder-right"></div>
-                    ${collarHTML}
-                    ${tieHTML}
-                    <div class="torso"></div>
-                    ${jerseyNumHTML}
-                    ${shortsHTML}
-                    ${coatBottomHTML}
-                    <div class="arm arm-left"><div class="hand"></div></div>
-                    <div class="arm arm-right"><div class="hand"></div></div>
-                    <div class="leg leg-left"><div class="foot"></div></div>
-                    <div class="leg leg-right"><div class="foot"></div></div>
-                </div>
-            `;
+                `;
+            } else {
+                // Jersey back for players
+                return `
+                    <div class="jersey-back">
+                        <div class="sleeve sleeve-left"></div>
+                        <div class="sleeve sleeve-right"></div>
+                        <div class="jersey">
+                            <div class="player-name">${lastName}</div>
+                            <div class="back-number">${agent.jerseyNumber || ''}</div>
+                            <div class="accent-stripe"></div>
+                        </div>
+                    </div>
+                `;
+            }
         }
 
         // Helper to darken/lighten colors

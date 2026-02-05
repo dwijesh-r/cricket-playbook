@@ -73,55 +73,71 @@
             transition: background 0.3s ease, color 0.3s ease;
         }
 
-        /* ==================== SPORTS-THEMED BACKGROUND ==================== */
+        /* ==================== PROFESSIONAL SPORTS BACKGROUND ==================== */
+        /* Inspired by ESPN, NBA broadcasts - clean, geometric, premium */
         .bg-gradient {
             position: fixed;
             inset: 0;
-            z-index: -2;
-            overflow: hidden;
+            z-index: -3;
+            background:
+                linear-gradient(135deg, var(--bg-primary) 0%, #0a0a0f 50%, #0d1117 100%);
         }
 
+        [data-theme="light"] .bg-gradient {
+            background:
+                linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f1f3f5 100%);
+        }
+
+        /* Accent glow - top corner */
         .bg-gradient::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background:
-                radial-gradient(ellipse at 20% 20%, rgba(10, 132, 255, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(191, 90, 242, 0.06) 0%, transparent 50%),
-                radial-gradient(ellipse at 40% 60%, rgba(48, 209, 88, 0.04) 0%, transparent 40%);
-            animation: bgShift 30s ease-in-out infinite;
+            top: -20%;
+            right: -10%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(ellipse, rgba(10, 132, 255, 0.15) 0%, transparent 70%);
+            filter: blur(60px);
+        }
+
+        /* Accent glow - bottom corner */
+        .bg-gradient::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 50%;
+            height: 50%;
+            background: radial-gradient(ellipse, rgba(191, 90, 242, 0.1) 0%, transparent 70%);
+            filter: blur(60px);
         }
 
         [data-theme="light"] .bg-gradient::before {
-            background:
-                radial-gradient(ellipse at 20% 20%, rgba(0, 122, 255, 0.06) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(175, 82, 222, 0.04) 0%, transparent 50%),
-                radial-gradient(ellipse at 40% 60%, rgba(40, 205, 65, 0.03) 0%, transparent 40%);
+            background: radial-gradient(ellipse, rgba(0, 100, 200, 0.08) 0%, transparent 70%);
         }
 
-        @keyframes bgShift {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(2%, 2%) rotate(1deg); }
-            66% { transform: translate(-1%, 1%) rotate(-1deg); }
+        [data-theme="light"] .bg-gradient::after {
+            background: radial-gradient(ellipse, rgba(120, 80, 200, 0.06) 0%, transparent 70%);
         }
 
-        /* Grid pattern overlay */
+        /* Sharp geometric grid */
         .bg-grid {
             position: fixed;
             inset: 0;
-            z-index: -1;
+            z-index: -2;
             background-image:
-                linear-gradient(var(--text-sports) 1px, transparent 1px),
-                linear-gradient(90deg, var(--text-sports) 1px, transparent 1px);
-            background-size: 60px 60px;
-            mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
-            -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 48px 48px;
         }
 
-        /* Sports-themed floating elements */
+        [data-theme="light"] .bg-grid {
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+        }
+
+        /* Diagonal accent lines */
         .sports-bg {
             position: fixed;
             inset: 0;
@@ -130,78 +146,83 @@
             overflow: hidden;
         }
 
-        .sports-text {
+        /* Sharp diagonal stripe accents */
+        .accent-stripe {
             position: absolute;
-            font-weight: 700;
-            white-space: nowrap;
-            user-select: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(10, 132, 255, 0.3), transparent);
+            transform-origin: left center;
         }
 
-        .sports-text.names {
-            font-size: 100px;
-            letter-spacing: -0.04em;
-            color: rgba(255, 215, 0, 0.04);
-            text-shadow: 0 0 60px rgba(255, 215, 0, 0.02);
+        [data-theme="light"] .accent-stripe {
+            background: linear-gradient(90deg, transparent, rgba(0, 100, 200, 0.2), transparent);
         }
 
-        [data-theme="light"] .sports-text.names {
-            color: rgba(0, 80, 180, 0.04);
-            text-shadow: 0 0 60px rgba(0, 80, 180, 0.02);
-        }
-
-        .sports-text.quotes {
-            font-size: 16px;
-            font-style: italic;
-            font-weight: 400;
-            max-width: 280px;
-            white-space: normal;
-            line-height: 1.4;
-            color: rgba(100, 210, 255, 0.08);
-        }
-
-        [data-theme="light"] .sports-text.quotes {
-            color: rgba(0, 100, 180, 0.06);
-        }
-
-        .sports-text.teams {
-            font-size: 60px;
-            letter-spacing: 0.15em;
-            font-weight: 900;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.03);
-            -webkit-text-stroke: 1px rgba(255, 215, 0, 0.05);
-        }
-
-        [data-theme="light"] .sports-text.teams {
-            color: rgba(0, 0, 0, 0.02);
-            -webkit-text-stroke: 1px rgba(0, 80, 180, 0.04);
-        }
-
-        /* Sports icons - trophies, jerseys, balls */
-        .sports-icon {
+        /* Corner accent brackets */
+        .corner-accent {
             position: absolute;
-            font-size: 80px;
-            opacity: 0.06;
-            user-select: none;
-            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.1));
+            width: 80px;
+            height: 80px;
+            border: 2px solid rgba(255, 255, 255, 0.06);
+            pointer-events: none;
         }
 
-        [data-theme="light"] .sports-icon {
-            opacity: 0.05;
-            filter: drop-shadow(0 0 20px rgba(0, 80, 180, 0.1));
+        .corner-accent.top-left {
+            top: 60px;
+            left: 20px;
+            border-right: none;
+            border-bottom: none;
         }
 
-        /* Jersey silhouettes */
-        .jersey-icon {
+        .corner-accent.top-right {
+            top: 60px;
+            right: 20px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .corner-accent.bottom-left {
+            bottom: 20px;
+            left: 20px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .corner-accent.bottom-right {
+            bottom: 20px;
+            right: 20px;
+            border-left: none;
+            border-top: none;
+        }
+
+        [data-theme="light"] .corner-accent {
+            border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        /* Subtle dot pattern overlay */
+        .dot-pattern {
             position: absolute;
-            width: 120px;
-            height: 120px;
-            opacity: 0.04;
-            user-select: none;
+            inset: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+            mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent);
+            -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent);
         }
 
-        [data-theme="light"] .jersey-icon {
-            opacity: 0.03;
+        [data-theme="light"] .dot-pattern {
+            background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+        }
+
+        /* Vertical accent line */
+        .vertical-accent {
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, rgba(10, 132, 255, 0.2), transparent);
+        }
+
+        [data-theme="light"] .vertical-accent {
+            background: linear-gradient(180deg, transparent, rgba(0, 100, 200, 0.15), transparent);
         }
 
         /* ==================== NAVIGATION ==================== */
@@ -1598,458 +1619,442 @@
     </div>
 
     <script>
-        // ==================== BITMOJI-STYLE AVATAR SYSTEM ====================
-        // High-detail caricatures with realistic jerseys and features
+        // ==================== 8-BIT PIXEL ART AVATAR SYSTEM ====================
+        // Retro pixelated style - prominent features, clean at small sizes
+        // Each avatar uses a 16x16 pixel grid (4px per pixel on 64x64 canvas)
+        const p = 4; // pixel size
+
+        // Helper to create pixel rectangles
+        const px = (x, y, c, w=1, h=1) => `<rect x="${x*p}" y="${y*p}" width="${w*p}" height="${h*p}" fill="${c}"/>`;
+
         const AgentAvatars = {
             'Tom Brady': `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="brady-jersey" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style="stop-color:#002244"/>
-                        <stop offset="100%" style="stop-color:#001833"/>
-                    </linearGradient>
-                </defs>
-                <rect width="64" height="64" rx="10" fill="#002244"/>
-                <!-- Jersey with collar -->
-                <path d="M8 64 L8 44 Q16 38 32 38 Q48 38 56 44 L56 64" fill="url(#brady-jersey)"/>
-                <path d="M24 38 Q32 42 40 38" fill="#c60c30"/>
-                <path d="M20 38 L20 46 L24 42 L24 38" fill="white"/>
-                <path d="M44 38 L44 46 L40 42 L40 38" fill="white"/>
-                <text x="32" y="56" font-size="12" fill="white" text-anchor="middle" font-weight="bold">12</text>
-                <!-- Neck -->
-                <ellipse cx="32" cy="40" rx="8" ry="4" fill="#EACBA8"/>
+                <!-- BG: Patriots Navy -->
+                <rect width="64" height="64" rx="8" fill="#002244"/>
+                <!-- Hair - brown, short -->
+                <rect x="16" y="8" width="32" height="8" fill="#5A4030"/>
+                <rect x="12" y="12" width="8" height="8" fill="#5A4030"/>
+                <rect x="44" y="12" width="8" height="8" fill="#5A4030"/>
                 <!-- Face - strong jaw -->
-                <path d="M16 30 Q16 12 32 10 Q48 12 48 30 L46 38 Q32 42 18 38 Z" fill="#F2D4B8"/>
-                <!-- Face shadow -->
-                <path d="M20 32 Q32 38 44 32 L46 38 Q32 42 18 38 Z" fill="#E5C4A8"/>
-                <!-- Hair - short clean cut -->
-                <path d="M16 24 Q16 10 32 8 Q48 10 48 24 L46 18 Q32 14 18 18 Z" fill="#5A4030"/>
-                <!-- Eyes -->
-                <ellipse cx="24" cy="24" rx="4" ry="3" fill="white"/>
-                <ellipse cx="40" cy="24" rx="4" ry="3" fill="white"/>
-                <circle cx="24" cy="24" r="2" fill="#4A6080"/>
-                <circle cx="40" cy="24" r="2" fill="#4A6080"/>
-                <circle cx="24.5" cy="23.5" r="0.8" fill="white"/>
-                <circle cx="40.5" cy="23.5" r="0.8" fill="white"/>
-                <!-- Eyebrows - strong -->
-                <path d="M19 20 Q24 18 29 20" stroke="#4A3520" stroke-width="2" fill="none"/>
-                <path d="M35 20 Q40 18 45 20" stroke="#4A3520" stroke-width="2" fill="none"/>
+                <rect x="16" y="16" width="32" height="24" fill="#F2D4B8"/>
+                <rect x="12" y="20" width="4" height="12" fill="#F2D4B8"/>
+                <rect x="48" y="20" width="4" height="12" fill="#F2D4B8"/>
+                <rect x="20" y="40" width="24" height="4" fill="#F2D4B8"/>
+                <!-- Eyes - blue, intense -->
+                <rect x="20" y="24" width="8" height="4" fill="white"/>
+                <rect x="36" y="24" width="8" height="4" fill="white"/>
+                <rect x="24" y="24" width="4" height="4" fill="#4A6080"/>
+                <rect x="40" y="24" width="4" height="4" fill="#4A6080"/>
+                <!-- Eyebrows -->
+                <rect x="20" y="20" width="8" height="4" fill="#4A3520"/>
+                <rect x="36" y="20" width="8" height="4" fill="#4A3520"/>
                 <!-- Nose -->
-                <path d="M32 24 L33 30 L31 30 Z" fill="#E5C4A8"/>
-                <!-- Mouth - confident smile -->
-                <path d="M26 33 Q32 36 38 33" stroke="#A06050" stroke-width="1.5" fill="none"/>
+                <rect x="28" y="28" width="8" height="8" fill="#E5C4A8"/>
+                <!-- Mouth - smile -->
+                <rect x="24" y="36" width="16" height="4" fill="#C08070"/>
+                <!-- Jersey - Patriots -->
+                <rect x="8" y="44" width="48" height="20" fill="#002244"/>
+                <rect x="16" y="44" width="8" height="4" fill="#C60C30"/>
+                <rect x="40" y="44" width="8" height="4" fill="#C60C30"/>
+                <!-- Number 12 -->
+                <rect x="24" y="52" width="4" height="8" fill="white"/>
+                <rect x="32" y="52" width="4" height="8" fill="white"/>
+                <rect x="36" y="52" width="4" height="4" fill="white"/>
+                <rect x="32" y="56" width="8" height="4" fill="white"/>
             </svg>`,
 
             'Stephen Curry': `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="curry-jersey" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style="stop-color:#1D428A"/>
-                        <stop offset="100%" style="stop-color:#152B5C"/>
-                    </linearGradient>
-                </defs>
-                <rect width="64" height="64" rx="10" fill="#1D428A"/>
-                <!-- Jersey -->
-                <path d="M8 64 L8 44 Q16 38 32 38 Q48 38 56 44 L56 64" fill="url(#curry-jersey)"/>
-                <path d="M16 44 L16 64" stroke="#FFC72C" stroke-width="3"/>
-                <path d="M48 44 L48 64" stroke="#FFC72C" stroke-width="3"/>
-                <text x="32" y="56" font-size="12" fill="#FFC72C" text-anchor="middle" font-weight="bold">30</text>
-                <!-- Neck -->
-                <ellipse cx="32" cy="40" rx="8" ry="4" fill="#8B6B42"/>
+                <!-- BG: Warriors Blue -->
+                <rect width="64" height="64" rx="8" fill="#1D428A"/>
+                <!-- Hair - black, curly texture -->
+                <rect x="16" y="4" width="32" height="4" fill="#1A1A1A"/>
+                <rect x="12" y="8" width="40" height="4" fill="#1A1A1A"/>
+                <rect x="12" y="12" width="8" height="4" fill="#1A1A1A"/>
+                <rect x="24" y="8" width="4" height="4" fill="#1D428A"/>
+                <rect x="36" y="8" width="4" height="4" fill="#1D428A"/>
+                <rect x="44" y="12" width="8" height="4" fill="#1A1A1A"/>
                 <!-- Face -->
-                <ellipse cx="32" cy="26" rx="15" ry="16" fill="#A07850"/>
-                <!-- Face shadow/highlight -->
-                <ellipse cx="32" cy="28" rx="14" ry="14" fill="#B08860"/>
-                <!-- Hair - short curly -->
-                <path d="M17 22 Q17 8 32 6 Q47 8 47 22" fill="#1A1A1A"/>
-                <circle cx="20" cy="14" r="3" fill="#1A1A1A"/>
-                <circle cx="27" cy="10" r="3" fill="#1A1A1A"/>
-                <circle cx="35" cy="9" r="3" fill="#1A1A1A"/>
-                <circle cx="42" cy="12" r="3" fill="#1A1A1A"/>
+                <rect x="16" y="16" width="32" height="20" fill="#B08860"/>
+                <rect x="12" y="20" width="4" height="12" fill="#B08860"/>
+                <rect x="48" y="20" width="4" height="12" fill="#B08860"/>
                 <!-- Eyes -->
-                <ellipse cx="25" cy="24" rx="4" ry="3" fill="white"/>
-                <ellipse cx="39" cy="24" rx="4" ry="3" fill="white"/>
-                <circle cx="25" cy="24" r="2" fill="#3D2314"/>
-                <circle cx="39" cy="24" r="2" fill="#3D2314"/>
-                <circle cx="25.5" cy="23.5" r="0.8" fill="white"/>
-                <circle cx="39.5" cy="23.5" r="0.8" fill="white"/>
-                <!-- Eyebrows -->
-                <path d="M21 20 Q25 18 29 20" stroke="#1A1A1A" stroke-width="1.5" fill="none"/>
-                <path d="M35 20 Q39 18 43 20" stroke="#1A1A1A" stroke-width="1.5" fill="none"/>
+                <rect x="20" y="24" width="8" height="4" fill="white"/>
+                <rect x="36" y="24" width="8" height="4" fill="white"/>
+                <rect x="24" y="24" width="4" height="4" fill="#3D2314"/>
+                <rect x="40" y="24" width="4" height="4" fill="#3D2314"/>
+                <!-- Beard - full -->
+                <rect x="16" y="32" width="32" height="8" fill="#1A1A1A"/>
+                <rect x="20" y="36" width="24" height="4" fill="#1A1A1A"/>
+                <!-- Smile in beard -->
+                <rect x="24" y="32" width="16" height="4" fill="#B08860"/>
+                <rect x="28" y="34" width="8" height="2" fill="white"/>
                 <!-- Nose -->
-                <ellipse cx="32" cy="29" rx="3" ry="2" fill="#9A7048"/>
-                <!-- Beard -->
-                <path d="M20 32 Q20 42 32 44 Q44 42 44 32 Q44 36 32 38 Q20 36 20 32" fill="#1A1A1A"/>
-                <!-- Smile showing teeth -->
-                <path d="M26 34 Q32 38 38 34" fill="#1A1A1A"/>
-                <path d="M27 35 Q32 37 37 35" fill="white"/>
+                <rect x="28" y="28" width="8" height="4" fill="#9A7048"/>
+                <!-- Jersey - Warriors -->
+                <rect x="8" y="44" width="48" height="20" fill="#1D428A"/>
+                <rect x="12" y="44" width="4" height="20" fill="#FFC72C"/>
+                <rect x="48" y="44" width="4" height="20" fill="#FFC72C"/>
+                <!-- Number 30 -->
+                <rect x="20" y="52" width="8" height="4" fill="#FFC72C"/>
+                <rect x="20" y="52" width="4" height="8" fill="#FFC72C"/>
+                <rect x="24" y="56" width="4" height="4" fill="#FFC72C"/>
+                <rect x="36" y="52" width="8" height="8" fill="#FFC72C"/>
+                <rect x="40" y="56" width="4" height="4" fill="#1D428A"/>
             </svg>`,
 
             'Kevin de Bruyne': `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="kdb-jersey" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style="stop-color:#6CABDD"/>
-                        <stop offset="100%" style="stop-color:#5A9AC8"/>
-                    </linearGradient>
-                </defs>
-                <rect width="64" height="64" rx="10" fill="#6CABDD"/>
-                <!-- Jersey with V-neck -->
-                <path d="M8 64 L8 44 Q16 38 32 38 Q48 38 56 44 L56 64" fill="url(#kdb-jersey)"/>
-                <path d="M26 38 L32 46 L38 38" fill="#1C2C5B"/>
-                <text x="32" y="58" font-size="12" fill="white" text-anchor="middle" font-weight="bold">17</text>
-                <!-- Neck -->
-                <ellipse cx="32" cy="40" rx="7" ry="4" fill="#F5D4B8"/>
+                <!-- BG: Man City Sky Blue -->
+                <rect width="64" height="64" rx="8" fill="#6CABDD"/>
+                <!-- Hair - ginger, swept -->
+                <rect x="12" y="8" width="40" height="8" fill="#D35400"/>
+                <rect x="8" y="12" width="12" height="8" fill="#E67E22"/>
+                <rect x="16" y="4" width="20" height="8" fill="#D35400"/>
+                <rect x="44" y="12" width="8" height="8" fill="#D35400"/>
                 <!-- Face -->
-                <ellipse cx="32" cy="26" rx="14" ry="15" fill="#F5D4B8"/>
-                <!-- Ginger hair - swept to side -->
-                <path d="M18 20 Q18 6 32 4 Q46 6 46 20" fill="#D35400"/>
-                <path d="M18 16 Q24 10 32 12 Q18 8 18 16" fill="#E67E22"/>
-                <path d="M46 16 Q40 14 36 16" fill="#E67E22"/>
+                <rect x="16" y="16" width="32" height="24" fill="#F5D4B8"/>
+                <rect x="12" y="20" width="4" height="12" fill="#F5D4B8"/>
+                <rect x="48" y="20" width="4" height="12" fill="#F5D4B8"/>
                 <!-- Eyes - blue -->
-                <ellipse cx="25" cy="24" rx="4" ry="3" fill="white"/>
-                <ellipse cx="39" cy="24" rx="4" ry="3" fill="white"/>
-                <circle cx="25" cy="24" r="2" fill="#3498DB"/>
-                <circle cx="39" cy="24" r="2" fill="#3498DB"/>
-                <circle cx="25.5" cy="23.5" r="0.8" fill="white"/>
-                <circle cx="39.5" cy="23.5" r="0.8" fill="white"/>
+                <rect x="20" y="24" width="8" height="4" fill="white"/>
+                <rect x="36" y="24" width="8" height="4" fill="white"/>
+                <rect x="24" y="24" width="4" height="4" fill="#3498DB"/>
+                <rect x="40" y="24" width="4" height="4" fill="#3498DB"/>
                 <!-- Ginger eyebrows -->
-                <path d="M21 20 L29 20" stroke="#D35400" stroke-width="2" stroke-linecap="round"/>
-                <path d="M35 20 L43 20" stroke="#D35400" stroke-width="2" stroke-linecap="round"/>
+                <rect x="20" y="20" width="8" height="4" fill="#D35400"/>
+                <rect x="36" y="20" width="8" height="4" fill="#D35400"/>
                 <!-- Nose -->
-                <path d="M32 24 L34 30 L30 30 Z" fill="#E8C4A0"/>
-                <!-- Light stubble -->
-                <ellipse cx="32" cy="36" rx="8" ry="4" fill="#D3540020"/>
-                <!-- Smile -->
-                <path d="M27 34 Q32 37 37 34" stroke="#B07060" stroke-width="1.5" fill="none"/>
+                <rect x="28" y="28" width="8" height="8" fill="#E8C4A0"/>
+                <!-- Mouth -->
+                <rect x="24" y="36" width="16" height="4" fill="#C08070"/>
+                <!-- Jersey - Man City -->
+                <rect x="8" y="44" width="48" height="20" fill="#6CABDD"/>
+                <rect x="24" y="44" width="16" height="8" fill="#1C2C5B"/>
+                <!-- Number 17 -->
+                <rect x="24" y="52" width="4" height="8" fill="white"/>
+                <rect x="36" y="52" width="4" height="8" fill="white"/>
+                <rect x="32" y="52" width="4" height="4" fill="white"/>
             </svg>`,
 
             'Jose Mourinho': `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <rect width="64" height="64" rx="10" fill="#2C3E50"/>
+                <!-- BG: Dark sophisticated -->
+                <rect width="64" height="64" rx="8" fill="#2C3E50"/>
+                <!-- Silver/gray hair -->
+                <rect x="16" y="8" width="32" height="8" fill="#A0A0A0"/>
+                <rect x="12" y="12" width="8" height="4" fill="#B0B0B0"/>
+                <rect x="44" y="12" width="8" height="4" fill="#B0B0B0"/>
+                <!-- Face -->
+                <rect x="16" y="16" width="32" height="20" fill="#E8C4A0"/>
+                <rect x="12" y="20" width="4" height="8" fill="#E8C4A0"/>
+                <rect x="48" y="20" width="4" height="8" fill="#E8C4A0"/>
+                <!-- Eyes - intense, dark -->
+                <rect x="20" y="20" width="8" height="4" fill="white"/>
+                <rect x="36" y="20" width="8" height="4" fill="white"/>
+                <rect x="24" y="20" width="4" height="4" fill="#2C3E50"/>
+                <rect x="40" y="20" width="4" height="4" fill="#2C3E50"/>
+                <!-- Furrowed brows - angled inward -->
+                <rect x="20" y="16" width="8" height="4" fill="#606060"/>
+                <rect x="36" y="16" width="8" height="4" fill="#606060"/>
+                <!-- Prominent nose -->
+                <rect x="28" y="24" width="8" height="8" fill="#D8B498"/>
+                <!-- Stern mouth -->
+                <rect x="24" y="32" width="16" height="4" fill="#906050"/>
                 <!-- Suit jacket -->
-                <path d="M8 64 L8 42 Q16 36 32 36 Q48 36 56 42 L56 64" fill="#1A1A1A"/>
-                <path d="M28 36 L32 44 L36 36" fill="#2C3E50"/>
+                <rect x="8" y="40" width="48" height="24" fill="#1A1A1A"/>
                 <!-- White shirt collar -->
-                <path d="M26 38 L30 44 L28 38" fill="white"/>
-                <path d="M38 38 L34 44 L36 38" fill="white"/>
-                <!-- Tie -->
-                <path d="M30 44 L32 56 L34 44 Z" fill="#1C3A5F"/>
-                <!-- Neck -->
-                <ellipse cx="32" cy="38" rx="6" ry="3" fill="#E8C4A0"/>
-                <!-- Face - angular, intense -->
-                <ellipse cx="32" cy="24" rx="14" ry="15" fill="#E8C4A0"/>
-                <!-- Silver hair -->
-                <path d="M18 20 Q18 6 32 4 Q46 6 46 20" fill="#A0A0A0"/>
-                <path d="M20 18 Q26 12 32 14" fill="#B0B0B0"/>
-                <!-- Intense eyes -->
-                <ellipse cx="25" cy="22" rx="4" ry="3.5" fill="white"/>
-                <ellipse cx="39" cy="22" rx="4" ry="3.5" fill="white"/>
-                <circle cx="25" cy="22" r="2.5" fill="#2C3E50"/>
-                <circle cx="39" cy="22" r="2.5" fill="#2C3E50"/>
-                <circle cx="25.5" cy="21.5" r="1" fill="white"/>
-                <circle cx="39.5" cy="21.5" r="1" fill="white"/>
-                <!-- Furrowed brows -->
-                <path d="M19 18 L28 20" stroke="#606060" stroke-width="2.5" stroke-linecap="round"/>
-                <path d="M45 18 L36 20" stroke="#606060" stroke-width="2.5" stroke-linecap="round"/>
-                <!-- Nose - prominent -->
-                <path d="M32 22 L35 30 L29 30 Z" fill="#D8B498"/>
-                <!-- Stubble/shadow -->
-                <ellipse cx="32" cy="34" rx="10" ry="6" fill="#A0A0A020"/>
-                <!-- Serious mouth -->
-                <path d="M27 34 L37 34" stroke="#906050" stroke-width="2" stroke-linecap="round"/>
+                <rect x="24" y="40" width="4" height="8" fill="white"/>
+                <rect x="36" y="40" width="4" height="8" fill="white"/>
+                <!-- Blue tie -->
+                <rect x="28" y="44" width="8" height="16" fill="#1C3A5F"/>
             </svg>`,
 
             'LeBron James': `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="lakers-jersey" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style="stop-color:#552583"/>
-                        <stop offset="100%" style="stop-color:#3D1A5C"/>
-                    </linearGradient>
-                </defs>
-                <rect width="64" height="64" rx="10" fill="#552583"/>
-                <!-- Jersey -->
-                <path d="M8 64 L8 44 Q16 38 32 38 Q48 38 56 44 L56 64" fill="url(#lakers-jersey)"/>
-                <path d="M18 44 L18 64" stroke="#FDB927" stroke-width="2"/>
-                <path d="M46 44 L46 64" stroke="#FDB927" stroke-width="2"/>
-                <text x="32" y="56" font-size="11" fill="#FDB927" text-anchor="middle" font-weight="bold">23</text>
+                <!-- BG: Lakers Purple -->
+                <rect width="64" height="64" rx="8" fill="#552583"/>
                 <!-- Headband -->
-                <rect x="14" y="14" width="36" height="5" rx="2" fill="#552583"/>
-                <rect x="14" y="16" width="36" height="2" fill="#FDB927"/>
-                <!-- Neck -->
-                <ellipse cx="32" cy="40" rx="8" ry="4" fill="#7A5030"/>
+                <rect x="12" y="12" width="40" height="4" fill="#FDB927"/>
+                <!-- Hair - receding hairline -->
+                <rect x="16" y="8" width="32" height="4" fill="#1A1A1A"/>
+                <rect x="12" y="12" width="8" height="4" fill="#1A1A1A"/>
+                <rect x="44" y="12" width="8" height="4" fill="#1A1A1A"/>
+                <!-- Exposed forehead showing receding -->
+                <rect x="20" y="12" width="8" height="4" fill="#8B6040"/>
+                <rect x="36" y="12" width="8" height="4" fill="#8B6040"/>
                 <!-- Face -->
-                <ellipse cx="32" cy="26" rx="15" ry="16" fill="#8B6040"/>
-                <!-- Hairline (receding) -->
-                <path d="M18 18 Q18 10 32 8 Q46 10 46 18" fill="#1A1A1A"/>
-                <path d="M20 16 Q24 12 28 14" fill="#8B6040"/>
-                <path d="M44 16 Q40 12 36 14" fill="#8B6040"/>
+                <rect x="16" y="16" width="32" height="20" fill="#8B6040"/>
+                <rect x="12" y="20" width="4" height="12" fill="#8B6040"/>
+                <rect x="48" y="20" width="4" height="12" fill="#8B6040"/>
                 <!-- Eyes -->
-                <ellipse cx="25" cy="24" rx="4" ry="3" fill="white"/>
-                <ellipse cx="39" cy="24" rx="4" ry="3" fill="white"/>
-                <circle cx="25" cy="24" r="2" fill="#3D2314"/>
-                <circle cx="39" cy="24" r="2" fill="#3D2314"/>
-                <circle cx="25.5" cy="23.5" r="0.8" fill="white"/>
-                <circle cx="39.5" cy="23.5" r="0.8" fill="white"/>
-                <!-- Eyebrows -->
-                <path d="M20 20 L29 20" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round"/>
-                <path d="M35 20 L44 20" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round"/>
+                <rect x="20" y="20" width="8" height="4" fill="white"/>
+                <rect x="36" y="20" width="8" height="4" fill="white"/>
+                <rect x="24" y="20" width="4" height="4" fill="#3D2314"/>
+                <rect x="40" y="20" width="4" height="4" fill="#3D2314"/>
+                <!-- Thick eyebrows -->
+                <rect x="20" y="16" width="8" height="4" fill="#1A1A1A"/>
+                <rect x="36" y="16" width="8" height="4" fill="#1A1A1A"/>
                 <!-- Nose -->
-                <ellipse cx="32" cy="29" rx="3.5" ry="2.5" fill="#7A5030"/>
+                <rect x="28" y="24" width="8" height="4" fill="#7A5030"/>
                 <!-- Beard/Goatee -->
-                <path d="M24 34 Q24 44 32 46 Q40 44 40 34" fill="#1A1A1A"/>
-                <path d="M26 36 Q32 40 38 36" fill="#8B6040"/>
+                <rect x="20" y="32" width="24" height="8" fill="#1A1A1A"/>
+                <rect x="24" y="28" width="16" height="4" fill="#1A1A1A"/>
+                <!-- Jersey - Lakers -->
+                <rect x="8" y="44" width="48" height="20" fill="#552583"/>
+                <rect x="12" y="44" width="4" height="20" fill="#FDB927"/>
+                <rect x="48" y="44" width="4" height="20" fill="#FDB927"/>
+                <!-- Number 23 -->
+                <rect x="20" y="52" width="8" height="4" fill="#FDB927"/>
+                <rect x="20" y="56" width="4" height="4" fill="#FDB927"/>
+                <rect x="24" y="56" width="4" height="4" fill="#FDB927"/>
+                <rect x="36" y="52" width="8" height="4" fill="#FDB927"/>
+                <rect x="36" y="56" width="4" height="4" fill="#FDB927"/>
+                <rect x="40" y="56" width="4" height="4" fill="#FDB927"/>
             </svg>`,
 
             'Brad Stevens': `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <rect width="64" height="64" rx="10" fill="#007A33"/>
-                <!-- Suit jacket - Celtics green -->
-                <path d="M8 64 L8 42 Q16 36 32 36 Q48 36 56 42 L56 64" fill="#1A1A1A"/>
-                <!-- White shirt -->
-                <path d="M26 36 L32 48 L38 36" fill="white"/>
-                <!-- Green tie -->
-                <path d="M30 44 L32 58 L34 44 Z" fill="#007A33"/>
-                <!-- Neck -->
-                <ellipse cx="32" cy="38" rx="6" ry="3" fill="#F5D4B8"/>
-                <!-- Face -->
-                <ellipse cx="32" cy="24" rx="13" ry="14" fill="#F5D4B8"/>
+                <!-- BG: Celtics Green -->
+                <rect width="64" height="64" rx="8" fill="#007A33"/>
                 <!-- Brown hair - neat -->
-                <path d="M19 20 Q19 8 32 6 Q45 8 45 20" fill="#5C4033"/>
-                <path d="M21 16 Q27 10 33 12" fill="#6B4C38"/>
-                <!-- Glasses -->
-                <rect x="18" y="20" width="11" height="9" rx="2" fill="none" stroke="#333" stroke-width="1.5"/>
-                <rect x="35" y="20" width="11" height="9" rx="2" fill="none" stroke="#333" stroke-width="1.5"/>
-                <path d="M29 24 L35 24" stroke="#333" stroke-width="1.5"/>
+                <rect x="16" y="8" width="32" height="8" fill="#5C4033"/>
+                <rect x="12" y="12" width="8" height="4" fill="#5C4033"/>
+                <rect x="44" y="12" width="8" height="4" fill="#5C4033"/>
+                <!-- Face -->
+                <rect x="16" y="16" width="32" height="20" fill="#F5D4B8"/>
+                <rect x="12" y="20" width="4" height="12" fill="#F5D4B8"/>
+                <rect x="48" y="20" width="4" height="12" fill="#F5D4B8"/>
+                <!-- Glasses frames -->
+                <rect x="16" y="20" width="12" height="8" fill="none" stroke="#333" stroke-width="2"/>
+                <rect x="36" y="20" width="12" height="8" fill="none" stroke="#333" stroke-width="2"/>
+                <rect x="28" y="22" width="8" height="2" fill="#333"/>
                 <!-- Eyes behind glasses -->
-                <ellipse cx="23.5" cy="24" rx="3" ry="2.5" fill="white"/>
-                <ellipse cx="40.5" cy="24" rx="3" ry="2.5" fill="white"/>
-                <circle cx="23.5" cy="24" r="1.5" fill="#4A6741"/>
-                <circle cx="40.5" cy="24" r="1.5" fill="#4A6741"/>
-                <!-- Eyebrows -->
-                <path d="M19 18 L27 18" stroke="#5C4033" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M37 18 L45 18" stroke="#5C4033" stroke-width="1.5" stroke-linecap="round"/>
+                <rect x="20" y="22" width="4" height="4" fill="white"/>
+                <rect x="40" y="22" width="4" height="4" fill="white"/>
+                <rect x="20" y="22" width="4" height="4" fill="#4A6741"/>
+                <rect x="40" y="22" width="4" height="4" fill="#4A6741"/>
                 <!-- Nose -->
-                <path d="M32 24 L33 30 L31 30 Z" fill="#E8C4A0"/>
-                <!-- Friendly smile -->
-                <path d="M27 34 Q32 37 37 34" stroke="#A07060" stroke-width="1.5" fill="none"/>
+                <rect x="28" y="28" width="8" height="4" fill="#E8C4A0"/>
+                <!-- Smile -->
+                <rect x="24" y="32" width="16" height="4" fill="#A07060"/>
+                <!-- Suit -->
+                <rect x="8" y="40" width="48" height="24" fill="#1A1A1A"/>
+                <!-- White shirt -->
+                <rect x="24" y="40" width="4" height="8" fill="white"/>
+                <rect x="36" y="40" width="4" height="8" fill="white"/>
+                <!-- Green tie -->
+                <rect x="28" y="44" width="8" height="16" fill="#007A33"/>
             </svg>`,
 
             'Brock Purdy': `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="sf-jersey" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style="stop-color:#AA0000"/>
-                        <stop offset="100%" style="stop-color:#880000"/>
-                    </linearGradient>
-                </defs>
-                <rect width="64" height="64" rx="10" fill="#AA0000"/>
-                <!-- Jersey -->
-                <path d="M8 64 L8 44 Q16 38 32 38 Q48 38 56 44 L56 64" fill="url(#sf-jersey)"/>
-                <path d="M18 44 L18 64" stroke="#B3995D" stroke-width="2"/>
-                <path d="M46 44 L46 64" stroke="#B3995D" stroke-width="2"/>
-                <text x="32" y="56" font-size="11" fill="white" text-anchor="middle" font-weight="bold">13</text>
-                <!-- Neck -->
-                <ellipse cx="32" cy="40" rx="7" ry="4" fill="#F5D4B8"/>
-                <!-- Face - young, clean -->
-                <ellipse cx="32" cy="26" rx="14" ry="15" fill="#F5D4B8"/>
-                <!-- Dark brown hair - wavy -->
-                <path d="M18 22 Q18 6 32 4 Q46 6 46 22" fill="#3D2B1F"/>
-                <path d="M20 18 Q26 10 34 14" fill="#4A3728"/>
-                <path d="M44 18 Q40 12 36 14" fill="#4A3728"/>
-                <!-- Eyes -->
-                <ellipse cx="25" cy="24" rx="4" ry="3" fill="white"/>
-                <ellipse cx="39" cy="24" rx="4" ry="3" fill="white"/>
-                <circle cx="25" cy="24" r="2" fill="#4A6741"/>
-                <circle cx="39" cy="24" r="2" fill="#4A6741"/>
-                <circle cx="25.5" cy="23.5" r="0.8" fill="white"/>
-                <circle cx="39.5" cy="23.5" r="0.8" fill="white"/>
+                <!-- BG: 49ers Red -->
+                <rect width="64" height="64" rx="8" fill="#AA0000"/>
+                <!-- Dark brown hair -->
+                <rect x="16" y="8" width="32" height="8" fill="#3D2B1F"/>
+                <rect x="12" y="12" width="8" height="4" fill="#3D2B1F"/>
+                <rect x="44" y="12" width="8" height="4" fill="#3D2B1F"/>
+                <!-- Face - young -->
+                <rect x="16" y="16" width="32" height="24" fill="#F5D4B8"/>
+                <rect x="12" y="20" width="4" height="12" fill="#F5D4B8"/>
+                <rect x="48" y="20" width="4" height="12" fill="#F5D4B8"/>
+                <!-- Eyes - green -->
+                <rect x="20" y="24" width="8" height="4" fill="white"/>
+                <rect x="36" y="24" width="8" height="4" fill="white"/>
+                <rect x="24" y="24" width="4" height="4" fill="#4A6741"/>
+                <rect x="40" y="24" width="4" height="4" fill="#4A6741"/>
                 <!-- Eyebrows -->
-                <path d="M21 20 Q25 18 29 20" stroke="#3D2B1F" stroke-width="2" fill="none"/>
-                <path d="M35 20 Q39 18 43 20" stroke="#3D2B1F" stroke-width="2" fill="none"/>
+                <rect x="20" y="20" width="8" height="4" fill="#3D2B1F"/>
+                <rect x="36" y="20" width="8" height="4" fill="#3D2B1F"/>
                 <!-- Nose -->
-                <path d="M32 24 L33 30 L31 30 Z" fill="#E8C4A0"/>
+                <rect x="28" y="28" width="8" height="4" fill="#E8C4A0"/>
                 <!-- Smile -->
-                <path d="M26 34 Q32 38 38 34" stroke="#B07060" stroke-width="1.5" fill="none"/>
+                <rect x="24" y="34" width="16" height="4" fill="#B07060"/>
+                <!-- Jersey - 49ers -->
+                <rect x="8" y="44" width="48" height="20" fill="#AA0000"/>
+                <rect x="12" y="44" width="4" height="20" fill="#B3995D"/>
+                <rect x="48" y="44" width="4" height="20" fill="#B3995D"/>
+                <!-- Number 13 -->
+                <rect x="24" y="52" width="4" height="8" fill="white"/>
+                <rect x="36" y="52" width="8" height="4" fill="white"/>
+                <rect x="36" y="56" width="4" height="4" fill="white"/>
+                <rect x="40" y="56" width="4" height="4" fill="white"/>
             </svg>`,
 
             'Andy Flower': `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <rect width="64" height="64" rx="10" fill="#006400"/>
-                <!-- Cricket whites -->
-                <path d="M8 64 L8 44 Q16 38 32 38 Q48 38 56 44 L56 64" fill="#F5F5DC"/>
-                <path d="M24 38 Q32 42 40 38" fill="#006400"/>
-                <!-- Zimbabwe badge area -->
-                <circle cx="32" cy="50" r="6" fill="#006400"/>
-                <circle cx="32" cy="50" r="4" fill="#FFD700"/>
+                <!-- BG: Zimbabwe Green -->
+                <rect width="64" height="64" rx="8" fill="#006400"/>
                 <!-- Cricket cap -->
-                <ellipse cx="32" cy="14" rx="18" ry="6" fill="#006400"/>
-                <path d="M14 14 Q14 8 32 6 Q50 8 50 14" fill="#006400"/>
-                <ellipse cx="32" cy="16" rx="20" ry="4" fill="#004000"/>
-                <circle cx="32" cy="10" r="3" fill="#FFD700"/>
-                <!-- Neck -->
-                <ellipse cx="32" cy="40" rx="7" ry="4" fill="#F5D4B8"/>
+                <rect x="8" y="8" width="48" height="8" fill="#006400"/>
+                <rect x="12" y="4" width="40" height="8" fill="#004000"/>
+                <rect x="28" y="4" width="8" height="4" fill="#FFD700"/>
                 <!-- Face -->
-                <ellipse cx="32" cy="28" rx="14" ry="13" fill="#F5D4B8"/>
+                <rect x="16" y="16" width="32" height="24" fill="#F5D4B8"/>
+                <rect x="12" y="20" width="4" height="12" fill="#F5D4B8"/>
+                <rect x="48" y="20" width="4" height="12" fill="#F5D4B8"/>
                 <!-- Eyes -->
-                <ellipse cx="25" cy="26" rx="4" ry="3" fill="white"/>
-                <ellipse cx="39" cy="26" rx="4" ry="3" fill="white"/>
-                <circle cx="25" cy="26" r="2" fill="#4A3728"/>
-                <circle cx="39" cy="26" r="2" fill="#4A3728"/>
-                <circle cx="25.5" cy="25.5" r="0.8" fill="white"/>
-                <circle cx="39.5" cy="25.5" r="0.8" fill="white"/>
+                <rect x="20" y="24" width="8" height="4" fill="white"/>
+                <rect x="36" y="24" width="8" height="4" fill="white"/>
+                <rect x="24" y="24" width="4" height="4" fill="#4A3728"/>
+                <rect x="40" y="24" width="4" height="4" fill="#4A3728"/>
                 <!-- Eyebrows -->
-                <path d="M21 22 L29 22" stroke="#5C4033" stroke-width="2" stroke-linecap="round"/>
-                <path d="M35 22 L43 22" stroke="#5C4033" stroke-width="2" stroke-linecap="round"/>
+                <rect x="20" y="20" width="8" height="4" fill="#5C4033"/>
+                <rect x="36" y="20" width="8" height="4" fill="#5C4033"/>
                 <!-- Nose -->
-                <path d="M32 26 L33 32 L31 32 Z" fill="#E8C4A0"/>
-                <!-- Smile -->
-                <path d="M27 36 Q32 39 37 36" stroke="#906050" stroke-width="1.5" fill="none"/>
+                <rect x="28" y="28" width="8" height="4" fill="#E8C4A0"/>
+                <!-- Mouth -->
+                <rect x="24" y="34" width="16" height="4" fill="#906050"/>
+                <!-- Cricket whites -->
+                <rect x="8" y="44" width="48" height="20" fill="#F5F5DC"/>
+                <!-- Green collar -->
+                <rect x="24" y="44" width="16" height="4" fill="#006400"/>
+                <!-- Zimbabwe badge -->
+                <rect x="28" y="52" width="8" height="8" fill="#006400"/>
+                <rect x="30" y="54" width="4" height="4" fill="#FFD700"/>
             </svg>`,
 
             "N'Golo Kanté": `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="chelsea-jersey" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style="stop-color:#034694"/>
-                        <stop offset="100%" style="stop-color:#022B5C"/>
-                    </linearGradient>
-                </defs>
-                <rect width="64" height="64" rx="10" fill="#034694"/>
-                <!-- Jersey -->
-                <path d="M8 64 L8 44 Q16 38 32 38 Q48 38 56 44 L56 64" fill="url(#chelsea-jersey)"/>
-                <text x="32" y="56" font-size="14" fill="white" text-anchor="middle" font-weight="bold">7</text>
-                <!-- Neck -->
-                <ellipse cx="32" cy="40" rx="7" ry="4" fill="#8B5A2B"/>
-                <!-- Face - friendly, round -->
-                <ellipse cx="32" cy="26" rx="14" ry="15" fill="#8B5A2B"/>
-                <!-- Hair - short afro -->
-                <path d="M18 22 Q18 8 32 6 Q46 8 46 22" fill="#1A1A1A"/>
-                <circle cx="21" cy="14" r="3" fill="#1A1A1A"/>
-                <circle cx="27" cy="10" r="3" fill="#1A1A1A"/>
-                <circle cx="34" cy="9" r="3" fill="#1A1A1A"/>
-                <circle cx="41" cy="12" r="3" fill="#1A1A1A"/>
+                <!-- BG: Chelsea Blue -->
+                <rect width="64" height="64" rx="8" fill="#034694"/>
+                <!-- Hair - short afro texture -->
+                <rect x="16" y="8" width="32" height="4" fill="#1A1A1A"/>
+                <rect x="12" y="8" width="8" height="8" fill="#1A1A1A"/>
+                <rect x="44" y="8" width="8" height="8" fill="#1A1A1A"/>
+                <rect x="20" y="4" width="8" height="4" fill="#1A1A1A"/>
+                <rect x="36" y="4" width="8" height="4" fill="#1A1A1A"/>
+                <!-- Face - round, friendly -->
+                <rect x="16" y="16" width="32" height="24" fill="#8B5A2B"/>
+                <rect x="12" y="20" width="4" height="12" fill="#8B5A2B"/>
+                <rect x="48" y="20" width="4" height="12" fill="#8B5A2B"/>
                 <!-- Big bright eyes -->
-                <ellipse cx="25" cy="24" rx="5" ry="4" fill="white"/>
-                <ellipse cx="39" cy="24" rx="5" ry="4" fill="white"/>
-                <circle cx="25" cy="24" r="2.5" fill="#3D2314"/>
-                <circle cx="39" cy="24" r="2.5" fill="#3D2314"/>
-                <circle cx="25.5" cy="23" r="1" fill="white"/>
-                <circle cx="39.5" cy="23" r="1" fill="white"/>
-                <!-- Eyebrows - friendly arch -->
-                <path d="M20 20 Q25 18 30 20" stroke="#1A1A1A" stroke-width="1.5" fill="none"/>
-                <path d="M34 20 Q39 18 44 20" stroke="#1A1A1A" stroke-width="1.5" fill="none"/>
+                <rect x="18" y="22" width="10" height="6" fill="white"/>
+                <rect x="36" y="22" width="10" height="6" fill="white"/>
+                <rect x="22" y="24" width="4" height="4" fill="#3D2314"/>
+                <rect x="40" y="24" width="4" height="4" fill="#3D2314"/>
+                <!-- Eyebrows - friendly -->
+                <rect x="20" y="18" width="8" height="4" fill="#1A1A1A"/>
+                <rect x="36" y="18" width="8" height="4" fill="#1A1A1A"/>
                 <!-- Nose -->
-                <ellipse cx="32" cy="29" rx="3" ry="2" fill="#7A4B1E"/>
-                <!-- Big smile - signature -->
-                <path d="M23 34 Q32 42 41 34" fill="#1A1A1A"/>
-                <path d="M24 35 Q32 40 40 35" fill="white"/>
-                <!-- Rosy cheeks -->
-                <ellipse cx="18" cy="30" rx="3" ry="2" fill="#C0785050"/>
-                <ellipse cx="46" cy="30" rx="3" ry="2" fill="#C0785050"/>
+                <rect x="28" y="28" width="8" height="4" fill="#7A4B1E"/>
+                <!-- BIG SMILE - signature -->
+                <rect x="20" y="34" width="24" height="6" fill="#1A1A1A"/>
+                <rect x="22" y="34" width="20" height="4" fill="white"/>
+                <!-- Jersey - Chelsea -->
+                <rect x="8" y="44" width="48" height="20" fill="#034694"/>
+                <!-- Number 7 -->
+                <rect x="28" y="52" width="8" height="4" fill="white"/>
+                <rect x="32" y="52" width="4" height="8" fill="white"/>
             </svg>`,
 
             'Florentino Perez': `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <rect width="64" height="64" rx="10" fill="#FEBE10"/>
-                <!-- Suit -->
-                <path d="M8 64 L8 40 Q16 34 32 34 Q48 34 56 40 L56 64" fill="#1A1A1A"/>
-                <!-- White shirt -->
-                <path d="M26 34 L32 46 L38 34" fill="white"/>
-                <!-- Blue tie -->
-                <path d="M30 42 L32 58 L34 42 Z" fill="#034694"/>
-                <!-- Neck -->
-                <ellipse cx="32" cy="36" rx="6" ry="3" fill="#F5D4B8"/>
-                <!-- Face - distinguished -->
-                <ellipse cx="32" cy="22" rx="14" ry="14" fill="#F5D4B8"/>
+                <!-- BG: Real Madrid Gold -->
+                <rect width="64" height="64" rx="8" fill="#FEBE10"/>
                 <!-- Gray/white hair -->
-                <path d="M18 18 Q18 6 32 4 Q46 6 46 18" fill="#C0C0C0"/>
-                <path d="M20 14 Q26 8 34 10" fill="#D0D0D0"/>
+                <rect x="16" y="8" width="32" height="8" fill="#C0C0C0"/>
+                <rect x="12" y="12" width="8" height="4" fill="#D0D0D0"/>
+                <rect x="44" y="12" width="8" height="4" fill="#D0D0D0"/>
+                <!-- Face -->
+                <rect x="16" y="16" width="32" height="20" fill="#F5D4B8"/>
+                <rect x="12" y="20" width="4" height="8" fill="#F5D4B8"/>
+                <rect x="48" y="20" width="4" height="8" fill="#F5D4B8"/>
                 <!-- Eyes -->
-                <ellipse cx="25" cy="20" rx="4" ry="3" fill="white"/>
-                <ellipse cx="39" cy="20" rx="4" ry="3" fill="white"/>
-                <circle cx="25" cy="20" r="2" fill="#2C3E50"/>
-                <circle cx="39" cy="20" r="2" fill="#2C3E50"/>
+                <rect x="20" y="20" width="8" height="4" fill="white"/>
+                <rect x="36" y="20" width="8" height="4" fill="white"/>
+                <rect x="24" y="20" width="4" height="4" fill="#2C3E50"/>
+                <rect x="40" y="20" width="4" height="4" fill="#2C3E50"/>
                 <!-- Eyebrows -->
-                <path d="M21 16 L29 16" stroke="#808080" stroke-width="2" stroke-linecap="round"/>
-                <path d="M35 16 L43 16" stroke="#808080" stroke-width="2" stroke-linecap="round"/>
+                <rect x="20" y="16" width="8" height="4" fill="#808080"/>
+                <rect x="36" y="16" width="8" height="4" fill="#808080"/>
                 <!-- Nose -->
-                <path d="M32 20 L34 26 L30 26 Z" fill="#E8C4A0"/>
-                <!-- Slight smile -->
-                <path d="M27 30 Q32 33 37 30" stroke="#906050" stroke-width="1.5" fill="none"/>
-                <!-- Real Madrid crest hint -->
-                <text x="8" y="12" font-size="8" fill="#034694" font-weight="bold">RM</text>
+                <rect x="28" y="24" width="8" height="4" fill="#E8C4A0"/>
+                <!-- Mouth -->
+                <rect x="24" y="30" width="16" height="4" fill="#906050"/>
+                <!-- Suit -->
+                <rect x="8" y="40" width="48" height="24" fill="#1A1A1A"/>
+                <!-- White shirt -->
+                <rect x="24" y="40" width="4" height="8" fill="white"/>
+                <rect x="36" y="40" width="4" height="8" fill="white"/>
+                <!-- Blue tie -->
+                <rect x="28" y="44" width="8" height="16" fill="#034694"/>
+                <!-- RM badge -->
+                <rect x="4" y="4" width="12" height="8" fill="#034694"/>
+                <text x="6" y="10" font-size="6" fill="white" font-weight="bold">RM</text>
             </svg>`,
 
             'Pep Guardiola': `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <rect width="64" height="64" rx="10" fill="#6CABDD"/>
-                <!-- Turtleneck sweater -->
-                <path d="M8 64 L8 42 Q16 36 32 36 Q48 36 56 42 L56 64" fill="#1A1A1A"/>
-                <ellipse cx="32" cy="38" rx="10" ry="4" fill="#333"/>
-                <!-- Neck -->
-                <ellipse cx="32" cy="36" rx="6" ry="3" fill="#E8C4A0"/>
-                <!-- Face - bald, intense -->
-                <ellipse cx="32" cy="22" rx="14" ry="15" fill="#E8C4A0"/>
-                <!-- Bald head - shiny -->
-                <ellipse cx="32" cy="16" rx="14" ry="12" fill="#E0B890"/>
-                <ellipse cx="28" cy="12" rx="5" ry="4" fill="#F0C8A040"/>
-                <!-- Ears -->
-                <ellipse cx="16" cy="22" rx="3" ry="5" fill="#E0B890"/>
-                <ellipse cx="48" cy="22" rx="3" ry="5" fill="#E0B890"/>
+                <!-- BG: Man City Blue -->
+                <rect width="64" height="64" rx="8" fill="#6CABDD"/>
+                <!-- Bald head - no hair, shiny -->
+                <rect x="16" y="8" width="32" height="12" fill="#E0B890"/>
+                <rect x="12" y="12" width="8" height="8" fill="#E0B890"/>
+                <rect x="44" y="12" width="8" height="8" fill="#E0B890"/>
+                <!-- Shine on head -->
+                <rect x="24" y="8" width="8" height="4" fill="#F0D8B0"/>
+                <!-- Face -->
+                <rect x="16" y="20" width="32" height="16" fill="#E8C4A0"/>
+                <rect x="12" y="20" width="4" height="12" fill="#E0B890"/>
+                <rect x="48" y="20" width="4" height="12" fill="#E0B890"/>
                 <!-- Intense eyes -->
-                <ellipse cx="25" cy="22" rx="4" ry="3" fill="white"/>
-                <ellipse cx="39" cy="22" rx="4" ry="3" fill="white"/>
-                <circle cx="25" cy="22" r="2" fill="#2C3E50"/>
-                <circle cx="39" cy="22" r="2" fill="#2C3E50"/>
-                <circle cx="25.5" cy="21.5" r="0.8" fill="white"/>
-                <circle cx="39.5" cy="21.5" r="0.8" fill="white"/>
+                <rect x="20" y="22" width="8" height="4" fill="white"/>
+                <rect x="36" y="22" width="8" height="4" fill="white"/>
+                <rect x="24" y="22" width="4" height="4" fill="#2C3E50"/>
+                <rect x="40" y="22" width="4" height="4" fill="#2C3E50"/>
                 <!-- Furrowed brows -->
-                <path d="M21 18 L29 19" stroke="#5C4033" stroke-width="2" stroke-linecap="round"/>
-                <path d="M43 18 L35 19" stroke="#5C4033" stroke-width="2" stroke-linecap="round"/>
+                <rect x="20" y="18" width="8" height="4" fill="#5C4033"/>
+                <rect x="36" y="18" width="8" height="4" fill="#5C4033"/>
                 <!-- Nose -->
-                <path d="M32 22 L34 28 L30 28 Z" fill="#D8B498"/>
+                <rect x="28" y="26" width="8" height="4" fill="#D8B498"/>
                 <!-- Stubble -->
-                <ellipse cx="32" cy="32" rx="10" ry="5" fill="#5C403320"/>
-                <!-- Stern mouth -->
-                <path d="M27 32 L37 32" stroke="#906050" stroke-width="2" stroke-linecap="round"/>
+                <rect x="20" y="30" width="24" height="4" fill="#5C403340"/>
+                <!-- Mouth -->
+                <rect x="24" y="32" width="16" height="4" fill="#906050"/>
+                <!-- Turtleneck sweater -->
+                <rect x="8" y="40" width="48" height="24" fill="#1A1A1A"/>
+                <rect x="20" y="40" width="24" height="8" fill="#333"/>
             </svg>`,
 
             'Ime Udoka': `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <rect width="64" height="64" rx="10" fill="#CE1141"/>
-                <!-- Suit -->
-                <path d="M8 64 L8 42 Q16 36 32 36 Q48 36 56 42 L56 64" fill="#1A1A1A"/>
-                <!-- White shirt -->
-                <path d="M26 36 L32 46 L38 36" fill="white"/>
-                <!-- Red tie -->
-                <path d="M30 42 L32 58 L34 42 Z" fill="#CE1141"/>
-                <!-- Neck -->
-                <ellipse cx="32" cy="38" rx="6" ry="3" fill="#8B5A2B"/>
-                <!-- Face -->
-                <ellipse cx="32" cy="24" rx="14" ry="15" fill="#8B5A2B"/>
+                <!-- BG: Rockets Red -->
+                <rect width="64" height="64" rx="8" fill="#CE1141"/>
                 <!-- Hair - short, neat -->
-                <path d="M18 20 Q18 8 32 6 Q46 8 46 20" fill="#1A1A1A"/>
+                <rect x="16" y="8" width="32" height="8" fill="#1A1A1A"/>
+                <rect x="12" y="12" width="8" height="4" fill="#1A1A1A"/>
+                <rect x="44" y="12" width="8" height="4" fill="#1A1A1A"/>
+                <!-- Face -->
+                <rect x="16" y="16" width="32" height="20" fill="#8B5A2B"/>
+                <rect x="12" y="20" width="4" height="12" fill="#8B5A2B"/>
+                <rect x="48" y="20" width="4" height="12" fill="#8B5A2B"/>
                 <!-- Eyes -->
-                <ellipse cx="25" cy="22" rx="4" ry="3" fill="white"/>
-                <ellipse cx="39" cy="22" rx="4" ry="3" fill="white"/>
-                <circle cx="25" cy="22" r="2" fill="#3D2314"/>
-                <circle cx="39" cy="22" r="2" fill="#3D2314"/>
-                <circle cx="25.5" cy="21.5" r="0.8" fill="white"/>
-                <circle cx="39.5" cy="21.5" r="0.8" fill="white"/>
+                <rect x="20" y="20" width="8" height="4" fill="white"/>
+                <rect x="36" y="20" width="8" height="4" fill="white"/>
+                <rect x="24" y="20" width="4" height="4" fill="#3D2314"/>
+                <rect x="40" y="20" width="4" height="4" fill="#3D2314"/>
                 <!-- Eyebrows -->
-                <path d="M21 18 L29 18" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round"/>
-                <path d="M35 18 L43 18" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round"/>
+                <rect x="20" y="16" width="8" height="4" fill="#1A1A1A"/>
+                <rect x="36" y="16" width="8" height="4" fill="#1A1A1A"/>
                 <!-- Nose -->
-                <ellipse cx="32" cy="27" rx="3" ry="2" fill="#7A4B1E"/>
+                <rect x="28" y="24" width="8" height="4" fill="#7A4B1E"/>
                 <!-- Beard -->
-                <path d="M22 30 Q22 40 32 42 Q42 40 42 30" fill="#1A1A1A"/>
-                <!-- Mouth in beard -->
-                <path d="M28 34 Q32 36 36 34" stroke="#8B5A2B" stroke-width="1" fill="none"/>
+                <rect x="18" y="28" width="28" height="10" fill="#1A1A1A"/>
+                <rect x="24" y="28" width="16" height="4" fill="#8B5A2B"/>
+                <!-- Suit -->
+                <rect x="8" y="42" width="48" height="22" fill="#1A1A1A"/>
+                <!-- White shirt -->
+                <rect x="24" y="42" width="4" height="6" fill="white"/>
+                <rect x="36" y="42" width="4" height="6" fill="white"/>
+                <!-- Red tie -->
+                <rect x="28" y="46" width="8" height="14" fill="#CE1141"/>
             </svg>`,
 
             'Unassigned': `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="unassigned-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#4a4a4c"/>
-                        <stop offset="100%" style="stop-color:#2c2c2e"/>
-                    </linearGradient>
-                </defs>
-                <rect width="64" height="64" rx="10" fill="url(#unassigned-bg)"/>
-                <!-- Silhouette -->
-                <circle cx="32" cy="22" r="12" fill="#636366"/>
-                <path d="M12 64 Q12 44 32 40 Q52 44 52 64" fill="#636366"/>
+                <!-- BG: Gray -->
+                <rect width="64" height="64" rx="8" fill="#3a3a3c"/>
+                <!-- Silhouette head -->
+                <rect x="20" y="12" width="24" height="24" fill="#636366"/>
+                <rect x="16" y="16" width="4" height="16" fill="#636366"/>
+                <rect x="44" y="16" width="4" height="16" fill="#636366"/>
+                <!-- Body silhouette -->
+                <rect x="12" y="40" width="40" height="20" fill="#636366"/>
                 <!-- Question mark -->
-                <text x="32" y="56" font-size="18" fill="white" text-anchor="middle" font-weight="bold">?</text>
+                <rect x="26" y="48" width="12" height="4" fill="white"/>
+                <rect x="34" y="48" width="4" height="8" fill="white"/>
+                <rect x="26" y="52" width="4" height="4" fill="white"/>
+                <rect x="30" y="58" width="4" height="4" fill="white"/>
             </svg>`
         };
 
@@ -2067,99 +2072,38 @@
             return `<img src="${dataUri}" alt="${agentName || 'Unassigned'}" class="${className}" />`;
         }
 
-        // ==================== SPORTS BACKGROUND ====================
-        const sportsQuotes = [
-            '"Excellence is not a singular act, but a habit." — Shaq',
-            '"Hard work beats talent." — Tim Notke',
-            '"Champions keep playing until they get it right." — Billie Jean King',
-            '"You miss 100% of the shots you don\'t take." — Gretzky',
-            '"Pressure is a privilege." — Billie Jean King',
-            '"Talent wins games, teamwork wins championships." — MJ'
-        ];
-
-        const sportsTeams = ['PATRIOTS', 'WARRIORS', 'LAKERS', 'CELTICS', '49ERS', 'MAN CITY', 'CHELSEA', 'REAL MADRID', 'ROCKETS', 'ZIMBABWE'];
-        const playerNames = ['BRADY', 'CURRY', 'LEBRON', 'KDB', 'MOURINHO', 'PEP', 'PURDY', 'FLOWER', 'KANTÉ'];
-
-        // Trophy SVG
-        const trophySVG = `<svg viewBox="0 0 64 64" fill="currentColor" style="width:100%;height:100%">
-            <path d="M20 8h24v4h8v12c0 6-4 10-8 12v4h-4v8h8v4H16v-4h8v-8h-4v-4c-4-2-8-6-8-12V12h8V8z" opacity="0.15"/>
-            <path d="M24 12h16v20c0 4-4 8-8 8s-8-4-8-8V12z" opacity="0.1"/>
-        </svg>`;
-
-        // Jersey SVG
-        const jerseySVG = `<svg viewBox="0 0 64 64" fill="currentColor" style="width:100%;height:100%">
-            <path d="M16 16L8 24v8l8-4v28h40V28l8 4v-8l-8-8c-4 4-12 4-16 0h-8c-4 4-12 4-16 0z" opacity="0.08"/>
-            <path d="M24 20h16v6l-8 4-8-4v-6z" opacity="0.05"/>
-        </svg>`;
-
+        // ==================== PROFESSIONAL BACKGROUND ====================
         function initSportsBg() {
             const bg = document.getElementById('sportsBg');
             let html = '';
 
-            // Large floating player names with gold tint
-            playerNames.forEach((name, i) => {
-                const top = 5 + (i * 11) % 80;
-                const left = -5 + (i * 14) % 95;
-                const rotate = -20 + (i * 8) % 40;
-                html += `<div class="sports-text names" style="top: ${top}%; left: ${left}%; transform: rotate(${rotate}deg);">${name}</div>`;
-            });
+            // Corner accent brackets
+            html += '<div class="corner-accent top-left"></div>';
+            html += '<div class="corner-accent top-right"></div>';
+            html += '<div class="corner-accent bottom-left"></div>';
+            html += '<div class="corner-accent bottom-right"></div>';
 
-            // Team names with outline effect
-            sportsTeams.forEach((team, i) => {
-                const top = 8 + (i * 10) % 85;
-                const right = -2 + (i * 11) % 90;
-                const rotate = -15 + (i * 6) % 30;
-                html += `<div class="sports-text teams" style="top: ${top}%; right: ${right}%; transform: rotate(${rotate}deg);">${team}</div>`;
-            });
+            // Dot pattern overlay
+            html += '<div class="dot-pattern"></div>';
 
-            // Inspirational quotes
-            sportsQuotes.forEach((quote, i) => {
-                const positions = [
-                    { top: '15%', left: '55%' },
-                    { top: '35%', left: '3%' },
-                    { top: '55%', right: '5%' },
-                    { top: '75%', left: '25%' },
-                    { top: '25%', right: '20%' },
-                    { top: '88%', left: '50%' }
-                ];
-                if (positions[i]) {
-                    const pos = positions[i];
-                    html += `<div class="sports-text quotes" style="${Object.entries(pos).map(([k,v]) => `${k}: ${v}`).join('; ')}">${quote}</div>`;
-                }
-            });
-
-            // Trophy icons - scattered
-            const trophyPositions = [
-                { top: '10%', left: '8%' },
-                { top: '30%', right: '12%' },
-                { top: '60%', left: '15%' },
-                { top: '80%', right: '8%' },
-                { top: '45%', left: '75%' }
+            // Diagonal accent stripes
+            const stripeAngles = [-15, 15, -10, 12];
+            const stripePositions = [
+                { top: '20%', left: '0', width: '40%' },
+                { top: '60%', right: '0', width: '35%' },
+                { top: '40%', left: '0', width: '25%' },
+                { top: '80%', right: '0', width: '30%' }
             ];
-            trophyPositions.forEach((pos, i) => {
-                const size = 60 + (i * 20) % 40;
-                html += `<div class="sports-icon" style="${Object.entries(pos).map(([k,v]) => `${k}: ${v}`).join('; ')}; width: ${size}px; height: ${size}px;">🏆</div>`;
+            stripePositions.forEach((pos, i) => {
+                const angle = stripeAngles[i];
+                const style = Object.entries(pos).map(([k,v]) => `${k}: ${v}`).join('; ');
+                html += `<div class="accent-stripe" style="${style}; transform: rotate(${angle}deg);"></div>`;
             });
 
-            // Jersey silhouettes
-            const jerseyPositions = [
-                { top: '20%', left: '25%', rotate: -10 },
-                { top: '50%', right: '25%', rotate: 15 },
-                { top: '70%', left: '60%', rotate: -5 },
-                { top: '15%', right: '35%', rotate: 8 }
-            ];
-            jerseyPositions.forEach((pos, i) => {
-                const { rotate, ...position } = pos;
-                html += `<div class="jersey-icon" style="${Object.entries(position).map(([k,v]) => `${k}: ${v}`).join('; ')}; transform: rotate(${rotate}deg);">${jerseySVG}</div>`;
-            });
-
-            // Sports balls
-            const ballIcons = ['🏈', '🏀', '⚽', '🏏', '🎾', '🥇', '💪', '⭐'];
-            ballIcons.forEach((icon, i) => {
-                const top = 12 + (i * 13) % 80;
-                const left = 5 + (i * 15) % 85;
-                const size = 50 + (i * 10) % 30;
-                html += `<div class="sports-icon" style="top: ${top}%; left: ${left}%; font-size: ${size}px;">${icon}</div>`;
+            // Vertical accent lines
+            const vLinePositions = ['15%', '85%'];
+            vLinePositions.forEach(left => {
+                html += `<div class="vertical-accent" style="left: ${left};"></div>`;
             });
 
             bg.innerHTML = html;

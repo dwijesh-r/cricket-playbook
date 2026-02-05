@@ -350,6 +350,79 @@
             overflow: hidden;
         }
 
+        /* ========== SPORT-SPECIFIC STADIUM BACKGROUNDS ========== */
+
+        /* NFL Stadium - Night game with bright lights */
+        .stadium-nfl {
+            background:
+                /* Stadium lights */
+                radial-gradient(ellipse 120px 80px at 15% 10%, rgba(255,255,255,0.15) 0%, transparent 70%),
+                radial-gradient(ellipse 120px 80px at 85% 10%, rgba(255,255,255,0.15) 0%, transparent 70%),
+                /* Stands silhouette */
+                linear-gradient(180deg, transparent 0%, transparent 55%, rgba(40,40,50,0.6) 55%, rgba(30,30,40,0.8) 100%),
+                /* Turf glow */
+                radial-gradient(ellipse at center 70%, rgba(34,139,34,0.2) 0%, transparent 50%),
+                /* Base */
+                linear-gradient(180deg, #0a0a12 0%, #0d0d18 100%);
+        }
+        .stadium-nfl::after {
+            content: '';
+            position: absolute;
+            bottom: 80px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        }
+
+        /* NBA Arena - Hardwood court with arena lights */
+        .stadium-nba {
+            background:
+                /* Arena spotlights */
+                radial-gradient(ellipse 100px 60px at 20% 15%, rgba(255,140,0,0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 100px 60px at 80% 15%, rgba(255,140,0,0.12) 0%, transparent 70%),
+                /* Court reflection */
+                radial-gradient(ellipse at center 75%, rgba(205,133,63,0.15) 0%, transparent 40%),
+                /* Stands */
+                linear-gradient(180deg, transparent 0%, transparent 50%, rgba(25,25,35,0.7) 50%, rgba(20,20,30,0.9) 100%),
+                /* Base */
+                linear-gradient(180deg, #08080f 0%, #0c0c14 100%);
+        }
+        .stadium-nba .intro-box::before {
+            background: radial-gradient(ellipse at center top, rgba(255,140,0,0.12) 0%, transparent 70%) !important;
+        }
+
+        /* Soccer Stadium - Green pitch with floodlights */
+        .stadium-soccer {
+            background:
+                /* Floodlight towers */
+                radial-gradient(ellipse 80px 50px at 10% 5%, rgba(255,255,255,0.2) 0%, transparent 70%),
+                radial-gradient(ellipse 80px 50px at 90% 5%, rgba(255,255,255,0.2) 0%, transparent 70%),
+                radial-gradient(ellipse 80px 50px at 30% 8%, rgba(255,255,255,0.1) 0%, transparent 70%),
+                radial-gradient(ellipse 80px 50px at 70% 8%, rgba(255,255,255,0.1) 0%, transparent 70%),
+                /* Pitch glow */
+                radial-gradient(ellipse at center 65%, rgba(34,139,34,0.25) 0%, transparent 45%),
+                /* Stands */
+                linear-gradient(180deg, transparent 0%, transparent 45%, rgba(30,35,30,0.6) 45%, rgba(20,25,20,0.8) 100%),
+                /* Base */
+                linear-gradient(180deg, #080a08 0%, #0a0d0a 100%);
+        }
+
+        /* Cricket Ground - Oval with pavilion silhouette */
+        .stadium-cricket {
+            background:
+                /* Pavilion lights */
+                radial-gradient(ellipse 150px 80px at 50% 20%, rgba(255,223,128,0.1) 0%, transparent 60%),
+                /* Outfield glow */
+                radial-gradient(ellipse at center 60%, rgba(76,153,0,0.2) 0%, transparent 50%),
+                /* Pitch strip */
+                linear-gradient(180deg, transparent 65%, rgba(210,180,140,0.08) 65%, rgba(210,180,140,0.08) 68%, transparent 68%),
+                /* Stands */
+                linear-gradient(180deg, transparent 0%, transparent 40%, rgba(35,30,25,0.5) 40%, rgba(25,22,18,0.7) 100%),
+                /* Base */
+                linear-gradient(180deg, #0a0908 0%, #0c0b0a 100%);
+        }
+
         /* Animated spotlight beams */
         .intro-overlay::before {
             content: '';
@@ -1365,6 +1438,384 @@
             50% { box-shadow: 0 0 60px 20px rgba(255, 215, 0, 0.3); }
         }
 
+        /* ========== DYNAMIC INTRO BOX (CSS Variables) ========== */
+        .intro-box-dynamic {
+            animation: box-appear 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) var(--delay, 0.3s) forwards,
+                       box-glow 0.8s ease calc(var(--delay, 0.3s) + 2.1s);
+        }
+
+        .intro-box-dynamic .athlete .torso {
+            background: linear-gradient(180deg, var(--jersey-main) 0%, var(--jersey-main) 100%);
+        }
+        .intro-box-dynamic .athlete .torso::before {
+            border-top-color: var(--jersey-accent);
+        }
+        .intro-box-dynamic .athlete .shoulder {
+            background: var(--jersey-main);
+        }
+        .intro-box-dynamic .athlete .shorts {
+            background: var(--shorts-color);
+        }
+        .intro-box-dynamic .athlete .arm {
+            background: linear-gradient(180deg, var(--jersey-main) 0%, var(--jersey-main) 35%, #c49a6c 35%);
+        }
+        .intro-box-dynamic .athlete .leg {
+            background: linear-gradient(180deg,
+                var(--shorts-color) 0%,
+                var(--shorts-color) 45%,
+                #c49a6c 45%,
+                #c49a6c 82%,
+                #1a1a1a 82%,
+                #1a1a1a 100%);
+        }
+
+        .intro-box-dynamic .athlete .arm-left,
+        .intro-box-dynamic .athlete .arm-right {
+            animation: arms-lift-trophy 1.4s cubic-bezier(0.34, 1.2, 0.64, 1) calc(var(--delay, 0.3s) + 0.9s) forwards;
+        }
+        .intro-box-dynamic .trophy-container {
+            animation: trophy-lift 1.4s cubic-bezier(0.34, 1.2, 0.64, 1) calc(var(--delay, 0.3s) + 0.9s) forwards;
+        }
+        .intro-box-dynamic .crowd-row {
+            animation: crowd-appear 0.5s ease calc(var(--delay, 0.3s) + 1.5s) forwards;
+        }
+        .intro-box-dynamic .crowd-row.row-2 {
+            animation-delay: calc(var(--delay, 0.3s) + 1.7s);
+        }
+        .intro-box-dynamic .crowd-row.row-3 {
+            animation-delay: calc(var(--delay, 0.3s) + 1.9s);
+        }
+        .intro-box-dynamic .label-group {
+            animation: label-appear 0.6s ease calc(var(--delay, 0.3s) + 2.3s) forwards;
+        }
+        .intro-box-dynamic .flash-1 { animation: flash 0.15s ease calc(var(--delay, 0.3s) + 2.2s); }
+        .intro-box-dynamic .flash-2 { animation: flash 0.15s ease calc(var(--delay, 0.3s) + 2.4s); }
+        .intro-box-dynamic .flash-3 { animation: flash 0.15s ease calc(var(--delay, 0.3s) + 2.6s); }
+        .intro-box-dynamic .confetti {
+            background: var(--jersey-main);
+        }
+        .intro-box-dynamic .confetti-1 { animation-delay: calc(var(--delay, 0.3s) + 2.3s); }
+        .intro-box-dynamic .confetti-2 { animation-delay: calc(var(--delay, 0.3s) + 2.5s); }
+        .intro-box-dynamic .confetti-3 { animation-delay: calc(var(--delay, 0.3s) + 2.4s); }
+        .intro-box-dynamic .confetti-4 { animation-delay: calc(var(--delay, 0.3s) + 2.6s); }
+        .intro-box-dynamic .confetti-5 { animation-delay: calc(var(--delay, 0.3s) + 2.7s); }
+
+        /* Coat/Suit styling for dynamic boxes */
+        .intro-box-dynamic .athlete.has-coat .torso {
+            height: 70px;
+            border-radius: 6px 6px 0 0;
+        }
+        .intro-box-dynamic .athlete.has-coat .torso::before { display: none; }
+        .intro-box-dynamic .athlete.has-coat .torso::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 25px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, var(--jersey-main) 100%);
+            clip-path: polygon(0 0, 50% 100%, 100% 0);
+        }
+        .intro-box-dynamic .athlete.has-coat .shorts { display: none; }
+        .intro-box-dynamic .athlete.has-coat .coat-bottom {
+            position: absolute;
+            top: 116px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 58px;
+            height: 25px;
+            background: var(--jersey-main);
+            border-radius: 0 0 8px 8px;
+        }
+        .intro-box-dynamic .athlete.has-coat .arm {
+            background: linear-gradient(180deg, var(--jersey-main) 0%, var(--jersey-main) 85%, #c49a6c 85%);
+            height: 55px;
+        }
+        .intro-box-dynamic .athlete.has-coat .leg {
+            top: 140px;
+            height: 38px;
+            background: linear-gradient(180deg, var(--jersey-main) 0%, var(--jersey-main) 75%, #0a0a0a 75%);
+        }
+        .intro-box-dynamic .athlete.has-coat .shoulder {
+            width: 22px;
+            top: 48px;
+        }
+
+        /* Beard element */
+        .athlete .beard {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 28px;
+            height: 14px;
+            border-radius: 0 0 50% 50%;
+            clip-path: polygon(5% 0%, 95% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+        }
+
+        /* ========== ADDITIONAL TROPHIES ========== */
+
+        /* NBA Larry O'Brien Trophy */
+        .nba-trophy {
+            width: 60px;
+            height: 95px;
+            position: relative;
+        }
+        .nba-trophy .ball {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #c75000 100%);
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset -3px -3px 8px rgba(0,0,0,0.3), inset 3px 3px 8px rgba(255,255,255,0.3);
+        }
+        .nba-trophy .ball::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #333;
+            transform: translateY(-50%);
+        }
+        .nba-trophy .ball::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: #333;
+            transform: translateX(-50%);
+        }
+        .nba-trophy .net {
+            position: absolute;
+            top: 26px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 15px;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                #d0d0d0 2px,
+                #d0d0d0 4px
+            );
+            clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+        }
+        .nba-trophy .stem {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 30px;
+            background: linear-gradient(90deg, #a0a0a0 0%, #d4af37 50%, #a0a0a0 100%);
+        }
+        .nba-trophy .base {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 45px;
+            height: 18px;
+            background: linear-gradient(180deg, #d4af37 0%, #8b6914 100%);
+            border-radius: 3px;
+        }
+
+        /* Premier League Trophy */
+        .pl-trophy {
+            width: 70px;
+            height: 95px;
+            position: relative;
+        }
+        .pl-trophy .crown {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 15px;
+            background: linear-gradient(180deg, #ffd700 0%, #daa520 100%);
+            clip-path: polygon(0% 100%, 15% 0%, 35% 60%, 50% 0%, 65% 60%, 85% 0%, 100% 100%);
+        }
+        .pl-trophy .handles {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 30px;
+            border: 5px solid #d4af37;
+            border-bottom: none;
+            border-radius: 50% 50% 0 0;
+            background: transparent;
+        }
+        .pl-trophy .bowl {
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 25px;
+            background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
+            border-radius: 0 0 50% 50%;
+        }
+        .pl-trophy .stem {
+            position: absolute;
+            top: 48px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 25px;
+            background: linear-gradient(90deg, #b8860b 0%, #daa520 50%, #b8860b 100%);
+        }
+        .pl-trophy .base {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 18px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0a0a15 100%);
+            border-radius: 3px;
+        }
+
+        /* FIFA World Cup Trophy */
+        .wc-trophy {
+            width: 55px;
+            height: 95px;
+            position: relative;
+        }
+        .wc-trophy .globe {
+            width: 22px;
+            height: 22px;
+            background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset -2px -2px 5px rgba(0,0,0,0.3);
+        }
+        .wc-trophy .figures {
+            position: absolute;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 45px;
+            height: 40px;
+            background: linear-gradient(180deg, #daa520 0%, #b8860b 100%);
+            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+        }
+        .wc-trophy .stem {
+            position: absolute;
+            top: 55px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 20px;
+            background: linear-gradient(90deg, #8b6914 0%, #daa520 50%, #8b6914 100%);
+        }
+        .wc-trophy .base {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 16px;
+            background: linear-gradient(180deg, #228b22 0%, #006400 100%);
+            border-radius: 3px;
+        }
+
+        /* Cricket World Cup Trophy */
+        .cwc-trophy {
+            width: 60px;
+            height: 95px;
+            position: relative;
+        }
+        .cwc-trophy .globe {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #ffd700 0%, #daa520 100%);
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .cwc-trophy .cup {
+            position: absolute;
+            top: 22px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 30px;
+            background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 50%, #a0a0a0 100%);
+            border-radius: 0 0 50% 50%;
+        }
+        .cwc-trophy .stem {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 25px;
+            background: linear-gradient(90deg, #a0a0a0 0%, #c0c0c0 50%, #a0a0a0 100%);
+        }
+        .cwc-trophy .base {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 45px;
+            height: 16px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0a0a15 100%);
+            border-radius: 3px;
+        }
+
+        /* NFC Championship Trophy (George Halas) */
+        .nfc-trophy {
+            width: 50px;
+            height: 85px;
+            position: relative;
+        }
+        .nfc-trophy .football {
+            width: 30px;
+            height: 20px;
+            background: linear-gradient(135deg, #b8860b 0%, #daa520 50%, #8b6914 100%);
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .nfc-trophy .stand {
+            position: absolute;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 35px;
+            background: linear-gradient(90deg, #8b6914 0%, #daa520 50%, #8b6914 100%);
+        }
+        .nfc-trophy .base {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 28px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0a0a15 100%);
+            border-radius: 3px;
+        }
+
         /* Hide intro on mobile */
         @media (max-width: 900px) {
             .intro-overlay { display: none; }
@@ -1746,13 +2197,15 @@
     <div class="bg-grid"></div>
     <div class="bg-watermark">THE LAB</div>
 
-    <!-- Intro Animation Sequence - Trophy Lift -->
+    <!-- Intro Animation Sequence - Dynamic Trophy Lift -->
+    <!-- Randomly displays 3 agents from pool of 13 (12 agents + Virat Kohli) -->
+    <!-- Stadium background matches dominant sport of selected agents -->
     <div class="intro-overlay" id="intro-overlay">
-        <div class="intro-title">Legends of the Game</div>
-        <div class="intro-grid">
-            <!-- Tom Brady - Super Bowl LV -->
+        <div class="intro-title">★ Legends of the Game ★</div>
+        <div class="intro-grid" id="intro-grid">
+            <!-- Dynamically populated by JavaScript -->
+            <!-- Fallback: Static Tom Brady if JS fails -->
             <div class="intro-box intro-box-brady">
-                <!-- Crowd silhouettes -->
                 <div class="crowd-row row-3">
                     <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
                     <div class="crowd-person"></div><div class="crowd-person"></div><div class="crowd-person"></div>
@@ -1769,7 +2222,6 @@
                     <div class="crowd-person"></div>
                 </div>
                 <div class="figure">
-                    <!-- Lombardi Trophy - Super Bowl -->
                     <div class="trophy-container">
                         <div class="lombardi">
                             <div class="football"></div>
@@ -1778,7 +2230,6 @@
                             <div class="base-plate"></div>
                         </div>
                     </div>
-                    <!-- Tom Brady silhouette -->
                     <div class="athlete">
                         <div class="hair"></div>
                         <div class="head">
@@ -1797,11 +2248,9 @@
                         <div class="leg leg-right"><div class="foot"></div></div>
                     </div>
                 </div>
-                <!-- Camera flashes -->
                 <div class="flash flash-1"></div>
                 <div class="flash flash-2"></div>
                 <div class="flash flash-3"></div>
-                <!-- Confetti -->
                 <div class="confetti confetti-1"></div>
                 <div class="confetti confetti-2"></div>
                 <div class="confetti confetti-3"></div>
@@ -2087,6 +2536,326 @@
     <script src="data/predicted_xii.js"></script>
 
     <script>
+        // ==================== AGENT INTRO SYSTEM ====================
+        // All agents with their trophy moments, sports, and styling
+        const AGENTS = {
+            'tom-brady': {
+                name: 'Tom Brady',
+                role: 'Product Owner',
+                sport: 'nfl',
+                trophy: 'lombardi',
+                trophyLabel: '7× Super Bowl Champion',
+                jerseyNumber: '12',
+                hair: { color: '#3d2b1f', style: 'short' },
+                jersey: { main: '#c8102e', accent: '#34302f' },
+                shorts: '#34302f',
+                hasBeard: false
+            },
+            'virat-kohli': {
+                name: 'Virat Kohli',
+                role: 'Cricket Legend',
+                sport: 'cricket',
+                trophy: 'ipl',
+                trophyLabel: 'IPL 2024 Champion',
+                jerseyNumber: '18',
+                hair: { color: '#1a1410', style: 'styled' },
+                jersey: { main: '#1c3f94', accent: '#f7d100' },
+                shorts: '#1c3f94',
+                hasBeard: true,
+                beardColor: '#1a1410'
+            },
+            'jose-mourinho': {
+                name: 'José Mourinho',
+                role: 'Data Science',
+                sport: 'soccer',
+                trophy: 'ucl',
+                trophyLabel: '2× UCL Champion',
+                jerseyNumber: null,
+                hair: { color: '#6b6b6b', style: 'grey' },
+                jersey: { main: '#1a1a2e', accent: '#333' },
+                shorts: null, // Wears coat
+                hasBeard: false,
+                hasCoat: true
+            },
+            'stephen-curry': {
+                name: 'Stephen Curry',
+                role: 'Analytics Lead',
+                sport: 'nba',
+                trophy: 'nba',
+                trophyLabel: '4× NBA Champion',
+                jerseyNumber: '30',
+                hair: { color: '#2a1f15', style: 'short' },
+                jersey: { main: '#1d428a', accent: '#ffc72c' },
+                shorts: '#1d428a',
+                hasBeard: true,
+                beardColor: '#2a1f15'
+            },
+            'lebron-james': {
+                name: 'LeBron James',
+                role: 'Social & Engagement',
+                sport: 'nba',
+                trophy: 'nba',
+                trophyLabel: '4× NBA Champion',
+                jerseyNumber: '23',
+                hair: { color: '#1a1410', style: 'short' },
+                jersey: { main: '#552583', accent: '#fdb927' },
+                shorts: '#552583',
+                hasBeard: true,
+                beardColor: '#1a1410'
+            },
+            'pep-guardiola': {
+                name: 'Pep Guardiola',
+                role: 'Sprint Master',
+                sport: 'soccer',
+                trophy: 'premier-league',
+                trophyLabel: 'Treble Winner 2023',
+                jerseyNumber: null,
+                hair: { color: '#4a4a4a', style: 'bald' },
+                jersey: { main: '#6CABDD', accent: '#1C2C5B' },
+                shorts: '#1C2C5B',
+                hasBeard: true,
+                beardColor: '#4a4a4a',
+                hasCoat: true
+            },
+            'kdb': {
+                name: 'Kevin de Bruyne',
+                role: 'Visualization',
+                sport: 'soccer',
+                trophy: 'premier-league',
+                trophyLabel: 'Premier League Champion',
+                jerseyNumber: '17',
+                hair: { color: '#c9a86c', style: 'blonde' },
+                jersey: { main: '#6CABDD', accent: '#1C2C5B' },
+                shorts: '#1C2C5B',
+                hasBeard: false
+            },
+            'kante': {
+                name: "N'Golo Kanté",
+                role: 'QA Lead',
+                sport: 'soccer',
+                trophy: 'world-cup',
+                trophyLabel: 'World Cup 2018',
+                jerseyNumber: '13',
+                hair: { color: '#0f0a08', style: 'short' },
+                jersey: { main: '#002654', accent: '#ED2939' },
+                shorts: '#002654',
+                hasBeard: false
+            },
+            'florentino': {
+                name: 'Florentino Pérez',
+                role: 'Chief Strategist',
+                sport: 'soccer',
+                trophy: 'ucl',
+                trophyLabel: '6× UCL President',
+                jerseyNumber: null,
+                hair: { color: '#555555', style: 'grey' },
+                jersey: { main: '#1a1a2e', accent: '#333' },
+                shorts: null,
+                hasBeard: false,
+                hasCoat: true,
+                hasSuit: true
+            },
+            'andy-flower': {
+                name: 'Andy Flower',
+                role: 'Cricket Expert',
+                sport: 'cricket',
+                trophy: 'world-cup-cricket',
+                trophyLabel: 'World Cup Winner',
+                jerseyNumber: null,
+                hair: { color: '#3d3d3d', style: 'grey' },
+                jersey: { main: '#003366', accent: '#cc0000' },
+                shorts: '#003366',
+                hasBeard: false,
+                hasCoat: true
+            },
+            'brock-purdy': {
+                name: 'Brock Purdy',
+                role: 'Data Pipeline',
+                sport: 'nfl',
+                trophy: 'nfc',
+                trophyLabel: 'NFC Champion',
+                jerseyNumber: '13',
+                hair: { color: '#2a1f15', style: 'short' },
+                jersey: { main: '#aa0000', accent: '#b3995d' },
+                shorts: '#b3995d',
+                hasBeard: false
+            },
+            'brad-stevens': {
+                name: 'Brad Stevens',
+                role: 'Architecture',
+                sport: 'nba',
+                trophy: 'nba',
+                trophyLabel: 'NBA Executive',
+                jerseyNumber: null,
+                hair: { color: '#3d2b1f', style: 'short' },
+                jersey: { main: '#007A33', accent: '#BA9653' },
+                shorts: null,
+                hasBeard: false,
+                hasCoat: true,
+                hasSuit: true
+            },
+            'ime-udoka': {
+                name: 'Ime Udoka',
+                role: 'DevOps Lead',
+                sport: 'nba',
+                trophy: 'nba',
+                trophyLabel: 'NBA Coach',
+                jerseyNumber: null,
+                hair: { color: '#0f0a08', style: 'short' },
+                jersey: { main: '#1a1a2e', accent: '#333' },
+                shorts: null,
+                hasBeard: true,
+                beardColor: '#0f0a08',
+                hasCoat: true,
+                hasSuit: true
+            }
+        };
+
+        // Get random agents for intro
+        function getRandomAgents(count = 3) {
+            const agentKeys = Object.keys(AGENTS);
+            const shuffled = agentKeys.sort(() => Math.random() - 0.5);
+            return shuffled.slice(0, count);
+        }
+
+        // Get stadium class based on sport
+        function getStadiumClass(sport) {
+            const stadiums = {
+                'nfl': 'stadium-nfl',
+                'nba': 'stadium-nba',
+                'soccer': 'stadium-soccer',
+                'cricket': 'stadium-cricket'
+            };
+            return stadiums[sport] || 'stadium-soccer';
+        }
+
+        // Initialize intro with random agents
+        function initializeIntro() {
+            const overlay = document.getElementById('intro-overlay');
+            const grid = document.getElementById('intro-grid');
+            if (!overlay || !grid) return;
+
+            const selectedAgents = getRandomAgents(3);
+
+            // Determine dominant sport for background
+            const sports = selectedAgents.map(key => AGENTS[key].sport);
+            const sportCounts = sports.reduce((acc, sport) => {
+                acc[sport] = (acc[sport] || 0) + 1;
+                return acc;
+            }, {});
+            const dominantSport = Object.keys(sportCounts).reduce((a, b) =>
+                sportCounts[a] > sportCounts[b] ? a : b
+            );
+
+            // Apply stadium background
+            overlay.classList.add(getStadiumClass(dominantSport));
+
+            // Generate boxes for each agent
+            grid.innerHTML = selectedAgents.map((agentKey, index) => {
+                const agent = AGENTS[agentKey];
+                const delay = 0.3 + (index * 0.7);
+                return generateAgentBox(agent, agentKey, index, delay);
+            }).join('');
+        }
+
+        // Generate HTML for an agent box
+        function generateAgentBox(agent, key, index, delay) {
+            const crowdHTML = `
+                <div class="crowd-row row-3">
+                    ${Array(9).fill('<div class="crowd-person"></div>').join('')}
+                </div>
+                <div class="crowd-row row-2">
+                    ${Array(8).fill('<div class="crowd-person"></div>').join('')}
+                </div>
+                <div class="crowd-row">
+                    ${Array(7).fill('<div class="crowd-person"></div>').join('')}
+                </div>
+            `;
+
+            const trophyHTML = generateTrophyHTML(agent.trophy);
+            const athleteHTML = generateAthleteHTML(agent);
+
+            return `
+                <div class="intro-box intro-box-dynamic"
+                     data-agent="${key}"
+                     data-sport="${agent.sport}"
+                     style="--delay: ${delay}s; --jersey-main: ${agent.jersey.main}; --jersey-accent: ${agent.jersey.accent}; --shorts-color: ${agent.shorts || agent.jersey.main}; --hair-color: ${agent.hair.color};">
+                    ${crowdHTML}
+                    <div class="figure">
+                        <div class="trophy-container">${trophyHTML}</div>
+                        ${athleteHTML}
+                    </div>
+                    <div class="flash flash-1"></div>
+                    <div class="flash flash-2"></div>
+                    <div class="flash flash-3"></div>
+                    <div class="confetti confetti-1"></div>
+                    <div class="confetti confetti-2"></div>
+                    <div class="confetti confetti-3"></div>
+                    <div class="confetti confetti-4"></div>
+                    <div class="confetti confetti-5"></div>
+                    <div class="label-group">
+                        <div class="name">${agent.name}</div>
+                        <div class="trophy-name">${agent.trophyLabel}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Generate trophy HTML based on type
+        function generateTrophyHTML(trophyType) {
+            const trophies = {
+                'lombardi': `<div class="lombardi"><div class="football"></div><div class="stand"></div><div class="base"></div><div class="base-plate"></div></div>`,
+                'ipl': `<div class="ipl-trophy"><div class="handle-left"></div><div class="handle-right"></div><div class="cup"></div><div class="node"></div><div class="stem"></div><div class="base-top"></div><div class="base-mid"></div><div class="base-bottom"></div><div class="nameplate"></div></div>`,
+                'ucl': `<div class="ucl-trophy"><div class="ear-left"></div><div class="ear-right"></div><div class="cup"></div><div class="ring ring-1"></div><div class="ring ring-2"></div><div class="stem"></div><div class="base"></div></div>`,
+                'nba': `<div class="nba-trophy"><div class="ball"></div><div class="net"></div><div class="stem"></div><div class="base"></div></div>`,
+                'premier-league': `<div class="pl-trophy"><div class="crown"></div><div class="handles"></div><div class="bowl"></div><div class="stem"></div><div class="base"></div></div>`,
+                'world-cup': `<div class="wc-trophy"><div class="globe"></div><div class="figures"></div><div class="stem"></div><div class="base"></div></div>`,
+                'world-cup-cricket': `<div class="cwc-trophy"><div class="globe"></div><div class="cup"></div><div class="stem"></div><div class="base"></div></div>`,
+                'nfc': `<div class="nfc-trophy"><div class="football"></div><div class="stand"></div><div class="base"></div></div>`
+            };
+            return trophies[trophyType] || trophies['ucl'];
+        }
+
+        // Generate athlete HTML
+        function generateAthleteHTML(agent) {
+            const beardHTML = agent.hasBeard ? `<div class="beard" style="background: ${agent.beardColor || agent.hair.color}"></div>` : '';
+            const coatBottomHTML = agent.hasCoat ? '<div class="coat-bottom"></div>' : '';
+            const jerseyNumHTML = agent.jerseyNumber ? `<span class="jersey-number">${agent.jerseyNumber}</span>` : '';
+            const shortsHTML = agent.shorts ? '<div class="shorts"></div>' : '';
+
+            return `
+                <div class="athlete ${agent.hasCoat ? 'has-coat' : ''} ${agent.hasSuit ? 'has-suit' : ''}">
+                    <div class="hair" style="background: linear-gradient(180deg, ${agent.hair.color} 0%, ${adjustColor(agent.hair.color, -20)} 100%);"></div>
+                    <div class="head">
+                        <div class="ear ear-left"></div>
+                        <div class="ear ear-right"></div>
+                        ${beardHTML}
+                    </div>
+                    <div class="neck"></div>
+                    <div class="shoulder shoulder-left"></div>
+                    <div class="shoulder shoulder-right"></div>
+                    <div class="torso"></div>
+                    ${jerseyNumHTML}
+                    ${shortsHTML}
+                    ${coatBottomHTML}
+                    <div class="arm arm-left"><div class="hand"></div></div>
+                    <div class="arm arm-right"><div class="hand"></div></div>
+                    <div class="leg leg-left"><div class="foot"></div></div>
+                    <div class="leg leg-right"><div class="foot"></div></div>
+                </div>
+            `;
+        }
+
+        // Helper to darken/lighten colors
+        function adjustColor(hex, percent) {
+            const num = parseInt(hex.replace('#', ''), 16);
+            const amt = Math.round(2.55 * percent);
+            const R = Math.max(0, Math.min(255, (num >> 16) + amt));
+            const G = Math.max(0, Math.min(255, ((num >> 8) & 0x00FF) + amt));
+            const B = Math.max(0, Math.min(255, (num & 0x0000FF) + amt));
+            return '#' + (0x1000000 + R * 0x10000 + G * 0x100 + B).toString(16).slice(1);
+        }
+
         // Theme Toggle
         function toggleTheme() {
             const html = document.documentElement;
@@ -2231,6 +3000,7 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
+            initializeIntro();  // Random agents intro
             populateTeamsGrid();
         });
     </script>

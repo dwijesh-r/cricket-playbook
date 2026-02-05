@@ -1068,6 +1068,48 @@
         .modal-section { margin-bottom: 24px; }
         .modal-section:last-child { margin-bottom: 0; }
 
+        /* Context cards (Ask/Goal/Reason/Audible) */
+        .context-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .context-grid { grid-template-columns: 1fr; }
+        }
+
+        .context-card {
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            padding: 14px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .context-card.ask { border-left-color: var(--accent-teal); }
+        .context-card.goal { border-left-color: var(--accent-green); }
+        .context-card.reason { border-left-color: var(--accent-yellow); }
+        .context-card.audible { border-left-color: var(--accent-purple); }
+
+        .context-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 6px;
+        }
+
+        .context-card.ask .context-label { color: var(--accent-teal); }
+        .context-card.goal .context-label { color: var(--accent-green); }
+        .context-card.reason .context-label { color: var(--accent-yellow); }
+        .context-card.audible .context-label { color: var(--accent-purple); }
+
+        .context-text {
+            font-size: 13px;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
         .modal-section-title {
             font-size: 11px;
             font-weight: 600;
@@ -1602,6 +1644,10 @@
                 <button class="modal-close" onclick="closeModal()">×</button>
             </div>
             <div class="modal-body">
+                <div class="modal-section">
+                    <div class="modal-section-title">Context</div>
+                    <div class="context-grid" id="modalContext"></div>
+                </div>
                 <div class="modal-section">
                     <div class="modal-section-title">Task Integrity Loop</div>
                     <div class="gate-list" id="modalGates"></div>
@@ -2167,62 +2213,116 @@
                 state: 'DONE', priority: 'P0', assignee: 'Stephen Curry', epic: 'EPIC-001', progress: 100,
                 prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: 'scripts/mission_control/',
                 gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
-                tags: ['Backend', 'Core'], daysSpent: 3, iterations: 2
+                tags: ['Backend', 'Core'], daysSpent: 3, iterations: 2,
+                context: {
+                    ask: 'Build the state machine and transition logic for ticket workflow',
+                    goal: 'Enable 8-state workflow with validation gates and hooks',
+                    reason: 'Core infrastructure needed before any other Mission Control features',
+                    audible: 'Design spec → Python models → State machine → Transition validation → Tests'
+                }
             },
             {
                 id: 'TKT-002', title: 'HTML Dashboard with Apple Design Language',
                 state: 'RUNNING', priority: 'P0', assignee: 'Kevin de Bruyne', epic: 'EPIC-001', progress: 85,
                 prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: 'scripts/mission_control/dashboard/',
                 gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES' },
-                tags: ['Frontend', 'UI/UX'], daysSpent: 2, iterations: 4
+                tags: ['Frontend', 'UI/UX'], daysSpent: 2, iterations: 4,
+                context: {
+                    ask: 'Create a visual dashboard to track tickets, agents, and sprint progress',
+                    goal: 'Provide real-time visibility into all Mission Control activity',
+                    reason: 'CLI-only is not sufficient for at-a-glance status and team coordination',
+                    audible: 'Wireframe → HTML/CSS → Kanban board → Agent roster → List view → Polish'
+                }
             },
             {
                 id: 'TKT-003', title: 'Agent Caricature Avatar System',
                 state: 'DONE', priority: 'P1', assignee: 'LeBron James', epic: 'EPIC-001', progress: 100,
                 prd: null, output: 'scripts/mission_control/dashboard/avatars.js',
                 gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
-                tags: ['Design', 'Assets'], daysSpent: 1, iterations: 2
+                tags: ['Design', 'Assets'], daysSpent: 1, iterations: 2,
+                context: {
+                    ask: 'Design distinctive pixel art avatars for each agent',
+                    goal: 'Make agents instantly recognizable with team colors and features',
+                    reason: 'Visual identity improves UX and makes the dashboard more engaging',
+                    audible: 'Sketch concepts → 8-bit pixel style → Team colors → Jersey numbers → Review'
+                }
             },
             {
                 id: 'TKT-004', title: 'Predicted XII Algorithm v3.1 Refinement',
                 state: 'REVIEW', priority: 'P1', assignee: 'Jose Mourinho', epic: 'EPIC-002', progress: 90,
                 prd: 'docs/specs/ALGORITHM_SPEC.md', output: 'outputs/predicted_xis/',
                 gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS' },
-                tags: ['Algorithm', 'Data'], daysSpent: 5, iterations: 4
+                tags: ['Algorithm', 'Data'], daysSpent: 5, iterations: 4,
+                context: {
+                    ask: 'Improve predicted XI accuracy using updated player form data',
+                    goal: 'Achieve >80% accuracy on starting XI predictions',
+                    reason: 'Core paid artifact - directly impacts subscriber value',
+                    audible: 'Analyze misses → Feature engineering → Model tuning → Backtest → Domain review'
+                }
             },
             {
                 id: 'TKT-005', title: 'Depth Chart Export to PDF/PNG',
                 state: 'BACKLOG', priority: 'P2', assignee: 'Brock Purdy', epic: 'EPIC-002', progress: 0,
                 prd: 'docs/specs/WIREFRAMES_V1.md', output: null,
                 gates: { florentino_gate: 'APPROVED' },
-                tags: ['Export', 'Sharing'], daysSpent: 0, iterations: 0
+                tags: ['Export', 'Sharing'], daysSpent: 0, iterations: 0,
+                context: {
+                    ask: 'Enable one-click export of depth charts to shareable formats',
+                    goal: 'Allow users to save and share depth charts externally',
+                    reason: 'Requested by 40% of beta users for social sharing',
+                    audible: 'Select chart → Choose format → Generate file → Download/Share'
+                }
             },
             {
                 id: 'TKT-006', title: 'Player ID Mismatch - MI vs LSG Trade',
                 state: 'BLOCKED', priority: 'P0', assignee: 'Stephen Curry', epic: 'EPIC-003', progress: 30,
                 prd: null, output: null,
                 gates: { florentino_gate: 'APPROVED' },
-                tags: ['Bug', 'Data'], daysSpent: 2, iterations: 1
+                tags: ['Bug', 'Data'], daysSpent: 2, iterations: 1,
+                context: {
+                    ask: 'Resolve player ID collision after mid-season trade',
+                    goal: 'Ensure unique player tracking across all franchise changes',
+                    reason: 'Data integrity issue causing duplicate stats and wrong assignments',
+                    audible: 'Identify conflicts → Map old/new IDs → Migrate historical data → Validate'
+                }
             },
             {
                 id: 'TKT-007', title: 'Sprint Velocity Dashboard Widget',
                 state: 'VALIDATION', priority: 'P1', assignee: 'Tom Brady', epic: 'EPIC-001', progress: 95,
                 prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: 'scripts/mission_control/views/',
                 gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
-                tags: ['Analytics', 'Dashboard'], daysSpent: 2, iterations: 2
+                tags: ['Analytics', 'Dashboard'], daysSpent: 2, iterations: 2,
+                context: {
+                    ask: 'Add velocity tracking and burndown visualization',
+                    goal: 'Enable sprint health monitoring at a glance',
+                    reason: 'Needed for sprint planning and retrospective analysis',
+                    audible: 'Define metrics → Calculate velocity → Build chart → Integrate to dashboard'
+                }
             },
             {
                 id: 'TKT-008', title: 'Role Permission Matrix Implementation',
                 state: 'READY', priority: 'P2', assignee: 'Brad Stevens', epic: 'EPIC-001', progress: 0,
                 prd: 'governance/MISSION_CONTROL_DESIGN_020426_v1.md', output: null,
                 gates: { florentino_gate: 'APPROVED' },
-                tags: ['Security', 'Backend'], daysSpent: 0, iterations: 0
+                tags: ['Security', 'Backend'], daysSpent: 0, iterations: 0,
+                context: {
+                    ask: 'Implement role-based access control for ticket actions',
+                    goal: 'Enforce who can approve gates, transition states, and override',
+                    reason: 'Governance requirement - prevents unauthorized state changes',
+                    audible: 'Define roles → Map permissions → Add validation → Test edge cases'
+                }
             },
             {
                 id: 'TKT-009', title: 'New IPL 2026 Season Data Pipeline',
                 state: 'IDEA', priority: 'P1', assignee: null, epic: null, progress: 0,
                 prd: null, output: null, gates: {},
-                tags: ['Data', 'Pipeline'], daysSpent: 0, iterations: 0
+                tags: ['Data', 'Pipeline'], daysSpent: 0, iterations: 0,
+                context: {
+                    ask: 'Set up data ingestion for upcoming IPL 2026 season',
+                    goal: 'Have clean, normalized data ready before season start',
+                    reason: 'Foundation for all IPL 2026 analytics and predictions',
+                    audible: 'Cricsheet setup → Schema design → Ingestion script → QA validation'
+                }
             }
         ];
 
@@ -2463,6 +2563,27 @@
             document.getElementById('modalAvatar').innerHTML = getAgentAvatarImg(t.assignee);
             document.getElementById('modalTitle').textContent = t.title;
             document.getElementById('modalSubtitle').textContent = `${t.id} · ${t.priority} · ${t.assignee || 'Unassigned'}`;
+
+            // Render context (Ask/Goal/Reason/Audible)
+            const ctx = t.context || {};
+            document.getElementById('modalContext').innerHTML = `
+                <div class="context-card ask">
+                    <div class="context-label">Ask</div>
+                    <div class="context-text">${ctx.ask || 'Not defined'}</div>
+                </div>
+                <div class="context-card goal">
+                    <div class="context-label">Goal</div>
+                    <div class="context-text">${ctx.goal || 'Not defined'}</div>
+                </div>
+                <div class="context-card reason">
+                    <div class="context-label">Reason</div>
+                    <div class="context-text">${ctx.reason || 'Not defined'}</div>
+                </div>
+                <div class="context-card audible">
+                    <div class="context-label">Audible</div>
+                    <div class="context-text">${ctx.audible || 'Not defined'}</div>
+                </div>
+            `;
 
             document.getElementById('modalGates').innerHTML = gates.map(g => {
                 const status = getGateStatus(t.gates, g.id);

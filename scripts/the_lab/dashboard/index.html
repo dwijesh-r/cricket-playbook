@@ -319,7 +319,7 @@
             border-right: 3px solid var(--accent);
             white-space: nowrap;
             width: 0;
-            animation: typing 1.2s steps(7, end) 4.2s forwards, blink-caret 0.75s step-end 4.2s 4, hide-caret 0.1s ease 7.5s forwards;
+            animation: typing 1.2s steps(7, end) 6s forwards, blink-caret 0.75s step-end 6s 4, hide-caret 0.1s ease 9.5s forwards;
         }
 
         @keyframes typing {
@@ -345,7 +345,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: fade-out-intro 0.5s ease 4s forwards;
+            animation: fade-out-intro 0.8s ease 5.5s forwards;
         }
 
         @keyframes fade-out-intro {
@@ -355,121 +355,265 @@
         .intro-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            max-width: 500px;
+            gap: 24px;
+            max-width: 560px;
             padding: 20px;
         }
 
         .intro-box {
-            width: 200px;
-            height: 150px;
+            width: 240px;
+            height: 180px;
             background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-            border: 2px solid var(--border);
-            border-radius: 16px;
+            border: 3px solid var(--border);
+            border-radius: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             opacity: 0;
             transform: scale(0.8);
+            position: relative;
+            overflow: hidden;
         }
 
-        .intro-box .emoji {
-            font-size: 60px;
-            margin-bottom: 8px;
+        .intro-box .figure {
+            width: 100%;
+            height: 120px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .intro-box .label {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--text-secondary);
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+            margin-top: 8px;
         }
 
-        /* Box 1: Tom Brady */
+        /* Silhouette base styles */
+        .silhouette {
+            position: relative;
+            width: 80px;
+            height: 100px;
+        }
+
+        .silhouette .head {
+            width: 24px;
+            height: 24px;
+            background: var(--text-primary);
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .silhouette .body {
+            width: 8px;
+            height: 35px;
+            background: var(--text-primary);
+            position: absolute;
+            top: 22px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 4px;
+        }
+
+        .silhouette .arm {
+            width: 6px;
+            height: 30px;
+            background: var(--text-primary);
+            position: absolute;
+            top: 24px;
+            border-radius: 3px;
+            transform-origin: top center;
+        }
+
+        .silhouette .arm-left { left: 24px; }
+        .silhouette .arm-right { right: 24px; }
+
+        .silhouette .leg {
+            width: 7px;
+            height: 38px;
+            background: var(--text-primary);
+            position: absolute;
+            top: 55px;
+            border-radius: 3px;
+            transform-origin: top center;
+        }
+
+        .silhouette .leg-left { left: 32px; }
+        .silhouette .leg-right { right: 32px; }
+
+        /* Ball elements */
+        .ball-element {
+            position: absolute;
+            font-size: 28px;
+            opacity: 0;
+        }
+
+        /* ========== TOM BRADY - THROWING ========== */
         .intro-box-brady {
-            animation: box-appear 0.6s ease 0.2s forwards, brady-action 0.8s ease 0.8s forwards;
+            animation: box-appear 0.5s ease 0.3s forwards;
             border-color: #c8102e;
         }
-        .intro-box-brady .emoji {
-            animation: throw-motion 0.6s ease 0.8s;
+
+        .intro-box-brady .arm-right {
+            animation: brady-throw-arm 0.8s ease 1s forwards;
         }
 
-        /* Box 2: Kevin de Bruyne */
+        .intro-box-brady .football {
+            right: 15px;
+            top: 25px;
+            animation: football-fly 0.8s ease 1.3s forwards;
+        }
+
+        @keyframes brady-throw-arm {
+            0% { transform: rotate(-60deg); }
+            40% { transform: rotate(-90deg); }
+            70% { transform: rotate(30deg); }
+            100% { transform: rotate(15deg); }
+        }
+
+        @keyframes football-fly {
+            0% { opacity: 1; transform: translateX(0) rotate(0deg); }
+            100% { opacity: 1; transform: translateX(60px) translateY(-20px) rotate(360deg); }
+        }
+
+        /* ========== DE BRUYNE - KICKING ========== */
         .intro-box-kdb {
-            animation: box-appear 0.6s ease 0.8s forwards, kdb-action 0.8s ease 1.4s forwards;
+            animation: box-appear 0.5s ease 1.2s forwards;
             border-color: #6cabdd;
         }
-        .intro-box-kdb .emoji {
-            animation: kick-motion 0.6s ease 1.4s;
+
+        .intro-box-kdb .leg-right {
+            animation: kdb-kick-leg 0.7s ease 1.9s forwards;
         }
 
-        /* Box 3: Virat Kohli */
+        .intro-box-kdb .soccer {
+            right: 20px;
+            bottom: 35px;
+            animation: soccer-fly 0.7s ease 2.2s forwards;
+        }
+
+        @keyframes kdb-kick-leg {
+            0% { transform: rotate(-30deg); }
+            50% { transform: rotate(-50deg); }
+            80% { transform: rotate(45deg); }
+            100% { transform: rotate(20deg); }
+        }
+
+        @keyframes soccer-fly {
+            0% { opacity: 1; transform: translateX(0) translateY(0); }
+            100% { opacity: 1; transform: translateX(70px) translateY(-40px); }
+        }
+
+        /* ========== VIRAT KOHLI - COVER DRIVE ========== */
         .intro-box-virat {
-            animation: box-appear 0.6s ease 1.4s forwards, virat-action 0.8s ease 2s forwards;
+            animation: box-appear 0.5s ease 2.1s forwards;
             border-color: #004c93;
         }
-        .intro-box-virat .emoji {
-            animation: shot-motion 0.6s ease 2s;
+
+        .intro-box-virat .silhouette {
+            transform: scaleX(-1);
         }
 
-        /* Box 4: Jose Mourinho */
+        .intro-box-virat .bat {
+            position: absolute;
+            width: 6px;
+            height: 45px;
+            background: #d4a574;
+            right: 20px;
+            top: 30px;
+            border-radius: 3px;
+            transform-origin: bottom center;
+            animation: virat-bat-swing 0.8s ease 2.8s forwards;
+        }
+
+        .intro-box-virat .cricket {
+            left: 15px;
+            top: 40px;
+            font-size: 20px;
+            animation: cricket-deflect 0.6s ease 3.1s forwards;
+        }
+
+        @keyframes virat-bat-swing {
+            0% { transform: rotate(-45deg); }
+            40% { transform: rotate(-60deg); }
+            70% { transform: rotate(30deg); }
+            100% { transform: rotate(45deg); }
+        }
+
+        @keyframes cricket-deflect {
+            0% { opacity: 1; transform: translateX(0) translateY(0); }
+            100% { opacity: 1; transform: translateX(-50px) translateY(-30px); }
+        }
+
+        /* ========== MOURINHO - CELEBRATION ========== */
         .intro-box-jose {
-            animation: box-appear 0.6s ease 2s forwards, jose-action 0.8s ease 2.6s forwards;
+            animation: box-appear 0.5s ease 3s forwards;
             border-color: #0033a0;
         }
-        .intro-box-jose .emoji {
-            animation: celebrate-motion 0.6s ease 2.6s;
+
+        .intro-box-jose .arm-left {
+            animation: jose-arm-up-left 0.6s ease 3.7s forwards;
+        }
+
+        .intro-box-jose .arm-right {
+            animation: jose-arm-up-right 0.6s ease 3.7s forwards;
+        }
+
+        .intro-box-jose .confetti {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0;
+        }
+
+        .intro-box-jose .confetti-1 { left: 30%; top: 20%; animation: confetti-pop 0.8s ease 3.9s forwards; }
+        .intro-box-jose .confetti-2 { right: 30%; top: 15%; animation: confetti-pop 0.8s ease 4s forwards; }
+        .intro-box-jose .confetti-3 { left: 20%; top: 30%; animation: confetti-pop 0.8s ease 4.1s forwards; }
+
+        @keyframes jose-arm-up-left {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-150deg); }
+        }
+
+        @keyframes jose-arm-up-right {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(150deg); }
+        }
+
+        @keyframes confetti-pop {
+            0% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1.3); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
         @keyframes box-appear {
             to { opacity: 1; transform: scale(1); }
         }
 
-        @keyframes brady-action {
-            0%, 100% { border-color: #c8102e; }
-            50% { border-color: #ffc72c; box-shadow: 0 0 30px rgba(200, 16, 46, 0.5); }
-        }
+        /* Box glow effects when action happens */
+        .intro-box-brady { animation: box-appear 0.5s ease 0.3s forwards, box-glow-red 0.5s ease 1s; }
+        .intro-box-kdb { animation: box-appear 0.5s ease 1.2s forwards, box-glow-blue 0.5s ease 1.9s; }
+        .intro-box-virat { animation: box-appear 0.5s ease 2.1s forwards, box-glow-navy 0.5s ease 2.8s; }
+        .intro-box-jose { animation: box-appear 0.5s ease 3s forwards, box-glow-royal 0.5s ease 3.7s; }
 
-        @keyframes kdb-action {
-            0%, 100% { border-color: #6cabdd; }
-            50% { border-color: #ffffff; box-shadow: 0 0 30px rgba(108, 171, 221, 0.5); }
+        @keyframes box-glow-red {
+            50% { box-shadow: 0 0 40px rgba(200, 16, 46, 0.6); border-color: #ffc72c; }
         }
-
-        @keyframes virat-action {
-            0%, 100% { border-color: #004c93; }
-            50% { border-color: #ffcc00; box-shadow: 0 0 30px rgba(0, 76, 147, 0.5); }
+        @keyframes box-glow-blue {
+            50% { box-shadow: 0 0 40px rgba(108, 171, 221, 0.6); border-color: #fff; }
         }
-
-        @keyframes jose-action {
-            0%, 100% { border-color: #0033a0; }
-            50% { border-color: #c0c0c0; box-shadow: 0 0 30px rgba(0, 51, 160, 0.5); }
+        @keyframes box-glow-navy {
+            50% { box-shadow: 0 0 40px rgba(0, 76, 147, 0.6); border-color: #ffcc00; }
         }
-
-        @keyframes throw-motion {
-            0% { transform: rotate(-20deg); }
-            50% { transform: rotate(30deg) scale(1.2); }
-            100% { transform: rotate(0deg); }
-        }
-
-        @keyframes kick-motion {
-            0% { transform: translateX(-10px); }
-            50% { transform: translateX(20px) scale(1.2); }
-            100% { transform: translateX(0); }
-        }
-
-        @keyframes shot-motion {
-            0% { transform: rotate(-30deg); }
-            50% { transform: rotate(45deg) scale(1.2); }
-            100% { transform: rotate(0deg); }
-        }
-
-        @keyframes celebrate-motion {
-            0% { transform: translateY(0); }
-            25% { transform: translateY(-15px) scale(1.1); }
-            50% { transform: translateY(-20px) scale(1.2); }
-            100% { transform: translateY(0) scale(1); }
+        @keyframes box-glow-royal {
+            50% { box-shadow: 0 0 40px rgba(0, 51, 160, 0.6); border-color: #c0c0c0; }
         }
 
         /* Hide intro on mobile */
@@ -856,20 +1000,70 @@
     <!-- Intro Animation Sequence -->
     <div class="intro-overlay" id="intro-overlay">
         <div class="intro-grid">
+            <!-- Tom Brady - Quarterback Throwing -->
             <div class="intro-box intro-box-brady">
-                <span class="emoji">🏈</span>
+                <div class="figure">
+                    <div class="silhouette">
+                        <div class="head"></div>
+                        <div class="body"></div>
+                        <div class="arm arm-left"></div>
+                        <div class="arm arm-right"></div>
+                        <div class="leg leg-left"></div>
+                        <div class="leg leg-right"></div>
+                    </div>
+                    <span class="ball-element football">🏈</span>
+                </div>
                 <span class="label">Tom Brady</span>
             </div>
+
+            <!-- Kevin de Bruyne - Soccer Kick -->
             <div class="intro-box intro-box-kdb">
-                <span class="emoji">⚽</span>
+                <div class="figure">
+                    <div class="silhouette">
+                        <div class="head"></div>
+                        <div class="body"></div>
+                        <div class="arm arm-left"></div>
+                        <div class="arm arm-right"></div>
+                        <div class="leg leg-left"></div>
+                        <div class="leg leg-right"></div>
+                    </div>
+                    <span class="ball-element soccer">⚽</span>
+                </div>
                 <span class="label">De Bruyne</span>
             </div>
+
+            <!-- Virat Kohli - Cover Drive -->
             <div class="intro-box intro-box-virat">
-                <span class="emoji">🏏</span>
+                <div class="figure">
+                    <div class="silhouette">
+                        <div class="head"></div>
+                        <div class="body"></div>
+                        <div class="arm arm-left"></div>
+                        <div class="arm arm-right"></div>
+                        <div class="leg leg-left"></div>
+                        <div class="leg leg-right"></div>
+                    </div>
+                    <div class="bat"></div>
+                    <span class="ball-element cricket">🏏</span>
+                </div>
                 <span class="label">Virat Kohli</span>
             </div>
+
+            <!-- Jose Mourinho - Celebration -->
             <div class="intro-box intro-box-jose">
-                <span class="emoji">🎉</span>
+                <div class="figure">
+                    <div class="silhouette">
+                        <div class="head"></div>
+                        <div class="body"></div>
+                        <div class="arm arm-left"></div>
+                        <div class="arm arm-right"></div>
+                        <div class="leg leg-left"></div>
+                        <div class="leg leg-right"></div>
+                    </div>
+                    <span class="confetti confetti-1">🎊</span>
+                    <span class="confetti confetti-2">✨</span>
+                    <span class="confetti confetti-3">🎉</span>
+                </div>
                 <span class="label">Mourinho</span>
             </div>
         </div>

@@ -1044,28 +1044,37 @@
                 const predicted = PREDICTED_XII[abbrev];
                 if (predicted && predicted.xi) {
                     // Build squad from predicted XI + impact player
-                    SQUADS[abbrev] = predicted.xi.map(p => ({
+                    const players = predicted.xi.map(p => ({
                         name: p.name,
                         role: p.role,
-                        batting: p.batting,
+                        batting: p.batting || 'Unknown',
                         overseas: p.overseas,
                         price: p.price,
-                        nationality: p.overseas ? 'Overseas' : 'Indian',
-                        ageGroup: 'Unknown'
+                        nationality: p.overseas ? 'Overseas' : 'IND',
+                        age: 28, // Default age
+                        retainedStatus: p.price > 10 ? 'Retained' : 'Auction'
                     }));
                     // Add impact player
                     if (predicted.impactPlayer && predicted.impactPlayer.name) {
-                        SQUADS[abbrev].push({
+                        players.push({
                             name: predicted.impactPlayer.name,
-                            role: predicted.impactPlayer.role,
+                            role: predicted.impactPlayer.role || 'All-rounder',
                             batting: 'Unknown',
                             overseas: false,
                             price: predicted.impactPlayer.price,
-                            nationality: 'Indian',
-                            ageGroup: 'Unknown',
+                            nationality: 'IND',
+                            age: 25,
+                            retainedStatus: 'Auction',
                             isImpact: true
                         });
                     }
+                    // Calculate purse
+                    const totalSpent = players.reduce((sum, p) => sum + p.price, 0);
+                    SQUADS[abbrev] = {
+                        squad: players,
+                        purseSpent: totalSpent,
+                        purseRemaining: 120 - totalSpent // IPL purse is 120 Cr
+                    };
                 }
             });
         }

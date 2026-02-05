@@ -1,0 +1,21 @@
+{
+  "id": "TKT-097",
+  "title": "Fix remaining 5 CI test failures (views + audit)",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "progress_pct": 0,
+  "description": "5 tests still failing: analytics_ipl_batter_vs_bowler_type view, analytics_ipl_vs_bowler_type_benchmarks view, bowling_style_coverage, ticket_transition, audit_log_created",
+  "owner": "Ime Udoka",
+  "assignee": "Ime Udoka",
+  "sprint_id": "SPRINT-001",
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "CI failures impact developer velocity",
+      "approved_by": "Florentino Perez",
+      "date": "2026-02-05"
+    }
+  },
+  "created_at": "2026-02-05T09:28:31.013437Z",
+  "updated_at": "2026-02-05T09:29:55.235766Z"
+}

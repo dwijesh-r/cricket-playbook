@@ -671,8 +671,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 50px 16px 20px;
+            justify-content: flex-start;
+            padding: 45px 16px 70px;
             opacity: 0;
             transform: scale(0.9) translateY(20px);
             position: relative;
@@ -684,31 +684,73 @@
                 inset 0 1px 0 rgba(255,255,255,0.1);
         }
 
-        /* ========== TRADING CARD BACKGROUNDS ========== */
-        /* Sport-specific color accents for card backgrounds */
-        .intro-box[data-sport="nfl"] {
-            background: linear-gradient(180deg, #0a1510 0%, #0f1f18 50%, #152a20 100%);
+        /* ========== AGENT-SPECIFIC CARD BACKGROUNDS ========== */
+        /* Each agent gets a unique background reflecting their career */
+
+        /* Tom Brady - Gillette Stadium night lights */
+        .intro-box[data-agent="tom-brady"] {
+            background: linear-gradient(180deg, #001428 0%, #002244 40%, #0a3060 100%);
         }
-        .intro-box[data-sport="nba"] {
-            background: linear-gradient(180deg, #15100a 0%, #201810 50%, #2a2015 100%);
+        /* Brock Purdy - Levi's Stadium sunset */
+        .intro-box[data-agent="brock-purdy"] {
+            background: linear-gradient(180deg, #2a0a0a 0%, #5a1a1a 40%, #8a3a2a 100%);
         }
-        .intro-box[data-sport="soccer"] {
-            background: linear-gradient(180deg, #0a1510 0%, #101f15 50%, #152a1a 100%);
+        /* Stephen Curry - Chase Center golden glow */
+        .intro-box[data-agent="stephen-curry"] {
+            background: linear-gradient(180deg, #0a1428 0%, #1d428a 40%, #2a5090 100%);
         }
-        .intro-box[data-sport="cricket"] {
-            background: linear-gradient(180deg, #0f100a 0%, #181a10 50%, #202515 100%);
+        /* LeBron James - Crypto.com Arena purple reign */
+        .intro-box[data-agent="lebron-james"] {
+            background: linear-gradient(180deg, #1a0a28 0%, #3a1858 40%, #552583 100%);
+        }
+        /* Virat Kohli - Chinnaswamy Stadium red fortress */
+        .intro-box[data-agent="virat-kohli"] {
+            background: linear-gradient(180deg, #1a0808 0%, #4a1515 40%, #7a2020 100%);
+        }
+        /* Kevin de Bruyne - Etihad sky blue */
+        .intro-box[data-agent="kdb"] {
+            background: linear-gradient(180deg, #0a1520 0%, #2a4560 40%, #4a7090 100%);
+        }
+        /* N'Golo Kanté - Stade de France tricolore */
+        .intro-box[data-agent="kante"] {
+            background: linear-gradient(180deg, #0a0a1a 0%, #001840 40%, #002654 100%);
+        }
+        /* José Mourinho - San Siro dark elegance */
+        .intro-box[data-agent="jose-mourinho"] {
+            background: linear-gradient(180deg, #050510 0%, #0a0a20 40%, #101030 100%);
+        }
+        /* Pep Guardiola - Etihad tactical board */
+        .intro-box[data-agent="pep-guardiola"] {
+            background: linear-gradient(180deg, #081520 0%, #1a3548 40%, #2a5570 100%);
+        }
+        /* Florentino Pérez - Bernabéu white gold */
+        .intro-box[data-agent="florentino"] {
+            background: linear-gradient(180deg, #1a1a20 0%, #2a2a35 40%, #3a3a48 100%);
+        }
+        /* Brad Stevens - TD Garden parquet */
+        .intro-box[data-agent="brad-stevens"] {
+            background: linear-gradient(180deg, #001a0a 0%, #003818 40%, #006030 100%);
+        }
+        /* Ime Udoka - Championship green */
+        .intro-box[data-agent="ime-udoka"] {
+            background: linear-gradient(180deg, #001508 0%, #002a12 40%, #004a20 100%);
+        }
+        /* Andy Flower - RCB red revolution */
+        .intro-box[data-agent="andy-flower"] {
+            background: linear-gradient(180deg, #180808 0%, #3a1010 40%, #5a1818 100%);
         }
 
-        /* Subtle spotlight effect at top */
+        /* Spotlight effect matching team colors */
         .intro-box::before {
             content: '';
             position: absolute;
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80%;
-            height: 120px;
-            background: radial-gradient(ellipse 100% 100% at 50% 0%, rgba(255,255,255,0.08) 0%, transparent 70%);
+            width: 100%;
+            height: 150px;
+            background: radial-gradient(ellipse 80% 80% at 50% 0%, var(--jersey-main, rgba(255,255,255,0.1)) 0%, transparent 60%);
+            opacity: 0.15;
             pointer-events: none;
             z-index: 1;
         }
@@ -719,7 +761,7 @@
             position: absolute;
             inset: 4px;
             border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
             pointer-events: none;
             z-index: 1;
         }
@@ -798,20 +840,32 @@
             letter-spacing: 0.05em;
         }
 
+        /* ========== INFO PANEL - Distinct bottom section ========== */
         .intro-box .label-group {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
             text-align: center;
-            z-index: 2;
+            z-index: 5;
             opacity: 0;
-            padding: 0 15px;
+            padding: 12px 10px 14px;
+            background: linear-gradient(180deg,
+                transparent 0%,
+                rgba(0,0,0,0.7) 20%,
+                rgba(0,0,0,0.9) 100%);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-radius: 0 0 14px 14px;
         }
 
         .intro-box .name {
-            font-size: 18px;
+            font-size: 16px;
             color: #ffffff;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            letter-spacing: 0.1em;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+            margin-bottom: 4px;
         }
 
         /* Trophy ticker below name */
@@ -820,11 +874,9 @@
             align-items: center;
             justify-content: center;
             gap: 6px;
-            margin-top: 4px;
-            opacity: 0.9;
         }
         .trophy-ticker .trophy-icon {
-            font-size: 14px;
+            font-size: 12px;
         }
         .trophy-ticker .trophy-text {
             font-size: 10px;
@@ -871,17 +923,20 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
-        /* Hair */
+        /* Hair - improved visibility against backgrounds */
         .athlete .hair {
             position: absolute;
             top: -2px;
             left: 50%;
             transform: translateX(-50%);
-            width: 40px;
-            height: 20px;
+            width: 42px;
+            height: 22px;
             background: var(--hair-color, #2a2015);
             border-radius: 50% 50% 0 0;
             z-index: 1;
+            box-shadow:
+                0 0 0 1px rgba(0,0,0,0.3),
+                0 2px 8px rgba(0,0,0,0.4);
         }
 
         /* Ears */
@@ -962,31 +1017,33 @@
             z-index: 1;
         }
 
-        /* Shoulders/sleeves */
+        /* Shoulders/sleeves - connected to torso */
         .athlete .shoulder {
             position: absolute;
-            width: 18px;
-            height: 20px;
+            width: 20px;
+            height: 22px;
             background: var(--jersey-color, #333);
-            top: 50px;
-            border-radius: 8px;
+            top: 48px;
+            border-radius: 10px 10px 6px 6px;
+            z-index: 1;
         }
-        .athlete .shoulder-left { left: 8px; }
-        .athlete .shoulder-right { right: 8px; }
+        .athlete .shoulder-left { left: 5px; }
+        .athlete .shoulder-right { right: 5px; }
 
-        /* Arms with skin tone */
+        /* Arms with skin tone - attached to shoulders */
         .athlete .arm {
             position: absolute;
-            width: 14px;
-            height: 50px;
-            background: linear-gradient(180deg, var(--jersey-color, #333) 0%, var(--jersey-color, #333) 40%, var(--skin-color) 40%, var(--skin-color) 100%);
-            top: 52px;
-            border-radius: 7px;
+            width: 16px;
+            height: 45px;
+            background: linear-gradient(180deg, var(--jersey-color, #333) 0%, var(--jersey-color, #333) 35%, var(--skin-color) 35%, var(--skin-color) 100%);
+            top: 62px;
+            border-radius: 8px;
             transform-origin: top center;
-            box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+            box-shadow: 1px 2px 6px rgba(0,0,0,0.25);
+            z-index: 0;
         }
-        .athlete .arm-left { left: 10px; }
-        .athlete .arm-right { right: 10px; }
+        .athlete .arm-left { left: 7px; }
+        .athlete .arm-right { right: 7px; }
 
         /* Hands with detail */
         .athlete .hand {
@@ -1084,7 +1141,7 @@
             border-radius: 8px 8px 12px 12px;
         }
         .athlete.upper-body .arm {
-            height: 50px;
+            height: 40px;
         }
 
         /* Feet/shoes */

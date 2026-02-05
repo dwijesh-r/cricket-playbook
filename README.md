@@ -23,44 +23,47 @@ Cricket Playbook is a comprehensive cricket analytics system built on ball-by-ba
 
 ---
 
-## 🚀 Mission Control Dashboard
+## 🌐 Live Dashboards
 
-**Live URL:** [https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/](https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/)
+Cricket Playbook has two complementary dashboards hosted on GitHub Pages:
 
-Mission Control is our JIRA-style task management system for coordinating AI agent work. It provides real-time visibility into sprint progress, ticket states, and agent workload.
+### 🔬 The Lab — Analytics Showcase
+> *"Where the analytics magic happens."*
 
-**What it does:**
-- **Kanban Board** - 8-state workflow (IDEA → BACKLOG → READY → RUNNING → BLOCKED → REVIEW → VALIDATION → DONE)
-- **Agent Roster** - Track workload across 11 specialized AI agents
-- **Task Integrity Loop** - Enforced quality gates before shipping
-- **Sprint Tracking** - Velocity metrics and completion rates
+The Lab is our user-facing analytics showcase — the "magazine version" of this repository. Browse all IPL 2026 insights in a beautiful, structured interface.
 
-See `.mission-control/README.md` for CLI usage and `governance/MISSION_CONTROL_DESIGN_020426_v1.md` for the full design spec.
+**🔗 Base URL:** https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/
+
+| Page | URL | Description |
+|------|-----|-------------|
+| **Home** | [index.html](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/index.html) | Quick stats, team grid, navigation hub |
+| **Teams** | [teams.html](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/teams.html) | Predicted XIIs & squad analysis for all 10 teams |
+| **Artifacts** | [artifacts.html](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/artifacts.html) | Depth chart comparisons, all outputs gallery |
+| **Research** | [research.html](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/research.html) | SUPER SELECTOR algorithm, PFF/KenPom methodology |
+| **About** | [about.html](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/about.html) | Vision, agents, founder section |
 
 ---
 
-## 🔬 The Lab - Analytics Showcase
+### 🎯 Mission Control — Operations Dashboard
+> *Task management for AI agent coordination*
 
-**Live URL:** [https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/)
+Mission Control is our internal JIRA-style system tracking sprint progress, ticket states, and quality gates.
 
-*"Where the analytics magic happens."*
+**🔗 Base URL:** https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/
 
-The Lab is Cricket Playbook's showcase dashboard - your all-access pass to IPL 2026 analytics. It's the "magazine version" of our repository: structured, browsable, and beautiful.
+| Page | URL | Description |
+|------|-----|-------------|
+| **Dashboard** | [index.html](https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/index.html) | Kanban board, agent roster, ticket pipeline |
+| **Sprints** | [sprints.html](https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/sprints.html) | Sprint timeline, burndown charts, velocity tracking |
+| **About** | [about.html](https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/about.html) | Task Integrity Loop, quality gates, methodology |
 
-**What it shows:**
-- **Team Views** - Predicted XIIs, depth charts, and squad analysis for all 10 franchises
-- **Artifact Gallery** - All outputs in one place with comparison tools
-- **Research Hub** - SUPER SELECTOR algorithm, PFF/KenPom methodology documentation
-- **About Section** - The vision, the team, the story behind Cricket Playbook
+**Key Features:**
+- **8-State Workflow:** IDEA → BACKLOG → READY → RUNNING → BLOCKED → REVIEW → VALIDATION → DONE
+- **Agent Roster:** Track workload across 12 specialized AI agents
+- **Task Integrity Loop:** Enforced quality gates (Florentino, Domain Sanity, Founder Validation)
+- **Sprint Tracking:** 95 tickets across 11 EPICs with burndown visualization
 
-**Navigation:**
-| Page | Description |
-|------|-------------|
-| Home | Quick stats, team grid, navigation cards |
-| Teams | Team-first navigation with predicted XI display |
-| Artifacts | Compare depth charts, browse all outputs |
-| Research | Algorithm docs, methodology, cross-sport research |
-| About | Vision, agents, founder section |
+See `.mission-control/README.md` for CLI usage and `governance/MISSION_CONTROL_DESIGN_020426_v1.md` for full design spec.
 
 ---
 

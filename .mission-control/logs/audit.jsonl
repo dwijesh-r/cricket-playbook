@@ -49,3 +49,7 @@
 {"timestamp": "2026-02-05T09:29:55.076950Z", "action": "update", "entity_type": "tickets", "entity_id": "TKT-097", "data_summary": {"id": "TKT-097", "title": "Fix remaining 5 CI test failures (views + audit)", "state": "IDEA"}}
 {"timestamp": "2026-02-05T09:29:55.079545Z", "action": "update", "entity_type": "tickets", "entity_id": "TKT-097", "data_summary": {"id": "TKT-097", "title": "Fix remaining 5 CI test failures (views + audit)", "state": "BACKLOG"}}
 {"timestamp": "2026-02-05T09:29:55.236001Z", "action": "update", "entity_type": "tickets", "entity_id": "TKT-097", "data_summary": {"id": "TKT-097", "title": "Fix remaining 5 CI test failures (views + audit)", "state": "BACKLOG"}}
+{"timestamp": "2026-02-05T10:09:45.931526Z", "event": "state_transition", "ticket_id": "TKT-097", "from_state": "READY", "to_state": "READY", "assignee": "Ime Udoka", "task_integrity_step": "Sprint Assigned"}
+{"timestamp": "2026-02-05T10:09:45.935921Z", "action": "update", "entity_type": "tickets", "entity_id": "TKT-097", "data_summary": {"id": "TKT-097", "title": "Fix remaining 5 CI test failures (views + audit)", "state": "READY"}}
+{"timestamp": "2026-02-05T10:09:46.805320Z", "event": "state_transition", "ticket_id": "TKT-097", "from_state": "RUNNING", "to_state": "RUNNING", "assignee": "Ime Udoka", "task_integrity_step": "Step 2: Build"}
+{"timestamp": "2026-02-05T10:09:46.820360Z", "action": "update", "entity_type": "tickets", "entity_id": "TKT-097", "data_summary": {"id": "TKT-097", "title": "Fix remaining 5 CI test failures (views + audit)", "state": "RUNNING"}}

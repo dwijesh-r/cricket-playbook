@@ -2896,15 +2896,99 @@
             color: var(--text-tertiary);
         }
 
-        /* ==================== RESPONSIVE ==================== */
+        /* ==================== RESPONSIVE - MOBILE OPTIMIZATIONS ==================== */
         @media (max-width: 768px) {
-            .hero-title { font-size: 36px; }
-            .stats-bar { flex-wrap: wrap; gap: 32px; }
-            .stat-value { font-size: 36px; }
+            /* Navigation */
             .nav-tabs { display: none; }
             .mobile-menu-btn { display: flex; }
             .mobile-nav-menu { display: flex; }
+            .nav { padding: 0 16px; }
+            .nav-title { font-size: 14px; }
+            .nav-btn { padding: 6px 12px; font-size: 12px; }
+
+            /* Hero Section - Responsive titles */
+            .hero { padding: 80px 16px 60px; }
+            .hero-title {
+                font-size: 32px;
+                word-break: break-word;
+                hyphens: auto;
+                text-align: center;
+            }
+            .hero-subtitle {
+                font-size: 14px;
+                padding: 0 8px;
+                text-align: center;
+            }
+            .hero-tagline { font-size: 12px; }
+            .hero-badge { font-size: 10px; padding: 6px 12px; }
+
+            /* Typewriter - responsive width */
+            .typewriter-container { min-height: 50px; }
+            .typewriter {
+                white-space: normal;
+                text-align: center;
+                width: auto !important;
+                animation: none;
+                border-right: none;
+            }
+
+            /* Stats */
+            .stats-bar { flex-wrap: wrap; gap: 24px; padding: 20px 16px; }
+            .stat-item { min-width: 80px; }
+            .stat-value { font-size: 28px; }
+            .stat-label { font-size: 10px; }
+
+            /* Navigation Cards */
+            .nav-cards {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding: 0 16px;
+            }
+            .nav-card { padding: 20px; }
+            .nav-card h3 { font-size: 16px; }
+            .nav-card p { font-size: 13px; }
+            .nav-card-icon { font-size: 28px; }
+
+            /* Teams Grid */
             .teams-grid { grid-template-columns: 1fr; }
+
+            /* Section titles */
+            .section-title {
+                font-size: 22px;
+                text-align: center;
+                word-break: break-word;
+            }
+            .section-subtitle {
+                font-size: 13px;
+                text-align: center;
+                padding: 0 16px;
+            }
+
+            /* Footer */
+            .footer { padding: 30px 16px; }
+            .footer-links { gap: 16px; flex-wrap: wrap; justify-content: center; }
+        }
+
+        @media (max-width: 480px) {
+            /* Extra small screens */
+            .hero-title { font-size: 26px; }
+            .nav-logo { width: 28px; height: 28px; font-size: 14px; }
+            .nav-title { font-size: 13px; }
+            .stat-value { font-size: 24px; }
+            .stat-label { font-size: 9px; }
+            .nav-card-icon { font-size: 24px; }
+            .nav-card h3 { font-size: 15px; }
+
+            /* Hide Mission Control button on very small screens */
+            .nav-btn { display: none; }
+        }
+
+        @media (max-width: 380px) {
+            /* Tiny screens */
+            .hero-title { font-size: 22px; }
+            .hero-subtitle { font-size: 13px; }
+            .nav-cards { gap: 12px; }
+            .stats-bar { gap: 16px; }
         }
     </style>
 </head>
@@ -3211,7 +3295,7 @@
             </div>
         </section>
 
-        <!-- Navigation Cards -->
+        <!-- Navigation Cards - What Each Section Offers -->
         <section class="section">
             <div class="section-header">
                 <h2 class="section-title">
@@ -3219,31 +3303,34 @@
                     Explore The Lab
                 </h2>
             </div>
+            <p class="section-intro" style="text-align: center; color: var(--text-secondary); max-width: 700px; margin: 0 auto 32px; padding: 0 16px; font-size: 15px; line-height: 1.6;">
+                Everything you need to stay ahead of IPL 2026. From AI-powered team predictions to research-backed methodologies, pick your starting point below.
+            </p>
             <div class="nav-cards">
                 <a href="teams.html" class="nav-card">
                     <div class="nav-card-icon">🏏</div>
                     <h3>Browse by Team</h3>
-                    <p>Explore predicted XIs, depth charts, squad analysis, and tactical insights for all 10 IPL franchises.</p>
+                    <p><strong>Use this to:</strong> See predicted XIs for any IPL team, explore squad depth, view player roles, and compare rosters. Start here if you want team-specific insights.</p>
                 </a>
                 <a href="artifacts.html" class="nav-card">
                     <div class="nav-card-icon">📊</div>
                     <h3>Artifacts</h3>
-                    <p>Compare teams side-by-side. View all depth charts, matchup data, player tags, and metrics in one place.</p>
+                    <p><strong>Use this to:</strong> Compare all 10 teams at once. View depth charts, matchup matrices, and player tags in sortable tables. Great for fantasy cricket and head-to-head analysis.</p>
                 </a>
                 <a href="analysis.html" class="nav-card">
                     <div class="nav-card-icon">🔬</div>
                     <h3>Deep Analysis</h3>
-                    <p>Dive into player matchups, performance trends, and advanced analytics that reveal hidden insights.</p>
+                    <p><strong>Use this to:</strong> Find matchup advantages, performance trends, and advanced metrics. Best for understanding why players succeed or struggle in specific situations.</p>
                 </a>
                 <a href="research.html" class="nav-card">
                     <div class="nav-card-icon">📚</div>
                     <h3>Research & Methodology</h3>
-                    <p>Understand our analytics approach. Dive into PFF-inspired grading, KenPom efficiency metrics, and more.</p>
+                    <p><strong>Use this to:</strong> Learn how we built our analytics. See our PFF-inspired grading system, KenPom efficiency metrics, and the algorithms behind our predictions.</p>
                 </a>
                 <a href="about.html" class="nav-card">
                     <div class="nav-card-icon">🌹</div>
                     <h3>About Cricket Playbook</h3>
-                    <p>Meet the agents, understand our mission, and discover why we're building the best cricket analytics platform.</p>
+                    <p><strong>Use this to:</strong> Meet the AI agents behind the analytics, understand our mission, and see what makes Cricket Playbook different from other platforms.</p>
                 </a>
             </div>
         </section>

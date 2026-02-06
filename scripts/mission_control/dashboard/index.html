@@ -1481,12 +1481,6 @@
         }
 
         /* Special Tag Styles */
-        .tag.tag-illini {
-            /* Fighting Illini Orange #E84A27 */
-            background: linear-gradient(135deg, rgba(232, 74, 39, 0.2) 0%, rgba(232, 74, 39, 0.1) 100%);
-            color: #E84A27;
-            border-color: rgba(232, 74, 39, 0.3);
-        }
         .tag.tag-founder {
             /* Rose/Pink for Founder Review */
             background: linear-gradient(135deg, rgba(255, 55, 95, 0.15) 0%, rgba(255, 55, 95, 0.08) 100%);
@@ -1504,6 +1498,36 @@
             background: linear-gradient(135deg, rgba(10, 132, 255, 0.15) 0%, rgba(10, 132, 255, 0.08) 100%);
             color: #0a84ff;
             border-color: rgba(10, 132, 255, 0.25);
+        }
+
+        /* ==================== ILLINI CORNER BADGE ==================== */
+        /* Fighting Illini orange corner for tickets needing Founder review */
+        .ticket.needs-founder-review {
+            position: relative;
+        }
+        .ticket.needs-founder-review::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 28px 28px 0;
+            border-color: transparent #E84A27 transparent transparent;
+            border-radius: 0 10px 0 0;
+            z-index: 5;
+        }
+        .ticket.needs-founder-review::after {
+            content: 'I';
+            position: absolute;
+            top: 2px;
+            right: 5px;
+            font-size: 11px;
+            font-weight: 800;
+            font-family: 'Times New Roman', serif;
+            color: white;
+            z-index: 6;
         }
 
         .ticket-links {
@@ -3531,7 +3555,6 @@
 
         // Get special CSS class for tag styling
         function getTagClass(tag) {
-            if (tag.includes('Illini')) return 'tag-illini';
             if (tag.includes('🌹') || tag.includes('Founder')) return 'tag-founder';
             if (tag.includes('✅') || tag.includes('Approved')) return 'tag-approved';
             if (tag.includes('🔄') || tag.includes('In Progress')) return 'tag-progress';
@@ -3742,8 +3765,8 @@
             { id: 'TKT-046', title: 'Add LHB/RHB balance section', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
             { id: 'TKT-047', title: 'Add matchup matrix section', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
             { id: 'TKT-048', title: 'Add phase analysis section', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-049', title: 'Add key partnerships section', state: 'RUNNING', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 40, tags: ['🔶 Illini Plan Review', 'Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' }, plan: 'docs/plans/TKT_049_KEY_PARTNERSHIPS_PLAN.md' },
-            { id: 'TKT-050', title: 'Add pressure performance section', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 30, tags: ['🔶 Illini Plan Review', 'Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' }, plan: 'docs/plans/TKT_050_PRESSURE_PERFORMANCE_PLAN.md' },
+            { id: 'TKT-049', title: 'Add key partnerships section', state: 'RUNNING', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 40, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' }, plan: 'docs/plans/TKT_049_KEY_PARTNERSHIPS_PLAN.md' },
+            { id: 'TKT-050', title: 'Add pressure performance section', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 30, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' }, plan: 'docs/plans/TKT_050_PRESSURE_PERFORMANCE_PLAN.md' },
             { id: 'TKT-051', title: 'Add venue analysis section', state: 'VALIDATION', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 95, tags: ['Feature', 'Analytics', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
             { id: 'TKT-052', title: 'Add historical trends section', state: 'VALIDATION', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 95, tags: ['Feature', 'Analytics', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
             { id: 'TKT-053', title: 'Add Andy Flower tactical insights', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Domain', 'Content'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
@@ -4363,8 +4386,14 @@
             // Agent border color
             const agentClass = agentClasses[t.assignee] || '';
 
+            // Illini badge for tickets needing Founder review
+            // Shows on: tickets with plans awaiting approval, VALIDATION state, or REVIEW state ready for Founder
+            const needsFounderReview = t.plan || t.state === 'VALIDATION' ||
+                (t.state === 'REVIEW' && t.gates?.domain_sanity === 'YES' && t.gates?.system_check === 'PASS');
+            const founderClass = needsFounderReview ? 'needs-founder-review' : '';
+
             return `
-                <div class="ticket ${isFiltered ? 'filtered-out' : ''} ${retroClass} ${sportClass} ${agentClass}" data-priority="${t.priority}" onclick="openModal('${t.id}')">
+                <div class="ticket ${isFiltered ? 'filtered-out' : ''} ${retroClass} ${sportClass} ${agentClass} ${founderClass}" data-priority="${t.priority}" onclick="openModal('${t.id}')">
                     <div class="ticket-top">
                         <div class="agent-avatar" title="${t.assignee || 'Unassigned'}">${getAgentAvatarImg(t.assignee)}</div>
                         <div class="ticket-info">

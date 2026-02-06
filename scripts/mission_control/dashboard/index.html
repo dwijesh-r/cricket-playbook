@@ -499,7 +499,7 @@
 
         /* ==================== MAIN CONTAINER ==================== */
         .main {
-            padding-top: 60px; /* Increased from 52px to prevent cutoff */
+            padding-top: 68px; /* Extra padding to prevent content cutoff under fixed nav */
             min-height: 100vh;
         }
 
@@ -1125,6 +1125,20 @@
             font-variant-numeric: tabular-nums;
         }
 
+        /* Sport icons for all tickets - based on agent's sport */
+        .ticket::before {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-size: 11px;
+            opacity: 0.5;
+        }
+        .ticket.sport-nfl::before { content: '🏈'; }
+        .ticket.sport-nba::before { content: '🏀'; }
+        .ticket.sport-soccer::before { content: '⚽'; }
+        .ticket.sport-cricket::before { content: '🏏'; }
+        .ticket.sport-founder::before { content: '🌹'; }
+
         /* RETRO ticket special styling - Pep Guardiola's retrospectives */
         .ticket.is-retro {
             border: 2px solid rgba(108, 171, 221, 0.4);
@@ -1136,11 +1150,7 @@
         }
         .ticket.is-retro::before {
             content: '⚽';
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            font-size: 12px;
-            opacity: 0.6;
+            opacity: 0.7;
         }
 
         .ticket-title {
@@ -3111,6 +3121,25 @@
             'Ime Udoka': { role: 'DevOps Lead', team: 'Houston Rockets' }
         };
 
+        // Agent to sport mapping for ticket icons
+        const agentSports = {
+            'Tom Brady': 'nfl',
+            'Brock Purdy': 'nfl',
+            'Stephen Curry': 'nba',
+            'LeBron James': 'nba',
+            'Brad Stevens': 'nba',
+            'Ime Udoka': 'nba',
+            'Kevin de Bruyne': 'soccer',
+            "N'Golo Kanté": 'soccer',
+            'Pep Guardiola': 'soccer',
+            'Jose Mourinho': 'soccer',
+            'Florentino Perez': 'soccer',
+            'Florentino Pérez': 'soccer',
+            'Andy Flower': 'cricket',
+            'Virat Kohli': 'cricket',
+            'Founder': 'founder'
+        };
+
         const columns = [
             { id: 'IDEA', name: 'Idea', dot: 'dot-idea' },
             { id: 'BACKLOG', name: 'Backlog', dot: 'dot-backlog' },
@@ -3350,7 +3379,7 @@
             // ==================== RETROSPECTIVES (RETRO-XXX) ====================
             // Post-completion analysis tickets - Pep Guardiola's domain
             // Output: .editorial/retro.md with what worked/failed + one systemic improvement
-            { id: 'RETRO-001', title: 'Sprint 4 Mid-Sprint Retrospective', state: 'READY', priority: 'P1', effort: 'hustle', assignee: 'Pep Guardiola', epic: 'EPIC-011', progress: 0, tags: ['Retrospective', '⚽ Pep'], gates: {},
+            { id: 'RETRO-001', title: 'Sprint 4 Mid-Sprint Retrospective', state: 'READY', priority: 'P1', effort: 'hustle', assignee: 'Pep Guardiola', retro: 'RETRO-001', progress: 0, tags: ['Retrospective', '⚽ Pep'], gates: {},
               isRetro: true,
               relatedTickets: ['TKT-064', 'TKT-086', 'TKT-096', 'TKT-085'],
               context: {
@@ -3616,8 +3645,12 @@
             const isRetro = t.id.startsWith('RETRO-') || t.isRetro;
             const retroClass = isRetro ? 'is-retro' : '';
 
+            // Sport icon based on assignee
+            const sport = agentSports[t.assignee] || 'cricket';
+            const sportClass = `sport-${sport}`;
+
             return `
-                <div class="ticket ${isFiltered ? 'filtered-out' : ''} ${retroClass}" data-priority="${t.priority}" onclick="openModal('${t.id}')">
+                <div class="ticket ${isFiltered ? 'filtered-out' : ''} ${retroClass} ${sportClass}" data-priority="${t.priority}" onclick="openModal('${t.id}')">
                     <div class="ticket-top">
                         <div class="agent-avatar" title="${t.assignee || 'Unassigned'}">${getAgentAvatarImg(t.assignee)}</div>
                         <div class="ticket-info">

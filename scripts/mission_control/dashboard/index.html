@@ -3959,7 +3959,9 @@
             { id: 'TKT-070', title: 'Implement model versioning', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['MLOps', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'ml_ops/MODEL_VERSIONING.md',
               context: { ask: 'Implement semantic versioning for ML models', goal: 'Version tracking with changelog and rollback capability', reason: 'MLOps best practice: Model lifecycle management', audible: ['Define versioning scheme', 'Implement tracking', 'Add rollback mechanism'] }
             },
-            { id: 'TKT-071', title: 'Create model performance tests', state: 'BACKLOG', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 0, tags: ['Testing', 'ML'], gates: { florentino_gate: 'APPROVED' } },
+            { id: 'TKT-071', title: 'Create model performance tests', state: 'RUNNING', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 10, tags: ['Testing', 'ML'], gates: { florentino_gate: 'APPROVED' },
+              context: { ask: 'Create tests validating ML model performance metrics', goal: 'Automated tests for clustering accuracy, prediction quality', reason: 'MLOps: Ensure model quality before deployment', audible: ['Define performance thresholds', 'Write pytest tests', 'Add to CI pipeline'] }
+            },
             { id: 'TKT-072', title: 'Document ML pipeline', state: 'BACKLOG', priority: 'P2', effort: 'hustle', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 0, tags: ['Documentation', 'ML'], gates: { florentino_gate: 'APPROVED' } },
             { id: 'TKT-073', title: 'Setup model monitoring', state: 'BACKLOG', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 0, tags: ['MLOps', 'Monitoring'], gates: { florentino_gate: 'APPROVED' } },
             { id: 'TKT-074', title: 'Archive ML docs', state: 'BACKLOG', priority: 'P2', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-008', progress: 0, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED' } },
@@ -4014,16 +4016,30 @@
               }
             },
 
-            // Sprint 5.0 Backlog (TKT-087 to TKT-095)
-            { id: 'TKT-087', title: 'Implement Match Phase Index', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 0, tags: ['Feature', 'Analytics'], gates: {} },
-            { id: 'TKT-088', title: 'Build Clutch Performance metric', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 0, tags: ['Feature', 'Analytics'], gates: {} },
-            { id: 'TKT-089', title: 'Create CricPom (KenPom clone)', state: 'IDEA', priority: 'P0', effort: 'marathon', assignee: 'Jose Mourinho', epic: null, progress: 0, tags: ['Feature', 'Research'], gates: {} },
-            { id: 'TKT-090', title: 'Build REST API (FastAPI)', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Brad Stevens', epic: null, progress: 0, tags: ['Backend', 'API'], gates: {} },
-            { id: 'TKT-091', title: 'Create Win Probability model', state: 'IDEA', priority: 'P2', effort: 'marathon', assignee: 'Ime Udoka', epic: null, progress: 0, tags: ['ML', 'Model'], gates: {} },
-            { id: 'TKT-092', title: 'Build Player Form Tracker', state: 'IDEA', priority: 'P1', effort: 'deep-work', assignee: 'Stephen Curry', epic: null, progress: 0, tags: ['Feature', 'Analytics'], gates: {} },
-            { id: 'TKT-093', title: 'Create interactive dashboard (React)', state: 'IDEA', priority: 'P2', effort: 'marathon', assignee: 'Kevin de Bruyne', epic: null, progress: 0, tags: ['Frontend', 'Feature'], gates: {} },
-            { id: 'TKT-094', title: 'Add Great Expectations data validation', state: 'IDEA', priority: 'P1', effort: 'deep-work', assignee: 'Brock Purdy', epic: null, progress: 0, tags: ['Data', 'Quality'], gates: {} },
-            { id: 'TKT-095', title: 'Implement player comparison tool', state: 'IDEA', priority: 'P2', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: null, progress: 0, tags: ['Feature', 'UI'], gates: {} },
+            // Sprint 5.0+ Ideas (IDEA-XXX notation for unscoped work)
+            { id: 'IDEA-001', title: 'Implement Match Phase Index', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 0, tags: ['Feature', 'Analytics'], gates: {},
+              context: { ask: 'Create composite index measuring player impact by match phase', goal: 'Single metric combining PP/Middle/Death performance', reason: 'Simplify phase analysis into actionable score', audible: ['Define index formula', 'Weight phases', 'Validate with Andy Flower'] }
+            },
+            // TKT-088 REMOVED: Duplicate of TKT-050 (Pressure Performance)
+            { id: 'IDEA-002', title: 'Create CricPom (KenPom clone)', state: 'IDEA', priority: 'P0', effort: 'marathon', assignee: 'Jose Mourinho', epic: null, progress: 0, tags: ['Feature', 'Research'], gates: {},
+              context: { ask: 'Build cricket equivalent of KenPom basketball analytics', goal: 'Team/player rating system with predictive power', reason: 'PRD inspiration: KenPom-style rankings', audible: ['Research KenPom methodology', 'Adapt for cricket', 'Design rating algorithm'] }
+            },
+            // TKT-090 REMOVED: REST API deferred - no clear use case yet
+            { id: 'IDEA-003', title: 'Create Win Probability model', state: 'IDEA', priority: 'P2', effort: 'marathon', assignee: 'Ime Udoka', epic: null, progress: 0, tags: ['ML', 'Model'], gates: {},
+              context: { ask: 'Build ML model predicting win probability during match', goal: 'Real-time win % based on match situation', reason: 'Advanced analytics for in-game decisions', audible: ['Collect training data', 'Train model', 'Validate accuracy'] }
+            },
+            { id: 'IDEA-004', title: 'Build Player Form Tracker', state: 'IDEA', priority: 'P1', effort: 'deep-work', assignee: 'Stephen Curry', epic: null, progress: 0, tags: ['Feature', 'Analytics'], gates: {},
+              context: { ask: 'Track player form across recent matches', goal: 'Rolling form indicator (hot/cold/neutral)', reason: 'Current form impacts team selection', audible: ['Define form window', 'Calculate form metrics', 'Add to player profiles'] }
+            },
+            { id: 'IDEA-005', title: 'Create interactive dashboard (React)', state: 'IDEA', priority: 'P2', effort: 'marathon', assignee: 'Kevin de Bruyne', epic: null, progress: 0, tags: ['Frontend', 'Feature'], gates: {},
+              context: { ask: 'Build React-based interactive dashboard', goal: 'Dynamic filtering, charts, drill-downs', reason: 'Static HTML limits user exploration', audible: ['Design components', 'Integrate with data', 'Add interactivity'] }
+            },
+            { id: 'IDEA-006', title: 'Add Great Expectations data validation', state: 'IDEA', priority: 'P1', effort: 'deep-work', assignee: 'Brock Purdy', epic: null, progress: 0, tags: ['Data', 'Quality'], gates: {},
+              context: { ask: 'Implement Great Expectations for data quality checks', goal: 'Automated validation of data pipelines', reason: 'Catch data issues before they reach outputs', audible: ['Install GE', 'Define expectations', 'Add to CI'] }
+            },
+            { id: 'IDEA-007', title: 'Implement player comparison tool', state: 'IDEA', priority: 'P2', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: null, progress: 0, tags: ['Feature', 'UI'], gates: {},
+              context: { ask: 'Build head-to-head player comparison view', goal: 'Side-by-side stats, radar charts, matchup history', reason: 'Common user need: "Who is better?"', audible: ['Design comparison UI', 'Select metrics', 'Add visualizations'] }
+            },
 
             // Code Quality & Optimization (TKT-096 to TKT-102)
             { id: 'TKT-096', title: 'Codebase optimization audit', state: 'DONE', priority: 'P1', effort: 'marathon', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Optimization', 'Code Quality', 'Scalability'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'docs/optimization_audit_report.md', review: 'docs/tkt_096_optimization_summary.md',

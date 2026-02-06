@@ -1453,6 +1453,42 @@
             opacity: 1;
         }
 
+        /* Available Agent Styling */
+        .agent-card.agent-available {
+            border: 1px dashed var(--accent-green);
+            background: linear-gradient(145deg, rgba(48, 209, 88, 0.05) 0%, rgba(28, 28, 30, 0.7) 100%);
+        }
+
+        .agent-card.agent-available::after {
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-teal));
+        }
+
+        .available-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-teal));
+            color: #000;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .agent-available-message {
+            text-align: center;
+            padding: 20px 0;
+            color: var(--accent-green);
+            font-size: 14px;
+        }
+
+        .agent-available-message p {
+            margin: 0;
+            opacity: 0.9;
+        }
+
         .agent-card-header {
             display: flex;
             align-items: center;
@@ -1624,6 +1660,12 @@
         .recent-time {
             font-size: 11px;
             color: var(--text-tertiary);
+        }
+
+        .recent-effort {
+            font-size: 10px;
+            color: var(--text-tertiary);
+            white-space: nowrap;
         }
 
         /* ==================== MODAL ==================== */
@@ -3139,7 +3181,8 @@
             'LeBron James': { role: 'Social & Engagement', team: 'Los Angeles Lakers' },
             'Brad Stevens': { role: 'Architecture', team: 'Boston Celtics' },
             'Brock Purdy': { role: 'Data Pipeline', team: 'San Francisco 49ers' },
-            'Andy Flower': { role: 'Cricket Domain Expert', team: 'Zimbabwe Cricket' },
+            'Andy Flower': { role: 'Cricket Domain Expert', team: 'Royal Challengers Bengaluru' },
+            'Virat Kohli': { role: 'Editorial Lead', team: 'Royal Challengers Bengaluru' },
             "N'Golo Kanté": { role: 'QA Lead', team: 'Al-Ittihad' },
             'Florentino Perez': { role: 'Founder', team: 'Real Madrid' },
             'Florentino Pérez': { role: 'Founder', team: 'Real Madrid' },
@@ -3748,14 +3791,22 @@
             });
 
             grid.innerHTML = Object.entries(agents)
-                .filter(([name]) => agentStats[name].total > 0)
-                .sort((a, b) => agentStats[b[0]].total - agentStats[a[0]].total)
+                .filter(([name]) => name !== 'Florentino Pérez') // Avoid duplicate (use Florentino Perez)
+                .sort((a, b) => {
+                    // Agents with tickets first, then by total count
+                    const aTotal = agentStats[a[0]]?.total || 0;
+                    const bTotal = agentStats[b[0]]?.total || 0;
+                    if (aTotal === 0 && bTotal > 0) return 1;
+                    if (bTotal === 0 && aTotal > 0) return -1;
+                    return bTotal - aTotal;
+                })
                 .map(([name, info]) => {
-                    const stats = agentStats[name];
+                    const stats = agentStats[name] || { total: 0, done: 0, running: 0, blocked: 0, p0: 0, p1: 0, p2: 0, p3: 0, tickets: [] };
                     const completionRate = stats.total ? Math.round((stats.done / stats.total) * 100) : 0;
+                    const isAvailable = stats.total === 0;
 
                     return `
-                        <div class="agent-card" onclick="filterByAgent('${name}'); showView('board');">
+                        <div class="agent-card ${isAvailable ? 'agent-available' : ''}" onclick="filterByAgent('${name}'); showView('board');">
                             <div class="agent-card-header">
                                 <div class="agent-card-avatar">${getAgentAvatarImg(name)}</div>
                                 <div class="agent-card-info">
@@ -3763,8 +3814,14 @@
                                     <div class="agent-card-role">${info.role}</div>
                                     <div class="agent-card-team">${info.team}</div>
                                 </div>
+                                ${isAvailable ? '<div class="available-badge">✨ Available</div>' : ''}
                             </div>
 
+                            ${isAvailable ? `
+                            <div class="agent-available-message">
+                                <p>🎯 Ready for new assignments</p>
+                            </div>
+                            ` : `
                             <div class="agent-stats">
                                 <div class="agent-stat">
                                     <div class="agent-stat-value">${stats.total}</div>
@@ -3773,6 +3830,14 @@
                                 <div class="agent-stat">
                                     <div class="agent-stat-value" style="color: var(--accent-green)">${stats.done}</div>
                                     <div class="agent-stat-label">Done</div>
+                                </div>
+                                <div class="agent-stat">
+                                    <div class="agent-stat-value" style="color: var(--accent-blue)">${stats.running}</div>
+                                    <div class="agent-stat-label">Running</div>
+                                </div>
+                                <div class="agent-stat">
+                                    <div class="agent-stat-value" style="color: var(--accent-red)">${stats.blocked}</div>
+                                    <div class="agent-stat-label">Blocked</div>
                                 </div>
                             </div>
 
@@ -3791,6 +3856,7 @@
                                     <div class="agent-progress-fill" style="width: ${completionRate}%"></div>
                                 </div>
                             </div>
+                            `}
 
                             ${stats.tickets.length ? `
                                 <div class="agent-recent">
@@ -3799,7 +3865,7 @@
                                         <div class="agent-recent-item">
                                             <div class="recent-status ${t.state.toLowerCase()}"></div>
                                             <div class="recent-title">${t.title}</div>
-                                            <div class="recent-time">${t.daysSpent != null ? t.daysSpent + 'd' : 'N/A'}</div>
+                                            <div class="recent-effort">${t.effort ? effortLevels[t.effort]?.name || t.effort : ''}</div>
                                         </div>
                                     `).join('')}
                                 </div>

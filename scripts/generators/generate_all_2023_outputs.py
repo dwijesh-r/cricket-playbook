@@ -14,6 +14,8 @@ This script generates 2023+ filtered versions of:
 Data filter: match_date >= 2023-01-01
 """
 
+from typing import Any, Dict, Tuple
+
 import duckdb
 import pandas as pd
 import json
@@ -139,7 +141,9 @@ BOWLER_MIN_BALLS = {"powerplay": 60, "middle": 60, "death": 50}
 # =============================================================================
 
 
-def generate_batter_bowling_type_2023(conn) -> tuple:
+def generate_batter_bowling_type_2023(
+    conn: duckdb.DuckDBPyConnection,
+) -> Tuple[pd.DataFrame, pd.DataFrame, Dict[str, Dict[str, Any]]]:
     """Generate batter vs bowling type data for 2023+ only."""
 
     print("\n1. Generating batter vs bowling type data (2023+)...")
@@ -363,7 +367,9 @@ def generate_batter_bowling_type_2023(conn) -> tuple:
 # =============================================================================
 
 
-def generate_bowler_handedness_2023(conn) -> tuple:
+def generate_bowler_handedness_2023(
+    conn: duckdb.DuckDBPyConnection,
+) -> Tuple[pd.DataFrame, Dict[str, Dict[str, Any]]]:
     """Generate bowler vs handedness data for 2023+ only."""
 
     print("\n2. Generating bowler vs handedness data (2023+)...")
@@ -512,7 +518,11 @@ def generate_bowler_handedness_2023(conn) -> tuple:
 # =============================================================================
 
 
-def generate_player_tags_2023(conn, batter_tags_dict: dict, bowler_tags_dict: dict):
+def generate_player_tags_2023(
+    conn: duckdb.DuckDBPyConnection,
+    batter_tags_dict: Dict[str, Dict[str, Any]],
+    bowler_tags_dict: Dict[str, Dict[str, Any]],
+) -> Dict[str, Any]:
     """Generate player_tags_2023.json with multi-metric phase tags.
 
     Sprint 4.0 - Multi-metric tagging validated by Andy Flower (Cricket) + Tom Brady (Standards)
@@ -1029,7 +1039,7 @@ def generate_player_tags_2023(conn, batter_tags_dict: dict, bowler_tags_dict: di
 # =============================================================================
 
 
-def get_batter_features_2023(conn) -> pd.DataFrame:
+def get_batter_features_2023(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Extract batter feature vectors for clustering (2023+ only)."""
 
     df = conn.execute(f"""
@@ -1134,7 +1144,7 @@ def get_batter_features_2023(conn) -> pd.DataFrame:
     return df
 
 
-def get_bowler_features_2023(conn) -> pd.DataFrame:
+def get_bowler_features_2023(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Extract bowler feature vectors for clustering (2023+ only)."""
 
     df = conn.execute(f"""
@@ -1251,7 +1261,7 @@ def get_bowler_features_2023(conn) -> pd.DataFrame:
     return df
 
 
-def cluster_players_2023(conn) -> pd.DataFrame:
+def cluster_players_2023(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Cluster batters and bowlers based on 2023+ data."""
 
     print("\n4. Generating player clustering data (2023+)...")
@@ -1423,7 +1433,7 @@ def cluster_players_2023(conn) -> pd.DataFrame:
 # =============================================================================
 
 
-def main():
+def main() -> int:
     print("=" * 70)
     print("Cricket Playbook - Generate All 2023+ Output Files")
     print("Author: Stephen Curry | Sprint 3.0")

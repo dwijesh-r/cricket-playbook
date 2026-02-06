@@ -12,39 +12,49 @@ Generates phase-wise performance tags for bowlers:
 
 import duckdb
 import pandas as pd
-import json
 from pathlib import Path
+import sys
 
+# Add parent directory to path for imports
 SCRIPT_DIR = Path(__file__).parent
+sys.path.insert(0, str(SCRIPT_DIR.parent))
+
+from utils.player_tags import update_player_tags
+from utils.logging_config import setup_logger
+from config import config
+
+# Initialize logger
+logger = setup_logger(__name__)
+
 PROJECT_DIR = SCRIPT_DIR.parent
-DB_PATH = PROJECT_DIR / "data" / "cricket_playbook.duckdb"
-OUTPUT_DIR = PROJECT_DIR / "outputs"
+DB_PATH = config.DB_PATH
+OUTPUT_DIR = config.OUTPUT_DIR
 
 # Data filter - only use recent IPL seasons (2023 onwards)
 # This accounts for drift in stats due to evolution of the game
-IPL_MIN_DATE = "2023-01-01"  # IPL 2023, 2024, 2025
+IPL_MIN_DATE = config.IPL_MIN_DATE
 
 # Minimum overs to qualify for phase tags
-MIN_PP_OVERS = 30
-MIN_MIDDLE_OVERS = 50
-MIN_DEATH_OVERS = 30
+MIN_PP_OVERS = config.MIN_PP_OVERS
+MIN_MIDDLE_OVERS = config.MIN_MIDDLE_OVERS
+MIN_DEATH_OVERS = config.MIN_DEATH_OVERS
 
 # Thresholds for tags
 # Note: Thresholds should be based on percentiles, not arbitrary values
 # Death overs median economy is ~10.8, 75th percentile is ~11.5
-PP_BEAST_ECO = 7.0
-PP_LIABILITY_ECO = 9.5
-MIDDLE_BEAST_ECO = 7.0
-MIDDLE_LIABILITY_ECO = 8.5
-DEATH_BEAST_ECO = 9.0  # Raised from 8.5 (was too strict)
-DEATH_LIABILITY_ECO = 12.0  # Raised from 10.5 (was below median, too harsh)
+PP_BEAST_ECO = config.PP_BEAST_ECO
+PP_LIABILITY_ECO = config.PP_LIABILITY_ECO
+MIDDLE_BEAST_ECO = config.MIDDLE_BEAST_ECO
+MIDDLE_LIABILITY_ECO = config.MIDDLE_LIABILITY_ECO
+DEATH_BEAST_ECO = config.DEATH_BEAST_ECO
+DEATH_LIABILITY_ECO = config.DEATH_LIABILITY_ECO
 
 # Strike rate thresholds (balls per wicket) - higher = worse
 # Median death SR is ~12.3, 75th percentile is ~15.0
-DEATH_LIABILITY_SR = 18.0  # Only liability if ALSO poor strike rate
+DEATH_LIABILITY_SR = config.DEATH_LIABILITY_SR
 
 
-def get_bowler_phase_stats(conn) -> pd.DataFrame:
+def get_bowler_phase_stats(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Get bowler performance by match phase."""
 
     df = conn.execute(f"""
@@ -153,12 +163,12 @@ def assign_phase_tags(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def print_analysis(df: pd.DataFrame):
-    """Print summary analysis."""
+def log_analysis(df: pd.DataFrame) -> None:
+    """Log summary analysis using logger."""
 
-    print("\n" + "=" * 70)
-    print("BOWLER PHASE PERFORMANCE TAGS")
-    print("=" * 70)
+    logger.info("=" * 70)
+    logger.info("BOWLER PHASE PERFORMANCE TAGS")
+    logger.info("=" * 70)
 
     # Count tags
     tag_counts = {}
@@ -166,7 +176,7 @@ def print_analysis(df: pd.DataFrame):
         for tag in tags_list:
             tag_counts[tag] = tag_counts.get(tag, 0) + 1
 
-    print("\n  Tag Distribution:")
+    logger.info("Tag Distribution:")
     for tag in [
         "PP_BEAST",
         "PP_LIABILITY",
@@ -176,90 +186,72 @@ def print_analysis(df: pd.DataFrame):
         "DEATH_LIABILITY",
     ]:
         count = tag_counts.get(tag, 0)
-        print(f"    {tag}: {count}")
+        logger.info("  %s: %d", tag, count)
 
     # Top PP beasts
-    print("\n  TOP POWERPLAY BEASTS:")
+    logger.info("TOP POWERPLAY BEASTS:")
     pp_beasts = df[df["phase_tags"].apply(lambda x: "PP_BEAST" in x)].nsmallest(
         10, "powerplay_economy"
     )
     for _, row in pp_beasts.iterrows():
-        print(
-            f"    {row['bowler_name']}: PP Eco {row['powerplay_economy']:.2f} ({row['powerplay_overs']:.0f} overs)"
+        logger.debug(
+            "  %s: PP Eco %.2f (%.0f overs)",
+            row["bowler_name"],
+            row["powerplay_economy"],
+            row["powerplay_overs"],
         )
 
     # Top death beasts
-    print("\n  TOP DEATH BEASTS:")
+    logger.info("TOP DEATH BEASTS:")
     death_beasts = df[df["phase_tags"].apply(lambda x: "DEATH_BEAST" in x)].nsmallest(
         10, "death_economy"
     )
     for _, row in death_beasts.iterrows():
-        print(
-            f"    {row['bowler_name']}: Death Eco {row['death_economy']:.2f} ({row['death_overs']:.0f} overs)"
+        logger.debug(
+            "  %s: Death Eco %.2f (%.0f overs)",
+            row["bowler_name"],
+            row["death_economy"],
+            row["death_overs"],
         )
 
     # Death liabilities
-    print("\n  DEATH LIABILITIES:")
+    logger.info("DEATH LIABILITIES:")
     death_liab = df[df["phase_tags"].apply(lambda x: "DEATH_LIABILITY" in x)].nlargest(
         10, "death_economy"
     )
     for _, row in death_liab.iterrows():
-        print(
-            f"    {row['bowler_name']}: Death Eco {row['death_economy']:.2f} ({row['death_overs']:.0f} overs)"
+        logger.debug(
+            "  %s: Death Eco %.2f (%.0f overs)",
+            row["bowler_name"],
+            row["death_economy"],
+            row["death_overs"],
         )
 
 
-def update_player_tags_json(phase_df: pd.DataFrame):
-    """Update player_tags.json with phase performance tags."""
+def update_player_tags_json(phase_df: pd.DataFrame) -> int:
+    """Update player_tags.json with phase performance tags.
 
-    tags_path = OUTPUT_DIR / "player_tags.json"
-
-    if tags_path.exists():
-        with open(tags_path) as f:
-            tags_data = json.load(f)
-    else:
-        tags_data = {"batters": [], "bowlers": []}
-
+    TKT-097: Refactored to use shared utils/player_tags.py module.
+    """
     # Create lookup for phase tags
     phase_lookup = {}
     for _, row in phase_df.iterrows():
         if row["phase_tags"]:
             phase_lookup[row["bowler_id"]] = row["phase_tags"]
 
-    # All phase tags to remove before updating
-    phase_tags_set = {
-        "PP_BEAST",
-        "PP_LIABILITY",
-        "MIDDLE_OVERS_BEAST",
-        "MIDDLE_OVERS_LIABILITY",
-        "DEATH_BEAST",
-        "DEATH_LIABILITY",
-    }
+    # Use shared utility to update tags
+    updated_count = update_player_tags(
+        category="phase",
+        new_tags_lookup=phase_lookup,
+        player_type="bowlers",
+    )
 
-    # Update bowler tags
-    updated_count = 0
-    for bowler in tags_data.get("bowlers", []):
-        player_id = bowler.get("player_id")
-        if player_id in phase_lookup:
-            existing_tags = set(bowler.get("tags", []))
-            new_tags = set(phase_lookup[player_id])
-            # Remove old phase tags first
-            existing_tags -= phase_tags_set
-            # Add new ones
-            existing_tags.update(new_tags)
-            bowler["tags"] = list(existing_tags)
-            updated_count += 1
-
-    # Save updated file
-    with open(tags_path, "w") as f:
-        json.dump(tags_data, f, indent=2)
-
-    print(f"\n  Updated {updated_count} bowlers in player_tags.json")
+    logger.info("Updated %d bowlers in player_tags.json", updated_count)
 
     return updated_count
 
 
-def save_data(df: pd.DataFrame):
+def save_data(df: pd.DataFrame) -> None:
     """Save phase data to CSV."""
 
     output_path = OUTPUT_DIR / "bowler_phase_performance.csv"
@@ -283,51 +275,51 @@ def save_data(df: pd.DataFrame):
 
     output_df["phase_tags"] = output_df["phase_tags"].apply(lambda x: ", ".join(x) if x else "")
     output_df.to_csv(output_path, index=False)
-    print(f"\n  Phase data saved to: {output_path}")
+    logger.info("Phase data saved to: %s", output_path)
 
 
-def main():
-    print("=" * 70)
-    print("Cricket Playbook - Bowler Phase Performance Tags")
-    print("Author: Stephen Curry | Sprint 2.7")
-    print("=" * 70)
+def main() -> int:
+    logger.info("=" * 70)
+    logger.info("Cricket Playbook - Bowler Phase Performance Tags")
+    logger.info("Author: Stephen Curry | Sprint 2.7")
+    logger.info("=" * 70)
 
     if not DB_PATH.exists():
-        print(f"\nERROR: Database not found at {DB_PATH}")
+        logger.error("Database not found at %s", DB_PATH)
         return 1
 
     conn = duckdb.connect(str(DB_PATH), read_only=True)
 
     # Get bowler phase stats
-    print("\n1. Extracting bowler phase performance...")
+    logger.info("[1/5] Extracting bowler phase performance...")
     raw_df = get_bowler_phase_stats(conn)
-    print(f"   Records: {len(raw_df)}")
+    logger.info("Records: %d", len(raw_df))
 
     # Pivot to one row per bowler
-    print("\n2. Pivoting phase stats...")
+    logger.info("[2/5] Pivoting phase stats...")
     pivot_df = pivot_phase_stats(raw_df)
-    print(f"   Bowlers: {len(pivot_df)}")
+    logger.info("Bowlers: %d", len(pivot_df))
 
     # Assign tags
-    print("\n3. Assigning phase tags...")
+    logger.info("[3/5] Assigning phase tags...")
     tagged_df = assign_phase_tags(pivot_df)
 
-    # Print analysis
-    print_analysis(tagged_df)
+    # Log analysis
+    log_analysis(tagged_df)
 
     # Save data
-    print("\n4. Saving results...")
+    logger.info("[4/5] Saving results...")
     save_data(tagged_df)
 
     # Update player_tags.json
-    print("\n5. Updating player_tags.json...")
+    logger.info("[5/5] Updating player_tags.json...")
     update_player_tags_json(tagged_df)
 
     conn.close()
 
-    print("\n" + "=" * 70)
-    print("BOWLER PHASE TAGS COMPLETE")
-    print("=" * 70)
+    logger.info("=" * 70)
+    logger.info("BOWLER PHASE TAGS COMPLETE")
+    logger.info("=" * 70)
 
     return 0
 

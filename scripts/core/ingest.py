@@ -13,6 +13,8 @@ Output:
     - data/processed/schema.md (schema documentation)
 """
 
+from typing import Any, Dict, Tuple
+
 import json
 import hashlib
 import zipfile
@@ -50,7 +52,7 @@ def slugify(text: str) -> str:
     return text.lower().replace(" ", "_").replace("'", "").replace("-", "_")
 
 
-def parse_over_ball(over_decimal: float) -> tuple[int, int]:
+def parse_over_ball(over_decimal: float) -> Tuple[int, int]:
     """Convert decimal over (e.g., 5.3) to (over, ball)."""
     over = int(over_decimal)
     ball = round((over_decimal - over) * 10)
@@ -107,7 +109,7 @@ class CricketIngester:
             "errors": [],
         }
 
-    def extract_tournament_info(self, info: dict, source_file: str) -> str:
+    def extract_tournament_info(self, info: Dict[str, Any], source_file: str) -> str:
         """Extract or create tournament dimension."""
         event = info.get("event", {})
         event_name = event.get("name", "Unknown") if isinstance(event, dict) else str(event)
@@ -213,7 +215,7 @@ class CricketIngester:
 
         return player_id
 
-    def extract_venue(self, info: dict) -> str:
+    def extract_venue(self, info: Dict[str, Any]) -> str:
         """Extract or create venue dimension."""
         venue_name = info.get("venue", "Unknown")
         city = info.get("city", "Unknown")
@@ -229,7 +231,7 @@ class CricketIngester:
 
         return venue_id
 
-    def process_match(self, match_data: dict, source_file: str):
+    def process_match(self, match_data: Dict[str, Any], source_file: str) -> None:
         """Process a single match JSON."""
         info = match_data.get("info", {})
         innings_data = match_data.get("innings", [])
@@ -525,7 +527,7 @@ class CricketIngester:
 
         self.stats["matches_processed"] += 1
 
-    def process_zip_file(self, zip_path: Path):
+    def process_zip_file(self, zip_path: Path) -> None:
         """Process all JSON files in a zip archive."""
         logger.info("Processing: %s", zip_path.name)
         self.stats["zip_files"] += 1
@@ -548,7 +550,7 @@ class CricketIngester:
             logger.error("Error opening zip file %s: %s", zip_path.name, str(e))
             self.stats["errors"].append(f"{zip_path.name}: {str(e)}")
 
-    def derive_player_roles(self):
+    def derive_player_roles(self) -> None:
         """Derive primary role and wicketkeeper status for each player based on match data."""
         player_batting = defaultdict(int)
         player_bowling = defaultdict(int)
@@ -603,7 +605,7 @@ class CricketIngester:
             1 for p in self.players.values() if p.get("is_wicketkeeper")
         )
 
-    def load_to_duckdb(self):
+    def load_to_duckdb(self) -> None:
         """Load all data into DuckDB."""
         logger.info("Loading to DuckDB: %s", DB_PATH)
 
@@ -665,7 +667,7 @@ class CricketIngester:
         db_size_mb = DB_PATH.stat().st_size / 1024 / 1024
         logger.info("Database size: %.1f MB", db_size_mb)
 
-    def generate_manifest(self):
+    def generate_manifest(self) -> None:
         """Generate ingestion manifest."""
         logger.info("Generating ingestion manifest...")
         manifest = {
@@ -689,7 +691,7 @@ class CricketIngester:
 
         logger.info("Manifest saved: %s", MANIFEST_PATH)
 
-    def generate_schema_doc(self):
+    def generate_schema_doc(self) -> None:
         """Generate schema documentation."""
         doc = """# Cricket Playbook Schema
 
@@ -822,7 +824,7 @@ This database contains ball-by-ball T20 cricket data from Cricsheet.
 
         print(f"Schema doc saved: {SCHEMA_DOC_PATH}")
 
-    def run(self):
+    def run(self) -> None:
         """Run the full ingestion pipeline."""
         logger.info("=" * 60)
         logger.info("Cricket Playbook - Data Ingestion Pipeline")

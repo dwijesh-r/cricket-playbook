@@ -25,21 +25,30 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 from collections import Counter
+import sys
 
 SCRIPT_DIR = Path(__file__).parent
+sys.path.insert(0, str(SCRIPT_DIR.parent))
+
+from utils.logging_config import setup_logger
+from config import config
+
+# Initialize logger
+logger = setup_logger(__name__)
+
 PROJECT_DIR = SCRIPT_DIR.parent
-DB_PATH = PROJECT_DIR / "data" / "cricket_playbook.duckdb"
-OUTPUT_DIR = PROJECT_DIR / "outputs"
+DB_PATH = config.DB_PATH
+OUTPUT_DIR = config.OUTPUT_DIR
 
 # Data filter - only use recent IPL seasons (2023 onwards)
 # This accounts for drift in stats due to evolution of the game
-IPL_MIN_DATE = "2023-01-01"  # IPL 2023, 2024, 2025
+IPL_MIN_DATE = config.IPL_MIN_DATE
 
 # Minimum innings to include
 MIN_INNINGS = 15  # Increased from 5 per Founder Review #3
 
 
-def get_batter_entry_points(conn) -> pd.DataFrame:
+def get_batter_entry_points(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Calculate entry ball for each batter in each innings.
 
     Uses cumulative LEGAL ball count (not ball_seq which includes extras).
@@ -149,7 +158,7 @@ def calculate_batter_entry_stats(entry_df: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(results)
 
 
-def get_bowler_over_distribution(conn) -> pd.DataFrame:
+def get_bowler_over_distribution(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Calculate when bowlers typically bowl their overs."""
 
     df = conn.execute(f"""
@@ -254,45 +263,51 @@ def calculate_bowler_over_timing(over_df: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(results)
 
 
-def print_batter_analysis(df: pd.DataFrame):
-    """Print batter entry point analysis."""
+def log_batter_analysis(df: pd.DataFrame) -> None:
+    """Log batter entry point analysis."""
 
-    print("\n" + "=" * 70)
-    print("BATTER ENTRY POINT ANALYSIS")
-    print("=" * 70)
+    logger.info("=" * 70)
+    logger.info("BATTER ENTRY POINT ANALYSIS")
+    logger.info("=" * 70)
 
-    print(f"\n  Batters analyzed: {len(df)}")
+    logger.info("Batters analyzed: %d", len(df))
 
     # By position category
     for cat in ["OPENER", "TOP_ORDER", "MIDDLE_ORDER", "LOWER_ORDER"]:
         count = len(df[df["position_category"] == cat])
-        print(f"  {cat}: {count}")
+        logger.info("  %s: %d", cat, count)
 
     # Top openers (lowest entry)
-    print("\n  OPENERS (median entry ≤ ball 6):")
+    logger.info("OPENERS (median entry <= ball 6):")
     openers = df[df["position_category"] == "OPENER"].nsmallest(10, "median_entry_ball")
     for _, row in openers.iterrows():
-        print(
-            f"    {row['batter_name']}: median ball {row['median_entry_ball']:.0f} ({row['innings_count']} innings)"
+        logger.debug(
+            "  %s: median ball %.0f (%d innings)",
+            row["batter_name"],
+            row["median_entry_ball"],
+            row["innings_count"],
         )
 
     # Typical finishers (highest entry)
-    print("\n  FINISHERS (median entry > ball 60):")
+    logger.info("FINISHERS (median entry > ball 60):")
     finishers = df[df["position_category"] == "LOWER_ORDER"].nlargest(10, "median_entry_ball")
     for _, row in finishers.iterrows():
-        print(
-            f"    {row['batter_name']}: median ball {row['median_entry_ball']:.0f} ({row['innings_count']} innings)"
+        logger.debug(
+            "  %s: median ball %.0f (%d innings)",
+            row["batter_name"],
+            row["median_entry_ball"],
+            row["innings_count"],
         )
 
 
-def print_bowler_analysis(df: pd.DataFrame):
-    """Print bowler over timing analysis."""
+def log_bowler_analysis(df: pd.DataFrame) -> None:
+    """Log bowler over timing analysis."""
 
-    print("\n" + "=" * 70)
-    print("BOWLER OVER TIMING ANALYSIS")
-    print("=" * 70)
+    logger.info("=" * 70)
+    logger.info("BOWLER OVER TIMING ANALYSIS")
+    logger.info("=" * 70)
 
-    print(f"\n  Bowlers analyzed: {len(df)}")
+    logger.info("Bowlers analyzed: %d", len(df))
 
     # By role category
     for cat in [
@@ -302,92 +317,102 @@ def print_bowler_analysis(df: pd.DataFrame):
         "PP_AND_DEATH_SPECIALIST",
     ]:
         count = len(df[df["role_category"] == cat])
-        print(f"  {cat}: {count}")
+        logger.info("  %s: %d", cat, count)
 
     # Powerplay specialists
-    print("\n  POWERPLAY BOWLERS (1st over typically in PP):")
+    logger.info("POWERPLAY BOWLERS (1st over typically in PP):")
     pp_bowlers = df[df["role_category"] == "POWERPLAY_BOWLER"].head(10)
     for _, row in pp_bowlers.iterrows():
         o1 = row.get("over1_median", "N/A")
-        print(
-            f"    {row['bowler_name']}: 1st over typically over {o1} ({row['match_count']} matches)"
+        logger.debug(
+            "  %s: 1st over typically over %s (%d matches)",
+            row["bowler_name"],
+            o1,
+            row["match_count"],
         )
 
     # Death specialists
-    print("\n  DEATH BOWLERS (4th over typically at death):")
+    logger.info("DEATH BOWLERS (4th over typically at death):")
     death_bowlers = df[df["role_category"] == "DEATH_BOWLER"].head(10)
     for _, row in death_bowlers.iterrows():
         o4 = row.get("over4_median", "N/A")
-        print(
-            f"    {row['bowler_name']}: 4th over typically over {o4} ({row['match_count']} matches)"
+        logger.debug(
+            "  %s: 4th over typically over %s (%d matches)",
+            row["bowler_name"],
+            o4,
+            row["match_count"],
         )
 
     # Dual-phase specialists (PP + Death)
-    print("\n  PP AND DEATH SPECIALISTS (bowl both phases):")
+    logger.info("PP AND DEATH SPECIALISTS (bowl both phases):")
     dual_bowlers = df[df["role_category"] == "PP_AND_DEATH_SPECIALIST"].head(10)
     for _, row in dual_bowlers.iterrows():
         o1 = row.get("over1_median", "N/A")
         o4 = row.get("over4_median", "N/A")
-        print(
-            f"    {row['bowler_name']}: 1st over={o1}, 4th over={o4} ({row['match_count']} matches)"
+        logger.debug(
+            "  %s: 1st over=%s, 4th over=%s (%d matches)",
+            row["bowler_name"],
+            o1,
+            o4,
+            row["match_count"],
         )
 
 
-def save_data(batter_df: pd.DataFrame, bowler_df: pd.DataFrame):
+def save_data(batter_df: pd.DataFrame, bowler_df: pd.DataFrame) -> None:
     """Save entry point data to CSV."""
 
     batter_path = OUTPUT_DIR / "batter_entry_points.csv"
     batter_df.to_csv(batter_path, index=False)
-    print(f"\n  Batter entry points saved to: {batter_path}")
+    logger.info("Batter entry points saved to: %s", batter_path)
 
     bowler_path = OUTPUT_DIR / "bowler_over_timing.csv"
     bowler_df.to_csv(bowler_path, index=False)
-    print(f"  Bowler over timing saved to: {bowler_path}")
+    logger.info("Bowler over timing saved to: %s", bowler_path)
 
 
-def main():
-    print("=" * 70)
-    print("Cricket Playbook - Entry Point Analysis")
-    print("Author: Stephen Curry | Sprint 2.9 - Entry Point Bug Fix")
-    print("=" * 70)
+def main() -> int:
+    logger.info("=" * 70)
+    logger.info("Cricket Playbook - Entry Point Analysis")
+    logger.info("Author: Stephen Curry | Sprint 2.9 - Entry Point Bug Fix")
+    logger.info("=" * 70)
 
     if not DB_PATH.exists():
-        print(f"\nERROR: Database not found at {DB_PATH}")
+        logger.error("Database not found at %s", DB_PATH)
         return 1
 
     conn = duckdb.connect(str(DB_PATH), read_only=True)
 
     # Batter entry points
-    print("\n1. Extracting batter entry points...")
+    logger.info("[1/5] Extracting batter entry points...")
     batter_entry_df = get_batter_entry_points(conn)
-    print(f"   Records: {len(batter_entry_df)}")
+    logger.info("Records: %d", len(batter_entry_df))
 
-    print("\n2. Calculating batter entry statistics...")
+    logger.info("[2/5] Calculating batter entry statistics...")
     batter_stats_df = calculate_batter_entry_stats(batter_entry_df)
-    print(f"   Batters: {len(batter_stats_df)}")
+    logger.info("Batters: %d", len(batter_stats_df))
 
     # Bowler over timing
-    print("\n3. Extracting bowler over distribution...")
+    logger.info("[3/5] Extracting bowler over distribution...")
     bowler_over_df = get_bowler_over_distribution(conn)
-    print(f"   Records: {len(bowler_over_df)}")
+    logger.info("Records: %d", len(bowler_over_df))
 
-    print("\n4. Calculating bowler over timing...")
+    logger.info("[4/5] Calculating bowler over timing...")
     bowler_stats_df = calculate_bowler_over_timing(bowler_over_df)
-    print(f"   Bowlers: {len(bowler_stats_df)}")
+    logger.info("Bowlers: %d", len(bowler_stats_df))
 
-    # Print analysis
-    print_batter_analysis(batter_stats_df)
-    print_bowler_analysis(bowler_stats_df)
+    # Log analysis
+    log_batter_analysis(batter_stats_df)
+    log_bowler_analysis(bowler_stats_df)
 
     # Save data
-    print("\n5. Saving results...")
+    logger.info("[5/5] Saving results...")
     save_data(batter_stats_df, bowler_stats_df)
 
     conn.close()
 
-    print("\n" + "=" * 70)
-    print("ENTRY POINT ANALYSIS COMPLETE")
-    print("=" * 70)
+    logger.info("=" * 70)
+    logger.info("ENTRY POINT ANALYSIS COMPLETE")
+    logger.info("=" * 70)
 
     return 0
 

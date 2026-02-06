@@ -17,7 +17,7 @@ import csv
 import sys
 from pathlib import Path
 from dataclasses import dataclass, field
-from typing import Optional
+from typing import Any, Dict, List, Optional, Tuple
 from enum import Enum
 
 # Add parent directory to path for utils import
@@ -208,7 +208,7 @@ class PredictedXII:
 # =============================================================================
 
 
-def load_squads() -> tuple:
+def load_squads() -> Tuple[Dict[str, List[Dict[str, str]]], Dict[str, str]]:
     """
     Load IPL 2026 squad data.
 
@@ -240,7 +240,7 @@ def load_squads() -> tuple:
     return squads, captains
 
 
-def load_contracts() -> dict:
+def load_contracts() -> Dict[str, Dict[str, Any]]:
     """Load player contract/auction prices"""
     contracts = {}
     contract_file = DATA_DIR / "ipl_2026_player_contracts.csv"
@@ -258,7 +258,7 @@ def load_contracts() -> dict:
     return contracts
 
 
-def load_player_tags() -> dict:
+def load_player_tags() -> Dict[str, Dict[str, Dict[str, Any]]]:
     """Load player tags from 2023+ analysis"""
     tags = {"batters": {}, "bowlers": {}}
     tags_file = OUTPUT_DIR / "player_tags_2023.json"
@@ -285,7 +285,7 @@ def load_player_tags() -> dict:
     return tags
 
 
-def load_bowler_phase_performance() -> dict:
+def load_bowler_phase_performance() -> Dict[str, Dict[str, str]]:
     """Load bowler phase performance metrics"""
     metrics = {}
     metrics_file = OUTPUT_DIR / "metrics" / "bowler_phase_performance.csv"
@@ -299,7 +299,7 @@ def load_bowler_phase_performance() -> dict:
     return metrics
 
 
-def load_batting_entry_points() -> dict:
+def load_batting_entry_points() -> Dict[str, Dict[str, Any]]:
     """
     Load 2023 batting entry points data for position assignment.
     This data contains mean/median entry positions for batters.
@@ -326,7 +326,7 @@ def load_batting_entry_points() -> dict:
     return entry_points
 
 
-def load_batter_metrics() -> dict:
+def load_batter_metrics() -> Dict[str, Dict[str, float]]:
     """
     Load batter consistency metrics for SUPER SELECTOR v3.0 scoring.
     Includes boundary_pct and consistency_index.
@@ -352,7 +352,7 @@ def load_batter_metrics() -> dict:
     return metrics
 
 
-def load_bowler_metrics() -> dict:
+def load_bowler_metrics() -> Dict[str, Dict[str, float]]:
     """
     Load bowler pressure metrics for SUPER SELECTOR v3.0 scoring.
     Includes death_dot_pct and death bowling economy.
@@ -490,7 +490,11 @@ def is_overseas_player(player_name: str) -> bool:
     return player_name in OVERSEAS_PLAYERS
 
 
-def build_players(squads: dict, contracts: dict, tags: dict) -> dict:
+def build_players(
+    squads: Dict[str, List[Dict[str, str]]],
+    contracts: Dict[str, Dict[str, Any]],
+    tags: Dict[str, Dict[str, Dict[str, Any]]],
+) -> Dict[str, List[Player]]:
     """Build Player objects for all teams"""
     team_players = {}
 
@@ -730,7 +734,7 @@ def score_bowler(player: Player) -> float:
 
 
 def score_player(player: Player) -> None:
-    """Calculate overall player score"""
+    """Calculate overall player score."""
     player.batting_score = score_batter(player)
     player.bowling_score = score_bowler(player)
 
@@ -762,7 +766,7 @@ def score_player(player: Player) -> None:
 # =============================================================================
 
 
-def check_constraints(xi: list) -> tuple:
+def check_constraints(xi: List[SelectedPlayer]) -> Tuple[bool, List[str]]:
     """
     Check hard constraints from PRD:
     C1: Maximum 4 overseas players
@@ -815,7 +819,7 @@ def check_constraints(xi: list) -> tuple:
     return len(violations) == 0, violations
 
 
-def get_balance_metrics(xi: list) -> dict:
+def get_balance_metrics(xi: List[SelectedPlayer]) -> Dict[str, int]:
     """Calculate balance metrics for the XI"""
     players = [sp.player for sp in xi]
 
@@ -838,7 +842,7 @@ def get_balance_metrics(xi: list) -> dict:
 # =============================================================================
 
 
-def get_role_candidates(players: list, role: str) -> list:
+def get_role_candidates(players: List[Player], role: str) -> List[Player]:
     """Get candidates for a specific role"""
     candidates = []
 
@@ -953,7 +957,12 @@ def generate_rationale(player: Player, role_in_xi: str) -> str:
     return ". ".join(rationales[:2])
 
 
-def select_xi(team: str, players: list, venue_bias: str, entry_points: dict = None) -> tuple:
+def select_xi(
+    team: str,
+    players: List[Player],
+    venue_bias: str,
+    entry_points: Optional[Dict[str, Dict[str, Any]]] = None,
+) -> Tuple[List[SelectedPlayer], List[str]]:
     """
     Select optimal XI using constraint-satisfaction algorithm
 
@@ -1171,9 +1180,324 @@ def select_xi(team: str, players: list, venue_bias: str, entry_points: dict = No
     return selected, remaining, constraints_ok, violations, notes
 
 
-def reorder_batting_positions(selected: list, entry_points: dict = None) -> list:
+def _get_batting_tier(player: SelectedPlayer, entry_points: Dict[str, Dict[str, Any]]) -> int:
     """
-    Reorder players into proper batting positions using:
+    Determine batting tier (1-5) based on ENTRY POINT DATA as primary signal.
+
+    SUPER SELECTOR v3.0: Entry points are the PRIMARY position validator.
+
+    Tiers based on avg_entry_ball:
+    1 = Opener (0-15 balls / overs 1-2.5)
+    2 = Top Order (16-40 balls / overs 3-7)  -> Positions 3-4
+    3 = Middle Order (41-70 balls / overs 7-12) -> Positions 5-6
+    4 = Finisher (71-100 balls / overs 12-17) -> Positions 7-8
+    5 = Bowler (100+ balls or no batting data) -> Positions 9-11
+
+    Args:
+        player: SelectedPlayer to evaluate
+        entry_points: Dictionary of player entry point data
+
+    Returns:
+        int: Batting tier (1-5)
+    """
+    p = player.player
+    pid = p.player_id
+
+    # Get historical entry point - THIS IS THE PRIMARY SIGNAL
+    entry_data = entry_points.get(pid, {})
+    avg_entry = entry_data.get("avg_entry_ball")
+    entry_class = entry_data.get("classification", "")
+
+    # PRIORITY 1: BOWLERS ALWAYS BAT 9-11 (regardless of entry point)
+    # Exception: All-rounders with batting classification
+    if p.role == "Bowler":
+        # Only exception: if they have significant batting classification
+        if p.batter_classification in [
+            "Power Finisher",
+            "All-Round Finisher",
+            "Aggressive Opener",
+        ]:
+            pass  # Let them be placed by entry point
+        else:
+            return 5  # Bowlers bat last
+
+    # PRIORITY 2: Spinners who are primarily bowlers bat 9-11
+    if p.is_spinner and p.role == "Bowler":
+        return 5
+
+    # PRIORITY 3: Entry Point Data (PRIMARY POSITION VALIDATOR)
+    if avg_entry is not None:
+        if avg_entry <= 12:
+            return 1
+        elif avg_entry <= 45:
+            return 2
+        elif avg_entry <= 75:
+            return 3
+        elif avg_entry <= 105:
+            return 4
+        else:
+            return 5
+
+    # PRIORITY 4: Entry classification from CSV
+    if entry_class == "TOP_ORDER":
+        return 2
+    if entry_class == "MIDDLE_ORDER":
+        return 3
+    if entry_class == "LOWER_ORDER":
+        return 4
+
+    # PRIORITY 5: Classification-based (fallback when no entry data)
+    if p.batter_classification == "Aggressive Opener":
+        return 1
+    if p.batter_classification == "Elite Top-Order":
+        return 2
+    if p.batter_classification == "Anchor":
+        return 3
+    if p.batter_classification in ["Power Finisher", "All-Round Finisher"]:
+        return 3
+
+    # PRIORITY 6: Tag-based fallback
+    opener_tags = ["EXPLOSIVE_OPENER", "PP_DOMINATOR"]
+    middle_tags = ["ANCHOR", "ACCUMULATOR", "MIDDLE_ORDER"]
+    finisher_tags = ["FINISHER", "DEATH_SPECIALIST", "SIX_HITTER"]
+
+    if any(tag in p.batter_tags for tag in opener_tags):
+        return 1
+    if any(tag in p.batter_tags for tag in middle_tags):
+        return 3
+    if any(tag in p.batter_tags for tag in finisher_tags):
+        return 4
+
+    # PRIORITY 7: Role-based fallback
+    if p.role == "All-rounder":
+        if p.batter_classification:
+            return 3
+        return 4
+    if p.role in ["Batter", "Wicketkeeper"]:
+        return 2
+
+    return 4
+
+
+def _get_tier_score(player: SelectedPlayer, tier: int) -> float:
+    """
+    Get sorting score within a tier (higher = better).
+
+    Args:
+        player: SelectedPlayer to score
+        tier: The batting tier (1-5)
+
+    Returns:
+        float: Score for sorting within the tier
+    """
+    p = player.player
+    base_score = p.batting_score
+
+    # Wicketkeepers get bonus to keep together with other batters
+    if p.is_wicketkeeper:
+        base_score += 5
+
+    # Price bonus
+    if p.price_cr >= 15:
+        base_score += 15
+    elif p.price_cr >= 10:
+        base_score += 10
+    elif p.price_cr >= 5:
+        base_score += 5
+
+    # Tier-specific bonuses
+    if tier == 1:
+        if "EXPLOSIVE_OPENER" in p.batter_tags:
+            base_score += 10
+        if "PP_DOMINATOR" in p.batter_tags:
+            base_score += 8
+
+    if tier in [2, 3]:
+        if "ANCHOR" in p.batter_tags:
+            base_score += 5
+        if "CONSISTENT" in p.batter_tags:
+            base_score += 5
+
+    if tier == 4:
+        if "FINISHER" in p.batter_tags:
+            base_score += 10
+        if "DEATH_SPECIALIST" in p.batter_tags:
+            base_score += 8
+        if "SIX_HITTER" in p.batter_tags:
+            base_score += 5
+
+    return base_score
+
+
+def _assign_positions_by_tier(
+    tiers: Dict[int, List[SelectedPlayer]], entry_points: Dict[str, Dict[str, Any]]
+) -> Tuple[List[SelectedPlayer], int]:
+    """
+    Assign batting positions based on tier categorization.
+
+    SUPER SELECTOR v3.0: Strict entry-point based position assignment.
+    Tiers stay in their designated positions with minimal pulling up/down.
+
+    Args:
+        tiers: Dictionary mapping tier number to list of players
+        entry_points: Player entry point data for flex placement
+
+    Returns:
+        Tuple of (batting_order list, next position number)
+    """
+    batting_order = []
+    position = 1
+
+    def add_to_order(sp, pos):
+        sp.batting_position = pos
+        batting_order.append(sp)
+
+    # Positions 1-2: Openers (tier 1 ONLY)
+    for sp in tiers[1][:2]:
+        add_to_order(sp, position)
+        position += 1
+
+    # Fill from tier 2 if needed
+    tier2_used = 0
+    while position <= 2 and tier2_used < len(tiers[2]):
+        add_to_order(tiers[2][tier2_used], position)
+        position += 1
+        tier2_used += 1
+
+    # Positions 3-4: Top Order (tier 2 + extra tier 1)
+    tier1_remaining = tiers[1][2:]
+    for sp in tier1_remaining:
+        if position <= 4:
+            add_to_order(sp, position)
+            position += 1
+
+    for sp in tiers[2][tier2_used:]:
+        if position <= 4:
+            add_to_order(sp, position)
+            position += 1
+
+    # Flexible tier 3 placement
+    tier3_sorted = sorted(
+        tiers[3],
+        key=lambda x: entry_points.get(x.player.player_id, {}).get("avg_entry_ball", 999),
+    )
+
+    if position == 4 and tier3_sorted:
+        flex_player = tier3_sorted.pop(0)
+        add_to_order(flex_player, 4)
+        position = 5
+
+    position = max(position, 5)
+
+    # Positions 5-6: Middle Order
+    for sp in tier3_sorted:
+        if position <= 6:
+            add_to_order(sp, position)
+            position += 1
+
+    # Flexible tier 4 placement
+    tier4_sorted = sorted(
+        tiers[4],
+        key=lambda x: entry_points.get(x.player.player_id, {}).get("avg_entry_ball", 999),
+    )
+
+    while position <= 6 and tier4_sorted:
+        flex_player = tier4_sorted.pop(0)
+        add_to_order(flex_player, position)
+        position += 1
+
+    position = max(position, 7)
+
+    # Positions 7-8: Finishers
+    for sp in tier4_sorted:
+        if position <= 8:
+            add_to_order(sp, position)
+            position += 1
+
+    position = max(position, 9)
+
+    # Positions 9-11: Bowlers
+    for sp in tiers[5]:
+        if sp not in batting_order and position <= 11:
+            add_to_order(sp, position)
+            position += 1
+
+    return batting_order, position
+
+
+def _fill_remaining_positions(
+    batting_order: List[SelectedPlayer], tiers: Dict[int, List[SelectedPlayer]]
+) -> List[SelectedPlayer]:
+    """
+    Fill any empty batting positions with remaining players.
+
+    Priority: Keep batters/all-rounders in TOP 6, bowlers in 7-11.
+
+    Args:
+        batting_order: Current batting order
+        tiers: Dictionary of tiered players
+
+    Returns:
+        Complete batting order with all positions filled
+    """
+    filled_positions = {sp.batting_position for sp in batting_order}
+
+    # Collect remaining players
+    remaining_batters = []
+    remaining_bowlers = []
+
+    for tier_num in [1, 2, 3, 4, 5]:
+        for sp in tiers[tier_num]:
+            if sp not in batting_order:
+                if sp.player.role in ["Batter", "Wicketkeeper"]:
+                    remaining_batters.append(sp)
+                elif sp.player.role == "All-rounder":
+                    if sp.player.batter_classification or sp.player.batting_score > 50:
+                        remaining_batters.append(sp)
+                    else:
+                        remaining_bowlers.append(sp)
+                else:
+                    remaining_bowlers.append(sp)
+
+    remaining_batters.sort(key=lambda x: x.player.batting_score, reverse=True)
+    remaining_bowlers.sort(key=lambda x: x.player.overall_score, reverse=True)
+
+    # Fill TOP 6 with batters
+    for pos in range(1, 7):
+        if pos not in filled_positions and remaining_batters:
+            player_to_add = remaining_batters.pop(0)
+            player_to_add.batting_position = pos
+            batting_order.append(player_to_add)
+            filled_positions.add(pos)
+
+    # Fill 7-11 with remaining (bowlers first)
+    all_remaining = remaining_bowlers + remaining_batters
+    for pos in range(7, 12):
+        if pos not in filled_positions and all_remaining:
+            player_to_add = all_remaining.pop(0)
+            player_to_add.batting_position = pos
+            batting_order.append(player_to_add)
+            filled_positions.add(pos)
+
+    # Final fallback for top 6
+    all_remaining = remaining_batters + remaining_bowlers
+    for pos in range(1, 7):
+        if pos not in filled_positions and all_remaining:
+            player_to_add = all_remaining.pop(0)
+            player_to_add.batting_position = pos
+            batting_order.append(player_to_add)
+            filled_positions.add(pos)
+
+    return batting_order
+
+
+def reorder_batting_positions(
+    selected: List[SelectedPlayer], entry_points: Optional[Dict[str, Dict[str, Any]]] = None
+) -> List[SelectedPlayer]:
+    """
+    Reorder players into proper batting positions.
+
+    Uses hierarchical priority system:
     1. Historical 2023 batting entry point data (mean/median position)
     2. Player batter tags (PP_DOMINATOR, EXPLOSIVE_OPENER, FINISHER, etc.)
     3. Role-based classification
@@ -1184,330 +1508,53 @@ def reorder_batting_positions(selected: list, entry_points: dict = None) -> list
     - Positions 5-6 (Middle Order): Mid-high entry (40-70) OR MIDDLE_OVERS_ACCELERATOR tags
     - Positions 7-8 (Finisher/All-rounders): High entry (70+) OR FINISHER/DEATH_SPECIALIST tags
     - Positions 9-11 (Bowlers): Purely based on bowling role
+
+    Args:
+        selected: List of SelectedPlayer objects to reorder
+        entry_points: Optional dictionary of batting entry point data
+
+    Returns:
+        List[SelectedPlayer]: Reordered batting lineup
     """
     if entry_points is None:
         entry_points = {}
 
-    # SUPER SELECTOR v3.0: Entry point data is the PRIMARY position validator
-    # No hardcoded lists - all positions derived from avg_entry_ball data
-
-    def get_batting_tier(player) -> int:
-        """
-        Determine batting tier (1-5) based on ENTRY POINT DATA as primary signal.
-        SUPER SELECTOR v3.0: Entry points are the PRIMARY position validator.
-
-        Tiers based on avg_entry_ball:
-        1 = Opener (0-15 balls / overs 1-2.5)
-        2 = Top Order (16-40 balls / overs 3-7)  -> Positions 3-4
-        3 = Middle Order (41-70 balls / overs 7-12) -> Positions 5-6
-        4 = Finisher (71-100 balls / overs 12-17) -> Positions 7-8
-        5 = Bowler (100+ balls or no batting data) -> Positions 9-11
-        """
-        p = player.player
-        pid = p.player_id
-
-        # Get historical entry point - THIS IS THE PRIMARY SIGNAL
-        entry_data = entry_points.get(pid, {})
-        avg_entry = entry_data.get("avg_entry_ball")
-        entry_class = entry_data.get("classification", "")
-
-        # PRIORITY 1: BOWLERS ALWAYS BAT 9-11 (regardless of entry point)
-        # Exception: All-rounders with batting classification
-        if p.role == "Bowler":
-            # Only exception: if they have significant batting classification
-            if p.batter_classification in [
-                "Power Finisher",
-                "All-Round Finisher",
-                "Aggressive Opener",
-            ]:
-                pass  # Let them be placed by entry point
-            else:
-                return 5  # Bowlers bat last
-
-        # PRIORITY 2: Spinners who are primarily bowlers bat 9-11
-        if p.is_spinner and p.role == "Bowler":
-            return 5
-
-        # PRIORITY 3: Entry Point Data (PRIMARY POSITION VALIDATOR)
-        # Thresholds based on typical T20 batting positions
-        if avg_entry is not None:
-            if avg_entry <= 12:  # True openers (enters by over 2)
-                return 1
-            elif avg_entry <= 45:  # Top order positions 3-4 (enters by over 7-8)
-                return 2
-            elif avg_entry <= 75:  # Middle order positions 5-6 (enters by over 12)
-                return 3
-            elif avg_entry <= 105:  # Finisher positions 7-8 (enters by over 17)
-                return 4
-            else:  # Very late order (105+ balls)
-                return 5
-
-        # PRIORITY 4: Entry classification from CSV
-        if entry_class == "TOP_ORDER":
-            return 2
-        if entry_class == "MIDDLE_ORDER":
-            return 3
-        if entry_class == "LOWER_ORDER":
-            return 4
-
-        # PRIORITY 5: Classification-based (fallback when no entry data)
-        if p.batter_classification == "Aggressive Opener":
-            return 1
-        if p.batter_classification == "Elite Top-Order":
-            return 2
-        if p.batter_classification == "Anchor":
-            return 3
-        if p.batter_classification in ["Power Finisher", "All-Round Finisher"]:
-            return 3  # Default to middle, let entry data override
-
-        # PRIORITY 6: Tag-based fallback
-        opener_tags = ["EXPLOSIVE_OPENER", "PP_DOMINATOR"]
-        middle_tags = ["ANCHOR", "ACCUMULATOR", "MIDDLE_ORDER"]
-        finisher_tags = ["FINISHER", "DEATH_SPECIALIST", "SIX_HITTER"]
-
-        if any(tag in p.batter_tags for tag in opener_tags):
-            return 1
-        if any(tag in p.batter_tags for tag in middle_tags):
-            return 3
-        if any(tag in p.batter_tags for tag in finisher_tags):
-            return 4
-
-        # PRIORITY 7: Role-based fallback
-        if p.role == "All-rounder":
-            if p.batter_classification:
-                return 3
-            return 4
-        if p.role in ["Batter", "Wicketkeeper"]:
-            return 2
-
-        return 4  # Default to finisher tier
-
-    # Score players for sorting within tiers
-    def get_tier_score(player, tier):
-        """Get sorting score within a tier (higher = better)"""
-        p = player.player
-        base_score = p.batting_score
-
-        # Wicketkeepers get bonus to keep together with other batters
-        if p.is_wicketkeeper:
-            base_score += 5
-
-        # Price bonus
-        if p.price_cr >= 15:
-            base_score += 15
-        elif p.price_cr >= 10:
-            base_score += 10
-        elif p.price_cr >= 5:
-            base_score += 5
-
-        # For openers, prioritize aggressive tags
-        if tier == 1:
-            if "EXPLOSIVE_OPENER" in p.batter_tags:
-                base_score += 10
-            if "PP_DOMINATOR" in p.batter_tags:
-                base_score += 8
-
-        # For middle order, prioritize anchor/accumulator
-        if tier in [2, 3]:
-            if "ANCHOR" in p.batter_tags:
-                base_score += 5
-            if "CONSISTENT" in p.batter_tags:
-                base_score += 5
-
-        # For finishers, prioritize death specialists
-        if tier == 4:
-            if "FINISHER" in p.batter_tags:
-                base_score += 10
-            if "DEATH_SPECIALIST" in p.batter_tags:
-                base_score += 8
-            if "SIX_HITTER" in p.batter_tags:
-                base_score += 5
-
-        return base_score
-
-    # Categorize into tiers
-    tiers = {1: [], 2: [], 3: [], 4: [], 5: []}
-
+    # Categorize players into tiers
+    tiers: Dict[int, List[SelectedPlayer]] = {1: [], 2: [], 3: [], 4: [], 5: []}
     for sp in selected:
-        tier = get_batting_tier(sp)
+        tier = _get_batting_tier(sp, entry_points)
         tiers[tier].append(sp)
 
     # Sort each tier by score
     for tier_num in tiers:
-        tiers[tier_num].sort(key=lambda x: get_tier_score(x, tier_num), reverse=True)
+        tiers[tier_num].sort(key=lambda x: _get_tier_score(x, tier_num), reverse=True)
 
-    # Build batting order
-    batting_order = []
-    position = 1
+    # Assign positions by tier
+    batting_order, position = _assign_positions_by_tier(tiers, entry_points)
 
-    def add_to_order(sp, pos):
-        sp.batting_position = pos
-        batting_order.append(sp)
+    # Fill remaining positions
+    batting_order = _fill_remaining_positions(batting_order, tiers)
 
-    # =========================================================================
-    # SUPER SELECTOR v3.0: STRICT ENTRY-POINT BASED POSITION ASSIGNMENT
-    # Tiers stay in their designated positions - no pulling up/down
-    # =========================================================================
-
-    # Positions 1-2: Openers (tier 1 ONLY)
-    for sp in tiers[1][:2]:
-        add_to_order(sp, position)
-        position += 1
-
-    # If we don't have 2 openers, fill from tier 2 (top order can open)
-    tier2_used = 0
-    while position <= 2 and tier2_used < len(tiers[2]):
-        add_to_order(tiers[2][tier2_used], position)
-        position += 1
-        tier2_used += 1
-
-    # Positions 3-4: Top Order (tier 2 + extra tier 1 openers)
-    # Extra openers (tier 1 overflow) can bat at 3
-    tier1_remaining = tiers[1][2:]
-    for sp in tier1_remaining:
-        if position <= 4:
-            add_to_order(sp, position)
-            position += 1
-
-    # Remaining tier 2 players at positions 3-4
-    for sp in tiers[2][tier2_used:]:
-        if position <= 4:
-            add_to_order(sp, position)
-            position += 1
-
-    # FLEXIBLE TIER 3 PLACEMENT:
-    # - If position 4 is empty and we have tier 3 players, one can flex up to 4
-    # - This is realistic: a player with entry 50 can bat at 4 if needed
-    # - But player with highest entry stays at 5-6
-
-    # Sort tier 3 by entry point (lower entry = can flex higher)
-    tier3_sorted = sorted(
-        tiers[3],
-        key=lambda x: entry_points.get(x.player.player_id, {}).get("avg_entry_ball", 999),
-    )
-
-    # If position 4 is empty and we have tier 3 players, flex one up
-    if position == 4 and tier3_sorted:
-        # Take the one with LOWEST entry point (closest to tier 2)
-        flex_player = tier3_sorted.pop(0)
-        add_to_order(flex_player, 4)
-        position = 5
-
-    # FORCE position to 5 for remaining tier 3
-    position = max(position, 5)
-
-    # Positions 5-6: Middle Order (tier 3 - entry_ball 46-75)
-    for sp in tier3_sorted:
-        if position <= 6:
-            add_to_order(sp, position)
-            position += 1
-
-    # FLEXIBLE TIER 4 PLACEMENT:
-    # - If positions 5-6 have gaps and we have tier 4 players, they can flex up
-    # - A player with entry 76 can bat at 5-6 if needed (finishers are flexible)
-
-    # Sort tier 4 by entry point (lower entry = can flex higher)
-    tier4_sorted = sorted(
-        tiers[4],
-        key=lambda x: entry_points.get(x.player.player_id, {}).get("avg_entry_ball", 999),
-    )
-
-    # Fill positions 5-6 with tier 4 players if gaps exist
-    while position <= 6 and tier4_sorted:
-        flex_player = tier4_sorted.pop(0)
-        add_to_order(flex_player, position)
-        position += 1
-
-    # FORCE position to 7 for remaining tier 4
-    position = max(position, 7)
-
-    # Positions 7-8: Finishers/All-rounders (tier 4 - entry_ball 76-105)
-    for sp in tier4_sorted:
-        if position <= 8:
-            add_to_order(sp, position)
-            position += 1
-
-    # FORCE position to 9 for bowlers
-    position = max(position, 9)
-
-    # Positions 9-11: Bowlers (tier 5)
-    for sp in tiers[5]:
-        if sp not in batting_order and position <= 11:
-            add_to_order(sp, position)
-            position += 1
-
-    # =========================================================================
-    # FALLBACK: Fill empty slots intelligently
-    # Priority: Keep batters/all-rounders in TOP 6, bowlers in 7-11
-    # =========================================================================
-    filled_positions = {sp.batting_position for sp in batting_order}
-
-    # Collect ALL remaining players not yet in batting order
-    remaining_batters = []  # Batters, keepers, batting all-rounders
-    remaining_bowlers = []  # Pure bowlers
-
-    for tier_num in [1, 2, 3, 4, 5]:
-        for sp in tiers[tier_num]:
-            if sp not in batting_order:
-                # Batting-capable players (can fill top 6)
-                if sp.player.role in ["Batter", "Wicketkeeper"]:
-                    remaining_batters.append(sp)
-                elif sp.player.role == "All-rounder":
-                    # All-rounders with batting classification go to batters
-                    if sp.player.batter_classification or sp.player.batting_score > 50:
-                        remaining_batters.append(sp)
-                    else:
-                        remaining_bowlers.append(sp)
-                else:
-                    remaining_bowlers.append(sp)
-
-    # Sort by batting score
-    remaining_batters.sort(key=lambda x: x.player.batting_score, reverse=True)
-    remaining_bowlers.sort(key=lambda x: x.player.overall_score, reverse=True)
-
-    # PHASE 1: Fill TOP 6 (positions 1-6) with BATTERS ONLY
-    for pos in range(1, 7):
-        if pos not in filled_positions and remaining_batters:
-            player_to_add = remaining_batters.pop(0)
-            player_to_add.batting_position = pos
-            batting_order.append(player_to_add)
-            filled_positions.add(pos)
-
-    # PHASE 2: Fill positions 7-11 with remaining players (bowlers preferred)
-    all_remaining = remaining_bowlers + remaining_batters  # Bowlers first for tail
-    for pos in range(7, 12):
-        if pos not in filled_positions and all_remaining:
-            player_to_add = all_remaining.pop(0)
-            player_to_add.batting_position = pos
-            batting_order.append(player_to_add)
-            filled_positions.add(pos)
-
-    # PHASE 3: If still gaps in top 6 (shouldn't happen), fill with anyone
-    all_remaining = remaining_batters + remaining_bowlers
-    for pos in range(1, 7):
-        if pos not in filled_positions and all_remaining:
-            player_to_add = all_remaining.pop(0)
-            player_to_add.batting_position = pos
-            batting_order.append(player_to_add)
-            filled_positions.add(pos)
-
-    # Ensure we have exactly 11 players (truncate if overflow)
+    # Ensure exactly 11 players
     batting_order = batting_order[:11]
 
-    # Re-sort by batting position
+    # Sort by position
     batting_order.sort(key=lambda x: x.batting_position)
 
-    # Any remaining players (should be rare - only if tiers overflow)
-    for tier_num in [2, 3, 4]:  # Skip tier 1 - extra openers already handled above
+    # Handle any overflow
+    for tier_num in [2, 3, 4]:
         for sp in tiers[tier_num]:
             if sp not in batting_order:
-                add_to_order(sp, position)
+                sp.batting_position = position
+                batting_order.append(sp)
                 position += 1
 
     return batting_order
 
 
-def fix_constraint_violations(selected: list, remaining: list, violations: list) -> tuple:
+def fix_constraint_violations(
+    selected: List[SelectedPlayer], remaining: List[Player], violations: List[str]
+) -> Tuple[List[SelectedPlayer], List[str]]:
     """Attempt to fix constraint violations via substitution"""
     # This is a simplified backtracking - for V1, we just note violations
     # A more sophisticated version would swap players
@@ -1516,7 +1563,7 @@ def fix_constraint_violations(selected: list, remaining: list, violations: list)
 
 
 def select_impact_player(
-    xi: list, remaining: list, captain_name: str = None
+    xi: List[SelectedPlayer], remaining: List[Player], captain_name: Optional[str] = None
 ) -> Optional[SelectedPlayer]:
     """
     Select the Impact Player (12th man).
@@ -1581,7 +1628,9 @@ def select_impact_player(
     )
 
 
-def identify_captain(xi: list, team: str, squad_captains: dict = None) -> str:
+def identify_captain(
+    xi: List[SelectedPlayer], team: str, squad_captains: Optional[Dict[str, str]] = None
+) -> str:
     """
     Identify captain from CSV is_captain field first, then fall back to known list.
 
@@ -1622,7 +1671,7 @@ def identify_captain(xi: list, team: str, squad_captains: dict = None) -> str:
     return xi_sorted[0].player.player_name
 
 
-def identify_keeper(xi: list) -> str:
+def identify_keeper(xi: List[SelectedPlayer]) -> str:
     """Identify wicketkeeper in XI"""
     for sp in xi:
         if sp.player.is_wicketkeeper:
@@ -1636,7 +1685,10 @@ def identify_keeper(xi: list) -> str:
 
 
 def generate_predicted_xii(
-    team: str, players: list, entry_points: dict = None, squad_captains: dict = None
+    team: str,
+    players: List[Player],
+    entry_points: Optional[Dict[str, Dict[str, Any]]] = None,
+    squad_captains: Optional[Dict[str, str]] = None,
 ) -> PredictedXII:
     """Generate Predicted XII for a team"""
     logger.info("Generating predicted XII for %s", team)
@@ -1678,7 +1730,7 @@ def generate_predicted_xii(
     )
 
 
-def predicted_xii_to_dict(pxii: PredictedXII) -> dict:
+def predicted_xii_to_dict(pxii: PredictedXII) -> Dict[str, Any]:
     """Convert PredictedXII to JSON-serializable dict"""
     return {
         "team_name": pxii.team_name,
@@ -1724,7 +1776,7 @@ def predicted_xii_to_dict(pxii: PredictedXII) -> dict:
     }
 
 
-def main():
+def main() -> int:
     """Main entry point"""
     global BATTER_METRICS, BOWLER_METRICS
 

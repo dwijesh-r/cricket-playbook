@@ -23,23 +23,37 @@ Tags Generated:
 - VULNERABLE_VS_LEFT_ARM_SPIN: SR <105 vs left-arm orthodox
 - VULNERABLE_VS_OFF_SPIN: SR <105 vs off-spin
 - VULNERABLE_VS_LEG_SPIN: SR <105 vs leg-spin
+
+Performance Optimization (TKT-099):
+- Replaced iterative DataFrame filtering with groupby operations
+- Reduced O(n*m) complexity to O(n) in aggregate_by_pace_spin function
 """
 
 import duckdb
 import pandas as pd
-import json
 from pathlib import Path
+import sys
 
+# Add parent directory to path for imports
 SCRIPT_DIR = Path(__file__).parent
+sys.path.insert(0, str(SCRIPT_DIR.parent))
+
+from utils.player_tags import update_player_tags
+from utils.logging_config import setup_logger
+from config import config
+
+# Initialize logger
+logger = setup_logger(__name__)
+
 PROJECT_DIR = SCRIPT_DIR.parent
-DB_PATH = PROJECT_DIR / "data" / "cricket_playbook.duckdb"
-OUTPUT_DIR = PROJECT_DIR / "outputs"
+DB_PATH = config.DB_PATH
+OUTPUT_DIR = config.OUTPUT_DIR
 
 # Data filter - only use recent IPL seasons (2023 onwards)
-IPL_MIN_DATE = "2023-01-01"
+IPL_MIN_DATE = config.IPL_MIN_DATE
 
 # Minimum balls faced to consider for analysis
-MIN_BALLS_VS_TYPE = 30  # ~5 overs
+MIN_BALLS_VS_TYPE = config.MIN_BALLS_VS_TYPE
 
 # Thresholds for tags
 # Updated Sprint 2.9: Better balance between SR and dismissal rate
@@ -54,13 +68,13 @@ MIN_BALLS_VS_TYPE = 30  # ~5 overs
 #   - avg < 12 (poor quality)
 #   - bpd < 12 with 3+ dismissals (gets out every 2 overs - too risky)
 #
-SPECIALIST_SR_THRESHOLD = 130
-SPECIALIST_AVG_THRESHOLD = 20  # Lowered from 25 - avg 20 is decent
-SPECIALIST_BPD_THRESHOLD = 15  # Lowered from 20 - 15 balls per dismissal is acceptable
+SPECIALIST_SR_THRESHOLD = config.SPECIALIST_SR_THRESHOLD
+SPECIALIST_AVG_THRESHOLD = config.SPECIALIST_AVG_THRESHOLD
+SPECIALIST_BPD_THRESHOLD = config.SPECIALIST_BPD_THRESHOLD
 
-VULNERABLE_SR_THRESHOLD = 110  # Raised from 105 - below 6.6 runs/over is poor
-VULNERABLE_AVG_THRESHOLD = 12  # Lowered from 15 - truly poor
-VULNERABLE_BPD_THRESHOLD = 12  # Lowered from 15 - getting out every 2 overs is bad
+VULNERABLE_SR_THRESHOLD = config.VULNERABLE_SR_THRESHOLD
+VULNERABLE_AVG_THRESHOLD = config.VULNERABLE_AVG_THRESHOLD
+VULNERABLE_BPD_THRESHOLD = config.VULNERABLE_BPD_THRESHOLD
 
 # Bowling type categories (must match dim_bowler_classification.bowling_style values)
 PACE_TYPES = ["Right-arm pace", "Left-arm pace"]
@@ -72,7 +86,7 @@ SPIN_TYPES = [
 ]
 
 
-def get_batter_vs_bowling_type(conn) -> pd.DataFrame:
+def get_batter_vs_bowling_type(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Get batter performance split by bowling type.
 
     Uses the pre-computed analytics_ipl_batter_vs_bowler_type table which has
@@ -112,12 +126,20 @@ def aggregate_by_pace_spin(df: pd.DataFrame) -> pd.DataFrame:
 
     Sums ALL bowling types (including those below individual thresholds)
     to get complete pace/spin totals, then filters at the end.
+
+    Performance Optimization (TKT-099):
+    - Changed from O(n*m) to O(n) complexity using pandas groupby
+    - Previous: Filtered full DataFrame for each unique batter_id
+    - Now: Single pass groupby operation, then filter within pre-grouped data
     """
 
     results = []
 
-    for batter_id in df["batter_id"].unique():
-        batter_df = df[df["batter_id"] == batter_id]
+    # TKT-099: Use groupby instead of repeated DataFrame filtering
+    # This reduces complexity from O(n*m) to O(n) where n=rows, m=unique batters
+    grouped = df.groupby("batter_id")
+
+    for batter_id, batter_df in grouped:
         batter_name = batter_df["batter_name"].iloc[0]
 
         # Pace stats - sum ALL pace bowling types
@@ -283,14 +305,14 @@ def assign_matchup_tags(raw_df: pd.DataFrame, pace_spin_df: pd.DataFrame) -> pd.
     return result_df
 
 
-def print_analysis(df: pd.DataFrame, raw_df: pd.DataFrame):
-    """Print summary analysis."""
+def log_analysis(df: pd.DataFrame, raw_df: pd.DataFrame) -> None:
+    """Log summary analysis using logger."""
 
-    print("\n" + "=" * 70)
-    print("BATTER VS BOWLING TYPE MATCHUP ANALYSIS")
-    print("=" * 70)
+    logger.info("=" * 70)
+    logger.info("BATTER VS BOWLING TYPE MATCHUP ANALYSIS")
+    logger.info("=" * 70)
 
-    print(f"\n  Batters with sufficient data: {len(df)}")
+    logger.info("Batters with sufficient data: %d", len(df))
 
     # Count tags
     pace_specialists = df[
@@ -306,10 +328,10 @@ def print_analysis(df: pd.DataFrame, raw_df: pd.DataFrame):
         df["bowling_type_tags"].apply(lambda x: "VULNERABLE_VS_SPIN" in x if x else False)
     ]
 
-    print(f"\n  SPECIALIST_VS_PACE (SR ≥{SPECIALIST_SR_THRESHOLD}): {len(pace_specialists)}")
-    print(f"  SPECIALIST_VS_SPIN (SR ≥{SPECIALIST_SR_THRESHOLD}): {len(spin_specialists)}")
-    print(f"  VULNERABLE_VS_PACE (SR <{VULNERABLE_SR_THRESHOLD}): {len(pace_vulnerable)}")
-    print(f"  VULNERABLE_VS_SPIN (SR <{VULNERABLE_SR_THRESHOLD}): {len(spin_vulnerable)}")
+    logger.info("SPECIALIST_VS_PACE (SR >=%d): %d", SPECIALIST_SR_THRESHOLD, len(pace_specialists))
+    logger.info("SPECIALIST_VS_SPIN (SR >=%d): %d", SPECIALIST_SR_THRESHOLD, len(spin_specialists))
+    logger.info("VULNERABLE_VS_PACE (SR <%d): %d", VULNERABLE_SR_THRESHOLD, len(pace_vulnerable))
+    logger.info("VULNERABLE_VS_SPIN (SR <%d): %d", VULNERABLE_SR_THRESHOLD, len(spin_vulnerable))
 
     # Specific type tags
     for tag_type in ["OFF_SPIN", "LEG_SPIN", "LEFT_ARM_SPIN"]:
@@ -317,94 +339,69 @@ def print_analysis(df: pd.DataFrame, raw_df: pd.DataFrame):
         vuln_tag = f"VULNERABLE_VS_{tag_type}"
         spec_count = len(df[df["bowling_type_tags"].apply(lambda x: spec_tag in x if x else False)])
         vuln_count = len(df[df["bowling_type_tags"].apply(lambda x: vuln_tag in x if x else False)])
-        print(f"  {spec_tag}: {spec_count}, {vuln_tag}: {vuln_count}")
+        logger.info("  %s: %d, %s: %d", spec_tag, spec_count, vuln_tag, vuln_count)
 
     # Top pace specialists
-    print("\n  TOP PACE SPECIALISTS:")
+    logger.info("TOP PACE SPECIALISTS:")
     top_pace = df[df["pace_balls"] >= MIN_BALLS_VS_TYPE].nlargest(10, "pace_sr")
     for _, row in top_pace.iterrows():
-        print(f"    {row['batter_name']}: SR {row['pace_sr']:.1f} ({row['pace_balls']} balls)")
+        logger.debug(
+            "  %s: SR %.1f (%d balls)", row["batter_name"], row["pace_sr"], row["pace_balls"]
+        )
 
     # Top spin specialists
-    print("\n  TOP SPIN SPECIALISTS:")
+    logger.info("TOP SPIN SPECIALISTS:")
     top_spin = df[df["spin_balls"] >= MIN_BALLS_VS_TYPE].nlargest(10, "spin_sr")
     for _, row in top_spin.iterrows():
-        print(f"    {row['batter_name']}: SR {row['spin_sr']:.1f} ({row['spin_balls']} balls)")
+        logger.debug(
+            "  %s: SR %.1f (%d balls)", row["batter_name"], row["spin_sr"], row["spin_balls"]
+        )
 
     # Most vulnerable vs pace
-    print("\n  MOST VULNERABLE VS PACE:")
+    logger.info("MOST VULNERABLE VS PACE:")
     vuln_pace = df[
         (df["pace_balls"] >= MIN_BALLS_VS_TYPE) & (df["pace_sr"] < VULNERABLE_SR_THRESHOLD)
     ].nsmallest(10, "pace_sr")
     for _, row in vuln_pace.iterrows():
-        print(f"    {row['batter_name']}: SR {row['pace_sr']:.1f} ({row['pace_balls']} balls)")
+        logger.debug(
+            "  %s: SR %.1f (%d balls)", row["batter_name"], row["pace_sr"], row["pace_balls"]
+        )
 
     # Most vulnerable vs spin
-    print("\n  MOST VULNERABLE VS SPIN:")
+    logger.info("MOST VULNERABLE VS SPIN:")
     vuln_spin = df[
         (df["spin_balls"] >= MIN_BALLS_VS_TYPE) & (df["spin_sr"] < VULNERABLE_SR_THRESHOLD)
     ].nsmallest(10, "spin_sr")
     for _, row in vuln_spin.iterrows():
-        print(f"    {row['batter_name']}: SR {row['spin_sr']:.1f} ({row['spin_balls']} balls)")
+        logger.debug(
+            "  %s: SR %.1f (%d balls)", row["batter_name"], row["spin_sr"], row["spin_balls"]
+        )
 
 
-def update_player_tags_json(matchup_df: pd.DataFrame):
-    """Update player_tags.json with bowling type matchup tags."""
+def update_player_tags_json(matchup_df: pd.DataFrame) -> int:
+    """Update player_tags.json with bowling type matchup tags.
 
-    tags_path = OUTPUT_DIR / "player_tags.json"
-
-    if tags_path.exists():
-        with open(tags_path) as f:
-            tags_data = json.load(f)
-    else:
-        tags_data = {"batters": [], "bowlers": []}
-
+    TKT-097: Refactored to use shared utils/player_tags.py module.
+    """
     # Create lookup for matchup tags
     matchup_lookup = {}
     for _, row in matchup_df.iterrows():
         if row["bowling_type_tags"]:
             matchup_lookup[row["batter_id"]] = row["bowling_type_tags"]
 
-    # All possible bowling type tags to remove before updating
-    bowling_type_tags = {
-        "SPECIALIST_VS_PACE",
-        "SPECIALIST_VS_SPIN",
-        "VULNERABLE_VS_PACE",
-        "VULNERABLE_VS_SPIN",
-        "SPECIALIST_VS_OFF_SPIN",
-        "SPECIALIST_VS_LEG_SPIN",
-        "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
-        "VULNERABLE_VS_OFF_SPIN",
-        "VULNERABLE_VS_LEG_SPIN",
-        "VULNERABLE_VS_LEFT_ARM_SPIN",
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
-    }
+    # Use shared utility to update tags
+    updated_count = update_player_tags(
+        category="bowling_type",
+        new_tags_lookup=matchup_lookup,
+        player_type="batters",
+    )
 
-    # Update batter tags
-    updated_count = 0
-    for batter in tags_data.get("batters", []):
-        player_id = batter.get("player_id")
-        if player_id in matchup_lookup:
-            existing_tags = set(batter.get("tags", []))
-            new_tags = set(matchup_lookup[player_id])
-            # Remove old bowling type tags first
-            existing_tags -= bowling_type_tags
-            # Add new ones
-            existing_tags.update(new_tags)
-            batter["tags"] = list(existing_tags)
-            updated_count += 1
-
-    # Save updated file
-    with open(tags_path, "w") as f:
-        json.dump(tags_data, f, indent=2)
-
-    print(f"\n  Updated {updated_count} batters in player_tags.json")
+    logger.info("Updated %d batters in player_tags.json", updated_count)
 
     return updated_count
 
 
-def save_matchup_data(df: pd.DataFrame, raw_df: pd.DataFrame):
+def save_matchup_data(df: pd.DataFrame, raw_df: pd.DataFrame) -> None:
     """Save matchup data to CSV for review."""
 
     output_path = OUTPUT_DIR / "batter_bowling_type_matchup.csv"
@@ -432,56 +429,56 @@ def save_matchup_data(df: pd.DataFrame, raw_df: pd.DataFrame):
     )
 
     output_df.to_csv(output_path, index=False)
-    print(f"\n  Matchup data saved to: {output_path}")
+    logger.info("Matchup data saved to: %s", output_path)
 
     # Also save detailed breakdown
     detail_path = OUTPUT_DIR / "batter_bowling_type_detail.csv"
     raw_df.to_csv(detail_path, index=False)
-    print(f"  Detailed data saved to: {detail_path}")
+    logger.info("Detailed data saved to: %s", detail_path)
 
 
-def main():
-    print("=" * 70)
-    print("Cricket Playbook - Batter vs Bowling Type Matchup Analysis")
-    print("Author: Stephen Curry | Sprint 2.9 - Missing Data Fix")
-    print("=" * 70)
+def main() -> int:
+    logger.info("=" * 70)
+    logger.info("Cricket Playbook - Batter vs Bowling Type Matchup Analysis")
+    logger.info("Author: Stephen Curry | Sprint 2.9 - Missing Data Fix")
+    logger.info("=" * 70)
 
     if not DB_PATH.exists():
-        print(f"\nERROR: Database not found at {DB_PATH}")
+        logger.error("Database not found at %s", DB_PATH)
         return 1
 
     conn = duckdb.connect(str(DB_PATH), read_only=True)
 
     # Get batter performance by bowling type
-    print("\n1. Extracting batter vs bowling type data...")
+    logger.info("[1/5] Extracting batter vs bowling type data...")
     raw_df = get_batter_vs_bowling_type(conn)
-    print(f"   Records: {len(raw_df)}")
+    logger.info("Records: %d", len(raw_df))
 
     # Aggregate into Pace vs Spin
-    print("\n2. Aggregating Pace vs Spin stats...")
+    logger.info("[2/5] Aggregating Pace vs Spin stats...")
     pace_spin_df = aggregate_by_pace_spin(raw_df)
-    print(f"   Batters: {len(pace_spin_df)}")
+    logger.info("Batters: %d", len(pace_spin_df))
 
     # Assign tags
-    print("\n3. Assigning bowling type matchup tags...")
+    logger.info("[3/5] Assigning bowling type matchup tags...")
     matchup_df = assign_matchup_tags(raw_df, pace_spin_df)
 
-    # Print analysis
-    print_analysis(matchup_df, raw_df)
+    # Log analysis
+    log_analysis(matchup_df, raw_df)
 
     # Save data
-    print("\n4. Saving results...")
+    logger.info("[4/5] Saving results...")
     save_matchup_data(matchup_df, raw_df)
 
     # Update player_tags.json
-    print("\n5. Updating player_tags.json...")
+    logger.info("[5/5] Updating player_tags.json...")
     update_player_tags_json(matchup_df)
 
     conn.close()
 
-    print("\n" + "=" * 70)
-    print("BATTER VS BOWLING TYPE ANALYSIS COMPLETE")
-    print("=" * 70)
+    logger.info("=" * 70)
+    logger.info("BATTER VS BOWLING TYPE ANALYSIS COMPLETE")
+    logger.info("=" * 70)
 
     return 0
 

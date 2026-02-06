@@ -13,6 +13,8 @@ Validates:
 Usage: python scripts/validate_schema.py
 """
 
+from typing import Tuple
+
 import sys
 from pathlib import Path
 import duckdb
@@ -29,15 +31,15 @@ YELLOW = "\033[1;33m"
 NC = "\033[0m"  # No Color
 
 
-def print_pass(msg: str):
+def print_pass(msg: str) -> None:
     print(f"  {GREEN}PASS{NC}: {msg}")
 
 
-def print_fail(msg: str):
+def print_fail(msg: str) -> None:
     print(f"  {RED}FAIL{NC}: {msg}")
 
 
-def print_warn(msg: str):
+def print_warn(msg: str) -> None:
     print(f"  {YELLOW}WARN{NC}: {msg}")
 
 
@@ -110,7 +112,7 @@ REQUIRED_VIEWS = [
 ]
 
 
-def validate_tables(conn) -> tuple[int, int]:
+def validate_tables(conn: duckdb.DuckDBPyConnection) -> Tuple[int, int]:
     """Validate required tables exist with correct columns."""
     print("\n1. Validating Required Tables...")
 
@@ -160,7 +162,7 @@ def validate_tables(conn) -> tuple[int, int]:
     return passes, fails
 
 
-def validate_views(conn) -> tuple[int, int]:
+def validate_views(conn: duckdb.DuckDBPyConnection) -> Tuple[int, int]:
     """Validate required views exist and are queryable."""
     print("\n2. Validating Required Views...")
 
@@ -184,7 +186,7 @@ def validate_views(conn) -> tuple[int, int]:
     return passes, fails
 
 
-def validate_referential_integrity(conn) -> tuple[int, int]:
+def validate_referential_integrity(conn: duckdb.DuckDBPyConnection) -> Tuple[int, int]:
     """Check logical foreign key relationships."""
     print("\n3. Validating Referential Integrity...")
 
@@ -247,7 +249,7 @@ def validate_referential_integrity(conn) -> tuple[int, int]:
     return passes, fails
 
 
-def validate_data_quality(conn) -> tuple[int, int]:
+def validate_data_quality(conn: duckdb.DuckDBPyConnection) -> Tuple[int, int]:
     """Check data quality metrics."""
     print("\n4. Validating Data Quality...")
 
@@ -317,7 +319,7 @@ def validate_data_quality(conn) -> tuple[int, int]:
     return passes, fails
 
 
-def validate_bowling_coverage(conn) -> tuple[int, int]:
+def validate_bowling_coverage(conn: duckdb.DuckDBPyConnection) -> Tuple[int, int]:
     """Check bowling style classification coverage."""
     print("\n5. Validating Bowling Style Coverage...")
 
@@ -355,7 +357,7 @@ def validate_bowling_coverage(conn) -> tuple[int, int]:
     return passes, fails
 
 
-def main():
+def main() -> int:
     """Main validation entry point."""
     print("=" * 60)
     print("Cricket Playbook - Schema Validation")

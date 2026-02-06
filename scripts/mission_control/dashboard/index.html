@@ -3111,7 +3111,7 @@
                 audible: 'If optimization requires breaking changes, create separate tickets for each module'
               }
             },
-            { id: 'TKT-097', title: 'Consolidate player_tags.json update logic', state: 'BACKLOG', priority: 'P1', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-010', progress: 0, tags: ['Refactor', 'Data', 'Code Quality'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-097', title: 'Consolidate player_tags.json update logic', state: 'REVIEW', priority: 'P1', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-010', progress: 95, tags: ['Refactor', 'Data', 'Code Quality'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' }, output: 'scripts/utils/player_tags.py',
               context: {
                 ask: 'Extract repeated update_player_tags_json() function into shared utility module',
                 goal: 'Single source of truth for player tags updates across batter_bowling_type_matchup.py, bowler_handedness_matchup.py, bowler_phase_tags.py',
@@ -3119,7 +3119,7 @@
                 audible: 'Create utils/player_tags.py with load/update/save functions'
               }
             },
-            { id: 'TKT-098', title: 'Add type hints throughout codebase', state: 'BACKLOG', priority: 'P2', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 0, tags: ['Code Quality', 'Type Safety'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-098', title: 'Add type hints throughout codebase', state: 'REVIEW', priority: 'P2', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 95, tags: ['Code Quality', 'Type Safety'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' },
               context: {
                 ask: 'Add Python type hints to all function signatures and key variables',
                 goal: 'Improve IDE autocompletion, catch type errors before runtime, enhance documentation',
@@ -3127,7 +3127,7 @@
                 audible: 'Start with most-used files: generators/, then core/, then analysis/'
               }
             },
-            { id: 'TKT-099', title: 'Optimize DataFrame operations', state: 'BACKLOG', priority: 'P2', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-010', progress: 0, tags: ['Performance', 'Analytics'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-099', title: 'Optimize DataFrame operations', state: 'REVIEW', priority: 'P2', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-010', progress: 95, tags: ['Performance', 'Analytics'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' },
               context: {
                 ask: 'Replace iterative DataFrame filtering with groupby operations',
                 goal: 'Reduce O(n*m) complexity to O(n) in batter_bowling_type_matchup.py, bowler_handedness_matchup.py, generate_2023_outputs.py',
@@ -3135,7 +3135,7 @@
                 audible: 'Benchmark before/after to quantify improvement'
               }
             },
-            { id: 'TKT-100', title: 'Externalize configuration', state: 'BACKLOG', priority: 'P3', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 0, tags: ['Config', 'Ops'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-100', title: 'Externalize configuration', state: 'REVIEW', priority: 'P3', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 95, tags: ['Config', 'Ops'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' }, output: 'scripts/config.py',
               context: {
                 ask: 'Move hardcoded values to config file or environment variables',
                 goal: 'Enable runtime configuration of IPL_MIN_DATE, thresholds, file paths without code changes',
@@ -3143,7 +3143,7 @@
                 audible: 'Use .env file or config.yaml - keep constants.py as defaults'
               }
             },
-            { id: 'TKT-101', title: 'Standardize logging across scripts', state: 'BACKLOG', priority: 'P3', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 0, tags: ['Logging', 'Code Quality'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-101', title: 'Standardize logging across scripts', state: 'REVIEW', priority: 'P3', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 95, tags: ['Logging', 'Code Quality'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' },
               context: {
                 ask: 'Replace all print() statements with proper logging using utils/logging_config.py',
                 goal: 'Consistent log format, configurable log levels, file output option',
@@ -3151,7 +3151,7 @@
                 audible: 'Related to TKT-083 - extends logging adoption'
               }
             },
-            { id: 'TKT-102', title: 'Break up long functions', state: 'BACKLOG', priority: 'P3', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 0, tags: ['Refactor', 'Maintainability'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-102', title: 'Break up long functions', state: 'REVIEW', priority: 'P3', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 95, tags: ['Refactor', 'Maintainability'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' },
               context: {
                 ask: 'Refactor functions >100 lines into smaller, focused helper functions',
                 goal: 'Improve readability, testability, and maintainability',

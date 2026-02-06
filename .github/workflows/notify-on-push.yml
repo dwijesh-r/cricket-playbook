@@ -7,6 +7,8 @@ on:
 jobs:
   notify:
     runs-on: ubuntu-latest
+    # Only run if email secrets are configured
+    if: ${{ secrets.EMAIL_USERNAME != '' && secrets.NOTIFY_EMAIL != '' }}
     steps:
       - name: Send email notification
         uses: dawidd6/action-send-mail@v3
@@ -29,3 +31,19 @@ jobs:
 
             ---
             View all changes: https://github.com/${{ github.repository }}/commits/main
+
+  # Fallback job that always succeeds (prevents failure emails when secrets not set)
+  check-secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if email secrets are configured
+        run: |
+          if [ -z "${{ secrets.EMAIL_USERNAME }}" ] || [ -z "${{ secrets.NOTIFY_EMAIL }}" ]; then
+            echo "⚠️ Email notification skipped - secrets not configured"
+            echo "To enable notifications, add these secrets in GitHub repo settings:"
+            echo "  - EMAIL_USERNAME: your Gmail address"
+            echo "  - EMAIL_APP_PASSWORD: Gmail app password"
+            echo "  - NOTIFY_EMAIL: where to send notifications"
+          else
+            echo "✅ Email secrets configured"
+          fi

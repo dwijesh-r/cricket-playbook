@@ -13,6 +13,8 @@ Generates comprehensive stat packs for each IPL 2026 team including:
 - Key matchups and insights
 """
 
+from typing import Any, Dict, List
+
 import duckdb
 import json
 import sys
@@ -34,7 +36,7 @@ OUTPUT_DIR = PROJECT_DIR / "stat_packs"
 PLAYER_TAGS_PATH = PROJECT_DIR / "outputs" / "player_tags.json"
 
 
-def load_player_tags() -> dict:
+def load_player_tags() -> Dict[str, List[Dict[str, Any]]]:
     """Load player tags from JSON file."""
     if not PLAYER_TAGS_PATH.exists():
         logger.warning("Player tags file not found at %s", PLAYER_TAGS_PATH)
@@ -49,7 +51,7 @@ def load_player_tags() -> dict:
         return data
 
 
-def get_player_tags_lookup(tags_data: dict) -> dict:
+def get_player_tags_lookup(tags_data: Dict[str, List[Dict[str, Any]]]) -> Dict[str, Dict[str, Any]]:
     """Create lookup dict from player_id to tags."""
     # Role archetype tags (from clustering)
     BATTER_CLUSTERS = {
@@ -159,7 +161,9 @@ def get_opposition_clause(team_name: str) -> str:
     return ", ".join([f"'{a}'" for a in aliases])
 
 
-def generate_historical_trends(conn, team_name: str, alias_clause: str) -> list:
+def generate_historical_trends(
+    conn: duckdb.DuckDBPyConnection, team_name: str, alias_clause: str
+) -> List[str]:
     """Generate historical trends section showing season-over-season performance.
 
     Covers IPL seasons 2023-2025 and includes:
@@ -609,7 +613,9 @@ def generate_historical_trends(conn, team_name: str, alias_clause: str) -> list:
     return md
 
 
-def generate_venue_analysis(conn, team_name: str, alias_clause: str) -> list:
+def generate_venue_analysis(
+    conn: duckdb.DuckDBPyConnection, team_name: str, alias_clause: str
+) -> List[str]:
     """Generate comprehensive venue analysis section for a team.
 
     Includes:
@@ -919,7 +925,9 @@ def generate_venue_analysis(conn, team_name: str, alias_clause: str) -> list:
     return md
 
 
-def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
+def generate_team_stat_pack(
+    conn: duckdb.DuckDBPyConnection, team_name: str, tags_lookup: Dict[str, Dict[str, Any]]
+) -> str:
     """Generate comprehensive stat pack for a team."""
     logger.info("Generating stat pack for %s", team_name)
 
@@ -1471,7 +1479,7 @@ def generate_team_stat_pack(conn, team_name: str, tags_lookup: dict) -> str:
     return "\n".join(md)
 
 
-def main():
+def main() -> int:
     """Generate stat packs for all 10 IPL teams."""
     logger.info("=" * 60)
     logger.info("Cricket Playbook - IPL 2026 Stat Pack Generator")

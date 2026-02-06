@@ -24,7 +24,7 @@ import csv
 import sys
 from pathlib import Path
 from dataclasses import dataclass, field
-from typing import Optional, Dict, List
+from typing import Any, Dict, List, Optional, Tuple
 
 # Add parent directory to path for utils import
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -327,7 +327,7 @@ def is_overseas_player(player_name: str) -> bool:
 # =============================================================================
 
 
-def load_squads() -> dict:
+def load_squads() -> Dict[str, List[Dict[str, str]]]:
     """Load IPL 2026 squad data"""
     squads = {}
     squad_file = DATA_DIR / "ipl_2026_squads.csv"
@@ -346,7 +346,7 @@ def load_squads() -> dict:
     return squads
 
 
-def load_contracts() -> dict:
+def load_contracts() -> Dict[str, Dict[str, Any]]:
     """Load player contract/auction prices"""
     contracts = {}
     contract_file = DATA_DIR / "ipl_2026_player_contracts.csv"
@@ -364,7 +364,7 @@ def load_contracts() -> dict:
     return contracts
 
 
-def load_player_tags() -> dict:
+def load_player_tags() -> Dict[str, Dict[str, Dict[str, Any]]]:
     """Load player tags from 2023+ analysis"""
     tags = {"batters": {}, "bowlers": {}}
     tags_file = OUTPUT_DIR / "player_tags_2023.json"
@@ -389,7 +389,7 @@ def load_player_tags() -> dict:
     return tags
 
 
-def load_entry_points() -> dict:
+def load_entry_points() -> Dict[str, Dict[str, Any]]:
     """Load batting entry points data"""
     entry_points = {}
     entry_file = OUTPUT_DIR / "matchups" / "batter_entry_points_2023.csv"
@@ -408,7 +408,7 @@ def load_entry_points() -> dict:
     return entry_points
 
 
-def load_bowler_phase_performance() -> dict:
+def load_bowler_phase_performance() -> Dict[str, Dict[str, str]]:
     """Load bowler phase performance metrics"""
     metrics = {}
     metrics_file = OUTPUT_DIR / "metrics" / "bowler_phase_performance.csv"
@@ -446,8 +446,12 @@ def load_bowler_phase_performance() -> dict:
 
 
 def build_players(
-    squads: dict, contracts: dict, tags: dict, entry_points: dict, bowler_metrics: dict
-) -> dict:
+    squads: Dict[str, List[Dict[str, str]]],
+    contracts: Dict[str, Dict[str, Any]],
+    tags: Dict[str, Dict[str, Dict[str, Any]]],
+    entry_points: Dict[str, Dict[str, Any]],
+    bowler_metrics: Dict[str, Dict[str, str]],
+) -> Dict[str, List[Player]]:
     """Build Player objects for all teams"""
     team_players = {}
 
@@ -548,7 +552,7 @@ def get_experience_bonus(price_cr: float, year_joined: int = 2026) -> float:
     return 0.0
 
 
-def score_opener(player: Player) -> tuple:
+def score_opener(player: Player) -> Tuple[float, str]:
     """
     Score player for Opener position.
     Criteria: PP SR 30%, PP Boundary% 20%, Career Avg 15%, Last 2 seasons 20%, Experience 15%
@@ -642,7 +646,7 @@ def score_opener(player: Player) -> tuple:
     return min(base_score, 100.0), rationale
 
 
-def score_number_three(player: Player) -> tuple:
+def score_number_three(player: Player) -> Tuple[float, str]:
     """
     Score player for #3 position.
     Criteria: Versatility focus, adaptability score, can handle both PP and middle overs
@@ -730,7 +734,7 @@ def score_number_three(player: Player) -> tuple:
     return min(base_score, 100.0), rationale
 
 
-def score_middle_order(player: Player) -> tuple:
+def score_middle_order(player: Player) -> Tuple[float, str]:
     """
     Score player for Middle Order #4-5 position.
     Criteria: Avg in 7-15 25%, SR in 7-15 20%, Performance vs spin 25%, Career Avg 15%, Recent 15%
@@ -802,7 +806,7 @@ def score_middle_order(player: Player) -> tuple:
     return min(base_score, 100.0), rationale
 
 
-def score_finisher(player: Player) -> tuple:
+def score_finisher(player: Player) -> Tuple[float, str]:
     """
     Score player for Finisher #6-7 position.
     Criteria: Death SR 35%, Boundary% at death 20%, Career SR 15%, Avg at death 15%, Bowling utility 15%
@@ -881,7 +885,7 @@ def score_finisher(player: Player) -> tuple:
     return min(base_score, 100.0), rationale
 
 
-def score_wicketkeeper(player: Player, batting_position_score: float) -> tuple:
+def score_wicketkeeper(player: Player, batting_position_score: float) -> Tuple[float, str]:
     """
     Score player for Wicketkeeper position.
     Criteria: Keeping quality 30%, Batting at designated position 50%, IPL keeping experience 20%
@@ -923,7 +927,7 @@ def score_wicketkeeper(player: Player, batting_position_score: float) -> tuple:
     return min(base_score, 100.0), rationale
 
 
-def score_lead_pacer(player: Player) -> tuple:
+def score_lead_pacer(player: Player) -> Tuple[float, str]:
     """
     Score player for Lead Pacer position.
     Criteria: Wicket-taking (SR) 25%, Death economy 25%, PP economy 20%, Career economy 15%, Experience 15%
@@ -1014,7 +1018,7 @@ def score_lead_pacer(player: Player) -> tuple:
     return min(base_score, 100.0), rationale
 
 
-def score_supporting_pacer_pp(player: Player) -> tuple:
+def score_supporting_pacer_pp(player: Player) -> Tuple[float, str]:
     """
     Score player for PP Specialist Supporting Pacer.
     Criteria: PP Economy 35%, PP SR 30%, Swing/seam 20%, Overall eco 15%
@@ -1079,7 +1083,7 @@ def score_supporting_pacer_pp(player: Player) -> tuple:
     return min(base_score, 100.0), rationale
 
 
-def score_supporting_pacer_death(player: Player) -> tuple:
+def score_supporting_pacer_death(player: Player) -> Tuple[float, str]:
     """
     Score player for Death Specialist Supporting Pacer.
     Criteria: Death Economy 40%, Death SR 25%, Yorker/variation execution 20%, Overall eco 15%
@@ -1147,7 +1151,7 @@ def score_supporting_pacer_death(player: Player) -> tuple:
     return min(base_score, 100.0), rationale
 
 
-def score_lead_spinner(player: Player) -> tuple:
+def score_lead_spinner(player: Player) -> Tuple[float, str]:
     """
     Score player for Lead Spinner position.
     Criteria: Middle overs economy 30%, Strike rate 25%, Career economy 15%, vs RHB/LHB 15%, Experience 15%
@@ -1232,7 +1236,7 @@ def score_lead_spinner(player: Player) -> tuple:
     return min(base_score, 100.0), rationale
 
 
-def score_batting_allrounder(player: Player) -> tuple:
+def score_batting_allrounder(player: Player) -> Tuple[float, str]:
     """
     Score player for Batting-first All-rounder.
     Criteria: Finisher metrics 45%, Middle-order metrics 20%, Bowling economy 20%, Bowling capability 15%
@@ -1288,7 +1292,7 @@ def score_batting_allrounder(player: Player) -> tuple:
     return min(base_score, 100.0), rationale
 
 
-def score_bowling_allrounder(player: Player) -> tuple:
+def score_bowling_allrounder(player: Player) -> Tuple[float, str]:
     """
     Score player for Bowling-first All-rounder.
     Criteria: Bowling metrics 50%, Batting average 25%, Lower-order SR 15%, Experience 10%
@@ -1477,77 +1481,68 @@ def generate_what_doesnt(players: List[PositionPlayer], position_name: str) -> s
 # =============================================================================
 
 
-def generate_team_depth_chart(team: str, players: List[Player]) -> DepthChart:
-    """Generate complete depth chart for a team"""
-    logger.info("Generating depth chart for %s", team)
-    logger.debug("Processing %d players for %s", len(players), team)
-    positions = {}
+def _create_position(
+    players: List[Player], scoring_func, position_name: str, display_name: str, limit: int = 3
+) -> Position:
+    """
+    Create a Position object by ranking players with given scoring function.
 
-    # 1. Openers
-    opener_players = rank_position(players, score_opener, "Opener", 3)
-    positions["opener"] = Position(
-        name="Opener",
-        rating=calculate_position_rating(opener_players, "Opener"),
-        what_works=generate_what_works(opener_players, "Opener"),
-        what_doesnt=generate_what_doesnt(opener_players, "Opener"),
-        players=opener_players,
-        overseas_count=sum(1 for p in opener_players if p.player.is_overseas),
+    Args:
+        players: List of all team players
+        scoring_func: Function to score players for this position
+        position_name: Internal position key name
+        display_name: Human-readable position name
+        limit: Max number of players to rank
+
+    Returns:
+        Position object with ranked players
+    """
+    ranked_players = rank_position(players, scoring_func, position_name, limit)
+    return Position(
+        name=display_name,
+        rating=calculate_position_rating(ranked_players, position_name),
+        what_works=generate_what_works(ranked_players, position_name),
+        what_doesnt=generate_what_doesnt(ranked_players, position_name),
+        players=ranked_players,
+        overseas_count=sum(1 for p in ranked_players if p.player.is_overseas),
     )
 
-    # 2. #3 Batter
-    number3_players = rank_position(players, score_number_three, "#3 Batter", 3)
-    positions["number_3"] = Position(
-        name="#3 Batter",
-        rating=calculate_position_rating(number3_players, "#3 Batter"),
-        what_works=generate_what_works(number3_players, "#3 Batter"),
-        what_doesnt=generate_what_doesnt(number3_players, "#3 Batter"),
-        players=number3_players,
-        overseas_count=sum(1 for p in number3_players if p.player.is_overseas),
-    )
 
-    # 3. Middle Order #4-5
-    middle_players = rank_position(players, score_middle_order, "Middle Order", 3)
-    positions["middle_order"] = Position(
-        name="Middle Order #4-5",
-        rating=calculate_position_rating(middle_players, "Middle Order"),
-        what_works=generate_what_works(middle_players, "Middle Order"),
-        what_doesnt=generate_what_doesnt(middle_players, "Middle Order"),
-        players=middle_players,
-        overseas_count=sum(1 for p in middle_players if p.player.is_overseas),
-    )
+def _create_wicketkeeper_position(players: List[Player]) -> Position:
+    """
+    Create the Wicketkeeper position with special scoring.
 
-    # 4. Finisher #6-7
-    finisher_players = rank_position(players, score_finisher, "Finisher", 3)
-    positions["finisher"] = Position(
-        name="Finisher #6-7",
-        rating=calculate_position_rating(finisher_players, "Finisher"),
-        what_works=generate_what_works(finisher_players, "Finisher"),
-        what_doesnt=generate_what_doesnt(finisher_players, "Finisher"),
-        players=finisher_players,
-        overseas_count=sum(1 for p in finisher_players if p.player.is_overseas),
-    )
+    Wicketkeepers require batting position-aware scoring.
 
-    # 5. Wicketkeeper
+    Args:
+        players: List of all team players
+
+    Returns:
+        Position object for wicketkeeper role
+    """
     keepers = [p for p in players if p.is_wicketkeeper or p.role == "Wicketkeeper"]
     keeper_scored = []
+
     for k in keepers:
-        # Determine batting position
+        # Determine batting position score based on entry point
         if k.avg_entry_ball and k.avg_entry_ball <= 20:
             bat_score, _ = score_opener(k)
         elif k.avg_entry_ball and k.avg_entry_ball >= 60:
             bat_score, _ = score_finisher(k)
         else:
             bat_score, _ = score_middle_order(k)
+
         score, rationale = score_wicketkeeper(k, bat_score)
         if score > 0:
             keeper_scored.append(PositionPlayer(rank=0, player=k, score=score, rationale=rationale))
 
+    # Sort and assign ranks
     keeper_scored.sort(key=lambda x: x.score, reverse=True)
     for i, kp in enumerate(keeper_scored):
         kp.rank = i + 1
 
     keeper_players = keeper_scored[:2]
-    positions["wicketkeeper"] = Position(
+    return Position(
         name="Wicketkeeper",
         rating=calculate_position_rating(keeper_players, "Wicketkeeper"),
         what_works=generate_what_works(keeper_players, "Wicketkeeper"),
@@ -1556,95 +1551,103 @@ def generate_team_depth_chart(team: str, players: List[Player]) -> DepthChart:
         overseas_count=sum(1 for p in keeper_players if p.player.is_overseas),
     )
 
-    # 6. Lead Pacer
-    lead_pacer_players = rank_position(players, score_lead_pacer, "Lead Pacer", 2)
-    positions["lead_pacer"] = Position(
-        name="Lead Pacer",
-        rating=calculate_position_rating(lead_pacer_players, "Lead Pacer"),
-        what_works=generate_what_works(lead_pacer_players, "Lead Pacer"),
-        what_doesnt=generate_what_doesnt(lead_pacer_players, "Lead Pacer"),
-        players=lead_pacer_players,
-        overseas_count=sum(1 for p in lead_pacer_players if p.player.is_overseas),
-    )
 
-    # 7. Supporting Pacer (PP Specialist)
-    pp_pacer_players = rank_position(players, score_supporting_pacer_pp, "PP Pacer", 3)
-    positions["supporting_pacer_pp"] = Position(
-        name="Supporting Pacer (PP Specialist)",
-        rating=calculate_position_rating(pp_pacer_players, "PP Pacer"),
-        what_works=generate_what_works(pp_pacer_players, "PP Pacer"),
-        what_doesnt=generate_what_doesnt(pp_pacer_players, "PP Pacer"),
-        players=pp_pacer_players,
-        overseas_count=sum(1 for p in pp_pacer_players if p.player.is_overseas),
-    )
+def _identify_vulnerabilities(positions: Dict[str, Position]) -> List[str]:
+    """
+    Identify team vulnerabilities based on position analysis.
 
-    # 7b. Supporting Pacer (Death Specialist)
-    death_pacer_players = rank_position(players, score_supporting_pacer_death, "Death Pacer", 3)
-    positions["supporting_pacer_death"] = Position(
-        name="Supporting Pacer (Death Specialist)",
-        rating=calculate_position_rating(death_pacer_players, "Death Pacer"),
-        what_works=generate_what_works(death_pacer_players, "Death Pacer"),
-        what_doesnt=generate_what_doesnt(death_pacer_players, "Death Pacer"),
-        players=death_pacer_players,
-        overseas_count=sum(1 for p in death_pacer_players if p.player.is_overseas),
-    )
+    Args:
+        positions: Dictionary of all positions
 
-    # 8. Lead Spinner
-    lead_spinner_players = rank_position(players, score_lead_spinner, "Lead Spinner", 2)
-    positions["lead_spinner"] = Position(
-        name="Lead Spinner",
-        rating=calculate_position_rating(lead_spinner_players, "Lead Spinner"),
-        what_works=generate_what_works(lead_spinner_players, "Lead Spinner"),
-        what_doesnt=generate_what_doesnt(lead_spinner_players, "Lead Spinner"),
-        players=lead_spinner_players,
-        overseas_count=sum(1 for p in lead_spinner_players if p.player.is_overseas),
-    )
-
-    # 9a. All-rounder (Batting-first)
-    batting_ar_players = rank_position(players, score_batting_allrounder, "Batting AR", 3)
-    positions["allrounder_batting"] = Position(
-        name="All-rounder (Batting-first)",
-        rating=calculate_position_rating(batting_ar_players, "Batting AR"),
-        what_works=generate_what_works(batting_ar_players, "Batting AR"),
-        what_doesnt=generate_what_doesnt(batting_ar_players, "Batting AR"),
-        players=batting_ar_players,
-        overseas_count=sum(1 for p in batting_ar_players if p.player.is_overseas),
-    )
-
-    # 9b. All-rounder (Bowling-first)
-    bowling_ar_players = rank_position(players, score_bowling_allrounder, "Bowling AR", 3)
-    positions["allrounder_bowling"] = Position(
-        name="All-rounder (Bowling-first)",
-        rating=calculate_position_rating(bowling_ar_players, "Bowling AR"),
-        what_works=generate_what_works(bowling_ar_players, "Bowling AR"),
-        what_doesnt=generate_what_doesnt(bowling_ar_players, "Bowling AR"),
-        players=bowling_ar_players,
-        overseas_count=sum(1 for p in bowling_ar_players if p.player.is_overseas),
-    )
-
-    # Calculate overall rating and identify strengths/weaknesses
-    ratings = {k: v.rating for k, v in positions.items()}
-    avg_rating = sum(ratings.values()) / len(ratings) if ratings else 5.0
-
-    strongest = max(ratings, key=ratings.get)
-    weakest = min(ratings, key=ratings.get)
-
-    # Identify vulnerabilities
+    Returns:
+        List of vulnerability descriptions
+    """
     vulnerabilities = []
 
     # Check keeper depth
     if len(positions["wicketkeeper"].players) < 2:
         vulnerabilities.append("Single keeper risk - no backup")
 
-    # Check if key positions are overseas-heavy
+    # Check overseas dependency
     for pos_name, pos in positions.items():
         if pos.overseas_count >= 2 and len(pos.players) <= 3:
             vulnerabilities.append(f"{pos.name}: overseas dependent")
 
-    # Check for weak positions
+    # Check weak positions
     for pos_name, pos in positions.items():
         if pos.rating < 5.0:
             vulnerabilities.append(f"{pos.name}: thin depth (rating {pos.rating})")
+
+    return vulnerabilities[:5]
+
+
+def generate_team_depth_chart(team: str, players: List[Player]) -> DepthChart:
+    """
+    Generate complete depth chart for a team.
+
+    Creates position-by-position rankings for all 9 defined positions
+    with ratings, strengths, weaknesses, and vulnerability analysis.
+
+    Args:
+        team: Team name
+        players: List of Player objects for the team
+
+    Returns:
+        DepthChart object with complete position analysis
+    """
+    logger.info("Generating depth chart for %s", team)
+    logger.debug("Processing %d players for %s", len(players), team)
+    positions = {}
+
+    # Batting positions
+    positions["opener"] = _create_position(players, score_opener, "Opener", "Opener", 3)
+    positions["number_3"] = _create_position(
+        players, score_number_three, "#3 Batter", "#3 Batter", 3
+    )
+    positions["middle_order"] = _create_position(
+        players, score_middle_order, "Middle Order", "Middle Order #4-5", 3
+    )
+    positions["finisher"] = _create_position(
+        players, score_finisher, "Finisher", "Finisher #6-7", 3
+    )
+
+    # Wicketkeeper (special handling)
+    positions["wicketkeeper"] = _create_wicketkeeper_position(players)
+
+    # Bowling positions
+    positions["lead_pacer"] = _create_position(
+        players, score_lead_pacer, "Lead Pacer", "Lead Pacer", 2
+    )
+    positions["supporting_pacer_pp"] = _create_position(
+        players, score_supporting_pacer_pp, "PP Pacer", "Supporting Pacer (PP Specialist)", 3
+    )
+    positions["supporting_pacer_death"] = _create_position(
+        players,
+        score_supporting_pacer_death,
+        "Death Pacer",
+        "Supporting Pacer (Death Specialist)",
+        3,
+    )
+    positions["lead_spinner"] = _create_position(
+        players, score_lead_spinner, "Lead Spinner", "Lead Spinner", 2
+    )
+
+    # All-rounder positions
+    positions["allrounder_batting"] = _create_position(
+        players, score_batting_allrounder, "Batting AR", "All-rounder (Batting-first)", 3
+    )
+    positions["allrounder_bowling"] = _create_position(
+        players, score_bowling_allrounder, "Bowling AR", "All-rounder (Bowling-first)", 3
+    )
+
+    # Calculate overall metrics
+    ratings = {k: v.rating for k, v in positions.items()}
+    avg_rating = sum(ratings.values()) / len(ratings) if ratings else 5.0
+    strongest = max(ratings, key=ratings.get)
+    weakest = min(ratings, key=ratings.get)
+
+    # Identify vulnerabilities
+    vulnerabilities = _identify_vulnerabilities(positions)
 
     return DepthChart(
         team_name=team,
@@ -1653,7 +1656,7 @@ def generate_team_depth_chart(team: str, players: List[Player]) -> DepthChart:
         overall_rating=round(avg_rating, 1),
         strongest_position=positions[strongest].name,
         weakest_position=positions[weakest].name,
-        vulnerabilities=vulnerabilities[:5],  # Limit to top 5
+        vulnerabilities=vulnerabilities,
     )
 
 
@@ -1662,7 +1665,7 @@ def generate_team_depth_chart(team: str, players: List[Player]) -> DepthChart:
 # =============================================================================
 
 
-def depth_chart_to_dict(dc: DepthChart) -> dict:
+def depth_chart_to_dict(dc: DepthChart) -> Dict[str, Any]:
     """Convert DepthChart to JSON-serializable dict"""
     positions_dict = {}
 
@@ -1699,7 +1702,9 @@ def depth_chart_to_dict(dc: DepthChart) -> dict:
     }
 
 
-def generate_cross_team_comparison(all_charts: Dict[str, DepthChart]) -> dict:
+def generate_cross_team_comparison(
+    all_charts: Dict[str, DepthChart],
+) -> Dict[str, Dict[str, float]]:
     """Generate cross-team comparison table"""
     comparison = {}
 
@@ -1726,7 +1731,7 @@ def generate_cross_team_comparison(all_charts: Dict[str, DepthChart]) -> dict:
     return comparison
 
 
-def main():
+def main() -> int:
     """Main entry point"""
     logger.info("=" * 60)
     logger.info("CRICKET PLAYBOOK - DEPTH CHARTS GENERATOR")

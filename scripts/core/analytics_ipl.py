@@ -29,7 +29,7 @@ CONTRACTS_CSV = DATA_DIR / "ipl_2026_player_contracts.csv"
 IPL_MIN_DATE = "2023-01-01"  # IPL 2023, 2024, 2025
 
 
-def create_squad_tables(conn: duckdb.DuckDBPyConnection):
+def create_squad_tables(conn: duckdb.DuckDBPyConnection) -> None:
     """Load IPL 2026 squad data into tables."""
 
     print("Loading IPL 2026 squad data...")
@@ -83,7 +83,7 @@ def create_squad_tables(conn: duckdb.DuckDBPyConnection):
         print(f"  WARNING: {CONTRACTS_CSV} not found")
 
 
-def create_ipl_batting_views(conn: duckdb.DuckDBPyConnection):
+def create_ipl_batting_views(conn: duckdb.DuckDBPyConnection) -> None:
     """Create IPL-specific batting analytics views."""
 
     print("\nCreating IPL-specific batting views...")
@@ -269,7 +269,7 @@ def create_ipl_batting_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_batter_vs_bowler_type")
 
 
-def create_ipl_bowling_views(conn: duckdb.DuckDBPyConnection):
+def create_ipl_bowling_views(conn: duckdb.DuckDBPyConnection) -> None:
     """Create IPL-specific bowling analytics views."""
 
     print("\nCreating IPL-specific bowling views...")
@@ -421,7 +421,7 @@ def create_ipl_bowling_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_bowler_vs_batter_handedness")
 
 
-def create_phase_matchup_views(conn: duckdb.DuckDBPyConnection):
+def create_phase_matchup_views(conn: duckdb.DuckDBPyConnection) -> None:
     """Create phase-wise batter vs bowler matchup views."""
 
     print("\nCreating phase-wise matchup views...")
@@ -541,7 +541,7 @@ def create_phase_matchup_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_bowler_vs_batter_phase")
 
 
-def create_team_venue_views(conn: duckdb.DuckDBPyConnection):
+def create_team_venue_views(conn: duckdb.DuckDBPyConnection) -> None:
     """Create batter/bowler vs team and venue breakdown views."""
 
     print("\nCreating team and venue breakdown views...")
@@ -944,7 +944,7 @@ def create_team_venue_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_bowler_phase_distribution")
 
 
-def create_t20_comparison_views(conn: duckdb.DuckDBPyConnection):
+def create_t20_comparison_views(conn: duckdb.DuckDBPyConnection) -> None:
     """Create All T20 comparison views (across all tournaments)."""
 
     print("\nCreating All T20 comparison views...")
@@ -1040,7 +1040,7 @@ def create_t20_comparison_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_t20_bowler_phase")
 
 
-def create_squad_integration_views(conn: duckdb.DuckDBPyConnection):
+def create_squad_integration_views(conn: duckdb.DuckDBPyConnection) -> None:
     """Create views that integrate IPL 2026 squad data with analytics."""
 
     print("\nCreating squad integration views...")
@@ -1192,7 +1192,7 @@ def create_squad_integration_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_team_roster")
 
 
-def create_percentile_views(conn: duckdb.DuckDBPyConnection):
+def create_percentile_views(conn: duckdb.DuckDBPyConnection) -> None:
     """Create views with percentile rankings for key metrics."""
 
     print("\nCreating percentile ranking views...")
@@ -1308,7 +1308,7 @@ def create_percentile_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_bowler_phase_percentiles")
 
 
-def create_benchmark_views(conn: duckdb.DuckDBPyConnection):
+def create_benchmark_views(conn: duckdb.DuckDBPyConnection) -> None:
     """Create IPL-wide benchmark/average views for comparison."""
 
     print("\nCreating IPL benchmark views...")
@@ -1424,7 +1424,7 @@ def create_benchmark_views(conn: duckdb.DuckDBPyConnection):
     print("  - analytics_ipl_career_benchmarks")
 
 
-def verify_views(conn: duckdb.DuckDBPyConnection):
+def verify_views(conn: duckdb.DuckDBPyConnection) -> None:
     """Verify all views are working with sample queries."""
 
     print("\n" + "=" * 60)
@@ -1517,7 +1517,7 @@ def verify_views(conn: duckdb.DuckDBPyConnection):
     return True
 
 
-def main():
+def main() -> int:
     """Main entry point."""
 
     print("=" * 60)

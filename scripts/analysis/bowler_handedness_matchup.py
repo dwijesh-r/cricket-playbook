@@ -20,26 +20,40 @@ Tags Generated:
 - LHB_WICKET_TAKER: Higher wickets/ball ratio vs LHB (takes wickets more efficiently)
 - RHB_WICKET_TAKER: Higher wickets/ball ratio vs RHB (takes wickets more efficiently)
 - LHB_PRESSURE / RHB_PRESSURE: Higher dot ball % vs respective hand
+
+Performance Note (TKT-099):
+- calculate_matchup_differential uses set_index + .loc for O(1) lookups
+- This pattern is already optimized for the LHB/RHB join operation
 """
 
 import duckdb
 import pandas as pd
-import json
 from pathlib import Path
+import sys
 
+# Add parent directory to path for imports
 SCRIPT_DIR = Path(__file__).parent
+sys.path.insert(0, str(SCRIPT_DIR.parent))
+
+from utils.player_tags import update_player_tags
+from utils.logging_config import setup_logger
+from config import config
+
+# Initialize logger
+logger = setup_logger(__name__)
+
 PROJECT_DIR = SCRIPT_DIR.parent
-DB_PATH = PROJECT_DIR / "data" / "cricket_playbook.duckdb"
-OUTPUT_DIR = PROJECT_DIR / "outputs"
+DB_PATH = config.DB_PATH
+OUTPUT_DIR = config.OUTPUT_DIR
 
 # Data filter - only use recent IPL seasons (2023 onwards)
-IPL_MIN_DATE = "2023-01-01"
+IPL_MIN_DATE = config.IPL_MIN_DATE
 
 # Minimum balls faced to consider for analysis
-MIN_BALLS_VS_HAND = 60  # ~10 overs
+MIN_BALLS_VS_HAND = config.MIN_BALLS_VS_HAND
 
 
-def get_bowler_vs_handedness(conn) -> pd.DataFrame:
+def get_bowler_vs_handedness(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Get bowler performance split by batter handedness.
 
     Uses the pre-computed analytics_ipl_bowler_vs_batter_handedness view
@@ -78,9 +92,15 @@ def calculate_matchup_differential(df: pd.DataFrame) -> pd.DataFrame:
 
     Uses wickets_per_ball ratio from analytics view for more accurate
     wicket-taker comparisons instead of raw wicket counts.
+
+    Performance Note (TKT-099):
+    - Uses set_index + .loc for O(1) lookups per bowler (already optimized)
+    - Alternative groupby approach would not improve this pattern since we need
+      to join LHB and RHB rows side-by-side for differential calculation
     """
 
     # Pivot to get LHB and RHB side by side
+    # TKT-099: set_index provides O(1) lookup, avoiding repeated DataFrame filtering
     lhb = df[df["batting_hand"] == "Left-hand"].set_index("bowler_id")
     rhb = df[df["batting_hand"] == "Right-hand"].set_index("bowler_id")
 
@@ -202,14 +222,14 @@ def assign_handedness_tags(
     return df
 
 
-def print_analysis(df: pd.DataFrame):
-    """Print summary analysis."""
+def log_analysis(df: pd.DataFrame) -> None:
+    """Log summary analysis using logger."""
 
-    print("\n" + "=" * 70)
-    print("BOWLER VS LHB/RHB MATCHUP ANALYSIS")
-    print("=" * 70)
+    logger.info("=" * 70)
+    logger.info("BOWLER VS LHB/RHB MATCHUP ANALYSIS")
+    logger.info("=" * 70)
 
-    print(f"\n  Bowlers with sufficient data vs both hands: {len(df)}")
+    logger.info("Bowlers with sufficient data vs both hands: %d", len(df))
 
     # Count tags
     lhb_specialists = df[df["handedness_tags"].apply(lambda x: "LHB_SPECIALIST" in x)]
@@ -218,104 +238,98 @@ def print_analysis(df: pd.DataFrame):
     lhb_wicket_takers = df[df["handedness_tags"].apply(lambda x: "LHB_WICKET_TAKER" in x)]
     rhb_wicket_takers = df[df["handedness_tags"].apply(lambda x: "RHB_WICKET_TAKER" in x)]
 
-    print(f"\n  LHB Specialists (economy ≥1.0 better vs lefties): {len(lhb_specialists)}")
-    print(f"  RHB Specialists (economy ≥1.0 better vs righties): {len(rhb_specialists)}")
-    print(f"  LHB Wicket Takers (higher wickets/ball ratio vs lefties): {len(lhb_wicket_takers)}")
-    print(f"  RHB Wicket Takers (higher wickets/ball ratio vs righties): {len(rhb_wicket_takers)}")
+    logger.info("LHB Specialists (economy >=1.0 better vs lefties): %d", len(lhb_specialists))
+    logger.info("RHB Specialists (economy >=1.0 better vs righties): %d", len(rhb_specialists))
+    logger.info(
+        "LHB Wicket Takers (higher wickets/ball ratio vs lefties): %d", len(lhb_wicket_takers)
+    )
+    logger.info(
+        "RHB Wicket Takers (higher wickets/ball ratio vs righties): %d", len(rhb_wicket_takers)
+    )
 
     # Top LHB specialists
-    print("\n  TOP LHB SPECIALISTS (by economy differential):")
+    logger.info("TOP LHB SPECIALISTS (by economy differential):")
     top_lhb = df.nsmallest(10, "economy_diff")
     for _, row in top_lhb.iterrows():
-        print(
-            f"    {row['bowler_name']}: LHB Eco {row['lhb_economy']:.2f} vs RHB Eco {row['rhb_economy']:.2f} (diff: {row['economy_diff']:.2f})"
+        logger.debug(
+            "  %s: LHB Eco %.2f vs RHB Eco %.2f (diff: %.2f)",
+            row["bowler_name"],
+            row["lhb_economy"],
+            row["rhb_economy"],
+            row["economy_diff"],
         )
 
     # Top RHB specialists
-    print("\n  TOP RHB SPECIALISTS (by economy differential):")
+    logger.info("TOP RHB SPECIALISTS (by economy differential):")
     top_rhb = df.nlargest(10, "economy_diff")
     for _, row in top_rhb.iterrows():
-        print(
-            f"    {row['bowler_name']}: LHB Eco {row['lhb_economy']:.2f} vs RHB Eco {row['rhb_economy']:.2f} (diff: {row['economy_diff']:.2f})"
+        logger.debug(
+            "  %s: LHB Eco %.2f vs RHB Eco %.2f (diff: %.2f)",
+            row["bowler_name"],
+            row["lhb_economy"],
+            row["rhb_economy"],
+            row["economy_diff"],
         )
 
     # Top LHB wicket-takers by wickets/ball ratio
-    print("\n  TOP LHB WICKET-TAKERS (by wickets/ball ratio):")
+    logger.info("TOP LHB WICKET-TAKERS (by wickets/ball ratio):")
     top_lhb_wt = df[df["lhb_wickets_per_ball"] >= 0.03].nlargest(10, "wickets_per_ball_diff")
     for _, row in top_lhb_wt.iterrows():
         lhb_wpb = row.get("lhb_wickets_per_ball", 0) or 0
         rhb_wpb = row.get("rhb_wickets_per_ball", 0) or 0
         wpb_diff = row.get("wickets_per_ball_diff", 0) or 0
-        print(
-            f"    {row['bowler_name']}: LHB {lhb_wpb:.4f} vs RHB {rhb_wpb:.4f} (diff: {wpb_diff:+.4f})"
+        logger.debug(
+            "  %s: LHB %.4f vs RHB %.4f (diff: %+.4f)",
+            row["bowler_name"],
+            lhb_wpb,
+            rhb_wpb,
+            wpb_diff,
         )
 
     # Top RHB wicket-takers by wickets/ball ratio
-    print("\n  TOP RHB WICKET-TAKERS (by wickets/ball ratio):")
+    logger.info("TOP RHB WICKET-TAKERS (by wickets/ball ratio):")
     top_rhb_wt = df[df["rhb_wickets_per_ball"] >= 0.03].nsmallest(10, "wickets_per_ball_diff")
     for _, row in top_rhb_wt.iterrows():
         lhb_wpb = row.get("lhb_wickets_per_ball", 0) or 0
         rhb_wpb = row.get("rhb_wickets_per_ball", 0) or 0
         wpb_diff = row.get("wickets_per_ball_diff", 0) or 0
-        print(
-            f"    {row['bowler_name']}: LHB {lhb_wpb:.4f} vs RHB {rhb_wpb:.4f} (diff: {wpb_diff:+.4f})"
+        logger.debug(
+            "  %s: LHB %.4f vs RHB %.4f (diff: %+.4f)",
+            row["bowler_name"],
+            lhb_wpb,
+            rhb_wpb,
+            wpb_diff,
         )
 
     # Neutral bowlers
     neutral = df[(df["economy_diff"].abs() < 0.5)]
-    print(f"\n  Neutral bowlers (diff < 0.5): {len(neutral)}")
+    logger.info("Neutral bowlers (diff < 0.5): %d", len(neutral))
 
 
-def update_player_tags_json(matchup_df: pd.DataFrame):
-    """Update player_tags.json with handedness matchup tags."""
+def update_player_tags_json(matchup_df: pd.DataFrame) -> int:
+    """Update player_tags.json with handedness matchup tags.
 
-    tags_path = OUTPUT_DIR / "player_tags.json"
-
-    if tags_path.exists():
-        with open(tags_path) as f:
-            tags_data = json.load(f)
-    else:
-        tags_data = {"batters": [], "bowlers": []}
-
+    TKT-097: Refactored to use shared utils/player_tags.py module.
+    """
     # Create lookup for handedness tags
     handedness_lookup = {}
     for _, row in matchup_df.iterrows():
         if row["handedness_tags"]:
             handedness_lookup[row["bowler_id"]] = row["handedness_tags"]
 
-    # Update bowler tags
-    updated_count = 0
-    for bowler in tags_data.get("bowlers", []):
-        player_id = bowler.get("player_id")
-        if player_id in handedness_lookup:
-            existing_tags = set(bowler.get("tags", []))
-            new_tags = set(handedness_lookup[player_id])
-            # Remove old handedness tags first
-            existing_tags -= {
-                "LHB_SPECIALIST",
-                "RHB_SPECIALIST",
-                "LHB_VULNERABLE",
-                "RHB_VULNERABLE",
-                "LHB_PRESSURE",
-                "RHB_PRESSURE",
-                "LHB_WICKET_TAKER",
-                "RHB_WICKET_TAKER",
-            }
-            # Add new ones
-            existing_tags.update(new_tags)
-            bowler["tags"] = list(existing_tags)
-            updated_count += 1
+    # Use shared utility to update tags
+    updated_count = update_player_tags(
+        category="handedness",
+        new_tags_lookup=handedness_lookup,
+        player_type="bowlers",
+    )
 
-    # Save updated file
-    with open(tags_path, "w") as f:
-        json.dump(tags_data, f, indent=2)
-
-    print(f"\n  Updated {updated_count} bowlers in player_tags.json")
+    logger.info("Updated %d bowlers in player_tags.json", updated_count)
 
     return updated_count
 
 
-def save_matchup_data(df: pd.DataFrame):
+def save_matchup_data(df: pd.DataFrame) -> None:
     """Save matchup data to CSV for review."""
 
     output_path = OUTPUT_DIR / "bowler_handedness_matchup.csv"
@@ -347,51 +361,51 @@ def save_matchup_data(df: pd.DataFrame):
     )
 
     output_df.to_csv(output_path, index=False)
-    print(f"\n  Matchup data saved to: {output_path}")
+    logger.info("Matchup data saved to: %s", output_path)
 
 
-def main():
-    print("=" * 70)
-    print("Cricket Playbook - Bowler vs LHB/RHB Matchup Analysis")
-    print("Author: Stephen Curry | Sprint 3.0 - Analytics Tables & Wickets/Ball Ratio")
-    print("=" * 70)
+def main() -> int:
+    logger.info("=" * 70)
+    logger.info("Cricket Playbook - Bowler vs LHB/RHB Matchup Analysis")
+    logger.info("Author: Stephen Curry | Sprint 3.0 - Analytics Tables & Wickets/Ball Ratio")
+    logger.info("=" * 70)
 
     if not DB_PATH.exists():
-        print(f"\nERROR: Database not found at {DB_PATH}")
+        logger.error("Database not found at %s", DB_PATH)
         return 1
 
     conn = duckdb.connect(str(DB_PATH), read_only=True)
 
     # Get bowler performance by batter handedness
-    print("\n1. Extracting bowler vs handedness data...")
+    logger.info("[1/5] Extracting bowler vs handedness data...")
     raw_df = get_bowler_vs_handedness(conn)
-    print(f"   Records: {len(raw_df)}")
+    logger.info("Records: %d", len(raw_df))
 
     # Calculate differentials
-    print("\n2. Calculating matchup differentials...")
+    logger.info("[2/5] Calculating matchup differentials...")
     matchup_df = calculate_matchup_differential(raw_df)
-    print(f"   Bowlers with data vs both hands: {len(matchup_df)}")
+    logger.info("Bowlers with data vs both hands: %d", len(matchup_df))
 
     # Assign tags
-    print("\n3. Assigning handedness tags...")
+    logger.info("[3/5] Assigning handedness tags...")
     matchup_df = assign_handedness_tags(matchup_df)
 
-    # Print analysis
-    print_analysis(matchup_df)
+    # Log analysis
+    log_analysis(matchup_df)
 
     # Save data
-    print("\n4. Saving results...")
+    logger.info("[4/5] Saving results...")
     save_matchup_data(matchup_df)
 
     # Update player_tags.json
-    print("\n5. Updating player_tags.json...")
+    logger.info("[5/5] Updating player_tags.json...")
     update_player_tags_json(matchup_df)
 
     conn.close()
 
-    print("\n" + "=" * 70)
-    print("LHB/RHB MATCHUP ANALYSIS COMPLETE")
-    print("=" * 70)
+    logger.info("=" * 70)
+    logger.info("LHB/RHB MATCHUP ANALYSIS COMPLETE")
+    logger.info("=" * 70)
 
     return 0
 

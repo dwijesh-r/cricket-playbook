@@ -13,6 +13,8 @@ Implements:
 - S3.0-14: Bowler Phase Distribution Tables (grouped by phase)
 """
 
+from typing import Dict
+
 import duckdb
 import pandas as pd
 import json
@@ -31,7 +33,7 @@ IPL_MIN_DATE = "2023-01-01"
 # ============================================================================
 
 
-def get_bowler_phase_overs(conn) -> pd.DataFrame:
+def get_bowler_phase_overs(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """
     Get per-match bowler phase overs to determine role tags.
 
@@ -183,7 +185,7 @@ def assign_bowler_role_tags(df: pd.DataFrame) -> pd.DataFrame:
 # ============================================================================
 
 
-def calculate_batter_consistency_index(conn) -> pd.DataFrame:
+def calculate_batter_consistency_index(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """
     Calculate Consistency Index based on Andy Flower research.
 
@@ -288,7 +290,7 @@ def calculate_batter_consistency_index(conn) -> pd.DataFrame:
     return overall_df
 
 
-def calculate_consistency_by_year(conn) -> pd.DataFrame:
+def calculate_consistency_by_year(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Calculate year-wise consistency breakdown with quality metrics."""
 
     df = conn.execute(f"""
@@ -358,7 +360,7 @@ def calculate_consistency_by_year(conn) -> pd.DataFrame:
 # ============================================================================
 
 
-def calculate_partnership_synergy(conn) -> pd.DataFrame:
+def calculate_partnership_synergy(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """
     Calculate Partnership Synergy Score for batting pairs.
 
@@ -436,7 +438,7 @@ def calculate_partnership_synergy(conn) -> pd.DataFrame:
     return df
 
 
-def calculate_partnership_synergy_by_year(conn) -> pd.DataFrame:
+def calculate_partnership_synergy_by_year(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Calculate year-wise partnership synergy breakdown."""
 
     df = conn.execute(f"""
@@ -507,7 +509,7 @@ def calculate_partnership_synergy_by_year(conn) -> pd.DataFrame:
 # ============================================================================
 
 
-def calculate_bowler_pressure_sequences(conn) -> pd.DataFrame:
+def calculate_bowler_pressure_sequences(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """
     Calculate Pressure Sequence metrics for bowlers.
     Reuses the standard Pressure Sequence Definition:
@@ -600,7 +602,7 @@ def calculate_bowler_pressure_sequences(conn) -> pd.DataFrame:
     return df
 
 
-def calculate_bowler_pressure_by_year(conn) -> pd.DataFrame:
+def calculate_bowler_pressure_by_year(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Calculate year-wise pressure sequence breakdown for bowlers."""
 
     df = conn.execute(f"""
@@ -670,7 +672,7 @@ def calculate_bowler_pressure_by_year(conn) -> pd.DataFrame:
 # ============================================================================
 
 
-def calculate_venue_win_loss(conn) -> pd.DataFrame:
+def calculate_venue_win_loss(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Calculate venue-based win/loss record for each team."""
 
     df = conn.execute(f"""
@@ -722,7 +724,7 @@ def calculate_venue_win_loss(conn) -> pd.DataFrame:
     return df
 
 
-def calculate_venue_win_loss_by_year(conn) -> pd.DataFrame:
+def calculate_venue_win_loss_by_year(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Calculate year-wise venue win/loss records."""
 
     df = conn.execute(f"""
@@ -774,7 +776,9 @@ def calculate_venue_win_loss_by_year(conn) -> pd.DataFrame:
 # ============================================================================
 
 
-def get_bowler_phase_distribution_grouped(conn) -> dict:
+def get_bowler_phase_distribution_grouped(
+    conn: duckdb.DuckDBPyConnection,
+) -> Dict[str, pd.DataFrame]:
     """
     Get bowler phase distribution grouped by phase for all teams.
 
@@ -810,7 +814,9 @@ def get_bowler_phase_distribution_grouped(conn) -> dict:
     return results
 
 
-def get_bowler_phase_distribution_by_team(conn, team_name: str) -> dict:
+def get_bowler_phase_distribution_by_team(
+    conn: duckdb.DuckDBPyConnection, team_name: str
+) -> Dict[str, pd.DataFrame]:
     """
     Get bowler phase distribution grouped by phase for a specific team.
     """
@@ -844,7 +850,7 @@ def get_bowler_phase_distribution_by_team(conn, team_name: str) -> dict:
     return results
 
 
-def create_phase_distribution_tables(conn) -> pd.DataFrame:
+def create_phase_distribution_tables(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """
     Create comprehensive phase distribution tables grouped by phase.
     Output suitable for stat packs.
@@ -894,7 +900,9 @@ def create_phase_distribution_tables(conn) -> pd.DataFrame:
 # ============================================================================
 
 
-def update_player_tags_with_role_tags(bowler_role_df: pd.DataFrame, consistency_df: pd.DataFrame):
+def update_player_tags_with_role_tags(
+    bowler_role_df: pd.DataFrame, consistency_df: pd.DataFrame
+) -> None:
     """Update player_tags.json with new role tags and consistency tags."""
 
     tags_path = OUTPUT_DIR / "player_tags.json"
@@ -976,7 +984,7 @@ def update_player_tags_with_role_tags(bowler_role_df: pd.DataFrame, consistency_
 # ============================================================================
 
 
-def main():
+def main() -> int:
     print("=" * 70)
     print("Cricket Playbook - Sprint 3.0 P1 Features")
     print("Author: Stephen Curry | Sprint 3.0")

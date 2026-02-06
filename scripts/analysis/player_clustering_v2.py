@@ -25,6 +25,8 @@ Bug Fix (Sprint 2.9):
 - Now uses cumulative legal ball count for accurate position estimation
 """
 
+from typing import Any, Dict, List, Tuple
+
 import duckdb
 import pandas as pd
 import numpy as np
@@ -50,7 +52,7 @@ MIN_BALLS_BATTER = 300  # Reduced from 500 to include more players
 MIN_BALLS_BOWLER = 200  # Reduced from 300
 
 
-def get_batter_features_v2(conn) -> pd.DataFrame:
+def get_batter_features_v2(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Extract batter feature vectors with batting position and recency weighting."""
 
     df = conn.execute(
@@ -175,7 +177,7 @@ def get_batter_features_v2(conn) -> pd.DataFrame:
     return df
 
 
-def get_bowler_features_v2(conn) -> pd.DataFrame:
+def get_bowler_features_v2(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Extract bowler feature vectors with wickets per phase."""
 
     df = conn.execute(
@@ -296,7 +298,9 @@ def get_bowler_features_v2(conn) -> pd.DataFrame:
     return df
 
 
-def analyze_correlations(df: pd.DataFrame, feature_cols: list, threshold: float = 0.9) -> list:
+def analyze_correlations(
+    df: pd.DataFrame, feature_cols: List[str], threshold: float = 0.9
+) -> List[str]:
     """Analyze feature correlations and return columns to drop."""
 
     numeric_df = df[feature_cols].dropna()
@@ -320,7 +324,9 @@ def analyze_correlations(df: pd.DataFrame, feature_cols: list, threshold: float 
     return to_drop
 
 
-def pca_variance_analysis(X: np.ndarray, feature_cols: list, target_variance: float = 0.5) -> dict:
+def pca_variance_analysis(
+    X: np.ndarray, feature_cols: List[str], target_variance: float = 0.5
+) -> Dict[str, Any]:
     """Perform PCA and analyze variance explained."""
 
     pca = PCA()
@@ -344,7 +350,7 @@ def pca_variance_analysis(X: np.ndarray, feature_cols: list, target_variance: fl
     return result
 
 
-def cluster_batters_v2(df: pd.DataFrame, n_clusters: int = 5) -> tuple:
+def cluster_batters_v2(df: pd.DataFrame, n_clusters: int = 5) -> Tuple[pd.DataFrame, pd.DataFrame]:
     """Cluster batters with V2 improvements."""
 
     # V2 features including batting position
@@ -419,7 +425,7 @@ def cluster_batters_v2(df: pd.DataFrame, n_clusters: int = 5) -> tuple:
     return df_clean, centers, pca_result
 
 
-def cluster_bowlers_v2(df: pd.DataFrame, n_clusters: int = 5) -> tuple:
+def cluster_bowlers_v2(df: pd.DataFrame, n_clusters: int = 5) -> Tuple[pd.DataFrame, pd.DataFrame]:
     """Cluster bowlers with V2 improvements including wickets per phase."""
 
     # V2 features including wickets per phase
@@ -495,7 +501,7 @@ def cluster_bowlers_v2(df: pd.DataFrame, n_clusters: int = 5) -> tuple:
     return df_clean, centers, pca_result
 
 
-def validate_specific_players(batter_df: pd.DataFrame, bowler_df: pd.DataFrame):
+def validate_specific_players(batter_df: pd.DataFrame, bowler_df: pd.DataFrame) -> None:
     """Validate classifications for players mentioned in Founder Review."""
 
     print("\n" + "=" * 70)
@@ -556,7 +562,7 @@ def validate_specific_players(batter_df: pd.DataFrame, bowler_df: pd.DataFrame):
             print(f"\n  {player_name}: NOT FOUND in dataset")
 
 
-def analyze_clusters_v2(df: pd.DataFrame, centers: pd.DataFrame, player_type: str):
+def analyze_clusters_v2(df: pd.DataFrame, centers: pd.DataFrame, player_type: str) -> None:
     """Print cluster analysis with V2 features."""
 
     print(f"\n{'=' * 70}")
@@ -614,7 +620,7 @@ def analyze_clusters_v2(df: pd.DataFrame, centers: pd.DataFrame, player_type: st
             print(f"    ... and {len(cluster_players) - 8} more")
 
 
-def main():
+def main() -> int:
     """Main entry point for V2 clustering."""
 
     print("=" * 70)

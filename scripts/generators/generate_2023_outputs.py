@@ -8,7 +8,14 @@ This script generates 2023+ filtered versions of:
 1. batter_bowling_type_detail_2023.csv
 2. batter_bowling_type_matchup_2023.csv
 3. bowler_handedness_matchup_2023.csv
+
+Performance Optimization (TKT-099):
+- Replaced iterative DataFrame filtering with groupby operations
+- Reduced O(n*m) complexity to O(n) in batter vs bowling type aggregation
+- Bowler handedness uses set_index + .loc for O(1) lookups
 """
+
+from typing import Tuple
 
 import duckdb
 import pandas as pd
@@ -44,7 +51,9 @@ VULNERABLE_AVG_THRESHOLD = 12
 VULNERABLE_BPD_THRESHOLD = 12
 
 
-def generate_batter_bowling_type_2023(conn) -> tuple:
+def generate_batter_bowling_type_2023(
+    conn: duckdb.DuckDBPyConnection,
+) -> Tuple[pd.DataFrame, pd.DataFrame]:
     """Generate batter vs bowling type data for 2023+ only."""
 
     print("\n1. Generating batter vs bowling type data (2023+)...")
@@ -101,9 +110,12 @@ def generate_batter_bowling_type_2023(conn) -> tuple:
     print(f"   Detail records: {len(detail_df)}")
 
     # Aggregate into pace vs spin matchup
+    # TKT-099: Use groupby instead of repeated DataFrame filtering
+    # This reduces complexity from O(n*m) to O(n) where n=rows, m=unique batters
     matchup_results = []
-    for batter_id in detail_df["batter_id"].unique():
-        batter_df = detail_df[detail_df["batter_id"] == batter_id]
+    grouped = detail_df.groupby("batter_id")
+
+    for batter_id, batter_df in grouped:
         batter_name = batter_df["batter_name"].iloc[0]
 
         # Pace stats
@@ -246,7 +258,7 @@ def generate_batter_bowling_type_2023(conn) -> tuple:
     return detail_df, matchup_df
 
 
-def generate_bowler_handedness_2023(conn) -> pd.DataFrame:
+def generate_bowler_handedness_2023(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Generate bowler vs handedness data for 2023+ only."""
 
     print("\n2. Generating bowler vs handedness data (2023+)...")
@@ -297,6 +309,7 @@ def generate_bowler_handedness_2023(conn) -> pd.DataFrame:
     print(f"   Raw records: {len(raw_df)}")
 
     # Calculate differentials
+    # TKT-099: set_index provides O(1) lookup, avoiding repeated DataFrame filtering
     lhb = raw_df[raw_df["batting_hand"] == "Left-hand"].set_index("bowler_id")
     rhb = raw_df[raw_df["batting_hand"] == "Right-hand"].set_index("bowler_id")
     common_bowlers = lhb.index.intersection(rhb.index)
@@ -360,7 +373,7 @@ def generate_bowler_handedness_2023(conn) -> pd.DataFrame:
     return matchup_df
 
 
-def main():
+def main() -> int:
     print("=" * 70)
     print("Cricket Playbook - Generate 2023+ Output Files")
     print("Author: Stephen Curry | Sprint 3.0")

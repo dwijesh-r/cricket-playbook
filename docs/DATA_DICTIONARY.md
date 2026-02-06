@@ -3,7 +3,7 @@
 **Owner:** Brock Purdy (Data Pipeline Lead)
 **Version:** 1.0.0
 **Last Updated:** 2026-02-06
-**Status:** REVIEW (TKT-032)
+**Status:** DONE (TKT-032)
 
 ---
 
@@ -14,6 +14,9 @@ This document provides a comprehensive reference for all data structures in Cric
 - Reference CSV files
 - Key relationships and data types
 - Sample values for enumerated fields
+
+**Related Documentation:**
+- [Data Provenance](./PROVENANCE.md) - Data sources, quality, and lineage
 
 ---
 

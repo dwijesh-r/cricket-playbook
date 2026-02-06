@@ -4581,8 +4581,10 @@
             const agentClass = agentClasses[t.assignee] || '';
 
             // Illini badge for tickets needing Founder review
-            // Shows on: tickets with plans awaiting approval, VALIDATION state, or REVIEW state ready for Founder
-            const needsFounderReview = t.plan || t.state === 'VALIDATION' ||
+            // Shows on: tickets assigned to Founder (not DONE), tickets with plans awaiting approval,
+            // VALIDATION state, or REVIEW state ready for Founder
+            const needsFounderReview = (t.assignee === 'Founder' && t.state !== 'DONE') ||
+                t.plan || t.state === 'VALIDATION' ||
                 (t.state === 'REVIEW' && t.gates?.domain_sanity === 'YES' && t.gates?.system_check === 'PASS');
             const founderClass = needsFounderReview ? 'needs-founder-review' : '';
 

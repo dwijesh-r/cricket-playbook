@@ -72,10 +72,12 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
-            min-height: 100vh;
+            min-height: 100dvh;  /* Dynamic viewport height - accounts for mobile browser chrome */
+            min-height: 100vh;   /* Fallback for older browsers */
             -webkit-font-smoothing: antialiased;
             position: relative;
             transition: background 0.3s ease, color 0.3s ease;
+            -webkit-overflow-scrolling: touch;  /* Smooth scrolling on iOS */
         }
 
         /* ==================== PROFESSIONAL SPORTS BACKGROUND ==================== */
@@ -2323,6 +2325,11 @@
             padding: 8px 16px;
             padding-bottom: max(8px, env(safe-area-inset-bottom));
             z-index: 100;
+            /* GPU compositing for stable positioning during browser chrome changes */
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
         }
 
         .mobile-nav-tabs {

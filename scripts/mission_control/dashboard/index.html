@@ -697,6 +697,35 @@
         .time-badge.medium { color: var(--accent-yellow); }
         .time-badge.slow { color: var(--accent-red); }
 
+        /* Review Age Badge (TKT-105) */
+        .review-age-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 6px;
+            margin-left: 6px;
+        }
+        .review-age-badge.fresh {
+            background: rgba(48, 209, 88, 0.15);
+            color: var(--accent-green);
+        }
+        .review-age-badge.aging {
+            background: rgba(255, 214, 10, 0.15);
+            color: var(--accent-yellow);
+        }
+        .review-age-badge.stale {
+            background: rgba(255, 69, 58, 0.15);
+            color: var(--accent-red);
+            animation: pulse-stale 2s ease-in-out infinite;
+        }
+        @keyframes pulse-stale {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
         /* Search Box */
         .search-box-mc {
             position: relative;
@@ -2422,6 +2451,9 @@
                         <!-- All Tickets Button -->
                         <button class="filter-btn active" data-filter="all" onclick="resetFilters()">📋 All Tickets</button>
 
+                        <!-- TKT-105: Stale Reviews Filter -->
+                        <button class="filter-btn" data-filter="stale-reviews" onclick="filterStaleReviews()" id="staleReviewsBtn">🔴 Stale Reviews</button>
+
                         <!-- Priority Dropdown -->
                         <div class="filter-dropdown">
                             <button class="filter-btn filter-dropdown-btn" onclick="toggleDropdown('priorityDropdown')">
@@ -3313,7 +3345,7 @@
             { id: 'TKT-039', title: 'Virat Kohli tone review', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Virat Kohli', epic: 'EPIC-005', progress: 100, tags: ['Editorial', 'Review'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
             { id: 'TKT-040', title: 'Define depth chart positions', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-005', progress: 100, tags: ['Domain', 'Spec'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
             { id: 'TKT-041', title: 'Create depth chart algorithm', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 100, tags: ['Algorithm', 'Core'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' } },
-            { id: 'TKT-042', title: 'Generate all 10 depth charts', state: 'REVIEW', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 95, tags: ['Pipeline', 'Output', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' } },
+            { id: 'TKT-042', title: 'Generate all 10 depth charts', state: 'REVIEW', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 95, tags: ['Pipeline', 'Output', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' }, entered_review_date: '2026-02-03' },
             { id: 'TKT-043', title: 'Andy Flower review of depth charts', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-005', progress: 100, tags: ['Domain', 'Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES' } },
             { id: 'TKT-044', title: 'Archive depth chart outputs', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-005', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' } },
             { id: 'TKT-045', title: 'Founder approval of depth charts', state: 'VALIDATION', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-005', progress: 95, tags: ['Approval', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
@@ -3463,12 +3495,12 @@
                 audible: 'Go to Settings → Secrets → Actions and add: EMAIL_USERNAME, EMAIL_APP_PASSWORD, NOTIFY_EMAIL'
               }
             },
-            { id: 'TKT-105', title: 'Add Review SLA Dashboard Widget', state: 'READY', priority: 'P2', effort: 'quick-win', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 0, tags: ['Ops', 'Dashboard', 'Process'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-105', title: 'Add Review SLA Dashboard Widget', state: 'DONE', priority: 'P2', effort: 'quick-win', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Ops', 'Dashboard', 'Process', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Add Review Age indicator to Mission Control tickets in REVIEW state',
                 goal: 'Prevent tickets from languishing in REVIEW by showing how long they have been waiting',
                 reason: 'RETRO-001 identified that tickets sat in REVIEW without proactive domain sanity reviews',
-                audible: 'Track entered_review_date, display age badge (Green <1d, Yellow 1-2d, Red >2d), add Stale Reviews filter'
+                audible: '✅ DONE: Review SLA widget with age badges (fresh/aging/stale) + Stale Reviews filter. Approved Feb 6, 2026.'
               }
             },
 
@@ -3614,6 +3646,7 @@
             activeEffortFilter = 'all';
             activeFilter = 'all';
             activeAgentFilter = null;
+            activeStaleFilter = false;
             searchQuery = '';
 
             document.getElementById('priorityFilterLabel').textContent = '🎯 Priority';
@@ -3622,6 +3655,34 @@
             document.getElementById('ticketSearch').value = '';
 
             updateFilterButtons();
+            renderBoard();
+        }
+
+        // TKT-105: Filter to show only stale reviews (>2 days in REVIEW)
+        let activeStaleFilter = false;
+
+        function filterStaleReviews() {
+            activeStaleFilter = !activeStaleFilter;
+
+            // Update button state
+            const btn = document.getElementById('staleReviewsBtn');
+            if (activeStaleFilter) {
+                btn.classList.add('active');
+                // Reset other filters
+                activePriorityFilter = 'all';
+                activeEffortFilter = 'all';
+                activeAgentFilter = null;
+                document.getElementById('priorityFilterLabel').textContent = '🎯 Priority';
+                document.getElementById('effortFilterLabel').textContent = '💪 Effort';
+                document.getElementById('agentFilterLabel').textContent = '👥 All Agents';
+            } else {
+                btn.classList.remove('active');
+            }
+
+            // Also update the All Tickets button
+            const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+            if (allBtn) allBtn.classList.toggle('active', !activeStaleFilter);
+
             renderBoard();
         }
 
@@ -3634,6 +3695,43 @@
             const val = ticketGates[gateId];
             if (val === 'APPROVED' || val === 'PASS' || val === 'YES') return 'passed';
             return 'pending';
+        }
+
+        // TKT-105: Review Age calculation for SLA tracking
+        function getReviewAge(ticket) {
+            if (ticket.state !== 'REVIEW' || !ticket.entered_review_date) return null;
+
+            const reviewDate = new Date(ticket.entered_review_date);
+            const now = new Date();
+            const diffTime = Math.abs(now - reviewDate);
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+            return diffDays;
+        }
+
+        function getReviewAgeBadge(ticket) {
+            const age = getReviewAge(ticket);
+            if (age === null) return '';
+
+            let ageClass, icon;
+            if (age < 1) {
+                ageClass = 'fresh';
+                icon = '🟢';
+            } else if (age <= 2) {
+                ageClass = 'aging';
+                icon = '🟡';
+            } else {
+                ageClass = 'stale';
+                icon = '🔴';
+            }
+
+            const dayText = age === 0 ? '<1d' : `${age}d`;
+            return `<span class="review-age-badge ${ageClass}" title="In review for ${age} day(s)">${icon} ${dayText}</span>`;
+        }
+
+        function isStaleReview(ticket) {
+            const age = getReviewAge(ticket);
+            return age !== null && age > 2;
         }
 
         function showView(view) {
@@ -3744,6 +3842,11 @@
                             }
                         }
 
+                        // TKT-105: Stale Reviews filter - show only tickets >2 days in REVIEW
+                        if (activeStaleFilter) {
+                            isFiltered = isFiltered || !isStaleReview(t);
+                        }
+
                         return renderTicket(t, isFiltered);
                     }).join('');
                 }
@@ -3757,6 +3860,9 @@
             // Time tracking
             const timeClass = t.daysSpent <= 1 ? 'fast' : t.daysSpent <= 3 ? 'medium' : 'slow';
             const timeBadge = t.daysSpent != null ? `<span class="time-badge ${timeClass}">⏱️ ${t.daysSpent}d</span>` : '';
+
+            // TKT-105: Review Age Badge for tickets in REVIEW state
+            const reviewAgeBadge = getReviewAgeBadge(t);
 
             // RETRO ticket styling
             const isRetro = t.id.startsWith('RETRO-') || t.isRetro;
@@ -3774,7 +3880,7 @@
                     <div class="ticket-top">
                         <div class="agent-avatar" title="${t.assignee || 'Unassigned'}">${getAgentAvatarImg(t.assignee)}</div>
                         <div class="ticket-info">
-                            <div class="ticket-id">${t.id} ${timeBadge}</div>
+                            <div class="ticket-id">${t.id} ${timeBadge}${reviewAgeBadge}</div>
                             <div class="ticket-title">${t.title}</div>
                             <div class="ticket-agent">${t.assignee || 'Unassigned'}</div>
                         </div>

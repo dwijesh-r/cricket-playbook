@@ -4016,21 +4016,60 @@
               }
             },
 
-            // IPL 2026 Data Verification (TKT-107)
-            { id: 'TKT-107', title: 'Verify all IPL 2026 players visible in The Lab', state: 'READY', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-011', progress: 0, tags: ['Data', 'QA', 'Critical', 'IPL 2026'], gates: { florentino_gate: 'APPROVED' },
+            // IPL 2026 Data Verification (TKT-107) - BLOCKED
+            { id: 'TKT-107', title: 'Verify all IPL 2026 players visible in The Lab', state: 'BLOCKED', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-011', progress: 60, tags: ['Data', 'QA', 'Critical', 'IPL 2026', '🚨 BLOCKED'], gates: { florentino_gate: 'APPROVED' },
               context: {
                 ask: 'Audit and verify that ALL IPL 2026 squad players are visible in The Lab Teams section',
                 goal: '100% player coverage for all 10 IPL teams - zero missing players',
                 reason: 'IPL 2026 readiness requires complete, accurate squad data - this must be airtight',
                 audible: [
-                  'Cross-reference The Lab with official IPL 2026 auction squads',
-                  'Check each team: CSK, MI, RCB, KKR, DC, PBKS, RR, SRH, GT, LSG',
-                  'Verify player names, photos, roles match official data',
-                  'Flag any missing/incorrect players',
-                  'José Mourinho to validate strategic completeness'
+                  '✅ Cross-reference The Lab with official IPL 2026 auction squads',
+                  '✅ Check each team: CSK, MI, RCB, KKR, DC, PBKS, RR, SRH, GT, LSG',
+                  '✅ José Mourinho strategic review completed',
+                  '🚨 BLOCKED: Missing star players - Andre Russell, Glenn Maxwell, Faf du Plessis',
+                  '⏳ Waiting on TKT-108 to add missing players'
                 ]
               },
-              reviewers: ['Andy Flower', 'José Mourinho']
+              reviewers: ['Andy Flower', 'José Mourinho'],
+              blockedBy: 'TKT-108',
+              auditResults: {
+                totalPlayers: 231,
+                teamsPresent: 10,
+                missingStars: ['Andre Russell (KKR)', 'Glenn Maxwell (RCB)', 'Faf du Plessis (RCB)'],
+                placeholderAges: 118,
+                missingTags: '70% batterTags, 63% bowlerTags'
+              }
+            },
+
+            // TKT-108: Fix missing star players (BLOCKING TKT-107)
+            { id: 'TKT-108', title: 'Add missing star players to IPL 2026 squads', state: 'READY', priority: 'P0', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-011', progress: 0, tags: ['Data', 'Critical', 'IPL 2026', 'Blocker'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Add missing star players to The Lab squad data',
+                goal: 'Add Andre Russell, Glenn Maxwell, Faf du Plessis with complete data',
+                reason: 'TKT-107 BLOCKED - these marquee players are critical for IPL 2026 analysis',
+                audible: [
+                  'Add Andre Russell to KKR in full_squads.js',
+                  'Add Glenn Maxwell to RCB in full_squads.js',
+                  'Add Faf du Plessis to RCB in full_squads.js',
+                  'Include: price, role, batting_hand, bowling_style, age, nationality',
+                  'Unblock TKT-107 when complete'
+                ]
+              },
+              blocks: 'TKT-107'
+            },
+
+            // TKT-109: Fix placeholder ages (P1 from TKT-107 audit)
+            { id: 'TKT-109', title: 'Fix placeholder ages for 118 IPL players', state: 'BACKLOG', priority: 'P1', effort: 'deep-work', assignee: 'Brock Purdy', epic: 'EPIC-011', progress: 0, tags: ['Data', 'Quality', 'IPL 2026'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Replace age=26 placeholder with actual player ages',
+                goal: 'Correct ages for all 118 players currently showing age=26',
+                reason: 'TKT-107 audit found Vaibhav Suryavanshi (17) showing as 26, Ishant Sharma (38) showing as 26',
+                audible: [
+                  'Source DOB data from ESPNcricinfo',
+                  'Update full_squads.js with correct ages',
+                  'Validate age ranges make sense'
+                ]
+              }
             },
 
             // Sprint 5.0+ Ideas (IDEA-XXX notation for unscoped work)

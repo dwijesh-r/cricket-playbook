@@ -3695,55 +3695,137 @@
         // All Sprint 4.0 Tickets (97 tickets)
         const tickets = [
             // Pre-Sprint (TKT-001 to TKT-005)
-            { id: 'TKT-001', title: 'Define Sprint 4 Scope', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Florentino Pérez', epic: 'EPIC-001', progress: 100, tags: ['Planning'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-002', title: 'Sprint Planning Session', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-001', progress: 100, tags: ['Planning'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-003', title: 'Create Florentino Perez agent', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Brad Stevens', epic: 'EPIC-001', progress: 100, tags: ['Governance', 'Config'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-004', title: 'Create Jose Mourinho agent', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Brad Stevens', epic: 'EPIC-001', progress: 100, tags: ['Governance', 'Config'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-005', title: 'Create LeBron James agent', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Brad Stevens', epic: 'EPIC-001', progress: 100, tags: ['Governance', 'Config'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
+            { id: 'TKT-001', title: 'Define Sprint 4 Scope', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Florentino Pérez', epic: 'EPIC-001', progress: 100, tags: ['Planning'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Define Sprint 4 objectives and deliverables', goal: 'Clear sprint scope document with prioritized tickets', reason: 'Sprint planning foundation', audible: ['Gather requirements', 'Prioritize by P0/P1/P2', 'Create EPIC breakdown'] }
+            },
+            { id: 'TKT-002', title: 'Sprint Planning Session', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-001', progress: 100, tags: ['Planning'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Conduct sprint planning with all agents', goal: 'Assigned tickets with effort estimates', reason: 'Team alignment on sprint goals', audible: ['Review scope', 'Assign owners', 'Estimate effort'] }
+            },
+            { id: 'TKT-003', title: 'Create Florentino Perez agent', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Brad Stevens', epic: 'EPIC-001', progress: 100, tags: ['Governance', 'Config'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Configure Florentino Pérez as scope gatekeeper agent', goal: 'Agent persona with gate approval authority', reason: 'Task Integrity Loop requires scope validation', audible: ['Define persona', 'Configure gate criteria'] }
+            },
+            { id: 'TKT-004', title: 'Create Jose Mourinho agent', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Brad Stevens', epic: 'EPIC-001', progress: 100, tags: ['Governance', 'Config'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Configure José Mourinho as strategic advisor agent', goal: 'Agent persona for tactical decision-making', reason: 'Cross-functional strategic oversight', audible: ['Define persona', 'Configure responsibilities'] }
+            },
+            { id: 'TKT-005', title: 'Create LeBron James agent', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Brad Stevens', epic: 'EPIC-001', progress: 100, tags: ['Governance', 'Config'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Configure LeBron James as leadership agent', goal: 'Agent persona for cross-domain coordination', reason: 'Team leadership representation', audible: ['Define persona', 'Configure leadership scope'] }
+            },
 
             // Phase 0: Product Vision (TKT-006 to TKT-012)
-            { id: 'TKT-006', title: 'Define what CP will become', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Florentino Pérez', epic: 'EPIC-002', progress: 100, tags: ['Strategy', 'PRD'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-007', title: 'Define who we cater to', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Florentino Pérez', epic: 'EPIC-002', progress: 100, tags: ['Strategy', 'PRD'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-008', title: 'Define what we optimize for', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Florentino Pérez', epic: 'EPIC-002', progress: 100, tags: ['Strategy', 'PRD'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-009', title: 'Document inspiration products (PFF, KenPom)', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-002', progress: 100, tags: ['Research', 'PRD'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-010', title: 'Create PRD v2.0', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Tom Brady', epic: 'EPIC-002', progress: 100, tags: ['Documentation', 'PRD'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-011', title: 'Founder approval of PRD', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-002', progress: 100, tags: ['Approval'], gates: { founder_validation: 'APPROVED' } },
-            { id: 'TKT-012', title: 'Archive PRD in docs/', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-002', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED' } },
+            { id: 'TKT-006', title: 'Define what CP will become', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Florentino Pérez', epic: 'EPIC-002', progress: 100, tags: ['Strategy', 'PRD'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Define Cricket Playbook vision and product direction', goal: 'Clear product vision statement and roadmap', reason: 'PRD foundation - what we are building', audible: ['Research market', 'Define value prop', 'Document vision'] }
+            },
+            { id: 'TKT-007', title: 'Define who we cater to', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Florentino Pérez', epic: 'EPIC-002', progress: 100, tags: ['Strategy', 'PRD'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Define target audience and user personas', goal: 'User persona documentation with needs/pain points', reason: 'PRD foundation - who we serve', audible: ['Identify segments', 'Create personas', 'Map needs'] }
+            },
+            { id: 'TKT-008', title: 'Define what we optimize for', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Florentino Pérez', epic: 'EPIC-002', progress: 100, tags: ['Strategy', 'PRD'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Define success metrics and optimization goals', goal: 'KPIs and metrics framework', reason: 'PRD foundation - how we measure success', audible: ['Define KPIs', 'Set targets', 'Document tradeoffs'] }
+            },
+            { id: 'TKT-009', title: 'Document inspiration products (PFF, KenPom)', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-002', progress: 100, tags: ['Research', 'PRD'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Research and document PFF, KenPom as product inspiration', goal: 'Competitive analysis with feature breakdown', reason: 'Learn from best-in-class sports analytics products', audible: ['Analyze PFF', 'Analyze KenPom', 'Extract patterns'] }
+            },
+            { id: 'TKT-010', title: 'Create PRD v2.0', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Tom Brady', epic: 'EPIC-002', progress: 100, tags: ['Documentation', 'PRD'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Create comprehensive Product Requirements Document v2.0', goal: 'Complete PRD with vision, features, specs, and roadmap', reason: 'Master reference for all product decisions', audible: ['Consolidate inputs', 'Draft sections', 'Review and refine'] }
+            },
+            { id: 'TKT-011', title: 'Founder approval of PRD', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-002', progress: 100, tags: ['Approval'], gates: { founder_validation: 'APPROVED' },
+              context: { ask: 'Review and approve PRD v2.0', goal: 'Founder sign-off on product direction', reason: 'Task Integrity Loop: Founder validation gate', audible: ['Review PRD', 'Provide feedback', 'Approve'] }
+            },
+            { id: 'TKT-012', title: 'Archive PRD in docs/', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-002', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED' },
+              context: { ask: 'Archive approved PRD to docs/ folder', goal: 'PRD accessible in repository documentation', reason: 'Documentation best practice', audible: ['Copy to docs/', 'Update index', 'Commit'] }
+            },
 
             // Phase 1: Governance (TKT-013 to TKT-022)
-            { id: 'TKT-013', title: 'Create Constitution v2.0', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-003', progress: 100, tags: ['Governance', 'Documentation'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-014', title: 'Define Task Integrity Loop', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Florentino Pérez', epic: 'EPIC-003', progress: 100, tags: ['Governance', 'Process'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-015', title: 'Document Florentino gate criteria', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Florentino Pérez', epic: 'EPIC-003', progress: 100, tags: ['Governance'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-016', title: 'Document domain sanity review', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-003', progress: 100, tags: ['Governance', 'Domain'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-017', title: 'Document enforcement check', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-003', progress: 100, tags: ['Governance', 'Quality'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-018', title: 'Document system check', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'N\'Golo Kanté', epic: 'EPIC-003', progress: 100, tags: ['Governance', 'Testing'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
-            { id: 'TKT-019', title: 'Document Founder Validation', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Founder', epic: 'EPIC-003', progress: 100, tags: ['Governance'], gates: { founder_validation: 'APPROVED' } },
-            { id: 'TKT-020', title: 'Create Task Integrity Loop doc', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Tom Brady', epic: 'EPIC-003', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-021', title: 'Founder approval of governance', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-003', progress: 100, tags: ['Approval'], gates: { founder_validation: 'APPROVED' } },
-            { id: 'TKT-022', title: 'Archive governance docs', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-003', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED' } },
+            { id: 'TKT-013', title: 'Create Constitution v2.0', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-003', progress: 100, tags: ['Governance', 'Documentation'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Create project constitution defining governance principles', goal: 'Constitution document with roles, responsibilities, processes', reason: 'Foundation for team governance and decision-making', audible: ['Define principles', 'Document roles', 'Establish processes'] }
+            },
+            { id: 'TKT-014', title: 'Define Task Integrity Loop', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Florentino Pérez', epic: 'EPIC-003', progress: 100, tags: ['Governance', 'Process'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Define 8-step task governance process (IDEA → DONE)', goal: 'Clear process with gates: Florentino, Domain Sanity, System Check, Founder', reason: 'Quality assurance through structured review gates', audible: ['Define states', 'Define gates', 'Document transitions'] }
+            },
+            { id: 'TKT-015', title: 'Document Florentino gate criteria', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Florentino Pérez', epic: 'EPIC-003', progress: 100, tags: ['Governance'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Document Florentino Gate scope validation criteria', goal: 'Clear checklist for scope approval/rejection', reason: 'Task Integrity Loop: First gate validation', audible: ['Define criteria', 'Create checklist', 'Document examples'] }
+            },
+            { id: 'TKT-016', title: 'Document domain sanity review', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-003', progress: 100, tags: ['Governance', 'Domain'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
+              context: { ask: 'Document Domain Sanity review process for cricket expertise', goal: 'Cricket domain validation criteria and process', reason: 'Ensure analytics are tactically sound', audible: ['Define cricket criteria', 'Create review process', 'Document examples'] }
+            },
+            { id: 'TKT-017', title: 'Document enforcement check', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-003', progress: 100, tags: ['Governance', 'Quality'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Document code quality enforcement standards', goal: 'Quality gates for linting, formatting, security', reason: 'Consistent code quality across codebase', audible: ['Define standards', 'Configure tools', 'Document process'] }
+            },
+            { id: 'TKT-018', title: 'Document system check', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'N\'Golo Kanté', epic: 'EPIC-003', progress: 100, tags: ['Governance', 'Testing'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' },
+              context: { ask: 'Document System Check validation process', goal: 'Technical validation criteria and test requirements', reason: 'Task Integrity Loop: Technical gate validation', audible: ['Define test criteria', 'Document validation steps', 'Create examples'] }
+            },
+            { id: 'TKT-019', title: 'Document Founder Validation', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Founder', epic: 'EPIC-003', progress: 100, tags: ['Governance'], gates: { founder_validation: 'APPROVED' },
+              context: { ask: 'Document Founder Validation gate process', goal: 'Final approval criteria and process', reason: 'Task Integrity Loop: Ultimate quality gate', audible: ['Define approval criteria', 'Document review process'] }
+            },
+            { id: 'TKT-020', title: 'Create Task Integrity Loop doc', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Tom Brady', epic: 'EPIC-003', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Create comprehensive Task Integrity Loop documentation', goal: 'Single reference document for governance process', reason: 'Team reference for workflow compliance', audible: ['Compile all gate docs', 'Create flow diagram', 'Write reference guide'] }
+            },
+            { id: 'TKT-021', title: 'Founder approval of governance', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-003', progress: 100, tags: ['Approval'], gates: { founder_validation: 'APPROVED' },
+              context: { ask: 'Review and approve governance framework', goal: 'Founder sign-off on Task Integrity Loop', reason: 'Governance requires Founder endorsement', audible: ['Review docs', 'Validate process', 'Approve'] }
+            },
+            { id: 'TKT-022', title: 'Archive governance docs', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-003', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED' },
+              context: { ask: 'Archive governance documentation to docs/', goal: 'Governance docs accessible in repository', reason: 'Documentation best practice', audible: ['Copy to docs/', 'Update index', 'Commit'] }
+            },
 
             // Phase 2: Data & Tags (TKT-023 to TKT-034)
-            { id: 'TKT-023', title: 'Audit player_tags.json completeness', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Brock Purdy', epic: 'EPIC-004', progress: 100, tags: ['Data', 'Audit'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
-            { id: 'TKT-024', title: 'Add batting_hand to all players', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-004', progress: 100, tags: ['Data', 'Enhancement'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-025', title: 'Add bowling_style to all bowlers', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-004', progress: 100, tags: ['Data', 'Enhancement'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-026', title: 'Validate SPECIALIST vs VULNERABLE tags', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-004', progress: 100, tags: ['Domain', 'Validation'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-027', title: 'Fix player ID mismatches', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Brock Purdy', epic: 'EPIC-004', progress: 100, tags: ['Data', 'Bug'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
-            { id: 'TKT-028', title: 'Merge all ID fixes', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-004', progress: 100, tags: ['Data'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
-            { id: 'TKT-029', title: 'Regenerate all outputs with fixed IDs', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-004', progress: 100, tags: ['Data', 'Pipeline'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
-            { id: 'TKT-030', title: 'Validate output integrity', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'N\'Golo Kanté', epic: 'EPIC-004', progress: 100, tags: ['QA', 'Validation'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
-            { id: 'TKT-031', title: 'Andy Flower review of tags', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-004', progress: 100, tags: ['Domain', 'Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-032', title: 'Document data dictionary', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Brock Purdy', epic: 'EPIC-004', progress: 100, tags: ['Documentation', 'Data', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'docs/DATA_DICTIONARY.md' },
-            { id: 'TKT-033', title: 'Archive data docs', state: 'DONE', priority: 'P2', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-004', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' } },
-            { id: 'TKT-034', title: 'Founder approval of data quality', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-004', progress: 100, tags: ['Approval'], gates: { founder_validation: 'APPROVED' } },
+            { id: 'TKT-023', title: 'Audit player_tags.json completeness', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Brock Purdy', epic: 'EPIC-004', progress: 100, tags: ['Data', 'Audit'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' },
+              context: { ask: 'Audit player_tags.json for missing/incomplete data', goal: 'Identify all players missing batting_hand, bowling_style, or tags', reason: 'Data completeness required for accurate matchup analysis', audible: ['Scan all players', 'Identify gaps', 'Create fix list'] }
+            },
+            { id: 'TKT-024', title: 'Add batting_hand to all players', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-004', progress: 100, tags: ['Data', 'Enhancement'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
+              context: { ask: 'Add batting_hand (Left/Right) to all players in player_tags.json', goal: '100% coverage of batting handedness', reason: 'LHB/RHB matchup analysis requires handedness data', audible: ['Research each player', 'Update JSON', 'Validate with Andy Flower'] }
+            },
+            { id: 'TKT-025', title: 'Add bowling_style to all bowlers', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-004', progress: 100, tags: ['Data', 'Enhancement'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
+              context: { ask: 'Add bowling_style to all bowlers in player_tags.json', goal: '100% coverage of bowling style (pace/spin type)', reason: 'Bowler type matchup analysis requires style data', audible: ['Research each bowler', 'Update JSON', 'Validate with Andy Flower'] }
+            },
+            { id: 'TKT-026', title: 'Validate SPECIALIST vs VULNERABLE tags', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-004', progress: 100, tags: ['Domain', 'Validation'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
+              context: { ask: 'Review and validate SPECIALIST/VULNERABLE phase tags', goal: 'Domain expert confirmation of player phase tags', reason: 'Tags drive team selection - must be accurate', audible: ['Review each tag', 'Validate against performance', 'Approve or correct'] }
+            },
+            { id: 'TKT-027', title: 'Fix player ID mismatches', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Brock Purdy', epic: 'EPIC-004', progress: 100, tags: ['Data', 'Bug'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' },
+              context: { ask: 'Fix player ID mismatches between player_tags.json and DuckDB', goal: 'Consistent player IDs across all data sources', reason: 'ID mismatches cause incorrect player lookups', audible: ['Identify mismatches', 'Map correct IDs', 'Update all references'] }
+            },
+            { id: 'TKT-028', title: 'Merge all ID fixes', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-004', progress: 100, tags: ['Data'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' },
+              context: { ask: 'Merge all player ID fixes into main branch', goal: 'Single source of truth for player IDs', reason: 'Consolidate ID fixes before regenerating outputs', audible: ['Review all ID changes', 'Merge to main', 'Verify integrity'] }
+            },
+            { id: 'TKT-029', title: 'Regenerate all outputs with fixed IDs', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-004', progress: 100, tags: ['Data', 'Pipeline'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' },
+              context: { ask: 'Regenerate all stat packs and outputs with corrected player IDs', goal: 'All outputs reflect correct player data', reason: 'Outputs must use fixed IDs', audible: ['Run all generators', 'Verify player names match', 'Commit outputs'] }
+            },
+            { id: 'TKT-030', title: 'Validate output integrity', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'N\'Golo Kanté', epic: 'EPIC-004', progress: 100, tags: ['QA', 'Validation'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' },
+              context: { ask: 'Run validation tests on all regenerated outputs', goal: 'All outputs pass integrity checks', reason: 'System Check gate requires validation', audible: ['Run test suite', 'Check for errors', 'Report results'] }
+            },
+            { id: 'TKT-031', title: 'Andy Flower review of tags', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-004', progress: 100, tags: ['Domain', 'Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
+              context: { ask: 'Final domain review of all player tags', goal: 'Cricket expert sign-off on player data', reason: 'Domain Sanity gate requires expert approval', audible: ['Review all tags', 'Spot-check edge cases', 'Approve'] }
+            },
+            { id: 'TKT-032', title: 'Document data dictionary', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Brock Purdy', epic: 'EPIC-004', progress: 100, tags: ['Documentation', 'Data', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'docs/DATA_DICTIONARY.md',
+              context: { ask: 'Create data dictionary documenting all fields and values', goal: 'Complete reference for data schema', reason: 'Team needs to understand data structure', audible: ['Document all fields', 'Define valid values', 'Add examples'] }
+            },
+            { id: 'TKT-033', title: 'Archive data docs', state: 'DONE', priority: 'P2', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-004', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' },
+              context: { ask: 'Archive data documentation to docs/', goal: 'Data docs accessible in repository', reason: 'Documentation best practice', audible: ['Copy to docs/', 'Update index', 'Commit'] }
+            },
+            { id: 'TKT-034', title: 'Founder approval of data quality', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-004', progress: 100, tags: ['Approval'], gates: { founder_validation: 'APPROVED' },
+              context: { ask: 'Review and approve data quality work', goal: 'Founder sign-off on data completeness', reason: 'Task Integrity Loop: Founder validation gate', audible: ['Review data audit', 'Validate fixes', 'Approve'] }
+            },
 
             // Phase 3: Output Quality (TKT-035 to TKT-045)
-            { id: 'TKT-035', title: 'Define stat pack sections', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Tom Brady', epic: 'EPIC-005', progress: 100, tags: ['Product', 'Spec'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-036', title: 'Create stat pack template', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-005', progress: 100, tags: ['Design', 'Template'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-037', title: 'Regenerate all 10 stat packs', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 100, tags: ['Pipeline', 'Output'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
-            { id: 'TKT-038', title: 'Andy Flower review of stat packs', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-005', progress: 100, tags: ['Domain', 'Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-039', title: 'Virat Kohli tone review', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Virat Kohli', epic: 'EPIC-005', progress: 100, tags: ['Editorial', 'Review'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-040', title: 'Define depth chart positions', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-005', progress: 100, tags: ['Domain', 'Spec'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-041', title: 'Create depth chart algorithm', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 100, tags: ['Algorithm', 'Core'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' } },
+            { id: 'TKT-035', title: 'Define stat pack sections', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Tom Brady', epic: 'EPIC-005', progress: 100, tags: ['Product', 'Spec'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Define sections for team stat pack output', goal: 'Section spec with content requirements', reason: 'PRD deliverable: Team analytics packages', audible: ['List sections', 'Define content per section', 'Get Founder input'] }
+            },
+            { id: 'TKT-036', title: 'Create stat pack template', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-005', progress: 100, tags: ['Design', 'Template'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Design markdown template for stat pack output', goal: 'Reusable template with consistent formatting', reason: 'Visual consistency across all team stat packs', audible: ['Design layout', 'Add sections', 'Create markdown template'] }
+            },
+            { id: 'TKT-037', title: 'Regenerate all 10 stat packs', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 100, tags: ['Pipeline', 'Output'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' },
+              context: { ask: 'Run stat pack generator for all 10 IPL teams', goal: '10 stat pack markdown files in outputs/stat_packs/', reason: 'PRD core deliverable', audible: ['Run generator', 'Validate all 10 outputs', 'Commit files'] }
+            },
+            { id: 'TKT-038', title: 'Andy Flower review of stat packs', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-005', progress: 100, tags: ['Domain', 'Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
+              context: { ask: 'Review stat packs for cricket accuracy', goal: 'Domain expert validation of analytics', reason: 'Domain Sanity gate requires expert review', audible: ['Review each stat pack', 'Check cricket logic', 'Approve or flag issues'] }
+            },
+            { id: 'TKT-039', title: 'Virat Kohli tone review', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Virat Kohli', epic: 'EPIC-005', progress: 100, tags: ['Editorial', 'Review'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Review stat pack language and tone', goal: 'Professional, engaging editorial voice', reason: 'Content should be compelling for readers', audible: ['Review language', 'Suggest improvements', 'Approve tone'] }
+            },
+            { id: 'TKT-040', title: 'Define depth chart positions', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-005', progress: 100, tags: ['Domain', 'Spec'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
+              context: { ask: 'Define 11 positions for T20 depth chart', goal: 'Position spec: Opener 1-2, Middle Order 3-5, Finisher 6-7, Bowlers 1-4', reason: 'Algorithm needs position definitions', audible: ['Define positions', 'Document requirements per position', 'Get domain approval'] }
+            },
+            { id: 'TKT-041', title: 'Create depth chart algorithm', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 100, tags: ['Algorithm', 'Core'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
+              context: { ask: 'Create algorithm to rank players by position', goal: 'Composite scoring system for positional ranking', reason: 'PRD requirement: Automated depth chart generation', audible: ['Design scoring formula', 'Implement algorithm', 'Test with sample data', 'Domain review'] }
+            },
             { id: 'TKT-042', title: 'Generate all 10 depth charts', state: 'REVIEW', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 95, tags: ['Pipeline', 'Output', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' }, entered_review_date: '2026-02-03',
               context: {
                 ask: 'Run depth chart pipeline for all 10 IPL teams and generate markdown outputs',
@@ -3752,8 +3834,12 @@
                 audible: ['Execute generate_depth_charts.py', 'Validate all 10 teams have outputs', 'Verify Andy Flower approved positions']
               }
             },
-            { id: 'TKT-043', title: 'Andy Flower review of depth charts', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-005', progress: 100, tags: ['Domain', 'Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES' } },
-            { id: 'TKT-044', title: 'Archive depth chart outputs', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-005', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' } },
+            { id: 'TKT-043', title: 'Andy Flower review of depth charts', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-005', progress: 100, tags: ['Domain', 'Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES' },
+              context: { ask: 'Review depth chart rankings for cricket accuracy', goal: 'Domain expert validation of positional rankings', reason: 'Domain Sanity gate for depth chart outputs', audible: ['Review each team', 'Validate position assignments', 'Approve or flag issues'] }
+            },
+            { id: 'TKT-044', title: 'Archive depth chart outputs', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-005', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' },
+              context: { ask: 'Archive depth chart outputs to outputs/depth_charts/', goal: 'Depth charts accessible in repository', reason: 'Output organization best practice', audible: ['Verify all 10 files', 'Commit to outputs/', 'Update readme'] }
+            },
             { id: 'TKT-045', title: 'Founder approval of depth charts', state: 'VALIDATION', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-005', progress: 95, tags: ['Approval', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
               context: {
                 ask: 'Review and approve the 10 depth chart outputs for correctness and format',
@@ -3764,9 +3850,15 @@
             },
 
             // Phase 4: Stat Pack Enhancement (TKT-046 to TKT-060)
-            { id: 'TKT-046', title: 'Add LHB/RHB balance section', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-047', title: 'Add matchup matrix section', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-048', title: 'Add phase analysis section', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-046', title: 'Add LHB/RHB balance section', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
+              context: { ask: 'Add Left/Right hand batter balance section to stat packs', goal: 'Display LHB/RHB distribution and batting order', reason: 'PRD: Handedness balance impacts bowling matchups', audible: ['Query handedness data', 'Calculate percentages', 'Add to stat pack template'] }
+            },
+            { id: 'TKT-047', title: 'Add matchup matrix section', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
+              context: { ask: 'Add batter vs bowler type matchup matrix to stat packs', goal: 'Display SR/avg by bowling style for each batter', reason: 'PRD: Matchup intelligence for team selection', audible: ['Query matchup data', 'Build matrix visualization', 'Add to stat pack template'] }
+            },
+            { id: 'TKT-048', title: 'Add phase analysis section', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
+              context: { ask: 'Add Powerplay/Middle/Death phase analysis to stat packs', goal: 'Display player performance by match phase', reason: 'PRD: Phase-specific performance drives batting order', audible: ['Query phase data', 'Calculate phase metrics', 'Add to stat pack template'] }
+            },
             { id: 'TKT-049', title: 'Add key partnerships section', state: 'RUNNING', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 40, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' }, plan: 'docs/plans/TKT_049_KEY_PARTNERSHIPS_PLAN.md',
               context: {
                 ask: 'Add Key Partnerships section to stat pack showing batting pair analytics',
@@ -3799,17 +3891,35 @@
                 audible: ['Query seasonal aggregates', 'Calculate YoY changes', 'Add trend arrows (up/down/stable)']
               }
             },
-            { id: 'TKT-053', title: 'Add Andy Flower tactical insights', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Domain', 'Content'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-054', title: 'Generate MI tactical insights', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'MI'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-055', title: 'Generate CSK tactical insights', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'CSK'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-056', title: 'Generate RCB tactical insights', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'RCB'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-057', title: 'Generate KKR tactical insights', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'KKR'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-058', title: 'Generate DC tactical insights', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'DC'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-059', title: 'Generate remaining team insights (PBKS, RR, SRH, GT, LSG)', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'Teams'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-060', title: 'Founder approval of stat pack enhancements', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-006', progress: 100, tags: ['Approval'], gates: { founder_validation: 'APPROVED' } },
+            { id: 'TKT-053', title: 'Add Andy Flower tactical insights', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Domain', 'Content'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
+              context: { ask: 'Create tactical insights section template for stat packs', goal: 'Expert cricket analysis framework for team breakdowns', reason: 'PRD: Domain expert analysis adds strategic value', audible: ['Define insight categories', 'Create template', 'Document methodology'] }
+            },
+            { id: 'TKT-054', title: 'Generate MI tactical insights', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'MI'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
+              context: { ask: 'Write tactical insights for Mumbai Indians', goal: 'Expert analysis of MI strengths, weaknesses, strategies', reason: 'PRD: Team-specific tactical breakdowns', audible: ['Analyze MI data', 'Write insights', 'Add to stat pack'] }
+            },
+            { id: 'TKT-055', title: 'Generate CSK tactical insights', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'CSK'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
+              context: { ask: 'Write tactical insights for Chennai Super Kings', goal: 'Expert analysis of CSK strengths, weaknesses, strategies', reason: 'PRD: Team-specific tactical breakdowns', audible: ['Analyze CSK data', 'Write insights', 'Add to stat pack'] }
+            },
+            { id: 'TKT-056', title: 'Generate RCB tactical insights', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'RCB'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
+              context: { ask: 'Write tactical insights for Royal Challengers Bengaluru', goal: 'Expert analysis of RCB strengths, weaknesses, strategies', reason: 'PRD: Team-specific tactical breakdowns', audible: ['Analyze RCB data', 'Write insights', 'Add to stat pack'] }
+            },
+            { id: 'TKT-057', title: 'Generate KKR tactical insights', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'KKR'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
+              context: { ask: 'Write tactical insights for Kolkata Knight Riders', goal: 'Expert analysis of KKR strengths, weaknesses, strategies', reason: 'PRD: Team-specific tactical breakdowns', audible: ['Analyze KKR data', 'Write insights', 'Add to stat pack'] }
+            },
+            { id: 'TKT-058', title: 'Generate DC tactical insights', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'DC'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
+              context: { ask: 'Write tactical insights for Delhi Capitals', goal: 'Expert analysis of DC strengths, weaknesses, strategies', reason: 'PRD: Team-specific tactical breakdowns', audible: ['Analyze DC data', 'Write insights', 'Add to stat pack'] }
+            },
+            { id: 'TKT-059', title: 'Generate remaining team insights (PBKS, RR, SRH, GT, LSG)', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'Teams'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
+              context: { ask: 'Write tactical insights for PBKS, RR, SRH, GT, LSG', goal: 'Complete tactical insights for all 10 IPL teams', reason: 'PRD: All teams need tactical breakdowns', audible: ['Analyze each team', 'Write insights', 'Add to stat packs'] }
+            },
+            { id: 'TKT-060', title: 'Founder approval of stat pack enhancements', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-006', progress: 100, tags: ['Approval'], gates: { founder_validation: 'APPROVED' },
+              context: { ask: 'Review and approve stat pack enhancement features', goal: 'Founder sign-off on new sections', reason: 'Task Integrity Loop: Founder validation gate', audible: ['Review new sections', 'Validate quality', 'Approve'] }
+            },
 
             // Phase 4.5: Predicted XII (TKT-061 to TKT-066)
-            { id: 'TKT-061', title: 'Create SUPER SELECTOR algorithm', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-007', progress: 100, tags: ['Algorithm', 'Core'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' } },
+            { id: 'TKT-061', title: 'Create SUPER SELECTOR algorithm', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-007', progress: 100, tags: ['Algorithm', 'Core'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
+              context: { ask: 'Create algorithm to select best XI from squad', goal: 'Composite scoring system balancing roles, matchups, form', reason: 'PRD core deliverable: Automated team selection', audible: ['Design scoring weights', 'Implement role constraints', 'Balance optimization', 'Domain review'] }
+            },
             { id: 'TKT-062', title: 'Generate all 10 Predicted XIIs', state: 'VALIDATION', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-007', progress: 95, tags: ['Pipeline', 'Output', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' },
               context: {
                 ask: 'Run SUPER SELECTOR algorithm for all 10 IPL teams to generate predicted XIs',
@@ -3818,8 +3928,12 @@
                 audible: ['Execute predict_xi.py for all teams', 'Validate balance (2 openers, 5 bowlers, 1 WK)', 'Andy Flower approval on selections']
               }
             },
-            { id: 'TKT-063', title: 'Andy Flower review of Predicted XIIs', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-007', progress: 100, tags: ['Domain', 'Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES' } },
-            { id: 'TKT-064', title: 'Create wireframes for XI view', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-007', progress: 100, tags: ['Design', 'UI'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
+            { id: 'TKT-063', title: 'Andy Flower review of Predicted XIIs', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-007', progress: 100, tags: ['Domain', 'Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES' },
+              context: { ask: 'Review Predicted XI selections for cricket accuracy', goal: 'Domain expert validation of team selections', reason: 'Domain Sanity gate for XI outputs', audible: ['Review each team XI', 'Validate balance', 'Check role coverage', 'Approve or flag issues'] }
+            },
+            { id: 'TKT-064', title: 'Create wireframes for XI view', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-007', progress: 100, tags: ['Design', 'UI'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
+              context: { ask: 'Design wireframes for Predicted XI display in The Lab', goal: 'Visual mockup showing XI layout, bench, scoring', reason: 'UI/UX design before implementation', audible: ['Sketch layouts', 'Create wireframes', 'Get Founder feedback'] }
+            },
             { id: 'TKT-065', title: 'Founder approval of Predicted XIIs', state: 'VALIDATION', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-007', progress: 95, tags: ['Approval', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
               context: {
                 ask: 'Review and approve the 10 Predicted XI outputs for quality and plausibility',
@@ -3828,13 +3942,23 @@
                 audible: ['Review outputs/predicted_xii/*.md', 'Spot-check team balance', 'Validate scoring explanations', 'Approve or request changes']
               }
             },
-            { id: 'TKT-066', title: 'Archive XI outputs', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-007', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' } },
+            { id: 'TKT-066', title: 'Archive XI outputs', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-007', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' },
+              context: { ask: 'Archive Predicted XI outputs to outputs/predicted_xii/', goal: 'XI outputs accessible in repository', reason: 'Output organization best practice', audible: ['Verify all 10 files', 'Commit to outputs/', 'Update readme'] }
+            },
 
             // Phase 5: ML Ops (TKT-067 to TKT-075)
-            { id: 'TKT-067', title: 'Create model registry', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['MLOps', 'Infrastructure'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-068', title: 'Document clustering model', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['Documentation', 'ML'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-069', title: 'Create deployment manifest', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['MLOps', 'DevOps'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-070', title: 'Implement model versioning', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['MLOps', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'ml_ops/MODEL_VERSIONING.md' },
+            { id: 'TKT-067', title: 'Create model registry', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['MLOps', 'Infrastructure'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Create model registry for tracking ML models', goal: 'Centralized registry with model metadata and versions', reason: 'MLOps best practice: Model governance', audible: ['Design registry schema', 'Implement storage', 'Add versioning'] }
+            },
+            { id: 'TKT-068', title: 'Document clustering model', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['Documentation', 'ML'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Document player clustering model architecture', goal: 'Model documentation with inputs, outputs, methodology', reason: 'ML transparency and reproducibility', audible: ['Document features', 'Explain algorithm', 'Add usage examples'] }
+            },
+            { id: 'TKT-069', title: 'Create deployment manifest', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['MLOps', 'DevOps'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+              context: { ask: 'Create deployment manifest for model serving', goal: 'Reproducible deployment configuration', reason: 'MLOps best practice: Deployment automation', audible: ['Define dependencies', 'Create config files', 'Document deployment steps'] }
+            },
+            { id: 'TKT-070', title: 'Implement model versioning', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['MLOps', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'ml_ops/MODEL_VERSIONING.md',
+              context: { ask: 'Implement semantic versioning for ML models', goal: 'Version tracking with changelog and rollback capability', reason: 'MLOps best practice: Model lifecycle management', audible: ['Define versioning scheme', 'Implement tracking', 'Add rollback mechanism'] }
+            },
             { id: 'TKT-071', title: 'Create model performance tests', state: 'BACKLOG', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 0, tags: ['Testing', 'ML'], gates: { florentino_gate: 'APPROVED' } },
             { id: 'TKT-072', title: 'Document ML pipeline', state: 'BACKLOG', priority: 'P2', effort: 'hustle', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 0, tags: ['Documentation', 'ML'], gates: { florentino_gate: 'APPROVED' } },
             { id: 'TKT-073', title: 'Setup model monitoring', state: 'BACKLOG', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 0, tags: ['MLOps', 'Monitoring'], gates: { florentino_gate: 'APPROVED' } },
@@ -3842,17 +3966,35 @@
             { id: 'TKT-075', title: 'Founder approval of ML ops', state: 'BACKLOG', priority: 'P1', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-008', progress: 0, tags: ['Approval'], gates: {} },
 
             // Phase 6: Testing (TKT-076 to TKT-081)
-            { id: 'TKT-076', title: 'Create smoke test suite', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'N\'Golo Kanté', epic: 'EPIC-009', progress: 100, tags: ['Testing', 'QA'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
-            { id: 'TKT-077', title: 'Create regression tests', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'N\'Golo Kanté', epic: 'EPIC-009', progress: 100, tags: ['Testing', 'QA'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
-            { id: 'TKT-078', title: 'Create output validation tests', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'N\'Golo Kanté', epic: 'EPIC-009', progress: 100, tags: ['Testing', 'QA'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
-            { id: 'TKT-079', title: 'Setup CI/CD pipeline', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-009', progress: 100, tags: ['DevOps', 'CI/CD'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
-            { id: 'TKT-080', title: 'Add pre-commit hooks', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-009', progress: 100, tags: ['DevOps', 'Quality'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
-            { id: 'TKT-081', title: 'Founder approval of testing', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-009', progress: 100, tags: ['Approval'], gates: { founder_validation: 'APPROVED' } },
+            { id: 'TKT-076', title: 'Create smoke test suite', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'N\'Golo Kanté', epic: 'EPIC-009', progress: 100, tags: ['Testing', 'QA'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' },
+              context: { ask: 'Create smoke test suite for critical paths', goal: 'Fast tests verifying core functionality works', reason: 'Quick feedback on breaking changes', audible: ['Identify critical paths', 'Write smoke tests', 'Add to CI'] }
+            },
+            { id: 'TKT-077', title: 'Create regression tests', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'N\'Golo Kanté', epic: 'EPIC-009', progress: 100, tags: ['Testing', 'QA'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' },
+              context: { ask: 'Create regression test suite for output consistency', goal: 'Tests ensuring outputs remain consistent after changes', reason: 'Prevent unintended output changes', audible: ['Capture baseline outputs', 'Write comparison tests', 'Add to CI'] }
+            },
+            { id: 'TKT-078', title: 'Create output validation tests', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'N\'Golo Kanté', epic: 'EPIC-009', progress: 100, tags: ['Testing', 'QA'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' },
+              context: { ask: 'Create tests validating output format and content', goal: 'Tests checking stat pack structure, required fields', reason: 'Ensure output quality standards', audible: ['Define validation rules', 'Write format tests', 'Add to CI'] }
+            },
+            { id: 'TKT-079', title: 'Setup CI/CD pipeline', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-009', progress: 100, tags: ['DevOps', 'CI/CD'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' },
+              context: { ask: 'Setup GitHub Actions CI/CD pipeline', goal: 'Automated testing and validation on each commit', reason: 'DevOps best practice: Continuous integration', audible: ['Create workflow file', 'Configure test jobs', 'Add status checks'] }
+            },
+            { id: 'TKT-080', title: 'Add pre-commit hooks', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-009', progress: 100, tags: ['DevOps', 'Quality'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' },
+              context: { ask: 'Add pre-commit hooks for code quality', goal: 'Automatic linting, formatting, security checks before commit', reason: 'Catch issues before they reach CI', audible: ['Install pre-commit', 'Configure hooks', 'Document setup'] }
+            },
+            { id: 'TKT-081', title: 'Founder approval of testing', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-009', progress: 100, tags: ['Approval'], gates: { founder_validation: 'APPROVED' },
+              context: { ask: 'Review and approve testing infrastructure', goal: 'Founder sign-off on QA approach', reason: 'Task Integrity Loop: Founder validation gate', audible: ['Review test coverage', 'Validate CI/CD', 'Approve'] }
+            },
 
             // Phase 7: Script Quality (TKT-082 to TKT-085)
-            { id: 'TKT-082', title: 'Refactor generate_stat_packs.py', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Refactor', 'Code Quality', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'scripts/generators/generate_stat_packs.py' },
-            { id: 'TKT-083', title: 'Add logging to all scripts', state: 'DONE', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Logging', 'Quality', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'scripts/utils/logging_config.py' },
-            { id: 'TKT-084', title: 'Create script documentation', state: 'DONE', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Documentation', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'scripts/README.md' },
+            { id: 'TKT-082', title: 'Refactor generate_stat_packs.py', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Refactor', 'Code Quality', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'scripts/generators/generate_stat_packs.py',
+              context: { ask: 'Refactor generate_stat_packs.py for maintainability', goal: 'Modular code with clear function separation', reason: 'TKT-096 audit identified long functions', audible: ['Break up long functions', 'Extract helpers', 'Add docstrings'] }
+            },
+            { id: 'TKT-083', title: 'Add logging to all scripts', state: 'DONE', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Logging', 'Quality', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'scripts/utils/logging_config.py',
+              context: { ask: 'Add consistent logging across all scripts', goal: 'Configurable logging with file output option', reason: 'Debugging and monitoring require logs', audible: ['Create logging config', 'Replace print statements', 'Add log levels'] }
+            },
+            { id: 'TKT-084', title: 'Create script documentation', state: 'DONE', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Documentation', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'scripts/README.md',
+              context: { ask: 'Create README documenting scripts directory', goal: 'Documentation explaining script purposes and usage', reason: 'Team needs to understand codebase', audible: ['List all scripts', 'Document usage', 'Add examples'] }
+            },
             { id: 'TKT-085', title: 'Founder approval of script quality', state: 'DONE', priority: 'P2', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-010', progress: 100, tags: ['Approval', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'docs/script_validation_schema.md', review: 'docs/validation_run_report.md',
               context: {
                 ask: 'Review and approve the Script Quality Validation Schema + Validation Run Report',
@@ -3916,12 +4058,12 @@
                 audible: 'Benchmark before/after to quantify improvement'
               }
             },
-            { id: 'TKT-100', title: 'Externalize configuration', state: 'REVIEW', priority: 'P3', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 95, tags: ['Config', 'Ops', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' }, output: 'scripts/config.py', entered_review_date: '2026-02-06',
+            { id: 'TKT-100', title: 'Externalize configuration', state: 'DONE', priority: 'P3', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Config', 'Ops', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'scripts/config.py',
               context: {
                 ask: 'Move hardcoded values to config file or environment variables',
-                goal: 'Enable runtime configuration of IPL_MIN_DATE, TOURNAMENT, MATCH_TYPE, thresholds, file paths without code changes',
+                goal: 'Enable runtime configuration of IPL_MIN_DATE, TOURNAMENT, MATCH_TYPE, GENDER, thresholds, file paths without code changes',
                 reason: 'Date filters require code changes each season',
-                audible: '✅ TOURNAMENT and MATCH_TYPE added per Founder feedback'
+                audible: '✅ DONE Feb 6, 2026: 19 tournaments (Men\'s + Women\'s), 51 teams, GENDER filter, helper methods. Extensible design - add new tournaments/teams to TOURNAMENT_REGISTRY and TEAM_REGISTRY as needed.'
               }
             },
             { id: 'TKT-101', title: 'Standardize logging across scripts', state: 'DONE', priority: 'P3', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Logging', 'Code Quality', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' },
@@ -3958,7 +4100,7 @@
                 audible: '✅ DONE: Review SLA widget with age badges (fresh/aging/stale) + Stale Reviews filter. Approved Feb 6, 2026.'
               }
             },
-            { id: 'TKT-106', title: 'Complete ticket context documentation', state: 'READY', priority: 'P3', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-010', progress: 0, tags: ['Documentation', 'Process', 'Governance'],
+            { id: 'TKT-106', title: 'Complete ticket context documentation', state: 'DONE', priority: 'P3', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-010', progress: 100, tags: ['Documentation', 'Process', 'Governance', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Add context objects (ask, goal, reason, audible) to all DONE tickets missing context',
                 goal: 'Every ticket in Mission Control has full context documentation for traceability',

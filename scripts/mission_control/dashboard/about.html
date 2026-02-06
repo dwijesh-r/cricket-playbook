@@ -906,7 +906,172 @@
             .founder-card { flex-direction: column; text-align: center; }
             .workflow-step { min-width: 80px; padding: 8px; }
             .step-arrow { display: none; }
+            /* Hide top nav actions on mobile */
+            .nav-actions { display: none; }
+            .main { padding-bottom: 80px; }
         }
+
+        /* ==================== MOBILE BOTTOM NAV ==================== */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-top: 1px solid var(--border);
+            z-index: 100;
+            padding: 8px 16px;
+            padding-bottom: max(8px, env(safe-area-inset-bottom));
+        }
+
+        [data-theme="light"] .mobile-nav {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-nav { display: flex; align-items: center; justify-content: space-around; }
+        }
+
+        .mobile-nav-tab {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 8px 12px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: 500;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .mobile-nav-tab:hover, .mobile-nav-tab.active {
+            color: var(--accent);
+            background: rgba(10, 132, 255, 0.1);
+        }
+
+        .mobile-nav-icon { font-size: 20px; }
+
+        /* Help button floating */
+        .help-btn {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent-orange), #ff6b00);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(255, 159, 10, 0.4);
+            z-index: 99;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            animation: help-pulse 2s ease-in-out infinite;
+        }
+
+        .help-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 28px rgba(255, 159, 10, 0.6);
+        }
+
+        @keyframes help-pulse {
+            0%, 100% { box-shadow: 0 4px 20px rgba(255, 159, 10, 0.4); }
+            50% { box-shadow: 0 4px 30px rgba(255, 159, 10, 0.6); }
+        }
+
+        @media (max-width: 768px) {
+            .help-btn { display: flex; }
+        }
+
+        /* Help Modal */
+        .help-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .help-overlay.active { display: flex; }
+
+        .help-modal {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 24px;
+            max-width: 400px;
+            width: 100%;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .help-header { text-align: center; margin-bottom: 20px; }
+        .help-header h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+        .help-header p { color: var(--text-secondary); font-size: 13px; }
+
+        .help-item {
+            display: flex;
+            gap: 14px;
+            padding: 14px;
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .help-item:hover { background: var(--bg-elevated); transform: translateX(4px); }
+
+        .help-icon {
+            font-size: 24px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+        }
+
+        .help-text h4 { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+        .help-text p { font-size: 11px; color: var(--text-secondary); }
+
+        .help-close {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 30px;
+            height: 30px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .help-close:hover { background: var(--bg-elevated); color: var(--text-primary); }
     </style>
 </head>
 <body>
@@ -1846,6 +2011,70 @@
             initTheme();
             renderAgents();
         });
+
+        // Help modal functions
+        function toggleHelp() {
+            document.getElementById('help-overlay').classList.toggle('active');
+        }
+
+        function closeHelp(e) {
+            if (e.target === e.currentTarget) toggleHelp();
+        }
     </script>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <a href="index.html" class="mobile-nav-tab">
+            <span class="mobile-nav-icon">📋</span>
+            <span>Board</span>
+        </a>
+        <a href="sprints.html" class="mobile-nav-tab">
+            <span class="mobile-nav-icon">📅</span>
+            <span>Sprints</span>
+        </a>
+        <a href="about.html" class="mobile-nav-tab active">
+            <span class="mobile-nav-icon">ℹ️</span>
+            <span>About</span>
+        </a>
+        <a href="../../the_lab/dashboard/index.html" class="mobile-nav-tab">
+            <span class="mobile-nav-icon">🔬</span>
+            <span>The Lab</span>
+        </a>
+    </nav>
+
+    <!-- Help Button (mobile) -->
+    <button class="help-btn" onclick="toggleHelp()" title="Quick Help">❓</button>
+
+    <!-- Help Modal -->
+    <div class="help-overlay" id="help-overlay" onclick="closeHelp(event)">
+        <div class="help-modal" onclick="event.stopPropagation()">
+            <button class="help-close" onclick="toggleHelp()">✕</button>
+            <div class="help-header">
+                <h3>🏢 Mission Control Guide</h3>
+                <p>Quick navigation for the command center</p>
+            </div>
+            <a href="index.html" class="help-item">
+                <div class="help-icon">📋</div>
+                <div class="help-text">
+                    <h4>Board View</h4>
+                    <p>Kanban board with all tickets by state</p>
+                </div>
+            </a>
+            <a href="sprints.html" class="help-item">
+                <div class="help-icon">📅</div>
+                <div class="help-text">
+                    <h4>Sprints</h4>
+                    <p>Sprint history and velocity tracking</p>
+                </div>
+            </a>
+            <a href="../../the_lab/dashboard/index.html" class="help-item">
+                <div class="help-icon">🔬</div>
+                <div class="help-text">
+                    <h4>The Lab</h4>
+                    <p>Cricket analytics and research</p>
+                </div>
+            </a>
+        </div>
+    </div>
 </body>
 </html>

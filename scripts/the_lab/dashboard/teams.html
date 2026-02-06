@@ -264,6 +264,23 @@
             font-size: 32px;
             font-weight: 800;
             margin-bottom: 8px;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        @media (max-width: 768px) {
+            .team-header-info h1 {
+                font-size: 22px;
+                justify-content: center;
+            }
+        }
+        @media (max-width: 480px) {
+            .team-header-info h1 {
+                font-size: 18px;
+            }
         }
         .team-header-info p {
             font-size: 14px;
@@ -799,10 +816,19 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             animation: pulse-gold 2s ease-in-out infinite;
+            white-space: nowrap;
+        }
+        .reigning-badge .badge-text {
+            display: inline;
         }
         @keyframes pulse-gold {
             0%, 100% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
             50% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+        }
+        /* Mobile: Show only trophy icon */
+        @media (max-width: 768px) {
+            .reigning-badge .badge-text { display: none; }
+            .reigning-badge { padding: 4px 8px; font-size: 14px; }
         }
 
         /* Search & Filters */
@@ -1350,7 +1376,7 @@
             // Header with coach and reigning badge
             const header = document.getElementById('team-header');
             header.style.setProperty('--team-color', team.primaryColor);
-            const reigningBadge = team.reigning ? '<span class="reigning-badge">🏆 Defending Champions</span>' : '';
+            const reigningBadge = team.reigning ? '<span class="reigning-badge">🏆<span class="badge-text"> Defending Champions</span></span>' : '';
             const headerPixelLogo = TEAM_PIXEL_LOGOS[currentTeam] || team.icon;
             header.innerHTML = `
                 <div class="team-header-content">

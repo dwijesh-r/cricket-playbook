@@ -3047,6 +3047,129 @@
             .label-group .name { font-size: 8px; }
             .card-badge.team-badge { font-size: 6px; }
         }
+
+        /* ==================== NAVIGATION GUIDE ==================== */
+        .nav-guide-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(10, 132, 255, 0.4);
+            z-index: 90;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .nav-guide-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 28px rgba(10, 132, 255, 0.5);
+        }
+        .nav-guide-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .nav-guide-overlay.active { display: flex; }
+        .nav-guide-modal {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .nav-guide-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .nav-guide-header h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .nav-guide-header p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        .nav-guide-item {
+            display: flex;
+            gap: 16px;
+            padding: 16px;
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            align-items: flex-start;
+            transition: all 0.2s ease;
+        }
+        .nav-guide-item:hover {
+            background: var(--bg-elevated);
+            transform: translateX(4px);
+        }
+        .nav-guide-icon {
+            font-size: 28px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+        .nav-guide-text h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .nav-guide-text p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+        .nav-guide-start {
+            background: linear-gradient(135deg, var(--accent-green) 0%, #28cd41 100%);
+            color: white;
+        }
+        .nav-guide-start .nav-guide-icon {
+            background: rgba(255,255,255,0.2);
+        }
+        .nav-guide-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 32px;
+            height: 32px;
+            background: var(--bg-tertiary);
+            border: none;
+            border-radius: 50%;
+            color: var(--text-primary);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @media (max-width: 600px) {
+            .nav-guide-btn { bottom: 16px; right: 16px; width: 48px; height: 48px; font-size: 20px; }
+            .nav-guide-modal { padding: 24px 20px; }
+        }
     </style>
 </head>
 <body>
@@ -3097,6 +3220,58 @@
         <a href="analysis.html" class="nav-tab">🔬 Analysis</a>
         <a href="research.html" class="nav-tab">📚 Research</a>
         <a href="about.html" class="nav-tab">🌹 About</a>
+        <div style="border-top: 1px solid var(--border); margin-top: 8px; padding-top: 8px;">
+            <a href="../../../mission_control/dashboard/index.html" class="nav-tab" style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%); color: white;">📡 The Boardroom</a>
+        </div>
+    </div>
+
+    <!-- Navigation Guide Button -->
+    <button class="nav-guide-btn" onclick="toggleNavGuide()" title="Quick Navigation Guide">❓</button>
+
+    <!-- Navigation Guide Modal -->
+    <div class="nav-guide-overlay" id="nav-guide-overlay" onclick="closeNavGuide(event)">
+        <div class="nav-guide-modal" onclick="event.stopPropagation()">
+            <button class="nav-guide-close" onclick="toggleNavGuide()">✕</button>
+            <div class="nav-guide-header">
+                <h3>🏏 Where to Start?</h3>
+                <p>Quick guide to navigate Cricket Playbook</p>
+            </div>
+            <a href="teams.html" class="nav-guide-item nav-guide-start" style="text-decoration: none; color: inherit;">
+                <div class="nav-guide-icon">🏏</div>
+                <div class="nav-guide-text">
+                    <h4>Start Here → Teams</h4>
+                    <p>Pick your team, see predicted XI, depth charts, and full stat packs. The best place to begin!</p>
+                </div>
+            </a>
+            <a href="artifacts.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
+                <div class="nav-guide-icon">🔍</div>
+                <div class="nav-guide-text">
+                    <h4>Artifacts</h4>
+                    <p>All 10 stat packs and depth charts in one place. Download-ready documentation.</p>
+                </div>
+            </a>
+            <a href="analysis.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
+                <div class="nav-guide-icon">🔬</div>
+                <div class="nav-guide-text">
+                    <h4>Analysis</h4>
+                    <p>Deep dives: Player matchups, clustering insights, phase analysis, and more.</p>
+                </div>
+            </a>
+            <a href="research.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
+                <div class="nav-guide-icon">📚</div>
+                <div class="nav-guide-text">
+                    <h4>Research</h4>
+                    <p>Methodology explained: How we grade players and generate predictions.</p>
+                </div>
+            </a>
+            <a href="../../../mission_control/dashboard/index.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
+                <div class="nav-guide-icon">📡</div>
+                <div class="nav-guide-text">
+                    <h4>The Boardroom</h4>
+                    <p>Project management dashboard. See all tickets, sprints, and team progress.</p>
+                </div>
+            </a>
+        </div>
     </div>
 
     <!-- Main Content -->
@@ -3691,6 +3866,23 @@
                 document.getElementById('mobile-nav-menu').classList.remove('active');
                 document.querySelector('.mobile-menu-btn').classList.remove('active');
             });
+        });
+
+        // Navigation Guide functions
+        function toggleNavGuide() {
+            const overlay = document.getElementById('nav-guide-overlay');
+            overlay.classList.toggle('active');
+        }
+        function closeNavGuide(event) {
+            if (event.target.id === 'nav-guide-overlay') {
+                toggleNavGuide();
+            }
+        }
+        // Close nav guide with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.getElementById('nav-guide-overlay').classList.remove('active');
+            }
         });
 
         // Load saved theme

@@ -3301,7 +3301,7 @@
             { id: 'TKT-029', title: 'Regenerate all outputs with fixed IDs', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-004', progress: 100, tags: ['Data', 'Pipeline'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
             { id: 'TKT-030', title: 'Validate output integrity', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'N\'Golo Kanté', epic: 'EPIC-004', progress: 100, tags: ['QA', 'Validation'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' } },
             { id: 'TKT-031', title: 'Andy Flower review of tags', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-004', progress: 100, tags: ['Domain', 'Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-032', title: 'Document data dictionary', state: 'REVIEW', priority: 'P1', effort: 'deep-work', assignee: 'Brock Purdy', epic: 'EPIC-004', progress: 100, tags: ['Documentation', 'Data'], gates: { florentino_gate: 'APPROVED' }, output: 'docs/DATA_DICTIONARY.md' },
+            { id: 'TKT-032', title: 'Document data dictionary', state: 'VALIDATION', priority: 'P1', effort: 'deep-work', assignee: 'Brock Purdy', epic: 'EPIC-004', progress: 100, tags: ['Documentation', 'Data', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'CAVEAT', domain_sanity_note: 'Needs PROVENANCE.md update' }, output: 'docs/DATA_DICTIONARY.md' },
             { id: 'TKT-033', title: 'Archive data docs', state: 'DONE', priority: 'P2', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-004', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' } },
             { id: 'TKT-034', title: 'Founder approval of data quality', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-004', progress: 100, tags: ['Approval'], gates: { founder_validation: 'APPROVED' } },
 
@@ -3347,7 +3347,7 @@
             { id: 'TKT-067', title: 'Create model registry', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['MLOps', 'Infrastructure'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
             { id: 'TKT-068', title: 'Document clustering model', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['Documentation', 'ML'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
             { id: 'TKT-069', title: 'Create deployment manifest', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['MLOps', 'DevOps'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
-            { id: 'TKT-070', title: 'Implement model versioning', state: 'REVIEW', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['MLOps'], gates: { florentino_gate: 'APPROVED' }, output: 'ml_ops/MODEL_VERSIONING.md' },
+            { id: 'TKT-070', title: 'Implement model versioning', state: 'VALIDATION', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['MLOps', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES' }, output: 'ml_ops/MODEL_VERSIONING.md' },
             { id: 'TKT-071', title: 'Create model performance tests', state: 'BACKLOG', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 0, tags: ['Testing', 'ML'], gates: { florentino_gate: 'APPROVED' } },
             { id: 'TKT-072', title: 'Document ML pipeline', state: 'BACKLOG', priority: 'P2', effort: 'hustle', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 0, tags: ['Documentation', 'ML'], gates: { florentino_gate: 'APPROVED' } },
             { id: 'TKT-073', title: 'Setup model monitoring', state: 'BACKLOG', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 0, tags: ['MLOps', 'Monitoring'], gates: { florentino_gate: 'APPROVED' } },
@@ -3363,7 +3363,7 @@
             { id: 'TKT-081', title: 'Founder approval of testing', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-009', progress: 100, tags: ['Approval'], gates: { founder_validation: 'APPROVED' } },
 
             // Phase 7: Script Quality (TKT-082 to TKT-085)
-            { id: 'TKT-082', title: 'Refactor generate_stat_packs.py', state: 'REVIEW', priority: 'P1', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Refactor', 'Code Quality'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' }, output: 'scripts/generators/generate_stat_packs.py' },
+            { id: 'TKT-082', title: 'Refactor generate_stat_packs.py', state: 'VALIDATION', priority: 'P1', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Refactor', 'Code Quality', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' }, output: 'scripts/generators/generate_stat_packs.py' },
             { id: 'TKT-083', title: 'Add logging to all scripts', state: 'REVIEW', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 95, tags: ['Logging', 'Quality'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' } },
             { id: 'TKT-084', title: 'Create script documentation', state: 'REVIEW', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 95, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' } },
             { id: 'TKT-085', title: 'Founder approval of script quality', state: 'DONE', priority: 'P2', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-010', progress: 100, tags: ['Approval', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'docs/script_validation_schema.md', review: 'docs/validation_run_report.md',
@@ -3466,7 +3466,7 @@
 
             // ==================== NEW EPICS (Awaiting Approval) ====================
             // EPIC-012: Player Profile View
-            { id: 'EPIC-012', title: 'Player Profile View - Click to see player stats', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Tom Brady', epic: null, progress: 0, tags: ['EPIC', 'Feature', 'UI', '🌹 Awaiting Founder'], gates: {},
+            { id: 'EPIC-012', title: 'Player Profile View - Click to see player stats', state: 'VALIDATION', priority: 'P1', effort: 'marathon', assignee: 'Tom Brady', epic: null, progress: 50, tags: ['EPIC', 'Feature', 'UI', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED' },
               context: {
                 ask: 'Build click-to-view player profile modal in The Lab Teams section',
                 goal: 'Show IPL stats since 2023, role tags, matchups, entry points, archetypes on player click',
@@ -3475,7 +3475,7 @@
               }
             },
             // EPIC-013: IPL 2026 Player Analysis
-            { id: 'EPIC-013', title: 'IPL 2026 Player Analysis - Season-specific views', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 0, tags: ['EPIC', 'Analytics', 'Data', '🌹 Awaiting Founder'], gates: {},
+            { id: 'EPIC-013', title: 'IPL 2026 Player Analysis - Season-specific views', state: 'VALIDATION', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 50, tags: ['EPIC', 'Analytics', 'Data', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED' },
               context: {
                 ask: 'Create IPL-specific analytics views for 2026 squad analysis',
                 goal: 'Connect historical performance to 2026 squads with phase breakdowns and matchups',

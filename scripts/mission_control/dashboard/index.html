@@ -889,6 +889,11 @@
 
         .agent-dropdown.active { display: block; }
 
+        /* Inner container - invisible wrapper on desktop */
+        .agent-dropdown-inner {
+            display: contents; /* Makes wrapper invisible, children flow normally */
+        }
+
         .agent-option {
             display: flex;
             align-items: center;
@@ -2298,30 +2303,50 @@
             }
 
             /* ==================== MOBILE AGENT DROPDOWN ==================== */
-            /* Fix scroll and prevent overlap with bottom nav */
+            /* Bottom sheet style with proper scroll containment */
+            .agent-filter {
+                position: static;
+            }
+
             .agent-dropdown {
                 position: fixed;
-                top: auto;
-                bottom: 80px; /* Above mobile nav */
-                left: 16px;
-                right: 16px;
-                max-height: 50vh;
-                overflow-y: auto;
-                border-radius: 16px;
-                padding: 12px;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                display: none;
+                align-items: flex-end;
+                justify-content: center;
+                padding-bottom: 70px; /* Space for mobile nav */
+                z-index: 200;
                 margin-top: 0;
-                -webkit-overflow-scrolling: touch;
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
             }
 
             .agent-dropdown.active {
-                display: block;
-                animation: slideUp 0.2s ease;
+                display: flex;
+            }
+
+            .agent-dropdown-inner {
+                background: var(--bg-secondary);
+                border: 1px solid var(--border);
+                border-radius: 16px 16px 0 0;
+                width: 100%;
+                max-height: 60vh;
+                overflow-y: auto;
+                overscroll-behavior: contain;
+                -webkit-overflow-scrolling: touch;
+                padding: 16px;
+                animation: slideUp 0.25s ease;
             }
 
             @keyframes slideUp {
                 from {
                     opacity: 0;
-                    transform: translateY(20px);
+                    transform: translateY(100%);
                 }
                 to {
                     opacity: 1;
@@ -2330,18 +2355,27 @@
             }
 
             .agent-option {
-                padding: 12px;
+                padding: 14px 12px;
             }
 
             .agent-option-avatar {
-                width: 36px;
-                height: 36px;
+                width: 40px;
+                height: 40px;
             }
 
             .agent-option-avatar img {
                 width: 100%;
                 height: 100%;
-                border-radius: 8px;
+                border-radius: 10px;
+            }
+
+            .agent-option-name {
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+            .agent-option-count {
+                font-size: 13px;
             }
 
             /* ==================== MOBILE COLLAPSIBLE COLUMNS ==================== */
@@ -2674,7 +2708,9 @@
                             <button class="filter-btn agent-filter-btn" onclick="toggleAgentDropdown()">
                                 <span id="agentFilterLabel">👥 All Agents</span> ▾
                             </button>
-                            <div class="agent-dropdown" id="agentDropdown"></div>
+                            <div class="agent-dropdown" id="agentDropdown" onclick="closeAgentDropdownOnBackdrop(event)">
+                                <div class="agent-dropdown-inner" id="agentDropdownInner" onclick="event.stopPropagation()"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -4008,14 +4044,14 @@
                 </div>
             `}).join('');
 
-            // Agent dropdown
-            const dropdown = document.getElementById('agentDropdown');
+            // Agent dropdown - populate inner container
+            const dropdownInner = document.getElementById('agentDropdownInner');
             const agentCounts = {};
             tickets.forEach(t => {
                 if (t.assignee) agentCounts[t.assignee] = (agentCounts[t.assignee] || 0) + 1;
             });
 
-            dropdown.innerHTML = `
+            dropdownInner.innerHTML = `
                 <div class="agent-option ${!activeAgentFilter ? 'selected' : ''}" onclick="filterByAgent(null)">
                     <div class="agent-option-avatar" style="background: var(--bg-tertiary);">👥</div>
                     <span class="agent-option-name">All Agents</span>
@@ -4041,6 +4077,13 @@
 
         function toggleAgentDropdown() {
             document.getElementById('agentDropdown').classList.toggle('active');
+        }
+
+        // Close dropdown when clicking the backdrop (mobile)
+        function closeAgentDropdownOnBackdrop(event) {
+            if (event.target === event.currentTarget) {
+                document.getElementById('agentDropdown').classList.remove('active');
+            }
         }
 
         function filterByAgent(agentName) {

@@ -673,6 +673,13 @@
             letter-spacing: -0.02em;
         }
 
+        .board-tagline {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            margin-top: 4px;
+            font-style: italic;
+        }
+
         .board-filters {
             display: flex;
             gap: 8px;
@@ -2242,41 +2249,51 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 8px;
                 align-items: stretch;
+                width: 100%;
             }
 
             /* Search spans full width at top */
             .search-box-mc {
                 grid-column: 1 / -1;
-                order: -1;
-                min-width: 100%;
+                width: 100%;
             }
             .search-box-mc input { width: 100%; }
 
-            /* All filter buttons uniform size */
+            /* All filter buttons fill their grid cell */
             .filter-btn {
                 width: 100%;
+                height: 100%;
                 justify-content: center;
-                padding: 10px 8px;
+                padding: 12px 8px;
                 font-size: 12px;
+                display: flex;
+                align-items: center;
             }
 
-            /* Dropdowns take full grid cell */
-            .filter-dropdown { width: 100%; }
+            /* Dropdowns fill their grid cell */
+            .filter-dropdown {
+                width: 100%;
+                display: flex;
+            }
             .filter-dropdown-btn {
                 width: 100%;
+                height: 100%;
                 justify-content: center;
                 font-size: 12px;
+                flex: 1;
             }
 
             /* Agent filter spans full width at bottom */
             .agent-filter {
                 grid-column: 1 / -1;
                 width: 100%;
+                display: flex;
             }
             .agent-filter-btn {
                 width: 100%;
                 justify-content: center;
                 font-size: 12px;
+                flex: 1;
             }
 
             /* ==================== MOBILE COLLAPSIBLE COLUMNS ==================== */
@@ -2560,7 +2577,10 @@
 
             <section class="board-section">
                 <div class="board-header">
-                    <h2 class="board-title">The Front Office</h2>
+                    <div class="board-title-group">
+                        <h2 class="board-title">The Front Office</h2>
+                        <p class="board-tagline">🏀 Where trades happen and championships are built</p>
+                    </div>
                     <div class="board-filters">
                         <!-- Search Box -->
                         <div class="search-box-mc">
@@ -3381,10 +3401,10 @@
 
         const columns = [
             { id: 'IDEA', name: 'Idea', dot: 'dot-idea', collapsible: true, defaultCollapsed: true },
-            { id: 'BACKLOG', name: 'Backlog', dot: 'dot-backlog', collapsible: true, defaultCollapsed: false },
-            { id: 'READY', name: 'Ready', dot: 'dot-ready', collapsible: true, defaultCollapsed: false },
-            { id: 'RUNNING', name: 'Running', dot: 'dot-running', collapsible: true, defaultCollapsed: false },
-            { id: 'BLOCKED', name: 'Blocked', dot: 'dot-blocked', collapsible: true, defaultCollapsed: false },
+            { id: 'BACKLOG', name: 'Backlog', dot: 'dot-backlog', collapsible: true, defaultCollapsed: true },
+            { id: 'READY', name: 'Ready', dot: 'dot-ready', collapsible: true, defaultCollapsed: true },
+            { id: 'RUNNING', name: 'Running', dot: 'dot-running', collapsible: true, defaultCollapsed: true },
+            { id: 'BLOCKED', name: 'Blocked', dot: 'dot-blocked', collapsible: true, defaultCollapsed: true },
             { id: 'REVIEW', name: 'Review', dot: 'dot-review', collapsible: true, defaultCollapsed: true },
             { id: 'VALIDATION', name: '🌹 Founder Review', dot: 'dot-founder', isFounder: true, collapsible: true, defaultCollapsed: true },
             { id: 'DONE', name: 'Done', dot: 'dot-done', collapsible: true, defaultCollapsed: true }

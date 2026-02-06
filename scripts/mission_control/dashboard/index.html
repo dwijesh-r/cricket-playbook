@@ -2235,14 +2235,49 @@
             .stat-value { font-size: 24px; }
             .stat-item { padding: 12px 8px; }
             .stat-label { font-size: 10px; }
-            .board-filters { flex-direction: column; align-items: stretch; gap: 8px; }
-            .search-box-mc { min-width: 100%; order: -1; }
+            /* ==================== MOBILE FILTER LAYOUT ==================== */
+            /* Tom Brady - Uniform 2-column grid for cleaner mobile view */
+            .board-filters {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+                align-items: stretch;
+            }
+
+            /* Search spans full width at top */
+            .search-box-mc {
+                grid-column: 1 / -1;
+                order: -1;
+                min-width: 100%;
+            }
             .search-box-mc input { width: 100%; }
-            .filter-btn { width: 100%; justify-content: center; }
+
+            /* All filter buttons uniform size */
+            .filter-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 10px 8px;
+                font-size: 12px;
+            }
+
+            /* Dropdowns take full grid cell */
             .filter-dropdown { width: 100%; }
-            .filter-dropdown-btn { width: 100%; justify-content: center; }
-            .agent-filter { width: 100%; }
-            .agent-filter-btn { width: 100%; justify-content: center; }
+            .filter-dropdown-btn {
+                width: 100%;
+                justify-content: center;
+                font-size: 12px;
+            }
+
+            /* Agent filter spans full width at bottom */
+            .agent-filter {
+                grid-column: 1 / -1;
+                width: 100%;
+            }
+            .agent-filter-btn {
+                width: 100%;
+                justify-content: center;
+                font-size: 12px;
+            }
 
             /* ==================== MOBILE COLLAPSIBLE COLUMNS ==================== */
             /* Tom Brady - Collapsible sections for cleaner mobile view */
@@ -2357,6 +2392,11 @@
             .theme-toggle { width: 34px; height: 34px; font-size: 14px; }
             .nav-btn.refresh-btn { width: 34px; height: 34px; min-width: 34px; min-height: 34px; padding: 6px; }
             .nav-btn.refresh-btn::before { font-size: 14px; }
+            /* Filter buttons - more compact */
+            .board-filters { gap: 6px; }
+            .filter-btn { padding: 8px 6px; font-size: 11px; min-height: 40px; }
+            .filter-dropdown-btn, .agent-filter-btn { font-size: 11px; }
+            .search-box-mc input { padding: 10px 12px 10px 36px; font-size: 13px; }
             /* Agent Stats */
             .agent-stats { gap: 8px; }
             .agent-stat { padding: 10px 6px; }

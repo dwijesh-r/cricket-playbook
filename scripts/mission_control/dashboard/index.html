@@ -2238,6 +2238,58 @@
             .filter-dropdown-btn { width: 100%; justify-content: center; }
             .agent-filter { width: 100%; }
             .agent-filter-btn { width: 100%; justify-content: center; }
+
+            /* ==================== MOBILE COLLAPSIBLE COLUMNS ==================== */
+            /* Tom Brady - Collapsible sections for cleaner mobile view */
+
+            .column.collapsible .column-header {
+                cursor: pointer;
+                user-select: none;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .column.collapsible .column-header:active {
+                background: rgba(255, 255, 255, 0.05);
+            }
+
+            .column-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 24px;
+                height: 24px;
+                font-size: 12px;
+                color: var(--text-secondary);
+                transition: transform 0.3s ease;
+                margin-left: 8px;
+            }
+
+            .column.collapsed .column-toggle {
+                transform: rotate(-90deg);
+            }
+
+            .column.collapsed .column-body {
+                display: none;
+            }
+
+            .column.collapsible {
+                min-height: auto;
+            }
+
+            .column.collapsible.collapsed {
+                min-height: auto;
+            }
+
+            /* Collapsed column header styling */
+            .column.collapsed .column-header {
+                border-bottom: none;
+                border-radius: 12px;
+            }
+
+            .column.collapsed .column-count {
+                background: linear-gradient(135deg, var(--accent) 0%, var(--accent-orange) 100%);
+                color: white;
+            }
         }
 
         /* ==================== ADDITIONAL RESPONSIVE FIXES ==================== */
@@ -3261,13 +3313,13 @@
         };
 
         const columns = [
-            { id: 'IDEA', name: 'Idea', dot: 'dot-idea' },
+            { id: 'IDEA', name: 'Idea', dot: 'dot-idea', collapsible: true },
             { id: 'BACKLOG', name: 'Backlog', dot: 'dot-backlog' },
             { id: 'READY', name: 'Ready', dot: 'dot-ready' },
             { id: 'RUNNING', name: 'Running', dot: 'dot-running' },
             { id: 'BLOCKED', name: 'Blocked', dot: 'dot-blocked' },
-            { id: 'REVIEW', name: 'Review', dot: 'dot-review' },
-            { id: 'VALIDATION', name: '🌹 Founder Review', dot: 'dot-founder', isFounder: true },
+            { id: 'REVIEW', name: 'Review', dot: 'dot-review', collapsible: true },
+            { id: 'VALIDATION', name: '🌹 Founder Review', dot: 'dot-founder', isFounder: true, collapsible: true },
             { id: 'DONE', name: 'Done', dot: 'dot-done' }
         ];
 
@@ -3761,18 +3813,27 @@
 
         function initBoard() {
             const kanban = document.getElementById('kanban');
-            kanban.innerHTML = columns.map(col => `
-                <div class="column ${col.isFounder ? 'founder-column' : ''}" data-state="${col.id}">
-                    <div class="column-header">
+            const isMobile = window.innerWidth <= 600;
+
+            kanban.innerHTML = columns.map(col => {
+                const isCollapsible = col.collapsible && isMobile;
+                const collapsibleClass = isCollapsible ? 'collapsible collapsed' : '';
+                const toggleChevron = isCollapsible ? '<span class="column-toggle">▼</span>' : '';
+                const headerClick = isCollapsible ? `onclick="toggleColumn('${col.id}')"` : '';
+
+                return `
+                <div class="column ${col.isFounder ? 'founder-column' : ''} ${collapsibleClass}" data-state="${col.id}">
+                    <div class="column-header" ${headerClick}>
                         <span class="column-name">
                             <span class="column-dot ${col.dot}"></span>
                             ${col.name}
+                            ${toggleChevron}
                         </span>
                         <span class="column-count" id="count-${col.id}">0</span>
                     </div>
                     <div class="column-body" id="col-${col.id}"></div>
                 </div>
-            `).join('');
+            `}).join('');
 
             // Agent dropdown
             const dropdown = document.getElementById('agentDropdown');
@@ -3795,6 +3856,14 @@
                     </div>
                 `).join('')}
             `;
+        }
+
+        // Mobile collapsible columns toggle
+        function toggleColumn(columnId) {
+            const column = document.querySelector(`.column[data-state="${columnId}"]`);
+            if (column && column.classList.contains('collapsible')) {
+                column.classList.toggle('collapsed');
+            }
         }
 
         function toggleAgentDropdown() {
@@ -4207,6 +4276,18 @@
         initBoard();
         loadData();
         setInterval(updateTime, 1000);
+
+        // Handle resize for mobile collapsible columns
+        let lastMobileState = window.innerWidth <= 600;
+        window.addEventListener('resize', () => {
+            const isMobile = window.innerWidth <= 600;
+            if (isMobile !== lastMobileState) {
+                lastMobileState = isMobile;
+                initBoard();
+                renderBoard();
+                renderList();
+            }
+        });
 
         // Navigation Guide
         function toggleNavGuide() { document.getElementById('nav-guide-overlay').classList.toggle('active'); }

@@ -4016,59 +4016,17 @@
               }
             },
 
-            // IPL 2026 Data Verification (TKT-107) - FOUNDER REVIEW
-            { id: 'TKT-107', title: 'Verify all IPL 2026 players visible in The Lab', state: 'VALIDATION', priority: 'P0', effort: 'deep-work', assignee: 'Founder', epic: 'EPIC-011', progress: 95, tags: ['Data', 'QA', 'Critical', 'IPL 2026'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
+            // IPL 2026 Squad Verification - Founder Review
+            { id: 'TKT-107', title: 'Verify all IPL 2026 players visible in The Lab', state: 'VALIDATION', priority: 'P0', effort: 'deep-work', assignee: 'Founder', epic: 'EPIC-011', progress: 0, tags: ['Data', 'QA', 'Critical', 'IPL 2026'], gates: { florentino_gate: 'APPROVED' },
               context: {
-                ask: 'Founder to review squads and identify any missing IPL 2026 players',
+                ask: 'Review IPL 2026 squads in The Lab and identify any missing players',
                 goal: '100% player coverage for all 10 IPL teams - zero missing players',
                 reason: 'IPL 2026 readiness requires complete, accurate squad data - this must be airtight',
                 audible: [
-                  '✅ Initial audit completed by Andy Flower + José Mourinho',
-                  '✅ Confirmed: Russell/Maxwell/Faf correctly absent (opted out of IPL 2026)',
-                  '✅ Key auction buys present: Cameron Green, Pathirana, Livingstone, etc.',
-                  '⚠️ Potential gaps: Jason Holder, Tom Banton, Luke Wood (GT), Mustafizur (KKR)',
-                  '👤 FOUNDER: Please review squads and provide list of missing players'
-                ]
-              },
-              reviewers: ['Andy Flower', 'José Mourinho', 'Founder'],
-              auditResults: {
-                totalPlayers: 231,
-                teamsPresent: 10,
-                confirmedPresent: ['Cameron Green', 'Matheesha Pathirana', 'Liam Livingstone', 'Ben Duckett', 'Ravi Bishnoi'],
-                confirmedAbsent: ['Andre Russell (retired)', 'Glenn Maxwell (opted out)', 'Faf du Plessis (PSL)'],
-                potentiallyMissing: ['Jason Holder (GT)', 'Tom Banton (GT)', 'Luke Wood (GT)', 'Mustafizur Rahman (KKR)'],
-                placeholderAges: 118,
-                note: 'Awaiting Founder review to confirm missing players before adding'
-              }
-            },
-
-            // TKT-108: CANCELLED - Players opted out of IPL 2026
-            { id: 'TKT-108', title: 'Add missing star players to IPL 2026 squads', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-011', progress: 100, tags: ['Data', 'CANCELLED'], gates: { florentino_gate: 'APPROVED' },
-              context: {
-                ask: 'CANCELLED - Players not in IPL 2026',
-                goal: 'N/A - Players opted out of tournament',
-                reason: 'Initial audit incorrectly flagged as "missing" - verified they opted out',
-                audible: [
-                  '❌ CANCELLED: Andre Russell RETIRED from IPL (now KKR Power Coach)',
-                  '❌ CANCELLED: Glenn Maxwell OPTED OUT (injury/workload)',
-                  '❌ CANCELLED: Faf du Plessis STEPPED AWAY (playing PSL instead)',
-                  '📚 Source: ESPNcricinfo IPL 2026 auction coverage',
-                  '✅ Squad data was CORRECT - no changes needed'
-                ]
-              },
-              resolution: 'CANCELLED - Not a valid issue. Players correctly absent from IPL 2026 squads.'
-            },
-
-            // TKT-109: Fix placeholder ages (P1 from TKT-107 audit)
-            { id: 'TKT-109', title: 'Fix placeholder ages for 118 IPL players', state: 'BACKLOG', priority: 'P1', effort: 'deep-work', assignee: 'Brock Purdy', epic: 'EPIC-011', progress: 0, tags: ['Data', 'Quality', 'IPL 2026'], gates: { florentino_gate: 'APPROVED' },
-              context: {
-                ask: 'Replace age=26 placeholder with actual player ages',
-                goal: 'Correct ages for all 118 players currently showing age=26',
-                reason: 'TKT-107 audit found Vaibhav Suryavanshi (17) showing as 26, Ishant Sharma (38) showing as 26',
-                audible: [
-                  'Source DOB data from ESPNcricinfo',
-                  'Update full_squads.js with correct ages',
-                  'Validate age ranges make sense'
+                  'Review The Lab Teams section against official IPL 2026 post-auction squads',
+                  'Check each team: CSK, MI, RCB, KKR, DC, PBKS, RR, SRH, GT, LSG',
+                  'Identify any missing players and provide list for data team to add',
+                  'Note: Russell/Maxwell/Faf opted out of IPL 2026 - correctly absent'
                 ]
               }
             },

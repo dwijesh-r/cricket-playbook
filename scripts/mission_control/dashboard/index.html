@@ -3135,7 +3135,7 @@
             { id: 'TKT-061', title: 'Create SUPER SELECTOR algorithm', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-007', progress: 100, tags: ['Algorithm', 'Core'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' } },
             { id: 'TKT-062', title: 'Generate all 10 Predicted XIIs', state: 'VALIDATION', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-007', progress: 95, tags: ['Pipeline', 'Output', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' } },
             { id: 'TKT-063', title: 'Andy Flower review of Predicted XIIs', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-007', progress: 100, tags: ['Domain', 'Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES' } },
-            { id: 'TKT-064', title: 'Create wireframes for XI view', state: 'VALIDATION', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-007', progress: 95, tags: ['Design', 'UI', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES' } },
+            { id: 'TKT-064', title: 'Create wireframes for XI view', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-007', progress: 100, tags: ['Design', 'UI'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
             { id: 'TKT-065', title: 'Founder approval of Predicted XIIs', state: 'VALIDATION', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-007', progress: 95, tags: ['Approval', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
             { id: 'TKT-066', title: 'Archive XI outputs', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-007', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' } },
 
@@ -3162,10 +3162,24 @@
             { id: 'TKT-082', title: 'Refactor generate_stat_packs.py', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 45, tags: ['Refactor', 'Code Quality'], gates: { florentino_gate: 'APPROVED' } },
             { id: 'TKT-083', title: 'Add logging to all scripts', state: 'REVIEW', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 95, tags: ['Logging', 'Quality'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' } },
             { id: 'TKT-084', title: 'Create script documentation', state: 'REVIEW', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 95, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' } },
-            { id: 'TKT-085', title: 'Founder approval of script quality', state: 'BACKLOG', priority: 'P2', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-010', progress: 0, tags: ['Approval'], gates: {} },
+            { id: 'TKT-085', title: 'Founder approval of script quality', state: 'VALIDATION', priority: 'P2', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-010', progress: 95, tags: ['Approval', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' }, output: 'docs/script_validation_schema.md',
+              context: {
+                ask: 'Review and approve the Script Quality Validation Schema',
+                goal: 'Establish industry-standard validation gates for all Python scripts',
+                reason: 'Need formal approval of 5-point validation system: Linting, Type Safety, Formatting, Security, Testing',
+                audible: 'Schema includes Ruff, mypy, Bandit, pytest with coverage thresholds'
+              }
+            },
 
             // The Lab Dashboard (TKT-086)
-            { id: 'TKT-086', title: 'Build The Lab analytics dashboard', state: 'VALIDATION', priority: 'P0', effort: 'marathon', assignee: 'Kevin de Bruyne', epic: 'EPIC-011', progress: 95, tags: ['Frontend', 'Dashboard', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
+            { id: 'TKT-086', title: 'Build The Lab analytics dashboard', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Kevin de Bruyne', epic: 'EPIC-011', progress: 100, tags: ['Frontend', 'Dashboard'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' }, output: 'scripts/the_lab/dashboard/index.html',
+              context: {
+                ask: 'Build a premium sports analytics dashboard for Cricket Playbook',
+                goal: 'Create The Lab - an immersive analytics experience with intro animations, team cards, and responsive design',
+                reason: 'Need a polished frontend to showcase Cricket Playbook analytics outputs',
+                audible: 'Features: 13-agent intro animation, dark/light theme, mobile responsive, team navigation'
+              }
+            },
 
             // Sprint 5.0 Backlog (TKT-087 to TKT-095)
             { id: 'TKT-087', title: 'Implement Match Phase Index', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 0, tags: ['Feature', 'Analytics'], gates: {} },
@@ -3179,12 +3193,12 @@
             { id: 'TKT-095', title: 'Implement player comparison tool', state: 'IDEA', priority: 'P2', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: null, progress: 0, tags: ['Feature', 'UI'], gates: {} },
 
             // Code Quality & Optimization (TKT-096 to TKT-102)
-            { id: 'TKT-096', title: 'Codebase optimization audit', state: 'VALIDATION', priority: 'P1', effort: 'marathon', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 95, tags: ['Optimization', 'Code Quality', 'Scalability', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' }, output: 'docs/optimization_audit_report.md',
+            { id: 'TKT-096', title: 'Codebase optimization audit', state: 'DONE', priority: 'P1', effort: 'marathon', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Optimization', 'Code Quality', 'Scalability'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'docs/optimization_audit_report.md', review: 'docs/tkt_096_optimization_summary.md',
               context: {
                 ask: 'Audit and optimize all Python code across the repo for efficiency and scalability',
                 goal: 'Improve code performance, reduce redundancy, ensure best practices, prepare for scale',
                 reason: 'Current codebase has grown organically; need systematic review before adding more features',
-                audible: 'If optimization requires breaking changes, create separate tickets for each module'
+                audible: 'Created constants.py, player_tags.py, config.py; added type hints; optimized DataFrames'
               }
             },
             { id: 'TKT-097', title: 'Consolidate player_tags.json update logic', state: 'REVIEW', priority: 'P1', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-010', progress: 95, tags: ['Refactor', 'Data', 'Code Quality'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' }, output: 'scripts/utils/player_tags.py',

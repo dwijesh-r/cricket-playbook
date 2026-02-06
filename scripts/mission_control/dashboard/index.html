@@ -570,8 +570,8 @@
 
         /* Stats Grid */
         .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            display: flex;
+            flex-wrap: nowrap;
             gap: 1px;
             background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 50%, var(--accent-pink) 100%);
             border-radius: 16px;
@@ -579,6 +579,11 @@
             margin-top: 32px;
             padding: 2px;
             box-shadow: 0 4px 24px rgba(10, 132, 255, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.05);
+        }
+
+        .stats-grid .stat-item {
+            flex: 1;
+            min-width: 0;
         }
 
         .stat-item {
@@ -2052,7 +2057,6 @@
         /* ==================== RESPONSIVE ==================== */
         @media (max-width: 1400px) {
             .kanban { grid-template-columns: repeat(4, 1fr); }
-            .stats-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
         @media (max-width: 900px) {
@@ -2068,7 +2072,14 @@
 
         @media (max-width: 600px) {
             .kanban { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid {
+                flex-wrap: wrap;
+                gap: 2px;
+            }
+            .stats-grid .stat-item {
+                flex: 1 1 30%;
+                min-width: 60px;
+            }
             .roster-grid { grid-template-columns: 1fr; }
             .agent-stats { grid-template-columns: repeat(2, 1fr); }
             .table-wrapper { display: none; }
@@ -2076,8 +2087,9 @@
             .hero { padding: 24px 16px 20px; }
             .board-section, .list-section, .roster-section { padding: 20px 16px; }
             .sprint-title, .roster-title, .list-title { font-size: 24px; }
-            .stat-value { font-size: 28px; }
-            .stat-item { padding: 16px; }
+            .stat-value { font-size: 24px; }
+            .stat-item { padding: 12px 8px; }
+            .stat-label { font-size: 10px; }
             .board-filters { flex-direction: column; align-items: stretch; gap: 8px; }
             .search-box-mc { min-width: 100%; order: -1; }
             .search-box-mc input { width: 100%; }

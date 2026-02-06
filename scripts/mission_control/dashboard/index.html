@@ -1263,6 +1263,17 @@
             box-shadow: 0 2px 8px rgba(10, 132, 255, 0.2);
         }
 
+        .link-btn.review-btn {
+            color: var(--accent-pink);
+            border-color: rgba(255, 55, 95, 0.3);
+        }
+
+        .link-btn.review-btn:hover {
+            background: linear-gradient(135deg, rgba(255, 55, 95, 0.2) 0%, rgba(255, 55, 95, 0.1) 100%);
+            border-color: var(--accent-pink);
+            box-shadow: 0 2px 8px rgba(255, 55, 95, 0.2);
+        }
+
         .gate-progress {
             display: flex;
             gap: 3px;
@@ -3367,10 +3378,11 @@
                         ${t.effort ? `<span class="effort effort-${t.effort}">${effortLevels[t.effort]?.name || t.effort}</span>` : ''}
                         ${t.tags.slice(0, 1).map(tag => `<span class="tag">${tag}</span>`).join('')}
                     </div>
-                    ${t.prd || t.output ? `
+                    ${t.prd || t.output || t.review ? `
                         <div class="ticket-links">
                             ${t.prd ? `<a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/${t.prd}" target="_blank" rel="noopener" class="link-btn" onclick="event.stopPropagation()">📄 PRD</a>` : ''}
                             ${t.output ? `<a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/${t.output}" target="_blank" rel="noopener" class="link-btn" onclick="event.stopPropagation()">📁 Output</a>` : ''}
+                            ${t.review ? `<a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/${t.review}" target="_blank" rel="noopener" class="link-btn review-btn" onclick="event.stopPropagation()">🌹 Review</a>` : ''}
                         </div>
                     ` : ''}
                     <div class="gate-progress">
@@ -3541,6 +3553,9 @@
                 ${t.output
                     ? `<a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/${t.output}" target="_blank" rel="noopener" class="modal-link"><span class="modal-link-icon">📁</span><span class="modal-link-text">Output Directory</span><span class="modal-link-arrow">→</span></a>`
                     : `<div class="modal-link disabled"><span class="modal-link-icon">📁</span><span class="modal-link-text" style="color: var(--text-tertiary);">Output — Not available yet</span></div>`}
+                ${t.review
+                    ? `<a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/${t.review}" target="_blank" rel="noopener" class="modal-link"><span class="modal-link-icon">🌹</span><span class="modal-link-text">Founder Review</span><span class="modal-link-arrow">→</span></a>`
+                    : `<div class="modal-link disabled"><span class="modal-link-icon">🌹</span><span class="modal-link-text" style="color: var(--text-tertiary);">Review — Pending founder sign-off</span></div>`}
             `;
 
             document.getElementById('modal').classList.add('active');

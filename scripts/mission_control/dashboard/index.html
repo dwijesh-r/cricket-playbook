@@ -2132,8 +2132,12 @@
 
                     <div class="stats-grid">
                         <div class="stat-item">
-                            <div class="stat-value accent-blue" id="statTotal">86</div>
+                            <div class="stat-value accent-blue" id="statTotal">95</div>
                             <div class="stat-label">Total</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value accent-purple" id="statBacklog">15</div>
+                            <div class="stat-label">Backlog</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-value accent-yellow" id="statRunning">5</div>
@@ -3434,6 +3438,7 @@
 
         function updateStats() {
             document.getElementById('statTotal').textContent = tickets.length;
+            document.getElementById('statBacklog').textContent = tickets.filter(t => t.state === 'BACKLOG' || t.state === 'IDEA').length;
             document.getElementById('statRunning').textContent = tickets.filter(t => t.state === 'RUNNING').length;
             document.getElementById('statReview').textContent = tickets.filter(t => t.state === 'REVIEW').length;
             document.getElementById('statDone').textContent = tickets.filter(t => t.state === 'DONE').length;

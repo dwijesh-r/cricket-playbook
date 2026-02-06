@@ -935,6 +935,7 @@
         .column[data-state="RUNNING"]::before { background: linear-gradient(90deg, var(--accent-yellow), rgba(255, 214, 10, 0.3)); }
         .column[data-state="BLOCKED"]::before { background: linear-gradient(90deg, var(--accent-red), rgba(255, 69, 58, 0.3)); }
         .column[data-state="REVIEW"]::before { background: linear-gradient(90deg, var(--accent-orange), rgba(255, 159, 10, 0.3)); }
+        .column[data-state="FOUNDER_REVIEW"]::before { background: linear-gradient(90deg, var(--accent-pink), rgba(255, 55, 95, 0.3)); }
         .column[data-state="VALIDATION"]::before { background: linear-gradient(90deg, var(--accent-pink), rgba(255, 55, 95, 0.3)); }
         .column[data-state="DONE"]::before { background: linear-gradient(90deg, var(--accent-green), rgba(48, 209, 88, 0.3)); }
 
@@ -2144,11 +2145,11 @@
 
                     <div class="stats-grid">
                         <div class="stat-item">
-                            <div class="stat-value accent-blue" id="statTotal">95</div>
+                            <div class="stat-value accent-blue" id="statTotal">96</div>
                             <div class="stat-label">Total</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value accent-purple" id="statBacklog">15</div>
+                            <div class="stat-value accent-purple" id="statBacklog">16</div>
                             <div class="stat-label">Backlog</div>
                         </div>
                         <div class="stat-item">
@@ -2156,8 +2157,12 @@
                             <div class="stat-label">In Progress</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value accent-orange" id="statReview">10</div>
+                            <div class="stat-value accent-orange" id="statReview">3</div>
                             <div class="stat-label">In Review</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value accent-pink" id="statFounder">7</div>
+                            <div class="stat-label">🌹 Founder</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-value accent-green" id="statDone">65</div>
@@ -3020,7 +3025,7 @@
             { id: 'TKT-042', title: 'Generate all 10 depth charts', state: 'REVIEW', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 95, tags: ['Pipeline', 'Output', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' } },
             { id: 'TKT-043', title: 'Andy Flower review of depth charts', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-005', progress: 100, tags: ['Domain', 'Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES' } },
             { id: 'TKT-044', title: 'Archive depth chart outputs', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-005', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' } },
-            { id: 'TKT-045', title: 'Founder approval of depth charts', state: 'REVIEW', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-005', progress: 95, tags: ['Approval', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
+            { id: 'TKT-045', title: 'Founder approval of depth charts', state: 'VALIDATION', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-005', progress: 95, tags: ['Approval', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
 
             // Phase 4: Stat Pack Enhancement (TKT-046 to TKT-060)
             { id: 'TKT-046', title: 'Add LHB/RHB balance section', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
@@ -3028,8 +3033,8 @@
             { id: 'TKT-048', title: 'Add phase analysis section', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
             { id: 'TKT-049', title: 'Add key partnerships section', state: 'RUNNING', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 40, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' } },
             { id: 'TKT-050', title: 'Add pressure performance section', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 30, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' } },
-            { id: 'TKT-051', title: 'Add venue analysis section', state: 'REVIEW', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 95, tags: ['Feature', 'Analytics', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
-            { id: 'TKT-052', title: 'Add historical trends section', state: 'REVIEW', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 95, tags: ['Feature', 'Analytics', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
+            { id: 'TKT-051', title: 'Add venue analysis section', state: 'VALIDATION', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 95, tags: ['Feature', 'Analytics', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
+            { id: 'TKT-052', title: 'Add historical trends section', state: 'VALIDATION', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 95, tags: ['Feature', 'Analytics', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
             { id: 'TKT-053', title: 'Add Andy Flower tactical insights', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Domain', 'Content'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
             { id: 'TKT-054', title: 'Generate MI tactical insights', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'MI'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
             { id: 'TKT-055', title: 'Generate CSK tactical insights', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'CSK'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
@@ -3041,10 +3046,10 @@
 
             // Phase 4.5: Predicted XII (TKT-061 to TKT-066)
             { id: 'TKT-061', title: 'Create SUPER SELECTOR algorithm', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-007', progress: 100, tags: ['Algorithm', 'Core'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' } },
-            { id: 'TKT-062', title: 'Generate all 10 Predicted XIIs', state: 'REVIEW', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-007', progress: 95, tags: ['Pipeline', 'Output', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' } },
+            { id: 'TKT-062', title: 'Generate all 10 Predicted XIIs', state: 'VALIDATION', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-007', progress: 95, tags: ['Pipeline', 'Output', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' } },
             { id: 'TKT-063', title: 'Andy Flower review of Predicted XIIs', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-007', progress: 100, tags: ['Domain', 'Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES' } },
-            { id: 'TKT-064', title: 'Create wireframes for XI view', state: 'REVIEW', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-007', progress: 95, tags: ['Design', 'UI', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES' } },
-            { id: 'TKT-065', title: 'Founder approval of Predicted XIIs', state: 'REVIEW', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-007', progress: 95, tags: ['Approval', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
+            { id: 'TKT-064', title: 'Create wireframes for XI view', state: 'VALIDATION', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-007', progress: 95, tags: ['Design', 'UI', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES' } },
+            { id: 'TKT-065', title: 'Founder approval of Predicted XIIs', state: 'VALIDATION', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-007', progress: 95, tags: ['Approval', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
             { id: 'TKT-066', title: 'Archive XI outputs', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-007', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' } },
 
             // Phase 5: ML Ops (TKT-067 to TKT-075)
@@ -3073,7 +3078,7 @@
             { id: 'TKT-085', title: 'Founder approval of script quality', state: 'BACKLOG', priority: 'P2', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-010', progress: 0, tags: ['Approval'], gates: {} },
 
             // The Lab Dashboard (TKT-086)
-            { id: 'TKT-086', title: 'Build The Lab analytics dashboard', state: 'REVIEW', priority: 'P0', effort: 'marathon', assignee: 'Kevin de Bruyne', epic: 'EPIC-011', progress: 95, tags: ['Frontend', 'Dashboard', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
+            { id: 'TKT-086', title: 'Build The Lab analytics dashboard', state: 'VALIDATION', priority: 'P0', effort: 'marathon', assignee: 'Kevin de Bruyne', epic: 'EPIC-011', progress: 95, tags: ['Frontend', 'Dashboard', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
 
             // Sprint 5.0 Backlog (TKT-087 to TKT-095)
             { id: 'TKT-087', title: 'Implement Match Phase Index', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 0, tags: ['Feature', 'Analytics'], gates: {} },
@@ -3463,6 +3468,7 @@
             document.getElementById('statBacklog').textContent = tickets.filter(t => t.state === 'BACKLOG' || t.state === 'IDEA').length;
             document.getElementById('statRunning').textContent = tickets.filter(t => t.state === 'RUNNING').length;
             document.getElementById('statReview').textContent = tickets.filter(t => t.state === 'REVIEW').length;
+            document.getElementById('statFounder').textContent = tickets.filter(t => t.state === 'VALIDATION').length;
             document.getElementById('statDone').textContent = tickets.filter(t => t.state === 'DONE').length;
         }
 

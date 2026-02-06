@@ -889,6 +889,14 @@
             display: flex;
         }
 
+        /* Hide mobile nav when modal is open to prevent weird scrolling behavior */
+        body.modal-open {
+            overflow: hidden;
+        }
+        body.modal-open .mobile-nav {
+            display: none !important;
+        }
+
         .agent-modal {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
@@ -3555,6 +3563,7 @@
             "N'Golo Kanté": { role: 'QA Lead', team: 'Al-Ittihad' },
             'Florentino Perez': { role: 'Founder', team: 'Real Madrid' },
             'Florentino Pérez': { role: 'Founder', team: 'Real Madrid' },
+            'Founder': { role: 'The Founder', team: 'Cricket Playbook' },  // Alias for founder approval tickets
             'Pep Guardiola': { role: 'Tactical Analysis', team: 'Manchester City' },
             'Ime Udoka': { role: 'DevOps Lead', team: 'Houston Rockets' }
         };
@@ -4152,10 +4161,12 @@
             `).join('');
 
             document.getElementById('agentModal').classList.add('active');
+            document.body.classList.add('modal-open');  // Lock body scroll
         }
 
         function closeAgentModal() {
             document.getElementById('agentModal').classList.remove('active');
+            document.body.classList.remove('modal-open');  // Unlock body scroll
         }
 
         function closeAgentModalOnBackdrop(event) {

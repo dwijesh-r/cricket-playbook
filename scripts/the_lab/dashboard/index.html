@@ -2976,6 +2976,77 @@
             .nav-cards { gap: 12px; }
             .stats-bar { gap: 16px; }
         }
+
+        /* ==================== ADDITIONAL RESPONSIVE FIXES ==================== */
+        /* Tom Brady UI/UX Review - February 2026 */
+
+        /* 600px Breakpoint - Large Phones */
+        @media (max-width: 600px) {
+            .hero-title { font-size: 28px; }
+            .hero-subtitle { font-size: 13px; }
+            .stat-value { font-size: 32px; }
+            .stat-label { font-size: 11px; }
+            .nav-cards { grid-template-columns: 1fr; }
+            .footer-links { gap: 12px; }
+        }
+
+        /* Touch Target Minimum Sizes (WCAG Compliance - 44x44px) */
+        .mobile-menu-btn { width: 44px; height: 44px; }
+        .theme-toggle { min-width: 44px; min-height: 44px; }
+        .mobile-nav-menu .nav-tab { min-height: 44px; }
+
+        /* Stats Bar Alignment Fix */
+        @media (max-width: 768px) {
+            .stats-bar { justify-content: space-evenly; }
+        }
+
+        /* Hero Padding Optimization for Mobile */
+        @media (max-width: 768px) {
+            .hero { padding: 60px 16px 40px; }
+        }
+
+        /* Typewriter Mobile Fix */
+        @media (max-width: 768px) {
+            .typewriter { display: block; }
+        }
+
+        /* Navigation Actions Spacing at 480px */
+        @media (max-width: 480px) {
+            .nav-actions { gap: 8px; }
+        }
+
+        /* Grid Orphan Card Centering */
+        .nav-cards, .teams-grid { justify-content: center; }
+
+        /* Section Subtitle Base Style */
+        .section-subtitle {
+            font-size: 15px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 24px;
+            line-height: 1.6;
+        }
+
+        /* Desktop Stats Bar Gap Transition */
+        @media (max-width: 1024px) {
+            .stats-bar { gap: 40px; }
+        }
+
+        /* Footer Hover Accessibility */
+        .footer-links a:hover { text-decoration: underline; }
+
+        /* Hero Badge Graceful Wrap */
+        .hero-badge { max-width: 90%; text-align: center; }
+
+        /* Prevent Horizontal Overflow */
+        body { overflow-x: hidden; }
+
+        /* Minimum Font Sizes at 380px (Readability) */
+        @media (max-width: 380px) {
+            .trophy-ticker .trophy-text { font-size: 6px; }
+            .label-group .name { font-size: 8px; }
+            .card-badge.team-badge { font-size: 6px; }
+        }
     </style>
 </head>
 <body>

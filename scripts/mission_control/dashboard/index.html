@@ -2111,6 +2111,76 @@
             .agent-filter { width: 100%; }
             .agent-filter-btn { width: 100%; justify-content: center; }
         }
+
+        /* ==================== ADDITIONAL RESPONSIVE FIXES ==================== */
+        /* Tom Brady UI/UX Review - February 2026 */
+
+        /* 768px Breakpoint - Tablets */
+        @media (max-width: 768px) {
+            .hero { padding: 32px 20px 28px; }
+            .sprint-title { font-size: 32px; }
+            .stat-value { font-size: 32px; }
+            .board-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+            .roster-grid { grid-template-columns: 1fr; }
+            .agent-card { padding: 20px; }
+            .nav-actions { gap: 6px; }
+            .nav-time { display: none; }
+            .table-title { max-width: 220px; }
+        }
+
+        /* 480px Breakpoint - Small Phones */
+        @media (max-width: 480px) {
+            .hero { padding: 20px 12px 16px; }
+            .sprint-title { font-size: 20px; }
+            .sprint-dates { font-size: 14px; }
+            .stat-value { font-size: 20px; }
+            .stat-label { font-size: 9px; }
+            .stat-item { padding: 10px 6px; }
+            .stats-grid .stat-item { flex: 1 1 45%; min-width: 90px; }
+            .board-section, .roster-section, .list-section { padding: 16px 12px; }
+            .ticket { padding: 12px; }
+            .agent-avatar { width: 36px; height: 36px; }
+            .ticket-title { font-size: 13px; }
+            .mobile-nav-tab { padding: 8px 14px; min-height: 44px; }
+            .mobile-nav-icon { font-size: 18px; }
+            .column { min-height: 180px; }
+            .nav-actions .nav-btn { padding: 6px 10px; font-size: 12px; }
+            .theme-toggle { width: 34px; height: 34px; }
+            /* Agent Stats */
+            .agent-stats { gap: 8px; }
+            .agent-stat { padding: 10px 6px; }
+            .agent-stat-value { font-size: 20px; }
+            .agent-stat-label { font-size: 9px; }
+            /* Modal */
+            .modal-overlay { padding: 12px; }
+            .modal { max-height: calc(100vh - 24px); border-radius: 12px; }
+            .modal-header { padding: 16px; }
+            .modal-body { padding: 16px; }
+            .modal-title { font-size: 16px; }
+            .modal-avatar { width: 44px; height: 44px; }
+            .detail-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Touch Target Minimum Sizes (WCAG Compliance) */
+        .filter-btn { min-height: 44px; }
+        .mobile-nav-tab { min-height: 44px; min-width: 60px; }
+
+        /* Scrollbar Styling */
+        .column-body::-webkit-scrollbar { width: 6px; }
+        .column-body::-webkit-scrollbar-track { background: transparent; }
+        .column-body::-webkit-scrollbar-thumb { background: var(--bg-elevated); border-radius: 3px; }
+        .column-body::-webkit-scrollbar-thumb:hover { background: var(--text-tertiary); }
+
+        /* Stats Grid Border Radius Fix */
+        .stats-grid .stat-item:first-child { border-radius: 14px 0 0 14px; }
+        .stats-grid .stat-item:last-child { border-radius: 0 14px 14px 0; }
+        @media (max-width: 600px) {
+            .stats-grid .stat-item:first-child,
+            .stats-grid .stat-item:last-child { border-radius: 0; }
+        }
+
+        /* Z-Index Fix for Dropdowns */
+        .filter-dropdown-menu, .agent-dropdown { z-index: 110; }
     </style>
 </head>
 <body>
@@ -2121,7 +2191,7 @@
     <div class="sports-bg" id="sportsBg"></div>
     <div class="floating-ball ball-1"></div>
     <div class="floating-ball ball-2"></div>
-    <div class="bg-watermark">MISSION CONTROL</div>
+    <div class="bg-watermark">THE BOARDROOM</div>
 
     <!-- Navigation -->
     <nav class="nav">

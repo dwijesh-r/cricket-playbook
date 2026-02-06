@@ -872,64 +872,202 @@
             gap: 8px;
         }
 
-        .agent-dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            margin-top: 8px;
+        /* ==================== AGENT SELECTION MODAL ==================== */
+        .agent-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+            padding: 20px;
+            backdrop-filter: blur(4px);
+        }
+
+        .agent-modal-overlay.active {
+            display: flex;
+        }
+
+        .agent-modal {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 8px;
-            min-width: 220px;
-            display: none;
-            z-index: 50;
-            box-shadow: 0 20px 40px var(--shadow);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 480px;
+            max-height: 80vh;
+            overflow: hidden;
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+            animation: modalSlideIn 0.25s ease;
         }
 
-        .agent-dropdown.active { display: block; }
-
-        /* Inner container - invisible wrapper on desktop */
-        .agent-dropdown-inner {
-            display: contents; /* Makes wrapper invisible, children flow normally */
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        .agent-option {
+        .agent-modal-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 10px 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.15s ease;
+            justify-content: space-between;
         }
 
-        .agent-option:hover { background: var(--bg-tertiary); }
-        .agent-option.selected { background: rgba(10, 132, 255, 0.15); }
+        .agent-modal-title {
+            font-size: 16px;
+            font-weight: 600;
+        }
 
-        .agent-option-avatar {
+        .agent-modal-close {
             width: 32px;
             height: 32px;
+            border: none;
+            background: var(--bg-tertiary);
             border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
-            overflow: hidden;
-            flex-shrink: 0;
+            color: var(--text-secondary);
+            transition: all 0.15s ease;
         }
 
-        .agent-option-avatar img {
+        .agent-modal-close:hover {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        .agent-modal-body {
+            padding: 16px;
+            overflow-y: auto;
+            max-height: calc(80vh - 140px);
+        }
+
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .agent-grid-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 8px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            border: 2px solid transparent;
+            background: var(--bg-tertiary);
+        }
+
+        .agent-grid-item:hover {
+            background: var(--bg-elevated);
+            transform: translateY(-2px);
+        }
+
+        .agent-grid-item.selected {
+            border-color: var(--accent);
+            background: rgba(10, 132, 255, 0.15);
+        }
+
+        .agent-grid-item.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            width: 18px;
+            height: 18px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .agent-grid-item {
+            position: relative;
+        }
+
+        .agent-grid-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .agent-grid-avatar img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            border-radius: 6px;
         }
 
-        .agent-option-name {
-            font-size: 13px;
+        .agent-grid-name {
+            font-size: 11px;
             font-weight: 500;
-            flex: 1;
+            text-align: center;
+            color: var(--text-secondary);
+            line-height: 1.2;
+        }
+
+        .agent-grid-count {
+            font-size: 10px;
+            color: var(--text-tertiary);
+            background: var(--bg-secondary);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .agent-modal-footer {
+            padding: 12px 16px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+        }
+
+        .agent-modal-btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            border: none;
+            font-family: inherit;
+        }
+
+        .agent-modal-btn.secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        .agent-modal-btn.secondary:hover {
+            background: var(--bg-elevated);
+        }
+
+        .agent-modal-btn.primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .agent-modal-btn.primary:hover {
+            background: #0077ed;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 600px) {
+            .agent-modal-overlay { padding: 12px; }
+            .agent-modal { max-height: 85vh; }
+            .agent-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+            .agent-grid-item { padding: 10px 6px; }
+            .agent-grid-avatar { width: 44px; height: 44px; }
+            .agent-grid-name { font-size: 10px; }
+            .agent-modal-body { max-height: calc(85vh - 140px); }
         }
 
         .agent-option-count {
@@ -2302,81 +2440,6 @@
                 flex: 1;
             }
 
-            /* ==================== MOBILE AGENT DROPDOWN ==================== */
-            /* Bottom sheet style with proper scroll containment */
-            .agent-filter {
-                position: static;
-            }
-
-            .agent-dropdown {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0, 0, 0, 0.5);
-                display: none;
-                align-items: flex-end;
-                justify-content: center;
-                padding-bottom: 70px; /* Space for mobile nav */
-                z-index: 200;
-                margin-top: 0;
-                border: none;
-                border-radius: 0;
-                box-shadow: none;
-            }
-
-            .agent-dropdown.active {
-                display: flex;
-            }
-
-            .agent-dropdown-inner {
-                background: var(--bg-secondary);
-                border: 1px solid var(--border);
-                border-radius: 16px 16px 0 0;
-                width: 100%;
-                max-height: 60vh;
-                overflow-y: auto;
-                overscroll-behavior: contain;
-                -webkit-overflow-scrolling: touch;
-                padding: 16px;
-                animation: slideUp 0.25s ease;
-            }
-
-            @keyframes slideUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(100%);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            .agent-option {
-                padding: 14px 12px;
-            }
-
-            .agent-option-avatar {
-                width: 40px;
-                height: 40px;
-            }
-
-            .agent-option-avatar img {
-                width: 100%;
-                height: 100%;
-                border-radius: 10px;
-            }
-
-            .agent-option-name {
-                font-size: 14px;
-                font-weight: 500;
-            }
-
-            .agent-option-count {
-                font-size: 13px;
-            }
 
             /* ==================== MOBILE COLLAPSIBLE COLUMNS ==================== */
             /* Tom Brady - Collapsible sections for cleaner mobile view */
@@ -2705,12 +2768,9 @@
 
                         <!-- Agent Filter -->
                         <div class="agent-filter">
-                            <button class="filter-btn agent-filter-btn" onclick="toggleAgentDropdown()">
-                                <span id="agentFilterLabel">👥 All Agents</span> ▾
+                            <button class="filter-btn agent-filter-btn" onclick="openAgentModal()">
+                                <span id="agentFilterLabel">👥 All Agents</span>
                             </button>
-                            <div class="agent-dropdown" id="agentDropdown" onclick="closeAgentDropdownOnBackdrop(event)">
-                                <div class="agent-dropdown-inner" id="agentDropdownInner" onclick="event.stopPropagation()"></div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -2787,6 +2847,23 @@
             </a>
         </div>
     </nav>
+
+    <!-- Agent Selection Modal -->
+    <div class="agent-modal-overlay" id="agentModal" onclick="closeAgentModalOnBackdrop(event)">
+        <div class="agent-modal" onclick="event.stopPropagation()">
+            <div class="agent-modal-header">
+                <span class="agent-modal-title">👥 Select Agents</span>
+                <button class="agent-modal-close" onclick="closeAgentModal()">✕</button>
+            </div>
+            <div class="agent-modal-body">
+                <div class="agent-grid" id="agentGrid"></div>
+            </div>
+            <div class="agent-modal-footer">
+                <button class="agent-modal-btn secondary" onclick="clearAgentSelection()">Clear All</button>
+                <button class="agent-modal-btn primary" onclick="applyAgentFilter()">Apply Filter</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal -->
     <div class="modal-overlay" id="modal">
@@ -4044,27 +4121,6 @@
                 </div>
             `}).join('');
 
-            // Agent dropdown - populate inner container
-            const dropdownInner = document.getElementById('agentDropdownInner');
-            const agentCounts = {};
-            tickets.forEach(t => {
-                if (t.assignee) agentCounts[t.assignee] = (agentCounts[t.assignee] || 0) + 1;
-            });
-
-            dropdownInner.innerHTML = `
-                <div class="agent-option ${!activeAgentFilter ? 'selected' : ''}" onclick="filterByAgent(null)">
-                    <div class="agent-option-avatar" style="background: var(--bg-tertiary);">👥</div>
-                    <span class="agent-option-name">All Agents</span>
-                    <span class="agent-option-count">${tickets.length}</span>
-                </div>
-                ${Object.keys(agents).filter(a => agentCounts[a]).map(name => `
-                    <div class="agent-option ${activeAgentFilter === name ? 'selected' : ''}" onclick="filterByAgent('${name}')">
-                        <div class="agent-option-avatar">${getAgentAvatarImg(name)}</div>
-                        <span class="agent-option-name">${name.split(' ')[0]}</span>
-                        <span class="agent-option-count">${agentCounts[name] || 0}</span>
-                    </div>
-                `).join('')}
-            `;
         }
 
         // Mobile collapsible columns toggle
@@ -4075,30 +4131,104 @@
             }
         }
 
-        function toggleAgentDropdown() {
-            document.getElementById('agentDropdown').classList.toggle('active');
+        // ==================== AGENT MODAL (Multi-Select) ====================
+        let selectedAgents = new Set(); // Multi-select support
+
+        function openAgentModal() {
+            const grid = document.getElementById('agentGrid');
+            const agentCounts = {};
+            tickets.forEach(t => {
+                if (t.assignee) agentCounts[t.assignee] = (agentCounts[t.assignee] || 0) + 1;
+            });
+
+            // Build grid with all agents
+            grid.innerHTML = Object.keys(agents).filter(a => agentCounts[a]).map(name => `
+                <div class="agent-grid-item ${selectedAgents.has(name) ? 'selected' : ''}"
+                     onclick="toggleAgentSelection('${name}')">
+                    <div class="agent-grid-avatar">${getAgentAvatarImg(name)}</div>
+                    <span class="agent-grid-name">${name.split(' ')[0]}</span>
+                    <span class="agent-grid-count">${agentCounts[name] || 0}</span>
+                </div>
+            `).join('');
+
+            document.getElementById('agentModal').classList.add('active');
         }
 
-        // Close dropdown when clicking the backdrop (mobile)
-        function closeAgentDropdownOnBackdrop(event) {
+        function closeAgentModal() {
+            document.getElementById('agentModal').classList.remove('active');
+        }
+
+        function closeAgentModalOnBackdrop(event) {
             if (event.target === event.currentTarget) {
-                document.getElementById('agentDropdown').classList.remove('active');
+                closeAgentModal();
             }
         }
 
-        function filterByAgent(agentName) {
-            activeAgentFilter = agentName;
-            document.getElementById('agentFilterLabel').textContent = agentName ? agentName.split(' ')[0] : 'All Agents';
-            document.getElementById('agentDropdown').classList.remove('active');
+        function toggleAgentSelection(name) {
+            if (selectedAgents.has(name)) {
+                selectedAgents.delete(name);
+            } else {
+                selectedAgents.add(name);
+            }
+            // Update visual state
+            const items = document.querySelectorAll('.agent-grid-item');
+            items.forEach(item => {
+                const itemName = item.querySelector('.agent-grid-name').textContent;
+                const fullName = Object.keys(agents).find(a => a.split(' ')[0] === itemName);
+                if (fullName && selectedAgents.has(fullName)) {
+                    item.classList.add('selected');
+                } else {
+                    item.classList.remove('selected');
+                }
+            });
+        }
+
+        function clearAgentSelection() {
+            selectedAgents.clear();
+            document.querySelectorAll('.agent-grid-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+        }
+
+        function applyAgentFilter() {
+            // Update the filter label
+            const count = selectedAgents.size;
+            const label = document.getElementById('agentFilterLabel');
+            if (count === 0) {
+                label.textContent = '👥 All Agents';
+                activeAgentFilter = null;
+            } else if (count === 1) {
+                const name = [...selectedAgents][0];
+                label.textContent = `👤 ${name.split(' ')[0]}`;
+                activeAgentFilter = name;
+            } else {
+                label.textContent = `👥 ${count} Agents`;
+                activeAgentFilter = [...selectedAgents]; // Array for multi-select
+            }
+
+            closeAgentModal();
             updateFilterButtons();
             renderBoard();
+            renderList();
+        }
+
+        // Legacy support - used by roster view agent cards
+        function filterByAgent(agentName) {
+            selectedAgents.clear();
+            if (agentName) {
+                selectedAgents.add(agentName);
+                activeAgentFilter = agentName;
+                document.getElementById('agentFilterLabel').textContent = `👤 ${agentName.split(' ')[0]}`;
+            } else {
+                activeAgentFilter = null;
+                document.getElementById('agentFilterLabel').textContent = '👥 All Agents';
+            }
+            updateFilterButtons();
+            renderBoard();
+            renderList();
         }
 
         document.addEventListener('click', (e) => {
-            // Close agent dropdown
-            if (!e.target.closest('.agent-filter')) {
-                document.getElementById('agentDropdown').classList.remove('active');
-            }
             // Close priority and effort dropdowns
             if (!e.target.closest('.filter-dropdown')) {
                 document.querySelectorAll('.filter-dropdown-menu').forEach(d => d.classList.remove('active'));
@@ -4122,8 +4252,16 @@
                             isFiltered = !searchTarget.includes(searchQuery);
                         }
 
-                        // Agent filter
-                        isFiltered = isFiltered || (activeAgentFilter && t.assignee !== activeAgentFilter);
+                        // Agent filter (supports multi-select)
+                        if (activeAgentFilter) {
+                            if (Array.isArray(activeAgentFilter)) {
+                                // Multi-select: show if assignee is in the array
+                                isFiltered = isFiltered || !activeAgentFilter.includes(t.assignee);
+                            } else {
+                                // Single select: exact match
+                                isFiltered = isFiltered || t.assignee !== activeAgentFilter;
+                            }
+                        }
 
                         // Priority and effort filters
                         if (activeFilter !== 'all') {

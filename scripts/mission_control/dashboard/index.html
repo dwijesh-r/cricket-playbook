@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mission Control - Cricket Playbook</title>
+    <title>The Dugout - Cricket Playbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* ==================== THEME SYSTEM ==================== */
@@ -2127,7 +2127,7 @@
     <nav class="nav">
         <div class="nav-brand">
             <div class="nav-logo">🏏</div>
-            <span class="nav-title">Mission Control</span>
+            <span class="nav-title">The Dugout</span>
         </div>
         <div class="nav-tabs">
             <button class="nav-tab active" onclick="showView('board')">Board</button>
@@ -2864,8 +2864,14 @@
             </svg>`
         };
 
+        // Alias mapping for avatar lookup
+        const AvatarAliases = {
+            'Founder': 'The Founder',  // Tickets use 'Founder', avatar is 'The Founder'
+        };
+
         function getAgentAvatar(agentName) {
-            return AgentAvatars[agentName] || AgentAvatars['Unassigned'];
+            const resolvedName = AvatarAliases[agentName] || agentName;
+            return AgentAvatars[resolvedName] || AgentAvatars['Unassigned'];
         }
 
         function svgToDataUri(svg) {
@@ -3157,6 +3163,16 @@
                 goal: 'Improve readability, testability, and maintainability',
                 reason: 'reorder_batting_positions() is 347 lines, generate_team_depth_chart() is 178 lines',
                 audible: 'Start with generate_predicted_xii.py as it has the longest functions'
+              }
+            },
+
+            // Ops & Tooling
+            { id: 'TKT-103', title: 'Configure GitHub email notifications', state: 'VALIDATION', priority: 'P2', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-010', progress: 95, tags: ['Ops', 'GitHub', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' },
+              context: {
+                ask: 'Add GitHub secrets for email notifications on push to main branch',
+                goal: 'Receive email alerts when commits are pushed to the repository',
+                reason: 'Workflow .github/workflows/notify-on-push.yml is ready but needs 3 secrets configured',
+                audible: 'Go to Settings → Secrets → Actions and add: EMAIL_USERNAME, EMAIL_APP_PASSWORD, NOTIFY_EMAIL'
               }
             }
         ];

@@ -3055,22 +3055,28 @@
             right: 24px;
             width: 56px;
             height: 56px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
-            border: none;
+            background: linear-gradient(135deg, #ff9f0a 0%, #ff6b35 100%);
+            border: 2px solid rgba(255, 255, 255, 0.2);
             border-radius: 50%;
             color: white;
             font-size: 24px;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(10, 132, 255, 0.4);
+            box-shadow: 0 4px 20px rgba(255, 159, 10, 0.4);
             z-index: 90;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
+            animation: pulse-guide 2s ease-in-out infinite;
+        }
+        @keyframes pulse-guide {
+            0%, 100% { box-shadow: 0 4px 20px rgba(255, 159, 10, 0.4); }
+            50% { box-shadow: 0 4px 30px rgba(255, 159, 10, 0.6); }
         }
         .nav-guide-btn:hover {
             transform: scale(1.1);
-            box-shadow: 0 6px 28px rgba(10, 132, 255, 0.5);
+            box-shadow: 0 6px 28px rgba(255, 159, 10, 0.6);
+            animation: none;
         }
         .nav-guide-overlay {
             position: fixed;
@@ -3233,42 +3239,42 @@
         <div class="nav-guide-modal" onclick="event.stopPropagation()">
             <button class="nav-guide-close" onclick="toggleNavGuide()">✕</button>
             <div class="nav-guide-header">
-                <h3>🏏 Where to Start?</h3>
-                <p>Quick guide to navigate Cricket Playbook</p>
+                <h3>🏏 The Playbook Rundown</h3>
+                <p>Your pre-game briefing from the coaching staff</p>
             </div>
             <a href="teams.html" class="nav-guide-item nav-guide-start" style="text-decoration: none; color: inherit;">
                 <div class="nav-guide-icon">🏏</div>
                 <div class="nav-guide-text">
-                    <h4>Start Here → Teams</h4>
-                    <p>Pick your team, see predicted XI, depth charts, and full stat packs. The best place to begin!</p>
+                    <h4>🎯 Teams — "Like Virat walking to the crease"</h4>
+                    <p>Start here! Predicted XIs, depth charts, stat packs. Pick your franchise and let Andy Flower walk you through the lineup.</p>
                 </div>
             </a>
             <a href="artifacts.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
-                <div class="nav-guide-icon">🔍</div>
+                <div class="nav-guide-icon">📊</div>
                 <div class="nav-guide-text">
-                    <h4>Artifacts</h4>
-                    <p>All 10 stat packs and depth charts in one place. Download-ready documentation.</p>
+                    <h4>🗂️ Artifacts — "Curry's shooting chart, cricket edition"</h4>
+                    <p>All 10 franchise stat packs and depth charts. Stephen Curry approved — clean data, no turnovers.</p>
                 </div>
             </a>
             <a href="analysis.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
                 <div class="nav-guide-icon">🔬</div>
                 <div class="nav-guide-text">
-                    <h4>Analysis</h4>
-                    <p>Deep dives: Player matchups, clustering insights, phase analysis, and more.</p>
+                    <h4>🧠 Analysis — "Tom Brady studying film"</h4>
+                    <p>Matchup deep-dives, clustering insights, phase breakdowns. The X's and O's of IPL analytics.</p>
                 </div>
             </a>
             <a href="research.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
                 <div class="nav-guide-icon">📚</div>
                 <div class="nav-guide-text">
-                    <h4>Research</h4>
-                    <p>Methodology explained: How we grade players and generate predictions.</p>
+                    <h4>📖 Research — "Pep's tactical notebook"</h4>
+                    <p>Methodology docs explaining how we grade players. Pep Guardiola levels of preparation.</p>
                 </div>
             </a>
             <a href="../../../mission_control/dashboard/index.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
                 <div class="nav-guide-icon">📡</div>
                 <div class="nav-guide-text">
-                    <h4>The Boardroom</h4>
-                    <p>Project management dashboard. See all tickets, sprints, and team progress.</p>
+                    <h4>🏢 The Boardroom — "Front office moves"</h4>
+                    <p>Where Florentino and the squad manage tickets. Think GM war room meets tech sprint board.</p>
                 </div>
             </a>
         </div>

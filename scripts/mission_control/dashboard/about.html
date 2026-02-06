@@ -468,6 +468,11 @@
         .state-blocked { background: rgba(255, 69, 58, 0.2); color: #ff453a; }
         .state-review { background: rgba(191, 90, 242, 0.2); color: #bf5af2; }
         .state-validation { background: rgba(255, 159, 10, 0.2); color: #ff9f0a; }
+        .state-founder-review {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.3) 0%, rgba(196, 30, 58, 0.3) 100%);
+            color: #ffd700;
+            border: 1px solid rgba(196, 30, 58, 0.5);
+        }
         .state-done { background: rgba(48, 209, 88, 0.2); color: #30d158; }
 
         .state-connector {
@@ -481,6 +486,25 @@
             .state-flow { gap: 8px; padding: 20px 12px; }
             .state-pill { padding: 8px 12px; font-size: 9px; }
             .state-connector { font-size: 12px; }
+        }
+
+        /* Mobile - vertical stack for state flow */
+        @media (max-width: 600px) {
+            .state-flow {
+                flex-direction: column;
+                gap: 6px;
+            }
+            .state-connector {
+                transform: rotate(90deg);
+                font-size: 14px;
+                margin: 2px 0;
+            }
+            .state-pill {
+                width: 100%;
+                max-width: 180px;
+                text-align: center;
+                font-size: 10px;
+            }
         }
 
         /* ==================== CONTEXT EXPLAINER ==================== */
@@ -1046,7 +1070,7 @@
                     <div class="state-connector">→</div>
                     <div class="state-pill state-review">REVIEW</div>
                     <div class="state-connector">→</div>
-                    <div class="state-pill state-validation" style="background: linear-gradient(135deg, rgba(139, 0, 0, 0.3) 0%, rgba(196, 30, 58, 0.3) 100%); color: #ffd700; border: 1px solid rgba(196, 30, 58, 0.5);">🌹 FOUNDER REVIEW</div>
+                    <div class="state-pill state-founder-review">🌹 FOUNDER REVIEW</div>
                     <div class="state-connector">→</div>
                     <div class="state-pill state-done">DONE</div>
                 </div>

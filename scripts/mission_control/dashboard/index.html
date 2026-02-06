@@ -1125,6 +1125,24 @@
             font-variant-numeric: tabular-nums;
         }
 
+        /* RETRO ticket special styling - Pep Guardiola's retrospectives */
+        .ticket.is-retro {
+            border: 2px solid rgba(108, 171, 221, 0.4);
+            background: linear-gradient(135deg, rgba(108, 171, 221, 0.08) 0%, var(--bg-secondary) 100%);
+        }
+        .ticket.is-retro .ticket-id {
+            color: #6cabdd;
+            font-weight: 700;
+        }
+        .ticket.is-retro::before {
+            content: '⚽';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-size: 12px;
+            opacity: 0.6;
+        }
+
         .ticket-title {
             font-size: 14px;
             font-weight: 500;
@@ -3327,6 +3345,20 @@
                 reason: 'Workflow .github/workflows/notify-on-push.yml is ready but needs 3 secrets configured',
                 audible: 'Go to Settings → Secrets → Actions and add: EMAIL_USERNAME, EMAIL_APP_PASSWORD, NOTIFY_EMAIL'
               }
+            },
+
+            // ==================== RETROSPECTIVES (RETRO-XXX) ====================
+            // Post-completion analysis tickets - Pep Guardiola's domain
+            // Output: .editorial/retro.md with what worked/failed + one systemic improvement
+            { id: 'RETRO-001', title: 'Sprint 4 Mid-Sprint Retrospective', state: 'READY', priority: 'P1', effort: 'hustle', assignee: 'Pep Guardiola', epic: 'EPIC-011', progress: 0, tags: ['Retrospective', '⚽ Pep'], gates: {},
+              isRetro: true,
+              relatedTickets: ['TKT-064', 'TKT-086', 'TKT-096', 'TKT-085'],
+              context: {
+                ask: 'Run retrospective on recently completed Sprint 4 work (TKT-064, TKT-086, TKT-096, TKT-085)',
+                goal: 'Document what worked, what failed, and propose one systemic improvement',
+                reason: 'Founder directive: Continuous improvement through structured retrospectives',
+                audible: 'Review completed tickets → Analyze process → Document in .editorial/retro.md → Propose improvement → Present to Founder'
+              }
             }
         ];
 
@@ -3580,8 +3612,12 @@
             const timeClass = t.daysSpent <= 1 ? 'fast' : t.daysSpent <= 3 ? 'medium' : 'slow';
             const timeBadge = t.daysSpent != null ? `<span class="time-badge ${timeClass}">⏱️ ${t.daysSpent}d</span>` : '';
 
+            // RETRO ticket styling
+            const isRetro = t.id.startsWith('RETRO-') || t.isRetro;
+            const retroClass = isRetro ? 'is-retro' : '';
+
             return `
-                <div class="ticket ${isFiltered ? 'filtered-out' : ''}" data-priority="${t.priority}" onclick="openModal('${t.id}')">
+                <div class="ticket ${isFiltered ? 'filtered-out' : ''} ${retroClass}" data-priority="${t.priority}" onclick="openModal('${t.id}')">
                     <div class="ticket-top">
                         <div class="agent-avatar" title="${t.assignee || 'Unassigned'}">${getAgentAvatarImg(t.assignee)}</div>
                         <div class="ticket-info">

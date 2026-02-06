@@ -1480,6 +1480,32 @@
             border-color: var(--border);
         }
 
+        /* Special Tag Styles */
+        .tag.tag-illini {
+            /* Fighting Illini Orange #E84A27 */
+            background: linear-gradient(135deg, rgba(232, 74, 39, 0.2) 0%, rgba(232, 74, 39, 0.1) 100%);
+            color: #E84A27;
+            border-color: rgba(232, 74, 39, 0.3);
+        }
+        .tag.tag-founder {
+            /* Rose/Pink for Founder Review */
+            background: linear-gradient(135deg, rgba(255, 55, 95, 0.15) 0%, rgba(255, 55, 95, 0.08) 100%);
+            color: #ff375f;
+            border-color: rgba(255, 55, 95, 0.25);
+        }
+        .tag.tag-approved {
+            /* Green for Approved */
+            background: linear-gradient(135deg, rgba(48, 209, 88, 0.15) 0%, rgba(48, 209, 88, 0.08) 100%);
+            color: #30d158;
+            border-color: rgba(48, 209, 88, 0.25);
+        }
+        .tag.tag-progress {
+            /* Blue for In Progress */
+            background: linear-gradient(135deg, rgba(10, 132, 255, 0.15) 0%, rgba(10, 132, 255, 0.08) 100%);
+            color: #0a84ff;
+            border-color: rgba(10, 132, 255, 0.25);
+        }
+
         .ticket-links {
             display: flex;
             gap: 6px;
@@ -3503,6 +3529,15 @@
             return `<img src="${dataUri}" alt="${agentName || 'Unassigned'}" class="${className}" />`;
         }
 
+        // Get special CSS class for tag styling
+        function getTagClass(tag) {
+            if (tag.includes('Illini')) return 'tag-illini';
+            if (tag.includes('🌹') || tag.includes('Founder')) return 'tag-founder';
+            if (tag.includes('✅') || tag.includes('Approved')) return 'tag-approved';
+            if (tag.includes('🔄') || tag.includes('In Progress')) return 'tag-progress';
+            return '';
+        }
+
         // ==================== PROFESSIONAL BACKGROUND ====================
         function initSportsBg() {
             const bg = document.getElementById('sportsBg');
@@ -3707,8 +3742,8 @@
             { id: 'TKT-046', title: 'Add LHB/RHB balance section', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
             { id: 'TKT-047', title: 'Add matchup matrix section', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
             { id: 'TKT-048', title: 'Add phase analysis section', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-049', title: 'Add key partnerships section', state: 'RUNNING', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 40, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' } },
-            { id: 'TKT-050', title: 'Add pressure performance section', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 30, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' } },
+            { id: 'TKT-049', title: 'Add key partnerships section', state: 'RUNNING', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 40, tags: ['Feature', 'Analytics', '🔶 Illini Plan Review'], gates: { florentino_gate: 'APPROVED' }, plan: 'docs/plans/TKT_049_KEY_PARTNERSHIPS_PLAN.md' },
+            { id: 'TKT-050', title: 'Add pressure performance section', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 30, tags: ['Feature', 'Analytics', '🔶 Illini Plan Review'], gates: { florentino_gate: 'APPROVED' }, plan: 'docs/plans/TKT_050_PRESSURE_PERFORMANCE_PLAN.md' },
             { id: 'TKT-051', title: 'Add venue analysis section', state: 'VALIDATION', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 95, tags: ['Feature', 'Analytics', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
             { id: 'TKT-052', title: 'Add historical trends section', state: 'VALIDATION', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 95, tags: ['Feature', 'Analytics', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
             { id: 'TKT-053', title: 'Add Andy Flower tactical insights', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Domain', 'Content'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
@@ -4341,7 +4376,7 @@
                     <div class="ticket-meta">
                         <span class="priority priority-${t.priority.toLowerCase()}">${t.priority}</span>
                         ${t.effort ? `<span class="effort effort-${t.effort}">${effortLevels[t.effort]?.name || t.effort}</span>` : ''}
-                        ${t.tags.slice(0, 1).map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        ${t.tags.slice(0, 2).map(tag => `<span class="tag ${getTagClass(tag)}">${tag}</span>`).join('')}
                     </div>
                     ${t.prd || t.output || t.review ? `
                         <div class="ticket-links">

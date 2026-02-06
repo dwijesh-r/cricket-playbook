@@ -119,7 +119,7 @@ const ageBadge = reviewAge > 2 ? 'stale' : reviewAge > 1 ? 'aging' : 'fresh';
 
 | Action | Owner | Priority | Status |
 |--------|-------|----------|--------|
-| Create TKT-105 for Review SLA widget | Tom Brady | P2 | 🆕 New |
+| Create TKT-105 for Review SLA widget | Tom Brady | P2 | ✅ Done (Feb 6) |
 | Document state naming conventions | Tom Brady | P3 | 🆕 New |
 | Define progress % meaning per state | Pep Guardiola | P3 | 🆕 New |
 | Add mypy.ini configuration | Ime Udoka | P3 | TKT-104 |

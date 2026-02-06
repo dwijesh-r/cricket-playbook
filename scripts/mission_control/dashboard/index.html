@@ -3540,6 +3540,18 @@
             }
         ];
 
+        // TKT-105 Enhancement: Auto-populate entered_review_date for REVIEW tickets
+        // This ensures the Review SLA widget works even if the date wasn't manually added
+        (function autoPopulateReviewDates() {
+            const today = new Date().toISOString().split('T')[0];
+            tickets.forEach(t => {
+                if (t.state === 'REVIEW' && !t.entered_review_date) {
+                    t.entered_review_date = today;
+                    console.log(`[TKT-105] Auto-set entered_review_date for ${t.id}: ${today}`);
+                }
+            });
+        })();
+
         let activeFilter = 'all';
         let activeAgentFilter = null;
         let activePriorityFilter = 'all';

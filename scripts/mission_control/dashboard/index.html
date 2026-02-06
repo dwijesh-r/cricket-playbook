@@ -1169,6 +1169,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            white-space: nowrap;
         }
 
         .column-dot {
@@ -1500,34 +1501,21 @@
             border-color: rgba(10, 132, 255, 0.25);
         }
 
-        /* ==================== ILLINI CORNER BADGE ==================== */
-        /* Fighting Illini orange corner for tickets needing Founder review */
+        /* ==================== FOUNDER REVIEW HIGHLIGHT ==================== */
+        /* Orange background tint for tickets needing Founder review */
         .ticket.needs-founder-review {
-            position: relative;
+            background: linear-gradient(135deg,
+                rgba(232, 74, 39, 0.12) 0%,
+                rgba(232, 74, 39, 0.06) 50%,
+                var(--bg-secondary) 100%) !important;
+            border-color: rgba(232, 74, 39, 0.3) !important;
         }
-        .ticket.needs-founder-review::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 0 28px 28px 0;
-            border-color: transparent #E84A27 transparent transparent;
-            border-radius: 0 10px 0 0;
-            z-index: 5;
-        }
-        .ticket.needs-founder-review::after {
-            content: 'I';
-            position: absolute;
-            top: 2px;
-            right: 5px;
-            font-size: 11px;
-            font-weight: 800;
-            font-family: 'Times New Roman', serif;
-            color: white;
-            z-index: 6;
+        .ticket.needs-founder-review:hover {
+            background: linear-gradient(135deg,
+                rgba(232, 74, 39, 0.18) 0%,
+                rgba(232, 74, 39, 0.10) 50%,
+                var(--bg-tertiary) 100%) !important;
+            border-color: rgba(232, 74, 39, 0.5) !important;
         }
 
         .ticket-links {
@@ -3756,19 +3744,61 @@
             { id: 'TKT-039', title: 'Virat Kohli tone review', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Virat Kohli', epic: 'EPIC-005', progress: 100, tags: ['Editorial', 'Review'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' } },
             { id: 'TKT-040', title: 'Define depth chart positions', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-005', progress: 100, tags: ['Domain', 'Spec'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
             { id: 'TKT-041', title: 'Create depth chart algorithm', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 100, tags: ['Algorithm', 'Core'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' } },
-            { id: 'TKT-042', title: 'Generate all 10 depth charts', state: 'REVIEW', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 95, tags: ['Pipeline', 'Output', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' }, entered_review_date: '2026-02-03' },
+            { id: 'TKT-042', title: 'Generate all 10 depth charts', state: 'REVIEW', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 95, tags: ['Pipeline', 'Output', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' }, entered_review_date: '2026-02-03',
+              context: {
+                ask: 'Run depth chart pipeline for all 10 IPL teams and generate markdown outputs',
+                goal: 'Produce 10 depth chart files in outputs/depth_charts/ with positions 1-11 ranked by composite score',
+                reason: 'PRD Requirement: Team depth visualization with positional rankings',
+                audible: ['Execute generate_depth_charts.py', 'Validate all 10 teams have outputs', 'Verify Andy Flower approved positions']
+              }
+            },
             { id: 'TKT-043', title: 'Andy Flower review of depth charts', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-005', progress: 100, tags: ['Domain', 'Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES' } },
             { id: 'TKT-044', title: 'Archive depth chart outputs', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-005', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' } },
-            { id: 'TKT-045', title: 'Founder approval of depth charts', state: 'VALIDATION', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-005', progress: 95, tags: ['Approval', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
+            { id: 'TKT-045', title: 'Founder approval of depth charts', state: 'VALIDATION', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-005', progress: 95, tags: ['Approval', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
+              context: {
+                ask: 'Review and approve the 10 depth chart outputs for correctness and format',
+                goal: 'Confirm depth charts meet quality bar and can be published',
+                reason: 'Task Integrity Loop: Founder validation required before DONE',
+                audible: ['Review outputs/depth_charts/*.md', 'Check position rankings make sense', 'Approve or provide feedback']
+              }
+            },
 
             // Phase 4: Stat Pack Enhancement (TKT-046 to TKT-060)
             { id: 'TKT-046', title: 'Add LHB/RHB balance section', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
             { id: 'TKT-047', title: 'Add matchup matrix section', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
             { id: 'TKT-048', title: 'Add phase analysis section', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-049', title: 'Add key partnerships section', state: 'RUNNING', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 40, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' }, plan: 'docs/plans/TKT_049_KEY_PARTNERSHIPS_PLAN.md' },
-            { id: 'TKT-050', title: 'Add pressure performance section', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 30, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' }, plan: 'docs/plans/TKT_050_PRESSURE_PERFORMANCE_PLAN.md' },
-            { id: 'TKT-051', title: 'Add venue analysis section', state: 'VALIDATION', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 95, tags: ['Feature', 'Analytics', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
-            { id: 'TKT-052', title: 'Add historical trends section', state: 'VALIDATION', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 95, tags: ['Feature', 'Analytics', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
+            { id: 'TKT-049', title: 'Add key partnerships section', state: 'RUNNING', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 40, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' }, plan: 'docs/plans/TKT_049_KEY_PARTNERSHIPS_PLAN.md',
+              context: {
+                ask: 'Add Key Partnerships section to stat pack showing batting pair analytics',
+                goal: 'Display top partnerships by runs, balls faced, and efficiency for each team',
+                reason: 'PRD: Partnership analysis identifies complementary batting pairs',
+                audible: ['Query partnership data from DuckDB', 'Calculate partnership metrics', 'Add to stat pack generator', 'Test with MI, CSK']
+              }
+            },
+            { id: 'TKT-050', title: 'Add pressure performance section', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 30, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' }, plan: 'docs/plans/TKT_050_PRESSURE_PERFORMANCE_PLAN.md',
+              context: {
+                ask: 'Add Pressure Performance section showing high-RRR scenario batting',
+                goal: 'Identify clutch performers vs chokers when RRR > 10 or in last 5 overs',
+                reason: 'PRD: Situational analytics for crunch-moment team selection',
+                audible: ['Define pressure scenarios (RRR thresholds)', 'Query ball-by-ball for pressure deliveries', 'Calculate SR/avg under pressure', 'Rank players by clutch factor']
+              }
+            },
+            { id: 'TKT-051', title: 'Add venue analysis section', state: 'VALIDATION', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 95, tags: ['Feature', 'Analytics', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
+              context: {
+                ask: 'Add Venue Analysis section showing player/team performance by stadium',
+                goal: 'Display home/away splits and venue-specific stats for key players',
+                reason: 'PRD: Venue intelligence for match-day tactical decisions',
+                audible: ['Aggregate stats by venue', 'Identify home advantage patterns', 'Show avg first innings score by venue']
+              }
+            },
+            { id: 'TKT-052', title: 'Add historical trends section', state: 'VALIDATION', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 95, tags: ['Feature', 'Analytics', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
+              context: {
+                ask: 'Add Historical Trends section showing season-over-season performance',
+                goal: 'Visualize player form trajectory from 2023-2026 with trend indicators',
+                reason: 'PRD: Trend analysis identifies improving/declining performers',
+                audible: ['Query seasonal aggregates', 'Calculate YoY changes', 'Add trend arrows (up/down/stable)']
+              }
+            },
             { id: 'TKT-053', title: 'Add Andy Flower tactical insights', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Domain', 'Content'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
             { id: 'TKT-054', title: 'Generate MI tactical insights', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'MI'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
             { id: 'TKT-055', title: 'Generate CSK tactical insights', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Content', 'CSK'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
@@ -3780,10 +3810,24 @@
 
             // Phase 4.5: Predicted XII (TKT-061 to TKT-066)
             { id: 'TKT-061', title: 'Create SUPER SELECTOR algorithm', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-007', progress: 100, tags: ['Algorithm', 'Core'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' } },
-            { id: 'TKT-062', title: 'Generate all 10 Predicted XIIs', state: 'VALIDATION', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-007', progress: 95, tags: ['Pipeline', 'Output', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' } },
+            { id: 'TKT-062', title: 'Generate all 10 Predicted XIIs', state: 'VALIDATION', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-007', progress: 95, tags: ['Pipeline', 'Output', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' },
+              context: {
+                ask: 'Run SUPER SELECTOR algorithm for all 10 IPL teams to generate predicted XIs',
+                goal: 'Produce 10 predicted_xii files with best XI and bench for each team',
+                reason: 'PRD Core Deliverable: Automated team selection using composite scoring',
+                audible: ['Execute predict_xi.py for all teams', 'Validate balance (2 openers, 5 bowlers, 1 WK)', 'Andy Flower approval on selections']
+              }
+            },
             { id: 'TKT-063', title: 'Andy Flower review of Predicted XIIs', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-007', progress: 100, tags: ['Domain', 'Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES' } },
             { id: 'TKT-064', title: 'Create wireframes for XI view', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-007', progress: 100, tags: ['Design', 'UI'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' } },
-            { id: 'TKT-065', title: 'Founder approval of Predicted XIIs', state: 'VALIDATION', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-007', progress: 95, tags: ['Approval', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' } },
+            { id: 'TKT-065', title: 'Founder approval of Predicted XIIs', state: 'VALIDATION', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-007', progress: 95, tags: ['Approval', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
+              context: {
+                ask: 'Review and approve the 10 Predicted XI outputs for quality and plausibility',
+                goal: 'Confirm SUPER SELECTOR outputs are ready for publication',
+                reason: 'Task Integrity Loop: Founder validation gate before DONE',
+                audible: ['Review outputs/predicted_xii/*.md', 'Spot-check team balance', 'Validate scoring explanations', 'Approve or request changes']
+              }
+            },
             { id: 'TKT-066', title: 'Archive XI outputs', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-007', progress: 100, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' } },
 
             // Phase 5: ML Ops (TKT-067 to TKT-075)
@@ -3912,6 +3956,14 @@
                 goal: 'Prevent tickets from languishing in REVIEW by showing how long they have been waiting',
                 reason: 'RETRO-001 identified that tickets sat in REVIEW without proactive domain sanity reviews',
                 audible: '✅ DONE: Review SLA widget with age badges (fresh/aging/stale) + Stale Reviews filter. Approved Feb 6, 2026.'
+              }
+            },
+            { id: 'TKT-106', title: 'Complete ticket context documentation', state: 'READY', priority: 'P3', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-010', progress: 0, tags: ['Documentation', 'Process', 'Governance'],
+              context: {
+                ask: 'Add context objects (ask, goal, reason, audible) to all DONE tickets missing context',
+                goal: 'Every ticket in Mission Control has full context documentation for traceability',
+                reason: 'RETRO-001: Many tickets lack ask/goal/reason/audible - makes retrospectives and audits difficult',
+                audible: ['Review tickets missing context (~75 DONE tickets)', 'Add context using docs/TICKET_CONTEXT_TEMPLATE.md', 'Batch 10-15 tickets per session', 'Prioritize P0/P1 tickets first']
               }
             },
 

@@ -19,8 +19,9 @@ Environment Variables:
     # Core Filters
     IPL_MIN_DATE - Minimum date for data analysis (default: 2023-01-01)
     IPL_MAX_DATE - Maximum date for data analysis (default: 2099-12-31)
-    TOURNAMENT - Tournament filter: IPL, BBL, PSL, CPL, SA20, ILT20, ALL (default: IPL)
-    MATCH_TYPE - Match format filter: T20, ODI, Test, ALL (default: T20)
+    TOURNAMENT - Tournament filter: IPL, BBL, PSL, CPL, SA20, ILT20, WPL, WBBL, ALL (default: IPL)
+    MATCH_TYPE - Match format filter: T20, ODI, Test, 100-ball, ALL (default: T20)
+    GENDER - Gender filter: Men, Women, ALL (default: ALL)
     SEASON - Season year filter: 2023, 2024, 2025, 2026, ALL (default: ALL)
 
     # Team Filters
@@ -75,11 +76,12 @@ class Config:
     # TEAM REGISTRY - All supported teams with metadata
     # =======================================================================
     TEAM_REGISTRY: Dict[str, Dict[str, Any]] = {
-        # IPL Teams
+        # ===== IPL TEAMS (All 10) =====
         "Chennai Super Kings": {
             "short": "CSK",
             "aliases": ["CSK", "Chennai", "Super Kings"],
             "tournament": "IPL",
+            "gender": "Men",
             "home_venue": "MA Chidambaram Stadium",
             "primary_color": "#FFFF00",
         },
@@ -87,6 +89,7 @@ class Config:
             "short": "MI",
             "aliases": ["MI", "Mumbai"],
             "tournament": "IPL",
+            "gender": "Men",
             "home_venue": "Wankhede Stadium",
             "primary_color": "#004BA0",
         },
@@ -94,6 +97,7 @@ class Config:
             "short": "RCB",
             "aliases": ["RCB", "Bangalore", "Bengaluru", "Royal Challengers"],
             "tournament": "IPL",
+            "gender": "Men",
             "home_venue": "M. Chinnaswamy Stadium",
             "primary_color": "#EC1C24",
         },
@@ -101,6 +105,7 @@ class Config:
             "short": "KKR",
             "aliases": ["KKR", "Kolkata", "Knight Riders"],
             "tournament": "IPL",
+            "gender": "Men",
             "home_venue": "Eden Gardens",
             "primary_color": "#3A225D",
         },
@@ -108,6 +113,7 @@ class Config:
             "short": "RR",
             "aliases": ["RR", "Rajasthan", "Royals"],
             "tournament": "IPL",
+            "gender": "Men",
             "home_venue": "Sawai Mansingh Stadium",
             "primary_color": "#EA1A85",
         },
@@ -115,6 +121,7 @@ class Config:
             "short": "DC",
             "aliases": ["DC", "Delhi", "Capitals"],
             "tournament": "IPL",
+            "gender": "Men",
             "home_venue": "Arun Jaitley Stadium",
             "primary_color": "#00008B",
         },
@@ -122,6 +129,7 @@ class Config:
             "short": "SRH",
             "aliases": ["SRH", "Hyderabad", "Sunrisers"],
             "tournament": "IPL",
+            "gender": "Men",
             "home_venue": "Rajiv Gandhi Intl Stadium",
             "primary_color": "#FF822A",
         },
@@ -129,6 +137,7 @@ class Config:
             "short": "PBKS",
             "aliases": ["PBKS", "Punjab", "Kings XI"],
             "tournament": "IPL",
+            "gender": "Men",
             "home_venue": "IS Bindra Stadium",
             "primary_color": "#ED1B24",
         },
@@ -136,6 +145,7 @@ class Config:
             "short": "GT",
             "aliases": ["GT", "Gujarat", "Titans"],
             "tournament": "IPL",
+            "gender": "Men",
             "home_venue": "Narendra Modi Stadium",
             "primary_color": "#1C1C1C",
         },
@@ -143,14 +153,16 @@ class Config:
             "short": "LSG",
             "aliases": ["LSG", "Lucknow", "Super Giants"],
             "tournament": "IPL",
+            "gender": "Men",
             "home_venue": "BRSABV Ekana Stadium",
             "primary_color": "#A72056",
         },
-        # BBL Teams (for future expansion)
+        # ===== BBL TEAMS (All 8) =====
         "Melbourne Stars": {
             "short": "STA",
             "aliases": ["Stars", "Melbourne Stars"],
             "tournament": "BBL",
+            "gender": "Men",
             "home_venue": "MCG",
             "primary_color": "#00B140",
         },
@@ -158,57 +170,463 @@ class Config:
             "short": "SIX",
             "aliases": ["Sixers", "Sydney Sixers"],
             "tournament": "BBL",
+            "gender": "Men",
             "home_venue": "SCG",
             "primary_color": "#FF00FF",
         },
-        # Add more BBL, PSL, CPL teams as needed
+        "Melbourne Renegades": {
+            "short": "REN",
+            "aliases": ["Renegades", "Melbourne Renegades"],
+            "tournament": "BBL",
+            "gender": "Men",
+            "home_venue": "Marvel Stadium",
+            "primary_color": "#FF0000",
+        },
+        "Sydney Thunder": {
+            "short": "THU",
+            "aliases": ["Thunder", "Sydney Thunder"],
+            "tournament": "BBL",
+            "gender": "Men",
+            "home_venue": "Sydney Showground Stadium",
+            "primary_color": "#00FF00",
+        },
+        "Brisbane Heat": {
+            "short": "HEA",
+            "aliases": ["Heat", "Brisbane Heat"],
+            "tournament": "BBL",
+            "gender": "Men",
+            "home_venue": "The Gabba",
+            "primary_color": "#00BFFF",
+        },
+        "Adelaide Strikers": {
+            "short": "STR",
+            "aliases": ["Strikers", "Adelaide Strikers"],
+            "tournament": "BBL",
+            "gender": "Men",
+            "home_venue": "Adelaide Oval",
+            "primary_color": "#0000FF",
+        },
+        "Perth Scorchers": {
+            "short": "SCO",
+            "aliases": ["Scorchers", "Perth Scorchers"],
+            "tournament": "BBL",
+            "gender": "Men",
+            "home_venue": "Perth Stadium",
+            "primary_color": "#FF6600",
+        },
+        "Hobart Hurricanes": {
+            "short": "HUR",
+            "aliases": ["Hurricanes", "Hobart Hurricanes"],
+            "tournament": "BBL",
+            "gender": "Men",
+            "home_venue": "Blundstone Arena",
+            "primary_color": "#800080",
+        },
+        # ===== WBBL TEAMS (All 8 - same cities as BBL) =====
+        "Melbourne Stars Women": {
+            "short": "STAW",
+            "aliases": ["Stars Women", "Melbourne Stars Women"],
+            "tournament": "WBBL",
+            "gender": "Women",
+            "home_venue": "MCG",
+            "primary_color": "#00B140",
+        },
+        "Sydney Sixers Women": {
+            "short": "SIXW",
+            "aliases": ["Sixers Women", "Sydney Sixers Women"],
+            "tournament": "WBBL",
+            "gender": "Women",
+            "home_venue": "SCG",
+            "primary_color": "#FF00FF",
+        },
+        "Melbourne Renegades Women": {
+            "short": "RENW",
+            "aliases": ["Renegades Women", "Melbourne Renegades Women"],
+            "tournament": "WBBL",
+            "gender": "Women",
+            "home_venue": "Marvel Stadium",
+            "primary_color": "#FF0000",
+        },
+        "Sydney Thunder Women": {
+            "short": "THUW",
+            "aliases": ["Thunder Women", "Sydney Thunder Women"],
+            "tournament": "WBBL",
+            "gender": "Women",
+            "home_venue": "Sydney Showground Stadium",
+            "primary_color": "#00FF00",
+        },
+        "Brisbane Heat Women": {
+            "short": "HEAW",
+            "aliases": ["Heat Women", "Brisbane Heat Women"],
+            "tournament": "WBBL",
+            "gender": "Women",
+            "home_venue": "The Gabba",
+            "primary_color": "#00BFFF",
+        },
+        "Adelaide Strikers Women": {
+            "short": "STRW",
+            "aliases": ["Strikers Women", "Adelaide Strikers Women"],
+            "tournament": "WBBL",
+            "gender": "Women",
+            "home_venue": "Adelaide Oval",
+            "primary_color": "#0000FF",
+        },
+        "Perth Scorchers Women": {
+            "short": "SCOW",
+            "aliases": ["Scorchers Women", "Perth Scorchers Women"],
+            "tournament": "WBBL",
+            "gender": "Women",
+            "home_venue": "Perth Stadium",
+            "primary_color": "#FF6600",
+        },
+        "Hobart Hurricanes Women": {
+            "short": "HURW",
+            "aliases": ["Hurricanes Women", "Hobart Hurricanes Women"],
+            "tournament": "WBBL",
+            "gender": "Women",
+            "home_venue": "Blundstone Arena",
+            "primary_color": "#800080",
+        },
+        # ===== WPL TEAMS (All 5) =====
+        "Mumbai Indians Women": {
+            "short": "MIW",
+            "aliases": ["MI Women", "Mumbai Indians Women"],
+            "tournament": "WPL",
+            "gender": "Women",
+            "home_venue": "Brabourne Stadium",
+            "primary_color": "#004BA0",
+        },
+        "Delhi Capitals Women": {
+            "short": "DCW",
+            "aliases": ["DC Women", "Delhi Capitals Women"],
+            "tournament": "WPL",
+            "gender": "Women",
+            "home_venue": "Arun Jaitley Stadium",
+            "primary_color": "#00008B",
+        },
+        "Royal Challengers Bengaluru Women": {
+            "short": "RCBW",
+            "aliases": ["RCB Women", "Royal Challengers Women"],
+            "tournament": "WPL",
+            "gender": "Women",
+            "home_venue": "M. Chinnaswamy Stadium",
+            "primary_color": "#EC1C24",
+        },
+        "UP Warriorz": {
+            "short": "UPW",
+            "aliases": ["Warriorz", "UP Warriorz"],
+            "tournament": "WPL",
+            "gender": "Women",
+            "home_venue": "BRSABV Ekana Stadium",
+            "primary_color": "#FF69B4",
+        },
+        "Gujarat Giants": {
+            "short": "GG",
+            "aliases": ["Giants", "Gujarat Giants"],
+            "tournament": "WPL",
+            "gender": "Women",
+            "home_venue": "Narendra Modi Stadium",
+            "primary_color": "#FFD700",
+        },
+        # ===== NATIONAL TEAMS (for internationals) =====
+        "India": {
+            "short": "IND",
+            "aliases": ["India", "Team India", "Indian Cricket Team"],
+            "tournament": "International",
+            "gender": "ALL",
+            "home_venue": "Various",
+            "primary_color": "#0000FF",
+        },
+        "Australia": {
+            "short": "AUS",
+            "aliases": ["Australia", "Aussies"],
+            "tournament": "International",
+            "gender": "ALL",
+            "home_venue": "Various",
+            "primary_color": "#FFFF00",
+        },
+        "England": {
+            "short": "ENG",
+            "aliases": ["England", "English Cricket Team"],
+            "tournament": "International",
+            "gender": "ALL",
+            "home_venue": "Various",
+            "primary_color": "#00008B",
+        },
+        "Pakistan": {
+            "short": "PAK",
+            "aliases": ["Pakistan", "Green Shirts"],
+            "tournament": "International",
+            "gender": "ALL",
+            "home_venue": "Various",
+            "primary_color": "#006400",
+        },
+        "South Africa": {
+            "short": "SA",
+            "aliases": ["South Africa", "Proteas"],
+            "tournament": "International",
+            "gender": "ALL",
+            "home_venue": "Various",
+            "primary_color": "#006400",
+        },
+        "New Zealand": {
+            "short": "NZ",
+            "aliases": ["New Zealand", "Black Caps", "White Ferns"],
+            "tournament": "International",
+            "gender": "ALL",
+            "home_venue": "Various",
+            "primary_color": "#000000",
+        },
+        "West Indies": {
+            "short": "WI",
+            "aliases": ["West Indies", "Windies"],
+            "tournament": "International",
+            "gender": "ALL",
+            "home_venue": "Various",
+            "primary_color": "#800000",
+        },
+        "Sri Lanka": {
+            "short": "SL",
+            "aliases": ["Sri Lanka", "Lions"],
+            "tournament": "International",
+            "gender": "ALL",
+            "home_venue": "Various",
+            "primary_color": "#0000FF",
+        },
+        "Bangladesh": {
+            "short": "BAN",
+            "aliases": ["Bangladesh", "Tigers"],
+            "tournament": "International",
+            "gender": "ALL",
+            "home_venue": "Various",
+            "primary_color": "#006400",
+        },
+        "Afghanistan": {
+            "short": "AFG",
+            "aliases": ["Afghanistan"],
+            "tournament": "International",
+            "gender": "Men",
+            "home_venue": "Various",
+            "primary_color": "#0000FF",
+        },
     }
 
     # =======================================================================
-    # TOURNAMENT REGISTRY
+    # TOURNAMENT REGISTRY - Comprehensive list with gender support
     # =======================================================================
     TOURNAMENT_REGISTRY: Dict[str, Dict[str, Any]] = {
+        # ===== MEN'S FRANCHISE LEAGUES =====
         "IPL": {
             "full_name": "Indian Premier League",
             "format": "T20",
+            "gender": "Men",
             "teams_count": 10,
             "season_months": [3, 4, 5],  # March-May
+            "country": "India",
         },
         "BBL": {
             "full_name": "Big Bash League",
             "format": "T20",
+            "gender": "Men",
             "teams_count": 8,
             "season_months": [12, 1, 2],  # Dec-Feb
+            "country": "Australia",
         },
         "PSL": {
             "full_name": "Pakistan Super League",
             "format": "T20",
+            "gender": "Men",
             "teams_count": 6,
             "season_months": [2, 3],
+            "country": "Pakistan",
         },
         "CPL": {
             "full_name": "Caribbean Premier League",
             "format": "T20",
+            "gender": "Men",
             "teams_count": 6,
             "season_months": [8, 9],
+            "country": "West Indies",
         },
         "SA20": {
             "full_name": "SA20 League",
             "format": "T20",
+            "gender": "Men",
             "teams_count": 6,
             "season_months": [1, 2],
+            "country": "South Africa",
         },
         "ILT20": {
             "full_name": "International League T20",
             "format": "T20",
+            "gender": "Men",
             "teams_count": 6,
             "season_months": [1, 2],
+            "country": "UAE",
         },
-        "T20 World Cup": {
-            "full_name": "ICC T20 World Cup",
+        "MLC": {
+            "full_name": "Major League Cricket",
             "format": "T20",
+            "gender": "Men",
+            "teams_count": 6,
+            "season_months": [7, 8],
+            "country": "USA",
+        },
+        "LPL": {
+            "full_name": "Lanka Premier League",
+            "format": "T20",
+            "gender": "Men",
+            "teams_count": 5,
+            "season_months": [7, 8],
+            "country": "Sri Lanka",
+        },
+        "BPL": {
+            "full_name": "Bangladesh Premier League",
+            "format": "T20",
+            "gender": "Men",
+            "teams_count": 7,
+            "season_months": [1, 2],
+            "country": "Bangladesh",
+        },
+        "The Hundred": {
+            "full_name": "The Hundred (Men's)",
+            "format": "100-ball",
+            "gender": "Men",
+            "teams_count": 8,
+            "season_months": [7, 8],
+            "country": "England",
+        },
+        "T20 Blast": {
+            "full_name": "Vitality T20 Blast",
+            "format": "T20",
+            "gender": "Men",
+            "teams_count": 18,
+            "season_months": [5, 6, 7, 8, 9],
+            "country": "England",
+        },
+        # ===== WOMEN'S FRANCHISE LEAGUES =====
+        "WPL": {
+            "full_name": "Women's Premier League",
+            "format": "T20",
+            "gender": "Women",
+            "teams_count": 5,
+            "season_months": [2, 3],
+            "country": "India",
+        },
+        "WBBL": {
+            "full_name": "Women's Big Bash League",
+            "format": "T20",
+            "gender": "Women",
+            "teams_count": 8,
+            "season_months": [10, 11, 12],
+            "country": "Australia",
+        },
+        "The Hundred Women": {
+            "full_name": "The Hundred (Women's)",
+            "format": "100-ball",
+            "gender": "Women",
+            "teams_count": 8,
+            "season_months": [7, 8],
+            "country": "England",
+        },
+        "FairBreak": {
+            "full_name": "FairBreak Invitational",
+            "format": "T20",
+            "gender": "Women",
+            "teams_count": 6,
+            "season_months": [4, 5],
+            "country": "International",
+        },
+        # ===== ICC MEN'S EVENTS =====
+        "T20 World Cup": {
+            "full_name": "ICC Men's T20 World Cup",
+            "format": "T20",
+            "gender": "Men",
             "teams_count": 20,
             "season_months": [6, 7, 10, 11],  # Varies by year
+            "country": "International",
+        },
+        "ODI World Cup": {
+            "full_name": "ICC Men's Cricket World Cup",
+            "format": "ODI",
+            "gender": "Men",
+            "teams_count": 10,
+            "season_months": [10, 11],
+            "country": "International",
+        },
+        "Champions Trophy": {
+            "full_name": "ICC Champions Trophy",
+            "format": "ODI",
+            "gender": "Men",
+            "teams_count": 8,
+            "season_months": [2, 3],
+            "country": "International",
+        },
+        "WTC Final": {
+            "full_name": "ICC World Test Championship Final",
+            "format": "Test",
+            "gender": "Men",
+            "teams_count": 2,
+            "season_months": [6],
+            "country": "International",
+        },
+        "Asia Cup": {
+            "full_name": "ACC Men's Asia Cup",
+            "format": "ODI/T20",  # Alternates
+            "gender": "Men",
+            "teams_count": 6,
+            "season_months": [8, 9],
+            "country": "Asia",
+        },
+        # ===== ICC WOMEN'S EVENTS =====
+        "Women's T20 World Cup": {
+            "full_name": "ICC Women's T20 World Cup",
+            "format": "T20",
+            "gender": "Women",
+            "teams_count": 10,
+            "season_months": [2, 3, 10, 11],
+            "country": "International",
+        },
+        "Women's ODI World Cup": {
+            "full_name": "ICC Women's Cricket World Cup",
+            "format": "ODI",
+            "gender": "Women",
+            "teams_count": 8,
+            "season_months": [2, 3, 4],
+            "country": "International",
+        },
+        "Women's Asia Cup": {
+            "full_name": "ACC Women's Asia Cup",
+            "format": "T20",
+            "gender": "Women",
+            "teams_count": 7,
+            "season_months": [7, 8],
+            "country": "Asia",
+        },
+        # ===== BILATERAL SERIES =====
+        "Bilateral T20I": {
+            "full_name": "Bilateral T20 International Series",
+            "format": "T20",
+            "gender": "ALL",
+            "teams_count": 2,
+            "season_months": list(range(1, 13)),  # Year-round
+            "country": "Various",
+        },
+        "Bilateral ODI": {
+            "full_name": "Bilateral ODI Series",
+            "format": "ODI",
+            "gender": "ALL",
+            "teams_count": 2,
+            "season_months": list(range(1, 13)),
+            "country": "Various",
+        },
+        "Bilateral Test": {
+            "full_name": "Bilateral Test Series",
+            "format": "Test",
+            "gender": "Men",
+            "teams_count": 2,
+            "season_months": list(range(1, 13)),
+            "country": "Various",
         },
     }
 
@@ -302,11 +720,12 @@ class Config:
         self.IPL_MAX_DATE = os.environ.get("IPL_MAX_DATE", "2099-12-31")
 
         # =======================================================================
-        # TOURNAMENT & MATCH TYPE FILTERS
+        # TOURNAMENT, MATCH TYPE & GENDER FILTERS
         # =======================================================================
         self.TOURNAMENT = os.environ.get("TOURNAMENT", "IPL")
         self.MATCH_TYPE = os.environ.get("MATCH_TYPE", "T20")
         self.SEASON = os.environ.get("SEASON", "ALL")
+        self.GENDER = os.environ.get("GENDER", "ALL")  # Men, Women, ALL
 
         # =======================================================================
         # TEAM FILTERS
@@ -444,27 +863,95 @@ class Config:
     # HELPER METHODS
     # =======================================================================
 
-    def get_teams(self, tournament: Optional[str] = None) -> List[str]:
+    def get_teams(
+        self,
+        tournament: Optional[str] = None,
+        gender: Optional[str] = None,
+    ) -> List[str]:
         """
-        Get list of teams for the specified tournament.
+        Get list of teams for the specified tournament and gender.
 
         Args:
             tournament: Tournament name (default: current TOURNAMENT setting)
+            gender: Gender filter - Men, Women, ALL (default: current GENDER setting)
 
         Returns:
             List of team names
         """
         tourney = tournament or self.TOURNAMENT
+        gender_filter = gender or self.GENDER
 
         if self.TEAMS != "ALL":
             return [t for t in self.TEAMS if t not in self.EXCLUDE_TEAMS]
 
-        teams = [
-            name
-            for name, info in self.TEAM_REGISTRY.items()
-            if tourney == "ALL" or info.get("tournament") == tourney
-        ]
+        teams = []
+        for name, info in self.TEAM_REGISTRY.items():
+            # Tournament filter
+            if tourney != "ALL" and info.get("tournament") != tourney:
+                continue
+
+            # Gender filter
+            team_gender = info.get("gender", "ALL")
+            if gender_filter != "ALL" and team_gender != "ALL":
+                if team_gender != gender_filter:
+                    continue
+
+            teams.append(name)
+
         return [t for t in teams if t not in self.EXCLUDE_TEAMS]
+
+    def get_tournaments(
+        self,
+        gender: Optional[str] = None,
+        format_type: Optional[str] = None,
+    ) -> List[str]:
+        """
+        Get list of tournaments filtered by gender and format.
+
+        Args:
+            gender: Gender filter - Men, Women, ALL (default: current GENDER setting)
+            format_type: Format filter - T20, ODI, Test, 100-ball, ALL (default: current MATCH_TYPE)
+
+        Returns:
+            List of tournament names
+        """
+        gender_filter = gender or self.GENDER
+        format_filter = format_type or self.MATCH_TYPE
+
+        tournaments = []
+        for name, info in self.TOURNAMENT_REGISTRY.items():
+            # Gender filter
+            tourney_gender = info.get("gender", "ALL")
+            if gender_filter != "ALL" and tourney_gender != "ALL":
+                if tourney_gender != gender_filter:
+                    continue
+
+            # Format filter
+            if format_filter != "ALL":
+                tourney_format = info.get("format", "")
+                # Handle multi-format tournaments like "ODI/T20"
+                if format_filter not in tourney_format:
+                    continue
+
+            tournaments.append(name)
+
+        return tournaments
+
+    def get_tournament_info(self, tournament_name: str) -> Optional[Dict[str, Any]]:
+        """Get tournament metadata by name."""
+        return self.TOURNAMENT_REGISTRY.get(tournament_name)
+
+    def is_womens_tournament(self, tournament_name: str) -> bool:
+        """Check if a tournament is a women's tournament."""
+        info = self.get_tournament_info(tournament_name)
+        return info.get("gender") == "Women" if info else False
+
+    def is_international_event(self, tournament_name: str) -> bool:
+        """Check if a tournament is an ICC/international event."""
+        info = self.get_tournament_info(tournament_name)
+        if not info:
+            return False
+        return info.get("country") in ["International", "Asia", "Various"]
 
     def get_team_info(self, team_name: str) -> Optional[Dict[str, Any]]:
         """Get team metadata by name or alias."""
@@ -548,6 +1035,7 @@ IPL_MIN_DATE = config.IPL_MIN_DATE
 IPL_MAX_DATE = config.IPL_MAX_DATE
 TOURNAMENT = config.TOURNAMENT
 MATCH_TYPE = config.MATCH_TYPE
+GENDER = config.GENDER
 SEASON = config.SEASON
 DB_PATH = config.DB_PATH
 OUTPUT_DIR = config.OUTPUT_DIR

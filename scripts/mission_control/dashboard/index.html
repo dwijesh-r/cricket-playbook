@@ -63,6 +63,11 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-primary);
@@ -2303,10 +2308,34 @@
             .board-header { flex-direction: column; align-items: flex-start; gap: 16px; }
             .roster-grid { grid-template-columns: 1fr; }
             .agent-card { padding: 20px; }
-            .nav-actions { gap: 6px; flex-wrap: nowrap; }
+            .nav-actions { gap: 6px; flex-wrap: wrap; }
             .nav-time { display: none; }
             .nav-actions .nav-btn[href="about.html"] { display: none; } /* About in mobile nav */
             .table-title { max-width: 220px; }
+        }
+
+        /* 600px Breakpoint - Mobile Nav Fix */
+        @media (max-width: 600px) {
+            .nav { padding: 0 12px; }
+            .nav-brand { gap: 6px; }
+            .nav-title { font-size: 14px; }
+            .nav-actions { gap: 4px; }
+            .nav-actions .nav-btn[href="sprints.html"],
+            .nav-actions .nav-btn[href*="the_lab"],
+            .nav-actions .nav-btn[href="about.html"] { display: none; }
+            /* Refresh button - icon only */
+            .nav-btn.refresh-btn {
+                padding: 8px;
+                font-size: 0;
+                min-width: 38px;
+                min-height: 38px;
+                justify-content: center;
+            }
+            .nav-btn.refresh-btn::before {
+                content: '🔄';
+                font-size: 16px;
+            }
+            .theme-toggle { width: 38px; height: 38px; }
         }
 
         /* 480px Breakpoint - Small Phones */
@@ -2325,11 +2354,9 @@
             .mobile-nav-tab { padding: 8px 14px; min-height: 44px; }
             .mobile-nav-icon { font-size: 18px; }
             .column { min-height: 180px; }
-            /* Nav actions - hide text links, keep icon buttons */
-            .nav-actions .nav-btn[href="sprints.html"],
-            .nav-actions .nav-btn[href*="the_lab"] { display: none; }
-            .nav-actions .nav-btn:not([href]) { padding: 6px 10px; font-size: 11px; }
             .theme-toggle { width: 34px; height: 34px; font-size: 14px; }
+            .nav-btn.refresh-btn { width: 34px; height: 34px; min-width: 34px; min-height: 34px; padding: 6px; }
+            .nav-btn.refresh-btn::before { font-size: 14px; }
             /* Agent Stats */
             .agent-stats { gap: 8px; }
             .agent-stat { padding: 10px 6px; }
@@ -2448,7 +2475,7 @@
             <a href="../../the_lab/dashboard/index.html" class="nav-btn">🔬 The Lab</a>
             <a href="about.html" class="nav-btn">About</a>
             <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" id="themeToggle">🌙</button>
-            <button class="nav-btn" onclick="loadData()">Refresh</button>
+            <button class="nav-btn refresh-btn" onclick="loadData()">Refresh</button>
         </div>
     </nav>
 
@@ -3313,14 +3340,14 @@
         };
 
         const columns = [
-            { id: 'IDEA', name: 'Idea', dot: 'dot-idea', collapsible: true },
-            { id: 'BACKLOG', name: 'Backlog', dot: 'dot-backlog' },
-            { id: 'READY', name: 'Ready', dot: 'dot-ready' },
-            { id: 'RUNNING', name: 'Running', dot: 'dot-running' },
-            { id: 'BLOCKED', name: 'Blocked', dot: 'dot-blocked' },
-            { id: 'REVIEW', name: 'Review', dot: 'dot-review', collapsible: true },
-            { id: 'VALIDATION', name: '🌹 Founder Review', dot: 'dot-founder', isFounder: true, collapsible: true },
-            { id: 'DONE', name: 'Done', dot: 'dot-done' }
+            { id: 'IDEA', name: 'Idea', dot: 'dot-idea', collapsible: true, defaultCollapsed: true },
+            { id: 'BACKLOG', name: 'Backlog', dot: 'dot-backlog', collapsible: true, defaultCollapsed: false },
+            { id: 'READY', name: 'Ready', dot: 'dot-ready', collapsible: true, defaultCollapsed: false },
+            { id: 'RUNNING', name: 'Running', dot: 'dot-running', collapsible: true, defaultCollapsed: false },
+            { id: 'BLOCKED', name: 'Blocked', dot: 'dot-blocked', collapsible: true, defaultCollapsed: false },
+            { id: 'REVIEW', name: 'Review', dot: 'dot-review', collapsible: true, defaultCollapsed: true },
+            { id: 'VALIDATION', name: '🌹 Founder Review', dot: 'dot-founder', isFounder: true, collapsible: true, defaultCollapsed: true },
+            { id: 'DONE', name: 'Done', dot: 'dot-done', collapsible: true, defaultCollapsed: true }
         ];
 
         const gates = [
@@ -3817,7 +3844,8 @@
 
             kanban.innerHTML = columns.map(col => {
                 const isCollapsible = col.collapsible && isMobile;
-                const collapsibleClass = isCollapsible ? 'collapsible collapsed' : '';
+                const isCollapsed = isCollapsible && col.defaultCollapsed;
+                const collapsibleClass = isCollapsible ? `collapsible${isCollapsed ? ' collapsed' : ''}` : '';
                 const toggleChevron = isCollapsible ? '<span class="column-toggle">▼</span>' : '';
                 const headerClick = isCollapsible ? `onclick="toggleColumn('${col.id}')"` : '';
 

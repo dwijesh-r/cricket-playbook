@@ -1139,9 +1139,35 @@
         .ticket.sport-cricket::before { content: '🏏'; }
         .ticket.sport-founder::before { content: '🌹'; }
 
+        /* Agent-specific border colors based on team colors */
+        /* 🏈 NFL */
+        .ticket.agent-tom-brady { border-left: 3px solid #002244; } /* Patriots Navy */
+        .ticket.agent-brock-purdy { border-left: 3px solid #aa0000; } /* 49ers Red */
+
+        /* 🏀 NBA */
+        .ticket.agent-stephen-curry { border-left: 3px solid #1d428a; } /* Warriors Blue */
+        .ticket.agent-lebron-james { border-left: 3px solid #552583; } /* Lakers Purple */
+        .ticket.agent-brad-stevens { border-left: 3px solid #007a33; } /* Celtics Green */
+        .ticket.agent-ime-udoka { border-left: 3px solid #007a33; } /* Celtics Green */
+
+        /* ⚽ Soccer */
+        .ticket.agent-kevin-de-bruyne { border-left: 3px solid #6cabdd; } /* Man City Sky Blue */
+        .ticket.agent-pep-guardiola { border-left: 3px solid #6cabdd; } /* Man City Sky Blue */
+        .ticket.agent-ngolo-kante { border-left: 3px solid #002654; } /* France Navy */
+        .ticket.agent-jose-mourinho { border-left: 3px solid #010e80; } /* Inter Milan Blue */
+        .ticket.agent-florentino-perez { border-left: 3px solid #febe10; } /* Real Madrid Gold */
+
+        /* 🏏 Cricket */
+        .ticket.agent-andy-flower { border-left: 3px solid #ec1c24; } /* RCB Red */
+        .ticket.agent-virat-kohli { border-left: 3px solid #ec1c24; } /* RCB Red */
+
+        /* 🌹 Founder */
+        .ticket.agent-founder { border-left: 3px solid #ff6b9d; } /* Rose Pink */
+
         /* RETRO ticket special styling - Pep Guardiola's retrospectives */
         .ticket.is-retro {
             border: 2px solid rgba(108, 171, 221, 0.4);
+            border-left: 3px solid #6cabdd;
             background: linear-gradient(135deg, rgba(108, 171, 221, 0.08) 0%, var(--bg-secondary) 100%);
         }
         .ticket.is-retro .ticket-id {
@@ -3140,6 +3166,25 @@
             'Founder': 'founder'
         };
 
+        // Agent to CSS class mapping for border colors
+        const agentClasses = {
+            'Tom Brady': 'agent-tom-brady',
+            'Brock Purdy': 'agent-brock-purdy',
+            'Stephen Curry': 'agent-stephen-curry',
+            'LeBron James': 'agent-lebron-james',
+            'Brad Stevens': 'agent-brad-stevens',
+            'Ime Udoka': 'agent-ime-udoka',
+            'Kevin de Bruyne': 'agent-kevin-de-bruyne',
+            "N'Golo Kanté": 'agent-ngolo-kante',
+            'Pep Guardiola': 'agent-pep-guardiola',
+            'Jose Mourinho': 'agent-jose-mourinho',
+            'Florentino Perez': 'agent-florentino-perez',
+            'Florentino Pérez': 'agent-florentino-perez',
+            'Andy Flower': 'agent-andy-flower',
+            'Virat Kohli': 'agent-virat-kohli',
+            'Founder': 'agent-founder'
+        };
+
         const columns = [
             { id: 'IDEA', name: 'Idea', dot: 'dot-idea' },
             { id: 'BACKLOG', name: 'Backlog', dot: 'dot-backlog' },
@@ -3649,8 +3694,11 @@
             const sport = agentSports[t.assignee] || 'cricket';
             const sportClass = `sport-${sport}`;
 
+            // Agent border color
+            const agentClass = agentClasses[t.assignee] || '';
+
             return `
-                <div class="ticket ${isFiltered ? 'filtered-out' : ''} ${retroClass} ${sportClass}" data-priority="${t.priority}" onclick="openModal('${t.id}')">
+                <div class="ticket ${isFiltered ? 'filtered-out' : ''} ${retroClass} ${sportClass} ${agentClass}" data-priority="${t.priority}" onclick="openModal('${t.id}')">
                     <div class="ticket-top">
                         <div class="agent-avatar" title="${t.assignee || 'Unassigned'}">${getAgentAvatarImg(t.assignee)}</div>
                         <div class="ticket-info">

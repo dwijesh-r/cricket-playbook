@@ -4,11 +4,12 @@ Scoreboard View for Mission Control.
 Displays agent performance metrics and sprint progress.
 """
 
-from typing import Optional
 from collections import defaultdict
-from scripts.mission_control.models.ticket import Ticket
-from scripts.mission_control.models.sprint import Sprint
+from typing import Optional
+
 from scripts.mission_control.models.epic import Epic
+from scripts.mission_control.models.sprint import Sprint
+from scripts.mission_control.models.ticket import Ticket
 
 
 class ScoreboardView:

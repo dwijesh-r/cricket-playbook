@@ -12,11 +12,12 @@ Approach:
 3. Output cluster assignments for review
 """
 
+from pathlib import Path
+
 import duckdb
 import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
-from pathlib import Path
 
 # Paths
 SCRIPT_DIR = Path(__file__).parent

@@ -12,9 +12,10 @@ Validates all output CSVs for logical impossibilities in T20 cricket:
 - No negative values for balls, runs, wickets
 """
 
-import pandas as pd
-from pathlib import Path
 import sys
+from pathlib import Path
+
+import pandas as pd
 
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_DIR = SCRIPT_DIR.parent

@@ -19,8 +19,8 @@ And generates:
 """
 
 import json
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 
 # Paths
 ROOT_DIR = Path(__file__).parent.parent.parent

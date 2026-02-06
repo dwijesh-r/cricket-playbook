@@ -15,8 +15,9 @@ New Views Created:
 - Squad integration views for IPL 2026
 """
 
-import duckdb
 from pathlib import Path
+
+import duckdb
 
 # Paths
 DATA_DIR = Path(__file__).parent.parent.parent / "data"

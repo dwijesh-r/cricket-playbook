@@ -20,10 +20,9 @@ Version: 1.0.0
 
 import logging
 import sys
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 from typing import Optional
-
 
 # Project paths
 SCRIPT_DIR = Path(__file__).parent

@@ -11,8 +11,9 @@ Follows Andy Flower's recommendations:
 - Strike rate always shown with balls faced context
 """
 
-import duckdb
 from pathlib import Path
+
+import duckdb
 
 # Paths
 DATA_DIR = Path(__file__).parent.parent / "data"

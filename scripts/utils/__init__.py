@@ -12,21 +12,20 @@ Modules:
 """
 
 from .constants import (
-    PROJECT_DIR,
     DATA_DIR,
-    OUTPUT_DIR,
     DB_PATH,
     IPL_TEAMS,
+    OUTPUT_DIR,
+    PROJECT_DIR,
     TEAM_ABBREV,
     is_overseas_player,
 )
-
 from .player_tags import (
     PLAYER_TAGS_PATH,
     TAG_CATEGORIES,
+    add_tags,
     load_player_tags,
     remove_tags_by_category,
-    add_tags,
     save_player_tags,
     update_player_tags,
 )

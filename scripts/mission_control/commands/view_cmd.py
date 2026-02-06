@@ -6,9 +6,9 @@ Provides commands for Kanban board, Scoreboard, and Agent Cockpit views.
 
 import argparse
 
+from scripts.mission_control.views.cockpit import CockpitView
 from scripts.mission_control.views.kanban import KanbanView
 from scripts.mission_control.views.scoreboard import ScoreboardView
-from scripts.mission_control.views.cockpit import CockpitView
 
 
 def add_view_subparser(subparsers: argparse._SubParsersAction) -> None:

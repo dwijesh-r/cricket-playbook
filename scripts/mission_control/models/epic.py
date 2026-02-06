@@ -12,7 +12,6 @@ from scripts.mission_control.storage.json_store import JsonStore
 from scripts.mission_control.utils.id_generator import IdGenerator
 from scripts.mission_control.utils.schema_validator import SchemaValidator
 
-
 # Valid EPIC statuses
 VALID_STATUSES = ["PLANNING", "ACTIVE", "COMPLETED", "ARCHIVED"]
 

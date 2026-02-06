@@ -10,9 +10,10 @@ Fixes data issues identified in Founder Review #2:
 3. Rasikh Salam Dar (RCB) - marked uncapped but has IPL history
 """
 
+from pathlib import Path
+
 import duckdb
 import pandas as pd
-from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_DIR = SCRIPT_DIR.parent

@@ -6,7 +6,7 @@ Provides commands for creating, listing, updating, and managing tickets.
 
 import argparse
 
-from scripts.mission_control.models.ticket import Ticket, VALID_STATES, VALID_PRIORITIES
+from scripts.mission_control.models.ticket import VALID_PRIORITIES, VALID_STATES, Ticket
 
 
 def add_ticket_subparser(subparsers: argparse._SubParsersAction) -> None:

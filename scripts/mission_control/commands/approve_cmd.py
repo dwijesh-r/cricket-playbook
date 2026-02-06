@@ -12,7 +12,7 @@ Implements the Task Integrity Loop gates:
 import argparse
 
 from scripts.mission_control.models.ticket import Ticket
-from scripts.mission_control.workflow.gates import GateValidator, GateError
+from scripts.mission_control.workflow.gates import GateError, GateValidator
 
 
 def add_approve_subparser(subparsers: argparse._SubParsersAction) -> None:

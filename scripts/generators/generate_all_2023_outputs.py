@@ -14,14 +14,14 @@ This script generates 2023+ filtered versions of:
 Data filter: match_date >= 2023-01-01
 """
 
+import json
+from pathlib import Path
 from typing import Any, Dict, Tuple
 
 import duckdb
 import pandas as pd
-import json
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
-from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_DIR = SCRIPT_DIR.parent.parent  # scripts/generators -> scripts -> project root

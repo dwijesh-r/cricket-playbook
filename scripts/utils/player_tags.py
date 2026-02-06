@@ -20,10 +20,9 @@ This module provides:
 
 import json
 from pathlib import Path
-from typing import Dict, List, Optional, Set, Any
+from typing import Any, Dict, List, Optional, Set
 
 from .constants import OUTPUT_DIR
-
 
 # Path to the player_tags.json file
 PLAYER_TAGS_PATH = OUTPUT_DIR / "tags" / "player_tags.json"

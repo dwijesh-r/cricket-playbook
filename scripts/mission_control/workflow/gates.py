@@ -9,11 +9,11 @@ Implements the five gates required for work completion:
 5. Founder Validation (Final approval)
 """
 
+import json
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Optional, Any
 from enum import Enum
-import json
+from typing import Any, Optional
 
 from scripts.mission_control import MISSION_CONTROL_ROOT
 

@@ -13,15 +13,15 @@ Output:
     - data/processed/schema.md (schema documentation)
 """
 
+import hashlib
+import json
+import sys
+import zipfile
+from collections import defaultdict
+from datetime import datetime
+from pathlib import Path
 from typing import Any, Dict, Tuple
 
-import json
-import hashlib
-import zipfile
-import sys
-from pathlib import Path
-from datetime import datetime
-from collections import defaultdict
 import duckdb
 import pandas as pd
 

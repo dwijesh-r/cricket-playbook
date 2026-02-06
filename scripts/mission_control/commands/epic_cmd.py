@@ -6,7 +6,7 @@ Provides commands for creating, listing, and managing EPICs.
 
 import argparse
 
-from scripts.mission_control.models.epic import Epic, VALID_STATUSES
+from scripts.mission_control.models.epic import VALID_STATUSES, Epic
 
 
 def add_epic_subparser(subparsers: argparse._SubParsersAction) -> None:

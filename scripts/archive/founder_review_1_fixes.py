@@ -13,8 +13,9 @@ Fixes:
 - Schema: Add is_ipl_uncapped flag and bowling_type_secondary column
 """
 
-import duckdb
 from pathlib import Path
+
+import duckdb
 
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_DIR = SCRIPT_DIR.parent

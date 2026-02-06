@@ -22,27 +22,27 @@ script_dir = Path(__file__).parent.parent.parent
 if str(script_dir) not in sys.path:
     sys.path.insert(0, str(script_dir))
 
-from scripts.mission_control import __version__, MISSION_CONTROL_ROOT
-from scripts.mission_control.commands.ticket_cmd import (
-    add_ticket_subparser,
-    ticket_group,
-)
-from scripts.mission_control.commands.epic_cmd import add_epic_subparser, epic_group
-from scripts.mission_control.commands.sprint_cmd import (
-    add_sprint_subparser,
-    sprint_group,
-)
+from scripts.mission_control import MISSION_CONTROL_ROOT, __version__
 from scripts.mission_control.commands.approve_cmd import (
     add_approve_subparser,
     approve_group,
 )
+from scripts.mission_control.commands.epic_cmd import add_epic_subparser, epic_group
+from scripts.mission_control.commands.llm_cmd import add_llm_subparser, llm_group
+from scripts.mission_control.commands.sprint_cmd import (
+    add_sprint_subparser,
+    sprint_group,
+)
+from scripts.mission_control.commands.ticket_cmd import (
+    add_ticket_subparser,
+    ticket_group,
+)
 from scripts.mission_control.commands.view_cmd import (
     add_view_subparser,
     view_board,
-    view_score,
     view_cockpit,
+    view_score,
 )
-from scripts.mission_control.commands.llm_cmd import add_llm_subparser, llm_group
 
 
 def ensure_directories():
@@ -112,9 +112,9 @@ For more information, see: governance/MISSION_CONTROL_DESIGN_020426_v1.md
 
 def cmd_status(args: argparse.Namespace) -> int:
     """Show Mission Control status."""
-    from scripts.mission_control.models.ticket import Ticket
     from scripts.mission_control.models.epic import Epic
     from scripts.mission_control.models.sprint import Sprint
+    from scripts.mission_control.models.ticket import Ticket
 
     print(f"\n🚀 Mission Control v{__version__}")
     print(f"{'─' * 40}")

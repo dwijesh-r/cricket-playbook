@@ -5,12 +5,12 @@ Manages LLM usage approval and budget tracking for tickets and sprints.
 """
 
 import argparse
+import json
 from datetime import datetime
 
-from scripts.mission_control.models.ticket import Ticket
-from scripts.mission_control.models.sprint import Sprint
 from scripts.mission_control import MISSION_CONTROL_ROOT
-import json
+from scripts.mission_control.models.sprint import Sprint
+from scripts.mission_control.models.ticket import Ticket
 
 
 def add_llm_subparser(subparsers: argparse._SubParsersAction) -> None:

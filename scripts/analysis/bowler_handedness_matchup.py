@@ -26,17 +26,19 @@ Performance Note (TKT-099):
 - This pattern is already optimized for the LHB/RHB join operation
 """
 
+import sys
+from pathlib import Path
+
 import duckdb
 import pandas as pd
-from pathlib import Path
-import sys
 
 # Add parent directory to path for imports
 SCRIPT_DIR = Path(__file__).parent
 sys.path.insert(0, str(SCRIPT_DIR.parent))
 
-from utils.player_tags import update_player_tags
 from utils.logging_config import setup_logger
+from utils.player_tags import update_player_tags
+
 from config import config
 
 # Initialize logger

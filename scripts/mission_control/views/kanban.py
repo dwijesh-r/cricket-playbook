@@ -5,8 +5,9 @@ Displays tickets organized by workflow state in a board format.
 """
 
 from typing import Optional
-from scripts.mission_control.models.ticket import Ticket, VALID_STATES
+
 from scripts.mission_control.models.sprint import Sprint
+from scripts.mission_control.models.ticket import VALID_STATES, Ticket
 
 
 class KanbanView:

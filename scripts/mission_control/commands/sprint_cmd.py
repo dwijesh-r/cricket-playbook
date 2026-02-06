@@ -6,7 +6,7 @@ Provides commands for creating, listing, and managing sprints.
 
 import argparse
 
-from scripts.mission_control.models.sprint import Sprint, VALID_STATUSES
+from scripts.mission_control.models.sprint import VALID_STATUSES, Sprint
 
 
 def add_sprint_subparser(subparsers: argparse._SubParsersAction) -> None:

@@ -13,10 +13,10 @@ Validates:
 Usage: python scripts/validate_schema.py
 """
 
-from typing import Tuple
-
 import sys
 from pathlib import Path
+from typing import Tuple
+
 import duckdb
 
 # Paths

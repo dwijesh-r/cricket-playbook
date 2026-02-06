@@ -4,8 +4,9 @@ Cockpit View for Mission Control.
 Displays agent-centric view of current assignments and workload.
 """
 
-from typing import Optional
 from collections import defaultdict
+from typing import Optional
+
 from scripts.mission_control.models.ticket import Ticket
 from scripts.mission_control.workflow.state_machine import StateMachine
 

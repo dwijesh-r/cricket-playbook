@@ -13,12 +13,12 @@ Implements:
 - S3.0-14: Bowler Phase Distribution Tables (grouped by phase)
 """
 
+import json
+from pathlib import Path
 from typing import Dict
 
 import duckdb
 import pandas as pd
-import json
-from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_DIR = SCRIPT_DIR.parent

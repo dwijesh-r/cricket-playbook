@@ -15,11 +15,11 @@ Performance Optimization (TKT-099):
 - Bowler handedness uses set_index + .loc for O(1) lookups
 """
 
+from pathlib import Path
 from typing import Tuple
 
 import duckdb
 import pandas as pd
-from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_DIR = SCRIPT_DIR.parent.parent  # scripts/generators -> scripts -> project root

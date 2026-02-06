@@ -12,7 +12,6 @@ from scripts.mission_control.storage.json_store import JsonStore
 from scripts.mission_control.utils.id_generator import IdGenerator
 from scripts.mission_control.utils.schema_validator import SchemaValidator
 
-
 # Valid workflow states
 VALID_STATES = [
     "IDEA",
@@ -240,8 +239,8 @@ class Ticket:
             raise ValueError(f"Invalid state: {new_state}")
 
         if validate_gates:
-            from scripts.mission_control.workflow.state_machine import StateMachine
             from scripts.mission_control.workflow.hooks import HookRegistry
+            from scripts.mission_control.workflow.state_machine import StateMachine
 
             sm = StateMachine()
 

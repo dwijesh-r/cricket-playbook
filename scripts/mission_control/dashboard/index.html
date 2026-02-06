@@ -3162,12 +3162,12 @@
             { id: 'TKT-082', title: 'Refactor generate_stat_packs.py', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 45, tags: ['Refactor', 'Code Quality'], gates: { florentino_gate: 'APPROVED' } },
             { id: 'TKT-083', title: 'Add logging to all scripts', state: 'REVIEW', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 95, tags: ['Logging', 'Quality'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' } },
             { id: 'TKT-084', title: 'Create script documentation', state: 'REVIEW', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 95, tags: ['Documentation'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' } },
-            { id: 'TKT-085', title: 'Founder approval of script quality', state: 'VALIDATION', priority: 'P2', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-010', progress: 95, tags: ['Approval', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' }, output: 'docs/script_validation_schema.md',
+            { id: 'TKT-085', title: 'Founder approval of script quality', state: 'VALIDATION', priority: 'P2', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-010', progress: 98, tags: ['Approval', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' }, output: 'docs/script_validation_schema.md', review: 'docs/validation_run_report.md',
               context: {
-                ask: 'Review and approve the Script Quality Validation Schema',
+                ask: 'Review and approve the Script Quality Validation Schema + Validation Run Report',
                 goal: 'Establish industry-standard validation gates for all Python scripts',
-                reason: 'Need formal approval of 5-point validation system: Linting, Type Safety, Formatting, Security, Testing',
-                audible: 'Schema includes Ruff, mypy, Bandit, pytest with coverage thresholds'
+                reason: 'All 5 gates PASSED: Linting ✅, Type Safety ✅, Formatting ✅, Security ✅, Testing ✅ (90 tests)',
+                audible: 'Validation run completed by Ime Udoka - see validation_run_report.md for details'
               }
             },
 

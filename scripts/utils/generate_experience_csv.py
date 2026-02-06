@@ -10,8 +10,9 @@ Generates a CSV with all IPL 2026 squad players and their historical IPL statist
 Players marked as uncapped will have zeroed stats.
 """
 
-import duckdb
 from pathlib import Path
+
+import duckdb
 
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_DIR = SCRIPT_DIR.parent

@@ -4016,28 +4016,29 @@
               }
             },
 
-            // IPL 2026 Data Verification (TKT-107) - RE-AUDIT NEEDED
-            { id: 'TKT-107', title: 'Verify all IPL 2026 players visible in The Lab', state: 'RUNNING', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-011', progress: 50, tags: ['Data', 'QA', 'Critical', 'IPL 2026', '🔄 RE-AUDIT'], gates: { florentino_gate: 'APPROVED' },
+            // IPL 2026 Data Verification (TKT-107) - FOUNDER REVIEW
+            { id: 'TKT-107', title: 'Verify all IPL 2026 players visible in The Lab', state: 'VALIDATION', priority: 'P0', effort: 'deep-work', assignee: 'Founder', epic: 'EPIC-011', progress: 95, tags: ['Data', 'QA', 'Critical', 'IPL 2026'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
               context: {
-                ask: 'Audit and verify that ALL IPL 2026 squad players are visible in The Lab Teams section',
+                ask: 'Founder to review squads and identify any missing IPL 2026 players',
                 goal: '100% player coverage for all 10 IPL teams - zero missing players',
                 reason: 'IPL 2026 readiness requires complete, accurate squad data - this must be airtight',
                 audible: [
-                  '✅ Cross-reference The Lab with official IPL 2026 POST-AUCTION squads',
-                  '✅ Check each team: CSK, MI, RCB, KKR, DC, PBKS, RR, SRH, GT, LSG',
-                  '⚠️ CORRECTION: Russell/Maxwell/Faf OPTED OUT of IPL 2026 - not missing!',
-                  '🔄 RE-AUDIT: Must use ESPNcricinfo post-auction data as source of truth',
-                  '⏳ Verify actual 2026 rosters, not historical assumptions'
+                  '✅ Initial audit completed by Andy Flower + José Mourinho',
+                  '✅ Confirmed: Russell/Maxwell/Faf correctly absent (opted out of IPL 2026)',
+                  '✅ Key auction buys present: Cameron Green, Pathirana, Livingstone, etc.',
+                  '⚠️ Potential gaps: Jason Holder, Tom Banton, Luke Wood (GT), Mustafizur (KKR)',
+                  '👤 FOUNDER: Please review squads and provide list of missing players'
                 ]
               },
-              reviewers: ['Andy Flower', 'José Mourinho'],
+              reviewers: ['Andy Flower', 'José Mourinho', 'Founder'],
               auditResults: {
                 totalPlayers: 231,
                 teamsPresent: 10,
-                missingStars: [],
+                confirmedPresent: ['Cameron Green', 'Matheesha Pathirana', 'Liam Livingstone', 'Ben Duckett', 'Ravi Bishnoi'],
+                confirmedAbsent: ['Andre Russell (retired)', 'Glenn Maxwell (opted out)', 'Faf du Plessis (PSL)'],
+                potentiallyMissing: ['Jason Holder (GT)', 'Tom Banton (GT)', 'Luke Wood (GT)', 'Mustafizur Rahman (KKR)'],
                 placeholderAges: 118,
-                missingTags: '70% batterTags, 63% bowlerTags',
-                note: 'Russell (retired as player→Power Coach), Maxwell (opted out), Faf (playing PSL) are NOT in IPL 2026'
+                note: 'Awaiting Founder review to confirm missing players before adding'
               }
             },
 

@@ -4010,53 +4010,6 @@ const FULL_SQUADS = {
       "isCaptain": false,
       "price": 0.5,
       "acquisition": "Auction"
-    },
-    {
-      "name": "Glenn Maxwell",
-      "playerId": "gmaxwell1",
-      "nationality": "AUS",
-      "age": 37,
-      "role": "All-rounder",
-      "bowlingArm": "Right-arm",
-      "bowlingType": "Off-spin",
-      "battingHand": "Right-hand",
-      "batterClass": "Power Finisher",
-      "bowlerClass": "Middle-Overs Spinner",
-      "batterTags": [
-        "MIDDLE_OVERS_ACCELERATOR",
-        "SIX_HITTER",
-        "SPIN_SPECIALIST",
-        "X_FACTOR"
-      ],
-      "bowlerTags": [
-        "PART_TIMER",
-        "MIDDLE_OVERS_CONTROLLER"
-      ],
-      "isCaptain": false,
-      "price": 14.25,
-      "acquisition": "Retained"
-    },
-    {
-      "name": "Faf du Plessis",
-      "playerId": "fduplessis1",
-      "nationality": "SA",
-      "age": 41,
-      "role": "Batter",
-      "bowlingArm": "Right-arm",
-      "bowlingType": "Leg-spin",
-      "battingHand": "Right-hand",
-      "batterClass": "Elite Top-Order",
-      "bowlerClass": "-",
-      "batterTags": [
-        "EXPLOSIVE_OPENER",
-        "PP_DOMINATOR",
-        "ANCHOR",
-        "CONSISTENT"
-      ],
-      "bowlerTags": [],
-      "isCaptain": false,
-      "price": 7.0,
-      "acquisition": "Retained"
     }
   ],
   "KKR": [
@@ -4507,33 +4460,6 @@ const FULL_SQUADS = {
       "isCaptain": false,
       "price": 0.3,
       "acquisition": "Auction"
-    },
-    {
-      "name": "Andre Russell",
-      "playerId": "arussell1",
-      "nationality": "WI",
-      "age": 37,
-      "role": "All-rounder",
-      "bowlingArm": "Right-arm",
-      "bowlingType": "Fast",
-      "battingHand": "Right-hand",
-      "batterClass": "Power Finisher",
-      "bowlerClass": "Death-Overs Specialist",
-      "batterTags": [
-        "FINISHER",
-        "DEATH_SPECIALIST",
-        "SIX_HITTER",
-        "PACE_SPECIALIST",
-        "X_FACTOR"
-      ],
-      "bowlerTags": [
-        "DEATH_SPECIALIST",
-        "PRESSURE_BUILDER",
-        "PROVEN_WICKET_TAKER"
-      ],
-      "isCaptain": false,
-      "price": 12.0,
-      "acquisition": "Retained"
     }
   ]
 };

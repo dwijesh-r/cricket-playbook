@@ -4016,47 +4016,46 @@
               }
             },
 
-            // IPL 2026 Data Verification (TKT-107) - UNBLOCKED
-            { id: 'TKT-107', title: 'Verify all IPL 2026 players visible in The Lab', state: 'REVIEW', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-011', progress: 90, tags: ['Data', 'QA', 'Critical', 'IPL 2026'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES' },
+            // IPL 2026 Data Verification (TKT-107) - RE-AUDIT NEEDED
+            { id: 'TKT-107', title: 'Verify all IPL 2026 players visible in The Lab', state: 'RUNNING', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-011', progress: 50, tags: ['Data', 'QA', 'Critical', 'IPL 2026', '🔄 RE-AUDIT'], gates: { florentino_gate: 'APPROVED' },
               context: {
                 ask: 'Audit and verify that ALL IPL 2026 squad players are visible in The Lab Teams section',
                 goal: '100% player coverage for all 10 IPL teams - zero missing players',
                 reason: 'IPL 2026 readiness requires complete, accurate squad data - this must be airtight',
                 audible: [
-                  '✅ Cross-reference The Lab with official IPL 2026 auction squads',
+                  '✅ Cross-reference The Lab with official IPL 2026 POST-AUCTION squads',
                   '✅ Check each team: CSK, MI, RCB, KKR, DC, PBKS, RR, SRH, GT, LSG',
-                  '✅ José Mourinho strategic review completed',
-                  '✅ TKT-108 RESOLVED: Added Andre Russell, Glenn Maxwell, Faf du Plessis',
-                  '⏳ Awaiting System Check and Founder Validation'
+                  '⚠️ CORRECTION: Russell/Maxwell/Faf OPTED OUT of IPL 2026 - not missing!',
+                  '🔄 RE-AUDIT: Must use ESPNcricinfo post-auction data as source of truth',
+                  '⏳ Verify actual 2026 rosters, not historical assumptions'
                 ]
               },
               reviewers: ['Andy Flower', 'José Mourinho'],
               auditResults: {
-                totalPlayers: 234,
+                totalPlayers: 231,
                 teamsPresent: 10,
                 missingStars: [],
                 placeholderAges: 118,
                 missingTags: '70% batterTags, 63% bowlerTags',
-                resolution: 'TKT-108 added 3 missing star players on Feb 6, 2026'
+                note: 'Russell (retired as player→Power Coach), Maxwell (opted out), Faf (playing PSL) are NOT in IPL 2026'
               }
             },
 
-            // TKT-108: Fix missing star players - COMPLETED
-            { id: 'TKT-108', title: 'Add missing star players to IPL 2026 squads', state: 'REVIEW', priority: 'P0', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-011', progress: 100, tags: ['Data', 'Critical', 'IPL 2026'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PENDING' },
+            // TKT-108: CANCELLED - Players opted out of IPL 2026
+            { id: 'TKT-108', title: 'Add missing star players to IPL 2026 squads', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-011', progress: 100, tags: ['Data', 'CANCELLED'], gates: { florentino_gate: 'APPROVED' },
               context: {
-                ask: 'Add missing star players to The Lab squad data',
-                goal: 'Add Andre Russell, Glenn Maxwell, Faf du Plessis with complete data',
-                reason: 'TKT-107 BLOCKED - these marquee players are critical for IPL 2026 analysis',
+                ask: 'CANCELLED - Players not in IPL 2026',
+                goal: 'N/A - Players opted out of tournament',
+                reason: 'Initial audit incorrectly flagged as "missing" - verified they opted out',
                 audible: [
-                  '✅ Added Andre Russell to KKR in full_squads.js',
-                  '✅ Added Glenn Maxwell to RCB in full_squads.js',
-                  '✅ Added Faf du Plessis to RCB in full_squads.js',
-                  '✅ Complete data: price, role, batting_hand, bowling_style, age, nationality, tags',
-                  '✅ TKT-107 UNBLOCKED'
+                  '❌ CANCELLED: Andre Russell RETIRED from IPL (now KKR Power Coach)',
+                  '❌ CANCELLED: Glenn Maxwell OPTED OUT (injury/workload)',
+                  '❌ CANCELLED: Faf du Plessis STEPPED AWAY (playing PSL instead)',
+                  '📚 Source: ESPNcricinfo IPL 2026 auction coverage',
+                  '✅ Squad data was CORRECT - no changes needed'
                 ]
               },
-              unblocked: 'TKT-107',
-              output: 'scripts/the_lab/dashboard/data/full_squads.js'
+              resolution: 'CANCELLED - Not a valid issue. Players correctly absent from IPL 2026 squads.'
             },
 
             // TKT-109: Fix placeholder ages (P1 from TKT-107 audit)

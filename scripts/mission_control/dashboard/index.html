@@ -3364,8 +3364,8 @@
 
             // Phase 7: Script Quality (TKT-082 to TKT-085)
             { id: 'TKT-082', title: 'Refactor generate_stat_packs.py', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Refactor', 'Code Quality', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'scripts/generators/generate_stat_packs.py' },
-            { id: 'TKT-083', title: 'Add logging to all scripts', state: 'VALIDATION', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Logging', 'Quality', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' }, output: 'scripts/utils/logging_config.py' },
-            { id: 'TKT-084', title: 'Create script documentation', state: 'VALIDATION', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Documentation', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' }, output: 'scripts/README.md' },
+            { id: 'TKT-083', title: 'Add logging to all scripts', state: 'DONE', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Logging', 'Quality', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'scripts/utils/logging_config.py' },
+            { id: 'TKT-084', title: 'Create script documentation', state: 'DONE', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Documentation', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'scripts/README.md' },
             { id: 'TKT-085', title: 'Founder approval of script quality', state: 'DONE', priority: 'P2', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-010', progress: 100, tags: ['Approval', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'docs/script_validation_schema.md', review: 'docs/validation_run_report.md',
               context: {
                 ask: 'Review and approve the Script Quality Validation Schema + Validation Run Report',
@@ -3405,7 +3405,7 @@
                 audible: 'Created constants.py, player_tags.py, config.py; added type hints; optimized DataFrames'
               }
             },
-            { id: 'TKT-097', title: 'Consolidate player_tags.json update logic', state: 'VALIDATION', priority: 'P1', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-010', progress: 100, tags: ['Refactor', 'Data', 'Code Quality', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' }, output: 'scripts/utils/player_tags.py',
+            { id: 'TKT-097', title: 'Consolidate player_tags.json update logic', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-010', progress: 100, tags: ['Refactor', 'Data', 'Code Quality', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'scripts/utils/player_tags.py',
               context: {
                 ask: 'Extract repeated update_player_tags_json() function into shared utility module',
                 goal: 'Single source of truth for player tags updates across batter_bowling_type_matchup.py, bowler_handedness_matchup.py, bowler_phase_tags.py',
@@ -3413,7 +3413,7 @@
                 audible: 'Create utils/player_tags.py with load/update/save functions'
               }
             },
-            { id: 'TKT-098', title: 'Add type hints throughout codebase', state: 'VALIDATION', priority: 'P2', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Code Quality', 'Type Safety', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' },
+            { id: 'TKT-098', title: 'Add type hints throughout codebase', state: 'DONE', priority: 'P2', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Code Quality', 'Type Safety', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Add Python type hints to all function signatures and key variables',
                 goal: 'Improve IDE autocompletion, catch type errors before runtime, enhance documentation',
@@ -3421,7 +3421,7 @@
                 audible: 'Start with most-used files: generators/, then core/, then analysis/'
               }
             },
-            { id: 'TKT-099', title: 'Optimize DataFrame operations', state: 'VALIDATION', priority: 'P2', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-010', progress: 100, tags: ['Performance', 'Analytics', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' },
+            { id: 'TKT-099', title: 'Optimize DataFrame operations', state: 'DONE', priority: 'P2', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-010', progress: 100, tags: ['Performance', 'Analytics', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Replace iterative DataFrame filtering with groupby operations',
                 goal: 'Reduce O(n*m) complexity to O(n) in batter_bowling_type_matchup.py, bowler_handedness_matchup.py, generate_2023_outputs.py',
@@ -3429,15 +3429,15 @@
                 audible: 'Benchmark before/after to quantify improvement'
               }
             },
-            { id: 'TKT-100', title: 'Externalize configuration', state: 'VALIDATION', priority: 'P3', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Config', 'Ops', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' }, output: 'scripts/config.py',
+            { id: 'TKT-100', title: 'Externalize configuration', state: 'RUNNING', priority: 'P3', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 80, tags: ['Config', 'Ops', '🔄 In Progress'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' }, output: 'scripts/config.py',
               context: {
                 ask: 'Move hardcoded values to config file or environment variables',
                 goal: 'Enable runtime configuration of IPL_MIN_DATE, thresholds, file paths without code changes',
                 reason: 'Date filters require code changes each season',
-                audible: 'Use .env file or config.yaml - keep constants.py as defaults'
+                audible: 'Founder feedback: Also add TOURNAMENT and MATCH_TYPE as configurable parameters'
               }
             },
-            { id: 'TKT-101', title: 'Standardize logging across scripts', state: 'VALIDATION', priority: 'P3', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Logging', 'Code Quality', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' },
+            { id: 'TKT-101', title: 'Standardize logging across scripts', state: 'DONE', priority: 'P3', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Logging', 'Code Quality', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Replace all print() statements with proper logging using utils/logging_config.py',
                 goal: 'Consistent log format, configurable log levels, file output option',
@@ -3445,7 +3445,7 @@
                 audible: 'Related to TKT-083 - extends logging adoption'
               }
             },
-            { id: 'TKT-102', title: 'Break up long functions', state: 'VALIDATION', priority: 'P3', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Refactor', 'Maintainability', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' },
+            { id: 'TKT-102', title: 'Break up long functions', state: 'DONE', priority: 'P3', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Refactor', 'Maintainability', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Refactor functions >100 lines into smaller, focused helper functions',
                 goal: 'Improve readability, testability, and maintainability',
@@ -3461,6 +3461,14 @@
                 goal: 'Receive email alerts when commits are pushed to the repository',
                 reason: 'Workflow .github/workflows/notify-on-push.yml is ready but needs 3 secrets configured',
                 audible: 'Go to Settings → Secrets → Actions and add: EMAIL_USERNAME, EMAIL_APP_PASSWORD, NOTIFY_EMAIL'
+              }
+            },
+            { id: 'TKT-105', title: 'Add Review SLA Dashboard Widget', state: 'READY', priority: 'P2', effort: 'quick-win', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 0, tags: ['Ops', 'Dashboard', 'Process'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Add Review Age indicator to Mission Control tickets in REVIEW state',
+                goal: 'Prevent tickets from languishing in REVIEW by showing how long they have been waiting',
+                reason: 'RETRO-001 identified that tickets sat in REVIEW without proactive domain sanity reviews',
+                audible: 'Track entered_review_date, display age badge (Green <1d, Yellow 1-2d, Red >2d), add Stale Reviews filter'
               }
             },
 

@@ -137,26 +137,29 @@ ls -la config/agents/
 ls outputs/
 ```
 
-### Step 4: Context Re-Establishment
-After switching, provide this briefing to the new model:
+### Step 4: Context Re-Establishment (Automated)
+
+Simply ask the new model to read the onboarding file:
 
 ```
-I'm working on Cricket Playbook - an IPL 2026 pre-season analytics platform.
-
-Key context:
-- Current sprint: Sprint 4 (Jan 31 - Feb 14, 2026)
-- Main dashboards: The Lab (analytics), The Boardroom (project management)
-- 14 AI agents with sports personas (Tom Brady = Product Owner, etc.)
-- Task Integrity Loop: 8-step process for ticket completion
-- All work requires Founder (🌹) approval
-
-Please read:
-1. docs/prd_v2.md - Product requirements
-2. docs/constitution.md - Project governance
-3. config/agents/ - Agent configurations
-
-Current work: [describe current tasks]
+Please read ONBOARDING.md to understand the current project state.
 ```
+
+The **ONBOARDING.md** file (at project root) contains:
+- Current sprint and status
+- Active/blocked/validation tickets
+- Agent roster with roles
+- Key documents to read
+- How to continue work
+
+**Alternative (Quick Start):**
+```
+Read ONBOARDING.md and CLAUDE.md, then tell me what you understand about this project.
+```
+
+**Context Files Location:** `docs/context/README.md` has a complete reading list.
+
+> **Note:** Update ONBOARDING.md at the end of each session to keep context fresh.
 
 ---
 

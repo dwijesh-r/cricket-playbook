@@ -4016,6 +4016,23 @@
               }
             },
 
+            // IPL 2026 Data Verification (TKT-107)
+            { id: 'TKT-107', title: 'Verify all IPL 2026 players visible in The Lab', state: 'READY', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-011', progress: 0, tags: ['Data', 'QA', 'Critical', 'IPL 2026'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Audit and verify that ALL IPL 2026 squad players are visible in The Lab Teams section',
+                goal: '100% player coverage for all 10 IPL teams - zero missing players',
+                reason: 'IPL 2026 readiness requires complete, accurate squad data - this must be airtight',
+                audible: [
+                  'Cross-reference The Lab with official IPL 2026 auction squads',
+                  'Check each team: CSK, MI, RCB, KKR, DC, PBKS, RR, SRH, GT, LSG',
+                  'Verify player names, photos, roles match official data',
+                  'Flag any missing/incorrect players',
+                  'José Mourinho to validate strategic completeness'
+                ]
+              },
+              reviewers: ['Andy Flower', 'José Mourinho']
+            },
+
             // Sprint 5.0+ Ideas (IDEA-XXX notation for unscoped work)
             { id: 'IDEA-001', title: 'Implement Match Phase Index', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 0, tags: ['Feature', 'Analytics'], gates: {},
               context: { ask: 'Create composite index measuring player impact by match phase', goal: 'Single metric combining PP/Middle/Death performance', reason: 'Simplify phase analysis into actionable score', audible: ['Define index formula', 'Weight phases', 'Validate with Andy Flower'] }

@@ -1,16 +1,24 @@
 # ML Ops Deployment Manifest
 
-**Maintainer:** Ime Udoka (ML Ops Engineer)
-**Last Updated:** 2026-01-21
+**Maintainer:** Ime Udoka (DevOps Lead)
+**Last Updated:** 2026-02-06
 **Coordinated with:** Andy Flower (Cricket Domain Validation)
 
 ---
 
-## Current Production Model
+## Model Registry Integration
 
-| Model | Version | Status | Script |
-|-------|---------|--------|--------|
-| Player Clustering | v2.0.0 | **ACTIVE** | `scripts/player_clustering_v2.py` |
+This manifest is linked to the centralized model registry at `ml_ops/model_registry.json`.
+
+For versioning policies and artifact management, see `ml_ops/MODEL_VERSIONING.md`.
+
+---
+
+## Current Production Models
+
+| Model | Version | Status | Registry ID | Script |
+|-------|---------|--------|-------------|--------|
+| Player Clustering | v2.0.0 | **ACTIVE** | `player_clustering` | `scripts/analysis/player_clustering_v2.py` |
 
 ---
 
@@ -28,7 +36,7 @@
 - [x] Recency weighting (2021-2025)
 - [x] Correlation cleanup (r > 0.9)
 
-### Quality Gates (N'Golo Kanté)
+### Quality Gates (N'Golo Kante)
 - [x] PCA variance > 50% - PASS (Batters: 83.6%, Bowlers: 63.8%)
 - [x] Minimum cluster size > 10 - PASS
 - [ ] Smoke tests for V2 - PENDING
@@ -43,6 +51,7 @@
 ### ML Ops (Ime Udoka)
 - [x] Model registry created
 - [x] Version tracking implemented
+- [x] Model versioning documentation created
 - [ ] Model serialization (.joblib)
 - [ ] Reproducibility tests
 - [ ] Monitoring dashboards
@@ -82,19 +91,65 @@
 | Data Quality | 4/5 | Sprint 2.4 fixes applied |
 | Validation | 3/5 | Andy Flower review pending |
 | Reproducibility | 4/5 | Random state fixed |
-| Documentation | 4/5 | Registry and manifest created |
-| **Overall** | **4.0/5** | Ready for Andy Flower review |
+| Documentation | 5/5 | Registry and versioning docs complete |
+| **Overall** | **4.2/5** | Ready for Andy Flower review |
+
+---
+
+## Deployment Environments
+
+| Environment | Description | Status |
+|-------------|-------------|--------|
+| **development** | Local development and testing | Available |
+| **staging** | Pre-production validation | Available |
+| **production** | Live model serving outputs | Active |
+
+---
+
+## Artifact Locations
+
+| Artifact | Path | Status |
+|----------|------|--------|
+| Model Registry | `ml_ops/model_registry.json` | Active |
+| Versioning Guide | `ml_ops/MODEL_VERSIONING.md` | Active |
+| Player Tags | `outputs/tags/player_tags.json` | Active |
+| Clustering CSV | `outputs/tags/player_clustering_2023.csv` | Active |
+| Training Script | `scripts/analysis/player_clustering_v2.py` | Active |
+| Archived V1 | `scripts/archive/player_clustering.py` | Archived |
+
+---
+
+## Version Transition Log
+
+| Date | From | To | Reason | Author |
+|------|------|-----|--------|--------|
+| 2026-01-21 | v1.0.0 | v2.0.0 | Feature improvements (position, wickets, recency) | Stephen Curry |
+| 2026-02-06 | - | Registry v2.0.0 | Enhanced versioning schema | Ime Udoka |
 
 ---
 
 ## Next Steps
 
 1. **Andy Flower Review** - Validate cluster labels
-2. **Serialize Models** - Save trained K-Means objects
+2. **Serialize Models** - Save trained K-Means objects to `.joblib`
 3. **Create Smoke Tests** - Verify model outputs
 4. **MS Dhoni / Nortje Review** - Specific player validation
+5. **Reproducibility Tests** - Verify random state consistency
 
 ---
 
-*Ime Udoka - ML Ops Engineer*
+## Rollback Procedure
+
+If production issues are detected:
+
+1. Identify the issue and affected version
+2. Revert `active_version` pointer in registry
+3. Regenerate outputs from previous version script
+4. Document incident in changelog
+5. Create hotfix version if needed
+
+---
+
+*Ime Udoka - DevOps Lead*
 *In coordination with Andy Flower (Cricket Domain)*
+*Cricket Playbook v4.0.0*

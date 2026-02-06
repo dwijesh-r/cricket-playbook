@@ -1,105 +1,314 @@
 {
-  "registry_version": "1.0.0",
-  "last_updated": "2026-01-21",
-  "maintainer": "Ime Udoka (ML Ops Engineer)",
+  "registry_meta": {
+    "schema_version": "2.0.0",
+    "registry_version": "2.0.0",
+    "last_updated": "2026-02-06",
+    "maintainer": "Ime Udoka (DevOps Lead)",
+    "project": "Cricket Playbook",
+    "repository": "cricket-playbook"
+  },
+
+  "versioning_policy": {
+    "semantic_versioning": true,
+    "version_format": "MAJOR.MINOR.PATCH",
+    "rules": {
+      "major": "Breaking changes to model interface, feature schema, or output format",
+      "minor": "New features, hyperparameter changes, or performance improvements",
+      "patch": "Bug fixes, documentation updates, or minor adjustments"
+    },
+    "deprecation_window_days": 30,
+    "retention_policy": {
+      "active_versions": 2,
+      "deprecated_versions": 3,
+      "archive_after_days": 90
+    }
+  },
 
   "models": {
-    "player_clustering_v1": {
-      "version": "1.0.0",
-      "status": "deprecated",
-      "created_date": "2026-01-20",
-      "script": "scripts/player_clustering.py",
-      "algorithm": "K-Means",
-      "features": {
-        "batters": ["overall_sr", "overall_avg", "overall_boundary", "overall_dot", "pp_sr", "pp_boundary", "pp_dot", "mid_sr", "mid_boundary", "mid_dot", "death_sr", "death_boundary", "death_dot"],
-        "bowlers": ["overall_economy", "overall_avg", "overall_sr", "overall_dot", "overall_boundary", "pp_economy", "pp_dot", "pp_boundary", "mid_economy", "mid_dot", "mid_boundary", "death_economy", "death_dot", "death_boundary", "pp_pct", "mid_pct", "death_pct"]
-      },
-      "hyperparameters": {
-        "n_clusters": 5,
-        "random_state": 42,
-        "n_init": 10
-      },
-      "sample_size_requirements": {
-        "batters_min_balls": 500,
-        "bowlers_min_balls": 300
-      },
-      "outputs": {
-        "batters_clustered": 129,
-        "bowlers_clustered": 206
-      },
-      "issues": [
-        "No batting position feature",
-        "No wickets per phase for bowlers",
-        "No recency weighting",
-        "No PCA variance reporting"
-      ]
-    },
+    "player_clustering": {
+      "model_id": "player_clustering",
+      "display_name": "Player Clustering Model",
+      "description": "K-Means clustering for player role classification based on performance metrics",
+      "domain": "player_analysis",
+      "owner": "Stephen Curry (Analytics Lead)",
+      "validator": "Andy Flower (Cricket Domain Expert)",
 
-    "player_clustering_v2": {
-      "version": "2.0.0",
-      "status": "active",
-      "created_date": "2026-01-21",
-      "script": "scripts/player_clustering_v2.py",
-      "algorithm": "K-Means",
-      "improvements": [
-        "Added avg_batting_position feature",
-        "Added wickets per phase for bowlers",
-        "Implemented recency weighting (2021-2025)",
-        "Added PCA variance analysis",
-        "Added correlation cleanup (r > 0.9)"
-      ],
-      "features": {
-        "batters": ["overall_sr", "overall_avg", "overall_boundary", "overall_dot", "avg_batting_position", "pp_sr", "mid_sr", "death_sr"],
-        "bowlers": ["overall_economy", "overall_sr", "overall_dot", "overall_boundary", "pp_economy", "pp_dot", "mid_economy", "mid_dot", "death_economy", "death_dot", "pp_pct", "mid_pct", "death_pct", "pp_wickets", "mid_wickets", "death_wickets"]
-      },
-      "features_removed_by_correlation": ["pp_boundary", "mid_boundary", "death_boundary"],
-      "hyperparameters": {
-        "n_clusters": 5,
-        "random_state": 42,
-        "n_init": 10
-      },
-      "sample_size_requirements": {
-        "batters_min_balls": 300,
-        "bowlers_min_balls": 200
-      },
-      "pca_variance": {
-        "batters": {
-          "components_for_50pct": 2,
-          "total_components": 8,
-          "variance_3pc": 0.836
+      "versions": {
+        "1.0.0": {
+          "version": "1.0.0",
+          "status": "deprecated",
+          "lifecycle_stage": "archived",
+          "created_date": "2026-01-20",
+          "deprecated_date": "2026-01-21",
+          "deprecated_reason": "Superseded by v2.0.0 with improved features",
+
+          "source": {
+            "script": "scripts/archive/player_clustering.py",
+            "commit_hash": null,
+            "branch": "main"
+          },
+
+          "algorithm": {
+            "type": "K-Means",
+            "library": "scikit-learn",
+            "library_version": "1.4.0"
+          },
+
+          "features": {
+            "batters": {
+              "count": 13,
+              "names": ["overall_sr", "overall_avg", "overall_boundary", "overall_dot", "pp_sr", "pp_boundary", "pp_dot", "mid_sr", "mid_boundary", "mid_dot", "death_sr", "death_boundary", "death_dot"]
+            },
+            "bowlers": {
+              "count": 17,
+              "names": ["overall_economy", "overall_avg", "overall_sr", "overall_dot", "overall_boundary", "pp_economy", "pp_dot", "pp_boundary", "mid_economy", "mid_dot", "mid_boundary", "death_economy", "death_dot", "death_boundary", "pp_pct", "mid_pct", "death_pct"]
+            }
+          },
+
+          "hyperparameters": {
+            "n_clusters": 5,
+            "random_state": 42,
+            "n_init": 10,
+            "max_iter": 300,
+            "algorithm": "lloyd"
+          },
+
+          "data_requirements": {
+            "batters_min_balls": 500,
+            "bowlers_min_balls": 300,
+            "data_source": "analytics_ipl_batting_career, analytics_ipl_bowling_career"
+          },
+
+          "outputs": {
+            "batters_clustered": 129,
+            "bowlers_clustered": 206,
+            "output_format": "CSV"
+          },
+
+          "known_issues": [
+            "No batting position feature",
+            "No wickets per phase for bowlers",
+            "No recency weighting",
+            "No PCA variance reporting"
+          ],
+
+          "artifacts": {
+            "model_file": null,
+            "scaler_file": null,
+            "output_files": ["outputs/tags/player_clustering_2023.csv"]
+          }
         },
-        "bowlers": {
-          "components_for_50pct": 2,
-          "total_components": 16,
-          "variance_3pc": 0.638
+
+        "2.0.0": {
+          "version": "2.0.0",
+          "status": "active",
+          "lifecycle_stage": "production",
+          "created_date": "2026-01-21",
+          "production_date": "2026-01-26",
+          "deprecated_date": null,
+
+          "source": {
+            "script": "scripts/analysis/player_clustering_v2.py",
+            "commit_hash": null,
+            "branch": "main"
+          },
+
+          "algorithm": {
+            "type": "K-Means",
+            "library": "scikit-learn",
+            "library_version": "1.4.0",
+            "preprocessing": ["StandardScaler", "PCA (optional)"]
+          },
+
+          "features": {
+            "batters": {
+              "count": 8,
+              "names": ["overall_sr", "overall_avg", "overall_boundary", "overall_dot", "avg_batting_position", "pp_sr", "mid_sr", "death_sr"],
+              "removed_by_correlation": ["pp_boundary", "mid_boundary", "death_boundary"]
+            },
+            "bowlers": {
+              "count": 16,
+              "names": ["overall_economy", "overall_sr", "overall_dot", "overall_boundary", "pp_economy", "pp_dot", "mid_economy", "mid_dot", "death_economy", "death_dot", "pp_pct", "mid_pct", "death_pct", "pp_wickets", "mid_wickets", "death_wickets"]
+            }
+          },
+
+          "hyperparameters": {
+            "n_clusters": 5,
+            "random_state": 42,
+            "n_init": 10,
+            "max_iter": 300,
+            "algorithm": "lloyd"
+          },
+
+          "data_requirements": {
+            "batters_min_balls": 300,
+            "bowlers_min_balls": 200,
+            "data_source": "analytics_ipl_batting_career, analytics_ipl_bowling_career",
+            "recency_weighting": "2021-2025 (last 5 years)"
+          },
+
+          "model_performance": {
+            "pca_variance": {
+              "batters": {
+                "components_for_50pct": 2,
+                "total_components": 8,
+                "variance_3pc": 0.836
+              },
+              "bowlers": {
+                "components_for_50pct": 2,
+                "total_components": 16,
+                "variance_3pc": 0.638
+              }
+            },
+            "silhouette_score": null,
+            "inertia": null
+          },
+
+          "outputs": {
+            "batters_clustered": 173,
+            "bowlers_clustered": 268,
+            "output_format": "JSON, CSV"
+          },
+
+          "cluster_labels": {
+            "batters": {
+              "0": "CLASSIC_OPENER",
+              "1": "ACCUMULATOR",
+              "2": "DEATH_FINISHER",
+              "3": "ELITE_EXPLOSIVE",
+              "4": "POWER_OPENER"
+            },
+            "bowlers": {
+              "0": "DEATH_SPECIALIST",
+              "1": "DEVELOPING",
+              "2": "SPIN_CONTROLLER",
+              "3": "NEW_BALL_PACER",
+              "4": "ALL_ROUNDER"
+            }
+          },
+
+          "improvements_from_previous": [
+            "Added avg_batting_position feature",
+            "Added wickets per phase for bowlers",
+            "Implemented recency weighting (2021-2025)",
+            "Added PCA variance analysis",
+            "Added correlation cleanup (r > 0.9)",
+            "Lowered sample size requirements for broader coverage"
+          ],
+
+          "validation": {
+            "andy_flower_review": {
+              "status": "pending",
+              "review_date": null,
+              "notes": "Cluster labels pending validation"
+            },
+            "founder_review": {
+              "batting_position_added": true,
+              "wickets_per_phase_added": true,
+              "recency_weighting_implemented": true,
+              "pca_50pct_target_met": true
+            },
+            "player_spot_checks": {
+              "JC_Buttler": {"cluster": 3, "label": "ELITE_EXPLOSIVE", "position": 2.1, "status": "CORRECT"},
+              "SA_Yadav": {"cluster": 3, "label": "ELITE_EXPLOSIVE", "position": 3.2, "status": "CORRECT"},
+              "RR_Pant": {"cluster": 3, "label": "ELITE_EXPLOSIVE", "status": "CORRECT"},
+              "MS_Dhoni": {"status": "PENDING_REVIEW"},
+              "A_Nortje": {"status": "PENDING_REVIEW"}
+            }
+          },
+
+          "artifacts": {
+            "model_file": null,
+            "scaler_file": null,
+            "output_files": [
+              "outputs/tags/player_tags.json",
+              "outputs/tags/player_tags_2023.json",
+              "outputs/tags/player_clustering_2023.csv",
+              "outputs/tags/bowler_role_tags.csv"
+            ]
+          },
+
+          "dependencies": {
+            "python": ">=3.10",
+            "packages": {
+              "scikit-learn": ">=1.4.0",
+              "pandas": ">=2.0.0",
+              "duckdb": ">=0.9.0",
+              "numpy": ">=1.24.0"
+            }
+          }
         }
       },
-      "outputs": {
-        "batters_clustered": 173,
-        "bowlers_clustered": 268
-      },
-      "validation": {
-        "founder_review_items": {
-          "batting_position_added": true,
-          "wickets_per_phase_added": true,
-          "recency_weighting_implemented": true,
-          "pca_50pct_target_met": true
-        },
-        "player_validations": {
-          "JC_Buttler": "Cluster 3 (Elite explosive, Pos 2.1) - CORRECT",
-          "SA_Yadav": "Cluster 3 (Elite explosive, Pos 3.2) - CORRECT",
-          "RR_Pant": "Cluster 3 (Elite explosive) - CORRECT",
-          "MS_Dhoni": "Pending Andy Flower review",
-          "A_Nortje": "Pending bowler cluster review"
-        }
-      }
+
+      "active_version": "2.0.0",
+      "latest_version": "2.0.0"
     }
   },
 
   "quality_gates": {
-    "pca_variance_target": 0.50,
+    "pca_variance_target": {
+      "batters": 0.70,
+      "bowlers": 0.50
+    },
     "correlation_threshold": 0.90,
     "min_players_per_cluster": 10,
-    "andy_flower_validation_required": true
-  }
+    "required_validations": [
+      "founder_review",
+      "andy_flower_validation"
+    ],
+    "test_requirements": {
+      "unit_tests": true,
+      "smoke_tests": true,
+      "integration_tests": true
+    }
+  },
+
+  "artifact_storage": {
+    "model_directory": "ml_ops/artifacts/",
+    "output_directory": "outputs/",
+    "naming_convention": "{model_id}_v{version}_{timestamp}.{ext}",
+    "supported_formats": ["joblib", "pickle", "json", "csv"]
+  },
+
+  "deployment_environments": {
+    "development": {
+      "description": "Local development and testing",
+      "auto_deploy": false
+    },
+    "staging": {
+      "description": "Pre-production validation",
+      "auto_deploy": false,
+      "requires_tests": true
+    },
+    "production": {
+      "description": "Live model serving outputs",
+      "auto_deploy": false,
+      "requires_approval": ["andy_flower_validation", "founder_signoff"]
+    }
+  },
+
+  "changelog": [
+    {
+      "date": "2026-02-06",
+      "version": "2.0.0",
+      "author": "Ime Udoka",
+      "changes": [
+        "Enhanced registry schema with comprehensive versioning",
+        "Added lifecycle stages and deployment environments",
+        "Added artifact storage configuration",
+        "Added quality gates and validation tracking",
+        "Improved model metadata structure"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "version": "1.0.0",
+      "author": "Ime Udoka",
+      "changes": [
+        "Initial model registry creation",
+        "Added player_clustering v1.0.0 and v2.0.0",
+        "Basic quality gates defined"
+      ]
+    }
+  ]
 }

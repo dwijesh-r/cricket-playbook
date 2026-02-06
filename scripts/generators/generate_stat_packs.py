@@ -3,6 +3,7 @@
 Cricket Playbook - IPL 2026 Team Stat Pack Generator
 Author: Tom Brady (Product Owner) & Stephen Curry (Analytics)
 Domain Review: Andy Flower
+Refactored by: Brad Stevens (Architecture Lead) - TKT-082
 
 Generates comprehensive stat packs for each IPL 2026 team including:
 - Team overview and roster
@@ -11,13 +12,19 @@ Generates comprehensive stat packs for each IPL 2026 team including:
 - Individual player statistics
 - Phase-wise analysis
 - Key matchups and insights
+
+Architecture:
+- Configuration constants at module level
+- Dedicated SQL query builder functions
+- Separate section generators for each stat pack part
+- Centralized error handling and logging
 """
 
 import json
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional, Tuple
 
 import duckdb
 
@@ -28,7 +35,11 @@ from utils.logging_config import setup_logger
 # Initialize logger
 logger = setup_logger(__name__)
 
-# Paths
+
+# =============================================================================
+# PATH CONFIGURATION
+# =============================================================================
+
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_DIR = SCRIPT_DIR.parent.parent  # Go up two levels: generators -> scripts -> project root
 DB_PATH = PROJECT_DIR / "data" / "cricket_playbook.duckdb"
@@ -36,25 +47,12 @@ OUTPUT_DIR = PROJECT_DIR / "stat_packs"
 PLAYER_TAGS_PATH = PROJECT_DIR / "outputs" / "player_tags.json"
 
 
-def load_player_tags() -> Dict[str, List[Dict[str, Any]]]:
-    """Load player tags from JSON file."""
-    if not PLAYER_TAGS_PATH.exists():
-        logger.warning("Player tags file not found at %s", PLAYER_TAGS_PATH)
-        return {"batters": [], "bowlers": []}
-    with open(PLAYER_TAGS_PATH) as f:
-        data = json.load(f)
-        logger.debug(
-            "Loaded player tags: %d batters, %d bowlers",
-            len(data.get("batters", [])),
-            len(data.get("bowlers", [])),
-        )
-        return data
+# =============================================================================
+# PLAYER ARCHETYPE CONSTANTS (K-means V2 Model)
+# =============================================================================
 
-
-def get_player_tags_lookup(tags_data: Dict[str, List[Dict[str, Any]]]) -> Dict[str, Dict[str, Any]]:
-    """Create lookup dict from player_id to tags."""
-    # Role archetype tags (from clustering)
-    BATTER_CLUSTERS = {
+BATTER_CLUSTERS = frozenset(
+    {
         "EXPLOSIVE_OPENER",
         "PLAYMAKER",
         "ANCHOR",
@@ -62,7 +60,10 @@ def get_player_tags_lookup(tags_data: Dict[str, List[Dict[str, Any]]]) -> Dict[s
         "MIDDLE_ORDER",
         "FINISHER",
     }
-    BOWLER_CLUSTERS = {
+)
+
+BOWLER_CLUSTERS = frozenset(
+    {
         "PACER",
         "SPINNER",
         "WORKHORSE",
@@ -71,37 +72,163 @@ def get_player_tags_lookup(tags_data: Dict[str, List[Dict[str, Any]]]) -> Dict[s
         "DEATH_SPECIALIST",
         "PART_TIMER",
     }
+)
 
-    lookup = {}
+# Ordered lists for display purposes
+BATTER_CLUSTERS_ORDERED = [
+    "EXPLOSIVE_OPENER",
+    "PLAYMAKER",
+    "ANCHOR",
+    "ACCUMULATOR",
+    "MIDDLE_ORDER",
+    "FINISHER",
+]
+
+BOWLER_CLUSTERS_ORDERED = [
+    "PACER",
+    "SPINNER",
+    "WORKHORSE",
+    "NEW_BALL_SPECIALIST",
+    "MIDDLE_OVERS_CONTROLLER",
+    "DEATH_SPECIALIST",
+    "PART_TIMER",
+]
+
+
+# =============================================================================
+# ANALYSIS THRESHOLDS
+# =============================================================================
+
+
+class Thresholds:
+    """Configuration class for analysis thresholds."""
+
+    # Batting thresholds
+    MIN_RUNS_SEASON = 150  # Minimum runs per season for top scorers
+    MIN_RUNS_EVOLUTION = 100  # Minimum runs for SR evolution analysis
+    MIN_RUNS_CAREER = 500  # Minimum career runs for key batter analysis
+    MIN_RUNS_VENUE = 100  # Minimum runs for venue specialist
+
+    # Bowling thresholds
+    MIN_WICKETS_SEASON = 5  # Minimum wickets per season for top wicket takers
+    MIN_WICKETS_CAREER = 30  # Minimum career wickets for key bowler analysis
+    MIN_WICKETS_VENUE = 5  # Minimum wickets for venue specialist
+    MIN_OVERS_DEATH = 10  # Minimum death overs for specialist analysis
+
+    # Form trajectory thresholds
+    RUNS_DIFF_TRENDING = 50  # Minimum runs difference for trending
+    SR_DIFF_TRENDING = 10  # Minimum SR difference for trending
+
+    # Venue analysis
+    MIN_VENUE_MATCHES = 2  # Minimum matches for away venue stats
+    MIN_VENUE_MATCHES_PITCH = 5  # Minimum matches for pitch characteristics
+
+    # Phase performance
+    POWERPLAY_SR_THRESHOLD = 130  # Minimum SR for powerplay hitters
+    ECONOMY_DEATH_BEAST = 8.5  # Economy threshold for death specialists
+    ECONOMY_SPIN_FRIENDLY = 5  # Pitch bias threshold
+
+    # Vulnerability thresholds
+    SPIN_VULNERABILITY_SR = 110  # SR below this indicates spin vulnerability
+    SPIN_VULNERABILITY_AVG = 12  # Average below this indicates vulnerability
+    SPIN_VULNERABILITY_BPD = 12  # Balls per dismissal below this
+
+
+# =============================================================================
+# PLAYER TAGS MANAGEMENT
+# =============================================================================
+
+
+def load_player_tags() -> Dict[str, List[Dict[str, Any]]]:
+    """
+    Load player tags from JSON file.
+
+    Returns:
+        Dict containing 'batters' and 'bowlers' lists with player tag data.
+        Returns empty lists if file not found.
+    """
+    if not PLAYER_TAGS_PATH.exists():
+        logger.warning("Player tags file not found at %s", PLAYER_TAGS_PATH)
+        return {"batters": [], "bowlers": []}
+
+    try:
+        with open(PLAYER_TAGS_PATH) as f:
+            data = json.load(f)
+            logger.debug(
+                "Loaded player tags: %d batters, %d bowlers",
+                len(data.get("batters", [])),
+                len(data.get("bowlers", [])),
+            )
+            return data
+    except json.JSONDecodeError as e:
+        logger.error("Failed to parse player tags JSON: %s", e)
+        return {"batters": [], "bowlers": []}
+
+
+def _extract_cluster_from_tags(tags: List[str], cluster_set: frozenset) -> str:
+    """
+    Extract the first matching cluster tag from a list of tags.
+
+    Args:
+        tags: List of player tags
+        cluster_set: Set of valid cluster names to match against
+
+    Returns:
+        The matching cluster name or empty string if none found
+    """
+    for tag in tags:
+        if tag in cluster_set:
+            return tag
+    return ""
+
+
+def get_player_tags_lookup(tags_data: Dict[str, List[Dict[str, Any]]]) -> Dict[str, Dict[str, Any]]:
+    """
+    Create lookup dictionary from player_id to tags.
+
+    Merges batter and bowler tags for all-rounders into single entries.
+
+    Args:
+        tags_data: Dict with 'batters' and 'bowlers' lists from player_tags.json
+
+    Returns:
+        Dict mapping player_id to {'cluster': str, 'tags': List[str], 'bowler_cluster': str}
+    """
+    lookup: Dict[str, Dict[str, Any]] = {}
+
+    # Process batters
     for batter in tags_data.get("batters", []):
+        player_id = batter.get("player_id")
+        if not player_id:
+            continue
+
         tags = batter.get("tags", [])
-        # Extract cluster from tags
-        cluster = ""
-        for tag in tags:
-            if tag in BATTER_CLUSTERS:
-                cluster = tag
-                break
-        lookup[batter["player_id"]] = {"cluster": cluster, "tags": tags}
+        cluster = _extract_cluster_from_tags(tags, BATTER_CLUSTERS)
+        lookup[player_id] = {"cluster": cluster, "tags": tags}
 
+    # Process bowlers (merge with existing batter entries for all-rounders)
     for bowler in tags_data.get("bowlers", []):
-        pid = bowler["player_id"]
-        tags = bowler.get("tags", [])
-        # Extract cluster from tags
-        cluster = ""
-        for tag in tags:
-            if tag in BOWLER_CLUSTERS:
-                cluster = tag
-                break
+        player_id = bowler.get("player_id")
+        if not player_id:
+            continue
 
-        if pid in lookup:
-            # Merge bowler tags into existing entry
-            lookup[pid]["tags"].extend(tags)
-            if not lookup[pid]["cluster"] and cluster:
-                lookup[pid]["bowler_cluster"] = cluster
+        tags = bowler.get("tags", [])
+        cluster = _extract_cluster_from_tags(tags, BOWLER_CLUSTERS)
+
+        if player_id in lookup:
+            # Merge bowler tags into existing entry (all-rounder)
+            lookup[player_id]["tags"].extend(tags)
+            if not lookup[player_id]["cluster"] and cluster:
+                lookup[player_id]["bowler_cluster"] = cluster
         else:
-            lookup[pid] = {"cluster": cluster, "tags": tags}
+            lookup[player_id] = {"cluster": cluster, "tags": tags}
+
     return lookup
 
+
+# =============================================================================
+# FRANCHISE AND TEAM CONFIGURATION
+# =============================================================================
 
 # Franchise name mappings for historical data
 FRANCHISE_ALIASES = {
@@ -155,118 +282,341 @@ TEAM_HOME_VENUES = {
 }
 
 
-def get_opposition_clause(team_name: str) -> str:
-    """Generate SQL IN clause for opposition team names (handles aliases)."""
-    aliases = FRANCHISE_ALIASES.get(team_name, [team_name])
-    return ", ".join([f"'{a}'" for a in aliases])
+# =============================================================================
+# SQL CLAUSE BUILDERS
+# =============================================================================
 
 
-def generate_historical_trends(
-    conn: duckdb.DuckDBPyConnection, team_name: str, alias_clause: str
-) -> List[str]:
-    """Generate historical trends section showing season-over-season performance.
-
-    Covers IPL seasons 2023-2025 and includes:
-    - Season performance summary (matches, wins, win%, avg score, playoff status)
-    - Batting trends (top run scorers, strike rate evolution)
-    - Bowling trends (top wicket takers, economy rate changes)
-    - Form trajectory (players trending up/down)
+def build_sql_in_clause(values: List[str]) -> str:
     """
-    md = []
-    md.append("## 3. Historical Trends (2023-2025)\n")
-    md.append("*Season-over-season performance analysis (IPL 2023-2025)*\n")
+    Build a SQL IN clause from a list of string values.
 
-    seasons = ["2023", "2024", "2025"]
+    Args:
+        values: List of string values to include in IN clause
 
-    # ==========================================================================
-    # SEASON PERFORMANCE SUMMARY
-    # ==========================================================================
-    md.append("### Season Performance\n")
+    Returns:
+        SQL-formatted string like "'value1', 'value2', 'value3'"
+    """
+    return ", ".join([f"'{v}'" for v in values])
 
-    season_data = []
-    for season in seasons:
-        # Get wins/losses
-        match_stats = conn.execute(f"""
-            WITH ipl_matches AS (
-                SELECT dm.match_id, dm.season, dm.stage, dt1.team_name as team1, dt2.team_name as team2,
-                       dtw.team_name as winner
-                FROM dim_match dm
-                JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
-                JOIN dim_team dt1 ON dm.team1_id = dt1.team_id
-                JOIN dim_team dt2 ON dm.team2_id = dt2.team_id
-                LEFT JOIN dim_team dtw ON dm.winner_id = dtw.team_id
-                WHERE dtr.tournament_name = 'Indian Premier League'
-                  AND dm.season = '{season}'
-            )
-            SELECT
-                COUNT(*) as matches,
-                SUM(CASE WHEN winner IN ({alias_clause}) THEN 1 ELSE 0 END) as wins,
-                SUM(CASE WHEN winner IS NOT NULL AND winner NOT IN ({alias_clause}) THEN 1 ELSE 0 END) as losses
-            FROM ipl_matches
-            WHERE team1 IN ({alias_clause}) OR team2 IN ({alias_clause})
-        """).fetchone()
 
-        # Get average score
-        avg_score_result = conn.execute(f"""
-            WITH innings_scores AS (
-                SELECT dm.season, dt.team_name,
-                       SUM(fb.total_runs) as innings_runs
-                FROM fact_ball fb
-                JOIN dim_match dm ON fb.match_id = dm.match_id
-                JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
-                JOIN dim_team dt ON fb.batting_team_id = dt.team_id
-                WHERE dtr.tournament_name = 'Indian Premier League'
-                  AND dm.season = '{season}'
-                  AND dt.team_name IN ({alias_clause})
-                GROUP BY dm.season, dm.match_id, fb.innings, dt.team_name
-            )
-            SELECT ROUND(AVG(innings_runs), 1) as avg_score
-            FROM innings_scores
-        """).fetchone()
+def get_team_alias_clause(team_name: str) -> str:
+    """
+    Generate SQL IN clause for a team including historical aliases.
 
-        # Check playoff status
-        playoff_result = conn.execute(f"""
-            SELECT dm.stage
+    Args:
+        team_name: Current team name (e.g., "Delhi Capitals")
+
+    Returns:
+        SQL IN clause string including all aliases
+    """
+    aliases = FRANCHISE_ALIASES.get(team_name, [team_name])
+    return build_sql_in_clause(aliases)
+
+
+def get_home_venue_clause(team_name: str) -> str:
+    """
+    Generate SQL IN clause for a team's home venues.
+
+    Args:
+        team_name: Team name
+
+    Returns:
+        SQL IN clause string for home venues, or "''" if none found
+    """
+    home_venues = TEAM_HOME_VENUES.get(team_name, [])
+    return build_sql_in_clause(home_venues) if home_venues else "''"
+
+
+def get_opposition_clause(team_name: str) -> str:
+    """
+    Generate SQL IN clause for opposition team names (handles aliases).
+
+    Args:
+        team_name: Opposition team name
+
+    Returns:
+        SQL IN clause for all aliases of the opposition team
+    """
+    aliases = FRANCHISE_ALIASES.get(team_name, [team_name])
+    return build_sql_in_clause(aliases)
+
+
+# =============================================================================
+# DATABASE QUERY HELPERS
+# =============================================================================
+
+
+def execute_query_safe(
+    conn: duckdb.DuckDBPyConnection, query: str, default: Any = None, fetch_one: bool = False
+) -> Any:
+    """
+    Execute a SQL query with error handling.
+
+    Args:
+        conn: DuckDB connection
+        query: SQL query string
+        default: Default value to return on error
+        fetch_one: If True, fetch single row; otherwise fetch all
+
+    Returns:
+        Query result or default value on error
+    """
+    try:
+        result = conn.execute(query)
+        return result.fetchone() if fetch_one else result.fetchall()
+    except Exception as e:
+        logger.warning("Query execution failed: %s", str(e)[:100])
+        return default
+
+
+# =============================================================================
+# MARKDOWN TABLE HELPERS
+# =============================================================================
+
+
+def format_stat(value: Any, default: str = "-") -> str:
+    """
+    Format a statistic value for display.
+
+    Args:
+        value: The value to format
+        default: Default string if value is None or falsy
+
+    Returns:
+        Formatted string representation
+    """
+    if value is None:
+        return default
+    if isinstance(value, float):
+        if value == int(value):
+            return str(int(value))
+        return f"{value:.1f}" if abs(value) < 100 else f"{value:.0f}"
+    return str(value) if value else default
+
+
+def truncate_venue_name(venue: str, max_length: int = 35) -> str:
+    """
+    Truncate venue name for table display.
+
+    Args:
+        venue: Full venue name
+        max_length: Maximum characters to display
+
+    Returns:
+        Truncated venue name (city portion if comma-separated)
+    """
+    if not venue:
+        return "-"
+    # Take first part before comma (usually city/stadium name)
+    short = venue.split(",")[0]
+    if len(short) > max_length:
+        return short[: max_length - 3] + "..."
+    return short
+
+
+def determine_trend(values: List[float], threshold: float = 5.0) -> str:
+    """
+    Determine trend direction from a list of values.
+
+    Args:
+        values: List of numeric values (chronological order)
+        threshold: Minimum difference for UP/DOWN classification
+
+    Returns:
+        "UP", "DOWN", "STEADY", or "-" if insufficient data
+    """
+    # Filter out None/invalid values
+    valid_values = [v for v in values if v is not None and v != "-"]
+    if len(valid_values) < 2:
+        return "-"
+
+    diff = valid_values[-1] - valid_values[0]
+    if diff > threshold:
+        return "UP"
+    elif diff < -threshold:
+        return "DOWN"
+    return "STEADY"
+
+
+def determine_economy_trend(values: List[Tuple[float, int]], threshold: float = 0.5) -> str:
+    """
+    Determine economy rate trend (lower is better for bowling).
+
+    Args:
+        values: List of (economy, wickets) tuples
+        threshold: Minimum difference for IMPROVING/DECLINING
+
+    Returns:
+        "IMPROVING", "DECLINING", "STEADY", or "-"
+    """
+    valid_values = [v[0] for v in values if v[0] is not None and v[0] != "-"]
+    if len(valid_values) < 2:
+        return "-"
+
+    diff = valid_values[-1] - valid_values[0]
+    if diff < -threshold:
+        return "IMPROVING"
+    elif diff > threshold:
+        return "DECLINING"
+    return "STEADY"
+
+
+def get_playoff_status(stage: Optional[str]) -> str:
+    """
+    Convert playoff stage to display abbreviation.
+
+    Args:
+        stage: Playoff stage from database (e.g., "Final", "Qualifier 1")
+
+    Returns:
+        Abbreviated status string
+    """
+    if not stage:
+        return "No"
+
+    stage_map = {
+        "Final": "Final",
+        "Qualifier 1": "Q1",
+        "Qualifier 2": "Q2",
+        "Eliminator": "Elim",
+    }
+    return stage_map.get(stage, stage[:4] if len(stage) > 4 else stage)
+
+
+def _get_season_match_stats(
+    conn: duckdb.DuckDBPyConnection, season: str, alias_clause: str
+) -> Tuple[int, int, int]:
+    """
+    Get match statistics for a team in a specific season.
+
+    Args:
+        conn: Database connection
+        season: Season year (e.g., "2023")
+        alias_clause: SQL IN clause for team aliases
+
+    Returns:
+        Tuple of (matches, wins, losses)
+    """
+    query = f"""
+        WITH ipl_matches AS (
+            SELECT dm.match_id, dm.season, dm.stage, dt1.team_name as team1, dt2.team_name as team2,
+                   dtw.team_name as winner
             FROM dim_match dm
             JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
             JOIN dim_team dt1 ON dm.team1_id = dt1.team_id
             JOIN dim_team dt2 ON dm.team2_id = dt2.team_id
+            LEFT JOIN dim_team dtw ON dm.winner_id = dtw.team_id
             WHERE dtr.tournament_name = 'Indian Premier League'
               AND dm.season = '{season}'
-              AND dm.stage != 'None'
-              AND (dt1.team_name IN ({alias_clause}) OR dt2.team_name IN ({alias_clause}))
-            ORDER BY CASE dm.stage
-                WHEN 'Final' THEN 4
-                WHEN 'Qualifier 2' THEN 3
-                WHEN 'Qualifier 1' THEN 2
-                WHEN 'Eliminator' THEN 1
-            END DESC
-            LIMIT 1
-        """).fetchone()
+        )
+        SELECT
+            COUNT(*) as matches,
+            SUM(CASE WHEN winner IN ({alias_clause}) THEN 1 ELSE 0 END) as wins,
+            SUM(CASE WHEN winner IS NOT NULL AND winner NOT IN ({alias_clause}) THEN 1 ELSE 0 END) as losses
+        FROM ipl_matches
+        WHERE team1 IN ({alias_clause}) OR team2 IN ({alias_clause})
+    """
+    result = execute_query_safe(conn, query, default=(0, 0, 0), fetch_one=True)
+    return (result[0] or 0, result[1] or 0, result[2] or 0) if result else (0, 0, 0)
 
-        matches = match_stats[0] if match_stats else 0
-        wins = match_stats[1] if match_stats else 0
-        losses = match_stats[2] if match_stats else 0
+
+def _get_season_avg_score(
+    conn: duckdb.DuckDBPyConnection, season: str, alias_clause: str
+) -> Optional[float]:
+    """
+    Get average innings score for a team in a specific season.
+
+    Args:
+        conn: Database connection
+        season: Season year
+        alias_clause: SQL IN clause for team aliases
+
+    Returns:
+        Average score or None if no data
+    """
+    query = f"""
+        WITH innings_scores AS (
+            SELECT dm.season, dt.team_name,
+                   SUM(fb.total_runs) as innings_runs
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
+            JOIN dim_team dt ON fb.batting_team_id = dt.team_id
+            WHERE dtr.tournament_name = 'Indian Premier League'
+              AND dm.season = '{season}'
+              AND dt.team_name IN ({alias_clause})
+            GROUP BY dm.season, dm.match_id, fb.innings, dt.team_name
+        )
+        SELECT ROUND(AVG(innings_runs), 1) as avg_score
+        FROM innings_scores
+    """
+    result = execute_query_safe(conn, query, fetch_one=True)
+    return result[0] if result and result[0] else None
+
+
+def _get_season_playoff_status(
+    conn: duckdb.DuckDBPyConnection, season: str, alias_clause: str
+) -> str:
+    """
+    Get playoff status for a team in a specific season.
+
+    Args:
+        conn: Database connection
+        season: Season year
+        alias_clause: SQL IN clause for team aliases
+
+    Returns:
+        Playoff status string (e.g., "Final", "Q1", "No")
+    """
+    query = f"""
+        SELECT dm.stage
+        FROM dim_match dm
+        JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
+        JOIN dim_team dt1 ON dm.team1_id = dt1.team_id
+        JOIN dim_team dt2 ON dm.team2_id = dt2.team_id
+        WHERE dtr.tournament_name = 'Indian Premier League'
+          AND dm.season = '{season}'
+          AND dm.stage != 'None'
+          AND (dt1.team_name IN ({alias_clause}) OR dt2.team_name IN ({alias_clause}))
+        ORDER BY CASE dm.stage
+            WHEN 'Final' THEN 4
+            WHEN 'Qualifier 2' THEN 3
+            WHEN 'Qualifier 1' THEN 2
+            WHEN 'Eliminator' THEN 1
+        END DESC
+        LIMIT 1
+    """
+    result = execute_query_safe(conn, query, fetch_one=True)
+    return get_playoff_status(result[0] if result else None)
+
+
+def _generate_season_performance_table(
+    conn: duckdb.DuckDBPyConnection, alias_clause: str, seasons: List[str]
+) -> List[str]:
+    """
+    Generate the season performance summary table.
+
+    Args:
+        conn: Database connection
+        alias_clause: SQL IN clause for team aliases
+        seasons: List of seasons to include
+
+    Returns:
+        List of markdown lines for the table
+    """
+    md = ["### Season Performance\n"]
+
+    season_data = []
+    for season in seasons:
+        matches, wins, losses = _get_season_match_stats(conn, season, alias_clause)
+        avg_score = _get_season_avg_score(conn, season, alias_clause)
+        playoff_status = _get_season_playoff_status(conn, season, alias_clause)
+
         win_pct = round(wins * 100 / matches, 1) if matches > 0 else 0
-        avg_score = avg_score_result[0] if avg_score_result and avg_score_result[0] else "-"
+        avg_score_str = format_stat(avg_score)
 
-        # Determine playoff status
-        if playoff_result and playoff_result[0]:
-            stage = playoff_result[0]
-            if stage == "Final":
-                playoff_status = "Final"
-            elif stage == "Qualifier 1":
-                playoff_status = "Q1"
-            elif stage == "Qualifier 2":
-                playoff_status = "Q2"
-            elif stage == "Eliminator":
-                playoff_status = "Elim"
-            else:
-                playoff_status = stage[:4]
-        else:
-            playoff_status = "No"
-
-        season_data.append((season, matches, wins, losses, win_pct, avg_score, playoff_status))
+        season_data.append((season, matches, wins, losses, win_pct, avg_score_str, playoff_status))
 
     md.append("| Season | Matches | Wins | Losses | Win% | Avg Score | Playoff |")
     md.append("|--------|---------|------|--------|------|-----------|---------|")
@@ -277,15 +627,29 @@ def generate_historical_trends(
         )
 
     md.append("")
+    return md
 
-    # ==========================================================================
-    # BATTING TRENDS
-    # ==========================================================================
-    md.append("### Batting Trends\n")
-    md.append("**Top Run Scorers by Season:**\n")
 
+def _generate_batting_trends(
+    conn: duckdb.DuckDBPyConnection, team_name: str, alias_clause: str, seasons: List[str]
+) -> List[str]:
+    """
+    Generate batting trends subsection for historical trends.
+
+    Args:
+        conn: Database connection
+        team_name: Full team name
+        alias_clause: SQL IN clause for team aliases
+        seasons: List of seasons to analyze
+
+    Returns:
+        List of markdown lines for batting trends
+    """
+    md = ["### Batting Trends\n", "**Top Run Scorers by Season:**\n"]
+
+    # Top run scorers by season
     for season in seasons:
-        batters = conn.execute(f"""
+        query = f"""
             WITH season_batting AS (
                 SELECT dm.season, dp.current_name as player_name,
                        COUNT(DISTINCT fb.match_id) as innings,
@@ -304,10 +668,11 @@ def generate_historical_trends(
             SELECT player_name, runs, innings,
                    ROUND(runs * 100.0 / NULLIF(balls_faced, 0), 1) as sr
             FROM season_batting
-            WHERE runs >= 150
+            WHERE runs >= {Thresholds.MIN_RUNS_SEASON}
             ORDER BY runs DESC
             LIMIT 3
-        """).fetchall()
+        """
+        batters = execute_query_safe(conn, query, default=[])
 
         if batters:
             batter_str = ", ".join([f"{b[0]} ({b[1]} @ {b[3]})" for b in batters])
@@ -318,8 +683,7 @@ def generate_historical_trends(
     # Strike rate evolution for key players
     md.append("**Strike Rate Evolution (Key Batters):**\n")
 
-    # Get current squad batters with historical data
-    sr_evolution = conn.execute(f"""
+    sr_query = f"""
         WITH season_batting AS (
             SELECT dm.season, dp.current_name as player_name, dp.player_id,
                    SUM(fb.batter_runs) as runs,
@@ -333,7 +697,7 @@ def generate_historical_trends(
               AND dm.season IN ('2023', '2024', '2025')
               AND dt.team_name IN ({alias_clause})
             GROUP BY dm.season, dp.current_name, dp.player_id
-            HAVING SUM(fb.batter_runs) >= 100
+            HAVING SUM(fb.batter_runs) >= {Thresholds.MIN_RUNS_EVOLUTION}
         ),
         player_seasons AS (
             SELECT player_name, player_id, COUNT(DISTINCT season) as seasons_played
@@ -348,13 +712,13 @@ def generate_historical_trends(
         JOIN ipl_2026_squads sq ON sb.player_id = sq.player_id
         WHERE sq.team_name = '{team_name}'
         ORDER BY sb.player_name, sb.season
-    """).fetchall()
+    """
+    sr_evolution = execute_query_safe(conn, sr_query, default=[])
 
     if sr_evolution:
         # Group by player
-        player_sr = {}
-        for row in sr_evolution:
-            player, season, sr = row
+        player_sr: Dict[str, Dict[str, float]] = {}
+        for player, season, sr in sr_evolution:
             if player not in player_sr:
                 player_sr[player] = {}
             player_sr[player][season] = sr
@@ -366,30 +730,34 @@ def generate_historical_trends(
             sr_2024 = seasons_sr.get("2024", "-")
             sr_2025 = seasons_sr.get("2025", "-")
 
-            # Determine trend
-            values = [v for v in [sr_2023, sr_2024, sr_2025] if v != "-"]
-            if len(values) >= 2:
-                if values[-1] > values[0] + 5:
-                    trend = "UP"
-                elif values[-1] < values[0] - 5:
-                    trend = "DOWN"
-                else:
-                    trend = "STEADY"
-            else:
-                trend = "-"
-
+            trend = determine_trend(
+                [sr_2023, sr_2024, sr_2025], threshold=Thresholds.SR_DIFF_TRENDING / 2
+            )
             md.append(f"| {player} | {sr_2023} | {sr_2024} | {sr_2025} | {trend} |")
 
     md.append("")
+    return md
 
-    # ==========================================================================
-    # BOWLING TRENDS
-    # ==========================================================================
-    md.append("### Bowling Trends\n")
-    md.append("**Top Wicket Takers by Season:**\n")
+
+def _generate_bowling_trends(
+    conn: duckdb.DuckDBPyConnection, team_name: str, alias_clause: str, seasons: List[str]
+) -> List[str]:
+    """
+    Generate bowling trends subsection for historical trends.
+
+    Args:
+        conn: Database connection
+        team_name: Full team name
+        alias_clause: SQL IN clause for team aliases
+        seasons: List of seasons to analyze
+
+    Returns:
+        List of markdown lines for bowling trends
+    """
+    md = ["### Bowling Trends\n", "**Top Wicket Takers by Season:**\n"]
 
     for season in seasons:
-        bowlers = conn.execute(f"""
+        query = f"""
             WITH season_bowling AS (
                 SELECT dm.season, dp.current_name as player_name,
                        COUNT(DISTINCT fb.match_id) as matches,
@@ -409,10 +777,11 @@ def generate_historical_trends(
             SELECT player_name, wickets, matches,
                    ROUND(runs * 6.0 / NULLIF(balls, 0), 2) as economy
             FROM season_bowling
-            WHERE wickets >= 5
+            WHERE wickets >= {Thresholds.MIN_WICKETS_SEASON}
             ORDER BY wickets DESC
             LIMIT 3
-        """).fetchall()
+        """
+        bowlers = execute_query_safe(conn, query, default=[])
 
         if bowlers:
             bowler_str = ", ".join([f"{b[0]} ({b[1]}w @ {b[3]})" for b in bowlers])
@@ -423,7 +792,7 @@ def generate_historical_trends(
     # Economy rate evolution for key bowlers
     md.append("**Economy Rate Evolution (Key Bowlers):**\n")
 
-    econ_evolution = conn.execute(f"""
+    econ_query = f"""
         WITH season_bowling AS (
             SELECT dm.season, dp.current_name as player_name, dp.player_id,
                    COUNT(*) as balls,
@@ -438,7 +807,7 @@ def generate_historical_trends(
               AND dm.season IN ('2023', '2024', '2025')
               AND dt.team_name IN ({alias_clause})
             GROUP BY dm.season, dp.current_name, dp.player_id
-            HAVING SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END) >= 5
+            HAVING SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END) >= {Thresholds.MIN_WICKETS_SEASON}
         ),
         player_seasons AS (
             SELECT player_name, player_id, COUNT(DISTINCT season) as seasons_played
@@ -454,13 +823,13 @@ def generate_historical_trends(
         JOIN ipl_2026_squads sq ON sb.player_id = sq.player_id
         WHERE sq.team_name = '{team_name}'
         ORDER BY sb.player_name, sb.season
-    """).fetchall()
+    """
+    econ_evolution = execute_query_safe(conn, econ_query, default=[])
 
     if econ_evolution:
         # Group by player
-        player_econ = {}
-        for row in econ_evolution:
-            player, season, econ, wkts = row
+        player_econ: Dict[str, Dict[str, Tuple[float, int]]] = {}
+        for player, season, econ, wkts in econ_evolution:
             if player not in player_econ:
                 player_econ[player] = {}
             player_econ[player][season] = (econ, wkts)
@@ -472,33 +841,38 @@ def generate_historical_trends(
             e_2024 = seasons_econ.get("2024", ("-", 0))
             e_2025 = seasons_econ.get("2025", ("-", 0))
 
-            # Determine trend (lower economy is better)
-            values = [v[0] for v in [e_2023, e_2024, e_2025] if v[0] != "-"]
-            if len(values) >= 2:
-                if values[-1] < values[0] - 0.5:
-                    trend = "IMPROVING"
-                elif values[-1] > values[0] + 0.5:
-                    trend = "DECLINING"
-                else:
-                    trend = "STEADY"
-            else:
-                trend = "-"
+            trend = determine_economy_trend([e_2023, e_2024, e_2025])
 
-            e23_str = f"{e_2023[0]}" if e_2023[0] != "-" else "-"
-            e24_str = f"{e_2024[0]}" if e_2024[0] != "-" else "-"
-            e25_str = f"{e_2025[0]}" if e_2025[0] != "-" else "-"
+            e23_str = format_stat(e_2023[0]) if e_2023[0] != "-" else "-"
+            e24_str = format_stat(e_2024[0]) if e_2024[0] != "-" else "-"
+            e25_str = format_stat(e_2025[0]) if e_2025[0] != "-" else "-"
             md.append(f"| {player} | {e23_str} | {e24_str} | {e25_str} | {trend} |")
 
     md.append("")
+    return md
 
-    # ==========================================================================
-    # FORM TRAJECTORY
-    # ==========================================================================
-    md.append("### Form Trajectory\n")
-    md.append("*Players trending up/down based on 2024-2025 performance comparison*\n")
 
-    # Batters trending up (better in 2025 than 2024)
-    trending_up = conn.execute(f"""
+def _generate_form_trajectory(
+    conn: duckdb.DuckDBPyConnection, team_name: str, alias_clause: str
+) -> List[str]:
+    """
+    Generate form trajectory subsection comparing 2024 vs 2025 performance.
+
+    Args:
+        conn: Database connection
+        team_name: Full team name
+        alias_clause: SQL IN clause for team aliases
+
+    Returns:
+        List of markdown lines for form trajectory
+    """
+    md = [
+        "### Form Trajectory\n",
+        "*Players trending up/down based on 2024-2025 performance comparison*\n",
+    ]
+
+    # Common CTE for season batting comparison
+    base_query = f"""
         WITH season_batting AS (
             SELECT dm.season, dp.current_name as player_name, dp.player_id,
                    SUM(fb.batter_runs) as runs,
@@ -513,7 +887,7 @@ def generate_historical_trends(
               AND dm.season IN ('2024', '2025')
               AND dt.team_name IN ({alias_clause})
             GROUP BY dm.season, dp.current_name, dp.player_id
-            HAVING SUM(fb.batter_runs) >= 100
+            HAVING SUM(fb.batter_runs) >= {Thresholds.MIN_RUNS_EVOLUTION}
         ),
         comparison AS (
             SELECT
@@ -528,73 +902,56 @@ def generate_historical_trends(
             WHERE s25.season = '2025' AND s24.season = '2024'
               AND sq.team_name = '{team_name}'
         )
-        SELECT player_name, runs_2024, runs_2025, sr_2024, sr_2025, runs_diff, sr_diff
-        FROM comparison
-        WHERE runs_diff > 50 OR sr_diff > 10
-        ORDER BY runs_diff DESC
-        LIMIT 3
-    """).fetchall()
+    """
+
+    # Trending UP
+    trending_up = execute_query_safe(
+        conn,
+        base_query
+        + f"""
+            SELECT player_name, runs_2024, runs_2025, sr_2024, sr_2025, runs_diff, sr_diff
+            FROM comparison
+            WHERE runs_diff > {Thresholds.RUNS_DIFF_TRENDING} OR sr_diff > {Thresholds.SR_DIFF_TRENDING}
+            ORDER BY runs_diff DESC
+            LIMIT 3
+        """,
+        default=[],
+    )
 
     if trending_up:
         md.append("**Trending UP:**")
-        for row in trending_up:
-            player, r24, r25, sr24, sr25, r_diff, sr_diff = row
+        for player, r24, r25, sr24, sr25, r_diff, sr_diff in trending_up:
             reasons = []
-            if r_diff > 50:
+            if r_diff > Thresholds.RUNS_DIFF_TRENDING:
                 reasons.append(f"+{r_diff} runs")
-            if sr_diff > 10:
+            if sr_diff > Thresholds.SR_DIFF_TRENDING:
                 reasons.append(f"+{sr_diff:.1f} SR")
             md.append(
                 f"- {player}: {', '.join(reasons)} (2024: {r24} @ {sr24} -> 2025: {r25} @ {sr25})"
             )
         md.append("")
 
-    # Players trending down
-    trending_down = conn.execute(f"""
-        WITH season_batting AS (
-            SELECT dm.season, dp.current_name as player_name, dp.player_id,
-                   SUM(fb.batter_runs) as runs,
-                   COUNT(*) as balls,
-                   ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*), 0), 1) as sr
-            FROM fact_ball fb
-            JOIN dim_match dm ON fb.match_id = dm.match_id
-            JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
-            JOIN dim_team dt ON fb.batting_team_id = dt.team_id
-            JOIN dim_player dp ON fb.batter_id = dp.player_id
-            WHERE dtr.tournament_name = 'Indian Premier League'
-              AND dm.season IN ('2024', '2025')
-              AND dt.team_name IN ({alias_clause})
-            GROUP BY dm.season, dp.current_name, dp.player_id
-            HAVING SUM(fb.batter_runs) >= 100
-        ),
-        comparison AS (
-            SELECT
-                s25.player_name,
-                s24.runs as runs_2024, s25.runs as runs_2025,
-                s24.sr as sr_2024, s25.sr as sr_2025,
-                (s25.runs - s24.runs) as runs_diff,
-                (s25.sr - s24.sr) as sr_diff
-            FROM season_batting s25
-            JOIN season_batting s24 ON s25.player_id = s24.player_id
-            JOIN ipl_2026_squads sq ON s25.player_id = sq.player_id
-            WHERE s25.season = '2025' AND s24.season = '2024'
-              AND sq.team_name = '{team_name}'
-        )
-        SELECT player_name, runs_2024, runs_2025, sr_2024, sr_2025, runs_diff, sr_diff
-        FROM comparison
-        WHERE runs_diff < -50 OR sr_diff < -10
-        ORDER BY runs_diff ASC
-        LIMIT 3
-    """).fetchall()
+    # Trending DOWN
+    trending_down = execute_query_safe(
+        conn,
+        base_query
+        + f"""
+            SELECT player_name, runs_2024, runs_2025, sr_2024, sr_2025, runs_diff, sr_diff
+            FROM comparison
+            WHERE runs_diff < -{Thresholds.RUNS_DIFF_TRENDING} OR sr_diff < -{Thresholds.SR_DIFF_TRENDING}
+            ORDER BY runs_diff ASC
+            LIMIT 3
+        """,
+        default=[],
+    )
 
     if trending_down:
         md.append("**Trending DOWN:**")
-        for row in trending_down:
-            player, r24, r25, sr24, sr25, r_diff, sr_diff = row
+        for player, r24, r25, sr24, sr25, r_diff, sr_diff in trending_down:
             reasons = []
-            if r_diff < -50:
+            if r_diff < -Thresholds.RUNS_DIFF_TRENDING:
                 reasons.append(f"{r_diff} runs")
-            if sr_diff < -10:
+            if sr_diff < -Thresholds.SR_DIFF_TRENDING:
                 reasons.append(f"{sr_diff:.1f} SR")
             md.append(
                 f"- {player}: {', '.join(reasons)} (2024: {r24} @ {sr24} -> 2025: {r25} @ {sr25})"
@@ -603,6 +960,47 @@ def generate_historical_trends(
 
     if not trending_up and not trending_down:
         md.append("*Insufficient multi-season data for form trajectory analysis*\n")
+
+    return md
+
+
+def generate_historical_trends(
+    conn: duckdb.DuckDBPyConnection, team_name: str, alias_clause: str
+) -> List[str]:
+    """
+    Generate historical trends section showing season-over-season performance.
+
+    Covers IPL seasons 2023-2025 and includes:
+    - Season performance summary (matches, wins, win%, avg score, playoff status)
+    - Batting trends (top run scorers, strike rate evolution)
+    - Bowling trends (top wicket takers, economy rate changes)
+    - Form trajectory (players trending up/down)
+
+    Args:
+        conn: DuckDB database connection
+        team_name: Full team name (e.g., "Chennai Super Kings")
+        alias_clause: SQL IN clause for team historical aliases
+
+    Returns:
+        List of markdown-formatted strings for the historical trends section
+    """
+    md = []
+    md.append("## 3. Historical Trends (2023-2025)\n")
+    md.append("*Season-over-season performance analysis (IPL 2023-2025)*\n")
+
+    seasons = ["2023", "2024", "2025"]
+
+    # Season Performance Summary
+    md.extend(_generate_season_performance_table(conn, alias_clause, seasons))
+
+    # Batting Trends
+    md.extend(_generate_batting_trends(conn, team_name, alias_clause, seasons))
+
+    # Bowling Trends
+    md.extend(_generate_bowling_trends(conn, team_name, alias_clause, seasons))
+
+    # Form Trajectory
+    md.extend(_generate_form_trajectory(conn, team_name, alias_clause))
 
     # Add limitations note
     md.append("---")
@@ -616,20 +1014,29 @@ def generate_historical_trends(
 def generate_venue_analysis(
     conn: duckdb.DuckDBPyConnection, team_name: str, alias_clause: str
 ) -> List[str]:
-    """Generate comprehensive venue analysis section for a team.
+    """
+    Generate comprehensive venue analysis section for a team.
 
     Includes:
     - Home venue performance (win rate, avg score, key stats)
     - Away venue performance breakdown
     - Venue-specific pitch characteristics (pace vs spin friendly)
     - Venue specialists (players who perform best at specific venues)
+
+    Args:
+        conn: DuckDB database connection
+        team_name: Full team name (e.g., "Chennai Super Kings")
+        alias_clause: SQL IN clause for team historical aliases
+
+    Returns:
+        List of markdown-formatted strings for the venue analysis section
     """
     md = []
     md.append("## 4. Venue Analysis\n")
     md.append("*Performance breakdown by venue (2023+ IPL data)*\n")
 
     home_venues = TEAM_HOME_VENUES.get(team_name, [])
-    home_venue_clause = ", ".join([f"'{v}'" for v in home_venues]) if home_venues else "''"
+    home_venue_clause = get_home_venue_clause(team_name)
 
     # ==========================================================================
     # HOME VENUE PERFORMANCE
@@ -928,7 +1335,32 @@ def generate_venue_analysis(
 def generate_team_stat_pack(
     conn: duckdb.DuckDBPyConnection, team_name: str, tags_lookup: Dict[str, Dict[str, Any]]
 ) -> str:
-    """Generate comprehensive stat pack for a team."""
+    """
+    Generate comprehensive stat pack markdown document for a team.
+
+    Creates a detailed analysis document covering:
+    1. Squad Overview - roster, archetypes, and player tags
+    2. Historical Record vs Opposition - head-to-head records
+    3. Historical Trends (2023-2025) - season performance, batting/bowling trends
+    4. Venue Analysis - home/away performance, pitch characteristics
+    5. Squad Batting Analysis - career and phase-wise stats
+    6. Squad Bowling Analysis - career and phase distribution
+    7. Key Batter vs Opposition - top batters' matchup data
+    8. Key Bowler vs Opposition - top bowlers' matchup data
+    9. Key Player Venue Performance - venue-specific stats
+    10. Tactical Insights - death bowling, powerplay, spin vulnerabilities
+
+    Args:
+        conn: DuckDB database connection (read-only recommended)
+        team_name: Full team name (e.g., "Chennai Super Kings")
+        tags_lookup: Dict mapping player_id to tags and cluster info
+
+    Returns:
+        Complete stat pack as markdown-formatted string
+
+    Raises:
+        Exception: If database queries fail (logged but re-raised)
+    """
     logger.info("Generating stat pack for %s", team_name)
 
     team_code = TEAM_CODES.get(team_name, team_name[:3].upper())
@@ -989,53 +1421,33 @@ def generate_team_stat_pack(
         ORDER BY role, player_name
     """).fetchall()
 
-    # Group by archetype - extract from tags
-    BATTER_CLUSTERS = [
-        "EXPLOSIVE_OPENER",
-        "PLAYMAKER",
-        "ANCHOR",
-        "ACCUMULATOR",
-        "MIDDLE_ORDER",
-        "FINISHER",
-    ]
-    BOWLER_CLUSTERS = [
-        "PACER",
-        "SPINNER",
-        "WORKHORSE",
-        "NEW_BALL_SPECIALIST",
-        "MIDDLE_OVERS_CONTROLLER",
-        "DEATH_SPECIALIST",
-        "PART_TIMER",
-    ]
-
-    batters_by_cluster = {}
-    bowlers_by_cluster = {}
+    # Group players by archetype using module-level cluster constants
+    batters_by_cluster: Dict[str, List[Tuple[str, List[str]]]] = {}
+    bowlers_by_cluster: Dict[str, List[Tuple[str, List[str]]]] = {}
 
     for player_id, player_name, role in squad_players:
         if player_id in tags_lookup:
             tags = tags_lookup[player_id].get("tags", [])
 
             if role in ("Batter", "Wicketkeeper", "All-rounder"):
-                # Find batter cluster tag
-                for cluster in BATTER_CLUSTERS:
-                    if cluster in tags:
-                        if cluster not in batters_by_cluster:
-                            batters_by_cluster[cluster] = []
-                        batters_by_cluster[cluster].append((player_name, tags))
-                        break
+                # Find batter cluster tag using module constant
+                cluster = _extract_cluster_from_tags(tags, BATTER_CLUSTERS)
+                if cluster:
+                    if cluster not in batters_by_cluster:
+                        batters_by_cluster[cluster] = []
+                    batters_by_cluster[cluster].append((player_name, tags))
 
             if role in ("Bowler", "All-rounder"):
-                # Find bowler cluster tag
-                for cluster in BOWLER_CLUSTERS:
-                    if cluster in tags:
-                        if cluster not in bowlers_by_cluster:
-                            bowlers_by_cluster[cluster] = []
-                        bowlers_by_cluster[cluster].append((player_name, tags))
-                        break
+                # Find bowler cluster tag using module constant
+                cluster = _extract_cluster_from_tags(tags, BOWLER_CLUSTERS)
+                if cluster:
+                    if cluster not in bowlers_by_cluster:
+                        bowlers_by_cluster[cluster] = []
+                    bowlers_by_cluster[cluster].append((player_name, tags))
 
     if batters_by_cluster:
         md.append("**Batter Archetypes:**\n")
-        for cluster in BATTER_CLUSTERS:
+        for cluster in BATTER_CLUSTERS_ORDERED:
             if cluster in batters_by_cluster:
                 players = batters_by_cluster[cluster]
                 player_list = ", ".join([p[0] for p in players])
@@ -1044,7 +1456,7 @@ def generate_team_stat_pack(
 
     if bowlers_by_cluster:
         md.append("**Bowler Archetypes:**\n")
-        for cluster in BOWLER_CLUSTERS:
+        for cluster in BOWLER_CLUSTERS_ORDERED:
             if cluster in bowlers_by_cluster:
                 players = bowlers_by_cluster[cluster]
                 player_list = ", ".join([p[0] for p in players])
@@ -1276,16 +1688,20 @@ def generate_team_stat_pack(
     md.append("## 7. Key Batter vs Opposition\n")
     md.append("*Top batters' performance against each IPL team*\n")
 
-    # Get top 5 batters by runs
-    top_batters = conn.execute(f"""
+    # Get top 5 batters by runs (using career threshold from config)
+    top_batters = execute_query_safe(
+        conn,
+        f"""
         SELECT DISTINCT sq.player_id, sq.player_name
         FROM ipl_2026_squads sq
         JOIN analytics_ipl_batting_career bc ON sq.player_id = bc.player_id
         WHERE sq.team_name = '{team_name}'
-          AND bc.runs > 500
+          AND bc.runs > {Thresholds.MIN_RUNS_CAREER}
         ORDER BY bc.runs DESC
         LIMIT 5
-    """).fetchall()
+    """,
+        default=[],
+    )
 
     for batter_id, batter_name in top_batters:
         md.append(f"\n### {batter_name}\n")
@@ -1318,16 +1734,20 @@ def generate_team_stat_pack(
     md.append("\n---\n")
     md.append("## 8. Key Bowler vs Opposition\n")
 
-    # Get top 5 bowlers by wickets
-    top_bowlers = conn.execute(f"""
+    # Get top 5 bowlers by wickets (using career threshold from config)
+    top_bowlers = execute_query_safe(
+        conn,
+        f"""
         SELECT DISTINCT sq.player_id, sq.player_name
         FROM ipl_2026_squads sq
         JOIN analytics_ipl_bowling_career bc ON sq.player_id = bc.player_id
         WHERE sq.team_name = '{team_name}'
-          AND bc.wickets > 30
+          AND bc.wickets > {Thresholds.MIN_WICKETS_CAREER}
         ORDER BY bc.wickets DESC
         LIMIT 5
-    """).fetchall()
+    """,
+        default=[],
+    )
 
     for bowler_id, bowler_name in top_bowlers:
         md.append(f"\n### {bowler_name}\n")
@@ -1391,7 +1811,9 @@ def generate_team_stat_pack(
     md.append("## 10. Andy Flower's Tactical Insights\n")
 
     # Identify death bowling options
-    death_specialists = conn.execute(f"""
+    death_specialists = execute_query_safe(
+        conn,
+        f"""
         SELECT bpd.bowler_name, bpd.overs, bpd.wickets, bpd.economy,
                bpd.pct_overs_in_phase, bpd.wicket_efficiency
         FROM analytics_ipl_bowler_phase_distribution bpd
@@ -1399,10 +1821,12 @@ def generate_team_stat_pack(
         WHERE sq.team_name = '{team_name}'
           AND bpd.match_phase = 'death'
           AND bpd.sample_size IN ('MEDIUM', 'HIGH')
-          AND bpd.overs >= 10
+          AND bpd.overs >= {Thresholds.MIN_OVERS_DEATH}
         ORDER BY bpd.economy ASC
         LIMIT 3
-    """).fetchall()
+    """,
+        default=[],
+    )
 
     md.append("\n### 10.1 Death Bowling Options\n")
     if death_specialists:
@@ -1415,16 +1839,20 @@ def generate_team_stat_pack(
         md.append("*Insufficient data for death bowling analysis*")
 
     # Powerplay batting options
-    pp_hitters = conn.execute(f"""
+    pp_hitters = execute_query_safe(
+        conn,
+        f"""
         SELECT player_name, innings, runs, strike_rate, boundary_pct
         FROM analytics_ipl_squad_batting_phase
         WHERE team_name = '{team_name}'
           AND match_phase = 'powerplay'
           AND sample_size IN ('MEDIUM', 'HIGH')
-          AND strike_rate >= 130
+          AND strike_rate >= {Thresholds.POWERPLAY_SR_THRESHOLD}
         ORDER BY strike_rate DESC
         LIMIT 3
-    """).fetchall()
+    """,
+        default=[],
+    )
 
     md.append("\n### 10.2 Powerplay Batting Options\n")
     if pp_hitters:
@@ -1435,8 +1863,10 @@ def generate_team_stat_pack(
 
     # Spin vulnerability check - show ALL vulnerabilities per player
     # Uses correct bowling type names from dim_bowler_classification
-    # Vulnerability criteria: SR < 110 OR avg < 12 OR (dismissals >= 3 AND bpd < 12)
-    vs_spin = conn.execute(f"""
+    # Vulnerability criteria defined in Thresholds class
+    vs_spin = execute_query_safe(
+        conn,
+        f"""
         SELECT
             batter_name,
             bowler_type,
@@ -1451,18 +1881,22 @@ def generate_team_stat_pack(
           AND bowler_type IN ('Right-arm off-spin', 'Right-arm leg-spin', 'Left-arm orthodox', 'Left-arm wrist spin')
           AND sample_size IN ('MEDIUM', 'HIGH')
           AND (
-              strike_rate < 110
-              OR (average IS NOT NULL AND average < 12)
-              OR (dismissals >= 3 AND balls * 1.0 / dismissals < 12)
+              strike_rate < {Thresholds.SPIN_VULNERABILITY_SR}
+              OR (average IS NOT NULL AND average < {Thresholds.SPIN_VULNERABILITY_AVG})
+              OR (dismissals >= 3 AND balls * 1.0 / dismissals < {Thresholds.SPIN_VULNERABILITY_BPD})
           )
         ORDER BY batter_name, strike_rate ASC
-    """).fetchall()
+    """,
+        default=[],
+    )
 
     md.append("\n### 10.3 Potential Spin Vulnerabilities\n")
     md.append(
         "*Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*\n"
     )
-    md.append("*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*\n")
+    md.append(
+        f"*Vulnerability criteria: SR < {Thresholds.SPIN_VULNERABILITY_SR} OR Avg < {Thresholds.SPIN_VULNERABILITY_AVG} OR BPD < {Thresholds.SPIN_VULNERABILITY_BPD} (gets out too often)*\n"
+    )
     if vs_spin:
         for name, btype, balls, runs, sr, outs, avg, bpd in vs_spin:
             # Format bowling type for display (shorter names)
@@ -1480,7 +1914,18 @@ def generate_team_stat_pack(
 
 
 def main() -> int:
-    """Generate stat packs for all 10 IPL teams."""
+    """
+    Generate stat packs for all 10 IPL 2026 teams.
+
+    This is the main entry point for the stat pack generator. It:
+    1. Validates database existence
+    2. Loads player tags from JSON
+    3. Iterates through all teams in ipl_2026_squads
+    4. Generates and writes markdown stat packs
+
+    Returns:
+        0 if all teams generated successfully, 1 if any failed
+    """
     logger.info("=" * 60)
     logger.info("Cricket Playbook - IPL 2026 Stat Pack Generator")
     logger.info("=" * 60)
@@ -1489,56 +1934,73 @@ def main() -> int:
     OUTPUT_DIR.mkdir(exist_ok=True)
     logger.debug("Output directory: %s", OUTPUT_DIR)
 
-    # Connect to database
+    # Validate database exists
     if not DB_PATH.exists():
         logger.error("Database not found at %s", DB_PATH)
         return 1
 
+    # Connect to database with context manager pattern
     logger.info("Connecting to database: %s", DB_PATH)
-    conn = duckdb.connect(str(DB_PATH), read_only=True)
+    conn: Optional[duckdb.DuckDBPyConnection] = None
 
-    # Load player tags
-    logger.info("Loading player tags...")
-    tags_data = load_player_tags()
-    tags_lookup = get_player_tags_lookup(tags_data)
-    logger.info("Loaded tags for %d players", len(tags_lookup))
+    try:
+        conn = duckdb.connect(str(DB_PATH), read_only=True)
 
-    # Get all teams
-    teams = conn.execute("""
-        SELECT DISTINCT team_name FROM ipl_2026_squads ORDER BY team_name
-    """).fetchall()
+        # Load player tags
+        logger.info("Loading player tags...")
+        tags_data = load_player_tags()
+        tags_lookup = get_player_tags_lookup(tags_data)
+        logger.info("Loaded tags for %d players", len(tags_lookup))
 
-    logger.info("Generating stat packs for %d teams...", len(teams))
+        # Get all teams
+        teams = conn.execute("""
+            SELECT DISTINCT team_name FROM ipl_2026_squads ORDER BY team_name
+        """).fetchall()
 
-    success_count = 0
-    error_count = 0
+        if not teams:
+            logger.error("No teams found in ipl_2026_squads table")
+            return 1
 
-    for (team_name,) in teams:
-        team_code = TEAM_CODES.get(team_name, team_name[:3].upper())
-        logger.debug("Processing team: %s (%s)", team_name, team_code)
+        logger.info("Generating stat packs for %d teams...", len(teams))
 
-        try:
-            stat_pack = generate_team_stat_pack(conn, team_name, tags_lookup)
+        success_count = 0
+        error_count = 0
 
-            # Write to file
-            filename = f"{team_code}_stat_pack.md"
-            filepath = OUTPUT_DIR / filename
-            filepath.write_text(stat_pack)
+        for (team_name,) in teams:
+            team_code = TEAM_CODES.get(team_name, team_name[:3].upper())
+            logger.debug("Processing team: %s (%s)", team_name, team_code)
 
-            logger.info("Generated %s -> %s", team_code, filepath)
-            success_count += 1
-        except Exception as e:
-            logger.error("Failed to generate stat pack for %s: %s", team_name, str(e))
-            error_count += 1
+            try:
+                stat_pack = generate_team_stat_pack(conn, team_name, tags_lookup)
 
-    conn.close()
+                # Write to file
+                filename = f"{team_code}_stat_pack.md"
+                filepath = OUTPUT_DIR / filename
+                filepath.write_text(stat_pack)
 
-    logger.info("=" * 60)
-    logger.info("Generation complete: %d succeeded, %d failed", success_count, error_count)
-    logger.info("Stat packs generated in: %s", OUTPUT_DIR)
-    logger.info("=" * 60)
+                logger.info("Generated %s -> %s", team_code, filepath)
+                success_count += 1
+            except Exception as e:
+                logger.error("Failed to generate stat pack for %s: %s", team_name, str(e))
+                logger.exception("Full traceback:")
+                error_count += 1
 
-    return 0 if error_count == 0 else 1
+        logger.info("=" * 60)
+        logger.info("Generation complete: %d succeeded, %d failed", success_count, error_count)
+        logger.info("Stat packs generated in: %s", OUTPUT_DIR)
+        logger.info("=" * 60)
+
+        return 0 if error_count == 0 else 1
+
+    except Exception as e:
+        logger.error("Fatal error during stat pack generation: %s", str(e))
+        logger.exception("Full traceback:")
+        return 1
+
+    finally:
+        if conn:
+            conn.close()
+            logger.debug("Database connection closed")
 
 
 if __name__ == "__main__":

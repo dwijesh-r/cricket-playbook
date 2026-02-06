@@ -390,9 +390,12 @@
 
         .workflow-steps {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             justify-content: center;
-            gap: 16px;
+            align-items: flex-start;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 8px 0;
         }
 
         .workflow-step {
@@ -400,32 +403,34 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 16px;
-            min-width: 100px;
+            padding: 8px 4px;
+            min-width: 70px;
+            flex-shrink: 0;
         }
 
         .step-number {
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 700;
             color: white;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .step-name {
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 600;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
+            line-height: 1.2;
         }
 
         .step-desc {
-            font-size: 11px;
+            font-size: 9px;
             color: var(--text-tertiary);
         }
 
@@ -433,8 +438,9 @@
             display: flex;
             align-items: center;
             color: var(--text-tertiary);
-            font-size: 20px;
-            padding: 0 8px;
+            font-size: 16px;
+            padding: 0 2px;
+            flex-shrink: 0;
         }
 
         /* State flow */
@@ -904,7 +910,24 @@
             .section-title { font-size: 28px; }
             .agents-grid { grid-template-columns: 1fr; }
             .founder-card { flex-direction: column; text-align: center; }
-            .workflow-step { min-width: 80px; padding: 8px; }
+            /* Mobile workflow - grid layout for better alignment */
+            .workflow-steps {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 12px;
+                overflow-x: visible;
+            }
+            .workflow-step {
+                min-width: unset;
+                padding: 10px 4px;
+            }
+            .step-number {
+                width: 28px;
+                height: 28px;
+                font-size: 12px;
+            }
+            .step-name { font-size: 10px; }
+            .step-desc { font-size: 8px; }
             .step-arrow { display: none; }
             /* Hide top nav actions on mobile */
             .nav-actions { display: none; }

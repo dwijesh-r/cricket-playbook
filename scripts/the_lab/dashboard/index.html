@@ -297,6 +297,17 @@
             gap: 10px;
         }
 
+        .nav-time {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            font-variant-numeric: tabular-nums;
+            font-weight: 500;
+            padding: 6px 10px;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
         .theme-toggle {
             width: 38px;
             height: 38px;
@@ -2988,6 +2999,7 @@
             .stat-label { font-size: 11px; }
             .nav-cards { grid-template-columns: 1fr; }
             .footer-links { gap: 12px; }
+            .nav-time { display: none; }
         }
 
         /* Touch Target Minimum Sizes (WCAG Compliance - 44x44px) */
@@ -3210,6 +3222,7 @@
             <a href="about.html" class="nav-tab">🌹 About</a>
         </div>
         <div class="nav-actions">
+            <span class="nav-time" id="navTime">--:--:--</span>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu">
                 <span></span><span></span><span></span>
             </button>
@@ -3242,39 +3255,46 @@
                 <h3>🏏 The Playbook Rundown</h3>
                 <p>Your pre-game briefing from the coaching staff</p>
             </div>
-            <a href="teams.html" class="nav-guide-item nav-guide-start" style="text-decoration: none; color: inherit;">
+            <a href="index.html" class="nav-guide-item nav-guide-start" style="text-decoration: none; color: inherit;">
+                <div class="nav-guide-icon">🏠</div>
+                <div class="nav-guide-text">
+                    <h4>Home — "The Main Event"</h4>
+                    <p>📍 You Are Here. The Lab homepage — your IPL 2026 analytics command center.</p>
+                </div>
+            </a>
+            <a href="teams.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
                 <div class="nav-guide-icon">🏏</div>
                 <div class="nav-guide-text">
-                    <h4>🎯 Teams — "Like Virat walking to the crease"</h4>
-                    <p>Start here! Predicted XIs, depth charts, stat packs. Pick your franchise and let Andy Flower walk you through the lineup.</p>
+                    <h4>Team Breakdowns — "The Dugout"</h4>
+                    <p>Andy Flower's domain. Predicted XIs, depth charts, full rosters. Pick your franchise.</p>
                 </div>
             </a>
             <a href="artifacts.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
                 <div class="nav-guide-icon">📊</div>
                 <div class="nav-guide-text">
-                    <h4>🗂️ Artifacts — "Curry's shooting chart, cricket edition"</h4>
-                    <p>All 10 franchise stat packs and depth charts. Stephen Curry approved — clean data, no turnovers.</p>
+                    <h4>Artifacts — "The Trophy Cabinet"</h4>
+                    <p>All 10 franchise stat packs. Stephen Curry approved — clean data, no turnovers.</p>
                 </div>
             </a>
             <a href="analysis.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
                 <div class="nav-guide-icon">🔬</div>
                 <div class="nav-guide-text">
-                    <h4>🧠 Analysis — "Tom Brady studying film"</h4>
-                    <p>Matchup deep-dives, clustering insights, phase breakdowns. The X's and O's of IPL analytics.</p>
+                    <h4>Analysis — "Studying Film"</h4>
+                    <p>Tom Brady-level prep. Matchups, clustering, phase breakdowns. The X's and O's.</p>
                 </div>
             </a>
             <a href="research.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
                 <div class="nav-guide-icon">📚</div>
                 <div class="nav-guide-text">
-                    <h4>📖 Research — "Pep's tactical notebook"</h4>
-                    <p>Methodology docs explaining how we grade players. Pep Guardiola levels of preparation.</p>
+                    <h4>Research — "Pep's Tactical Notebook"</h4>
+                    <p>Methodology docs. How we grade players, explained with Guardiola-level detail.</p>
                 </div>
             </a>
             <a href="../../mission_control/dashboard/index.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
                 <div class="nav-guide-icon">📡</div>
                 <div class="nav-guide-text">
-                    <h4>🏢 The Boardroom — "Front office moves"</h4>
-                    <p>Where Florentino and the squad manage tickets. Think GM war room meets tech sprint board.</p>
+                    <h4>The Boardroom — "Front Office Moves"</h4>
+                    <p>Florentino's war room. Tickets, sprints, agent roster. GM meets tech sprint.</p>
                 </div>
             </a>
         </div>
@@ -4023,10 +4043,18 @@
             });
         }
 
+        // Timer - User's local timezone
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('navTime').textContent = now.toLocaleTimeString('en-US', { hour12: false });
+        }
+
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             initializeIntro();  // Random agents intro
             populateTeamsGrid();
+            updateTime();  // Initialize time
+            setInterval(updateTime, 1000);  // Update every second
         });
     </script>
 </body>

@@ -3849,12 +3849,12 @@
                 audible: 'Benchmark before/after to quantify improvement'
               }
             },
-            { id: 'TKT-100', title: 'Externalize configuration', state: 'RUNNING', priority: 'P3', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 80, tags: ['Config', 'Ops', '🔄 In Progress'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' }, output: 'scripts/config.py',
+            { id: 'TKT-100', title: 'Externalize configuration', state: 'REVIEW', priority: 'P3', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 95, tags: ['Config', 'Ops', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' }, output: 'scripts/config.py', entered_review_date: '2026-02-06',
               context: {
                 ask: 'Move hardcoded values to config file or environment variables',
-                goal: 'Enable runtime configuration of IPL_MIN_DATE, thresholds, file paths without code changes',
+                goal: 'Enable runtime configuration of IPL_MIN_DATE, TOURNAMENT, MATCH_TYPE, thresholds, file paths without code changes',
                 reason: 'Date filters require code changes each season',
-                audible: 'Founder feedback: Also add TOURNAMENT and MATCH_TYPE as configurable parameters'
+                audible: '✅ TOURNAMENT and MATCH_TYPE added per Founder feedback'
               }
             },
             { id: 'TKT-101', title: 'Standardize logging across scripts', state: 'DONE', priority: 'P3', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-010', progress: 100, tags: ['Logging', 'Code Quality', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' },

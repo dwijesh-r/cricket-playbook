@@ -13,6 +13,8 @@ Usage:
 
 Environment Variables:
     IPL_MIN_DATE - Minimum date for data analysis (default: 2023-01-01)
+    TOURNAMENT - Tournament filter: IPL, T20 World Cup, BBL, PSL, ALL (default: IPL)
+    MATCH_TYPE - Match format filter: T20, ODI, Test, ALL (default: T20)
     MIN_BALLS_VS_TYPE - Min balls for type matchup analysis (default: 50)
     MIN_BALLS_VS_HAND - Min balls for handedness analysis (default: 60)
     MIN_PP_OVERS - Min powerplay overs for phase tags (default: 30)
@@ -65,6 +67,17 @@ class Config:
         # DATE FILTERS
         # =======================================================================
         self.IPL_MIN_DATE = os.environ.get("IPL_MIN_DATE", "2023-01-01")
+
+        # =======================================================================
+        # TOURNAMENT & MATCH TYPE FILTERS (Founder Requirement)
+        # =======================================================================
+        # TOURNAMENT: Filter data by tournament name
+        # Values: "IPL", "T20 World Cup", "BBL", "PSL", "ALL" (no filter)
+        self.TOURNAMENT = os.environ.get("TOURNAMENT", "IPL")
+
+        # MATCH_TYPE: Filter by match format
+        # Values: "T20", "ODI", "Test", "ALL" (no filter)
+        self.MATCH_TYPE = os.environ.get("MATCH_TYPE", "T20")
 
         # =======================================================================
         # SAMPLE SIZE THRESHOLDS
@@ -147,6 +160,8 @@ config = Config()
 
 # For backwards compatibility, also expose commonly used values at module level
 IPL_MIN_DATE = config.IPL_MIN_DATE
+TOURNAMENT = config.TOURNAMENT
+MATCH_TYPE = config.MATCH_TYPE
 DB_PATH = config.DB_PATH
 OUTPUT_DIR = config.OUTPUT_DIR
 DATA_DIR = config.DATA_DIR

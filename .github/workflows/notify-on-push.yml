@@ -7,10 +7,12 @@ on:
 jobs:
   notify:
     runs-on: ubuntu-latest
-    # Only run if email secrets are configured
-    if: ${{ secrets.EMAIL_USERNAME != '' && secrets.NOTIFY_EMAIL != '' }}
+    # Continue even if email fails (secrets not configured)
+    continue-on-error: true
     steps:
-      - name: Send email notification
+      - name: Check secrets and send notification
+        id: notify
+        continue-on-error: true
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
@@ -32,18 +34,17 @@ jobs:
             ---
             View all changes: https://github.com/${{ github.repository }}/commits/main
 
-  # Fallback job that always succeeds (prevents failure emails when secrets not set)
-  check-secrets:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check if email secrets are configured
+      - name: Report status
         run: |
-          if [ -z "${{ secrets.EMAIL_USERNAME }}" ] || [ -z "${{ secrets.NOTIFY_EMAIL }}" ]; then
-            echo "⚠️ Email notification skipped - secrets not configured"
-            echo "To enable notifications, add these secrets in GitHub repo settings:"
-            echo "  - EMAIL_USERNAME: your Gmail address"
-            echo "  - EMAIL_APP_PASSWORD: Gmail app password"
-            echo "  - NOTIFY_EMAIL: where to send notifications"
+          if [ "${{ steps.notify.outcome }}" == "success" ]; then
+            echo "✅ Email notification sent successfully"
           else
-            echo "✅ Email secrets configured"
+            echo "⚠️ Email notification skipped (secrets not configured or SMTP error)"
+            echo ""
+            echo "To enable email notifications, add these secrets in GitHub repo settings:"
+            echo "  Settings > Secrets and variables > Actions > New repository secret"
+            echo ""
+            echo "  - EMAIL_USERNAME: your Gmail address"
+            echo "  - EMAIL_APP_PASSWORD: Gmail app password (from Google Account > App passwords)"
+            echo "  - NOTIFY_EMAIL: email address to receive notifications"
           fi

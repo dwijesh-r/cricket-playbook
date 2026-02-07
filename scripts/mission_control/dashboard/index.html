@@ -2430,12 +2430,47 @@
         .epic-subtitle {
             font-size: 17px;
             color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .epic-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .epic-search {
+            flex: 1;
+            min-width: 200px;
+            max-width: 400px;
+        }
+
+        .epic-search-input {
+            width: 100%;
+            padding: 10px 16px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-size: 14px;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .epic-search-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.15);
+        }
+
+        .epic-search-input::placeholder {
+            color: var(--text-tertiary);
         }
 
         .epic-filters {
             display: flex;
             gap: 8px;
-            margin-bottom: 24px;
             flex-wrap: wrap;
         }
 
@@ -2488,6 +2523,15 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin-top: 4px;
+        }
+
+        .epic-summary-card.has-warning {
+            border-color: var(--accent-orange);
+            background: rgba(255, 159, 10, 0.08);
+        }
+
+        .epic-summary-card.has-warning .epic-summary-value {
+            color: var(--accent-orange);
         }
 
         .epic-tree {
@@ -2553,6 +2597,13 @@
             display: flex;
             align-items: center;
             gap: 4px;
+        }
+
+        .epic-owner-avatar {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
         }
 
         .epic-type-badge {
@@ -3447,13 +3498,18 @@
             <section class="epic-section">
                 <div class="epic-header">
                     <h1 class="epic-title">🏛️ The Strategy Map</h1>
-                    <p class="epic-subtitle">EPIC → Parent → Child ticket hierarchy</p>
+                    <p class="epic-subtitle">Your playbook for victory — every play, every player, every path to the finish line</p>
                 </div>
-                <div class="epic-filters">
-                    <button class="epic-filter-btn active" onclick="filterEpics('all')">All</button>
-                    <button class="epic-filter-btn" onclick="filterEpics('delivery')">Delivery</button>
-                    <button class="epic-filter-btn" onclick="filterEpics('research')">Research</button>
-                    <button class="epic-filter-btn" onclick="filterEpics('spike')">Spike</button>
+                <div class="epic-controls">
+                    <div class="epic-search">
+                        <input type="text" class="epic-search-input" id="epicSearchInput" placeholder="Search EPICs, tickets, owners..." oninput="handleEpicSearch(this.value)">
+                    </div>
+                    <div class="epic-filters">
+                        <button class="epic-filter-btn active" onclick="filterEpics('all')">All</button>
+                        <button class="epic-filter-btn" onclick="filterEpics('delivery')">Delivery</button>
+                        <button class="epic-filter-btn" onclick="filterEpics('research')">Research</button>
+                        <button class="epic-filter-btn" onclick="filterEpics('spike')">Spike</button>
+                    </div>
                 </div>
                 <div class="epic-summary" id="epicSummary"></div>
                 <div class="epic-tree" id="epicTree"></div>
@@ -6073,6 +6129,12 @@ Gate Inheritance:
 
         // ==================== EPIC VIEW (TKT-129) ====================
         let epicFilter = 'all';
+        let epicSearchQuery = '';
+
+        function handleEpicSearch(query) {
+            epicSearchQuery = query.toLowerCase().trim();
+            renderEpicView();
+        }
 
         function filterEpics(type) {
             epicFilter = type;
@@ -6131,6 +6193,8 @@ Gate Inheritance:
             const summary = getHierarchySummary();
             const doneTickets = tickets.filter(t => t.state === 'DONE').length;
             const overallProgress = Math.round((doneTickets / tickets.length) * 100);
+            const staleReviews = tickets.filter(t => isStaleReview(t)).length;
+            const activeTickets = tickets.filter(t => ['RUNNING', 'IN_PROGRESS'].includes(t.state)).length;
 
             summaryEl.innerHTML = `
                 <div class="epic-summary-card">
@@ -6138,12 +6202,12 @@ Gate Inheritance:
                     <div class="epic-summary-label">EPICs</div>
                 </div>
                 <div class="epic-summary-card">
-                    <div class="epic-summary-value">${summary.parents}</div>
-                    <div class="epic-summary-label">Parent Tickets</div>
+                    <div class="epic-summary-value">${activeTickets}</div>
+                    <div class="epic-summary-label">In Progress</div>
                 </div>
-                <div class="epic-summary-card">
-                    <div class="epic-summary-value">${summary.children}</div>
-                    <div class="epic-summary-label">Child Tickets</div>
+                <div class="epic-summary-card ${staleReviews > 0 ? 'has-warning' : ''}">
+                    <div class="epic-summary-value">${staleReviews}</div>
+                    <div class="epic-summary-label">Stale Reviews</div>
                 </div>
                 <div class="epic-summary-card">
                     <div class="epic-summary-value">${overallProgress}%</div>
@@ -6155,6 +6219,23 @@ Gate Inheritance:
             let filteredEpics = epicFilter === 'all'
                 ? [...epics]
                 : epics.filter(e => e.type === epicFilter);
+
+            // Filter EPICs by search query
+            if (epicSearchQuery) {
+                filteredEpics = filteredEpics.filter(epic => {
+                    const epicTickets = getTicketsByEpic(epic.id);
+                    const matchesEpic = epic.id.toLowerCase().includes(epicSearchQuery) ||
+                        epic.title.toLowerCase().includes(epicSearchQuery) ||
+                        epic.owner.toLowerCase().includes(epicSearchQuery) ||
+                        epic.goal.toLowerCase().includes(epicSearchQuery);
+                    const matchesTicket = epicTickets.some(t =>
+                        t.id.toLowerCase().includes(epicSearchQuery) ||
+                        t.title.toLowerCase().includes(epicSearchQuery) ||
+                        (t.assignee && t.assignee.toLowerCase().includes(epicSearchQuery))
+                    );
+                    return matchesEpic || matchesTicket;
+                });
+            }
 
             // Sort EPICs: Active first, then by progress (incomplete first), 100% complete last
             const activeStates = ['IN_PROGRESS', 'RUNNING', 'REVIEW', 'VALIDATION'];
@@ -6239,7 +6320,7 @@ Gate Inheritance:
                                 </div>
                                 <div class="epic-card-meta">
                                     <span class="epic-type-badge ${epic.type}">${epic.type}</span>
-                                    <span>👤 ${epic.owner}</span>
+                                    <span>${getAgentAvatarImg(epic.owner, 'epic-owner-avatar')} ${epic.owner}</span>
                                     <span>📋 ${ticketCount} tickets</span>
                                 </div>
                             </div>

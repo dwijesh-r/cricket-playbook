@@ -5838,8 +5838,26 @@ Gate Inheritance:
         function renderBoard() {
             columns.forEach(col => {
                 const container = document.getElementById(`col-${col.id}`);
-                const colTickets = tickets.filter(t => t.state === col.id);
+                let colTickets = tickets.filter(t => t.state === col.id);
                 document.getElementById(`count-${col.id}`).textContent = colTickets.length;
+
+                // Sort tickets: P0 first, stale reviews second, then by recency (higher ID = newer)
+                colTickets.sort((a, b) => {
+                    // P0 tickets always first
+                    if (a.priority === 'P0' && b.priority !== 'P0') return -1;
+                    if (b.priority === 'P0' && a.priority !== 'P0') return 1;
+
+                    // Stale reviews (>2 days) second
+                    const aStale = isStaleReview(a);
+                    const bStale = isStaleReview(b);
+                    if (aStale && !bStale) return -1;
+                    if (bStale && !aStale) return 1;
+
+                    // Then by ticket ID descending (newer tickets first)
+                    const aNum = parseInt(a.id.replace(/\D/g, '')) || 0;
+                    const bNum = parseInt(b.id.replace(/\D/g, '')) || 0;
+                    return bNum - aNum;
+                });
 
                 if (colTickets.length === 0) {
                     container.innerHTML = '<div class="empty-state">No tickets</div>';
@@ -6134,9 +6152,34 @@ Gate Inheritance:
             `;
 
             // Filter EPICs by type
-            const filteredEpics = epicFilter === 'all'
-                ? epics
+            let filteredEpics = epicFilter === 'all'
+                ? [...epics]
                 : epics.filter(e => e.type === epicFilter);
+
+            // Sort EPICs: Active first, then by progress (incomplete first), 100% complete last
+            const activeStates = ['IN_PROGRESS', 'RUNNING', 'REVIEW', 'VALIDATION'];
+            filteredEpics.sort((a, b) => {
+                const aTickets = getTicketsByEpic(a.id);
+                const bTickets = getTicketsByEpic(b.id);
+                const aProgress = calculateEpicProgress(a.id);
+                const bProgress = calculateEpicProgress(b.id);
+                const aActive = aTickets.some(t => activeStates.includes(t.state));
+                const bActive = bTickets.some(t => activeStates.includes(t.state));
+
+                // Active EPICs first
+                if (aActive && !bActive) return -1;
+                if (!aActive && bActive) return 1;
+
+                // 100% complete EPICs last
+                if (aProgress === 100 && bProgress < 100) return 1;
+                if (bProgress === 100 && aProgress < 100) return -1;
+
+                // Then by progress (lower progress = more work = higher priority)
+                if (aProgress !== bProgress) return aProgress - bProgress;
+
+                // Finally by ticket count (more tickets = more complex = higher visibility)
+                return bTickets.length - aTickets.length;
+            });
 
             // Render EPIC cards
             treeEl.innerHTML = filteredEpics.map(epic => {
@@ -6399,10 +6442,28 @@ Gate Inheritance:
 
         function renderList() {
             // Filter tickets based on search query
-            const filteredTickets = searchQuery ? tickets.filter(t => {
+            let filteredTickets = searchQuery ? tickets.filter(t => {
                 const searchTarget = `${t.id} ${t.title} ${t.assignee || ''} ${t.tags.join(' ')}`.toLowerCase();
                 return searchTarget.includes(searchQuery);
-            }) : tickets;
+            }) : [...tickets];
+
+            // Sort: P0 first, stale reviews second, then by recency (newer first)
+            filteredTickets.sort((a, b) => {
+                // P0 tickets first
+                if (a.priority === 'P0' && b.priority !== 'P0') return -1;
+                if (b.priority === 'P0' && a.priority !== 'P0') return 1;
+
+                // Stale reviews second
+                const aStale = isStaleReview(a);
+                const bStale = isStaleReview(b);
+                if (aStale && !bStale) return -1;
+                if (bStale && !aStale) return 1;
+
+                // Then by ticket ID descending (newer first)
+                const aNum = parseInt(a.id.replace(/\D/g, '')) || 0;
+                const bNum = parseInt(b.id.replace(/\D/g, '')) || 0;
+                return bNum - aNum;
+            });
 
             // Desktop Table
             const tbody = document.getElementById('ticketTableBody');

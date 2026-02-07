@@ -387,6 +387,102 @@ class ModelMonitor:
 
         return distribution, alerts
 
+    def track_cluster_sizes(
+        self,
+        cluster_sizes: List[int],
+        player_type: str,
+    ) -> Tuple[ClusterDistribution, List[Alert]]:
+        """
+        Track cluster distribution from a list of cluster sizes.
+
+        Simplified alternative to track_cluster_distribution() when you only
+        have cluster size counts, not the full clustered DataFrame.
+
+        Args:
+            cluster_sizes: List of player counts per cluster [45, 38, 42, 28, 22]
+            player_type: 'batter' or 'bowler'
+
+        Returns:
+            Tuple of (ClusterDistribution, list of alerts)
+
+        Example:
+            >>> monitor.track_cluster_sizes([45, 38, 42, 28, 22], 'batter')
+        """
+        cluster_dict = {i: size for i, size in enumerate(cluster_sizes)}
+        total_players = sum(cluster_sizes)
+
+        distribution = ClusterDistribution(
+            timestamp=datetime.now().isoformat(),
+            player_type=player_type,
+            cluster_sizes=cluster_dict,
+            total_players=total_players,
+        )
+
+        self._cluster_history.append(distribution)
+
+        # Check for undersized clusters
+        alerts = []
+        for cluster_id, size in cluster_dict.items():
+            if size < self.thresholds.min_cluster_size:
+                alert = Alert(
+                    level=AlertLevel.WARNING,
+                    metric="cluster_size",
+                    message=f"{player_type.capitalize()} cluster {cluster_id} has only {size} players",
+                    value=size,
+                    threshold=self.thresholds.min_cluster_size,
+                )
+                alerts.append(alert)
+                self._alerts.append(alert)
+                self.logger.warning(
+                    "Undersized cluster: %s cluster %d has %d players (min: %d)",
+                    player_type,
+                    cluster_id,
+                    size,
+                    self.thresholds.min_cluster_size,
+                )
+
+        self.logger.info(
+            "Tracked %s cluster sizes: %d clusters, %d total players",
+            player_type,
+            len(cluster_sizes),
+            total_players,
+        )
+
+        return distribution, alerts
+
+    def is_baseline_stale(
+        self,
+        model_name: str,
+        max_age_days: int = 90,
+    ) -> bool:
+        """
+        Check if baseline is stale and needs refresh.
+
+        Args:
+            model_name: Model identifier
+            max_age_days: Maximum age in days before baseline is stale
+
+        Returns:
+            True if baseline is missing or older than max_age_days
+        """
+        metadata = self._baseline_metadata.get(model_name)
+        if not metadata:
+            return True
+
+        created_at = datetime.fromisoformat(metadata.created_at)
+        age_days = (datetime.now() - created_at).days
+
+        if age_days > max_age_days:
+            self.logger.warning(
+                "Baseline for %s is stale (%d days old, max: %d)",
+                model_name,
+                age_days,
+                max_age_days,
+            )
+            return True
+
+        return False
+
     def set_baseline_features(
         self,
         baseline_df: pd.DataFrame,

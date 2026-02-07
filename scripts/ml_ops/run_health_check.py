@@ -35,6 +35,7 @@ sys.path.insert(0, str(PROJECT_DIR))
 import pandas as pd
 
 from scripts.ml_ops.model_monitoring import (
+    Alert,
     AlertLevel,
     create_monitor_with_defaults,
 )
@@ -115,7 +116,7 @@ def run_health_check(verbose: bool = False, export: bool = False) -> dict:
     bowler_clusters = get_cluster_distribution(bowlers)
 
     if batter_clusters:
-        batter_dist, batter_alerts = monitor.track_cluster_distribution(
+        batter_dist, batter_alerts = monitor.track_cluster_sizes(
             cluster_sizes=list(batter_clusters.values()), player_type="batter"
         )
         alerts.extend(batter_alerts)
@@ -125,7 +126,7 @@ def run_health_check(verbose: bool = False, export: bool = False) -> dict:
         print(f"   {status} Min cluster size: {min_batter}")
 
     if bowler_clusters:
-        bowler_dist, bowler_alerts = monitor.track_cluster_distribution(
+        bowler_dist, bowler_alerts = monitor.track_cluster_sizes(
             cluster_sizes=list(bowler_clusters.values()), player_type="bowler"
         )
         alerts.extend(bowler_alerts)
@@ -170,22 +171,46 @@ def run_health_check(verbose: bool = False, export: bool = False) -> dict:
     else:
         print("   ⚠️ Model registry not found - skipping PCA check")
 
-    # 4. Check for baseline (drift detection requires baseline)
-    print("\n[4/5] Checking drift detection readiness...")
+    # 4. Check for baseline and drift detection
+    print("\n[4/5] Checking drift detection...")
 
     batter_baseline = monitor.get_baseline_metadata("batter_clustering")
     bowler_baseline = monitor.get_baseline_metadata("bowler_clustering")
 
+    # Check batter baseline
     if batter_baseline:
-        print(f"   ✅ Batter baseline set: {batter_baseline.created_at}")
+        print(f"   ✅ Batter baseline set: {batter_baseline.created_at[:10]}")
         print(f"      Created by: {batter_baseline.created_by}")
+        print(f"      Samples: {batter_baseline.n_samples}")
+
+        # Check if stale
+        if monitor.is_baseline_stale("batter_clustering", max_age_days=90):
+            print("   ⚠️ Batter baseline is stale (>90 days) - consider refreshing")
+            stale_alert = Alert(
+                level=AlertLevel.WARNING,
+                metric="baseline_staleness",
+                message="Batter clustering baseline is stale (>90 days old)",
+                value="stale",
+                threshold="90 days",
+            )
+            alerts.append(stale_alert)
     else:
         print("   ⚠️ No batter baseline - call set_baseline_features() to enable drift detection")
 
+    # Check bowler baseline
     if bowler_baseline:
-        print(f"   ✅ Bowler baseline set: {bowler_baseline.created_at}")
+        print(f"   ✅ Bowler baseline set: {bowler_baseline.created_at[:10]}")
+
+        if monitor.is_baseline_stale("bowler_clustering", max_age_days=90):
+            print("   ⚠️ Bowler baseline is stale (>90 days) - consider refreshing")
     else:
         print("   ⚠️ No bowler baseline - drift detection not available")
+
+    # Note: Actual drift detection requires current feature data
+    # which would come from a retraining run. This health check
+    # verifies readiness but doesn't run drift checks without data.
+    print("\n   ℹ️  Drift detection ready when baselines exist.")
+    print("   ℹ️  Multivariate drift (Mahalanobis) available via detect_multivariate_drift()")
 
     # 5. Generate health report
     print("\n[5/5] Generating health report...")

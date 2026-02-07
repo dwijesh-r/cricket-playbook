@@ -1,8 +1,8 @@
 # Cricket Playbook — Constitution v2.0
 
 **Status:** APPROVED
-**Version:** 2.0.0
-**Date:** 2026-01-31
+**Version:** 2.1.0
+**Date:** 2026-02-07
 **Authors:** Brad Stevens, Florentino Perez, Tom Brady
 
 ---
@@ -224,7 +224,78 @@ Three agents answer one focused question each (Yes/No/Fix only):
 
 ---
 
-## Section 5: Definition of Done
+## Section 5: Work Item Hierarchy (TKT-130)
+
+### 5.1 Work Item Types
+
+Cricket Playbook uses a three-level hierarchy for tracking work:
+
+```
+Level 0: EPIC
+    │
+    ├── Level 1: PARENT TICKET
+    │       │
+    │       └── Level 2: CHILD TICKET
+    │
+    └── Level 1: STANDALONE TICKET (no children)
+```
+
+| Level | ID Format | Description | Example |
+|-------|-----------|-------------|---------|
+| **Level 0** | EPIC-XXX | Container for related work with theme/goal/outcome | EPIC-008: ML Operations |
+| **Level 1** | TKT-XXX | Scoped deliverable within EPIC (may have children) | TKT-113: CI/CD Audit |
+| **Level 2** | TKT-XXX | Atomic implementation task (leaf node) | TKT-114: Schema Validation CI |
+
+### 5.2 EPIC Types
+
+| Type | Purpose | When to Use | Example Outcome |
+|------|---------|-------------|-----------------|
+| **Delivery** | Ship a feature or capability | New functionality, integrations | Working code + documentation |
+| **Research** | Investigate, audit, explore | Audits, gap analysis, discovery | Findings + recommendations |
+| **Retro** | Post-mortem, lessons learned | Sprint retrospectives | Process improvements |
+| **Spike** | Time-boxed technical exploration | Proof of concepts, feasibility | Decision + prototype |
+
+### 5.3 Ticket Field Requirements
+
+| Field | EPIC | Parent Ticket | Child Ticket | Standalone |
+|-------|------|---------------|--------------|------------|
+| `id` | EPIC-XXX | TKT-XXX | TKT-XXX | TKT-XXX |
+| `ticketType` | (in epics[]) | 'parent' | 'child' | (none) |
+| `epic` | (self) | Required | Required | Required |
+| `parent` | — | — | Required | — |
+| `progress` | Calculated | Calculated | Manual | Manual |
+| `assignee` | Optional | Required | Required | Required |
+
+### 5.4 Hierarchy Rules
+
+1. **Maximum depth:** 2 levels (EPIC → Parent → Child). No grandchildren.
+2. **No orphans:** Every child ticket must have a valid parent reference.
+3. **Progress rollup:** EPIC progress is calculated as average of its tickets.
+4. **State inheritance:** Child tickets can have different states from parent.
+5. **EPIC ownership:** Each EPIC has a designated owner responsible for overall progress.
+
+### 5.5 EPIC Creation Checklist
+
+Before creating a new EPIC:
+
+- [ ] Define clear goal and expected outcome
+- [ ] Assign EPIC type (Delivery/Research/Retro/Spike)
+- [ ] Designate owner
+- [ ] Identify initial parent tickets
+- [ ] Get Florentino Gate approval for Delivery EPICs
+
+### 5.6 Epic View
+
+The Boardroom includes an **Epic View** ("The Strategy Map") that visualizes the complete hierarchy:
+
+- Filter by EPIC type (All/Delivery/Research/Spike)
+- Collapsible EPIC cards showing tickets
+- Progress rollup bars
+- Parent-child relationships displayed hierarchically
+
+---
+
+## Section 6: Definition of Done
 
 A task is **DONE** only when ALL of the following are true:
 
@@ -241,9 +312,9 @@ A task is **DONE** only when ALL of the following are true:
 
 ---
 
-## Section 6: Graduation Rules (Analytics → Editorial)
+## Section 7: Graduation Rules (Analytics → Editorial)
 
-### 6.1 When Analytics Becomes Editorial
+### 7.1 When Analytics Becomes Editorial
 
 An analytical output graduates to editorial content when:
 
@@ -255,7 +326,7 @@ An analytical output graduates to editorial content when:
 | Virat Kohli approval | "This adds reader value" |
 | Florentino Perez approval | "This improves the paid artifact" |
 
-### 6.2 Graduation Process
+### 7.2 Graduation Process
 
 1. **Stephen Curry** proposes graduation with evidence
 2. **Andy Flower** validates cricket truth
@@ -263,7 +334,7 @@ An analytical output graduates to editorial content when:
 4. **Florentino Perez** approves for paid artifact
 5. **Tom Brady** schedules for stat pack inclusion
 
-### 6.3 Analytics-Only Content
+### 7.3 Analytics-Only Content
 
 Content that stays in analytics lab (not in paid artifact):
 - Experimental metrics
@@ -275,16 +346,16 @@ Must be clearly labeled as "EXPERIMENTAL" if shown anywhere.
 
 ---
 
-## Section 7: Scope & Boundaries
+## Section 8: Scope & Boundaries
 
-### 7.1 Data Scope
+### 8.1 Data Scope
 
 - **T20 only**
 - **Primary window:** IPL 2023-2025 (219 matches)
 - **Baseline context:** All T20 data (for sanity checks)
 - **No predictions or projections**
 
-### 7.2 Content Tiers
+### 8.2 Content Tiers
 
 #### Tier 1: MUST-HAVES
 A section must satisfy at least one:
@@ -298,7 +369,7 @@ A section must satisfy at least one:
 - Must be removable without breaking the issue
 - Requires: Tom Brady (scope) + Virat Kohli (tone) + Florentino Perez (value)
 
-### 7.3 Forbidden Content
+### 8.3 Forbidden Content
 
 - ❌ Predictions, win probabilities, odds, points-table forecasts
 - ❌ Betting or fantasy advice
@@ -309,16 +380,16 @@ A section must satisfy at least one:
 
 ---
 
-## Section 8: Agent Boundaries
+## Section 9: Agent Boundaries
 
-### 8.1 No Overlap Rule
+### 9.1 No Overlap Rule
 
 Each agent has a defined lane. Agents must not:
 - Make decisions outside their authority
 - Override other agents without proper escalation
 - Skip process steps
 
-### 8.2 Agent Decision Matrix
+### 9.2 Agent Decision Matrix
 
 | Decision Type | Primary Owner | Consulted | Approver |
 |---------------|---------------|-----------|----------|
@@ -331,7 +402,7 @@ Each agent has a defined lane. Agents must not:
 | Testing/QA | N'Golo Kanté | Brad Stevens | Tom Brady |
 | Model deployment | Ime Udoka | Jose Mourinho | Brad Stevens |
 
-### 8.3 Escalation Path
+### 9.3 Escalation Path
 
 ```
 Agent → Functional Lead → Tom Brady → Florentino Perez → Founder
@@ -339,22 +410,22 @@ Agent → Functional Lead → Tom Brady → Florentino Perez → Founder
 
 ---
 
-## Section 9: Performance Governance
+## Section 10: Performance Governance
 
-### 9.1 Agent Performance
+### 10.1 Agent Performance
 
 - Founding agents are **permanent**
 - Performance issues trigger **retraining/mandate refinement**, not removal
 - **Brad Stevens** runs performance evaluations with ratings + context
 - Brad maintains a Skills Radar for all agents
 
-### 9.2 New Agent Proposals
+### 10.2 New Agent Proposals
 
 - Only Brad Stevens can propose new agents
 - Requires formal report with justification
 - **Founder approval required**
 
-### 9.3 Performance Review Triggers
+### 10.3 Performance Review Triggers
 
 - Repetitive errors in same domain
 - Scope creep patterns
@@ -363,16 +434,16 @@ Agent → Functional Lead → Tom Brady → Florentino Perez → Founder
 
 ---
 
-## Section 10: Change Management
+## Section 11: Change Management
 
-### 10.1 Rules
+### 11.1 Rules
 
 - Page/section cap is **hard**
 - No silent scope expansion
 - Schema changes require **Tom Brady + Founder** approval
 - Constitution changes require **Founder** approval
 
-### 10.2 Version Control
+### 11.2 Version Control
 
 | Change Type | Approval Required |
 |-------------|-------------------|
@@ -382,9 +453,9 @@ Agent → Functional Lead → Tom Brady → Florentino Perez → Founder
 
 ---
 
-## Section 11: Quality Gates
+## Section 12: Quality Gates
 
-### 11.1 Review Gates
+### 12.1 Review Gates
 
 | Gate | Stage | Owner | Must Answer |
 |------|-------|-------|-------------|
@@ -393,7 +464,7 @@ Agent → Functional Lead → Tom Brady → Florentino Perez → Founder
 | Enforcement | Pre-commit | Tom Brady | Was process followed? |
 | QA Gate | Post-commit | N'Golo Kanté | Tests pass? Schema intact? |
 
-### 11.2 Baseline Requirement
+### 12.2 Baseline Requirement
 
 **Every metric must have a baseline.** No silent assumptions.
 
@@ -406,9 +477,9 @@ Agent → Functional Lead → Tom Brady → Florentino Perez → Founder
 
 ---
 
-## Section 12: Documentation Standards
+## Section 13: Documentation Standards
 
-### 12.1 Required Documentation
+### 13.1 Required Documentation
 
 | Artifact | Documentation Required |
 |----------|------------------------|
@@ -417,7 +488,7 @@ Agent → Functional Lead → Tom Brady → Florentino Perez → Founder
 | New output file | README with schema, purpose, limitations |
 | Model | Model card with goal, process, validation |
 
-### 12.2 Single Source of Truth
+### 13.2 Single Source of Truth
 
 - One manifest file per category
 - Auto-updated on generation
@@ -425,9 +496,9 @@ Agent → Functional Lead → Tom Brady → Florentino Perez → Founder
 
 ---
 
-## Section 13: Risk Management
+## Section 14: Risk Management
 
-### 13.1 Over-Interpretation Risk
+### 14.1 Over-Interpretation Risk
 
 **Owners:** Andy Flower + Jose Mourinho
 
@@ -437,7 +508,7 @@ Agent → Functional Lead → Tom Brady → Florentino Perez → Founder
 | Context-dependent insights | Label with conditions |
 | Sample-limited conclusions | Mark confidence level |
 
-### 13.2 Editorial Discipline
+### 14.2 Editorial Discipline
 
 **Rule:** Editorial team must stay separate from Analytical lab.
 
@@ -498,6 +569,7 @@ Agent → Functional Lead → Tom Brady → Florentino Perez → Founder
 |---------|------|--------|---------|
 | 1.0 | 2026-01-24 | Tom Brady | Initial constitution |
 | 2.0 | 2026-01-31 | Brad Stevens, Florentino Perez, Tom Brady | Task Integrity Loop, team structure, graduation rules, expanded governance |
+| 2.1 | 2026-02-07 | Tom Brady | Added Section 5: Work Item Hierarchy (TKT-130) - EPIC/Parent/Child ticket structure, Epic View reference |
 
 ---
 

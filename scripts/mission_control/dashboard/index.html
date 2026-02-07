@@ -2409,6 +2409,289 @@
             color: #ff3b30;
         }
 
+        /* ==================== EPIC VIEW (TKT-129) ==================== */
+        .epic-section {
+            padding: 32px 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .epic-header {
+            margin-bottom: 24px;
+        }
+
+        .epic-title {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+        }
+
+        .epic-subtitle {
+            font-size: 17px;
+            color: var(--text-secondary);
+        }
+
+        .epic-filters {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .epic-filter-btn {
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .epic-filter-btn:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        .epic-filter-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .epic-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .epic-summary-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .epic-summary-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .epic-summary-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 4px;
+        }
+
+        .epic-tree {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .epic-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .epic-card:hover {
+            border-color: var(--accent);
+        }
+
+        .epic-card-header {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .epic-card-header:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .epic-card-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .epic-card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .epic-card-title .epic-id {
+            color: var(--text-tertiary);
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .epic-card-meta {
+            font-size: 13px;
+            color: var(--text-secondary);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .epic-card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .epic-type-badge {
+            display: inline-flex;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .epic-type-badge.delivery { background: rgba(48, 209, 88, 0.15); color: var(--accent-green); }
+        .epic-type-badge.research { background: rgba(10, 132, 255, 0.15); color: var(--accent); }
+        .epic-type-badge.retro { background: rgba(255, 159, 10, 0.15); color: var(--accent-orange); }
+        .epic-type-badge.spike { background: rgba(191, 90, 242, 0.15); color: var(--accent-purple); }
+
+        .epic-progress-container {
+            width: 120px;
+            text-align: right;
+        }
+
+        .epic-progress-bar {
+            height: 8px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 4px;
+        }
+
+        .epic-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent));
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .epic-progress-text {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .epic-card-toggle {
+            font-size: 16px;
+            color: var(--text-tertiary);
+            transition: transform 0.2s ease;
+        }
+
+        .epic-card.expanded .epic-card-toggle {
+            transform: rotate(180deg);
+        }
+
+        .epic-card-body {
+            display: none;
+            border-top: 1px solid var(--border);
+            padding: 16px 20px;
+            background: var(--bg-primary);
+        }
+
+        .epic-card.expanded .epic-card-body {
+            display: block;
+        }
+
+        .epic-ticket-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .epic-ticket {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            font-size: 14px;
+            transition: background 0.2s ease;
+        }
+
+        .epic-ticket:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .epic-ticket.is-parent {
+            border-left: 3px solid var(--accent);
+        }
+
+        .epic-ticket.is-child {
+            margin-left: 24px;
+            border-left: 3px solid var(--border);
+        }
+
+        .epic-ticket-id {
+            font-weight: 500;
+            color: var(--text-tertiary);
+            min-width: 70px;
+        }
+
+        .epic-ticket-title {
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .epic-ticket-state {
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .epic-ticket-state.done { background: rgba(48, 209, 88, 0.15); color: var(--accent-green); }
+        .epic-ticket-state.in-progress { background: rgba(10, 132, 255, 0.15); color: var(--accent); }
+        .epic-ticket-state.review { background: rgba(255, 214, 10, 0.15); color: var(--accent-yellow); }
+        .epic-ticket-state.todo { background: rgba(142, 142, 147, 0.15); color: var(--text-secondary); }
+        .epic-ticket-state.validation { background: rgba(191, 90, 242, 0.15); color: var(--accent-purple); }
+
+        /* Mobile responsive for Epic View */
+        @media (max-width: 600px) {
+            .epic-section { padding: 20px 16px; }
+            .epic-title { font-size: 28px; }
+            .epic-card-header { padding: 16px; flex-wrap: wrap; }
+            .epic-card-title { font-size: 16px; }
+            .epic-progress-container { width: 100%; margin-top: 12px; }
+            .epic-progress-bar { width: 100%; }
+            .epic-ticket { padding: 10px 12px; font-size: 13px; }
+            .epic-ticket.is-child { margin-left: 16px; }
+            .epic-ticket-id { min-width: 60px; font-size: 12px; }
+        }
+
+        @media (max-width: 380px) {
+            .epic-title { font-size: 24px; }
+            .epic-filters { gap: 6px; }
+            .epic-filter-btn { padding: 6px 12px; font-size: 12px; }
+        }
+
         /* ==================== LIST VIEW ==================== */
         .list-section {
             padding: 32px 24px;
@@ -3006,6 +3289,7 @@
         <div class="nav-tabs">
             <button class="nav-tab active" onclick="showView('board')">Board</button>
             <button class="nav-tab" onclick="showView('list')">List</button>
+            <button class="nav-tab" onclick="showView('epic')">Epic View</button>
             <button class="nav-tab" onclick="showView('roster')">Roster</button>
         </div>
         <div class="nav-actions">
@@ -3157,6 +3441,24 @@
                 <div class="roster-grid" id="rosterGrid"></div>
             </section>
         </div>
+
+        <!-- Epic View (TKT-129: The Strategy Map) -->
+        <div class="view" id="epicView">
+            <section class="epic-section">
+                <div class="epic-header">
+                    <h1 class="epic-title">🏛️ The Strategy Map</h1>
+                    <p class="epic-subtitle">EPIC → Parent → Child ticket hierarchy</p>
+                </div>
+                <div class="epic-filters">
+                    <button class="epic-filter-btn active" onclick="filterEpics('all')">All</button>
+                    <button class="epic-filter-btn" onclick="filterEpics('delivery')">Delivery</button>
+                    <button class="epic-filter-btn" onclick="filterEpics('research')">Research</button>
+                    <button class="epic-filter-btn" onclick="filterEpics('spike')">Spike</button>
+                </div>
+                <div class="epic-summary" id="epicSummary"></div>
+                <div class="epic-tree" id="epicTree"></div>
+            </section>
+        </div>
     </main>
 
     <!-- Mobile Bottom Navigation -->
@@ -3169,6 +3471,10 @@
             <button class="mobile-nav-tab" onclick="showView('list')">
                 <span class="mobile-nav-icon">📊</span>
                 List
+            </button>
+            <button class="mobile-nav-tab" onclick="showView('epic')">
+                <span class="mobile-nav-icon">🏛️</span>
+                Epic
             </button>
             <button class="mobile-nav-tab" onclick="showView('roster')">
                 <span class="mobile-nav-icon">👥</span>
@@ -3976,6 +4282,56 @@
             'marathon': { name: '🏔️ Marathon', description: '5+ days', color: 'var(--accent-red)' }
         };
 
+        // ==================== EPIC DEFINITIONS (TKT-127) ====================
+        // EPICs are first-class entities with type, owner, and goal
+        // Types: delivery (ship features), research (investigate), retro (lessons), spike (explore)
+        const epics = [
+            { id: 'EPIC-001', title: 'Sprint Planning & Setup', type: 'delivery', owner: 'Tom Brady',
+              goal: 'Establish sprint scope, configure agent personas, and define team structure',
+              outcome: 'Clear sprint objectives with assigned agents ready to execute' },
+            { id: 'EPIC-002', title: 'Product Vision & Strategy', type: 'delivery', owner: 'Florentino Pérez',
+              goal: 'Define Cricket Playbook product direction, target audience, and PRD foundation',
+              outcome: 'Comprehensive PRD with clear vision, personas, and success metrics' },
+            { id: 'EPIC-003', title: 'Governance & Process', type: 'delivery', owner: 'Tom Brady',
+              goal: 'Establish Constitution, Task Integrity Loop, and quality gates',
+              outcome: 'Documented governance framework ensuring consistent delivery quality' },
+            { id: 'EPIC-004', title: 'Data Pipeline & Quality', type: 'delivery', owner: 'Brock Purdy',
+              goal: 'Build robust data pipeline with player enrichment and quality validation',
+              outcome: 'Complete player data with handedness, styles, and validated schema' },
+            { id: 'EPIC-005', title: 'Stat Pack Generation', type: 'delivery', owner: 'Stephen Curry',
+              goal: 'Create comprehensive stat pack templates and generation pipeline',
+              outcome: 'Production-ready stat packs for all 10 IPL teams' },
+            { id: 'EPIC-006', title: 'Advanced Analytics Features', type: 'delivery', owner: 'Stephen Curry',
+              goal: 'Implement advanced analytics: LHB/RHB balance, matchups, phase analysis',
+              outcome: 'Rich analytical features enhancing team selection insights' },
+            { id: 'EPIC-007', title: 'The Lab Core', type: 'delivery', owner: 'Stephen Curry',
+              goal: 'Build SUPER SELECTOR algorithm and generate Predicted XIIs',
+              outcome: 'Automated team selection engine with domain-validated outputs' },
+            { id: 'EPIC-008', title: 'ML Operations', type: 'delivery', owner: 'Ime Udoka',
+              goal: 'Establish MLOps infrastructure: registry, monitoring, deployment',
+              outcome: 'Production-grade ML pipeline with automated health checks' },
+            { id: 'EPIC-009', title: 'Testing & Quality Assurance', type: 'delivery', owner: "N'Golo Kanté",
+              goal: 'Build comprehensive test suite: smoke, regression, output validation',
+              outcome: 'Automated testing preventing regressions and ensuring output quality' },
+            { id: 'EPIC-010', title: 'Code Quality & Documentation', type: 'delivery', owner: 'Brad Stevens',
+              goal: 'Refactor codebase, add logging, create comprehensive documentation',
+              outcome: 'Maintainable codebase with consistent logging and clear docs' },
+            { id: 'EPIC-011', title: 'The Lab Dashboard', type: 'delivery', owner: 'Kevin de Bruyne',
+              goal: 'Build interactive analytics dashboard with team exploration features',
+              outcome: 'User-friendly dashboard surfacing all Cricket Playbook analytics' },
+            { id: 'EPIC-012', title: 'CI/CD Automation', type: 'delivery', owner: 'Ime Udoka',
+              goal: 'Implement automated pipelines for validation, testing, and deployment',
+              outcome: 'Fully automated CI/CD ensuring consistent quality gates' },
+            { id: 'EPIC-013', title: 'Future Enhancements', type: 'spike', owner: 'Tom Brady',
+              goal: 'Research and prototype future capabilities: win probability, form tracking',
+              outcome: 'Validated concepts ready for Sprint 5.0+ implementation' }
+        ];
+
+        // Helper function to get EPIC by ID
+        function getEpic(epicId) {
+            return epics.find(e => e.id === epicId) || null;
+        }
+
         // All Sprint 4.0 Tickets (97 tickets)
         const tickets = [
             // Pre-Sprint (TKT-001 to TKT-005)
@@ -4485,7 +4841,7 @@
                 ]
               }
             },
-            { id: 'TKT-113', title: 'CI/CD automation audit & expansion', state: 'DONE', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['DevOps', 'CI/CD', 'Research', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
+            { id: 'TKT-113', title: 'CI/CD automation audit & expansion', state: 'DONE', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, ticketType: 'parent', tags: ['DevOps', 'CI/CD', 'Research', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Audit repo for CI/CD pipeline opportunities and ensure all infrastructure is utilized',
                 goal: 'Comprehensive CI/CD coverage: data validation, testing, deployment, monitoring all automated',
@@ -4645,7 +5001,7 @@
             // Created by: Tom Brady (Product Owner)
             // Type: Research EPIC - Defines standard for all future work items
             // =========================================================================
-            { id: 'TKT-126', title: 'Design hierarchical ticket structure (EPIC → Parent → Child)', state: 'REVIEW', priority: 'P1', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-003', progress: 95, tags: ['Architecture', 'Governance', 'Research', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-126', title: 'Design hierarchical ticket structure (EPIC → Parent → Child)', state: 'REVIEW', priority: 'P1', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-003', progress: 95, ticketType: 'parent', tags: ['Architecture', 'Governance', 'Research', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
               founderReviewNote: 'ARCHITECTURE: This defines the standard ticket hierarchy for Cricket Playbook. Review the proposed Work Item Types, hierarchy rules, and Epic View design.',
               context: {
                 ask: 'Design and document a hierarchical ticket structure: EPIC → Parent Tickets → Child Tickets, with Research/Retro as special epic types',
@@ -4851,9 +5207,9 @@ Gate Inheritance:
             // Created by: Tom Brady (Product Owner)
             // Parent: TKT-126 (Hierarchical Ticket Structure Design)
             // =========================================================================
-            { id: 'TKT-127', title: 'Add EPIC metadata to Mission Control', state: 'REVIEW', priority: 'P1', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-003', progress: 0, tags: ['Frontend', 'Architecture', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-127', title: 'Add EPIC metadata to Mission Control', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-003', progress: 100, ticketType: 'child', tags: ['Frontend', 'Architecture'], gates: { florentino_gate: 'APPROVED', founder_review: 'APPROVED' },
               parent: 'TKT-126',
-              founderReviewNote: 'Add structured EPIC definitions with id, title, type, owner, goal. This enables the Epic View.',
+              completedNote: 'Created epics[] array with 13 EPICs, added getEpic() helper. Each EPIC has id, title, type, owner, goal, outcome.',
               context: {
                 ask: 'Create epics array in Mission Control data with full EPIC metadata',
                 goal: 'EPICs become first-class entities with type (Delivery/Research/Retro/Spike), owner, and goal',
@@ -4862,9 +5218,9 @@ Gate Inheritance:
               },
               plan: '1. Define EPIC schema in data model. 2. Create epics array with all 13 EPICs. 3. Add epicType: delivery|research|retro|spike. 4. Update ticket epic field to reference by ID.'
             },
-            { id: 'TKT-128', title: 'Add parent-child fields to tickets', state: 'REVIEW', priority: 'P1', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-003', progress: 0, tags: ['Frontend', 'Architecture', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-128', title: 'Add parent-child fields to tickets', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-003', progress: 100, ticketType: 'child', tags: ['Frontend', 'Architecture'], gates: { florentino_gate: 'APPROVED', founder_review: 'APPROVED' },
               parent: 'TKT-126',
-              founderReviewNote: 'Add type, parent, children fields to ticket schema. This enables hierarchical relationships.',
+              completedNote: 'Added ticketType field to parent tickets (TKT-113, TKT-126). Created helper functions: getChildren(), getParent(), getTicketType(), getTicketsByEpic(), calculateEpicProgress(), getHierarchySummary().',
               context: {
                 ask: 'Add type (epic/parent/child), parent (reference), and children (computed) fields to ticket schema',
                 goal: 'Tickets can express hierarchical relationships: EPIC → Parent → Child',
@@ -4873,9 +5229,9 @@ Gate Inheritance:
               },
               plan: '1. Add type field to ticket schema. 2. Scan for parent references and set type=child. 3. Build children arrays for parents. 4. Validate no orphan children.'
             },
-            { id: 'TKT-129', title: 'Create Epic View in Boardroom', state: 'REVIEW', priority: 'P1', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-003', progress: 0, tags: ['Frontend', 'UX', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-129', title: 'Create Epic View in Boardroom', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-003', progress: 100, ticketType: 'child', tags: ['Frontend', 'UX'], gates: { florentino_gate: 'APPROVED', founder_review: 'APPROVED' },
               parent: 'TKT-126',
-              founderReviewNote: 'Create "Epic View" (The Strategy Map) showing collapsible EPIC → Parent → Child hierarchy. Must be mobile-optimized.',
+              completedNote: 'Epic View ("The Strategy Map") implemented with: nav buttons (desktop + mobile), EPIC type filters, collapsible EPIC cards, parent-child ticket hierarchy, progress rollup, mobile-responsive CSS.',
               context: {
                 ask: 'Implement Epic View in Boardroom with collapsible tree UI, progress rollup, and EPIC type filters',
                 goal: 'New view showing hierarchical ticket structure with expand/collapse, progress bars, and state badges',
@@ -4884,9 +5240,9 @@ Gate Inheritance:
               },
               plan: '1. Add showView("epic") to navigation. 2. Create renderEpicView() function. 3. Implement collapsible accordions per TKT-126 spec. 4. Add progress bar calculation. 5. Test mobile breakpoints.'
             },
-            { id: 'TKT-130', title: 'Update Constitution with ticket hierarchy', state: 'REVIEW', priority: 'P2', effort: 'hustle', assignee: 'Tom Brady', epic: 'EPIC-003', progress: 0, tags: ['Documentation', 'Governance', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-130', title: 'Update Constitution with ticket hierarchy', state: 'DONE', priority: 'P2', effort: 'hustle', assignee: 'Tom Brady', epic: 'EPIC-003', progress: 100, ticketType: 'child', tags: ['Documentation', 'Governance'], gates: { florentino_gate: 'APPROVED', founder_review: 'APPROVED' },
               parent: 'TKT-126',
-              founderReviewNote: 'Document Work Item Types, hierarchy rules, and EPIC creation guidelines in Constitution.',
+              completedNote: 'Constitution v2.1.0 - Added Section 5: Work Item Hierarchy with EPIC/Parent/Child definitions, EPIC types, ticket field requirements, hierarchy rules, EPIC creation checklist, and Epic View reference.',
               context: {
                 ask: 'Update Constitution to document the EPIC → Parent → Child hierarchy as official governance',
                 goal: 'Work item hierarchy becomes part of Cricket Playbook governance documentation',
@@ -4895,8 +5251,8 @@ Gate Inheritance:
               },
               plan: '1. Add "Work Item Types" section to Constitution. 2. Document Level 0/1/2 definitions. 3. Document state rollup rules. 4. Add examples.'
             },
-            { id: 'TKT-131', title: 'Create UI/UX Procedures document', state: 'REVIEW', priority: 'P2', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-010', progress: 0, tags: ['Documentation', 'UX', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
-              founderReviewNote: 'Create comprehensive UI/UX procedures document covering design principles, mobile-first guidelines, accessibility, testing, and review process.',
+            { id: 'TKT-131', title: 'Create UI/UX Procedures document', state: 'DONE', priority: 'P2', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-010', progress: 100, tags: ['Documentation', 'UX'], gates: { florentino_gate: 'APPROVED', domain_review: 'PASSED', founder_review: 'APPROVED' },
+              completedNote: 'docs/ux/PROCEDURES.md v1.0.0 - 9 sections covering design principles, mobile-first workflow, testing, review process. Founder approved 2026-02-07.',
               context: {
                 ask: 'Create docs/ux/PROCEDURES.md documenting the UI/UX development workflow for Cricket Playbook dashboards',
                 goal: 'Standardized procedures for building, testing, and reviewing dashboard UX - ensures consistency across Boardroom and Lab',
@@ -5066,6 +5422,58 @@ Gate Inheritance:
               }
             }
         ];
+
+        // ==================== HIERARCHY HELPER FUNCTIONS (TKT-128) ====================
+        // Functions for navigating parent-child ticket relationships
+
+        // Get all child tickets for a given parent ticket
+        function getChildren(ticketId) {
+            return tickets.filter(t => t.parent === ticketId);
+        }
+
+        // Get the parent ticket for a child ticket
+        function getParent(ticketId) {
+            const ticket = tickets.find(t => t.id === ticketId);
+            if (ticket && ticket.parent) {
+                return tickets.find(t => t.id === ticket.parent);
+            }
+            return null;
+        }
+
+        // Determine ticket type: 'parent', 'child', or 'standalone'
+        function getTicketType(ticket) {
+            if (ticket.ticketType) return ticket.ticketType;
+            if (ticket.parent) return 'child';
+            if (getChildren(ticket.id).length > 0) return 'parent';
+            return 'standalone';
+        }
+
+        // Get all tickets belonging to an EPIC
+        function getTicketsByEpic(epicId) {
+            return tickets.filter(t => t.epic === epicId);
+        }
+
+        // Calculate rollup progress for an EPIC based on its tickets
+        function calculateEpicProgress(epicId) {
+            const epicTickets = getTicketsByEpic(epicId);
+            if (epicTickets.length === 0) return 0;
+            const total = epicTickets.reduce((sum, t) => sum + (t.progress || 0), 0);
+            return Math.round(total / epicTickets.length);
+        }
+
+        // Get hierarchy summary: { epics, parents, children, standalone }
+        function getHierarchySummary() {
+            const parents = tickets.filter(t => t.ticketType === 'parent' || getChildren(t.id).length > 0);
+            const children = tickets.filter(t => t.parent);
+            const standalone = tickets.filter(t => !t.parent && !t.ticketType && getChildren(t.id).length === 0);
+            return {
+                epics: epics.length,
+                parents: parents.length,
+                children: children.length,
+                standalone: standalone.length,
+                total: tickets.length
+            };
+        }
 
         // TKT-105 Enhancement: Auto-populate entered_review_date for REVIEW tickets
         // This ensures the Review SLA widget works even if the date wasn't manually added
@@ -5645,6 +6053,174 @@ Gate Inheritance:
                 }).join('');
         }
 
+        // ==================== EPIC VIEW (TKT-129) ====================
+        let epicFilter = 'all';
+
+        function filterEpics(type) {
+            epicFilter = type;
+            // Update filter button states
+            document.querySelectorAll('.epic-filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase() === type || (type === 'all' && btn.textContent === 'All')) {
+                    btn.classList.add('active');
+                }
+            });
+            renderEpicView();
+        }
+
+        function toggleEpicCard(epicId) {
+            const card = document.querySelector(`.epic-card[data-epic="${epicId}"]`);
+            if (card) {
+                card.classList.toggle('expanded');
+            }
+        }
+
+        function getStateClass(state) {
+            const stateMap = {
+                'DONE': 'done',
+                'IN_PROGRESS': 'in-progress',
+                'RUNNING': 'in-progress',
+                'REVIEW': 'review',
+                'VALIDATION': 'validation',
+                'TODO': 'todo',
+                'BACKLOG': 'todo',
+                'BLOCKED': 'todo',
+                'IDEA': 'todo'
+            };
+            return stateMap[state] || 'todo';
+        }
+
+        function getStateLabel(state) {
+            const labelMap = {
+                'DONE': '✓ Done',
+                'IN_PROGRESS': '▶ In Progress',
+                'RUNNING': '▶ Running',
+                'REVIEW': '🌹 Review',
+                'VALIDATION': '🔍 Validation',
+                'TODO': '○ Todo',
+                'BACKLOG': '○ Backlog',
+                'BLOCKED': '⚠ Blocked',
+                'IDEA': '💡 Idea'
+            };
+            return labelMap[state] || state;
+        }
+
+        function renderEpicView() {
+            const summaryEl = document.getElementById('epicSummary');
+            const treeEl = document.getElementById('epicTree');
+
+            // Calculate summary stats
+            const summary = getHierarchySummary();
+            const doneTickets = tickets.filter(t => t.state === 'DONE').length;
+            const overallProgress = Math.round((doneTickets / tickets.length) * 100);
+
+            summaryEl.innerHTML = `
+                <div class="epic-summary-card">
+                    <div class="epic-summary-value">${summary.epics}</div>
+                    <div class="epic-summary-label">EPICs</div>
+                </div>
+                <div class="epic-summary-card">
+                    <div class="epic-summary-value">${summary.parents}</div>
+                    <div class="epic-summary-label">Parent Tickets</div>
+                </div>
+                <div class="epic-summary-card">
+                    <div class="epic-summary-value">${summary.children}</div>
+                    <div class="epic-summary-label">Child Tickets</div>
+                </div>
+                <div class="epic-summary-card">
+                    <div class="epic-summary-value">${overallProgress}%</div>
+                    <div class="epic-summary-label">Overall Progress</div>
+                </div>
+            `;
+
+            // Filter EPICs by type
+            const filteredEpics = epicFilter === 'all'
+                ? epics
+                : epics.filter(e => e.type === epicFilter);
+
+            // Render EPIC cards
+            treeEl.innerHTML = filteredEpics.map(epic => {
+                const epicTickets = getTicketsByEpic(epic.id);
+                const progress = calculateEpicProgress(epic.id);
+                const ticketCount = epicTickets.length;
+
+                // Group tickets into parent tickets (with children) and standalone
+                const parentTickets = epicTickets.filter(t => t.ticketType === 'parent' || getChildren(t.id).length > 0);
+                const childTicketIds = new Set(epicTickets.filter(t => t.parent).map(t => t.id));
+                const standaloneTickets = epicTickets.filter(t => !t.parent && !parentTickets.includes(t));
+
+                // Build hierarchical ticket list
+                let ticketListHtml = '';
+
+                // Render parent tickets with their children
+                parentTickets.forEach(parent => {
+                    const children = getChildren(parent.id);
+                    ticketListHtml += `
+                        <div class="epic-ticket is-parent">
+                            <span class="epic-ticket-id">${parent.id}</span>
+                            <span class="epic-ticket-title">${parent.title}</span>
+                            <span class="epic-ticket-state ${getStateClass(parent.state)}">${getStateLabel(parent.state)}</span>
+                        </div>
+                    `;
+                    children.forEach(child => {
+                        ticketListHtml += `
+                            <div class="epic-ticket is-child">
+                                <span class="epic-ticket-id">${child.id}</span>
+                                <span class="epic-ticket-title">${child.title}</span>
+                                <span class="epic-ticket-state ${getStateClass(child.state)}">${getStateLabel(child.state)}</span>
+                            </div>
+                        `;
+                    });
+                });
+
+                // Render standalone tickets
+                standaloneTickets.forEach(ticket => {
+                    if (!childTicketIds.has(ticket.id)) {
+                        ticketListHtml += `
+                            <div class="epic-ticket">
+                                <span class="epic-ticket-id">${ticket.id}</span>
+                                <span class="epic-ticket-title">${ticket.title}</span>
+                                <span class="epic-ticket-state ${getStateClass(ticket.state)}">${getStateLabel(ticket.state)}</span>
+                            </div>
+                        `;
+                    }
+                });
+
+                return `
+                    <div class="epic-card" data-epic="${epic.id}">
+                        <div class="epic-card-header" onclick="toggleEpicCard('${epic.id}')">
+                            <div class="epic-card-info">
+                                <div class="epic-card-title">
+                                    <span class="epic-id">${epic.id}</span>
+                                    ${epic.title}
+                                </div>
+                                <div class="epic-card-meta">
+                                    <span class="epic-type-badge ${epic.type}">${epic.type}</span>
+                                    <span>👤 ${epic.owner}</span>
+                                    <span>📋 ${ticketCount} tickets</span>
+                                </div>
+                            </div>
+                            <div class="epic-progress-container">
+                                <div class="epic-progress-bar">
+                                    <div class="epic-progress-fill" style="width: ${progress}%"></div>
+                                </div>
+                                <div class="epic-progress-text">${progress}%</div>
+                            </div>
+                            <span class="epic-card-toggle">▼</span>
+                        </div>
+                        <div class="epic-card-body">
+                            <div style="color: var(--text-secondary); font-size: 13px; margin-bottom: 12px;">
+                                <strong>Goal:</strong> ${epic.goal}
+                            </div>
+                            <div class="epic-ticket-list">
+                                ${ticketListHtml || '<div style="color: var(--text-tertiary); padding: 12px;">No tickets in this EPIC</div>'}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
         function updateStats() {
             document.getElementById('statTotal').textContent = tickets.length;
             document.getElementById('statBacklog').textContent = tickets.filter(t => t.state === 'BACKLOG' || t.state === 'IDEA').length;
@@ -5889,6 +6465,7 @@ Gate Inheritance:
             renderBoard();
             renderList();
             renderRoster();
+            renderEpicView();
             updateTime();
         }
 

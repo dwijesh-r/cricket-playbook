@@ -62,6 +62,24 @@ Provide contextual explanations for cricket metrics without cluttering the UI.
     vertical-align: middle;
 }
 .help-icon:hover { color: var(--accent); }
+
+/* Mobile-safe adjustments */
+@media (max-width: 768px) {
+    .has-tooltip::after {
+        white-space: normal;
+        max-width: 200px;
+        left: 0;
+        transform: none;
+        font-size: 11px;
+    }
+}
+@media (max-width: 480px) {
+    .has-tooltip::after {
+        max-width: 160px;
+        padding: 6px 10px;
+        font-size: 10px;
+    }
+}
 ```
 
 ### Usage

@@ -4304,8 +4304,20 @@
               },
               plan: 'Tests: PCA variance, cluster size, model stability, domain validation, quality gates'
             },
-            { id: 'TKT-072', title: 'Document ML pipeline', state: 'BACKLOG', priority: 'P2', effort: 'hustle', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 0, tags: ['Documentation', 'ML'], gates: { florentino_gate: 'APPROVED' } },
-            { id: 'TKT-073', title: 'Setup model monitoring', state: 'BACKLOG', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 0, tags: ['MLOps', 'Monitoring'], gates: { florentino_gate: 'APPROVED' } },
+            { id: 'TKT-072', title: 'Document ML pipeline', state: 'REVIEW', priority: 'P2', effort: 'hustle', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 95, tags: ['Documentation', 'ML', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' }, entered_review_date: '2026-02-07', daysSpent: 1, iterations: 1,
+              output: 'docs/ml/ML_PIPELINE.md',
+              founderReviewNote: 'Review the ML Pipeline documentation for completeness. Verify data flow diagrams, feature engineering specs, and reproducibility guide are accurate and actionable.',
+              context: { ask: 'Create end-to-end ML pipeline documentation', goal: 'Comprehensive guide covering data flow, training, inference, and reproducibility', reason: 'MLOps best practice: Pipeline transparency', audible: ['✅ Data pipeline documented', '✅ Training flow documented', '✅ Reproducibility guide added', '✅ Troubleshooting section included'] }
+            },
+            { id: 'TKT-073', title: 'Setup model monitoring', state: 'REVIEW', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 95, tags: ['MLOps', 'Monitoring', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' }, entered_review_date: '2026-02-07', daysSpent: 1, iterations: 1,
+              output: 'scripts/ml_ops/',
+              founderReviewNote: 'Review the ModelMonitor class implementation and MONITORING.md docs. Verify alert thresholds are appropriate and the module integrates correctly with existing logging.',
+              links: [
+                { label: 'Monitoring Module', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/scripts/ml_ops/model_monitoring.py' },
+                { label: 'Monitoring Docs', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/ml/MONITORING.md' }
+              ],
+              context: { ask: 'Create model monitoring infrastructure', goal: 'Observability for ML models with metrics, drift detection, and alerting', reason: 'MLOps best practice: Production monitoring', audible: ['✅ ModelMonitor class created', '✅ Drift detection implemented', '✅ Alert thresholds configured', '✅ Documentation complete'] }
+            },
             { id: 'TKT-074', title: 'Archive ML docs', state: 'DONE', priority: 'P2', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-008', progress: 100, tags: ['Documentation', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'docs/ml/',
               context: {
                 ask: 'Organize and archive ML documentation for the project',

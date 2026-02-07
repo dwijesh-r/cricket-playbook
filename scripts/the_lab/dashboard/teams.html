@@ -96,6 +96,138 @@
         }
         .help-icon:hover { color: var(--accent); }
 
+        /* ==================== PROGRESSIVE DISCLOSURE (TKT-110) ==================== */
+        .expandable {
+            overflow: hidden;
+        }
+        .expandable-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 12px 16px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+        .expandable-header:hover {
+            background: var(--bg-elevated);
+        }
+        .expandable-header h4 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .expand-icon {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            transition: transform 0.3s ease;
+        }
+        .expandable.open .expand-icon {
+            transform: rotate(180deg);
+        }
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 16px;
+        }
+        .expandable.open .expandable-content {
+            max-height: 500px;
+            padding: 16px;
+        }
+        /* Player row expandable details */
+        .player-details-toggle {
+            cursor: pointer;
+            color: var(--accent);
+            font-size: 11px;
+            margin-left: 8px;
+        }
+        .player-details-toggle:hover {
+            text-decoration: underline;
+        }
+        .player-expanded-row {
+            display: none;
+            background: var(--bg-tertiary);
+        }
+        .player-expanded-row.show {
+            display: table-row;
+        }
+        .player-expanded-cell {
+            padding: 16px 24px !important;
+            border-bottom: 1px solid var(--border);
+        }
+        .player-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 16px;
+        }
+        .player-detail-item {
+            text-align: center;
+        }
+        .player-detail-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .player-detail-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+        /* Show More / Extended Squad */
+        .extended-squad-row {
+            display: none;
+        }
+        .extended-squad-row.show {
+            display: table-row;
+        }
+        .show-more-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 20px;
+            border-top: 1px dashed var(--border);
+            margin-top: 8px;
+        }
+        .show-more-btn {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
+            color: var(--accent);
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-family: inherit;
+        }
+        .show-more-btn:hover {
+            background: linear-gradient(135deg, rgba(10, 132, 255, 0.15) 0%, rgba(191, 90, 242, 0.15) 100%);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        .show-more-hint {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+        .squad-expanded .extended-squad-row {
+            display: table-row;
+        }
+        .squad-expanded .show-more-text {
+            display: none !important;
+        }
+        .squad-expanded .show-less-text {
+            display: inline !important;
+        }
+        .squad-expanded .show-more-hint {
+            display: none;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -1888,8 +2020,9 @@
                             const archetype = player.batterClass !== '-' ? player.batterClass : player.bowlerClass !== '-' ? player.bowlerClass : '-';
                             const bowlInfo = player.bowlingType !== '-' ? player.bowlingType : '-';
                             const batHand = player.batting ? (player.batting.includes('Left') ? 'L' : 'R') : '-';
+                            const isExtendedSquad = idx >= 11; // Beyond Predicted XI
                             return `
-                            <tr class="${player.isCaptain ? 'captain-row' : ''}">
+                            <tr class="${player.isCaptain ? 'captain-row' : ''} ${isExtendedSquad ? 'extended-squad-row' : ''}">
                                 <td>
                                     <div class="player-number">${player.isCaptain ? '👑' : idx + 1}</div>
                                 </td>
@@ -1923,6 +2056,15 @@
                         `}).join('')}
                     </tbody>
                 </table>
+                ${filteredSquad.length > 11 ? `
+                <div class="show-more-container">
+                    <button class="show-more-btn" onclick="toggleExtendedSquad()">
+                        <span class="show-more-text">Show Full Squad (+${filteredSquad.length - 11} more)</span>
+                        <span class="show-less-text" style="display: none;">Show Predicted XI Only</span>
+                    </button>
+                    <span class="show-more-hint">Currently showing Predicted XI (top 11)</span>
+                </div>
+                ` : ''}
 
                 <div class="squad-summary">
                     <div class="summary-card">
@@ -2025,6 +2167,12 @@
         function clearFilters() {
             squadFilters = { search: '', role: '', nationality: '', ageGroup: '' };
             renderSquadTable(TEAMS[currentTeam], SQUADS[currentTeam]);
+        }
+
+        // Toggle extended squad visibility (Progressive Disclosure - TKT-110)
+        function toggleExtendedSquad() {
+            const squadContent = document.getElementById('squad-content');
+            squadContent.classList.toggle('squad-expanded');
         }
 
         // Export squad to CSV

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Boardroom - Cricket Playbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
     <style>
         /* ==================== THEME SYSTEM ==================== */
         :root {
@@ -2318,6 +2319,95 @@
             opacity: 0.5;
         }
 
+        /* ==================== FOUNDER REVIEW INSTRUCTION BUBBLE ==================== */
+        .founder-instruction-bubble {
+            position: relative;
+            margin: 20px 0;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255, 69, 58, 0.15) 0%, rgba(191, 90, 242, 0.1) 50%, rgba(255, 159, 10, 0.1) 100%);
+            border: 2px solid rgba(255, 69, 58, 0.4);
+            border-radius: 20px;
+            box-shadow:
+                0 8px 32px rgba(255, 69, 58, 0.2),
+                0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+                0 0 40px rgba(255, 69, 58, 0.1);
+            animation: bubble-pulse 3s ease-in-out infinite;
+        }
+        @keyframes bubble-pulse {
+            0%, 100% { box-shadow: 0 8px 32px rgba(255, 69, 58, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.05) inset, 0 0 40px rgba(255, 69, 58, 0.1); }
+            50% { box-shadow: 0 8px 40px rgba(255, 69, 58, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.08) inset, 0 0 60px rgba(255, 69, 58, 0.15); }
+        }
+        .founder-instruction-bubble::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            bottom: -12px;
+            width: 0;
+            height: 0;
+            border-left: 14px solid transparent;
+            border-right: 14px solid transparent;
+            border-top: 14px solid rgba(255, 69, 58, 0.4);
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+        .founder-instruction-bubble::after {
+            content: '';
+            position: absolute;
+            left: 26px;
+            bottom: -8px;
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-top: 12px solid rgba(255, 69, 58, 0.15);
+        }
+        .founder-instruction-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .founder-instruction-icon {
+            font-size: 28px;
+            animation: icon-float 2s ease-in-out infinite;
+        }
+        @keyframes icon-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+        .founder-instruction-label {
+            font-family: 'Graduate', 'Roboto Slab', serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--accent-red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(255, 69, 58, 0.3);
+        }
+        .founder-instruction-text {
+            font-family: 'Graduate', 'Roboto Slab', serif;
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-primary);
+            letter-spacing: 0.5px;
+            padding-left: 40px;
+        }
+        [data-theme="light"] .founder-instruction-bubble {
+            background: linear-gradient(135deg, rgba(255, 59, 48, 0.12) 0%, rgba(175, 82, 222, 0.08) 50%, rgba(255, 149, 0, 0.08) 100%);
+            border-color: rgba(255, 59, 48, 0.5);
+            box-shadow:
+                0 8px 32px rgba(255, 59, 48, 0.15),
+                0 0 0 1px rgba(0, 0, 0, 0.05) inset;
+        }
+        [data-theme="light"] .founder-instruction-bubble::before {
+            border-top-color: rgba(255, 59, 48, 0.5);
+        }
+        [data-theme="light"] .founder-instruction-bubble::after {
+            border-top-color: rgba(255, 59, 48, 0.12);
+        }
+        [data-theme="light"] .founder-instruction-label {
+            color: #ff3b30;
+        }
+
         /* ==================== LIST VIEW ==================== */
         .list-section {
             padding: 32px 24px;
@@ -4020,6 +4110,7 @@
               context: { ask: 'Create algorithm to rank players by position', goal: 'Composite scoring system for positional ranking', reason: 'PRD requirement: Automated depth chart generation', audible: ['Design scoring formula', 'Implement algorithm', 'Test with sample data', 'Domain review'] }
             },
             { id: 'TKT-042', title: 'Generate all 10 depth charts', state: 'REVIEW', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 95, tags: ['Pipeline', 'Output', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' }, entered_review_date: '2026-02-03', daysSpent: 4, iterations: 2,
+              founderReviewNote: 'Review depth chart pipeline outputs for all 10 IPL teams. Verify positional rankings (1-11) are generated correctly with composite scores matching cricket logic.',
               links: [
                 { label: 'Depth Charts Folder', url: 'https://github.com/dwijesh-r/cricket-playbook/tree/main/outputs/depth_charts' },
                 { label: 'The Lab - Artifacts', url: 'https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/artifacts.html' },
@@ -4039,11 +4130,20 @@
               context: { ask: 'Archive depth chart outputs to outputs/depth_charts/', goal: 'Depth charts accessible in repository', reason: 'Output organization best practice', audible: ['Verify all 10 files', 'Commit to outputs/', 'Update readme'] }
             },
             { id: 'TKT-045', title: 'Founder approval of depth charts', state: 'VALIDATION', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-005', progress: 95, tags: ['Approval', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' }, daysSpent: 3, iterations: 1,
+              founderReviewNote: 'Review all 10 depth charts for position accuracy. Check that player rankings make cricket sense and composite scores align with actual performance.',
               links: [
                 { label: 'Depth Charts Folder', url: 'https://github.com/dwijesh-r/cricket-playbook/tree/main/outputs/depth_charts' },
                 { label: 'The Lab - Teams', url: 'https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/teams.html' },
+                { label: 'CSK Depth Chart', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/depth_charts/CSK_depth_chart.md' },
                 { label: 'MI Depth Chart', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/depth_charts/MI_depth_chart.md' },
-                { label: 'CSK Depth Chart', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/depth_charts/CSK_depth_chart.md' }
+                { label: 'RCB Depth Chart', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/depth_charts/RCB_depth_chart.md' },
+                { label: 'KKR Depth Chart', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/depth_charts/KKR_depth_chart.md' },
+                { label: 'DC Depth Chart', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/depth_charts/DC_depth_chart.md' },
+                { label: 'PBKS Depth Chart', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/depth_charts/PBKS_depth_chart.md' },
+                { label: 'RR Depth Chart', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/depth_charts/RR_depth_chart.md' },
+                { label: 'SRH Depth Chart', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/depth_charts/SRH_depth_chart.md' },
+                { label: 'GT Depth Chart', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/depth_charts/GT_depth_chart.md' },
+                { label: 'LSG Depth Chart', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/depth_charts/LSG_depth_chart.md' }
               ],
               context: {
                 ask: 'Review and approve the 10 depth chart outputs for correctness and format',
@@ -4080,9 +4180,12 @@
               }
             },
             { id: 'TKT-051', title: 'Add venue analysis section', state: 'VALIDATION', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 95, tags: ['Feature', 'Analytics', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' }, daysSpent: 2, iterations: 1,
+              founderReviewNote: 'Review the venue analysis section in stat packs. Check home/away splits accuracy and venue-specific insights for tactical value.',
               links: [
                 { label: 'Stat Packs Folder', url: 'https://github.com/dwijesh-r/cricket-playbook/tree/main/stat_packs' },
-                { label: 'MI Stat Pack', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/stat_packs/MI/MI_stat_pack.md' }
+                { label: 'MI Stat Pack', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/stat_packs/MI/MI_stat_pack.md' },
+                { label: 'CSK Stat Pack', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/stat_packs/CSK/CSK_stat_pack.md' },
+                { label: 'RCB Stat Pack', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/stat_packs/RCB/RCB_stat_pack.md' }
               ],
               context: {
                 ask: 'Add Venue Analysis section showing player/team performance by stadium',
@@ -4092,9 +4195,11 @@
               }
             },
             { id: 'TKT-052', title: 'Add historical trends section', state: 'VALIDATION', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 95, tags: ['Feature', 'Analytics', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' }, daysSpent: 3, iterations: 2,
+              founderReviewNote: 'Review historical trends section. Verify YoY performance changes are accurate and trend arrows correctly indicate improving/declining players.',
               links: [
                 { label: 'Stat Packs Folder', url: 'https://github.com/dwijesh-r/cricket-playbook/tree/main/stat_packs' },
-                { label: 'CSK Stat Pack', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/stat_packs/CSK/CSK_stat_pack.md' }
+                { label: 'CSK Stat Pack', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/stat_packs/CSK/CSK_stat_pack.md' },
+                { label: 'MI Stat Pack', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/stat_packs/MI/MI_stat_pack.md' }
               ],
               context: {
                 ask: 'Add Historical Trends section showing season-over-season performance',
@@ -4133,6 +4238,7 @@
               context: { ask: 'Create algorithm to select best XI from squad', goal: 'Composite scoring system balancing roles, matchups, form', reason: 'PRD core deliverable: Automated team selection', audible: ['Design scoring weights', 'Implement role constraints', 'Balance optimization', 'Domain review'] }
             },
             { id: 'TKT-062', title: 'Generate all 10 Predicted XIIs', state: 'VALIDATION', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-007', progress: 95, tags: ['Pipeline', 'Output', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' }, daysSpent: 3, iterations: 2,
+              founderReviewNote: 'Verify SUPER SELECTOR algorithm produces sensible team selections for all 10 IPL teams. Check that each XI has proper balance (2 openers, 5+ bowlers, WK) and composite scores align with cricket logic.',
               links: [
                 { label: 'Predicted XII Folder', url: 'https://github.com/dwijesh-r/cricket-playbook/tree/main/outputs/predicted_xii' },
                 { label: 'The Lab - Teams', url: 'https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/teams.html' },
@@ -4152,6 +4258,7 @@
               context: { ask: 'Design wireframes for Predicted XI display in The Lab', goal: 'Visual mockup showing XI layout, bench, scoring', reason: 'UI/UX design before implementation', audible: ['Sketch layouts', 'Create wireframes', 'Get Founder feedback'] }
             },
             { id: 'TKT-065', title: 'Founder approval of Predicted XIIs', state: 'VALIDATION', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-007', progress: 95, tags: ['Approval', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' }, daysSpent: 2, iterations: 1,
+              founderReviewNote: 'Final approval gate: Review all 10 Predicted XI outputs for plausibility and publication-readiness. Spot-check team balance, scoring explanations, and bench selections.',
               links: [
                 { label: 'Predicted XII Folder', url: 'https://github.com/dwijesh-r/cricket-playbook/tree/main/outputs/predicted_xii' },
                 { label: 'The Lab - Teams', url: 'https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/teams.html' },
@@ -4264,6 +4371,7 @@
 
             // IPL 2026 Squad Verification - Founder Review
             { id: 'TKT-107', title: 'Verify all IPL 2026 players visible in The Lab', state: 'VALIDATION', priority: 'P0', effort: 'deep-work', assignee: 'Founder', epic: 'EPIC-011', progress: 0, tags: ['Data', 'QA', 'Critical', 'IPL 2026'], gates: { florentino_gate: 'APPROVED' }, daysSpent: 1, iterations: 0,
+              founderReviewNote: 'CRITICAL: Verify 100% player coverage across all 10 IPL teams in The Lab. Cross-check Teams section against official IPL 2026 post-auction squads. Report any missing players. Note: Russell/Maxwell/Faf opted out of IPL 2026.',
               links: [
                 { label: 'The Lab - Teams', url: 'https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/teams.html' },
                 { label: 'IPL 2026 Squads JSON', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/data/ipl_2026_squads.json' },
@@ -4448,6 +4556,7 @@
 
             // Ops & Tooling
             { id: 'TKT-103', title: 'Configure GitHub email notifications', state: 'VALIDATION', priority: 'P2', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-010', progress: 95, tags: ['Ops', 'GitHub', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' }, daysSpent: 1, iterations: 1,
+              founderReviewNote: 'Configure 3 GitHub secrets (EMAIL_USERNAME, EMAIL_APP_PASSWORD, NOTIFY_EMAIL) in repo Settings → Secrets → Actions. The notify-on-push workflow is ready and waiting for these credentials.',
               links: [
                 { label: 'GitHub Repo Settings', url: 'https://github.com/dwijesh-r/cricket-playbook/settings' },
                 { label: 'Notify Workflow', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/.github/workflows/notify-on-push.yml' }
@@ -4479,8 +4588,9 @@
             // ==================== NEW EPICS (Awaiting Approval) ====================
             // EPIC-012: Player Profile View
             { id: 'EPIC-012', title: 'Player Profile View - Click to see player stats', state: 'VALIDATION', priority: 'P1', effort: 'marathon', assignee: 'Tom Brady', epic: null, progress: 50, tags: ['EPIC', 'Feature', 'UI', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' }, daysSpent: 2, iterations: 1,
+              prd: 'docs/specs/PLAYER_PROFILE_VIEW_PRD.md',
+              founderReviewNote: 'Review the PRD specification. Approve the proposed player profile modal design, data fields to display, and interaction patterns.',
               links: [
-                { label: 'PRD Specification', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/specs/PLAYER_PROFILE_VIEW_PRD.md' },
                 { label: 'The Lab - Teams', url: 'https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/teams.html' }
               ],
               context: {
@@ -4492,8 +4602,9 @@
             },
             // EPIC-013: IPL 2026 Player Analysis
             { id: 'EPIC-013', title: 'IPL 2026 Player Analysis - Season-specific views', state: 'VALIDATION', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 50, tags: ['EPIC', 'Analytics', 'Data', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' }, daysSpent: 2, iterations: 1,
+              plan: 'docs/plans/IPL_2026_PLAYER_ANALYSIS_PLAN.md',
+              founderReviewNote: 'Review the analysis plan. Approve the proposed IPL 2026 analytics scope, data requirements, and implementation approach.',
               links: [
-                { label: 'Analysis Plan', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/plans/IPL_2026_PLAYER_ANALYSIS_PLAN.md' },
                 { label: 'IPL 2026 Squads', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/data/ipl_2026_squads.json' },
                 { label: 'The Lab - Teams', url: 'https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/teams.html' }
               ],
@@ -5182,7 +5293,19 @@
             const reviewCount = t.review ? 1 : 0;
             const customCount = t.links ? t.links.length : 0;
 
+            // Render founder review instruction bubble if present
+            const founderBubbleHtml = t.founderReviewNote ? `
+                <div class="founder-instruction-bubble">
+                    <div class="founder-instruction-header">
+                        <span class="founder-instruction-icon">🌹</span>
+                        <span class="founder-instruction-label">Founder Review Required</span>
+                    </div>
+                    <div class="founder-instruction-text">${t.founderReviewNote}</div>
+                </div>
+            ` : '';
+
             document.getElementById('modalLinks').innerHTML = `
+                ${founderBubbleHtml}
                 <!-- PRD & Documentation -->
                 <div class="link-category cat-prd ${hasPrd ? 'open has-content' : ''}" onclick="this.classList.toggle('open')">
                     <div class="link-category-header">

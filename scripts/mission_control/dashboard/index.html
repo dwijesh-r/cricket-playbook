@@ -4640,6 +4640,212 @@
               plan: '1. Create validators.py with decorator implementations. 2. Apply to scripts/generators/*.py. 3. Apply to scripts/analysis/*.py. 4. Add tests for validation failures.'
             },
 
+            // =========================================================================
+            // TKT-126: TICKET HIERARCHY DESIGN (Research/Architecture)
+            // Created by: Tom Brady (Product Owner)
+            // Type: Research EPIC - Defines standard for all future work items
+            // =========================================================================
+            { id: 'TKT-126', title: 'Design hierarchical ticket structure (EPIC → Parent → Child)', state: 'REVIEW', priority: 'P1', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-003', progress: 95, tags: ['Architecture', 'Governance', 'Research', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+              founderReviewNote: 'ARCHITECTURE: This defines the standard ticket hierarchy for Cricket Playbook. Review the proposed Work Item Types, hierarchy rules, and Epic View design.',
+              context: {
+                ask: 'Design and document a hierarchical ticket structure: EPIC → Parent Tickets → Child Tickets, with Research/Retro as special epic types',
+                goal: 'Standardized work item hierarchy enabling better planning, tracking, and visualization in The Boardroom',
+                reason: 'Observed in TKT-113→TKT-114-125: Parent-child relationships improve traceability. Need formal structure for all future work.',
+                audible: [
+                  '✅ Analyzed current ticket structure (13 EPICs, 125+ tickets)',
+                  '✅ Designed Work Item Type hierarchy',
+                  '✅ Defined EPIC types (Delivery, Research, Retro)',
+                  '✅ Created Epic View specification for Boardroom',
+                  '✅ Documented ticket field requirements',
+                  '🔄 Pending Founder approval'
+                ]
+              },
+              plan: 'Phase 1: Design hierarchy (DONE). Phase 2: Create Epic View in Boardroom. Phase 3: Migrate existing tickets. Phase 4: Update constitution.',
+              research: {
+                summary: 'Hierarchical Work Item Structure for Cricket Playbook',
+                sections: [
+                  {
+                    title: '1. WORK ITEM TYPE HIERARCHY',
+                    content: `
+┌─────────────────────────────────────────────────────────────────┐
+│                    WORK ITEM HIERARCHY                          │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  Level 0: EPIC                                                  │
+│  ─────────────────────                                          │
+│  • Container for related work                                   │
+│  • Has theme/goal/outcome                                       │
+│  • Types: Delivery, Research, Retro, Spike                      │
+│  • Example: EPIC-008 (ML Operations)                            │
+│                                                                 │
+│        │                                                        │
+│        ▼                                                        │
+│                                                                 │
+│  Level 1: PARENT TICKET                                         │
+│  ─────────────────────                                          │
+│  • Scoped deliverable within EPIC                               │
+│  • Can have child tickets                                       │
+│  • Types: Feature, Audit, Integration                           │
+│  • Example: TKT-113 (CI/CD Audit)                               │
+│                                                                 │
+│        │                                                        │
+│        ▼                                                        │
+│                                                                 │
+│  Level 2: CHILD TICKET                                          │
+│  ─────────────────────                                          │
+│  • Atomic implementation task                                   │
+│  • Has parent reference                                         │
+│  • Cannot have children (leaf node)                             │
+│  • Example: TKT-114 (Schema validation)                         │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘`
+                  },
+                  {
+                    title: '2. EPIC TYPES',
+                    content: `
+| Type | Purpose | Example | Outcome |
+|------|---------|---------|---------|
+| DELIVERY | Ship a feature/capability | EPIC-008: ML Ops | Working code + docs |
+| RESEARCH | Investigate, audit, explore | TKT-113 (promoted) | Findings + recommendations |
+| RETRO | Post-mortem, lessons learned | Sprint retrospective | Process improvements |
+| SPIKE | Time-boxed technical exploration | Proof of concept | Decision + prototype |
+
+DELIVERY EPIC Structure:
+├── Parent: Define scope (TKT-XXX)
+├── Parent: Implement core (TKT-XXX)
+│   ├── Child: Component A
+│   ├── Child: Component B
+│   └── Child: Tests
+├── Parent: Documentation (TKT-XXX)
+└── Parent: Founder Approval (TKT-XXX)
+
+RESEARCH EPIC Structure:
+├── Child: Phase 1 - Discovery
+├── Child: Phase 2 - Analysis
+├── Child: Phase 3 - Recommendations
+└── Implementation tickets → spawn new DELIVERY EPIC`
+                  },
+                  {
+                    title: '3. TICKET FIELD REQUIREMENTS',
+                    content: `
+| Field | Level 0 (EPIC) | Level 1 (Parent) | Level 2 (Child) |
+|-------|----------------|------------------|-----------------|
+| id | EPIC-XXX | TKT-XXX | TKT-XXX |
+| type | epic | parent | child |
+| epic | null | EPIC-XXX | EPIC-XXX |
+| parent | null | null | TKT-XXX |
+| children | [TKT-XXX,...] | [TKT-XXX,...] | null |
+| state | rollup | standard | standard |
+| progress | calculated | calculated | manual |
+| assignee | optional | required | required |
+| gates | optional | required | inherited |
+
+New Fields to Add:
+• type: 'epic' | 'parent' | 'child'
+• children: array of child ticket IDs
+• rollupProgress: calculated from children
+• epicType: 'delivery' | 'research' | 'retro' | 'spike'`
+                  },
+                  {
+                    title: '4. EPIC VIEW DESIGN (Boardroom)',
+                    content: `
+┌─────────────────────────────────────────────────────────────────┐
+│  🏛️ EPIC VIEW — "The Strategy Map"                              │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  Filter: [All] [Delivery] [Research] [Retro]    Search: [____] │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │ EPIC-008: ML Operations                    [███████░] 85%│   │
+│  │ Type: Delivery | Owner: Ime Udoka | 15 tickets          │   │
+│  ├─────────────────────────────────────────────────────────┤   │
+│  │ ▼ TKT-072: Document ML pipeline            ✅ DONE      │   │
+│  │ ▼ TKT-073: Setup model monitoring          ✅ DONE      │   │
+│  │ ▼ TKT-113: CI/CD automation audit          ✅ DONE      │   │
+│  │   ├── TKT-114: Schema validation CI        🌹 REVIEW    │   │
+│  │   ├── TKT-115: Output validation CI        🌹 REVIEW    │   │
+│  │   ├── TKT-116: Model retrain pipeline      🌹 REVIEW    │   │
+│  │   ├── TKT-117: Output generation pipeline  🌹 REVIEW    │   │
+│  │   ├── TKT-118: Chain analytics ingestion   🌹 REVIEW    │   │
+│  │   ├── TKT-119: Dependency lock file        🌹 REVIEW    │   │
+│  │   ├── TKT-120: Code coverage reporting     🌹 REVIEW    │   │
+│  │   ├── TKT-121: Scheduled ingestion         🌹 REVIEW    │   │
+│  │   ├── TKT-122: Matchup analysis pipeline   🌹 REVIEW    │   │
+│  │   ├── TKT-123: E2E orchestration           🌹 REVIEW    │   │
+│  │   ├── TKT-124: Documentation generation    🌹 REVIEW    │   │
+│  │   └── TKT-125: Input validation decorators 🌹 REVIEW    │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │ EPIC-006: Stat Pack Enhancements           [██████████] 100%│
+│  │ Type: Delivery | Owner: Tom Brady | 8 tickets           │   │
+│  ├─────────────────────────────────────────────────────────┤   │
+│  │ ► TKT-052: Add historical trends           ✅ DONE      │   │
+│  │ ► TKT-053: Andy Flower tactical insights   ✅ DONE      │   │
+│  │ ...                                                      │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+
+Features:
+• Collapsible EPICs (click to expand/collapse)
+• Progress bar calculated from child ticket states
+• Filter by EPIC type (Delivery/Research/Retro)
+• Search across all levels
+• Visual parent-child indentation
+• State badges with color coding`
+                  },
+                  {
+                    title: '5. MIGRATION PLAN',
+                    content: `
+Phase 1: Add EPIC Metadata (TKT-127)
+• Create epics array with id, title, type, owner, goal
+• Add epicType field to existing EPIC references
+
+Phase 2: Add Parent-Child Fields (TKT-128)
+• Add 'type' field to all tickets
+• Add 'parent' field where relationships exist
+• Add 'children' computed field
+
+Phase 3: Create Epic View (TKT-129)
+• Add new view option to Boardroom navigation
+• Implement collapsible tree UI
+• Add progress rollup calculation
+
+Phase 4: Update Constitution (TKT-130)
+• Document Work Item Types in governance
+• Update Task Integrity Loop for hierarchy
+• Add EPIC creation guidelines`
+                  },
+                  {
+                    title: '6. RULES & CONSTRAINTS',
+                    content: `
+Hierarchy Rules:
+1. EPICs contain Parent Tickets (1:N)
+2. Parent Tickets contain Child Tickets (1:N)
+3. Child Tickets are atomic (no children)
+4. Max depth = 3 levels (EPIC → Parent → Child)
+5. Orphan tickets (no EPIC) allowed for quick-wins
+
+State Rollup Rules:
+• EPIC state = worst child state (BLOCKED > RUNNING > REVIEW > DONE)
+• Parent progress = avg(children progress)
+• EPIC progress = avg(parent progress)
+
+Assignment Rules:
+• EPIC owner = primary accountable (optional)
+• Parent owner = delivery lead (required)
+• Child owner = implementer (required)
+
+Gate Inheritance:
+• Child tickets inherit EPIC gates by default
+• Can override with ticket-specific gates
+• Florentino Gate applies at Parent level minimum`
+                  }
+                ]
+              }
+            },
+
             // Sprint 5.0+ Ideas (IDEA-XXX notation for unscoped work)
             { id: 'IDEA-001', title: 'Implement Match Phase Index', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 0, tags: ['Feature', 'Analytics'], gates: {},
               context: { ask: 'Create composite index measuring player impact by match phase', goal: 'Single metric combining PP/Middle/Death performance', reason: 'Simplify phase analysis into actionable score', audible: ['Define index formula', 'Weight phases', 'Validate with Andy Flower'] }

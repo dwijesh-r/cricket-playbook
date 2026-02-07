@@ -51,6 +51,51 @@
             --shadow: rgba(0, 0, 0, 0.15);
         }
 
+        /* ==================== TOOLTIP SYSTEM (TKT-109) ==================== */
+        .has-tooltip {
+            position: relative;
+            cursor: help;
+        }
+        .has-tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 8px 12px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-primary);
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            z-index: 1000;
+            pointer-events: none;
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+        .has-tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+        /* Help icon for inline tooltips */
+        .help-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 14px;
+            height: 14px;
+            font-size: 10px;
+            color: var(--text-tertiary);
+            cursor: help;
+            margin-left: 4px;
+            vertical-align: middle;
+        }
+        .help-icon:hover { color: var(--accent); }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -1772,19 +1817,19 @@
                     <div class="squad-stats">
                         <div class="squad-stat">
                             <div class="squad-stat-value">${squad.length}</div>
-                            <div class="squad-stat-label">Players</div>
+                            <div class="squad-stat-label has-tooltip" data-tooltip="Total players in the squad roster">Players</div>
                         </div>
                         <div class="squad-stat">
                             <div class="squad-stat-value">₹${totalSpent.toFixed(1)}Cr</div>
-                            <div class="squad-stat-label">Spent</div>
+                            <div class="squad-stat-label has-tooltip" data-tooltip="Total auction spend in Indian Rupees (Crores)">Spent</div>
                         </div>
                         <div class="squad-stat">
                             <div class="squad-stat-value">${overseas}</div>
-                            <div class="squad-stat-label">Overseas</div>
+                            <div class="squad-stat-label has-tooltip" data-tooltip="Non-Indian players (max 4 can play in XI)">Overseas</div>
                         </div>
                         <div class="squad-stat">
                             <div class="squad-stat-value">${avgAge}</div>
-                            <div class="squad-stat-label">Avg Age</div>
+                            <div class="squad-stat-label has-tooltip" data-tooltip="Average age of squad members">Avg Age</div>
                         </div>
                     </div>
                 </div>
@@ -1824,12 +1869,12 @@
                         <tr>
                             <th>#</th>
                             <th>Player</th>
-                            <th>Role</th>
-                            <th>Bat</th>
-                            <th>Bowl</th>
-                            <th>Archetype</th>
-                            <th>Age</th>
-                            <th>Nat</th>
+                            <th class="has-tooltip" data-tooltip="Primary playing role: Batter, Bowler, All-rounder, or Wicketkeeper">Role</th>
+                            <th class="has-tooltip" data-tooltip="Batting hand: R (Right) or L (Left)">Bat</th>
+                            <th class="has-tooltip" data-tooltip="Bowling type: Pace, Spin (Off/Leg), or style variant">Bowl</th>
+                            <th class="has-tooltip" data-tooltip="Player archetype from clustering analysis (e.g., Power Hitter, Anchor, Finisher)">Archetype</th>
+                            <th class="has-tooltip" data-tooltip="Player's current age">Age</th>
+                            <th class="has-tooltip" data-tooltip="Nationality: Indian or Overseas (max 4 overseas per XI)">Nat</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -2042,16 +2087,16 @@
 
             // Calculate comparison metrics
             const metrics = [
-                { label: 'Overall Rating', val1: rating1.overall, val2: rating2.overall, higher: 'better' },
-                { label: 'Titles Won', val1: team1.titles, val2: team2.titles, higher: 'better' },
-                { label: 'Squad Size', val1: squad1.squad.length, val2: squad2.squad.length, higher: 'neutral' },
-                { label: 'Purse Spent (Cr)', val1: squad1.purseSpent.toFixed(1), val2: squad2.purseSpent.toFixed(1), higher: 'neutral' },
-                { label: 'Overseas Players', val1: squad1.squad.filter(p => p.nationality !== 'IND').length, val2: squad2.squad.filter(p => p.nationality !== 'IND').length, higher: 'neutral' },
-                { label: 'Avg Squad Age', val1: (squad1.squad.reduce((s, p) => s + p.age, 0) / squad1.squad.length).toFixed(1), val2: (squad2.squad.reduce((s, p) => s + p.age, 0) / squad2.squad.length).toFixed(1), higher: 'neutral' },
-                { label: 'Batters', val1: squad1.squad.filter(p => p.role === 'Batter').length, val2: squad2.squad.filter(p => p.role === 'Batter').length, higher: 'neutral' },
-                { label: 'Bowlers', val1: squad1.squad.filter(p => p.role === 'Bowler').length, val2: squad2.squad.filter(p => p.role === 'Bowler').length, higher: 'neutral' },
-                { label: 'All-Rounders', val1: squad1.squad.filter(p => p.role === 'All-rounder').length, val2: squad2.squad.filter(p => p.role === 'All-rounder').length, higher: 'neutral' },
-                { label: 'Left-Handers in Top 6', val1: predicted1.balance.leftHandersTop6, val2: predicted2.balance.leftHandersTop6, higher: 'neutral' },
+                { label: 'Overall Rating', val1: rating1.overall, val2: rating2.overall, higher: 'better', tooltip: 'Composite team strength rating (0-100)' },
+                { label: 'Titles Won', val1: team1.titles, val2: team2.titles, higher: 'better', tooltip: 'IPL championship titles won' },
+                { label: 'Squad Size', val1: squad1.squad.length, val2: squad2.squad.length, higher: 'neutral', tooltip: 'Total players in squad roster' },
+                { label: 'Purse Spent (Cr)', val1: squad1.purseSpent.toFixed(1), val2: squad2.purseSpent.toFixed(1), higher: 'neutral', tooltip: 'Auction spend in Indian Rupees (Crores)' },
+                { label: 'Overseas Players', val1: squad1.squad.filter(p => p.nationality !== 'IND').length, val2: squad2.squad.filter(p => p.nationality !== 'IND').length, higher: 'neutral', tooltip: 'Non-Indian players (max 4 can play per XI)' },
+                { label: 'Avg Squad Age', val1: (squad1.squad.reduce((s, p) => s + p.age, 0) / squad1.squad.length).toFixed(1), val2: (squad2.squad.reduce((s, p) => s + p.age, 0) / squad2.squad.length).toFixed(1), higher: 'neutral', tooltip: 'Average age of squad members' },
+                { label: 'Batters', val1: squad1.squad.filter(p => p.role === 'Batter').length, val2: squad2.squad.filter(p => p.role === 'Batter').length, higher: 'neutral', tooltip: 'Players whose primary role is batting' },
+                { label: 'Bowlers', val1: squad1.squad.filter(p => p.role === 'Bowler').length, val2: squad2.squad.filter(p => p.role === 'Bowler').length, higher: 'neutral', tooltip: 'Players whose primary role is bowling' },
+                { label: 'All-Rounders', val1: squad1.squad.filter(p => p.role === 'All-rounder').length, val2: squad2.squad.filter(p => p.role === 'All-rounder').length, higher: 'neutral', tooltip: 'Players who contribute with both bat and ball' },
+                { label: 'Left-Handers in Top 6', val1: predicted1.balance.leftHandersTop6, val2: predicted2.balance.leftHandersTop6, higher: 'neutral', tooltip: 'Left-handed batters in top 6 positions (disrupts bowling rhythm)' },
             ];
 
             const getCompareClass = (metric, isTeam1) => {
@@ -2074,7 +2119,7 @@
                         <div class="compare-stats">
                             ${metrics.map(m => `
                                 <div class="compare-stat-row">
-                                    <span class="compare-stat-label">${m.label}</span>
+                                    <span class="compare-stat-label has-tooltip" data-tooltip="${m.tooltip}">${m.label}</span>
                                     <span class="compare-stat-value ${getCompareClass(m, true)}">${m.val1}</span>
                                 </div>
                             `).join('')}
@@ -2089,7 +2134,7 @@
                         <div class="compare-stats">
                             ${metrics.map(m => `
                                 <div class="compare-stat-row">
-                                    <span class="compare-stat-label">${m.label}</span>
+                                    <span class="compare-stat-label has-tooltip" data-tooltip="${m.tooltip}">${m.label}</span>
                                     <span class="compare-stat-value ${getCompareClass(m, false)}">${m.val2}</span>
                                 </div>
                             `).join('')}

@@ -57,6 +57,50 @@
             --shadow: rgba(0, 0, 0, 0.15);
         }
 
+        /* ==================== TOOLTIP SYSTEM (TKT-109) ==================== */
+        .has-tooltip {
+            position: relative;
+            cursor: help;
+        }
+        .has-tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 8px 12px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-primary);
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            z-index: 1000;
+            pointer-events: none;
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+        .has-tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+        .help-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 14px;
+            height: 14px;
+            font-size: 10px;
+            color: var(--text-tertiary);
+            cursor: help;
+            margin-left: 4px;
+            vertical-align: middle;
+        }
+        .help-icon:hover { color: var(--accent); }
+
         * {
             margin: 0;
             padding: 0;
@@ -4074,17 +4118,17 @@
             },
 
             // TKT-108 Implementation Tickets
-            { id: 'TKT-109', title: 'Add contextual tooltips to The Lab', state: 'RUNNING', priority: 'P1', effort: 'quick-win', assignee: 'Kevin de Bruyne', epic: 'EPIC-010', progress: 0, tags: ['UX', 'Implementation'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-109', title: 'Add contextual tooltips to The Lab', state: 'REVIEW', priority: 'P1', effort: 'quick-win', assignee: 'Kevin de Bruyne', epic: 'EPIC-010', progress: 100, tags: ['UX', 'Implementation'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PENDING' },
               context: {
                 ask: 'Add hover tooltips explaining cricket metrics across all dashboards',
                 goal: 'Users understand SR, Avg, Econ, PP, Death without prior knowledge',
                 reason: 'Contextual help reduces cognitive load and improves accessibility',
                 audible: [
-                  '⏳ Add tooltip CSS pattern to dashboards',
-                  '⏳ Create metric glossary (SR, Avg, Econ, PP, Death)',
-                  '⏳ Add data-tooltip attributes to key metrics',
-                  '⏳ Add ⓘ help icons where context needed',
-                  '⏳ Self-validate: Test on all 9 dashboards'
+                  '✅ Added tooltip CSS to all 9 dashboards',
+                  '✅ Tooltips on teams.html: table headers, squad stats, compare metrics',
+                  '✅ Tooltips on index.html: overview stats',
+                  '✅ Cricket glossary: Role, Bat/Bowl, Archetype, Overseas, etc.',
+                  '⏳ Self-validate: Testing on all dashboards'
                 ]
               }
             },

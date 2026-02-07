@@ -55,6 +55,50 @@
             --shadow: rgba(0, 0, 0, 0.15);
         }
 
+        /* ==================== TOOLTIP SYSTEM (TKT-109) ==================== */
+        .has-tooltip {
+            position: relative;
+            cursor: help;
+        }
+        .has-tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 8px 12px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-primary);
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            z-index: 1000;
+            pointer-events: none;
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+        .has-tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+        .help-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 14px;
+            height: 14px;
+            font-size: 10px;
+            color: var(--text-tertiary);
+            cursor: help;
+            margin-left: 4px;
+            vertical-align: middle;
+        }
+        .help-icon:hover { color: var(--accent); }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -3330,22 +3374,22 @@
                 <div class="stat-item">
                     <div class="stat-prefix">All</div>
                     <div class="stat-value">10</div>
-                    <div class="stat-label">IPL Teams</div>
+                    <div class="stat-label has-tooltip" data-tooltip="Chennai, Mumbai, Bangalore, Kolkata, Delhi, Punjab, Rajasthan, Hyderabad, Gujarat, Lucknow">IPL Teams</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-prefix">Over</div>
                     <div class="stat-value">200</div>
-                    <div class="stat-label">Players Analyzed</div>
+                    <div class="stat-label has-tooltip" data-tooltip="Players clustered and analyzed using K-Means ML model">Players Analyzed</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-prefix">Over</div>
                     <div class="stat-value">200</div>
-                    <div class="stat-label">Matches Analyzed</div>
+                    <div class="stat-label has-tooltip" data-tooltip="T20 matches analyzed for performance metrics">Matches Analyzed</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-prefix">Over</div>
                     <div class="stat-value">50</div>
-                    <div class="stat-label">Reports Generated</div>
+                    <div class="stat-label has-tooltip" data-tooltip="Stat packs, depth charts, and predicted XIs">Reports Generated</div>
                 </div>
             </div>
         </section>

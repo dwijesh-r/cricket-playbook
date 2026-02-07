@@ -4073,6 +4073,64 @@
               plan: 'Tom Brady + Kevin de Bruyne: UX research sprint covering 6 focus areas'
             },
 
+            // TKT-108 Implementation Tickets
+            { id: 'TKT-109', title: 'Add contextual tooltips to The Lab', state: 'RUNNING', priority: 'P1', effort: 'quick-win', assignee: 'Kevin de Bruyne', epic: 'EPIC-010', progress: 0, tags: ['UX', 'Implementation'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Add hover tooltips explaining cricket metrics across all dashboards',
+                goal: 'Users understand SR, Avg, Econ, PP, Death without prior knowledge',
+                reason: 'Contextual help reduces cognitive load and improves accessibility',
+                audible: [
+                  '⏳ Add tooltip CSS pattern to dashboards',
+                  '⏳ Create metric glossary (SR, Avg, Econ, PP, Death)',
+                  '⏳ Add data-tooltip attributes to key metrics',
+                  '⏳ Add ⓘ help icons where context needed',
+                  '⏳ Self-validate: Test on all 9 dashboards'
+                ]
+              }
+            },
+            { id: 'TKT-110', title: 'Add progressive disclosure to Teams page', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-010', progress: 0, tags: ['UX', 'Implementation'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Convert player cards to expandable format with summary/detail views',
+                goal: 'Reduce initial cognitive load while preserving access to full data',
+                reason: 'Progressive disclosure: Show essentials first, details on demand',
+                audible: [
+                  '⏳ Design collapsed state: Name, Role, Key Stat',
+                  '⏳ Design expanded state: Phase stats, matchups, form',
+                  '⏳ Add smooth expand/collapse animation',
+                  '⏳ Ensure context preserved per Founder feedback',
+                  '⏳ Self-validate: Test UX flow'
+                ]
+              }
+            },
+            { id: 'TKT-111', title: 'Add phase performance bars', state: 'BACKLOG', priority: 'P1', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-010', progress: 0, tags: ['UX', 'Implementation'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Add visual bars for PP/Middle/Death performance with labels',
+                goal: 'Quick visual comparison of phase performance across players',
+                reason: 'Visuals with context (per Founder) speed up comprehension',
+                audible: [
+                  '⏳ Create phase bar CSS component',
+                  '⏳ Color-code: green=good, yellow=avg, red=poor',
+                  '⏳ Keep labels alongside bars (Founder feedback)',
+                  '⏳ Add hover tooltip with exact values',
+                  '⏳ Apply to teams.html and analysis.html'
+                ]
+              }
+            },
+            { id: 'TKT-112', title: 'Create shared UX component library', state: 'BACKLOG', priority: 'P2', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-010', progress: 0, tags: ['UX', 'Documentation'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Document reusable UX patterns from TKT-109 to TKT-111',
+                goal: 'Consistent UX components across all dashboards',
+                reason: 'Component library ensures maintainability and consistency',
+                audible: [
+                  '⏳ Create docs/ux/components.md',
+                  '⏳ Document tooltip pattern with examples',
+                  '⏳ Document expandable section pattern',
+                  '⏳ Document phase bars pattern',
+                  '⏳ Add usage guidelines'
+                ]
+              }
+            },
+
             // Sprint 5.0+ Ideas (IDEA-XXX notation for unscoped work)
             { id: 'IDEA-001', title: 'Implement Match Phase Index', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 0, tags: ['Feature', 'Analytics'], gates: {},
               context: { ask: 'Create composite index measuring player impact by match phase', goal: 'Single metric combining PP/Middle/Death performance', reason: 'Simplify phase analysis into actionable score', audible: ['Define index formula', 'Weight phases', 'Validate with Andy Flower'] }

@@ -32,6 +32,14 @@ import duckdb
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from utils.logging_config import setup_logger
 
+# ML Health Check integration (TKT-073)
+try:
+    from ml_ops.run_health_check import run_health_check as ml_health_check
+
+    ML_HEALTH_CHECK_AVAILABLE = True
+except ImportError:
+    ML_HEALTH_CHECK_AVAILABLE = False
+
 # Initialize logger
 logger = setup_logger(__name__)
 
@@ -1938,6 +1946,30 @@ def main() -> int:
     if not DB_PATH.exists():
         logger.error("Database not found at %s", DB_PATH)
         return 1
+
+    # =========================================================================
+    # PRE-EXECUTION HOOK: ML Health Check (TKT-073)
+    # =========================================================================
+    if ML_HEALTH_CHECK_AVAILABLE:
+        logger.info("Running ML health check before stat pack generation...")
+        try:
+            health_result = ml_health_check(verbose=False, export=False)
+            health_status = health_result.get("status", "UNKNOWN")
+
+            if "CRITICAL" in health_status:
+                logger.error("ML health check CRITICAL - aborting stat pack generation")
+                logger.error(
+                    "Run 'python scripts/ml_ops/run_health_check.py --verbose' for details"
+                )
+                return 1
+            elif "DEGRADED" in health_status:
+                logger.warning("ML health check DEGRADED - proceeding with warnings")
+            else:
+                logger.info("ML health check PASSED (%s)", health_status)
+        except Exception as e:
+            logger.warning("ML health check failed (non-blocking): %s", str(e))
+    else:
+        logger.debug("ML health check not available - skipping pre-execution hook")
 
     # Connect to database with context manager pattern
     logger.info("Connecting to database: %s", DB_PATH)

@@ -337,12 +337,43 @@ python scripts/ml_ops/run_health_check.py --verbose --export
 
 ### Integration Points
 
-| Use Case | How to Trigger |
-|----------|----------------|
-| **CI/CD** | GitHub Actions workflow |
-| **Weekly check** | Cron job: `0 9 * * 1` |
-| **Pre-stat pack** | Call before generation |
-| **Post-retraining** | Run after model update |
+| Use Case | How to Trigger | Status |
+|----------|----------------|--------|
+| **CI/CD** | `.github/workflows/ml-health-check.yml` | ✅ Automated |
+| **Weekly check** | Cron: `0 9 * * 1` (Monday 9 AM UTC) | ✅ Automated |
+| **Pre-stat pack** | Auto-runs in `generate_stat_packs.py` | ✅ Automated |
+| **Post-retraining** | Triggered by CI workflow completion | ✅ Automated |
+| **Manual** | `python scripts/ml_ops/run_health_check.py` | ✅ Available |
+
+### GitHub Actions Workflow
+
+The ML health check runs automatically via `.github/workflows/ml-health-check.yml`:
+
+```yaml
+# Triggers:
+on:
+  schedule:
+    - cron: '0 9 * * 1'  # Weekly Monday 9 AM UTC
+  push:
+    paths: ['scripts/ml_ops/**', 'scripts/analysis/player_clustering*.py']
+  workflow_dispatch: {}  # Manual trigger
+  workflow_run:
+    workflows: ["CI"]    # After CI completes
+```
+
+### Pre-Execution Hooks
+
+The health check is automatically called before analytics outputs:
+
+```python
+# In generate_stat_packs.py
+from ml_ops.run_health_check import run_health_check as ml_health_check
+
+# Runs before stat pack generation - CRITICAL status aborts generation
+health_result = ml_health_check(verbose=False, export=False)
+if "CRITICAL" in health_result.get("status", ""):
+    return 1  # Abort - don't generate stat packs with broken ML
+```
 
 ---
 

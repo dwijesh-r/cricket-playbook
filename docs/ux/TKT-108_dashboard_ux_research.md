@@ -2,7 +2,20 @@
 
 **Owner:** Kevin de Bruyne (UX/Frontend Lead)
 **Date:** 2026-02-07
-**Status:** RESEARCH COMPLETE
+**Status:** ✅ FOUNDER APPROVED
+
+---
+
+## Founder Feedback
+
+> **"On visuals over paragraphs - find a fine balance. Ensure enough context is given. Don't just put visuals for the sake of it."**
+
+This feedback is critical. When implementing visual replacements:
+- ✅ Use visuals to **enhance** understanding, not replace it
+- ✅ Keep contextual labels and descriptions alongside visuals
+- ✅ Ensure visuals are self-explanatory or have tooltips
+- ❌ Don't remove explanatory text just to add a chart
+- ❌ Don't add decorative visuals that don't convey meaning
 
 ---
 
@@ -14,7 +27,7 @@ After auditing all Cricket Playbook dashboards, I found a **solid foundation** w
 |----------|---------------|--------|
 | P0 | Add progressive disclosure (expandable sections) | High - Reduce initial cognitive load |
 | P1 | Add contextual tooltips for metrics | High - Improve understanding |
-| P1 | Replace text blocks with visual indicators | Medium - Faster comprehension |
+| P1 | Replace text blocks with visual indicators (with context) | Medium - Faster comprehension |
 | P2 | Implement shared CSS file to reduce duplication | Medium - Maintenance improvement |
 
 ---

@@ -4846,6 +4846,66 @@ Gate Inheritance:
               }
             },
 
+            // =========================================================================
+            // TKT-126 CHILD TICKETS: Ticket Hierarchy Implementation
+            // Created by: Tom Brady (Product Owner)
+            // Parent: TKT-126 (Hierarchical Ticket Structure Design)
+            // =========================================================================
+            { id: 'TKT-127', title: 'Add EPIC metadata to Mission Control', state: 'REVIEW', priority: 'P1', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-003', progress: 0, tags: ['Frontend', 'Architecture', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+              parent: 'TKT-126',
+              founderReviewNote: 'Add structured EPIC definitions with id, title, type, owner, goal. This enables the Epic View.',
+              context: {
+                ask: 'Create epics array in Mission Control data with full EPIC metadata',
+                goal: 'EPICs become first-class entities with type (Delivery/Research/Retro/Spike), owner, and goal',
+                reason: 'TKT-126 design requires EPIC metadata for Epic View and progress rollup. Currently EPICs are just string references.',
+                audible: ['Create epics[] array in data model', 'Add epicType field', 'Add owner, goal, outcome fields', 'Migrate existing EPIC-001 to EPIC-013']
+              },
+              plan: '1. Define EPIC schema in data model. 2. Create epics array with all 13 EPICs. 3. Add epicType: delivery|research|retro|spike. 4. Update ticket epic field to reference by ID.'
+            },
+            { id: 'TKT-128', title: 'Add parent-child fields to tickets', state: 'REVIEW', priority: 'P1', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-003', progress: 0, tags: ['Frontend', 'Architecture', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+              parent: 'TKT-126',
+              founderReviewNote: 'Add type, parent, children fields to ticket schema. This enables hierarchical relationships.',
+              context: {
+                ask: 'Add type (epic/parent/child), parent (reference), and children (computed) fields to ticket schema',
+                goal: 'Tickets can express hierarchical relationships: EPIC → Parent → Child',
+                reason: 'TKT-126 design requires explicit hierarchy fields. Currently only TKT-113+ children have parent field.',
+                audible: ['Add type field to all tickets', 'Add parent field where applicable', 'Compute children arrays', 'Update existing tickets (TKT-113 children)']
+              },
+              plan: '1. Add type field to ticket schema. 2. Scan for parent references and set type=child. 3. Build children arrays for parents. 4. Validate no orphan children.'
+            },
+            { id: 'TKT-129', title: 'Create Epic View in Boardroom', state: 'REVIEW', priority: 'P1', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-003', progress: 0, tags: ['Frontend', 'UX', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+              parent: 'TKT-126',
+              founderReviewNote: 'Create "Epic View" (The Strategy Map) showing collapsible EPIC → Parent → Child hierarchy. Must be mobile-optimized.',
+              context: {
+                ask: 'Implement Epic View in Boardroom with collapsible tree UI, progress rollup, and EPIC type filters',
+                goal: 'New view showing hierarchical ticket structure with expand/collapse, progress bars, and state badges',
+                reason: 'TKT-126 design specifies Epic View as primary way to visualize work item hierarchy.',
+                audible: ['Add Epic View to nav menu', 'Implement collapsible tree UI', 'Calculate progress rollup', 'Add EPIC type filters', 'Mobile-optimize (test 600px, 380px)', 'Use existing component patterns from docs/ux/components.md']
+              },
+              plan: '1. Add showView("epic") to navigation. 2. Create renderEpicView() function. 3. Implement collapsible accordions per TKT-126 spec. 4. Add progress bar calculation. 5. Test mobile breakpoints.'
+            },
+            { id: 'TKT-130', title: 'Update Constitution with ticket hierarchy', state: 'REVIEW', priority: 'P2', effort: 'hustle', assignee: 'Tom Brady', epic: 'EPIC-003', progress: 0, tags: ['Documentation', 'Governance', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+              parent: 'TKT-126',
+              founderReviewNote: 'Document Work Item Types, hierarchy rules, and EPIC creation guidelines in Constitution.',
+              context: {
+                ask: 'Update Constitution to document the EPIC → Parent → Child hierarchy as official governance',
+                goal: 'Work item hierarchy becomes part of Cricket Playbook governance documentation',
+                reason: 'TKT-126 design establishes standards that should be documented in Constitution for team reference.',
+                audible: ['Add Work Item Types section', 'Document EPIC types', 'Document hierarchy rules', 'Add EPIC creation checklist', 'Update Task Integrity Loop for hierarchy']
+              },
+              plan: '1. Add "Work Item Types" section to Constitution. 2. Document Level 0/1/2 definitions. 3. Document state rollup rules. 4. Add examples.'
+            },
+            { id: 'TKT-131', title: 'Create UI/UX Procedures document', state: 'REVIEW', priority: 'P2', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-010', progress: 0, tags: ['Documentation', 'UX', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+              founderReviewNote: 'Create comprehensive UI/UX procedures document covering design principles, mobile-first guidelines, accessibility, testing, and review process.',
+              context: {
+                ask: 'Create docs/ux/PROCEDURES.md documenting the UI/UX development workflow for Cricket Playbook dashboards',
+                goal: 'Standardized procedures for building, testing, and reviewing dashboard UX - ensures consistency across Boardroom and Lab',
+                reason: 'We have components.md (patterns) and TKT-108 (research) but missing the PROCESS document. Founder request.',
+                audible: ['Document design principles (dark-first, mobile-first)', 'Document breakpoint testing (600px, 480px, 380px)', 'Document accessibility basics', 'Document review checklist', 'Document CSS naming conventions', 'Reference existing components.md']
+              },
+              plan: '1. Create docs/ux/PROCEDURES.md. 2. Document design principles. 3. Document development workflow. 4. Document testing checklist. 5. Document review process.'
+            },
+
             // Sprint 5.0+ Ideas (IDEA-XXX notation for unscoped work)
             { id: 'IDEA-001', title: 'Implement Match Phase Index', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 0, tags: ['Feature', 'Analytics'], gates: {},
               context: { ask: 'Create composite index measuring player impact by match phase', goal: 'Single metric combining PP/Middle/Death performance', reason: 'Simplify phase analysis into actionable score', audible: ['Define index formula', 'Weight phases', 'Validate with Andy Flower'] }

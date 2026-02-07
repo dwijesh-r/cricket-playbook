@@ -88,12 +88,21 @@ Tracks prediction performance and latency.
 
 | Metric | Threshold | Alert Level | Rationale |
 |--------|-----------|-------------|-----------|
-| **PCA Variance (Batters)** | < 70% | CRITICAL | Per ML PRD requirement; ensures features capture sufficient variance |
-| **PCA Variance (Bowlers)** | < 50% | CRITICAL | Per ML PRD requirement; bowler features inherently more variable |
-| **Cluster Size** | < 10 players | WARNING | Ensures statistical validity of cluster characteristics |
-| **Feature Drift (KS)** | > 0.1 | WARNING | Standard drift threshold; indicates distribution shift |
+| **PCA Variance (Batters)** | < 70% | CRITICAL | Per ML PRD requirement; batters typically achieve 83%+ |
+| **PCA Variance (Bowlers)** | < 50% | CRITICAL | Bowler features are more complex; 50% is acceptable |
+| **Cluster Size** | < 10 players | WARNING | Ensures archetype has statistical validity |
+| **Feature Drift (KS)** | > 0.1 | WARNING | IPL shows ~0.05-0.08 natural variation; 0.1 catches real shifts |
+| **Multivariate Drift (Mahal)** | > 3.0 | WARNING | Catches correlated feature shifts that KS misses |
 | **Prediction Latency** | > 1000ms | WARNING | Performance degradation indicator |
 | **Prediction Latency** | > 5000ms | CRITICAL | Unacceptable user experience |
+
+### IPL-Specific Threshold Justification
+
+| Threshold | Why This Value? |
+|-----------|-----------------|
+| **KS = 0.1** | IPL data shows 0.05-0.08 natural season-to-season variation. 0.1 catches meaningful shifts while tolerating normal variation. Rule changes (Impact Player 2023) can trigger 0.12-0.15. |
+| **Mahalanobis = 3.0** | Based on chi-squared distribution with p < 0.01 for typical feature dimensions. Catches correlated shifts (e.g., SR↑ while avg↓) that univariate tests miss. |
+| **Cluster Size = 10** | With ~170 batters in 5 clusters, average is 34/cluster. Size < 10 suggests overfitting or data anomaly. |
 
 ### Alert Levels
 
@@ -141,30 +150,46 @@ report = monitor.generate_health_report()
 print(f"Health Status: {report['health_status']}")
 ```
 
-### Feature Drift Detection
+### Feature Drift Detection (Univariate + Multivariate)
 
 ```python
 from scripts.ml_ops.model_monitoring import ModelMonitor
 
 monitor = ModelMonitor()
+feature_cols = ['strike_rate', 'boundary_pct', 'avg_batting_position', 'death_sr']
 
-# Set baseline from production data
+# Set baseline with metadata (REQUIRED before drift detection)
 monitor.set_baseline_features(
     baseline_df=production_features,
-    feature_cols=['strike_rate', 'boundary_pct', 'avg_batting_position'],
-    model_name='batter_clustering'
+    feature_cols=feature_cols,
+    model_name='batter_clustering',
+    created_by='Stephen Curry',       # Who set this baseline
+    season_range='2021-2025',          # Data seasons covered
+    notes='Post-IPL 2025 baseline'     # Optional context
 )
 
-# Check for drift with new data
-drift_results, alerts = monitor.detect_feature_drift(
+# 1. Univariate drift (per-feature KS test)
+drift_results, ks_alerts = monitor.detect_feature_drift(
     current_df=new_features,
-    feature_cols=['strike_rate', 'boundary_pct', 'avg_batting_position'],
+    feature_cols=feature_cols,
+    model_name='batter_clustering',
+    strict=True  # Fail if no baseline (recommended)
+)
+
+# 2. Multivariate drift (catches correlated shifts)
+multi_result, mahal_alerts = monitor.detect_multivariate_drift(
+    current_df=new_features,
+    feature_cols=feature_cols,
     model_name='batter_clustering'
 )
 
+# Report findings
 for result in drift_results:
     if result.is_drifted:
-        print(f"DRIFT: {result.feature_name} (KS={result.ks_statistic:.3f})")
+        print(f"UNIVARIATE DRIFT: {result.feature_name} (KS={result.ks_statistic:.3f})")
+
+if multi_result and multi_result.is_drifted:
+    print(f"MULTIVARIATE DRIFT: Mahalanobis={multi_result.mahalanobis_distance:.2f}")
 ```
 
 ### Prediction Timing
@@ -248,6 +273,76 @@ monitor.check_pca_variance(
     'batter'
 )
 ```
+
+---
+
+## Baseline Lifecycle Management
+
+### When to Set/Refresh Baseline
+
+| Trigger | Action | Owner |
+|---------|--------|-------|
+| **Initial model training** | Set baseline with training data | Stephen Curry |
+| **Model retraining** | Refresh baseline with new training data | Stephen Curry |
+| **New IPL season starts** | Refresh if >3 months old | Ime Udoka |
+| **Feature engineering changes** | Must refresh baseline | Stephen Curry |
+| **Data pipeline updates** | Evaluate and refresh if needed | Brock Purdy |
+
+### Baseline Requirements
+
+- **Minimum samples:** 100 players per baseline
+- **Metadata required:** `created_by`, `season_range`
+- **Retention:** Keep previous baseline for 30 days
+- **Storage:** Saved with model metrics in `outputs/monitoring/`
+
+### Baseline Validation
+
+```python
+# Check baseline health
+metadata = monitor.get_baseline_metadata('batter_clustering')
+if metadata:
+    print(f"Baseline created: {metadata.created_at}")
+    print(f"Created by: {metadata.created_by}")
+    print(f"Samples: {metadata.n_samples}")
+    print(f"Season range: {metadata.season_range}")
+else:
+    print("WARNING: No baseline set!")
+```
+
+---
+
+## Automated Health Check Runner
+
+### One-Command Health Check
+
+Run all monitoring checks with a single command:
+
+```bash
+# From project root
+python scripts/ml_ops/run_health_check.py
+
+# Or with options
+python scripts/ml_ops/run_health_check.py --verbose --export
+```
+
+### What It Checks
+
+1. ✅ Loads latest clustering outputs
+2. ✅ Validates PCA variance thresholds
+3. ✅ Checks cluster size distribution
+4. ✅ Runs feature drift detection (if baseline exists)
+5. ✅ Runs multivariate drift detection
+6. ✅ Generates health report
+7. ✅ Exports metrics to `outputs/monitoring/`
+
+### Integration Points
+
+| Use Case | How to Trigger |
+|----------|----------------|
+| **CI/CD** | GitHub Actions workflow |
+| **Weekly check** | Cron job: `0 9 * * 1` |
+| **Pre-stat pack** | Call before generation |
+| **Post-retraining** | Run after model update |
 
 ---
 

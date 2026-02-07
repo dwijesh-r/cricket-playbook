@@ -2187,6 +2187,58 @@
         .modal-link-text { font-size: 14px; font-weight: 500; }
         .modal-link-arrow { margin-left: auto; color: var(--text-tertiary); }
 
+        /* Link Categories - Collapsible */
+        .link-category {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+        .link-category-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            background: var(--bg-tertiary);
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s ease;
+        }
+        .link-category-header:hover { background: var(--bg-elevated); }
+        .link-category-icon { font-size: 16px; }
+        .link-category-title { font-size: 14px; font-weight: 600; flex: 1; }
+        .link-category-count {
+            font-size: 11px;
+            padding: 2px 8px;
+            background: var(--bg-elevated);
+            border-radius: 10px;
+            color: var(--text-secondary);
+        }
+        .link-category-chevron {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            transition: transform 0.2s ease;
+        }
+        .link-category.open .link-category-chevron { transform: rotate(180deg); }
+        .link-category-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--bg-secondary);
+        }
+        .link-category.open .link-category-content { max-height: 500px; }
+        .link-category-content .modal-link {
+            border-radius: 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .link-category-content .modal-link:last-child { border-bottom: none; }
+        .link-category-empty {
+            padding: 12px 14px;
+            color: var(--text-tertiary);
+            font-size: 13px;
+            font-style: italic;
+        }
+
         /* ==================== LIST VIEW ==================== */
         .list-section {
             padding: 32px 24px;
@@ -5039,25 +5091,82 @@
                 </div>
             `;
 
-            // Render custom links array if present
-            const customLinksHtml = t.links && t.links.length > 0
-                ? t.links.map(link => `<a href="${link.url}" target="_blank" rel="noopener" class="modal-link"><span class="modal-link-icon">🔗</span><span class="modal-link-text">${link.label}</span><span class="modal-link-arrow">→</span></a>`).join('')
-                : '';
+            // Build structured link categories
+            const hasPrd = !!t.prd || !!t.plan;
+            const hasOutput = !!t.output;
+            const hasReview = !!t.review;
+            const hasCustomLinks = t.links && t.links.length > 0;
+
+            // Count links per category
+            const prdCount = (t.prd ? 1 : 0) + (t.plan ? 1 : 0);
+            const outputCount = t.output ? 1 : 0;
+            const reviewCount = t.review ? 1 : 0;
+            const customCount = t.links ? t.links.length : 0;
 
             document.getElementById('modalLinks').innerHTML = `
-                ${customLinksHtml}
-                ${t.prd
-                    ? `<a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/${t.prd}" target="_blank" rel="noopener" class="modal-link"><span class="modal-link-icon">📄</span><span class="modal-link-text">PRD Document</span><span class="modal-link-arrow">→</span></a>`
-                    : ''}
-                ${t.output
-                    ? `<a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/${t.output}" target="_blank" rel="noopener" class="modal-link"><span class="modal-link-icon">📁</span><span class="modal-link-text">Output Directory</span><span class="modal-link-arrow">→</span></a>`
-                    : ''}
-                ${t.review
-                    ? `<a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/${t.review}" target="_blank" rel="noopener" class="modal-link"><span class="modal-link-icon">🌹</span><span class="modal-link-text">Founder Review</span><span class="modal-link-arrow">→</span></a>`
-                    : ''}
-                ${!customLinksHtml && !t.prd && !t.output && !t.review
-                    ? `<div class="modal-link disabled"><span class="modal-link-icon">📄</span><span class="modal-link-text" style="color: var(--text-tertiary);">No links available yet</span></div>`
-                    : ''}
+                <!-- PRD & Documentation -->
+                <div class="link-category ${hasPrd ? 'open' : ''}" onclick="this.classList.toggle('open')">
+                    <div class="link-category-header">
+                        <span class="link-category-icon">📄</span>
+                        <span class="link-category-title">PRD & Documentation</span>
+                        <span class="link-category-count">${prdCount}</span>
+                        <span class="link-category-chevron">▼</span>
+                    </div>
+                    <div class="link-category-content">
+                        ${t.prd
+                            ? `<a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/${t.prd}" target="_blank" rel="noopener" class="modal-link" onclick="event.stopPropagation()"><span class="modal-link-icon">📋</span><span class="modal-link-text">PRD Document</span><span class="modal-link-arrow">→</span></a>`
+                            : ''}
+                        ${t.plan
+                            ? `<a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/${t.plan}" target="_blank" rel="noopener" class="modal-link" onclick="event.stopPropagation()"><span class="modal-link-icon">📝</span><span class="modal-link-text">Implementation Plan</span><span class="modal-link-arrow">→</span></a>`
+                            : ''}
+                        ${!hasPrd ? '<div class="link-category-empty">No documentation available yet</div>' : ''}
+                    </div>
+                </div>
+
+                <!-- Outputs & Artifacts -->
+                <div class="link-category ${hasOutput ? 'open' : ''}" onclick="this.classList.toggle('open')">
+                    <div class="link-category-header">
+                        <span class="link-category-icon">📁</span>
+                        <span class="link-category-title">Outputs & Artifacts</span>
+                        <span class="link-category-count">${outputCount}</span>
+                        <span class="link-category-chevron">▼</span>
+                    </div>
+                    <div class="link-category-content">
+                        ${t.output
+                            ? `<a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/${t.output}" target="_blank" rel="noopener" class="modal-link" onclick="event.stopPropagation()"><span class="modal-link-icon">📂</span><span class="modal-link-text">Output Directory</span><span class="modal-link-arrow">→</span></a>`
+                            : '<div class="link-category-empty">No outputs generated yet</div>'}
+                    </div>
+                </div>
+
+                <!-- Founder Review -->
+                <div class="link-category ${hasReview ? 'open' : ''}" onclick="this.classList.toggle('open')">
+                    <div class="link-category-header">
+                        <span class="link-category-icon">🌹</span>
+                        <span class="link-category-title">Founder Review</span>
+                        <span class="link-category-count">${reviewCount}</span>
+                        <span class="link-category-chevron">▼</span>
+                    </div>
+                    <div class="link-category-content">
+                        ${t.review
+                            ? `<a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/${t.review}" target="_blank" rel="noopener" class="modal-link" onclick="event.stopPropagation()"><span class="modal-link-icon">✍️</span><span class="modal-link-text">Review Document</span><span class="modal-link-arrow">→</span></a>`
+                            : '<div class="link-category-empty">Pending founder sign-off</div>'}
+                    </div>
+                </div>
+
+                <!-- Related Links (custom links array) -->
+                ${hasCustomLinks ? `
+                <div class="link-category open" onclick="this.classList.toggle('open')">
+                    <div class="link-category-header">
+                        <span class="link-category-icon">🔗</span>
+                        <span class="link-category-title">Related Links</span>
+                        <span class="link-category-count">${customCount}</span>
+                        <span class="link-category-chevron">▼</span>
+                    </div>
+                    <div class="link-category-content">
+                        ${t.links.map(link => `<a href="${link.url}" target="_blank" rel="noopener" class="modal-link" onclick="event.stopPropagation()"><span class="modal-link-icon">🔗</span><span class="modal-link-text">${link.label}</span><span class="modal-link-arrow">→</span></a>`).join('')}
+                    </div>
+                </div>
+                ` : ''}
             `;
 
             document.getElementById('modal').classList.add('active');

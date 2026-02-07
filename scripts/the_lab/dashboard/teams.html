@@ -228,6 +228,83 @@
             display: none;
         }
 
+        /* ==================== PHASE PERFORMANCE BARS (TKT-111) ==================== */
+        .phase-bars {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+        .phase-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+        .phase-bar-visual {
+            width: 24px;
+            height: 8px;
+            background: var(--bg-tertiary);
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+        .phase-bar-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        .phase-bar-fill.elite {
+            width: 100%;
+            background: linear-gradient(90deg, var(--accent-green) 0%, #4ade80 100%);
+        }
+        .phase-bar-fill.specialist {
+            width: 75%;
+            background: linear-gradient(90deg, var(--accent-teal) 0%, #22d3ee 100%);
+        }
+        .phase-bar-fill.average {
+            width: 50%;
+            background: var(--text-tertiary);
+        }
+        .phase-bar-label {
+            font-size: 8px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .phase-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 8px;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            font-size: 11px;
+        }
+        .phase-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        .phase-dot.pp { background: var(--accent-yellow); }
+        .phase-dot.mid { background: var(--accent); }
+        .phase-dot.death { background: var(--accent-red); }
+        .phase-tag {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 9px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .phase-tag.pp-elite { background: rgba(255, 214, 10, 0.2); color: var(--accent-yellow); }
+        .phase-tag.mid-elite { background: rgba(10, 132, 255, 0.2); color: var(--accent); }
+        .phase-tag.death-elite { background: rgba(255, 69, 58, 0.2); color: var(--accent-red); }
+        .phase-tag.neutral { background: var(--bg-tertiary); color: var(--text-tertiary); }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -2005,6 +2082,7 @@
                             <th class="has-tooltip" data-tooltip="Batting hand: R (Right) or L (Left)">Bat</th>
                             <th class="has-tooltip" data-tooltip="Bowling type: Pace, Spin (Off/Leg), or style variant">Bowl</th>
                             <th class="has-tooltip" data-tooltip="Player archetype from clustering analysis (e.g., Power Hitter, Anchor, Finisher)">Archetype</th>
+                            <th class="has-tooltip" data-tooltip="Phase specialization: PP (Powerplay 1-6), Mid (7-15), Death (16-20)">Phase</th>
                             <th class="has-tooltip" data-tooltip="Player's current age">Age</th>
                             <th class="has-tooltip" data-tooltip="Nationality: Indian or Overseas (max 4 overseas per XI)">Nat</th>
                         </tr>
@@ -2012,7 +2090,7 @@
                     <tbody>
                         ${filteredSquad.length === 0 ? `
                             <tr>
-                                <td colspan="8" style="text-align: center; padding: 32px; color: var(--text-tertiary);">
+                                <td colspan="9" style="text-align: center; padding: 32px; color: var(--text-tertiary);">
                                     No players match your filters. Try adjusting your search criteria.
                                 </td>
                             </tr>
@@ -2021,6 +2099,18 @@
                             const bowlInfo = player.bowlingType !== '-' ? player.bowlingType : '-';
                             const batHand = player.batting ? (player.batting.includes('Left') ? 'L' : 'R') : '-';
                             const isExtendedSquad = idx >= 11; // Beyond Predicted XI
+                            // Phase indicators from tags (TKT-111)
+                            const allTags = [...(player.batterTags || []), ...(player.bowlerTags || [])];
+                            const isPP = allTags.some(t => t.includes('PP_') || t === 'NEW_BALL_SPECIALIST' || t === 'EXPLOSIVE_OPENER');
+                            const isMid = allTags.some(t => t.includes('MIDDLE') || t.includes('MID_') || t === 'ACCUMULATOR' || t === 'ANCHOR');
+                            const isDeath = allTags.some(t => t.includes('DEATH') || t === 'FINISHER');
+                            const phaseHtml = (isPP || isMid || isDeath) ? `
+                                <div class="phase-bars" title="Phase specialization">
+                                    ${isPP ? '<span class="phase-tag pp-elite has-tooltip" data-tooltip="Powerplay specialist (Overs 1-6)">PP</span>' : ''}
+                                    ${isMid ? '<span class="phase-tag mid-elite has-tooltip" data-tooltip="Middle overs specialist (Overs 7-15)">MID</span>' : ''}
+                                    ${isDeath ? '<span class="phase-tag death-elite has-tooltip" data-tooltip="Death overs specialist (Overs 16-20)">DTH</span>' : ''}
+                                </div>
+                            ` : '<span class="na-badge">-</span>';
                             return `
                             <tr class="${player.isCaptain ? 'captain-row' : ''} ${isExtendedSquad ? 'extended-squad-row' : ''}">
                                 <td>
@@ -2043,6 +2133,9 @@
                                 </td>
                                 <td class="archetype-cell">
                                     ${archetype !== '-' ? `<span class="archetype-badge">${archetype}</span>` : '<span class="na-badge">-</span>'}
+                                </td>
+                                <td class="phase-cell">
+                                    ${phaseHtml}
                                 </td>
                                 <td>
                                     <span class="age-cell ${getAgeClass(player.age)}">${player.age}</span>

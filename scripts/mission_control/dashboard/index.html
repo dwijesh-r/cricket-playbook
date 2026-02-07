@@ -4146,17 +4146,17 @@
                 ]
               }
             },
-            { id: 'TKT-111', title: 'Add phase performance bars', state: 'BACKLOG', priority: 'P1', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-010', progress: 0, tags: ['UX', 'Implementation'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-111', title: 'Add phase performance bars', state: 'REVIEW', priority: 'P1', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-010', progress: 100, tags: ['UX', 'Implementation'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PENDING' },
               context: {
                 ask: 'Add visual bars for PP/Middle/Death performance with labels',
                 goal: 'Quick visual comparison of phase performance across players',
                 reason: 'Visuals with context (per Founder) speed up comprehension',
                 audible: [
-                  '⏳ Create phase bar CSS component',
-                  '⏳ Color-code: green=good, yellow=avg, red=poor',
-                  '⏳ Keep labels alongside bars (Founder feedback)',
-                  '⏳ Add hover tooltip with exact values',
-                  '⏳ Apply to teams.html and analysis.html'
+                  '✅ Added Phase column to roster table',
+                  '✅ Phase tags: PP (Powerplay), MID (Middle), DTH (Death)',
+                  '✅ Color-coded: yellow=PP, blue=Mid, red=Death',
+                  '✅ Tooltips explain each phase (overs range)',
+                  '✅ Derived from batterTags/bowlerTags data'
                 ]
               }
             },

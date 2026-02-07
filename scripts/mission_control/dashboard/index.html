@@ -4485,15 +4485,159 @@
                 ]
               }
             },
-            { id: 'TKT-113', title: 'CI/CD automation audit & expansion', state: 'RUNNING', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 10, tags: ['DevOps', 'CI/CD', 'Research'], gates: { florentino_gate: 'PENDING' },
+            { id: 'TKT-113', title: 'CI/CD automation audit & expansion', state: 'DONE', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['DevOps', 'CI/CD', 'Research', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Audit repo for CI/CD pipeline opportunities and ensure all infrastructure is utilized',
                 goal: 'Comprehensive CI/CD coverage: data validation, testing, deployment, monitoring all automated',
                 reason: 'DevOps best practice: Automation prevents human error and ensures standards compliance',
-                audible: ['🔄 Research in progress']
+                audible: ['✅ Audited 18 scripts', '✅ Identified 2 CRITICAL gaps', '✅ Identified 5 HIGH priority gaps', '✅ Created implementation tickets TKT-114 to TKT-125', '✅ Founder Approved 2026-02-07']
               },
               collaborators: ['Tom Brady', 'Brock Purdy', 'Brad Stevens'],
               plan: 'Phase 1: Repo audit - identify all scripts/workflows that could benefit from CI/CD. Phase 2: Gap analysis - what\'s missing vs best practices. Phase 3: Implementation plan with priorities.'
+            },
+
+            // =========================================================================
+            // TKT-113 CHILD TICKETS: CI/CD Pipeline Implementation
+            // Created by: Tom Brady (Product Owner)
+            // Based on: Ime Udoka, Brock Purdy, Brad Stevens audit findings
+            // =========================================================================
+
+            // P0 CRITICAL - Must fix immediately
+            { id: 'TKT-114', title: 'Add schema validation to CI pipeline', state: 'REVIEW', priority: 'P0', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'Data Quality', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+              parent: 'TKT-113',
+              founderReviewNote: 'CRITICAL: Schema validation prevents broken analytics from reaching production. Review the CI integration approach.',
+              context: {
+                ask: 'Integrate validate_schema.py into CI workflow as a quality gate',
+                goal: 'Every PR must pass schema validation before merge - catches table/view/FK issues automatically',
+                reason: 'CRITICAL GAP: Schema changes could break downstream analytics without CI validation. Found by Brad Stevens in TKT-113 audit.',
+                audible: ['Add validate_schema.py step to ci.yml', 'Run after pytest', 'Fail build on validation errors', 'Add error summary to PR comments']
+              },
+              plan: '1. Add new step to .github/workflows/ci.yml after pytest. 2. Run python scripts/core/validate_schema.py. 3. Fail workflow if exit code != 0. 4. Test with intentional schema break.'
+            },
+            { id: 'TKT-115', title: 'Add output validation to CI pipeline', state: 'REVIEW', priority: 'P0', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'Data Quality', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+              parent: 'TKT-113',
+              founderReviewNote: 'CRITICAL: Output validation catches impossible T20 values (entry points > 120, negative economy). Review CI integration.',
+              context: {
+                ask: 'Integrate validate_outputs.py into CI workflow for T20 logical constraint checking',
+                goal: 'Prevent logically impossible cricket values from reaching production outputs',
+                reason: 'CRITICAL GAP: validate_outputs.py exists but never runs automatically. CSVs could contain SR > 400 or negative balls. Found by Brock Purdy in TKT-113 audit.',
+                audible: ['Add validate_outputs.py step to ci.yml', 'Run when generator scripts change', 'Fail on impossible values', 'Log validation summary']
+              },
+              plan: '1. Add conditional step to ci.yml (paths: scripts/generators/**). 2. Run python scripts/utils/validate_outputs.py. 3. Fail workflow if validation fails. 4. Add T20 constraint summary to output.'
+            },
+
+            // P1 HIGH - Should fix this sprint
+            { id: 'TKT-116', title: 'Create model retraining pipeline', state: 'REVIEW', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'MLOps', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+              parent: 'TKT-113',
+              founderReviewNote: 'HIGH: Model retraining automation ensures player archetypes stay current with new data. Review the workflow triggers.',
+              context: {
+                ask: 'Create ml-retrain.yml GitHub Actions workflow for automated model retraining',
+                goal: 'K-means clustering model automatically retrains after data ingestion, ensuring fresh player archetypes',
+                reason: 'HIGH GAP: player_clustering_v2.py has no automated retraining. Models become stale when new season data arrives. Found by Ime Udoka in TKT-113 audit.',
+                audible: ['Create .github/workflows/ml-retrain.yml', 'Trigger after ingest.yml success', 'Run player_clustering_v2.py', 'Update player_tags.json', 'Set drift baseline automatically']
+              },
+              plan: '1. Create ml-retrain.yml with workflow_run trigger. 2. Install dependencies. 3. Run clustering script. 4. Commit updated tags. 5. Trigger ml-health-check.yml.'
+            },
+            { id: 'TKT-117', title: 'Create output generation pipeline', state: 'REVIEW', priority: 'P1', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'Automation', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+              parent: 'TKT-113',
+              founderReviewNote: 'HIGH: Output generation automation ensures stat packs and depth charts are always current. Review the workflow chain.',
+              context: {
+                ask: 'Create generate-outputs.yml GitHub Actions workflow for automated stat pack and depth chart generation',
+                goal: 'All analytics outputs (stat packs, depth charts, predicted XIs) regenerate automatically after model updates',
+                reason: 'HIGH GAP: Generator scripts require manual execution. Outputs can become stale. Found by Brock Purdy in TKT-113 audit.',
+                audible: ['Create .github/workflows/generate-outputs.yml', 'Trigger after ml-retrain.yml success', 'Run all generator scripts', 'Commit updated outputs', 'Run validate_outputs.py as quality gate']
+              },
+              plan: '1. Create generate-outputs.yml with workflow_run trigger. 2. Run generate_stat_packs.py, generate_depth_charts.py, generate_predicted_xii.py. 3. Validate outputs. 4. Commit changes.'
+            },
+            { id: 'TKT-118', title: 'Chain analytics views in ingestion workflow', state: 'REVIEW', priority: 'P1', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'Data Pipeline', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+              parent: 'TKT-113',
+              founderReviewNote: 'HIGH: Analytics views must refresh after ingestion. Review the ingest.yml modification.',
+              context: {
+                ask: 'Add analytics_ipl.py execution to ingest.yml workflow after data ingestion completes',
+                goal: 'Analytics views automatically refresh when new data is ingested - no manual step required',
+                reason: 'HIGH GAP: analytics_ipl.py creates views but is not in any workflow. Views could be stale after ingestion. Found by Brock Purdy in TKT-113 audit.',
+                audible: ['Modify .github/workflows/ingest.yml', 'Add step after ingest.py', 'Run python scripts/core/analytics_ipl.py', 'Add validate_schema.py as final check']
+              },
+              plan: '1. Add analytics_ipl.py step to ingest.yml after ingestion. 2. Add validate_schema.py as validation step. 3. Update workflow documentation.'
+            },
+            { id: 'TKT-119', title: 'Add dependency lock file for reproducibility', state: 'REVIEW', priority: 'P1', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'Dependencies', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+              parent: 'TKT-113',
+              founderReviewNote: 'HIGH: Dependency locking ensures reproducible builds. Review the pip-tools approach.',
+              context: {
+                ask: 'Implement pip-tools (pip-compile) for dependency locking with requirements.in -> requirements.txt workflow',
+                goal: 'Reproducible builds with pinned transitive dependencies - same versions in CI and local dev',
+                reason: 'HIGH GAP: requirements.txt has version pins but no lock file for transitive dependencies. Found by Brad Stevens in TKT-113 audit.',
+                audible: ['Install pip-tools', 'Create requirements.in with direct deps', 'Generate requirements.txt with pip-compile', 'Add to CI workflow', 'Document update process']
+              },
+              plan: '1. Create requirements.in from current requirements.txt (remove transitive). 2. Run pip-compile requirements.in. 3. Update CI to use locked requirements.txt. 4. Add Makefile target for updates.'
+            },
+            { id: 'TKT-120', title: 'Add code coverage reporting to CI', state: 'REVIEW', priority: 'P1', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'Testing', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+              parent: 'TKT-113',
+              founderReviewNote: 'HIGH: Code coverage tracking identifies untested code paths. Review the pytest-cov + Codecov approach.',
+              context: {
+                ask: 'Add pytest-cov and Codecov integration to CI workflow for code coverage tracking',
+                goal: 'Track test coverage metrics, identify untested code, prevent coverage regression',
+                reason: 'HIGH GAP: Tests exist but no coverage metrics tracked. Quality blind spot. Found by Brad Stevens in TKT-113 audit.',
+                audible: ['Add pytest-cov to requirements', 'Modify ci.yml to run with --cov', 'Upload coverage.xml to Codecov', 'Add coverage badge to README']
+              },
+              plan: '1. Add pytest-cov to requirements.txt. 2. Update ci.yml: pytest --cov=scripts --cov-report=xml. 3. Add Codecov GitHub Action. 4. Configure codecov.yml threshold.'
+            },
+
+            // P2 MEDIUM - Should fix next sprint
+            { id: 'TKT-121', title: 'Add scheduled trigger to data ingestion', state: 'REVIEW', priority: 'P2', effort: 'quick-win', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'Automation', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+              parent: 'TKT-113',
+              founderReviewNote: 'MEDIUM: Scheduled ingestion keeps data fresh without manual intervention. Review the weekly schedule approach.',
+              context: {
+                ask: 'Add optional scheduled trigger to ingest.yml for automatic weekly data refresh',
+                goal: 'Data automatically refreshes on schedule (e.g., Sunday night) - always current with Cricsheet',
+                reason: 'MEDIUM GAP: ingest.yml only runs on manual dispatch. Data freshness depends on human memory. Found by Ime Udoka in TKT-113 audit.',
+                audible: ['Add schedule trigger to ingest.yml', 'Cron: Sunday 11 PM UTC', 'Keep workflow_dispatch for manual runs', 'Add Slack notification on completion']
+              },
+              plan: '1. Add schedule trigger: cron: 0 23 * * 0. 2. Add conditional notification step. 3. Test with dry run. 4. Document schedule in README.'
+            },
+            { id: 'TKT-122', title: 'Add matchup analysis to retraining pipeline', state: 'REVIEW', priority: 'P2', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'Analytics', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+              parent: 'TKT-113',
+              founderReviewNote: 'MEDIUM: Matchup analysis scripts should run automatically after model retraining. Review the integration approach.',
+              context: {
+                ask: 'Include matchup analysis scripts in ml-retrain.yml workflow after clustering completes',
+                goal: 'Player matchup tags (batter vs spin, bowler vs left-handers) automatically refresh with model updates',
+                reason: 'MEDIUM GAP: Analysis scripts (batter_bowling_type_matchup.py, bowler_handedness_matchup.py) require manual execution. Found by Ime Udoka in TKT-113 audit.',
+                audible: ['Add matchup scripts to ml-retrain.yml', 'Run batter_bowling_type_matchup.py', 'Run bowler_handedness_matchup.py', 'Run bowler_phase_tags.py', 'Update outputs/matchups/']
+              },
+              plan: '1. Modify ml-retrain.yml (after TKT-116). 2. Add steps for each analysis script. 3. Commit updated matchup CSVs. 4. Add to validate_outputs.py checks.'
+            },
+            { id: 'TKT-123', title: 'Create end-to-end pipeline orchestration', state: 'REVIEW', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'Orchestration', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+              parent: 'TKT-113',
+              founderReviewNote: 'MEDIUM: Pipeline orchestration coordinates all workflows into a single automated flow. Review the workflow_run chain approach.',
+              context: {
+                ask: 'Create master orchestration workflow that chains: Ingest -> Analytics -> Model -> Outputs -> Validation',
+                goal: 'One-click (or scheduled) full pipeline execution with proper dependency ordering and artifact passing',
+                reason: 'MEDIUM GAP: Individual workflows exist but no master pipeline. Manual coordination required between steps. Found by Ime Udoka in TKT-113 audit.',
+                audible: ['Create pipeline-orchestrator.yml', 'Use workflow_run triggers', 'Pass artifacts between workflows', 'Add pipeline status dashboard', 'Create manual "Run Full Pipeline" trigger']
+              },
+              plan: '1. Create pipeline-orchestrator.yml. 2. Chain workflows via workflow_run. 3. Add pipeline status summary. 4. Create documentation for pipeline flow.'
+            },
+            { id: 'TKT-124', title: 'Add automated documentation generation', state: 'REVIEW', priority: 'P2', effort: 'hustle', assignee: 'Tom Brady', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'Documentation', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+              parent: 'TKT-113',
+              founderReviewNote: 'MEDIUM: Auto-generated API docs stay in sync with code. Review the pdoc3 approach.',
+              context: {
+                ask: 'Add pdoc3 documentation generation to CI workflow for automatic API documentation',
+                goal: 'API documentation automatically generated and published on each release',
+                reason: 'MEDIUM GAP: No automated doc generation. API docs become stale as code evolves. Found by Brad Stevens in TKT-113 audit.',
+                audible: ['Add pdoc3 to requirements', 'Create docs generation step in CI', 'Generate docs/api/ on release', 'Publish to GitHub Pages']
+              },
+              plan: '1. Add pdoc3 to requirements.txt. 2. Create generate-docs.yml workflow. 3. Generate HTML docs for scripts/. 4. Deploy to GitHub Pages on release.'
+            },
+            { id: 'TKT-125', title: 'Standardize input validation across scripts', state: 'REVIEW', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'Code Quality', 'Architecture', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+              parent: 'TKT-113',
+              founderReviewNote: 'MEDIUM: Consistent input validation prevents runtime errors. Review the decorator pattern approach.',
+              context: {
+                ask: 'Create @requires_database and @requires_file decorators for consistent input validation across all entry point scripts',
+                goal: 'All scripts validate their inputs consistently - clear error messages when dependencies are missing',
+                reason: 'MEDIUM GAP: Some scripts check DB_PATH.exists() but others do not. Inconsistent error handling. Found by Brad Stevens in TKT-113 audit.',
+                audible: ['Create scripts/utils/validators.py', 'Add @requires_database decorator', 'Add @requires_file(path) decorator', 'Apply to all entry point scripts', 'Add unit tests for decorators']
+              },
+              plan: '1. Create validators.py with decorator implementations. 2. Apply to scripts/generators/*.py. 3. Apply to scripts/analysis/*.py. 4. Add tests for validation failures.'
             },
 
             // Sprint 5.0+ Ideas (IDEA-XXX notation for unscoped work)

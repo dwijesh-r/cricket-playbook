@@ -4136,7 +4136,7 @@
             },
 
             // TKT-108 Implementation Tickets
-            { id: 'TKT-109', title: 'Add contextual tooltips to The Lab', state: 'REVIEW', priority: 'P1', effort: 'quick-win', assignee: 'Kevin de Bruyne', epic: 'EPIC-010', progress: 100, tags: ['UX', 'Implementation'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PENDING' },
+            { id: 'TKT-109', title: 'Add contextual tooltips to The Lab', state: 'DONE', priority: 'P1', effort: 'quick-win', assignee: 'Kevin de Bruyne', epic: 'EPIC-010', progress: 100, tags: ['UX', 'Implementation'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Add hover tooltips explaining cricket metrics across all dashboards',
                 goal: 'Users understand SR, Avg, Econ, PP, Death without prior knowledge',
@@ -4146,11 +4146,12 @@
                   '✅ Tooltips on teams.html: table headers, squad stats, compare metrics',
                   '✅ Tooltips on index.html: overview stats',
                   '✅ Cricket glossary: Role, Bat/Bowl, Archetype, Overseas, etc.',
-                  '⏳ Self-validate: Testing on all dashboards'
+                  '✅ Mobile-safe styles added (768px, 480px breakpoints)',
+                  '✅ Founder Approved: 2026-02-07'
                 ]
               }
             },
-            { id: 'TKT-110', title: 'Add progressive disclosure to Teams page', state: 'REVIEW', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-010', progress: 100, tags: ['UX', 'Implementation'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PENDING' },
+            { id: 'TKT-110', title: 'Add progressive disclosure to Teams page', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-010', progress: 100, tags: ['UX', 'Implementation'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Convert player cards to expandable format with summary/detail views',
                 goal: 'Reduce initial cognitive load while preserving access to full data',
@@ -4160,11 +4161,11 @@
                   '✅ "Show Full Squad" button for extended roster',
                   '✅ Smooth CSS-based show/hide animation',
                   '✅ Context preserved: player count shown in button',
-                  '⏳ Self-validate: Test UX flow'
+                  '✅ Founder Approved: 2026-02-07'
                 ]
               }
             },
-            { id: 'TKT-111', title: 'Add phase performance bars', state: 'REVIEW', priority: 'P1', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-010', progress: 100, tags: ['UX', 'Implementation'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PENDING' },
+            { id: 'TKT-111', title: 'Add phase performance bars', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-010', progress: 100, tags: ['UX', 'Implementation'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Add visual bars for PP/Middle/Death performance with labels',
                 goal: 'Quick visual comparison of phase performance across players',
@@ -4174,11 +4175,12 @@
                   '✅ Phase tags: PP (Powerplay), MID (Middle), DTH (Death)',
                   '✅ Color-coded: yellow=PP, blue=Mid, red=Death',
                   '✅ Tooltips explain each phase (overs range)',
-                  '✅ Derived from batterTags/bowlerTags data'
+                  '✅ Derived from batterTags/bowlerTags data',
+                  '✅ Founder Approved: 2026-02-07'
                 ]
               }
             },
-            { id: 'TKT-112', title: 'Create shared UX component library', state: 'REVIEW', priority: 'P2', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-010', progress: 100, tags: ['UX', 'Documentation'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PENDING' }, output: 'docs/ux/components.md',
+            { id: 'TKT-112', title: 'Create shared UX component library', state: 'DONE', priority: 'P2', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-010', progress: 100, tags: ['UX', 'Documentation'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' }, output: 'docs/ux/components.md',
               context: {
                 ask: 'Document reusable UX patterns from TKT-109 to TKT-111',
                 goal: 'Consistent UX components across all dashboards',
@@ -4188,7 +4190,9 @@
                   '✅ Documented tooltip pattern with CSS + usage',
                   '✅ Documented progressive disclosure pattern',
                   '✅ Documented phase indicators pattern',
-                  '✅ Added theme variables reference + checklist'
+                  '✅ Added theme variables reference + checklist',
+                  '✅ Mobile-safe styles documented',
+                  '✅ Founder Approved: 2026-02-07'
                 ]
               }
             },

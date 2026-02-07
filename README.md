@@ -89,7 +89,7 @@ Welcome to Cricket Playbook. Here's how to get your bearings:
 
 ### First 5 Minutes
 1. **Read this README** - You're doing it. Good start.
-2. **Check `docs/KANBAN.md`** - See what we're working on right now (Sprint 4.0)
+2. **Check [Mission Control](https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/index.html)** - See what we're working on right now (Sprint 5.0)
 3. **Browse `stat_packs/`** - Open any team file (try `MI/MI_stat_pack.md`). This is what we produce.
 4. **Check `outputs/predicted_xii/`** - See our algorithm-generated best XIs
 5. **Check `outputs/depth_charts/`** - See position-by-position team rankings
@@ -119,7 +119,7 @@ scripts/generators/generate_stat_packs.py → stat_packs/
 | Run SQL queries | `notebooks/view_explorer.ipynb` |
 | See how we classify players | `scripts/analysis/player_clustering_v2.py` |
 | Understand our methodology | `docs/research/` (PFF + KenPom studies) |
-| Check sprint progress | `docs/KANBAN.md` |
+| Check sprint progress | [Mission Control Dashboard](https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/index.html) |
 | See founder feedback | `reviews/founder/` |
 
 ### The Key Numbers to Know

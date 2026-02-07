@@ -71,7 +71,7 @@ governance/
 - [Constitution](../config/CONSTITUTION.md) - Authority and rules
 - [CLAUDE.md](../CLAUDE.md) - Project operating principles
 - [Mission Control README](../.mission-control/README.md) - CLI documentation
-- [KANBAN](../docs/KANBAN.md) - Sprint tracking
+- [Mission Control](https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/index.html) - Sprint tracking
 
 ---
 

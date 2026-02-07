@@ -72,7 +72,7 @@ Every task must pass through:
 | Raw data and database | `data/` |
 | Python scripts | `scripts/` |
 | Process docs | `governance/` |
-| Sprint planning | `docs/KANBAN.md` |
+| Sprint planning | [Mission Control Dashboard](https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/index.html) |
 
 ---
 

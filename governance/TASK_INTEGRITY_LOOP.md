@@ -374,7 +374,7 @@ The Founder is an **active collaborator**, not just an approval gate. Agents sho
 ## Tracking
 
 All task loops are tracked in:
-- Sprint KANBAN (`docs/KANBAN.md`)
+- [Mission Control Dashboard](https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/index.html)
 - Task-specific PRD files (`governance/tasks/`)
 - **Mission Control Board** (MANDATORY)
 

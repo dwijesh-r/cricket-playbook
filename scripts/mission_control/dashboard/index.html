@@ -3889,6 +3889,11 @@
               context: { ask: 'Create algorithm to rank players by position', goal: 'Composite scoring system for positional ranking', reason: 'PRD requirement: Automated depth chart generation', audible: ['Design scoring formula', 'Implement algorithm', 'Test with sample data', 'Domain review'] }
             },
             { id: 'TKT-042', title: 'Generate all 10 depth charts', state: 'REVIEW', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 95, tags: ['Pipeline', 'Output', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' }, entered_review_date: '2026-02-03',
+              links: [
+                { label: 'Depth Charts Folder', url: 'https://github.com/dwijesh-r/cricket-playbook/tree/main/outputs/depth_charts' },
+                { label: 'The Lab - Artifacts', url: 'https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/artifacts.html' },
+                { label: 'Depth Chart README', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/depth_charts/README.md' }
+              ],
               context: {
                 ask: 'Run depth chart pipeline for all 10 IPL teams and generate markdown outputs',
                 goal: 'Produce 10 depth chart files in outputs/depth_charts/ with positions 1-11 ranked by composite score',
@@ -3903,6 +3908,12 @@
               context: { ask: 'Archive depth chart outputs to outputs/depth_charts/', goal: 'Depth charts accessible in repository', reason: 'Output organization best practice', audible: ['Verify all 10 files', 'Commit to outputs/', 'Update readme'] }
             },
             { id: 'TKT-045', title: 'Founder approval of depth charts', state: 'VALIDATION', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-005', progress: 95, tags: ['Approval', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
+              links: [
+                { label: 'Depth Charts Folder', url: 'https://github.com/dwijesh-r/cricket-playbook/tree/main/outputs/depth_charts' },
+                { label: 'The Lab - Teams', url: 'https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/teams.html' },
+                { label: 'MI Depth Chart', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/depth_charts/MI_depth_chart.md' },
+                { label: 'CSK Depth Chart', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/depth_charts/CSK_depth_chart.md' }
+              ],
               context: {
                 ask: 'Review and approve the 10 depth chart outputs for correctness and format',
                 goal: 'Confirm depth charts meet quality bar and can be published',
@@ -3938,6 +3949,10 @@
               }
             },
             { id: 'TKT-051', title: 'Add venue analysis section', state: 'VALIDATION', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 95, tags: ['Feature', 'Analytics', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
+              links: [
+                { label: 'Stat Packs Folder', url: 'https://github.com/dwijesh-r/cricket-playbook/tree/main/stat_packs' },
+                { label: 'MI Stat Pack', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/stat_packs/MI/MI_stat_pack.md' }
+              ],
               context: {
                 ask: 'Add Venue Analysis section showing player/team performance by stadium',
                 goal: 'Display home/away splits and venue-specific stats for key players',
@@ -3946,6 +3961,10 @@
               }
             },
             { id: 'TKT-052', title: 'Add historical trends section', state: 'VALIDATION', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 95, tags: ['Feature', 'Analytics', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
+              links: [
+                { label: 'Stat Packs Folder', url: 'https://github.com/dwijesh-r/cricket-playbook/tree/main/stat_packs' },
+                { label: 'CSK Stat Pack', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/stat_packs/CSK/CSK_stat_pack.md' }
+              ],
               context: {
                 ask: 'Add Historical Trends section showing season-over-season performance',
                 goal: 'Visualize player form trajectory from 2023-2026 with trend indicators',
@@ -3983,6 +4002,11 @@
               context: { ask: 'Create algorithm to select best XI from squad', goal: 'Composite scoring system balancing roles, matchups, form', reason: 'PRD core deliverable: Automated team selection', audible: ['Design scoring weights', 'Implement role constraints', 'Balance optimization', 'Domain review'] }
             },
             { id: 'TKT-062', title: 'Generate all 10 Predicted XIIs', state: 'VALIDATION', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-007', progress: 95, tags: ['Pipeline', 'Output', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' },
+              links: [
+                { label: 'Predicted XII Folder', url: 'https://github.com/dwijesh-r/cricket-playbook/tree/main/outputs/predicted_xii' },
+                { label: 'The Lab - Teams', url: 'https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/teams.html' },
+                { label: 'SUPER SELECTOR Research', url: 'https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/research.html' }
+              ],
               context: {
                 ask: 'Run SUPER SELECTOR algorithm for all 10 IPL teams to generate predicted XIs',
                 goal: 'Produce 10 predicted_xii files with best XI and bench for each team',
@@ -3997,6 +4021,12 @@
               context: { ask: 'Design wireframes for Predicted XI display in The Lab', goal: 'Visual mockup showing XI layout, bench, scoring', reason: 'UI/UX design before implementation', audible: ['Sketch layouts', 'Create wireframes', 'Get Founder feedback'] }
             },
             { id: 'TKT-065', title: 'Founder approval of Predicted XIIs', state: 'VALIDATION', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-007', progress: 95, tags: ['Approval', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
+              links: [
+                { label: 'Predicted XII Folder', url: 'https://github.com/dwijesh-r/cricket-playbook/tree/main/outputs/predicted_xii' },
+                { label: 'The Lab - Teams', url: 'https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/teams.html' },
+                { label: 'MI Predicted XII', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/predicted_xii/mi_predicted_xii.json' },
+                { label: 'CSK Predicted XII', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/predicted_xii/csk_predicted_xii.json' }
+              ],
               context: {
                 ask: 'Review and approve the 10 Predicted XI outputs for quality and plausibility',
                 goal: 'Confirm SUPER SELECTOR outputs are ready for publication',
@@ -4103,6 +4133,11 @@
 
             // IPL 2026 Squad Verification - Founder Review
             { id: 'TKT-107', title: 'Verify all IPL 2026 players visible in The Lab', state: 'VALIDATION', priority: 'P0', effort: 'deep-work', assignee: 'Founder', epic: 'EPIC-011', progress: 0, tags: ['Data', 'QA', 'Critical', 'IPL 2026'], gates: { florentino_gate: 'APPROVED' },
+              links: [
+                { label: 'The Lab - Teams', url: 'https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/teams.html' },
+                { label: 'IPL 2026 Squads JSON', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/data/ipl_2026_squads.json' },
+                { label: 'Player Tags', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/tags/player_tags.json' }
+              ],
               context: {
                 ask: 'Review IPL 2026 squads in The Lab and identify any missing players',
                 goal: '100% player coverage for all 10 IPL teams - zero missing players',
@@ -4282,6 +4317,10 @@
 
             // Ops & Tooling
             { id: 'TKT-103', title: 'Configure GitHub email notifications', state: 'VALIDATION', priority: 'P2', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-010', progress: 95, tags: ['Ops', 'GitHub', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' },
+              links: [
+                { label: 'GitHub Repo Settings', url: 'https://github.com/dwijesh-r/cricket-playbook/settings' },
+                { label: 'Notify Workflow', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/.github/workflows/notify-on-push.yml' }
+              ],
               context: {
                 ask: 'Add GitHub secrets for email notifications on push to main branch',
                 goal: 'Receive email alerts when commits are pushed to the repository',
@@ -4309,6 +4348,10 @@
             // ==================== NEW EPICS (Awaiting Approval) ====================
             // EPIC-012: Player Profile View
             { id: 'EPIC-012', title: 'Player Profile View - Click to see player stats', state: 'VALIDATION', priority: 'P1', effort: 'marathon', assignee: 'Tom Brady', epic: null, progress: 50, tags: ['EPIC', 'Feature', 'UI', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+              links: [
+                { label: 'PRD Specification', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/specs/PLAYER_PROFILE_VIEW_PRD.md' },
+                { label: 'The Lab - Teams', url: 'https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/teams.html' }
+              ],
               context: {
                 ask: 'Build click-to-view player profile modal in The Lab Teams section',
                 goal: 'Show IPL stats since 2023, role tags, matchups, entry points, archetypes on player click',
@@ -4318,6 +4361,11 @@
             },
             // EPIC-013: IPL 2026 Player Analysis
             { id: 'EPIC-013', title: 'IPL 2026 Player Analysis - Season-specific views', state: 'VALIDATION', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 50, tags: ['EPIC', 'Analytics', 'Data', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+              links: [
+                { label: 'Analysis Plan', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/plans/IPL_2026_PLAYER_ANALYSIS_PLAN.md' },
+                { label: 'IPL 2026 Squads', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/data/ipl_2026_squads.json' },
+                { label: 'The Lab - Teams', url: 'https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/teams.html' }
+              ],
               context: {
                 ask: 'Create IPL-specific analytics views for 2026 squad analysis',
                 goal: 'Connect historical performance to 2026 squads with phase breakdowns and matchups',

@@ -2187,56 +2187,135 @@
         .modal-link-text { font-size: 14px; font-weight: 500; }
         .modal-link-arrow { margin-left: auto; color: var(--text-tertiary); }
 
-        /* Link Categories - Collapsible */
+        /* Link Categories - Collapsible with Visual Zing */
         .link-category {
-            border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+        .link-category:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
         }
         .link-category-header {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 12px 14px;
-            background: var(--bg-tertiary);
+            gap: 12px;
+            padding: 14px 16px;
             cursor: pointer;
             user-select: none;
-            transition: background 0.2s ease;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
         }
-        .link-category-header:hover { background: var(--bg-elevated); }
-        .link-category-icon { font-size: 16px; }
-        .link-category-title { font-size: 14px; font-weight: 600; flex: 1; }
+        /* Category-specific colors */
+        .link-category.cat-prd .link-category-header {
+            background: linear-gradient(135deg, rgba(10, 132, 255, 0.12) 0%, rgba(10, 132, 255, 0.05) 100%);
+            border-left-color: var(--accent);
+        }
+        .link-category.cat-output .link-category-header {
+            background: linear-gradient(135deg, rgba(48, 209, 88, 0.12) 0%, rgba(48, 209, 88, 0.05) 100%);
+            border-left-color: var(--accent-green);
+        }
+        .link-category.cat-review .link-category-header {
+            background: linear-gradient(135deg, rgba(255, 69, 58, 0.12) 0%, rgba(255, 69, 58, 0.05) 100%);
+            border-left-color: var(--accent-red);
+        }
+        .link-category.cat-links .link-category-header {
+            background: linear-gradient(135deg, rgba(191, 90, 242, 0.12) 0%, rgba(191, 90, 242, 0.05) 100%);
+            border-left-color: var(--accent-purple);
+        }
+        .link-category-header:hover { filter: brightness(1.1); }
+        .link-category-icon {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+        .link-category:hover .link-category-icon { transform: scale(1.15); }
+        .link-category-title {
+            font-size: 14px;
+            font-weight: 600;
+            flex: 1;
+            letter-spacing: 0.3px;
+        }
         .link-category-count {
             font-size: 11px;
-            padding: 2px 8px;
-            background: var(--bg-elevated);
-            border-radius: 10px;
-            color: var(--text-secondary);
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            min-width: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        /* Count badge colors by category */
+        .link-category.cat-prd .link-category-count {
+            background: rgba(10, 132, 255, 0.2);
+            color: var(--accent);
+        }
+        .link-category.cat-output .link-category-count {
+            background: rgba(48, 209, 88, 0.2);
+            color: var(--accent-green);
+        }
+        .link-category.cat-review .link-category-count {
+            background: rgba(255, 69, 58, 0.2);
+            color: var(--accent-red);
+        }
+        .link-category.cat-links .link-category-count {
+            background: rgba(191, 90, 242, 0.2);
+            color: var(--accent-purple);
+        }
+        /* Glow effect for non-zero counts */
+        .link-category.has-content .link-category-count {
+            box-shadow: 0 0 8px currentColor;
         }
         .link-category-chevron {
             font-size: 12px;
             color: var(--text-tertiary);
-            transition: transform 0.2s ease;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .link-category.open .link-category-chevron { transform: rotate(180deg); }
         .link-category-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
-            background: var(--bg-secondary);
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--bg-primary);
         }
         .link-category.open .link-category-content { max-height: 500px; }
         .link-category-content .modal-link {
             border-radius: 0;
             border-bottom: 1px solid var(--border);
+            padding: 14px 20px;
+            transition: all 0.2s ease;
+        }
+        .link-category-content .modal-link:hover {
+            background: var(--bg-tertiary);
+            padding-left: 28px;
         }
         .link-category-content .modal-link:last-child { border-bottom: none; }
+        .link-category-content .modal-link-icon {
+            transition: transform 0.2s ease;
+        }
+        .link-category-content .modal-link:hover .modal-link-icon {
+            transform: scale(1.2);
+        }
+        .link-category-content .modal-link-arrow {
+            transition: transform 0.2s ease;
+        }
+        .link-category-content .modal-link:hover .modal-link-arrow {
+            transform: translateX(4px);
+        }
         .link-category-empty {
-            padding: 12px 14px;
+            padding: 16px 20px;
             color: var(--text-tertiary);
             font-size: 13px;
             font-style: italic;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .link-category-empty::before {
+            content: '○';
+            opacity: 0.5;
         }
 
         /* ==================== LIST VIEW ==================== */
@@ -5105,7 +5184,7 @@
 
             document.getElementById('modalLinks').innerHTML = `
                 <!-- PRD & Documentation -->
-                <div class="link-category ${hasPrd ? 'open' : ''}" onclick="this.classList.toggle('open')">
+                <div class="link-category cat-prd ${hasPrd ? 'open has-content' : ''}" onclick="this.classList.toggle('open')">
                     <div class="link-category-header">
                         <span class="link-category-icon">📄</span>
                         <span class="link-category-title">PRD & Documentation</span>
@@ -5124,7 +5203,7 @@
                 </div>
 
                 <!-- Outputs & Artifacts -->
-                <div class="link-category ${hasOutput ? 'open' : ''}" onclick="this.classList.toggle('open')">
+                <div class="link-category cat-output ${hasOutput ? 'open has-content' : ''}" onclick="this.classList.toggle('open')">
                     <div class="link-category-header">
                         <span class="link-category-icon">📁</span>
                         <span class="link-category-title">Outputs & Artifacts</span>
@@ -5139,7 +5218,7 @@
                 </div>
 
                 <!-- Founder Review -->
-                <div class="link-category ${hasReview ? 'open' : ''}" onclick="this.classList.toggle('open')">
+                <div class="link-category cat-review ${hasReview ? 'open has-content' : ''}" onclick="this.classList.toggle('open')">
                     <div class="link-category-header">
                         <span class="link-category-icon">🌹</span>
                         <span class="link-category-title">Founder Review</span>
@@ -5155,7 +5234,7 @@
 
                 <!-- Related Links (custom links array) -->
                 ${hasCustomLinks ? `
-                <div class="link-category open" onclick="this.classList.toggle('open')">
+                <div class="link-category cat-links open has-content" onclick="this.classList.toggle('open')">
                     <div class="link-category-header">
                         <span class="link-category-icon">🔗</span>
                         <span class="link-category-title">Related Links</span>

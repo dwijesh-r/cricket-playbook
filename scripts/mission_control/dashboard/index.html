@@ -3959,15 +3959,16 @@
             { id: 'TKT-070', title: 'Implement model versioning', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['MLOps', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' }, output: 'ml_ops/MODEL_VERSIONING.md',
               context: { ask: 'Implement semantic versioning for ML models', goal: 'Version tracking with changelog and rollback capability', reason: 'MLOps best practice: Model lifecycle management', audible: ['Define versioning scheme', 'Implement tracking', 'Add rollback mechanism'] }
             },
-            { id: 'TKT-071', title: 'Create model performance tests', state: 'RUNNING', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 30, tags: ['Testing', 'ML'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-071', title: 'Create model performance tests', state: 'REVIEW', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['Testing', 'ML', '✅ 23 Tests'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PENDING' }, output: 'tests/test_model_performance.py',
               context: {
                 ask: 'Create tests validating ML model performance metrics',
                 goal: 'Automated tests for clustering accuracy, prediction quality',
                 reason: 'MLOps: Ensure model quality before deployment',
                 audible: [
-                  '✅ Research complete - identified 12 tests needed',
-                  '⏳ Create test_model_performance.py',
-                  '⏳ Add to CI pipeline'
+                  '✅ Research complete - identified test categories',
+                  '✅ Created test_model_performance.py (23 tests)',
+                  '✅ All tests passing (pytest -v)',
+                  '✅ 6 test classes: ClusteringAccuracy, Distribution, Stability, Features, Schema, Labels'
                 ]
               },
               plan: 'Tests: PCA variance, cluster size, model stability, domain validation, quality gates'
@@ -4051,6 +4052,24 @@
                   'Note: Russell/Maxwell/Faf opted out of IPL 2026 - correctly absent'
                 ]
               }
+            },
+
+            // UX Research - Dashboard Optimization
+            { id: 'TKT-108', title: 'Dashboard UX Research: Cognitive Load & Visual Hierarchy', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-010', progress: 0, tags: ['UX', 'Research', 'Dashboards'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Research and document dashboard UX improvements for cognitive load reduction',
+                goal: 'Actionable UX recommendations for all Cricket Playbook dashboards',
+                reason: 'Dashboards should convey insights quickly without overwhelming users',
+                audible: [
+                  '⏳ Audit: Verify all dashboards use real CSS/JS (not inline styles)',
+                  '⏳ Research: Cognitive load reduction techniques for data-heavy UIs',
+                  '⏳ Research: Sharper visual hierarchy (typography, spacing, color)',
+                  '⏳ Analysis: Identify where visuals can replace text paragraphs',
+                  '⏳ Research: Progressive Disclosure patterns (show more on demand)',
+                  '⏳ Design: Contextual explanations via hover tooltips'
+                ]
+              },
+              plan: 'Tom Brady + Kevin de Bruyne: UX research sprint covering 6 focus areas'
             },
 
             // Sprint 5.0+ Ideas (IDEA-XXX notation for unscoped work)

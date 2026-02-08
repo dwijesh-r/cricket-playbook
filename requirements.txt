@@ -6,10 +6,15 @@ numpy==2.4.1
 pandas==2.3.3
 python-dateutil==2.9.0.post0
 pytz==2025.2
+PyYAML>=6.0.1
 requests==2.32.5
 six==1.17.0
 tzdata==2025.3
 urllib3==2.6.3
+
+# ML dependencies (TKT-137, TKT-142)
+scikit-learn>=1.4.0
+scipy>=1.12.0
 
 # Development dependencies
 ruff>=0.8.0
@@ -20,5 +25,6 @@ mypy>=1.11.0
 types-PyYAML>=6.0.0
 types-requests>=2.31.0
 
-# ML Explainability (TKT-142)
-shap>=0.42.0
+# ML Explainability - optional, requires numba/llvmlite compilation
+# Install separately: pip install shap>=0.42.0
+# shap>=0.42.0

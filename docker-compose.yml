@@ -1,0 +1,36 @@
+# ============================================================
+# Cricket Playbook - Docker Compose
+# TKT-154: Reproducible analytics environment
+# ============================================================
+# Usage:
+#   docker compose up              # run default validation
+#   docker compose run app python scripts/core/ingest.py
+#   docker compose run app pytest tests/
+#   docker compose run app ruff check scripts/ tests/
+# ============================================================
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cricket-playbook
+    volumes:
+      # Mount data directory (contains the 160MB DuckDB file)
+      - ./data:/app/data
+      # Mount outputs so generated files persist on the host
+      - ./outputs:/app/outputs
+    environment:
+      # -- Path configuration (defaults match Dockerfile ENV) --
+      - DATA_DIR=/app/data
+      - OUTPUT_DIR=/app/outputs
+      - DB_PATH=/app/data/cricket_playbook.duckdb
+      - CONFIG_DIR=/app/config
+      # -- Analytics configuration --
+      - TOURNAMENT=${TOURNAMENT:-IPL}
+      - SEASON=${SEASON:-ALL}
+      - MATCH_TYPE=${MATCH_TYPE:-T20}
+      - GENDER=${GENDER:-ALL}
+      # -- Logging --
+      - LOG_LEVEL=${LOG_LEVEL:-normal}
+      - DEBUG_MODE=${DEBUG_MODE:-false}

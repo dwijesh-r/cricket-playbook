@@ -4645,7 +4645,7 @@
 
                     <div class="stats-grid">
                         <div class="stat-item">
-                            <div class="stat-value accent-blue" id="statTotal">150</div>
+                            <div class="stat-value accent-blue" id="statTotal">155</div>
                             <div class="stat-label">Total</div>
                         </div>
                         <div class="stat-item">
@@ -4653,7 +4653,7 @@
                             <div class="stat-label">Backlog</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value accent-yellow" id="statRunning">2</div>
+                            <div class="stat-value accent-yellow" id="statRunning">7</div>
                             <div class="stat-label">In Progress</div>
                         </div>
                         <div class="stat-item">
@@ -6384,7 +6384,10 @@
               outcome: 'Validated concepts ready for Sprint 5.0+ implementation' },
             { id: 'EPIC-014', title: 'Foundation Fortification', type: 'delivery', owner: 'Brad Stevens',
               goal: 'Harden system foundations: centralize config, enforce quality gates, add data constraints, implement baselines, improve test coverage',
-              outcome: 'Production-grade infrastructure scoring 85+/100 on system health metrics with enforced CI/CD gates and comprehensive validation' }
+              outcome: 'Production-grade infrastructure scoring 85+/100 on system health metrics with enforced CI/CD gates and comprehensive validation' },
+            { id: 'EPIC-015', title: 'Operational Maturity', type: 'delivery', owner: 'Brad Stevens',
+              goal: 'Close the 13-point gap to 85/100 health score: Docker, test coverage, ML retraining, monitoring, runbooks',
+              outcome: 'Production-ready infrastructure with containerized deployment, enforced test coverage, automated ML retraining, observability, and operational runbooks' }
         ];
 
         // Helper function to get EPIC by ID
@@ -6392,7 +6395,7 @@
             return epics.find(e => e.id === epicId) || null;
         }
 
-        // All Sprint 4.0 Tickets (150 tickets)
+        // All Sprint 4.0 Tickets (155 tickets)
         const tickets = [
             // Pre-Sprint (TKT-001 to TKT-005)
             { id: 'TKT-001', title: 'Define Sprint 4 Scope', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Florentino Pérez', epic: 'EPIC-001', progress: 100, tags: ['Planning'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
@@ -7531,6 +7534,23 @@ Gate Inheritance:
             },
             { id: 'TKT-153', title: 'Add custom document naming convention hook', state: 'DONE', priority: 'P2', effort: 'quick-win', assignee: 'Brad Stevens', epic: 'EPIC-012', progress: 100, branch: 'main', output: 'scripts/hooks/check_naming_convention.py', tags: ['CI/CD', 'Governance', '✅ Delivered'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' }, daysSpent: 1, iterations: 1,
               context: { ask: 'Create custom pre-commit hook enforcing document naming: name_MMDDYY_v*.md/pdf', goal: 'Consistent document naming across reviews, sprint docs, and specs', reason: 'Florentino directive: governance starts with naming discipline', audible: 'Warning-only hook monitoring reviews/founder/, reviews/sprint/, docs/sprints/ directories' }
+            },
+
+            // EPIC-015: Operational Maturity (TKT-154 to TKT-158)
+            { id: 'TKT-154', title: 'Add Docker containerization for reproducible environments', state: 'RUNNING', priority: 'P0', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-015', progress: 0, branch: 'feature/tkt-154-docker', tags: ['DevOps', 'Docker', 'Infrastructure'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PENDING', enforcement_check: 'PENDING' },
+              context: { ask: 'Create Dockerfile and docker-compose.yml for the Cricket Playbook', goal: 'Reproducible dev and prod environments with one command', reason: 'No containerization means environment drift and deployment friction', audible: ['Create Dockerfile', 'Create docker-compose.yml', 'Test build', 'Document usage'] }
+            },
+            { id: 'TKT-155', title: 'Enforce test coverage baselines and add edge case tests', state: 'RUNNING', priority: 'P0', effort: 'deep-work', assignee: "N'Golo Kanté", epic: 'EPIC-015', progress: 0, branch: 'feature/tkt-155-test-coverage', tags: ['Testing', 'Quality', 'CI/CD'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PENDING', enforcement_check: 'PENDING' },
+              context: { ask: 'Set coverage floor at 70% in CI, add edge case tests for empty datasets, duplicates, malformed input', goal: 'No PR merges below coverage threshold, resilient to bad data', reason: '105 tests exist but no enforced floor and no edge case coverage', audible: ['Add pytest-cov threshold to CI', 'Write edge case tests', 'Add coverage badge'] }
+            },
+            { id: 'TKT-156', title: 'Build ML model retraining pipeline', state: 'RUNNING', priority: 'P1', effort: 'marathon', assignee: 'Pep Guardiola', epic: 'EPIC-015', progress: 0, branch: 'feature/tkt-156-ml-retrain', tags: ['ML', 'Pipeline', 'Automation'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PENDING', enforcement_check: 'PENDING' },
+              context: { ask: 'Create automated retraining pipeline for player clustering model', goal: 'Models refresh when new season data arrives, with validation gates before promotion', reason: 'Current models are static — no way to retrain without manual intervention', audible: ['Create retrain script', 'Add validation gates', 'Version new models', 'Add to CI/CD'] }
+            },
+            { id: 'TKT-157', title: 'Add production monitoring and alerting', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Jose Mourinho', epic: 'EPIC-015', progress: 0, branch: 'feature/tkt-157-monitoring', tags: ['Ops', 'Monitoring', 'Alerting'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PENDING', enforcement_check: 'PENDING' },
+              context: { ask: 'Build observability layer: structured logging, health endpoints, alert thresholds', goal: 'Know when things break before users do', reason: 'No monitoring means silent failures — pipeline could break and nobody knows', audible: ['Structured logging', 'Health check endpoint', 'Alert config', 'Dashboard integration'] }
+            },
+            { id: 'TKT-158', title: 'Create operational runbooks and incident response docs', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-015', progress: 0, branch: 'feature/tkt-158-runbooks', tags: ['Documentation', 'Ops', 'Incident Response'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PENDING', enforcement_check: 'PENDING' },
+              context: { ask: 'Write runbooks for common ops tasks and incident response procedures', goal: 'Any team member can handle production issues with clear step-by-step guides', reason: 'No operational playbook means tribal knowledge and slow incident response', audible: ['Pipeline runbook', 'Dashboard deploy runbook', 'Incident response template', 'Troubleshooting guide'] }
             },
 
             // Sprint 5.0+ Ideas (IDEA-XXX notation for unscoped work)

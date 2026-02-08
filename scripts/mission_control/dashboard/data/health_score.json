@@ -1,6 +1,6 @@
 {
   "score": 86.8,
-  "status": "GREAT",
+  "status": "EXCELLENT",
   "emoji": "\ud83d\udfe2",
   "target": 85.0,
   "baseline": 67.4,
@@ -11,16 +11,16 @@
       "findings": [
         "Constitution has 19 sections (GOOD)",
         "Task Integrity Loop fully documented",
-        "Gate enforcement workflow exists (TKT-134 DONE)"
+        "Gate enforcement workflow exists"
       ]
     },
     "code_quality": {
-      "score": 75.0,
+      "score": 65.0,
       "weight": 20,
       "findings": [
-        "Bare except handlers fully resolved (TKT-136 DONE)",
+        "5 bare except handlers (GOOD)",
         "Thresholds centralized in YAML (TKT-132 DONE)",
-        "15 sys.path.insert calls (NEEDS TKT-143)",
+        "16 sys.path.insert calls (NEEDS TKT-143)",
         "Type hints: 88% coverage (GOOD)"
       ]
     },
@@ -28,30 +28,28 @@
       "score": 100.0,
       "weight": 20,
       "findings": [
-        "Domain constraints module exists (TKT-135 DONE)",
-        "FK constraints documented (TKT-138 DONE)",
+        "Domain constraints module exists (TKT-133 DONE)",
         "Schema validation exists",
-        "Data lineage tracking implemented (TKT-140 DONE)"
+        "Data lineage tracking present"
       ]
     },
     "ml_rigor": {
-      "score": 85.0,
+      "score": 80.0,
       "weight": 20,
       "findings": [
         "Model monitoring module exists",
-        "Baseline comparison implemented (TKT-137 DONE)",
+        "Baseline comparison exists",
         "Model registry missing",
         "Feature importance/SHAP present"
       ]
     },
     "testing": {
-      "score": 65.0,
+      "score": 85.0,
       "weight": 15,
       "findings": [
-        "4 test files (up from 3)",
-        "Integration tests added (TKT-139 DONE)",
-        "147 tests collected (up from 125)",
-        "Coverage still needs improvement"
+        "4 test files found (NEEDS MORE)",
+        "Integration tests exist",
+        "147 tests collected (GOOD)"
       ]
     },
     "documentation": {
@@ -64,7 +62,7 @@
       ]
     }
   },
-  "timestamp": "2026-02-08T14:15:00.000000",
+  "timestamp": "2026-02-08T13:40:12.244952",
   "ticket": "TKT-147",
   "epic": "EPIC-014",
   "generated_by": "system_health_score.py",
@@ -80,6 +78,6 @@
     "output_generation": 90,
     "dashboard_deploy": 90,
     "data_pipeline": 75,
-    "testing": 80
+    "testing": 70
   }
 }

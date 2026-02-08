@@ -123,6 +123,22 @@ Examples:
 
 Exempt from convention: `README.md`, `CONSTITUTION.md`, config files
 
+### Branching Strategy (Effective 2026-02-08)
+
+**All non-trivial work MUST use feature branches.** Never commit multi-file or ticket work directly to `main`.
+
+1. Create branch: `git checkout -b feature/TKT-xxx-description`
+2. Do work, commit on branch
+3. Push and open PR: `gh pr create --title "TKT-xxx: Description"`
+4. CI runs automatically on PR
+5. Merge after checks pass, delete branch
+
+Branch naming: `feature/TKT-xxx-*`, `fix/TKT-xxx-*`, `data/*`, `docs/*`, `hotfix/*`
+
+**Exceptions (direct to main):** Single-line typos, config-only changes, emergency workflow fixes.
+
+See `docs/cicd_best_practices.md` Section 5.1 for full details.
+
 ### Commit Messages
 
 Format: `[scope]: brief description`

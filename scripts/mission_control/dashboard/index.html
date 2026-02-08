@@ -3020,6 +3020,384 @@
             font-size: 20px;
         }
 
+        /* ==================== TECH HEALTH DASHBOARD ==================== */
+        .tech-health-section {
+            padding: 40px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .tech-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .tech-title {
+            font-family: 'Cinzel', serif;
+            font-size: 42px;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .tech-subtitle {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        .tech-last-updated {
+            margin-top: 12px;
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        .refresh-health-btn {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-left: 12px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .refresh-health-btn:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Health Score Card */
+        .health-score-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+
+        .score-main {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+
+        .score-circle {
+            position: relative;
+            width: 140px;
+            height: 140px;
+        }
+
+        .score-circle svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .score-bg {
+            fill: none;
+            stroke: var(--bg-tertiary);
+            stroke-width: 8;
+        }
+
+        .score-progress {
+            fill: none;
+            stroke: var(--accent-green);
+            stroke-width: 8;
+            stroke-linecap: round;
+            stroke-dasharray: 339.29;
+            stroke-dashoffset: 62.77;
+            transition: stroke-dashoffset 1s ease;
+        }
+
+        .score-value {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .score-info h2 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .score-status {
+            font-size: 18px;
+            color: var(--accent-yellow);
+            font-weight: 600;
+        }
+
+        .score-target {
+            font-size: 14px;
+            color: var(--text-tertiary);
+            margin-top: 8px;
+        }
+
+        .score-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .category-item {
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .category-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .category-score {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+
+        .category-bar {
+            height: 6px;
+            background: var(--bg-elevated);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .category-fill {
+            height: 100%;
+            background: var(--accent-green);
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        /* Tech Grid */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .tech-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .tech-card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .stack-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .stack-item {
+            display: grid;
+            grid-template-columns: 32px 1fr auto;
+            align-items: center;
+            gap: 12px;
+            padding: 10px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+        }
+
+        .stack-icon {
+            font-size: 20px;
+        }
+
+        .stack-name {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .stack-desc {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        /* Benchmarks */
+        .benchmark-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .benchmark-item {
+            display: grid;
+            grid-template-columns: 1fr 150px 50px;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .benchmark-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .benchmark-bar {
+            height: 8px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .benchmark-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-teal));
+            border-radius: 4px;
+        }
+
+        .benchmark-score {
+            font-weight: 600;
+            text-align: right;
+            color: var(--accent-green);
+        }
+
+        /* Automation Grid */
+        .automation-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .automation-item {
+            display: grid;
+            grid-template-columns: 24px 1fr auto;
+            align-items: center;
+            gap: 8px;
+            padding: 12px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+        }
+
+        .automation-item.good .auto-pct { color: var(--accent-green); }
+        .automation-item.warning .auto-pct { color: var(--accent-yellow); }
+        .automation-item.bad .auto-pct { color: var(--accent-red); }
+
+        .auto-icon { font-size: 16px; }
+        .auto-name { font-size: 13px; font-weight: 500; }
+        .auto-pct { font-size: 14px; font-weight: 700; }
+
+        /* Workflows Card */
+        .workflows-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .workflow-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .workflow-item {
+            display: grid;
+            grid-template-columns: 24px 180px 150px 1fr;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 16px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+        }
+
+        .workflow-status {
+            font-size: 12px;
+        }
+
+        .workflow-status.active { color: var(--accent-green); }
+        .workflow-status.scheduled { color: var(--accent-yellow); }
+        .workflow-status.chained { color: var(--accent-purple); }
+
+        .workflow-name {
+            font-family: monospace;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .workflow-trigger {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .workflow-owner {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            text-align: right;
+        }
+
+        /* Gaps Card */
+        .gaps-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .gaps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .gap-item {
+            display: grid;
+            grid-template-columns: 50px 1fr auto;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 16px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+        }
+
+        .gap-priority {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .gap-item.p0 .gap-priority {
+            background: rgba(255, 69, 58, 0.2);
+            color: var(--accent-red);
+        }
+
+        .gap-item.p1 .gap-priority {
+            background: rgba(255, 159, 10, 0.2);
+            color: var(--accent-orange);
+        }
+
+        .gap-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .gap-status {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
         /* ==================== RESPONSIVE ==================== */
         @media (max-width: 1400px) {
             .kanban { grid-template-columns: repeat(4, 1fr); }
@@ -3342,6 +3720,7 @@
             <button class="nav-tab" onclick="showView('list')">List</button>
             <button class="nav-tab" onclick="showView('epic')">Epic View</button>
             <button class="nav-tab" onclick="showView('roster')">Roster</button>
+            <button class="nav-tab" onclick="showView('techHealth')">Tech Health</button>
         </div>
         <div class="nav-actions">
             <span class="nav-time" id="navTime">--:--:--</span>
@@ -3515,6 +3894,258 @@
                 <div class="epic-tree" id="epicTree"></div>
             </section>
         </div>
+
+        <!-- Tech Health View (Jose Mourinho's Dashboard) -->
+        <div class="view" id="techHealthView">
+            <section class="tech-health-section">
+                <div class="tech-header">
+                    <h1 class="tech-title">⚙️ Tech Health Dashboard</h1>
+                    <p class="tech-subtitle">José Mourinho's System Audit & Benchmark Compliance</p>
+                    <div class="tech-last-updated">
+                        Last updated: <span id="healthLastUpdated">Loading...</span>
+                        <button class="refresh-health-btn" onclick="refreshHealthData()">🔄 Refresh</button>
+                    </div>
+                </div>
+
+                <!-- System Health Score -->
+                <div class="health-score-card">
+                    <div class="score-main">
+                        <div class="score-circle" id="healthScoreCircle">
+                            <svg viewBox="0 0 120 120">
+                                <circle class="score-bg" cx="60" cy="60" r="54"/>
+                                <circle class="score-progress" cx="60" cy="60" r="54" id="scoreProgress"/>
+                            </svg>
+                            <div class="score-value" id="healthScoreValue">--</div>
+                        </div>
+                        <div class="score-info">
+                            <h2>System Health Score</h2>
+                            <div class="score-status" id="healthStatus">Loading...</div>
+                            <div class="score-target">Target: 85/100 | Baseline: 67.4</div>
+                        </div>
+                    </div>
+                    <div class="score-categories" id="healthCategories">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+
+                <!-- Tech Stack Grid -->
+                <div class="tech-grid">
+                    <!-- Tech Stack -->
+                    <div class="tech-card">
+                        <h3 class="tech-card-title">🛠️ Tech Stack</h3>
+                        <div class="stack-list">
+                            <div class="stack-item">
+                                <span class="stack-icon">🐍</span>
+                                <span class="stack-name">Python 3.12</span>
+                                <span class="stack-desc">Core runtime</span>
+                            </div>
+                            <div class="stack-item">
+                                <span class="stack-icon">🦆</span>
+                                <span class="stack-name">DuckDB</span>
+                                <span class="stack-desc">Analytics database</span>
+                            </div>
+                            <div class="stack-item">
+                                <span class="stack-icon">🐼</span>
+                                <span class="stack-name">Pandas + NumPy</span>
+                                <span class="stack-desc">Data processing</span>
+                            </div>
+                            <div class="stack-item">
+                                <span class="stack-icon">🤖</span>
+                                <span class="stack-name">scikit-learn</span>
+                                <span class="stack-desc">K-means clustering</span>
+                            </div>
+                            <div class="stack-item">
+                                <span class="stack-icon">⚡</span>
+                                <span class="stack-name">GitHub Actions</span>
+                                <span class="stack-desc">CI/CD automation</span>
+                            </div>
+                            <div class="stack-item">
+                                <span class="stack-icon">📄</span>
+                                <span class="stack-name">GitHub Pages</span>
+                                <span class="stack-desc">Dashboard hosting</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Stack -->
+                    <div class="tech-card">
+                        <h3 class="tech-card-title">🤖 AI Agent Stack</h3>
+                        <div class="stack-list">
+                            <div class="stack-item">
+                                <span class="stack-icon">🧠</span>
+                                <span class="stack-name">Claude Opus 4.5</span>
+                                <span class="stack-desc">Primary LLM</span>
+                            </div>
+                            <div class="stack-item">
+                                <span class="stack-icon">👥</span>
+                                <span class="stack-name">12 Specialized Agents</span>
+                                <span class="stack-desc">Role-based architecture</span>
+                            </div>
+                            <div class="stack-item">
+                                <span class="stack-icon">🔄</span>
+                                <span class="stack-name">8-Step Task Loop</span>
+                                <span class="stack-desc">Quality governance</span>
+                            </div>
+                            <div class="stack-item">
+                                <span class="stack-icon">🛡️</span>
+                                <span class="stack-name">5 Veto Rights</span>
+                                <span class="stack-desc">Florentino, Kanté, Flower, KDB, Mourinho</span>
+                            </div>
+                            <div class="stack-item">
+                                <span class="stack-icon">📋</span>
+                                <span class="stack-name">Mission Control</span>
+                                <span class="stack-desc">Task tracking</span>
+                            </div>
+                            <div class="stack-item">
+                                <span class="stack-icon">📜</span>
+                                <span class="stack-name">Constitution v2.2</span>
+                                <span class="stack-desc">Binding governance</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Benchmark Compliance -->
+                    <div class="tech-card">
+                        <h3 class="tech-card-title">📊 Industry Benchmarks</h3>
+                        <div class="benchmark-list">
+                            <div class="benchmark-item">
+                                <div class="benchmark-name">Anthropic AI Safety</div>
+                                <div class="benchmark-bar">
+                                    <div class="benchmark-fill" style="width: 95%"></div>
+                                </div>
+                                <div class="benchmark-score">95%</div>
+                            </div>
+                            <div class="benchmark-item">
+                                <div class="benchmark-name">Microsoft Responsible AI</div>
+                                <div class="benchmark-bar">
+                                    <div class="benchmark-fill" style="width: 85%"></div>
+                                </div>
+                                <div class="benchmark-score">85%</div>
+                            </div>
+                            <div class="benchmark-item">
+                                <div class="benchmark-name">Google ML Best Practices</div>
+                                <div class="benchmark-bar">
+                                    <div class="benchmark-fill" style="width: 70%"></div>
+                                </div>
+                                <div class="benchmark-score">70%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Automation Coverage -->
+                    <div class="tech-card">
+                        <h3 class="tech-card-title">🔄 Automation Coverage</h3>
+                        <div class="automation-grid" id="automationGrid">
+                            <div class="automation-item good">
+                                <span class="auto-icon">✅</span>
+                                <span class="auto-name">Pre-commit Hooks</span>
+                                <span class="auto-pct">95%</span>
+                            </div>
+                            <div class="automation-item good">
+                                <span class="auto-icon">✅</span>
+                                <span class="auto-name">GitHub Actions</span>
+                                <span class="auto-pct">95%</span>
+                            </div>
+                            <div class="automation-item good">
+                                <span class="auto-icon">✅</span>
+                                <span class="auto-name">Output Generation</span>
+                                <span class="auto-pct">90%</span>
+                            </div>
+                            <div class="automation-item good">
+                                <span class="auto-icon">✅</span>
+                                <span class="auto-name">Dashboard Deploy</span>
+                                <span class="auto-pct">90%</span>
+                            </div>
+                            <div class="automation-item warning">
+                                <span class="auto-icon">⚠️</span>
+                                <span class="auto-name">Data Pipeline</span>
+                                <span class="auto-pct">75%</span>
+                            </div>
+                            <div class="automation-item warning">
+                                <span class="auto-icon">⚠️</span>
+                                <span class="auto-name">Testing</span>
+                                <span class="auto-pct">70%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CI/CD Workflows -->
+                <div class="workflows-card">
+                    <h3 class="tech-card-title">⚡ Active Workflows</h3>
+                    <div class="workflow-list">
+                        <div class="workflow-item">
+                            <span class="workflow-status active">●</span>
+                            <span class="workflow-name">ci.yml</span>
+                            <span class="workflow-trigger">Push/PR</span>
+                            <span class="workflow-owner">Brad Stevens</span>
+                        </div>
+                        <div class="workflow-item">
+                            <span class="workflow-status active">●</span>
+                            <span class="workflow-name">gate-check.yml</span>
+                            <span class="workflow-trigger">Push/PR</span>
+                            <span class="workflow-owner">Brad Stevens</span>
+                        </div>
+                        <div class="workflow-item">
+                            <span class="workflow-status scheduled">●</span>
+                            <span class="workflow-name">generate-outputs.yml</span>
+                            <span class="workflow-trigger">Daily 2AM UTC</span>
+                            <span class="workflow-owner">Brad Stevens</span>
+                        </div>
+                        <div class="workflow-item">
+                            <span class="workflow-status chained">●</span>
+                            <span class="workflow-name">deploy-dashboard.yml</span>
+                            <span class="workflow-trigger">Post-outputs</span>
+                            <span class="workflow-owner">Brad Stevens</span>
+                        </div>
+                        <div class="workflow-item">
+                            <span class="workflow-status scheduled">●</span>
+                            <span class="workflow-name">ingest.yml</span>
+                            <span class="workflow-trigger">Weekly Sun 3AM</span>
+                            <span class="workflow-owner">Brock Purdy</span>
+                        </div>
+                        <div class="workflow-item">
+                            <span class="workflow-status scheduled">●</span>
+                            <span class="workflow-name">ml-health-check.yml</span>
+                            <span class="workflow-trigger">Weekly + Push</span>
+                            <span class="workflow-owner">Ime Udoka</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Known Gaps (from Jose Mourinho audit) -->
+                <div class="gaps-card">
+                    <h3 class="tech-card-title">🔴 Known Gaps (José Mourinho Audit)</h3>
+                    <div class="gaps-list">
+                        <div class="gap-item p0">
+                            <span class="gap-priority">P0</span>
+                            <span class="gap-name">Test Coverage %</span>
+                            <span class="gap-status">TKT-120</span>
+                        </div>
+                        <div class="gap-item p0">
+                            <span class="gap-priority">P0</span>
+                            <span class="gap-name">Type Checking (mypy)</span>
+                            <span class="gap-status">Not started</span>
+                        </div>
+                        <div class="gap-item p0">
+                            <span class="gap-priority">P0</span>
+                            <span class="gap-name">Model Explainability (SHAP)</span>
+                            <span class="gap-status">TKT-142</span>
+                        </div>
+                        <div class="gap-item p1">
+                            <span class="gap-priority">P1</span>
+                            <span class="gap-name">Production Dashboard</span>
+                            <span class="gap-status">Planned</span>
+                        </div>
+                        <div class="gap-item p1">
+                            <span class="gap-priority">P1</span>
+                            <span class="gap-name">Token Accounting</span>
+                            <span class="gap-status">Not started</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
     <!-- Mobile Bottom Navigation -->
@@ -3535,6 +4166,10 @@
             <button class="mobile-nav-tab" onclick="showView('roster')">
                 <span class="mobile-nav-icon">👥</span>
                 Roster
+            </button>
+            <button class="mobile-nav-tab" onclick="showView('techHealth')">
+                <span class="mobile-nav-icon">⚙️</span>
+                Tech
             </button>
             <a href="../../the_lab/dashboard/index.html" class="mobile-nav-tab">
                 <span class="mobile-nav-icon">🔬</span>
@@ -5938,6 +6573,116 @@ Gate Inheritance:
             // Update mobile nav
             const mobileTab = document.querySelector(`.mobile-nav [onclick="showView('${view}')"]`);
             if (mobileTab) mobileTab.classList.add('active');
+            // Initialize Tech Health if selected
+            if (view === 'techHealth') {
+                initTechHealth();
+            }
+        }
+
+        // ==================== TECH HEALTH DASHBOARD ====================
+        let healthData = {
+            score: 81.5,
+            status: 'GOOD',
+            target: 85.0,
+            baseline: 67.4,
+            timestamp: new Date().toISOString(),
+            categories: {
+                governance: { score: 100, weight: 15, label: 'Governance' },
+                code_quality: { score: 65, weight: 20, label: 'Code Quality' },
+                data_robustness: { score: 100, weight: 20, label: 'Data Robustness' },
+                ml_rigor: { score: 80, weight: 20, label: 'ML Rigor' },
+                testing: { score: 50, weight: 15, label: 'Testing' },
+                documentation: { score: 100, weight: 10, label: 'Documentation' }
+            },
+            benchmarks: {
+                anthropic_ai_safety: 95,
+                microsoft_responsible_ai: 85,
+                google_ml_practices: 70
+            },
+            automation: {
+                pre_commit_hooks: 95,
+                github_actions: 95,
+                output_generation: 90,
+                dashboard_deploy: 90,
+                data_pipeline: 75,
+                testing: 70
+            }
+        };
+
+        async function initTechHealth() {
+            // Try to fetch from JSON file (auto-generated by workflows)
+            try {
+                const response = await fetch('data/health_score.json?t=' + Date.now());
+                if (response.ok) {
+                    healthData = await response.json();
+                }
+            } catch (e) {
+                console.log('Using default health data');
+            }
+            updateHealthScore();
+            updateHealthCategories();
+            updateLastUpdated();
+        }
+
+        function updateHealthScore() {
+            const scoreValue = document.getElementById('healthScoreValue');
+            const statusEl = document.getElementById('healthStatus');
+            const progressCircle = document.getElementById('scoreProgress');
+
+            if (scoreValue) scoreValue.textContent = healthData.score;
+            if (statusEl) {
+                statusEl.textContent = healthData.status;
+                statusEl.style.color = healthData.score >= 85 ? 'var(--accent-green)' :
+                                       healthData.score >= 70 ? 'var(--accent-yellow)' :
+                                       'var(--accent-red)';
+            }
+
+            // Update circle progress (circumference = 2 * PI * 54 = 339.29)
+            if (progressCircle) {
+                const circumference = 339.29;
+                const offset = circumference - (healthData.score / 100) * circumference;
+                progressCircle.style.strokeDashoffset = offset;
+                progressCircle.style.stroke = healthData.score >= 85 ? 'var(--accent-green)' :
+                                              healthData.score >= 70 ? 'var(--accent-yellow)' :
+                                              'var(--accent-red)';
+            }
+        }
+
+        function updateHealthCategories() {
+            const container = document.getElementById('healthCategories');
+            if (!container) return;
+
+            container.innerHTML = Object.entries(healthData.categories).map(([key, cat]) => {
+                const color = cat.score >= 80 ? 'var(--accent-green)' :
+                              cat.score >= 60 ? 'var(--accent-yellow)' :
+                              'var(--accent-red)';
+                return `
+                    <div class="category-item">
+                        <div class="category-header">
+                            <span class="category-name">${cat.label} (${cat.weight}%)</span>
+                            <span class="category-score" style="color: ${color}">${cat.score}%</span>
+                        </div>
+                        <div class="category-bar">
+                            <div class="category-fill" style="width: ${cat.score}%; background: ${color}"></div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function updateLastUpdated() {
+            const el = document.getElementById('healthLastUpdated');
+            if (el) {
+                el.textContent = new Date(healthData.timestamp).toLocaleString();
+            }
+        }
+
+        function refreshHealthData() {
+            // In production, this would fetch from an API or JSON file
+            // For now, update the timestamp
+            healthData.timestamp = new Date().toISOString();
+            initTechHealth();
+            alert('Health data refreshed! In production, this will fetch from auto-generated JSON.');
         }
 
         function initBoard() {

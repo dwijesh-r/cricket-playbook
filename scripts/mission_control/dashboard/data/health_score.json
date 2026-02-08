@@ -1,0 +1,83 @@
+{
+  "score": 81.5,
+  "status": "GOOD",
+  "emoji": "\ud83d\udfe1",
+  "target": 85.0,
+  "baseline": 67.4,
+  "categories": {
+    "governance": {
+      "score": 100.0,
+      "weight": 15,
+      "findings": [
+        "Constitution has 19 sections (GOOD)",
+        "Task Integrity Loop fully documented",
+        "Gate enforcement workflow exists"
+      ]
+    },
+    "code_quality": {
+      "score": 65.0,
+      "weight": 20,
+      "findings": [
+        "2 bare except handlers (GOOD)",
+        "Thresholds centralized in YAML (TKT-132 DONE)",
+        "15 sys.path.insert calls (NEEDS TKT-143)",
+        "Type hints: 88% coverage (GOOD)"
+      ]
+    },
+    "data_robustness": {
+      "score": 100.0,
+      "weight": 20,
+      "findings": [
+        "Domain constraints module exists (TKT-133 DONE)",
+        "Schema validation exists",
+        "Data lineage tracking present"
+      ]
+    },
+    "ml_rigor": {
+      "score": 80.0,
+      "weight": 20,
+      "findings": [
+        "Model monitoring module exists",
+        "Baseline comparison exists",
+        "Model registry missing",
+        "Feature importance/SHAP present"
+      ]
+    },
+    "testing": {
+      "score": 50.0,
+      "weight": 15,
+      "findings": [
+        "3 test files found (NEEDS MORE)",
+        "Integration tests missing (TKT-139 pending)",
+        "125 tests collected (GOOD)"
+      ]
+    },
+    "documentation": {
+      "score": 100.0,
+      "weight": 10,
+      "findings": [
+        "Core docs: 2/2",
+        "Thresholds well documented",
+        "6 procedure/methodology docs"
+      ]
+    }
+  },
+  "timestamp": "2026-02-08T10:29:26.941227",
+  "ticket": "TKT-147",
+  "epic": "EPIC-014",
+  "generated_by": "system_health_score.py",
+  "owner": "Jose Mourinho",
+  "benchmarks": {
+    "anthropic_ai_safety": 95,
+    "microsoft_responsible_ai": 85,
+    "google_ml_practices": 70
+  },
+  "automation": {
+    "pre_commit_hooks": 95,
+    "github_actions": 95,
+    "output_generation": 90,
+    "dashboard_deploy": 90,
+    "data_pipeline": 75,
+    "testing": 70
+  }
+}

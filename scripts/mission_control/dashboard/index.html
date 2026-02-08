@@ -1701,6 +1701,83 @@
             color: var(--text-secondary);
         }
 
+        .roster-hero {
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            gap: 20px;
+            margin-bottom: 24px;
+            min-height: 380px;
+        }
+        .roster-hero .founder-card {
+            background: linear-gradient(145deg, rgba(254, 190, 16, 0.08) 0%, var(--bg-secondary) 100%);
+            border: 2px solid rgba(254, 190, 16, 0.3);
+            border-radius: 18px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 12px;
+        }
+        .roster-hero .founder-card .founder-avatar {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            border: 3px solid rgba(254, 190, 16, 0.5);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(254, 190, 16, 0.2);
+        }
+        .roster-hero .founder-card .founder-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .roster-hero .founder-card .founder-name {
+            font-size: 22px; font-weight: 700; letter-spacing: -0.02em;
+        }
+        .roster-hero .founder-card .founder-role {
+            color: #febe10; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .roster-hero .founder-card .founder-stat-row {
+            display: flex; gap: 16px; justify-content: center; margin-top: 8px;
+        }
+        .roster-hero .founder-card .founder-stat {
+            text-align: center;
+        }
+        .roster-hero .founder-card .founder-stat-val {
+            font-size: 24px; font-weight: 700; color: #febe10;
+        }
+        .roster-hero .founder-card .founder-stat-lbl {
+            font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.04em;
+        }
+        .roster-hero .founder-card .founder-quote {
+            font-style: italic; color: var(--text-secondary); font-size: 13px; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border);
+        }
+        .roster-hero .spider-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 24px;
+            position: relative;
+        }
+        .roster-hero .spider-card .spider-title {
+            font-size: 18px; font-weight: 600; margin-bottom: 4px;
+        }
+        .roster-hero .spider-card .spider-subtitle {
+            font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;
+        }
+        .roster-hero .spider-card canvas {
+            width: 100%; height: calc(100% - 60px);
+        }
+        .spider-legend {
+            display: flex; gap: 16px; flex-wrap: wrap; margin-top: 12px; justify-content: center;
+        }
+        .spider-legend-item {
+            display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-secondary);
+        }
+        .spider-legend-dot {
+            width: 10px; height: 10px; border-radius: 50%;
+        }
+        @media (max-width: 900px) {
+            .roster-hero { grid-template-columns: 1fr; min-height: auto; }
+            .roster-hero .spider-card canvas { height: 300px; }
+        }
+
         .roster-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -2522,6 +2599,17 @@
             border-radius: 12px;
             padding: 16px;
             text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .epic-summary-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        .epic-summary-card.active-filter {
+            border-color: var(--accent);
+            background: rgba(10, 132, 255, 0.1);
+            box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.15);
         }
 
         .epic-summary-value {
@@ -4520,7 +4608,7 @@
 
                     <div class="stats-grid">
                         <div class="stat-item">
-                            <div class="stat-value accent-blue" id="statTotal">145</div>
+                            <div class="stat-value accent-blue" id="statTotal">150</div>
                             <div class="stat-label">Total</div>
                         </div>
                         <div class="stat-item">
@@ -4540,7 +4628,7 @@
                             <div class="stat-label">🌹 Founder</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value accent-green" id="statDone">116</div>
+                            <div class="stat-value accent-green" id="statDone">121</div>
                             <div class="stat-label">Done</div>
                         </div>
                     </div>
@@ -4644,6 +4732,7 @@
                     <h1 class="roster-title">Agent Roster</h1>
                     <p class="roster-subtitle">Performance metrics and workload distribution</p>
                 </div>
+                <div class="roster-hero" id="rosterHero"></div>
                 <div class="roster-grid" id="rosterGrid"></div>
             </section>
         </div>
@@ -7351,6 +7440,24 @@ Gate Inheritance:
               plan: '1. Outline 6 sections with sports/Godfather themes. 2. Write Architecture section. 3. Write Governance section. 4. Write Code section. 5. Write Ops section. 6. Add diagrams. 7. Get Andy Flower domain review.'
             },
 
+            // ==================== EPIC-012: CI/CD Automation ====================
+            // Owner: Ime Udoka | Goal: Fully automated CI/CD pipelines
+            { id: 'TKT-149', title: 'Set up GitHub Actions CI pipeline', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-012', progress: 100, branch: 'main', output: '.github/workflows/ci.yml', tags: ['CI/CD', 'Automation', '✅ Delivered'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' }, daysSpent: 1, iterations: 2,
+              context: { ask: 'Create GitHub Actions workflow with lint, format check, and test steps', goal: 'Automated quality gates on every push/PR to main', reason: 'Manual validation doesnt scale — CI catches regressions before merge', audible: 'Pipeline runs ruff check, ruff format --check, pytest with coverage on ubuntu-latest' }
+            },
+            { id: 'TKT-150', title: 'Configure pre-commit hooks for code quality', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-012', progress: 100, branch: 'main', output: '.pre-commit-config.yaml', tags: ['CI/CD', 'Code Quality', '✅ Delivered'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' }, daysSpent: 1, iterations: 1,
+              context: { ask: 'Set up pre-commit hooks for ruff lint+format, trailing whitespace, YAML check, large file prevention', goal: 'Catch quality issues before they reach CI', reason: 'Shift-left quality — developers get instant feedback on commit', audible: 'Hooks: ruff, ruff-format, trailing-whitespace, end-of-file-fixer, check-yaml, check-added-large-files (500KB), custom naming convention' }
+            },
+            { id: 'TKT-151', title: 'Add mypy type checking to CI pipeline', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Ime Udoka', epic: 'EPIC-012', progress: 100, branch: 'main', output: '.github/workflows/ci.yml', tags: ['CI/CD', 'Type Safety', '✅ Delivered'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' }, daysSpent: 1, iterations: 1,
+              context: { ask: 'Add mypy static type checking for core, utils, ml_ops, generators modules', goal: 'Catch type errors at CI time, not runtime', reason: 'Type safety prevents subtle bugs in data pipelines and analytics', audible: 'mypy runs with --ignore-missing-imports, continue-on-error for gradual adoption' }
+            },
+            { id: 'TKT-152', title: 'Add pytest coverage reporting and artifacts', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Ime Udoka', epic: 'EPIC-012', progress: 100, branch: 'main', output: '.github/workflows/ci.yml', tags: ['CI/CD', 'Testing', 'Coverage', '✅ Delivered'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' }, daysSpent: 1, iterations: 1,
+              context: { ask: 'Configure pytest with --cov reporting, XML output, and GitHub artifact upload', goal: 'Track test coverage trends and store reports for 30 days', reason: 'Visibility into test coverage prevents quality regressions', audible: 'pytest-cov generates term-missing + XML reports, uploaded as artifacts with 30-day retention' }
+            },
+            { id: 'TKT-153', title: 'Add custom document naming convention hook', state: 'DONE', priority: 'P2', effort: 'quick-win', assignee: 'Brad Stevens', epic: 'EPIC-012', progress: 100, branch: 'main', output: 'scripts/hooks/check_naming_convention.py', tags: ['CI/CD', 'Governance', '✅ Delivered'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' }, daysSpent: 1, iterations: 1,
+              context: { ask: 'Create custom pre-commit hook enforcing document naming: name_MMDDYY_v*.md/pdf', goal: 'Consistent document naming across reviews, sprint docs, and specs', reason: 'Florentino directive: governance starts with naming discipline', audible: 'Warning-only hook monitoring reviews/founder/, reviews/sprint/, docs/sprints/ directories' }
+            },
+
             // Sprint 5.0+ Ideas (IDEA-XXX notation for unscoped work)
             { id: 'IDEA-001', title: 'Implement Match Phase Index', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 0, tags: ['Feature', 'Analytics'], gates: {},
               context: { ask: 'Create composite index measuring player impact by match phase', goal: 'Single metric combining PP/Middle/Death performance', reason: 'Simplify phase analysis into actionable score', audible: ['Define index formula', 'Weight phases', 'Validate with Andy Flower'] }
@@ -8099,7 +8206,7 @@ Gate Inheritance:
         }, 500);
 
         // Redraw graph on window resize
-        window.addEventListener('resize', () => { renderUsageGraph(); });
+        window.addEventListener('resize', () => { renderUsageGraph(); renderRosterHero(); });
 
         // Workflow data with owners for dynamic rendering with avatars
         const workflows = [
@@ -8400,7 +8507,179 @@ Gate Inheritance:
             `;
         }
 
+        function renderRosterHero() {
+            const hero = document.getElementById('rosterHero');
+            const founderName = 'Florentino Perez';
+            const founderTickets = tickets.filter(t => t.assignee === founderName || t.assignee === 'Florentino Pérez' || t.assignee === 'Founder');
+            const approvedCount = tickets.filter(t => t.gates && (t.gates.florentino_gate === 'APPROVED' || t.gates.founder_validation === 'APPROVED')).length;
+            const validationCount = tickets.filter(t => t.state === 'VALIDATION').length;
+
+            // Compute team skill categories from agentSkills
+            const skillCategories = {
+                'Leadership': { agents: ['Tom Brady'], skills: ['Leadership', 'Planning', 'Vision', 'Authority'] },
+                'Engineering': { agents: ['Stephen Curry', 'Brad Stevens', 'Brock Purdy'], skills: ['Python', 'Architecture', 'CI_CD', 'Data_Pipeline', 'DuckDB', 'Systems'] },
+                'Analytics': { agents: ['Stephen Curry', 'Jose Mourinho', 'Pep Guardiola'], skills: ['Analytics', 'Analysis', 'ML_Ops', 'Patterns', 'Matchups'] },
+                'DevOps': { agents: ['Ime Udoka', 'Brad Stevens'], skills: ['DevOps', 'Automation', 'MLOps', 'Monitoring', 'Deployment'] },
+                'Quality': { agents: ["N'Golo Kanté", 'Brad Stevens'], skills: ['QA', 'Testing', 'Coverage', 'Quality', 'Diligence'] },
+                'Design': { agents: ['Kevin de Bruyne'], skills: ['Visualization', 'UI_Design', 'CSS', 'Creativity', 'JavaScript'] },
+                'Domain': { agents: ['Andy Flower', 'Virat Kohli'], skills: ['Cricket', 'Domain', 'Tactics', 'Editorial', 'Writing'] },
+                'Comms': { agents: ['LeBron James', 'Tom Brady'], skills: ['Communication', 'Marketing', 'Social', 'Branding'] }
+            };
+
+            const categoryScores = {};
+            const categoryGaps = {};
+            Object.entries(skillCategories).forEach(([cat, info]) => {
+                let totalScore = 0, count = 0;
+                info.agents.forEach(agent => {
+                    if (agentSkills[agent]) {
+                        Object.entries(agentSkills[agent].skills).forEach(([skill, score]) => {
+                            if (info.skills.includes(skill)) { totalScore += score; count++; }
+                        });
+                    }
+                });
+                categoryScores[cat] = count > 0 ? totalScore / count : 0;
+                categoryGaps[cat] = info.agents.length <= 1 ? 'thin' : categoryScores[cat] < 9 ? 'gap' : 'strong';
+            });
+
+            hero.innerHTML = `
+                <div class="founder-card">
+                    <div class="founder-avatar">${getAgentAvatarImg(founderName)}</div>
+                    <div class="founder-name">Florentino Pérez</div>
+                    <div class="founder-role">The Founder</div>
+                    <div class="founder-stat-row">
+                        <div class="founder-stat">
+                            <div class="founder-stat-val">${approvedCount}</div>
+                            <div class="founder-stat-lbl">Approved</div>
+                        </div>
+                        <div class="founder-stat">
+                            <div class="founder-stat-val">${validationCount}</div>
+                            <div class="founder-stat-lbl">In Review</div>
+                        </div>
+                        <div class="founder-stat">
+                            <div class="founder-stat-val">${founderTickets.length}</div>
+                            <div class="founder-stat-lbl">Owned</div>
+                        </div>
+                    </div>
+                    <div class="founder-quote">"An offer they can't refuse — every ticket passes through the Founder's gate."</div>
+                </div>
+                <div class="spider-card">
+                    <div class="spider-title">Team Skill Map</div>
+                    <div class="spider-subtitle">Aggregate capability across all 13 agents — gaps highlighted in red</div>
+                    <canvas id="spiderCanvas"></canvas>
+                    <div class="spider-legend">
+                        <div class="spider-legend-item"><div class="spider-legend-dot" style="background: rgba(10, 132, 255, 0.4)"></div> Team Score</div>
+                        <div class="spider-legend-item"><div class="spider-legend-dot" style="background: rgba(48, 209, 88, 0.3)"></div> Strong</div>
+                        <div class="spider-legend-item"><div class="spider-legend-dot" style="background: rgba(255, 69, 58, 0.3)"></div> Thin Coverage</div>
+                    </div>
+                </div>
+            `;
+
+            // Draw spider chart
+            setTimeout(() => renderSpiderChart(categoryScores, categoryGaps), 50);
+        }
+
+        function renderSpiderChart(scores, gaps) {
+            const canvas = document.getElementById('spiderCanvas');
+            if (!canvas) return;
+            const rect = canvas.parentElement.getBoundingClientRect();
+            const dpr = window.devicePixelRatio || 1;
+            const w = rect.width - 48;
+            const h = Math.min(w * 0.75, 320);
+            canvas.width = w * dpr;
+            canvas.height = h * dpr;
+            canvas.style.width = w + 'px';
+            canvas.style.height = h + 'px';
+            const ctx = canvas.getContext('2d');
+            ctx.scale(dpr, dpr);
+
+            const categories = Object.keys(scores);
+            const n = categories.length;
+            const cx = w / 2;
+            const cy = h / 2;
+            const radius = Math.min(cx, cy) - 40;
+            const angleStep = (2 * Math.PI) / n;
+            const startAngle = -Math.PI / 2;
+
+            // Helper: get point on axis
+            function getPoint(i, val, maxVal = 10) {
+                const angle = startAngle + i * angleStep;
+                const r = (val / maxVal) * radius;
+                return { x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle) };
+            }
+
+            // Draw grid rings
+            const isDark = document.body.classList.contains('dark-theme') || getComputedStyle(document.body).getPropertyValue('--bg-primary').trim().startsWith('#1');
+            const gridColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)';
+            const textColor = isDark ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.5)';
+
+            for (let ring = 2; ring <= 10; ring += 2) {
+                ctx.beginPath();
+                for (let i = 0; i <= n; i++) {
+                    const p = getPoint(i % n, ring);
+                    i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
+                }
+                ctx.closePath();
+                ctx.strokeStyle = gridColor;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            }
+
+            // Draw axis lines and labels
+            ctx.font = '12px -apple-system, BlinkMacSystemFont, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            categories.forEach((cat, i) => {
+                const p = getPoint(i, 10);
+                ctx.beginPath();
+                ctx.moveTo(cx, cy);
+                ctx.lineTo(p.x, p.y);
+                ctx.strokeStyle = gridColor;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+
+                // Label
+                const lp = getPoint(i, 12.5);
+                const gapType = gaps[cat];
+                ctx.fillStyle = gapType === 'thin' ? '#ff453a' : gapType === 'gap' ? '#ff9f0a' : textColor;
+                ctx.font = gapType === 'thin' ? 'bold 12px -apple-system, sans-serif' : '12px -apple-system, sans-serif';
+                ctx.fillText(cat, lp.x, lp.y);
+            });
+
+            // Draw filled area
+            ctx.beginPath();
+            categories.forEach((cat, i) => {
+                const p = getPoint(i, scores[cat]);
+                i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
+            });
+            ctx.closePath();
+            ctx.fillStyle = 'rgba(10, 132, 255, 0.15)';
+            ctx.fill();
+            ctx.strokeStyle = 'rgba(10, 132, 255, 0.7)';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Draw data points with gap coloring
+            categories.forEach((cat, i) => {
+                const p = getPoint(i, scores[cat]);
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
+                const gapType = gaps[cat];
+                ctx.fillStyle = gapType === 'thin' ? '#ff453a' : gapType === 'gap' ? '#ff9f0a' : '#30d158';
+                ctx.fill();
+                ctx.strokeStyle = isDark ? '#1c1c1e' : '#ffffff';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                // Score label
+                const sp = getPoint(i, scores[cat] + 1.2);
+                ctx.fillStyle = textColor;
+                ctx.font = '10px -apple-system, sans-serif';
+                ctx.fillText(scores[cat].toFixed(1), sp.x, sp.y);
+            });
+        }
+
         function renderRoster() {
+            renderRosterHero();
             const grid = document.getElementById('rosterGrid');
             const agentStats = {};
 
@@ -8422,7 +8701,7 @@ Gate Inheritance:
             });
 
             grid.innerHTML = Object.entries(agents)
-                .filter(([name]) => name !== 'Florentino Pérez') // Avoid duplicate (use Florentino Perez)
+                .filter(([name]) => !['Florentino Pérez', 'Florentino Perez', 'Founder'].includes(name)) // Founder shown in hero section
                 .sort((a, b) => {
                     // Agents with tickets first, then by total count
                     const aTotal = agentStats[a[0]]?.total || 0;
@@ -8536,6 +8815,7 @@ Gate Inheritance:
         // ==================== EPIC VIEW (TKT-129) ====================
         let epicFilter = 'all';
         let epicSearchQuery = '';
+        let epicSummaryFilter = null; // null = show all, 'active' | 'stale' | 'complete' | 'incomplete'
 
         function handleEpicSearch(query) {
             epicSearchQuery = query.toLowerCase().trim();
@@ -8544,6 +8824,7 @@ Gate Inheritance:
 
         function filterEpics(type) {
             epicFilter = type;
+            epicSummaryFilter = null; // Reset summary filter when type filter changes
             // Update filter button states
             document.querySelectorAll('.epic-filter-btn').forEach(btn => {
                 btn.classList.remove('active');
@@ -8551,6 +8832,11 @@ Gate Inheritance:
                     btn.classList.add('active');
                 }
             });
+            renderEpicView();
+        }
+
+        function setEpicSummaryFilter(filter) {
+            epicSummaryFilter = epicSummaryFilter === filter ? null : filter; // Toggle off if same
             renderEpicView();
         }
 
@@ -8603,19 +8889,19 @@ Gate Inheritance:
             const activeTickets = tickets.filter(t => ['RUNNING', 'IN_PROGRESS'].includes(t.state)).length;
 
             summaryEl.innerHTML = `
-                <div class="epic-summary-card">
+                <div class="epic-summary-card ${epicSummaryFilter === null ? 'active-filter' : ''}" onclick="setEpicSummaryFilter(null)">
                     <div class="epic-summary-value">${summary.epics}</div>
-                    <div class="epic-summary-label">EPICs</div>
+                    <div class="epic-summary-label">All EPICs</div>
                 </div>
-                <div class="epic-summary-card">
+                <div class="epic-summary-card ${epicSummaryFilter === 'active' ? 'active-filter' : ''}" onclick="setEpicSummaryFilter('active')">
                     <div class="epic-summary-value">${activeTickets}</div>
                     <div class="epic-summary-label">In Progress</div>
                 </div>
-                <div class="epic-summary-card ${staleReviews > 0 ? 'has-warning' : ''}">
+                <div class="epic-summary-card ${staleReviews > 0 ? 'has-warning' : ''} ${epicSummaryFilter === 'stale' ? 'active-filter' : ''}" onclick="setEpicSummaryFilter('stale')">
                     <div class="epic-summary-value">${staleReviews}</div>
                     <div class="epic-summary-label">Stale Reviews</div>
                 </div>
-                <div class="epic-summary-card">
+                <div class="epic-summary-card ${epicSummaryFilter === 'incomplete' ? 'active-filter' : ''}" onclick="setEpicSummaryFilter('incomplete')">
                     <div class="epic-summary-value">${overallProgress}%</div>
                     <div class="epic-summary-label">Overall Progress</div>
                 </div>
@@ -8640,6 +8926,24 @@ Gate Inheritance:
                         (t.assignee && t.assignee.toLowerCase().includes(epicSearchQuery))
                     );
                     return matchesEpic || matchesTicket;
+                });
+            }
+
+            // Apply summary card filter
+            if (epicSummaryFilter === 'active') {
+                filteredEpics = filteredEpics.filter(epic => {
+                    const et = getTicketsByEpic(epic.id);
+                    return et.some(t => ['RUNNING', 'IN_PROGRESS'].includes(t.state));
+                });
+            } else if (epicSummaryFilter === 'stale') {
+                filteredEpics = filteredEpics.filter(epic => {
+                    const et = getTicketsByEpic(epic.id);
+                    return et.some(t => isStaleReview(t));
+                });
+            } else if (epicSummaryFilter === 'incomplete') {
+                filteredEpics = filteredEpics.filter(epic => {
+                    const progress = calculateEpicProgress(epic.id);
+                    return progress < 100;
                 });
             }
 

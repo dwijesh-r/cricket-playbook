@@ -1774,13 +1774,13 @@
             display: block; max-width: 100%;
         }
         .spider-legend {
-            display: flex; gap: 16px; flex-wrap: wrap; margin-top: 12px; justify-content: center;
+            display: flex; gap: 6px 10px; flex-wrap: wrap; margin-top: 12px; justify-content: center;
         }
         .spider-legend-item {
-            display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-secondary);
+            display: flex; align-items: center; gap: 4px; font-size: 10px; color: var(--text-secondary);
         }
         .spider-legend-dot {
-            width: 10px; height: 10px; border-radius: 50%;
+            width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
         }
         @media (max-width: 900px) {
             .roster-hero { grid-template-columns: 1fr; min-height: auto; }
@@ -4918,9 +4918,9 @@
                                 <div class="circular-progress">
                                     <svg viewBox="0 0 56 56">
                                         <circle class="bg-circle" cx="28" cy="28" r="24"/>
-                                        <circle class="progress-circle orange" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="7.54"/>
+                                        <circle class="progress-circle orange" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="4.52"/>
                                     </svg>
-                                    <span class="progress-text">95%</span>
+                                    <span class="progress-text">97%</span>
                                 </div>
                                 <div class="circular-item-info">
                                     <div class="circular-item-name">
@@ -4936,9 +4936,9 @@
                                 <div class="circular-progress">
                                     <svg viewBox="0 0 56 56">
                                         <circle class="bg-circle" cx="28" cy="28" r="24"/>
-                                        <circle class="progress-circle blue" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="22.62"/>
+                                        <circle class="progress-circle blue" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="15.08"/>
                                     </svg>
-                                    <span class="progress-text">85%</span>
+                                    <span class="progress-text">90%</span>
                                 </div>
                                 <div class="circular-item-info">
                                     <div class="circular-item-name">
@@ -4957,9 +4957,9 @@
                                 <div class="circular-progress">
                                     <svg viewBox="0 0 56 56">
                                         <circle class="bg-circle" cx="28" cy="28" r="24"/>
-                                        <circle class="progress-circle google" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="45.24"/>
+                                        <circle class="progress-circle google" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="27.14"/>
                                     </svg>
-                                    <span class="progress-text">70%</span>
+                                    <span class="progress-text">82%</span>
                                 </div>
                                 <div class="circular-item-info">
                                     <div class="circular-item-name">
@@ -5898,10 +5898,10 @@
                 <rect x="16" y="6" width="32" height="10" fill="#1A1A1A"/>
                 <rect x="14" y="10" width="4" height="6" fill="#1A1A1A"/>
                 <rect x="46" y="10" width="4" height="6" fill="#1A1A1A"/>
-                <!-- Face -->
-                <rect x="16" y="16" width="32" height="20" fill="#8B5A2B"/>
-                <rect x="12" y="20" width="4" height="12" fill="#8B5A2B"/>
-                <rect x="48" y="20" width="4" height="12" fill="#8B5A2B"/>
+                <!-- Face - light-skinned -->
+                <rect x="16" y="16" width="32" height="20" fill="#c49a6c"/>
+                <rect x="12" y="20" width="4" height="12" fill="#c49a6c"/>
+                <rect x="48" y="20" width="4" height="12" fill="#c49a6c"/>
                 <!-- Eyes -->
                 <rect x="20" y="20" width="8" height="4" fill="white"/>
                 <rect x="36" y="20" width="8" height="4" fill="white"/>
@@ -5911,7 +5911,7 @@
                 <rect x="20" y="16" width="8" height="3" fill="#1A1A1A"/>
                 <rect x="36" y="16" width="8" height="3" fill="#1A1A1A"/>
                 <!-- Nose -->
-                <rect x="28" y="24" width="8" height="4" fill="#7A4B1E"/>
+                <rect x="28" y="24" width="8" height="4" fill="#b08a5c"/>
                 <!-- Goatee -->
                 <rect x="24" y="32" width="16" height="4" fill="#1A1A1A"/>
                 <!-- Celtics Jersey -->
@@ -8577,21 +8577,33 @@ Gate Inheritance:
                 'Comms': { agents: ['LeBron James', 'Tom Brady'], skills: ['Communication', 'Marketing', 'Social', 'Branding'] }
             };
 
-            const categoryScores = {};
-            const categoryGaps = {};
-            const categoryAgentCount = {};
-            Object.entries(skillCategories).forEach(([cat, info]) => {
-                let scores = [];
-                info.agents.forEach(agent => {
-                    if (agentSkills[agent]) {
-                        Object.entries(agentSkills[agent].skills).forEach(([skill, score]) => {
-                            if (info.skills.includes(skill)) scores.push(score);
-                        });
-                    }
+            // Per-agent, per-category scores for overlay chart
+            const agentCategoryData = {};
+            const agentColorMap = {
+                'Tom Brady': '#0a84ff', 'Stephen Curry': '#ffc72c', 'Kevin de Bruyne': '#6cabdd',
+                'Jose Mourinho': '#5e5ce6', 'LeBron James': '#bf5af2', 'Brad Stevens': '#30d158',
+                'Brock Purdy': '#ff453a', "N'Golo Kanté": '#64d2ff', 'Pep Guardiola': '#00c7be',
+                'Florentino Perez': '#ffd60a', 'Ime Udoka': '#ff9f0a', 'Andy Flower': '#ff375f',
+                'Virat Kohli': '#ff6b35', 'Jayson Tatum': '#32d74b'
+            };
+            const categories = Object.keys(skillCategories);
+            Object.keys(agents).forEach(name => {
+                if (!agentSkills[name] || name === 'Founder') return;
+                agentCategoryData[name] = {};
+                categories.forEach(cat => {
+                    const info = skillCategories[cat];
+                    const matching = [];
+                    Object.entries(agentSkills[name].skills).forEach(([skill, score]) => {
+                        if (info.skills.includes(skill)) matching.push(score);
+                    });
+                    agentCategoryData[name][cat] = matching.length > 0
+                        ? matching.reduce((a, b) => a + b, 0) / matching.length : 0;
                 });
-                categoryScores[cat] = scores.length > 0 ? scores.reduce((a, b) => a + b, 0) / scores.length : 0;
-                categoryAgentCount[cat] = info.agents.length;
-                categoryGaps[cat] = info.agents.length <= 1 ? 'thin' : categoryScores[cat] < 9.2 ? 'moderate' : 'strong';
+            });
+            // Also compute aggregate for reference
+            const categoryAgentCount = {};
+            categories.forEach(cat => {
+                categoryAgentCount[cat] = skillCategories[cat].agents.length;
             });
 
             hero.innerHTML = `
@@ -8625,29 +8637,24 @@ Gate Inheritance:
                 </div>
                 <div class="spider-card">
                     <div class="spider-title">Team Skill Map</div>
-                    <div class="spider-subtitle">Aggregate capability across all 14 agents — gaps highlighted in red</div>
+                    <div class="spider-subtitle">Individual agent skills overlaid — see coverage density and gaps</div>
                     <div class="spider-canvas-wrap">
                         <canvas id="spiderCanvas"></canvas>
                     </div>
-                    <div class="spider-legend">
-                        <div class="spider-legend-item"><div class="spider-legend-dot" style="background: rgba(10, 132, 255, 0.4)"></div> Team Score</div>
-                        <div class="spider-legend-item"><div class="spider-legend-dot" style="background: rgba(48, 209, 88, 0.3)"></div> Strong (10/10 ideal)</div>
-                        <div class="spider-legend-item"><div class="spider-legend-dot" style="background: rgba(255, 69, 58, 0.3)"></div> Thin Coverage</div>
-                    </div>
+                    <div class="spider-legend" id="spiderLegend"></div>
                 </div>
             `;
 
             // Draw spider chart — use rAF to ensure DOM is laid out before measuring
-            requestAnimationFrame(() => renderSpiderChart(categoryScores, categoryGaps, categoryAgentCount));
+            requestAnimationFrame(() => renderSpiderChart(categories, agentCategoryData, agentColorMap, categoryAgentCount));
         }
 
-        function renderSpiderChart(scores, gaps, agentCounts) {
+        function renderSpiderChart(categories, agentData, colorMap, agentCounts) {
             const canvas = document.getElementById('spiderCanvas');
             if (!canvas) return;
             const wrap = canvas.parentElement;
             const rect = wrap.getBoundingClientRect();
             const dpr = window.devicePixelRatio || 1;
-            // Use container dimensions if available, otherwise use sensible defaults
             const w = Math.max(Math.floor(rect.width), 380);
             const h = Math.max(Math.floor(rect.height), 300);
             canvas.width = w * dpr;
@@ -8657,7 +8664,6 @@ Gate Inheritance:
             const ctx = canvas.getContext('2d');
             ctx.scale(dpr, dpr);
 
-            const categories = Object.keys(scores);
             const n = categories.length;
             const cx = w / 2;
             const cy = h / 2;
@@ -8665,7 +8671,6 @@ Gate Inheritance:
             const angleStep = (2 * Math.PI) / n;
             const startAngle = -Math.PI / 2;
 
-            // Zoomed scale: 6-10 instead of 0-10 so differences are visible
             const minScale = 6;
             const maxScale = 10;
             const scaleRange = maxScale - minScale;
@@ -8682,7 +8687,7 @@ Gate Inheritance:
             const textColor = isDark ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.5)';
             const dimColor = isDark ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.25)';
 
-            // Draw grid rings at 7, 8, 9 (10 drawn separately as ideal outline)
+            // Grid rings at 7, 8, 9
             [7, 8, 9].forEach(ringVal => {
                 ctx.beginPath();
                 for (let i = 0; i <= n; i++) {
@@ -8693,8 +8698,6 @@ Gate Inheritance:
                 ctx.strokeStyle = gridColor;
                 ctx.lineWidth = 1;
                 ctx.stroke();
-
-                // Ring value labels (on the top axis)
                 const labelP = getPoint(0, ringVal);
                 ctx.fillStyle = dimColor;
                 ctx.font = '9px -apple-system, sans-serif';
@@ -8703,7 +8706,7 @@ Gate Inheritance:
                 ctx.fillText(ringVal.toString(), labelP.x + 4, labelP.y - 2);
             });
 
-            // Draw axis lines
+            // Axis lines
             categories.forEach((cat, i) => {
                 const p = getPoint(i, maxScale);
                 ctx.beginPath();
@@ -8714,7 +8717,7 @@ Gate Inheritance:
                 ctx.stroke();
             });
 
-            // Draw "ideal" 10/10 reference outline (dashed green)
+            // Ideal 10/10 outline (dashed)
             ctx.beginPath();
             for (let i = 0; i <= n; i++) {
                 const p = getPoint(i % n, 10);
@@ -8726,7 +8729,6 @@ Gate Inheritance:
             ctx.setLineDash([4, 4]);
             ctx.stroke();
             ctx.setLineDash([]);
-            // Label for the 10 ring
             const tenP = getPoint(0, 10);
             ctx.fillStyle = isDark ? 'rgba(48,209,88,0.5)' : 'rgba(48,209,88,0.6)';
             ctx.font = 'bold 9px -apple-system, sans-serif';
@@ -8734,60 +8736,72 @@ Gate Inheritance:
             ctx.textBaseline = 'bottom';
             ctx.fillText('10', tenP.x + 4, tenP.y - 2);
 
-            // Draw filled data area
-            ctx.beginPath();
-            categories.forEach((cat, i) => {
-                const p = getPoint(i, scores[cat]);
-                i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
-            });
-            ctx.closePath();
-            const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-            gradient.addColorStop(0, 'rgba(10, 132, 255, 0.05)');
-            gradient.addColorStop(1, 'rgba(10, 132, 255, 0.25)');
-            ctx.fillStyle = gradient;
-            ctx.fill();
-            ctx.strokeStyle = 'rgba(10, 132, 255, 0.8)';
-            ctx.lineWidth = 2.5;
-            ctx.stroke();
+            // Draw each agent's radar shape as overlay
+            const agentNames = Object.keys(agentData);
+            agentNames.forEach(name => {
+                const data = agentData[name];
+                const color = colorMap[name] || '#888';
+                // Only draw if agent has at least one non-zero category
+                const hasData = categories.some(cat => data[cat] > 0);
+                if (!hasData) return;
 
-            // Draw data points and labels
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            categories.forEach((cat, i) => {
-                const p = getPoint(i, scores[cat]);
-                const gapType = gaps[cat];
-
-                // Point glow
+                // Filled polygon
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, 8, 0, Math.PI * 2);
-                ctx.fillStyle = gapType === 'thin' ? 'rgba(255,69,58,0.2)' : 'rgba(10,132,255,0.15)';
+                categories.forEach((cat, i) => {
+                    const val = data[cat] > 0 ? data[cat] : minScale;
+                    const p = getPoint(i, val);
+                    i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
+                });
+                ctx.closePath();
+                ctx.fillStyle = color + '12'; // Very low opacity fill (~7%)
                 ctx.fill();
-
-                // Point dot
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, 4.5, 0, Math.PI * 2);
-                ctx.fillStyle = gapType === 'thin' ? '#ff453a' : gapType === 'moderate' ? '#ff9f0a' : '#30d158';
-                ctx.fill();
-                ctx.strokeStyle = isDark ? '#1c1c1e' : '#ffffff';
+                ctx.strokeStyle = color + '80'; // 50% opacity stroke
                 ctx.lineWidth = 1.5;
                 ctx.stroke();
 
-                // Category label + agent count
+                // Dots only on axes where agent contributes
+                categories.forEach((cat, i) => {
+                    if (data[cat] <= 0) return;
+                    const p = getPoint(i, data[cat]);
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+                    ctx.fillStyle = color;
+                    ctx.fill();
+                });
+            });
+
+            // Category labels with headcount
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            categories.forEach((cat, i) => {
+                const count = agentCounts[cat] || 0;
+                const isThin = count <= 1;
                 const angle = startAngle + i * angleStep;
                 const labelDist = radius + 30;
                 const lx = cx + labelDist * Math.cos(angle);
                 const ly = cy + labelDist * Math.sin(angle);
 
-                ctx.fillStyle = gapType === 'thin' ? '#ff453a' : textColor;
-                ctx.font = gapType === 'thin' ? 'bold 11px -apple-system, sans-serif' : '11px -apple-system, sans-serif';
+                ctx.fillStyle = isThin ? '#ff453a' : textColor;
+                ctx.font = isThin ? 'bold 11px -apple-system, sans-serif' : '11px -apple-system, sans-serif';
                 ctx.fillText(cat, lx, ly);
 
-                // Agent count below label
-                const count = agentCounts ? agentCounts[cat] : 0;
-                ctx.fillStyle = dimColor;
+                // Headcount badge
+                ctx.fillStyle = isThin ? '#ff453a' : dimColor;
                 ctx.font = '9px -apple-system, sans-serif';
-                ctx.fillText(`${count} agent${count !== 1 ? 's' : ''} · ${scores[cat].toFixed(1)}`, lx, ly + 13);
+                ctx.fillText(count + ' agent' + (count !== 1 ? 's' : ''), lx, ly + 13);
             });
+
+            // Build legend dynamically
+            const legend = document.getElementById('spiderLegend');
+            if (legend) {
+                legend.innerHTML = agentNames
+                    .filter(name => categories.some(cat => agentData[name][cat] > 0))
+                    .map(name => {
+                        const color = colorMap[name] || '#888';
+                        const firstName = name.split(' ')[0];
+                        return `<div class="spider-legend-item"><div class="spider-legend-dot" style="background: ${color}"></div> ${firstName}</div>`;
+                    }).join('');
+            }
         }
 
         function renderRoster() {

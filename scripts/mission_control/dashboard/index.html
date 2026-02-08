@@ -3362,8 +3362,103 @@
         .automation-item.bad .auto-pct { color: var(--accent-red); }
 
         .auto-icon { font-size: 16px; flex-shrink: 0; }
-        .auto-name { font-size: 13px; font-weight: 500; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+        .auto-name { font-size: 13px; font-weight: 500; min-width: 0; }
         .auto-pct { font-size: 14px; font-weight: 700; white-space: nowrap; }
+
+        /* Circular Progress */
+        .circular-progress {
+            position: relative;
+            width: 56px;
+            height: 56px;
+            flex-shrink: 0;
+        }
+
+        .circular-progress svg {
+            transform: rotate(-90deg);
+            width: 100%;
+            height: 100%;
+        }
+
+        .circular-progress .bg-circle {
+            fill: none;
+            stroke: var(--bg-elevated);
+            stroke-width: 6;
+        }
+
+        .circular-progress .progress-circle {
+            fill: none;
+            stroke-width: 6;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 0.5s ease;
+        }
+
+        .circular-progress .progress-circle.green { stroke: var(--accent-green); }
+        .circular-progress .progress-circle.yellow { stroke: var(--accent-yellow); }
+        .circular-progress .progress-circle.red { stroke: var(--accent-red); }
+        .circular-progress .progress-circle.blue { stroke: var(--accent); }
+        .circular-progress .progress-circle.orange { stroke: #F59E0B; }
+        .circular-progress .progress-circle.google { stroke: #4285F4; }
+
+        .circular-progress .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Circular Benchmark/Automation Items */
+        .circular-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 16px;
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+        }
+
+        .circular-item-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .circular-item-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .circular-item-name svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .circular-item-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .circular-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .circular-grid { grid-template-columns: 1fr; }
+            .circular-progress { width: 48px; height: 48px; }
+            .circular-progress .progress-text { font-size: 11px; }
+            .circular-item { padding: 10px 12px; gap: 12px; }
+            .circular-item-name { font-size: 13px; }
+        }
 
         /* Workflows Card */
         .workflows-card {
@@ -4516,48 +4611,66 @@
                     <!-- Benchmark Compliance -->
                     <div class="tech-card">
                         <h3 class="tech-card-title">📊 Industry Benchmarks</h3>
-                        <div class="benchmark-list">
-                            <div class="benchmark-item">
-                                <div class="benchmark-name benchmark-with-logo">
-                                    <svg class="benchmark-logo" viewBox="0 0 24 24" fill="none">
-                                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <div class="circular-grid">
+                            <div class="circular-item">
+                                <div class="circular-progress">
+                                    <svg viewBox="0 0 56 56">
+                                        <circle class="bg-circle" cx="28" cy="28" r="24"/>
+                                        <circle class="progress-circle orange" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="7.54"/>
                                     </svg>
-                                    <span>Anthropic AI Safety</span>
+                                    <span class="progress-text">95%</span>
                                 </div>
-                                <div class="benchmark-bar">
-                                    <div class="benchmark-fill anthropic" style="width: 95%"></div>
+                                <div class="circular-item-info">
+                                    <div class="circular-item-name">
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Anthropic AI Safety
+                                    </div>
+                                    <div class="circular-item-desc">Responsible AI development, safety guidelines, transparency standards</div>
                                 </div>
-                                <div class="benchmark-score">95%</div>
                             </div>
-                            <div class="benchmark-item">
-                                <div class="benchmark-name benchmark-with-logo">
-                                    <svg class="benchmark-logo" viewBox="0 0 24 24" fill="none">
-                                        <rect x="1" y="1" width="10" height="10" fill="#F25022"/>
-                                        <rect x="13" y="1" width="10" height="10" fill="#7FBA00"/>
-                                        <rect x="1" y="13" width="10" height="10" fill="#00A4EF"/>
-                                        <rect x="13" y="13" width="10" height="10" fill="#FFB900"/>
+                            <div class="circular-item">
+                                <div class="circular-progress">
+                                    <svg viewBox="0 0 56 56">
+                                        <circle class="bg-circle" cx="28" cy="28" r="24"/>
+                                        <circle class="progress-circle blue" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="22.62"/>
                                     </svg>
-                                    <span>Microsoft Responsible AI</span>
+                                    <span class="progress-text">85%</span>
                                 </div>
-                                <div class="benchmark-bar">
-                                    <div class="benchmark-fill microsoft" style="width: 85%"></div>
+                                <div class="circular-item-info">
+                                    <div class="circular-item-name">
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <rect x="1" y="1" width="10" height="10" fill="#F25022"/>
+                                            <rect x="13" y="1" width="10" height="10" fill="#7FBA00"/>
+                                            <rect x="1" y="13" width="10" height="10" fill="#00A4EF"/>
+                                            <rect x="13" y="13" width="10" height="10" fill="#FFB900"/>
+                                        </svg>
+                                        Microsoft Responsible AI
+                                    </div>
+                                    <div class="circular-item-desc">Fairness, reliability, privacy, inclusiveness principles</div>
                                 </div>
-                                <div class="benchmark-score">85%</div>
                             </div>
-                            <div class="benchmark-item">
-                                <div class="benchmark-name benchmark-with-logo">
-                                    <svg class="benchmark-logo" viewBox="0 0 24 24">
-                                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                            <div class="circular-item">
+                                <div class="circular-progress">
+                                    <svg viewBox="0 0 56 56">
+                                        <circle class="bg-circle" cx="28" cy="28" r="24"/>
+                                        <circle class="progress-circle google" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="45.24"/>
                                     </svg>
-                                    <span>Google ML Best Practices</span>
+                                    <span class="progress-text">70%</span>
                                 </div>
-                                <div class="benchmark-bar">
-                                    <div class="benchmark-fill google" style="width: 70%"></div>
+                                <div class="circular-item-info">
+                                    <div class="circular-item-name">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                                        </svg>
+                                        Google ML Best Practices
+                                    </div>
+                                    <div class="circular-item-desc">ML lifecycle management, model cards, testing practices</div>
                                 </div>
-                                <div class="benchmark-score">70%</div>
                             </div>
                         </div>
                     </div>
@@ -4565,36 +4678,84 @@
                     <!-- Automation Coverage -->
                     <div class="tech-card">
                         <h3 class="tech-card-title">🔄 Automation Coverage</h3>
-                        <div class="automation-grid" id="automationGrid">
-                            <div class="automation-item good">
-                                <span class="auto-icon">✅</span>
-                                <span class="auto-name">Pre-commit Hooks</span>
-                                <span class="auto-pct">95%</span>
+                        <div class="circular-grid" id="automationGrid">
+                            <div class="circular-item">
+                                <div class="circular-progress">
+                                    <svg viewBox="0 0 56 56">
+                                        <circle class="bg-circle" cx="28" cy="28" r="24"/>
+                                        <circle class="progress-circle green" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="7.54"/>
+                                    </svg>
+                                    <span class="progress-text">95%</span>
+                                </div>
+                                <div class="circular-item-info">
+                                    <div class="circular-item-name">Pre-commit Hooks</div>
+                                    <div class="circular-item-desc">Ruff linting & formatting, trailing whitespace, file checks</div>
+                                </div>
                             </div>
-                            <div class="automation-item good">
-                                <span class="auto-icon">✅</span>
-                                <span class="auto-name">GitHub Actions</span>
-                                <span class="auto-pct">95%</span>
+                            <div class="circular-item">
+                                <div class="circular-progress">
+                                    <svg viewBox="0 0 56 56">
+                                        <circle class="bg-circle" cx="28" cy="28" r="24"/>
+                                        <circle class="progress-circle green" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="7.54"/>
+                                    </svg>
+                                    <span class="progress-text">95%</span>
+                                </div>
+                                <div class="circular-item-info">
+                                    <div class="circular-item-name">GitHub Actions CI/CD</div>
+                                    <div class="circular-item-desc">Linting, type checking, pytest with coverage, artifact uploads</div>
+                                </div>
                             </div>
-                            <div class="automation-item good">
-                                <span class="auto-icon">✅</span>
-                                <span class="auto-name">Output Generation</span>
-                                <span class="auto-pct">90%</span>
+                            <div class="circular-item">
+                                <div class="circular-progress">
+                                    <svg viewBox="0 0 56 56">
+                                        <circle class="bg-circle" cx="28" cy="28" r="24"/>
+                                        <circle class="progress-circle green" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="15.08"/>
+                                    </svg>
+                                    <span class="progress-text">90%</span>
+                                </div>
+                                <div class="circular-item-info">
+                                    <div class="circular-item-name">Output Generation Pipeline</div>
+                                    <div class="circular-item-desc">Stat packs, depth charts, predicted XIs auto-generation</div>
+                                </div>
                             </div>
-                            <div class="automation-item good">
-                                <span class="auto-icon">✅</span>
-                                <span class="auto-name">Dashboard Deploy</span>
-                                <span class="auto-pct">90%</span>
+                            <div class="circular-item">
+                                <div class="circular-progress">
+                                    <svg viewBox="0 0 56 56">
+                                        <circle class="bg-circle" cx="28" cy="28" r="24"/>
+                                        <circle class="progress-circle green" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="15.08"/>
+                                    </svg>
+                                    <span class="progress-text">90%</span>
+                                </div>
+                                <div class="circular-item-info">
+                                    <div class="circular-item-name">Dashboard Deployment</div>
+                                    <div class="circular-item-desc">GitHub Pages auto-deploy on push to main branch</div>
+                                </div>
                             </div>
-                            <div class="automation-item warning">
-                                <span class="auto-icon">⚠️</span>
-                                <span class="auto-name">Data Pipeline</span>
-                                <span class="auto-pct">75%</span>
+                            <div class="circular-item">
+                                <div class="circular-progress">
+                                    <svg viewBox="0 0 56 56">
+                                        <circle class="bg-circle" cx="28" cy="28" r="24"/>
+                                        <circle class="progress-circle yellow" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="37.7"/>
+                                    </svg>
+                                    <span class="progress-text">75%</span>
+                                </div>
+                                <div class="circular-item-info">
+                                    <div class="circular-item-name">Data Ingestion Pipeline</div>
+                                    <div class="circular-item-desc">Match data import, schema validation, incremental updates</div>
+                                </div>
                             </div>
-                            <div class="automation-item warning">
-                                <span class="auto-icon">⚠️</span>
-                                <span class="auto-name">Testing</span>
-                                <span class="auto-pct">70%</span>
+                            <div class="circular-item">
+                                <div class="circular-progress">
+                                    <svg viewBox="0 0 56 56">
+                                        <circle class="bg-circle" cx="28" cy="28" r="24"/>
+                                        <circle class="progress-circle yellow" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="45.24"/>
+                                    </svg>
+                                    <span class="progress-text">70%</span>
+                                </div>
+                                <div class="circular-item-info">
+                                    <div class="circular-item-name">Automated Testing</div>
+                                    <div class="circular-item-desc">Unit tests pass, integration tests pending (TKT-139)</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -4627,15 +4788,15 @@
                             <span class="gap-name">Model Explainability (SHAP)</span>
                             <span class="gap-status">DONE - shap_explainer.py</span>
                         </div>
-                        <div class="gap-item p1">
-                            <span class="gap-priority">P1</span>
+                        <div class="gap-item done">
+                            <span class="gap-priority">✅</span>
                             <span class="gap-name">Production Dashboard</span>
-                            <span class="gap-status">Planned</span>
+                            <span class="gap-status">DONE - Token Accounting added</span>
                         </div>
-                        <div class="gap-item p1">
-                            <span class="gap-priority">P1</span>
+                        <div class="gap-item done">
+                            <span class="gap-priority">✅</span>
                             <span class="gap-name">Token Accounting</span>
-                            <span class="gap-status">Not started</span>
+                            <span class="gap-status">DONE - Usage metrics, pace analysis</span>
                         </div>
                     </div>
                 </div>
@@ -4740,7 +4901,7 @@
                         <h3 class="token-title">💰 Token Accounting & Usage</h3>
                         <span class="token-plan-badge">
                             <span>⭐</span>
-                            <span id="tokenPlan">Claude Pro Plan</span>
+                            <span id="tokenPlan">Claude Max Plan</span>
                         </span>
                     </div>
 
@@ -4798,6 +4959,18 @@
                                 <strong>Claude Opus 4.5:</strong> 85% of tokens (complex tasks)<br>
                                 <strong>Claude Sonnet:</strong> 12% of tokens (quick tasks)<br>
                                 <strong>Claude Haiku:</strong> 3% of tokens (simple queries)
+                            </div>
+                        </div>
+                        <div class="token-insight-card">
+                            <div class="token-insight-header">
+                                <span class="token-insight-icon">🪟</span>
+                                <span class="token-insight-title">Context Window Breakdown</span>
+                            </div>
+                            <div class="token-insight-content">
+                                <strong>Input Tokens:</strong> 1.8M (75% of usage)<br>
+                                <strong>Output Tokens:</strong> 600K (25% of usage)<br>
+                                <strong>Avg Input/Request:</strong> ~12K tokens<br>
+                                <strong>Avg Output/Request:</strong> ~4K tokens
                             </div>
                         </div>
                         <div class="token-insight-card">
@@ -6749,7 +6922,7 @@ Gate Inheritance:
             },
 
             // P1 High Priority Tickets (TKT-136 to TKT-140)
-            { id: 'TKT-136', title: 'Replace bare except Exception with specific handlers', state: 'IN_PROGRESS', priority: 'P1', effort: 'deep-work', assignee: "N'Golo Kanté", epic: 'EPIC-014', progress: 10, tags: ['Code Quality', 'Error Handling', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+            { id: 'TKT-136', title: 'Replace bare except Exception with specific handlers', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: "N'Golo Kanté", epic: 'EPIC-014', progress: 10, tags: ['Code Quality', 'Error Handling', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Replace all 40+ bare "except Exception" blocks with specific exception types and proper error context',
                 goal: 'Every exception logged with full context (file, line, input data). Distinguish recoverable vs catastrophic failures.',
@@ -6758,7 +6931,7 @@ Gate Inheritance:
               },
               plan: '1. Grep for "except Exception". 2. Categorize by error type. 3. Replace with specific handlers. 4. Add context to log messages. 5. Add tests for error paths.'
             },
-            { id: 'TKT-137', title: 'Implement model baselines (K-means vs random)', state: 'IN_PROGRESS', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-014', progress: 10, tags: ['ML', 'Validation', 'Analytics', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+            { id: 'TKT-137', title: 'Implement model baselines (K-means vs random)', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-014', progress: 10, tags: ['ML', 'Validation', 'Analytics', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Create baseline comparisons for K-means clustering: random clustering, hierarchical clustering, DBSCAN. Prove K-means is actually better.',
                 goal: 'Document that K-means with 6 batter / 7 bowler clusters outperforms alternatives. Justify PCA thresholds.',
@@ -6767,7 +6940,7 @@ Gate Inheritance:
               },
               plan: '1. Create scripts/ml_ops/baseline_comparison.py. 2. Implement 4 clustering methods. 3. Compare on silhouette, Davies-Bouldin. 4. Document results. 5. Add to model card.'
             },
-            { id: 'TKT-138', title: 'Add FOREIGN KEY constraints to DuckDB', state: 'IN_PROGRESS', priority: 'P1', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 10, tags: ['Data', 'Schema', 'Integrity', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+            { id: 'TKT-138', title: 'Add FOREIGN KEY constraints to DuckDB', state: 'RUNNING', priority: 'P1', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 10, tags: ['Data', 'Schema', 'Integrity', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Add FOREIGN KEY constraints linking fact_ball to dim_player, dim_team, dim_match, dim_venue',
                 goal: 'Database rejects orphaned records - cannot insert ball with invalid player_id or team_id',
@@ -6776,7 +6949,7 @@ Gate Inheritance:
               },
               plan: '1. Document current schema relationships. 2. Add FK constraints to DDL. 3. Test with orphan data. 4. Update ingest.py error handling.'
             },
-            { id: 'TKT-139', title: 'Add integration tests for data pipeline', state: 'IN_PROGRESS', priority: 'P1', effort: 'deep-work', assignee: "N'Golo Kanté", epic: 'EPIC-014', progress: 10, tags: ['Testing', 'Pipeline', 'QA', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+            { id: 'TKT-139', title: 'Add integration tests for data pipeline', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: "N'Golo Kanté", epic: 'EPIC-014', progress: 10, tags: ['Testing', 'Pipeline', 'QA', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Create end-to-end integration tests: ingest → validate → analytics → outputs. Currently only unit tests exist.',
                 goal: 'Test full pipeline with sample data. Catch integration failures before production.',
@@ -6785,7 +6958,7 @@ Gate Inheritance:
               },
               plan: '1. Create tests/integration/ directory. 2. Create sample match fixtures. 3. Test full ingest flow. 4. Test analytics flow. 5. Test output generation. 6. Add integration test job to CI.'
             },
-            { id: 'TKT-140', title: 'Add data lineage tracking', state: 'IN_PROGRESS', priority: 'P1', effort: 'marathon', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 10, tags: ['Data', 'Lineage', 'Audit', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+            { id: 'TKT-140', title: 'Add data lineage tracking', state: 'RUNNING', priority: 'P1', effort: 'marathon', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 10, tags: ['Data', 'Lineage', 'Audit', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Track data provenance: which source file → which transform → which output. Enable audit trail for any metric.',
                 goal: 'Trace any number back to source: "This SR=150 came from match X, ball Y, computed by script Z"',

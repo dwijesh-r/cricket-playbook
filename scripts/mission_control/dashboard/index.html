@@ -4380,7 +4380,10 @@
               outcome: 'Fully automated CI/CD ensuring consistent quality gates' },
             { id: 'EPIC-013', title: 'Future Enhancements', type: 'spike', owner: 'Tom Brady',
               goal: 'Research and prototype future capabilities: win probability, form tracking',
-              outcome: 'Validated concepts ready for Sprint 5.0+ implementation' }
+              outcome: 'Validated concepts ready for Sprint 5.0+ implementation' },
+            { id: 'EPIC-014', title: 'System Hardening (Mourinho Audit)', type: 'delivery', owner: 'José Mourinho',
+              goal: 'Address all critical weaknesses identified in José Mourinho system audit: code quality, data robustness, ML rigor, gate enforcement',
+              outcome: 'Production-grade system with enforced gates, validated thresholds, and robust error handling (target: 85/100 rating)' }
         ];
 
         // Helper function to get EPIC by ID
@@ -5316,6 +5319,173 @@ Gate Inheritance:
                 audible: ['Document design principles (dark-first, mobile-first)', 'Document breakpoint testing (600px, 480px, 380px)', 'Document accessibility basics', 'Document review checklist', 'Document CSS naming conventions', 'Reference existing components.md']
               },
               plan: '1. Create docs/ux/PROCEDURES.md. 2. Document design principles. 3. Document development workflow. 4. Document testing checklist. 5. Document review process.'
+            },
+
+            // ==================== EPIC-014: SYSTEM HARDENING (Mourinho Audit) ====================
+            // P0 Critical Tickets (TKT-132 to TKT-135)
+            { id: 'TKT-132', title: 'Centralize all thresholds in single YAML config', state: 'READY', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-014', progress: 0, tags: ['Code Quality', 'Config', 'Critical'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Create config/thresholds.yaml with ALL hardcoded thresholds (MIN_BALLS, SR thresholds, Economy thresholds, PCA variance) and update all scripts to read from it',
+                goal: 'Single source of truth for all analytical thresholds - change once, apply everywhere',
+                reason: 'José Mourinho audit found 50+ hardcoded magic numbers scattered across 10+ files. Updating SR threshold from 130→135 requires finding all 5 files.',
+                audible: ['Create config/thresholds.yaml', 'Add batting thresholds (min_balls, specialist_sr, vulnerable_sr)', 'Add bowling thresholds (economy ranges, phase thresholds)', 'Add clustering thresholds (pca_variance, min_cluster_size)', 'Update all scripts to load from YAML', 'Add schema validation for thresholds.yaml']
+              },
+              plan: '1. Audit all files for hardcoded thresholds. 2. Create config/thresholds.yaml. 3. Create scripts/utils/threshold_loader.py. 4. Update all scripts to use loader. 5. Add pytest for threshold loading.'
+            },
+            { id: 'TKT-133', title: 'Add CHECK constraints to DuckDB schema', state: 'READY', priority: 'P0', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 0, tags: ['Data', 'Schema', 'Critical'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Add CHECK constraints to DuckDB tables enforcing realistic cricket value ranges (SR 0-500, Economy 0-30, Average 0-200, etc.)',
+                goal: 'Database rejects impossible values at insert time - no more SR=1000 or negative averages slipping through',
+                reason: 'José Mourinho audit found NO enforcement of realistic value ranges. Garbage data flows through undetected until stat_packs.py fails.',
+                audible: ['Add CHECK constraint for strike_rate (0-500)', 'Add CHECK constraint for economy (0-30)', 'Add CHECK constraint for average (0-200)', 'Add CHECK constraint for wickets_per_match (0-20)', 'Add CHECK constraint for batting_position (1-11)', 'Add CHECK constraint for over_number (0-19 for T20)']
+              },
+              plan: '1. Document all fields needing constraints. 2. Add constraints to schema DDL. 3. Test with edge case data. 4. Update ingest.py to handle constraint violations gracefully.'
+            },
+            { id: 'TKT-134', title: 'Enforce gates in GitHub Actions CI/CD', state: 'READY', priority: 'P0', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-014', progress: 0, tags: ['CI/CD', 'Governance', 'Critical'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Make quality gates BLOCK commits/deployments in GitHub Actions - not just advisory JSON updates',
+                goal: 'Cannot merge to main without passing Florentino Gate, Domain Sanity, System Check. Physical enforcement.',
+                reason: 'José Mourinho audit: "Gates are theater. I can run ANY script without passing ANY gate." Current gates update JSON but dont block execution.',
+                audible: ['Add pre-merge check for Florentino Gate status', 'Add pre-merge check for test passage', 'Add pre-merge check for schema validation', 'Block deployment if gates not APPROVED', 'Add gate status to PR checks', 'Create gate-check.yml workflow']
+              },
+              plan: '1. Create .github/workflows/gate-check.yml. 2. Read gate status from ticket JSON. 3. Fail CI if gates not passed. 4. Add required status check to branch protection. 5. Document in CONSTITUTION.'
+            },
+            { id: 'TKT-135', title: 'Add domain validation for realistic value ranges', state: 'READY', priority: 'P0', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 0, tags: ['Data', 'Validation', 'Critical'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Add validation layer in validate_schema.py checking for impossible cricket values BEFORE they enter analytics',
+                goal: 'Catch SR>300, Economy>25, negative runs, position>11, over>20 at ingestion time',
+                reason: 'José Mourinho audit: validate_schema.py only checks table/column existence - 85% of domain edge cases are unchecked.',
+                audible: ['Add SR range validation (0-300 warning, >500 error)', 'Add Economy range validation (0-20 warning, >25 error)', 'Add batting position validation (1-11)', 'Add over number validation (0-19 for T20)', 'Add runs validation (non-negative)', 'Add wickets validation (0-10 per innings)']
+              },
+              plan: '1. Define realistic ranges in config/thresholds.yaml. 2. Add domain_validation.py module. 3. Integrate into validate_schema.py. 4. Add tests for edge cases. 5. Add to CI pipeline.'
+            },
+
+            // P1 High Priority Tickets (TKT-136 to TKT-140)
+            { id: 'TKT-136', title: 'Replace bare except Exception with specific handlers', state: 'READY', priority: 'P1', effort: 'deep-work', assignee: "N'Golo Kanté", epic: 'EPIC-014', progress: 0, tags: ['Code Quality', 'Error Handling'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Replace all 40+ bare "except Exception" blocks with specific exception types and proper error context',
+                goal: 'Every exception logged with full context (file, line, input data). Distinguish recoverable vs catastrophic failures.',
+                reason: 'José Mourinho audit found 40+ bare exception handlers swallowing errors with no context. Silent failures cascade.',
+                audible: ['Audit all except Exception blocks', 'Replace with specific exceptions (ValueError, KeyError, FileNotFoundError)', 'Add context to error messages', 'Add retry logic where appropriate', 'Add alerting for critical failures', 'Update logging format']
+              },
+              plan: '1. Grep for "except Exception". 2. Categorize by error type. 3. Replace with specific handlers. 4. Add context to log messages. 5. Add tests for error paths.'
+            },
+            { id: 'TKT-137', title: 'Implement model baselines (K-means vs random)', state: 'READY', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-014', progress: 0, tags: ['ML', 'Validation', 'Analytics'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Create baseline comparisons for K-means clustering: random clustering, hierarchical clustering, DBSCAN. Prove K-means is actually better.',
+                goal: 'Document that K-means with 6 batter / 7 bowler clusters outperforms alternatives. Justify PCA thresholds.',
+                reason: 'José Mourinho audit: "No baselines. No comparison. No ablation. Only checks: PCA variance - arbitrary thresholds!"',
+                audible: ['Implement random baseline clustering', 'Implement hierarchical clustering comparison', 'Implement DBSCAN comparison', 'Calculate silhouette scores for each', 'Document why K-means wins', 'Add feature importance analysis']
+              },
+              plan: '1. Create scripts/ml_ops/baseline_comparison.py. 2. Implement 4 clustering methods. 3. Compare on silhouette, Davies-Bouldin. 4. Document results. 5. Add to model card.'
+            },
+            { id: 'TKT-138', title: 'Add FOREIGN KEY constraints to DuckDB', state: 'READY', priority: 'P1', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 0, tags: ['Data', 'Schema', 'Integrity'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Add FOREIGN KEY constraints linking fact_ball to dim_player, dim_team, dim_match, dim_venue',
+                goal: 'Database rejects orphaned records - cannot insert ball with invalid player_id or team_id',
+                reason: 'José Mourinho audit: No FK constraints. Orphaned records possible. Player ID collisions undetected.',
+                audible: ['Add FK from fact_ball.batter_id to dim_player.player_id', 'Add FK from fact_ball.bowler_id to dim_player.player_id', 'Add FK from fact_ball.batting_team_id to dim_team.team_id', 'Add FK from fact_ball.match_id to dim_match.match_id', 'Add FK from fact_ball.venue_id to dim_venue.venue_id', 'Handle constraint violations in ingest']
+              },
+              plan: '1. Document current schema relationships. 2. Add FK constraints to DDL. 3. Test with orphan data. 4. Update ingest.py error handling.'
+            },
+            { id: 'TKT-139', title: 'Add integration tests for data pipeline', state: 'READY', priority: 'P1', effort: 'deep-work', assignee: "N'Golo Kanté", epic: 'EPIC-014', progress: 0, tags: ['Testing', 'Pipeline', 'QA'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Create end-to-end integration tests: ingest → validate → analytics → outputs. Currently only unit tests exist.',
+                goal: 'Test full pipeline with sample data. Catch integration failures before production.',
+                reason: 'José Mourinho audit: Test coverage is ~3% (1,338 lines of tests for 50K+ lines of code). Zero integration tests.',
+                audible: ['Create test fixtures with sample match data', 'Test ingest → schema validation flow', 'Test analytics views generation', 'Test stat pack generation', 'Test clustering pipeline', 'Add to CI with --integration flag']
+              },
+              plan: '1. Create tests/integration/ directory. 2. Create sample match fixtures. 3. Test full ingest flow. 4. Test analytics flow. 5. Test output generation. 6. Add integration test job to CI.'
+            },
+            { id: 'TKT-140', title: 'Add data lineage tracking', state: 'READY', priority: 'P1', effort: 'marathon', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 0, tags: ['Data', 'Lineage', 'Audit'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Track data provenance: which source file → which transform → which output. Enable audit trail for any metric.',
+                goal: 'Trace any number back to source: "This SR=150 came from match X, ball Y, computed by script Z"',
+                reason: 'José Mourinho audit: Zero provenance. No record of which source file generated which row. Cant trace data origins.',
+                audible: ['Add source_file column to fact_ball', 'Add ingested_by column with script version', 'Add transform_chain for derived metrics', 'Create lineage query helper', 'Document lineage schema', 'Add lineage to health reports']
+              },
+              plan: '1. Design lineage schema. 2. Update ingest to track source. 3. Update analytics to track transforms. 4. Create lineage query API. 5. Add to documentation.'
+            },
+
+            // P2 Medium Priority Tickets (TKT-141 to TKT-146)
+            { id: 'TKT-141', title: 'Implement incremental ingestion', state: 'BACKLOG', priority: 'P2', effort: 'marathon', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 0, tags: ['Data', 'Pipeline', 'Performance'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Add incremental ingestion capability - only process new/changed matches instead of full 9,357 match re-ingest',
+                goal: 'Reduce ingest time from 30+ minutes to <5 minutes for daily updates. Add checkpoint recovery.',
+                reason: 'José Mourinho audit: No incremental ingestion. Must re-process all 9,357 matches each time. No checkpoints.',
+                audible: ['Add last_ingested_date tracking', 'Add match-level checksums', 'Skip unchanged matches', 'Add checkpoint markers', 'Enable resume from failure', 'Add incremental flag to CLI']
+              },
+              plan: '1. Add manifest tracking ingested matches. 2. Calculate match checksums. 3. Skip unchanged matches. 4. Add checkpoint every 1000 matches. 5. Enable --incremental flag.'
+            },
+            { id: 'TKT-142', title: 'Add SHAP/LIME for cluster explainability', state: 'BACKLOG', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-014', progress: 0, tags: ['ML', 'Explainability', 'Analytics'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Add SHAP or LIME explanations showing which features drive cluster assignments for each player',
+                goal: 'Answer: "Why is Virat Kohli in cluster 3?" with feature importance breakdown',
+                reason: 'José Mourinho audit: "No SHAP/LIME explanation. Which features drive cluster assignments?" Black box clustering.',
+                audible: ['Install shap library', 'Calculate feature importance per cluster', 'Generate player-level explanations', 'Add to player tags output', 'Visualize feature importance', 'Document methodology']
+              },
+              plan: '1. Install shap. 2. Extract cluster centroids. 3. Calculate SHAP values. 4. Add to player_tags.json. 5. Create visualization. 6. Document interpretation.'
+            },
+            { id: 'TKT-143', title: 'Proper Python package structure (remove sys.path.insert)', state: 'BACKLOG', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-014', progress: 0, tags: ['Code Quality', 'Architecture'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Replace 9 sys.path.insert() anti-patterns with proper Python package structure using __init__.py and editable install',
+                goal: 'Import scripts as proper package: "from cricket_playbook.utils import logging_config" instead of path hacks',
+                reason: 'José Mourinho audit: Every script does sys.path.insert() - brittle relative paths that break with directory changes.',
+                audible: ['Create pyproject.toml', 'Add __init__.py to all directories', 'Remove all sys.path.insert calls', 'Install as editable package (pip install -e .)', 'Update all imports', 'Update CI to use package install']
+              },
+              plan: '1. Create pyproject.toml. 2. Add __init__.py files. 3. Remove sys.path.insert. 4. Update imports. 5. Test all scripts. 6. Update CI.'
+            },
+            { id: 'TKT-144', title: 'Add transaction boundaries to ingestion', state: 'BACKLOG', priority: 'P2', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 0, tags: ['Data', 'Pipeline', 'Integrity'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Add database transactions with rollback capability to ingest.py - all-or-nothing commits per match',
+                goal: 'If ingest fails on ball 5000, rollback entire match. No partial writes corrupting data.',
+                reason: 'José Mourinho audit: No transaction boundaries. Partial writes silently succeed. If ingest fails at row 1M of 2M, corrupted data.',
+                audible: ['Wrap match ingestion in transaction', 'Add rollback on any failure', 'Add commit only on full success', 'Log transaction boundaries', 'Add transaction test cases', 'Handle nested transactions']
+              },
+              plan: '1. Study DuckDB transaction API. 2. Wrap match ingest in BEGIN/COMMIT. 3. Add ROLLBACK on error. 4. Test with failure injection. 5. Update error handling.'
+            },
+            { id: 'TKT-145', title: 'Add confidence intervals to metrics', state: 'BACKLOG', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-014', progress: 0, tags: ['Analytics', 'Statistics'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Add confidence intervals to all computed metrics: "SR = 145 ± 8" not just "SR = 145"',
+                goal: 'Every metric has uncertainty bounds. Users understand reliability based on sample size.',
+                reason: 'José Mourinho audit: No confidence intervals. Elite shops (PFF, 538) always include uncertainty.',
+                audible: ['Calculate standard error for all rate metrics', 'Add 95% CI to player stats', 'Add sample size warnings', 'Display intervals in stat packs', 'Add to player_tags.json', 'Document CI methodology']
+              },
+              plan: '1. Add CI calculation to analytics views. 2. Store upper/lower bounds. 3. Add to output formats. 4. Update stat pack templates. 5. Document interpretation.'
+            },
+            { id: 'TKT-146', title: 'Add backup and recovery mechanism', state: 'BACKLOG', priority: 'P2', effort: 'hustle', assignee: 'Ime Udoka', epic: 'EPIC-014', progress: 0, tags: ['Ops', 'Data', 'Recovery'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Add automated backup of DuckDB file and recovery playbook. Enable point-in-time recovery.',
+                goal: 'Daily backups, 7-day retention, documented restore procedure. Recover from any corruption.',
+                reason: 'José Mourinho audit: DuckDB file is single point of failure (159MB file, no replication). No backup/recovery.',
+                audible: ['Create backup script', 'Add to GitHub Actions schedule', 'Store backups in releases/artifacts', 'Create restore playbook', 'Test restore procedure', 'Add backup validation']
+              },
+              plan: '1. Create scripts/ops/backup.py. 2. Add to scheduled workflow. 3. Store as GitHub artifact. 4. Document restore steps. 5. Test recovery.'
+            },
+            { id: 'TKT-147', title: 'Create automated system health scoring dashboard', state: 'READY', priority: 'P0', effort: 'deep-work', assignee: 'José Mourinho', epic: 'EPIC-014', progress: 0, tags: ['Metrics', 'Benchmarking', 'Critical'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Create automated scoring system measuring all 6 categories from Mourinho audit: Governance (15%), Code Quality (20%), Data Robustness (20%), ML Rigor (20%), Testing (15%), Documentation (10%)',
+                goal: 'Real-time health score (0-100) with category breakdown. Track progress from 67.4 → 85.0 target.',
+                reason: 'Cannot improve what we cannot measure. Need objective, automated scoring to track hardening progress.',
+                audible: [
+                  'Create scripts/ml_ops/system_health_score.py',
+                  'Measure: bare except count, hardcoded threshold count, test coverage %, CHECK constraints count',
+                  'Measure: gate enforcement (CI blocks?), documentation completeness, baseline comparison exists',
+                  'Output JSON score report with breakdown',
+                  'Add to CI as health-score.yml workflow',
+                  'Display score in Mission Control dashboard',
+                  'Track score history over time'
+                ]
+              },
+              plan: '1. Define scoring rubric for each category. 2. Create automated checks for each metric. 3. Calculate weighted score. 4. Output JSON report. 5. Add CI workflow. 6. Add to dashboard. 7. Document methodology.',
+              scoringRubric: {
+                governance: { weight: 15, checks: ['gates_enforced_in_ci', 'constitution_complete', 'task_loop_documented'] },
+                codeQuality: { weight: 20, checks: ['bare_except_count', 'hardcoded_thresholds', 'type_hints_coverage', 'sys_path_hacks'] },
+                dataRobustness: { weight: 20, checks: ['check_constraints', 'fk_constraints', 'domain_validation', 'lineage_tracking'] },
+                mlRigor: { weight: 20, checks: ['baseline_comparison', 'feature_importance', 'confidence_intervals', 'model_versioning'] },
+                testing: { weight: 15, checks: ['test_coverage_pct', 'integration_tests', 'edge_case_tests'] },
+                documentation: { weight: 10, checks: ['threshold_docs', 'methodology_docs', 'api_docs'] }
+              }
             },
 
             // Sprint 5.0+ Ideas (IDEA-XXX notation for unscoped work)

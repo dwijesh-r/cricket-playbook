@@ -5360,15 +5360,15 @@
                                 <div style="margin-bottom: 10px; font-size: 11px; color: var(--text-tertiary);">Claude Max has a 5-hour rolling limit. Usage resets gradually as older requests expire.</div>
                                 <!-- Rolling Window Visual -->
                                 <div style="display: flex; gap: 4px; margin-bottom: 12px;">
-                                    <div style="flex: 1; height: 24px; background: linear-gradient(90deg, #30d158, #34c759); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600;">0-1h</div>
-                                    <div style="flex: 1; height: 24px; background: linear-gradient(90deg, #30d158, #34c759); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600;">1-2h</div>
+                                    <div style="flex: 1; height: 24px; background: linear-gradient(90deg, #ff453a, #ff6961); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: white;">0-1h</div>
+                                    <div style="flex: 1; height: 24px; background: linear-gradient(90deg, #ff9f0a, #ff9500); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600;">1-2h</div>
                                     <div style="flex: 1; height: 24px; background: linear-gradient(90deg, #ff9f0a, #ff9500); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600;">2-3h</div>
-                                    <div style="flex: 1; height: 24px; background: var(--bg-elevated); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--text-tertiary);">3-4h</div>
+                                    <div style="flex: 1; height: 24px; background: linear-gradient(90deg, #30d158, #34c759); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600;">3-4h</div>
                                     <div style="flex: 1; height: 24px; background: var(--bg-elevated); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--text-tertiary);">4-5h</div>
                                 </div>
                                 <div style="display: flex; justify-content: space-between; font-size: 12px;">
-                                    <span><strong>Current Window:</strong> 65% used</span>
-                                    <span style="color: var(--accent-green);">✓ Healthy</span>
+                                    <span><strong>Current Window:</strong> 82% used</span>
+                                    <span style="color: var(--accent-orange);">⚠ Elevated</span>
                                 </div>
                                 <div style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border); font-size: 11px; color: var(--text-tertiary);">
                                     💡 Spread usage across hours to avoid rate limits
@@ -8318,7 +8318,7 @@ Gate Inheritance:
             else category = 'light';
 
             const options = commentaries[category];
-            const randomIndex = new Date().getDate() % options.length;
+            const randomIndex = Math.floor(Math.random() * options.length);
             box.innerHTML = options[randomIndex] + timeNote;
         }
 

@@ -16,6 +16,9 @@ urllib3==2.6.3
 scikit-learn>=1.4.0
 scipy>=1.12.0
 
+# Data validation (IDEA-006)
+great_expectations>=1.0.0
+
 # Development dependencies
 ruff>=0.8.0
 pytest>=8.0.0

@@ -3294,6 +3294,33 @@
             background: rgba(142, 142, 147, 0.3);
         }
 
+        .ticket-chip.review, .ticket-chip.validation {
+            background: rgba(255, 159, 10, 0.2);
+            color: var(--accent-orange);
+            border: 1px solid rgba(255, 159, 10, 0.3);
+        }
+
+        .ticket-chip.review:hover, .ticket-chip.validation:hover {
+            background: rgba(255, 159, 10, 0.3);
+        }
+
+        .ticket-chip.ready {
+            background: rgba(10, 132, 255, 0.2);
+            color: var(--accent-blue);
+            border: 1px solid rgba(10, 132, 255, 0.3);
+        }
+
+        .ticket-chip.ready:hover {
+            background: rgba(10, 132, 255, 0.3);
+        }
+
+        .ticket-chip.done {
+            background: rgba(48, 209, 88, 0.1);
+            color: var(--text-tertiary);
+            border: 1px solid rgba(48, 209, 88, 0.2);
+            text-decoration: line-through;
+        }
+
         @media (max-width: 600px) {
             .score-explainer { flex-direction: column; align-items: flex-start; gap: 6px; }
             .explainer-divider { display: none; }
@@ -4671,27 +4698,21 @@
                             <div class="score-status" id="healthStatus">Loading...</div>
                             <div class="score-target">Target: 85/100 | Baseline: 67.4</div>
                             <div class="score-explainer">
-                                <span class="explainer-item">📍 <strong>Baseline (67.4)</strong> — Where we started before EPIC-014</span>
+                                <span class="explainer-item">📍 <strong>Baseline (67.4)</strong> — Our starting point</span>
                                 <span class="explainer-divider">—</span>
-                                <span class="explainer-item">🎯 <strong>Target (85)</strong> — Our goal for Foundation Fortification</span>
+                                <span class="explainer-item">🎯 <strong>Target (85)</strong> — Where we want to be</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Health Score Improvement Tickets -->
+                    <!-- Health Score Improvement Tickets (Dynamic) -->
                     <div class="score-tickets">
                         <div class="score-tickets-header">
                             <span class="score-tickets-title">📈 Tickets Improving Health Score</span>
                             <span class="score-tickets-epic">EPIC-014: Foundation Fortification</span>
                         </div>
-                        <div class="score-tickets-list">
-                            <span class="ticket-chip running" onclick="showView('board')">TKT-136 Exception Handling</span>
-                            <span class="ticket-chip running" onclick="showView('board')">TKT-137 ML Baselines</span>
-                            <span class="ticket-chip running" onclick="showView('board')">TKT-138 FK Constraints</span>
-                            <span class="ticket-chip running" onclick="showView('board')">TKT-139 Integration Tests</span>
-                            <span class="ticket-chip running" onclick="showView('board')">TKT-140 Data Lineage</span>
-                            <span class="ticket-chip backlog">TKT-141 Incremental Ingest</span>
-                            <span class="ticket-chip backlog">TKT-143 Package Structure</span>
+                        <div class="score-tickets-list" id="healthTicketsList">
+                            <!-- Dynamically populated - excludes DONE tickets -->
                         </div>
                     </div>
 
@@ -4791,7 +4812,7 @@
                                 <div class="circular-item-info">
                                     <div class="circular-item-name">
                                         <svg viewBox="0 0 24 24" fill="none">
-                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M12 3L4 21h3.5l1.5-4h6l1.5 4H20L12 3zm0 6l2 5h-4l2-5z" fill="#D97706"/>
                                         </svg>
                                         Anthropic AI Safety
                                     </div>
@@ -5131,14 +5152,16 @@
                         </div>
                         <div class="token-insight-card">
                             <div class="token-insight-header">
-                                <span class="token-insight-icon">🪟</span>
-                                <span class="token-insight-title">Context Window Breakdown</span>
+                                <span class="token-insight-icon">↔️</span>
+                                <span class="token-insight-title">Input vs Output (This Month)</span>
                             </div>
                             <div class="token-insight-content">
-                                <strong>Input Tokens:</strong> 1.8M (75% of usage)<br>
-                                <strong>Output Tokens:</strong> 600K (25% of usage)<br>
-                                <strong>Avg Input/Request:</strong> ~12K tokens<br>
-                                <strong>Avg Output/Request:</strong> ~4K tokens
+                                <div style="margin-bottom: 8px; font-size: 11px; color: var(--text-tertiary);">How your 2.4M tokens are split between prompts sent and responses received:</div>
+                                <strong>Input (Prompts):</strong> 1.8M tokens (75%)<br>
+                                <strong>Output (Responses):</strong> 600K tokens (25%)<br>
+                                <div style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border);">
+                                    <strong>Avg per Request:</strong> ~12K in → ~4K out
+                                </div>
                             </div>
                         </div>
                         <div class="token-insight-card">
@@ -5163,7 +5186,7 @@
                             <div class="token-insight-content">
                                 <strong>Current Period:</strong> Feb 1 - Feb 28, 2026<br>
                                 <strong>Days Remaining:</strong> 20 days<br>
-                                <strong>Renewal Date:</strong> March 1, 2026<br>
+                                <strong>Renewal Date:</strong> March 9, 2026<br>
                                 <strong>Auto-renew:</strong> ✅ Enabled
                             </div>
                         </div>
@@ -7716,6 +7739,7 @@ Gate Inheritance:
             updateHealthScore();
             updateHealthCategories();
             updateLastUpdated();
+            renderHealthTickets();
             renderWorkflows();
 
             // Add Jose Mourinho avatar to header (he owns system audits)
@@ -7790,6 +7814,32 @@ Gate Inheritance:
             healthData.timestamp = new Date().toISOString();
             initTechHealth();
             alert('Health data refreshed! In production, this will fetch from auto-generated JSON.');
+        }
+
+        function renderHealthTickets() {
+            // Dynamically render EPIC-014 tickets that are NOT DONE
+            const container = document.getElementById('healthTicketsList');
+            if (!container) return;
+
+            // Filter EPIC-014 tickets excluding DONE state
+            const activeHealthTickets = tickets.filter(t =>
+                t.epic === 'EPIC-014' && t.state !== 'DONE'
+            );
+
+            if (activeHealthTickets.length === 0) {
+                container.innerHTML = '<span class="ticket-chip done">All tickets completed!</span>';
+                return;
+            }
+
+            // Sort: RUNNING first, then REVIEW/VALIDATION, then BACKLOG
+            const stateOrder = { 'RUNNING': 0, 'REVIEW': 1, 'VALIDATION': 2, 'READY': 3, 'BACKLOG': 4, 'IDEA': 5 };
+            activeHealthTickets.sort((a, b) => (stateOrder[a.state] || 9) - (stateOrder[b.state] || 9));
+
+            container.innerHTML = activeHealthTickets.map(t => {
+                const stateClass = t.state.toLowerCase().replace('_', '-');
+                const shortTitle = t.title.length > 25 ? t.title.substring(0, 25) + '...' : t.title;
+                return `<span class="ticket-chip ${stateClass}" onclick="showView('board')" title="${t.title}">${t.id} ${shortTitle}</span>`;
+            }).join('');
         }
 
         // Workflow data with owners for dynamic rendering with avatars

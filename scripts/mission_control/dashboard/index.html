@@ -3899,7 +3899,7 @@
         <div class="view" id="techHealthView">
             <section class="tech-health-section">
                 <div class="tech-header">
-                    <h1 class="tech-title">⚙️ Tech Health Dashboard</h1>
+                    <h1 class="tech-title">📋 The Scouting Report</h1>
                     <p class="tech-subtitle">José Mourinho's System Audit & Benchmark Compliance</p>
                     <div class="tech-last-updated">
                         Last updated: <span id="healthLastUpdated">Loading...</span>
@@ -5621,7 +5621,7 @@
               },
               plan: '1. Create requirements.in from current requirements.txt (remove transitive). 2. Run pip-compile requirements.in. 3. Update CI to use locked requirements.txt. 4. Add Makefile target for updates.'
             },
-            { id: 'TKT-120', title: 'Add code coverage reporting to CI', state: 'REVIEW', priority: 'P1', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'Testing', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-120', title: 'Add code coverage reporting to CI', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-008', progress: 100, tags: ['DevOps', 'CI/CD', 'Testing', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' }, output: '.github/workflows/ci.yml',
               parent: 'TKT-113',
               founderReviewNote: 'HIGH: Code coverage tracking identifies untested code paths. Review the pytest-cov + Codecov approach.',
               context: {

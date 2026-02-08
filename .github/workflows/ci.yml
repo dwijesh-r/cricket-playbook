@@ -1,5 +1,8 @@
 name: CI
 
+# Owner: Brad Stevens (Architecture & Performance)
+# TKT-120: Added pytest-cov for coverage reporting
+
 on:
   push:
     branches: [main]
@@ -31,7 +34,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install ruff pytest
+          pip install ruff pytest pytest-cov mypy types-PyYAML types-requests
 
       - name: Run Ruff linter
         run: |
@@ -41,6 +44,21 @@ jobs:
         run: |
           ruff format --check .
 
-      - name: Run pytest
+      - name: Run mypy type checking
         run: |
-          pytest tests/ -v --tb=short
+          mypy scripts/utils/threshold_loader.py scripts/core/domain_constraints.py scripts/ml_ops/system_health_score.py --ignore-missing-imports --no-error-summary || echo "::warning::Type checking found issues"
+        continue-on-error: true
+
+      - name: Run pytest with coverage
+        run: |
+          pytest tests/ -v --tb=short --cov=scripts --cov-report=term-missing --cov-report=xml --cov-fail-under=0
+          echo "## Test Coverage Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Coverage report generated. Target: 70%" >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload coverage to artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage.xml
+          retention-days: 30

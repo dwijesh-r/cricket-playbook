@@ -809,6 +809,10 @@
         .intro-box[data-agent="ime-udoka"] {
             background: linear-gradient(180deg, #001508 0%, #002a12 40%, #004a20 100%);
         }
+        /* Jayson Tatum - TD Garden emerald court */
+        .intro-box[data-agent="jayson-tatum"] {
+            background: linear-gradient(180deg, #001a0a 0%, #004a20 40%, #007a33 100%);
+        }
         /* Andy Flower - RCB red revolution */
         .intro-box[data-agent="andy-flower"] {
             background: linear-gradient(180deg, #180808 0%, #3a1010 40%, #5a1818 100%);
@@ -3731,6 +3735,22 @@
                 suitDark: '#0f0f0f',
                 suitAccent: '#007a33', // Celtics green accent
                 tieColor: '#007a33' // Green tie
+            },
+            'jayson-tatum': {
+                name: 'Jayson Tatum',
+                role: 'UX & Reader Flow',
+                sport: 'nba',
+                trophy: 'nba',
+                trophyLabel: '2024 NBA Champion',
+                jerseyNumber: '0',
+                hair: { color: '#1a1a1a', style: 'short' }, // Flat-top fade
+                jersey: { main: '#007a33', accent: '#ba9653' }, // Celtics green/gold
+                shorts: '#007a33',
+                skin: { color: '#6d4a3a', dark: '#5d3a2a', light: '#7d5a4a' }, // Brown
+                build: 'athletic',
+                hasBeard: true,
+                beardStyle: 'goatee', // Signature goatee
+                beardColor: '#1a1a1a'
             }
         };
 
@@ -3808,6 +3828,7 @@
                 'florentino': 'Real Madrid',
                 'brad-stevens': 'Celtics',
                 'ime-udoka': 'Celtics',
+                'jayson-tatum': 'Celtics',
                 'andy-flower': 'RCB'
             };
             const teamName = teamNames[key] || '';

@@ -113,7 +113,6 @@ jobs:
   schema:
     name: "Gate 4: Schema Validation"
     runs-on: ubuntu-latest
-    if: ${{ hashFiles('data/cricket_playbook.duckdb') != '' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -123,14 +122,14 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: |
-          pip install duckdb pandas
+        if: hashFiles('data/cricket_playbook.duckdb') != ''
+        run: pip install duckdb pandas
 
       - name: Check schema exists
         run: |
           if [ -f "data/cricket_playbook.duckdb" ]; then
             echo "Database found, running schema check..."
-            python3 << 'PYEOF'
+            python3 -c "
           import duckdb
           conn = duckdb.connect('data/cricket_playbook.duckdb', read_only=True)
           tables = conn.execute('SHOW TABLES').fetchall()
@@ -138,7 +137,7 @@ jobs:
           for t in tables:
               print(f'  - {t[0]}')
           conn.close()
-          PYEOF
+          "
           else
             echo "::notice::No database file found (expected for new checkouts)"
           fi
@@ -149,7 +148,6 @@ jobs:
   domain:
     name: "Gate 5: Domain Constraints"
     runs-on: ubuntu-latest
-    if: ${{ hashFiles('data/cricket_playbook.duckdb') != '' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -159,8 +157,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: |
-          pip install duckdb pyyaml
+        run: pip install duckdb pyyaml
 
       - name: Run domain validation
         run: |

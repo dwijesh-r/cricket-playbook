@@ -1,0 +1,243 @@
+# Cricket Playbook Thresholds Configuration
+# ==========================================
+# Single source of truth for ALL analytical thresholds
+# Owner: Stephen Curry (Analytics Lead)
+# Ticket: TKT-132 (EPIC-014: Foundation Fortification)
+# Version: 1.0.0
+# Last Updated: 2026-02-08
+#
+# IMPORTANT: All scripts MUST load thresholds from this file.
+# Do NOT hardcode thresholds in individual scripts.
+
+# =============================================================================
+# SAMPLE SIZE THRESHOLDS
+# Minimum data points required for statistical validity
+# =============================================================================
+sample_size:
+  # Batting analysis
+  min_balls_batter: 300          # Minimum balls faced for clustering inclusion
+  min_balls_vs_type: 50          # Minimum balls vs pace/spin for matchup analysis
+  min_balls_vs_hand: 60          # Minimum balls for handedness matchup
+  min_innings: 5                 # Minimum innings for player inclusion
+
+  # Bowling analysis
+  min_balls_bowler: 200          # Minimum balls bowled for clustering inclusion
+  min_overs_bowled: 10           # Minimum overs for bowler analysis
+
+  # Phase analysis (overs bowled)
+  min_pp_overs: 30               # Powerplay phase qualification
+  min_middle_overs: 50           # Middle overs phase qualification
+  min_death_overs: 30            # Death overs phase qualification
+
+  # Partnerships
+  min_partnership_balls: 12
+  min_partnership_runs: 20
+  key_partnership_threshold: 50  # Runs for "key partnership" tag
+
+  # Trends & form
+  min_matches_for_trend: 3
+
+# =============================================================================
+# BATTING THRESHOLDS
+# Strike rate, average, and performance metrics
+# =============================================================================
+batting:
+  # Specialist thresholds (player must meet ALL criteria)
+  specialist:
+    strike_rate: 130             # Minimum SR
+    average: 20                  # Minimum average
+    balls_per_dismissal: 15      # Minimum BPD
+
+  # Vulnerable thresholds (player meets ANY criteria)
+  vulnerable:
+    strike_rate: 110             # Maximum SR to be vulnerable
+    average: 12                  # Maximum average
+    balls_per_dismissal: 12      # With 3+ dismissals
+
+  # Pressure performance
+  clutch_sr: 140.0               # SR in high-pressure situations
+  high_rrr_threshold: 10.0       # Required run rate for "high pressure"
+
+  # Phase-specific SR (powerplay)
+  powerplay_sr: 130              # Minimum for PP specialists
+
+  # Spin vulnerability
+  spin_vulnerability_avg: 12
+  spin_vulnerability_bpd: 12
+
+# =============================================================================
+# BOWLING THRESHOLDS
+# Economy and strike rate by phase
+# =============================================================================
+bowling:
+  # Powerplay (overs 1-6)
+  powerplay:
+    beast_economy: 7.0           # Max economy for "beast" tag
+    liability_economy: 9.5       # Min economy for "liability" tag
+
+  # Middle overs (overs 7-15)
+  middle:
+    beast_economy: 7.0
+    liability_economy: 8.5
+
+  # Death overs (overs 16-20)
+  death:
+    beast_economy: 9.0
+    liability_economy: 12.0
+    liability_sr: 18.0           # Combined with economy for liability
+    specialist_economy: 8.5      # For death specialist classification
+
+  # Spin analysis
+  spin_friendly_economy: 5.0     # Pitch bias threshold
+
+# =============================================================================
+# HANDEDNESS MATCHUP THRESHOLDS
+# Differential thresholds for specialist/vulnerable tags
+# =============================================================================
+handedness:
+  economy_differential: 1.0      # Min eco diff for tags
+  wickets_per_ball_diff: 0.02    # 2% more wickets/ball
+  min_wickets_per_ball: 0.03     # ~1 wicket per 33 balls to qualify
+
+# =============================================================================
+# ML & CLUSTERING THRESHOLDS
+# PCA, clustering, and model monitoring
+# =============================================================================
+ml:
+  # PCA thresholds
+  pca:
+    target_variance: 0.50        # Target cumulative variance
+    correlation_threshold: 0.90  # Feature removal threshold
+    min_variance_batter: 0.70    # Minimum for batter models (70%)
+    min_variance_bowler: 0.50    # Minimum for bowler models (50%)
+
+  # Clustering
+  clustering:
+    min_cluster_size: 10         # Minimum players per cluster
+    n_clusters_batter: 6         # Number of batter archetypes
+    n_clusters_bowler: 7         # Number of bowler archetypes
+
+  # Drift detection
+  drift:
+    ks_statistic: 0.1            # ~10% distribution shift
+    mahalanobis: 3.0             # Corresponds to p < 0.01
+
+  # Performance
+  latency:
+    warning_seconds: 1.0
+    critical_seconds: 5.0
+
+# =============================================================================
+# STAT PACK THRESHOLDS
+# Minimum values for inclusion in stat pack sections
+# =============================================================================
+stat_packs:
+  # Batting minimums
+  batting:
+    min_runs_season: 150         # Top scorers
+    min_runs_evolution: 100      # SR evolution analysis
+    min_runs_career: 500         # Key batter analysis
+    min_runs_venue: 100          # Venue specialist
+
+  # Bowling minimums
+  bowling:
+    min_wickets_season: 5        # Top wicket takers
+    min_wickets_career: 30       # Key bowler analysis
+    min_wickets_venue: 5         # Venue specialist
+    min_overs_death: 10          # Death specialist analysis
+
+  # Trending thresholds
+  trending:
+    runs_diff: 50                # Min runs diff for trending
+    sr_diff: 10                  # Min SR diff for trending
+    sr_change: 5.0               # SR change for UP/DOWN
+    economy_change: 0.5          # Economy change for IMPROVING/DECLINING
+
+  # Venue analysis
+  venue:
+    min_matches: 2               # Away venue stats
+    min_matches_pitch: 5         # Pitch characteristics
+
+# =============================================================================
+# DEPTH CHART SCORING
+# Weights and bonuses for player positioning
+# =============================================================================
+depth_charts:
+  # Position bonuses
+  bonuses:
+    known_opener: 25.0
+    franchise_captain_opener: 10.0
+    price_high_cr: 0.5           # Price >= 15 CR multiplier (max 10)
+    price_mid_cr: 0.75           # Price >= 10 CR multiplier (max 15)
+
+  # Component weights
+  weights:
+    batting_position: 0.50
+    finisher_score: 0.45
+    middle_order_score: 0.20
+    bowling_allrounder: 0.50     # 50/50 split
+    batting_allrounder: 0.25     # 25% batting in XI selection
+    selection_top3: [0.50, 0.30, 0.20]  # Weights for top 3 candidates
+
+# =============================================================================
+# PREDICTED XI SCORING
+# Thresholds for team selection algorithm
+# =============================================================================
+predicted_xi:
+  # Base scores
+  base_batter_score: 50.0
+  base_bowler_score: 40.0
+
+  # Death bowling economy tiers
+  death_bowling:
+    excellent: 7.0               # 12 points if <= 7.0
+    good: 8.5                    # 6 points if <= 8.5
+    poor: 10.5                   # -10 points if >= 10.5
+
+# =============================================================================
+# DOMAIN VALIDATION RANGES
+# Realistic value ranges for cricket metrics (TKT-135)
+# =============================================================================
+validation:
+  # Strike rate bounds
+  strike_rate:
+    min: 0
+    warning_max: 300             # Unusual but possible
+    error_max: 500               # Definitely invalid
+
+  # Economy bounds
+  economy:
+    min: 0
+    warning_max: 20              # Very expensive but possible
+    error_max: 30                # Invalid
+
+  # Average bounds
+  average:
+    min: 0
+    warning_max: 100             # Very high but possible
+    error_max: 200               # Invalid
+
+  # Position bounds
+  batting_position:
+    min: 1
+    max: 11
+
+  # Over bounds (T20)
+  over_number:
+    min: 0
+    max: 19                      # 0-indexed, overs 1-20
+
+  # Wickets per innings
+  wickets:
+    min: 0
+    max: 10
+
+# =============================================================================
+# METADATA
+# =============================================================================
+metadata:
+  version: "1.0.0"
+  created: "2026-02-08"
+  owner: "Stephen Curry"
+  ticket: "TKT-132"
+  epic: "EPIC-014"

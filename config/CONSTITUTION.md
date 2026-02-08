@@ -1,8 +1,8 @@
 # Cricket Playbook — Constitution v2.0
 
 **Status:** APPROVED
-**Version:** 2.1.0
-**Date:** 2026-02-07
+**Version:** 2.2.0
+**Date:** 2026-02-08
 **Authors:** Brad Stevens, Florentino Perez, Tom Brady
 
 ---
@@ -515,6 +515,66 @@ Agent → Functional Lead → Tom Brady → Florentino Perez → Founder
 - Editorial transforms analytics into narrative
 - Editorial does not generate raw analytics
 - Analytics does not write final prose
+
+---
+
+## Section 15: CI/CD Governance
+
+**Owner:** Brad Stevens
+
+### 15.1 Automation Standards
+
+All GitHub Actions workflows must:
+
+1. **Have an owner documented** in the file header comment
+2. **Include manual trigger** via `workflow_dispatch` for emergency runs
+3. **Block on critical failures** (lint, schema validation, domain constraints)
+4. **Produce summary** in `GITHUB_STEP_SUMMARY` for visibility
+
+### 15.2 Workflow Ownership
+
+| Workflow | Owner | Trigger | Purpose |
+|----------|-------|---------|---------|
+| `ci.yml` | Brad Stevens | Push/PR | Lint, format, pytest |
+| `gate-check.yml` | Brad Stevens | Push/PR | Quality gates enforcement |
+| `generate-outputs.yml` | Brad Stevens | Daily + post-gate | Stat packs, depth charts |
+| `deploy-dashboard.yml` | Brad Stevens | Post-outputs | The Lab data update |
+| `ingest.yml` | Brock Purdy | Weekly + manual | Data ingestion |
+| `ml-health-check.yml` | Ime Udoka | Weekly + push | ML monitoring |
+
+### 15.3 Automation Coverage Target
+
+| Metric | Target | Current |
+|--------|--------|---------|
+| Workflow Coverage | 90% | 82% |
+| System Health Score | 85/100 | 81.5/100 |
+| Test Coverage | 80% | Not measured |
+
+### 15.4 Workflow Chain
+
+The following chain executes automatically on push to main:
+
+```
+Push to main
+    ↓
+gate-check.yml (Lint + Tests + Schema + Domain)
+    ↓ (on success)
+generate-outputs.yml (Analytics + Clustering + Generators)
+    ↓ (on success)
+deploy-dashboard.yml (Update The Lab)
+```
+
+### 15.5 Pre-commit Enforcement
+
+All commits must pass pre-commit hooks:
+
+| Hook | Action | Blocking |
+|------|--------|----------|
+| `ruff` | Linting | Warning |
+| `ruff-format` | Formatting | Warning |
+| `trailing-whitespace` | Cleanup | Yes |
+| `check-yaml` | Syntax | Yes |
+| `check-large-files` | Block >500KB | Yes |
 
 ---
 

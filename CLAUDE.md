@@ -1,7 +1,7 @@
 # CLAUDE.md
 
-**Version:** 1.0
-**Last Updated:** 2026-02-04
+**Version:** 1.1
+**Last Updated:** 2026-02-08
 
 ## Project Operating Principles
 
@@ -19,6 +19,9 @@ Agents are expected to operate within defined responsibilities and surface uncer
 | Governance | `config/CONSTITUTION.md` |
 | PRD | `docs/PRD_CRICKET_PLAYBOOK.md` |
 | Task Integrity | `governance/TASK_INTEGRITY_LOOP.md` |
+| Agent Playbook | `docs/AGENT_PLAYBOOK.md` |
+| Thresholds | `config/thresholds.yaml` |
+| System Health | `scripts/ml_ops/system_health_score.py` |
 | Agent Configs | `config/agents/` |
 | Sprint Response | `reviews/founder/sprint_4_checkin_response_020426_v1.md` |
 
@@ -133,7 +136,68 @@ Examples:
 
 1. Run `pytest` - all tests must pass
 2. Run `ruff check .` - no linting errors
-3. Update relevant README if adding new files
+3. Run `python scripts/ml_ops/system_health_score.py` - target 85+
+4. Update relevant README if adding new files
+
+---
+
+## Automation Coverage (Brad Stevens)
+
+All meaningful work is automated through GitHub Actions workflows:
+
+| Workflow | Trigger | Purpose | Owner |
+|----------|---------|---------|-------|
+| `ci.yml` | Push/PR | Lint, format, tests | Brad Stevens |
+| `gate-check.yml` | Push/PR | Quality gates enforcement | Brad Stevens |
+| `generate-outputs.yml` | Daily + post-gate | Stat packs, depth charts, XIIs | Brad Stevens |
+| `deploy-dashboard.yml` | Post-outputs | The Lab data update | Brad Stevens |
+| `ingest.yml` | Weekly + manual | Data ingestion from Cricsheet | Brock Purdy |
+| `ml-health-check.yml` | Weekly + push | ML model monitoring | Ime Udoka |
+
+**Current Automation Coverage:** 82% (target: 90%)
+
+**Workflow Chain:**
+```
+Push to main → gate-check → generate-outputs → deploy-dashboard
+                   ↓
+            Tests + Lint + Schema + Domain validation
+```
+
+---
+
+## System Health Score (José Mourinho)
+
+The system is measured across 6 categories with weighted scoring:
+
+| Category | Weight | Current | Target |
+|----------|--------|---------|--------|
+| Governance | 15% | 100% | 100% |
+| Code Quality | 20% | 65% | 80% |
+| Data Robustness | 20% | 100% | 100% |
+| ML Rigor | 20% | 80% | 90% |
+| Testing | 15% | 50% | 80% |
+| Documentation | 10% | 100% | 100% |
+
+**Current Score:** 81.5/100 | **Target:** 85/100
+
+Run: `python scripts/ml_ops/system_health_score.py`
+
+---
+
+## AI Coding Benchmark Compliance
+
+Per José Mourinho's audit (2026-02-08):
+
+| Standard | Compliance | Notes |
+|----------|------------|-------|
+| Anthropic AI Safety | 95% | World-class agent boundaries |
+| Microsoft Responsible AI | 85% | Strong accountability |
+| Google ML Best Practices | 70% | Missing explainability |
+
+**Known Gaps:**
+- Test coverage % not measured (TKT-120)
+- No SHAP/LIME explainability (TKT-142)
+- No token accounting per task
 
 ---
 

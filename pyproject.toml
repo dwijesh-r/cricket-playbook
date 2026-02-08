@@ -5,3 +5,12 @@ target-version = "py39"
 [tool.ruff.lint]
 select = ["E", "F", "W"]
 ignore = ["E501", "E402"]  # E402: imports after sys.path modification is intentional
+
+[tool.pytest.ini_options]
+markers = [
+    "integration: mark test as an integration test (deselect with '-m \"not integration\"')",
+]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

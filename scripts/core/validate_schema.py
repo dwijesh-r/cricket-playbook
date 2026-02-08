@@ -155,7 +155,7 @@ def validate_tables(conn: duckdb.DuckDBPyConnection) -> Tuple[int, int]:
                 print_pass(f"Table '{table_name}' structure valid")
                 passes += 1
 
-        except Exception as e:
+        except duckdb.Error as e:
             print_fail(f"Error checking table '{table_name}': {e}")
             fails += 1
 
@@ -179,7 +179,7 @@ def validate_views(conn: duckdb.DuckDBPyConnection) -> Tuple[int, int]:
             else:
                 print_warn(f"View '{view_name}' exists but has no data")
                 passes += 1
-        except Exception as e:
+        except duckdb.Error as e:
             print_fail(f"View '{view_name}' not queryable: {e}")
             fails += 1
 
@@ -242,7 +242,7 @@ def validate_referential_integrity(conn: duckdb.DuckDBPyConnection) -> Tuple[int
             else:
                 print_warn(f"{description} - {result[0]} orphaned records")
                 passes += 1  # Warnings still count as passes
-        except Exception as e:
+        except duckdb.Error as e:
             print_fail(f"Error checking '{description}': {e}")
             fails += 1
 
@@ -312,7 +312,7 @@ def validate_data_quality(conn: duckdb.DuckDBPyConnection) -> Tuple[int, int]:
             else:
                 print_fail(f"{description}: {result:,} (expected {operator} {expected:,})")
                 fails += 1
-        except Exception as e:
+        except duckdb.Error as e:
             print_fail(f"Error checking '{description}': {e}")
             fails += 1
 
@@ -350,7 +350,7 @@ def validate_bowling_coverage(conn: duckdb.DuckDBPyConnection) -> Tuple[int, int
             print_warn(f"Bowling style coverage below 95%: {coverage:.1f}%")
             passes += 1
 
-    except Exception as e:
+    except duckdb.Error as e:
         print_fail(f"Error checking bowling coverage: {e}")
         fails += 1
 

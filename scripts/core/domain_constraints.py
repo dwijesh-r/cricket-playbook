@@ -137,9 +137,11 @@ def apply_constraints_to_db(db_path: str, dry_run: bool = False) -> Dict[str, An
                         # Constraint already exists or data violates it
                         results["errors"].append(f"{constraint_name}: {str(e)}")
                         logger.warning(f"Failed to apply {constraint_name}: {e}")
-                    except Exception as e:
-                        results["errors"].append(f"{constraint_name}: {str(e)}")
-                        logger.error(f"Error applying {constraint_name}: {e}")
+                    except duckdb.Error as e:
+                        results["errors"].append(f"{constraint_name}: Database error - {str(e)}")
+                        logger.error(
+                            f"Database error applying {constraint_name} to {table_name}: {e}"
+                        )
 
     finally:
         conn.close()

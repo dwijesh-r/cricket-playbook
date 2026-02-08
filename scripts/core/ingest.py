@@ -543,12 +543,32 @@ class CricketIngester:
                             match_data = json.load(f)
                             source_file = f"{zip_path.stem}/{json_file}"
                             self.process_match(match_data, source_file)
-                    except Exception as e:
-                        logger.error("Error processing %s/%s: %s", zip_path.name, json_file, str(e))
+                    except json.JSONDecodeError as e:
+                        logger.error(
+                            "JSON parse error in %s/%s at line %d, col %d: %s",
+                            zip_path.name,
+                            json_file,
+                            e.lineno,
+                            e.colno,
+                            e.msg,
+                        )
+                        self.stats["errors"].append(
+                            f"{zip_path.name}/{json_file}: JSON parse error at line {e.lineno}: {e.msg}"
+                        )
+                    except (KeyError, TypeError, ValueError) as e:
+                        logger.error(
+                            "Data error processing %s/%s: %s", zip_path.name, json_file, str(e)
+                        )
                         self.stats["errors"].append(f"{zip_path.name}/{json_file}: {str(e)}")
-        except Exception as e:
-            logger.error("Error opening zip file %s: %s", zip_path.name, str(e))
-            self.stats["errors"].append(f"{zip_path.name}: {str(e)}")
+        except zipfile.BadZipFile as e:
+            logger.error("Corrupted zip file %s: %s", zip_path.name, str(e))
+            self.stats["errors"].append(f"{zip_path.name}: Corrupted zip file - {str(e)}")
+        except FileNotFoundError as e:
+            logger.error("Zip file not found %s: %s", zip_path.name, str(e))
+            self.stats["errors"].append(f"{zip_path.name}: File not found - {str(e)}")
+        except PermissionError as e:
+            logger.error("Permission denied for zip file %s: %s", zip_path.name, str(e))
+            self.stats["errors"].append(f"{zip_path.name}: Permission denied - {str(e)}")
 
     def derive_player_roles(self) -> None:
         """Derive primary role and wicketkeeper status for each player based on match data."""

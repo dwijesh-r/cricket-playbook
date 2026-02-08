@@ -1,0 +1,26 @@
+{
+  "id": "TKT-130",
+  "title": "Update Constitution with ticket hierarchy",
+  "state": "DONE",
+  "priority": "P2",
+  "progress_pct": 100,
+  "description": "Update Constitution to document the EPIC -> Parent -> Child hierarchy as official governance",
+  "owner": "Tom Brady",
+  "assignee": "Tom Brady",
+  "sprint_id": "SPRINT-001",
+  "epic": "EPIC-003",
+  "tags": [
+    "Documentation",
+    "Governance"
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED"
+    },
+    "founder_review": {
+      "status": "APPROVED"
+    }
+  },
+  "created_at": "2026-02-08T00:00:00.000000Z",
+  "updated_at": "2026-02-08T00:00:00.000000Z"
+}

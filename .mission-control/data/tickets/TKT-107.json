@@ -1,0 +1,25 @@
+{
+  "id": "TKT-107",
+  "title": "Verify all IPL 2026 players visible in The Lab",
+  "state": "VALIDATION",
+  "priority": "P0",
+  "progress_pct": 0,
+  "description": "Review IPL 2026 squads in The Lab and identify any missing players",
+  "owner": "Founder",
+  "assignee": "Founder",
+  "sprint_id": "SPRINT-001",
+  "epic": "EPIC-011",
+  "tags": [
+    "Data",
+    "QA",
+    "Critical",
+    "IPL 2026"
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED"
+    }
+  },
+  "created_at": "2026-02-08T00:00:00.000000Z",
+  "updated_at": "2026-02-08T00:00:00.000000Z"
+}

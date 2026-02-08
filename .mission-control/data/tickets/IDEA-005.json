@@ -1,0 +1,19 @@
+{
+  "id": "IDEA-005",
+  "title": "Create interactive dashboard (React)",
+  "state": "IDEA",
+  "priority": "P2",
+  "progress_pct": 0,
+  "description": "Build React-based interactive dashboard",
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
+  "sprint_id": "SPRINT-001",
+  "epic": null,
+  "tags": [
+    "Frontend",
+    "Feature"
+  ],
+  "gates": {},
+  "created_at": "2026-02-08T00:00:00.000000Z",
+  "updated_at": "2026-02-08T00:00:00.000000Z"
+}

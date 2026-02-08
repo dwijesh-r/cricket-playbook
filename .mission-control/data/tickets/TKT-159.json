@@ -1,10 +1,10 @@
 {
   "id": "TKT-159",
   "title": "Comprehensive UX audit across Boardroom, The Lab, and Mission Control Panel",
-  "state": "RUNNING",
+  "state": "REVIEW",
   "priority": "P0",
   "effort": "deep-work",
-  "progress_pct": 0,
+  "progress_pct": 95,
   "description": "Conduct a detailed, comprehensive UX review of all three dashboard surfaces: Boardroom, The Lab, and Mission Control Panel. Deliver a composite 0-100 rating (decimals included) with a weighted breakdown by category, per-dashboard scores, specific improvement suggestions with rationale, and a priority ranking of fixes by impact.",
   "owner": "Jayson Tatum",
   "assignee": "Jayson Tatum",
@@ -12,6 +12,7 @@
   "branch": "feature/tkt-159-ux-audit",
   "tags": ["UX", "Audit", "Dashboard", "Cross-Cutting"],
   "spec_doc": "docs/ux/TKT-159_cross_dashboard_ux_audit.md",
+  "report_doc": "docs/ux/TKT-159_ux_audit_report.md",
   "gates": {
     "florentino_gate": {
       "status": "APPROVED",
@@ -20,7 +21,8 @@
       "date": "2026-02-08"
     },
     "domain_sanity": {
-      "status": "PENDING"
+      "status": "PASS",
+      "notes": "Full UX audit completed"
     },
     "enforcement_check": {
       "status": "PENDING"
@@ -33,5 +35,5 @@
     }
   },
   "created_at": "2026-02-08T15:30:00.000000Z",
-  "updated_at": "2026-02-08T15:30:00.000000Z"
+  "updated_at": "2026-02-08T22:30:00.000000Z"
 }

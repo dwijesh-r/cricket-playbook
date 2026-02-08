@@ -1,0 +1,30 @@
+{
+  "id": "TKT-120",
+  "title": "Add code coverage reporting to CI",
+  "state": "DONE",
+  "priority": "P1",
+  "progress_pct": 100,
+  "description": "Add pytest-cov and Codecov integration to CI workflow for code coverage tracking",
+  "owner": "Brad Stevens",
+  "assignee": "Brad Stevens",
+  "sprint_id": "SPRINT-001",
+  "epic": "EPIC-008",
+  "tags": [
+    "DevOps",
+    "CI/CD",
+    "Testing"
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED"
+    },
+    "domain_sanity": {
+      "status": "PASS"
+    },
+    "system_check": {
+      "status": "PASS"
+    }
+  },
+  "created_at": "2026-02-08T00:00:00.000000Z",
+  "updated_at": "2026-02-08T00:00:00.000000Z"
+}

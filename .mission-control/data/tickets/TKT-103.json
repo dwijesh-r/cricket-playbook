@@ -1,0 +1,26 @@
+{
+  "id": "TKT-103",
+  "title": "Configure GitHub email notifications",
+  "state": "VALIDATION",
+  "priority": "P2",
+  "progress_pct": 95,
+  "description": "Add GitHub secrets for email notifications on push to main branch",
+  "owner": "Founder",
+  "assignee": "Founder",
+  "sprint_id": "SPRINT-001",
+  "epic": "EPIC-010",
+  "tags": [
+    "Ops",
+    "GitHub"
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED"
+    },
+    "system_check": {
+      "status": "PASS"
+    }
+  },
+  "created_at": "2026-02-08T00:00:00.000000Z",
+  "updated_at": "2026-02-08T00:00:00.000000Z"
+}

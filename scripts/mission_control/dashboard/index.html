@@ -4645,7 +4645,7 @@
 
                     <div class="stats-grid">
                         <div class="stat-item">
-                            <div class="stat-value accent-blue" id="statTotal">155</div>
+                            <div class="stat-value accent-blue" id="statTotal">156</div>
                             <div class="stat-label">Total</div>
                         </div>
                         <div class="stat-item">
@@ -4653,7 +4653,7 @@
                             <div class="stat-label">Backlog</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value accent-yellow" id="statRunning">2</div>
+                            <div class="stat-value accent-yellow" id="statRunning">3</div>
                             <div class="stat-label">In Progress</div>
                         </div>
                         <div class="stat-item">
@@ -6395,7 +6395,7 @@
             return epics.find(e => e.id === epicId) || null;
         }
 
-        // All Sprint 4.0 Tickets (155 tickets)
+        // All Sprint 4.0 Tickets (156 tickets)
         const tickets = [
             // Pre-Sprint (TKT-001 to TKT-005)
             { id: 'TKT-001', title: 'Define Sprint 4 Scope', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Florentino Pérez', epic: 'EPIC-001', progress: 100, tags: ['Planning'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
@@ -7551,6 +7551,11 @@ Gate Inheritance:
             },
             { id: 'TKT-158', title: 'Create operational runbooks and incident response docs', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-015', progress: 100, branch: 'feature/tkt-158-runbooks', tags: ['Documentation', 'Ops', 'Incident Response'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PASSED', enforcement_check: 'PASSED', system_check: 'PASSED', founder_validation: 'PASSED' },
               context: { ask: 'Write runbooks for common ops tasks and incident response procedures', goal: 'Any team member can handle production issues with clear step-by-step guides', reason: 'No operational playbook means tribal knowledge and slow incident response', audible: ['Pipeline runbook', 'Dashboard deploy runbook', 'Incident response template', 'Troubleshooting guide'] }
+            },
+
+            // TKT-159: Cross-Dashboard UX Audit (Jayson Tatum)
+            { id: 'TKT-159', title: 'Comprehensive UX audit across Boardroom, The Lab, and Mission Control Panel', state: 'RUNNING', priority: 'P0', effort: 'deep-work', assignee: 'Jayson Tatum', epic: null, progress: 0, branch: 'feature/tkt-159-ux-audit', tags: ['UX', 'Audit', 'Dashboard', 'Cross-Cutting'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PENDING', enforcement_check: 'PENDING' },
+              context: { ask: 'Conduct a detailed UX review of all three dashboards (Boardroom, The Lab, Mission Control Panel). Deliver a 0-100 rating (decimals included) with weighted breakdown by category, specific improvement suggestions with rationale for each.', goal: 'A single source-of-truth UX scorecard that identifies exactly where the product shines and where it falls short — with actionable fixes prioritized by impact', reason: 'No formal UX audit has been done across all three surfaces. We are shipping features but not measuring the experience holistically.', audible: ['Audit Boardroom UX', 'Audit The Lab UX', 'Audit Mission Control UX', 'Score each category 0-100', 'Provide improvement suggestions with rationale', 'Deliver final composite rating'] }
             },
 
             // Sprint 5.0+ Ideas (IDEA-XXX notation for unscoped work)

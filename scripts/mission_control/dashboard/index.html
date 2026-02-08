@@ -5487,6 +5487,26 @@ Gate Inheritance:
                 documentation: { weight: 10, checks: ['threshold_docs', 'methodology_docs', 'api_docs'] }
               }
             },
+            { id: 'TKT-148', title: 'Document the Agent Coding Stack (Architecture, Code, Ops)', state: 'BACKLOG', priority: 'P1', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-014', progress: 0, tags: ['Documentation', 'Architecture', 'Onboarding'], gates: { florentino_gate: 'APPROVED' },
+              context: {
+                ask: 'Create comprehensive documentation of the Cricket Playbook Agent Coding Stack covering Architecture, Code, and Ops layers in an engaging, human readable format',
+                goal: 'Anyone new to the project can understand how 12 AI agents collaborate with formal governance, veto rights, and quality gates. Make it digestible with sports and Godfather references.',
+                reason: 'Current docs are scattered. Need single "Agent Stack Bible" that explains the whole system like a playbook, not a technical manual.',
+                audible: [
+                  'Write docs/AGENT_STACK.md as the definitive guide',
+                  'Section 1: The Family (Agent Hierarchy) - who reports to whom, like a mafia org chart',
+                  'Section 2: The Playbook (Architecture) - how data flows from raw to insights',
+                  'Section 3: The Rulebook (Governance) - Constitution, Task Integrity Loop, veto rights',
+                  'Section 4: The Locker Room (Code) - tech stack, file structure, key modules',
+                  'Section 5: The Front Office (Ops) - CI/CD, monitoring, deployment',
+                  'Section 6: The Scouting Report (Quality) - gates, testing, validation',
+                  'Use sports metaphors throughout: "calling an audible", "red zone offense", "closing out the game"',
+                  'Add Godfather references: "offers they cant refuse", "going to the mattresses", "leave the gun, take the cannoli"',
+                  'NO AI-speak: no dashes, no "leverage", no "synergy", write like a human sports analyst'
+                ]
+              },
+              plan: '1. Outline 6 sections with sports/Godfather themes. 2. Write Architecture section. 3. Write Governance section. 4. Write Code section. 5. Write Ops section. 6. Add diagrams. 7. Get Andy Flower domain review.'
+            },
 
             // Sprint 5.0+ Ideas (IDEA-XXX notation for unscoped work)
             { id: 'IDEA-001', title: 'Implement Match Phase Index', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 0, tags: ['Feature', 'Analytics'], gates: {},

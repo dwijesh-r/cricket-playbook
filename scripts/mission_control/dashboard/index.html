@@ -5236,22 +5236,22 @@
                     <div class="token-grid">
                         <div class="token-metric good" id="tokensUsed">
                             <div class="token-metric-icon">📊</div>
-                            <div class="token-metric-value">4.8M</div>
+                            <div class="token-metric-value">7.5M</div>
                             <div class="token-metric-label">Tokens Used</div>
                         </div>
                         <div class="token-metric" id="tokensRemaining">
                             <div class="token-metric-icon">🎯</div>
-                            <div class="token-metric-value">5.2M</div>
+                            <div class="token-metric-value">2.5M</div>
                             <div class="token-metric-label">Remaining</div>
                         </div>
                         <div class="token-metric good" id="avgDaily">
                             <div class="token-metric-icon">📈</div>
-                            <div class="token-metric-value">~600K</div>
+                            <div class="token-metric-value">~940K</div>
                             <div class="token-metric-label">Avg Daily</div>
                         </div>
                         <div class="token-metric good" id="daysLeft">
                             <div class="token-metric-icon">⏳</div>
-                            <div class="token-metric-value">21</div>
+                            <div class="token-metric-value">20</div>
                             <div class="token-metric-label">Days Left</div>
                         </div>
                     </div>
@@ -5259,10 +5259,10 @@
                     <div class="token-progress-section">
                         <div class="token-progress-header">
                             <span class="token-progress-title">Monthly Token Budget</span>
-                            <span class="token-progress-value" id="tokenProgressText">48% used • 10M limit</span>
+                            <span class="token-progress-value" id="tokenProgressText">75% used • 10M limit</span>
                         </div>
                         <div class="token-progress-bar">
-                            <div class="token-progress-fill" id="tokenProgressFill" style="width: 48%"></div>
+                            <div class="token-progress-fill" id="tokenProgressFill" style="width: 75%"></div>
                         </div>
                     </div>
 
@@ -5270,8 +5270,9 @@
                     <div class="token-insight-card" style="margin-top: 12px;">
                         <div class="token-insight-header">
                             <span class="token-insight-icon">📊</span>
-                            <span class="token-insight-title">Daily Usage Timeline (IST)</span>
+                            <span class="token-insight-title" id="usageGraphTitle">Daily Usage This Week (IST)</span>
                             <div style="display: flex; gap: 4px; margin-left: auto;">
+                                <button onclick="setUsageTab('day')" class="usage-tab" id="tab-day" style="padding: 2px 8px; font-size: 10px; border-radius: 4px; border: 1px solid var(--border); background: transparent; color: var(--text-secondary); cursor: pointer;">Day</button>
                                 <button onclick="setUsageTab('week')" class="usage-tab active" id="tab-week" style="padding: 2px 8px; font-size: 10px; border-radius: 4px; border: 1px solid var(--border); background: var(--accent-blue); color: white; cursor: pointer;">Week</button>
                                 <button onclick="setUsageTab('month')" class="usage-tab" id="tab-month" style="padding: 2px 8px; font-size: 10px; border-radius: 4px; border: 1px solid var(--border); background: transparent; color: var(--text-secondary); cursor: pointer;">Month</button>
                             </div>
@@ -5303,9 +5304,9 @@
                                 <span class="token-insight-title">Usage Pace Analysis</span>
                             </div>
                             <div class="token-insight-content">
-                                At current pace of <strong>~600K tokens/day</strong>, your budget will last approximately <strong>8-9 more days</strong>.
+                                At current pace of <strong>~940K tokens/day</strong>, remaining budget supports approximately <strong>2-3 more heavy days</strong>.
                                 <br><br>
-                                <strong>Status:</strong> ⚠️ Heavy usage - Sprint 5 EPIC-014 blitz consuming 180% of daily budget allowance. Consider spreading across days.
+                                <strong>Status:</strong> ⚠️ Heavy usage - EPIC-014 + EPIC-015 blitz consuming 265% of daily budget allowance. Prioritize remaining work carefully.
                             </div>
                         </div>
                         <div class="token-insight-card">
@@ -5314,9 +5315,9 @@
                                 <span class="token-insight-title">Model Usage Breakdown</span>
                             </div>
                             <div class="token-insight-content">
-                                <strong>Claude Opus 4.6:</strong> 88% of tokens (complex tasks, P2 ticket blitz)<br>
-                                <strong>Claude Sonnet 4.5:</strong> 9% of tokens (quick edits)<br>
-                                <strong>Claude Haiku 4.5:</strong> 3% of tokens (file searches)
+                                <strong>Claude Opus 4.6:</strong> 82% of tokens (complex tasks, EPIC-014/015)<br>
+                                <strong>Claude Sonnet 4.5:</strong> 14% of tokens (subagents, quick edits)<br>
+                                <strong>Claude Haiku 4.5:</strong> 4% of tokens (file searches)
                             </div>
                         </div>
                         <div class="token-insight-card">
@@ -5325,12 +5326,12 @@
                                 <span class="token-insight-title">Input vs Output (This Month)</span>
                             </div>
                             <div class="token-insight-content">
-                                <div style="margin-bottom: 10px; font-size: 11px; color: var(--text-tertiary);">How your 4.8M tokens are split:</div>
+                                <div style="margin-bottom: 10px; font-size: 11px; color: var(--text-tertiary);">How your 7.5M tokens are split:</div>
                                 <!-- Visual Progress Bars -->
                                 <div style="margin-bottom: 12px;">
                                     <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
                                         <span style="font-size: 12px;">📥 Input (Prompts)</span>
-                                        <span style="font-size: 12px; font-weight: 600;">3.6M <span style="color: var(--text-tertiary);">(75%)</span></span>
+                                        <span style="font-size: 12px; font-weight: 600;">5.6M <span style="color: var(--text-tertiary);">(75%)</span></span>
                                     </div>
                                     <div style="height: 8px; background: var(--bg-elevated); border-radius: 4px; overflow: hidden;">
                                         <div style="width: 75%; height: 100%; background: linear-gradient(90deg, #0a84ff, #5e5ce6); border-radius: 4px;"></div>
@@ -5339,7 +5340,7 @@
                                 <div style="margin-bottom: 12px;">
                                     <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
                                         <span style="font-size: 12px;">📤 Output (Responses)</span>
-                                        <span style="font-size: 12px; font-weight: 600;">1.2M <span style="color: var(--text-tertiary);">(25%)</span></span>
+                                        <span style="font-size: 12px; font-weight: 600;">1.9M <span style="color: var(--text-tertiary);">(25%)</span></span>
                                     </div>
                                     <div style="height: 8px; background: var(--bg-elevated); border-radius: 4px; overflow: hidden;">
                                         <div style="width: 25%; height: 100%; background: linear-gradient(90deg, #30d158, #34c759); border-radius: 4px;"></div>
@@ -5395,10 +5396,10 @@
                             </div>
                             <div class="token-insight-content">
                                 <strong>Current Period:</strong> Feb 1 - Feb 28, 2026<br>
-                                <strong>Days Remaining:</strong> 21 days<br>
+                                <strong>Days Remaining:</strong> 20 days<br>
                                 <strong>Renewal Date:</strong> March 9, 2026<br>
                                 <strong>Auto-renew:</strong> ✅ Enabled<br>
-                                <strong>Sessions Today:</strong> 3 (heavy sprint day)
+                                <strong>Sessions Today:</strong> 6+ (EPIC-015 agents + current)
                             </div>
                         </div>
                     </div>
@@ -8148,6 +8149,17 @@ Gate Inheritance:
 
         // Daily usage data (IST timezone) - stored for timeline
         const dailyUsageData = {
+            day: [
+                { date: '6AM', tokens: 0, label: '6AM', sessions: 0 },
+                { date: '8AM', tokens: 40, label: '8AM', sessions: 0 },
+                { date: '10AM', tokens: 180, label: '10AM', sessions: 1 },
+                { date: '12PM', tokens: 320, label: '12PM', sessions: 1 },
+                { date: '2PM', tokens: 580, label: '2PM', sessions: 3 },
+                { date: '4PM', tokens: 420, label: '4PM', sessions: 2 },
+                { date: '6PM', tokens: 350, label: '6PM', sessions: 2 },
+                { date: '8PM', tokens: 280, label: '8PM', sessions: 1 },
+                { date: '10PM', tokens: 150, label: '10PM', sessions: 1 },
+            ],
             week: [
                 { date: 'Feb 2', tokens: 120, label: 'Sun', sessions: 1 },
                 { date: 'Feb 3', tokens: 280, label: 'Mon', sessions: 2 },
@@ -8155,7 +8167,7 @@ Gate Inheritance:
                 { date: 'Feb 5', tokens: 380, label: 'Wed', sessions: 2 },
                 { date: 'Feb 6', tokens: 520, label: 'Thu', sessions: 3 },
                 { date: 'Feb 7', tokens: 680, label: 'Fri', sessions: 4 },
-                { date: 'Feb 8', tokens: 890, label: 'Sat', sessions: 5 },
+                { date: 'Feb 8', tokens: 1500, label: 'Sat', sessions: 6 },
             ],
             month: [
                 { date: 'Jan 27', tokens: 80, label: '27', sessions: 1 },
@@ -8170,7 +8182,7 @@ Gate Inheritance:
                 { date: 'Feb 5', tokens: 380, label: '5', sessions: 2 },
                 { date: 'Feb 6', tokens: 520, label: '6', sessions: 3 },
                 { date: 'Feb 7', tokens: 680, label: '7', sessions: 4 },
-                { date: 'Feb 8', tokens: 890, label: '8', sessions: 5 },
+                { date: 'Feb 8', tokens: 1500, label: '8', sessions: 6 },
             ]
         };
 
@@ -8186,6 +8198,15 @@ Gate Inheritance:
             if (activeTab) {
                 activeTab.style.background = 'var(--accent-blue)';
                 activeTab.style.color = 'white';
+            }
+            const titleEl = document.getElementById('usageGraphTitle');
+            if (titleEl) {
+                const titles = {
+                    day: 'Hourly Usage Today (IST)',
+                    week: 'Daily Usage This Week (IST)',
+                    month: 'Daily Usage This Month (IST)'
+                };
+                titleEl.textContent = titles[tab] || 'Usage Timeline (IST)';
             }
             renderUsageGraph();
         }

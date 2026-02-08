@@ -3074,6 +3074,41 @@
             font-size: 16px;
         }
 
+        .tech-purpose {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .purpose-divider {
+            color: var(--accent-purple);
+            font-size: 12px;
+            letter-spacing: 2px;
+            opacity: 0.6;
+            margin: 8px 0;
+        }
+
+        .purpose-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, rgba(191, 90, 242, 0.08) 0%, rgba(10, 132, 255, 0.08) 100%);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-purple);
+        }
+
+        .purpose-text strong {
+            color: var(--accent-purple);
+        }
+
+        @media (max-width: 600px) {
+            .tech-purpose { margin: 16px 0; }
+            .purpose-text { font-size: 13px; padding: 10px 16px; }
+            .purpose-divider { font-size: 10px; }
+        }
+
         .tech-last-updated {
             margin-top: 12px;
             font-size: 12px;
@@ -3165,6 +3200,106 @@
             font-size: 14px;
             color: var(--text-tertiary);
             margin-top: 8px;
+        }
+
+        .score-explainer {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px dashed var(--border);
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .explainer-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .explainer-divider {
+            color: var(--text-tertiary);
+            margin: 0 4px;
+        }
+
+        .score-tickets {
+            margin-top: 20px;
+            padding: 16px;
+            background: linear-gradient(135deg, rgba(191, 90, 242, 0.1) 0%, rgba(10, 132, 255, 0.1) 100%);
+            border: 1px dashed var(--accent-purple);
+            border-radius: 12px;
+        }
+
+        .score-tickets-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .score-tickets-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .score-tickets-epic {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            background: var(--accent-purple);
+            color: white;
+            border-radius: 12px;
+        }
+
+        .score-tickets-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .ticket-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 11px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .ticket-chip.running {
+            background: rgba(48, 209, 88, 0.2);
+            color: var(--accent-green);
+            border: 1px solid rgba(48, 209, 88, 0.3);
+        }
+
+        .ticket-chip.running:hover {
+            background: rgba(48, 209, 88, 0.3);
+        }
+
+        .ticket-chip.backlog {
+            background: rgba(142, 142, 147, 0.2);
+            color: var(--text-secondary);
+            border: 1px solid rgba(142, 142, 147, 0.3);
+        }
+
+        .ticket-chip.backlog:hover {
+            background: rgba(142, 142, 147, 0.3);
+        }
+
+        @media (max-width: 600px) {
+            .score-explainer { flex-direction: column; align-items: flex-start; gap: 6px; }
+            .explainer-divider { display: none; }
+            .score-tickets { padding: 12px; }
+            .score-tickets-header { flex-direction: column; align-items: flex-start; }
+            .ticket-chip { font-size: 10px; padding: 5px 10px; }
         }
 
         .score-categories {
@@ -4505,6 +4640,16 @@
                         <h1 class="tech-title">The Scouting Report</h1>
                     </div>
                     <p class="tech-subtitle">⚽ System Health, Quality Gates & AI Compliance Metrics</p>
+
+                    <!-- Purpose Statement -->
+                    <div class="tech-purpose">
+                        <div class="purpose-divider">— — — — — — — — — — — — — — —</div>
+                        <p class="purpose-text">
+                            <strong>🎯 Purpose:</strong> Monitor codebase health, track quality improvements, ensure compliance with AI safety standards, and maintain transparency in our engineering practices.
+                        </p>
+                        <div class="purpose-divider">— — — — — — — — — — — — — — —</div>
+                    </div>
+
                     <div class="tech-last-updated">
                         Last updated: <span id="healthLastUpdated">Loading...</span>
                         <button class="refresh-health-btn" onclick="refreshHealthData()">🔄 Refresh</button>
@@ -4525,8 +4670,31 @@
                             <h2>System Health Score</h2>
                             <div class="score-status" id="healthStatus">Loading...</div>
                             <div class="score-target">Target: 85/100 | Baseline: 67.4</div>
+                            <div class="score-explainer">
+                                <span class="explainer-item">📍 <strong>Baseline (67.4)</strong> — Where we started before EPIC-014</span>
+                                <span class="explainer-divider">—</span>
+                                <span class="explainer-item">🎯 <strong>Target (85)</strong> — Our goal for Foundation Fortification</span>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Health Score Improvement Tickets -->
+                    <div class="score-tickets">
+                        <div class="score-tickets-header">
+                            <span class="score-tickets-title">📈 Tickets Improving Health Score</span>
+                            <span class="score-tickets-epic">EPIC-014: Foundation Fortification</span>
+                        </div>
+                        <div class="score-tickets-list">
+                            <span class="ticket-chip running" onclick="showView('board')">TKT-136 Exception Handling</span>
+                            <span class="ticket-chip running" onclick="showView('board')">TKT-137 ML Baselines</span>
+                            <span class="ticket-chip running" onclick="showView('board')">TKT-138 FK Constraints</span>
+                            <span class="ticket-chip running" onclick="showView('board')">TKT-139 Integration Tests</span>
+                            <span class="ticket-chip running" onclick="showView('board')">TKT-140 Data Lineage</span>
+                            <span class="ticket-chip backlog">TKT-141 Incremental Ingest</span>
+                            <span class="ticket-chip backlog">TKT-143 Package Structure</span>
+                        </div>
+                    </div>
+
                     <div class="score-categories" id="healthCategories">
                         <!-- Dynamically populated -->
                     </div>

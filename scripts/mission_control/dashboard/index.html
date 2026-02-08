@@ -1407,6 +1407,7 @@
         .ticket.agent-lebron-james { border-left: 3px solid #552583; } /* Lakers Purple */
         .ticket.agent-brad-stevens { border-left: 3px solid #007a33; } /* Celtics Green */
         .ticket.agent-ime-udoka { border-left: 3px solid #ce1141; } /* Houston Rockets Red */
+        .ticket.agent-jayson-tatum { border-left: 3px solid #007a33; } /* Celtics Green */
 
         /* ⚽ Soccer */
         .ticket.agent-kevin-de-bruyne { border-left: 3px solid #12a0d7; } /* Napoli Light Blue */
@@ -1767,10 +1768,10 @@
             font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;
         }
         .roster-hero .spider-card .spider-canvas-wrap {
-            flex: 1; min-height: 280px; position: relative;
+            flex: 1; min-height: 300px; display: flex; align-items: center; justify-content: center;
         }
         .roster-hero .spider-card .spider-canvas-wrap canvas {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            display: block; max-width: 100%;
         }
         .spider-legend {
             display: flex; gap: 16px; flex-wrap: wrap; margin-top: 12px; justify-content: center;
@@ -4883,7 +4884,7 @@
                             </div>
                             <div class="stack-item">
                                 <span class="stack-icon">👥</span>
-                                <span class="stack-name">13 Specialized Agents</span>
+                                <span class="stack-name">14 Specialized Agents</span>
                                 <span class="stack-desc">Role-based architecture</span>
                             </div>
                             <div class="stack-item">
@@ -5890,6 +5891,36 @@
                 <rect x="20" y="40" width="24" height="8" fill="#333"/>
             </svg>`,
 
+            'Jayson Tatum': `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                <!-- BG: Celtics Green -->
+                <rect width="64" height="64" rx="8" fill="#007a33"/>
+                <!-- Hair - flat top style -->
+                <rect x="16" y="6" width="32" height="10" fill="#1A1A1A"/>
+                <rect x="14" y="10" width="4" height="6" fill="#1A1A1A"/>
+                <rect x="46" y="10" width="4" height="6" fill="#1A1A1A"/>
+                <!-- Face -->
+                <rect x="16" y="16" width="32" height="20" fill="#8B5A2B"/>
+                <rect x="12" y="20" width="4" height="12" fill="#8B5A2B"/>
+                <rect x="48" y="20" width="4" height="12" fill="#8B5A2B"/>
+                <!-- Eyes -->
+                <rect x="20" y="20" width="8" height="4" fill="white"/>
+                <rect x="36" y="20" width="8" height="4" fill="white"/>
+                <rect x="24" y="20" width="4" height="4" fill="#3D2314"/>
+                <rect x="40" y="20" width="4" height="4" fill="#3D2314"/>
+                <!-- Eyebrows -->
+                <rect x="20" y="16" width="8" height="3" fill="#1A1A1A"/>
+                <rect x="36" y="16" width="8" height="3" fill="#1A1A1A"/>
+                <!-- Nose -->
+                <rect x="28" y="24" width="8" height="4" fill="#7A4B1E"/>
+                <!-- Goatee -->
+                <rect x="24" y="32" width="16" height="4" fill="#1A1A1A"/>
+                <!-- Celtics Jersey -->
+                <rect x="8" y="40" width="48" height="24" fill="#007a33"/>
+                <!-- Gold trim -->
+                <rect x="8" y="40" width="48" height="3" fill="#ba9653"/>
+                <!-- Number 0 -->
+                <rect x="26" y="46" width="12" height="14" fill="#ba9653" fill-opacity="0" stroke="#FFFFFF" stroke-width="2"/>
+            </svg>`,
             'Ime Udoka': `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                 <!-- BG: Rockets Red -->
                 <rect width="64" height="64" rx="8" fill="#CE1141"/>
@@ -6131,7 +6162,8 @@
             'Florentino Pérez': { role: 'President & Chairman', team: 'Real Madrid' },
             'Founder': { role: 'The Founder', team: 'Cricket Playbook' },  // Alias for founder approval tickets
             'Pep Guardiola': { role: 'Tactical Analysis', team: 'Manchester City' },
-            'Ime Udoka': { role: 'DevOps Lead', team: 'Houston Rockets' }
+            'Ime Udoka': { role: 'DevOps Lead', team: 'Houston Rockets' },
+            'Jayson Tatum': { role: 'UX & Reader Flow', team: 'Boston Celtics' }
         };
 
         // Agent Skills (out of 10) - Index Card Skill Ratings
@@ -6200,6 +6232,11 @@
                 skills: { DevOps: 10, Automation: 10, MLOps: 9, Monitoring: 9, Deployment: 10 },
                 strengths: ['CI/CD automation', 'ML pipelines', 'System monitoring'],
                 weaknesses: ['Data analysis']
+            },
+            'Jayson Tatum': {
+                skills: { UX: 10, Readability: 10, Flow: 9, Skimmability: 10, Audit: 9 },
+                strengths: ['UX auditing', 'Reader flow optimization', 'Cognitive load reduction'],
+                weaknesses: ['Backend engineering']
             }
         };
 
@@ -6211,6 +6248,7 @@
             'LeBron James': 'nba',
             'Brad Stevens': 'nba',
             'Ime Udoka': 'nba',
+            'Jayson Tatum': 'nba',
             'Kevin de Bruyne': 'soccer',
             "N'Golo Kanté": 'soccer',
             'Pep Guardiola': 'soccer',
@@ -6230,6 +6268,7 @@
             'LeBron James': 'agent-lebron-james',
             'Brad Stevens': 'agent-brad-stevens',
             'Ime Udoka': 'agent-ime-udoka',
+            'Jayson Tatum': 'agent-jayson-tatum',
             'Kevin de Bruyne': 'agent-kevin-de-bruyne',
             "N'Golo Kanté": 'agent-ngolo-kante',
             'Pep Guardiola': 'agent-pep-guardiola',
@@ -7898,9 +7937,11 @@ Gate Inheritance:
             // Update mobile nav
             const mobileTab = document.querySelector(`.mobile-nav [onclick="showView('${view}')"]`);
             if (mobileTab) mobileTab.classList.add('active');
-            // Initialize Tech Health if selected
+            // Re-render view-specific content when tab becomes visible
             if (view === 'techHealth') {
                 initTechHealth();
+            } else if (view === 'roster') {
+                renderRosterHero();
             }
         }
 
@@ -8530,8 +8571,8 @@ Gate Inheritance:
                 'Engineering': { agents: ['Stephen Curry', 'Brad Stevens', 'Brock Purdy'], skills: ['Python', 'Architecture', 'CI_CD', 'Data_Pipeline', 'DuckDB', 'Systems'] },
                 'Analytics': { agents: ['Stephen Curry', 'Jose Mourinho', 'Pep Guardiola'], skills: ['Analytics', 'Analysis', 'ML_Ops', 'Patterns', 'Matchups'] },
                 'DevOps': { agents: ['Ime Udoka', 'Brad Stevens'], skills: ['DevOps', 'Automation', 'MLOps', 'Monitoring', 'Deployment'] },
-                'Quality': { agents: ["N'Golo Kanté", 'Brad Stevens'], skills: ['QA', 'Testing', 'Coverage', 'Quality', 'Diligence'] },
-                'Design': { agents: ['Kevin de Bruyne'], skills: ['Visualization', 'UI_Design', 'CSS', 'Creativity', 'JavaScript'] },
+                'Quality': { agents: ["N'Golo Kanté", 'Brad Stevens', 'Jayson Tatum'], skills: ['QA', 'Testing', 'Coverage', 'Quality', 'Diligence', 'Audit'] },
+                'Design': { agents: ['Kevin de Bruyne', 'Jayson Tatum'], skills: ['Visualization', 'UI_Design', 'CSS', 'Creativity', 'JavaScript', 'UX', 'Readability'] },
                 'Domain': { agents: ['Andy Flower', 'Virat Kohli', 'Pep Guardiola'], skills: ['Cricket', 'Domain', 'Tactics', 'Editorial', 'Writing'] },
                 'Comms': { agents: ['LeBron James', 'Tom Brady'], skills: ['Communication', 'Marketing', 'Social', 'Branding'] }
             };
@@ -8584,7 +8625,7 @@ Gate Inheritance:
                 </div>
                 <div class="spider-card">
                     <div class="spider-title">Team Skill Map</div>
-                    <div class="spider-subtitle">Aggregate capability across all 13 agents — gaps highlighted in red</div>
+                    <div class="spider-subtitle">Aggregate capability across all 14 agents — gaps highlighted in red</div>
                     <div class="spider-canvas-wrap">
                         <canvas id="spiderCanvas"></canvas>
                     </div>
@@ -8596,8 +8637,8 @@ Gate Inheritance:
                 </div>
             `;
 
-            // Draw spider chart
-            setTimeout(() => renderSpiderChart(categoryScores, categoryGaps, categoryAgentCount), 50);
+            // Draw spider chart — use rAF to ensure DOM is laid out before measuring
+            requestAnimationFrame(() => renderSpiderChart(categoryScores, categoryGaps, categoryAgentCount));
         }
 
         function renderSpiderChart(scores, gaps, agentCounts) {
@@ -8606,9 +8647,9 @@ Gate Inheritance:
             const wrap = canvas.parentElement;
             const rect = wrap.getBoundingClientRect();
             const dpr = window.devicePixelRatio || 1;
-            const w = Math.floor(rect.width);
-            const h = Math.floor(rect.height);
-            if (w < 10 || h < 10) return;
+            // Use container dimensions if available, otherwise use sensible defaults
+            const w = Math.max(Math.floor(rect.width), 380);
+            const h = Math.max(Math.floor(rect.height), 300);
             canvas.width = w * dpr;
             canvas.height = h * dpr;
             canvas.style.width = w + 'px';

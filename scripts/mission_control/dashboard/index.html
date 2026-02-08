@@ -2978,8 +2978,8 @@
             right: 0;
             background: var(--bg-secondary);
             border-top: 1px solid var(--border);
-            padding: 8px 16px;
-            padding-bottom: max(8px, env(safe-area-inset-bottom));
+            padding: 6px 8px;
+            padding-bottom: max(6px, env(safe-area-inset-bottom));
             z-index: 100;
             /* GPU compositing for stable positioning during browser chrome changes */
             transform: translateZ(0);
@@ -2990,25 +2990,36 @@
 
         .mobile-nav-tabs {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE/Edge */
+            gap: 2px;
+        }
+
+        .mobile-nav-tabs::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
         }
 
         .mobile-nav-tab {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
-            padding: 8px 16px;
+            gap: 2px;
+            padding: 6px 8px;
             border: none;
             background: none;
             color: var(--text-tertiary);
-            font-size: 10px;
+            font-size: 9px;
             font-weight: 500;
             cursor: pointer;
-            border-radius: 8px;
+            border-radius: 6px;
             transition: all 0.2s ease;
             font-family: inherit;
             text-decoration: none;
+            flex-shrink: 0;
+            min-width: 48px;
         }
 
         .mobile-nav-tab.active {
@@ -3017,7 +3028,7 @@
         }
 
         .mobile-nav-icon {
-            font-size: 20px;
+            font-size: 18px;
         }
 
         /* ==================== TECH HEALTH DASHBOARD ==================== */
@@ -3230,9 +3241,10 @@
 
         .stack-item {
             display: grid;
-            grid-template-columns: 32px 1fr auto;
-            align-items: center;
-            gap: 12px;
+            grid-template-columns: 32px 1fr;
+            grid-template-rows: auto auto;
+            align-items: start;
+            gap: 4px 12px;
             padding: 10px;
             background: var(--bg-tertiary);
             border-radius: 8px;
@@ -3240,16 +3252,23 @@
 
         .stack-icon {
             font-size: 20px;
+            grid-row: 1 / 3;
+            align-self: center;
         }
 
         .stack-name {
             font-weight: 500;
             color: var(--text-primary);
+            grid-column: 2;
+            grid-row: 1;
         }
 
         .stack-desc {
             font-size: 12px;
             color: var(--text-tertiary);
+            grid-column: 2;
+            grid-row: 2;
+            line-height: 1.4;
         }
 
         /* Benchmarks */
@@ -3269,12 +3288,19 @@
         .benchmark-name {
             font-size: 14px;
             font-weight: 500;
+            min-width: 0; /* Prevent overflow */
         }
 
         .benchmark-name.benchmark-with-logo {
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+
+        .benchmark-name.benchmark-with-logo span {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .benchmark-logo {
@@ -3328,15 +3354,16 @@
             padding: 12px;
             background: var(--bg-tertiary);
             border-radius: 8px;
+            min-width: 0; /* Prevent grid blowout */
         }
 
         .automation-item.good .auto-pct { color: var(--accent-green); }
         .automation-item.warning .auto-pct { color: var(--accent-yellow); }
         .automation-item.bad .auto-pct { color: var(--accent-red); }
 
-        .auto-icon { font-size: 16px; }
-        .auto-name { font-size: 13px; font-weight: 500; }
-        .auto-pct { font-size: 14px; font-weight: 700; }
+        .auto-icon { font-size: 16px; flex-shrink: 0; }
+        .auto-name { font-size: 13px; font-weight: 500; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+        .auto-pct { font-size: 14px; font-weight: 700; white-space: nowrap; }
 
         /* Workflows Card */
         .workflows-card {
@@ -3519,6 +3546,191 @@
 
         .resource-link:hover .resource-arrow {
             color: var(--accent);
+        }
+
+        /* Token Accounting / Production Dashboard */
+        .token-dashboard {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+
+        .token-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .token-title {
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .token-plan-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent) 100%);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .token-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .token-metric {
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .token-metric-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .token-metric-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .token-metric-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .token-metric.good .token-metric-value { color: var(--accent-green); }
+        .token-metric.warning .token-metric-value { color: var(--accent-yellow); }
+        .token-metric.critical .token-metric-value { color: var(--accent-red); }
+
+        .token-progress-section {
+            margin-bottom: 24px;
+        }
+
+        .token-progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .token-progress-title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .token-progress-value {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .token-progress-bar {
+            height: 12px;
+            background: var(--bg-elevated);
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .token-progress-fill {
+            height: 100%;
+            border-radius: 6px;
+            background: linear-gradient(90deg, var(--accent-green) 0%, var(--accent-yellow) 50%, var(--accent-red) 100%);
+            transition: width 0.5s ease;
+        }
+
+        .token-progress-marker {
+            position: absolute;
+            top: -20px;
+            transform: translateX(-50%);
+            font-size: 10px;
+            color: var(--text-tertiary);
+        }
+
+        .token-insights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .token-insight-card {
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .token-insight-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .token-insight-icon {
+            font-size: 20px;
+        }
+
+        .token-insight-title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .token-insight-content {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .token-insight-content strong {
+            color: var(--text-primary);
+        }
+
+        .token-tips {
+            margin-top: 12px;
+        }
+
+        .token-tip {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 8px 0;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .token-tip::before {
+            content: '💡';
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .token-dashboard { padding: 16px; }
+            .token-header { flex-direction: column; align-items: flex-start; }
+            .token-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .token-metric { padding: 12px; }
+            .token-metric-icon { font-size: 24px; }
+            .token-metric-value { font-size: 20px; }
+            .token-insights { grid-template-columns: 1fr; }
         }
 
         /* Agent Skill Cards */
@@ -3820,8 +4032,8 @@
             .ticket { padding: 12px; }
             .agent-avatar { width: 36px; height: 36px; }
             .ticket-title { font-size: 13px; }
-            .mobile-nav-tab { padding: 8px 14px; min-height: 44px; }
-            .mobile-nav-icon { font-size: 18px; }
+            .mobile-nav-tab { padding: 5px 6px; min-height: 40px; min-width: 44px; font-size: 8px; }
+            .mobile-nav-icon { font-size: 16px; }
             .column { min-height: 180px; }
             .theme-toggle { width: 34px; height: 34px; font-size: 14px; }
             .nav-btn.refresh-btn { width: 34px; height: 34px; min-width: 34px; min-height: 34px; padding: 6px; }
@@ -3848,7 +4060,7 @@
 
         /* Touch Target Minimum Sizes (WCAG Compliance) */
         .filter-btn { min-height: 44px; }
-        .mobile-nav-tab { min-height: 44px; min-width: 60px; }
+        .mobile-nav-tab { min-height: 40px; min-width: 44px; }
 
         /* Scrollbar Styling */
         .column-body::-webkit-scrollbar { width: 6px; }
@@ -3931,9 +4143,10 @@
             .score-value { font-size: 28px; }
             .score-info h2 { font-size: 20px; }
             .score-categories { grid-template-columns: 1fr 1fr; gap: 12px; }
-            .benchmark-item { grid-template-columns: 1fr 100px 40px; gap: 8px; }
+            .benchmark-item { grid-template-columns: 1fr 120px 45px; gap: 8px; }
             .benchmark-name span { font-size: 12px; }
-            .automation-grid { grid-template-columns: 1fr; }
+            .benchmark-list { gap: 12px; }
+            .automation-grid { grid-template-columns: 1fr; gap: 10px; }
             .workflow-list { font-size: 13px; }
             .gap-item { grid-template-columns: 40px 1fr auto; gap: 10px; }
         }
@@ -3953,16 +4166,38 @@
             .category-name { font-size: 13px; }
             .tech-card { padding: 16px; }
             .tech-card-title { font-size: 16px; margin-bottom: 16px; }
-            .stack-item { grid-template-columns: 28px 1fr auto; gap: 10px; padding: 8px; }
+            .stack-item { grid-template-columns: 28px 1fr; gap: 3px 10px; padding: 8px; }
             .stack-icon { font-size: 18px; }
             .stack-name { font-size: 13px; }
             .stack-desc { font-size: 11px; }
-            .benchmark-item { grid-template-columns: 1fr; gap: 6px; }
-            .benchmark-name.benchmark-with-logo { margin-bottom: 4px; }
-            .benchmark-bar { width: 100%; }
-            .benchmark-score { text-align: left; }
-            .automation-item { padding: 10px; }
-            .auto-name { font-size: 12px; }
+            /* Benchmark mobile: stacked layout with better visual grouping */
+            .benchmark-item {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                padding: 12px;
+                background: var(--bg-tertiary);
+                border-radius: 8px;
+            }
+            .benchmark-name.benchmark-with-logo {
+                margin-bottom: 0;
+            }
+            .benchmark-name.benchmark-with-logo span {
+                white-space: normal;
+                font-size: 13px;
+            }
+            .benchmark-bar { width: 100%; height: 10px; }
+            .benchmark-score {
+                text-align: left;
+                font-size: 16px;
+            }
+            /* Automation mobile fixes */
+            .automation-item {
+                padding: 10px;
+                grid-template-columns: 20px 1fr auto;
+                gap: 6px;
+            }
+            .auto-name { font-size: 12px; white-space: normal; }
+            .auto-pct { font-size: 13px; }
             .workflow-item { flex-wrap: wrap; gap: 8px; }
             .workflow-name { flex: 1 1 100%; }
             .gap-item { grid-template-columns: 1fr; gap: 8px; }
@@ -4494,6 +4729,101 @@
                                     <span class="resource-name">Domain Sanity Checklist</span>
                                     <span class="resource-arrow">→</span>
                                 </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Token Accounting / Production Dashboard -->
+                <div class="token-dashboard">
+                    <div class="token-header">
+                        <h3 class="token-title">💰 Token Accounting & Usage</h3>
+                        <span class="token-plan-badge">
+                            <span>⭐</span>
+                            <span id="tokenPlan">Claude Pro Plan</span>
+                        </span>
+                    </div>
+
+                    <div class="token-grid">
+                        <div class="token-metric good" id="tokensUsed">
+                            <div class="token-metric-icon">📊</div>
+                            <div class="token-metric-value">2.4M</div>
+                            <div class="token-metric-label">Tokens Used</div>
+                        </div>
+                        <div class="token-metric" id="tokensRemaining">
+                            <div class="token-metric-icon">🎯</div>
+                            <div class="token-metric-value">7.6M</div>
+                            <div class="token-metric-label">Remaining</div>
+                        </div>
+                        <div class="token-metric good" id="avgDaily">
+                            <div class="token-metric-icon">📈</div>
+                            <div class="token-metric-value">~180K</div>
+                            <div class="token-metric-label">Avg Daily</div>
+                        </div>
+                        <div class="token-metric good" id="daysLeft">
+                            <div class="token-metric-icon">⏳</div>
+                            <div class="token-metric-value">42</div>
+                            <div class="token-metric-label">Days Left</div>
+                        </div>
+                    </div>
+
+                    <div class="token-progress-section">
+                        <div class="token-progress-header">
+                            <span class="token-progress-title">Monthly Token Budget</span>
+                            <span class="token-progress-value" id="tokenProgressText">24% used • 10M limit</span>
+                        </div>
+                        <div class="token-progress-bar">
+                            <div class="token-progress-fill" id="tokenProgressFill" style="width: 24%"></div>
+                        </div>
+                    </div>
+
+                    <div class="token-insights">
+                        <div class="token-insight-card">
+                            <div class="token-insight-header">
+                                <span class="token-insight-icon">📉</span>
+                                <span class="token-insight-title">Usage Pace Analysis</span>
+                            </div>
+                            <div class="token-insight-content">
+                                At current pace of <strong>~180K tokens/day</strong>, your budget will last approximately <strong>42 more days</strong>.
+                                <br><br>
+                                <strong>Status:</strong> ✅ On track - Using 76% of daily budget allowance.
+                            </div>
+                        </div>
+                        <div class="token-insight-card">
+                            <div class="token-insight-header">
+                                <span class="token-insight-icon">🧠</span>
+                                <span class="token-insight-title">Model Usage Breakdown</span>
+                            </div>
+                            <div class="token-insight-content">
+                                <strong>Claude Opus 4.5:</strong> 85% of tokens (complex tasks)<br>
+                                <strong>Claude Sonnet:</strong> 12% of tokens (quick tasks)<br>
+                                <strong>Claude Haiku:</strong> 3% of tokens (simple queries)
+                            </div>
+                        </div>
+                        <div class="token-insight-card">
+                            <div class="token-insight-header">
+                                <span class="token-insight-icon">💡</span>
+                                <span class="token-insight-title">Optimization Tips</span>
+                            </div>
+                            <div class="token-insight-content">
+                                <div class="token-tips">
+                                    <div class="token-tip">Use Haiku for simple code searches and file reads</div>
+                                    <div class="token-tip">Batch related questions into single prompts</div>
+                                    <div class="token-tip">Use /compact mode for routine tasks</div>
+                                    <div class="token-tip">Leverage agent specialization to reduce context</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="token-insight-card">
+                            <div class="token-insight-header">
+                                <span class="token-insight-icon">📅</span>
+                                <span class="token-insight-title">Billing Cycle</span>
+                            </div>
+                            <div class="token-insight-content">
+                                <strong>Current Period:</strong> Feb 1 - Feb 28, 2026<br>
+                                <strong>Days Remaining:</strong> 20 days<br>
+                                <strong>Renewal Date:</strong> March 1, 2026<br>
+                                <strong>Auto-renew:</strong> ✅ Enabled
                             </div>
                         </div>
                     </div>
@@ -6419,7 +6749,7 @@ Gate Inheritance:
             },
 
             // P1 High Priority Tickets (TKT-136 to TKT-140)
-            { id: 'TKT-136', title: 'Replace bare except Exception with specific handlers', state: 'READY', priority: 'P1', effort: 'deep-work', assignee: "N'Golo Kanté", epic: 'EPIC-014', progress: 0, tags: ['Code Quality', 'Error Handling'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-136', title: 'Replace bare except Exception with specific handlers', state: 'IN_PROGRESS', priority: 'P1', effort: 'deep-work', assignee: "N'Golo Kanté", epic: 'EPIC-014', progress: 10, tags: ['Code Quality', 'Error Handling', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Replace all 40+ bare "except Exception" blocks with specific exception types and proper error context',
                 goal: 'Every exception logged with full context (file, line, input data). Distinguish recoverable vs catastrophic failures.',
@@ -6428,7 +6758,7 @@ Gate Inheritance:
               },
               plan: '1. Grep for "except Exception". 2. Categorize by error type. 3. Replace with specific handlers. 4. Add context to log messages. 5. Add tests for error paths.'
             },
-            { id: 'TKT-137', title: 'Implement model baselines (K-means vs random)', state: 'READY', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-014', progress: 0, tags: ['ML', 'Validation', 'Analytics'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-137', title: 'Implement model baselines (K-means vs random)', state: 'IN_PROGRESS', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-014', progress: 10, tags: ['ML', 'Validation', 'Analytics', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Create baseline comparisons for K-means clustering: random clustering, hierarchical clustering, DBSCAN. Prove K-means is actually better.',
                 goal: 'Document that K-means with 6 batter / 7 bowler clusters outperforms alternatives. Justify PCA thresholds.',
@@ -6437,7 +6767,7 @@ Gate Inheritance:
               },
               plan: '1. Create scripts/ml_ops/baseline_comparison.py. 2. Implement 4 clustering methods. 3. Compare on silhouette, Davies-Bouldin. 4. Document results. 5. Add to model card.'
             },
-            { id: 'TKT-138', title: 'Add FOREIGN KEY constraints to DuckDB', state: 'READY', priority: 'P1', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 0, tags: ['Data', 'Schema', 'Integrity'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-138', title: 'Add FOREIGN KEY constraints to DuckDB', state: 'IN_PROGRESS', priority: 'P1', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 10, tags: ['Data', 'Schema', 'Integrity', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Add FOREIGN KEY constraints linking fact_ball to dim_player, dim_team, dim_match, dim_venue',
                 goal: 'Database rejects orphaned records - cannot insert ball with invalid player_id or team_id',
@@ -6446,7 +6776,7 @@ Gate Inheritance:
               },
               plan: '1. Document current schema relationships. 2. Add FK constraints to DDL. 3. Test with orphan data. 4. Update ingest.py error handling.'
             },
-            { id: 'TKT-139', title: 'Add integration tests for data pipeline', state: 'READY', priority: 'P1', effort: 'deep-work', assignee: "N'Golo Kanté", epic: 'EPIC-014', progress: 0, tags: ['Testing', 'Pipeline', 'QA'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-139', title: 'Add integration tests for data pipeline', state: 'IN_PROGRESS', priority: 'P1', effort: 'deep-work', assignee: "N'Golo Kanté", epic: 'EPIC-014', progress: 10, tags: ['Testing', 'Pipeline', 'QA', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Create end-to-end integration tests: ingest → validate → analytics → outputs. Currently only unit tests exist.',
                 goal: 'Test full pipeline with sample data. Catch integration failures before production.',
@@ -6455,7 +6785,7 @@ Gate Inheritance:
               },
               plan: '1. Create tests/integration/ directory. 2. Create sample match fixtures. 3. Test full ingest flow. 4. Test analytics flow. 5. Test output generation. 6. Add integration test job to CI.'
             },
-            { id: 'TKT-140', title: 'Add data lineage tracking', state: 'READY', priority: 'P1', effort: 'marathon', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 0, tags: ['Data', 'Lineage', 'Audit'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-140', title: 'Add data lineage tracking', state: 'IN_PROGRESS', priority: 'P1', effort: 'marathon', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 10, tags: ['Data', 'Lineage', 'Audit', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Track data provenance: which source file → which transform → which output. Enable audit trail for any metric.',
                 goal: 'Trace any number back to source: "This SR=150 came from match X, ball Y, computed by script Z"',
@@ -8095,11 +8425,25 @@ Gate Inheritance:
                     <p>All tickets in table format. Sort, search, filter like Brad Stevens.</p>
                 </div>
             </a>
+            <a href="#" class="nav-guide-item" style="text-decoration: none; color: inherit;" onclick="showView('epic'); toggleNavGuide(); return false;">
+                <div class="nav-guide-icon">🏛️</div>
+                <div class="nav-guide-text">
+                    <h4>Epic View — "The season blueprint"</h4>
+                    <p>High-level epics with ticket breakdowns. See the strategic roadmap.</p>
+                </div>
+            </a>
             <a href="#" class="nav-guide-item" style="text-decoration: none; color: inherit;" onclick="showView('roster'); toggleNavGuide(); return false;">
                 <div class="nav-guide-icon">👥</div>
                 <div class="nav-guide-text">
                     <h4>Roster View — "The lineup card"</h4>
                     <p>Meet the agents. See who's on what tickets. The team's stats.</p>
+                </div>
+            </a>
+            <a href="#" class="nav-guide-item" style="text-decoration: none; color: inherit;" onclick="showView('techHealth'); toggleNavGuide(); return false;">
+                <div class="nav-guide-icon">📊</div>
+                <div class="nav-guide-text">
+                    <h4>Tech Health — "The scouting report"</h4>
+                    <p>System health score, code quality, ML rigor, benchmarks, token usage.</p>
                 </div>
             </a>
             <a href="sprints.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">

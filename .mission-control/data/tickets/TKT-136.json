@@ -1,0 +1,26 @@
+{
+  "id": "TKT-136",
+  "title": "Replace bare except Exception with specific handlers",
+  "state": "DONE",
+  "priority": "P1",
+  "progress_pct": 100,
+  "description": "Replace all 40+ bare except Exception blocks with specific exception types",
+  "owner": "N'Golo Kante",
+  "assignee": "N'Golo Kante",
+  "sprint_id": "SPRINT-001",
+  "epic": "EPIC-014",
+  "tags": [
+    "Code Quality",
+    "Error Handling"
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED"
+    },
+    "founder_validation": {
+      "status": "APPROVED"
+    }
+  },
+  "created_at": "2026-02-08T00:00:00.000000Z",
+  "updated_at": "2026-02-08T00:00:00.000000Z"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "TKT-140",
+  "title": "Add data lineage tracking",
+  "state": "DONE",
+  "priority": "P1",
+  "progress_pct": 100,
+  "description": "Track data provenance: which source file -> which transform -> which output",
+  "owner": "Brock Purdy",
+  "assignee": "Brock Purdy",
+  "sprint_id": "SPRINT-001",
+  "epic": "EPIC-014",
+  "tags": [
+    "Data",
+    "Lineage",
+    "Audit"
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED"
+    },
+    "founder_validation": {
+      "status": "APPROVED"
+    }
+  },
+  "created_at": "2026-02-08T00:00:00.000000Z",
+  "updated_at": "2026-02-08T00:00:00.000000Z"
+}

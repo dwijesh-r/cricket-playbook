@@ -1,0 +1,27 @@
+{
+  "id": "TKT-137",
+  "title": "Implement model baselines (K-means vs random)",
+  "state": "DONE",
+  "priority": "P1",
+  "progress_pct": 100,
+  "description": "Create baseline comparisons for K-means clustering vs random, hierarchical, DBSCAN",
+  "owner": "Ime Udoka",
+  "assignee": "Ime Udoka",
+  "sprint_id": "SPRINT-001",
+  "epic": "EPIC-014",
+  "tags": [
+    "ML",
+    "Validation",
+    "Analytics"
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED"
+    },
+    "founder_validation": {
+      "status": "APPROVED"
+    }
+  },
+  "created_at": "2026-02-08T00:00:00.000000Z",
+  "updated_at": "2026-02-08T00:00:00.000000Z"
+}

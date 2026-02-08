@@ -1,0 +1,19 @@
+{
+  "id": "IDEA-002",
+  "title": "Create CricPom (KenPom clone)",
+  "state": "IDEA",
+  "priority": "P0",
+  "progress_pct": 0,
+  "description": "Build cricket equivalent of KenPom basketball analytics",
+  "owner": "Jose Mourinho",
+  "assignee": "Jose Mourinho",
+  "sprint_id": "SPRINT-001",
+  "epic": null,
+  "tags": [
+    "Feature",
+    "Research"
+  ],
+  "gates": {},
+  "created_at": "2026-02-08T00:00:00.000000Z",
+  "updated_at": "2026-02-08T00:00:00.000000Z"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "IDEA-001",
+  "title": "Implement Match Phase Index",
+  "state": "IDEA",
+  "priority": "P1",
+  "progress_pct": 0,
+  "description": "Create composite index measuring player impact by match phase",
+  "owner": "Stephen Curry",
+  "assignee": "Stephen Curry",
+  "sprint_id": "SPRINT-001",
+  "epic": null,
+  "tags": [
+    "Feature",
+    "Analytics"
+  ],
+  "gates": {},
+  "created_at": "2026-02-08T00:00:00.000000Z",
+  "updated_at": "2026-02-08T00:00:00.000000Z"
+}

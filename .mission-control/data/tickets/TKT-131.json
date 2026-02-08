@@ -1,0 +1,29 @@
+{
+  "id": "TKT-131",
+  "title": "Create UI/UX Procedures document",
+  "state": "DONE",
+  "priority": "P2",
+  "progress_pct": 100,
+  "description": "Create docs/ux/PROCEDURES.md documenting the UI/UX development workflow",
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
+  "sprint_id": "SPRINT-001",
+  "epic": "EPIC-010",
+  "tags": [
+    "Documentation",
+    "UX"
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED"
+    },
+    "domain_review": {
+      "status": "PASS"
+    },
+    "founder_review": {
+      "status": "APPROVED"
+    }
+  },
+  "created_at": "2026-02-08T00:00:00.000000Z",
+  "updated_at": "2026-02-08T00:00:00.000000Z"
+}

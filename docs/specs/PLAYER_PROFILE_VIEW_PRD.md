@@ -29,7 +29,7 @@ Currently, The Lab's Teams section displays player names without any interactivi
 2. Cross-reference multiple data points manually
 3. Lack context on player role, strengths, and vulnerabilities
 
-This creates friction that disrupts the reading experience and fails to leverage our existing comprehensive player data. **We have all the data - it's just not surfaced to users.**
+This creates friction that disrupts the reading experience and fails to surface our existing player data. **We have all the data - it's just not surfaced to users.**
 
 ### 1.3 User Story
 
@@ -766,7 +766,7 @@ Phase 3: Review (PPV-010, PPV-011, PPV-012)
 **Analysis:**
 - **Removes preparation burden:** Yes - users don't need external research
 - **Improves decision-making:** Yes - clear matchup data for fantasy/analysis
-- **Leverages existing data:** Yes - all data already generated, just needs surfacing
+- **Uses existing data:** Yes - all data already generated, just needs surfacing
 - **Improves product stickiness:** Yes - interactive element keeps users engaged
 - **Differentiator:** Yes - this depth of player data in one click is uncommon
 

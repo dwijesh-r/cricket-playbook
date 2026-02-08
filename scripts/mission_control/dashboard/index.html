@@ -2276,6 +2276,8 @@
         .modal-link.disabled:hover { background: var(--bg-secondary); }
         .modal-link-icon { font-size: 16px; }
         .modal-link-text { font-size: 14px; font-weight: 500; }
+        .modal-plan-inline { display: flex; gap: 8px; padding: 10px 12px; background: var(--bg-tertiary); border-radius: 8px; font-size: 13px; line-height: 1.5; color: var(--text-secondary); }
+        .modal-plan-text { flex: 1; }
         .modal-link-arrow { margin-left: auto; color: var(--text-tertiary); }
 
         /* Link Categories - Collapsible with Visual Zing */
@@ -4620,7 +4622,7 @@
                             <div class="stat-label">In Progress</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value accent-orange" id="statReview">13</div>
+                            <div class="stat-value accent-orange" id="statReview">1</div>
                             <div class="stat-label">In Review</div>
                         </div>
                         <div class="stat-item">
@@ -4628,7 +4630,7 @@
                             <div class="stat-label">🌹 Founder</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value accent-green" id="statDone">121</div>
+                            <div class="stat-value accent-green" id="statDone">133</div>
                             <div class="stat-label">Done</div>
                         </div>
                     </div>
@@ -6116,9 +6118,9 @@
             'Brock Purdy': { role: 'Data Pipeline', team: 'San Francisco 49ers' },
             'Andy Flower': { role: 'Cricket Domain Expert', team: 'Royal Challengers Bengaluru' },
             'Virat Kohli': { role: 'Editorial Lead', team: 'Royal Challengers Bengaluru' },
-            "N'Golo Kanté": { role: 'QA Lead', team: 'Al-Ittihad' },
-            'Florentino Perez': { role: 'Founder', team: 'Real Madrid' },
-            'Florentino Pérez': { role: 'Founder', team: 'Real Madrid' },
+            "N'Golo Kanté": { role: 'QA Lead', team: 'France' },
+            'Florentino Perez': { role: 'President & Chairman', team: 'Real Madrid' },
+            'Florentino Pérez': { role: 'President & Chairman', team: 'Real Madrid' },
             'Founder': { role: 'The Founder', team: 'Cricket Playbook' },  // Alias for founder approval tickets
             'Pep Guardiola': { role: 'Tactical Analysis', team: 'Manchester City' },
             'Ime Udoka': { role: 'DevOps Lead', team: 'Houston Rockets' }
@@ -6844,7 +6846,7 @@
             // =========================================================================
 
             // P0 CRITICAL - Must fix immediately
-            { id: 'TKT-114', title: 'Add schema validation to CI pipeline', state: 'REVIEW', priority: 'P0', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'Data Quality', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-114', title: 'Add schema validation to CI pipeline', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-008', progress: 100, tags: ['DevOps', 'CI/CD', 'Data Quality', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               parent: 'TKT-113',
               founderReviewNote: 'CRITICAL: Schema validation prevents broken analytics from reaching production. Review the CI integration approach.',
               context: {
@@ -6855,7 +6857,7 @@
               },
               plan: '1. Add new step to .github/workflows/ci.yml after pytest. 2. Run python scripts/core/validate_schema.py. 3. Fail workflow if exit code != 0. 4. Test with intentional schema break.'
             },
-            { id: 'TKT-115', title: 'Add output validation to CI pipeline', state: 'REVIEW', priority: 'P0', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'Data Quality', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-115', title: 'Add output validation to CI pipeline', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-008', progress: 100, tags: ['DevOps', 'CI/CD', 'Data Quality', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               parent: 'TKT-113',
               founderReviewNote: 'CRITICAL: Output validation catches impossible T20 values (entry points > 120, negative economy). Review CI integration.',
               context: {
@@ -6868,7 +6870,7 @@
             },
 
             // P1 HIGH - Should fix this sprint
-            { id: 'TKT-116', title: 'Create model retraining pipeline', state: 'REVIEW', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'MLOps', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-116', title: 'Create model retraining pipeline', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['DevOps', 'CI/CD', 'MLOps', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               parent: 'TKT-113',
               founderReviewNote: 'HIGH: Model retraining automation ensures player archetypes stay current with new data. Review the workflow triggers.',
               context: {
@@ -6879,7 +6881,7 @@
               },
               plan: '1. Create ml-retrain.yml with workflow_run trigger. 2. Install dependencies. 3. Run clustering script. 4. Commit updated tags. 5. Trigger ml-health-check.yml.'
             },
-            { id: 'TKT-117', title: 'Create output generation pipeline', state: 'REVIEW', priority: 'P1', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'Automation', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-117', title: 'Create output generation pipeline', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-008', progress: 100, tags: ['DevOps', 'CI/CD', 'Automation', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               parent: 'TKT-113',
               founderReviewNote: 'HIGH: Output generation automation ensures stat packs and depth charts are always current. Review the workflow chain.',
               context: {
@@ -6890,7 +6892,7 @@
               },
               plan: '1. Create generate-outputs.yml with workflow_run trigger. 2. Run generate_stat_packs.py, generate_depth_charts.py, generate_predicted_xii.py. 3. Validate outputs. 4. Commit changes.'
             },
-            { id: 'TKT-118', title: 'Chain analytics views in ingestion workflow', state: 'REVIEW', priority: 'P1', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'Data Pipeline', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-118', title: 'Chain analytics views in ingestion workflow', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-008', progress: 100, tags: ['DevOps', 'CI/CD', 'Data Pipeline', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               parent: 'TKT-113',
               founderReviewNote: 'HIGH: Analytics views must refresh after ingestion. Review the ingest.yml modification.',
               context: {
@@ -6901,7 +6903,7 @@
               },
               plan: '1. Add analytics_ipl.py step to ingest.yml after ingestion. 2. Add validate_schema.py as validation step. 3. Update workflow documentation.'
             },
-            { id: 'TKT-119', title: 'Add dependency lock file for reproducibility', state: 'REVIEW', priority: 'P1', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'Dependencies', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-119', title: 'Add dependency lock file for reproducibility', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-008', progress: 100, tags: ['DevOps', 'CI/CD', 'Dependencies', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               parent: 'TKT-113',
               founderReviewNote: 'HIGH: Dependency locking ensures reproducible builds. Review the pip-tools approach.',
               context: {
@@ -6925,7 +6927,7 @@
             },
 
             // P2 MEDIUM - Should fix next sprint
-            { id: 'TKT-121', title: 'Add scheduled trigger to data ingestion', state: 'REVIEW', priority: 'P2', effort: 'quick-win', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'Automation', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-121', title: 'Add scheduled trigger to data ingestion', state: 'DONE', priority: 'P2', effort: 'quick-win', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['DevOps', 'CI/CD', 'Automation', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               parent: 'TKT-113',
               founderReviewNote: 'MEDIUM: Scheduled ingestion keeps data fresh without manual intervention. Review the weekly schedule approach.',
               context: {
@@ -6936,7 +6938,7 @@
               },
               plan: '1. Add schedule trigger: cron: 0 23 * * 0. 2. Add conditional notification step. 3. Test with dry run. 4. Document schedule in README.'
             },
-            { id: 'TKT-122', title: 'Add matchup analysis to retraining pipeline', state: 'REVIEW', priority: 'P2', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'Analytics', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-122', title: 'Add matchup analysis to retraining pipeline', state: 'DONE', priority: 'P2', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-008', progress: 100, tags: ['DevOps', 'CI/CD', 'Analytics', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               parent: 'TKT-113',
               founderReviewNote: 'MEDIUM: Matchup analysis scripts should run automatically after model retraining. Review the integration approach.',
               context: {
@@ -6947,7 +6949,7 @@
               },
               plan: '1. Modify ml-retrain.yml (after TKT-116). 2. Add steps for each analysis script. 3. Commit updated matchup CSVs. 4. Add to validate_outputs.py checks.'
             },
-            { id: 'TKT-123', title: 'Create end-to-end pipeline orchestration', state: 'REVIEW', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'Orchestration', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-123', title: 'Create end-to-end pipeline orchestration', state: 'DONE', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-008', progress: 100, tags: ['DevOps', 'CI/CD', 'Orchestration', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               parent: 'TKT-113',
               founderReviewNote: 'MEDIUM: Pipeline orchestration coordinates all workflows into a single automated flow. Review the workflow_run chain approach.',
               context: {
@@ -6958,7 +6960,7 @@
               },
               plan: '1. Create pipeline-orchestrator.yml. 2. Chain workflows via workflow_run. 3. Add pipeline status summary. 4. Create documentation for pipeline flow.'
             },
-            { id: 'TKT-124', title: 'Add automated documentation generation', state: 'REVIEW', priority: 'P2', effort: 'hustle', assignee: 'Tom Brady', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'CI/CD', 'Documentation', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-124', title: 'Add automated documentation generation', state: 'DONE', priority: 'P2', effort: 'hustle', assignee: 'Tom Brady', epic: 'EPIC-008', progress: 100, tags: ['DevOps', 'CI/CD', 'Documentation', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               parent: 'TKT-113',
               founderReviewNote: 'MEDIUM: Auto-generated API docs stay in sync with code. Review the pdoc3 approach.',
               context: {
@@ -6969,7 +6971,7 @@
               },
               plan: '1. Add pdoc3 to requirements.txt. 2. Create generate-docs.yml workflow. 3. Generate HTML docs for scripts/. 4. Deploy to GitHub Pages on release.'
             },
-            { id: 'TKT-125', title: 'Standardize input validation across scripts', state: 'REVIEW', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-008', progress: 0, tags: ['DevOps', 'Code Quality', 'Architecture', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-125', title: 'Standardize input validation across scripts', state: 'DONE', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-008', progress: 100, tags: ['DevOps', 'Code Quality', 'Architecture', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               parent: 'TKT-113',
               founderReviewNote: 'MEDIUM: Consistent input validation prevents runtime errors. Review the decorator pattern approach.',
               context: {
@@ -6986,7 +6988,7 @@
             // Created by: Tom Brady (Product Owner)
             // Type: Research EPIC - Defines standard for all future work items
             // =========================================================================
-            { id: 'TKT-126', title: 'Design hierarchical ticket structure (EPIC → Parent → Child)', state: 'REVIEW', priority: 'P1', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-003', progress: 95, ticketType: 'parent', tags: ['Architecture', 'Governance', 'Research', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-126', title: 'Design hierarchical ticket structure (EPIC → Parent → Child)', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-003', progress: 100, ticketType: 'parent', tags: ['Architecture', 'Governance', 'Research', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               founderReviewNote: 'ARCHITECTURE: This defines the standard ticket hierarchy for Cricket Playbook. Review the proposed Work Item Types, hierarchy rules, and Epic View design.',
               context: {
                 ask: 'Design and document a hierarchical ticket structure: EPIC → Parent Tickets → Child Tickets, with Research/Retro as special epic types',
@@ -7103,18 +7105,18 @@ New Fields to Add:
 │  │ ▼ TKT-072: Document ML pipeline            ✅ DONE      │   │
 │  │ ▼ TKT-073: Setup model monitoring          ✅ DONE      │   │
 │  │ ▼ TKT-113: CI/CD automation audit          ✅ DONE      │   │
-│  │   ├── TKT-114: Schema validation CI        🌹 REVIEW    │   │
-│  │   ├── TKT-115: Output validation CI        🌹 REVIEW    │   │
-│  │   ├── TKT-116: Model retrain pipeline      🌹 REVIEW    │   │
-│  │   ├── TKT-117: Output generation pipeline  🌹 REVIEW    │   │
-│  │   ├── TKT-118: Chain analytics ingestion   🌹 REVIEW    │   │
-│  │   ├── TKT-119: Dependency lock file        🌹 REVIEW    │   │
-│  │   ├── TKT-120: Code coverage reporting     🌹 REVIEW    │   │
-│  │   ├── TKT-121: Scheduled ingestion         🌹 REVIEW    │   │
-│  │   ├── TKT-122: Matchup analysis pipeline   🌹 REVIEW    │   │
-│  │   ├── TKT-123: E2E orchestration           🌹 REVIEW    │   │
-│  │   ├── TKT-124: Documentation generation    🌹 REVIEW    │   │
-│  │   └── TKT-125: Input validation decorators 🌹 REVIEW    │   │
+│  │   ├── TKT-114: Schema validation CI        ✅ DONE      │   │
+│  │   ├── TKT-115: Output validation CI        ✅ DONE      │   │
+│  │   ├── TKT-116: Model retrain pipeline      ✅ DONE      │   │
+│  │   ├── TKT-117: Output generation pipeline  ✅ DONE      │   │
+│  │   ├── TKT-118: Chain analytics ingestion   ✅ DONE      │   │
+│  │   ├── TKT-119: Dependency lock file        ✅ DONE      │   │
+│  │   ├── TKT-120: Code coverage reporting     ✅ DONE      │   │
+│  │   ├── TKT-121: Scheduled ingestion         ✅ DONE      │   │
+│  │   ├── TKT-122: Matchup analysis pipeline   ✅ DONE      │   │
+│  │   ├── TKT-123: E2E orchestration           ✅ DONE      │   │
+│  │   ├── TKT-124: Documentation generation    ✅ DONE      │   │
+│  │   └── TKT-125: Input validation decorators ✅ DONE      │   │
 │  └─────────────────────────────────────────────────────────┘   │
 │                                                                 │
 │  ┌─────────────────────────────────────────────────────────┐   │
@@ -8509,43 +8511,45 @@ Gate Inheritance:
 
         function renderRosterHero() {
             const hero = document.getElementById('rosterHero');
-            const founderName = 'Florentino Perez';
-            const founderTickets = tickets.filter(t => t.assignee === founderName || t.assignee === 'Florentino Pérez' || t.assignee === 'Founder');
+            const founderTickets = tickets.filter(t => t.assignee === 'Founder');
             const approvedCount = tickets.filter(t => t.gates && (t.gates.florentino_gate === 'APPROVED' || t.gates.founder_validation === 'APPROVED')).length;
             const validationCount = tickets.filter(t => t.state === 'VALIDATION').length;
+            const doneCount = tickets.filter(t => t.state === 'DONE').length;
 
-            // Compute team skill categories from agentSkills
+            // Compute team skill categories — use max score per category for cleaner radar
             const skillCategories = {
-                'Leadership': { agents: ['Tom Brady'], skills: ['Leadership', 'Planning', 'Vision', 'Authority'] },
+                'Leadership': { agents: ['Tom Brady', 'Florentino Perez'], skills: ['Leadership', 'Planning', 'Vision', 'Authority', 'Strategy'] },
                 'Engineering': { agents: ['Stephen Curry', 'Brad Stevens', 'Brock Purdy'], skills: ['Python', 'Architecture', 'CI_CD', 'Data_Pipeline', 'DuckDB', 'Systems'] },
                 'Analytics': { agents: ['Stephen Curry', 'Jose Mourinho', 'Pep Guardiola'], skills: ['Analytics', 'Analysis', 'ML_Ops', 'Patterns', 'Matchups'] },
                 'DevOps': { agents: ['Ime Udoka', 'Brad Stevens'], skills: ['DevOps', 'Automation', 'MLOps', 'Monitoring', 'Deployment'] },
                 'Quality': { agents: ["N'Golo Kanté", 'Brad Stevens'], skills: ['QA', 'Testing', 'Coverage', 'Quality', 'Diligence'] },
                 'Design': { agents: ['Kevin de Bruyne'], skills: ['Visualization', 'UI_Design', 'CSS', 'Creativity', 'JavaScript'] },
-                'Domain': { agents: ['Andy Flower', 'Virat Kohli'], skills: ['Cricket', 'Domain', 'Tactics', 'Editorial', 'Writing'] },
+                'Domain': { agents: ['Andy Flower', 'Virat Kohli', 'Pep Guardiola'], skills: ['Cricket', 'Domain', 'Tactics', 'Editorial', 'Writing'] },
                 'Comms': { agents: ['LeBron James', 'Tom Brady'], skills: ['Communication', 'Marketing', 'Social', 'Branding'] }
             };
 
             const categoryScores = {};
             const categoryGaps = {};
+            const categoryAgentCount = {};
             Object.entries(skillCategories).forEach(([cat, info]) => {
-                let totalScore = 0, count = 0;
+                let scores = [];
                 info.agents.forEach(agent => {
                     if (agentSkills[agent]) {
                         Object.entries(agentSkills[agent].skills).forEach(([skill, score]) => {
-                            if (info.skills.includes(skill)) { totalScore += score; count++; }
+                            if (info.skills.includes(skill)) scores.push(score);
                         });
                     }
                 });
-                categoryScores[cat] = count > 0 ? totalScore / count : 0;
-                categoryGaps[cat] = info.agents.length <= 1 ? 'thin' : categoryScores[cat] < 9 ? 'gap' : 'strong';
+                categoryScores[cat] = scores.length > 0 ? scores.reduce((a, b) => a + b, 0) / scores.length : 0;
+                categoryAgentCount[cat] = info.agents.length;
+                categoryGaps[cat] = info.agents.length <= 1 ? 'thin' : categoryScores[cat] < 9.2 ? 'moderate' : 'strong';
             });
 
             hero.innerHTML = `
                 <div class="founder-card">
-                    <div class="founder-avatar">${getAgentAvatarImg(founderName)}</div>
-                    <div class="founder-name">Florentino Pérez</div>
-                    <div class="founder-role">The Founder</div>
+                    <div class="founder-avatar">${getAgentAvatarImg('Founder')}</div>
+                    <div class="founder-name">The Founder</div>
+                    <div class="founder-role">Il Padrino</div>
                     <div class="founder-stat-row">
                         <div class="founder-stat">
                             <div class="founder-stat-val">${approvedCount}</div>
@@ -8553,14 +8557,14 @@ Gate Inheritance:
                         </div>
                         <div class="founder-stat">
                             <div class="founder-stat-val">${validationCount}</div>
-                            <div class="founder-stat-lbl">In Review</div>
+                            <div class="founder-stat-lbl">Awaiting</div>
                         </div>
                         <div class="founder-stat">
-                            <div class="founder-stat-val">${founderTickets.length}</div>
-                            <div class="founder-stat-lbl">Owned</div>
+                            <div class="founder-stat-val">${doneCount}</div>
+                            <div class="founder-stat-lbl">Delivered</div>
                         </div>
                     </div>
-                    <div class="founder-quote">"An offer they can't refuse — every ticket passes through the Founder's gate."</div>
+                    <div class="founder-quote">"I'm gonna make them an offer they can't refuse." — Every ticket passes through the Founder's gate.</div>
                 </div>
                 <div class="spider-card">
                     <div class="spider-title">Team Skill Map</div>
@@ -8575,16 +8579,16 @@ Gate Inheritance:
             `;
 
             // Draw spider chart
-            setTimeout(() => renderSpiderChart(categoryScores, categoryGaps), 50);
+            setTimeout(() => renderSpiderChart(categoryScores, categoryGaps, categoryAgentCount), 50);
         }
 
-        function renderSpiderChart(scores, gaps) {
+        function renderSpiderChart(scores, gaps, agentCounts) {
             const canvas = document.getElementById('spiderCanvas');
             if (!canvas) return;
             const rect = canvas.parentElement.getBoundingClientRect();
             const dpr = window.devicePixelRatio || 1;
-            const w = rect.width - 48;
-            const h = Math.min(w * 0.75, 320);
+            const w = rect.width - 32;
+            const h = Math.min(w * 0.85, 360);
             canvas.width = w * dpr;
             canvas.height = h * dpr;
             canvas.style.width = w + 'px';
@@ -8596,85 +8600,127 @@ Gate Inheritance:
             const n = categories.length;
             const cx = w / 2;
             const cy = h / 2;
-            const radius = Math.min(cx, cy) - 40;
+            const radius = Math.min(cx, cy) - 50;
             const angleStep = (2 * Math.PI) / n;
             const startAngle = -Math.PI / 2;
 
-            // Helper: get point on axis
-            function getPoint(i, val, maxVal = 10) {
+            // Zoomed scale: 6-10 instead of 0-10 so differences are visible
+            const minScale = 6;
+            const maxScale = 10;
+            const scaleRange = maxScale - minScale;
+
+            function getPoint(i, val) {
                 const angle = startAngle + i * angleStep;
-                const r = (val / maxVal) * radius;
+                const clamped = Math.max(minScale, Math.min(maxScale, val));
+                const r = ((clamped - minScale) / scaleRange) * radius;
                 return { x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle) };
             }
 
-            // Draw grid rings
             const isDark = document.body.classList.contains('dark-theme') || getComputedStyle(document.body).getPropertyValue('--bg-primary').trim().startsWith('#1');
-            const gridColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)';
+            const gridColor = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)';
             const textColor = isDark ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.5)';
+            const dimColor = isDark ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.25)';
 
-            for (let ring = 2; ring <= 10; ring += 2) {
+            // Draw grid rings at 7, 8, 9, 10
+            [7, 8, 9, 10].forEach(ringVal => {
                 ctx.beginPath();
                 for (let i = 0; i <= n; i++) {
-                    const p = getPoint(i % n, ring);
+                    const p = getPoint(i % n, ringVal);
                     i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
                 }
                 ctx.closePath();
-                ctx.strokeStyle = gridColor;
-                ctx.lineWidth = 1;
+                ctx.strokeStyle = ringVal === 10 ? (isDark ? 'rgba(48,209,88,0.2)' : 'rgba(48,209,88,0.15)') : gridColor;
+                ctx.lineWidth = ringVal === 10 ? 1.5 : 1;
+                ctx.setLineDash(ringVal === 10 ? [4, 4] : []);
                 ctx.stroke();
-            }
+                ctx.setLineDash([]);
 
-            // Draw axis lines and labels
-            ctx.font = '12px -apple-system, BlinkMacSystemFont, sans-serif';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
+                // Ring value labels (on the top axis)
+                const labelP = getPoint(0, ringVal);
+                ctx.fillStyle = dimColor;
+                ctx.font = '9px -apple-system, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'bottom';
+                ctx.fillText(ringVal.toString(), labelP.x + 4, labelP.y - 2);
+            });
+
+            // Draw axis lines
             categories.forEach((cat, i) => {
-                const p = getPoint(i, 10);
+                const p = getPoint(i, maxScale);
                 ctx.beginPath();
                 ctx.moveTo(cx, cy);
                 ctx.lineTo(p.x, p.y);
                 ctx.strokeStyle = gridColor;
                 ctx.lineWidth = 1;
                 ctx.stroke();
-
-                // Label
-                const lp = getPoint(i, 12.5);
-                const gapType = gaps[cat];
-                ctx.fillStyle = gapType === 'thin' ? '#ff453a' : gapType === 'gap' ? '#ff9f0a' : textColor;
-                ctx.font = gapType === 'thin' ? 'bold 12px -apple-system, sans-serif' : '12px -apple-system, sans-serif';
-                ctx.fillText(cat, lp.x, lp.y);
             });
 
-            // Draw filled area
+            // Draw "ideal" 10/10 reference outline
+            ctx.beginPath();
+            for (let i = 0; i <= n; i++) {
+                const p = getPoint(i % n, 10);
+                i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
+            }
+            ctx.closePath();
+            ctx.strokeStyle = isDark ? 'rgba(48,209,88,0.25)' : 'rgba(48,209,88,0.2)';
+            ctx.lineWidth = 1.5;
+            ctx.setLineDash([4, 4]);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Draw filled data area
             ctx.beginPath();
             categories.forEach((cat, i) => {
                 const p = getPoint(i, scores[cat]);
                 i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
             });
             ctx.closePath();
-            ctx.fillStyle = 'rgba(10, 132, 255, 0.15)';
+            const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+            gradient.addColorStop(0, 'rgba(10, 132, 255, 0.05)');
+            gradient.addColorStop(1, 'rgba(10, 132, 255, 0.25)');
+            ctx.fillStyle = gradient;
             ctx.fill();
-            ctx.strokeStyle = 'rgba(10, 132, 255, 0.7)';
-            ctx.lineWidth = 2;
+            ctx.strokeStyle = 'rgba(10, 132, 255, 0.8)';
+            ctx.lineWidth = 2.5;
             ctx.stroke();
 
-            // Draw data points with gap coloring
+            // Draw data points and labels
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
             categories.forEach((cat, i) => {
                 const p = getPoint(i, scores[cat]);
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
                 const gapType = gaps[cat];
-                ctx.fillStyle = gapType === 'thin' ? '#ff453a' : gapType === 'gap' ? '#ff9f0a' : '#30d158';
+
+                // Point glow
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 8, 0, Math.PI * 2);
+                ctx.fillStyle = gapType === 'thin' ? 'rgba(255,69,58,0.2)' : 'rgba(10,132,255,0.15)';
+                ctx.fill();
+
+                // Point dot
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 4.5, 0, Math.PI * 2);
+                ctx.fillStyle = gapType === 'thin' ? '#ff453a' : gapType === 'moderate' ? '#ff9f0a' : '#30d158';
                 ctx.fill();
                 ctx.strokeStyle = isDark ? '#1c1c1e' : '#ffffff';
-                ctx.lineWidth = 2;
+                ctx.lineWidth = 1.5;
                 ctx.stroke();
 
-                // Score label
-                const sp = getPoint(i, scores[cat] + 1.2);
-                ctx.fillStyle = textColor;
-                ctx.font = '10px -apple-system, sans-serif';
-                ctx.fillText(scores[cat].toFixed(1), sp.x, sp.y);
+                // Category label + agent count
+                const angle = startAngle + i * angleStep;
+                const labelDist = radius + 30;
+                const lx = cx + labelDist * Math.cos(angle);
+                const ly = cy + labelDist * Math.sin(angle);
+
+                ctx.fillStyle = gapType === 'thin' ? '#ff453a' : textColor;
+                ctx.font = gapType === 'thin' ? 'bold 11px -apple-system, sans-serif' : '11px -apple-system, sans-serif';
+                ctx.fillText(cat, lx, ly);
+
+                // Agent count below label
+                const count = agentCounts ? agentCounts[cat] : 0;
+                ctx.fillStyle = dimColor;
+                ctx.font = '9px -apple-system, sans-serif';
+                ctx.fillText(`${count} agent${count !== 1 ? 's' : ''} · ${scores[cat].toFixed(1)}`, lx, ly + 13);
             });
         }
 
@@ -8701,7 +8747,7 @@ Gate Inheritance:
             });
 
             grid.innerHTML = Object.entries(agents)
-                .filter(([name]) => !['Florentino Pérez', 'Florentino Perez', 'Founder'].includes(name)) // Founder shown in hero section
+                .filter(([name]) => !['Florentino Pérez', 'Founder'].includes(name)) // Avoid duplicates; Founder shown in hero
                 .sort((a, b) => {
                     // Agents with tickets first, then by total count
                     const aTotal = agentStats[a[0]]?.total || 0;
@@ -9164,7 +9210,9 @@ Gate Inheritance:
                             ? `<a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/${t.prd}" target="_blank" rel="noopener" class="modal-link" onclick="event.stopPropagation()"><span class="modal-link-icon">📋</span><span class="modal-link-text">PRD Document</span><span class="modal-link-arrow">→</span></a>`
                             : ''}
                         ${t.plan
-                            ? `<a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/${t.plan}" target="_blank" rel="noopener" class="modal-link" onclick="event.stopPropagation()"><span class="modal-link-icon">📝</span><span class="modal-link-text">Implementation Plan</span><span class="modal-link-arrow">→</span></a>`
+                            ? (t.plan.includes('/') && !t.plan.startsWith('1.')
+                                ? `<a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/${t.plan}" target="_blank" rel="noopener" class="modal-link" onclick="event.stopPropagation()"><span class="modal-link-icon">📝</span><span class="modal-link-text">Implementation Plan</span><span class="modal-link-arrow">→</span></a>`
+                                : `<div class="modal-plan-inline"><span class="modal-link-icon">📝</span><span class="modal-plan-text">${t.plan}</span></div>`)
                             : ''}
                         ${!hasPrd ? '<div class="link-category-empty">No documentation available yet</div>' : ''}
                     </div>

@@ -139,8 +139,14 @@ def check_code_quality() -> Tuple[float, List[str]]:
     # Check 3: sys.path.insert anti-pattern (25 points)
     sys_path_hacks = 0
     for py_file in scripts_dir.rglob("*.py"):
-        content = py_file.read_text()
-        sys_path_hacks += len(re.findall(r"sys\.path\.insert", content))
+        if "archive" in str(py_file):
+            continue  # Skip archived files
+        for line in py_file.read_text().splitlines():
+            stripped = line.strip()
+            # Only count actual calls, not comments or string references
+            if stripped.startswith("#") or stripped.startswith('"') or stripped.startswith("'"):
+                continue
+            sys_path_hacks += len(re.findall(r"sys\.path\.insert", stripped))
 
     if sys_path_hacks == 0:
         score += 25

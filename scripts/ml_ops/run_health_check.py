@@ -27,10 +27,8 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-# Add project root to path
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_DIR = SCRIPT_DIR.parent.parent
-sys.path.insert(0, str(PROJECT_DIR))
 
 import pandas as pd
 

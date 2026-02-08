@@ -21,20 +21,17 @@ Architecture:
 """
 
 import json
-import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 import duckdb
 
-# Add parent directory to path for utils import
-sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils.logging_config import setup_logger
+from scripts.utils.logging_config import setup_logger
 
 # ML Health Check integration (TKT-073)
 try:
-    from ml_ops.run_health_check import run_health_check as ml_health_check
+    from scripts.ml_ops.run_health_check import run_health_check as ml_health_check
 
     ML_HEALTH_CHECK_AVAILABLE = True
 except ImportError:

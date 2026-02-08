@@ -15,7 +15,6 @@ Output:
 
 import hashlib
 import json
-import sys
 import zipfile
 from collections import defaultdict
 from datetime import datetime
@@ -25,9 +24,7 @@ from typing import Any, Dict, Tuple
 import duckdb
 import pandas as pd
 
-# Add parent directory to path for utils import
-sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils.logging_config import setup_logger
+from scripts.utils.logging_config import setup_logger
 
 # Initialize logger
 logger = setup_logger(__name__)
@@ -39,7 +36,9 @@ DB_PATH = PROJECT_ROOT / "data" / "cricket_playbook.duckdb"
 MANIFEST_PATH = PROJECT_ROOT / "data" / "manifests" / "manifest.json"
 SCHEMA_DOC_PATH = PROJECT_ROOT / "data" / "processed" / "schema.md"
 
-DATA_VERSION = "1.1.0"  # Added WK detection + match_phase
+DATA_VERSION = "1.2.0"  # Added incremental ingestion + transactions
+INCREMENTAL_MANIFEST = PROJECT_ROOT / "data" / "manifests" / "incremental_manifest.json"
+CHECKPOINT_INTERVAL = 1000  # Save checkpoint every N matches
 
 
 def generate_id(text: str) -> str:
@@ -626,62 +625,97 @@ class CricketIngester:
         )
 
     def load_to_duckdb(self) -> None:
-        """Load all data into DuckDB."""
+        """Load all data into DuckDB with transaction safety (TKT-144).
+
+        Uses BEGIN/COMMIT/ROLLBACK for all-or-nothing table creation.
+        Backs up existing database before overwriting.
+        """
         logger.info("Loading to DuckDB: %s", DB_PATH)
 
-        # Remove existing database to start fresh
+        # Backup existing database before overwriting (TKT-144)
+        backup_path = DB_PATH.with_suffix(".duckdb.bak")
         if DB_PATH.exists():
-            logger.debug("Removing existing database")
+            import shutil
+
+            shutil.copy2(DB_PATH, backup_path)
+            logger.info("Backed up existing database to %s", backup_path.name)
             DB_PATH.unlink()
 
         conn = duckdb.connect(str(DB_PATH))
 
-        # Create and load dimension tables
-        logger.info("Loading dim_tournament (%d records)...", len(self.tournaments))
-        df_tournaments = pd.DataFrame(list(self.tournaments.values()))  # noqa: F841
-        conn.execute("CREATE TABLE dim_tournament AS SELECT * FROM df_tournaments")
+        try:
+            conn.execute("BEGIN TRANSACTION")
 
-        logger.info("Loading dim_team (%d records)...", len(self.teams))
-        df_teams = pd.DataFrame(list(self.teams.values()))  # noqa: F841
-        conn.execute("CREATE TABLE dim_team AS SELECT * FROM df_teams")
+            # Create and load dimension tables
+            logger.info("Loading dim_tournament (%d records)...", len(self.tournaments))
+            df_tournaments = pd.DataFrame(list(self.tournaments.values()))  # noqa: F841
+            conn.execute("CREATE TABLE dim_tournament AS SELECT * FROM df_tournaments")
 
-        logger.info("Loading dim_venue (%d records)...", len(self.venues))
-        df_venues = pd.DataFrame(list(self.venues.values()))  # noqa: F841
-        conn.execute("CREATE TABLE dim_venue AS SELECT * FROM df_venues")
+            logger.info("Loading dim_team (%d records)...", len(self.teams))
+            df_teams = pd.DataFrame(list(self.teams.values()))  # noqa: F841
+            conn.execute("CREATE TABLE dim_team AS SELECT * FROM df_teams")
 
-        logger.info("Loading dim_player (%d records)...", len(self.players))
-        df_players = pd.DataFrame(list(self.players.values()))  # noqa: F841
-        conn.execute("CREATE TABLE dim_player AS SELECT * FROM df_players")
+            logger.info("Loading dim_venue (%d records)...", len(self.venues))
+            df_venues = pd.DataFrame(list(self.venues.values()))  # noqa: F841
+            conn.execute("CREATE TABLE dim_venue AS SELECT * FROM df_venues")
 
-        logger.info("Loading dim_player_name_history (%d records)...", len(self.player_names))
-        df_player_names = pd.DataFrame(self.player_names)  # noqa: F841
-        conn.execute("CREATE TABLE dim_player_name_history AS SELECT * FROM df_player_names")
+            logger.info("Loading dim_player (%d records)...", len(self.players))
+            df_players = pd.DataFrame(list(self.players.values()))  # noqa: F841
+            conn.execute("CREATE TABLE dim_player AS SELECT * FROM df_players")
 
-        logger.info("Loading dim_match (%d records)...", len(self.matches))
-        df_matches = pd.DataFrame(self.matches)  # noqa: F841
-        conn.execute("CREATE TABLE dim_match AS SELECT * FROM df_matches")
+            logger.info("Loading dim_player_name_history (%d records)...", len(self.player_names))
+            df_player_names = pd.DataFrame(self.player_names)  # noqa: F841
+            conn.execute("CREATE TABLE dim_player_name_history AS SELECT * FROM df_player_names")
 
-        logger.info("Loading fact_powerplay (%d records)...", len(self.powerplays))
-        df_powerplays = pd.DataFrame(self.powerplays)  # noqa: F841
-        conn.execute("CREATE TABLE fact_powerplay AS SELECT * FROM df_powerplays")
+            logger.info("Loading dim_match (%d records)...", len(self.matches))
+            df_matches = pd.DataFrame(self.matches)  # noqa: F841
+            conn.execute("CREATE TABLE dim_match AS SELECT * FROM df_matches")
 
-        logger.info("Loading fact_ball (%d records)...", len(self.balls))
-        df_balls = pd.DataFrame(self.balls)  # noqa: F841
-        conn.execute("CREATE TABLE fact_ball AS SELECT * FROM df_balls")
+            logger.info("Loading fact_powerplay (%d records)...", len(self.powerplays))
+            df_powerplays = pd.DataFrame(self.powerplays)  # noqa: F841
+            conn.execute("CREATE TABLE fact_powerplay AS SELECT * FROM df_powerplays")
 
-        logger.info(
-            "Loading fact_player_match_performance (%d records)...", len(self.player_match_perf)
-        )
-        df_perf = pd.DataFrame(self.player_match_perf)  # noqa: F841
-        conn.execute("CREATE TABLE fact_player_match_performance AS SELECT * FROM df_perf")
+            logger.info("Loading fact_ball (%d records)...", len(self.balls))
+            df_balls = pd.DataFrame(self.balls)  # noqa: F841
+            conn.execute("CREATE TABLE fact_ball AS SELECT * FROM df_balls")
 
-        # Create indexes for common queries
-        logger.info("Creating indexes...")
-        conn.execute("CREATE INDEX idx_ball_match ON fact_ball(match_id)")
-        conn.execute("CREATE INDEX idx_ball_batter ON fact_ball(batter_id)")
-        conn.execute("CREATE INDEX idx_ball_bowler ON fact_ball(bowler_id)")
-        conn.execute("CREATE INDEX idx_match_tournament ON dim_match(tournament_id)")
-        conn.execute("CREATE INDEX idx_match_date ON dim_match(match_date)")
+            logger.info(
+                "Loading fact_player_match_performance (%d records)...",
+                len(self.player_match_perf),
+            )
+            df_perf = pd.DataFrame(self.player_match_perf)  # noqa: F841
+            conn.execute("CREATE TABLE fact_player_match_performance AS SELECT * FROM df_perf")
+
+            # Create indexes for common queries
+            logger.info("Creating indexes...")
+            conn.execute("CREATE INDEX idx_ball_match ON fact_ball(match_id)")
+            conn.execute("CREATE INDEX idx_ball_batter ON fact_ball(batter_id)")
+            conn.execute("CREATE INDEX idx_ball_bowler ON fact_ball(bowler_id)")
+            conn.execute("CREATE INDEX idx_match_tournament ON dim_match(tournament_id)")
+            conn.execute("CREATE INDEX idx_match_date ON dim_match(match_date)")
+
+            conn.execute("COMMIT")
+            logger.info("Transaction committed successfully")
+
+            # Remove backup on success
+            if backup_path.exists():
+                backup_path.unlink()
+                logger.debug("Removed backup after successful load")
+
+        except Exception as e:
+            logger.error("Transaction failed, rolling back: %s", str(e))
+            conn.execute("ROLLBACK")
+            conn.close()
+
+            # Restore from backup
+            if DB_PATH.exists():
+                DB_PATH.unlink()
+            if backup_path.exists():
+                import shutil
+
+                shutil.copy2(backup_path, DB_PATH)
+                logger.info("Restored database from backup")
+            raise
 
         conn.close()
         db_size_mb = DB_PATH.stat().st_size / 1024 / 1024
@@ -844,10 +878,88 @@ This database contains ball-by-ball T20 cricket data from Cricsheet.
 
         print(f"Schema doc saved: {SCHEMA_DOC_PATH}")
 
-    def run(self) -> None:
-        """Run the full ingestion pipeline."""
+    def load_incremental_manifest(self) -> Dict[str, str]:
+        """Load the incremental manifest mapping source_file -> checksum (TKT-141)."""
+        if INCREMENTAL_MANIFEST.exists():
+            with open(INCREMENTAL_MANIFEST) as f:
+                data = json.load(f)
+            return data.get("checksums", {})
+        return {}
+
+    def save_incremental_manifest(self, checksums: Dict[str, str]) -> None:
+        """Save the incremental manifest with file checksums (TKT-141)."""
+        INCREMENTAL_MANIFEST.parent.mkdir(parents=True, exist_ok=True)
+        manifest = {
+            "data_version": DATA_VERSION,
+            "updated_at": datetime.now().isoformat(),
+            "total_files": len(checksums),
+            "checksums": checksums,
+        }
+        with open(INCREMENTAL_MANIFEST, "w") as f:
+            json.dump(manifest, f, indent=2)
+        logger.info("Incremental manifest saved: %d files tracked", len(checksums))
+
+    def compute_file_checksum(self, content: bytes) -> str:
+        """Compute SHA-256 checksum for match file content (TKT-141)."""
+        return hashlib.sha256(content).hexdigest()
+
+    def process_zip_file_incremental(
+        self, zip_path: Path, known_checksums: Dict[str, str]
+    ) -> Dict[str, str]:
+        """Process zip file, skipping unchanged matches (TKT-141).
+
+        Returns dict of source_file -> checksum for processed files.
+        """
+        logger.info("Processing (incremental): %s", zip_path.name)
+        self.stats["zip_files"] += 1
+        new_checksums = {}
+        skipped = 0
+
+        try:
+            with zipfile.ZipFile(zip_path, "r") as zf:
+                json_files = [f for f in zf.namelist() if f.endswith(".json")]
+
+                for json_file in json_files:
+                    source_file = f"{zip_path.stem}/{json_file}"
+                    try:
+                        raw_content = zf.read(json_file)
+                        checksum = self.compute_file_checksum(raw_content)
+
+                        # Skip if unchanged
+                        if known_checksums.get(source_file) == checksum:
+                            skipped += 1
+                            new_checksums[source_file] = checksum
+                            continue
+
+                        match_data = json.loads(raw_content)
+                        self.process_match(match_data, source_file)
+                        new_checksums[source_file] = checksum
+
+                    except json.JSONDecodeError as e:
+                        logger.error("JSON parse error in %s: %s", source_file, e.msg)
+                        self.stats["errors"].append(f"{source_file}: JSON parse error: {e.msg}")
+                    except (KeyError, TypeError, ValueError) as e:
+                        logger.error("Data error in %s: %s", source_file, str(e))
+                        self.stats["errors"].append(f"{source_file}: {str(e)}")
+
+                if skipped > 0:
+                    logger.info("  Skipped %d unchanged matches", skipped)
+
+        except zipfile.BadZipFile as e:
+            logger.error("Corrupted zip file %s: %s", zip_path.name, str(e))
+            self.stats["errors"].append(f"{zip_path.name}: Corrupted zip file - {str(e)}")
+
+        return new_checksums
+
+    def run(self, incremental: bool = False) -> None:
+        """Run the full ingestion pipeline.
+
+        Args:
+            incremental: If True, only process new/changed matches (TKT-141).
+        """
         logger.info("=" * 60)
         logger.info("Cricket Playbook - Data Ingestion Pipeline")
+        logger.info("Mode: %s", "INCREMENTAL" if incremental else "FULL")
         logger.info("=" * 60)
 
         # Find all zip files
@@ -856,9 +968,28 @@ This database contains ball-by-ball T20 cricket data from Cricsheet.
 
         logger.info("Found %d zip files to process", len(zip_files))
 
-        # Process each zip file
-        for zip_path in zip_files:
-            self.process_zip_file(zip_path)
+        if incremental:
+            # Load previous checksums for incremental mode
+            known_checksums = self.load_incremental_manifest()
+            logger.info("Loaded %d known file checksums", len(known_checksums))
+
+            all_checksums = {}
+            for zip_path in zip_files:
+                new_checksums = self.process_zip_file_incremental(zip_path, known_checksums)
+                all_checksums.update(new_checksums)
+
+                # Checkpoint every CHECKPOINT_INTERVAL matches
+                if self.stats["matches_processed"] % CHECKPOINT_INTERVAL == 0:
+                    if self.stats["matches_processed"] > 0:
+                        logger.info("Checkpoint at %d matches", self.stats["matches_processed"])
+                        self.save_incremental_manifest(all_checksums)
+
+            # Save final manifest
+            self.save_incremental_manifest(all_checksums)
+        else:
+            # Full ingestion mode
+            for zip_path in zip_files:
+                self.process_zip_file(zip_path)
 
         # Derive player roles
         logger.info("Deriving player roles...")
@@ -873,7 +1004,7 @@ This database contains ball-by-ball T20 cricket data from Cricsheet.
 
         # Log summary
         logger.info("=" * 60)
-        logger.info("INGESTION COMPLETE")
+        logger.info("INGESTION COMPLETE (%s)", "incremental" if incremental else "full")
         logger.info("=" * 60)
         logger.info("Matches: %s", f"{self.stats['matches_processed']:,}")
         logger.info("Balls: %s", f"{self.stats['balls_processed']:,}")
@@ -890,5 +1021,15 @@ This database contains ball-by-ball T20 cricket data from Cricsheet.
 
 
 if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Cricket Playbook Data Ingestion")
+    parser.add_argument(
+        "--incremental",
+        action="store_true",
+        help="Only process new/changed matches (skip unchanged)",
+    )
+    args = parser.parse_args()
+
     ingester = CricketIngester()
-    ingester.run()
+    ingester.run(incremental=args.incremental)

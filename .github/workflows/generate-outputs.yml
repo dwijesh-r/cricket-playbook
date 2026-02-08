@@ -30,12 +30,12 @@ on:
       regenerate_all:
         description: "Force regenerate all outputs"
         required: false
-        default: "false"
+        default: false
         type: boolean
       skip_clustering:
         description: "Skip ML clustering step"
         required: false
-        default: "false"
+        default: false
         type: boolean
 
 jobs:
@@ -98,14 +98,18 @@ jobs:
           pip install -r requirements.txt
 
       - name: Check database exists
+        id: db_check
         run: |
           if [ ! -f "data/cricket_playbook.duckdb" ]; then
-            echo "::error::Database not found. Run ingest workflow first."
-            exit 1
+            echo "::notice::Database not found - skipping output generation (expected for CI runners)"
+            echo "db_exists=false" >> $GITHUB_OUTPUT
+          else
+            echo "Database found: $(ls -lh data/cricket_playbook.duckdb)"
+            echo "db_exists=true" >> $GITHUB_OUTPUT
           fi
-          echo "Database found: $(ls -lh data/cricket_playbook.duckdb)"
 
       - name: Create analytics views
+        if: steps.db_check.outputs.db_exists == 'true'
         run: |
           echo "Creating 35+ analytics views..."
           python scripts/core/analytics_ipl.py

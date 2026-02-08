@@ -1614,6 +1614,19 @@
             box-shadow: 0 2px 8px rgba(10, 132, 255, 0.2);
         }
 
+        .branch-btn {
+            background: linear-gradient(135deg, rgba(48, 209, 88, 0.15) 0%, rgba(48, 176, 88, 0.1) 100%);
+            color: var(--accent-green);
+            border-color: rgba(48, 209, 88, 0.3);
+            font-family: monospace;
+            font-size: 9px;
+        }
+
+        .branch-btn:hover {
+            background: rgba(48, 209, 88, 0.25);
+            border-color: var(--accent-green);
+        }
+
         .link-btn.review-btn {
             color: var(--accent-pink);
             border-color: rgba(255, 55, 95, 0.3);
@@ -7154,7 +7167,7 @@ Gate Inheritance:
             },
 
             // P1 High Priority Tickets (TKT-136 to TKT-140)
-            { id: 'TKT-136', title: 'Replace bare except Exception with specific handlers', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: "N'Golo Kanté", epic: 'EPIC-014', progress: 100, tags: ['Code Quality', 'Error Handling', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+            { id: 'TKT-136', title: 'Replace bare except Exception with specific handlers', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: "N'Golo Kanté", epic: 'EPIC-014', progress: 100, branch: 'main', tags: ['Code Quality', 'Error Handling', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Replace all 40+ bare "except Exception" blocks with specific exception types and proper error context',
                 goal: 'Every exception logged with full context (file, line, input data). Distinguish recoverable vs catastrophic failures.',
@@ -7163,7 +7176,7 @@ Gate Inheritance:
               },
               plan: '1. Grep for "except Exception". 2. Categorize by error type. 3. Replace with specific handlers. 4. Add context to log messages. 5. Add tests for error paths.'
             },
-            { id: 'TKT-137', title: 'Implement model baselines (K-means vs random)', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-014', progress: 100, tags: ['ML', 'Validation', 'Analytics', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+            { id: 'TKT-137', title: 'Implement model baselines (K-means vs random)', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-014', progress: 100, branch: 'main', output: 'scripts/ml_ops/baseline_comparison.py', tags: ['ML', 'Validation', 'Analytics', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Create baseline comparisons for K-means clustering: random clustering, hierarchical clustering, DBSCAN. Prove K-means is actually better.',
                 goal: 'Document that K-means with 6 batter / 7 bowler clusters outperforms alternatives. Justify PCA thresholds.',
@@ -7172,7 +7185,7 @@ Gate Inheritance:
               },
               plan: '1. Create scripts/ml_ops/baseline_comparison.py. 2. Implement 4 clustering methods. 3. Compare on silhouette, Davies-Bouldin. 4. Document results. 5. Add to model card.'
             },
-            { id: 'TKT-138', title: 'Add FOREIGN KEY constraints to DuckDB', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 100, tags: ['Data', 'Schema', 'Integrity', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+            { id: 'TKT-138', title: 'Add FOREIGN KEY constraints to DuckDB', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 100, branch: 'main', output: 'scripts/core/schema_constraints.py', tags: ['Data', 'Schema', 'Integrity', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Add FOREIGN KEY constraints linking fact_ball to dim_player, dim_team, dim_match, dim_venue',
                 goal: 'Database rejects orphaned records - cannot insert ball with invalid player_id or team_id',
@@ -7181,7 +7194,7 @@ Gate Inheritance:
               },
               plan: '1. Document current schema relationships. 2. Add FK constraints to DDL. 3. Test with orphan data. 4. Update ingest.py error handling.'
             },
-            { id: 'TKT-139', title: 'Add integration tests for data pipeline', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: "N'Golo Kanté", epic: 'EPIC-014', progress: 100, tags: ['Testing', 'Pipeline', 'QA', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+            { id: 'TKT-139', title: 'Add integration tests for data pipeline', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: "N'Golo Kanté", epic: 'EPIC-014', progress: 100, branch: 'main', output: 'tests/integration', tags: ['Testing', 'Pipeline', 'QA', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Create end-to-end integration tests: ingest → validate → analytics → outputs. Currently only unit tests exist.',
                 goal: 'Test full pipeline with sample data. Catch integration failures before production.',
@@ -7190,7 +7203,7 @@ Gate Inheritance:
               },
               plan: '1. Create tests/integration/ directory. 2. Create sample match fixtures. 3. Test full ingest flow. 4. Test analytics flow. 5. Test output generation. 6. Add integration test job to CI.'
             },
-            { id: 'TKT-140', title: 'Add data lineage tracking', state: 'DONE', priority: 'P1', effort: 'marathon', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 100, tags: ['Data', 'Lineage', 'Audit', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
+            { id: 'TKT-140', title: 'Add data lineage tracking', state: 'DONE', priority: 'P1', effort: 'marathon', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 100, branch: 'main', output: 'scripts/core/data_lineage.py', tags: ['Data', 'Lineage', 'Audit', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
               context: {
                 ask: 'Track data provenance: which source file → which transform → which output. Enable audit trail for any metric.',
                 goal: 'Trace any number back to source: "This SR=150 came from match X, ball Y, computed by script Z"',
@@ -7740,16 +7753,16 @@ Gate Inheritance:
         // ==================== TECH HEALTH DASHBOARD ====================
         let healthData = {
             score: 86.8,
-            status: 'GREAT',
+            status: 'EXCELLENT',
             target: 85.0,
             baseline: 67.4,
             timestamp: new Date().toISOString(),
             categories: {
                 governance: { score: 100, weight: 15, label: 'Governance' },
-                code_quality: { score: 75, weight: 20, label: 'Code Quality' },
+                code_quality: { score: 65, weight: 20, label: 'Code Quality' },
                 data_robustness: { score: 100, weight: 20, label: 'Data Robustness' },
-                ml_rigor: { score: 85, weight: 20, label: 'ML Rigor' },
-                testing: { score: 65, weight: 15, label: 'Testing' },
+                ml_rigor: { score: 80, weight: 20, label: 'ML Rigor' },
+                testing: { score: 85, weight: 15, label: 'Testing' },
                 documentation: { score: 100, weight: 10, label: 'Documentation' }
             },
             benchmarks: {
@@ -7763,7 +7776,7 @@ Gate Inheritance:
                 output_generation: 90,
                 dashboard_deploy: 90,
                 data_pipeline: 75,
-                testing: 80
+                testing: 70
             }
         };
 
@@ -8167,8 +8180,9 @@ Gate Inheritance:
                         ${t.effort ? `<span class="effort effort-${t.effort}">${effortLevels[t.effort]?.name || t.effort}</span>` : ''}
                         ${t.tags.slice(0, 2).map(tag => `<span class="tag ${getTagClass(tag)}">${tag}</span>`).join('')}
                     </div>
-                    ${t.prd || t.output || t.review ? `
+                    ${t.prd || t.output || t.review || t.branch ? `
                         <div class="ticket-links">
+                            ${t.branch ? `<a href="https://github.com/dwijesh-r/cricket-playbook/tree/${t.branch}" target="_blank" rel="noopener" class="link-btn branch-btn" onclick="event.stopPropagation()">🌿 ${t.branch.replace('feature/', '').substring(0, 20)}</a>` : ''}
                             ${t.prd ? `<a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/${t.prd}" target="_blank" rel="noopener" class="link-btn" onclick="event.stopPropagation()">📄 PRD</a>` : ''}
                             ${t.output ? `<a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/${t.output}" target="_blank" rel="noopener" class="link-btn" onclick="event.stopPropagation()">📁 Output</a>` : ''}
                             ${t.review ? `<a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/${t.review}" target="_blank" rel="noopener" class="link-btn review-btn" onclick="event.stopPropagation()">🌹 Review</a>` : ''}

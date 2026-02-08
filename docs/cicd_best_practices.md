@@ -223,12 +223,53 @@ markers = [
 
 ## 5. Version Control Practices
 
-### 5.1 Branch Naming Convention
+### 5.1 Branching Strategy
 
-- `feature/` - New features
-- `fix/` - Bug fixes
-- `data/` - Data updates
-- `docs/` - Documentation
+**Effective 2026-02-08** — All non-trivial work MUST go through feature branches.
+
+#### Rules
+
+1. **Never commit directly to `main`** for multi-file changes or ticket work
+2. Create a feature branch from `main` before starting work
+3. Push branch, open a PR with description referencing the ticket
+4. CI (lint, tests, gates) runs on the PR automatically
+5. Merge only after all checks pass
+6. Delete branch after merge
+
+#### Branch Naming Convention
+
+| Prefix | Use Case | Example |
+|--------|----------|---------|
+| `feature/TKT-xxx-` | New ticket work | `feature/TKT-141-incremental-ingest` |
+| `fix/TKT-xxx-` | Bug fixes | `fix/TKT-136-exception-handlers` |
+| `fix/` | Non-ticket fixes | `fix/update-health-scores-and-dashboard` |
+| `data/` | Data updates | `data/ipl-2026-squads` |
+| `docs/` | Documentation only | `docs/branching-strategy` |
+| `hotfix/` | Urgent production fixes | `hotfix/ci-workflow-crash` |
+
+#### Exceptions (direct to main allowed)
+
+- Single-line typo fixes
+- Config-only changes (thresholds.yaml updates)
+- Emergency workflow fixes that block the entire team
+
+#### PR Template
+
+```markdown
+## Ticket: TKT-XXX
+## Branch: feature/TKT-xxx-description
+
+### What changed
+- ...
+
+### How to verify
+- ...
+
+### Checklist
+- [ ] Tests pass locally
+- [ ] ruff check . clean
+- [ ] Dashboard updated (if applicable)
+```
 
 ### 5.2 Commit Message Standards (Conventional Commits)
 

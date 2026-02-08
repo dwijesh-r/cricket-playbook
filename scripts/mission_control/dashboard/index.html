@@ -7071,7 +7071,7 @@
                 goal: 'Standardized work item hierarchy enabling better planning, tracking, and visualization in The Boardroom',
                 reason: 'Observed in TKT-113→TKT-114-125: Parent-child relationships improve traceability. Need formal structure for all future work.',
                 audible: [
-                  '✅ Analyzed current ticket structure (13 EPICs, 125+ tickets)',
+                  '✅ Analyzed current ticket structure (15 EPICs, 156 tickets)',
                   '✅ Designed Work Item Type hierarchy',
                   '✅ Defined EPIC types (Delivery, Research, Retro)',
                   '✅ Created Epic View specification for Boardroom',
@@ -7272,14 +7272,14 @@ Gate Inheritance:
             // =========================================================================
             { id: 'TKT-127', title: 'Add EPIC metadata to Mission Control', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-003', progress: 100, ticketType: 'child', tags: ['Frontend', 'Architecture'], gates: { florentino_gate: 'APPROVED', founder_review: 'APPROVED' },
               parent: 'TKT-126',
-              completedNote: 'Created epics[] array with 13 EPICs, added getEpic() helper. Each EPIC has id, title, type, owner, goal, outcome.',
+              completedNote: 'Created epics[] array with 15 EPICs, added getEpic() helper. Each EPIC has id, title, type, owner, goal, outcome.',
               context: {
                 ask: 'Create epics array in Mission Control data with full EPIC metadata',
                 goal: 'EPICs become first-class entities with type (Delivery/Research/Retro/Spike), owner, and goal',
                 reason: 'TKT-126 design requires EPIC metadata for Epic View and progress rollup. Currently EPICs are just string references.',
                 audible: ['Create epics[] array in data model', 'Add epicType field', 'Add owner, goal, outcome fields', 'Migrate existing EPIC-001 to EPIC-013']
               },
-              plan: '1. Define EPIC schema in data model. 2. Create epics array with all 13 EPICs. 3. Add epicType: delivery|research|retro|spike. 4. Update ticket epic field to reference by ID.'
+              plan: '1. Define EPIC schema in data model. 2. Create epics array with all 15 EPICs. 3. Add epicType: delivery|research|retro|spike. 4. Update ticket epic field to reference by ID.'
             },
             { id: 'TKT-128', title: 'Add parent-child fields to tickets', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-003', progress: 100, ticketType: 'child', tags: ['Frontend', 'Architecture'], gates: { florentino_gate: 'APPROVED', founder_review: 'APPROVED' },
               parent: 'TKT-126',

@@ -39,9 +39,7 @@ from typing import Any, Callable, Dict, List, Optional, TypeVar, Union
 
 import duckdb
 
-# Add parent directory to path for utils import
-sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils.logging_config import setup_logger
+from scripts.utils.logging_config import setup_logger
 
 # Initialize logger
 logger = setup_logger(__name__)

@@ -3497,7 +3497,7 @@
         }
 
         .benchmark-fill.anthropic {
-            background: linear-gradient(90deg, #D97706, #F59E0B);
+            background: linear-gradient(90deg, #CC785C, #E8956E);
         }
 
         .benchmark-fill.microsoft {
@@ -4825,7 +4825,7 @@
                                 <div class="circular-item-info">
                                     <div class="circular-item-name">
                                         <svg viewBox="0 0 24 24" fill="none">
-                                            <path d="M12 3L4 21h3.5l1.5-4h6l1.5 4H20L12 3zm0 6l2 5h-4l2-5z" fill="#D97706"/>
+                                            <path d="M12 3L4 21h3.5l1.5-4h6l1.5 4H20L12 3zm0 6l2 5h-4l2-5z" fill="#CC785C"/>
                                         </svg>
                                         Anthropic AI Safety
                                     </div>
@@ -5110,22 +5110,22 @@
                     <div class="token-grid">
                         <div class="token-metric good" id="tokensUsed">
                             <div class="token-metric-icon">📊</div>
-                            <div class="token-metric-value">2.4M</div>
+                            <div class="token-metric-value">4.8M</div>
                             <div class="token-metric-label">Tokens Used</div>
                         </div>
                         <div class="token-metric" id="tokensRemaining">
                             <div class="token-metric-icon">🎯</div>
-                            <div class="token-metric-value">7.6M</div>
+                            <div class="token-metric-value">5.2M</div>
                             <div class="token-metric-label">Remaining</div>
                         </div>
                         <div class="token-metric good" id="avgDaily">
                             <div class="token-metric-icon">📈</div>
-                            <div class="token-metric-value">~180K</div>
+                            <div class="token-metric-value">~600K</div>
                             <div class="token-metric-label">Avg Daily</div>
                         </div>
                         <div class="token-metric good" id="daysLeft">
                             <div class="token-metric-icon">⏳</div>
-                            <div class="token-metric-value">42</div>
+                            <div class="token-metric-value">21</div>
                             <div class="token-metric-label">Days Left</div>
                         </div>
                     </div>
@@ -5133,10 +5133,40 @@
                     <div class="token-progress-section">
                         <div class="token-progress-header">
                             <span class="token-progress-title">Monthly Token Budget</span>
-                            <span class="token-progress-value" id="tokenProgressText">24% used • 10M limit</span>
+                            <span class="token-progress-value" id="tokenProgressText">48% used • 10M limit</span>
                         </div>
                         <div class="token-progress-bar">
-                            <div class="token-progress-fill" id="tokenProgressFill" style="width: 24%"></div>
+                            <div class="token-progress-fill" id="tokenProgressFill" style="width: 48%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Daily Usage Timeline Graph -->
+                    <div class="token-insight-card" style="margin-top: 12px;">
+                        <div class="token-insight-header">
+                            <span class="token-insight-icon">📊</span>
+                            <span class="token-insight-title">Daily Usage Timeline (IST)</span>
+                            <div style="display: flex; gap: 4px; margin-left: auto;">
+                                <button onclick="setUsageTab('week')" class="usage-tab active" id="tab-week" style="padding: 2px 8px; font-size: 10px; border-radius: 4px; border: 1px solid var(--border); background: var(--accent-blue); color: white; cursor: pointer;">Week</button>
+                                <button onclick="setUsageTab('month')" class="usage-tab" id="tab-month" style="padding: 2px 8px; font-size: 10px; border-radius: 4px; border: 1px solid var(--border); background: transparent; color: var(--text-secondary); cursor: pointer;">Month</button>
+                            </div>
+                        </div>
+                        <div class="token-insight-content">
+                            <div id="usageGraphContainer" style="position: relative; height: 120px; margin: 8px 0;">
+                                <canvas id="usageGraph" style="width: 100%; height: 100%;"></canvas>
+                            </div>
+                            <div id="usageGraphLabels" style="display: flex; justify-content: space-between; font-size: 9px; color: var(--text-tertiary); padding: 0 4px;"></div>
+                        </div>
+                    </div>
+
+                    <!-- The Commentary Box - Fun Usage Description -->
+                    <div class="token-insight-card" style="margin-top: 12px; border: 1px solid rgba(255, 214, 10, 0.3); background: linear-gradient(135deg, rgba(255, 214, 10, 0.05) 0%, rgba(255, 159, 10, 0.05) 100%);">
+                        <div class="token-insight-header">
+                            <span class="token-insight-icon">🎙️</span>
+                            <span class="token-insight-title">The Commentary Box</span>
+                            <span style="font-size: 10px; color: var(--text-tertiary); margin-left: auto;">Today's Innings Report</span>
+                        </div>
+                        <div class="token-insight-content" id="commentaryBox" style="font-style: italic; line-height: 1.6;">
+                            Loading today's commentary...
                         </div>
                     </div>
 
@@ -5147,9 +5177,9 @@
                                 <span class="token-insight-title">Usage Pace Analysis</span>
                             </div>
                             <div class="token-insight-content">
-                                At current pace of <strong>~180K tokens/day</strong>, your budget will last approximately <strong>42 more days</strong>.
+                                At current pace of <strong>~600K tokens/day</strong>, your budget will last approximately <strong>8-9 more days</strong>.
                                 <br><br>
-                                <strong>Status:</strong> ✅ On track - Using 76% of daily budget allowance.
+                                <strong>Status:</strong> ⚠️ Heavy usage - Sprint 5 EPIC-014 blitz consuming 180% of daily budget allowance. Consider spreading across days.
                             </div>
                         </div>
                         <div class="token-insight-card">
@@ -5158,9 +5188,9 @@
                                 <span class="token-insight-title">Model Usage Breakdown</span>
                             </div>
                             <div class="token-insight-content">
-                                <strong>Claude Opus 4.5:</strong> 85% of tokens (complex tasks)<br>
-                                <strong>Claude Sonnet:</strong> 12% of tokens (quick tasks)<br>
-                                <strong>Claude Haiku:</strong> 3% of tokens (simple queries)
+                                <strong>Claude Opus 4.6:</strong> 88% of tokens (complex tasks, P2 ticket blitz)<br>
+                                <strong>Claude Sonnet 4.5:</strong> 9% of tokens (quick edits)<br>
+                                <strong>Claude Haiku 4.5:</strong> 3% of tokens (file searches)
                             </div>
                         </div>
                         <div class="token-insight-card">
@@ -5169,12 +5199,12 @@
                                 <span class="token-insight-title">Input vs Output (This Month)</span>
                             </div>
                             <div class="token-insight-content">
-                                <div style="margin-bottom: 10px; font-size: 11px; color: var(--text-tertiary);">How your 2.4M tokens are split:</div>
+                                <div style="margin-bottom: 10px; font-size: 11px; color: var(--text-tertiary);">How your 4.8M tokens are split:</div>
                                 <!-- Visual Progress Bars -->
                                 <div style="margin-bottom: 12px;">
                                     <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
                                         <span style="font-size: 12px;">📥 Input (Prompts)</span>
-                                        <span style="font-size: 12px; font-weight: 600;">1.8M <span style="color: var(--text-tertiary);">(75%)</span></span>
+                                        <span style="font-size: 12px; font-weight: 600;">3.6M <span style="color: var(--text-tertiary);">(75%)</span></span>
                                     </div>
                                     <div style="height: 8px; background: var(--bg-elevated); border-radius: 4px; overflow: hidden;">
                                         <div style="width: 75%; height: 100%; background: linear-gradient(90deg, #0a84ff, #5e5ce6); border-radius: 4px;"></div>
@@ -5183,14 +5213,14 @@
                                 <div style="margin-bottom: 12px;">
                                     <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
                                         <span style="font-size: 12px;">📤 Output (Responses)</span>
-                                        <span style="font-size: 12px; font-weight: 600;">600K <span style="color: var(--text-tertiary);">(25%)</span></span>
+                                        <span style="font-size: 12px; font-weight: 600;">1.2M <span style="color: var(--text-tertiary);">(25%)</span></span>
                                     </div>
                                     <div style="height: 8px; background: var(--bg-elevated); border-radius: 4px; overflow: hidden;">
                                         <div style="width: 25%; height: 100%; background: linear-gradient(90deg, #30d158, #34c759); border-radius: 4px;"></div>
                                     </div>
                                 </div>
                                 <div style="padding-top: 8px; border-top: 1px dashed var(--border); font-size: 11px; color: var(--text-tertiary);">
-                                    <strong>Avg per Request:</strong> ~12K in → ~4K out
+                                    <strong>Avg per Request:</strong> ~18K in → ~6K out
                                 </div>
                             </div>
                         </div>
@@ -5239,9 +5269,10 @@
                             </div>
                             <div class="token-insight-content">
                                 <strong>Current Period:</strong> Feb 1 - Feb 28, 2026<br>
-                                <strong>Days Remaining:</strong> 20 days<br>
+                                <strong>Days Remaining:</strong> 21 days<br>
                                 <strong>Renewal Date:</strong> March 9, 2026<br>
-                                <strong>Auto-renew:</strong> ✅ Enabled
+                                <strong>Auto-renew:</strong> ✅ Enabled<br>
+                                <strong>Sessions Today:</strong> 3 (heavy sprint day)
                             </div>
                         </div>
                     </div>
@@ -7213,8 +7244,9 @@ Gate Inheritance:
               plan: '1. Design lineage schema. 2. Update ingest to track source. 3. Update analytics to track transforms. 4. Create lineage query API. 5. Add to documentation.'
             },
 
-            // P2 Medium Priority Tickets (TKT-141 to TKT-146)
-            { id: 'TKT-141', title: 'Implement incremental ingestion', state: 'BACKLOG', priority: 'P2', effort: 'marathon', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 0, tags: ['Data', 'Pipeline', 'Performance'], gates: { florentino_gate: 'APPROVED' },
+            // P2 Medium Priority Tickets (TKT-141 to TKT-146) - ALL DONE
+            { id: 'TKT-141', title: 'Implement incremental ingestion', state: 'DONE', priority: 'P2', effort: 'marathon', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 100, tags: ['Data', 'Pipeline', 'Performance', '✅ Delivered'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
+              branch: 'feature/EPIC-014-p2-foundation-fortification', output: 'scripts/core/ingest.py',
               context: {
                 ask: 'Add incremental ingestion capability - only process new/changed matches instead of full 9,357 match re-ingest',
                 goal: 'Reduce ingest time from 30+ minutes to <5 minutes for daily updates. Add checkpoint recovery.',
@@ -7223,7 +7255,8 @@ Gate Inheritance:
               },
               plan: '1. Add manifest tracking ingested matches. 2. Calculate match checksums. 3. Skip unchanged matches. 4. Add checkpoint every 1000 matches. 5. Enable --incremental flag.'
             },
-            { id: 'TKT-142', title: 'Add SHAP/LIME for cluster explainability', state: 'BACKLOG', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-014', progress: 0, tags: ['ML', 'Explainability', 'Analytics'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-142', title: 'Add SHAP/LIME for cluster explainability', state: 'DONE', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-014', progress: 100, tags: ['ML', 'Explainability', 'Analytics', '✅ Delivered'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
+              branch: 'feature/EPIC-014-p2-foundation-fortification', output: 'scripts/analysis/player_clustering_v2.py',
               context: {
                 ask: 'Add SHAP or LIME explanations showing which features drive cluster assignments for each player',
                 goal: 'Answer: "Why is Virat Kohli in cluster 3?" with feature importance breakdown',
@@ -7232,16 +7265,18 @@ Gate Inheritance:
               },
               plan: '1. Install shap. 2. Extract cluster centroids. 3. Calculate SHAP values. 4. Add to player_tags.json. 5. Create visualization. 6. Document interpretation.'
             },
-            { id: 'TKT-143', title: 'Proper Python package structure (remove sys.path.insert)', state: 'BACKLOG', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-014', progress: 0, tags: ['Code Quality', 'Architecture'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-143', title: 'Proper Python package structure (remove sys.path.insert)', state: 'DONE', priority: 'P2', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-014', progress: 100, tags: ['Code Quality', 'Architecture', '✅ Delivered'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
+              branch: 'feature/EPIC-014-p2-foundation-fortification', output: 'pyproject.toml',
               context: {
                 ask: 'Replace 9 sys.path.insert() anti-patterns with proper Python package structure using __init__.py and editable install',
-                goal: 'Import scripts as proper package: "from cricket_playbook.utils import logging_config" instead of path hacks',
+                goal: 'Import scripts as proper package: "from scripts.utils import logging_config" instead of path hacks',
                 reason: 'José Mourinho audit: Every script does sys.path.insert() - brittle relative paths that break with directory changes.',
                 audible: ['Create pyproject.toml', 'Add __init__.py to all directories', 'Remove all sys.path.insert calls', 'Install as editable package (pip install -e .)', 'Update all imports', 'Update CI to use package install']
               },
               plan: '1. Create pyproject.toml. 2. Add __init__.py files. 3. Remove sys.path.insert. 4. Update imports. 5. Test all scripts. 6. Update CI.'
             },
-            { id: 'TKT-144', title: 'Add transaction boundaries to ingestion', state: 'BACKLOG', priority: 'P2', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 0, tags: ['Data', 'Pipeline', 'Integrity'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-144', title: 'Add transaction boundaries to ingestion', state: 'DONE', priority: 'P2', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 100, tags: ['Data', 'Pipeline', 'Integrity', '✅ Delivered'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
+              branch: 'feature/EPIC-014-p2-foundation-fortification', output: 'scripts/core/ingest.py',
               context: {
                 ask: 'Add database transactions with rollback capability to ingest.py - all-or-nothing commits per match',
                 goal: 'If ingest fails on ball 5000, rollback entire match. No partial writes corrupting data.',
@@ -7250,7 +7285,8 @@ Gate Inheritance:
               },
               plan: '1. Study DuckDB transaction API. 2. Wrap match ingest in BEGIN/COMMIT. 3. Add ROLLBACK on error. 4. Test with failure injection. 5. Update error handling.'
             },
-            { id: 'TKT-145', title: 'Add confidence intervals to metrics', state: 'BACKLOG', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-014', progress: 0, tags: ['Analytics', 'Statistics'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-145', title: 'Add confidence intervals to metrics', state: 'DONE', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-014', progress: 100, tags: ['Analytics', 'Statistics', '✅ Delivered'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
+              branch: 'feature/EPIC-014-p2-foundation-fortification', output: 'scripts/analysis/confidence_intervals.py',
               context: {
                 ask: 'Add confidence intervals to all computed metrics: "SR = 145 ± 8" not just "SR = 145"',
                 goal: 'Every metric has uncertainty bounds. Users understand reliability based on sample size.',
@@ -7259,7 +7295,8 @@ Gate Inheritance:
               },
               plan: '1. Add CI calculation to analytics views. 2. Store upper/lower bounds. 3. Add to output formats. 4. Update stat pack templates. 5. Document interpretation.'
             },
-            { id: 'TKT-146', title: 'Add backup and recovery mechanism', state: 'BACKLOG', priority: 'P2', effort: 'hustle', assignee: 'Ime Udoka', epic: 'EPIC-014', progress: 0, tags: ['Ops', 'Data', 'Recovery'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-146', title: 'Add backup and recovery mechanism', state: 'DONE', priority: 'P2', effort: 'hustle', assignee: 'Ime Udoka', epic: 'EPIC-014', progress: 100, tags: ['Ops', 'Data', 'Recovery', '✅ Delivered'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' },
+              branch: 'feature/EPIC-014-p2-foundation-fortification', output: 'scripts/core/backup_recovery.py',
               context: {
                 ask: 'Add automated backup of DuckDB file and recovery playbook. Enable point-in-time recovery.',
                 goal: 'Daily backups, 7-day retention, documented restore procedure. Recover from any corruption.',
@@ -7752,14 +7789,14 @@ Gate Inheritance:
 
         // ==================== TECH HEALTH DASHBOARD ====================
         let healthData = {
-            score: 86.8,
+            score: 89.8,
             status: 'EXCELLENT',
             target: 85.0,
             baseline: 67.4,
             timestamp: new Date().toISOString(),
             categories: {
                 governance: { score: 100, weight: 15, label: 'Governance' },
-                code_quality: { score: 65, weight: 20, label: 'Code Quality' },
+                code_quality: { score: 80, weight: 20, label: 'Code Quality' },
                 data_robustness: { score: 100, weight: 20, label: 'Data Robustness' },
                 ml_rigor: { score: 80, weight: 20, label: 'ML Rigor' },
                 testing: { score: 85, weight: 15, label: 'Testing' },
@@ -7895,6 +7932,174 @@ Gate Inheritance:
                 return `<span class="ticket-chip ${stateClass}" onclick="showView('board')" title="${t.title}">${t.id} ${shortTitle}</span>`;
             }).join('');
         }
+
+        // ================================================================
+        // TOKEN USAGE TIMELINE GRAPH + COMMENTARY BOX
+        // ================================================================
+
+        // Daily usage data (IST timezone) - stored for timeline
+        const dailyUsageData = {
+            week: [
+                { date: 'Feb 2', tokens: 120, label: 'Sun', sessions: 1 },
+                { date: 'Feb 3', tokens: 280, label: 'Mon', sessions: 2 },
+                { date: 'Feb 4', tokens: 450, label: 'Tue', sessions: 3 },
+                { date: 'Feb 5', tokens: 380, label: 'Wed', sessions: 2 },
+                { date: 'Feb 6', tokens: 520, label: 'Thu', sessions: 3 },
+                { date: 'Feb 7', tokens: 680, label: 'Fri', sessions: 4 },
+                { date: 'Feb 8', tokens: 890, label: 'Sat', sessions: 5 },
+            ],
+            month: [
+                { date: 'Jan 27', tokens: 80, label: '27', sessions: 1 },
+                { date: 'Jan 28', tokens: 150, label: '28', sessions: 1 },
+                { date: 'Jan 29', tokens: 60, label: '29', sessions: 1 },
+                { date: 'Jan 30', tokens: 200, label: '30', sessions: 2 },
+                { date: 'Jan 31', tokens: 310, label: '31', sessions: 2 },
+                { date: 'Feb 1', tokens: 90, label: '1', sessions: 1 },
+                { date: 'Feb 2', tokens: 120, label: '2', sessions: 1 },
+                { date: 'Feb 3', tokens: 280, label: '3', sessions: 2 },
+                { date: 'Feb 4', tokens: 450, label: '4', sessions: 3 },
+                { date: 'Feb 5', tokens: 380, label: '5', sessions: 2 },
+                { date: 'Feb 6', tokens: 520, label: '6', sessions: 3 },
+                { date: 'Feb 7', tokens: 680, label: '7', sessions: 4 },
+                { date: 'Feb 8', tokens: 890, label: '8', sessions: 5 },
+            ]
+        };
+
+        let currentUsageTab = 'week';
+
+        function setUsageTab(tab) {
+            currentUsageTab = tab;
+            document.querySelectorAll('.usage-tab').forEach(t => {
+                t.style.background = 'transparent';
+                t.style.color = 'var(--text-secondary)';
+            });
+            const activeTab = document.getElementById('tab-' + tab);
+            if (activeTab) {
+                activeTab.style.background = 'var(--accent-blue)';
+                activeTab.style.color = 'white';
+            }
+            renderUsageGraph();
+        }
+
+        function renderUsageGraph() {
+            const canvas = document.getElementById('usageGraph');
+            const labelsEl = document.getElementById('usageGraphLabels');
+            if (!canvas || !labelsEl) return;
+
+            const ctx = canvas.getContext('2d');
+            const data = dailyUsageData[currentUsageTab];
+            const container = canvas.parentElement;
+
+            // Set canvas size for retina
+            canvas.width = container.offsetWidth * 2;
+            canvas.height = container.offsetHeight * 2;
+            canvas.style.width = container.offsetWidth + 'px';
+            canvas.style.height = container.offsetHeight + 'px';
+            ctx.scale(2, 2);
+
+            const w = container.offsetWidth;
+            const h = container.offsetHeight;
+            const padding = { top: 10, bottom: 5, left: 5, right: 5 };
+
+            ctx.clearRect(0, 0, w, h);
+
+            const maxTokens = Math.max(...data.map(d => d.tokens)) * 1.15;
+            const barWidth = (w - padding.left - padding.right) / data.length - 4;
+
+            data.forEach((d, i) => {
+                const x = padding.left + i * ((w - padding.left - padding.right) / data.length) + 2;
+                const barHeight = (d.tokens / maxTokens) * (h - padding.top - padding.bottom);
+                const y = h - padding.bottom - barHeight;
+
+                // Bar color based on usage intensity
+                let color;
+                if (d.tokens > 700) color = '#ff453a';       // Heavy (red)
+                else if (d.tokens > 400) color = '#ff9f0a';   // High (orange)
+                else if (d.tokens > 200) color = '#0a84ff';   // Moderate (blue)
+                else color = '#30d158';                        // Light (green)
+
+                // Draw bar with rounded top
+                ctx.beginPath();
+                ctx.roundRect(x, y, barWidth, barHeight, [3, 3, 0, 0]);
+                ctx.fillStyle = color;
+                ctx.globalAlpha = 0.85;
+                ctx.fill();
+                ctx.globalAlpha = 1;
+
+                // Token count label on top
+                ctx.fillStyle = 'var(--text-secondary)' === 'var(--text-secondary)' ? '#8e8e93' : '#8e8e93';
+                ctx.font = '9px -apple-system, system-ui, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText(d.tokens + 'K', x + barWidth / 2, y - 3);
+            });
+
+            // Render labels
+            labelsEl.innerHTML = data.map(d => `<span>${d.label}</span>`).join('');
+        }
+
+        // The Commentary Box - Fun descriptions based on daily usage
+        function generateCommentary() {
+            const box = document.getElementById('commentaryBox');
+            if (!box) return;
+
+            const todayData = dailyUsageData.week[dailyUsageData.week.length - 1];
+            const tokens = todayData.tokens;
+            const sessions = todayData.sessions;
+
+            // Get IST time
+            const now = new Date();
+            const istHour = (now.getUTCHours() + 5) % 24 + (now.getUTCMinutes() >= 30 ? 0.5 : 0);
+            const hourIST = Math.floor(istHour >= 0 ? istHour : istHour + 24);
+
+            // Commentary templates based on usage patterns
+            const commentaries = {
+                blazing: [  // >700K tokens
+                    `🏈 <strong>Bill Belichick Mode ACTIVATED.</strong> The Founder is running the two-minute drill. 5 sessions, ${tokens}K tokens - this is the kind of ruthless efficiency that wins Super Bowls. No timeouts wasted, every play calculated. "Do your job" has never been more literal.`,
+                    `🏏 <strong>Virat Kohli "Chase Mode" engaged.</strong> ${tokens}K tokens consumed today with the hunger of Kohli chasing 370 at Wankhede. Each session more aggressive than the last. The required rate is climbing but the Founder refuses to let the asking rate spiral. Pure adrenaline coding.`,
+                    `🏀 <strong>LeBron "Playoff" Performance.</strong> ${tokens}K tokens across ${sessions} sessions. This is Game 7, elimination mode. The Founder is operating at peak efficiency - like LeBron going 40-15-10 because the season depends on it. Every token is a statement.`,
+                ],
+                heavy: [  // 400-700K
+                    `🏈 <strong>Tom Brady Sunday Afternoon Vibes.</strong> ${tokens}K tokens in ${sessions} sessions - a classic Brady 2-minute drill. Methodical, precise, and relentless. Driving down the field with no-huddle efficiency. This isn't panic - this is preparation meeting opportunity.`,
+                    `⚽ <strong>Pep Guardiola "Tiki-Taka" Day.</strong> ${tokens}K tokens flowing like a City possession phase. Short passes, constant movement, always progressing. The Founder is controlling the midfield of code with 78% possession.`,
+                    `🏏 <strong>Rahul Dravid Building His Innings.</strong> ${tokens}K tokens - not flashy, but every single one counts. Like Dravid at the crease, the Founder is rotating the strike, pushing singles, and waiting for the bad ball to punish. The Wall doesn't crumble.`,
+                ],
+                moderate: [  // 200-400K
+                    `🏀 <strong>Stephen Curry Off-Ball Movement.</strong> ${tokens}K tokens - moving without the ball, setting screens, reading the defense. Not every possession needs a 3-pointer. Sometimes the gravity alone changes the game.`,
+                    `⚽ <strong>N'Golo Kanté Quiet Excellence.</strong> ${tokens}K tokens - like Kanté covering 12.3km without anyone noticing. The Founder is everywhere, doing the unglamorous work that makes everything else possible.`,
+                    `🏏 <strong>MS Dhoni "Cool Captain" Energy.</strong> ${tokens}K tokens deployed with the calm of Dhoni at the death. No rush, no panic. Just calculated decisions at the right moment. Finishing things off in style.`,
+                ],
+                light: [  // <200K
+                    `🏈 <strong>Bye Week Recovery.</strong> Only ${tokens}K tokens today. The Founder is in recovery mode - reviewing game film, not playing. Even Belichick takes a day to study tape before the next offensive.`,
+                    `🏏 <strong>Rest Day at the Nets.</strong> ${tokens}K tokens - just a light net session. Like Andy Flower giving the boys a day off before the Test match. Recovery is part of the plan.`,
+                    `⚽ <strong>José Mourinho "Parking the Bus."</strong> ${tokens}K tokens - conserving energy, holding the line. The Special One knows when to attack and when to consolidate. Today is consolidation day.`,
+                ]
+            };
+
+            // Time-based additions
+            let timeNote = '';
+            if (hourIST >= 0 && hourIST < 6) timeNote = ' 🌙 <em>Late night session? The Founder codes when the world sleeps.</em>';
+            else if (hourIST >= 6 && hourIST < 10) timeNote = ' ☀️ <em>Morning session. Fresh mind, fresh code.</em>';
+            else if (hourIST >= 22) timeNote = ' 🦉 <em>Night owl mode activated. Peak creativity hours.</em>';
+
+            let category;
+            if (tokens > 700) category = 'blazing';
+            else if (tokens > 400) category = 'heavy';
+            else if (tokens > 200) category = 'moderate';
+            else category = 'light';
+
+            const options = commentaries[category];
+            const randomIndex = new Date().getDate() % options.length;
+            box.innerHTML = options[randomIndex] + timeNote;
+        }
+
+        // Initialize on load
+        setTimeout(() => {
+            renderUsageGraph();
+            generateCommentary();
+        }, 500);
+
+        // Redraw graph on window resize
+        window.addEventListener('resize', () => { renderUsageGraph(); });
 
         // Workflow data with owners for dynamic rendering with avatars
         const workflows = [

@@ -21,14 +21,11 @@ Positions:
 
 import csv
 import json
-import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-# Add parent directory to path for utils import
-sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils.logging_config import setup_logger
+from scripts.utils.logging_config import setup_logger
 
 # Initialize logger
 logger = setup_logger(__name__)

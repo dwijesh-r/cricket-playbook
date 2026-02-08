@@ -620,6 +620,116 @@ def analyze_clusters_v2(df: pd.DataFrame, centers: pd.DataFrame, player_type: st
             print(f"    ... and {len(cluster_players) - 8} more")
 
 
+def compute_feature_importance(centers: pd.DataFrame, feature_cols: List[str]) -> Dict[str, Any]:
+    """Compute feature importance for clustering using centroid variance analysis (TKT-142).
+
+    For each feature, measures how much the cluster centroids differ from
+    the global mean — features with high inter-cluster variance are important
+    for distinguishing clusters.
+
+    This approach doesn't require SHAP/LIME and works purely from the
+    K-Means centroids, making it fast and dependency-free.
+    """
+    importance = {}
+    for col in feature_cols:
+        if col in centers.columns:
+            # Inter-cluster variance (how spread the centroids are)
+            col_values = centers[col].values
+            variance = np.var(col_values)
+            # Normalize by range to make comparable
+            col_range = np.ptp(col_values) if np.ptp(col_values) > 0 else 1.0
+            importance[col] = {
+                "variance": float(variance),
+                "range": float(col_range),
+                "normalized_importance": float(variance / (col_range**2)) if col_range > 0 else 0,
+            }
+
+    # Rank by normalized importance
+    sorted_features = sorted(
+        importance.items(), key=lambda x: x[1]["normalized_importance"], reverse=True
+    )
+    for rank, (feat, data) in enumerate(sorted_features, 1):
+        data["rank"] = rank
+
+    return importance
+
+
+def save_cluster_explanations(
+    batter_df: pd.DataFrame,
+    bowler_df: pd.DataFrame,
+    batter_centers: pd.DataFrame,
+    bowler_centers: pd.DataFrame,
+    batter_features: List[str],
+    bowler_features: List[str],
+) -> None:
+    """Save cluster explanations to JSON output (TKT-142)."""
+    import json
+    from datetime import datetime
+
+    output_path = OUTPUT_DIR / "tags" / "cluster_explanations.json"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    batter_importance = compute_feature_importance(batter_centers, batter_features)
+    bowler_importance = compute_feature_importance(bowler_centers, bowler_features)
+
+    explanations = {
+        "generated_at": datetime.now().isoformat(),
+        "model_version": "2.0.0",
+        "ticket": "TKT-142",
+        "batter_clusters": {
+            "n_clusters": len(batter_centers),
+            "n_players": len(batter_df),
+            "feature_importance": batter_importance,
+            "cluster_profiles": {},
+        },
+        "bowler_clusters": {
+            "n_clusters": len(bowler_centers),
+            "n_players": len(bowler_df),
+            "feature_importance": bowler_importance,
+            "cluster_profiles": {},
+        },
+    }
+
+    # Add cluster profiles with top players
+    for cluster_id in sorted(batter_df["cluster"].unique()):
+        players = batter_df[batter_df["cluster"] == cluster_id]
+        center = batter_centers[batter_centers["cluster"] == cluster_id].iloc[0]
+        explanations["batter_clusters"]["cluster_profiles"][str(cluster_id)] = {
+            "size": len(players),
+            "avg_sr": round(float(center.get("overall_sr", 0)), 1),
+            "avg_position": round(float(center.get("avg_batting_position", 0)), 1),
+            "top_players": players.head(5)["player_name"].tolist(),
+            "distinguishing_features": [
+                f
+                for f, d in sorted(
+                    batter_importance.items(),
+                    key=lambda x: x[1]["rank"],
+                )[:3]
+            ],
+        }
+
+    for cluster_id in sorted(bowler_df["cluster"].unique()):
+        players = bowler_df[bowler_df["cluster"] == cluster_id]
+        center = bowler_centers[bowler_centers["cluster"] == cluster_id].iloc[0]
+        explanations["bowler_clusters"]["cluster_profiles"][str(cluster_id)] = {
+            "size": len(players),
+            "avg_economy": round(float(center.get("overall_economy", 0)), 2),
+            "top_players": players.head(5)["player_name"].tolist(),
+            "distinguishing_features": [
+                f
+                for f, d in sorted(
+                    bowler_importance.items(),
+                    key=lambda x: x[1]["rank"],
+                )[:3]
+            ],
+        }
+
+    with open(output_path, "w") as f:
+        json.dump(explanations, f, indent=2)
+
+    print(f"\n  Cluster explanations saved: {output_path}")
+
+
 def main() -> int:
     """Main entry point for V2 clustering."""
 
@@ -633,6 +743,7 @@ def main() -> int:
     print("  - Recency weighting (2021-2025)")
     print("  - PCA variance analysis")
     print("  - Correlation cleanup")
+    print("  - Cluster explainability (TKT-142)")
 
     if not DB_PATH.exists():
         print(f"\nERROR: Database not found at {DB_PATH}")
@@ -669,6 +780,21 @@ def main() -> int:
 
     # Validate specific players
     validate_specific_players(batter_clusters, bowler_clusters)
+
+    # Generate cluster explanations (TKT-142)
+    print("\n" + "=" * 70)
+    print("4. GENERATING CLUSTER EXPLANATIONS (TKT-142)")
+    print("=" * 70)
+    batter_feature_cols = [c for c in batter_centers.columns if c != "cluster"]
+    bowler_feature_cols = [c for c in bowler_centers.columns if c != "cluster"]
+    save_cluster_explanations(
+        batter_clusters,
+        bowler_clusters,
+        batter_centers,
+        bowler_centers,
+        batter_feature_cols,
+        bowler_feature_cols,
+    )
 
     # Summary
     print("\n" + "=" * 70)

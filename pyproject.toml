@@ -1,10 +1,24 @@
+[build-system]
+requires = ["setuptools>=64.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cricket-playbook"
+version = "4.0.0"
+description = "IPL 2026 Analytics Platform"
+requires-python = ">=3.9"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["scripts*"]
+
 [tool.ruff]
 line-length = 100
 target-version = "py39"
 
 [tool.ruff.lint]
 select = ["E", "F", "W"]
-ignore = ["E501", "E402"]  # E402: imports after sys.path modification is intentional
+ignore = ["E501", "E402"]
 
 [tool.pytest.ini_options]
 markers = [

@@ -6,15 +6,12 @@ Run with: pytest tests/test_mission_control.py -v
 
 import json
 import shutil
-import sys
 from pathlib import Path
 from datetime import datetime
 
 import pytest
 
-# Add project root to path
 project_root = Path(__file__).parent.parent
-sys.path.insert(0, str(project_root))
 
 # Override MISSION_CONTROL_ROOT for testing
 import scripts.mission_control as mc_module

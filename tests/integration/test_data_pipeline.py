@@ -25,7 +25,6 @@ Ticket: TKT-139
 
 import hashlib
 import json
-import sys
 import tempfile
 from datetime import datetime
 from pathlib import Path
@@ -33,10 +32,7 @@ from typing import Any, Dict, Generator
 
 import pytest
 
-# Add project root to path for imports
 PROJECT_ROOT = Path(__file__).parent.parent.parent
-sys.path.insert(0, str(PROJECT_ROOT))
-sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
 
 
 # =============================================================================

@@ -20,7 +20,6 @@ Bug Fix (Sprint 2.9):
 - Now uses cumulative legal ball count, capped at max 120
 """
 
-import sys
 from collections import Counter
 from pathlib import Path
 
@@ -29,11 +28,9 @@ import numpy as np
 import pandas as pd
 
 SCRIPT_DIR = Path(__file__).parent
-sys.path.insert(0, str(SCRIPT_DIR.parent))
 
-from utils.logging_config import setup_logger
-
-from config import config
+from scripts.utils.logging_config import setup_logger
+from scripts.config import config
 
 # Initialize logger
 logger = setup_logger(__name__)

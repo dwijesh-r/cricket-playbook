@@ -1,0 +1,67 @@
+# ============================================================
+# Cricket Playbook - Docker Ignore
+# TKT-154: Keep image lean by excluding non-essential files
+# ============================================================
+
+# --- Version control ---
+.git
+.gitignore
+
+# --- Python artifacts ---
+__pycache__
+*.pyc
+*.pyo
+*.egg-info
+*.egg
+dist/
+build/
+.eggs/
+
+# --- Virtual environments ---
+venv/
+.venv/
+env/
+
+# --- Large data files (volume-mounted at runtime) ---
+data/*.duckdb
+data/archive/
+data/raw/
+
+# --- Generated outputs (volume-mounted at runtime) ---
+outputs/
+
+# --- IDE / editor ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- OS files ---
+.DS_Store
+Thumbs.db
+
+# --- CI / local tooling ---
+.pre-commit-config.yaml
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# --- Docs & governance (not needed in runtime image) ---
+docs/
+governance/
+reviews/
+archive/
+notebooks/
+
+# --- Docker files themselves ---
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# --- Misc ---
+Setup
+*.md

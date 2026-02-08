@@ -2,6 +2,7 @@ name: CI
 
 # Owner: Brad Stevens (Architecture & Performance)
 # TKT-120: Added pytest-cov for coverage reporting
+# TKT-155: Enforce 70% coverage floor (N'Golo Kante)
 
 on:
   push:
@@ -57,7 +58,7 @@ jobs:
 
       - name: Run pytest with coverage
         run: |
-          pytest tests/ -v --tb=short --cov=scripts --cov-report=term-missing --cov-report=xml --cov-fail-under=0
+          pytest tests/ -v --tb=short --cov=scripts --cov-report=term-missing --cov-report=xml --cov-fail-under=70
           echo "## Test Coverage Report" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Coverage report generated. Target: 70%" >> $GITHUB_STEP_SUMMARY

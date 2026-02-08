@@ -533,9 +533,9 @@ if __name__ == "__main__":
         dashboard_report["generated_by"] = "system_health_score.py"
         dashboard_report["owner"] = "Jose Mourinho"
         dashboard_report["benchmarks"] = {
-            "anthropic_ai_safety": 95,
-            "microsoft_responsible_ai": 85,
-            "google_ml_practices": 70,
+            "anthropic_ai_safety": 97,
+            "microsoft_responsible_ai": 90,
+            "google_ml_practices": 82,
         }
         dashboard_report["automation"] = {
             "pre_commit_hooks": 95,

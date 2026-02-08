@@ -62,15 +62,15 @@
       ]
     }
   },
-  "timestamp": "2026-02-08T14:14:28.374996",
+  "timestamp": "2026-02-08T15:24:16.708288",
   "ticket": "TKT-147",
   "epic": "EPIC-014",
   "generated_by": "system_health_score.py",
   "owner": "Jose Mourinho",
   "benchmarks": {
-    "anthropic_ai_safety": 95,
-    "microsoft_responsible_ai": 85,
-    "google_ml_practices": 70
+    "anthropic_ai_safety": 97,
+    "microsoft_responsible_ai": 90,
+    "google_ml_practices": 82
   },
   "automation": {
     "pre_commit_hooks": 95,

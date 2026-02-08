@@ -4653,7 +4653,7 @@
                             <div class="stat-label">Backlog</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value accent-yellow" id="statRunning">7</div>
+                            <div class="stat-value accent-yellow" id="statRunning">2</div>
                             <div class="stat-label">In Progress</div>
                         </div>
                         <div class="stat-item">
@@ -4665,7 +4665,7 @@
                             <div class="stat-label">🌹 Founder</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value accent-green" id="statDone">134</div>
+                            <div class="stat-value accent-green" id="statDone">139</div>
                             <div class="stat-label">Done</div>
                         </div>
                     </div>
@@ -7537,19 +7537,19 @@ Gate Inheritance:
             },
 
             // EPIC-015: Operational Maturity (TKT-154 to TKT-158)
-            { id: 'TKT-154', title: 'Add Docker containerization for reproducible environments', state: 'RUNNING', priority: 'P0', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-015', progress: 0, branch: 'feature/tkt-154-docker', tags: ['DevOps', 'Docker', 'Infrastructure'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PENDING', enforcement_check: 'PENDING' },
+            { id: 'TKT-154', title: 'Add Docker containerization for reproducible environments', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-015', progress: 100, branch: 'feature/tkt-154-docker', tags: ['DevOps', 'Docker', 'Infrastructure'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PASSED', enforcement_check: 'PASSED', system_check: 'PASSED', founder_validation: 'PASSED' },
               context: { ask: 'Create Dockerfile and docker-compose.yml for the Cricket Playbook', goal: 'Reproducible dev and prod environments with one command', reason: 'No containerization means environment drift and deployment friction', audible: ['Create Dockerfile', 'Create docker-compose.yml', 'Test build', 'Document usage'] }
             },
-            { id: 'TKT-155', title: 'Enforce test coverage baselines and add edge case tests', state: 'RUNNING', priority: 'P0', effort: 'deep-work', assignee: "N'Golo Kanté", epic: 'EPIC-015', progress: 0, branch: 'feature/tkt-155-test-coverage', tags: ['Testing', 'Quality', 'CI/CD'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PENDING', enforcement_check: 'PENDING' },
+            { id: 'TKT-155', title: 'Enforce test coverage baselines and add edge case tests', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: "N'Golo Kanté", epic: 'EPIC-015', progress: 100, branch: 'feature/tkt-155-test-coverage', tags: ['Testing', 'Quality', 'CI/CD'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PASSED', enforcement_check: 'PASSED', system_check: 'PASSED', founder_validation: 'PASSED' },
               context: { ask: 'Set coverage floor at 70% in CI, add edge case tests for empty datasets, duplicates, malformed input', goal: 'No PR merges below coverage threshold, resilient to bad data', reason: '105 tests exist but no enforced floor and no edge case coverage', audible: ['Add pytest-cov threshold to CI', 'Write edge case tests', 'Add coverage badge'] }
             },
-            { id: 'TKT-156', title: 'Build ML model retraining pipeline', state: 'RUNNING', priority: 'P1', effort: 'marathon', assignee: 'Pep Guardiola', epic: 'EPIC-015', progress: 0, branch: 'feature/tkt-156-ml-retrain', tags: ['ML', 'Pipeline', 'Automation'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PENDING', enforcement_check: 'PENDING' },
+            { id: 'TKT-156', title: 'Build ML model retraining pipeline', state: 'DONE', priority: 'P1', effort: 'marathon', assignee: 'Pep Guardiola', epic: 'EPIC-015', progress: 100, branch: 'feature/tkt-156-ml-retrain', tags: ['ML', 'Pipeline', 'Automation'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PASSED', enforcement_check: 'PASSED', system_check: 'PASSED', founder_validation: 'PASSED' },
               context: { ask: 'Create automated retraining pipeline for player clustering model', goal: 'Models refresh when new season data arrives, with validation gates before promotion', reason: 'Current models are static — no way to retrain without manual intervention', audible: ['Create retrain script', 'Add validation gates', 'Version new models', 'Add to CI/CD'] }
             },
-            { id: 'TKT-157', title: 'Add production monitoring and alerting', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Jose Mourinho', epic: 'EPIC-015', progress: 0, branch: 'feature/tkt-157-monitoring', tags: ['Ops', 'Monitoring', 'Alerting'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PENDING', enforcement_check: 'PENDING' },
+            { id: 'TKT-157', title: 'Add production monitoring and alerting', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Jose Mourinho', epic: 'EPIC-015', progress: 100, branch: 'feature/tkt-157-monitoring', tags: ['Ops', 'Monitoring', 'Alerting'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PASSED', enforcement_check: 'PASSED', system_check: 'PASSED', founder_validation: 'PASSED' },
               context: { ask: 'Build observability layer: structured logging, health endpoints, alert thresholds', goal: 'Know when things break before users do', reason: 'No monitoring means silent failures — pipeline could break and nobody knows', audible: ['Structured logging', 'Health check endpoint', 'Alert config', 'Dashboard integration'] }
             },
-            { id: 'TKT-158', title: 'Create operational runbooks and incident response docs', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-015', progress: 0, branch: 'feature/tkt-158-runbooks', tags: ['Documentation', 'Ops', 'Incident Response'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PENDING', enforcement_check: 'PENDING' },
+            { id: 'TKT-158', title: 'Create operational runbooks and incident response docs', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-015', progress: 100, branch: 'feature/tkt-158-runbooks', tags: ['Documentation', 'Ops', 'Incident Response'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PASSED', enforcement_check: 'PASSED', system_check: 'PASSED', founder_validation: 'PASSED' },
               context: { ask: 'Write runbooks for common ops tasks and incident response procedures', goal: 'Any team member can handle production issues with clear step-by-step guides', reason: 'No operational playbook means tribal knowledge and slow incident response', audible: ['Pipeline runbook', 'Dashboard deploy runbook', 'Incident response template', 'Troubleshooting guide'] }
             },
 

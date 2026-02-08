@@ -5323,7 +5323,7 @@ Gate Inheritance:
 
             // ==================== EPIC-014: SYSTEM HARDENING (Mourinho Audit) ====================
             // P0 Critical Tickets (TKT-132 to TKT-135)
-            { id: 'TKT-132', title: 'Centralize all thresholds in single YAML config', state: 'READY', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-014', progress: 0, tags: ['Code Quality', 'Config', 'Critical'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-132', title: 'Centralize all thresholds in single YAML config', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-014', progress: 100, tags: ['Code Quality', 'Config', 'Critical', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' }, output: 'config/thresholds.yaml',
               context: {
                 ask: 'Create config/thresholds.yaml with ALL hardcoded thresholds (MIN_BALLS, SR thresholds, Economy thresholds, PCA variance) and update all scripts to read from it',
                 goal: 'Single source of truth for all analytical thresholds - change once, apply everywhere',
@@ -5332,7 +5332,7 @@ Gate Inheritance:
               },
               plan: '1. Audit all files for hardcoded thresholds. 2. Create config/thresholds.yaml. 3. Create scripts/utils/threshold_loader.py. 4. Update all scripts to use loader. 5. Add pytest for threshold loading.'
             },
-            { id: 'TKT-133', title: 'Add CHECK constraints to DuckDB schema', state: 'READY', priority: 'P0', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 0, tags: ['Data', 'Schema', 'Critical'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-133', title: 'Add CHECK constraints to DuckDB schema', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 100, tags: ['Data', 'Schema', 'Critical', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' }, output: 'scripts/core/domain_constraints.py',
               context: {
                 ask: 'Add CHECK constraints to DuckDB tables enforcing realistic cricket value ranges (SR 0-500, Economy 0-30, Average 0-200, etc.)',
                 goal: 'Database rejects impossible values at insert time - no more SR=1000 or negative averages slipping through',
@@ -5341,7 +5341,7 @@ Gate Inheritance:
               },
               plan: '1. Document all fields needing constraints. 2. Add constraints to schema DDL. 3. Test with edge case data. 4. Update ingest.py to handle constraint violations gracefully.'
             },
-            { id: 'TKT-134', title: 'Enforce gates in GitHub Actions CI/CD', state: 'READY', priority: 'P0', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-014', progress: 0, tags: ['CI/CD', 'Governance', 'Critical'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-134', title: 'Enforce gates in GitHub Actions CI/CD', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-014', progress: 100, tags: ['CI/CD', 'Governance', 'Critical', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' }, output: '.github/workflows/gate-check.yml',
               context: {
                 ask: 'Make quality gates BLOCK commits/deployments in GitHub Actions - not just advisory JSON updates',
                 goal: 'Cannot merge to main without passing Florentino Gate, Domain Sanity, System Check. Physical enforcement.',
@@ -5350,7 +5350,7 @@ Gate Inheritance:
               },
               plan: '1. Create .github/workflows/gate-check.yml. 2. Read gate status from ticket JSON. 3. Fail CI if gates not passed. 4. Add required status check to branch protection. 5. Document in CONSTITUTION.'
             },
-            { id: 'TKT-135', title: 'Add domain validation for realistic value ranges', state: 'READY', priority: 'P0', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 0, tags: ['Data', 'Validation', 'Critical'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-135', title: 'Add domain validation for realistic value ranges', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-014', progress: 100, tags: ['Data', 'Validation', 'Critical', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' }, output: 'scripts/core/domain_constraints.py',
               context: {
                 ask: 'Add validation layer in validate_schema.py checking for impossible cricket values BEFORE they enter analytics',
                 goal: 'Catch SR>300, Economy>25, negative runs, position>11, over>20 at ingestion time',
@@ -5462,7 +5462,7 @@ Gate Inheritance:
               },
               plan: '1. Create scripts/ops/backup.py. 2. Add to scheduled workflow. 3. Store as GitHub artifact. 4. Document restore steps. 5. Test recovery.'
             },
-            { id: 'TKT-147', title: 'Create automated system health scoring dashboard', state: 'READY', priority: 'P0', effort: 'deep-work', assignee: 'Jose Mourinho', epic: 'EPIC-014', progress: 0, tags: ['Metrics', 'Benchmarking', 'Critical'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-147', title: 'Create automated system health scoring dashboard', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Jose Mourinho', epic: 'EPIC-014', progress: 100, tags: ['Metrics', 'Benchmarking', 'Critical', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' }, output: 'scripts/ml_ops/system_health_score.py', healthScore: 81.5,
               context: {
                 ask: 'Create automated scoring system measuring all 6 categories from Mourinho audit: Governance (15%), Code Quality (20%), Data Robustness (20%), ML Rigor (20%), Testing (15%), Documentation (10%)',
                 goal: 'Real-time health score (0-100) with category breakdown. Track progress from 67.4 → 85.0 target.',
@@ -5487,7 +5487,7 @@ Gate Inheritance:
                 documentation: { weight: 10, checks: ['threshold_docs', 'methodology_docs', 'api_docs'] }
               }
             },
-            { id: 'TKT-148', title: 'Document the Agent Coding Stack (Architecture, Code, Ops)', state: 'BACKLOG', priority: 'P1', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-014', progress: 0, tags: ['Documentation', 'Architecture', 'Onboarding'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-148', title: 'Document the Agent Coding Stack (Architecture, Code, Ops)', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-014', progress: 100, tags: ['Documentation', 'Architecture', 'Onboarding', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' }, output: 'docs/AGENT_PLAYBOOK.md',
               context: {
                 ask: 'Create comprehensive documentation of the Cricket Playbook Agent Coding Stack covering Architecture, Code, and Ops layers in an engaging, human readable format',
                 goal: 'Anyone new to the project can understand how 12 AI agents collaborate with formal governance, veto rights, and quality gates. Make it digestible with sports and Godfather references.',

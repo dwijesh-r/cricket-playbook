@@ -1703,24 +1703,24 @@
 
         .roster-hero {
             display: grid;
-            grid-template-columns: 340px 1fr;
-            gap: 20px;
+            grid-template-columns: 300px 1fr;
+            gap: 24px;
             margin-bottom: 24px;
-            min-height: 380px;
+            min-height: 420px;
         }
         .roster-hero .founder-card {
             background: linear-gradient(145deg, rgba(254, 190, 16, 0.08) 0%, var(--bg-secondary) 100%);
             border: 2px solid rgba(254, 190, 16, 0.3);
             border-radius: 18px;
-            padding: 24px;
+            padding: 24px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: 12px;
+            gap: 10px;
         }
         .roster-hero .founder-card .founder-avatar {
-            width: 80px; height: 80px;
+            width: 72px; height: 72px;
             border-radius: 50%;
             border: 3px solid rgba(254, 190, 16, 0.5);
             overflow: hidden;
@@ -1728,41 +1728,49 @@
         }
         .roster-hero .founder-card .founder-avatar img { width: 100%; height: 100%; object-fit: cover; }
         .roster-hero .founder-card .founder-name {
-            font-size: 22px; font-weight: 700; letter-spacing: -0.02em;
+            font-size: 20px; font-weight: 700; letter-spacing: -0.02em;
         }
         .roster-hero .founder-card .founder-role {
-            color: #febe10; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+            color: #febe10; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .roster-hero .founder-card .founder-desc {
+            font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; text-align: left; padding: 0 4px;
         }
         .roster-hero .founder-card .founder-stat-row {
-            display: flex; gap: 16px; justify-content: center; margin-top: 8px;
+            display: flex; gap: 16px; justify-content: center; margin-top: 4px;
         }
         .roster-hero .founder-card .founder-stat {
             text-align: center;
         }
         .roster-hero .founder-card .founder-stat-val {
-            font-size: 24px; font-weight: 700; color: #febe10;
+            font-size: 22px; font-weight: 700; color: #febe10;
         }
         .roster-hero .founder-card .founder-stat-lbl {
-            font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.04em;
+            font-size: 10px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.04em;
         }
         .roster-hero .founder-card .founder-quote {
-            font-style: italic; color: var(--text-secondary); font-size: 13px; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border);
+            font-style: italic; color: var(--text-secondary); font-size: 12px; margin-top: auto; padding-top: 10px; border-top: 1px solid var(--border);
         }
         .roster-hero .spider-card {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 18px;
             padding: 24px;
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 24px rgba(10, 132, 255, 0.06);
         }
         .roster-hero .spider-card .spider-title {
             font-size: 18px; font-weight: 600; margin-bottom: 4px;
         }
         .roster-hero .spider-card .spider-subtitle {
-            font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;
+            font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;
         }
-        .roster-hero .spider-card canvas {
-            width: 100%; height: calc(100% - 60px);
+        .roster-hero .spider-card .spider-canvas-wrap {
+            flex: 1; min-height: 280px; position: relative;
+        }
+        .roster-hero .spider-card .spider-canvas-wrap canvas {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
         }
         .spider-legend {
             display: flex; gap: 16px; flex-wrap: wrap; margin-top: 12px; justify-content: center;
@@ -1775,7 +1783,7 @@
         }
         @media (max-width: 900px) {
             .roster-hero { grid-template-columns: 1fr; min-height: auto; }
-            .roster-hero .spider-card canvas { height: 300px; }
+            .roster-hero .spider-card .spider-canvas-wrap { min-height: 300px; }
         }
 
         .roster-grid {
@@ -8550,6 +8558,14 @@ Gate Inheritance:
                     <div class="founder-avatar">${getAgentAvatarImg('Founder')}</div>
                     <div class="founder-name">The Founder</div>
                     <div class="founder-role">Il Padrino</div>
+                    <div class="founder-desc">
+                        The Founder sits at the apex of every decision. No ticket ships without passing
+                        through the Founder's Gate — a four-checkpoint validation ensuring domain sanity,
+                        system integrity, and strategic alignment. When agents hit blockers or need
+                        cross-team arbitration, the Founder steps in as the final authority. From greenlighting
+                        EPICs to breaking deadlocks between competing priorities, every major call flows
+                        through this desk.
+                    </div>
                     <div class="founder-stat-row">
                         <div class="founder-stat">
                             <div class="founder-stat-val">${approvedCount}</div>
@@ -8564,15 +8580,17 @@ Gate Inheritance:
                             <div class="founder-stat-lbl">Delivered</div>
                         </div>
                     </div>
-                    <div class="founder-quote">"I'm gonna make them an offer they can't refuse." — Every ticket passes through the Founder's gate.</div>
+                    <div class="founder-quote">"I'm gonna make them an offer they can't refuse."</div>
                 </div>
                 <div class="spider-card">
                     <div class="spider-title">Team Skill Map</div>
                     <div class="spider-subtitle">Aggregate capability across all 13 agents — gaps highlighted in red</div>
-                    <canvas id="spiderCanvas"></canvas>
+                    <div class="spider-canvas-wrap">
+                        <canvas id="spiderCanvas"></canvas>
+                    </div>
                     <div class="spider-legend">
                         <div class="spider-legend-item"><div class="spider-legend-dot" style="background: rgba(10, 132, 255, 0.4)"></div> Team Score</div>
-                        <div class="spider-legend-item"><div class="spider-legend-dot" style="background: rgba(48, 209, 88, 0.3)"></div> Strong</div>
+                        <div class="spider-legend-item"><div class="spider-legend-dot" style="background: rgba(48, 209, 88, 0.3)"></div> Strong (10/10 ideal)</div>
                         <div class="spider-legend-item"><div class="spider-legend-dot" style="background: rgba(255, 69, 58, 0.3)"></div> Thin Coverage</div>
                     </div>
                 </div>
@@ -8585,10 +8603,12 @@ Gate Inheritance:
         function renderSpiderChart(scores, gaps, agentCounts) {
             const canvas = document.getElementById('spiderCanvas');
             if (!canvas) return;
-            const rect = canvas.parentElement.getBoundingClientRect();
+            const wrap = canvas.parentElement;
+            const rect = wrap.getBoundingClientRect();
             const dpr = window.devicePixelRatio || 1;
-            const w = rect.width - 32;
-            const h = Math.min(w * 0.85, 360);
+            const w = Math.floor(rect.width);
+            const h = Math.floor(rect.height);
+            if (w < 10 || h < 10) return;
             canvas.width = w * dpr;
             canvas.height = h * dpr;
             canvas.style.width = w + 'px';
@@ -8600,7 +8620,7 @@ Gate Inheritance:
             const n = categories.length;
             const cx = w / 2;
             const cy = h / 2;
-            const radius = Math.min(cx, cy) - 50;
+            const radius = Math.min(cx, cy) - 55;
             const angleStep = (2 * Math.PI) / n;
             const startAngle = -Math.PI / 2;
 
@@ -8621,19 +8641,17 @@ Gate Inheritance:
             const textColor = isDark ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.5)';
             const dimColor = isDark ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.25)';
 
-            // Draw grid rings at 7, 8, 9, 10
-            [7, 8, 9, 10].forEach(ringVal => {
+            // Draw grid rings at 7, 8, 9 (10 drawn separately as ideal outline)
+            [7, 8, 9].forEach(ringVal => {
                 ctx.beginPath();
                 for (let i = 0; i <= n; i++) {
                     const p = getPoint(i % n, ringVal);
                     i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
                 }
                 ctx.closePath();
-                ctx.strokeStyle = ringVal === 10 ? (isDark ? 'rgba(48,209,88,0.2)' : 'rgba(48,209,88,0.15)') : gridColor;
-                ctx.lineWidth = ringVal === 10 ? 1.5 : 1;
-                ctx.setLineDash(ringVal === 10 ? [4, 4] : []);
+                ctx.strokeStyle = gridColor;
+                ctx.lineWidth = 1;
                 ctx.stroke();
-                ctx.setLineDash([]);
 
                 // Ring value labels (on the top axis)
                 const labelP = getPoint(0, ringVal);
@@ -8655,18 +8673,25 @@ Gate Inheritance:
                 ctx.stroke();
             });
 
-            // Draw "ideal" 10/10 reference outline
+            // Draw "ideal" 10/10 reference outline (dashed green)
             ctx.beginPath();
             for (let i = 0; i <= n; i++) {
                 const p = getPoint(i % n, 10);
                 i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
             }
             ctx.closePath();
-            ctx.strokeStyle = isDark ? 'rgba(48,209,88,0.25)' : 'rgba(48,209,88,0.2)';
+            ctx.strokeStyle = isDark ? 'rgba(48,209,88,0.3)' : 'rgba(48,209,88,0.25)';
             ctx.lineWidth = 1.5;
             ctx.setLineDash([4, 4]);
             ctx.stroke();
             ctx.setLineDash([]);
+            // Label for the 10 ring
+            const tenP = getPoint(0, 10);
+            ctx.fillStyle = isDark ? 'rgba(48,209,88,0.5)' : 'rgba(48,209,88,0.6)';
+            ctx.font = 'bold 9px -apple-system, sans-serif';
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'bottom';
+            ctx.fillText('10', tenP.x + 4, tenP.y - 2);
 
             // Draw filled data area
             ctx.beginPath();

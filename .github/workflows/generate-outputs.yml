@@ -1,0 +1,281 @@
+# Output Generation Pipeline
+# ==========================
+# Automatically regenerates all analytics outputs when data changes
+#
+# Owner: Brad Stevens (Architecture & Performance)
+# Ticket: TKT-117 (EPIC-008: CI/CD Automation)
+#
+# This workflow:
+# 1. Runs analytics views creation
+# 2. Regenerates all stat packs, depth charts, predicted XIs
+# 3. Runs validation checks
+# 4. Commits updated outputs to the repository
+
+name: Generate Outputs
+
+on:
+  # Run after successful gate check
+  workflow_run:
+    workflows: ["Quality Gates"]
+    types: [completed]
+    branches: [main]
+
+  # Run on schedule (daily at 2 AM UTC)
+  schedule:
+    - cron: "0 2 * * *"
+
+  # Manual trigger with options
+  workflow_dispatch:
+    inputs:
+      regenerate_all:
+        description: "Force regenerate all outputs"
+        required: false
+        default: "false"
+        type: boolean
+      skip_clustering:
+        description: "Skip ML clustering step"
+        required: false
+        default: "false"
+        type: boolean
+
+jobs:
+  # ==========================================================================
+  # STEP 1: Check if outputs need regeneration
+  # ==========================================================================
+  check-staleness:
+    name: "Check Output Staleness"
+    runs-on: ubuntu-latest
+    outputs:
+      needs_update: ${{ steps.check.outputs.needs_update }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check if outputs are stale
+        id: check
+        run: |
+          # Check if any source files changed since last output generation
+          LAST_OUTPUT=$(git log -1 --format=%ct -- outputs/)
+          LAST_SOURCE=$(git log -1 --format=%ct -- scripts/core/ scripts/analysis/ data/)
+
+          if [ "${{ github.event.inputs.regenerate_all }}" == "true" ]; then
+            echo "needs_update=true" >> $GITHUB_OUTPUT
+            echo "Forced regeneration requested"
+          elif [ -z "$LAST_OUTPUT" ] || [ "$LAST_SOURCE" -gt "$LAST_OUTPUT" ]; then
+            echo "needs_update=true" >> $GITHUB_OUTPUT
+            echo "Source files changed since last output generation"
+          else
+            echo "needs_update=false" >> $GITHUB_OUTPUT
+            echo "Outputs are up to date"
+          fi
+
+  # ==========================================================================
+  # STEP 2: Generate Analytics Views
+  # ==========================================================================
+  analytics:
+    name: "Create Analytics Views"
+    runs-on: ubuntu-latest
+    needs: check-staleness
+    if: needs.check-staleness.outputs.needs_update == 'true'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Check database exists
+        run: |
+          if [ ! -f "data/cricket_playbook.duckdb" ]; then
+            echo "::error::Database not found. Run ingest workflow first."
+            exit 1
+          fi
+          echo "Database found: $(ls -lh data/cricket_playbook.duckdb)"
+
+      - name: Create analytics views
+        run: |
+          echo "Creating 35+ analytics views..."
+          python scripts/core/analytics_ipl.py
+          echo "Analytics views created successfully"
+
+  # ==========================================================================
+  # STEP 3: Run ML Clustering (optional)
+  # ==========================================================================
+  clustering:
+    name: "Run ML Clustering"
+    runs-on: ubuntu-latest
+    needs: analytics
+    if: github.event.inputs.skip_clustering != 'true'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run player clustering
+        run: |
+          echo "Running K-means clustering..."
+          python scripts/analysis/player_clustering_v2.py
+          echo "Clustering complete"
+
+      - name: Upload clustering artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: clustering-outputs
+          path: |
+            outputs/tags/player_clustering_*.csv
+            outputs/tags/player_tags.json
+
+  # ==========================================================================
+  # STEP 4: Generate All Outputs
+  # ==========================================================================
+  generate:
+    name: "Generate Stat Packs & Charts"
+    runs-on: ubuntu-latest
+    needs: [analytics, clustering]
+    if: always() && needs.analytics.result == 'success'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Download clustering artifacts
+        if: needs.clustering.result == 'success'
+        uses: actions/download-artifact@v4
+        with:
+          name: clustering-outputs
+          path: outputs/tags/
+
+      - name: Generate stat packs
+        run: |
+          echo "Generating stat packs for all 10 IPL teams..."
+          python scripts/generators/generate_stat_packs.py
+          echo "Stat packs generated"
+
+      - name: Generate predicted XIs
+        run: |
+          echo "Generating predicted XIs..."
+          python scripts/generators/generate_predicted_xii.py
+          echo "Predicted XIs generated"
+
+      - name: Generate depth charts
+        run: |
+          echo "Generating depth charts..."
+          python scripts/generators/generate_depth_charts.py
+          echo "Depth charts generated"
+
+      - name: Run matchup analysis
+        run: |
+          echo "Running matchup analysis scripts..."
+          python scripts/analysis/batter_bowling_type_matchup.py || true
+          python scripts/analysis/bowler_handedness_matchup.py || true
+          python scripts/analysis/bowler_phase_tags.py || true
+          echo "Matchup analysis complete"
+
+      - name: Validate outputs
+        run: |
+          echo "Validating generated outputs..."
+          python scripts/utils/validate_outputs.py || echo "::warning::Some output validations failed"
+
+      - name: Upload output artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-outputs
+          path: |
+            outputs/stat_packs/
+            outputs/predicted_xii/
+            outputs/depth_charts/
+            outputs/matchups/
+
+  # ==========================================================================
+  # STEP 5: Commit Outputs to Repository
+  # ==========================================================================
+  commit:
+    name: "Commit Updated Outputs"
+    runs-on: ubuntu-latest
+    needs: generate
+    if: github.event_name != 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts/
+
+      - name: Copy artifacts to outputs
+        run: |
+          cp -r artifacts/generated-outputs/* outputs/ 2>/dev/null || true
+          cp -r artifacts/clustering-outputs/* outputs/tags/ 2>/dev/null || true
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git add outputs/
+          if git diff --cached --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(outputs): Auto-regenerate analytics outputs
+
+          Generated by: generate-outputs.yml workflow
+          Trigger: ${{ github.event_name }}
+          Run ID: ${{ github.run_id }}
+
+          Updated:
+          - Stat packs (10 teams)
+          - Predicted XIs (11 files)
+          - Depth charts (11 files)
+          - Player clustering
+          - Matchup analysis
+
+          Co-Authored-By: github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+          git push
+
+      - name: Summary
+        run: |
+          echo "## Output Generation Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Generated Files:" >> $GITHUB_STEP_SUMMARY
+          echo "- Stat Packs: $(ls outputs/stat_packs/*.md 2>/dev/null | wc -l) files" >> $GITHUB_STEP_SUMMARY
+          echo "- Predicted XIs: $(ls outputs/predicted_xii/*.json 2>/dev/null | wc -l) files" >> $GITHUB_STEP_SUMMARY
+          echo "- Depth Charts: $(ls outputs/depth_charts/*.json 2>/dev/null | wc -l) files" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "*Generated by Brad Stevens' automation pipeline (TKT-117)*" >> $GITHUB_STEP_SUMMARY

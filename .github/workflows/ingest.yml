@@ -1,6 +1,14 @@
 name: Data Ingestion Pipeline
 
+# Owner: Brock Purdy (Data Pipeline)
+# Updated: Brad Stevens (added scheduled trigger)
+
 on:
+  # Weekly scheduled run (Sunday 3 AM UTC)
+  schedule:
+    - cron: "0 3 * * 0"
+
+  # Manual trigger with options
   workflow_dispatch:
     inputs:
       full_refresh:

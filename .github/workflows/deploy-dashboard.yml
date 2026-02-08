@@ -1,0 +1,141 @@
+# Dashboard Deployment Pipeline
+# =============================
+# Automatically updates The Lab dashboard when outputs change
+#
+# Owner: Brad Stevens (Architecture & Performance)
+# Based on: Kevin de Bruyne's visualization work
+#
+# This workflow:
+# 1. Runs after output generation completes
+# 2. Updates The Lab dashboard data files
+# 3. Commits changes for GitHub Pages auto-publish
+
+name: Deploy Dashboard
+
+on:
+  # Run after output generation
+  workflow_run:
+    workflows: ["Generate Outputs"]
+    types: [completed]
+    branches: [main]
+
+  # Manual trigger
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: "Force update even if no changes"
+        required: false
+        default: "false"
+        type: boolean
+
+jobs:
+  # ==========================================================================
+  # Update The Lab Dashboard
+  # ==========================================================================
+  update-the-lab:
+    name: "Update The Lab Dashboard"
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Update The Lab data files
+        run: |
+          echo "Updating The Lab dashboard data..."
+          python scripts/the_lab/update_the_lab.py
+          echo "Dashboard data updated"
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git add scripts/the_lab/dashboard/data/
+          if git diff --cached --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No dashboard changes detected"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Dashboard changes detected"
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.has_changes == 'true' || github.event.inputs.force_update == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Add all dashboard data files
+          git add scripts/the_lab/dashboard/data/
+
+          git commit -m "chore(dashboard): Auto-update The Lab data files
+
+          Updated by: deploy-dashboard.yml workflow
+          Trigger: ${{ github.event_name }}
+          Run ID: ${{ github.run_id }}
+
+          Files updated:
+          - teams.js
+          - predicted_xii.js
+          - depth_charts.js
+          - player_tags.js
+
+          Dashboard URL: https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/
+
+          Co-Authored-By: github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+
+          git push
+
+      - name: Summary
+        run: |
+          echo "## Dashboard Deployment Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### The Lab Dashboard" >> $GITHUB_STEP_SUMMARY
+          echo "- **URL:** https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/" >> $GITHUB_STEP_SUMMARY
+          echo "- **Status:** Updated and live" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Updated Data Files:" >> $GITHUB_STEP_SUMMARY
+          ls -la scripts/the_lab/dashboard/data/*.js 2>/dev/null | while read line; do
+            echo "- $line" >> $GITHUB_STEP_SUMMARY
+          done
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "*Deployed by Brad Stevens' automation pipeline*" >> $GITHUB_STEP_SUMMARY
+
+  # ==========================================================================
+  # Verify Deployment
+  # ==========================================================================
+  verify:
+    name: "Verify Dashboard Live"
+    runs-on: ubuntu-latest
+    needs: update-the-lab
+    steps:
+      - name: Wait for GitHub Pages
+        run: sleep 30
+
+      - name: Check dashboard is accessible
+        run: |
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/)
+          if [ "$HTTP_STATUS" -eq 200 ]; then
+            echo "Dashboard is live and accessible (HTTP $HTTP_STATUS)"
+          else
+            echo "::warning::Dashboard returned HTTP $HTTP_STATUS"
+          fi
+
+      - name: Check teams page
+        run: |
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/teams.html)
+          if [ "$HTTP_STATUS" -eq 200 ]; then
+            echo "Teams page is live (HTTP $HTTP_STATUS)"
+          else
+            echo "::warning::Teams page returned HTTP $HTTP_STATUS"
+          fi

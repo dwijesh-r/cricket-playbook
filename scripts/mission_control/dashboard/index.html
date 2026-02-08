@@ -3032,11 +3032,30 @@
             margin-bottom: 40px;
         }
 
+        .tech-title-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 8px;
+        }
+
+        .scouting-avatar {
+            display: inline-block;
+        }
+
+        .scouting-avatar img {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
         .tech-title {
             font-family: 'Cinzel', serif;
             font-size: 42px;
             color: var(--text-primary);
-            margin-bottom: 8px;
+            margin: 0;
         }
 
         .tech-subtitle {
@@ -3252,6 +3271,18 @@
             font-weight: 500;
         }
 
+        .benchmark-name.benchmark-with-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .benchmark-logo {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
         .benchmark-bar {
             height: 8px;
             background: var(--bg-tertiary);
@@ -3261,8 +3292,19 @@
 
         .benchmark-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--accent-green), var(--accent-teal));
             border-radius: 4px;
+        }
+
+        .benchmark-fill.anthropic {
+            background: linear-gradient(90deg, #D97706, #F59E0B);
+        }
+
+        .benchmark-fill.microsoft {
+            background: linear-gradient(90deg, #00A4EF, #7FBA00);
+        }
+
+        .benchmark-fill.google {
+            background: linear-gradient(90deg, #4285F4, #34A853);
         }
 
         .benchmark-score {
@@ -3344,6 +3386,17 @@
             font-size: 12px;
             color: var(--text-tertiary);
             text-align: right;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .workflow-owner-avatar {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            flex-shrink: 0;
         }
 
         /* Gaps Card */
@@ -3386,6 +3439,176 @@
         .gap-item.p1 .gap-priority {
             background: rgba(255, 159, 10, 0.2);
             color: var(--accent-orange);
+        }
+
+        .gap-item.done .gap-priority {
+            background: rgba(48, 209, 88, 0.2);
+            color: var(--accent-green);
+        }
+
+        .gap-item.done .gap-status {
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        /* Resources Card */
+        .resources-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .resource-category {
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .resource-category-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .resource-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .resource-link {
+            display: grid;
+            grid-template-columns: 24px 1fr 20px;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+        }
+
+        .resource-link:hover {
+            background: var(--bg-elevated);
+            transform: translateX(4px);
+        }
+
+        .resource-icon {
+            font-size: 16px;
+        }
+
+        .resource-name {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .resource-arrow {
+            color: var(--text-tertiary);
+            font-size: 14px;
+        }
+
+        .resource-link:hover .resource-arrow {
+            color: var(--accent);
+        }
+
+        /* Agent Skill Cards */
+        .agent-skills {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+        }
+
+        .skills-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skills-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .skill-row {
+            display: grid;
+            grid-template-columns: 80px 1fr 30px;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-name {
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: var(--bg-elevated);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        .skill-score {
+            font-size: 11px;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .skill-score.high { color: var(--accent-green); }
+        .skill-score.medium { color: var(--accent-yellow); }
+        .skill-score.low { color: var(--accent-red); }
+
+        .agent-traits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 10px;
+        }
+
+        .trait-chip {
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .trait-chip.strength {
+            background: rgba(48, 209, 88, 0.15);
+            color: var(--accent-green);
+        }
+
+        .trait-chip.weakness {
+            background: rgba(255, 69, 58, 0.15);
+            color: var(--accent-red);
         }
 
         .gap-name {
@@ -3697,6 +3920,54 @@
         @media (max-width: 600px) {
             .nav-guide-btn { bottom: 90px; } /* Above mobile nav */
         }
+
+        /* ==================== SCOUTING REPORT MOBILE ==================== */
+        @media (max-width: 900px) {
+            .tech-health-section { padding: 24px 16px; }
+            .tech-title { font-size: 28px; }
+            .tech-grid { grid-template-columns: 1fr; gap: 16px; }
+            .score-main { flex-direction: column; gap: 20px; text-align: center; }
+            .score-circle { width: 120px; height: 120px; margin: 0 auto; }
+            .score-value { font-size: 28px; }
+            .score-info h2 { font-size: 20px; }
+            .score-categories { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .benchmark-item { grid-template-columns: 1fr 100px 40px; gap: 8px; }
+            .benchmark-name span { font-size: 12px; }
+            .automation-grid { grid-template-columns: 1fr; }
+            .workflow-list { font-size: 13px; }
+            .gap-item { grid-template-columns: 40px 1fr auto; gap: 10px; }
+        }
+
+        @media (max-width: 600px) {
+            .tech-health-section { padding: 16px 12px; }
+            .tech-title { font-size: 22px; }
+            .tech-subtitle { font-size: 13px; }
+            .health-score-card { padding: 20px 16px; }
+            .score-circle { width: 100px; height: 100px; }
+            .score-value { font-size: 24px; }
+            .score-info h2 { font-size: 18px; }
+            .score-status { font-size: 16px; }
+            .score-target { font-size: 12px; }
+            .score-categories { grid-template-columns: 1fr; gap: 10px; }
+            .category-item { padding: 12px; }
+            .category-name { font-size: 13px; }
+            .tech-card { padding: 16px; }
+            .tech-card-title { font-size: 16px; margin-bottom: 16px; }
+            .stack-item { grid-template-columns: 28px 1fr auto; gap: 10px; padding: 8px; }
+            .stack-icon { font-size: 18px; }
+            .stack-name { font-size: 13px; }
+            .stack-desc { font-size: 11px; }
+            .benchmark-item { grid-template-columns: 1fr; gap: 6px; }
+            .benchmark-name.benchmark-with-logo { margin-bottom: 4px; }
+            .benchmark-bar { width: 100%; }
+            .benchmark-score { text-align: left; }
+            .automation-item { padding: 10px; }
+            .auto-name { font-size: 12px; }
+            .workflow-item { flex-wrap: wrap; gap: 8px; }
+            .workflow-name { flex: 1 1 100%; }
+            .gap-item { grid-template-columns: 1fr; gap: 8px; }
+            .gap-priority { width: fit-content; }
+        }
     </style>
 </head>
 <body>
@@ -3899,8 +4170,11 @@
         <div class="view" id="techHealthView">
             <section class="tech-health-section">
                 <div class="tech-header">
-                    <h1 class="tech-title">📋 The Scouting Report</h1>
-                    <p class="tech-subtitle">José Mourinho's System Audit & Benchmark Compliance</p>
+                    <div class="tech-title-row">
+                        <span id="scoutingReportAvatar" class="scouting-avatar"></span>
+                        <h1 class="tech-title">The Scouting Report</h1>
+                    </div>
+                    <p class="tech-subtitle">⚽ System Health, Quality Gates & AI Compliance Metrics</p>
                     <div class="tech-last-updated">
                         Last updated: <span id="healthLastUpdated">Loading...</span>
                         <button class="refresh-health-btn" onclick="refreshHealthData()">🔄 Refresh</button>
@@ -4009,23 +4283,44 @@
                         <h3 class="tech-card-title">📊 Industry Benchmarks</h3>
                         <div class="benchmark-list">
                             <div class="benchmark-item">
-                                <div class="benchmark-name">Anthropic AI Safety</div>
+                                <div class="benchmark-name benchmark-with-logo">
+                                    <svg class="benchmark-logo" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span>Anthropic AI Safety</span>
+                                </div>
                                 <div class="benchmark-bar">
-                                    <div class="benchmark-fill" style="width: 95%"></div>
+                                    <div class="benchmark-fill anthropic" style="width: 95%"></div>
                                 </div>
                                 <div class="benchmark-score">95%</div>
                             </div>
                             <div class="benchmark-item">
-                                <div class="benchmark-name">Microsoft Responsible AI</div>
+                                <div class="benchmark-name benchmark-with-logo">
+                                    <svg class="benchmark-logo" viewBox="0 0 24 24" fill="none">
+                                        <rect x="1" y="1" width="10" height="10" fill="#F25022"/>
+                                        <rect x="13" y="1" width="10" height="10" fill="#7FBA00"/>
+                                        <rect x="1" y="13" width="10" height="10" fill="#00A4EF"/>
+                                        <rect x="13" y="13" width="10" height="10" fill="#FFB900"/>
+                                    </svg>
+                                    <span>Microsoft Responsible AI</span>
+                                </div>
                                 <div class="benchmark-bar">
-                                    <div class="benchmark-fill" style="width: 85%"></div>
+                                    <div class="benchmark-fill microsoft" style="width: 85%"></div>
                                 </div>
                                 <div class="benchmark-score">85%</div>
                             </div>
                             <div class="benchmark-item">
-                                <div class="benchmark-name">Google ML Best Practices</div>
+                                <div class="benchmark-name benchmark-with-logo">
+                                    <svg class="benchmark-logo" viewBox="0 0 24 24">
+                                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                                    </svg>
+                                    <span>Google ML Best Practices</span>
+                                </div>
                                 <div class="benchmark-bar">
-                                    <div class="benchmark-fill" style="width: 70%"></div>
+                                    <div class="benchmark-fill google" style="width: 70%"></div>
                                 </div>
                                 <div class="benchmark-score">70%</div>
                             </div>
@@ -4073,64 +4368,29 @@
                 <!-- CI/CD Workflows -->
                 <div class="workflows-card">
                     <h3 class="tech-card-title">⚡ Active Workflows</h3>
-                    <div class="workflow-list">
-                        <div class="workflow-item">
-                            <span class="workflow-status active">●</span>
-                            <span class="workflow-name">ci.yml</span>
-                            <span class="workflow-trigger">Push/PR</span>
-                            <span class="workflow-owner">Brad Stevens</span>
-                        </div>
-                        <div class="workflow-item">
-                            <span class="workflow-status active">●</span>
-                            <span class="workflow-name">gate-check.yml</span>
-                            <span class="workflow-trigger">Push/PR</span>
-                            <span class="workflow-owner">Brad Stevens</span>
-                        </div>
-                        <div class="workflow-item">
-                            <span class="workflow-status scheduled">●</span>
-                            <span class="workflow-name">generate-outputs.yml</span>
-                            <span class="workflow-trigger">Daily 2AM UTC</span>
-                            <span class="workflow-owner">Brad Stevens</span>
-                        </div>
-                        <div class="workflow-item">
-                            <span class="workflow-status chained">●</span>
-                            <span class="workflow-name">deploy-dashboard.yml</span>
-                            <span class="workflow-trigger">Post-outputs</span>
-                            <span class="workflow-owner">Brad Stevens</span>
-                        </div>
-                        <div class="workflow-item">
-                            <span class="workflow-status scheduled">●</span>
-                            <span class="workflow-name">ingest.yml</span>
-                            <span class="workflow-trigger">Weekly Sun 3AM</span>
-                            <span class="workflow-owner">Brock Purdy</span>
-                        </div>
-                        <div class="workflow-item">
-                            <span class="workflow-status scheduled">●</span>
-                            <span class="workflow-name">ml-health-check.yml</span>
-                            <span class="workflow-trigger">Weekly + Push</span>
-                            <span class="workflow-owner">Ime Udoka</span>
-                        </div>
+                    <div class="workflow-list" id="workflowList">
+                        <!-- Dynamically populated with avatars -->
                     </div>
                 </div>
 
                 <!-- Known Gaps (from Jose Mourinho audit) -->
                 <div class="gaps-card">
-                    <h3 class="tech-card-title">🔴 Known Gaps (José Mourinho Audit)</h3>
+                    <h3 class="tech-card-title">🔴 Known Gaps (System Audit)</h3>
                     <div class="gaps-list">
-                        <div class="gap-item p0">
-                            <span class="gap-priority">P0</span>
+                        <div class="gap-item done">
+                            <span class="gap-priority">✅</span>
                             <span class="gap-name">Test Coverage %</span>
-                            <span class="gap-status">TKT-120</span>
+                            <span class="gap-status">DONE - pytest-cov in CI</span>
                         </div>
-                        <div class="gap-item p0">
-                            <span class="gap-priority">P0</span>
+                        <div class="gap-item done">
+                            <span class="gap-priority">✅</span>
                             <span class="gap-name">Type Checking (mypy)</span>
-                            <span class="gap-status">Not started</span>
+                            <span class="gap-status">DONE - CI added</span>
                         </div>
-                        <div class="gap-item p0">
-                            <span class="gap-priority">P0</span>
+                        <div class="gap-item done">
+                            <span class="gap-priority">✅</span>
                             <span class="gap-name">Model Explainability (SHAP)</span>
-                            <span class="gap-status">TKT-142</span>
+                            <span class="gap-status">DONE - shap_explainer.py</span>
                         </div>
                         <div class="gap-item p1">
                             <span class="gap-priority">P1</span>
@@ -4141,6 +4401,100 @@
                             <span class="gap-priority">P1</span>
                             <span class="gap-name">Token Accounting</span>
                             <span class="gap-status">Not started</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resources & Documentation -->
+                <div class="resources-card">
+                    <h3 class="tech-card-title">📚 Resources & Documentation</h3>
+                    <div class="resources-grid" id="resourcesGrid">
+                        <!-- Governance -->
+                        <div class="resource-category">
+                            <h4 class="resource-category-title">🏛️ Governance</h4>
+                            <div class="resource-links">
+                                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/config/CONSTITUTION.md" target="_blank" class="resource-link">
+                                    <span class="resource-icon">📜</span>
+                                    <span class="resource-name">Constitution v2.2</span>
+                                    <span class="resource-arrow">→</span>
+                                </a>
+                                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/CLAUDE.md" target="_blank" class="resource-link">
+                                    <span class="resource-icon">🤖</span>
+                                    <span class="resource-name">CLAUDE.md</span>
+                                    <span class="resource-arrow">→</span>
+                                </a>
+                                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/AGENT_PLAYBOOK.md" target="_blank" class="resource-link">
+                                    <span class="resource-icon">👥</span>
+                                    <span class="resource-name">Agent Playbook</span>
+                                    <span class="resource-arrow">→</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Product -->
+                        <div class="resource-category">
+                            <h4 class="resource-category-title">📋 Product</h4>
+                            <div class="resource-links">
+                                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/PRD_CRICKET_PLAYBOOK.md" target="_blank" class="resource-link">
+                                    <span class="resource-icon">📝</span>
+                                    <span class="resource-name">PRD v2.0</span>
+                                    <span class="resource-arrow">→</span>
+                                </a>
+                                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/SPRINT_4_PLAN.md" target="_blank" class="resource-link">
+                                    <span class="resource-icon">🏃</span>
+                                    <span class="resource-name">Sprint 4 Plan</span>
+                                    <span class="resource-arrow">→</span>
+                                </a>
+                                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/PRODUCT_POSITIONING.md" target="_blank" class="resource-link">
+                                    <span class="resource-icon">🎯</span>
+                                    <span class="resource-name">Product Positioning</span>
+                                    <span class="resource-arrow">→</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Technical -->
+                        <div class="resource-category">
+                            <h4 class="resource-category-title">⚙️ Technical</h4>
+                            <div class="resource-links">
+                                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/DATA_DICTIONARY.md" target="_blank" class="resource-link">
+                                    <span class="resource-icon">📊</span>
+                                    <span class="resource-name">Data Dictionary</span>
+                                    <span class="resource-arrow">→</span>
+                                </a>
+                                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/INDEX.md" target="_blank" class="resource-link">
+                                    <span class="resource-icon">🗂️</span>
+                                    <span class="resource-name">Repo Index</span>
+                                    <span class="resource-arrow">→</span>
+                                </a>
+                                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/config/thresholds.yaml" target="_blank" class="resource-link">
+                                    <span class="resource-icon">⚡</span>
+                                    <span class="resource-name">Thresholds Config</span>
+                                    <span class="resource-arrow">→</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Agent Files -->
+                        <div class="resource-category">
+                            <h4 class="resource-category-title">🎭 Agent Files</h4>
+                            <div class="resource-links">
+                                <a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/config/agents" target="_blank" class="resource-link">
+                                    <span class="resource-icon">📁</span>
+                                    <span class="resource-name">All Agent Configs</span>
+                                    <span class="resource-arrow">→</span>
+                                </a>
+                                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/governance/templates/TASK_PRD_TEMPLATE.md" target="_blank" class="resource-link">
+                                    <span class="resource-icon">📋</span>
+                                    <span class="resource-name">Task PRD Template</span>
+                                    <span class="resource-arrow">→</span>
+                                </a>
+                                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/governance/templates/DOMAIN_SANITY_CHECKLIST.md" target="_blank" class="resource-link">
+                                    <span class="resource-icon">✅</span>
+                                    <span class="resource-name">Domain Sanity Checklist</span>
+                                    <span class="resource-arrow">→</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -4900,6 +5254,75 @@
             'Founder': { role: 'The Founder', team: 'Cricket Playbook' },  // Alias for founder approval tickets
             'Pep Guardiola': { role: 'Tactical Analysis', team: 'Manchester City' },
             'Ime Udoka': { role: 'DevOps Lead', team: 'Houston Rockets' }
+        };
+
+        // Agent Skills (out of 10) - Index Card Skill Ratings
+        const agentSkills = {
+            'Tom Brady': {
+                skills: { Leadership: 10, Planning: 9, Documentation: 9, Communication: 10, Execution: 8 },
+                strengths: ['Sprint planning', 'Team coordination', 'PRD writing'],
+                weaknesses: ['Deep technical work']
+            },
+            'Stephen Curry': {
+                skills: { Execution: 10, Python: 9, Analytics: 9, Speed: 10, Accuracy: 8 },
+                strengths: ['Fast delivery', 'Algorithm design', 'Data analysis'],
+                weaknesses: ['Documentation']
+            },
+            'Kevin de Bruyne': {
+                skills: { Visualization: 10, UI_Design: 9, CSS: 9, Creativity: 10, JavaScript: 8 },
+                strengths: ['Dashboard design', 'Data visualization', 'User experience'],
+                weaknesses: ['Backend systems']
+            },
+            'Jose Mourinho': {
+                skills: { Strategy: 10, Analysis: 10, ML_Ops: 9, Benchmarking: 9, Auditing: 10 },
+                strengths: ['System audits', 'Strategic planning', 'ML oversight'],
+                weaknesses: ['Hands-on coding']
+            },
+            'LeBron James': {
+                skills: { Communication: 10, Marketing: 9, Social: 10, Branding: 9, Outreach: 8 },
+                strengths: ['Social engagement', 'Brand messaging', 'Community'],
+                weaknesses: ['Technical depth']
+            },
+            'Brad Stevens': {
+                skills: { Architecture: 10, CI_CD: 10, Quality: 9, Systems: 10, Automation: 9 },
+                strengths: ['System design', 'CI/CD pipelines', 'Code quality'],
+                weaknesses: ['Frontend work']
+            },
+            'Brock Purdy': {
+                skills: { Data_Pipeline: 10, DuckDB: 10, ETL: 9, Schema: 9, Ingestion: 10 },
+                strengths: ['Data ingestion', 'Schema design', 'Pipeline reliability'],
+                weaknesses: ['UI/UX work']
+            },
+            'Andy Flower': {
+                skills: { Cricket: 10, Domain: 10, Validation: 9, Tactics: 10, Analysis: 9 },
+                strengths: ['Cricket expertise', 'Domain validation', 'Player assessment'],
+                weaknesses: ['Code writing']
+            },
+            'Virat Kohli': {
+                skills: { Editorial: 10, Writing: 10, Tone: 9, Passion: 10, Intensity: 9 },
+                strengths: ['Content quality', 'Editorial voice', 'Player narratives'],
+                weaknesses: ['Technical tasks']
+            },
+            "N'Golo Kanté": {
+                skills: { QA: 10, Testing: 10, Coverage: 9, Diligence: 10, Reliability: 10 },
+                strengths: ['Quality assurance', 'Test coverage', 'Bug detection'],
+                weaknesses: ['Feature development']
+            },
+            'Florentino Perez': {
+                skills: { Vision: 10, Approval: 10, Strategy: 10, Governance: 10, Authority: 10 },
+                strengths: ['Strategic vision', 'Final approvals', 'Scope control'],
+                weaknesses: ['Implementation']
+            },
+            'Pep Guardiola': {
+                skills: { Tactics: 10, Analysis: 10, Patterns: 9, Matchups: 10, Innovation: 9 },
+                strengths: ['Tactical analysis', 'Pattern recognition', 'Matchup insights'],
+                weaknesses: ['Execution tasks']
+            },
+            'Ime Udoka': {
+                skills: { DevOps: 10, Automation: 10, MLOps: 9, Monitoring: 9, Deployment: 10 },
+                strengths: ['CI/CD automation', 'ML pipelines', 'System monitoring'],
+                weaknesses: ['Data analysis']
+            }
         };
 
         // Agent to sport mapping for ticket icons
@@ -6622,6 +7045,13 @@ Gate Inheritance:
             updateHealthScore();
             updateHealthCategories();
             updateLastUpdated();
+            renderWorkflows();
+
+            // Add Jose Mourinho avatar to header (he owns system audits)
+            const avatarEl = document.getElementById('scoutingReportAvatar');
+            if (avatarEl) {
+                avatarEl.innerHTML = getAgentAvatarImg('Jose Mourinho', 'scouting-header-avatar');
+            }
         }
 
         function updateHealthScore() {
@@ -6652,18 +7082,24 @@ Gate Inheritance:
             const container = document.getElementById('healthCategories');
             if (!container) return;
 
+            // Helper to create label from key (e.g., 'code_quality' → 'Code Quality')
+            const formatLabel = (key) => key.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+
             container.innerHTML = Object.entries(healthData.categories).map(([key, cat]) => {
-                const color = cat.score >= 80 ? 'var(--accent-green)' :
-                              cat.score >= 60 ? 'var(--accent-yellow)' :
+                const label = cat.label || formatLabel(key);
+                const score = cat.score || 0;
+                const weight = cat.weight || 0;
+                const color = score >= 80 ? 'var(--accent-green)' :
+                              score >= 60 ? 'var(--accent-yellow)' :
                               'var(--accent-red)';
                 return `
                     <div class="category-item">
                         <div class="category-header">
-                            <span class="category-name">${cat.label} (${cat.weight}%)</span>
-                            <span class="category-score" style="color: ${color}">${cat.score}%</span>
+                            <span class="category-name">${label} (${weight}%)</span>
+                            <span class="category-score" style="color: ${color}">${score}%</span>
                         </div>
                         <div class="category-bar">
-                            <div class="category-fill" style="width: ${cat.score}%; background: ${color}"></div>
+                            <div class="category-fill" style="width: ${score}%; background: ${color}"></div>
                         </div>
                     </div>
                 `;
@@ -6683,6 +7119,33 @@ Gate Inheritance:
             healthData.timestamp = new Date().toISOString();
             initTechHealth();
             alert('Health data refreshed! In production, this will fetch from auto-generated JSON.');
+        }
+
+        // Workflow data with owners for dynamic rendering with avatars
+        const workflows = [
+            { name: 'ci.yml', status: 'active', trigger: 'Push/PR', owner: 'Brad Stevens' },
+            { name: 'gate-check.yml', status: 'active', trigger: 'Push/PR', owner: 'Brad Stevens' },
+            { name: 'generate-outputs.yml', status: 'scheduled', trigger: 'Daily 2AM UTC', owner: 'Brad Stevens' },
+            { name: 'deploy-dashboard.yml', status: 'chained', trigger: 'Post-outputs', owner: 'Brad Stevens' },
+            { name: 'ingest.yml', status: 'scheduled', trigger: 'Weekly Sun 3AM', owner: 'Brock Purdy' },
+            { name: 'ml-health-check.yml', status: 'scheduled', trigger: 'Weekly + Push', owner: 'Ime Udoka' }
+        ];
+
+        function renderWorkflows() {
+            const container = document.getElementById('workflowList');
+            if (!container) return;
+
+            container.innerHTML = workflows.map(wf => `
+                <div class="workflow-item">
+                    <span class="workflow-status ${wf.status}">●</span>
+                    <span class="workflow-name">${wf.name}</span>
+                    <span class="workflow-trigger">${wf.trigger}</span>
+                    <span class="workflow-owner">
+                        ${getAgentAvatarImg(wf.owner, 'workflow-owner-avatar')}
+                        <span>${wf.owner.split(' ')[0]}</span>
+                    </span>
+                </div>
+            `).join('');
         }
 
         function initBoard() {
@@ -7056,6 +7519,33 @@ Gate Inheritance:
                                         </div>
                                     `).join('')}
                                 </div>
+                            ` : ''}
+
+                            ${agentSkills[name] ? `
+                            <div class="agent-skills">
+                                <div class="skills-header">
+                                    <span class="skills-title">🎯 Skill Ratings</span>
+                                </div>
+                                <div class="skills-grid">
+                                    ${Object.entries(agentSkills[name].skills).slice(0, 5).map(([skill, score]) => {
+                                        const scoreClass = score >= 9 ? 'high' : score >= 7 ? 'medium' : 'low';
+                                        const color = score >= 9 ? 'var(--accent-green)' : score >= 7 ? 'var(--accent-yellow)' : 'var(--accent-red)';
+                                        return `
+                                        <div class="skill-row">
+                                            <span class="skill-name">${skill.replace(/_/g, ' ')}</span>
+                                            <div class="skill-bar">
+                                                <div class="skill-fill" style="width: ${score * 10}%; background: ${color}"></div>
+                                            </div>
+                                            <span class="skill-score ${scoreClass}">${score}/10</span>
+                                        </div>
+                                        `;
+                                    }).join('')}
+                                </div>
+                                <div class="agent-traits">
+                                    ${agentSkills[name].strengths.slice(0, 2).map(s => `<span class="trait-chip strength">✓ ${s}</span>`).join('')}
+                                    ${agentSkills[name].weaknesses.slice(0, 1).map(w => `<span class="trait-chip weakness">△ ${w}</span>`).join('')}
+                                </div>
+                            </div>
                             ` : ''}
                         </div>
                     `;

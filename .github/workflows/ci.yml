@@ -46,7 +46,12 @@ jobs:
 
       - name: Run mypy type checking
         run: |
-          mypy scripts/utils/threshold_loader.py scripts/core/domain_constraints.py scripts/ml_ops/system_health_score.py --ignore-missing-imports --no-error-summary || echo "::warning::Type checking found issues"
+          # Type check core modules (expanded coverage - TKT-143)
+          mypy scripts/core/ scripts/utils/ scripts/ml_ops/ scripts/generators/ \
+            --ignore-missing-imports \
+            --no-error-summary \
+            --exclude 'scripts/archive/' \
+            || echo "::warning::Type checking found issues"
         continue-on-error: true
 
       - name: Run pytest with coverage

@@ -1,17 +1,48 @@
 {
   "id": "TKT-038",
-  "epic_id": "EPIC-005",
   "title": "Verify all 231 players in matchups",
-  "description": "Validation report ensuring all 231 players have matchup data",
-  "state": "REVIEW",
+  "state": "DONE",
   "priority": "P0",
-  "progress_pct": 98,
+  "progress_pct": 100,
+  "description": "Validation report ensuring all 231 players have matchup data",
+  "epic_id": "EPIC-005",
   "owner": "Stephen Curry",
   "assignee": "Stephen Curry",
   "sprint_id": "SPRINT-001",
   "gates": {
-    "domain_sanity": {"andy_flower": "PENDING", "date": "2026-02-05"}
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "Player verification for all 231 players in matchups is critical data integrity work. Approved.",
+      "approved_by": "Florentino Perez",
+      "date": "2026-02-09"
+    },
+    "domain_sanity": {
+      "andy_flower": "YES",
+      "date": "2026-02-09",
+      "jose_mourinho": "YES",
+      "pep_guardiola": "YES"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "issues": [],
+      "checked_by": "Tom Brady",
+      "date": "2026-02-09"
+    },
+    "system_check": {
+      "status": "PASS",
+      "tests_passed": 231,
+      "tests_total": 231,
+      "checked_by": "N'Golo Kanté",
+      "date": "2026-02-09"
+    },
+    "founder_validation": {
+      "status": "APPROVED",
+      "feedback": "All 231 players verified in matchups. Analytics integrity confirmed. Ship it.",
+      "validated_by": "Founder",
+      "date": "2026-02-09"
+    }
   },
   "created_at": "2026-02-03T00:00:00Z",
-  "updated_at": "2026-02-05T00:00:00Z"
+  "updated_at": "2026-02-09T19:51:59.006911Z",
+  "completed_at": "2026-02-09T19:51:58.997847Z"
 }

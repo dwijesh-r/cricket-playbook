@@ -1,15 +1,48 @@
 {
   "id": "TKT-076",
-  "epic_id": "EPIC-008",
   "title": "Schema validation tests",
-  "description": "Test suite for schema validation",
-  "state": "RUNNING",
+  "state": "DONE",
   "priority": "P0",
-  "progress_pct": 80,
+  "progress_pct": 100,
+  "description": "Test suite for schema validation",
+  "epic_id": "EPIC-008",
   "owner": "N'Golo Kanté",
   "assignee": "N'Golo Kanté",
   "sprint_id": "SPRINT-001",
-  "gates": {},
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "Schema validation tests are P0 quality gates essential for data integrity. Approved for completion.",
+      "approved_by": "Florentino Perez",
+      "date": "2026-02-09"
+    },
+    "domain_sanity": {
+      "jose_mourinho": "YES",
+      "date": "2026-02-09",
+      "andy_flower": "YES",
+      "pep_guardiola": "YES"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "issues": [],
+      "checked_by": "Tom Brady",
+      "date": "2026-02-09"
+    },
+    "system_check": {
+      "status": "PASS",
+      "tests_passed": 43,
+      "tests_total": 43,
+      "checked_by": "N'Golo Kanté",
+      "date": "2026-02-09"
+    },
+    "founder_validation": {
+      "status": "APPROVED",
+      "feedback": "Schema validation test suite complete. Critical QA infrastructure for data pipeline integrity. Ship it.",
+      "validated_by": "Founder",
+      "date": "2026-02-09"
+    }
+  },
   "created_at": "2026-02-04T00:00:00Z",
-  "updated_at": "2026-02-05T00:00:00Z"
+  "updated_at": "2026-02-09T19:51:25.834207Z",
+  "completed_at": "2026-02-09T19:51:25.826727Z"
 }

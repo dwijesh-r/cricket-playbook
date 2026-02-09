@@ -101,6 +101,9 @@ For more information, see: governance/MISSION_CONTROL_DESIGN_020426_v1.md
     # Status command
     subparsers.add_parser("status", help="Show Mission Control status")
 
+    # Orchestrator command (delegates to claude_orchestrator CLI)
+    subparsers.add_parser("orchestrator", help="Claude Orchestrator (multi-agent API)")
+
     return parser
 
 
@@ -183,6 +186,12 @@ def main() -> int:
         return llm_group(args)
     elif args.command == "status":
         return cmd_status(args)
+    elif args.command == "orchestrator":
+        from scripts.claude_orchestrator.cli import main as orch_main
+
+        # Pass remaining args to orchestrator CLI
+        sys.argv = ["orchestrator"] + sys.argv[2:]
+        return orch_main()
     elif args.command is None:
         parser.print_help()
         return 0

@@ -23,6 +23,9 @@ Thumbs.db
 .vscode/
 *.swp
 
+# Environment variables
+.env
+
 # Jupyter
 .ipynb_checkpoints/
 .DS_Store

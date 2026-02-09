@@ -28,6 +28,10 @@ mypy>=1.11.0
 types-PyYAML>=6.0.0
 types-requests>=2.31.0
 
+# Claude Orchestrator (multi-agent API)
+anthropic>=0.49.0
+python-dotenv>=1.0.0
+
 # ML Explainability - optional, requires numba/llvmlite compilation
 # Install separately: pip install shap>=0.42.0
 # shap>=0.42.0

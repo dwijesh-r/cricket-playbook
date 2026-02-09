@@ -1,6 +1,6 @@
 # Delhi Capitals (DC) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-06 15:07
+**Generated:** 2026-02-08 15:14
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -133,7 +133,7 @@
 **Top Wicket Takers by Season:**
 
 - **2023:** MR Marsh (12w @ 7.82), AR Patel (11w @ 7.17), I Sharma (10w @ 8.03)
-- **2024:** Mukesh Kumar (17w @ 10.2), KK Ahmed (17w @ 9.13), Kuldeep Yadav (16w @ 8.45)
+- **2024:** KK Ahmed (17w @ 9.13), Mukesh Kumar (17w @ 10.2), Kuldeep Yadav (16w @ 8.45)
 - **2025:** Kuldeep Yadav (15w @ 7.26), MA Starc (14w @ 10.09), Mukesh Kumar (12w @ 9.67)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -197,11 +197,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -431,10 +431,10 @@
 | Kolkata Knight Riders | 5 | 102 | 123 | 10 | 7.24 | 12.3 | 10.2 | 38.24 | 13.73 | HIGH |
 | Lucknow Super Giants | 7 | 160 | 202 | 9 | 7.58 | 22.44 | 17.78 | 31.88 | 13.13 | HIGH |
 | Royal Challengers Bengaluru | 10 | 234 | 341 | 9 | 8.74 | 37.89 | 26.0 | 29.91 | 16.24 | HIGH |
-| Delhi Capitals | 6 | 122 | 178 | 5 | 8.75 | 35.6 | 24.4 | 22.95 | 13.93 | HIGH |
 | Gujarat Titans | 7 | 162 | 176 | 5 | 6.52 | 35.2 | 32.4 | 31.48 | 8.64 | HIGH |
-| Chennai Super Kings | 8 | 168 | 236 | 4 | 8.43 | 59.0 | 42.0 | 24.4 | 14.29 | HIGH |
+| Delhi Capitals | 6 | 122 | 178 | 5 | 8.75 | 35.6 | 24.4 | 22.95 | 13.93 | HIGH |
 | Gujarat Lions | 2 | 48 | 58 | 4 | 7.25 | 14.5 | 12.0 | 31.25 | 12.5 | MEDIUM |
+| Chennai Super Kings | 8 | 168 | 236 | 4 | 8.43 | 59.0 | 42.0 | 24.4 | 14.29 | HIGH |
 | Rising Pune Supergiant | 2 | 48 | 66 | 3 | 8.25 | 22.0 | 16.0 | 37.5 | 14.58 | MEDIUM |
 
 ### Mukesh Kumar
@@ -448,8 +448,8 @@
 | Chennai Super Kings | 2 | 42 | 57 | 4 | 8.14 | 14.25 | 10.5 | 26.19 | 14.29 | MEDIUM |
 | Royal Challengers Bengaluru | 4 | 75 | 122 | 3 | 9.76 | 40.67 | 25.0 | 41.33 | 26.67 | MEDIUM |
 | Punjab Kings | 3 | 54 | 100 | 2 | 11.11 | 50.0 | 27.0 | 35.19 | 29.63 | MEDIUM |
-| Kolkata Knight Riders | 2 | 36 | 45 | 1 | 7.5 | 45.0 | 36.0 | 58.33 | 22.22 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 66 | 132 | 1 | 12.0 | 132.0 | 66.0 | 19.7 | 33.33 | MEDIUM |
+| Kolkata Knight Riders | 2 | 36 | 45 | 1 | 7.5 | 45.0 | 36.0 | 58.33 | 22.22 | MEDIUM |
 
 ### Mitchell Starc
 
@@ -460,8 +460,8 @@
 | Lucknow Super Giants | 4 | 84 | 117 | 8 | 8.36 | 14.63 | 10.5 | 41.67 | 22.62 | MEDIUM |
 | Kolkata Knight Riders | 4 | 84 | 122 | 7 | 8.71 | 17.43 | 12.0 | 34.52 | 20.24 | MEDIUM |
 | Punjab Kings | 5 | 96 | 108 | 7 | 6.75 | 15.43 | 13.71 | 45.83 | 15.63 | MEDIUM |
-| Mumbai Indians | 6 | 119 | 178 | 7 | 8.97 | 25.43 | 17.0 | 34.45 | 21.85 | HIGH |
 | Rajasthan Royals | 6 | 138 | 177 | 7 | 7.7 | 25.29 | 19.71 | 42.03 | 18.84 | HIGH |
+| Mumbai Indians | 6 | 119 | 178 | 7 | 8.97 | 25.43 | 17.0 | 34.45 | 21.85 | HIGH |
 | Chennai Super Kings | 7 | 156 | 186 | 6 | 7.15 | 31.0 | 26.0 | 40.38 | 15.38 | HIGH |
 | Royal Challengers Bengaluru | 4 | 78 | 162 | 1 | 12.46 | 162.0 | 78.0 | 32.05 | 32.05 | MEDIUM |
 

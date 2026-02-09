@@ -1,6 +1,6 @@
 # Gujarat Titans (GT) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-06 15:07
+**Generated:** 2026-02-08 15:15
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -128,7 +128,7 @@
 **Top Wicket Takers by Season:**
 
 - **2023:** Mohammed Shami (28w @ 7.92), Rashid Khan (27w @ 8.21), MM Sharma (27w @ 8.1)
-- **2024:** MM Sharma (13w @ 10.48), Rashid Khan (10w @ 8.52), Noor Ahmad (8w @ 8.33)
+- **2024:** MM Sharma (13w @ 10.48), Rashid Khan (10w @ 8.52), UT Yadav (8w @ 9.81)
 - **2025:** M Prasidh Krishna (25w @ 8.34), R Sai Kishore (19w @ 9.07), Mohammed Siraj (16w @ 8.83)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -170,13 +170,13 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
-| M Chinnaswamy Stadium | 3 | 2 | 66.7% | 171.7 |
-| Arun Jaitley Stadium | 3 | 2 | 66.7% | 196.0 |
-| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 175.7 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 148.3 |
+| M Chinnaswamy Stadium | 3 | 2 | 66.7% | 171.7 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 175.7 |
+| Arun Jaitley Stadium | 3 | 2 | 66.7% | 196.0 |
 | MA Chidambaram Stadium | 2 | 0 | 0.0% | 150.0 |
-| Wankhede Stadium | 2 | 1 | 50.0% | 169.0 |
 | Eden Gardens | 2 | 2 | 100.0% | 189.0 |
+| Wankhede Stadium | 2 | 1 | 50.0% | 169.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -187,11 +187,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -397,16 +397,16 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Punjab Kings | 16 | 384 | 421 | 25 | 6.58 | 16.84 | 15.36 | 41.93 | 11.46 | HIGH |
-| Mumbai Indians | 18 | 420 | 436 | 21 | 6.23 | 20.76 | 20.0 | 41.67 | 10.71 | HIGH |
 | Delhi Capitals | 19 | 444 | 480 | 21 | 6.49 | 22.86 | 21.14 | 36.71 | 11.04 | HIGH |
+| Mumbai Indians | 18 | 420 | 436 | 21 | 6.23 | 20.76 | 20.0 | 41.67 | 10.71 | HIGH |
 | Chennai Super Kings | 18 | 426 | 579 | 19 | 8.15 | 30.47 | 22.42 | 33.33 | 16.9 | HIGH |
 | Kolkata Knight Riders | 16 | 372 | 437 | 19 | 7.05 | 23.0 | 19.58 | 35.22 | 12.63 | HIGH |
 | Rajasthan Royals | 16 | 384 | 412 | 19 | 6.44 | 21.68 | 20.21 | 36.2 | 9.38 | HIGH |
 | Royal Challengers Bengaluru | 16 | 370 | 509 | 15 | 8.25 | 33.93 | 24.67 | 31.89 | 15.95 | HIGH |
 | Lucknow Super Giants | 7 | 155 | 213 | 9 | 8.25 | 23.67 | 17.22 | 30.32 | 14.84 | HIGH |
 | Gujarat Lions | 2 | 48 | 53 | 6 | 6.63 | 8.83 | 8.0 | 43.75 | 12.5 | MEDIUM |
-| Rising Pune Supergiant | 2 | 48 | 36 | 2 | 4.5 | 18.0 | 24.0 | 37.5 | 2.08 | MEDIUM |
 | Sunrisers Hyderabad | 6 | 138 | 216 | 2 | 9.39 | 108.0 | 69.0 | 21.74 | 16.67 | HIGH |
+| Rising Pune Supergiant | 2 | 48 | 36 | 2 | 4.5 | 18.0 | 24.0 | 37.5 | 2.08 | MEDIUM |
 
 ---
 

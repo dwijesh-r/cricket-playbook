@@ -6,13 +6,13 @@
     "CSK": {
       "team": "CSK",
       "team_name": "Chennai Super Kings",
-      "overall_rating": 6.9,
+      "overall_rating": 7.4,
       "strongest_position": "#3 Batter",
-      "weakest_position": "All-rounder (Bowling-first)",
+      "weakest_position": "Lead Pacer",
       "vulnerabilities": [
         "All-rounder (Bowling-first): overseas dependent",
         "Lead Pacer: thin depth (rating 4.6)",
-        "All-rounder (Bowling-first): thin depth (rating 4.1)"
+        "All-rounder (Bowling-first): thin depth (rating 4.6)"
       ],
       "positions": {
         "opener": {
@@ -85,7 +85,7 @@
               "rank": 3,
               "name": "Shivam Dube",
               "player_id": "a4e37e47",
-              "score": 77.0,
+              "score": 80.3,
               "rationale": "Spin specialist",
               "is_overseas": false,
               "price_cr": 12.0,
@@ -95,13 +95,23 @@
         },
         "middle_order": {
           "name": "Middle Order #4-5",
-          "rating": 9.0,
-          "what_works": "Elite #1 in ruturaj gaikwad. quality backup in sanju samson",
+          "rating": 9.8,
+          "what_works": "Elite #1 in shivam dube. quality backup in ruturaj gaikwad",
           "what_doesnt": "Minimal concerns",
           "overseas_count": 0,
           "players": [
             {
               "rank": 1,
+              "name": "Shivam Dube",
+              "player_id": "a4e37e47",
+              "score": 92.4,
+              "rationale": "Middle overs anchor. Excellent vs spin",
+              "is_overseas": false,
+              "price_cr": 12.0,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
               "name": "Ruturaj Gaikwad",
               "player_id": "45a43fe2",
               "score": 86.8,
@@ -111,7 +121,7 @@
               "secondary_positions": []
             },
             {
-              "rank": 2,
+              "rank": 3,
               "name": "Sanju Samson",
               "player_id": "a4cc73aa",
               "score": 78.8,
@@ -119,24 +129,14 @@
               "is_overseas": false,
               "price_cr": 18.0,
               "secondary_positions": []
-            },
-            {
-              "rank": 3,
-              "name": "Shivam Dube",
-              "player_id": "a4e37e47",
-              "score": 64.9,
-              "rationale": "Middle overs anchor. Excellent vs spin",
-              "is_overseas": false,
-              "price_cr": 12.0,
-              "secondary_positions": []
             }
           ]
         },
         "finisher": {
           "name": "Finisher #6-7",
-          "rating": 8.0,
+          "rating": 9.9,
           "what_works": "Elite #1 in sanju samson. quality backup in dewald brevis",
-          "what_doesnt": "Big gap between #1 and #2",
+          "what_doesnt": "Minimal concerns",
           "overseas_count": 1,
           "players": [
             {
@@ -153,20 +153,20 @@
               "rank": 2,
               "name": "Dewald Brevis",
               "player_id": "844e79d1",
-              "score": 59.0,
-              "rationale": "Death overs finisher. Bowling utility",
+              "score": 94.0,
+              "rationale": "Death overs finisher. Six-hitting ability",
               "is_overseas": true,
               "price_cr": 2.2,
               "secondary_positions": []
             },
             {
               "rank": 3,
-              "name": "MS Dhoni",
-              "player_id": "4a8a2e3b",
-              "score": 38.0,
-              "rationale": "Finisher",
+              "name": "Shivam Dube",
+              "player_id": "a4e37e47",
+              "score": 51.7,
+              "rationale": "All-round finisher",
               "is_overseas": false,
-              "price_cr": 4.0,
+              "price_cr": 12.0,
               "secondary_positions": []
             }
           ]
@@ -338,17 +338,17 @@
         },
         "allrounder_batting": {
           "name": "All-rounder (Batting-first)",
-          "rating": 5.6,
-          "what_works": "Dewald brevis leads. shivam dube as backup",
-          "what_doesnt": "Room for improvement at the top",
+          "rating": 7.8,
+          "what_works": "Strong #1 with dewald brevis. quality backup in shivam dube",
+          "what_doesnt": "Minimal concerns",
           "overseas_count": 1,
           "players": [
             {
               "rank": 1,
               "name": "Dewald Brevis",
               "player_id": "844e79d1",
-              "score": 57.9,
-              "rationale": "Bowls 4 overs",
+              "score": 79.6,
+              "rationale": "Strong finisher (94). Middle order capable (62)",
               "is_overseas": true,
               "price_cr": 2.2,
               "secondary_positions": []
@@ -357,8 +357,8 @@
               "rank": 2,
               "name": "Shivam Dube",
               "player_id": "a4e37e47",
-              "score": 45.0,
-              "rationale": "Middle order capable (65)",
+              "score": 65.7,
+              "rationale": "Middle order capable (92)",
               "is_overseas": false,
               "price_cr": 12.0,
               "secondary_positions": []
@@ -377,39 +377,39 @@
         },
         "allrounder_bowling": {
           "name": "All-rounder (Bowling-first)",
-          "rating": 4.1,
-          "what_works": "Shivam dube leads. matthew short as backup",
-          "what_doesnt": "Weak backup option. no standout performer",
+          "rating": 4.6,
+          "what_works": "Shivam dube leads. dewald brevis as backup",
+          "what_doesnt": "Overseas heavy (2 of 3)",
           "overseas_count": 2,
           "players": [
             {
               "rank": 1,
               "name": "Shivam Dube",
               "player_id": "a4e37e47",
-              "score": 47.8,
-              "rationale": "Handy bat (65). SR 151",
+              "score": 54.7,
+              "rationale": "Handy bat (92). SR 151",
               "is_overseas": false,
               "price_cr": 12.0,
               "secondary_positions": []
             },
             {
               "rank": 2,
+              "name": "Dewald Brevis",
+              "player_id": "844e79d1",
+              "score": 40.9,
+              "rationale": "Handy bat (62). SR 160",
+              "is_overseas": true,
+              "price_cr": 2.2,
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
               "name": "Matthew Short",
               "player_id": "a90e53ec",
               "score": 33.5,
               "rationale": "Bowling all-rounder",
               "is_overseas": true,
               "price_cr": 1.0,
-              "secondary_positions": []
-            },
-            {
-              "rank": 3,
-              "name": "Dewald Brevis",
-              "player_id": "844e79d1",
-              "score": 33.4,
-              "rationale": "SR 160",
-              "is_overseas": true,
-              "price_cr": 2.2,
               "secondary_positions": []
             }
           ]
@@ -423,8 +423,9 @@
       "strongest_position": "#3 Batter",
       "weakest_position": "Wicketkeeper",
       "vulnerabilities": [
+        "Wicketkeeper: overseas dependent",
         "Supporting Pacer (Death Specialist): overseas dependent",
-        "Wicketkeeper: thin depth (rating 4.1)"
+        "Wicketkeeper: thin depth (rating 4.6)"
       ],
       "positions": {
         "opener": {
@@ -585,10 +586,10 @@
         },
         "wicketkeeper": {
           "name": "Wicketkeeper",
-          "rating": 4.1,
-          "what_works": "Quinton de kock leads. robin minz as backup",
-          "what_doesnt": "Weak backup option",
-          "overseas_count": 1,
+          "rating": 4.6,
+          "what_works": "Quinton de kock leads. ryan rickelton as backup",
+          "what_doesnt": "Weak backup option. overseas heavy (2 of 2)",
+          "overseas_count": 2,
           "players": [
             {
               "rank": 1,
@@ -602,12 +603,12 @@
             },
             {
               "rank": 2,
-              "name": "Robin Minz",
-              "player_id": "bafd0398",
-              "score": 25.0,
+              "name": "Ryan Rickelton",
+              "player_id": "e66732f8",
+              "score": 38.0,
               "rationale": "Wicketkeeper",
-              "is_overseas": false,
-              "price_cr": 0.65,
+              "is_overseas": true,
+              "price_cr": 1.0,
               "secondary_positions": []
             }
           ]
@@ -3710,9 +3711,9 @@
     "LSG": {
       "team": "LSG",
       "team_name": "Lucknow Super Giants",
-      "overall_rating": 7.2,
+      "overall_rating": 7.3,
       "strongest_position": "#3 Batter",
-      "weakest_position": "Lead Spinner",
+      "weakest_position": "All-rounder (Bowling-first)",
       "vulnerabilities": [
         "Opener: overseas dependent",
         "#3 Batter: overseas dependent",
@@ -4015,29 +4016,29 @@
         },
         "lead_spinner": {
           "name": "Lead Spinner",
-          "rating": 4.4,
-          "what_works": "Aiden markram leads. manimaran siddharth as backup",
-          "what_doesnt": "Weak backup option. no standout performer",
+          "rating": 5.6,
+          "what_works": "Strong #1 with digvesh rathi. aiden markram as backup",
+          "what_doesnt": "Room for improvement at the top",
           "overseas_count": 1,
           "players": [
             {
               "rank": 1,
+              "name": "Digvesh Rathi",
+              "player_id": "13fc5c6d",
+              "score": 61.0,
+              "rationale": "Lead spinner",
+              "is_overseas": false,
+              "price_cr": 0.3,
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
               "name": "Aiden Markram",
               "player_id": "6a26221c",
               "score": 47.0,
               "rationale": "Lead spinner",
               "is_overseas": true,
               "price_cr": 2.0,
-              "secondary_positions": []
-            },
-            {
-              "rank": 2,
-              "name": "Manimaran Siddharth",
-              "player_id": "cf0ccafa",
-              "score": 39.0,
-              "rationale": "Lead spinner",
-              "is_overseas": false,
-              "price_cr": 0.75,
               "secondary_positions": []
             }
           ]
@@ -4127,20 +4128,20 @@
     "CSK": {
       "opener": 7.0,
       "number_3": 10.0,
-      "middle_order": 9.0,
-      "finisher": 8.0,
+      "middle_order": 9.8,
+      "finisher": 9.9,
       "wicketkeeper": 7.4,
       "lead_pacer": 4.6,
       "lead_spinner": 6.4,
-      "allrounder": 4.8,
-      "overall": 6.9
+      "allrounder": 6.2,
+      "overall": 7.4
     },
     "MI": {
       "opener": 8.9,
       "number_3": 10.0,
       "middle_order": 10.0,
       "finisher": 10.0,
-      "wicketkeeper": 4.1,
+      "wicketkeeper": 4.6,
       "lead_pacer": 9.9,
       "lead_spinner": 6.9,
       "allrounder": 8.1,
@@ -4230,9 +4231,9 @@
       "finisher": 7.8,
       "wicketkeeper": 8.5,
       "lead_pacer": 7.3,
-      "lead_spinner": 4.4,
+      "lead_spinner": 5.6,
       "allrounder": 5.2,
-      "overall": 7.2
+      "overall": 7.3
     }
   }
 }

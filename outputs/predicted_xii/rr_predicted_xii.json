@@ -38,19 +38,19 @@
     },
     {
       "batting_position": 4,
-      "player_id": "60aa2db3",
-      "player_name": "Lhuan-dre Pretorius",
+      "player_id": "465aa633",
+      "player_name": "Nandre Burger",
       "role": "Pace Bowler",
       "batting_hand": "Right-hand",
       "is_overseas": true,
-      "price_cr": 0.3,
-      "rationale": "Provides batting depth and bowling option"
+      "price_cr": 3.5,
+      "rationale": "Pace bowling depth"
     },
     {
       "batting_position": 5,
       "player_id": "04a418e8",
       "player_name": "Riyan Parag",
-      "role": "All-rounder",
+      "role": "Opener",
       "batting_hand": "Right-hand",
       "is_overseas": false,
       "price_cr": 14.0,

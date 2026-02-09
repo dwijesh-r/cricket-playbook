@@ -60,7 +60,7 @@
       "batting_position": 6,
       "player_id": "59559bc2",
       "player_name": "Jamie Overton",
-      "role": "Pace Bowler",
+      "role": "Opener",
       "batting_hand": "Right-hand",
       "is_overseas": true,
       "price_cr": 1.5,
@@ -100,7 +100,7 @@
       "batting_position": 10,
       "player_id": "efc04be7",
       "player_name": "Noor Ahmad",
-      "role": "All-rounder",
+      "role": "Pace Bowler",
       "batting_hand": "Left-hand",
       "is_overseas": true,
       "price_cr": 10.0,
@@ -137,6 +137,7 @@
   "constraint_violations": [],
   "generation_notes": [
     "Selected Sanju Samson as keeper",
-    "Overseas optimization: Swapped Prashant Veer for Noor Ahmad"
+    "Overseas optimization: Swapped Anshul Kamboj for Noor Ahmad",
+    "Overseas optimization: Swapped Ayush Mhatre for Jamie Overton"
   ]
 }

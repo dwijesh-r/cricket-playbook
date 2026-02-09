@@ -47,6 +47,16 @@
       "rationale": "Pace bowling depth"
     },
     {
+      "batting_position": 4,
+      "player_id": "85e0cf10",
+      "player_name": "Prasidh Krishna",
+      "role": "Pace Bowler",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 9.5,
+      "rationale": "Pace bowling depth"
+    },
+    {
       "batting_position": 5,
       "player_id": "f19ccfad",
       "player_name": "Washington Sundar",
@@ -68,16 +78,6 @@
     },
     {
       "batting_position": 7,
-      "player_id": "39a2dfa8",
-      "player_name": "Rahul Tewatia",
-      "role": "All-rounder",
-      "batting_hand": "Left-hand",
-      "is_overseas": false,
-      "price_cr": 4.0,
-      "rationale": "Provides batting depth and bowling option"
-    },
-    {
-      "batting_position": 8,
       "player_id": "81049310",
       "player_name": "Jayant Yadav",
       "role": "All-rounder",
@@ -110,7 +110,7 @@
       "batting_position": 11,
       "player_id": "e62dd25d",
       "player_name": "Kagiso Rabada",
-      "role": "Pace Bowler",
+      "role": "All-rounder",
       "batting_hand": "Right-hand",
       "is_overseas": true,
       "price_cr": 10.75,
@@ -118,24 +118,25 @@
     }
   ],
   "impact_player": {
-    "player_id": "5bb1a1c4",
-    "player_name": "Ishant Sharma",
+    "player_id": "7dcb9bc9",
+    "player_name": "Shahrukh Khan",
     "role": "Impact Player",
     "batting_hand": "Right-hand",
     "is_overseas": false,
-    "price_cr": 0.75,
-    "rationale": "Provides bowling option as Impact substitute"
+    "price_cr": 4.0,
+    "rationale": "Provides batting depth as Impact substitute"
   },
   "balance": {
     "overseas_count": 4,
     "bowling_options": 9,
-    "spinners": 6,
-    "pacers": 5,
+    "spinners": 5,
+    "pacers": 6,
     "left_handers_top6": 2
   },
   "constraints_satisfied": true,
   "constraint_violations": [],
   "generation_notes": [
-    "Selected Jos Buttler as keeper"
+    "Selected Jos Buttler as keeper",
+    "Overseas optimization: Swapped Rahul Tewatia for Kagiso Rabada"
   ]
 }

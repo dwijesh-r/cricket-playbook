@@ -1,6 +1,6 @@
 # Kolkata Knight Riders (KKR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-06 15:07
+**Generated:** 2026-02-08 15:15
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -131,7 +131,7 @@
 **Top Wicket Takers by Season:**
 
 - **2023:** CV Varun (20w @ 8.27), SP Narine (11w @ 7.89), Suyash Sharma (10w @ 8.28)
-- **2024:** CV Varun (21w @ 7.98), AD Russell (19w @ 9.7), Harshit Rana (19w @ 8.75)
+- **2024:** CV Varun (21w @ 7.98), Harshit Rana (19w @ 8.75), AD Russell (19w @ 9.7)
 - **2025:** CV Varun (17w @ 7.6), VG Arora (17w @ 9.51), Harshit Rana (15w @ 9.93)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -180,8 +180,8 @@
 | MA Chidambaram Stadium | 4 | 3 | 75.0% | 126.3 |
 | Arun Jaitley Stadium | 3 | 1 | 33.3% | 166.3 |
 | Wankhede Stadium | 3 | 1 | 33.3% | 156.7 |
-| M Chinnaswamy Stadium | 2 | 2 | 100.0% | 193.0 |
 | Narendra Modi Stadium | 2 | 2 | 100.0% | 185.5 |
+| M Chinnaswamy Stadium | 2 | 2 | 100.0% | 193.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -192,11 +192,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -351,8 +351,8 @@
 | Punjab Kings | 21 | 522 | 456 | 114.47 | 30.71 | 14.47 | 39.25 | 17 | HIGH |
 | Chennai Super Kings | 18 | 385 | 313 | 123.0 | 24.06 | 15.97 | 39.3 | 16 | HIGH |
 | Pune Warriors | 5 | 173 | 134 | 129.1 | 43.25 | 14.93 | 29.1 | 4 | HIGH |
-| Gujarat Titans | 5 | 107 | 76 | 140.79 | 26.75 | 15.79 | 28.95 | 4 | MEDIUM |
 | Rajasthan Royals | 7 | 107 | 95 | 112.63 | 15.29 | 9.47 | 35.79 | 7 | MEDIUM |
+| Gujarat Titans | 5 | 107 | 76 | 140.79 | 26.75 | 15.79 | 28.95 | 4 | MEDIUM |
 | Lucknow Super Giants | 3 | 98 | 62 | 158.06 | 32.67 | 25.81 | 35.48 | 3 | MEDIUM |
 | Gujarat Lions | 4 | 78 | 69 | 113.04 | 26.0 | 14.49 | 39.13 | 3 | MEDIUM |
 | Deccan Chargers | 3 | 50 | 45 | 111.11 | 16.67 | 15.56 | 40.0 | 3 | MEDIUM |
@@ -420,9 +420,9 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 4 | 96 | 112 | 9 | 7.0 | 12.44 | 10.67 | 34.38 | 13.54 | MEDIUM |
 | Gujarat Titans | 5 | 109 | 148 | 8 | 8.15 | 18.5 | 13.63 | 37.61 | 17.43 | HIGH |
-| Royal Challengers Bengaluru | 3 | 72 | 107 | 7 | 8.92 | 15.29 | 10.29 | 38.89 | 22.22 | MEDIUM |
 | Mumbai Indians | 3 | 58 | 78 | 7 | 8.07 | 11.14 | 8.29 | 39.66 | 15.52 | MEDIUM |
 | Lucknow Super Giants | 4 | 92 | 117 | 7 | 7.63 | 16.71 | 13.14 | 31.52 | 13.04 | MEDIUM |
+| Royal Challengers Bengaluru | 3 | 72 | 107 | 7 | 8.92 | 15.29 | 10.29 | 38.89 | 22.22 | MEDIUM |
 | Punjab Kings | 3 | 72 | 127 | 3 | 10.58 | 42.33 | 24.0 | 19.44 | 19.44 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 54 | 59 | 3 | 6.56 | 19.67 | 18.0 | 37.04 | 11.11 | MEDIUM |
 | Rajasthan Royals | 4 | 83 | 114 | 2 | 8.24 | 57.0 | 41.5 | 32.53 | 16.87 | MEDIUM |
@@ -456,8 +456,8 @@
 | Chennai Super Kings | 3 | 60 | 77 | 4 | 7.7 | 19.25 | 15.0 | 50.0 | 18.33 | MEDIUM |
 | Royal Challengers Bengaluru | 3 | 66 | 102 | 4 | 9.27 | 25.5 | 16.5 | 28.79 | 19.7 | MEDIUM |
 | Delhi Capitals | 3 | 66 | 94 | 3 | 8.55 | 31.33 | 22.0 | 39.39 | 22.73 | MEDIUM |
-| Mumbai Indians | 2 | 30 | 57 | 2 | 11.4 | 28.5 | 15.0 | 40.0 | 33.33 | MEDIUM |
 | Gujarat Titans | 2 | 42 | 67 | 2 | 9.57 | 33.5 | 21.0 | 26.19 | 26.19 | MEDIUM |
+| Mumbai Indians | 2 | 30 | 57 | 2 | 11.4 | 28.5 | 15.0 | 40.0 | 33.33 | MEDIUM |
 
 ### Vaibhav Arora
 
@@ -467,11 +467,11 @@
 | Sunrisers Hyderabad | 6 | 119 | 155 | 8 | 7.82 | 19.38 | 14.88 | 39.5 | 18.49 | HIGH |
 | Delhi Capitals | 4 | 72 | 101 | 6 | 8.42 | 16.83 | 12.0 | 45.83 | 25.0 | MEDIUM |
 | Rajasthan Royals | 3 | 66 | 126 | 4 | 11.45 | 31.5 | 16.5 | 31.82 | 30.3 | MEDIUM |
-| Lucknow Super Giants | 4 | 78 | 109 | 3 | 8.38 | 36.33 | 26.0 | 35.9 | 15.38 | MEDIUM |
 | Punjab Kings | 3 | 57 | 90 | 3 | 9.47 | 30.0 | 19.0 | 36.84 | 29.82 | MEDIUM |
-| Mumbai Indians | 3 | 55 | 93 | 1 | 10.15 | 93.0 | 55.0 | 38.18 | 25.45 | MEDIUM |
+| Lucknow Super Giants | 4 | 78 | 109 | 3 | 8.38 | 36.33 | 26.0 | 35.9 | 15.38 | MEDIUM |
 | Royal Challengers Bengaluru | 2 | 30 | 63 | 1 | 12.6 | 63.0 | 30.0 | 16.67 | 36.67 | MEDIUM |
 | Gujarat Titans | 2 | 48 | 77 | 1 | 9.63 | 77.0 | 48.0 | 25.0 | 25.0 | MEDIUM |
+| Mumbai Indians | 3 | 55 | 93 | 1 | 10.15 | 93.0 | 55.0 | 38.18 | 25.45 | MEDIUM |
 
 ---
 
@@ -507,8 +507,8 @@
 | MK Pandey | Rajiv Gandhi International Stadium | 9 | 169 | 157 | 107.64 | 18.78 | 8.92 | HIGH |
 | MK Pandey | Rajiv Gandhi International Stadium,... | 5 | 149 | 143 | 104.2 | 37.25 | 10.49 | HIGH |
 | MK Pandey | Subrata Roy Sahara Stadium | 7 | 147 | 127 | 115.75 | 29.4 | 13.39 | HIGH |
-| MK Pandey | Feroz Shah Kotla | 4 | 128 | 94 | 136.17 | 64.0 | 12.77 | MEDIUM |
 | MK Pandey | MA Chidambaram Stadium, Chepauk, Ch... | 4 | 128 | 119 | 107.56 | 42.67 | 10.08 | HIGH |
+| MK Pandey | Feroz Shah Kotla | 4 | 128 | 94 | 136.17 | 64.0 | 12.77 | MEDIUM |
 | MK Pandey | Sawai Mansingh Stadium | 5 | 124 | 101 | 122.77 | 24.8 | 16.83 | HIGH |
 | MK Pandey | SuperSport Park | 1 | 114 | 73 | 156.16 | - | 19.18 | MEDIUM |
 | MK Pandey | Dr DY Patil Sports Academy | 5 | 113 | 101 | 111.88 | 22.6 | 14.85 | HIGH |
@@ -516,8 +516,8 @@
 | R Ravindra | MA Chidambaram Stadium, Chepauk, Ch... | 8 | 237 | 151 | 156.95 | 33.86 | 21.19 | HIGH |
 | RA Tripathi | Wankhede Stadium, Mumbai | 6 | 214 | 144 | 148.61 | 35.67 | 20.14 | HIGH |
 | RA Tripathi | Maharashtra Cricket Association Sta... | 7 | 183 | 129 | 141.86 | 36.6 | 22.48 | HIGH |
-| RA Tripathi | Sawai Mansingh Stadium | 9 | 174 | 140 | 124.29 | 29.0 | 12.14 | HIGH |
 | RA Tripathi | Rajiv Gandhi International Stadium,... | 8 | 174 | 126 | 138.1 | 24.86 | 23.02 | HIGH |
+| RA Tripathi | Sawai Mansingh Stadium | 9 | 174 | 140 | 124.29 | 29.0 | 12.14 | HIGH |
 | RA Tripathi | MA Chidambaram Stadium, Chepauk, Ch... | 9 | 173 | 131 | 132.06 | 19.22 | 18.32 | HIGH |
 | RA Tripathi | Eden Gardens | 3 | 140 | 80 | 175.0 | 46.67 | 30.0 | MEDIUM |
 | RA Tripathi | Dr DY Patil Sports Academy, Mumbai | 4 | 130 | 77 | 168.83 | 43.33 | 24.68 | MEDIUM |

@@ -108,34 +108,38 @@
     },
     {
       "batting_position": 11,
-      "player_id": "c5aef772",
-      "player_name": "Romario Shepherd",
+      "player_id": "ff154ecd",
+      "player_name": "Jordan Cox",
       "role": "Pace Bowler",
       "batting_hand": "Right-hand",
       "is_overseas": true,
-      "price_cr": 2.0,
-      "rationale": "Provides batting depth and bowling option"
+      "price_cr": 0.3,
+      "rationale": "Primary wicketkeeper"
     }
   ],
   "impact_player": {
-    "player_id": "983f2f61",
-    "player_name": "Swapnil Singh",
+    "player_id": "b1ad996b",
+    "player_name": "Mangesh Yadav",
     "role": "Impact Player",
     "batting_hand": "Left-hand",
     "is_overseas": false,
-    "price_cr": 0.5,
+    "price_cr": 0.3,
     "rationale": "Provides batting depth as Impact substitute"
   },
   "balance": {
     "overseas_count": 4,
-    "bowling_options": 6,
+    "bowling_options": 5,
     "spinners": 3,
     "pacers": 8,
     "left_handers_top6": 2
   },
-  "constraints_satisfied": true,
-  "constraint_violations": [],
+  "constraints_satisfied": false,
+  "constraint_violations": [
+    "C4: Insufficient primary bowling options (3/4)"
+  ],
   "generation_notes": [
-    "Selected Phil Salt as keeper"
+    "Selected Phil Salt as keeper",
+    "Overseas optimization: Swapped Mangesh Yadav for Jordan Cox",
+    "Constraint violations: ['C4: Insufficient primary bowling options (3/4)']"
   ]
 }

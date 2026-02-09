@@ -1,6 +1,6 @@
 # Lucknow Super Giants (LSG) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-06 15:07
+**Generated:** 2026-02-08 15:15
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -125,7 +125,7 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** Ravi Bishnoi (16w @ 7.58), Yash Thakur (13w @ 8.61), MA Wood (11w @ 8.35)
+- **2023:** Ravi Bishnoi (16w @ 7.58), Yash Thakur (13w @ 8.61), Naveen-ul-Haq (11w @ 7.78)
 - **2024:** Naveen-ul-Haq (14w @ 9.7), Yash Thakur (11w @ 10.8), Ravi Bishnoi (10w @ 8.53)
 - **2025:** DS Rathi (14w @ 8.13), Avesh Khan (13w @ 9.94), SN Thakur (13w @ 9.98)
 
@@ -166,13 +166,13 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
-| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 181.0 |
-| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 169.0 |
 | MA Chidambaram Stadium | 3 | 1 | 33.3% | 173.0 |
 | Eden Gardens | 3 | 2 | 66.7% | 191.7 |
-| Narendra Modi Stadium | 2 | 1 | 50.0% | 203.0 |
+| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 181.0 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 169.0 |
 | Wankhede Stadium | 2 | 1 | 50.0% | 187.5 |
 | M Chinnaswamy Stadium | 2 | 2 | 100.0% | 197.0 |
+| Narendra Modi Stadium | 2 | 1 | 50.0% | 203.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -183,11 +183,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -217,9 +217,9 @@
 | Mohammed Shami | Dubai International Crick | 12 | 16 | 6.75 | 17.5 |
 | Mohammed Shami | Sharjah Cricket Stadium | 7 | 14 | 9.11 | 12.0 |
 | Mohammed Shami | Wankhede Stadium | 9 | 12 | 8.39 | 16.5 |
-| Avesh Khan | Wankhede Stadium | 7 | 11 | 8.13 | 15.09 |
 | Mohammed Shami | Punjab Cricket Associatio | 8 | 11 | 8.86 | 15.27 |
-| PWH de Silva | Wankhede Stadium | 5 | 10 | 8.35 | 12.0 |
+| Avesh Khan | Wankhede Stadium | 7 | 11 | 8.13 | 15.09 |
+| A Nortje | Sharjah Cricket Stadium | 6 | 10 | 7.43 | 13.4 |
 
 
 ---
@@ -430,9 +430,9 @@
 | Chennai Super Kings | 15 | 329 | 414 | 14 | 7.55 | 29.57 | 23.5 | 40.73 | 16.41 | HIGH |
 | Punjab Kings | 9 | 180 | 337 | 6 | 11.23 | 56.17 | 30.0 | 37.78 | 33.33 | HIGH |
 | Lucknow Super Giants | 5 | 102 | 119 | 6 | 7.0 | 19.83 | 17.0 | 45.1 | 16.67 | HIGH |
-| Gujarat Lions | 3 | 66 | 108 | 2 | 9.82 | 54.0 | 33.0 | 33.33 | 24.24 | MEDIUM |
 | Rising Pune Supergiant | 3 | 49 | 91 | 2 | 11.14 | 45.5 | 24.5 | 20.41 | 26.53 | MEDIUM |
 | Gujarat Titans | 2 | 42 | 74 | 2 | 10.57 | 37.0 | 21.0 | 28.57 | 30.95 | MEDIUM |
+| Gujarat Lions | 3 | 66 | 108 | 2 | 9.82 | 54.0 | 33.0 | 33.33 | 24.24 | MEDIUM |
 
 ---
 

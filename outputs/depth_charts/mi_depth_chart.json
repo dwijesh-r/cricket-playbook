@@ -5,8 +5,9 @@
   "strongest_position": "#3 Batter",
   "weakest_position": "Wicketkeeper",
   "vulnerabilities": [
+    "Wicketkeeper: overseas dependent",
     "Supporting Pacer (Death Specialist): overseas dependent",
-    "Wicketkeeper: thin depth (rating 4.1)"
+    "Wicketkeeper: thin depth (rating 4.6)"
   ],
   "positions": {
     "opener": {
@@ -167,10 +168,10 @@
     },
     "wicketkeeper": {
       "name": "Wicketkeeper",
-      "rating": 4.1,
-      "what_works": "Quinton de kock leads. robin minz as backup",
-      "what_doesnt": "Weak backup option",
-      "overseas_count": 1,
+      "rating": 4.6,
+      "what_works": "Quinton de kock leads. ryan rickelton as backup",
+      "what_doesnt": "Weak backup option. overseas heavy (2 of 2)",
+      "overseas_count": 2,
       "players": [
         {
           "rank": 1,
@@ -184,12 +185,12 @@
         },
         {
           "rank": 2,
-          "name": "Robin Minz",
-          "player_id": "bafd0398",
-          "score": 25.0,
+          "name": "Ryan Rickelton",
+          "player_id": "e66732f8",
+          "score": 38.0,
           "rationale": "Wicketkeeper",
-          "is_overseas": false,
-          "price_cr": 0.65,
+          "is_overseas": true,
+          "price_cr": 1.0,
           "secondary_positions": []
         }
       ]

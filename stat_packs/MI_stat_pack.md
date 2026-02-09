@@ -1,6 +1,6 @@
 # Mumbai Indians (MI) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-06 15:07
+**Generated:** 2026-02-08 15:15
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -132,8 +132,8 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** PP Chawla (22w @ 8.07), Akash Madhwal (14w @ 8.32), JP Behrendorff (14w @ 9.05)
-- **2024:** JJ Bumrah (20w @ 6.24), G Coetzee (13w @ 9.92), PP Chawla (13w @ 8.71)
+- **2023:** PP Chawla (22w @ 8.07), JP Behrendorff (14w @ 9.05), Akash Madhwal (14w @ 8.32)
+- **2024:** JJ Bumrah (20w @ 6.24), PP Chawla (13w @ 8.71), G Coetzee (13w @ 9.92)
 - **2025:** TA Boult (22w @ 8.74), JJ Bumrah (18w @ 6.69), HH Pandya (14w @ 9.04)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -179,11 +179,11 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Narendra Modi Stadium | 5 | 0 | 0.0% | 169.6 |
+| MA Chidambaram Stadium | 3 | 1 | 33.3% | 158.7 |
+| Sawai Mansingh Stadium | 3 | 1 | 33.3% | 193.3 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 0 | 0.0% | 169.0 |
 | Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 194.7 |
 | Arun Jaitley Stadium | 3 | 2 | 66.7% | 208.3 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 0 | 0.0% | 169.0 |
-| Sawai Mansingh Stadium | 3 | 1 | 33.3% | 193.3 |
-| MA Chidambaram Stadium | 3 | 1 | 33.3% | 158.7 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -230,7 +230,7 @@
 | JJ Bumrah | Dubai International Crick | 8 | 15 | 7.0 | 12.0 |
 | SN Thakur | Dubai International Crick | 9 | 15 | 7.66 | 12.8 |
 | DL Chahar | MA Chidambaram Stadium | 11 | 14 | 8.1 | 13.86 |
-| DL Chahar | Wankhede Stadium | 13 | 13 | 9.0 | 18.0 |
+| TA Boult | Dubai International Crick | 7 | 13 | 7.46 | 12.0 |
 
 
 ---
@@ -415,8 +415,8 @@
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
 | Rajasthan Royals | 12 | 468 | 329 | 142.25 | 46.8 | 18.84 | 31.91 | 10 | HIGH |
-| Royal Challengers Bengaluru | 13 | 455 | 321 | 141.74 | 35.0 | 21.18 | 38.94 | 13 | HIGH |
 | Kolkata Knight Riders | 15 | 455 | 307 | 148.21 | 35.0 | 20.52 | 38.76 | 13 | HIGH |
+| Royal Challengers Bengaluru | 13 | 455 | 321 | 141.74 | 35.0 | 21.18 | 38.94 | 13 | HIGH |
 | Punjab Kings | 13 | 425 | 333 | 127.63 | 35.42 | 17.12 | 37.84 | 12 | HIGH |
 | Sunrisers Hyderabad | 15 | 412 | 325 | 126.77 | 29.43 | 16.92 | 38.15 | 14 | HIGH |
 | Chennai Super Kings | 16 | 412 | 311 | 132.48 | 29.43 | 18.65 | 41.8 | 14 | HIGH |
@@ -440,8 +440,8 @@
 | Mumbai Indians | 11 | 257 | 363 | 14 | 8.47 | 25.93 | 18.36 | 36.58 | 19.07 | HIGH |
 | Kolkata Knight Riders | 11 | 246 | 323 | 14 | 7.88 | 23.07 | 17.57 | 46.34 | 20.33 | HIGH |
 | Chennai Super Kings | 14 | 316 | 457 | 13 | 8.68 | 35.15 | 24.31 | 42.72 | 22.78 | HIGH |
-| Lucknow Super Giants | 7 | 162 | 185 | 12 | 6.85 | 15.42 | 13.5 | 49.38 | 16.67 | HIGH |
 | Rajasthan Royals | 9 | 193 | 255 | 12 | 7.93 | 21.25 | 16.08 | 38.86 | 18.65 | HIGH |
+| Lucknow Super Giants | 7 | 162 | 185 | 12 | 6.85 | 15.42 | 13.5 | 49.38 | 16.67 | HIGH |
 | Punjab Kings | 16 | 354 | 520 | 12 | 8.81 | 43.33 | 29.5 | 38.7 | 23.16 | HIGH |
 | Gujarat Titans | 8 | 174 | 242 | 8 | 8.34 | 30.25 | 21.75 | 39.08 | 18.97 | HIGH |
 | Gujarat Lions | 2 | 48 | 77 | 2 | 9.63 | 38.5 | 24.0 | 39.58 | 33.33 | MEDIUM |
@@ -459,8 +459,8 @@
 | Chennai Super Kings | 16 | 370 | 450 | 14 | 7.3 | 32.14 | 26.43 | 40.27 | 15.14 | HIGH |
 | Rising Pune Supergiant | 6 | 138 | 178 | 7 | 7.74 | 25.43 | 19.71 | 33.33 | 13.04 | HIGH |
 | Gujarat Titans | 4 | 96 | 108 | 6 | 6.75 | 18.0 | 16.0 | 46.88 | 14.58 | MEDIUM |
-| Lucknow Super Giants | 4 | 96 | 92 | 5 | 5.75 | 18.4 | 19.2 | 48.96 | 9.38 | MEDIUM |
 | Gujarat Lions | 4 | 96 | 138 | 5 | 8.63 | 27.6 | 19.2 | 32.29 | 19.79 | MEDIUM |
+| Lucknow Super Giants | 4 | 96 | 92 | 5 | 5.75 | 18.4 | 19.2 | 48.96 | 9.38 | MEDIUM |
 
 ---
 

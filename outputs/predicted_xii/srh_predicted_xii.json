@@ -68,13 +68,13 @@
     },
     {
       "batting_position": 7,
-      "player_id": "a3b0600d",
-      "player_name": "Aniket Verma",
-      "role": "Batter",
+      "player_id": "5750bcb4",
+      "player_name": "Eshan Malinga",
+      "role": "Pace Bowler",
       "batting_hand": "Right-hand",
       "is_overseas": false,
-      "price_cr": 0.3,
-      "rationale": "Batting value"
+      "price_cr": 1.2,
+      "rationale": "Pace bowling depth"
     },
     {
       "batting_position": 8,
@@ -118,17 +118,17 @@
     }
   ],
   "impact_player": {
-    "player_id": "465fbdf0",
-    "player_name": "Ravichandran Smaran",
+    "player_id": "a3b0600d",
+    "player_name": "Aniket Verma",
     "role": "Impact Player",
-    "batting_hand": "Left-hand",
+    "batting_hand": "Right-hand",
     "is_overseas": false,
     "price_cr": 0.3,
     "rationale": "Provides batting depth as Impact substitute"
   },
   "balance": {
     "overseas_count": 4,
-    "bowling_options": 8,
+    "bowling_options": 9,
     "spinners": 4,
     "pacers": 7,
     "left_handers_top6": 3

@@ -1,9 +1,9 @@
 {
   "team": "LSG",
   "team_name": "Lucknow Super Giants",
-  "overall_rating": 7.2,
+  "overall_rating": 7.3,
   "strongest_position": "#3 Batter",
-  "weakest_position": "Lead Spinner",
+  "weakest_position": "All-rounder (Bowling-first)",
   "vulnerabilities": [
     "Opener: overseas dependent",
     "#3 Batter: overseas dependent",
@@ -306,29 +306,29 @@
     },
     "lead_spinner": {
       "name": "Lead Spinner",
-      "rating": 4.4,
-      "what_works": "Aiden markram leads. manimaran siddharth as backup",
-      "what_doesnt": "Weak backup option. no standout performer",
+      "rating": 5.6,
+      "what_works": "Strong #1 with digvesh rathi. aiden markram as backup",
+      "what_doesnt": "Room for improvement at the top",
       "overseas_count": 1,
       "players": [
         {
           "rank": 1,
+          "name": "Digvesh Rathi",
+          "player_id": "13fc5c6d",
+          "score": 61.0,
+          "rationale": "Lead spinner",
+          "is_overseas": false,
+          "price_cr": 0.3,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
           "name": "Aiden Markram",
           "player_id": "6a26221c",
           "score": 47.0,
           "rationale": "Lead spinner",
           "is_overseas": true,
           "price_cr": 2.0,
-          "secondary_positions": []
-        },
-        {
-          "rank": 2,
-          "name": "Manimaran Siddharth",
-          "player_id": "cf0ccafa",
-          "score": 39.0,
-          "rationale": "Lead spinner",
-          "is_overseas": false,
-          "price_cr": 0.75,
           "secondary_positions": []
         }
       ]

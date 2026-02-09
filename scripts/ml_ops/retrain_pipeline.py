@@ -1000,7 +1000,7 @@ def run_pipeline(
         batter_result = _retrain_single(
             conn, "batter", thresholds, min_improvement, force, current_batter
         )
-    except Exception:
+    except (ValueError, RuntimeError, OSError):
         logger.exception("Batter retraining failed")
         batter_result = None
 
@@ -1009,7 +1009,7 @@ def run_pipeline(
         bowler_result = _retrain_single(
             conn, "bowler", thresholds, min_improvement, force, current_bowler
         )
-    except Exception:
+    except (ValueError, RuntimeError, OSError):
         logger.exception("Bowler retraining failed")
         bowler_result = None
 

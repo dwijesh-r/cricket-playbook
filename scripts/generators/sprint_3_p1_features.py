@@ -844,7 +844,7 @@ def get_bowler_phase_distribution_by_team(
                 ORDER BY bpd.overs DESC
             """).df()
             results[phase] = df
-        except Exception:
+        except (RuntimeError, ValueError):
             results[phase] = pd.DataFrame()
 
     return results

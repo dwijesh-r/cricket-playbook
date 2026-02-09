@@ -1,5 +1,5 @@
 {
-  "score": 89.8,
+  "score": 96.0,
   "status": "EXCELLENT",
   "emoji": "\ud83d\udfe2",
   "target": 85.0,
@@ -15,13 +15,13 @@
       ]
     },
     "code_quality": {
-      "score": 80.0,
+      "score": 100.0,
       "weight": 20,
       "findings": [
-        "5 bare except handlers (GOOD)",
+        "No bare except handlers (EXCELLENT)",
         "Thresholds centralized in YAML (TKT-132 DONE)",
-        "3 sys.path.insert calls (OK)",
-        "Type hints: 87% coverage (GOOD)"
+        "No sys.path hacks (EXCELLENT)",
+        "Type hints: 84% coverage (GOOD)"
       ]
     },
     "data_robustness": {
@@ -44,12 +44,12 @@
       ]
     },
     "testing": {
-      "score": 85.0,
+      "score": 100.0,
       "weight": 15,
       "findings": [
-        "4 test files found (NEEDS MORE)",
+        "5 test files found (GOOD)",
         "Integration tests exist",
-        "147 tests collected (GOOD)"
+        "251 tests collected (GOOD)"
       ]
     },
     "documentation": {
@@ -58,11 +58,11 @@
       "findings": [
         "Core docs: 2/2",
         "Thresholds well documented",
-        "6 procedure/methodology docs"
+        "8 procedure/methodology docs"
       ]
     }
   },
-  "timestamp": "2026-02-08T15:24:16.708288",
+  "timestamp": "2026-02-09T06:13:20.582517",
   "ticket": "TKT-147",
   "epic": "EPIC-014",
   "generated_by": "system_health_score.py",

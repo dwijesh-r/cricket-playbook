@@ -138,9 +138,12 @@ def check_code_quality() -> Tuple[float, List[str]]:
 
     # Check 3: sys.path.insert anti-pattern (25 points)
     sys_path_hacks = 0
+    this_file = Path(__file__).resolve()
     for py_file in scripts_dir.rglob("*.py"):
         if "archive" in str(py_file):
             continue  # Skip archived files
+        if py_file.resolve() == this_file:
+            continue  # Skip self to avoid counting string references
         for line in py_file.read_text().splitlines():
             stripped = line.strip()
             # Only count actual calls, not comments or string references
@@ -150,12 +153,12 @@ def check_code_quality() -> Tuple[float, List[str]]:
 
     if sys_path_hacks == 0:
         score += 25
-        findings.append("No sys.path.insert hacks (EXCELLENT)")
+        findings.append("No sys.path hacks (EXCELLENT)")
     elif sys_path_hacks < 5:
         score += 15
-        findings.append(f"{sys_path_hacks} sys.path.insert calls (OK)")
+        findings.append(f"{sys_path_hacks} sys.path hacks (OK)")
     else:
-        findings.append(f"{sys_path_hacks} sys.path.insert calls (NEEDS TKT-143)")
+        findings.append(f"{sys_path_hacks} sys.path hacks (NEEDS TKT-143)")
 
     # Check 4: Type hints (25 points - spot check)
     typed_functions = 0
@@ -341,7 +344,7 @@ def check_testing() -> Tuple[float, List[str]]:
             else:
                 score += 10
                 findings.append(f"{test_count} tests collected (NEEDS MORE)")
-    except Exception:
+    except (subprocess.SubprocessError, OSError, ValueError):
         findings.append("Could not count tests")
 
     return (score / max_score) * 100, findings

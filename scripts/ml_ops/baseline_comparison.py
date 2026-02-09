@@ -295,17 +295,17 @@ def compute_metrics(
 
     try:
         silhouette = silhouette_score(X[mask], labels[mask])
-    except Exception:
+    except ValueError:
         silhouette = None
 
     try:
         davies_bouldin = davies_bouldin_score(X[mask], labels[mask])
-    except Exception:
+    except ValueError:
         davies_bouldin = None
 
     try:
         calinski_harabasz = calinski_harabasz_score(X[mask], labels[mask])
-    except Exception:
+    except ValueError:
         calinski_harabasz = None
 
     return silhouette, davies_bouldin, calinski_harabasz

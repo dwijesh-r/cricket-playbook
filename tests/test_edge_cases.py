@@ -1098,5 +1098,180 @@ class TestValidationResultObject:
         assert "ERROR" in repr(vr)
 
 
+# =============================================================================
+# 11. CONFIDENCE INTERVAL EDGE CASES
+# =============================================================================
+
+
+class TestConfidenceIntervalEdgeCases:
+    """Test ConfidenceCalculator boundary conditions."""
+
+    def test_bootstrap_single_element(self):
+        """Bootstrap CI with single data point should return zero margin."""
+        from scripts.analysis.confidence_intervals import ConfidenceCalculator
+
+        calc = ConfidenceCalculator(confidence=0.95)
+        result = calc.bootstrap_ci([42.0])
+        assert result.estimate == 42.0
+        assert result.margin == 0.0
+        assert result.lower == result.upper
+
+    def test_bootstrap_empty_array(self):
+        """Bootstrap CI with empty data should return zero estimate."""
+        from scripts.analysis.confidence_intervals import ConfidenceCalculator
+
+        calc = ConfidenceCalculator(confidence=0.95)
+        result = calc.bootstrap_ci([])
+        assert result.estimate == 0.0
+        assert result.n_samples == 0
+
+    def test_bootstrap_with_nans_filtered(self):
+        """Bootstrap CI should filter NaN values before computing."""
+        from scripts.analysis.confidence_intervals import ConfidenceCalculator
+
+        calc = ConfidenceCalculator(confidence=0.95)
+        result = calc.bootstrap_ci([10.0, float("nan"), 20.0, float("nan"), 30.0])
+        assert result.n_samples == 3
+        assert 10.0 <= result.estimate <= 30.0
+
+    def test_bootstrap_all_identical_values(self):
+        """Bootstrap CI with identical values should have zero or near-zero margin."""
+        from scripts.analysis.confidence_intervals import ConfidenceCalculator
+
+        calc = ConfidenceCalculator(confidence=0.95)
+        result = calc.bootstrap_ci([100.0] * 50)
+        assert result.estimate == 100.0
+        assert result.margin < 0.01
+
+    def test_wilson_ci_zero_trials(self):
+        """Wilson CI with zero trials should return zero result."""
+        from scripts.analysis.confidence_intervals import ConfidenceCalculator
+
+        calc = ConfidenceCalculator(confidence=0.95)
+        result = calc.wilson_ci(0, 0)
+        assert result.estimate == 0.0
+        assert result.n_samples == 0
+
+    def test_wilson_ci_all_successes(self):
+        """Wilson CI with 100% success rate should have upper near 100."""
+        from scripts.analysis.confidence_intervals import ConfidenceCalculator
+
+        calc = ConfidenceCalculator(confidence=0.95)
+        result = calc.wilson_ci(100, 100)
+        assert result.estimate == 100.0
+        assert result.upper <= 100.0
+
+    def test_wilson_ci_no_successes(self):
+        """Wilson CI with 0% success rate should have lower near 0."""
+        from scripts.analysis.confidence_intervals import ConfidenceCalculator
+
+        calc = ConfidenceCalculator(confidence=0.95)
+        result = calc.wilson_ci(0, 100)
+        assert result.estimate == 0.0
+        assert result.lower >= 0.0
+
+    def test_strike_rate_ci_zero_balls(self):
+        """Strike rate CI with zero balls should return zero result."""
+        from scripts.analysis.confidence_intervals import ConfidenceCalculator
+
+        calc = ConfidenceCalculator(confidence=0.95)
+        result = calc.strike_rate_ci(0, 0)
+        assert result.estimate == 0.0
+        assert result.n_samples == 0
+
+    def test_ci_result_str_format(self):
+        """CIResult.__str__ should produce readable formatted output."""
+        from scripts.analysis.confidence_intervals import CIResult
+
+        result = CIResult(145.0, 137.0, 153.0, 8.0, 0.95, "bootstrap", 100)
+        s = str(result)
+        assert "145.00" in s
+        assert "95%" in s
+        assert "137.00" in s
+
+    def test_ci_result_to_dict(self):
+        """CIResult.to_dict should return all fields."""
+        from scripts.analysis.confidence_intervals import CIResult
+
+        result = CIResult(145.0, 137.0, 153.0, 8.0, 0.95, "bootstrap", 100)
+        d = result.to_dict()
+        assert d["estimate"] == 145.0
+        assert d["method"] == "bootstrap"
+        assert d["n"] == 100
+
+    def test_different_confidence_levels(self):
+        """Higher confidence should produce wider intervals."""
+        from scripts.analysis.confidence_intervals import ConfidenceCalculator
+
+        data = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+        calc_90 = ConfidenceCalculator(confidence=0.90)
+        calc_99 = ConfidenceCalculator(confidence=0.99)
+        result_90 = calc_90.bootstrap_ci(data)
+        result_99 = calc_99.bootstrap_ci(data)
+        assert result_99.margin >= result_90.margin
+
+
+# =============================================================================
+# 12. HEALTH SCORE SYSTEM EDGE CASES
+# =============================================================================
+
+
+class TestHealthScoreEdgeCases:
+    """Test system health score computation edge cases."""
+
+    def test_health_score_json_has_required_keys(self):
+        """health_score.json should have all required top-level keys."""
+        import json
+
+        json_path = (
+            Path(__file__).parent.parent
+            / "scripts"
+            / "mission_control"
+            / "dashboard"
+            / "data"
+            / "health_score.json"
+        )
+        if json_path.exists():
+            data = json.loads(json_path.read_text())
+            assert "score" in data
+            assert "status" in data
+            assert "categories" in data
+            assert "benchmarks" in data
+            assert "automation" in data
+
+    def test_health_score_within_bounds(self):
+        """Health score should be between 0 and 100."""
+        import json
+
+        json_path = (
+            Path(__file__).parent.parent
+            / "scripts"
+            / "mission_control"
+            / "dashboard"
+            / "data"
+            / "health_score.json"
+        )
+        if json_path.exists():
+            data = json.loads(json_path.read_text())
+            assert 0 <= data["score"] <= 100
+
+    def test_health_category_weights_sum_to_100(self):
+        """Category weights should sum to 100."""
+        import json
+
+        json_path = (
+            Path(__file__).parent.parent
+            / "scripts"
+            / "mission_control"
+            / "dashboard"
+            / "data"
+            / "health_score.json"
+        )
+        if json_path.exists():
+            data = json.loads(json_path.read_text())
+            total_weight = sum(cat["weight"] for cat in data["categories"].values())
+            assert total_weight == 100
+
+
 if __name__ == "__main__":
     pytest.main([__file__, "-v"])

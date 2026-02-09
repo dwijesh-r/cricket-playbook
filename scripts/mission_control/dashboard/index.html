@@ -6384,10 +6384,10 @@
               goal: 'Research and prototype future capabilities: win probability, form tracking',
               outcome: 'Validated concepts ready for Sprint 5.0+ implementation' },
             { id: 'EPIC-014', title: 'Foundation Fortification', type: 'delivery', owner: 'Brad Stevens',
-              goal: 'Harden system foundations: centralize config, enforce quality gates, add data constraints, implement baselines, improve test coverage',
-              outcome: 'Production-grade infrastructure scoring 85+/100 on system health metrics with enforced CI/CD gates and comprehensive validation' },
+              goal: 'Harden system foundations: centralize config, enforce quality gates, add data constraints, implement baselines, improve test coverage — COMPLETE',
+              outcome: 'Production-grade infrastructure scoring 96/100 on system health metrics with enforced CI/CD gates and comprehensive validation' },
             { id: 'EPIC-015', title: 'Operational Maturity', type: 'delivery', owner: 'Brad Stevens',
-              goal: 'Close the 13-point gap to 85/100 health score: Docker, test coverage, ML retraining, monitoring, runbooks',
+              goal: 'Close the gap to 85/100 health score: Docker, test coverage, ML retraining, monitoring, runbooks — achieved 96/100',
               outcome: 'Production-ready infrastructure with containerized deployment, enforced test coverage, automated ML retraining, observability, and operational runbooks' }
         ];
 
@@ -6396,7 +6396,7 @@
             return epics.find(e => e.id === epicId) || null;
         }
 
-        // All Sprint 4.0 Tickets (156 tickets)
+        // All Sprint 4.0 Tickets (156 tickets — 149 TKT + 7 IDEA)
         const tickets = [
             // Pre-Sprint (TKT-001 to TKT-005)
             { id: 'TKT-001', title: 'Define Sprint 4 Scope', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Florentino Pérez', epic: 'EPIC-001', progress: 100, tags: ['Planning'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
@@ -7999,17 +7999,17 @@ Gate Inheritance:
 
         // ==================== TECH HEALTH DASHBOARD ====================
         let healthData = {
-            score: 89.8,
+            score: 96.0,
             status: 'EXCELLENT',
             target: 85.0,
             baseline: 67.4,
             timestamp: new Date().toISOString(),
             categories: {
                 governance: { score: 100, weight: 15, label: 'Governance' },
-                code_quality: { score: 80, weight: 20, label: 'Code Quality' },
+                code_quality: { score: 100, weight: 20, label: 'Code Quality' },
                 data_robustness: { score: 100, weight: 20, label: 'Data Robustness' },
                 ml_rigor: { score: 80, weight: 20, label: 'ML Rigor' },
-                testing: { score: 85, weight: 15, label: 'Testing' },
+                testing: { score: 100, weight: 15, label: 'Testing' },
                 documentation: { score: 100, weight: 10, label: 'Documentation' }
             },
             benchmarks: {

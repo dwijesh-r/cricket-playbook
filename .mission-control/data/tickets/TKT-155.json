@@ -5,8 +5,8 @@
   "priority": "P0",
   "progress_pct": 100,
   "description": "Set coverage floor at 70% in CI, add edge case tests",
-  "owner": "N'Golo Kante",
-  "assignee": "N'Golo Kante",
+  "owner": "N'Golo Kanté",
+  "assignee": "N'Golo Kanté",
   "sprint_id": "SPRINT-001",
   "epic": "EPIC-015",
   "tags": [

@@ -1,0 +1,46 @@
+{
+  "id": "TKT-164",
+  "title": "Andy Flower training & research — level up to 4.5/5",
+  "state": "DONE",
+  "priority": "P0",
+  "progress_pct": 100,
+  "epic_id": "EPIC-003",
+  "assignee": "Andy Flower",
+  "sprint_id": "SPRINT-001",
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "Andy Flower is core IP. Improving domain capability directly strengthens every output.",
+      "approved_by": "Florentino Perez",
+      "date": "2026-02-09"
+    },
+    "domain_sanity": {
+      "jose_mourinho": "YES",
+      "date": "2026-02-09",
+      "andy_flower": "YES",
+      "pep_guardiola": "YES"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "issues": [],
+      "checked_by": "Tom Brady",
+      "date": "2026-02-09"
+    },
+    "system_check": {
+      "status": "PASS",
+      "tests_passed": 253,
+      "tests_total": 253,
+      "checked_by": "N'Golo Kanté",
+      "date": "2026-02-09"
+    },
+    "founder_validation": {
+      "status": "APPROVED",
+      "feedback": "Andy Flower training plan and expanded mandate approved. Agent config updated.",
+      "validated_by": "Founder",
+      "date": "2026-02-09"
+    }
+  },
+  "created_at": "2026-02-09T17:31:04.875599Z",
+  "updated_at": "2026-02-09T17:32:47.179308Z",
+  "completed_at": "2026-02-09T17:32:47.176860Z"
+}

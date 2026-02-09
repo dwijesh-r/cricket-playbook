@@ -6179,16 +6179,16 @@
             'Stephen Curry': { role: 'Executor', team: 'Golden State Warriors' },
             'Kevin de Bruyne': { role: 'Visualization Lead', team: 'SSC Napoli' },
             'Jose Mourinho': { role: 'Data Science Lead', team: 'SL Benfica' },
-            'LeBron James': { role: 'Social & Engagement', team: 'Los Angeles Lakers' },
+            'LeBron James': { role: 'Reader Perspective Auditor & Social Atomization', team: 'Los Angeles Lakers' },
             'Brad Stevens': { role: 'Architecture', team: 'Boston Celtics' },
-            'Brock Purdy': { role: 'Data Pipeline', team: 'San Francisco 49ers' },
-            'Andy Flower': { role: 'Cricket Domain Expert', team: 'Royal Challengers Bengaluru' },
-            'Virat Kohli': { role: 'Editorial Lead', team: 'Royal Challengers Bengaluru' },
+            'Brock Purdy': { role: 'Data Pipeline & Monitoring', team: 'San Francisco 49ers' },
+            'Andy Flower': { role: 'Cricket Domain Specialist & Tactical Insights Lead', team: 'Royal Challengers Bengaluru' },
+            'Virat Kohli': { role: 'Editorial Lead & Tone Guard', team: 'Royal Challengers Bengaluru' },
             "N'Golo Kanté": { role: 'QA Lead', team: 'France' },
             'Florentino Perez': { role: 'President & Chairman', team: 'Real Madrid' },
             'Florentino Pérez': { role: 'President & Chairman', team: 'Real Madrid' },
             'Founder': { role: 'The Founder', team: 'Cricket Playbook' },  // Alias for founder approval tickets
-            'Pep Guardiola': { role: 'Tactical Analysis', team: 'Manchester City' },
+            'Pep Guardiola': { role: 'Retrospectives & CI', team: 'Manchester City' },
             'Ime Udoka': { role: 'DevOps Lead', team: 'Houston Rockets' },
             'Jayson Tatum': { role: 'UX & Reader Flow', team: 'Boston Celtics' }
         };
@@ -7717,6 +7717,50 @@ Gate Inheritance:
                 reason: 'Founder directive: Continuous improvement through structured retrospectives',
                 audible: 'Completed Feb 6, 2026 - Proposed Review SLA Dashboard widget (TKT-105)'
               }
+            },
+
+            // Performance Review & Agent Retraining (TKT-160 to TKT-171) — Feb 9, 2026
+            { id: 'TKT-160', title: 'Agent Performance Review & Skills Radar — Sprint 4.0', state: 'DONE', priority: 'P1', effort: 'marathon', assignee: 'Brad Stevens', epic: 'EPIC-003', progress: 100, tags: ['Review', 'Governance', '✅ Done'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS', founder_validation: 'APPROVED' },
+              output: 'reviews/sprint/brad_stevens_performance_review_020926_v1.md',
+              context: { ask: 'Comprehensive performance review of all 14 agents + Founder', goal: 'Ratings, skills radar, tier list, gap analysis, and recommendations', reason: 'Mid-sprint assessment to identify underperformers and retraining needs', audible: 'All 14 agents + Founder rated 1-5. Tier list: Elite (Curry 4.5, Brady 4.5, Purdy 4.5) to Inactive (LeBron 1.0). 11 suggestions generated.' }
+            },
+            { id: 'TKT-161', title: 'Retrain Virat Kohli as active Editorial Lead', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Virat Kohli', epic: 'EPIC-006', progress: 100, tags: ['Retraining', 'Editorial', '✅ Done'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS', founder_validation: 'APPROVED' },
+              context: { ask: 'Expand Kohli from passive Tone Guard to active Editorial Lead', goal: 'Agent config updated with editorial production mandate', reason: 'Sprint 4.0 review: 2.5/5 — editorial pipeline stalled', audible: 'Mandate expanded: write narrative prose for all 10 stat packs. Target: 4.0/5 by Sprint 5.0.' }
+            },
+            { id: 'TKT-162', title: 'Activate Pep Guardiola — Sprint 4.0 Retrospective', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Pep Guardiola', epic: 'EPIC-003', progress: 100, tags: ['Retrospective', 'Governance', '✅ Done'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS', founder_validation: 'APPROVED' },
+              output: 'reviews/sprint/pep_guardiola_retro_sprint4_020926_v1.md',
+              context: { ask: 'Produce formal Sprint 4.0 retrospective', goal: '257-line retro with What Worked / What Didn\'t / Systemic Improvement Proposal', reason: 'Sprint 4.0 review: 2.0/5 — zero retrospectives produced', audible: 'Proposed Halftime Rebalancing Gate. 6 Sprint 5.0 recommendations. Honest self-assessment included.' }
+            },
+            { id: 'TKT-163', title: 'Retrain LeBron James as Reader Perspective Auditor', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'LeBron James', epic: 'EPIC-006', progress: 100, tags: ['Retraining', 'Editorial', '✅ Done'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS', founder_validation: 'APPROVED' },
+              context: { ask: 'Activate LeBron with Reader Perspective Auditor mandate', goal: 'Agent config updated — test stat packs for casual fan readability', reason: 'Sprint 4.0 review: 1.0/5 — zero output, fully idle', audible: 'Dual mandate: (1) Reader Perspective Audit, (2) Social Atomization when content flows. Target: 3.5/5 by Sprint 5.0.' }
+            },
+            { id: 'TKT-164', title: 'Andy Flower training & research — level up to 4.5/5', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Andy Flower', epic: 'EPIC-003', progress: 100, tags: ['Retraining', 'Cricket', '✅ Done'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS', founder_validation: 'APPROVED' },
+              output: 'governance/tasks/TKT_164_ANDY_FLOWER_TRAINING_PRD.md',
+              context: { ask: 'Expand Andy Flower from passive validator to active Tactical Insights Lead', goal: 'Agent config updated, PRD written, mandate expanded', reason: 'Sprint 4.0 review: 3.5/5 — quality excellent but volume low (3 tickets)', audible: 'Three-phase plan: mandate expansion, research depth, process rigor. Target: 4.5/5 by Sprint 5.0, 8+ tickets/sprint.' }
+            },
+            { id: 'TKT-165', title: 'Expand Andy Flower mandate — editorial oversight of tactical insights', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 80, tags: ['Editorial', 'Cricket', 'Tactical'], gates: { florentino_gate: 'APPROVED' },
+              context: { ask: 'Andy Flower reviews all 10 stat pack tactical insight sections', goal: 'Comprehensive tactical review with coaching notes per team', reason: 'Tactical insights in stat packs are generic — Andy should make them specific', audible: 'Reviewing all 10 stat packs, depth charts, and predicted XIIs for tactical accuracy.' }
+            },
+            { id: 'TKT-166', title: 'Expand Brock Purdy mandate — data monitoring and alerting', state: 'DONE', priority: 'P2', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-003', progress: 100, tags: ['Config', 'Data', 'Monitoring', '✅ Done'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS', founder_validation: 'APPROVED' },
+              context: { ask: 'Add data monitoring mandate to Brock Purdy agent config', goal: 'Agent config updated with freshness checks, schema drift detection, null validation', reason: 'Data pipeline has no proactive monitoring — reactive only', audible: 'New section: Data Monitoring & Alerting with 7 responsibilities. Integrated with system health score.' }
+            },
+            { id: 'TKT-167', title: 'Activate Jose Mourinho — CricPom prototype research sprint', state: 'DONE', priority: 'P1', effort: 'marathon', assignee: 'Jose Mourinho', epic: 'EPIC-006', progress: 100, tags: ['Analytics', 'Research', '✅ Done'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS', founder_validation: 'APPROVED' },
+              output: 'docs/research/cricpom_prototype_spec_020926_v1.md',
+              context: { ask: 'Write CricPom prototype specification — cricket adaptation of KenPom', goal: 'Comprehensive spec: metrics, algorithms, data mapping, MVP scope, risk register', reason: 'Sprint 4.0 review: 3.5/5 — research output not translated into actionable specs', audible: 'Full spec: AdjSR/AdjEcon/CEM metrics, iterative convergence engine, Four Factors, venue park factors. MVP: IPL 2023-2025, 30-43 hours estimated.' }
+            },
+            { id: 'TKT-168', title: 'QA Certificate — data version 2.0', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: "N'Golo Kanté", epic: 'EPIC-009', progress: 100, tags: ['QA', 'Data', 'Certificate', '✅ Done'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS', founder_validation: 'APPROVED' },
+              output: 'reviews/domain/QA_CERTIFICATE_v2.0_020926.md',
+              context: { ask: 'Produce formal QA certificate for current database state', goal: 'PASS/WARN/FAIL status with evidence for all check categories', reason: 'Sprint 4.0 review: 3.5/5 — no formal QA certificate produced yet', audible: 'PASS (with WARN). 12 FK checks: 0 orphans. 52 views: all queryable. 2 WARNs: 17 new IPL 2026 players without historical data (expected), 2 batting_position=12 rows (0.001%).' }
+            },
+            { id: 'TKT-169', title: 'Fix N\'Golo Kanté name inconsistency in Mission Control', state: 'DONE', priority: 'P2', effort: 'quick-win', assignee: 'Tom Brady', epic: 'EPIC-003', progress: 100, tags: ['Bug Fix', 'Data Quality', '✅ Done'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS', founder_validation: 'APPROVED' },
+              context: { ask: 'Normalize Kanté name across all ticket JSON files', goal: '5 files corrected to N\'Golo Kanté', reason: 'Inconsistent encoding: Kante/Kanté across tickets', audible: 'Fixed in TKT-136, TKT-139, TKT-155, TKT-160, TKT-164.' }
+            },
+            { id: 'TKT-170', title: 'Fix mc.py score KeyError bug on unassigned tickets', state: 'DONE', priority: 'P2', effort: 'quick-win', assignee: 'Brad Stevens', epic: 'EPIC-003', progress: 100, tags: ['Bug Fix', 'Mission Control', '✅ Done'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS', founder_validation: 'APPROVED' },
+              context: { ask: 'Fix two bugs in epic.py preventing mc.py score from running', goal: 'Scoreboard functional again', reason: 'KeyError on owner field + Invalid status IN_PROGRESS in VALID_STATUSES', audible: 'Two fixes: (1) data.get("owner","Unassigned") in from_dict, (2) expanded VALID_STATUSES and JSON schema to include IN_PROGRESS, NOT_STARTED, BACKLOG.' }
+            },
+            { id: 'TKT-171', title: 'Create Florentino Kill List — rejected ideas log', state: 'DONE', priority: 'P2', effort: 'hustle', assignee: 'Florentino Perez', epic: 'EPIC-003', progress: 100, tags: ['Governance', 'Scope', '✅ Done'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS', founder_validation: 'APPROVED' },
+              output: 'governance/florentino_kill_list.md',
+              context: { ask: 'Create institutional memory for scope decisions', goal: 'Formal log of killed, deferred, and analytics-only ideas with reasons', reason: 'No formal record of why ideas were rejected — agents kept re-proposing killed items', audible: '7 entries: 2 KILLED, 4 DEFERRED, 1 ANALYTICS_ONLY. Single evaluation question: Does this directly improve the paid artifact?' }
             }
         ];
 

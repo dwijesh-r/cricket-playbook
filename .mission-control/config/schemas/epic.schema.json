@@ -46,7 +46,7 @@
     },
     "status": {
       "type": "string",
-      "enum": ["PLANNING", "ACTIVE", "COMPLETED", "ARCHIVED"],
+      "enum": ["PLANNING", "ACTIVE", "IN_PROGRESS", "NOT_STARTED", "BACKLOG", "COMPLETED", "ARCHIVED"],
       "default": "PLANNING",
       "description": "Current EPIC status"
     },

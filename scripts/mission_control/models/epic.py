@@ -13,7 +13,15 @@ from scripts.mission_control.utils.id_generator import IdGenerator
 from scripts.mission_control.utils.schema_validator import SchemaValidator
 
 # Valid EPIC statuses
-VALID_STATUSES = ["PLANNING", "ACTIVE", "COMPLETED", "ARCHIVED"]
+VALID_STATUSES = [
+    "PLANNING",
+    "ACTIVE",
+    "IN_PROGRESS",
+    "NOT_STARTED",
+    "BACKLOG",
+    "COMPLETED",
+    "ARCHIVED",
+]
 
 
 @dataclass
@@ -69,7 +77,7 @@ class Epic:
         return cls(
             id=data["id"],
             title=data["title"],
-            owner=data["owner"],
+            owner=data.get("owner", "Unassigned"),
             description=data.get("description"),
             sprint_id=data.get("sprint_id"),
             tickets=data.get("tickets", []),

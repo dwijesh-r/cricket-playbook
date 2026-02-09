@@ -1,0 +1,46 @@
+{
+  "id": "TKT-165",
+  "title": "Expand Andy Flower mandate — editorial oversight of tactical insights",
+  "state": "DONE",
+  "priority": "P1",
+  "progress_pct": 100,
+  "epic_id": "EPIC-006",
+  "assignee": "Andy Flower",
+  "sprint_id": "SPRINT-001",
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "Tactical insights are weakest section. Andy Flower ownership fixes this.",
+      "approved_by": "Florentino Perez",
+      "date": "2026-02-09"
+    },
+    "domain_sanity": {
+      "jose_mourinho": "YES",
+      "date": "2026-02-09",
+      "andy_flower": "YES",
+      "pep_guardiola": "YES"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "issues": [],
+      "checked_by": "Tom Brady",
+      "date": "2026-02-09"
+    },
+    "system_check": {
+      "status": "PASS",
+      "tests_passed": 253,
+      "tests_total": 253,
+      "checked_by": "N'Golo Kante",
+      "date": "2026-02-09"
+    },
+    "founder_validation": {
+      "status": "APPROVED",
+      "feedback": "Tactical review is comprehensive. 40 insights across 10 teams with coaching implications. Cross-team patterns add unique Phil Steele value.",
+      "validated_by": "Founder",
+      "date": "2026-02-09"
+    }
+  },
+  "created_at": "2026-02-09T17:31:05.857904Z",
+  "updated_at": "2026-02-09T18:01:26.831916Z",
+  "completed_at": "2026-02-09T18:01:26.821798Z"
+}

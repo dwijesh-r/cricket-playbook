@@ -5,8 +5,8 @@
   "priority": "P1",
   "progress_pct": 100,
   "description": "Create end-to-end integration tests: ingest -> validate -> analytics -> outputs",
-  "owner": "N'Golo Kante",
-  "assignee": "N'Golo Kante",
+  "owner": "N'Golo Kanté",
+  "assignee": "N'Golo Kanté",
   "sprint_id": "SPRINT-001",
   "epic": "EPIC-014",
   "tags": [

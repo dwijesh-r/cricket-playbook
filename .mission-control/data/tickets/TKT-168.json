@@ -1,0 +1,46 @@
+{
+  "id": "TKT-168",
+  "title": "N'Golo Kanté — produce QA Certificate for current data version",
+  "state": "DONE",
+  "priority": "P1",
+  "progress_pct": 100,
+  "epic_id": "EPIC-008",
+  "assignee": "N'Golo Kanté",
+  "sprint_id": "SPRINT-001",
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "QA Certificates are a Constitution requirement. Compliance issue.",
+      "approved_by": "Florentino Perez",
+      "date": "2026-02-09"
+    },
+    "domain_sanity": {
+      "jose_mourinho": "YES",
+      "date": "2026-02-09",
+      "andy_flower": "YES",
+      "pep_guardiola": "YES"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "issues": [],
+      "checked_by": "Tom Brady",
+      "date": "2026-02-09"
+    },
+    "system_check": {
+      "status": "PASS",
+      "tests_passed": 253,
+      "tests_total": 253,
+      "checked_by": "N'Golo Kanté",
+      "date": "2026-02-09"
+    },
+    "founder_validation": {
+      "status": "APPROVED",
+      "feedback": "Founder approved — deliverable verified",
+      "validated_by": "Founder",
+      "date": "2026-02-09"
+    }
+  },
+  "created_at": "2026-02-09T17:31:09.403390Z",
+  "updated_at": "2026-02-09T17:52:27.020970Z",
+  "completed_at": "2026-02-09T17:52:27.014888Z"
+}

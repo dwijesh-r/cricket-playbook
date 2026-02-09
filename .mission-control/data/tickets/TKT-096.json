@@ -1,9 +1,9 @@
 {
   "id": "TKT-096",
   "title": "Fix CI workflow failures (ruff format + lint)",
-  "state": "VALIDATION",
+  "state": "DONE",
   "priority": "P0",
-  "progress_pct": 0,
+  "progress_pct": 100,
   "description": "CI workflow failing on every push due to: 1) 29 Python files need ruff format 2) Notebooks have trailing whitespace. This blocks all PRs and pushes.",
   "owner": "Ime Udoka",
   "assignee": "Ime Udoka",
@@ -31,8 +31,15 @@
       "tests_total": 53,
       "checked_by": "N'Golo Kanté",
       "date": "2026-02-05"
+    },
+    "founder_validation": {
+      "status": "APPROVED",
+      "feedback": "All 4 gates passed. CI is green. Moving to DONE.",
+      "validated_by": "Founder",
+      "date": "2026-02-09"
     }
   },
   "created_at": "2026-02-05T09:05:35.637293Z",
-  "updated_at": "2026-02-05T09:12:53.261828Z"
+  "updated_at": "2026-02-09T19:46:09.499920Z",
+  "completed_at": "2026-02-09T19:46:09.498336Z"
 }

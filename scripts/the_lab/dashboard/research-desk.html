@@ -1234,7 +1234,7 @@
     <div class="bg-grid"></div>
 
     <!-- Mobile Schema Browser Toggle -->
-    <button class="schema-toggle-btn" id="schema-toggle-btn" onclick="toggleSchemaSidebar()" title="Toggle Schema Browser">&#9776;</button>
+    <button type="button" class="schema-toggle-btn" id="schema-toggle-btn" onclick="toggleSchemaSidebar()" title="Toggle Schema Browser">&#9776;</button>
     <div class="schema-overlay" id="schema-overlay" onclick="toggleSchemaSidebar()"></div>
 
     <!-- Loading Overlay (TKT-173 will wire up actual logic) -->
@@ -1281,10 +1281,10 @@
         </div>
         <div class="nav-actions">
             <span class="nav-time" id="navTime">--:--:--</span>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu">
+            <button type="button" class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu">
                 <span></span><span></span><span></span>
             </button>
-            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+            <button type="button" class="theme-toggle" onclick="toggleTheme()">🌙</button>
         </div>
     </nav>
 
@@ -1322,7 +1322,9 @@
                         <span class="help-icon">?</span>
                     </span>
                 </div>
-                <input type="text" class="schema-search" placeholder="Search tables, views & columns..." id="schema-search">
+                <form onsubmit="event.preventDefault();">
+                    <input type="search" class="schema-search" placeholder="Search tables, views & columns..." id="schema-search" autocomplete="off">
+                </form>
                 <!-- Schema groups will be rendered dynamically by TKT-175 JS -->
                 <div id="schema-groups-container"></div>
             </aside>
@@ -1330,20 +1332,20 @@
             <!-- Main Workspace -->
             <div class="workspace">
                 <!-- Natural Language Search (TKT-177) -->
-                <div class="nl-search-section" id="nl-search-bar">
+                <form class="nl-search-section" id="nl-search-bar" onsubmit="event.preventDefault(); handleNLSearch();">
                     <div class="nl-search-bar">
                         <span class="nl-search-icon">&#128269;</span>
-                        <input type="text" class="nl-search-input" placeholder="Ask: 'top batsmen', 'Kohli stats', 'CSK squad', 'best death bowlers', 'Kohli vs MI'..." id="nl-search-input">
-                        <button class="nl-search-btn" id="nl-search-btn" onclick="handleNLSearch()" title="Search" style="
+                        <input type="search" class="nl-search-input" placeholder="'Kohli stats', 'Bumrah year wise', 'Kohli at Chinnaswamy', 'top 10 batsmen', 'CSK squad'..." id="nl-search-input" autocomplete="off">
+                        <button type="submit" class="nl-search-btn" id="nl-search-btn" title="Search" style="
                             padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600;
                             cursor: pointer; border: 1px solid var(--accent); background: var(--accent);
                             color: #fff; transition: all 0.2s ease; white-space: nowrap;
                         ">&#9654; Ask</button>
                     </div>
                     <div class="nl-search-hint">
-                        Press <kbd>Enter</kbd> to search &middot; Natural language queries are converted to SQL automatically
+                        <kbd>Enter</kbd> to search &middot; Try: <em>[name] stats</em> &middot; <em>[name] year wise</em> &middot; <em>[name] at [venue]</em> &middot; <em>[name] vs [name/team]</em> &middot; <em>top N [batsmen/bowlers]</em>
                     </div>
-                </div>
+                </form>
 
                 <!-- SQL Editor — TKT-174 will wire up CodeMirror -->
                 <div class="sql-editor-section" id="sql-editor">
@@ -1354,20 +1356,20 @@
                         <div class="editor-toolbar-right">
                             <!-- Query History (TKT-174) -->
                             <div class="query-history-wrapper">
-                                <button class="editor-btn" id="history-button" title="Query history">
+                                <button type="button" class="editor-btn" id="history-button" title="Query history">
                                     &#128338; History
                                 </button>
                                 <div class="query-history-dropdown" id="query-history-dropdown">
                                     <div class="query-history-empty">No query history yet</div>
                                 </div>
                             </div>
-                            <button class="editor-btn run-btn" id="run-button" title="Run query (Ctrl+Enter)">
+                            <button type="button" class="editor-btn run-btn" id="run-button" title="Run query (Ctrl+Enter)">
                                 &#9654; Run
                             </button>
-                            <button class="editor-btn" id="copy-button" title="Copy SQL to clipboard">
+                            <button type="button" class="editor-btn" id="copy-button" title="Copy SQL to clipboard">
                                 📋 Copy
                             </button>
-                            <button class="editor-btn" id="export-button" title="Export results as CSV">
+                            <button type="button" class="editor-btn" id="export-button" title="Export results as CSV">
                                 💾 Export
                             </button>
                         </div>
@@ -1438,14 +1440,14 @@ LIMIT 20;</textarea>
                     <div class="examples-header">
                         <h3>Example Queries</h3>
                         <div class="examples-filter">
-                            <button class="examples-filter-btn active" data-filter="all">All</button>
-                            <button class="examples-filter-btn" data-filter="leaderboard">Leaderboard</button>
-                            <button class="examples-filter-btn" data-filter="batting">Batting</button>
-                            <button class="examples-filter-btn" data-filter="bowling">Bowling</button>
-                            <button class="examples-filter-btn" data-filter="team">Team</button>
-                            <button class="examples-filter-btn" data-filter="matchup">Matchup</button>
-                            <button class="examples-filter-btn" data-filter="phase">Phase</button>
-                            <button class="examples-filter-btn" data-filter="ipl2026">IPL 2026</button>
+                            <button type="button" class="examples-filter-btn active" data-filter="all">All</button>
+                            <button type="button" class="examples-filter-btn" data-filter="leaderboard">Leaderboard</button>
+                            <button type="button" class="examples-filter-btn" data-filter="batting">Batting</button>
+                            <button type="button" class="examples-filter-btn" data-filter="bowling">Bowling</button>
+                            <button type="button" class="examples-filter-btn" data-filter="team">Team</button>
+                            <button type="button" class="examples-filter-btn" data-filter="matchup">Matchup</button>
+                            <button type="button" class="examples-filter-btn" data-filter="phase">Phase</button>
+                            <button type="button" class="examples-filter-btn" data-filter="ipl2026">IPL 2026</button>
                         </div>
                     </div>
                     <div class="examples-grid" id="examples-grid">
@@ -1731,7 +1733,7 @@ LIMIT 20;</textarea>
                 paginationInfo.textContent = `Showing ${(startIdx + 1).toLocaleString()}\u2013${endIdx.toLocaleString()} of ${totalRows.toLocaleString()} rows \u00B7 ${currentElapsed}s`;
 
                 let ctrlHtml = '';
-                ctrlHtml += `<button class="pagination-btn" id="pg-prev" ${currentPage === 0 ? 'disabled' : ''}>\u25C0 Prev</button>`;
+                ctrlHtml += `<button type="button" class="pagination-btn" id="pg-prev" ${currentPage === 0 ? 'disabled' : ''}>\u25C0 Prev</button>`;
 
                 // Show page numbers (max 7 visible)
                 const maxVisible = 7;
@@ -1740,7 +1742,7 @@ LIMIT 20;</textarea>
                 if (endPage - startPage < maxVisible) startPage = Math.max(0, endPage - maxVisible);
 
                 if (startPage > 0) {
-                    ctrlHtml += `<button class="pagination-btn" data-page="0">1</button>`;
+                    ctrlHtml += `<button type="button" class="pagination-btn" data-page="0">1</button>`;
                     if (startPage > 1) ctrlHtml += `<span style="color:var(--text-tertiary);padding:0 4px;">...</span>`;
                 }
 
@@ -1750,10 +1752,10 @@ LIMIT 20;</textarea>
 
                 if (endPage < totalPages) {
                     if (endPage < totalPages - 1) ctrlHtml += `<span style="color:var(--text-tertiary);padding:0 4px;">...</span>`;
-                    ctrlHtml += `<button class="pagination-btn" data-page="${totalPages - 1}">${totalPages}</button>`;
+                    ctrlHtml += `<button type="button" class="pagination-btn" data-page="${totalPages - 1}">${totalPages}</button>`;
                 }
 
-                ctrlHtml += `<button class="pagination-btn" id="pg-next" ${currentPage >= totalPages - 1 ? 'disabled' : ''}>Next \u25B6</button>`;
+                ctrlHtml += `<button type="button" class="pagination-btn" id="pg-next" ${currentPage >= totalPages - 1 ? 'disabled' : ''}>Next \u25B6</button>`;
                 paginationControls.innerHTML = ctrlHtml;
 
                 // Wire pagination events
@@ -2255,7 +2257,7 @@ LIMIT 20;</textarea>
             html += `<span class="chevron">&#9654;</span>`;
             html += `<span class="icon">&#9679;</span>`;
             html += `<span class="table-name">${name}</span>`;
-            html += `<button class="query-btn" title="SELECT * FROM ${name} LIMIT 100">SQL</button>`;
+            html += `<button type="button" class="query-btn" title="SELECT * FROM ${name} LIMIT 100">SQL</button>`;
             if (rowDisplay) html += `<span class="row-count">${rowDisplay}</span>`;
             html += `</div>`;
 
@@ -2522,7 +2524,7 @@ LIMIT 20;</textarea>
                 html += `<h4>${escapeHtml(q.title)}</h4>`;
                 html += `<div class="example-card-desc">${escapeHtml(q.description)}</div>`;
                 html += `<p title="${escapeHtml(q.sql)}">${escapeHtml(sqlPreview)}...</p>`;
-                html += `<button class="load-btn" data-sql="${q.sql.replace(/"/g, '&quot;')}">&#9654; Load Query</button>`;
+                html += `<button type="button" class="load-btn" data-sql="${q.sql.replace(/"/g, '&quot;')}">&#9654; Load Query</button>`;
                 html += `</div>`;
             }
             grid.innerHTML = html;
@@ -2842,12 +2844,69 @@ LIMIT 20;</textarea>
                 };
             }
 
-            // ============ PATTERN 9: Direct "[name] stats" / "show me [name]" ============
+            // ============ PATTERN 9: Season/Year-wise queries ============
+            const seasonMatch = /\b(year\s*(?:wise|by\s*year)|season\s*(?:wise|by\s*season)|per\s*(?:season|year)|by\s*(?:season|year)|each\s*(?:season|year)|every\s*(?:season|year)|season\s*by\s*season|year\s*by\s*year|yearly|annually|all\s*seasons?|over\s*the\s*years?)\b/i;
+            if (seasonMatch.test(lower)) {
+                // Extract player name by stripping season keywords + noise
+                let playerName = lower
+                    .replace(seasonMatch, '')
+                    .replace(/\b(stats?|career|record|performance|data|numbers?|info|details|batting|bowling|show|me|get|find|search|look\s*up|for|of|in|ipl|the|how|has|many|runs|scored|wickets|taken)\b/gi, '')
+                    .replace(/\s+/g, ' ').trim();
+
+                if (playerName.length >= 2 && !isTeamToken(playerName)) {
+                    const isBowling = /\bbowl(?:ing|ers?)?\b/.test(lower) || /\bwickets?\b/.test(lower) || /\beconomy\b/.test(lower);
+
+                    if (isBowling) {
+                        return {
+                            sql: `WITH ipl AS (\n  SELECT dm.match_id, dm.season\n  FROM dim_match dm\n  JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id\n  WHERE dt.tournament_name = 'Indian Premier League'\n)\nSELECT dp.current_name AS player_name, ipl.season,\n  count(DISTINCT fb.match_id) AS matches,\n  round(sum(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) / 6.0, 1) AS overs,\n  sum(fb.total_runs) AS runs_conceded,\n  sum(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out','retired hurt','retired out') THEN 1 ELSE 0 END) AS wickets,\n  round(sum(fb.total_runs) * 6.0 / nullif(sum(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS economy,\n  round(sum(fb.total_runs) * 1.0 / nullif(sum(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out','retired hurt','retired out') THEN 1 ELSE 0 END), 0), 2) AS average\nFROM fact_ball fb\nJOIN dim_player dp ON fb.bowler_id = dp.player_id\nJOIN ipl ON fb.match_id = ipl.match_id\nWHERE dp.current_name ILIKE '%${playerName}%'\nGROUP BY dp.current_name, ipl.season\nORDER BY ipl.season;`,
+                            type: 'player_season',
+                            entity: playerName,
+                            context: 'bowling'
+                        };
+                    }
+
+                    return {
+                        sql: `WITH ipl AS (\n  SELECT dm.match_id, dm.season\n  FROM dim_match dm\n  JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id\n  WHERE dt.tournament_name = 'Indian Premier League'\n)\nSELECT dp.current_name AS player_name, ipl.season,\n  count(DISTINCT fb.match_id) AS innings,\n  sum(fb.batter_runs) AS runs,\n  sum(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS balls,\n  round(sum(fb.batter_runs) * 100.0 / nullif(sum(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS strike_rate,\n  round(sum(fb.batter_runs) * 1.0 / nullif(sum(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END), 0), 2) AS average,\n  sum(CASE WHEN fb.batter_runs = 4 THEN 1 ELSE 0 END) AS fours,\n  sum(CASE WHEN fb.batter_runs = 6 THEN 1 ELSE 0 END) AS sixes\nFROM fact_ball fb\nJOIN dim_player dp ON fb.batter_id = dp.player_id\nJOIN ipl ON fb.match_id = ipl.match_id\nWHERE dp.current_name ILIKE '%${playerName}%'\nGROUP BY dp.current_name, ipl.season\nORDER BY ipl.season;`,
+                        type: 'player_season',
+                        entity: playerName,
+                        context: 'batting'
+                    };
+                }
+            }
+
+            // ============ PATTERN 10: Venue-based queries ============
+            const venueMatch = lower.match(/^(.+?)\s+(?:at|in|@)\s+(.+?)(?:\s+(?:stats?|record|performance|data))?$/i);
+            if (venueMatch) {
+                const subject = venueMatch[1].trim().replace(/\b(stats?|record|performance|data|show|me|get|find)\b/gi, '').trim();
+                const venue = venueMatch[2].trim();
+
+                if (subject.length >= 2 && venue.length >= 2 && !isTeamToken(subject)) {
+                    const isBowling = /\bbowl(?:ing|ers?)?\b/.test(lower);
+                    if (isBowling) {
+                        return {
+                            sql: `SELECT bowler_name, venue, matches, balls, runs_conceded, wickets, economy, average, dot_ball_pct\nFROM analytics_ipl_bowler_venue\nWHERE bowler_name ILIKE '%${subject}%'\n  AND venue ILIKE '%${venue}%'\nORDER BY matches DESC;`,
+                            type: 'player_venue',
+                            entity: subject,
+                            context: venue
+                        };
+                    }
+                    return {
+                        sql: `SELECT batter_name, venue, innings, runs, balls, strike_rate, average, boundary_pct, sixes\nFROM analytics_ipl_batter_venue\nWHERE batter_name ILIKE '%${subject}%'\n  AND venue ILIKE '%${venue}%'\nORDER BY innings DESC;`,
+                        type: 'player_venue',
+                        entity: subject,
+                        context: venue
+                    };
+                }
+            }
+
+            // ============ PATTERN 11: Direct "[name] stats" / "show me [name]" ============
             const playerLookupMatch = lower.match(/^(?:show\s+(?:me\s+)?|get\s+|find\s+|search\s+|look\s*up\s+)?(.+?)(?:\s+(?:stats?|career|record|numbers?|profile|performance|data|batting|bowling|info|details))?$/i);
             if (playerLookupMatch) {
                 let playerName = playerLookupMatch[1].trim();
                 playerName = playerName.replace(/^(?:stats?\s+(?:for|of)\s+|data\s+(?:for|of)\s+|career\s+(?:for|of)\s+|record\s+(?:for|of)\s+)/i, '').trim();
                 playerName = playerName.replace(/\s+(?:stats?|career|record|numbers?|profile|performance|data|info|details)$/i, '').trim();
+                // Strip leftover noise words that earlier patterns should have caught
+                playerName = playerName.replace(/\b(year\s*wise|season\s*wise|per\s*(?:season|year)|by\s*(?:season|year)|each\s*(?:season|year)|every\s*(?:season|year)|yearly|annually|all\s*time|overall|ipl|in\s*ipl|total|how|many|has|scored|taken|what|is|are|the|his|her|runs?|wickets?)\b/gi, '').replace(/\s+/g, ' ').trim();
 
                 if (playerName.length < 2) return null;
 
@@ -3083,6 +3142,34 @@ LIMIT 20;</textarea>
                     insight += ` The overseas composition defines a squad's ceiling \u2014 you need the right balance of impact and reliability.`;
                     break;
                 }
+                case 'player_season': {
+                    const name = firstRow.player_name || escapeHtml(entity);
+                    const seasons = rows.map(r => r.season).filter(Boolean);
+                    insight = `<strong>${escapeHtml(name)}</strong> across <strong>${seasons.length}</strong> IPL season${seasons.length > 1 ? 's' : ''} (${seasons[0]}\u2013${seasons[seasons.length - 1]}).`;
+                    if (context === 'batting' && firstRow.runs !== undefined) {
+                        const bestSeason = rows.reduce((best, r) => (r.runs || 0) > (best.runs || 0) ? r : best, rows[0]);
+                        const totalRuns = rows.reduce((sum, r) => sum + (r.runs || 0), 0);
+                        insight += ` Career total: <strong>${totalRuns.toLocaleString()}</strong> runs. Peak season: <strong>${bestSeason.season}</strong> with <strong>${(bestSeason.runs || 0).toLocaleString()}</strong> runs at SR ${fmt(bestSeason.strike_rate)}.`;
+                    } else if (context === 'bowling' && firstRow.wickets !== undefined) {
+                        const bestSeason = rows.reduce((best, r) => (r.wickets || 0) > (best.wickets || 0) ? r : best, rows[0]);
+                        const totalWickets = rows.reduce((sum, r) => sum + (r.wickets || 0), 0);
+                        insight += ` Career total: <strong>${totalWickets}</strong> wickets. Peak season: <strong>${bestSeason.season}</strong> with <strong>${bestSeason.wickets}</strong> wickets at econ ${fmt(bestSeason.economy)}.`;
+                    }
+                    insight += ` Year-by-year tape shows you the arc \u2014 who is peaking and who is fading.`;
+                    break;
+                }
+                case 'player_venue': {
+                    const name = firstRow.batter_name || firstRow.bowler_name || escapeHtml(entity);
+                    const venue = firstRow.venue || escapeHtml(context);
+                    if (firstRow.runs !== undefined) {
+                        insight = `<strong>${escapeHtml(name)}</strong> at <strong>${escapeHtml(venue)}</strong>: <strong>${firstRow.runs}</strong> runs in <strong>${firstRow.innings}</strong> innings, SR ${fmt(firstRow.strike_rate)}, avg ${fmt(firstRow.average)}.`;
+                        if (firstRow.sixes) insight += ` Hit <strong>${firstRow.sixes}</strong> sixes here.`;
+                    } else if (firstRow.wickets !== undefined) {
+                        insight = `<strong>${escapeHtml(name)}</strong> at <strong>${escapeHtml(venue)}</strong>: <strong>${firstRow.wickets}</strong> wickets in <strong>${firstRow.matches}</strong> matches, economy ${fmt(firstRow.economy)}.`;
+                    }
+                    insight += ` Ground conditions matter \u2014 the best scouts always check the venue tape first.`;
+                    break;
+                }
                 default: {
                     insight = `${totalRows} row${totalRows > 1 ? 's' : ''} returned. `;
                     if (firstRow.player_name) {
@@ -3154,13 +3241,14 @@ LIMIT 20;</textarea>
                                 I could not quite parse that one. Here are some things I understand:
                             </p>
                             <ul style="font-size: 12px; color: var(--text-secondary); line-height: 2; list-style: none; padding: 0; font-family: 'JetBrains Mono', monospace;">
-                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='top 10 batsmen';handleNLSearch();">\u{1F4A1} <strong>"top 10 batsmen"</strong> \u2014 Batting leaderboard</li>
                                 <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='Kohli stats';handleNLSearch();">\u{1F4A1} <strong>"Kohli stats"</strong> \u2014 Player career lookup</li>
-                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='CSK squad';handleNLSearch();">\u{1F4A1} <strong>"CSK squad"</strong> \u2014 Team roster</li>
-                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='best death bowlers';handleNLSearch();">\u{1F4A1} <strong>"best death bowlers"</strong> \u2014 Phase specialists</li>
+                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='Kohli year wise';handleNLSearch();">\u{1F4A1} <strong>"Kohli year wise"</strong> \u2014 Season-by-season breakdown</li>
+                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='Kohli at Chinnaswamy';handleNLSearch();">\u{1F4A1} <strong>"Kohli at Chinnaswamy"</strong> \u2014 Venue splits</li>
+                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='top 10 batsmen';handleNLSearch();">\u{1F4A1} <strong>"top 10 batsmen"</strong> \u2014 Batting leaderboard</li>
                                 <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='Kohli vs MI';handleNLSearch();">\u{1F4A1} <strong>"Kohli vs MI"</strong> \u2014 Player vs team</li>
+                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='best death bowlers';handleNLSearch();">\u{1F4A1} <strong>"best death bowlers"</strong> \u2014 Phase specialists</li>
+                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='CSK squad';handleNLSearch();">\u{1F4A1} <strong>"CSK squad"</strong> \u2014 Team roster</li>
                                 <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='most expensive players';handleNLSearch();">\u{1F4A1} <strong>"most expensive players"</strong> \u2014 IPL 2026 contracts</li>
-                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='overseas players RCB';handleNLSearch();">\u{1F4A1} <strong>"overseas players RCB"</strong> \u2014 Foreign players</li>
                             </ul>
                         </div>`;
                 }
@@ -3228,7 +3316,7 @@ LIMIT 20;</textarea>
     </script>
 
     <!-- Navigation Guide Button -->
-    <button class="nav-guide-btn" onclick="toggleNavGuide()" title="Quick Navigation Guide" style="
+    <button type="button" class="nav-guide-btn" onclick="toggleNavGuide()" title="Quick Navigation Guide" style="
         position: fixed; bottom: 48px; right: 20px; width: 52px; height: 52px;
         border-radius: 50%; background: var(--bg-secondary); border: 1px solid var(--border);
         color: var(--text-secondary); font-size: 22px; cursor: pointer; z-index: 90;
@@ -3246,7 +3334,7 @@ LIMIT 20;</textarea>
             border-radius: 16px; padding: 28px 24px; max-width: 420px; width: 90%;
             max-height: 80vh; overflow-y: auto; position: relative;
         ">
-            <button class="nav-guide-close" onclick="toggleNavGuide()" style="
+            <button type="button" class="nav-guide-close" onclick="toggleNavGuide()" style="
                 position: absolute; top: 12px; right: 12px; background: none; border: none;
                 color: var(--text-tertiary); font-size: 18px; cursor: pointer; padding: 4px 8px;
             ">&#10005;</button>

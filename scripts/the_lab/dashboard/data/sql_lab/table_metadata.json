@@ -4519,7 +4519,7 @@
     },
     "analytics_top_run_scorers": {
       "category": "leaderboard",
-      "description": "Top run scorers",
+      "description": "Top IPL run scorers (all-time)",
       "columns": [
         {
           "name": "player_id",
@@ -4590,7 +4590,7 @@
     },
     "analytics_top_wicket_takers": {
       "category": "leaderboard",
-      "description": "Top wicket takers",
+      "description": "Top IPL wicket takers (all-time)",
       "columns": [
         {
           "name": "player_id",

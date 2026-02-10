@@ -1,5 +1,5 @@
 // Auto-generated from ~/.claude/stats-cache.json
-// Last updated: 2026-02-10T04:29:38Z
+// Last updated: 2026-02-10T06:03:32Z
 // Total tokens: 1.6B  |  Sessions: 8  |  Messages: 33242
 //
 // Regenerate:  python scripts/mission_control/generate_token_data.py
@@ -12,12 +12,12 @@ const TOKEN_DATA = {
         cacheReadTokens: 1518815186,   // 1.5B
         cacheCreationTokens: 66282919, // 66.3M
         totalSessions: 8,
-        projectSessions: 41,
+        projectSessions: 55,
         totalMessages: 33242,
         daysActive: 5,
         avgDailyTokens: 317178627,     // 317.2M
         firstSession: "2026-01-19T05:37:24.798Z",
-        lastUpdated: "2026-02-10T04:29:38Z"
+        lastUpdated: "2026-02-10T06:03:32Z"
     },
     byModel: {
         "Claude Opus 4.5": { input: 719026, output: 37932, cacheRead: 1485904683, cacheCreation: 64919693 },  // 1.6B total

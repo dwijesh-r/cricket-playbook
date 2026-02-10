@@ -8038,18 +8038,18 @@ Gate Inheritance:
 
         // ==================== TECH HEALTH DASHBOARD ====================
         let healthData = {
-            score: 96.0,
+            score: 94.0,
             status: 'EXCELLENT',
             target: 85.0,
             baseline: 67.4,
             timestamp: new Date().toISOString(),
             categories: {
-                governance: { score: 100, weight: 15, label: 'Governance' },
-                code_quality: { score: 100, weight: 20, label: 'Code Quality' },
-                data_robustness: { score: 100, weight: 20, label: 'Data Robustness' },
-                ml_rigor: { score: 80, weight: 20, label: 'ML Rigor' },
-                testing: { score: 100, weight: 15, label: 'Testing' },
-                documentation: { score: 100, weight: 10, label: 'Documentation' }
+                governance: { score: 100, weight: 15, label: 'Governance', findings: ['Constitution has 19 sections (GOOD)', 'Task Integrity Loop fully documented', 'Gate enforcement workflow exists'] },
+                code_quality: { score: 90, weight: 20, label: 'Code Quality', findings: ['1 bare except handlers (GOOD)', 'Thresholds centralized in YAML (TKT-132 DONE)', 'No sys.path hacks (EXCELLENT)', 'Type hints: 84% coverage (GOOD)'] },
+                data_robustness: { score: 100, weight: 20, label: 'Data Robustness', findings: ['Domain constraints module exists (TKT-133 DONE)', 'Schema validation exists', 'Data lineage tracking present'] },
+                ml_rigor: { score: 80, weight: 20, label: 'ML Rigor', findings: ['Model monitoring module exists', 'Baseline comparison exists', 'Model registry missing', 'Feature importance/SHAP present'] },
+                testing: { score: 100, weight: 15, label: 'Testing', findings: ['5 test files found (GOOD)', 'Integration tests exist', '265 tests collected (GOOD)'] },
+                documentation: { score: 100, weight: 10, label: 'Documentation', findings: ['Core docs: 2/2', 'Thresholds well documented', '8 procedure/methodology docs'] }
             },
             benchmarks: {
                 anthropic_ai_safety: 97,

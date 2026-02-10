@@ -188,13 +188,13 @@ The system is measured across 6 categories with weighted scoring:
 | Category | Weight | Current | Target |
 |----------|--------|---------|--------|
 | Governance | 15% | 100% | 100% |
-| Code Quality | 20% | 100% | 80% |
+| Code Quality | 20% | 90% | 80% |
 | Data Robustness | 20% | 100% | 100% |
 | ML Rigor | 20% | 80% | 90% |
 | Testing | 15% | 100% | 80% |
 | Documentation | 10% | 100% | 100% |
 
-**Current Score:** 96.0/100 | **Target:** 85/100 (EXCEEDED)
+**Current Score:** 94.0/100 | **Target:** 85/100 (EXCEEDED)
 
 Run: `python scripts/ml_ops/system_health_score.py`
 

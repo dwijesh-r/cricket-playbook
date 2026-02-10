@@ -840,6 +840,149 @@
             .editor-toolbar { flex-wrap: wrap; gap: 6px; }
             .nl-search-bar { padding: 8px 12px; }
         }
+
+        /* ==================== CODEMIRROR OVERRIDES (TKT-174) ==================== */
+        .sql-editor-wrapper .cm-editor {
+            min-height: 160px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .sql-editor-wrapper .cm-editor.cm-focused {
+            outline: none;
+        }
+        .sql-editor-wrapper .cm-scroller {
+            overflow: auto;
+        }
+
+        /* ---- Pagination Controls (TKT-174) ---- */
+        .results-pagination {
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 20px;
+            border-top: 1px solid var(--border);
+            background: rgba(0,0,0,0.15);
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        .results-pagination.visible { display: flex; }
+        [data-theme="light"] .results-pagination { background: rgba(0,0,0,0.02); }
+        .results-pagination-info {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-tertiary);
+        }
+        .results-pagination-controls {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .pagination-btn {
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            transition: all 0.15s ease;
+        }
+        .pagination-btn:hover:not(:disabled) {
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+        }
+        .pagination-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        .pagination-btn.active {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        /* ---- Column Resize Handle (TKT-174) ---- */
+        .results-table th { position: relative; }
+        .col-resize-handle {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            cursor: col-resize;
+            background: transparent;
+            z-index: 3;
+        }
+        .col-resize-handle:hover,
+        .col-resize-handle.resizing { background: var(--accent); }
+
+        /* ---- Sort Indicators (TKT-174) ---- */
+        .results-table th.sorted-asc .sort-icon,
+        .results-table th.sorted-desc .sort-icon { opacity: 1; color: var(--accent); }
+
+        /* ---- Query History Dropdown (TKT-174) ---- */
+        .query-history-wrapper { position: relative; }
+        .query-history-dropdown {
+            display: none;
+            position: absolute;
+            top: calc(100% + 4px);
+            right: 0;
+            width: 420px;
+            max-height: 320px;
+            overflow-y: auto;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            box-shadow: 0 8px 32px var(--shadow);
+            z-index: 50;
+            padding: 4px;
+        }
+        .query-history-dropdown.open { display: block; }
+        .query-history-item {
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.15s ease;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border-bottom: 1px solid var(--border);
+        }
+        .query-history-item:last-child { border-bottom: none; }
+        .query-history-item:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+        .query-history-empty {
+            padding: 16px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        /* ---- Editor Shortcuts Hint (TKT-174) ---- */
+        .editor-shortcuts-hint {
+            padding: 4px 20px 6px;
+            font-size: 10px;
+            color: var(--text-tertiary);
+            background: rgba(0,0,0,0.1);
+            border-top: 1px solid var(--border);
+        }
+        [data-theme="light"] .editor-shortcuts-hint { background: rgba(0,0,0,0.02); }
+        .editor-shortcuts-hint kbd {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            padding: 0px 4px;
+            font-size: 10px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        @media (max-width: 768px) {
+            .query-history-dropdown { width: 280px; }
+        }
     </style>
 </head>
 <body>
@@ -1059,6 +1202,15 @@
                             <span class="editor-label">SQL Editor</span>
                         </div>
                         <div class="editor-toolbar-right">
+                            <!-- Query History (TKT-174) -->
+                            <div class="query-history-wrapper">
+                                <button class="editor-btn" id="history-button" title="Query history">
+                                    &#128338; History
+                                </button>
+                                <div class="query-history-dropdown" id="query-history-dropdown">
+                                    <div class="query-history-empty">No query history yet</div>
+                                </div>
+                            </div>
                             <button class="editor-btn run-btn" id="run-button" title="Run query (Ctrl+Enter)">
                                 &#9654; Run
                             </button>
@@ -1070,7 +1222,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="sql-editor-wrapper">
+                    <div class="sql-editor-wrapper" id="sql-editor-wrapper">
                         <textarea class="sql-editor-placeholder" id="sql-editor-textarea"
                             placeholder="-- Write your SQL query here...&#10;-- Example: SELECT * FROM analytics_ipl_batting_career LIMIT 10;&#10;&#10;"
                             spellcheck="false">SELECT
@@ -1083,6 +1235,13 @@ FROM analytics_ipl_batting_career
 ORDER BY runs DESC
 LIMIT 20;</textarea>
                     </div>
+                    <!-- Keyboard shortcuts hint (TKT-174) -->
+                    <div class="editor-shortcuts-hint">
+                        <kbd>Ctrl+Enter</kbd> Run &middot;
+                        <kbd>Ctrl+L</kbd> Clear &middot;
+                        <kbd>Ctrl+/</kbd> Comment &middot;
+                        <kbd>Ctrl+Space</kbd> Autocomplete
+                    </div>
                 </div>
 
                 <!-- Results Panel — TKT-174 will wire up interactivity -->
@@ -1091,12 +1250,17 @@ LIMIT 20;</textarea>
                         <span class="results-label">Results</span>
                         <span class="results-meta" id="results-meta">Run a query to see results</span>
                     </div>
-                    <div class="results-table-wrapper">
+                    <div class="results-table-wrapper" id="results-table-wrapper">
                         <div class="results-empty">
                             <div class="results-empty-icon">📊</div>
                             <div class="results-empty-text">No results yet</div>
                             <div class="results-empty-hint">Write a SQL query above and click Run, or choose an example query below</div>
                         </div>
+                    </div>
+                    <!-- Pagination (TKT-174) -->
+                    <div class="results-pagination" id="results-pagination">
+                        <span class="results-pagination-info" id="pagination-info">Showing 0 rows</span>
+                        <div class="results-pagination-controls" id="pagination-controls"></div>
                     </div>
                 </div>
 
@@ -1190,29 +1354,45 @@ LIMIT 20;</textarea>
         </div>
     </div>
 
-    <script>
+    <!-- Main Application Module (TKT-173 DuckDB + TKT-174 CodeMirror & Enhancements) -->
+    <script type="module">
         /* ==================== THEME ==================== */
-        function toggleTheme() {
+        window.toggleTheme = function() {
             const html = document.documentElement;
             const currentTheme = html.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
-            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '🌙' : '☀️';
-        }
+            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
+            // Update CodeMirror theme (TKT-174)
+            if (window._cmEditor && window._cmThemeCompartment) {
+                window._cmEditor.dispatch({
+                    effects: window._cmThemeCompartment.reconfigure(
+                        newTheme === 'dark' ? window._cmDarkTheme : window._cmLightTheme
+                    )
+                });
+            }
+            if (window._cmEditor && window._cmHighlightCompartment) {
+                window._cmEditor.dispatch({
+                    effects: window._cmHighlightCompartment.reconfigure(
+                        newTheme === 'dark' ? window._cmDarkHighlight : window._cmLightHighlight
+                    )
+                });
+            }
+        };
 
         /* ==================== MOBILE MENU ==================== */
-        function toggleMobileMenu() {
+        window.toggleMobileMenu = function() {
             const menu = document.getElementById('mobile-nav-menu');
             const btn = document.querySelector('.mobile-menu-btn');
             menu.classList.toggle('active');
             btn.classList.toggle('active');
-        }
+        };
 
         /* ==================== INIT ==================== */
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', savedTheme);
-        document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+        document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
 
         // Timer - User's local timezone
         function updateTime() {
@@ -1221,49 +1401,829 @@ LIMIT 20;</textarea>
         updateTime();
         setInterval(updateTime, 1000);
 
-        /* ==================== LOADING SIMULATION ==================== */
-        // Placeholder loading animation — TKT-173 will replace with real DuckDB-WASM init
-        (function simulateLoading() {
-            const progress = document.getElementById('loading-progress');
-            const progressText = document.getElementById('loading-progress-text');
-            const steps = ['step-engine', 'step-tables', 'step-views', 'step-ready'];
-            const labels = [
-                'Loading DuckDB-WASM engine...',
-                'Importing Parquet tables...',
-                'Registering analytics views...',
-                'Research Desk ready!'
-            ];
-            let step = 0;
+        /* ==================== CODEMIRROR 6 INTEGRATION (TKT-174) ==================== */
+        import {EditorView, keymap, lineNumbers, highlightActiveLine, highlightActiveLineGutter, drawSelection, placeholder} from 'https://cdn.jsdelivr.net/npm/@codemirror/view@6.35.2/+esm';
+        import {EditorState, Compartment} from 'https://cdn.jsdelivr.net/npm/@codemirror/state@6.5.2/+esm';
+        import {defaultKeymap, indentWithTab, history, historyKeymap} from 'https://cdn.jsdelivr.net/npm/@codemirror/commands@6.7.1/+esm';
+        import {sql, StandardSQL} from 'https://cdn.jsdelivr.net/npm/@codemirror/lang-sql@6.8.0/+esm';
+        import {syntaxHighlighting, HighlightStyle, bracketMatching, foldGutter} from 'https://cdn.jsdelivr.net/npm/@codemirror/language@6.10.8/+esm';
+        import {tags} from 'https://cdn.jsdelivr.net/npm/@lezer/highlight@1.2.1/+esm';
+        import {autocompletion, completionKeymap, closeBrackets, closeBracketsKeymap} from 'https://cdn.jsdelivr.net/npm/@codemirror/autocomplete@6.18.6/+esm';
+        import {searchKeymap, highlightSelectionMatches} from 'https://cdn.jsdelivr.net/npm/@codemirror/search@6.5.8/+esm';
 
-            function advanceStep() {
-                if (step >= steps.length) {
-                    // All done
-                    document.getElementById('loading-overlay').classList.add('hidden');
-                    document.getElementById('status-dot').classList.remove('loading');
-                    document.getElementById('status-text').textContent = 'DuckDB-WASM Ready';
-                    return;
+        // ---- Custom dark theme matching CSS vars ----
+        const cmDarkTheme = EditorView.theme({
+            '&': { backgroundColor: '#000000', color: '#ffffff', fontSize: '13px', fontFamily: "'JetBrains Mono', monospace" },
+            '.cm-content': { caretColor: '#0a84ff', padding: '16px 20px', lineHeight: '1.6' },
+            '.cm-cursor, .cm-dropCursor': { borderLeftColor: '#0a84ff', borderLeftWidth: '2px' },
+            '&.cm-focused .cm-selectionBackground, .cm-selectionBackground': { backgroundColor: 'rgba(10, 132, 255, 0.25) !important' },
+            '.cm-activeLine': { backgroundColor: 'rgba(255, 255, 255, 0.04)' },
+            '.cm-activeLineGutter': { backgroundColor: 'rgba(255, 255, 255, 0.06)' },
+            '.cm-gutters': { backgroundColor: '#1c1c1e', color: '#636366', border: 'none', borderRight: '1px solid rgba(255, 255, 255, 0.1)' },
+            '.cm-lineNumbers .cm-gutterElement': { padding: '0 8px 0 12px', minWidth: '32px', fontSize: '11px' },
+            '.cm-tooltip': { backgroundColor: '#2c2c2e', border: '1px solid rgba(255, 255, 255, 0.1)', borderRadius: '8px', boxShadow: '0 8px 24px rgba(0, 0, 0, 0.5)' },
+            '.cm-tooltip-autocomplete > ul': { fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', maxHeight: '240px' },
+            '.cm-tooltip-autocomplete > ul > li': { padding: '4px 12px', lineHeight: '1.5' },
+            '.cm-tooltip-autocomplete > ul > li[aria-selected]': { backgroundColor: 'rgba(10, 132, 255, 0.2)', color: '#ffffff' },
+            '.cm-completionLabel': { color: '#ffffff' },
+            '.cm-completionDetail': { color: '#8e8e93', fontStyle: 'italic', marginLeft: '8px' },
+            '.cm-completionMatchedText': { color: '#0a84ff', textDecoration: 'none', fontWeight: '600' },
+            '.cm-searchMatch': { backgroundColor: 'rgba(255, 214, 10, 0.2)', outline: '1px solid rgba(255, 214, 10, 0.4)' },
+            '.cm-selectionMatch': { backgroundColor: 'rgba(10, 132, 255, 0.15)' },
+            '.cm-matchingBracket': { backgroundColor: 'rgba(48, 209, 88, 0.2)', outline: '1px solid rgba(48, 209, 88, 0.5)' },
+        }, {dark: true});
+
+        // ---- Custom light theme ----
+        const cmLightTheme = EditorView.theme({
+            '&': { backgroundColor: '#f8f9fa', color: '#1d1d1f', fontSize: '13px', fontFamily: "'JetBrains Mono', monospace" },
+            '.cm-content': { caretColor: '#007aff', padding: '16px 20px', lineHeight: '1.6' },
+            '.cm-cursor, .cm-dropCursor': { borderLeftColor: '#007aff', borderLeftWidth: '2px' },
+            '&.cm-focused .cm-selectionBackground, .cm-selectionBackground': { backgroundColor: 'rgba(0, 122, 255, 0.2) !important' },
+            '.cm-activeLine': { backgroundColor: 'rgba(0, 0, 0, 0.04)' },
+            '.cm-activeLineGutter': { backgroundColor: 'rgba(0, 0, 0, 0.06)' },
+            '.cm-gutters': { backgroundColor: '#e5e5ea', color: '#8e8e93', border: 'none', borderRight: '1px solid rgba(0, 0, 0, 0.08)' },
+            '.cm-lineNumbers .cm-gutterElement': { padding: '0 8px 0 12px', minWidth: '32px', fontSize: '11px' },
+            '.cm-tooltip': { backgroundColor: '#ffffff', border: '1px solid rgba(0, 0, 0, 0.08)', borderRadius: '8px', boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)' },
+            '.cm-tooltip-autocomplete > ul > li[aria-selected]': { backgroundColor: 'rgba(0, 122, 255, 0.15)', color: '#1d1d1f' },
+            '.cm-completionMatchedText': { color: '#007aff', textDecoration: 'none', fontWeight: '600' },
+            '.cm-matchingBracket': { backgroundColor: 'rgba(40, 205, 65, 0.2)', outline: '1px solid rgba(40, 205, 65, 0.5)' },
+        }, {dark: false});
+
+        // ---- Syntax highlighting (dark) ----
+        const darkHighlightStyle = HighlightStyle.define([
+            { tag: tags.keyword, color: '#bf5af2', fontWeight: '600' },
+            { tag: tags.operatorKeyword, color: '#bf5af2', fontWeight: '600' },
+            { tag: tags.definitionKeyword, color: '#ff375f', fontWeight: '600' },
+            { tag: tags.modifier, color: '#ff9f0a' },
+            { tag: tags.typeName, color: '#64d2ff' },
+            { tag: tags.standard(tags.name), color: '#30d158' },
+            { tag: tags.function(tags.name), color: '#30d158' },
+            { tag: tags.string, color: '#ffd60a' },
+            { tag: tags.number, color: '#ff9f0a' },
+            { tag: tags.bool, color: '#ff9f0a' },
+            { tag: tags.null, color: '#ff453a', fontStyle: 'italic' },
+            { tag: tags.comment, color: '#636366', fontStyle: 'italic' },
+            { tag: tags.punctuation, color: '#8e8e93' },
+            { tag: tags.operator, color: '#0a84ff' },
+            { tag: tags.bracket, color: '#8e8e93' },
+            { tag: tags.name, color: '#ffffff' },
+            { tag: tags.propertyName, color: '#64d2ff' },
+        ]);
+
+        // ---- Syntax highlighting (light) ----
+        const lightHighlightStyle = HighlightStyle.define([
+            { tag: tags.keyword, color: '#9b2faf', fontWeight: '600' },
+            { tag: tags.operatorKeyword, color: '#9b2faf', fontWeight: '600' },
+            { tag: tags.definitionKeyword, color: '#d42b2b', fontWeight: '600' },
+            { tag: tags.modifier, color: '#c26700' },
+            { tag: tags.typeName, color: '#0077b6' },
+            { tag: tags.standard(tags.name), color: '#0e7a22' },
+            { tag: tags.function(tags.name), color: '#0e7a22' },
+            { tag: tags.string, color: '#a86700' },
+            { tag: tags.number, color: '#c26700' },
+            { tag: tags.bool, color: '#c26700' },
+            { tag: tags.null, color: '#d42b2b', fontStyle: 'italic' },
+            { tag: tags.comment, color: '#8e8e93', fontStyle: 'italic' },
+            { tag: tags.punctuation, color: '#6e6e73' },
+            { tag: tags.operator, color: '#007aff' },
+            { tag: tags.bracket, color: '#6e6e73' },
+            { tag: tags.name, color: '#1d1d1f' },
+            { tag: tags.propertyName, color: '#0077b6' },
+        ]);
+
+        // ---- Build schema spec for CodeMirror SQL autocomplete ----
+        const schemaSpec = {};
+        try {
+            const resp = await fetch('data/sql_lab/table_metadata.json');
+            if (resp.ok) {
+                const meta = await resp.json();
+                if (meta.tables) {
+                    for (const [name, info] of Object.entries(meta.tables)) {
+                        schemaSpec[name] = (info.columns || []).map(c => c.name);
+                    }
                 }
-                const pct = Math.min(((step + 1) / steps.length) * 100, 100);
-                progress.style.width = pct + '%';
-                progressText.textContent = labels[step];
-
-                // Mark previous step as done
-                if (step > 0) {
-                    const prev = document.getElementById(steps[step - 1]);
-                    prev.classList.remove('active');
-                    prev.classList.add('done');
-                    prev.querySelector('.check').textContent = '✓';
+                if (meta.views) {
+                    for (const [name, info] of Object.entries(meta.views)) {
+                        schemaSpec[name] = (info.columns || []).map(c => c.name);
+                    }
                 }
-                // Mark current step active
-                const curr = document.getElementById(steps[step]);
-                curr.classList.add('active');
+            }
+        } catch(e) { console.warn('TKT-174: Could not load table_metadata.json for autocomplete:', e); }
 
-                step++;
-                setTimeout(advanceStep, 600 + Math.random() * 400);
+        // ---- Theme compartments for dynamic switching ----
+        const themeCompartment = new Compartment();
+        const highlightCompartment = new Compartment();
+        const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+
+        // ---- Get initial SQL and set up editor ----
+        const textarea = document.getElementById('sql-editor-textarea');
+        const initialSQL = textarea ? textarea.value : '';
+        const editorParent = document.getElementById('sql-editor-wrapper');
+
+        // ---- Toggle line comment helper (TKT-174) ----
+        function toggleLineComment(view) {
+            const state = view.state;
+            const changes = [];
+            const {from, to} = state.selection.main;
+            const startLine = state.doc.lineAt(from).number;
+            const endLine = state.doc.lineAt(to).number;
+            let allCommented = true;
+            for (let i = startLine; i <= endLine; i++) {
+                if (!state.doc.line(i).text.trimStart().startsWith('--')) { allCommented = false; break; }
+            }
+            for (let i = startLine; i <= endLine; i++) {
+                const line = state.doc.line(i);
+                if (allCommented) {
+                    const idx = line.text.indexOf('--');
+                    if (idx >= 0) {
+                        const removeLen = line.text.substring(idx, idx + 3) === '-- ' ? 3 : 2;
+                        changes.push({from: line.from + idx, to: line.from + idx + removeLen});
+                    }
+                } else {
+                    changes.push({from: line.from, insert: '-- '});
+                }
+            }
+            if (changes.length > 0) view.dispatch({changes});
+            return true;
+        }
+
+        // ---- Custom keybindings (TKT-174) ----
+        const customKeymap = keymap.of([
+            { key: 'Mod-Enter', run: () => { executeQuery(); return true; } },
+            { key: 'Mod-l', run: () => { clearEditor(); return true; }, preventDefault: true },
+            { key: 'Mod-/', run: (view) => toggleLineComment(view) },
+        ]);
+
+        // ---- Create CodeMirror 6 editor ----
+        const cmEditor = new EditorView({
+            state: EditorState.create({
+                doc: initialSQL,
+                extensions: [
+                    lineNumbers(),
+                    highlightActiveLine(),
+                    highlightActiveLineGutter(),
+                    drawSelection(),
+                    bracketMatching(),
+                    foldGutter(),
+                    closeBrackets(),
+                    history(),
+                    highlightSelectionMatches(),
+                    themeCompartment.of(isDark ? cmDarkTheme : cmLightTheme),
+                    highlightCompartment.of(syntaxHighlighting(isDark ? darkHighlightStyle : lightHighlightStyle)),
+                    sql({ dialect: StandardSQL, schema: schemaSpec, upperCaseKeywords: false }),
+                    autocompletion({ activateOnTyping: true, maxRenderedOptions: 30 }),
+                    customKeymap,
+                    keymap.of([
+                        ...closeBracketsKeymap,
+                        ...defaultKeymap,
+                        ...historyKeymap,
+                        ...completionKeymap,
+                        ...searchKeymap,
+                        indentWithTab,
+                    ]),
+                    placeholder('-- Write your SQL query here...\n-- Example: SELECT * FROM analytics_ipl_batting_career LIMIT 10;'),
+                    EditorView.lineWrapping,
+                ],
+            }),
+            parent: editorParent,
+        });
+
+        // Hide original textarea, expose globals
+        if (textarea) textarea.style.display = 'none';
+        window._cmEditor = cmEditor;
+        window._cmThemeCompartment = themeCompartment;
+        window._cmHighlightCompartment = highlightCompartment;
+        window._cmDarkTheme = cmDarkTheme;
+        window._cmLightTheme = cmLightTheme;
+        window._cmDarkHighlight = syntaxHighlighting(darkHighlightStyle);
+        window._cmLightHighlight = syntaxHighlighting(lightHighlightStyle);
+
+        // Helper: get SQL from CodeMirror (falls back to textarea)
+        function getEditorSQL() {
+            if (window._cmEditor) return window._cmEditor.state.doc.toString();
+            return document.getElementById('sql-editor-textarea').value;
+        }
+
+        // Helper: set SQL in CodeMirror
+        function setEditorSQL(sqlText) {
+            if (window._cmEditor) {
+                window._cmEditor.dispatch({
+                    changes: {from: 0, to: window._cmEditor.state.doc.length, insert: sqlText}
+                });
+            } else {
+                document.getElementById('sql-editor-textarea').value = sqlText;
+            }
+        }
+
+        function clearEditor() {
+            setEditorSQL('');
+            if (window._cmEditor) window._cmEditor.focus();
+        }
+
+        /* ==================== QUERY HISTORY (TKT-174) ==================== */
+        const HISTORY_KEY = 'cricket_playbook_query_history';
+        const MAX_HISTORY = 10;
+
+        function getQueryHistory() {
+            try {
+                return JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+            } catch { return []; }
+        }
+
+        function saveQueryHistory(sqlText) {
+            const trimmed = sqlText.trim();
+            if (!trimmed) return;
+            let history = getQueryHistory();
+            // Remove duplicate if exists
+            history = history.filter(h => h.sql !== trimmed);
+            // Add to front
+            history.unshift({ sql: trimmed, timestamp: Date.now() });
+            // Cap at MAX_HISTORY
+            if (history.length > MAX_HISTORY) history = history.slice(0, MAX_HISTORY);
+            localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+        }
+
+        function renderQueryHistoryDropdown() {
+            const dropdown = document.getElementById('query-history-dropdown');
+            const history = getQueryHistory();
+            if (history.length === 0) {
+                dropdown.innerHTML = '<div class="query-history-empty">No query history yet</div>';
+                return;
+            }
+            let html = '';
+            for (const entry of history) {
+                const timeStr = new Date(entry.timestamp).toLocaleString('en-US', {
+                    month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
+                });
+                const preview = entry.sql.replace(/\n/g, ' ').substring(0, 80);
+                html += `<div class="query-history-item" data-sql="${entry.sql.replace(/"/g, '&quot;')}" title="${entry.sql.replace(/"/g, '&quot;')}">
+                    ${escapeHtml(preview)}${entry.sql.length > 80 ? '...' : ''}
+                    <div style="font-size:10px;color:var(--text-tertiary);margin-top:2px;">${timeStr}</div>
+                </div>`;
+            }
+            dropdown.innerHTML = html;
+
+            // Wire click handlers
+            dropdown.querySelectorAll('.query-history-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    setEditorSQL(this.getAttribute('data-sql'));
+                    dropdown.classList.remove('open');
+                    if (window._cmEditor) window._cmEditor.focus();
+                    document.getElementById('sql-editor').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                });
+            });
+        }
+
+        // History button toggle
+        document.getElementById('history-button').addEventListener('click', function(e) {
+            e.stopPropagation();
+            const dropdown = document.getElementById('query-history-dropdown');
+            renderQueryHistoryDropdown();
+            dropdown.classList.toggle('open');
+        });
+
+        // Close dropdown on outside click
+        document.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('query-history-dropdown');
+            if (!e.target.closest('.query-history-wrapper')) {
+                dropdown.classList.remove('open');
+            }
+        });
+
+        /* ==================== RESULTS PANEL ENHANCEMENTS (TKT-174) ==================== */
+        const PAGE_SIZE = 50;
+        let currentPage = 0;
+        let sortColumn = null;
+        let sortDirection = 'asc'; // 'asc' or 'desc'
+        let currentResultColumns = [];
+        let currentResultRows = [];
+        let currentElapsed = '0';
+
+        function renderResultsPage() {
+            const resultsWrapper = document.getElementById('results-table-wrapper');
+            const paginationEl = document.getElementById('results-pagination');
+            const paginationInfo = document.getElementById('pagination-info');
+            const paginationControls = document.getElementById('pagination-controls');
+            const resultsMeta = document.getElementById('results-meta');
+
+            const columns = currentResultColumns;
+            let rows = [...currentResultRows];
+            const totalRows = rows.length;
+
+            if (totalRows === 0) {
+                paginationEl.classList.remove('visible');
+                resultsWrapper.innerHTML = `
+                    <div class="results-empty">
+                        <div class="results-empty-icon">\u{1F4CB}</div>
+                        <div class="results-empty-text">Query returned 0 rows</div>
+                        <div class="results-empty-hint">Executed in ${currentElapsed}s</div>
+                    </div>`;
+                resultsMeta.textContent = `0 rows \u00B7 ${currentElapsed}s`;
+                return;
             }
 
-            setTimeout(advanceStep, 500);
-        })();
+            // Sort if applicable
+            if (sortColumn !== null && columns[sortColumn] !== undefined) {
+                const colName = columns[sortColumn];
+                rows.sort((a, b) => {
+                    let va = a[colName], vb = b[colName];
+                    if (va === null || va === undefined) va = '';
+                    if (vb === null || vb === undefined) vb = '';
+                    if (typeof va === 'number' && typeof vb === 'number') {
+                        return sortDirection === 'asc' ? va - vb : vb - va;
+                    }
+                    const sa = String(va), sb = String(vb);
+                    // Try numeric comparison
+                    const na = parseFloat(sa), nb = parseFloat(sb);
+                    if (!isNaN(na) && !isNaN(nb)) {
+                        return sortDirection === 'asc' ? na - nb : nb - na;
+                    }
+                    return sortDirection === 'asc' ? sa.localeCompare(sb) : sb.localeCompare(sa);
+                });
+            }
+
+            // Pagination
+            const totalPages = Math.ceil(totalRows / PAGE_SIZE);
+            if (currentPage >= totalPages) currentPage = totalPages - 1;
+            if (currentPage < 0) currentPage = 0;
+            const startIdx = currentPage * PAGE_SIZE;
+            const endIdx = Math.min(startIdx + PAGE_SIZE, totalRows);
+            const pageRows = rows.slice(startIdx, endIdx);
+
+            // Update meta
+            resultsMeta.textContent = `Showing ${(startIdx + 1).toLocaleString()}-${endIdx.toLocaleString()} of ${totalRows.toLocaleString()} rows \u00B7 ${currentElapsed}s`;
+
+            // Build table
+            let html = '<table class="results-table"><thead><tr>';
+            html += '<th style="width:40px;text-align:right;min-width:40px;">#</th>';
+            for (let ci = 0; ci < columns.length; ci++) {
+                const sortClass = sortColumn === ci ? (sortDirection === 'asc' ? 'sorted-asc' : 'sorted-desc') : '';
+                const sortIcon = sortColumn === ci ? (sortDirection === 'asc' ? '\u25B2' : '\u25BC') : '\u25B2';
+                html += `<th class="${sortClass}" data-col-idx="${ci}" style="position:relative;">`;
+                html += `${escapeHtml(columns[ci])}<span class="sort-icon">${sortIcon}</span>`;
+                html += `<div class="col-resize-handle" data-col-idx="${ci}"></div>`;
+                html += `</th>`;
+            }
+            html += '</tr></thead><tbody>';
+
+            for (let i = 0; i < pageRows.length; i++) {
+                html += '<tr>';
+                html += `<td style="text-align:right;color:var(--text-tertiary);font-size:10px;">${startIdx + i + 1}</td>`;
+                for (const col of columns) {
+                    const val = pageRows[i][col];
+                    const display = val === null || val === undefined
+                        ? '<span style="color:var(--text-tertiary);font-style:italic">NULL</span>'
+                        : escapeHtml(String(val));
+                    html += `<td>${display}</td>`;
+                }
+                html += '</tr>';
+            }
+            html += '</tbody></table>';
+            resultsWrapper.innerHTML = html;
+
+            // Pagination controls
+            if (totalPages > 1) {
+                paginationEl.classList.add('visible');
+                paginationInfo.textContent = `Showing ${(startIdx + 1).toLocaleString()}\u2013${endIdx.toLocaleString()} of ${totalRows.toLocaleString()} rows \u00B7 ${currentElapsed}s`;
+
+                let ctrlHtml = '';
+                ctrlHtml += `<button class="pagination-btn" id="pg-prev" ${currentPage === 0 ? 'disabled' : ''}>\u25C0 Prev</button>`;
+
+                // Show page numbers (max 7 visible)
+                const maxVisible = 7;
+                let startPage = Math.max(0, currentPage - Math.floor(maxVisible / 2));
+                let endPage = Math.min(totalPages, startPage + maxVisible);
+                if (endPage - startPage < maxVisible) startPage = Math.max(0, endPage - maxVisible);
+
+                if (startPage > 0) {
+                    ctrlHtml += `<button class="pagination-btn" data-page="0">1</button>`;
+                    if (startPage > 1) ctrlHtml += `<span style="color:var(--text-tertiary);padding:0 4px;">...</span>`;
+                }
+
+                for (let p = startPage; p < endPage; p++) {
+                    ctrlHtml += `<button class="pagination-btn${p === currentPage ? ' active' : ''}" data-page="${p}">${p + 1}</button>`;
+                }
+
+                if (endPage < totalPages) {
+                    if (endPage < totalPages - 1) ctrlHtml += `<span style="color:var(--text-tertiary);padding:0 4px;">...</span>`;
+                    ctrlHtml += `<button class="pagination-btn" data-page="${totalPages - 1}">${totalPages}</button>`;
+                }
+
+                ctrlHtml += `<button class="pagination-btn" id="pg-next" ${currentPage >= totalPages - 1 ? 'disabled' : ''}>Next \u25B6</button>`;
+                paginationControls.innerHTML = ctrlHtml;
+
+                // Wire pagination events
+                document.getElementById('pg-prev')?.addEventListener('click', () => { currentPage--; renderResultsPage(); });
+                document.getElementById('pg-next')?.addEventListener('click', () => { currentPage++; renderResultsPage(); });
+                paginationControls.querySelectorAll('[data-page]').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        currentPage = parseInt(this.getAttribute('data-page'));
+                        renderResultsPage();
+                    });
+                });
+            } else {
+                paginationEl.classList.remove('visible');
+                // Show simple info for small result sets
+            }
+
+            // Wire sort click on column headers
+            resultsWrapper.querySelectorAll('.results-table th[data-col-idx]').forEach(th => {
+                th.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('col-resize-handle')) return; // Don't sort on resize
+                    const idx = parseInt(this.getAttribute('data-col-idx'));
+                    if (sortColumn === idx) {
+                        sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+                    } else {
+                        sortColumn = idx;
+                        sortDirection = 'asc';
+                    }
+                    currentPage = 0;
+                    renderResultsPage();
+                });
+            });
+
+            // Wire column resize
+            wireColumnResize();
+        }
+
+        // ---- Column Resize (TKT-174) ----
+        function wireColumnResize() {
+            const handles = document.querySelectorAll('.col-resize-handle');
+            handles.forEach(handle => {
+                handle.addEventListener('mousedown', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const th = this.parentElement;
+                    const startX = e.pageX;
+                    const startWidth = th.offsetWidth;
+                    this.classList.add('resizing');
+
+                    function onMouseMove(e2) {
+                        const diff = e2.pageX - startX;
+                        th.style.width = Math.max(40, startWidth + diff) + 'px';
+                        th.style.minWidth = Math.max(40, startWidth + diff) + 'px';
+                    }
+
+                    function onMouseUp() {
+                        handle.classList.remove('resizing');
+                        document.removeEventListener('mousemove', onMouseMove);
+                        document.removeEventListener('mouseup', onMouseUp);
+                    }
+
+                    document.addEventListener('mousemove', onMouseMove);
+                    document.addEventListener('mouseup', onMouseUp);
+                });
+            });
+        }
+
+        /* ==================== DuckDB-WASM INITIALIZATION (TKT-173) ==================== */
+        import * as duckdb from 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.29.0/+esm';
+
+        // Global state
+        let db = null;
+        let conn = null;
+        let lastQueryResults = null;
+        let totalRowsLoaded = 0;
+
+        // UI references
+        const progressBar = document.getElementById('loading-progress');
+        const progressText = document.getElementById('loading-progress-text');
+        const overlay = document.getElementById('loading-overlay');
+        const statusDot = document.getElementById('status-dot');
+        const statusText = document.getElementById('status-text');
+
+        // Table manifest - all 15 Parquet files
+        const TABLE_FILES = [
+            'dim_bowler_classification',
+            'dim_franchise_alias',
+            'dim_match',
+            'dim_player',
+            'dim_player_name_history',
+            'dim_team',
+            'dim_tournament',
+            'dim_venue',
+            'fact_ball',
+            'fact_player_match_performance',
+            'fact_powerplay',
+            'ipl_2026_contracts',
+            'ipl_2026_squads',
+            'player_clusters_batters',
+            'player_clusters_bowlers'
+        ];
+
+        function setLoadingStep(stepId, state) {
+            const el = document.getElementById(stepId);
+            if (!el) return;
+            el.classList.remove('active', 'done');
+            if (state === 'active') {
+                el.classList.add('active');
+                el.querySelector('.check').textContent = '...';
+            } else if (state === 'done') {
+                el.classList.add('done');
+                el.querySelector('.check').textContent = '\u2713';
+            }
+        }
+
+        function setProgress(pct, text) {
+            progressBar.style.width = pct + '%';
+            if (text) progressText.textContent = text;
+        }
+
+        function setStatus(state, text) {
+            statusDot.classList.remove('loading', 'error');
+            if (state === 'loading') statusDot.classList.add('loading');
+            if (state === 'error') statusDot.classList.add('error');
+            statusText.textContent = text;
+        }
+
+        async function initDuckDB() {
+            try {
+                setLoadingStep('step-engine', 'active');
+                setProgress(5, 'Initializing DuckDB engine...');
+
+                const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();
+                const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);
+
+                const worker_url = URL.createObjectURL(
+                    new Blob([`importScripts("${bundle.mainWorker}");`], { type: 'text/javascript' })
+                );
+
+                const worker = new Worker(worker_url);
+                const logger = new duckdb.ConsoleLogger();
+                db = new duckdb.AsyncDuckDB(logger, worker);
+                await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
+                URL.revokeObjectURL(worker_url);
+
+                conn = await db.connect();
+
+                setLoadingStep('step-engine', 'done');
+                setProgress(20, 'DuckDB engine ready');
+
+                setLoadingStep('step-tables', 'active');
+                const basePath = 'data/sql_lab/tables/';
+
+                for (let i = 0; i < TABLE_FILES.length; i++) {
+                    const tableName = TABLE_FILES[i];
+                    const filePath = basePath + tableName + '.parquet';
+                    const pct = 20 + Math.round(((i + 1) / TABLE_FILES.length) * 50);
+                    setProgress(pct, `Loading ${tableName}... ${i + 1}/${TABLE_FILES.length}`);
+
+                    try {
+                        const response = await fetch(filePath);
+                        if (!response.ok) throw new Error(`HTTP ${response.status} for ${filePath}`);
+                        const buffer = new Uint8Array(await response.arrayBuffer());
+                        await db.registerFileBuffer(tableName + '.parquet', buffer);
+                        await conn.query(`CREATE TABLE ${tableName} AS SELECT * FROM read_parquet('${tableName}.parquet')`);
+                        const countResult = await conn.query(`SELECT count(*) AS cnt FROM ${tableName}`);
+                        const rows = Number(countResult.toArray()[0].cnt);
+                        totalRowsLoaded += rows;
+                    } catch (tableErr) {
+                        console.error(`Failed to load table ${tableName}:`, tableErr);
+                    }
+                }
+
+                setLoadingStep('step-tables', 'done');
+                setProgress(70, `${TABLE_FILES.length} tables loaded (${formatRowCount(totalRowsLoaded)} rows)`);
+
+                setLoadingStep('step-views', 'active');
+                setProgress(72, 'Creating 52 analytics views...');
+
+                let viewsCreated = 0;
+                let viewsFailed = 0;
+
+                try {
+                    const viewsResponse = await fetch('data/sql_lab/views.sql');
+                    if (!viewsResponse.ok) throw new Error(`HTTP ${viewsResponse.status} for views.sql`);
+                    const viewsSql = await viewsResponse.text();
+                    const viewStatements = viewsSql.split(/(?=CREATE OR REPLACE VIEW)/i).filter(s => s.trim().length > 0 && s.trim().startsWith('CREATE'));
+
+                    for (let i = 0; i < viewStatements.length; i++) {
+                        const stmt = viewStatements[i].trim();
+                        if (!stmt) continue;
+                        const cleanStmt = stmt.replace(/;\s*$/, '');
+                        try {
+                            await conn.query(cleanStmt);
+                            viewsCreated++;
+                        } catch (viewErr) {
+                            viewsFailed++;
+                            console.warn(`View creation failed: ${viewErr.message.substring(0, 120)}`);
+                        }
+                        if (i % 5 === 0) {
+                            const pct = 72 + Math.round(((i + 1) / viewStatements.length) * 23);
+                            setProgress(pct, `Creating views... ${i + 1}/${viewStatements.length}`);
+                        }
+                    }
+                } catch (viewsErr) {
+                    console.error('Failed to load views.sql:', viewsErr);
+                }
+
+                setLoadingStep('step-views', 'done');
+                setProgress(95, `${viewsCreated} views created`);
+
+                setLoadingStep('step-ready', 'active');
+                setProgress(100, `Ready! ${formatRowCount(totalRowsLoaded)} rows loaded`);
+
+                await new Promise(resolve => setTimeout(resolve, 600));
+
+                setLoadingStep('step-ready', 'done');
+                overlay.classList.add('hidden');
+
+                setStatus('connected', 'DuckDB-WASM Connected');
+                updateStatusBarStats(viewsCreated);
+                document.getElementById('run-button').disabled = false;
+
+                console.log(`Research Desk ready: ${TABLE_FILES.length} tables, ${viewsCreated} views, ${formatRowCount(totalRowsLoaded)} rows`);
+                if (viewsFailed > 0) console.warn(`${viewsFailed} views failed to create`);
+
+            } catch (err) {
+                console.error('DuckDB initialization failed:', err);
+                setStatus('error', 'Connection Failed');
+                progressText.textContent = 'Error: ' + err.message;
+                statusDot.classList.remove('loading');
+                statusDot.classList.add('error');
+
+                const overlayEl = document.getElementById('loading-overlay');
+                const dismissBtn = document.createElement('button');
+                dismissBtn.textContent = 'Dismiss & Continue';
+                dismissBtn.style.cssText = 'margin-top:16px;padding:8px 20px;border-radius:8px;background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:13px;font-weight:600;';
+                dismissBtn.onclick = () => overlayEl.classList.add('hidden');
+                overlayEl.appendChild(dismissBtn);
+            }
+        }
+
+        function formatRowCount(n) {
+            if (n >= 1000000) return (n / 1000000).toFixed(2) + 'M';
+            if (n >= 1000) return (n / 1000).toFixed(0) + 'K';
+            return String(n);
+        }
+
+        function updateStatusBarStats(viewCount) {
+            const rightBar = document.querySelector('.status-bar-right');
+            rightBar.innerHTML = `
+                <span>${TABLE_FILES.length} tables</span>
+                <span>&middot;</span>
+                <span>${viewCount} views</span>
+                <span>&middot;</span>
+                <span>${formatRowCount(totalRowsLoaded)} rows</span>
+                <span>&middot;</span>
+                <span>~15MB</span>
+            `;
+        }
+
+        /* ==================== SQL QUERY EXECUTION (TKT-173, enhanced TKT-174) ==================== */
+        async function executeQuery() {
+            if (!conn) {
+                showError('Database not connected. Please wait for initialization to complete.');
+                return;
+            }
+
+            const sqlText = getEditorSQL().trim();
+            if (!sqlText) {
+                showError('Please enter a SQL query.');
+                return;
+            }
+
+            const runBtn = document.getElementById('run-button');
+            const resultsMeta = document.getElementById('results-meta');
+
+            runBtn.disabled = true;
+            runBtn.innerHTML = '&#9654; Running...';
+            resultsMeta.textContent = 'Executing query...';
+
+            const startTime = performance.now();
+
+            try {
+                const result = await conn.query(sqlText);
+                const elapsed = ((performance.now() - startTime) / 1000).toFixed(2);
+
+                const rows = result.toArray().map(row => {
+                    const obj = {};
+                    for (const field of result.schema.fields) {
+                        let val = row[field.name];
+                        if (typeof val === 'bigint') val = Number(val);
+                        obj[field.name] = val;
+                    }
+                    return obj;
+                });
+
+                const columns = result.schema.fields.map(f => f.name);
+
+                // Store for export
+                lastQueryResults = { columns, rows };
+
+                // Save to query history (TKT-174)
+                saveQueryHistory(sqlText);
+
+                // Render with pagination (TKT-174)
+                currentResultColumns = columns;
+                currentResultRows = rows;
+                currentElapsed = elapsed;
+                currentPage = 0;
+                sortColumn = null;
+                sortDirection = 'asc';
+                renderResultsPage();
+
+            } catch (err) {
+                const elapsed = ((performance.now() - startTime) / 1000).toFixed(2);
+                showError(err.message, elapsed);
+                document.getElementById('results-pagination').classList.remove('visible');
+            } finally {
+                runBtn.disabled = false;
+                runBtn.innerHTML = '&#9654; Run';
+            }
+        }
+
+        // Make executeQuery available globally so CodeMirror keymap can call it
+        window.executeQuery = executeQuery;
+
+        function showError(message, elapsed) {
+            const resultsMeta = document.getElementById('results-meta');
+            const resultsWrapper = document.getElementById('results-table-wrapper');
+
+            resultsMeta.textContent = elapsed ? `Error \u00B7 ${elapsed}s` : 'Error';
+            resultsWrapper.innerHTML = `
+                <div class="results-empty" style="color: var(--accent-red);">
+                    <div class="results-empty-icon">\u26A0\uFE0F</div>
+                    <div class="results-empty-text" style="color: var(--accent-red); font-weight: 600;">Query Error</div>
+                    <div class="results-empty-hint" style="color: var(--text-secondary); max-width: 600px; word-break: break-word; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.6; text-align: left; background: var(--bg-tertiary); padding: 16px; border-radius: 8px; margin-top: 8px;">${escapeHtml(message)}</div>
+                </div>`;
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        /* ==================== COPY BUTTON (TKT-173, updated for CodeMirror TKT-174) ==================== */
+        function copySQL() {
+            const sqlText = getEditorSQL();
+            if (!sqlText.trim()) return;
+
+            navigator.clipboard.writeText(sqlText).then(() => {
+                const btn = document.getElementById('copy-button');
+                const original = btn.innerHTML;
+                btn.innerHTML = '\u2705 Copied!';
+                btn.style.borderColor = 'var(--accent-green)';
+                setTimeout(() => { btn.innerHTML = original; btn.style.borderColor = ''; }, 1500);
+            }).catch(() => {
+                // Fallback
+                const ta = document.createElement('textarea');
+                ta.value = sqlText;
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                const btn = document.getElementById('copy-button');
+                const original = btn.innerHTML;
+                btn.innerHTML = '\u2705 Copied!';
+                setTimeout(() => { btn.innerHTML = original; }, 1500);
+            });
+        }
+
+        /* ==================== EXPORT BUTTON (TKT-173) ==================== */
+        function exportCSV() {
+            if (!lastQueryResults || !lastQueryResults.rows.length) {
+                const btn = document.getElementById('export-button');
+                const original = btn.innerHTML;
+                btn.innerHTML = '\u274C No data';
+                setTimeout(() => { btn.innerHTML = original; }, 1500);
+                return;
+            }
+
+            const { columns, rows } = lastQueryResults;
+            const csvRows = [];
+            csvRows.push(columns.map(c => `"${c.replace(/"/g, '""')}"`).join(','));
+            for (const row of rows) {
+                const values = columns.map(col => {
+                    const val = row[col];
+                    if (val === null || val === undefined) return '';
+                    return `"${String(val).replace(/"/g, '""')}"`;
+                });
+                csvRows.push(values.join(','));
+            }
+
+            const blob = new Blob([csvRows.join('\n')], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `research_desk_export_${new Date().toISOString().slice(0, 10)}.csv`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+
+            const btn = document.getElementById('export-button');
+            const original = btn.innerHTML;
+            btn.innerHTML = '\u2705 Exported!';
+            btn.style.borderColor = 'var(--accent-green)';
+            setTimeout(() => { btn.innerHTML = original; btn.style.borderColor = ''; }, 1500);
+        }
+
+        /* ==================== WIRE BUTTONS ==================== */
+        document.getElementById('run-button').addEventListener('click', executeQuery);
+        document.getElementById('copy-button').addEventListener('click', copySQL);
+        document.getElementById('export-button').addEventListener('click', exportCSV);
 
         /* ==================== SCHEMA SEARCH ==================== */
         document.getElementById('schema-search').addEventListener('input', function(e) {
@@ -1281,12 +2241,23 @@ LIMIT 20;</textarea>
             }
         });
 
-        /* ==================== EXAMPLE CARD CLICK ==================== */
+        /* ==================== SCHEMA ITEM CLICK (insert into CodeMirror, TKT-174) ==================== */
+        document.querySelectorAll('.schema-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const tableName = this.getAttribute('data-table') || this.getAttribute('data-view');
+                if (!tableName) return;
+                setEditorSQL(`SELECT * FROM ${tableName} LIMIT 100;`);
+                if (window._cmEditor) window._cmEditor.focus();
+                document.getElementById('sql-editor').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        });
+
+        /* ==================== EXAMPLE CARD CLICK (TKT-174: load into CodeMirror) ==================== */
         document.querySelectorAll('.example-card').forEach(card => {
             card.addEventListener('click', function() {
-                const sql = this.querySelector('p').textContent;
-                document.getElementById('sql-editor-textarea').value = sql;
-                // Scroll to editor
+                const sqlText = this.querySelector('p').textContent;
+                setEditorSQL(sqlText);
+                if (window._cmEditor) window._cmEditor.focus();
                 document.getElementById('sql-editor').scrollIntoView({ behavior: 'smooth', block: 'center' });
             });
         });
@@ -1296,9 +2267,20 @@ LIMIT 20;</textarea>
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.examples-filter-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-                // Filter logic placeholder — TKT-176 will implement full filtering
+
+                const filterText = this.textContent.trim().toLowerCase();
+                document.querySelectorAll('.example-card').forEach(card => {
+                    if (filterText === 'all') { card.style.display = ''; return; }
+                    const category = card.querySelector('.example-card-category');
+                    if (category) {
+                        card.style.display = category.textContent.trim().toLowerCase() === filterText ? '' : 'none';
+                    }
+                });
             });
         });
+
+        /* ==================== START INITIALIZATION ==================== */
+        initDuckDB();
     </script>
 
     <!-- Navigation Guide Button -->

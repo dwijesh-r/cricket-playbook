@@ -1,0 +1,21 @@
+{
+  "id": "TKT-179",
+  "title": "Document Film Room NL Search Patterns & Example Prompts",
+  "state": "RUNNING",
+  "priority": "P1",
+  "progress_pct": 0,
+  "description": "Create a reference document listing all supported natural language search patterns in The Film Room, with example prompts and their expected SQL/output. This helps users understand what queries work and guides future pattern development. Include: (1) All 11 current patterns with 2-3 example prompts each, (2) Expected output description for each, (3) Tips for phrasing queries, (4) Known limitations. Location: docs/film_room_search_guide.md",
+  "epic_id": "EPIC-012",
+  "assignee": "Founder",
+  "sprint_id": "SPRINT-001",
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "Low-cost documentation task, directly improves Film Room usability",
+      "approved_by": "Florentino Perez",
+      "date": "2026-02-10"
+    }
+  },
+  "created_at": "2026-02-10T06:36:26.931104Z",
+  "updated_at": "2026-02-10T06:37:10.393478Z"
+}

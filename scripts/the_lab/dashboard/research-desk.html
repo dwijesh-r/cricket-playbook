@@ -216,9 +216,10 @@
             border-bottom: 1px solid var(--border);
             flex-direction: column; padding: 8px 16px;
             z-index: 99; transform: translateY(-10px); opacity: 0;
+            pointer-events: none;
             transition: all 0.3s ease;
         }
-        .mobile-nav-menu.active { transform: translateY(0); opacity: 1; }
+        .mobile-nav-menu.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
         [data-theme="light"] .mobile-nav-menu { background: rgba(245, 245, 247, 0.95); }
         .mobile-nav-menu .nav-tab {
             padding: 12px 16px; border-radius: 8px; font-size: 15px;
@@ -1890,8 +1891,35 @@ LIMIT 20;</textarea>
             statusText.textContent = text;
         }
 
+        // Detect mobile: small screen OR touch-only device
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (window.innerWidth <= 768 && 'ontouchstart' in window);
+
         async function initDuckDB() {
             try {
+                // Mobile Chrome/Safari have limited WASM memory (~300-500MB).
+                // DuckDB + 15 Parquet tables can exceed that, crashing the tab.
+                if (isMobile) {
+                    setProgress(5, 'Mobile detected — loading lightweight mode...');
+                    console.log('Mobile device detected — skipping DuckDB to prevent browser crash');
+                    overlay.classList.add('hidden');
+                    setStatus('connected', 'Mobile Mode');
+
+                    const mobileHint = document.getElementById('results-table-wrapper');
+                    if (mobileHint) {
+                        mobileHint.innerHTML = `
+                            <div class="results-empty" style="padding: 32px 20px;">
+                                <div class="results-empty-icon" style="font-size: 48px;">📱</div>
+                                <div class="results-empty-text" style="font-size: 15px; margin: 12px 0;">The Film Room works best on desktop</div>
+                                <div class="results-empty-hint" style="line-height: 1.7; max-width: 400px; margin: 0 auto;">
+                                    The full scouting database (15 tables, 52 views, 2M+ rows) requires more memory than mobile browsers can handle.<br><br>
+                                    <strong>On desktop:</strong> Full interactive SQL with live queries<br>
+                                    <strong>On mobile:</strong> Browse the example queries and schema below, then run them on desktop
+                                </div>
+                            </div>`;
+                    }
+                    return;
+                }
+
                 setLoadingStep('step-engine', 'active');
                 setProgress(5, 'Warming up the analytics engine...');
 

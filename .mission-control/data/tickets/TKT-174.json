@@ -1,0 +1,21 @@
+{
+  "id": "TKT-174",
+  "title": "SQL Editor & Results Panel",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "progress_pct": 0,
+  "description": "Build the SQL editor component with CodeMirror for syntax highlighting. Include a Run button and Cmd+Enter keyboard shortcut. Render query results in a sortable, filterable data table. Display query execution time. Add CSV export for result sets. Implement query history stored in localStorage. Depends on TKT-B for DuckDB-WASM runtime.",
+  "epic_id": "EPIC-012",
+  "owner": "Kevin De Bruyne",
+  "assignee": "Kevin De Bruyne",
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "P0 user-facing core. The SQL editor is the primary interaction surface of The Research Desk. Syntax highlighting, results table, query history — essential UX for power users exploring IPL data.",
+      "approved_by": "Florentino Perez",
+      "date": "2026-02-10"
+    }
+  },
+  "created_at": "2026-02-10T04:25:48.833200Z",
+  "updated_at": "2026-02-10T04:26:11.149266Z"
+}

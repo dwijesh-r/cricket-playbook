@@ -5236,22 +5236,22 @@
                     <div class="token-grid">
                         <div class="token-metric good" id="tokensUsed">
                             <div class="token-metric-icon">📊</div>
-                            <div class="token-metric-value">7.5M</div>
+                            <div class="token-metric-value" id="tokensUsedValue">--</div>
                             <div class="token-metric-label">Tokens Used</div>
                         </div>
                         <div class="token-metric" id="tokensRemaining">
                             <div class="token-metric-icon">🎯</div>
-                            <div class="token-metric-value">2.5M</div>
-                            <div class="token-metric-label">Remaining</div>
+                            <div class="token-metric-value" id="tokensRemainingValue">--</div>
+                            <div class="token-metric-label">Sessions</div>
                         </div>
                         <div class="token-metric good" id="avgDaily">
                             <div class="token-metric-icon">📈</div>
-                            <div class="token-metric-value">~940K</div>
+                            <div class="token-metric-value" id="avgDailyValue">--</div>
                             <div class="token-metric-label">Avg Daily</div>
                         </div>
                         <div class="token-metric good" id="daysLeft">
                             <div class="token-metric-icon">⏳</div>
-                            <div class="token-metric-value">19</div>
+                            <div class="token-metric-value" id="daysLeftValue">--</div>
                             <div class="token-metric-label">Days Left</div>
                         </div>
                     </div>
@@ -5259,11 +5259,12 @@
                     <div class="token-progress-section">
                         <div class="token-progress-header">
                             <span class="token-progress-title">Monthly Token Budget</span>
-                            <span class="token-progress-value" id="tokenProgressText">75% used • 10M limit</span>
+                            <span class="token-progress-value" id="tokenProgressText">Loading...</span>
                         </div>
                         <div class="token-progress-bar">
-                            <div class="token-progress-fill" id="tokenProgressFill" style="width: 75%"></div>
+                            <div class="token-progress-fill" id="tokenProgressFill" style="width: 0%"></div>
                         </div>
+                        <div style="font-size: 9px; color: var(--text-tertiary); margin-top: 4px; text-align: right;" id="tokenSyncTime"></div>
                     </div>
 
                     <!-- Daily Usage Timeline Graph -->
@@ -5303,10 +5304,8 @@
                                 <span class="token-insight-icon">📉</span>
                                 <span class="token-insight-title">Usage Pace Analysis</span>
                             </div>
-                            <div class="token-insight-content">
-                                At current pace of <strong>~940K tokens/day</strong>, remaining budget supports approximately <strong>2-3 more heavy days</strong>.
-                                <br><br>
-                                <strong>Status:</strong> ✅ EPIC-014 + EPIC-015 complete. Transitioning to maintenance mode — budget remaining supports bug fixes and dashboard polish.
+                            <div class="token-insight-content" id="usagePaceContent">
+                                Loading pace analysis...
                             </div>
                         </div>
                         <div class="token-insight-card">
@@ -5314,41 +5313,17 @@
                                 <span class="token-insight-icon">🧠</span>
                                 <span class="token-insight-title">Model Usage Breakdown</span>
                             </div>
-                            <div class="token-insight-content">
-                                <strong>Claude Opus 4.6:</strong> 82% of tokens (EPIC-014/015 — both complete)<br>
-                                <strong>Claude Sonnet 4.5:</strong> 14% of tokens (subagents, quick edits)<br>
-                                <strong>Claude Haiku 4.5:</strong> 4% of tokens (file searches)
+                            <div class="token-insight-content" id="modelBreakdownContent">
+                                Loading model breakdown...
                             </div>
                         </div>
                         <div class="token-insight-card">
                             <div class="token-insight-header">
                                 <span class="token-insight-icon">↔️</span>
-                                <span class="token-insight-title">Input vs Output (This Month)</span>
+                                <span class="token-insight-title">Input vs Output Breakdown</span>
                             </div>
-                            <div class="token-insight-content">
-                                <div style="margin-bottom: 10px; font-size: 11px; color: var(--text-tertiary);">How your 7.5M tokens are split:</div>
-                                <!-- Visual Progress Bars -->
-                                <div style="margin-bottom: 12px;">
-                                    <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                                        <span style="font-size: 12px;">📥 Input (Prompts)</span>
-                                        <span style="font-size: 12px; font-weight: 600;">5.6M <span style="color: var(--text-tertiary);">(75%)</span></span>
-                                    </div>
-                                    <div style="height: 8px; background: var(--bg-elevated); border-radius: 4px; overflow: hidden;">
-                                        <div style="width: 75%; height: 100%; background: linear-gradient(90deg, #0a84ff, #5e5ce6); border-radius: 4px;"></div>
-                                    </div>
-                                </div>
-                                <div style="margin-bottom: 12px;">
-                                    <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                                        <span style="font-size: 12px;">📤 Output (Responses)</span>
-                                        <span style="font-size: 12px; font-weight: 600;">1.9M <span style="color: var(--text-tertiary);">(25%)</span></span>
-                                    </div>
-                                    <div style="height: 8px; background: var(--bg-elevated); border-radius: 4px; overflow: hidden;">
-                                        <div style="width: 25%; height: 100%; background: linear-gradient(90deg, #30d158, #34c759); border-radius: 4px;"></div>
-                                    </div>
-                                </div>
-                                <div style="padding-top: 8px; border-top: 1px dashed var(--border); font-size: 11px; color: var(--text-tertiary);">
-                                    <strong>Avg per Request:</strong> ~18K in → ~6K out
-                                </div>
+                            <div class="token-insight-content" id="inputOutputContent">
+                                Loading input/output breakdown...
                             </div>
                         </div>
                         <div class="token-insight-card" style="border: 1px solid rgba(255, 159, 10, 0.3); background: linear-gradient(135deg, rgba(255, 159, 10, 0.05) 0%, rgba(255, 69, 58, 0.05) 100%);">
@@ -5394,12 +5369,8 @@
                                 <span class="token-insight-icon">📅</span>
                                 <span class="token-insight-title">Billing Cycle</span>
                             </div>
-                            <div class="token-insight-content">
-                                <strong>Current Period:</strong> Feb 1 - Feb 28, 2026<br>
-                                <strong>Days Remaining:</strong> 19 days<br>
-                                <strong>Renewal Date:</strong> March 9, 2026<br>
-                                <strong>Auto-renew:</strong> ✅ Enabled<br>
-                                <strong>Sessions Today:</strong> 6+ (EPIC-015 agents + current)
+                            <div class="token-insight-content" id="billingCycleContent">
+                                Loading billing info...
                             </div>
                         </div>
                     </div>
@@ -5493,6 +5464,7 @@
         </div>
     </div>
 
+    <script src="data/token_usage.js"></script>
     <script>
         // ==================== 8-BIT PIXEL ART AVATAR SYSTEM ====================
         // Retro pixelated style - prominent features, clean at small sizes
@@ -8191,46 +8163,193 @@ Gate Inheritance:
         // TOKEN USAGE TIMELINE GRAPH + COMMENTARY BOX
         // ================================================================
 
-        // Daily usage data (IST timezone) - stored for timeline
-        const dailyUsageData = {
-            day: [
+        // Build dailyUsageData from TOKEN_DATA (loaded from data/token_usage.js)
+        // Falls back to empty arrays if TOKEN_DATA is not available
+        const dailyUsageData = (function() {
+            const td = (typeof TOKEN_DATA !== 'undefined') ? TOKEN_DATA : null;
+            if (!td || !td.daily || td.daily.length === 0) {
+                return { day: [], week: [], month: [] };
+            }
+
+            const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+            // Convert daily entries: scale tokens to K for the graph bars
+            const allDays = td.daily.map(d => {
+                const dt = new Date(d.date + 'T00:00:00');
+                const dayLabel = dayNames[dt.getDay()];
+                const monthLabel = monthNames[dt.getMonth()];
+                const dayNum = dt.getDate();
+                return {
+                    date: `${monthLabel} ${dayNum}`,
+                    tokens: Math.round(d.tokens / 1000),  // Convert to K for bar chart
+                    label: dayLabel,
+                    labelShort: String(dayNum),
+                    sessions: d.sessions,
+                    messages: d.messages,
+                    tools: d.tools,
+                    rawTokens: d.tokens
+                };
+            });
+
+            // Week = last 7 days of data (or all if fewer)
+            const weekData = allDays.slice(-7).map(d => ({
+                date: d.date, tokens: d.tokens, label: d.label, sessions: d.sessions
+            }));
+
+            // Month = all data
+            const monthData = allDays.map(d => ({
+                date: d.date, tokens: d.tokens, label: d.labelShort, sessions: d.sessions
+            }));
+
+            // Day = distribute today's latest entry across hours (placeholder since stats-cache is daily)
+            const latest = allDays[allDays.length - 1];
+            const dayData = [
                 { date: '6AM', tokens: 0, label: '6AM', sessions: 0 },
-                { date: '8AM', tokens: 40, label: '8AM', sessions: 0 },
-                { date: '10AM', tokens: 180, label: '10AM', sessions: 1 },
-                { date: '12PM', tokens: 320, label: '12PM', sessions: 1 },
-                { date: '2PM', tokens: 580, label: '2PM', sessions: 3 },
-                { date: '4PM', tokens: 420, label: '4PM', sessions: 2 },
-                { date: '6PM', tokens: 350, label: '6PM', sessions: 2 },
-                { date: '8PM', tokens: 280, label: '8PM', sessions: 1 },
-                { date: '10PM', tokens: 150, label: '10PM', sessions: 1 },
-            ],
-            week: [
-                { date: 'Feb 2', tokens: 120, label: 'Sun', sessions: 1 },
-                { date: 'Feb 3', tokens: 280, label: 'Mon', sessions: 2 },
-                { date: 'Feb 4', tokens: 450, label: 'Tue', sessions: 3 },
-                { date: 'Feb 5', tokens: 380, label: 'Wed', sessions: 2 },
-                { date: 'Feb 6', tokens: 520, label: 'Thu', sessions: 3 },
-                { date: 'Feb 7', tokens: 680, label: 'Fri', sessions: 4 },
-                { date: 'Feb 8', tokens: 1500, label: 'Sat', sessions: 6 },
-                { date: 'Feb 9', tokens: 800, label: 'Sun', sessions: 3 },
-            ],
-            month: [
-                { date: 'Jan 27', tokens: 80, label: '27', sessions: 1 },
-                { date: 'Jan 28', tokens: 150, label: '28', sessions: 1 },
-                { date: 'Jan 29', tokens: 60, label: '29', sessions: 1 },
-                { date: 'Jan 30', tokens: 200, label: '30', sessions: 2 },
-                { date: 'Jan 31', tokens: 310, label: '31', sessions: 2 },
-                { date: 'Feb 1', tokens: 90, label: '1', sessions: 1 },
-                { date: 'Feb 2', tokens: 120, label: '2', sessions: 1 },
-                { date: 'Feb 3', tokens: 280, label: '3', sessions: 2 },
-                { date: 'Feb 4', tokens: 450, label: '4', sessions: 3 },
-                { date: 'Feb 5', tokens: 380, label: '5', sessions: 2 },
-                { date: 'Feb 6', tokens: 520, label: '6', sessions: 3 },
-                { date: 'Feb 7', tokens: 680, label: '7', sessions: 4 },
-                { date: 'Feb 8', tokens: 1500, label: '8', sessions: 6 },
-                { date: 'Feb 9', tokens: 800, label: '9', sessions: 3 },
-            ]
-        };
+                { date: '8AM', tokens: Math.round(latest.tokens * 0.05), label: '8AM', sessions: 0 },
+                { date: '10AM', tokens: Math.round(latest.tokens * 0.12), label: '10AM', sessions: 1 },
+                { date: '12PM', tokens: Math.round(latest.tokens * 0.20), label: '12PM', sessions: 1 },
+                { date: '2PM', tokens: Math.round(latest.tokens * 0.25), label: '2PM', sessions: 1 },
+                { date: '4PM', tokens: Math.round(latest.tokens * 0.18), label: '4PM', sessions: 1 },
+                { date: '6PM', tokens: Math.round(latest.tokens * 0.10), label: '6PM', sessions: 0 },
+                { date: '8PM', tokens: Math.round(latest.tokens * 0.07), label: '8PM', sessions: 0 },
+                { date: '10PM', tokens: Math.round(latest.tokens * 0.03), label: '10PM', sessions: 0 },
+            ];
+
+            return { day: dayData, week: weekData, month: monthData };
+        })();
+
+        // ================================================================
+        // TOKEN DATA INITIALIZATION - Populate all token metrics from TOKEN_DATA
+        // ================================================================
+        function initTokenData() {
+            const td = (typeof TOKEN_DATA !== 'undefined') ? TOKEN_DATA : null;
+            if (!td) return;
+
+            const s = td.summary;
+            const fmt = (typeof formatTokens === 'function') ? formatTokens : (n) => n.toLocaleString();
+
+            // --- Top metric cards ---
+            const tokensUsedEl = document.getElementById('tokensUsedValue');
+            if (tokensUsedEl) tokensUsedEl.textContent = fmt(s.totalTokens);
+
+            const sessionsEl = document.getElementById('tokensRemainingValue');
+            if (sessionsEl) sessionsEl.textContent = s.totalSessions + ' / ' + s.projectSessions;
+
+            const avgDailyEl = document.getElementById('avgDailyValue');
+            if (avgDailyEl) avgDailyEl.textContent = '~' + fmt(s.avgDailyTokens);
+
+            const daysLeftEl = document.getElementById('daysLeftValue');
+            if (daysLeftEl && td.billingEstimate) daysLeftEl.textContent = td.billingEstimate.daysRemaining;
+
+            // --- Progress bar ---
+            // For Claude Max there's no hard limit, so show days elapsed in billing cycle
+            const progressText = document.getElementById('tokenProgressText');
+            const progressFill = document.getElementById('tokenProgressFill');
+            if (progressText && td.billingEstimate) {
+                const cycleStart = new Date(td.billingEstimate.cycleStart);
+                const cycleEnd = new Date(td.billingEstimate.cycleEnd);
+                const totalDays = Math.max(1, (cycleEnd - cycleStart) / (1000 * 60 * 60 * 24));
+                const elapsed = totalDays - td.billingEstimate.daysRemaining;
+                const pct = Math.min(100, Math.round((elapsed / totalDays) * 100));
+                progressText.textContent = pct + '% of billing cycle elapsed \u2022 ' + td.billingEstimate.plan;
+                if (progressFill) progressFill.style.width = pct + '%';
+            }
+
+            // --- Last synced timestamp ---
+            const syncEl = document.getElementById('tokenSyncTime');
+            if (syncEl && s.lastUpdated) {
+                const dt = new Date(s.lastUpdated);
+                syncEl.textContent = 'Last synced: ' + dt.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST';
+            }
+
+            // --- Usage Pace Analysis ---
+            const paceEl = document.getElementById('usagePaceContent');
+            if (paceEl) {
+                const avgDaily = fmt(s.avgDailyTokens);
+                const totalMsgs = s.totalMessages.toLocaleString();
+                paceEl.innerHTML = `At current pace of <strong>~${avgDaily} tokens/day</strong> across <strong>${s.daysActive} active days</strong>, the project has consumed <strong>${fmt(s.totalTokens)}</strong> tokens total.<br><br>` +
+                    `<strong>Messages:</strong> ${totalMsgs} \u2022 <strong>Sessions:</strong> ${s.totalSessions} global / ${s.projectSessions} project`;
+            }
+
+            // --- Model Breakdown ---
+            const modelEl = document.getElementById('modelBreakdownContent');
+            if (modelEl && td.byModel) {
+                const totalAll = s.totalTokens || 1;
+                let html = '';
+                // Sort by total descending
+                const models = Object.entries(td.byModel).sort((a, b) => {
+                    const ta = a[1].input + a[1].output + a[1].cacheRead + a[1].cacheCreation;
+                    const tb = b[1].input + b[1].output + b[1].cacheRead + b[1].cacheCreation;
+                    return tb - ta;
+                });
+                models.forEach(([name, u]) => {
+                    const modelTotal = u.input + u.output + u.cacheRead + u.cacheCreation;
+                    const pct = ((modelTotal / totalAll) * 100).toFixed(1);
+                    html += `<div style="margin-bottom: 8px;">` +
+                        `<div style="display: flex; justify-content: space-between; margin-bottom: 3px;">` +
+                        `<strong>${name}</strong> <span style="color: var(--text-tertiary);">${fmt(modelTotal)} (${pct}%)</span></div>` +
+                        `<div style="height: 6px; background: var(--bg-elevated); border-radius: 3px; overflow: hidden;">` +
+                        `<div style="width: ${pct}%; height: 100%; background: linear-gradient(90deg, #0a84ff, #5e5ce6); border-radius: 3px;"></div>` +
+                        `</div></div>`;
+                });
+                modelEl.innerHTML = html;
+            }
+
+            // --- Input vs Output Breakdown ---
+            const ioEl = document.getElementById('inputOutputContent');
+            if (ioEl) {
+                const totalIO = s.inputTokens + s.outputTokens + s.cacheReadTokens + s.cacheCreationTokens || 1;
+                const inputPct = ((s.inputTokens / totalIO) * 100).toFixed(1);
+                const outputPct = ((s.outputTokens / totalIO) * 100).toFixed(1);
+                const cacheReadPct = ((s.cacheReadTokens / totalIO) * 100).toFixed(1);
+                const cacheCreatePct = ((s.cacheCreationTokens / totalIO) * 100).toFixed(1);
+
+                // Avg per message
+                const avgIn = s.totalMessages > 0 ? Math.round(s.inputTokens / s.totalMessages) : 0;
+                const avgOut = s.totalMessages > 0 ? Math.round(s.outputTokens / s.totalMessages) : 0;
+
+                ioEl.innerHTML =
+                    `<div style="margin-bottom: 10px; font-size: 11px; color: var(--text-tertiary);">Token breakdown across ${fmt(totalIO)} total:</div>` +
+                    _barRow('📥 Input (Prompts)', s.inputTokens, inputPct, '#0a84ff', '#5e5ce6') +
+                    _barRow('📤 Output (Responses)', s.outputTokens, outputPct, '#30d158', '#34c759') +
+                    _barRow('💾 Cache Read', s.cacheReadTokens, cacheReadPct, '#ff9f0a', '#ff9500') +
+                    _barRow('🔧 Cache Creation', s.cacheCreationTokens, cacheCreatePct, '#af52de', '#5856d6') +
+                    `<div style="padding-top: 8px; border-top: 1px dashed var(--border); font-size: 11px; color: var(--text-tertiary);">` +
+                    `<strong>Avg per Message:</strong> ~${avgIn} in \u2192 ~${avgOut} out</div>`;
+            }
+
+            // --- Billing Cycle ---
+            const billingEl = document.getElementById('billingCycleContent');
+            if (billingEl && td.billingEstimate) {
+                const b = td.billingEstimate;
+                const startDt = b.cycleStart ? new Date(b.cycleStart + 'T00:00:00') : null;
+                const endDt = b.cycleEnd ? new Date(b.cycleEnd + 'T00:00:00') : null;
+                const startStr = startDt ? startDt.toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' }) : '--';
+                const endStr = endDt ? endDt.toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' }) : '--';
+                const firstSession = s.firstSession ? new Date(s.firstSession).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' }) : '--';
+                billingEl.innerHTML =
+                    `<strong>Plan:</strong> ${b.plan}<br>` +
+                    `<strong>Current Period:</strong> ${startStr} - ${endStr}<br>` +
+                    `<strong>Days Remaining:</strong> ${b.daysRemaining} days<br>` +
+                    `<strong>First Session:</strong> ${firstSession}<br>` +
+                    `<strong>Total Sessions:</strong> ${s.totalSessions} (${s.projectSessions} project JSONL files)<br>` +
+                    `<strong>Note:</strong> ${b.note}`;
+            }
+        }
+
+        // Helper for input/output bar rows
+        function _barRow(label, value, pct, color1, color2) {
+            const fmtFn = (typeof formatTokens === 'function') ? formatTokens : (n) => n.toLocaleString();
+            return `<div style="margin-bottom: 12px;">` +
+                `<div style="display: flex; justify-content: space-between; margin-bottom: 4px;">` +
+                `<span style="font-size: 12px;">${label}</span>` +
+                `<span style="font-size: 12px; font-weight: 600;">${fmtFn(value)} <span style="color: var(--text-tertiary);">(${pct}%)</span></span>` +
+                `</div>` +
+                `<div style="height: 8px; background: var(--bg-elevated); border-radius: 4px; overflow: hidden;">` +
+                `<div style="width: ${Math.max(1, parseFloat(pct))}%; height: 100%; background: linear-gradient(90deg, ${color1}, ${color2}); border-radius: 4px;"></div>` +
+                `</div></div>`;
+        }
 
         let currentUsageTab = 'week';
 
@@ -8318,7 +8437,9 @@ Gate Inheritance:
             const box = document.getElementById('commentaryBox');
             if (!box) return;
 
-            const todayData = dailyUsageData.week[dailyUsageData.week.length - 1];
+            const weekArr = dailyUsageData.week;
+            if (!weekArr || weekArr.length === 0) { box.innerHTML = '<em>No usage data available yet. Run the token data generator.</em>'; return; }
+            const todayData = weekArr[weekArr.length - 1];
             const tokens = todayData.tokens;
             const sessions = todayData.sessions;
 
@@ -8370,6 +8491,7 @@ Gate Inheritance:
 
         // Initialize on load
         setTimeout(() => {
+            initTokenData();
             renderUsageGraph();
             generateCommentary();
         }, 500);

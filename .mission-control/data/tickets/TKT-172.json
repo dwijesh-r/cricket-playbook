@@ -1,0 +1,21 @@
+{
+  "id": "TKT-172",
+  "title": "Export Parquet + View DDL Pipeline",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "progress_pct": 0,
+  "description": "Export all 15 DuckDB tables as ZSTD-compressed Parquet files to scripts/the_lab/dashboard/data/sql_lab/. Export all 52 view DDL statements as a single SQL file (views.sql). Create a generate_sql_lab_data.py script that automates this export pipeline. Include a table_metadata.json with column names, data types, row counts, and human-readable descriptions for each table. This is the data foundation — TKT-B depends on it.",
+  "epic_id": "EPIC-012",
+  "owner": "Brock Purdy",
+  "assignee": "Brock Purdy",
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "P0 data foundation ticket. Exports existing DuckDB tables as Parquet for browser-side consumption. No new data creation — repackaging existing analytics for the paid artifact. Directly enables The Research Desk premium feature.",
+      "approved_by": "Florentino Perez",
+      "date": "2026-02-10"
+    }
+  },
+  "created_at": "2026-02-10T04:25:43.791001Z",
+  "updated_at": "2026-02-10T04:26:07.115644Z"
+}

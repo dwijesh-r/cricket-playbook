@@ -1,0 +1,22 @@
+{
+  "id": "TKT-177",
+  "title": "Natural Language Query Engine",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "progress_pct": 0,
+  "description": "Build a search bar: 'Ask a question about IPL cricket...' User provides Anthropic API key once (stored encrypted in localStorage). Sends schema context + user question to Claude API client-side to generate SQL. Runs generated SQL in DuckDB-WASM. Displays results in a styled widget. Andy Flower insight panel: sends query results back to Claude with Andy Flower persona prompt to generate cricket context and insights. Graceful fallback if no API key — redirects user to Example Queries. Depends on TKT-B, TKT-C, and TKT-E.",
+  "epic_id": "EPIC-012",
+  "owner": "Kevin De Bruyne",
+  "assignee": "Kevin De Bruyne",
+  "llm_required": true,
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "P1 premium AI feature. Natural language to SQL with Andy Flower cricket insights is the headline differentiator. User-supplied API key means zero cost to us. LLM usage approved — client-side only, no server dependency. Graceful fallback ensures feature works without API key.",
+      "approved_by": "Florentino Perez",
+      "date": "2026-02-10"
+    }
+  },
+  "created_at": "2026-02-10T04:25:56.969516Z",
+  "updated_at": "2026-02-10T04:26:18.766565Z"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "TKT-176",
+  "title": "Example Queries Gallery",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "progress_pct": 0,
+  "description": "Curate 15-20 example SQL queries across categories: Batting (career stats, phase analysis, matchups), Bowling (economy, wickets, death overs), Team (squad analysis, predicted XIs), Advanced (clustering, percentiles, benchmarks). Each query has a title, description, and one-click Run button. Organized by difficulty: beginner, intermediate, advanced. Andy Flower provides domain review for cricket accuracy. Depends on TKT-B and TKT-C.",
+  "epic_id": "EPIC-012",
+  "owner": "Stephen Curry",
+  "assignee": "Stephen Curry",
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "P1 engagement feature. Curated example queries showcase the depth of our analytics and serve as templates for user exploration. Demonstrates unique value of the 52-view analytics engine. Stephen Curry + Andy Flower ensure cricket and statistical accuracy.",
+      "approved_by": "Florentino Perez",
+      "date": "2026-02-10"
+    }
+  },
+  "created_at": "2026-02-10T04:25:54.443073Z",
+  "updated_at": "2026-02-10T04:26:15.937417Z"
+}

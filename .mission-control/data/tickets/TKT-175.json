@@ -1,0 +1,21 @@
+{
+  "id": "TKT-175",
+  "title": "Schema Browser Panel",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "progress_pct": 0,
+  "description": "Build a sidebar/panel showing all tables and views. Click to expand and see columns, data types, and row counts. Click a table name to insert it into the SQL editor. Group items by category: dimension tables, fact tables, analytics views. Include search/filter within the schema browser. Consumes table_metadata.json from TKT-A. Depends on TKT-B for runtime and TKT-C for editor integration.",
+  "epic_id": "EPIC-012",
+  "owner": "Kevin De Bruyne",
+  "assignee": "Kevin De Bruyne",
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "P1 discoverability feature. Schema browser lets users explore 15 tables and 52 views without writing SQL first. Lowers barrier to entry and increases engagement with the dataset. Directly improves the paid artifact.",
+      "approved_by": "Florentino Perez",
+      "date": "2026-02-10"
+    }
+  },
+  "created_at": "2026-02-10T04:25:51.664218Z",
+  "updated_at": "2026-02-10T04:26:13.597989Z"
+}

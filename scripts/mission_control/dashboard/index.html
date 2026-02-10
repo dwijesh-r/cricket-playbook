@@ -5267,22 +5267,20 @@
                         <div style="font-size: 9px; color: var(--text-tertiary); margin-top: 4px; text-align: right;" id="tokenSyncTime"></div>
                     </div>
 
-                    <!-- Daily Usage Timeline Graph -->
+                    <!-- Session Activity Timeline -->
                     <div class="token-insight-card" style="margin-top: 12px;">
                         <div class="token-insight-header">
                             <span class="token-insight-icon">📊</span>
-                            <span class="token-insight-title" id="usageGraphTitle">Daily Usage This Week (IST)</span>
+                            <span class="token-insight-title">Session Activity Timeline</span>
                             <div style="display: flex; gap: 4px; margin-left: auto;">
-                                <button onclick="setUsageTab('day')" class="usage-tab" id="tab-day" style="padding: 2px 8px; font-size: 10px; border-radius: 4px; border: 1px solid var(--border); background: transparent; color: var(--text-secondary); cursor: pointer;">Day</button>
-                                <button onclick="setUsageTab('week')" class="usage-tab active" id="tab-week" style="padding: 2px 8px; font-size: 10px; border-radius: 4px; border: 1px solid var(--border); background: var(--accent-blue); color: white; cursor: pointer;">Week</button>
-                                <button onclick="setUsageTab('month')" class="usage-tab" id="tab-month" style="padding: 2px 8px; font-size: 10px; border-radius: 4px; border: 1px solid var(--border); background: transparent; color: var(--text-secondary); cursor: pointer;">Month</button>
+                                <button onclick="setUsageMetric('messages')" class="usage-tab active" id="tab-messages" style="padding: 2px 8px; font-size: 10px; border-radius: 4px; border: 1px solid var(--border); background: var(--accent-blue); color: white; cursor: pointer;">Messages</button>
+                                <button onclick="setUsageMetric('tokens')" class="usage-tab" id="tab-tokens" style="padding: 2px 8px; font-size: 10px; border-radius: 4px; border: 1px solid var(--border); background: transparent; color: var(--text-secondary); cursor: pointer;">Tokens</button>
+                                <button onclick="setUsageMetric('tools')" class="usage-tab" id="tab-tools" style="padding: 2px 8px; font-size: 10px; border-radius: 4px; border: 1px solid var(--border); background: transparent; color: var(--text-secondary); cursor: pointer;">Tools</button>
                             </div>
                         </div>
                         <div class="token-insight-content">
-                            <div id="usageGraphContainer" style="position: relative; height: 120px; margin: 8px 0;">
-                                <canvas id="usageGraph" style="width: 100%; height: 100%;"></canvas>
-                            </div>
-                            <div id="usageGraphLabels" style="display: flex; justify-content: space-between; font-size: 9px; color: var(--text-tertiary); padding: 0 4px;"></div>
+                            <div id="activityTimeline" style="padding: 4px 0;"></div>
+                            <div id="activitySummary" style="display: flex; justify-content: space-between; padding-top: 8px; border-top: 1px dashed var(--border); font-size: 10px; color: var(--text-tertiary); margin-top: 8px;"></div>
                         </div>
                     </div>
 
@@ -8192,61 +8190,29 @@ Gate Inheritance:
         // TOKEN USAGE TIMELINE GRAPH + COMMENTARY BOX
         // ================================================================
 
-        // Build dailyUsageData from TOKEN_DATA (loaded from data/token_usage.js)
-        // Falls back to empty arrays if TOKEN_DATA is not available
-        const dailyUsageData = (function() {
+        // Build activity data from TOKEN_DATA (loaded from data/token_usage.js)
+        const activityData = (function() {
             const td = (typeof TOKEN_DATA !== 'undefined') ? TOKEN_DATA : null;
-            if (!td || !td.daily || td.daily.length === 0) {
-                return { day: [], week: [], month: [] };
-            }
+            if (!td || !td.daily || td.daily.length === 0) return [];
 
             const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
             const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-            // Convert daily entries: scale tokens to K for the graph bars
-            const allDays = td.daily.map(d => {
+            return td.daily.map(d => {
                 const dt = new Date(d.date + 'T00:00:00');
-                const dayLabel = dayNames[dt.getDay()];
-                const monthLabel = monthNames[dt.getMonth()];
-                const dayNum = dt.getDate();
                 return {
-                    date: `${monthLabel} ${dayNum}`,
-                    tokens: Math.round(d.tokens / 1000),  // Convert to K for bar chart
-                    label: dayLabel,
-                    labelShort: String(dayNum),
-                    sessions: d.sessions,
+                    dateStr: `${monthNames[dt.getMonth()]} ${dt.getDate()}`,
+                    dayName: dayNames[dt.getDay()],
                     messages: d.messages,
+                    sessions: d.sessions,
                     tools: d.tools,
-                    rawTokens: d.tokens
+                    tokens: d.tokens
                 };
             });
-
-            // Week = last 7 days of data (or all if fewer)
-            const weekData = allDays.slice(-7).map(d => ({
-                date: d.date, tokens: d.tokens, label: d.label, sessions: d.sessions
-            }));
-
-            // Month = all data
-            const monthData = allDays.map(d => ({
-                date: d.date, tokens: d.tokens, label: d.labelShort, sessions: d.sessions
-            }));
-
-            // Day = distribute today's latest entry across hours (placeholder since stats-cache is daily)
-            const latest = allDays[allDays.length - 1];
-            const dayData = [
-                { date: '6AM', tokens: 0, label: '6AM', sessions: 0 },
-                { date: '8AM', tokens: Math.round(latest.tokens * 0.05), label: '8AM', sessions: 0 },
-                { date: '10AM', tokens: Math.round(latest.tokens * 0.12), label: '10AM', sessions: 1 },
-                { date: '12PM', tokens: Math.round(latest.tokens * 0.20), label: '12PM', sessions: 1 },
-                { date: '2PM', tokens: Math.round(latest.tokens * 0.25), label: '2PM', sessions: 1 },
-                { date: '4PM', tokens: Math.round(latest.tokens * 0.18), label: '4PM', sessions: 1 },
-                { date: '6PM', tokens: Math.round(latest.tokens * 0.10), label: '6PM', sessions: 0 },
-                { date: '8PM', tokens: Math.round(latest.tokens * 0.07), label: '8PM', sessions: 0 },
-                { date: '10PM', tokens: Math.round(latest.tokens * 0.03), label: '10PM', sessions: 0 },
-            ];
-
-            return { day: dayData, week: weekData, month: monthData };
         })();
+
+        // Keep backward compat for Commentary Box
+        const dailyUsageData = { week: activityData.map(d => ({ date: d.dateStr, tokens: Math.round(d.tokens / 1000), label: d.dayName, sessions: d.sessions })) };
 
         // ================================================================
         // TOKEN DATA INITIALIZATION - Populate all token metrics from TOKEN_DATA
@@ -8380,85 +8346,98 @@ Gate Inheritance:
                 `</div></div>`;
         }
 
-        let currentUsageTab = 'week';
+        let currentMetric = 'messages';
 
-        function setUsageTab(tab) {
-            currentUsageTab = tab;
+        function setUsageMetric(metric) {
+            currentMetric = metric;
             document.querySelectorAll('.usage-tab').forEach(t => {
                 t.style.background = 'transparent';
                 t.style.color = 'var(--text-secondary)';
             });
-            const activeTab = document.getElementById('tab-' + tab);
+            const activeTab = document.getElementById('tab-' + metric);
             if (activeTab) {
                 activeTab.style.background = 'var(--accent-blue)';
                 activeTab.style.color = 'white';
             }
-            const titleEl = document.getElementById('usageGraphTitle');
-            if (titleEl) {
-                const titles = {
-                    day: 'Hourly Usage Today (IST)',
-                    week: 'Daily Usage This Week (IST)',
-                    month: 'Daily Usage This Month (IST)'
-                };
-                titleEl.textContent = titles[tab] || 'Usage Timeline (IST)';
-            }
-            renderUsageGraph();
+            renderActivityTimeline();
         }
 
-        function renderUsageGraph() {
-            const canvas = document.getElementById('usageGraph');
-            const labelsEl = document.getElementById('usageGraphLabels');
-            if (!canvas || !labelsEl) return;
+        function renderActivityTimeline() {
+            const container = document.getElementById('activityTimeline');
+            const summaryEl = document.getElementById('activitySummary');
+            if (!container || !activityData.length) {
+                if (container) container.innerHTML = '<div style="text-align: center; color: var(--text-tertiary); font-size: 11px; padding: 20px;">No activity data. Run: python scripts/mission_control/generate_token_data.py</div>';
+                return;
+            }
 
-            const ctx = canvas.getContext('2d');
-            const data = dailyUsageData[currentUsageTab];
-            const container = canvas.parentElement;
+            const metric = currentMetric;
+            const maxVal = Math.max(...activityData.map(d => d[metric]));
+            const fmt = (typeof formatTokens === 'function') ? formatTokens : (n) => n.toLocaleString();
 
-            // Set canvas size for retina
-            canvas.width = container.offsetWidth * 2;
-            canvas.height = container.offsetHeight * 2;
-            canvas.style.width = container.offsetWidth + 'px';
-            canvas.style.height = container.offsetHeight + 'px';
-            ctx.scale(2, 2);
+            // Color gradient based on relative intensity
+            function barColor(val) {
+                const pct = val / maxVal;
+                if (pct > 0.75) return { bg: 'linear-gradient(90deg, #ff453a, #ff6961)', tag: 'Peak', tagColor: '#ff453a' };
+                if (pct > 0.45) return { bg: 'linear-gradient(90deg, #ff9f0a, #ffb340)', tag: 'High', tagColor: '#ff9f0a' };
+                if (pct > 0.2)  return { bg: 'linear-gradient(90deg, #0a84ff, #409cff)', tag: '', tagColor: '' };
+                return { bg: 'linear-gradient(90deg, #30d158, #63d97c)', tag: '', tagColor: '' };
+            }
 
-            const w = container.offsetWidth;
-            const h = container.offsetHeight;
-            const padding = { top: 10, bottom: 5, left: 5, right: 5 };
+            // Format value based on metric
+            function fmtVal(val) {
+                if (metric === 'tokens') return fmt(val);
+                return val.toLocaleString();
+            }
 
-            ctx.clearRect(0, 0, w, h);
+            // Metric labels
+            const metricLabel = { messages: 'msgs', tokens: 'tokens', tools: 'tool calls' }[metric];
 
-            const maxTokens = Math.max(...data.map(d => d.tokens)) * 1.15;
-            const barWidth = (w - padding.left - padding.right) / data.length - 4;
+            let html = '';
+            activityData.forEach((d, i) => {
+                const val = d[metric];
+                const pct = Math.max(3, (val / maxVal) * 100);
+                const color = barColor(val);
+                const isMax = val === maxVal;
 
-            data.forEach((d, i) => {
-                const x = padding.left + i * ((w - padding.left - padding.right) / data.length) + 2;
-                const barHeight = (d.tokens / maxTokens) * (h - padding.top - padding.bottom);
-                const y = h - padding.bottom - barHeight;
+                html += `<div style="display: flex; align-items: center; gap: 8px; margin-bottom: ${i < activityData.length - 1 ? '10' : '0'}px; position: relative;" class="activity-row">`;
 
-                // Bar color based on usage intensity
-                let color;
-                if (d.tokens > 700) color = '#ff453a';       // Heavy (red)
-                else if (d.tokens > 400) color = '#ff9f0a';   // High (orange)
-                else if (d.tokens > 200) color = '#0a84ff';   // Moderate (blue)
-                else color = '#30d158';                        // Light (green)
+                // Date column (fixed width)
+                html += `<div style="min-width: 62px; text-align: right;">`;
+                html += `<div style="font-size: 11px; font-weight: 600; color: var(--text-primary);">${d.dateStr}</div>`;
+                html += `<div style="font-size: 9px; color: var(--text-tertiary);">${d.dayName}</div>`;
+                html += `</div>`;
 
-                // Draw bar with rounded top
-                ctx.beginPath();
-                ctx.roundRect(x, y, barWidth, barHeight, [3, 3, 0, 0]);
-                ctx.fillStyle = color;
-                ctx.globalAlpha = 0.85;
-                ctx.fill();
-                ctx.globalAlpha = 1;
+                // Bar + value
+                html += `<div style="flex: 1; position: relative;">`;
+                html += `<div style="display: flex; align-items: center; gap: 6px;">`;
+                html += `<div style="flex: 1; height: 22px; background: var(--bg-elevated); border-radius: 6px; overflow: hidden; position: relative;">`;
+                html += `<div style="width: ${pct}%; height: 100%; background: ${color.bg}; border-radius: 6px; transition: width 0.4s ease;"></div>`;
+                html += `</div>`;
+                html += `<div style="min-width: 55px; text-align: right; font-size: 11px; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--text-primary);">${fmtVal(val)}</div>`;
+                html += `</div>`;
 
-                // Token count label on top
-                ctx.fillStyle = 'var(--text-secondary)' === 'var(--text-secondary)' ? '#8e8e93' : '#8e8e93';
-                ctx.font = '9px -apple-system, system-ui, sans-serif';
-                ctx.textAlign = 'center';
-                ctx.fillText(d.tokens + 'K', x + barWidth / 2, y - 3);
+                // Sub-stats row
+                const subParts = [];
+                if (metric !== 'messages') subParts.push(`${d.messages.toLocaleString()} msgs`);
+                if (metric !== 'tools') subParts.push(`${d.tools.toLocaleString()} tools`);
+                subParts.push(`${d.sessions} session${d.sessions !== 1 ? 's' : ''}`);
+                if (metric !== 'tokens') subParts.push(`${fmt(d.tokens)} tokens`);
+                html += `<div style="font-size: 9px; color: var(--text-tertiary); margin-top: 2px;">${subParts.join(' · ')}${color.tag ? ` <span style="color: ${color.tagColor}; font-weight: 600;">● ${color.tag}</span>` : ''}</div>`;
+
+                html += `</div>`;
+                html += `</div>`;
             });
 
-            // Render labels
-            labelsEl.innerHTML = data.map(d => `<span>${d.label}</span>`).join('');
+            container.innerHTML = html;
+
+            // Summary bar
+            if (summaryEl) {
+                const totalMsgs = activityData.reduce((s, d) => s + d.messages, 0);
+                const totalTools = activityData.reduce((s, d) => s + d.tools, 0);
+                const totalTokens = activityData.reduce((s, d) => s + d.tokens, 0);
+                const totalSessions = activityData.reduce((s, d) => s + d.sessions, 0);
+                summaryEl.innerHTML = `<span>${activityData.length} active days</span><span>${totalMsgs.toLocaleString()} total msgs</span><span>${totalTools.toLocaleString()} tool calls</span><span>${totalSessions} sessions</span>`;
+            }
         }
 
         // The Commentary Box - Fun descriptions based on daily usage
@@ -8521,12 +8500,12 @@ Gate Inheritance:
         // Initialize on load
         setTimeout(() => {
             initTokenData();
-            renderUsageGraph();
+            renderActivityTimeline();
             generateCommentary();
         }, 500);
 
         // Redraw graph on window resize
-        window.addEventListener('resize', () => { renderUsageGraph(); renderRosterHero(); });
+        window.addEventListener('resize', () => { renderActivityTimeline(); renderRosterHero(); });
 
         // Workflow data with owners for dynamic rendering with avatars
         const workflows = [

@@ -196,7 +196,21 @@ Date: [YYYY-MM-DD]
 ## Step 5: Commit and Ship
 
 **Owner:** Assigned Agent
-**Action:** Merge to main branch
+**Action:** Merge feature branch to main via Pull Request
+
+### Branching Standard (Mandatory)
+
+All ticket work MUST use feature branches. Never commit multi-file or ticket work directly to `main`.
+
+1. Create branch: `git checkout -b feature/TKT-xxx-description`
+2. Do work, commit on branch
+3. Push and open PR: `gh pr create --title "TKT-xxx: Description"`
+4. CI runs automatically on PR
+5. Merge after checks pass, delete branch
+
+**Branch naming:** `feature/TKT-xxx-*`, `fix/TKT-xxx-*`, `data/*`, `docs/*`, `hotfix/*`
+
+**Exceptions (direct to main):** Single-line typos, config-only changes, emergency workflow fixes.
 
 ### Commit Requirements
 

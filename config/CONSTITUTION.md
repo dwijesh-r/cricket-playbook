@@ -204,7 +204,13 @@ Three agents answer one focused question each (Yes/No/Fix only):
 
 #### Step 5: Commit and Ship
 - **Owner:** Assigned Agent
-- **Action:** Merge to main branch
+- **Action:** Merge feature branch to main via Pull Request
+- **Branching Standard (Mandatory):**
+  - All ticket work MUST use feature branches: `feature/TKT-xxx-description`
+  - Branch naming: `feature/TKT-xxx-*`, `fix/TKT-xxx-*`, `data/*`, `docs/*`, `hotfix/*`
+  - Push branch → open PR (`gh pr create --title "TKT-xxx: Description"`) → CI passes → merge → delete branch
+  - **Exceptions (direct to main):** Single-line typos, config-only changes, emergency workflow fixes
+  - Never commit multi-file or ticket work directly to `main`
 
 #### Step 6: Post Task Note
 - **Owner:** Assigned Agent

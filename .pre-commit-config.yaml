@@ -16,10 +16,10 @@ repos:
       - id: check-yaml
       # Large file prevention (P3-03)
       # Blocks files > 500KB to prevent accidental CSV/DuckDB commits
-      # Whitelisted: *.md, *.pdf (documentation can be large)
+      # Whitelisted: *.md, *.pdf (documentation), *.parquet (SQL Lab data)
       - id: check-added-large-files
         args: ['--maxkb=500']
-        exclude: '\.(md|pdf)$'
+        exclude: '\.(md|pdf|parquet)$'
 
   # Custom naming convention hook (P3-01)
   # Validates document naming: documentname_MMDDYY_v*.md/pdf

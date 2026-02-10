@@ -1479,6 +1479,25 @@ LIMIT 20;</textarea>
         </div>
     </div>
 
+    <!-- Safety timeout: if module fails to load, show error instead of infinite spinner -->
+    <script>
+        window._filmRoomReady = false;
+        setTimeout(function() {
+            if (!window._filmRoomReady) {
+                var overlay = document.getElementById('loading-overlay');
+                var progressText = document.getElementById('loading-progress-text');
+                if (overlay && !overlay.classList.contains('hidden')) {
+                    if (progressText) progressText.textContent = 'Loading timed out — a CDN dependency may be unreachable. Check browser console (F12) for details.';
+                    var btn = document.createElement('button');
+                    btn.textContent = 'Dismiss & Browse Page';
+                    btn.style.cssText = 'margin-top:16px;padding:10px 24px;border-radius:8px;background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:13px;font-weight:600;';
+                    btn.onclick = function() { overlay.classList.add('hidden'); };
+                    overlay.querySelector('.loading-steps').insertAdjacentElement('afterend', btn);
+                }
+            }
+        }, 25000);
+    </script>
+
     <!-- Main Application Module (TKT-173 DuckDB + TKT-174 CodeMirror & Enhancements) -->
     <script type="module">
         /* ==================== THEME ==================== */
@@ -1527,14 +1546,45 @@ LIMIT 20;</textarea>
         setInterval(updateTime, 1000);
 
         /* ==================== CODEMIRROR 6 INTEGRATION (TKT-174) ==================== */
-        import {EditorView, keymap, lineNumbers, highlightActiveLine, highlightActiveLineGutter, drawSelection, placeholder} from 'https://cdn.jsdelivr.net/npm/@codemirror/view@6.35.2/+esm';
-        import {EditorState, Compartment} from 'https://cdn.jsdelivr.net/npm/@codemirror/state@6.5.2/+esm';
-        import {defaultKeymap, indentWithTab, history, historyKeymap} from 'https://cdn.jsdelivr.net/npm/@codemirror/commands@6.7.1/+esm';
-        import {sql, StandardSQL} from 'https://cdn.jsdelivr.net/npm/@codemirror/lang-sql@6.8.0/+esm';
-        import {syntaxHighlighting, HighlightStyle, bracketMatching, foldGutter} from 'https://cdn.jsdelivr.net/npm/@codemirror/language@6.10.8/+esm';
-        import {tags} from 'https://cdn.jsdelivr.net/npm/@lezer/highlight@1.2.1/+esm';
-        import {autocompletion, completionKeymap, closeBrackets, closeBracketsKeymap} from 'https://cdn.jsdelivr.net/npm/@codemirror/autocomplete@6.18.6/+esm';
-        import {searchKeymap, highlightSelectionMatches} from 'https://cdn.jsdelivr.net/npm/@codemirror/search@6.5.8/+esm';
+        /* Dynamic imports — if any CDN fails, page still works with textarea fallback */
+        let EditorView, cmKeymap, lineNumbers, highlightActiveLine, highlightActiveLineGutter, drawSelection, cmPlaceholder;
+        let EditorState, Compartment;
+        let defaultKeymap, indentWithTab, cmHistory, historyKeymap;
+        let cmSql, StandardSQL;
+        let syntaxHighlighting, HighlightStyle, bracketMatching, foldGutter;
+        let tags;
+        let autocompletion, completionKeymap, closeBrackets, closeBracketsKeymap;
+        let searchKeymap, highlightSelectionMatches;
+        let cmLoaded = false;
+
+        try {
+            const [viewMod, stateMod, cmdMod, sqlMod, langMod, hlMod, acMod, searchMod] = await Promise.all([
+                import('https://cdn.jsdelivr.net/npm/@codemirror/view@6.35.2/+esm'),
+                import('https://cdn.jsdelivr.net/npm/@codemirror/state@6.5.2/+esm'),
+                import('https://cdn.jsdelivr.net/npm/@codemirror/commands@6.7.1/+esm'),
+                import('https://cdn.jsdelivr.net/npm/@codemirror/lang-sql@6.8.0/+esm'),
+                import('https://cdn.jsdelivr.net/npm/@codemirror/language@6.10.8/+esm'),
+                import('https://cdn.jsdelivr.net/npm/@lezer/highlight@1.2.1/+esm'),
+                import('https://cdn.jsdelivr.net/npm/@codemirror/autocomplete@6.18.6/+esm'),
+                import('https://cdn.jsdelivr.net/npm/@codemirror/search@6.5.8/+esm'),
+            ]);
+
+            ({ EditorView, keymap: cmKeymap, lineNumbers, highlightActiveLine, highlightActiveLineGutter, drawSelection, placeholder: cmPlaceholder } = viewMod);
+            ({ EditorState, Compartment } = stateMod);
+            ({ defaultKeymap, indentWithTab, history: cmHistory, historyKeymap } = cmdMod);
+            ({ sql: cmSql, StandardSQL } = sqlMod);
+            ({ syntaxHighlighting, HighlightStyle, bracketMatching, foldGutter } = langMod);
+            ({ tags } = hlMod);
+            ({ autocompletion, completionKeymap, closeBrackets, closeBracketsKeymap } = acMod);
+            ({ searchKeymap, highlightSelectionMatches } = searchMod);
+            cmLoaded = true;
+            console.log('CodeMirror 6 loaded successfully');
+        } catch (cmErr) {
+            console.warn('CodeMirror failed to load — using textarea fallback:', cmErr);
+        }
+
+        // ---- CodeMirror setup (only if CDN loaded) ----
+        if (cmLoaded) {
 
         // ---- Custom dark theme matching CSS vars ----
         const cmDarkTheme = EditorView.theme({
@@ -1673,7 +1723,7 @@ LIMIT 20;</textarea>
         }
 
         // ---- Custom keybindings (TKT-174) ----
-        const customKeymap = keymap.of([
+        const customKeymap = cmKeymap.of([
             { key: 'Mod-Enter', run: () => { window.executeQuery(); return true; } },
             { key: 'Mod-l', run: () => { clearEditor(); return true; }, preventDefault: true },
             { key: 'Mod-/', run: (view) => toggleLineComment(view) },
@@ -1691,14 +1741,14 @@ LIMIT 20;</textarea>
                     bracketMatching(),
                     foldGutter(),
                     closeBrackets(),
-                    history(),
+                    cmHistory(),
                     highlightSelectionMatches(),
                     themeCompartment.of(isDark ? cmDarkTheme : cmLightTheme),
                     highlightCompartment.of(syntaxHighlighting(isDark ? darkHighlightStyle : lightHighlightStyle)),
-                    sql({ dialect: StandardSQL, schema: schemaSpec, upperCaseKeywords: false }),
+                    cmSql({ dialect: StandardSQL, schema: schemaSpec, upperCaseKeywords: false }),
                     autocompletion({ activateOnTyping: true, maxRenderedOptions: 30 }),
                     customKeymap,
-                    keymap.of([
+                    cmKeymap.of([
                         ...closeBracketsKeymap,
                         ...defaultKeymap,
                         ...historyKeymap,
@@ -1706,7 +1756,7 @@ LIMIT 20;</textarea>
                         ...searchKeymap,
                         indentWithTab,
                     ]),
-                    placeholder('-- Write your SQL query here...\n-- Example: SELECT * FROM analytics_ipl_batting_career LIMIT 10;'),
+                    cmPlaceholder('-- Write your SQL query here...\n-- Example: SELECT * FROM analytics_ipl_batting_career LIMIT 10;'),
                     EditorView.lineWrapping,
                 ],
             }),
@@ -1722,6 +1772,8 @@ LIMIT 20;</textarea>
         window._cmLightTheme = cmLightTheme;
         window._cmDarkHighlight = syntaxHighlighting(darkHighlightStyle);
         window._cmLightHighlight = syntaxHighlighting(lightHighlightStyle);
+
+        } // end if (cmLoaded)
 
         // Helper: get SQL from CodeMirror (falls back to textarea)
         function getEditorSQL() {
@@ -2002,7 +2054,15 @@ LIMIT 20;</textarea>
         }
 
         /* ==================== DuckDB-WASM INITIALIZATION (TKT-173) ==================== */
-        import * as duckdb from 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.29.0/+esm';
+        let duckdb;
+        try {
+            duckdb = await import('https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.29.0/+esm');
+            console.log('DuckDB-WASM loaded successfully');
+        } catch (duckErr) {
+            console.error('DuckDB-WASM failed to load:', duckErr);
+            document.getElementById('loading-progress-text').textContent =
+                'Failed to load the analytics engine: ' + duckErr.message;
+        }
 
         // Global state
         let db = null;
@@ -3379,7 +3439,20 @@ LIMIT 20;</textarea>
         nlInput.placeholder = "Ask: 'top batsmen', 'Kohli stats', 'CSK squad', 'best death bowlers', 'Kohli vs MI'...";
 
         /* ==================== START INITIALIZATION ==================== */
-        initDuckDB();
+        if (duckdb) {
+            initDuckDB();
+        } else {
+            const overlay = document.getElementById('loading-overlay');
+            const progressText = document.getElementById('loading-progress-text');
+            if (progressText) progressText.textContent = 'Analytics engine failed to load. Try refreshing or check your network.';
+            const btn = document.createElement('button');
+            btn.textContent = 'Dismiss & Browse Page';
+            btn.style.cssText = 'margin-top:16px;padding:10px 24px;border-radius:8px;background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:13px;font-weight:600;';
+            btn.onclick = () => overlay.classList.add('hidden');
+            overlay.querySelector('.loading-steps').insertAdjacentElement('afterend', btn);
+        }
+
+        window._filmRoomReady = true; // Signal to safety timeout
     </script>
 
     <!-- Navigation Guide Button -->

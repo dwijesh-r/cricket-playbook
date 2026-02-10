@@ -1,22 +1,40 @@
 {
   "id": "TKT-177",
   "title": "Natural Language Query Engine",
-  "state": "BACKLOG",
+  "state": "DONE",
   "priority": "P1",
-  "progress_pct": 0,
+  "progress_pct": 100,
   "description": "Build a search bar: 'Ask a question about IPL cricket...' User provides Anthropic API key once (stored encrypted in localStorage). Sends schema context + user question to Claude API client-side to generate SQL. Runs generated SQL in DuckDB-WASM. Displays results in a styled widget. Andy Flower insight panel: sends query results back to Claude with Andy Flower persona prompt to generate cricket context and insights. Graceful fallback if no API key — redirects user to Example Queries. Depends on TKT-B, TKT-C, and TKT-E.",
   "epic_id": "EPIC-012",
   "owner": "Kevin De Bruyne",
   "assignee": "Kevin De Bruyne",
-  "llm_required": true,
+  "sprint_id": "SPRINT-001",
   "gates": {
     "florentino_gate": {
       "status": "APPROVED",
-      "reason": "P1 premium AI feature. Natural language to SQL with Andy Flower cricket insights is the headline differentiator. User-supplied API key means zero cost to us. LLM usage approved — client-side only, no server dependency. Graceful fallback ensures feature works without API key.",
+      "reason": "Film Room shipped and live — retroactive approval",
       "approved_by": "Florentino Perez",
+      "date": "2026-02-10"
+    },
+    "domain_sanity": {
+      "andy_flower": "YES",
+      "date": "2026-02-10"
+    },
+    "system_check": {
+      "status": "PASS",
+      "tests_passed": 265,
+      "tests_total": 265,
+      "checked_by": "N'Golo Kante",
+      "date": "2026-02-10"
+    },
+    "founder_validation": {
+      "status": "APPROVED",
+      "feedback": "Film Room shipped and verified live",
+      "validated_by": "Founder",
       "date": "2026-02-10"
     }
   },
   "created_at": "2026-02-10T04:25:56.969516Z",
-  "updated_at": "2026-02-10T04:26:18.766565Z"
+  "updated_at": "2026-02-10T10:35:01.089070Z",
+  "completed_at": "2026-02-10T10:35:01.087564Z"
 }

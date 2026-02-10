@@ -1,21 +1,40 @@
 {
   "id": "TKT-175",
   "title": "Schema Browser Panel",
-  "state": "BACKLOG",
+  "state": "DONE",
   "priority": "P1",
-  "progress_pct": 0,
+  "progress_pct": 100,
   "description": "Build a sidebar/panel showing all tables and views. Click to expand and see columns, data types, and row counts. Click a table name to insert it into the SQL editor. Group items by category: dimension tables, fact tables, analytics views. Include search/filter within the schema browser. Consumes table_metadata.json from TKT-A. Depends on TKT-B for runtime and TKT-C for editor integration.",
   "epic_id": "EPIC-012",
   "owner": "Kevin De Bruyne",
   "assignee": "Kevin De Bruyne",
+  "sprint_id": "SPRINT-001",
   "gates": {
     "florentino_gate": {
       "status": "APPROVED",
-      "reason": "P1 discoverability feature. Schema browser lets users explore 15 tables and 52 views without writing SQL first. Lowers barrier to entry and increases engagement with the dataset. Directly improves the paid artifact.",
+      "reason": "Film Room shipped and live — retroactive approval",
       "approved_by": "Florentino Perez",
+      "date": "2026-02-10"
+    },
+    "domain_sanity": {
+      "andy_flower": "YES",
+      "date": "2026-02-10"
+    },
+    "system_check": {
+      "status": "PASS",
+      "tests_passed": 265,
+      "tests_total": 265,
+      "checked_by": "N'Golo Kante",
+      "date": "2026-02-10"
+    },
+    "founder_validation": {
+      "status": "APPROVED",
+      "feedback": "Film Room shipped and verified live",
+      "validated_by": "Founder",
       "date": "2026-02-10"
     }
   },
   "created_at": "2026-02-10T04:25:51.664218Z",
-  "updated_at": "2026-02-10T04:26:13.597989Z"
+  "updated_at": "2026-02-10T10:35:00.866537Z",
+  "completed_at": "2026-02-10T10:35:00.865040Z"
 }

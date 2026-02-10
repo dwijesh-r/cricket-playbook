@@ -1239,27 +1239,27 @@
 
     <!-- Loading Overlay (TKT-173 will wire up actual logic) -->
     <div class="loading-overlay" id="loading-overlay">
-        <div class="loading-icon">🔬</div>
-        <div class="loading-title">Initializing The Film Room</div>
-        <div class="loading-subtitle">Loading DuckDB-WASM engine...</div>
+        <div class="loading-icon">🎬</div>
+        <div class="loading-title">Setting Up The Film Room</div>
+        <div class="loading-subtitle">Cuing up the game tape...</div>
         <div class="loading-progress-container">
             <div class="loading-progress-bar">
                 <div class="loading-progress-fill" id="loading-progress" style="width: 0%"></div>
             </div>
-            <div class="loading-progress-text" id="loading-progress-text">Preparing environment...</div>
+            <div class="loading-progress-text" id="loading-progress-text">Coach is grabbing the remote...</div>
         </div>
         <div class="loading-steps">
             <div class="loading-step active" id="step-engine">
-                <span class="check">...</span> Loading DuckDB-WASM engine
+                <span class="check">...</span> Firing up the analytics engine
             </div>
             <div class="loading-step" id="step-tables">
-                <span class="check">...</span> Importing 15 base tables
+                <span class="check">...</span> Loading 15 scouting reports
             </div>
             <div class="loading-step" id="step-views">
-                <span class="check">...</span> Registering 52 analytics views
+                <span class="check">...</span> Building 52 play diagrams
             </div>
             <div class="loading-step" id="step-ready">
-                <span class="check">...</span> The Film Room ready
+                <span class="check">...</span> Film Room ready — play ball
             </div>
         </div>
     </div>
@@ -1308,8 +1308,8 @@
                 "Where coaches break down the game, one query at a time"
             </p>
             <p class="page-subtitle">
-                Your interactive cricket analytics workbench. Query 2.38M rows of ball-by-ball data,
-                explore 52 pre-built analytics views, and uncover insights across all IPL history.
+                Every delivery. Every match. Every season. Pull up the tape on any player, team, or matchup
+                across IPL history. The playbook is open — run your own plays.
             </p>
         </header>
 
@@ -1467,17 +1467,15 @@ LIMIT 20;</textarea>
         <div class="status-bar-left">
             <div class="status-indicator">
                 <span class="status-dot loading" id="status-dot"></span>
-                <span id="status-text">Initializing...</span>
+                <span id="status-text">Setting up...</span>
             </div>
         </div>
         <div class="status-bar-right">
-            <span>15 tables</span>
+            <span>15 scouting reports</span>
             <span>&middot;</span>
-            <span>52 views</span>
+            <span>52 play diagrams</span>
             <span>&middot;</span>
-            <span>2.38M rows</span>
-            <span>&middot;</span>
-            <span>~15MB</span>
+            <span>Every IPL delivery</span>
         </div>
     </div>
 
@@ -2066,7 +2064,7 @@ LIMIT 20;</textarea>
         async function initDuckDB() {
             try {
                 setLoadingStep('step-engine', 'active');
-                setProgress(5, 'Initializing DuckDB engine...');
+                setProgress(5, 'Warming up the analytics engine...');
 
                 const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();
                 const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);
@@ -2078,13 +2076,22 @@ LIMIT 20;</textarea>
                 const worker = new Worker(worker_url);
                 const logger = new duckdb.ConsoleLogger();
                 db = new duckdb.AsyncDuckDB(logger, worker);
-                await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
+
+                // SharedArrayBuffer requires COOP/COEP headers (not available on GitHub Pages)
+                // Fall back to single-threaded mode gracefully
+                const hasSAB = typeof SharedArrayBuffer !== 'undefined';
+                try {
+                    await db.instantiate(bundle.mainModule, hasSAB ? bundle.pthreadWorker : null);
+                } catch (instantiateErr) {
+                    console.warn('Multi-threaded init failed, falling back to single-threaded:', instantiateErr.message);
+                    await db.instantiate(bundle.mainModule);
+                }
                 URL.revokeObjectURL(worker_url);
 
                 conn = await db.connect();
 
                 setLoadingStep('step-engine', 'done');
-                setProgress(20, 'DuckDB engine ready');
+                setProgress(20, 'Engine ready — loading the scouting data...');
 
                 setLoadingStep('step-tables', 'active');
                 const basePath = 'data/sql_lab/tables/';
@@ -2093,7 +2100,7 @@ LIMIT 20;</textarea>
                     const tableName = TABLE_FILES[i];
                     const filePath = basePath + tableName + '.parquet';
                     const pct = 20 + Math.round(((i + 1) / TABLE_FILES.length) * 50);
-                    setProgress(pct, `Loading ${tableName}... ${i + 1}/${TABLE_FILES.length}`);
+                    setProgress(pct, `Scouting ${tableName.replace(/_/g, ' ')}... ${i + 1}/${TABLE_FILES.length}`);
 
                     try {
                         const response = await fetch(filePath);
@@ -2110,10 +2117,10 @@ LIMIT 20;</textarea>
                 }
 
                 setLoadingStep('step-tables', 'done');
-                setProgress(70, `${TABLE_FILES.length} tables loaded (${formatRowCount(totalRowsLoaded)} rows)`);
+                setProgress(70, `All scouting reports loaded — ${formatRowCount(totalRowsLoaded)} data points`);
 
                 setLoadingStep('step-views', 'active');
-                setProgress(72, 'Creating 52 analytics views...');
+                setProgress(72, 'Drawing up the play diagrams...');
 
                 let viewsCreated = 0;
                 let viewsFailed = 0;
@@ -2137,7 +2144,7 @@ LIMIT 20;</textarea>
                         }
                         if (i % 5 === 0) {
                             const pct = 72 + Math.round(((i + 1) / viewStatements.length) * 23);
-                            setProgress(pct, `Creating views... ${i + 1}/${viewStatements.length}`);
+                            setProgress(pct, `Building playbook page ${i + 1} of ${viewStatements.length}...`);
                         }
                     }
                 } catch (viewsErr) {
@@ -2145,17 +2152,17 @@ LIMIT 20;</textarea>
                 }
 
                 setLoadingStep('step-views', 'done');
-                setProgress(95, `${viewsCreated} views created`);
+                setProgress(95, `${viewsCreated} play diagrams ready`);
 
                 setLoadingStep('step-ready', 'active');
-                setProgress(100, `Ready! ${formatRowCount(totalRowsLoaded)} rows loaded`);
+                setProgress(100, `Game time! ${formatRowCount(totalRowsLoaded)} data points loaded`);
 
                 await new Promise(resolve => setTimeout(resolve, 600));
 
                 setLoadingStep('step-ready', 'done');
                 overlay.classList.add('hidden');
 
-                setStatus('connected', 'DuckDB-WASM Connected');
+                setStatus('connected', 'Film Room Active');
                 updateStatusBarStats(viewsCreated);
                 document.getElementById('run-button').disabled = false;
 
@@ -2164,8 +2171,8 @@ LIMIT 20;</textarea>
 
             } catch (err) {
                 console.error('DuckDB initialization failed:', err);
-                setStatus('error', 'Connection Failed');
-                progressText.textContent = 'Error: ' + err.message;
+                setStatus('error', 'Technical Timeout');
+                progressText.textContent = 'The engine stalled: ' + err.message;
                 statusDot.classList.remove('loading');
                 statusDot.classList.add('error');
 
@@ -2187,13 +2194,11 @@ LIMIT 20;</textarea>
         function updateStatusBarStats(viewCount) {
             const rightBar = document.querySelector('.status-bar-right');
             rightBar.innerHTML = `
-                <span>${TABLE_FILES.length} tables</span>
+                <span>${TABLE_FILES.length} scouting reports</span>
                 <span>&middot;</span>
-                <span>${viewCount} views</span>
+                <span>${viewCount} play diagrams</span>
                 <span>&middot;</span>
-                <span>${formatRowCount(totalRowsLoaded)} rows</span>
-                <span>&middot;</span>
-                <span>~15MB</span>
+                <span>${formatRowCount(totalRowsLoaded)} data points</span>
             `;
         }
 
@@ -3443,7 +3448,7 @@ LIMIT 20;</textarea>
                 <span style="font-size: 24px;">🎬</span>
                 <div>
                     <h4 style="font-size: 14px; font-weight: 600;">The Film Room — "Breaking Down Tape"</h4>
-                    <p style="font-size: 12px; color: var(--text-secondary);">📍 You Are Here. Interactive SQL workbench. 2.38M rows of ball-by-ball data. Study the game like a coach.</p>
+                    <p style="font-size: 12px; color: var(--text-secondary);">📍 You Are Here. Pull up the tape on any player, team, or matchup. The full scouting database, coach-style.</p>
                 </div>
             </a>
             <a href="about.html" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; text-decoration: none; color: inherit; transition: background 0.2s;">

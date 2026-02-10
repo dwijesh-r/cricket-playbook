@@ -5324,27 +5324,39 @@
                                 Loading input/output breakdown...
                             </div>
                         </div>
-                        <div class="token-insight-card" style="border: 1px solid rgba(255, 159, 10, 0.3); background: linear-gradient(135deg, rgba(255, 159, 10, 0.05) 0%, rgba(255, 69, 58, 0.05) 100%);">
+                        <div class="token-insight-card">
                             <div class="token-insight-header">
                                 <span class="token-insight-icon">⏱️</span>
                                 <span class="token-insight-title">5-Hour Rolling Window</span>
+                                <span style="font-size: 9px; color: var(--text-tertiary); margin-left: auto;">How It Works</span>
                             </div>
                             <div class="token-insight-content">
-                                <div style="margin-bottom: 10px; font-size: 11px; color: var(--text-tertiary);">Claude Max has a 5-hour rolling limit. Usage resets gradually as older requests expire.</div>
-                                <!-- Rolling Window Visual -->
-                                <div style="display: flex; gap: 4px; margin-bottom: 12px;">
-                                    <div style="flex: 1; height: 24px; background: linear-gradient(90deg, #ff453a, #ff6961); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: white;">0-1h</div>
-                                    <div style="flex: 1; height: 24px; background: linear-gradient(90deg, #ff9f0a, #ff9500); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600;">1-2h</div>
-                                    <div style="flex: 1; height: 24px; background: linear-gradient(90deg, #ff9f0a, #ff9500); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600;">2-3h</div>
-                                    <div style="flex: 1; height: 24px; background: linear-gradient(90deg, #30d158, #34c759); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600;">3-4h</div>
-                                    <div style="flex: 1; height: 24px; background: var(--bg-elevated); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--text-tertiary);">4-5h</div>
+                                <div style="margin-bottom: 10px; font-size: 11px; color: var(--text-tertiary);">Claude Max enforces a 5-hour rolling usage limit. Tokens from older requests expire gradually, freeing capacity.</div>
+                                <!-- Rolling Window Diagram -->
+                                <div style="display: flex; gap: 3px; margin-bottom: 10px;">
+                                    <div style="flex: 1; text-align: center;">
+                                        <div style="height: 22px; background: linear-gradient(90deg, #ff453a, #ff6961); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 600; color: white;">0-1h</div>
+                                        <div style="font-size: 8px; color: var(--text-tertiary); margin-top: 2px;">Counts fully</div>
+                                    </div>
+                                    <div style="flex: 1; text-align: center;">
+                                        <div style="height: 22px; background: linear-gradient(90deg, #ff9f0a, #ff9500); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 600;">1-2h</div>
+                                        <div style="font-size: 8px; color: var(--text-tertiary); margin-top: 2px;">Counts fully</div>
+                                    </div>
+                                    <div style="flex: 1; text-align: center;">
+                                        <div style="height: 22px; background: linear-gradient(90deg, #ff9f0a, #ffb340); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 600;">2-3h</div>
+                                        <div style="font-size: 8px; color: var(--text-tertiary); margin-top: 2px;">Counts fully</div>
+                                    </div>
+                                    <div style="flex: 1; text-align: center;">
+                                        <div style="height: 22px; background: linear-gradient(90deg, #30d158, #34c759); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 600;">3-4h</div>
+                                        <div style="font-size: 8px; color: var(--text-tertiary); margin-top: 2px;">Decaying</div>
+                                    </div>
+                                    <div style="flex: 1; text-align: center;">
+                                        <div style="height: 22px; background: var(--bg-elevated); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; color: var(--text-tertiary);">4-5h</div>
+                                        <div style="font-size: 8px; color: var(--text-tertiary); margin-top: 2px;">Expiring</div>
+                                    </div>
                                 </div>
-                                <div style="display: flex; justify-content: space-between; font-size: 12px;">
-                                    <span><strong>Current Window:</strong> 82% used</span>
-                                    <span style="color: var(--accent-orange);">⚠ Elevated</span>
-                                </div>
-                                <div style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border); font-size: 11px; color: var(--text-tertiary);">
-                                    💡 Spread usage across hours to avoid rate limits
+                                <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.5;">
+                                    <strong>Strategy:</strong> Space out heavy sessions. If you hit a rate limit, wait ~1 hour for oldest tokens to expire and capacity to free up.
                                 </div>
                             </div>
                         </div>
@@ -8201,6 +8213,7 @@ Gate Inheritance:
             return td.daily.map(d => {
                 const dt = new Date(d.date + 'T00:00:00');
                 return {
+                    rawDate: d.date,
                     dateStr: `${monthNames[dt.getMonth()]} ${dt.getDate()}`,
                     dayName: dayNames[dt.getDay()],
                     messages: d.messages,
@@ -8389,17 +8402,37 @@ Gate Inheritance:
                 return val.toLocaleString();
             }
 
-            // Metric labels
-            const metricLabel = { messages: 'msgs', tokens: 'tokens', tools: 'tool calls' }[metric];
+            // Compute day gaps between entries
+            function daysBetween(dateA, dateB) {
+                const a = new Date(dateA + 'T00:00:00'), b = new Date(dateB + 'T00:00:00');
+                return Math.round((b - a) / (1000 * 60 * 60 * 24));
+            }
 
-            let html = '';
+            // Explanatory header
+            let html = `<div style="font-size: 10px; color: var(--text-tertiary); margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">`;
+            html += `<span style="display: inline-block; width: 8px; height: 8px; background: var(--accent-blue); border-radius: 50%;"></span>`;
+            html += `Showing ${activityData.length} active session days only — idle days omitted</div>`;
+
             activityData.forEach((d, i) => {
+                // Gap indicator between non-consecutive days
+                if (i > 0) {
+                    const gap = daysBetween(activityData[i - 1].rawDate, d.rawDate);
+                    if (gap > 1) {
+                        html += `<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; opacity: 0.5;">`;
+                        html += `<div style="min-width: 62px;"></div>`;
+                        html += `<div style="flex: 1; display: flex; align-items: center; gap: 8px;">`;
+                        html += `<div style="flex: 1; border-top: 1px dashed var(--border);"></div>`;
+                        html += `<span style="font-size: 9px; color: var(--text-tertiary); white-space: nowrap;">${gap - 1} day${gap - 1 !== 1 ? 's' : ''} idle</span>`;
+                        html += `<div style="flex: 1; border-top: 1px dashed var(--border);"></div>`;
+                        html += `</div></div>`;
+                    }
+                }
+
                 const val = d[metric];
                 const pct = Math.max(3, (val / maxVal) * 100);
                 const color = barColor(val);
-                const isMax = val === maxVal;
 
-                html += `<div style="display: flex; align-items: center; gap: 8px; margin-bottom: ${i < activityData.length - 1 ? '10' : '0'}px; position: relative;" class="activity-row">`;
+                html += `<div style="display: flex; align-items: center; gap: 8px; margin-bottom: ${i < activityData.length - 1 ? '8' : '0'}px; position: relative;" class="activity-row">`;
 
                 // Date column (fixed width)
                 html += `<div style="min-width: 62px; text-align: right;">`;

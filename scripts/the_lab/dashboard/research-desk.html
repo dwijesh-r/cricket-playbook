@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Desk - The Lab</title>
+    <title>The Film Room - The Lab</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -983,16 +983,137 @@
         @media (max-width: 768px) {
             .query-history-dropdown { width: 280px; }
         }
+
+        /* ==================== ENHANCED MOBILE RESPONSIVE ==================== */
+
+        /* Mobile schema toggle button */
+        .schema-toggle-btn {
+            display: none;
+            position: fixed;
+            bottom: 48px;
+            left: 20px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 90;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px var(--shadow);
+            transition: all 0.2s ease;
+        }
+        .schema-toggle-btn:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            transform: scale(1.05);
+        }
+
+        /* Schema sidebar overlay for mobile */
+        .schema-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .schema-overlay.active { display: block; }
+
+        /* Tablet breakpoint enhancements */
+        @media (max-width: 768px) {
+            /* Show mobile schema toggle */
+            .schema-toggle-btn { display: flex; }
+
+            /* Schema sidebar: fixed overlay on mobile */
+            .schema-sidebar {
+                position: fixed;
+                left: -300px;
+                top: 0;
+                bottom: 0;
+                z-index: 1000;
+                width: 280px;
+                max-height: 100vh;
+                border-radius: 0 12px 12px 0;
+                transition: left 0.3s ease;
+                background: var(--bg-secondary);
+                border-right: 1px solid var(--border);
+            }
+            .schema-sidebar.open {
+                left: 0;
+            }
+
+            /* Main content: full width */
+            .workspace {
+                border-left: 1px solid var(--border);
+                border-radius: 12px;
+            }
+
+            /* Status bar: smaller text */
+            .status-bar { font-size: 11px; padding: 0 12px; }
+            .status-bar-left, .status-bar-right { gap: 8px; }
+
+            /* Examples: single column */
+            .examples-grid { grid-template-columns: 1fr !important; }
+            .examples-filter { flex-wrap: wrap; }
+
+            /* Editor adjustments */
+            .nl-search-section { padding: 12px; }
+            .insights-section { padding: 12px; }
+            .examples-section { padding: 12px; }
+
+            /* Results pagination */
+            .results-pagination { flex-wrap: wrap; gap: 8px; padding: 8px 12px; }
+            .results-pagination-controls { flex-wrap: wrap; justify-content: center; }
+        }
+
+        /* Phone breakpoint enhancements */
+        @media (max-width: 480px) {
+            /* Editor toolbar: wrap buttons */
+            .editor-toolbar { flex-wrap: wrap; gap: 4px; padding: 6px 12px; }
+            .editor-toolbar-left, .editor-toolbar-right { gap: 4px; }
+            .editor-btn { font-size: 11px; padding: 5px 8px; }
+
+            /* Results table: smaller font */
+            .results-table { font-size: 11px; }
+            .results-table th { font-size: 10px; padding: 6px 8px; }
+            .results-table td { font-size: 11px; padding: 5px 8px; }
+
+            /* Pagination: wrap and center */
+            .results-pagination { justify-content: center; }
+            .results-pagination-controls { flex-wrap: wrap; justify-content: center; gap: 4px; }
+            .pagination-btn { padding: 4px 8px; font-size: 10px; }
+
+            /* NL search bar: compact */
+            .nl-search-bar { padding: 8px 10px; gap: 6px; }
+            .nl-search-input { font-size: 13px; }
+            .nl-search-hint { padding: 4px 0 0 0; font-size: 10px; }
+
+            /* Insight card: compact */
+            .insight-card { padding: 12px 14px; }
+
+            /* Schema toggle position */
+            .schema-toggle-btn { bottom: 44px; left: 12px; width: 42px; height: 42px; font-size: 18px; }
+
+            /* Editor shortcuts hint */
+            .editor-shortcuts-hint { display: none; }
+        }
     </style>
 </head>
 <body>
     <div class="bg-gradient"></div>
     <div class="bg-grid"></div>
 
+    <!-- Mobile Schema Browser Toggle -->
+    <button class="schema-toggle-btn" id="schema-toggle-btn" onclick="toggleSchemaSidebar()" title="Toggle Schema Browser">&#9776;</button>
+    <div class="schema-overlay" id="schema-overlay" onclick="toggleSchemaSidebar()"></div>
+
     <!-- Loading Overlay (TKT-173 will wire up actual logic) -->
     <div class="loading-overlay" id="loading-overlay">
         <div class="loading-icon">🔬</div>
-        <div class="loading-title">Initializing Research Desk</div>
+        <div class="loading-title">Initializing The Film Room</div>
         <div class="loading-subtitle">Loading DuckDB-WASM engine...</div>
         <div class="loading-progress-container">
             <div class="loading-progress-bar">
@@ -1011,7 +1132,7 @@
                 <span class="check">...</span> Registering 52 analytics views
             </div>
             <div class="loading-step" id="step-ready">
-                <span class="check">...</span> Research Desk ready
+                <span class="check">...</span> The Film Room ready
             </div>
         </div>
     </div>
@@ -1028,7 +1149,7 @@
             <a href="artifacts.html" class="nav-tab">Artifacts</a>
             <a href="analysis.html" class="nav-tab">Analysis</a>
             <a href="research.html" class="nav-tab">Research</a>
-            <a href="research-desk.html" class="nav-tab active">Research Desk</a>
+            <a href="research-desk.html" class="nav-tab active">The Film Room</a>
             <a href="about.html" class="nav-tab">About</a>
         </div>
         <div class="nav-actions">
@@ -1047,15 +1168,18 @@
         <a href="artifacts.html" class="nav-tab">🔍 Artifacts</a>
         <a href="analysis.html" class="nav-tab">🔬 Analysis</a>
         <a href="research.html" class="nav-tab">📚 Research</a>
-        <a href="research-desk.html" class="nav-tab active">🧪 Research Desk</a>
+        <a href="research-desk.html" class="nav-tab active">🎬 The Film Room</a>
         <a href="about.html" class="nav-tab">🌹 About</a>
     </div>
 
     <main class="main">
         <header class="page-header">
             <div class="typewriter-container">
-                <h1 class="page-title">🔬 The Research Desk</h1>
+                <h1 class="page-title">🎬 The Film Room</h1>
             </div>
+            <p class="page-tagline" style="font-size: 17px; font-weight: 600; color: var(--accent); margin-bottom: 8px; font-style: italic;">
+                "Where coaches break down the game, one query at a time"
+            </p>
             <p class="page-subtitle">
                 Your interactive cricket analytics workbench. Query 2.38M rows of ball-by-ball data,
                 explore 52 pre-built analytics views, and uncover insights across all IPL history.
@@ -1264,14 +1388,17 @@ LIMIT 20;</textarea>
                     </div>
                 </div>
 
-                <!-- Andy Flower Insights — TKT-177 will wire up -->
+                <!-- The First Take (formerly Andy Flower Insights) — TKT-177 will wire up -->
                 <div class="insights-section" id="andy-flower-insights">
                     <div class="insight-card">
                         <div class="insight-card-header">
                             <span class="icon">🏏</span>
-                            <h4>Andy Flower Insights</h4>
+                            <h4>The First Take</h4>
                             <span class="badge">Cricket Context</span>
                         </div>
+                        <p class="insight-subtitle" style="font-size: 13px; font-style: italic; color: var(--text-secondary); margin-bottom: 8px;">
+                            with Andy Flower — bold calls, backed by ball-by-ball data
+                        </p>
                         <p>
                             Run a query to receive cricket context from Andy Flower, our domain expert.
                             He'll provide tactical interpretation of your results, highlight key trends,
@@ -1330,7 +1457,7 @@ LIMIT 20;</textarea>
 
         <footer class="footer">
             <p class="footer-text">
-                Cricket Playbook Research Desk | EPIC-012 | Powered by DuckDB-WASM | <a href="https://github.com/dwijesh-r/cricket-playbook" target="_blank">View on GitHub</a>
+                Cricket Playbook — The Film Room | EPIC-012 | Powered by DuckDB-WASM | <a href="https://github.com/dwijesh-r/cricket-playbook" target="_blank">View on GitHub</a>
             </p>
         </footer>
     </main>
@@ -2032,7 +2159,7 @@ LIMIT 20;</textarea>
                 updateStatusBarStats(viewsCreated);
                 document.getElementById('run-button').disabled = false;
 
-                console.log(`Research Desk ready: ${TABLE_FILES.length} tables, ${viewsCreated} views, ${formatRowCount(totalRowsLoaded)} rows`);
+                console.log(`The Film Room ready: ${TABLE_FILES.length} tables, ${viewsCreated} views, ${formatRowCount(totalRowsLoaded)} rows`);
                 if (viewsFailed > 0) console.warn(`${viewsFailed} views failed to create`);
 
             } catch (err) {
@@ -2346,10 +2473,17 @@ LIMIT 20;</textarea>
                 </div>
             </a>
             <a href="research-desk.html" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; text-decoration: none; color: inherit; background: rgba(10,132,255,0.08); border: 1px solid rgba(10,132,255,0.15);">
-                <span style="font-size: 24px;">🧪</span>
+                <span style="font-size: 24px;">🎬</span>
                 <div>
-                    <h4 style="font-size: 14px; font-weight: 600;">Research Desk — "The SQL Lab"</h4>
-                    <p style="font-size: 12px; color: var(--text-secondary);">📍 You Are Here. Interactive query workbench. 2.38M rows at your fingertips.</p>
+                    <h4 style="font-size: 14px; font-weight: 600;">The Film Room — "Breaking Down Tape"</h4>
+                    <p style="font-size: 12px; color: var(--text-secondary);">📍 You Are Here. Interactive SQL workbench. 2.38M rows of ball-by-ball data. Study the game like a coach.</p>
+                </div>
+            </a>
+            <a href="about.html" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; text-decoration: none; color: inherit; transition: background 0.2s;">
+                <span style="font-size: 24px;">🌹</span>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600;">About — "The Origin Story"</h4>
+                    <p style="font-size: 12px; color: var(--text-secondary);">The story, the vision, the Founder. How Cricket Playbook came to be.</p>
                 </div>
             </a>
             <a href="../../mission_control/dashboard/index.html" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; text-decoration: none; color: inherit; transition: background 0.2s;">
@@ -2370,6 +2504,20 @@ LIMIT 20;</textarea>
         }
         function closeNavGuide(e) {
             if (e.target === e.currentTarget) toggleNavGuide();
+        }
+
+        /* Schema sidebar mobile toggle */
+        function toggleSchemaSidebar() {
+            const sidebar = document.getElementById('schema-browser');
+            const overlay = document.getElementById('schema-overlay');
+            const isOpen = sidebar.classList.contains('open');
+            if (isOpen) {
+                sidebar.classList.remove('open');
+                overlay.classList.remove('active');
+            } else {
+                sidebar.classList.add('open');
+                overlay.classList.add('active');
+            }
         }
     </script>
 </body>

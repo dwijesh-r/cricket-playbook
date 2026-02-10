@@ -351,6 +351,133 @@
             color: var(--text-tertiary);
         }
 
+        /* ---- Interactive Schema Browser (TKT-175) ---- */
+        .schema-item .chevron {
+            font-size: 8px;
+            transition: transform 0.2s ease;
+            color: var(--text-tertiary);
+            flex-shrink: 0;
+        }
+        .schema-item.expanded .chevron {
+            transform: rotate(90deg);
+        }
+        .schema-item .table-name {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .schema-item .query-btn {
+            display: none;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 9px;
+            font-weight: 600;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            flex-shrink: 0;
+            line-height: 1.4;
+            transition: opacity 0.15s ease;
+        }
+        .schema-item:hover .query-btn {
+            display: inline-block;
+        }
+        .schema-columns {
+            display: none;
+            padding: 2px 0 6px 0;
+            background: rgba(0,0,0,0.1);
+            border-bottom: 1px solid var(--border);
+        }
+        [data-theme="light"] .schema-columns {
+            background: rgba(0,0,0,0.02);
+        }
+        .schema-columns.visible {
+            display: block;
+        }
+        .schema-col-item {
+            padding: 3px 16px 3px 40px;
+            font-size: 11px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.12s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .schema-col-item:hover {
+            background: rgba(10, 132, 255, 0.08);
+            color: var(--text-primary);
+        }
+        .schema-col-item .col-name {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .schema-col-item .col-type {
+            font-size: 9px;
+            font-weight: 600;
+            padding: 1px 5px;
+            border-radius: 3px;
+            flex-shrink: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .schema-col-item .col-type.type-varchar { background: rgba(10, 132, 255, 0.12); color: var(--accent); }
+        .schema-col-item .col-type.type-bigint { background: rgba(255, 159, 10, 0.12); color: var(--accent-orange); }
+        .schema-col-item .col-type.type-hugeint { background: rgba(255, 159, 10, 0.12); color: var(--accent-orange); }
+        .schema-col-item .col-type.type-integer { background: rgba(255, 159, 10, 0.12); color: var(--accent-orange); }
+        .schema-col-item .col-type.type-double { background: rgba(48, 209, 88, 0.12); color: var(--accent-green); }
+        .schema-col-item .col-type.type-boolean { background: rgba(191, 90, 242, 0.12); color: var(--accent-purple); }
+        .schema-col-item .col-type.type-default { background: rgba(142, 142, 147, 0.12); color: var(--text-tertiary); }
+        .schema-col-item .col-desc {
+            display: none;
+        }
+        .schema-col-item:hover .col-desc {
+            display: none; /* Use tooltip instead */
+        }
+
+        /* ---- Example Card Enhancements (TKT-176) ---- */
+        .example-card-category.phase { background: rgba(100, 210, 255, 0.15); color: var(--accent-teal); }
+        .example-card-category.ipl2026 { background: rgba(255, 55, 95, 0.15); color: var(--accent-pink); }
+        .example-card-desc {
+            font-size: 11px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 8px;
+            font-family: inherit;
+        }
+        .example-card p {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            line-height: 1.4;
+            font-family: 'JetBrains Mono', monospace;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .example-card .load-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 8px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            background: var(--accent);
+            color: #fff;
+            transition: all 0.15s ease;
+        }
+        .example-card .load-btn:hover {
+            background: #0977e6;
+        }
+
         /* ==================== MAIN WORKSPACE ==================== */
         .workspace {
             background: var(--bg-secondary);
@@ -1187,132 +1314,31 @@
         </header>
 
         <div class="desk-container">
-            <!-- Schema Browser (Left Sidebar) — TKT-175 will populate dynamically -->
+            <!-- Schema Browser (Left Sidebar) — TKT-175: Interactive -->
             <aside class="schema-sidebar" id="schema-browser">
                 <div class="schema-header">
                     <h3>Schema Browser</h3>
-                    <span class="has-tooltip" data-tooltip="Click a table or view to explore its schema">
+                    <span class="has-tooltip" data-tooltip="Click to expand columns. Click a column to insert into editor.">
                         <span class="help-icon">?</span>
                     </span>
                 </div>
-                <input type="text" class="schema-search" placeholder="Search tables & views..." id="schema-search">
-
-                <!-- Tables -->
-                <div class="schema-group">
-                    <div class="schema-group-label">Dimension Tables (8)</div>
-                    <div class="schema-item schema-item-dim" data-table="dim_bowler_classification">
-                        <span class="icon">&#9679;</span> dim_bowler_classification
-                        <span class="row-count">430</span>
-                    </div>
-                    <div class="schema-item schema-item-dim" data-table="dim_franchise_alias">
-                        <span class="icon">&#9679;</span> dim_franchise_alias
-                        <span class="row-count">19</span>
-                    </div>
-                    <div class="schema-item schema-item-dim" data-table="dim_match">
-                        <span class="icon">&#9679;</span> dim_match
-                        <span class="row-count">9,357</span>
-                    </div>
-                    <div class="schema-item schema-item-dim" data-table="dim_player">
-                        <span class="icon">&#9679;</span> dim_player
-                        <span class="row-count">7,864</span>
-                    </div>
-                    <div class="schema-item schema-item-dim" data-table="dim_player_name_history">
-                        <span class="icon">&#9679;</span> dim_player_name_history
-                        <span class="row-count">7,888</span>
-                    </div>
-                    <div class="schema-item schema-item-dim" data-table="dim_team">
-                        <span class="icon">&#9679;</span> dim_team
-                        <span class="row-count">285</span>
-                    </div>
-                    <div class="schema-item schema-item-dim" data-table="dim_tournament">
-                        <span class="icon">&#9679;</span> dim_tournament
-                        <span class="row-count">426</span>
-                    </div>
-                    <div class="schema-item schema-item-dim" data-table="dim_venue">
-                        <span class="icon">&#9679;</span> dim_venue
-                        <span class="row-count">531</span>
-                    </div>
-                </div>
-
-                <div class="schema-group">
-                    <div class="schema-group-label">Fact Tables (3)</div>
-                    <div class="schema-item schema-item-fact" data-table="fact_ball">
-                        <span class="icon">&#9679;</span> fact_ball
-                        <span class="row-count">2.14M</span>
-                    </div>
-                    <div class="schema-item schema-item-fact" data-table="fact_player_match_performance">
-                        <span class="icon">&#9679;</span> fact_player_match_performance
-                        <span class="row-count">195K</span>
-                    </div>
-                    <div class="schema-item schema-item-fact" data-table="fact_powerplay">
-                        <span class="icon">&#9679;</span> fact_powerplay
-                        <span class="row-count">19K</span>
-                    </div>
-                </div>
-
-                <div class="schema-group">
-                    <div class="schema-group-label">Reference Tables (2)</div>
-                    <div class="schema-item schema-item-ref" data-table="ipl_2026_contracts">
-                        <span class="icon">&#9679;</span> ipl_2026_contracts
-                        <span class="row-count">231</span>
-                    </div>
-                    <div class="schema-item schema-item-ref" data-table="ipl_2026_squads">
-                        <span class="icon">&#9679;</span> ipl_2026_squads
-                        <span class="row-count">231</span>
-                    </div>
-                </div>
-
-                <div class="schema-group">
-                    <div class="schema-group-label">Analytics Tables (2)</div>
-                    <div class="schema-item schema-item-cluster" data-table="player_clusters_batters">
-                        <span class="icon">&#9679;</span> player_clusters_batters
-                        <span class="row-count">87</span>
-                    </div>
-                    <div class="schema-item schema-item-cluster" data-table="player_clusters_bowlers">
-                        <span class="icon">&#9679;</span> player_clusters_bowlers
-                        <span class="row-count">152</span>
-                    </div>
-                </div>
-
-                <div class="schema-group">
-                    <div class="schema-group-label">Analytics Views (52)</div>
-                    <div class="schema-item schema-item-view" data-view="analytics_ipl_batting_career">
-                        <span class="icon">&#9679;</span> analytics_ipl_batting_career
-                    </div>
-                    <div class="schema-item schema-item-view" data-view="analytics_ipl_bowling_career">
-                        <span class="icon">&#9679;</span> analytics_ipl_bowling_career
-                    </div>
-                    <div class="schema-item schema-item-view" data-view="analytics_ipl_batter_phase">
-                        <span class="icon">&#9679;</span> analytics_ipl_batter_phase
-                    </div>
-                    <div class="schema-item schema-item-view" data-view="analytics_ipl_bowler_phase">
-                        <span class="icon">&#9679;</span> analytics_ipl_bowler_phase
-                    </div>
-                    <div class="schema-item schema-item-view" data-view="analytics_ipl_squad_batting">
-                        <span class="icon">&#9679;</span> analytics_ipl_squad_batting
-                    </div>
-                    <div class="schema-item schema-item-view" data-view="analytics_ipl_squad_bowling">
-                        <span class="icon">&#9679;</span> analytics_ipl_squad_bowling
-                    </div>
-                    <div class="schema-item schema-item-view" data-view="analytics_top_run_scorers">
-                        <span class="icon">&#9679;</span> analytics_top_run_scorers
-                    </div>
-                    <div class="schema-item schema-item-view" data-view="analytics_top_wicket_takers">
-                        <span class="icon">&#9679;</span> analytics_top_wicket_takers
-                    </div>
-                    <div class="schema-item schema-item-view" style="color: var(--text-tertiary); font-style: italic; font-family: inherit;">
-                        <span class="icon" style="opacity:0.3">+</span> 44 more views...
-                    </div>
-                </div>
+                <input type="text" class="schema-search" placeholder="Search tables, views & columns..." id="schema-search">
+                <!-- Schema groups will be rendered dynamically by TKT-175 JS -->
+                <div id="schema-groups-container"></div>
             </aside>
 
             <!-- Main Workspace -->
             <div class="workspace">
-                <!-- Natural Language Search — TKT-177 will wire up -->
+                <!-- Natural Language Search (TKT-177) -->
                 <div class="nl-search-section" id="nl-search-bar">
                     <div class="nl-search-bar">
-                        <span class="nl-search-icon">🔍</span>
-                        <input type="text" class="nl-search-input" placeholder="Ask about IPL cricket... e.g. 'Top 10 run scorers in death overs since 2020'" id="nl-search-input">
+                        <span class="nl-search-icon">&#128269;</span>
+                        <input type="text" class="nl-search-input" placeholder="Ask: 'top batsmen', 'Kohli stats', 'CSK squad', 'best death bowlers', 'Kohli vs MI'..." id="nl-search-input">
+                        <button class="nl-search-btn" id="nl-search-btn" onclick="handleNLSearch()" title="Search" style="
+                            padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600;
+                            cursor: pointer; border: 1px solid var(--accent); background: var(--accent);
+                            color: #fff; transition: all 0.2s ease; white-space: nowrap;
+                        ">&#9654; Ask</button>
                     </div>
                     <div class="nl-search-hint">
                         Press <kbd>Enter</kbd> to search &middot; Natural language queries are converted to SQL automatically
@@ -1407,49 +1433,23 @@ LIMIT 20;</textarea>
                     </div>
                 </div>
 
-                <!-- Example Queries Gallery — TKT-176 will populate -->
+                <!-- Example Queries Gallery (TKT-176: 17 curated queries) -->
                 <div class="examples-section" id="example-queries">
                     <div class="examples-header">
                         <h3>Example Queries</h3>
                         <div class="examples-filter">
-                            <button class="examples-filter-btn active">All</button>
-                            <button class="examples-filter-btn">Batting</button>
-                            <button class="examples-filter-btn">Bowling</button>
-                            <button class="examples-filter-btn">Team</button>
-                            <button class="examples-filter-btn">Matchup</button>
+                            <button class="examples-filter-btn active" data-filter="all">All</button>
+                            <button class="examples-filter-btn" data-filter="leaderboard">Leaderboard</button>
+                            <button class="examples-filter-btn" data-filter="batting">Batting</button>
+                            <button class="examples-filter-btn" data-filter="bowling">Bowling</button>
+                            <button class="examples-filter-btn" data-filter="team">Team</button>
+                            <button class="examples-filter-btn" data-filter="matchup">Matchup</button>
+                            <button class="examples-filter-btn" data-filter="phase">Phase</button>
+                            <button class="examples-filter-btn" data-filter="ipl2026">IPL 2026</button>
                         </div>
                     </div>
-                    <div class="examples-grid">
-                        <div class="example-card">
-                            <span class="example-card-category leaderboard">Leaderboard</span>
-                            <h4>Top 20 IPL Run Scorers</h4>
-                            <p>SELECT * FROM analytics_top_run_scorers LIMIT 20</p>
-                        </div>
-                        <div class="example-card">
-                            <span class="example-card-category bowling">Bowling</span>
-                            <h4>Death Over Specialists</h4>
-                            <p>SELECT * FROM analytics_death_over_specialists LIMIT 15</p>
-                        </div>
-                        <div class="example-card">
-                            <span class="example-card-category batting">Batting</span>
-                            <h4>Powerplay Strike Rates</h4>
-                            <p>SELECT * FROM analytics_powerplay_hitters ORDER BY strike_rate DESC LIMIT 15</p>
-                        </div>
-                        <div class="example-card">
-                            <span class="example-card-category team">Team</span>
-                            <h4>Squad Batting Depth</h4>
-                            <p>SELECT * FROM analytics_ipl_squad_batting ORDER BY team_name</p>
-                        </div>
-                        <div class="example-card">
-                            <span class="example-card-category matchup">Matchup</span>
-                            <h4>Batter vs Bowler Head-to-Head</h4>
-                            <p>SELECT * FROM analytics_ipl_batter_vs_bowler WHERE balls >= 20 ORDER BY strike_rate DESC</p>
-                        </div>
-                        <div class="example-card">
-                            <span class="example-card-category batting">Batting</span>
-                            <h4>Phase-wise Performance</h4>
-                            <p>SELECT * FROM analytics_ipl_batter_phase WHERE player_name = 'V Kohli'</p>
-                        </div>
+                    <div class="examples-grid" id="examples-grid">
+                        <!-- Cards rendered by TKT-176 JS -->
                     </div>
                 </div>
             </div>
@@ -1676,7 +1676,7 @@ LIMIT 20;</textarea>
 
         // ---- Custom keybindings (TKT-174) ----
         const customKeymap = keymap.of([
-            { key: 'Mod-Enter', run: () => { executeQuery(); return true; } },
+            { key: 'Mod-Enter', run: () => { window.executeQuery(); return true; } },
             { key: 'Mod-l', run: () => { clearEditor(); return true; }, preventDefault: true },
             { key: 'Mod-/', run: (view) => toggleLineComment(view) },
         ]);
@@ -2352,12 +2352,216 @@ LIMIT 20;</textarea>
         document.getElementById('copy-button').addEventListener('click', copySQL);
         document.getElementById('export-button').addEventListener('click', exportCSV);
 
-        /* ==================== SCHEMA SEARCH ==================== */
+        /* ==================== TKT-175: INTERACTIVE SCHEMA BROWSER ==================== */
+        let tableMetadata = null;
+
+        // Load metadata and build interactive schema browser
+        async function buildInteractiveSchema() {
+            try {
+                const resp = await fetch('data/sql_lab/table_metadata.json');
+                if (!resp.ok) throw new Error('Failed to load metadata');
+                tableMetadata = await resp.json();
+            } catch(e) {
+                console.warn('TKT-175: Could not load table_metadata.json:', e);
+                return;
+            }
+
+            const container = document.getElementById('schema-groups-container');
+            if (!container) return;
+
+            // Group tables by type
+            const groups = [
+                { label: 'Dimension Tables', type: 'dimension', cssClass: 'dim', icon: '&#9679;' },
+                { label: 'Fact Tables', type: 'fact', cssClass: 'fact', icon: '&#9679;' },
+                { label: 'Reference Tables', type: 'reference', cssClass: 'ref', icon: '&#9679;' },
+                { label: 'Analytics Tables', type: 'analytics', cssClass: 'cluster', icon: '&#9679;' },
+            ];
+
+            let html = '';
+
+            // Render table groups
+            for (const group of groups) {
+                const tables = Object.entries(tableMetadata.tables || {}).filter(([, info]) => info.type === group.type);
+                if (tables.length === 0) continue;
+
+                html += `<div class="schema-group" data-group-type="${group.type}">`;
+                html += `<div class="schema-group-label">${group.label} (${tables.length})</div>`;
+
+                for (const [name, info] of tables) {
+                    const rowDisplay = formatSchemaRowCount(info.rows);
+                    html += buildSchemaItem(name, info, group.cssClass, rowDisplay, 'table');
+                }
+                html += `</div>`;
+            }
+
+            // Render views group
+            const views = Object.entries(tableMetadata.views || {});
+            if (views.length > 0) {
+                html += `<div class="schema-group" data-group-type="views">`;
+                html += `<div class="schema-group-label">Analytics Views (${views.length})</div>`;
+                for (const [name, info] of views) {
+                    html += buildSchemaItem(name, info, 'view', '', 'view');
+                }
+                html += `</div>`;
+            }
+
+            container.innerHTML = html;
+            wireSchemaInteractions();
+        }
+
+        function formatSchemaRowCount(n) {
+            if (n === undefined || n === null) return '';
+            if (n >= 1000000) return (n / 1000000).toFixed(2) + 'M';
+            if (n >= 1000) return (n / 1000).toFixed(0) + 'K';
+            return String(n);
+        }
+
+        function getColTypeClass(type) {
+            const t = (type || '').toUpperCase();
+            if (t === 'VARCHAR') return 'type-varchar';
+            if (t === 'BIGINT') return 'type-bigint';
+            if (t === 'HUGEINT') return 'type-hugeint';
+            if (t === 'INTEGER') return 'type-integer';
+            if (t === 'DOUBLE') return 'type-double';
+            if (t === 'BOOLEAN') return 'type-boolean';
+            return 'type-default';
+        }
+
+        function buildSchemaItem(name, info, cssClass, rowDisplay, itemType) {
+            const columns = info.columns || [];
+            const dataAttr = itemType === 'view' ? `data-view="${name}"` : `data-table="${name}"`;
+            let html = '';
+            html += `<div class="schema-item schema-item-${cssClass}" ${dataAttr}>`;
+            html += `<span class="chevron">&#9654;</span>`;
+            html += `<span class="icon">&#9679;</span>`;
+            html += `<span class="table-name">${name}</span>`;
+            html += `<button class="query-btn" title="SELECT * FROM ${name} LIMIT 100">SQL</button>`;
+            if (rowDisplay) html += `<span class="row-count">${rowDisplay}</span>`;
+            html += `</div>`;
+
+            // Column sub-list
+            html += `<div class="schema-columns" data-parent="${name}">`;
+            for (const col of columns) {
+                const typeClass = getColTypeClass(col.type);
+                const tooltip = col.description ? ` title="${escapeHtml(col.description)}"` : '';
+                html += `<div class="schema-col-item" data-col="${col.name}" data-parent-table="${name}"${tooltip}>`;
+                html += `<span class="col-name">${col.name}</span>`;
+                html += `<span class="col-type ${typeClass}">${col.type}</span>`;
+                html += `</div>`;
+            }
+            html += `</div>`;
+            return html;
+        }
+
+        function wireSchemaInteractions() {
+            // Click schema item to expand/collapse columns
+            document.querySelectorAll('#schema-groups-container .schema-item').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    // If clicking the SQL button, load query instead
+                    if (e.target.classList.contains('query-btn')) {
+                        e.stopPropagation();
+                        const tableName = this.getAttribute('data-table') || this.getAttribute('data-view');
+                        if (!tableName) return;
+                        setEditorSQL(`SELECT * FROM ${tableName} LIMIT 100;`);
+                        if (window._cmEditor) window._cmEditor.focus();
+                        document.getElementById('sql-editor').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        return;
+                    }
+
+                    const tableName = this.getAttribute('data-table') || this.getAttribute('data-view');
+                    if (!tableName) return;
+
+                    const columnsEl = document.querySelector(`.schema-columns[data-parent="${tableName}"]`);
+                    if (!columnsEl) return;
+
+                    const isExpanded = this.classList.contains('expanded');
+                    if (isExpanded) {
+                        this.classList.remove('expanded');
+                        columnsEl.classList.remove('visible');
+                    } else {
+                        this.classList.add('expanded');
+                        columnsEl.classList.add('visible');
+                    }
+                });
+            });
+
+            // Click column to insert into CodeMirror at cursor
+            document.querySelectorAll('#schema-groups-container .schema-col-item').forEach(colItem => {
+                colItem.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const colName = this.getAttribute('data-col');
+                    if (!colName || !window._cmEditor) return;
+
+                    const cursor = window._cmEditor.state.selection.main.head;
+                    window._cmEditor.dispatch({
+                        changes: { from: cursor, insert: colName }
+                    });
+                    window._cmEditor.focus();
+                });
+            });
+        }
+
+        // Schema search: filter by table name AND column names
         document.getElementById('schema-search').addEventListener('input', function(e) {
-            const query = e.target.value.toLowerCase();
-            document.querySelectorAll('.schema-item').forEach(item => {
-                const text = item.textContent.toLowerCase();
-                item.style.display = text.includes(query) ? '' : 'none';
+            const query = e.target.value.toLowerCase().trim();
+
+            document.querySelectorAll('#schema-groups-container .schema-item').forEach(item => {
+                const tableName = (item.getAttribute('data-table') || item.getAttribute('data-view') || '').toLowerCase();
+                const columnsEl = document.querySelector(`.schema-columns[data-parent="${tableName}"]`);
+
+                if (!query) {
+                    item.style.display = '';
+                    // Remove search-triggered expansions
+                    if (item.hasAttribute('data-search-expanded')) {
+                        item.classList.remove('expanded');
+                        item.removeAttribute('data-search-expanded');
+                        if (columnsEl) columnsEl.classList.remove('visible');
+                    }
+                    if (columnsEl) {
+                        columnsEl.style.display = '';
+                        columnsEl.querySelectorAll('.schema-col-item').forEach(c => c.style.display = '');
+                    }
+                    return;
+                }
+
+                // Check table name match
+                let tableMatch = tableName.includes(query);
+
+                // Check column name matches
+                let anyColMatch = false;
+                if (columnsEl) {
+                    columnsEl.querySelectorAll('.schema-col-item').forEach(colItem => {
+                        const colName = (colItem.getAttribute('data-col') || '').toLowerCase();
+                        if (colName.includes(query)) {
+                            anyColMatch = true;
+                            colItem.style.display = '';
+                        } else {
+                            colItem.style.display = tableMatch ? '' : 'none';
+                        }
+                    });
+                }
+
+                if (tableMatch || anyColMatch) {
+                    item.style.display = '';
+                    // Auto-expand if column match found
+                    if (anyColMatch && !tableMatch && columnsEl) {
+                        if (!item.classList.contains('expanded')) {
+                            item.setAttribute('data-search-expanded', 'true');
+                        }
+                        item.classList.add('expanded');
+                        columnsEl.classList.add('visible');
+                    }
+                } else {
+                    item.style.display = 'none';
+                    if (columnsEl) columnsEl.style.display = 'none';
+                }
+            });
+
+            // Show/hide group labels if all their items are hidden
+            document.querySelectorAll('#schema-groups-container .schema-group').forEach(group => {
+                const visibleItems = group.querySelectorAll('.schema-item[style=""], .schema-item:not([style])');
+                const hasVisible = Array.from(group.querySelectorAll('.schema-item')).some(i => i.style.display !== 'none');
+                group.style.display = hasVisible ? '' : 'none';
             });
         });
 
@@ -2368,43 +2572,806 @@ LIMIT 20;</textarea>
             }
         });
 
-        /* ==================== SCHEMA ITEM CLICK (insert into CodeMirror, TKT-174) ==================== */
-        document.querySelectorAll('.schema-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const tableName = this.getAttribute('data-table') || this.getAttribute('data-view');
-                if (!tableName) return;
-                setEditorSQL(`SELECT * FROM ${tableName} LIMIT 100;`);
-                if (window._cmEditor) window._cmEditor.focus();
-                document.getElementById('sql-editor').scrollIntoView({ behavior: 'smooth', block: 'center' });
-            });
-        });
+        // Build the schema browser
+        buildInteractiveSchema();
 
-        /* ==================== EXAMPLE CARD CLICK (TKT-174: load into CodeMirror) ==================== */
-        document.querySelectorAll('.example-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const sqlText = this.querySelector('p').textContent;
-                setEditorSQL(sqlText);
-                if (window._cmEditor) window._cmEditor.focus();
-                document.getElementById('sql-editor').scrollIntoView({ behavior: 'smooth', block: 'center' });
-            });
-        });
+        /* ==================== TKT-176: EXAMPLE QUERIES GALLERY ==================== */
+        const EXAMPLE_QUERIES = [
+            // Leaderboard
+            {
+                category: 'leaderboard',
+                title: 'Top 20 IPL Run Scorers',
+                description: 'All-time highest run scorers in IPL history with strike rates and averages.',
+                sql: `SELECT player_name, innings, runs, balls_faced,\n  highest_score, fifties, hundreds,\n  ROUND(strike_rate, 1) AS strike_rate,\n  ROUND(batting_average, 1) AS avg\nFROM analytics_top_run_scorers\nLIMIT 20;`
+            },
+            {
+                category: 'leaderboard',
+                title: 'Top 20 IPL Wicket Takers',
+                description: 'All-time leading wicket takers in IPL with economy and bowling averages.',
+                sql: `SELECT player_name, matches_bowled, wickets,\n  ROUND(overs_bowled, 1) AS overs,\n  best_wickets || '/' || best_runs AS best,\n  ROUND(economy_rate, 2) AS economy,\n  ROUND(bowling_average, 1) AS avg\nFROM analytics_top_wicket_takers\nLIMIT 20;`
+            },
+            {
+                category: 'leaderboard',
+                title: 'Highest Strike Rates (min 500 balls)',
+                description: 'Batters with the best strike rates in IPL, minimum 500 balls faced.',
+                sql: `SELECT player_name, innings, runs, balls_faced,\n  ROUND(strike_rate, 2) AS strike_rate,\n  ROUND(batting_average, 1) AS avg,\n  ROUND(boundary_pct, 1) AS boundary_pct\nFROM analytics_ipl_batting_career\nWHERE balls_faced >= 500\nORDER BY strike_rate DESC\nLIMIT 20;`
+            },
+            // Batting
+            {
+                category: 'batting',
+                title: 'Best Powerplay Batters',
+                description: 'Top performers in the powerplay phase by strike rate, minimum 200 balls.',
+                sql: `SELECT player_name, innings, runs, balls_faced,\n  ROUND(strike_rate, 2) AS strike_rate,\n  ROUND(batting_average, 1) AS avg,\n  ROUND(boundary_pct, 1) AS boundary_pct\nFROM analytics_ipl_batter_phase\nWHERE match_phase = 'powerplay'\n  AND balls_faced >= 200\nORDER BY strike_rate DESC\nLIMIT 20;`
+            },
+            {
+                category: 'batting',
+                title: 'Death Over Batting Specialists',
+                description: 'Batters with the best death overs strike rate, minimum 200 balls faced.',
+                sql: `SELECT player_name, innings, runs, balls_faced,\n  ROUND(strike_rate, 2) AS strike_rate,\n  fours, sixes,\n  ROUND(boundary_pct, 1) AS boundary_pct\nFROM analytics_ipl_batter_phase\nWHERE match_phase = 'death'\n  AND balls_faced >= 200\nORDER BY strike_rate DESC\nLIMIT 20;`
+            },
+            {
+                category: 'batting',
+                title: 'Most Sixes in IPL History',
+                description: 'Players who have hit the most sixes across all IPL seasons.',
+                sql: `SELECT player_name, innings, runs,\n  sixes, fours,\n  ROUND(strike_rate, 2) AS strike_rate,\n  ROUND(boundary_pct, 1) AS boundary_pct\nFROM analytics_ipl_batting_career\nWHERE balls_faced >= 100\nORDER BY sixes DESC\nLIMIT 20;`
+            },
+            // Bowling
+            {
+                category: 'bowling',
+                title: 'Best Death Bowlers',
+                description: 'Bowlers with the best economy rate in death overs, minimum 200 balls.',
+                sql: `SELECT player_name, matches, balls_bowled,\n  ROUND(overs, 1) AS overs,\n  runs_conceded, wickets,\n  ROUND(economy_rate, 2) AS economy,\n  ROUND(dot_ball_pct, 1) AS dot_pct\nFROM analytics_ipl_bowler_phase\nWHERE match_phase = 'death'\n  AND balls_bowled >= 200\nORDER BY economy_rate ASC\nLIMIT 20;`
+            },
+            {
+                category: 'bowling',
+                title: 'Spin vs Pace Economy by Phase',
+                description: 'Compare spin and pace bowling economy across powerplay, middle, and death phases.',
+                sql: `SELECT\n  bc.bowling_style,\n  bp.match_phase,\n  COUNT(DISTINCT bp.player_id) AS bowlers,\n  SUM(bp.balls_bowled) AS total_balls,\n  ROUND(SUM(bp.runs_conceded) * 6.0 / SUM(bp.balls_bowled), 2) AS economy,\n  ROUND(SUM(bp.dot_balls) * 100.0 / SUM(bp.balls_bowled), 1) AS dot_pct\nFROM analytics_ipl_bowler_phase bp\nJOIN dim_bowler_classification bc ON bp.player_id = bc.player_id\nWHERE bp.balls_bowled >= 60\nGROUP BY bc.bowling_style, bp.match_phase\nORDER BY bc.bowling_style, bp.match_phase;`
+            },
+            {
+                category: 'bowling',
+                title: 'Most Dot Balls in IPL Career',
+                description: 'Bowlers who have bowled the most dot balls in IPL history.',
+                sql: `SELECT player_name, matches_bowled,\n  ROUND(overs_bowled, 1) AS overs,\n  wickets, dot_balls,\n  ROUND(dot_ball_pct, 1) AS dot_pct,\n  ROUND(economy_rate, 2) AS economy\nFROM analytics_ipl_bowling_career\nWHERE balls_bowled >= 300\nORDER BY dot_balls DESC\nLIMIT 20;`
+            },
+            // Team
+            {
+                category: 'team',
+                title: 'IPL 2026 Squad Spend by Team',
+                description: 'Total and average squad spend per team for IPL 2026 mega auction.',
+                sql: `SELECT team_name,\n  COUNT(*) AS squad_size,\n  ROUND(SUM(price_cr), 2) AS total_spend_cr,\n  ROUND(AVG(price_cr), 2) AS avg_price_cr,\n  ROUND(MAX(price_cr), 2) AS top_buy_cr\nFROM ipl_2026_contracts\nGROUP BY team_name\nORDER BY total_spend_cr DESC;`
+            },
+            {
+                category: 'team',
+                title: 'Team Win Rates by Venue (IPL)',
+                description: 'How each IPL team performs at different venues, sorted by win percentage.',
+                sql: `SELECT dt.team_name, v.venue_name,\n  COUNT(*) AS matches,\n  SUM(CASE WHEN m.winner_id = dt.team_id THEN 1 ELSE 0 END) AS wins,\n  ROUND(SUM(CASE WHEN m.winner_id = dt.team_id THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 1) AS win_pct\nFROM dim_match m\nJOIN dim_venue v ON m.venue_id = v.venue_id\nJOIN dim_tournament t ON m.tournament_id = t.tournament_id\nJOIN dim_team dt ON dt.team_id IN (m.team1_id, m.team2_id)\nWHERE t.tournament_name LIKE '%Indian Premier League%'\nGROUP BY dt.team_name, v.venue_name\nHAVING COUNT(*) >= 5\nORDER BY win_pct DESC\nLIMIT 25;`
+            },
+            {
+                category: 'team',
+                title: 'Strongest Batting Lineups (IPL 2026)',
+                description: 'IPL 2026 squads ranked by combined historical IPL batting performance.',
+                sql: `SELECT team_name,\n  COUNT(*) AS batters,\n  SUM(ipl_runs) AS total_ipl_runs,\n  ROUND(AVG(ipl_sr), 1) AS avg_strike_rate,\n  ROUND(AVG(ipl_avg), 1) AS avg_batting_avg\nFROM analytics_ipl_squad_batting\nWHERE ipl_innings >= 5\nGROUP BY team_name\nORDER BY total_ipl_runs DESC;`
+            },
+            // Matchup
+            {
+                category: 'matchup',
+                title: 'Virat Kohli vs Left-Arm Pace',
+                description: 'How Virat Kohli has performed against left-arm pace bowling in IPL.',
+                sql: `SELECT batter_name, bowler_type,\n  balls, runs, dismissals,\n  ROUND(strike_rate, 2) AS strike_rate,\n  ROUND(average, 1) AS average,\n  ROUND(boundary_pct, 1) AS boundary_pct\nFROM analytics_ipl_batter_vs_bowler_type\nWHERE batter_name LIKE '%Kohli%'\nORDER BY bowler_type;`
+            },
+            {
+                category: 'matchup',
+                title: 'Jasprit Bumrah vs Top Batters',
+                description: 'Bumrah head-to-head record against batters with 10+ balls faced.',
+                sql: `SELECT batter_name, balls, runs, dismissals,\n  ROUND(strike_rate, 2) AS strike_rate,\n  ROUND(dot_ball_pct, 1) AS dot_pct\nFROM analytics_ipl_batter_vs_bowler\nWHERE bowler_name LIKE '%Bumrah%'\n  AND balls >= 10\nORDER BY balls DESC\nLIMIT 20;`
+            },
+            // Phase Analysis
+            {
+                category: 'phase',
+                title: 'Powerplay Run Rate by Team (Recent Seasons)',
+                description: 'Average powerplay run rate per team in recent IPL seasons.',
+                sql: `SELECT dt_bat.team_name AS batting_team,\n  COUNT(DISTINCT fb.match_id) AS matches,\n  SUM(fb.total_runs) AS pp_runs,\n  SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS pp_balls,\n  ROUND(SUM(fb.total_runs) * 6.0 / SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 2) AS run_rate\nFROM fact_ball fb\nJOIN dim_match m ON fb.match_id = m.match_id\nJOIN dim_tournament t ON m.tournament_id = t.tournament_id\nJOIN dim_team dt_bat ON fb.batting_team_id = dt_bat.team_id\nWHERE t.tournament_name LIKE '%Indian Premier League%'\n  AND m.season IN ('2024', '2024/25', '2025')\n  AND fb.match_phase = 'powerplay'\nGROUP BY dt_bat.team_name\nHAVING SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) >= 100\nORDER BY run_rate DESC;`
+            },
+            // IPL 2026
+            {
+                category: 'ipl2026',
+                title: 'IPL 2026 Overseas Players',
+                description: 'All overseas players in IPL 2026 squads with their roles and nationalities.',
+                sql: `SELECT team_name, player_name, nationality,\n  role, age, batting_hand,\n  bowling_type\nFROM ipl_2026_squads\nWHERE nationality != 'India'\nORDER BY team_name, player_name;`
+            },
+            {
+                category: 'ipl2026',
+                title: 'Most Expensive IPL 2026 Buys',
+                description: 'The biggest price tags from the IPL 2026 mega auction and retentions.',
+                sql: `SELECT c.player_name, c.team_name,\n  c.price_cr, c.acquisition_type,\n  s.nationality, s.role, s.age\nFROM ipl_2026_contracts c\nJOIN ipl_2026_squads s\n  ON c.player_name = s.player_name\n  AND c.team_name = s.team_name\nORDER BY c.price_cr DESC\nLIMIT 25;`
+            },
+        ];
 
-        /* ==================== EXAMPLE FILTER ==================== */
+        function renderExampleQueries(filter) {
+            const grid = document.getElementById('examples-grid');
+            const filtered = filter === 'all' ? EXAMPLE_QUERIES : EXAMPLE_QUERIES.filter(q => q.category === filter);
+
+            let html = '';
+            for (const q of filtered) {
+                const catClass = q.category === 'ipl2026' ? 'ipl2026' : q.category;
+                const catLabel = q.category === 'ipl2026' ? 'IPL 2026' : q.category.charAt(0).toUpperCase() + q.category.slice(1);
+                const sqlPreview = q.sql.replace(/\n/g, ' ').substring(0, 65);
+                html += `<div class="example-card" data-category="${q.category}">`;
+                html += `<span class="example-card-category ${catClass}">${catLabel}</span>`;
+                html += `<h4>${escapeHtml(q.title)}</h4>`;
+                html += `<div class="example-card-desc">${escapeHtml(q.description)}</div>`;
+                html += `<p title="${escapeHtml(q.sql)}">${escapeHtml(sqlPreview)}...</p>`;
+                html += `<button class="load-btn" data-sql="${q.sql.replace(/"/g, '&quot;')}">&#9654; Load Query</button>`;
+                html += `</div>`;
+            }
+            grid.innerHTML = html;
+
+            // Wire load buttons
+            grid.querySelectorAll('.load-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const sqlText = this.getAttribute('data-sql');
+                    setEditorSQL(sqlText);
+                    if (window._cmEditor) window._cmEditor.focus();
+                    document.getElementById('sql-editor').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                });
+            });
+
+            // Also make the whole card clickable (loads query)
+            grid.querySelectorAll('.example-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('load-btn')) return; // Already handled
+                    const btn = this.querySelector('.load-btn');
+                    if (btn) {
+                        const sqlText = btn.getAttribute('data-sql');
+                        setEditorSQL(sqlText);
+                        if (window._cmEditor) window._cmEditor.focus();
+                        document.getElementById('sql-editor').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
+            });
+        }
+
+        // Render initial gallery
+        renderExampleQueries('all');
+
+        /* ==================== EXAMPLE FILTER (TKT-176) ==================== */
         document.querySelectorAll('.examples-filter-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.examples-filter-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-
-                const filterText = this.textContent.trim().toLowerCase();
-                document.querySelectorAll('.example-card').forEach(card => {
-                    if (filterText === 'all') { card.style.display = ''; return; }
-                    const category = card.querySelector('.example-card-category');
-                    if (category) {
-                        card.style.display = category.textContent.trim().toLowerCase() === filterText ? '' : 'none';
-                    }
-                });
+                const filterVal = this.getAttribute('data-filter') || 'all';
+                renderExampleQueries(filterVal);
             });
         });
+
+        /* ==================== NATURAL LANGUAGE QUERY ENGINE (TKT-177) ==================== */
+
+        // ---- Team alias map for fuzzy matching ----
+        const TEAM_ALIASES = {
+            'csk':  'Chennai Super Kings',
+            'chennai': 'Chennai Super Kings',
+            'super kings': 'Chennai Super Kings',
+            'mi':   'Mumbai Indians',
+            'mumbai': 'Mumbai Indians',
+            'rcb':  'Royal Challengers Bengaluru',
+            'bangalore': 'Royal Challengers Bengaluru',
+            'bengaluru': 'Royal Challengers Bengaluru',
+            'royal challengers': 'Royal Challengers Bengaluru',
+            'kkr':  'Kolkata Knight Riders',
+            'kolkata': 'Kolkata Knight Riders',
+            'knight riders': 'Kolkata Knight Riders',
+            'dc':   'Delhi Capitals',
+            'delhi': 'Delhi Capitals',
+            'capitals': 'Delhi Capitals',
+            'pbks': 'Punjab Kings',
+            'punjab': 'Punjab Kings',
+            'kxip': 'Punjab Kings',
+            'rr':   'Rajasthan Royals',
+            'rajasthan': 'Rajasthan Royals',
+            'royals': 'Rajasthan Royals',
+            'srh':  'Sunrisers Hyderabad',
+            'hyderabad': 'Sunrisers Hyderabad',
+            'sunrisers': 'Sunrisers Hyderabad',
+            'gt':   'Gujarat Titans',
+            'gujarat': 'Gujarat Titans',
+            'titans': 'Gujarat Titans',
+            'lsg':  'Lucknow Super Giants',
+            'lucknow': 'Lucknow Super Giants',
+            'super giants': 'Lucknow Super Giants',
+        };
+
+        // ---- Resolve a team token to canonical name or ILIKE pattern ----
+        function resolveTeamName(token) {
+            const lower = token.toLowerCase().trim();
+            if (TEAM_ALIASES[lower]) return TEAM_ALIASES[lower];
+            for (const [alias, full] of Object.entries(TEAM_ALIASES)) {
+                if (alias.includes(lower) || lower.includes(alias)) return full;
+            }
+            return token;
+        }
+
+        // ---- Detect if a token looks like a team abbreviation or name ----
+        function isTeamToken(token) {
+            const lower = token.toLowerCase().trim();
+            return TEAM_ALIASES.hasOwnProperty(lower) ||
+                Object.values(TEAM_ALIASES).some(v => v.toLowerCase().includes(lower));
+        }
+
+        // ---- Phase keywords map ----
+        const PHASE_MAP = {
+            'powerplay': 'powerplay',
+            'pp': 'powerplay',
+            'power play': 'powerplay',
+            'middle': 'middle',
+            'middle overs': 'middle',
+            'death': 'death',
+            'death overs': 'death',
+            'slog': 'death',
+        };
+
+        // ---- Helper: extract a limit number from the query ----
+        function extractLimit(query) {
+            const match = query.match(/\b(?:top|best|worst|first|last)\s+(\d+)\b/i);
+            if (match) return parseInt(match[1]);
+            const limitMatch = query.match(/\blimit\s+(\d+)\b/i);
+            if (limitMatch) return parseInt(limitMatch[1]);
+            return 20;
+        }
+
+        // ---- The main NL-to-SQL engine ----
+        function naturalLanguageToSQL(query) {
+            const q = query.trim();
+            if (!q) return null;
+            const lower = q.toLowerCase();
+            const tokens = lower.split(/\s+/);
+            const limit = extractLimit(lower);
+
+            // ============ PATTERN 1: Player vs Player (batter vs bowler matchup) ============
+            const vsPlayerMatch = lower.match(/^(.+?)\s+(?:vs\.?|versus|against|v)\s+(.+?)(?:\s+stats?)?$/i);
+            if (vsPlayerMatch) {
+                const left = vsPlayerMatch[1].trim();
+                const right = vsPlayerMatch[2].trim();
+                // Check if the right side is a team
+                if (isTeamToken(right)) {
+                    const teamName = resolveTeamName(right);
+                    return {
+                        sql: `SELECT * FROM analytics_ipl_batter_vs_team\nWHERE player_name ILIKE '%${left}%'\n  AND team_name ILIKE '%${teamName}%'\nORDER BY runs DESC;`,
+                        type: 'player_vs_team',
+                        entity: left,
+                        context: teamName
+                    };
+                }
+                // Check if right side is a bowling type
+                if (/\b(spin|pace|fast|seam|left.?arm|right.?arm|off.?spin|leg.?spin|wrist.?spin)\b/.test(right)) {
+                    return {
+                        sql: `SELECT * FROM analytics_ipl_batter_vs_bowler_type\nWHERE batter_name ILIKE '%${left}%'\nORDER BY balls DESC;`,
+                        type: 'player_vs_type',
+                        entity: left,
+                        context: right
+                    };
+                }
+                // Otherwise it is batter vs bowler
+                return {
+                    sql: `SELECT * FROM analytics_ipl_batter_vs_bowler\nWHERE batter_name ILIKE '%${left}%'\n  AND bowler_name ILIKE '%${right}%'\nORDER BY balls DESC;`,
+                    type: 'matchup',
+                    entity: left,
+                    context: right
+                };
+            }
+
+            // ============ PATTERN 2: Player against spin/pace ============
+            const vsTypeMatch = lower.match(/^(.+?)\s+(?:against|vs\.?|versus|v)\s+(spin|pace|fast|seam|left.?arm|right.?arm|off.?spin|leg.?spin|wrist.?spin)$/i);
+            if (vsTypeMatch) {
+                const player = vsTypeMatch[1].trim();
+                return {
+                    sql: `SELECT * FROM analytics_ipl_batter_vs_bowler_type\nWHERE batter_name ILIKE '%${player}%'\nORDER BY balls DESC;`,
+                    type: 'player_vs_type',
+                    entity: player,
+                    context: vsTypeMatch[2].trim()
+                };
+            }
+
+            // ============ PATTERN 3: Most expensive players / auction / contracts ============
+            if (/\b(most expensive|highest paid|costliest|auction|contracts?|price|retained|rtm)\b/.test(lower)) {
+                if (/\b(cheap|lowest|bargain|affordable)\b/.test(lower)) {
+                    return {
+                        sql: `SELECT player_name, team_name, price_cr, acquisition_type, year_joined\nFROM ipl_2026_contracts\nORDER BY price_cr ASC\nLIMIT ${limit};`,
+                        type: 'contracts',
+                        entity: 'cheapest players'
+                    };
+                }
+                let teamFound = null;
+                for (const [alias, full] of Object.entries(TEAM_ALIASES)) {
+                    if (lower.includes(alias)) { teamFound = full; break; }
+                }
+                if (teamFound) {
+                    return {
+                        sql: `SELECT player_name, team_name, price_cr, acquisition_type, year_joined\nFROM ipl_2026_contracts\nWHERE team_name ILIKE '%${teamFound}%'\nORDER BY price_cr DESC;`,
+                        type: 'contracts',
+                        entity: teamFound
+                    };
+                }
+                return {
+                    sql: `SELECT player_name, team_name, price_cr, acquisition_type, year_joined\nFROM ipl_2026_contracts\nORDER BY price_cr DESC\nLIMIT ${limit};`,
+                    type: 'contracts',
+                    entity: 'most expensive'
+                };
+            }
+
+            // ============ PATTERN 4: Overseas / foreign players ============
+            if (/\b(overseas|foreign|international|non.?indian|imports?)\b/.test(lower)) {
+                let teamFound = null;
+                for (const [alias, full] of Object.entries(TEAM_ALIASES)) {
+                    if (lower.includes(alias)) { teamFound = full; break; }
+                }
+                const teamClause = teamFound ? `\n  AND team_name ILIKE '%${teamFound}%'` : '';
+                return {
+                    sql: `SELECT player_name, team_name, nationality, role, age\nFROM ipl_2026_squads\nWHERE nationality != 'India'${teamClause}\nORDER BY team_name, player_name;`,
+                    type: 'overseas',
+                    entity: teamFound || 'all teams'
+                };
+            }
+
+            // ============ PATTERN 5: Team squad ============
+            if (/\b(squad|roster|team\s*list|players?)\b/.test(lower) || /\bwho\s+(is|are)\s+in\b/.test(lower)) {
+                let teamFound = null;
+                for (const [alias, full] of Object.entries(TEAM_ALIASES)) {
+                    if (lower.includes(alias)) { teamFound = full; break; }
+                }
+                if (teamFound) {
+                    return {
+                        sql: `SELECT player_name, role, nationality, age, batting_hand, bowling_type\nFROM ipl_2026_squads\nWHERE team_name ILIKE '%${teamFound}%'\nORDER BY role, player_name;`,
+                        type: 'squad',
+                        entity: teamFound
+                    };
+                }
+            }
+
+            // ============ PATTERN 6: Team batting / bowling analysis ============
+            if (/\b(batting|bowl(?:ing)?)\b/.test(lower)) {
+                let teamFound = null;
+                for (const [alias, full] of Object.entries(TEAM_ALIASES)) {
+                    if (lower.includes(alias)) { teamFound = full; break; }
+                }
+                if (teamFound) {
+                    const isBowling = /\bbowl(?:ing|ers?)?\b/.test(lower);
+                    const view = isBowling ? 'analytics_ipl_squad_bowling' : 'analytics_ipl_squad_batting';
+                    return {
+                        sql: `SELECT * FROM ${view}\nWHERE team_name ILIKE '%${teamFound}%'\nORDER BY ${isBowling ? 'player_name' : 'ipl_runs DESC NULLS LAST'};`,
+                        type: 'team_analysis',
+                        entity: teamFound,
+                        context: isBowling ? 'bowling' : 'batting'
+                    };
+                }
+            }
+
+            // ============ PATTERN 7: Phase-specific queries ============
+            let detectedPhase = null;
+            for (const [keyword, phase] of Object.entries(PHASE_MAP)) {
+                if (lower.includes(keyword)) { detectedPhase = phase; break; }
+            }
+            if (detectedPhase) {
+                const isBowling = /\bbowl(?:ing|ers?)?\b/.test(lower);
+                const isBatting = /\bbat(?:ting|ters?|smen|sman)?\b/.test(lower) || /\b(run scorers?|hitters?|strikers?)\b/.test(lower);
+
+                // Check for a specific player in the phase query
+                const playerInPhase = lower.replace(/\b(powerplay|middle|death|slog|pp)\b/gi, '')
+                    .replace(/\b(bat(?:ting|ters?|smen|sman)?|bowl(?:ing|ers?)?|best|top|worst|\d+|stats?|in|the|overs?|phase|hitters?|strikers?|run scorers?)\b/gi, '')
+                    .trim();
+                if (playerInPhase && playerInPhase.length >= 3) {
+                    const view = isBowling ? 'analytics_ipl_bowler_phase' : 'analytics_ipl_batter_phase';
+                    return {
+                        sql: `SELECT * FROM ${view}\nWHERE player_name ILIKE '%${playerInPhase}%'\n  AND match_phase = '${detectedPhase}'\nORDER BY ${isBowling ? 'wickets DESC' : 'runs DESC'};`,
+                        type: 'phase',
+                        entity: playerInPhase,
+                        context: detectedPhase
+                    };
+                }
+
+                if (isBowling || (!isBatting && /\b(economy|wickets?|dot.?ball)\b/.test(lower))) {
+                    return {
+                        sql: `SELECT player_name, match_phase, matches, balls_bowled, overs, runs_conceded, wickets, economy_rate, dot_ball_pct\nFROM analytics_ipl_bowler_phase\nWHERE match_phase = '${detectedPhase}'\n  AND balls_bowled >= 120\nORDER BY ${/economy/.test(lower) ? 'economy_rate ASC' : 'wickets DESC'}\nLIMIT ${limit};`,
+                        type: 'phase_leaderboard',
+                        entity: detectedPhase + ' bowlers',
+                        context: 'bowling'
+                    };
+                }
+                return {
+                    sql: `SELECT player_name, match_phase, innings, runs, balls_faced, strike_rate, batting_average, boundary_pct\nFROM analytics_ipl_batter_phase\nWHERE match_phase = '${detectedPhase}'\n  AND balls_faced >= 120\nORDER BY ${/average/.test(lower) ? 'batting_average DESC' : (/boundary/.test(lower) ? 'boundary_pct DESC' : 'strike_rate DESC')}\nLIMIT ${limit};`,
+                    type: 'phase_leaderboard',
+                    entity: detectedPhase + ' batters',
+                    context: 'batting'
+                };
+            }
+
+            // ============ PATTERN 8: Leaderboard queries ============
+            if (/\b(top|best|highest|most|leading)\b/.test(lower) && /\b(bat(?:ters?|smen|sman)?|run.?scorers?|strike.?rate|sr|average|centuries|hundreds|fifties|50s|100s|sixes|fours|boundaries)\b/.test(lower)) {
+                let orderBy = 'runs DESC';
+                if (/strike.?rate|sr\b/.test(lower)) orderBy = 'strike_rate DESC';
+                else if (/\baverage\b/.test(lower)) orderBy = 'batting_average DESC';
+                else if (/\b(centuries|hundreds|100s)\b/.test(lower)) orderBy = 'hundreds DESC';
+                else if (/\b(fifties|50s)\b/.test(lower)) orderBy = 'fifties DESC';
+                else if (/\bsixes\b/.test(lower)) orderBy = 'sixes DESC';
+                else if (/\bfours\b/.test(lower)) orderBy = 'fours DESC';
+                else if (/\b(boundaries)\b/.test(lower)) orderBy = 'boundary_pct DESC';
+
+                const minFilter = /strike.?rate|sr|average/.test(lower) ? '\n  AND balls_faced >= 500' : '';
+                return {
+                    sql: `SELECT player_name, primary_role, innings, runs, balls_faced, strike_rate, batting_average, boundary_pct, fifties, hundreds, sixes\nFROM analytics_ipl_batting_career\nWHERE innings >= 10${minFilter}\nORDER BY ${orderBy}\nLIMIT ${limit};`,
+                    type: 'leaderboard',
+                    entity: 'batters',
+                    context: orderBy.split(' ')[0]
+                };
+            }
+
+            if (/\b(top|best|highest|most|leading|lowest)\b/.test(lower) && /\b(bowl(?:ers?|ing)?|wicket.?takers?|wickets?|economy|econ|dot.?ball)\b/.test(lower)) {
+                let orderBy = 'wickets DESC';
+                if (/economy|econ\b/.test(lower)) orderBy = 'economy_rate ASC';
+                else if (/dot.?ball/.test(lower)) orderBy = 'dot_ball_pct DESC';
+                else if (/\baverage\b/.test(lower)) orderBy = 'bowling_average ASC';
+                else if (/strike.?rate|sr\b/.test(lower)) orderBy = 'bowling_strike_rate ASC';
+
+                const minFilter = /economy|econ|dot.?ball|average|strike.?rate|sr/.test(lower) ? '\n  AND balls_bowled >= 500' : '';
+                return {
+                    sql: `SELECT player_name, primary_role, matches_bowled, overs_bowled, wickets, economy_rate, bowling_average, bowling_strike_rate, dot_ball_pct, best_wickets, best_runs\nFROM analytics_ipl_bowling_career\nWHERE matches_bowled >= 10${minFilter}\nORDER BY ${orderBy}\nLIMIT ${limit};`,
+                    type: 'leaderboard',
+                    entity: 'bowlers',
+                    context: orderBy.split(' ')[0]
+                };
+            }
+
+            // ============ PATTERN 9: Direct "[name] stats" / "show me [name]" ============
+            const playerLookupMatch = lower.match(/^(?:show\s+(?:me\s+)?|get\s+|find\s+|search\s+|look\s*up\s+)?(.+?)(?:\s+(?:stats?|career|record|numbers?|profile|performance|data|batting|bowling|info|details))?$/i);
+            if (playerLookupMatch) {
+                let playerName = playerLookupMatch[1].trim();
+                playerName = playerName.replace(/^(?:stats?\s+(?:for|of)\s+|data\s+(?:for|of)\s+|career\s+(?:for|of)\s+|record\s+(?:for|of)\s+)/i, '').trim();
+                playerName = playerName.replace(/\s+(?:stats?|career|record|numbers?|profile|performance|data|info|details)$/i, '').trim();
+
+                if (playerName.length < 2) return null;
+
+                // Check if this is actually a team query
+                if (isTeamToken(playerName)) {
+                    const teamName = resolveTeamName(playerName);
+                    if (/\bbowl(?:ing|ers?)?\b/.test(lower)) {
+                        return {
+                            sql: `SELECT * FROM analytics_ipl_squad_bowling\nWHERE team_name ILIKE '%${teamName}%'\nORDER BY player_name;`,
+                            type: 'team_analysis',
+                            entity: teamName,
+                            context: 'bowling'
+                        };
+                    }
+                    if (/\bbat(?:ting|ters?)?\b/.test(lower)) {
+                        return {
+                            sql: `SELECT * FROM analytics_ipl_squad_batting\nWHERE team_name ILIKE '%${teamName}%'\nORDER BY ipl_runs DESC NULLS LAST;`,
+                            type: 'team_analysis',
+                            entity: teamName,
+                            context: 'batting'
+                        };
+                    }
+                    return {
+                        sql: `SELECT player_name, role, nationality, age, batting_hand, bowling_type\nFROM ipl_2026_squads\nWHERE team_name ILIKE '%${teamName}%'\nORDER BY role, player_name;`,
+                        type: 'squad',
+                        entity: teamName
+                    };
+                }
+
+                // Player lookup: check if bowling-specific
+                if (/\bbowl(?:ing)?\b/.test(lower)) {
+                    return {
+                        sql: `SELECT player_name, primary_role, matches_bowled, overs_bowled, wickets, economy_rate, bowling_average, bowling_strike_rate, dot_ball_pct\nFROM analytics_ipl_bowling_career\nWHERE player_name ILIKE '%${playerName}%';`,
+                        type: 'player_bowling',
+                        entity: playerName
+                    };
+                }
+
+                // Default: batting career lookup
+                return {
+                    sql: `SELECT player_name, primary_role, innings, runs, balls_faced, strike_rate, batting_average, boundary_pct, fifties, hundreds, sixes\nFROM analytics_ipl_batting_career\nWHERE player_name ILIKE '%${playerName}%';`,
+                    type: 'player_lookup',
+                    entity: playerName
+                };
+            }
+
+            return null;
+        }
+
+        // Make it globally accessible
+        window.naturalLanguageToSQL = naturalLanguageToSQL;
+
+        /* ==================== "THE FIRST TAKE" INSIGHT GENERATOR (TKT-177) ==================== */
+        let lastNLQueryType = null;
+        let lastNLEntity = null;
+        let lastNLContext = null;
+
+        function generateFirstTakeInsight(columns, rows, queryType, entity, context) {
+            if (!rows || rows.length === 0) {
+                return `<p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">
+                    No results to analyse here. That is unusual \u2014 let us check if the query or spelling needs adjusting.
+                    Try a broader search or check the schema browser for available views.
+                </p>`;
+            }
+
+            const firstRow = rows[0];
+            const totalRows = rows.length;
+
+            function fmt(n) {
+                if (n === null || n === undefined) return 'N/A';
+                if (typeof n === 'number') return n % 1 === 0 ? n.toLocaleString() : n.toFixed(2);
+                return String(n);
+            }
+
+            function colAvg(colName) {
+                const vals = rows.map(r => r[colName]).filter(v => v !== null && v !== undefined && typeof v === 'number');
+                if (vals.length === 0) return null;
+                return vals.reduce((a, b) => a + b, 0) / vals.length;
+            }
+
+            function pctAboveAvg(val, avg) {
+                if (!avg || avg === 0) return null;
+                return (((val - avg) / avg) * 100).toFixed(1);
+            }
+
+            let insight = '';
+
+            switch (queryType) {
+                case 'leaderboard': {
+                    const name = firstRow.player_name || firstRow.batter_name || 'The leader';
+                    if (context === 'runs' || context === 'wickets') {
+                        const statVal = firstRow[context] || firstRow.runs || firstRow.wickets;
+                        const avg = colAvg(context) || colAvg('runs') || colAvg('wickets');
+                        const pct = pctAboveAvg(statVal, avg);
+                        insight = `Right, let us talk about this leaderboard. <strong>${escapeHtml(name)}</strong> sits at the top with <strong>${fmt(statVal)} ${context}</strong>.`;
+                        if (pct && parseFloat(pct) > 0) {
+                            insight += ` That is <strong>${pct}%</strong> above the group average in this sample.`;
+                        }
+                        insight += ` When you are scouting, this is your benchmark \u2014 everyone else is chasing this standard.`;
+                        if (totalRows >= 3) {
+                            const third = rows[2];
+                            insight += ` Keep an eye on <strong>${escapeHtml(third.player_name || third.batter_name || 'the third name')}</strong> in third \u2014 that is often where the real value sits in squad building.`;
+                        }
+                    } else {
+                        const keyStat = context || 'strike_rate';
+                        const val = firstRow[keyStat];
+                        insight = `Looking at this data, <strong>${escapeHtml(name)}</strong> leads with a ${keyStat.replace(/_/g, ' ')} of <strong>${fmt(val)}</strong>.`;
+                        insight += ` This is a ${totalRows}-deep leaderboard \u2014 important to look beyond the headline number and consider sample size before drawing conclusions.`;
+                    }
+                    break;
+                }
+                case 'player_lookup':
+                case 'player_bowling': {
+                    const name = firstRow.player_name || firstRow.batter_name || entity;
+                    if (firstRow.innings !== undefined) {
+                        insight = `Here is the career dossier on <strong>${escapeHtml(name)}</strong>: <strong>${fmt(firstRow.innings)}</strong> innings`;
+                        if (firstRow.runs !== undefined) insight += `, <strong>${fmt(firstRow.runs)}</strong> runs`;
+                        if (firstRow.batting_average !== undefined) insight += ` at an average of <strong>${fmt(firstRow.batting_average)}</strong>`;
+                        if (firstRow.strike_rate !== undefined) insight += ` and a strike rate of <strong>${fmt(firstRow.strike_rate)}</strong>`;
+                        insight += '.';
+                        if (firstRow.strike_rate && firstRow.strike_rate > 140) {
+                            insight += ` That strike rate is in the impact zone \u2014 this is someone who shifts momentum.`;
+                        } else if (firstRow.batting_average && firstRow.batting_average > 35) {
+                            insight += ` Averaging above 35 in T20 cricket \u2014 that is rare consistency under pressure.`;
+                        }
+                    } else if (firstRow.wickets !== undefined) {
+                        insight = `The bowling profile for <strong>${escapeHtml(name)}</strong>: <strong>${fmt(firstRow.wickets)}</strong> wickets`;
+                        if (firstRow.economy_rate !== undefined) insight += ` at an economy of <strong>${fmt(firstRow.economy_rate)}</strong>`;
+                        if (firstRow.bowling_average !== undefined) insight += `, average <strong>${fmt(firstRow.bowling_average)}</strong>`;
+                        if (firstRow.bowling_strike_rate !== undefined) insight += `, strike rate <strong>${fmt(firstRow.bowling_strike_rate)}</strong>`;
+                        insight += '.';
+                        if (firstRow.economy_rate && firstRow.economy_rate < 7.5) {
+                            insight += ` An economy under 7.5 in T20s is elite \u2014 this bowler controls scoring pressure.`;
+                        }
+                    } else {
+                        insight = `Data loaded for <strong>${escapeHtml(name)}</strong>. ${totalRows} record${totalRows > 1 ? 's' : ''} found.`;
+                    }
+                    break;
+                }
+                case 'squad': {
+                    const teamName = entity || 'This squad';
+                    const overseas = rows.filter(r => r.nationality && r.nationality !== 'India').length;
+                    const indian = totalRows - overseas;
+                    insight = `<strong>${escapeHtml(teamName)}</strong> has <strong>${totalRows}</strong> players in the squad`;
+                    insight += ` \u2014 <strong>${overseas}</strong> overseas slots used.`;
+                    if (overseas > 0) {
+                        const overseasNames = rows.filter(r => r.nationality && r.nationality !== 'India').slice(0, 4).map(r => r.player_name);
+                        insight += ` Key overseas contingent: ${overseasNames.map(n => '<strong>' + escapeHtml(n) + '</strong>').join(', ')}.`;
+                    }
+                    insight += ` That is ${indian} Indian players forming the core \u2014 crucial for building the middle overs structure.`;
+                    break;
+                }
+                case 'team_analysis': {
+                    const teamName = entity || 'This team';
+                    const side = context || 'batting';
+                    insight = `<strong>${escapeHtml(teamName)}</strong> ${side} analysis across <strong>${totalRows}</strong> squad members.`;
+                    if (side === 'batting' && firstRow.ipl_runs !== undefined) {
+                        const topScorer = rows.reduce((a, b) => ((b.ipl_runs || 0) > (a.ipl_runs || 0) ? b : a), rows[0]);
+                        insight += ` The anchor is <strong>${escapeHtml(topScorer.player_name)}</strong> with <strong>${fmt(topScorer.ipl_runs)}</strong> IPL runs.`;
+                        const uncapped = rows.filter(r => !r.ipl_innings || r.ipl_innings === 0).length;
+                        if (uncapped > 0) insight += ` ${uncapped} player${uncapped > 1 ? 's are' : ' is'} uncapped at IPL level \u2014 development opportunities there.`;
+                    }
+                    break;
+                }
+                case 'contracts': {
+                    const topPlayer = firstRow.player_name || 'Top pick';
+                    insight = `Looking at the money \u2014 <strong>${escapeHtml(topPlayer)}</strong> at <strong>${fmt(firstRow.price_cr)} Cr</strong>`;
+                    if (firstRow.team_name) insight += ` for ${escapeHtml(firstRow.team_name)}`;
+                    insight += '.';
+                    if (totalRows >= 5) {
+                        const totalSpend = rows.slice(0, Math.min(totalRows, limit)).reduce((s, r) => s + (r.price_cr || 0), 0);
+                        insight += ` Top ${Math.min(totalRows, limit)} contracts total <strong>${fmt(totalSpend)} Cr</strong>.`;
+                    }
+                    insight += ` Always compare contract value against actual output \u2014 that is where you find market inefficiencies.`;
+                    break;
+                }
+                case 'player_vs_team': {
+                    const name = firstRow.player_name || entity;
+                    insight = `<strong>${escapeHtml(name)}</strong> vs <strong>${escapeHtml(context || 'opposition')}</strong>: `;
+                    if (firstRow.runs !== undefined) insight += `<strong>${fmt(firstRow.runs)}</strong> runs`;
+                    if (firstRow.balls_faced !== undefined) insight += ` off <strong>${fmt(firstRow.balls_faced)}</strong> balls`;
+                    if (firstRow.strike_rate !== undefined) insight += ` (SR: <strong>${fmt(firstRow.strike_rate)}</strong>)`;
+                    insight += '. ';
+                    insight += `Matchup data like this is gold in pre-tournament preparation \u2014 it tells you where to target or protect.`;
+                    break;
+                }
+                case 'matchup': {
+                    const batter = firstRow.batter_name || entity;
+                    const bowler = firstRow.bowler_name || context;
+                    insight = `Head-to-head: <strong>${escapeHtml(batter)}</strong> vs <strong>${escapeHtml(bowler)}</strong> \u2014 `;
+                    if (firstRow.balls !== undefined) insight += `<strong>${fmt(firstRow.balls)}</strong> balls faced, `;
+                    if (firstRow.runs !== undefined) insight += `<strong>${fmt(firstRow.runs)}</strong> runs, `;
+                    if (firstRow.dismissals !== undefined) insight += `<strong>${fmt(firstRow.dismissals)}</strong> dismissals`;
+                    if (firstRow.strike_rate !== undefined) insight += ` (SR: <strong>${fmt(firstRow.strike_rate)}</strong>)`;
+                    insight += '. ';
+                    if (firstRow.balls && firstRow.balls < 12) {
+                        insight += `Small sample though \u2014 need at least 12 deliveries to read anything meaningful into this.`;
+                    } else {
+                        insight += `This is actionable intelligence for field placement and bowling changes.`;
+                    }
+                    break;
+                }
+                case 'player_vs_type': {
+                    const name = firstRow.batter_name || entity;
+                    insight = `<strong>${escapeHtml(name)}</strong> breakdown by bowler type:`;
+                    for (const row of rows.slice(0, 4)) {
+                        if (row.bowler_type) {
+                            insight += ` vs ${escapeHtml(row.bowler_type)}: SR <strong>${fmt(row.strike_rate)}</strong> (${fmt(row.balls)} balls);`;
+                        }
+                    }
+                    insight += ` This split is essential for planning bowling rotations \u2014 expose the weakness, protect against the strength.`;
+                    break;
+                }
+                case 'phase_leaderboard':
+                case 'phase': {
+                    const phase = context || entity || 'this phase';
+                    const name = firstRow.player_name || 'The leader';
+                    insight = `Phase breakdown for <strong>${escapeHtml(String(phase))}</strong>: <strong>${escapeHtml(name)}</strong> leads.`;
+                    if (firstRow.strike_rate !== undefined) insight += ` Strike rate: <strong>${fmt(firstRow.strike_rate)}</strong>.`;
+                    if (firstRow.economy_rate !== undefined) insight += ` Economy: <strong>${fmt(firstRow.economy_rate)}</strong>.`;
+                    if (firstRow.wickets !== undefined) insight += ` Wickets: <strong>${fmt(firstRow.wickets)}</strong>.`;
+                    insight += ` Phase-specific data separates genuine match-winners from flat-track performers. Context is everything in T20 cricket.`;
+                    break;
+                }
+                case 'overseas': {
+                    insight = `<strong>${totalRows}</strong> overseas players across ${escapeHtml(entity || 'the squads')}.`;
+                    const nationalities = {};
+                    rows.forEach(r => { if (r.nationality) nationalities[r.nationality] = (nationalities[r.nationality] || 0) + 1; });
+                    const topNations = Object.entries(nationalities).sort((a, b) => b[1] - a[1]).slice(0, 3);
+                    if (topNations.length > 0) {
+                        insight += ` Top nationalities: ${topNations.map(([n, c]) => `<strong>${escapeHtml(n)}</strong> (${c})`).join(', ')}.`;
+                    }
+                    insight += ` The overseas composition defines a squad's ceiling \u2014 you need the right balance of impact and reliability.`;
+                    break;
+                }
+                default: {
+                    insight = `${totalRows} row${totalRows > 1 ? 's' : ''} returned. `;
+                    if (firstRow.player_name) {
+                        insight += `First entry: <strong>${escapeHtml(firstRow.player_name)}</strong>. `;
+                    }
+                    insight += `Dig into the data \u2014 the details often tell a different story than the headlines.`;
+                }
+            }
+
+            return `<p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">${insight}</p>`;
+        }
+
+        // ---- Update the insight card after query execution ----
+        function updateFirstTakeInsight(columns, rows) {
+            const insightSection = document.getElementById('andy-flower-insights');
+            if (!insightSection) return;
+
+            const insightHTML = generateFirstTakeInsight(
+                columns, rows,
+                lastNLQueryType, lastNLEntity, lastNLContext
+            );
+
+            insightSection.innerHTML = `
+                <div class="insight-card">
+                    <div class="insight-card-header">
+                        <span class="icon">\u{1F3CF}</span>
+                        <h4>The First Take</h4>
+                        <span class="badge">Cricket Context</span>
+                    </div>
+                    <p class="insight-subtitle" style="font-size: 13px; font-style: italic; color: var(--text-secondary); margin-bottom: 8px;">
+                        with Andy Flower \u2014 bold calls, backed by ball-by-ball data
+                    </p>
+                    ${insightHTML}
+                </div>`;
+        }
+
+        /* ==================== WIRE NL SEARCH BAR (TKT-177) ==================== */
+        const nlInput = document.getElementById('nl-search-input');
+
+        function handleNLSearch() {
+            const query = nlInput.value.trim();
+            if (!query) return;
+
+            const result = naturalLanguageToSQL(query);
+            if (result) {
+                lastNLQueryType = result.type;
+                lastNLEntity = result.entity || null;
+                lastNLContext = result.context || null;
+
+                setEditorSQL(result.sql);
+                document.getElementById('sql-editor').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                // Auto-execute after a brief delay to let user see the SQL
+                setTimeout(() => {
+                    executeQueryWithInsights();
+                }, 300);
+            } else {
+                // No pattern matched - show helpful hint
+                const insightSection = document.getElementById('andy-flower-insights');
+                if (insightSection) {
+                    insightSection.innerHTML = `
+                        <div class="insight-card" style="border-color: rgba(255, 159, 10, 0.3); background: linear-gradient(135deg, rgba(255, 159, 10, 0.08) 0%, rgba(255, 69, 58, 0.06) 100%);">
+                            <div class="insight-card-header">
+                                <span class="icon">\u{1F3CF}</span>
+                                <h4>The First Take</h4>
+                                <span class="badge" style="background: rgba(255, 159, 10, 0.15); color: var(--accent-orange);">Try These</span>
+                            </div>
+                            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 8px;">
+                                I could not quite parse that one. Here are some things I understand:
+                            </p>
+                            <ul style="font-size: 12px; color: var(--text-secondary); line-height: 2; list-style: none; padding: 0; font-family: 'JetBrains Mono', monospace;">
+                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='top 10 batsmen';handleNLSearch();">\u{1F4A1} <strong>"top 10 batsmen"</strong> \u2014 Batting leaderboard</li>
+                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='Kohli stats';handleNLSearch();">\u{1F4A1} <strong>"Kohli stats"</strong> \u2014 Player career lookup</li>
+                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='CSK squad';handleNLSearch();">\u{1F4A1} <strong>"CSK squad"</strong> \u2014 Team roster</li>
+                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='best death bowlers';handleNLSearch();">\u{1F4A1} <strong>"best death bowlers"</strong> \u2014 Phase specialists</li>
+                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='Kohli vs MI';handleNLSearch();">\u{1F4A1} <strong>"Kohli vs MI"</strong> \u2014 Player vs team</li>
+                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='most expensive players';handleNLSearch();">\u{1F4A1} <strong>"most expensive players"</strong> \u2014 IPL 2026 contracts</li>
+                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='overseas players RCB';handleNLSearch();">\u{1F4A1} <strong>"overseas players RCB"</strong> \u2014 Foreign players</li>
+                            </ul>
+                        </div>`;
+                }
+            }
+        }
+
+        window.handleNLSearch = handleNLSearch;
+
+        nlInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                handleNLSearch();
+            }
+        });
+
+        // ---- Patch executeQuery to generate insights after results ----
+        const _originalExecuteQuery = executeQuery;
+
+        async function executeQueryWithInsights() {
+            await _originalExecuteQuery();
+            if (currentResultRows && currentResultRows.length > 0) {
+                updateFirstTakeInsight(currentResultColumns, currentResultRows);
+            }
+        }
+
+        window.executeQuery = executeQueryWithInsights;
+        document.getElementById('run-button').removeEventListener('click', _originalExecuteQuery);
+        document.getElementById('run-button').addEventListener('click', executeQueryWithInsights);
+
+        // Update NL search bar placeholder
+        nlInput.placeholder = "Ask: 'top batsmen', 'Kohli stats', 'CSK squad', 'best death bowlers', 'Kohli vs MI'...";
 
         /* ==================== START INITIALIZATION ==================== */
         initDuckDB();

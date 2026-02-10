@@ -7731,6 +7731,9 @@ Gate Inheritance:
               context: { ask: 'Fix two bugs in epic.py preventing mc.py score from running', goal: 'Scoreboard functional again', reason: 'KeyError on owner field + Invalid status IN_PROGRESS in VALID_STATUSES', audible: 'Two fixes: (1) data.get("owner","Unassigned") in from_dict, (2) expanded VALID_STATUSES and JSON schema to include IN_PROGRESS, NOT_STARTED, BACKLOG.' }
             },
             { id: 'TKT-171', title: 'Create Florentino Kill List — rejected ideas log', state: 'DONE', priority: 'P2', effort: 'hustle', assignee: 'Florentino Perez', epic: 'EPIC-003', progress: 100, tags: ['Governance', 'Scope', '✅ Done'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS', founder_validation: 'APPROVED' },
+              output: 'governance/florentino_kill_list.md',
+              context: { ask: 'Create institutional memory for scope decisions', goal: 'Formal log of killed, deferred, and analytics-only ideas with reasons', reason: 'No formal record of why ideas were rejected — agents kept re-proposing killed items', audible: '7 entries: 2 KILLED, 4 DEFERRED, 1 ANALYTICS_ONLY. Single evaluation question: Does this directly improve the paid artifact?' }
+            },
 
             // EPIC-012: The Research Desk — Interactive SQL Lab for The Lab
             { id: 'TKT-172', title: 'Export Parquet + View DDL Pipeline', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Brock Purdy', epic: 'EPIC-012', progress: 0, tags: ['Data', 'Pipeline', 'Research Desk'], gates: { florentino_gate: 'APPROVED' },
@@ -7753,9 +7756,6 @@ Gate Inheritance:
             },
             { id: 'TKT-178', title: 'Research Desk — Design & Visual Integration', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-012', progress: 0, tags: ['Frontend', 'Design', 'Research Desk'], gates: { florentino_gate: 'APPROVED' },
               context: { ask: 'Build research-desk.html page with consistent design language, nav integration', goal: 'Seamless visual integration with The Lab', reason: 'Must feel like a natural extension, not bolted on', audible: ['Create HTML page', 'Match Lab design', 'Update all nav links'] }
-            },
-              output: 'governance/florentino_kill_list.md',
-              context: { ask: 'Create institutional memory for scope decisions', goal: 'Formal log of killed, deferred, and analytics-only ideas with reasons', reason: 'No formal record of why ideas were rejected — agents kept re-proposing killed items', audible: '7 entries: 2 KILLED, 4 DEFERRED, 1 ANALYTICS_ONLY. Single evaluation question: Does this directly improve the paid artifact?' }
             }
         ];
 

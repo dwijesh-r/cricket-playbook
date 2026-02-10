@@ -1,0 +1,21 @@
+{
+  "id": "TKT-180",
+  "title": "Mobile-First Film Room: Lightweight DuckDB Strategy",
+  "state": "RUNNING",
+  "priority": "P0",
+  "progress_pct": 0,
+  "description": "The Film Room currently blocks mobile users entirely because loading 15 Parquet tables into DuckDB-WASM exceeds mobile browser memory limits (~300-500MB). This is unacceptable — mobile is our primary audience. Investigate and implement a strategy to serve the Film Room on mobile. Options to evaluate: (1) Progressive/on-demand table loading — load dim tables first, fetch fact_ball only when needed. (2) Pre-computed results — generate static JSON for the 20+ example queries + common NL patterns, serve instantly without DuckDB. (3) Reduce data footprint — IPL-only fact_ball, columnar subsetting. (4) DuckDB httpfs — query remote Parquet files without loading into memory. (5) Hybrid — pre-computed for common queries, lightweight DuckDB for custom SQL. Success criteria: Film Room loads and serves useful results on mobile Chrome/Safari without crashing.",
+  "epic_id": "EPIC-012",
+  "assignee": "Brad Stevens",
+  "sprint_id": "SPRINT-001",
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "P0 — mobile is primary audience. Revenue-blocking if Film Room is desktop-only.",
+      "approved_by": "Florentino Perez",
+      "date": "2026-02-10"
+    }
+  },
+  "created_at": "2026-02-10T06:50:06.999873Z",
+  "updated_at": "2026-02-10T06:50:18.764571Z"
+}

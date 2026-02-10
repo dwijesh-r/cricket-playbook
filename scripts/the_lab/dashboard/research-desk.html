@@ -1896,32 +1896,11 @@ LIMIT 20;</textarea>
 
         async function initDuckDB() {
             try {
-                // Mobile Chrome/Safari have limited WASM memory (~300-500MB).
-                // DuckDB + 15 Parquet tables can exceed that, crashing the tab.
-                if (isMobile) {
-                    setProgress(5, 'Mobile detected — loading lightweight mode...');
-                    console.log('Mobile device detected — skipping DuckDB to prevent browser crash');
-                    overlay.classList.add('hidden');
-                    setStatus('connected', 'Mobile Mode');
-
-                    const mobileHint = document.getElementById('results-table-wrapper');
-                    if (mobileHint) {
-                        mobileHint.innerHTML = `
-                            <div class="results-empty" style="padding: 32px 20px;">
-                                <div class="results-empty-icon" style="font-size: 48px;">📱</div>
-                                <div class="results-empty-text" style="font-size: 15px; margin: 12px 0;">The Film Room works best on desktop</div>
-                                <div class="results-empty-hint" style="line-height: 1.7; max-width: 400px; margin: 0 auto;">
-                                    The full scouting database (15 tables, 52 views, 2M+ rows) requires more memory than mobile browsers can handle.<br><br>
-                                    <strong>On desktop:</strong> Full interactive SQL with live queries<br>
-                                    <strong>On mobile:</strong> Browse the example queries and schema below, then run them on desktop
-                                </div>
-                            </div>`;
-                    }
-                    return;
-                }
+                // Mobile: use httpfs (HTTP range requests) for large tables to avoid memory crashes
+                // Desktop: load all tables into memory for maximum performance
 
                 setLoadingStep('step-engine', 'active');
-                setProgress(5, 'Warming up the analytics engine...');
+                setProgress(5, isMobile ? 'Mobile mode — warming up engine...' : 'Warming up the analytics engine...');
 
                 const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();
                 const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);
@@ -1953,6 +1932,11 @@ LIMIT 20;</textarea>
                 setLoadingStep('step-tables', 'active');
                 const basePath = 'data/sql_lab/tables/';
 
+                // fact_ball is ~14MB — too large for mobile memory.
+                // On mobile, use httpfs (HTTP range requests) so DuckDB fetches only the
+                // column chunks needed per query (~200-500KB) instead of the full file.
+                const HEAVY_TABLES = ['fact_ball'];
+
                 for (let i = 0; i < TABLE_FILES.length; i++) {
                     const tableName = TABLE_FILES[i];
                     const filePath = basePath + tableName + '.parquet';
@@ -1960,14 +1944,26 @@ LIMIT 20;</textarea>
                     setProgress(pct, `Scouting ${tableName.replace(/_/g, ' ')}... ${i + 1}/${TABLE_FILES.length}`);
 
                     try {
-                        const response = await fetch(filePath);
-                        if (!response.ok) throw new Error(`HTTP ${response.status} for ${filePath}`);
-                        const buffer = new Uint8Array(await response.arrayBuffer());
-                        await db.registerFileBuffer(tableName + '.parquet', buffer);
-                        await conn.query(`CREATE TABLE ${tableName} AS SELECT * FROM read_parquet('${tableName}.parquet')`);
-                        const countResult = await conn.query(`SELECT count(*) AS cnt FROM ${tableName}`);
-                        const rows = Number(countResult.toArray()[0].cnt);
-                        totalRowsLoaded += rows;
+                        if (isMobile && HEAVY_TABLES.includes(tableName)) {
+                            // Mobile httpfs: register URL for HTTP range requests — no full download
+                            const fileUrl = new URL(filePath, window.location.href).href;
+                            await db.registerFileURL(tableName + '.parquet', fileUrl, duckdb.DuckDBDataProtocol.HTTP, false);
+                            await conn.query(`CREATE VIEW ${tableName} AS SELECT * FROM read_parquet('${tableName}.parquet')`);
+                            const countResult = await conn.query(`SELECT count(*) AS cnt FROM ${tableName}`);
+                            const rows = Number(countResult.toArray()[0].cnt);
+                            totalRowsLoaded += rows;
+                            console.log(`📱 ${tableName}: remote Parquet via httpfs (${rows} rows)`);
+                        } else {
+                            // Desktop (all tables) + Mobile (small tables): full load into memory
+                            const response = await fetch(filePath);
+                            if (!response.ok) throw new Error(`HTTP ${response.status} for ${filePath}`);
+                            const buffer = new Uint8Array(await response.arrayBuffer());
+                            await db.registerFileBuffer(tableName + '.parquet', buffer);
+                            await conn.query(`CREATE TABLE ${tableName} AS SELECT * FROM read_parquet('${tableName}.parquet')`);
+                            const countResult = await conn.query(`SELECT count(*) AS cnt FROM ${tableName}`);
+                            const rows = Number(countResult.toArray()[0].cnt);
+                            totalRowsLoaded += rows;
+                        }
                     } catch (tableErr) {
                         console.error(`Failed to load table ${tableName}:`, tableErr);
                     }

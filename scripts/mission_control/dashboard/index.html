@@ -6396,7 +6396,7 @@
             return epics.find(e => e.id === epicId) || null;
         }
 
-        // All Sprint 4.0 Tickets (156 tickets — 149 TKT + 7 IDEA)
+        // All Sprint 4.0 Tickets (168 tickets — 161 TKT + 7 IDEA)
         const tickets = [
             // Pre-Sprint (TKT-001 to TKT-005)
             { id: 'TKT-001', title: 'Define Sprint 4 Scope', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Florentino Pérez', epic: 'EPIC-001', progress: 100, tags: ['Planning'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
@@ -7738,7 +7738,7 @@ Gate Inheritance:
               output: 'governance/tasks/TKT_164_ANDY_FLOWER_TRAINING_PRD.md',
               context: { ask: 'Expand Andy Flower from passive validator to active Tactical Insights Lead', goal: 'Agent config updated, PRD written, mandate expanded', reason: 'Sprint 4.0 review: 3.5/5 — quality excellent but volume low (3 tickets)', audible: 'Three-phase plan: mandate expansion, research depth, process rigor. Target: 4.5/5 by Sprint 5.0, 8+ tickets/sprint.' }
             },
-            { id: 'TKT-165', title: 'Expand Andy Flower mandate — editorial oversight of tactical insights', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 80, tags: ['Editorial', 'Cricket', 'Tactical'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-165', title: 'Expand Andy Flower mandate — editorial oversight of tactical insights', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-006', progress: 100, tags: ['Editorial', 'Cricket', 'Tactical', '✅ Done'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS', founder_validation: 'APPROVED' },
               context: { ask: 'Andy Flower reviews all 10 stat pack tactical insight sections', goal: 'Comprehensive tactical review with coaching notes per team', reason: 'Tactical insights in stat packs are generic — Andy should make them specific', audible: 'Reviewing all 10 stat packs, depth charts, and predicted XIIs for tactical accuracy.' }
             },
             { id: 'TKT-166', title: 'Expand Brock Purdy mandate — data monitoring and alerting', state: 'DONE', priority: 'P2', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-003', progress: 100, tags: ['Config', 'Data', 'Monitoring', '✅ Done'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS', founder_validation: 'APPROVED' },

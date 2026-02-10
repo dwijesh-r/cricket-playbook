@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Quick shortcut to chat with any agent.
+#
+# Usage:
+#   ./chat "Tom Brady"
+#   ./chat "Stephen Curry" --ticket TKT-042
+#   ./chat agent list
+#   ./chat pipeline run TKT-042 --prd file.md --agent "Stephen Curry"
+#   ./chat token report --by agent
+
+cd "$(dirname "$0")" || exit 1
+python -m scripts.claude_orchestrator.cli "$@"

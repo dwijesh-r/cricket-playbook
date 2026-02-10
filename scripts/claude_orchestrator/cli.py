@@ -3,6 +3,8 @@
 Claude Orchestrator CLI - Multi-agent orchestration for Cricket Playbook.
 
 Usage:
+    orchestrator "Tom Brady"                          # shortcut for agent chat
+    orchestrator "Stephen Curry" --ticket TKT-042     # shortcut with ticket context
     orchestrator agent list
     orchestrator agent chat <name> [--ticket TKT-XXX]
     orchestrator agent dispatch <ticket-id>
@@ -259,8 +261,35 @@ def cmd_token_report(args: argparse.Namespace) -> int:
     return 0
 
 
+def _is_agent_name(name: str) -> bool:
+    """Check if a string matches a known agent name (case-insensitive)."""
+    from scripts.claude_orchestrator.config.agent_parser import parse_all_agents
+
+    agents = parse_all_agents()
+    lower_names = {n.lower() for n in agents}
+    return name.lower() in lower_names
+
+
 def main() -> int:
-    """Main entry point."""
+    """Main entry point.
+
+    Supports a shortcut: if the first arg is an agent name, defaults to 'agent chat'.
+    E.g.: orchestrator "Tom Brady" --ticket TKT-042
+    """
+    # Shortcut: if first arg looks like an agent name, rewrite to 'agent chat <name>'
+    if len(sys.argv) > 1 and sys.argv[1] not in (
+        "agent",
+        "pipeline",
+        "token",
+        "--help",
+        "-h",
+        "--version",
+        "-v",
+    ):
+        candidate = sys.argv[1]
+        if _is_agent_name(candidate):
+            sys.argv = [sys.argv[0], "agent", "chat"] + sys.argv[1:]
+
     parser = create_parser()
     args = parser.parse_args()
 

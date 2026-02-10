@@ -6281,7 +6281,7 @@
 
         const columns = [
             { id: 'IDEA', name: 'Idea', dot: 'dot-idea', collapsible: true, defaultCollapsed: true },
-            { id: 'BACKLOG', name: 'Backlog', dot: 'dot-backlog', collapsible: true, defaultCollapsed: true },
+            { id: 'BACKLOG', name: 'Backlog', dot: 'dot-backlog', collapsible: true, defaultCollapsed: false },
             { id: 'READY', name: 'Ready', dot: 'dot-ready', collapsible: true, defaultCollapsed: false },
             { id: 'RUNNING', name: 'Running', dot: 'dot-running', collapsible: true, defaultCollapsed: false },
             { id: 'BLOCKED', name: 'Blocked', dot: 'dot-blocked', collapsible: true, defaultCollapsed: true },
@@ -6349,9 +6349,9 @@
             { id: 'EPIC-011', title: 'The Lab Dashboard', type: 'delivery', owner: 'Kevin de Bruyne',
               goal: 'Build interactive analytics dashboard with team exploration features',
               outcome: 'User-friendly dashboard surfacing all Cricket Playbook analytics' },
-            { id: 'EPIC-012', title: 'CI/CD Automation', type: 'delivery', owner: 'Ime Udoka',
-              goal: 'Implement automated pipelines for validation, testing, and deployment',
-              outcome: 'Fully automated CI/CD ensuring consistent quality gates' },
+            { id: 'EPIC-012', title: 'The Research Desk', type: 'delivery', owner: 'Kevin de Bruyne',
+              goal: 'Add interactive SQL Lab to The Lab — DuckDB-WASM, schema browser, example queries, natural language search',
+              outcome: 'Users can query 2.38M rows of ball-by-ball cricket data directly in the browser' },
             { id: 'EPIC-013', title: 'Future Enhancements', type: 'spike', owner: 'Tom Brady',
               goal: 'Research and prototype future capabilities: win probability, form tracking',
               outcome: 'Validated concepts ready for Sprint 5.0+ implementation' },
@@ -7731,6 +7731,29 @@ Gate Inheritance:
               context: { ask: 'Fix two bugs in epic.py preventing mc.py score from running', goal: 'Scoreboard functional again', reason: 'KeyError on owner field + Invalid status IN_PROGRESS in VALID_STATUSES', audible: 'Two fixes: (1) data.get("owner","Unassigned") in from_dict, (2) expanded VALID_STATUSES and JSON schema to include IN_PROGRESS, NOT_STARTED, BACKLOG.' }
             },
             { id: 'TKT-171', title: 'Create Florentino Kill List — rejected ideas log', state: 'DONE', priority: 'P2', effort: 'hustle', assignee: 'Florentino Perez', epic: 'EPIC-003', progress: 100, tags: ['Governance', 'Scope', '✅ Done'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS', founder_validation: 'APPROVED' },
+
+            // EPIC-012: The Research Desk — Interactive SQL Lab for The Lab
+            { id: 'TKT-172', title: 'Export Parquet + View DDL Pipeline', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Brock Purdy', epic: 'EPIC-012', progress: 0, tags: ['Data', 'Pipeline', 'Research Desk'], gates: { florentino_gate: 'APPROVED' },
+              context: { ask: 'Export all 15 DuckDB tables as Parquet (ZSTD) and 52 view DDLs as SQL files', goal: 'Browser-loadable data for DuckDB-WASM', reason: 'Research Desk needs full database accessible client-side', audible: ['Export tables to Parquet', 'Extract view DDLs', 'Generate metadata JSON'] }
+            },
+            { id: 'TKT-173', title: 'DuckDB-WASM Integration', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-012', progress: 0, tags: ['Frontend', 'DuckDB', 'Research Desk'], gates: { florentino_gate: 'APPROVED' },
+              context: { ask: 'Integrate DuckDB-WASM to load Parquet files and recreate views in browser', goal: 'Full SQL engine running client-side', reason: 'Enable interactive queries without a server', audible: ['Load DuckDB-WASM', 'Import Parquet files', 'Recreate 52 views'] }
+            },
+            { id: 'TKT-174', title: 'SQL Editor & Results Panel', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-012', progress: 0, tags: ['Frontend', 'UI', 'Research Desk'], gates: { florentino_gate: 'APPROVED' },
+              context: { ask: 'Build SQL editor with syntax highlighting, auto-complete, and results table', goal: 'Professional query interface', reason: 'Core feature of the Research Desk', audible: ['Build editor UI', 'Add syntax highlighting', 'Render results table'] }
+            },
+            { id: 'TKT-175', title: 'Schema Browser Panel', state: 'BACKLOG', priority: 'P1', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-012', progress: 0, tags: ['Frontend', 'UI', 'Research Desk'], gates: { florentino_gate: 'APPROVED' },
+              context: { ask: 'Build collapsible schema browser showing tables, views, and columns', goal: 'Users can explore available data', reason: 'Users need to know what tables and columns exist', audible: ['Build tree view', 'Show column types', 'Click to insert'] }
+            },
+            { id: 'TKT-176', title: 'Example Queries Gallery', state: 'BACKLOG', priority: 'P1', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-012', progress: 0, tags: ['Content', 'UI', 'Research Desk'], gates: { florentino_gate: 'APPROVED' },
+              context: { ask: 'Curate gallery of example SQL queries with descriptions and one-click load', goal: 'Lower barrier to entry for non-SQL users', reason: 'Not everyone knows SQL — examples teach by doing', audible: ['Write 15+ example queries', 'Categorize by topic', 'One-click load to editor'] }
+            },
+            { id: 'TKT-177', title: 'Natural Language Query Engine', state: 'BACKLOG', priority: 'P2', effort: 'marathon', assignee: 'Kevin de Bruyne', epic: 'EPIC-012', progress: 0, tags: ['AI', 'NLP', 'Research Desk'], gates: { florentino_gate: 'APPROVED' },
+              context: { ask: 'Build plain-English search bar that converts natural language to SQL via LLM', goal: 'Ask questions in English, get SQL results', reason: 'USP feature — makes data accessible to everyone', audible: ['Build NL input UI', 'Integrate LLM API', 'Display results with insights'] }
+            },
+            { id: 'TKT-178', title: 'Research Desk — Design & Visual Integration', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-012', progress: 0, tags: ['Frontend', 'Design', 'Research Desk'], gates: { florentino_gate: 'APPROVED' },
+              context: { ask: 'Build research-desk.html page with consistent design language, nav integration', goal: 'Seamless visual integration with The Lab', reason: 'Must feel like a natural extension, not bolted on', audible: ['Create HTML page', 'Match Lab design', 'Update all nav links'] }
+            },
               output: 'governance/florentino_kill_list.md',
               context: { ask: 'Create institutional memory for scope decisions', goal: 'Formal log of killed, deferred, and analytics-only ideas with reasons', reason: 'No formal record of why ideas were rejected — agents kept re-proposing killed items', audible: '7 entries: 2 KILLED, 4 DEFERRED, 1 ANALYTICS_ONLY. Single evaluation question: Does this directly improve the paid artifact?' }
             }
@@ -9307,7 +9330,7 @@ Gate Inheritance:
 
         function updateStats() {
             document.getElementById('statTotal').textContent = tickets.length;
-            document.getElementById('statBacklog').textContent = tickets.filter(t => t.state === 'BACKLOG' || t.state === 'IDEA').length;
+            document.getElementById('statBacklog').textContent = tickets.filter(t => t.state === 'BACKLOG').length;
             document.getElementById('statRunning').textContent = tickets.filter(t => t.state === 'RUNNING').length;
             document.getElementById('statReview').textContent = tickets.filter(t => t.state === 'REVIEW').length;
             document.getElementById('statFounder').textContent = tickets.filter(t => t.state === 'VALIDATION').length;

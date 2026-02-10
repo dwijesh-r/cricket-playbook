@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Desk - The Lab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ==================== THEME SYSTEM ==================== */
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #1c1c1e;
+            --bg-tertiary: #2c2c2e;
+            --bg-elevated: #3a3a3c;
+            --text-primary: #ffffff;
+            --text-secondary: #8e8e93;
+            --text-tertiary: #636366;
+            --accent: #0a84ff;
+            --accent-green: #30d158;
+            --accent-yellow: #ffd60a;
+            --accent-orange: #ff9f0a;
+            --accent-red: #ff453a;
+            --accent-purple: #bf5af2;
+            --accent-pink: #ff375f;
+            --accent-teal: #64d2ff;
+            --border: rgba(255, 255, 255, 0.1);
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --shadow: rgba(0, 0, 0, 0.4);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #f5f5f7;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #e5e5ea;
+            --bg-elevated: #d1d1d6;
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --text-tertiary: #8e8e93;
+            --accent: #007aff;
+            --accent-green: #28cd41;
+            --accent-yellow: #ffcc00;
+            --accent-orange: #ff9500;
+            --accent-red: #ff3b30;
+            --accent-purple: #af52de;
+            --accent-pink: #ff2d55;
+            --accent-teal: #5ac8fa;
+            --border: rgba(0, 0, 0, 0.08);
+            --glass: rgba(0, 0, 0, 0.03);
+            --glass-border: rgba(0, 0, 0, 0.06);
+            --shadow: rgba(0, 0, 0, 0.15);
+        }
+
+        /* ==================== TOOLTIP SYSTEM (TKT-109) ==================== */
+        .has-tooltip {
+            position: relative;
+            cursor: help;
+        }
+        .has-tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 8px 12px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-primary);
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            z-index: 1000;
+            pointer-events: none;
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+        .has-tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+        .help-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 14px;
+            height: 14px;
+            font-size: 10px;
+            color: var(--text-tertiary);
+            cursor: help;
+            margin-left: 4px;
+            vertical-align: middle;
+        }
+        .help-icon:hover { color: var(--accent); }
+
+        /* Mobile-safe tooltip adjustments */
+        @media (max-width: 768px) {
+            .has-tooltip::after {
+                white-space: normal;
+                max-width: 200px;
+                left: 0;
+                transform: none;
+                font-size: 11px;
+            }
+        }
+        @media (max-width: 480px) {
+            .has-tooltip::after {
+                max-width: 160px;
+                padding: 6px 10px;
+                font-size: 10px;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* ==================== BACKGROUND ==================== */
+        .bg-gradient {
+            position: fixed; inset: 0; z-index: -4;
+            background: linear-gradient(135deg, #000000 0%, #0a0a12 25%, #0d1020 50%, #0a0a15 75%, #000000 100%);
+        }
+        [data-theme="light"] .bg-gradient {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f1f3f5 100%);
+        }
+        .bg-gradient::before {
+            content: ''; position: absolute; top: -20%; right: -10%; width: 60%; height: 60%;
+            background: radial-gradient(ellipse, rgba(10, 132, 255, 0.18) 0%, transparent 70%);
+            filter: blur(80px);
+        }
+        .bg-grid {
+            position: fixed; inset: 0; z-index: -2;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        [data-theme="light"] .bg-grid {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; height: 56px;
+            background: rgba(0, 0, 0, 0.8); backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 24px; z-index: 100;
+        }
+        [data-theme="light"] .nav { background: rgba(245, 245, 247, 0.85); }
+        .nav-brand { display: flex; align-items: center; gap: 12px; }
+        .nav-logo {
+            width: 32px; height: 32px; border-radius: 8px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            display: flex; align-items: center; justify-content: center; font-size: 16px;
+        }
+        .nav-title { font-size: 15px; font-weight: 600; letter-spacing: -0.3px; }
+        .nav-title span { color: var(--accent); }
+        .nav-tabs {
+            display: flex; gap: 4px;
+            background: var(--bg-secondary); border-radius: 10px; padding: 4px;
+        }
+        .nav-tab {
+            padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 500;
+            color: var(--text-secondary); text-decoration: none; transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .nav-tab:hover { color: var(--text-primary); background: var(--bg-tertiary); }
+        .nav-tab.active {
+            color: var(--text-primary); background: var(--bg-tertiary);
+            box-shadow: 0 1px 3px var(--shadow);
+        }
+        .nav-actions { display: flex; align-items: center; gap: 12px; }
+        .nav-time { font-size: 12px; color: var(--text-tertiary); font-variant-numeric: tabular-nums; }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            width: 36px; height: 36px; border-radius: 10px;
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            color: var(--text-primary); cursor: pointer; font-size: 16px;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s ease;
+        }
+        .theme-toggle:hover { background: var(--bg-tertiary); }
+
+        /* Mobile hamburger menu */
+        .mobile-menu-btn {
+            display: none;
+            width: 38px; height: 38px; border-radius: 10px;
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            color: var(--text-primary); cursor: pointer;
+            flex-direction: column; align-items: center; justify-content: center;
+            gap: 4px; padding: 8px;
+        }
+        .mobile-menu-btn span {
+            display: block; width: 18px; height: 2px;
+            background: currentColor; border-radius: 1px; transition: all 0.3s ease;
+        }
+        .mobile-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+        .mobile-menu-btn.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+
+        /* Mobile Navigation Dropdown */
+        .mobile-nav-menu {
+            display: none; position: fixed; top: 56px; left: 0; right: 0;
+            background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            flex-direction: column; padding: 8px 16px;
+            z-index: 99; transform: translateY(-10px); opacity: 0;
+            transition: all 0.3s ease;
+        }
+        .mobile-nav-menu.active { transform: translateY(0); opacity: 1; }
+        [data-theme="light"] .mobile-nav-menu { background: rgba(245, 245, 247, 0.95); }
+        .mobile-nav-menu .nav-tab {
+            padding: 12px 16px; border-radius: 8px; font-size: 15px;
+            display: block; width: 100%;
+        }
+        .mobile-nav-menu .nav-tab.active {
+            background: var(--bg-tertiary); color: var(--text-primary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-tabs { display: none; }
+            .mobile-menu-btn { display: flex; }
+            .mobile-nav-menu { display: flex; }
+        }
+
+        /* ==================== MAIN LAYOUT ==================== */
+        .main {
+            padding-top: 72px;
+            min-height: 100vh;
+        }
+
+        .page-header {
+            padding: 32px 24px 16px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .page-title {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+        .page-subtitle {
+            font-size: 15px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            line-height: 1.6;
+        }
+
+        /* ==================== RESEARCH DESK LAYOUT ==================== */
+        .desk-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 0;
+            max-width: 1400px;
+            margin: 16px auto 0;
+            padding: 0 24px;
+            min-height: calc(100vh - 200px);
+        }
+
+        /* ==================== SCHEMA BROWSER (LEFT SIDEBAR) ==================== */
+        .schema-sidebar {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px 0 0 12px;
+            overflow-y: auto;
+            max-height: calc(100vh - 180px);
+            position: sticky;
+            top: 72px;
+        }
+        .schema-header {
+            padding: 16px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .schema-header h3 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+        }
+        .schema-search {
+            width: 100%;
+            padding: 8px 12px;
+            margin: 12px 16px;
+            width: calc(100% - 32px);
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 12px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+        .schema-search:focus { border-color: var(--accent); }
+        .schema-search::placeholder { color: var(--text-tertiary); }
+
+        .schema-group {
+            padding: 8px 0;
+        }
+        .schema-group-label {
+            padding: 6px 16px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-tertiary);
+        }
+        .schema-item {
+            padding: 6px 16px 6px 24px;
+            font-size: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .schema-item:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+        .schema-item .icon {
+            font-size: 10px;
+            opacity: 0.6;
+        }
+        .schema-item-dim .icon { color: var(--accent-teal); }
+        .schema-item-fact .icon { color: var(--accent-orange); }
+        .schema-item-ref .icon { color: var(--accent-green); }
+        .schema-item-cluster .icon { color: var(--accent-purple); }
+        .schema-item-view .icon { color: var(--accent-yellow); }
+        .schema-item .row-count {
+            margin-left: auto;
+            font-size: 10px;
+            color: var(--text-tertiary);
+        }
+
+        /* ==================== MAIN WORKSPACE ==================== */
+        .workspace {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-left: none;
+            border-radius: 0 12px 12px 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        /* ---- Natural Language Search Bar ---- */
+        .nl-search-section {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        .nl-search-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 10px 16px;
+            transition: border-color 0.2s ease;
+        }
+        .nl-search-bar:focus-within { border-color: var(--accent); }
+        .nl-search-icon { font-size: 16px; color: var(--text-tertiary); }
+        .nl-search-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+        }
+        .nl-search-input::placeholder { color: var(--text-tertiary); }
+        .nl-search-hint {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            padding: 6px 0 0 28px;
+        }
+        .nl-search-hint kbd {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1px 5px;
+            font-size: 10px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ---- SQL Editor Area ---- */
+        .sql-editor-section {
+            padding: 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .editor-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 20px;
+            border-bottom: 1px solid var(--border);
+            background: rgba(0,0,0,0.2);
+        }
+        [data-theme="light"] .editor-toolbar {
+            background: rgba(0,0,0,0.02);
+        }
+        .editor-toolbar-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .editor-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-tertiary);
+        }
+        .editor-toolbar-right {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .editor-btn {
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .editor-btn:hover {
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+        }
+        .editor-btn.run-btn {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+        .editor-btn.run-btn:hover {
+            background: #0977e6;
+            border-color: #0977e6;
+        }
+        .sql-editor-wrapper {
+            position: relative;
+            min-height: 160px;
+            max-height: 300px;
+        }
+        .sql-editor-placeholder {
+            width: 100%;
+            min-height: 160px;
+            max-height: 300px;
+            padding: 16px 20px;
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            border: none;
+            outline: none;
+            resize: vertical;
+            tab-size: 2;
+        }
+        [data-theme="light"] .sql-editor-placeholder {
+            background: #f8f9fa;
+        }
+
+        /* ---- Results Panel ---- */
+        .results-section {
+            padding: 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 200px;
+        }
+        .results-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            border-bottom: 1px solid var(--border);
+            background: rgba(0,0,0,0.2);
+        }
+        [data-theme="light"] .results-header {
+            background: rgba(0,0,0,0.02);
+        }
+        .results-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-tertiary);
+        }
+        .results-meta {
+            font-size: 11px;
+            color: var(--text-tertiary);
+        }
+        .results-table-wrapper {
+            overflow: auto;
+            flex: 1;
+            max-height: 400px;
+        }
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+        .results-table th {
+            position: sticky;
+            top: 0;
+            background: var(--bg-tertiary);
+            padding: 8px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: var(--text-secondary);
+            border-bottom: 2px solid var(--border);
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+        }
+        .results-table th:hover { color: var(--accent); }
+        .results-table th .sort-icon { margin-left: 4px; font-size: 10px; opacity: 0.4; }
+        .results-table td {
+            padding: 6px 12px;
+            border-bottom: 1px solid var(--border);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-primary);
+            white-space: nowrap;
+        }
+        .results-table tr:nth-child(even) {
+            background: var(--glass);
+        }
+        .results-table tr:hover {
+            background: rgba(10, 132, 255, 0.08);
+        }
+        .results-empty {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 48px 20px;
+            color: var(--text-tertiary);
+            text-align: center;
+        }
+        .results-empty-icon { font-size: 36px; margin-bottom: 12px; opacity: 0.4; }
+        .results-empty-text { font-size: 14px; margin-bottom: 4px; }
+        .results-empty-hint { font-size: 12px; color: var(--text-tertiary); }
+
+        /* ---- Andy Flower Insights Card ---- */
+        .insights-section {
+            padding: 16px 20px;
+            border-top: 1px solid var(--border);
+        }
+        .insight-card {
+            background: linear-gradient(135deg, rgba(10, 132, 255, 0.08) 0%, rgba(191, 90, 242, 0.06) 100%);
+            border: 1px solid rgba(10, 132, 255, 0.15);
+            border-radius: 12px;
+            padding: 16px 20px;
+        }
+        .insight-card-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .insight-card-header .icon { font-size: 20px; }
+        .insight-card-header h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .insight-card-header .badge {
+            margin-left: auto;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(10, 132, 255, 0.15);
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .insight-card p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ---- Example Queries Gallery ---- */
+        .examples-section {
+            padding: 20px;
+            border-top: 1px solid var(--border);
+        }
+        .examples-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+        .examples-header h3 {
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .examples-filter {
+            display: flex;
+            gap: 4px;
+        }
+        .examples-filter-btn {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+        }
+        .examples-filter-btn:hover,
+        .examples-filter-btn.active {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 10px;
+        }
+        .example-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .example-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+        .example-card-category {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-bottom: 6px;
+        }
+        .example-card-category.batting { background: rgba(10, 132, 255, 0.15); color: var(--accent); }
+        .example-card-category.bowling { background: rgba(255, 69, 58, 0.15); color: var(--accent-red); }
+        .example-card-category.team { background: rgba(48, 209, 88, 0.15); color: var(--accent-green); }
+        .example-card-category.leaderboard { background: rgba(255, 214, 10, 0.15); color: var(--accent-yellow); }
+        .example-card-category.matchup { background: rgba(191, 90, 242, 0.15); color: var(--accent-purple); }
+        .example-card h4 {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .example-card p {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            line-height: 1.4;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ==================== LOADING OVERLAY ==================== */
+        .loading-overlay {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-primary);
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            transition: opacity 0.5s ease;
+        }
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loading-icon { font-size: 48px; }
+        .loading-title {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .loading-subtitle {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .loading-progress-container {
+            width: 320px;
+            max-width: 80vw;
+        }
+        .loading-progress-bar {
+            width: 100%;
+            height: 6px;
+            background: var(--bg-tertiary);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .loading-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-purple) 100%);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+        .loading-progress-text {
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-tertiary);
+            margin-top: 8px;
+        }
+        .loading-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 12px;
+        }
+        .loading-step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+        .loading-step.active { color: var(--accent); }
+        .loading-step.done { color: var(--accent-green); }
+        .loading-step .check { font-size: 14px; }
+
+        /* ==================== STATUS BAR ==================== */
+        .status-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 32px;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            font-size: 11px;
+            color: var(--text-tertiary);
+            z-index: 100;
+        }
+        .status-bar-left, .status-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-green);
+        }
+        .status-dot.loading {
+            background: var(--accent-yellow);
+            animation: pulse 1.5s ease infinite;
+        }
+        .status-dot.error { background: var(--accent-red); }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            padding: 40px 24px 52px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        .footer-text { font-size: 12px; color: var(--text-tertiary); }
+        .footer a { color: var(--accent); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .desk-container {
+                grid-template-columns: 1fr;
+                padding: 0 12px;
+            }
+            .schema-sidebar {
+                border-radius: 12px 12px 0 0;
+                max-height: none;
+                position: static;
+            }
+            .schema-sidebar.collapsed .schema-group { display: none; }
+            .schema-sidebar.collapsed .schema-search { display: none; }
+            .workspace {
+                border-left: 1px solid var(--border);
+                border-radius: 0 0 12px 12px;
+            }
+            .page-header { padding: 20px 12px 12px; }
+            .page-title { font-size: 24px; }
+            .examples-grid { grid-template-columns: 1fr; }
+            .mobile-nav-menu .nav-tab { min-height: 44px; }
+        }
+        @media (max-width: 480px) {
+            .page-title { font-size: 20px; }
+            .page-subtitle { font-size: 13px; }
+            .editor-toolbar { flex-wrap: wrap; gap: 6px; }
+            .nl-search-bar { padding: 8px 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+
+    <!-- Loading Overlay (TKT-173 will wire up actual logic) -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-icon">🔬</div>
+        <div class="loading-title">Initializing Research Desk</div>
+        <div class="loading-subtitle">Loading DuckDB-WASM engine...</div>
+        <div class="loading-progress-container">
+            <div class="loading-progress-bar">
+                <div class="loading-progress-fill" id="loading-progress" style="width: 0%"></div>
+            </div>
+            <div class="loading-progress-text" id="loading-progress-text">Preparing environment...</div>
+        </div>
+        <div class="loading-steps">
+            <div class="loading-step active" id="step-engine">
+                <span class="check">...</span> Loading DuckDB-WASM engine
+            </div>
+            <div class="loading-step" id="step-tables">
+                <span class="check">...</span> Importing 15 base tables
+            </div>
+            <div class="loading-step" id="step-views">
+                <span class="check">...</span> Registering 52 analytics views
+            </div>
+            <div class="loading-step" id="step-ready">
+                <span class="check">...</span> Research Desk ready
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-brand">
+            <div class="nav-logo">🏏</div>
+            <div class="nav-title">Cricket <span>Playbook</span></div>
+        </div>
+        <div class="nav-tabs">
+            <a href="index.html" class="nav-tab">Home</a>
+            <a href="teams.html" class="nav-tab">Teams</a>
+            <a href="artifacts.html" class="nav-tab">Artifacts</a>
+            <a href="analysis.html" class="nav-tab">Analysis</a>
+            <a href="research.html" class="nav-tab">Research</a>
+            <a href="research-desk.html" class="nav-tab active">Research Desk</a>
+            <a href="about.html" class="nav-tab">About</a>
+        </div>
+        <div class="nav-actions">
+            <span class="nav-time" id="navTime">--:--:--</span>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <a href="index.html" class="nav-tab">🏠 Home</a>
+        <a href="teams.html" class="nav-tab">🏏 Teams</a>
+        <a href="artifacts.html" class="nav-tab">🔍 Artifacts</a>
+        <a href="analysis.html" class="nav-tab">🔬 Analysis</a>
+        <a href="research.html" class="nav-tab">📚 Research</a>
+        <a href="research-desk.html" class="nav-tab active">🧪 Research Desk</a>
+        <a href="about.html" class="nav-tab">🌹 About</a>
+    </div>
+
+    <main class="main">
+        <header class="page-header">
+            <div class="typewriter-container">
+                <h1 class="page-title">🔬 The Research Desk</h1>
+            </div>
+            <p class="page-subtitle">
+                Your interactive cricket analytics workbench. Query 2.38M rows of ball-by-ball data,
+                explore 52 pre-built analytics views, and uncover insights across all IPL history.
+            </p>
+        </header>
+
+        <div class="desk-container">
+            <!-- Schema Browser (Left Sidebar) — TKT-175 will populate dynamically -->
+            <aside class="schema-sidebar" id="schema-browser">
+                <div class="schema-header">
+                    <h3>Schema Browser</h3>
+                    <span class="has-tooltip" data-tooltip="Click a table or view to explore its schema">
+                        <span class="help-icon">?</span>
+                    </span>
+                </div>
+                <input type="text" class="schema-search" placeholder="Search tables & views..." id="schema-search">
+
+                <!-- Tables -->
+                <div class="schema-group">
+                    <div class="schema-group-label">Dimension Tables (8)</div>
+                    <div class="schema-item schema-item-dim" data-table="dim_bowler_classification">
+                        <span class="icon">&#9679;</span> dim_bowler_classification
+                        <span class="row-count">430</span>
+                    </div>
+                    <div class="schema-item schema-item-dim" data-table="dim_franchise_alias">
+                        <span class="icon">&#9679;</span> dim_franchise_alias
+                        <span class="row-count">19</span>
+                    </div>
+                    <div class="schema-item schema-item-dim" data-table="dim_match">
+                        <span class="icon">&#9679;</span> dim_match
+                        <span class="row-count">9,357</span>
+                    </div>
+                    <div class="schema-item schema-item-dim" data-table="dim_player">
+                        <span class="icon">&#9679;</span> dim_player
+                        <span class="row-count">7,864</span>
+                    </div>
+                    <div class="schema-item schema-item-dim" data-table="dim_player_name_history">
+                        <span class="icon">&#9679;</span> dim_player_name_history
+                        <span class="row-count">7,888</span>
+                    </div>
+                    <div class="schema-item schema-item-dim" data-table="dim_team">
+                        <span class="icon">&#9679;</span> dim_team
+                        <span class="row-count">285</span>
+                    </div>
+                    <div class="schema-item schema-item-dim" data-table="dim_tournament">
+                        <span class="icon">&#9679;</span> dim_tournament
+                        <span class="row-count">426</span>
+                    </div>
+                    <div class="schema-item schema-item-dim" data-table="dim_venue">
+                        <span class="icon">&#9679;</span> dim_venue
+                        <span class="row-count">531</span>
+                    </div>
+                </div>
+
+                <div class="schema-group">
+                    <div class="schema-group-label">Fact Tables (3)</div>
+                    <div class="schema-item schema-item-fact" data-table="fact_ball">
+                        <span class="icon">&#9679;</span> fact_ball
+                        <span class="row-count">2.14M</span>
+                    </div>
+                    <div class="schema-item schema-item-fact" data-table="fact_player_match_performance">
+                        <span class="icon">&#9679;</span> fact_player_match_performance
+                        <span class="row-count">195K</span>
+                    </div>
+                    <div class="schema-item schema-item-fact" data-table="fact_powerplay">
+                        <span class="icon">&#9679;</span> fact_powerplay
+                        <span class="row-count">19K</span>
+                    </div>
+                </div>
+
+                <div class="schema-group">
+                    <div class="schema-group-label">Reference Tables (2)</div>
+                    <div class="schema-item schema-item-ref" data-table="ipl_2026_contracts">
+                        <span class="icon">&#9679;</span> ipl_2026_contracts
+                        <span class="row-count">231</span>
+                    </div>
+                    <div class="schema-item schema-item-ref" data-table="ipl_2026_squads">
+                        <span class="icon">&#9679;</span> ipl_2026_squads
+                        <span class="row-count">231</span>
+                    </div>
+                </div>
+
+                <div class="schema-group">
+                    <div class="schema-group-label">Analytics Tables (2)</div>
+                    <div class="schema-item schema-item-cluster" data-table="player_clusters_batters">
+                        <span class="icon">&#9679;</span> player_clusters_batters
+                        <span class="row-count">87</span>
+                    </div>
+                    <div class="schema-item schema-item-cluster" data-table="player_clusters_bowlers">
+                        <span class="icon">&#9679;</span> player_clusters_bowlers
+                        <span class="row-count">152</span>
+                    </div>
+                </div>
+
+                <div class="schema-group">
+                    <div class="schema-group-label">Analytics Views (52)</div>
+                    <div class="schema-item schema-item-view" data-view="analytics_ipl_batting_career">
+                        <span class="icon">&#9679;</span> analytics_ipl_batting_career
+                    </div>
+                    <div class="schema-item schema-item-view" data-view="analytics_ipl_bowling_career">
+                        <span class="icon">&#9679;</span> analytics_ipl_bowling_career
+                    </div>
+                    <div class="schema-item schema-item-view" data-view="analytics_ipl_batter_phase">
+                        <span class="icon">&#9679;</span> analytics_ipl_batter_phase
+                    </div>
+                    <div class="schema-item schema-item-view" data-view="analytics_ipl_bowler_phase">
+                        <span class="icon">&#9679;</span> analytics_ipl_bowler_phase
+                    </div>
+                    <div class="schema-item schema-item-view" data-view="analytics_ipl_squad_batting">
+                        <span class="icon">&#9679;</span> analytics_ipl_squad_batting
+                    </div>
+                    <div class="schema-item schema-item-view" data-view="analytics_ipl_squad_bowling">
+                        <span class="icon">&#9679;</span> analytics_ipl_squad_bowling
+                    </div>
+                    <div class="schema-item schema-item-view" data-view="analytics_top_run_scorers">
+                        <span class="icon">&#9679;</span> analytics_top_run_scorers
+                    </div>
+                    <div class="schema-item schema-item-view" data-view="analytics_top_wicket_takers">
+                        <span class="icon">&#9679;</span> analytics_top_wicket_takers
+                    </div>
+                    <div class="schema-item schema-item-view" style="color: var(--text-tertiary); font-style: italic; font-family: inherit;">
+                        <span class="icon" style="opacity:0.3">+</span> 44 more views...
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Workspace -->
+            <div class="workspace">
+                <!-- Natural Language Search — TKT-177 will wire up -->
+                <div class="nl-search-section" id="nl-search-bar">
+                    <div class="nl-search-bar">
+                        <span class="nl-search-icon">🔍</span>
+                        <input type="text" class="nl-search-input" placeholder="Ask about IPL cricket... e.g. 'Top 10 run scorers in death overs since 2020'" id="nl-search-input">
+                    </div>
+                    <div class="nl-search-hint">
+                        Press <kbd>Enter</kbd> to search &middot; Natural language queries are converted to SQL automatically
+                    </div>
+                </div>
+
+                <!-- SQL Editor — TKT-174 will wire up CodeMirror -->
+                <div class="sql-editor-section" id="sql-editor">
+                    <div class="editor-toolbar">
+                        <div class="editor-toolbar-left">
+                            <span class="editor-label">SQL Editor</span>
+                        </div>
+                        <div class="editor-toolbar-right">
+                            <button class="editor-btn run-btn" id="run-button" title="Run query (Ctrl+Enter)">
+                                &#9654; Run
+                            </button>
+                            <button class="editor-btn" id="copy-button" title="Copy SQL to clipboard">
+                                📋 Copy
+                            </button>
+                            <button class="editor-btn" id="export-button" title="Export results as CSV">
+                                💾 Export
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sql-editor-wrapper">
+                        <textarea class="sql-editor-placeholder" id="sql-editor-textarea"
+                            placeholder="-- Write your SQL query here...&#10;-- Example: SELECT * FROM analytics_ipl_batting_career LIMIT 10;&#10;&#10;"
+                            spellcheck="false">SELECT
+  player_name,
+  runs,
+  balls_faced,
+  strike_rate,
+  average
+FROM analytics_ipl_batting_career
+ORDER BY runs DESC
+LIMIT 20;</textarea>
+                    </div>
+                </div>
+
+                <!-- Results Panel — TKT-174 will wire up interactivity -->
+                <div class="results-section" id="results-panel">
+                    <div class="results-header">
+                        <span class="results-label">Results</span>
+                        <span class="results-meta" id="results-meta">Run a query to see results</span>
+                    </div>
+                    <div class="results-table-wrapper">
+                        <div class="results-empty">
+                            <div class="results-empty-icon">📊</div>
+                            <div class="results-empty-text">No results yet</div>
+                            <div class="results-empty-hint">Write a SQL query above and click Run, or choose an example query below</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Andy Flower Insights — TKT-177 will wire up -->
+                <div class="insights-section" id="andy-flower-insights">
+                    <div class="insight-card">
+                        <div class="insight-card-header">
+                            <span class="icon">🏏</span>
+                            <h4>Andy Flower Insights</h4>
+                            <span class="badge">Cricket Context</span>
+                        </div>
+                        <p>
+                            Run a query to receive cricket context from Andy Flower, our domain expert.
+                            He'll provide tactical interpretation of your results, highlight key trends,
+                            and suggest related queries to deepen your analysis.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Example Queries Gallery — TKT-176 will populate -->
+                <div class="examples-section" id="example-queries">
+                    <div class="examples-header">
+                        <h3>Example Queries</h3>
+                        <div class="examples-filter">
+                            <button class="examples-filter-btn active">All</button>
+                            <button class="examples-filter-btn">Batting</button>
+                            <button class="examples-filter-btn">Bowling</button>
+                            <button class="examples-filter-btn">Team</button>
+                            <button class="examples-filter-btn">Matchup</button>
+                        </div>
+                    </div>
+                    <div class="examples-grid">
+                        <div class="example-card">
+                            <span class="example-card-category leaderboard">Leaderboard</span>
+                            <h4>Top 20 IPL Run Scorers</h4>
+                            <p>SELECT * FROM analytics_top_run_scorers LIMIT 20</p>
+                        </div>
+                        <div class="example-card">
+                            <span class="example-card-category bowling">Bowling</span>
+                            <h4>Death Over Specialists</h4>
+                            <p>SELECT * FROM analytics_death_over_specialists LIMIT 15</p>
+                        </div>
+                        <div class="example-card">
+                            <span class="example-card-category batting">Batting</span>
+                            <h4>Powerplay Strike Rates</h4>
+                            <p>SELECT * FROM analytics_powerplay_hitters ORDER BY strike_rate DESC LIMIT 15</p>
+                        </div>
+                        <div class="example-card">
+                            <span class="example-card-category team">Team</span>
+                            <h4>Squad Batting Depth</h4>
+                            <p>SELECT * FROM analytics_ipl_squad_batting ORDER BY team_name</p>
+                        </div>
+                        <div class="example-card">
+                            <span class="example-card-category matchup">Matchup</span>
+                            <h4>Batter vs Bowler Head-to-Head</h4>
+                            <p>SELECT * FROM analytics_ipl_batter_vs_bowler WHERE balls >= 20 ORDER BY strike_rate DESC</p>
+                        </div>
+                        <div class="example-card">
+                            <span class="example-card-category batting">Batting</span>
+                            <h4>Phase-wise Performance</h4>
+                            <p>SELECT * FROM analytics_ipl_batter_phase WHERE player_name = 'V Kohli'</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p class="footer-text">
+                Cricket Playbook Research Desk | EPIC-012 | Powered by DuckDB-WASM | <a href="https://github.com/dwijesh-r/cricket-playbook" target="_blank">View on GitHub</a>
+            </p>
+        </footer>
+    </main>
+
+    <!-- Status Bar — TKT-173 will wire up live stats -->
+    <div class="status-bar" id="db-status-bar">
+        <div class="status-bar-left">
+            <div class="status-indicator">
+                <span class="status-dot loading" id="status-dot"></span>
+                <span id="status-text">Initializing...</span>
+            </div>
+        </div>
+        <div class="status-bar-right">
+            <span>15 tables</span>
+            <span>&middot;</span>
+            <span>52 views</span>
+            <span>&middot;</span>
+            <span>2.38M rows</span>
+            <span>&middot;</span>
+            <span>~15MB</span>
+        </div>
+    </div>
+
+    <script>
+        /* ==================== THEME ==================== */
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '🌙' : '☀️';
+        }
+
+        /* ==================== MOBILE MENU ==================== */
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-nav-menu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            menu.classList.toggle('active');
+            btn.classList.toggle('active');
+        }
+
+        /* ==================== INIT ==================== */
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+
+        // Timer - User's local timezone
+        function updateTime() {
+            document.getElementById('navTime').textContent = new Date().toLocaleTimeString('en-US', { hour12: false });
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        /* ==================== LOADING SIMULATION ==================== */
+        // Placeholder loading animation — TKT-173 will replace with real DuckDB-WASM init
+        (function simulateLoading() {
+            const progress = document.getElementById('loading-progress');
+            const progressText = document.getElementById('loading-progress-text');
+            const steps = ['step-engine', 'step-tables', 'step-views', 'step-ready'];
+            const labels = [
+                'Loading DuckDB-WASM engine...',
+                'Importing Parquet tables...',
+                'Registering analytics views...',
+                'Research Desk ready!'
+            ];
+            let step = 0;
+
+            function advanceStep() {
+                if (step >= steps.length) {
+                    // All done
+                    document.getElementById('loading-overlay').classList.add('hidden');
+                    document.getElementById('status-dot').classList.remove('loading');
+                    document.getElementById('status-text').textContent = 'DuckDB-WASM Ready';
+                    return;
+                }
+                const pct = Math.min(((step + 1) / steps.length) * 100, 100);
+                progress.style.width = pct + '%';
+                progressText.textContent = labels[step];
+
+                // Mark previous step as done
+                if (step > 0) {
+                    const prev = document.getElementById(steps[step - 1]);
+                    prev.classList.remove('active');
+                    prev.classList.add('done');
+                    prev.querySelector('.check').textContent = '✓';
+                }
+                // Mark current step active
+                const curr = document.getElementById(steps[step]);
+                curr.classList.add('active');
+
+                step++;
+                setTimeout(advanceStep, 600 + Math.random() * 400);
+            }
+
+            setTimeout(advanceStep, 500);
+        })();
+
+        /* ==================== SCHEMA SEARCH ==================== */
+        document.getElementById('schema-search').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+            document.querySelectorAll('.schema-item').forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(query) ? '' : 'none';
+            });
+        });
+
+        /* ==================== SCHEMA SIDEBAR COLLAPSE (mobile) ==================== */
+        document.querySelector('.schema-header').addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                document.querySelector('.schema-sidebar').classList.toggle('collapsed');
+            }
+        });
+
+        /* ==================== EXAMPLE CARD CLICK ==================== */
+        document.querySelectorAll('.example-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const sql = this.querySelector('p').textContent;
+                document.getElementById('sql-editor-textarea').value = sql;
+                // Scroll to editor
+                document.getElementById('sql-editor').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        });
+
+        /* ==================== EXAMPLE FILTER ==================== */
+        document.querySelectorAll('.examples-filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.examples-filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                // Filter logic placeholder — TKT-176 will implement full filtering
+            });
+        });
+    </script>
+
+    <!-- Navigation Guide Button -->
+    <button class="nav-guide-btn" onclick="toggleNavGuide()" title="Quick Navigation Guide" style="
+        position: fixed; bottom: 48px; right: 20px; width: 52px; height: 52px;
+        border-radius: 50%; background: var(--bg-secondary); border: 1px solid var(--border);
+        color: var(--text-secondary); font-size: 22px; cursor: pointer; z-index: 90;
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 4px 16px var(--shadow); transition: all 0.2s ease;
+    ">❓</button>
+
+    <!-- Navigation Guide Modal -->
+    <div class="nav-guide-overlay" id="nav-guide-overlay" onclick="closeNavGuide(event)" style="
+        display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+        z-index: 150; align-items: center; justify-content: center;
+    ">
+        <div class="nav-guide-modal" onclick="event.stopPropagation()" style="
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 16px; padding: 28px 24px; max-width: 420px; width: 90%;
+            max-height: 80vh; overflow-y: auto; position: relative;
+        ">
+            <button class="nav-guide-close" onclick="toggleNavGuide()" style="
+                position: absolute; top: 12px; right: 12px; background: none; border: none;
+                color: var(--text-tertiary); font-size: 18px; cursor: pointer; padding: 4px 8px;
+            ">&#10005;</button>
+            <div style="margin-bottom: 20px;">
+                <h3 style="font-size: 18px; font-weight: 800;">🏏 The Playbook Rundown</h3>
+                <p style="font-size: 13px; color: var(--text-secondary);">Your pre-game briefing from the coaching staff</p>
+            </div>
+            <a href="index.html" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; text-decoration: none; color: inherit; transition: background 0.2s;">
+                <span style="font-size: 24px;">🏠</span>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600;">Home — "The Main Event"</h4>
+                    <p style="font-size: 12px; color: var(--text-secondary);">The Lab homepage. Your IPL 2026 analytics command center.</p>
+                </div>
+            </a>
+            <a href="teams.html" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; text-decoration: none; color: inherit; transition: background 0.2s;">
+                <span style="font-size: 24px;">🏏</span>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600;">Team Breakdowns — "The Dugout"</h4>
+                    <p style="font-size: 12px; color: var(--text-secondary);">Andy Flower's domain. Predicted XIs, depth charts, full rosters.</p>
+                </div>
+            </a>
+            <a href="artifacts.html" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; text-decoration: none; color: inherit; transition: background 0.2s;">
+                <span style="font-size: 24px;">📊</span>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600;">Artifacts — "The Trophy Cabinet"</h4>
+                    <p style="font-size: 12px; color: var(--text-secondary);">All 10 franchise stat packs. Stephen Curry approved — clean data.</p>
+                </div>
+            </a>
+            <a href="analysis.html" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; text-decoration: none; color: inherit; transition: background 0.2s;">
+                <span style="font-size: 24px;">🔬</span>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600;">Analysis — "Studying Film"</h4>
+                    <p style="font-size: 12px; color: var(--text-secondary);">Tom Brady's film room. Matchups, clusters, phase breakdowns.</p>
+                </div>
+            </a>
+            <a href="research.html" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; text-decoration: none; color: inherit; transition: background 0.2s;">
+                <span style="font-size: 24px;">📚</span>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600;">Research — "Pep's Tactical Notebook"</h4>
+                    <p style="font-size: 12px; color: var(--text-secondary);">Methodology docs. The science behind the grades.</p>
+                </div>
+            </a>
+            <a href="research-desk.html" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; text-decoration: none; color: inherit; background: rgba(10,132,255,0.08); border: 1px solid rgba(10,132,255,0.15);">
+                <span style="font-size: 24px;">🧪</span>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600;">Research Desk — "The SQL Lab"</h4>
+                    <p style="font-size: 12px; color: var(--text-secondary);">📍 You Are Here. Interactive query workbench. 2.38M rows at your fingertips.</p>
+                </div>
+            </a>
+            <a href="../../mission_control/dashboard/index.html" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; text-decoration: none; color: inherit; transition: background 0.2s;">
+                <span style="font-size: 24px;">📡</span>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600;">The Boardroom — "Front Office Moves"</h4>
+                    <p style="font-size: 12px; color: var(--text-secondary);">Florentino's war room. Tickets, sprints, agent roster.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function toggleNavGuide() {
+            const overlay = document.getElementById('nav-guide-overlay');
+            const isVisible = overlay.style.display === 'flex';
+            overlay.style.display = isVisible ? 'none' : 'flex';
+        }
+        function closeNavGuide(e) {
+            if (e.target === e.currentTarget) toggleNavGuide();
+        }
+    </script>
+</body>
+</html>

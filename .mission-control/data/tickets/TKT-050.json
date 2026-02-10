@@ -3,7 +3,7 @@
   "epic_id": "EPIC-006",
   "title": "Venue stats: W-L + dot%/boundary%",
   "description": "Update venue section with W-L record and key percentages",
-  "state": "BACKLOG",
+  "state": "RUNNING",
   "priority": "P2",
   "progress_pct": 0,
   "owner": "Stephen Curry",

@@ -3,7 +3,7 @@
   "epic_id": "EPIC-006",
   "title": "Review all tactical insights",
   "description": "Audit report on tactical insights quality",
-  "state": "BACKLOG",
+  "state": "VALIDATION",
   "priority": "P0",
   "progress_pct": 0,
   "owner": "Andy Flower",

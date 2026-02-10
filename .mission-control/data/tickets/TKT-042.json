@@ -3,7 +3,7 @@
   "epic_id": "EPIC-005",
   "title": "Create outputs/metrics/README.md",
   "description": "Document metrics outputs with purpose and schema",
-  "state": "BACKLOG",
+  "state": "REVIEW",
   "priority": "P1",
   "progress_pct": 0,
   "owner": "Stephen Curry",

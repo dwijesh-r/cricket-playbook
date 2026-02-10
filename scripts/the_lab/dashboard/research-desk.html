@@ -302,10 +302,11 @@
             border: 1px solid var(--border);
             border-radius: 8px;
             color: var(--text-primary);
-            font-size: 12px;
+            font-size: 16px;  /* min 16px prevents iOS auto-zoom on focus */
             font-family: inherit;
             outline: none;
             transition: border-color 0.2s ease;
+            touch-action: manipulation;
         }
         .schema-search:focus { border-color: var(--accent); }
         .schema-search::placeholder { color: var(--text-tertiary); }
@@ -512,9 +513,10 @@
             background: transparent;
             border: none;
             color: var(--text-primary);
-            font-size: 14px;
+            font-size: 16px;  /* min 16px prevents iOS auto-zoom on focus */
             font-family: inherit;
             outline: none;
+            touch-action: manipulation;
         }
         .nl-search-input::placeholder { color: var(--text-tertiary); }
         .nl-search-hint {
@@ -835,6 +837,7 @@
         .loading-overlay.hidden {
             opacity: 0;
             pointer-events: none;
+            display: none;
         }
         .loading-icon { font-size: 48px; }
         .loading-title {
@@ -1215,7 +1218,7 @@
 
             /* NL search bar: compact */
             .nl-search-bar { padding: 8px 10px; gap: 6px; }
-            .nl-search-input { font-size: 13px; }
+            .nl-search-input { font-size: 16px; }  /* keep 16px — below triggers iOS auto-zoom */
             .nl-search-hint { padding: 4px 0 0 0; font-size: 10px; }
 
             /* Insight card: compact */
@@ -1322,9 +1325,7 @@
                         <span class="help-icon">?</span>
                     </span>
                 </div>
-                <form onsubmit="event.preventDefault();">
-                    <input type="search" class="schema-search" placeholder="Search tables, views & columns..." id="schema-search" autocomplete="off">
-                </form>
+                <input type="text" class="schema-search" placeholder="Search tables, views & columns..." id="schema-search" autocomplete="off">
                 <!-- Schema groups will be rendered dynamically by TKT-175 JS -->
                 <div id="schema-groups-container"></div>
             </aside>
@@ -1332,20 +1333,20 @@
             <!-- Main Workspace -->
             <div class="workspace">
                 <!-- Natural Language Search (TKT-177) -->
-                <form class="nl-search-section" id="nl-search-bar" onsubmit="event.preventDefault(); handleNLSearch();">
+                <div class="nl-search-section" id="nl-search-bar">
                     <div class="nl-search-bar">
                         <span class="nl-search-icon">&#128269;</span>
-                        <input type="search" class="nl-search-input" placeholder="'Kohli stats', 'Bumrah year wise', 'Kohli at Chinnaswamy', 'top 10 batsmen', 'CSK squad'..." id="nl-search-input" autocomplete="off">
-                        <button type="submit" class="nl-search-btn" id="nl-search-btn" title="Search" style="
+                        <input type="text" class="nl-search-input" placeholder="'Kohli stats', 'Bumrah year wise', 'Kohli at Chinnaswamy', 'top 10 batsmen', 'CSK squad'..." id="nl-search-input" autocomplete="off" enterkeyhint="search">
+                        <button type="button" class="nl-search-btn" id="nl-search-btn" title="Search" style="
                             padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600;
                             cursor: pointer; border: 1px solid var(--accent); background: var(--accent);
                             color: #fff; transition: all 0.2s ease; white-space: nowrap;
-                        ">&#9654; Ask</button>
+                        " onclick="handleNLSearch()">&#9654; Ask</button>
                     </div>
                     <div class="nl-search-hint">
                         <kbd>Enter</kbd> to search &middot; Try: <em>[name] stats</em> &middot; <em>[name] year wise</em> &middot; <em>[name] at [venue]</em> &middot; <em>[name] vs [name/team]</em> &middot; <em>top N [batsmen/bowlers]</em>
                     </div>
-                </form>
+                </div>
 
                 <!-- SQL Editor — TKT-174 will wire up CodeMirror -->
                 <div class="sql-editor-section" id="sql-editor">
@@ -1480,6 +1481,11 @@ LIMIT 20;</textarea>
             <span>Every IPL delivery</span>
         </div>
     </div>
+
+    <!-- Global form submission blocker: prevent any accidental page reloads on mobile -->
+    <script>
+        document.addEventListener('submit', function(e) { e.preventDefault(); return false; }, true);
+    </script>
 
     <!-- Safety timeout: if module fails to load, show error instead of infinite spinner -->
     <script>

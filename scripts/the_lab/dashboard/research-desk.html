@@ -3048,6 +3048,7 @@ LIMIT 20;</textarea>
                 remaining = remaining.replace(/\b(?:chasing|batting\s+second|second\s+innings|2nd\s+innings)\b/gi, ' ').replace(/\s+/g, ' ').trim();
             } else if (/\b(?:defending)\b/i.test(remaining)) {
                 entities.modifiers.innings = 2; // bowling in 2nd innings
+                entities.role = entities.role || 'bowling'; // defending implies bowling context
                 remaining = remaining.replace(/\bdefending\b/gi, ' ').replace(/\s+/g, ' ').trim();
             }
 
@@ -3535,6 +3536,648 @@ LIMIT 20;</textarea>
         }
 
         // ================================================================
+        // SECTION 5B: STAGE 3B — DYNAMIC SQL QUERY BUILDER (Phase 2, TKT-185/186/187/188)
+        // ================================================================
+
+        /**
+         * QueryBuilder: Composable SQL generator for dynamic queries.
+         *
+         * Used when context modifiers (win/loss, innings, stage, total context)
+         * are present and no pre-built view can satisfy the query.
+         * Builds valid DuckDB SQL by stacking independent filter modules.
+         *
+         * All user-provided strings are escaped via escapeSql() to prevent injection.
+         * The IPL filter CTE is always included as the base.
+         */
+        class QueryBuilder {
+            constructor() {
+                this.selects = [];
+                this.from = 'fact_ball fb';
+                this.joins = new Map();   // key -> join clause (Map preserves order, deduplicates)
+                this.wheres = [];
+                this.groupBys = [];
+                this.havings = [];
+                this.ctes = new Map();    // name -> SQL (de-duplicated CTEs)
+                this.orderBy = null;
+                this.limit = 20;
+                this._role = 'batting';   // 'batting' or 'bowling'
+                this._winLossMode = null; // 'wins', 'losses', or 'split'
+                this._seasonGroupBy = false;
+            }
+
+            // --- IPL Filter CTE (always included as base) ---
+            addIPLFilter() {
+                this.ctes.set('ipl', `ipl AS (
+  SELECT dm.match_id, dm.winner_id, dm.season, dm.stage, dm.match_date
+  FROM dim_match dm
+  JOIN dim_tournament dtt ON dm.tournament_id = dtt.tournament_id
+  WHERE dtt.tournament_name = 'Indian Premier League'
+)`);
+                // Ensure fact_ball is joined to ipl CTE
+                this.joins.set('ipl', 'JOIN ipl ON fb.match_id = ipl.match_id');
+                return this;
+            }
+
+            // --- Player Filter ---
+            addPlayerFilter(name, role) {
+                const safeName = escapeSql(name);
+                if (role === 'bowling') {
+                    this._role = 'bowling';
+                    this.joins.set('dim_player_bowler', 'JOIN dim_player dp ON fb.bowler_id = dp.player_id');
+                    this.wheres.push(`dp.current_name ILIKE '%${safeName}%'`);
+                    if (!this.groupBys.includes('dp.current_name')) {
+                        this.groupBys.push('dp.current_name');
+                    }
+                } else {
+                    this._role = 'batting';
+                    this.joins.set('dim_player_batter', 'JOIN dim_player dp ON fb.batter_id = dp.player_id');
+                    this.wheres.push(`dp.current_name ILIKE '%${safeName}%'`);
+                    if (!this.groupBys.includes('dp.current_name')) {
+                        this.groupBys.push('dp.current_name');
+                    }
+                }
+                return this;
+            }
+
+            // --- Team Filter ---
+            addTeamFilter(teamCanonical, role) {
+                const safeTeam = escapeSql(teamCanonical);
+                if (role === 'bowling' || this._role === 'bowling') {
+                    this.joins.set('dim_team_bowling', 'JOIN dim_team dt_bowl ON fb.bowling_team_id = dt_bowl.team_id');
+                    this.joins.set('dim_franchise_alias_bowl', 'LEFT JOIN dim_franchise_alias fa_bowl ON dt_bowl.team_name = fa_bowl.team_name');
+                    this.wheres.push(`COALESCE(fa_bowl.canonical_name, dt_bowl.team_name) ILIKE '%${safeTeam}%'`);
+                } else {
+                    this.joins.set('dim_team_batting', 'JOIN dim_team dt_bat ON fb.batting_team_id = dt_bat.team_id');
+                    this.joins.set('dim_franchise_alias_bat', 'LEFT JOIN dim_franchise_alias fa_bat ON dt_bat.team_name = fa_bat.team_name');
+                    this.wheres.push(`COALESCE(fa_bat.canonical_name, dt_bat.team_name) ILIKE '%${safeTeam}%'`);
+                }
+                return this;
+            }
+
+            // --- Phase Filter ---
+            addPhaseFilter(phases) {
+                if (!Array.isArray(phases)) phases = [phases];
+                if (phases.length === 1) {
+                    this.wheres.push(`fb.match_phase = '${escapeSql(phases[0])}'`);
+                } else {
+                    const phaseList = phases.map(p => `'${escapeSql(p)}'`).join(', ');
+                    this.wheres.push(`fb.match_phase IN (${phaseList})`);
+                }
+                // Add match_phase to GROUP BY and SELECT if multiple phases are being compared
+                if (phases.length > 1 && !this.groupBys.includes('fb.match_phase')) {
+                    this.groupBys.push('fb.match_phase');
+                    this.selects.push('fb.match_phase');
+                }
+                return this;
+            }
+
+            // --- Venue Filter ---
+            addVenueFilter(venuePattern) {
+                const safeVenue = escapeSql(venuePattern);
+                this.joins.set('dim_venue', 'JOIN dim_venue dv ON ipl.match_id = fb.match_id');
+                // dim_venue needs joining via dim_match; since we use the ipl CTE we need a separate approach
+                // Actually, we need to join dim_match for venue_id. Since ipl CTE already has match_id,
+                // we need to get venue from dim_match directly.
+                this.joins.delete('dim_venue');
+                this.joins.set('dim_match_venue', 'JOIN dim_match dm_v ON fb.match_id = dm_v.match_id');
+                this.joins.set('dim_venue', 'JOIN dim_venue dv ON dm_v.venue_id = dv.venue_id');
+                this.wheres.push(`(dv.venue_name ILIKE '%${safeVenue}%' OR dv.city ILIKE '%${safeVenue}%')`);
+                return this;
+            }
+
+            // --- Season Filter ---
+            addSeasonFilter(seasons) {
+                if (!Array.isArray(seasons)) seasons = [seasons];
+                for (const s of seasons) {
+                    if (s.type === 'range' && s.from) {
+                        this.wheres.push(`ipl.season >= '${escapeSql(s.from)}'`);
+                        if (s.to) {
+                            this.wheres.push(`ipl.season <= '${escapeSql(s.to)}'`);
+                        }
+                    } else if (s.type === 'exact' && s.value) {
+                        this.wheres.push(`ipl.season = '${escapeSql(s.value)}'`);
+                    }
+                }
+                return this;
+            }
+
+            // --- Season GROUP BY (for "season wise" / "year by year") ---
+            addSeasonGroupBy() {
+                this._seasonGroupBy = true;
+                if (!this.groupBys.includes('ipl.season')) {
+                    this.groupBys.push('ipl.season');
+                }
+                return this;
+            }
+
+            // --- Win/Loss Filter ---
+            addWinLossFilter(mode) {
+                // mode: 'wins', 'losses', or 'split'
+                this._winLossMode = mode;
+
+                // Ensure ipl CTE has winner_id (it does by default)
+                // We need to exclude no-result matches for meaningful win/loss data
+                this.wheres.push('ipl.winner_id IS NOT NULL');
+
+                if (mode === 'wins') {
+                    if (this._role === 'bowling') {
+                        this.wheres.push('ipl.winner_id = fb.bowling_team_id');
+                    } else {
+                        this.wheres.push('ipl.winner_id = fb.batting_team_id');
+                    }
+                } else if (mode === 'losses') {
+                    if (this._role === 'bowling') {
+                        this.wheres.push('ipl.winner_id != fb.bowling_team_id');
+                    } else {
+                        this.wheres.push('ipl.winner_id != fb.batting_team_id');
+                    }
+                } else if (mode === 'split') {
+                    // Add match_result as a computed column + GROUP BY dimension
+                    const teamCol = this._role === 'bowling' ? 'fb.bowling_team_id' : 'fb.batting_team_id';
+                    const caseExpr = `CASE WHEN ipl.winner_id = ${teamCol} THEN 'WON' ELSE 'LOST' END`;
+                    this.selects.push(`${caseExpr} AS match_result`);
+                    if (!this.groupBys.includes(caseExpr)) {
+                        this.groupBys.push(caseExpr);
+                    }
+                }
+                return this;
+            }
+
+            // --- Innings Filter ---
+            addInningsFilter(innings) {
+                this.wheres.push(`fb.innings = ${parseInt(innings)}`);
+                return this;
+            }
+
+            // --- Stage Filter (playoff/league/final) ---
+            addStageFilter(stage) {
+                if (stage === 'playoff') {
+                    this.wheres.push(`LOWER(ipl.stage) IN ('playoff', 'final', 'qualifier 1', 'qualifier 2', 'eliminator', 'qualifier', 'semi final', 'semi-final')`);
+                } else if (stage === 'league') {
+                    this.wheres.push(`LOWER(ipl.stage) NOT IN ('playoff', 'final', 'qualifier 1', 'qualifier 2', 'eliminator', 'qualifier', 'semi final', 'semi-final')`);
+                } else if (stage === 'final') {
+                    this.wheres.push(`LOWER(ipl.stage) = 'final'`);
+                }
+                return this;
+            }
+
+            // --- Bowler Type Filter ---
+            addBowlerTypeFilter(styles) {
+                if (!Array.isArray(styles)) styles = [styles];
+                const safeStyles = styles.map(s => `'${escapeSql(s)}'`).join(', ');
+                this.joins.set('dim_bowler_classification', 'LEFT JOIN dim_bowler_classification bc ON fb.bowler_id = bc.player_id');
+                this.wheres.push(`(bc.bowling_style IN (${safeStyles}) OR LOWER(bc.bowling_style) IN (${safeStyles.toLowerCase()}))`);
+                return this;
+            }
+
+            // --- Total Context Filter (e.g., "defending 180+") ---
+            addTotalContextFilter(operator, value) {
+                const safeVal = parseInt(value);
+                if (isNaN(safeVal)) return this;
+                this.ctes.set('inn1_total', `inn1_total AS (
+  SELECT match_id, SUM(total_runs) AS first_inn_total
+  FROM fact_ball
+  WHERE innings = 1
+  GROUP BY match_id
+  HAVING SUM(total_runs) ${operator} ${safeVal}
+)`);
+                this.joins.set('inn1_total', 'JOIN inn1_total i1t ON fb.match_id = i1t.match_id');
+                return this;
+            }
+
+            // --- Standard Batting Aggregation ---
+            setBattingAggregation() {
+                this._role = 'batting';
+                // Prepend player_name to selects
+                const baseSelects = [
+                    'dp.current_name AS player_name',
+                ];
+                const aggSelects = [
+                    'COUNT(DISTINCT fb.match_id) AS innings',
+                    'SUM(fb.batter_runs) AS runs',
+                    'SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS balls',
+                    "ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS strike_rate",
+                    "ROUND(SUM(fb.batter_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END), 0), 2) AS average",
+                    "SUM(CASE WHEN fb.batter_runs = 4 THEN 1 ELSE 0 END) AS fours",
+                    "SUM(CASE WHEN fb.batter_runs = 6 THEN 1 ELSE 0 END) AS sixes",
+                    "ROUND(SUM(CASE WHEN fb.batter_runs IN (4, 6) THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS boundary_pct",
+                    "ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS dot_ball_pct",
+                ];
+                this.selects = [...baseSelects, ...this.selects, ...aggSelects];
+                if (!this.orderBy) this.orderBy = 'runs DESC';
+                return this;
+            }
+
+            // --- Standard Bowling Aggregation ---
+            setBowlingAggregation() {
+                this._role = 'bowling';
+                const baseSelects = [
+                    'dp.current_name AS player_name',
+                ];
+                const aggSelects = [
+                    'COUNT(DISTINCT fb.match_id) AS matches',
+                    "ROUND(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) / 6.0, 1) AS overs",
+                    "SUM(fb.total_runs) AS runs_conceded",
+                    "SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END) AS wickets",
+                    "ROUND(SUM(fb.total_runs) * 6.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS economy",
+                    "ROUND(SUM(fb.total_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END), 0), 2) AS bowling_average",
+                    "ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS dot_ball_pct",
+                ];
+                this.selects = [...baseSelects, ...this.selects, ...aggSelects];
+                if (!this.orderBy) this.orderBy = 'wickets DESC';
+                return this;
+            }
+
+            // --- Team-level Batting Aggregation (no player GROUP BY) ---
+            setTeamBattingAggregation(teamCanonical) {
+                this._role = 'batting';
+                const safeTeam = escapeSql(teamCanonical);
+                this.joins.set('dim_team_batting', 'JOIN dim_team dt_bat ON fb.batting_team_id = dt_bat.team_id');
+                this.joins.set('dim_franchise_alias_bat', 'LEFT JOIN dim_franchise_alias fa_bat ON dt_bat.team_name = fa_bat.team_name');
+                this.wheres.push(`COALESCE(fa_bat.canonical_name, dt_bat.team_name) ILIKE '%${safeTeam}%'`);
+
+                const baseSelects = [
+                    "COALESCE(fa_bat.canonical_name, dt_bat.team_name) AS team_name",
+                ];
+                const aggSelects = [
+                    'COUNT(DISTINCT fb.match_id) AS matches',
+                    'SUM(fb.batter_runs) AS runs',
+                    'SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS balls',
+                    "ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS strike_rate",
+                    "ROUND(SUM(CASE WHEN fb.batter_runs IN (4, 6) THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS boundary_pct",
+                ];
+                this.selects = [...baseSelects, ...this.selects, ...aggSelects];
+                this.groupBys = this.groupBys.filter(g => g !== 'dp.current_name');
+                if (!this.groupBys.includes("COALESCE(fa_bat.canonical_name, dt_bat.team_name)")) {
+                    this.groupBys.push("COALESCE(fa_bat.canonical_name, dt_bat.team_name)");
+                }
+                if (!this.orderBy) this.orderBy = 'runs DESC';
+                return this;
+            }
+
+            // --- Team-level Bowling Aggregation (no player GROUP BY) ---
+            setTeamBowlingAggregation(teamCanonical) {
+                this._role = 'bowling';
+                const safeTeam = escapeSql(teamCanonical);
+                this.joins.set('dim_team_bowling', 'JOIN dim_team dt_bowl ON fb.bowling_team_id = dt_bowl.team_id');
+                this.joins.set('dim_franchise_alias_bowl', 'LEFT JOIN dim_franchise_alias fa_bowl ON dt_bowl.team_name = fa_bowl.team_name');
+                this.wheres.push(`COALESCE(fa_bowl.canonical_name, dt_bowl.team_name) ILIKE '%${safeTeam}%'`);
+
+                const baseSelects = [
+                    "COALESCE(fa_bowl.canonical_name, dt_bowl.team_name) AS team_name",
+                ];
+                const aggSelects = [
+                    'COUNT(DISTINCT fb.match_id) AS matches',
+                    "ROUND(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) / 6.0, 1) AS overs",
+                    "SUM(fb.total_runs) AS runs_conceded",
+                    "SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END) AS wickets",
+                    "ROUND(SUM(fb.total_runs) * 6.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS economy",
+                    "ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS dot_ball_pct",
+                ];
+                this.selects = [...baseSelects, ...this.selects, ...aggSelects];
+                this.groupBys = this.groupBys.filter(g => g !== 'dp.current_name');
+                if (!this.groupBys.includes("COALESCE(fa_bowl.canonical_name, dt_bowl.team_name)")) {
+                    this.groupBys.push("COALESCE(fa_bowl.canonical_name, dt_bowl.team_name)");
+                }
+                if (!this.orderBy) this.orderBy = 'economy ASC';
+                return this;
+            }
+
+            // --- Leaderboard Batting Aggregation (no specific player filter) ---
+            setLeaderboardBattingAggregation(minBalls) {
+                this._role = 'batting';
+                this.joins.set('dim_player_batter', 'JOIN dim_player dp ON fb.batter_id = dp.player_id');
+                if (!this.groupBys.includes('dp.current_name')) {
+                    this.groupBys.push('dp.current_name');
+                }
+                const baseSelects = [
+                    'dp.current_name AS player_name',
+                ];
+                const aggSelects = [
+                    'COUNT(DISTINCT fb.match_id) AS innings',
+                    'SUM(fb.batter_runs) AS runs',
+                    'SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS balls',
+                    "ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS strike_rate",
+                    "ROUND(SUM(fb.batter_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END), 0), 2) AS average",
+                    "ROUND(SUM(CASE WHEN fb.batter_runs IN (4, 6) THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS boundary_pct",
+                    "ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS dot_ball_pct",
+                ];
+                this.selects = [...baseSelects, ...this.selects, ...aggSelects];
+                if (minBalls) {
+                    this.havings.push(`SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) >= ${parseInt(minBalls)}`);
+                }
+                if (!this.orderBy) this.orderBy = 'runs DESC';
+                return this;
+            }
+
+            // --- Leaderboard Bowling Aggregation (no specific player filter) ---
+            setLeaderboardBowlingAggregation(minBalls) {
+                this._role = 'bowling';
+                this.joins.set('dim_player_bowler', 'JOIN dim_player dp ON fb.bowler_id = dp.player_id');
+                if (!this.groupBys.includes('dp.current_name')) {
+                    this.groupBys.push('dp.current_name');
+                }
+                const baseSelects = [
+                    'dp.current_name AS player_name',
+                ];
+                const aggSelects = [
+                    'COUNT(DISTINCT fb.match_id) AS matches',
+                    "ROUND(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) / 6.0, 1) AS overs",
+                    "SUM(fb.total_runs) AS runs_conceded",
+                    "SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END) AS wickets",
+                    "ROUND(SUM(fb.total_runs) * 6.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS economy",
+                    "ROUND(SUM(fb.total_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END), 0), 2) AS bowling_average",
+                    "ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS dot_ball_pct",
+                ];
+                this.selects = [...baseSelects, ...this.selects, ...aggSelects];
+                if (minBalls) {
+                    this.havings.push(`SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) >= ${parseInt(minBalls)}`);
+                }
+                if (!this.orderBy) this.orderBy = 'wickets DESC';
+                return this;
+            }
+
+            // --- Set ORDER BY ---
+            setOrderBy(orderExpr) {
+                this.orderBy = orderExpr;
+                return this;
+            }
+
+            // --- Set LIMIT ---
+            setLimit(n) {
+                this.limit = parseInt(n) || 20;
+                return this;
+            }
+
+            // --- Build the final SQL string ---
+            build() {
+                let sql = '-- NL Search: dynamic query (Phase 2 QueryBuilder)\n';
+
+                // CTEs
+                if (this.ctes.size > 0) {
+                    sql += 'WITH ' + Array.from(this.ctes.values()).join(',\n') + '\n';
+                }
+
+                // SELECT
+                if (this.selects.length === 0) {
+                    sql += 'SELECT *\n';
+                } else {
+                    // De-duplicate selects (by alias if present)
+                    const seen = new Set();
+                    const uniqueSelects = [];
+                    for (const s of this.selects) {
+                        const aliasMatch = s.match(/\bAS\s+(\w+)\s*$/i);
+                        const key = aliasMatch ? aliasMatch[1].toLowerCase() : s;
+                        if (!seen.has(key)) {
+                            seen.add(key);
+                            uniqueSelects.push(s);
+                        }
+                    }
+                    sql += 'SELECT\n  ' + uniqueSelects.join(',\n  ') + '\n';
+                }
+
+                // FROM
+                sql += `FROM ${this.from}\n`;
+
+                // JOINs
+                if (this.joins.size > 0) {
+                    sql += Array.from(this.joins.values()).join('\n') + '\n';
+                }
+
+                // WHERE
+                if (this.wheres.length > 0) {
+                    // De-duplicate where clauses
+                    const uniqueWheres = [...new Set(this.wheres)];
+                    sql += 'WHERE ' + uniqueWheres.join('\n  AND ') + '\n';
+                }
+
+                // GROUP BY
+                if (this.groupBys.length > 0) {
+                    sql += 'GROUP BY ' + this.groupBys.join(', ') + '\n';
+                }
+
+                // HAVING
+                if (this.havings.length > 0) {
+                    sql += 'HAVING ' + this.havings.join('\n  AND ') + '\n';
+                }
+
+                // ORDER BY
+                if (this.orderBy) {
+                    // For season trend queries, order by season first
+                    if (this._seasonGroupBy) {
+                        sql += `ORDER BY ipl.season\n`;
+                    } else if (this._winLossMode === 'split') {
+                        sql += `ORDER BY ${this.orderBy}, match_result\n`;
+                    } else {
+                        sql += `ORDER BY ${this.orderBy}\n`;
+                    }
+                }
+
+                // LIMIT
+                sql += `LIMIT ${this.limit};`;
+
+                return sql;
+            }
+        }
+
+        // ================================================================
+        // SECTION 5C: DYNAMIC QUERY ORCHESTRATOR (Phase 2, TKT-185)
+        // ================================================================
+
+        /**
+         * buildDynamicQuery(entities, intent)
+         *
+         * Orchestrates QueryBuilder to generate dynamic SQL based on
+         * extracted entities and classified intent.
+         *
+         * Called when context modifiers are present (win/loss, innings, stage,
+         * total context) and no pre-built view can satisfy the query.
+         *
+         * Returns: { sql, type, entity, context } or null
+         */
+        function buildDynamicQuery(entities, intent) {
+            const qb = new QueryBuilder();
+
+            // Always start with IPL filter
+            qb.addIPLFilter();
+
+            // Determine role: check explicit role, metric keywords, and remaining tokens
+            const bowlingMetricCols = ['economy_rate', 'wickets'];
+            const hasBowlingMetric = entities.metrics.some(m =>
+                bowlingMetricCols.includes(m.col) || (m.keyword && /\b(economy|econ|wickets?)\b/i.test(m.keyword))
+            );
+            const isBowling = entities.role === 'bowling' || (
+                entities.role !== 'batting' && (
+                    hasBowlingMetric ||
+                    /\b(bowl(?:ing|ers?)?|wicket.?takers?|economy|econ|dot.?ball)\b/i.test(entities.remainingTokens || '')
+                )
+            );
+            const role = isBowling ? 'bowling' : 'batting';
+
+            // Track description pieces for the 'context' return field
+            const contextParts = [];
+
+            // --- PLAYER FILTER ---
+            if (entities.players.length >= 1) {
+                qb.addPlayerFilter(entities.players[0].name, role);
+            }
+
+            // --- TEAM FILTER (for player-vs-team or team-level queries) ---
+            if (entities.teams.length >= 1 && entities.players.length >= 1) {
+                // Player vs specific opposition team
+                const oppRole = isBowling ? 'batting' : 'bowling';
+                // For "Bumrah economy vs MI" -> filter MI as batting team (opposition)
+                if (isBowling) {
+                    const safeTeam = escapeSql(entities.teams[0].canonical);
+                    qb.joins.set('dim_team_batting', 'JOIN dim_team dt_opp ON fb.batting_team_id = dt_opp.team_id');
+                    qb.joins.set('dim_franchise_alias_opp', 'LEFT JOIN dim_franchise_alias fa_opp ON dt_opp.team_name = fa_opp.team_name');
+                    qb.wheres.push(`COALESCE(fa_opp.canonical_name, dt_opp.team_name) ILIKE '%${safeTeam}%'`);
+                } else {
+                    const safeTeam = escapeSql(entities.teams[0].canonical);
+                    qb.joins.set('dim_team_bowling', 'JOIN dim_team dt_opp ON fb.bowling_team_id = dt_opp.team_id');
+                    qb.joins.set('dim_franchise_alias_opp', 'LEFT JOIN dim_franchise_alias fa_opp ON dt_opp.team_name = fa_opp.team_name');
+                    qb.wheres.push(`COALESCE(fa_opp.canonical_name, dt_opp.team_name) ILIKE '%${safeTeam}%'`);
+                }
+                contextParts.push('vs ' + entities.teams[0].canonical);
+            }
+
+            // --- TEAM-LEVEL QUERIES (no specific player, team analysis with modifiers) ---
+            if (entities.teams.length >= 1 && entities.players.length === 0 && intent === 'TEAM_ANALYSIS') {
+                if (isBowling) {
+                    qb.setTeamBowlingAggregation(entities.teams[0].canonical);
+                } else {
+                    qb.setTeamBattingAggregation(entities.teams[0].canonical);
+                }
+                contextParts.push(entities.teams[0].canonical);
+            }
+
+            // --- LEADERBOARD QUERIES (no specific player) ---
+            if (intent === 'LEADERBOARD' && entities.players.length === 0) {
+                const minBalls = entities.phases.length > 0 ? 120 : 300;
+                if (isBowling) {
+                    qb.setLeaderboardBowlingAggregation(minBalls);
+                } else {
+                    qb.setLeaderboardBattingAggregation(minBalls);
+                }
+                contextParts.push('leaderboard');
+            }
+
+            // --- PHASE FILTER ---
+            if (entities.phases.length > 0) {
+                qb.addPhaseFilter(entities.phases);
+                contextParts.push(entities.phases.join('/'));
+            }
+
+            // --- VENUE FILTER ---
+            if (entities.venues.length > 0) {
+                qb.addVenueFilter(entities.venues[0].pattern);
+                contextParts.push('at ' + entities.venues[0].keyword);
+            }
+
+            // --- SEASON FILTER ---
+            if (entities.seasons.length > 0) {
+                qb.addSeasonFilter(entities.seasons);
+                const s = entities.seasons[0];
+                if (s.type === 'range') {
+                    contextParts.push('since ' + s.from);
+                } else if (s.type === 'exact') {
+                    contextParts.push(s.value);
+                }
+            }
+
+            // --- WIN/LOSS FILTER ---
+            if (entities.modifiers.winLoss) {
+                qb.addWinLossFilter(entities.modifiers.winLoss);
+                contextParts.push(entities.modifiers.winLoss === 'split' ? 'wins vs losses' : 'in ' + entities.modifiers.winLoss);
+            }
+
+            // --- INNINGS FILTER ---
+            if (entities.modifiers.innings) {
+                qb.addInningsFilter(entities.modifiers.innings);
+                contextParts.push(entities.modifiers.innings === 1 ? 'batting first' : 'chasing/defending');
+            }
+
+            // --- STAGE FILTER ---
+            if (entities.modifiers.stage) {
+                qb.addStageFilter(entities.modifiers.stage);
+                contextParts.push(entities.modifiers.stage);
+            }
+
+            // --- TOTAL CONTEXT FILTER ---
+            if (entities.modifiers.totalContext) {
+                qb.addTotalContextFilter(entities.modifiers.totalContext.operator, entities.modifiers.totalContext.value);
+                contextParts.push('total ' + entities.modifiers.totalContext.operator + ' ' + entities.modifiers.totalContext.value);
+            }
+
+            // --- BOWLER TYPE FILTER ---
+            if (entities.bowlerTypes.length > 0) {
+                qb.addBowlerTypeFilter(entities.bowlerTypes[0].styles);
+                contextParts.push('vs ' + entities.bowlerTypes[0].keyword);
+            }
+
+            // --- Set aggregation template (if not already set by team/leaderboard) ---
+            // Check if aggregation columns are already set (team/leaderboard paths set them).
+            // Win/loss split may have added match_result to selects, but that is not an aggregation.
+            const hasAggregation = qb.selects.some(s =>
+                /\bAS\s+(?:innings|runs|balls|strike_rate|average|wickets|overs|economy|runs_conceded|matches)\b/i.test(s)
+            );
+            if (!hasAggregation) {
+                // Single-player or multi-player query: use standard aggregation
+                if (isBowling) {
+                    qb.setBowlingAggregation();
+                } else {
+                    qb.setBattingAggregation();
+                }
+            }
+
+            // --- Handle season-wise GROUP BY for SEASON_TREND intent ---
+            if (intent === 'SEASON_TREND') {
+                qb.addSeasonGroupBy();
+                // Also add season to selects
+                if (!qb.selects.some(s => s.includes('ipl.season'))) {
+                    qb.selects.splice(1, 0, 'ipl.season');
+                }
+            }
+
+            // --- METRIC-BASED ORDERING ---
+            if (entities.metrics.length > 0) {
+                const m = entities.metrics[0];
+                const col = isBowling && m.bowling_col ? m.bowling_col : m.col;
+                const dir = isBowling && m.bowling_dir ? m.bowling_dir : m.dir;
+                qb.setOrderBy(`${col} ${dir}`);
+            }
+
+            // --- LIMIT ---
+            qb.setLimit(entities.modifiers.limit);
+
+            // --- Determine entity and type for return ---
+            let entity = 'dynamic query';
+            let type = 'dynamic';
+            if (entities.players.length >= 1) {
+                entity = entities.players[0].name;
+                type = isBowling ? 'player_bowling' : 'player_lookup';
+                if (entities.modifiers.winLoss === 'split') type = 'comparison';
+            } else if (entities.teams.length >= 1) {
+                entity = entities.teams[0].canonical;
+                type = 'team_analysis';
+            } else if (intent === 'LEADERBOARD') {
+                entity = isBowling ? 'bowlers' : 'batters';
+                type = 'leaderboard';
+            }
+
+            return {
+                sql: qb.build(),
+                type,
+                entity,
+                context: contextParts.join(' | ') || null
+            };
+        }
+
+        // Expose for debugging
+        window._nlQueryBuilder = QueryBuilder;
+        window._nlBuildDynamicQuery = buildDynamicQuery;
+
+        // ================================================================
         // SECTION 6: STAGE 4 — QUERY ROUTER (naturalLanguageToSQL)
         // ================================================================
 
@@ -3543,7 +4186,7 @@ LIMIT 20;</textarea>
          * The main NL-to-SQL engine. Uses the 5-stage pipeline:
          * 1. Entity Extraction
          * 2. Intent Classification
-         * 3. View Coverage (fast path) or Phase 2 placeholder (dynamic SQL)
+         * 3. View Coverage (fast path) or Dynamic SQL (QueryBuilder)
          * 4. SQL Generation
          * 5. Validation + Fallback
          *
@@ -3730,6 +4373,10 @@ LIMIT 20;</textarea>
 
             // --- SEASON_TREND ---
             if (intent === 'SEASON_TREND') {
+                // If context modifiers are present, route through QueryBuilder for full filter support
+                if (entities.modifiers.winLoss || entities.modifiers.innings || entities.modifiers.stage || entities.modifiers.totalContext) {
+                    return buildDynamicQuery(entities, intent);
+                }
                 let playerName = entities.players.length > 0 ? entities.players[0].name : entities.remainingTokens;
                 if (!playerName || playerName.length < 2) return null;
                 playerName = escapeSql(playerName);
@@ -3752,6 +4399,11 @@ LIMIT 20;</textarea>
 
             // --- TEAM_ANALYSIS ---
             if (intent === 'TEAM_ANALYSIS' && entities.teams.length >= 1) {
+                // If context modifiers are present, route through QueryBuilder for full filter support
+                if (entities.modifiers.winLoss || entities.modifiers.innings || entities.modifiers.stage || entities.modifiers.totalContext) {
+                    return buildDynamicQuery(entities, intent);
+                }
+
                 const teamName = entities.teams[0].canonical;
                 const isBowling = entities.role === 'bowling';
 
@@ -3790,6 +4442,44 @@ LIMIT 20;</textarea>
 
             // --- MATCHUP (player vs player) ---
             if (intent === 'MATCHUP' && entities.players.length >= 2) {
+                // If context modifiers are present, route through QueryBuilder
+                if (entities.modifiers.winLoss || entities.modifiers.innings || entities.modifiers.stage || entities.modifiers.totalContext) {
+                    // For matchup with modifiers, build a dynamic batting query with both player filters
+                    const qb = new QueryBuilder();
+                    qb.addIPLFilter();
+                    qb.joins.set('dim_player_batter', 'JOIN dim_player dp ON fb.batter_id = dp.player_id');
+                    qb.joins.set('dim_player_bowler', 'JOIN dim_player dp_bowl ON fb.bowler_id = dp_bowl.player_id');
+                    qb.wheres.push(`dp.current_name ILIKE '%${escapeSql(entities.players[0].name)}%'`);
+                    qb.wheres.push(`dp_bowl.current_name ILIKE '%${escapeSql(entities.players[1].name)}%'`);
+                    qb.groupBys.push('dp.current_name', 'dp_bowl.current_name');
+                    if (entities.phases.length > 0) qb.addPhaseFilter(entities.phases);
+                    if (entities.seasons.length > 0) qb.addSeasonFilter(entities.seasons);
+                    if (entities.modifiers.winLoss) qb.addWinLossFilter(entities.modifiers.winLoss);
+                    if (entities.modifiers.innings) qb.addInningsFilter(entities.modifiers.innings);
+                    if (entities.modifiers.stage) qb.addStageFilter(entities.modifiers.stage);
+                    if (entities.modifiers.totalContext) qb.addTotalContextFilter(entities.modifiers.totalContext.operator, entities.modifiers.totalContext.value);
+                    // Set batting aggregation for matchup
+                    qb.selects = [
+                        'dp.current_name AS batter_name',
+                        'dp_bowl.current_name AS bowler_name',
+                        ...(qb.selects.filter(s => s.includes('match_result'))),
+                        'SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS balls',
+                        'SUM(fb.batter_runs) AS runs',
+                        "SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) AS dismissals",
+                        "ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS strike_rate",
+                        "ROUND(SUM(CASE WHEN fb.batter_runs IN (4, 6) THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS boundary_pct",
+                        "ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS dot_ball_pct",
+                    ];
+                    qb.setOrderBy('balls DESC');
+                    qb.setLimit(entities.modifiers.limit);
+                    return {
+                        sql: qb.build(),
+                        type: 'matchup',
+                        entity: entities.players[0].name,
+                        context: entities.players[1].name
+                    };
+                }
+
                 const batter = escapeSql(entities.players[0].name);
                 const bowler = escapeSql(entities.players[1].name);
 
@@ -3816,6 +4506,11 @@ LIMIT 20;</textarea>
 
             // --- PLAYER_VS_TEAM ---
             if (intent === 'PLAYER_VS_TEAM' && entities.players.length >= 1 && entities.teams.length >= 1) {
+                // If context modifiers are present, route through QueryBuilder
+                if (entities.modifiers.winLoss || entities.modifiers.innings || entities.modifiers.stage || entities.modifiers.totalContext) {
+                    return buildDynamicQuery(entities, intent);
+                }
+
                 const playerName = escapeSql(entities.players[0].name);
                 const teamName = escapeSql(entities.teams[0].canonical);
                 const isBowling = entities.role === 'bowling';
@@ -3844,6 +4539,11 @@ LIMIT 20;</textarea>
 
             // --- PLAYER_VS_TYPE ---
             if (intent === 'PLAYER_VS_TYPE' && entities.players.length >= 1) {
+                // If context modifiers are present, route through QueryBuilder
+                if (entities.modifiers.winLoss || entities.modifiers.innings || entities.modifiers.stage || entities.modifiers.totalContext) {
+                    return buildDynamicQuery(entities, intent);
+                }
+
                 const playerName = escapeSql(entities.players[0].name);
 
                 if (entities.phases.length > 0) {
@@ -3865,6 +4565,11 @@ LIMIT 20;</textarea>
 
             // --- LEADERBOARD ---
             if (intent === 'LEADERBOARD') {
+                // If context modifiers are present, route through QueryBuilder for full filter support
+                if (entities.modifiers.winLoss || entities.modifiers.innings || entities.modifiers.stage || entities.modifiers.totalContext) {
+                    return buildDynamicQuery(entities, intent);
+                }
+
                 const limit = entities.modifiers.limit;
                 const isBowling = entities.role === 'bowling' || /\b(bowl(?:ers?|ing)?|wicket.?takers?|wickets?|economy|econ|dot.?ball)\b/.test(lower);
 
@@ -3945,30 +4650,9 @@ LIMIT 20;</textarea>
             if (intent === 'PLAYER_LOOKUP' && entities.players.length >= 1) {
                 const playerName = entities.players[0].name;
 
-                // Check for context modifiers that require dynamic SQL (Phase 2)
+                // Check for context modifiers that require dynamic SQL (Phase 2 QueryBuilder)
                 if (entities.modifiers.winLoss || entities.modifiers.innings || entities.modifiers.stage || entities.modifiers.totalContext) {
-                    // Phase 2 placeholder: show helpful message
-                    const modDesc = [];
-                    if (entities.modifiers.winLoss) modDesc.push(`win/loss: ${entities.modifiers.winLoss}`);
-                    if (entities.modifiers.innings) modDesc.push(`innings: ${entities.modifiers.innings}`);
-                    if (entities.modifiers.stage) modDesc.push(`stage: ${entities.modifiers.stage}`);
-                    if (entities.modifiers.totalContext) modDesc.push(`total: ${entities.modifiers.totalContext.operator}${entities.modifiers.totalContext.value}`);
-
-                    // For now, return the closest view-based query with a comment about the missing filters
-                    const bestView = findBestView({
-                        ...entities,
-                        modifiers: { ...entities.modifiers, winLoss: null, innings: null, stage: null, totalContext: null }
-                    }, intent);
-
-                    if (bestView) {
-                        const sql = buildViewSQL(bestView.viewName, bestView.viewMeta, entities, intent);
-                        return {
-                            sql: `-- NOTE: Dynamic filters (${modDesc.join(', ')}) require Phase 2 dynamic SQL.\n-- Showing closest available view-based results.\n${sql}`,
-                            type: 'player_lookup',
-                            entity: playerName,
-                            context: modDesc.join(', ')
-                        };
-                    }
+                    return buildDynamicQuery(entities, intent);
                 }
 
                 // Try view-based routing
@@ -4006,10 +4690,65 @@ LIMIT 20;</textarea>
 
             // --- TEAM_COMPARISON ---
             if (intent === 'TEAM_COMPARISON' && entities.teams.length >= 2) {
-                // Phase 2 placeholder for now
                 const t1 = entities.teams[0].canonical;
                 const t2 = entities.teams[1].canonical;
                 const isBowling = entities.role === 'bowling';
+                const hasModifiers = entities.modifiers.winLoss || entities.modifiers.innings || entities.modifiers.stage || entities.modifiers.totalContext;
+
+                // Use QueryBuilder for comparisons with modifiers or phase/season filters
+                if (hasModifiers || entities.phases.length > 0 || entities.seasons.length > 0) {
+                    const qb = new QueryBuilder();
+                    qb.addIPLFilter();
+                    const teamCol = isBowling ? 'fb.bowling_team_id' : 'fb.batting_team_id';
+                    const joinAlias = isBowling ? 'dt_bowl' : 'dt_bat';
+                    const faAlias = isBowling ? 'fa_bowl' : 'fa_bat';
+                    qb.joins.set('dim_team_comp', `JOIN dim_team ${joinAlias} ON ${teamCol} = ${joinAlias}.team_id`);
+                    qb.joins.set('dim_franchise_comp', `LEFT JOIN dim_franchise_alias ${faAlias} ON ${joinAlias}.team_name = ${faAlias}.team_name`);
+                    qb.wheres.push(`COALESCE(${faAlias}.canonical_name, ${joinAlias}.team_name) IN ('${escapeSql(t1)}', '${escapeSql(t2)}')`);
+                    const teamExpr = `COALESCE(${faAlias}.canonical_name, ${joinAlias}.team_name)`;
+                    qb.groupBys.push(teamExpr);
+
+                    if (entities.phases.length > 0) qb.addPhaseFilter(entities.phases);
+                    if (entities.seasons.length > 0) qb.addSeasonFilter(entities.seasons);
+                    if (entities.modifiers.winLoss) qb.addWinLossFilter(entities.modifiers.winLoss);
+                    if (entities.modifiers.innings) qb.addInningsFilter(entities.modifiers.innings);
+                    if (entities.modifiers.stage) qb.addStageFilter(entities.modifiers.stage);
+                    if (entities.modifiers.totalContext) qb.addTotalContextFilter(entities.modifiers.totalContext.operator, entities.modifiers.totalContext.value);
+
+                    if (isBowling) {
+                        qb.selects = [
+                            `${teamExpr} AS team_name`,
+                            ...qb.selects.filter(s => s.includes('match_result')),
+                            'COUNT(DISTINCT fb.match_id) AS matches',
+                            "ROUND(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) / 6.0, 1) AS overs",
+                            "SUM(fb.total_runs) AS runs_conceded",
+                            "SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END) AS wickets",
+                            "ROUND(SUM(fb.total_runs) * 6.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS economy",
+                            "ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS dot_ball_pct",
+                        ];
+                        qb.setOrderBy('economy ASC');
+                    } else {
+                        qb.selects = [
+                            `${teamExpr} AS team_name`,
+                            ...qb.selects.filter(s => s.includes('match_result')),
+                            'COUNT(DISTINCT fb.match_id) AS matches',
+                            'SUM(fb.batter_runs) AS runs',
+                            'SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS balls',
+                            "ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS strike_rate",
+                            "ROUND(SUM(CASE WHEN fb.batter_runs IN (4, 6) THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS boundary_pct",
+                        ];
+                        qb.setOrderBy('runs DESC');
+                    }
+                    qb.setLimit(entities.modifiers.limit);
+                    return {
+                        sql: qb.build(),
+                        type: 'team_comparison',
+                        entity: t1,
+                        context: t2
+                    };
+                }
+
+                // Simple comparison without modifiers: use existing squad views
                 const view = isBowling ? 'analytics_ipl_squad_bowling' : 'analytics_ipl_squad_batting';
                 const orderCol = isBowling ? 'player_name' : 'ipl_runs DESC NULLS LAST';
                 return {
@@ -4284,6 +5023,51 @@ LIMIT 20;</textarea>
                         insight = `<strong>${escapeHtml(name)}</strong> at <strong>${escapeHtml(venue)}</strong>: <strong>${firstRow.wickets}</strong> wickets in <strong>${firstRow.matches}</strong> matches, economy ${fmt(firstRow.economy)}.`;
                     }
                     insight += ` Ground conditions matter \u2014 the best scouts always check the venue tape first.`;
+                    break;
+                }
+                case 'comparison':
+                case 'dynamic': {
+                    // Dynamic query results (Phase 2 QueryBuilder output)
+                    const name = firstRow.player_name || firstRow.team_name || escapeHtml(entity);
+                    if (firstRow.match_result && totalRows >= 2) {
+                        // Win/loss split comparison
+                        const wonRow = rows.find(r => r.match_result === 'WON');
+                        const lostRow = rows.find(r => r.match_result === 'LOST');
+                        insight = `<strong>${escapeHtml(name)}</strong> \u2014 wins vs losses split:`;
+                        if (wonRow && lostRow) {
+                            if (wonRow.strike_rate !== undefined && lostRow.strike_rate !== undefined) {
+                                const srDelta = (wonRow.strike_rate - lostRow.strike_rate).toFixed(1);
+                                insight += ` SR in wins: <strong>${fmt(wonRow.strike_rate)}</strong> vs losses: <strong>${fmt(lostRow.strike_rate)}</strong> (delta: ${srDelta}).`;
+                                if (parseFloat(srDelta) > 20) {
+                                    insight += ` That is a massive gap \u2014 this player lifts their game significantly in winning causes.`;
+                                } else if (parseFloat(srDelta) < -5) {
+                                    insight += ` Interesting \u2014 actually strikes harder in losses. Might be playing catch-up innings.`;
+                                }
+                            }
+                            if (wonRow.economy !== undefined && lostRow.economy !== undefined) {
+                                const econDelta = (lostRow.economy - wonRow.economy).toFixed(2);
+                                insight += ` Economy in wins: <strong>${fmt(wonRow.economy)}</strong> vs losses: <strong>${fmt(lostRow.economy)}</strong> (gap: ${econDelta}).`;
+                                if (parseFloat(econDelta) > 1.5) {
+                                    insight += ` The economy gap tells the story \u2014 restriction is the key to this bowler's winning formula.`;
+                                }
+                            }
+                        }
+                    } else if (firstRow.runs !== undefined) {
+                        insight = `Dynamic analysis for <strong>${escapeHtml(name)}</strong>: <strong>${fmt(firstRow.runs)}</strong> runs`;
+                        if (firstRow.strike_rate !== undefined) insight += ` at SR <strong>${fmt(firstRow.strike_rate)}</strong>`;
+                        if (firstRow.average !== undefined) insight += `, avg <strong>${fmt(firstRow.average)}</strong>`;
+                        insight += ` across <strong>${fmt(firstRow.innings || firstRow.matches)}</strong> ${firstRow.innings !== undefined ? 'innings' : 'matches'}.`;
+                        if (context) insight += ` Context: ${escapeHtml(context)}.`;
+                    } else if (firstRow.wickets !== undefined) {
+                        insight = `Dynamic analysis for <strong>${escapeHtml(name)}</strong>: <strong>${fmt(firstRow.wickets)}</strong> wickets`;
+                        if (firstRow.economy !== undefined) insight += ` at economy <strong>${fmt(firstRow.economy)}</strong>`;
+                        insight += ` in <strong>${fmt(firstRow.matches)}</strong> matches.`;
+                        if (context) insight += ` Context: ${escapeHtml(context)}.`;
+                    } else {
+                        insight = `Dynamic query returned <strong>${totalRows}</strong> row${totalRows > 1 ? 's' : ''} for <strong>${escapeHtml(name)}</strong>.`;
+                        if (context) insight += ` Filters applied: ${escapeHtml(context)}.`;
+                    }
+                    insight += ` This is the kind of drill-down that separates scouting from guessing.`;
                     break;
                 }
                 default: {

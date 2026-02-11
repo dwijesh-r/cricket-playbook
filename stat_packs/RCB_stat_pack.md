@@ -1,6 +1,6 @@
 # Royal Challengers Bengaluru (RCB) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-11 18:05
+**Generated:** 2026-02-11 18:25
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -167,15 +167,15 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
-| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 176.3 |
-| Wankhede Stadium | 3 | 1 | 33.3% | 205.3 |
-| Eden Gardens | 3 | 1 | 33.3% | 173.7 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 181.7 |
 | Narendra Modi Stadium | 3 | 2 | 66.7% | 189.3 |
-| Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 181.7 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 176.3 |
+| Eden Gardens | 3 | 1 | 33.3% | 173.7 |
+| Wankhede Stadium | 3 | 1 | 33.3% | 205.3 |
+| MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
 | Arun Jaitley Stadium | 2 | 1 | 50.0% | 173.0 |
 | Rajiv Gandhi International Stadium | 2 | 2 | 100.0% | 196.5 |
-| MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
+| Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -188,9 +188,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -218,8 +218,8 @@
 | KH Pandya | Bharat Ratna Shri Atal Bi | 13 | 12 | 6.84 | 22.0 |
 | JR Hazlewood | M Chinnaswamy Stadium | 4 | 8 | 9.33 | 10.38 |
 | B Kumar | Narendra Modi Stadium | 4 | 7 | 8.47 | 12.86 |
-| Suyash Sharma | Maharaja Yadavindra Singh | 2 | 5 | 5.71 | 8.4 |
 | B Kumar | Arun Jaitley Stadium | 3 | 5 | 8.92 | 14.4 |
+| Suyash Sharma | Maharaja Yadavindra Singh | 2 | 5 | 5.71 | 8.4 |
 | KH Pandya | Wankhede Stadium | 2 | 5 | 8.75 | 9.6 |
 
 
@@ -407,11 +407,11 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 3 | 72 | 80 | 6 | 6.67 | 13.33 | 12.0 | 44.44 | 13.89 | MEDIUM |
 | Punjab Kings | 7 | 102 | 130 | 5 | 7.65 | 26.0 | 20.4 | 38.24 | 15.69 | HIGH |
-| Gujarat Titans | 4 | 90 | 100 | 5 | 6.67 | 20.0 | 18.0 | 36.67 | 11.11 | MEDIUM |
 | Mumbai Indians | 4 | 96 | 139 | 5 | 8.69 | 27.8 | 19.2 | 35.42 | 20.83 | MEDIUM |
+| Gujarat Titans | 4 | 90 | 100 | 5 | 6.67 | 20.0 | 18.0 | 36.67 | 11.11 | MEDIUM |
 | Kolkata Knight Riders | 4 | 66 | 93 | 4 | 8.45 | 23.25 | 16.5 | 28.79 | 19.7 | MEDIUM |
-| Chennai Super Kings | 5 | 72 | 104 | 3 | 8.67 | 34.67 | 24.0 | 27.78 | 18.06 | MEDIUM |
 | Rajasthan Royals | 4 | 96 | 102 | 3 | 6.38 | 34.0 | 32.0 | 25.0 | 7.29 | MEDIUM |
+| Chennai Super Kings | 5 | 72 | 104 | 3 | 8.67 | 34.67 | 24.0 | 27.78 | 18.06 | MEDIUM |
 | Delhi Capitals | 4 | 66 | 105 | 1 | 9.55 | 105.0 | 66.0 | 18.18 | 16.67 | MEDIUM |
 | Royal Challengers Bengaluru | 3 | 54 | 67 | 0 | 7.44 | - | - | 22.22 | 11.11 | MEDIUM |
 

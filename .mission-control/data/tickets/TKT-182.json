@@ -1,0 +1,19 @@
+{
+  "id": "TKT-182",
+  "title": "T20 Fallback Data for Uncapped IPL Players in Stat Packs",
+  "state": "BACKLOG",
+  "priority": "P2",
+  "progress_pct": 0,
+  "description": "For the 51 players in IPL 2026 squads with no IPL 2023+ data, add T20 fallback data from other tournaments (BBL, Blast, PSL, CPL, SA20, The Hundred, etc.). The squad views already LEFT JOIN to all-T20 career data but generate_stat_packs.py never renders those columns. Implementation: 1) Render T20 columns in stat pack squad sections for uncapped players, 2) Add a separate 'Uncapped Watch' section per team stat pack showing T20 profile for players without IPL history, 3) Tag uncapped players in player_tags.json with T20-only flag. 34 of 51 uncapped players have meaningful T20 data. 17 have zero data anywhere.",
+  "assignee": "Stephen Curry",
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "Founder approved. Supplementary T20 data for uncapped players in stat packs.",
+      "approved_by": "Florentino Perez",
+      "date": "2026-02-11"
+    }
+  },
+  "created_at": "2026-02-11T12:55:12.600182Z",
+  "updated_at": "2026-02-11T12:55:24.163529Z"
+}

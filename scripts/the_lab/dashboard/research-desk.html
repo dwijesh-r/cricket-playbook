@@ -709,7 +709,9 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-primary);
-            white-space: nowrap;
+            white-space: normal;
+            word-break: break-word;
+            max-width: 320px;
         }
         .results-table tr:nth-child(even) {
             background: var(--glass);
@@ -1476,6 +1478,7 @@ LIMIT 20;</textarea>
                             <button type="button" class="examples-filter-btn" data-filter="team">Team</button>
                             <button type="button" class="examples-filter-btn" data-filter="matchup">Matchup</button>
                             <button type="button" class="examples-filter-btn" data-filter="phase">Phase</button>
+                            <button type="button" class="examples-filter-btn" data-filter="pressure">Pressure</button>
                             <button type="button" class="examples-filter-btn" data-filter="ipl2026">IPL 2026</button>
                         </div>
                     </div>
@@ -1572,6 +1575,9 @@ LIMIT 20;</textarea>
             div.textContent = str;
             return div.innerHTML;
         }
+        function escapeAttr(str) {
+            return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
 
         /* ==================== UTILITY: escapeSql — doubles single quotes to prevent SQL injection ==================== */
         function escapeSql(str) {
@@ -1641,7 +1647,7 @@ LIMIT 20;</textarea>
                     month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
                 });
                 const preview = entry.sql.replace(/\n/g, ' ').substring(0, 80);
-                html += `<div class="query-history-item" data-sql="${entry.sql.replace(/"/g, '&quot;')}" title="${entry.sql.replace(/"/g, '&quot;')}">
+                html += `<div class="query-history-item" data-sql="${escapeAttr(entry.sql)}" title="${escapeAttr(entry.sql)}">
                     ${escapeHtml(preview)}${entry.sql.length > 80 ? '...' : ''}
                     <div style="font-size:10px;color:var(--text-tertiary);margin-top:2px;">${timeStr}</div>
                 </div>`;
@@ -2566,6 +2572,31 @@ LIMIT 20;</textarea>
                 description: 'Average powerplay run rate per team in recent IPL seasons.',
                 sql: `SELECT dt_bat.team_name AS batting_team,\n  COUNT(DISTINCT fb.match_id) AS matches,\n  SUM(fb.total_runs) AS pp_runs,\n  SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS pp_balls,\n  ROUND(SUM(fb.total_runs) * 6.0 / SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 2) AS run_rate\nFROM fact_ball fb\nJOIN dim_match m ON fb.match_id = m.match_id\nJOIN dim_tournament t ON m.tournament_id = t.tournament_id\nJOIN dim_team dt_bat ON fb.batting_team_id = dt_bat.team_id\nWHERE t.tournament_name LIKE '%Indian Premier League%'\n  AND m.season IN ('2024', '2024/25', '2025')\n  AND fb.match_phase = 'powerplay'\nGROUP BY dt_bat.team_name\nHAVING SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) >= 100\nORDER BY run_rate DESC;`
             },
+            // Pressure Performance
+            {
+                category: 'pressure',
+                title: 'Clutch Batters Under Extreme Pressure',
+                description: 'Batters who thrive when Required Run Rate exceeds 12 (IPL 2023+).',
+                sql: `SELECT player_name, pressure_band, balls_faced,\n  ROUND(strike_rate, 1) AS strike_rate,\n  ROUND(batting_average, 1) AS average,\n  ROUND(boundary_pct, 1) AS boundary_pct,\n  ROUND(dot_ball_pct, 1) AS dot_pct,\n  confidence\nFROM analytics_ipl_batter_pressure_bands_since2023\nWHERE pressure_band IN ('EXTREME', 'NEAR_IMPOSSIBLE')\n  AND balls_faced >= 15\nORDER BY strike_rate DESC\nLIMIT 20;`
+            },
+            {
+                category: 'pressure',
+                title: 'Best Death Bowlers Under Pressure',
+                description: 'Bowlers with lowest economy when opposition RRR is 10+ (IPL 2023+).',
+                sql: `SELECT player_name, pressure_band, balls_bowled,\n  ROUND(economy, 2) AS economy,\n  ROUND(dot_ball_pct, 1) AS dot_pct,\n  ROUND(boundary_pct_conceded, 1) AS bdry_pct_conc,\n  wickets, confidence\nFROM analytics_ipl_bowler_pressure_bands_since2023\nWHERE pressure_band IN ('HIGH', 'EXTREME')\n  AND balls_bowled >= 15\nORDER BY economy ASC\nLIMIT 20;`
+            },
+            {
+                category: 'pressure',
+                title: 'Pressure Performance Ratings',
+                description: 'How player metrics change across pressure bands — CLUTCH, PRESSURE_PROOF, or SENSITIVE.',
+                sql: `SELECT player_name, role, pressure_band,\n  ROUND(band_metric, 2) AS band_metric,\n  ROUND(overall_metric, 2) AS overall_metric,\n  ROUND(delta_pct, 1) AS delta_pct,\n  rating\nFROM analytics_ipl_pressure_deltas_since2023\nWHERE rating IN ('CLUTCH', 'FINISHER', 'CLOSER')\nORDER BY delta_pct DESC\nLIMIT 25;`
+            },
+            {
+                category: 'pressure',
+                title: 'Dot Ball Sequences Under Pressure',
+                description: 'Bowlers who build consecutive dot ball streaks when RRR > 10 (IPL 2023+).',
+                sql: `SELECT player_name, total_sequences,\n  total_dots_in_sequences,\n  ROUND(avg_sequence_length, 1) AS avg_seq_len,\n  max_sequence_length AS max_streak,\n  ROUND(recovery_rate, 1) AS recovery_pct\nFROM analytics_ipl_pressure_dot_sequences_since2023\nWHERE total_sequences >= 3\nORDER BY avg_sequence_length DESC\nLIMIT 20;`
+            },
             // IPL 2026
             {
                 category: 'ipl2026',
@@ -2595,7 +2626,7 @@ LIMIT 20;</textarea>
                 html += `<h4>${escapeHtml(q.title)}</h4>`;
                 html += `<div class="example-card-desc">${escapeHtml(q.description)}</div>`;
                 html += `<p title="${escapeHtml(q.sql)}">${escapeHtml(sqlPreview)}...</p>`;
-                html += `<button type="button" class="load-btn" data-sql="${q.sql.replace(/"/g, '&quot;')}">&#9654; Load Query</button>`;
+                html += `<button type="button" class="load-btn" data-sql="${escapeAttr(q.sql)}">&#9654; Load Query</button>`;
                 html += `</div>`;
             }
             grid.innerHTML = html;
@@ -2804,6 +2835,38 @@ LIMIT 20;</textarea>
                     sql: `SELECT player_name, team_name, nationality, role, age\nFROM ipl_2026_squads\nWHERE nationality != 'India'${teamClause}\nORDER BY team_name, player_name;`,
                     type: 'overseas',
                     entity: teamFound || 'all teams'
+                };
+            }
+
+            // ============ PATTERN 4B: Pressure / clutch / chase queries ============
+            if (/\b(pressure|clutch|chok(?:e|er|ing)|chase|finisher|closer|rrr|required run rate)\b/.test(lower)) {
+                const isBowling = /\bbowl(?:ing|ers?)?\b/.test(lower) || /\b(closer|economy|dot)\b/.test(lower);
+                if (/\b(dot.*seq|streak|consecutive)\b/.test(lower)) {
+                    const view = isBowling ? 'analytics_ipl_pressure_dot_sequences_since2023' : 'analytics_ipl_pressure_boundary_sequences_since2023';
+                    return {
+                        sql: `SELECT * FROM ${view}\nWHERE total_sequences >= 3\nORDER BY avg_sequence_length DESC\nLIMIT ${limit};`,
+                        type: 'pressure_sequences',
+                        entity: isBowling ? 'dot sequences' : 'boundary sequences'
+                    };
+                }
+                if (/\b(rating|delta|change)\b/.test(lower)) {
+                    return {
+                        sql: `SELECT player_name, role, pressure_band, ROUND(delta_pct, 1) AS delta_pct, rating\nFROM analytics_ipl_pressure_deltas_since2023\nWHERE rating IS NOT NULL\nORDER BY delta_pct DESC\nLIMIT ${limit};`,
+                        type: 'pressure_ratings',
+                        entity: 'pressure ratings'
+                    };
+                }
+                if (isBowling) {
+                    return {
+                        sql: `SELECT player_name, pressure_band, balls_bowled, ROUND(economy, 2) AS economy, ROUND(dot_ball_pct, 1) AS dot_pct, ROUND(boundary_pct_conceded, 1) AS bdry_pct, wickets, confidence\nFROM analytics_ipl_bowler_pressure_bands_since2023\nWHERE pressure_band IN ('HIGH', 'EXTREME', 'NEAR_IMPOSSIBLE')\n  AND balls_bowled >= 15\nORDER BY economy ASC\nLIMIT ${limit};`,
+                        type: 'pressure_bowling',
+                        entity: 'bowlers under pressure'
+                    };
+                }
+                return {
+                    sql: `SELECT player_name, pressure_band, balls_faced, ROUND(strike_rate, 1) AS strike_rate, ROUND(boundary_pct, 1) AS boundary_pct, ROUND(dot_ball_pct, 1) AS dot_pct, confidence\nFROM analytics_ipl_batter_pressure_bands_since2023\nWHERE pressure_band IN ('HIGH', 'EXTREME', 'NEAR_IMPOSSIBLE')\n  AND balls_faced >= 15\nORDER BY strike_rate DESC\nLIMIT ${limit};`,
+                    type: 'pressure_batting',
+                    entity: 'batters under pressure'
                 };
             }
 
@@ -3320,6 +3383,7 @@ LIMIT 20;</textarea>
                                 <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='best death bowlers';handleNLSearch();">\u{1F4A1} <strong>"best death bowlers"</strong> \u2014 Phase specialists</li>
                                 <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='CSK squad';handleNLSearch();">\u{1F4A1} <strong>"CSK squad"</strong> \u2014 Team roster</li>
                                 <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='most expensive players';handleNLSearch();">\u{1F4A1} <strong>"most expensive players"</strong> \u2014 IPL 2026 contracts</li>
+                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='clutch batters';handleNLSearch();">\u{1F4A1} <strong>"clutch batters"</strong> \u2014 Pressure performance</li>
                             </ul>
                         </div>`;
                 }

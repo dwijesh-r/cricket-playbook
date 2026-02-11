@@ -1192,6 +1192,99 @@ def create_squad_integration_views(conn: duckdb.DuckDBPyConnection) -> None:
     """)
     print("  - analytics_ipl_team_roster")
 
+    # ── Dual-scope variants for squad views (TKT-181) ────────────────
+    # Base views already use 2023+ career stats. Create explicit _since2023
+    # aliases and _alltime variants joining against alltime career views.
+
+    # _since2023 aliases (base views are already 2023+)
+    conn.execute(
+        "CREATE OR REPLACE VIEW analytics_ipl_squad_batting_since2023 AS SELECT * FROM analytics_ipl_squad_batting"
+    )
+    conn.execute(
+        "CREATE OR REPLACE VIEW analytics_ipl_squad_bowling_since2023 AS SELECT * FROM analytics_ipl_squad_bowling"
+    )
+    conn.execute(
+        "CREATE OR REPLACE VIEW analytics_ipl_squad_batting_phase_since2023 AS SELECT * FROM analytics_ipl_squad_batting_phase"
+    )
+    conn.execute(
+        "CREATE OR REPLACE VIEW analytics_ipl_squad_bowling_phase_since2023 AS SELECT * FROM analytics_ipl_squad_bowling_phase"
+    )
+    conn.execute(
+        "CREATE OR REPLACE VIEW analytics_ipl_team_roster_since2023 AS SELECT * FROM analytics_ipl_team_roster"
+    )
+
+    # _alltime variants (join against alltime career views)
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_squad_batting_alltime AS
+        SELECT
+            sq.team_name, sq.player_name, sq.role, sq.batting_hand,
+            ct.price_cr, ct.acquisition_type, ct.year_joined,
+            ipl.innings as ipl_innings, ipl.runs as ipl_runs,
+            ipl.balls_faced as ipl_balls, ipl.strike_rate as ipl_sr,
+            ipl.batting_average as ipl_avg, ipl.boundary_pct as ipl_boundary_pct,
+            ipl.dot_ball_pct as ipl_dot_pct, ipl.fifties as ipl_fifties,
+            ipl.hundreds as ipl_hundreds, ipl.sample_size as ipl_sample_size,
+            t20.innings as t20_innings, t20.runs as t20_runs,
+            t20.strike_rate as t20_sr, t20.batting_average as t20_avg,
+            t20.sample_size_innings as t20_sample_size
+        FROM ipl_2026_squads sq
+        LEFT JOIN ipl_2026_contracts ct ON sq.team_name = ct.team_name AND sq.player_name = ct.player_name
+        LEFT JOIN analytics_ipl_batting_career_alltime ipl ON sq.player_id = ipl.player_id
+        LEFT JOIN analytics_batting_career t20 ON sq.player_id = t20.player_id
+        WHERE sq.role IN ('Batter', 'Wicketkeeper', 'All-rounder')
+        ORDER BY sq.team_name, COALESCE(ct.price_cr, 0) DESC
+    """)
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_squad_bowling_alltime AS
+        SELECT
+            sq.team_name, sq.player_name, sq.role, sq.bowling_arm, sq.bowling_type,
+            ct.price_cr, ct.acquisition_type, ct.year_joined,
+            ipl.matches_bowled as ipl_matches, ipl.overs_bowled as ipl_overs,
+            ipl.wickets as ipl_wickets, ipl.economy_rate as ipl_economy,
+            ipl.bowling_average as ipl_avg, ipl.bowling_strike_rate as ipl_sr,
+            ipl.dot_ball_pct as ipl_dot_pct, ipl.boundary_conceded_pct as ipl_boundary_pct,
+            ipl.sample_size as ipl_sample_size,
+            t20.matches_bowled as t20_matches, t20.wickets as t20_wickets,
+            t20.economy_rate as t20_economy, t20.bowling_average as t20_avg,
+            t20.sample_size_matches as t20_sample_size
+        FROM ipl_2026_squads sq
+        LEFT JOIN ipl_2026_contracts ct ON sq.team_name = ct.team_name AND sq.player_name = ct.player_name
+        LEFT JOIN analytics_ipl_bowling_career_alltime ipl ON sq.player_id = ipl.player_id
+        LEFT JOIN analytics_bowling_career t20 ON sq.player_id = t20.player_id
+        WHERE sq.role IN ('Bowler', 'All-rounder')
+        ORDER BY sq.team_name, COALESCE(ct.price_cr, 0) DESC
+    """)
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_squad_batting_phase_alltime AS
+        SELECT
+            sq.team_name, sq.player_name, sq.role, ct.price_cr,
+            bp.match_phase, bp.innings, bp.runs, bp.balls_faced,
+            bp.strike_rate, bp.batting_average, bp.boundary_pct,
+            bp.dot_ball_pct, bp.sample_size
+        FROM ipl_2026_squads sq
+        LEFT JOIN ipl_2026_contracts ct ON sq.team_name = ct.team_name AND sq.player_name = ct.player_name
+        LEFT JOIN analytics_ipl_batter_phase_alltime bp ON sq.player_id = bp.player_id
+        WHERE sq.role IN ('Batter', 'Wicketkeeper', 'All-rounder')
+        ORDER BY sq.team_name, sq.player_name, bp.match_phase
+    """)
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_squad_bowling_phase_alltime AS
+        SELECT
+            sq.team_name, sq.player_name, sq.role, sq.bowling_type, ct.price_cr,
+            bp.match_phase, bp.matches, bp.overs, bp.wickets,
+            bp.economy_rate, bp.bowling_average, bp.dot_ball_pct,
+            bp.boundary_conceded_pct, bp.sample_size
+        FROM ipl_2026_squads sq
+        LEFT JOIN ipl_2026_contracts ct ON sq.team_name = ct.team_name AND sq.player_name = ct.player_name
+        LEFT JOIN analytics_ipl_bowler_phase_alltime bp ON sq.player_id = bp.player_id
+        WHERE sq.role IN ('Bowler', 'All-rounder')
+        ORDER BY sq.team_name, sq.player_name, bp.match_phase
+    """)
+    conn.execute(
+        "CREATE OR REPLACE VIEW analytics_ipl_team_roster_alltime AS SELECT * FROM analytics_ipl_team_roster"
+    )
+    print("  - squad views: 5 x 2 dual-scope variants (10 views)")
+
 
 def create_percentile_views(conn: duckdb.DuckDBPyConnection) -> None:
     """Create views with percentile rankings for key metrics."""
@@ -3355,6 +3448,357 @@ def create_film_room_views(conn: duckdb.DuckDBPyConnection) -> None:
     print("\n  Film Room: 13 views x 2 variants = 26 views created.")
 
 
+def create_pressure_performance_views(conn: duckdb.DuckDBPyConnection) -> None:
+    """Create pressure performance views for TKT-050 (IPL 2023+ only).
+
+    5 RRR bands: COMFORTABLE (<8), BUILDING (8-10), HIGH (10-12),
+    EXTREME (12-15), NEAR_IMPOSSIBLE (15+).
+    Covers both batters and bowlers with sequence analysis.
+    """
+
+    print("\nCreating Pressure Performance views (TKT-050)...")
+
+    # ── 1. Batter Pressure Bands ─────────────────────────────────────
+    _dual_view(
+        conn,
+        "analytics_ipl_batter_pressure_bands",
+        """
+        WITH ipl_matches AS (
+            SELECT dm.match_id
+            FROM dim_match dm
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League' {DATE_FILTER}
+        ),
+        first_innings_total AS (
+            SELECT fb.match_id, SUM(fb.total_runs) AS target_runs
+            FROM fact_ball fb
+            WHERE fb.match_id IN (SELECT match_id FROM ipl_matches) AND fb.innings = 1
+            GROUP BY fb.match_id
+        ),
+        running_context AS (
+            SELECT fb.match_id, fb.innings, fb.ball_seq,
+                fb.batter_id, fb.bowler_id,
+                fb.batter_runs, fb.extra_runs, fb.total_runs,
+                fb.is_wicket, fb.is_legal_ball,
+                SUM(fb.total_runs) OVER (PARTITION BY fb.match_id, fb.innings ORDER BY fb.ball_seq) AS cumulative_runs,
+                fit.target_runs + 1 AS target,
+                (120 - fb.ball_seq) AS balls_remaining
+            FROM fact_ball fb
+            JOIN first_innings_total fit ON fb.match_id = fit.match_id
+            WHERE fb.innings = 2 AND fb.match_id IN (SELECT match_id FROM ipl_matches)
+        ),
+        with_bands AS (
+            SELECT *,
+                CASE
+                    WHEN balls_remaining <= 0 THEN NULL
+                    WHEN (target - cumulative_runs) * 6.0 / balls_remaining >= 15 THEN 'NEAR_IMPOSSIBLE'
+                    WHEN (target - cumulative_runs) * 6.0 / balls_remaining >= 12 THEN 'EXTREME'
+                    WHEN (target - cumulative_runs) * 6.0 / balls_remaining >= 10 THEN 'HIGH'
+                    WHEN (target - cumulative_runs) * 6.0 / balls_remaining >= 8  THEN 'BUILDING'
+                    ELSE 'COMFORTABLE'
+                END AS pressure_band
+            FROM running_context
+            WHERE balls_remaining > 0
+        )
+        SELECT
+            wb.batter_id AS player_id,
+            dp.current_name AS player_name,
+            wb.pressure_band,
+            COUNT(DISTINCT wb.match_id) AS innings,
+            SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END) AS balls_faced,
+            SUM(wb.batter_runs) AS runs,
+            ROUND(SUM(wb.batter_runs) * 100.0 / NULLIF(SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS strike_rate,
+            ROUND(SUM(wb.batter_runs) * 1.0 / NULLIF(SUM(CASE WHEN wb.is_wicket THEN 1 ELSE 0 END), 0), 2) AS batting_average,
+            ROUND(SUM(CASE WHEN wb.batter_runs IN (4, 6) THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS boundary_pct,
+            ROUND(SUM(CASE WHEN wb.batter_runs = 0 AND wb.extra_runs = 0 AND wb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS dot_ball_pct,
+            ROUND(SUM(CASE WHEN wb.batter_runs = 6 THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS six_pct,
+            SUM(CASE WHEN wb.is_wicket THEN 1 ELSE 0 END) AS dismissals
+        FROM with_bands wb
+        JOIN dim_player dp ON wb.batter_id = dp.player_id
+        WHERE wb.pressure_band IS NOT NULL
+        GROUP BY wb.batter_id, dp.current_name, wb.pressure_band
+        HAVING SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END) >= 15
+    """,
+    )
+
+    # ── 2. Bowler Pressure Bands ─────────────────────────────────────
+    _dual_view(
+        conn,
+        "analytics_ipl_bowler_pressure_bands",
+        """
+        WITH ipl_matches AS (
+            SELECT dm.match_id
+            FROM dim_match dm
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League' {DATE_FILTER}
+        ),
+        first_innings_total AS (
+            SELECT fb.match_id, SUM(fb.total_runs) AS target_runs
+            FROM fact_ball fb
+            WHERE fb.match_id IN (SELECT match_id FROM ipl_matches) AND fb.innings = 1
+            GROUP BY fb.match_id
+        ),
+        running_context AS (
+            SELECT fb.match_id, fb.innings, fb.ball_seq,
+                fb.batter_id, fb.bowler_id,
+                fb.batter_runs, fb.extra_runs, fb.total_runs,
+                fb.is_wicket, fb.wicket_type, fb.is_legal_ball,
+                SUM(fb.total_runs) OVER (PARTITION BY fb.match_id, fb.innings ORDER BY fb.ball_seq) AS cumulative_runs,
+                fit.target_runs + 1 AS target,
+                (120 - fb.ball_seq) AS balls_remaining
+            FROM fact_ball fb
+            JOIN first_innings_total fit ON fb.match_id = fit.match_id
+            WHERE fb.innings = 2 AND fb.match_id IN (SELECT match_id FROM ipl_matches)
+        ),
+        with_bands AS (
+            SELECT *,
+                CASE
+                    WHEN balls_remaining <= 0 THEN NULL
+                    WHEN (target - cumulative_runs) * 6.0 / balls_remaining >= 15 THEN 'NEAR_IMPOSSIBLE'
+                    WHEN (target - cumulative_runs) * 6.0 / balls_remaining >= 12 THEN 'EXTREME'
+                    WHEN (target - cumulative_runs) * 6.0 / balls_remaining >= 10 THEN 'HIGH'
+                    WHEN (target - cumulative_runs) * 6.0 / balls_remaining >= 8  THEN 'BUILDING'
+                    ELSE 'COMFORTABLE'
+                END AS pressure_band
+            FROM running_context
+            WHERE balls_remaining > 0
+        )
+        SELECT
+            wb.bowler_id AS player_id,
+            dp.current_name AS player_name,
+            wb.pressure_band,
+            SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END) AS legal_balls,
+            ROUND(SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END) / 6.0, 1) AS overs,
+            SUM(wb.total_runs) AS runs_conceded,
+            ROUND(SUM(wb.total_runs) * 6.0 / NULLIF(SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS economy,
+            ROUND(SUM(CASE WHEN wb.batter_runs = 0 AND wb.extra_runs = 0 AND wb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS dot_ball_pct,
+            ROUND(SUM(CASE WHEN wb.batter_runs IN (4, 6) THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS boundary_conceded_pct,
+            ROUND(SUM(CASE WHEN wb.batter_runs = 6 THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS six_conceded_pct,
+            SUM(CASE WHEN wb.is_wicket AND wb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END) AS wickets,
+            ROUND(SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END) * 1.0 / NULLIF(SUM(CASE WHEN wb.is_wicket AND wb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END), 0), 2) AS bowling_strike_rate
+        FROM with_bands wb
+        JOIN dim_player dp ON wb.bowler_id = dp.player_id
+        WHERE wb.pressure_band IS NOT NULL
+        GROUP BY wb.bowler_id, dp.current_name, wb.pressure_band
+        HAVING SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END) >= 15
+    """,
+    )
+
+    # ── 3. Dot Ball Sequences Under Pressure ─────────────────────────
+    _dual_view(
+        conn,
+        "analytics_ipl_pressure_dot_sequences",
+        """
+        WITH ipl_matches AS (
+            SELECT dm.match_id
+            FROM dim_match dm
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League' {DATE_FILTER}
+        ),
+        first_innings_total AS (
+            SELECT fb.match_id, SUM(fb.total_runs) AS target_runs
+            FROM fact_ball fb
+            WHERE fb.match_id IN (SELECT match_id FROM ipl_matches) AND fb.innings = 1
+            GROUP BY fb.match_id
+        ),
+        running_context AS (
+            SELECT fb.match_id, fb.innings, fb.ball_seq,
+                fb.bowler_id, fb.batter_id,
+                fb.batter_runs, fb.extra_runs, fb.total_runs,
+                fb.is_legal_ball,
+                SUM(fb.total_runs) OVER (PARTITION BY fb.match_id, fb.innings ORDER BY fb.ball_seq) AS cumulative_runs,
+                fit.target_runs + 1 AS target,
+                (120 - fb.ball_seq) AS balls_remaining,
+                CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 AND fb.is_legal_ball THEN 0 ELSE 1 END AS is_scoring,
+                SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 AND fb.is_legal_ball THEN 0 ELSE 1 END)
+                    OVER (PARTITION BY fb.match_id, fb.innings ORDER BY fb.ball_seq) AS scoring_group
+            FROM fact_ball fb
+            JOIN first_innings_total fit ON fb.match_id = fit.match_id
+            WHERE fb.innings = 2 AND fb.match_id IN (SELECT match_id FROM ipl_matches)
+        ),
+        pressure_balls AS (
+            SELECT *,
+                CASE WHEN balls_remaining > 0
+                    THEN (target - cumulative_runs) * 6.0 / balls_remaining ELSE NULL END AS rrr
+            FROM running_context
+            WHERE balls_remaining > 0
+              AND (target - cumulative_runs) * 6.0 / balls_remaining >= 10
+        ),
+        dot_runs AS (
+            SELECT bowler_id, match_id, innings, scoring_group,
+                COUNT(*) AS dots_in_sequence
+            FROM pressure_balls WHERE is_scoring = 0
+            GROUP BY bowler_id, match_id, innings, scoring_group
+            HAVING COUNT(*) >= 2
+        )
+        SELECT
+            dp.current_name AS bowler_name,
+            dr.bowler_id,
+            COUNT(*) AS dot_sequences,
+            ROUND(AVG(dr.dots_in_sequence), 1) AS avg_dot_seq_length,
+            MAX(dr.dots_in_sequence) AS max_dot_seq,
+            SUM(dr.dots_in_sequence) AS total_dots_in_sequences
+        FROM dot_runs dr
+        JOIN dim_player dp ON dr.bowler_id = dp.player_id
+        GROUP BY dr.bowler_id, dp.current_name
+        HAVING COUNT(*) >= 3
+        ORDER BY avg_dot_seq_length DESC
+    """,
+    )
+
+    # ── 4. Boundary Sequences Under Pressure ─────────────────────────
+    _dual_view(
+        conn,
+        "analytics_ipl_pressure_boundary_sequences",
+        """
+        WITH ipl_matches AS (
+            SELECT dm.match_id
+            FROM dim_match dm
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League' {DATE_FILTER}
+        ),
+        first_innings_total AS (
+            SELECT fb.match_id, SUM(fb.total_runs) AS target_runs
+            FROM fact_ball fb
+            WHERE fb.match_id IN (SELECT match_id FROM ipl_matches) AND fb.innings = 1
+            GROUP BY fb.match_id
+        ),
+        running_context AS (
+            SELECT fb.match_id, fb.innings, fb.ball_seq,
+                fb.batter_id,
+                fb.batter_runs, fb.extra_runs, fb.total_runs,
+                fb.is_legal_ball,
+                SUM(fb.total_runs) OVER (PARTITION BY fb.match_id, fb.innings ORDER BY fb.ball_seq) AS cumulative_runs,
+                fit.target_runs + 1 AS target,
+                (120 - fb.ball_seq) AS balls_remaining,
+                CASE WHEN fb.batter_runs IN (4, 6) THEN 0 ELSE 1 END AS is_non_boundary,
+                SUM(CASE WHEN fb.batter_runs IN (4, 6) THEN 0 ELSE 1 END)
+                    OVER (PARTITION BY fb.match_id, fb.innings ORDER BY fb.ball_seq) AS non_boundary_group
+            FROM fact_ball fb
+            JOIN first_innings_total fit ON fb.match_id = fit.match_id
+            WHERE fb.innings = 2 AND fb.match_id IN (SELECT match_id FROM ipl_matches)
+        ),
+        pressure_balls AS (
+            SELECT *,
+                CASE WHEN balls_remaining > 0
+                    THEN (target - cumulative_runs) * 6.0 / balls_remaining ELSE NULL END AS rrr
+            FROM running_context
+            WHERE balls_remaining > 0
+              AND (target - cumulative_runs) * 6.0 / balls_remaining >= 10
+        ),
+        boundary_runs AS (
+            SELECT batter_id, match_id, innings, non_boundary_group,
+                COUNT(*) AS boundaries_in_sequence
+            FROM pressure_balls WHERE is_non_boundary = 0
+            GROUP BY batter_id, match_id, innings, non_boundary_group
+            HAVING COUNT(*) >= 2
+        )
+        SELECT
+            dp.current_name AS batter_name,
+            br.batter_id,
+            COUNT(*) AS boundary_sequences,
+            ROUND(AVG(br.boundaries_in_sequence), 1) AS avg_boundary_seq_length,
+            MAX(br.boundaries_in_sequence) AS max_boundary_seq,
+            SUM(br.boundaries_in_sequence) AS total_boundaries_in_sequences
+        FROM boundary_runs br
+        JOIN dim_player dp ON br.batter_id = dp.player_id
+        GROUP BY br.batter_id, dp.current_name
+        HAVING COUNT(*) >= 2
+        ORDER BY avg_boundary_seq_length DESC
+    """,
+    )
+
+    # ── 5. Pressure Performance Deltas ───────────────────────────────
+    _dual_view(
+        conn,
+        "analytics_ipl_pressure_deltas",
+        """
+        WITH ipl_matches AS (
+            SELECT dm.match_id
+            FROM dim_match dm
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League' {DATE_FILTER}
+        ),
+        first_innings_total AS (
+            SELECT fb.match_id, SUM(fb.total_runs) AS target_runs
+            FROM fact_ball fb
+            WHERE fb.match_id IN (SELECT match_id FROM ipl_matches) AND fb.innings = 1
+            GROUP BY fb.match_id
+        ),
+        running_context AS (
+            SELECT fb.match_id, fb.innings, fb.ball_seq,
+                fb.batter_id, fb.bowler_id,
+                fb.batter_runs, fb.extra_runs, fb.total_runs,
+                fb.is_wicket, fb.wicket_type, fb.is_legal_ball,
+                SUM(fb.total_runs) OVER (PARTITION BY fb.match_id, fb.innings ORDER BY fb.ball_seq) AS cumulative_runs,
+                fit.target_runs + 1 AS target,
+                (120 - fb.ball_seq) AS balls_remaining
+            FROM fact_ball fb
+            JOIN first_innings_total fit ON fb.match_id = fit.match_id
+            WHERE fb.innings = 2 AND fb.match_id IN (SELECT match_id FROM ipl_matches)
+        ),
+        with_bands AS (
+            SELECT *,
+                CASE
+                    WHEN balls_remaining <= 0 THEN NULL
+                    WHEN (target - cumulative_runs) * 6.0 / balls_remaining >= 10 THEN 'HIGH_PRESSURE'
+                    ELSE 'NORMAL'
+                END AS pressure_group
+            FROM running_context
+            WHERE balls_remaining > 0
+        ),
+        batter_overall AS (
+            SELECT batter_id,
+                ROUND(SUM(batter_runs) * 100.0 / NULLIF(SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS overall_sr,
+                ROUND(SUM(CASE WHEN batter_runs IN (4,6) THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS overall_boundary_pct,
+                ROUND(SUM(CASE WHEN batter_runs = 0 AND extra_runs = 0 AND is_legal_ball THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS overall_dot_pct
+            FROM with_bands
+            GROUP BY batter_id
+            HAVING SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END) >= 50
+        ),
+        batter_pressure AS (
+            SELECT batter_id,
+                SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END) AS pressure_balls,
+                ROUND(SUM(batter_runs) * 100.0 / NULLIF(SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS pressure_sr,
+                ROUND(SUM(CASE WHEN batter_runs IN (4,6) THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS pressure_boundary_pct,
+                ROUND(SUM(CASE WHEN batter_runs = 0 AND extra_runs = 0 AND is_legal_ball THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS pressure_dot_pct
+            FROM with_bands
+            WHERE pressure_group = 'HIGH_PRESSURE'
+            GROUP BY batter_id
+            HAVING SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END) >= 15
+        )
+        SELECT
+            dp.current_name AS player_name,
+            bo.batter_id AS player_id,
+            'BATTER' AS role,
+            bp.pressure_balls,
+            bo.overall_sr, bp.pressure_sr,
+            ROUND((bp.pressure_sr - bo.overall_sr) / NULLIF(bo.overall_sr, 0) * 100, 1) AS sr_delta_pct,
+            bo.overall_boundary_pct, bp.pressure_boundary_pct,
+            ROUND((bp.pressure_boundary_pct - bo.overall_boundary_pct) / NULLIF(bo.overall_boundary_pct, 0) * 100, 1) AS boundary_delta_pct,
+            bo.overall_dot_pct, bp.pressure_dot_pct,
+            ROUND((bp.pressure_dot_pct - bo.overall_dot_pct) / NULLIF(bo.overall_dot_pct, 0) * 100, 1) AS dot_delta_pct,
+            CASE
+                WHEN bp.pressure_balls >= 30 THEN 'HIGH'
+                WHEN bp.pressure_balls >= 15 THEN 'MEDIUM'
+                ELSE 'LOW'
+            END AS sample_confidence,
+            CASE
+                WHEN (bp.pressure_sr - bo.overall_sr) / NULLIF(bo.overall_sr, 0) * 100 >= 10 THEN 'CLUTCH'
+                WHEN ABS((bp.pressure_sr - bo.overall_sr) / NULLIF(bo.overall_sr, 0) * 100) <= 5 THEN 'PRESSURE_PROOF'
+                WHEN (bp.pressure_sr - bo.overall_sr) / NULLIF(bo.overall_sr, 0) * 100 <= -10 THEN 'PRESSURE_SENSITIVE'
+                ELSE 'MODERATE'
+            END AS pressure_rating
+        FROM batter_overall bo
+        JOIN batter_pressure bp ON bo.batter_id = bp.batter_id
+        JOIN dim_player dp ON bo.batter_id = dp.player_id
+        ORDER BY sr_delta_pct DESC
+    """,
+    )
+
+    print("\n  Pressure Performance: 5 views x 2 variants = 10 views created.")
+
+
 def verify_views(conn: duckdb.DuckDBPyConnection) -> None:
     """Verify all views are working with sample queries."""
 
@@ -3478,6 +3922,7 @@ def main() -> int:
     create_benchmark_views(conn)
     create_standardized_ipl_views(conn)
     create_film_room_views(conn)
+    create_pressure_performance_views(conn)
 
     # Verify
     verify_views(conn)

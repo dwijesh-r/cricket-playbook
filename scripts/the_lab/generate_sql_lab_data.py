@@ -199,6 +199,8 @@ TABLE_DESCRIPTIONS = {
 def classify_view(view_name: str) -> str:
     """Map view name to category based on prefix patterns."""
     name = view_name.lower()
+    if "pressure" in name:
+        return "pressure"
     if "batter" in name or "batting" in name or "powerplay_hitter" in name:
         return "batting"
     if "bowler" in name or "bowling" in name or "death_over" in name:

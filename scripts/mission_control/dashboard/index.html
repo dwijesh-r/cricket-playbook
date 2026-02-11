@@ -6570,6 +6570,7 @@
               context: { ask: 'Add Powerplay/Middle/Death phase analysis to stat packs', goal: 'Display player performance by match phase', reason: 'PRD: Phase-specific performance drives batting order', audible: ['Query phase data', 'Calculate phase metrics', 'Add to stat pack template'] }
             },
             { id: 'TKT-049', title: 'Add key partnerships section', state: 'RUNNING', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 40, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' }, plan: 'docs/plans/TKT_049_KEY_PARTNERSHIPS_PLAN.md',
+              founderReviewNote: 'Review the Key Partnerships plan before implementation proceeds. Verify partnership metrics scope and stat pack integration approach.',
               context: {
                 ask: 'Add Key Partnerships section to stat pack showing batting pair analytics',
                 goal: 'Display top partnerships by runs, balls faced, and efficiency for each team',
@@ -6578,6 +6579,7 @@
               }
             },
             { id: 'TKT-050', title: 'Add pressure performance section', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 30, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' }, plan: 'docs/plans/TKT_050_PRESSURE_PERFORMANCE_PLAN.md',
+              founderReviewNote: 'Review the Pressure Performance plan. Verify pressure scenario definitions (RRR > 10, last 5 overs) and clutch factor methodology before implementation continues.',
               context: {
                 ask: 'Add Pressure Performance section showing high-RRR scenario batting',
                 goal: 'Identify clutch performers vs chokers when RRR > 10 or in last 5 overs',
@@ -7541,6 +7543,7 @@ Gate Inheritance:
 
             // TKT-159: Cross-Dashboard UX Audit (Jayson Tatum)
             { id: 'TKT-159', title: 'Comprehensive UX audit across Boardroom, The Lab, and Mission Control Panel', state: 'VALIDATION', priority: 'P0', effort: 'deep-work', assignee: 'Jayson Tatum', epic: null, progress: 95, branch: 'feature/tkt-159-ux-audit', tags: ['UX', 'Audit', 'Dashboard', 'Cross-Cutting'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PASSED', enforcement_check: 'PASSED', system_check: 'PASSED' }, report: 'docs/ux/TKT-159_ux_audit_report.md',
+              founderReviewNote: 'Review the comprehensive UX audit report across all three dashboards. Verify scoring methodology, category weights, and prioritized improvement recommendations.',
               context: { ask: 'Conduct a detailed UX review of all three dashboards (Boardroom, The Lab, Mission Control Panel). Deliver a 0-100 rating (decimals included) with weighted breakdown by category, specific improvement suggestions with rationale for each.', goal: 'A single source-of-truth UX scorecard that identifies exactly where the product shines and where it falls short — with actionable fixes prioritized by impact', reason: 'No formal UX audit has been done across all three surfaces. We are shipping features but not measuring the experience holistically.', audible: ['Audit Boardroom UX', 'Audit The Lab UX', 'Audit Mission Control UX', 'Score each category 0-100', 'Provide improvement suggestions with rationale', 'Deliver final composite rating'] }
             },
 
@@ -7771,6 +7774,7 @@ Gate Inheritance:
               context: { ask: 'Build research-desk.html page with consistent design language, nav integration', goal: 'Seamless visual integration with The Lab', reason: 'Must feel like a natural extension, not bolted on', audible: ['Create HTML page', 'Match Lab design', 'Update all nav links'] }
             },
             { id: 'TKT-179', title: 'Document Film Room NL Search Patterns & Example Prompts', state: 'RUNNING', priority: 'P1', effort: 'hustle', assignee: 'Founder', epic: 'EPIC-012', progress: 0, tags: ['Documentation', 'Research Desk'], gates: { florentino_gate: 'APPROVED' },
+              founderReviewNote: 'Founder-owned task: Document all 11 NL search patterns with example prompts for Film Room users. Create the reference doc when ready.',
               context: { ask: 'Create reference doc listing all 11 NL search patterns with example prompts', goal: 'Help users understand what queries work in the Film Room', reason: 'Users need guidance on NL search capabilities', audible: ['Document 11 patterns', 'Write example prompts', 'Note limitations'] }
             },
             { id: 'TKT-180', title: 'Mobile-First Film Room: Lightweight DuckDB Strategy', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-012', progress: 100, tags: ['Mobile', 'Performance', 'Research Desk'], gates: { florentino_gate: 'APPROVED', domain_sanity: { andy_flower: 'YES' }, system_check: 'PASS', founder_validation: 'APPROVED' },
@@ -7798,6 +7802,7 @@ Gate Inheritance:
             },
             { id: 'TKT-187', title: 'TKT-183.4: Founder Approval Gate — Final Weights', state: 'IDEA', priority: 'P0', effort: 'hustle', assignee: 'Jose Mourinho', epic: 'EPIC-016', progress: 0, tags: ['Analytics', 'Governance'], parent: 'TKT-183', gates: { florentino_gate: 'APPROVED' },
               blockedBy: ['TKT-184', 'TKT-185', 'TKT-186'],
+              founderReviewNote: 'HARD GATE (Decision #4): Review and approve final composite weights for all 207 tournaments. Verify tier assignments align with cricket intuition. No Phase 2 work can proceed without sign-off.',
               context: { ask: 'Compile final weights for 207 tournaments and present to Founder', goal: 'Founder sign-off on all weight values (Decision #4 hard gate)', reason: 'No Phase 2 work can begin without Founder approval of derived weights', audible: ['Compile Phase 1 outputs', 'Present tier assignments', 'Obtain Founder sign-off'] }
             },
             { id: 'TKT-188', title: 'TKT-183.5: Phase 2 — dim_tournament_weights Table', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-016', progress: 0, tags: ['Analytics', 'Data Pipeline'], parent: 'TKT-183', gates: { florentino_gate: 'APPROVED' },

@@ -1,14 +1,18 @@
 {
   "id": "TKT-050",
   "epic_id": "EPIC-006",
-  "title": "Venue stats: W-L + dot%/boundary%",
-  "description": "Update venue section with W-L record and key percentages",
+  "title": "Add pressure performance section",
+  "description": "Add Pressure Performance section to stat packs showing high-RRR scenario batting. Identify clutch performers vs chokers when RRR > 10 or in last 5 overs. Calculate SR/avg under pressure and rank players by clutch factor.",
   "state": "RUNNING",
-  "priority": "P2",
-  "progress_pct": 0,
+  "priority": "P1",
+  "progress_pct": 30,
   "owner": "Stephen Curry",
   "sprint_id": "SPRINT-001",
-  "gates": {},
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED"
+    }
+  },
   "created_at": "2026-02-04T00:00:00Z",
-  "updated_at": "2026-02-05T00:00:00Z"
+  "updated_at": "2026-02-11T17:00:00Z"
 }

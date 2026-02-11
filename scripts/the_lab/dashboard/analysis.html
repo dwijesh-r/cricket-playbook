@@ -775,6 +775,222 @@
                 </div>
             </section>
 
+            <!-- Player Pattern Recognition (NEW - TKT-181) -->
+            <section>
+                <h2 class="section-title">
+                    <span class="icon">🧩</span>
+                    Player Pattern Recognition
+                </h2>
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <span class="card-category eda">Analytics</span>
+                        <div class="card-header">
+                            <div class="card-icon">📉</div>
+                            <div>
+                                <h3 class="card-title">Batter Consistency Index</h3>
+                                <span class="card-file">batter_consistency_index.csv</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Rolling consistency analysis across IPL 2023-2025. Tracks coefficient of variation
+                            in runs scored, single-digit failure rate, and form trajectory by season.
+                            Separates "reliable anchors" from "streaky match-winners."
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this matters</div>
+                            <div class="card-why-text">
+                                Raw averages hide volatility. A 35-average batter who scores 0, 70, 0, 70 is very
+                                different from one who scores 30, 40, 35, 30. This index reveals who you can depend on.
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/batter_consistency_index.csv"
+                           target="_blank" class="card-link">
+                            📊 View Data →
+                        </a>
+                    </div>
+
+                    <div class="analysis-card">
+                        <span class="card-category eda">Analytics</span>
+                        <div class="card-header">
+                            <div class="card-icon">🤝</div>
+                            <div>
+                                <h3 class="card-title">Partnership Synergy Scores</h3>
+                                <span class="card-file">partnership_synergy.csv</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Measures how batting pairs amplify each other's performance. Synergy index
+                            compares partnership run rates against individual averages. Year-wise trends
+                            show which combinations are improving or declining.
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this matters</div>
+                            <div class="card-why-text">
+                                Predicted XIs aren't just about 11 individuals — it's about combinations.
+                                Partnership data reveals which batting pairs create more than the sum of their parts.
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/partnership_synergy.csv"
+                           target="_blank" class="card-link">
+                            📊 View Data →
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Matchup Intelligence (NEW - TKT-181) -->
+            <section>
+                <h2 class="section-title">
+                    <span class="icon">⚔️</span>
+                    Matchup Intelligence
+                </h2>
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <span class="card-category data">Matchups</span>
+                        <div class="card-header">
+                            <div class="card-icon">🏏</div>
+                            <div>
+                                <h3 class="card-title">Batter vs Bowling Type</h3>
+                                <span class="card-file">batter_bowling_type_matchup.csv</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            How every IPL batter performs against pace, off-spin, leg-spin, and left-arm spin.
+                            Identifies PACE_SPECIALIST, SPIN_SPECIALIST, and VULNERABLE_VS_SPIN tags based on
+                            2023-2025 data with statistically significant sample sizes.
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this matters</div>
+                            <div class="card-why-text">
+                                A batter averaging 45 overall might average 55 vs pace but 25 vs spin. This matchup
+                                data drives bowling attack composition and batting order decisions.
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/batter_bowling_type_matchup.csv"
+                           target="_blank" class="card-link">
+                            📊 View Data →
+                        </a>
+                    </div>
+
+                    <div class="analysis-card">
+                        <span class="card-category data">Matchups</span>
+                        <div class="card-header">
+                            <div class="card-icon">🎳</div>
+                            <div>
+                                <h3 class="card-title">Bowler vs Batting Handedness</h3>
+                                <span class="card-file">bowler_handedness_matchup.csv</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            How every IPL bowler performs against left-handers vs right-handers.
+                            Reveals asymmetric matchups — bowlers who dominate one handedness but struggle
+                            against the other. Critical for batting order optimization.
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this matters</div>
+                            <div class="card-why-text">
+                                Teams often alternate LHB/RHB in the order to disrupt bowling lines.
+                                This data quantifies exactly how much advantage each switch provides.
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/bowler_handedness_matchup.csv"
+                           target="_blank" class="card-link">
+                            📊 View Data →
+                        </a>
+                    </div>
+
+                    <div class="analysis-card">
+                        <span class="card-category data">Venue</span>
+                        <div class="card-header">
+                            <div class="card-icon">🏟️</div>
+                            <div>
+                                <h3 class="card-title">Team Venue Records</h3>
+                                <span class="card-file">team_venue_records.csv</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Win/loss records for every team at every IPL venue, with year-wise breakdown.
+                            Identifies home fortress effects, away vulnerabilities, and neutral venue
+                            performance patterns across 2023-2025.
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this matters</div>
+                            <div class="card-why-text">
+                                Venue is cricket's most underrated variable. Some teams have 80%+ home win rates
+                                but drop to 30% away. Park factors directly influence team ratings.
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/team_venue_records.csv"
+                           target="_blank" class="card-link">
+                            📊 View Data →
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pressure & Phase Performance (NEW - TKT-181) -->
+            <section>
+                <h2 class="section-title">
+                    <span class="icon">🔥</span>
+                    Pressure & Phase Performance
+                </h2>
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <span class="card-category audit">Pressure</span>
+                        <div class="card-header">
+                            <div class="card-icon">💪</div>
+                            <div>
+                                <h3 class="card-title">Bowler Pressure Sequences</h3>
+                                <span class="card-file">bowler_pressure_sequences.csv</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Tracks bowler performance under pressure — economy and strike rate in
+                            death overs, when defending small totals, and in consecutive dot-ball
+                            sequences. The cricket equivalent of "clutch" performance.
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this matters</div>
+                            <div class="card-why-text">
+                                PFF grades NFL quarterbacks on 4th-quarter performance. Similarly, a bowler's
+                                death overs economy under pressure is more predictive than their overall economy.
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/bowler_pressure_sequences.csv"
+                           target="_blank" class="card-link">
+                            📊 View Data →
+                        </a>
+                    </div>
+
+                    <div class="analysis-card">
+                        <span class="card-category audit">Phase</span>
+                        <div class="card-header">
+                            <div class="card-icon">📋</div>
+                            <div>
+                                <h3 class="card-title">Bowler Phase Distribution</h3>
+                                <span class="card-file">bowler_phase_distribution_grouped.csv</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            How bowlers distribute their overs across powerplay, middle, and death phases.
+                            Grouped analysis reveals captaincy patterns — which bowlers are trusted at death,
+                            which are powerplay-only, and who bowls through all phases.
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this matters</div>
+                            <div class="card-why-text">
+                                A bowler's role in a team is defined by when they bowl. Phase distribution
+                                directly feeds into our DEATH_SPECIALIST, NEW_BALL_SPECIALIST, and WORKHORSE tags.
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/bowler_phase_distribution_grouped.csv"
+                           target="_blank" class="card-link">
+                            📊 View Data →
+                        </a>
+                    </div>
+                </div>
+            </section>
+
             <!-- Algorithm Docs -->
             <section>
                 <h2 class="section-title">

@@ -604,6 +604,75 @@
                 </div>
             </article>
 
+            <!-- Tournament Quality Weighting (NEW - TKT-183) -->
+            <article class="research-card">
+                <div class="research-header">
+                    <div class="research-icon">⚖️</div>
+                    <div>
+                        <h2 class="research-title">Tournament Quality Weighting</h2>
+                        <p class="research-subtitle">Jose Mourinho's 5-Factor Composite Weight System</p>
+                    </div>
+                </div>
+                <div class="research-content">
+                    <p>Not all T20 data is equal. Our weighting system quantifies tournament quality across 426 tournaments and 9,357 matches:</p>
+
+                    <h4>5-Factor Composite Weight</h4>
+                    <ul>
+                        <li><strong>Player Quality Index (PQI)</strong> - Average career quality of tournament participants</li>
+                        <li><strong>Competitiveness Index (CI)</strong> - Match outcome balance, margin distributions</li>
+                        <li><strong>Recency Decay</strong> - Exponential decay weighting recent tournaments higher</li>
+                        <li><strong>Conditions Similarity</strong> - How closely tournament conditions match IPL venues</li>
+                        <li><strong>Sample Size Confidence</strong> - Statistical reliability based on matches played</li>
+                    </ul>
+
+                    <h4>Tournament Tiers (Provisional)</h4>
+                    <ul>
+                        <li><span class="priority-badge p0">Tier 1</span> <strong>IPL</strong> - Baseline (1.0x weight)</li>
+                        <li><span class="priority-badge p1">Tier 2</span> <strong>BBL, PSL, SA20, The Hundred</strong> - Established T20 leagues</li>
+                        <li><span class="priority-badge p2">Tier 3</span> <strong>CPL, BPL, LPL</strong> - Developing leagues with lower PQI</li>
+                    </ul>
+
+                    <p style="margin-top: 16px;"><strong>Status:</strong> Plan approved by Founder. Implementation via TKT-183 (8-12 days).</p>
+
+                    <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/reviews/founder/tournament_weighting_plan_021126_v1.md" target="_blank" class="doc-link">
+                        📄 View Full Tournament Weighting Plan
+                    </a>
+                </div>
+            </article>
+
+            <!-- Dual-Scope Analytics (NEW - TKT-181) -->
+            <article class="research-card">
+                <div class="research-header">
+                    <div class="research-icon">🔬</div>
+                    <div>
+                        <h2 class="research-title">Dual-Scope Analytics Framework</h2>
+                        <p class="research-subtitle">All-Time vs Since-2023 view architecture (TKT-181)</p>
+                    </div>
+                </div>
+                <div class="research-content">
+                    <p>Every analytical view now exists in two scopes to balance historical context with current-form accuracy:</p>
+
+                    <h4>Architecture</h4>
+                    <ul>
+                        <li><strong>_alltime views</strong> - Full IPL history (2008-2025, ~1,169 matches). Used for career records, historical comparisons</li>
+                        <li><strong>_since2023 views</strong> - Current analytical window (2023-2025, ~219 matches). Used for all predictive outputs, tags, archetypes</li>
+                        <li><strong>80 dual-scope views</strong> - 40 pairs covering batting, bowling, phase, venue, matchup, and Film Room tactical analysis</li>
+                    </ul>
+
+                    <h4>Why 2023+?</h4>
+                    <ul>
+                        <li><strong>Impact Player rule</strong> introduced in 2023 changed team composition fundamentally</li>
+                        <li><strong>Player movement</strong> via mega-auctions means pre-2023 team context is obsolete</li>
+                        <li><strong>T20 meta evolution</strong> — strike rates, bowling approaches shifted significantly</li>
+                        <li>3 seasons provides sufficient sample (~219 matches) for statistical reliability</li>
+                    </ul>
+
+                    <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/reviews/founder/tkt181_film_room_review_021126_v1.md" target="_blank" class="doc-link">
+                        📄 View TKT-181 Review Document
+                    </a>
+                </div>
+            </article>
+
             <!-- Data Sources -->
             <article class="research-card">
                 <div class="research-header">
@@ -621,12 +690,14 @@
                         <li><strong>Historical Records</strong> - Team vs team, venue performance</li>
                     </ul>
 
-                    <h4>Derived Metrics (35+)</h4>
+                    <h4>Derived Metrics (115+ Views)</h4>
                     <ul>
+                        <li>80 dual-scope views (_alltime + _since2023 pairs)</li>
                         <li>Batter consistency index, boundary percentage, dot ball percentage</li>
                         <li>Partnership synergy scores, pressure sequences</li>
                         <li>Phase-specific performance (PP, middle, death)</li>
                         <li>Bowling type matchups, handedness analysis</li>
+                        <li>13 Film Room tactical views (entry points, wicket clusters, bowling changes)</li>
                     </ul>
 
                     <h4>Validation</h4>

@@ -232,7 +232,7 @@ def generate() -> dict:
         next_month = today.replace(year=today.year + 1, month=1, day=1)
     else:
         next_month = today.replace(month=today.month + 1, day=1)
-    days_remaining = (next_month - today).days
+    days_remaining = (next_month.date() - today.date()).days
 
     # First session date
     first_session = raw.get("firstSessionDate", "")

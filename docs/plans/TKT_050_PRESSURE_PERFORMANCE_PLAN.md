@@ -1,485 +1,358 @@
 # TKT-050: Pressure Performance Section Plan
 
 **Author:** Stephen Curry (Analytics Lead)
-**Status:** AWAITING FOUNDER APPROVAL
-**Created:** 2026-02-06
-**Ticket:** TKT-050
+**Status:** FOUNDER REVIEW — v2
+**Created:** 2026-02-06 | **Revised:** 2026-02-11
+**Ticket:** TKT-050 | **Epic:** EPIC-006
 
 ---
 
-## Executive Summary
+## Founder Feedback (2026-02-11)
 
-This document outlines the plan to add a **Pressure Performance** section to Cricket Playbook stat packs. This section will analyze how players perform under high-pressure situations in T20 cricket - a key differentiator for understanding clutch performers versus flat-track bullies.
-
-**Goal:** Identify which players elevate their game under pressure and which players falter - providing readers with actionable insights for match predictions and fantasy decisions.
-
----
-
-## 1. What is Pressure Performance?
-
-### 1.1 Definition
-
-**Pressure Performance** measures how a player's statistics change when the match situation is tense versus when it is comfortable. A "pressure performer" maintains or improves their numbers under duress; a "pressure struggler" sees significant degradation.
-
-### 1.2 Why It Matters for Cricket Playbook
-
-From our PRD philosophy:
-> "Cricket fans don't pay for analytics, they pay for confidence, narrative clarity and authority."
-
-Knowing who to trust in crunch moments IS the narrative readers want. This section answers:
-- Who should bat when the RRR is 12+?
-- Who can defend 8 runs in the final over?
-- Which players are "big-game" performers vs "flat-track bullies"?
-
-### 1.3 Pressure Scenarios in T20 Cricket
-
-| Scenario | Description | Impact |
-|----------|-------------|--------|
-| **Death Overs Chasing** | Batting in overs 16-20 while chasing | Highest batting pressure |
-| **High Required Run Rate** | RRR > 10 (needing 10+ runs per over) | Increased urgency, risky shots |
-| **Wickets Falling** | 3+ wickets down in powerplay, 5+ down in middle | Rebuilding under pressure |
-| **Close Match Defense** | Defending < 10 runs in final over | Bowling under extreme pressure |
-| **Knockout Stages** | Playoffs, eliminators, finals | Tournament pressure |
-| **Target Setting (High)** | Batting first, score > 180 projected | Pressure to maximize |
+1. Multi-band RRR analysis (not single >10 threshold) — for BOTH batters and bowlers
+2. Boundary% and dot ball% are key metrics per band
+3. Dot ball sequences and boundary sequences under pressure
+4. All analysis from IPL 2023+ only (using `_since2023` views)
+5. Unified batters + bowlers section in stat packs
 
 ---
 
-## 2. Pressure Metrics Framework
+## 1. Executive Summary
 
-### 2.1 What Constitutes "Pressure" in T20 Cricket
+Add a **Pressure Performance** section to stat packs analyzing how players perform across escalating pressure bands in T20 cricket. Uses multi-band Required Run Rate (RRR) tiers rather than a binary cutoff, covering **both batters and bowlers** in a unified section.
 
-Pressure is context-dependent. We define pressure through a **Pressure Index (PI)** that considers multiple factors:
+**Data scope:** IPL 2023-2025 only (Founder Decision #6 — 2023 baseline locked).
 
-#### Batting Pressure Factors
+---
 
-| Factor | Low Pressure (0-2) | Medium Pressure (3-5) | High Pressure (6-10) |
-|--------|-------------------|----------------------|---------------------|
-| **Required Run Rate** | RRR < 7 | RRR 7-10 | RRR > 10 |
-| **Wickets Down** | 0-2 wickets | 3-4 wickets | 5+ wickets |
-| **Overs Remaining** | > 10 overs | 5-10 overs | < 5 overs |
-| **Match Stage** | Group stage | Qualifier | Final/Eliminator |
-| **Runs Required** | > 60 with > 10 overs | 30-60 with 5-10 overs | < 30 with < 3 overs |
+## 2. Pressure Band Definitions
 
-#### Bowling Pressure Factors
+### 2.1 RRR-Based Pressure Bands (Batting — 2nd Innings Chases)
 
-| Factor | Low Pressure (0-2) | Medium Pressure (3-5) | High Pressure (6-10) |
-|--------|-------------------|----------------------|---------------------|
-| **Runs to Defend** | > 50 in > 5 overs | 30-50 in 3-5 overs | < 20 in < 3 overs |
-| **Wickets in Hand (Opp)** | 2-3 wickets left | 4-6 wickets left | 7+ wickets left |
-| **Current RRR** | Opposition RRR < 7 | RRR 7-10 | RRR > 10 |
-| **Match Stage** | Group stage | Qualifier | Final/Eliminator |
+| Band | RRR Range | Description | Typical Scenario |
+|------|-----------|-------------|------------------|
+| **Comfortable** | < 8 | Cruising | Need 64 off 48 balls |
+| **Building** | 8–10 | Above par, manageable | Need 80 off 48 balls |
+| **High Pressure** | 10–12 | Aggressive required | Need 60 off 30 balls |
+| **Extreme** | 12–15 | Six-hitting territory | Need 45 off 18 balls |
+| **Near-Impossible** | 15+ | Miracle needed | Need 30 off 12 balls |
 
-### 2.2 Pressure Index Formula
+### 2.2 RRR-Based Pressure Bands (Bowling — Defending in 2nd Innings)
+
+Same bands, inverted perspective — what does the bowler face when opposition RRR is at these levels:
+
+| Band | Opposition RRR | Bowler Context |
+|------|----------------|----------------|
+| **Comfortable** | < 8 | Batters under no rush — bowler can attack |
+| **Building** | 8–10 | Batters getting aggressive — dots valuable |
+| **High Pressure** | 10–12 | Batters swinging hard — execution critical |
+| **Extreme** | 12–15 | Full attack mode — one bad ball = boundary |
+| **Near-Impossible** | 15+ | Batters desperate — bowler holds the cards |
+
+### 2.3 Additional Pressure Contexts
+
+| Context | Definition | Applies To |
+|---------|------------|------------|
+| **Death Overs** | Overs 16–20 (regardless of RRR) | Both |
+| **Wickets Falling** | 5+ wickets down before over 15 | Batting |
+| **Close Defense** | < 15 to defend in last 2 overs | Bowling |
+
+---
+
+## 3. Metrics Per Band
+
+### 3.1 Batting Metrics (Per RRR Band)
+
+| Metric | Description |
+|--------|-------------|
+| **Innings** | Number of innings in this band |
+| **Balls Faced** | Sample size |
+| **Strike Rate** | Runs per 100 balls |
+| **Average** | Runs per dismissal |
+| **Boundary%** | % of balls hit for 4 or 6 |
+| **Dot Ball%** | % of balls scoring 0 (legal deliveries) |
+| **Six%** | % of balls hit for 6 |
+| **Dismissal Rate** | Wickets per ball |
+
+### 3.2 Bowling Metrics (Per Opposition RRR Band)
+
+| Metric | Description |
+|--------|-------------|
+| **Overs** | Sample size (legal balls / 6) |
+| **Economy** | Runs conceded per over |
+| **Dot Ball%** | % of legal deliveries that are dots |
+| **Boundary% Conceded** | % of balls going for 4 or 6 |
+| **Six% Conceded** | % of balls hit for 6 |
+| **Strike Rate** | Balls per wicket |
+| **Wickets** | Total wickets taken in this band |
+
+### 3.3 Sequence Metrics (Under Pressure — RRR > 10 bands)
+
+| Sequence Metric | Description |
+|-----------------|-------------|
+| **Dot Ball Sequences** | Consecutive dot balls delivered/faced under pressure |
+| **Avg Dot Sequence Length** | Mean length of dot sequences in high-RRR situations |
+| **Max Dot Sequence** | Longest dot streak under pressure |
+| **Boundary Sequences** | Consecutive boundary balls under pressure |
+| **Avg Boundary Sequence Length** | Mean length of boundary streaks |
+| **Dot-to-Boundary Break Rate** | How often a dot sequence is broken by a boundary |
+| **Boundary-to-Dot Recovery Rate** | How often a bowler recovers with dots after conceding a boundary |
+
+---
+
+## 4. Pressure Performance Delta
+
+The key analytical insight — how performance **changes** across bands:
 
 ```
-Pressure_Index = w1 * RRR_factor + w2 * Wickets_factor + w3 * Overs_factor + w4 * Stage_factor
+Delta = ((Band_Metric - Overall_Metric) / Overall_Metric) * 100
 ```
 
-**Proposed Weights:**
-- RRR_factor: 35%
-- Wickets_factor: 25%
-- Overs_factor: 25%
-- Stage_factor: 15%
+### 4.1 Batter Rating System
 
-**Scale:** 0-10 (0 = no pressure, 10 = maximum pressure)
+| Rating | Criteria |
+|--------|----------|
+| **CLUTCH** | SR improves by 10%+ AND dot% drops in 12+ RRR bands |
+| **PRESSURE-PROOF** | Metrics within +/- 5% of overall across all bands |
+| **PRESSURE-SENSITIVE** | SR drops 10%+ OR dot% rises 10%+ in 12+ RRR bands |
+| **FINISHER** | SR in 15+ band exceeds 170 with adequate sample |
 
-**Thresholds:**
-- PI 0-3: "Low Pressure"
-- PI 4-6: "Medium Pressure"
-- PI 7-10: "High Pressure"
+### 4.2 Bowler Rating System
 
-### 2.3 Simplified Binary Approach (V1 Alternative)
-
-If the full Pressure Index is too complex for V1, we can use a **binary pressure flag** based on clear triggers:
-
-**High Pressure Batting:**
-- Chasing with RRR > 10, OR
-- 5+ wickets down before over 15, OR
-- Playoff/knockout match
-
-**High Pressure Bowling:**
-- Defending < 12 runs per over remaining in death, OR
-- Opposition has 7+ wickets in hand chasing in death, OR
-- Playoff/knockout match
+| Rating | Criteria |
+|--------|----------|
+| **CLUTCH** | Economy improves (drops) AND dot% rises in 12+ RRR bands |
+| **PRESSURE-PROOF** | Metrics within +/- 5% of overall across all bands |
+| **LEAKS** | Economy rises 15%+ OR boundary% conceded rises 10%+ in 12+ bands |
+| **CLOSER** | Economy < 8.5 in 15+ band with 5+ overs bowled |
 
 ---
 
-## 3. Data Sources
+## 5. Data Pipeline
 
-### 3.1 Required Data (Already Available)
+### 5.1 Data Scope
 
-From our existing `fact_ball` table:
+**IPL 2023-2025 only** (Founder Decision #6)
+- ~219 matches, ~52,000 balls
+- 2nd innings balls: ~26,000 (where RRR is calculable)
+- Minimum thresholds: 30 balls per band per player (HIGH confidence), 15-29 (MEDIUM), <15 (excluded)
 
-| Field | Usage |
-|-------|-------|
-| `match_id` | Link to match context |
-| `innings` | 1st or 2nd innings |
-| `over` | Current over (for RRR calculation) |
-| `ball_seq` | Sequential position |
-| `batting_team_id` | Team batting |
-| `batter_id` | Player being analyzed |
-| `bowler_id` | Player being analyzed |
-| `total_runs` | Runs scored |
-| `is_wicket` | Wicket fell |
-| `batter_runs` | Runs off bat |
-| `match_phase` | PP/Middle/Death (already computed) |
+### 5.2 SQL Architecture
 
-From `dim_match`:
+```
+fact_ball (2023+)
+  → CTE: running_match_context (cumulative score, wickets, balls remaining, RRR)
+  → CTE: pressure_classified (assign RRR band per ball)
+  → Aggregation: batter_pressure_bands (metrics per batter per band)
+  → Aggregation: bowler_pressure_bands (metrics per bowler per opposition RRR band)
+  → Aggregation: dot_sequences_under_pressure (sequence analysis for RRR > 10)
+  → Aggregation: boundary_sequences_under_pressure (sequence analysis for RRR > 10)
+```
 
-| Field | Usage |
-|-------|-------|
-| `winner_id` | Match outcome |
-| `outcome_type` | Runs/wickets |
-| `outcome_margin` | How close |
-| `stage` | Group/Qualifier/Final |
-| `team1_id`, `team2_id` | Teams involved |
+### 5.3 New DuckDB Views
 
-### 3.2 Derived Fields Needed (To Calculate)
+| View Name | Description |
+|-----------|-------------|
+| `analytics_ipl_batter_pressure_bands_since2023` | Batter metrics by RRR band |
+| `analytics_ipl_bowler_pressure_bands_since2023` | Bowler metrics by opposition RRR band |
+| `analytics_ipl_pressure_dot_sequences_since2023` | Dot ball sequence analysis under pressure |
+| `analytics_ipl_pressure_boundary_sequences_since2023` | Boundary sequence analysis under pressure |
+| `analytics_ipl_pressure_deltas_since2023` | Pre-computed deltas for stat pack generation |
 
-| Derived Field | Calculation |
-|---------------|-------------|
-| `runs_required` | Target - cumulative_runs (2nd innings only) |
-| `balls_remaining` | 120 - ball_seq |
-| `required_run_rate` | (runs_required / balls_remaining) * 6 |
-| `wickets_down` | COUNT(is_wicket) prior in innings |
-| `pressure_index` | Calculated per formula above |
-| `pressure_category` | Low/Medium/High based on PI |
-
-### 3.3 Data Volume Estimate
-
-For IPL 2023-2025 (219 matches):
-- Total balls: ~52,000
-- 2nd innings balls (where RRR matters): ~26,000
-- High pressure balls (estimated 20%): ~5,200
-- Per player sample sizes will vary significantly
-
-**Sample Size Concern:** Many players will have insufficient high-pressure sample. Need minimum thresholds.
-
----
-
-## 4. Methodology
-
-### 4.1 Step 1: Calculate Match Context at Each Ball
-
-For every ball in `fact_ball`, we need to know:
-1. Current score
-2. Wickets fallen
-3. Balls remaining
-4. Target (if 2nd innings)
-5. Required run rate (if 2nd innings)
-
-This requires a **running aggregate** computed via window functions.
-
-### 4.2 Step 2: Assign Pressure Index
-
-Apply the Pressure Index formula to each ball based on context.
+### 5.4 Key SQL Logic — RRR Calculation
 
 ```sql
-CASE
-    WHEN pressure_index >= 7 THEN 'HIGH'
-    WHEN pressure_index >= 4 THEN 'MEDIUM'
-    ELSE 'LOW'
-END as pressure_category
+WITH running_context AS (
+    SELECT fb.*,
+        SUM(fb.total_runs) OVER (
+            PARTITION BY fb.match_id, fb.innings
+            ORDER BY fb.ball_seq
+        ) AS cumulative_runs,
+        SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) OVER (
+            PARTITION BY fb.match_id, fb.innings
+            ORDER BY fb.ball_seq
+        ) AS wickets_down,
+        dm.target_runs,
+        (120 - fb.ball_seq) AS balls_remaining
+    FROM fact_ball fb
+    JOIN dim_match dm ON fb.match_id = dm.match_id
+    WHERE fb.innings = 2  -- 2nd innings only for RRR
+),
+pressure_bands AS (
+    SELECT *,
+        CASE
+            WHEN balls_remaining = 0 THEN NULL
+            ELSE (target_runs - cumulative_runs) * 6.0 / balls_remaining
+        END AS required_run_rate,
+        CASE
+            WHEN (target_runs - cumulative_runs) * 6.0 / NULLIF(balls_remaining, 0) >= 15 THEN 'NEAR_IMPOSSIBLE'
+            WHEN (target_runs - cumulative_runs) * 6.0 / NULLIF(balls_remaining, 0) >= 12 THEN 'EXTREME'
+            WHEN (target_runs - cumulative_runs) * 6.0 / NULLIF(balls_remaining, 0) >= 10 THEN 'HIGH'
+            WHEN (target_runs - cumulative_runs) * 6.0 / NULLIF(balls_remaining, 0) >= 8  THEN 'BUILDING'
+            ELSE 'COMFORTABLE'
+        END AS pressure_band
+    FROM running_context
+)
 ```
-
-### 4.3 Step 3: Aggregate Player Performance by Pressure
-
-For each player, calculate metrics split by pressure category:
-
-**Batting:**
-| Metric | Low Pressure | Medium Pressure | High Pressure |
-|--------|--------------|-----------------|---------------|
-| Strike Rate | X | Y | Z |
-| Average | X | Y | Z |
-| Boundary % | X | Y | Z |
-| Dot % | X | Y | Z |
-
-**Bowling:**
-| Metric | Low Pressure | Medium Pressure | High Pressure |
-|--------|--------------|-----------------|---------------|
-| Economy | X | Y | Z |
-| Strike Rate | X | Y | Z |
-| Dot % | X | Y | Z |
-| Boundary Conceded % | X | Y | Z |
-
-### 4.4 Step 4: Calculate Pressure Performance Delta
-
-The key insight is the **change** from normal to pressure:
-
-```
-Pressure_Delta = (High_Pressure_Metric - Overall_Metric) / Overall_Metric * 100
-```
-
-**Interpretation:**
-- Positive delta = Player improves under pressure (clutch)
-- Negative delta = Player struggles under pressure (choker)
-- Near-zero = Consistent regardless of pressure
-
-### 4.5 Step 5: Statistical Significance
-
-Given small sample sizes, we need to:
-
-1. **Minimum Sample:** At least 30 balls in high pressure situations
-2. **Confidence Indicator:** Flag players with < 50 balls as "LOW" sample
-3. **Z-Score Comparison:** For statistical rigor, compare player's pressure SR to population mean pressure SR
-
-```
-Z_score = (Player_Pressure_SR - Population_Pressure_SR) / Population_Pressure_StdDev
-```
-
-A Z-score > 1.5 indicates statistically significant over-performance.
-
-### 4.6 Clustering Approach (Optional V2)
-
-If we want richer insights, we can cluster players into archetypes:
-- **Clutch Performers:** Significantly better under pressure
-- **Pressure-Proof:** Consistent across all situations
-- **Pressure-Sensitive:** Significantly worse under pressure
-- **Inconsistent:** High variance regardless of pressure
 
 ---
 
-## 5. Output Format
+## 6. Stat Pack Output Format
 
-### 5.1 Stat Pack Section Layout
-
-The Pressure Performance section will appear after existing sections (suggest: Section 11).
+### Section 11: Pressure Performance (Unified Batters + Bowlers)
 
 ```markdown
-## 11. Pressure Performance Analysis
+## 11. Pressure Performance
 
-*How players perform under high-pressure situations (chases, death overs, close games)*
+*How players perform across escalating pressure bands (IPL 2023-2025)*
 
-### 11.1 High-Pressure Batting
+### Batting Under Pressure (2nd Innings Chases by RRR Band)
 
-| Player | Normal SR | Pressure SR | Delta | Normal Avg | Pressure Avg | Delta | Sample | Rating |
-|--------|-----------|-------------|-------|------------|--------------|-------|--------|--------|
-| MS Dhoni | 165.1 | 182.3 | +10.4% | 30.7 | 42.1 | +37.1% | HIGH | CLUTCH |
-| Ruturaj Gaikwad | 145.3 | 128.6 | -11.5% | 44.7 | 28.3 | -36.7% | MEDIUM | STRUGGLES |
+| Player | Band | Balls | SR | Avg | Boundary% | Dot% | Six% | Delta SR | Rating |
+|--------|------|-------|-----|-----|-----------|------|------|----------|--------|
+| SA Yadav | Comfortable (<8) | 245 | 156.3 | 42.1 | 18.8% | 32.6% | 8.2% | — | — |
+| SA Yadav | Building (8-10) | 118 | 163.6 | 35.8 | 21.2% | 28.8% | 10.2% | +4.7% | — |
+| SA Yadav | High (10-12) | 67 | 178.5 | 28.2 | 25.4% | 23.9% | 13.4% | +14.2% | CLUTCH |
+| SA Yadav | Extreme (12-15) | 34 | 191.2 | 22.1 | 29.4% | 20.6% | 17.6% | +22.3% | CLUTCH |
+| SA Yadav | Near-Impossible (15+) | 12 | 200.0 | — | 33.3% | 16.7% | 25.0% | +27.9% | LOW SAMPLE |
 
-### 11.2 High-Pressure Bowling
+### Bowling Under Pressure (Opposition RRR Band)
 
-| Player | Normal Econ | Pressure Econ | Delta | Normal SR | Pressure SR | Delta | Sample | Rating |
-|--------|-------------|---------------|-------|-----------|-------------|-------|--------|--------|
-| Noor Ahmad | 8.24 | 7.45 | -9.6% | 16.5 | 14.2 | -13.9% | HIGH | CLUTCH |
+| Player | Band | Overs | Econ | Dot% | Bdry% Conc | Wkts | SR | Delta Econ | Rating |
+|--------|------|-------|------|------|------------|------|----|------------|--------|
+| JJ Bumrah | Comfortable (<8) | 18.3 | 6.54 | 38.2% | 10.9% | 12 | 9.2 | — | — |
+| JJ Bumrah | Building (8-10) | 12.1 | 7.12 | 35.6% | 12.3% | 8 | 9.1 | +8.9% | — |
+| JJ Bumrah | High (10-12) | 8.4 | 6.84 | 36.8% | 11.1% | 7 | 7.2 | +4.6% | CLUTCH |
+| JJ Bumrah | Extreme (12-15) | 4.2 | 7.52 | 33.3% | 14.3% | 4 | 6.3 | +15.0% | PRESSURE-PROOF |
 
-### 11.3 Pressure Performance Ratings
+### Pressure Sequences (RRR > 10 situations)
 
-**CLUTCH Performers (improve under pressure):**
-- MS Dhoni: +10.4% SR, +37.1% Avg in high pressure
-- Noor Ahmad: -9.6% Econ (better) in high pressure
+**Dot Ball Sequences Under Pressure:**
+| Player (Bowler) | Avg Dot Seq | Max Dot Seq | Dot Sequences | Recovery Rate |
+|-----------------|-------------|-------------|---------------|---------------|
+| JJ Bumrah | 2.8 | 6 | 14 | 71.4% |
 
-**PRESSURE-PROOF (consistent):**
-- Shivam Dube: +2.1% SR, -4.2% Avg (within normal variance)
+**Boundary Sequences Under Pressure:**
+| Player (Batter) | Avg Bdry Seq | Max Bdry Seq | Bdry Sequences | Break-Out Rate |
+|-----------------|--------------|--------------|----------------|----------------|
+| SA Yadav | 1.8 | 3 | 9 | 44.4% |
 
-**STRUGGLES Under Pressure:**
-- [Player]: -15%+ degradation in key metrics
+### Pressure Ratings Summary
+| Player | Role | Rating | Key Insight |
+|--------|------|--------|-------------|
+| SA Yadav | BAT | CLUTCH | SR rises 22%+ in Extreme band |
+| JJ Bumrah | BOWL | CLOSER | Econ drops below 7 in High band |
 ```
 
-### 5.2 Example Metrics Per Player
+---
 
-For a player like **MS Dhoni** (known pressure player), the output might look like:
+## 7. Implementation Phases
 
-```
-MS Dhoni - Pressure Performance
+### Phase 1: Pressure Views (2 days)
 
-Overall (219 matches, 2023-2025):
-- Career SR: 170.1
-- Career Avg: 30.7
-- Death Overs SR: 176.5
+| Step | Description | Owner |
+|------|-------------|-------|
+| 1.1 | Create `running_match_context` CTE with cumulative score, RRR | Stephen Curry |
+| 1.2 | Build `analytics_ipl_batter_pressure_bands_since2023` | Stephen Curry |
+| 1.3 | Build `analytics_ipl_bowler_pressure_bands_since2023` | Stephen Curry |
+| 1.4 | Validate RRR calculations against known match situations | Stephen Curry |
 
-High Pressure Situations (43 innings, 181 balls):
-- Pressure SR: 182.3 (+7.2% vs overall)
-- Pressure Avg: 42.1 (+37.1% vs overall)
-- Chases with RRR > 10: 14 innings, SR 189.2
-- Close finishes (< 10 required in final over): 8 times, won 6
+### Phase 2: Sequence Analysis (1 day)
 
-Pressure Rating: ELITE CLUTCH
-Insight: Dhoni's SR increases 7% under pressure while his dismissal rate drops significantly.
-         He is one of IPL's most reliable finishers in high-stakes situations.
-```
+| Step | Description | Owner |
+|------|-------------|-------|
+| 2.1 | Build `analytics_ipl_pressure_dot_sequences_since2023` | Stephen Curry |
+| 2.2 | Build `analytics_ipl_pressure_boundary_sequences_since2023` | Stephen Curry |
+| 2.3 | Calculate recovery rates and break-out rates | Stephen Curry |
 
-### 5.3 Visual Elements (Future)
+### Phase 3: Delta Calculation & Ratings (1 day)
 
-- **Pressure Performance Chart:** Scatter plot of Normal SR vs Pressure SR
-- **Clutch Ranking:** Ordered list by pressure delta
-- **Situation Heatmap:** Performance across different pressure scenarios
+| Step | Description | Owner |
+|------|-------------|-------|
+| 3.1 | Compute pressure deltas per player per band | Stephen Curry |
+| 3.2 | Apply rating system (CLUTCH/PRESSURE-PROOF/etc.) | Stephen Curry |
+| 3.3 | Sample size confidence flagging (HIGH/MEDIUM/EXCLUDED) | Stephen Curry |
+
+### Phase 4: Stat Pack Integration (1 day)
+
+| Step | Description | Owner |
+|------|-------------|-------|
+| 4.1 | Add Section 11 template to `generate_stat_packs.py` | Stephen Curry |
+| 4.2 | Generate sample output for MI, CSK | Stephen Curry |
+| 4.3 | Regenerate all 10 stat packs | Stephen Curry |
+
+### Phase 5: Validation (1 day)
+
+| Step | Description | Owner |
+|------|-------------|-------|
+| 5.1 | Domain sanity check (Andy Flower) | Andy Flower |
+| 5.2 | Statistical robustness check (Jose Mourinho) | Jose Mourinho |
+| 5.3 | Founder review of sample stat pack output | Founder |
+
+**Total: ~6 days post-approval**
 
 ---
 
-## 6. Implementation Steps
+## 8. Dependencies
 
-### Phase 1: Data Preparation (Effort: Small)
-
-| Step | Description | Dependency | Estimate |
-|------|-------------|------------|----------|
-| 1.1 | Create running aggregate view for match context | fact_ball | 2 hours |
-| 1.2 | Calculate runs_required, balls_remaining per ball | Step 1.1 | 1 hour |
-| 1.3 | Calculate required_run_rate for 2nd innings | Step 1.2 | 1 hour |
-| 1.4 | Calculate wickets_down at each ball | Step 1.1 | 1 hour |
-
-### Phase 2: Pressure Index Calculation (Effort: Medium)
-
-| Step | Description | Dependency | Estimate |
-|------|-------------|------------|----------|
-| 2.1 | Implement Pressure Index formula | Phase 1 | 2 hours |
-| 2.2 | Validate PI against known high-pressure moments | Step 2.1 | 2 hours |
-| 2.3 | Create pressure_category column | Step 2.1 | 1 hour |
-| 2.4 | Build analytics_pressure_batting view | Step 2.3 | 2 hours |
-| 2.5 | Build analytics_pressure_bowling view | Step 2.3 | 2 hours |
-
-### Phase 3: Player Aggregation (Effort: Medium)
-
-| Step | Description | Dependency | Estimate |
-|------|-------------|------------|----------|
-| 3.1 | Aggregate batting metrics by pressure category | Phase 2 | 2 hours |
-| 3.2 | Aggregate bowling metrics by pressure category | Phase 2 | 2 hours |
-| 3.3 | Calculate pressure deltas | Steps 3.1, 3.2 | 1 hour |
-| 3.4 | Add sample size indicators | Step 3.3 | 1 hour |
-| 3.5 | Calculate Z-scores for significance | Step 3.3 | 2 hours |
-
-### Phase 4: Integration with Stat Packs (Effort: Small-Medium)
-
-| Step | Description | Dependency | Estimate |
-|------|-------------|------------|----------|
-| 4.1 | Create pressure performance template | Phase 3 | 1 hour |
-| 4.2 | Integrate with generate_stat_packs.py | Step 4.1 | 3 hours |
-| 4.3 | Generate sample output for 1 team | Step 4.2 | 1 hour |
-| 4.4 | Review with Andy Flower (domain validation) | Step 4.3 | 1 hour |
-| 4.5 | Generate for all 10 teams | Step 4.4 | 1 hour |
-
-### Phase 5: Quality Assurance (Effort: Small)
-
-| Step | Description | Dependency | Estimate |
-|------|-------------|------------|----------|
-| 5.1 | Validate against known pressure performers | Phase 4 | 2 hours |
-| 5.2 | Check sample size adequacy per team | Phase 4 | 1 hour |
-| 5.3 | Domain expert review (Andy Flower) | Steps 5.1, 5.2 | 1 hour |
-
-### Total Estimated Effort
-
-| Phase | Effort |
-|-------|--------|
-| Phase 1: Data Preparation | 5 hours |
-| Phase 2: Pressure Index | 9 hours |
-| Phase 3: Player Aggregation | 8 hours |
-| Phase 4: Stat Pack Integration | 7 hours |
-| Phase 5: QA | 4 hours |
-| **Total** | **33 hours** (~4-5 days) |
+| Dependency | Status | Blocker? |
+|------------|--------|----------|
+| `fact_ball` with `is_legal_ball`, `match_phase` | Available | No |
+| `dim_match` with `target_runs` | Need to verify column exists | Check |
+| `_since2023` dual-scope views (TKT-181) | 90% complete | No |
+| `generate_stat_packs.py` | Available | No |
+| Andy Flower domain validation | Required at Phase 5 | Soft |
 
 ---
 
-## 7. Dependencies
+## 9. Sample Size Thresholds
 
-| Dependency | Status | Owner | Blocker? |
-|------------|--------|-------|----------|
-| fact_ball table with match_phase | Available | Data Team | No |
-| dim_match with stage field | Available | Data Team | No |
-| Match target calculation | To Build | Stephen Curry | No |
-| Running aggregate for context | To Build | Stephen Curry | No |
-| generate_stat_packs.py | Available | Stephen Curry | No |
-| Sample size validation | To Define | Stephen Curry | No |
-| Domain validation criteria | Required | Andy Flower | Soft |
+| Confidence | Balls Per Band | Display |
+|------------|----------------|---------|
+| **HIGH** | >= 30 | Full metrics + rating |
+| **MEDIUM** | 15–29 | Metrics shown, rating flagged |
+| **EXCLUDED** | < 15 | Not displayed |
+
+For sequence metrics: minimum 5 sequences per player in RRR > 10 bands.
 
 ---
 
-## 8. Risks and Mitigations
+## 10. Existing Assets to Leverage
 
-| Risk | Impact | Likelihood | Mitigation |
-|------|--------|------------|------------|
-| Small sample sizes for many players | Many "LOW" confidence ratings | High | Binary pressure flag approach, minimum 30-ball threshold |
-| Pressure Index too complex | Implementation delays | Medium | Start with simplified binary approach, iterate |
-| Pressure definition subjective | Domain expert disagreement | Low | Pre-align with Andy Flower on thresholds |
-| Performance impact of window functions | Slow query times | Medium | Materialize intermediate views |
-| Missing target data for some matches | Incomplete analysis | Low | Flag matches with missing data |
-
----
-
-## 9. Founder Decision Points
-
-The following items require Founder input before proceeding:
-
-| # | Question | Options | Recommendation |
-|---|----------|---------|----------------|
-| 1 | Pressure Index vs Binary Flag | Full PI (more nuanced) vs Binary (simpler) | Start with Binary for V1, add PI in V2 |
-| 2 | Minimum sample size | 20, 30, or 50 balls | 30 balls for HIGH confidence |
-| 3 | Include knockout stage weighting? | Yes (adds complexity) vs No | Yes - playoffs matter |
-| 4 | Section placement in stat pack | After Tactical Insights (Section 10) vs Earlier | Section 11 (new section) |
-| 5 | Include historical pressure moments? | Yes (narrative value) vs No (scope creep) | No for V1, consider V2 |
+| Asset | Location | Reuse |
+|-------|----------|-------|
+| Bowler Pressure Sequences (S3.0-12) | `sprint_3_p1_features.py` | Refactor into multi-band |
+| `analytics_ipl_dot_ball_pressure` | `analytics_ipl.py` view #8 | Extend for RRR-band context |
+| `bowler_pressure_sequences.csv` | `outputs/` | Replace with multi-band version |
+| The Lab Pressure card | `analysis.html` | Update to show multi-band data |
 
 ---
 
-## 10. Success Criteria
+## 11. Success Criteria
 
-| Criteria | Measurement | Target |
-|----------|-------------|--------|
-| Coverage | % of key batters/bowlers with HIGH sample | > 60% of starters |
-| Accuracy | Domain expert validation | Andy Flower approves ratings |
-| Insight Quality | Pressure ratings match known clutch players | MS Dhoni = CLUTCH, etc. |
-| Integration | Successfully added to all 10 stat packs | 100% |
-| Performance | Query time for pressure views | < 5 seconds |
-
----
-
-## 11. Relationship to Other Features
-
-### Predicted XI Integration
-- Pressure ratings can inform XI selection in high-stakes matches
-- "For playoff matches, consider [player] who performs 15% better under pressure"
-
-### Depth Charts Integration
-- Finisher rankings could weight pressure performance
-- "Backup finisher has higher pressure delta than starter"
-
-### Tactical Insights
-- Feed pressure findings into Andy Flower's tactical section
-- "In chases requiring RRR > 10, promote [player] up the order"
+| Criteria | Target |
+|----------|--------|
+| Coverage | > 60% of IPL 2023+ regular starters with HIGH sample in at least 3 bands |
+| Accuracy | Known clutch performers (Dhoni, SKY, Bumrah) rated correctly |
+| Bands populated | All 5 bands have meaningful data for top teams |
+| Sequence insights | Dot/boundary sequences visible for 20+ bowlers and 20+ batters |
+| Stat pack integration | All 10 teams have Section 11 |
 
 ---
 
-## 12. V1 Scope Summary
+## Approval Request
 
-### In Scope (V1)
-- Binary pressure classification (High/Not High)
-- Batting pressure metrics (SR, Avg, Boundary%, Dot%)
-- Bowling pressure metrics (Econ, SR, Dot%, Boundary Conceded%)
-- Pressure deltas with sample size indicators
-- Simple ratings (CLUTCH, CONSISTENT, STRUGGLES)
-- Integration into stat pack Section 11
+This revised plan incorporates all Founder feedback (2026-02-11):
+- Multi-band RRR analysis for both batters AND bowlers
+- Boundary% and dot ball% as core metrics per band
+- Dot ball sequences and boundary sequences under pressure
+- IPL 2023+ only
+- Unified batters + bowlers section
 
-### Out of Scope (V1)
-- Full Pressure Index with weighted factors
-- Match situation simulator
-- Historical pressure moment narratives
-- Player-specific pressure triggers
-- Pressure performance trends over seasons
-
-### Future Considerations (V2+)
-- Full Pressure Index implementation
-- Pressure clustering (archetypes)
-- Interactive pressure scenario explorer
-- Video links to pressure moments
-- Pressure performance trends over seasons
+**Awaiting Founder approval to begin implementation.**
 
 ---
 
-## 13. Approval Request
-
-This plan is submitted for Founder approval before implementation begins.
-
-**Recommended Decision Points:**
-1. Approve Binary Pressure approach for V1
-2. Confirm 30-ball minimum sample threshold
-3. Approve Section 11 placement in stat packs
-4. Confirm scope boundaries
-
-**Upon Approval:**
-- Stephen Curry (Analytics Lead) will proceed with Phase 1-2
-- Coordination with Andy Flower for domain validation
-- Target delivery: 4-5 working days post-approval
-
----
-
-*Plan prepared by Stephen Curry, Analytics Lead*
+*Plan revised by Stephen Curry, Analytics Lead*
 *Cricket Playbook v4.1.0*
-*2026-02-06*
+*2026-02-11*

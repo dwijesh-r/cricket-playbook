@@ -803,7 +803,7 @@ def get_bowler_phase_distribution_grouped(
                 bpd.pct_wickets_in_phase,
                 bpd.wicket_efficiency,
                 bpd.sample_size
-            FROM analytics_ipl_bowler_phase_distribution bpd
+            FROM analytics_ipl_bowler_phase_distribution_since2023 bpd
             WHERE bpd.match_phase = '{phase}'
               AND bpd.sample_size IN ('MEDIUM', 'HIGH')
             ORDER BY bpd.overs DESC
@@ -836,7 +836,7 @@ def get_bowler_phase_distribution_by_team(
                     bpd.pct_overs_in_phase,
                     bpd.pct_wickets_in_phase,
                     bpd.sample_size
-                FROM analytics_ipl_bowler_phase_distribution bpd
+                FROM analytics_ipl_bowler_phase_distribution_since2023 bpd
                 JOIN ipl_2026_squads sq ON bpd.bowler_id = sq.player_id
                 WHERE sq.team_name = '{team_name}'
                   AND bpd.match_phase = '{phase}'
@@ -872,7 +872,7 @@ def create_phase_distribution_tables(conn: duckdb.DuckDBPyConnection) -> pd.Data
                 bpd.sample_size,
                 -- Rank within phase
                 ROW_NUMBER() OVER (PARTITION BY bpd.match_phase ORDER BY bpd.overs DESC) as phase_rank
-            FROM analytics_ipl_bowler_phase_distribution bpd
+            FROM analytics_ipl_bowler_phase_distribution_since2023 bpd
             WHERE bpd.sample_size IN ('MEDIUM', 'HIGH')
         )
         SELECT

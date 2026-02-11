@@ -95,6 +95,10 @@
             vertical-align: middle;
         }
         .help-icon:hover { color: var(--accent); }
+        .has-tooltip-below::after {
+            bottom: auto;
+            top: calc(100% + 8px);
+        }
 
         /* Mobile-safe tooltip adjustments */
         @media (max-width: 768px) {
@@ -286,6 +290,10 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            position: sticky;
+            top: 0;
+            background: var(--bg-secondary);
+            z-index: 2;
         }
         .schema-header h3 {
             font-size: 13px;
@@ -322,6 +330,24 @@
             text-transform: uppercase;
             letter-spacing: 0.8px;
             color: var(--text-tertiary);
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s ease;
+        }
+        .schema-group-label:hover { color: var(--text-secondary); }
+        .schema-group-label .group-chevron {
+            font-size: 8px;
+            transition: transform 0.2s ease;
+        }
+        .schema-group.group-collapsed .schema-group-label .group-chevron {
+            transform: rotate(-90deg);
+        }
+        .schema-group.group-collapsed .schema-item,
+        .schema-group.group-collapsed .schema-columns {
+            display: none;
         }
         .schema-item {
             padding: 6px 16px 6px 24px;
@@ -1323,7 +1349,7 @@
             <aside class="schema-sidebar" id="schema-browser">
                 <div class="schema-header">
                     <h3>Schema Browser</h3>
-                    <span class="has-tooltip" data-tooltip="Click to expand columns. Click a column to insert into editor.">
+                    <span class="has-tooltip has-tooltip-below" data-tooltip="Click to expand columns. Click a column to insert into editor.">
                         <span class="help-icon">?</span>
                     </span>
                 </div>
@@ -2243,7 +2269,7 @@ LIMIT 20;</textarea>
                 if (tables.length === 0) continue;
 
                 html += `<div class="schema-group" data-group-type="${group.type}">`;
-                html += `<div class="schema-group-label">${group.label} (${tables.length})</div>`;
+                html += `<div class="schema-group-label"><span class="group-chevron">&#9660;</span>${group.label} (${tables.length})</div>`;
 
                 for (const [name, info] of tables) {
                     const rowDisplay = formatSchemaRowCount(info.rows);
@@ -2256,7 +2282,7 @@ LIMIT 20;</textarea>
             const views = Object.entries(tableMetadata.views || {});
             if (views.length > 0) {
                 html += `<div class="schema-group" data-group-type="views">`;
-                html += `<div class="schema-group-label">Analytics Views (${views.length})</div>`;
+                html += `<div class="schema-group-label"><span class="group-chevron">&#9660;</span>Analytics Views (${views.length})</div>`;
                 for (const [name, info] of views) {
                     html += buildSchemaItem(name, info, 'view', '', 'view');
                 }
@@ -2312,6 +2338,15 @@ LIMIT 20;</textarea>
         }
 
         function wireSchemaInteractions() {
+            // Click group label to collapse/expand category
+            document.querySelectorAll('#schema-groups-container .schema-group-label').forEach(label => {
+                label.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const group = this.closest('.schema-group');
+                    if (group) group.classList.toggle('group-collapsed');
+                });
+            });
+
             // Click schema item to expand/collapse columns
             document.querySelectorAll('#schema-groups-container .schema-item').forEach(item => {
                 item.addEventListener('click', function(e) {

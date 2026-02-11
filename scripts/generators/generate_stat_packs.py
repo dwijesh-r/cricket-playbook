@@ -1699,7 +1699,7 @@ def generate_team_stat_pack(
         f"""
         SELECT DISTINCT sq.player_id, sq.player_name
         FROM ipl_2026_squads sq
-        JOIN analytics_ipl_batting_career bc ON sq.player_id = bc.player_id
+        JOIN analytics_ipl_batting_career_since2023 bc ON sq.player_id = bc.player_id
         WHERE sq.team_name = '{team_name}'
           AND bc.runs > {Thresholds.MIN_RUNS_CAREER}
         ORDER BY bc.runs DESC
@@ -1745,7 +1745,7 @@ def generate_team_stat_pack(
         f"""
         SELECT DISTINCT sq.player_id, sq.player_name
         FROM ipl_2026_squads sq
-        JOIN analytics_ipl_bowling_career bc ON sq.player_id = bc.player_id
+        JOIN analytics_ipl_bowling_career_since2023 bc ON sq.player_id = bc.player_id
         WHERE sq.team_name = '{team_name}'
           AND bc.wickets > {Thresholds.MIN_WICKETS_CAREER}
         ORDER BY bc.wickets DESC

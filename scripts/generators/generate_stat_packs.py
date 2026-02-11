@@ -1286,7 +1286,7 @@ def generate_venue_analysis(
     # Batting specialists
     batter_specialists = conn.execute(f"""
         SELECT bv.batter_name, bv.venue, bv.innings, bv.runs, bv.strike_rate, bv.average
-        FROM analytics_ipl_batter_venue bv
+        FROM analytics_ipl_batter_venue_since2023 bv
         JOIN ipl_2026_squads sq ON bv.batter_id = sq.player_id
         WHERE sq.team_name = '{team_name}'
           AND bv.runs >= 100
@@ -1309,7 +1309,7 @@ def generate_venue_analysis(
     # Bowling specialists
     bowler_specialists = conn.execute(f"""
         SELECT bv.bowler_name, bv.venue, bv.matches, bv.wickets, bv.economy, bv.strike_rate
-        FROM analytics_ipl_bowler_venue bv
+        FROM analytics_ipl_bowler_venue_since2023 bv
         JOIN ipl_2026_squads sq ON bv.bowler_id = sq.player_id
         WHERE sq.team_name = '{team_name}'
           AND bv.wickets >= 5
@@ -1665,7 +1665,7 @@ def generate_team_stat_pack(
                bpd.overs, bpd.wickets, bpd.economy, bpd.dot_ball_pct,
                bpd.pct_overs_in_phase, bpd.pct_wickets_in_phase, bpd.wicket_efficiency,
                bpd.sample_size
-        FROM analytics_ipl_bowler_phase_distribution bpd
+        FROM analytics_ipl_bowler_phase_distribution_since2023 bpd
         JOIN ipl_2026_squads sq ON bpd.bowler_id = sq.player_id
         WHERE sq.team_name = '{team_name}'
           AND bpd.sample_size IN ('MEDIUM', 'HIGH')
@@ -1699,7 +1699,7 @@ def generate_team_stat_pack(
         f"""
         SELECT DISTINCT sq.player_id, sq.player_name
         FROM ipl_2026_squads sq
-        JOIN analytics_ipl_batting_career bc ON sq.player_id = bc.player_id
+        JOIN analytics_ipl_batting_career_since2023 bc ON sq.player_id = bc.player_id
         WHERE sq.team_name = '{team_name}'
           AND bc.runs > {Thresholds.MIN_RUNS_CAREER}
         ORDER BY bc.runs DESC
@@ -1714,7 +1714,7 @@ def generate_team_stat_pack(
         vs_team = conn.execute(f"""
             SELECT opposition, innings, runs, balls, strike_rate, average,
                    boundary_pct, dot_ball_pct, dismissals, sample_size
-            FROM analytics_ipl_batter_vs_team
+            FROM analytics_ipl_batter_vs_team_since2023
             WHERE batter_id = '{batter_id}'
               AND sample_size IN ('MEDIUM', 'HIGH')
             ORDER BY runs DESC
@@ -1745,7 +1745,7 @@ def generate_team_stat_pack(
         f"""
         SELECT DISTINCT sq.player_id, sq.player_name
         FROM ipl_2026_squads sq
-        JOIN analytics_ipl_bowling_career bc ON sq.player_id = bc.player_id
+        JOIN analytics_ipl_bowling_career_since2023 bc ON sq.player_id = bc.player_id
         WHERE sq.team_name = '{team_name}'
           AND bc.wickets > {Thresholds.MIN_WICKETS_CAREER}
         ORDER BY bc.wickets DESC
@@ -1760,7 +1760,7 @@ def generate_team_stat_pack(
         vs_team = conn.execute(f"""
             SELECT opposition, matches, balls, runs_conceded, wickets, economy,
                    average, strike_rate, dot_ball_pct, boundary_conceded_pct, sample_size
-            FROM analytics_ipl_bowler_vs_team
+            FROM analytics_ipl_bowler_vs_team_since2023
             WHERE bowler_id = '{bowler_id}'
               AND sample_size IN ('MEDIUM', 'HIGH')
             ORDER BY wickets DESC
@@ -1791,7 +1791,7 @@ def generate_team_stat_pack(
     batter_venues = conn.execute(f"""
         SELECT bv.batter_name, bv.venue, bv.innings, bv.runs, bv.balls,
                bv.strike_rate, bv.average, bv.boundary_pct, bv.sample_size
-        FROM analytics_ipl_batter_venue bv
+        FROM analytics_ipl_batter_venue_since2023 bv
         JOIN ipl_2026_squads sq ON bv.batter_id = sq.player_id
         WHERE sq.team_name = '{team_name}'
           AND bv.sample_size IN ('MEDIUM', 'HIGH')
@@ -1821,7 +1821,7 @@ def generate_team_stat_pack(
         f"""
         SELECT bpd.bowler_name, bpd.overs, bpd.wickets, bpd.economy,
                bpd.pct_overs_in_phase, bpd.wicket_efficiency
-        FROM analytics_ipl_bowler_phase_distribution bpd
+        FROM analytics_ipl_bowler_phase_distribution_since2023 bpd
         JOIN ipl_2026_squads sq ON bpd.bowler_id = sq.player_id
         WHERE sq.team_name = '{team_name}'
           AND bpd.match_phase = 'death'
@@ -1881,7 +1881,7 @@ def generate_team_stat_pack(
             dismissals,
             average,
             ROUND(balls * 1.0 / NULLIF(dismissals, 0), 2) as balls_per_dismissal
-        FROM analytics_ipl_batter_vs_bowler_type
+        FROM analytics_ipl_batter_vs_bowler_type_since2023
         WHERE batter_id IN (SELECT player_id FROM ipl_2026_squads WHERE team_name = '{team_name}')
           AND bowler_type IN ('Right-arm off-spin', 'Right-arm leg-spin', 'Left-arm orthodox', 'Left-arm wrist spin')
           AND sample_size IN ('MEDIUM', 'HIGH')

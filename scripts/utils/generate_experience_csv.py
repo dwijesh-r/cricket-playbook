@@ -53,7 +53,7 @@ def generate_experience_csv():
             balls_faced as ipl_batting_balls,
             runs as ipl_batting_runs,
             strike_rate as ipl_batting_sr
-        FROM analytics_ipl_batting_career
+        FROM analytics_ipl_batting_career_since2023
     """).df()
 
     # Get bowling stats for capped players
@@ -64,7 +64,7 @@ def generate_experience_csv():
             balls_bowled as ipl_bowling_balls,
             wickets as ipl_bowling_wickets,
             economy_rate as ipl_bowling_economy
-        FROM analytics_ipl_bowling_career
+        FROM analytics_ipl_bowling_career_since2023
     """).df()
 
     # Merge squad with batting stats

@@ -323,6 +323,27 @@
         .phase-tag.death-elite { background: rgba(255, 69, 58, 0.2); color: var(--accent-red); }
         .phase-tag.neutral { background: var(--bg-tertiary); color: var(--text-tertiary); }
 
+        /* Batting vs Bowling phase differentiation */
+        .phase-group {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+        .phase-row {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+        .phase-label {
+            font-size: 7px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            width: 20px;
+            color: var(--text-tertiary);
+            flex-shrink: 0;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -987,10 +1008,12 @@
             color: var(--accent-teal);
         }
         .bowl-cell {
-            min-width: 80px;
+            min-width: 100px;
         }
         .bowl-type-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
             padding: 3px 6px;
             border-radius: 4px;
             font-size: 9px;
@@ -998,6 +1021,17 @@
             background: rgba(255, 69, 58, 0.12);
             color: var(--accent-red);
             white-space: nowrap;
+        }
+        .bowl-arm {
+            font-size: 8px;
+            font-weight: 700;
+            padding: 1px 3px;
+            border-radius: 2px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .bowl-arm.left-arm {
+            background: rgba(100, 210, 255, 0.15);
+            color: var(--accent-teal);
         }
         .archetype-cell {
             max-width: 140px;
@@ -2100,9 +2134,9 @@
                             <th>Player</th>
                             <th class="has-tooltip" data-tooltip="Primary playing role: Batter, Bowler, All-rounder, or Wicketkeeper">Role</th>
                             <th class="has-tooltip" data-tooltip="Batting hand: R (Right) or L (Left)">Bat</th>
-                            <th class="has-tooltip" data-tooltip="Bowling type: Pace, Spin (Off/Leg), or style variant">Bowl</th>
+                            <th class="has-tooltip" data-tooltip="Bowling arm and type (e.g., RA Fast = Right-arm Fast)">Bowl</th>
                             <th class="has-tooltip" data-tooltip="Player archetype from clustering analysis (e.g., Power Hitter, Anchor, Finisher)">Archetype</th>
-                            <th class="has-tooltip" data-tooltip="Phase specialization: PP (Powerplay 1-6), Mid (7-15), Death (16-20)">Phase</th>
+                            <th class="has-tooltip" data-tooltip="Phase specialization split by batting (BAT) and bowling (BWL): PP (1-6), MID (7-15), DTH (16-20)">Phase</th>
                             <th class="has-tooltip" data-tooltip="Player's current age">Age</th>
                             <th class="has-tooltip" data-tooltip="Nationality: Indian or Overseas (max 4 overseas per XI)">Nat</th>
                         </tr>
@@ -2116,21 +2150,52 @@
                             </tr>
                         ` : filteredSquad.map((player, idx) => {
                             const archetype = player.batterClass !== '-' ? player.batterClass : player.bowlerClass !== '-' ? player.bowlerClass : '-';
-                            const bowlInfo = player.bowlingType !== '-' ? player.bowlingType : '-';
+                            // Bowl column: arm abbreviation + type
+                            const bowlArm = player.bowlingArm === 'Left-arm' ? 'LA' : player.bowlingArm === 'Right-arm' ? 'RA' : '';
+                            const bowlType = player.bowlingType !== '-' ? player.bowlingType : '';
+                            const isLeftArm = bowlArm === 'LA';
                             const batHand = player.batting ? (player.batting.includes('Left') ? 'L' : 'R') : '-';
                             const isExtendedSquad = idx >= 11; // Beyond Predicted XI
-                            // Phase indicators from tags (TKT-111)
-                            const allTags = [...(player.batterTags || []), ...(player.bowlerTags || [])];
-                            const isPP = allTags.some(t => t.includes('PP_') || t === 'NEW_BALL_SPECIALIST' || t === 'EXPLOSIVE_OPENER');
-                            const isMid = allTags.some(t => t.includes('MIDDLE') || t.includes('MID_') || t === 'ACCUMULATOR' || t === 'ANCHOR');
-                            const isDeath = allTags.some(t => t.includes('DEATH') || t === 'FINISHER');
-                            const phaseHtml = (isPP || isMid || isDeath) ? `
-                                <div class="phase-bars" title="Phase specialization">
-                                    ${isPP ? '<span class="phase-tag pp-elite has-tooltip" data-tooltip="Powerplay specialist (Overs 1-6)">PP</span>' : ''}
-                                    ${isMid ? '<span class="phase-tag mid-elite has-tooltip" data-tooltip="Middle overs specialist (Overs 7-15)">MID</span>' : ''}
-                                    ${isDeath ? '<span class="phase-tag death-elite has-tooltip" data-tooltip="Death overs specialist (Overs 16-20)">DTH</span>' : ''}
-                                </div>
-                            ` : '<span class="na-badge">-</span>';
+
+                            // Phase indicators - separated by batting and bowling (TKT-111 / TKT-181)
+                            const batTags = player.batterTags || [];
+                            const bowlTags = player.bowlerTags || [];
+
+                            // Batting phase detection
+                            const batPP = batTags.some(t => t.includes('PP_') || t === 'EXPLOSIVE_OPENER');
+                            const batMid = batTags.some(t => t.includes('MIDDLE') || t === 'ACCUMULATOR' || t === 'ANCHOR' || t === 'MIDDLE_OVERS_ACCELERATOR');
+                            const batDeath = batTags.some(t => t.includes('DEATH') || t === 'FINISHER');
+                            const hasBatPhase = batPP || batMid || batDeath;
+
+                            // Bowling phase detection
+                            const bwlPP = bowlTags.some(t => t.includes('PP_') || t === 'NEW_BALL_SPECIALIST');
+                            const bwlMid = bowlTags.some(t => t.includes('MID_') || t.includes('MIDDLE') || t === 'WORKHORSE');
+                            const bwlDeath = bowlTags.some(t => t.includes('DEATH'));
+                            const hasBwlPhase = bwlPP || bwlMid || bwlDeath;
+
+                            let phaseHtml;
+                            if (hasBatPhase || hasBwlPhase) {
+                                let rows = '';
+                                if (hasBatPhase) {
+                                    rows += `<div class="phase-row">
+                                        <span class="phase-label">BAT</span>
+                                        ${batPP ? '<span class="phase-tag pp-elite" title="Batting: Powerplay (1-6)">PP</span>' : ''}
+                                        ${batMid ? '<span class="phase-tag mid-elite" title="Batting: Middle overs (7-15)">MID</span>' : ''}
+                                        ${batDeath ? '<span class="phase-tag death-elite" title="Batting: Death overs (16-20)">DTH</span>' : ''}
+                                    </div>`;
+                                }
+                                if (hasBwlPhase) {
+                                    rows += `<div class="phase-row">
+                                        <span class="phase-label">BWL</span>
+                                        ${bwlPP ? '<span class="phase-tag pp-elite" title="Bowling: Powerplay (1-6)">PP</span>' : ''}
+                                        ${bwlMid ? '<span class="phase-tag mid-elite" title="Bowling: Middle overs (7-15)">MID</span>' : ''}
+                                        ${bwlDeath ? '<span class="phase-tag death-elite" title="Bowling: Death overs (16-20)">DTH</span>' : ''}
+                                    </div>`;
+                                }
+                                phaseHtml = `<div class="phase-group">${rows}</div>`;
+                            } else {
+                                phaseHtml = '<span class="na-badge">-</span>';
+                            }
                             return `
                             <tr class="${player.isCaptain ? 'captain-row' : ''} ${isExtendedSquad ? 'extended-squad-row' : ''}">
                                 <td>
@@ -2149,7 +2214,7 @@
                                     <span class="hand-badge ${batHand === 'L' ? 'left-hand' : ''}">${batHand}</span>
                                 </td>
                                 <td class="compact-cell bowl-cell">
-                                    ${bowlInfo !== '-' ? `<span class="bowl-type-badge">${bowlInfo}</span>` : '<span class="na-badge">-</span>'}
+                                    ${bowlType ? `<span class="bowl-type-badge"><span class="bowl-arm ${isLeftArm ? 'left-arm' : ''}">${bowlArm}</span>${bowlType}</span>` : '<span class="na-badge">-</span>'}
                                 </td>
                                 <td class="archetype-cell">
                                     ${archetype !== '-' ? `<span class="archetype-badge">${archetype}</span>` : '<span class="na-badge">-</span>'}

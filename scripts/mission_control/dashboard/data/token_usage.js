@@ -1,5 +1,5 @@
 // Auto-generated from ~/.claude/stats-cache.json
-// Last updated: 2026-02-11T11:23:11Z
+// Last updated: 2026-02-11T12:55:49Z
 // Total tokens: 1.6B  |  Sessions: 8  |  Messages: 33242
 //
 // Regenerate:  python scripts/mission_control/generate_token_data.py
@@ -12,12 +12,12 @@ const TOKEN_DATA = {
         cacheReadTokens: 1518815186,   // 1.5B
         cacheCreationTokens: 66282919, // 66.3M
         totalSessions: 8,
-        projectSessions: 67,
+        projectSessions: 92,
         totalMessages: 33242,
-        daysActive: 16,
-        avgDailyTokens: 99118321,     // 99.1M
+        daysActive: 17,
+        avgDailyTokens: 93287831,     // 93.3M
         firstSession: "2026-01-19T05:37:24.798Z",
-        lastUpdated: "2026-02-11T11:23:11Z"
+        lastUpdated: "2026-02-11T12:55:49Z"
     },
     byModel: {
         "Claude Opus 4.5": { input: 719026, output: 37932, cacheRead: 1485904683, cacheCreation: 64919693 },  // 1.6B total
@@ -40,6 +40,7 @@ const TOKEN_DATA = {
         { date: "2026-02-08", messages: 1227, sessions: 1, tools: 240, tokens: 38075, source: "stats-cache" },
         { date: "2026-02-09", messages: 0, sessions: 1, tools: 0, tokens: 0, commits: 4, source: "git-log" },
         { date: "2026-02-10", messages: 0, sessions: 1, tools: 0, tokens: 0, commits: 28, source: "git-log" },
+        { date: "2026-02-11", messages: 0, sessions: 1, tools: 0, tokens: 0, commits: 8, source: "git-log" },
     ],
     billingEstimate: {
         plan: "Claude Max",

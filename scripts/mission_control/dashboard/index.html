@@ -6378,7 +6378,7 @@
             return epics.find(e => e.id === epicId) || null;
         }
 
-        // All Sprint 4.0 Tickets (168 tickets — 161 TKT + 7 IDEA)
+        // All Sprint 4.0 Tickets (171 tickets — 164 TKT + 7 IDEA)
         const tickets = [
             // Pre-Sprint (TKT-001 to TKT-005)
             { id: 'TKT-001', title: 'Define Sprint 4 Scope', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Florentino Pérez', epic: 'EPIC-001', progress: 100, tags: ['Planning'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
@@ -7772,6 +7772,15 @@ Gate Inheritance:
             },
             { id: 'TKT-180', title: 'Mobile-First Film Room: Lightweight DuckDB Strategy', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-012', progress: 100, tags: ['Mobile', 'Performance', 'Research Desk'], gates: { florentino_gate: 'APPROVED', domain_sanity: { andy_flower: 'YES' }, system_check: 'PASS', founder_validation: 'APPROVED' },
               context: { ask: 'Implement httpfs remote Parquet for fact_ball on mobile to avoid memory crashes', goal: 'Full Film Room functionality on mobile devices', reason: 'Mobile is primary audience — cannot block DuckDB on mobile', audible: ['Implement httpfs strategy', 'HTTP range requests for fact_ball', 'Desktop unchanged'] }
+            },
+            { id: 'TKT-181', title: 'Film Room SQL Views Overhaul: Dual-Scope + 13 New Views', state: 'RUNNING', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 90, tags: ['Analytics', 'Film Room', 'Research Desk'], gates: { florentino_gate: 'APPROVED' },
+              context: { ask: 'Audit all 35+ Film Room SQL views for IPL data scope, create dual-scope naming (_alltime/_since2023), add 13 new tactical views', goal: '80 dual-scope views + all scripts using 2023+ data + SQL editor fixes', reason: 'Data scope clarity is critical — 2023+ IPL is the analytical window', audible: ['Create dual-scope views', 'Migrate scripts to _since2023', 'Fix SQL editor escaping', 'Regenerate all outputs'] }
+            },
+            { id: 'TKT-182', title: 'T20 Fallback Data for Uncapped IPL Players in Stat Packs', state: 'REVIEW', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 0, tags: ['Analytics', 'Stat Packs'], gates: { florentino_gate: 'APPROVED' },
+              context: { ask: 'Add T20 fallback data from other tournaments for 51 uncapped IPL 2026 players', goal: 'Uncapped Watch section in stat packs with T20 profiles for players without IPL history', reason: '34 of 51 uncapped players have meaningful T20 data from BBL, PSL, CPL, etc.', audible: ['Render T20 columns for uncapped players', 'Add Uncapped Watch section', 'Tag uncapped players in player_tags.json'] }
+            },
+            { id: 'TKT-183', title: 'Tournament Quality Weighting System: 5-Factor Composite', state: 'READY', priority: 'P1', effort: 'marathon', assignee: 'Jose Mourinho', epic: 'EPIC-006', progress: 0, tags: ['Analytics', 'Quant Research'], gates: { florentino_gate: 'APPROVED' },
+              context: { ask: 'Build 5-factor composite weight system: PQI, Competitiveness, Recency Decay, Conditions Similarity, Sample Size Confidence', goal: 'Tournament quality weights across 426 tournaments / 9,357 matches', reason: 'Analytical credibility requires principled weighting of non-IPL T20 data', audible: ['Phase 1: Data Layer', 'Phase 2: Weight Computation', 'Phase 3: Integration', 'Phase 4: Validation'] }
             }
         ];
 

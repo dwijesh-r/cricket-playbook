@@ -1584,9 +1584,222 @@
         }
       ]
     },
+    "analytics_ipl_batter_entry_point_alltime": {
+      "category": "batting",
+      "description": "IPL Batter entry point alltime",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "match_id",
+          "type": "VARCHAR",
+          "description": "Unique match identifier"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "batting_position",
+          "type": "BIGINT",
+          "description": "Batting order position"
+        },
+        {
+          "name": "entry_over",
+          "type": "BIGINT",
+          "description": "Entry over"
+        },
+        {
+          "name": "entry_ball_seq",
+          "type": "BIGINT",
+          "description": "Entry ball seq"
+        },
+        {
+          "name": "team_score_at_entry",
+          "type": "HUGEINT",
+          "description": "Team score at entry"
+        },
+        {
+          "name": "team_wickets_at_entry",
+          "type": "HUGEINT",
+          "description": "Team wickets at entry"
+        },
+        {
+          "name": "chase_target",
+          "type": "HUGEINT",
+          "description": "Chase target"
+        },
+        {
+          "name": "team_name",
+          "type": "VARCHAR",
+          "description": "Team name"
+        },
+        {
+          "name": "opposition",
+          "type": "VARCHAR",
+          "description": "Opposition"
+        }
+      ]
+    },
+    "analytics_ipl_batter_entry_point_since2023": {
+      "category": "batting",
+      "description": "IPL Batter entry point since2023",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "match_id",
+          "type": "VARCHAR",
+          "description": "Unique match identifier"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "batting_position",
+          "type": "BIGINT",
+          "description": "Batting order position"
+        },
+        {
+          "name": "entry_over",
+          "type": "BIGINT",
+          "description": "Entry over"
+        },
+        {
+          "name": "entry_ball_seq",
+          "type": "BIGINT",
+          "description": "Entry ball seq"
+        },
+        {
+          "name": "team_score_at_entry",
+          "type": "HUGEINT",
+          "description": "Team score at entry"
+        },
+        {
+          "name": "team_wickets_at_entry",
+          "type": "HUGEINT",
+          "description": "Team wickets at entry"
+        },
+        {
+          "name": "chase_target",
+          "type": "HUGEINT",
+          "description": "Chase target"
+        },
+        {
+          "name": "team_name",
+          "type": "VARCHAR",
+          "description": "Team name"
+        },
+        {
+          "name": "opposition",
+          "type": "VARCHAR",
+          "description": "Opposition"
+        }
+      ]
+    },
     "analytics_ipl_batter_phase": {
       "category": "batting",
       "description": "IPL Batter phase",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "VARCHAR",
+          "description": "Unique player identifier"
+        },
+        {
+          "name": "player_name",
+          "type": "VARCHAR",
+          "description": "Player name"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "balls_faced",
+          "type": "HUGEINT",
+          "description": "Balls faced"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "batting_average",
+          "type": "DOUBLE",
+          "description": "Batting average"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_batter_phase_alltime": {
+      "category": "batting",
+      "description": "IPL Batter phase alltime",
       "columns": [
         {
           "name": "player_id",
@@ -1741,9 +1954,323 @@
         }
       ]
     },
+    "analytics_ipl_batter_phase_percentiles_alltime": {
+      "category": "batting",
+      "description": "IPL Batter phase percentiles alltime",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "VARCHAR",
+          "description": "Unique player identifier"
+        },
+        {
+          "name": "player_name",
+          "type": "VARCHAR",
+          "description": "Player name"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "balls_faced",
+          "type": "HUGEINT",
+          "description": "Balls faced"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "batting_average",
+          "type": "DOUBLE",
+          "description": "Batting average"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        },
+        {
+          "name": "sr_percentile",
+          "type": "DOUBLE",
+          "description": "Sr percentile"
+        },
+        {
+          "name": "avg_percentile",
+          "type": "DOUBLE",
+          "description": "Avg percentile"
+        },
+        {
+          "name": "boundary_percentile",
+          "type": "DOUBLE",
+          "description": "Boundary percentile"
+        }
+      ]
+    },
+    "analytics_ipl_batter_phase_percentiles_since2023": {
+      "category": "batting",
+      "description": "IPL Batter phase percentiles since2023",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "VARCHAR",
+          "description": "Unique player identifier"
+        },
+        {
+          "name": "player_name",
+          "type": "VARCHAR",
+          "description": "Player name"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "balls_faced",
+          "type": "HUGEINT",
+          "description": "Balls faced"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "batting_average",
+          "type": "DOUBLE",
+          "description": "Batting average"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        },
+        {
+          "name": "sr_percentile",
+          "type": "DOUBLE",
+          "description": "Sr percentile"
+        },
+        {
+          "name": "avg_percentile",
+          "type": "DOUBLE",
+          "description": "Avg percentile"
+        },
+        {
+          "name": "boundary_percentile",
+          "type": "DOUBLE",
+          "description": "Boundary percentile"
+        }
+      ]
+    },
+    "analytics_ipl_batter_phase_since2023": {
+      "category": "batting",
+      "description": "IPL Batter phase since2023",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "VARCHAR",
+          "description": "Unique player identifier"
+        },
+        {
+          "name": "player_name",
+          "type": "VARCHAR",
+          "description": "Player name"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "balls_faced",
+          "type": "HUGEINT",
+          "description": "Balls faced"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "batting_average",
+          "type": "DOUBLE",
+          "description": "Batting average"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
     "analytics_ipl_batter_venue": {
       "category": "batting",
       "description": "IPL Batter venue",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "venue",
+          "type": "VARCHAR",
+          "description": "Match venue name"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_batter_venue_alltime": {
+      "category": "batting",
+      "description": "IPL Batter venue alltime",
       "columns": [
         {
           "name": "batter_id",
@@ -1908,9 +2435,343 @@
         }
       ]
     },
+    "analytics_ipl_batter_venue_phase_alltime": {
+      "category": "batting",
+      "description": "IPL Batter venue phase alltime",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "venue",
+          "type": "VARCHAR",
+          "description": "Match venue name"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_batter_venue_phase_since2023": {
+      "category": "batting",
+      "description": "IPL Batter venue phase since2023",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "venue",
+          "type": "VARCHAR",
+          "description": "Match venue name"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_batter_venue_since2023": {
+      "category": "batting",
+      "description": "IPL Batter venue since2023",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "venue",
+          "type": "VARCHAR",
+          "description": "Match venue name"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
     "analytics_ipl_batter_vs_bowler": {
       "category": "batting",
       "description": "IPL Batter vs bowler",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_batter_vs_bowler_alltime": {
+      "category": "batting",
+      "description": "IPL Batter vs bowler alltime",
       "columns": [
         {
           "name": "batter_id",
@@ -2075,9 +2936,338 @@
         }
       ]
     },
+    "analytics_ipl_batter_vs_bowler_phase_alltime": {
+      "category": "batting",
+      "description": "IPL Batter vs bowler phase alltime",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_batter_vs_bowler_phase_since2023": {
+      "category": "batting",
+      "description": "IPL Batter vs bowler phase since2023",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_batter_vs_bowler_since2023": {
+      "category": "batting",
+      "description": "IPL Batter vs bowler since2023",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
     "analytics_ipl_batter_vs_bowler_type": {
       "category": "batting",
       "description": "IPL Batter vs bowler type",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "bowler_type",
+          "type": "VARCHAR",
+          "description": "Bowler type"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_batter_vs_bowler_type_alltime": {
+      "category": "batting",
+      "description": "IPL Batter vs bowler type alltime",
       "columns": [
         {
           "name": "batter_id",
@@ -2232,9 +3422,328 @@
         }
       ]
     },
+    "analytics_ipl_batter_vs_bowler_type_phase_alltime": {
+      "category": "batting",
+      "description": "IPL Batter vs bowler type phase alltime",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "bowler_type",
+          "type": "VARCHAR",
+          "description": "Bowler type"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_batter_vs_bowler_type_phase_since2023": {
+      "category": "batting",
+      "description": "IPL Batter vs bowler type phase since2023",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "bowler_type",
+          "type": "VARCHAR",
+          "description": "Bowler type"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_batter_vs_bowler_type_since2023": {
+      "category": "batting",
+      "description": "IPL Batter vs bowler type since2023",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "bowler_type",
+          "type": "VARCHAR",
+          "description": "Bowler type"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
     "analytics_ipl_batter_vs_team": {
       "category": "batting",
       "description": "IPL Batter vs team",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "opposition",
+          "type": "VARCHAR",
+          "description": "Opposition"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_batter_vs_team_alltime": {
+      "category": "batting",
+      "description": "IPL Batter vs team alltime",
       "columns": [
         {
           "name": "batter_id",
@@ -2399,9 +3908,364 @@
         }
       ]
     },
+    "analytics_ipl_batter_vs_team_phase_alltime": {
+      "category": "batting",
+      "description": "IPL Batter vs team phase alltime",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "opposition",
+          "type": "VARCHAR",
+          "description": "Opposition"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_batter_vs_team_phase_since2023": {
+      "category": "batting",
+      "description": "IPL Batter vs team phase since2023",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "opposition",
+          "type": "VARCHAR",
+          "description": "Opposition"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_batter_vs_team_since2023": {
+      "category": "batting",
+      "description": "IPL Batter vs team since2023",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "opposition",
+          "type": "VARCHAR",
+          "description": "Opposition"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
     "analytics_ipl_batting_benchmarks": {
       "category": "batting",
       "description": "IPL Batting benchmarks",
+      "columns": [
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "total_runs",
+          "type": "HUGEINT",
+          "description": "Total runs from the delivery"
+        },
+        {
+          "name": "total_balls",
+          "type": "HUGEINT",
+          "description": "Total balls"
+        },
+        {
+          "name": "total_wickets",
+          "type": "HUGEINT",
+          "description": "Total wickets"
+        },
+        {
+          "name": "avg_strike_rate",
+          "type": "DOUBLE",
+          "description": "Avg strike rate"
+        },
+        {
+          "name": "avg_batting_avg",
+          "type": "DOUBLE",
+          "description": "Avg batting avg"
+        },
+        {
+          "name": "avg_boundary_pct",
+          "type": "DOUBLE",
+          "description": "Avg boundary pct"
+        },
+        {
+          "name": "avg_dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Avg dot ball pct"
+        }
+      ]
+    },
+    "analytics_ipl_batting_benchmarks_alltime": {
+      "category": "batting",
+      "description": "IPL Batting benchmarks alltime",
+      "columns": [
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "total_runs",
+          "type": "HUGEINT",
+          "description": "Total runs from the delivery"
+        },
+        {
+          "name": "total_balls",
+          "type": "HUGEINT",
+          "description": "Total balls"
+        },
+        {
+          "name": "total_wickets",
+          "type": "HUGEINT",
+          "description": "Total wickets"
+        },
+        {
+          "name": "avg_strike_rate",
+          "type": "DOUBLE",
+          "description": "Avg strike rate"
+        },
+        {
+          "name": "avg_batting_avg",
+          "type": "DOUBLE",
+          "description": "Avg batting avg"
+        },
+        {
+          "name": "avg_boundary_pct",
+          "type": "DOUBLE",
+          "description": "Avg boundary pct"
+        },
+        {
+          "name": "avg_dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Avg dot ball pct"
+        }
+      ]
+    },
+    "analytics_ipl_batting_benchmarks_since2023": {
+      "category": "batting",
+      "description": "IPL Batting benchmarks since2023",
       "columns": [
         {
           "name": "match_phase",
@@ -2546,6 +4410,300 @@
         }
       ]
     },
+    "analytics_ipl_batting_career_alltime": {
+      "category": "batting",
+      "description": "IPL Batting career alltime",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "VARCHAR",
+          "description": "Unique player identifier"
+        },
+        {
+          "name": "player_name",
+          "type": "VARCHAR",
+          "description": "Player name"
+        },
+        {
+          "name": "primary_role",
+          "type": "VARCHAR",
+          "description": "Primary playing role"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "balls_faced",
+          "type": "HUGEINT",
+          "description": "Balls faced"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "highest_score",
+          "type": "HUGEINT",
+          "description": "Highest score"
+        },
+        {
+          "name": "fifties",
+          "type": "HUGEINT",
+          "description": "Fifties"
+        },
+        {
+          "name": "hundreds",
+          "type": "HUGEINT",
+          "description": "Hundreds"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "batting_average",
+          "type": "DOUBLE",
+          "description": "Batting average"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_batting_career_since2023": {
+      "category": "batting",
+      "description": "IPL Batting career since2023",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "VARCHAR",
+          "description": "Unique player identifier"
+        },
+        {
+          "name": "player_name",
+          "type": "VARCHAR",
+          "description": "Player name"
+        },
+        {
+          "name": "primary_role",
+          "type": "VARCHAR",
+          "description": "Primary playing role"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "balls_faced",
+          "type": "HUGEINT",
+          "description": "Balls faced"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "highest_score",
+          "type": "HUGEINT",
+          "description": "Highest score"
+        },
+        {
+          "name": "fifties",
+          "type": "HUGEINT",
+          "description": "Fifties"
+        },
+        {
+          "name": "hundreds",
+          "type": "HUGEINT",
+          "description": "Hundreds"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "batting_average",
+          "type": "DOUBLE",
+          "description": "Batting average"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_batting_order_flexibility_alltime": {
+      "category": "batting",
+      "description": "IPL Batting order flexibility alltime",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "team_name",
+          "type": "VARCHAR",
+          "description": "Team name"
+        },
+        {
+          "name": "innings_count",
+          "type": "BIGINT",
+          "description": "Innings count"
+        },
+        {
+          "name": "avg_batting_position",
+          "type": "DOUBLE",
+          "description": "Avg batting position"
+        },
+        {
+          "name": "avg_position_0_wickets",
+          "type": "DOUBLE",
+          "description": "Avg position 0 wickets"
+        },
+        {
+          "name": "avg_position_1_wicket",
+          "type": "DOUBLE",
+          "description": "Avg position 1 wicket"
+        },
+        {
+          "name": "avg_position_2plus_wickets",
+          "type": "DOUBLE",
+          "description": "Avg position 2plus wickets"
+        },
+        {
+          "name": "position_shift",
+          "type": "DOUBLE",
+          "description": "Position shift"
+        }
+      ]
+    },
+    "analytics_ipl_batting_order_flexibility_since2023": {
+      "category": "batting",
+      "description": "IPL Batting order flexibility since2023",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "team_name",
+          "type": "VARCHAR",
+          "description": "Team name"
+        },
+        {
+          "name": "innings_count",
+          "type": "BIGINT",
+          "description": "Innings count"
+        },
+        {
+          "name": "avg_batting_position",
+          "type": "DOUBLE",
+          "description": "Avg batting position"
+        },
+        {
+          "name": "avg_position_0_wickets",
+          "type": "DOUBLE",
+          "description": "Avg position 0 wickets"
+        },
+        {
+          "name": "avg_position_1_wicket",
+          "type": "DOUBLE",
+          "description": "Avg position 1 wicket"
+        },
+        {
+          "name": "avg_position_2plus_wickets",
+          "type": "DOUBLE",
+          "description": "Avg position 2plus wickets"
+        },
+        {
+          "name": "position_shift",
+          "type": "DOUBLE",
+          "description": "Position shift"
+        }
+      ]
+    },
     "analytics_ipl_batting_percentiles": {
       "category": "batting",
       "description": "IPL Batting percentiles",
@@ -2622,9 +4780,359 @@
         }
       ]
     },
+    "analytics_ipl_batting_percentiles_alltime": {
+      "category": "batting",
+      "description": "IPL Batting percentiles alltime",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "VARCHAR",
+          "description": "Unique player identifier"
+        },
+        {
+          "name": "player_name",
+          "type": "VARCHAR",
+          "description": "Player name"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "balls_faced",
+          "type": "HUGEINT",
+          "description": "Balls faced"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "batting_average",
+          "type": "DOUBLE",
+          "description": "Batting average"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        },
+        {
+          "name": "sr_percentile",
+          "type": "DOUBLE",
+          "description": "Sr percentile"
+        },
+        {
+          "name": "avg_percentile",
+          "type": "DOUBLE",
+          "description": "Avg percentile"
+        },
+        {
+          "name": "boundary_percentile",
+          "type": "DOUBLE",
+          "description": "Boundary percentile"
+        },
+        {
+          "name": "dot_ball_percentile",
+          "type": "DOUBLE",
+          "description": "Dot ball percentile"
+        }
+      ]
+    },
+    "analytics_ipl_batting_percentiles_since2023": {
+      "category": "batting",
+      "description": "IPL Batting percentiles since2023",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "VARCHAR",
+          "description": "Unique player identifier"
+        },
+        {
+          "name": "player_name",
+          "type": "VARCHAR",
+          "description": "Player name"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "balls_faced",
+          "type": "HUGEINT",
+          "description": "Balls faced"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "batting_average",
+          "type": "DOUBLE",
+          "description": "Batting average"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        },
+        {
+          "name": "sr_percentile",
+          "type": "DOUBLE",
+          "description": "Sr percentile"
+        },
+        {
+          "name": "avg_percentile",
+          "type": "DOUBLE",
+          "description": "Avg percentile"
+        },
+        {
+          "name": "boundary_percentile",
+          "type": "DOUBLE",
+          "description": "Boundary percentile"
+        },
+        {
+          "name": "dot_ball_percentile",
+          "type": "DOUBLE",
+          "description": "Dot ball percentile"
+        }
+      ]
+    },
+    "analytics_ipl_bowler_over_breakdown_alltime": {
+      "category": "bowling",
+      "description": "IPL Bowler over breakdown alltime",
+      "columns": [
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "over_number",
+          "type": "BIGINT",
+          "description": "Over number"
+        },
+        {
+          "name": "times_bowled",
+          "type": "BIGINT",
+          "description": "Times bowled"
+        },
+        {
+          "name": "balls_bowled",
+          "type": "HUGEINT",
+          "description": "Balls bowled"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "economy",
+          "type": "DOUBLE",
+          "description": "Economy"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        }
+      ]
+    },
+    "analytics_ipl_bowler_over_breakdown_since2023": {
+      "category": "bowling",
+      "description": "IPL Bowler over breakdown since2023",
+      "columns": [
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "over_number",
+          "type": "BIGINT",
+          "description": "Over number"
+        },
+        {
+          "name": "times_bowled",
+          "type": "BIGINT",
+          "description": "Times bowled"
+        },
+        {
+          "name": "balls_bowled",
+          "type": "HUGEINT",
+          "description": "Balls bowled"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "economy",
+          "type": "DOUBLE",
+          "description": "Economy"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        }
+      ]
+    },
     "analytics_ipl_bowler_phase": {
       "category": "bowling",
       "description": "IPL Bowler phase",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "VARCHAR",
+          "description": "Unique player identifier"
+        },
+        {
+          "name": "player_name",
+          "type": "VARCHAR",
+          "description": "Player name"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "balls_bowled",
+          "type": "HUGEINT",
+          "description": "Balls bowled"
+        },
+        {
+          "name": "overs",
+          "type": "DOUBLE",
+          "description": "Overs"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "fours_conceded",
+          "type": "HUGEINT",
+          "description": "Fours conceded"
+        },
+        {
+          "name": "sixes_conceded",
+          "type": "HUGEINT",
+          "description": "Sixes conceded"
+        },
+        {
+          "name": "economy_rate",
+          "type": "DOUBLE",
+          "description": "Economy rate"
+        },
+        {
+          "name": "bowling_average",
+          "type": "DOUBLE",
+          "description": "Bowling average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_bowler_phase_alltime": {
+      "category": "bowling",
+      "description": "IPL Bowler phase alltime",
       "columns": [
         {
           "name": "player_id",
@@ -2794,6 +5302,178 @@
         }
       ]
     },
+    "analytics_ipl_bowler_phase_distribution_alltime": {
+      "category": "bowling",
+      "description": "IPL Bowler phase distribution alltime",
+      "columns": [
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "overs",
+          "type": "DOUBLE",
+          "description": "Overs"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "economy",
+          "type": "DOUBLE",
+          "description": "Economy"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "pct_overs_in_phase",
+          "type": "DOUBLE",
+          "description": "Pct overs in phase"
+        },
+        {
+          "name": "pct_wickets_in_phase",
+          "type": "DOUBLE",
+          "description": "Pct wickets in phase"
+        },
+        {
+          "name": "wicket_efficiency",
+          "type": "DOUBLE",
+          "description": "Wicket efficiency"
+        },
+        {
+          "name": "total_balls",
+          "type": "HUGEINT",
+          "description": "Total balls"
+        },
+        {
+          "name": "total_wickets",
+          "type": "HUGEINT",
+          "description": "Total wickets"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_bowler_phase_distribution_since2023": {
+      "category": "bowling",
+      "description": "IPL Bowler phase distribution since2023",
+      "columns": [
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "overs",
+          "type": "DOUBLE",
+          "description": "Overs"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "economy",
+          "type": "DOUBLE",
+          "description": "Economy"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "pct_overs_in_phase",
+          "type": "DOUBLE",
+          "description": "Pct overs in phase"
+        },
+        {
+          "name": "pct_wickets_in_phase",
+          "type": "DOUBLE",
+          "description": "Pct wickets in phase"
+        },
+        {
+          "name": "wicket_efficiency",
+          "type": "DOUBLE",
+          "description": "Wicket efficiency"
+        },
+        {
+          "name": "total_balls",
+          "type": "HUGEINT",
+          "description": "Total balls"
+        },
+        {
+          "name": "total_wickets",
+          "type": "HUGEINT",
+          "description": "Total wickets"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
     "analytics_ipl_bowler_phase_percentiles": {
       "category": "bowling",
       "description": "IPL Bowler phase percentiles",
@@ -2870,9 +5550,333 @@
         }
       ]
     },
+    "analytics_ipl_bowler_phase_percentiles_alltime": {
+      "category": "bowling",
+      "description": "IPL Bowler phase percentiles alltime",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "VARCHAR",
+          "description": "Unique player identifier"
+        },
+        {
+          "name": "player_name",
+          "type": "VARCHAR",
+          "description": "Player name"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "balls_bowled",
+          "type": "HUGEINT",
+          "description": "Balls bowled"
+        },
+        {
+          "name": "overs",
+          "type": "DOUBLE",
+          "description": "Overs"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "economy_rate",
+          "type": "DOUBLE",
+          "description": "Economy rate"
+        },
+        {
+          "name": "bowling_average",
+          "type": "DOUBLE",
+          "description": "Bowling average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        },
+        {
+          "name": "economy_percentile",
+          "type": "DOUBLE",
+          "description": "Economy percentile"
+        },
+        {
+          "name": "dot_ball_percentile",
+          "type": "DOUBLE",
+          "description": "Dot ball percentile"
+        }
+      ]
+    },
+    "analytics_ipl_bowler_phase_percentiles_since2023": {
+      "category": "bowling",
+      "description": "IPL Bowler phase percentiles since2023",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "VARCHAR",
+          "description": "Unique player identifier"
+        },
+        {
+          "name": "player_name",
+          "type": "VARCHAR",
+          "description": "Player name"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "balls_bowled",
+          "type": "HUGEINT",
+          "description": "Balls bowled"
+        },
+        {
+          "name": "overs",
+          "type": "DOUBLE",
+          "description": "Overs"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "economy_rate",
+          "type": "DOUBLE",
+          "description": "Economy rate"
+        },
+        {
+          "name": "bowling_average",
+          "type": "DOUBLE",
+          "description": "Bowling average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        },
+        {
+          "name": "economy_percentile",
+          "type": "DOUBLE",
+          "description": "Economy percentile"
+        },
+        {
+          "name": "dot_ball_percentile",
+          "type": "DOUBLE",
+          "description": "Dot ball percentile"
+        }
+      ]
+    },
+    "analytics_ipl_bowler_phase_since2023": {
+      "category": "bowling",
+      "description": "IPL Bowler phase since2023",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "VARCHAR",
+          "description": "Unique player identifier"
+        },
+        {
+          "name": "player_name",
+          "type": "VARCHAR",
+          "description": "Player name"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "balls_bowled",
+          "type": "HUGEINT",
+          "description": "Balls bowled"
+        },
+        {
+          "name": "overs",
+          "type": "DOUBLE",
+          "description": "Overs"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "fours_conceded",
+          "type": "HUGEINT",
+          "description": "Fours conceded"
+        },
+        {
+          "name": "sixes_conceded",
+          "type": "HUGEINT",
+          "description": "Sixes conceded"
+        },
+        {
+          "name": "economy_rate",
+          "type": "DOUBLE",
+          "description": "Economy rate"
+        },
+        {
+          "name": "bowling_average",
+          "type": "DOUBLE",
+          "description": "Bowling average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
     "analytics_ipl_bowler_venue": {
       "category": "bowling",
       "description": "IPL Bowler venue",
+      "columns": [
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "venue",
+          "type": "VARCHAR",
+          "description": "Match venue name"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "fours_conceded",
+          "type": "HUGEINT",
+          "description": "Fours conceded"
+        },
+        {
+          "name": "sixes_conceded",
+          "type": "HUGEINT",
+          "description": "Sixes conceded"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "economy",
+          "type": "DOUBLE",
+          "description": "Economy"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_bowler_venue_alltime": {
+      "category": "bowling",
+      "description": "IPL Bowler venue alltime",
       "columns": [
         {
           "name": "bowler_id",
@@ -3047,9 +6051,439 @@
         }
       ]
     },
+    "analytics_ipl_bowler_venue_phase_alltime": {
+      "category": "bowling",
+      "description": "IPL Bowler venue phase alltime",
+      "columns": [
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "venue",
+          "type": "VARCHAR",
+          "description": "Match venue name"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "fours_conceded",
+          "type": "HUGEINT",
+          "description": "Fours conceded"
+        },
+        {
+          "name": "sixes_conceded",
+          "type": "HUGEINT",
+          "description": "Sixes conceded"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "economy",
+          "type": "DOUBLE",
+          "description": "Economy"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_bowler_venue_phase_since2023": {
+      "category": "bowling",
+      "description": "IPL Bowler venue phase since2023",
+      "columns": [
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "venue",
+          "type": "VARCHAR",
+          "description": "Match venue name"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "fours_conceded",
+          "type": "HUGEINT",
+          "description": "Fours conceded"
+        },
+        {
+          "name": "sixes_conceded",
+          "type": "HUGEINT",
+          "description": "Sixes conceded"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "economy",
+          "type": "DOUBLE",
+          "description": "Economy"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_bowler_venue_since2023": {
+      "category": "bowling",
+      "description": "IPL Bowler venue since2023",
+      "columns": [
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "venue",
+          "type": "VARCHAR",
+          "description": "Match venue name"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "fours_conceded",
+          "type": "HUGEINT",
+          "description": "Fours conceded"
+        },
+        {
+          "name": "sixes_conceded",
+          "type": "HUGEINT",
+          "description": "Sixes conceded"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "economy",
+          "type": "DOUBLE",
+          "description": "Economy"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
     "analytics_ipl_bowler_vs_batter_handedness": {
       "category": "batting",
       "description": "IPL Bowler vs batter handedness",
+      "columns": [
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "batting_hand",
+          "type": "VARCHAR",
+          "description": "Batting hand (left, right)"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "economy",
+          "type": "DOUBLE",
+          "description": "Economy"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "dot_pct",
+          "type": "DOUBLE",
+          "description": "Dot pct"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "wickets_per_ball",
+          "type": "DOUBLE",
+          "description": "Wickets per ball"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_bowler_vs_batter_handedness_alltime": {
+      "category": "batting",
+      "description": "IPL Bowler vs batter handedness alltime",
+      "columns": [
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "batting_hand",
+          "type": "VARCHAR",
+          "description": "Batting hand (left, right)"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "fours",
+          "type": "HUGEINT",
+          "description": "Fours"
+        },
+        {
+          "name": "sixes",
+          "type": "HUGEINT",
+          "description": "Sixes"
+        },
+        {
+          "name": "economy",
+          "type": "DOUBLE",
+          "description": "Economy"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "dot_pct",
+          "type": "DOUBLE",
+          "description": "Dot pct"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "wickets_per_ball",
+          "type": "DOUBLE",
+          "description": "Wickets per ball"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_bowler_vs_batter_handedness_since2023": {
+      "category": "batting",
+      "description": "IPL Bowler vs batter handedness since2023",
       "columns": [
         {
           "name": "bowler_id",
@@ -3209,9 +6643,257 @@
         }
       ]
     },
+    "analytics_ipl_bowler_vs_batter_phase_alltime": {
+      "category": "batting",
+      "description": "IPL Bowler vs batter phase alltime",
+      "columns": [
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "fours_conceded",
+          "type": "HUGEINT",
+          "description": "Fours conceded"
+        },
+        {
+          "name": "sixes_conceded",
+          "type": "HUGEINT",
+          "description": "Sixes conceded"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "economy",
+          "type": "DOUBLE",
+          "description": "Economy"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_bowler_vs_batter_phase_since2023": {
+      "category": "batting",
+      "description": "IPL Bowler vs batter phase since2023",
+      "columns": [
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "fours_conceded",
+          "type": "HUGEINT",
+          "description": "Fours conceded"
+        },
+        {
+          "name": "sixes_conceded",
+          "type": "HUGEINT",
+          "description": "Sixes conceded"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "economy",
+          "type": "DOUBLE",
+          "description": "Economy"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
     "analytics_ipl_bowler_vs_team": {
       "category": "bowling",
       "description": "IPL Bowler vs team",
+      "columns": [
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "opposition",
+          "type": "VARCHAR",
+          "description": "Opposition"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "fours_conceded",
+          "type": "HUGEINT",
+          "description": "Fours conceded"
+        },
+        {
+          "name": "sixes_conceded",
+          "type": "HUGEINT",
+          "description": "Sixes conceded"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "economy",
+          "type": "DOUBLE",
+          "description": "Economy"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_bowler_vs_team_alltime": {
+      "category": "bowling",
+      "description": "IPL Bowler vs team alltime",
       "columns": [
         {
           "name": "bowler_id",
@@ -3386,9 +7068,379 @@
         }
       ]
     },
+    "analytics_ipl_bowler_vs_team_phase_alltime": {
+      "category": "bowling",
+      "description": "IPL Bowler vs team phase alltime",
+      "columns": [
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "opposition",
+          "type": "VARCHAR",
+          "description": "Opposition"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "fours_conceded",
+          "type": "HUGEINT",
+          "description": "Fours conceded"
+        },
+        {
+          "name": "sixes_conceded",
+          "type": "HUGEINT",
+          "description": "Sixes conceded"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "economy",
+          "type": "DOUBLE",
+          "description": "Economy"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_bowler_vs_team_phase_since2023": {
+      "category": "bowling",
+      "description": "IPL Bowler vs team phase since2023",
+      "columns": [
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "opposition",
+          "type": "VARCHAR",
+          "description": "Opposition"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "fours_conceded",
+          "type": "HUGEINT",
+          "description": "Fours conceded"
+        },
+        {
+          "name": "sixes_conceded",
+          "type": "HUGEINT",
+          "description": "Sixes conceded"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "economy",
+          "type": "DOUBLE",
+          "description": "Economy"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_bowler_vs_team_since2023": {
+      "category": "bowling",
+      "description": "IPL Bowler vs team since2023",
+      "columns": [
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "opposition",
+          "type": "VARCHAR",
+          "description": "Opposition"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "fours_conceded",
+          "type": "HUGEINT",
+          "description": "Fours conceded"
+        },
+        {
+          "name": "sixes_conceded",
+          "type": "HUGEINT",
+          "description": "Sixes conceded"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "economy",
+          "type": "DOUBLE",
+          "description": "Economy"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "average",
+          "type": "DOUBLE",
+          "description": "Average"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
     "analytics_ipl_bowling_benchmarks": {
       "category": "bowling",
       "description": "IPL Bowling benchmarks",
+      "columns": [
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "total_runs",
+          "type": "HUGEINT",
+          "description": "Total runs from the delivery"
+        },
+        {
+          "name": "total_balls",
+          "type": "HUGEINT",
+          "description": "Total balls"
+        },
+        {
+          "name": "total_wickets",
+          "type": "HUGEINT",
+          "description": "Total wickets"
+        },
+        {
+          "name": "avg_economy",
+          "type": "DOUBLE",
+          "description": "Avg economy"
+        },
+        {
+          "name": "avg_bowling_avg",
+          "type": "DOUBLE",
+          "description": "Avg bowling avg"
+        },
+        {
+          "name": "avg_bowling_sr",
+          "type": "DOUBLE",
+          "description": "Avg bowling sr"
+        },
+        {
+          "name": "avg_dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Avg dot ball pct"
+        }
+      ]
+    },
+    "analytics_ipl_bowling_benchmarks_alltime": {
+      "category": "bowling",
+      "description": "IPL Bowling benchmarks alltime",
+      "columns": [
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "total_runs",
+          "type": "HUGEINT",
+          "description": "Total runs from the delivery"
+        },
+        {
+          "name": "total_balls",
+          "type": "HUGEINT",
+          "description": "Total balls"
+        },
+        {
+          "name": "total_wickets",
+          "type": "HUGEINT",
+          "description": "Total wickets"
+        },
+        {
+          "name": "avg_economy",
+          "type": "DOUBLE",
+          "description": "Avg economy"
+        },
+        {
+          "name": "avg_bowling_avg",
+          "type": "DOUBLE",
+          "description": "Avg bowling avg"
+        },
+        {
+          "name": "avg_bowling_sr",
+          "type": "DOUBLE",
+          "description": "Avg bowling sr"
+        },
+        {
+          "name": "avg_dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Avg dot ball pct"
+        }
+      ]
+    },
+    "analytics_ipl_bowling_benchmarks_since2023": {
+      "category": "bowling",
+      "description": "IPL Bowling benchmarks since2023",
       "columns": [
         {
           "name": "match_phase",
@@ -3538,9 +7590,475 @@
         }
       ]
     },
+    "analytics_ipl_bowling_career_alltime": {
+      "category": "bowling",
+      "description": "IPL Bowling career alltime",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "VARCHAR",
+          "description": "Unique player identifier"
+        },
+        {
+          "name": "player_name",
+          "type": "VARCHAR",
+          "description": "Player name"
+        },
+        {
+          "name": "primary_role",
+          "type": "VARCHAR",
+          "description": "Primary playing role"
+        },
+        {
+          "name": "matches_bowled",
+          "type": "BIGINT",
+          "description": "Matches bowled"
+        },
+        {
+          "name": "balls_bowled",
+          "type": "HUGEINT",
+          "description": "Balls bowled"
+        },
+        {
+          "name": "overs_bowled",
+          "type": "DOUBLE",
+          "description": "Overs bowled"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "best_wickets",
+          "type": "HUGEINT",
+          "description": "Best wickets"
+        },
+        {
+          "name": "best_runs",
+          "type": "HUGEINT",
+          "description": "Best runs"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "fours_conceded",
+          "type": "HUGEINT",
+          "description": "Fours conceded"
+        },
+        {
+          "name": "sixes_conceded",
+          "type": "HUGEINT",
+          "description": "Sixes conceded"
+        },
+        {
+          "name": "economy_rate",
+          "type": "DOUBLE",
+          "description": "Economy rate"
+        },
+        {
+          "name": "bowling_average",
+          "type": "DOUBLE",
+          "description": "Bowling average"
+        },
+        {
+          "name": "bowling_strike_rate",
+          "type": "DOUBLE",
+          "description": "Bowling strike rate"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_bowling_career_since2023": {
+      "category": "bowling",
+      "description": "IPL Bowling career since2023",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "VARCHAR",
+          "description": "Unique player identifier"
+        },
+        {
+          "name": "player_name",
+          "type": "VARCHAR",
+          "description": "Player name"
+        },
+        {
+          "name": "primary_role",
+          "type": "VARCHAR",
+          "description": "Primary playing role"
+        },
+        {
+          "name": "matches_bowled",
+          "type": "BIGINT",
+          "description": "Matches bowled"
+        },
+        {
+          "name": "balls_bowled",
+          "type": "HUGEINT",
+          "description": "Balls bowled"
+        },
+        {
+          "name": "overs_bowled",
+          "type": "DOUBLE",
+          "description": "Overs bowled"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "best_wickets",
+          "type": "HUGEINT",
+          "description": "Best wickets"
+        },
+        {
+          "name": "best_runs",
+          "type": "HUGEINT",
+          "description": "Best runs"
+        },
+        {
+          "name": "dot_balls",
+          "type": "HUGEINT",
+          "description": "Dot balls"
+        },
+        {
+          "name": "fours_conceded",
+          "type": "HUGEINT",
+          "description": "Fours conceded"
+        },
+        {
+          "name": "sixes_conceded",
+          "type": "HUGEINT",
+          "description": "Sixes conceded"
+        },
+        {
+          "name": "economy_rate",
+          "type": "DOUBLE",
+          "description": "Economy rate"
+        },
+        {
+          "name": "bowling_average",
+          "type": "DOUBLE",
+          "description": "Bowling average"
+        },
+        {
+          "name": "bowling_strike_rate",
+          "type": "DOUBLE",
+          "description": "Bowling strike rate"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        }
+      ]
+    },
+    "analytics_ipl_bowling_change_impact_alltime": {
+      "category": "bowling",
+      "description": "IPL Bowling change impact alltime",
+      "columns": [
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "spell_position",
+          "type": "VARCHAR",
+          "description": "Spell position"
+        },
+        {
+          "name": "overs_bowled",
+          "type": "BIGINT",
+          "description": "Overs bowled"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "economy",
+          "type": "DOUBLE",
+          "description": "Economy"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        }
+      ]
+    },
+    "analytics_ipl_bowling_change_impact_since2023": {
+      "category": "bowling",
+      "description": "IPL Bowling change impact since2023",
+      "columns": [
+        {
+          "name": "bowler_id",
+          "type": "VARCHAR",
+          "description": "Bowler player identifier"
+        },
+        {
+          "name": "bowler_name",
+          "type": "VARCHAR",
+          "description": "Bowler name"
+        },
+        {
+          "name": "spell_position",
+          "type": "VARCHAR",
+          "description": "Spell position"
+        },
+        {
+          "name": "overs_bowled",
+          "type": "BIGINT",
+          "description": "Overs bowled"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "economy",
+          "type": "DOUBLE",
+          "description": "Economy"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        }
+      ]
+    },
     "analytics_ipl_bowling_percentiles": {
       "category": "bowling",
       "description": "IPL Bowling percentiles",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "VARCHAR",
+          "description": "Unique player identifier"
+        },
+        {
+          "name": "player_name",
+          "type": "VARCHAR",
+          "description": "Player name"
+        },
+        {
+          "name": "matches_bowled",
+          "type": "BIGINT",
+          "description": "Matches bowled"
+        },
+        {
+          "name": "balls_bowled",
+          "type": "HUGEINT",
+          "description": "Balls bowled"
+        },
+        {
+          "name": "overs_bowled",
+          "type": "DOUBLE",
+          "description": "Overs bowled"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "economy_rate",
+          "type": "DOUBLE",
+          "description": "Economy rate"
+        },
+        {
+          "name": "bowling_average",
+          "type": "DOUBLE",
+          "description": "Bowling average"
+        },
+        {
+          "name": "bowling_strike_rate",
+          "type": "DOUBLE",
+          "description": "Bowling strike rate"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        },
+        {
+          "name": "economy_percentile",
+          "type": "DOUBLE",
+          "description": "Economy percentile"
+        },
+        {
+          "name": "avg_percentile",
+          "type": "DOUBLE",
+          "description": "Avg percentile"
+        },
+        {
+          "name": "sr_percentile",
+          "type": "DOUBLE",
+          "description": "Sr percentile"
+        },
+        {
+          "name": "dot_ball_percentile",
+          "type": "DOUBLE",
+          "description": "Dot ball percentile"
+        }
+      ]
+    },
+    "analytics_ipl_bowling_percentiles_alltime": {
+      "category": "bowling",
+      "description": "IPL Bowling percentiles alltime",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "VARCHAR",
+          "description": "Unique player identifier"
+        },
+        {
+          "name": "player_name",
+          "type": "VARCHAR",
+          "description": "Player name"
+        },
+        {
+          "name": "matches_bowled",
+          "type": "BIGINT",
+          "description": "Matches bowled"
+        },
+        {
+          "name": "balls_bowled",
+          "type": "HUGEINT",
+          "description": "Balls bowled"
+        },
+        {
+          "name": "overs_bowled",
+          "type": "DOUBLE",
+          "description": "Overs bowled"
+        },
+        {
+          "name": "wickets",
+          "type": "HUGEINT",
+          "description": "Wickets"
+        },
+        {
+          "name": "economy_rate",
+          "type": "DOUBLE",
+          "description": "Economy rate"
+        },
+        {
+          "name": "bowling_average",
+          "type": "DOUBLE",
+          "description": "Bowling average"
+        },
+        {
+          "name": "bowling_strike_rate",
+          "type": "DOUBLE",
+          "description": "Bowling strike rate"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        },
+        {
+          "name": "sample_size",
+          "type": "VARCHAR",
+          "description": "Sample size"
+        },
+        {
+          "name": "economy_percentile",
+          "type": "DOUBLE",
+          "description": "Economy percentile"
+        },
+        {
+          "name": "avg_percentile",
+          "type": "DOUBLE",
+          "description": "Avg percentile"
+        },
+        {
+          "name": "sr_percentile",
+          "type": "DOUBLE",
+          "description": "Sr percentile"
+        },
+        {
+          "name": "dot_ball_percentile",
+          "type": "DOUBLE",
+          "description": "Dot ball percentile"
+        }
+      ]
+    },
+    "analytics_ipl_bowling_percentiles_since2023": {
+      "category": "bowling",
+      "description": "IPL Bowling percentiles since2023",
       "columns": [
         {
           "name": "player_id",
@@ -3667,6 +8185,740 @@
           "name": "median_batting_avg",
           "type": "DOUBLE",
           "description": "Median batting avg"
+        }
+      ]
+    },
+    "analytics_ipl_career_benchmarks_alltime": {
+      "category": "benchmarks",
+      "description": "IPL Career benchmarks alltime",
+      "columns": [
+        {
+          "name": "category",
+          "type": "VARCHAR",
+          "description": "Category"
+        },
+        {
+          "name": "qualified_players",
+          "type": "BIGINT",
+          "description": "Qualified players"
+        },
+        {
+          "name": "avg_strike_rate",
+          "type": "DOUBLE",
+          "description": "Avg strike rate"
+        },
+        {
+          "name": "avg_batting_avg",
+          "type": "DOUBLE",
+          "description": "Avg batting avg"
+        },
+        {
+          "name": "avg_boundary_pct",
+          "type": "DOUBLE",
+          "description": "Avg boundary pct"
+        },
+        {
+          "name": "avg_dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Avg dot ball pct"
+        },
+        {
+          "name": "median_strike_rate",
+          "type": "DOUBLE",
+          "description": "Median strike rate"
+        },
+        {
+          "name": "median_batting_avg",
+          "type": "DOUBLE",
+          "description": "Median batting avg"
+        }
+      ]
+    },
+    "analytics_ipl_career_benchmarks_since2023": {
+      "category": "benchmarks",
+      "description": "IPL Career benchmarks since2023",
+      "columns": [
+        {
+          "name": "category",
+          "type": "VARCHAR",
+          "description": "Category"
+        },
+        {
+          "name": "qualified_players",
+          "type": "BIGINT",
+          "description": "Qualified players"
+        },
+        {
+          "name": "avg_strike_rate",
+          "type": "DOUBLE",
+          "description": "Avg strike rate"
+        },
+        {
+          "name": "avg_batting_avg",
+          "type": "DOUBLE",
+          "description": "Avg batting avg"
+        },
+        {
+          "name": "avg_boundary_pct",
+          "type": "DOUBLE",
+          "description": "Avg boundary pct"
+        },
+        {
+          "name": "avg_dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Avg dot ball pct"
+        },
+        {
+          "name": "median_strike_rate",
+          "type": "DOUBLE",
+          "description": "Median strike rate"
+        },
+        {
+          "name": "median_batting_avg",
+          "type": "DOUBLE",
+          "description": "Median batting avg"
+        }
+      ]
+    },
+    "analytics_ipl_dot_ball_pressure_alltime": {
+      "category": "general",
+      "description": "IPL Dot ball pressure alltime",
+      "columns": [
+        {
+          "name": "consecutive_dots",
+          "type": "VARCHAR",
+          "description": "Consecutive dots"
+        },
+        {
+          "name": "occurrences",
+          "type": "BIGINT",
+          "description": "Occurrences"
+        },
+        {
+          "name": "next_ball_wicket_pct",
+          "type": "DOUBLE",
+          "description": "Next ball wicket pct"
+        }
+      ]
+    },
+    "analytics_ipl_dot_ball_pressure_since2023": {
+      "category": "general",
+      "description": "IPL Dot ball pressure since2023",
+      "columns": [
+        {
+          "name": "consecutive_dots",
+          "type": "VARCHAR",
+          "description": "Consecutive dots"
+        },
+        {
+          "name": "occurrences",
+          "type": "BIGINT",
+          "description": "Occurrences"
+        },
+        {
+          "name": "next_ball_wicket_pct",
+          "type": "DOUBLE",
+          "description": "Next ball wicket pct"
+        }
+      ]
+    },
+    "analytics_ipl_innings_progression_alltime": {
+      "category": "general",
+      "description": "IPL Innings progression alltime",
+      "columns": [
+        {
+          "name": "match_id",
+          "type": "VARCHAR",
+          "description": "Unique match identifier"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "over_number",
+          "type": "BIGINT",
+          "description": "Over number"
+        },
+        {
+          "name": "runs_this_over",
+          "type": "HUGEINT",
+          "description": "Runs this over"
+        },
+        {
+          "name": "wickets_this_over",
+          "type": "HUGEINT",
+          "description": "Wickets this over"
+        },
+        {
+          "name": "cumulative_runs",
+          "type": "HUGEINT",
+          "description": "Cumulative runs"
+        },
+        {
+          "name": "cumulative_wickets",
+          "type": "HUGEINT",
+          "description": "Cumulative wickets"
+        },
+        {
+          "name": "run_rate",
+          "type": "DOUBLE",
+          "description": "Run rate"
+        },
+        {
+          "name": "chase_target",
+          "type": "HUGEINT",
+          "description": "Chase target"
+        },
+        {
+          "name": "runs_remaining",
+          "type": "HUGEINT",
+          "description": "Runs remaining"
+        },
+        {
+          "name": "required_run_rate",
+          "type": "DOUBLE",
+          "description": "Required run rate"
+        }
+      ]
+    },
+    "analytics_ipl_innings_progression_since2023": {
+      "category": "general",
+      "description": "IPL Innings progression since2023",
+      "columns": [
+        {
+          "name": "match_id",
+          "type": "VARCHAR",
+          "description": "Unique match identifier"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "over_number",
+          "type": "BIGINT",
+          "description": "Over number"
+        },
+        {
+          "name": "runs_this_over",
+          "type": "HUGEINT",
+          "description": "Runs this over"
+        },
+        {
+          "name": "wickets_this_over",
+          "type": "HUGEINT",
+          "description": "Wickets this over"
+        },
+        {
+          "name": "cumulative_runs",
+          "type": "HUGEINT",
+          "description": "Cumulative runs"
+        },
+        {
+          "name": "cumulative_wickets",
+          "type": "HUGEINT",
+          "description": "Cumulative wickets"
+        },
+        {
+          "name": "run_rate",
+          "type": "DOUBLE",
+          "description": "Run rate"
+        },
+        {
+          "name": "chase_target",
+          "type": "HUGEINT",
+          "description": "Chase target"
+        },
+        {
+          "name": "runs_remaining",
+          "type": "HUGEINT",
+          "description": "Runs remaining"
+        },
+        {
+          "name": "required_run_rate",
+          "type": "DOUBLE",
+          "description": "Required run rate"
+        }
+      ]
+    },
+    "analytics_ipl_match_context_alltime": {
+      "category": "general",
+      "description": "IPL Match context alltime",
+      "columns": [
+        {
+          "name": "match_id",
+          "type": "VARCHAR",
+          "description": "Unique match identifier"
+        },
+        {
+          "name": "season",
+          "type": "VARCHAR",
+          "description": "IPL season year"
+        },
+        {
+          "name": "match_date",
+          "type": "VARCHAR",
+          "description": "Date of the match"
+        },
+        {
+          "name": "venue_name",
+          "type": "VARCHAR",
+          "description": "Match venue name"
+        },
+        {
+          "name": "city",
+          "type": "VARCHAR",
+          "description": "City where venue is located"
+        },
+        {
+          "name": "team1_name",
+          "type": "VARCHAR",
+          "description": "Team1 name"
+        },
+        {
+          "name": "team2_name",
+          "type": "VARCHAR",
+          "description": "Team2 name"
+        },
+        {
+          "name": "toss_decision",
+          "type": "VARCHAR",
+          "description": "Toss decision (bat/field)"
+        },
+        {
+          "name": "winner_name",
+          "type": "VARCHAR",
+          "description": "Winner name"
+        },
+        {
+          "name": "innings1_runs",
+          "type": "HUGEINT",
+          "description": "Innings1 runs"
+        },
+        {
+          "name": "innings1_wickets",
+          "type": "HUGEINT",
+          "description": "Innings1 wickets"
+        },
+        {
+          "name": "innings1_overs",
+          "type": "DOUBLE",
+          "description": "Innings1 overs"
+        },
+        {
+          "name": "innings2_runs",
+          "type": "HUGEINT",
+          "description": "Innings2 runs"
+        },
+        {
+          "name": "innings2_wickets",
+          "type": "HUGEINT",
+          "description": "Innings2 wickets"
+        },
+        {
+          "name": "innings2_overs",
+          "type": "DOUBLE",
+          "description": "Innings2 overs"
+        },
+        {
+          "name": "chase_target",
+          "type": "HUGEINT",
+          "description": "Chase target"
+        },
+        {
+          "name": "chase_result",
+          "type": "VARCHAR",
+          "description": "Chase result"
+        }
+      ]
+    },
+    "analytics_ipl_match_context_since2023": {
+      "category": "general",
+      "description": "IPL Match context since2023",
+      "columns": [
+        {
+          "name": "match_id",
+          "type": "VARCHAR",
+          "description": "Unique match identifier"
+        },
+        {
+          "name": "season",
+          "type": "VARCHAR",
+          "description": "IPL season year"
+        },
+        {
+          "name": "match_date",
+          "type": "VARCHAR",
+          "description": "Date of the match"
+        },
+        {
+          "name": "venue_name",
+          "type": "VARCHAR",
+          "description": "Match venue name"
+        },
+        {
+          "name": "city",
+          "type": "VARCHAR",
+          "description": "City where venue is located"
+        },
+        {
+          "name": "team1_name",
+          "type": "VARCHAR",
+          "description": "Team1 name"
+        },
+        {
+          "name": "team2_name",
+          "type": "VARCHAR",
+          "description": "Team2 name"
+        },
+        {
+          "name": "toss_decision",
+          "type": "VARCHAR",
+          "description": "Toss decision (bat/field)"
+        },
+        {
+          "name": "winner_name",
+          "type": "VARCHAR",
+          "description": "Winner name"
+        },
+        {
+          "name": "innings1_runs",
+          "type": "HUGEINT",
+          "description": "Innings1 runs"
+        },
+        {
+          "name": "innings1_wickets",
+          "type": "HUGEINT",
+          "description": "Innings1 wickets"
+        },
+        {
+          "name": "innings1_overs",
+          "type": "DOUBLE",
+          "description": "Innings1 overs"
+        },
+        {
+          "name": "innings2_runs",
+          "type": "HUGEINT",
+          "description": "Innings2 runs"
+        },
+        {
+          "name": "innings2_wickets",
+          "type": "HUGEINT",
+          "description": "Innings2 wickets"
+        },
+        {
+          "name": "innings2_overs",
+          "type": "DOUBLE",
+          "description": "Innings2 overs"
+        },
+        {
+          "name": "chase_target",
+          "type": "HUGEINT",
+          "description": "Chase target"
+        },
+        {
+          "name": "chase_result",
+          "type": "VARCHAR",
+          "description": "Chase result"
+        }
+      ]
+    },
+    "analytics_ipl_new_batter_vulnerability_alltime": {
+      "category": "batting",
+      "description": "IPL New batter vulnerability alltime",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "ball_phase",
+          "type": "VARCHAR",
+          "description": "Ball phase"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        }
+      ]
+    },
+    "analytics_ipl_new_batter_vulnerability_since2023": {
+      "category": "batting",
+      "description": "IPL New batter vulnerability since2023",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "ball_phase",
+          "type": "VARCHAR",
+          "description": "Ball phase"
+        },
+        {
+          "name": "balls",
+          "type": "BIGINT",
+          "description": "Balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        }
+      ]
+    },
+    "analytics_ipl_partnership_analysis_alltime": {
+      "category": "general",
+      "description": "IPL Partnership analysis alltime",
+      "columns": [
+        {
+          "name": "player_a_id",
+          "type": "VARCHAR",
+          "description": "Player a id"
+        },
+        {
+          "name": "player_a_name",
+          "type": "VARCHAR",
+          "description": "Player a name"
+        },
+        {
+          "name": "player_b_id",
+          "type": "VARCHAR",
+          "description": "Player b id"
+        },
+        {
+          "name": "player_b_name",
+          "type": "VARCHAR",
+          "description": "Player b name"
+        },
+        {
+          "name": "partnerships",
+          "type": "BIGINT",
+          "description": "Partnerships"
+        },
+        {
+          "name": "total_runs",
+          "type": "HUGEINT",
+          "description": "Total runs from the delivery"
+        },
+        {
+          "name": "balls",
+          "type": "HUGEINT",
+          "description": "Balls"
+        },
+        {
+          "name": "boundaries",
+          "type": "HUGEINT",
+          "description": "Boundaries"
+        },
+        {
+          "name": "run_rate",
+          "type": "DOUBLE",
+          "description": "Run rate"
+        }
+      ]
+    },
+    "analytics_ipl_partnership_analysis_since2023": {
+      "category": "general",
+      "description": "IPL Partnership analysis since2023",
+      "columns": [
+        {
+          "name": "player_a_id",
+          "type": "VARCHAR",
+          "description": "Player a id"
+        },
+        {
+          "name": "player_a_name",
+          "type": "VARCHAR",
+          "description": "Player a name"
+        },
+        {
+          "name": "player_b_id",
+          "type": "VARCHAR",
+          "description": "Player b id"
+        },
+        {
+          "name": "player_b_name",
+          "type": "VARCHAR",
+          "description": "Player b name"
+        },
+        {
+          "name": "partnerships",
+          "type": "BIGINT",
+          "description": "Partnerships"
+        },
+        {
+          "name": "total_runs",
+          "type": "HUGEINT",
+          "description": "Total runs from the delivery"
+        },
+        {
+          "name": "balls",
+          "type": "HUGEINT",
+          "description": "Balls"
+        },
+        {
+          "name": "boundaries",
+          "type": "HUGEINT",
+          "description": "Boundaries"
+        },
+        {
+          "name": "run_rate",
+          "type": "DOUBLE",
+          "description": "Run rate"
+        }
+      ]
+    },
+    "analytics_ipl_required_rate_performance_alltime": {
+      "category": "general",
+      "description": "IPL Required rate performance alltime",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "pressure_band",
+          "type": "VARCHAR",
+          "description": "Pressure band"
+        },
+        {
+          "name": "balls_faced",
+          "type": "BIGINT",
+          "description": "Balls faced"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        }
+      ]
+    },
+    "analytics_ipl_required_rate_performance_since2023": {
+      "category": "general",
+      "description": "IPL Required rate performance since2023",
+      "columns": [
+        {
+          "name": "batter_id",
+          "type": "VARCHAR",
+          "description": "Batter player identifier"
+        },
+        {
+          "name": "batter_name",
+          "type": "VARCHAR",
+          "description": "Batter name"
+        },
+        {
+          "name": "pressure_band",
+          "type": "VARCHAR",
+          "description": "Pressure band"
+        },
+        {
+          "name": "balls_faced",
+          "type": "BIGINT",
+          "description": "Balls faced"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "dismissals",
+          "type": "HUGEINT",
+          "description": "Dismissals"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
         }
       ]
     },
@@ -4049,6 +9301,128 @@
         }
       ]
     },
+    "analytics_ipl_team_phase_scoring_alltime": {
+      "category": "team",
+      "description": "IPL Team phase scoring alltime",
+      "columns": [
+        {
+          "name": "batting_team_id",
+          "type": "VARCHAR",
+          "description": "Batting team identifier"
+        },
+        {
+          "name": "team_name",
+          "type": "VARCHAR",
+          "description": "Team name"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "balls",
+          "type": "HUGEINT",
+          "description": "Balls"
+        },
+        {
+          "name": "run_rate",
+          "type": "DOUBLE",
+          "description": "Run rate"
+        },
+        {
+          "name": "wickets_lost",
+          "type": "HUGEINT",
+          "description": "Wickets lost"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        }
+      ]
+    },
+    "analytics_ipl_team_phase_scoring_since2023": {
+      "category": "team",
+      "description": "IPL Team phase scoring since2023",
+      "columns": [
+        {
+          "name": "batting_team_id",
+          "type": "VARCHAR",
+          "description": "Batting team identifier"
+        },
+        {
+          "name": "team_name",
+          "type": "VARCHAR",
+          "description": "Team name"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "balls",
+          "type": "HUGEINT",
+          "description": "Balls"
+        },
+        {
+          "name": "run_rate",
+          "type": "DOUBLE",
+          "description": "Run rate"
+        },
+        {
+          "name": "wickets_lost",
+          "type": "HUGEINT",
+          "description": "Wickets lost"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        }
+      ]
+    },
     "analytics_ipl_team_roster": {
       "category": "team",
       "description": "IPL Team roster",
@@ -4100,6 +9474,138 @@
         }
       ]
     },
+    "analytics_ipl_venue_profile_alltime": {
+      "category": "general",
+      "description": "IPL Venue profile alltime",
+      "columns": [
+        {
+          "name": "venue_id",
+          "type": "VARCHAR",
+          "description": "Unique venue identifier"
+        },
+        {
+          "name": "venue_name",
+          "type": "VARCHAR",
+          "description": "Match venue name"
+        },
+        {
+          "name": "city",
+          "type": "VARCHAR",
+          "description": "City where venue is located"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "total_runs",
+          "type": "HUGEINT",
+          "description": "Total runs from the delivery"
+        },
+        {
+          "name": "total_balls",
+          "type": "HUGEINT",
+          "description": "Total balls"
+        },
+        {
+          "name": "run_rate",
+          "type": "DOUBLE",
+          "description": "Run rate"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "wickets_per_match",
+          "type": "DOUBLE",
+          "description": "Wickets per match"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        }
+      ]
+    },
+    "analytics_ipl_venue_profile_since2023": {
+      "category": "general",
+      "description": "IPL Venue profile since2023",
+      "columns": [
+        {
+          "name": "venue_id",
+          "type": "VARCHAR",
+          "description": "Unique venue identifier"
+        },
+        {
+          "name": "venue_name",
+          "type": "VARCHAR",
+          "description": "Match venue name"
+        },
+        {
+          "name": "city",
+          "type": "VARCHAR",
+          "description": "City where venue is located"
+        },
+        {
+          "name": "innings",
+          "type": "BIGINT",
+          "description": "Innings number"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "total_runs",
+          "type": "HUGEINT",
+          "description": "Total runs from the delivery"
+        },
+        {
+          "name": "total_balls",
+          "type": "HUGEINT",
+          "description": "Total balls"
+        },
+        {
+          "name": "run_rate",
+          "type": "DOUBLE",
+          "description": "Run rate"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "wickets_per_match",
+          "type": "DOUBLE",
+          "description": "Wickets per match"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        }
+      ]
+    },
     "analytics_ipl_vs_bowler_type_benchmarks": {
       "category": "bowling",
       "description": "IPL Vs bowler type benchmarks",
@@ -4138,6 +9644,170 @@
           "name": "avg_boundary_pct",
           "type": "DOUBLE",
           "description": "Avg boundary pct"
+        }
+      ]
+    },
+    "analytics_ipl_vs_bowler_type_benchmarks_alltime": {
+      "category": "bowling",
+      "description": "IPL Vs bowler type benchmarks alltime",
+      "columns": [
+        {
+          "name": "bowler_type",
+          "type": "VARCHAR",
+          "description": "Bowler type"
+        },
+        {
+          "name": "total_balls",
+          "type": "BIGINT",
+          "description": "Total balls"
+        },
+        {
+          "name": "total_runs",
+          "type": "HUGEINT",
+          "description": "Total runs from the delivery"
+        },
+        {
+          "name": "total_dismissals",
+          "type": "HUGEINT",
+          "description": "Total dismissals"
+        },
+        {
+          "name": "avg_strike_rate",
+          "type": "DOUBLE",
+          "description": "Avg strike rate"
+        },
+        {
+          "name": "avg_batting_avg",
+          "type": "DOUBLE",
+          "description": "Avg batting avg"
+        },
+        {
+          "name": "avg_boundary_pct",
+          "type": "DOUBLE",
+          "description": "Avg boundary pct"
+        }
+      ]
+    },
+    "analytics_ipl_vs_bowler_type_benchmarks_since2023": {
+      "category": "bowling",
+      "description": "IPL Vs bowler type benchmarks since2023",
+      "columns": [
+        {
+          "name": "bowler_type",
+          "type": "VARCHAR",
+          "description": "Bowler type"
+        },
+        {
+          "name": "total_balls",
+          "type": "BIGINT",
+          "description": "Total balls"
+        },
+        {
+          "name": "total_runs",
+          "type": "HUGEINT",
+          "description": "Total runs from the delivery"
+        },
+        {
+          "name": "total_dismissals",
+          "type": "HUGEINT",
+          "description": "Total dismissals"
+        },
+        {
+          "name": "avg_strike_rate",
+          "type": "DOUBLE",
+          "description": "Avg strike rate"
+        },
+        {
+          "name": "avg_batting_avg",
+          "type": "DOUBLE",
+          "description": "Avg batting avg"
+        },
+        {
+          "name": "avg_boundary_pct",
+          "type": "DOUBLE",
+          "description": "Avg boundary pct"
+        }
+      ]
+    },
+    "analytics_ipl_wicket_clusters_alltime": {
+      "category": "general",
+      "description": "IPL Wicket clusters alltime",
+      "columns": [
+        {
+          "name": "batting_team_id",
+          "type": "VARCHAR",
+          "description": "Batting team identifier"
+        },
+        {
+          "name": "batting_team_name",
+          "type": "VARCHAR",
+          "description": "Batting team name"
+        },
+        {
+          "name": "bowling_team_id",
+          "type": "VARCHAR",
+          "description": "Bowling team identifier"
+        },
+        {
+          "name": "bowling_team_name",
+          "type": "VARCHAR",
+          "description": "Bowling team name"
+        },
+        {
+          "name": "cluster_events",
+          "type": "HUGEINT",
+          "description": "Cluster events"
+        },
+        {
+          "name": "total_cluster_wickets",
+          "type": "HUGEINT",
+          "description": "Total cluster wickets"
+        },
+        {
+          "name": "matches_with_clusters",
+          "type": "BIGINT",
+          "description": "Matches with clusters"
+        }
+      ]
+    },
+    "analytics_ipl_wicket_clusters_since2023": {
+      "category": "general",
+      "description": "IPL Wicket clusters since2023",
+      "columns": [
+        {
+          "name": "batting_team_id",
+          "type": "VARCHAR",
+          "description": "Batting team identifier"
+        },
+        {
+          "name": "batting_team_name",
+          "type": "VARCHAR",
+          "description": "Batting team name"
+        },
+        {
+          "name": "bowling_team_id",
+          "type": "VARCHAR",
+          "description": "Bowling team identifier"
+        },
+        {
+          "name": "bowling_team_name",
+          "type": "VARCHAR",
+          "description": "Bowling team name"
+        },
+        {
+          "name": "cluster_events",
+          "type": "HUGEINT",
+          "description": "Cluster events"
+        },
+        {
+          "name": "total_cluster_wickets",
+          "type": "HUGEINT",
+          "description": "Total cluster wickets"
+        },
+        {
+          "name": "matches_with_clusters",
+          "type": "BIGINT",
+          "description": "Matches with clusters"
         }
       ]
     },
@@ -4519,7 +10189,7 @@
     },
     "analytics_top_run_scorers": {
       "category": "leaderboard",
-      "description": "Top IPL run scorers (all-time)",
+      "description": "Top run scorers",
       "columns": [
         {
           "name": "player_id",
@@ -4590,7 +10260,7 @@
     },
     "analytics_top_wicket_takers": {
       "category": "leaderboard",
-      "description": "Top IPL wicket takers (all-time)",
+      "description": "Top wicket takers",
       "columns": [
         {
           "name": "player_id",
@@ -4662,9 +10332,9 @@
   },
   "stats": {
     "total_tables": 15,
-    "total_views": 52,
+    "total_views": 132,
     "total_rows": 2380093,
     "parquet_size_mb": 15.25,
-    "generated_at": "2026-02-10T04:32:54.633950+00:00"
+    "generated_at": "2026-02-11T12:55:45.364063+00:00"
   }
 }

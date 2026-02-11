@@ -1,0 +1,21 @@
+{
+  "id": "TKT-181",
+  "title": "Film Room SQL views overhaul: audit, fix data scope, add 16 new analytical views",
+  "state": "RUNNING",
+  "priority": "P1",
+  "progress_pct": 0,
+  "description": "Audit all 35+ Film Room SQL views for IPL data scope clarity (2023+ vs all-time), create dual-set views, and add 16 new analytical views covering: batter entry point analysis, match context enrichment, over-by-over bowler breakdown, batting order flexibility, new batter vulnerability, partnership analysis, dot ball pressure, boundary dependency, wicket clusters, team phase scoring, required rate performance, left-right matchups, venue batting profiles, and bowling change impact.",
+  "epic_id": "EPIC-005",
+  "owner": "Stephen Curry",
+  "sprint_id": "SPRINT-004",
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "Directly improves paid artifact - Film Room is core analytical feature",
+      "approved_by": "Florentino Perez",
+      "date": "2026-02-11"
+    }
+  },
+  "created_at": "2026-02-11T11:37:18.531607Z",
+  "updated_at": "2026-02-11T11:37:35.021113Z"
+}

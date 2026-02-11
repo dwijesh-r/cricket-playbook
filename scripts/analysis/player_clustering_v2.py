@@ -23,6 +23,10 @@ Bug Fix (Sprint 2.9):
 - Fixed avg_batting_position to use legal ball count, not ball_seq
 - ball_seq includes wides/no-balls and can exceed 120 per innings
 - Now uses cumulative legal ball count for accurate position estimation
+
+Data Scope (TKT-181):
+- Uses _since2023 views (IPL 2023-2025) for clustering to reflect current form
+- All-time historical data available via _alltime view variants if needed
 """
 
 import warnings
@@ -40,7 +44,7 @@ warnings.filterwarnings("ignore")
 
 # Paths
 SCRIPT_DIR = Path(__file__).parent
-PROJECT_DIR = SCRIPT_DIR.parent
+PROJECT_DIR = SCRIPT_DIR.parent.parent  # analysis -> scripts -> project root
 DB_PATH = PROJECT_DIR / "data" / "cricket_playbook.duckdb"
 OUTPUT_DIR = PROJECT_DIR / "outputs"
 
@@ -83,6 +87,7 @@ def get_batter_features_v2(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
             JOIN dim_match dm ON fb.match_id = dm.match_id
             JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
             WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '2023-01-01'
         ),
         batting_position AS (
             -- Calculate average batting position using LEGAL ball count
@@ -113,7 +118,7 @@ def get_batter_features_v2(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
         career AS (
             SELECT player_id, player_name, balls_faced, runs, strike_rate,
                    batting_average, boundary_pct, dot_ball_pct
-            FROM analytics_ipl_batting_career
+            FROM analytics_ipl_batting_career_since2023
             WHERE balls_faced >= {min_balls}
         ),
         powerplay AS (
@@ -121,7 +126,7 @@ def get_batter_features_v2(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
                    strike_rate as pp_sr,
                    boundary_pct as pp_boundary,
                    dot_ball_pct as pp_dot
-            FROM analytics_ipl_batter_phase
+            FROM analytics_ipl_batter_phase_since2023
             WHERE match_phase = 'powerplay' AND balls_faced >= 50
         ),
         middle AS (
@@ -129,7 +134,7 @@ def get_batter_features_v2(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
                    strike_rate as mid_sr,
                    boundary_pct as mid_boundary,
                    dot_ball_pct as mid_dot
-            FROM analytics_ipl_batter_phase
+            FROM analytics_ipl_batter_phase_since2023
             WHERE match_phase = 'middle' AND balls_faced >= 50
         ),
         death AS (
@@ -137,7 +142,7 @@ def get_batter_features_v2(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
                    strike_rate as death_sr,
                    boundary_pct as death_boundary,
                    dot_ball_pct as death_dot
-            FROM analytics_ipl_batter_phase
+            FROM analytics_ipl_batter_phase_since2023
             WHERE match_phase = 'death' AND balls_faced >= 30
         )
         SELECT
@@ -208,13 +213,14 @@ def get_bowler_features_v2(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
             JOIN dim_match dm ON fb.match_id = dm.match_id
             JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
             WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '2023-01-01'
             GROUP BY fb.bowler_id
         ),
         career AS (
             SELECT player_id, player_name, balls_bowled, wickets,
                    economy_rate, bowling_average, bowling_strike_rate,
                    dot_ball_pct, boundary_conceded_pct
-            FROM analytics_ipl_bowling_career
+            FROM analytics_ipl_bowling_career_since2023
             WHERE balls_bowled >= {min_balls}
         ),
         powerplay AS (
@@ -222,7 +228,7 @@ def get_bowler_features_v2(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
                    economy_rate as pp_economy,
                    dot_ball_pct as pp_dot,
                    boundary_conceded_pct as pp_boundary
-            FROM analytics_ipl_bowler_phase
+            FROM analytics_ipl_bowler_phase_since2023
             WHERE match_phase = 'powerplay' AND balls_bowled >= 30
         ),
         middle AS (
@@ -230,7 +236,7 @@ def get_bowler_features_v2(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
                    economy_rate as mid_economy,
                    dot_ball_pct as mid_dot,
                    boundary_conceded_pct as mid_boundary
-            FROM analytics_ipl_bowler_phase
+            FROM analytics_ipl_bowler_phase_since2023
             WHERE match_phase = 'middle' AND balls_bowled >= 30
         ),
         death AS (
@@ -238,7 +244,7 @@ def get_bowler_features_v2(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
                    economy_rate as death_economy,
                    dot_ball_pct as death_dot,
                    boundary_conceded_pct as death_boundary
-            FROM analytics_ipl_bowler_phase
+            FROM analytics_ipl_bowler_phase_since2023
             WHERE match_phase = 'death' AND balls_bowled >= 30
         ),
         phase_distribution AS (
@@ -246,7 +252,7 @@ def get_bowler_features_v2(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
                    MAX(CASE WHEN match_phase = 'powerplay' THEN pct_overs_in_phase END) as pp_pct,
                    MAX(CASE WHEN match_phase = 'middle' THEN pct_overs_in_phase END) as mid_pct,
                    MAX(CASE WHEN match_phase = 'death' THEN pct_overs_in_phase END) as death_pct
-            FROM analytics_ipl_bowler_phase_distribution
+            FROM analytics_ipl_bowler_phase_distribution_since2023
             GROUP BY bowler_id
         )
         SELECT

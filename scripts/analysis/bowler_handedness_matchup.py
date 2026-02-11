@@ -8,7 +8,7 @@ Analyzes bowler performance against left-handed vs right-handed batters
 and generates matchup tags.
 
 Fixes from Sprint 3.0:
-- Uses analytics_ipl_bowler_vs_batter_handedness view (pre-computed)
+- Uses analytics_ipl_bowler_vs_batter_handedness_since2023 view (pre-computed)
 - Uses wickets/ball ratio instead of raw wicket count for wicket-taker tags
 - Consistent with batter matchup script methodology
 
@@ -54,8 +54,9 @@ MIN_BALLS_VS_HAND = config.MIN_BALLS_VS_HAND
 def get_bowler_vs_handedness(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Get bowler performance split by batter handedness.
 
-    Uses the pre-computed analytics_ipl_bowler_vs_batter_handedness view
-    which includes wickets_per_ball ratio for better wicket-taker tagging.
+    Uses the pre-computed analytics_ipl_bowler_vs_batter_handedness_since2023 view (IPL 2023+)
+    which includes wickets_per_ball ratio for better wicket-taker tagging. All-time data
+    available via analytics_ipl_bowler_vs_batter_handedness_alltime if historical context needed.
     """
 
     df = conn.execute(
@@ -76,7 +77,7 @@ def get_bowler_vs_handedness(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
             boundary_pct,
             wickets_per_ball,
             sample_size
-        FROM analytics_ipl_bowler_vs_batter_handedness
+        FROM analytics_ipl_bowler_vs_batter_handedness_since2023
         WHERE balls >= {MIN_BALLS_VS_HAND}
         ORDER BY bowler_name, batting_hand
     """

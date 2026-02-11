@@ -87,8 +87,9 @@ SPIN_TYPES = [
 def get_batter_vs_bowling_type(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Get batter performance split by bowling type.
 
-    Uses the pre-computed analytics_ipl_batter_vs_bowler_type table which has
-    comprehensive bowler type classification for all historical bowlers.
+    Uses the pre-computed analytics_ipl_batter_vs_bowler_type_since2023 view (IPL 2023+)
+    which has comprehensive bowler type classification. All-time data available via
+    analytics_ipl_batter_vs_bowler_type_alltime if historical context is needed.
 
     Note: No threshold applied here - we get ALL data so we can aggregate
     pace/spin totals first, then apply thresholds to the aggregated values.
@@ -110,7 +111,7 @@ def get_batter_vs_bowling_type(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
             average,
             dot_ball_pct as dot_pct,
             boundary_pct
-        FROM analytics_ipl_batter_vs_bowler_type
+        FROM analytics_ipl_batter_vs_bowler_type_since2023
         WHERE bowler_type != 'Unknown'
         ORDER BY batter_name, bowler_type
     """

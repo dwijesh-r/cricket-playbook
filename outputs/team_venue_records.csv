@@ -1,0 +1,83 @@
+team_name,venue_name,city,matches,wins,losses,no_results,win_pct,record
+Chennai Super Kings,"Eden Gardens, Kolkata",Kolkata,2,2.0,0.0,0.0,100.0,2-0
+Chennai Super Kings,"Wankhede Stadium, Mumbai",Mumbai,3,2.0,1.0,0.0,66.7,2-1
+Chennai Super Kings,"MA Chidambaram Stadium, Chepauk, Chennai",Chennai,21,11.0,10.0,0.0,52.4,11-10
+Chennai Super Kings,"Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",Lucknow,3,1.0,1.0,1.0,50.0,1-1
+Chennai Super Kings,"Narendra Modi Stadium, Ahmedabad",Ahmedabad,4,2.0,2.0,0.0,50.0,2-2
+Chennai Super Kings,"Arun Jaitley Stadium, Delhi",Delhi,2,1.0,1.0,0.0,50.0,1-1
+Chennai Super Kings,"M Chinnaswamy Stadium, Bengaluru",Bengaluru,3,1.0,2.0,0.0,33.3,1-2
+Delhi Capitals,"Himachal Pradesh Cricket Association Stadium, Dharamsala",Dharamsala,2,1.0,0.0,1.0,100.0,1-0
+Delhi Capitals,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",Hyderabad,2,1.0,0.0,1.0,100.0,1-0
+Delhi Capitals,"Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium, Visakhapatnam",Visakhapatnam,4,3.0,1.0,0.0,75.0,3-1
+Delhi Capitals,"Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",Lucknow,3,2.0,1.0,0.0,66.7,2-1
+Delhi Capitals,"Narendra Modi Stadium, Ahmedabad",Ahmedabad,3,2.0,1.0,0.0,66.7,2-1
+Delhi Capitals,"MA Chidambaram Stadium, Chepauk, Chennai",Chennai,2,1.0,1.0,0.0,50.0,1-1
+Delhi Capitals,"Sawai Mansingh Stadium, Jaipur",Jaipur,2,1.0,1.0,0.0,50.0,1-1
+Delhi Capitals,"Arun Jaitley Stadium, Delhi",Delhi,17,6.0,10.0,1.0,37.5,6-10
+Delhi Capitals,"M Chinnaswamy Stadium, Bengaluru",Bengaluru,3,1.0,2.0,0.0,33.3,1-2
+Delhi Capitals,"Wankhede Stadium, Mumbai",Mumbai,2,0.0,2.0,0.0,0.0,0-2
+Gujarat Titans,"Eden Gardens, Kolkata",Kolkata,2,2.0,0.0,0.0,100.0,2-0
+Gujarat Titans,"M Chinnaswamy Stadium, Bengaluru",Bengaluru,3,2.0,1.0,0.0,66.7,2-1
+Gujarat Titans,"Sawai Mansingh Stadium, Jaipur",Jaipur,3,2.0,1.0,0.0,66.7,2-1
+Gujarat Titans,"Arun Jaitley Stadium, Delhi",Delhi,3,2.0,1.0,0.0,66.7,2-1
+Gujarat Titans,"Narendra Modi Stadium, Ahmedabad",Ahmedabad,22,12.0,10.0,0.0,54.5,12-10
+Gujarat Titans,"Wankhede Stadium, Mumbai",Mumbai,2,1.0,1.0,0.0,50.0,1-1
+Gujarat Titans,"Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",Lucknow,3,1.0,2.0,0.0,33.3,1-2
+Gujarat Titans,"MA Chidambaram Stadium, Chepauk, Chennai",Chennai,2,0.0,2.0,0.0,0.0,0-2
+Kolkata Knight Riders,"Narendra Modi Stadium, Ahmedabad",Ahmedabad,2,2.0,0.0,0.0,100.0,2-0
+Kolkata Knight Riders,"M Chinnaswamy Stadium, Bengaluru",Bengaluru,2,2.0,0.0,0.0,100.0,2-0
+Kolkata Knight Riders,"MA Chidambaram Stadium, Chepauk, Chennai",Chennai,4,3.0,1.0,0.0,75.0,3-1
+Kolkata Knight Riders,"Eden Gardens, Kolkata",Kolkata,21,9.0,11.0,1.0,45.0,9-11
+Kolkata Knight Riders,"Wankhede Stadium, Mumbai",Mumbai,3,1.0,2.0,0.0,33.3,1-2
+Kolkata Knight Riders,"Arun Jaitley Stadium, Delhi",Delhi,3,1.0,2.0,0.0,33.3,1-2
+Lucknow Super Giants,"M Chinnaswamy Stadium, Bengaluru",Bengaluru,2,2.0,0.0,0.0,100.0,2-0
+Lucknow Super Giants,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",Hyderabad,3,2.0,1.0,0.0,66.7,2-1
+Lucknow Super Giants,"Eden Gardens, Kolkata",Kolkata,3,2.0,1.0,0.0,66.7,2-1
+Lucknow Super Giants,"Sawai Mansingh Stadium, Jaipur",Jaipur,3,2.0,1.0,0.0,66.7,2-1
+Lucknow Super Giants,"Wankhede Stadium, Mumbai",Mumbai,2,1.0,1.0,0.0,50.0,1-1
+Lucknow Super Giants,"Narendra Modi Stadium, Ahmedabad",Ahmedabad,2,1.0,1.0,0.0,50.0,1-1
+Lucknow Super Giants,"Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",Lucknow,21,9.0,11.0,1.0,45.0,9-11
+Lucknow Super Giants,"MA Chidambaram Stadium, Chepauk, Chennai",Chennai,3,1.0,2.0,0.0,33.3,1-2
+Mumbai Indians,"Arun Jaitley Stadium, Delhi",Delhi,3,2.0,1.0,0.0,66.7,2-1
+Mumbai Indians,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",Hyderabad,3,2.0,1.0,0.0,66.7,2-1
+Mumbai Indians,"Wankhede Stadium, Mumbai",Mumbai,21,13.0,8.0,0.0,61.9,13-8
+Mumbai Indians,"Sawai Mansingh Stadium, Jaipur",Jaipur,3,1.0,2.0,0.0,33.3,1-2
+Mumbai Indians,"MA Chidambaram Stadium, Chepauk, Chennai",Chennai,3,1.0,2.0,0.0,33.3,1-2
+Mumbai Indians,"Narendra Modi Stadium, Ahmedabad",Ahmedabad,5,0.0,5.0,0.0,0.0,0-5
+Mumbai Indians,"Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",Lucknow,3,0.0,3.0,0.0,0.0,0-3
+Punjab Kings,"MA Chidambaram Stadium, Chepauk, Chennai",Chennai,3,3.0,0.0,0.0,100.0,3-0
+Punjab Kings,"Barsapara Cricket Stadium, Guwahati",Guwahati,2,2.0,0.0,0.0,100.0,2-0
+Punjab Kings,"Narendra Modi Stadium, Ahmedabad",Ahmedabad,4,3.0,1.0,0.0,75.0,3-1
+Punjab Kings,"Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",Lucknow,3,2.0,1.0,0.0,66.7,2-1
+Punjab Kings,"Sawai Mansingh Stadium, Jaipur",Jaipur,3,2.0,1.0,0.0,66.7,2-1
+Punjab Kings,"Eden Gardens, Kolkata",Kolkata,3,1.0,1.0,1.0,50.0,1-1
+Punjab Kings,"M Chinnaswamy Stadium, Bengaluru",Bengaluru,2,1.0,1.0,0.0,50.0,1-1
+Punjab Kings,"Maharaja Yadavindra Singh International Cricket Stadium, Mullanpur",Mohali,9,3.0,6.0,0.0,33.3,3-6
+Punjab Kings,"Himachal Pradesh Cricket Association Stadium, Dharamsala",Dharamsala,6,1.0,4.0,1.0,20.0,1-4
+Punjab Kings,"Punjab Cricket Association IS Bindra Stadium, Mohali, Chandigarh",Chandigarh,5,1.0,4.0,0.0,20.0,1-4
+Punjab Kings,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",Hyderabad,3,0.0,3.0,0.0,0.0,0-3
+Rajasthan Royals,"Maharaja Yadavindra Singh International Cricket Stadium, Mullanpur",Mohali,2,2.0,0.0,0.0,100.0,2-0
+Rajasthan Royals,"Narendra Modi Stadium, Ahmedabad",Ahmedabad,3,2.0,1.0,0.0,66.7,2-1
+Rajasthan Royals,"Eden Gardens, Kolkata",Kolkata,3,2.0,1.0,0.0,66.7,2-1
+Rajasthan Royals,"Wankhede Stadium, Mumbai",Mumbai,2,1.0,1.0,0.0,50.0,1-1
+Rajasthan Royals,"Arun Jaitley Stadium, Delhi",Delhi,3,1.0,1.0,1.0,50.0,1-1
+Rajasthan Royals,"Sawai Mansingh Stadium, Jaipur",Jaipur,15,6.0,9.0,0.0,40.0,6-9
+Rajasthan Royals,"Barsapara Cricket Stadium, Guwahati",Guwahati,5,2.0,3.0,0.0,40.0,2-3
+Rajasthan Royals,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",Hyderabad,3,1.0,2.0,0.0,33.3,1-2
+Rajasthan Royals,"MA Chidambaram Stadium, Chepauk, Chennai",Chennai,3,1.0,2.0,0.0,33.3,1-2
+Rajasthan Royals,"M Chinnaswamy Stadium, Bengaluru",Bengaluru,2,0.0,2.0,0.0,0.0,0-2
+Royal Challengers Bangalore,"M Chinnaswamy Stadium, Bengaluru",Bengaluru,7,3.0,4.0,0.0,42.9,3-4
+Royal Challengers Bengaluru,"Narendra Modi Stadium, Ahmedabad",Ahmedabad,3,2.0,1.0,0.0,66.7,2-1
+Royal Challengers Bengaluru,"Eden Gardens, Kolkata",Kolkata,2,1.0,1.0,0.0,50.0,1-1
+Royal Challengers Bengaluru,"Wankhede Stadium, Mumbai",Mumbai,2,1.0,1.0,0.0,50.0,1-1
+Royal Challengers Bengaluru,"M Chinnaswamy Stadium, Bengaluru",Bengaluru,12,6.0,6.0,0.0,50.0,6-6
+Royal Challengers Bengaluru,"Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",Lucknow,2,1.0,1.0,0.0,50.0,1-1
+Royal Challengers Bengaluru,"MA Chidambaram Stadium, Chepauk, Chennai",Chennai,2,1.0,1.0,0.0,50.0,1-1
+Royal Challengers Bengaluru,"Sawai Mansingh Stadium, Jaipur",Jaipur,2,1.0,1.0,0.0,50.0,1-1
+Sunrisers Hyderabad,"Arun Jaitley Stadium, Delhi",Delhi,3,3.0,0.0,0.0,100.0,3-0
+Sunrisers Hyderabad,"Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",Lucknow,3,2.0,1.0,0.0,66.7,2-1
+Sunrisers Hyderabad,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",Hyderabad,19,8.0,10.0,1.0,44.4,8-10
+Sunrisers Hyderabad,"MA Chidambaram Stadium, Chepauk, Chennai",Chennai,5,2.0,3.0,0.0,40.0,2-3
+Sunrisers Hyderabad,"Eden Gardens, Kolkata",Kolkata,3,1.0,2.0,0.0,33.3,1-2
+Sunrisers Hyderabad,"Narendra Modi Stadium, Ahmedabad",Ahmedabad,4,0.0,4.0,0.0,0.0,0-4
+Sunrisers Hyderabad,"Wankhede Stadium, Mumbai",Mumbai,3,0.0,3.0,0.0,0.0,0-3

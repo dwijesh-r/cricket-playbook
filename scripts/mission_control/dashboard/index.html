@@ -7780,6 +7780,7 @@ Gate Inheritance:
               context: { ask: 'Add T20 fallback data from other tournaments for 51 uncapped IPL 2026 players', goal: 'Uncapped Watch section in stat packs with T20 profiles for players without IPL history', reason: '34 of 51 uncapped players have meaningful T20 data from BBL, PSL, CPL, etc.', audible: ['Render T20 columns for uncapped players', 'Add Uncapped Watch section', 'Tag uncapped players in player_tags.json'] }
             },
             { id: 'TKT-183', title: 'Tournament Quality Weighting System: 5-Factor Composite', state: 'READY', priority: 'P1', effort: 'marathon', assignee: 'Jose Mourinho', epic: 'EPIC-006', progress: 0, tags: ['Analytics', 'Quant Research'], gates: { florentino_gate: 'APPROVED' },
+              review: 'reviews/founder/tournament_weighting_plan_021126_v1.md',
               context: { ask: 'Build 5-factor composite weight system: PQI, Competitiveness, Recency Decay, Conditions Similarity, Sample Size Confidence', goal: 'Tournament quality weights across 426 tournaments / 9,357 matches', reason: 'Analytical credibility requires principled weighting of non-IPL T20 data', audible: ['Phase 1: Data Layer', 'Phase 2: Weight Computation', 'Phase 3: Integration', 'Phase 4: Validation'] },
               documents: [{ title: 'Tournament Quality Weighting Plan (Founder Review)', path: 'reviews/founder/tournament_weighting_plan_021126_v1.md', status: 'FOUNDER_REVIEW' }]
             }
@@ -8872,12 +8873,13 @@ Gate Inheritance:
                         ${t.effort ? `<span class="effort effort-${t.effort}">${effortLevels[t.effort]?.name || t.effort}</span>` : ''}
                         ${t.tags.slice(0, 2).map(tag => `<span class="tag ${getTagClass(tag)}">${tag}</span>`).join('')}
                     </div>
-                    ${t.prd || t.output || t.review || t.branch ? `
+                    ${t.prd || t.output || t.review || t.branch || (t.documents && t.documents.length) ? `
                         <div class="ticket-links">
                             ${t.branch ? `<a href="https://github.com/dwijesh-r/cricket-playbook/tree/${t.branch}" target="_blank" rel="noopener" class="link-btn branch-btn" onclick="event.stopPropagation()">🌿 ${t.branch.replace('feature/', '').substring(0, 20)}</a>` : ''}
                             ${t.prd ? `<a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/${t.prd}" target="_blank" rel="noopener" class="link-btn" onclick="event.stopPropagation()">📄 PRD</a>` : ''}
                             ${t.output ? `<a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/${t.output}" target="_blank" rel="noopener" class="link-btn" onclick="event.stopPropagation()">📁 Output</a>` : ''}
                             ${t.review ? `<a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/${t.review}" target="_blank" rel="noopener" class="link-btn review-btn" onclick="event.stopPropagation()">🌹 Review</a>` : ''}
+                            ${t.documents ? t.documents.map(doc => `<a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/${doc.path}" target="_blank" rel="noopener" class="link-btn review-btn" onclick="event.stopPropagation()">📋 ${doc.title.substring(0, 25)}</a>`).join('') : ''}
                         </div>
                     ` : ''}
                     <div class="gate-progress">

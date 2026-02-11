@@ -1,6 +1,6 @@
 # Lucknow Super Giants (LSG) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-11 18:35
+**Generated:** 2026-02-11 22:52
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -125,9 +125,9 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** Ravi Bishnoi (16w @ 7.58), Yash Thakur (13w @ 8.61), MA Wood (11w @ 8.35)
-- **2024:** Naveen-ul-Haq (14w @ 9.7), Yash Thakur (11w @ 10.8), Mohsin Khan (10w @ 9.75)
-- **2025:** DS Rathi (14w @ 8.13), Avesh Khan (13w @ 9.94), SN Thakur (13w @ 9.98)
+- **2023:** Ravi Bishnoi (16w @ 7.58), Yash Thakur (13w @ 8.61), Naveen-ul-Haq (11w @ 7.78)
+- **2024:** Naveen-ul-Haq (14w @ 9.7), Yash Thakur (11w @ 10.8), Ravi Bishnoi (10w @ 8.53)
+- **2025:** DS Rathi (14w @ 8.13), SN Thakur (13w @ 9.98), Avesh Khan (13w @ 9.94)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -166,10 +166,10 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
-| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 181.0 |
-| Eden Gardens | 3 | 2 | 66.7% | 191.7 |
-| MA Chidambaram Stadium | 3 | 1 | 33.3% | 173.0 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 169.0 |
+| MA Chidambaram Stadium | 3 | 1 | 33.3% | 173.0 |
+| Eden Gardens | 3 | 2 | 66.7% | 191.7 |
+| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 181.0 |
 | Wankhede Stadium | 2 | 1 | 50.0% | 187.5 |
 | M Chinnaswamy Stadium | 2 | 2 | 100.0% | 197.0 |
 | Narendra Modi Stadium | 2 | 1 | 50.0% | 203.0 |
@@ -183,11 +183,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -214,8 +214,8 @@
 |--------|-------|---------|------|------|-----|
 | Mohammed Shami | Narendra Modi Stadium | 10 | 17 | 7.76 | 13.06 |
 | Avesh Khan | Sawai Mansingh Stadium | 7 | 9 | 9.19 | 18.0 |
-| MR Marsh | Arun Jaitley Stadium | 5 | 7 | 8.43 | 11.29 |
 | DS Rathi | Bharat Ratna Shri Atal Bi | 7 | 7 | 7.18 | 24.0 |
+| MR Marsh | Arun Jaitley Stadium | 5 | 7 | 8.43 | 11.29 |
 | Avesh Khan | Bharat Ratna Shri Atal Bi | 11 | 7 | 8.27 | 32.14 |
 | Avesh Khan | Narendra Modi Stadium | 3 | 6 | 10.99 | 11.83 |
 | PWH de Silva | M Chinnaswamy Stadium | 5 | 5 | 8.47 | 20.4 |
@@ -403,13 +403,13 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 5 | 102 | 159 | 7 | 9.35 | 22.71 | 14.57 | 33.33 | 22.55 | HIGH |
 | Rajasthan Royals | 2 | 48 | 63 | 6 | 7.88 | 10.5 | 8.0 | 35.42 | 16.67 | MEDIUM |
-| Gujarat Titans | 5 | 113 | 185 | 5 | 9.82 | 37.0 | 22.6 | 23.01 | 21.24 | HIGH |
 | Mumbai Indians | 4 | 96 | 157 | 5 | 9.81 | 31.4 | 19.2 | 31.25 | 22.92 | MEDIUM |
+| Gujarat Titans | 5 | 113 | 185 | 5 | 9.82 | 37.0 | 22.6 | 23.01 | 21.24 | HIGH |
 | Punjab Kings | 6 | 119 | 198 | 4 | 9.98 | 49.5 | 29.75 | 27.73 | 22.69 | HIGH |
 | Royal Challengers Bengaluru | 4 | 90 | 175 | 4 | 11.67 | 43.75 | 22.5 | 23.33 | 32.22 | MEDIUM |
 | Delhi Capitals | 4 | 78 | 117 | 3 | 9.0 | 39.0 | 26.0 | 37.18 | 24.36 | MEDIUM |
-| Kolkata Knight Riders | 2 | 48 | 83 | 3 | 10.38 | 27.67 | 16.0 | 39.58 | 29.17 | MEDIUM |
 | Chennai Super Kings | 3 | 51 | 76 | 3 | 8.94 | 25.33 | 17.0 | 25.49 | 21.57 | MEDIUM |
+| Kolkata Knight Riders | 2 | 48 | 83 | 3 | 10.38 | 27.67 | 16.0 | 39.58 | 29.17 | MEDIUM |
 | Lucknow Super Giants | 2 | 42 | 54 | 1 | 7.71 | 54.0 | 42.0 | 23.81 | 9.52 | MEDIUM |
 
 ### Mohammed Shami
@@ -417,8 +417,8 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 3 | 66 | 76 | 7 | 6.91 | 10.86 | 9.43 | 60.61 | 18.18 | MEDIUM |
-| Chennai Super Kings | 4 | 85 | 115 | 5 | 8.12 | 23.0 | 17.0 | 38.82 | 18.82 | MEDIUM |
 | Kolkata Knight Riders | 3 | 72 | 94 | 5 | 7.83 | 18.8 | 14.4 | 43.06 | 16.67 | MEDIUM |
+| Chennai Super Kings | 4 | 85 | 115 | 5 | 8.12 | 23.0 | 17.0 | 38.82 | 18.82 | MEDIUM |
 | Rajasthan Royals | 3 | 66 | 82 | 5 | 7.45 | 16.4 | 13.2 | 57.58 | 19.7 | MEDIUM |
 | Gujarat Titans | 2 | 42 | 74 | 2 | 10.57 | 37.0 | 21.0 | 28.57 | 30.95 | MEDIUM |
 | Lucknow Super Giants | 3 | 60 | 90 | 2 | 9.0 | 45.0 | 30.0 | 31.67 | 21.67 | MEDIUM |
@@ -474,6 +474,106 @@
 *Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
 
 *No significant spin vulnerabilities identified*
+
+---
+
+## 11. Pressure Performance
+
+*How the squad performs when the required run rate escalates — IPL 2023+ data*
+
+### 11.1 Batting Under Pressure
+
+*Performance across Required Run Rate (RRR) bands — IPL 2023+*
+
+| Player | Band | Balls | SR | Avg | Boundary% | Dot% | Confidence |
+|--------|------|-------|----|-----|-----------|------|------------|
+| A Badoni | COMFORTABLE | 36 | 88.9 | 16 | 8.3 | 41.7 | MEDIUM |
+| A Badoni | HIGH | 38 | 76.3 | 9.7 | 5.3 | 50 | MEDIUM |
+| A Badoni | EXTREME | 39 | 149 | 58 | 17.9 | 23.1 | MEDIUM |
+| A Badoni | NEAR_IMPOSSIBLE | 65 | 162 | 35 | 16.9 | 21.5 | MEDIUM |
+| A Nortje | NEAR_IMPOSSIBLE | 23 | 117 | 13.5 | 17.4 | 34.8 | LOW |
+| AK Markram | COMFORTABLE | 62 | 158 | 49 | 21.0 | 22.6 | MEDIUM |
+| AK Markram | BUILDING | 62 | 135 | - | 19.4 | 32.3 | MEDIUM |
+| AK Markram | HIGH | 90 | 113 | 14.6 | 13.3 | 36.7 | MEDIUM |
+| AK Markram | EXTREME | 17 | 100 | 5.7 | 11.8 | 47.1 | LOW |
+| Abdul Samad | HIGH | 16 | 144 | 23 | 18.8 | 25 | LOW |
+| Abdul Samad | NEAR_IMPOSSIBLE | 95 | 118 | 28 | 12.6 | 35.8 | MEDIUM |
+| JP Inglis | COMFORTABLE | 23 | 87.0 | 20 | 13.0 | 47.8 | LOW |
+| JP Inglis | BUILDING | 35 | 234 | - | 40 | 20 | MEDIUM |
+| JP Inglis | HIGH | 48 | 127 | 30.5 | 18.8 | 45.8 | MEDIUM |
+| MR Marsh | COMFORTABLE | 36 | 125 | 11.2 | 19.4 | 38.9 | MEDIUM |
+| MR Marsh | BUILDING | 62 | 158 | 49 | 25.8 | 35.5 | MEDIUM |
+| MR Marsh | HIGH | 35 | 151 | 26.5 | 17.1 | 31.4 | MEDIUM |
+| MR Marsh | EXTREME | 18 | 66.7 | 4 | 11.1 | 61.1 | LOW |
+| N Pooran | COMFORTABLE | 51 | 157 | 26.7 | 21.6 | 39.2 | MEDIUM |
+| N Pooran | BUILDING | 41 | 222 | 91 | 36.6 | 36.6 | MEDIUM |
+| N Pooran | HIGH | 61 | 225 | 68.5 | 36.1 | 29.5 | MEDIUM |
+| N Pooran | EXTREME | 61 | 205 | 41.7 | 29.5 | 24.6 | MEDIUM |
+| N Pooran | NEAR_IMPOSSIBLE | 50 | 166 | 20.8 | 24 | 30 | MEDIUM |
+| RR Pant | COMFORTABLE | 32 | 134 | 21.5 | 15.6 | 34.4 | MEDIUM |
+| RR Pant | BUILDING | 55 | 133 | 73 | 20 | 38.2 | MEDIUM |
+| RR Pant | EXTREME | 23 | 87.0 | 20 | 13.0 | 65.2 | LOW |
+| RR Pant | NEAR_IMPOSSIBLE | 57 | 172 | 32.7 | 26.3 | 33.3 | MEDIUM |
+
+### 11.2 Bowling Under Pressure
+
+*Bowling performance across RRR bands — IPL 2023+*
+
+| Player | Band | Balls | Economy | Dot% | Bdry% Conc | Wickets | Confidence |
+|--------|------|-------|---------|------|------------|---------|------------|
+| A Nortje | COMFORTABLE | 42 | 9.1 | 50 | 26.2 | 3 | MEDIUM |
+| A Nortje | BUILDING | 19 | 6 | 42.1 | 5.3 | 1 | LOW |
+| A Nortje | HIGH | 30 | 11.2 | 33.3 | 30 | 1 | MEDIUM |
+| A Nortje | EXTREME | 29 | 9.9 | 20.7 | 17.2 | 1 | LOW |
+| A Nortje | NEAR_IMPOSSIBLE | 33 | 12 | 33.3 | 27.3 | 2 | MEDIUM |
+| AK Markram | COMFORTABLE | 43 | 8.0 | 32.6 | 13.9 | 3 | MEDIUM |
+| AK Markram | BUILDING | 36 | 9.3 | 25 | 16.7 | 1 | MEDIUM |
+| Akash Singh | HIGH | 51 | 10.3 | 37.2 | 27.4 | 2 | MEDIUM |
+| Akash Singh | EXTREME | 46 | 8.6 | 37.0 | 23.9 | 2 | MEDIUM |
+| Avesh Khan | COMFORTABLE | 57 | 8.3 | 38.6 | 19.3 | 4 | MEDIUM |
+| Avesh Khan | BUILDING | 89 | 8.0 | 34.8 | 16.9 | 1 | MEDIUM |
+| Avesh Khan | HIGH | 75 | 9.4 | 33.3 | 22.7 | 3 | MEDIUM |
+| Avesh Khan | EXTREME | 43 | 11.4 | 20.9 | 27.9 | 2 | MEDIUM |
+| Avesh Khan | NEAR_IMPOSSIBLE | 65 | 9.8 | 26.1 | 20 | 6 | MEDIUM |
+| DS Rathi | COMFORTABLE | 43 | 7.4 | 37.2 | 16.3 | 1 | MEDIUM |
+| DS Rathi | BUILDING | 71 | 7.7 | 29.6 | 12.7 | 4 | MEDIUM |
+| DS Rathi | HIGH | 58 | 7.3 | 36.2 | 13.8 | 2 | MEDIUM |
+| DS Rathi | EXTREME | 29 | 7.5 | 31.0 | 13.8 | 2 | LOW |
+| M Siddharth | COMFORTABLE | 18 | 9.7 | 11.1 | 16.7 | 0 | LOW |
+| M Siddharth | BUILDING | 38 | 7.6 | 39.5 | 10.5 | 1 | MEDIUM |
+| M Siddharth | HIGH | 29 | 8.5 | 44.8 | 24.1 | 1 | LOW |
+| MR Marsh | BUILDING | 39 | 7.8 | 25.6 | 12.8 | 1 | MEDIUM |
+| Mohammed Shami | COMFORTABLE | 39 | 9.5 | 35.9 | 23.1 | 1 | MEDIUM |
+| Mohammed Shami | BUILDING | 66 | 8.8 | 42.4 | 19.7 | 3 | MEDIUM |
+| Mohammed Shami | HIGH | 100 | 8.3 | 49 | 21 | 6 | HIGH |
+| Mohammed Shami | EXTREME | 29 | 9.9 | 41.4 | 27.6 | 2 | LOW |
+| Mohammed Shami | NEAR_IMPOSSIBLE | 36 | 6.3 | 30.6 | 8.3 | 3 | MEDIUM |
+| Mohsin Khan | COMFORTABLE | 24 | 8.8 | 45.8 | 20.8 | 2 | LOW |
+| Mohsin Khan | BUILDING | 35 | 11.5 | 31.4 | 28.6 | 0 | MEDIUM |
+| Mohsin Khan | HIGH | 25 | 12.7 | 40 | 44 | 0 | LOW |
+| Mohsin Khan | NEAR_IMPOSSIBLE | 21 | 8.9 | 42.9 | 14.3 | 4 | LOW |
+| PWH de Silva | COMFORTABLE | 55 | 9.5 | 34.5 | 21.8 | 1 | MEDIUM |
+| PWH de Silva | BUILDING | 53 | 11.2 | 24.5 | 28.3 | 4 | MEDIUM |
+| PWH de Silva | HIGH | 64 | 8.4 | 28.1 | 14.1 | 4 | MEDIUM |
+| PWH de Silva | EXTREME | 38 | 9.8 | 31.6 | 21.1 | 2 | MEDIUM |
+
+### 11.3 Pressure Ratings
+
+*How player performance shifts under pressure vs overall — IPL 2023+*
+
+| Player | Role | Delta% | Rating | Confidence |
+|--------|------|--------|--------|------------|
+| A Badoni | BATTER | +4.8% | **PRESSURE_PROOF** | HIGH |
+| RR Pant | BATTER | +3.9% | **PRESSURE_PROOF** | HIGH |
+| N Pooran | BATTER | +2.6% | **PRESSURE_PROOF** | HIGH |
+| Abdul Samad | BATTER | -9.8% | MODERATE | HIGH |
+| MR Marsh | BATTER | -11.0% | PRESSURE_SENSITIVE | HIGH |
+| AK Markram | BATTER | -14.2% | PRESSURE_SENSITIVE | HIGH |
+| JP Inglis | BATTER | -14.5% | PRESSURE_SENSITIVE | HIGH |
+
+---
+*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. COMFORTABLE (RRR < 6), BUILDING (6-8), HIGH (8-10), EXTREME (10-12), NEAR_IMPOSSIBLE (12+). Players must have faced/bowled >= 15 balls in at least one band to appear.*
+
 
 ---
 

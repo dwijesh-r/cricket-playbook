@@ -602,7 +602,7 @@ class TestV2ClusteringAndFounderReview3Fixes:
         """
         import json
 
-        player_tags_path = STAT_PACK_DIR.parent / "outputs" / "player_tags.json"
+        player_tags_path = STAT_PACK_DIR.parent / "outputs" / "tags" / "player_tags.json"
 
         if not player_tags_path.exists():
             pytest.skip("player_tags.json not found")

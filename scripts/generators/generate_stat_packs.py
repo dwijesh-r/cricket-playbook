@@ -1337,6 +1337,263 @@ def generate_venue_analysis(
     return md
 
 
+# =============================================================================
+# PRESSURE PERFORMANCE CONSTANTS
+# =============================================================================
+
+PRESSURE_BAND_ORDER = ["COMFORTABLE", "BUILDING", "HIGH", "EXTREME", "NEAR_IMPOSSIBLE"]
+
+# Balls threshold for pressure band confidence
+PRESSURE_CONFIDENCE_HIGH = 100
+PRESSURE_CONFIDENCE_MEDIUM = 30
+
+# Minimum balls for a player to appear in any pressure band table
+PRESSURE_MIN_BALLS_THRESHOLD = 15
+
+
+def _pressure_confidence_label(balls: int) -> str:
+    """
+    Derive a confidence label from ball count for pressure band data.
+
+    Args:
+        balls: Number of balls faced/bowled in a pressure band
+
+    Returns:
+        Confidence label: HIGH, MEDIUM, or LOW
+    """
+    if balls >= PRESSURE_CONFIDENCE_HIGH:
+        return "HIGH"
+    elif balls >= PRESSURE_CONFIDENCE_MEDIUM:
+        return "MEDIUM"
+    return "LOW"
+
+
+def _generate_batting_under_pressure(conn: duckdb.DuckDBPyConnection, team_name: str) -> List[str]:
+    """
+    Generate Batting Under Pressure subsection.
+
+    Shows batter performance across Required Run Rate bands (COMFORTABLE through
+    NEAR_IMPOSSIBLE) for players on the team's IPL 2026 squad.
+
+    Args:
+        conn: DuckDB database connection
+        team_name: Full team name (e.g., "Chennai Super Kings")
+
+    Returns:
+        List of markdown-formatted lines for the batting pressure table
+    """
+    md = ["### 11.1 Batting Under Pressure\n"]
+    md.append("*Performance across Required Run Rate (RRR) bands — IPL 2023+*\n")
+
+    rows = execute_query_safe(
+        conn,
+        f"""
+        WITH qualified AS (
+            SELECT bp.player_id
+            FROM analytics_ipl_batter_pressure_bands_since2023 bp
+            JOIN ipl_2026_squads sq ON bp.player_id = sq.player_id
+            WHERE sq.team_name = '{team_name}'
+            GROUP BY bp.player_id
+            HAVING MAX(bp.balls_faced) >= {PRESSURE_MIN_BALLS_THRESHOLD}
+        )
+        SELECT bp.player_name, bp.pressure_band, bp.balls_faced,
+               bp.strike_rate, bp.batting_average, bp.boundary_pct,
+               bp.dot_ball_pct
+        FROM analytics_ipl_batter_pressure_bands_since2023 bp
+        JOIN ipl_2026_squads sq ON bp.player_id = sq.player_id
+        JOIN qualified q ON bp.player_id = q.player_id
+        WHERE sq.team_name = '{team_name}'
+        ORDER BY bp.player_name,
+            CASE bp.pressure_band
+                WHEN 'COMFORTABLE' THEN 1
+                WHEN 'BUILDING' THEN 2
+                WHEN 'HIGH' THEN 3
+                WHEN 'EXTREME' THEN 4
+                WHEN 'NEAR_IMPOSSIBLE' THEN 5
+            END
+        """,
+        default=[],
+    )
+
+    if rows:
+        md.append("| Player | Band | Balls | SR | Avg | Boundary% | Dot% | Confidence |")
+        md.append("|--------|------|-------|----|-----|-----------|------|------------|")
+        for player, band, balls, sr, avg, bound_pct, dot_pct in rows:
+            confidence = _pressure_confidence_label(balls)
+            md.append(
+                f"| {player} | {band} | {balls} | {format_stat(sr)} | "
+                f"{format_stat(avg)} | {format_stat(bound_pct)} | "
+                f"{format_stat(dot_pct)} | {confidence} |"
+            )
+    else:
+        md.append("*No qualifying batting pressure data available for this squad*")
+
+    md.append("")
+    return md
+
+
+def _generate_bowling_under_pressure(conn: duckdb.DuckDBPyConnection, team_name: str) -> List[str]:
+    """
+    Generate Bowling Under Pressure subsection.
+
+    Shows bowler performance across Required Run Rate bands for players on the
+    team's IPL 2026 squad.
+
+    Args:
+        conn: DuckDB database connection
+        team_name: Full team name (e.g., "Chennai Super Kings")
+
+    Returns:
+        List of markdown-formatted lines for the bowling pressure table
+    """
+    md = ["### 11.2 Bowling Under Pressure\n"]
+    md.append("*Bowling performance across RRR bands — IPL 2023+*\n")
+
+    rows = execute_query_safe(
+        conn,
+        f"""
+        WITH qualified AS (
+            SELECT bp.player_id
+            FROM analytics_ipl_bowler_pressure_bands_since2023 bp
+            JOIN ipl_2026_squads sq ON bp.player_id = sq.player_id
+            WHERE sq.team_name = '{team_name}'
+            GROUP BY bp.player_id
+            HAVING MAX(bp.legal_balls) >= {PRESSURE_MIN_BALLS_THRESHOLD}
+        )
+        SELECT bp.player_name, bp.pressure_band, bp.legal_balls,
+               bp.economy, bp.dot_ball_pct, bp.boundary_conceded_pct,
+               bp.wickets
+        FROM analytics_ipl_bowler_pressure_bands_since2023 bp
+        JOIN ipl_2026_squads sq ON bp.player_id = sq.player_id
+        JOIN qualified q ON bp.player_id = q.player_id
+        WHERE sq.team_name = '{team_name}'
+        ORDER BY bp.player_name,
+            CASE bp.pressure_band
+                WHEN 'COMFORTABLE' THEN 1
+                WHEN 'BUILDING' THEN 2
+                WHEN 'HIGH' THEN 3
+                WHEN 'EXTREME' THEN 4
+                WHEN 'NEAR_IMPOSSIBLE' THEN 5
+            END
+        """,
+        default=[],
+    )
+
+    if rows:
+        md.append("| Player | Band | Balls | Economy | Dot% | Bdry% Conc | Wickets | Confidence |")
+        md.append("|--------|------|-------|---------|------|------------|---------|------------|")
+        for player, band, balls, econ, dot_pct, bdry_conc, wkts in rows:
+            confidence = _pressure_confidence_label(balls)
+            md.append(
+                f"| {player} | {band} | {balls} | {format_stat(econ)} | "
+                f"{format_stat(dot_pct)} | {format_stat(bdry_conc)} | "
+                f"{wkts or 0} | {confidence} |"
+            )
+    else:
+        md.append("*No qualifying bowling pressure data available for this squad*")
+
+    md.append("")
+    return md
+
+
+def _generate_pressure_ratings(conn: duckdb.DuckDBPyConnection, team_name: str) -> List[str]:
+    """
+    Generate Pressure Ratings subsection showing delta ratings.
+
+    Displays how key players' performance changes under pressure compared to
+    their overall numbers. Highlights CLUTCH and PRESSURE_PROOF ratings.
+
+    Args:
+        conn: DuckDB database connection
+        team_name: Full team name (e.g., "Chennai Super Kings")
+
+    Returns:
+        List of markdown-formatted lines for the pressure ratings table
+    """
+    md = ["### 11.3 Pressure Ratings\n"]
+    md.append("*How player performance shifts under pressure vs overall — IPL 2023+*\n")
+
+    rows = execute_query_safe(
+        conn,
+        f"""
+        SELECT pd.player_name, pd.role, pd.sr_delta_pct,
+               pd.pressure_rating, pd.sample_confidence
+        FROM analytics_ipl_pressure_deltas_since2023 pd
+        JOIN ipl_2026_squads sq ON pd.player_id = sq.player_id
+        WHERE sq.team_name = '{team_name}'
+        ORDER BY
+            CASE pd.pressure_rating
+                WHEN 'CLUTCH' THEN 1
+                WHEN 'PRESSURE_PROOF' THEN 2
+                WHEN 'MODERATE' THEN 3
+                WHEN 'PRESSURE_SENSITIVE' THEN 4
+            END,
+            pd.sr_delta_pct DESC
+        """,
+        default=[],
+    )
+
+    if rows:
+        md.append("| Player | Role | Delta% | Rating | Confidence |")
+        md.append("|--------|------|--------|--------|------------|")
+        for player, role, delta_pct, rating, confidence in rows:
+            # Highlight positive ratings
+            if rating in ("CLUTCH", "PRESSURE_PROOF"):
+                rating_display = f"**{rating}**"
+            else:
+                rating_display = rating
+            delta_str = f"+{delta_pct:.1f}" if delta_pct > 0 else f"{delta_pct:.1f}"
+            md.append(f"| {player} | {role} | {delta_str}% | {rating_display} | {confidence} |")
+    else:
+        md.append("*No pressure delta ratings available for this squad*")
+
+    md.append("")
+    return md
+
+
+def generate_pressure_performance(conn: duckdb.DuckDBPyConnection, team_name: str) -> List[str]:
+    """
+    Generate Section 11: Pressure Performance for a team's stat pack.
+
+    Combines three subsections:
+    - 11.1 Batting Under Pressure — batter performance across RRR bands
+    - 11.2 Bowling Under Pressure — bowler performance across RRR bands
+    - 11.3 Pressure Ratings — delta ratings highlighting clutch performers
+
+    Data sourced from analytics_ipl_*_pressure_*_since2023 views, filtered
+    to the team's IPL 2026 squad via ipl_2026_squads join.
+
+    Args:
+        conn: DuckDB database connection
+        team_name: Full team name (e.g., "Chennai Super Kings")
+
+    Returns:
+        List of markdown-formatted strings for the full pressure section
+    """
+    md = []
+    md.append("## 11. Pressure Performance\n")
+    md.append("*How the squad performs when the required run rate escalates — IPL 2023+ data*\n")
+
+    # 11.1 Batting Under Pressure
+    md.extend(_generate_batting_under_pressure(conn, team_name))
+
+    # 11.2 Bowling Under Pressure
+    md.extend(_generate_bowling_under_pressure(conn, team_name))
+
+    # 11.3 Pressure Ratings
+    md.extend(_generate_pressure_ratings(conn, team_name))
+
+    # Section note
+    md.append("---")
+    md.append(
+        "*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. "
+        "COMFORTABLE (RRR < 6), BUILDING (6-8), HIGH (8-10), EXTREME (10-12), NEAR_IMPOSSIBLE (12+). "
+        "Players must have faced/bowled >= 15 balls in at least one band to appear.*\n"
+    )
+
+    return md
+
+
 def generate_team_stat_pack(
     conn: duckdb.DuckDBPyConnection, team_name: str, tags_lookup: Dict[str, Dict[str, Any]]
 ) -> str:
@@ -1354,6 +1611,7 @@ def generate_team_stat_pack(
     8. Key Bowler vs Opposition - top bowlers' matchup data
     9. Key Player Venue Performance - venue-specific stats
     10. Tactical Insights - death bowling, powerplay, spin vulnerabilities
+    11. Pressure Performance - batting/bowling under pressure, pressure ratings
 
     Args:
         conn: DuckDB database connection (read-only recommended)
@@ -1911,6 +2169,13 @@ def generate_team_stat_pack(
             )
     else:
         md.append("*No significant spin vulnerabilities identified*")
+
+    # ==========================================================================
+    # SECTION 11: PRESSURE PERFORMANCE
+    # ==========================================================================
+    md.append("\n---\n")
+    pressure_section = generate_pressure_performance(conn, team_name)
+    md.extend(pressure_section)
 
     md.append("\n---\n")
     md.append(f"*End of {team_name} Stat Pack*")

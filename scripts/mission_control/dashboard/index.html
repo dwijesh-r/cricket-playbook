@@ -8219,7 +8219,9 @@ Gate Inheritance:
                     messages: d.messages,
                     sessions: d.sessions,
                     tools: d.tools,
-                    tokens: d.tokens
+                    tokens: d.tokens,
+                    commits: d.commits || 0,
+                    source: d.source || 'stats-cache'
                 };
             });
         })();
@@ -8384,11 +8386,23 @@ Gate Inheritance:
             }
 
             const metric = currentMetric;
-            const maxVal = Math.max(...activityData.map(d => d[metric]));
             const fmt = (typeof formatTokens === 'function') ? formatTokens : (n) => n.toLocaleString();
 
+            // For git-log entries, use commits as the bar value; for stats-cache, use selected metric
+            function getBarVal(d) {
+                if (d.source === 'git-log') return d.commits;
+                return d[metric];
+            }
+
+            // Separate max values for each source type so bars are proportional within their group
+            const cacheEntries = activityData.filter(d => d.source === 'stats-cache');
+            const gitEntries = activityData.filter(d => d.source === 'git-log');
+            const maxCache = cacheEntries.length ? Math.max(...cacheEntries.map(d => d[metric])) : 1;
+            const maxGit = gitEntries.length ? Math.max(...gitEntries.map(d => d.commits)) : 1;
+            const globalMax = Math.max(maxCache, maxGit, 1);
+
             // Color gradient based on relative intensity
-            function barColor(val) {
+            function barColor(val, maxVal) {
                 const pct = val / maxVal;
                 if (pct > 0.75) return { bg: 'linear-gradient(90deg, #ff453a, #ff6961)', tag: 'Peak', tagColor: '#ff453a' };
                 if (pct > 0.45) return { bg: 'linear-gradient(90deg, #ff9f0a, #ffb340)', tag: 'High', tagColor: '#ff9f0a' };
@@ -8408,54 +8422,79 @@ Gate Inheritance:
                 return Math.round((b - a) / (1000 * 60 * 60 * 24));
             }
 
-            // Explanatory header
-            let html = `<div style="font-size: 10px; color: var(--text-tertiary); margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">`;
-            html += `<span style="display: inline-block; width: 8px; height: 8px; background: var(--accent-blue); border-radius: 50%;"></span>`;
-            html += `Showing ${activityData.length} active session days only — idle days omitted</div>`;
+            // Legend header
+            const cacheDays = cacheEntries.length;
+            const gitDays = gitEntries.length;
+            let html = `<div style="font-size: 10px; color: var(--text-tertiary); margin-bottom: 10px; line-height: 1.6;">`;
+            html += `<span style="display: inline-block; width: 8px; height: 8px; background: var(--accent-blue); border-radius: 2px; margin-right: 4px;"></span>Full telemetry (${cacheDays} days)`;
+            if (gitDays > 0) {
+                html += `<span style="margin: 0 8px; opacity: 0.4;">|</span>`;
+                html += `<span style="display: inline-block; width: 8px; height: 8px; border: 1.5px dashed #af52de; border-radius: 2px; margin-right: 4px;"></span>Git commits only (${gitDays} days — stats-cache gap)`;
+            }
+            html += `</div>`;
 
             activityData.forEach((d, i) => {
+                const isGitOnly = d.source === 'git-log';
+
                 // Gap indicator between non-consecutive days
                 if (i > 0) {
                     const gap = daysBetween(activityData[i - 1].rawDate, d.rawDate);
                     if (gap > 1) {
-                        html += `<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; opacity: 0.5;">`;
+                        html += `<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px; opacity: 0.4;">`;
                         html += `<div style="min-width: 62px;"></div>`;
                         html += `<div style="flex: 1; display: flex; align-items: center; gap: 8px;">`;
                         html += `<div style="flex: 1; border-top: 1px dashed var(--border);"></div>`;
-                        html += `<span style="font-size: 9px; color: var(--text-tertiary); white-space: nowrap;">${gap - 1} day${gap - 1 !== 1 ? 's' : ''} idle</span>`;
+                        html += `<span style="font-size: 9px; color: var(--text-tertiary); white-space: nowrap;">${gap - 1}d gap</span>`;
                         html += `<div style="flex: 1; border-top: 1px dashed var(--border);"></div>`;
                         html += `</div></div>`;
                     }
                 }
 
-                const val = d[metric];
-                const pct = Math.max(3, (val / maxVal) * 100);
-                const color = barColor(val);
+                // For git-log entries: show commits bar. For stats-cache: show selected metric bar.
+                const val = isGitOnly ? d.commits : d[metric];
+                const refMax = isGitOnly ? maxGit : maxCache;
+                const pct = Math.max(3, (val / Math.max(refMax, 1)) * 100);
+                const color = isGitOnly
+                    ? { bg: 'linear-gradient(90deg, #af52de, #bf6ee0)', tag: '', tagColor: '' }
+                    : barColor(val, maxCache);
 
-                html += `<div style="display: flex; align-items: center; gap: 8px; margin-bottom: ${i < activityData.length - 1 ? '8' : '0'}px; position: relative;" class="activity-row">`;
+                html += `<div style="display: flex; align-items: center; gap: 8px; margin-bottom: ${i < activityData.length - 1 ? '6' : '0'}px;${isGitOnly ? ' opacity: 0.75;' : ''}" class="activity-row">`;
 
-                // Date column (fixed width)
+                // Date column
                 html += `<div style="min-width: 62px; text-align: right;">`;
                 html += `<div style="font-size: 11px; font-weight: 600; color: var(--text-primary);">${d.dateStr}</div>`;
                 html += `<div style="font-size: 9px; color: var(--text-tertiary);">${d.dayName}</div>`;
                 html += `</div>`;
 
                 // Bar + value
-                html += `<div style="flex: 1; position: relative;">`;
+                html += `<div style="flex: 1;">`;
                 html += `<div style="display: flex; align-items: center; gap: 6px;">`;
-                html += `<div style="flex: 1; height: 22px; background: var(--bg-elevated); border-radius: 6px; overflow: hidden; position: relative;">`;
-                html += `<div style="width: ${pct}%; height: 100%; background: ${color.bg}; border-radius: 6px; transition: width 0.4s ease;"></div>`;
+                html += `<div style="flex: 1; height: 20px; background: var(--bg-elevated); border-radius: 6px; overflow: hidden;${isGitOnly ? ' border: 1px dashed rgba(175,82,222,0.4);' : ''}">`;
+                html += `<div style="width: ${pct}%; height: 100%; background: ${color.bg}; border-radius: 5px; transition: width 0.4s ease;"></div>`;
                 html += `</div>`;
-                html += `<div style="min-width: 55px; text-align: right; font-size: 11px; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--text-primary);">${fmtVal(val)}</div>`;
+
+                // Value label
+                if (isGitOnly) {
+                    html += `<div style="min-width: 60px; text-align: right; font-size: 10px; font-weight: 600; font-variant-numeric: tabular-nums; color: #af52de;">${d.commits} commits</div>`;
+                } else {
+                    html += `<div style="min-width: 55px; text-align: right; font-size: 11px; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--text-primary);">${fmtVal(val)}</div>`;
+                }
                 html += `</div>`;
 
                 // Sub-stats row
                 const subParts = [];
-                if (metric !== 'messages') subParts.push(`${d.messages.toLocaleString()} msgs`);
-                if (metric !== 'tools') subParts.push(`${d.tools.toLocaleString()} tools`);
-                subParts.push(`${d.sessions} session${d.sessions !== 1 ? 's' : ''}`);
-                if (metric !== 'tokens') subParts.push(`${fmt(d.tokens)} tokens`);
-                html += `<div style="font-size: 9px; color: var(--text-tertiary); margin-top: 2px;">${subParts.join(' · ')}${color.tag ? ` <span style="color: ${color.tagColor}; font-weight: 600;">● ${color.tag}</span>` : ''}</div>`;
+                if (isGitOnly) {
+                    subParts.push('stats-cache gap');
+                    subParts.push(`${d.commits} git commits`);
+                } else {
+                    if (metric !== 'messages') subParts.push(`${d.messages.toLocaleString()} msgs`);
+                    if (metric !== 'tools') subParts.push(`${d.tools.toLocaleString()} tools`);
+                    subParts.push(`${d.sessions} session${d.sessions !== 1 ? 's' : ''}`);
+                    if (metric !== 'tokens') subParts.push(`${fmt(d.tokens)} tokens`);
+                    if (d.commits) subParts.push(`${d.commits} commits`);
+                }
+                const tagHtml = (!isGitOnly && color.tag) ? ` <span style="color: ${color.tagColor}; font-weight: 600;">● ${color.tag}</span>` : '';
+                html += `<div style="font-size: 9px; color: var(--text-tertiary); margin-top: 1px;">${subParts.join(' · ')}${tagHtml}</div>`;
 
                 html += `</div>`;
                 html += `</div>`;
@@ -8467,9 +8506,8 @@ Gate Inheritance:
             if (summaryEl) {
                 const totalMsgs = activityData.reduce((s, d) => s + d.messages, 0);
                 const totalTools = activityData.reduce((s, d) => s + d.tools, 0);
-                const totalTokens = activityData.reduce((s, d) => s + d.tokens, 0);
-                const totalSessions = activityData.reduce((s, d) => s + d.sessions, 0);
-                summaryEl.innerHTML = `<span>${activityData.length} active days</span><span>${totalMsgs.toLocaleString()} total msgs</span><span>${totalTools.toLocaleString()} tool calls</span><span>${totalSessions} sessions</span>`;
+                const totalCommits = activityData.reduce((s, d) => s + d.commits, 0);
+                summaryEl.innerHTML = `<span>${activityData.length} active days</span><span>${totalMsgs.toLocaleString()} msgs tracked</span><span>${totalCommits} total commits</span><span>${gitDays} days gap-filled</span>`;
             }
         }
 

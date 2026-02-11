@@ -18,6 +18,7 @@ Safe to run multiple times (idempotent). Handles missing source files gracefully
 from __future__ import annotations
 
 import json
+import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -77,6 +78,34 @@ def _count_project_sessions() -> int:
         # Each JSONL file represents a session or subagent session
         count += 1
     return count
+
+
+# ---------------------------------------------------------------------------
+# Git log daily activity (supplements stats-cache gaps)
+# ---------------------------------------------------------------------------
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+
+
+def _git_daily_commits() -> dict[str, int]:
+    """Return {date: commit_count} from git log for the repo."""
+    try:
+        result = subprocess.run(
+            ["git", "log", "--format=%ad", "--date=format:%Y-%m-%d"],
+            capture_output=True,
+            text=True,
+            cwd=REPO_ROOT,
+            timeout=10,
+        )
+        if result.returncode != 0:
+            return {}
+        counts: dict[str, int] = {}
+        for line in result.stdout.strip().split("\n"):
+            line = line.strip()
+            if line:
+                counts[line] = counts.get(line, 0) + 1
+        return counts
+    except (subprocess.TimeoutExpired, FileNotFoundError):
+        return {}
 
 
 # ---------------------------------------------------------------------------
@@ -145,9 +174,13 @@ def generate() -> dict:
         day_total = sum(entry.get("tokensByModel", {}).values())
         tokens_by_date[date] = tokens_by_date.get(date, 0) + day_total
 
+    # Dates already covered by stats-cache
+    cache_dates: set[str] = set()
+
     daily: list[dict] = []
     for entry in daily_activity:
         date = entry.get("date", "")
+        cache_dates.add(date)
         daily.append(
             {
                 "date": date,
@@ -155,8 +188,25 @@ def generate() -> dict:
                 "sessions": entry.get("sessionCount", 0),
                 "tools": entry.get("toolCallCount", 0),
                 "tokens": tokens_by_date.get(date, 0),
+                "source": "stats-cache",
             }
         )
+
+    # Supplement with git log for dates not in stats-cache
+    git_commits = _git_daily_commits()
+    for date, commit_count in git_commits.items():
+        if date not in cache_dates:
+            daily.append(
+                {
+                    "date": date,
+                    "messages": 0,
+                    "sessions": 1,
+                    "tools": 0,
+                    "tokens": 0,
+                    "commits": commit_count,
+                    "source": "git-log",
+                }
+            )
 
     # Sort by date
     daily.sort(key=lambda d: d["date"])
@@ -306,8 +356,10 @@ def write_js(data: dict) -> None:
     # --- daily ---
     lines.append("    daily: [")
     for d in daily:
+        commits_part = f", commits: {d['commits']}" if d.get("commits") else ""
+        source_part = f', source: "{d["source"]}"' if d.get("source") else ""
         lines.append(
-            f'        {{ date: "{d["date"]}", messages: {d["messages"]}, sessions: {d["sessions"]}, tools: {d["tools"]}, tokens: {d["tokens"]} }},'
+            f'        {{ date: "{d["date"]}", messages: {d["messages"]}, sessions: {d["sessions"]}, tools: {d["tools"]}, tokens: {d["tokens"]}{commits_part}{source_part} }},'
         )
     lines.append("    ],")
 

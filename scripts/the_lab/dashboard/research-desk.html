@@ -654,7 +654,8 @@
             max-height: 400px;
         }
         .results-table {
-            width: 100%;
+            min-width: 100%;
+            width: max-content;
             border-collapse: collapse;
             font-size: 12px;
         }
@@ -1544,6 +1545,11 @@ LIMIT 20;</textarea>
             const div = document.createElement('div');
             div.textContent = str;
             return div.innerHTML;
+        }
+
+        /* ==================== UTILITY: escapeSql — doubles single quotes to prevent SQL injection ==================== */
+        function escapeSql(str) {
+            return str.replace(/'/g, "''");
         }
 
         /* ==================== CODEMIRROR REMOVED — TEXTAREA FALLBACK (TKT-174) ==================== */
@@ -2689,7 +2695,7 @@ LIMIT 20;</textarea>
                 if (isTeamToken(right)) {
                     const teamName = resolveTeamName(right);
                     return {
-                        sql: `SELECT * FROM analytics_ipl_batter_vs_team\nWHERE player_name ILIKE '%${left}%'\n  AND team_name ILIKE '%${teamName}%'\nORDER BY runs DESC;`,
+                        sql: `SELECT * FROM analytics_ipl_batter_vs_team\nWHERE player_name ILIKE '%${escapeSql(left)}%'\n  AND team_name ILIKE '%${escapeSql(teamName)}%'\nORDER BY runs DESC;`,
                         type: 'player_vs_team',
                         entity: left,
                         context: teamName
@@ -2698,7 +2704,7 @@ LIMIT 20;</textarea>
                 // Check if right side is a bowling type
                 if (/\b(spin|pace|fast|seam|left.?arm|right.?arm|off.?spin|leg.?spin|wrist.?spin)\b/.test(right)) {
                     return {
-                        sql: `SELECT * FROM analytics_ipl_batter_vs_bowler_type\nWHERE batter_name ILIKE '%${left}%'\nORDER BY balls DESC;`,
+                        sql: `SELECT * FROM analytics_ipl_batter_vs_bowler_type\nWHERE batter_name ILIKE '%${escapeSql(left)}%'\nORDER BY balls DESC;`,
                         type: 'player_vs_type',
                         entity: left,
                         context: right
@@ -2706,7 +2712,7 @@ LIMIT 20;</textarea>
                 }
                 // Otherwise it is batter vs bowler
                 return {
-                    sql: `SELECT * FROM analytics_ipl_batter_vs_bowler\nWHERE batter_name ILIKE '%${left}%'\n  AND bowler_name ILIKE '%${right}%'\nORDER BY balls DESC;`,
+                    sql: `SELECT * FROM analytics_ipl_batter_vs_bowler\nWHERE batter_name ILIKE '%${escapeSql(left)}%'\n  AND bowler_name ILIKE '%${escapeSql(right)}%'\nORDER BY balls DESC;`,
                     type: 'matchup',
                     entity: left,
                     context: right
@@ -2718,7 +2724,7 @@ LIMIT 20;</textarea>
             if (vsTypeMatch) {
                 const player = vsTypeMatch[1].trim();
                 return {
-                    sql: `SELECT * FROM analytics_ipl_batter_vs_bowler_type\nWHERE batter_name ILIKE '%${player}%'\nORDER BY balls DESC;`,
+                    sql: `SELECT * FROM analytics_ipl_batter_vs_bowler_type\nWHERE batter_name ILIKE '%${escapeSql(player)}%'\nORDER BY balls DESC;`,
                     type: 'player_vs_type',
                     entity: player,
                     context: vsTypeMatch[2].trim()
@@ -2740,7 +2746,7 @@ LIMIT 20;</textarea>
                 }
                 if (teamFound) {
                     return {
-                        sql: `SELECT player_name, team_name, price_cr, acquisition_type, year_joined\nFROM ipl_2026_contracts\nWHERE team_name ILIKE '%${teamFound}%'\nORDER BY price_cr DESC;`,
+                        sql: `SELECT player_name, team_name, price_cr, acquisition_type, year_joined\nFROM ipl_2026_contracts\nWHERE team_name ILIKE '%${escapeSql(teamFound)}%'\nORDER BY price_cr DESC;`,
                         type: 'contracts',
                         entity: teamFound
                     };
@@ -2758,7 +2764,7 @@ LIMIT 20;</textarea>
                 for (const [alias, full] of Object.entries(TEAM_ALIASES)) {
                     if (lower.includes(alias)) { teamFound = full; break; }
                 }
-                const teamClause = teamFound ? `\n  AND team_name ILIKE '%${teamFound}%'` : '';
+                const teamClause = teamFound ? `\n  AND team_name ILIKE '%${escapeSql(teamFound)}%'` : '';
                 return {
                     sql: `SELECT player_name, team_name, nationality, role, age\nFROM ipl_2026_squads\nWHERE nationality != 'India'${teamClause}\nORDER BY team_name, player_name;`,
                     type: 'overseas',
@@ -2774,7 +2780,7 @@ LIMIT 20;</textarea>
                 }
                 if (teamFound) {
                     return {
-                        sql: `SELECT player_name, role, nationality, age, batting_hand, bowling_type\nFROM ipl_2026_squads\nWHERE team_name ILIKE '%${teamFound}%'\nORDER BY role, player_name;`,
+                        sql: `SELECT player_name, role, nationality, age, batting_hand, bowling_type\nFROM ipl_2026_squads\nWHERE team_name ILIKE '%${escapeSql(teamFound)}%'\nORDER BY role, player_name;`,
                         type: 'squad',
                         entity: teamFound
                     };
@@ -2791,7 +2797,7 @@ LIMIT 20;</textarea>
                     const isBowling = /\bbowl(?:ing|ers?)?\b/.test(lower);
                     const view = isBowling ? 'analytics_ipl_squad_bowling' : 'analytics_ipl_squad_batting';
                     return {
-                        sql: `SELECT * FROM ${view}\nWHERE team_name ILIKE '%${teamFound}%'\nORDER BY ${isBowling ? 'player_name' : 'ipl_runs DESC NULLS LAST'};`,
+                        sql: `SELECT * FROM ${view}\nWHERE team_name ILIKE '%${escapeSql(teamFound)}%'\nORDER BY ${isBowling ? 'player_name' : 'ipl_runs DESC NULLS LAST'};`,
                         type: 'team_analysis',
                         entity: teamFound,
                         context: isBowling ? 'bowling' : 'batting'
@@ -2815,7 +2821,7 @@ LIMIT 20;</textarea>
                 if (playerInPhase && playerInPhase.length >= 3) {
                     const view = isBowling ? 'analytics_ipl_bowler_phase' : 'analytics_ipl_batter_phase';
                     return {
-                        sql: `SELECT * FROM ${view}\nWHERE player_name ILIKE '%${playerInPhase}%'\n  AND match_phase = '${detectedPhase}'\nORDER BY ${isBowling ? 'wickets DESC' : 'runs DESC'};`,
+                        sql: `SELECT * FROM ${view}\nWHERE player_name ILIKE '%${escapeSql(playerInPhase)}%'\n  AND match_phase = '${escapeSql(detectedPhase)}'\nORDER BY ${isBowling ? 'wickets DESC' : 'runs DESC'};`,
                         type: 'phase',
                         entity: playerInPhase,
                         context: detectedPhase
@@ -2824,14 +2830,14 @@ LIMIT 20;</textarea>
 
                 if (isBowling || (!isBatting && /\b(economy|wickets?|dot.?ball)\b/.test(lower))) {
                     return {
-                        sql: `SELECT player_name, match_phase, matches, balls_bowled, overs, runs_conceded, wickets, economy_rate, dot_ball_pct\nFROM analytics_ipl_bowler_phase\nWHERE match_phase = '${detectedPhase}'\n  AND balls_bowled >= 120\nORDER BY ${/economy/.test(lower) ? 'economy_rate ASC' : 'wickets DESC'}\nLIMIT ${limit};`,
+                        sql: `SELECT player_name, match_phase, matches, balls_bowled, overs, runs_conceded, wickets, economy_rate, dot_ball_pct\nFROM analytics_ipl_bowler_phase\nWHERE match_phase = '${escapeSql(detectedPhase)}'\n  AND balls_bowled >= 120\nORDER BY ${/economy/.test(lower) ? 'economy_rate ASC' : 'wickets DESC'}\nLIMIT ${limit};`,
                         type: 'phase_leaderboard',
                         entity: detectedPhase + ' bowlers',
                         context: 'bowling'
                     };
                 }
                 return {
-                    sql: `SELECT player_name, match_phase, innings, runs, balls_faced, strike_rate, batting_average, boundary_pct\nFROM analytics_ipl_batter_phase\nWHERE match_phase = '${detectedPhase}'\n  AND balls_faced >= 120\nORDER BY ${/average/.test(lower) ? 'batting_average DESC' : (/boundary/.test(lower) ? 'boundary_pct DESC' : 'strike_rate DESC')}\nLIMIT ${limit};`,
+                    sql: `SELECT player_name, match_phase, innings, runs, balls_faced, strike_rate, batting_average, boundary_pct\nFROM analytics_ipl_batter_phase\nWHERE match_phase = '${escapeSql(detectedPhase)}'\n  AND balls_faced >= 120\nORDER BY ${/average/.test(lower) ? 'batting_average DESC' : (/boundary/.test(lower) ? 'boundary_pct DESC' : 'strike_rate DESC')}\nLIMIT ${limit};`,
                     type: 'phase_leaderboard',
                     entity: detectedPhase + ' batters',
                     context: 'batting'
@@ -2888,7 +2894,7 @@ LIMIT 20;</textarea>
 
                     if (isBowling) {
                         return {
-                            sql: `WITH ipl AS (\n  SELECT dm.match_id, dm.season\n  FROM dim_match dm\n  JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id\n  WHERE dt.tournament_name = 'Indian Premier League'\n)\nSELECT dp.current_name AS player_name, ipl.season,\n  count(DISTINCT fb.match_id) AS matches,\n  round(sum(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) / 6.0, 1) AS overs,\n  sum(fb.total_runs) AS runs_conceded,\n  sum(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out','retired hurt','retired out') THEN 1 ELSE 0 END) AS wickets,\n  round(sum(fb.total_runs) * 6.0 / nullif(sum(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS economy,\n  round(sum(fb.total_runs) * 1.0 / nullif(sum(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out','retired hurt','retired out') THEN 1 ELSE 0 END), 0), 2) AS average\nFROM fact_ball fb\nJOIN dim_player dp ON fb.bowler_id = dp.player_id\nJOIN ipl ON fb.match_id = ipl.match_id\nWHERE dp.current_name ILIKE '%${playerName}%'\nGROUP BY dp.current_name, ipl.season\nORDER BY ipl.season;`,
+                            sql: `WITH ipl AS (\n  SELECT dm.match_id, dm.season\n  FROM dim_match dm\n  JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id\n  WHERE dt.tournament_name = 'Indian Premier League'\n)\nSELECT dp.current_name AS player_name, ipl.season,\n  count(DISTINCT fb.match_id) AS matches,\n  round(sum(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) / 6.0, 1) AS overs,\n  sum(fb.total_runs) AS runs_conceded,\n  sum(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out','retired hurt','retired out') THEN 1 ELSE 0 END) AS wickets,\n  round(sum(fb.total_runs) * 6.0 / nullif(sum(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS economy,\n  round(sum(fb.total_runs) * 1.0 / nullif(sum(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out','retired hurt','retired out') THEN 1 ELSE 0 END), 0), 2) AS average\nFROM fact_ball fb\nJOIN dim_player dp ON fb.bowler_id = dp.player_id\nJOIN ipl ON fb.match_id = ipl.match_id\nWHERE dp.current_name ILIKE '%${escapeSql(playerName)}%'\nGROUP BY dp.current_name, ipl.season\nORDER BY ipl.season;`,
                             type: 'player_season',
                             entity: playerName,
                             context: 'bowling'
@@ -2896,7 +2902,7 @@ LIMIT 20;</textarea>
                     }
 
                     return {
-                        sql: `WITH ipl AS (\n  SELECT dm.match_id, dm.season\n  FROM dim_match dm\n  JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id\n  WHERE dt.tournament_name = 'Indian Premier League'\n)\nSELECT dp.current_name AS player_name, ipl.season,\n  count(DISTINCT fb.match_id) AS innings,\n  sum(fb.batter_runs) AS runs,\n  sum(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS balls,\n  round(sum(fb.batter_runs) * 100.0 / nullif(sum(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS strike_rate,\n  round(sum(fb.batter_runs) * 1.0 / nullif(sum(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END), 0), 2) AS average,\n  sum(CASE WHEN fb.batter_runs = 4 THEN 1 ELSE 0 END) AS fours,\n  sum(CASE WHEN fb.batter_runs = 6 THEN 1 ELSE 0 END) AS sixes\nFROM fact_ball fb\nJOIN dim_player dp ON fb.batter_id = dp.player_id\nJOIN ipl ON fb.match_id = ipl.match_id\nWHERE dp.current_name ILIKE '%${playerName}%'\nGROUP BY dp.current_name, ipl.season\nORDER BY ipl.season;`,
+                        sql: `WITH ipl AS (\n  SELECT dm.match_id, dm.season\n  FROM dim_match dm\n  JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id\n  WHERE dt.tournament_name = 'Indian Premier League'\n)\nSELECT dp.current_name AS player_name, ipl.season,\n  count(DISTINCT fb.match_id) AS innings,\n  sum(fb.batter_runs) AS runs,\n  sum(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS balls,\n  round(sum(fb.batter_runs) * 100.0 / nullif(sum(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS strike_rate,\n  round(sum(fb.batter_runs) * 1.0 / nullif(sum(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END), 0), 2) AS average,\n  sum(CASE WHEN fb.batter_runs = 4 THEN 1 ELSE 0 END) AS fours,\n  sum(CASE WHEN fb.batter_runs = 6 THEN 1 ELSE 0 END) AS sixes\nFROM fact_ball fb\nJOIN dim_player dp ON fb.batter_id = dp.player_id\nJOIN ipl ON fb.match_id = ipl.match_id\nWHERE dp.current_name ILIKE '%${escapeSql(playerName)}%'\nGROUP BY dp.current_name, ipl.season\nORDER BY ipl.season;`,
                         type: 'player_season',
                         entity: playerName,
                         context: 'batting'
@@ -2914,14 +2920,14 @@ LIMIT 20;</textarea>
                     const isBowling = /\bbowl(?:ing|ers?)?\b/.test(lower);
                     if (isBowling) {
                         return {
-                            sql: `SELECT bowler_name, venue, matches, balls, runs_conceded, wickets, economy, average, dot_ball_pct\nFROM analytics_ipl_bowler_venue\nWHERE bowler_name ILIKE '%${subject}%'\n  AND venue ILIKE '%${venue}%'\nORDER BY matches DESC;`,
+                            sql: `SELECT bowler_name, venue, matches, balls, runs_conceded, wickets, economy, average, dot_ball_pct\nFROM analytics_ipl_bowler_venue\nWHERE bowler_name ILIKE '%${escapeSql(subject)}%'\n  AND venue ILIKE '%${escapeSql(venue)}%'\nORDER BY matches DESC;`,
                             type: 'player_venue',
                             entity: subject,
                             context: venue
                         };
                     }
                     return {
-                        sql: `SELECT batter_name, venue, innings, runs, balls, strike_rate, average, boundary_pct, sixes\nFROM analytics_ipl_batter_venue\nWHERE batter_name ILIKE '%${subject}%'\n  AND venue ILIKE '%${venue}%'\nORDER BY innings DESC;`,
+                        sql: `SELECT batter_name, venue, innings, runs, balls, strike_rate, average, boundary_pct, sixes\nFROM analytics_ipl_batter_venue\nWHERE batter_name ILIKE '%${escapeSql(subject)}%'\n  AND venue ILIKE '%${escapeSql(venue)}%'\nORDER BY innings DESC;`,
                         type: 'player_venue',
                         entity: subject,
                         context: venue
@@ -2945,7 +2951,7 @@ LIMIT 20;</textarea>
                     const teamName = resolveTeamName(playerName);
                     if (/\bbowl(?:ing|ers?)?\b/.test(lower)) {
                         return {
-                            sql: `SELECT * FROM analytics_ipl_squad_bowling\nWHERE team_name ILIKE '%${teamName}%'\nORDER BY player_name;`,
+                            sql: `SELECT * FROM analytics_ipl_squad_bowling\nWHERE team_name ILIKE '%${escapeSql(teamName)}%'\nORDER BY player_name;`,
                             type: 'team_analysis',
                             entity: teamName,
                             context: 'bowling'
@@ -2953,14 +2959,14 @@ LIMIT 20;</textarea>
                     }
                     if (/\bbat(?:ting|ters?)?\b/.test(lower)) {
                         return {
-                            sql: `SELECT * FROM analytics_ipl_squad_batting\nWHERE team_name ILIKE '%${teamName}%'\nORDER BY ipl_runs DESC NULLS LAST;`,
+                            sql: `SELECT * FROM analytics_ipl_squad_batting\nWHERE team_name ILIKE '%${escapeSql(teamName)}%'\nORDER BY ipl_runs DESC NULLS LAST;`,
                             type: 'team_analysis',
                             entity: teamName,
                             context: 'batting'
                         };
                     }
                     return {
-                        sql: `SELECT player_name, role, nationality, age, batting_hand, bowling_type\nFROM ipl_2026_squads\nWHERE team_name ILIKE '%${teamName}%'\nORDER BY role, player_name;`,
+                        sql: `SELECT player_name, role, nationality, age, batting_hand, bowling_type\nFROM ipl_2026_squads\nWHERE team_name ILIKE '%${escapeSql(teamName)}%'\nORDER BY role, player_name;`,
                         type: 'squad',
                         entity: teamName
                     };
@@ -2969,7 +2975,7 @@ LIMIT 20;</textarea>
                 // Player lookup: check if bowling-specific
                 if (/\bbowl(?:ing)?\b/.test(lower)) {
                     return {
-                        sql: `SELECT player_name, primary_role, matches_bowled, overs_bowled, wickets, economy_rate, bowling_average, bowling_strike_rate, dot_ball_pct\nFROM analytics_ipl_bowling_career\nWHERE player_name ILIKE '%${playerName}%';`,
+                        sql: `SELECT player_name, primary_role, matches_bowled, overs_bowled, wickets, economy_rate, bowling_average, bowling_strike_rate, dot_ball_pct\nFROM analytics_ipl_bowling_career\nWHERE player_name ILIKE '%${escapeSql(playerName)}%';`,
                         type: 'player_bowling',
                         entity: playerName
                     };
@@ -2977,7 +2983,7 @@ LIMIT 20;</textarea>
 
                 // Default: batting career lookup
                 return {
-                    sql: `SELECT player_name, primary_role, innings, runs, balls_faced, strike_rate, batting_average, boundary_pct, fifties, hundreds, sixes\nFROM analytics_ipl_batting_career\nWHERE player_name ILIKE '%${playerName}%';`,
+                    sql: `SELECT player_name, primary_role, innings, runs, balls_faced, strike_rate, batting_average, boundary_pct, fifties, hundreds, sixes\nFROM analytics_ipl_batting_career\nWHERE player_name ILIKE '%${escapeSql(playerName)}%';`,
                     type: 'player_lookup',
                     entity: playerName
                 };

@@ -329,7 +329,7 @@ def validate_bowling_coverage(conn: duckdb.DuckDBPyConnection) -> Tuple[int, int
     try:
         result = conn.execute("""
             SELECT bowler_type, SUM(balls) as balls
-            FROM analytics_ipl_batter_vs_bowler_type
+            FROM analytics_ipl_batter_vs_bowler_type_since2023
             GROUP BY bowler_type
             ORDER BY balls DESC
         """).fetchall()

@@ -1,6 +1,6 @@
 # Sunrisers Hyderabad (SRH) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-11 22:53
+**Generated:** 2026-02-11 23:29
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -132,9 +132,9 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** B Kumar (16w @ 8.13), M Markande (12w @ 7.83), T Natarajan (10w @ 9.04)
+- **2023:** B Kumar (16w @ 8.13), M Markande (12w @ 7.83), M Jansen (10w @ 9.2)
 - **2024:** T Natarajan (19w @ 8.48), PJ Cummins (18w @ 9.14), B Kumar (11w @ 9.33)
-- **2025:** PJ Cummins (16w @ 8.85), HV Patel (16w @ 9.1), E Malinga (13w @ 8.87)
+- **2025:** HV Patel (16w @ 9.1), PJ Cummins (16w @ 8.85), E Malinga (13w @ 8.87)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -177,10 +177,10 @@
 |-------|---------|------|------|-----------|
 | MA Chidambaram Stadium | 5 | 2 | 40.0% | 142.2 |
 | Narendra Modi Stadium | 4 | 0 | 0.0% | 165.3 |
-| Eden Gardens | 3 | 1 | 33.3% | 184.0 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 186.0 |
-| Wankhede Stadium | 3 | 0 | 0.0% | 178.3 |
 | Arun Jaitley Stadium | 3 | 3 | 100.0% | 247.0 |
+| Wankhede Stadium | 3 | 0 | 0.0% | 178.3 |
+| Eden Gardens | 3 | 1 | 33.3% | 184.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -191,8 +191,8 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
@@ -220,8 +220,8 @@
 
 | Player | Venue | Matches | Wkts | Econ | SR |
 |--------|-------|---------|------|------|-----|
-| HV Patel | Rajiv Gandhi Internationa | 7 | 11 | 8.92 | 13.64 |
 | HV Patel | Maharaja Yadavindra Singh | 5 | 11 | 8.59 | 9.27 |
+| HV Patel | Rajiv Gandhi Internationa | 7 | 11 | 8.92 | 13.64 |
 | JD Unadkat | Rajiv Gandhi Internationa | 8 | 8 | 7.88 | 18.75 |
 | HV Patel | Himachal Pradesh Cricket  | 2 | 6 | 7.5 | 8.0 |
 
@@ -402,13 +402,13 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Chennai Super Kings | 4 | 74 | 81 | 8 | 6.57 | 10.13 | 9.25 | 40.54 | 10.81 | MEDIUM |
 | Rajasthan Royals | 4 | 84 | 112 | 8 | 8.0 | 14.0 | 10.5 | 27.38 | 13.1 | MEDIUM |
-| Royal Challengers Bengaluru | 3 | 71 | 117 | 5 | 9.89 | 23.4 | 14.2 | 29.58 | 25.35 | MEDIUM |
-| Punjab Kings | 2 | 44 | 51 | 5 | 6.95 | 10.2 | 8.8 | 36.36 | 11.36 | MEDIUM |
+| Gujarat Titans | 4 | 84 | 126 | 5 | 9.0 | 25.2 | 16.8 | 25.0 | 17.86 | MEDIUM |
 | Lucknow Super Giants | 5 | 107 | 170 | 5 | 9.53 | 34.0 | 21.4 | 27.1 | 23.36 | HIGH |
 | Mumbai Indians | 5 | 106 | 169 | 5 | 9.57 | 33.8 | 21.2 | 22.64 | 19.81 | HIGH |
+| Punjab Kings | 2 | 44 | 51 | 5 | 6.95 | 10.2 | 8.8 | 36.36 | 11.36 | MEDIUM |
+| Royal Challengers Bengaluru | 3 | 71 | 117 | 5 | 9.89 | 23.4 | 14.2 | 29.58 | 25.35 | MEDIUM |
 | Delhi Capitals | 5 | 102 | 161 | 5 | 9.47 | 32.2 | 20.4 | 30.39 | 21.57 | HIGH |
 | Sunrisers Hyderabad | 3 | 72 | 104 | 5 | 8.67 | 20.8 | 14.4 | 25.0 | 19.44 | MEDIUM |
-| Gujarat Titans | 4 | 84 | 126 | 5 | 9.0 | 25.2 | 16.8 | 25.0 | 17.86 | MEDIUM |
 | Kolkata Knight Riders | 5 | 96 | 190 | 3 | 11.88 | 63.33 | 32.0 | 27.08 | 31.25 | MEDIUM |
 
 ### Pat Cummins
@@ -418,11 +418,11 @@
 | Royal Challengers Bengaluru | 3 | 72 | 128 | 7 | 10.67 | 18.29 | 10.29 | 29.17 | 27.78 | MEDIUM |
 | Mumbai Indians | 4 | 90 | 124 | 6 | 8.27 | 20.67 | 15.0 | 43.33 | 20.0 | MEDIUM |
 | Kolkata Knight Riders | 5 | 90 | 159 | 4 | 10.6 | 39.75 | 22.5 | 38.89 | 27.78 | MEDIUM |
-| Gujarat Titans | 3 | 70 | 92 | 3 | 7.89 | 30.67 | 23.33 | 30.0 | 15.71 | MEDIUM |
-| Chennai Super Kings | 3 | 72 | 100 | 3 | 8.33 | 33.33 | 24.0 | 27.78 | 16.67 | MEDIUM |
-| Rajasthan Royals | 3 | 72 | 120 | 3 | 10.0 | 40.0 | 24.0 | 36.11 | 23.61 | MEDIUM |
-| Delhi Capitals | 3 | 60 | 80 | 3 | 8.0 | 26.67 | 20.0 | 41.67 | 20.0 | MEDIUM |
 | Lucknow Super Giants | 3 | 66 | 106 | 3 | 9.64 | 35.33 | 22.0 | 31.82 | 24.24 | MEDIUM |
+| Chennai Super Kings | 3 | 72 | 100 | 3 | 8.33 | 33.33 | 24.0 | 27.78 | 16.67 | MEDIUM |
+| Gujarat Titans | 3 | 70 | 92 | 3 | 7.89 | 30.67 | 23.33 | 30.0 | 15.71 | MEDIUM |
+| Delhi Capitals | 3 | 60 | 80 | 3 | 8.0 | 26.67 | 20.0 | 41.67 | 20.0 | MEDIUM |
+| Rajasthan Royals | 3 | 72 | 120 | 3 | 10.0 | 40.0 | 24.0 | 36.11 | 23.61 | MEDIUM |
 | Punjab Kings | 3 | 72 | 97 | 2 | 8.08 | 48.5 | 36.0 | 36.11 | 19.44 | MEDIUM |
 
 ---
@@ -488,33 +488,29 @@
 | Player | Band | Balls | SR | Avg | Boundary% | Dot% | Confidence |
 |--------|------|-------|----|-----|-----------|------|------------|
 | Abhishek Sharma | COMFORTABLE | 27 | 322 | 43.5 | 59.3 | 25.9 | LOW |
-| Abhishek Sharma | BUILDING | 49 | 196 | 24 | 30.6 | 28.6 | MEDIUM |
+| Abhishek Sharma | BUILDING | 49 | 196 | 24 | 30.6 | 28.6 | LOW |
 | Abhishek Sharma | HIGH | 130 | 206 | 33.5 | 34.6 | 29.2 | HIGH |
 | Abhishek Sharma | EXTREME | 67 | 184 | 123 | 25.4 | 25.4 | MEDIUM |
 | Abhishek Sharma | NEAR_IMPOSSIBLE | 17 | 194 | 33 | 29.4 | 23.5 | LOW |
-| Aniket Verma | BUILDING | 19 | 100 | 19 | 10.5 | 52.6 | LOW |
 | H Klaasen | COMFORTABLE | 19 | 137 | - | 15.8 | 21.1 | LOW |
 | H Klaasen | BUILDING | 61 | 164 | 50 | 19.7 | 21.3 | MEDIUM |
-| H Klaasen | HIGH | 42 | 145 | 30.5 | 14.3 | 21.4 | MEDIUM |
+| H Klaasen | HIGH | 42 | 145 | 30.5 | 14.3 | 21.4 | LOW |
 | H Klaasen | EXTREME | 85 | 166 | 47 | 20 | 21.2 | MEDIUM |
 | H Klaasen | NEAR_IMPOSSIBLE | 80 | 168 | 26.8 | 21.2 | 26.2 | MEDIUM |
-| HV Patel | NEAR_IMPOSSIBLE | 16 | 93.8 | 5 | 12.5 | 56.2 | LOW |
-| Ishan Kishan | COMFORTABLE | 49 | 163 | 80 | 28.6 | 40.8 | MEDIUM |
+| Ishan Kishan | COMFORTABLE | 49 | 163 | 80 | 28.6 | 40.8 | LOW |
 | Ishan Kishan | BUILDING | 159 | 167 | 26.5 | 27.0 | 34.6 | HIGH |
 | Ishan Kishan | HIGH | 128 | 130 | 33.2 | 20.3 | 43.8 | HIGH |
 | Ishan Kishan | EXTREME | 86 | 143 | 24.6 | 19.8 | 32.6 | MEDIUM |
 | LS Livingstone | HIGH | 16 | 150 | 24 | 18.8 | 31.2 | LOW |
-| LS Livingstone | EXTREME | 44 | 164 | 24 | 20.4 | 25 | MEDIUM |
+| LS Livingstone | EXTREME | 44 | 164 | 24 | 20.4 | 25 | LOW |
 | LS Livingstone | NEAR_IMPOSSIBLE | 52 | 192 | 50 | 28.9 | 26.9 | MEDIUM |
 | Nithish Kumar Reddy | BUILDING | 21 | 167 | - | 19.1 | 23.8 | LOW |
-| Nithish Kumar Reddy | HIGH | 47 | 111 | 26 | 8.5 | 38.3 | MEDIUM |
-| PHKD Mendis | BUILDING | 30 | 170 | - | 20 | 20 | MEDIUM |
+| Nithish Kumar Reddy | HIGH | 47 | 111 | 26 | 8.5 | 38.3 | LOW |
+| PHKD Mendis | BUILDING | 30 | 170 | - | 20 | 20 | LOW |
 | PHKD Mendis | HIGH | 20 | 140 | - | 15 | 35 | LOW |
-| PJ Cummins | EXTREME | 18 | 161 | 29 | 22.2 | 33.3 | LOW |
-| PJ Cummins | NEAR_IMPOSSIBLE | 24 | 125 | 15 | 16.7 | 37.5 | LOW |
 | TM Head | COMFORTABLE | 56 | 227 | 127 | 39.3 | 26.8 | MEDIUM |
 | TM Head | BUILDING | 15 | 107 | 16 | 20 | 60 | LOW |
-| TM Head | HIGH | 36 | 142 | 8.5 | 25 | 36.1 | MEDIUM |
+| TM Head | HIGH | 36 | 142 | 8.5 | 25 | 36.1 | LOW |
 | TM Head | EXTREME | 29 | 169 | - | 31.0 | 37.9 | LOW |
 
 ### 11.2 Bowling Under Pressure
@@ -524,32 +520,31 @@
 | Player | Band | Balls | Economy | Dot% | Bdry% Conc | Wickets | Confidence |
 |--------|------|-------|---------|------|------------|---------|------------|
 | Abhishek Sharma | COMFORTABLE | 18 | 12 | 16.7 | 33.3 | 0 | LOW |
-| Abhishek Sharma | BUILDING | 40 | 9.6 | 35 | 22.5 | 1 | MEDIUM |
-| Abhishek Sharma | HIGH | 31 | 7.3 | 22.6 | 9.7 | 1 | MEDIUM |
+| Abhishek Sharma | BUILDING | 40 | 9.6 | 35 | 22.5 | 1 | LOW |
+| Abhishek Sharma | HIGH | 31 | 7.3 | 22.6 | 9.7 | 1 | LOW |
 | Abhishek Sharma | EXTREME | 22 | 10.9 | 40.9 | 27.3 | 1 | LOW |
-| Abhishek Sharma | NEAR_IMPOSSIBLE | 33 | 11.3 | 33.3 | 30.3 | 1 | MEDIUM |
-| E Malinga | COMFORTABLE | 40 | 9.6 | 32.5 | 25 | 3 | MEDIUM |
-| E Malinga | NEAR_IMPOSSIBLE | 34 | 7.9 | 47.1 | 14.7 | 5 | MEDIUM |
+| Abhishek Sharma | NEAR_IMPOSSIBLE | 33 | 11.3 | 33.3 | 30.3 | 1 | LOW |
+| E Malinga | COMFORTABLE | 40 | 9.6 | 32.5 | 25 | 3 | LOW |
+| E Malinga | NEAR_IMPOSSIBLE | 34 | 7.9 | 47.1 | 14.7 | 5 | LOW |
 | HV Patel | COMFORTABLE | 103 | 9.3 | 26.2 | 18.4 | 6 | HIGH |
 | HV Patel | BUILDING | 53 | 9.5 | 30.2 | 18.9 | 2 | MEDIUM |
 | HV Patel | HIGH | 70 | 9.9 | 24.3 | 20 | 1 | MEDIUM |
 | HV Patel | EXTREME | 50 | 9.8 | 30 | 24 | 4 | MEDIUM |
 | HV Patel | NEAR_IMPOSSIBLE | 67 | 9.6 | 26.9 | 17.9 | 3 | MEDIUM |
-| Harsh Dubey | NEAR_IMPOSSIBLE | 24 | 8.5 | 41.7 | 16.7 | 3 | LOW |
-| JD Unadkat | COMFORTABLE | 45 | 9.6 | 28.9 | 24.4 | 1 | MEDIUM |
+| JD Unadkat | COMFORTABLE | 45 | 9.6 | 28.9 | 24.4 | 1 | LOW |
 | JD Unadkat | BUILDING | 21 | 9.1 | 19.1 | 19.1 | 0 | LOW |
 | JD Unadkat | HIGH | 23 | 9.1 | 26.1 | 13.0 | 0 | LOW |
-| JD Unadkat | EXTREME | 48 | 11.2 | 22.9 | 27.1 | 3 | MEDIUM |
+| JD Unadkat | EXTREME | 48 | 11.2 | 22.9 | 27.1 | 3 | LOW |
 | JD Unadkat | NEAR_IMPOSSIBLE | 56 | 10.9 | 32.1 | 26.8 | 4 | MEDIUM |
 | LS Livingstone | COMFORTABLE | 20 | 7.8 | 45 | 20 | 1 | LOW |
-| LS Livingstone | BUILDING | 38 | 7.4 | 31.6 | 13.2 | 2 | MEDIUM |
+| LS Livingstone | BUILDING | 38 | 7.4 | 31.6 | 13.2 | 2 | LOW |
 | LS Livingstone | EXTREME | 24 | 10.2 | 12.5 | 25 | 2 | LOW |
-| Nithish Kumar Reddy | BUILDING | 33 | 11.1 | 30.3 | 27.3 | 0 | MEDIUM |
+| Nithish Kumar Reddy | BUILDING | 33 | 11.1 | 30.3 | 27.3 | 0 | LOW |
 | Nithish Kumar Reddy | HIGH | 27 | 9.6 | 37.0 | 22.2 | 0 | LOW |
 | Nithish Kumar Reddy | NEAR_IMPOSSIBLE | 26 | 8.1 | 23.1 | 7.7 | 2 | LOW |
 | PJ Cummins | COMFORTABLE | 112 | 11.3 | 34.8 | 30.4 | 7 | HIGH |
 | PJ Cummins | BUILDING | 77 | 4.8 | 53.2 | 9.1 | 5 | MEDIUM |
-| PJ Cummins | HIGH | 31 | 9.5 | 38.7 | 22.6 | 0 | MEDIUM |
+| PJ Cummins | HIGH | 31 | 9.5 | 38.7 | 22.6 | 0 | LOW |
 | PJ Cummins | EXTREME | 52 | 10.7 | 40.4 | 28.9 | 2 | MEDIUM |
 | PJ Cummins | NEAR_IMPOSSIBLE | 94 | 9.4 | 34.0 | 20.2 | 7 | MEDIUM |
 | Zeeshan Ansari | COMFORTABLE | 84 | 10.1 | 23.8 | 25 | 4 | MEDIUM |
@@ -558,18 +553,19 @@
 
 *How player performance shifts under pressure vs overall — IPL 2023+*
 
-| Player | Role | Delta% | Rating | Confidence |
-|--------|------|--------|--------|------------|
-| H Klaasen | BATTER | +0.8% | **PRESSURE_PROOF** | HIGH |
-| LS Livingstone | BATTER | 0.0% | **PRESSURE_PROOF** | HIGH |
-| Abhishek Sharma | BATTER | -5.3% | MODERATE | HIGH |
-| Ishan Kishan | BATTER | -10.1% | PRESSURE_SENSITIVE | HIGH |
-| TM Head | BATTER | -13.9% | PRESSURE_SENSITIVE | HIGH |
-| PHKD Mendis | BATTER | -18.6% | PRESSURE_SENSITIVE | HIGH |
-| Nithish Kumar Reddy | BATTER | -20.8% | PRESSURE_SENSITIVE | HIGH |
+*Weighted Score = SR Delta x sample-size bonus x death-overs bonus*
+
+| Player | Role | Balls | Delta% | W.Score | Rating | Confidence |
+|--------|------|-------|--------|---------|--------|------------|
+| H Klaasen | BATTER | 207 | +0.8% | 3.4 | **PRESSURE_PROOF** | HIGH |
+| LS Livingstone | BATTER | 112 | 0.0% | 0 | **PRESSURE_PROOF** | HIGH |
+| Abhishek Sharma | BATTER | 214 | -5.3% | -20.7 | MODERATE | HIGH |
+| TM Head | BATTER | 65 | -13.9% | -29.4 | PRESSURE_SENSITIVE | MEDIUM |
+| Ishan Kishan | BATTER | 223 | -10.1% | -40.0 | PRESSURE_SENSITIVE | HIGH |
+| Nithish Kumar Reddy | BATTER | 60 | -20.8% | -43.1 | PRESSURE_SENSITIVE | MEDIUM |
 
 ---
-*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. COMFORTABLE (RRR < 6), BUILDING (6-8), HIGH (8-10), EXTREME (10-12), NEAR_IMPOSSIBLE (12+). Players must have faced/bowled >= 15 balls in at least one band to appear.*
+*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. COMFORTABLE (RRR < 8), BUILDING (8-10), HIGH (10-12), EXTREME (12-15), NEAR_IMPOSSIBLE (15+). Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify. Weighted Score factors in sample size and death-overs (16-20) contribution.*
 
 
 ---

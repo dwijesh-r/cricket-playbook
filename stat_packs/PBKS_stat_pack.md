@@ -1,6 +1,6 @@
 # Punjab Kings (PBKS) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-11 22:52
+**Generated:** 2026-02-11 23:28
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -173,11 +173,11 @@
 |-------|---------|------|------|-----------|
 | Himachal Pradesh Cricket Associatio | 6 | 1 | 16.7% | 177.2 |
 | Narendra Modi Stadium | 4 | 3 | 75.0% | 208.5 |
-| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
-| Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
-| MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
 | Eden Gardens | 3 | 1 | 33.3% | 214.0 |
+| Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
+| MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
 | M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
 | Barsapara Cricket Stadium | 2 | 2 | 100.0% | 171.0 |
 
@@ -192,8 +192,8 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
@@ -222,11 +222,11 @@
 | Yash Thakur | Bharat Ratna Shri Atal Bi | 8 | 12 | 9.19 | 14.42 |
 | Arshdeep Singh | Maharaja Yadavindra Singh | 10 | 11 | 8.64 | 18.0 |
 | Vijaykumar Vyshak | M Chinnaswamy Stadium | 8 | 10 | 9.8 | 17.7 |
+| Arshdeep Singh | Punjab Cricket Associatio | 5 | 7 | 10.78 | 16.14 |
 | YS Chahal | MA Chidambaram Stadium | 4 | 7 | 7.33 | 12.86 |
 | Arshdeep Singh | Himachal Pradesh Cricket  | 5 | 7 | 9.0 | 14.57 |
-| Arshdeep Singh | Punjab Cricket Associatio | 5 | 7 | 10.78 | 16.14 |
-| M Jansen | Sawai Mansingh Stadium | 4 | 6 | 10.48 | 15.17 |
-| Arshdeep Singh | Bharat Ratna Shri Atal Bi | 3 | 6 | 9.1 | 10.0 |
+| YS Chahal | Barsapara Cricket Stadium | 3 | 6 | 8.75 | 12.0 |
+| YS Chahal | Maharaja Yadavindra Singh | 5 | 6 | 8.0 | 16.0 |
 
 
 ---
@@ -411,9 +411,9 @@
 | Sunrisers Hyderabad | 4 | 90 | 121 | 8 | 8.07 | 15.13 | 11.25 | 45.56 | 23.33 | MEDIUM |
 | Royal Challengers Bengaluru | 7 | 134 | 223 | 8 | 9.99 | 27.88 | 16.75 | 32.09 | 25.37 | HIGH |
 | Mumbai Indians | 5 | 113 | 196 | 7 | 10.41 | 28.0 | 16.14 | 30.97 | 29.2 | HIGH |
-| Kolkata Knight Riders | 4 | 84 | 112 | 6 | 8.0 | 18.67 | 14.0 | 46.43 | 20.24 | MEDIUM |
-| Rajasthan Royals | 6 | 143 | 247 | 6 | 10.36 | 41.17 | 23.83 | 40.56 | 27.97 | HIGH |
 | Chennai Super Kings | 5 | 116 | 180 | 6 | 9.31 | 30.0 | 19.33 | 34.48 | 25.0 | HIGH |
+| Rajasthan Royals | 6 | 143 | 247 | 6 | 10.36 | 41.17 | 23.83 | 40.56 | 27.97 | HIGH |
+| Kolkata Knight Riders | 4 | 84 | 112 | 6 | 8.0 | 18.67 | 14.0 | 46.43 | 20.24 | MEDIUM |
 | Gujarat Titans | 4 | 85 | 124 | 4 | 8.75 | 31.0 | 21.25 | 30.59 | 18.82 | MEDIUM |
 | Delhi Capitals | 4 | 84 | 112 | 2 | 8.0 | 56.0 | 42.0 | 39.29 | 19.05 | MEDIUM |
 
@@ -495,27 +495,26 @@
 
 | Player | Band | Balls | SR | Avg | Boundary% | Dot% | Confidence |
 |--------|------|-------|----|-----|-----------|------|------------|
-| Harpreet Brar | NEAR_IMPOSSIBLE | 22 | 86.4 | 9.5 | 9.1 | 36.4 | LOW |
 | MP Stoinis | COMFORTABLE | 79 | 116 | 46 | 16.5 | 46.8 | MEDIUM |
 | MP Stoinis | BUILDING | 20 | 180 | - | 30 | 30 | LOW |
-| MP Stoinis | HIGH | 44 | 100 | 22 | 15.9 | 40.9 | MEDIUM |
+| MP Stoinis | HIGH | 44 | 100 | 22 | 15.9 | 40.9 | LOW |
 | MP Stoinis | EXTREME | 102 | 174 | 59 | 24.5 | 26.5 | HIGH |
-| MP Stoinis | NEAR_IMPOSSIBLE | 49 | 157 | 12.8 | 18.4 | 30.6 | MEDIUM |
+| MP Stoinis | NEAR_IMPOSSIBLE | 49 | 157 | 12.8 | 18.4 | 30.6 | LOW |
 | N Wadhera | COMFORTABLE | 55 | 175 | 48 | 29.1 | 40 | MEDIUM |
 | N Wadhera | HIGH | 90 | 119 | 35.7 | 14.4 | 37.8 | MEDIUM |
-| N Wadhera | EXTREME | 39 | 141 | 55 | 15.4 | 30.8 | MEDIUM |
-| N Wadhera | NEAR_IMPOSSIBLE | 43 | 156 | 11.2 | 23.3 | 34.9 | MEDIUM |
-| P Simran Singh | COMFORTABLE | 33 | 173 | 19 | 27.3 | 27.3 | MEDIUM |
+| N Wadhera | EXTREME | 39 | 141 | 55 | 15.4 | 30.8 | LOW |
+| N Wadhera | NEAR_IMPOSSIBLE | 43 | 156 | 11.2 | 23.3 | 34.9 | LOW |
+| P Simran Singh | COMFORTABLE | 33 | 173 | 19 | 27.3 | 27.3 | LOW |
 | P Simran Singh | BUILDING | 159 | 155 | 27.4 | 25.2 | 39.6 | HIGH |
 | P Simran Singh | HIGH | 110 | 118 | 18.6 | 16.4 | 40.9 | HIGH |
-| P Simran Singh | EXTREME | 46 | 174 | 20 | 30.4 | 43.5 | MEDIUM |
+| P Simran Singh | EXTREME | 46 | 174 | 20 | 30.4 | 43.5 | LOW |
 | Priyansh Arya | BUILDING | 75 | 149 | 28 | 26.7 | 34.7 | MEDIUM |
 | SS Iyer | COMFORTABLE | 152 | 167 | 127 | 23.0 | 24.3 | HIGH |
 | SS Iyer | BUILDING | 25 | 152 | - | 20 | 32 | LOW |
 | SS Iyer | HIGH | 75 | 180 | 67.5 | 24 | 18.7 | MEDIUM |
-| Shashank Singh | COMFORTABLE | 40 | 112 | 15 | 12.5 | 45 | MEDIUM |
+| Shashank Singh | COMFORTABLE | 40 | 112 | 15 | 12.5 | 45 | LOW |
 | Shashank Singh | BUILDING | 22 | 168 | 37 | 27.3 | 31.8 | LOW |
-| Shashank Singh | HIGH | 42 | 183 | 77 | 23.8 | 19.1 | MEDIUM |
+| Shashank Singh | HIGH | 42 | 183 | 77 | 23.8 | 19.1 | LOW |
 | Shashank Singh | EXTREME | 76 | 187 | 71 | 27.6 | 22.4 | MEDIUM |
 | Shashank Singh | NEAR_IMPOSSIBLE | 51 | 147 | - | 17.6 | 17.6 | MEDIUM |
 
@@ -532,55 +531,57 @@
 | Arshdeep Singh | NEAR_IMPOSSIBLE | 67 | 8.0 | 28.4 | 11.9 | 1 | MEDIUM |
 | Azmatullah Omarzai | BUILDING | 26 | 12.5 | 42.3 | 42.3 | 2 | LOW |
 | Azmatullah Omarzai | HIGH | 50 | 9 | 38 | 18 | 2 | MEDIUM |
-| Azmatullah Omarzai | EXTREME | 34 | 12.2 | 23.5 | 29.4 | 0 | MEDIUM |
+| Azmatullah Omarzai | EXTREME | 34 | 12.2 | 23.5 | 29.4 | 0 | LOW |
 | Azmatullah Omarzai | NEAR_IMPOSSIBLE | 25 | 10.8 | 28 | 24 | 3 | LOW |
 | Harpreet Brar | COMFORTABLE | 83 | 7.7 | 31.3 | 16.9 | 4 | MEDIUM |
 | Harpreet Brar | BUILDING | 94 | 8.0 | 28.7 | 13.8 | 5 | MEDIUM |
 | Harpreet Brar | HIGH | 61 | 6.5 | 37.7 | 9.8 | 5 | MEDIUM |
-| Harpreet Brar | EXTREME | 41 | 8.3 | 26.8 | 14.6 | 1 | MEDIUM |
-| LH Ferguson | BUILDING | 30 | 8 | 30 | 13.3 | 2 | MEDIUM |
+| Harpreet Brar | EXTREME | 41 | 8.3 | 26.8 | 14.6 | 1 | LOW |
+| LH Ferguson | BUILDING | 30 | 8 | 30 | 13.3 | 2 | LOW |
 | LH Ferguson | HIGH | 16 | 8.2 | 31.2 | 18.8 | 0 | LOW |
-| LH Ferguson | EXTREME | 36 | 10 | 38.9 | 22.2 | 3 | MEDIUM |
-| LH Ferguson | NEAR_IMPOSSIBLE | 38 | 10.1 | 28.9 | 21.1 | 3 | MEDIUM |
+| LH Ferguson | EXTREME | 36 | 10 | 38.9 | 22.2 | 3 | LOW |
+| LH Ferguson | NEAR_IMPOSSIBLE | 38 | 10.1 | 28.9 | 21.1 | 3 | LOW |
 | M Jansen | COMFORTABLE | 56 | 8.7 | 41.1 | 23.2 | 3 | MEDIUM |
 | M Jansen | BUILDING | 23 | 14.9 | 21.7 | 39.1 | 1 | LOW |
 | M Jansen | HIGH | 64 | 11.5 | 32.8 | 28.1 | 1 | MEDIUM |
 | M Jansen | EXTREME | 60 | 10.4 | 36.7 | 25 | 2 | MEDIUM |
-| M Jansen | NEAR_IMPOSSIBLE | 49 | 11.4 | 28.6 | 24.5 | 3 | MEDIUM |
+| M Jansen | NEAR_IMPOSSIBLE | 49 | 11.4 | 28.6 | 24.5 | 3 | LOW |
 | MP Stoinis | BUILDING | 24 | 6.2 | 45.8 | 12.5 | 3 | LOW |
-| MP Stoinis | EXTREME | 34 | 13.1 | 35.3 | 29.4 | 2 | MEDIUM |
+| MP Stoinis | EXTREME | 34 | 13.1 | 35.3 | 29.4 | 2 | LOW |
 | MP Stoinis | NEAR_IMPOSSIBLE | 18 | 12 | 22.2 | 27.8 | 0 | LOW |
-| Vijaykumar Vyshak | COMFORTABLE | 36 | 9 | 27.8 | 16.7 | 4 | MEDIUM |
-| Vijaykumar Vyshak | BUILDING | 37 | 10.5 | 35.1 | 27.0 | 0 | MEDIUM |
-| Vijaykumar Vyshak | HIGH | 47 | 8.7 | 34.0 | 19.1 | 2 | MEDIUM |
+| Vijaykumar Vyshak | COMFORTABLE | 36 | 9 | 27.8 | 16.7 | 4 | LOW |
+| Vijaykumar Vyshak | BUILDING | 37 | 10.5 | 35.1 | 27.0 | 0 | LOW |
+| Vijaykumar Vyshak | HIGH | 47 | 8.7 | 34.0 | 19.1 | 2 | LOW |
 | Vijaykumar Vyshak | EXTREME | 17 | 7.1 | 29.4 | 5.9 | 1 | LOW |
-| Vijaykumar Vyshak | NEAR_IMPOSSIBLE | 34 | 12 | 32.4 | 29.4 | 1 | MEDIUM |
-| XC Bartlett | COMFORTABLE | 32 | 10.7 | 40.6 | 28.1 | 1 | MEDIUM |
+| Vijaykumar Vyshak | NEAR_IMPOSSIBLE | 34 | 12 | 32.4 | 29.4 | 1 | LOW |
+| XC Bartlett | COMFORTABLE | 32 | 10.7 | 40.6 | 28.1 | 1 | LOW |
 | YS Chahal | COMFORTABLE | 104 | 7.0 | 33.6 | 10.6 | 7 | HIGH |
-| YS Chahal | BUILDING | 32 | 8.2 | 25 | 12.5 | 2 | MEDIUM |
+| YS Chahal | BUILDING | 32 | 8.2 | 25 | 12.5 | 2 | LOW |
 | YS Chahal | HIGH | 55 | 8.6 | 32.7 | 18.2 | 3 | MEDIUM |
 | YS Chahal | EXTREME | 121 | 10.0 | 24.0 | 20.7 | 4 | HIGH |
 | YS Chahal | NEAR_IMPOSSIBLE | 80 | 7.8 | 31.2 | 10 | 11 | MEDIUM |
-| Yash Thakur | COMFORTABLE | 40 | 13.8 | 22.5 | 37.5 | 0 | MEDIUM |
-| Yash Thakur | BUILDING | 45 | 9.3 | 37.8 | 22.2 | 3 | MEDIUM |
-| Yash Thakur | HIGH | 35 | 13.5 | 22.9 | 34.3 | 1 | MEDIUM |
-| Yash Thakur | EXTREME | 31 | 7.9 | 32.3 | 16.1 | 2 | MEDIUM |
+| Yash Thakur | COMFORTABLE | 40 | 13.8 | 22.5 | 37.5 | 0 | LOW |
+| Yash Thakur | BUILDING | 45 | 9.3 | 37.8 | 22.2 | 3 | LOW |
+| Yash Thakur | HIGH | 35 | 13.5 | 22.9 | 34.3 | 1 | LOW |
+| Yash Thakur | EXTREME | 31 | 7.9 | 32.3 | 16.1 | 2 | LOW |
 | Yash Thakur | NEAR_IMPOSSIBLE | 56 | 10.5 | 35.7 | 21.4 | 7 | MEDIUM |
 
 ### 11.3 Pressure Ratings
 
 *How player performance shifts under pressure vs overall — IPL 2023+*
 
-| Player | Role | Delta% | Rating | Confidence |
-|--------|------|--------|--------|------------|
-| SS Iyer | BATTER | +3.5% | **PRESSURE_PROOF** | HIGH |
-| Shashank Singh | BATTER | +6.9% | MODERATE | HIGH |
-| MP Stoinis | BATTER | +5.5% | MODERATE | HIGH |
-| N Wadhera | BATTER | -6.8% | MODERATE | HIGH |
-| P Simran Singh | BATTER | -8.9% | MODERATE | HIGH |
+*Weighted Score = SR Delta x sample-size bonus x death-overs bonus*
+
+| Player | Role | Balls | Delta% | W.Score | Rating | Confidence |
+|--------|------|-------|--------|---------|--------|------------|
+| Shashank Singh | BATTER | 169 | +6.9% | 26.8 | MODERATE | HIGH |
+| MP Stoinis | BATTER | 195 | +5.5% | 21.1 | MODERATE | HIGH |
+| SS Iyer | BATTER | 79 | +3.5% | 8.9 | **PRESSURE_PROOF** | MEDIUM |
+| N Wadhera | BATTER | 172 | -6.8% | -24.9 | MODERATE | HIGH |
+| P Simran Singh | BATTER | 156 | -8.9% | -29.9 | MODERATE | HIGH |
 
 ---
-*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. COMFORTABLE (RRR < 6), BUILDING (6-8), HIGH (8-10), EXTREME (10-12), NEAR_IMPOSSIBLE (12+). Players must have faced/bowled >= 15 balls in at least one band to appear.*
+*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. COMFORTABLE (RRR < 8), BUILDING (8-10), HIGH (10-12), EXTREME (12-15), NEAR_IMPOSSIBLE (15+). Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify. Weighted Score factors in sample size and death-overs (16-20) contribution.*
 
 
 ---

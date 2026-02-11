@@ -9186,9 +9186,24 @@
           "description": "Player role (batter, bowler, all-rounder)"
         },
         {
+          "name": "overall_balls",
+          "type": "HUGEINT",
+          "description": "Overall balls"
+        },
+        {
           "name": "pressure_balls",
           "type": "HUGEINT",
           "description": "Pressure balls"
+        },
+        {
+          "name": "death_pressure_balls",
+          "type": "HUGEINT",
+          "description": "Death pressure balls"
+        },
+        {
+          "name": "death_pressure_sr",
+          "type": "DOUBLE",
+          "description": "Death pressure sr"
         },
         {
           "name": "overall_sr",
@@ -9244,6 +9259,11 @@
           "name": "pressure_rating",
           "type": "VARCHAR",
           "description": "Pressure rating"
+        },
+        {
+          "name": "pressure_score",
+          "type": "DOUBLE",
+          "description": "Pressure score"
         }
       ]
     },
@@ -9267,9 +9287,24 @@
           "description": "Player role (batter, bowler, all-rounder)"
         },
         {
+          "name": "overall_balls",
+          "type": "HUGEINT",
+          "description": "Overall balls"
+        },
+        {
           "name": "pressure_balls",
           "type": "HUGEINT",
           "description": "Pressure balls"
+        },
+        {
+          "name": "death_pressure_balls",
+          "type": "HUGEINT",
+          "description": "Death pressure balls"
+        },
+        {
+          "name": "death_pressure_sr",
+          "type": "DOUBLE",
+          "description": "Death pressure sr"
         },
         {
           "name": "overall_sr",
@@ -9325,6 +9360,11 @@
           "name": "pressure_rating",
           "type": "VARCHAR",
           "description": "Pressure rating"
+        },
+        {
+          "name": "pressure_score",
+          "type": "DOUBLE",
+          "description": "Pressure score"
         }
       ]
     },
@@ -11765,6 +11805,6 @@
     "total_views": 152,
     "total_rows": 2380093,
     "parquet_size_mb": 15.25,
-    "generated_at": "2026-02-11T17:01:50.715321+00:00"
+    "generated_at": "2026-02-11T17:59:37.391606+00:00"
   }
 }

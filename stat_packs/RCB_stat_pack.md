@@ -1,6 +1,6 @@
 # Royal Challengers Bengaluru (RCB) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-11 22:53
+**Generated:** 2026-02-11 23:29
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -127,8 +127,8 @@
 **Top Wicket Takers by Season:**
 
 - **2023:** Mohammed Siraj (19w @ 7.2), HV Patel (14w @ 9.3), KV Sharma (10w @ 10.41)
-- **2024:** Mohammed Siraj (15w @ 8.69), Yash Dayal (15w @ 8.8), C Green (10w @ 8.21)
-- **2025:** JR Hazlewood (22w @ 8.64), KH Pandya (17w @ 8.06), B Kumar (17w @ 9.25)
+- **2024:** Yash Dayal (15w @ 8.8), Mohammed Siraj (15w @ 8.69), C Green (10w @ 8.21)
+- **2025:** JR Hazlewood (22w @ 8.64), B Kumar (17w @ 9.25), KH Pandya (17w @ 8.06)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -169,13 +169,13 @@
 |-------|---------|------|------|-----------|
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 181.7 |
 | Wankhede Stadium | 3 | 1 | 33.3% | 205.3 |
-| Narendra Modi Stadium | 3 | 2 | 66.7% | 189.3 |
 | Eden Gardens | 3 | 1 | 33.3% | 173.7 |
+| Narendra Modi Stadium | 3 | 2 | 66.7% | 189.3 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 176.3 |
-| MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
 | Arun Jaitley Stadium | 2 | 1 | 50.0% | 173.0 |
 | Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
 | Rajiv Gandhi International Stadium | 2 | 2 | 100.0% | 196.5 |
+| MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -189,8 +189,8 @@
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -218,8 +218,8 @@
 | KH Pandya | Bharat Ratna Shri Atal Bi | 13 | 12 | 6.84 | 22.0 |
 | JR Hazlewood | M Chinnaswamy Stadium | 4 | 8 | 9.33 | 10.38 |
 | B Kumar | Narendra Modi Stadium | 4 | 7 | 8.47 | 12.86 |
-| Suyash Sharma | Maharaja Yadavindra Singh | 2 | 5 | 5.71 | 8.4 |
 | B Kumar | Arun Jaitley Stadium | 3 | 5 | 8.92 | 14.4 |
+| Suyash Sharma | Maharaja Yadavindra Singh | 2 | 5 | 5.71 | 8.4 |
 | KH Pandya | Wankhede Stadium | 2 | 5 | 8.75 | 9.6 |
 
 
@@ -483,17 +483,17 @@
 | Player | Band | Balls | SR | Avg | Boundary% | Dot% | Confidence |
 |--------|------|-------|----|-----|-----------|------|------------|
 | B Kumar | EXTREME | 16 | 106 | - | 12.5 | 37.5 | LOW |
-| B Kumar | NEAR_IMPOSSIBLE | 44 | 97.7 | 10.8 | 11.4 | 45.5 | MEDIUM |
+| B Kumar | NEAR_IMPOSSIBLE | 44 | 97.7 | 10.8 | 11.4 | 45.5 | LOW |
 | D Padikkal | COMFORTABLE | 58 | 162 | 47 | 24.1 | 32.8 | MEDIUM |
 | D Padikkal | BUILDING | 61 | 144 | 44 | 24.6 | 37.7 | MEDIUM |
 | D Padikkal | HIGH | 78 | 103 | 20 | 11.5 | 43.6 | MEDIUM |
 | D Padikkal | EXTREME | 25 | 104 | 26 | 8 | 32 | LOW |
-| JM Sharma | BUILDING | 45 | 129 | 14.5 | 13.3 | 37.8 | MEDIUM |
-| JM Sharma | HIGH | 31 | 165 | - | 25.8 | 32.3 | MEDIUM |
+| JM Sharma | BUILDING | 45 | 129 | 14.5 | 13.3 | 37.8 | LOW |
+| JM Sharma | HIGH | 31 | 165 | - | 25.8 | 32.3 | LOW |
 | JM Sharma | EXTREME | 65 | 192 | 31.2 | 27.7 | 20 | MEDIUM |
 | JM Sharma | NEAR_IMPOSSIBLE | 25 | 140 | 5.8 | 16 | 48 | LOW |
 | KH Pandya | COMFORTABLE | 57 | 125 | 23.7 | 19.3 | 50.9 | MEDIUM |
-| KH Pandya | BUILDING | 41 | 124 | - | 14.6 | 39.0 | MEDIUM |
+| KH Pandya | BUILDING | 41 | 124 | - | 14.6 | 39.0 | LOW |
 | KH Pandya | HIGH | 22 | 168 | 37 | 22.7 | 31.8 | LOW |
 | KH Pandya | EXTREME | 22 | 90.9 | 10 | 9.1 | 45.5 | LOW |
 | KH Pandya | NEAR_IMPOSSIBLE | 18 | 83.3 | 3.8 | 11.1 | 50 | LOW |
@@ -501,9 +501,9 @@
 | PD Salt | BUILDING | 125 | 172 | 71.7 | 28.8 | 36 | HIGH |
 | PD Salt | HIGH | 52 | 169 | 88 | 26.9 | 30.8 | MEDIUM |
 | PD Salt | EXTREME | 18 | 133 | 12 | 16.7 | 33.3 | LOW |
-| RM Patidar | COMFORTABLE | 40 | 158 | 21 | 22.5 | 27.5 | MEDIUM |
-| RM Patidar | BUILDING | 30 | 123 | - | 16.7 | 36.7 | MEDIUM |
-| RM Patidar | HIGH | 32 | 184 | 19.7 | 28.1 | 34.4 | MEDIUM |
+| RM Patidar | COMFORTABLE | 40 | 158 | 21 | 22.5 | 27.5 | LOW |
+| RM Patidar | BUILDING | 30 | 123 | - | 16.7 | 36.7 | LOW |
+| RM Patidar | HIGH | 32 | 184 | 19.7 | 28.1 | 34.4 | LOW |
 | RM Patidar | EXTREME | 24 | 162 | 39 | 16.7 | 16.7 | LOW |
 | TH David | COMFORTABLE | 22 | 241 | 53 | 40.9 | 18.2 | LOW |
 | TH David | HIGH | 17 | 141 | - | 17.6 | 29.4 | LOW |
@@ -512,7 +512,7 @@
 | V Kohli | COMFORTABLE | 159 | 156 | 124 | 18.9 | 24.5 | HIGH |
 | V Kohli | BUILDING | 207 | 145 | 100 | 21.3 | 29.9 | HIGH |
 | V Kohli | HIGH | 168 | 156 | 52.4 | 22.0 | 26.8 | HIGH |
-| V Kohli | EXTREME | 47 | 164 | 25.7 | 27.7 | 31.9 | MEDIUM |
+| V Kohli | EXTREME | 47 | 164 | 25.7 | 27.7 | 31.9 | LOW |
 | VR Iyer | COMFORTABLE | 116 | 169 | 65.3 | 24.1 | 30.2 | HIGH |
 | VR Iyer | BUILDING | 21 | 143 | 30 | 19.1 | 28.6 | LOW |
 | VR Iyer | HIGH | 63 | 159 | 100 | 22.2 | 27.0 | MEDIUM |
@@ -529,51 +529,49 @@
 | B Kumar | HIGH | 122 | 8.1 | 47.5 | 22.1 | 8 | HIGH |
 | B Kumar | EXTREME | 59 | 13.3 | 32.2 | 39.0 | 1 | MEDIUM |
 | B Kumar | NEAR_IMPOSSIBLE | 89 | 11.5 | 19.1 | 23.6 | 3 | MEDIUM |
-| JR Hazlewood | COMFORTABLE | 41 | 7.2 | 53.7 | 12.2 | 4 | MEDIUM |
+| JR Hazlewood | COMFORTABLE | 41 | 7.2 | 53.7 | 12.2 | 4 | LOW |
 | JR Hazlewood | BUILDING | 64 | 9.9 | 40.6 | 26.6 | 4 | MEDIUM |
-| JR Hazlewood | HIGH | 49 | 7.8 | 55.1 | 26.5 | 3 | MEDIUM |
-| JR Hazlewood | NEAR_IMPOSSIBLE | 42 | 9.1 | 45.2 | 23.8 | 5 | MEDIUM |
-| KH Pandya | COMFORTABLE | 31 | 13.0 | 22.6 | 32.3 | 0 | MEDIUM |
+| JR Hazlewood | HIGH | 49 | 7.8 | 55.1 | 26.5 | 3 | LOW |
+| JR Hazlewood | NEAR_IMPOSSIBLE | 42 | 9.1 | 45.2 | 23.8 | 5 | LOW |
+| KH Pandya | COMFORTABLE | 31 | 13.0 | 22.6 | 32.3 | 0 | LOW |
 | KH Pandya | BUILDING | 111 | 8.8 | 27.0 | 19.8 | 5 | HIGH |
 | KH Pandya | HIGH | 101 | 6.5 | 35.6 | 9.9 | 3 | HIGH |
-| KH Pandya | EXTREME | 47 | 7.9 | 38.3 | 14.9 | 4 | MEDIUM |
-| KH Pandya | NEAR_IMPOSSIBLE | 31 | 10.3 | 29.0 | 22.6 | 0 | MEDIUM |
-| MP Yadav | HIGH | 29 | 6.6 | 51.7 | 17.2 | 3 | LOW |
-| R Shepherd | HIGH | 20 | 13.5 | 25 | 35 | 1 | LOW |
-| R Shepherd | EXTREME | 25 | 10.6 | 36 | 24 | 1 | LOW |
-| R Shepherd | NEAR_IMPOSSIBLE | 15 | 13.6 | 6.7 | 26.7 | 0 | LOW |
-| Suyash Sharma | COMFORTABLE | 47 | 8.3 | 42.5 | 19.1 | 1 | MEDIUM |
+| KH Pandya | EXTREME | 47 | 7.9 | 38.3 | 14.9 | 4 | LOW |
+| KH Pandya | NEAR_IMPOSSIBLE | 31 | 10.3 | 29.0 | 22.6 | 0 | LOW |
+| Suyash Sharma | COMFORTABLE | 47 | 8.3 | 42.5 | 19.1 | 1 | LOW |
 | Suyash Sharma | BUILDING | 67 | 8.1 | 31.3 | 16.4 | 4 | MEDIUM |
 | Suyash Sharma | HIGH | 71 | 11.4 | 22.5 | 25.4 | 0 | MEDIUM |
 | Suyash Sharma | EXTREME | 65 | 6.4 | 36.9 | 9.2 | 0 | MEDIUM |
-| Suyash Sharma | NEAR_IMPOSSIBLE | 38 | 9 | 39.5 | 21.1 | 3 | MEDIUM |
+| Suyash Sharma | NEAR_IMPOSSIBLE | 38 | 9 | 39.5 | 21.1 | 3 | LOW |
 | Swapnil Singh | BUILDING | 24 | 9.8 | 29.2 | 25 | 1 | LOW |
 | Swapnil Singh | HIGH | 16 | 10.9 | 12.5 | 18.8 | 2 | LOW |
-| Swapnil Singh | EXTREME | 32 | 9.8 | 28.1 | 21.9 | 2 | MEDIUM |
-| Yash Dayal | COMFORTABLE | 44 | 12.9 | 25 | 27.3 | 2 | MEDIUM |
+| Swapnil Singh | EXTREME | 32 | 9.8 | 28.1 | 21.9 | 2 | LOW |
+| Yash Dayal | COMFORTABLE | 44 | 12.9 | 25 | 27.3 | 2 | LOW |
 | Yash Dayal | BUILDING | 116 | 9.6 | 40.5 | 26.7 | 4 | HIGH |
 | Yash Dayal | HIGH | 97 | 10.3 | 28.9 | 25.8 | 3 | MEDIUM |
-| Yash Dayal | EXTREME | 34 | 6.3 | 47.1 | 11.8 | 0 | MEDIUM |
-| Yash Dayal | NEAR_IMPOSSIBLE | 47 | 9.3 | 31.9 | 17.0 | 7 | MEDIUM |
+| Yash Dayal | EXTREME | 34 | 6.3 | 47.1 | 11.8 | 0 | LOW |
+| Yash Dayal | NEAR_IMPOSSIBLE | 47 | 9.3 | 31.9 | 17.0 | 7 | LOW |
 
 ### 11.3 Pressure Ratings
 
 *How player performance shifts under pressure vs overall — IPL 2023+*
 
-| Player | Role | Delta% | Rating | Confidence |
-|--------|------|--------|--------|------------|
-| V Kohli | BATTER | +2.6% | **PRESSURE_PROOF** | HIGH |
-| B Kumar | BATTER | 0.0% | **PRESSURE_PROOF** | HIGH |
-| KH Pandya | BATTER | -4.2% | **PRESSURE_PROOF** | HIGH |
-| RM Patidar | BATTER | +7.5% | MODERATE | HIGH |
-| JM Sharma | BATTER | +5.6% | MODERATE | HIGH |
-| TH David | BATTER | -6.1% | MODERATE | HIGH |
-| VR Iyer | BATTER | -8.4% | MODERATE | HIGH |
-| PD Salt | BATTER | -11.7% | PRESSURE_SENSITIVE | HIGH |
-| D Padikkal | BATTER | -18.3% | PRESSURE_SENSITIVE | HIGH |
+*Weighted Score = SR Delta x sample-size bonus x death-overs bonus*
+
+| Player | Role | Balls | Delta% | W.Score | Rating | Confidence |
+|--------|------|-------|--------|---------|--------|------------|
+| JM Sharma | BATTER | 121 | +5.6% | 19.0 | MODERATE | HIGH |
+| RM Patidar | BATTER | 66 | +7.5% | 16.2 | MODERATE | MEDIUM |
+| V Kohli | BATTER | 217 | +2.6% | 10.1 | **PRESSURE_PROOF** | HIGH |
+| B Kumar | BATTER | 60 | 0.0% | 0 | **PRESSURE_PROOF** | MEDIUM |
+| KH Pandya | BATTER | 62 | -4.2% | -9.3 | **PRESSURE_PROOF** | MEDIUM |
+| TH David | BATTER | 129 | -6.1% | -23.8 | MODERATE | HIGH |
+| PD Salt | BATTER | 70 | -11.7% | -26.1 | PRESSURE_SENSITIVE | MEDIUM |
+| VR Iyer | BATTER | 152 | -8.4% | -28.5 | MODERATE | HIGH |
+| D Padikkal | BATTER | 115 | -18.3% | -55.7 | PRESSURE_SENSITIVE | HIGH |
 
 ---
-*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. COMFORTABLE (RRR < 6), BUILDING (6-8), HIGH (8-10), EXTREME (10-12), NEAR_IMPOSSIBLE (12+). Players must have faced/bowled >= 15 balls in at least one band to appear.*
+*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. COMFORTABLE (RRR < 8), BUILDING (8-10), HIGH (10-12), EXTREME (12-15), NEAR_IMPOSSIBLE (15+). Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify. Weighted Score factors in sample size and death-overs (16-20) contribution.*
 
 
 ---

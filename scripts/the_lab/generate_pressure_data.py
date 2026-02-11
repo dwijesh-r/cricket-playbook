@@ -67,7 +67,7 @@ def get_team_pressure_summary(conn):
 
 
 def get_top_clutch_batters(conn):
-    """Get top 3 clutch batters per team by SR delta."""
+    """Get top 3 clutch batters per team by weighted pressure score."""
     rows = conn.execute("""
         WITH ranked AS (
             SELECT
@@ -79,15 +79,18 @@ def get_top_clutch_batters(conn):
                 pd.pressure_rating,
                 pd.sample_confidence,
                 pd.pressure_balls,
+                pd.pressure_score,
+                pd.death_pressure_balls,
                 ROW_NUMBER() OVER (
                     PARTITION BY sq.team_name
-                    ORDER BY pd.sr_delta_pct DESC
+                    ORDER BY pd.pressure_score DESC
                 ) as rn
             FROM analytics_ipl_pressure_deltas_since2023 pd
             JOIN ipl_2026_squads sq ON pd.player_id = sq.player_id
         )
         SELECT team_name, player_name, sr_delta_pct, pressure_sr, overall_sr,
-               pressure_rating, sample_confidence, pressure_balls
+               pressure_rating, sample_confidence, pressure_balls,
+               pressure_score, death_pressure_balls
         FROM ranked
         WHERE rn <= 3
         ORDER BY team_name, rn
@@ -95,7 +98,18 @@ def get_top_clutch_batters(conn):
 
     batters = {}
     for row in rows:
-        team_name, name, sr_delta, p_sr, o_sr, rating, confidence, balls = row
+        (
+            team_name,
+            name,
+            sr_delta,
+            p_sr,
+            o_sr,
+            rating,
+            confidence,
+            balls,
+            score,
+            death_balls,
+        ) = row
         abbrev = TEAM_ABBREV.get(team_name)
         if not abbrev:
             continue
@@ -110,6 +124,8 @@ def get_top_clutch_batters(conn):
                 "rating": rating,
                 "confidence": confidence,
                 "pressureBalls": int(balls) if balls is not None else 0,
+                "pressureScore": round(float(score), 2) if score is not None else 0.0,
+                "deathPressureBalls": int(death_balls) if death_balls is not None else 0,
             }
         )
 
@@ -253,7 +269,9 @@ def generate_js(summary, batters, bowlers):
                 f"overallSR: {b['overallSR']}, "
                 f'rating: "{b["rating"]}", '
                 f'confidence: "{b["confidence"]}", '
-                f"pressureBalls: {b['pressureBalls']} }},"
+                f"pressureBalls: {b['pressureBalls']}, "
+                f"pressureScore: {b['pressureScore']}, "
+                f"deathPressureBalls: {b['deathPressureBalls']} }},"
             )
         lines.append("        ],")
 

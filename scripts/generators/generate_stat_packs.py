@@ -1345,10 +1345,10 @@ PRESSURE_BAND_ORDER = ["COMFORTABLE", "BUILDING", "HIGH", "EXTREME", "NEAR_IMPOS
 
 # Balls threshold for pressure band confidence
 PRESSURE_CONFIDENCE_HIGH = 100
-PRESSURE_CONFIDENCE_MEDIUM = 30
+PRESSURE_CONFIDENCE_MEDIUM = 50
 
 # Minimum balls for a player to appear in any pressure band table
-PRESSURE_MIN_BALLS_THRESHOLD = 15
+PRESSURE_MIN_BALLS_THRESHOLD = 30
 
 
 def _pressure_confidence_label(balls: int) -> str:
@@ -1512,38 +1512,38 @@ def _generate_pressure_ratings(conn: duckdb.DuckDBPyConnection, team_name: str) 
     """
     md = ["### 11.3 Pressure Ratings\n"]
     md.append("*How player performance shifts under pressure vs overall — IPL 2023+*\n")
+    md.append("*Weighted Score = SR Delta x sample-size bonus x death-overs bonus*\n")
 
     rows = execute_query_safe(
         conn,
         f"""
         SELECT pd.player_name, pd.role, pd.sr_delta_pct,
-               pd.pressure_rating, pd.sample_confidence
+               pd.pressure_rating, pd.sample_confidence,
+               pd.pressure_balls, pd.pressure_score
         FROM analytics_ipl_pressure_deltas_since2023 pd
         JOIN ipl_2026_squads sq ON pd.player_id = sq.player_id
         WHERE sq.team_name = '{team_name}'
-        ORDER BY
-            CASE pd.pressure_rating
-                WHEN 'CLUTCH' THEN 1
-                WHEN 'PRESSURE_PROOF' THEN 2
-                WHEN 'MODERATE' THEN 3
-                WHEN 'PRESSURE_SENSITIVE' THEN 4
-            END,
-            pd.sr_delta_pct DESC
+        ORDER BY pd.pressure_score DESC
         """,
         default=[],
     )
 
     if rows:
-        md.append("| Player | Role | Delta% | Rating | Confidence |")
-        md.append("|--------|------|--------|--------|------------|")
-        for player, role, delta_pct, rating, confidence in rows:
+        md.append("| Player | Role | Balls | Delta% | W.Score | Rating | Confidence |")
+        md.append("|--------|------|-------|--------|---------|--------|------------|")
+        for player, role, delta_pct, rating, confidence, balls, score in rows:
             # Highlight positive ratings
             if rating in ("CLUTCH", "PRESSURE_PROOF"):
                 rating_display = f"**{rating}**"
             else:
                 rating_display = rating
             delta_str = f"+{delta_pct:.1f}" if delta_pct > 0 else f"{delta_pct:.1f}"
-            md.append(f"| {player} | {role} | {delta_str}% | {rating_display} | {confidence} |")
+            score_str = format_stat(score) if score is not None else "-"
+            balls_str = str(balls) if balls is not None else "-"
+            md.append(
+                f"| {player} | {role} | {balls_str} | {delta_str}% | "
+                f"{score_str} | {rating_display} | {confidence} |"
+            )
     else:
         md.append("*No pressure delta ratings available for this squad*")
 
@@ -1587,8 +1587,9 @@ def generate_pressure_performance(conn: duckdb.DuckDBPyConnection, team_name: st
     md.append("---")
     md.append(
         "*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. "
-        "COMFORTABLE (RRR < 6), BUILDING (6-8), HIGH (8-10), EXTREME (10-12), NEAR_IMPOSSIBLE (12+). "
-        "Players must have faced/bowled >= 15 balls in at least one band to appear.*\n"
+        "COMFORTABLE (RRR < 8), BUILDING (8-10), HIGH (10-12), EXTREME (12-15), NEAR_IMPOSSIBLE (15+). "
+        "Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify. "
+        "Weighted Score factors in sample size and death-overs (16-20) contribution.*\n"
     )
 
     return md

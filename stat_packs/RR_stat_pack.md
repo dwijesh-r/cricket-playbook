@@ -1,6 +1,6 @@
 # Rajasthan Royals (RR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-11 22:52
+**Generated:** 2026-02-11 23:28
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -134,7 +134,7 @@
 
 - **2023:** YS Chahal (21w @ 7.99), R Ashwin (14w @ 7.18), TA Boult (13w @ 8.07)
 - **2024:** Avesh Khan (20w @ 9.24), YS Chahal (18w @ 9.08), TA Boult (16w @ 8.07)
-- **2025:** PWH de Silva (11w @ 8.99), M Theekshana (11w @ 9.12), JC Archer (11w @ 9.14)
+- **2025:** JC Archer (11w @ 9.14), PWH de Silva (11w @ 8.99), M Theekshana (11w @ 9.12)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -180,13 +180,13 @@
 |-------|---------|------|------|-----------|
 | Barsapara Cricket Stadium | 5 | 2 | 40.0% | 173.6 |
 | Rajiv Gandhi International Stadium | 3 | 1 | 33.3% | 215.0 |
-| Eden Gardens | 3 | 2 | 66.7% | 193.3 |
-| Narendra Modi Stadium | 3 | 2 | 66.7% | 170.7 |
 | MA Chidambaram Stadium | 3 | 1 | 33.3% | 151.7 |
 | Arun Jaitley Stadium | 3 | 1 | 33.3% | 192.3 |
+| Eden Gardens | 3 | 2 | 66.7% | 193.3 |
+| Narendra Modi Stadium | 3 | 2 | 66.7% | 170.7 |
+| Wankhede Stadium | 2 | 1 | 50.0% | 169.5 |
 | M Chinnaswamy Stadium | 2 | 0 | 0.0% | 188.0 |
 | Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 178.5 |
-| Wankhede Stadium | 2 | 1 | 50.0% | 169.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -199,9 +199,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -219,8 +219,8 @@
 | YBK Jaiswal | Eden Gardens | 3 | 151 | 196.1 | 75.5 |
 | SO Hetmyer | Narendra Modi Stadium | 3 | 134 | 186.11 | 67.0 |
 | RA Jadeja | M Chinnaswamy Stadium | 3 | 129 | 172.0 | 129.0 |
-| R Parag | Eden Gardens | 2 | 128 | 220.69 | 64.0 |
 | YBK Jaiswal | Wankhede Stadium | 2 | 128 | 191.04 | 64.0 |
+| R Parag | Eden Gardens | 2 | 128 | 220.69 | 64.0 |
 
 **Top Bowling Performances:**
 
@@ -232,8 +232,8 @@
 | Sandeep Sharma | Sawai Mansingh Stadium | 11 | 10 | 8.44 | 24.3 |
 | SM Curran | Maharaja Yadavindra Singh | 5 | 7 | 8.73 | 12.86 |
 | SM Curran | Bharat Ratna Shri Atal Bi | 2 | 6 | 7.13 | 8.0 |
-| SM Curran | Himachal Pradesh Cricket  | 4 | 5 | 10.73 | 18.0 |
 | TU Deshpande | Sawai Mansingh Stadium | 4 | 5 | 8.71 | 16.8 |
+| SM Curran | Himachal Pradesh Cricket  | 4 | 5 | 10.73 | 18.0 |
 
 
 ---
@@ -383,8 +383,8 @@
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Royal Challengers Bengaluru | 6 | 127 | 91 | 139.56 | 42.33 | 16.48 | 32.97 | 3 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 127 | 73 | 173.97 | 63.5 | 27.4 | 34.25 | 2 | MEDIUM |
+| Royal Challengers Bengaluru | 6 | 127 | 91 | 139.56 | 42.33 | 16.48 | 32.97 | 3 | MEDIUM |
 | Punjab Kings | 6 | 114 | 67 | 170.15 | 38.0 | 22.39 | 26.87 | 3 | MEDIUM |
 | Chennai Super Kings | 5 | 100 | 58 | 172.41 | 33.33 | 22.41 | 25.86 | 3 | MEDIUM |
 | Lucknow Super Giants | 4 | 78 | 52 | 150.0 | 78.0 | 17.31 | 26.92 | 1 | MEDIUM |
@@ -414,8 +414,8 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Gujarat Titans | 6 | 140 | 245 | 8 | 10.5 | 30.63 | 17.5 | 30.71 | 27.14 | HIGH |
-| Punjab Kings | 3 | 72 | 122 | 7 | 10.17 | 17.43 | 10.29 | 38.89 | 25.0 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 72 | 115 | 7 | 9.58 | 16.43 | 10.29 | 31.94 | 23.61 | MEDIUM |
+| Punjab Kings | 3 | 72 | 122 | 7 | 10.17 | 17.43 | 10.29 | 38.89 | 25.0 | MEDIUM |
 | Rajasthan Royals | 3 | 72 | 109 | 6 | 9.08 | 18.17 | 12.0 | 36.11 | 20.83 | MEDIUM |
 | Kolkata Knight Riders | 4 | 75 | 105 | 5 | 8.4 | 21.0 | 15.0 | 46.67 | 20.0 | MEDIUM |
 | Mumbai Indians | 3 | 66 | 85 | 5 | 7.73 | 17.0 | 13.2 | 39.39 | 16.67 | MEDIUM |
@@ -431,10 +431,10 @@
 | Punjab Kings | 5 | 102 | 122 | 6 | 7.18 | 20.33 | 17.0 | 35.29 | 13.73 | HIGH |
 | Gujarat Titans | 6 | 114 | 146 | 6 | 7.68 | 24.33 | 19.0 | 26.32 | 12.28 | HIGH |
 | Kolkata Knight Riders | 5 | 79 | 109 | 5 | 8.28 | 21.8 | 15.8 | 35.44 | 16.46 | MEDIUM |
-| Sunrisers Hyderabad | 4 | 94 | 97 | 5 | 6.19 | 19.4 | 18.8 | 30.85 | 5.32 | MEDIUM |
 | Mumbai Indians | 5 | 108 | 141 | 5 | 7.83 | 28.2 | 21.6 | 33.33 | 16.67 | HIGH |
-| Delhi Capitals | 4 | 84 | 129 | 4 | 9.21 | 32.25 | 21.0 | 27.38 | 17.86 | MEDIUM |
+| Sunrisers Hyderabad | 4 | 94 | 97 | 5 | 6.19 | 19.4 | 18.8 | 30.85 | 5.32 | MEDIUM |
 | Rajasthan Royals | 5 | 96 | 106 | 4 | 6.63 | 26.5 | 24.0 | 31.25 | 8.33 | MEDIUM |
+| Delhi Capitals | 4 | 84 | 129 | 4 | 9.21 | 32.25 | 21.0 | 27.38 | 17.86 | MEDIUM |
 | Lucknow Super Giants | 5 | 72 | 95 | 3 | 7.92 | 31.67 | 24.0 | 26.39 | 15.28 | MEDIUM |
 | Royal Challengers Bengaluru | 5 | 102 | 160 | 0 | 9.41 | - | - | 23.53 | 18.63 | HIGH |
 
@@ -445,8 +445,8 @@
 | Delhi Capitals | 5 | 114 | 171 | 7 | 9.0 | 24.43 | 16.29 | 35.96 | 19.3 | HIGH |
 | Mumbai Indians | 6 | 144 | 199 | 6 | 8.29 | 33.17 | 24.0 | 28.47 | 17.36 | HIGH |
 | Chennai Super Kings | 4 | 78 | 107 | 6 | 8.23 | 17.83 | 13.0 | 37.18 | 17.95 | MEDIUM |
-| Kolkata Knight Riders | 4 | 88 | 114 | 4 | 7.77 | 28.5 | 22.0 | 36.36 | 18.18 | MEDIUM |
 | Punjab Kings | 4 | 75 | 125 | 4 | 10.0 | 31.25 | 18.75 | 37.33 | 25.33 | MEDIUM |
+| Kolkata Knight Riders | 4 | 88 | 114 | 4 | 7.77 | 28.5 | 22.0 | 36.36 | 18.18 | MEDIUM |
 | Gujarat Titans | 4 | 72 | 108 | 3 | 9.0 | 36.0 | 24.0 | 23.61 | 16.67 | MEDIUM |
 | Royal Challengers Bengaluru | 3 | 66 | 90 | 2 | 8.18 | 45.0 | 33.0 | 27.27 | 12.12 | MEDIUM |
 | Sunrisers Hyderabad | 5 | 78 | 139 | 2 | 10.69 | 69.5 | 39.0 | 30.77 | 23.08 | MEDIUM |
@@ -462,8 +462,8 @@
 | Gujarat Titans | 4 | 90 | 112 | 4 | 7.47 | 28.0 | 22.5 | 33.33 | 14.44 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 96 | 152 | 4 | 9.5 | 38.0 | 24.0 | 30.21 | 20.83 | MEDIUM |
 | Punjab Kings | 3 | 72 | 91 | 2 | 7.58 | 45.5 | 36.0 | 34.72 | 15.28 | MEDIUM |
-| Delhi Capitals | 4 | 96 | 121 | 2 | 7.56 | 60.5 | 48.0 | 29.17 | 14.58 | MEDIUM |
 | Chennai Super Kings | 4 | 84 | 123 | 2 | 8.79 | 61.5 | 42.0 | 26.19 | 17.86 | MEDIUM |
+| Delhi Capitals | 4 | 96 | 121 | 2 | 7.56 | 60.5 | 48.0 | 29.17 | 14.58 | MEDIUM |
 | Kolkata Knight Riders | 2 | 36 | 45 | 1 | 7.5 | 45.0 | 36.0 | 44.44 | 16.67 | MEDIUM |
 
 ---
@@ -482,8 +482,8 @@
 | RA Jadeja | M Chinnaswamy Stadium, Bengaluru | 3 | 129 | 75 | 172.0 | 129.0 | 22.67 | MEDIUM |
 | SM Curran | MA Chidambaram Stadium, Chepauk, Ch... | 6 | 158 | 115 | 137.39 | 31.6 | 15.65 | HIGH |
 | SM Curran | Maharaja Yadavindra Singh Internati... | 5 | 124 | 105 | 118.1 | 24.8 | 13.33 | HIGH |
-| SO Hetmyer | Sawai Mansingh Stadium, Jaipur | 13 | 134 | 105 | 127.62 | 14.89 | 14.29 | HIGH |
 | SO Hetmyer | Narendra Modi Stadium, Ahmedabad | 3 | 134 | 72 | 186.11 | 67.0 | 25.0 | MEDIUM |
+| SO Hetmyer | Sawai Mansingh Stadium, Jaipur | 13 | 134 | 105 | 127.62 | 14.89 | 14.29 | HIGH |
 | SO Hetmyer | Barsapara Cricket Stadium, Guwahati | 4 | 101 | 62 | 162.9 | 33.67 | 19.35 | MEDIUM |
 | V Suryavanshi | Sawai Mansingh Stadium, Jaipur | 4 | 175 | 75 | 233.33 | 43.75 | 41.33 | MEDIUM |
 | YBK Jaiswal | Sawai Mansingh Stadium, Jaipur | 15 | 609 | 379 | 160.69 | 50.75 | 25.59 | HIGH |
@@ -528,31 +528,29 @@
 
 | Player | Band | Balls | SR | Avg | Boundary% | Dot% | Confidence |
 |--------|------|-------|----|-----|-----------|------|------------|
-| Dhruv Jurel | BUILDING | 36 | 136 | - | 13.9 | 25 | MEDIUM |
+| Dhruv Jurel | BUILDING | 36 | 136 | - | 13.9 | 25 | LOW |
 | Dhruv Jurel | HIGH | 76 | 113 | 43 | 11.8 | 39.5 | MEDIUM |
 | Dhruv Jurel | EXTREME | 64 | 150 | 24 | 20.3 | 32.8 | MEDIUM |
 | Dhruv Jurel | NEAR_IMPOSSIBLE | 96 | 202 | 48.5 | 31.2 | 26.0 | MEDIUM |
-| JC Archer | NEAR_IMPOSSIBLE | 28 | 125 | 11.7 | 14.3 | 39.3 | LOW |
 | R Parag | COMFORTABLE | 62 | 158 | 49 | 24.2 | 35.5 | MEDIUM |
 | R Parag | BUILDING | 74 | 132 | 24.5 | 14.9 | 33.8 | MEDIUM |
 | R Parag | HIGH | 140 | 174 | 40.5 | 25 | 29.3 | HIGH |
 | R Parag | EXTREME | 89 | 151 | 22.3 | 21.4 | 43.8 | MEDIUM |
-| RA Jadeja | BUILDING | 42 | 131 | 27.5 | 11.9 | 26.2 | MEDIUM |
+| RA Jadeja | BUILDING | 42 | 131 | 27.5 | 11.9 | 26.2 | LOW |
 | RA Jadeja | HIGH | 54 | 174 | - | 20.4 | 9.3 | MEDIUM |
 | RA Jadeja | EXTREME | 22 | 127 | 28 | 13.6 | 22.7 | LOW |
 | RA Jadeja | NEAR_IMPOSSIBLE | 99 | 159 | 78.5 | 20.2 | 21.2 | MEDIUM |
-| Ravi Bishnoi | NEAR_IMPOSSIBLE | 22 | 81.8 | 6 | 9.1 | 59.1 | LOW |
-| SM Curran | COMFORTABLE | 41 | 132 | 54 | 14.6 | 24.4 | MEDIUM |
+| SM Curran | COMFORTABLE | 41 | 132 | 54 | 14.6 | 24.4 | LOW |
 | SM Curran | BUILDING | 85 | 121 | 34.3 | 14.1 | 30.6 | MEDIUM |
 | SM Curran | HIGH | 67 | 115 | 19.2 | 13.4 | 43.3 | MEDIUM |
-| SM Curran | EXTREME | 35 | 114 | 10 | 5.7 | 28.6 | MEDIUM |
+| SM Curran | EXTREME | 35 | 114 | 10 | 5.7 | 28.6 | LOW |
 | SM Curran | NEAR_IMPOSSIBLE | 23 | 178 | 10.2 | 26.1 | 30.4 | LOW |
 | SO Hetmyer | COMFORTABLE | 15 | 233 | - | 40 | 13.3 | LOW |
 | SO Hetmyer | HIGH | 55 | 182 | 20 | 25.4 | 27.3 | MEDIUM |
 | SO Hetmyer | EXTREME | 92 | 140 | 43 | 15.2 | 30.4 | MEDIUM |
 | SO Hetmyer | NEAR_IMPOSSIBLE | 84 | 139 | 19.5 | 16.7 | 34.5 | MEDIUM |
 | V Suryavanshi | BUILDING | 81 | 225 | 45.5 | 37.0 | 28.4 | MEDIUM |
-| V Suryavanshi | HIGH | 33 | 148 | 24.5 | 24.2 | 57.6 | MEDIUM |
+| V Suryavanshi | HIGH | 33 | 148 | 24.5 | 24.2 | 57.6 | LOW |
 | YBK Jaiswal | COMFORTABLE | 117 | 188 | 220 | 30.8 | 30.8 | HIGH |
 | YBK Jaiswal | BUILDING | 312 | 157 | 40.8 | 24.7 | 34.3 | HIGH |
 | YBK Jaiswal | HIGH | 174 | 157 | 39.1 | 26.4 | 39.1 | HIGH |
@@ -565,13 +563,9 @@
 | Player | Band | Balls | Economy | Dot% | Bdry% Conc | Wickets | Confidence |
 |--------|------|-------|---------|------|------------|---------|------------|
 | JC Archer | COMFORTABLE | 56 | 8.6 | 42.9 | 16.1 | 0 | MEDIUM |
-| JC Archer | BUILDING | 37 | 7.6 | 54.0 | 21.6 | 1 | MEDIUM |
+| JC Archer | BUILDING | 37 | 7.6 | 54.0 | 21.6 | 1 | LOW |
 | JC Archer | HIGH | 24 | 8.2 | 45.8 | 16.7 | 2 | LOW |
-| KR Sen | EXTREME | 18 | 12.7 | 33.3 | 33.3 | 2 | LOW |
-| N Burger | COMFORTABLE | 18 | 7 | 38.9 | 11.1 | 1 | LOW |
-| N Burger | BUILDING | 18 | 10 | 44.4 | 33.3 | 2 | LOW |
-| R Parag | BUILDING | 22 | 6 | 22.7 | 4.5 | 0 | LOW |
-| RA Jadeja | COMFORTABLE | 48 | 10 | 27.1 | 20.8 | 1 | MEDIUM |
+| RA Jadeja | COMFORTABLE | 48 | 10 | 27.1 | 20.8 | 1 | LOW |
 | RA Jadeja | BUILDING | 134 | 7.9 | 32.1 | 14.2 | 4 | HIGH |
 | RA Jadeja | HIGH | 114 | 7.7 | 28.1 | 14.0 | 3 | HIGH |
 | RA Jadeja | EXTREME | 63 | 7.4 | 25.4 | 11.1 | 6 | MEDIUM |
@@ -585,36 +579,35 @@
 | SM Curran | BUILDING | 78 | 10.1 | 30.8 | 29.5 | 2 | MEDIUM |
 | SM Curran | HIGH | 60 | 11.9 | 21.7 | 30 | 0 | MEDIUM |
 | SM Curran | EXTREME | 22 | 13.6 | 18.2 | 36.4 | 2 | LOW |
-| SM Curran | NEAR_IMPOSSIBLE | 32 | 12.6 | 18.8 | 31.2 | 2 | MEDIUM |
+| SM Curran | NEAR_IMPOSSIBLE | 32 | 12.6 | 18.8 | 31.2 | 2 | LOW |
 | Sandeep Sharma | COMFORTABLE | 65 | 8.1 | 33.9 | 18.5 | 0 | MEDIUM |
-| Sandeep Sharma | BUILDING | 34 | 7.9 | 38.2 | 14.7 | 1 | MEDIUM |
+| Sandeep Sharma | BUILDING | 34 | 7.9 | 38.2 | 14.7 | 1 | LOW |
 | Sandeep Sharma | HIGH | 91 | 6.8 | 35.2 | 14.3 | 2 | MEDIUM |
 | Sandeep Sharma | EXTREME | 22 | 7.6 | 9.1 | 9.1 | 1 | LOW |
 | Sandeep Sharma | NEAR_IMPOSSIBLE | 52 | 9.2 | 19.2 | 17.3 | 2 | MEDIUM |
-| TU Deshpande | COMFORTABLE | 45 | 9.1 | 40 | 22.2 | 0 | MEDIUM |
+| TU Deshpande | COMFORTABLE | 45 | 9.1 | 40 | 22.2 | 0 | LOW |
 | TU Deshpande | BUILDING | 90 | 9.5 | 40 | 24.4 | 4 | MEDIUM |
 | TU Deshpande | HIGH | 93 | 9.5 | 35.5 | 20.4 | 5 | MEDIUM |
-| TU Deshpande | EXTREME | 46 | 10.2 | 45.6 | 23.9 | 3 | MEDIUM |
+| TU Deshpande | EXTREME | 46 | 10.2 | 45.6 | 23.9 | 3 | LOW |
 | TU Deshpande | NEAR_IMPOSSIBLE | 97 | 10.6 | 28.9 | 20.6 | 8 | MEDIUM |
-| V Puthur | COMFORTABLE | 22 | 8.4 | 36.4 | 13.6 | 3 | LOW |
-| Yudhvir Singh | BUILDING | 25 | 5.0 | 64 | 16 | 2 | LOW |
 
 ### 11.3 Pressure Ratings
 
 *How player performance shifts under pressure vs overall — IPL 2023+*
 
-| Player | Role | Delta% | Rating | Confidence |
-|--------|------|--------|--------|------------|
-| R Parag | BATTER | +4.4% | **PRESSURE_PROOF** | HIGH |
-| Dhruv Jurel | BATTER | +1.1% | **PRESSURE_PROOF** | HIGH |
-| SM Curran | BATTER | +0.7% | **PRESSURE_PROOF** | HIGH |
-| SO Hetmyer | BATTER | -4.0% | **PRESSURE_PROOF** | HIGH |
-| RA Jadeja | BATTER | +6.8% | MODERATE | HIGH |
-| YBK Jaiswal | BATTER | -7.4% | MODERATE | HIGH |
-| V Suryavanshi | BATTER | -28.7% | PRESSURE_SENSITIVE | HIGH |
+*Weighted Score = SR Delta x sample-size bonus x death-overs bonus*
+
+| Player | Role | Balls | Delta% | W.Score | Rating | Confidence |
+|--------|------|-------|--------|---------|--------|------------|
+| RA Jadeja | BATTER | 175 | +6.8% | 28.0 | MODERATE | HIGH |
+| R Parag | BATTER | 243 | +4.4% | 18.6 | **PRESSURE_PROOF** | HIGH |
+| Dhruv Jurel | BATTER | 236 | +1.1% | 4.9 | **PRESSURE_PROOF** | HIGH |
+| SM Curran | BATTER | 125 | +0.7% | 2.3 | **PRESSURE_PROOF** | HIGH |
+| SO Hetmyer | BATTER | 231 | -4.0% | -17.9 | **PRESSURE_PROOF** | HIGH |
+| YBK Jaiswal | BATTER | 189 | -7.4% | -27.1 | MODERATE | HIGH |
 
 ---
-*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. COMFORTABLE (RRR < 6), BUILDING (6-8), HIGH (8-10), EXTREME (10-12), NEAR_IMPOSSIBLE (12+). Players must have faced/bowled >= 15 balls in at least one band to appear.*
+*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. COMFORTABLE (RRR < 8), BUILDING (8-10), HIGH (10-12), EXTREME (12-15), NEAR_IMPOSSIBLE (15+). Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify. Weighted Score factors in sample size and death-overs (16-20) contribution.*
 
 
 ---

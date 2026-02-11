@@ -1,6 +1,6 @@
 # Chennai Super Kings (CSK) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-11 22:52
+**Generated:** 2026-02-11 23:28
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -177,8 +177,8 @@
 | Wankhede Stadium | 3 | 2 | 66.7% | 180.3 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 172.0 |
 | M Chinnaswamy Stadium | 3 | 1 | 33.3% | 209.3 |
-| Arun Jaitley Stadium | 2 | 1 | 50.0% | 205.0 |
 | Eden Gardens | 2 | 2 | 100.0% | 209.0 |
+| Arun Jaitley Stadium | 2 | 1 | 50.0% | 205.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -189,10 +189,10 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
@@ -212,7 +212,7 @@
 | SV Samson | Arun Jaitley Stadium | 3 | 158 | 168.09 | 52.67 |
 | S Dube | Wankhede Stadium | 3 | 144 | 150.0 | 72.0 |
 | SV Samson | Rajiv Gandhi Internationa | 3 | 120 | 169.01 | 40.0 |
-| RD Gaikwad | Narendra Modi Stadium | 3 | 118 | 171.01 | 39.33 |
+| SV Samson | Narendra Modi Stadium | 3 | 118 | 161.64 | 59.0 |
 
 **Top Bowling Performances:**
 
@@ -223,8 +223,8 @@
 | KK Ahmed | MA Chidambaram Stadium | 7 | 10 | 7.75 | 15.4 |
 | Noor Ahmad | Eden Gardens | 2 | 6 | 6.38 | 8.0 |
 | KV Sharma | Sawai Mansingh Stadium | 2 | 5 | 8.0 | 6.6 |
-| KK Ahmed | Bharat Ratna Shri Atal Bi | 3 | 5 | 9.17 | 14.4 |
 | NT Ellis | Barsapara Cricket Stadium | 2 | 5 | 6.75 | 9.6 |
+| KK Ahmed | Bharat Ratna Shri Atal Bi | 3 | 5 | 9.17 | 14.4 |
 
 
 ---
@@ -371,14 +371,14 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Royal Challengers Bengaluru | 5 | 120 | 170 | 7 | 8.5 | 24.29 | 17.14 | 34.17 | 19.17 | HIGH |
 | Mumbai Indians | 5 | 114 | 162 | 7 | 8.53 | 23.14 | 16.29 | 34.21 | 16.67 | HIGH |
+| Royal Challengers Bengaluru | 5 | 120 | 170 | 7 | 8.5 | 24.29 | 17.14 | 34.17 | 19.17 | HIGH |
 | Kolkata Knight Riders | 3 | 60 | 59 | 7 | 5.9 | 8.43 | 8.57 | 45.0 | 11.67 | MEDIUM |
 | Punjab Kings | 4 | 90 | 122 | 6 | 8.13 | 20.33 | 15.0 | 30.0 | 14.44 | MEDIUM |
 | Rajasthan Royals | 5 | 98 | 154 | 6 | 9.43 | 25.67 | 16.33 | 29.59 | 19.39 | MEDIUM |
 | Chennai Super Kings | 3 | 54 | 68 | 3 | 7.56 | 22.67 | 18.0 | 27.78 | 11.11 | MEDIUM |
-| Sunrisers Hyderabad | 3 | 65 | 103 | 3 | 9.51 | 34.33 | 21.67 | 29.23 | 20.0 | MEDIUM |
 | Lucknow Super Giants | 4 | 96 | 78 | 3 | 4.88 | 26.0 | 32.0 | 44.79 | 6.25 | MEDIUM |
+| Sunrisers Hyderabad | 3 | 65 | 103 | 3 | 9.51 | 34.33 | 21.67 | 29.23 | 20.0 | MEDIUM |
 | Delhi Capitals | 4 | 71 | 104 | 2 | 8.79 | 52.0 | 35.5 | 30.99 | 19.72 | MEDIUM |
 
 ### Khaleel Ahmed
@@ -388,12 +388,12 @@
 | Punjab Kings | 5 | 112 | 168 | 7 | 9.0 | 24.0 | 16.0 | 43.75 | 24.11 | HIGH |
 | Mumbai Indians | 4 | 84 | 138 | 6 | 9.86 | 23.0 | 14.0 | 40.48 | 26.19 | MEDIUM |
 | Lucknow Super Giants | 4 | 84 | 132 | 6 | 9.43 | 22.0 | 14.0 | 50.0 | 26.19 | MEDIUM |
-| Gujarat Titans | 5 | 102 | 123 | 5 | 7.24 | 24.6 | 20.4 | 46.08 | 19.61 | HIGH |
 | Rajasthan Royals | 5 | 102 | 163 | 5 | 9.59 | 32.6 | 20.4 | 42.16 | 29.41 | HIGH |
+| Gujarat Titans | 5 | 102 | 123 | 5 | 7.24 | 24.6 | 20.4 | 46.08 | 19.61 | HIGH |
 | Royal Challengers Bengaluru | 4 | 90 | 163 | 4 | 10.87 | 40.75 | 22.5 | 34.44 | 28.89 | MEDIUM |
 | Chennai Super Kings | 3 | 72 | 92 | 4 | 7.67 | 23.0 | 18.0 | 41.67 | 16.67 | MEDIUM |
-| Kolkata Knight Riders | 4 | 72 | 117 | 1 | 9.75 | 117.0 | 72.0 | 48.61 | 26.39 | MEDIUM |
 | Sunrisers Hyderabad | 2 | 36 | 72 | 1 | 12.0 | 72.0 | 36.0 | 33.33 | 33.33 | MEDIUM |
+| Kolkata Knight Riders | 4 | 72 | 117 | 1 | 9.75 | 117.0 | 72.0 | 48.61 | 26.39 | MEDIUM |
 
 ---
 
@@ -450,16 +450,13 @@
 
 | Player | Band | Balls | SR | Avg | Boundary% | Dot% | Confidence |
 |--------|------|-------|----|-----|-----------|------|------------|
-| A Mhatre | HIGH | 48 | 196 | 94 | 29.2 | 20.8 | MEDIUM |
-| Aman Hakim Khan | NEAR_IMPOSSIBLE | 21 | 100 | 7 | 9.5 | 38.1 | LOW |
+| A Mhatre | HIGH | 48 | 196 | 94 | 29.2 | 20.8 | LOW |
 | D Brevis | BUILDING | 55 | 138 | - | 16.4 | 38.2 | MEDIUM |
 | D Brevis | HIGH | 16 | 119 | 9.5 | 18.8 | 62.5 | LOW |
 | MS Dhoni | EXTREME | 19 | 168 | - | 21.1 | 21.1 | LOW |
 | MS Dhoni | NEAR_IMPOSSIBLE | 89 | 172 | 51 | 22.5 | 19.1 | MEDIUM |
-| MW Short | BUILDING | 26 | 135 | 17.5 | 23.1 | 50 | LOW |
-| RD Chahar | NEAR_IMPOSSIBLE | 16 | 131 | 10.5 | 25 | 56.2 | LOW |
 | RD Gaikwad | COMFORTABLE | 199 | 133 | 132 | 16.1 | 32.2 | HIGH |
-| RD Gaikwad | BUILDING | 43 | 81.4 | 11.7 | 11.6 | 55.8 | MEDIUM |
+| RD Gaikwad | BUILDING | 43 | 81.4 | 11.7 | 11.6 | 55.8 | LOW |
 | RD Gaikwad | HIGH | 78 | 146 | 28.5 | 20.5 | 30.8 | MEDIUM |
 | RD Gaikwad | EXTREME | 17 | 118 | 5 | 11.8 | 47.1 | LOW |
 | S Dube | COMFORTABLE | 89 | 127 | 28.2 | 15.7 | 43.8 | MEDIUM |
@@ -471,7 +468,7 @@
 | SV Samson | BUILDING | 161 | 144 | 38.7 | 18.6 | 32.3 | HIGH |
 | SV Samson | HIGH | 107 | 153 | 41 | 23.4 | 31.8 | HIGH |
 | SV Samson | EXTREME | 73 | 201 | 49 | 30.1 | 21.9 | MEDIUM |
-| SV Samson | NEAR_IMPOSSIBLE | 43 | 140 | 20 | 20.9 | 41.9 | MEDIUM |
+| SV Samson | NEAR_IMPOSSIBLE | 43 | 140 | 20 | 20.9 | 41.9 | LOW |
 
 ### 11.2 Bowling Under Pressure
 
@@ -480,30 +477,28 @@
 | Player | Band | Balls | Economy | Dot% | Bdry% Conc | Wickets | Confidence |
 |--------|------|-------|---------|------|------------|---------|------------|
 | A Kamboj | COMFORTABLE | 20 | 10.2 | 35 | 25 | 1 | LOW |
-| A Kamboj | BUILDING | 40 | 6.5 | 47.5 | 15 | 2 | MEDIUM |
-| AJ Hosein | HIGH | 19 | 8.5 | 26.3 | 15.8 | 1 | LOW |
+| A Kamboj | BUILDING | 40 | 6.5 | 47.5 | 15 | 2 | LOW |
 | KK Ahmed | COMFORTABLE | 75 | 9.4 | 53.3 | 26.7 | 4 | MEDIUM |
 | KK Ahmed | BUILDING | 84 | 10 | 38.1 | 30.9 | 2 | MEDIUM |
 | KK Ahmed | HIGH | 64 | 7.9 | 48.4 | 21.9 | 3 | MEDIUM |
-| KK Ahmed | EXTREME | 43 | 8.4 | 41.9 | 20.9 | 4 | MEDIUM |
-| KK Ahmed | NEAR_IMPOSSIBLE | 42 | 12 | 30.9 | 23.8 | 4 | MEDIUM |
-| KV Sharma | COMFORTABLE | 35 | 10.1 | 28.6 | 22.9 | 3 | MEDIUM |
+| KK Ahmed | EXTREME | 43 | 8.4 | 41.9 | 20.9 | 4 | LOW |
+| KK Ahmed | NEAR_IMPOSSIBLE | 42 | 12 | 30.9 | 23.8 | 4 | LOW |
+| KV Sharma | COMFORTABLE | 35 | 10.1 | 28.6 | 22.9 | 3 | LOW |
 | KV Sharma | BUILDING | 62 | 8.7 | 29.0 | 17.7 | 4 | MEDIUM |
 | KV Sharma | HIGH | 50 | 12.6 | 24 | 28 | 3 | MEDIUM |
 | KV Sharma | EXTREME | 66 | 10.9 | 27.3 | 24.2 | 6 | MEDIUM |
-| KV Sharma | NEAR_IMPOSSIBLE | 30 | 5.2 | 46.7 | 6.7 | 3 | MEDIUM |
-| MJ Henry | BUILDING | 15 | 13.2 | 20 | 33.3 | 0 | LOW |
+| KV Sharma | NEAR_IMPOSSIBLE | 30 | 5.2 | 46.7 | 6.7 | 3 | LOW |
 | NT Ellis | COMFORTABLE | 24 | 10 | 25 | 29.2 | 0 | LOW |
 | NT Ellis | BUILDING | 23 | 7.0 | 30.4 | 13.0 | 1 | LOW |
 | NT Ellis | HIGH | 60 | 7.1 | 31.7 | 11.7 | 5 | MEDIUM |
-| NT Ellis | EXTREME | 40 | 10.5 | 30 | 22.5 | 4 | MEDIUM |
+| NT Ellis | EXTREME | 40 | 10.5 | 30 | 22.5 | 4 | LOW |
 | NT Ellis | NEAR_IMPOSSIBLE | 29 | 8.9 | 24.1 | 10.3 | 2 | LOW |
 | Noor Ahmad | COMFORTABLE | 82 | 7.4 | 46.3 | 18.3 | 5 | MEDIUM |
 | Noor Ahmad | BUILDING | 52 | 12.5 | 23.1 | 25 | 3 | MEDIUM |
 | Noor Ahmad | HIGH | 94 | 8.3 | 28.7 | 13.8 | 5 | MEDIUM |
 | Noor Ahmad | EXTREME | 78 | 10.8 | 26.9 | 20.5 | 1 | MEDIUM |
 | Noor Ahmad | NEAR_IMPOSSIBLE | 54 | 6.2 | 46.3 | 11.1 | 7 | MEDIUM |
-| RD Chahar | COMFORTABLE | 35 | 8.4 | 37.1 | 20 | 2 | MEDIUM |
+| RD Chahar | COMFORTABLE | 35 | 8.4 | 37.1 | 20 | 2 | LOW |
 | RD Chahar | BUILDING | 50 | 9.7 | 34 | 22 | 1 | MEDIUM |
 | RD Chahar | HIGH | 65 | 5.9 | 33.9 | 7.7 | 3 | MEDIUM |
 | RD Chahar | EXTREME | 57 | 9.4 | 28.1 | 19.3 | 1 | MEDIUM |
@@ -512,17 +507,17 @@
 
 *How player performance shifts under pressure vs overall — IPL 2023+*
 
-| Player | Role | Delta% | Rating | Confidence |
-|--------|------|--------|--------|------------|
-| MS Dhoni | BATTER | +12.4% | **CLUTCH** | HIGH |
-| SV Samson | BATTER | +4.7% | **PRESSURE_PROOF** | HIGH |
-| A Mhatre | BATTER | +4.2% | **PRESSURE_PROOF** | HIGH |
-| RD Gaikwad | BATTER | +9.8% | MODERATE | HIGH |
-| S Dube | BATTER | +6.0% | MODERATE | HIGH |
-| D Brevis | BATTER | -27.4% | PRESSURE_SENSITIVE | MEDIUM |
+*Weighted Score = SR Delta x sample-size bonus x death-overs bonus*
+
+| Player | Role | Balls | Delta% | W.Score | Rating | Confidence |
+|--------|------|-------|--------|---------|--------|------------|
+| MS Dhoni | BATTER | 110 | +12.4% | 45.3 | **CLUTCH** | HIGH |
+| RD Gaikwad | BATTER | 95 | +9.8% | 26.2 | MODERATE | MEDIUM |
+| S Dube | BATTER | 209 | +6.0% | 24.6 | MODERATE | HIGH |
+| SV Samson | BATTER | 223 | +4.7% | 18.6 | **PRESSURE_PROOF** | HIGH |
 
 ---
-*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. COMFORTABLE (RRR < 6), BUILDING (6-8), HIGH (8-10), EXTREME (10-12), NEAR_IMPOSSIBLE (12+). Players must have faced/bowled >= 15 balls in at least one band to appear.*
+*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. COMFORTABLE (RRR < 8), BUILDING (8-10), HIGH (10-12), EXTREME (12-15), NEAR_IMPOSSIBLE (15+). Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify. Weighted Score factors in sample size and death-overs (16-20) contribution.*
 
 
 ---

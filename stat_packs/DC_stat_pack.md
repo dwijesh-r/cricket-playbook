@@ -1,6 +1,6 @@
 # Delhi Capitals (DC) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-11 22:52
+**Generated:** 2026-02-11 23:28
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -179,14 +179,14 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Dr. Y.S. Rajasekhara Reddy ACA-VDCA | 4 | 3 | 75.0% | 183.5 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 158.0 |
 | Narendra Modi Stadium | 3 | 2 | 66.7% | 141.7 |
 | M Chinnaswamy Stadium | 3 | 1 | 33.3% | 153.3 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 158.0 |
-| Sawai Mansingh Stadium | 2 | 1 | 50.0% | 190.5 |
-| Himachal Pradesh Cricket Associatio | 2 | 1 | 50.0% | 213.0 |
 | Wankhede Stadium | 2 | 0 | 0.0% | 163.0 |
-| MA Chidambaram Stadium | 2 | 1 | 50.0% | 161.5 |
 | Rajiv Gandhi International Stadium | 2 | 1 | 50.0% | 138.5 |
+| MA Chidambaram Stadium | 2 | 1 | 50.0% | 161.5 |
+| Himachal Pradesh Cricket Associatio | 2 | 1 | 50.0% | 213.0 |
+| Sawai Mansingh Stadium | 2 | 1 | 50.0% | 190.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -200,8 +200,8 @@
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -228,10 +228,10 @@
 |--------|-------|---------|------|------|-----|
 | AR Patel | Arun Jaitley Stadium | 16 | 13 | 7.66 | 23.08 |
 | MA Starc | Dr. Y.S. Rajasekhara Redd | 3 | 10 | 9.28 | 6.4 |
-| Kuldeep Yadav | M Chinnaswamy Stadium | 3 | 5 | 7.83 | 14.4 |
-| Mukesh Kumar | Bharat Ratna Shri Atal Bi | 3 | 5 | 8.83 | 14.4 |
 | T Natarajan | Arun Jaitley Stadium | 3 | 5 | 9.18 | 13.2 |
 | Kuldeep Yadav | Dr. Y.S. Rajasekhara Redd | 2 | 5 | 5.38 | 9.6 |
+| Kuldeep Yadav | M Chinnaswamy Stadium | 3 | 5 | 7.83 | 14.4 |
+| Mukesh Kumar | Bharat Ratna Shri Atal Bi | 3 | 5 | 8.83 | 14.4 |
 
 
 ---
@@ -414,9 +414,9 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 4 | 90 | 124 | 8 | 8.27 | 15.5 | 11.25 | 34.44 | 14.44 | MEDIUM |
 | Lucknow Super Giants | 5 | 120 | 142 | 7 | 7.1 | 20.29 | 17.14 | 35.0 | 10.83 | HIGH |
+| Rajasthan Royals | 4 | 96 | 127 | 5 | 7.94 | 25.4 | 19.2 | 31.25 | 13.54 | MEDIUM |
 | Royal Challengers Bengaluru | 5 | 120 | 159 | 5 | 7.95 | 31.8 | 24.0 | 31.67 | 13.33 | HIGH |
 | Punjab Kings | 5 | 102 | 138 | 5 | 8.12 | 27.6 | 20.4 | 26.47 | 13.73 | HIGH |
-| Rajasthan Royals | 4 | 96 | 127 | 5 | 7.94 | 25.4 | 19.2 | 31.25 | 13.54 | MEDIUM |
 | Gujarat Titans | 6 | 138 | 144 | 4 | 6.26 | 36.0 | 34.5 | 29.71 | 7.25 | HIGH |
 | Mumbai Indians | 4 | 78 | 113 | 3 | 8.69 | 37.67 | 26.0 | 30.77 | 19.23 | MEDIUM |
 | Chennai Super Kings | 3 | 66 | 90 | 2 | 8.18 | 45.0 | 33.0 | 16.67 | 10.61 | MEDIUM |
@@ -433,8 +433,8 @@
 | Chennai Super Kings | 2 | 42 | 57 | 4 | 8.14 | 14.25 | 10.5 | 26.19 | 14.29 | MEDIUM |
 | Royal Challengers Bengaluru | 4 | 75 | 122 | 3 | 9.76 | 40.67 | 25.0 | 41.33 | 26.67 | MEDIUM |
 | Punjab Kings | 3 | 54 | 100 | 2 | 11.11 | 50.0 | 27.0 | 35.19 | 29.63 | MEDIUM |
-| Kolkata Knight Riders | 2 | 36 | 45 | 1 | 7.5 | 45.0 | 36.0 | 58.33 | 22.22 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 66 | 132 | 1 | 12.0 | 132.0 | 66.0 | 19.7 | 33.33 | MEDIUM |
+| Kolkata Knight Riders | 2 | 36 | 45 | 1 | 7.5 | 45.0 | 36.0 | 58.33 | 22.22 | MEDIUM |
 
 ### Mitchell Starc
 
@@ -506,31 +506,31 @@
 
 | Player | Band | Balls | SR | Avg | Boundary% | Dot% | Confidence |
 |--------|------|-------|----|-----|-----------|------|------------|
-| AR Patel | COMFORTABLE | 38 | 137 | 52 | 18.4 | 42.1 | MEDIUM |
-| AR Patel | BUILDING | 38 | 145 | 27.5 | 23.7 | 31.6 | MEDIUM |
+| AR Patel | COMFORTABLE | 38 | 137 | 52 | 18.4 | 42.1 | LOW |
+| AR Patel | BUILDING | 38 | 145 | 27.5 | 23.7 | 31.6 | LOW |
 | AR Patel | HIGH | 60 | 180 | 36 | 26.7 | 26.7 | MEDIUM |
 | AR Patel | NEAR_IMPOSSIBLE | 75 | 139 | 14.9 | 14.7 | 22.7 | MEDIUM |
 | Abishek Porel | COMFORTABLE | 50 | 172 | 43 | 24 | 20 | MEDIUM |
-| Abishek Porel | BUILDING | 38 | 113 | 10.8 | 10.5 | 34.2 | MEDIUM |
+| Abishek Porel | BUILDING | 38 | 113 | 10.8 | 10.5 | 34.2 | LOW |
 | Abishek Porel | HIGH | 29 | 96.5 | 9.3 | 10.3 | 34.5 | LOW |
 | Abishek Porel | EXTREME | 53 | 157 | 83 | 22.6 | 30.2 | MEDIUM |
 | Abishek Porel | NEAR_IMPOSSIBLE | 24 | 66.7 | 4 | 8.3 | 54.2 | LOW |
-| Ashutosh Sharma | HIGH | 46 | 139 | - | 19.6 | 43.5 | MEDIUM |
-| Ashutosh Sharma | EXTREME | 39 | 151 | 59 | 15.4 | 23.1 | MEDIUM |
+| Ashutosh Sharma | HIGH | 46 | 139 | - | 19.6 | 43.5 | LOW |
+| Ashutosh Sharma | EXTREME | 39 | 151 | 59 | 15.4 | 23.1 | LOW |
 | Ashutosh Sharma | NEAR_IMPOSSIBLE | 50 | 206 | 17.2 | 34 | 26 | MEDIUM |
-| DA Miller | COMFORTABLE | 46 | 139 | 64 | 17.4 | 23.9 | MEDIUM |
-| DA Miller | BUILDING | 38 | 108 | 20.5 | 7.9 | 21.1 | MEDIUM |
+| DA Miller | COMFORTABLE | 46 | 139 | 64 | 17.4 | 23.9 | LOW |
+| DA Miller | BUILDING | 38 | 108 | 20.5 | 7.9 | 21.1 | LOW |
 | DA Miller | HIGH | 24 | 196 | - | 29.2 | 25 | LOW |
 | DA Miller | EXTREME | 69 | 141 | 48.5 | 18.8 | 27.5 | MEDIUM |
-| DA Miller | NEAR_IMPOSSIBLE | 31 | 197 | 12.2 | 29.0 | 25.8 | MEDIUM |
+| DA Miller | NEAR_IMPOSSIBLE | 31 | 197 | 12.2 | 29.0 | 25.8 | LOW |
 | KK Nair | BUILDING | 19 | 295 | 56 | 52.6 | 15.8 | LOW |
 | KK Nair | HIGH | 60 | 152 | 45.5 | 26.7 | 35 | MEDIUM |
 | KL Rahul | COMFORTABLE | 146 | 141 | 68.7 | 19.2 | 32.9 | HIGH |
 | KL Rahul | BUILDING | 102 | 138 | 70.5 | 17.6 | 29.4 | HIGH |
 | KL Rahul | HIGH | 140 | 143 | 40 | 20 | 32.1 | HIGH |
-| KL Rahul | EXTREME | 42 | 92.9 | 13 | 4.8 | 28.6 | MEDIUM |
-| Kuldeep Yadav | NEAR_IMPOSSIBLE | 47 | 70.2 | 8.2 | 2.1 | 44.7 | MEDIUM |
-| N Rana | COMFORTABLE | 36 | 131 | 47 | 16.7 | 33.3 | MEDIUM |
+| KL Rahul | EXTREME | 42 | 92.9 | 13 | 4.8 | 28.6 | LOW |
+| Kuldeep Yadav | NEAR_IMPOSSIBLE | 47 | 70.2 | 8.2 | 2.1 | 44.7 | LOW |
+| N Rana | COMFORTABLE | 36 | 131 | 47 | 16.7 | 33.3 | LOW |
 | N Rana | BUILDING | 62 | 132 | 41 | 17.7 | 32.3 | MEDIUM |
 | N Rana | HIGH | 92 | 135 | 31 | 21.7 | 39.1 | MEDIUM |
 | N Rana | EXTREME | 68 | 165 | 37.3 | 27.9 | 36.8 | MEDIUM |
@@ -538,15 +538,11 @@
 | PP Shaw | COMFORTABLE | 21 | 143 | 15 | 23.8 | 38.1 | LOW |
 | PP Shaw | BUILDING | 26 | 131 | 17 | 23.1 | 38.5 | LOW |
 | PP Shaw | HIGH | 17 | 64.7 | 3.7 | 11.8 | 82.3 | LOW |
-| PP Shaw | EXTREME | 46 | 187 | 43 | 34.8 | 30.4 | MEDIUM |
-| Sameer Rizvi | HIGH | 26 | 165 | 43 | 23.1 | 23.1 | LOW |
-| Sameer Rizvi | EXTREME | 22 | 182 | 40 | 31.8 | 31.8 | LOW |
+| PP Shaw | EXTREME | 46 | 187 | 43 | 34.8 | 30.4 | LOW |
 | T Stubbs | COMFORTABLE | 27 | 170 | - | 22.2 | 11.1 | LOW |
-| T Stubbs | HIGH | 33 | 97.0 | 32 | 6.1 | 27.3 | MEDIUM |
-| T Stubbs | EXTREME | 37 | 130 | 24 | 13.5 | 29.7 | MEDIUM |
+| T Stubbs | HIGH | 33 | 97.0 | 32 | 6.1 | 27.3 | LOW |
+| T Stubbs | EXTREME | 37 | 130 | 24 | 13.5 | 29.7 | LOW |
 | T Stubbs | NEAR_IMPOSSIBLE | 77 | 218 | 84 | 29.9 | 14.3 | MEDIUM |
-| V Nigam | EXTREME | 22 | 255 | 56 | 45.5 | 4.5 | LOW |
-| V Nigam | NEAR_IMPOSSIBLE | 15 | 173 | 26 | 26.7 | 40 | LOW |
 
 ### 11.2 Bowling Under Pressure
 
@@ -559,54 +555,50 @@
 | AR Patel | HIGH | 72 | 7.7 | 36.1 | 15.3 | 3 | MEDIUM |
 | AR Patel | EXTREME | 66 | 9.3 | 24.2 | 19.7 | 3 | MEDIUM |
 | AR Patel | NEAR_IMPOSSIBLE | 18 | 9.7 | 11.1 | 16.7 | 0 | LOW |
-| KA Jamieson | COMFORTABLE | 18 | 9 | 50 | 27.8 | 1 | LOW |
-| Kuldeep Yadav | COMFORTABLE | 37 | 8.3 | 35.1 | 16.2 | 1 | MEDIUM |
+| Kuldeep Yadav | COMFORTABLE | 37 | 8.3 | 35.1 | 16.2 | 1 | LOW |
 | Kuldeep Yadav | BUILDING | 85 | 6.8 | 25.9 | 8.2 | 2 | MEDIUM |
 | Kuldeep Yadav | HIGH | 90 | 6.9 | 26.7 | 8.9 | 2 | MEDIUM |
 | Kuldeep Yadav | EXTREME | 95 | 7.7 | 25.3 | 9.5 | 3 | MEDIUM |
-| Kuldeep Yadav | NEAR_IMPOSSIBLE | 47 | 9.6 | 25.5 | 23.4 | 4 | MEDIUM |
-| L Ngidi | HIGH | 22 | 7.9 | 36.4 | 18.2 | 2 | LOW |
+| Kuldeep Yadav | NEAR_IMPOSSIBLE | 47 | 9.6 | 25.5 | 23.4 | 4 | LOW |
 | MA Starc | COMFORTABLE | 21 | 11.1 | 33.3 | 33.3 | 0 | LOW |
 | MA Starc | BUILDING | 52 | 9.7 | 50 | 23.1 | 2 | MEDIUM |
 | MA Starc | HIGH | 70 | 12.1 | 28.6 | 32.9 | 0 | MEDIUM |
 | MA Starc | EXTREME | 29 | 9.1 | 37.9 | 24.1 | 2 | LOW |
-| MA Starc | NEAR_IMPOSSIBLE | 42 | 13 | 35.7 | 26.2 | 5 | MEDIUM |
+| MA Starc | NEAR_IMPOSSIBLE | 42 | 13 | 35.7 | 26.2 | 5 | LOW |
 | Mukesh Kumar | COMFORTABLE | 19 | 10.7 | 42.1 | 36.8 | 0 | LOW |
 | Mukesh Kumar | BUILDING | 55 | 11.8 | 32.7 | 30.9 | 3 | MEDIUM |
 | Mukesh Kumar | HIGH | 61 | 11.2 | 26.2 | 27.9 | 0 | MEDIUM |
-| Mukesh Kumar | EXTREME | 34 | 8.5 | 38.2 | 20.6 | 2 | MEDIUM |
+| Mukesh Kumar | EXTREME | 34 | 8.5 | 38.2 | 20.6 | 2 | LOW |
 | Mukesh Kumar | NEAR_IMPOSSIBLE | 75 | 12.1 | 20 | 26.7 | 7 | MEDIUM |
-| N Rana | COMFORTABLE | 35 | 10.5 | 25.7 | 25.7 | 2 | MEDIUM |
-| PVD Chameera | BUILDING | 20 | 8.1 | 20 | 15 | 0 | LOW |
-| PVD Chameera | EXTREME | 15 | 19.6 | 13.3 | 53.3 | 0 | LOW |
+| N Rana | COMFORTABLE | 35 | 10.5 | 25.7 | 25.7 | 2 | LOW |
 | T Natarajan | COMFORTABLE | 62 | 10.2 | 35.5 | 25.8 | 1 | MEDIUM |
 | T Natarajan | BUILDING | 50 | 10.1 | 28 | 24 | 0 | MEDIUM |
-| T Natarajan | HIGH | 43 | 8.5 | 32.6 | 16.3 | 2 | MEDIUM |
-| T Natarajan | EXTREME | 47 | 9.1 | 27.7 | 17.0 | 1 | MEDIUM |
+| T Natarajan | HIGH | 43 | 8.5 | 32.6 | 16.3 | 2 | LOW |
+| T Natarajan | EXTREME | 47 | 9.1 | 27.7 | 17.0 | 1 | LOW |
 | T Natarajan | NEAR_IMPOSSIBLE | 77 | 8.5 | 35.1 | 16.9 | 8 | MEDIUM |
 | V Nigam | BUILDING | 21 | 12.6 | 23.8 | 23.8 | 0 | LOW |
-| V Nigam | HIGH | 46 | 8.6 | 30.4 | 15.2 | 2 | MEDIUM |
+| V Nigam | HIGH | 46 | 8.6 | 30.4 | 15.2 | 2 | LOW |
 
 ### 11.3 Pressure Ratings
 
 *How player performance shifts under pressure vs overall — IPL 2023+*
 
-| Player | Role | Delta% | Rating | Confidence |
-|--------|------|--------|--------|------------|
-| DA Miller | BATTER | +10.9% | **CLUTCH** | HIGH |
-| PP Shaw | BATTER | +4.5% | **PRESSURE_PROOF** | HIGH |
-| N Rana | BATTER | +4.1% | **PRESSURE_PROOF** | HIGH |
-| AR Patel | BATTER | +2.5% | **PRESSURE_PROOF** | HIGH |
-| T Stubbs | BATTER | +0.7% | **PRESSURE_PROOF** | HIGH |
-| Ashutosh Sharma | BATTER | +0.2% | **PRESSURE_PROOF** | HIGH |
-| Kuldeep Yadav | BATTER | 0.0% | **PRESSURE_PROOF** | HIGH |
-| KL Rahul | BATTER | -4.4% | **PRESSURE_PROOF** | HIGH |
-| Sameer Rizvi | BATTER | +9.1% | MODERATE | HIGH |
-| Abishek Porel | BATTER | -9.2% | MODERATE | HIGH |
-| KK Nair | BATTER | -17.7% | PRESSURE_SENSITIVE | HIGH |
+*Weighted Score = SR Delta x sample-size bonus x death-overs bonus*
+
+| Player | Role | Balls | Delta% | W.Score | Rating | Confidence |
+|--------|------|-------|--------|---------|--------|------------|
+| DA Miller | BATTER | 124 | +10.9% | 35.3 | **CLUTCH** | HIGH |
+| N Rana | BATTER | 182 | +4.1% | 15.2 | **PRESSURE_PROOF** | HIGH |
+| PP Shaw | BATTER | 64 | +4.5% | 9.4 | **PRESSURE_PROOF** | MEDIUM |
+| AR Patel | BATTER | 146 | +2.5% | 9.1 | **PRESSURE_PROOF** | HIGH |
+| T Stubbs | BATTER | 147 | +0.7% | 2.4 | **PRESSURE_PROOF** | HIGH |
+| Ashutosh Sharma | BATTER | 135 | +0.2% | 0.6 | **PRESSURE_PROOF** | HIGH |
+| Kuldeep Yadav | BATTER | 51 | 0.0% | 0 | **PRESSURE_PROOF** | MEDIUM |
+| KL Rahul | BATTER | 186 | -4.4% | -16.2 | **PRESSURE_PROOF** | HIGH |
+| Abishek Porel | BATTER | 106 | -9.2% | -26.9 | MODERATE | HIGH |
 
 ---
-*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. COMFORTABLE (RRR < 6), BUILDING (6-8), HIGH (8-10), EXTREME (10-12), NEAR_IMPOSSIBLE (12+). Players must have faced/bowled >= 15 balls in at least one band to appear.*
+*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. COMFORTABLE (RRR < 8), BUILDING (8-10), HIGH (10-12), EXTREME (12-15), NEAR_IMPOSSIBLE (15+). Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify. Weighted Score factors in sample size and death-overs (16-20) contribution.*
 
 
 ---

@@ -3709,6 +3709,8 @@ def create_pressure_performance_views(conn: duckdb.DuckDBPyConnection) -> None:
     )
 
     # ── 5. Pressure Performance Deltas ───────────────────────────────
+    # TKT-050 v2: Added sample-size weighting, death-overs bonus,
+    # composite pressure_score, and IPL innings filter (>= 10).
     _dual_view(
         conn,
         "analytics_ipl_pressure_deltas",
@@ -3719,6 +3721,15 @@ def create_pressure_performance_views(conn: duckdb.DuckDBPyConnection) -> None:
             JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
             WHERE dt.tournament_name = 'Indian Premier League' {DATE_FILTER}
         ),
+        -- IPL innings filter: only batters with >= 10 IPL innings
+        ipl_innings_count AS (
+            SELECT fb.batter_id, COUNT(DISTINCT fb.match_id) AS ipl_innings
+            FROM fact_ball fb
+            WHERE fb.match_id IN (SELECT match_id FROM ipl_matches)
+              AND fb.is_legal_ball
+            GROUP BY fb.batter_id
+            HAVING COUNT(DISTINCT fb.match_id) >= 10
+        ),
         first_innings_total AS (
             SELECT fb.match_id, SUM(fb.total_runs) AS target_runs
             FROM fact_ball fb
@@ -3726,7 +3737,7 @@ def create_pressure_performance_views(conn: duckdb.DuckDBPyConnection) -> None:
             GROUP BY fb.match_id
         ),
         running_context AS (
-            SELECT fb.match_id, fb.innings, fb.ball_seq,
+            SELECT fb.match_id, fb.innings, fb.ball_seq, fb.over,
                 fb.batter_id, fb.bowler_id,
                 fb.batter_runs, fb.extra_runs, fb.total_runs,
                 fb.is_wicket, fb.wicket_type, fb.is_legal_ball,
@@ -3748,30 +3759,39 @@ def create_pressure_performance_views(conn: duckdb.DuckDBPyConnection) -> None:
             WHERE balls_remaining > 0
         ),
         batter_overall AS (
-            SELECT batter_id,
-                ROUND(SUM(batter_runs) * 100.0 / NULLIF(SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS overall_sr,
-                ROUND(SUM(CASE WHEN batter_runs IN (4,6) THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS overall_boundary_pct,
-                ROUND(SUM(CASE WHEN batter_runs = 0 AND extra_runs = 0 AND is_legal_ball THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS overall_dot_pct
-            FROM with_bands
-            GROUP BY batter_id
-            HAVING SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END) >= 50
+            SELECT wb.batter_id,
+                SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END) AS overall_balls,
+                ROUND(SUM(wb.batter_runs) * 100.0 / NULLIF(SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS overall_sr,
+                ROUND(SUM(CASE WHEN wb.batter_runs IN (4,6) THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS overall_boundary_pct,
+                ROUND(SUM(CASE WHEN wb.batter_runs = 0 AND wb.extra_runs = 0 AND wb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS overall_dot_pct
+            FROM with_bands wb
+            JOIN ipl_innings_count ic ON wb.batter_id = ic.batter_id
+            GROUP BY wb.batter_id
+            HAVING SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END) >= 50
         ),
         batter_pressure AS (
             SELECT batter_id,
                 SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END) AS pressure_balls,
                 ROUND(SUM(batter_runs) * 100.0 / NULLIF(SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS pressure_sr,
                 ROUND(SUM(CASE WHEN batter_runs IN (4,6) THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS pressure_boundary_pct,
-                ROUND(SUM(CASE WHEN batter_runs = 0 AND extra_runs = 0 AND is_legal_ball THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS pressure_dot_pct
+                ROUND(SUM(CASE WHEN batter_runs = 0 AND extra_runs = 0 AND is_legal_ball THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS pressure_dot_pct,
+                -- Death overs (16-20 = over index 15-19) under pressure
+                SUM(CASE WHEN is_legal_ball AND over >= 15 THEN 1 ELSE 0 END) AS death_pressure_balls,
+                ROUND(SUM(CASE WHEN over >= 15 THEN batter_runs ELSE 0 END) * 100.0
+                    / NULLIF(SUM(CASE WHEN is_legal_ball AND over >= 15 THEN 1 ELSE 0 END), 0), 2) AS death_pressure_sr
             FROM with_bands
             WHERE pressure_group = 'HIGH_PRESSURE'
             GROUP BY batter_id
-            HAVING SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END) >= 15
+            HAVING SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END) >= 30
         )
         SELECT
             dp.current_name AS player_name,
             bo.batter_id AS player_id,
             'BATTER' AS role,
+            bo.overall_balls,
             bp.pressure_balls,
+            bp.death_pressure_balls,
+            bp.death_pressure_sr,
             bo.overall_sr, bp.pressure_sr,
             ROUND((bp.pressure_sr - bo.overall_sr) / NULLIF(bo.overall_sr, 0) * 100, 1) AS sr_delta_pct,
             bo.overall_boundary_pct, bp.pressure_boundary_pct,
@@ -3779,8 +3799,8 @@ def create_pressure_performance_views(conn: duckdb.DuckDBPyConnection) -> None:
             bo.overall_dot_pct, bp.pressure_dot_pct,
             ROUND((bp.pressure_dot_pct - bo.overall_dot_pct) / NULLIF(bo.overall_dot_pct, 0) * 100, 1) AS dot_delta_pct,
             CASE
-                WHEN bp.pressure_balls >= 30 THEN 'HIGH'
-                WHEN bp.pressure_balls >= 15 THEN 'MEDIUM'
+                WHEN bp.pressure_balls >= 100 THEN 'HIGH'
+                WHEN bp.pressure_balls >= 50 THEN 'MEDIUM'
                 ELSE 'LOW'
             END AS sample_confidence,
             CASE
@@ -3788,11 +3808,19 @@ def create_pressure_performance_views(conn: duckdb.DuckDBPyConnection) -> None:
                 WHEN ABS((bp.pressure_sr - bo.overall_sr) / NULLIF(bo.overall_sr, 0) * 100) <= 5 THEN 'PRESSURE_PROOF'
                 WHEN (bp.pressure_sr - bo.overall_sr) / NULLIF(bo.overall_sr, 0) * 100 <= -10 THEN 'PRESSURE_SENSITIVE'
                 ELSE 'MODERATE'
-            END AS pressure_rating
+            END AS pressure_rating,
+            -- Composite weighted pressure score:
+            -- sr_delta_pct * (1 + log2(pressure_balls/30)) * (1 + 0.3 * death_ratio)
+            ROUND(
+                ((bp.pressure_sr - bo.overall_sr) / NULLIF(bo.overall_sr, 0) * 100)
+                * (1.0 + LOG2(bp.pressure_balls / 30.0))
+                * (1.0 + 0.3 * (bp.death_pressure_balls * 1.0 / NULLIF(bp.pressure_balls, 0))),
+                2
+            ) AS pressure_score
         FROM batter_overall bo
         JOIN batter_pressure bp ON bo.batter_id = bp.batter_id
         JOIN dim_player dp ON bo.batter_id = dp.player_id
-        ORDER BY sr_delta_pct DESC
+        ORDER BY pressure_score DESC
     """,
     )
 

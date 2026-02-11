@@ -5,7 +5,7 @@
   "priority": "P1",
   "progress_pct": 0,
   "description": "Implementation phase. Build dim_tournament_weights DuckDB table with Founder-approved weights. Create weighted analytical views. Update thresholds.yaml with weight parameters. Owner: Stephen Curry + Brock Purdy. Estimated: 3-4 days.",
-  "epic_id": "EPIC-006",
+  "epic_id": "EPIC-016",
   "parent": "TKT-183",
   "assignee": "Stephen Curry",
   "sprint_id": "SPRINT-004",

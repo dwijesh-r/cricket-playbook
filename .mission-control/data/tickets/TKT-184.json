@@ -5,7 +5,7 @@
   "priority": "P1",
   "progress_pct": 0,
   "description": "Compute candidate exponential decay rates for Factor 3 (Recency Decay). Analyze how tournament relevance degrades over time. Present 3-5 candidate decay curves with supporting evidence for Founder selection (per Decision #5). Use IPL 2023-2025 baseline. Output: decay curve comparison chart + recommendation memo.",
-  "epic_id": "EPIC-006",
+  "epic_id": "EPIC-016",
   "parent": "TKT-183",
   "assignee": "Jose Mourinho",
   "sprint_id": "SPRINT-004",

@@ -5,7 +5,7 @@
   "priority": "P1",
   "progress_pct": 0,
   "description": "Validation phase. Domain sanity review (Andy Flower), statistical robustness checks (Jose Mourinho), edge case analysis (Pep Guardiola). Verify weights produce cricket-sensible outputs. Check for outliers, small-sample artifacts, and counter-intuitive rankings. Estimated: 1-2 days.",
-  "epic_id": "EPIC-006",
+  "epic_id": "EPIC-016",
   "parent": "TKT-183",
   "assignee": "Andy Flower",
   "sprint_id": "SPRINT-004",

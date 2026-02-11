@@ -5,7 +5,7 @@
   "priority": "P1",
   "progress_pct": 0,
   "description": "Integration phase. Apply Founder-approved tournament weights internally to player clustering, player tags, and analytical models. Update stat packs and depth charts with weighted cross-tournament data. Regenerate all downstream outputs. Estimated: 2-3 days.",
-  "epic_id": "EPIC-006",
+  "epic_id": "EPIC-016",
   "parent": "TKT-183",
   "assignee": "Stephen Curry",
   "sprint_id": "SPRINT-004",

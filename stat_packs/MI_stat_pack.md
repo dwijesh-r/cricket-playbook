@@ -1,6 +1,6 @@
 # Mumbai Indians (MI) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-10 09:35
+**Generated:** 2026-02-11 18:05
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -179,11 +179,11 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Narendra Modi Stadium | 5 | 0 | 0.0% | 169.6 |
+| Sawai Mansingh Stadium | 3 | 1 | 33.3% | 193.3 |
+| Arun Jaitley Stadium | 3 | 2 | 66.7% | 208.3 |
+| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 194.7 |
 | MA Chidambaram Stadium | 3 | 1 | 33.3% | 158.7 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 0 | 0.0% | 169.0 |
-| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 194.7 |
-| Arun Jaitley Stadium | 3 | 2 | 66.7% | 208.3 |
-| Sawai Mansingh Stadium | 3 | 1 | 33.3% | 193.3 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -194,8 +194,8 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
@@ -210,27 +210,27 @@
 
 | Player | Venue | Inn | Runs | SR | Avg |
 |--------|-------|-----|------|-----|-----|
-| SA Yadav | Wankhede Stadium | 21 | 885 | 187.1 | 59.0 |
-| HH Pandya | Wankhede Stadium | 28 | 469 | 153.77 | 29.31 |
-| RG Sharma | Eden Gardens | 13 | 465 | 143.52 | 46.5 |
-| RG Sharma | Rajiv Gandhi Internationa | 13 | 424 | 144.22 | 47.11 |
-| SA Yadav | Sheikh Zayed Stadium | 11 | 413 | 166.53 | 68.83 |
-| Q de Kock | Wankhede Stadium | 8 | 294 | 136.74 | 42.0 |
+| SA Yadav | Wankhede Stadium | 20 | 878 | 188.41 | 62.71 |
+| RG Sharma | Wankhede Stadium | 21 | 603 | 155.41 | 31.74 |
 | RD Rickelton | Wankhede Stadium | 7 | 219 | 153.15 | 36.5 |
-| Q de Kock | Dr DY Patil Sports Academ | 4 | 218 | 167.69 | 72.67 |
+| HH Pandya | Wankhede Stadium | 12 | 189 | 151.2 | 17.18 |
+| SA Yadav | Narendra Modi Stadium | 4 | 176 | 169.23 | 44.0 |
+| Tilak Varma | Arun Jaitley Stadium | 3 | 163 | 173.4 | 54.33 |
+| Naman Dhir | Wankhede Stadium | 9 | 140 | 162.79 | 23.33 |
+| RG Sharma | Rajiv Gandhi Internationa | 3 | 124 | 163.16 | 41.33 |
 
 **Top Bowling Performances:**
 
 | Player | Venue | Matches | Wkts | Econ | SR |
 |--------|-------|---------|------|------|-----|
-| JJ Bumrah | Wankhede Stadium | 32 | 35 | 7.7 | 21.6 |
-| JJ Bumrah | Wankhede Stadium | 16 | 29 | 5.65 | 12.86 |
-| HH Pandya | Wankhede Stadium | 27 | 24 | 9.22 | 16.79 |
-| TA Boult | Wankhede Stadium | 14 | 19 | 8.05 | 17.68 |
-| JJ Bumrah | Dubai International Crick | 8 | 15 | 7.0 | 12.0 |
-| SN Thakur | Dubai International Crick | 9 | 15 | 7.66 | 12.8 |
+| JJ Bumrah | Wankhede Stadium | 12 | 23 | 5.32 | 12.3 |
+| TA Boult | Wankhede Stadium | 9 | 14 | 7.89 | 15.43 |
 | DL Chahar | MA Chidambaram Stadium | 11 | 14 | 8.1 | 13.86 |
-| TA Boult | Arun Jaitley Stadium | 8 | 13 | 8.31 | 13.77 |
+| HH Pandya | Wankhede Stadium | 11 | 11 | 10.11 | 15.27 |
+| TA Boult | Sawai Mansingh Stadium | 9 | 8 | 8.44 | 21.5 |
+| Ashwani Kumar | Wankhede Stadium | 3 | 7 | 10.33 | 7.71 |
+| MJ Santner | Wankhede Stadium | 6 | 7 | 5.95 | 16.57 |
+| HH Pandya | Bharat Ratna Shri Atal Bi | 3 | 7 | 7.11 | 7.71 |
 
 
 ---
@@ -349,81 +349,67 @@
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Punjab Kings | 20 | 606 | 386 | 156.99 | 33.67 | 23.58 | 34.72 | 18 | HIGH |
-| Rajasthan Royals | 15 | 508 | 345 | 147.25 | 42.33 | 20.87 | 32.46 | 12 | HIGH |
-| Sunrisers Hyderabad | 19 | 500 | 322 | 155.28 | 38.46 | 25.47 | 38.2 | 13 | HIGH |
-| Royal Challengers Bengaluru | 19 | 496 | 322 | 154.04 | 35.43 | 22.98 | 34.78 | 14 | HIGH |
-| Delhi Capitals | 20 | 485 | 343 | 141.4 | 32.33 | 19.53 | 33.24 | 15 | HIGH |
-| Kolkata Knight Riders | 13 | 474 | 313 | 151.44 | 47.4 | 22.68 | 33.55 | 10 | HIGH |
-| Chennai Super Kings | 17 | 437 | 348 | 125.57 | 29.13 | 16.38 | 37.36 | 15 | HIGH |
-| Gujarat Titans | 7 | 316 | 182 | 173.63 | 52.67 | 24.73 | 26.37 | 6 | HIGH |
-| Lucknow Super Giants | 8 | 215 | 143 | 150.35 | 26.88 | 18.88 | 29.37 | 8 | HIGH |
-| Mumbai Indians | 7 | 143 | 88 | 162.5 | 35.75 | 21.59 | 21.59 | 4 | MEDIUM |
-| Rising Pune Supergiant | 2 | 90 | 65 | 138.46 | 90.0 | 18.46 | 29.23 | 1 | MEDIUM |
+| Gujarat Titans | 6 | 303 | 171 | 177.19 | 60.6 | 25.73 | 25.73 | 5 | HIGH |
+| Punjab Kings | 5 | 302 | 175 | 172.57 | 60.4 | 25.71 | 27.43 | 5 | HIGH |
+| Sunrisers Hyderabad | 5 | 200 | 104 | 192.31 | 100.0 | 32.69 | 31.73 | 2 | HIGH |
+| Royal Challengers Bengaluru | 4 | 172 | 95 | 181.05 | 43.0 | 28.42 | 31.58 | 4 | MEDIUM |
+| Lucknow Super Giants | 6 | 171 | 109 | 156.88 | 28.5 | 21.1 | 33.03 | 6 | HIGH |
+| Delhi Capitals | 5 | 139 | 87 | 159.77 | 34.75 | 26.44 | 40.23 | 4 | MEDIUM |
+| Kolkata Knight Riders | 4 | 137 | 82 | 167.07 | 45.67 | 25.61 | 34.15 | 3 | MEDIUM |
+| Chennai Super Kings | 5 | 124 | 82 | 151.22 | 31.0 | 20.73 | 34.15 | 4 | MEDIUM |
+| Rajasthan Royals | 3 | 109 | 59 | 184.75 | 54.5 | 30.51 | 30.51 | 2 | MEDIUM |
 
 ### Rohit Sharma
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Kolkata Knight Riders | 34 | 1072 | 842 | 127.32 | 39.7 | 16.86 | 38.6 | 27 | HIGH |
-| Delhi Capitals | 37 | 1051 | 795 | 132.2 | 30.91 | 17.36 | 37.36 | 34 | HIGH |
-| Chennai Super Kings | 36 | 972 | 741 | 131.17 | 31.35 | 16.87 | 35.76 | 31 | HIGH |
-| Punjab Kings | 32 | 875 | 630 | 138.89 | 32.41 | 19.05 | 36.35 | 27 | HIGH |
-| Royal Challengers Bengaluru | 33 | 842 | 614 | 137.13 | 28.07 | 18.89 | 38.11 | 30 | HIGH |
-| Rajasthan Royals | 29 | 600 | 476 | 126.05 | 20.69 | 15.76 | 37.82 | 29 | HIGH |
-| Sunrisers Hyderabad | 25 | 525 | 390 | 134.62 | 23.86 | 18.97 | 38.72 | 22 | HIGH |
-| Gujarat Titans | 8 | 221 | 152 | 145.39 | 27.63 | 24.34 | 43.42 | 8 | HIGH |
-| Rising Pune Supergiant | 6 | 178 | 135 | 131.85 | 35.6 | 18.52 | 37.78 | 5 | HIGH |
-| Lucknow Super Giants | 7 | 177 | 121 | 146.28 | 25.29 | 23.97 | 45.45 | 7 | HIGH |
-| Deccan Chargers | 4 | 175 | 138 | 126.81 | 87.5 | 16.67 | 39.86 | 2 | HIGH |
-| Pune Warriors | 6 | 129 | 121 | 106.61 | 32.25 | 9.92 | 35.54 | 4 | HIGH |
-| Mumbai Indians | 5 | 103 | 92 | 111.96 | 20.6 | 9.78 | 33.7 | 5 | MEDIUM |
-| Gujarat Lions | 4 | 82 | 68 | 120.59 | 27.33 | 16.18 | 42.65 | 3 | MEDIUM |
+| Sunrisers Hyderabad | 6 | 204 | 132 | 154.55 | 34.0 | 25.0 | 37.12 | 6 | HIGH |
+| Chennai Super Kings | 5 | 202 | 128 | 157.81 | 67.33 | 23.44 | 35.94 | 3 | HIGH |
+| Gujarat Titans | 7 | 178 | 124 | 143.55 | 25.43 | 24.19 | 43.55 | 7 | HIGH |
+| Delhi Capitals | 5 | 145 | 96 | 151.04 | 29.0 | 25.0 | 43.75 | 5 | MEDIUM |
+| Lucknow Super Giants | 5 | 132 | 83 | 159.04 | 26.4 | 26.51 | 44.58 | 5 | MEDIUM |
+| Punjab Kings | 5 | 112 | 83 | 134.94 | 22.4 | 19.28 | 39.76 | 5 | MEDIUM |
+| Royal Challengers Bengaluru | 4 | 63 | 51 | 123.53 | 15.75 | 19.61 | 52.94 | 4 | MEDIUM |
+| Rajasthan Royals | 4 | 62 | 47 | 131.91 | 15.5 | 21.28 | 38.3 | 4 | MEDIUM |
+| Kolkata Knight Riders | 4 | 61 | 60 | 101.67 | 15.25 | 11.67 | 53.33 | 4 | MEDIUM |
 
 ### Tilak Varma
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Delhi Capitals | 7 | 239 | 158 | 151.27 | 34.14 | 18.99 | 28.48 | 7 | HIGH |
-| Rajasthan Royals | 5 | 222 | 158 | 140.51 | 55.5 | 15.82 | 31.65 | 4 | HIGH |
-| Chennai Super Kings | 5 | 169 | 137 | 123.36 | 56.33 | 15.33 | 36.5 | 3 | HIGH |
-| Sunrisers Hyderabad | 6 | 168 | 110 | 152.73 | 56.0 | 20.91 | 35.45 | 3 | HIGH |
-| Gujarat Titans | 7 | 162 | 105 | 154.29 | 27.0 | 18.1 | 27.62 | 6 | HIGH |
-| Royal Challengers Bengaluru | 4 | 155 | 87 | 178.16 | 77.5 | 27.59 | 31.03 | 2 | MEDIUM |
-| Punjab Kings | 6 | 137 | 83 | 165.06 | 45.67 | 19.28 | 20.48 | 3 | MEDIUM |
-| Lucknow Super Giants | 6 | 128 | 114 | 112.28 | 25.6 | 10.53 | 32.46 | 5 | HIGH |
-| Kolkata Knight Riders | 5 | 110 | 80 | 137.5 | 27.5 | 20.0 | 36.25 | 4 | MEDIUM |
+| Delhi Capitals | 5 | 196 | 126 | 155.56 | 39.2 | 19.84 | 29.37 | 5 | HIGH |
+| Sunrisers Hyderabad | 5 | 160 | 101 | 158.42 | 80.0 | 21.78 | 33.66 | 2 | HIGH |
+| Royal Challengers Bengaluru | 3 | 155 | 84 | 184.52 | 155.0 | 28.57 | 28.57 | 1 | MEDIUM |
+| Gujarat Titans | 6 | 141 | 90 | 156.67 | 23.5 | 18.89 | 28.89 | 6 | MEDIUM |
+| Rajasthan Royals | 3 | 126 | 95 | 132.63 | 63.0 | 14.74 | 33.68 | 2 | MEDIUM |
+| Punjab Kings | 5 | 101 | 63 | 160.32 | 33.67 | 17.46 | 22.22 | 3 | MEDIUM |
+| Chennai Super Kings | 3 | 84 | 62 | 135.48 | 28.0 | 19.35 | 37.1 | 3 | MEDIUM |
+| Kolkata Knight Riders | 3 | 66 | 48 | 137.5 | 22.0 | 20.83 | 39.58 | 3 | MEDIUM |
+| Lucknow Super Giants | 4 | 64 | 61 | 104.92 | 21.33 | 9.84 | 34.43 | 3 | MEDIUM |
 
 ### Hardik Pandya
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Rajasthan Royals | 15 | 504 | 291 | 173.2 | 72.0 | 24.05 | 24.05 | 7 | HIGH |
-| Kolkata Knight Riders | 14 | 393 | 236 | 166.53 | 43.67 | 23.31 | 27.97 | 9 | HIGH |
-| Delhi Capitals | 21 | 361 | 273 | 132.23 | 21.24 | 16.48 | 37.73 | 17 | HIGH |
-| Royal Challengers Bengaluru | 17 | 359 | 219 | 163.93 | 44.88 | 21.92 | 31.96 | 8 | HIGH |
-| Punjab Kings | 17 | 296 | 194 | 152.58 | 22.77 | 21.65 | 35.57 | 13 | HIGH |
-| Sunrisers Hyderabad | 15 | 219 | 206 | 106.31 | 16.85 | 11.17 | 40.78 | 13 | HIGH |
-| Chennai Super Kings | 16 | 210 | 146 | 143.84 | 23.33 | 15.75 | 31.51 | 9 | HIGH |
-| Lucknow Super Giants | 8 | 184 | 143 | 128.67 | 26.29 | 13.99 | 35.66 | 7 | HIGH |
-| Rising Pune Supergiant | 5 | 81 | 56 | 144.64 | 20.25 | 21.43 | 42.86 | 4 | MEDIUM |
-| Mumbai Indians | 4 | 65 | 43 | 151.16 | 32.5 | 20.93 | 30.23 | 2 | MEDIUM |
+| Rajasthan Royals | 5 | 159 | 88 | 180.68 | 53.0 | 27.27 | 23.86 | 3 | MEDIUM |
+| Delhi Capitals | 6 | 153 | 123 | 124.39 | 30.6 | 15.45 | 34.96 | 5 | HIGH |
+| Lucknow Super Giants | 6 | 140 | 102 | 137.25 | 28.0 | 13.73 | 30.39 | 5 | HIGH |
+| Punjab Kings | 4 | 59 | 45 | 131.11 | 14.75 | 17.78 | 42.22 | 4 | MEDIUM |
+| Sunrisers Hyderabad | 3 | 53 | 35 | 151.43 | 17.67 | 20.0 | 25.71 | 3 | MEDIUM |
 | Gujarat Titans | 4 | 45 | 33 | 136.36 | 15.0 | 18.18 | 45.45 | 3 | MEDIUM |
+| Chennai Super Kings | 4 | 39 | 36 | 108.33 | 13.0 | 8.33 | 36.11 | 3 | MEDIUM |
 
 ### Quinton de Kock
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Rajasthan Royals | 12 | 468 | 329 | 142.25 | 46.8 | 18.84 | 31.91 | 10 | HIGH |
-| Kolkata Knight Riders | 15 | 455 | 307 | 148.21 | 35.0 | 20.52 | 38.76 | 13 | HIGH |
-| Royal Challengers Bengaluru | 13 | 455 | 321 | 141.74 | 35.0 | 21.18 | 38.94 | 13 | HIGH |
-| Punjab Kings | 13 | 425 | 333 | 127.63 | 35.42 | 17.12 | 37.84 | 12 | HIGH |
-| Chennai Super Kings | 16 | 412 | 311 | 132.48 | 29.43 | 18.65 | 41.8 | 14 | HIGH |
-| Sunrisers Hyderabad | 15 | 412 | 325 | 126.77 | 29.43 | 16.92 | 38.15 | 14 | HIGH |
-| Delhi Capitals | 13 | 368 | 267 | 137.83 | 33.45 | 19.48 | 36.33 | 11 | HIGH |
-| Mumbai Indians | 9 | 142 | 124 | 114.52 | 15.78 | 17.74 | 52.42 | 9 | HIGH |
-| Gujarat Titans | 4 | 94 | 64 | 146.88 | 23.5 | 20.31 | 34.38 | 4 | MEDIUM |
-| Gujarat Lions | 2 | 51 | 56 | 91.07 | 25.5 | 10.71 | 46.43 | 2 | MEDIUM |
+| Rajasthan Royals | 3 | 109 | 69 | 157.97 | 54.5 | 24.64 | 34.78 | 2 | MEDIUM |
+| Royal Challengers Bengaluru | 2 | 85 | 61 | 139.34 | 42.5 | 22.95 | 47.54 | 2 | MEDIUM |
+| Chennai Super Kings | 3 | 77 | 61 | 126.23 | 25.67 | 14.75 | 36.07 | 3 | MEDIUM |
+| Gujarat Titans | 2 | 76 | 45 | 168.89 | 38.0 | 24.44 | 26.67 | 2 | MEDIUM |
+| Punjab Kings | 2 | 56 | 42 | 133.33 | 28.0 | 16.67 | 33.33 | 2 | MEDIUM |
+| Sunrisers Hyderabad | 4 | 41 | 43 | 95.35 | 10.25 | 9.3 | 37.21 | 4 | MEDIUM |
+| Kolkata Knight Riders | 2 | 38 | 34 | 111.76 | 19.0 | 11.76 | 47.06 | 2 | MEDIUM |
 
 ---
 
@@ -434,33 +420,29 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Sunrisers Hyderabad | 14 | 327 | 427 | 21 | 7.83 | 20.33 | 15.57 | 39.45 | 18.04 | HIGH |
-| Royal Challengers Bengaluru | 14 | 324 | 446 | 19 | 8.26 | 23.47 | 17.05 | 41.05 | 20.37 | HIGH |
-| Delhi Capitals | 13 | 282 | 368 | 16 | 7.83 | 23.0 | 17.63 | 44.68 | 21.63 | HIGH |
-| Kolkata Knight Riders | 11 | 246 | 323 | 14 | 7.88 | 23.07 | 17.57 | 46.34 | 20.33 | HIGH |
-| Mumbai Indians | 11 | 257 | 363 | 14 | 8.47 | 25.93 | 18.36 | 36.58 | 19.07 | HIGH |
-| Chennai Super Kings | 14 | 316 | 457 | 13 | 8.68 | 35.15 | 24.31 | 42.72 | 22.78 | HIGH |
-| Punjab Kings | 16 | 354 | 520 | 12 | 8.81 | 43.33 | 29.5 | 38.7 | 23.16 | HIGH |
-| Rajasthan Royals | 9 | 193 | 255 | 12 | 7.93 | 21.25 | 16.08 | 38.86 | 18.65 | HIGH |
-| Lucknow Super Giants | 7 | 162 | 185 | 12 | 6.85 | 15.42 | 13.5 | 49.38 | 16.67 | HIGH |
-| Gujarat Titans | 8 | 174 | 242 | 8 | 8.34 | 30.25 | 21.75 | 39.08 | 18.97 | HIGH |
-| Gujarat Lions | 2 | 48 | 77 | 2 | 9.63 | 38.5 | 24.0 | 39.58 | 33.33 | MEDIUM |
+| Sunrisers Hyderabad | 5 | 120 | 148 | 10 | 7.4 | 14.8 | 12.0 | 40.0 | 16.67 | HIGH |
+| Lucknow Super Giants | 5 | 114 | 137 | 8 | 7.21 | 17.13 | 14.25 | 48.25 | 18.42 | HIGH |
+| Mumbai Indians | 3 | 72 | 94 | 6 | 7.83 | 15.67 | 12.0 | 40.28 | 18.06 | MEDIUM |
+| Gujarat Titans | 6 | 126 | 191 | 6 | 9.1 | 31.83 | 21.0 | 34.92 | 20.63 | HIGH |
+| Delhi Capitals | 5 | 102 | 151 | 5 | 8.88 | 30.2 | 20.4 | 39.22 | 25.49 | HIGH |
+| Royal Challengers Bengaluru | 4 | 90 | 139 | 5 | 9.27 | 27.8 | 18.0 | 35.56 | 23.33 | MEDIUM |
+| Kolkata Knight Riders | 3 | 66 | 70 | 4 | 6.36 | 17.5 | 16.5 | 56.06 | 13.64 | MEDIUM |
+| Punjab Kings | 6 | 135 | 190 | 4 | 8.44 | 47.5 | 33.75 | 39.26 | 22.22 | HIGH |
+| Chennai Super Kings | 3 | 56 | 92 | 0 | 9.86 | - | - | 28.57 | 21.43 | MEDIUM |
 
 ### Jasprit Bumrah
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Delhi Capitals | 23 | 520 | 633 | 30 | 7.3 | 21.1 | 17.33 | 39.23 | 15.19 | HIGH |
-| Royal Challengers Bengaluru | 20 | 468 | 589 | 29 | 7.55 | 20.31 | 16.14 | 38.25 | 14.32 | HIGH |
-| Kolkata Knight Riders | 18 | 401 | 515 | 25 | 7.71 | 20.6 | 16.04 | 43.14 | 17.21 | HIGH |
-| Punjab Kings | 18 | 412 | 440 | 24 | 6.41 | 18.33 | 17.17 | 40.78 | 11.65 | HIGH |
-| Rajasthan Royals | 15 | 348 | 353 | 19 | 6.09 | 18.58 | 18.32 | 47.13 | 13.22 | HIGH |
-| Sunrisers Hyderabad | 17 | 392 | 463 | 19 | 7.09 | 24.37 | 20.63 | 35.97 | 13.52 | HIGH |
-| Chennai Super Kings | 16 | 370 | 450 | 14 | 7.3 | 32.14 | 26.43 | 40.27 | 15.14 | HIGH |
-| Rising Pune Supergiant | 6 | 138 | 178 | 7 | 7.74 | 25.43 | 19.71 | 33.33 | 13.04 | HIGH |
-| Gujarat Titans | 4 | 96 | 108 | 6 | 6.75 | 18.0 | 16.0 | 46.88 | 14.58 | MEDIUM |
-| Gujarat Lions | 4 | 96 | 138 | 5 | 8.63 | 27.6 | 19.2 | 32.29 | 19.79 | MEDIUM |
-| Lucknow Super Giants | 4 | 96 | 92 | 5 | 5.75 | 18.4 | 19.2 | 48.96 | 9.38 | MEDIUM |
+| Delhi Capitals | 4 | 92 | 105 | 7 | 6.85 | 15.0 | 13.14 | 45.65 | 16.3 | MEDIUM |
+| Gujarat Titans | 3 | 72 | 60 | 6 | 5.0 | 10.0 | 12.0 | 52.78 | 8.33 | MEDIUM |
+| Royal Challengers Bengaluru | 2 | 48 | 51 | 5 | 6.38 | 10.2 | 9.6 | 35.42 | 8.33 | MEDIUM |
+| Kolkata Knight Riders | 2 | 47 | 58 | 5 | 7.4 | 11.6 | 9.4 | 51.06 | 19.15 | MEDIUM |
+| Lucknow Super Giants | 2 | 48 | 38 | 4 | 4.75 | 9.5 | 12.0 | 62.5 | 8.33 | MEDIUM |
+| Punjab Kings | 3 | 72 | 83 | 4 | 6.92 | 20.75 | 18.0 | 45.83 | 15.28 | MEDIUM |
+| Sunrisers Hyderabad | 4 | 96 | 114 | 3 | 7.13 | 38.0 | 32.0 | 30.21 | 11.46 | MEDIUM |
+| Chennai Super Kings | 2 | 48 | 49 | 2 | 6.13 | 24.5 | 24.0 | 35.42 | 10.42 | MEDIUM |
+| Rajasthan Royals | 3 | 72 | 71 | 2 | 5.92 | 35.5 | 36.0 | 54.17 | 15.28 | MEDIUM |
 
 ---
 
@@ -470,57 +452,20 @@
 
 | Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|--------|
-| HH Pandya | Wankhede Stadium | 28 | 469 | 305 | 153.77 | 29.31 | 21.31 | HIGH |
-| HH Pandya | Wankhede Stadium, Mumbai | 16 | 301 | 212 | 141.98 | 21.5 | 20.28 | HIGH |
-| HH Pandya | Narendra Modi Stadium, Ahmedabad | 12 | 257 | 206 | 124.76 | 28.56 | 14.56 | HIGH |
-| HH Pandya | Dr DY Patil Sports Academy, Mumbai | 4 | 205 | 150 | 136.67 | 102.5 | 15.33 | HIGH |
-| HH Pandya | Sheikh Zayed Stadium | 8 | 188 | 101 | 186.14 | 47.0 | 27.72 | HIGH |
+| HH Pandya | Narendra Modi Stadium, Ahmedabad | 11 | 223 | 176 | 126.7 | 27.88 | 14.77 | HIGH |
+| HH Pandya | Wankhede Stadium, Mumbai | 12 | 189 | 125 | 151.2 | 17.18 | 21.6 | HIGH |
 | HH Pandya | Sawai Mansingh Stadium, Jaipur | 4 | 123 | 63 | 195.24 | 61.5 | 28.57 | MEDIUM |
-| HH Pandya | Eden Gardens | 5 | 120 | 61 | 196.72 | 30.0 | 27.87 | MEDIUM |
 | Naman Dhir | Wankhede Stadium, Mumbai | 9 | 140 | 86 | 162.79 | 23.33 | 25.58 | MEDIUM |
-| Q de Kock | Wankhede Stadium | 8 | 294 | 215 | 136.74 | 42.0 | 18.6 | HIGH |
-| Q de Kock | Dubai International Cricket Stadium | 8 | 242 | 188 | 128.72 | 30.25 | 17.55 | HIGH |
-| Q de Kock | Dr DY Patil Sports Academy, Mumbai | 4 | 218 | 130 | 167.69 | 72.67 | 23.08 | HIGH |
-| Q de Kock | Sheikh Zayed Stadium | 8 | 212 | 146 | 145.21 | 30.29 | 20.55 | HIGH |
-| Q de Kock | M.Chinnaswamy Stadium | 7 | 201 | 166 | 121.08 | 33.5 | 16.27 | HIGH |
-| Q de Kock | M Chinnaswamy Stadium | 3 | 183 | 96 | 190.63 | 61.0 | 32.29 | MEDIUM |
-| Q de Kock | Sharjah Cricket Stadium | 5 | 173 | 131 | 132.06 | 43.25 | 17.56 | HIGH |
 | Q de Kock | Bharat Ratna Shri Atal Bihari Vajpa... | 6 | 157 | 116 | 135.34 | 26.17 | 18.97 | HIGH |
-| Q de Kock | Feroz Shah Kotla | 8 | 157 | 133 | 118.05 | 26.17 | 19.55 | HIGH |
-| Q de Kock | Arun Jaitley Stadium, Delhi | 4 | 129 | 99 | 130.3 | 43.0 | 15.15 | MEDIUM |
-| Q de Kock | Shaheed Veer Narayan Singh Internat... | 4 | 114 | 98 | 116.33 | 28.5 | 16.33 | MEDIUM |
-| Q de Kock | Maharashtra Cricket Association Sta... | 3 | 107 | 76 | 140.79 | 35.67 | 18.42 | MEDIUM |
 | RD Rickelton | Wankhede Stadium, Mumbai | 7 | 219 | 143 | 153.15 | 36.5 | 23.78 | HIGH |
-| RG Sharma | Wankhede Stadium | 60 | 1726 | 1291 | 133.69 | 35.22 | 17.27 | HIGH |
-| RG Sharma | Wankhede Stadium, Mumbai | 25 | 706 | 481 | 146.78 | 30.7 | 22.87 | HIGH |
-| RG Sharma | Eden Gardens | 13 | 465 | 324 | 143.52 | 46.5 | 21.3 | HIGH |
-| RG Sharma | Rajiv Gandhi International Stadium,... | 13 | 424 | 294 | 144.22 | 47.11 | 20.07 | HIGH |
-| RG Sharma | Feroz Shah Kotla | 9 | 271 | 199 | 136.18 | 33.88 | 16.58 | HIGH |
-| RG Sharma | Sheikh Zayed Stadium | 7 | 264 | 200 | 132.0 | 37.71 | 17.0 | HIGH |
-| RG Sharma | MA Chidambaram Stadium, Chepauk, Ch... | 8 | 212 | 171 | 123.98 | 30.29 | 14.62 | HIGH |
-| RG Sharma | M Chinnaswamy Stadium | 9 | 185 | 148 | 125.0 | 20.56 | 15.54 | HIGH |
-| RG Sharma | Dubai International Cricket Stadium | 8 | 179 | 146 | 122.6 | 22.38 | 15.75 | HIGH |
-| RG Sharma | Punjab Cricket Association Stadium,... | 5 | 148 | 101 | 146.53 | 37.0 | 17.82 | HIGH |
-| RG Sharma | Maharashtra Cricket Association Sta... | 3 | 144 | 100 | 144.0 | 144.0 | 19.0 | HIGH |
-| RG Sharma | Arun Jaitley Stadium, Delhi | 5 | 140 | 105 | 133.33 | 28.0 | 19.05 | HIGH |
-| RG Sharma | Vidarbha Cricket Association Stadiu... | 3 | 131 | 104 | 125.96 | 43.67 | 16.35 | HIGH |
-| RG Sharma | Dr. Y.S. Rajasekhara Reddy ACA-VDCA... | 4 | 124 | 98 | 126.53 | 41.33 | 15.31 | MEDIUM |
+| RG Sharma | Wankhede Stadium, Mumbai | 21 | 603 | 388 | 155.41 | 31.74 | 24.48 | HIGH |
 | RG Sharma | Rajiv Gandhi International Stadium,... | 3 | 124 | 76 | 163.16 | 41.33 | 27.63 | MEDIUM |
-| SA Yadav | Wankhede Stadium, Mumbai | 21 | 885 | 473 | 187.1 | 59.0 | 30.44 | HIGH |
-| SA Yadav | Wankhede Stadium | 18 | 499 | 367 | 135.97 | 29.35 | 20.16 | HIGH |
-| SA Yadav | Sheikh Zayed Stadium | 11 | 413 | 248 | 166.53 | 68.83 | 24.6 | HIGH |
-| SA Yadav | Eden Gardens | 18 | 244 | 176 | 138.64 | 22.18 | 19.89 | HIGH |
-| SA Yadav | MA Chidambaram Stadium, Chepauk, Ch... | 8 | 241 | 174 | 138.51 | 30.13 | 19.54 | HIGH |
+| SA Yadav | Wankhede Stadium, Mumbai | 20 | 878 | 466 | 188.41 | 62.71 | 30.69 | HIGH |
 | SA Yadav | Narendra Modi Stadium, Ahmedabad | 4 | 176 | 104 | 169.23 | 44.0 | 24.04 | HIGH |
-| SA Yadav | Maharashtra Cricket Association Sta... | 3 | 161 | 101 | 159.41 | 80.5 | 22.77 | HIGH |
-| SA Yadav | Sharjah Cricket Stadium | 5 | 133 | 99 | 134.34 | 33.25 | 20.2 | MEDIUM |
-| SA Yadav | Maharashtra Cricket Association Sta... | 3 | 127 | 93 | 136.56 | 42.33 | 19.35 | MEDIUM |
 | SA Yadav | Sawai Mansingh Stadium, Jaipur | 3 | 115 | 70 | 164.29 | 57.5 | 24.29 | MEDIUM |
-| SA Yadav | Sawai Mansingh Stadium | 2 | 106 | 80 | 132.5 | 53.0 | 13.75 | MEDIUM |
 | SE Rutherford | Narendra Modi Stadium, Ahmedabad | 6 | 151 | 101 | 149.5 | 25.17 | 17.82 | HIGH |
-| Tilak Varma | Wankhede Stadium, Mumbai | 19 | 428 | 340 | 125.88 | 30.57 | 15.29 | HIGH |
+| Tilak Varma | Wankhede Stadium, Mumbai | 15 | 327 | 255 | 128.24 | 29.73 | 16.08 | HIGH |
 | Tilak Varma | Arun Jaitley Stadium, Delhi | 3 | 163 | 94 | 173.4 | 54.33 | 23.4 | MEDIUM |
-| Tilak Varma | Dr DY Patil Sports Academy, Mumbai | 4 | 153 | 111 | 137.84 | 51.0 | 15.32 | HIGH |
 | Tilak Varma | Narendra Modi Stadium, Ahmedabad | 5 | 146 | 99 | 147.47 | 29.2 | 17.17 | MEDIUM |
 | Tilak Varma | Rajiv Gandhi International Stadium,... | 3 | 102 | 52 | 196.15 | 51.0 | 26.92 | MEDIUM |
 | WG Jacks | Wankhede Stadium, Mumbai | 7 | 185 | 136 | 136.03 | 26.43 | 19.85 | HIGH |
@@ -548,8 +493,7 @@
 
 *Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
 
-- **Q de Kock** vs off-spin: SR 109.52, Avg 34.5, BPD 31.5 (252 balls)
-- **RG Sharma** vs LA orthodox: SR 107.39, Avg 37.8, BPD 35.2 (704 balls)
+- **HH Pandya** vs LA orthodox: SR 101.49, Avg 22.67, BPD 22.33 (67 balls)
 
 ---
 

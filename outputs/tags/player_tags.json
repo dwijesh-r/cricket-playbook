@@ -5,11 +5,11 @@
       "player_id": "ba607b88",
       "overall_sr": 133.23,
       "tags": [
-        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
         "DEATH_SPECIALIST",
-        "SPECIALIST_VS_LEG_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
+        "SPECIALIST_VS_PACE",
         "MIDDLE_ORDER",
-        "SPECIALIST_VS_PACE"
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -17,11 +17,12 @@
       "player_id": "740742ef",
       "overall_sr": 132.57,
       "tags": [
-        "DEATH_SPECIALIST",
         "SIX_HITTER",
-        "VULNERABLE_VS_LEFT_ARM_SPIN",
-        "MIDDLE_ORDER",
-        "SPECIALIST_VS_PACE"
+        "SPECIALIST_VS_SPIN",
+        "DEATH_SPECIALIST",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
+        "SPECIALIST_VS_PACE",
+        "MIDDLE_ORDER"
       ]
     },
     {
@@ -29,10 +30,11 @@
       "player_id": "0a476045",
       "overall_sr": 127.67,
       "tags": [
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
+        "VULNERABLE_VS_LEG_SPIN",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
+        "SPECIALIST_VS_PACE",
         "ANCHOR",
-        "SPECIALIST_VS_LEG_SPIN"
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -40,13 +42,10 @@
       "player_id": "dcce6f09",
       "overall_sr": 140.37,
       "tags": [
-        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
-        "SPECIALIST_VS_LEG_SPIN",
-        "SPECIALIST_VS_OFF_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
         "PLAYMAKER",
         "SPECIALIST_VS_SPIN",
-        "SPECIALIST_VS_PACE",
-        "SPECIALIST_VS_LEFT_ARM_SPIN"
+        "VULNERABLE_VS_PACE"
       ]
     },
     {
@@ -66,8 +65,13 @@
       "player_id": "29e95537",
       "overall_sr": 125.14,
       "tags": [
+        "SPECIALIST_VS_LEG_SPIN",
+        "VULNERABLE_VS_LEFT_ARM_SPIN",
+        "VULNERABLE_VS_SPIN",
+        "SPECIALIST_VS_PACE",
         "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
-        "ANCHOR"
+        "ANCHOR",
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -92,10 +96,11 @@
       "overall_sr": 136.42,
       "tags": [
         "SPECIALIST_VS_OFF_SPIN",
-        "PLAYMAKER",
-        "INCONSISTENT",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
         "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
-        "SPECIALIST_VS_PACE"
+        "SPECIALIST_VS_SPIN",
+        "INCONSISTENT",
+        "PLAYMAKER"
       ]
     },
     {
@@ -113,11 +118,11 @@
       "player_id": "c03f1114",
       "overall_sr": 135.74,
       "tags": [
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
-        "SPECIALIST_VS_OFF_SPIN",
+        "SPECIALIST_VS_LEG_SPIN",
+        "PACE_SPECIALIST",
         "FINISHER",
         "SPECIALIST_VS_PACE",
-        "PACE_SPECIALIST"
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN"
       ]
     },
     {
@@ -125,12 +130,13 @@
       "player_id": "3355b542",
       "overall_sr": 136.14,
       "tags": [
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
-        "DEATH_SPECIALIST",
-        "PLAYMAKER",
-        "VULNERABLE_VS_OFF_SPIN",
+        "VULNERABLE_VS_LEG_SPIN",
         "SPECIALIST_VS_PACE",
-        "SPECIALIST_VS_LEFT_ARM_SPIN"
+        "DEATH_SPECIALIST",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
+        "PLAYMAKER",
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -173,13 +179,13 @@
       "player_id": "a4cc73aa",
       "overall_sr": 139.67,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "DEATH_SPECIALIST",
         "SIX_HITTER",
+        "SPECIALIST_VS_OFF_SPIN",
+        "DEATH_SPECIALIST",
         "SPECIALIST_VS_SPIN",
-        "MIDDLE_ORDER",
-        "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "SPECIALIST_VS_PACE"
+        "SPECIALIST_VS_PACE",
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
+        "MIDDLE_ORDER"
       ]
     },
     {
@@ -203,9 +209,10 @@
       "player_id": "93b4fc78",
       "overall_sr": 121.85,
       "tags": [
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
-        "VULNERABLE_VS_LEFT_ARM_SPIN",
-        "MIDDLE_ORDER"
+        "VULNERABLE_VS_SPIN",
+        "VULNERABLE_VS_LEG_SPIN",
+        "MIDDLE_ORDER",
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -213,16 +220,15 @@
       "player_id": "271f83cd",
       "overall_sr": 149.27,
       "tags": [
-        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
-        "DEATH_SPECIALIST",
-        "SPECIALIST_VS_LEG_SPIN",
-        "SIX_HITTER",
-        "SPECIALIST_VS_OFF_SPIN",
-        "MIDDLE_ORDER",
         "MIDDLE_OVERS_ACCELERATOR",
-        "SPECIALIST_VS_PACE",
+        "PACE_SPECIALIST",
         "SPECIALIST_VS_SPIN",
-        "PACE_SPECIALIST"
+        "SIX_HITTER",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
+        "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_OFF_SPIN",
+        "DEATH_SPECIALIST",
+        "MIDDLE_ORDER"
       ]
     },
     {
@@ -246,13 +252,11 @@
       "player_id": "85ec8e33",
       "overall_sr": 133.73,
       "tags": [
-        "DEATH_SPECIALIST",
-        "SPECIALIST_VS_PACE",
-        "SPECIALIST_VS_OFF_SPIN",
-        "MIDDLE_ORDER",
-        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
         "SPECIALIST_VS_SPIN",
-        "SPECIALIST_VS_LEFT_ARM_SPIN"
+        "DEATH_SPECIALIST",
+        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
+        "MIDDLE_ORDER",
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -260,13 +264,13 @@
       "player_id": "b4b99816",
       "overall_sr": 139.37,
       "tags": [
+        "MIDDLE_OVERS_ACCELERATOR",
         "SPECIALIST_VS_LEG_SPIN",
+        "SPECIALIST_VS_PACE",
         "SPECIALIST_VS_SPIN",
         "SPECIALIST_VS_OFF_SPIN",
-        "PLAYMAKER",
-        "MIDDLE_OVERS_ACCELERATOR",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "SPECIALIST_VS_PACE"
+        "PLAYMAKER"
       ]
     },
     {
@@ -274,15 +278,14 @@
       "player_id": "99b75528",
       "overall_sr": 149.98,
       "tags": [
-        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
-        "DEATH_SPECIALIST",
-        "EXPLOSIVE_OPENER",
-        "SIX_HITTER",
-        "SPECIALIST_VS_OFF_SPIN",
         "MIDDLE_OVERS_ACCELERATOR",
         "SPECIALIST_VS_SPIN",
+        "SIX_HITTER",
+        "EXPLOSIVE_OPENER",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
         "SPECIALIST_VS_PACE",
-        "SPECIALIST_VS_LEFT_ARM_SPIN"
+        "SPECIALIST_VS_OFF_SPIN",
+        "DEATH_SPECIALIST"
       ]
     },
     {
@@ -290,12 +293,11 @@
       "player_id": "fe93fd9d",
       "overall_sr": 130.98,
       "tags": [
-        "VULNERABLE_VS_SPIN",
         "ACCUMULATOR",
         "VULNERABLE_VS_LEG_SPIN",
-        "VULNERABLE_VS_OFF_SPIN",
-        "SPECIALIST_VS_PACE",
-        "PACE_SPECIALIST"
+        "PACE_SPECIALIST",
+        "SPECIALIST_VS_OFF_SPIN",
+        "VULNERABLE_VS_LEFT_ARM_SPIN"
       ]
     },
     {
@@ -303,14 +305,12 @@
       "player_id": "372455c4",
       "overall_sr": 134.4,
       "tags": [
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
-        "DEATH_SPECIALIST",
+        "VULNERABLE_VS_LEG_SPIN",
         "SIX_HITTER",
-        "PLAYMAKER",
-        "VULNERABLE_VS_OFF_SPIN",
+        "DEATH_SPECIALIST",
         "INCONSISTENT",
-        "SPECIALIST_VS_PACE",
-        "SPECIALIST_VS_LEFT_ARM_SPIN"
+        "PLAYMAKER",
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -318,15 +318,14 @@
       "player_id": "919a3be2",
       "overall_sr": 148.17,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "DEATH_SPECIALIST",
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
         "SIX_HITTER",
-        "SPECIALIST_VS_SPIN",
-        "MIDDLE_ORDER",
+        "VULNERABLE_VS_SPIN",
         "INCONSISTENT",
-        "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "SPECIALIST_VS_PACE"
+        "SPECIALIST_VS_PACE",
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
+        "DEATH_SPECIALIST",
+        "MIDDLE_ORDER",
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -361,11 +360,13 @@
       "player_id": "fe11caa6",
       "overall_sr": 127.79,
       "tags": [
-        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
-        "ANCHOR",
+        "VULNERABLE_VS_LEG_SPIN",
+        "PACE_SPECIALIST",
+        "VULNERABLE_VS_SPIN",
         "INCONSISTENT",
-        "SPECIALIST_VS_PACE",
-        "PACE_SPECIALIST"
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
+        "ANCHOR",
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -398,12 +399,10 @@
       "player_id": "d67d5f00",
       "overall_sr": 139.1,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
-        "SPECIALIST_VS_SPIN",
         "FINISHER",
-        "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "SPECIALIST_VS_PACE"
+        "SPECIALIST_VS_PACE",
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
+        "VULNERABLE_VS_LEFT_ARM_SPIN"
       ]
     },
     {
@@ -426,13 +425,13 @@
       "player_id": "752f7486",
       "overall_sr": 138.09,
       "tags": [
-        "DEATH_SPECIALIST",
+        "SPECIALIST_VS_PACE",
         "SIX_HITTER",
+        "SPECIALIST_VS_OFF_SPIN",
+        "DEATH_SPECIALIST",
         "SPECIALIST_VS_SPIN",
-        "PLAYMAKER",
-        "VULNERABLE_VS_OFF_SPIN",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "SPECIALIST_VS_PACE"
+        "PLAYMAKER"
       ]
     },
     {
@@ -464,13 +463,13 @@
       "player_id": "fb2d1dda",
       "overall_sr": 137.16,
       "tags": [
-        "DEATH_SPECIALIST",
+        "VULNERABLE_VS_LEG_SPIN",
         "SIX_HITTER",
-        "SPECIALIST_VS_SPIN",
         "SPECIALIST_VS_OFF_SPIN",
+        "DEATH_SPECIALIST",
+        "SPECIALIST_VS_SPIN",
         "MIDDLE_ORDER",
-        "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "SPECIALIST_VS_PACE"
+        "VULNERABLE_VS_LEFT_ARM_SPIN"
       ]
     },
     {
@@ -478,15 +477,15 @@
       "player_id": "00ea847a",
       "overall_sr": 134.31,
       "tags": [
+        "MIDDLE_OVERS_ACCELERATOR",
+        "SPECIALIST_VS_SPIN",
+        "SIX_HITTER",
+        "INCONSISTENT",
+        "PLAYMAKER",
+        "SPECIALIST_VS_PACE",
         "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
         "DEATH_SPECIALIST",
-        "SIX_HITTER",
-        "VULNERABLE_VS_LEG_SPIN",
-        "PLAYMAKER",
-        "SPECIALIST_VS_OFF_SPIN",
-        "MIDDLE_OVERS_ACCELERATOR",
-        "INCONSISTENT",
-        "SPECIALIST_VS_PACE"
+        "VULNERABLE_VS_LEFT_ARM_SPIN"
       ]
     },
     {
@@ -537,11 +536,10 @@
       "player_id": "dbe50b21",
       "overall_sr": 147.64,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
         "FINISHER",
         "SPECIALIST_VS_OFF_SPIN",
         "SPECIALIST_VS_SPIN",
-        "SPECIALIST_VS_PACE"
+        "VULNERABLE_VS_LEFT_ARM_SPIN"
       ]
     },
     {
@@ -549,13 +547,14 @@
       "player_id": "45a43fe2",
       "overall_sr": 138.16,
       "tags": [
-        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
-        "SPECIALIST_VS_LEG_SPIN",
-        "PLAYMAKER",
         "MIDDLE_OVERS_ACCELERATOR",
         "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
+        "PLAYMAKER",
         "SPECIALIST_VS_PACE",
-        "SPECIALIST_VS_LEFT_ARM_SPIN"
+        "SPECIALIST_VS_LEG_SPIN",
+        "SPECIALIST_VS_OFF_SPIN"
       ]
     },
     {
@@ -563,13 +562,13 @@
       "player_id": "b681e71e",
       "overall_sr": 155.83,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
-        "SIX_HITTER",
-        "SPECIALIST_VS_OFF_SPIN",
         "MIDDLE_OVERS_ACCELERATOR",
-        "SPECIALIST_VS_PACE",
-        "MIDDLE_ORDER"
+        "VULNERABLE_VS_LEFT_ARM_SPIN",
+        "SIX_HITTER",
+        "VULNERABLE_VS_SPIN",
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
+        "MIDDLE_ORDER",
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -619,10 +618,10 @@
       "overall_sr": 138.43,
       "tags": [
         "SPECIALIST_VS_OFF_SPIN",
-        "PLAYMAKER",
+        "SPECIALIST_VS_SPIN",
         "INCONSISTENT",
-        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
-        "SPECIALIST_VS_PACE"
+        "PLAYMAKER",
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN"
       ]
     },
     {
@@ -664,14 +663,12 @@
       "player_id": "bbd41817",
       "overall_sr": 176.03,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "DEATH_SPECIALIST",
-        "SIX_HITTER",
-        "FINISHER",
         "MIDDLE_OVERS_ACCELERATOR",
-        "SPECIALIST_VS_LEFT_ARM_SPIN",
+        "FINISHER",
+        "PACE_SPECIALIST",
         "SPECIALIST_VS_SPIN",
-        "PACE_SPECIALIST"
+        "SIX_HITTER",
+        "DEATH_SPECIALIST"
       ]
     },
     {
@@ -715,11 +712,9 @@
       "player_id": "2e171977",
       "overall_sr": 134.36,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
-        "SPIN_SPECIALIST",
         "ACCUMULATOR",
-        "VULNERABLE_VS_OFF_SPIN",
+        "VULNERABLE_VS_LEG_SPIN",
+        "SPIN_SPECIALIST",
         "SPECIALIST_VS_SPIN",
         "SPECIALIST_VS_PACE"
       ]
@@ -729,9 +724,10 @@
       "player_id": "2c25d4f5",
       "overall_sr": 126.74,
       "tags": [
+        "VULNERABLE_VS_LEG_SPIN",
         "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
-        "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "ANCHOR"
+        "ANCHOR",
+        "VULNERABLE_VS_LEFT_ARM_SPIN"
       ]
     },
     {
@@ -739,16 +735,15 @@
       "player_id": "6c19c6e5",
       "overall_sr": 153.4,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "DEATH_SPECIALIST",
-        "PP_DOMINATOR",
-        "EXPLOSIVE_OPENER",
-        "SIX_HITTER",
+        "PACE_SPECIALIST",
         "SPECIALIST_VS_SPIN",
-        "SPECIALIST_VS_OFF_SPIN",
+        "SIX_HITTER",
+        "EXPLOSIVE_OPENER",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
         "SPECIALIST_VS_PACE",
-        "PACE_SPECIALIST"
+        "SPECIALIST_VS_OFF_SPIN",
+        "DEATH_SPECIALIST",
+        "PP_DOMINATOR"
       ]
     },
     {
@@ -756,14 +751,14 @@
       "player_id": "d9273ee7",
       "overall_sr": 145.44,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
+        "PACE_SPECIALIST",
         "SPECIALIST_VS_SPIN",
-        "FINISHER",
         "INCONSISTENT",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
         "SPECIALIST_VS_PACE",
-        "PACE_SPECIALIST"
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
+        "FINISHER",
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -790,14 +785,12 @@
       "player_id": "3241e3fd",
       "overall_sr": 169.48,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
+        "MIDDLE_OVERS_ACCELERATOR",
         "SPIN_SPECIALIST",
         "SPECIALIST_VS_SPIN",
-        "SPECIALIST_VS_OFF_SPIN",
         "FINISHER",
-        "MIDDLE_OVERS_ACCELERATOR",
-        "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "SPECIALIST_VS_PACE"
+        "SPECIALIST_VS_PACE",
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN"
       ]
     },
     {
@@ -805,13 +798,13 @@
       "player_id": "5b8c830e",
       "overall_sr": 132.63,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
         "ACCUMULATOR",
-        "VULNERABLE_VS_LEFT_ARM_SPIN",
-        "VULNERABLE_VS_OFF_SPIN",
+        "SPECIALIST_VS_LEG_SPIN",
+        "VULNERABLE_VS_SPIN",
         "INCONSISTENT",
-        "SPECIALIST_VS_PACE"
+        "VULNERABLE_VS_OFF_SPIN",
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
+        "VULNERABLE_VS_LEFT_ARM_SPIN"
       ]
     },
     {
@@ -830,13 +823,13 @@
       "player_id": "a4e37e47",
       "overall_sr": 144.11,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
+        "ACCUMULATOR",
+        "VULNERABLE_VS_LEG_SPIN",
         "SPECIALIST_VS_SPIN",
         "SPECIALIST_VS_OFF_SPIN",
-        "ACCUMULATOR",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "SPECIALIST_VS_PACE"
+        "SPECIALIST_VS_PACE",
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN"
       ]
     },
     {
@@ -890,16 +883,15 @@
       "player_id": "d5130a30",
       "overall_sr": 146.85,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "DEATH_SPECIALIST",
-        "SPIN_SPECIALIST",
-        "EXPLOSIVE_OPENER",
-        "SIX_HITTER",
-        "SPECIALIST_VS_SPIN",
-        "SPECIALIST_VS_OFF_SPIN",
         "MIDDLE_OVERS_ACCELERATOR",
+        "SPECIALIST_VS_SPIN",
+        "SIX_HITTER",
+        "EXPLOSIVE_OPENER",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "SPECIALIST_VS_PACE"
+        "SPECIALIST_VS_PACE",
+        "SPIN_SPECIALIST",
+        "SPECIALIST_VS_OFF_SPIN",
+        "DEATH_SPECIALIST"
       ]
     },
     {
@@ -927,9 +919,13 @@
       "player_id": "73ad96ed",
       "overall_sr": 128.3,
       "tags": [
-        "INCONSISTENT",
         "ACCUMULATOR",
-        "VULNERABLE_VS_OFF_SPIN"
+        "VULNERABLE_VS_LEG_SPIN",
+        "VULNERABLE_VS_SPIN",
+        "INCONSISTENT",
+        "VULNERABLE_VS_OFF_SPIN",
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
+        "VULNERABLE_VS_LEFT_ARM_SPIN"
       ]
     },
     {
@@ -975,15 +971,12 @@
       "player_id": "f29185a1",
       "overall_sr": 163.9,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "SPIN_SPECIALIST",
-        "PP_DOMINATOR",
-        "EXPLOSIVE_OPENER",
-        "SPECIALIST_VS_OFF_SPIN",
         "MIDDLE_OVERS_ACCELERATOR",
+        "SPIN_SPECIALIST",
+        "EXPLOSIVE_OPENER",
         "INCONSISTENT",
-        "SPECIALIST_VS_SPIN",
-        "SPECIALIST_VS_PACE"
+        "PP_DOMINATOR",
+        "VULNERABLE_VS_SPIN"
       ]
     },
     {
@@ -991,10 +984,9 @@
       "player_id": "04a418e8",
       "overall_sr": 142.36,
       "tags": [
-        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
         "ACCUMULATOR",
-        "SPECIALIST_VS_OFF_SPIN",
-        "SPECIALIST_VS_PACE"
+        "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN"
       ]
     },
     {
@@ -1012,12 +1004,10 @@
       "player_id": "a24be938",
       "overall_sr": 137.45,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
-        "PLAYMAKER",
-        "VULNERABLE_VS_OFF_SPIN",
+        "VULNERABLE_VS_LEG_SPIN",
         "SPECIALIST_VS_PACE",
-        "SPECIALIST_VS_LEFT_ARM_SPIN"
+        "PLAYMAKER",
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN"
       ]
     },
     {
@@ -1025,15 +1015,13 @@
       "player_id": "9d430b40",
       "overall_sr": 166.67,
       "tags": [
+        "MIDDLE_OVERS_ACCELERATOR",
         "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
         "SPIN_SPECIALIST",
-        "PP_DOMINATOR",
         "EXPLOSIVE_OPENER",
+        "PP_DOMINATOR",
         "VULNERABLE_VS_SPIN",
-        "VULNERABLE_VS_LEG_SPIN",
-        "SPECIALIST_VS_OFF_SPIN",
-        "VULNERABLE_VS_LEFT_ARM_SPIN",
-        "MIDDLE_OVERS_ACCELERATOR"
+        "VULNERABLE_VS_LEFT_ARM_SPIN"
       ]
     },
     {
@@ -1041,13 +1029,11 @@
       "player_id": "6a26221c",
       "overall_sr": 135.59,
       "tags": [
-        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
-        "DEATH_SPECIALIST",
-        "SPECIALIST_VS_LEG_SPIN",
         "SPECIALIST_VS_OFF_SPIN",
-        "MIDDLE_ORDER",
+        "DEATH_SPECIALIST",
         "SPECIALIST_VS_PACE",
-        "SPECIALIST_VS_SPIN"
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
+        "MIDDLE_ORDER"
       ]
     },
     {
@@ -1055,15 +1041,13 @@
       "player_id": "b0482a1d",
       "overall_sr": 145.25,
       "tags": [
-        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
-        "DEATH_SPECIALIST",
-        "SPECIALIST_VS_LEG_SPIN",
         "SIX_HITTER",
-        "SPECIALIST_VS_OFF_SPIN",
-        "MIDDLE_ORDER",
         "SPECIALIST_VS_SPIN",
+        "DEATH_SPECIALIST",
+        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
         "SPECIALIST_VS_PACE",
-        "SPECIALIST_VS_LEFT_ARM_SPIN"
+        "MIDDLE_ORDER"
       ]
     },
     {
@@ -1080,11 +1064,12 @@
       "player_id": "48a1d7b7",
       "overall_sr": 152.63,
       "tags": [
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
+        "PACE_SPECIALIST",
+        "SPECIALIST_VS_SPIN",
         "FINISHER",
-        "SPECIALIST_VS_PACE",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "PACE_SPECIALIST"
+        "SPECIALIST_VS_PACE",
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN"
       ]
     },
     {
@@ -1102,9 +1087,8 @@
       "overall_sr": 130.2,
       "tags": [
         "ACCUMULATOR",
-        "INCONSISTENT",
-        "SPECIALIST_VS_PACE",
-        "VULNERABLE_VS_LEG_SPIN"
+        "VULNERABLE_VS_LEG_SPIN",
+        "INCONSISTENT"
       ]
     },
     {
@@ -1136,11 +1120,10 @@
       "player_id": "3d8feaf8",
       "overall_sr": 143.24,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "PP_DOMINATOR",
         "MIDDLE_ORDER",
-        "SPECIALIST_VS_PACE",
-        "PACE_SPECIALIST"
+        "PP_DOMINATOR",
+        "PACE_SPECIALIST",
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -1148,15 +1131,13 @@
       "player_id": "9418198b",
       "overall_sr": 153.28,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "DEATH_SPECIALIST",
-        "PP_DOMINATOR",
-        "EXPLOSIVE_OPENER",
-        "SIX_HITTER",
-        "SPECIALIST_VS_OFF_SPIN",
         "MIDDLE_OVERS_ACCELERATOR",
+        "PP_DOMINATOR",
+        "SPECIALIST_VS_OFF_SPIN",
+        "SIX_HITTER",
         "SPECIALIST_VS_SPIN",
-        "SPECIALIST_VS_PACE"
+        "EXPLOSIVE_OPENER",
+        "DEATH_SPECIALIST"
       ]
     },
     {
@@ -1164,14 +1145,12 @@
       "player_id": "235c2bb6",
       "overall_sr": 171.49,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "DEATH_SPECIALIST",
-        "SPIN_SPECIALIST",
-        "SIX_HITTER",
-        "SPECIALIST_VS_SPIN",
-        "SPECIALIST_VS_OFF_SPIN",
-        "FINISHER",
         "MIDDLE_OVERS_ACCELERATOR",
+        "FINISHER",
+        "SPIN_SPECIALIST",
+        "SPECIALIST_VS_SPIN",
+        "SIX_HITTER",
+        "DEATH_SPECIALIST",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
         "SPECIALIST_VS_PACE"
       ]
@@ -1287,14 +1266,11 @@
       "player_id": "df5a6881",
       "overall_sr": 140.26,
       "tags": [
-        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
-        "SPECIALIST_VS_LEG_SPIN",
-        "SPECIALIST_VS_OFF_SPIN",
-        "PLAYMAKER",
         "MIDDLE_OVERS_ACCELERATOR",
-        "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_OFF_SPIN",
         "SPECIALIST_VS_PACE",
-        "SPECIALIST_VS_LEFT_ARM_SPIN"
+        "PLAYMAKER",
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN"
       ]
     },
     {
@@ -1315,13 +1291,13 @@
       "player_id": "0a509d6b",
       "overall_sr": 146.53,
       "tags": [
-        "DEATH_SPECIALIST",
+        "PACE_SPECIALIST",
         "SIX_HITTER",
+        "DEATH_SPECIALIST",
         "FINISHER",
-        "VULNERABLE_VS_LEFT_ARM_SPIN",
-        "VULNERABLE_VS_OFF_SPIN",
         "SPECIALIST_VS_PACE",
-        "PACE_SPECIALIST"
+        "VULNERABLE_VS_SPIN",
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -1352,16 +1328,15 @@
       "player_id": "e94915e6",
       "overall_sr": 137.52,
       "tags": [
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
-        "DEATH_SPECIALIST",
+        "PACE_SPECIALIST",
         "SIX_HITTER",
-        "SPECIALIST_VS_SPIN",
-        "SPECIALIST_VS_OFF_SPIN",
-        "FINISHER",
         "INCONSISTENT",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "SPECIALIST_VS_PACE",
-        "PACE_SPECIALIST"
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
+        "VULNERABLE_VS_PACE",
+        "VULNERABLE_VS_LEG_SPIN",
+        "DEATH_SPECIALIST",
+        "FINISHER"
       ]
     },
     {
@@ -1369,15 +1344,12 @@
       "player_id": "c740ea83",
       "overall_sr": 154.52,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "DEATH_SPECIALIST",
-        "SPIN_SPECIALIST",
-        "SIX_HITTER",
-        "SPECIALIST_VS_SPIN",
-        "SPECIALIST_VS_OFF_SPIN",
         "MIDDLE_OVERS_ACCELERATOR",
+        "SPIN_SPECIALIST",
+        "SPECIALIST_VS_SPIN",
+        "SIX_HITTER",
+        "DEATH_SPECIALIST",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "SPECIALIST_VS_PACE",
         "MIDDLE_ORDER"
       ]
     },
@@ -1386,13 +1358,12 @@
       "player_id": "495d42a5",
       "overall_sr": 118.32,
       "tags": [
-        "VULNERABLE_VS_SPIN",
         "ACCUMULATOR",
         "VULNERABLE_VS_LEG_SPIN",
         "VULNERABLE_VS_LEFT_ARM_SPIN",
-        "VULNERABLE_VS_OFF_SPIN",
         "PACE_SPECIALIST",
-        "VULNERABLE_VS_PACE"
+        "VULNERABLE_VS_SPIN",
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -1423,12 +1394,12 @@
       "player_id": "872b03f7",
       "overall_sr": 138.96,
       "tags": [
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
         "ACCUMULATOR",
         "VULNERABLE_VS_LEG_SPIN",
+        "PACE_SPECIALIST",
+        "SPECIALIST_VS_SPIN",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "SPECIALIST_VS_PACE",
-        "PACE_SPECIALIST"
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN"
       ]
     },
     {
@@ -1459,15 +1430,14 @@
       "player_id": "12b610c2",
       "overall_sr": 171.81,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "DEATH_SPECIALIST",
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
-        "PP_DOMINATOR",
-        "EXPLOSIVE_OPENER",
-        "SPECIALIST_VS_OFF_SPIN",
         "MIDDLE_OVERS_ACCELERATOR",
         "SPECIALIST_VS_SPIN",
-        "SPECIALIST_VS_PACE"
+        "EXPLOSIVE_OPENER",
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
+        "VULNERABLE_VS_LEG_SPIN",
+        "SPECIALIST_VS_OFF_SPIN",
+        "DEATH_SPECIALIST",
+        "PP_DOMINATOR"
       ]
     },
     {
@@ -1487,15 +1457,14 @@
       "player_id": "50c6bc2b",
       "overall_sr": 160.46,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "DEATH_SPECIALIST",
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
+        "VULNERABLE_VS_LEG_SPIN",
+        "PACE_SPECIALIST",
         "SIX_HITTER",
-        "SPECIALIST_VS_OFF_SPIN",
-        "VULNERABLE_VS_LEFT_ARM_SPIN",
-        "MIDDLE_ORDER",
+        "DEATH_SPECIALIST",
         "INCONSISTENT",
-        "PACE_SPECIALIST"
+        "VULNERABLE_VS_SPIN",
+        "MIDDLE_ORDER",
+        "VULNERABLE_VS_LEFT_ARM_SPIN"
       ]
     },
     {
@@ -1515,13 +1484,14 @@
       "player_id": "800d2d97",
       "overall_sr": 157.8,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "DEATH_SPECIALIST",
-        "SIX_HITTER",
-        "FINISHER",
-        "VULNERABLE_VS_LEFT_ARM_SPIN",
         "MIDDLE_OVERS_ACCELERATOR",
-        "SPECIALIST_VS_PACE"
+        "SIX_HITTER",
+        "VULNERABLE_VS_SPIN",
+        "VULNERABLE_VS_PACE",
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
+        "DEATH_SPECIALIST",
+        "FINISHER",
+        "VULNERABLE_VS_LEFT_ARM_SPIN"
       ]
     },
     {
@@ -1542,16 +1512,14 @@
       "player_id": "3d284ca3",
       "overall_sr": 177.48,
       "tags": [
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
-        "DEATH_SPECIALIST",
-        "PP_DOMINATOR",
-        "EXPLOSIVE_OPENER",
-        "SIX_HITTER",
-        "SPECIALIST_VS_SPIN",
-        "SPECIALIST_VS_OFF_SPIN",
         "MIDDLE_OVERS_ACCELERATOR",
+        "VULNERABLE_VS_LEG_SPIN",
+        "PP_DOMINATOR",
+        "SIX_HITTER",
+        "EXPLOSIVE_OPENER",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "SPECIALIST_VS_PACE"
+        "DEATH_SPECIALIST",
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN"
       ]
     },
     {
@@ -1630,11 +1598,12 @@
       "player_id": "d1a60072",
       "overall_sr": 143.51,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "SPIN_SPECIALIST",
-        "SIX_HITTER",
         "MIDDLE_OVERS_ACCELERATOR",
+        "SPIN_SPECIALIST",
+        "SPECIALIST_VS_OFF_SPIN",
+        "SIX_HITTER",
         "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_PACE",
         "MIDDLE_ORDER"
       ]
     },
@@ -1655,14 +1624,12 @@
       "player_id": "26989d80",
       "overall_sr": 157.76,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "DEATH_SPECIALIST",
+        "PACE_SPECIALIST",
         "SIX_HITTER",
+        "DEATH_SPECIALIST",
         "FINISHER",
-        "VULNERABLE_VS_LEFT_ARM_SPIN",
-        "SPECIALIST_VS_SPIN",
         "SPECIALIST_VS_PACE",
-        "PACE_SPECIALIST"
+        "VULNERABLE_VS_LEFT_ARM_SPIN"
       ]
     },
     {
@@ -1670,12 +1637,12 @@
       "player_id": "8e514b4c",
       "overall_sr": 152.78,
       "tags": [
+        "VULNERABLE_VS_LEFT_ARM_SPIN",
         "PACE_SPECIALIST",
         "CONSISTENT",
         "FINISHER",
-        "VULNERABLE_VS_LEFT_ARM_SPIN",
-        "VULNERABLE_VS_LEG_SPIN",
-        "VULNERABLE_VS_PACE"
+        "VULNERABLE_VS_SPIN",
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -1683,13 +1650,13 @@
       "player_id": "f1f99156",
       "overall_sr": 174.79,
       "tags": [
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
-        "DEATH_SPECIALIST",
         "SIX_HITTER",
+        "CONSISTENT",
         "FINISHER",
-        "VULNERABLE_VS_LEG_SPIN",
         "SPECIALIST_VS_PACE",
-        "CONSISTENT"
+        "DEATH_SPECIALIST",
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -1724,15 +1691,14 @@
       "player_id": "eaa76d3c",
       "overall_sr": 154.7,
       "tags": [
-        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
-        "DEATH_SPECIALIST",
-        "SIX_HITTER",
-        "SPECIALIST_VS_OFF_SPIN",
-        "MIDDLE_ORDER",
-        "SPECIALIST_VS_SPIN",
-        "SPECIALIST_VS_PACE",
         "PACE_SPECIALIST",
-        "SPECIALIST_VS_LEFT_ARM_SPIN"
+        "SPECIALIST_VS_SPIN",
+        "SIX_HITTER",
+        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
+        "DEATH_SPECIALIST",
+        "MIDDLE_ORDER",
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -1761,12 +1727,11 @@
       "player_id": "f9e6e7ef",
       "overall_sr": 122.2,
       "tags": [
-        "VULNERABLE_VS_SPIN",
         "ACCUMULATOR",
         "VULNERABLE_VS_LEG_SPIN",
-        "VULNERABLE_VS_OFF_SPIN",
-        "SPECIALIST_VS_PACE",
-        "PACE_SPECIALIST"
+        "PACE_SPECIALIST",
+        "SPECIALIST_VS_OFF_SPIN",
+        "VULNERABLE_VS_LEFT_ARM_SPIN"
       ]
     },
     {
@@ -1787,8 +1752,7 @@
       "overall_sr": 153.85,
       "tags": [
         "FINISHER",
-        "VULNERABLE_VS_OFF_SPIN",
-        "SPECIALIST_VS_PACE",
+        "VULNERABLE_VS_LEG_SPIN",
         "PACE_SPECIALIST"
       ]
     },
@@ -1797,15 +1761,12 @@
       "player_id": "d1c36f5c",
       "overall_sr": 139.23,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
-        "SIX_HITTER",
-        "SPECIALIST_VS_SPIN",
-        "SPECIALIST_VS_OFF_SPIN",
-        "PLAYMAKER",
         "MIDDLE_OVERS_ACCELERATOR",
+        "SPECIALIST_VS_OFF_SPIN",
+        "SIX_HITTER",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "SPECIALIST_VS_PACE"
+        "PLAYMAKER",
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN"
       ]
     },
     {
@@ -1813,15 +1774,15 @@
       "player_id": "ad3b6e95",
       "overall_sr": 150.23,
       "tags": [
+        "MIDDLE_OVERS_ACCELERATOR",
+        "PACE_SPECIALIST",
+        "SPECIALIST_VS_SPIN",
+        "SIX_HITTER",
+        "EXPLOSIVE_OPENER",
+        "VULNERABLE_VS_LEG_SPIN",
         "DEATH_SPECIALIST",
         "PP_DOMINATOR",
-        "EXPLOSIVE_OPENER",
-        "SIX_HITTER",
-        "VULNERABLE_VS_LEG_SPIN",
-        "VULNERABLE_VS_OFF_SPIN",
-        "MIDDLE_OVERS_ACCELERATOR",
-        "SPECIALIST_VS_PACE",
-        "PACE_SPECIALIST"
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -1829,14 +1790,11 @@
       "player_id": "85b3fab2",
       "overall_sr": 163.57,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "DEATH_SPECIALIST",
         "SIX_HITTER",
         "SPECIALIST_VS_SPIN",
-        "SPECIALIST_VS_OFF_SPIN",
+        "DEATH_SPECIALIST",
         "FINISHER",
-        "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "SPECIALIST_VS_PACE"
+        "SPECIALIST_VS_LEFT_ARM_SPIN"
       ]
     },
     {
@@ -2014,13 +1972,12 @@
       "player_id": "aad0c365",
       "overall_sr": 133.24,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
+        "VULNERABLE_VS_LEG_SPIN",
         "SPIN_SPECIALIST",
-        "SPECIALIST_VS_OFF_SPIN",
-        "MIDDLE_ORDER",
-        "INCONSISTENT",
+        "SPECIALIST_VS_SPIN",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "SPECIALIST_VS_SPIN"
+        "INCONSISTENT",
+        "MIDDLE_ORDER"
       ]
     },
     {
@@ -2113,10 +2070,8 @@
       "player_id": "d7017798",
       "overall_sr": 145.14,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
         "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
         "MIDDLE_ORDER",
-        "SPECIALIST_VS_PACE",
         "CONSISTENT"
       ]
     },
@@ -2160,15 +2115,14 @@
       "player_id": "cad00a4d",
       "overall_sr": 154.58,
       "tags": [
-        "SPECIALIST_VS_LEG_SPIN",
-        "DEATH_SPECIALIST",
-        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
-        "SIX_HITTER",
-        "MIDDLE_ORDER",
-        "VULNERABLE_VS_OFF_SPIN",
         "MIDDLE_OVERS_ACCELERATOR",
+        "PACE_SPECIALIST",
+        "SIX_HITTER",
+        "DEATH_SPECIALIST",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "PACE_SPECIALIST"
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
+        "MIDDLE_ORDER",
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -2213,13 +2167,13 @@
       "player_id": "9caf69a1",
       "overall_sr": 153.31,
       "tags": [
-        "DEATH_SPECIALIST",
-        "PP_DOMINATOR",
-        "EXPLOSIVE_OPENER",
-        "SIX_HITTER",
-        "VULNERABLE_VS_OFF_SPIN",
         "MIDDLE_OVERS_ACCELERATOR",
-        "SPECIALIST_VS_PACE"
+        "PP_DOMINATOR",
+        "SIX_HITTER",
+        "EXPLOSIVE_OPENER",
+        "DEATH_SPECIALIST",
+        "VULNERABLE_VS_SPIN",
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -2243,11 +2197,11 @@
       "wickets": 221.0,
       "tags": [
         "PROVEN_WICKET_TAKER",
-        "RHB_PRESSURE",
-        "MIDDLE_OVERS_LIABILITY",
+        "MIDDLE_AND_DEATH_SPECIALIST",
         "RHB_SPECIALIST",
+        "RHB_PRESSURE",
         "LHB_VULNERABLE",
-        "MIDDLE_AND_DEATH_SPECIALIST"
+        "MIDDLE_OVERS_LIABILITY"
       ]
     },
     {
@@ -2256,14 +2210,14 @@
       "economy": 7.87,
       "wickets": 198.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
-        "WORKHORSE",
-        "PROVEN_WICKET_TAKER",
-        "RHB_WICKET_TAKER",
-        "PRESSURE_BUILDER",
-        "PP_ELITE",
         "DEATH_SPECIALIST",
-        "DEATH_LIABILITY"
+        "PROVEN_WICKET_TAKER",
+        "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
+        "RHB_WICKET_TAKER",
+        "DEATH_LIABILITY",
+        "PRESSURE_BUILDER",
+        "PP_ELITE"
       ]
     },
     {
@@ -2273,14 +2227,14 @@
       "wickets": 192.0,
       "tags": [
         "PROVEN_WICKET_TAKER",
+        "PP_BEAST",
+        "MIDDLE_AND_DEATH_SPECIALIST",
+        "MIDDLE_OVERS_BEAST",
+        "PRESSURE_BUILDER",
         "DEATH_BEAST",
         "WORKHORSE",
         "LHB_PRESSURE",
-        "MID_OVERS_ELITE",
-        "PRESSURE_BUILDER",
-        "MIDDLE_OVERS_BEAST",
-        "PP_BEAST",
-        "MIDDLE_AND_DEATH_SPECIALIST"
+        "MID_OVERS_ELITE"
       ]
     },
     {
@@ -2301,14 +2255,14 @@
       "economy": 7.29,
       "wickets": 187.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
-        "WORKHORSE",
         "PROVEN_WICKET_TAKER",
+        "MIDDLE_AND_DEATH_SPECIALIST",
+        "WORKHORSE",
         "SPINNER",
-        "MID_OVERS_ELITE",
+        "NEW_BALL_SPECIALIST",
         "LHB_PRESSURE",
         "PP_LIABILITY",
-        "MIDDLE_AND_DEATH_SPECIALIST"
+        "MID_OVERS_ELITE"
       ]
     },
     {
@@ -2317,15 +2271,15 @@
       "economy": 7.43,
       "wickets": 183.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
         "PROVEN_WICKET_TAKER",
-        "LHB_WICKET_TAKER",
-        "DEATH_BEAST",
-        "WORKHORSE",
+        "PP_BEAST",
+        "MIDDLE_AND_DEATH_SPECIALIST",
         "DEATH_ELITE",
         "PRESSURE_BUILDER",
-        "PP_BEAST",
-        "MIDDLE_AND_DEATH_SPECIALIST"
+        "LHB_WICKET_TAKER",
+        "WORKHORSE",
+        "DEATH_BEAST",
+        "NEW_BALL_SPECIALIST"
       ]
     },
     {
@@ -2371,9 +2325,9 @@
       "wickets": 170.0,
       "tags": [
         "RHB_SPECIALIST",
-        "LHB_VULNERABLE",
         "PROVEN_WICKET_TAKER",
-        "MIDDLE_OVERS_CONTROLLER"
+        "MIDDLE_OVERS_CONTROLLER",
+        "LHB_VULNERABLE"
       ]
     },
     {
@@ -2382,16 +2336,14 @@
       "economy": 7.23,
       "wickets": 158.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
         "PROVEN_WICKET_TAKER",
-        "LHB_WICKET_TAKER",
-        "WORKHORSE",
-        "RHB_VULNERABLE",
-        "MID_OVERS_ELITE",
-        "LHB_PRESSURE",
         "MIDDLE_AND_DEATH_SPECIALIST",
-        "LHB_SPECIALIST",
-        "DEATH_LIABILITY"
+        "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
+        "LHB_PRESSURE",
+        "DEATH_LIABILITY",
+        "LHB_WICKET_TAKER",
+        "MID_OVERS_ELITE"
       ]
     },
     {
@@ -2427,14 +2379,14 @@
       "economy": 8.13,
       "wickets": 146.0,
       "tags": [
-        "DEATH_LIABILITY",
-        "PRESSURE_BUILDER",
         "PROVEN_WICKET_TAKER",
-        "PP_ELITE",
-        "RHB_WICKET_TAKER",
         "MIDDLE_AND_DEATH_SPECIALIST",
         "WORKHORSE",
-        "NEW_BALL_SPECIALIST"
+        "NEW_BALL_SPECIALIST",
+        "RHB_WICKET_TAKER",
+        "DEATH_LIABILITY",
+        "PRESSURE_BUILDER",
+        "PP_ELITE"
       ]
     },
     {
@@ -2477,14 +2429,14 @@
       "economy": 8.83,
       "wickets": 134.0,
       "tags": [
-        "WORKHORSE",
         "PROVEN_WICKET_TAKER",
-        "RHB_WICKET_TAKER",
-        "PACER",
-        "MIDDLE_OVERS_LIABILITY",
+        "MIDDLE_AND_DEATH_SPECIALIST",
+        "WORKHORSE",
         "RHB_SPECIALIST",
         "LHB_VULNERABLE",
-        "MIDDLE_AND_DEATH_SPECIALIST"
+        "RHB_WICKET_TAKER",
+        "PACER",
+        "MIDDLE_OVERS_LIABILITY"
       ]
     },
     {
@@ -2493,14 +2445,15 @@
       "economy": 8.81,
       "wickets": 133.0,
       "tags": [
-        "DEATH_LIABILITY",
-        "PRESSURE_BUILDER",
+        "DEATH_SPECIALIST",
         "PROVEN_WICKET_TAKER",
+        "PRESSURE_BUILDER",
         "PP_ELITE",
-        "MIDDLE_OVERS_LIABILITY",
         "WORKHORSE",
         "NEW_BALL_SPECIALIST",
-        "DEATH_SPECIALIST"
+        "RHB_PRESSURE",
+        "DEATH_LIABILITY",
+        "MIDDLE_OVERS_LIABILITY"
       ]
     },
     {
@@ -2509,12 +2462,12 @@
       "economy": 7.48,
       "wickets": 128.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
         "PROVEN_WICKET_TAKER",
-        "MID_OVERS_ELITE",
-        "MIDDLE_OVERS_CONTROLLER",
         "RHB_SPECIALIST",
-        "LHB_VULNERABLE"
+        "NEW_BALL_SPECIALIST",
+        "MIDDLE_OVERS_CONTROLLER",
+        "LHB_VULNERABLE",
+        "MID_OVERS_ELITE"
       ]
     },
     {
@@ -2523,16 +2476,15 @@
       "economy": 9.66,
       "wickets": 123.0,
       "tags": [
-        "WORKHORSE",
         "PROVEN_WICKET_TAKER",
-        "RHB_WICKET_TAKER",
-        "RHB_PRESSURE",
-        "PACER",
-        "MIDDLE_OVERS_LIABILITY",
-        "RHB_SPECIALIST",
-        "LHB_VULNERABLE",
         "MIDDLE_AND_DEATH_SPECIALIST",
-        "DEATH_LIABILITY"
+        "RHB_WICKET_TAKER",
+        "PACER",
+        "LHB_VULNERABLE",
+        "RHB_SPECIALIST",
+        "WORKHORSE",
+        "DEATH_LIABILITY",
+        "MIDDLE_OVERS_LIABILITY"
       ]
     },
     {
@@ -2584,13 +2536,13 @@
       "economy": 9.52,
       "wickets": 107.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
-        "WORKHORSE",
         "PROVEN_WICKET_TAKER",
-        "RHB_SPECIALIST",
-        "LHB_VULNERABLE",
         "MIDDLE_AND_DEATH_SPECIALIST",
-        "DEATH_LIABILITY"
+        "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
+        "RHB_SPECIALIST",
+        "DEATH_LIABILITY",
+        "LHB_VULNERABLE"
       ]
     },
     {
@@ -2645,8 +2597,8 @@
       "wickets": 102.0,
       "tags": [
         "MIDDLE_AND_DEATH_SPECIALIST",
-        "PROVEN_WICKET_TAKER",
         "DEATH_BEAST",
+        "PROVEN_WICKET_TAKER",
         "LHB_PRESSURE"
       ]
     },
@@ -2695,14 +2647,14 @@
       "economy": 8.59,
       "wickets": 96.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
+        "DEATH_SPECIALIST",
         "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
         "LHB_PRESSURE",
-        "MIDDLE_OVERS_LIABILITY",
+        "DEATH_LIABILITY",
         "PRESSURE_BUILDER",
         "PP_ELITE",
-        "DEATH_SPECIALIST",
-        "DEATH_LIABILITY"
+        "MIDDLE_OVERS_LIABILITY"
       ]
     },
     {
@@ -2723,14 +2675,14 @@
       "economy": 7.57,
       "wickets": 93.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
-        "WORKHORSE",
-        "DEATH_BEAST",
-        "MID_OVERS_ELITE",
-        "MIDDLE_OVERS_CONTROLLER",
-        "RHB_PRESSURE",
         "RHB_SPECIALIST",
-        "LHB_VULNERABLE"
+        "DEATH_BEAST",
+        "NEW_BALL_SPECIALIST",
+        "MIDDLE_OVERS_CONTROLLER",
+        "WORKHORSE",
+        "RHB_PRESSURE",
+        "LHB_VULNERABLE",
+        "MID_OVERS_ELITE"
       ]
     },
     {
@@ -2800,12 +2752,12 @@
       "economy": 8.21,
       "wickets": 88.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
-        "LHB_WICKET_TAKER",
-        "RHB_VULNERABLE",
         "LHB_PRESSURE",
+        "NEW_BALL_SPECIALIST",
+        "RHB_VULNERABLE",
         "PRESSURE_BUILDER",
-        "LHB_SPECIALIST"
+        "LHB_SPECIALIST",
+        "LHB_WICKET_TAKER"
       ]
     },
     {
@@ -2850,11 +2802,11 @@
       "economy": 8.57,
       "wickets": 83.0,
       "tags": [
-        "MIDDLE_OVERS_CONTROLLER",
-        "RHB_PRESSURE",
-        "MIDDLE_OVERS_LIABILITY",
         "RHB_SPECIALIST",
-        "LHB_VULNERABLE"
+        "RHB_PRESSURE",
+        "MIDDLE_OVERS_CONTROLLER",
+        "LHB_VULNERABLE",
+        "MIDDLE_OVERS_LIABILITY"
       ]
     },
     {
@@ -2887,11 +2839,11 @@
       "economy": 9.04,
       "wickets": 79.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
+        "MIDDLE_AND_DEATH_SPECIALIST",
         "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
         "RHB_WICKET_TAKER",
-        "PP_LIABILITY",
-        "MIDDLE_AND_DEATH_SPECIALIST"
+        "PP_LIABILITY"
       ]
     },
     {
@@ -2934,9 +2886,9 @@
       "wickets": 75.0,
       "tags": [
         "RHB_VULNERABLE",
+        "MIDDLE_AND_DEATH_SPECIALIST",
         "LHB_SPECIALIST",
-        "LHB_WICKET_TAKER",
-        "MIDDLE_AND_DEATH_SPECIALIST"
+        "LHB_WICKET_TAKER"
       ]
     },
     {
@@ -2945,14 +2897,14 @@
       "economy": 8.95,
       "wickets": 74.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
-        "WORKHORSE",
-        "LHB_WICKET_TAKER",
-        "RHB_VULNERABLE",
-        "LHB_PRESSURE",
-        "PRESSURE_BUILDER",
         "MIDDLE_AND_DEATH_SPECIALIST",
+        "RHB_VULNERABLE",
+        "PRESSURE_BUILDER",
         "LHB_SPECIALIST",
+        "LHB_WICKET_TAKER",
+        "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
+        "LHB_PRESSURE",
         "DEATH_LIABILITY"
       ]
     },
@@ -2975,12 +2927,12 @@
       "economy": 8.31,
       "wickets": 72.0,
       "tags": [
-        "LHB_WICKET_TAKER",
-        "RHB_VULNERABLE",
-        "LHB_PRESSURE",
-        "MIDDLE_OVERS_LIABILITY",
         "MIDDLE_AND_DEATH_SPECIALIST",
-        "LHB_SPECIALIST"
+        "LHB_PRESSURE",
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST",
+        "LHB_WICKET_TAKER",
+        "MIDDLE_OVERS_LIABILITY"
       ]
     },
     {
@@ -3056,13 +3008,13 @@
       "economy": 8.93,
       "wickets": 65.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
-        "WORKHORSE",
-        "LHB_WICKET_TAKER",
-        "PP_LIABILITY",
-        "PRESSURE_BUILDER",
         "DEATH_SPECIALIST",
-        "DEATH_ELITE"
+        "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
+        "DEATH_ELITE",
+        "PRESSURE_BUILDER",
+        "PP_LIABILITY",
+        "LHB_WICKET_TAKER"
       ]
     },
     {
@@ -3080,12 +3032,12 @@
       "economy": 8.26,
       "wickets": 65.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
+        "DEATH_SPECIALIST",
         "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
+        "DEATH_ELITE",
         "RHB_VULNERABLE",
         "PACER",
-        "DEATH_SPECIALIST",
-        "DEATH_ELITE",
         "LHB_SPECIALIST"
       ]
     },
@@ -3131,13 +3083,13 @@
       "economy": 9.31,
       "wickets": 61.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
-        "WORKHORSE",
-        "RHB_WICKET_TAKER",
-        "RHB_PRESSURE",
-        "RHB_SPECIALIST",
-        "LHB_VULNERABLE",
         "DEATH_SPECIALIST",
+        "RHB_WICKET_TAKER",
+        "LHB_VULNERABLE",
+        "RHB_SPECIALIST",
+        "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
+        "RHB_PRESSURE",
         "DEATH_LIABILITY"
       ]
     },
@@ -3147,13 +3099,13 @@
       "economy": 9.86,
       "wickets": 59.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
-        "WORKHORSE",
-        "RHB_VULNERABLE",
-        "LHB_PRESSURE",
         "MIDDLE_AND_DEATH_SPECIALIST",
-        "LHB_SPECIALIST",
-        "DEATH_LIABILITY"
+        "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
+        "LHB_PRESSURE",
+        "DEATH_LIABILITY",
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST"
       ]
     },
     {
@@ -3174,13 +3126,13 @@
       "economy": 8.13,
       "wickets": 59.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
-        "WORKHORSE",
-        "PRESSURE_BUILDER",
+        "DEATH_SPECIALIST",
         "RHB_SPECIALIST",
         "PP_BEAST",
+        "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
+        "PRESSURE_BUILDER",
         "PP_ELITE",
-        "DEATH_SPECIALIST",
         "LHB_VULNERABLE"
       ]
     },
@@ -3200,14 +3152,14 @@
       "economy": 8.44,
       "wickets": 57.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
-        "WORKHORSE",
-        "LHB_WICKET_TAKER",
-        "PRESSURE_BUILDER",
+        "DEATH_SPECIALIST",
         "RHB_SPECIALIST",
+        "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
         "LHB_VULNERABLE",
+        "PRESSURE_BUILDER",
         "PP_ELITE",
-        "DEATH_SPECIALIST"
+        "LHB_WICKET_TAKER"
       ]
     },
     {
@@ -3261,10 +3213,12 @@
       "economy": 9.13,
       "wickets": 51.0,
       "tags": [
-        "DEATH_LIABILITY",
-        "NEW_BALL_SPECIALIST",
         "MIDDLE_AND_DEATH_SPECIALIST",
-        "WORKHORSE"
+        "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
+        "DEATH_LIABILITY",
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST"
       ]
     },
     {
@@ -3288,8 +3242,8 @@
       "economy": 8.24,
       "wickets": 48.0,
       "tags": [
-        "LHB_PRESSURE",
-        "MIDDLE_AND_DEATH_SPECIALIST"
+        "MIDDLE_AND_DEATH_SPECIALIST",
+        "LHB_PRESSURE"
       ]
     },
     {
@@ -3308,8 +3262,8 @@
       "economy": 8.95,
       "wickets": 47.0,
       "tags": [
-        "LHB_PRESSURE",
-        "MIDDLE_AND_DEATH_SPECIALIST"
+        "MIDDLE_AND_DEATH_SPECIALIST",
+        "LHB_PRESSURE"
       ]
     },
     {
@@ -3338,12 +3292,12 @@
       "economy": 8.53,
       "wickets": 46.0,
       "tags": [
+        "MIDDLE_AND_DEATH_SPECIALIST",
         "WORKHORSE",
-        "RHB_PRESSURE",
-        "MIDDLE_OVERS_LIABILITY",
         "RHB_SPECIALIST",
+        "RHB_PRESSURE",
         "LHB_VULNERABLE",
-        "MIDDLE_AND_DEATH_SPECIALIST"
+        "MIDDLE_OVERS_LIABILITY"
       ]
     },
     {
@@ -3389,12 +3343,12 @@
       "economy": 9.98,
       "wickets": 44.0,
       "tags": [
+        "RHB_SPECIALIST",
         "WORKHORSE",
         "LHB_PRESSURE",
         "MIDDLE_OVERS_CONTROLLER",
-        "MIDDLE_OVERS_LIABILITY",
-        "RHB_SPECIALIST",
-        "LHB_VULNERABLE"
+        "LHB_VULNERABLE",
+        "MIDDLE_OVERS_LIABILITY"
       ]
     },
     {
@@ -3448,12 +3402,11 @@
       "economy": 8.35,
       "wickets": 41.0,
       "tags": [
+        "RHB_PRESSURE",
         "NEW_BALL_SPECIALIST",
         "SPINNER",
         "MIDDLE_OVERS_CONTROLLER",
-        "RHB_PRESSURE",
-        "RHB_SPECIALIST",
-        "LHB_VULNERABLE"
+        "RHB_WICKET_TAKER"
       ]
     },
     {
@@ -3462,11 +3415,12 @@
       "economy": 7.28,
       "wickets": 41.0,
       "tags": [
-        "RHB_VULNERABLE",
+        "LHB_PRESSURE",
         "SPINNER",
-        "MID_OVERS_ELITE",
         "MIDDLE_OVERS_CONTROLLER",
-        "LHB_SPECIALIST"
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST",
+        "MID_OVERS_ELITE"
       ]
     },
     {
@@ -3475,11 +3429,12 @@
       "economy": 9.72,
       "wickets": 41.0,
       "tags": [
-        "RHB_WICKET_TAKER",
         "MIDDLE_AND_DEATH_SPECIALIST",
-        "PP_LIABILITY",
         "WORKHORSE",
-        "NEW_BALL_SPECIALIST"
+        "NEW_BALL_SPECIALIST",
+        "RHB_SPECIALIST",
+        "PP_LIABILITY",
+        "LHB_VULNERABLE"
       ]
     },
     {
@@ -3499,12 +3454,12 @@
       "economy": 9.68,
       "wickets": 40.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
+        "MIDDLE_AND_DEATH_SPECIALIST",
         "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
         "LHB_PRESSURE",
-        "PP_LIABILITY",
         "PRESSURE_BUILDER",
-        "MIDDLE_AND_DEATH_SPECIALIST"
+        "PP_LIABILITY"
       ]
     },
     {
@@ -3535,11 +3490,11 @@
       "wickets": 39.0,
       "tags": [
         "WORKHORSE",
-        "RHB_VULNERABLE",
-        "MIDDLE_OVERS_CONTROLLER",
-        "MID_OVERS_ELITE",
         "LHB_PRESSURE",
-        "LHB_SPECIALIST"
+        "MIDDLE_OVERS_CONTROLLER",
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST",
+        "MID_OVERS_ELITE"
       ]
     },
     {
@@ -3614,9 +3569,9 @@
       "economy": 9.01,
       "wickets": 37.0,
       "tags": [
+        "MIDDLE_AND_DEATH_SPECIALIST",
         "RHB_WICKET_TAKER",
-        "MIDDLE_OVERS_LIABILITY",
-        "MIDDLE_AND_DEATH_SPECIALIST"
+        "MIDDLE_OVERS_LIABILITY"
       ]
     },
     {
@@ -3635,12 +3590,14 @@
       "economy": 8.4,
       "wickets": 36.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
-        "WORKHORSE",
-        "LHB_WICKET_TAKER",
+        "MIDDLE_AND_DEATH_SPECIALIST",
         "SPINNER",
-        "LHB_PRESSURE",
-        "MIDDLE_AND_DEATH_SPECIALIST"
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST",
+        "LHB_WICKET_TAKER",
+        "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
+        "LHB_PRESSURE"
       ]
     },
     {
@@ -3649,13 +3606,13 @@
       "economy": 9.66,
       "wickets": 36.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
-        "LHB_WICKET_TAKER",
-        "WORKHORSE",
-        "RHB_VULNERABLE",
-        "LHB_PRESSURE",
         "DEATH_SPECIALIST",
-        "LHB_SPECIALIST"
+        "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
+        "LHB_PRESSURE",
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST",
+        "LHB_WICKET_TAKER"
       ]
     },
     {
@@ -3664,12 +3621,13 @@
       "economy": 9.63,
       "wickets": 36.0,
       "tags": [
-        "PRESSURE_BUILDER",
-        "LHB_WICKET_TAKER",
         "MIDDLE_AND_DEATH_SPECIALIST",
-        "PP_LIABILITY",
         "WORKHORSE",
-        "NEW_BALL_SPECIALIST"
+        "NEW_BALL_SPECIALIST",
+        "RHB_SPECIALIST",
+        "PRESSURE_BUILDER",
+        "PP_LIABILITY",
+        "LHB_VULNERABLE"
       ]
     },
     {
@@ -3678,11 +3636,12 @@
       "economy": 10.55,
       "wickets": 36.0,
       "tags": [
-        "DEATH_LIABILITY",
-        "RHB_PRESSURE",
         "MIDDLE_AND_DEATH_SPECIALIST",
         "WORKHORSE",
-        "NEW_BALL_SPECIALIST"
+        "NEW_BALL_SPECIALIST",
+        "DEATH_LIABILITY",
+        "RHB_VULNERABLE",
+        "LHB_SPECIALIST"
       ]
     },
     {
@@ -3753,11 +3712,11 @@
       "economy": 8.91,
       "wickets": 32.0,
       "tags": [
-        "RHB_WICKET_TAKER",
-        "RHB_PRESSURE",
+        "MIDDLE_AND_DEATH_SPECIALIST",
         "RHB_SPECIALIST",
-        "LHB_VULNERABLE",
-        "MIDDLE_AND_DEATH_SPECIALIST"
+        "RHB_PRESSURE",
+        "RHB_WICKET_TAKER",
+        "LHB_VULNERABLE"
       ]
     },
     {
@@ -3957,12 +3916,12 @@
       "economy": 8.62,
       "wickets": 27.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
+        "DEATH_SPECIALIST",
         "WORKHORSE",
-        "LHB_WICKET_TAKER",
+        "NEW_BALL_SPECIALIST",
         "LHB_PRESSURE",
         "PRESSURE_BUILDER",
-        "DEATH_SPECIALIST"
+        "LHB_WICKET_TAKER"
       ]
     },
     {
@@ -4023,11 +3982,11 @@
       "economy": 9.31,
       "wickets": 25.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
+        "DEATH_SPECIALIST",
         "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
         "RHB_WICKET_TAKER",
-        "PACER",
-        "DEATH_SPECIALIST"
+        "PACER"
       ]
     },
     {
@@ -4048,10 +4007,10 @@
       "economy": 10.59,
       "wickets": 25.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
-        "WORKHORSE",
-        "RHB_WICKET_TAKER",
         "MIDDLE_AND_DEATH_SPECIALIST",
+        "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
+        "RHB_WICKET_TAKER",
         "DEATH_LIABILITY"
       ]
     },
@@ -4061,15 +4020,15 @@
       "economy": 7.4,
       "wickets": 25.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
-        "WORKHORSE",
-        "RHB_WICKET_TAKER",
-        "MID_OVERS_ELITE",
         "MIDDLE_OVERS_CONTROLLER",
-        "RHB_PRESSURE",
         "MIDDLE_OVERS_BEAST",
         "LHB_VULNERABLE",
-        "RHB_SPECIALIST"
+        "RHB_SPECIALIST",
+        "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
+        "RHB_PRESSURE",
+        "RHB_WICKET_TAKER",
+        "MID_OVERS_ELITE"
       ]
     },
     {
@@ -4108,12 +4067,12 @@
       "economy": 10.19,
       "wickets": 23.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
-        "WORKHORSE",
-        "RHB_VULNERABLE",
-        "LHB_PRESSURE",
-        "PACER",
         "MIDDLE_AND_DEATH_SPECIALIST",
+        "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
+        "LHB_PRESSURE",
+        "RHB_VULNERABLE",
+        "PACER",
         "LHB_SPECIALIST"
       ]
     },
@@ -4313,11 +4272,11 @@
       "economy": 8.78,
       "wickets": 19.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
-        "WORKHORSE",
-        "RHB_VULNERABLE",
-        "LHB_PRESSURE",
         "DEATH_SPECIALIST",
+        "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
+        "LHB_PRESSURE",
+        "RHB_VULNERABLE",
         "LHB_SPECIALIST"
       ]
     },
@@ -4620,11 +4579,10 @@
       "economy": 8.37,
       "wickets": 14.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
+        "MIDDLE_AND_DEATH_SPECIALIST",
         "WORKHORSE",
-        "LHB_WICKET_TAKER",
-        "LHB_PRESSURE",
-        "MIDDLE_AND_DEATH_SPECIALIST"
+        "NEW_BALL_SPECIALIST",
+        "LHB_PRESSURE"
       ]
     },
     {
@@ -4768,9 +4726,9 @@
       "economy": 9.92,
       "wickets": 12.0,
       "tags": [
-        "NEW_BALL_SPECIALIST",
-        "WORKHORSE",
         "DEATH_SPECIALIST",
+        "WORKHORSE",
+        "NEW_BALL_SPECIALIST",
         "LHB_WICKET_TAKER"
       ]
     },
@@ -4897,10 +4855,14 @@
       "economy": 8.97,
       "wickets": 11.0,
       "tags": [
+        "DEATH_SPECIALIST",
+        "RHB_VULNERABLE",
         "PACER",
+        "LHB_SPECIALIST",
+        "LHB_WICKET_TAKER",
         "WORKHORSE",
         "NEW_BALL_SPECIALIST",
-        "DEATH_SPECIALIST"
+        "LHB_PRESSURE"
       ]
     },
     {
@@ -4977,8 +4939,8 @@
       "wickets": 10.0,
       "tags": [
         "RHB_VULNERABLE",
-        "LHB_SPECIALIST",
-        "LHB_PRESSURE"
+        "LHB_PRESSURE",
+        "LHB_SPECIALIST"
       ]
     },
     {
@@ -5072,10 +5034,10 @@
       "economy": 9.54,
       "wickets": 9.0,
       "tags": [
+        "RHB_SPECIALIST",
+        "LHB_PRESSURE",
         "NEW_BALL_SPECIALIST",
         "RHB_WICKET_TAKER",
-        "LHB_PRESSURE",
-        "RHB_SPECIALIST",
         "LHB_VULNERABLE"
       ]
     },

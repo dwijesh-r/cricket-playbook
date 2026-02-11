@@ -18,10 +18,10 @@
       "score": 90.0,
       "weight": 20,
       "findings": [
-        "1 bare except handlers (GOOD)",
+        "6 bare except handlers (GOOD)",
         "Thresholds centralized in YAML (TKT-132 DONE)",
         "No sys.path hacks (EXCELLENT)",
-        "Type hints: 84% coverage (GOOD)"
+        "Type hints: 77% coverage (GOOD)"
       ]
     },
     "data_robustness": {
@@ -62,7 +62,7 @@
       ]
     }
   },
-  "timestamp": "2026-02-10T17:00:51.829637",
+  "timestamp": "2026-02-11T18:05:46.434259",
   "ticket": "TKT-147",
   "epic": "EPIC-014",
   "generated_by": "system_health_score.py",

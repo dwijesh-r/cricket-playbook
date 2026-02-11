@@ -1,0 +1,321 @@
+{
+  "generated_at": "2026-02-11T18:05:17.078146",
+  "model_version": "2.0.0",
+  "ticket": "TKT-142",
+  "batter_clusters": {
+    "n_clusters": 5,
+    "n_players": 64,
+    "feature_importance": {
+      "overall_sr": {
+        "variance": 229.8250507342347,
+        "range": 47.436493182599605,
+        "normalized_importance": 0.10213444032049546,
+        "rank": 8
+      },
+      "overall_avg": {
+        "variance": 41.52645786124683,
+        "range": 17.419312778357614,
+        "normalized_importance": 0.1368556883468762,
+        "rank": 3
+      },
+      "overall_boundary": {
+        "variance": 15.791763540162842,
+        "range": 11.430709931352848,
+        "normalized_importance": 0.1208604547993405,
+        "rank": 5
+      },
+      "overall_dot": {
+        "variance": 11.140783118098431,
+        "range": 8.447520317210529,
+        "normalized_importance": 0.15611952806795668,
+        "rank": 2
+      },
+      "avg_batting_position": {
+        "variance": 0.496805311885672,
+        "range": 2.0361242896949503,
+        "normalized_importance": 0.11983333915510042,
+        "rank": 6
+      },
+      "pp_sr": {
+        "variance": 261.4810443073432,
+        "range": 49.0823853551623,
+        "normalized_importance": 0.1085397680346118,
+        "rank": 7
+      },
+      "mid_sr": {
+        "variance": 323.0551601581241,
+        "range": 51.26414119764959,
+        "normalized_importance": 0.12292757374187421,
+        "rank": 4
+      },
+      "death_sr": {
+        "variance": 131.42926940147623,
+        "range": 28.728975319262986,
+        "normalized_importance": 0.15923987253434008,
+        "rank": 1
+      }
+    },
+    "cluster_profiles": {
+      "0": {
+        "size": 5,
+        "avg_sr": 178.5,
+        "avg_position": 2.5,
+        "top_players": [
+          "N Pooran",
+          "Abhishek Sharma",
+          "PD Salt",
+          "TM Head",
+          "SP Narine"
+        ],
+        "distinguishing_features": [
+          "death_sr",
+          "overall_dot",
+          "overall_avg"
+        ]
+      },
+      "1": {
+        "size": 13,
+        "avg_sr": 131.1,
+        "avg_position": 2.2,
+        "top_players": [
+          "Nithish Kumar Reddy",
+          "KH Pandya",
+          "KL Rahul",
+          "DP Conway",
+          "D Padikkal"
+        ],
+        "distinguishing_features": [
+          "death_sr",
+          "overall_dot",
+          "overall_avg"
+        ]
+      },
+      "2": {
+        "size": 18,
+        "avg_sr": 152.7,
+        "avg_position": 2.8,
+        "top_players": [
+          "Abishek Porel",
+          "Ishan Kishan",
+          "JM Sharma",
+          "LS Livingstone",
+          "RR Pant"
+        ],
+        "distinguishing_features": [
+          "death_sr",
+          "overall_dot",
+          "overall_avg"
+        ]
+      },
+      "3": {
+        "size": 13,
+        "avg_sr": 156.3,
+        "avg_position": 2.8,
+        "top_players": [
+          "JC Buttler",
+          "B Sai Sudharsan",
+          "Shubman Gill",
+          "RD Gaikwad",
+          "Tilak Varma"
+        ],
+        "distinguishing_features": [
+          "death_sr",
+          "overall_dot",
+          "overall_avg"
+        ]
+      },
+      "4": {
+        "size": 15,
+        "avg_sr": 150.0,
+        "avg_position": 4.2,
+        "top_players": [
+          "V Shankar",
+          "R Parag",
+          "Abdul Samad",
+          "TH David",
+          "Dhruv Jurel"
+        ],
+        "distinguishing_features": [
+          "death_sr",
+          "overall_dot",
+          "overall_avg"
+        ]
+      }
+    }
+  },
+  "bowler_clusters": {
+    "n_clusters": 5,
+    "n_players": 79,
+    "feature_importance": {
+      "overall_economy": {
+        "variance": 0.7875009853149677,
+        "range": 2.532436929057324,
+        "normalized_importance": 0.1227930622111975,
+        "rank": 10
+      },
+      "overall_sr": {
+        "variance": 25.956360636405073,
+        "range": 13.697609911401273,
+        "normalized_importance": 0.1383420515187196,
+        "rank": 4
+      },
+      "overall_dot": {
+        "variance": 21.17330173585159,
+        "range": 14.260063560261504,
+        "normalized_importance": 0.10412275821343328,
+        "rank": 15
+      },
+      "pp_economy": {
+        "variance": 5.808174866691732,
+        "range": 6.490074135484694,
+        "normalized_importance": 0.1378924118180647,
+        "rank": 5
+      },
+      "pp_dot": {
+        "variance": 77.29363555616365,
+        "range": 25.90868421270613,
+        "normalized_importance": 0.11514710401394594,
+        "rank": 11
+      },
+      "mid_economy": {
+        "variance": 0.7306575059263032,
+        "range": 2.548139629738057,
+        "normalized_importance": 0.11252976336679942,
+        "rank": 14
+      },
+      "mid_dot": {
+        "variance": 6.496110604221682,
+        "range": 7.583443362645031,
+        "normalized_importance": 0.11295891587124578,
+        "rank": 13
+      },
+      "death_economy": {
+        "variance": 0.7944916052053339,
+        "range": 2.5227698996380568,
+        "normalized_importance": 0.12483432909360535,
+        "rank": 9
+      },
+      "death_dot": {
+        "variance": 4.1235185931646585,
+        "range": 5.5497181669761595,
+        "normalized_importance": 0.13388320479162752,
+        "rank": 6
+      },
+      "pp_pct": {
+        "variance": 299.57040191836984,
+        "range": 48.39801051669167,
+        "normalized_importance": 0.12789214839144947,
+        "rank": 8
+      },
+      "mid_pct": {
+        "variance": 535.3868469910979,
+        "range": 56.06759384369234,
+        "normalized_importance": 0.17031145541771694,
+        "rank": 1
+      },
+      "death_pct": {
+        "variance": 67.41390683423074,
+        "range": 24.278668714333534,
+        "normalized_importance": 0.11436674432042342,
+        "rank": 12
+      },
+      "pp_wickets": {
+        "variance": 269.1797727383488,
+        "range": 45.72701314483447,
+        "normalized_importance": 0.12873503431392166,
+        "rank": 7
+      },
+      "mid_wickets": {
+        "variance": 762.7676157461011,
+        "range": 71.9602859903314,
+        "normalized_importance": 0.14730126783846123,
+        "rank": 3
+      },
+      "death_wickets": {
+        "variance": 367.58463443442633,
+        "range": 46.75497845531871,
+        "normalized_importance": 0.16815184100698827,
+        "rank": 2
+      }
+    },
+    "cluster_profiles": {
+      "0": {
+        "size": 13,
+        "avg_economy": 8.07,
+        "top_players": [
+          "M Prasidh Krishna",
+          "AR Patel",
+          "Rashid Khan",
+          "SP Narine",
+          "JJ Bumrah"
+        ],
+        "distinguishing_features": [
+          "mid_pct",
+          "death_wickets",
+          "mid_wickets"
+        ]
+      },
+      "1": {
+        "size": 2,
+        "avg_economy": 10.6,
+        "top_players": [
+          "Washington Sundar",
+          "Shahbaz Ahmed"
+        ],
+        "distinguishing_features": [
+          "mid_pct",
+          "death_wickets",
+          "mid_wickets"
+        ]
+      },
+      "2": {
+        "size": 13,
+        "avg_economy": 9.29,
+        "top_players": [
+          "I Sharma",
+          "JP Behrendorff",
+          "JR Hazlewood",
+          "DL Chahar",
+          "Mohammed Shami"
+        ],
+        "distinguishing_features": [
+          "mid_pct",
+          "death_wickets",
+          "mid_wickets"
+        ]
+      },
+      "3": {
+        "size": 31,
+        "avg_economy": 10.12,
+        "top_players": [
+          "K Rabada",
+          "SN Thakur",
+          "T Natarajan",
+          "Yash Thakur",
+          "A Nortje"
+        ],
+        "distinguishing_features": [
+          "mid_pct",
+          "death_wickets",
+          "mid_wickets"
+        ]
+      },
+      "4": {
+        "size": 20,
+        "avg_economy": 8.96,
+        "top_players": [
+          "DS Rathi",
+          "MP Stoinis",
+          "Ravi Bishnoi",
+          "NT Ellis",
+          "R Sai Kishore"
+        ],
+        "distinguishing_features": [
+          "mid_pct",
+          "death_wickets",
+          "mid_wickets"
+        ]
+      }
+    }
+  }
+}

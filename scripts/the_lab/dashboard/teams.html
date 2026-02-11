@@ -1536,6 +1536,168 @@
             justify-content: center;
         }
         .nav-guide-close:hover { background: var(--bg-elevated); color: var(--text-primary); }
+
+        /* ==================== PRESSURE PERFORMANCE (TKT-050) ==================== */
+        .pressure-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px;
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-elevated) 100%);
+            border-radius: 16px;
+            margin-bottom: 24px;
+        }
+        .pressure-header-info h3 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+        .pressure-header-info p {
+            color: var(--text-tertiary);
+            font-size: 13px;
+        }
+        .clutch-score-display {
+            text-align: center;
+        }
+        .clutch-score-value {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .clutch-score-label {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+        .pressure-summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .pressure-summary-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+        .pressure-summary-card .count {
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        .pressure-summary-card .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-tertiary);
+            margin-top: 4px;
+        }
+        .pressure-section-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        .pressure-player-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+        .pressure-player-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+        .pressure-player-row:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--accent);
+        }
+        .pressure-rank {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            flex-shrink: 0;
+        }
+        .pressure-rank.top { background: var(--accent); color: white; }
+        .pressure-player-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .pressure-player-name {
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .pressure-player-detail {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            margin-top: 2px;
+        }
+        .pressure-stat {
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .pressure-stat-value {
+            font-size: 16px;
+            font-weight: 700;
+        }
+        .pressure-stat-label {
+            font-size: 10px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .pressure-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            flex-shrink: 0;
+        }
+        .pressure-badge.clutch { background: rgba(48, 209, 88, 0.2); color: var(--accent-green); }
+        .pressure-badge.pressure-proof { background: rgba(10, 132, 255, 0.2); color: var(--accent); }
+        .pressure-badge.moderate { background: rgba(255, 214, 10, 0.2); color: var(--accent-yellow); }
+        .pressure-badge.pressure-sensitive { background: rgba(255, 69, 58, 0.2); color: var(--accent-red); }
+        .pressure-badge.elite { background: rgba(48, 209, 88, 0.2); color: var(--accent-green); }
+        .pressure-badge.strong { background: rgba(10, 132, 255, 0.2); color: var(--accent); }
+        .pressure-badge.average { background: rgba(255, 214, 10, 0.2); color: var(--accent-yellow); }
+        .pressure-badge.vulnerable { background: rgba(255, 69, 58, 0.2); color: var(--accent-red); }
+        .pressure-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        @media (max-width: 768px) {
+            .pressure-summary-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .pressure-columns {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1598,6 +1760,7 @@
             <button class="content-tab" data-tab="squad">Full Squad</button>
             <button class="content-tab" data-tab="depth">Depth Chart</button>
             <button class="content-tab" data-tab="balance">Team Balance</button>
+            <button class="content-tab" data-tab="pressure">Pressure</button>
             <button class="content-tab" data-tab="compare">⚔️ Compare</button>
         </div>
 
@@ -1616,6 +1779,9 @@
             <div class="panel" id="panel-balance">
                 <div class="balance-summary" id="balance-content"></div>
             </div>
+            <div class="panel" id="panel-pressure">
+                <div id="pressure-content"></div>
+            </div>
             <div class="panel" id="panel-compare">
                 <div id="compare-content"></div>
             </div>
@@ -1630,6 +1796,7 @@
     <script src="data/predicted_xii.js"></script>
     <script src="data/depth_charts.js"></script>
     <script src="data/full_squads.js"></script>
+    <script src="data/pressure_metrics.js"></script>
 
     <script>
         // Pixelated Team Logos (8x8 grid style)
@@ -1992,6 +2159,141 @@
                     </p>
                 `;
             }
+
+            // Pressure Performance (TKT-050)
+            renderPressureCard();
+        }
+
+        function renderPressureCard() {
+            const pressureContent = document.getElementById('pressure-content');
+            const pressure = typeof PRESSURE_DATA !== 'undefined' ? PRESSURE_DATA[currentTeam] : null;
+
+            if (!pressure) {
+                pressureContent.innerHTML = `
+                    <div style="text-align: center; padding: 48px 24px; color: var(--text-tertiary);">
+                        <div style="font-size: 48px; margin-bottom: 16px;">📊</div>
+                        <div style="font-size: 16px; font-weight: 600; margin-bottom: 8px;">No Pressure Data Available</div>
+                        <div style="font-size: 13px;">Pressure performance data is not yet available for this team.</div>
+                    </div>
+                `;
+                return;
+            }
+
+            const s = pressure.summary;
+            const team = TEAMS[currentTeam];
+
+            // Clutch score color
+            const clutchColor = s.clutchScore >= 6 ? 'var(--accent-green)' :
+                               s.clutchScore >= 4 ? 'var(--accent-yellow)' :
+                               s.clutchScore >= 2 ? 'var(--accent-orange)' : 'var(--accent-red)';
+
+            // Rating badge helper
+            const ratingBadge = (rating) => {
+                const cls = rating.toLowerCase().replace('_', '-');
+                const label = rating.replace('_', ' ');
+                return `<span class="pressure-badge ${cls}">${label}</span>`;
+            };
+
+            // SR delta display helper
+            const srDeltaDisplay = (delta) => {
+                const color = delta >= 10 ? 'var(--accent-green)' :
+                             delta >= 5 ? 'var(--accent-yellow)' :
+                             delta >= 0 ? 'var(--text-secondary)' : 'var(--accent-red)';
+                const sign = delta >= 0 ? '+' : '';
+                return `<span style="color: ${color}; font-weight: 700;">${sign}${delta.toFixed(1)}%</span>`;
+            };
+
+            // Economy display helper
+            const econDisplay = (econ) => {
+                const color = econ <= 6.0 ? 'var(--accent-green)' :
+                             econ <= 7.5 ? 'var(--accent-yellow)' :
+                             econ <= 9.0 ? 'var(--accent-orange)' : 'var(--accent-red)';
+                return `<span style="color: ${color}; font-weight: 700;">${econ.toFixed(2)}</span>`;
+            };
+
+            // Top batters HTML
+            const battersHtml = pressure.topBatters.map((b, i) => `
+                <div class="pressure-player-row">
+                    <div class="pressure-rank ${i === 0 ? 'top' : ''}">${i + 1}</div>
+                    <div class="pressure-player-info">
+                        <div class="pressure-player-name">${b.name}</div>
+                        <div class="pressure-player-detail">SR: ${b.overallSR.toFixed(1)} overall, ${b.pressureSR.toFixed(1)} under pressure (${b.pressureBalls} balls)</div>
+                    </div>
+                    <div class="pressure-stat">
+                        <div class="pressure-stat-value">${srDeltaDisplay(b.srDelta)}</div>
+                        <div class="pressure-stat-label">SR Delta</div>
+                    </div>
+                    ${ratingBadge(b.rating)}
+                </div>
+            `).join('');
+
+            // Top bowlers HTML
+            const bowlersHtml = pressure.topBowlers.map((bw, i) => `
+                <div class="pressure-player-row">
+                    <div class="pressure-rank ${i === 0 ? 'top' : ''}">${i + 1}</div>
+                    <div class="pressure-player-info">
+                        <div class="pressure-player-name">${bw.name}</div>
+                        <div class="pressure-player-detail">${bw.pressureBand.replace('_', ' ')} band | ${bw.wickets} wkts | ${bw.dotBallPct.toFixed(1)}% dots (${bw.legalBalls} balls)</div>
+                    </div>
+                    <div class="pressure-stat">
+                        <div class="pressure-stat-value">${econDisplay(bw.economy)}</div>
+                        <div class="pressure-stat-label">Economy</div>
+                    </div>
+                    ${ratingBadge(bw.rating)}
+                </div>
+            `).join('');
+
+            pressureContent.innerHTML = `
+                <div class="pressure-header">
+                    <div class="pressure-header-info">
+                        <h3>Pressure Performance</h3>
+                        <p>How ${team.fullName} players perform when RRR >= 10 (since 2023)</p>
+                    </div>
+                    <div class="clutch-score-display">
+                        <div class="clutch-score-value" style="color: ${clutchColor};">${s.clutchScore.toFixed(1)}</div>
+                        <div class="clutch-score-label">Clutch Score</div>
+                    </div>
+                </div>
+
+                <div class="pressure-summary-grid">
+                    <div class="pressure-summary-card">
+                        <div class="count" style="color: var(--accent-green);">${s.clutch}</div>
+                        <div class="label">Clutch</div>
+                    </div>
+                    <div class="pressure-summary-card">
+                        <div class="count" style="color: var(--accent);">${s.pressureProof}</div>
+                        <div class="label">Pressure-Proof</div>
+                    </div>
+                    <div class="pressure-summary-card">
+                        <div class="count" style="color: var(--accent-yellow);">${s.moderate}</div>
+                        <div class="label">Moderate</div>
+                    </div>
+                    <div class="pressure-summary-card">
+                        <div class="count" style="color: var(--accent-red);">${s.pressureSensitive}</div>
+                        <div class="label">Pressure-Sensitive</div>
+                    </div>
+                </div>
+
+                <div class="pressure-columns">
+                    <div>
+                        <div class="pressure-section-title">Top Clutch Batters (by SR Delta)</div>
+                        <div class="pressure-player-list">
+                            ${battersHtml || '<div style="color: var(--text-tertiary); padding: 16px; text-align: center;">No batter data available</div>'}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="pressure-section-title">Best Bowlers Under Pressure (by Economy)</div>
+                        <div class="pressure-player-list">
+                            ${bowlersHtml || '<div style="color: var(--text-tertiary); padding: 16px; text-align: center;">No bowler data available</div>'}
+                        </div>
+                    </div>
+                </div>
+
+                <p style="text-align: center; color: var(--text-tertiary); font-size: 12px; margin-top: 16px;">
+                    Pressure defined as RRR >= 10 in 2nd innings. SR Delta = % change in strike rate under pressure vs overall.
+                    Clutch: SR improves 10%+. Pressure-Proof: SR within 5%. Pressure-Sensitive: SR drops 10%+.
+                </p>
+            `;
         }
 
         function renderSquadTable(team, squadData) {

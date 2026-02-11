@@ -7779,9 +7779,9 @@ Gate Inheritance:
             { id: 'TKT-182', title: 'T20 Fallback Data for Uncapped IPL Players in Stat Packs', state: 'REVIEW', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 0, tags: ['Analytics', 'Stat Packs'], gates: { florentino_gate: 'APPROVED' },
               context: { ask: 'Add T20 fallback data from other tournaments for 51 uncapped IPL 2026 players', goal: 'Uncapped Watch section in stat packs with T20 profiles for players without IPL history', reason: '34 of 51 uncapped players have meaningful T20 data from BBL, PSL, CPL, etc.', audible: ['Render T20 columns for uncapped players', 'Add Uncapped Watch section', 'Tag uncapped players in player_tags.json'] }
             },
-            { id: 'TKT-183', title: 'Tournament Quality Weighting System: 5-Factor Composite', state: 'READY', priority: 'P1', effort: 'marathon', assignee: 'Jose Mourinho', epic: 'EPIC-006', progress: 0, tags: ['Analytics', 'Quant Research'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-183', title: 'Tournament Quality Weighting System: 5-Factor Composite', state: 'RUNNING', priority: 'P1', effort: 'marathon', assignee: 'Jose Mourinho', epic: 'EPIC-006', progress: 10, tags: ['Analytics', 'Quant Research'], gates: { florentino_gate: 'APPROVED', founder_prd_approval: 'APPROVED' },
               context: { ask: 'Build 5-factor composite weight system: PQI, Competitiveness, Recency Decay, Conditions Similarity, Sample Size Confidence', goal: 'Tournament quality weights across 426 tournaments / 9,357 matches', reason: 'Analytical credibility requires principled weighting of non-IPL T20 data', audible: ['Phase 1: Data Layer', 'Phase 2: Weight Computation', 'Phase 3: Integration', 'Phase 4: Validation'] },
-              documents: [{ title: 'Tournament Quality Weighting Plan', path: 'reviews/founder/tournament_weighting_plan_021126_v1.md', status: 'FOUNDER_REVIEW' }]
+              documents: [{ title: 'Tournament Quality Weighting Plan (Founder Approved)', path: 'reviews/founder/tournament_weighting_plan_021126_v1.md', status: 'FOUNDER_APPROVED' }]
             }
         ];
 

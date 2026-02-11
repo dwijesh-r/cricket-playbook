@@ -4,7 +4,7 @@
 **Owner:** Jose Mourinho (Quant Researcher)
 **Collaborators:** Stephen Curry (Analytics Lead), Brock Purdy (Data Pipeline), Andy Flower (Domain Expert)
 **Document:** tournament_weighting_plan_021126_v1.md
-**Status:** FOUNDER APPROVED — Implementation Plan
+**Status:** FOUNDER APPROVED — Phase 1 In Progress
 **TIL Step:** 0 (PRD)
 
 ---
@@ -208,9 +208,9 @@ Based on the preliminary factor analysis, the following tier structure is propos
 
 | Step | Name | Status | Notes |
 |------|------|--------|-------|
-| 0 | PRD | **THIS DOCUMENT** | Founder Review Plan submitted |
-| 1 | Florentino Gate | PENDING | Requires Florentino Perez review for scope/value alignment |
-| 2 | Build | NOT STARTED | Phases 1-4 above |
+| 0 | PRD | **APPROVED** | Founder reviewed and approved 2026-02-11. Decision #6 locked (IPL 2023+ baseline). |
+| 1 | Florentino Gate | **APPROVED** | Classified ANALYTICS_ONLY. Approved for internal calibration use. |
+| 2 | Build | **IN PROGRESS** | Phase 1 started — weight derivation for 426 tournaments |
 | 3 | Domain Sanity | NOT STARTED | Andy Flower, Jose Mourinho, Pep Guardiola |
 | 4 | Enforcement | NOT STARTED | Tom Brady sign-off |
 | 5 | Commit & Ship | NOT STARTED | Feature branch merge |

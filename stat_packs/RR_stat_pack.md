@@ -1,6 +1,6 @@
 # Rajasthan Royals (RR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-11 18:25
+**Generated:** 2026-02-11 18:35
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -134,7 +134,7 @@
 
 - **2023:** YS Chahal (21w @ 7.99), R Ashwin (14w @ 7.18), TA Boult (13w @ 8.07)
 - **2024:** Avesh Khan (20w @ 9.24), YS Chahal (18w @ 9.08), TA Boult (16w @ 8.07)
-- **2025:** JC Archer (11w @ 9.14), PWH de Silva (11w @ 8.99), M Theekshana (11w @ 9.12)
+- **2025:** PWH de Silva (11w @ 8.99), JC Archer (11w @ 9.14), M Theekshana (11w @ 9.12)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -179,14 +179,14 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Barsapara Cricket Stadium | 5 | 2 | 40.0% | 173.6 |
-| Rajiv Gandhi International Stadium | 3 | 1 | 33.3% | 215.0 |
 | Eden Gardens | 3 | 2 | 66.7% | 193.3 |
-| MA Chidambaram Stadium | 3 | 1 | 33.3% | 151.7 |
 | Arun Jaitley Stadium | 3 | 1 | 33.3% | 192.3 |
+| Rajiv Gandhi International Stadium | 3 | 1 | 33.3% | 215.0 |
 | Narendra Modi Stadium | 3 | 2 | 66.7% | 170.7 |
-| M Chinnaswamy Stadium | 2 | 0 | 0.0% | 188.0 |
-| Wankhede Stadium | 2 | 1 | 50.0% | 169.5 |
+| MA Chidambaram Stadium | 3 | 1 | 33.3% | 151.7 |
 | Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 178.5 |
+| Wankhede Stadium | 2 | 1 | 50.0% | 169.5 |
+| M Chinnaswamy Stadium | 2 | 0 | 0.0% | 188.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -197,11 +197,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -219,8 +219,8 @@
 | YBK Jaiswal | Eden Gardens | 3 | 151 | 196.1 | 75.5 |
 | SO Hetmyer | Narendra Modi Stadium | 3 | 134 | 186.11 | 67.0 |
 | RA Jadeja | M Chinnaswamy Stadium | 3 | 129 | 172.0 | 129.0 |
-| YBK Jaiswal | Wankhede Stadium | 2 | 128 | 191.04 | 64.0 |
 | R Parag | Eden Gardens | 2 | 128 | 220.69 | 64.0 |
+| YBK Jaiswal | Wankhede Stadium | 2 | 128 | 191.04 | 64.0 |
 
 **Top Bowling Performances:**
 
@@ -372,8 +372,8 @@
 | Royal Challengers Bengaluru | 5 | 179 | 111 | 161.26 | 89.5 | 18.92 | 21.62 | 2 | HIGH |
 | Rajasthan Royals | 5 | 86 | 63 | 136.51 | 43.0 | 14.29 | 22.22 | 2 | MEDIUM |
 | Gujarat Titans | 6 | 84 | 55 | 152.73 | 21.0 | 18.18 | 23.64 | 4 | MEDIUM |
-| Lucknow Super Giants | 4 | 83 | 76 | 109.21 | 27.67 | 10.53 | 32.89 | 3 | MEDIUM |
 | Punjab Kings | 5 | 83 | 57 | 145.61 | 20.75 | 17.54 | 29.82 | 4 | MEDIUM |
+| Lucknow Super Giants | 4 | 83 | 76 | 109.21 | 27.67 | 10.53 | 32.89 | 3 | MEDIUM |
 | Mumbai Indians | 2 | 70 | 53 | 132.08 | 70.0 | 13.21 | 26.42 | 1 | MEDIUM |
 | Delhi Capitals | 4 | 64 | 43 | 148.84 | 32.0 | 18.6 | 23.26 | 2 | MEDIUM |
 | Kolkata Knight Riders | 4 | 56 | 43 | 130.23 | 14.0 | 13.95 | 39.53 | 4 | MEDIUM |
@@ -414,15 +414,15 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Gujarat Titans | 6 | 140 | 245 | 8 | 10.5 | 30.63 | 17.5 | 30.71 | 27.14 | HIGH |
-| Punjab Kings | 3 | 72 | 122 | 7 | 10.17 | 17.43 | 10.29 | 38.89 | 25.0 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 72 | 115 | 7 | 9.58 | 16.43 | 10.29 | 31.94 | 23.61 | MEDIUM |
+| Punjab Kings | 3 | 72 | 122 | 7 | 10.17 | 17.43 | 10.29 | 38.89 | 25.0 | MEDIUM |
 | Rajasthan Royals | 3 | 72 | 109 | 6 | 9.08 | 18.17 | 12.0 | 36.11 | 20.83 | MEDIUM |
-| Kolkata Knight Riders | 4 | 75 | 105 | 5 | 8.4 | 21.0 | 15.0 | 46.67 | 20.0 | MEDIUM |
 | Mumbai Indians | 3 | 66 | 85 | 5 | 7.73 | 17.0 | 13.2 | 39.39 | 16.67 | MEDIUM |
+| Kolkata Knight Riders | 4 | 75 | 105 | 5 | 8.4 | 21.0 | 15.0 | 46.67 | 20.0 | MEDIUM |
 | Royal Challengers Bengaluru | 5 | 96 | 187 | 4 | 11.69 | 46.75 | 24.0 | 34.38 | 31.25 | MEDIUM |
 | Lucknow Super Giants | 5 | 97 | 132 | 3 | 8.16 | 44.0 | 32.33 | 34.02 | 15.46 | MEDIUM |
-| Chennai Super Kings | 2 | 48 | 77 | 1 | 9.63 | 77.0 | 48.0 | 35.42 | 25.0 | MEDIUM |
 | Delhi Capitals | 4 | 84 | 106 | 1 | 7.57 | 106.0 | 84.0 | 38.1 | 17.86 | MEDIUM |
+| Chennai Super Kings | 2 | 48 | 77 | 1 | 9.63 | 77.0 | 48.0 | 35.42 | 25.0 | MEDIUM |
 
 ### Ravindra Jadeja
 
@@ -431,8 +431,8 @@
 | Punjab Kings | 5 | 102 | 122 | 6 | 7.18 | 20.33 | 17.0 | 35.29 | 13.73 | HIGH |
 | Gujarat Titans | 6 | 114 | 146 | 6 | 7.68 | 24.33 | 19.0 | 26.32 | 12.28 | HIGH |
 | Sunrisers Hyderabad | 4 | 94 | 97 | 5 | 6.19 | 19.4 | 18.8 | 30.85 | 5.32 | MEDIUM |
-| Kolkata Knight Riders | 5 | 79 | 109 | 5 | 8.28 | 21.8 | 15.8 | 35.44 | 16.46 | MEDIUM |
 | Mumbai Indians | 5 | 108 | 141 | 5 | 7.83 | 28.2 | 21.6 | 33.33 | 16.67 | HIGH |
+| Kolkata Knight Riders | 5 | 79 | 109 | 5 | 8.28 | 21.8 | 15.8 | 35.44 | 16.46 | MEDIUM |
 | Rajasthan Royals | 5 | 96 | 106 | 4 | 6.63 | 26.5 | 24.0 | 31.25 | 8.33 | MEDIUM |
 | Delhi Capitals | 4 | 84 | 129 | 4 | 9.21 | 32.25 | 21.0 | 27.38 | 17.86 | MEDIUM |
 | Lucknow Super Giants | 5 | 72 | 95 | 3 | 7.92 | 31.67 | 24.0 | 26.39 | 15.28 | MEDIUM |
@@ -443,8 +443,8 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 5 | 114 | 171 | 7 | 9.0 | 24.43 | 16.29 | 35.96 | 19.3 | HIGH |
-| Mumbai Indians | 6 | 144 | 199 | 6 | 8.29 | 33.17 | 24.0 | 28.47 | 17.36 | HIGH |
 | Chennai Super Kings | 4 | 78 | 107 | 6 | 8.23 | 17.83 | 13.0 | 37.18 | 17.95 | MEDIUM |
+| Mumbai Indians | 6 | 144 | 199 | 6 | 8.29 | 33.17 | 24.0 | 28.47 | 17.36 | HIGH |
 | Kolkata Knight Riders | 4 | 88 | 114 | 4 | 7.77 | 28.5 | 22.0 | 36.36 | 18.18 | MEDIUM |
 | Punjab Kings | 4 | 75 | 125 | 4 | 10.0 | 31.25 | 18.75 | 37.33 | 25.33 | MEDIUM |
 | Gujarat Titans | 4 | 72 | 108 | 3 | 9.0 | 36.0 | 24.0 | 23.61 | 16.67 | MEDIUM |

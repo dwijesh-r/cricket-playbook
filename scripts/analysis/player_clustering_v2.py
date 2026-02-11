@@ -87,6 +87,7 @@ def get_batter_features_v2(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
             JOIN dim_match dm ON fb.match_id = dm.match_id
             JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
             WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '2023-01-01'
         ),
         batting_position AS (
             -- Calculate average batting position using LEGAL ball count
@@ -212,6 +213,7 @@ def get_bowler_features_v2(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
             JOIN dim_match dm ON fb.match_id = dm.match_id
             JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
             WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '2023-01-01'
             GROUP BY fb.bowler_id
         ),
         career AS (

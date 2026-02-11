@@ -1,6 +1,6 @@
 # Punjab Kings (PBKS) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-11 18:25
+**Generated:** 2026-02-11 18:35
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -129,7 +129,7 @@
 
 - **2023:** Arshdeep Singh (17w @ 9.2), NT Ellis (13w @ 8.81), SM Curran (10w @ 9.97)
 - **2024:** HV Patel (24w @ 9.18), Arshdeep Singh (19w @ 9.46), SM Curran (16w @ 9.97)
-- **2025:** Arshdeep Singh (21w @ 8.62), YS Chahal (16w @ 9.34), M Jansen (16w @ 8.96)
+- **2025:** Arshdeep Singh (21w @ 8.62), M Jansen (16w @ 8.96), YS Chahal (16w @ 9.34)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -173,13 +173,13 @@
 |-------|---------|------|------|-----------|
 | Himachal Pradesh Cricket Associatio | 6 | 1 | 16.7% | 177.2 |
 | Narendra Modi Stadium | 4 | 3 | 75.0% | 208.5 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
-| MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
 | Eden Gardens | 3 | 1 | 33.3% | 214.0 |
 | Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
+| MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
-| M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
 | Barsapara Cricket Stadium | 2 | 2 | 100.0% | 171.0 |
+| M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -192,9 +192,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -222,10 +222,10 @@
 | Yash Thakur | Bharat Ratna Shri Atal Bi | 8 | 12 | 9.19 | 14.42 |
 | Arshdeep Singh | Maharaja Yadavindra Singh | 10 | 11 | 8.64 | 18.0 |
 | Vijaykumar Vyshak | M Chinnaswamy Stadium | 8 | 10 | 9.8 | 17.7 |
-| Arshdeep Singh | Himachal Pradesh Cricket  | 5 | 7 | 9.0 | 14.57 |
-| YS Chahal | MA Chidambaram Stadium | 4 | 7 | 7.33 | 12.86 |
 | Arshdeep Singh | Punjab Cricket Associatio | 5 | 7 | 10.78 | 16.14 |
-| Harpreet Brar | Sawai Mansingh Stadium | 3 | 6 | 8.17 | 12.0 |
+| YS Chahal | MA Chidambaram Stadium | 4 | 7 | 7.33 | 12.86 |
+| Arshdeep Singh | Himachal Pradesh Cricket  | 5 | 7 | 9.0 | 14.57 |
+| YS Chahal | Maharaja Yadavindra Singh | 5 | 6 | 8.0 | 16.0 |
 | M Jansen | Sawai Mansingh Stadium | 4 | 6 | 10.48 | 15.17 |
 
 

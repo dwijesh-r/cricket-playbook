@@ -1,6 +1,6 @@
 # Delhi Capitals (DC) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-11 18:25
+**Generated:** 2026-02-11 18:35
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -132,7 +132,7 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** MR Marsh (12w @ 7.82), AR Patel (11w @ 7.17), Kuldeep Yadav (10w @ 7.32)
+- **2023:** MR Marsh (12w @ 7.82), AR Patel (11w @ 7.17), A Nortje (10w @ 8.84)
 - **2024:** Mukesh Kumar (17w @ 10.2), KK Ahmed (17w @ 9.13), Kuldeep Yadav (16w @ 8.45)
 - **2025:** Kuldeep Yadav (15w @ 7.26), MA Starc (14w @ 10.09), Mukesh Kumar (12w @ 9.67)
 
@@ -179,14 +179,14 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Dr. Y.S. Rajasekhara Reddy ACA-VDCA | 4 | 3 | 75.0% | 183.5 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 158.0 |
 | M Chinnaswamy Stadium | 3 | 1 | 33.3% | 153.3 |
 | Narendra Modi Stadium | 3 | 2 | 66.7% | 141.7 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 158.0 |
 | MA Chidambaram Stadium | 2 | 1 | 50.0% | 161.5 |
-| Himachal Pradesh Cricket Associatio | 2 | 1 | 50.0% | 213.0 |
-| Wankhede Stadium | 2 | 0 | 0.0% | 163.0 |
 | Sawai Mansingh Stadium | 2 | 1 | 50.0% | 190.5 |
+| Wankhede Stadium | 2 | 0 | 0.0% | 163.0 |
 | Rajiv Gandhi International Stadium | 2 | 1 | 50.0% | 138.5 |
+| Himachal Pradesh Cricket Associatio | 2 | 1 | 50.0% | 213.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -197,11 +197,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -228,10 +228,10 @@
 |--------|-------|---------|------|------|-----|
 | AR Patel | Arun Jaitley Stadium | 16 | 13 | 7.66 | 23.08 |
 | MA Starc | Dr. Y.S. Rajasekhara Redd | 3 | 10 | 9.28 | 6.4 |
-| T Natarajan | Arun Jaitley Stadium | 3 | 5 | 9.18 | 13.2 |
-| Kuldeep Yadav | M Chinnaswamy Stadium | 3 | 5 | 7.83 | 14.4 |
 | Kuldeep Yadav | Dr. Y.S. Rajasekhara Redd | 2 | 5 | 5.38 | 9.6 |
+| Kuldeep Yadav | M Chinnaswamy Stadium | 3 | 5 | 7.83 | 14.4 |
 | Mukesh Kumar | Bharat Ratna Shri Atal Bi | 3 | 5 | 8.83 | 14.4 |
+| T Natarajan | Arun Jaitley Stadium | 3 | 5 | 9.18 | 13.2 |
 
 
 ---
@@ -363,8 +363,8 @@
 | Royal Challengers Bengaluru | 5 | 116 | 80 | 145.0 | 29.0 | 20.0 | 33.75 | 4 | MEDIUM |
 | Lucknow Super Giants | 4 | 86 | 52 | 165.38 | 43.0 | 25.0 | 34.62 | 2 | MEDIUM |
 | Mumbai Indians | 4 | 76 | 43 | 176.74 | 25.33 | 27.91 | 30.23 | 3 | MEDIUM |
-| Sunrisers Hyderabad | 4 | 75 | 63 | 119.05 | 25.0 | 12.7 | 34.92 | 3 | MEDIUM |
 | Kolkata Knight Riders | 4 | 75 | 66 | 113.64 | 25.0 | 15.15 | 45.45 | 3 | MEDIUM |
+| Sunrisers Hyderabad | 4 | 75 | 63 | 119.05 | 25.0 | 12.7 | 34.92 | 3 | MEDIUM |
 | Rajasthan Royals | 4 | 66 | 43 | 153.49 | 22.0 | 20.93 | 27.91 | 3 | MEDIUM |
 | Chennai Super Kings | 4 | 64 | 42 | 152.38 | 21.33 | 19.05 | 23.81 | 3 | MEDIUM |
 

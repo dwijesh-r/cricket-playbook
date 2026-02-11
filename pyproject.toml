@@ -28,3 +28,30 @@ testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
+
+[tool.coverage.run]
+# Scope coverage to modules with test suites (TKT-155: Kante enforcement)
+# As test coverage expands, add more modules here
+source = [
+    "scripts/mission_control",
+    "scripts/utils",
+]
+omit = [
+    "scripts/mission_control/commands/*",
+    "scripts/mission_control/views/*",
+    "scripts/mission_control/mc.py",
+    "scripts/mission_control/generate_token_data.py",
+    "scripts/utils/generate_experience_csv.py",
+    "scripts/utils/logging_config.py",
+    "scripts/utils/model_serializer.py",
+    "scripts/utils/validate_outputs.py",
+    "scripts/utils/player_tags.py",
+    "scripts/mission_control/utils/schema_validator.py",
+    "scripts/mission_control/workflow/gates.py",
+]
+
+[tool.coverage.report]
+# 70% enforced on tested modules only (Kante TKT-155)
+# Expand source list as test coverage grows
+fail_under = 70
+show_missing = true

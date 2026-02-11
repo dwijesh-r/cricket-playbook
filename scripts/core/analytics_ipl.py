@@ -3482,7 +3482,15 @@ def create_pressure_performance_views(conn: duckdb.DuckDBPyConnection) -> None:
                 fb.is_wicket, fb.is_legal_ball,
                 SUM(fb.total_runs) OVER (PARTITION BY fb.match_id, fb.innings ORDER BY fb.ball_seq) AS cumulative_runs,
                 fit.target_runs + 1 AS target,
-                (120 - fb.ball_seq) AS balls_remaining
+                (120 - fb.ball_seq) AS balls_remaining,
+                -- Balls faced by this batter in this innings before this ball
+                COALESCE(
+                    SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) OVER (
+                        PARTITION BY fb.match_id, fb.innings, fb.batter_id
+                        ORDER BY fb.ball_seq
+                        ROWS BETWEEN UNBOUNDED PRECEDING AND 1 PRECEDING
+                    ), 0
+                ) AS batter_balls_before
             FROM fact_ball fb
             JOIN first_innings_total fit ON fb.match_id = fit.match_id
             WHERE fb.innings = 2 AND fb.match_id IN (SELECT match_id FROM ipl_matches)
@@ -3499,6 +3507,14 @@ def create_pressure_performance_views(conn: duckdb.DuckDBPyConnection) -> None:
                 END AS pressure_band
             FROM running_context
             WHERE balls_remaining > 0
+        ),
+        -- Find the first ball each batter faces in each pressure band per innings
+        band_entry AS (
+            SELECT batter_id, match_id, innings, pressure_band,
+                MIN(batter_balls_before) AS entry_balls_before
+            FROM with_bands
+            WHERE pressure_band IS NOT NULL
+            GROUP BY batter_id, match_id, innings, pressure_band
         )
         SELECT
             wb.batter_id AS player_id,
@@ -3512,9 +3528,21 @@ def create_pressure_performance_views(conn: duckdb.DuckDBPyConnection) -> None:
             ROUND(SUM(CASE WHEN wb.batter_runs IN (4, 6) THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS boundary_pct,
             ROUND(SUM(CASE WHEN wb.batter_runs = 0 AND wb.extra_runs = 0 AND wb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS dot_ball_pct,
             ROUND(SUM(CASE WHEN wb.batter_runs = 6 THEN 1 ELSE 0 END) * 100.0 / NULLIF(SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS six_pct,
-            SUM(CASE WHEN wb.is_wicket THEN 1 ELSE 0 END) AS dismissals
+            SUM(CASE WHEN wb.is_wicket THEN 1 ELSE 0 END) AS dismissals,
+            -- Entry context: avg balls faced before entering this pressure band
+            ROUND(AVG(be.entry_balls_before), 1) AS avg_balls_before_entry,
+            CASE
+                WHEN AVG(be.entry_balls_before) > 40 THEN 'DEEP_SET'
+                WHEN AVG(be.entry_balls_before) > 25 THEN 'SET'
+                WHEN AVG(be.entry_balls_before) >= 10 THEN 'BUILDING'
+                ELSE 'FRESH'
+            END AS entry_context
         FROM with_bands wb
         JOIN dim_player dp ON wb.batter_id = dp.player_id
+        JOIN band_entry be ON wb.batter_id = be.batter_id
+            AND wb.match_id = be.match_id
+            AND wb.innings = be.innings
+            AND wb.pressure_band = be.pressure_band
         WHERE wb.pressure_band IS NOT NULL
         GROUP BY wb.batter_id, dp.current_name, wb.pressure_band
         HAVING SUM(CASE WHEN wb.is_legal_ball THEN 1 ELSE 0 END) >= 15
@@ -3743,7 +3771,15 @@ def create_pressure_performance_views(conn: duckdb.DuckDBPyConnection) -> None:
                 fb.is_wicket, fb.wicket_type, fb.is_legal_ball,
                 SUM(fb.total_runs) OVER (PARTITION BY fb.match_id, fb.innings ORDER BY fb.ball_seq) AS cumulative_runs,
                 fit.target_runs + 1 AS target,
-                (120 - fb.ball_seq) AS balls_remaining
+                (120 - fb.ball_seq) AS balls_remaining,
+                -- Balls faced by this batter in this innings before this ball
+                COALESCE(
+                    SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) OVER (
+                        PARTITION BY fb.match_id, fb.innings, fb.batter_id
+                        ORDER BY fb.ball_seq
+                        ROWS BETWEEN UNBOUNDED PRECEDING AND 1 PRECEDING
+                    ), 0
+                ) AS batter_balls_before
             FROM fact_ball fb
             JOIN first_innings_total fit ON fb.match_id = fit.match_id
             WHERE fb.innings = 2 AND fb.match_id IN (SELECT match_id FROM ipl_matches)
@@ -3757,6 +3793,27 @@ def create_pressure_performance_views(conn: duckdb.DuckDBPyConnection) -> None:
                 END AS pressure_group
             FROM running_context
             WHERE balls_remaining > 0
+        ),
+        -- Entry point: first ball each batter faces in HIGH_PRESSURE per innings
+        pressure_entry AS (
+            SELECT batter_id, match_id, innings,
+                MIN(batter_balls_before) AS entry_balls_before
+            FROM with_bands
+            WHERE pressure_group = 'HIGH_PRESSURE'
+            GROUP BY batter_id, match_id, innings
+        ),
+        -- Average entry context per batter across all pressure innings
+        batter_entry_context AS (
+            SELECT batter_id,
+                ROUND(AVG(entry_balls_before), 1) AS avg_balls_before_pressure,
+                CASE
+                    WHEN AVG(entry_balls_before) > 40 THEN 'DEEP_SET'
+                    WHEN AVG(entry_balls_before) > 25 THEN 'SET'
+                    WHEN AVG(entry_balls_before) >= 10 THEN 'BUILDING'
+                    ELSE 'FRESH'
+                END AS entry_context
+            FROM pressure_entry
+            GROUP BY batter_id
         ),
         batter_overall AS (
             SELECT wb.batter_id,
@@ -3816,10 +3873,14 @@ def create_pressure_performance_views(conn: duckdb.DuckDBPyConnection) -> None:
                 * (1.0 + LOG2(bp.pressure_balls / 30.0))
                 * (1.0 + 0.3 * (bp.death_pressure_balls * 1.0 / NULLIF(bp.pressure_balls, 0))),
                 2
-            ) AS pressure_score
+            ) AS pressure_score,
+            -- Entry context: how set was the batter when entering pressure
+            bec.avg_balls_before_pressure,
+            bec.entry_context
         FROM batter_overall bo
         JOIN batter_pressure bp ON bo.batter_id = bp.batter_id
         JOIN dim_player dp ON bo.batter_id = dp.player_id
+        LEFT JOIN batter_entry_context bec ON bo.batter_id = bec.batter_id
         ORDER BY pressure_score DESC
     """,
     )

@@ -1,6 +1,6 @@
 # Mumbai Indians (MI) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-11 23:28
+**Generated:** 2026-02-11 23:37
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -132,8 +132,8 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** PP Chawla (22w @ 8.07), Akash Madhwal (14w @ 8.32), JP Behrendorff (14w @ 9.05)
-- **2024:** JJ Bumrah (20w @ 6.24), G Coetzee (13w @ 9.92), PP Chawla (13w @ 8.71)
+- **2023:** PP Chawla (22w @ 8.07), JP Behrendorff (14w @ 9.05), Akash Madhwal (14w @ 8.32)
+- **2024:** JJ Bumrah (20w @ 6.24), PP Chawla (13w @ 8.71), G Coetzee (13w @ 9.92)
 - **2025:** TA Boult (22w @ 8.74), JJ Bumrah (18w @ 6.69), HH Pandya (14w @ 9.04)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -179,11 +179,11 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Narendra Modi Stadium | 5 | 0 | 0.0% | 169.6 |
-| MA Chidambaram Stadium | 3 | 1 | 33.3% | 158.7 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 0 | 0.0% | 169.0 |
-| Sawai Mansingh Stadium | 3 | 1 | 33.3% | 193.3 |
 | Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 194.7 |
 | Arun Jaitley Stadium | 3 | 2 | 66.7% | 208.3 |
+| MA Chidambaram Stadium | 3 | 1 | 33.3% | 158.7 |
+| Sawai Mansingh Stadium | 3 | 1 | 33.3% | 193.3 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -197,8 +197,8 @@
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -224,13 +224,13 @@
 | Player | Venue | Matches | Wkts | Econ | SR |
 |--------|-------|---------|------|------|-----|
 | JJ Bumrah | Wankhede Stadium | 12 | 23 | 5.32 | 12.3 |
-| DL Chahar | MA Chidambaram Stadium | 11 | 14 | 8.1 | 13.86 |
 | TA Boult | Wankhede Stadium | 9 | 14 | 7.89 | 15.43 |
+| DL Chahar | MA Chidambaram Stadium | 11 | 14 | 8.1 | 13.86 |
 | HH Pandya | Wankhede Stadium | 11 | 11 | 10.11 | 15.27 |
 | TA Boult | Sawai Mansingh Stadium | 9 | 8 | 8.44 | 21.5 |
+| MJ Santner | Wankhede Stadium | 6 | 7 | 5.95 | 16.57 |
 | Ashwani Kumar | Wankhede Stadium | 3 | 7 | 10.33 | 7.71 |
 | HH Pandya | Bharat Ratna Shri Atal Bi | 3 | 7 | 7.11 | 7.71 |
-| MJ Santner | Wankhede Stadium | 6 | 7 | 5.95 | 16.57 |
 
 
 ---
@@ -422,8 +422,8 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 5 | 120 | 148 | 10 | 7.4 | 14.8 | 12.0 | 40.0 | 16.67 | HIGH |
 | Lucknow Super Giants | 5 | 114 | 137 | 8 | 7.21 | 17.13 | 14.25 | 48.25 | 18.42 | HIGH |
-| Gujarat Titans | 6 | 126 | 191 | 6 | 9.1 | 31.83 | 21.0 | 34.92 | 20.63 | HIGH |
 | Mumbai Indians | 3 | 72 | 94 | 6 | 7.83 | 15.67 | 12.0 | 40.28 | 18.06 | MEDIUM |
+| Gujarat Titans | 6 | 126 | 191 | 6 | 9.1 | 31.83 | 21.0 | 34.92 | 20.63 | HIGH |
 | Delhi Capitals | 5 | 102 | 151 | 5 | 8.88 | 30.2 | 20.4 | 39.22 | 25.49 | HIGH |
 | Royal Challengers Bengaluru | 4 | 90 | 139 | 5 | 9.27 | 27.8 | 18.0 | 35.56 | 23.33 | MEDIUM |
 | Kolkata Knight Riders | 3 | 66 | 70 | 4 | 6.36 | 17.5 | 16.5 | 56.06 | 13.64 | MEDIUM |
@@ -436,13 +436,13 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 4 | 92 | 105 | 7 | 6.85 | 15.0 | 13.14 | 45.65 | 16.3 | MEDIUM |
 | Gujarat Titans | 3 | 72 | 60 | 6 | 5.0 | 10.0 | 12.0 | 52.78 | 8.33 | MEDIUM |
-| Kolkata Knight Riders | 2 | 47 | 58 | 5 | 7.4 | 11.6 | 9.4 | 51.06 | 19.15 | MEDIUM |
 | Royal Challengers Bengaluru | 2 | 48 | 51 | 5 | 6.38 | 10.2 | 9.6 | 35.42 | 8.33 | MEDIUM |
-| Lucknow Super Giants | 2 | 48 | 38 | 4 | 4.75 | 9.5 | 12.0 | 62.5 | 8.33 | MEDIUM |
+| Kolkata Knight Riders | 2 | 47 | 58 | 5 | 7.4 | 11.6 | 9.4 | 51.06 | 19.15 | MEDIUM |
 | Punjab Kings | 3 | 72 | 83 | 4 | 6.92 | 20.75 | 18.0 | 45.83 | 15.28 | MEDIUM |
+| Lucknow Super Giants | 2 | 48 | 38 | 4 | 4.75 | 9.5 | 12.0 | 62.5 | 8.33 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 96 | 114 | 3 | 7.13 | 38.0 | 32.0 | 30.21 | 11.46 | MEDIUM |
-| Rajasthan Royals | 3 | 72 | 71 | 2 | 5.92 | 35.5 | 36.0 | 54.17 | 15.28 | MEDIUM |
 | Chennai Super Kings | 2 | 48 | 49 | 2 | 6.13 | 24.5 | 24.0 | 35.42 | 10.42 | MEDIUM |
+| Rajasthan Royals | 3 | 72 | 71 | 2 | 5.92 | 35.5 | 36.0 | 54.17 | 15.28 | MEDIUM |
 
 ---
 
@@ -505,43 +505,43 @@
 
 *Performance across Required Run Rate (RRR) bands — IPL 2023+*
 
-| Player | Band | Balls | SR | Avg | Boundary% | Dot% | Confidence |
-|--------|------|-------|----|-----|-----------|------|------------|
-| HH Pandya | COMFORTABLE | 52 | 204 | 53 | 34.6 | 28.9 | MEDIUM |
-| HH Pandya | BUILDING | 63 | 96.8 | 12.2 | 7.9 | 34.9 | MEDIUM |
-| HH Pandya | HIGH | 16 | 138 | 22 | 25 | 37.5 | LOW |
-| HH Pandya | EXTREME | 26 | 188 | 49 | 26.9 | 34.6 | LOW |
-| HH Pandya | NEAR_IMPOSSIBLE | 97 | 144 | 20 | 17.5 | 28.9 | MEDIUM |
-| Naman Dhir | BUILDING | 40 | 120 | 12 | 22.5 | 47.5 | LOW |
-| Naman Dhir | NEAR_IMPOSSIBLE | 36 | 203 | - | 30.6 | 22.2 | LOW |
-| Q de Kock | COMFORTABLE | 51 | 178 | 45.5 | 25.5 | 27.4 | MEDIUM |
-| Q de Kock | BUILDING | 72 | 111 | 80 | 12.5 | 36.1 | MEDIUM |
-| Q de Kock | HIGH | 54 | 165 | 17.8 | 27.8 | 29.6 | MEDIUM |
-| Q de Kock | EXTREME | 23 | 126 | - | 13.0 | 21.7 | LOW |
-| Q de Kock | NEAR_IMPOSSIBLE | 21 | 124 | 13 | 9.5 | 28.6 | LOW |
-| RD Rickelton | COMFORTABLE | 56 | 155 | 43.5 | 25 | 41.1 | MEDIUM |
-| RD Rickelton | BUILDING | 39 | 118 | 46 | 17.9 | 46.1 | LOW |
-| RD Rickelton | HIGH | 18 | 156 | 9.3 | 33.3 | 38.9 | LOW |
-| RG Sharma | COMFORTABLE | 102 | 168 | 42.8 | 25.5 | 34.3 | HIGH |
-| RG Sharma | BUILDING | 207 | 140 | 32.1 | 20.3 | 39.6 | HIGH |
-| RG Sharma | HIGH | 155 | 145 | 44.8 | 23.2 | 42.6 | HIGH |
-| RG Sharma | EXTREME | 43 | 144 | 12.4 | 20.9 | 44.2 | LOW |
-| SA Yadav | COMFORTABLE | 105 | 251 | 66 | 44.8 | 26.7 | HIGH |
-| SA Yadav | BUILDING | 142 | 164 | 116 | 23.9 | 29.6 | HIGH |
-| SA Yadav | HIGH | 98 | 159 | 78 | 22.4 | 30.6 | MEDIUM |
-| SA Yadav | EXTREME | 140 | 176 | 61.5 | 28.6 | 25.7 | HIGH |
-| SA Yadav | NEAR_IMPOSSIBLE | 41 | 176 | 10.3 | 29.3 | 39.0 | LOW |
-| SE Rutherford | COMFORTABLE | 22 | 232 | - | 40.9 | 18.2 | LOW |
-| SE Rutherford | HIGH | 32 | 159 | - | 18.8 | 28.1 | LOW |
-| SE Rutherford | EXTREME | 39 | 162 | 31.5 | 23.1 | 30.8 | LOW |
-| SE Rutherford | NEAR_IMPOSSIBLE | 41 | 137 | 18.7 | 17.1 | 34.1 | LOW |
-| Tilak Varma | COMFORTABLE | 68 | 150 | 51 | 22.1 | 27.9 | MEDIUM |
-| Tilak Varma | BUILDING | 93 | 135 | 63 | 17.2 | 34.4 | MEDIUM |
-| Tilak Varma | HIGH | 66 | 155 | 102 | 22.7 | 27.3 | MEDIUM |
-| Tilak Varma | EXTREME | 71 | 144 | 34 | 18.3 | 38.0 | MEDIUM |
-| Tilak Varma | NEAR_IMPOSSIBLE | 80 | 190 | 50.7 | 25 | 18.8 | MEDIUM |
-| WG Jacks | COMFORTABLE | 67 | 170 | 28.5 | 23.9 | 35.8 | MEDIUM |
-| WG Jacks | HIGH | 72 | 153 | 55 | 20.8 | 34.7 | MEDIUM |
+| Player | Band | Balls | SR | Avg | Boundary% | Dot% | Entry | Confidence |
+|--------|------|-------|----|-----|-----------|------|-------|------------|
+| HH Pandya | COMFORTABLE | 52 | 204 | 53 | 34.6 | 28.9 | FRESH | MEDIUM |
+| HH Pandya | BUILDING | 63 | 96.8 | 12.2 | 7.9 | 34.9 | FRESH | MEDIUM |
+| HH Pandya | HIGH | 16 | 138 | 22 | 25 | 37.5 | BUILDING | LOW |
+| HH Pandya | EXTREME | 26 | 188 | 49 | 26.9 | 34.6 | FRESH | LOW |
+| HH Pandya | NEAR_IMPOSSIBLE | 97 | 144 | 20 | 17.5 | 28.9 | FRESH | MEDIUM |
+| Naman Dhir | BUILDING | 40 | 120 | 12 | 22.5 | 47.5 | FRESH | LOW |
+| Naman Dhir | NEAR_IMPOSSIBLE | 36 | 203 | - | 30.6 | 22.2 | FRESH | LOW |
+| Q de Kock | COMFORTABLE | 51 | 178 | 45.5 | 25.5 | 27.4 | FRESH | MEDIUM |
+| Q de Kock | BUILDING | 72 | 111 | 80 | 12.5 | 36.1 | FRESH | MEDIUM |
+| Q de Kock | HIGH | 54 | 165 | 17.8 | 27.8 | 29.6 | FRESH | MEDIUM |
+| Q de Kock | EXTREME | 23 | 126 | - | 13.0 | 21.7 | FRESH | LOW |
+| Q de Kock | NEAR_IMPOSSIBLE | 21 | 124 | 13 | 9.5 | 28.6 | BUILDING | LOW |
+| RD Rickelton | COMFORTABLE | 56 | 155 | 43.5 | 25 | 41.1 | FRESH | MEDIUM |
+| RD Rickelton | BUILDING | 39 | 118 | 46 | 17.9 | 46.1 | FRESH | LOW |
+| RD Rickelton | HIGH | 18 | 156 | 9.3 | 33.3 | 38.9 | FRESH | LOW |
+| RG Sharma | COMFORTABLE | 102 | 168 | 42.8 | 25.5 | 34.3 | FRESH | HIGH |
+| RG Sharma | BUILDING | 207 | 140 | 32.1 | 20.3 | 39.6 | FRESH | HIGH |
+| RG Sharma | HIGH | 155 | 145 | 44.8 | 23.2 | 42.6 | FRESH | HIGH |
+| RG Sharma | EXTREME | 43 | 144 | 12.4 | 20.9 | 44.2 | BUILDING | LOW |
+| SA Yadav | COMFORTABLE | 105 | 251 | 66 | 44.8 | 26.7 | FRESH | HIGH |
+| SA Yadav | BUILDING | 142 | 164 | 116 | 23.9 | 29.6 | FRESH | HIGH |
+| SA Yadav | HIGH | 98 | 159 | 78 | 22.4 | 30.6 | FRESH | MEDIUM |
+| SA Yadav | EXTREME | 140 | 176 | 61.5 | 28.6 | 25.7 | FRESH | HIGH |
+| SA Yadav | NEAR_IMPOSSIBLE | 41 | 176 | 10.3 | 29.3 | 39.0 | BUILDING | LOW |
+| SE Rutherford | COMFORTABLE | 22 | 232 | - | 40.9 | 18.2 | FRESH | LOW |
+| SE Rutherford | HIGH | 32 | 159 | - | 18.8 | 28.1 | FRESH | LOW |
+| SE Rutherford | EXTREME | 39 | 162 | 31.5 | 23.1 | 30.8 | FRESH | LOW |
+| SE Rutherford | NEAR_IMPOSSIBLE | 41 | 137 | 18.7 | 17.1 | 34.1 | FRESH | LOW |
+| Tilak Varma | COMFORTABLE | 68 | 150 | 51 | 22.1 | 27.9 | FRESH | MEDIUM |
+| Tilak Varma | BUILDING | 93 | 135 | 63 | 17.2 | 34.4 | FRESH | MEDIUM |
+| Tilak Varma | HIGH | 66 | 155 | 102 | 22.7 | 27.3 | FRESH | MEDIUM |
+| Tilak Varma | EXTREME | 71 | 144 | 34 | 18.3 | 38.0 | FRESH | MEDIUM |
+| Tilak Varma | NEAR_IMPOSSIBLE | 80 | 190 | 50.7 | 25 | 18.8 | FRESH | MEDIUM |
+| WG Jacks | COMFORTABLE | 67 | 170 | 28.5 | 23.9 | 35.8 | FRESH | MEDIUM |
+| WG Jacks | HIGH | 72 | 153 | 55 | 20.8 | 34.7 | FRESH | MEDIUM |
 
 ### 11.2 Bowling Under Pressure
 
@@ -589,19 +589,59 @@
 
 *Weighted Score = SR Delta x sample-size bonus x death-overs bonus*
 
-| Player | Role | Balls | Delta% | W.Score | Rating | Confidence |
-|--------|------|-------|--------|---------|--------|------------|
-| Naman Dhir | BATTER | 61 | +19.6% | 45.3 | **CLUTCH** | MEDIUM |
-| Tilak Varma | BATTER | 217 | +6.2% | 25.4 | MODERATE | HIGH |
-| Q de Kock | BATTER | 98 | +3.1% | 8.5 | **PRESSURE_PROOF** | MEDIUM |
-| HH Pandya | BATTER | 139 | +2.0% | 7.1 | **PRESSURE_PROOF** | HIGH |
-| RG Sharma | BATTER | 209 | -1.2% | -4.6 | **PRESSURE_PROOF** | HIGH |
-| SE Rutherford | BATTER | 112 | -5.7% | -18.2 | MODERATE | HIGH |
-| WG Jacks | BATTER | 88 | -10.0% | -25.4 | MODERATE | MEDIUM |
-| SA Yadav | BATTER | 279 | -8.0% | -34.3 | MODERATE | HIGH |
+| Player | Role | Balls | Delta% | W.Score | Rating | Entry | Confidence |
+|--------|------|-------|--------|---------|--------|-------|------------|
+| Naman Dhir | BATTER | 61 | +19.6% | 45.3 | **CLUTCH** | FRESH | MEDIUM |
+| Tilak Varma | BATTER | 217 | +6.2% | 25.4 | MODERATE | FRESH | HIGH |
+| Q de Kock | BATTER | 98 | +3.1% | 8.5 | **PRESSURE_PROOF** | FRESH | MEDIUM |
+| HH Pandya | BATTER | 139 | +2.0% | 7.1 | **PRESSURE_PROOF** | FRESH | HIGH |
+| RG Sharma | BATTER | 209 | -1.2% | -4.6 | **PRESSURE_PROOF** | FRESH | HIGH |
+| SE Rutherford | BATTER | 112 | -5.7% | -18.2 | MODERATE | FRESH | HIGH |
+| WG Jacks | BATTER | 88 | -10.0% | -25.4 | MODERATE | FRESH | MEDIUM |
+| SA Yadav | BATTER | 279 | -8.0% | -34.3 | MODERATE | FRESH | HIGH |
+
+### 11.4 Glossary
+
+*Quick reference for all pressure metrics, bands, and ratings used in this section.*
+
+#### Pressure Bands (RRR-Based)
+
+| Band | RRR Range | What It Means |
+|------|-----------|---------------|
+| COMFORTABLE | < 8 | Cruising — run rate is manageable, batters can play normally |
+| BUILDING | 8–10 | Above par — scoring needs to accelerate, risk-taking begins |
+| HIGH | 10–12 | Aggressive required — boundaries needed every 2-3 balls |
+| EXTREME | 12–15 | Six-hitting territory — almost every ball must score |
+| NEAR_IMPOSSIBLE | 15+ | Miracle needed — requires continuous boundaries to win |
+
+#### Pressure Ratings (Performance Tags)
+
+| Rating | For Batters | For Bowlers |
+|--------|------------|-------------|
+| CLUTCH | SR improves 10%+ AND dot% drops in 12+ RRR bands | Economy improves AND dot% rises in 12+ RRR bands |
+| PRESSURE_PROOF | Metrics within +/-5% of overall across all bands | Metrics within +/-5% of overall across all bands |
+| MODERATE | Performance changes between 5-10% under pressure | Economy/dot% changes 5-10% under pressure |
+| PRESSURE_SENSITIVE | SR drops 10%+ OR dot% rises 10%+ in 12+ RRR bands | Economy rises 15%+ OR boundary% conceded rises 10%+ |
+| FINISHER | SR in 15+ band exceeds 170 with adequate sample | N/A |
+| CLOSER | N/A | Economy < 8.5 in 15+ band with 5+ overs |
+
+#### Entry Context (Batter Only)
+
+| Context | Balls Before Pressure | Meaning |
+|---------|----------------------|---------|
+| FRESH | < 10 | Walked in during pressure phase — facing it cold |
+| BUILDING | 10–25 | Getting set when pressure hit — partially established |
+| SET | 25–40 | Well established before pressure phase |
+| DEEP_SET | 40+ | Long innings before pressure — fully in rhythm |
+
+#### Other Terms
+
+- **Weighted Score (W.Score)**: Composite metric that combines SR delta with sample size (log2 scaling) and death overs bonus (30% weight for overs 16-20 execution)
+- **SR Delta**: Percentage change in strike rate between overall performance and pressure situations. Positive = better under pressure.
+- **Death Pressure Ratio**: Proportion of pressure balls faced in overs 16-20 vs all pressure balls
 
 ---
-*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. COMFORTABLE (RRR < 8), BUILDING (8-10), HIGH (10-12), EXTREME (12-15), NEAR_IMPOSSIBLE (15+). Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify. Weighted Score factors in sample size and death-overs (16-20) contribution.*
+*Note: Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify.*
 
 
 ---

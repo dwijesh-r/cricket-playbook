@@ -1,6 +1,6 @@
 # Gujarat Titans (GT) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-11 23:28
+**Generated:** 2026-02-11 23:37
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -170,13 +170,13 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
-| Arun Jaitley Stadium | 3 | 2 | 66.7% | 196.0 |
-| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 175.7 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 148.3 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 175.7 |
+| Arun Jaitley Stadium | 3 | 2 | 66.7% | 196.0 |
 | M Chinnaswamy Stadium | 3 | 2 | 66.7% | 171.7 |
+| MA Chidambaram Stadium | 2 | 0 | 0.0% | 150.0 |
 | Eden Gardens | 2 | 2 | 100.0% | 189.0 |
 | Wankhede Stadium | 2 | 1 | 50.0% | 169.0 |
-| MA Chidambaram Stadium | 2 | 0 | 0.0% | 150.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -187,11 +187,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -222,8 +222,8 @@
 | I Sharma | Arun Jaitley Stadium | 6 | 8 | 8.45 | 15.0 |
 | I Sharma | Narendra Modi Stadium | 5 | 6 | 6.84 | 14.33 |
 | Rashid Khan | Wankhede Stadium | 2 | 5 | 6.88 | 9.6 |
-| Mohammed Siraj | Rajiv Gandhi Internationa | 3 | 5 | 4.33 | 14.4 |
 | Rashid Khan | Sawai Mansingh Stadium | 3 | 5 | 4.58 | 14.4 |
+| Mohammed Siraj | Rajiv Gandhi Internationa | 3 | 5 | 4.33 | 14.4 |
 
 
 ---
@@ -382,9 +382,9 @@
 | Punjab Kings | 4 | 96 | 146 | 9 | 9.13 | 16.22 | 10.67 | 40.63 | 25.0 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 96 | 84 | 7 | 5.25 | 12.0 | 13.71 | 53.13 | 11.46 | MEDIUM |
 | Rajasthan Royals | 6 | 120 | 158 | 6 | 7.9 | 26.33 | 20.0 | 38.33 | 19.17 | HIGH |
+| Gujarat Titans | 3 | 72 | 90 | 5 | 7.5 | 18.0 | 14.4 | 44.44 | 18.06 | MEDIUM |
 | Mumbai Indians | 6 | 126 | 182 | 5 | 8.67 | 36.4 | 25.2 | 44.44 | 22.22 | HIGH |
 | Lucknow Super Giants | 5 | 114 | 167 | 5 | 8.79 | 33.4 | 22.8 | 44.74 | 23.68 | HIGH |
-| Gujarat Titans | 3 | 72 | 90 | 5 | 7.5 | 18.0 | 14.4 | 44.44 | 18.06 | MEDIUM |
 | Kolkata Knight Riders | 5 | 114 | 187 | 4 | 9.84 | 46.75 | 28.5 | 38.6 | 26.32 | HIGH |
 | Delhi Capitals | 5 | 108 | 162 | 4 | 9.0 | 40.5 | 27.0 | 44.44 | 25.93 | HIGH |
 | Chennai Super Kings | 4 | 96 | 149 | 2 | 9.31 | 74.5 | 48.0 | 35.42 | 20.83 | MEDIUM |
@@ -393,15 +393,15 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Rajasthan Royals | 5 | 120 | 136 | 9 | 6.8 | 15.11 | 13.33 | 37.5 | 10.83 | HIGH |
 | Mumbai Indians | 7 | 156 | 179 | 9 | 6.88 | 19.89 | 17.33 | 37.18 | 12.82 | HIGH |
+| Rajasthan Royals | 5 | 120 | 136 | 9 | 6.8 | 15.11 | 13.33 | 37.5 | 10.83 | HIGH |
 | Chennai Super Kings | 6 | 138 | 240 | 8 | 10.43 | 30.0 | 17.25 | 23.19 | 22.46 | HIGH |
 | Delhi Capitals | 6 | 132 | 176 | 5 | 8.0 | 35.2 | 26.4 | 30.3 | 14.39 | HIGH |
 | Kolkata Knight Riders | 3 | 72 | 116 | 5 | 9.67 | 23.2 | 14.4 | 26.39 | 20.83 | MEDIUM |
-| Punjab Kings | 4 | 96 | 134 | 4 | 8.38 | 33.5 | 24.0 | 36.46 | 16.67 | MEDIUM |
 | Lucknow Super Giants | 5 | 108 | 164 | 4 | 9.11 | 41.0 | 27.0 | 25.93 | 17.59 | HIGH |
-| Sunrisers Hyderabad | 4 | 90 | 142 | 1 | 9.47 | 142.0 | 90.0 | 25.56 | 17.78 | MEDIUM |
+| Punjab Kings | 4 | 96 | 134 | 4 | 8.38 | 33.5 | 24.0 | 36.46 | 16.67 | MEDIUM |
 | Royal Challengers Bengaluru | 4 | 82 | 154 | 1 | 11.27 | 154.0 | 82.0 | 19.51 | 24.39 | MEDIUM |
+| Sunrisers Hyderabad | 4 | 90 | 142 | 1 | 9.47 | 142.0 | 90.0 | 25.56 | 17.78 | MEDIUM |
 
 ---
 
@@ -459,30 +459,30 @@
 
 *Performance across Required Run Rate (RRR) bands — IPL 2023+*
 
-| Player | Band | Balls | SR | Avg | Boundary% | Dot% | Confidence |
-|--------|------|-------|----|-----|-----------|------|------------|
-| Arshad Khan | NEAR_IMPOSSIBLE | 38 | 168 | 21.3 | 23.7 | 42.1 | LOW |
-| B Sai Sudharsan | COMFORTABLE | 83 | 125 | 52 | 15.7 | 36.1 | MEDIUM |
-| B Sai Sudharsan | BUILDING | 183 | 141 | 43 | 19.7 | 28.4 | HIGH |
-| B Sai Sudharsan | HIGH | 122 | 141 | 86 | 18.9 | 26.2 | HIGH |
-| B Sai Sudharsan | EXTREME | 130 | 158 | 68.7 | 20.8 | 23.9 | HIGH |
-| B Sai Sudharsan | NEAR_IMPOSSIBLE | 22 | 118 | 8.7 | 13.6 | 36.4 | LOW |
-| JC Buttler | COMFORTABLE | 62 | 168 | 52 | 22.6 | 30.6 | MEDIUM |
-| JC Buttler | BUILDING | 177 | 136 | 30 | 20.3 | 37.3 | HIGH |
-| JC Buttler | HIGH | 94 | 143 | 26.8 | 20.2 | 36.2 | MEDIUM |
-| JC Buttler | EXTREME | 65 | 143 | 46.5 | 16.9 | 29.2 | MEDIUM |
-| JC Buttler | NEAR_IMPOSSIBLE | 33 | 200 | 33 | 27.3 | 18.2 | LOW |
-| M Shahrukh Khan | EXTREME | 24 | 204 | - | 29.2 | 25 | LOW |
-| M Shahrukh Khan | NEAR_IMPOSSIBLE | 51 | 165 | 16.8 | 19.6 | 21.6 | MEDIUM |
-| R Tewatia | EXTREME | 26 | 84.6 | - | 3.9 | 23.1 | LOW |
-| R Tewatia | NEAR_IMPOSSIBLE | 89 | 136 | 20.2 | 15.7 | 31.5 | MEDIUM |
-| Rashid Khan | NEAR_IMPOSSIBLE | 73 | 205 | 37.5 | 32.9 | 35.6 | MEDIUM |
-| Shubman Gill | COMFORTABLE | 158 | 130 | 68.3 | 18.4 | 36.7 | HIGH |
-| Shubman Gill | BUILDING | 231 | 128 | 49.3 | 16.4 | 33.3 | HIGH |
-| Shubman Gill | HIGH | 148 | 147 | 27.2 | 16.9 | 27.7 | HIGH |
-| Shubman Gill | EXTREME | 60 | 182 | 36.3 | 25 | 23.3 | MEDIUM |
-| Washington Sundar | COMFORTABLE | 23 | 165 | 38 | 21.7 | 21.7 | LOW |
-| Washington Sundar | EXTREME | 36 | 178 | 32 | 30.6 | 33.3 | LOW |
+| Player | Band | Balls | SR | Avg | Boundary% | Dot% | Entry | Confidence |
+|--------|------|-------|----|-----|-----------|------|-------|------------|
+| Arshad Khan | NEAR_IMPOSSIBLE | 38 | 168 | 21.3 | 23.7 | 42.1 | FRESH | LOW |
+| B Sai Sudharsan | COMFORTABLE | 83 | 125 | 52 | 15.7 | 36.1 | FRESH | MEDIUM |
+| B Sai Sudharsan | BUILDING | 183 | 141 | 43 | 19.7 | 28.4 | FRESH | HIGH |
+| B Sai Sudharsan | HIGH | 122 | 141 | 86 | 18.9 | 26.2 | FRESH | HIGH |
+| B Sai Sudharsan | EXTREME | 130 | 158 | 68.7 | 20.8 | 23.9 | FRESH | HIGH |
+| B Sai Sudharsan | NEAR_IMPOSSIBLE | 22 | 118 | 8.7 | 13.6 | 36.4 | BUILDING | LOW |
+| JC Buttler | COMFORTABLE | 62 | 168 | 52 | 22.6 | 30.6 | BUILDING | MEDIUM |
+| JC Buttler | BUILDING | 177 | 136 | 30 | 20.3 | 37.3 | FRESH | HIGH |
+| JC Buttler | HIGH | 94 | 143 | 26.8 | 20.2 | 36.2 | FRESH | MEDIUM |
+| JC Buttler | EXTREME | 65 | 143 | 46.5 | 16.9 | 29.2 | FRESH | MEDIUM |
+| JC Buttler | NEAR_IMPOSSIBLE | 33 | 200 | 33 | 27.3 | 18.2 | SET | LOW |
+| M Shahrukh Khan | EXTREME | 24 | 204 | - | 29.2 | 25 | FRESH | LOW |
+| M Shahrukh Khan | NEAR_IMPOSSIBLE | 51 | 165 | 16.8 | 19.6 | 21.6 | FRESH | MEDIUM |
+| R Tewatia | EXTREME | 26 | 84.6 | - | 3.9 | 23.1 | FRESH | LOW |
+| R Tewatia | NEAR_IMPOSSIBLE | 89 | 136 | 20.2 | 15.7 | 31.5 | FRESH | MEDIUM |
+| Rashid Khan | NEAR_IMPOSSIBLE | 73 | 205 | 37.5 | 32.9 | 35.6 | FRESH | MEDIUM |
+| Shubman Gill | COMFORTABLE | 158 | 130 | 68.3 | 18.4 | 36.7 | FRESH | HIGH |
+| Shubman Gill | BUILDING | 231 | 128 | 49.3 | 16.4 | 33.3 | FRESH | HIGH |
+| Shubman Gill | HIGH | 148 | 147 | 27.2 | 16.9 | 27.7 | FRESH | HIGH |
+| Shubman Gill | EXTREME | 60 | 182 | 36.3 | 25 | 23.3 | BUILDING | MEDIUM |
+| Washington Sundar | COMFORTABLE | 23 | 165 | 38 | 21.7 | 21.7 | FRESH | LOW |
+| Washington Sundar | EXTREME | 36 | 178 | 32 | 30.6 | 33.3 | FRESH | LOW |
 
 ### 11.2 Bowling Under Pressure
 
@@ -526,18 +526,58 @@
 
 *Weighted Score = SR Delta x sample-size bonus x death-overs bonus*
 
-| Player | Role | Balls | Delta% | W.Score | Rating | Confidence |
-|--------|------|-------|--------|---------|--------|------------|
-| Shubman Gill | BATTER | 217 | +16.0% | 62.8 | **CLUTCH** | HIGH |
-| B Sai Sudharsan | BATTER | 274 | +3.9% | 16.6 | **PRESSURE_PROOF** | HIGH |
-| JC Buttler | BATTER | 192 | +3.2% | 12.5 | **PRESSURE_PROOF** | HIGH |
-| Rashid Khan | BATTER | 73 | +2.1% | 5.7 | **PRESSURE_PROOF** | MEDIUM |
-| Washington Sundar | BATTER | 49 | -0.4% | -0.7 | **PRESSURE_PROOF** | LOW |
-| M Shahrukh Khan | BATTER | 79 | -2.1% | -5.9 | **PRESSURE_PROOF** | MEDIUM |
-| R Tewatia | BATTER | 122 | -9.3% | -34.1 | MODERATE | HIGH |
+| Player | Role | Balls | Delta% | W.Score | Rating | Entry | Confidence |
+|--------|------|-------|--------|---------|--------|-------|------------|
+| Shubman Gill | BATTER | 217 | +16.0% | 62.8 | **CLUTCH** | FRESH | HIGH |
+| B Sai Sudharsan | BATTER | 274 | +3.9% | 16.6 | **PRESSURE_PROOF** | FRESH | HIGH |
+| JC Buttler | BATTER | 192 | +3.2% | 12.5 | **PRESSURE_PROOF** | FRESH | HIGH |
+| Rashid Khan | BATTER | 73 | +2.1% | 5.7 | **PRESSURE_PROOF** | FRESH | MEDIUM |
+| Washington Sundar | BATTER | 49 | -0.4% | -0.7 | **PRESSURE_PROOF** | FRESH | LOW |
+| M Shahrukh Khan | BATTER | 79 | -2.1% | -5.9 | **PRESSURE_PROOF** | FRESH | MEDIUM |
+| R Tewatia | BATTER | 122 | -9.3% | -34.1 | MODERATE | FRESH | HIGH |
+
+### 11.4 Glossary
+
+*Quick reference for all pressure metrics, bands, and ratings used in this section.*
+
+#### Pressure Bands (RRR-Based)
+
+| Band | RRR Range | What It Means |
+|------|-----------|---------------|
+| COMFORTABLE | < 8 | Cruising — run rate is manageable, batters can play normally |
+| BUILDING | 8–10 | Above par — scoring needs to accelerate, risk-taking begins |
+| HIGH | 10–12 | Aggressive required — boundaries needed every 2-3 balls |
+| EXTREME | 12–15 | Six-hitting territory — almost every ball must score |
+| NEAR_IMPOSSIBLE | 15+ | Miracle needed — requires continuous boundaries to win |
+
+#### Pressure Ratings (Performance Tags)
+
+| Rating | For Batters | For Bowlers |
+|--------|------------|-------------|
+| CLUTCH | SR improves 10%+ AND dot% drops in 12+ RRR bands | Economy improves AND dot% rises in 12+ RRR bands |
+| PRESSURE_PROOF | Metrics within +/-5% of overall across all bands | Metrics within +/-5% of overall across all bands |
+| MODERATE | Performance changes between 5-10% under pressure | Economy/dot% changes 5-10% under pressure |
+| PRESSURE_SENSITIVE | SR drops 10%+ OR dot% rises 10%+ in 12+ RRR bands | Economy rises 15%+ OR boundary% conceded rises 10%+ |
+| FINISHER | SR in 15+ band exceeds 170 with adequate sample | N/A |
+| CLOSER | N/A | Economy < 8.5 in 15+ band with 5+ overs |
+
+#### Entry Context (Batter Only)
+
+| Context | Balls Before Pressure | Meaning |
+|---------|----------------------|---------|
+| FRESH | < 10 | Walked in during pressure phase — facing it cold |
+| BUILDING | 10–25 | Getting set when pressure hit — partially established |
+| SET | 25–40 | Well established before pressure phase |
+| DEEP_SET | 40+ | Long innings before pressure — fully in rhythm |
+
+#### Other Terms
+
+- **Weighted Score (W.Score)**: Composite metric that combines SR delta with sample size (log2 scaling) and death overs bonus (30% weight for overs 16-20 execution)
+- **SR Delta**: Percentage change in strike rate between overall performance and pressure situations. Positive = better under pressure.
+- **Death Pressure Ratio**: Proportion of pressure balls faced in overs 16-20 vs all pressure balls
 
 ---
-*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. COMFORTABLE (RRR < 8), BUILDING (8-10), HIGH (10-12), EXTREME (12-15), NEAR_IMPOSSIBLE (15+). Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify. Weighted Score factors in sample size and death-overs (16-20) contribution.*
+*Note: Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify.*
 
 
 ---

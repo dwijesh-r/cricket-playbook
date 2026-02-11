@@ -2250,6 +2250,16 @@
           "name": "dismissals",
           "type": "HUGEINT",
           "description": "Dismissals"
+        },
+        {
+          "name": "avg_balls_before_entry",
+          "type": "DOUBLE",
+          "description": "Avg balls before entry"
+        },
+        {
+          "name": "entry_context",
+          "type": "VARCHAR",
+          "description": "Entry context"
         }
       ]
     },
@@ -2316,6 +2326,16 @@
           "name": "dismissals",
           "type": "HUGEINT",
           "description": "Dismissals"
+        },
+        {
+          "name": "avg_balls_before_entry",
+          "type": "DOUBLE",
+          "description": "Avg balls before entry"
+        },
+        {
+          "name": "entry_context",
+          "type": "VARCHAR",
+          "description": "Entry context"
         }
       ]
     },
@@ -9264,6 +9284,16 @@
           "name": "pressure_score",
           "type": "DOUBLE",
           "description": "Pressure score"
+        },
+        {
+          "name": "avg_balls_before_pressure",
+          "type": "DOUBLE",
+          "description": "Avg balls before pressure"
+        },
+        {
+          "name": "entry_context",
+          "type": "VARCHAR",
+          "description": "Entry context"
         }
       ]
     },
@@ -9365,6 +9395,16 @@
           "name": "pressure_score",
           "type": "DOUBLE",
           "description": "Pressure score"
+        },
+        {
+          "name": "avg_balls_before_pressure",
+          "type": "DOUBLE",
+          "description": "Avg balls before pressure"
+        },
+        {
+          "name": "entry_context",
+          "type": "VARCHAR",
+          "description": "Entry context"
         }
       ]
     },
@@ -11805,6 +11845,6 @@
     "total_views": 152,
     "total_rows": 2380093,
     "parquet_size_mb": 15.25,
-    "generated_at": "2026-02-11T17:59:37.391606+00:00"
+    "generated_at": "2026-02-11T18:07:37.129975+00:00"
   }
 }

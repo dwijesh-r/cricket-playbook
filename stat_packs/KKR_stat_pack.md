@@ -1,6 +1,6 @@
 # Kolkata Knight Riders (KKR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-11 23:28
+**Generated:** 2026-02-11 23:37
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -178,8 +178,8 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | MA Chidambaram Stadium | 4 | 3 | 75.0% | 126.3 |
-| Wankhede Stadium | 3 | 1 | 33.3% | 156.7 |
 | Arun Jaitley Stadium | 3 | 1 | 33.3% | 166.3 |
+| Wankhede Stadium | 3 | 1 | 33.3% | 156.7 |
 | Narendra Modi Stadium | 2 | 2 | 100.0% | 185.5 |
 | M Chinnaswamy Stadium | 2 | 2 | 100.0% | 193.0 |
 
@@ -192,8 +192,8 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
@@ -225,8 +225,8 @@
 | VG Arora | Eden Gardens | 13 | 17 | 10.03 | 15.94 |
 | SP Narine | Eden Gardens | 21 | 16 | 7.16 | 28.88 |
 | SP Narine | MA Chidambaram Stadium | 4 | 7 | 4.94 | 13.71 |
-| CV Varun | MA Chidambaram Stadium | 4 | 5 | 6.71 | 16.8 |
 | SP Narine | Arun Jaitley Stadium | 3 | 5 | 8.92 | 14.4 |
+| CV Varun | MA Chidambaram Stadium | 4 | 5 | 6.71 | 16.8 |
 
 
 ---
@@ -404,8 +404,8 @@
 | Punjab Kings | 5 | 114 | 157 | 7 | 8.26 | 22.43 | 16.29 | 35.09 | 16.67 | HIGH |
 | Chennai Super Kings | 5 | 120 | 150 | 7 | 7.5 | 21.43 | 17.14 | 38.33 | 12.5 | HIGH |
 | Rajasthan Royals | 4 | 90 | 111 | 6 | 7.4 | 18.5 | 15.0 | 48.89 | 17.78 | MEDIUM |
-| Mumbai Indians | 4 | 90 | 88 | 5 | 5.87 | 17.6 | 18.0 | 45.56 | 10.0 | MEDIUM |
 | Lucknow Super Giants | 4 | 90 | 133 | 5 | 8.87 | 26.6 | 18.0 | 36.67 | 17.78 | MEDIUM |
+| Mumbai Indians | 4 | 90 | 88 | 5 | 5.87 | 17.6 | 18.0 | 45.56 | 10.0 | MEDIUM |
 | Gujarat Titans | 3 | 60 | 102 | 0 | 10.2 | - | - | 21.67 | 23.33 | MEDIUM |
 
 ### Matheesha Pathirana
@@ -444,10 +444,10 @@
 | Lucknow Super Giants | 4 | 85 | 129 | 6 | 9.11 | 21.5 | 14.17 | 37.65 | 23.53 | MEDIUM |
 | Rajasthan Royals | 4 | 84 | 139 | 6 | 9.93 | 23.17 | 14.0 | 36.9 | 27.38 | MEDIUM |
 | Punjab Kings | 4 | 72 | 146 | 5 | 12.17 | 29.2 | 14.4 | 36.11 | 33.33 | MEDIUM |
-| Royal Challengers Bengaluru | 3 | 66 | 102 | 4 | 9.27 | 25.5 | 16.5 | 28.79 | 19.7 | MEDIUM |
 | Chennai Super Kings | 3 | 60 | 77 | 4 | 7.7 | 19.25 | 15.0 | 50.0 | 18.33 | MEDIUM |
-| Gujarat Titans | 2 | 42 | 67 | 2 | 9.57 | 33.5 | 21.0 | 26.19 | 26.19 | MEDIUM |
+| Royal Challengers Bengaluru | 3 | 66 | 102 | 4 | 9.27 | 25.5 | 16.5 | 28.79 | 19.7 | MEDIUM |
 | Mumbai Indians | 2 | 30 | 57 | 2 | 11.4 | 28.5 | 15.0 | 40.0 | 33.33 | MEDIUM |
+| Gujarat Titans | 2 | 42 | 67 | 2 | 9.57 | 33.5 | 21.0 | 26.19 | 26.19 | MEDIUM |
 | Delhi Capitals | 2 | 48 | 77 | 2 | 9.63 | 38.5 | 24.0 | 37.5 | 27.08 | MEDIUM |
 
 ### Vaibhav Arora
@@ -517,39 +517,39 @@
 
 *Performance across Required Run Rate (RRR) bands — IPL 2023+*
 
-| Player | Band | Balls | SR | Avg | Boundary% | Dot% | Confidence |
-|--------|------|-------|----|-----|-----------|------|------------|
-| A Raghuvanshi | COMFORTABLE | 46 | 135 | 31 | 19.6 | 32.6 | LOW |
-| A Raghuvanshi | NEAR_IMPOSSIBLE | 32 | 122 | 19.5 | 15.6 | 31.2 | LOW |
-| AM Rahane | COMFORTABLE | 80 | 144 | 28.8 | 18.8 | 28.8 | MEDIUM |
-| AM Rahane | BUILDING | 61 | 146 | 29.7 | 13.1 | 29.5 | MEDIUM |
-| AM Rahane | HIGH | 84 | 164 | 138 | 26.2 | 29.8 | MEDIUM |
-| AM Rahane | EXTREME | 64 | 136 | 21.8 | 12.5 | 20.3 | MEDIUM |
-| C Green | BUILDING | 34 | 168 | 57 | 20.6 | 26.5 | LOW |
-| C Green | HIGH | 79 | 177 | 46.7 | 30.4 | 32.9 | MEDIUM |
-| C Green | EXTREME | 73 | 149 | 36.3 | 16.4 | 30.1 | MEDIUM |
-| MK Pandey | COMFORTABLE | 23 | 91.3 | 21 | 8.7 | 34.8 | LOW |
-| MK Pandey | BUILDING | 22 | 86.4 | 9.5 | 13.6 | 59.1 | LOW |
-| MK Pandey | HIGH | 40 | 102 | 20.5 | 7.5 | 35 | LOW |
-| MK Pandey | NEAR_IMPOSSIBLE | 23 | 161 | 37 | 21.7 | 34.8 | LOW |
-| R Powell | NEAR_IMPOSSIBLE | 42 | 131 | 13.8 | 16.7 | 38.1 | LOW |
-| R Ravindra | COMFORTABLE | 80 | 159 | 42.3 | 18.8 | 26.2 | MEDIUM |
-| R Ravindra | BUILDING | 43 | 137 | 19.7 | 18.6 | 37.2 | LOW |
-| R Ravindra | HIGH | 64 | 136 | 43.5 | 20.3 | 34.4 | MEDIUM |
-| R Ravindra | EXTREME | 27 | 181 | - | 22.2 | 11.1 | LOW |
-| RA Tripathi | COMFORTABLE | 52 | 142 | 74 | 21.1 | 38.5 | MEDIUM |
-| RA Tripathi | BUILDING | 44 | 130 | 14.2 | 18.2 | 43.2 | LOW |
-| RA Tripathi | HIGH | 61 | 130 | 15.8 | 19.7 | 37.7 | MEDIUM |
-| RA Tripathi | EXTREME | 22 | 164 | 36 | 18.2 | 22.7 | LOW |
-| RK Singh | COMFORTABLE | 61 | 111 | 22.7 | 13.1 | 44.3 | MEDIUM |
-| RK Singh | BUILDING | 19 | 111 | - | 10.5 | 36.8 | LOW |
-| RK Singh | HIGH | 18 | 100 | 18 | 5.6 | 33.3 | LOW |
-| RK Singh | EXTREME | 16 | 150 | - | 18.8 | 25 | LOW |
-| RK Singh | NEAR_IMPOSSIBLE | 93 | 185 | 172 | 24.7 | 21.5 | MEDIUM |
-| SP Narine | COMFORTABLE | 60 | 178 | 15.3 | 31.7 | 41.7 | MEDIUM |
-| SP Narine | BUILDING | 18 | 206 | - | 27.8 | 22.2 | LOW |
-| SP Narine | HIGH | 25 | 184 | 23 | 36 | 36 | LOW |
-| SP Narine | EXTREME | 27 | 159 | 10.8 | 29.6 | 59.3 | LOW |
+| Player | Band | Balls | SR | Avg | Boundary% | Dot% | Entry | Confidence |
+|--------|------|-------|----|-----|-----------|------|-------|------------|
+| A Raghuvanshi | COMFORTABLE | 46 | 135 | 31 | 19.6 | 32.6 | FRESH | LOW |
+| A Raghuvanshi | NEAR_IMPOSSIBLE | 32 | 122 | 19.5 | 15.6 | 31.2 | FRESH | LOW |
+| AM Rahane | COMFORTABLE | 80 | 144 | 28.8 | 18.8 | 28.8 | FRESH | MEDIUM |
+| AM Rahane | BUILDING | 61 | 146 | 29.7 | 13.1 | 29.5 | FRESH | MEDIUM |
+| AM Rahane | HIGH | 84 | 164 | 138 | 26.2 | 29.8 | FRESH | MEDIUM |
+| AM Rahane | EXTREME | 64 | 136 | 21.8 | 12.5 | 20.3 | FRESH | MEDIUM |
+| C Green | BUILDING | 34 | 168 | 57 | 20.6 | 26.5 | FRESH | LOW |
+| C Green | HIGH | 79 | 177 | 46.7 | 30.4 | 32.9 | FRESH | MEDIUM |
+| C Green | EXTREME | 73 | 149 | 36.3 | 16.4 | 30.1 | FRESH | MEDIUM |
+| MK Pandey | COMFORTABLE | 23 | 91.3 | 21 | 8.7 | 34.8 | FRESH | LOW |
+| MK Pandey | BUILDING | 22 | 86.4 | 9.5 | 13.6 | 59.1 | FRESH | LOW |
+| MK Pandey | HIGH | 40 | 102 | 20.5 | 7.5 | 35 | FRESH | LOW |
+| MK Pandey | NEAR_IMPOSSIBLE | 23 | 161 | 37 | 21.7 | 34.8 | FRESH | LOW |
+| R Powell | NEAR_IMPOSSIBLE | 42 | 131 | 13.8 | 16.7 | 38.1 | FRESH | LOW |
+| R Ravindra | COMFORTABLE | 80 | 159 | 42.3 | 18.8 | 26.2 | FRESH | MEDIUM |
+| R Ravindra | BUILDING | 43 | 137 | 19.7 | 18.6 | 37.2 | FRESH | LOW |
+| R Ravindra | HIGH | 64 | 136 | 43.5 | 20.3 | 34.4 | FRESH | MEDIUM |
+| R Ravindra | EXTREME | 27 | 181 | - | 22.2 | 11.1 | BUILDING | LOW |
+| RA Tripathi | COMFORTABLE | 52 | 142 | 74 | 21.1 | 38.5 | FRESH | MEDIUM |
+| RA Tripathi | BUILDING | 44 | 130 | 14.2 | 18.2 | 43.2 | FRESH | LOW |
+| RA Tripathi | HIGH | 61 | 130 | 15.8 | 19.7 | 37.7 | FRESH | MEDIUM |
+| RA Tripathi | EXTREME | 22 | 164 | 36 | 18.2 | 22.7 | FRESH | LOW |
+| RK Singh | COMFORTABLE | 61 | 111 | 22.7 | 13.1 | 44.3 | FRESH | MEDIUM |
+| RK Singh | BUILDING | 19 | 111 | - | 10.5 | 36.8 | FRESH | LOW |
+| RK Singh | HIGH | 18 | 100 | 18 | 5.6 | 33.3 | FRESH | LOW |
+| RK Singh | EXTREME | 16 | 150 | - | 18.8 | 25 | FRESH | LOW |
+| RK Singh | NEAR_IMPOSSIBLE | 93 | 185 | 172 | 24.7 | 21.5 | FRESH | MEDIUM |
+| SP Narine | COMFORTABLE | 60 | 178 | 15.3 | 31.7 | 41.7 | FRESH | MEDIUM |
+| SP Narine | BUILDING | 18 | 206 | - | 27.8 | 22.2 | FRESH | LOW |
+| SP Narine | HIGH | 25 | 184 | 23 | 36 | 36 | FRESH | LOW |
+| SP Narine | EXTREME | 27 | 159 | 10.8 | 29.6 | 59.3 | FRESH | LOW |
 
 ### 11.2 Bowling Under Pressure
 
@@ -604,20 +604,60 @@
 
 *Weighted Score = SR Delta x sample-size bonus x death-overs bonus*
 
-| Player | Role | Balls | Delta% | W.Score | Rating | Confidence |
-|--------|------|-------|--------|---------|--------|------------|
-| RK Singh | BATTER | 127 | +15.1% | 53.2 | **CLUTCH** | HIGH |
-| MK Pandey | BATTER | 75 | +12.9% | 30.9 | **CLUTCH** | MEDIUM |
-| AM Rahane | BATTER | 162 | +2.4% | 8.4 | **PRESSURE_PROOF** | HIGH |
-| RA Tripathi | BATTER | 91 | +0.3% | 0.9 | **PRESSURE_PROOF** | MEDIUM |
-| A Raghuvanshi | BATTER | 32 | -3.7% | -4.4 | **PRESSURE_PROOF** | LOW |
-| C Green | BATTER | 162 | -1.6% | -5.6 | **PRESSURE_PROOF** | HIGH |
-| R Ravindra | BATTER | 97 | -3.0% | -8.1 | **PRESSURE_PROOF** | MEDIUM |
-| SP Narine | BATTER | 54 | -6.0% | -11.4 | MODERATE | MEDIUM |
-| R Powell | BATTER | 47 | -10.1% | -20.0 | PRESSURE_SENSITIVE | LOW |
+| Player | Role | Balls | Delta% | W.Score | Rating | Entry | Confidence |
+|--------|------|-------|--------|---------|--------|-------|------------|
+| RK Singh | BATTER | 127 | +15.1% | 53.2 | **CLUTCH** | FRESH | HIGH |
+| MK Pandey | BATTER | 75 | +12.9% | 30.9 | **CLUTCH** | FRESH | MEDIUM |
+| AM Rahane | BATTER | 162 | +2.4% | 8.4 | **PRESSURE_PROOF** | FRESH | HIGH |
+| RA Tripathi | BATTER | 91 | +0.3% | 0.9 | **PRESSURE_PROOF** | FRESH | MEDIUM |
+| A Raghuvanshi | BATTER | 32 | -3.7% | -4.4 | **PRESSURE_PROOF** | FRESH | LOW |
+| C Green | BATTER | 162 | -1.6% | -5.6 | **PRESSURE_PROOF** | FRESH | HIGH |
+| R Ravindra | BATTER | 97 | -3.0% | -8.1 | **PRESSURE_PROOF** | FRESH | MEDIUM |
+| SP Narine | BATTER | 54 | -6.0% | -11.4 | MODERATE | FRESH | MEDIUM |
+| R Powell | BATTER | 47 | -10.1% | -20.0 | PRESSURE_SENSITIVE | FRESH | LOW |
+
+### 11.4 Glossary
+
+*Quick reference for all pressure metrics, bands, and ratings used in this section.*
+
+#### Pressure Bands (RRR-Based)
+
+| Band | RRR Range | What It Means |
+|------|-----------|---------------|
+| COMFORTABLE | < 8 | Cruising — run rate is manageable, batters can play normally |
+| BUILDING | 8–10 | Above par — scoring needs to accelerate, risk-taking begins |
+| HIGH | 10–12 | Aggressive required — boundaries needed every 2-3 balls |
+| EXTREME | 12–15 | Six-hitting territory — almost every ball must score |
+| NEAR_IMPOSSIBLE | 15+ | Miracle needed — requires continuous boundaries to win |
+
+#### Pressure Ratings (Performance Tags)
+
+| Rating | For Batters | For Bowlers |
+|--------|------------|-------------|
+| CLUTCH | SR improves 10%+ AND dot% drops in 12+ RRR bands | Economy improves AND dot% rises in 12+ RRR bands |
+| PRESSURE_PROOF | Metrics within +/-5% of overall across all bands | Metrics within +/-5% of overall across all bands |
+| MODERATE | Performance changes between 5-10% under pressure | Economy/dot% changes 5-10% under pressure |
+| PRESSURE_SENSITIVE | SR drops 10%+ OR dot% rises 10%+ in 12+ RRR bands | Economy rises 15%+ OR boundary% conceded rises 10%+ |
+| FINISHER | SR in 15+ band exceeds 170 with adequate sample | N/A |
+| CLOSER | N/A | Economy < 8.5 in 15+ band with 5+ overs |
+
+#### Entry Context (Batter Only)
+
+| Context | Balls Before Pressure | Meaning |
+|---------|----------------------|---------|
+| FRESH | < 10 | Walked in during pressure phase — facing it cold |
+| BUILDING | 10–25 | Getting set when pressure hit — partially established |
+| SET | 25–40 | Well established before pressure phase |
+| DEEP_SET | 40+ | Long innings before pressure — fully in rhythm |
+
+#### Other Terms
+
+- **Weighted Score (W.Score)**: Composite metric that combines SR delta with sample size (log2 scaling) and death overs bonus (30% weight for overs 16-20 execution)
+- **SR Delta**: Percentage change in strike rate between overall performance and pressure situations. Positive = better under pressure.
+- **Death Pressure Ratio**: Proportion of pressure balls faced in overs 16-20 vs all pressure balls
 
 ---
-*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. COMFORTABLE (RRR < 8), BUILDING (8-10), HIGH (10-12), EXTREME (12-15), NEAR_IMPOSSIBLE (15+). Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify. Weighted Score factors in sample size and death-overs (16-20) contribution.*
+*Note: Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify.*
 
 
 ---

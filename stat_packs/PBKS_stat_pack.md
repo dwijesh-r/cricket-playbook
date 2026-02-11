@@ -1,6 +1,6 @@
 # Punjab Kings (PBKS) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-11 23:28
+**Generated:** 2026-02-11 23:37
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -173,13 +173,13 @@
 |-------|---------|------|------|-----------|
 | Himachal Pradesh Cricket Associatio | 6 | 1 | 16.7% | 177.2 |
 | Narendra Modi Stadium | 4 | 3 | 75.0% | 208.5 |
-| Eden Gardens | 3 | 1 | 33.3% | 214.0 |
 | Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
-| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
+| Eden Gardens | 3 | 1 | 33.3% | 214.0 |
 | MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
-| M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
 | Barsapara Cricket Stadium | 2 | 2 | 100.0% | 171.0 |
+| M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -190,11 +190,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -223,10 +223,10 @@
 | Arshdeep Singh | Maharaja Yadavindra Singh | 10 | 11 | 8.64 | 18.0 |
 | Vijaykumar Vyshak | M Chinnaswamy Stadium | 8 | 10 | 9.8 | 17.7 |
 | Arshdeep Singh | Punjab Cricket Associatio | 5 | 7 | 10.78 | 16.14 |
-| YS Chahal | MA Chidambaram Stadium | 4 | 7 | 7.33 | 12.86 |
 | Arshdeep Singh | Himachal Pradesh Cricket  | 5 | 7 | 9.0 | 14.57 |
-| YS Chahal | Barsapara Cricket Stadium | 3 | 6 | 8.75 | 12.0 |
-| YS Chahal | Maharaja Yadavindra Singh | 5 | 6 | 8.0 | 16.0 |
+| YS Chahal | MA Chidambaram Stadium | 4 | 7 | 7.33 | 12.86 |
+| Arshdeep Singh | Bharat Ratna Shri Atal Bi | 3 | 6 | 9.1 | 10.0 |
+| Harpreet Brar | Sawai Mansingh Stadium | 3 | 6 | 8.17 | 12.0 |
 
 
 ---
@@ -408,12 +408,12 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Lucknow Super Giants | 5 | 108 | 158 | 10 | 8.78 | 15.8 | 10.8 | 34.26 | 23.15 | HIGH |
-| Sunrisers Hyderabad | 4 | 90 | 121 | 8 | 8.07 | 15.13 | 11.25 | 45.56 | 23.33 | MEDIUM |
 | Royal Challengers Bengaluru | 7 | 134 | 223 | 8 | 9.99 | 27.88 | 16.75 | 32.09 | 25.37 | HIGH |
+| Sunrisers Hyderabad | 4 | 90 | 121 | 8 | 8.07 | 15.13 | 11.25 | 45.56 | 23.33 | MEDIUM |
 | Mumbai Indians | 5 | 113 | 196 | 7 | 10.41 | 28.0 | 16.14 | 30.97 | 29.2 | HIGH |
+| Kolkata Knight Riders | 4 | 84 | 112 | 6 | 8.0 | 18.67 | 14.0 | 46.43 | 20.24 | MEDIUM |
 | Chennai Super Kings | 5 | 116 | 180 | 6 | 9.31 | 30.0 | 19.33 | 34.48 | 25.0 | HIGH |
 | Rajasthan Royals | 6 | 143 | 247 | 6 | 10.36 | 41.17 | 23.83 | 40.56 | 27.97 | HIGH |
-| Kolkata Knight Riders | 4 | 84 | 112 | 6 | 8.0 | 18.67 | 14.0 | 46.43 | 20.24 | MEDIUM |
 | Gujarat Titans | 4 | 85 | 124 | 4 | 8.75 | 31.0 | 21.25 | 30.59 | 18.82 | MEDIUM |
 | Delhi Capitals | 4 | 84 | 112 | 2 | 8.0 | 56.0 | 42.0 | 39.29 | 19.05 | MEDIUM |
 
@@ -428,8 +428,8 @@
 | Delhi Capitals | 3 | 66 | 93 | 6 | 8.45 | 15.5 | 11.0 | 28.79 | 15.15 | MEDIUM |
 | Mumbai Indians | 4 | 90 | 129 | 5 | 8.6 | 25.8 | 18.0 | 36.67 | 20.0 | MEDIUM |
 | Punjab Kings | 4 | 96 | 147 | 4 | 9.19 | 36.75 | 24.0 | 25.0 | 19.79 | MEDIUM |
-| Lucknow Super Giants | 5 | 114 | 189 | 3 | 9.95 | 63.0 | 38.0 | 25.44 | 21.05 | HIGH |
 | Gujarat Titans | 4 | 89 | 134 | 3 | 9.03 | 44.67 | 29.67 | 17.98 | 15.73 | MEDIUM |
+| Lucknow Super Giants | 5 | 114 | 189 | 3 | 9.95 | 63.0 | 38.0 | 25.44 | 21.05 | HIGH |
 | Rajasthan Royals | 2 | 42 | 57 | 0 | 8.14 | - | - | 23.81 | 14.29 | MEDIUM |
 
 ---
@@ -493,30 +493,30 @@
 
 *Performance across Required Run Rate (RRR) bands — IPL 2023+*
 
-| Player | Band | Balls | SR | Avg | Boundary% | Dot% | Confidence |
-|--------|------|-------|----|-----|-----------|------|------------|
-| MP Stoinis | COMFORTABLE | 79 | 116 | 46 | 16.5 | 46.8 | MEDIUM |
-| MP Stoinis | BUILDING | 20 | 180 | - | 30 | 30 | LOW |
-| MP Stoinis | HIGH | 44 | 100 | 22 | 15.9 | 40.9 | LOW |
-| MP Stoinis | EXTREME | 102 | 174 | 59 | 24.5 | 26.5 | HIGH |
-| MP Stoinis | NEAR_IMPOSSIBLE | 49 | 157 | 12.8 | 18.4 | 30.6 | LOW |
-| N Wadhera | COMFORTABLE | 55 | 175 | 48 | 29.1 | 40 | MEDIUM |
-| N Wadhera | HIGH | 90 | 119 | 35.7 | 14.4 | 37.8 | MEDIUM |
-| N Wadhera | EXTREME | 39 | 141 | 55 | 15.4 | 30.8 | LOW |
-| N Wadhera | NEAR_IMPOSSIBLE | 43 | 156 | 11.2 | 23.3 | 34.9 | LOW |
-| P Simran Singh | COMFORTABLE | 33 | 173 | 19 | 27.3 | 27.3 | LOW |
-| P Simran Singh | BUILDING | 159 | 155 | 27.4 | 25.2 | 39.6 | HIGH |
-| P Simran Singh | HIGH | 110 | 118 | 18.6 | 16.4 | 40.9 | HIGH |
-| P Simran Singh | EXTREME | 46 | 174 | 20 | 30.4 | 43.5 | LOW |
-| Priyansh Arya | BUILDING | 75 | 149 | 28 | 26.7 | 34.7 | MEDIUM |
-| SS Iyer | COMFORTABLE | 152 | 167 | 127 | 23.0 | 24.3 | HIGH |
-| SS Iyer | BUILDING | 25 | 152 | - | 20 | 32 | LOW |
-| SS Iyer | HIGH | 75 | 180 | 67.5 | 24 | 18.7 | MEDIUM |
-| Shashank Singh | COMFORTABLE | 40 | 112 | 15 | 12.5 | 45 | LOW |
-| Shashank Singh | BUILDING | 22 | 168 | 37 | 27.3 | 31.8 | LOW |
-| Shashank Singh | HIGH | 42 | 183 | 77 | 23.8 | 19.1 | LOW |
-| Shashank Singh | EXTREME | 76 | 187 | 71 | 27.6 | 22.4 | MEDIUM |
-| Shashank Singh | NEAR_IMPOSSIBLE | 51 | 147 | - | 17.6 | 17.6 | MEDIUM |
+| Player | Band | Balls | SR | Avg | Boundary% | Dot% | Entry | Confidence |
+|--------|------|-------|----|-----|-----------|------|-------|------------|
+| MP Stoinis | COMFORTABLE | 79 | 116 | 46 | 16.5 | 46.8 | FRESH | MEDIUM |
+| MP Stoinis | BUILDING | 20 | 180 | - | 30 | 30 | FRESH | LOW |
+| MP Stoinis | HIGH | 44 | 100 | 22 | 15.9 | 40.9 | FRESH | LOW |
+| MP Stoinis | EXTREME | 102 | 174 | 59 | 24.5 | 26.5 | FRESH | HIGH |
+| MP Stoinis | NEAR_IMPOSSIBLE | 49 | 157 | 12.8 | 18.4 | 30.6 | BUILDING | LOW |
+| N Wadhera | COMFORTABLE | 55 | 175 | 48 | 29.1 | 40 | FRESH | MEDIUM |
+| N Wadhera | HIGH | 90 | 119 | 35.7 | 14.4 | 37.8 | FRESH | MEDIUM |
+| N Wadhera | EXTREME | 39 | 141 | 55 | 15.4 | 30.8 | FRESH | LOW |
+| N Wadhera | NEAR_IMPOSSIBLE | 43 | 156 | 11.2 | 23.3 | 34.9 | BUILDING | LOW |
+| P Simran Singh | COMFORTABLE | 33 | 173 | 19 | 27.3 | 27.3 | FRESH | LOW |
+| P Simran Singh | BUILDING | 159 | 155 | 27.4 | 25.2 | 39.6 | FRESH | HIGH |
+| P Simran Singh | HIGH | 110 | 118 | 18.6 | 16.4 | 40.9 | FRESH | HIGH |
+| P Simran Singh | EXTREME | 46 | 174 | 20 | 30.4 | 43.5 | FRESH | LOW |
+| Priyansh Arya | BUILDING | 75 | 149 | 28 | 26.7 | 34.7 | FRESH | MEDIUM |
+| SS Iyer | COMFORTABLE | 152 | 167 | 127 | 23.0 | 24.3 | FRESH | HIGH |
+| SS Iyer | BUILDING | 25 | 152 | - | 20 | 32 | FRESH | LOW |
+| SS Iyer | HIGH | 75 | 180 | 67.5 | 24 | 18.7 | FRESH | MEDIUM |
+| Shashank Singh | COMFORTABLE | 40 | 112 | 15 | 12.5 | 45 | FRESH | LOW |
+| Shashank Singh | BUILDING | 22 | 168 | 37 | 27.3 | 31.8 | FRESH | LOW |
+| Shashank Singh | HIGH | 42 | 183 | 77 | 23.8 | 19.1 | FRESH | LOW |
+| Shashank Singh | EXTREME | 76 | 187 | 71 | 27.6 | 22.4 | FRESH | MEDIUM |
+| Shashank Singh | NEAR_IMPOSSIBLE | 51 | 147 | - | 17.6 | 17.6 | FRESH | MEDIUM |
 
 ### 11.2 Bowling Under Pressure
 
@@ -572,16 +572,56 @@
 
 *Weighted Score = SR Delta x sample-size bonus x death-overs bonus*
 
-| Player | Role | Balls | Delta% | W.Score | Rating | Confidence |
-|--------|------|-------|--------|---------|--------|------------|
-| Shashank Singh | BATTER | 169 | +6.9% | 26.8 | MODERATE | HIGH |
-| MP Stoinis | BATTER | 195 | +5.5% | 21.1 | MODERATE | HIGH |
-| SS Iyer | BATTER | 79 | +3.5% | 8.9 | **PRESSURE_PROOF** | MEDIUM |
-| N Wadhera | BATTER | 172 | -6.8% | -24.9 | MODERATE | HIGH |
-| P Simran Singh | BATTER | 156 | -8.9% | -29.9 | MODERATE | HIGH |
+| Player | Role | Balls | Delta% | W.Score | Rating | Entry | Confidence |
+|--------|------|-------|--------|---------|--------|-------|------------|
+| Shashank Singh | BATTER | 169 | +6.9% | 26.8 | MODERATE | FRESH | HIGH |
+| MP Stoinis | BATTER | 195 | +5.5% | 21.1 | MODERATE | FRESH | HIGH |
+| SS Iyer | BATTER | 79 | +3.5% | 8.9 | **PRESSURE_PROOF** | FRESH | MEDIUM |
+| N Wadhera | BATTER | 172 | -6.8% | -24.9 | MODERATE | FRESH | HIGH |
+| P Simran Singh | BATTER | 156 | -8.9% | -29.9 | MODERATE | FRESH | HIGH |
+
+### 11.4 Glossary
+
+*Quick reference for all pressure metrics, bands, and ratings used in this section.*
+
+#### Pressure Bands (RRR-Based)
+
+| Band | RRR Range | What It Means |
+|------|-----------|---------------|
+| COMFORTABLE | < 8 | Cruising — run rate is manageable, batters can play normally |
+| BUILDING | 8–10 | Above par — scoring needs to accelerate, risk-taking begins |
+| HIGH | 10–12 | Aggressive required — boundaries needed every 2-3 balls |
+| EXTREME | 12–15 | Six-hitting territory — almost every ball must score |
+| NEAR_IMPOSSIBLE | 15+ | Miracle needed — requires continuous boundaries to win |
+
+#### Pressure Ratings (Performance Tags)
+
+| Rating | For Batters | For Bowlers |
+|--------|------------|-------------|
+| CLUTCH | SR improves 10%+ AND dot% drops in 12+ RRR bands | Economy improves AND dot% rises in 12+ RRR bands |
+| PRESSURE_PROOF | Metrics within +/-5% of overall across all bands | Metrics within +/-5% of overall across all bands |
+| MODERATE | Performance changes between 5-10% under pressure | Economy/dot% changes 5-10% under pressure |
+| PRESSURE_SENSITIVE | SR drops 10%+ OR dot% rises 10%+ in 12+ RRR bands | Economy rises 15%+ OR boundary% conceded rises 10%+ |
+| FINISHER | SR in 15+ band exceeds 170 with adequate sample | N/A |
+| CLOSER | N/A | Economy < 8.5 in 15+ band with 5+ overs |
+
+#### Entry Context (Batter Only)
+
+| Context | Balls Before Pressure | Meaning |
+|---------|----------------------|---------|
+| FRESH | < 10 | Walked in during pressure phase — facing it cold |
+| BUILDING | 10–25 | Getting set when pressure hit — partially established |
+| SET | 25–40 | Well established before pressure phase |
+| DEEP_SET | 40+ | Long innings before pressure — fully in rhythm |
+
+#### Other Terms
+
+- **Weighted Score (W.Score)**: Composite metric that combines SR delta with sample size (log2 scaling) and death overs bonus (30% weight for overs 16-20 execution)
+- **SR Delta**: Percentage change in strike rate between overall performance and pressure situations. Positive = better under pressure.
+- **Death Pressure Ratio**: Proportion of pressure balls faced in overs 16-20 vs all pressure balls
 
 ---
-*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. COMFORTABLE (RRR < 8), BUILDING (8-10), HIGH (10-12), EXTREME (12-15), NEAR_IMPOSSIBLE (15+). Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify. Weighted Score factors in sample size and death-overs (16-20) contribution.*
+*Note: Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify.*
 
 
 ---

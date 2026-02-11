@@ -81,6 +81,7 @@ def get_top_clutch_batters(conn):
                 pd.pressure_balls,
                 pd.pressure_score,
                 pd.death_pressure_balls,
+                pd.entry_context,
                 ROW_NUMBER() OVER (
                     PARTITION BY sq.team_name
                     ORDER BY pd.pressure_score DESC
@@ -90,7 +91,7 @@ def get_top_clutch_batters(conn):
         )
         SELECT team_name, player_name, sr_delta_pct, pressure_sr, overall_sr,
                pressure_rating, sample_confidence, pressure_balls,
-               pressure_score, death_pressure_balls
+               pressure_score, death_pressure_balls, entry_context
         FROM ranked
         WHERE rn <= 3
         ORDER BY team_name, rn
@@ -109,6 +110,7 @@ def get_top_clutch_batters(conn):
             balls,
             score,
             death_balls,
+            entry_ctx,
         ) = row
         abbrev = TEAM_ABBREV.get(team_name)
         if not abbrev:
@@ -126,6 +128,7 @@ def get_top_clutch_batters(conn):
                 "pressureBalls": int(balls) if balls is not None else 0,
                 "pressureScore": round(float(score), 2) if score is not None else 0.0,
                 "deathPressureBalls": int(death_balls) if death_balls is not None else 0,
+                "entryContext": entry_ctx if entry_ctx else "N/A",
             }
         )
 
@@ -271,7 +274,8 @@ def generate_js(summary, batters, bowlers):
                 f'confidence: "{b["confidence"]}", '
                 f"pressureBalls: {b['pressureBalls']}, "
                 f"pressureScore: {b['pressureScore']}, "
-                f"deathPressureBalls: {b['deathPressureBalls']} }},"
+                f"deathPressureBalls: {b['deathPressureBalls']}, "
+                f'entryContext: "{b["entryContext"]}" }},'
             )
         lines.append("        ],")
 

@@ -1,6 +1,6 @@
 # Chennai Super Kings (CSK) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-11 23:28
+**Generated:** 2026-02-11 23:37
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -174,11 +174,11 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Narendra Modi Stadium | 4 | 2 | 50.0% | 193.8 |
-| Wankhede Stadium | 3 | 2 | 66.7% | 180.3 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 172.0 |
 | M Chinnaswamy Stadium | 3 | 1 | 33.3% | 209.3 |
-| Eden Gardens | 2 | 2 | 100.0% | 209.0 |
+| Wankhede Stadium | 3 | 2 | 66.7% | 180.3 |
 | Arun Jaitley Stadium | 2 | 1 | 50.0% | 205.0 |
+| Eden Gardens | 2 | 2 | 100.0% | 209.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -191,9 +191,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -212,7 +212,7 @@
 | SV Samson | Arun Jaitley Stadium | 3 | 158 | 168.09 | 52.67 |
 | S Dube | Wankhede Stadium | 3 | 144 | 150.0 | 72.0 |
 | SV Samson | Rajiv Gandhi Internationa | 3 | 120 | 169.01 | 40.0 |
-| SV Samson | Narendra Modi Stadium | 3 | 118 | 161.64 | 59.0 |
+| RD Gaikwad | Narendra Modi Stadium | 3 | 118 | 171.01 | 39.33 |
 
 **Top Bowling Performances:**
 
@@ -222,9 +222,9 @@
 | Noor Ahmad | Narendra Modi Stadium | 13 | 13 | 8.23 | 20.31 |
 | KK Ahmed | MA Chidambaram Stadium | 7 | 10 | 7.75 | 15.4 |
 | Noor Ahmad | Eden Gardens | 2 | 6 | 6.38 | 8.0 |
+| KK Ahmed | Bharat Ratna Shri Atal Bi | 3 | 5 | 9.17 | 14.4 |
 | KV Sharma | Sawai Mansingh Stadium | 2 | 5 | 8.0 | 6.6 |
 | NT Ellis | Barsapara Cricket Stadium | 2 | 5 | 6.75 | 9.6 |
-| KK Ahmed | Bharat Ratna Shri Atal Bi | 3 | 5 | 9.17 | 14.4 |
 
 
 ---
@@ -371,14 +371,14 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Mumbai Indians | 5 | 114 | 162 | 7 | 8.53 | 23.14 | 16.29 | 34.21 | 16.67 | HIGH |
 | Royal Challengers Bengaluru | 5 | 120 | 170 | 7 | 8.5 | 24.29 | 17.14 | 34.17 | 19.17 | HIGH |
+| Mumbai Indians | 5 | 114 | 162 | 7 | 8.53 | 23.14 | 16.29 | 34.21 | 16.67 | HIGH |
 | Kolkata Knight Riders | 3 | 60 | 59 | 7 | 5.9 | 8.43 | 8.57 | 45.0 | 11.67 | MEDIUM |
-| Punjab Kings | 4 | 90 | 122 | 6 | 8.13 | 20.33 | 15.0 | 30.0 | 14.44 | MEDIUM |
 | Rajasthan Royals | 5 | 98 | 154 | 6 | 9.43 | 25.67 | 16.33 | 29.59 | 19.39 | MEDIUM |
+| Punjab Kings | 4 | 90 | 122 | 6 | 8.13 | 20.33 | 15.0 | 30.0 | 14.44 | MEDIUM |
+| Sunrisers Hyderabad | 3 | 65 | 103 | 3 | 9.51 | 34.33 | 21.67 | 29.23 | 20.0 | MEDIUM |
 | Chennai Super Kings | 3 | 54 | 68 | 3 | 7.56 | 22.67 | 18.0 | 27.78 | 11.11 | MEDIUM |
 | Lucknow Super Giants | 4 | 96 | 78 | 3 | 4.88 | 26.0 | 32.0 | 44.79 | 6.25 | MEDIUM |
-| Sunrisers Hyderabad | 3 | 65 | 103 | 3 | 9.51 | 34.33 | 21.67 | 29.23 | 20.0 | MEDIUM |
 | Delhi Capitals | 4 | 71 | 104 | 2 | 8.79 | 52.0 | 35.5 | 30.99 | 19.72 | MEDIUM |
 
 ### Khaleel Ahmed
@@ -386,10 +386,10 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Punjab Kings | 5 | 112 | 168 | 7 | 9.0 | 24.0 | 16.0 | 43.75 | 24.11 | HIGH |
-| Mumbai Indians | 4 | 84 | 138 | 6 | 9.86 | 23.0 | 14.0 | 40.48 | 26.19 | MEDIUM |
 | Lucknow Super Giants | 4 | 84 | 132 | 6 | 9.43 | 22.0 | 14.0 | 50.0 | 26.19 | MEDIUM |
-| Rajasthan Royals | 5 | 102 | 163 | 5 | 9.59 | 32.6 | 20.4 | 42.16 | 29.41 | HIGH |
+| Mumbai Indians | 4 | 84 | 138 | 6 | 9.86 | 23.0 | 14.0 | 40.48 | 26.19 | MEDIUM |
 | Gujarat Titans | 5 | 102 | 123 | 5 | 7.24 | 24.6 | 20.4 | 46.08 | 19.61 | HIGH |
+| Rajasthan Royals | 5 | 102 | 163 | 5 | 9.59 | 32.6 | 20.4 | 42.16 | 29.41 | HIGH |
 | Royal Challengers Bengaluru | 4 | 90 | 163 | 4 | 10.87 | 40.75 | 22.5 | 34.44 | 28.89 | MEDIUM |
 | Chennai Super Kings | 3 | 72 | 92 | 4 | 7.67 | 23.0 | 18.0 | 41.67 | 16.67 | MEDIUM |
 | Sunrisers Hyderabad | 2 | 36 | 72 | 1 | 12.0 | 72.0 | 36.0 | 33.33 | 33.33 | MEDIUM |
@@ -448,27 +448,27 @@
 
 *Performance across Required Run Rate (RRR) bands — IPL 2023+*
 
-| Player | Band | Balls | SR | Avg | Boundary% | Dot% | Confidence |
-|--------|------|-------|----|-----|-----------|------|------------|
-| A Mhatre | HIGH | 48 | 196 | 94 | 29.2 | 20.8 | LOW |
-| D Brevis | BUILDING | 55 | 138 | - | 16.4 | 38.2 | MEDIUM |
-| D Brevis | HIGH | 16 | 119 | 9.5 | 18.8 | 62.5 | LOW |
-| MS Dhoni | EXTREME | 19 | 168 | - | 21.1 | 21.1 | LOW |
-| MS Dhoni | NEAR_IMPOSSIBLE | 89 | 172 | 51 | 22.5 | 19.1 | MEDIUM |
-| RD Gaikwad | COMFORTABLE | 199 | 133 | 132 | 16.1 | 32.2 | HIGH |
-| RD Gaikwad | BUILDING | 43 | 81.4 | 11.7 | 11.6 | 55.8 | LOW |
-| RD Gaikwad | HIGH | 78 | 146 | 28.5 | 20.5 | 30.8 | MEDIUM |
-| RD Gaikwad | EXTREME | 17 | 118 | 5 | 11.8 | 47.1 | LOW |
-| S Dube | COMFORTABLE | 89 | 127 | 28.2 | 15.7 | 43.8 | MEDIUM |
-| S Dube | BUILDING | 55 | 111 | - | 10.9 | 34.5 | MEDIUM |
-| S Dube | HIGH | 68 | 138 | 31.3 | 16.2 | 32.4 | MEDIUM |
-| S Dube | EXTREME | 69 | 141 | - | 17.4 | 36.2 | MEDIUM |
-| S Dube | NEAR_IMPOSSIBLE | 72 | 142 | 17 | 16.7 | 29.2 | MEDIUM |
-| SV Samson | COMFORTABLE | 64 | 170 | 54.5 | 26.6 | 35.9 | MEDIUM |
-| SV Samson | BUILDING | 161 | 144 | 38.7 | 18.6 | 32.3 | HIGH |
-| SV Samson | HIGH | 107 | 153 | 41 | 23.4 | 31.8 | HIGH |
-| SV Samson | EXTREME | 73 | 201 | 49 | 30.1 | 21.9 | MEDIUM |
-| SV Samson | NEAR_IMPOSSIBLE | 43 | 140 | 20 | 20.9 | 41.9 | LOW |
+| Player | Band | Balls | SR | Avg | Boundary% | Dot% | Entry | Confidence |
+|--------|------|-------|----|-----|-----------|------|-------|------------|
+| A Mhatre | HIGH | 48 | 196 | 94 | 29.2 | 20.8 | FRESH | LOW |
+| D Brevis | BUILDING | 55 | 138 | - | 16.4 | 38.2 | FRESH | MEDIUM |
+| D Brevis | HIGH | 16 | 119 | 9.5 | 18.8 | 62.5 | FRESH | LOW |
+| MS Dhoni | EXTREME | 19 | 168 | - | 21.1 | 21.1 | FRESH | LOW |
+| MS Dhoni | NEAR_IMPOSSIBLE | 89 | 172 | 51 | 22.5 | 19.1 | FRESH | MEDIUM |
+| RD Gaikwad | COMFORTABLE | 199 | 133 | 132 | 16.1 | 32.2 | FRESH | HIGH |
+| RD Gaikwad | BUILDING | 43 | 81.4 | 11.7 | 11.6 | 55.8 | FRESH | LOW |
+| RD Gaikwad | HIGH | 78 | 146 | 28.5 | 20.5 | 30.8 | FRESH | MEDIUM |
+| RD Gaikwad | EXTREME | 17 | 118 | 5 | 11.8 | 47.1 | BUILDING | LOW |
+| S Dube | COMFORTABLE | 89 | 127 | 28.2 | 15.7 | 43.8 | FRESH | MEDIUM |
+| S Dube | BUILDING | 55 | 111 | - | 10.9 | 34.5 | FRESH | MEDIUM |
+| S Dube | HIGH | 68 | 138 | 31.3 | 16.2 | 32.4 | FRESH | MEDIUM |
+| S Dube | EXTREME | 69 | 141 | - | 17.4 | 36.2 | FRESH | MEDIUM |
+| S Dube | NEAR_IMPOSSIBLE | 72 | 142 | 17 | 16.7 | 29.2 | BUILDING | MEDIUM |
+| SV Samson | COMFORTABLE | 64 | 170 | 54.5 | 26.6 | 35.9 | FRESH | MEDIUM |
+| SV Samson | BUILDING | 161 | 144 | 38.7 | 18.6 | 32.3 | FRESH | HIGH |
+| SV Samson | HIGH | 107 | 153 | 41 | 23.4 | 31.8 | FRESH | HIGH |
+| SV Samson | EXTREME | 73 | 201 | 49 | 30.1 | 21.9 | FRESH | MEDIUM |
+| SV Samson | NEAR_IMPOSSIBLE | 43 | 140 | 20 | 20.9 | 41.9 | BUILDING | LOW |
 
 ### 11.2 Bowling Under Pressure
 
@@ -509,15 +509,55 @@
 
 *Weighted Score = SR Delta x sample-size bonus x death-overs bonus*
 
-| Player | Role | Balls | Delta% | W.Score | Rating | Confidence |
-|--------|------|-------|--------|---------|--------|------------|
-| MS Dhoni | BATTER | 110 | +12.4% | 45.3 | **CLUTCH** | HIGH |
-| RD Gaikwad | BATTER | 95 | +9.8% | 26.2 | MODERATE | MEDIUM |
-| S Dube | BATTER | 209 | +6.0% | 24.6 | MODERATE | HIGH |
-| SV Samson | BATTER | 223 | +4.7% | 18.6 | **PRESSURE_PROOF** | HIGH |
+| Player | Role | Balls | Delta% | W.Score | Rating | Entry | Confidence |
+|--------|------|-------|--------|---------|--------|-------|------------|
+| MS Dhoni | BATTER | 110 | +12.4% | 45.3 | **CLUTCH** | FRESH | HIGH |
+| RD Gaikwad | BATTER | 95 | +9.8% | 26.2 | MODERATE | FRESH | MEDIUM |
+| S Dube | BATTER | 209 | +6.0% | 24.6 | MODERATE | FRESH | HIGH |
+| SV Samson | BATTER | 223 | +4.7% | 18.6 | **PRESSURE_PROOF** | FRESH | HIGH |
+
+### 11.4 Glossary
+
+*Quick reference for all pressure metrics, bands, and ratings used in this section.*
+
+#### Pressure Bands (RRR-Based)
+
+| Band | RRR Range | What It Means |
+|------|-----------|---------------|
+| COMFORTABLE | < 8 | Cruising — run rate is manageable, batters can play normally |
+| BUILDING | 8–10 | Above par — scoring needs to accelerate, risk-taking begins |
+| HIGH | 10–12 | Aggressive required — boundaries needed every 2-3 balls |
+| EXTREME | 12–15 | Six-hitting territory — almost every ball must score |
+| NEAR_IMPOSSIBLE | 15+ | Miracle needed — requires continuous boundaries to win |
+
+#### Pressure Ratings (Performance Tags)
+
+| Rating | For Batters | For Bowlers |
+|--------|------------|-------------|
+| CLUTCH | SR improves 10%+ AND dot% drops in 12+ RRR bands | Economy improves AND dot% rises in 12+ RRR bands |
+| PRESSURE_PROOF | Metrics within +/-5% of overall across all bands | Metrics within +/-5% of overall across all bands |
+| MODERATE | Performance changes between 5-10% under pressure | Economy/dot% changes 5-10% under pressure |
+| PRESSURE_SENSITIVE | SR drops 10%+ OR dot% rises 10%+ in 12+ RRR bands | Economy rises 15%+ OR boundary% conceded rises 10%+ |
+| FINISHER | SR in 15+ band exceeds 170 with adequate sample | N/A |
+| CLOSER | N/A | Economy < 8.5 in 15+ band with 5+ overs |
+
+#### Entry Context (Batter Only)
+
+| Context | Balls Before Pressure | Meaning |
+|---------|----------------------|---------|
+| FRESH | < 10 | Walked in during pressure phase — facing it cold |
+| BUILDING | 10–25 | Getting set when pressure hit — partially established |
+| SET | 25–40 | Well established before pressure phase |
+| DEEP_SET | 40+ | Long innings before pressure — fully in rhythm |
+
+#### Other Terms
+
+- **Weighted Score (W.Score)**: Composite metric that combines SR delta with sample size (log2 scaling) and death overs bonus (30% weight for overs 16-20 execution)
+- **SR Delta**: Percentage change in strike rate between overall performance and pressure situations. Positive = better under pressure.
+- **Death Pressure Ratio**: Proportion of pressure balls faced in overs 16-20 vs all pressure balls
 
 ---
-*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. COMFORTABLE (RRR < 8), BUILDING (8-10), HIGH (10-12), EXTREME (12-15), NEAR_IMPOSSIBLE (15+). Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify. Weighted Score factors in sample size and death-overs (16-20) contribution.*
+*Note: Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify.*
 
 
 ---

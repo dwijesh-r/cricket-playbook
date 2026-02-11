@@ -1690,12 +1690,109 @@
             grid-template-columns: 1fr 1fr;
             gap: 24px;
         }
+        /* Pressure Glossary (TKT-050 Glossary) */
+        .pressure-glossary-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+            padding: 10px 20px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+            width: 100%;
+        }
+        .pressure-glossary-toggle:hover {
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+            border-color: var(--accent);
+        }
+        .pressure-glossary-toggle .toggle-arrow {
+            font-size: 10px;
+            transition: transform 0.3s ease;
+        }
+        .pressure-glossary-toggle.open .toggle-arrow {
+            transform: rotate(180deg);
+        }
+        .pressure-glossary-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            margin-top: 0;
+        }
+        .pressure-glossary-body.open {
+            max-height: 2000px;
+            margin-top: 16px;
+        }
+        .pressure-glossary-section {
+            margin-bottom: 20px;
+        }
+        .pressure-glossary-section h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border);
+        }
+        .pressure-glossary-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+        .pressure-glossary-table th {
+            text-align: left;
+            padding: 6px 10px;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border);
+        }
+        .pressure-glossary-table td {
+            padding: 6px 10px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--glass-border);
+            vertical-align: top;
+            line-height: 1.5;
+        }
+        .pressure-glossary-table tr:last-child td {
+            border-bottom: none;
+        }
+        .pressure-glossary-table .band-tag {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+        }
+        .pressure-glossary-note {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            line-height: 1.6;
+            margin-top: 8px;
+        }
         @media (max-width: 768px) {
             .pressure-summary-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             .pressure-columns {
                 grid-template-columns: 1fr;
+            }
+            .pressure-glossary-table {
+                font-size: 11px;
+            }
+            .pressure-glossary-table th,
+            .pressure-glossary-table td {
+                padding: 5px 6px;
             }
         }
     </style>
@@ -2289,10 +2386,60 @@
                     </div>
                 </div>
 
-                <p style="text-align: center; color: var(--text-tertiary); font-size: 12px; margin-top: 16px;">
-                    Pressure defined as RRR >= 10 in 2nd innings. SR Delta = % change in strike rate under pressure vs overall.
-                    Clutch: SR improves 10%+. Pressure-Proof: SR within 5%. Pressure-Sensitive: SR drops 10%+.
-                </p>
+                <div class="pressure-glossary-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+                    <span class="toggle-arrow">&#9660;</span> What do these ratings mean?
+                </div>
+                <div class="pressure-glossary-body">
+                    <div class="pressure-glossary-section">
+                        <h4>Pressure Bands (RRR-Based)</h4>
+                        <table class="pressure-glossary-table">
+                            <thead><tr><th>Band</th><th>RRR Range</th><th>What It Means</th></tr></thead>
+                            <tbody>
+                                <tr><td class="band-tag">COMFORTABLE</td><td>&lt; 8</td><td>Cruising — run rate is manageable, batters can play normally</td></tr>
+                                <tr><td class="band-tag">BUILDING</td><td>8 &ndash; 10</td><td>Above par — scoring needs to accelerate, risk-taking begins</td></tr>
+                                <tr><td class="band-tag">HIGH</td><td>10 &ndash; 12</td><td>Aggressive required — boundaries needed every 2-3 balls</td></tr>
+                                <tr><td class="band-tag">EXTREME</td><td>12 &ndash; 15</td><td>Six-hitting territory — almost every ball must score</td></tr>
+                                <tr><td class="band-tag">NEAR_IMPOSSIBLE</td><td>15+</td><td>Miracle needed — requires continuous boundaries to win</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pressure-glossary-section">
+                        <h4>Pressure Ratings (Performance Tags)</h4>
+                        <table class="pressure-glossary-table">
+                            <thead><tr><th>Rating</th><th>For Batters</th><th>For Bowlers</th></tr></thead>
+                            <tbody>
+                                <tr><td class="band-tag">CLUTCH</td><td>SR improves 10%+ AND dot% drops in 12+ RRR bands</td><td>Economy improves AND dot% rises in 12+ RRR bands</td></tr>
+                                <tr><td class="band-tag">PRESSURE_PROOF</td><td>Metrics within &plusmn;5% of overall across all bands</td><td>Metrics within &plusmn;5% of overall across all bands</td></tr>
+                                <tr><td class="band-tag">MODERATE</td><td>Performance changes between 5-10% under pressure</td><td>Economy/dot% changes 5-10% under pressure</td></tr>
+                                <tr><td class="band-tag">PRESSURE_SENSITIVE</td><td>SR drops 10%+ OR dot% rises 10%+ in 12+ RRR bands</td><td>Economy rises 15%+ OR boundary% conceded rises 10%+</td></tr>
+                                <tr><td class="band-tag">FINISHER</td><td>SR in 15+ band exceeds 170 with adequate sample</td><td>N/A</td></tr>
+                                <tr><td class="band-tag">CLOSER</td><td>N/A</td><td>Economy &lt; 8.5 in 15+ band with 5+ overs</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pressure-glossary-section">
+                        <h4>Entry Context (Batter Only)</h4>
+                        <table class="pressure-glossary-table">
+                            <thead><tr><th>Context</th><th>Balls Before Pressure</th><th>Meaning</th></tr></thead>
+                            <tbody>
+                                <tr><td class="band-tag">FRESH</td><td>&lt; 10</td><td>Walked in during pressure phase — facing it cold</td></tr>
+                                <tr><td class="band-tag">BUILDING</td><td>10 &ndash; 25</td><td>Getting set when pressure hit — partially established</td></tr>
+                                <tr><td class="band-tag">SET</td><td>25 &ndash; 40</td><td>Well established before pressure phase</td></tr>
+                                <tr><td class="band-tag">DEEP_SET</td><td>40+</td><td>Long innings before pressure — fully in rhythm</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pressure-glossary-section">
+                        <h4>Other Terms</h4>
+                        <table class="pressure-glossary-table">
+                            <tbody>
+                                <tr><td class="band-tag" style="width: 140px;">Weighted Score</td><td>Composite metric combining SR delta with sample size (log&#8322; scaling) and death overs bonus (30% weight for overs 16-20 execution)</td></tr>
+                                <tr><td class="band-tag">SR Delta</td><td>Percentage change in strike rate between overall performance and pressure situations. Positive = better under pressure.</td></tr>
+                                <tr><td class="band-tag">Death Pressure Ratio</td><td>Proportion of pressure balls faced in overs 16-20 vs all pressure balls</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             `;
         }
 

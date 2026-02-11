@@ -1398,7 +1398,7 @@ def _generate_batting_under_pressure(conn: duckdb.DuckDBPyConnection, team_name:
         )
         SELECT bp.player_name, bp.pressure_band, bp.balls_faced,
                bp.strike_rate, bp.batting_average, bp.boundary_pct,
-               bp.dot_ball_pct
+               bp.dot_ball_pct, bp.entry_context
         FROM analytics_ipl_batter_pressure_bands_since2023 bp
         JOIN ipl_2026_squads sq ON bp.player_id = sq.player_id
         JOIN qualified q ON bp.player_id = q.player_id
@@ -1416,14 +1416,15 @@ def _generate_batting_under_pressure(conn: duckdb.DuckDBPyConnection, team_name:
     )
 
     if rows:
-        md.append("| Player | Band | Balls | SR | Avg | Boundary% | Dot% | Confidence |")
-        md.append("|--------|------|-------|----|-----|-----------|------|------------|")
-        for player, band, balls, sr, avg, bound_pct, dot_pct in rows:
+        md.append("| Player | Band | Balls | SR | Avg | Boundary% | Dot% | Entry | Confidence |")
+        md.append("|--------|------|-------|----|-----|-----------|------|-------|------------|")
+        for player, band, balls, sr, avg, bound_pct, dot_pct, entry_ctx in rows:
             confidence = _pressure_confidence_label(balls)
+            entry_display = entry_ctx if entry_ctx else "-"
             md.append(
                 f"| {player} | {band} | {balls} | {format_stat(sr)} | "
                 f"{format_stat(avg)} | {format_stat(bound_pct)} | "
-                f"{format_stat(dot_pct)} | {confidence} |"
+                f"{format_stat(dot_pct)} | {entry_display} | {confidence} |"
             )
     else:
         md.append("*No qualifying batting pressure data available for this squad*")
@@ -1519,7 +1520,8 @@ def _generate_pressure_ratings(conn: duckdb.DuckDBPyConnection, team_name: str) 
         f"""
         SELECT pd.player_name, pd.role, pd.sr_delta_pct,
                pd.pressure_rating, pd.sample_confidence,
-               pd.pressure_balls, pd.pressure_score
+               pd.pressure_balls, pd.pressure_score,
+               pd.entry_context
         FROM analytics_ipl_pressure_deltas_since2023 pd
         JOIN ipl_2026_squads sq ON pd.player_id = sq.player_id
         WHERE sq.team_name = '{team_name}'
@@ -1529,9 +1531,9 @@ def _generate_pressure_ratings(conn: duckdb.DuckDBPyConnection, team_name: str) 
     )
 
     if rows:
-        md.append("| Player | Role | Balls | Delta% | W.Score | Rating | Confidence |")
-        md.append("|--------|------|-------|--------|---------|--------|------------|")
-        for player, role, delta_pct, rating, confidence, balls, score in rows:
+        md.append("| Player | Role | Balls | Delta% | W.Score | Rating | Entry | Confidence |")
+        md.append("|--------|------|-------|--------|---------|--------|-------|------------|")
+        for player, role, delta_pct, rating, confidence, balls, score, entry_ctx in rows:
             # Highlight positive ratings
             if rating in ("CLUTCH", "PRESSURE_PROOF"):
                 rating_display = f"**{rating}**"
@@ -1540,9 +1542,10 @@ def _generate_pressure_ratings(conn: duckdb.DuckDBPyConnection, team_name: str) 
             delta_str = f"+{delta_pct:.1f}" if delta_pct > 0 else f"{delta_pct:.1f}"
             score_str = format_stat(score) if score is not None else "-"
             balls_str = str(balls) if balls is not None else "-"
+            entry_display = entry_ctx if entry_ctx else "-"
             md.append(
                 f"| {player} | {role} | {balls_str} | {delta_str}% | "
-                f"{score_str} | {rating_display} | {confidence} |"
+                f"{score_str} | {rating_display} | {entry_display} | {confidence} |"
             )
     else:
         md.append("*No pressure delta ratings available for this squad*")
@@ -1555,10 +1558,11 @@ def generate_pressure_performance(conn: duckdb.DuckDBPyConnection, team_name: st
     """
     Generate Section 11: Pressure Performance for a team's stat pack.
 
-    Combines three subsections:
+    Combines four subsections:
     - 11.1 Batting Under Pressure — batter performance across RRR bands
     - 11.2 Bowling Under Pressure — bowler performance across RRR bands
     - 11.3 Pressure Ratings — delta ratings highlighting clutch performers
+    - 11.4 Glossary — definitions of pressure bands, ratings, and metrics
 
     Data sourced from analytics_ipl_*_pressure_*_since2023 views, filtered
     to the team's IPL 2026 squad via ipl_2026_squads join.
@@ -1583,13 +1587,75 @@ def generate_pressure_performance(conn: duckdb.DuckDBPyConnection, team_name: st
     # 11.3 Pressure Ratings
     md.extend(_generate_pressure_ratings(conn, team_name))
 
+    # 11.4 Glossary
+    md.append("### 11.4 Glossary\n")
+    md.append(
+        "*Quick reference for all pressure metrics, bands, and ratings used in this section.*\n"
+    )
+
+    md.append("#### Pressure Bands (RRR-Based)\n")
+    md.append("| Band | RRR Range | What It Means |")
+    md.append("|------|-----------|---------------|")
+    md.append(
+        "| COMFORTABLE | < 8 | Cruising — run rate is manageable, batters can play normally |"
+    )
+    md.append("| BUILDING | 8–10 | Above par — scoring needs to accelerate, risk-taking begins |")
+    md.append("| HIGH | 10–12 | Aggressive required — boundaries needed every 2-3 balls |")
+    md.append("| EXTREME | 12–15 | Six-hitting territory — almost every ball must score |")
+    md.append("| NEAR_IMPOSSIBLE | 15+ | Miracle needed — requires continuous boundaries to win |")
+    md.append("")
+
+    md.append("#### Pressure Ratings (Performance Tags)\n")
+    md.append("| Rating | For Batters | For Bowlers |")
+    md.append("|--------|------------|-------------|")
+    md.append(
+        "| CLUTCH | SR improves 10%+ AND dot% drops in 12+ RRR bands "
+        "| Economy improves AND dot% rises in 12+ RRR bands |"
+    )
+    md.append(
+        "| PRESSURE_PROOF | Metrics within +/-5% of overall across all bands "
+        "| Metrics within +/-5% of overall across all bands |"
+    )
+    md.append(
+        "| MODERATE | Performance changes between 5-10% under pressure "
+        "| Economy/dot% changes 5-10% under pressure |"
+    )
+    md.append(
+        "| PRESSURE_SENSITIVE | SR drops 10%+ OR dot% rises 10%+ in 12+ RRR bands "
+        "| Economy rises 15%+ OR boundary% conceded rises 10%+ |"
+    )
+    md.append("| FINISHER | SR in 15+ band exceeds 170 with adequate sample | N/A |")
+    md.append("| CLOSER | N/A | Economy < 8.5 in 15+ band with 5+ overs |")
+    md.append("")
+
+    md.append("#### Entry Context (Batter Only)\n")
+    md.append("| Context | Balls Before Pressure | Meaning |")
+    md.append("|---------|----------------------|---------|")
+    md.append("| FRESH | < 10 | Walked in during pressure phase — facing it cold |")
+    md.append("| BUILDING | 10–25 | Getting set when pressure hit — partially established |")
+    md.append("| SET | 25–40 | Well established before pressure phase |")
+    md.append("| DEEP_SET | 40+ | Long innings before pressure — fully in rhythm |")
+    md.append("")
+
+    md.append("#### Other Terms\n")
+    md.append(
+        "- **Weighted Score (W.Score)**: Composite metric that combines SR delta with "
+        "sample size (log2 scaling) and death overs bonus (30% weight for overs 16-20 execution)"
+    )
+    md.append(
+        "- **SR Delta**: Percentage change in strike rate between overall performance "
+        "and pressure situations. Positive = better under pressure."
+    )
+    md.append(
+        "- **Death Pressure Ratio**: Proportion of pressure balls faced in overs 16-20 "
+        "vs all pressure balls"
+    )
+    md.append("")
+
     # Section note
     md.append("---")
     md.append(
-        "*Note: Pressure bands are derived from Required Run Rate (RRR) at the point of each delivery. "
-        "COMFORTABLE (RRR < 8), BUILDING (8-10), HIGH (10-12), EXTREME (12-15), NEAR_IMPOSSIBLE (15+). "
-        "Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify. "
-        "Weighted Score factors in sample size and death-overs (16-20) contribution.*\n"
+        "*Note: Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify.*\n"
     )
 
     return md
@@ -1612,7 +1678,7 @@ def generate_team_stat_pack(
     8. Key Bowler vs Opposition - top bowlers' matchup data
     9. Key Player Venue Performance - venue-specific stats
     10. Tactical Insights - death bowling, powerplay, spin vulnerabilities
-    11. Pressure Performance - batting/bowling under pressure, pressure ratings
+    11. Pressure Performance - batting/bowling under pressure, pressure ratings, glossary
 
     Args:
         conn: DuckDB database connection (read-only recommended)

@@ -1044,6 +1044,61 @@
                             📊 View Data →
                         </a>
                     </div>
+
+                    <!-- Pressure Glossary Card (TKT-050 Glossary) -->
+                    <div class="analysis-card" style="grid-column: 1 / -1;">
+                        <span class="card-category audit">Glossary</span>
+                        <div class="card-header">
+                            <div class="card-icon">📖</div>
+                            <div>
+                                <h3 class="card-title">Pressure Performance Glossary</h3>
+                                <span class="card-file">Reference guide for all pressure metrics and ratings</span>
+                            </div>
+                        </div>
+                        <div style="cursor: pointer; display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 10px; color: var(--text-secondary); font-size: 13px; font-weight: 600; user-select: none; transition: all 0.2s ease; margin-bottom: 12px;" onclick="const body = this.nextElementSibling; const isOpen = body.style.maxHeight !== '0px' && body.style.maxHeight; body.style.maxHeight = isOpen ? '0px' : '2000px'; body.style.marginTop = isOpen ? '0' : '12px'; this.querySelector('.gl-arrow').style.transform = isOpen ? '' : 'rotate(180deg)';">
+                            <span class="gl-arrow" style="font-size: 10px; transition: transform 0.3s ease;">&#9660;</span> Expand glossary
+                        </div>
+                        <div style="max-height: 0px; overflow: hidden; transition: max-height 0.4s ease, margin-top 0.3s ease; margin-top: 0;">
+                            <div style="margin-bottom: 16px;">
+                                <div style="font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 8px;">Pressure Bands (RRR-Based)</div>
+                                <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
+                                    <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 8px; font-weight: 700; color: var(--text-primary); width: 130px;">COMFORTABLE</td><td style="padding: 5px 8px; color: var(--text-tertiary); width: 70px;">&lt; 8</td><td style="padding: 5px 8px; color: var(--text-secondary);">Cruising — run rate is manageable, batters can play normally</td></tr>
+                                    <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 8px; font-weight: 700; color: var(--text-primary);">BUILDING</td><td style="padding: 5px 8px; color: var(--text-tertiary);">8 &ndash; 10</td><td style="padding: 5px 8px; color: var(--text-secondary);">Above par — scoring needs to accelerate, risk-taking begins</td></tr>
+                                    <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 8px; font-weight: 700; color: var(--text-primary);">HIGH</td><td style="padding: 5px 8px; color: var(--text-tertiary);">10 &ndash; 12</td><td style="padding: 5px 8px; color: var(--text-secondary);">Aggressive required — boundaries needed every 2-3 balls</td></tr>
+                                    <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 8px; font-weight: 700; color: var(--text-primary);">EXTREME</td><td style="padding: 5px 8px; color: var(--text-tertiary);">12 &ndash; 15</td><td style="padding: 5px 8px; color: var(--text-secondary);">Six-hitting territory — almost every ball must score</td></tr>
+                                    <tr><td style="padding: 5px 8px; font-weight: 700; color: var(--text-primary);">NEAR_IMPOSSIBLE</td><td style="padding: 5px 8px; color: var(--text-tertiary);">15+</td><td style="padding: 5px 8px; color: var(--text-secondary);">Miracle needed — requires continuous boundaries to win</td></tr>
+                                </table>
+                            </div>
+                            <div style="margin-bottom: 16px;">
+                                <div style="font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 8px;">Pressure Ratings (Performance Tags)</div>
+                                <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
+                                    <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 8px; font-weight: 700; color: var(--text-primary); width: 140px;">CLUTCH</td><td style="padding: 5px 8px; color: var(--text-secondary);">Batters: SR improves 10%+ AND dot% drops in 12+ RRR bands | Bowlers: Economy improves AND dot% rises</td></tr>
+                                    <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 8px; font-weight: 700; color: var(--text-primary);">PRESSURE_PROOF</td><td style="padding: 5px 8px; color: var(--text-secondary);">Metrics within &plusmn;5% of overall across all bands (batters and bowlers alike)</td></tr>
+                                    <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 8px; font-weight: 700; color: var(--text-primary);">MODERATE</td><td style="padding: 5px 8px; color: var(--text-secondary);">Performance changes between 5-10% under pressure for both roles</td></tr>
+                                    <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 8px; font-weight: 700; color: var(--text-primary);">PRESSURE_SENSITIVE</td><td style="padding: 5px 8px; color: var(--text-secondary);">Batters: SR drops 10%+ OR dot% rises 10%+ | Bowlers: Economy rises 15%+ OR boundary% conceded rises 10%+</td></tr>
+                                    <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 8px; font-weight: 700; color: var(--text-primary);">FINISHER</td><td style="padding: 5px 8px; color: var(--text-secondary);">Batter only — SR in 15+ band exceeds 170 with adequate sample</td></tr>
+                                    <tr><td style="padding: 5px 8px; font-weight: 700; color: var(--text-primary);">CLOSER</td><td style="padding: 5px 8px; color: var(--text-secondary);">Bowler only — Economy &lt; 8.5 in 15+ band with 5+ overs</td></tr>
+                                </table>
+                            </div>
+                            <div style="margin-bottom: 16px;">
+                                <div style="font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 8px;">Entry Context (Batter Only)</div>
+                                <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
+                                    <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 8px; font-weight: 700; color: var(--text-primary); width: 100px;">FRESH</td><td style="padding: 5px 8px; color: var(--text-tertiary); width: 70px;">&lt; 10 balls</td><td style="padding: 5px 8px; color: var(--text-secondary);">Walked in during pressure phase — facing it cold</td></tr>
+                                    <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 8px; font-weight: 700; color: var(--text-primary);">BUILDING</td><td style="padding: 5px 8px; color: var(--text-tertiary);">10 &ndash; 25</td><td style="padding: 5px 8px; color: var(--text-secondary);">Getting set when pressure hit — partially established</td></tr>
+                                    <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 8px; font-weight: 700; color: var(--text-primary);">SET</td><td style="padding: 5px 8px; color: var(--text-tertiary);">25 &ndash; 40</td><td style="padding: 5px 8px; color: var(--text-secondary);">Well established before pressure phase</td></tr>
+                                    <tr><td style="padding: 5px 8px; font-weight: 700; color: var(--text-primary);">DEEP_SET</td><td style="padding: 5px 8px; color: var(--text-tertiary);">40+</td><td style="padding: 5px 8px; color: var(--text-secondary);">Long innings before pressure — fully in rhythm</td></tr>
+                                </table>
+                            </div>
+                            <div>
+                                <div style="font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 8px;">Other Terms</div>
+                                <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
+                                    <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 8px; font-weight: 700; color: var(--text-primary); width: 140px;">Weighted Score (W.Score)</td><td style="padding: 5px 8px; color: var(--text-secondary);">Composite metric combining SR delta with sample size (log&#8322; scaling) and death overs bonus (30% weight for overs 16-20 execution)</td></tr>
+                                    <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 8px; font-weight: 700; color: var(--text-primary);">SR Delta</td><td style="padding: 5px 8px; color: var(--text-secondary);">Percentage change in strike rate between overall performance and pressure situations. Positive = better under pressure.</td></tr>
+                                    <tr><td style="padding: 5px 8px; font-weight: 700; color: var(--text-primary);">Death Pressure Ratio</td><td style="padding: 5px 8px; color: var(--text-secondary);">Proportion of pressure balls faced in overs 16-20 vs all pressure balls</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 

@@ -1482,6 +1482,54 @@ LIMIT 20;</textarea>
                             <button type="button" class="examples-filter-btn" data-filter="ipl2026">IPL 2026</button>
                         </div>
                     </div>
+                    <!-- Pressure Glossary Panel (TKT-050 Glossary) — visible when Pressure filter active -->
+                    <div id="pressure-glossary-panel" style="display: none; margin-bottom: 16px; background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; font-size: 12px; line-height: 1.6;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; cursor: pointer; user-select: none;" onclick="const bd = document.getElementById('pressure-glossary-detail'); const isOpen = bd.style.maxHeight !== '0px' && bd.style.maxHeight; bd.style.maxHeight = isOpen ? '0px' : '1500px'; this.querySelector('.pg-arrow').style.transform = isOpen ? '' : 'rotate(180deg)';">
+                            <span style="font-size: 14px; font-weight: 700; color: var(--text-primary);">Pressure Glossary</span>
+                            <span class="pg-arrow" style="font-size: 10px; color: var(--text-tertiary); transition: transform 0.3s ease;">&#9660;</span>
+                            <span style="font-size: 11px; color: var(--text-tertiary); margin-left: auto;">What do CLUTCH, EXTREME, SR Delta mean?</span>
+                        </div>
+                        <div id="pressure-glossary-detail" style="max-height: 0px; overflow: hidden; transition: max-height 0.4s ease;">
+                            <div style="margin-bottom: 12px;">
+                                <div style="font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 6px;">Pressure Bands (RRR-Based)</div>
+                                <div style="color: var(--text-secondary); font-size: 11px;">
+                                    <strong style="color: var(--text-primary);">COMFORTABLE</strong> (RRR &lt; 8) Cruising, normal play &middot;
+                                    <strong style="color: var(--text-primary);">BUILDING</strong> (8-10) Above par, acceleration begins &middot;
+                                    <strong style="color: var(--text-primary);">HIGH</strong> (10-12) Boundaries needed every 2-3 balls &middot;
+                                    <strong style="color: var(--text-primary);">EXTREME</strong> (12-15) Six-hitting territory &middot;
+                                    <strong style="color: var(--text-primary);">NEAR_IMPOSSIBLE</strong> (15+) Continuous boundaries required
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <div style="font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 6px;">Pressure Ratings</div>
+                                <div style="color: var(--text-secondary); font-size: 11px;">
+                                    <strong style="color: var(--accent-green);">CLUTCH</strong> SR improves 10%+ under pressure &middot;
+                                    <strong style="color: var(--accent);">PRESSURE_PROOF</strong> Metrics within &plusmn;5% across all bands &middot;
+                                    <strong style="color: var(--accent-yellow);">MODERATE</strong> 5-10% change under pressure &middot;
+                                    <strong style="color: var(--accent-red);">PRESSURE_SENSITIVE</strong> SR drops 10%+ under pressure &middot;
+                                    <strong style="color: var(--accent-green);">FINISHER</strong> SR &gt; 170 in 15+ band (batters) &middot;
+                                    <strong style="color: var(--accent);">CLOSER</strong> Economy &lt; 8.5 in 15+ band (bowlers)
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <div style="font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 6px;">Entry Context (Batter Only)</div>
+                                <div style="color: var(--text-secondary); font-size: 11px;">
+                                    <strong style="color: var(--text-primary);">FRESH</strong> (&lt;10 balls) Facing pressure cold &middot;
+                                    <strong style="color: var(--text-primary);">BUILDING</strong> (10-25) Partially established &middot;
+                                    <strong style="color: var(--text-primary);">SET</strong> (25-40) Well established &middot;
+                                    <strong style="color: var(--text-primary);">DEEP_SET</strong> (40+) Fully in rhythm
+                                </div>
+                            </div>
+                            <div>
+                                <div style="font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 6px;">Key Metrics</div>
+                                <div style="color: var(--text-secondary); font-size: 11px;">
+                                    <strong style="color: var(--text-primary);">W.Score</strong> = SR Delta x sample-size bonus (log2) x death-overs bonus (30% for overs 16-20) &middot;
+                                    <strong style="color: var(--text-primary);">SR Delta</strong> = % change in strike rate under pressure vs overall &middot;
+                                    <strong style="color: var(--text-primary);">Death Pressure Ratio</strong> = Pressure balls in overs 16-20 / total pressure balls
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="examples-grid" id="examples-grid">
                         <!-- Cards rendered by TKT-176 JS -->
                     </div>
@@ -2667,6 +2715,11 @@ LIMIT 20;</textarea>
                 this.classList.add('active');
                 const filterVal = this.getAttribute('data-filter') || 'all';
                 renderExampleQueries(filterVal);
+                // Show/hide pressure glossary panel (TKT-050 Glossary)
+                const glossaryPanel = document.getElementById('pressure-glossary-panel');
+                if (glossaryPanel) {
+                    glossaryPanel.style.display = filterVal === 'pressure' ? 'block' : 'none';
+                }
             });
         });
 

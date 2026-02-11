@@ -1,0 +1,34 @@
+{
+  "id": "TKT-185",
+  "title": "TKT-183.2: Season-Level Competitiveness Index Granularity",
+  "state": "IDEA",
+  "priority": "P1",
+  "progress_pct": 0,
+  "description": "Refine Factor 2 (Competitiveness Index) from tournament-lifetime aggregates to per-season splits. Current CI uses all-time close match % — need season-by-season CI to pair with recency decay. Covers 207 tournaments. Output: season-level CI scores in tournament_factor_scores_phase1.json.",
+  "epic_id": "EPIC-006",
+  "parent": "TKT-183",
+  "assignee": "Jose Mourinho",
+  "sprint_id": "SPRINT-004",
+  "blocked_by": [],
+  "documents": [
+    {
+      "title": "Tournament Quality Weighting Plan (Founder Approved)",
+      "path": "reviews/founder/tournament_weighting_plan_021126_v1.md",
+      "relevance": "Factor 2 spec (close match %, margin analysis)"
+    },
+    {
+      "title": "Phase 1 Composite Weights",
+      "path": "outputs/tournament_composite_weights_phase1.json",
+      "relevance": "Current CI scores to refine with season granularity"
+    }
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "Sub-ticket of TKT-183 (already approved).",
+      "date": "2026-02-11"
+    }
+  },
+  "created_at": "2026-02-11T16:22:29.064878Z",
+  "updated_at": "2026-02-11T17:45:00.000000Z"
+}

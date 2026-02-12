@@ -1016,6 +1016,228 @@ def generate_historical_trends(
     return md
 
 
+def _classify_pp_approach(sr: float, boundary_pct: float) -> str:
+    """Classify powerplay approach from SR and boundary%."""
+    if sr > 145 and boundary_pct > 20:
+        return "All-Out Attack"
+    if sr > 135:
+        return "Aggressive"
+    if sr >= 125:
+        return "Balanced"
+    return "Conservative"
+
+
+def _classify_middle_style(sr: float) -> str:
+    """Classify middle overs style from SR."""
+    if sr > 145:
+        return "Accelerating"
+    if sr >= 130:
+        return "Steady"
+    return "Consolidating"
+
+
+def _classify_death_batting(sr: float) -> str:
+    """Classify death batting from SR."""
+    if sr > 175:
+        return "Explosive"
+    if sr >= 155:
+        return "Strong"
+    return "Average"
+
+
+def _classify_death_bowling(economy: float) -> str:
+    """Classify death bowling from economy."""
+    if economy < 9.5:
+        return "Elite"
+    if economy <= 11.0:
+        return "Good"
+    return "Vulnerable"
+
+
+def _classify_lineup_balance(top_pct: float) -> str:
+    """Classify lineup balance from top-3 contribution%."""
+    if top_pct > 50:
+        return "Top-Heavy"
+    if top_pct >= 40:
+        return "Balanced"
+    return "Deep Lineup"
+
+
+def _trend_arrow(vals: list) -> str:
+    """Return trend arrow based on values progression."""
+    if len(vals) < 2:
+        return ""
+    diff = vals[-1] - vals[0]
+    if diff > 5:
+        return " ↑↑"
+    if diff > 1:
+        return " ↑"
+    if diff < -5:
+        return " ↓↓"
+    if diff < -1:
+        return " ↓"
+    return " →"
+
+
+def generate_team_phase_approach(
+    conn: duckdb.DuckDBPyConnection, team_name: str, alias_clause: str
+) -> List[str]:
+    """
+    Generate team-level phase approach analysis (TKT-052 / Item 3).
+
+    Shows how the team approaches powerplay, middle, and death overs
+    with 2023-2025 trends, plus batting order balance assessment.
+    """
+    md = []
+    md.append("## 3.5 Team Phase Approach (2023-2025)\n")
+    md.append("*How the team approaches each phase of the game — strategy DNA across seasons*\n")
+
+    # --- Powerplay Batting ---
+    md.append("### Powerplay DNA (Batting)\n")
+    query = f"""
+        SELECT season, strike_rate, boundary_pct, dot_ball_pct, wickets_lost, run_rate, matches
+        FROM analytics_ipl_team_phase_batting_since2023
+        WHERE batting_team IN ({alias_clause})
+          AND match_phase = 'powerplay'
+        ORDER BY season
+    """
+    rows = execute_query_safe(conn, query)
+    if rows:
+        md.append("| Season | SR | Boundary% | Dot% | Wkts Lost | RR | Approach |")
+        md.append("|--------|-----|-----------|------|-----------|------|----------|")
+        srs = []
+        for r in rows:
+            season, sr, bpct, dpct, wkts, rr, matches = r
+            approach = _classify_pp_approach(sr, bpct)
+            srs.append(sr)
+            wkts_per = round(wkts / matches, 1) if matches else 0
+            md.append(
+                f"| {season} | {sr:.1f} | {bpct:.1f}% | {dpct:.1f}% | {wkts_per}/inn | {rr:.2f} | {approach}{_trend_arrow(srs)} |"
+            )
+        md.append("")
+
+    # --- Middle Overs Batting ---
+    md.append("### Middle Overs Identity (Batting)\n")
+    query = f"""
+        SELECT season, strike_rate, boundary_pct, dot_ball_pct, wickets_lost, run_rate, matches
+        FROM analytics_ipl_team_phase_batting_since2023
+        WHERE batting_team IN ({alias_clause})
+          AND match_phase = 'middle'
+        ORDER BY season
+    """
+    rows = execute_query_safe(conn, query)
+    if rows:
+        md.append("| Season | SR | Boundary% | Dot% | Wkts Lost | RR | Style |")
+        md.append("|--------|-----|-----------|------|-----------|------|-------|")
+        srs = []
+        for r in rows:
+            season, sr, bpct, dpct, wkts, rr, matches = r
+            style = _classify_middle_style(sr)
+            srs.append(sr)
+            wkts_per = round(wkts / matches, 1) if matches else 0
+            md.append(
+                f"| {season} | {sr:.1f} | {bpct:.1f}% | {dpct:.1f}% | {wkts_per}/inn | {rr:.2f} | {style}{_trend_arrow(srs)} |"
+            )
+        md.append("")
+
+    # --- Death Overs Batting ---
+    md.append("### Death Overs Execution (Batting)\n")
+    query = f"""
+        SELECT season, strike_rate, boundary_pct, dot_ball_pct, wickets_lost, run_rate, matches
+        FROM analytics_ipl_team_phase_batting_since2023
+        WHERE batting_team IN ({alias_clause})
+          AND match_phase = 'death'
+        ORDER BY season
+    """
+    rows = execute_query_safe(conn, query)
+    if rows:
+        md.append("| Season | SR | Boundary% | Dot% | Wkts Lost | RR | Rating |")
+        md.append("|--------|-----|-----------|------|-----------|------|--------|")
+        srs = []
+        for r in rows:
+            season, sr, bpct, dpct, wkts, rr, matches = r
+            rating = _classify_death_batting(sr)
+            srs.append(sr)
+            wkts_per = round(wkts / matches, 1) if matches else 0
+            md.append(
+                f"| {season} | {sr:.1f} | {bpct:.1f}% | {dpct:.1f}% | {wkts_per}/inn | {rr:.2f} | {rating}{_trend_arrow(srs)} |"
+            )
+        md.append("")
+
+    # --- Death Overs Bowling ---
+    md.append("### Death Overs Bowling\n")
+    query = f"""
+        SELECT season, economy, dot_ball_pct, boundary_conceded_pct, wickets_taken, matches
+        FROM analytics_ipl_team_phase_bowling_since2023
+        WHERE bowling_team IN ({alias_clause})
+          AND match_phase = 'death'
+        ORDER BY season
+    """
+    rows = execute_query_safe(conn, query)
+    if rows:
+        md.append("| Season | Economy | Dot% | Boundary Conceded% | Wkts/Match | Rating |")
+        md.append("|--------|---------|------|-------------------|------------|--------|")
+        econs = []
+        for r in rows:
+            season, econ, dpct, bcon, wkts, matches = r
+            rating = _classify_death_bowling(econ)
+            econs.append(econ)
+            wpm = round(wkts / matches, 1) if matches else 0
+            md.append(
+                f"| {season} | {econ:.2f} | {dpct:.1f}% | {bcon:.1f}% | {wpm} | {rating}{_trend_arrow(econs)} |"
+            )
+        md.append("")
+
+    # --- Lineup Balance ---
+    md.append("### Lineup Balance\n")
+    query = f"""
+        SELECT season, order_segment, runs, balls, strike_rate
+        FROM analytics_ipl_team_batting_order_since2023
+        WHERE batting_team IN ({alias_clause})
+        ORDER BY season,
+            CASE order_segment WHEN 'top_order' THEN 1 WHEN 'middle_order' THEN 2 ELSE 3 END
+    """
+    rows = execute_query_safe(conn, query)
+    if rows:
+        md.append("| Season | Top 3 Runs% | Middle Order% | Lower Order% | Top 3 SR | Assessment |")
+        md.append("|--------|------------|---------------|-------------|----------|------------|")
+        # Group by season
+        season_data: dict = {}
+        for r in rows:
+            season, segment, runs, balls, sr = r
+            if season not in season_data:
+                season_data[season] = {}
+            season_data[season][segment] = {"runs": runs or 0, "sr": sr or 0}
+
+        top_pcts = []
+        for season in sorted(season_data.keys()):
+            d = season_data[season]
+            total = sum(seg["runs"] for seg in d.values())
+            if total == 0:
+                continue
+            top = d.get("top_order", {}).get("runs", 0)
+            mid = d.get("middle_order", {}).get("runs", 0)
+            low = d.get("lower_order", {}).get("runs", 0)
+            top_pct = round(top / total * 100, 1)
+            mid_pct = round(mid / total * 100, 1)
+            low_pct = round(low / total * 100, 1)
+            top_sr = d.get("top_order", {}).get("sr", 0)
+            assessment = _classify_lineup_balance(top_pct)
+            top_pcts.append(top_pct)
+            md.append(
+                f"| {season} | {top_pct}% | {mid_pct}% | {low_pct}% | {top_sr:.1f} | {assessment}{_trend_arrow(top_pcts)} |"
+            )
+        md.append("")
+
+    md.append("---")
+    md.append(
+        "*Phase approach analysis based on IPL 2023-2025 ball-by-ball data. "
+        "Approach labels derived from strike rate and boundary% thresholds.*\n"
+    )
+
+    return md
+
+
 def generate_venue_analysis(
     conn: duckdb.DuckDBPyConnection, team_name: str, alias_clause: str
 ) -> List[str]:
@@ -2176,6 +2398,12 @@ def generate_team_stat_pack(
     md.append("\n---\n")
     historical_trends = generate_historical_trends(conn, team_name, alias_clause)
     md.extend(historical_trends)
+
+    # ==========================================================================
+    # SECTION 3.5: TEAM PHASE APPROACH (PP / MIDDLE / DEATH)
+    # ==========================================================================
+    team_phase = generate_team_phase_approach(conn, team_name, alias_clause)
+    md.extend(team_phase)
 
     # ==========================================================================
     # SECTION 4: VENUE ANALYSIS (COMPREHENSIVE SECTION)

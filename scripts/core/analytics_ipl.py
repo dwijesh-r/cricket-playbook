@@ -3977,13 +3977,190 @@ def verify_views(conn: duckdb.DuckDBPyConnection) -> None:
     return True
 
 
+def create_tournament_weights_table(conn: duckdb.DuckDBPyConnection) -> None:
+    """Create dim_tournament_weights table with Founder-approved weights (TKT-188).
+
+    Materializes Jose Mourinho's 5-factor composite weights for all tracked
+    tournaments. Geometric mean composite: W = PROD(f_i^w_i)^(1/SUM(w_i)).
+    """
+
+    print("\nCreating Tournament Weights table (TKT-188)...")
+
+    conn.execute("""
+        CREATE OR REPLACE TABLE dim_tournament_weights (
+            tournament_name VARCHAR PRIMARY KEY,
+            tier VARCHAR,
+            composite_weight FLOAT,
+            pqi_score FLOAT,
+            competitiveness_score FLOAT,
+            recency_score FLOAT,
+            conditions_similarity FLOAT,
+            sample_confidence FLOAT,
+            seasons_count INTEGER,
+            match_count INTEGER
+        )
+    """)
+
+    # Founder-approved weights from TKT-187 final_weights_presentation.md
+    conn.execute("""
+        INSERT INTO dim_tournament_weights VALUES
+        ('Indian Premier League',           '1A', 0.8721, 1.00, 0.53, 1.00, 1.00, 0.95, 18, 1169),
+        ('Syed Mushtaq Ali Trophy',         '1B', 0.6603, 0.57, 0.36, 0.84, 0.85, 0.95,  9,  695),
+        ('Big Bash League',                 '1C', 0.5261, 0.21, 0.49, 1.00, 0.50, 0.95, 15,  654),
+        ('Pakistan Super League',           '1C', 0.5140, 0.18, 0.49, 0.90, 0.65, 0.95, 11,  314),
+        ('The Hundred Men''s Competition',  '1C', 0.5035, 0.22, 0.53, 1.00, 0.40, 0.79,  5,  167),
+        ('SA20',                            '1C', 0.5021, 0.25, 0.48, 1.00, 0.55, 0.60,  4,  121),
+        ('ICC Men''s T20 World Cup',        '1C', 0.4984, 0.36, 0.40, 0.76, 0.50, 0.62,  3,  124),
+        ('Vitality Blast',                  '1C', 0.4976, 0.20, 0.52, 0.84, 0.45, 0.95,  7,  835),
+        ('Caribbean Premier League',        '1C', 0.4967, 0.17, 0.48, 1.00, 0.50, 0.95, 13,  407),
+        ('International League T20',        '1C', 0.4889, 0.21, 0.45, 1.00, 0.55, 0.66,  4,  134),
+        ('Major League Cricket',            '2',  0.4233, 0.21, 0.46, 1.00, 0.45, 0.38,  3,   75),
+        ('Lanka Premier League',            '2',  0.3982, 0.10, 0.52, 0.84, 0.60, 0.59,  5,  119),
+        ('CSA T20 Challenge',               '2',  0.3834, 0.07, 0.55, 0.84, 0.55, 0.75,  7,  154),
+        ('Super Smash',                     '2',  0.3633, 0.05, 0.50, 1.00, 0.40, 0.95,  9,  256)
+    """)
+
+    # Verify
+    count = conn.execute("SELECT COUNT(*) FROM dim_tournament_weights").fetchone()[0]
+    print(f"  - dim_tournament_weights: {count} tournaments loaded")
+
+
+def create_team_phase_views(conn: duckdb.DuckDBPyConnection) -> None:
+    """Create team-level phase approach views (Item 3 / TKT-052).
+
+    Aggregated team batting and bowling by phase and season (2023+),
+    plus batting order balance analysis.
+    """
+
+    print("\nCreating Team Phase Approach views (TKT-052)...")
+
+    # Team Phase Batting (per season)
+    conn.execute(f"""
+        CREATE OR REPLACE VIEW analytics_ipl_team_phase_batting_since2023 AS
+        SELECT
+            dtt.team_name AS batting_team,
+            dm.season,
+            fb.match_phase,
+            COUNT(DISTINCT fb.match_id) AS matches,
+            SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS legal_balls,
+            SUM(fb.batter_runs) AS runs,
+            ROUND(SUM(fb.batter_runs) * 100.0 /
+                NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 1) AS strike_rate,
+            ROUND(SUM(fb.batter_runs) * 6.0 /
+                NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS run_rate,
+            ROUND(SUM(CASE WHEN fb.batter_runs IN (4, 6) THEN 1 ELSE 0 END) * 100.0 /
+                NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 1) AS boundary_pct,
+            ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 /
+                NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 1) AS dot_ball_pct,
+            SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) AS wickets_lost
+        FROM fact_ball fb
+        JOIN dim_match dm ON fb.match_id = dm.match_id
+        JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
+        JOIN dim_team dtt ON fb.batting_team_id = dtt.team_id
+        WHERE dtr.tournament_name = 'Indian Premier League'
+          AND dm.match_date >= '{IPL_MIN_DATE}'
+        GROUP BY dtt.team_name, dm.season, fb.match_phase
+    """)
+
+    # Team Phase Bowling (per season)
+    conn.execute(f"""
+        CREATE OR REPLACE VIEW analytics_ipl_team_phase_bowling_since2023 AS
+        SELECT
+            dtt.team_name AS bowling_team,
+            dm.season,
+            fb.match_phase,
+            COUNT(DISTINCT fb.match_id) AS matches,
+            SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS legal_balls,
+            SUM(fb.batter_runs + fb.extra_runs) AS runs_conceded,
+            ROUND((SUM(fb.batter_runs + fb.extra_runs) * 6.0) /
+                NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS economy,
+            SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) AS wickets_taken,
+            ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 /
+                NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 1) AS dot_ball_pct,
+            ROUND(SUM(CASE WHEN fb.batter_runs IN (4, 6) THEN 1 ELSE 0 END) * 100.0 /
+                NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 1) AS boundary_conceded_pct
+        FROM fact_ball fb
+        JOIN dim_match dm ON fb.match_id = dm.match_id
+        JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
+        JOIN dim_team dtt ON fb.bowling_team_id = dtt.team_id
+        WHERE dtr.tournament_name = 'Indian Premier League'
+          AND dm.match_date >= '{IPL_MIN_DATE}'
+        GROUP BY dtt.team_name, dm.season, fb.match_phase
+    """)
+
+    # Batting Order Balance (top 3 / middle / lower order contribution)
+    conn.execute(f"""
+        CREATE OR REPLACE VIEW analytics_ipl_team_batting_order_since2023 AS
+        WITH first_ball AS (
+            SELECT
+                fb.match_id,
+                fb.innings,
+                fb.batter_id,
+                fb.batting_team_id,
+                dm.season,
+                MIN(fb.ball_seq) AS first_ball_seq
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
+            WHERE dtr.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '{IPL_MIN_DATE}'
+            GROUP BY fb.match_id, fb.innings, fb.batter_id, fb.batting_team_id, dm.season
+        ),
+        batter_order AS (
+            SELECT
+                match_id, innings, batter_id, batting_team_id, season,
+                ROW_NUMBER() OVER (
+                    PARTITION BY match_id, innings, batting_team_id
+                    ORDER BY first_ball_seq
+                ) AS batting_position
+            FROM first_ball
+        ),
+        classified AS (
+            SELECT
+                dtt.team_name AS batting_team,
+                bo.season,
+                CASE
+                    WHEN bo.batting_position <= 3 THEN 'top_order'
+                    WHEN bo.batting_position <= 5 THEN 'middle_order'
+                    ELSE 'lower_order'
+                END AS order_segment,
+                fb.batter_runs,
+                fb.is_legal_ball
+            FROM fact_ball fb
+            JOIN batter_order bo ON fb.match_id = bo.match_id
+                AND fb.innings = bo.innings
+                AND fb.batter_id = bo.batter_id
+            JOIN dim_team dtt ON fb.batting_team_id = dtt.team_id
+        )
+        SELECT
+            batting_team,
+            season,
+            order_segment,
+            SUM(batter_runs) AS runs,
+            SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END) AS balls,
+            ROUND(SUM(batter_runs) * 100.0 /
+                NULLIF(SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END), 0), 1) AS strike_rate
+        FROM classified
+        GROUP BY batting_team, season, order_segment
+    """)
+
+    # Verify
+    for vw in [
+        "analytics_ipl_team_phase_batting_since2023",
+        "analytics_ipl_team_phase_bowling_since2023",
+        "analytics_ipl_team_batting_order_since2023",
+    ]:
+        count = conn.execute(f"SELECT COUNT(*) FROM {vw}").fetchone()[0]
+        print(f"  - {vw}: {count} rows")
+
+
 def main() -> int:
     """Main entry point."""
 
     print("=" * 60)
     print("Cricket Playbook - IPL 2026 Analytics Layer")
     print("Author: Stephen Curry")
-    print("Version: 2.1.0")
+    print("Version: 2.2.0")
     print("=" * 60)
     print()
 
@@ -4008,6 +4185,8 @@ def main() -> int:
     create_standardized_ipl_views(conn)
     create_film_room_views(conn)
     create_pressure_performance_views(conn)
+    create_tournament_weights_table(conn)
+    create_team_phase_views(conn)
 
     # Verify
     verify_views(conn)

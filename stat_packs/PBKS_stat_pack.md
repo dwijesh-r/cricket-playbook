@@ -1,6 +1,6 @@
 # Punjab Kings (PBKS) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 08:45
+**Generated:** 2026-02-12 16:37
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -151,6 +151,53 @@
 ---
 *Note: Historical trends limited to IPL 2023-2025 data. Some players may not have data across all seasons due to team changes or limited playing time.*
 
+## 3.5 Team Phase Approach (2023-2025)
+
+*How the team approaches each phase of the game — strategy DNA across seasons*
+
+### Powerplay DNA (Batting)
+
+| Season | SR | Boundary% | Dot% | Wkts Lost | RR | Approach |
+|--------|-----|-----------|------|-----------|------|----------|
+| 2023 | 136.1 | 23.6% | 50.4% | 2.0/inn | 8.17 | Aggressive |
+| 2024 | 142.1 | 24.4% | 44.2% | 1.6/inn | 8.52 | Aggressive ↑↑ |
+| 2025 | 159.1 | 26.1% | 41.0% | 1.8/inn | 9.55 | All-Out Attack ↑↑ |
+
+### Middle Overs Identity (Batting)
+
+| Season | SR | Boundary% | Dot% | Wkts Lost | RR | Style |
+|--------|-----|-----------|------|-----------|------|-------|
+| 2023 | 129.0 | 15.5% | 35.4% | 2.4/inn | 7.74 | Consolidating |
+| 2024 | 137.0 | 16.7% | 34.3% | 2.9/inn | 8.22 | Steady ↑↑ |
+| 2025 | 147.6 | 18.9% | 31.5% | 2.4/inn | 8.85 | Accelerating ↑↑ |
+
+### Death Overs Execution (Batting)
+
+| Season | SR | Boundary% | Dot% | Wkts Lost | RR | Rating |
+|--------|-----|-----------|------|-----------|------|--------|
+| 2023 | 185.5 | 26.5% | 32.2% | 2.6/inn | 11.13 | Explosive |
+| 2024 | 170.3 | 23.1% | 29.9% | 2.0/inn | 10.22 | Strong ↓↓ |
+| 2025 | 190.1 | 26.8% | 25.5% | 1.8/inn | 11.41 | Explosive ↑ |
+
+### Death Overs Bowling
+
+| Season | Economy | Dot% | Boundary Conceded% | Wkts/Match | Rating |
+|--------|---------|------|-------------------|------------|--------|
+| 2023 | 10.69 | 26.8% | 22.4% | 1.9 | Good |
+| 2024 | 11.39 | 29.9% | 25.2% | 3.4 | Vulnerable → |
+| 2025 | 11.38 | 26.9% | 24.7% | 2.4 | Vulnerable → |
+
+### Lineup Balance
+
+| Season | Top 3 Runs% | Middle Order% | Lower Order% | Top 3 SR | Assessment |
+|--------|------------|---------------|-------------|----------|------------|
+| 2023 | 45.1% | 31.2% | 23.8% | 143.7 | Balanced |
+| 2024 | 45.6% | 25.9% | 28.5% | 152.8 | Balanced → |
+| 2025 | 55.1% | 22.9% | 22.0% | 174.4 | Top-Heavy ↑↑ |
+
+---
+*Phase approach analysis based on IPL 2023-2025 ball-by-ball data. Approach labels derived from strike rate and boundary% thresholds.*
+
 
 ---
 
@@ -173,13 +220,13 @@
 |-------|---------|------|------|-----------|
 | Himachal Pradesh Cricket Associatio | 6 | 1 | 16.7% | 177.2 |
 | Narendra Modi Stadium | 4 | 3 | 75.0% | 208.5 |
-| Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
-| Eden Gardens | 3 | 1 | 33.3% | 214.0 |
-| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
 | MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
-| M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
+| Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
+| Eden Gardens | 3 | 1 | 33.3% | 214.0 |
 | Barsapara Cricket Stadium | 2 | 2 | 100.0% | 171.0 |
+| M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -192,9 +239,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -222,10 +269,10 @@
 | Yash Thakur | Bharat Ratna Shri Atal Bi | 8 | 12 | 9.19 | 14.42 |
 | Arshdeep Singh | Maharaja Yadavindra Singh | 10 | 11 | 8.64 | 18.0 |
 | Vijaykumar Vyshak | M Chinnaswamy Stadium | 8 | 10 | 9.8 | 17.7 |
+| YS Chahal | MA Chidambaram Stadium | 4 | 7 | 7.33 | 12.86 |
 | Arshdeep Singh | Himachal Pradesh Cricket  | 5 | 7 | 9.0 | 14.57 |
 | Arshdeep Singh | Punjab Cricket Associatio | 5 | 7 | 10.78 | 16.14 |
-| YS Chahal | MA Chidambaram Stadium | 4 | 7 | 7.33 | 12.86 |
-| YS Chahal | Maharaja Yadavindra Singh | 5 | 6 | 8.0 | 16.0 |
+| M Jansen | Sawai Mansingh Stadium | 4 | 6 | 10.48 | 15.17 |
 | M Jansen | Rajiv Gandhi Internationa | 6 | 6 | 9.94 | 18.0 |
 
 
@@ -408,12 +455,12 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Lucknow Super Giants | 5 | 108 | 158 | 10 | 8.78 | 15.8 | 10.8 | 34.26 | 23.15 | HIGH |
-| Royal Challengers Bengaluru | 7 | 134 | 223 | 8 | 9.99 | 27.88 | 16.75 | 32.09 | 25.37 | HIGH |
 | Sunrisers Hyderabad | 4 | 90 | 121 | 8 | 8.07 | 15.13 | 11.25 | 45.56 | 23.33 | MEDIUM |
+| Royal Challengers Bengaluru | 7 | 134 | 223 | 8 | 9.99 | 27.88 | 16.75 | 32.09 | 25.37 | HIGH |
 | Mumbai Indians | 5 | 113 | 196 | 7 | 10.41 | 28.0 | 16.14 | 30.97 | 29.2 | HIGH |
-| Chennai Super Kings | 5 | 116 | 180 | 6 | 9.31 | 30.0 | 19.33 | 34.48 | 25.0 | HIGH |
 | Rajasthan Royals | 6 | 143 | 247 | 6 | 10.36 | 41.17 | 23.83 | 40.56 | 27.97 | HIGH |
 | Kolkata Knight Riders | 4 | 84 | 112 | 6 | 8.0 | 18.67 | 14.0 | 46.43 | 20.24 | MEDIUM |
+| Chennai Super Kings | 5 | 116 | 180 | 6 | 9.31 | 30.0 | 19.33 | 34.48 | 25.0 | HIGH |
 | Gujarat Titans | 4 | 85 | 124 | 4 | 8.75 | 31.0 | 21.25 | 30.59 | 18.82 | MEDIUM |
 | Delhi Capitals | 4 | 84 | 112 | 2 | 8.0 | 56.0 | 42.0 | 39.29 | 19.05 | MEDIUM |
 

@@ -1169,6 +1169,233 @@
             .nl-search-bar { padding: 8px 12px; }
         }
 
+        /* ==================== QUERY EXPLANATION PANEL ==================== */
+        .query-explanation-panel {
+            padding: 10px 20px;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(10, 132, 255, 0.04) 0%, rgba(191, 90, 242, 0.03) 100%);
+            display: none;
+        }
+        .query-explanation-panel.visible { display: block; }
+        .query-explanation-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-tertiary);
+        }
+        .query-explanation-header .qe-icon { font-size: 13px; }
+        .query-explanation-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            align-items: center;
+        }
+        .qe-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            font-family: 'JetBrains Mono', monospace;
+            white-space: nowrap;
+        }
+        .qe-tag.player { background: rgba(10, 132, 255, 0.12); color: var(--accent); }
+        .qe-tag.team { background: rgba(48, 209, 88, 0.12); color: var(--accent-green); }
+        .qe-tag.phase { background: rgba(100, 210, 255, 0.12); color: var(--accent-teal); }
+        .qe-tag.venue { background: rgba(255, 159, 10, 0.12); color: var(--accent-orange); }
+        .qe-tag.season { background: rgba(255, 214, 10, 0.12); color: var(--accent-yellow); }
+        .qe-tag.bowler-type { background: rgba(191, 90, 242, 0.12); color: var(--accent-purple); }
+        .qe-tag.role { background: rgba(255, 55, 95, 0.12); color: var(--accent-pink); }
+        .qe-tag.modifier { background: rgba(142, 142, 147, 0.12); color: var(--text-secondary); }
+        .qe-tag.intent { background: rgba(10, 132, 255, 0.08); color: var(--accent); border: 1px solid rgba(10, 132, 255, 0.2); }
+        .qe-separator {
+            color: var(--text-tertiary);
+            font-size: 10px;
+            margin: 0 1px;
+        }
+        .qe-route {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 4px;
+            font-size: 10px;
+            color: var(--text-tertiary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .qe-route .qe-arrow { color: var(--accent); }
+
+        /* ==================== SIDE-BY-SIDE COMPARISON ==================== */
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            padding: 16px 20px;
+        }
+        @media (max-width: 600px) {
+            .comparison-container { grid-template-columns: 1fr; }
+        }
+        .comparison-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 16px;
+            overflow: hidden;
+        }
+        .comparison-card.wins-card { border-top: 3px solid var(--accent-green); }
+        .comparison-card.losses-card { border-top: 3px solid var(--accent-red); }
+        .comparison-card-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        .comparison-card-header .cc-icon { font-size: 16px; }
+        .comparison-card-header h4 {
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .comparison-card-header .cc-count {
+            margin-left: auto;
+            font-size: 11px;
+            color: var(--text-tertiary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .comparison-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .comparison-metric-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4px 0;
+        }
+        .comparison-metric-label {
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            font-weight: 600;
+        }
+        .comparison-metric-value {
+            font-size: 14px;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .comparison-delta-row {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            grid-column: 1 / -1;
+        }
+        .comparison-delta-row.visible { display: flex; }
+        .comparison-deltas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            padding: 12px 20px;
+            border-top: 1px solid var(--border);
+            background: var(--glass);
+            border-radius: 0 0 10px 10px;
+        }
+        .delta-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .delta-chip.positive { background: rgba(48, 209, 88, 0.12); color: var(--accent-green); }
+        .delta-chip.negative { background: rgba(255, 69, 58, 0.12); color: var(--accent-red); }
+        .delta-chip.neutral { background: rgba(142, 142, 147, 0.12); color: var(--text-secondary); }
+        .delta-chip .delta-label {
+            font-size: 10px;
+            color: var(--text-tertiary);
+            font-weight: 500;
+        }
+
+        /* ==================== DISAMBIGUATION CARD ==================== */
+        .disambiguation-card {
+            background: linear-gradient(135deg, rgba(255, 159, 10, 0.06) 0%, rgba(191, 90, 242, 0.04) 100%);
+            border: 1px solid rgba(255, 159, 10, 0.2);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin: 16px 20px;
+        }
+        .disambiguation-card h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent-orange);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .disambiguation-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .disambiguation-option {
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        .disambiguation-option:hover {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+        .fallback-suggestions {
+            margin-top: 10px;
+        }
+        .fallback-suggestion-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.15s ease;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        .fallback-suggestion-item:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+        .fallback-suggestion-item .fsi-icon {
+            font-size: 12px;
+            color: var(--accent);
+        }
+        .fallback-suggestion-item strong {
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+        }
+
         /* ==================== CODEMIRROR OVERRIDES (TKT-174) ==================== */
         .sql-editor-wrapper .cm-editor {
             min-height: 160px;
@@ -1681,6 +1908,10 @@ LIMIT 20;</textarea>
                         <span class="results-label">Results</span>
                         <span class="results-meta" id="results-meta">Run a query to see results</span>
                     </div>
+                    <!-- Query Explanation Panel -->
+                    <div class="query-explanation-panel" id="query-explanation-panel"></div>
+                    <!-- Disambiguation / Fallback Panel -->
+                    <div id="disambiguation-panel"></div>
                     <div class="results-table-wrapper" id="results-table-wrapper">
                         <div class="results-empty">
                             <div class="results-empty-icon">📊</div>
@@ -5501,6 +5732,10 @@ LIMIT 20;</textarea>
         let lastNLQueryType = null;
         let lastNLEntity = null;
         let lastNLContext = null;
+        let lastNLEntities = null;
+        let lastNLIntent = null;
+        let lastNLViewName = null;
+        let isCurrentNLQuery = false;
 
         function generateFirstTakeInsight(columns, rows, queryType, entity, context) {
             if (!rows || rows.length === 0) {
@@ -5792,15 +6027,289 @@ LIMIT 20;</textarea>
         /* ==================== WIRE NL SEARCH BAR (TKT-177) ==================== */
         const nlInput = document.getElementById('nl-search-input');
 
+        // ---- Query Explanation Panel renderer ----
+        function renderQueryExplanation(entities, intent, resultCount, viewSource) {
+            const panel = document.getElementById('query-explanation-panel');
+            if (!panel) return;
+
+            let tagsHTML = '';
+
+            // Player tags
+            entities.players.forEach(p => {
+                tagsHTML += `<span class="qe-tag player">Player: ${escapeHtml(p.name)}</span>`;
+            });
+
+            // Team tags
+            entities.teams.forEach(t => {
+                tagsHTML += `<span class="qe-tag team">Team: ${escapeHtml(t.canonical)}</span>`;
+            });
+
+            // Phase tags
+            entities.phases.forEach(p => {
+                tagsHTML += `<span class="qe-tag phase">Phase: ${escapeHtml(p)}</span>`;
+            });
+
+            // Venue tags
+            entities.venues.forEach(v => {
+                tagsHTML += `<span class="qe-tag venue">Venue: ${escapeHtml(v.keyword)}</span>`;
+            });
+
+            // Season tags
+            entities.seasons.forEach(s => {
+                const label = s.type === 'range' ? ('Since ' + s.from) : s.value;
+                tagsHTML += `<span class="qe-tag season">Season: ${escapeHtml(label)}</span>`;
+            });
+
+            // Bowler type tags
+            entities.bowlerTypes.forEach(bt => {
+                tagsHTML += `<span class="qe-tag bowler-type">Type: ${escapeHtml(bt.keyword)}</span>`;
+            });
+
+            // Role tag
+            if (entities.role) {
+                tagsHTML += `<span class="qe-tag role">Role: ${escapeHtml(entities.role)}</span>`;
+            }
+
+            // Modifier tags
+            if (entities.modifiers.winLoss) {
+                tagsHTML += `<span class="qe-tag modifier">Split: ${escapeHtml(entities.modifiers.winLoss)}</span>`;
+            }
+            if (entities.modifiers.innings) {
+                tagsHTML += `<span class="qe-tag modifier">${entities.modifiers.innings === 1 ? 'Batting first' : 'Chasing'}</span>`;
+            }
+            if (entities.modifiers.stage) {
+                tagsHTML += `<span class="qe-tag modifier">Stage: ${escapeHtml(entities.modifiers.stage)}</span>`;
+            }
+            if (entities.modifiers.breakdownByPhase) {
+                tagsHTML += `<span class="qe-tag modifier">By phase</span>`;
+            }
+
+            // Intent tag
+            tagsHTML += `<span class="qe-separator">|</span>`;
+            tagsHTML += `<span class="qe-tag intent">Intent: ${escapeHtml(intent)}</span>`;
+
+            // Route line
+            let routeHTML = '';
+            if (resultCount !== null) {
+                routeHTML = `<div class="qe-route"><span class="qe-arrow">&rarr;</span> ${resultCount} result${resultCount !== 1 ? 's' : ''}`;
+                if (viewSource) {
+                    routeHTML += ` from <strong>${escapeHtml(viewSource)}</strong>`;
+                }
+                routeHTML += `</div>`;
+            }
+
+            panel.innerHTML = `
+                <div class="query-explanation-header">
+                    <span class="qe-icon">&#128270;</span> Query Understanding
+                </div>
+                <div class="query-explanation-tags">${tagsHTML}</div>
+                ${routeHTML}`;
+            panel.classList.add('visible');
+        }
+
+        function hideQueryExplanation() {
+            const panel = document.getElementById('query-explanation-panel');
+            if (panel) {
+                panel.classList.remove('visible');
+                panel.innerHTML = '';
+            }
+        }
+
+        // ---- Disambiguation: find similar example queries ----
+        function findSimilarExamples(query, maxResults) {
+            const lower = query.toLowerCase();
+            const words = lower.split(/\s+/).filter(w => w.length >= 3);
+            const scored = [];
+
+            // Build a combined list of NL chip queries + example gallery queries
+            const nlExamples = [
+                { text: 'Kohli stats', desc: 'Player career lookup' },
+                { text: 'Kohli year wise', desc: 'Season-by-season breakdown' },
+                { text: 'Kohli at Chinnaswamy', desc: 'Venue splits' },
+                { text: 'top 10 batsmen', desc: 'Batting leaderboard' },
+                { text: 'Kohli vs MI', desc: 'Player vs team' },
+                { text: 'best death bowlers', desc: 'Phase bowling specialists' },
+                { text: 'CSK squad', desc: 'Team roster' },
+                { text: 'most expensive players', desc: 'IPL 2026 contracts' },
+                { text: 'clutch batters', desc: 'Pressure performance' },
+                { text: 'Bumrah bowling economy', desc: 'Player bowling stats' },
+                { text: 'top 10 wicket takers', desc: 'Bowling leaderboard' },
+                { text: 'Kohli vs Bumrah', desc: 'Head-to-head matchup' },
+                { text: 'RCB overseas players', desc: 'Overseas squad' },
+                { text: 'Kohli wins vs losses', desc: 'Win/loss performance split' },
+                { text: 'best powerplay batters', desc: 'Powerplay specialists' },
+                { text: 'top run scorers at Wankhede', desc: 'Venue leaderboard' },
+                { text: 'CSK squad batting in powerplay', desc: 'Team squad phase stats' },
+            ];
+
+            for (const ex of nlExamples) {
+                const exLower = ex.text.toLowerCase();
+                let score = 0;
+                // Substring match: any word from query found in example
+                for (const word of words) {
+                    if (exLower.includes(word)) score += 2;
+                }
+                // Also check if any word from example found in query
+                const exWords = exLower.split(/\s+/);
+                for (const ew of exWords) {
+                    if (ew.length >= 3 && lower.includes(ew)) score += 1;
+                }
+                if (score > 0) {
+                    scored.push({ ...ex, score });
+                }
+            }
+
+            scored.sort((a, b) => b.score - a.score);
+
+            // If no substring matches, return a diverse default set
+            if (scored.length === 0) {
+                return nlExamples.slice(0, maxResults);
+            }
+
+            return scored.slice(0, maxResults);
+        }
+
+        // ---- Disambiguation: check for ambiguous player matches ----
+        function findAmbiguousPlayers(query) {
+            const lower = query.toLowerCase().trim();
+            const words = lower.split(/\s+/).filter(w => w.length >= 3);
+            const ambiguous = [];
+
+            for (const word of words) {
+                // Skip common noise words
+                if (/^(show|stats|get|find|best|top|worst|bowling|batting|career|run|runs|wicket|wickets|team|player|death|powerplay|middle|phase|overs?|squad|roster|year|wise|season|most|highest|lowest|average|economy|strike|rate|wins?|loss|losses|split|against|versus|chasing|setting|playoffs?)$/.test(word)) continue;
+
+                // Skip if this word is a team alias
+                if (isTeamToken(word)) continue;
+
+                const matches = new Map(); // canonical name -> best alias that matched
+                for (const [alias, fullName] of Object.entries(PLAYER_ALIASES)) {
+                    const aliasLower = alias.toLowerCase();
+                    // Exact match on single-word alias
+                    if (aliasLower === word) {
+                        if (!matches.has(fullName)) {
+                            matches.set(fullName, alias);
+                        }
+                    }
+                    // Also check if word is a last-name part of a multi-word alias
+                    // e.g., "pandya" should match "hardik pandya" and "krunal pandya"
+                    else if (aliasLower.split(/\s+/).some(part => part === word) && aliasLower.includes(' ')) {
+                        if (!matches.has(fullName)) {
+                            // Prefer the short alias for display
+                            const shortAlias = Object.entries(PLAYER_ALIASES).find(([a, n]) => n === fullName && !a.includes(' '));
+                            matches.set(fullName, shortAlias ? shortAlias[0] : alias);
+                        }
+                    }
+                }
+                // Only ambiguous if multiple different canonical names matched the same word
+                if (matches.size > 1) {
+                    ambiguous.push({
+                        token: word,
+                        players: Array.from(matches.entries()).map(([name, alias]) => ({
+                            name,
+                            alias,
+                        }))
+                    });
+                }
+            }
+            return ambiguous;
+        }
+
+        // ---- Render disambiguation card ----
+        function renderDisambiguation(ambiguousResults, originalQuery) {
+            const panel = document.getElementById('disambiguation-panel');
+            if (!panel) return;
+
+            if (!ambiguousResults || ambiguousResults.length === 0) {
+                panel.innerHTML = '';
+                return;
+            }
+
+            const amb = ambiguousResults[0]; // Handle first ambiguous token
+            let optionsHTML = '';
+            amb.players.forEach(p => {
+                // Build a new query replacing the ambiguous token with the full name
+                const newQuery = originalQuery.replace(
+                    new RegExp('\\b' + amb.token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i'),
+                    p.alias
+                );
+                optionsHTML += `<button type="button" class="disambiguation-option" onclick="document.getElementById('nl-search-input').value='${escapeAttr(p.alias)}';handleNLSearch();">${escapeHtml(p.name)} <span style="color:var(--text-tertiary);font-weight:400;">(${escapeHtml(p.alias)})</span></button>`;
+            });
+
+            panel.innerHTML = `
+                <div class="disambiguation-card">
+                    <h4>&#9888; Multiple players match "${escapeHtml(amb.token)}":</h4>
+                    <div class="disambiguation-options">${optionsHTML}</div>
+                </div>`;
+        }
+
+        // ---- Render fallback suggestions ----
+        function renderFallbackSuggestions(query) {
+            const panel = document.getElementById('disambiguation-panel');
+            if (!panel) return;
+
+            const suggestions = findSimilarExamples(query, 5);
+            let suggestionsHTML = '';
+            suggestions.forEach(s => {
+                suggestionsHTML += `<div class="fallback-suggestion-item" onclick="document.getElementById('nl-search-input').value='${escapeAttr(s.text)}';handleNLSearch();">
+                    <span class="fsi-icon">&#9654;</span>
+                    <strong>"${escapeHtml(s.text)}"</strong>
+                    <span style="color:var(--text-tertiary);">&mdash; ${escapeHtml(s.desc)}</span>
+                </div>`;
+            });
+
+            panel.innerHTML = `
+                <div class="disambiguation-card" style="border-color: rgba(255, 159, 10, 0.2);">
+                    <h4>&#128269; I couldn't understand that query. Try one of these:</h4>
+                    <div class="fallback-suggestions">${suggestionsHTML}</div>
+                </div>`;
+        }
+
+        function clearDisambiguation() {
+            const panel = document.getElementById('disambiguation-panel');
+            if (panel) panel.innerHTML = '';
+        }
+
+        // ---- Extract view name from SQL for display ----
+        function extractViewFromSQL(sql) {
+            if (!sql) return null;
+            const match = sql.match(/FROM\s+(\w+)/i);
+            return match ? match[1] : null;
+        }
+
         function handleNLSearch() {
             const query = nlInput.value.trim();
             if (!query) return;
 
+            // Clear previous disambiguation/explanation
+            clearDisambiguation();
+            hideQueryExplanation();
+
+            // Pre-extract entities and intent for explanation panel
+            const entities = extractEntities(query);
+            const intent = classifyIntent(entities, query);
+            lastNLEntities = entities;
+            lastNLIntent = intent;
+
+            // Check for ambiguous player matches before running
+            const ambiguous = findAmbiguousPlayers(query);
+
             const result = naturalLanguageToSQL(query);
             if (result) {
+                // If there's ambiguity, show disambiguation but still run the first match
+                if (ambiguous.length > 0 && entities.players.length === 0) {
+                    renderDisambiguation(ambiguous, query);
+                    return; // Don't run query, let user pick
+                }
+
                 lastNLQueryType = result.type;
                 lastNLEntity = result.entity || null;
                 lastNLContext = result.context || null;
+                lastNLViewName = extractViewFromSQL(result.sql);
+                isCurrentNLQuery = true;
+
+                // Show query explanation immediately (result count filled after execution)
+                renderQueryExplanation(entities, intent, null, lastNLViewName);
 
                 setEditorSQL(result.sql);
                 document.getElementById('sql-editor').scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -5810,31 +6319,13 @@ LIMIT 20;</textarea>
                     window.executeQuery();
                 }, 300);
             } else {
-                // No pattern matched - show helpful hint
-                const insightSection = document.getElementById('andy-flower-insights');
-                if (insightSection) {
-                    insightSection.innerHTML = `
-                        <div class="insight-card" style="border-color: rgba(255, 159, 10, 0.3); background: linear-gradient(135deg, rgba(255, 159, 10, 0.08) 0%, rgba(255, 69, 58, 0.06) 100%);">
-                            <div class="insight-card-header">
-                                <span class="icon">\u{1F3CF}</span>
-                                <h4>The First Take</h4>
-                                <span class="badge" style="background: rgba(255, 159, 10, 0.15); color: var(--accent-orange);">Try These</span>
-                            </div>
-                            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 8px;">
-                                I could not quite parse that one. Here are some things I understand:
-                            </p>
-                            <ul style="font-size: 12px; color: var(--text-secondary); line-height: 2; list-style: none; padding: 0; font-family: 'JetBrains Mono', monospace;">
-                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='Kohli stats';handleNLSearch();">\u{1F4A1} <strong>"Kohli stats"</strong> \u2014 Player career lookup</li>
-                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='Kohli year wise';handleNLSearch();">\u{1F4A1} <strong>"Kohli year wise"</strong> \u2014 Season-by-season breakdown</li>
-                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='Kohli at Chinnaswamy';handleNLSearch();">\u{1F4A1} <strong>"Kohli at Chinnaswamy"</strong> \u2014 Venue splits</li>
-                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='top 10 batsmen';handleNLSearch();">\u{1F4A1} <strong>"top 10 batsmen"</strong> \u2014 Batting leaderboard</li>
-                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='Kohli vs MI';handleNLSearch();">\u{1F4A1} <strong>"Kohli vs MI"</strong> \u2014 Player vs team</li>
-                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='best death bowlers';handleNLSearch();">\u{1F4A1} <strong>"best death bowlers"</strong> \u2014 Phase specialists</li>
-                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='CSK squad';handleNLSearch();">\u{1F4A1} <strong>"CSK squad"</strong> \u2014 Team roster</li>
-                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='most expensive players';handleNLSearch();">\u{1F4A1} <strong>"most expensive players"</strong> \u2014 IPL 2026 contracts</li>
-                                <li style="cursor:pointer;" onclick="document.getElementById('nl-search-input').value='clutch batters';handleNLSearch();">\u{1F4A1} <strong>"clutch batters"</strong> \u2014 Pressure performance</li>
-                            </ul>
-                        </div>`;
+                // No pattern matched
+                // Check for disambiguation first
+                if (ambiguous.length > 0) {
+                    renderDisambiguation(ambiguous, query);
+                } else {
+                    // Show fallback suggestions
+                    renderFallbackSuggestions(query);
                 }
             }
         }
@@ -5848,11 +6339,124 @@ LIMIT 20;</textarea>
             }
         });
 
+        // ---- Side-by-Side Comparison Renderer ----
+        function renderWinLossComparison(columns, rows) {
+            const wonRows = rows.filter(r => r.match_result === 'WON');
+            const lostRows = rows.filter(r => r.match_result === 'LOST');
+
+            if (wonRows.length === 0 && lostRows.length === 0) return false;
+
+            const wonRow = wonRows[0] || {};
+            const lostRow = lostRows[0] || {};
+
+            // Pick key metrics to display (skip non-metric columns)
+            const skipCols = new Set(['match_result', 'player_name', 'batter_name', 'bowler_name', 'team_name', 'current_name']);
+            const metricCols = columns.filter(c => !skipCols.has(c));
+
+            function fmtVal(v) {
+                if (v === null || v === undefined) return 'N/A';
+                if (typeof v === 'number') return v % 1 === 0 ? v.toLocaleString() : v.toFixed(2);
+                return String(v);
+            }
+
+            // Determine whether higher is better for a metric
+            function higherIsBetter(colName) {
+                const lower = colName.toLowerCase();
+                if (/economy|dot_ball_pct|dot_pct|avg_dot/.test(lower)) return false; // lower is better
+                return true; // default: higher is better
+            }
+
+            // Build metrics HTML for a card
+            function buildMetricsHTML(row) {
+                let html = '';
+                for (const col of metricCols) {
+                    html += `<div class="comparison-metric-row">
+                        <span class="comparison-metric-label">${escapeHtml(col.replace(/_/g, ' '))}</span>
+                        <span class="comparison-metric-value">${fmtVal(row[col])}</span>
+                    </div>`;
+                }
+                return html;
+            }
+
+            // Build deltas
+            let deltasHTML = '';
+            for (const col of metricCols) {
+                const wVal = wonRow[col];
+                const lVal = lostRow[col];
+                if (typeof wVal === 'number' && typeof lVal === 'number') {
+                    const delta = wVal - lVal;
+                    const hib = higherIsBetter(col);
+                    const isGood = hib ? delta > 0 : delta < 0;
+                    const cls = Math.abs(delta) < 0.01 ? 'neutral' : (isGood ? 'positive' : 'negative');
+                    const sign = delta > 0 ? '+' : '';
+                    const displayDelta = delta % 1 === 0 ? delta.toLocaleString() : delta.toFixed(2);
+                    deltasHTML += `<span class="delta-chip ${cls}">
+                        <span class="delta-label">${escapeHtml(col.replace(/_/g, ' '))}:</span>
+                        ${sign}${displayDelta}
+                    </span>`;
+                }
+            }
+
+            // Get player/team name for the header
+            const headerName = wonRow.player_name || wonRow.batter_name || wonRow.bowler_name || wonRow.team_name || lostRow.player_name || lostRow.batter_name || '';
+
+            const resultsWrapper = document.getElementById('results-table-wrapper');
+            resultsWrapper.innerHTML = `
+                ${headerName ? `<div style="padding: 12px 20px 0; font-size: 14px; font-weight: 700;">${escapeHtml(headerName)} &mdash; Wins vs Losses</div>` : ''}
+                <div class="comparison-container">
+                    <div class="comparison-card wins-card">
+                        <div class="comparison-card-header">
+                            <span class="cc-icon">&#9989;</span>
+                            <h4 style="color: var(--accent-green);">In Wins</h4>
+                            <span class="cc-count">${wonRows.length} match${wonRows.length !== 1 ? 'es' : ''}</span>
+                        </div>
+                        <div class="comparison-metrics">${buildMetricsHTML(wonRow)}</div>
+                    </div>
+                    <div class="comparison-card losses-card">
+                        <div class="comparison-card-header">
+                            <span class="cc-icon">&#10060;</span>
+                            <h4 style="color: var(--accent-red);">In Losses</h4>
+                            <span class="cc-count">${lostRows.length} match${lostRows.length !== 1 ? 'es' : ''}</span>
+                        </div>
+                        <div class="comparison-metrics">${buildMetricsHTML(lostRow)}</div>
+                    </div>
+                </div>
+                ${deltasHTML ? `<div class="comparison-deltas">${deltasHTML}</div>` : ''}
+            `;
+            return true;
+        }
+
         // ---- Patch executeQuery to generate insights after results ----
         const _originalExecuteQuery = executeQuery;
 
         async function executeQueryWithInsights() {
             await _originalExecuteQuery();
+
+            if (isCurrentNLQuery) {
+                // Update query explanation panel with result count
+                if (lastNLEntities && lastNLIntent && currentResultRows) {
+                    renderQueryExplanation(lastNLEntities, lastNLIntent, currentResultRows.length, lastNLViewName);
+                }
+
+                // Check for side-by-side comparison rendering
+                if (currentResultRows && currentResultRows.length > 0 && currentResultColumns.includes('match_result')) {
+                    const hasWon = currentResultRows.some(r => r.match_result === 'WON');
+                    const hasLost = currentResultRows.some(r => r.match_result === 'LOST');
+                    if (hasWon && hasLost && lastNLEntities && lastNLEntities.modifiers && lastNLEntities.modifiers.winLoss === 'split') {
+                        renderWinLossComparison(currentResultColumns, currentResultRows);
+                        // Hide pagination for comparison view
+                        document.getElementById('results-pagination').classList.remove('visible');
+                    }
+                }
+
+                // Reset the NL query flag after processing
+                isCurrentNLQuery = false;
+            } else {
+                // Manual query: hide NL-specific panels
+                hideQueryExplanation();
+                clearDisambiguation();
+            }
+
             if (currentResultRows && currentResultRows.length > 0) {
                 updateFirstTakeInsight(currentResultColumns, currentResultRows);
             }

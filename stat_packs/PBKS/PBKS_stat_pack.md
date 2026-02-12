@@ -1,6 +1,6 @@
 # Punjab Kings (PBKS) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 17:17
+**Generated:** 2026-02-12 20:25
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -129,7 +129,7 @@
 
 - **2023:** Arshdeep Singh (17w @ 9.2), NT Ellis (13w @ 8.81), SM Curran (10w @ 9.97)
 - **2024:** HV Patel (24w @ 9.18), Arshdeep Singh (19w @ 9.46), SM Curran (16w @ 9.97)
-- **2025:** Arshdeep Singh (21w @ 8.62), M Jansen (16w @ 8.96), YS Chahal (16w @ 9.34)
+- **2025:** Arshdeep Singh (21w @ 8.62), YS Chahal (16w @ 9.34), M Jansen (16w @ 8.96)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -246,11 +246,11 @@
 |-------|---------|------|------|-----------|
 | Himachal Pradesh Cricket Associatio | 6 | 1 | 16.7% | 177.2 |
 | Narendra Modi Stadium | 4 | 3 | 75.0% | 208.5 |
-| Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
-| Eden Gardens | 3 | 1 | 33.3% | 214.0 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
-| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
+| Eden Gardens | 3 | 1 | 33.3% | 214.0 |
+| Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
 | MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
 | M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
 | Barsapara Cricket Stadium | 2 | 2 | 100.0% | 171.0 |
 
@@ -266,8 +266,8 @@
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -298,8 +298,8 @@
 | Arshdeep Singh | Punjab Cricket Associatio | 5 | 7 | 10.78 | 16.14 |
 | YS Chahal | MA Chidambaram Stadium | 4 | 7 | 7.33 | 12.86 |
 | Arshdeep Singh | Himachal Pradesh Cricket  | 5 | 7 | 9.0 | 14.57 |
+| M Jansen | Sawai Mansingh Stadium | 4 | 6 | 10.48 | 15.17 |
 | YS Chahal | Barsapara Cricket Stadium | 3 | 6 | 8.75 | 12.0 |
-| YS Chahal | Maharaja Yadavindra Singh | 5 | 6 | 8.0 | 16.0 |
 
 
 ---
@@ -484,8 +484,8 @@
 | Sunrisers Hyderabad | 4 | 90 | 121 | 8 | 8.07 | 15.13 | 11.25 | 45.56 | 23.33 | MEDIUM |
 | Royal Challengers Bengaluru | 7 | 134 | 223 | 8 | 9.99 | 27.88 | 16.75 | 32.09 | 25.37 | HIGH |
 | Mumbai Indians | 5 | 113 | 196 | 7 | 10.41 | 28.0 | 16.14 | 30.97 | 29.2 | HIGH |
-| Rajasthan Royals | 6 | 143 | 247 | 6 | 10.36 | 41.17 | 23.83 | 40.56 | 27.97 | HIGH |
 | Kolkata Knight Riders | 4 | 84 | 112 | 6 | 8.0 | 18.67 | 14.0 | 46.43 | 20.24 | MEDIUM |
+| Rajasthan Royals | 6 | 143 | 247 | 6 | 10.36 | 41.17 | 23.83 | 40.56 | 27.97 | HIGH |
 | Chennai Super Kings | 5 | 116 | 180 | 6 | 9.31 | 30.0 | 19.33 | 34.48 | 25.0 | HIGH |
 | Gujarat Titans | 4 | 85 | 124 | 4 | 8.75 | 31.0 | 21.25 | 30.59 | 18.82 | MEDIUM |
 | Delhi Capitals | 4 | 84 | 112 | 2 | 8.0 | 56.0 | 42.0 | 39.29 | 19.05 | MEDIUM |
@@ -501,8 +501,8 @@
 | Delhi Capitals | 3 | 66 | 93 | 6 | 8.45 | 15.5 | 11.0 | 28.79 | 15.15 | MEDIUM |
 | Mumbai Indians | 4 | 90 | 129 | 5 | 8.6 | 25.8 | 18.0 | 36.67 | 20.0 | MEDIUM |
 | Punjab Kings | 4 | 96 | 147 | 4 | 9.19 | 36.75 | 24.0 | 25.0 | 19.79 | MEDIUM |
-| Gujarat Titans | 4 | 89 | 134 | 3 | 9.03 | 44.67 | 29.67 | 17.98 | 15.73 | MEDIUM |
 | Lucknow Super Giants | 5 | 114 | 189 | 3 | 9.95 | 63.0 | 38.0 | 25.44 | 21.05 | HIGH |
+| Gujarat Titans | 4 | 89 | 134 | 3 | 9.03 | 44.67 | 29.67 | 17.98 | 15.73 | MEDIUM |
 | Rajasthan Royals | 2 | 42 | 57 | 0 | 8.14 | - | - | 23.81 | 14.29 | MEDIUM |
 
 ---
@@ -707,17 +707,17 @@
 
 ### 12.1 T20 Batting Profile
 
-| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Tournaments |
-|--------|------|---------|----------|--------|---------|------------|-------------|
-| Harnoor Singh | Batter | 110 | 1062 | 133 | 15.6 | HIGH | SMAT, T20WC, Unknow |
-| Cooper Connolly | All-rounder | 37 | 841 | 136 | 30.0 | HIGH | BBL, MLC, Intl |
+| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Trust | Tournaments |
+|--------|------|---------|----------|--------|---------|------------|-------|-------------|
+| Harnoor Singh | Batter | 110 | 1062 | 133 | 15.6 | HIGH | 84 | SMAT, T20WC, Unknow |
+| Cooper Connolly | All-rounder | 37 | 841 | 136 | 30.0 | HIGH | 52 | BBL, MLC, Intl |
 
 ### 12.2 T20 Bowling Profile
 
-| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Tournaments |
-|--------|------|-------------|----------|----------|---------|------------|-------------|
-| Ben Dwarshuis | Fast | 179 | 229 | 8.6 | 23.9 | HIGH | BBL, Blast, Blast |
-| Cooper Connolly | Left-arm ort | 29 | 24 | 7.5 | 22.6 | HIGH | BBL, Intl, Intl |
+| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
+|--------|------|-------------|----------|----------|---------|------------|-------|-------------|
+| Ben Dwarshuis | Fast | 179 | 229 | 8.6 | 23.9 | HIGH | 52 | BBL, Blast, Blast |
+| Cooper Connolly | Left-arm ort | 29 | 24 | 7.5 | 22.6 | HIGH | 40 | BBL, Intl, Intl |
 
 ### 12.3 Limited / No T20 Data
 
@@ -726,6 +726,64 @@
 | Player | Role | Nationality |
 |--------|------|-------------|
 | Pyla Avinash | Batter | IND |
+
+
+---
+
+## 13. Cross-Tournament Intelligence
+
+*Weighted cross-tournament context for squad players with limited IPL samples (<300 batting balls / <200 bowling balls since 2023)*
+
+### 13.1 Batting Intelligence
+
+| Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
+|--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
+| Harnoor Singh | Batter | 0 | 134 | 17.4 | 2 | 714 | 84 | IPL (0.87, SR 137.6); SMAT (0.65, SR 105.2) |
+| Marco Jansen | All-rounder | 119 | 130 | 19.5 | 5 | 657 | 55 | SA20 (0.50, SR 141.0); IPL (0.87, SR 109.3); CSA (0.38, SR 144.0) |
+| Ben Dwarshuis | Bowler | 0 | 144 | 19.8 | 4 | 620 | 52 | BBL (0.53, SR 144.4); Blast (0.50, SR 105.3); PSL (0.51, SR 170.0) |
+| Cooper Connolly | All-rounder | 0 | 137 | 32.1 | 2 | 608 | 52 | BBL (0.53, SR 139.2); MLC (0.42, SR 103.7) |
+| Vishnu Vinod | Wicketkeeper | 30 | 139 | 32.7 | 2 | 584 | 67 | SMAT (0.65, SR 145.3); IPL (0.87, SR 98.2) |
+| Priyansh Arya | Batter | 298 | 173 | 31.0 | 2 | 474 | 75 | IPL (0.87, SR 182.9); SMAT (0.65, SR 151.1) |
+| Xavier Bartlett | Bowler | 15 | 130 | 19.9 | 3 | 339 | 34 | BBL (0.53, SR 123.1); MLC (0.42, SR 177.3); Blast (0.50, SR 88.6) |
+| Azmatullah Omarzai | All-rounder | 74 | 148 | 20.5 | 3 | 296 | 34 | ILT20 (0.49, SR 137.1); IPL (0.87, SR 133.8); LPL (0.40, SR 236.5) |
+| Harpreet Brar | All-rounder | 108 | 119 | 20.5 | 2 | 283 | 46 | IPL (0.87, SR 120.2); SMAT (0.65, SR 113.8) |
+| Lockie Ferguson | Bowler | 2 | 139 | 21.4 | 3 | 152 | 16 | SS (0.36, SR 130.2); IPL (0.87, SR 147.8); 100 (0.50, SR 135.0) |
+| Yuzvendra Chahal | Bowler | 0 | 43.0 | 7.4 | 1 | 86 | 15 | IPL (0.87, SR 43.0) |
+| Arshdeep Singh | Bowler | 11 | 67.4 | 10.3 | 1 | 46 | 8 | IPL (0.87, SR 67.4) |
+| Yash Thakur | Bowler | 0 | 63.9 | 23 | 1 | 36 | 5 | SMAT (0.65, SR 63.9) |
+| Suryansh Shedge | All-rounder | 11 | 279 | - | 1 | 28 | 4 | SMAT (0.65, SR 278.6) |
+
+### 13.2 Bowling Intelligence
+
+| Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
+|--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
+| Harnoor Singh | Batter | 0 | 7.0 | 21.5 | 2 | 3728 | 85 | IPL (0.87, Econ 7.0); SMAT (0.65, Econ 5.9) |
+| Ben Dwarshuis | Bowler | 0 | 8.2 | 16.2 | 4 | 3228 | 52 | BBL (0.53, Econ 8.0); Blast (0.50, Econ 8.4); PSL (0.51, Econ 10.2) |
+| Xavier Bartlett | Bowler | 60 | 8.7 | 15.4 | 4 | 1633 | 52 | BBL (0.53, Econ 8.6); MLC (0.42, Econ 8.7); Blast (0.50, Econ 8.8) |
+| Cooper Connolly | All-rounder | 0 | 7.0 | 16 | 1 | 384 | 40 | BBL (0.53, Econ 7.0) |
+| Shashank Singh | All-rounder | 18 | 8.6 | 21.7 | 2 | 258 | 35 | SMAT (0.65, Econ 8.3); IPL (0.87, Econ 10.2) |
+| Suryansh Shedge | All-rounder | 18 | 10.5 | 12.1 | 2 | 66 | 9 | SMAT (0.65, Econ 9.6); IPL (0.87, Econ 12.3) |
+| Shreyas Iyer | Batter | 0 | 10.5 | 41 | 1 | 41 | 5 | SMAT (0.65, Econ 10.5) |
+| Vishnu Vinod | Wicketkeeper | 0 | 7.3 | - | 1 | 19 | 2 | SMAT (0.65, Econ 7.3) |
+| Nehal Wadhera | Batter | 17 | 7.8 | - | 1 | 17 | 3 | IPL (0.87, Econ 7.8) |
+| Musheer Khan | All-rounder | 12 | 13.5 | 12 | 1 | 12 | 2 | IPL (0.87, Econ 13.5) |
+
+### 13.3 Methodology
+
+Cross-tournament intelligence uses a weighted composite model across 14 T20 tournaments to provide context for players with limited IPL data.
+
+**Weighting factors** (from `dim_tournament_weights`):
+
+- **Player Quality Index (PQI)**: Strength of playing talent in the tournament
+- **Competitiveness**: How closely contested matches are
+- **Conditions Similarity**: How similar playing conditions are to IPL venues
+- **Recency**: More recent tournaments weighted higher
+- **Sample Confidence**: Larger tournaments with more matches get higher confidence
+
+**Trust Score** = (avg tournament weight x min(total T20 balls / 500, 1.0)) x 100, capped at 100. Combines tournament quality with sample size — a player with 500+ balls in high-quality tournaments (BBL, PSL, The Hundred) earns a higher trust score than one with the same balls in lower-tier competitions.
+
+**Tier examples**: IPL (0.87), SMAT (0.65), BBL (0.53), PSL (0.51), The Hundred (0.50), CPL (0.50), Super Smash (0.36)
+
 
 
 ---

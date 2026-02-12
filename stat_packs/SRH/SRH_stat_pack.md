@@ -1,6 +1,6 @@
 # Sunrisers Hyderabad (SRH) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 17:17
+**Generated:** 2026-02-12 20:25
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -34,12 +34,12 @@
 | Salil Arora | Batter | Medium | Right-hand | 0.30 | Auction | 2026 |
 | Amit Kumar | All-rounder | Fast | Right-hand | 0.30 | Auction | 2026 |
 | Shivam Mavi | Bowler | Fast | Right-hand | 0.30 | Auction | 2026 |
+| Onkar Tarmale | Batter | Fast | Right-hand | 0.30 | Auction | 2026 |
 | Sakib Hussain | Bowler | Fast | Right-hand | 0.30 | Auction | 2026 |
-| Onkar Tarmale | Batter | Fast | Right-hand | 0.00 | - | - |
-| Praful Hinge | Bowler | Fast | Right-hand | 0.00 | - | - |
+| Praful Hinge | Bowler | Fast | Right-hand | 0.30 | Auction | 2026 |
 
 **Total Squad Size:** 25 players
-**Total Spend:** ₹114.60 Cr
+**Total Spend:** ₹115.20 Cr
 
 **Role Breakdown:** All-rounder: 7, Batter: 5, Bowler: 11, Wicketkeeper: 2
 
@@ -132,9 +132,9 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** B Kumar (16w @ 8.13), M Markande (12w @ 7.83), T Natarajan (10w @ 9.04)
+- **2023:** B Kumar (16w @ 8.13), M Markande (12w @ 7.83), M Jansen (10w @ 9.2)
 - **2024:** T Natarajan (19w @ 8.48), PJ Cummins (18w @ 9.14), B Kumar (11w @ 9.33)
-- **2025:** HV Patel (16w @ 9.1), PJ Cummins (16w @ 8.85), E Malinga (13w @ 8.87)
+- **2025:** PJ Cummins (16w @ 8.85), HV Patel (16w @ 9.1), E Malinga (13w @ 8.87)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -251,8 +251,8 @@
 |-------|---------|------|------|-----------|
 | MA Chidambaram Stadium | 5 | 2 | 40.0% | 142.2 |
 | Narendra Modi Stadium | 4 | 0 | 0.0% | 165.3 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 186.0 |
 | Eden Gardens | 3 | 1 | 33.3% | 184.0 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 186.0 |
 | Wankhede Stadium | 3 | 0 | 0.0% | 178.3 |
 | Arun Jaitley Stadium | 3 | 3 | 100.0% | 247.0 |
 
@@ -265,11 +265,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -294,8 +294,8 @@
 
 | Player | Venue | Matches | Wkts | Econ | SR |
 |--------|-------|---------|------|------|-----|
-| HV Patel | Maharaja Yadavindra Singh | 5 | 11 | 8.59 | 9.27 |
 | HV Patel | Rajiv Gandhi Internationa | 7 | 11 | 8.92 | 13.64 |
+| HV Patel | Maharaja Yadavindra Singh | 5 | 11 | 8.59 | 9.27 |
 | JD Unadkat | Rajiv Gandhi Internationa | 8 | 8 | 7.88 | 18.75 |
 | HV Patel | Himachal Pradesh Cricket  | 2 | 6 | 7.5 | 8.0 |
 
@@ -320,8 +320,8 @@
 | Salil Arora | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Ravichandran Smaran | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Krains Fuletra | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
-| Amit Kumar | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Onkar Tarmale | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
+| Amit Kumar | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
 ### 5.2 Phase-wise Batting (Qualified players)
 
@@ -474,15 +474,15 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Chennai Super Kings | 4 | 74 | 81 | 8 | 6.57 | 10.13 | 9.25 | 40.54 | 10.81 | MEDIUM |
 | Rajasthan Royals | 4 | 84 | 112 | 8 | 8.0 | 14.0 | 10.5 | 27.38 | 13.1 | MEDIUM |
-| Lucknow Super Giants | 5 | 107 | 170 | 5 | 9.53 | 34.0 | 21.4 | 27.1 | 23.36 | HIGH |
+| Chennai Super Kings | 4 | 74 | 81 | 8 | 6.57 | 10.13 | 9.25 | 40.54 | 10.81 | MEDIUM |
 | Mumbai Indians | 5 | 106 | 169 | 5 | 9.57 | 33.8 | 21.2 | 22.64 | 19.81 | HIGH |
-| Royal Challengers Bengaluru | 3 | 71 | 117 | 5 | 9.89 | 23.4 | 14.2 | 29.58 | 25.35 | MEDIUM |
-| Punjab Kings | 2 | 44 | 51 | 5 | 6.95 | 10.2 | 8.8 | 36.36 | 11.36 | MEDIUM |
+| Lucknow Super Giants | 5 | 107 | 170 | 5 | 9.53 | 34.0 | 21.4 | 27.1 | 23.36 | HIGH |
 | Gujarat Titans | 4 | 84 | 126 | 5 | 9.0 | 25.2 | 16.8 | 25.0 | 17.86 | MEDIUM |
 | Delhi Capitals | 5 | 102 | 161 | 5 | 9.47 | 32.2 | 20.4 | 30.39 | 21.57 | HIGH |
 | Sunrisers Hyderabad | 3 | 72 | 104 | 5 | 8.67 | 20.8 | 14.4 | 25.0 | 19.44 | MEDIUM |
+| Punjab Kings | 2 | 44 | 51 | 5 | 6.95 | 10.2 | 8.8 | 36.36 | 11.36 | MEDIUM |
+| Royal Challengers Bengaluru | 3 | 71 | 117 | 5 | 9.89 | 23.4 | 14.2 | 29.58 | 25.35 | MEDIUM |
 | Kolkata Knight Riders | 5 | 96 | 190 | 3 | 11.88 | 63.33 | 32.0 | 27.08 | 31.25 | MEDIUM |
 
 ### Pat Cummins
@@ -492,10 +492,10 @@
 | Royal Challengers Bengaluru | 3 | 72 | 128 | 7 | 10.67 | 18.29 | 10.29 | 29.17 | 27.78 | MEDIUM |
 | Mumbai Indians | 4 | 90 | 124 | 6 | 8.27 | 20.67 | 15.0 | 43.33 | 20.0 | MEDIUM |
 | Kolkata Knight Riders | 5 | 90 | 159 | 4 | 10.6 | 39.75 | 22.5 | 38.89 | 27.78 | MEDIUM |
-| Lucknow Super Giants | 3 | 66 | 106 | 3 | 9.64 | 35.33 | 22.0 | 31.82 | 24.24 | MEDIUM |
 | Gujarat Titans | 3 | 70 | 92 | 3 | 7.89 | 30.67 | 23.33 | 30.0 | 15.71 | MEDIUM |
-| Rajasthan Royals | 3 | 72 | 120 | 3 | 10.0 | 40.0 | 24.0 | 36.11 | 23.61 | MEDIUM |
+| Lucknow Super Giants | 3 | 66 | 106 | 3 | 9.64 | 35.33 | 22.0 | 31.82 | 24.24 | MEDIUM |
 | Delhi Capitals | 3 | 60 | 80 | 3 | 8.0 | 26.67 | 20.0 | 41.67 | 20.0 | MEDIUM |
+| Rajasthan Royals | 3 | 72 | 120 | 3 | 10.0 | 40.0 | 24.0 | 36.11 | 23.61 | MEDIUM |
 | Chennai Super Kings | 3 | 72 | 100 | 3 | 8.33 | 33.33 | 24.0 | 27.78 | 16.67 | MEDIUM |
 | Punjab Kings | 3 | 72 | 97 | 2 | 8.08 | 48.5 | 36.0 | 36.11 | 19.44 | MEDIUM |
 
@@ -692,17 +692,17 @@
 
 ### 12.1 T20 Batting Profile
 
-| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Tournaments |
-|--------|------|---------|----------|--------|---------|------------|-------------|
-| Jack Edwards | All-rounder | 51 | 807 | 121 | 17.2 | HIGH | BBL, MLC |
+| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Trust | Tournaments |
+|--------|------|---------|----------|--------|---------|------------|-------|-------------|
+| Jack Edwards | All-rounder | 51 | 807 | 121 | 17.2 | HIGH | 51 | BBL, MLC |
 
 ### 12.2 T20 Bowling Profile
 
-| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Tournaments |
-|--------|------|-------------|----------|----------|---------|------------|-------------|
-| Brydon Carse | Fast | 77 | 57 | 9.3 | 36.5 | HIGH | Blast, 100, SA20 |
-| Jack Edwards | Off-spin | 40 | 47 | 8.3 | 23.0 | HIGH | BBL, MLC |
-| Shivam Mavi | Fast | 46 | 45 | 8.8 | 29.5 | HIGH | SMAT, Intl, Intl |
+| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
+|--------|------|-------------|----------|----------|---------|------------|-------|-------------|
+| Brydon Carse | Fast | 77 | 57 | 9.3 | 36.5 | HIGH | 50 | Blast, 100, SA20 |
+| Jack Edwards | Off-spin | 40 | 47 | 8.3 | 23.0 | HIGH | 50 | BBL, MLC |
+| Shivam Mavi | Fast | 46 | 45 | 8.8 | 29.5 | HIGH | 83 | SMAT, Intl, Intl |
 
 ### 12.3 Limited / No T20 Data
 
@@ -717,6 +717,62 @@
 | Ravichandran Smaran | Batter | IND |
 | Sakib Hussain | Bowler | IND |
 | Salil Arora | Batter | IND |
+
+
+---
+
+## 13. Cross-Tournament Intelligence
+
+*Weighted cross-tournament context for squad players with limited IPL samples (<300 batting balls / <200 bowling balls since 2023)*
+
+### 13.1 Batting Intelligence
+
+| Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
+|--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
+| Kamindu Mendis | All-rounder | 68 | 122 | 24.6 | 3 | 743 | 45 | LPL (0.40, SR 122.5); IPL (0.87, SR 133.8); T20WC (0.50, SR 80.0) |
+| Jack Edwards | All-rounder | 0 | 120 | 18.1 | 2 | 665 | 51 | BBL (0.53, SR 118.7); MLC (0.42, SR 130.4) |
+| Harshal Patel | Bowler | 51 | 141 | 17.6 | 2 | 655 | 72 | SMAT (0.65, SR 157.7); IPL (0.87, SR 117.9) |
+| Pat Cummins | Bowler | 152 | 148 | 21.5 | 4 | 578 | 76 | IPL (0.87, SR 151.8); BBL (0.53, SR 135.3); MLC (0.42, SR 110.0) |
+| Brydon Carse | Bowler | 0 | 140 | 19.3 | 3 | 523 | 50 | Blast (0.50, SR 146.6); 100 (0.50, SR 123.9); SA20 (0.50, SR 114.0) |
+| Jaydev Unadkat | Bowler | 33 | 136 | 22.6 | 2 | 346 | 52 | SMAT (0.65, SR 156.7); IPL (0.87, SR 118.7) |
+| Shivang Kumar | Bowler | 24 | 129 | 28.2 | 2 | 334 | 44 | SMAT (0.65, SR 134.8); IPL (0.87, SR 75.0) |
+| Aniket Verma | Batter | 142 | 166 | 26.2 | 1 | 142 | 25 | IPL (0.87, SR 166.2) |
+| Shivam Mavi | Bowler | 0 | 91.1 | 5.7 | 1 | 56 | 10 | IPL (0.87, SR 91.1) |
+| Salil Arora | Batter | 0 | 129 | 20 | 1 | 31 | 4 | SMAT (0.65, SR 129.0) |
+
+### 13.2 Bowling Intelligence
+
+| Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
+|--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
+| Liam Livingstone | All-rounder | 168 | 8.3 | 19.4 | 8 | 2169 | 55 | Blast (0.50, Econ 8.0); IPL (0.87, Econ 8.9); 100 (0.50, Econ 8.7) |
+| Brydon Carse | Bowler | 0 | 8.8 | 28.2 | 3 | 1042 | 50 | Blast (0.50, Econ 8.4); 100 (0.50, Econ 10.5); SA20 (0.50, Econ 9.2) |
+| Shivam Mavi | Bowler | 0 | 8.4 | 19.5 | 2 | 816 | 83 | IPL (0.87, Econ 8.4); SMAT (0.65, Econ 8.4) |
+| Jack Edwards | All-rounder | 0 | 8.0 | 15.0 | 2 | 778 | 50 | BBL (0.53, Econ 7.6); MLC (0.42, Econ 9.3) |
+| Abhishek Sharma | All-rounder | 180 | 7.9 | 24.8 | 2 | 720 | 75 | SMAT (0.65, Econ 6.8); IPL (0.87, Econ 8.9) |
+| Shivang Kumar | Bowler | 20 | 7.4 | 13.7 | 2 | 526 | 65 | SMAT (0.65, Econ 7.3); IPL (0.87, Econ 10.8) |
+| Travis Head | Batter | 10 | 8.8 | 18.3 | 3 | 418 | 48 | BBL (0.53, Econ 7.9); IPL (0.87, Econ 11.7); Blast (0.50, Econ 10.0) |
+| Kamindu Mendis | All-rounder | 42 | 8.5 | 24.6 | 3 | 414 | 38 | LPL (0.40, Econ 8.7); IPL (0.87, Econ 8.6); ILT20 (0.49, Econ 7.6) |
+| Eshan Malinga | Bowler | 160 | 8.9 | 11.5 | 2 | 232 | 35 | IPL (0.87, Econ 9.0); SA20 (0.50, Econ 8.5) |
+| Nitish Kumar Reddy | All-rounder | 139 | 10.4 | 19.9 | 1 | 139 | 24 | IPL (0.87, Econ 10.4) |
+| Harsh Dubey | Bowler | 60 | 8.3 | 16.8 | 2 | 126 | 19 | SMAT (0.65, Econ 6.5); IPL (0.87, Econ 9.7) |
+| Sakib Hussain | Bowler | 0 | 10.5 | 6 | 1 | 24 | 3 | SMAT (0.65, Econ 10.5) |
+
+### 13.3 Methodology
+
+Cross-tournament intelligence uses a weighted composite model across 14 T20 tournaments to provide context for players with limited IPL data.
+
+**Weighting factors** (from `dim_tournament_weights`):
+
+- **Player Quality Index (PQI)**: Strength of playing talent in the tournament
+- **Competitiveness**: How closely contested matches are
+- **Conditions Similarity**: How similar playing conditions are to IPL venues
+- **Recency**: More recent tournaments weighted higher
+- **Sample Confidence**: Larger tournaments with more matches get higher confidence
+
+**Trust Score** = (avg tournament weight x min(total T20 balls / 500, 1.0)) x 100, capped at 100. Combines tournament quality with sample size — a player with 500+ balls in high-quality tournaments (BBL, PSL, The Hundred) earns a higher trust score than one with the same balls in lower-tier competitions.
+
+**Tier examples**: IPL (0.87), SMAT (0.65), BBL (0.53), PSL (0.51), The Hundred (0.50), CPL (0.50), Super Smash (0.36)
+
 
 
 ---

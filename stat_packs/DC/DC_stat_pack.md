@@ -1,6 +1,6 @@
 # Delhi Capitals (DC) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 17:17
+**Generated:** 2026-02-12 20:25
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -132,8 +132,8 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** MR Marsh (12w @ 7.82), AR Patel (11w @ 7.17), I Sharma (10w @ 8.03)
-- **2024:** Mukesh Kumar (17w @ 10.2), KK Ahmed (17w @ 9.13), Kuldeep Yadav (16w @ 8.45)
+- **2023:** MR Marsh (12w @ 7.82), AR Patel (11w @ 7.17), Kuldeep Yadav (10w @ 7.32)
+- **2024:** KK Ahmed (17w @ 9.13), Mukesh Kumar (17w @ 10.2), Kuldeep Yadav (16w @ 8.45)
 - **2025:** Kuldeep Yadav (15w @ 7.26), MA Starc (14w @ 10.09), Mukesh Kumar (12w @ 9.67)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -252,14 +252,14 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Dr. Y.S. Rajasekhara Reddy ACA-VDCA | 4 | 3 | 75.0% | 183.5 |
-| M Chinnaswamy Stadium | 3 | 1 | 33.3% | 153.3 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 158.0 |
+| M Chinnaswamy Stadium | 3 | 1 | 33.3% | 153.3 |
 | Narendra Modi Stadium | 3 | 2 | 66.7% | 141.7 |
-| MA Chidambaram Stadium | 2 | 1 | 50.0% | 161.5 |
 | Wankhede Stadium | 2 | 0 | 0.0% | 163.0 |
-| Sawai Mansingh Stadium | 2 | 1 | 50.0% | 190.5 |
 | Rajiv Gandhi International Stadium | 2 | 1 | 50.0% | 138.5 |
 | Himachal Pradesh Cricket Associatio | 2 | 1 | 50.0% | 213.0 |
+| Sawai Mansingh Stadium | 2 | 1 | 50.0% | 190.5 |
+| MA Chidambaram Stadium | 2 | 1 | 50.0% | 161.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -272,9 +272,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -301,10 +301,10 @@
 |--------|-------|---------|------|------|-----|
 | AR Patel | Arun Jaitley Stadium | 16 | 13 | 7.66 | 23.08 |
 | MA Starc | Dr. Y.S. Rajasekhara Redd | 3 | 10 | 9.28 | 6.4 |
-| Kuldeep Yadav | Dr. Y.S. Rajasekhara Redd | 2 | 5 | 5.38 | 9.6 |
 | Kuldeep Yadav | M Chinnaswamy Stadium | 3 | 5 | 7.83 | 14.4 |
-| Mukesh Kumar | Bharat Ratna Shri Atal Bi | 3 | 5 | 8.83 | 14.4 |
+| Kuldeep Yadav | Dr. Y.S. Rajasekhara Redd | 2 | 5 | 5.38 | 9.6 |
 | T Natarajan | Arun Jaitley Stadium | 3 | 5 | 9.18 | 13.2 |
+| Mukesh Kumar | Bharat Ratna Shri Atal Bi | 3 | 5 | 8.83 | 14.4 |
 
 
 ---
@@ -506,8 +506,8 @@
 | Chennai Super Kings | 2 | 42 | 57 | 4 | 8.14 | 14.25 | 10.5 | 26.19 | 14.29 | MEDIUM |
 | Royal Challengers Bengaluru | 4 | 75 | 122 | 3 | 9.76 | 40.67 | 25.0 | 41.33 | 26.67 | MEDIUM |
 | Punjab Kings | 3 | 54 | 100 | 2 | 11.11 | 50.0 | 27.0 | 35.19 | 29.63 | MEDIUM |
-| Sunrisers Hyderabad | 4 | 66 | 132 | 1 | 12.0 | 132.0 | 66.0 | 19.7 | 33.33 | MEDIUM |
 | Kolkata Knight Riders | 2 | 36 | 45 | 1 | 7.5 | 45.0 | 36.0 | 58.33 | 22.22 | MEDIUM |
+| Sunrisers Hyderabad | 4 | 66 | 132 | 1 | 12.0 | 132.0 | 66.0 | 19.7 | 33.33 | MEDIUM |
 
 ### Mitchell Starc
 
@@ -724,18 +724,18 @@
 
 ### 12.1 T20 Batting Profile
 
-| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Tournaments |
-|--------|------|---------|----------|--------|---------|------------|-------------|
-| Ben Duckett | Batter | 204 | 5357 | 141 | 30.8 | HIGH | Blast, Blast, 100 |
-| Pathum Nissanka | Batter | 111 | 3266 | 130 | 30.8 | HIGH | LPL, T20WC, ILT20 |
-| Ajay Mandal | All-rounder | 20 | 217 | 117 | 16.7 | HIGH | SMAT |
+| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Trust | Tournaments |
+|--------|------|---------|----------|--------|---------|------------|-------|-------------|
+| Ben Duckett | Batter | 204 | 5357 | 141 | 30.8 | HIGH | 50 | Blast, Blast, 100 |
+| Pathum Nissanka | Batter | 111 | 3266 | 130 | 30.8 | HIGH | 44 | LPL, T20WC, Intl |
+| Ajay Mandal | All-rounder | 20 | 217 | 117 | 16.7 | HIGH | 24 | SMAT |
 
 ### 12.2 T20 Bowling Profile
 
-| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Tournaments |
-|--------|------|-------------|----------|----------|---------|------------|-------------|
-| Ajay Mandal | Medium | 26 | 26 | 7.1 | 22.8 | HIGH | SMAT |
-| Auqib Nabi Dar | Fast | 9 | 3 | 8.7 | 34.7 | LOW | ICC T20, Intl, Intl |
+| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
+|--------|------|-------------|----------|----------|---------|------------|-------|-------------|
+| Ajay Mandal | Medium | 26 | 26 | 7.1 | 22.8 | HIGH | 64 | SMAT |
+| Auqib Nabi Dar | Fast | 9 | 3 | 8.7 | 34.7 | LOW | - | ICC T20, Intl, Intl |
 
 ### 12.3 Limited / No T20 Data
 
@@ -745,6 +745,62 @@
 |--------|------|-------------|
 | Sahil Parakh | All-rounder | IND |
 | Tripurana Vijay | Batter | IND |
+
+
+---
+
+## 13. Cross-Tournament Intelligence
+
+*Weighted cross-tournament context for squad players with limited IPL samples (<300 batting balls / <200 bowling balls since 2023)*
+
+### 13.1 Batting Intelligence
+
+| Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
+|--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
+| Ben Duckett | Batter | 0 | 142 | 31.6 | 4 | 2422 | 50 | Blast (0.50, SR 147.2); 100 (0.50, SR 140.7); BBL (0.53, SR 139.0) |
+| Karun Nair | Batter | 115 | 136 | 27.2 | 2 | 2108 | 78 | IPL (0.87, SR 131.5); SMAT (0.65, SR 144.8) |
+| Prithvi Shaw | Batter | 205 | 151 | 25.9 | 2 | 1722 | 81 | IPL (0.87, SR 147.7); SMAT (0.65, SR 162.4) |
+| Pathum Nissanka | Batter | 0 | 130 | 29.8 | 3 | 1170 | 44 | LPL (0.40, SR 128.5); T20WC (0.50, SR 115.3); ILT20 (0.49, SR 186.9) |
+| Ashutosh Sharma | All-rounder | 236 | 165 | 32.3 | 2 | 371 | 59 | IPL (0.87, SR 163.6); SMAT (0.65, SR 168.9) |
+| Kyle Jamieson | Bowler | 5 | 123 | 32.1 | 3 | 289 | 28 | SS (0.36, SR 128.3); IPL (0.87, SR 108.3); Blast (0.50, SR 151.6) |
+| Sameer Rizvi | Batter | 122 | 139 | 33.1 | 2 | 278 | 41 | SMAT (0.65, SR 136.5); IPL (0.87, SR 141.0) |
+| Kuldeep Yadav | Bowler | 105 | 88.1 | 25.0 | 2 | 254 | 43 | IPL (0.87, SR 86.6); SMAT (0.65, SR 109.1) |
+| Ajay Mandal | All-rounder | 0 | 113 | 16.2 | 1 | 186 | 24 | SMAT (0.65, SR 113.4) |
+| Mitchell Starc | Bowler | 21 | 94.3 | 12.1 | 2 | 139 | 23 | IPL (0.87, SR 93.3); T20WC (0.50, SR 105.0) |
+| Dushmantha Chameera | Bowler | 14 | 106 | 12.2 | 3 | 120 | 14 | LPL (0.40, SR 92.5); IPL (0.87, SR 126.2); T20WC (0.50, SR 68.0) |
+| Vipraj Nigam | Batter | 78 | 182 | 35.5 | 1 | 78 | 14 | IPL (0.87, SR 182.1) |
+| Lungi Ngidi | Bowler | 2 | 82.5 | 5.5 | 1 | 40 | 4 | SA20 (0.50, SR 82.5) |
+| Tripurana Vijay | Batter | 0 | 79.3 | 23 | 1 | 29 | 4 | SMAT (0.65, SR 79.3) |
+
+### 13.2 Bowling Intelligence
+
+| Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
+|--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
+| Dushmantha Chameera | Bowler | 120 | 8.8 | 19.1 | 4 | 1508 | 55 | LPL (0.40, Econ 8.8); IPL (0.87, Econ 9.5); ILT20 (0.49, Econ 8.0) |
+| Lungi Ngidi | Bowler | 48 | 8.3 | 14.7 | 5 | 1489 | 57 | SA20 (0.50, Econ 8.6); IPL (0.87, Econ 8.2); CSA (0.38, Econ 7.2) |
+| Kyle Jamieson | Bowler | 90 | 8 | 16.6 | 4 | 1281 | 48 | SS (0.36, Econ 6.9); IPL (0.87, Econ 9.2); Blast (0.50, Econ 9.3) |
+| Nitish Rana | Batter | 65 | 7.1 | 17.8 | 2 | 601 | 72 | SMAT (0.65, Econ 6.4); IPL (0.87, Econ 8.3) |
+| Ajay Mandal | All-rounder | 0 | 7.0 | 19.9 | 1 | 498 | 64 | SMAT (0.65, Econ 7.0) |
+| Tristan Stubbs | All-rounder | 36 | 9.8 | 15.6 | 3 | 135 | 16 | 100 (0.50, Econ 9.0); IPL (0.87, Econ 11.3); CSA (0.38, Econ 7.8) |
+| Karun Nair | Batter | 0 | 5.2 | 24 | 1 | 48 | 6 | SMAT (0.65, Econ 5.3) |
+| Tripurana Vijay | Batter | 0 | 11.4 | 16 | 1 | 48 | 6 | SMAT (0.65, Econ 11.4) |
+
+### 13.3 Methodology
+
+Cross-tournament intelligence uses a weighted composite model across 14 T20 tournaments to provide context for players with limited IPL data.
+
+**Weighting factors** (from `dim_tournament_weights`):
+
+- **Player Quality Index (PQI)**: Strength of playing talent in the tournament
+- **Competitiveness**: How closely contested matches are
+- **Conditions Similarity**: How similar playing conditions are to IPL venues
+- **Recency**: More recent tournaments weighted higher
+- **Sample Confidence**: Larger tournaments with more matches get higher confidence
+
+**Trust Score** = (avg tournament weight x min(total T20 balls / 500, 1.0)) x 100, capped at 100. Combines tournament quality with sample size — a player with 500+ balls in high-quality tournaments (BBL, PSL, The Hundred) earns a higher trust score than one with the same balls in lower-tier competitions.
+
+**Tier examples**: IPL (0.87), SMAT (0.65), BBL (0.53), PSL (0.51), The Hundred (0.50), CPL (0.50), Super Smash (0.36)
+
 
 
 ---

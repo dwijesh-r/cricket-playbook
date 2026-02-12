@@ -1,6 +1,6 @@
 # Lucknow Super Giants (LSG) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 17:17
+**Generated:** 2026-02-12 20:25
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -125,7 +125,7 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** Ravi Bishnoi (16w @ 7.58), Yash Thakur (13w @ 8.61), MA Wood (11w @ 8.35)
+- **2023:** Ravi Bishnoi (16w @ 7.58), Yash Thakur (13w @ 8.61), Naveen-ul-Haq (11w @ 7.78)
 - **2024:** Naveen-ul-Haq (14w @ 9.7), Yash Thakur (11w @ 10.8), Mohsin Khan (10w @ 9.75)
 - **2025:** DS Rathi (14w @ 8.13), Avesh Khan (13w @ 9.94), SN Thakur (13w @ 9.98)
 
@@ -244,9 +244,9 @@
 | MA Chidambaram Stadium | 3 | 1 | 33.3% | 173.0 |
 | Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 181.0 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 169.0 |
-| Wankhede Stadium | 2 | 1 | 50.0% | 187.5 |
 | M Chinnaswamy Stadium | 2 | 2 | 100.0% | 197.0 |
 | Narendra Modi Stadium | 2 | 1 | 50.0% | 203.0 |
+| Wankhede Stadium | 2 | 1 | 50.0% | 187.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -257,8 +257,8 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
@@ -292,7 +292,7 @@
 | MR Marsh | Arun Jaitley Stadium | 5 | 7 | 8.43 | 11.29 |
 | Avesh Khan | Bharat Ratna Shri Atal Bi | 11 | 7 | 8.27 | 32.14 |
 | Avesh Khan | Narendra Modi Stadium | 3 | 6 | 10.99 | 11.83 |
-| Avesh Khan | MA Chidambaram Stadium | 3 | 5 | 7.78 | 10.8 |
+| PWH de Silva | M Chinnaswamy Stadium | 5 | 5 | 8.47 | 20.4 |
 | PWH de Silva | Barsapara Cricket Stadium | 2 | 5 | 10.0 | 8.4 |
 
 
@@ -479,11 +479,11 @@
 | Rajasthan Royals | 2 | 48 | 63 | 6 | 7.88 | 10.5 | 8.0 | 35.42 | 16.67 | MEDIUM |
 | Gujarat Titans | 5 | 113 | 185 | 5 | 9.82 | 37.0 | 22.6 | 23.01 | 21.24 | HIGH |
 | Mumbai Indians | 4 | 96 | 157 | 5 | 9.81 | 31.4 | 19.2 | 31.25 | 22.92 | MEDIUM |
-| Punjab Kings | 6 | 119 | 198 | 4 | 9.98 | 49.5 | 29.75 | 27.73 | 22.69 | HIGH |
 | Royal Challengers Bengaluru | 4 | 90 | 175 | 4 | 11.67 | 43.75 | 22.5 | 23.33 | 32.22 | MEDIUM |
+| Punjab Kings | 6 | 119 | 198 | 4 | 9.98 | 49.5 | 29.75 | 27.73 | 22.69 | HIGH |
+| Chennai Super Kings | 3 | 51 | 76 | 3 | 8.94 | 25.33 | 17.0 | 25.49 | 21.57 | MEDIUM |
 | Kolkata Knight Riders | 2 | 48 | 83 | 3 | 10.38 | 27.67 | 16.0 | 39.58 | 29.17 | MEDIUM |
 | Delhi Capitals | 4 | 78 | 117 | 3 | 9.0 | 39.0 | 26.0 | 37.18 | 24.36 | MEDIUM |
-| Chennai Super Kings | 3 | 51 | 76 | 3 | 8.94 | 25.33 | 17.0 | 25.49 | 21.57 | MEDIUM |
 | Lucknow Super Giants | 2 | 42 | 54 | 1 | 7.71 | 54.0 | 42.0 | 23.81 | 9.52 | MEDIUM |
 
 ### Mohammed Shami
@@ -519,8 +519,8 @@
 | N Pooran | Eden Gardens, Kolkata | 3 | 190 | 98 | 193.88 | 95.0 | 30.61 | MEDIUM |
 | N Pooran | Rajiv Gandhi International Stadium,... | 3 | 162 | 65 | 249.23 | 162.0 | 40.0 | MEDIUM |
 | N Pooran | Sawai Mansingh Stadium, Jaipur | 3 | 104 | 69 | 150.72 | 104.0 | 18.84 | MEDIUM |
-| N Pooran | Wankhede Stadium, Mumbai | 2 | 102 | 44 | 231.82 | 51.0 | 38.64 | MEDIUM |
 | N Pooran | M Chinnaswamy Stadium, Bengaluru | 2 | 102 | 40 | 255.0 | 102.0 | 42.5 | MEDIUM |
+| N Pooran | Wankhede Stadium, Mumbai | 2 | 102 | 44 | 231.82 | 51.0 | 38.64 | MEDIUM |
 | RR Pant | Bharat Ratna Shri Atal Bihari Vajpa... | 8 | 254 | 171 | 148.54 | 36.29 | 22.22 | HIGH |
 | RR Pant | Arun Jaitley Stadium, Delhi | 5 | 209 | 133 | 157.14 | 52.25 | 21.8 | HIGH |
 | RR Pant | Dr. Y.S. Rajasekhara Reddy ACA-VDCA... | 3 | 106 | 63 | 168.25 | 35.33 | 25.4 | MEDIUM |
@@ -700,15 +700,66 @@
 
 ### 12.1 T20 Batting Profile
 
-| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Tournaments |
-|--------|------|---------|----------|--------|---------|------------|-------------|
-| Himmat Singh | All-rounder | 33 | 599 | 127 | 29.9 | HIGH | SMAT |
+| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Trust | Tournaments |
+|--------|------|---------|----------|--------|---------|------------|-------|-------------|
+| Himmat Singh | All-rounder | 33 | 599 | 127 | 29.9 | HIGH | 61 | SMAT |
 
 ### 12.2 T20 Bowling Profile
 
-| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Tournaments |
-|--------|------|-------------|----------|----------|---------|------------|-------------|
-| Mayank Yadav | Fast | 3 | 2 | 6.3 | 9.5 | LOW | NPL |
+| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
+|--------|------|-------------|----------|----------|---------|------------|-------|-------------|
+| Mayank Yadav | Fast | 3 | 2 | 6.3 | 9.5 | LOW | - | NPL |
+
+
+
+---
+
+## 13. Cross-Tournament Intelligence
+
+*Weighted cross-tournament context for squad players with limited IPL samples (<300 batting balls / <200 bowling balls since 2023)*
+
+### 13.1 Batting Intelligence
+
+| Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
+|--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
+| Josh Inglis | Wicketkeeper | 171 | 149 | 32.1 | 5 | 2022 | 54 | BBL (0.53, SR 141.2); Blast (0.50, SR 177.3); IPL (0.87, SR 162.6) |
+| Matthew Breetzke | Batter | 12 | 134 | 31.6 | 3 | 1315 | 46 | SA20 (0.50, SR 126.2); CSA (0.38, SR 132.2); Blast (0.50, SR 153.5) |
+| Wanindu Hasaranga | All-rounder | 43 | 145 | 16.6 | 5 | 874 | 49 | LPL (0.40, SR 176.0); ILT20 (0.49, SR 140.6); T20WC (0.50, SR 133.3) |
+| Himmat Singh | All-rounder | 0 | 127 | 35.2 | 1 | 472 | 61 | SMAT (0.65, SR 126.9) |
+| Mohammed Shami | Bowler | 16 | 105 | 8.2 | 2 | 111 | 18 | IPL (0.87, SR 94.4); SMAT (0.65, SR 163.6) |
+| Anrich Nortje | Bowler | 37 | 110 | 12.4 | 3 | 110 | 14 | IPL (0.87, SR 100.0); CSA (0.38, SR 130.6); CPL (0.50, SR 120.0) |
+| Mohsin Khan | Bowler | 8 | 124 | 22.1 | 2 | 75 | 11 | SMAT (0.65, SR 137.3); IPL (0.87, SR 104.2) |
+| Avesh Khan | Bowler | 18 | 138 | 13.5 | 2 | 62 | 10 | IPL (0.87, SR 167.6); SMAT (0.65, SR 80.0) |
+| Arjun Tendulkar | Bowler | 9 | 69.0 | 5 | 1 | 29 | 4 | SMAT (0.65, SR 69.0) |
+| Akash Singh | Bowler | 0 | 89.3 | 12.5 | 1 | 28 | 4 | SMAT (0.65, SR 89.3) |
+
+### 13.2 Bowling Intelligence
+
+| Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
+|--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
+| Mitchell Marsh | All-rounder | 169 | 8.4 | 17.2 | 3 | 1223 | 68 | BBL (0.53, Econ 8.8); IPL (0.87, Econ 8.2); T20WC (0.50, Econ 8.5) |
+| Aiden Markram | All-rounder | 127 | 7.7 | 25.5 | 4 | 697 | 59 | SA20 (0.50, Econ 7.1); IPL (0.87, Econ 8.7); T20WC (0.50, Econ 6.6) |
+| Akash Singh | Bowler | 181 | 8.9 | 25.3 | 2 | 337 | 53 | IPL (0.87, Econ 9.5); SMAT (0.65, Econ 7.9) |
+| Arjun Tendulkar | Bowler | 73 | 7.7 | 16.1 | 2 | 223 | 32 | SMAT (0.65, Econ 7.2); IPL (0.87, Econ 8.5) |
+| Manimaran Siddharth | Bowler | 97 | 6.5 | 12.6 | 2 | 205 | 31 | SMAT (0.65, Econ 4.7); IPL (0.87, Econ 8.0) |
+| Abdul Samad | Batter | 2 | 10.2 | 36.6 | 2 | 116 | 18 | SMAT (0.65, Econ 7.7); IPL (0.87, Econ 12.2) |
+| Ayush Badoni | Batter | 23 | 9.4 | 12.1 | 2 | 77 | 12 | SMAT (0.65, Econ 10.4); IPL (0.87, Econ 8.6) |
+
+### 13.3 Methodology
+
+Cross-tournament intelligence uses a weighted composite model across 14 T20 tournaments to provide context for players with limited IPL data.
+
+**Weighting factors** (from `dim_tournament_weights`):
+
+- **Player Quality Index (PQI)**: Strength of playing talent in the tournament
+- **Competitiveness**: How closely contested matches are
+- **Conditions Similarity**: How similar playing conditions are to IPL venues
+- **Recency**: More recent tournaments weighted higher
+- **Sample Confidence**: Larger tournaments with more matches get higher confidence
+
+**Trust Score** = (avg tournament weight x min(total T20 balls / 500, 1.0)) x 100, capped at 100. Combines tournament quality with sample size — a player with 500+ balls in high-quality tournaments (BBL, PSL, The Hundred) earns a higher trust score than one with the same balls in lower-tier competitions.
+
+**Tier examples**: IPL (0.87), SMAT (0.65), BBL (0.53), PSL (0.51), The Hundred (0.50), CPL (0.50), Super Smash (0.36)
 
 
 

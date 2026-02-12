@@ -1,6 +1,6 @@
 # Gujarat Titans (GT) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 17:17
+**Generated:** 2026-02-12 20:25
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -127,7 +127,7 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** Mohammed Shami (28w @ 7.92), MM Sharma (27w @ 8.1), Rashid Khan (27w @ 8.21)
+- **2023:** Mohammed Shami (28w @ 7.92), Rashid Khan (27w @ 8.21), MM Sharma (27w @ 8.1)
 - **2024:** MM Sharma (13w @ 10.48), Rashid Khan (10w @ 8.52), Noor Ahmad (8w @ 8.33)
 - **2025:** M Prasidh Krishna (25w @ 8.34), R Sai Kishore (19w @ 9.07), Mohammed Siraj (16w @ 8.83)
 
@@ -244,13 +244,13 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 148.3 |
 | Arun Jaitley Stadium | 3 | 2 | 66.7% | 196.0 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 175.7 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 148.3 |
 | M Chinnaswamy Stadium | 3 | 2 | 66.7% | 171.7 |
-| Eden Gardens | 2 | 2 | 100.0% | 189.0 |
 | MA Chidambaram Stadium | 2 | 0 | 0.0% | 150.0 |
 | Wankhede Stadium | 2 | 1 | 50.0% | 169.0 |
+| Eden Gardens | 2 | 2 | 100.0% | 189.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -261,11 +261,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -295,9 +295,9 @@
 | R Sai Kishore | Narendra Modi Stadium | 9 | 11 | 8.63 | 13.09 |
 | I Sharma | Arun Jaitley Stadium | 6 | 8 | 8.45 | 15.0 |
 | I Sharma | Narendra Modi Stadium | 5 | 6 | 6.84 | 14.33 |
-| Rashid Khan | Sawai Mansingh Stadium | 3 | 5 | 4.58 | 14.4 |
-| Mohammed Siraj | Rajiv Gandhi Internationa | 3 | 5 | 4.33 | 14.4 |
 | Rashid Khan | Wankhede Stadium | 2 | 5 | 6.88 | 9.6 |
+| Mohammed Siraj | Rajiv Gandhi Internationa | 3 | 5 | 4.33 | 14.4 |
+| Rashid Khan | Sawai Mansingh Stadium | 3 | 5 | 4.58 | 14.4 |
 
 
 ---
@@ -456,9 +456,9 @@
 | Punjab Kings | 4 | 96 | 146 | 9 | 9.13 | 16.22 | 10.67 | 40.63 | 25.0 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 96 | 84 | 7 | 5.25 | 12.0 | 13.71 | 53.13 | 11.46 | MEDIUM |
 | Rajasthan Royals | 6 | 120 | 158 | 6 | 7.9 | 26.33 | 20.0 | 38.33 | 19.17 | HIGH |
+| Gujarat Titans | 3 | 72 | 90 | 5 | 7.5 | 18.0 | 14.4 | 44.44 | 18.06 | MEDIUM |
 | Mumbai Indians | 6 | 126 | 182 | 5 | 8.67 | 36.4 | 25.2 | 44.44 | 22.22 | HIGH |
 | Lucknow Super Giants | 5 | 114 | 167 | 5 | 8.79 | 33.4 | 22.8 | 44.74 | 23.68 | HIGH |
-| Gujarat Titans | 3 | 72 | 90 | 5 | 7.5 | 18.0 | 14.4 | 44.44 | 18.06 | MEDIUM |
 | Kolkata Knight Riders | 5 | 114 | 187 | 4 | 9.84 | 46.75 | 28.5 | 38.6 | 26.32 | HIGH |
 | Delhi Capitals | 5 | 108 | 162 | 4 | 9.0 | 40.5 | 27.0 | 44.44 | 25.93 | HIGH |
 | Chennai Super Kings | 4 | 96 | 149 | 2 | 9.31 | 74.5 | 48.0 | 35.42 | 20.83 | MEDIUM |
@@ -467,15 +467,15 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Rajasthan Royals | 5 | 120 | 136 | 9 | 6.8 | 15.11 | 13.33 | 37.5 | 10.83 | HIGH |
 | Mumbai Indians | 7 | 156 | 179 | 9 | 6.88 | 19.89 | 17.33 | 37.18 | 12.82 | HIGH |
+| Rajasthan Royals | 5 | 120 | 136 | 9 | 6.8 | 15.11 | 13.33 | 37.5 | 10.83 | HIGH |
 | Chennai Super Kings | 6 | 138 | 240 | 8 | 10.43 | 30.0 | 17.25 | 23.19 | 22.46 | HIGH |
-| Kolkata Knight Riders | 3 | 72 | 116 | 5 | 9.67 | 23.2 | 14.4 | 26.39 | 20.83 | MEDIUM |
 | Delhi Capitals | 6 | 132 | 176 | 5 | 8.0 | 35.2 | 26.4 | 30.3 | 14.39 | HIGH |
-| Punjab Kings | 4 | 96 | 134 | 4 | 8.38 | 33.5 | 24.0 | 36.46 | 16.67 | MEDIUM |
+| Kolkata Knight Riders | 3 | 72 | 116 | 5 | 9.67 | 23.2 | 14.4 | 26.39 | 20.83 | MEDIUM |
 | Lucknow Super Giants | 5 | 108 | 164 | 4 | 9.11 | 41.0 | 27.0 | 25.93 | 17.59 | HIGH |
-| Sunrisers Hyderabad | 4 | 90 | 142 | 1 | 9.47 | 142.0 | 90.0 | 25.56 | 17.78 | MEDIUM |
+| Punjab Kings | 4 | 96 | 134 | 4 | 8.38 | 33.5 | 24.0 | 36.46 | 16.67 | MEDIUM |
 | Royal Challengers Bengaluru | 4 | 82 | 154 | 1 | 11.27 | 154.0 | 82.0 | 19.51 | 24.39 | MEDIUM |
+| Sunrisers Hyderabad | 4 | 90 | 142 | 1 | 9.47 | 142.0 | 90.0 | 25.56 | 17.78 | MEDIUM |
 
 ---
 
@@ -664,15 +664,70 @@
 
 ### 12.1 T20 Batting Profile
 
-| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Tournaments |
-|--------|------|---------|----------|--------|---------|------------|-------------|
-| Jayant Yadav | All-rounder | 16 | 94 | 108 | 10.4 | MEDIUM | SMAT |
+| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Trust | Tournaments |
+|--------|------|---------|----------|--------|---------|------------|-------|-------------|
+| Jayant Yadav | All-rounder | 16 | 94 | 108 | 10.4 | MEDIUM | 13 | SMAT |
 
 ### 12.2 T20 Bowling Profile
 
-| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Tournaments |
-|--------|------|-------------|----------|----------|---------|------------|-------------|
-| Nishant Sindhu | Left-arm ort | 3 | 2 | 5.2 | 10.5 | LOW | SMAT |
+| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
+|--------|------|-------------|----------|----------|---------|------------|-------|-------------|
+| Nishant Sindhu | Left-arm ort | 3 | 2 | 5.2 | 10.5 | LOW | 3 | SMAT |
+
+
+
+---
+
+## 13. Cross-Tournament Intelligence
+
+*Weighted cross-tournament context for squad players with limited IPL samples (<300 batting balls / <200 bowling balls since 2023)*
+
+### 13.1 Batting Intelligence
+
+| Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
+|--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
+| Glenn Phillips | All-rounder | 22 | 140 | 31.1 | 8 | 3527 | 46 | CPL (0.50, SR 135.1); SS (0.36, SR 145.0); Blast (0.50, SR 150.3) |
+| Rashid Khan | Bowler | 157 | 151 | 14.3 | 8 | 1200 | 61 | IPL (0.87, SR 160.4); BBL (0.53, SR 151.3); PSL (0.51, SR 136.3) |
+| Rahul Tewatia | All-rounder | 242 | 143 | 28.9 | 2 | 1174 | 80 | IPL (0.87, SR 137.5); SMAT (0.65, SR 159.1) |
+| Washington Sundar | All-rounder | 141 | 122 | 21.4 | 2 | 893 | 75 | SMAT (0.65, SR 117.8); IPL (0.87, SR 126.2) |
+| Shahrukh Khan | Batter | 269 | 148 | 25.8 | 2 | 747 | 79 | IPL (0.87, SR 149.1); SMAT (0.65, SR 146.5) |
+| Anuj Rawat | Wicketkeeper | 148 | 123 | 26.6 | 2 | 728 | 73 | SMAT (0.65, SR 125.4); IPL (0.87, SR 119.1) |
+| Kagiso Rabada | Bowler | 24 | 105 | 14.7 | 3 | 293 | 44 | IPL (0.87, SR 107.5); SA20 (0.50, SR 83.0); T20WC (0.50, SR 106.5) |
+| Mohammed Siraj | Bowler | 14 | 87.8 | 10.6 | 2 | 148 | 25 | IPL (0.87, SR 92.6); SMAT (0.65, SR 59.3) |
+| Arshad Khan | All-rounder | 88 | 131 | 18.2 | 2 | 109 | 18 | IPL (0.87, SR 140.9); SMAT (0.65, SR 76.2) |
+| Jayant Yadav | All-rounder | 0 | 108 | 11.1 | 2 | 87 | 13 | SMAT (0.65, SR 105.9); IPL (0.87, SR 111.1) |
+| Nishant Sindhu | All-rounder | 0 | 127 | 36 | 1 | 85 | 11 | SMAT (0.65, SR 127.1) |
+| Ishant Sharma | Bowler | 8 | 82.6 | 11.4 | 1 | 69 | 12 | IPL (0.87, SR 82.6) |
+| Sai Kishore | Bowler | 16 | 86.7 | 6.5 | 1 | 30 | 4 | SMAT (0.65, SR 86.7) |
+| Prasidh Krishna | Bowler | 0 | 37.5 | 9 | 1 | 24 | 4 | IPL (0.87, SR 37.5) |
+
+### 13.2 Bowling Intelligence
+
+| Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
+|--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
+| Rahul Tewatia | All-rounder | 13 | 7.6 | 23.6 | 2 | 1224 | 80 | IPL (0.87, Econ 7.8); SMAT (0.65, Econ 7.2) |
+| Jayant Yadav | All-rounder | 24 | 6.6 | 30.8 | 2 | 1007 | 73 | SMAT (0.65, Econ 6.5); IPL (0.87, Econ 6.7) |
+| Glenn Phillips | All-rounder | 18 | 8.8 | 22.7 | 8 | 515 | 45 | SS (0.36, Econ 8.2); Blast (0.50, Econ 7.9); 100 (0.50, Econ 10.9) |
+| Manav Suthar | Bowler | 12 | 10.4 | - | 2 | 30 | 4 | SMAT (0.65, Econ 8.0); IPL (0.87, Econ 13.0) |
+| Shahrukh Khan | Batter | 18 | 9.9 | 26.9 | 2 | 30 | 5 | IPL (0.87, Econ 9.7); SMAT (0.65, Econ 10.5) |
+| Nishant Sindhu | All-rounder | 0 | 5.2 | 12 | 1 | 24 | 3 | SMAT (0.65, Econ 5.3) |
+| Gurnoor Brar | All-rounder | 18 | 12.7 | - | 1 | 18 | 3 | IPL (0.87, Econ 12.7) |
+
+### 13.3 Methodology
+
+Cross-tournament intelligence uses a weighted composite model across 14 T20 tournaments to provide context for players with limited IPL data.
+
+**Weighting factors** (from `dim_tournament_weights`):
+
+- **Player Quality Index (PQI)**: Strength of playing talent in the tournament
+- **Competitiveness**: How closely contested matches are
+- **Conditions Similarity**: How similar playing conditions are to IPL venues
+- **Recency**: More recent tournaments weighted higher
+- **Sample Confidence**: Larger tournaments with more matches get higher confidence
+
+**Trust Score** = (avg tournament weight x min(total T20 balls / 500, 1.0)) x 100, capped at 100. Combines tournament quality with sample size — a player with 500+ balls in high-quality tournaments (BBL, PSL, The Hundred) earns a higher trust score than one with the same balls in lower-tier competitions.
+
+**Tier examples**: IPL (0.87), SMAT (0.65), BBL (0.53), PSL (0.51), The Hundred (0.50), CPL (0.50), Super Smash (0.36)
 
 
 

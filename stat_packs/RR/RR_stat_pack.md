@@ -1,6 +1,6 @@
 # Rajasthan Royals (RR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 17:17
+**Generated:** 2026-02-12 20:25
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -134,7 +134,7 @@
 
 - **2023:** YS Chahal (21w @ 7.99), R Ashwin (14w @ 7.18), TA Boult (13w @ 8.07)
 - **2024:** Avesh Khan (20w @ 9.24), YS Chahal (18w @ 9.08), TA Boult (16w @ 8.07)
-- **2025:** PWH de Silva (11w @ 8.99), M Theekshana (11w @ 9.12), JC Archer (11w @ 9.14)
+- **2025:** JC Archer (11w @ 9.14), PWH de Silva (11w @ 8.99), M Theekshana (11w @ 9.12)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -253,13 +253,13 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Barsapara Cricket Stadium | 5 | 2 | 40.0% | 173.6 |
-| Narendra Modi Stadium | 3 | 2 | 66.7% | 170.7 |
-| Eden Gardens | 3 | 2 | 66.7% | 193.3 |
-| MA Chidambaram Stadium | 3 | 1 | 33.3% | 151.7 |
 | Rajiv Gandhi International Stadium | 3 | 1 | 33.3% | 215.0 |
 | Arun Jaitley Stadium | 3 | 1 | 33.3% | 192.3 |
-| Wankhede Stadium | 2 | 1 | 50.0% | 169.5 |
+| MA Chidambaram Stadium | 3 | 1 | 33.3% | 151.7 |
+| Narendra Modi Stadium | 3 | 2 | 66.7% | 170.7 |
+| Eden Gardens | 3 | 2 | 66.7% | 193.3 |
 | M Chinnaswamy Stadium | 2 | 0 | 0.0% | 188.0 |
+| Wankhede Stadium | 2 | 1 | 50.0% | 169.5 |
 | Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 178.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
@@ -273,9 +273,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -446,8 +446,8 @@
 | Royal Challengers Bengaluru | 5 | 179 | 111 | 161.26 | 89.5 | 18.92 | 21.62 | 2 | HIGH |
 | Rajasthan Royals | 5 | 86 | 63 | 136.51 | 43.0 | 14.29 | 22.22 | 2 | MEDIUM |
 | Gujarat Titans | 6 | 84 | 55 | 152.73 | 21.0 | 18.18 | 23.64 | 4 | MEDIUM |
-| Lucknow Super Giants | 4 | 83 | 76 | 109.21 | 27.67 | 10.53 | 32.89 | 3 | MEDIUM |
 | Punjab Kings | 5 | 83 | 57 | 145.61 | 20.75 | 17.54 | 29.82 | 4 | MEDIUM |
+| Lucknow Super Giants | 4 | 83 | 76 | 109.21 | 27.67 | 10.53 | 32.89 | 3 | MEDIUM |
 | Mumbai Indians | 2 | 70 | 53 | 132.08 | 70.0 | 13.21 | 26.42 | 1 | MEDIUM |
 | Delhi Capitals | 4 | 64 | 43 | 148.84 | 32.0 | 18.6 | 23.26 | 2 | MEDIUM |
 | Kolkata Knight Riders | 4 | 56 | 43 | 130.23 | 14.0 | 13.95 | 39.53 | 4 | MEDIUM |
@@ -457,8 +457,8 @@
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Royal Challengers Bengaluru | 6 | 127 | 91 | 139.56 | 42.33 | 16.48 | 32.97 | 3 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 127 | 73 | 173.97 | 63.5 | 27.4 | 34.25 | 2 | MEDIUM |
+| Royal Challengers Bengaluru | 6 | 127 | 91 | 139.56 | 42.33 | 16.48 | 32.97 | 3 | MEDIUM |
 | Punjab Kings | 6 | 114 | 67 | 170.15 | 38.0 | 22.39 | 26.87 | 3 | MEDIUM |
 | Chennai Super Kings | 5 | 100 | 58 | 172.41 | 33.33 | 22.41 | 25.86 | 3 | MEDIUM |
 | Lucknow Super Giants | 4 | 78 | 52 | 150.0 | 78.0 | 17.31 | 26.92 | 1 | MEDIUM |
@@ -488,15 +488,15 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Gujarat Titans | 6 | 140 | 245 | 8 | 10.5 | 30.63 | 17.5 | 30.71 | 27.14 | HIGH |
-| Sunrisers Hyderabad | 4 | 72 | 115 | 7 | 9.58 | 16.43 | 10.29 | 31.94 | 23.61 | MEDIUM |
 | Punjab Kings | 3 | 72 | 122 | 7 | 10.17 | 17.43 | 10.29 | 38.89 | 25.0 | MEDIUM |
+| Sunrisers Hyderabad | 4 | 72 | 115 | 7 | 9.58 | 16.43 | 10.29 | 31.94 | 23.61 | MEDIUM |
 | Rajasthan Royals | 3 | 72 | 109 | 6 | 9.08 | 18.17 | 12.0 | 36.11 | 20.83 | MEDIUM |
-| Kolkata Knight Riders | 4 | 75 | 105 | 5 | 8.4 | 21.0 | 15.0 | 46.67 | 20.0 | MEDIUM |
 | Mumbai Indians | 3 | 66 | 85 | 5 | 7.73 | 17.0 | 13.2 | 39.39 | 16.67 | MEDIUM |
+| Kolkata Knight Riders | 4 | 75 | 105 | 5 | 8.4 | 21.0 | 15.0 | 46.67 | 20.0 | MEDIUM |
 | Royal Challengers Bengaluru | 5 | 96 | 187 | 4 | 11.69 | 46.75 | 24.0 | 34.38 | 31.25 | MEDIUM |
 | Lucknow Super Giants | 5 | 97 | 132 | 3 | 8.16 | 44.0 | 32.33 | 34.02 | 15.46 | MEDIUM |
-| Chennai Super Kings | 2 | 48 | 77 | 1 | 9.63 | 77.0 | 48.0 | 35.42 | 25.0 | MEDIUM |
 | Delhi Capitals | 4 | 84 | 106 | 1 | 7.57 | 106.0 | 84.0 | 38.1 | 17.86 | MEDIUM |
+| Chennai Super Kings | 2 | 48 | 77 | 1 | 9.63 | 77.0 | 48.0 | 35.42 | 25.0 | MEDIUM |
 
 ### Ravindra Jadeja
 
@@ -505,10 +505,10 @@
 | Punjab Kings | 5 | 102 | 122 | 6 | 7.18 | 20.33 | 17.0 | 35.29 | 13.73 | HIGH |
 | Gujarat Titans | 6 | 114 | 146 | 6 | 7.68 | 24.33 | 19.0 | 26.32 | 12.28 | HIGH |
 | Kolkata Knight Riders | 5 | 79 | 109 | 5 | 8.28 | 21.8 | 15.8 | 35.44 | 16.46 | MEDIUM |
-| Mumbai Indians | 5 | 108 | 141 | 5 | 7.83 | 28.2 | 21.6 | 33.33 | 16.67 | HIGH |
 | Sunrisers Hyderabad | 4 | 94 | 97 | 5 | 6.19 | 19.4 | 18.8 | 30.85 | 5.32 | MEDIUM |
-| Rajasthan Royals | 5 | 96 | 106 | 4 | 6.63 | 26.5 | 24.0 | 31.25 | 8.33 | MEDIUM |
+| Mumbai Indians | 5 | 108 | 141 | 5 | 7.83 | 28.2 | 21.6 | 33.33 | 16.67 | HIGH |
 | Delhi Capitals | 4 | 84 | 129 | 4 | 9.21 | 32.25 | 21.0 | 27.38 | 17.86 | MEDIUM |
+| Rajasthan Royals | 5 | 96 | 106 | 4 | 6.63 | 26.5 | 24.0 | 31.25 | 8.33 | MEDIUM |
 | Lucknow Super Giants | 5 | 72 | 95 | 3 | 7.92 | 31.67 | 24.0 | 26.39 | 15.28 | MEDIUM |
 | Royal Challengers Bengaluru | 5 | 102 | 160 | 0 | 9.41 | - | - | 23.53 | 18.63 | HIGH |
 
@@ -517,8 +517,8 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 5 | 114 | 171 | 7 | 9.0 | 24.43 | 16.29 | 35.96 | 19.3 | HIGH |
-| Mumbai Indians | 6 | 144 | 199 | 6 | 8.29 | 33.17 | 24.0 | 28.47 | 17.36 | HIGH |
 | Chennai Super Kings | 4 | 78 | 107 | 6 | 8.23 | 17.83 | 13.0 | 37.18 | 17.95 | MEDIUM |
+| Mumbai Indians | 6 | 144 | 199 | 6 | 8.29 | 33.17 | 24.0 | 28.47 | 17.36 | HIGH |
 | Punjab Kings | 4 | 75 | 125 | 4 | 10.0 | 31.25 | 18.75 | 37.33 | 25.33 | MEDIUM |
 | Kolkata Knight Riders | 4 | 88 | 114 | 4 | 7.77 | 28.5 | 22.0 | 36.36 | 18.18 | MEDIUM |
 | Gujarat Titans | 4 | 72 | 108 | 3 | 9.0 | 36.0 | 24.0 | 23.61 | 16.67 | MEDIUM |
@@ -530,14 +530,14 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Mumbai Indians | 2 | 48 | 51 | 6 | 6.38 | 8.5 | 8.0 | 37.5 | 12.5 | MEDIUM |
 | Royal Challengers Bengaluru | 5 | 111 | 199 | 6 | 10.76 | 33.17 | 18.5 | 21.62 | 27.93 | HIGH |
+| Mumbai Indians | 2 | 48 | 51 | 6 | 6.38 | 8.5 | 8.0 | 37.5 | 12.5 | MEDIUM |
 | Lucknow Super Giants | 4 | 90 | 138 | 5 | 9.2 | 27.6 | 18.0 | 28.89 | 20.0 | MEDIUM |
-| Sunrisers Hyderabad | 4 | 96 | 152 | 4 | 9.5 | 38.0 | 24.0 | 30.21 | 20.83 | MEDIUM |
 | Gujarat Titans | 4 | 90 | 112 | 4 | 7.47 | 28.0 | 22.5 | 33.33 | 14.44 | MEDIUM |
+| Sunrisers Hyderabad | 4 | 96 | 152 | 4 | 9.5 | 38.0 | 24.0 | 30.21 | 20.83 | MEDIUM |
 | Punjab Kings | 3 | 72 | 91 | 2 | 7.58 | 45.5 | 36.0 | 34.72 | 15.28 | MEDIUM |
-| Delhi Capitals | 4 | 96 | 121 | 2 | 7.56 | 60.5 | 48.0 | 29.17 | 14.58 | MEDIUM |
 | Chennai Super Kings | 4 | 84 | 123 | 2 | 8.79 | 61.5 | 42.0 | 26.19 | 17.86 | MEDIUM |
+| Delhi Capitals | 4 | 96 | 121 | 2 | 7.56 | 60.5 | 48.0 | 29.17 | 14.58 | MEDIUM |
 | Kolkata Knight Riders | 2 | 36 | 45 | 1 | 7.5 | 45.0 | 36.0 | 44.44 | 16.67 | MEDIUM |
 
 ---
@@ -734,17 +734,17 @@
 
 ### 12.1 T20 Batting Profile
 
-| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Tournaments |
-|--------|------|---------|----------|--------|---------|------------|-------------|
-| Lhuan-dre Pretorius | All-rounder | 43 | 1007 | 149 | 25.8 | HIGH | SA20, CSA, Zimbab |
-| Brijesh Sharma | All-rounder | 33 | 550 | 134 | 27.5 | HIGH | SMAT |
+| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Trust | Tournaments |
+|--------|------|---------|----------|--------|---------|------------|-------|-------------|
+| Lhuan-dre Pretorius | All-rounder | 43 | 1007 | 149 | 25.8 | HIGH | 44 | SA20, CSA, Zimbab |
+| Brijesh Sharma | All-rounder | 33 | 550 | 134 | 27.5 | HIGH | 59 | SMAT |
 
 ### 12.2 T20 Bowling Profile
 
-| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Tournaments |
-|--------|------|-------------|----------|----------|---------|------------|-------------|
-| Adam Milne | Fast | 179 | 214 | 8.2 | 23.6 | HIGH | 100, Blast, BBL |
-| Brijesh Sharma | Medium | 49 | 34 | 7.1 | 30.5 | HIGH | SMAT |
+| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
+|--------|------|-------------|----------|----------|---------|------------|-------|-------------|
+| Adam Milne | Fast | 179 | 214 | 8.2 | 23.6 | HIGH | 51 | 100, Blast, BBL |
+| Brijesh Sharma | Medium | 49 | 34 | 7.1 | 30.5 | HIGH | 75 | SMAT |
 
 ### 12.3 Limited / No T20 Data
 
@@ -757,6 +757,64 @@
 | Shubham Dubey | Batter | IND |
 | Sushant Mishra | Bowler | IND |
 | Yash Raj Punja | Bowler | IND |
+
+
+---
+
+## 13. Cross-Tournament Intelligence
+
+*Weighted cross-tournament context for squad players with limited IPL samples (<300 batting balls / <200 bowling balls since 2023)*
+
+### 13.1 Batting Intelligence
+
+| Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
+|--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
+| Donovan Ferreira | Batter | 14 | 172 | 31.9 | 5 | 1126 | 46 | SA20 (0.50, SR 155.5); CSA (0.38, SR 168.1); Blast (0.50, SR 158.6) |
+| Lhuan-dre Pretorius | All-rounder | 0 | 156 | 30.7 | 2 | 470 | 44 | SA20 (0.50, SR 154.8); CSA (0.38, SR 160.5) |
+| Brijesh Sharma | All-rounder | 0 | 136 | 31.2 | 2 | 411 | 59 | SMAT (0.65, SR 126.0); IPL (0.87, SR 152.0) |
+| Jofra Archer | Bowler | 54 | 138 | 16.6 | 4 | 335 | 47 | IPL (0.87, SR 143.1); Blast (0.50, SR 133.0); BBL (0.53, SR 141.9) |
+| Adam Milne | Bowler | 0 | 113 | 11.1 | 4 | 221 | 22 | SS (0.36, SR 119.2); Blast (0.50, SR 148.4); 100 (0.50, SR 98.2) |
+| Vaibhav Suryavanshi | Batter | 121 | 208 | 36 | 1 | 121 | 21 | IPL (0.87, SR 208.3) |
+| Ravi Bishnoi | Bowler | 49 | 73.9 | 5.5 | 2 | 101 | 16 | IPL (0.87, SR 68.2); SMAT (0.65, SR 88.6) |
+| Sandeep Sharma | Bowler | 11 | 79.2 | 12.9 | 2 | 100 | 16 | IPL (0.87, SR 79.7); SMAT (0.65, SR 76.9) |
+| Nandre Burger | Bowler | 0 | 48.1 | 6.2 | 1 | 52 | 5 | SA20 (0.50, SR 48.1) |
+| Kwena Maphaka | Bowler | 2 | 70.3 | - | 1 | 37 | 4 | SA20 (0.50, SR 70.3) |
+| Aman Rao | Wicketkeeper | 0 | 65.4 | 8.5 | 1 | 26 | 3 | SMAT (0.65, SR 65.4) |
+| Tushar Deshpande | Bowler | 10 | 127 | 14 | 1 | 22 | 4 | IPL (0.87, SR 127.3) |
+| Yudhvir Singh | All-rounder | 16 | 190 | 9.5 | 1 | 20 | 3 | SMAT (0.65, SR 190.0) |
+
+### 13.2 Bowling Intelligence
+
+| Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
+|--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
+| Adam Milne | Bowler | 0 | 7.7 | 17.4 | 10 | 2539 | 51 | Blast (0.50, Econ 7.3); 100 (0.50, Econ 7.1); BBL (0.53, Econ 7.7) |
+| Brijesh Sharma | All-rounder | 0 | 7.0 | 22.2 | 2 | 882 | 75 | SMAT (0.65, Econ 5.8); IPL (0.87, Econ 8.0) |
+| Nandre Burger | Bowler | 102 | 8.2 | 17.7 | 5 | 851 | 51 | SA20 (0.50, Econ 8.4); MLC (0.42, Econ 8.5); IPL (0.87, Econ 8.5) |
+| Riyan Parag | All-rounder | 138 | 7.8 | 26.1 | 2 | 839 | 73 | SMAT (0.65, Econ 6.6); IPL (0.87, Econ 9.4) |
+| Kuldeep Sen | Bowler | 90 | 8.7 | 22.0 | 2 | 663 | 73 | SMAT (0.65, Econ 8.3); IPL (0.87, Econ 9.3) |
+| Kwena Maphaka | Bowler | 66 | 9.3 | 21.3 | 3 | 521 | 51 | SA20 (0.50, Econ 9.6); CSA (0.38, Econ 5.2); IPL (0.87, Econ 13.0) |
+| Donovan Ferreira | Batter | 0 | 7.2 | 21.9 | 3 | 438 | 40 | SA20 (0.50, Econ 6.1); CSA (0.38, Econ 8.3); MLC (0.42, Econ 10.8) |
+| Yudhvir Singh | All-rounder | 139 | 9.1 | 18.8 | 2 | 343 | 51 | SMAT (0.65, Econ 7.7); IPL (0.87, Econ 10.7) |
+| Vignesh Puthur | Bowler | 72 | 9 | 12 | 1 | 72 | 13 | IPL (0.87, Econ 9.0) |
+| Aman Rao | Wicketkeeper | 0 | 7.5 | 24 | 1 | 24 | 3 | SMAT (0.65, Econ 7.5) |
+| Yashasvi Jaiswal | Batter | 0 | 12 | - | 1 | 12 | 2 | SMAT (0.65, Econ 12.0) |
+
+### 13.3 Methodology
+
+Cross-tournament intelligence uses a weighted composite model across 14 T20 tournaments to provide context for players with limited IPL data.
+
+**Weighting factors** (from `dim_tournament_weights`):
+
+- **Player Quality Index (PQI)**: Strength of playing talent in the tournament
+- **Competitiveness**: How closely contested matches are
+- **Conditions Similarity**: How similar playing conditions are to IPL venues
+- **Recency**: More recent tournaments weighted higher
+- **Sample Confidence**: Larger tournaments with more matches get higher confidence
+
+**Trust Score** = (avg tournament weight x min(total T20 balls / 500, 1.0)) x 100, capped at 100. Combines tournament quality with sample size — a player with 500+ balls in high-quality tournaments (BBL, PSL, The Hundred) earns a higher trust score than one with the same balls in lower-tier competitions.
+
+**Tier examples**: IPL (0.87), SMAT (0.65), BBL (0.53), PSL (0.51), The Hundred (0.50), CPL (0.50), Super Smash (0.36)
+
 
 
 ---

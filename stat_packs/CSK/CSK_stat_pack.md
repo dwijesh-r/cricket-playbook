@@ -1,6 +1,6 @@
 # Chennai Super Kings (CSK) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 17:17
+**Generated:** 2026-02-12 20:25
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -246,10 +246,10 @@
 |-------|---------|------|------|-----------|
 | Narendra Modi Stadium | 4 | 2 | 50.0% | 193.8 |
 | Wankhede Stadium | 3 | 2 | 66.7% | 180.3 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 172.0 |
 | M Chinnaswamy Stadium | 3 | 1 | 33.3% | 209.3 |
-| Eden Gardens | 2 | 2 | 100.0% | 209.0 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 172.0 |
 | Arun Jaitley Stadium | 2 | 1 | 50.0% | 205.0 |
+| Eden Gardens | 2 | 2 | 100.0% | 209.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -262,9 +262,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -283,7 +283,7 @@
 | SV Samson | Arun Jaitley Stadium | 3 | 158 | 168.09 | 52.67 |
 | S Dube | Wankhede Stadium | 3 | 144 | 150.0 | 72.0 |
 | SV Samson | Rajiv Gandhi Internationa | 3 | 120 | 169.01 | 40.0 |
-| RD Gaikwad | Narendra Modi Stadium | 3 | 118 | 171.01 | 39.33 |
+| SV Samson | Narendra Modi Stadium | 3 | 118 | 161.64 | 59.0 |
 
 **Top Bowling Performances:**
 
@@ -293,8 +293,8 @@
 | Noor Ahmad | Narendra Modi Stadium | 13 | 13 | 8.23 | 20.31 |
 | KK Ahmed | MA Chidambaram Stadium | 7 | 10 | 7.75 | 15.4 |
 | Noor Ahmad | Eden Gardens | 2 | 6 | 6.38 | 8.0 |
-| KK Ahmed | Bharat Ratna Shri Atal Bi | 3 | 5 | 9.17 | 14.4 |
 | KV Sharma | Sawai Mansingh Stadium | 2 | 5 | 8.0 | 6.6 |
+| KK Ahmed | Bharat Ratna Shri Atal Bi | 3 | 5 | 9.17 | 14.4 |
 | NT Ellis | Barsapara Cricket Stadium | 2 | 5 | 6.75 | 9.6 |
 
 
@@ -447,9 +447,9 @@
 | Kolkata Knight Riders | 3 | 60 | 59 | 7 | 5.9 | 8.43 | 8.57 | 45.0 | 11.67 | MEDIUM |
 | Rajasthan Royals | 5 | 98 | 154 | 6 | 9.43 | 25.67 | 16.33 | 29.59 | 19.39 | MEDIUM |
 | Punjab Kings | 4 | 90 | 122 | 6 | 8.13 | 20.33 | 15.0 | 30.0 | 14.44 | MEDIUM |
-| Chennai Super Kings | 3 | 54 | 68 | 3 | 7.56 | 22.67 | 18.0 | 27.78 | 11.11 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 65 | 103 | 3 | 9.51 | 34.33 | 21.67 | 29.23 | 20.0 | MEDIUM |
 | Lucknow Super Giants | 4 | 96 | 78 | 3 | 4.88 | 26.0 | 32.0 | 44.79 | 6.25 | MEDIUM |
+| Chennai Super Kings | 3 | 54 | 68 | 3 | 7.56 | 22.67 | 18.0 | 27.78 | 11.11 | MEDIUM |
 | Delhi Capitals | 4 | 71 | 104 | 2 | 8.79 | 52.0 | 35.5 | 30.99 | 19.72 | MEDIUM |
 
 ### Khaleel Ahmed
@@ -459,12 +459,12 @@
 | Punjab Kings | 5 | 112 | 168 | 7 | 9.0 | 24.0 | 16.0 | 43.75 | 24.11 | HIGH |
 | Mumbai Indians | 4 | 84 | 138 | 6 | 9.86 | 23.0 | 14.0 | 40.48 | 26.19 | MEDIUM |
 | Lucknow Super Giants | 4 | 84 | 132 | 6 | 9.43 | 22.0 | 14.0 | 50.0 | 26.19 | MEDIUM |
-| Gujarat Titans | 5 | 102 | 123 | 5 | 7.24 | 24.6 | 20.4 | 46.08 | 19.61 | HIGH |
 | Rajasthan Royals | 5 | 102 | 163 | 5 | 9.59 | 32.6 | 20.4 | 42.16 | 29.41 | HIGH |
+| Gujarat Titans | 5 | 102 | 123 | 5 | 7.24 | 24.6 | 20.4 | 46.08 | 19.61 | HIGH |
 | Chennai Super Kings | 3 | 72 | 92 | 4 | 7.67 | 23.0 | 18.0 | 41.67 | 16.67 | MEDIUM |
 | Royal Challengers Bengaluru | 4 | 90 | 163 | 4 | 10.87 | 40.75 | 22.5 | 34.44 | 28.89 | MEDIUM |
-| Kolkata Knight Riders | 4 | 72 | 117 | 1 | 9.75 | 117.0 | 72.0 | 48.61 | 26.39 | MEDIUM |
 | Sunrisers Hyderabad | 2 | 36 | 72 | 1 | 12.0 | 72.0 | 36.0 | 33.33 | 33.33 | MEDIUM |
+| Kolkata Knight Riders | 4 | 72 | 117 | 1 | 9.75 | 117.0 | 72.0 | 48.61 | 26.39 | MEDIUM |
 
 ---
 
@@ -646,11 +646,11 @@
 
 ### 12.2 T20 Bowling Profile
 
-| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Tournaments |
-|--------|------|-------------|----------|----------|---------|------------|-------------|
-| Zak Foulkes | Fast | 59 | 73 | 8.1 | 22.4 | HIGH | SS, Blast, Blast |
-| Dewald Brevis | Off-spin | 21 | 16 | 7.7 | 20.6 | HIGH | CSA, SA20 |
-| Aman Khan | Off-spin | 8 | 4 | 8.2 | 34.8 | LOW | SMAT |
+| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
+|--------|------|-------------|----------|----------|---------|------------|-------|-------------|
+| Zak Foulkes | Fast | 59 | 73 | 8.1 | 22.4 | HIGH | 39 | SS, Blast, Blast |
+| Dewald Brevis | Off-spin | 21 | 16 | 7.7 | 20.6 | HIGH | 20 | CSA, SA20 |
+| Aman Khan | Off-spin | 8 | 4 | 8.2 | 34.8 | LOW | 12 | SMAT |
 
 ### 12.3 Limited / No T20 Data
 
@@ -661,6 +661,68 @@
 | Gurjapneet Singh | Bowler | IND |
 | Prashant Veer | All-rounder | IND |
 | Ramakrishna Ghosh | Bowler | IND |
+
+
+---
+
+## 13. Cross-Tournament Intelligence
+
+*Weighted cross-tournament context for squad players with limited IPL samples (<300 batting balls / <200 bowling balls since 2023)*
+
+### 13.1 Batting Intelligence
+
+| Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
+|--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
+| MS Dhoni | Wicketkeeper | 271 | 137 | 41.0 | 1 | 3935 | 87 | IPL (0.87, SR 137.5) |
+| Matthew Short | All-rounder | 92 | 144 | 28.9 | 4 | 2378 | 52 | BBL (0.53, SR 142.1); MLC (0.42, SR 157.3); 100 (0.50, SR 151.4) |
+| Dewald Brevis | All-rounder | 184 | 148 | 28.2 | 5 | 1469 | 54 | SA20 (0.50, SR 145.3); CSA (0.38, SR 149.0); IPL (0.87, SR 153.2) |
+| Jamie Overton | All-rounder | 7 | 156 | 23.8 | 4 | 1000 | 51 | Blast (0.50, SR 171.8); BBL (0.53, SR 138.7); 100 (0.50, SR 156.0) |
+| Akeal Hosein | Bowler | 10 | 108 | 19.8 | 7 | 862 | 49 | CPL (0.50, SR 109.0); ILT20 (0.49, SR 82.3); PSL (0.51, SR 120.8) |
+| Sarfaraz Khan | Batter | 61 | 127 | 23.1 | 2 | 676 | 79 | IPL (0.87, SR 130.2); SMAT (0.65, SR 120.3) |
+| Kartik Sharma | Wicketkeeper | 21 | 129 | 18.4 | 2 | 676 | 74 | SMAT (0.65, SR 138.8); IPL (0.87, SR 119.3) |
+| Urvil Patel | Wicketkeeper | 32 | 158 | 21.3 | 2 | 433 | 57 | SMAT (0.65, SR 152.4); IPL (0.87, SR 212.5) |
+| Nathan Ellis | Bowler | 7 | 117 | 12.7 | 4 | 402 | 44 | BBL (0.53, SR 129.8); Blast (0.50, SR 109.4); 100 (0.50, SR 65.7) |
+| Shreyas Gopal | Bowler | 0 | 109 | 13.9 | 2 | 223 | 36 | IPL (0.87, SR 106.5); SMAT (0.65, SR 120.4) |
+| Matt Henry | Bowler | 0 | 144 | 14.5 | 3 | 169 | 14 | SS (0.36, SR 153.2); Blast (0.50, SR 133.3); 100 (0.50, SR 128.0) |
+| Rahul Chahar | Bowler | 24 | 98.9 | 8.6 | 2 | 165 | 27 | IPL (0.87, SR 104.0); SMAT (0.65, SR 78.0) |
+| Aman Khan | All-rounder | 101 | 123 | 12.7 | 2 | 152 | 24 | IPL (0.87, SR 110.6); SMAT (0.65, SR 158.3) |
+| Noor Ahmad | Bowler | 35 | 86.4 | 7.6 | 3 | 136 | 15 | LPL (0.40, SR 111.3); ILT20 (0.49, SR 102.1); IPL (0.87, SR 57.1) |
+| Zak Foulkes | Bowler | 0 | 126 | 16.8 | 1 | 133 | 10 | SS (0.36, SR 126.3) |
+| Ayush Mhatre | Batter | 127 | 189 | 34.3 | 1 | 127 | 22 | IPL (0.87, SR 189.0) |
+
+### 13.2 Bowling Intelligence
+
+| Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
+|--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
+| Akeal Hosein | Bowler | 24 | 6.9 | 20.2 | 9 | 3844 | 50 | CPL (0.50, Econ 6.5); ILT20 (0.49, Econ 7.1); BBL (0.53, Econ 6.8) |
+| Jamie Overton | All-rounder | 36 | 8.9 | 17.1 | 5 | 1730 | 51 | Blast (0.50, Econ 9.4); BBL (0.53, Econ 8.2); ILT20 (0.49, Econ 8.3) |
+| Shreyas Gopal | Bowler | 42 | 7.7 | 16.5 | 2 | 1491 | 80 | IPL (0.87, Econ 8.1); SMAT (0.65, Econ 6.7) |
+| Matt Henry | Bowler | 72 | 8.0 | 13.6 | 5 | 1350 | 45 | SS (0.36, Econ 7.6); Blast (0.50, Econ 7.5); 100 (0.50, Econ 6.4) |
+| Matthew Short | All-rounder | 24 | 7.5 | 24.0 | 4 | 1295 | 52 | BBL (0.53, Econ 7.5); MLC (0.42, Econ 7.0); 100 (0.50, Econ 8.1) |
+| Shivam Dube | All-rounder | 18 | 8.6 | 20.0 | 2 | 720 | 68 | SMAT (0.65, Econ 8.1); IPL (0.87, Econ 10.3) |
+| Zak Foulkes | Bowler | 0 | 7.5 | 14.2 | 2 | 680 | 39 | SS (0.36, Econ 7.0); Blast (0.50, Econ 9.1) |
+| Mukesh Choudhary | Bowler | 42 | 9.0 | 17.1 | 2 | 556 | 77 | IPL (0.87, Econ 9.5); SMAT (0.65, Econ 8.1) |
+| Anshul Kamboj | Bowler | 189 | 8.3 | 15.7 | 2 | 255 | 41 | IPL (0.87, Econ 8.7); SMAT (0.65, Econ 6.8) |
+| Dewald Brevis | All-rounder | 0 | 7.6 | 13.1 | 2 | 252 | 20 | CSA (0.38, Econ 7.5); SA20 (0.50, Econ 8.0) |
+| Aman Khan | All-rounder | 0 | 7.7 | 24 | 1 | 96 | 12 | SMAT (0.65, Econ 7.7) |
+| Prashant Veer | All-rounder | 0 | 2.3 | 6 | 1 | 18 | 2 | SMAT (0.65, Econ 2.3) |
+
+### 13.3 Methodology
+
+Cross-tournament intelligence uses a weighted composite model across 14 T20 tournaments to provide context for players with limited IPL data.
+
+**Weighting factors** (from `dim_tournament_weights`):
+
+- **Player Quality Index (PQI)**: Strength of playing talent in the tournament
+- **Competitiveness**: How closely contested matches are
+- **Conditions Similarity**: How similar playing conditions are to IPL venues
+- **Recency**: More recent tournaments weighted higher
+- **Sample Confidence**: Larger tournaments with more matches get higher confidence
+
+**Trust Score** = (avg tournament weight x min(total T20 balls / 500, 1.0)) x 100, capped at 100. Combines tournament quality with sample size — a player with 500+ balls in high-quality tournaments (BBL, PSL, The Hundred) earns a higher trust score than one with the same balls in lower-tier competitions.
+
+**Tier examples**: IPL (0.87), SMAT (0.65), BBL (0.53), PSL (0.51), The Hundred (0.50), CPL (0.50), Super Smash (0.36)
+
 
 
 ---

@@ -1,6 +1,6 @@
 # Royal Challengers Bengaluru (RCB) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 17:17
+**Generated:** 2026-02-12 20:25
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -19,6 +19,7 @@
 | Jitesh Sharma | Wicketkeeper | Medium | Right-hand | 11.00 | Retained | 2025 |
 | Bhuvneshwar Kumar | Bowler | Fast | Right-hand | 10.75 | Retained | 2025 |
 | Venkatesh Iyer | All-rounder | Medium | Left-hand | 7.00 | Auction | 2026 |
+| Kanishk Chouhan | Bowler | Left-arm orthodox | Right-hand | 6.00 | Retained | 2025 |
 | Krunal Pandya | All-rounder | Left-arm orthodox | Left-hand | 5.75 | Retained | 2025 |
 | Yash Dayal | Bowler | Fast | Left-hand | 5.00 | Retained | 2022 |
 | Tim David | Batter | Off-spin | Right-hand | 3.00 | Retained | 2025 |
@@ -28,14 +29,13 @@
 | Romario Shepherd | All-rounder | Fast | Right-hand | 2.00 | Auction | 2026 |
 | Jacob Duffy | Bowler | Fast | Right-hand | 0.75 | Auction | 2026 |
 | Swapnil Singh | All-rounder | Left-arm orthodox | Left-hand | 0.50 | Retained | 2024 |
+| Satvik Deswal | Bowler | Left-arm wrist spin | Left-hand | 0.30 | Auction | 2026 |
 | Abhinandan Singh | Bowler | Fast | Right-hand | 0.30 | Retained | 2025 |
 | Mangesh Yadav | Bowler | Fast | Left-hand | 0.30 | Auction | 2026 |
 | Jordan Cox | Wicketkeeper | Medium | Right-hand | 0.30 | Auction | 2026 |
-| Kanishk Chouhan | Bowler | Left-arm orthodox | Right-hand | 0.00 | - | - |
-| Satvik Deswal | Bowler | Left-arm wrist spin | Left-hand | 0.00 | - | - |
 
 **Total Squad Size:** 21 players
-**Total Spend:** ₹109.85 Cr
+**Total Spend:** ₹116.15 Cr
 
 **Role Breakdown:** All-rounder: 5, Batter: 4, Bowler: 9, Wicketkeeper: 3
 
@@ -128,7 +128,7 @@
 
 - **2023:** Mohammed Siraj (19w @ 7.2), HV Patel (14w @ 9.3), KV Sharma (10w @ 10.41)
 - **2024:** Yash Dayal (15w @ 8.8), Mohammed Siraj (15w @ 8.69), C Green (10w @ 8.21)
-- **2025:** JR Hazlewood (22w @ 8.64), B Kumar (17w @ 9.25), KH Pandya (17w @ 8.06)
+- **2025:** JR Hazlewood (22w @ 8.64), KH Pandya (17w @ 8.06), B Kumar (17w @ 9.25)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -241,15 +241,15 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
+| Eden Gardens | 3 | 1 | 33.3% | 173.7 |
 | Wankhede Stadium | 3 | 1 | 33.3% | 205.3 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 181.7 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 176.3 |
 | Narendra Modi Stadium | 3 | 2 | 66.7% | 189.3 |
-| Eden Gardens | 3 | 1 | 33.3% | 173.7 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 181.7 |
+| MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
+| Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
 | Arun Jaitley Stadium | 2 | 1 | 50.0% | 173.0 |
 | Rajiv Gandhi International Stadium | 2 | 2 | 100.0% | 196.5 |
-| Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
-| MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -260,11 +260,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -292,9 +292,9 @@
 | KH Pandya | Bharat Ratna Shri Atal Bi | 13 | 12 | 6.84 | 22.0 |
 | JR Hazlewood | M Chinnaswamy Stadium | 4 | 8 | 9.33 | 10.38 |
 | B Kumar | Narendra Modi Stadium | 4 | 7 | 8.47 | 12.86 |
-| Suyash Sharma | Maharaja Yadavindra Singh | 2 | 5 | 5.71 | 8.4 |
 | B Kumar | Arun Jaitley Stadium | 3 | 5 | 8.92 | 14.4 |
 | KH Pandya | Wankhede Stadium | 2 | 5 | 8.75 | 9.6 |
+| Suyash Sharma | Maharaja Yadavindra Singh | 2 | 5 | 5.71 | 8.4 |
 
 
 ---
@@ -467,10 +467,10 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 5 | 120 | 145 | 9 | 7.25 | 16.11 | 13.33 | 40.83 | 15.83 | HIGH |
 | Punjab Kings | 7 | 150 | 205 | 8 | 8.2 | 25.63 | 18.75 | 40.67 | 21.33 | HIGH |
-| Rajasthan Royals | 6 | 132 | 233 | 6 | 10.59 | 38.83 | 22.0 | 34.85 | 28.79 | HIGH |
 | Gujarat Titans | 3 | 72 | 82 | 6 | 6.83 | 13.67 | 12.0 | 40.28 | 12.5 | MEDIUM |
-| Lucknow Super Giants | 4 | 84 | 104 | 4 | 7.43 | 26.0 | 21.0 | 38.1 | 15.48 | MEDIUM |
+| Rajasthan Royals | 6 | 132 | 233 | 6 | 10.59 | 38.83 | 22.0 | 34.85 | 28.79 | HIGH |
 | Mumbai Indians | 5 | 120 | 191 | 4 | 9.55 | 47.75 | 30.0 | 37.5 | 21.67 | HIGH |
+| Lucknow Super Giants | 4 | 84 | 104 | 4 | 7.43 | 26.0 | 21.0 | 38.1 | 15.48 | MEDIUM |
 | Chennai Super Kings | 5 | 102 | 152 | 3 | 8.94 | 50.67 | 34.0 | 36.27 | 23.53 | HIGH |
 | Kolkata Knight Riders | 5 | 102 | 161 | 2 | 9.47 | 80.5 | 51.0 | 40.2 | 24.51 | HIGH |
 | Royal Challengers Bengaluru | 3 | 54 | 117 | 1 | 13.0 | 117.0 | 54.0 | 29.63 | 42.59 | MEDIUM |
@@ -480,12 +480,12 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 3 | 72 | 80 | 6 | 6.67 | 13.33 | 12.0 | 44.44 | 13.89 | MEDIUM |
-| Mumbai Indians | 4 | 96 | 139 | 5 | 8.69 | 27.8 | 19.2 | 35.42 | 20.83 | MEDIUM |
 | Punjab Kings | 7 | 102 | 130 | 5 | 7.65 | 26.0 | 20.4 | 38.24 | 15.69 | HIGH |
 | Gujarat Titans | 4 | 90 | 100 | 5 | 6.67 | 20.0 | 18.0 | 36.67 | 11.11 | MEDIUM |
+| Mumbai Indians | 4 | 96 | 139 | 5 | 8.69 | 27.8 | 19.2 | 35.42 | 20.83 | MEDIUM |
 | Kolkata Knight Riders | 4 | 66 | 93 | 4 | 8.45 | 23.25 | 16.5 | 28.79 | 19.7 | MEDIUM |
-| Chennai Super Kings | 5 | 72 | 104 | 3 | 8.67 | 34.67 | 24.0 | 27.78 | 18.06 | MEDIUM |
 | Rajasthan Royals | 4 | 96 | 102 | 3 | 6.38 | 34.0 | 32.0 | 25.0 | 7.29 | MEDIUM |
+| Chennai Super Kings | 5 | 72 | 104 | 3 | 8.67 | 34.67 | 24.0 | 27.78 | 18.06 | MEDIUM |
 | Delhi Capitals | 4 | 66 | 105 | 1 | 9.55 | 105.0 | 66.0 | 18.18 | 16.67 | MEDIUM |
 | Royal Challengers Bengaluru | 3 | 54 | 67 | 0 | 7.44 | - | - | 22.22 | 11.11 | MEDIUM |
 
@@ -698,16 +698,16 @@
 
 ### 12.1 T20 Batting Profile
 
-| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Tournaments |
-|--------|------|---------|----------|--------|---------|------------|-------------|
-| Jordan Cox | Wicketkeeper | 160 | 3931 | 141 | 30.7 | HIGH | Blast, ILT20, 100 |
+| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Trust | Tournaments |
+|--------|------|---------|----------|--------|---------|------------|-------|-------------|
+| Jordan Cox | Wicketkeeper | 160 | 3931 | 141 | 30.7 | HIGH | 49 | Blast, ILT20, 100 |
 
 ### 12.2 T20 Bowling Profile
 
-| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Tournaments |
-|--------|------|-------------|----------|----------|---------|------------|-------------|
-| Jacob Duffy | Fast | 115 | 137 | 8.3 | 24.3 | HIGH | SS, Blast, 100 |
-| Jacob Bethell | Left-arm ort | 29 | 18 | 8.8 | 26.8 | HIGH | Blast, 100, BBL |
+| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
+|--------|------|-------------|----------|----------|---------|------------|-------|-------------|
+| Jacob Duffy | Fast | 115 | 137 | 8.3 | 24.3 | HIGH | 38 | SS, Blast, 100 |
+| Jacob Bethell | Left-arm ort | 29 | 18 | 8.8 | 26.8 | HIGH | 26 | Blast, BBL, 100 |
 
 ### 12.3 Limited / No T20 Data
 
@@ -718,6 +718,55 @@
 | Abhinandan Singh | Bowler | IND |
 | Kanishk Chouhan | Bowler | IND |
 | Satvik Deswal | Bowler | IND |
+
+
+---
+
+## 13. Cross-Tournament Intelligence
+
+*Weighted cross-tournament context for squad players with limited IPL samples (<300 batting balls / <200 bowling balls since 2023)*
+
+### 13.1 Batting Intelligence
+
+| Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
+|--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
+| Jordan Cox | Wicketkeeper | 0 | 139 | 31.9 | 7 | 2522 | 49 | Blast (0.50, SR 145.3); 100 (0.50, SR 155.2); ILT20 (0.49, SR 119.3) |
+| Romario Shepherd | All-rounder | 45 | 166 | 24.2 | 6 | 902 | 52 | CPL (0.50, SR 162.9); ILT20 (0.49, SR 180.2); SA20 (0.50, SR 132.5) |
+| Jacob Bethell | All-rounder | 39 | 139 | 25.2 | 4 | 812 | 52 | Blast (0.50, SR 141.8); 100 (0.50, SR 133.8); BBL (0.53, SR 125.0) |
+| Swapnil Singh | All-rounder | 25 | 122 | 23.3 | 2 | 476 | 63 | SMAT (0.65, SR 123.4); IPL (0.87, SR 113.3) |
+| Bhuvneshwar Kumar | Bowler | 101 | 94.4 | 10.5 | 2 | 383 | 65 | IPL (0.87, SR 91.4); SMAT (0.65, SR 136.4) |
+| Jacob Duffy | Bowler | 0 | 122 | 9.7 | 1 | 88 | 6 | SS (0.36, SR 121.6) |
+| Josh Hazlewood | Bowler | 3 | 65.5 | - | 1 | 29 | 5 | IPL (0.87, SR 65.5) |
+
+### 13.2 Bowling Intelligence
+
+| Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
+|--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
+| Romario Shepherd | All-rounder | 156 | 8.9 | 15.9 | 6 | 2199 | 53 | CPL (0.50, Econ 8.2); ILT20 (0.49, Econ 8.6); SA20 (0.50, Econ 9.0) |
+| Jacob Duffy | Bowler | 0 | 8.3 | 17.4 | 2 | 1430 | 38 | SS (0.36, Econ 8.3); 100 (0.50, Econ 9.0) |
+| Swapnil Singh | All-rounder | 102 | 7.3 | 19.6 | 2 | 856 | 69 | SMAT (0.65, Econ 6.8); IPL (0.87, Econ 8.8) |
+| Venkatesh Iyer | All-rounder | 6 | 7.6 | 17.8 | 2 | 543 | 68 | SMAT (0.65, Econ 6.9); IPL (0.87, Econ 10.5) |
+| Tim David | Batter | 0 | 8.5 | 34.4 | 8 | 499 | 51 | BBL (0.53, Econ 8.2); Blast (0.50, Econ 9.0); CPL (0.50, Econ 8.0) |
+| Jacob Bethell | All-rounder | 0 | 7.7 | 16.9 | 3 | 253 | 26 | Blast (0.50, Econ 7.6); BBL (0.53, Econ 6.4); 100 (0.50, Econ 10.2) |
+| Virat Kohli | Batter | 0 | 8.4 | 50.2 | 1 | 251 | 44 | IPL (0.87, Econ 8.4) |
+| Mangesh Yadav | Bowler | 121 | 8.5 | 13.2 | 2 | 175 | 28 | IPL (0.87, Econ 8.9); SMAT (0.65, Econ 7.4) |
+
+### 13.3 Methodology
+
+Cross-tournament intelligence uses a weighted composite model across 14 T20 tournaments to provide context for players with limited IPL data.
+
+**Weighting factors** (from `dim_tournament_weights`):
+
+- **Player Quality Index (PQI)**: Strength of playing talent in the tournament
+- **Competitiveness**: How closely contested matches are
+- **Conditions Similarity**: How similar playing conditions are to IPL venues
+- **Recency**: More recent tournaments weighted higher
+- **Sample Confidence**: Larger tournaments with more matches get higher confidence
+
+**Trust Score** = (avg tournament weight x min(total T20 balls / 500, 1.0)) x 100, capped at 100. Combines tournament quality with sample size — a player with 500+ balls in high-quality tournaments (BBL, PSL, The Hundred) earns a higher trust score than one with the same balls in lower-tier competitions.
+
+**Tier examples**: IPL (0.87), SMAT (0.65), BBL (0.53), PSL (0.51), The Hundred (0.50), CPL (0.50), Super Smash (0.36)
+
 
 
 ---

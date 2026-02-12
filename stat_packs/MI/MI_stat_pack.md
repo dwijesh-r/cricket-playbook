@@ -1,6 +1,6 @@
 # Mumbai Indians (MI) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 17:17
+**Generated:** 2026-02-12 20:25
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -253,11 +253,11 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Narendra Modi Stadium | 5 | 0 | 0.0% | 169.6 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 0 | 0.0% | 169.0 |
-| Arun Jaitley Stadium | 3 | 2 | 66.7% | 208.3 |
-| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 194.7 |
 | MA Chidambaram Stadium | 3 | 1 | 33.3% | 158.7 |
+| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 194.7 |
+| Arun Jaitley Stadium | 3 | 2 | 66.7% | 208.3 |
 | Sawai Mansingh Stadium | 3 | 1 | 33.3% | 193.3 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 0 | 0.0% | 169.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -270,9 +270,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -302,9 +302,9 @@
 | TA Boult | Wankhede Stadium | 9 | 14 | 7.89 | 15.43 |
 | HH Pandya | Wankhede Stadium | 11 | 11 | 10.11 | 15.27 |
 | TA Boult | Sawai Mansingh Stadium | 9 | 8 | 8.44 | 21.5 |
+| Ashwani Kumar | Wankhede Stadium | 3 | 7 | 10.33 | 7.71 |
 | HH Pandya | Bharat Ratna Shri Atal Bi | 3 | 7 | 7.11 | 7.71 |
 | MJ Santner | Wankhede Stadium | 6 | 7 | 5.95 | 16.57 |
-| Ashwani Kumar | Wankhede Stadium | 3 | 7 | 10.33 | 7.71 |
 
 
 ---
@@ -510,8 +510,8 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 4 | 92 | 105 | 7 | 6.85 | 15.0 | 13.14 | 45.65 | 16.3 | MEDIUM |
 | Gujarat Titans | 3 | 72 | 60 | 6 | 5.0 | 10.0 | 12.0 | 52.78 | 8.33 | MEDIUM |
-| Royal Challengers Bengaluru | 2 | 48 | 51 | 5 | 6.38 | 10.2 | 9.6 | 35.42 | 8.33 | MEDIUM |
 | Kolkata Knight Riders | 2 | 47 | 58 | 5 | 7.4 | 11.6 | 9.4 | 51.06 | 19.15 | MEDIUM |
+| Royal Challengers Bengaluru | 2 | 48 | 51 | 5 | 6.38 | 10.2 | 9.6 | 35.42 | 8.33 | MEDIUM |
 | Punjab Kings | 3 | 72 | 83 | 4 | 6.92 | 20.75 | 18.0 | 45.83 | 15.28 | MEDIUM |
 | Lucknow Super Giants | 2 | 48 | 38 | 4 | 4.75 | 9.5 | 12.0 | 62.5 | 8.33 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 96 | 114 | 3 | 7.13 | 38.0 | 32.0 | 30.21 | 11.46 | MEDIUM |
@@ -733,12 +733,12 @@
 
 ### 12.2 T20 Bowling Profile
 
-| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Tournaments |
-|--------|------|-------------|----------|----------|---------|------------|-------------|
-| AM Ghazanfar | Off-spin | 32 | 34 | 7.2 | 24.9 | HIGH | ILT20, Blast, CPL |
-| Sherfane Rutherford | Medium | 23 | 11 | 10.7 | 35 | HIGH | CPL, SA20, Intl |
-| Atharva Ankolekar | Left-arm ort | 11 | 9 | 5.8 | 26.7 | MEDIUM | SMAT |
-| Raghu Sharma | Fast | 3 | 3 | 8.1 | 29.7 | LOW | SMAT |
+| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
+|--------|------|-------------|----------|----------|---------|------------|-------|-------------|
+| AM Ghazanfar | Off-spin | 32 | 34 | 7.2 | 24.9 | HIGH | 36 | ILT20, Blast, CPL |
+| Sherfane Rutherford | Medium | 23 | 11 | 10.7 | 35 | HIGH | 20 | CPL, BBL, ILT20 |
+| Atharva Ankolekar | Left-arm ort | 11 | 9 | 5.8 | 26.7 | MEDIUM | 32 | SMAT |
+| Raghu Sharma | Fast | 3 | 3 | 8.1 | 29.7 | LOW | 9 | SMAT |
 
 ### 12.3 Limited / No T20 Data
 
@@ -748,6 +748,63 @@
 |--------|------|-------------|
 | Danish Malewar | Batter | IND |
 | Mohammed Izhar | Bowler | IND |
+
+
+---
+
+## 13. Cross-Tournament Intelligence
+
+*Weighted cross-tournament context for squad players with limited IPL samples (<300 batting balls / <200 bowling balls since 2023)*
+
+### 13.1 Batting Intelligence
+
+| Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
+|--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
+| Sherfane Rutherford | All-rounder | 184 | 140 | 26.8 | 9 | 2524 | 53 | CPL (0.50, SR 134.1); ILT20 (0.49, SR 147.6); PSL (0.51, SR 148.1) |
+| Ryan Rickelton | Wicketkeeper | 255 | 154 | 36 | 4 | 1591 | 53 | SA20 (0.50, SR 163.8); CSA (0.38, SR 129.4); IPL (0.87, SR 152.2) |
+| Mitchell Santner | All-rounder | 54 | 133 | 25.0 | 7 | 1009 | 48 | SS (0.36, SR 145.5); Blast (0.50, SR 149.6); CPL (0.50, SR 115.1) |
+| Corbin Bosch | All-rounder | 32 | 114 | 20.2 | 4 | 481 | 48 | CPL (0.50, SR 114.1); CSA (0.38, SR 125.0); SA20 (0.50, SR 82.7) |
+| Shardul Thakur | All-rounder | 99 | 129 | 13.3 | 2 | 293 | 48 | IPL (0.87, SR 139.7); SMAT (0.65, SR 72.1) |
+| Naman Dhir | All-rounder | 216 | 178 | 24.8 | 2 | 244 | 41 | IPL (0.87, SR 181.5); SMAT (0.65, SR 139.3) |
+| Deepak Chahar | Bowler | 27 | 124 | 15.1 | 2 | 199 | 29 | SMAT (0.65, SR 109.6); IPL (0.87, SR 139.3) |
+| Trent Boult | Bowler | 33 | 117 | 17.0 | 3 | 179 | 23 | IPL (0.87, SR 104.9); MLC (0.42, SR 147.8); BBL (0.53, SR 112.9) |
+| Mayank Markande | Bowler | 13 | 117 | 19.6 | 2 | 87 | 13 | SMAT (0.65, SR 120.0); IPL (0.87, SR 114.3) |
+| Jasprit Bumrah | Bowler | 13 | 87.2 | 13.6 | 1 | 78 | 14 | IPL (0.87, SR 87.2) |
+| Atharva Ankolekar | Bowler | 0 | 139 | 39 | 1 | 56 | 7 | SMAT (0.65, SR 139.3) |
+| Raj Bawa | All-rounder | 4 | 160 | 32 | 1 | 20 | 3 | SMAT (0.65, SR 160.0) |
+
+### 13.2 Bowling Intelligence
+
+| Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
+|--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
+| Will Jacks | All-rounder | 138 | 7.4 | 16.8 | 5 | 1205 | 54 | Blast (0.50, Econ 7.4); SA20 (0.50, Econ 6.5); 100 (0.50, Econ 6.5) |
+| Corbin Bosch | All-rounder | 42 | 8.9 | 17.9 | 4 | 818 | 48 | SA20 (0.50, Econ 9.5); CSA (0.38, Econ 7.7); CPL (0.50, Econ 9.8) |
+| AM Ghazanfar | Bowler | 0 | 6.8 | 16.9 | 2 | 371 | 36 | ILT20 (0.49, Econ 6.9); CPL (0.50, Econ 6.4) |
+| Rohit Sharma | Batter | 0 | 7.9 | 21.2 | 1 | 339 | 59 | IPL (0.87, Econ 7.9) |
+| Atharva Ankolekar | Bowler | 0 | 5.8 | 24.6 | 1 | 246 | 32 | SMAT (0.65, Econ 5.9) |
+| Sherfane Rutherford | All-rounder | 0 | 8.8 | 18.4 | 3 | 167 | 20 | CPL (0.50, Econ 9.8); IPL (0.87, Econ 8.0); SA20 (0.50, Econ 6.0) |
+| Ashwani Kumar | Bowler | 123 | 10.8 | 12.4 | 2 | 153 | 25 | IPL (0.87, Econ 11.0); SMAT (0.65, Econ 9.8) |
+| Tilak Varma | All-rounder | 10 | 7.6 | 44.9 | 2 | 82 | 12 | SMAT (0.65, Econ 7.7); IPL (0.87, Econ 7.4) |
+| Raghu Sharma | Bowler | 0 | 7.9 | 22 | 1 | 66 | 9 | SMAT (0.65, Econ 7.9) |
+| Naman Dhir | All-rounder | 52 | 8.7 | 52 | 1 | 52 | 9 | IPL (0.87, Econ 8.7) |
+| Raj Bawa | All-rounder | 0 | 6.8 | 12 | 1 | 24 | 3 | SMAT (0.65, Econ 6.8) |
+
+### 13.3 Methodology
+
+Cross-tournament intelligence uses a weighted composite model across 14 T20 tournaments to provide context for players with limited IPL data.
+
+**Weighting factors** (from `dim_tournament_weights`):
+
+- **Player Quality Index (PQI)**: Strength of playing talent in the tournament
+- **Competitiveness**: How closely contested matches are
+- **Conditions Similarity**: How similar playing conditions are to IPL venues
+- **Recency**: More recent tournaments weighted higher
+- **Sample Confidence**: Larger tournaments with more matches get higher confidence
+
+**Trust Score** = (avg tournament weight x min(total T20 balls / 500, 1.0)) x 100, capped at 100. Combines tournament quality with sample size — a player with 500+ balls in high-quality tournaments (BBL, PSL, The Hundred) earns a higher trust score than one with the same balls in lower-tier competitions.
+
+**Tier examples**: IPL (0.87), SMAT (0.65), BBL (0.53), PSL (0.51), The Hundred (0.50), CPL (0.50), Super Smash (0.36)
+
 
 
 ---

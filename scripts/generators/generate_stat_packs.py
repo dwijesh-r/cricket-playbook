@@ -2055,6 +2055,68 @@ def _classify_t20_confidence(t20_innings_or_matches: Optional[int]) -> str:
     return "LOW"
 
 
+def _compute_weighted_trust_score(
+    avg_weight: Optional[float], total_t20_balls: Optional[int]
+) -> float:
+    """
+    Compute a weighted trust score combining tournament quality and sample size.
+
+    Formula: (avg_weight * min(total_t20_balls / 500, 1.0)) * 100, capped at 100.
+
+    A player who has played 500+ balls in high-weight tournaments (avg_weight ~0.55+)
+    gets a trust score near 55. A player with fewer balls or lower-weight tournaments
+    gets proportionally less.
+
+    Args:
+        avg_weight: Average tournament weight for the player's cross-tournament data
+        total_t20_balls: Total T20 balls (faced or bowled) across all non-IPL tournaments
+
+    Returns:
+        Trust score as a float between 0 and 100
+    """
+    if not avg_weight or not total_t20_balls:
+        return 0.0
+    sample_factor = min(total_t20_balls / 500.0, 1.0)
+    score = avg_weight * sample_factor * 100.0
+    return min(score, 100.0)
+
+
+def _get_uncapped_weighted_trust(
+    conn: duckdb.DuckDBPyConnection, player_id: str, mode: str = "batting"
+) -> Optional[float]:
+    """
+    Get the weighted trust score for an uncapped player from their cross-tournament data.
+
+    Queries the weighted composite views to get avg_weight and total_balls,
+    then computes the trust score.
+
+    Args:
+        conn: Database connection
+        player_id: Player ID to look up
+        mode: 'batting' or 'bowling'
+
+    Returns:
+        Trust score as float, or None if no composite data available
+    """
+    if mode == "batting":
+        query = f"""
+            SELECT avg_weight, total_balls
+            FROM analytics_weighted_composite_batting
+            WHERE player_id = '{player_id}'
+        """
+    else:
+        query = f"""
+            SELECT avg_weight, total_balls
+            FROM analytics_weighted_composite_bowling
+            WHERE player_id = '{player_id}'
+        """
+
+    row = execute_query_safe(conn, query, fetch_one=True)
+    if not row or row[0] is None:
+        return None
+    return _compute_weighted_trust_score(row[0], row[1])
+
+
 def _get_top_tournaments_for_player(
     conn: duckdb.DuckDBPyConnection, player_id: str, mode: str = "batting"
 ) -> str:
@@ -2212,26 +2274,30 @@ def generate_uncapped_watch(conn: duckdb.DuckDBPyConnection, team_name: str) -> 
 
     if bat_rows:
         md.append(
-            "| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Tournaments |"
+            "| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Trust | Tournaments |"
         )
         md.append(
-            "|--------|------|---------|----------|--------|---------|------------|-------------|"
+            "|--------|------|---------|----------|--------|---------|------------|-------|-------------|"
         )
         for row in bat_rows:
             name, role, t20_inn, t20_runs, t20_sr, t20_avg, t20_sample = row
             confidence = _classify_t20_confidence(t20_inn)
-            # Look up player_id for tournament breakdown
+            # Look up player_id for tournament breakdown and trust score
             pid_row = execute_query_safe(
                 conn,
                 f"SELECT player_id FROM ipl_2026_squads WHERE team_name = '{team_name}' AND player_name = '{name}' LIMIT 1",
                 fetch_one=True,
             )
             tournaments = "-"
+            trust_str = "-"
             if pid_row:
                 tournaments = _get_top_tournaments_for_player(conn, pid_row[0], mode="batting")
+                trust = _get_uncapped_weighted_trust(conn, pid_row[0], mode="batting")
+                if trust is not None:
+                    trust_str = f"{trust:.0f}"
             md.append(
                 f"| {name} | {role or '-'} | {t20_inn or 0} | {t20_runs or 0} | "
-                f"{format_stat(t20_sr)} | {format_stat(t20_avg)} | {confidence} | {tournaments} |"
+                f"{format_stat(t20_sr)} | {format_stat(t20_avg)} | {confidence} | {trust_str} | {tournaments} |"
             )
     else:
         md.append("*No uncapped players with meaningful T20 batting data (5+ innings)*\n")
@@ -2256,10 +2322,10 @@ def generate_uncapped_watch(conn: duckdb.DuckDBPyConnection, team_name: str) -> 
 
     if bowl_rows:
         md.append(
-            "| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Tournaments |"
+            "| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |"
         )
         md.append(
-            "|--------|------|-------------|----------|----------|---------|------------|-------------|"
+            "|--------|------|-------------|----------|----------|---------|------------|-------|-------------|"
         )
         for row in bowl_rows:
             name, role, btype, t20_m, t20_w, t20_econ, t20_avg, t20_sample = row
@@ -2271,11 +2337,15 @@ def generate_uncapped_watch(conn: duckdb.DuckDBPyConnection, team_name: str) -> 
                 fetch_one=True,
             )
             tournaments = "-"
+            trust_str = "-"
             if pid_row:
                 tournaments = _get_top_tournaments_for_player(conn, pid_row[0], mode="bowling")
+                trust = _get_uncapped_weighted_trust(conn, pid_row[0], mode="bowling")
+                if trust is not None:
+                    trust_str = f"{trust:.0f}"
             md.append(
                 f"| {name} | {btype_short} | {t20_m or 0} | {t20_w or 0} | "
-                f"{format_stat(t20_econ)} | {format_stat(t20_avg)} | {confidence} | {tournaments} |"
+                f"{format_stat(t20_econ)} | {format_stat(t20_avg)} | {confidence} | {trust_str} | {tournaments} |"
             )
     else:
         md.append("*No uncapped players with meaningful T20 bowling data (3+ matches)*\n")
@@ -2315,6 +2385,231 @@ def generate_uncapped_watch(conn: duckdb.DuckDBPyConnection, team_name: str) -> 
         md.append("|--------|------|-------------|")
         for name, role, nat in no_data_players:
             md.append(f"| {name} | {role or '-'} | {nat or '-'} |")
+
+    md.append("")
+    return md
+
+
+def _format_top_tournaments_struct(top_tournaments: Optional[list], mode: str = "batting") -> str:
+    """
+    Format the top_tournaments STRUCT array from weighted composite views for display.
+
+    Each tournament entry is a dict with keys: t (name), w (weight), b (balls),
+    and either sr (batting) or econ (bowling).
+
+    Args:
+        top_tournaments: List of tournament structs from DuckDB
+        mode: 'batting' or 'bowling' to determine which stat to show
+
+    Returns:
+        Formatted string like "BBL (0.53, SR 142.1), PSL (0.51, SR 135.0)"
+    """
+    if not top_tournaments:
+        return "-"
+
+    # Reuse short names from the uncapped watch helper
+    short_names = {
+        "Big Bash League": "BBL",
+        "Vitality Blast": "Blast",
+        "Vitality Blast Men": "Blast",
+        "NatWest T20 Blast": "Blast",
+        "Pakistan Super League": "PSL",
+        "Caribbean Premier League": "CPL",
+        "SA20": "SA20",
+        "The Hundred Men's Competition": "100",
+        "Super Smash": "SS",
+        "International League T20": "ILT20",
+        "Lanka Premier League": "LPL",
+        "Major League Cricket": "MLC",
+        "Syed Mushtaq Ali Trophy": "SMAT",
+        "CSA T20 Challenge": "CSA",
+        "Mzansi Super League": "MSL",
+        "Nepal Premier League": "NPL",
+        "ICC Men's T20 World Cup": "T20WC",
+        "Indian Premier League": "IPL",
+    }
+
+    parts = []
+    for entry in top_tournaments[:3]:
+        t_name = entry.get("t", "")
+        weight = entry.get("w", 0)
+        short = short_names.get(t_name, t_name[:6] if t_name else "?")
+        if mode == "batting":
+            stat_val = entry.get("sr", 0)
+            stat_label = "SR"
+        else:
+            stat_val = entry.get("econ", 0)
+            stat_label = "Econ"
+        stat_str = f"{stat_val:.1f}" if stat_val else "-"
+        parts.append(f"{short} ({weight:.2f}, {stat_label} {stat_str})")
+
+    return "; ".join(parts)
+
+
+def generate_cross_tournament_intelligence(
+    conn: duckdb.DuckDBPyConnection, team_name: str
+) -> List[str]:
+    """
+    Generate Section 13: Cross-Tournament Intelligence for a team's stat pack.
+
+    Lists all small-sample players (from analytics_ipl_small_sample_enrichment)
+    for the team, showing weighted cross-tournament stats, trust scores, and
+    top tournament breakdowns. Separates batters and bowlers.
+
+    Small-sample thresholds: <300 IPL batting balls or <200 IPL bowling balls.
+
+    Subsections:
+    - 13.1 Batting Intelligence — weighted batting stats for small-sample batters
+    - 13.2 Bowling Intelligence — weighted bowling stats for small-sample bowlers
+    - 13.3 Methodology — explanation of the weighting system
+
+    Data sourced from analytics_ipl_small_sample_enrichment,
+    analytics_weighted_composite_batting, and analytics_weighted_composite_bowling views.
+
+    Args:
+        conn: DuckDB database connection
+        team_name: Full team name (e.g., "Chennai Super Kings")
+
+    Returns:
+        List of markdown-formatted strings for the cross-tournament intelligence section
+    """
+    md: List[str] = []
+    md.append("## 13. Cross-Tournament Intelligence\n")
+    md.append(
+        "*Weighted cross-tournament context for squad players with limited IPL samples "
+        "(<300 batting balls / <200 bowling balls since 2023)*\n"
+    )
+
+    # -------------------------------------------------------------------------
+    # 13.1  Batting Intelligence
+    # -------------------------------------------------------------------------
+    md.append("### 13.1 Batting Intelligence\n")
+
+    bat_query = f"""
+        SELECT e.player_name, e.role, e.ipl_bat_balls,
+               w.weighted_sr, w.weighted_avg, w.avg_weight,
+               w.tournaments_played, w.total_balls,
+               w.top_tournaments
+        FROM analytics_ipl_small_sample_enrichment e
+        JOIN analytics_weighted_composite_batting w ON e.player_id = w.player_id
+        WHERE e.team_name = '{team_name}'
+          AND e.bat_small_sample = true
+        ORDER BY w.total_balls DESC
+    """
+    bat_rows = execute_query_safe(conn, bat_query, default=[])
+
+    if bat_rows:
+        md.append(
+            "| Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | "
+            "T20 Balls | Trust | Top Tournaments (weight, SR) |"
+        )
+        md.append(
+            "|--------|------|-----------|-------|--------|-------------|"
+            "-----------|-------|-------------------------------|"
+        )
+        for row in bat_rows:
+            (
+                name,
+                role,
+                ipl_balls,
+                w_sr,
+                w_avg,
+                avg_weight,
+                tournaments,
+                total_balls,
+                top_tournaments,
+            ) = row
+            trust = _compute_weighted_trust_score(avg_weight, total_balls)
+            trust_str = f"{trust:.0f}"
+            top_str = _format_top_tournaments_struct(top_tournaments, mode="batting")
+            md.append(
+                f"| {name} | {role or '-'} | {ipl_balls or 0} | "
+                f"{format_stat(w_sr)} | {format_stat(w_avg)} | "
+                f"{tournaments or 0} | {total_balls or 0} | {trust_str} | {top_str} |"
+            )
+    else:
+        md.append("*No small-sample batters with cross-tournament data for this squad*\n")
+
+    md.append("")
+
+    # -------------------------------------------------------------------------
+    # 13.2  Bowling Intelligence
+    # -------------------------------------------------------------------------
+    md.append("### 13.2 Bowling Intelligence\n")
+
+    bowl_query = f"""
+        SELECT e.player_name, e.role, e.ipl_bowl_balls,
+               w.weighted_economy, w.weighted_bowling_sr, w.avg_weight,
+               w.tournaments_played, w.total_balls,
+               w.top_tournaments
+        FROM analytics_ipl_small_sample_enrichment e
+        JOIN analytics_weighted_composite_bowling w ON e.player_id = w.player_id
+        WHERE e.team_name = '{team_name}'
+          AND e.bowl_small_sample = true
+        ORDER BY w.total_balls DESC
+    """
+    bowl_rows = execute_query_safe(conn, bowl_query, default=[])
+
+    if bowl_rows:
+        md.append(
+            "| Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | "
+            "T20 Balls | Trust | Top Tournaments (weight, Econ) |"
+        )
+        md.append(
+            "|--------|------|-----------|---------|-------|-------------|"
+            "-----------|-------|--------------------------------|"
+        )
+        for row in bowl_rows:
+            (
+                name,
+                role,
+                ipl_balls,
+                w_econ,
+                w_sr,
+                avg_weight,
+                tournaments,
+                total_balls,
+                top_tournaments,
+            ) = row
+            trust = _compute_weighted_trust_score(avg_weight, total_balls)
+            trust_str = f"{trust:.0f}"
+            top_str = _format_top_tournaments_struct(top_tournaments, mode="bowling")
+            md.append(
+                f"| {name} | {role or '-'} | {ipl_balls or 0} | "
+                f"{format_stat(w_econ)} | {format_stat(w_sr)} | "
+                f"{tournaments or 0} | {total_balls or 0} | {trust_str} | {top_str} |"
+            )
+    else:
+        md.append("*No small-sample bowlers with cross-tournament data for this squad*\n")
+
+    md.append("")
+
+    # -------------------------------------------------------------------------
+    # 13.3  Methodology
+    # -------------------------------------------------------------------------
+    md.append("### 13.3 Methodology\n")
+    md.append(
+        "Cross-tournament intelligence uses a weighted composite model across 14 T20 "
+        "tournaments to provide context for players with limited IPL data.\n"
+    )
+    md.append("**Weighting factors** (from `dim_tournament_weights`):\n")
+    md.append(
+        "- **Player Quality Index (PQI)**: Strength of playing talent in the tournament\n"
+        "- **Competitiveness**: How closely contested matches are\n"
+        "- **Conditions Similarity**: How similar playing conditions are to IPL venues\n"
+        "- **Recency**: More recent tournaments weighted higher\n"
+        "- **Sample Confidence**: Larger tournaments with more matches get higher confidence\n"
+    )
+    md.append(
+        "**Trust Score** = (avg tournament weight x min(total T20 balls / 500, 1.0)) x 100, "
+        "capped at 100. Combines tournament quality with sample size — a player with 500+ balls "
+        "in high-quality tournaments (BBL, PSL, The Hundred) earns a higher trust score than one "
+        "with the same balls in lower-tier competitions.\n"
+    )
+    md.append(
+        "**Tier examples**: IPL (0.87), SMAT (0.65), BBL (0.53), PSL (0.51), "
+        "The Hundred (0.50), CPL (0.50), Super Smash (0.36)\n"
+    )
 
     md.append("")
     return md
@@ -2446,6 +2741,7 @@ def generate_team_stat_pack(
     10. Tactical Insights - death bowling, powerplay, spin vulnerabilities
     11. Pressure Performance - batting/bowling under pressure, pressure ratings, glossary
     12. Uncapped Watch - T20 fallback data for players without IPL 2023+ history (TKT-182)
+    13. Cross-Tournament Intelligence - weighted composite stats for small-sample players (TKT-190)
 
     Args:
         conn: DuckDB database connection (read-only recommended)
@@ -3023,6 +3319,13 @@ def generate_team_stat_pack(
     md.append("\n---\n")
     uncapped_section = generate_uncapped_watch(conn, team_name)
     md.extend(uncapped_section)
+
+    # ==========================================================================
+    # SECTION 13: CROSS-TOURNAMENT INTELLIGENCE (TKT-190)
+    # ==========================================================================
+    md.append("\n---\n")
+    cross_tournament_section = generate_cross_tournament_intelligence(conn, team_name)
+    md.extend(cross_tournament_section)
 
     md.append("\n---\n")
     md.append(f"*End of {team_name} Stat Pack*")

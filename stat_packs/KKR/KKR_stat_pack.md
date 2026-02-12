@@ -1,6 +1,6 @@
 # Kolkata Knight Riders (KKR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 17:17
+**Generated:** 2026-02-12 20:25
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -131,7 +131,7 @@
 **Top Wicket Takers by Season:**
 
 - **2023:** CV Varun (20w @ 8.27), SP Narine (11w @ 7.89), Suyash Sharma (10w @ 8.28)
-- **2024:** CV Varun (21w @ 7.98), Harshit Rana (19w @ 8.75), AD Russell (19w @ 9.7)
+- **2024:** CV Varun (21w @ 7.98), AD Russell (19w @ 9.7), Harshit Rana (19w @ 8.75)
 - **2025:** CV Varun (17w @ 7.6), VG Arora (17w @ 9.51), Harshit Rana (15w @ 9.93)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -251,8 +251,8 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | MA Chidambaram Stadium | 4 | 3 | 75.0% | 126.3 |
-| Wankhede Stadium | 3 | 1 | 33.3% | 156.7 |
 | Arun Jaitley Stadium | 3 | 1 | 33.3% | 166.3 |
+| Wankhede Stadium | 3 | 1 | 33.3% | 156.7 |
 | M Chinnaswamy Stadium | 2 | 2 | 100.0% | 193.0 |
 | Narendra Modi Stadium | 2 | 2 | 100.0% | 185.5 |
 
@@ -265,11 +265,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -474,11 +474,11 @@
 | Delhi Capitals | 4 | 97 | 111 | 10 | 6.87 | 11.1 | 9.7 | 43.3 | 13.4 | MEDIUM |
 | Royal Challengers Bengaluru | 5 | 106 | 142 | 9 | 8.04 | 15.78 | 11.78 | 39.62 | 19.81 | HIGH |
 | Sunrisers Hyderabad | 7 | 150 | 223 | 9 | 8.92 | 24.78 | 16.67 | 32.67 | 18.67 | HIGH |
-| Punjab Kings | 5 | 114 | 157 | 7 | 8.26 | 22.43 | 16.29 | 35.09 | 16.67 | HIGH |
 | Chennai Super Kings | 5 | 120 | 150 | 7 | 7.5 | 21.43 | 17.14 | 38.33 | 12.5 | HIGH |
+| Punjab Kings | 5 | 114 | 157 | 7 | 8.26 | 22.43 | 16.29 | 35.09 | 16.67 | HIGH |
 | Rajasthan Royals | 4 | 90 | 111 | 6 | 7.4 | 18.5 | 15.0 | 48.89 | 17.78 | MEDIUM |
-| Lucknow Super Giants | 4 | 90 | 133 | 5 | 8.87 | 26.6 | 18.0 | 36.67 | 17.78 | MEDIUM |
 | Mumbai Indians | 4 | 90 | 88 | 5 | 5.87 | 17.6 | 18.0 | 45.56 | 10.0 | MEDIUM |
+| Lucknow Super Giants | 4 | 90 | 133 | 5 | 8.87 | 26.6 | 18.0 | 36.67 | 17.78 | MEDIUM |
 | Gujarat Titans | 3 | 60 | 102 | 0 | 10.2 | - | - | 21.67 | 23.33 | MEDIUM |
 
 ### Matheesha Pathirana
@@ -517,8 +517,8 @@
 | Lucknow Super Giants | 4 | 85 | 129 | 6 | 9.11 | 21.5 | 14.17 | 37.65 | 23.53 | MEDIUM |
 | Rajasthan Royals | 4 | 84 | 139 | 6 | 9.93 | 23.17 | 14.0 | 36.9 | 27.38 | MEDIUM |
 | Punjab Kings | 4 | 72 | 146 | 5 | 12.17 | 29.2 | 14.4 | 36.11 | 33.33 | MEDIUM |
-| Royal Challengers Bengaluru | 3 | 66 | 102 | 4 | 9.27 | 25.5 | 16.5 | 28.79 | 19.7 | MEDIUM |
 | Chennai Super Kings | 3 | 60 | 77 | 4 | 7.7 | 19.25 | 15.0 | 50.0 | 18.33 | MEDIUM |
+| Royal Challengers Bengaluru | 3 | 66 | 102 | 4 | 9.27 | 25.5 | 16.5 | 28.79 | 19.7 | MEDIUM |
 | Mumbai Indians | 2 | 30 | 57 | 2 | 11.4 | 28.5 | 15.0 | 40.0 | 33.33 | MEDIUM |
 | Gujarat Titans | 2 | 42 | 67 | 2 | 9.57 | 33.5 | 21.0 | 26.19 | 26.19 | MEDIUM |
 | Delhi Capitals | 2 | 48 | 77 | 2 | 9.63 | 38.5 | 24.0 | 37.5 | 27.08 | MEDIUM |
@@ -743,19 +743,19 @@
 
 ### 12.1 T20 Batting Profile
 
-| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Tournaments |
-|--------|------|---------|----------|--------|---------|------------|-------------|
-| Tim Seifert | Wicketkeeper | 250 | 6621 | 137 | 30.6 | HIGH | SS, CPL, BBL |
-| Finn Allen | Wicketkeeper | 120 | 1447 | 143 | 16.8 | HIGH | CPL, LPL, SA20 |
-| Tejasvi Singh | Wicketkeeper | 53 | 556 | 135 | 12.9 | HIGH | MLC, NPL, ILT20 |
-| Daksh Kamra | All-rounder | 11 | 122 | 109 | 15.2 | MEDIUM | Intl, ICC T20, Intl |
+| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Trust | Tournaments |
+|--------|------|---------|----------|--------|---------|------------|-------|-------------|
+| Tim Seifert | Wicketkeeper | 250 | 6621 | 137 | 30.6 | HIGH | 44 | SS, CPL, BBL |
+| Finn Allen | Wicketkeeper | 120 | 1447 | 143 | 16.8 | HIGH | 49 | CPL, LPL, SA20 |
+| Tejasvi Singh | Wicketkeeper | 53 | 556 | 135 | 12.9 | HIGH | 20 | MLC, NPL, ILT20 |
+| Daksh Kamra | All-rounder | 11 | 122 | 109 | 15.2 | MEDIUM | - | Intl, ICC T20, Intl |
 
 ### 12.2 T20 Bowling Profile
 
-| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Tournaments |
-|--------|------|-------------|----------|----------|---------|------------|-------------|
-| Daksh Kamra | Medium | 19 | 28 | 5.1 | 13.1 | MEDIUM | Intl, ICC T20, Intl |
-| Prashant Solanki | Left-arm ort | 4 | 4 | 8.4 | 27.2 | LOW | SMAT |
+| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
+|--------|------|-------------|----------|----------|---------|------------|-------|-------------|
+| Daksh Kamra | Medium | 19 | 28 | 5.1 | 13.1 | MEDIUM | - | Intl, ICC T20, Intl |
+| Prashant Solanki | Left-arm ort | 4 | 4 | 8.4 | 27.2 | LOW | 12 | SMAT |
 
 ### 12.3 Limited / No T20 Data
 
@@ -764,6 +764,65 @@
 | Player | Role | Nationality |
 |--------|------|-------------|
 | Sarthak Ranjan | Bowler | IND |
+
+
+---
+
+## 13. Cross-Tournament Intelligence
+
+*Weighted cross-tournament context for squad players with limited IPL samples (<300 batting balls / <200 bowling balls since 2023)*
+
+### 13.1 Batting Intelligence
+
+| Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
+|--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
+| Manish Pandey | Batter | 240 | 123 | 32.0 | 2 | 3965 | 83 | IPL (0.87, SR 121.3); SMAT (0.65, SR 134.5) |
+| Tim Seifert | Wicketkeeper | 0 | 133 | 30.6 | 9 | 3548 | 44 | SS (0.36, SR 135.5); CPL (0.50, SR 129.5); LPL (0.40, SR 134.5) |
+| Rovman Powell | Batter | 82 | 142 | 25.4 | 8 | 2868 | 53 | CPL (0.50, SR 133.4); ILT20 (0.49, SR 146.0); PSL (0.51, SR 154.1) |
+| Rachin Ravindra | All-rounder | 284 | 141 | 23.6 | 5 | 1020 | 53 | SS (0.36, SR 123.5); IPL (0.87, SR 143.7); MLC (0.42, SR 159.8) |
+| Finn Allen | Wicketkeeper | 0 | 147 | 19.7 | 3 | 740 | 49 | CPL (0.50, SR 147.8); LPL (0.40, SR 146.3); SA20 (0.50, SR 120.0) |
+| Ramandeep Singh | All-rounder | 96 | 153 | 19.0 | 2 | 249 | 38 | IPL (0.87, SR 156.3); SMAT (0.65, SR 148.2) |
+| Tejasvi Singh | Wicketkeeper | 0 | 115 | 9.2 | 4 | 202 | 20 | MLC (0.42, SR 93.2); ILT20 (0.49, SR 89.3); T20WC (0.50, SR 140.8) |
+| Anukul Roy | All-rounder | 23 | 158 | 20.4 | 2 | 165 | 22 | SMAT (0.65, SR 170.7); IPL (0.87, SR 104.0) |
+| Harshit Rana | Bowler | 53 | 107 | 14.8 | 1 | 55 | 10 | IPL (0.87, SR 107.3) |
+| Sarthak Ranjan | Bowler | 0 | 130 | 15.2 | 1 | 47 | 6 | SMAT (0.65, SR 129.8) |
+| Varun Chakravarthy | Bowler | 10 | 55.3 | 26 | 1 | 47 | 8 | IPL (0.87, SR 55.3) |
+| Akash Deep | Bowler | 12 | 132 | 24.5 | 1 | 37 | 5 | SMAT (0.65, SR 132.4) |
+| Vaibhav Arora | Bowler | 11 | 37.5 | 3 | 1 | 24 | 4 | IPL (0.87, SR 37.5) |
+
+### 13.2 Bowling Intelligence
+
+| Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
+|--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
+| Finn Allen | Wicketkeeper | 0 | 8.2 | 20.3 | 8 | 1362 | 50 | CPL (0.50, Econ 8.0); LPL (0.40, Econ 7.6); IPL (0.87, Econ 9.0) |
+| Rachin Ravindra | All-rounder | 12 | 7.4 | 17.7 | 5 | 966 | 39 | SS (0.36, Econ 7.7); MLC (0.42, Econ 7.3); 100 (0.50, Econ 7.4) |
+| Tejasvi Singh | Wicketkeeper | 0 | 7.3 | 19.4 | 5 | 800 | 48 | MLC (0.42, Econ 7.2); ILT20 (0.49, Econ 6.4); T20WC (0.50, Econ 8.3) |
+| Akash Deep | Bowler | 165 | 8.7 | 19.8 | 2 | 733 | 73 | SMAT (0.65, Econ 6.6); IPL (0.87, Econ 11.2) |
+| Umran Malik | Bowler | 126 | 8.5 | 15.2 | 2 | 663 | 81 | IPL (0.87, Econ 9.0); SMAT (0.65, Econ 6.7) |
+| Anukul Roy | All-rounder | 106 | 7.2 | 27.4 | 2 | 597 | 71 | SMAT (0.65, Econ 6.9); IPL (0.87, Econ 7.9) |
+| Rovman Powell | Batter | 12 | 10.4 | 20.1 | 5 | 582 | 50 | CPL (0.50, Econ 10.2); ILT20 (0.49, Econ 9.5); LPL (0.40, Econ 12.5) |
+| Kartik Tyagi | Bowler | 61 | 9.1 | 27.6 | 2 | 531 | 83 | IPL (0.87, Econ 9.5); SMAT (0.65, Econ 6.9) |
+| Ramandeep Singh | All-rounder | 4 | 8.3 | 11.1 | 2 | 154 | 22 | SMAT (0.65, Econ 8.1); IPL (0.87, Econ 8.9) |
+| Rahul Tripathi | Batter | 0 | 7.5 | 27 | 1 | 108 | 14 | SMAT (0.65, Econ 7.5) |
+| Prashant Solanki | Bowler | 0 | 8.1 | 19.3 | 2 | 78 | 12 | SMAT (0.65, Econ 10.0); IPL (0.87, Econ 6.5) |
+| Rinku Singh | Batter | 0 | 6.8 | 15 | 1 | 30 | 4 | SMAT (0.65, Econ 6.8) |
+
+### 13.3 Methodology
+
+Cross-tournament intelligence uses a weighted composite model across 14 T20 tournaments to provide context for players with limited IPL data.
+
+**Weighting factors** (from `dim_tournament_weights`):
+
+- **Player Quality Index (PQI)**: Strength of playing talent in the tournament
+- **Competitiveness**: How closely contested matches are
+- **Conditions Similarity**: How similar playing conditions are to IPL venues
+- **Recency**: More recent tournaments weighted higher
+- **Sample Confidence**: Larger tournaments with more matches get higher confidence
+
+**Trust Score** = (avg tournament weight x min(total T20 balls / 500, 1.0)) x 100, capped at 100. Combines tournament quality with sample size — a player with 500+ balls in high-quality tournaments (BBL, PSL, The Hundred) earns a higher trust score than one with the same balls in lower-tier competitions.
+
+**Tier examples**: IPL (0.87), SMAT (0.65), BBL (0.53), PSL (0.51), The Hundred (0.50), CPL (0.50), Super Smash (0.36)
+
 
 
 ---

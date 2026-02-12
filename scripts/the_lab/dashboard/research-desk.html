@@ -1602,26 +1602,26 @@
                         <kbd>Enter</kbd> to search &middot; Type a player name, team, matchup, or stat question in plain English
                     </div>
                     <div class="nl-search-chips">
-                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='Kohli stats';handleNLSearch();">
-                            <span class="chip-icon">&#128100;</span> Kohli stats
-                        </span>
-                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='top 10 batsmen';handleNLSearch();">
-                            <span class="chip-icon">&#127942;</span> Top 10 batsmen
+                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='Kohli vs Bumrah by phase';handleNLSearch();">
+                            <span class="chip-icon">&#9876;</span> Kohli vs Bumrah by phase
                         </span>
                         <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='best death bowlers';handleNLSearch();">
                             <span class="chip-icon">&#127919;</span> Best death bowlers
                         </span>
-                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='Kohli vs MI';handleNLSearch();">
-                            <span class="chip-icon">&#9876;</span> Kohli vs MI
+                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='CSK squad batting in powerplay';handleNLSearch();">
+                            <span class="chip-icon">&#128101;</span> CSK squad powerplay
                         </span>
-                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='CSK squad';handleNLSearch();">
-                            <span class="chip-icon">&#128101;</span> CSK squad
+                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='Kohli under pressure';handleNLSearch();">
+                            <span class="chip-icon">&#128293;</span> Kohli under pressure
                         </span>
-                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='Bumrah death overs';handleNLSearch();">
-                            <span class="chip-icon">&#128200;</span> Bumrah death overs
+                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='top run scorers at Wankhede';handleNLSearch();">
+                            <span class="chip-icon">&#127942;</span> Top scorers at Wankhede
                         </span>
-                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='clutch batters';handleNLSearch();">
-                            <span class="chip-icon">&#128293;</span> Clutch batters
+                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='Bumrah bowling vs CSK in death';handleNLSearch();">
+                            <span class="chip-icon">&#128200;</span> Bumrah vs CSK death
+                        </span>
+                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='Kohli vs MI broken down by phases';handleNLSearch();">
+                            <span class="chip-icon">&#128202;</span> Kohli vs MI by phase
                         </span>
                     </div>
                 </div>
@@ -3609,6 +3609,7 @@ LIMIT 20;</textarea>
                     stage: null,
                     limit: extractLimit(remaining),
                     totalContext: null,
+                    breakdownByPhase: false,
                 },
                 role: null,
                 hasVsToken: false,
@@ -3765,6 +3766,20 @@ LIMIT 20;</textarea>
                 }
             }
 
+            // -- STEP 4B: Detect "broken down by phases" / "phase wise" / "across phases" --
+            // When user wants a phase-level breakdown without naming specific phases
+            if (entities.phases.length === 0) {
+                const breakdownByPhase = /\b(?:broken\s+down\s+by|split\s+by|grouped?\s+by|across|compare\s+across|per|each|every|all)\s*(?:phases?|overs?)\b/i.test(remaining)
+                    || /\bphase\s*(?:wise|breakdown)\b/i.test(remaining)
+                    || /\bby\s+phase\b/i.test(remaining);
+                if (breakdownByPhase) {
+                    entities.modifiers.breakdownByPhase = true;
+                    remaining = remaining.replace(/\b(?:broken\s+down\s+by|split\s+by|grouped?\s+by|across|compare\s+across|per|each|every|all)\s*(?:phases?|overs?)\b/gi, ' ').replace(/\s+/g, ' ').trim();
+                    remaining = remaining.replace(/\bphase\s*(?:wise|breakdown)\b/gi, ' ').replace(/\s+/g, ' ').trim();
+                    remaining = remaining.replace(/\bby\s+phase\b/gi, ' ').replace(/\s+/g, ' ').trim();
+                }
+            }
+
             // -- STEP 5: Extract venues --
             const sortedVenues = Object.keys(VENUE_MAP).sort((a, b) => b.length - a.length);
             for (const keyword of sortedVenues) {
@@ -3808,7 +3823,7 @@ LIMIT 20;</textarea>
             }
 
             // Strip common noise words from remaining
-            remaining = remaining.replace(/\b(show|me|get|find|search|look\s*up|for|of|in|the|how|does|do|has|what|is|are|his|her|their|stats?|record|performance|data|numbers?|info|details|profile|by|with|and|a|an|at|on|to|from)\b/gi, ' ').replace(/\s+/g, ' ').trim();
+            remaining = remaining.replace(/\b(show|me|get|find|search|look\s*up|for|of|in|the|how|does|do|has|what|is|are|his|her|their|stats?|record|performance|data|numbers?|info|details|profile|by|with|and|a|an|at|on|to|from|broken\s+down|split|grouped?|across|compare|per|each|every)\b/gi, ' ').replace(/\s+/g, ' ').trim();
             // Strip "vs" token from remaining
             remaining = remaining.replace(/\b(?:vs\.?|versus|against|v\.?)\b/gi, ' ').replace(/\s+/g, ' ').trim();
             // Strip limit tokens
@@ -4073,7 +4088,7 @@ LIMIT 20;</textarea>
                 requiredDims.add('player');
             }
 
-            if (entities.phases.length > 0) requiredDims.add('phase');
+            if (entities.phases.length > 0 || entities.modifiers.breakdownByPhase) requiredDims.add('phase');
             if (entities.venues.length > 0) requiredDims.add('venue');
             if (entities.bowlerTypes.length > 0) requiredDims.add('bowlerType');
 
@@ -4848,8 +4863,8 @@ LIMIT 20;</textarea>
                     wheres.push(`${meta.teamCol} ILIKE '%${teamName}%'`);
                 }
 
-                // Phase filter
-                if (entities.phases.length >= 1) {
+                // Phase filter (skip if user wants full phase breakdown)
+                if (entities.phases.length >= 1 && !entities.modifiers.breakdownByPhase) {
                     if (entities.phases.length === 1) {
                         wheres.push(`match_phase = '${escapeSql(entities.phases[0])}'`);
                     } else {
@@ -4945,6 +4960,35 @@ LIMIT 20;</textarea>
             if (intent === 'SQUAD') {
                 let teamFound = entities.teams.length > 0 ? entities.teams[0].canonical : null;
                 if (teamFound) {
+                    // If user also wants stats (phase, batting/bowling role), show stats not roster
+                    const wantsStats = entities.phases.length > 0 || entities.modifiers.breakdownByPhase || entities.role === 'batting' || entities.role === 'bowling';
+                    if (wantsStats) {
+                        const isBowling = entities.role === 'bowling';
+                        if (entities.phases.length > 0 || entities.modifiers.breakdownByPhase) {
+                            const view = isBowling ? 'analytics_ipl_squad_bowling_phase' : 'analytics_ipl_squad_batting_phase';
+                            let phaseFilter = '';
+                            if (!entities.modifiers.breakdownByPhase && entities.phases.length > 0) {
+                                phaseFilter = entities.phases.length === 1
+                                    ? `\n  AND match_phase = '${escapeSql(entities.phases[0])}'`
+                                    : `\n  AND match_phase IN (${entities.phases.map(p => `'${escapeSql(p)}'`).join(', ')})`;
+                            }
+                            return {
+                                sql: `SELECT *\nFROM ${view}\nWHERE team_name ILIKE '%${escapeSql(teamFound)}%'${phaseFilter}\nORDER BY ${isBowling ? 'match_phase, economy_rate ASC NULLS LAST' : 'match_phase, runs DESC NULLS LAST'};`,
+                                type: 'squad_stats',
+                                entity: teamFound,
+                                context: (isBowling ? 'bowling' : 'batting') + (entities.phases[0] ? ' | ' + entities.phases[0] : ' | all phases')
+                            };
+                        }
+                        // Just batting/bowling role without phase
+                        const view = isBowling ? 'analytics_ipl_squad_bowling' : 'analytics_ipl_squad_batting';
+                        return {
+                            sql: `SELECT *\nFROM ${view}\nWHERE team_name ILIKE '%${escapeSql(teamFound)}%'\nORDER BY ${isBowling ? 'player_name' : 'ipl_runs DESC NULLS LAST'};`,
+                            type: 'squad_stats',
+                            entity: teamFound,
+                            context: isBowling ? 'bowling' : 'batting'
+                        };
+                    }
+                    // Pure roster query
                     return {
                         sql: `SELECT player_name, role, nationality, age, batting_hand, bowling_type\nFROM ipl_2026_squads\nWHERE team_name ILIKE '%${escapeSql(teamFound)}%'\nORDER BY role, player_name;`,
                         type: 'squad',
@@ -4958,32 +5002,45 @@ LIMIT 20;</textarea>
             if (intent === 'PRESSURE') {
                 const isBowling = entities.role === 'bowling' || /\b(closer|economy|dot)\b/.test(lower);
                 const limit = entities.modifiers.limit;
+                const hasPlayer = entities.players.length >= 1;
+                const playerName = hasPlayer ? escapeSql(entities.players[0].name) : null;
+                const playerFilter = hasPlayer ? `\n  AND player_name ILIKE '%${playerName}%'` : '';
+                const bowlerPlayerFilter = hasPlayer ? `\n  AND bowler_name ILIKE '%${playerName}%'` : '';
+                const limitClause = hasPlayer ? '' : `\nLIMIT ${limit}`;
+                const minBallsFilter = hasPlayer ? '' : '\n  AND legal_balls >= 15';
+                const minFacedFilter = hasPlayer ? '' : '\n  AND balls_faced >= 15';
+
                 if (/\b(dot.*seq|streak|consecutive)\b/.test(lower)) {
                     const view = isBowling ? 'analytics_ipl_pressure_dot_sequences_since2023' : 'analytics_ipl_pressure_boundary_sequences_since2023';
+                    const pCol = isBowling ? 'bowler_name' : 'batter_name';
+                    const pFilter = hasPlayer ? `\n  AND ${pCol} ILIKE '%${playerName}%'` : '';
+                    const seqMin = hasPlayer ? '' : `\nWHERE total_${isBowling ? 'dots_in_sequences' : 'boundaries_in_sequences'} >= 3`;
+                    const whereKw = seqMin ? '' : '\nWHERE 1=1';
                     return {
-                        sql: `SELECT * FROM ${view}\nWHERE total_${isBowling ? 'dots_in_sequences' : 'boundaries_in_sequences'} >= 3\nORDER BY avg_${isBowling ? 'dot_seq' : 'boundary_seq'}_length DESC\nLIMIT ${limit};`,
+                        sql: `SELECT * FROM ${view}${seqMin || whereKw}${pFilter}\nORDER BY avg_${isBowling ? 'dot_seq' : 'boundary_seq'}_length DESC${limitClause};`,
                         type: 'pressure_sequences',
-                        entity: isBowling ? 'dot sequences' : 'boundary sequences'
+                        entity: hasPlayer ? entities.players[0].name : (isBowling ? 'dot sequences' : 'boundary sequences')
                     };
                 }
                 if (/\b(rating|delta|change)\b/.test(lower)) {
+                    const ratingFilter = hasPlayer ? '' : "\n  AND pressure_rating IS NOT NULL";
                     return {
-                        sql: `SELECT player_name, role, pressure_band, ROUND(sr_delta_pct, 1) AS delta_pct, pressure_rating AS rating\nFROM analytics_ipl_pressure_deltas_since2023\nWHERE pressure_rating IS NOT NULL\nORDER BY sr_delta_pct DESC\nLIMIT ${limit};`,
+                        sql: `SELECT player_name, role, ROUND(overall_sr, 1) AS overall_sr, ROUND(pressure_sr, 1) AS pressure_sr, ROUND(sr_delta_pct, 1) AS delta_pct, pressure_rating, entry_context\nFROM analytics_ipl_pressure_deltas_since2023\nWHERE 1=1${ratingFilter}${playerFilter}\nORDER BY sr_delta_pct DESC${limitClause};`,
                         type: 'pressure_ratings',
-                        entity: 'pressure ratings'
+                        entity: hasPlayer ? entities.players[0].name : 'pressure ratings'
                     };
                 }
                 if (isBowling) {
                     return {
-                        sql: `SELECT player_name, pressure_band, legal_balls AS balls_bowled, ROUND(economy, 2) AS economy, ROUND(dot_ball_pct, 1) AS dot_pct, ROUND(boundary_conceded_pct, 1) AS bdry_pct, wickets\nFROM analytics_ipl_bowler_pressure_bands_since2023\nWHERE pressure_band IN ('HIGH', 'EXTREME', 'NEAR_IMPOSSIBLE')\n  AND legal_balls >= 15\nORDER BY economy ASC\nLIMIT ${limit};`,
+                        sql: `SELECT player_name, pressure_band, legal_balls, ROUND(economy, 2) AS economy, ROUND(dot_ball_pct, 1) AS dot_pct, ROUND(boundary_conceded_pct, 1) AS bdry_pct, wickets\nFROM analytics_ipl_bowler_pressure_bands_since2023\nWHERE pressure_band IN ('HIGH', 'EXTREME', 'NEAR_IMPOSSIBLE')${minBallsFilter}${playerFilter}\nORDER BY economy ASC${limitClause};`,
                         type: 'pressure_bowling',
-                        entity: 'bowlers under pressure'
+                        entity: hasPlayer ? entities.players[0].name : 'bowlers under pressure'
                     };
                 }
                 return {
-                    sql: `SELECT player_name, pressure_band, balls_faced, ROUND(strike_rate, 1) AS strike_rate, ROUND(boundary_pct, 1) AS boundary_pct, ROUND(dot_ball_pct, 1) AS dot_pct\nFROM analytics_ipl_batter_pressure_bands_since2023\nWHERE pressure_band IN ('HIGH', 'EXTREME', 'NEAR_IMPOSSIBLE')\n  AND balls_faced >= 15\nORDER BY strike_rate DESC\nLIMIT ${limit};`,
+                    sql: `SELECT player_name, pressure_band, balls_faced, ROUND(strike_rate, 1) AS strike_rate, ROUND(boundary_pct, 1) AS boundary_pct, ROUND(dot_ball_pct, 1) AS dot_pct, entry_context\nFROM analytics_ipl_batter_pressure_bands_since2023\nWHERE pressure_band IN ('HIGH', 'EXTREME', 'NEAR_IMPOSSIBLE')${minFacedFilter}${playerFilter}\nORDER BY strike_rate DESC${limitClause};`,
                     type: 'pressure_batting',
-                    entity: 'batters under pressure'
+                    entity: hasPlayer ? entities.players[0].name : 'batters under pressure'
                 };
             }
 
@@ -5099,16 +5156,21 @@ LIMIT 20;</textarea>
                 const batter = escapeSql(entities.players[0].name);
                 const bowler = escapeSql(entities.players[1].name);
 
-                // Check for phase
-                if (entities.phases.length > 0) {
+                // Check for phase or breakdownByPhase
+                if (entities.phases.length > 0 || entities.modifiers.breakdownByPhase) {
                     const scope = entities.seasons.length > 0 && entities.seasons[0].from && parseInt(entities.seasons[0].from) >= 2023 ? '_since2023' : '';
                     const viewName = `analytics_ipl_batter_vs_bowler_phase${scope}`;
-                    const phaseFilter = `\n  AND match_phase = '${escapeSql(entities.phases[0])}'`;
+                    let phaseFilter = '';
+                    if (!entities.modifiers.breakdownByPhase && entities.phases.length > 0) {
+                        phaseFilter = entities.phases.length === 1
+                            ? `\n  AND match_phase = '${escapeSql(entities.phases[0])}'`
+                            : `\n  AND match_phase IN (${entities.phases.map(p => `'${escapeSql(p)}'`).join(', ')})`;
+                    }
                     return {
-                        sql: `SELECT *\nFROM ${viewName}\nWHERE batter_name ILIKE '%${batter}%'\n  AND bowler_name ILIKE '%${bowler}%'${phaseFilter}\nORDER BY balls DESC;`,
+                        sql: `SELECT *\nFROM ${viewName}\nWHERE batter_name ILIKE '%${batter}%'\n  AND bowler_name ILIKE '%${bowler}%'${phaseFilter}\nORDER BY match_phase, balls DESC;`,
                         type: 'matchup',
                         entity: entities.players[0].name,
-                        context: entities.players[1].name
+                        context: entities.players[1].name + (entities.modifiers.breakdownByPhase ? ' | by phase' : '')
                     };
                 }
 
@@ -5131,15 +5193,20 @@ LIMIT 20;</textarea>
                 const teamName = escapeSql(entities.teams[0].canonical);
                 const isBowling = entities.role === 'bowling';
 
-                if (entities.phases.length > 0) {
+                if (entities.phases.length > 0 || entities.modifiers.breakdownByPhase) {
                     const viewName = isBowling ? 'analytics_ipl_bowler_vs_team_phase' : 'analytics_ipl_batter_vs_team_phase';
                     const pCol = isBowling ? 'bowler_name' : 'batter_name';
-                    const phaseFilter = `\n  AND match_phase = '${escapeSql(entities.phases[0])}'`;
+                    let phaseFilter = '';
+                    if (!entities.modifiers.breakdownByPhase && entities.phases.length > 0) {
+                        phaseFilter = entities.phases.length === 1
+                            ? `\n  AND match_phase = '${escapeSql(entities.phases[0])}'`
+                            : `\n  AND match_phase IN (${entities.phases.map(p => `'${escapeSql(p)}'`).join(', ')})`;
+                    }
                     return {
-                        sql: `SELECT *\nFROM ${viewName}\nWHERE ${pCol} ILIKE '%${playerName}%'\n  AND opposition ILIKE '%${teamName}%'${phaseFilter}\nORDER BY ${isBowling ? 'wickets DESC' : 'runs DESC'};`,
+                        sql: `SELECT *\nFROM ${viewName}\nWHERE ${pCol} ILIKE '%${playerName}%'\n  AND opposition ILIKE '%${teamName}%'${phaseFilter}\nORDER BY match_phase, ${isBowling ? 'wickets DESC' : 'runs DESC'};`,
                         type: 'player_vs_team',
                         entity: entities.players[0].name,
-                        context: entities.teams[0].canonical
+                        context: entities.teams[0].canonical + (entities.modifiers.breakdownByPhase ? ' | by phase' : '')
                     };
                 }
 
@@ -5181,8 +5248,8 @@ LIMIT 20;</textarea>
 
             // --- LEADERBOARD ---
             if (intent === 'LEADERBOARD') {
-                // If context modifiers are present, route through QueryBuilder for full filter support
-                if (entities.modifiers.winLoss || entities.modifiers.innings || entities.modifiers.stage || entities.modifiers.totalContext) {
+                // If context modifiers OR venue present, route through QueryBuilder for full filter support
+                if (entities.modifiers.winLoss || entities.modifiers.innings || entities.modifiers.stage || entities.modifiers.totalContext || entities.venues.length > 0) {
                     return buildDynamicQuery(entities, intent);
                 }
 

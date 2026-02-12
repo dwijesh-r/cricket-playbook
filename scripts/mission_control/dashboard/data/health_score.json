@@ -1,5 +1,5 @@
 {
-  "score": 94.0,
+  "score": 92.0,
   "status": "EXCELLENT",
   "emoji": "\ud83d\udfe2",
   "target": 85.0,
@@ -15,13 +15,13 @@
       ]
     },
     "code_quality": {
-      "score": 90.0,
+      "score": 80.0,
       "weight": 20,
       "findings": [
         "6 bare except handlers (GOOD)",
         "Thresholds centralized in YAML (TKT-132 DONE)",
         "No sys.path hacks (EXCELLENT)",
-        "Type hints: 77% coverage (GOOD)"
+        "Type hints: 27% coverage (OK)"
       ]
     },
     "data_robustness": {
@@ -62,7 +62,7 @@
       ]
     }
   },
-  "timestamp": "2026-02-11T18:25:53.775063",
+  "timestamp": "2026-02-12T08:45:06.164817",
   "ticket": "TKT-147",
   "epic": "EPIC-014",
   "generated_by": "system_health_score.py",

@@ -1,6 +1,6 @@
 # Punjab Kings (PBKS) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 07:50
+**Generated:** 2026-02-12 08:45
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -173,13 +173,13 @@
 |-------|---------|------|------|-----------|
 | Himachal Pradesh Cricket Associatio | 6 | 1 | 16.7% | 177.2 |
 | Narendra Modi Stadium | 4 | 3 | 75.0% | 208.5 |
-| Eden Gardens | 3 | 1 | 33.3% | 214.0 |
-| MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
 | Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
+| Eden Gardens | 3 | 1 | 33.3% | 214.0 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
-| Barsapara Cricket Stadium | 2 | 2 | 100.0% | 171.0 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
+| MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
 | M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
+| Barsapara Cricket Stadium | 2 | 2 | 100.0% | 171.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -190,10 +190,10 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
@@ -225,8 +225,8 @@
 | Arshdeep Singh | Himachal Pradesh Cricket  | 5 | 7 | 9.0 | 14.57 |
 | Arshdeep Singh | Punjab Cricket Associatio | 5 | 7 | 10.78 | 16.14 |
 | YS Chahal | MA Chidambaram Stadium | 4 | 7 | 7.33 | 12.86 |
-| M Jansen | Sawai Mansingh Stadium | 4 | 6 | 10.48 | 15.17 |
-| YS Chahal | Barsapara Cricket Stadium | 3 | 6 | 8.75 | 12.0 |
+| YS Chahal | Maharaja Yadavindra Singh | 5 | 6 | 8.0 | 16.0 |
+| M Jansen | Rajiv Gandhi Internationa | 6 | 6 | 9.94 | 18.0 |
 
 
 ---
@@ -408,12 +408,12 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Lucknow Super Giants | 5 | 108 | 158 | 10 | 8.78 | 15.8 | 10.8 | 34.26 | 23.15 | HIGH |
-| Sunrisers Hyderabad | 4 | 90 | 121 | 8 | 8.07 | 15.13 | 11.25 | 45.56 | 23.33 | MEDIUM |
 | Royal Challengers Bengaluru | 7 | 134 | 223 | 8 | 9.99 | 27.88 | 16.75 | 32.09 | 25.37 | HIGH |
+| Sunrisers Hyderabad | 4 | 90 | 121 | 8 | 8.07 | 15.13 | 11.25 | 45.56 | 23.33 | MEDIUM |
 | Mumbai Indians | 5 | 113 | 196 | 7 | 10.41 | 28.0 | 16.14 | 30.97 | 29.2 | HIGH |
-| Kolkata Knight Riders | 4 | 84 | 112 | 6 | 8.0 | 18.67 | 14.0 | 46.43 | 20.24 | MEDIUM |
 | Chennai Super Kings | 5 | 116 | 180 | 6 | 9.31 | 30.0 | 19.33 | 34.48 | 25.0 | HIGH |
 | Rajasthan Royals | 6 | 143 | 247 | 6 | 10.36 | 41.17 | 23.83 | 40.56 | 27.97 | HIGH |
+| Kolkata Knight Riders | 4 | 84 | 112 | 6 | 8.0 | 18.67 | 14.0 | 46.43 | 20.24 | MEDIUM |
 | Gujarat Titans | 4 | 85 | 124 | 4 | 8.75 | 31.0 | 21.25 | 30.59 | 18.82 | MEDIUM |
 | Delhi Capitals | 4 | 84 | 112 | 2 | 8.0 | 56.0 | 42.0 | 39.29 | 19.05 | MEDIUM |
 
@@ -421,8 +421,8 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Sunrisers Hyderabad | 5 | 120 | 194 | 9 | 9.7 | 21.56 | 13.33 | 33.33 | 20.83 | HIGH |
 | Kolkata Knight Riders | 3 | 72 | 105 | 9 | 8.75 | 11.67 | 8.0 | 40.28 | 19.44 | MEDIUM |
+| Sunrisers Hyderabad | 5 | 120 | 194 | 9 | 9.7 | 21.56 | 13.33 | 33.33 | 20.83 | HIGH |
 | Royal Challengers Bengaluru | 7 | 162 | 222 | 8 | 8.22 | 27.75 | 20.25 | 25.31 | 12.96 | HIGH |
 | Chennai Super Kings | 5 | 84 | 108 | 7 | 7.71 | 15.43 | 12.0 | 28.57 | 11.9 | MEDIUM |
 | Delhi Capitals | 3 | 66 | 93 | 6 | 8.45 | 15.5 | 11.0 | 28.79 | 15.15 | MEDIUM |

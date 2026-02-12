@@ -1,6 +1,6 @@
 # Chennai Super Kings (CSK) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 07:50
+**Generated:** 2026-02-12 08:45
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -174,11 +174,11 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Narendra Modi Stadium | 4 | 2 | 50.0% | 193.8 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 172.0 |
 | M Chinnaswamy Stadium | 3 | 1 | 33.3% | 209.3 |
 | Wankhede Stadium | 3 | 2 | 66.7% | 180.3 |
-| Arun Jaitley Stadium | 2 | 1 | 50.0% | 205.0 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 172.0 |
 | Eden Gardens | 2 | 2 | 100.0% | 209.0 |
+| Arun Jaitley Stadium | 2 | 1 | 50.0% | 205.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -189,10 +189,10 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
@@ -222,9 +222,9 @@
 | Noor Ahmad | MA Chidambaram Stadium | 7 | 13 | 7.96 | 11.54 |
 | KK Ahmed | MA Chidambaram Stadium | 7 | 10 | 7.75 | 15.4 |
 | Noor Ahmad | Eden Gardens | 2 | 6 | 6.38 | 8.0 |
+| NT Ellis | Barsapara Cricket Stadium | 2 | 5 | 6.75 | 9.6 |
 | KV Sharma | Sawai Mansingh Stadium | 2 | 5 | 8.0 | 6.6 |
 | KK Ahmed | Bharat Ratna Shri Atal Bi | 3 | 5 | 9.17 | 14.4 |
-| NT Ellis | Barsapara Cricket Stadium | 2 | 5 | 6.75 | 9.6 |
 
 
 ---
@@ -371,14 +371,14 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Kolkata Knight Riders | 3 | 60 | 59 | 7 | 5.9 | 8.43 | 8.57 | 45.0 | 11.67 | MEDIUM |
-| Mumbai Indians | 5 | 114 | 162 | 7 | 8.53 | 23.14 | 16.29 | 34.21 | 16.67 | HIGH |
 | Royal Challengers Bengaluru | 5 | 120 | 170 | 7 | 8.5 | 24.29 | 17.14 | 34.17 | 19.17 | HIGH |
-| Rajasthan Royals | 5 | 98 | 154 | 6 | 9.43 | 25.67 | 16.33 | 29.59 | 19.39 | MEDIUM |
+| Mumbai Indians | 5 | 114 | 162 | 7 | 8.53 | 23.14 | 16.29 | 34.21 | 16.67 | HIGH |
+| Kolkata Knight Riders | 3 | 60 | 59 | 7 | 5.9 | 8.43 | 8.57 | 45.0 | 11.67 | MEDIUM |
 | Punjab Kings | 4 | 90 | 122 | 6 | 8.13 | 20.33 | 15.0 | 30.0 | 14.44 | MEDIUM |
-| Chennai Super Kings | 3 | 54 | 68 | 3 | 7.56 | 22.67 | 18.0 | 27.78 | 11.11 | MEDIUM |
-| Sunrisers Hyderabad | 3 | 65 | 103 | 3 | 9.51 | 34.33 | 21.67 | 29.23 | 20.0 | MEDIUM |
+| Rajasthan Royals | 5 | 98 | 154 | 6 | 9.43 | 25.67 | 16.33 | 29.59 | 19.39 | MEDIUM |
 | Lucknow Super Giants | 4 | 96 | 78 | 3 | 4.88 | 26.0 | 32.0 | 44.79 | 6.25 | MEDIUM |
+| Sunrisers Hyderabad | 3 | 65 | 103 | 3 | 9.51 | 34.33 | 21.67 | 29.23 | 20.0 | MEDIUM |
+| Chennai Super Kings | 3 | 54 | 68 | 3 | 7.56 | 22.67 | 18.0 | 27.78 | 11.11 | MEDIUM |
 | Delhi Capitals | 4 | 71 | 104 | 2 | 8.79 | 52.0 | 35.5 | 30.99 | 19.72 | MEDIUM |
 
 ### Khaleel Ahmed
@@ -386,14 +386,14 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Punjab Kings | 5 | 112 | 168 | 7 | 9.0 | 24.0 | 16.0 | 43.75 | 24.11 | HIGH |
-| Lucknow Super Giants | 4 | 84 | 132 | 6 | 9.43 | 22.0 | 14.0 | 50.0 | 26.19 | MEDIUM |
 | Mumbai Indians | 4 | 84 | 138 | 6 | 9.86 | 23.0 | 14.0 | 40.48 | 26.19 | MEDIUM |
-| Gujarat Titans | 5 | 102 | 123 | 5 | 7.24 | 24.6 | 20.4 | 46.08 | 19.61 | HIGH |
+| Lucknow Super Giants | 4 | 84 | 132 | 6 | 9.43 | 22.0 | 14.0 | 50.0 | 26.19 | MEDIUM |
 | Rajasthan Royals | 5 | 102 | 163 | 5 | 9.59 | 32.6 | 20.4 | 42.16 | 29.41 | HIGH |
-| Chennai Super Kings | 3 | 72 | 92 | 4 | 7.67 | 23.0 | 18.0 | 41.67 | 16.67 | MEDIUM |
+| Gujarat Titans | 5 | 102 | 123 | 5 | 7.24 | 24.6 | 20.4 | 46.08 | 19.61 | HIGH |
 | Royal Challengers Bengaluru | 4 | 90 | 163 | 4 | 10.87 | 40.75 | 22.5 | 34.44 | 28.89 | MEDIUM |
-| Sunrisers Hyderabad | 2 | 36 | 72 | 1 | 12.0 | 72.0 | 36.0 | 33.33 | 33.33 | MEDIUM |
+| Chennai Super Kings | 3 | 72 | 92 | 4 | 7.67 | 23.0 | 18.0 | 41.67 | 16.67 | MEDIUM |
 | Kolkata Knight Riders | 4 | 72 | 117 | 1 | 9.75 | 117.0 | 72.0 | 48.61 | 26.39 | MEDIUM |
+| Sunrisers Hyderabad | 2 | 36 | 72 | 1 | 12.0 | 72.0 | 36.0 | 33.33 | 33.33 | MEDIUM |
 
 ---
 

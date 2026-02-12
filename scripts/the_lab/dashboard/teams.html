@@ -1538,7 +1538,7 @@
         }
         .nav-guide-close:hover { background: var(--bg-elevated); color: var(--text-primary); }
 
-        /* ==================== PRESSURE PERFORMANCE (TKT-050) ==================== */
+        /* ==================== PRESSURE PERFORMANCE (TKT-050 Enhanced) ==================== */
         .pressure-header {
             display: flex;
             justify-content: space-between;
@@ -1557,134 +1557,67 @@
             color: var(--text-tertiary);
             font-size: 13px;
         }
-        .clutch-score-display {
-            text-align: center;
-        }
-        .clutch-score-value {
-            font-size: 42px;
-            font-weight: 800;
-            line-height: 1;
-        }
+        .clutch-score-display { text-align: center; }
+        .clutch-score-value { font-size: 42px; font-weight: 800; line-height: 1; }
         .clutch-score-label {
-            font-size: 11px;
-            color: var(--text-tertiary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 4px;
+            font-size: 11px; color: var(--text-tertiary);
+            text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px;
         }
         .pressure-summary-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin-bottom: 24px;
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 12px; margin-bottom: 24px;
         }
         .pressure-summary-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 16px;
-            text-align: center;
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 12px; padding: 16px; text-align: center;
         }
-        .pressure-summary-card .count {
-            font-size: 28px;
-            font-weight: 800;
-            line-height: 1.2;
-        }
+        .pressure-summary-card .count { font-size: 28px; font-weight: 800; line-height: 1.2; }
         .pressure-summary-card .label {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--text-tertiary);
-            margin-top: 4px;
+            font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
+            color: var(--text-tertiary); margin-top: 4px;
         }
         .pressure-section-title {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--border);
+            font-size: 16px; font-weight: 700; margin-bottom: 16px;
+            padding-bottom: 8px; border-bottom: 1px solid var(--border);
         }
-        .pressure-player-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-bottom: 24px;
+        .pressure-player-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+
+        /* Player card wrapper - contains summary + expandable detail */
+        .pressure-player-card {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 12px; overflow: hidden; transition: all 0.2s ease;
         }
-        .pressure-player-row {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 12px 16px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            transition: all 0.2s ease;
-        }
-        .pressure-player-row:hover {
-            background: var(--bg-tertiary);
-            border-color: var(--accent);
+        .pressure-player-card:hover { border-color: var(--accent); }
+        .pressure-player-card.expanded { border-color: var(--accent); }
+
+        .pressure-player-summary {
+            display: flex; align-items: center; gap: 12px;
+            padding: 12px 16px; cursor: pointer; user-select: none;
         }
         .pressure-rank {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            font-weight: 700;
-            background: var(--bg-tertiary);
-            color: var(--text-secondary);
-            flex-shrink: 0;
+            width: 28px; height: 28px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 13px; font-weight: 700;
+            background: var(--bg-tertiary); color: var(--text-secondary); flex-shrink: 0;
         }
         .pressure-rank.top { background: var(--accent); color: white; }
-        .pressure-player-info {
-            flex: 1;
-            min-width: 0;
-        }
+        .pressure-player-info { flex: 1; min-width: 0; }
         .pressure-player-name {
-            font-size: 14px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            flex-wrap: nowrap;
+            font-size: 14px; font-weight: 600; display: flex;
+            align-items: center; gap: 8px; flex-wrap: wrap;
         }
         .pressure-player-name .player-name-text {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            flex-shrink: 1;
-            min-width: 0;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            flex-shrink: 1; min-width: 0;
         }
-        .pressure-player-detail {
-            font-size: 12px;
-            color: var(--text-tertiary);
-            margin-top: 2px;
-        }
-        .pressure-stat {
-            text-align: right;
-            flex-shrink: 0;
-        }
-        .pressure-stat-value {
-            font-size: 16px;
-            font-weight: 700;
-        }
-        .pressure-stat-label {
-            font-size: 10px;
-            color: var(--text-tertiary);
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
+        .pressure-player-detail { font-size: 12px; color: var(--text-tertiary); margin-top: 2px; }
+        .pressure-stat { text-align: right; flex-shrink: 0; }
+        .pressure-stat-value { font-size: 16px; font-weight: 700; }
+        .pressure-stat-label { font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.3px; }
         .pressure-badge {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 6px;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-            flex-shrink: 0;
+            display: inline-block; padding: 3px 8px; border-radius: 6px;
+            font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.3px; flex-shrink: 0;
         }
         .pressure-badge.clutch { background: rgba(48, 209, 88, 0.2); color: var(--accent-green); }
         .pressure-badge.pressure-proof { background: rgba(10, 132, 255, 0.2); color: var(--accent); }
@@ -1694,152 +1627,141 @@
         .pressure-badge.strong { background: rgba(10, 132, 255, 0.2); color: var(--accent); }
         .pressure-badge.average { background: rgba(255, 214, 10, 0.2); color: var(--accent-yellow); }
         .pressure-badge.vulnerable { background: rgba(255, 69, 58, 0.2); color: var(--accent-red); }
-        /* Entry context badges */
+
+        /* Entry context badges - enhanced visibility */
         .entry-badge {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 6px;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            flex-shrink: 0;
-            white-space: nowrap;
+            display: inline-flex; align-items: center; gap: 4px;
+            padding: 3px 10px; border-radius: 6px;
+            font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.5px; flex-shrink: 0; white-space: nowrap;
             border: 1px solid transparent;
         }
+        .entry-badge .entry-balls { font-weight: 400; opacity: 0.8; font-size: 9px; }
         .entry-badge.fresh { background: rgba(10, 132, 255, 0.2); color: #4aa8ff; border-color: rgba(10, 132, 255, 0.3); }
         .entry-badge.building { background: rgba(255, 159, 10, 0.2); color: #ff9f0a; border-color: rgba(255, 159, 10, 0.3); }
         .entry-badge.set { background: rgba(48, 209, 88, 0.2); color: #30d158; border-color: rgba(48, 209, 88, 0.3); }
         .entry-badge.deep-set { background: rgba(0, 125, 27, 0.3); color: #00c22b; border-color: rgba(0, 125, 27, 0.4); }
-        /* Weighted pressure score */
-        .pressure-wscore {
-            text-align: right;
-            flex-shrink: 0;
-            min-width: 48px;
+
+        .pressure-wscore { text-align: right; flex-shrink: 0; min-width: 48px; }
+        .pressure-wscore-value { font-size: 14px; font-weight: 700; }
+        .pressure-wscore-label { font-size: 9px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.3px; }
+
+        .pressure-expand-icon {
+            font-size: 10px; color: var(--text-tertiary); transition: transform 0.3s ease;
+            flex-shrink: 0; padding: 4px;
         }
-        .pressure-wscore-value {
-            font-size: 14px;
-            font-weight: 700;
+        .pressure-player-card.expanded .pressure-expand-icon { transform: rotate(180deg); }
+
+        /* Expandable detail panel */
+        .pressure-player-detail-panel {
+            max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
         }
-        .pressure-wscore-label {
-            font-size: 9px;
-            color: var(--text-tertiary);
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
+        .pressure-player-card.expanded .pressure-player-detail-panel { max-height: 600px; }
+        .pressure-detail-inner {
+            padding: 0 16px 16px; display: flex; flex-direction: column; gap: 12px;
+            border-top: 1px solid var(--border);
         }
-        .pressure-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
+
+        /* Phase comparison (15-17 vs 18-20) */
+        .pressure-phase-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px;
         }
-        /* Pressure Glossary (TKT-050 Glossary) */
+        .pressure-phase-card {
+            background: var(--bg-tertiary); border-radius: 8px; padding: 10px 12px;
+        }
+        .pressure-phase-label {
+            font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.5px; color: var(--text-tertiary); margin-bottom: 6px;
+        }
+        .pressure-phase-stats {
+            display: flex; flex-wrap: wrap; gap: 8px;
+        }
+        .pressure-phase-stat {
+            display: flex; flex-direction: column; align-items: center; min-width: 40px;
+        }
+        .pressure-phase-stat .val { font-size: 14px; font-weight: 700; }
+        .pressure-phase-stat .lbl { font-size: 9px; color: var(--text-tertiary); text-transform: uppercase; }
+
+        /* Band breakdown mini-table */
+        .pressure-band-table {
+            width: 100%; border-collapse: collapse; font-size: 11px;
+        }
+        .pressure-band-table th {
+            text-align: left; padding: 4px 8px; font-size: 9px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            color: var(--text-tertiary); border-bottom: 1px solid var(--border);
+        }
+        .pressure-band-table td {
+            padding: 4px 8px; border-bottom: 1px solid var(--glass-border);
+        }
+        .pressure-band-table tr:last-child td { border-bottom: none; }
+        .pressure-band-tag {
+            font-weight: 600; font-size: 10px; display: inline-block;
+            padding: 1px 6px; border-radius: 4px;
+        }
+        .pressure-band-tag.comfortable { background: rgba(48, 209, 88, 0.15); color: var(--accent-green); }
+        .pressure-band-tag.building { background: rgba(10, 132, 255, 0.15); color: var(--accent); }
+        .pressure-band-tag.high { background: rgba(255, 214, 10, 0.15); color: var(--accent-yellow); }
+        .pressure-band-tag.extreme { background: rgba(255, 159, 10, 0.15); color: var(--accent-orange); }
+        .pressure-band-tag.near-impossible { background: rgba(255, 69, 58, 0.15); color: var(--accent-red); }
+
+        .pressure-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+        /* Qualification criteria */
+        .pressure-qual-note {
+            margin-top: 16px; padding: 12px 16px;
+            background: var(--bg-tertiary); border: 1px solid var(--border);
+            border-radius: 10px; font-size: 11px; color: var(--text-tertiary);
+            line-height: 1.6;
+        }
+        .pressure-qual-note strong { color: var(--text-secondary); }
+
+        /* Glossary */
         .pressure-glossary-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 24px;
-            padding: 10px 20px;
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text-secondary);
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            user-select: none;
-            width: 100%;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            margin-top: 24px; padding: 10px 20px;
+            background: var(--bg-tertiary); border: 1px solid var(--border);
+            border-radius: 10px; color: var(--text-secondary);
+            font-size: 13px; font-weight: 600; cursor: pointer;
+            transition: all 0.2s ease; user-select: none; width: 100%;
         }
-        .pressure-glossary-toggle:hover {
-            background: var(--bg-elevated);
-            color: var(--text-primary);
-            border-color: var(--accent);
-        }
-        .pressure-glossary-toggle .toggle-arrow {
-            font-size: 10px;
-            transition: transform 0.3s ease;
-        }
-        .pressure-glossary-toggle.open .toggle-arrow {
-            transform: rotate(180deg);
-        }
-        .pressure-glossary-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-            margin-top: 0;
-        }
-        .pressure-glossary-body.open {
-            max-height: 2000px;
-            margin-top: 16px;
-        }
-        .pressure-glossary-section {
-            margin-bottom: 20px;
-        }
+        .pressure-glossary-toggle:hover { background: var(--bg-elevated); color: var(--text-primary); border-color: var(--accent); }
+        .pressure-glossary-toggle .toggle-arrow { font-size: 10px; transition: transform 0.3s ease; }
+        .pressure-glossary-toggle.open .toggle-arrow { transform: rotate(180deg); }
+        .pressure-glossary-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; margin-top: 0; }
+        .pressure-glossary-body.open { max-height: 2000px; margin-top: 16px; }
+        .pressure-glossary-section { margin-bottom: 20px; }
         .pressure-glossary-section h4 {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 10px;
-            padding-bottom: 6px;
-            border-bottom: 1px solid var(--border);
+            font-size: 14px; font-weight: 700; color: var(--accent);
+            margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid var(--border);
         }
         .pressure-glossary-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 12px;
+            width: 100%; border-collapse: collapse; font-size: 12px;
         }
         .pressure-glossary-table th {
-            text-align: left;
-            padding: 6px 10px;
-            background: var(--bg-tertiary);
-            color: var(--text-secondary);
-            font-weight: 600;
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border-bottom: 1px solid var(--border);
+            text-align: left; padding: 6px 10px; background: var(--bg-tertiary);
+            color: var(--text-secondary); font-weight: 600; font-size: 10px;
+            text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid var(--border);
         }
         .pressure-glossary-table td {
-            padding: 6px 10px;
-            color: var(--text-secondary);
-            border-bottom: 1px solid var(--glass-border);
-            vertical-align: top;
-            line-height: 1.5;
+            padding: 6px 10px; color: var(--text-secondary);
+            border-bottom: 1px solid var(--glass-border); vertical-align: top; line-height: 1.5;
         }
-        .pressure-glossary-table tr:last-child td {
-            border-bottom: none;
-        }
+        .pressure-glossary-table tr:last-child td { border-bottom: none; }
         .pressure-glossary-table .band-tag {
-            font-weight: 700;
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
-            font-size: 11px;
+            font-weight: 700; color: var(--text-primary); font-family: 'Inter', sans-serif; font-size: 11px;
         }
-        .pressure-glossary-note {
-            font-size: 11px;
-            color: var(--text-tertiary);
-            line-height: 1.6;
-            margin-top: 8px;
-        }
+        .pressure-glossary-note { font-size: 11px; color: var(--text-tertiary); line-height: 1.6; margin-top: 8px; }
+
         @media (max-width: 768px) {
-            .pressure-summary-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .pressure-columns {
-                grid-template-columns: 1fr;
-            }
-            .pressure-glossary-table {
-                font-size: 11px;
-            }
-            .pressure-glossary-table th,
-            .pressure-glossary-table td {
-                padding: 5px 6px;
-            }
-            .pressure-glossary-section {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-            }
+            .pressure-summary-grid { grid-template-columns: repeat(2, 1fr); }
+            .pressure-columns { grid-template-columns: 1fr; }
+            .pressure-phase-grid { grid-template-columns: 1fr; }
+            .pressure-glossary-table { font-size: 11px; }
+            .pressure-glossary-table th, .pressure-glossary-table td { padding: 5px 6px; }
+            .pressure-glossary-section { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .pressure-band-table { font-size: 10px; }
+            .pressure-player-summary { gap: 8px; padding: 10px 12px; }
         }
 
         /* Prevent horizontal overflow */
@@ -2317,6 +2239,7 @@
         function renderPressureCard() {
             const pressureContent = document.getElementById('pressure-content');
             const pressure = typeof PRESSURE_DATA !== 'undefined' ? PRESSURE_DATA[currentTeam] : null;
+            const meta = typeof PRESSURE_DATA !== 'undefined' ? PRESSURE_DATA._meta : null;
 
             if (!pressure) {
                 pressureContent.innerHTML = `
@@ -2332,19 +2255,16 @@
             const s = pressure.summary;
             const team = TEAMS[currentTeam];
 
-            // Clutch score color
             const clutchColor = s.clutchScore >= 6 ? 'var(--accent-green)' :
                                s.clutchScore >= 4 ? 'var(--accent-yellow)' :
                                s.clutchScore >= 2 ? 'var(--accent-orange)' : 'var(--accent-red)';
 
-            // Rating badge helper
             const ratingBadge = (rating) => {
                 const cls = rating.toLowerCase().replace('_', '-');
                 const label = rating.replace('_', ' ');
                 return `<span class="pressure-badge ${cls}">${label}</span>`;
             };
 
-            // SR delta display helper
             const srDeltaDisplay = (delta) => {
                 const color = delta >= 10 ? 'var(--accent-green)' :
                              delta >= 5 ? 'var(--accent-yellow)' :
@@ -2353,21 +2273,28 @@
                 return `<span style="color: ${color}; font-weight: 700;">${sign}${delta.toFixed(1)}%</span>`;
             };
 
-            // Economy display helper
             const econDisplay = (econ) => {
+                if (!econ) return '<span style="color: var(--text-tertiary);">-</span>';
                 const color = econ <= 6.0 ? 'var(--accent-green)' :
                              econ <= 7.5 ? 'var(--accent-yellow)' :
                              econ <= 9.0 ? 'var(--accent-orange)' : 'var(--accent-red)';
                 return `<span style="color: ${color}; font-weight: 700;">${econ.toFixed(2)}</span>`;
             };
 
-            // Entry context badge helper
-            const entryBadge = (ctx) => {
-                const cls = ctx.toLowerCase().replace('_', '-');
-                return `<span class="entry-badge ${cls}">${ctx.replace('_', ' ')}</span>`;
+            const srColor = (sr) => {
+                if (!sr) return 'var(--text-tertiary)';
+                if (sr >= 170) return 'var(--accent-green)';
+                if (sr >= 140) return 'var(--accent-yellow)';
+                if (sr >= 120) return 'var(--text-secondary)';
+                return 'var(--accent-red)';
             };
 
-            // Weighted score color helper
+            const entryBadge = (ctx, avgBalls) => {
+                const cls = ctx.toLowerCase().replace('_', '-');
+                const ballsLabel = avgBalls > 0 ? `<span class="entry-balls">~${avgBalls.toFixed(0)}b</span>` : '';
+                return `<span class="entry-badge ${cls}">${ctx.replace('_', ' ')} ${ballsLabel}</span>`;
+            };
+
             const wScoreColor = (score) => {
                 if (score >= 30) return 'var(--accent-green)';
                 if (score >= 15) return 'var(--accent-yellow)';
@@ -2375,41 +2302,178 @@
                 return 'var(--accent-red)';
             };
 
-            // Top batters HTML
+            const bandTagClass = (band) => band.toLowerCase().replace('_', '-');
+
+            // Batter band breakdown table
+            const batterBandTable = (bands) => {
+                if (!bands || bands.length === 0) return '';
+                return `
+                    <table class="pressure-band-table">
+                        <thead><tr><th>RRR Band</th><th>Balls</th><th>SR</th><th>Bdry%</th><th>6s%</th><th>Dot%</th></tr></thead>
+                        <tbody>
+                            ${bands.map(bd => `
+                                <tr>
+                                    <td><span class="pressure-band-tag ${bandTagClass(bd.band)}">${bd.band.replace('_', ' ')}</span></td>
+                                    <td>${bd.balls}</td>
+                                    <td style="color: ${srColor(bd.sr)}; font-weight: 600;">${bd.sr.toFixed(1)}</td>
+                                    <td>${bd.boundaryPct.toFixed(1)}%</td>
+                                    <td>${bd.sixPct.toFixed(1)}%</td>
+                                    <td>${bd.dotPct.toFixed(1)}%</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>`;
+            };
+
+            // Bowler band breakdown table
+            const bowlerBandTable = (bands) => {
+                if (!bands || bands.length === 0) return '';
+                return `
+                    <table class="pressure-band-table">
+                        <thead><tr><th>RRR Band</th><th>Balls</th><th>Econ</th><th>Dot%</th><th>Bdry Conc%</th><th>Wkts</th></tr></thead>
+                        <tbody>
+                            ${bands.map(bd => `
+                                <tr>
+                                    <td><span class="pressure-band-tag ${bandTagClass(bd.band)}">${bd.band.replace('_', ' ')}</span></td>
+                                    <td>${bd.balls}</td>
+                                    <td>${econDisplay(bd.economy)}</td>
+                                    <td>${bd.dotPct.toFixed(1)}%</td>
+                                    <td>${bd.boundaryConcededPct.toFixed(1)}%</td>
+                                    <td>${bd.wickets}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>`;
+            };
+
+            // Batter phase stats
+            const batterPhaseHtml = (ps) => {
+                if (!ps) return '';
+                const setup = ps.setup || {};
+                const death = ps.death || {};
+                if (!setup.balls && !death.balls) return '';
+                return `
+                    <div class="pressure-phase-grid">
+                        <div class="pressure-phase-card">
+                            <div class="pressure-phase-label">Overs 15-17 (Setup)</div>
+                            <div class="pressure-phase-stats">
+                                <div class="pressure-phase-stat"><div class="val">${setup.balls || 0}</div><div class="lbl">Balls</div></div>
+                                <div class="pressure-phase-stat"><div class="val" style="color: ${srColor(setup.sr)};">${setup.sr ? setup.sr.toFixed(1) : '-'}</div><div class="lbl">SR</div></div>
+                                <div class="pressure-phase-stat"><div class="val">${setup.boundaryPct ? setup.boundaryPct.toFixed(1) + '%' : '-'}</div><div class="lbl">Bdry</div></div>
+                                <div class="pressure-phase-stat"><div class="val">${setup.dotPct ? setup.dotPct.toFixed(1) + '%' : '-'}</div><div class="lbl">Dot</div></div>
+                            </div>
+                        </div>
+                        <div class="pressure-phase-card">
+                            <div class="pressure-phase-label">Overs 18-20 (Death)</div>
+                            <div class="pressure-phase-stats">
+                                <div class="pressure-phase-stat"><div class="val">${death.balls || 0}</div><div class="lbl">Balls</div></div>
+                                <div class="pressure-phase-stat"><div class="val" style="color: ${srColor(death.sr)};">${death.sr ? death.sr.toFixed(1) : '-'}</div><div class="lbl">SR</div></div>
+                                <div class="pressure-phase-stat"><div class="val">${death.boundaryPct ? death.boundaryPct.toFixed(1) + '%' : '-'}</div><div class="lbl">Bdry</div></div>
+                                <div class="pressure-phase-stat"><div class="val">${death.dotPct ? death.dotPct.toFixed(1) + '%' : '-'}</div><div class="lbl">Dot</div></div>
+                            </div>
+                        </div>
+                    </div>`;
+            };
+
+            // Bowler phase stats
+            const bowlerPhaseHtml = (ps) => {
+                if (!ps) return '';
+                const setup = ps.setup || {};
+                const death = ps.death || {};
+                if (!setup.balls && !death.balls) return '';
+                return `
+                    <div class="pressure-phase-grid">
+                        <div class="pressure-phase-card">
+                            <div class="pressure-phase-label">Overs 15-17 (Setup)</div>
+                            <div class="pressure-phase-stats">
+                                <div class="pressure-phase-stat"><div class="val">${setup.balls || 0}</div><div class="lbl">Balls</div></div>
+                                <div class="pressure-phase-stat"><div class="val">${econDisplay(setup.economy)}</div><div class="lbl">Econ</div></div>
+                                <div class="pressure-phase-stat"><div class="val">${setup.dotPct ? setup.dotPct.toFixed(1) + '%' : '-'}</div><div class="lbl">Dot</div></div>
+                                <div class="pressure-phase-stat"><div class="val">${setup.wickets || 0}</div><div class="lbl">Wkts</div></div>
+                            </div>
+                        </div>
+                        <div class="pressure-phase-card">
+                            <div class="pressure-phase-label">Overs 18-20 (Death)</div>
+                            <div class="pressure-phase-stats">
+                                <div class="pressure-phase-stat"><div class="val">${death.balls || 0}</div><div class="lbl">Balls</div></div>
+                                <div class="pressure-phase-stat"><div class="val">${econDisplay(death.economy)}</div><div class="lbl">Econ</div></div>
+                                <div class="pressure-phase-stat"><div class="val">${death.dotPct ? death.dotPct.toFixed(1) + '%' : '-'}</div><div class="lbl">Dot</div></div>
+                                <div class="pressure-phase-stat"><div class="val">${death.wickets || 0}</div><div class="lbl">Wkts</div></div>
+                            </div>
+                        </div>
+                    </div>`;
+            };
+
+            // Toggle expand handler (assigned after innerHTML)
+            const toggleId = `pressure-toggle-${Date.now()}`;
+
+            // Build batter cards
             const battersHtml = pressure.topBatters.map((b, i) => `
-                <div class="pressure-player-row">
-                    <div class="pressure-rank ${i === 0 ? 'top' : ''}">${i + 1}</div>
-                    <div class="pressure-player-info">
-                        <div class="pressure-player-name"><span class="player-name-text">${b.name}</span> ${entryBadge(b.entryContext)}</div>
-                        <div class="pressure-player-detail">SR: ${b.overallSR.toFixed(1)} overall, ${b.pressureSR.toFixed(1)} under pressure (${b.pressureBalls} balls)</div>
+                <div class="pressure-player-card" id="batter-card-${i}">
+                    <div class="pressure-player-summary" onclick="this.parentElement.classList.toggle('expanded');">
+                        <div class="pressure-rank ${i === 0 ? 'top' : ''}">${i + 1}</div>
+                        <div class="pressure-player-info">
+                            <div class="pressure-player-name">
+                                <span class="player-name-text">${b.name}</span>
+                                ${entryBadge(b.entryContext, b.avgBallsBefore || 0)}
+                            </div>
+                            <div class="pressure-player-detail">
+                                SR: ${b.overallSR.toFixed(1)} overall, ${b.pressureSR.toFixed(1)} under pressure (${b.pressureBalls} balls, ${b.confidence} conf.)
+                            </div>
+                        </div>
+                        <div class="pressure-stat">
+                            <div class="pressure-stat-value">${srDeltaDisplay(b.srDelta)}</div>
+                            <div class="pressure-stat-label">SR Delta</div>
+                        </div>
+                        <div class="pressure-wscore">
+                            <div class="pressure-wscore-value" style="color: ${wScoreColor(b.pressureScore)};">${b.pressureScore.toFixed(1)}</div>
+                            <div class="pressure-wscore-label">W.Score</div>
+                        </div>
+                        ${ratingBadge(b.rating)}
+                        <div class="pressure-expand-icon">&#9660;</div>
                     </div>
-                    <div class="pressure-stat">
-                        <div class="pressure-stat-value">${srDeltaDisplay(b.srDelta)}</div>
-                        <div class="pressure-stat-label">SR Delta</div>
+                    <div class="pressure-player-detail-panel">
+                        <div class="pressure-detail-inner">
+                            ${batterPhaseHtml(b.phaseStats)}
+                            ${batterBandTable(b.bandBreakdown)}
+                        </div>
                     </div>
-                    <div class="pressure-wscore">
-                        <div class="pressure-wscore-value" style="color: ${wScoreColor(b.pressureScore)};">${b.pressureScore.toFixed(1)}</div>
-                        <div class="pressure-wscore-label">W.Score</div>
-                    </div>
-                    ${ratingBadge(b.rating)}
                 </div>
             `).join('');
 
-            // Top bowlers HTML
+            // Build bowler cards
             const bowlersHtml = pressure.topBowlers.map((bw, i) => `
-                <div class="pressure-player-row">
-                    <div class="pressure-rank ${i === 0 ? 'top' : ''}">${i + 1}</div>
-                    <div class="pressure-player-info">
-                        <div class="pressure-player-name">${bw.name}</div>
-                        <div class="pressure-player-detail">${bw.pressureBand.replace('_', ' ')} band | ${bw.wickets} wkts | ${bw.dotBallPct.toFixed(1)}% dots (${bw.legalBalls} balls)</div>
+                <div class="pressure-player-card" id="bowler-card-${i}">
+                    <div class="pressure-player-summary" onclick="this.parentElement.classList.toggle('expanded');">
+                        <div class="pressure-rank ${i === 0 ? 'top' : ''}">${i + 1}</div>
+                        <div class="pressure-player-info">
+                            <div class="pressure-player-name">${bw.name}</div>
+                            <div class="pressure-player-detail">
+                                ${bw.pressureBand.replace('_', ' ')} band | ${bw.wickets} wkts | ${bw.dotBallPct.toFixed(1)}% dots (${bw.legalBalls} balls)
+                            </div>
+                        </div>
+                        <div class="pressure-stat">
+                            <div class="pressure-stat-value">${econDisplay(bw.economy)}</div>
+                            <div class="pressure-stat-label">Economy</div>
+                        </div>
+                        ${ratingBadge(bw.rating)}
+                        <div class="pressure-expand-icon">&#9660;</div>
                     </div>
-                    <div class="pressure-stat">
-                        <div class="pressure-stat-value">${econDisplay(bw.economy)}</div>
-                        <div class="pressure-stat-label">Economy</div>
+                    <div class="pressure-player-detail-panel">
+                        <div class="pressure-detail-inner">
+                            ${bowlerPhaseHtml(bw.phaseStats)}
+                            ${bowlerBandTable(bw.bandBreakdown)}
+                        </div>
                     </div>
-                    ${ratingBadge(bw.rating)}
                 </div>
             `).join('');
+
+            const qualNote = meta ? `
+                <div class="pressure-qual-note">
+                    <strong>Qualification:</strong> Batters need ${meta.minBatterPressureBalls}+ pressure balls (RRR &ge; 10) and ${meta.minBatterOverallBalls}+ overall balls.
+                    Bowlers need ${meta.minBowlerLegalBalls}+ balls across HIGH/EXTREME/NEAR_IMPOSSIBLE bands (${meta.minBowlerBandBalls}+ per band).
+                    Click any player card to expand RRR band breakdown and over-phase execution stats.
+                </div>` : '';
 
             pressureContent.innerHTML = `
                 <div class="pressure-header">
@@ -2444,7 +2508,7 @@
 
                 <div class="pressure-columns">
                     <div>
-                        <div class="pressure-section-title">Top Clutch Batters (by SR Delta)</div>
+                        <div class="pressure-section-title">Top Clutch Batters (by Weighted Score)</div>
                         <div class="pressure-player-list">
                             ${battersHtml || '<div style="color: var(--text-tertiary); padding: 16px; text-align: center;">No batter data available</div>'}
                         </div>
@@ -2456,6 +2520,8 @@
                         </div>
                     </div>
                 </div>
+
+                ${qualNote}
 
                 <div class="pressure-glossary-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
                     <span class="toggle-arrow">&#9660;</span> What do these ratings mean?
@@ -2483,8 +2549,6 @@
                                 <tr><td class="band-tag">PRESSURE_PROOF</td><td>Metrics within &plusmn;5% of overall across all bands</td><td>Metrics within &plusmn;5% of overall across all bands</td></tr>
                                 <tr><td class="band-tag">MODERATE</td><td>Performance changes between 5-10% under pressure</td><td>Economy/dot% changes 5-10% under pressure</td></tr>
                                 <tr><td class="band-tag">PRESSURE_SENSITIVE</td><td>SR drops 10%+ OR dot% rises 10%+ in 12+ RRR bands</td><td>Economy rises 15%+ OR boundary% conceded rises 10%+</td></tr>
-                                <tr><td class="band-tag">FINISHER</td><td>SR in 15+ band exceeds 170 with adequate sample</td><td>N/A</td></tr>
-                                <tr><td class="band-tag">CLOSER</td><td>N/A</td><td>Economy &lt; 8.5 in 15+ band with 5+ overs</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -2506,7 +2570,8 @@
                             <tbody>
                                 <tr><td class="band-tag" style="width: 140px;">Weighted Score</td><td>Composite metric combining SR delta with sample size (log&#8322; scaling) and death overs bonus (30% weight for overs 16-20 execution)</td></tr>
                                 <tr><td class="band-tag">SR Delta</td><td>Percentage change in strike rate between overall performance and pressure situations. Positive = better under pressure.</td></tr>
-                                <tr><td class="band-tag">Death Pressure Ratio</td><td>Proportion of pressure balls faced in overs 16-20 vs all pressure balls</td></tr>
+                                <tr><td class="band-tag">Overs 15-17</td><td>Setup phase under pressure — where batting teams begin acceleration and bowlers set up their death plans</td></tr>
+                                <tr><td class="band-tag">Overs 18-20</td><td>Death execution phase — the highest-leverage balls of the innings where pressure performance matters most</td></tr>
                             </tbody>
                         </table>
                     </div>

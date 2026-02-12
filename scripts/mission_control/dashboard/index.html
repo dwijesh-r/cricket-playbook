@@ -6160,7 +6160,7 @@
             'Tom Brady': { role: 'Delivery Owner', team: 'New England Patriots' },
             'Stephen Curry': { role: 'Executor', team: 'Golden State Warriors' },
             'Kevin de Bruyne': { role: 'Visualization Lead', team: 'SSC Napoli' },
-            'Jose Mourinho': { role: 'Data Science Lead', team: 'SL Benfica' },
+            'Jose Mourinho': { role: 'Quant Researcher & NL Search Architect', team: 'SL Benfica' },
             'LeBron James': { role: 'Reader Perspective Auditor & Social Atomization', team: 'Los Angeles Lakers' },
             'Brad Stevens': { role: 'Architecture', team: 'Boston Celtics' },
             'Brock Purdy': { role: 'Data Pipeline & Monitoring', team: 'San Francisco 49ers' },
@@ -6193,9 +6193,9 @@
                 weaknesses: ['Backend systems']
             },
             'Jose Mourinho': {
-                skills: { Strategy: 10, Analysis: 10, ML_Ops: 9, Benchmarking: 9, Auditing: 10 },
-                strengths: ['System audits', 'Strategic planning', 'ML oversight'],
-                weaknesses: ['Hands-on coding']
+                skills: { Strategy: 10, Analysis: 10, NL_Search: 9, Quant_Research: 10, Auditing: 10 },
+                strengths: ['NL search intelligence', 'Tournament weighting', 'System audits', 'Query architecture'],
+                weaknesses: ['Frontend styling']
             },
             'LeBron James': {
                 skills: { Communication: 10, Marketing: 9, Social: 10, Branding: 9, Outreach: 8 },
@@ -7786,7 +7786,7 @@ Gate Inheritance:
             { id: 'TKT-182', title: 'T20 Fallback Data for Uncapped IPL Players in Stat Packs', state: 'DONE', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Analytics', 'Stat Packs'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               context: { ask: 'Add T20 fallback data from other tournaments for 51 uncapped IPL 2026 players', goal: 'Uncapped Watch section in stat packs with T20 profiles for players without IPL history', reason: '34 of 51 uncapped players have meaningful T20 data from BBL, PSL, CPL, etc.', audible: ['Render T20 columns for uncapped players', 'Add Uncapped Watch section', 'Tag uncapped players in player_tags.json'] }
             },
-            { id: 'TKT-183', title: 'Tournament Quality Weighting System: 5-Factor Composite', state: 'RUNNING', priority: 'P1', effort: 'marathon', assignee: 'Jose Mourinho', epic: 'EPIC-016', progress: 60, tags: ['Analytics', 'Quant Research'], gates: { florentino_gate: 'APPROVED', founder_prd_approval: 'APPROVED' },
+            { id: 'TKT-183', title: 'Tournament Quality Weighting System: 5-Factor Composite', state: 'RUNNING', priority: 'P1', effort: 'marathon', assignee: 'Jose Mourinho', epic: 'EPIC-016', progress: 70, tags: ['Analytics', 'Quant Research'], gates: { florentino_gate: 'APPROVED', founder_prd_approval: 'APPROVED' },
               context: { ask: 'Build 5-factor composite weight system: PQI, Competitiveness, Recency Decay, Conditions Similarity, Sample Size Confidence', goal: 'Tournament quality weights across 426 tournaments / 9,357 matches', reason: 'Analytical credibility requires principled weighting of non-IPL T20 data', audible: ['Phase 1: Data Layer', 'Phase 2: Weight Computation', 'Phase 3: Integration', 'Phase 4: Validation'] },
               documents: [{ title: 'Tournament Quality Weighting Plan (Founder Approved)', path: 'reviews/founder/tournament_weighting_plan_021126_v1.md', status: 'FOUNDER_APPROVED' }]
             },

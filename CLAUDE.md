@@ -194,7 +194,7 @@ The system is measured across 6 categories with weighted scoring:
 | Testing | 15% | 100% | 80% |
 | Documentation | 10% | 100% | 100% |
 
-**Current Score:** 94.0/100 | **Target:** 85/100 (EXCEEDED)
+**Current Score:** 92.0/100 | **Target:** 85/100 (EXCEEDED)
 
 Run: `python scripts/ml_ops/system_health_score.py`
 

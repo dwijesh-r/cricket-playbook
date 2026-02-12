@@ -21,6 +21,10 @@ on:
     branches: [main]
   workflow_dispatch:
 
+concurrency:
+  group: gate-check-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   # ==========================================================================
   # GATE 1: Lint & Format Check

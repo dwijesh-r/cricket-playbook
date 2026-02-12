@@ -33,6 +33,11 @@ on:
 permissions:
   contents: write
 
+# Prevent multiple deploy runs from racing — only latest matters
+concurrency:
+  group: deploy-dashboard
+  cancel-in-progress: true
+
 jobs:
   # ==========================================================================
   # Update The Lab Dashboard
@@ -82,7 +87,7 @@ jobs:
           # Add all dashboard data files
           git add scripts/the_lab/dashboard/data/
 
-          git commit -m "chore(dashboard): Auto-update The Lab data files
+          git commit -m "chore(dashboard): Auto-update The Lab data files [skip ci]
 
           Updated by: deploy-dashboard.yml workflow
           Trigger: ${{ github.event_name }}

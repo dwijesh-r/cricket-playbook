@@ -6,6 +6,8 @@ on:
 
 jobs:
   notify:
+    # Skip notifications for bot auto-commits (deploy-dashboard, generate-outputs)
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
     runs-on: ubuntu-latest
     # Continue even if email fails (secrets not configured)
     continue-on-error: true

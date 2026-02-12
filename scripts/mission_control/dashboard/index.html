@@ -7813,9 +7813,10 @@ Gate Inheritance:
               blockedBy: ['TKT-188'],
               context: { ask: 'Domain sanity review of weighted outputs', goal: 'Verify weights produce cricket-sensible results', reason: 'Prevent counter-intuitive rankings or small-sample artifacts', audible: ['Andy Flower domain review', 'Jose statistical robustness', 'Pep edge case analysis'] }
             },
-            { id: 'TKT-190', title: 'TKT-183.7: Phase 4 — Integration into Models', state: 'BLOCKED', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-016', progress: 0, tags: ['Analytics', 'Integration'], parent: 'TKT-183', gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-190', title: 'TKT-183.7: Phase 4 — Weighted Cross-Tournament Supplement for Small-Sample Players & Stat Packs', state: 'BLOCKED', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-016', progress: 0, tags: ['Analytics', 'Stat Packs', 'Uncapped'], parent: 'TKT-183', gates: { florentino_gate: 'APPROVED' },
               blockedBy: ['TKT-189'],
-              context: { ask: 'Apply tournament weights to clustering, tags, and analytical models', goal: 'Weighted cross-tournament data in all downstream outputs', reason: 'Weights meaningless until integrated into analytical pipeline', audible: ['Update clustering', 'Update player tags', 'Regenerate stat packs + depth charts'] }
+              founderReviewNote: 'Rescoped per Founder (Feb 12): Remove clustering/tags integration (stays pure IPL). Focus on small-sample player enrichment via weighted cross-tournament T20 stats, stat pack integration, uncapped player confidence scoring, and CricPom data feed.',
+              context: { ask: 'Blend weighted cross-tournament T20 stats for small-sample IPL players (<300 balls bat, <200 balls bowl)', goal: 'Stat packs show weighted composite stats for thin-sample players + trust scores for uncapped profiles', reason: 'Players with little IPL data deserve context from BBL/PSL/SA20 — weighted by tournament quality', audible: ['Weighted enrichment for small-sample players', 'Stat pack cross-tournament context', 'Uncapped player confidence scores', 'CricPom data layer prep'] }
             }
         ];
 

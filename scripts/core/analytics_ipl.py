@@ -4338,6 +4338,408 @@ def create_team_phase_views(conn: duckdb.DuckDBPyConnection) -> None:
         print(f"  - {vw}: {count} rows")
 
 
+def create_recent_form_views(conn: duckdb.DuckDBPyConnection) -> None:
+    """Create recent form views (rolling last 10/20 matches) for batters and bowlers.
+
+    EPIC-013: Provides form-vs-career deltas for IPL 2026 squad members.
+    Uses DENSE_RANK on match_id (by match_date DESC) to identify each player's
+    most recent N IPL matches, then aggregates batting/bowling stats.
+    """
+
+    print("\nCreating Recent Form views (EPIC-013)...")
+
+    # ── View 1: Batter Recent Form ──────────────────────────────
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_batter_recent_form AS
+        WITH ipl_balls AS (
+            SELECT
+                fb.batter_id,
+                fb.match_id,
+                dm.match_date,
+                fb.batter_runs,
+                fb.is_legal_ball,
+                fb.is_wicket,
+                fb.player_out_id
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+        ),
+        match_ranked AS (
+            SELECT
+                batter_id,
+                match_id,
+                DENSE_RANK() OVER (
+                    PARTITION BY batter_id
+                    ORDER BY MAX(match_date) DESC, match_id DESC
+                ) AS match_rank
+            FROM ipl_balls
+            GROUP BY batter_id, match_id
+        ),
+        tagged AS (
+            SELECT
+                ib.*,
+                mr.match_rank
+            FROM ipl_balls ib
+            JOIN match_ranked mr
+              ON ib.batter_id = mr.batter_id
+             AND ib.match_id  = mr.match_id
+        ),
+        agg AS (
+            SELECT
+                batter_id,
+                -- Last 10 matches
+                COUNT(DISTINCT CASE WHEN match_rank <= 10 THEN match_id END)
+                    AS last10_innings,
+                SUM(CASE WHEN match_rank <= 10 THEN batter_runs ELSE 0 END)
+                    AS last10_runs,
+                SUM(CASE WHEN match_rank <= 10 AND is_legal_ball THEN 1 ELSE 0 END)
+                    AS last10_balls,
+                SUM(CASE WHEN match_rank <= 10 AND is_wicket
+                         AND player_out_id = batter_id THEN 1 ELSE 0 END)
+                    AS last10_dismissals,
+                SUM(CASE WHEN match_rank <= 10 AND batter_runs IN (4, 6)
+                         THEN 1 ELSE 0 END)
+                    AS last10_boundaries,
+                SUM(CASE WHEN match_rank <= 10 AND batter_runs = 0
+                         AND is_legal_ball THEN 1 ELSE 0 END)
+                    AS last10_dots,
+                -- Last 20 matches
+                COUNT(DISTINCT CASE WHEN match_rank <= 20 THEN match_id END)
+                    AS last20_innings,
+                SUM(CASE WHEN match_rank <= 20 THEN batter_runs ELSE 0 END)
+                    AS last20_runs,
+                SUM(CASE WHEN match_rank <= 20 AND is_legal_ball THEN 1 ELSE 0 END)
+                    AS last20_balls,
+                SUM(CASE WHEN match_rank <= 20 AND is_wicket
+                         AND player_out_id = batter_id THEN 1 ELSE 0 END)
+                    AS last20_dismissals,
+                SUM(CASE WHEN match_rank <= 20 AND batter_runs IN (4, 6)
+                         THEN 1 ELSE 0 END)
+                    AS last20_boundaries,
+                SUM(CASE WHEN match_rank <= 20 AND batter_runs = 0
+                         AND is_legal_ball THEN 1 ELSE 0 END)
+                    AS last20_dots,
+                -- Career (all IPL)
+                SUM(batter_runs) AS career_runs,
+                SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END) AS career_balls,
+                SUM(CASE WHEN is_wicket AND player_out_id = batter_id
+                         THEN 1 ELSE 0 END) AS career_dismissals
+            FROM tagged
+            GROUP BY batter_id
+        )
+        SELECT
+            sq.team_name,
+            dp.player_id   AS batter_id,
+            dp.current_name AS batter_name,
+            -- Last 10
+            a.last10_innings,
+            a.last10_runs,
+            a.last10_balls,
+            ROUND(a.last10_runs * 100.0
+                  / NULLIF(a.last10_balls, 0), 2)          AS last10_sr,
+            ROUND(a.last10_runs * 1.0
+                  / NULLIF(a.last10_dismissals, 0), 2)     AS last10_avg,
+            ROUND(a.last10_boundaries * 100.0
+                  / NULLIF(a.last10_balls, 0), 2)           AS last10_boundary_pct,
+            ROUND(a.last10_dots * 100.0
+                  / NULLIF(a.last10_balls, 0), 2)           AS last10_dot_pct,
+            -- Last 20
+            a.last20_innings,
+            a.last20_runs,
+            a.last20_balls,
+            ROUND(a.last20_runs * 100.0
+                  / NULLIF(a.last20_balls, 0), 2)          AS last20_sr,
+            ROUND(a.last20_runs * 1.0
+                  / NULLIF(a.last20_dismissals, 0), 2)     AS last20_avg,
+            ROUND(a.last20_boundaries * 100.0
+                  / NULLIF(a.last20_balls, 0), 2)           AS last20_boundary_pct,
+            ROUND(a.last20_dots * 100.0
+                  / NULLIF(a.last20_balls, 0), 2)           AS last20_dot_pct,
+            -- Career
+            ROUND(a.career_runs * 100.0
+                  / NULLIF(a.career_balls, 0), 2)           AS career_sr,
+            ROUND(a.career_runs * 1.0
+                  / NULLIF(a.career_dismissals, 0), 2)     AS career_avg,
+            -- Form vs career deltas
+            ROUND((a.last10_runs * 100.0 / NULLIF(a.last10_balls, 0))
+                - (a.career_runs * 100.0 / NULLIF(a.career_balls, 0)), 2)
+                                                            AS sr_delta_last10,
+            ROUND((a.last20_runs * 100.0 / NULLIF(a.last20_balls, 0))
+                - (a.career_runs * 100.0 / NULLIF(a.career_balls, 0)), 2)
+                                                            AS sr_delta_last20
+        FROM agg a
+        JOIN dim_player dp ON a.batter_id = dp.player_id
+        JOIN ipl_2026_squads sq ON dp.player_id = sq.player_id
+    """)
+    print("  - analytics_ipl_batter_recent_form")
+
+    # ── View 2: Bowler Recent Form ──────────────────────────────
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_bowler_recent_form AS
+        WITH ipl_balls AS (
+            SELECT
+                fb.bowler_id,
+                fb.match_id,
+                dm.match_date,
+                fb.batter_runs,
+                fb.extra_runs,
+                fb.total_runs,
+                fb.is_legal_ball,
+                fb.is_wicket,
+                fb.wicket_type
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+        ),
+        match_ranked AS (
+            SELECT
+                bowler_id,
+                match_id,
+                DENSE_RANK() OVER (
+                    PARTITION BY bowler_id
+                    ORDER BY MAX(match_date) DESC, match_id DESC
+                ) AS match_rank
+            FROM ipl_balls
+            GROUP BY bowler_id, match_id
+        ),
+        tagged AS (
+            SELECT
+                ib.*,
+                mr.match_rank
+            FROM ipl_balls ib
+            JOIN match_ranked mr
+              ON ib.bowler_id = mr.bowler_id
+             AND ib.match_id  = mr.match_id
+        ),
+        agg AS (
+            SELECT
+                bowler_id,
+                -- Last 10 matches
+                COUNT(DISTINCT CASE WHEN match_rank <= 10 THEN match_id END)
+                    AS last10_matches,
+                SUM(CASE WHEN match_rank <= 10 AND is_legal_ball THEN 1 ELSE 0 END)
+                    AS last10_balls,
+                SUM(CASE WHEN match_rank <= 10 THEN total_runs ELSE 0 END)
+                    AS last10_runs_conceded,
+                SUM(CASE WHEN match_rank <= 10 AND is_wicket
+                         AND wicket_type NOT IN (
+                             'run out', 'retired hurt',
+                             'retired out', 'obstructing the field')
+                         THEN 1 ELSE 0 END)
+                    AS last10_wickets,
+                SUM(CASE WHEN match_rank <= 10 AND batter_runs = 0
+                         AND extra_runs = 0 THEN 1 ELSE 0 END)
+                    AS last10_dots,
+                -- Last 20 matches
+                COUNT(DISTINCT CASE WHEN match_rank <= 20 THEN match_id END)
+                    AS last20_matches,
+                SUM(CASE WHEN match_rank <= 20 AND is_legal_ball THEN 1 ELSE 0 END)
+                    AS last20_balls,
+                SUM(CASE WHEN match_rank <= 20 THEN total_runs ELSE 0 END)
+                    AS last20_runs_conceded,
+                SUM(CASE WHEN match_rank <= 20 AND is_wicket
+                         AND wicket_type NOT IN (
+                             'run out', 'retired hurt',
+                             'retired out', 'obstructing the field')
+                         THEN 1 ELSE 0 END)
+                    AS last20_wickets,
+                SUM(CASE WHEN match_rank <= 20 AND batter_runs = 0
+                         AND extra_runs = 0 THEN 1 ELSE 0 END)
+                    AS last20_dots,
+                -- Career (all IPL)
+                SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END)
+                    AS career_balls,
+                SUM(total_runs) AS career_runs_conceded,
+                SUM(CASE WHEN is_wicket
+                         AND wicket_type NOT IN (
+                             'run out', 'retired hurt',
+                             'retired out', 'obstructing the field')
+                         THEN 1 ELSE 0 END)
+                    AS career_wickets
+            FROM tagged
+            GROUP BY bowler_id
+        )
+        SELECT
+            sq.team_name,
+            dp.player_id    AS bowler_id,
+            dp.current_name AS bowler_name,
+            -- Last 10
+            a.last10_matches,
+            ROUND(a.last10_balls / 6.0, 1)                 AS last10_overs,
+            a.last10_wickets,
+            ROUND(a.last10_runs_conceded * 6.0
+                  / NULLIF(a.last10_balls, 0), 2)          AS last10_economy,
+            ROUND(a.last10_balls * 1.0
+                  / NULLIF(a.last10_wickets, 0), 2)        AS last10_sr,
+            ROUND(a.last10_dots * 100.0
+                  / NULLIF(a.last10_balls, 0), 2)          AS last10_dot_pct,
+            -- Last 20
+            a.last20_matches,
+            ROUND(a.last20_balls / 6.0, 1)                 AS last20_overs,
+            a.last20_wickets,
+            ROUND(a.last20_runs_conceded * 6.0
+                  / NULLIF(a.last20_balls, 0), 2)          AS last20_economy,
+            ROUND(a.last20_balls * 1.0
+                  / NULLIF(a.last20_wickets, 0), 2)        AS last20_sr,
+            ROUND(a.last20_dots * 100.0
+                  / NULLIF(a.last20_balls, 0), 2)          AS last20_dot_pct,
+            -- Career
+            ROUND(a.career_runs_conceded * 6.0
+                  / NULLIF(a.career_balls, 0), 2)          AS career_economy,
+            ROUND(a.career_balls * 1.0
+                  / NULLIF(a.career_wickets, 0), 2)        AS career_sr,
+            -- Form vs career deltas
+            ROUND((a.last10_runs_conceded * 6.0 / NULLIF(a.last10_balls, 0))
+                - (a.career_runs_conceded * 6.0 / NULLIF(a.career_balls, 0)), 2)
+                                                            AS economy_delta_last10,
+            ROUND((a.last20_runs_conceded * 6.0 / NULLIF(a.last20_balls, 0))
+                - (a.career_runs_conceded * 6.0 / NULLIF(a.career_balls, 0)), 2)
+                                                            AS economy_delta_last20
+        FROM agg a
+        JOIN dim_player dp ON a.bowler_id = dp.player_id
+        JOIN ipl_2026_squads sq ON dp.player_id = sq.player_id
+    """)
+    print("  - analytics_ipl_bowler_recent_form")
+
+    # Verify row counts
+    for vw in [
+        "analytics_ipl_batter_recent_form",
+        "analytics_ipl_bowler_recent_form",
+    ]:
+        try:
+            count = conn.execute(f"SELECT COUNT(*) FROM {vw}").fetchone()[0]
+            print(f"  - {vw}: {count} rows")
+        except Exception as exc:
+            print(f"  ERROR verifying {vw}: {exc}")
+
+
+def create_matchup_matrix_views(conn: duckdb.DuckDBPyConnection) -> None:
+    """Create team-level and player-level matchup matrix views.
+
+    EPIC-013: Cross-team and head-to-head matchup analysis
+    filtered to IPL 2026 squad members (since 2023).
+    """
+
+    print("\nCreating Matchup Matrix views (EPIC-013)...")
+
+    # ── View 3: Team Matchup Batting ────────────────────────────
+    conn.execute(f"""
+        CREATE OR REPLACE VIEW analytics_ipl_team_matchup_batting AS
+        SELECT
+            sq_bat.team_name                               AS batting_team,
+            sq_bowl.team_name                              AS bowling_team,
+            COUNT(DISTINCT fb.batter_id)                   AS batters_faced,
+            COUNT(DISTINCT fb.bowler_id)                   AS bowlers_faced,
+            COUNT(DISTINCT fb.match_id)                    AS matches,
+            SUM(fb.batter_runs)                            AS total_runs,
+            SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END)
+                                                           AS total_balls,
+            ROUND(SUM(fb.batter_runs) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2)
+                                                           AS strike_rate,
+            ROUND(SUM(fb.batter_runs) * 6.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2)
+                                                           AS run_rate,
+            SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id
+                     THEN 1 ELSE 0 END)                    AS wickets,
+            SUM(CASE WHEN fb.batter_runs IN (4, 6) THEN 1 ELSE 0 END)
+                                                           AS boundaries,
+            SUM(CASE WHEN fb.batter_runs = 0 AND fb.is_legal_ball
+                     THEN 1 ELSE 0 END)                    AS dot_balls,
+            ROUND(SUM(CASE WHEN fb.batter_runs IN (4, 6) THEN 1 ELSE 0 END) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2)
+                                                           AS boundary_pct,
+            ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.is_legal_ball
+                           THEN 1 ELSE 0 END) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2)
+                                                           AS dot_ball_pct
+        FROM fact_ball fb
+        JOIN dim_match dm ON fb.match_id = dm.match_id
+        JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+        JOIN ipl_2026_squads sq_bat  ON fb.batter_id = sq_bat.player_id
+        JOIN ipl_2026_squads sq_bowl ON fb.bowler_id = sq_bowl.player_id
+        WHERE dt.tournament_name = 'Indian Premier League'
+          AND dm.match_date >= '{IPL_MIN_DATE}'
+          AND sq_bat.team_name != sq_bowl.team_name
+        GROUP BY sq_bat.team_name, sq_bowl.team_name
+    """)
+    print("  - analytics_ipl_team_matchup_batting")
+
+    # ── View 4: Player Matchup Matrix ───────────────────────────
+    conn.execute(f"""
+        CREATE OR REPLACE VIEW analytics_ipl_player_matchup_matrix AS
+        WITH raw AS (
+            SELECT
+                fb.batter_id,
+                dp_bat.current_name  AS batter_name,
+                sq_bat.team_name     AS batter_team,
+                fb.bowler_id,
+                dp_bowl.current_name AS bowler_name,
+                sq_bowl.team_name    AS bowler_team,
+                fb.batter_runs,
+                fb.is_legal_ball,
+                fb.is_wicket,
+                fb.player_out_id
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            JOIN dim_player dp_bat  ON fb.batter_id  = dp_bat.player_id
+            JOIN dim_player dp_bowl ON fb.bowler_id   = dp_bowl.player_id
+            JOIN ipl_2026_squads sq_bat  ON fb.batter_id = sq_bat.player_id
+            JOIN ipl_2026_squads sq_bowl ON fb.bowler_id = sq_bowl.player_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '{IPL_MIN_DATE}'
+              AND fb.is_legal_ball = TRUE
+        )
+        SELECT
+            batter_id,
+            batter_name,
+            batter_team,
+            bowler_id,
+            bowler_name,
+            bowler_team,
+            COUNT(*)                                       AS balls,
+            SUM(batter_runs)                               AS runs,
+            SUM(CASE WHEN is_wicket AND player_out_id = batter_id
+                     THEN 1 ELSE 0 END)                    AS dismissals,
+            ROUND(SUM(batter_runs) * 100.0
+                  / NULLIF(COUNT(*), 0), 2)                AS strike_rate,
+            ROUND(SUM(batter_runs) * 1.0
+                  / NULLIF(SUM(CASE WHEN is_wicket AND player_out_id = batter_id
+                                    THEN 1 ELSE 0 END), 0), 2)
+                                                           AS average,
+            SUM(CASE WHEN batter_runs = 0 THEN 1 ELSE 0 END)
+                                                           AS dots,
+            SUM(CASE WHEN batter_runs IN (4, 6) THEN 1 ELSE 0 END)
+                                                           AS boundaries,
+            ROUND(SUM(CASE WHEN batter_runs = 0 THEN 1 ELSE 0 END) * 100.0
+                  / NULLIF(COUNT(*), 0), 2)                AS dot_pct,
+            ROUND(SUM(CASE WHEN batter_runs IN (4, 6) THEN 1 ELSE 0 END) * 100.0
+                  / NULLIF(COUNT(*), 0), 2)                AS boundary_pct,
+            CASE WHEN COUNT(*) < 10 THEN 'LOW'
+                 WHEN COUNT(*) < 30 THEN 'MEDIUM'
+                 ELSE 'HIGH' END                           AS sample_size
+        FROM raw
+        GROUP BY batter_id, batter_name, batter_team,
+                 bowler_id, bowler_name, bowler_team
+        HAVING COUNT(*) >= 10
+    """)
+    print("  - analytics_ipl_player_matchup_matrix")
+
+    # Verify row counts
+    for vw in [
+        "analytics_ipl_team_matchup_batting",
+        "analytics_ipl_player_matchup_matrix",
+    ]:
+        try:
+            count = conn.execute(f"SELECT COUNT(*) FROM {vw}").fetchone()[0]
+            print(f"  - {vw}: {count} rows")
+        except Exception as exc:
+            print(f"  ERROR verifying {vw}: {exc}")
+
+
 def main() -> int:
     """Main entry point."""
 
@@ -4372,6 +4774,8 @@ def main() -> int:
     create_tournament_weights_table(conn)
     create_weighted_composite_views(conn)
     create_team_phase_views(conn)
+    create_recent_form_views(conn)
+    create_matchup_matrix_views(conn)
 
     # Verify
     verify_views(conn)

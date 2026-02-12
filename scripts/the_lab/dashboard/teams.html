@@ -1041,6 +1041,144 @@
             line-height: 1.6;
         }
 
+        /* Pressure & Momentum */
+        .momentum-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .momentum-card {
+            background: var(--surface-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 16px;
+        }
+        .momentum-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .momentum-card-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+        }
+        .momentum-rating {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .momentum-rating.elite { background: rgba(48, 209, 88, 0.15); color: var(--accent-green); }
+        .momentum-rating.strong { background: rgba(10, 132, 255, 0.15); color: var(--accent-blue); }
+        .momentum-rating.average { background: rgba(255, 214, 10, 0.15); color: var(--accent-yellow); }
+        .momentum-rating.weak { background: rgba(255, 69, 58, 0.15); color: var(--accent-red); }
+        .momentum-rating.explosive { background: rgba(191, 90, 242, 0.15); color: var(--accent-purple); }
+        .momentum-rating.limited { background: rgba(255, 69, 58, 0.15); color: var(--accent-red); }
+        .momentum-stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 0;
+            border-bottom: 1px solid var(--border-primary);
+            font-size: 12px;
+        }
+        .momentum-stat-row:last-child { border-bottom: none; }
+        .momentum-player-name {
+            color: var(--text-primary);
+            font-weight: 600;
+            flex: 1;
+        }
+        .momentum-stat-value {
+            color: var(--text-secondary);
+            font-size: 11px;
+            text-align: right;
+            min-width: 80px;
+        }
+        .momentum-stat-value .highlight {
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+        .momentum-team-summary {
+            display: flex;
+            gap: 16px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border-primary);
+            font-size: 11px;
+            color: var(--text-tertiary);
+        }
+        .clutch-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .clutch-card {
+            background: var(--surface-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 16px;
+        }
+        .clutch-card.positive { border-color: rgba(48, 209, 88, 0.25); }
+        .clutch-card.negative { border-color: rgba(255, 69, 58, 0.25); }
+        .clutch-card-header {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .clutch-card.positive .clutch-card-header { color: var(--accent-green); }
+        .clutch-card.negative .clutch-card-header { color: var(--accent-red); }
+        .clutch-player-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+            font-size: 12px;
+        }
+        .clutch-delta {
+            font-weight: 700;
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+        .clutch-delta.positive { background: rgba(48, 209, 88, 0.12); color: var(--accent-green); }
+        .clutch-delta.negative { background: rgba(255, 69, 58, 0.12); color: var(--accent-red); }
+        .flower-insight-box {
+            background: linear-gradient(135deg, rgba(48, 209, 88, 0.05) 0%, rgba(10, 132, 255, 0.05) 100%);
+            border: 1px solid rgba(48, 209, 88, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+        }
+        .flower-insight-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent-green);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .flower-insight-text {
+            font-size: 12.5px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            font-style: italic;
+        }
+
         /* Two-column layout */
         .strategy-two-col {
             display: grid;
@@ -1055,6 +1193,8 @@
             .trend-season-grid { grid-template-columns: 1fr; }
             .venue-phase-grid { grid-template-columns: 1fr; }
             .phase-trend-grid { grid-template-columns: 1fr; }
+            .momentum-grid { grid-template-columns: 1fr; }
+            .clutch-grid { grid-template-columns: 1fr; }
         }
 
         /* Impact Player */
@@ -2465,6 +2605,7 @@
     <script src="data/pressure_metrics.js"></script>
     <script src="data/venue_data.js"></script>
     <script src="data/historic_trends.js"></script>
+    <script src="data/momentum_insights.js"></script>
 
     <script>
         // Pixelated Team Logos (8x8 grid style)
@@ -3065,8 +3206,108 @@
                 </div>`;
             }
 
+            // ===== Build Section 5: Pressure & Momentum =====
+            let section5HTML = '';
+            const mTeam = (typeof MOMENTUM_INSIGHTS !== 'undefined' && MOMENTUM_INSIGHTS.teams) ? MOMENTUM_INSIGHTS.teams[currentTeam] : null;
+            if (mTeam) {
+                const bp = mTeam.bowlingPressure;
+                const br = mTeam.battingResilience;
+                const cp = mTeam.clutchPerformers;
+
+                const ratingClass = (r) => r ? r.toLowerCase().replace(/\s/g, '') : 'average';
+
+                const bowlerRows = (bp.topBowlers || []).map(b => `
+                    <div class="momentum-stat-row">
+                        <span class="momentum-player-name">${b.name}</span>
+                        <span class="momentum-stat-value">Avg <span class="highlight">${b.avgLength.toFixed(1)}</span> dots &middot; Max ${b.maxLength} &middot; ${b.dotSequences} seq</span>
+                    </div>`).join('');
+
+                const batterRows = (br.topBatters || []).map(b => `
+                    <div class="momentum-stat-row">
+                        <span class="momentum-player-name">${b.name}</span>
+                        <span class="momentum-stat-value">Avg <span class="highlight">${b.avgLength.toFixed(1)}</span> bdry &middot; Max ${b.maxLength} &middot; ${b.boundarySequences} seq</span>
+                    </div>`).join('');
+
+                const clutchRows = (cp.topClutch || []).map(p => `
+                    <div class="clutch-player-row">
+                        <span class="momentum-player-name">${p.name}</span>
+                        <span style="color: var(--text-tertiary); font-size: 11px;">${p.normalSR.toFixed(1)} &rarr; ${p.pressureSR.toFixed(1)}</span>
+                        <span class="clutch-delta positive">${p.delta}</span>
+                    </div>`).join('');
+
+                const chokeRows = (cp.chokeRisks || []).map(p => `
+                    <div class="clutch-player-row">
+                        <span class="momentum-player-name">${p.name}</span>
+                        <span style="color: var(--text-tertiary); font-size: 11px;">${p.normalSR.toFixed(1)} &rarr; ${p.pressureSR.toFixed(1)}</span>
+                        <span class="clutch-delta negative">${p.delta}</span>
+                    </div>`).join('');
+
+                const avgDelta = cp.teamAvgDelta || 0;
+                const deltaColor = avgDelta >= 0 ? 'var(--accent-green)' : 'var(--accent-red)';
+                const deltaSign = avgDelta >= 0 ? '+' : '';
+
+                section5HTML = `
+                <div class="strategy-section">
+                    <div class="strategy-section-header">
+                        <div class="strategy-section-title">Pressure & Momentum</div>
+                        <span class="strategy-section-badge" style="background: rgba(191, 90, 242, 0.15); color: var(--accent-purple);">Sequences</span>
+                    </div>
+
+                    <div class="momentum-grid">
+                        <div class="momentum-card">
+                            <div class="momentum-card-header">
+                                <span class="momentum-card-title">Bowling Pressure</span>
+                                <span class="momentum-rating ${ratingClass(bp.rating)}">${bp.rating}</span>
+                            </div>
+                            ${bowlerRows}
+                            <div class="momentum-team-summary">
+                                <span>Total sequences: <strong>${bp.teamTotalSequences}</strong></span>
+                                <span>Best streak: <strong>${bp.bestMaxStreak}</strong> dots</span>
+                            </div>
+                        </div>
+                        <div class="momentum-card">
+                            <div class="momentum-card-header">
+                                <span class="momentum-card-title">Batting Resilience</span>
+                                <span class="momentum-rating ${ratingClass(br.rating)}">${br.rating}</span>
+                            </div>
+                            ${batterRows}
+                            <div class="momentum-team-summary">
+                                <span>Total sequences: <strong>${br.teamTotalSequences}</strong></span>
+                                <span>Best streak: <strong>${br.bestMaxStreak}</strong> boundaries</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clutch-grid">
+                        <div class="clutch-card positive">
+                            <div class="clutch-card-header">
+                                <span>&#9650;</span> Clutch Performers
+                            </div>
+                            ${clutchRows}
+                        </div>
+                        <div class="clutch-card negative">
+                            <div class="clutch-card-header">
+                                <span>&#9660;</span> Choke Risks
+                            </div>
+                            ${chokeRows}
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; font-size: 12px; color: var(--text-tertiary); margin-bottom: 16px;">
+                        Team Avg Pressure Delta: <span style="color: ${deltaColor}; font-weight: 700;">${deltaSign}${avgDelta.toFixed(1)}</span> SR points
+                    </div>
+
+                    <div class="flower-insight-box">
+                        <div class="flower-insight-label">
+                            <span>&#127793;</span> Andy Flower &mdash; Pressure Analysis
+                        </div>
+                        <div class="flower-insight-text">"${mTeam.andyFlowerInsight}"</div>
+                    </div>
+                </div>`;
+            }
+
             // ===== Assemble Full Strategy Outlook =====
-            balanceContent.innerHTML = section1HTML + section2HTML + section3HTML + section4HTML;
+            balanceContent.innerHTML = section1HTML + section2HTML + section3HTML + section4HTML + section5HTML;
 
             // Depth Chart (full inline display)
             const depthContent = document.getElementById('depth-content');

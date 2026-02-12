@@ -1,6 +1,6 @@
 # Punjab Kings (PBKS) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 20:25
+**Generated:** 2026-02-12 20:54
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -129,7 +129,7 @@
 
 - **2023:** Arshdeep Singh (17w @ 9.2), NT Ellis (13w @ 8.81), SM Curran (10w @ 9.97)
 - **2024:** HV Patel (24w @ 9.18), Arshdeep Singh (19w @ 9.46), SM Curran (16w @ 9.97)
-- **2025:** Arshdeep Singh (21w @ 8.62), YS Chahal (16w @ 9.34), M Jansen (16w @ 8.96)
+- **2025:** Arshdeep Singh (21w @ 8.62), M Jansen (16w @ 8.96), YS Chahal (16w @ 9.34)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -246,9 +246,9 @@
 |-------|---------|------|------|-----------|
 | Himachal Pradesh Cricket Associatio | 6 | 1 | 16.7% | 177.2 |
 | Narendra Modi Stadium | 4 | 3 | 75.0% | 208.5 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
 | Eden Gardens | 3 | 1 | 33.3% | 214.0 |
 | Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
 | MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
 | M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
@@ -263,11 +263,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -295,10 +295,10 @@
 | Yash Thakur | Bharat Ratna Shri Atal Bi | 8 | 12 | 9.19 | 14.42 |
 | Arshdeep Singh | Maharaja Yadavindra Singh | 10 | 11 | 8.64 | 18.0 |
 | Vijaykumar Vyshak | M Chinnaswamy Stadium | 8 | 10 | 9.8 | 17.7 |
+| Arshdeep Singh | Himachal Pradesh Cricket  | 5 | 7 | 9.0 | 14.57 |
 | Arshdeep Singh | Punjab Cricket Associatio | 5 | 7 | 10.78 | 16.14 |
 | YS Chahal | MA Chidambaram Stadium | 4 | 7 | 7.33 | 12.86 |
-| Arshdeep Singh | Himachal Pradesh Cricket  | 5 | 7 | 9.0 | 14.57 |
-| M Jansen | Sawai Mansingh Stadium | 4 | 6 | 10.48 | 15.17 |
+| M Jansen | Rajiv Gandhi Internationa | 6 | 6 | 9.94 | 18.0 |
 | YS Chahal | Barsapara Cricket Stadium | 3 | 6 | 8.75 | 12.0 |
 
 
@@ -484,9 +484,9 @@
 | Sunrisers Hyderabad | 4 | 90 | 121 | 8 | 8.07 | 15.13 | 11.25 | 45.56 | 23.33 | MEDIUM |
 | Royal Challengers Bengaluru | 7 | 134 | 223 | 8 | 9.99 | 27.88 | 16.75 | 32.09 | 25.37 | HIGH |
 | Mumbai Indians | 5 | 113 | 196 | 7 | 10.41 | 28.0 | 16.14 | 30.97 | 29.2 | HIGH |
-| Kolkata Knight Riders | 4 | 84 | 112 | 6 | 8.0 | 18.67 | 14.0 | 46.43 | 20.24 | MEDIUM |
 | Rajasthan Royals | 6 | 143 | 247 | 6 | 10.36 | 41.17 | 23.83 | 40.56 | 27.97 | HIGH |
 | Chennai Super Kings | 5 | 116 | 180 | 6 | 9.31 | 30.0 | 19.33 | 34.48 | 25.0 | HIGH |
+| Kolkata Knight Riders | 4 | 84 | 112 | 6 | 8.0 | 18.67 | 14.0 | 46.43 | 20.24 | MEDIUM |
 | Gujarat Titans | 4 | 85 | 124 | 4 | 8.75 | 31.0 | 21.25 | 30.59 | 18.82 | MEDIUM |
 | Delhi Capitals | 4 | 84 | 112 | 2 | 8.0 | 56.0 | 42.0 | 39.29 | 19.05 | MEDIUM |
 
@@ -501,8 +501,8 @@
 | Delhi Capitals | 3 | 66 | 93 | 6 | 8.45 | 15.5 | 11.0 | 28.79 | 15.15 | MEDIUM |
 | Mumbai Indians | 4 | 90 | 129 | 5 | 8.6 | 25.8 | 18.0 | 36.67 | 20.0 | MEDIUM |
 | Punjab Kings | 4 | 96 | 147 | 4 | 9.19 | 36.75 | 24.0 | 25.0 | 19.79 | MEDIUM |
-| Lucknow Super Giants | 5 | 114 | 189 | 3 | 9.95 | 63.0 | 38.0 | 25.44 | 21.05 | HIGH |
 | Gujarat Titans | 4 | 89 | 134 | 3 | 9.03 | 44.67 | 29.67 | 17.98 | 15.73 | MEDIUM |
+| Lucknow Super Giants | 5 | 114 | 189 | 3 | 9.95 | 63.0 | 38.0 | 25.44 | 21.05 | HIGH |
 | Rajasthan Royals | 2 | 42 | 57 | 0 | 8.14 | - | - | 23.81 | 14.29 | MEDIUM |
 
 ---
@@ -536,25 +536,142 @@
 
 ## 10. Andy Flower's Tactical Insights
 
+*Comprehensive tactical analysis — IPL 2023+ data with league benchmark context. "Pro team prep, packaged for public consumption."*
 
-### 10.1 Death Bowling Options
+### 10.1 Phase-by-Phase Tactical Profile
 
-- **M Jansen**: 11.2 overs, 8 wickets, 9.85 economy (over-performs)
-- **YS Chahal**: 33.0 overs, 21 wickets, 9.88 economy (over-performs)
-- **Arshdeep Singh**: 52.5 overs, 29 wickets, 9.96 economy (over-performs)
+#### Powerplay (overs 1-6)
 
-### 10.2 Powerplay Batting Options
+**Batting**
 
-- **Priyansh Arya**: SR 176.96, Boundary% 30.88% (18 innings)
-- **Prabhsimran Singh**: SR 149.57, Boundary% 25.04% (49 innings)
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Shreyas Iyer** | 97 | 113 | 31.4 | 16.8 | -33.6 |
+| **Prabhsimran Singh** | 49 | 150 | 33.5 | 25.0 | +3.2 |
+| **Priyansh Arya** | 18 | 177 | 29.5 | 30.9 | +30.6 |
+| **Marcus Stoinis** | 31 | 123 | 29.6 | 20.4 | -23.0 |
 
-### 10.3 Potential Spin Vulnerabilities
+**Bowling**
 
-*Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Arshdeep Singh** | 138 | 8.9 | 36 | 42.1 | +0.4 |
+| **Yuzvendra Chahal** | 67.3 | 8.0 | 18 | 42.3 | +1.3 |
+| **Marco Jansen** | 67 | 9.0 | 17 | 46.3 | +0.2 |
 
-*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
+*Batting intent in the powerplay is a concern — the top option **Shreyas Iyer** strikes at just 112.7, well below the league benchmark of 146.3. **Arshdeep Singh** leads the powerplay bowling at 8.9 economy with 36 wickets — adequate but not dominant against the league average of 9.3.*
 
-- **Shashank Singh** vs LA orthodox: SR 100.0, Avg 18.33, BPD 18.33 (55 balls)
+#### Middle Overs (7-15)
+
+**Batting**
+
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Shreyas Iyer** | 98 | 134 | 39.4 | 14.8 | -6.0 |
+| **Marcus Stoinis** | 65 | 130 | 29.1 | 14.4 | -10.3 |
+| **Nehal Wadhera** | 26 | 140 | 44.4 | 18.9 | 0.0 |
+| **Prabhsimran Singh** | 24 | 157 | 20.2 | 20.9 | +16.7 |
+
+**Bowling**
+
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Yuzvendra Chahal** | 457 | 7.8 | 138 | 33.2 | +1.0 |
+| **Harpreet Brar** | 103 | 7.4 | 30 | 34.0 | +1.3 |
+| **Marcus Stoinis** | 94.2 | 9.2 | 20 | 26.6 | -0.4 |
+
+*Batting in the middle overs is league-standard, led by **Shreyas Iyer** (134 SR across 98 innings). **Yuzvendra Chahal** leads the middle overs bowling at 7.8 economy with 138 wickets — adequate but not dominant against the league average of 8.8.*
+
+#### Death Overs (16-20)
+
+**Batting**
+
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Marcus Stoinis** | 57 | 178 | 27.6 | 24.5 | +7.9 |
+| **Shreyas Iyer** | 44 | 181 | 27.9 | 24.6 | +10.6 |
+| **Harnoor Singh** | 75 | 153 | 16 | 22.5 | -17.7 |
+| **Shashank Singh** | 24 | 194 | 42.4 | 26.5 | +23.4 |
+
+**Bowling**
+
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Yuzvendra Chahal** | 107 | 9.5 | 65 | 28.6 | +1.4 |
+| **Arshdeep Singh** | 99.7 | 9.8 | 49 | 28.9 | +1.1 |
+| **Lockie Ferguson** | 52.2 | 10.7 | 17 | 28.1 | +0.1 |
+
+*Batting in the death overs is league-standard, led by **Marcus Stoinis** (178 SR across 57 innings). **Yuzvendra Chahal** provides elite death overs control at 9.5 economy — 1.4 runs per over cheaper than the league average.*
+
+### 10.2 Batter Tendencies: Pace vs Spin Profile
+
+| Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
+|--------|-----------|-----------|-----------|-----------|----------|
+| **P Simran Singh** | 157 | 157 | 25.9 | 22.7 | Balanced |
+| **MP Stoinis** | 161 | 141 | 23.9 | 16.7 | Pace Dominant |
+| **SS Iyer** | 167 | 159 | 24.1 | 18.7 | Balanced |
+| **N Wadhera** | 139 | 148 | 19.9 | 19.7 | Balanced |
+| **Shashank Singh** | 172 | 138 | 23.8 | 14.7 | Pace Dominant |
+| **Priyansh Arya** | 185 | 176 | 32.3 | 23.8 | Balanced |
+| **M Jansen** | 109 | 115 | 10.6 | 11.8 | Balanced |
+| **Harpreet Brar** | 132 | 115 | 17.1 | 15.4 | Pace Dominant |
+
+*Exploitable vs spin: **M Jansen** (115 SR), **Harpreet Brar** (115 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **MP Stoinis** (161 SR), **SS Iyer** (167 SR), **Shashank Singh** (172 SR), **Priyansh Arya** (185 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+
+### 10.3 Pace Attack Intelligence
+
+| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Wkt Rate |
+|--------|---------|----------|------------|------------|----------|
+| **Arshdeep Singh** | 8.9 | 8.7 | 10.0 | Middle | 0.36 |
+| **M Jansen** | 8.9 | 9.8 | 9.8 | PP | 0.32 |
+| **Yash Thakur** | 9.9 | 9.4 | 10.9 | Middle | 0.34 |
+| **Vijaykumar Vyshak** | 9.1 | 9.1 | 11.9 | Middle | 0.31 |
+| **LH Ferguson** | 10.7 | 9.1 | 11.0 | Middle | 0.35 |
+| **Azmatullah Omarzai** | 9.6 | 8.2 | 12 | Middle | 0.25 |
+| **MP Stoinis** | 8.2 | 9.5 | 14.2 | PP | 0.26 |
+
+***M Jansen** is the designated death option at 9.8 economy (league avg 10.9). **MP Stoinis** should lead the powerplay attack (8.2 economy).*
+
+### 10.4 Spin Attack Intelligence
+
+| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Control Rating |
+|--------|---------|----------|------------|------------|----------------|
+| **YS Chahal** | 5.3 | 8.7 | 9.9 | PP | 28.3% |
+| **Harpreet Brar** | 10.1 | 7.2 | 10.5 | Middle | 31.7% |
+
+***Harpreet Brar** is the middle-overs anchor at 7.2 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **Harpreet Brar** offers a viable death option at 10.5 economy, giving the captain tactical flexibility. Spin dependency is high with 243 combined overs across 2 spinners — a strength on turning pitches but a risk on pace-friendly surfaces.*
+
+### 10.5 Key Vulnerabilities & Matchup Risks
+
+#### Phase Gaps
+
+- **Powerplay**: batting SR 133.7 vs league 146.3
+- **Middle**: batting SR 129.6 vs league 140.3
+
+#### Spin Vulnerability Risk
+
+- **Shashank Singh** vs LA orthodox: SR 100, Avg 18.3, BPD 18.3 (55 balls, league avg 138.7)
+
+#### Pace Vulnerability Risk
+
+- **Harpreet Brar** vs Fast: SR 102, Avg 10.6 (52 balls, league avg vs pace ~151)
+- **M Jansen** vs Fast: SR 116, Avg 28.7 (74 balls, league avg vs pace ~151)
+
+#### Structural Concerns
+
+- No critical structural concerns identified — squad depth is adequate across all phases.
+
+### 10.6 Andy Flower's Tactical Summary
+
+This squad's competitive advantages are clear: death bowling (Yuzvendra Chahal at 9.5 economy). These are non-negotiable pillars — the coaching staff must build match plans around protecting and maximizing these phase strengths. Any game plan that doesn't feature these assets prominently is leaving runs on the table.
+
+The vulnerability to exploit: under-par powerplay batting. Opposition teams will target these phases — the captain must have contingency plans ready. In high-stakes matches, these weaknesses will be tested repeatedly, and the response must be pre-planned, not reactive.
+
+The data suggests a well-rounded squad with no glaring tactical gaps. The coaching priority should be maintaining peak performance levels across phases and ensuring tactical flexibility for different match situations. Roster management and workload planning across the tournament will be the real differentiator.
+
+---
+*Tactical analysis based on IPL 2023-2025 ball-by-ball data with league benchmark comparisons. All players filtered to 2026 squad.*
+
 
 ---
 

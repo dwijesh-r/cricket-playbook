@@ -1,6 +1,6 @@
 # Delhi Capitals (DC) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 20:25
+**Generated:** 2026-02-12 20:53
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -132,8 +132,8 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** MR Marsh (12w @ 7.82), AR Patel (11w @ 7.17), Kuldeep Yadav (10w @ 7.32)
-- **2024:** KK Ahmed (17w @ 9.13), Mukesh Kumar (17w @ 10.2), Kuldeep Yadav (16w @ 8.45)
+- **2023:** MR Marsh (12w @ 7.82), AR Patel (11w @ 7.17), I Sharma (10w @ 8.03)
+- **2024:** Mukesh Kumar (17w @ 10.2), KK Ahmed (17w @ 9.13), Kuldeep Yadav (16w @ 8.45)
 - **2025:** Kuldeep Yadav (15w @ 7.26), MA Starc (14w @ 10.09), Mukesh Kumar (12w @ 9.67)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -252,9 +252,9 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Dr. Y.S. Rajasekhara Reddy ACA-VDCA | 4 | 3 | 75.0% | 183.5 |
+| Narendra Modi Stadium | 3 | 2 | 66.7% | 141.7 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 158.0 |
 | M Chinnaswamy Stadium | 3 | 1 | 33.3% | 153.3 |
-| Narendra Modi Stadium | 3 | 2 | 66.7% | 141.7 |
 | Wankhede Stadium | 2 | 0 | 0.0% | 163.0 |
 | Rajiv Gandhi International Stadium | 2 | 1 | 50.0% | 138.5 |
 | Himachal Pradesh Cricket Associatio | 2 | 1 | 50.0% | 213.0 |
@@ -273,8 +273,8 @@
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -301,10 +301,10 @@
 |--------|-------|---------|------|------|-----|
 | AR Patel | Arun Jaitley Stadium | 16 | 13 | 7.66 | 23.08 |
 | MA Starc | Dr. Y.S. Rajasekhara Redd | 3 | 10 | 9.28 | 6.4 |
+| Mukesh Kumar | Bharat Ratna Shri Atal Bi | 3 | 5 | 8.83 | 14.4 |
+| T Natarajan | Arun Jaitley Stadium | 3 | 5 | 9.18 | 13.2 |
 | Kuldeep Yadav | M Chinnaswamy Stadium | 3 | 5 | 7.83 | 14.4 |
 | Kuldeep Yadav | Dr. Y.S. Rajasekhara Redd | 2 | 5 | 5.38 | 9.6 |
-| T Natarajan | Arun Jaitley Stadium | 3 | 5 | 9.18 | 13.2 |
-| Mukesh Kumar | Bharat Ratna Shri Atal Bi | 3 | 5 | 8.83 | 14.4 |
 
 
 ---
@@ -487,9 +487,9 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 4 | 90 | 124 | 8 | 8.27 | 15.5 | 11.25 | 34.44 | 14.44 | MEDIUM |
 | Lucknow Super Giants | 5 | 120 | 142 | 7 | 7.1 | 20.29 | 17.14 | 35.0 | 10.83 | HIGH |
+| Rajasthan Royals | 4 | 96 | 127 | 5 | 7.94 | 25.4 | 19.2 | 31.25 | 13.54 | MEDIUM |
 | Punjab Kings | 5 | 102 | 138 | 5 | 8.12 | 27.6 | 20.4 | 26.47 | 13.73 | HIGH |
 | Royal Challengers Bengaluru | 5 | 120 | 159 | 5 | 7.95 | 31.8 | 24.0 | 31.67 | 13.33 | HIGH |
-| Rajasthan Royals | 4 | 96 | 127 | 5 | 7.94 | 25.4 | 19.2 | 31.25 | 13.54 | MEDIUM |
 | Gujarat Titans | 6 | 138 | 144 | 4 | 6.26 | 36.0 | 34.5 | 29.71 | 7.25 | HIGH |
 | Mumbai Indians | 4 | 78 | 113 | 3 | 8.69 | 37.67 | 26.0 | 30.77 | 19.23 | MEDIUM |
 | Chennai Super Kings | 3 | 66 | 90 | 2 | 8.18 | 45.0 | 33.0 | 16.67 | 10.61 | MEDIUM |
@@ -501,13 +501,13 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Mumbai Indians | 4 | 84 | 175 | 8 | 12.5 | 21.88 | 10.5 | 32.14 | 35.71 | MEDIUM |
 | Lucknow Super Giants | 5 | 108 | 158 | 7 | 8.78 | 22.57 | 15.43 | 31.48 | 19.44 | HIGH |
-| Gujarat Titans | 4 | 87 | 134 | 5 | 9.24 | 26.8 | 17.4 | 31.03 | 22.99 | MEDIUM |
 | Rajasthan Royals | 4 | 84 | 149 | 5 | 10.64 | 29.8 | 16.8 | 30.95 | 27.38 | MEDIUM |
+| Gujarat Titans | 4 | 87 | 134 | 5 | 9.24 | 26.8 | 17.4 | 31.03 | 22.99 | MEDIUM |
 | Chennai Super Kings | 2 | 42 | 57 | 4 | 8.14 | 14.25 | 10.5 | 26.19 | 14.29 | MEDIUM |
 | Royal Challengers Bengaluru | 4 | 75 | 122 | 3 | 9.76 | 40.67 | 25.0 | 41.33 | 26.67 | MEDIUM |
 | Punjab Kings | 3 | 54 | 100 | 2 | 11.11 | 50.0 | 27.0 | 35.19 | 29.63 | MEDIUM |
-| Kolkata Knight Riders | 2 | 36 | 45 | 1 | 7.5 | 45.0 | 36.0 | 58.33 | 22.22 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 66 | 132 | 1 | 12.0 | 132.0 | 66.0 | 19.7 | 33.33 | MEDIUM |
+| Kolkata Knight Riders | 2 | 36 | 45 | 1 | 7.5 | 45.0 | 36.0 | 58.33 | 22.22 | MEDIUM |
 
 ### Mitchell Starc
 
@@ -517,9 +517,9 @@
 | Lucknow Super Giants | 4 | 84 | 117 | 8 | 8.36 | 14.63 | 10.5 | 41.67 | 22.62 | MEDIUM |
 | Mumbai Indians | 3 | 47 | 83 | 4 | 10.6 | 20.75 | 11.75 | 40.43 | 31.91 | MEDIUM |
 | Delhi Capitals | 2 | 36 | 66 | 3 | 11.0 | 22.0 | 12.0 | 41.67 | 30.56 | MEDIUM |
-| Royal Challengers Bengaluru | 4 | 78 | 162 | 1 | 12.46 | 162.0 | 78.0 | 32.05 | 32.05 | MEDIUM |
 | Chennai Super Kings | 2 | 42 | 50 | 1 | 7.14 | 50.0 | 42.0 | 42.86 | 16.67 | MEDIUM |
 | Rajasthan Royals | 2 | 48 | 76 | 1 | 9.5 | 76.0 | 48.0 | 27.08 | 22.92 | MEDIUM |
+| Royal Challengers Bengaluru | 4 | 78 | 162 | 1 | 12.46 | 162.0 | 78.0 | 32.05 | 32.05 | MEDIUM |
 
 ---
 
@@ -547,25 +547,142 @@
 
 ## 10. Andy Flower's Tactical Insights
 
+*Comprehensive tactical analysis — IPL 2023+ data with league benchmark context. "Pro team prep, packaged for public consumption."*
 
-### 10.1 Death Bowling Options
+### 10.1 Phase-by-Phase Tactical Profile
 
-- **Kuldeep Yadav**: 26.0 overs, 9 wickets, 7.58 economy (over-performs)
-- **T Natarajan**: 42.3 overs, 19 wickets, 9.92 economy (over-performs)
-- **MA Starc**: 19.8 overs, 13 wickets, 10.29 economy (over-performs)
+#### Powerplay (overs 1-6)
 
-### 10.2 Powerplay Batting Options
+**Batting**
 
-- **Abhishek Porel**: SR 151.92, Boundary% 24.52% (22 innings)
-- **Prithvi Shaw**: SR 146.89, Boundary% 25.08% (79 innings)
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **KL Rahul** | 121 | 127 | 62.4 | 18.8 | -19.4 |
+| **Prithvi Shaw** | 79 | 147 | 26.9 | 25.1 | +0.5 |
+| **Nitish Rana** | 76 | 123 | 40.8 | 20.8 | -23.0 |
+| **Karun Nair** | 50 | 129 | 27.9 | 21.7 | -17.0 |
 
-### 10.3 Potential Spin Vulnerabilities
+**Bowling**
 
-*Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Mitchell Starc** | 101 | 9.1 | 25 | 44.2 | +0.1 |
+| **Axar Patel** | 101 | 7.9 | 19 | 39.4 | +1.4 |
+| **T Natarajan** | 63 | 8.5 | 15 | 43.9 | +0.8 |
 
-*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
+*Batting intent in the powerplay is a concern — the top option **KL Rahul** strikes at just 126.9, well below the league benchmark of 146.3. **Mitchell Starc** leads the powerplay bowling at 9.1 economy with 25 wickets — adequate but not dominant against the league average of 9.3.*
 
-*No significant spin vulnerabilities identified*
+#### Middle Overs (7-15)
+
+**Batting**
+
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **KL Rahul** | 95 | 134 | 45.8 | 13.9 | -5.8 |
+| **Nitish Rana** | 90 | 135 | 27.7 | 16.9 | -5.1 |
+| **David Miller** | 99 | 123 | 49.9 | 13.0 | -17.5 |
+| **Axar Patel** | 73 | 119 | 27.4 | 13.9 | -21.4 |
+
+**Bowling**
+
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Axar Patel** | 390 | 7.1 | 88 | 31.3 | +1.6 |
+| **Kuldeep Yadav** | 278 | 8.1 | 73 | 30 | +0.7 |
+| **Mitchell Starc** | 22 | 7.6 | 10 | 34.9 | +1.1 |
+
+*Batting in the middle overs is league-standard, led by **KL Rahul** (134 SR across 95 innings). **Axar Patel** provides elite middle overs control at 7.1 economy — 1.6 runs per over cheaper than the league average.*
+
+#### Death Overs (16-20)
+
+**Batting**
+
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **David Miller** | 93 | 172 | 30.7 | 22.0 | +2.2 |
+| **Axar Patel** | 84 | 155 | 19.7 | 17.8 | -15.2 |
+| **KL Rahul** | 48 | 178 | 31.1 | 23.3 | +7.5 |
+| **Tristan Stubbs** | 19 | 221 | 87.8 | 32.7 | +50.4 |
+
+**Bowling**
+
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **T Natarajan** | 92.8 | 10.2 | 43 | 26.8 | +0.6 |
+| **Mitchell Starc** | 53.5 | 9.1 | 30 | 31.8 | +1.8 |
+| **Kuldeep Yadav** | 55.7 | 8.4 | 29 | 31.7 | +2.5 |
+
+*Batting in the death overs is league-standard, led by **David Miller** (172 SR across 93 innings). **T Natarajan** leads the death overs bowling at 10.2 economy with 43 wickets — adequate but not dominant against the league average of 10.9.*
+
+### 10.2 Batter Tendencies: Pace vs Spin Profile
+
+| Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
+|--------|-----------|-----------|-----------|-----------|----------|
+| **KL Rahul** | 140 | 128 | 19.8 | 12.9 | Balanced |
+| **AR Patel** | 128 | 156 | 16.6 | 21.0 | Spin Dominant |
+| **N Rana** | 154 | 134 | 25.5 | 16.7 | Pace Dominant |
+| **Abishek Porel** | 163 | 125 | 25.1 | 13.3 | Pace Dominant |
+| **DA Miller** | 142 | 142 | 17.8 | 16.0 | Balanced |
+| **T Stubbs** | 162 | 158 | 21.0 | 16.8 | Balanced |
+| **Ashutosh Sharma** | 172 | 145 | 23.3 | 17.8 | Pace Dominant |
+| **PP Shaw** | 132 | 191 | 22.1 | 33.9 | Spin Dominant |
+
+*Pace-hitting strength: **Abishek Porel** (163 SR), **T Stubbs** (162 SR), **Ashutosh Sharma** (172 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+
+### 10.3 Pace Attack Intelligence
+
+| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Wkt Rate |
+|--------|---------|----------|------------|------------|----------|
+| **Mukesh Kumar** | 8.8 | 8.9 | 12.3 | PP | 0.34 |
+| **MA Starc** | 10.2 | 7.5 | 10.3 | Middle | 0.39 |
+| **T Natarajan** | 8.6 | 8.1 | 9.9 | Middle | 0.30 |
+| **V Nigam** | 9.2 | 9.5 | 5.7 | Death | 0.26 |
+| **PVD Chameera** | 13.4 | 9.6 | 11.6 | Middle | 0.20 |
+
+***V Nigam** is the designated death option at 5.7 economy (league avg 10.9). **V Nigam** should lead the powerplay attack (9.2 economy).*
+
+### 10.4 Spin Attack Intelligence
+
+| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Control Rating |
+|--------|---------|----------|------------|------------|----------------|
+| **Kuldeep Yadav** | 20 | 7.6 | 7.6 | Middle | 30.8% |
+| **AR Patel** | 8.6 | 7.4 | 8.4 | Middle | 32.2% |
+
+***AR Patel** is the middle-overs anchor at 7.4 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **AR Patel** offers a viable death option at 8.4 economy, giving the captain tactical flexibility. Spin dependency is high with 272 combined overs across 2 spinners — a strength on turning pitches but a risk on pace-friendly surfaces.*
+
+### 10.5 Key Vulnerabilities & Matchup Risks
+
+#### Phase Gaps
+
+- **Powerplay**: batting SR 125.9 vs league 146.3
+- **Middle**: batting SR 129.3 vs league 140.3
+
+#### Spin Vulnerability Risk
+
+- No significant spin vulnerabilities identified in MEDIUM/HIGH sample data.
+
+#### Pace Vulnerability Risk
+
+- **AR Patel** vs Fast: SR 117, Avg 18.5 (221 balls, league avg vs pace ~151)
+- **KL Rahul** vs Right-arm pace: SR 126, Avg 16.8 (53 balls, league avg vs pace ~151)
+- **Kuldeep Yadav** vs Fast: SR 83.1, Avg 19.7 (71 balls, league avg vs pace ~151)
+- **PP Shaw** vs Fast: SR 115, Avg 13.5 (94 balls, league avg vs pace ~151)
+
+#### Structural Concerns
+
+- No critical structural concerns identified — squad depth is adequate across all phases.
+
+### 10.6 Andy Flower's Tactical Summary
+
+This squad's competitive advantages are clear: middle-overs bowling (Axar Patel at 7.1 economy). These are non-negotiable pillars — the coaching staff must build match plans around protecting and maximizing these phase strengths. Any game plan that doesn't feature these assets prominently is leaving runs on the table.
+
+The vulnerability to exploit: under-par powerplay batting. Opposition teams will target these phases — the captain must have contingency plans ready. In high-stakes matches, these weaknesses will be tested repeatedly, and the response must be pre-planned, not reactive.
+
+Pre-tournament priorities must include: shore up pace-hitting deficiencies (4 batters below threshold). These are the controllable edges that separate playoff teams from also-rans. The data is clear — the coaching staff must execute on these priorities before the first ball is bowled.
+
+---
+*Tactical analysis based on IPL 2023-2025 ball-by-ball data with league benchmark comparisons. All players filtered to 2026 squad.*
+
 
 ---
 

@@ -1,6 +1,6 @@
 # Sunrisers Hyderabad (SRH) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 20:25
+**Generated:** 2026-02-12 20:54
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -251,10 +251,10 @@
 |-------|---------|------|------|-----------|
 | MA Chidambaram Stadium | 5 | 2 | 40.0% | 142.2 |
 | Narendra Modi Stadium | 4 | 0 | 0.0% | 165.3 |
-| Eden Gardens | 3 | 1 | 33.3% | 184.0 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 186.0 |
-| Wankhede Stadium | 3 | 0 | 0.0% | 178.3 |
 | Arun Jaitley Stadium | 3 | 3 | 100.0% | 247.0 |
+| Wankhede Stadium | 3 | 0 | 0.0% | 178.3 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 186.0 |
+| Eden Gardens | 3 | 1 | 33.3% | 184.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -267,9 +267,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -436,8 +436,8 @@
 | Rajasthan Royals | 4 | 150 | 87 | 172.41 | 50.0 | 27.59 | 31.03 | 3 | MEDIUM |
 | Kolkata Knight Riders | 5 | 142 | 79 | 179.75 | 28.4 | 30.38 | 37.97 | 5 | MEDIUM |
 | Chennai Super Kings | 4 | 106 | 79 | 134.18 | 26.5 | 20.25 | 36.71 | 4 | MEDIUM |
-| Sunrisers Hyderabad | 4 | 95 | 63 | 150.79 | 23.75 | 23.81 | 46.03 | 4 | MEDIUM |
 | Delhi Capitals | 4 | 95 | 68 | 139.71 | 23.75 | 23.53 | 39.71 | 4 | MEDIUM |
+| Sunrisers Hyderabad | 4 | 95 | 63 | 150.79 | 23.75 | 23.81 | 46.03 | 4 | MEDIUM |
 | Punjab Kings | 4 | 93 | 59 | 157.63 | 31.0 | 22.03 | 27.12 | 3 | MEDIUM |
 | Gujarat Titans | 5 | 74 | 76 | 97.37 | 14.8 | 10.53 | 46.05 | 5 | MEDIUM |
 
@@ -474,15 +474,15 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Rajasthan Royals | 4 | 84 | 112 | 8 | 8.0 | 14.0 | 10.5 | 27.38 | 13.1 | MEDIUM |
 | Chennai Super Kings | 4 | 74 | 81 | 8 | 6.57 | 10.13 | 9.25 | 40.54 | 10.81 | MEDIUM |
-| Mumbai Indians | 5 | 106 | 169 | 5 | 9.57 | 33.8 | 21.2 | 22.64 | 19.81 | HIGH |
-| Lucknow Super Giants | 5 | 107 | 170 | 5 | 9.53 | 34.0 | 21.4 | 27.1 | 23.36 | HIGH |
+| Rajasthan Royals | 4 | 84 | 112 | 8 | 8.0 | 14.0 | 10.5 | 27.38 | 13.1 | MEDIUM |
 | Gujarat Titans | 4 | 84 | 126 | 5 | 9.0 | 25.2 | 16.8 | 25.0 | 17.86 | MEDIUM |
-| Delhi Capitals | 5 | 102 | 161 | 5 | 9.47 | 32.2 | 20.4 | 30.39 | 21.57 | HIGH |
-| Sunrisers Hyderabad | 3 | 72 | 104 | 5 | 8.67 | 20.8 | 14.4 | 25.0 | 19.44 | MEDIUM |
 | Punjab Kings | 2 | 44 | 51 | 5 | 6.95 | 10.2 | 8.8 | 36.36 | 11.36 | MEDIUM |
 | Royal Challengers Bengaluru | 3 | 71 | 117 | 5 | 9.89 | 23.4 | 14.2 | 29.58 | 25.35 | MEDIUM |
+| Lucknow Super Giants | 5 | 107 | 170 | 5 | 9.53 | 34.0 | 21.4 | 27.1 | 23.36 | HIGH |
+| Mumbai Indians | 5 | 106 | 169 | 5 | 9.57 | 33.8 | 21.2 | 22.64 | 19.81 | HIGH |
+| Delhi Capitals | 5 | 102 | 161 | 5 | 9.47 | 32.2 | 20.4 | 30.39 | 21.57 | HIGH |
+| Sunrisers Hyderabad | 3 | 72 | 104 | 5 | 8.67 | 20.8 | 14.4 | 25.0 | 19.44 | MEDIUM |
 | Kolkata Knight Riders | 5 | 96 | 190 | 3 | 11.88 | 63.33 | 32.0 | 27.08 | 31.25 | MEDIUM |
 
 ### Pat Cummins
@@ -492,8 +492,8 @@
 | Royal Challengers Bengaluru | 3 | 72 | 128 | 7 | 10.67 | 18.29 | 10.29 | 29.17 | 27.78 | MEDIUM |
 | Mumbai Indians | 4 | 90 | 124 | 6 | 8.27 | 20.67 | 15.0 | 43.33 | 20.0 | MEDIUM |
 | Kolkata Knight Riders | 5 | 90 | 159 | 4 | 10.6 | 39.75 | 22.5 | 38.89 | 27.78 | MEDIUM |
-| Gujarat Titans | 3 | 70 | 92 | 3 | 7.89 | 30.67 | 23.33 | 30.0 | 15.71 | MEDIUM |
 | Lucknow Super Giants | 3 | 66 | 106 | 3 | 9.64 | 35.33 | 22.0 | 31.82 | 24.24 | MEDIUM |
+| Gujarat Titans | 3 | 70 | 92 | 3 | 7.89 | 30.67 | 23.33 | 30.0 | 15.71 | MEDIUM |
 | Delhi Capitals | 3 | 60 | 80 | 3 | 8.0 | 26.67 | 20.0 | 41.67 | 20.0 | MEDIUM |
 | Rajasthan Royals | 3 | 72 | 120 | 3 | 10.0 | 40.0 | 24.0 | 36.11 | 23.61 | MEDIUM |
 | Chennai Super Kings | 3 | 72 | 100 | 3 | 8.33 | 33.33 | 24.0 | 27.78 | 16.67 | MEDIUM |
@@ -528,26 +528,139 @@
 
 ## 10. Andy Flower's Tactical Insights
 
+*Comprehensive tactical analysis — IPL 2023+ data with league benchmark context. "Pro team prep, packaged for public consumption."*
 
-### 10.1 Death Bowling Options
+### 10.1 Phase-by-Phase Tactical Profile
 
-- **HV Patel**: 56.8 overs, 35 wickets, 9.78 economy (over-performs)
-- **JD Unadkat**: 14.0 overs, 8 wickets, 10.14 economy (over-performs)
-- **PJ Cummins**: 30.7 overs, 9 wickets, 10.63 economy (workload matches output)
+#### Powerplay (overs 1-6)
 
-### 10.2 Powerplay Batting Options
+**Batting**
 
-- **Travis Head**: SR 184.38, Boundary% 33.97% (32 innings)
-- **Abhishek Sharma**: SR 161.84, Boundary% 27.19% (53 innings)
-- **Liam Livingstone**: SR 141.53, Boundary% 23.73% (18 innings)
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Ishan Kishan** | 83 | 134 | 44.6 | 22.1 | -12.2 |
+| **Abhishek Sharma** | 53 | 162 | 36.4 | 27.2 | +15.5 |
+| **Travis Head** | 32 | 184 | 44.9 | 34.0 | +38.0 |
+| **Liam Livingstone** | 18 | 142 | 18.6 | 23.7 | -4.8 |
 
-### 10.3 Potential Spin Vulnerabilities
+**Bowling**
 
-*Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Pat Cummins** | 116 | 8.8 | 28 | 43.7 | +0.5 |
+| **Jaydev Unadkat** | 135 | 7.8 | 26 | 41.7 | +1.5 |
+| **Harshal Patel** | 64 | 9.3 | 14 | 39.1 | -0.0 |
 
-*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
+*Batting intent in the powerplay is a concern — the top option **Ishan Kishan** strikes at just 134.1, well below the league benchmark of 146.3. **Pat Cummins** leads the powerplay bowling at 8.8 economy with 28 wickets — adequate but not dominant against the league average of 9.3.*
 
-*No significant spin vulnerabilities identified*
+#### Middle Overs (7-15)
+
+**Batting**
+
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Ishan Kishan** | 77 | 133 | 24.7 | 15.1 | -7.7 |
+| **Heinrich Klaasen** | 40 | 159 | 59.9 | 18.6 | +19.1 |
+| **Abhishek Sharma** | 37 | 169 | 23.0 | 21.9 | +28.3 |
+| **Liam Livingstone** | 33 | 140 | 31.8 | 16.8 | -0.4 |
+
+**Bowling**
+
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Harshal Patel** | 200 | 8.1 | 56 | 31.9 | +0.7 |
+| **Jaydev Unadkat** | 137 | 8.5 | 30 | 27.2 | +0.3 |
+| **Pat Cummins** | 79 | 8.0 | 25 | 32.7 | +0.7 |
+
+*Batting in the middle overs is league-standard, led by **Ishan Kishan** (133 SR across 77 innings). **Harshal Patel** leads the middle overs bowling at 8.1 economy with 56 wickets — adequate but not dominant against the league average of 8.8.*
+
+#### Death Overs (16-20)
+
+**Batting**
+
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Heinrich Klaasen** | 27 | 200 | 29.1 | 27.4 | +29.4 |
+| **Ishan Kishan** | 25 | 188 | 19.7 | 28.2 | +18.1 |
+| **Liam Livingstone** | 19 | 228 | 26.5 | 34.4 | +57.6 |
+| **Abhishek Sharma** | 17 | 160 | 16 | 20.9 | -10.2 |
+
+**Bowling**
+
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Harshal Patel** | 140 | 10.2 | 81 | 30.8 | +0.6 |
+| **Jaydev Unadkat** | 107 | 11.1 | 54 | 27.1 | -0.2 |
+| **Pat Cummins** | 74.5 | 10.5 | 26 | 26.6 | +0.3 |
+
+***Heinrich Klaasen** is a standout in the death overs with a SR of 199.6 — 29.4 points above the league average of 170.2. **Harshal Patel** leads the death overs bowling at 10.2 economy with 81 wickets — adequate but not dominant against the league average of 10.9.*
+
+### 10.2 Batter Tendencies: Pace vs Spin Profile
+
+| Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
+|--------|-----------|-----------|-----------|-----------|----------|
+| **H Klaasen** | 168 | 178 | 21.9 | 22.5 | Balanced |
+| **Ishan Kishan** | 151 | 137 | 23.6 | 19.1 | Balanced |
+| **Abhishek Sharma** | 173 | 211 | 30.4 | 29.2 | Spin Dominant |
+| **TM Head** | 188 | 163 | 34.3 | 23.0 | Pace Dominant |
+| **Nithish Kumar Reddy** | 117 | 154 | 13.0 | 18.6 | Spin Dominant |
+| **LS Livingstone** | 178 | 113 | 26.7 | 11.0 | Pace Dominant |
+| **PJ Cummins** | 162 | 128 | 21.9 | 14.9 | Pace Dominant |
+| **Aniket Verma** | 150 | 184 | 20.3 | 25 | Spin Dominant |
+
+*Exploitable vs spin: **LS Livingstone** (113 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **H Klaasen** (168 SR), **Abhishek Sharma** (173 SR), **TM Head** (188 SR), **LS Livingstone** (178 SR), **PJ Cummins** (162 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+
+### 10.3 Pace Attack Intelligence
+
+| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Wkt Rate |
+|--------|---------|----------|------------|------------|----------|
+| **HV Patel** | 9.3 | 8.6 | 9.8 | Middle | 0.39 |
+| **PJ Cummins** | 9.3 | 7.5 | 10.6 | Middle | 0.31 |
+| **JD Unadkat** | 8.7 | 8.7 | 10.1 | Middle | 0.30 |
+| **E Malinga** | 13.8 | 7.4 | 9.1 | Middle | 0.49 |
+| **Nithish Kumar Reddy** | 9 | 9.6 | 13.7 | PP | 0.22 |
+
+***E Malinga** is the designated death option at 9.1 economy (league avg 10.9). **Nithish Kumar Reddy** should lead the powerplay attack (9.0 economy).*
+
+### 10.4 Spin Attack Intelligence
+
+| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Control Rating |
+|--------|---------|----------|------------|------------|----------------|
+| **LS Livingstone** | 7 | 9.6 | 3.5 | Death | 23.8% |
+| **Zeeshan Ansari** | - | 9.3 | 12.5 | Middle | 23.2% |
+| **Abhishek Sharma** | 9.5 | 8.5 | 20.5 | Middle | 30.0% |
+
+***Abhishek Sharma** is the middle-overs anchor at 8.5 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **LS Livingstone** offers a viable death option at 3.5 economy, giving the captain tactical flexibility.*
+
+### 10.5 Key Vulnerabilities & Matchup Risks
+
+#### Phase Gaps
+
+- No significant phase gaps identified — team averages are within league norms across all phases.
+
+#### Spin Vulnerability Risk
+
+- No significant spin vulnerabilities identified in MEDIUM/HIGH sample data.
+
+#### Pace Vulnerability Risk
+
+- **Nithish Kumar Reddy** vs Fast: SR 115, Avg 21.9 (191 balls, league avg vs pace ~151)
+
+#### Structural Concerns
+
+- No critical structural concerns identified — squad depth is adequate across all phases.
+
+### 10.6 Andy Flower's Tactical Summary
+
+This squad's competitive advantages are clear: death batting (Heinrich Klaasen at 200 SR). These are non-negotiable pillars — the coaching staff must build match plans around protecting and maximizing these phase strengths. Any game plan that doesn't feature these assets prominently is leaving runs on the table.
+
+The vulnerability to exploit: under-par powerplay batting. Opposition teams will target these phases — the captain must have contingency plans ready. In high-stakes matches, these weaknesses will be tested repeatedly, and the response must be pre-planned, not reactive.
+
+The data suggests a well-rounded squad with no glaring tactical gaps. The coaching priority should be maintaining peak performance levels across phases and ensuring tactical flexibility for different match situations. Roster management and workload planning across the tournament will be the real differentiator.
+
+---
+*Tactical analysis based on IPL 2023-2025 ball-by-ball data with league benchmark comparisons. All players filtered to 2026 squad.*
+
 
 ---
 

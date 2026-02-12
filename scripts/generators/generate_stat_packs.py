@@ -153,6 +153,47 @@ class Thresholds:
 
 
 # =============================================================================
+# LEAGUE BENCHMARKS (IPL 2023-2025)
+# =============================================================================
+
+LEAGUE_BENCHMARKS = {
+    "batting": {
+        "powerplay": {"sr": 146.34, "avg": 36.38, "boundary_pct": 24.25, "dot_pct": 44.02},
+        "middle": {"sr": 140.26, "avg": 31.02, "boundary_pct": 16.80, "dot_pct": 30.51},
+        "death": {"sr": 170.22, "avg": 22.58, "boundary_pct": 23.39, "dot_pct": 30.25},
+    },
+    "bowling": {
+        "powerplay": {"economy": 9.26, "avg": 38.35, "sr": 24.86, "dot_pct": 42.21},
+        "middle": {"economy": 8.76, "avg": 32.29, "sr": 22.12, "dot_pct": 29.32},
+        "death": {"economy": 10.87, "avg": 24.03, "sr": 13.27, "dot_pct": 28.06},
+    },
+    "vs_bowling_type": {
+        "Fast": {"sr": 151.12, "avg": 27.26, "boundary_pct": 22.47},
+        "Right-arm off-spin": {"sr": 137.79, "avg": 34.02, "boundary_pct": 15.97},
+        "Right-arm leg-spin": {"sr": 142.81, "avg": 26.89, "boundary_pct": 17.16},
+        "Left-arm orthodox": {"sr": 138.65, "avg": 33.49, "boundary_pct": 16.91},
+        "Left-arm wrist spin": {"sr": 127.62, "avg": 23.83, "boundary_pct": 13.96},
+    },
+}
+
+# Pace bowling types for filtering
+PACE_BOWLING_TYPES = ("Fast", "Medium")
+# Spin bowling types for filtering
+SPIN_BOWLING_TYPES = ("Off-spin", "Leg-spin", "Left-arm orthodox", "Left-arm wrist spin")
+# Pace bowler types for batter-vs-type aggregation (from batter_vs_bowler_type view)
+PACE_BATTER_VS_TYPES = ("Fast", "Right-arm pace", "Left-arm pace", "Medium")
+# Spin bowler types for batter-vs-type aggregation (from batter_vs_bowler_type view)
+SPIN_BATTER_VS_TYPES = (
+    "Right-arm off-spin",
+    "Right-arm leg-spin",
+    "Left-arm orthodox",
+    "Left-arm wrist spin",
+    "Off-spin",
+    "Leg-spin",
+)
+
+
+# =============================================================================
 # PLAYER TAGS MANAGEMENT
 # =============================================================================
 
@@ -2722,6 +2763,901 @@ def generate_pressure_performance(conn: duckdb.DuckDBPyConnection, team_name: st
     return md
 
 
+# =============================================================================
+# SECTION 10: ANDY FLOWER'S TACTICAL INSIGHTS (REWRITTEN)
+# =============================================================================
+
+
+def _format_vs_league(
+    value: Optional[float], benchmark: float, higher_is_better: bool = True
+) -> str:
+    """Format a vs-league comparison value as a signed string."""
+    if value is None:
+        return "-"
+    diff = value - benchmark if higher_is_better else benchmark - value
+    sign = "+" if diff > 0 else ""
+    return f"{sign}{diff:.1f}"
+
+
+def _classify_pace_spin_tendency(pace_sr: Optional[float], spin_sr: Optional[float]) -> str:
+    """Classify a batter as Pace Dominant, Spin Dominant, or Balanced."""
+    if pace_sr is None or spin_sr is None:
+        return "Insufficient data"
+    if pace_sr > spin_sr + 15:
+        return "Pace Dominant"
+    if spin_sr > pace_sr + 15:
+        return "Spin Dominant"
+    return "Balanced"
+
+
+def _generate_phase_batting(
+    conn: duckdb.DuckDBPyConnection, team_name: str, phase: str
+) -> Tuple[List[str], list]:
+    """Generate batting table for a single phase. Returns (md_lines, raw_rows)."""
+    md: List[str] = []
+    bench = LEAGUE_BENCHMARKS["batting"][phase]
+
+    rows = execute_query_safe(
+        conn,
+        f"""
+        SELECT player_name, innings, strike_rate, batting_average, boundary_pct
+        FROM analytics_ipl_squad_batting_phase_since2023
+        WHERE team_name = '{team_name}'
+          AND match_phase = '{phase}'
+          AND innings >= 5
+        ORDER BY runs DESC
+        LIMIT 4
+        """,
+        default=[],
+    )
+
+    if rows:
+        md.append("| Player | Inn | SR | Avg | Bdry% | vs League SR |")
+        md.append("|--------|-----|-----|-----|-------|--------------|")
+        for name, inn, sr, avg, bdry in rows:
+            vs_lg = _format_vs_league(sr, bench["sr"], higher_is_better=True)
+            md.append(
+                f"| **{name}** | {inn} | {format_stat(sr)} | {format_stat(avg)} "
+                f"| {format_stat(bdry)} | {vs_lg} |"
+            )
+    else:
+        md.append("*Insufficient batting data for this phase*\n")
+
+    return md, rows
+
+
+def _generate_phase_bowling(
+    conn: duckdb.DuckDBPyConnection, team_name: str, phase: str
+) -> Tuple[List[str], list]:
+    """Generate bowling table for a single phase. Returns (md_lines, raw_rows)."""
+    md: List[str] = []
+    bench = LEAGUE_BENCHMARKS["bowling"][phase]
+
+    rows = execute_query_safe(
+        conn,
+        f"""
+        SELECT player_name, overs, economy_rate, wickets, dot_ball_pct
+        FROM analytics_ipl_squad_bowling_phase_since2023
+        WHERE team_name = '{team_name}'
+          AND match_phase = '{phase}'
+          AND sample_size IN ('MEDIUM', 'HIGH')
+        ORDER BY wickets DESC
+        LIMIT 3
+        """,
+        default=[],
+    )
+
+    if rows:
+        md.append("| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |")
+        md.append("|--------|-------|------|------|------|----------------|")
+        for name, overs, econ, wkts, dot in rows:
+            # For economy, lower is better, so vs_league = league_avg - player_econ
+            vs_lg = _format_vs_league(econ, bench["economy"], higher_is_better=False)
+            md.append(
+                f"| **{name}** | {format_stat(overs)} | {format_stat(econ)} "
+                f"| {wkts} | {format_stat(dot)} | {vs_lg} |"
+            )
+    else:
+        md.append("*Insufficient bowling data for this phase*\n")
+
+    return md, rows
+
+
+def _generate_phase_editorial(
+    phase: str,
+    bat_rows: list,
+    bowl_rows: list,
+) -> str:
+    """Generate 1-2 sentence editorial synthesis for a phase."""
+    bench_bat = LEAGUE_BENCHMARKS["batting"][phase]
+    bench_bowl = LEAGUE_BENCHMARKS["bowling"][phase]
+    phase_label = {"powerplay": "Powerplay", "middle": "Middle overs", "death": "Death overs"}[
+        phase
+    ]
+    lines = []
+
+    # Batting insight
+    if bat_rows:
+        top = bat_rows[0]
+        name, inn, sr, avg, bdry = top
+        if sr is not None and sr > bench_bat["sr"] + 10:
+            lines.append(
+                f"**{name}** is a standout in the {phase_label.lower()} with a SR of "
+                f"{sr:.1f} — {sr - bench_bat['sr']:.1f} points above the league average of "
+                f"{bench_bat['sr']:.1f}."
+            )
+        elif sr is not None and sr < bench_bat["sr"] - 10:
+            lines.append(
+                f"Batting intent in the {phase_label.lower()} is a concern — the top option "
+                f"**{name}** strikes at just {sr:.1f}, well below the league benchmark of "
+                f"{bench_bat['sr']:.1f}."
+            )
+        else:
+            lines.append(
+                f"Batting in the {phase_label.lower()} is league-standard, led by **{name}** "
+                f"({format_stat(sr)} SR across {inn} innings)."
+            )
+
+    # Bowling insight
+    if bowl_rows:
+        top = bowl_rows[0]
+        name, overs, econ, wkts, dot = top
+        if econ is not None and econ < bench_bowl["economy"] - 1.0:
+            lines.append(
+                f"**{name}** provides elite {phase_label.lower()} control at "
+                f"{econ:.1f} economy — {bench_bowl['economy'] - econ:.1f} runs per over cheaper "
+                f"than the league average."
+            )
+        elif econ is not None and econ > bench_bowl["economy"] + 1.0:
+            lines.append(
+                f"Bowling in the {phase_label.lower()} is a vulnerability — best option "
+                f"**{name}** concedes {econ:.1f} RPO, above the league average of "
+                f"{bench_bowl['economy']:.1f}."
+            )
+        elif econ is not None:
+            lines.append(
+                f"**{name}** leads the {phase_label.lower()} bowling at {econ:.1f} economy "
+                f"with {wkts} wickets — adequate but not dominant against the league "
+                f"average of {bench_bowl['economy']:.1f}."
+            )
+
+    return (
+        " ".join(lines)
+        if lines
+        else f"Insufficient data to assess {phase_label.lower()} performance."
+    )
+
+
+def generate_tactical_insights(conn: duckdb.DuckDBPyConnection, team_name: str) -> List[str]:
+    """
+    Generate Section 10: Andy Flower's Tactical Insights.
+
+    A comprehensive, data-backed tactical analysis with editorial synthesis covering:
+    - 10.1 Phase-by-Phase Tactical Profile (batting & bowling per phase)
+    - 10.2 Batter Tendencies: Pace vs Spin Profile
+    - 10.3 Pace Attack Intelligence
+    - 10.4 Spin Attack Intelligence
+    - 10.5 Key Vulnerabilities & Matchup Risks
+    - 10.6 Andy Flower's Tactical Summary
+
+    All data filtered to IPL 2023+ with league benchmark comparisons.
+
+    Args:
+        conn: DuckDB database connection
+        team_name: Full team name (e.g., "Chennai Super Kings")
+
+    Returns:
+        List of markdown-formatted strings for the full tactical insights section
+    """
+    md: List[str] = []
+    md.append("## 10. Andy Flower's Tactical Insights\n")
+    md.append(
+        "*Comprehensive tactical analysis — IPL 2023+ data with league benchmark context. "
+        '"Pro team prep, packaged for public consumption."*\n'
+    )
+
+    # Store data for cross-subsection synthesis
+    phase_data: Dict[str, Dict[str, list]] = {}
+
+    # =========================================================================
+    # 10.1 Phase-by-Phase Tactical Profile
+    # =========================================================================
+    md.append("### 10.1 Phase-by-Phase Tactical Profile\n")
+
+    for phase in ("powerplay", "middle", "death"):
+        phase_label = {
+            "powerplay": "Powerplay (overs 1-6)",
+            "middle": "Middle Overs (7-15)",
+            "death": "Death Overs (16-20)",
+        }[phase]
+        md.append(f"#### {phase_label}\n")
+
+        md.append("**Batting**\n")
+        bat_md, bat_rows = _generate_phase_batting(conn, team_name, phase)
+        md.extend(bat_md)
+        md.append("")
+
+        md.append("**Bowling**\n")
+        bowl_md, bowl_rows = _generate_phase_bowling(conn, team_name, phase)
+        md.extend(bowl_md)
+        md.append("")
+
+        # Editorial synthesis
+        editorial = _generate_phase_editorial(phase, bat_rows, bowl_rows)
+        md.append(f"*{editorial}*\n")
+
+        phase_data[phase] = {"batting": bat_rows, "bowling": bowl_rows}
+
+    # =========================================================================
+    # 10.2 Batter Tendencies: Pace vs Spin Profile
+    # =========================================================================
+    md.append("### 10.2 Batter Tendencies: Pace vs Spin Profile\n")
+
+    pace_types_sql = ", ".join([f"'{t}'" for t in PACE_BATTER_VS_TYPES])
+    spin_types_sql = ", ".join([f"'{t}'" for t in SPIN_BATTER_VS_TYPES])
+
+    try:
+        # Get top batters by total innings across types
+        batter_tendency_rows = conn.execute(f"""
+            WITH batter_innings AS (
+                SELECT bt.batter_id, bt.batter_name, SUM(bt.balls) as total_balls
+                FROM analytics_ipl_batter_vs_bowler_type_since2023 bt
+                JOIN ipl_2026_squads sq ON bt.batter_id = sq.player_id
+                WHERE sq.team_name = '{team_name}'
+                GROUP BY bt.batter_id, bt.batter_name
+                HAVING SUM(bt.balls) >= 50
+                ORDER BY SUM(bt.balls) DESC
+                LIMIT 8
+            ),
+            pace_agg AS (
+                SELECT bt.batter_id,
+                       SUM(bt.runs) as pace_runs,
+                       SUM(bt.balls) as pace_balls,
+                       ROUND(SUM(bt.runs) * 100.0 / NULLIF(SUM(bt.balls), 0), 2) as pace_sr,
+                       ROUND(SUM(bt.fours + bt.sixes) * 100.0 / NULLIF(SUM(bt.balls), 0), 2) as pace_bdry_pct
+                FROM analytics_ipl_batter_vs_bowler_type_since2023 bt
+                WHERE bt.bowler_type IN ({pace_types_sql})
+                GROUP BY bt.batter_id
+            ),
+            spin_agg AS (
+                SELECT bt.batter_id,
+                       SUM(bt.runs) as spin_runs,
+                       SUM(bt.balls) as spin_balls,
+                       ROUND(SUM(bt.runs) * 100.0 / NULLIF(SUM(bt.balls), 0), 2) as spin_sr,
+                       ROUND(SUM(bt.fours + bt.sixes) * 100.0 / NULLIF(SUM(bt.balls), 0), 2) as spin_bdry_pct
+                FROM analytics_ipl_batter_vs_bowler_type_since2023 bt
+                WHERE bt.bowler_type IN ({spin_types_sql})
+                GROUP BY bt.batter_id
+            )
+            SELECT bi.batter_name, p.pace_sr, s.spin_sr, p.pace_bdry_pct, s.spin_bdry_pct,
+                   p.pace_balls, s.spin_balls
+            FROM batter_innings bi
+            LEFT JOIN pace_agg p ON bi.batter_id = p.batter_id
+            LEFT JOIN spin_agg s ON bi.batter_id = s.batter_id
+            ORDER BY bi.total_balls DESC
+        """).fetchall()
+
+        if batter_tendency_rows:
+            md.append("| Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |")
+            md.append("|--------|-----------|-----------|-----------|-----------|----------|")
+            spin_vulnerable = []
+            pace_thrivers = []
+            for (
+                name,
+                pace_sr,
+                spin_sr,
+                pace_bdry,
+                spin_bdry,
+                pace_balls,
+                spin_balls,
+            ) in batter_tendency_rows:
+                tendency = _classify_pace_spin_tendency(pace_sr, spin_sr)
+                md.append(
+                    f"| **{name}** | {format_stat(pace_sr)} | {format_stat(spin_sr)} "
+                    f"| {format_stat(pace_bdry)} | {format_stat(spin_bdry)} | {tendency} |"
+                )
+                if spin_sr is not None and spin_sr < 120:
+                    spin_vulnerable.append((name, spin_sr))
+                if pace_sr is not None and pace_sr > 160:
+                    pace_thrivers.append((name, pace_sr))
+
+            md.append("")
+            lg_pace = LEAGUE_BENCHMARKS["vs_bowling_type"]["Fast"]["sr"]
+            lg_spin_avg = (
+                sum(
+                    LEAGUE_BENCHMARKS["vs_bowling_type"][t]["sr"]
+                    for t in (
+                        "Right-arm off-spin",
+                        "Right-arm leg-spin",
+                        "Left-arm orthodox",
+                        "Left-arm wrist spin",
+                    )
+                )
+                / 4
+            )
+
+            # Editorial synthesis
+            editorial_parts = []
+            if spin_vulnerable:
+                names = ", ".join([f"**{n}** ({sr:.0f} SR)" for n, sr in spin_vulnerable])
+                editorial_parts.append(
+                    f"Exploitable vs spin: {names} — all below the league average of ~{lg_spin_avg:.0f} SR. "
+                    f"Opposition teams with quality wrist spinners should target these batters in the middle overs."
+                )
+            if pace_thrivers:
+                names = ", ".join([f"**{n}** ({sr:.0f} SR)" for n, sr in pace_thrivers])
+                editorial_parts.append(
+                    f"Pace-hitting strength: {names} thrive against pace (league avg {lg_pace:.0f} SR), "
+                    f"making them dangerous against teams reliant on pace-heavy attacks."
+                )
+            if not editorial_parts:
+                editorial_parts.append(
+                    "The batting lineup shows a balanced pace-spin profile with no extreme vulnerabilities. "
+                    "Matchup planning should focus on individual bowler-batter history rather than type-level exploitation."
+                )
+            md.append(f"*{' '.join(editorial_parts)}*\n")
+        else:
+            md.append("*Insufficient batter vs bowling type data for this squad*\n")
+
+    except Exception as e:
+        logger.warning("Section 10.2 query failed for %s: %s", team_name, str(e)[:100])
+        md.append("*Data unavailable for pace vs spin profile*\n")
+
+    # =========================================================================
+    # 10.3 Pace Attack Intelligence
+    # =========================================================================
+    md.append("### 10.3 Pace Attack Intelligence\n")
+
+    pace_types_squad_sql = ", ".join([f"'{t}'" for t in PACE_BOWLING_TYPES])
+
+    try:
+        pace_bowlers = conn.execute(f"""
+            SELECT bpd.bowler_name,
+                   MAX(CASE WHEN bpd.match_phase = 'powerplay' THEN bpd.economy END) as pp_econ,
+                   MAX(CASE WHEN bpd.match_phase = 'middle' THEN bpd.economy END) as mid_econ,
+                   MAX(CASE WHEN bpd.match_phase = 'death' THEN bpd.economy END) as death_econ,
+                   SUM(bpd.wickets) as total_wkts,
+                   SUM(bpd.overs) as total_overs
+            FROM analytics_ipl_bowler_phase_distribution_since2023 bpd
+            JOIN ipl_2026_squads sq ON bpd.bowler_id = sq.player_id
+            WHERE sq.team_name = '{team_name}'
+              AND sq.bowling_type IN ({pace_types_squad_sql})
+              AND bpd.sample_size IN ('MEDIUM', 'HIGH')
+            GROUP BY bpd.bowler_name
+            HAVING SUM(bpd.overs) >= 5
+            ORDER BY SUM(bpd.wickets) DESC
+        """).fetchall()
+
+        if pace_bowlers:
+            md.append("| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Wkt Rate |")
+            md.append("|--------|---------|----------|------------|------------|----------|")
+            death_specialist = None
+            pp_specialist = None
+            mid_gap = False
+
+            for name, pp_econ, mid_econ, death_econ, total_wkts, total_overs in pace_bowlers:
+                # Determine best phase
+                phase_econs = {}
+                if pp_econ is not None:
+                    phase_econs["PP"] = pp_econ
+                if mid_econ is not None:
+                    phase_econs["Middle"] = mid_econ
+                if death_econ is not None:
+                    phase_econs["Death"] = death_econ
+
+                best_phase = min(phase_econs, key=phase_econs.get) if phase_econs else "-"
+                wkt_rate = (
+                    f"{total_wkts / total_overs:.2f}" if total_overs and total_overs > 0 else "-"
+                )
+
+                md.append(
+                    f"| **{name}** | {format_stat(pp_econ)} | {format_stat(mid_econ)} "
+                    f"| {format_stat(death_econ)} | {best_phase} | {wkt_rate} |"
+                )
+
+                if (
+                    death_econ is not None
+                    and death_econ < LEAGUE_BENCHMARKS["bowling"]["death"]["economy"]
+                ):
+                    death_specialist = (name, death_econ)
+                if (
+                    pp_econ is not None
+                    and pp_econ < LEAGUE_BENCHMARKS["bowling"]["powerplay"]["economy"]
+                ):
+                    pp_specialist = (name, pp_econ)
+                if (
+                    mid_econ is not None
+                    and mid_econ > LEAGUE_BENCHMARKS["bowling"]["middle"]["economy"] + 1.5
+                ):
+                    mid_gap = True
+
+            md.append("")
+
+            # Editorial
+            editorial_parts = []
+            if death_specialist:
+                editorial_parts.append(
+                    f"**{death_specialist[0]}** is the designated death option at {death_specialist[1]:.1f} economy "
+                    f"(league avg {LEAGUE_BENCHMARKS['bowling']['death']['economy']:.1f})."
+                )
+            else:
+                editorial_parts.append(
+                    f"No pace bowler operates below the league death average of "
+                    f"{LEAGUE_BENCHMARKS['bowling']['death']['economy']:.1f} — death bowling is a structural concern."
+                )
+            if pp_specialist:
+                editorial_parts.append(
+                    f"**{pp_specialist[0]}** should lead the powerplay attack ({pp_specialist[1]:.1f} economy)."
+                )
+            if mid_gap:
+                editorial_parts.append(
+                    "Middle-overs pace economy is above league average — consider deploying spin "
+                    "through this phase to contain."
+                )
+            md.append(f"*{' '.join(editorial_parts)}*\n")
+        else:
+            md.append("*No qualified pace bowlers with sufficient phase data*\n")
+
+    except Exception as e:
+        logger.warning("Section 10.3 query failed for %s: %s", team_name, str(e)[:100])
+        md.append("*Data unavailable for pace attack intelligence*\n")
+
+    # =========================================================================
+    # 10.4 Spin Attack Intelligence
+    # =========================================================================
+    md.append("### 10.4 Spin Attack Intelligence\n")
+
+    spin_types_squad_sql = ", ".join([f"'{t}'" for t in SPIN_BOWLING_TYPES])
+
+    try:
+        spin_bowlers = conn.execute(f"""
+            SELECT bpd.bowler_name,
+                   MAX(CASE WHEN bpd.match_phase = 'powerplay' THEN bpd.economy END) as pp_econ,
+                   MAX(CASE WHEN bpd.match_phase = 'middle' THEN bpd.economy END) as mid_econ,
+                   MAX(CASE WHEN bpd.match_phase = 'death' THEN bpd.economy END) as death_econ,
+                   SUM(bpd.wickets) as total_wkts,
+                   SUM(bpd.overs) as total_overs,
+                   ROUND(SUM(bpd.dot_balls) * 100.0 / NULLIF(SUM(bpd.balls), 0), 1) as overall_dot_pct
+            FROM analytics_ipl_bowler_phase_distribution_since2023 bpd
+            JOIN ipl_2026_squads sq ON bpd.bowler_id = sq.player_id
+            WHERE sq.team_name = '{team_name}'
+              AND sq.bowling_type IN ({spin_types_squad_sql})
+              AND bpd.sample_size IN ('MEDIUM', 'HIGH')
+            GROUP BY bpd.bowler_name
+            HAVING SUM(bpd.overs) >= 5
+            ORDER BY SUM(bpd.wickets) DESC
+        """).fetchall()
+
+        if spin_bowlers:
+            md.append("| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Control Rating |")
+            md.append("|--------|---------|----------|------------|------------|----------------|")
+            mid_controller = None
+            death_capable_spin = None
+            total_spin_overs = 0.0
+
+            for (
+                name,
+                pp_econ,
+                mid_econ,
+                death_econ,
+                total_wkts,
+                total_overs,
+                dot_pct,
+            ) in spin_bowlers:
+                phase_econs = {}
+                if pp_econ is not None:
+                    phase_econs["PP"] = pp_econ
+                if mid_econ is not None:
+                    phase_econs["Middle"] = mid_econ
+                if death_econ is not None:
+                    phase_econs["Death"] = death_econ
+
+                best_phase = min(phase_econs, key=phase_econs.get) if phase_econs else "-"
+                control = f"{dot_pct:.1f}%" if dot_pct is not None else "-"
+                total_spin_overs += total_overs if total_overs else 0
+
+                md.append(
+                    f"| **{name}** | {format_stat(pp_econ)} | {format_stat(mid_econ)} "
+                    f"| {format_stat(death_econ)} | {best_phase} | {control} |"
+                )
+
+                if (
+                    mid_econ is not None
+                    and mid_econ < LEAGUE_BENCHMARKS["bowling"]["middle"]["economy"]
+                ):
+                    if mid_controller is None or mid_econ < mid_controller[1]:
+                        mid_controller = (name, mid_econ)
+                if (
+                    death_econ is not None
+                    and death_econ < LEAGUE_BENCHMARKS["bowling"]["death"]["economy"]
+                ):
+                    death_capable_spin = (name, death_econ)
+
+            md.append("")
+
+            # Editorial
+            editorial_parts = []
+            if mid_controller:
+                editorial_parts.append(
+                    f"**{mid_controller[0]}** is the middle-overs anchor at {mid_controller[1]:.1f} economy "
+                    f"(league avg {LEAGUE_BENCHMARKS['bowling']['middle']['economy']:.1f}) — must bowl 3-4 overs "
+                    f"through the middle phase."
+                )
+            if death_capable_spin:
+                editorial_parts.append(
+                    f"**{death_capable_spin[0]}** offers a viable death option at "
+                    f"{death_capable_spin[1]:.1f} economy, giving the captain tactical flexibility."
+                )
+            else:
+                editorial_parts.append(
+                    "No spinner operates below league average at the death — all death bowling falls on the pace unit."
+                )
+            if len(spin_bowlers) <= 1:
+                editorial_parts.append(
+                    "Spin depth is thin — injury to the primary spinner would expose the middle overs significantly."
+                )
+            elif total_spin_overs > 100:
+                editorial_parts.append(
+                    f"Spin dependency is high with {total_spin_overs:.0f} combined overs across {len(spin_bowlers)} "
+                    f"spinners — a strength on turning pitches but a risk on pace-friendly surfaces."
+                )
+            md.append(f"*{' '.join(editorial_parts)}*\n")
+        else:
+            md.append("*No qualified spin bowlers with sufficient phase data*\n")
+
+    except Exception as e:
+        logger.warning("Section 10.4 query failed for %s: %s", team_name, str(e)[:100])
+        md.append("*Data unavailable for spin attack intelligence*\n")
+
+    # =========================================================================
+    # 10.5 Key Vulnerabilities & Matchup Risks
+    # =========================================================================
+    md.append("### 10.5 Key Vulnerabilities & Matchup Risks\n")
+
+    md.append("#### Phase Gaps\n")
+
+    # Compare team phase batting/bowling vs league benchmarks
+    try:
+        team_phase_bat = execute_query_safe(
+            conn,
+            f"""
+            SELECT match_phase,
+                   ROUND(AVG(strike_rate), 2) as avg_sr,
+                   ROUND(AVG(batting_average), 2) as avg_avg
+            FROM analytics_ipl_squad_batting_phase_since2023
+            WHERE team_name = '{team_name}'
+              AND match_phase IS NOT NULL
+              AND innings >= 5
+            GROUP BY match_phase
+            """,
+            default=[],
+        )
+        team_phase_bowl = execute_query_safe(
+            conn,
+            f"""
+            SELECT match_phase,
+                   ROUND(AVG(economy_rate), 2) as avg_econ
+            FROM analytics_ipl_squad_bowling_phase_since2023
+            WHERE team_name = '{team_name}'
+              AND match_phase IS NOT NULL
+              AND sample_size IN ('MEDIUM', 'HIGH')
+            GROUP BY match_phase
+            """,
+            default=[],
+        )
+
+        bat_by_phase = {r[0]: (r[1], r[2]) for r in team_phase_bat} if team_phase_bat else {}
+        bowl_by_phase = {r[0]: r[1] for r in team_phase_bowl} if team_phase_bowl else {}
+
+        phase_gap_found = False
+        for phase in ("powerplay", "middle", "death"):
+            phase_label = {"powerplay": "Powerplay", "middle": "Middle", "death": "Death"}[phase]
+            bat_bench = LEAGUE_BENCHMARKS["batting"][phase]
+            bowl_bench = LEAGUE_BENCHMARKS["bowling"][phase]
+
+            issues = []
+            if phase in bat_by_phase:
+                team_sr, team_avg = bat_by_phase[phase]
+                if team_sr is not None and team_sr < bat_bench["sr"] - 10:
+                    issues.append(f"batting SR {team_sr:.1f} vs league {bat_bench['sr']:.1f}")
+            if phase in bowl_by_phase:
+                team_econ = bowl_by_phase[phase]
+                if team_econ is not None and team_econ > bowl_bench["economy"] + 1.0:
+                    issues.append(
+                        f"bowling economy {team_econ:.1f} vs league {bowl_bench['economy']:.1f}"
+                    )
+
+            if issues:
+                md.append(f"- **{phase_label}**: {'; '.join(issues)}")
+                phase_gap_found = True
+
+        if not phase_gap_found:
+            md.append(
+                "- No significant phase gaps identified — team averages are within league norms across all phases."
+            )
+        md.append("")
+
+    except Exception as e:
+        logger.warning("Phase gaps query failed for %s: %s", team_name, str(e)[:100])
+        md.append("*Phase gap analysis unavailable*\n")
+
+    # Spin Vulnerability Risk
+    md.append("#### Spin Vulnerability Risk\n")
+
+    vs_spin_vuln = execute_query_safe(
+        conn,
+        f"""
+        SELECT
+            batter_name,
+            bowler_type,
+            balls,
+            strike_rate,
+            average,
+            ROUND(balls * 1.0 / NULLIF(dismissals, 0), 2) as balls_per_dismissal
+        FROM analytics_ipl_batter_vs_bowler_type_since2023
+        WHERE batter_id IN (SELECT player_id FROM ipl_2026_squads WHERE team_name = '{team_name}')
+          AND bowler_type IN ('Right-arm off-spin', 'Right-arm leg-spin', 'Left-arm orthodox', 'Left-arm wrist spin')
+          AND sample_size IN ('MEDIUM', 'HIGH')
+          AND (
+              strike_rate < {Thresholds.SPIN_VULNERABILITY_SR}
+              OR (average IS NOT NULL AND average < {Thresholds.SPIN_VULNERABILITY_AVG})
+              OR (dismissals >= 3 AND balls * 1.0 / dismissals < {Thresholds.SPIN_VULNERABILITY_BPD})
+          )
+        ORDER BY batter_name, strike_rate ASC
+        """,
+        default=[],
+    )
+
+    if vs_spin_vuln:
+        for name, btype, balls, sr, avg, bpd in vs_spin_vuln:
+            league_sr = LEAGUE_BENCHMARKS["vs_bowling_type"].get(btype, {}).get("sr", 0)
+            btype_short = btype.replace("Right-arm ", "").replace("Left-arm ", "LA ")
+            deficit = f"league avg {league_sr:.1f}" if league_sr else ""
+            md.append(
+                f"- **{name}** vs {btype_short}: SR {format_stat(sr)}, "
+                f"Avg {format_stat(avg)}, BPD {format_stat(bpd)} "
+                f"({balls} balls{', ' + deficit if deficit else ''})"
+            )
+    else:
+        md.append("- No significant spin vulnerabilities identified in MEDIUM/HIGH sample data.")
+    md.append("")
+
+    # Pace Vulnerability Risk
+    md.append("#### Pace Vulnerability Risk\n")
+
+    vs_pace_vuln = execute_query_safe(
+        conn,
+        f"""
+        SELECT
+            batter_name,
+            bowler_type,
+            balls,
+            strike_rate,
+            average
+        FROM analytics_ipl_batter_vs_bowler_type_since2023
+        WHERE batter_id IN (SELECT player_id FROM ipl_2026_squads WHERE team_name = '{team_name}')
+          AND bowler_type IN ('Fast', 'Right-arm pace', 'Left-arm pace', 'Medium')
+          AND sample_size IN ('MEDIUM', 'HIGH')
+          AND strike_rate < 130
+        ORDER BY batter_name, strike_rate ASC
+        """,
+        default=[],
+    )
+
+    if vs_pace_vuln:
+        lg_pace_sr = LEAGUE_BENCHMARKS["vs_bowling_type"]["Fast"]["sr"]
+        for name, btype, balls, sr, avg in vs_pace_vuln:
+            md.append(
+                f"- **{name}** vs {btype}: SR {format_stat(sr)}, "
+                f"Avg {format_stat(avg)} ({balls} balls, league avg vs pace ~{lg_pace_sr:.0f})"
+            )
+    else:
+        md.append(
+            "- No significant pace vulnerabilities identified — squad handles pace adequately."
+        )
+    md.append("")
+
+    # Structural Concerns
+    md.append("#### Structural Concerns\n")
+
+    try:
+        # Check death bowling depth
+        death_bowlers_count = execute_query_safe(
+            conn,
+            f"""
+            SELECT COUNT(DISTINCT bpd.bowler_name) as cnt
+            FROM analytics_ipl_bowler_phase_distribution_since2023 bpd
+            JOIN ipl_2026_squads sq ON bpd.bowler_id = sq.player_id
+            WHERE sq.team_name = '{team_name}'
+              AND bpd.match_phase = 'death'
+              AND bpd.overs >= {Thresholds.MIN_OVERS_DEATH}
+              AND bpd.sample_size IN ('MEDIUM', 'HIGH')
+            """,
+            default=[(0,)],
+            fetch_one=True,
+        )
+        death_count = death_bowlers_count[0] if death_bowlers_count else 0
+
+        structural_items = []
+        if death_count < 3:
+            structural_items.append(
+                f"Only **{death_count} bowler(s)** with {Thresholds.MIN_OVERS_DEATH}+ death overs at MEDIUM/HIGH sample — "
+                f"thin depth means any injury to a death specialist leaves the team exposed in overs 16-20."
+            )
+
+        # Check top-order dependency (from phase batting)
+        pp_data = phase_data.get("powerplay", {}).get("batting", [])
+        death_data = phase_data.get("death", {}).get("batting", [])
+        if pp_data and len(pp_data) >= 2 and death_data:
+            # Check if death batting SR is below league benchmarks
+            death_top_sr = death_data[0][2] if death_data[0][2] is not None else 0
+            if death_top_sr < LEAGUE_BENCHMARKS["batting"]["death"]["sr"] - 15:
+                structural_items.append(
+                    "Death batting strike rate below league benchmarks — the finisher role needs clarity, "
+                    "especially in chases."
+                )
+
+        if not structural_items:
+            structural_items.append(
+                "No critical structural concerns identified — squad depth is adequate across all phases."
+            )
+
+        for item in structural_items:
+            md.append(f"- {item}")
+        md.append("")
+
+    except Exception as e:
+        logger.warning("Structural concerns query failed for %s: %s", team_name, str(e)[:100])
+        md.append("- *Structural analysis unavailable*\n")
+
+    # =========================================================================
+    # 10.6 Andy Flower's Tactical Summary
+    # =========================================================================
+    md.append("### 10.6 Andy Flower's Tactical Summary\n")
+
+    try:
+        # Build the summary from phase data
+        summary_parts = []
+
+        # Paragraph 1: Strengths
+        strengths = []
+        for phase in ("powerplay", "middle", "death"):
+            bat_rows = phase_data.get(phase, {}).get("batting", [])
+            bowl_rows = phase_data.get(phase, {}).get("bowling", [])
+            bat_bench = LEAGUE_BENCHMARKS["batting"][phase]
+            bowl_bench = LEAGUE_BENCHMARKS["bowling"][phase]
+
+            if bat_rows and bat_rows[0][2] is not None and bat_rows[0][2] > bat_bench["sr"] + 10:
+                phase_label = {
+                    "powerplay": "powerplay",
+                    "middle": "middle-overs",
+                    "death": "death",
+                }[phase]
+                strengths.append(
+                    f"{phase_label} batting ({bat_rows[0][0]} at {bat_rows[0][2]:.0f} SR)"
+                )
+            if (
+                bowl_rows
+                and bowl_rows[0][2] is not None
+                and bowl_rows[0][2] < bowl_bench["economy"] - 1
+            ):
+                phase_label = {
+                    "powerplay": "powerplay",
+                    "middle": "middle-overs",
+                    "death": "death",
+                }[phase]
+                strengths.append(
+                    f"{phase_label} bowling ({bowl_rows[0][0]} at {bowl_rows[0][2]:.1f} economy)"
+                )
+
+        if strengths:
+            summary_parts.append(
+                f"This squad's competitive advantages are clear: {', '.join(strengths)}. "
+                f"These are non-negotiable pillars — the coaching staff must build match plans around protecting "
+                f"and maximizing these phase strengths. Any game plan that doesn't feature these assets prominently "
+                f"is leaving runs on the table."
+            )
+        else:
+            summary_parts.append(
+                "This squad lacks a standout phase advantage over league benchmarks — the margin for error is thin. "
+                "Execution discipline across all three phases is non-negotiable; there is no single phase strength to "
+                "fall back on when plans break down."
+            )
+
+        # Paragraph 2: Vulnerabilities and matchup implications
+        vuln_parts = []
+        for phase in ("powerplay", "middle", "death"):
+            bat_rows = phase_data.get(phase, {}).get("batting", [])
+            bowl_rows = phase_data.get(phase, {}).get("bowling", [])
+            bat_bench = LEAGUE_BENCHMARKS["batting"][phase]
+            bowl_bench = LEAGUE_BENCHMARKS["bowling"][phase]
+
+            if bat_rows and bat_rows[0][2] is not None and bat_rows[0][2] < bat_bench["sr"] - 10:
+                phase_label = {
+                    "powerplay": "powerplay",
+                    "middle": "middle-overs",
+                    "death": "death",
+                }[phase]
+                vuln_parts.append(f"under-par {phase_label} batting")
+            if (
+                bowl_rows
+                and bowl_rows[0][2] is not None
+                and bowl_rows[0][2] > bowl_bench["economy"] + 1
+            ):
+                phase_label = {
+                    "powerplay": "powerplay",
+                    "middle": "middle-overs",
+                    "death": "death",
+                }[phase]
+                vuln_parts.append(f"expensive {phase_label} bowling")
+
+        if vuln_parts:
+            summary_parts.append(
+                f"The vulnerability to exploit: {', '.join(vuln_parts)}. "
+                f"Opposition teams will target these phases — the captain must have contingency plans ready. "
+                f"In high-stakes matches, these weaknesses will be tested repeatedly, and the response "
+                f"must be pre-planned, not reactive."
+            )
+        else:
+            summary_parts.append(
+                "No glaring phase vulnerabilities exist, but complacency is the real risk. "
+                "The squad must maintain execution standards across all phases — any dip in "
+                "discipline will be punished at this level."
+            )
+
+        # Paragraph 3: Strategic priorities
+        spin_vuln_count = len(vs_spin_vuln) if vs_spin_vuln else 0
+        pace_vuln_count = len(vs_pace_vuln) if vs_pace_vuln else 0
+
+        priorities = []
+        if spin_vuln_count >= 3:
+            priorities.append(
+                f"address the spin vulnerability ({spin_vuln_count} batters flagged) "
+                f"through targeted batting practice against quality wrist spin"
+            )
+        if pace_vuln_count >= 3:
+            priorities.append(
+                f"shore up pace-hitting deficiencies ({pace_vuln_count} batters below threshold)"
+            )
+        if death_count < 3:
+            priorities.append(
+                "develop a third death bowling option to reduce over-reliance on a thin death unit"
+            )
+
+        if priorities:
+            summary_parts.append(
+                f"Pre-tournament priorities must include: {'; '.join(priorities)}. "
+                f"These are the controllable edges that separate playoff teams from also-rans. "
+                f"The data is clear — the coaching staff must execute on these priorities before "
+                f"the first ball is bowled."
+            )
+        else:
+            summary_parts.append(
+                "The data suggests a well-rounded squad with no glaring tactical gaps. "
+                "The coaching priority should be maintaining peak performance levels across phases "
+                "and ensuring tactical flexibility for different match situations. Roster management "
+                "and workload planning across the tournament will be the real differentiator."
+            )
+
+        for part in summary_parts:
+            md.append(part)
+            md.append("")
+
+    except Exception as e:
+        logger.warning("Tactical summary failed for %s: %s", team_name, str(e)[:100])
+        md.append(
+            "*Tactical summary generation failed — see subsections above for detailed analysis.*\n"
+        )
+
+    md.append("---")
+    md.append(
+        "*Tactical analysis based on IPL 2023-2025 ball-by-ball data with league benchmark comparisons. "
+        "All players filtered to 2026 squad.*\n"
+    )
+
+    return md
+
+
 def generate_team_stat_pack(
     conn: duckdb.DuckDBPyConnection, team_name: str, tags_lookup: Dict[str, Dict[str, Any]]
 ) -> str:
@@ -2738,7 +3674,7 @@ def generate_team_stat_pack(
     7. Key Batter vs Opposition - top batters' matchup data
     8. Key Bowler vs Opposition - top bowlers' matchup data
     9. Key Player Venue Performance - venue-specific stats
-    10. Tactical Insights - death bowling, powerplay, spin vulnerabilities
+    10. Andy Flower's Tactical Insights - phase profiles, pace/spin profiles, vulnerabilities
     11. Pressure Performance - batting/bowling under pressure, pressure ratings, glossary
     12. Uncapped Watch - T20 fallback data for players without IPL 2023+ history (TKT-182)
     13. Cross-Tournament Intelligence - weighted composite stats for small-sample players (TKT-190)
@@ -3204,107 +4140,11 @@ def generate_team_stat_pack(
             )
 
     # ==========================================================================
-    # SECTION 10: INSIGHTS & RECOMMENDATIONS
+    # SECTION 10: ANDY FLOWER'S TACTICAL INSIGHTS (REWRITTEN)
     # ==========================================================================
     md.append("\n---\n")
-    md.append("## 10. Andy Flower's Tactical Insights\n")
-
-    # Identify death bowling options
-    death_specialists = execute_query_safe(
-        conn,
-        f"""
-        SELECT bpd.bowler_name, bpd.overs, bpd.wickets, bpd.economy,
-               bpd.pct_overs_in_phase, bpd.wicket_efficiency
-        FROM analytics_ipl_bowler_phase_distribution_since2023 bpd
-        JOIN ipl_2026_squads sq ON bpd.bowler_id = sq.player_id
-        WHERE sq.team_name = '{team_name}'
-          AND bpd.match_phase = 'death'
-          AND bpd.sample_size IN ('MEDIUM', 'HIGH')
-          AND bpd.overs >= {Thresholds.MIN_OVERS_DEATH}
-        ORDER BY bpd.economy ASC
-        LIMIT 3
-    """,
-        default=[],
-    )
-
-    md.append("\n### 10.1 Death Bowling Options\n")
-    if death_specialists:
-        for name, overs, wkts, econ, pct, eff in death_specialists:
-            eff_note = "over-performs" if eff and eff > 0 else "workload matches output"
-            md.append(
-                f"- **{name}**: {overs:.1f} overs, {wkts} wickets, {econ} economy ({eff_note})"
-            )
-    else:
-        md.append("*Insufficient data for death bowling analysis*")
-
-    # Powerplay batting options
-    pp_hitters = execute_query_safe(
-        conn,
-        f"""
-        SELECT player_name, innings, runs, strike_rate, boundary_pct
-        FROM analytics_ipl_squad_batting_phase
-        WHERE team_name = '{team_name}'
-          AND match_phase = 'powerplay'
-          AND sample_size IN ('MEDIUM', 'HIGH')
-          AND strike_rate >= {Thresholds.POWERPLAY_SR_THRESHOLD}
-        ORDER BY strike_rate DESC
-        LIMIT 3
-    """,
-        default=[],
-    )
-
-    md.append("\n### 10.2 Powerplay Batting Options\n")
-    if pp_hitters:
-        for name, inn, runs, sr, bound in pp_hitters:
-            md.append(f"- **{name}**: SR {sr}, Boundary% {bound}% ({inn} innings)")
-    else:
-        md.append("*Insufficient data for powerplay batting analysis*")
-
-    # Spin vulnerability check - show ALL vulnerabilities per player
-    # Uses correct bowling type names from dim_bowler_classification
-    # Vulnerability criteria defined in Thresholds class
-    vs_spin = execute_query_safe(
-        conn,
-        f"""
-        SELECT
-            batter_name,
-            bowler_type,
-            balls,
-            runs,
-            strike_rate,
-            dismissals,
-            average,
-            ROUND(balls * 1.0 / NULLIF(dismissals, 0), 2) as balls_per_dismissal
-        FROM analytics_ipl_batter_vs_bowler_type_since2023
-        WHERE batter_id IN (SELECT player_id FROM ipl_2026_squads WHERE team_name = '{team_name}')
-          AND bowler_type IN ('Right-arm off-spin', 'Right-arm leg-spin', 'Left-arm orthodox', 'Left-arm wrist spin')
-          AND sample_size IN ('MEDIUM', 'HIGH')
-          AND (
-              strike_rate < {Thresholds.SPIN_VULNERABILITY_SR}
-              OR (average IS NOT NULL AND average < {Thresholds.SPIN_VULNERABILITY_AVG})
-              OR (dismissals >= 3 AND balls * 1.0 / dismissals < {Thresholds.SPIN_VULNERABILITY_BPD})
-          )
-        ORDER BY batter_name, strike_rate ASC
-    """,
-        default=[],
-    )
-
-    md.append("\n### 10.3 Potential Spin Vulnerabilities\n")
-    md.append(
-        "*Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*\n"
-    )
-    md.append(
-        f"*Vulnerability criteria: SR < {Thresholds.SPIN_VULNERABILITY_SR} OR Avg < {Thresholds.SPIN_VULNERABILITY_AVG} OR BPD < {Thresholds.SPIN_VULNERABILITY_BPD} (gets out too often)*\n"
-    )
-    if vs_spin:
-        for name, btype, balls, runs, sr, outs, avg, bpd in vs_spin:
-            # Format bowling type for display (shorter names)
-            btype_display = btype.replace("Right-arm ", "").replace("Left-arm ", "LA ")
-            md.append(
-                f"- **{name}** vs {btype_display}: SR {sr}, Avg {avg or 'N/A'}, BPD {bpd or 'N/A'} ({balls} balls)"
-            )
-    else:
-        md.append("*No significant spin vulnerabilities identified*")
+    tactical_section = generate_tactical_insights(conn, team_name)
+    md.extend(tactical_section)
 
     # ==========================================================================
     # SECTION 11: PRESSURE PERFORMANCE

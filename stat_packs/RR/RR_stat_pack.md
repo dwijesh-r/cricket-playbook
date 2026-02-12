@@ -1,6 +1,6 @@
 # Rajasthan Royals (RR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 20:25
+**Generated:** 2026-02-12 20:54
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -253,14 +253,14 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Barsapara Cricket Stadium | 5 | 2 | 40.0% | 173.6 |
-| Rajiv Gandhi International Stadium | 3 | 1 | 33.3% | 215.0 |
-| Arun Jaitley Stadium | 3 | 1 | 33.3% | 192.3 |
-| MA Chidambaram Stadium | 3 | 1 | 33.3% | 151.7 |
 | Narendra Modi Stadium | 3 | 2 | 66.7% | 170.7 |
+| Arun Jaitley Stadium | 3 | 1 | 33.3% | 192.3 |
 | Eden Gardens | 3 | 2 | 66.7% | 193.3 |
-| M Chinnaswamy Stadium | 2 | 0 | 0.0% | 188.0 |
+| MA Chidambaram Stadium | 3 | 1 | 33.3% | 151.7 |
+| Rajiv Gandhi International Stadium | 3 | 1 | 33.3% | 215.0 |
 | Wankhede Stadium | 2 | 1 | 50.0% | 169.5 |
 | Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 178.5 |
+| M Chinnaswamy Stadium | 2 | 0 | 0.0% | 188.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -273,9 +273,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -293,8 +293,8 @@
 | YBK Jaiswal | Eden Gardens | 3 | 151 | 196.1 | 75.5 |
 | SO Hetmyer | Narendra Modi Stadium | 3 | 134 | 186.11 | 67.0 |
 | RA Jadeja | M Chinnaswamy Stadium | 3 | 129 | 172.0 | 129.0 |
-| YBK Jaiswal | Wankhede Stadium | 2 | 128 | 191.04 | 64.0 |
 | R Parag | Eden Gardens | 2 | 128 | 220.69 | 64.0 |
+| YBK Jaiswal | Wankhede Stadium | 2 | 128 | 191.04 | 64.0 |
 
 **Top Bowling Performances:**
 
@@ -446,8 +446,8 @@
 | Royal Challengers Bengaluru | 5 | 179 | 111 | 161.26 | 89.5 | 18.92 | 21.62 | 2 | HIGH |
 | Rajasthan Royals | 5 | 86 | 63 | 136.51 | 43.0 | 14.29 | 22.22 | 2 | MEDIUM |
 | Gujarat Titans | 6 | 84 | 55 | 152.73 | 21.0 | 18.18 | 23.64 | 4 | MEDIUM |
-| Punjab Kings | 5 | 83 | 57 | 145.61 | 20.75 | 17.54 | 29.82 | 4 | MEDIUM |
 | Lucknow Super Giants | 4 | 83 | 76 | 109.21 | 27.67 | 10.53 | 32.89 | 3 | MEDIUM |
+| Punjab Kings | 5 | 83 | 57 | 145.61 | 20.75 | 17.54 | 29.82 | 4 | MEDIUM |
 | Mumbai Indians | 2 | 70 | 53 | 132.08 | 70.0 | 13.21 | 26.42 | 1 | MEDIUM |
 | Delhi Capitals | 4 | 64 | 43 | 148.84 | 32.0 | 18.6 | 23.26 | 2 | MEDIUM |
 | Kolkata Knight Riders | 4 | 56 | 43 | 130.23 | 14.0 | 13.95 | 39.53 | 4 | MEDIUM |
@@ -457,8 +457,8 @@
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Sunrisers Hyderabad | 3 | 127 | 73 | 173.97 | 63.5 | 27.4 | 34.25 | 2 | MEDIUM |
 | Royal Challengers Bengaluru | 6 | 127 | 91 | 139.56 | 42.33 | 16.48 | 32.97 | 3 | MEDIUM |
+| Sunrisers Hyderabad | 3 | 127 | 73 | 173.97 | 63.5 | 27.4 | 34.25 | 2 | MEDIUM |
 | Punjab Kings | 6 | 114 | 67 | 170.15 | 38.0 | 22.39 | 26.87 | 3 | MEDIUM |
 | Chennai Super Kings | 5 | 100 | 58 | 172.41 | 33.33 | 22.41 | 25.86 | 3 | MEDIUM |
 | Lucknow Super Giants | 4 | 78 | 52 | 150.0 | 78.0 | 17.31 | 26.92 | 1 | MEDIUM |
@@ -491,12 +491,12 @@
 | Punjab Kings | 3 | 72 | 122 | 7 | 10.17 | 17.43 | 10.29 | 38.89 | 25.0 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 72 | 115 | 7 | 9.58 | 16.43 | 10.29 | 31.94 | 23.61 | MEDIUM |
 | Rajasthan Royals | 3 | 72 | 109 | 6 | 9.08 | 18.17 | 12.0 | 36.11 | 20.83 | MEDIUM |
-| Mumbai Indians | 3 | 66 | 85 | 5 | 7.73 | 17.0 | 13.2 | 39.39 | 16.67 | MEDIUM |
 | Kolkata Knight Riders | 4 | 75 | 105 | 5 | 8.4 | 21.0 | 15.0 | 46.67 | 20.0 | MEDIUM |
+| Mumbai Indians | 3 | 66 | 85 | 5 | 7.73 | 17.0 | 13.2 | 39.39 | 16.67 | MEDIUM |
 | Royal Challengers Bengaluru | 5 | 96 | 187 | 4 | 11.69 | 46.75 | 24.0 | 34.38 | 31.25 | MEDIUM |
 | Lucknow Super Giants | 5 | 97 | 132 | 3 | 8.16 | 44.0 | 32.33 | 34.02 | 15.46 | MEDIUM |
-| Delhi Capitals | 4 | 84 | 106 | 1 | 7.57 | 106.0 | 84.0 | 38.1 | 17.86 | MEDIUM |
 | Chennai Super Kings | 2 | 48 | 77 | 1 | 9.63 | 77.0 | 48.0 | 35.42 | 25.0 | MEDIUM |
+| Delhi Capitals | 4 | 84 | 106 | 1 | 7.57 | 106.0 | 84.0 | 38.1 | 17.86 | MEDIUM |
 
 ### Ravindra Jadeja
 
@@ -504,9 +504,9 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Punjab Kings | 5 | 102 | 122 | 6 | 7.18 | 20.33 | 17.0 | 35.29 | 13.73 | HIGH |
 | Gujarat Titans | 6 | 114 | 146 | 6 | 7.68 | 24.33 | 19.0 | 26.32 | 12.28 | HIGH |
+| Mumbai Indians | 5 | 108 | 141 | 5 | 7.83 | 28.2 | 21.6 | 33.33 | 16.67 | HIGH |
 | Kolkata Knight Riders | 5 | 79 | 109 | 5 | 8.28 | 21.8 | 15.8 | 35.44 | 16.46 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 94 | 97 | 5 | 6.19 | 19.4 | 18.8 | 30.85 | 5.32 | MEDIUM |
-| Mumbai Indians | 5 | 108 | 141 | 5 | 7.83 | 28.2 | 21.6 | 33.33 | 16.67 | HIGH |
 | Delhi Capitals | 4 | 84 | 129 | 4 | 9.21 | 32.25 | 21.0 | 27.38 | 17.86 | MEDIUM |
 | Rajasthan Royals | 5 | 96 | 106 | 4 | 6.63 | 26.5 | 24.0 | 31.25 | 8.33 | MEDIUM |
 | Lucknow Super Giants | 5 | 72 | 95 | 3 | 7.92 | 31.67 | 24.0 | 26.39 | 15.28 | MEDIUM |
@@ -517,8 +517,8 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 5 | 114 | 171 | 7 | 9.0 | 24.43 | 16.29 | 35.96 | 19.3 | HIGH |
-| Chennai Super Kings | 4 | 78 | 107 | 6 | 8.23 | 17.83 | 13.0 | 37.18 | 17.95 | MEDIUM |
 | Mumbai Indians | 6 | 144 | 199 | 6 | 8.29 | 33.17 | 24.0 | 28.47 | 17.36 | HIGH |
+| Chennai Super Kings | 4 | 78 | 107 | 6 | 8.23 | 17.83 | 13.0 | 37.18 | 17.95 | MEDIUM |
 | Punjab Kings | 4 | 75 | 125 | 4 | 10.0 | 31.25 | 18.75 | 37.33 | 25.33 | MEDIUM |
 | Kolkata Knight Riders | 4 | 88 | 114 | 4 | 7.77 | 28.5 | 22.0 | 36.36 | 18.18 | MEDIUM |
 | Gujarat Titans | 4 | 72 | 108 | 3 | 9.0 | 36.0 | 24.0 | 23.61 | 16.67 | MEDIUM |
@@ -571,24 +571,139 @@
 
 ## 10. Andy Flower's Tactical Insights
 
+*Comprehensive tactical analysis — IPL 2023+ data with league benchmark context. "Pro team prep, packaged for public consumption."*
 
-### 10.1 Death Bowling Options
+### 10.1 Phase-by-Phase Tactical Profile
 
-- **Sandeep Sharma**: 45.5 overs, 23 wickets, 10.07 economy (over-performs)
-- **Ravi Bishnoi**: 18.2 overs, 8 wickets, 10.51 economy (over-performs)
-- **TU Deshpande**: 48.0 overs, 26 wickets, 11.15 economy (over-performs)
+#### Powerplay (overs 1-6)
 
-### 10.2 Powerplay Batting Options
+**Batting**
 
-- **Yashasvi Jaiswal**: SR 159.49, Boundary% 29.17% (66 innings)
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Yashasvi Jaiswal** | 66 | 159 | 44.5 | 29.2 | +13.2 |
+| **Sam Curran** | 18 | 114 | 24.5 | 16.3 | -32.4 |
+| **Vaibhav Suryavanshi** | 7 | 206 | 36 | 35.7 | +59.4 |
+| **Riyan Parag** | 16 | 141 | 44.7 | 24.2 | -5.3 |
 
-### 10.3 Potential Spin Vulnerabilities
+**Bowling**
 
-*Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Sandeep Sharma** | 281 | 7.1 | 62 | 48.4 | +2.2 |
+| **Jofra Archer** | 91 | 6.6 | 23 | 56.0 | +2.6 |
+| **Tushar Deshpande** | 79 | 8.9 | 17 | 44.5 | +0.4 |
 
-*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
+***Yashasvi Jaiswal** is a standout in the powerplay with a SR of 159.5 — 13.2 points above the league average of 146.3. **Sandeep Sharma** provides elite powerplay control at 7.1 economy — 2.2 runs per over cheaper than the league average.*
 
-- **RA Jadeja** vs LA orthodox: SR 104.0, Avg 17.33, BPD 16.67 (50 balls)
+#### Middle Overs (7-15)
+
+**Batting**
+
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Ravindra Jadeja** | 121 | 111 | 39.4 | 10.4 | -29.4 |
+| **Riyan Parag** | 51 | 132 | 41.7 | 15.1 | -8.1 |
+| **Yashasvi Jaiswal** | 34 | 138 | 25 | 16.6 | -1.9 |
+| **Shimron Hetmyer** | 49 | 129 | 40.8 | 14.2 | -11.6 |
+
+**Bowling**
+
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Ravindra Jadeja** | 564 | 7.5 | 134 | 31.6 | +1.2 |
+| **Ravi Bishnoi** | 212 | 8.1 | 50 | 32.9 | +0.7 |
+| **Sandeep Sharma** | 102 | 8.2 | 22 | 28.3 | +0.6 |
+
+*Batting intent in the middle overs is a concern — the top option **Ravindra Jadeja** strikes at just 110.8, well below the league benchmark of 140.3. **Ravindra Jadeja** provides elite middle overs control at 7.5 economy — 1.2 runs per over cheaper than the league average.*
+
+#### Death Overs (16-20)
+
+**Batting**
+
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Ravindra Jadeja** | 150 | 152 | 23.6 | 17.8 | -18.1 |
+| **Shimron Hetmyer** | 63 | 175 | 26.7 | 23.0 | +4.5 |
+| **Riyan Parag** | 47 | 162 | 16.9 | 21.9 | -7.8 |
+| **Sam Curran** | 32 | 184 | 24 | 27.0 | +13.7 |
+
+**Bowling**
+
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Sandeep Sharma** | 124 | 10.4 | 62 | 24.9 | +0.4 |
+| **Sam Curran** | 64.8 | 11.5 | 34 | 24.4 | -0.7 |
+| **Ravindra Jadeja** | 88 | 8.9 | 30 | 31.2 | +1.9 |
+
+*Batting intent in the death overs is a concern — the top option **Ravindra Jadeja** strikes at just 152.1, well below the league benchmark of 170.2. **Sandeep Sharma** leads the death overs bowling at 10.4 economy with 62 wickets — adequate but not dominant against the league average of 10.9.*
+
+### 10.2 Batter Tendencies: Pace vs Spin Profile
+
+| Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
+|--------|-----------|-----------|-----------|-----------|----------|
+| **YBK Jaiswal** | 167 | 145 | 29.9 | 18.8 | Pace Dominant |
+| **R Parag** | 165 | 138 | 24.3 | 14.6 | Pace Dominant |
+| **RA Jadeja** | 153 | 116 | 18.7 | 10.4 | Pace Dominant |
+| **SM Curran** | 131 | 129 | 16.9 | 13.5 | Balanced |
+| **Dhruv Jurel** | 172 | 125 | 23.8 | 14.4 | Pace Dominant |
+| **SO Hetmyer** | 163 | 131 | 20.7 | 14.0 | Pace Dominant |
+| **V Suryavanshi** | 195 | 190 | 32.3 | 30 | Balanced |
+| **JC Archer** | 124 | 133 | 13.7 | 0 | Balanced |
+
+*Exploitable vs spin: **RA Jadeja** (116 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **YBK Jaiswal** (167 SR), **R Parag** (165 SR), **Dhruv Jurel** (172 SR), **SO Hetmyer** (163 SR), **V Suryavanshi** (195 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+
+### 10.3 Pace Attack Intelligence
+
+| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Wkt Rate |
+|--------|---------|----------|------------|------------|----------|
+| **TU Deshpande** | 8.5 | 8 | 11.2 | Middle | 0.34 |
+| **Sandeep Sharma** | 7.4 | 8.3 | 10.1 | PP | 0.27 |
+| **SM Curran** | 8.8 | 11 | 11.3 | PP | 0.27 |
+| **JC Archer** | 7.9 | 8.2 | 12.2 | PP | 0.20 |
+| **Yudhvir Singh** | 9.9 | 11.7 | 12 | PP | 0.34 |
+
+***Sandeep Sharma** is the designated death option at 10.1 economy (league avg 10.9). **JC Archer** should lead the powerplay attack (7.9 economy). Middle-overs pace economy is above league average — consider deploying spin through this phase to contain.*
+
+### 10.4 Spin Attack Intelligence
+
+| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Control Rating |
+|--------|---------|----------|------------|------------|----------------|
+| **RA Jadeja** | 6.5 | 7.6 | 13.3 | PP | 30.0% |
+| **Ravi Bishnoi** | 10.9 | 8.3 | 10.5 | Middle | 31.6% |
+| **R Parag** | 6 | 8.1 | 11 | PP | 24.6% |
+
+***RA Jadeja** is the middle-overs anchor at 7.6 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **Ravi Bishnoi** offers a viable death option at 10.5 economy, giving the captain tactical flexibility. Spin dependency is high with 296 combined overs across 3 spinners — a strength on turning pitches but a risk on pace-friendly surfaces.*
+
+### 10.5 Key Vulnerabilities & Matchup Risks
+
+#### Phase Gaps
+
+- **Middle**: batting SR 124.5 vs league 140.3
+
+#### Spin Vulnerability Risk
+
+- **RA Jadeja** vs LA orthodox: SR 104, Avg 17.3, BPD 16.7 (50 balls, league avg 138.7)
+
+#### Pace Vulnerability Risk
+
+- **SM Curran** vs Right-arm pace: SR 106, Avg 26.5 (50 balls, league avg vs pace ~151)
+
+#### Structural Concerns
+
+- Death batting strike rate below league benchmarks — the finisher role needs clarity, especially in chases.
+
+### 10.6 Andy Flower's Tactical Summary
+
+This squad's competitive advantages are clear: powerplay batting (Yashasvi Jaiswal at 159 SR), powerplay bowling (Sandeep Sharma at 7.1 economy), middle-overs bowling (Ravindra Jadeja at 7.5 economy). These are non-negotiable pillars — the coaching staff must build match plans around protecting and maximizing these phase strengths. Any game plan that doesn't feature these assets prominently is leaving runs on the table.
+
+The vulnerability to exploit: under-par middle-overs batting, under-par death batting. Opposition teams will target these phases — the captain must have contingency plans ready. In high-stakes matches, these weaknesses will be tested repeatedly, and the response must be pre-planned, not reactive.
+
+The data suggests a well-rounded squad with no glaring tactical gaps. The coaching priority should be maintaining peak performance levels across phases and ensuring tactical flexibility for different match situations. Roster management and workload planning across the tournament will be the real differentiator.
+
+---
+*Tactical analysis based on IPL 2023-2025 ball-by-ball data with league benchmark comparisons. All players filtered to 2026 squad.*
+
 
 ---
 

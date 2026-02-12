@@ -1,6 +1,6 @@
 # Kolkata Knight Riders (KKR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 20:25
+**Generated:** 2026-02-12 20:53
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -253,8 +253,8 @@
 | MA Chidambaram Stadium | 4 | 3 | 75.0% | 126.3 |
 | Arun Jaitley Stadium | 3 | 1 | 33.3% | 166.3 |
 | Wankhede Stadium | 3 | 1 | 33.3% | 156.7 |
-| M Chinnaswamy Stadium | 2 | 2 | 100.0% | 193.0 |
 | Narendra Modi Stadium | 2 | 2 | 100.0% | 185.5 |
+| M Chinnaswamy Stadium | 2 | 2 | 100.0% | 193.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -298,8 +298,8 @@
 | VG Arora | Eden Gardens | 13 | 17 | 10.03 | 15.94 |
 | SP Narine | Eden Gardens | 21 | 16 | 7.16 | 28.88 |
 | SP Narine | MA Chidambaram Stadium | 4 | 7 | 4.94 | 13.71 |
-| M Pathirana | Bharat Ratna Shri Atal Bi | 3 | 5 | 7.32 | 13.6 |
-| M Pathirana | M Chinnaswamy Stadium | 2 | 5 | 9.13 | 9.6 |
+| VG Arora | MA Chidambaram Stadium | 4 | 5 | 7.13 | 18.0 |
+| CV Varun | MA Chidambaram Stadium | 4 | 5 | 6.71 | 16.8 |
 
 
 ---
@@ -474,11 +474,11 @@
 | Delhi Capitals | 4 | 97 | 111 | 10 | 6.87 | 11.1 | 9.7 | 43.3 | 13.4 | MEDIUM |
 | Royal Challengers Bengaluru | 5 | 106 | 142 | 9 | 8.04 | 15.78 | 11.78 | 39.62 | 19.81 | HIGH |
 | Sunrisers Hyderabad | 7 | 150 | 223 | 9 | 8.92 | 24.78 | 16.67 | 32.67 | 18.67 | HIGH |
-| Chennai Super Kings | 5 | 120 | 150 | 7 | 7.5 | 21.43 | 17.14 | 38.33 | 12.5 | HIGH |
 | Punjab Kings | 5 | 114 | 157 | 7 | 8.26 | 22.43 | 16.29 | 35.09 | 16.67 | HIGH |
+| Chennai Super Kings | 5 | 120 | 150 | 7 | 7.5 | 21.43 | 17.14 | 38.33 | 12.5 | HIGH |
 | Rajasthan Royals | 4 | 90 | 111 | 6 | 7.4 | 18.5 | 15.0 | 48.89 | 17.78 | MEDIUM |
-| Mumbai Indians | 4 | 90 | 88 | 5 | 5.87 | 17.6 | 18.0 | 45.56 | 10.0 | MEDIUM |
 | Lucknow Super Giants | 4 | 90 | 133 | 5 | 8.87 | 26.6 | 18.0 | 36.67 | 17.78 | MEDIUM |
+| Mumbai Indians | 4 | 90 | 88 | 5 | 5.87 | 17.6 | 18.0 | 45.56 | 10.0 | MEDIUM |
 | Gujarat Titans | 3 | 60 | 102 | 0 | 10.2 | - | - | 21.67 | 23.33 | MEDIUM |
 
 ### Matheesha Pathirana
@@ -504,8 +504,8 @@
 | Sunrisers Hyderabad | 7 | 156 | 195 | 6 | 7.5 | 32.5 | 26.0 | 29.49 | 10.26 | HIGH |
 | Delhi Capitals | 4 | 96 | 119 | 5 | 7.44 | 23.8 | 19.2 | 37.5 | 14.58 | MEDIUM |
 | Punjab Kings | 5 | 114 | 138 | 4 | 7.26 | 34.5 | 28.5 | 38.6 | 13.16 | HIGH |
-| Gujarat Titans | 3 | 66 | 90 | 4 | 8.18 | 22.5 | 16.5 | 22.73 | 13.64 | MEDIUM |
 | Lucknow Super Giants | 4 | 90 | 103 | 4 | 6.87 | 25.75 | 22.5 | 31.11 | 10.0 | MEDIUM |
+| Gujarat Titans | 3 | 66 | 90 | 4 | 8.18 | 22.5 | 16.5 | 22.73 | 13.64 | MEDIUM |
 | Mumbai Indians | 4 | 78 | 113 | 3 | 8.69 | 37.67 | 26.0 | 38.46 | 19.23 | MEDIUM |
 | Rajasthan Royals | 3 | 60 | 68 | 2 | 6.8 | 34.0 | 30.0 | 36.67 | 10.0 | MEDIUM |
 
@@ -517,8 +517,8 @@
 | Lucknow Super Giants | 4 | 85 | 129 | 6 | 9.11 | 21.5 | 14.17 | 37.65 | 23.53 | MEDIUM |
 | Rajasthan Royals | 4 | 84 | 139 | 6 | 9.93 | 23.17 | 14.0 | 36.9 | 27.38 | MEDIUM |
 | Punjab Kings | 4 | 72 | 146 | 5 | 12.17 | 29.2 | 14.4 | 36.11 | 33.33 | MEDIUM |
-| Chennai Super Kings | 3 | 60 | 77 | 4 | 7.7 | 19.25 | 15.0 | 50.0 | 18.33 | MEDIUM |
 | Royal Challengers Bengaluru | 3 | 66 | 102 | 4 | 9.27 | 25.5 | 16.5 | 28.79 | 19.7 | MEDIUM |
+| Chennai Super Kings | 3 | 60 | 77 | 4 | 7.7 | 19.25 | 15.0 | 50.0 | 18.33 | MEDIUM |
 | Mumbai Indians | 2 | 30 | 57 | 2 | 11.4 | 28.5 | 15.0 | 40.0 | 33.33 | MEDIUM |
 | Gujarat Titans | 2 | 42 | 67 | 2 | 9.57 | 33.5 | 21.0 | 26.19 | 26.19 | MEDIUM |
 | Delhi Capitals | 2 | 48 | 77 | 2 | 9.63 | 38.5 | 24.0 | 37.5 | 27.08 | MEDIUM |
@@ -559,26 +559,139 @@
 
 ## 10. Andy Flower's Tactical Insights
 
+*Comprehensive tactical analysis — IPL 2023+ data with league benchmark context. "Pro team prep, packaged for public consumption."*
 
-### 10.1 Death Bowling Options
+### 10.1 Phase-by-Phase Tactical Profile
 
-- **SP Narine**: 17.0 overs, 8 wickets, 7.35 economy (over-performs)
-- **CV Varun**: 27.7 overs, 11 wickets, 8.42 economy (over-performs)
-- **M Pathirana**: 64.2 overs, 33 wickets, 8.65 economy (over-performs)
+#### Powerplay (overs 1-6)
 
-### 10.2 Powerplay Batting Options
+**Batting**
 
-- **Sunil Narine**: SR 171.13, Boundary% 31.4% (70 innings)
-- **Cameron Green**: SR 164.71, Boundary% 28.57% (16 innings)
-- **Rahul Tripathi**: SR 140.5, Boundary% 22.88% (75 innings)
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Ajinkya Rahane** | 168 | 123 | 36.5 | 18.9 | -23.6 |
+| **Sunil Narine** | 70 | 171 | 24.5 | 31.4 | +24.8 |
+| **Manish Pandey** | 107 | 114 | 36.3 | 17.2 | -32.3 |
+| **Rahul Tripathi** | 75 | 140 | 28.1 | 22.9 | -5.8 |
 
-### 10.3 Potential Spin Vulnerabilities
+**Bowling**
 
-*Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Sunil Narine** | 153 | 6.9 | 27 | 47.4 | +2.3 |
+| **Vaibhav Arora** | 71.2 | 8.8 | 18 | 41.2 | +0.4 |
+| **Harshit Rana** | 49 | 9.8 | 16 | 44.9 | -0.6 |
 
-*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
+*Batting intent in the powerplay is a concern — the top option **Ajinkya Rahane** strikes at just 122.8, well below the league benchmark of 146.3. **Sunil Narine** provides elite powerplay control at 6.9 economy — 2.3 runs per over cheaper than the league average.*
 
-- **AM Rahane** vs LA orthodox: SR 106.41, Avg 11.86, BPD 11.14 (78 balls)
+#### Middle Overs (7-15)
+
+**Batting**
+
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Manish Pandey** | 118 | 118 | 31.4 | 11.5 | -22.2 |
+| **Ajinkya Rahane** | 106 | 122 | 28.1 | 11.1 | -18.7 |
+| **Rahul Tripathi** | 55 | 135 | 33.1 | 15.4 | -5.4 |
+| **Sunil Narine** | 37 | 172 | 15.8 | 26.6 | +32.1 |
+
+**Bowling**
+
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Sunil Narine** | 396 | 6.7 | 90 | 35.1 | +2.1 |
+| **Varun Chakravarthy** | 202 | 7.5 | 68 | 35.7 | +1.2 |
+| **Umran Malik** | 65.2 | 8.6 | 23 | 43.5 | +0.1 |
+
+*Batting intent in the middle overs is a concern — the top option **Manish Pandey** strikes at just 118.1, well below the league benchmark of 140.3. **Sunil Narine** provides elite middle overs control at 6.7 economy — 2.1 runs per over cheaper than the league average.*
+
+#### Death Overs (16-20)
+
+**Batting**
+
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Manish Pandey** | 57 | 153 | 21.0 | 17.2 | -17.2 |
+| **Rinku Singh** | 34 | 192 | 30.4 | 29.3 | +21.6 |
+| **Ajinkya Rahane** | 34 | 159 | 25.4 | 19.9 | -11.7 |
+| **Rovman Powell** | 15 | 193 | 19.5 | 29.8 | +23.2 |
+
+**Bowling**
+
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Sunil Narine** | 175 | 7.5 | 75 | 36.4 | +3.4 |
+| **Matheesha Pathirana** | 67 | 9.5 | 33 | 31.3 | +1.4 |
+| **Varun Chakravarthy** | 50.7 | 8.6 | 17 | 36.2 | +2.3 |
+
+*Batting intent in the death overs is a concern — the top option **Manish Pandey** strikes at just 153.0, well below the league benchmark of 170.2. **Sunil Narine** provides elite death overs control at 7.5 economy — 3.4 runs per over cheaper than the league average.*
+
+### 10.2 Batter Tendencies: Pace vs Spin Profile
+
+| Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
+|--------|-----------|-----------|-----------|-----------|----------|
+| **AM Rahane** | 173 | 117 | 27.3 | 10.3 | Pace Dominant |
+| **RK Singh** | 171 | 120 | 24.4 | 12.9 | Pace Dominant |
+| **C Green** | 162 | 141 | 24.2 | 15.8 | Pace Dominant |
+| **SP Narine** | 165 | 195 | 29.3 | 30.9 | Spin Dominant |
+| **RA Tripathi** | 122 | 123 | 18.5 | 15.3 | Balanced |
+| **A Raghuvanshi** | 158 | 128 | 23.9 | 13.7 | Pace Dominant |
+| **R Ravindra** | 152 | 130 | 23.9 | 11.2 | Pace Dominant |
+| **MK Pandey** | 129 | 117 | 15.4 | 11.8 | Balanced |
+
+*Exploitable vs spin: **AM Rahane** (117 SR), **RK Singh** (120 SR), **MK Pandey** (117 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **AM Rahane** (173 SR), **RK Singh** (171 SR), **C Green** (162 SR), **SP Narine** (165 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+
+### 10.3 Pace Attack Intelligence
+
+| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Wkt Rate |
+|--------|---------|----------|------------|------------|----------|
+| **M Pathirana** | - | 7.4 | 8.7 | Middle | 0.41 |
+| **Harshit Rana** | 9.4 | 9.1 | 9.4 | Middle | 0.38 |
+| **VG Arora** | 8.4 | 11.5 | 9.6 | PP | 0.37 |
+| **C Green** | 8.1 | 7.9 | 11.8 | Middle | 0.22 |
+| **Akash Deep** | 10.5 | 13 | 12.9 | PP | 0.18 |
+| **Umran Malik** | 28 | 8.8 | 13.8 | Middle | 0.24 |
+
+***VG Arora** is the designated death option at 9.6 economy (league avg 10.9). **C Green** should lead the powerplay attack (8.1 economy). Middle-overs pace economy is above league average — consider deploying spin through this phase to contain.*
+
+### 10.4 Spin Attack Intelligence
+
+| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Control Rating |
+|--------|---------|----------|------------|------------|----------------|
+| **CV Varun** | 8.0 | 7.8 | 8.4 | Middle | 38.2% |
+| **SP Narine** | 9.2 | 7.2 | 7.3 | Middle | 32.7% |
+
+***SP Narine** is the middle-overs anchor at 7.2 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **SP Narine** offers a viable death option at 7.3 economy, giving the captain tactical flexibility. Spin dependency is high with 301 combined overs across 2 spinners — a strength on turning pitches but a risk on pace-friendly surfaces.*
+
+### 10.5 Key Vulnerabilities & Matchup Risks
+
+#### Phase Gaps
+
+- No significant phase gaps identified — team averages are within league norms across all phases.
+
+#### Spin Vulnerability Risk
+
+- **AM Rahane** vs LA orthodox: SR 106, Avg 11.9, BPD 11.1 (78 balls, league avg 138.7)
+
+#### Pace Vulnerability Risk
+
+- **RA Tripathi** vs Fast: SR 107, Avg 13.2 (147 balls, league avg vs pace ~151)
+
+#### Structural Concerns
+
+- Death batting strike rate below league benchmarks — the finisher role needs clarity, especially in chases.
+
+### 10.6 Andy Flower's Tactical Summary
+
+This squad's competitive advantages are clear: powerplay bowling (Sunil Narine at 6.9 economy), middle-overs bowling (Sunil Narine at 6.7 economy), death bowling (Sunil Narine at 7.5 economy). These are non-negotiable pillars — the coaching staff must build match plans around protecting and maximizing these phase strengths. Any game plan that doesn't feature these assets prominently is leaving runs on the table.
+
+The vulnerability to exploit: under-par powerplay batting, under-par middle-overs batting, under-par death batting. Opposition teams will target these phases — the captain must have contingency plans ready. In high-stakes matches, these weaknesses will be tested repeatedly, and the response must be pre-planned, not reactive.
+
+The data suggests a well-rounded squad with no glaring tactical gaps. The coaching priority should be maintaining peak performance levels across phases and ensuring tactical flexibility for different match situations. Roster management and workload planning across the tournament will be the real differentiator.
+
+---
+*Tactical analysis based on IPL 2023-2025 ball-by-ball data with league benchmark comparisons. All players filtered to 2026 squad.*
+
 
 ---
 
@@ -754,7 +867,7 @@
 
 | Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|-------------|----------|----------|---------|------------|-------|-------------|
-| Daksh Kamra | Medium | 19 | 28 | 5.1 | 13.1 | MEDIUM | - | Intl, ICC T20, Intl |
+| Daksh Kamra | Medium | 19 | 28 | 5.1 | 13.1 | MEDIUM | - | Intl, Intl, ICC T20 |
 | Prashant Solanki | Left-arm ort | 4 | 4 | 8.4 | 27.2 | LOW | 12 | SMAT |
 
 ### 12.3 Limited / No T20 Data
@@ -785,8 +898,8 @@
 | Tejasvi Singh | Wicketkeeper | 0 | 115 | 9.2 | 4 | 202 | 20 | MLC (0.42, SR 93.2); ILT20 (0.49, SR 89.3); T20WC (0.50, SR 140.8) |
 | Anukul Roy | All-rounder | 23 | 158 | 20.4 | 2 | 165 | 22 | SMAT (0.65, SR 170.7); IPL (0.87, SR 104.0) |
 | Harshit Rana | Bowler | 53 | 107 | 14.8 | 1 | 55 | 10 | IPL (0.87, SR 107.3) |
-| Sarthak Ranjan | Bowler | 0 | 130 | 15.2 | 1 | 47 | 6 | SMAT (0.65, SR 129.8) |
 | Varun Chakravarthy | Bowler | 10 | 55.3 | 26 | 1 | 47 | 8 | IPL (0.87, SR 55.3) |
+| Sarthak Ranjan | Bowler | 0 | 130 | 15.2 | 1 | 47 | 6 | SMAT (0.65, SR 129.8) |
 | Akash Deep | Bowler | 12 | 132 | 24.5 | 1 | 37 | 5 | SMAT (0.65, SR 132.4) |
 | Vaibhav Arora | Bowler | 11 | 37.5 | 3 | 1 | 24 | 4 | IPL (0.87, SR 37.5) |
 

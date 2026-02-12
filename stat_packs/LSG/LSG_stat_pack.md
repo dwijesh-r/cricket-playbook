@@ -1,6 +1,6 @@
 # Lucknow Super Giants (LSG) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 20:25
+**Generated:** 2026-02-12 20:53
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -125,7 +125,7 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** Ravi Bishnoi (16w @ 7.58), Yash Thakur (13w @ 8.61), Naveen-ul-Haq (11w @ 7.78)
+- **2023:** Ravi Bishnoi (16w @ 7.58), Yash Thakur (13w @ 8.61), MA Wood (11w @ 8.35)
 - **2024:** Naveen-ul-Haq (14w @ 9.7), Yash Thakur (11w @ 10.8), Mohsin Khan (10w @ 9.75)
 - **2025:** DS Rathi (14w @ 8.13), Avesh Khan (13w @ 9.94), SN Thakur (13w @ 9.98)
 
@@ -241,12 +241,12 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Eden Gardens | 3 | 2 | 66.7% | 191.7 |
-| MA Chidambaram Stadium | 3 | 1 | 33.3% | 173.0 |
 | Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 181.0 |
+| MA Chidambaram Stadium | 3 | 1 | 33.3% | 173.0 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 169.0 |
+| Wankhede Stadium | 2 | 1 | 50.0% | 187.5 |
 | M Chinnaswamy Stadium | 2 | 2 | 100.0% | 197.0 |
 | Narendra Modi Stadium | 2 | 1 | 50.0% | 203.0 |
-| Wankhede Stadium | 2 | 1 | 50.0% | 187.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -292,7 +292,7 @@
 | MR Marsh | Arun Jaitley Stadium | 5 | 7 | 8.43 | 11.29 |
 | Avesh Khan | Bharat Ratna Shri Atal Bi | 11 | 7 | 8.27 | 32.14 |
 | Avesh Khan | Narendra Modi Stadium | 3 | 6 | 10.99 | 11.83 |
-| PWH de Silva | M Chinnaswamy Stadium | 5 | 5 | 8.47 | 20.4 |
+| Avesh Khan | MA Chidambaram Stadium | 3 | 5 | 7.78 | 10.8 |
 | PWH de Silva | Barsapara Cricket Stadium | 2 | 5 | 10.0 | 8.4 |
 
 
@@ -479,11 +479,11 @@
 | Rajasthan Royals | 2 | 48 | 63 | 6 | 7.88 | 10.5 | 8.0 | 35.42 | 16.67 | MEDIUM |
 | Gujarat Titans | 5 | 113 | 185 | 5 | 9.82 | 37.0 | 22.6 | 23.01 | 21.24 | HIGH |
 | Mumbai Indians | 4 | 96 | 157 | 5 | 9.81 | 31.4 | 19.2 | 31.25 | 22.92 | MEDIUM |
-| Royal Challengers Bengaluru | 4 | 90 | 175 | 4 | 11.67 | 43.75 | 22.5 | 23.33 | 32.22 | MEDIUM |
 | Punjab Kings | 6 | 119 | 198 | 4 | 9.98 | 49.5 | 29.75 | 27.73 | 22.69 | HIGH |
-| Chennai Super Kings | 3 | 51 | 76 | 3 | 8.94 | 25.33 | 17.0 | 25.49 | 21.57 | MEDIUM |
+| Royal Challengers Bengaluru | 4 | 90 | 175 | 4 | 11.67 | 43.75 | 22.5 | 23.33 | 32.22 | MEDIUM |
 | Kolkata Knight Riders | 2 | 48 | 83 | 3 | 10.38 | 27.67 | 16.0 | 39.58 | 29.17 | MEDIUM |
 | Delhi Capitals | 4 | 78 | 117 | 3 | 9.0 | 39.0 | 26.0 | 37.18 | 24.36 | MEDIUM |
+| Chennai Super Kings | 3 | 51 | 76 | 3 | 8.94 | 25.33 | 17.0 | 25.49 | 21.57 | MEDIUM |
 | Lucknow Super Giants | 2 | 42 | 54 | 1 | 7.71 | 54.0 | 42.0 | 23.81 | 9.52 | MEDIUM |
 
 ### Mohammed Shami
@@ -491,8 +491,8 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 3 | 66 | 76 | 7 | 6.91 | 10.86 | 9.43 | 60.61 | 18.18 | MEDIUM |
-| Kolkata Knight Riders | 3 | 72 | 94 | 5 | 7.83 | 18.8 | 14.4 | 43.06 | 16.67 | MEDIUM |
 | Rajasthan Royals | 3 | 66 | 82 | 5 | 7.45 | 16.4 | 13.2 | 57.58 | 19.7 | MEDIUM |
+| Kolkata Knight Riders | 3 | 72 | 94 | 5 | 7.83 | 18.8 | 14.4 | 43.06 | 16.67 | MEDIUM |
 | Chennai Super Kings | 4 | 85 | 115 | 5 | 8.12 | 23.0 | 17.0 | 38.82 | 18.82 | MEDIUM |
 | Lucknow Super Giants | 3 | 60 | 90 | 2 | 9.0 | 45.0 | 30.0 | 31.67 | 21.67 | MEDIUM |
 | Mumbai Indians | 4 | 84 | 142 | 2 | 10.14 | 71.0 | 42.0 | 39.29 | 26.19 | MEDIUM |
@@ -529,25 +529,139 @@
 
 ## 10. Andy Flower's Tactical Insights
 
+*Comprehensive tactical analysis — IPL 2023+ data with league benchmark context. "Pro team prep, packaged for public consumption."*
 
-### 10.1 Death Bowling Options
+### 10.1 Phase-by-Phase Tactical Profile
 
-- **DS Rathi**: 10.0 overs, 4 wickets, 9.5 economy (over-performs)
-- **Avesh Khan**: 52.3 overs, 24 wickets, 9.67 economy (over-performs)
-- **Mohsin Khan**: 15.0 overs, 6 wickets, 10.87 economy (over-performs)
+#### Powerplay (overs 1-6)
 
-### 10.2 Powerplay Batting Options
+**Batting**
 
-- **Nicholas Pooran**: SR 158.41, Boundary% 26.55% (16 innings)
-- **Mitchell Marsh**: SR 149.28, Boundary% 23.34% (32 innings)
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Mitchell Marsh** | 32 | 149 | 39.9 | 23.3 | +2.9 |
+| **Rishabh Pant** | 55 | 122 | 53.5 | 19.7 | -24.0 |
+| **Aiden Markram** | 33 | 128 | 36.6 | 19.5 | -18.8 |
+| **Nicholas Pooran** | 16 | 158 | 29.8 | 26.6 | +12.1 |
 
-### 10.3 Potential Spin Vulnerabilities
+**Bowling**
 
-*Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Mohammed Shami** | 245 | 8.0 | 51 | 49.0 | +1.3 |
+| **Anrich Nortje** | 74 | 8.6 | 22 | 46.0 | +0.6 |
+| **Avesh Khan** | 96.8 | 9.4 | 22 | 42.5 | -0.2 |
 
-*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
+*Batting in the powerplay is league-standard, led by **Mitchell Marsh** (149 SR across 32 innings). **Mohammed Shami** provides elite powerplay control at 8.0 economy — 1.3 runs per over cheaper than the league average.*
 
-*No significant spin vulnerabilities identified*
+#### Middle Overs (7-15)
+
+**Batting**
+
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Rishabh Pant** | 106 | 137 | 40.1 | 17.1 | -3.7 |
+| **Nicholas Pooran** | 67 | 167 | 44 | 23.3 | +26.8 |
+| **Aiden Markram** | 41 | 130 | 32 | 12.5 | -10.5 |
+| **Mitchell Marsh** | 30 | 135 | 37.7 | 16.7 | -5.5 |
+
+**Bowling**
+
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Wanindu Hasaranga** | 103 | 8.4 | 30 | 31.2 | +0.4 |
+| **Avesh Khan** | 71 | 8.2 | 24 | 36.1 | +0.6 |
+| **Mitchell Marsh** | 55.5 | 7.6 | 19 | 29.7 | +1.1 |
+
+*Batting in the middle overs is league-standard, led by **Rishabh Pant** (137 SR across 106 innings). **Wanindu Hasaranga** leads the middle overs bowling at 8.4 economy with 30 wickets — adequate but not dominant against the league average of 8.8.*
+
+#### Death Overs (16-20)
+
+**Batting**
+
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Rishabh Pant** | 59 | 203 | 24.4 | 31.5 | +33.0 |
+| **Nicholas Pooran** | 51 | 176 | 28.9 | 24.6 | +5.8 |
+| **Ayush Badoni** | 31 | 164 | 25.7 | 20.1 | -6.0 |
+| **Abdul Samad** | 41 | 172 | 18.4 | 22.8 | +1.5 |
+
+**Bowling**
+
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Mohammed Shami** | 112 | 10.8 | 66 | 26.2 | +0.1 |
+| **Avesh Khan** | 102 | 9.8 | 42 | 27.3 | +1.0 |
+| **Anrich Nortje** | 72.3 | 10.3 | 27 | 30.4 | +0.6 |
+
+***Rishabh Pant** is a standout in the death overs with a SR of 203.2 — 33.0 points above the league average of 170.2. **Mohammed Shami** leads the death overs bowling at 10.8 economy with 66 wickets — adequate but not dominant against the league average of 10.9.*
+
+### 10.2 Batter Tendencies: Pace vs Spin Profile
+
+| Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
+|--------|-----------|-----------|-----------|-----------|----------|
+| **N Pooran** | 185 | 178 | 28.4 | 25 | Balanced |
+| **AK Markram** | 138 | 131 | 18.3 | 12.8 | Balanced |
+| **A Badoni** | 150 | 128 | 19.6 | 11.4 | Pace Dominant |
+| **MR Marsh** | 171 | 134 | 27.4 | 17.2 | Pace Dominant |
+| **RR Pant** | 164 | 119 | 24.4 | 14.4 | Pace Dominant |
+| **Abdul Samad** | 175 | 112 | 25.3 | 10.3 | Pace Dominant |
+| **JP Inglis** | 175 | 136 | 28.4 | 16.4 | Pace Dominant |
+
+*Exploitable vs spin: **RR Pant** (119 SR), **Abdul Samad** (112 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **N Pooran** (185 SR), **MR Marsh** (171 SR), **RR Pant** (164 SR), **Abdul Samad** (175 SR), **JP Inglis** (175 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+
+### 10.3 Pace Attack Intelligence
+
+| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Wkt Rate |
+|--------|---------|----------|------------|------------|----------|
+| **Avesh Khan** | 10.9 | 8.4 | 9.7 | Middle | 0.31 |
+| **Mohammed Shami** | 8.3 | 9.7 | 11.0 | PP | 0.36 |
+| **A Nortje** | 9.5 | 8.4 | 12.1 | Middle | 0.26 |
+| **MR Marsh** | 7.2 | 8.6 | 12.8 | PP | 0.46 |
+| **Mohsin Khan** | 9.6 | 9.8 | 10.9 | PP | 0.27 |
+| **Akash Singh** | 9.2 | 10.1 | 10 | PP | 0.30 |
+
+***Akash Singh** is the designated death option at 10.0 economy (league avg 10.9). **Akash Singh** should lead the powerplay attack (9.2 economy).*
+
+### 10.4 Spin Attack Intelligence
+
+| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Control Rating |
+|--------|---------|----------|------------|------------|----------------|
+| **PWH de Silva** | 8.6 | 9.2 | 7.7 | Death | 27.6% |
+| **DS Rathi** | 7.9 | 7.7 | 9.5 | Middle | 30.4% |
+| **AK Markram** | 10 | 8.5 | 6 | Death | 23.6% |
+
+***DS Rathi** is the middle-overs anchor at 7.7 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **AK Markram** offers a viable death option at 6.0 economy, giving the captain tactical flexibility. Spin dependency is high with 143 combined overs across 3 spinners — a strength on turning pitches but a risk on pace-friendly surfaces.*
+
+### 10.5 Key Vulnerabilities & Matchup Risks
+
+#### Phase Gaps
+
+- **Powerplay**: batting SR 130.9 vs league 146.3
+
+#### Spin Vulnerability Risk
+
+- No significant spin vulnerabilities identified in MEDIUM/HIGH sample data.
+
+#### Pace Vulnerability Risk
+
+- No significant pace vulnerabilities identified — squad handles pace adequately.
+
+#### Structural Concerns
+
+- No critical structural concerns identified — squad depth is adequate across all phases.
+
+### 10.6 Andy Flower's Tactical Summary
+
+This squad's competitive advantages are clear: powerplay bowling (Mohammed Shami at 8.0 economy), death batting (Rishabh Pant at 203 SR). These are non-negotiable pillars — the coaching staff must build match plans around protecting and maximizing these phase strengths. Any game plan that doesn't feature these assets prominently is leaving runs on the table.
+
+No glaring phase vulnerabilities exist, but complacency is the real risk. The squad must maintain execution standards across all phases — any dip in discipline will be punished at this level.
+
+The data suggests a well-rounded squad with no glaring tactical gaps. The coaching priority should be maintaining peak performance levels across phases and ensuring tactical flexibility for different match situations. Roster management and workload planning across the tournament will be the real differentiator.
+
+---
+*Tactical analysis based on IPL 2023-2025 ball-by-ball data with league benchmark comparisons. All players filtered to 2026 squad.*
+
 
 ---
 

@@ -1,6 +1,6 @@
 # Mumbai Indians (MI) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 20:25
+**Generated:** 2026-02-12 20:53
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -253,10 +253,10 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Narendra Modi Stadium | 5 | 0 | 0.0% | 169.6 |
-| MA Chidambaram Stadium | 3 | 1 | 33.3% | 158.7 |
 | Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 194.7 |
 | Arun Jaitley Stadium | 3 | 2 | 66.7% | 208.3 |
 | Sawai Mansingh Stadium | 3 | 1 | 33.3% | 193.3 |
+| MA Chidambaram Stadium | 3 | 1 | 33.3% | 158.7 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 0 | 0.0% | 169.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
@@ -270,9 +270,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -302,8 +302,8 @@
 | TA Boult | Wankhede Stadium | 9 | 14 | 7.89 | 15.43 |
 | HH Pandya | Wankhede Stadium | 11 | 11 | 10.11 | 15.27 |
 | TA Boult | Sawai Mansingh Stadium | 9 | 8 | 8.44 | 21.5 |
-| Ashwani Kumar | Wankhede Stadium | 3 | 7 | 10.33 | 7.71 |
 | HH Pandya | Bharat Ratna Shri Atal Bi | 3 | 7 | 7.11 | 7.71 |
+| Ashwani Kumar | Wankhede Stadium | 3 | 7 | 10.33 | 7.71 |
 | MJ Santner | Wankhede Stadium | 6 | 7 | 5.95 | 16.57 |
 
 
@@ -510,13 +510,13 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 4 | 92 | 105 | 7 | 6.85 | 15.0 | 13.14 | 45.65 | 16.3 | MEDIUM |
 | Gujarat Titans | 3 | 72 | 60 | 6 | 5.0 | 10.0 | 12.0 | 52.78 | 8.33 | MEDIUM |
-| Kolkata Knight Riders | 2 | 47 | 58 | 5 | 7.4 | 11.6 | 9.4 | 51.06 | 19.15 | MEDIUM |
 | Royal Challengers Bengaluru | 2 | 48 | 51 | 5 | 6.38 | 10.2 | 9.6 | 35.42 | 8.33 | MEDIUM |
-| Punjab Kings | 3 | 72 | 83 | 4 | 6.92 | 20.75 | 18.0 | 45.83 | 15.28 | MEDIUM |
+| Kolkata Knight Riders | 2 | 47 | 58 | 5 | 7.4 | 11.6 | 9.4 | 51.06 | 19.15 | MEDIUM |
 | Lucknow Super Giants | 2 | 48 | 38 | 4 | 4.75 | 9.5 | 12.0 | 62.5 | 8.33 | MEDIUM |
+| Punjab Kings | 3 | 72 | 83 | 4 | 6.92 | 20.75 | 18.0 | 45.83 | 15.28 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 96 | 114 | 3 | 7.13 | 38.0 | 32.0 | 30.21 | 11.46 | MEDIUM |
-| Rajasthan Royals | 3 | 72 | 71 | 2 | 5.92 | 35.5 | 36.0 | 54.17 | 15.28 | MEDIUM |
 | Chennai Super Kings | 2 | 48 | 49 | 2 | 6.13 | 24.5 | 24.0 | 35.42 | 10.42 | MEDIUM |
+| Rajasthan Royals | 3 | 72 | 71 | 2 | 5.92 | 35.5 | 36.0 | 54.17 | 15.28 | MEDIUM |
 
 ---
 
@@ -548,26 +548,140 @@
 
 ## 10. Andy Flower's Tactical Insights
 
+*Comprehensive tactical analysis — IPL 2023+ data with league benchmark context. "Pro team prep, packaged for public consumption."*
 
-### 10.1 Death Bowling Options
+### 10.1 Phase-by-Phase Tactical Profile
 
-- **JJ Bumrah**: 33.2 overs, 21 wickets, 6.75 economy (over-performs)
-- **TA Boult**: 30.0 overs, 15 wickets, 9.9 economy (over-performs)
-- **SN Thakur**: 30.8 overs, 13 wickets, 10.57 economy (over-performs)
+#### Powerplay (overs 1-6)
 
-### 10.2 Powerplay Batting Options
+**Batting**
 
-- **Ryan Rickelton**: SR 153.89, Boundary% 26.42% (14 innings)
-- **Will Jacks**: SR 148.44, Boundary% 23.44% (16 innings)
-- **Suryakumar Yadav**: SR 140.33, Boundary% 23.84% (71 innings)
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Rohit Sharma** | 183 | 125 | 29.1 | 19.6 | -21.1 |
+| **Quinton de Kock** | 115 | 131 | 33.8 | 19.9 | -15.5 |
+| **Suryakumar Yadav** | 71 | 140 | 58.5 | 23.8 | -6.0 |
+| **Ryan Rickelton** | 14 | 154 | 42.4 | 26.4 | +7.5 |
 
-### 10.3 Potential Spin Vulnerabilities
+**Bowling**
 
-*Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Trent Boult** | 268 | 7.3 | 72 | 52.0 | +1.9 |
+| **Deepak Chahar** | 250 | 8.1 | 66 | 46.3 | +1.2 |
+| **Jasprit Bumrah** | 187 | 6.9 | 38 | 51.7 | +2.4 |
 
-*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
+*Batting intent in the powerplay is a concern — the top option **Rohit Sharma** strikes at just 125.3, well below the league benchmark of 146.3. **Trent Boult** provides elite powerplay control at 7.3 economy — 1.9 runs per over cheaper than the league average.*
 
-- **HH Pandya** vs LA orthodox: SR 101.49, Avg 22.67, BPD 22.33 (67 balls)
+#### Middle Overs (7-15)
+
+**Batting**
+
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Rohit Sharma** | 177 | 122 | 34.5 | 13.6 | -18.5 |
+| **Suryakumar Yadav** | 119 | 144 | 40.5 | 18.9 | +4.0 |
+| **Quinton de Kock** | 56 | 132 | 29.3 | 15.0 | -8.1 |
+| **Hardik Pandya** | 88 | 134 | 37.4 | 15.8 | -6.6 |
+
+**Bowling**
+
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Jasprit Bumrah** | 145 | 6.7 | 44 | 39.7 | +2.1 |
+| **Hardik Pandya** | 157 | 8.5 | 35 | 31.2 | +0.2 |
+| **Mayank Markande** | 104 | 8.7 | 34 | 28.7 | +0.1 |
+
+*Batting intent in the middle overs is a concern — the top option **Rohit Sharma** strikes at just 121.8, well below the league benchmark of 140.3. **Jasprit Bumrah** provides elite middle overs control at 6.7 economy — 2.1 runs per over cheaper than the league average.*
+
+#### Death Overs (16-20)
+
+**Batting**
+
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Rohit Sharma** | 90 | 182 | 24.6 | 26.3 | +12.2 |
+| **Hardik Pandya** | 99 | 173 | 25.1 | 23.4 | +2.5 |
+| **Suryakumar Yadav** | 64 | 182 | 20.5 | 28.6 | +11.8 |
+| **Tilak Varma** | 26 | 183 | 25.9 | 25.5 | +13.3 |
+
+**Bowling**
+
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Jasprit Bumrah** | 224 | 8.4 | 101 | 31.4 | +2.5 |
+| **Trent Boult** | 120 | 10.7 | 55 | 25.9 | +0.1 |
+| **Shardul Thakur** | 119 | 10.8 | 51 | 28.8 | +0.1 |
+
+***Rohit Sharma** is a standout in the death overs with a SR of 182.4 — 12.2 points above the league average of 170.2. **Jasprit Bumrah** provides elite death overs control at 8.4 economy — 2.5 runs per over cheaper than the league average.*
+
+### 10.2 Batter Tendencies: Pace vs Spin Profile
+
+| Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
+|--------|-----------|-----------|-----------|-----------|----------|
+| **SA Yadav** | 186 | 154 | 30 | 21.2 | Pace Dominant |
+| **RG Sharma** | 146 | 141 | 23.6 | 20.9 | Balanced |
+| **Tilak Varma** | 157 | 140 | 21.7 | 16.1 | Pace Dominant |
+| **HH Pandya** | 144 | 146 | 18.6 | 18.2 | Balanced |
+| **Q de Kock** | 135 | 136 | 20.4 | 15.2 | Balanced |
+| **WG Jacks** | 177 | 126 | 29.7 | 13.9 | Pace Dominant |
+| **RD Rickelton** | 156 | 144 | 26.6 | 21.9 | Balanced |
+| **Naman Dhir** | 186 | 162 | 28.7 | 23.8 | Pace Dominant |
+
+*Pace-hitting strength: **SA Yadav** (186 SR), **WG Jacks** (177 SR), **Naman Dhir** (186 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+
+### 10.3 Pace Attack Intelligence
+
+| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Wkt Rate |
+|--------|---------|----------|------------|------------|----------|
+| **TA Boult** | 7.3 | 10.1 | 9.9 | PP | 0.34 |
+| **JJ Bumrah** | 6.4 | 5.8 | 6.8 | Middle | 0.38 |
+| **DL Chahar** | 8.2 | 7.8 | 14.1 | Middle | 0.29 |
+| **HH Pandya** | 10.4 | 8.8 | 13.1 | Middle | 0.29 |
+| **SN Thakur** | 11.0 | 8.1 | 10.6 | Middle | 0.29 |
+| **Ashwani Kumar** | 12 | 8.3 | 13.8 | Middle | 0.54 |
+
+***SN Thakur** is the designated death option at 10.6 economy (league avg 10.9). **DL Chahar** should lead the powerplay attack (8.2 economy).*
+
+### 10.4 Spin Attack Intelligence
+
+| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Control Rating |
+|--------|---------|----------|------------|------------|----------------|
+| **M Markande** | - | 8.4 | 12.7 | Middle | 29.2% |
+| **MJ Santner** | 7.4 | 7.0 | 10.9 | Middle | 33.1% |
+| **WG Jacks** | 9.8 | 8.8 | 10 | Middle | 30.4% |
+
+***MJ Santner** is the middle-overs anchor at 7.0 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **WG Jacks** offers a viable death option at 10.0 economy, giving the captain tactical flexibility. Spin dependency is high with 144 combined overs across 3 spinners — a strength on turning pitches but a risk on pace-friendly surfaces.*
+
+### 10.5 Key Vulnerabilities & Matchup Risks
+
+#### Phase Gaps
+
+- **Powerplay**: batting SR 133.7 vs league 146.3
+
+#### Spin Vulnerability Risk
+
+- **HH Pandya** vs LA orthodox: SR 101, Avg 22.7, BPD 22.3 (67 balls, league avg 138.7)
+
+#### Pace Vulnerability Risk
+
+- No significant pace vulnerabilities identified — squad handles pace adequately.
+
+#### Structural Concerns
+
+- No critical structural concerns identified — squad depth is adequate across all phases.
+
+### 10.6 Andy Flower's Tactical Summary
+
+This squad's competitive advantages are clear: powerplay bowling (Trent Boult at 7.3 economy), middle-overs bowling (Jasprit Bumrah at 6.7 economy), death batting (Rohit Sharma at 182 SR), death bowling (Jasprit Bumrah at 8.4 economy). These are non-negotiable pillars — the coaching staff must build match plans around protecting and maximizing these phase strengths. Any game plan that doesn't feature these assets prominently is leaving runs on the table.
+
+The vulnerability to exploit: under-par powerplay batting, under-par middle-overs batting. Opposition teams will target these phases — the captain must have contingency plans ready. In high-stakes matches, these weaknesses will be tested repeatedly, and the response must be pre-planned, not reactive.
+
+The data suggests a well-rounded squad with no glaring tactical gaps. The coaching priority should be maintaining peak performance levels across phases and ensuring tactical flexibility for different match situations. Roster management and workload planning across the tournament will be the real differentiator.
+
+---
+*Tactical analysis based on IPL 2023-2025 ball-by-ball data with league benchmark comparisons. All players filtered to 2026 squad.*
+
 
 ---
 
@@ -736,7 +850,7 @@
 | Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|-------------|----------|----------|---------|------------|-------|-------------|
 | AM Ghazanfar | Off-spin | 32 | 34 | 7.2 | 24.9 | HIGH | 36 | ILT20, Blast, CPL |
-| Sherfane Rutherford | Medium | 23 | 11 | 10.7 | 35 | HIGH | 20 | CPL, BBL, ILT20 |
+| Sherfane Rutherford | Medium | 23 | 11 | 10.7 | 35 | HIGH | 20 | CPL, Intl, SA20 |
 | Atharva Ankolekar | Left-arm ort | 11 | 9 | 5.8 | 26.7 | MEDIUM | 32 | SMAT |
 | Raghu Sharma | Fast | 3 | 3 | 8.1 | 29.7 | LOW | 9 | SMAT |
 

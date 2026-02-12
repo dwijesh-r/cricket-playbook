@@ -1,6 +1,6 @@
 # Chennai Super Kings (CSK) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 20:25
+**Generated:** 2026-02-12 20:53
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -245,8 +245,8 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Narendra Modi Stadium | 4 | 2 | 50.0% | 193.8 |
-| Wankhede Stadium | 3 | 2 | 66.7% | 180.3 |
 | M Chinnaswamy Stadium | 3 | 1 | 33.3% | 209.3 |
+| Wankhede Stadium | 3 | 2 | 66.7% | 180.3 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 172.0 |
 | Arun Jaitley Stadium | 2 | 1 | 50.0% | 205.0 |
 | Eden Gardens | 2 | 2 | 100.0% | 209.0 |
@@ -262,9 +262,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -283,14 +283,14 @@
 | SV Samson | Arun Jaitley Stadium | 3 | 158 | 168.09 | 52.67 |
 | S Dube | Wankhede Stadium | 3 | 144 | 150.0 | 72.0 |
 | SV Samson | Rajiv Gandhi Internationa | 3 | 120 | 169.01 | 40.0 |
-| SV Samson | Narendra Modi Stadium | 3 | 118 | 161.64 | 59.0 |
+| RD Gaikwad | Narendra Modi Stadium | 3 | 118 | 171.01 | 39.33 |
 
 **Top Bowling Performances:**
 
 | Player | Venue | Matches | Wkts | Econ | SR |
 |--------|-------|---------|------|------|-----|
-| Noor Ahmad | MA Chidambaram Stadium | 7 | 13 | 7.96 | 11.54 |
 | Noor Ahmad | Narendra Modi Stadium | 13 | 13 | 8.23 | 20.31 |
+| Noor Ahmad | MA Chidambaram Stadium | 7 | 13 | 7.96 | 11.54 |
 | KK Ahmed | MA Chidambaram Stadium | 7 | 10 | 7.75 | 15.4 |
 | Noor Ahmad | Eden Gardens | 2 | 6 | 6.38 | 8.0 |
 | KV Sharma | Sawai Mansingh Stadium | 2 | 5 | 8.0 | 6.6 |
@@ -445,11 +445,11 @@
 | Royal Challengers Bengaluru | 5 | 120 | 170 | 7 | 8.5 | 24.29 | 17.14 | 34.17 | 19.17 | HIGH |
 | Mumbai Indians | 5 | 114 | 162 | 7 | 8.53 | 23.14 | 16.29 | 34.21 | 16.67 | HIGH |
 | Kolkata Knight Riders | 3 | 60 | 59 | 7 | 5.9 | 8.43 | 8.57 | 45.0 | 11.67 | MEDIUM |
-| Rajasthan Royals | 5 | 98 | 154 | 6 | 9.43 | 25.67 | 16.33 | 29.59 | 19.39 | MEDIUM |
 | Punjab Kings | 4 | 90 | 122 | 6 | 8.13 | 20.33 | 15.0 | 30.0 | 14.44 | MEDIUM |
+| Rajasthan Royals | 5 | 98 | 154 | 6 | 9.43 | 25.67 | 16.33 | 29.59 | 19.39 | MEDIUM |
+| Chennai Super Kings | 3 | 54 | 68 | 3 | 7.56 | 22.67 | 18.0 | 27.78 | 11.11 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 65 | 103 | 3 | 9.51 | 34.33 | 21.67 | 29.23 | 20.0 | MEDIUM |
 | Lucknow Super Giants | 4 | 96 | 78 | 3 | 4.88 | 26.0 | 32.0 | 44.79 | 6.25 | MEDIUM |
-| Chennai Super Kings | 3 | 54 | 68 | 3 | 7.56 | 22.67 | 18.0 | 27.78 | 11.11 | MEDIUM |
 | Delhi Capitals | 4 | 71 | 104 | 2 | 8.79 | 52.0 | 35.5 | 30.99 | 19.72 | MEDIUM |
 
 ### Khaleel Ahmed
@@ -459,12 +459,12 @@
 | Punjab Kings | 5 | 112 | 168 | 7 | 9.0 | 24.0 | 16.0 | 43.75 | 24.11 | HIGH |
 | Mumbai Indians | 4 | 84 | 138 | 6 | 9.86 | 23.0 | 14.0 | 40.48 | 26.19 | MEDIUM |
 | Lucknow Super Giants | 4 | 84 | 132 | 6 | 9.43 | 22.0 | 14.0 | 50.0 | 26.19 | MEDIUM |
-| Rajasthan Royals | 5 | 102 | 163 | 5 | 9.59 | 32.6 | 20.4 | 42.16 | 29.41 | HIGH |
 | Gujarat Titans | 5 | 102 | 123 | 5 | 7.24 | 24.6 | 20.4 | 46.08 | 19.61 | HIGH |
+| Rajasthan Royals | 5 | 102 | 163 | 5 | 9.59 | 32.6 | 20.4 | 42.16 | 29.41 | HIGH |
 | Chennai Super Kings | 3 | 72 | 92 | 4 | 7.67 | 23.0 | 18.0 | 41.67 | 16.67 | MEDIUM |
 | Royal Challengers Bengaluru | 4 | 90 | 163 | 4 | 10.87 | 40.75 | 22.5 | 34.44 | 28.89 | MEDIUM |
-| Sunrisers Hyderabad | 2 | 36 | 72 | 1 | 12.0 | 72.0 | 36.0 | 33.33 | 33.33 | MEDIUM |
 | Kolkata Knight Riders | 4 | 72 | 117 | 1 | 9.75 | 117.0 | 72.0 | 48.61 | 26.39 | MEDIUM |
+| Sunrisers Hyderabad | 2 | 36 | 72 | 1 | 12.0 | 72.0 | 36.0 | 33.33 | 33.33 | MEDIUM |
 
 ---
 
@@ -490,24 +490,138 @@
 
 ## 10. Andy Flower's Tactical Insights
 
+*Comprehensive tactical analysis — IPL 2023+ data with league benchmark context. "Pro team prep, packaged for public consumption."*
 
-### 10.1 Death Bowling Options
+### 10.1 Phase-by-Phase Tactical Profile
 
-- **Noor Ahmad**: 21.2 overs, 13 wickets, 7.65 economy (over-performs)
-- **RD Chahar**: 11.7 overs, 5 wickets, 9.0 economy (over-performs)
-- **NT Ellis**: 17.0 overs, 6 wickets, 10.47 economy (over-performs)
+#### Powerplay (overs 1-6)
 
-### 10.2 Powerplay Batting Options
+**Batting**
 
-*Insufficient data for powerplay batting analysis*
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Sanju Samson** | 125 | 124 | 34.5 | 19.5 | -22.2 |
+| **Ruturaj Gaikwad** | 67 | 129 | 46 | 19.1 | -17.6 |
+| **Ayush Mhatre** | 7 | 192 | 35.4 | 37.0 | +46.0 |
+| **Matthew Short** | 6 | 137 | 26.8 | 24.4 | -9.2 |
 
-### 10.3 Potential Spin Vulnerabilities
+**Bowling**
 
-*Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Khaleel Ahmed** | 150 | 8.5 | 36 | 48.1 | +0.7 |
+| **Mukesh Choudhary** | 37 | 9.4 | 12 | 46.4 | -0.2 |
+| **Anshul Kamboj** | 26 | 8.9 | 8 | 41.0 | +0.3 |
 
-*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
+*Batting intent in the powerplay is a concern — the top option **Sanju Samson** strikes at just 124.1, well below the league benchmark of 146.3. **Khaleel Ahmed** leads the powerplay bowling at 8.5 economy with 36 wickets — adequate but not dominant against the league average of 9.3.*
 
-*No significant spin vulnerabilities identified*
+#### Middle Overs (7-15)
+
+**Batting**
+
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Sanju Samson** | 126 | 138 | 32.6 | 14.7 | -2.7 |
+| **MS Dhoni** | 168 | 101 | 49.0 | 8.9 | -39.5 |
+| **Shivam Dube** | 68 | 136 | 36.1 | 16.3 | -3.9 |
+| **Ruturaj Gaikwad** | 44 | 142 | 43.5 | 15.4 | +2.2 |
+
+**Bowling**
+
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Rahul Chahar** | 239 | 7.8 | 58 | 34.0 | +1.0 |
+| **Shreyas Gopal** | 137 | 8.3 | 38 | 30.7 | +0.4 |
+| **Noor Ahmad** | 102 | 8.2 | 33 | 32.2 | +0.6 |
+
+*Batting in the middle overs is league-standard, led by **Sanju Samson** (138 SR across 126 innings). **Rahul Chahar** leads the middle overs bowling at 7.8 economy with 58 wickets — adequate but not dominant against the league average of 8.8.*
+
+#### Death Overs (16-20)
+
+**Batting**
+
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **MS Dhoni** | 197 | 176 | 35.4 | 23.4 | +6.3 |
+| **Sanju Samson** | 48 | 192 | 26 | 26.8 | +21.4 |
+| **Shivam Dube** | 41 | 170 | 23.4 | 22.6 | -0.1 |
+| **Sarfaraz Khan** | 21 | 167 | 23.3 | 23.8 | -3.6 |
+
+**Bowling**
+
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Khaleel Ahmed** | 67.3 | 11.0 | 38 | 31.2 | -0.2 |
+| **Rahul Chahar** | 27.3 | 8.2 | 14 | 32.9 | +2.7 |
+| **Noor Ahmad** | 21.2 | 8.4 | 13 | 42.5 | +2.5 |
+
+*Batting in the death overs is league-standard, led by **MS Dhoni** (176 SR across 197 innings). **Khaleel Ahmed** leads the death overs bowling at 11.0 economy with 38 wickets — adequate but not dominant against the league average of 10.9.*
+
+### 10.2 Batter Tendencies: Pace vs Spin Profile
+
+| Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
+|--------|-----------|-----------|-----------|-----------|----------|
+| **RD Gaikwad** | 142 | 148 | 19.5 | 17.7 | Balanced |
+| **SV Samson** | 152 | 149 | 23.2 | 16.6 | Balanced |
+| **S Dube** | 151 | 145 | 19.5 | 16.6 | Balanced |
+| **MS Dhoni** | 190 | 121 | 27.8 | 13.8 | Pace Dominant |
+| **D Brevis** | 188 | 134 | 28.1 | 13.7 | Pace Dominant |
+| **A Mhatre** | 201 | 132 | 37.1 | 13.6 | Pace Dominant |
+| **Aman Hakim Khan** | 141 | 76 | 17.6 | 8 | Pace Dominant |
+| **MW Short** | 144 | 71.4 | 25.4 | 4.8 | Pace Dominant |
+
+*Exploitable vs spin: **Aman Hakim Khan** (76 SR), **MW Short** (71 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **MS Dhoni** (190 SR), **D Brevis** (188 SR), **A Mhatre** (201 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+
+### 10.3 Pace Attack Intelligence
+
+| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Wkt Rate |
+|--------|---------|----------|------------|------------|----------|
+| **KK Ahmed** | 8.4 | 8.5 | 11.6 | PP | 0.32 |
+| **KV Sharma** | - | 10.2 | 9 | Death | 0.38 |
+| **NT Ellis** | 7.2 | 7.5 | 10.5 | PP | 0.33 |
+| **A Kamboj** | 8.6 | 9.8 | 6 | Death | 0.32 |
+
+***A Kamboj** is the designated death option at 6.0 economy (league avg 10.9). **A Kamboj** should lead the powerplay attack (8.6 economy).*
+
+### 10.4 Spin Attack Intelligence
+
+| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Control Rating |
+|--------|---------|----------|------------|------------|----------------|
+| **Noor Ahmad** | 8.3 | 7.9 | 7.7 | Death | 34.5% |
+| **RD Chahar** | 9 | 8.0 | 9 | Middle | 30.6% |
+
+***Noor Ahmad** is the middle-overs anchor at 7.9 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **RD Chahar** offers a viable death option at 9.0 economy, giving the captain tactical flexibility. Spin dependency is high with 214 combined overs across 2 spinners — a strength on turning pitches but a risk on pace-friendly surfaces.*
+
+### 10.5 Key Vulnerabilities & Matchup Risks
+
+#### Phase Gaps
+
+- **Powerplay**: batting SR 124.4 vs league 146.3
+- **Middle**: batting SR 119.8 vs league 140.3
+
+#### Spin Vulnerability Risk
+
+- No significant spin vulnerabilities identified in MEDIUM/HIGH sample data.
+
+#### Pace Vulnerability Risk
+
+- No significant pace vulnerabilities identified — squad handles pace adequately.
+
+#### Structural Concerns
+
+- No critical structural concerns identified — squad depth is adequate across all phases.
+
+### 10.6 Andy Flower's Tactical Summary
+
+This squad lacks a standout phase advantage over league benchmarks — the margin for error is thin. Execution discipline across all three phases is non-negotiable; there is no single phase strength to fall back on when plans break down.
+
+The vulnerability to exploit: under-par powerplay batting. Opposition teams will target these phases — the captain must have contingency plans ready. In high-stakes matches, these weaknesses will be tested repeatedly, and the response must be pre-planned, not reactive.
+
+The data suggests a well-rounded squad with no glaring tactical gaps. The coaching priority should be maintaining peak performance levels across phases and ensuring tactical flexibility for different match situations. Roster management and workload planning across the tournament will be the real differentiator.
+
+---
+*Tactical analysis based on IPL 2023-2025 ball-by-ball data with league benchmark comparisons. All players filtered to 2026 squad.*
+
 
 ---
 

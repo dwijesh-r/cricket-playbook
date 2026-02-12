@@ -1,6 +1,6 @@
 # Royal Challengers Bengaluru (RCB) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 20:25
+**Generated:** 2026-02-12 20:54
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -128,7 +128,7 @@
 
 - **2023:** Mohammed Siraj (19w @ 7.2), HV Patel (14w @ 9.3), KV Sharma (10w @ 10.41)
 - **2024:** Yash Dayal (15w @ 8.8), Mohammed Siraj (15w @ 8.69), C Green (10w @ 8.21)
-- **2025:** JR Hazlewood (22w @ 8.64), KH Pandya (17w @ 8.06), B Kumar (17w @ 9.25)
+- **2025:** JR Hazlewood (22w @ 8.64), B Kumar (17w @ 9.25), KH Pandya (17w @ 8.06)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -243,8 +243,8 @@
 |-------|---------|------|------|-----------|
 | Eden Gardens | 3 | 1 | 33.3% | 173.7 |
 | Wankhede Stadium | 3 | 1 | 33.3% | 205.3 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 181.7 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 176.3 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 181.7 |
 | Narendra Modi Stadium | 3 | 2 | 66.7% | 189.3 |
 | MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
 | Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
@@ -260,11 +260,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -467,10 +467,10 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 5 | 120 | 145 | 9 | 7.25 | 16.11 | 13.33 | 40.83 | 15.83 | HIGH |
 | Punjab Kings | 7 | 150 | 205 | 8 | 8.2 | 25.63 | 18.75 | 40.67 | 21.33 | HIGH |
-| Gujarat Titans | 3 | 72 | 82 | 6 | 6.83 | 13.67 | 12.0 | 40.28 | 12.5 | MEDIUM |
 | Rajasthan Royals | 6 | 132 | 233 | 6 | 10.59 | 38.83 | 22.0 | 34.85 | 28.79 | HIGH |
-| Mumbai Indians | 5 | 120 | 191 | 4 | 9.55 | 47.75 | 30.0 | 37.5 | 21.67 | HIGH |
+| Gujarat Titans | 3 | 72 | 82 | 6 | 6.83 | 13.67 | 12.0 | 40.28 | 12.5 | MEDIUM |
 | Lucknow Super Giants | 4 | 84 | 104 | 4 | 7.43 | 26.0 | 21.0 | 38.1 | 15.48 | MEDIUM |
+| Mumbai Indians | 5 | 120 | 191 | 4 | 9.55 | 47.75 | 30.0 | 37.5 | 21.67 | HIGH |
 | Chennai Super Kings | 5 | 102 | 152 | 3 | 8.94 | 50.67 | 34.0 | 36.27 | 23.53 | HIGH |
 | Kolkata Knight Riders | 5 | 102 | 161 | 2 | 9.47 | 80.5 | 51.0 | 40.2 | 24.51 | HIGH |
 | Royal Challengers Bengaluru | 3 | 54 | 117 | 1 | 13.0 | 117.0 | 54.0 | 29.63 | 42.59 | MEDIUM |
@@ -480,12 +480,12 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 3 | 72 | 80 | 6 | 6.67 | 13.33 | 12.0 | 44.44 | 13.89 | MEDIUM |
-| Punjab Kings | 7 | 102 | 130 | 5 | 7.65 | 26.0 | 20.4 | 38.24 | 15.69 | HIGH |
-| Gujarat Titans | 4 | 90 | 100 | 5 | 6.67 | 20.0 | 18.0 | 36.67 | 11.11 | MEDIUM |
 | Mumbai Indians | 4 | 96 | 139 | 5 | 8.69 | 27.8 | 19.2 | 35.42 | 20.83 | MEDIUM |
+| Gujarat Titans | 4 | 90 | 100 | 5 | 6.67 | 20.0 | 18.0 | 36.67 | 11.11 | MEDIUM |
+| Punjab Kings | 7 | 102 | 130 | 5 | 7.65 | 26.0 | 20.4 | 38.24 | 15.69 | HIGH |
 | Kolkata Knight Riders | 4 | 66 | 93 | 4 | 8.45 | 23.25 | 16.5 | 28.79 | 19.7 | MEDIUM |
-| Rajasthan Royals | 4 | 96 | 102 | 3 | 6.38 | 34.0 | 32.0 | 25.0 | 7.29 | MEDIUM |
 | Chennai Super Kings | 5 | 72 | 104 | 3 | 8.67 | 34.67 | 24.0 | 27.78 | 18.06 | MEDIUM |
+| Rajasthan Royals | 4 | 96 | 102 | 3 | 6.38 | 34.0 | 32.0 | 25.0 | 7.29 | MEDIUM |
 | Delhi Capitals | 4 | 66 | 105 | 1 | 9.55 | 105.0 | 66.0 | 18.18 | 16.67 | MEDIUM |
 | Royal Challengers Bengaluru | 3 | 54 | 67 | 0 | 7.44 | - | - | 22.22 | 11.11 | MEDIUM |
 
@@ -524,25 +524,138 @@
 
 ## 10. Andy Flower's Tactical Insights
 
+*Comprehensive tactical analysis — IPL 2023+ data with league benchmark context. "Pro team prep, packaged for public consumption."*
 
-### 10.1 Death Bowling Options
+### 10.1 Phase-by-Phase Tactical Profile
 
-- **Suyash Sharma**: 12.0 overs, 2 wickets, 10.33 economy (workload matches output)
-- **JR Hazlewood**: 14.8 overs, 8 wickets, 10.38 economy (over-performs)
-- **B Kumar**: 48.0 overs, 18 wickets, 10.46 economy (over-performs)
+#### Powerplay (overs 1-6)
 
-### 10.2 Powerplay Batting Options
+**Batting**
 
-- **Phil Salt**: SR 176.53, Boundary% 31.3% (32 innings)
-- **Venkatesh Iyer**: SR 130.42, Boundary% 20.79% (40 innings)
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Virat Kohli** | 208 | 126 | 45.8 | 18.8 | -20.2 |
+| **Devdutt Padikkal** | 58 | 125 | 29.6 | 19.7 | -21.5 |
+| **Phil Salt** | 32 | 177 | 38 | 31.3 | +30.2 |
+| **Venkatesh Iyer** | 40 | 130 | 31.4 | 20.8 | -15.9 |
 
-### 10.3 Potential Spin Vulnerabilities
+**Bowling**
 
-*Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Bhuvneshwar Kumar** | 390 | 6.7 | 80 | 53.5 | +2.5 |
+| **Josh Hazlewood** | 81 | 7.5 | 24 | 51.0 | +1.8 |
+| **Krunal Pandya** | 91 | 8.0 | 17 | 39.0 | +1.3 |
 
-*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
+*Batting intent in the powerplay is a concern — the top option **Virat Kohli** strikes at just 126.1, well below the league benchmark of 146.3. **Bhuvneshwar Kumar** provides elite powerplay control at 6.7 economy — 2.5 runs per over cheaper than the league average.*
 
-- **V Kohli** vs off-spin: SR 101.89, Avg 54.0, BPD 53.0 (53 balls)
+#### Middle Overs (7-15)
+
+**Batting**
+
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Virat Kohli** | 183 | 125 | 45.4 | 12.4 | -15.1 |
+| **Krunal Pandya** | 70 | 121 | 24.3 | 13.8 | -19.7 |
+| **Devdutt Padikkal** | 45 | 126 | 28.9 | 14.3 | -14.1 |
+| **Rajat Patidar** | 33 | 162 | 37.1 | 19.2 | +22.2 |
+
+**Bowling**
+
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Krunal Pandya** | 275 | 7.3 | 60 | 28.8 | +1.4 |
+| **Suyash Sharma** | 78 | 8.8 | 13 | 32.9 | -0.0 |
+| **Josh Hazlewood** | 22.2 | 8.2 | 11 | 38.4 | +0.5 |
+
+*Batting intent in the middle overs is a concern — the top option **Virat Kohli** strikes at just 125.1, well below the league benchmark of 140.3. **Krunal Pandya** provides elite middle overs control at 7.3 economy — 1.4 runs per over cheaper than the league average.*
+
+#### Death Overs (16-20)
+
+**Batting**
+
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Virat Kohli** | 93 | 188 | 25.1 | 24.9 | +17.4 |
+| **Krunal Pandya** | 66 | 158 | 22.1 | 21.2 | -12.3 |
+| **Tim David** | 39 | 193 | 30.7 | 27.1 | +22.4 |
+| **Jitesh Sharma** | 27 | 194 | 22.3 | 28.8 | +23.4 |
+
+**Bowling**
+
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Bhuvneshwar Kumar** | 244 | 9.6 | 108 | 26.4 | +1.3 |
+| **Josh Hazlewood** | 41.3 | 10.4 | 22 | 31.1 | +0.4 |
+| **Krunal Pandya** | 33.7 | 8.3 | 16 | 35.1 | +2.5 |
+
+***Virat Kohli** is a standout in the death overs with a SR of 187.7 — 17.4 points above the league average of 170.2. **Bhuvneshwar Kumar** provides elite death overs control at 9.6 economy — 1.3 runs per over cheaper than the league average.*
+
+### 10.2 Batter Tendencies: Pace vs Spin Profile
+
+| Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
+|--------|-----------|-----------|-----------|-----------|----------|
+| **V Kohli** | 162 | 128 | 24.2 | 12.9 | Pace Dominant |
+| **VR Iyer** | 163 | 125 | 25.2 | 13.5 | Pace Dominant |
+| **PD Salt** | 179 | 172 | 30.8 | 27.7 | Balanced |
+| **JM Sharma** | 157 | 155 | 23.0 | 18.9 | Balanced |
+| **RM Patidar** | 149 | 175 | 20.5 | 22.0 | Spin Dominant |
+| **D Padikkal** | 141 | 118 | 22.4 | 12.4 | Pace Dominant |
+| **TH David** | 174 | 123 | 23.6 | 12.5 | Pace Dominant |
+| **KH Pandya** | 137 | 98.7 | 15.8 | 9.5 | Pace Dominant |
+
+*Exploitable vs spin: **D Padikkal** (118 SR), **KH Pandya** (99 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **V Kohli** (162 SR), **VR Iyer** (163 SR), **PD Salt** (179 SR), **TH David** (174 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+
+### 10.3 Pace Attack Intelligence
+
+| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Wkt Rate |
+|--------|---------|----------|------------|------------|----------|
+| **B Kumar** | 8.1 | 10 | 10.5 | PP | 0.28 |
+| **Yash Dayal** | 9.3 | 8.0 | 10.8 | Middle | 0.26 |
+| **JR Hazlewood** | 7.5 | 8.9 | 10.4 | PP | 0.47 |
+| **MP Yadav** | 12 | 7.7 | 7.0 | Death | 0.45 |
+| **R Shepherd** | 10.5 | 11.4 | 14 | PP | 0.27 |
+
+***MP Yadav** is the designated death option at 7.0 economy (league avg 10.9). **JR Hazlewood** should lead the powerplay attack (7.5 economy). Middle-overs pace economy is above league average — consider deploying spin through this phase to contain.*
+
+### 10.4 Spin Attack Intelligence
+
+| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Control Rating |
+|--------|---------|----------|------------|------------|----------------|
+| **KH Pandya** | 8.6 | 7.3 | 8.9 | Middle | 31.7% |
+| **Suyash Sharma** | 7.3 | 8.6 | 10.3 | PP | 31.9% |
+
+***KH Pandya** is the middle-overs anchor at 7.3 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **Suyash Sharma** offers a viable death option at 10.3 economy, giving the captain tactical flexibility. Spin dependency is high with 214 combined overs across 2 spinners — a strength on turning pitches but a risk on pace-friendly surfaces.*
+
+### 10.5 Key Vulnerabilities & Matchup Risks
+
+#### Phase Gaps
+
+- **Powerplay**: batting SR 120.6 vs league 146.3
+
+#### Spin Vulnerability Risk
+
+- **V Kohli** vs off-spin: SR 102, Avg 54, BPD 53 (53 balls, league avg 137.8)
+
+#### Pace Vulnerability Risk
+
+- **B Kumar** vs Fast: SR 88, Avg 8.8 (50 balls, league avg vs pace ~151)
+
+#### Structural Concerns
+
+- No critical structural concerns identified — squad depth is adequate across all phases.
+
+### 10.6 Andy Flower's Tactical Summary
+
+This squad's competitive advantages are clear: powerplay bowling (Bhuvneshwar Kumar at 6.7 economy), middle-overs bowling (Krunal Pandya at 7.3 economy), death batting (Virat Kohli at 188 SR), death bowling (Bhuvneshwar Kumar at 9.6 economy). These are non-negotiable pillars — the coaching staff must build match plans around protecting and maximizing these phase strengths. Any game plan that doesn't feature these assets prominently is leaving runs on the table.
+
+The vulnerability to exploit: under-par powerplay batting, under-par middle-overs batting. Opposition teams will target these phases — the captain must have contingency plans ready. In high-stakes matches, these weaknesses will be tested repeatedly, and the response must be pre-planned, not reactive.
+
+The data suggests a well-rounded squad with no glaring tactical gaps. The coaching priority should be maintaining peak performance levels across phases and ensuring tactical flexibility for different match situations. Roster management and workload planning across the tournament will be the real differentiator.
+
+---
+*Tactical analysis based on IPL 2023-2025 ball-by-ball data with league benchmark comparisons. All players filtered to 2026 squad.*
+
 
 ---
 
@@ -730,7 +843,7 @@
 
 | Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
 |--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
-| Jordan Cox | Wicketkeeper | 0 | 139 | 31.9 | 7 | 2522 | 49 | Blast (0.50, SR 145.3); 100 (0.50, SR 155.2); ILT20 (0.49, SR 119.3) |
+| Jordan Cox | Wicketkeeper | 0 | 139 | 31.9 | 7 | 2522 | 49 | Blast (0.50, SR 145.3); ILT20 (0.49, SR 119.3); 100 (0.50, SR 155.2) |
 | Romario Shepherd | All-rounder | 45 | 166 | 24.2 | 6 | 902 | 52 | CPL (0.50, SR 162.9); ILT20 (0.49, SR 180.2); SA20 (0.50, SR 132.5) |
 | Jacob Bethell | All-rounder | 39 | 139 | 25.2 | 4 | 812 | 52 | Blast (0.50, SR 141.8); 100 (0.50, SR 133.8); BBL (0.53, SR 125.0) |
 | Swapnil Singh | All-rounder | 25 | 122 | 23.3 | 2 | 476 | 63 | SMAT (0.65, SR 123.4); IPL (0.87, SR 113.3) |
@@ -746,7 +859,7 @@
 | Jacob Duffy | Bowler | 0 | 8.3 | 17.4 | 2 | 1430 | 38 | SS (0.36, Econ 8.3); 100 (0.50, Econ 9.0) |
 | Swapnil Singh | All-rounder | 102 | 7.3 | 19.6 | 2 | 856 | 69 | SMAT (0.65, Econ 6.8); IPL (0.87, Econ 8.8) |
 | Venkatesh Iyer | All-rounder | 6 | 7.6 | 17.8 | 2 | 543 | 68 | SMAT (0.65, Econ 6.9); IPL (0.87, Econ 10.5) |
-| Tim David | Batter | 0 | 8.5 | 34.4 | 8 | 499 | 51 | BBL (0.53, Econ 8.2); Blast (0.50, Econ 9.0); CPL (0.50, Econ 8.0) |
+| Tim David | Batter | 0 | 8.5 | 34.4 | 8 | 499 | 51 | BBL (0.53, Econ 8.2); Blast (0.50, Econ 9.0); PSL (0.51, Econ 9.6) |
 | Jacob Bethell | All-rounder | 0 | 7.7 | 16.9 | 3 | 253 | 26 | Blast (0.50, Econ 7.6); BBL (0.53, Econ 6.4); 100 (0.50, Econ 10.2) |
 | Virat Kohli | Batter | 0 | 8.4 | 50.2 | 1 | 251 | 44 | IPL (0.87, Econ 8.4) |
 | Mangesh Yadav | Bowler | 121 | 8.5 | 13.2 | 2 | 175 | 28 | IPL (0.87, Econ 8.9); SMAT (0.65, Econ 7.4) |

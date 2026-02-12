@@ -697,51 +697,365 @@
             text-transform: uppercase;
         }
 
-        /* Balance Summary */
-        .balance-summary {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 24px;
-            margin-top: 24px;
+        /* ==================== STRATEGY OUTLOOK - Complete Redesign ==================== */
+        .strategy-outlook {
+            padding: 0;
         }
-        .balance-summary h3 {
-            font-size: 18px;
-            font-weight: 700;
+        .strategy-section {
+            margin-bottom: 24px;
+        }
+        .strategy-section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
         }
-        .balance-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 16px;
-        }
-        .balance-item {
-            text-align: center;
-            padding: 16px;
-            background: var(--bg-elevated);
-            border-radius: 10px;
-        }
-        .balance-value {
-            font-size: 24px;
+        .strategy-section-title {
+            font-size: 14px;
             font-weight: 700;
-            color: var(--accent);
-        }
-        .balance-label {
-            font-size: 11px;
-            color: var(--text-tertiary);
             text-transform: uppercase;
-            margin-top: 4px;
+            letter-spacing: 0.5px;
+            color: var(--text-primary);
         }
-        .balance-status {
+        .strategy-section-badge {
             font-size: 10px;
             padding: 2px 8px;
             border-radius: 4px;
-            margin-top: 4px;
-            display: inline-block;
+            font-weight: 600;
         }
-        .balance-status.good { background: rgba(48, 209, 88, 0.2); color: var(--accent-green); }
-        .balance-status.max { background: rgba(255, 159, 10, 0.2); color: var(--accent-orange); }
-        .balance-status.warn { background: rgba(255, 69, 58, 0.2); color: var(--accent-red); }
+
+        /* Phase Coverage Cards */
+        .phase-coverage-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+        .phase-card {
+            background: var(--bg-elevated);
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .phase-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+        .phase-card.strong::before { background: var(--accent-green); }
+        .phase-card.adequate::before { background: var(--accent-yellow); }
+        .phase-card.thin::before { background: var(--accent-red); }
+        .phase-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+        .phase-card-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-tertiary);
+        }
+        .phase-card-count {
+            font-size: 28px;
+            font-weight: 800;
+        }
+        .phase-card-count.strong { color: var(--accent-green); }
+        .phase-card-count.adequate { color: var(--accent-yellow); }
+        .phase-card-count.thin { color: var(--accent-red); }
+        .phase-card-status {
+            font-size: 10px;
+            font-weight: 600;
+        }
+        .phase-card-status.strong { color: var(--accent-green); }
+        .phase-card-status.adequate { color: var(--accent-yellow); }
+        .phase-card-status.thin { color: var(--accent-red); }
+        .phase-card-names {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+
+        /* Metric Row */
+        .metric-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+        }
+        .metric-item {
+            background: var(--bg-elevated);
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        .metric-value {
+            font-size: 26px;
+            font-weight: 800;
+        }
+        .metric-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-top: 2px;
+        }
+        .metric-note {
+            font-size: 10px;
+            margin-top: 4px;
+            font-weight: 600;
+        }
+
+        /* Age Profile Bar */
+        .age-profile-bar {
+            display: flex;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0 8px 0;
+        }
+        .age-segment {
+            transition: width 0.3s ease;
+        }
+        .age-legend {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            font-size: 10px;
+            color: var(--text-tertiary);
+        }
+        .age-legend-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 4px;
+            vertical-align: middle;
+        }
+
+        /* Venue Profile Cards */
+        .venue-profile {
+            background: var(--bg-elevated);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border);
+        }
+        .venue-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .venue-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .venue-character {
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .venue-character.pace { background: rgba(10, 132, 255, 0.15); color: var(--accent); }
+        .venue-character.spin { background: rgba(191, 90, 242, 0.15); color: var(--accent-purple); }
+        .venue-character.balanced { background: rgba(48, 209, 88, 0.15); color: var(--accent-green); }
+
+        .venue-phase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        .venue-phase-card {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+        }
+        .venue-phase-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+        .venue-phase-stat {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .venue-phase-sub {
+            font-size: 10px;
+            color: var(--text-tertiary);
+            margin-top: 2px;
+        }
+
+        /* Venue Records Table */
+        .venue-records-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+        .venue-records-table th {
+            text-align: left;
+            padding: 8px 10px;
+            font-size: 10px;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            border-bottom: 1px solid var(--border);
+            font-weight: 600;
+        }
+        .venue-records-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            color: var(--text-secondary);
+        }
+        .venue-records-table tr:hover td {
+            background: rgba(255,255,255,0.02);
+        }
+        .win-pct-bar {
+            height: 4px;
+            border-radius: 2px;
+            background: var(--bg-tertiary);
+            overflow: hidden;
+            margin-top: 3px;
+        }
+        .win-pct-fill {
+            height: 100%;
+            border-radius: 2px;
+        }
+
+        /* Historic Trends */
+        .trend-season-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+        .trend-season-card {
+            background: var(--bg-elevated);
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+        .trend-season-year {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-tertiary);
+            margin-bottom: 8px;
+        }
+        .trend-season-record {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+        .trend-season-winpct {
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+        .trend-arrow {
+            font-size: 12px;
+            margin-left: 4px;
+        }
+        .trend-arrow.up { color: var(--accent-green); }
+        .trend-arrow.down { color: var(--accent-red); }
+        .trend-arrow.flat { color: var(--text-tertiary); }
+
+        /* Phase Trend Sparklines */
+        .phase-trend-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 16px;
+        }
+        .phase-trend-card {
+            background: var(--bg-elevated);
+            border-radius: 10px;
+            padding: 16px;
+            border: 1px solid var(--border);
+        }
+        .phase-trend-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 12px;
+        }
+        .phase-trend-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 0;
+            font-size: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+        .phase-trend-row:last-child { border-bottom: none; }
+        .phase-trend-label {
+            color: var(--text-tertiary);
+            font-size: 11px;
+        }
+        .phase-trend-values {
+            display: flex;
+            gap: 12px;
+        }
+        .phase-trend-val {
+            font-weight: 600;
+            min-width: 40px;
+            text-align: right;
+        }
+
+        /* Vulnerability Alert */
+        .vuln-card {
+            background: rgba(255, 69, 58, 0.04);
+            border: 1px solid rgba(255, 69, 58, 0.15);
+            border-radius: 12px;
+            padding: 16px;
+        }
+        .vuln-header {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--accent-red);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .vuln-list {
+            margin: 0;
+            padding-left: 18px;
+            color: var(--text-secondary);
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        /* Two-column layout */
+        .strategy-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        /* Responsive - Strategy Outlook */
+        @media (max-width: 768px) {
+            .phase-coverage-grid { grid-template-columns: 1fr; }
+            .strategy-two-col { grid-template-columns: 1fr; }
+            .trend-season-grid { grid-template-columns: 1fr; }
+            .venue-phase-grid { grid-template-columns: 1fr; }
+            .phase-trend-grid { grid-template-columns: 1fr; }
+        }
 
         /* Impact Player */
         .impact-player {
@@ -2111,7 +2425,7 @@
             <button class="content-tab active" data-tab="xi">Predicted XI</button>
             <button class="content-tab" data-tab="squad">Full Squad</button>
             <button class="content-tab" data-tab="depth">Depth Chart</button>
-            <button class="content-tab" data-tab="balance">Strategic Balance</button>
+            <button class="content-tab" data-tab="balance">Strategy Outlook</button>
             <button class="content-tab" data-tab="pressure">Pressure</button>
             <button class="content-tab" data-tab="compare">⚔️ Compare</button>
         </div>
@@ -2129,7 +2443,7 @@
                 <div id="depth-content"></div>
             </div>
             <div class="panel" id="panel-balance">
-                <div class="balance-summary" id="balance-content"></div>
+                <div class="strategy-outlook" id="balance-content"></div>
             </div>
             <div class="panel" id="panel-pressure">
                 <div id="pressure-content"></div>
@@ -2149,6 +2463,8 @@
     <script src="data/depth_charts.js"></script>
     <script src="data/full_squads.js"></script>
     <script src="data/pressure_metrics.js"></script>
+    <script src="data/venue_data.js"></script>
+    <script src="data/historic_trends.js"></script>
 
     <script>
         // Pixelated Team Logos (8x8 grid style)
@@ -2381,7 +2697,7 @@
                 </div>
             `;
 
-            // ========== STRATEGIC BALANCE SCORECARD (Andy Flower + Jose Mourinho) ==========
+            // ========== STRATEGY OUTLOOK (Kevin De Bruyne Redesign) ==========
             const balance = predicted.balance;
             const balanceContent = document.getElementById('balance-content');
             const xi = predicted.xi || [];
@@ -2402,12 +2718,14 @@
             const deathBowlers = xiSquadData.filter(p =>
                 (p.bowlerTags || []).some(t => t.includes('DEATH'))
             );
-            const phaseColor = (count) => count >= 3 ? 'var(--accent-green)' : count >= 2 ? 'var(--accent-yellow)' : 'var(--accent-red)';
+            const phaseClass = (count) => count >= 3 ? 'strong' : count >= 2 ? 'adequate' : 'thin';
             const phaseLabel = (count) => count >= 3 ? 'Strong' : count >= 2 ? 'Adequate' : 'Thin';
 
             // --- Batting Depth ---
             const canBat = xiSquadData.filter(p => p.batterClass && p.batterClass !== '-').length;
+            const canBatClass = canBat >= 7 ? 'strong' : canBat >= 5 ? 'adequate' : 'thin';
             const finishers = xiSquadData.filter(p => (p.batterTags || []).some(t => t.includes('FINISHER') || t.includes('DEATH'))).length;
+            const finishersClass = finishers >= 3 ? 'strong' : finishers >= 2 ? 'adequate' : 'thin';
             const sixHitters = xiSquadData.filter(p => (p.batterTags || []).some(t => t.includes('SIX_HITTER'))).length;
 
             // --- Key Player Dependency ---
@@ -2416,7 +2734,7 @@
             const top3Price = sortedByPrice.slice(0, 3).reduce((s, p) => s + p.price, 0);
             const top3Pct = totalXIPrice > 0 ? ((top3Price / totalXIPrice) * 100).toFixed(0) : 0;
             const top3Names = sortedByPrice.slice(0, 3).map(p => p.name.split(' ').pop()).join(', ');
-            const dependencyColor = top3Pct >= 55 ? 'var(--accent-red)' : top3Pct >= 45 ? 'var(--accent-yellow)' : 'var(--accent-green)';
+            const dependencyClass = top3Pct >= 55 ? 'thin' : top3Pct >= 45 ? 'adequate' : 'strong';
             const dependencyLabel = top3Pct >= 55 ? 'High Risk' : top3Pct >= 45 ? 'Moderate' : 'Distributed';
 
             // --- Squad Age Profile ---
@@ -2426,6 +2744,11 @@
             const prime = xiAges.filter(a => a >= 23 && a <= 28).length;
             const experienced = xiAges.filter(a => a >= 29 && a <= 32).length;
             const veteran = xiAges.filter(a => a >= 33).length;
+            const totalAge = xiAges.length || 1;
+            const u23Pct = ((u23 / totalAge) * 100).toFixed(0);
+            const primePct = ((prime / totalAge) * 100).toFixed(0);
+            const expPct = ((experienced / totalAge) * 100).toFixed(0);
+            const vetPct = ((veteran / totalAge) * 100).toFixed(0);
             const veterans50Plus = xiSquadData.filter(p => (p.iplMatches || 0) >= 50).length;
             const uncappedCount = xiSquadData.filter(p => p.isUncapped).length;
 
@@ -2433,134 +2756,317 @@
             const venueBias = team.venueBias || 'neutral';
             const spinCount = balance.spinners || 0;
             const paceCount = balance.pacers || 0;
-            let venueAligned = true;
-            let venueNote = 'Neutral venue - flexible composition works';
-            if (venueBias === 'spin' && paceCount > spinCount + 3) { venueAligned = false; venueNote = `Spin venue but pace-heavy XI (${paceCount}P vs ${spinCount}S)`; }
-            else if (venueBias === 'pace' && spinCount > paceCount) { venueAligned = false; venueNote = `Pace venue but spin-heavy XI (${spinCount}S vs ${paceCount}P)`; }
-            else if (venueBias === 'spin') { venueNote = `Spin venue - ${spinCount} spin options available`; }
-            else if (venueBias === 'pace') { venueNote = `Pace venue - ${paceCount} pace options available`; }
 
             // --- Overseas Flexibility ---
             const overseasInXI = xi.filter(p => p.overseas);
             const overseasInSquad = squad.filter(p => p.nationality !== 'IND');
             const overseasBench = overseasInSquad.filter(p => !xiNames.has(p.name));
+            const overseasBenchClass = overseasBench.length >= 4 ? 'strong' : overseasBench.length >= 2 ? 'adequate' : 'thin';
 
             // --- Vulnerabilities from Depth Chart ---
             const vulns = depthData && depthData.vulnerabilities ? depthData.vulnerabilities : [];
 
-            balanceContent.innerHTML = `
-                <h3 style="margin-bottom: 20px;">Strategic Balance - ${team.fullName}</h3>
+            // --- Venue Data (new data source) ---
+            const venueData = typeof VENUE_DATA !== 'undefined' ? VENUE_DATA[currentTeam] : null;
 
-                <div style="margin-bottom: 20px; padding: 16px; background: var(--bg-elevated); border-radius: 12px;">
-                    <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px;">Bowling Phase Coverage</div>
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
-                        <div style="text-align: center; padding: 12px; background: var(--bg-secondary); border-radius: 8px; border-top: 3px solid ${phaseColor(ppBowlers.length)};">
-                            <div style="font-size: 28px; font-weight: 800; color: ${phaseColor(ppBowlers.length)};">${ppBowlers.length}</div>
-                            <div style="font-size: 11px; color: var(--text-tertiary); text-transform: uppercase;">Powerplay</div>
-                            <div style="font-size: 10px; color: ${phaseColor(ppBowlers.length)}; margin-top: 2px;">${phaseLabel(ppBowlers.length)}</div>
-                            <div style="font-size: 10px; color: var(--text-tertiary); margin-top: 4px;">${ppBowlers.map(p => p.name.split(' ').pop()).join(', ') || 'None tagged'}</div>
-                        </div>
-                        <div style="text-align: center; padding: 12px; background: var(--bg-secondary); border-radius: 8px; border-top: 3px solid ${phaseColor(midBowlers.length)};">
-                            <div style="font-size: 28px; font-weight: 800; color: ${phaseColor(midBowlers.length)};">${midBowlers.length}</div>
-                            <div style="font-size: 11px; color: var(--text-tertiary); text-transform: uppercase;">Middle Overs</div>
-                            <div style="font-size: 10px; color: ${phaseColor(midBowlers.length)}; margin-top: 2px;">${phaseLabel(midBowlers.length)}</div>
-                            <div style="font-size: 10px; color: var(--text-tertiary); margin-top: 4px;">${midBowlers.map(p => p.name.split(' ').pop()).join(', ') || 'None tagged'}</div>
-                        </div>
-                        <div style="text-align: center; padding: 12px; background: var(--bg-secondary); border-radius: 8px; border-top: 3px solid ${phaseColor(deathBowlers.length)};">
-                            <div style="font-size: 28px; font-weight: 800; color: ${phaseColor(deathBowlers.length)};">${deathBowlers.length}</div>
-                            <div style="font-size: 11px; color: var(--text-tertiary); text-transform: uppercase;">Death Overs</div>
-                            <div style="font-size: 10px; color: ${phaseColor(deathBowlers.length)}; margin-top: 2px;">${phaseLabel(deathBowlers.length)}</div>
-                            <div style="font-size: 10px; color: var(--text-tertiary); margin-top: 4px;">${deathBowlers.map(p => p.name.split(' ').pop()).join(', ') || 'None tagged'}</div>
-                        </div>
+            // --- Historic Trends (new data source) ---
+            const historicData = typeof HISTORIC_TRENDS !== 'undefined' ? HISTORIC_TRENDS[currentTeam] : null;
+
+            // ===== Build Section 1: Team Composition Scorecard =====
+            let section1HTML = `
+            <div class="strategy-section">
+                <div class="strategy-section-header">
+                    <div class="strategy-section-title">Team Composition Scorecard</div>
+                    <span class="strategy-section-badge" style="background: rgba(10, 132, 255, 0.15); color: var(--accent);">XI Analysis</span>
+                </div>
+
+                <!-- Phase Coverage -->
+                <div class="phase-coverage-grid">
+                    <div class="phase-card ${phaseClass(ppBowlers.length)}">
+                        <div class="phase-card-label">Powerplay</div>
+                        <div class="phase-card-count ${phaseClass(ppBowlers.length)}">${ppBowlers.length}</div>
+                        <div class="phase-card-status ${phaseClass(ppBowlers.length)}">${phaseLabel(ppBowlers.length)}</div>
+                        <div class="phase-card-names">${ppBowlers.map(p => p.name.split(' ').pop()).join(', ') || 'None tagged'}</div>
+                    </div>
+                    <div class="phase-card ${phaseClass(midBowlers.length)}">
+                        <div class="phase-card-label">Middle Overs</div>
+                        <div class="phase-card-count ${phaseClass(midBowlers.length)}">${midBowlers.length}</div>
+                        <div class="phase-card-status ${phaseClass(midBowlers.length)}">${phaseLabel(midBowlers.length)}</div>
+                        <div class="phase-card-names">${midBowlers.map(p => p.name.split(' ').pop()).join(', ') || 'None tagged'}</div>
+                    </div>
+                    <div class="phase-card ${phaseClass(deathBowlers.length)}">
+                        <div class="phase-card-label">Death Overs</div>
+                        <div class="phase-card-count ${phaseClass(deathBowlers.length)}">${deathBowlers.length}</div>
+                        <div class="phase-card-status ${phaseClass(deathBowlers.length)}">${phaseLabel(deathBowlers.length)}</div>
+                        <div class="phase-card-names">${deathBowlers.map(p => p.name.split(' ').pop()).join(', ') || 'None tagged'}</div>
                     </div>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
-                    <div style="padding: 16px; background: var(--bg-elevated); border-radius: 12px;">
-                        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px;">Batting Depth</div>
-                        <div style="display: flex; justify-content: space-around; text-align: center;">
+                <!-- Compact Metrics Row -->
+                <div class="metric-row" style="margin-top: 16px;">
+                    <div class="metric-item">
+                        <div class="metric-value phase-card-count ${canBatClass}">${canBat}</div>
+                        <div class="metric-label">Can Bat</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value phase-card-count ${finishersClass}">${finishers}</div>
+                        <div class="metric-label">Finishers</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value" style="color: var(--accent);">${sixHitters}</div>
+                        <div class="metric-label">Six Hitters</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value phase-card-count ${dependencyClass}">${top3Pct}%</div>
+                        <div class="metric-label">Star Dependency</div>
+                        <div class="metric-note phase-card-status ${dependencyClass}">${dependencyLabel}</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value" style="color: var(--accent-orange);">${overseasInXI.length}/4</div>
+                        <div class="metric-label">Overseas Slots</div>
+                        <div class="metric-note phase-card-count ${overseasBenchClass}">${overseasBench.length} bench</div>
+                    </div>
+                </div>
+
+                <!-- Age Profile Bar -->
+                <div class="metric-item" style="margin-top: 16px;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+                        <div class="metric-label" style="margin-top: 0;">XI Age Profile</div>
+                        <div style="font-size: 14px; font-weight: 700; color: var(--accent);">${medianAge} <span style="font-size: 10px; font-weight: 400; color: var(--text-tertiary);">median</span></div>
+                    </div>
+                    <div class="age-profile-bar">
+                        <div class="age-segment" style="width: ${u23Pct}%; background: var(--accent-green);"></div>
+                        <div class="age-segment" style="width: ${primePct}%; background: var(--accent);"></div>
+                        <div class="age-segment" style="width: ${expPct}%; background: var(--accent-yellow);"></div>
+                        <div class="age-segment" style="width: ${vetPct}%; background: var(--accent-orange);"></div>
+                    </div>
+                    <div class="age-legend">
+                        <span><span class="age-legend-dot" style="background: var(--accent-green);"></span>U-23 (${u23})</span>
+                        <span><span class="age-legend-dot" style="background: var(--accent);"></span>23-28 (${prime})</span>
+                        <span><span class="age-legend-dot" style="background: var(--accent-yellow);"></span>29-32 (${experienced})</span>
+                        <span><span class="age-legend-dot" style="background: var(--accent-orange);"></span>33+ (${veteran})</span>
+                    </div>
+                    <div style="font-size: 10px; color: var(--text-tertiary); text-align: center; margin-top: 6px;">${veterans50Plus} IPL veterans (50+ caps) &middot; ${uncappedCount} uncapped</div>
+                </div>
+            </div>`;
+
+            // ===== Build Section 2: Home Venue Intelligence =====
+            let section2HTML = '';
+            if (venueData) {
+                const homeVenue = venueData.homeVenue || {};
+                const venueCharacter = (homeVenue.character || venueBias || 'balanced').toLowerCase();
+                const charClass = venueCharacter === 'pace' ? 'pace' : venueCharacter === 'spin' ? 'spin' : 'balanced';
+                const venueRecords = (venueData.records || []).slice(0, 5);
+
+                let ppRR = homeVenue.ppRunRate || '-';
+                let midRR = homeVenue.middleRunRate || '-';
+                let deathRR = homeVenue.deathRunRate || '-';
+                let ppBdry = homeVenue.ppBoundaryPct || '-';
+                let midDot = homeVenue.middleDotPct || '-';
+                let deathBdry = homeVenue.deathBoundaryPct || '-';
+
+                let recordsHTML = '';
+                if (venueRecords.length > 0) {
+                    recordsHTML = `
+                    <table class="venue-records-table">
+                        <thead>
+                            <tr>
+                                <th>Venue</th>
+                                <th>Mat</th>
+                                <th>W-L</th>
+                                <th>Win%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${venueRecords.map(r => {
+                                const winPct = r.winPct || (r.matches > 0 ? ((r.wins / r.matches) * 100).toFixed(0) : 0);
+                                const barColor = winPct >= 60 ? 'var(--accent-green)' : winPct >= 45 ? 'var(--accent-yellow)' : 'var(--accent-red)';
+                                return `<tr>
+                                    <td>${r.venue || r.name || '-'}</td>
+                                    <td>${r.matches || '-'}</td>
+                                    <td>${r.wins || 0}-${r.losses || 0}</td>
+                                    <td>
+                                        ${winPct}%
+                                        <div class="win-pct-bar"><div class="win-pct-fill" style="width: ${winPct}%; background: ${barColor};"></div></div>
+                                    </td>
+                                </tr>`;
+                            }).join('')}
+                        </tbody>
+                    </table>`;
+                }
+
+                section2HTML = `
+                <div class="strategy-section">
+                    <div class="strategy-section-header">
+                        <div class="strategy-section-title">Home Venue Intelligence</div>
+                        <span class="strategy-section-badge" style="background: rgba(191, 90, 242, 0.15); color: var(--accent-purple);">Venue</span>
+                    </div>
+
+                    <div class="venue-profile">
+                        <div class="venue-header">
+                            <div class="venue-name">${homeVenue.name || team.homeVenue || 'Home Venue'}</div>
                             <div>
-                                <div style="font-size: 28px; font-weight: 800; color: ${canBat >= 7 ? 'var(--accent-green)' : canBat >= 5 ? 'var(--accent-yellow)' : 'var(--accent-red)'};">${canBat}</div>
-                                <div style="font-size: 10px; color: var(--text-tertiary); text-transform: uppercase;">Can Bat</div>
-                            </div>
-                            <div>
-                                <div style="font-size: 28px; font-weight: 800; color: ${finishers >= 3 ? 'var(--accent-green)' : finishers >= 2 ? 'var(--accent-yellow)' : 'var(--accent-red)'};">${finishers}</div>
-                                <div style="font-size: 10px; color: var(--text-tertiary); text-transform: uppercase;">Finishers</div>
-                            </div>
-                            <div>
-                                <div style="font-size: 28px; font-weight: 800; color: var(--accent);">${sixHitters}</div>
-                                <div style="font-size: 10px; color: var(--text-tertiary); text-transform: uppercase;">Six Hitters</div>
+                                <span class="venue-character ${charClass}">${venueCharacter}</span>
+                                <span style="font-size: 10px; color: var(--text-tertiary); margin-left: 8px;">${spinCount} spin &middot; ${paceCount} pace</span>
                             </div>
                         </div>
-                    </div>
-                    <div style="padding: 16px; background: var(--bg-elevated); border-radius: 12px;">
-                        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px;">Star Dependency</div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 28px; font-weight: 800; color: ${dependencyColor};">${top3Pct}%</div>
-                            <div style="font-size: 10px; color: var(--text-tertiary); text-transform: uppercase;">Salary in Top 3</div>
-                            <div style="font-size: 10px; color: ${dependencyColor}; margin-top: 2px;">${dependencyLabel}</div>
-                            <div style="font-size: 10px; color: var(--text-tertiary); margin-top: 4px;">${top3Names}</div>
-                        </div>
-                    </div>
-                </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
-                    <div style="padding: 16px; background: var(--bg-elevated); border-radius: 12px;">
-                        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px;">XI Age Profile</div>
-                        <div style="text-align: center; margin-bottom: 8px;">
-                            <span style="font-size: 20px; font-weight: 800; color: var(--accent);">${medianAge}</span>
-                            <span style="font-size: 11px; color: var(--text-tertiary);"> median age</span>
+                        <div class="venue-phase-grid">
+                            <div class="venue-phase-card">
+                                <div class="venue-phase-label">Powerplay RR</div>
+                                <div class="venue-phase-stat">${ppRR}</div>
+                                <div class="venue-phase-sub">${ppBdry}${ppBdry !== '-' ? '% boundary' : ''}</div>
+                            </div>
+                            <div class="venue-phase-card">
+                                <div class="venue-phase-label">Middle RR</div>
+                                <div class="venue-phase-stat">${midRR}</div>
+                                <div class="venue-phase-sub">${midDot}${midDot !== '-' ? '% dots' : ''}</div>
+                            </div>
+                            <div class="venue-phase-card">
+                                <div class="venue-phase-label">Death RR</div>
+                                <div class="venue-phase-stat">${deathRR}</div>
+                                <div class="venue-phase-sub">${deathBdry}${deathBdry !== '-' ? '% boundary' : ''}</div>
+                            </div>
                         </div>
-                        <div style="display: flex; justify-content: space-around; text-align: center; font-size: 11px;">
-                            <div><span style="font-weight: 700; color: var(--accent-green);">${u23}</span><br/><span style="color: var(--text-tertiary);">U-23</span></div>
-                            <div><span style="font-weight: 700; color: var(--accent);">${prime}</span><br/><span style="color: var(--text-tertiary);">23-28</span></div>
-                            <div><span style="font-weight: 700; color: var(--accent-yellow);">${experienced}</span><br/><span style="color: var(--text-tertiary);">29-32</span></div>
-                            <div><span style="font-weight: 700; color: var(--accent-orange);">${veteran}</span><br/><span style="color: var(--text-tertiary);">33+</span></div>
-                        </div>
-                        <div style="font-size: 10px; color: var(--text-tertiary); text-align: center; margin-top: 8px;">${veterans50Plus} IPL veterans (50+ caps) · ${uncappedCount} uncapped</div>
-                    </div>
-                    <div style="padding: 16px; background: var(--bg-elevated); border-radius: 12px;">
-                        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px;">Venue Alignment</div>
-                        <div style="text-align: center; margin-bottom: 8px;">
-                            <span style="font-size: 20px; font-weight: 800; color: ${venueAligned ? 'var(--accent-green)' : 'var(--accent-red)'};">${venueAligned ? 'ALIGNED' : 'MISALIGNED'}</span>
-                        </div>
-                        <div style="font-size: 12px; color: var(--text-secondary); text-align: center;">${team.homeVenue}</div>
-                        <div style="font-size: 11px; color: var(--text-tertiary); text-align: center; margin-top: 4px;">${venueNote}</div>
-                        <div style="display: flex; justify-content: center; gap: 16px; margin-top: 8px; font-size: 11px;">
-                            <div><span style="font-weight: 700;">${spinCount}</span> spin</div>
-                            <div><span style="font-weight: 700;">${paceCount}</span> pace</div>
-                            <div style="color: var(--accent-orange); font-weight: 600;">${venueBias}</div>
-                        </div>
-                    </div>
-                </div>
 
-                <div style="padding: 16px; background: var(--bg-elevated); border-radius: 12px; margin-bottom: 20px;">
-                    <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px;">Overseas Flexibility</div>
-                    <div style="display: flex; gap: 24px; align-items: center;">
-                        <div style="text-align: center;">
-                            <div style="font-size: 28px; font-weight: 800; color: var(--accent-orange);">${overseasInXI.length}/4</div>
-                            <div style="font-size: 10px; color: var(--text-tertiary);">XI Slots Used</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 28px; font-weight: 800; color: ${overseasBench.length >= 4 ? 'var(--accent-green)' : overseasBench.length >= 2 ? 'var(--accent-yellow)' : 'var(--accent-red)'};">${overseasBench.length}</div>
-                            <div style="font-size: 10px; color: var(--text-tertiary);">Bench Options</div>
-                        </div>
-                        <div style="flex: 1; font-size: 11px; color: var(--text-secondary);">
-                            <div style="margin-bottom: 4px;"><strong>In XI:</strong> ${overseasInXI.map(p => p.name.split(' ').pop()).join(', ')}</div>
-                            <div><strong>Bench:</strong> ${overseasBench.slice(0, 5).map(p => p.name.split(' ').pop()).join(', ')}${overseasBench.length > 5 ? ' +' + (overseasBench.length - 5) + ' more' : ''}</div>
-                        </div>
+                        ${recordsHTML}
                     </div>
-                </div>
+                </div>`;
+            } else {
+                section2HTML = `
+                <div class="strategy-section">
+                    <div class="strategy-section-header">
+                        <div class="strategy-section-title">Home Venue Intelligence</div>
+                        <span class="strategy-section-badge" style="background: rgba(191, 90, 242, 0.15); color: var(--accent-purple);">Venue</span>
+                    </div>
+                    <div class="venue-profile" style="text-align: center; padding: 32px;">
+                        <div style="font-size: 13px; color: var(--text-tertiary);">Venue data loading...</div>
+                        <div style="font-size: 12px; color: var(--text-tertiary); margin-top: 8px;">${team.homeVenue || 'Home Venue'} &middot; ${venueBias} bias &middot; ${spinCount} spin / ${paceCount} pace</div>
+                    </div>
+                </div>`;
+            }
 
-                ${vulns.length > 0 ? `
-                <div style="padding: 16px; background: rgba(255, 159, 10, 0.05); border: 1px dashed var(--accent-orange); border-radius: 12px;">
-                    <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--accent-orange); margin-bottom: 8px;">Structural Vulnerabilities</div>
-                    <ul style="margin: 0; padding-left: 20px; color: var(--text-secondary); font-size: 12px;">
-                        ${vulns.map(v => '<li style="margin: 4px 0;">' + v + '</li>').join('')}
-                    </ul>
-                </div>
-                ` : ''}
-            `;
+            // ===== Build Section 3: Historic Trajectory =====
+            let section3HTML = '';
+            if (historicData && historicData.seasons && historicData.seasons.length > 0) {
+                const seasons = historicData.seasons.slice(-3);
+                const getTrendArrow = (curr, prev) => {
+                    if (!prev) return '<span class="trend-arrow flat">--</span>';
+                    if (curr > prev) return '<span class="trend-arrow up">&#9650;</span>';
+                    if (curr < prev) return '<span class="trend-arrow down">&#9660;</span>';
+                    return '<span class="trend-arrow flat">&#9654;</span>';
+                };
+                const getWinPctColor = (pct) => pct >= 60 ? 'var(--accent-green)' : pct >= 45 ? 'var(--accent-yellow)' : 'var(--accent-red)';
+
+                let seasonCardsHTML = seasons.map((s, i) => {
+                    const prevSeason = i > 0 ? seasons[i - 1] : null;
+                    const prevPct = prevSeason ? prevSeason.winPct : null;
+                    return `
+                    <div class="trend-season-card">
+                        <div class="trend-season-year">${s.year}</div>
+                        <div class="trend-season-record">${s.wins || 0}-${s.losses || 0}</div>
+                        <div class="trend-season-winpct" style="color: ${getWinPctColor(s.winPct || 0)};">
+                            ${(s.winPct || 0).toFixed(0)}%
+                            ${getTrendArrow(s.winPct, prevPct)}
+                        </div>
+                    </div>`;
+                }).join('');
+
+                // Phase trend comparison
+                let phaseTrendHTML = '';
+                const phaseTrends = historicData.phaseTrends;
+                if (phaseTrends) {
+                    const trendYears = seasons.map(s => s.year);
+                    const buildTrendRows = (data, phases) => {
+                        return phases.map(phase => {
+                            const vals = trendYears.map(y => {
+                                const entry = data && data[phase] ? data[phase][y] : null;
+                                return entry !== null && entry !== undefined ? entry : '-';
+                            });
+                            return `
+                            <div class="phase-trend-row">
+                                <span class="phase-trend-label">${phase}</span>
+                                <div class="phase-trend-values">
+                                    ${vals.map((v, vi) => `<span class="phase-trend-val" style="color: var(--text-secondary);" title="${trendYears[vi]}">${v}</span>`).join('')}
+                                </div>
+                            </div>`;
+                        }).join('');
+                    };
+
+                    const batPhases = ['Powerplay', 'Middle', 'Death'];
+                    const bowlPhases = ['Powerplay', 'Middle', 'Death'];
+
+                    phaseTrendHTML = `
+                    <div class="phase-trend-grid">
+                        <div class="phase-trend-card">
+                            <div class="phase-trend-title">Batting SR by Phase</div>
+                            <div class="phase-trend-row" style="border-bottom: 1px solid var(--border); margin-bottom: 4px; padding-bottom: 4px;">
+                                <span class="phase-trend-label" style="font-weight: 700;">Phase</span>
+                                <div class="phase-trend-values">
+                                    ${trendYears.map(y => `<span class="phase-trend-val" style="color: var(--text-tertiary); font-size: 10px;">${y}</span>`).join('')}
+                                </div>
+                            </div>
+                            ${buildTrendRows(phaseTrends.battingSR, batPhases)}
+                        </div>
+                        <div class="phase-trend-card">
+                            <div class="phase-trend-title">Bowling Economy by Phase</div>
+                            <div class="phase-trend-row" style="border-bottom: 1px solid var(--border); margin-bottom: 4px; padding-bottom: 4px;">
+                                <span class="phase-trend-label" style="font-weight: 700;">Phase</span>
+                                <div class="phase-trend-values">
+                                    ${trendYears.map(y => `<span class="phase-trend-val" style="color: var(--text-tertiary); font-size: 10px;">${y}</span>`).join('')}
+                                </div>
+                            </div>
+                            ${buildTrendRows(phaseTrends.bowlingEcon, bowlPhases)}
+                        </div>
+                    </div>`;
+                }
+
+                section3HTML = `
+                <div class="strategy-section">
+                    <div class="strategy-section-header">
+                        <div class="strategy-section-title">Historic Trajectory</div>
+                        <span class="strategy-section-badge" style="background: rgba(48, 209, 88, 0.15); color: var(--accent-green);">Trends</span>
+                    </div>
+                    <div class="trend-season-grid">
+                        ${seasonCardsHTML}
+                    </div>
+                    ${phaseTrendHTML}
+                </div>`;
+            } else {
+                section3HTML = `
+                <div class="strategy-section">
+                    <div class="strategy-section-header">
+                        <div class="strategy-section-title">Historic Trajectory</div>
+                        <span class="strategy-section-badge" style="background: rgba(48, 209, 88, 0.15); color: var(--accent-green);">Trends</span>
+                    </div>
+                    <div class="trend-season-card" style="text-align: center; padding: 32px;">
+                        <div style="font-size: 13px; color: var(--text-tertiary);">Historic data loading...</div>
+                    </div>
+                </div>`;
+            }
+
+            // ===== Build Section 4: Structural Vulnerabilities =====
+            let section4HTML = '';
+            if (vulns.length > 0) {
+                section4HTML = `
+                <div class="strategy-section">
+                    <div class="strategy-section-header">
+                        <div class="strategy-section-title">Structural Vulnerabilities</div>
+                        <span class="strategy-section-badge" style="background: rgba(255, 69, 58, 0.15); color: var(--accent-red);">${vulns.length} Found</span>
+                    </div>
+                    <div class="vuln-card">
+                        <div class="vuln-header">
+                            <span>&#9888;</span> Areas of Concern
+                        </div>
+                        <ul class="vuln-list">
+                            ${vulns.map(v => '<li>' + v + '</li>').join('')}
+                        </ul>
+                    </div>
+                </div>`;
+            }
+
+            // ===== Assemble Full Strategy Outlook =====
+            balanceContent.innerHTML = section1HTML + section2HTML + section3HTML + section4HTML;
 
             // Depth Chart (full inline display)
             const depthContent = document.getElementById('depth-content');

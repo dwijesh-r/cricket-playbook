@@ -1,6 +1,6 @@
 # Gujarat Titans (GT) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 20:25
+**Generated:** 2026-02-12 20:53
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -128,7 +128,7 @@
 **Top Wicket Takers by Season:**
 
 - **2023:** Mohammed Shami (28w @ 7.92), Rashid Khan (27w @ 8.21), MM Sharma (27w @ 8.1)
-- **2024:** MM Sharma (13w @ 10.48), Rashid Khan (10w @ 8.52), Noor Ahmad (8w @ 8.33)
+- **2024:** MM Sharma (13w @ 10.48), Rashid Khan (10w @ 8.52), UT Yadav (8w @ 9.81)
 - **2025:** M Prasidh Krishna (25w @ 8.34), R Sai Kishore (19w @ 9.07), Mohammed Siraj (16w @ 8.83)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -244,13 +244,13 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
-| Arun Jaitley Stadium | 3 | 2 | 66.7% | 196.0 |
-| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 175.7 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 148.3 |
 | M Chinnaswamy Stadium | 3 | 2 | 66.7% | 171.7 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 175.7 |
+| Arun Jaitley Stadium | 3 | 2 | 66.7% | 196.0 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 148.3 |
 | MA Chidambaram Stadium | 2 | 0 | 0.0% | 150.0 |
-| Wankhede Stadium | 2 | 1 | 50.0% | 169.0 |
 | Eden Gardens | 2 | 2 | 100.0% | 189.0 |
+| Wankhede Stadium | 2 | 1 | 50.0% | 169.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -261,11 +261,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -296,8 +296,8 @@
 | I Sharma | Arun Jaitley Stadium | 6 | 8 | 8.45 | 15.0 |
 | I Sharma | Narendra Modi Stadium | 5 | 6 | 6.84 | 14.33 |
 | Rashid Khan | Wankhede Stadium | 2 | 5 | 6.88 | 9.6 |
-| Mohammed Siraj | Rajiv Gandhi Internationa | 3 | 5 | 4.33 | 14.4 |
 | Rashid Khan | Sawai Mansingh Stadium | 3 | 5 | 4.58 | 14.4 |
+| Mohammed Siraj | Rajiv Gandhi Internationa | 3 | 5 | 4.33 | 14.4 |
 
 
 ---
@@ -467,15 +467,15 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Mumbai Indians | 7 | 156 | 179 | 9 | 6.88 | 19.89 | 17.33 | 37.18 | 12.82 | HIGH |
 | Rajasthan Royals | 5 | 120 | 136 | 9 | 6.8 | 15.11 | 13.33 | 37.5 | 10.83 | HIGH |
+| Mumbai Indians | 7 | 156 | 179 | 9 | 6.88 | 19.89 | 17.33 | 37.18 | 12.82 | HIGH |
 | Chennai Super Kings | 6 | 138 | 240 | 8 | 10.43 | 30.0 | 17.25 | 23.19 | 22.46 | HIGH |
 | Delhi Capitals | 6 | 132 | 176 | 5 | 8.0 | 35.2 | 26.4 | 30.3 | 14.39 | HIGH |
 | Kolkata Knight Riders | 3 | 72 | 116 | 5 | 9.67 | 23.2 | 14.4 | 26.39 | 20.83 | MEDIUM |
 | Lucknow Super Giants | 5 | 108 | 164 | 4 | 9.11 | 41.0 | 27.0 | 25.93 | 17.59 | HIGH |
 | Punjab Kings | 4 | 96 | 134 | 4 | 8.38 | 33.5 | 24.0 | 36.46 | 16.67 | MEDIUM |
-| Royal Challengers Bengaluru | 4 | 82 | 154 | 1 | 11.27 | 154.0 | 82.0 | 19.51 | 24.39 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 90 | 142 | 1 | 9.47 | 142.0 | 90.0 | 25.56 | 17.78 | MEDIUM |
+| Royal Challengers Bengaluru | 4 | 82 | 154 | 1 | 11.27 | 154.0 | 82.0 | 19.51 | 24.39 | MEDIUM |
 
 ---
 
@@ -502,26 +502,140 @@
 
 ## 10. Andy Flower's Tactical Insights
 
+*Comprehensive tactical analysis — IPL 2023+ data with league benchmark context. "Pro team prep, packaged for public consumption."*
 
-### 10.1 Death Bowling Options
+### 10.1 Phase-by-Phase Tactical Profile
 
-- **Mohammed Siraj**: 42.0 overs, 19 wickets, 9.07 economy (over-performs)
-- **M Prasidh Krishna**: 18.0 overs, 15 wickets, 10.28 economy (over-performs)
-- **I Sharma**: 12.3 overs, 6 wickets, 10.3 economy (over-performs)
+#### Powerplay (overs 1-6)
 
-### 10.2 Powerplay Batting Options
+**Batting**
 
-- **Jos Buttler**: SR 140.7, Boundary% 23.52% (95 innings)
-- **Sai Sudharsan**: SR 137.83, Boundary% 20.65% (35 innings)
-- **Shubman Gill**: SR 131.44, Boundary% 19.79% (102 innings)
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Shubman Gill** | 102 | 131 | 46.3 | 19.8 | -14.9 |
+| **Jos Buttler** | 95 | 141 | 43.3 | 23.5 | -5.6 |
+| **Sai Sudharsan** | 35 | 138 | 112 | 20.6 | -8.5 |
+| **Anuj Rawat** | 10 | 94.3 | 11.9 | 13.6 | -52.0 |
 
-### 10.3 Potential Spin Vulnerabilities
+**Bowling**
 
-*Note: Bowling style analysis covers 280 classified IPL bowlers (98.8% of balls). Some historical data may be excluded.*
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Ishant Sharma** | 254 | 7.7 | 57 | 49.8 | +1.6 |
+| **Mohammed Siraj** | 197 | 8.6 | 45 | 48.4 | +0.7 |
+| **Kagiso Rabada** | 135 | 8.6 | 31 | 43.2 | +0.7 |
 
-*Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
+*Batting intent in the powerplay is a concern — the top option **Shubman Gill** strikes at just 131.4, well below the league benchmark of 146.3. **Ishant Sharma** provides elite powerplay control at 7.7 economy — 1.6 runs per over cheaper than the league average.*
 
-*No significant spin vulnerabilities identified*
+#### Middle Overs (7-15)
+
+**Batting**
+
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Shubman Gill** | 71 | 144 | 45.1 | 15.2 | +3.5 |
+| **Jos Buttler** | 76 | 144 | 43.7 | 17.7 | +4.2 |
+| **Sai Sudharsan** | 33 | 143 | 46.7 | 16.3 | +2.8 |
+| **Shahrukh Khan** | 25 | 134 | 28.9 | 17.2 | -6.6 |
+
+**Bowling**
+
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Rashid Khan** | 380 | 6.8 | 102 | 35.8 | +2.0 |
+| **Rahul Tewatia** | 131 | 8.0 | 28 | 30.7 | +0.8 |
+| **Kagiso Rabada** | 80.2 | 7.7 | 25 | 37.6 | +1.1 |
+
+*Batting in the middle overs is league-standard, led by **Shubman Gill** (144 SR across 71 innings). **Rashid Khan** provides elite middle overs control at 6.8 economy — 2.0 runs per over cheaper than the league average.*
+
+#### Death Overs (16-20)
+
+**Batting**
+
+| Player | Inn | SR | Avg | Bdry% | vs League SR |
+|--------|-----|-----|-----|-------|--------------|
+| **Rahul Tewatia** | 63 | 169 | 24.1 | 24.2 | -1.6 |
+| **Jos Buttler** | 38 | 198 | 33.1 | 27.7 | +27.9 |
+| **Shubman Gill** | 36 | 158 | 21.9 | 18.8 | -12.5 |
+| **Shahrukh Khan** | 36 | 169 | 19.6 | 22.4 | -1.7 |
+
+**Bowling**
+
+| Bowler | Overs | Econ | Wkts | Dot% | vs League Econ |
+|--------|-------|------|------|------|----------------|
+| **Kagiso Rabada** | 102 | 10.1 | 63 | 33.3 | +0.8 |
+| **Mohammed Siraj** | 111 | 10.4 | 43 | 31.0 | +0.4 |
+| **Rashid Khan** | 96 | 8.6 | 41 | 34.7 | +2.3 |
+
+*Batting in the death overs is league-standard, led by **Rahul Tewatia** (169 SR across 63 innings). **Kagiso Rabada** leads the death overs bowling at 10.1 economy with 63 wickets — adequate but not dominant against the league average of 10.9.*
+
+### 10.2 Batter Tendencies: Pace vs Spin Profile
+
+| Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
+|--------|-----------|-----------|-----------|-----------|----------|
+| **Shubman Gill** | 153 | 153 | 20.8 | 18.7 | Balanced |
+| **B Sai Sudharsan** | 144 | 152 | 20.4 | 18.1 | Balanced |
+| **JC Buttler** | 148 | 148 | 21.8 | 18.7 | Balanced |
+| **M Shahrukh Khan** | 179 | 150 | 25.6 | 18.2 | Pace Dominant |
+| **R Tewatia** | 164 | 106 | 23.8 | 10.4 | Pace Dominant |
+| **Rashid Khan** | 171 | 168 | 26.3 | 20 | Balanced |
+| **Anuj Rawat** | 152 | 74.5 | 21.8 | 2.1 | Pace Dominant |
+| **Washington Sundar** | 170 | 81.1 | 25 | 1.9 | Pace Dominant |
+
+*Exploitable vs spin: **R Tewatia** (106 SR), **Anuj Rawat** (74 SR), **Washington Sundar** (81 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **M Shahrukh Khan** (179 SR), **R Tewatia** (164 SR), **Rashid Khan** (171 SR), **Washington Sundar** (170 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+
+### 10.3 Pace Attack Intelligence
+
+| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Wkt Rate |
+|--------|---------|----------|------------|------------|----------|
+| **Mohammed Siraj** | 7.9 | 9.1 | 9.1 | PP | 0.31 |
+| **M Prasidh Krishna** | 9.5 | 6.6 | 10.3 | Middle | 0.42 |
+| **I Sharma** | 8.8 | 8.9 | 10.3 | PP | 0.34 |
+| **K Rabada** | 9.4 | 8.6 | 11.6 | Middle | 0.25 |
+| **Arshad Khan** | 9.8 | 10.6 | 14.4 | PP | 0.26 |
+
+***I Sharma** is the designated death option at 10.3 economy (league avg 10.9). **I Sharma** should lead the powerplay attack (8.8 economy). Middle-overs pace economy is above league average — consider deploying spin through this phase to contain.*
+
+### 10.4 Spin Attack Intelligence
+
+| Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Control Rating |
+|--------|---------|----------|------------|------------|----------------|
+| **Rashid Khan** | 8.0 | 8.3 | 10.5 | PP | 29.8% |
+| **R Sai Kishore** | 11 | 8.6 | 10.6 | Middle | 30.1% |
+| **Washington Sundar** | 17.6 | 7.8 | 7.8 | Middle | 26.4% |
+
+***Washington Sundar** is the middle-overs anchor at 7.8 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **Washington Sundar** offers a viable death option at 7.8 economy, giving the captain tactical flexibility. Spin dependency is high with 257 combined overs across 3 spinners — a strength on turning pitches but a risk on pace-friendly surfaces.*
+
+### 10.5 Key Vulnerabilities & Matchup Risks
+
+#### Phase Gaps
+
+- **Powerplay**: batting SR 122.8 vs league 146.3
+- **Middle**: batting SR 123.0 vs league 140.3
+
+#### Spin Vulnerability Risk
+
+- No significant spin vulnerabilities identified in MEDIUM/HIGH sample data.
+
+#### Pace Vulnerability Risk
+
+- No significant pace vulnerabilities identified — squad handles pace adequately.
+
+#### Structural Concerns
+
+- No critical structural concerns identified — squad depth is adequate across all phases.
+
+### 10.6 Andy Flower's Tactical Summary
+
+This squad's competitive advantages are clear: powerplay bowling (Ishant Sharma at 7.7 economy), middle-overs bowling (Rashid Khan at 6.8 economy). These are non-negotiable pillars — the coaching staff must build match plans around protecting and maximizing these phase strengths. Any game plan that doesn't feature these assets prominently is leaving runs on the table.
+
+The vulnerability to exploit: under-par powerplay batting. Opposition teams will target these phases — the captain must have contingency plans ready. In high-stakes matches, these weaknesses will be tested repeatedly, and the response must be pre-planned, not reactive.
+
+The data suggests a well-rounded squad with no glaring tactical gaps. The coaching priority should be maintaining peak performance levels across phases and ensuring tactical flexibility for different match situations. Roster management and workload planning across the tournament will be the real differentiator.
+
+---
+*Tactical analysis based on IPL 2023-2025 ball-by-ball data with league benchmark comparisons. All players filtered to 2026 squad.*
+
 
 ---
 

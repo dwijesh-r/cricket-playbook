@@ -80,37 +80,25 @@ def get_team_pressure_summary(conn):
 
 
 def get_top_clutch_batters(conn):
-    """Get top 3 clutch batters per team by weighted pressure score."""
+    """Get ALL qualifying batters per team (JS handles sort/limit by active filter)."""
     rows = conn.execute("""
-        WITH ranked AS (
-            SELECT
-                sq.team_name,
-                pd.player_id,
-                pd.player_name,
-                pd.sr_delta_pct,
-                pd.pressure_sr,
-                pd.overall_sr,
-                pd.pressure_rating,
-                pd.sample_confidence,
-                pd.pressure_balls,
-                pd.pressure_score,
-                pd.death_pressure_balls,
-                pd.entry_context,
-                pd.avg_balls_before_pressure,
-                ROW_NUMBER() OVER (
-                    PARTITION BY sq.team_name
-                    ORDER BY pd.pressure_score DESC
-                ) as rn
-            FROM analytics_ipl_pressure_deltas_since2023 pd
-            JOIN ipl_2026_squads sq ON pd.player_id = sq.player_id
-        )
-        SELECT team_name, player_id, player_name, sr_delta_pct, pressure_sr,
-               overall_sr, pressure_rating, sample_confidence, pressure_balls,
-               pressure_score, death_pressure_balls, entry_context,
-               avg_balls_before_pressure
-        FROM ranked
-        WHERE rn <= 5
-        ORDER BY team_name, rn
+        SELECT
+            sq.team_name,
+            pd.player_id,
+            pd.player_name,
+            pd.sr_delta_pct,
+            pd.pressure_sr,
+            pd.overall_sr,
+            pd.pressure_rating,
+            pd.sample_confidence,
+            pd.pressure_balls,
+            pd.pressure_score,
+            pd.death_pressure_balls,
+            pd.entry_context,
+            pd.avg_balls_before_pressure
+        FROM analytics_ipl_pressure_deltas_since2023 pd
+        JOIN ipl_2026_squads sq ON pd.player_id = sq.player_id
+        ORDER BY sq.team_name, pd.pressure_score DESC
     """).fetchall()
 
     batters = {}
@@ -158,9 +146,9 @@ def get_top_clutch_batters(conn):
 
 
 def get_top_pressure_bowlers(conn):
-    """Get top 3 unique bowlers under pressure per team.
+    """Get ALL qualifying bowlers under pressure per team (JS handles sort/limit).
 
-    Uses stricter minimum (30 balls across HIGH+ bands) for credibility.
+    Uses stricter minimum (60 balls across HIGH+ bands) for credibility.
     Deduplicates bowlers across multiple bands by aggregating.
     """
     rows = conn.execute(f"""
@@ -198,20 +186,11 @@ def get_top_pressure_bowlers(conn):
             FROM band_priority
             GROUP BY team_name, player_id, player_name
             HAVING SUM(legal_balls) >= {MIN_BOWLER_LEGAL_BALLS}
-        ),
-        ranked AS (
-            SELECT *,
-                ROW_NUMBER() OVER (
-                    PARTITION BY team_name
-                    ORDER BY economy ASC
-                ) as rn
-            FROM aggregated
         )
         SELECT team_name, player_id, player_name, pressure_band, economy,
                legal_balls, wickets, dot_ball_pct
-        FROM ranked
-        WHERE rn <= 5
-        ORDER BY team_name, rn
+        FROM aggregated
+        ORDER BY team_name, economy ASC
     """).fetchall()
 
     bowlers = {}
@@ -566,8 +545,8 @@ def generate_js(
         lines.append(f"            clutchScore: {clutch_score}")
         lines.append("        },")
 
-        # Batters with band breakdown and phase stats
-        lines.append("        topBatters: [")
+        # All qualifying batters with band breakdown and phase stats (JS sorts/limits)
+        lines.append("        allBatters: [")
         for b in team_batters:
             pid = b["playerId"]
             ne = b["name"].replace('"', '\\"')
@@ -601,8 +580,8 @@ def generate_js(
             )
         lines.append("        ],")
 
-        # Bowlers with band breakdown and phase stats
-        lines.append("        topBowlers: [")
+        # All qualifying bowlers with band breakdown and phase stats (JS sorts/limits)
+        lines.append("        allBowlers: [")
         for bw in team_bowlers:
             pid = bw["playerId"]
             ne = bw["name"].replace('"', '\\"')

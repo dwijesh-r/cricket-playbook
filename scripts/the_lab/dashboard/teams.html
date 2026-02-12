@@ -2391,8 +2391,8 @@
 
             const entryBadge = (ctx, avgBalls) => {
                 const cls = ctx.toLowerCase().replace('_', '-');
-                const ballsLabel = avgBalls > 0 ? `<span class="entry-balls">~${avgBalls.toFixed(0)}b</span>` : '';
-                return `<span class="entry-badge ${cls}">${ctx.replace('_', ' ')} ${ballsLabel}</span>`;
+                const ballsLabel = avgBalls > 0 ? `<span class="entry-balls" title="Average balls faced before entering pressure phase">~${avgBalls.toFixed(0)} balls before pressure</span>` : '';
+                return `<span class="entry-badge ${cls}" title="Entry context: how established the batter was when pressure began">${ctx.replace('_', ' ')} ${ballsLabel}</span>`;
             };
 
             const wScoreColor = (score) => {
@@ -2592,11 +2592,40 @@
                     </div>
                 </div>`;
 
-            // Apply entry context filter to batters
-            let filteredBatters = pressure.topBatters;
+            // Sort and filter batters based on active filter, then take top 5
+            const MAX_SHOWN = 5;
+            let filteredBatters = [...(pressure.allBatters || pressure.topBatters || [])];
+
+            // Apply entry context filter
             if (pf.entry !== 'all') {
                 filteredBatters = filteredBatters.filter(b => b.entryContext === pf.entry);
             }
+
+            // Re-sort based on active filter
+            if (pf.phase === 'death') {
+                filteredBatters.sort((a, b) => {
+                    const asr = a.phaseStats?.death?.sr || 0;
+                    const bsr = b.phaseStats?.death?.sr || 0;
+                    return bsr - asr; // Higher SR = better
+                });
+            } else if (pf.phase === 'setup') {
+                filteredBatters.sort((a, b) => {
+                    const asr = a.phaseStats?.setup?.sr || 0;
+                    const bsr = b.phaseStats?.setup?.sr || 0;
+                    return bsr - asr;
+                });
+            } else if (pf.band !== 'all') {
+                filteredBatters.sort((a, b) => {
+                    const abd = (a.bandBreakdown || []).find(x => x.band === pf.band);
+                    const bbd = (b.bandBreakdown || []).find(x => x.band === pf.band);
+                    const asr = abd ? abd.sr : -1;
+                    const bsr = bbd ? bbd.sr : -1;
+                    return bsr - asr; // Higher SR in band = better
+                });
+            }
+            // else: default sort by pressureScore (already sorted from DB)
+
+            filteredBatters = filteredBatters.slice(0, MAX_SHOWN);
 
             // Build batter cards
             const battersHtml = filteredBatters.map((b, i) => {
@@ -2666,8 +2695,36 @@
                 </div>`;
             }).join('');
 
+            // Sort and filter bowlers based on active filter, then take top 5
+            let filteredBowlers = [...(pressure.allBowlers || pressure.topBowlers || [])];
+
+            if (pf.phase === 'death') {
+                filteredBowlers.sort((a, b) => {
+                    const ae = a.phaseStats?.death?.economy || 99;
+                    const be = b.phaseStats?.death?.economy || 99;
+                    return ae - be; // Lower economy = better
+                });
+            } else if (pf.phase === 'setup') {
+                filteredBowlers.sort((a, b) => {
+                    const ae = a.phaseStats?.setup?.economy || 99;
+                    const be = b.phaseStats?.setup?.economy || 99;
+                    return ae - be;
+                });
+            } else if (pf.band !== 'all') {
+                filteredBowlers.sort((a, b) => {
+                    const abd = (a.bandBreakdown || []).find(x => x.band === pf.band);
+                    const bbd = (b.bandBreakdown || []).find(x => x.band === pf.band);
+                    const ae = abd ? abd.economy : 99;
+                    const be = bbd ? bbd.economy : 99;
+                    return ae - be; // Lower economy in band = better
+                });
+            }
+            // else: default sort by economy ASC (already sorted from DB)
+
+            filteredBowlers = filteredBowlers.slice(0, MAX_SHOWN);
+
             // Build bowler cards
-            const bowlersHtml = pressure.topBowlers.map((bw, i) => {
+            const bowlersHtml = filteredBowlers.map((bw, i) => {
                 const hasBand = playerHasBand(bw.bandBreakdown, pf.band);
                 const dimClass = !hasBand ? ' pressure-dimmed' : '';
 

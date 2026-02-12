@@ -1,7 +1,7 @@
 /**
  * The Lab - Pressure Performance Metrics
  * IPL 2026 Pre-Season Analytics (TKT-050)
- * Auto-generated: 2026-02-12T07:41:50.518160
+ * Auto-generated: 2026-02-12T07:45:49.956643
  * Source: analytics_ipl_pressure_deltas_since2023,
  *         analytics_ipl_batter_pressure_bands_since2023,
  *         analytics_ipl_bowler_pressure_bands_since2023
@@ -23,9 +23,9 @@ const PRESSURE_DATA = {
             { name: "Q de Kock", srDelta: 3.1, pressureSR: 146.94, overallSR: 142.53, rating: "PRESSURE_PROOF", confidence: "MEDIUM", pressureBalls: 98, pressureScore: 8.48, deathPressureBalls: 4, entryContext: "BUILDING" },
         ],
         topBowlers: [
-            { name: "MJ Santner", pressureBand: "HIGH", economy: 4.35, legalBalls: 40, wickets: 3, dotBallPct: 40.0, rating: "ELITE" },
-            { name: "JJ Bumrah", pressureBand: "NEAR_IMPOSSIBLE", economy: 5.17, legalBalls: 65, wickets: 8, dotBallPct: 50.77, rating: "ELITE" },
-            { name: "JJ Bumrah", pressureBand: "EXTREME", economy: 5.41, legalBalls: 41, wickets: 2, dotBallPct: 46.34, rating: "ELITE" },
+            { name: "MJ Santner", pressureBand: "EXTREME", economy: 5.92, legalBalls: 72, wickets: 5, dotBallPct: 36.11, rating: "ELITE" },
+            { name: "JJ Bumrah", pressureBand: "NEAR_IMPOSSIBLE", economy: 6.13, legalBalls: 183, wickets: 16, dotBallPct: 48.09, rating: "STRONG" },
+            { name: "C Bosch", pressureBand: "NEAR_IMPOSSIBLE", economy: 7.71, legalBalls: 35, wickets: 1, dotBallPct: 54.28, rating: "AVERAGE" },
         ]
     },
     CSK: {
@@ -43,9 +43,9 @@ const PRESSURE_DATA = {
             { name: "S Dube", srDelta: 6.0, pressureSR: 140.19, overallSR: 132.29, rating: "MODERATE", confidence: "HIGH", pressureBalls: 209, pressureScore: 24.65, deathPressureBalls: 60, entryContext: "BUILDING" },
         ],
         topBowlers: [
-            { name: "KV Sharma", pressureBand: "NEAR_IMPOSSIBLE", economy: 5.2, legalBalls: 30, wickets: 3, dotBallPct: 46.67, rating: "ELITE" },
-            { name: "RD Chahar", pressureBand: "HIGH", economy: 5.91, legalBalls: 65, wickets: 3, dotBallPct: 33.85, rating: "ELITE" },
-            { name: "Noor Ahmad", pressureBand: "NEAR_IMPOSSIBLE", economy: 6.22, legalBalls: 54, wickets: 7, dotBallPct: 46.3, rating: "STRONG" },
+            { name: "RD Chahar", pressureBand: "EXTREME", economy: 7.53, legalBalls: 122, wickets: 4, dotBallPct: 31.15, rating: "AVERAGE" },
+            { name: "AJ Hosein", pressureBand: "HIGH", economy: 8.53, legalBalls: 19, wickets: 1, dotBallPct: 26.32, rating: "AVERAGE" },
+            { name: "NT Ellis", pressureBand: "NEAR_IMPOSSIBLE", economy: 8.56, legalBalls: 129, wickets: 11, dotBallPct: 29.46, rating: "AVERAGE" },
         ]
     },
     RCB: {
@@ -63,9 +63,9 @@ const PRESSURE_DATA = {
             { name: "V Kohli", srDelta: 2.6, pressureSR: 156.22, overallSR: 152.32, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 217, pressureScore: 10.05, deathPressureBalls: 13, entryContext: "BUILDING" },
         ],
         topBowlers: [
-            { name: "Yash Dayal", pressureBand: "EXTREME", economy: 6.35, legalBalls: 34, wickets: 0, dotBallPct: 47.06, rating: "STRONG" },
-            { name: "Suyash Sharma", pressureBand: "EXTREME", economy: 6.37, legalBalls: 65, wickets: 0, dotBallPct: 36.92, rating: "STRONG" },
-            { name: "KH Pandya", pressureBand: "HIGH", economy: 6.48, legalBalls: 101, wickets: 3, dotBallPct: 35.64, rating: "STRONG" },
+            { name: "MP Yadav", pressureBand: "HIGH", economy: 6.62, legalBalls: 29, wickets: 3, dotBallPct: 51.72, rating: "STRONG" },
+            { name: "KH Pandya", pressureBand: "NEAR_IMPOSSIBLE", economy: 7.51, legalBalls: 179, wickets: 7, dotBallPct: 35.19, rating: "AVERAGE" },
+            { name: "JR Hazlewood", pressureBand: "NEAR_IMPOSSIBLE", economy: 8.44, legalBalls: 91, wickets: 8, dotBallPct: 50.55, rating: "AVERAGE" },
         ]
     },
     KKR: {
@@ -83,9 +83,9 @@ const PRESSURE_DATA = {
             { name: "AM Rahane", srDelta: 2.4, pressureSR: 152.47, overallSR: 148.84, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 162, pressureScore: 8.37, deathPressureBalls: 0, entryContext: "BUILDING" },
         ],
         topBowlers: [
-            { name: "SP Narine", pressureBand: "EXTREME", economy: 5.73, legalBalls: 90, wickets: 6, dotBallPct: 42.22, rating: "ELITE" },
-            { name: "AS Roy", pressureBand: "HIGH", economy: 6.0, legalBalls: 21, wickets: 1, dotBallPct: 33.33, rating: "ELITE" },
-            { name: "C Green", pressureBand: "HIGH", economy: 6.22, legalBalls: 27, wickets: 1, dotBallPct: 33.33, rating: "STRONG" },
+            { name: "SP Narine", pressureBand: "NEAR_IMPOSSIBLE", economy: 6.92, legalBalls: 287, wickets: 16, dotBallPct: 35.89, rating: "STRONG" },
+            { name: "C Green", pressureBand: "NEAR_IMPOSSIBLE", economy: 7.78, legalBalls: 91, wickets: 5, dotBallPct: 34.06, rating: "AVERAGE" },
+            { name: "M Pathirana", pressureBand: "NEAR_IMPOSSIBLE", economy: 8.26, legalBalls: 231, wickets: 19, dotBallPct: 37.23, rating: "AVERAGE" },
         ]
     },
     DC: {
@@ -103,9 +103,9 @@ const PRESSURE_DATA = {
             { name: "PP Shaw", srDelta: 4.5, pressureSR: 151.56, overallSR: 145.05, rating: "PRESSURE_PROOF", confidence: "MEDIUM", pressureBalls: 64, pressureScore: 9.39, deathPressureBalls: 0, entryContext: "BUILDING" },
         ],
         topBowlers: [
-            { name: "Kuldeep Yadav", pressureBand: "HIGH", economy: 6.87, legalBalls: 90, wickets: 2, dotBallPct: 26.67, rating: "STRONG" },
-            { name: "AR Patel", pressureBand: "HIGH", economy: 7.67, legalBalls: 72, wickets: 3, dotBallPct: 36.11, rating: "AVERAGE" },
-            { name: "Kuldeep Yadav", pressureBand: "EXTREME", economy: 7.71, legalBalls: 95, wickets: 3, dotBallPct: 25.26, rating: "AVERAGE" },
+            { name: "Kuldeep Yadav", pressureBand: "NEAR_IMPOSSIBLE", economy: 7.76, legalBalls: 232, wickets: 9, dotBallPct: 25.86, rating: "AVERAGE" },
+            { name: "L Ngidi", pressureBand: "HIGH", economy: 7.91, legalBalls: 22, wickets: 2, dotBallPct: 36.36, rating: "AVERAGE" },
+            { name: "AR Patel", pressureBand: "NEAR_IMPOSSIBLE", economy: 8.58, legalBalls: 156, wickets: 6, dotBallPct: 28.2, rating: "AVERAGE" },
         ]
     },
     PBKS: {
@@ -123,9 +123,9 @@ const PRESSURE_DATA = {
             { name: "SS Iyer", srDelta: 3.5, pressureSR: 173.42, overallSR: 167.58, rating: "PRESSURE_PROOF", confidence: "MEDIUM", pressureBalls: 79, pressureScore: 8.86, deathPressureBalls: 16, entryContext: "BUILDING" },
         ],
         topBowlers: [
-            { name: "Harpreet Brar", pressureBand: "HIGH", economy: 6.49, legalBalls: 61, wickets: 5, dotBallPct: 37.7, rating: "STRONG" },
-            { name: "Arshdeep Singh", pressureBand: "EXTREME", economy: 6.97, legalBalls: 93, wickets: 6, dotBallPct: 49.46, rating: "STRONG" },
-            { name: "Vijaykumar Vyshak", pressureBand: "EXTREME", economy: 7.06, legalBalls: 17, wickets: 1, dotBallPct: 29.41, rating: "STRONG" },
+            { name: "Harpreet Brar", pressureBand: "EXTREME", economy: 7.23, legalBalls: 102, wickets: 6, dotBallPct: 33.33, rating: "STRONG" },
+            { name: "YS Chahal", pressureBand: "NEAR_IMPOSSIBLE", economy: 9.0, legalBalls: 256, wickets: 18, dotBallPct: 28.13, rating: "AVERAGE" },
+            { name: "Arshdeep Singh", pressureBand: "NEAR_IMPOSSIBLE", economy: 9.24, legalBalls: 272, wickets: 14, dotBallPct: 40.07, rating: "VULNERABLE" },
         ]
     },
     RR: {
@@ -143,9 +143,9 @@ const PRESSURE_DATA = {
             { name: "Dhruv Jurel", srDelta: 1.1, pressureSR: 159.32, overallSR: 157.6, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 236, pressureScore: 4.88, deathPressureBalls: 98, entryContext: "BUILDING" },
         ],
         topBowlers: [
-            { name: "Sandeep Sharma", pressureBand: "HIGH", economy: 6.79, legalBalls: 91, wickets: 2, dotBallPct: 35.16, rating: "STRONG" },
-            { name: "RA Jadeja", pressureBand: "EXTREME", economy: 7.43, legalBalls: 63, wickets: 6, dotBallPct: 25.4, rating: "STRONG" },
-            { name: "Sandeep Sharma", pressureBand: "EXTREME", economy: 7.64, legalBalls: 22, wickets: 1, dotBallPct: 9.09, rating: "AVERAGE" },
+            { name: "Sandeep Sharma", pressureBand: "NEAR_IMPOSSIBLE", economy: 7.67, legalBalls: 165, wickets: 5, dotBallPct: 26.66, rating: "AVERAGE" },
+            { name: "RA Jadeja", pressureBand: "NEAR_IMPOSSIBLE", economy: 8.02, legalBalls: 241, wickets: 12, dotBallPct: 28.63, rating: "AVERAGE" },
+            { name: "JC Archer", pressureBand: "HIGH", economy: 8.25, legalBalls: 24, wickets: 2, dotBallPct: 45.83, rating: "AVERAGE" },
         ]
     },
     SRH: {
@@ -163,9 +163,9 @@ const PRESSURE_DATA = {
             { name: "Abhishek Sharma", srDelta: -5.3, pressureSR: 198.13, overallSR: 209.31, rating: "MODERATE", confidence: "HIGH", pressureBalls: 214, pressureScore: -20.68, deathPressureBalls: 7, entryContext: "BUILDING" },
         ],
         topBowlers: [
-            { name: "Abhishek Sharma", pressureBand: "HIGH", economy: 7.35, legalBalls: 31, wickets: 1, dotBallPct: 22.58, rating: "STRONG" },
             { name: "E Malinga", pressureBand: "NEAR_IMPOSSIBLE", economy: 7.94, legalBalls: 34, wickets: 5, dotBallPct: 47.06, rating: "AVERAGE" },
-            { name: "Nithish Kumar Reddy", pressureBand: "NEAR_IMPOSSIBLE", economy: 8.08, legalBalls: 26, wickets: 2, dotBallPct: 23.08, rating: "AVERAGE" },
+            { name: "Harsh Dubey", pressureBand: "NEAR_IMPOSSIBLE", economy: 8.5, legalBalls: 24, wickets: 3, dotBallPct: 41.67, rating: "AVERAGE" },
+            { name: "Nithish Kumar Reddy", pressureBand: "NEAR_IMPOSSIBLE", economy: 8.83, legalBalls: 53, wickets: 2, dotBallPct: 30.19, rating: "AVERAGE" },
         ]
     },
     GT: {
@@ -183,9 +183,9 @@ const PRESSURE_DATA = {
             { name: "JC Buttler", srDelta: 3.2, pressureSR: 152.6, overallSR: 147.8, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 192, pressureScore: 12.5, deathPressureBalls: 30, entryContext: "BUILDING" },
         ],
         topBowlers: [
-            { name: "M Prasidh Krishna", pressureBand: "EXTREME", economy: 4.5, legalBalls: 16, wickets: 1, dotBallPct: 56.25, rating: "ELITE" },
             { name: "Arshad Khan", pressureBand: "HIGH", economy: 4.67, legalBalls: 18, wickets: 1, dotBallPct: 61.11, rating: "ELITE" },
-            { name: "M Prasidh Krishna", pressureBand: "NEAR_IMPOSSIBLE", economy: 4.9, legalBalls: 60, wickets: 7, dotBallPct: 48.33, rating: "ELITE" },
+            { name: "M Prasidh Krishna", pressureBand: "NEAR_IMPOSSIBLE", economy: 5.5, legalBalls: 96, wickets: 9, dotBallPct: 47.91, rating: "ELITE" },
+            { name: "GD Phillips", pressureBand: "HIGH", economy: 6.67, legalBalls: 18, wickets: 1, dotBallPct: 33.33, rating: "STRONG" },
         ]
     },
     LSG: {
@@ -203,9 +203,9 @@ const PRESSURE_DATA = {
             { name: "N Pooran", srDelta: 2.6, pressureSR: 200.58, overallSR: 195.45, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 172, pressureScore: 10.08, deathPressureBalls: 52, entryContext: "BUILDING" },
         ],
         topBowlers: [
-            { name: "Mohammed Shami", pressureBand: "NEAR_IMPOSSIBLE", economy: 6.33, legalBalls: 36, wickets: 3, dotBallPct: 30.56, rating: "STRONG" },
-            { name: "DS Rathi", pressureBand: "HIGH", economy: 7.34, legalBalls: 58, wickets: 2, dotBallPct: 36.21, rating: "STRONG" },
-            { name: "DS Rathi", pressureBand: "EXTREME", economy: 7.45, legalBalls: 29, wickets: 2, dotBallPct: 31.03, rating: "STRONG" },
+            { name: "DS Rathi", pressureBand: "EXTREME", economy: 7.38, legalBalls: 87, wickets: 4, dotBallPct: 34.48, rating: "STRONG" },
+            { name: "Mohammed Shami", pressureBand: "NEAR_IMPOSSIBLE", economy: 8.18, legalBalls: 165, wickets: 11, dotBallPct: 43.64, rating: "AVERAGE" },
+            { name: "M Siddharth", pressureBand: "HIGH", economy: 8.48, legalBalls: 29, wickets: 1, dotBallPct: 44.83, rating: "AVERAGE" },
         ]
     },
 };

@@ -1644,9 +1644,17 @@
         .pressure-player-name {
             font-size: 14px;
             font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: nowrap;
+        }
+        .pressure-player-name .player-name-text {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            flex-shrink: 1;
+            min-width: 0;
         }
         .pressure-player-detail {
             font-size: 12px;
@@ -1688,18 +1696,20 @@
         /* Entry context badges */
         .entry-badge {
             display: inline-block;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 9px;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
             flex-shrink: 0;
+            white-space: nowrap;
+            border: 1px solid transparent;
         }
-        .entry-badge.fresh { background: rgba(10, 132, 255, 0.15); color: #4aa8ff; }
-        .entry-badge.building { background: rgba(255, 159, 10, 0.15); color: #ff9f0a; }
-        .entry-badge.set { background: rgba(48, 209, 88, 0.15); color: #30d158; }
-        .entry-badge.deep-set { background: rgba(0, 125, 27, 0.25); color: #00c22b; }
+        .entry-badge.fresh { background: rgba(10, 132, 255, 0.2); color: #4aa8ff; border-color: rgba(10, 132, 255, 0.3); }
+        .entry-badge.building { background: rgba(255, 159, 10, 0.2); color: #ff9f0a; border-color: rgba(255, 159, 10, 0.3); }
+        .entry-badge.set { background: rgba(48, 209, 88, 0.2); color: #30d158; border-color: rgba(48, 209, 88, 0.3); }
+        .entry-badge.deep-set { background: rgba(0, 125, 27, 0.3); color: #00c22b; border-color: rgba(0, 125, 27, 0.4); }
         /* Weighted pressure score */
         .pressure-wscore {
             text-align: right;
@@ -2358,7 +2368,7 @@
                 <div class="pressure-player-row">
                     <div class="pressure-rank ${i === 0 ? 'top' : ''}">${i + 1}</div>
                     <div class="pressure-player-info">
-                        <div class="pressure-player-name">${b.name} ${entryBadge(b.entryContext)}</div>
+                        <div class="pressure-player-name"><span class="player-name-text">${b.name}</span> ${entryBadge(b.entryContext)}</div>
                         <div class="pressure-player-detail">SR: ${b.overallSR.toFixed(1)} overall, ${b.pressureSR.toFixed(1)} under pressure (${b.pressureBalls} balls)</div>
                     </div>
                     <div class="pressure-stat">

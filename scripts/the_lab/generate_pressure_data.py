@@ -136,25 +136,64 @@ def get_top_clutch_batters(conn):
 
 
 def get_top_pressure_bowlers(conn):
-    """Get top 3 bowlers under pressure per team (lowest economy in HIGH+ bands)."""
+    """Get top 3 unique bowlers under pressure per team (lowest economy in HIGH+ bands).
+
+    Deduplicates bowlers who appear in multiple pressure bands by keeping
+    the highest band (most extreme pressure = most interesting) for display,
+    while aggregating balls/wickets across all qualifying bands.
+    """
     rows = conn.execute("""
-        WITH ranked AS (
+        WITH band_priority AS (
+            -- Assign numeric priority: higher = more extreme pressure
             SELECT
                 sq.team_name,
+                bwl.player_id,
                 bwl.player_name,
                 bwl.pressure_band,
                 bwl.economy,
                 bwl.legal_balls,
                 bwl.wickets,
                 bwl.dot_ball_pct,
-                ROW_NUMBER() OVER (
-                    PARTITION BY sq.team_name
-                    ORDER BY bwl.economy ASC
-                ) as rn
+                CASE bwl.pressure_band
+                    WHEN 'NEAR_IMPOSSIBLE' THEN 3
+                    WHEN 'EXTREME' THEN 2
+                    WHEN 'HIGH' THEN 1
+                    ELSE 0
+                END AS band_rank
             FROM analytics_ipl_bowler_pressure_bands_since2023 bwl
             JOIN ipl_2026_squads sq ON bwl.player_id = sq.player_id
             WHERE bwl.pressure_band IN ('HIGH', 'EXTREME', 'NEAR_IMPOSSIBLE')
               AND bwl.legal_balls >= 15
+        ),
+        aggregated AS (
+            -- Aggregate stats across bands per bowler, keep highest band for display
+            SELECT
+                team_name,
+                player_name,
+                -- Show the highest pressure band the bowler qualifies in
+                FIRST(pressure_band ORDER BY band_rank DESC) AS pressure_band,
+                -- Weighted economy across all qualifying bands
+                ROUND(SUM(economy * legal_balls) / SUM(legal_balls), 2) AS economy,
+                SUM(legal_balls) AS legal_balls,
+                SUM(wickets) AS wickets,
+                ROUND(SUM(dot_ball_pct * legal_balls) / SUM(legal_balls), 2) AS dot_ball_pct
+            FROM band_priority
+            GROUP BY team_name, player_name
+        ),
+        ranked AS (
+            SELECT
+                team_name,
+                player_name,
+                pressure_band,
+                economy,
+                legal_balls,
+                wickets,
+                dot_ball_pct,
+                ROW_NUMBER() OVER (
+                    PARTITION BY team_name
+                    ORDER BY economy ASC
+                ) as rn
+            FROM aggregated
         )
         SELECT team_name, player_name, pressure_band, economy,
                legal_balls, wickets, dot_ball_pct

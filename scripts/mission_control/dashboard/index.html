@@ -7805,15 +7805,15 @@ Gate Inheritance:
               founderReviewNote: 'HARD GATE (Decision #4): Review and approve final composite weights for all 207 tournaments. Verify tier assignments align with cricket intuition. No Phase 2 work can proceed without sign-off.',
               context: { ask: 'Compile final weights for 207 tournaments and present to Founder', goal: 'Founder sign-off on all weight values (Decision #4 hard gate)', reason: 'No Phase 2 work can begin without Founder approval of derived weights', audible: ['Compile Phase 1 outputs', 'Present tier assignments', 'Obtain Founder sign-off'] }
             },
-            { id: 'TKT-188', title: 'TKT-183.5: Phase 2 — dim_tournament_weights Table', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-016', progress: 0, tags: ['Analytics', 'Data Pipeline'], parent: 'TKT-183', gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-188', title: 'TKT-183.5: Phase 2 — dim_tournament_weights Table', state: 'READY', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-016', progress: 0, tags: ['Analytics', 'Data Pipeline'], parent: 'TKT-183', gates: { florentino_gate: 'APPROVED' },
               blockedBy: ['TKT-187'],
               context: { ask: 'Build DuckDB dim_tournament_weights table and weighted views', goal: 'Founder-approved weights materialized in data pipeline', reason: 'Weights must be queryable for downstream analytics', audible: ['Create dim_tournament_weights', 'Build weighted views', 'Update thresholds.yaml'] }
             },
-            { id: 'TKT-189', title: 'TKT-183.6: Phase 3 — Domain Sanity Validation', state: 'IDEA', priority: 'P1', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-016', progress: 0, tags: ['Analytics', 'QA'], parent: 'TKT-183', gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-189', title: 'TKT-183.6: Phase 3 — Domain Sanity Validation', state: 'BLOCKED', priority: 'P1', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-016', progress: 0, tags: ['Analytics', 'QA'], parent: 'TKT-183', gates: { florentino_gate: 'APPROVED' },
               blockedBy: ['TKT-188'],
               context: { ask: 'Domain sanity review of weighted outputs', goal: 'Verify weights produce cricket-sensible results', reason: 'Prevent counter-intuitive rankings or small-sample artifacts', audible: ['Andy Flower domain review', 'Jose statistical robustness', 'Pep edge case analysis'] }
             },
-            { id: 'TKT-190', title: 'TKT-183.7: Phase 4 — Integration into Models', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-016', progress: 0, tags: ['Analytics', 'Integration'], parent: 'TKT-183', gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-190', title: 'TKT-183.7: Phase 4 — Integration into Models', state: 'BLOCKED', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-016', progress: 0, tags: ['Analytics', 'Integration'], parent: 'TKT-183', gates: { florentino_gate: 'APPROVED' },
               blockedBy: ['TKT-189'],
               context: { ask: 'Apply tournament weights to clustering, tags, and analytical models', goal: 'Weighted cross-tournament data in all downstream outputs', reason: 'Weights meaningless until integrated into analytical pipeline', audible: ['Update clustering', 'Update player tags', 'Regenerate stat packs + depth charts'] }
             }

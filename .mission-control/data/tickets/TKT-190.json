@@ -1,7 +1,7 @@
 {
   "id": "TKT-190",
-  "title": "TKT-183.7: Phase 4 — Integration into Clustering, Tags & Analytical Models",
-  "state": "IDEA",
+  "title": "TKT-183.7: Phase 4 \u2014 Integration into Clustering, Tags & Analytical Models",
+  "state": "BLOCKED",
   "priority": "P1",
   "progress_pct": 0,
   "description": "Integration phase. Apply Founder-approved tournament weights internally to player clustering, player tags, and analytical models. Update stat packs and depth charts with weighted cross-tournament data. Regenerate all downstream outputs. Estimated: 2-3 days.",
@@ -9,7 +9,9 @@
   "parent": "TKT-183",
   "assignee": "Stephen Curry",
   "sprint_id": "SPRINT-004",
-  "blocked_by": ["TKT-189"],
+  "blocked_by": [
+    "TKT-189"
+  ],
   "documents": [
     {
       "title": "Tournament Quality Weighting Plan (Founder Approved)",

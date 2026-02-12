@@ -1,9 +1,9 @@
 {
   "id": "TKT-190",
   "title": "TKT-183.7: Phase 4 \u2014 Weighted Cross-Tournament Supplement for Small-Sample Players & Stat Packs",
-  "state": "IN_PROGRESS",
+  "state": "DONE",
   "priority": "P1",
-  "progress_pct": 0,
+  "progress_pct": 100,
   "description": "Rescoped per Founder directive (Feb 12, 2026). Original scope (integrate weights into clustering/tags) removed \u2014 clustering and tags are IPL-only by design (Constitution \u00a78.1).\n\nNEW SCOPE:\n1. Small-Sample Player Enrichment: For players with insufficient IPL sample size (<300 balls batted, <200 balls bowled), blend weighted cross-tournament T20 stats (BBL, PSL, SA20, CPL, etc.) using Founder-approved tournament weights from TKT-187. Trust weighting determines how much non-IPL data influences player profiles.\n\n2. Stat Pack Integration: Add weighted cross-tournament context to all 10 team stat packs. For small-sample players, show weighted composite stats alongside raw IPL numbers. For adequate-sample players, add supplementary cross-tournament validation notes (e.g. \"Also dominant in SA20 [weight: 0.50]\").\n\n3. Uncapped Player Confidence Scoring: Enhance TKT-182 T20 fallback profiles with tournament quality weights \u2014 BBL stats weighted at 0.53, PSL at 0.51, etc. Give users a trust score for each uncapped player profile.\n\n4. CricPom Feed (IDEA-002): Structure weighted data layer so CricPom can consume it directly when that work begins.\n\nREMOVED FROM SCOPE:\n- Integration into player clustering (stays pure IPL)\n- Integration into player tags (stays pure IPL)\n\nEstimated: 3-4 days. Blocked by TKT-189 (domain sanity validation).",
   "epic_id": "EPIC-016",
   "parent": "TKT-183",
@@ -32,5 +32,5 @@
     }
   },
   "created_at": "2026-02-11T16:23:04.451114Z",
-  "updated_at": "2026-02-11T17:45:00.000000Z"
+  "updated_at": "2026-02-12T21:00:00.000000Z"
 }

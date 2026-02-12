@@ -1642,6 +1642,17 @@
         .entry-badge.set { background: rgba(48, 209, 88, 0.2); color: #30d158; border-color: rgba(48, 209, 88, 0.3); }
         .entry-badge.deep-set { background: rgba(0, 125, 27, 0.3); color: #00c22b; border-color: rgba(0, 125, 27, 0.4); }
 
+        /* Sample size badges */
+        .sample-badge {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 18px; height: 18px; border-radius: 4px;
+            font-size: 9px; font-weight: 700; letter-spacing: 0.3px;
+            flex-shrink: 0; cursor: help;
+        }
+        .sample-large { background: rgba(48, 209, 88, 0.2); color: #30d158; }
+        .sample-medium { background: rgba(255, 214, 10, 0.2); color: #ffd60a; }
+        .sample-small { background: rgba(255, 69, 58, 0.2); color: #ff453a; }
+
         .pressure-wscore { text-align: right; flex-shrink: 0; min-width: 48px; }
         .pressure-wscore-value { font-size: 14px; font-weight: 700; }
         .pressure-wscore-label { font-size: 9px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.3px; }
@@ -2723,8 +2734,8 @@
                             </div>
                             <div class="pressure-player-detail">
                                 SR: ${b.overallSR.toFixed(1)} overall, ${b.pressureSR.toFixed(1)} under pressure
-                                <span class="pressure-balls-prominent">${b.pressureBalls} balls</span>
-                                (${b.confidence} conf.)
+                                <span class="pressure-balls-prominent" title="Sample size: ${b.pressureBalls} pressure balls faced">${b.pressureBalls} balls</span>
+                                <span class="sample-badge sample-${b.pressureBalls >= 150 ? 'large' : b.pressureBalls >= 80 ? 'medium' : 'small'}" title="${b.pressureBalls >= 150 ? 'Large sample (150+ balls)' : b.pressureBalls >= 80 ? 'Medium sample (80-149 balls)' : 'Small sample (<80 balls) — interpret with caution'}">${b.pressureBalls >= 150 ? 'L' : b.pressureBalls >= 80 ? 'M' : 'S'}</span>
                             </div>
                         </div>
                         ${primaryStatHtml}
@@ -2815,7 +2826,8 @@
                             <div class="pressure-player-name">${bw.name}</div>
                             <div class="pressure-player-detail">
                                 ${bw.pressureBand.replace('_', ' ')} band | ${bw.wickets} wkts | ${bw.dotBallPct.toFixed(1)}% dots
-                                <span class="pressure-balls-prominent">${bw.legalBalls} balls</span>
+                                <span class="pressure-balls-prominent" title="Sample size: ${bw.legalBalls} legal balls bowled under pressure">${bw.legalBalls} balls</span>
+                                <span class="sample-badge sample-${bw.legalBalls >= 120 ? 'large' : bw.legalBalls >= 60 ? 'medium' : 'small'}" title="${bw.legalBalls >= 120 ? 'Large sample (120+ balls)' : bw.legalBalls >= 60 ? 'Medium sample (60-119 balls)' : 'Small sample (<60 balls) — interpret with caution'}">${bw.legalBalls >= 120 ? 'L' : bw.legalBalls >= 60 ? 'M' : 'S'}</span>
                             </div>
                         </div>
                         ${primaryStatHtml}
@@ -2835,7 +2847,7 @@
                 <div class="pressure-qual-note">
                     <strong>Qualification:</strong> Batters need ${meta.minBatterPressureBalls}+ pressure balls (RRR &ge; 10) and ${meta.minBatterOverallBalls}+ overall balls.
                     Bowlers need ${meta.minBowlerLegalBalls}+ balls across HIGH/EXTREME/NEAR_IMPOSSIBLE bands (${meta.minBowlerBandBalls}+ per band).
-                    <span class="pressure-qual-note-prominent"><span>10-over minimum (60 balls)</span></span>
+                    <span class="pressure-qual-note-prominent"><span>Sample sizes: L = large, M = medium, S = small &mdash; interpret S with caution</span></span>
                     Click any player card to expand RRR band breakdown and over-phase execution stats.
                 </div>` : '';
 
@@ -2900,10 +2912,10 @@
                         <table class="meth-table">
                             <thead><tr><th>Context</th><th>Balls Faced Before Pressure</th><th>Meaning</th></tr></thead>
                             <tbody>
-                                <tr><td class="meth-label">FRESH</td><td>&lt; 10 balls</td><td>Walked in during pressure phase &mdash; facing it cold</td></tr>
-                                <tr><td class="meth-label">BUILDING</td><td>10&ndash;25 balls</td><td>Getting set when pressure hit &mdash; partially established</td></tr>
-                                <tr><td class="meth-label">SET</td><td>25&ndash;40 balls</td><td>Well established before pressure phase</td></tr>
-                                <tr><td class="meth-label">DEEP_SET</td><td>40+ balls</td><td>Long innings before pressure &mdash; fully in rhythm</td></tr>
+                                <tr><td class="meth-label">FRESH</td><td>&lt; 8 balls</td><td>Walked in during pressure phase &mdash; facing it cold</td></tr>
+                                <tr><td class="meth-label">BUILDING</td><td>8&ndash;12 balls</td><td>Getting set when pressure hit &mdash; partially established</td></tr>
+                                <tr><td class="meth-label">SET</td><td>12&ndash;17 balls</td><td>Well established before pressure phase</td></tr>
+                                <tr><td class="meth-label">DEEP_SET</td><td>&ge; 17 balls</td><td>Long innings before pressure &mdash; fully in rhythm</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -2913,7 +2925,7 @@
                             <thead><tr><th>Role</th><th>Condition</th></tr></thead>
                             <tbody>
                                 <tr><td class="meth-label">Batters</td><td>&ge; 60 pressure balls (10 overs) <strong>AND</strong> &ge; 50 overall balls</td></tr>
-                                <tr><td class="meth-label">Bowlers</td><td>&ge; 60 legal balls across HIGH / EXTREME / NEAR_IMPOSSIBLE bands, with &ge; 15 balls per individual band</td></tr>
+                                <tr><td class="meth-label">Bowlers</td><td>&ge; 30 legal balls across HIGH / EXTREME / NEAR_IMPOSSIBLE bands, with &ge; 10 balls per individual band</td></tr>
                                 <tr><td class="meth-label">Both</td><td>Player must be in an <strong>IPL 2026 squad</strong></td></tr>
                             </tbody>
                         </table>

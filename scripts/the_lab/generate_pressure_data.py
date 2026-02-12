@@ -39,11 +39,20 @@ TEAM_ABBREV = {
 
 TEAM_ORDER = ["MI", "CSK", "RCB", "KKR", "DC", "PBKS", "RR", "SRH", "GT", "LSG"]
 
-# Qualification thresholds (10 overs = 60 balls minimum)
+# Qualification thresholds
 MIN_BATTER_PRESSURE_BALLS = 60
 MIN_BATTER_OVERALL_BALLS = 50
-MIN_BOWLER_LEGAL_BALLS = 60  # 10 overs across HIGH+ bands
-MIN_BOWLER_BAND_BALLS = 15  # Per-band minimum for band breakdown display
+MIN_BOWLER_LEGAL_BALLS = 30  # 5 overs across HIGH+ bands (was 60; lowered for better coverage)
+MIN_BOWLER_BAND_BALLS = 10  # Per-band minimum for band breakdown (was 15; lowered)
+
+# Entry context thresholds (recalibrated from data: range 3.9-20.5, median 11.6)
+# Overrides the SQL view's thresholds which are too high for T20 data
+ENTRY_CONTEXT_THRESHOLDS = {
+    "DEEP_SET": 17,  # ≥17 balls before pressure (top ~7%)
+    "SET": 12,  # 12-17 balls (top ~47%)
+    "BUILDING": 8,  # 8-12 balls (middle ~35%)
+    "FRESH": 0,  # <8 balls (~11%)
+}
 
 # RRR band ordering for display
 BAND_ORDER = ["COMFORTABLE", "BUILDING", "HIGH", "EXTREME", "NEAR_IMPOSSIBLE"]
@@ -123,6 +132,17 @@ def get_top_clutch_batters(conn):
             continue
         if abbrev not in batters:
             batters[abbrev] = []
+        # Override entry context using recalibrated thresholds
+        avg_b = float(avg_balls_before) if avg_balls_before is not None else 0.0
+        if avg_b >= ENTRY_CONTEXT_THRESHOLDS["DEEP_SET"]:
+            recalc_ctx = "DEEP_SET"
+        elif avg_b >= ENTRY_CONTEXT_THRESHOLDS["SET"]:
+            recalc_ctx = "SET"
+        elif avg_b >= ENTRY_CONTEXT_THRESHOLDS["BUILDING"]:
+            recalc_ctx = "BUILDING"
+        else:
+            recalc_ctx = "FRESH"
+
         batters[abbrev].append(
             {
                 "playerId": player_id,
@@ -135,7 +155,7 @@ def get_top_clutch_batters(conn):
                 "pressureBalls": int(balls) if balls is not None else 0,
                 "pressureScore": round(float(score), 2) if score is not None else 0.0,
                 "deathPressureBalls": int(death_balls) if death_balls is not None else 0,
-                "entryContext": entry_ctx if entry_ctx else "N/A",
+                "entryContext": recalc_ctx,
                 "avgBallsBefore": round(float(avg_balls_before), 1)
                 if avg_balls_before is not None
                 else 0.0,

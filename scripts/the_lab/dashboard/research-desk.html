@@ -1617,8 +1617,8 @@
                         <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='CSK squad';handleNLSearch();">
                             <span class="chip-icon">&#128101;</span> CSK squad
                         </span>
-                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='Bumrah year wise';handleNLSearch();">
-                            <span class="chip-icon">&#128200;</span> Bumrah year wise
+                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='Bumrah death overs';handleNLSearch();">
+                            <span class="chip-icon">&#128200;</span> Bumrah death overs
                         </span>
                         <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='clutch batters';handleNLSearch();">
                             <span class="chip-icon">&#128293;</span> Clutch batters
@@ -3068,25 +3068,25 @@ LIMIT 20;</textarea>
                 category: 'pressure',
                 title: 'Clutch Batters Under Extreme Pressure',
                 description: 'Batters who thrive when Required Run Rate exceeds 12 (IPL 2023+).',
-                sql: `SELECT player_name, pressure_band, balls_faced,\n  ROUND(strike_rate, 1) AS strike_rate,\n  ROUND(batting_average, 1) AS average,\n  ROUND(boundary_pct, 1) AS boundary_pct,\n  ROUND(dot_ball_pct, 1) AS dot_pct,\n  confidence\nFROM analytics_ipl_batter_pressure_bands_since2023\nWHERE pressure_band IN ('EXTREME', 'NEAR_IMPOSSIBLE')\n  AND balls_faced >= 15\nORDER BY strike_rate DESC\nLIMIT 20;`
+                sql: `SELECT player_name, pressure_band, balls_faced,\n  ROUND(strike_rate, 1) AS strike_rate,\n  ROUND(batting_average, 1) AS average,\n  ROUND(boundary_pct, 1) AS boundary_pct,\n  ROUND(dot_ball_pct, 1) AS dot_pct,\n  entry_context\nFROM analytics_ipl_batter_pressure_bands_since2023\nWHERE pressure_band IN ('EXTREME', 'NEAR_IMPOSSIBLE')\n  AND balls_faced >= 15\nORDER BY strike_rate DESC\nLIMIT 20;`
             },
             {
                 category: 'pressure',
                 title: 'Best Death Bowlers Under Pressure',
                 description: 'Bowlers with lowest economy when opposition RRR is 10+ (IPL 2023+).',
-                sql: `SELECT player_name, pressure_band, balls_bowled,\n  ROUND(economy, 2) AS economy,\n  ROUND(dot_ball_pct, 1) AS dot_pct,\n  ROUND(boundary_pct_conceded, 1) AS bdry_pct_conc,\n  wickets, confidence\nFROM analytics_ipl_bowler_pressure_bands_since2023\nWHERE pressure_band IN ('HIGH', 'EXTREME')\n  AND balls_bowled >= 15\nORDER BY economy ASC\nLIMIT 20;`
+                sql: `SELECT player_name, pressure_band, legal_balls,\n  ROUND(economy, 2) AS economy,\n  ROUND(dot_ball_pct, 1) AS dot_pct,\n  ROUND(boundary_conceded_pct, 1) AS bdry_pct_conc,\n  wickets, ROUND(bowling_strike_rate, 1) AS bowl_sr\nFROM analytics_ipl_bowler_pressure_bands_since2023\nWHERE pressure_band IN ('HIGH', 'EXTREME')\n  AND legal_balls >= 15\nORDER BY economy ASC\nLIMIT 20;`
             },
             {
                 category: 'pressure',
                 title: 'Pressure Performance Ratings',
                 description: 'How player metrics change across pressure bands — CLUTCH, PRESSURE_PROOF, or SENSITIVE.',
-                sql: `SELECT player_name, role, pressure_band,\n  ROUND(band_metric, 2) AS band_metric,\n  ROUND(overall_metric, 2) AS overall_metric,\n  ROUND(delta_pct, 1) AS delta_pct,\n  rating\nFROM analytics_ipl_pressure_deltas_since2023\nWHERE rating IN ('CLUTCH', 'FINISHER', 'CLOSER')\nORDER BY delta_pct DESC\nLIMIT 25;`
+                sql: `SELECT player_name, role,\n  ROUND(overall_sr, 1) AS overall_sr,\n  ROUND(pressure_sr, 1) AS pressure_sr,\n  ROUND(sr_delta_pct, 1) AS sr_delta_pct,\n  ROUND(pressure_score, 1) AS pressure_score,\n  pressure_rating, entry_context\nFROM analytics_ipl_pressure_deltas_since2023\nWHERE pressure_rating IN ('CLUTCH', 'FINISHER', 'CLOSER')\nORDER BY pressure_score DESC\nLIMIT 25;`
             },
             {
                 category: 'pressure',
                 title: 'Dot Ball Sequences Under Pressure',
                 description: 'Bowlers who build consecutive dot ball streaks when RRR > 10 (IPL 2023+).',
-                sql: `SELECT player_name, total_sequences,\n  total_dots_in_sequences,\n  ROUND(avg_sequence_length, 1) AS avg_seq_len,\n  max_sequence_length AS max_streak,\n  ROUND(recovery_rate, 1) AS recovery_pct\nFROM analytics_ipl_pressure_dot_sequences_since2023\nWHERE total_sequences >= 3\nORDER BY avg_sequence_length DESC\nLIMIT 20;`
+                sql: `SELECT bowler_name, dot_sequences,\n  total_dots_in_sequences,\n  ROUND(avg_dot_seq_length, 1) AS avg_seq_len,\n  max_dot_seq AS max_streak\nFROM analytics_ipl_pressure_dot_sequences_since2023\nWHERE dot_sequences >= 3\nORDER BY avg_dot_seq_length DESC\nLIMIT 20;`
             },
             // IPL 2026
             {

@@ -1,24 +1,48 @@
 {
   "id": "TKT-181",
   "title": "NL Search Engine: dynamic query builder for Research Desk (Film Room)",
-  "state": "RUNNING",
+  "state": "DONE",
   "priority": "P1",
-  "progress_pct": 60,
+  "progress_pct": 100,
   "description": "Build intelligent NL search engine for Research Desk (Film Room). Replace 11-pattern regex matcher with 5-stage dynamic query pipeline: entity extraction, intent classification, table selection/join planning, SQL generation, validation/fallback. Supports win/loss context, composite multi-filter queries, comparison queries, and arbitrary dimension stacking. Phase 1: entity extraction + intent classifier + view coverage matrix. Phase 2: QueryBuilder with composable filters. Phase 3: comparisons + disambiguation. Phase 4: query explanation panel + history.",
   "epic_id": "EPIC-005",
   "owner": "Stephen Curry",
   "assignee": "Jose Mourinho",
   "sprint_id": "SPRINT-004",
-  "plan_doc": "docs/plans/TKT_181_NL_SEARCH_STRATEGY.md",
-  "founderReviewNote": "Founder approved NL Search Strategy plan 2026-02-11. Directed: assign to Jose Mourinho, use TKT-181, link strategy plan. Implementation to begin Phase 1 immediately.",
   "gates": {
     "florentino_gate": {
       "status": "APPROVED",
       "reason": "Directly improves paid artifact - Film Room is core analytical feature",
       "approved_by": "Florentino Perez",
       "date": "2026-02-11"
+    },
+    "domain_sanity": {
+      "andy_flower": "YES",
+      "date": "2026-02-12",
+      "jose_mourinho": "YES",
+      "pep_guardiola": "YES"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "issues": [],
+      "checked_by": "Tom Brady",
+      "date": "2026-02-12"
+    },
+    "system_check": {
+      "status": "PASS",
+      "tests_passed": 253,
+      "tests_total": 253,
+      "checked_by": "Kante",
+      "date": "2026-02-12"
+    },
+    "founder_validation": {
+      "status": "APPROVED",
+      "feedback": "NL Search Engine Phase 1+2 complete: entity extraction (90+ aliases), intent classifier (12 intents), view coverage matrix (76 views), QueryBuilder with 16 composable filters, dynamic SQL generation. Phases 3-4 deferred to future sprint.",
+      "validated_by": "Founder",
+      "date": "2026-02-12"
     }
   },
   "created_at": "2026-02-11T11:37:18.531607Z",
-  "updated_at": "2026-02-11T17:30:52.887261Z"
+  "updated_at": "2026-02-12T01:57:52.497861Z",
+  "completed_at": "2026-02-12T01:57:52.496371Z"
 }

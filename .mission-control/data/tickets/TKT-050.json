@@ -1,9 +1,9 @@
 {
   "id": "TKT-050",
   "title": "Add pressure performance section",
-  "state": "REVIEW",
+  "state": "DONE",
   "priority": "P1",
-  "progress_pct": 98,
+  "progress_pct": 100,
   "description": "Add Pressure Performance section to stat packs showing high-RRR scenario batting. Identify clutch performers vs chokers when RRR > 10 or in last 5 overs. Calculate SR/avg under pressure and rank players by clutch factor. Delivered: 10 analytics views (weighted scoring, entry context, IPL experience filter), Section 11 in all 10 stat packs (4 subsections + glossary), 5 CSVs, team page Pressure tab with JS data, analysis page cards, glossary on all surfaces.",
   "epic_id": "EPIC-006",
   "owner": "Stephen Curry",
@@ -11,8 +11,34 @@
   "gates": {
     "florentino_gate": {
       "status": "APPROVED"
+    },
+    "domain_sanity": {
+      "andy_flower": "YES",
+      "date": "2026-02-12",
+      "jose_mourinho": "YES",
+      "pep_guardiola": "YES"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "issues": [],
+      "checked_by": "Tom Brady",
+      "date": "2026-02-12"
+    },
+    "system_check": {
+      "status": "PASS",
+      "tests_passed": 253,
+      "tests_total": 253,
+      "checked_by": "Kante",
+      "date": "2026-02-12"
+    },
+    "founder_validation": {
+      "status": "APPROVED",
+      "feedback": "Pressure performance complete: 10 analytics views (weighted scoring, entry context, IPL filter), Section 11 in all 10 stat packs, 5 CSVs, team page Pressure tab, analysis cards, glossary on all surfaces.",
+      "validated_by": "Founder",
+      "date": "2026-02-12"
     }
   },
   "created_at": "2026-02-04T00:00:00Z",
-  "updated_at": "2026-02-12T01:49:54.237836Z"
+  "updated_at": "2026-02-12T01:57:49.852438Z",
+  "completed_at": "2026-02-12T01:57:49.850891Z"
 }

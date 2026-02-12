@@ -6425,9 +6425,9 @@
             { id: 'EPIC-012', title: 'The Research Desk', type: 'delivery', owner: 'Kevin de Bruyne',
               goal: 'Add interactive SQL Lab to The Lab — DuckDB-WASM, schema browser, example queries, natural language search',
               outcome: 'Users can query 2.38M rows of ball-by-ball cricket data directly in the browser' },
-            { id: 'EPIC-013', title: 'Future Enhancements', type: 'spike', owner: 'Tom Brady',
-              goal: 'Research and prototype future capabilities: win probability, form tracking',
-              outcome: 'Validated concepts ready for Sprint 5.0+ implementation' },
+            { id: 'EPIC-013', title: 'IPL 2026 Player Analysis', type: 'delivery', owner: 'Stephen Curry',
+              goal: '143 DuckDB views, phase breakdowns, matchup matrices, pressure sequences, recent form, venue intel, historic trends',
+              outcome: 'All 6 phases delivered across EPIC-006/010/012/014-016. Strategy Outlook + Pressure & Momentum live in The Lab.' },
             { id: 'EPIC-014', title: 'Foundation Fortification', type: 'delivery', owner: 'Brad Stevens',
               goal: 'Harden system foundations: centralize config, enforce quality gates, add data constraints, implement baselines, improve test coverage — COMPLETE',
               outcome: 'Production-grade infrastructure scoring 96/100 on system health metrics with enforced CI/CD gates and comprehensive validation' },
@@ -7768,10 +7768,10 @@ Gate Inheritance:
                 audible: 'PRD at docs/specs/PLAYER_PROFILE_VIEW_PRD.md - Needs Florentino Gate then Founder approval'
               }
             },
-            // EPIC-013: IPL 2026 Player Analysis
-            { id: 'EPIC-013', title: 'IPL 2026 Player Analysis - Season-specific views', state: 'VALIDATION', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 50, tags: ['EPIC', 'Analytics', 'Data', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED' }, daysSpent: 2, iterations: 1,
+            // EPIC-013: IPL 2026 Player Analysis — CLOSED
+            { id: 'EPIC-013', title: 'IPL 2026 Player Analysis', state: 'DONE', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 100, tags: ['EPIC', 'Analytics', 'Data'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement: 'PASS', system_check: 'PASS', founder_review: 'APPROVED' }, daysSpent: 8, iterations: 3,
+              completedNote: 'All 6 phases delivered: 143 DuckDB views, 13 stat pack sections, Strategy Outlook (venue + historic + pressure), matchup matrices, recent form views, T20 fallback for uncapped players. Work executed across EPIC-006/010/012/014-016, approved ticket-by-ticket through Task Integrity Loop.',
               plan: 'docs/plans/IPL_2026_PLAYER_ANALYSIS_PLAN.md',
-              founderReviewNote: 'Review the analysis plan. Approve the proposed IPL 2026 analytics scope, data requirements, and implementation approach.',
               links: [
                 { label: 'IPL 2026 Squads', url: 'https://github.com/dwijesh-r/cricket-playbook/blob/main/data/ipl_2026_squads.csv' },
                 { label: 'The Lab - Teams', url: 'https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/teams.html' }
@@ -7780,7 +7780,7 @@ Gate Inheritance:
                 ask: 'Create IPL-specific analytics views for 2026 squad analysis',
                 goal: 'Connect historical performance to 2026 squads with phase breakdowns and matchups',
                 reason: 'Founder directive: Need 2026-ready analytics for new season',
-                audible: 'Plan at docs/plans/IPL_2026_PLAYER_ANALYSIS_PLAN.md - Needs Founder approval before work starts'
+                audible: 'Delivered in Sprint 4.0. Plan at docs/plans/IPL_2026_PLAYER_ANALYSIS_PLAN.md.'
               }
             },
 

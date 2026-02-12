@@ -1,12 +1,13 @@
 {
   "id": "EPIC-013",
-  "title": "Future Enhancements",
-  "owner": "Tom Brady",
+  "title": "IPL 2026 Player Analysis",
+  "owner": "Stephen Curry",
   "tickets": [],
-  "progress_pct": 0,
-  "status": "BACKLOG",
-  "description": "Research and prototype future capabilities: win probability, form tracking, CricPom. Validated concepts ready for Sprint 5.0+ implementation.",
-  "sprint_id": null,
+  "progress_pct": 100,
+  "status": "DONE",
+  "description": "Comprehensive IPL 2026 Player Analysis framework — 143 DuckDB views, phase-wise breakdowns, matchup matrices, pressure sequences, recent form, venue intelligence, historic trends. Work delivered across EPIC-006 (stat packs), EPIC-010 (The Lab), EPIC-012 (Research Desk), EPIC-014-016 (infrastructure + weights). Plan: docs/plans/IPL_2026_PLAYER_ANALYSIS_PLAN.md.",
+  "sprint_id": "SPRINT-004",
   "created_at": "2026-02-05T00:00:00Z",
-  "updated_at": "2026-02-12T00:00:00Z"
+  "updated_at": "2026-02-12T22:00:00Z",
+  "closure_note": "All 6 phases delivered: core views (104+), advanced metrics (consistency/matchups/clustering), squad integration with T20 fallback, generator updates (13 stat pack sections), output generation (10 teams), editorial integration (Strategy Outlook + Pressure & Momentum). Approved ticket-by-ticket through Task Integrity Loop."
 }

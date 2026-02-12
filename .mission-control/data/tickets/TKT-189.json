@@ -1,7 +1,7 @@
 {
   "id": "TKT-189",
   "title": "TKT-183.6: Phase 3 \u2014 Domain Sanity & Statistical Validation",
-  "state": "BLOCKED",
+  "state": "READY",
   "priority": "P1",
   "progress_pct": 0,
   "description": "Validation phase. Domain sanity review (Andy Flower), statistical robustness checks (Jose Mourinho), edge case analysis (Pep Guardiola). Verify weights produce cricket-sensible outputs. Check for outliers, small-sample artifacts, and counter-intuitive rankings. Estimated: 1-2 days.",

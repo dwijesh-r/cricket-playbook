@@ -1,9 +1,9 @@
 {
   "id": "TKT-188",
   "title": "TKT-183.5: Phase 2 \u2014 Build dim_tournament_weights Table & Weighted Views",
-  "state": "READY",
+  "state": "DONE",
   "priority": "P1",
-  "progress_pct": 0,
+  "progress_pct": 100,
   "description": "Implementation phase. Build dim_tournament_weights DuckDB table with Founder-approved weights. Create weighted analytical views. Update thresholds.yaml with weight parameters. Owner: Stephen Curry + Brock Purdy. Estimated: 3-4 days.",
   "epic_id": "EPIC-016",
   "parent": "TKT-183",

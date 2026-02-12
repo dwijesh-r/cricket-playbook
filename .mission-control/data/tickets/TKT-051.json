@@ -3,12 +3,16 @@
   "epic_id": "EPIC-006",
   "title": "Review all tactical insights",
   "description": "Audit report on tactical insights quality",
-  "state": "VALIDATION",
+  "state": "DONE",
   "priority": "P0",
-  "progress_pct": 0,
+  "progress_pct": 100,
   "owner": "Andy Flower",
   "sprint_id": "SPRINT-001",
-  "gates": {},
+  "gates": {
+    "florentino_gate": { "status": "APPROVED" },
+    "domain_sanity": "YES",
+    "system_check": "PASS"
+  },
   "created_at": "2026-02-04T00:00:00Z",
-  "updated_at": "2026-02-05T00:00:00Z"
+  "updated_at": "2026-02-12T21:30:00.000000Z"
 }

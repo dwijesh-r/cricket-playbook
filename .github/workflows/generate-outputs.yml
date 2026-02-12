@@ -4,6 +4,9 @@
 #
 # Owner: Brad Stevens (Architecture & Performance)
 # Ticket: TKT-117 (EPIC-008: CI/CD Automation)
+# Fixed: Ime Udoka - added workflow_run conclusion guard, database checks
+#        on clustering/generate jobs to prevent failures on CI runners
+#        where the DuckDB database is not available (.gitignore excludes it)
 #
 # This workflow:
 # 1. Runs analytics views creation
@@ -50,6 +53,12 @@ jobs:
   check-staleness:
     name: "Check Output Staleness"
     runs-on: ubuntu-latest
+    # For workflow_run: only proceed if the triggering workflow succeeded
+    # For schedule/dispatch: always run
+    if: >-
+      github.event_name == 'schedule' ||
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
     outputs:
       needs_update: ${{ steps.check.outputs.needs_update }}
     steps:
@@ -83,6 +92,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: check-staleness
     if: needs.check-staleness.outputs.needs_update == 'true'
+    outputs:
+      db_exists: ${{ steps.db_check.outputs.db_exists }}
     steps:
       - uses: actions/checkout@v4
 
@@ -127,7 +138,10 @@ jobs:
     name: "Run ML Clustering"
     runs-on: ubuntu-latest
     needs: analytics
-    if: github.event.inputs.skip_clustering != 'true'
+    # Skip clustering if: explicitly skipped via dispatch input, or database not available
+    if: >-
+      needs.analytics.outputs.db_exists == 'true' &&
+      (github.event_name != 'workflow_dispatch' || github.event.inputs.skip_clustering != 'true')
     steps:
       - uses: actions/checkout@v4
 
@@ -162,7 +176,11 @@ jobs:
     name: "Generate Stat Packs & Charts"
     runs-on: ubuntu-latest
     needs: [analytics, clustering]
-    if: always() && needs.analytics.result == 'success'
+    # Run if analytics succeeded AND database exists (skip gracefully without DB)
+    if: >-
+      always() &&
+      needs.analytics.result == 'success' &&
+      needs.analytics.outputs.db_exists == 'true'
     steps:
       - uses: actions/checkout@v4
 

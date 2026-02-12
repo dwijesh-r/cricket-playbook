@@ -1,11 +1,12 @@
 {
   "id": "EPIC-009",
   "title": "Phase 7: Script Quality",
+  "owner": "N'Golo Kanté",
   "description": "Ensure all scripts are well-documented and maintainable",
   "sprint_id": "SPRINT-001",
-  "status": "NOT_STARTED",
-  "progress_pct": 0,
-  "tickets": ["TKT-082", "TKT-083", "TKT-084", "TKT-085"],
+  "status": "COMPLETED",
+  "progress_pct": 100,
+  "tickets": ["TKT-076", "TKT-077", "TKT-078", "TKT-079", "TKT-080", "TKT-081", "TKT-168"],
   "created_at": "2026-01-31T00:00:00Z",
-  "updated_at": "2026-02-05T00:00:00Z"
+  "updated_at": "2026-02-12T00:00:00Z"
 }

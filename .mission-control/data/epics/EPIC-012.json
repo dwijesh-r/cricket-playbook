@@ -1,13 +1,28 @@
 {
   "id": "EPIC-012",
   "title": "The Research Desk — Interactive SQL Lab for The Lab",
-  "owner": "Tom Brady",
-  "tickets": [],
-  "progress_pct": 0,
-  "status": "PLANNING",
+  "owner": "Kevin de Bruyne",
+  "tickets": [
+    "TKT-149",
+    "TKT-150",
+    "TKT-151",
+    "TKT-152",
+    "TKT-153",
+    "TKT-172",
+    "TKT-173",
+    "TKT-174",
+    "TKT-175",
+    "TKT-176",
+    "TKT-177",
+    "TKT-178",
+    "TKT-179",
+    "TKT-180"
+  ],
+  "progress_pct": 100,
+  "status": "COMPLETED",
   "description": "Add an interactive SQL Lab tab ('The Research Desk') to The Lab dashboard powered by DuckDB-WASM. Users can browse the full schema (15 tables, 52 views, 2.38M rows), run SQL queries with syntax highlighting, explore curated example queries, or type plain English to get cricket analytics with AI-powered insights (Andy Flower persona). Full database, zero data compromise. Unique differentiator — no free cricket resource offers this level of interactive analytics access.",
   "sprint_id": "SPRINT-001",
   "created_at": "2026-02-10T04:25:37.383325Z",
-  "updated_at": "2026-02-10T04:25:37.383325Z",
+  "updated_at": "2026-02-12T00:00:00Z",
   "target_date": "2026-02-28"
 }

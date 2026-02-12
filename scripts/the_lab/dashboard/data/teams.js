@@ -144,6 +144,6 @@ const QUICK_STATS = {
     totalTeams: 10,
     totalPlayers: 231,
     matchesAnalyzed: 219,
-    totalReports: 86,
+    totalReports: 142,
     dataRange: "2023-2025"
 };

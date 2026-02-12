@@ -6632,7 +6632,7 @@
             { id: 'TKT-048', title: 'Add phase analysis section', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
               context: { ask: 'Add Powerplay/Middle/Death phase analysis to stat packs', goal: 'Display player performance by match phase', reason: 'PRD: Phase-specific performance drives batting order', audible: ['Query phase data', 'Calculate phase metrics', 'Add to stat pack template'] }
             },
-            { id: 'TKT-049', title: 'Add key partnerships section', state: 'RUNNING', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 40, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' }, plan: 'docs/plans/TKT_049_KEY_PARTNERSHIPS_PLAN.md',
+            { id: 'TKT-049', title: 'Add key partnerships section', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' }, plan: 'docs/plans/TKT_049_KEY_PARTNERSHIPS_PLAN.md',
               founderReviewNote: 'Review the Key Partnerships plan before implementation proceeds. Verify partnership metrics scope and stat pack integration approach.',
               context: {
                 ask: 'Add Key Partnerships section to stat pack showing batting pair analytics',
@@ -6728,7 +6728,7 @@
             { id: 'TKT-064', title: 'Create wireframes for XI view', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-007', progress: 100, tags: ['Design', 'UI'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', founder_validation: 'APPROVED' },
               context: { ask: 'Design wireframes for Predicted XI display in The Lab', goal: 'Visual mockup showing XI layout, bench, scoring', reason: 'UI/UX design before implementation', audible: ['Sketch layouts', 'Create wireframes', 'Get Founder feedback'] }
             },
-            { id: 'TKT-065', title: 'Founder approval of Predicted XIIs', state: 'VALIDATION', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-007', progress: 95, tags: ['Approval', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS' }, daysSpent: 2, iterations: 1,
+            { id: 'TKT-065', title: 'Founder approval of Predicted XIIs', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-007', progress: 100, tags: ['Approval', '✅ Founder Approved'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' }, daysSpent: 2, iterations: 1,
               founderReviewNote: 'Final approval gate: Review all 10 Predicted XI outputs for plausibility and publication-readiness. Spot-check team balance, scoring explanations, and bench selections.',
               links: [
                 { label: 'Predicted XII Folder', url: 'https://github.com/dwijesh-r/cricket-playbook/tree/main/outputs/predicted_xii' },
@@ -6852,6 +6852,35 @@
                 reason: 'Need a polished frontend to showcase Cricket Playbook analytics outputs',
                 audible: 'Features: 14-agent intro animation, dark/light theme, mobile responsive, team navigation'
               }
+            },
+
+            // Future Analytics Ideas (TKT-087 to TKT-095) — IDEA backlog from EPIC-011
+            { id: 'TKT-087', title: 'Match Phase Index (historical)', state: 'IDEA', priority: 'P1', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-011', progress: 0, tags: ['Analytics', 'Idea'], gates: {},
+              context: { ask: 'Historical match phase analysis index', goal: 'Composite index for player impact by match phase', reason: 'Phase-level granularity for editorial depth', audible: ['Define index', 'Backtest historical data', 'Validate with Andy Flower'] }
+            },
+            { id: 'TKT-088', title: 'Clutch Performance Measurement', state: 'IDEA', priority: 'P1', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-011', progress: 0, tags: ['Analytics', 'Idea'], gates: {},
+              context: { ask: 'Measure player clutch performance in pressure situations', goal: 'Quantify clutch vs choke tendencies', reason: 'High-pressure performance is a key editorial narrative', audible: ['Define clutch scenarios', 'Calculate metrics', 'Compare to TKT-050'] }
+            },
+            { id: 'TKT-089', title: 'Toss Advantage Index', state: 'IDEA', priority: 'P1', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-011', progress: 0, tags: ['Analytics', 'Idea'], gates: {},
+              context: { ask: 'Analyze toss advantage by venue and conditions', goal: 'Quantify toss impact across venues', reason: 'Toss impact is a key narrative for venue analysis', audible: ['Query toss data', 'Calculate advantage by venue', 'Validate with domain experts'] }
+            },
+            { id: 'TKT-090', title: 'Novel Composite Metrics', state: 'IDEA', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-011', progress: 0, tags: ['Analytics', 'Idea'], gates: {},
+              context: { ask: 'Create novel composite metrics combining multiple factors', goal: 'Proprietary metrics that differentiate Cricket Playbook', reason: 'Unique metrics are key to editorial USP', audible: ['Research composite approaches', 'Design formula', 'Validate predictive value'] }
+            },
+            { id: 'TKT-091', title: 'DuckDB scalability', state: 'IDEA', priority: 'P2', effort: 'deep-work', assignee: 'Brock Purdy', epic: 'EPIC-011', progress: 0, tags: ['Data', 'Infrastructure', 'Idea'], gates: {},
+              context: { ask: 'Implement DuckDB for improved data scalability', goal: 'Scale data pipeline for larger datasets', reason: 'Future-proof data infrastructure', audible: ['Benchmark current limits', 'Design scalability plan', 'Test with larger datasets'] }
+            },
+            { id: 'TKT-092', title: 'CI/CD artifact comparison', state: 'IDEA', priority: 'P2', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-011', progress: 0, tags: ['DevOps', 'CI/CD', 'Idea'], gates: {},
+              context: { ask: 'Automated comparison of output artifacts in CI/CD', goal: 'Detect regressions in generated outputs automatically', reason: 'Prevent silent output drift between pipeline runs', audible: ['Design diff mechanism', 'Integrate into CI', 'Define tolerance thresholds'] }
+            },
+            { id: 'TKT-093', title: 'KenPom/CricPom pre-season model', state: 'IDEA', priority: 'P2', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-011', progress: 0, tags: ['Analytics', 'Research', 'Idea'], gates: {},
+              context: { ask: 'Build KenPom-style pre-season prediction model', goal: 'Team/player rating system with predictive power', reason: 'PRD inspiration: KenPom-style rankings for cricket', audible: ['Research KenPom methodology', 'Adapt for T20 cricket', 'Design rating algorithm'] }
+            },
+            { id: 'TKT-094', title: 'Insight Confidence Framework', state: 'IDEA', priority: 'P1', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-011', progress: 0, tags: ['Domain', 'Analytics', 'Idea'], gates: {},
+              context: { ask: 'Framework for scoring confidence in insights', goal: 'Confidence labels (high/medium/low) on all editorial insights', reason: 'Reader trust requires transparency on certainty levels', audible: ['Define confidence criteria', 'Score existing insights', 'Add to stat pack template'] }
+            },
+            { id: 'TKT-095', title: 'Silhouette score validation', state: 'IDEA', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-011', progress: 0, tags: ['ML', 'Validation', 'Idea'], gates: {},
+              context: { ask: 'Validate clustering quality with silhouette scores', goal: 'Quantitative validation of player clustering', reason: 'ML rigor requires cluster quality metrics', audible: ['Calculate silhouette scores', 'Compare cluster configs', 'Document optimal K'] }
             },
 
             // IPL 2026 Squad Verification - Founder Review
@@ -7605,7 +7634,7 @@ Gate Inheritance:
             },
 
             // TKT-159: Cross-Dashboard UX Audit (Jayson Tatum)
-            { id: 'TKT-159', title: 'Comprehensive UX audit across Boardroom, The Lab, and Mission Control Panel', state: 'VALIDATION', priority: 'P0', effort: 'deep-work', assignee: 'Jayson Tatum', epic: null, progress: 95, branch: 'feature/tkt-159-ux-audit', tags: ['UX', 'Audit', 'Dashboard', 'Cross-Cutting'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PASSED', enforcement_check: 'PASSED', system_check: 'PASSED' }, report: 'docs/ux/TKT-159_ux_audit_report.md',
+            { id: 'TKT-159', title: 'Comprehensive UX audit across Boardroom, The Lab, and Mission Control Panel', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Jayson Tatum', epic: null, progress: 100, branch: 'feature/tkt-159-ux-audit', tags: ['UX', 'Audit', 'Dashboard', 'Cross-Cutting', '✅ Done'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'PASSED', enforcement_check: 'PASSED', system_check: 'PASSED', founder_validation: 'APPROVED' }, report: 'docs/ux/TKT-159_ux_audit_report.md',
               founderReviewNote: 'Review the comprehensive UX audit report across all three dashboards. Verify scoring methodology, category weights, and prioritized improvement recommendations.',
               context: { ask: 'Conduct a detailed UX review of all three dashboards (Boardroom, The Lab, Mission Control Panel). Deliver a 0-100 rating (decimals included) with weighted breakdown by category, specific improvement suggestions with rationale for each.', goal: 'A single source-of-truth UX scorecard that identifies exactly where the product shines and where it falls short — with actionable fixes prioritized by impact', reason: 'No formal UX audit has been done across all three surfaces. We are shipping features but not measuring the experience holistically.', audible: ['Audit Boardroom UX', 'Audit The Lab UX', 'Audit Mission Control UX', 'Score each category 0-100', 'Provide improvement suggestions with rationale', 'Deliver final composite rating'] }
             },

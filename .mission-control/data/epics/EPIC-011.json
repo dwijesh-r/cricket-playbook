@@ -1,11 +1,12 @@
 {
   "id": "EPIC-011",
   "title": "Sprint 5.0+ Backlog",
+  "owner": "Kevin de Bruyne",
   "description": "Future scope items from Review 5 and Mega Review",
   "sprint_id": null,
-  "status": "BACKLOG",
-  "progress_pct": 0,
-  "tickets": ["TKT-087", "TKT-088", "TKT-089", "TKT-090", "TKT-091", "TKT-092", "TKT-093", "TKT-094", "TKT-095"],
+  "status": "IN_PROGRESS",
+  "progress_pct": 50,
+  "tickets": ["TKT-086", "TKT-107"],
   "created_at": "2026-02-05T00:00:00Z",
-  "updated_at": "2026-02-05T00:00:00Z"
+  "updated_at": "2026-02-12T00:00:00Z"
 }

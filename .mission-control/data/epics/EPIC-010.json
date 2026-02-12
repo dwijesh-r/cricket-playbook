@@ -1,11 +1,33 @@
 {
   "id": "EPIC-010",
   "title": "The Lab",
+  "owner": "Brad Stevens",
   "description": "Analytics showcase dashboard - The magazine version of Cricket Playbook outputs",
   "sprint_id": "SPRINT-001",
   "status": "COMPLETED",
   "progress_pct": 100,
-  "tickets": ["TKT-086"],
+  "tickets": [
+    "TKT-082",
+    "TKT-083",
+    "TKT-084",
+    "TKT-085",
+    "TKT-108",
+    "TKT-109",
+    "TKT-110",
+    "TKT-111",
+    "TKT-112",
+    "TKT-131",
+    "TKT-096",
+    "TKT-097",
+    "TKT-098",
+    "TKT-099",
+    "TKT-100",
+    "TKT-101",
+    "TKT-102",
+    "TKT-103",
+    "TKT-105",
+    "TKT-106"
+  ],
   "created_at": "2026-02-05T00:00:00Z",
-  "updated_at": "2026-02-05T00:00:00Z"
+  "updated_at": "2026-02-12T00:00:00Z"
 }

@@ -1,205 +1,247 @@
 {
-  "baseline": {
-    "run_rate": 8.9771,
-    "boundary_pct": 19.71,
-    "wickets_per_over": 0.3066999912261963,
-    "scope": "IPL 2023-2025",
-    "matches": 219
+  "metadata": {
+    "formula": "geometric_mean",
+    "decay_halflife_years": 4.0,
+    "conditions_baseline": "IPL 2023-2025",
+    "computed_at": "2026-02-12T02:35:25.077253+00:00",
+    "ticket": "TKT-187",
+    "owner": "Jose Mourinho",
+    "factor_weights": {
+      "pqi": 0.25,
+      "effective_ci": 0.2,
+      "recency": 0.2,
+      "conditions_similarity": 0.15,
+      "sample_confidence": 0.2
+    },
+    "total_top_ipl_players": 220,
+    "reference_year": 2026
   },
-  "weights": {
-    "pqi": 0.3,
-    "competitiveness": 0.15,
-    "conditions_similarity": 0.25,
-    "sample_confidence": 0.15,
-    "recency": 0.15
-  },
-  "results": [
+  "tournaments": [
     {
-      "tournament_id": "indian_premier_league",
-      "tournament_name": "Indian Premier League",
-      "matches": 1169,
-      "pqi": 100.0,
-      "ci_close_pct": 19.7,
-      "ci_score": 32.8,
-      "conditions_similarity": 90.6,
-      "sample_confidence": 100.0,
-      "recency": 90.0,
-      "composite": 1.0,
-      "tier": "1A"
+      "tournament": "Indian Premier League",
+      "tournament_key": "indian_premier_league",
+      "composite_weight": 0.8721,
+      "tier": "1A",
+      "factors": {
+        "pqi": 1.0,
+        "effective_ci": 0.5311,
+        "recency": 1.0,
+        "conditions_similarity": 1.0,
+        "sample_confidence": 0.95
+      },
+      "seasons_analyzed": 18,
+      "total_matches": 1169
     },
     {
-      "tournament_id": "pakistan_super_league",
-      "tournament_name": "Pakistan Super League",
-      "matches": 314,
-      "pqi": 32.4,
-      "ci_close_pct": 19.3,
-      "ci_score": 32.2,
-      "conditions_similarity": 90.9,
-      "sample_confidence": 100.0,
-      "recency": 90.0,
-      "composite": 0.658,
-      "tier": "1C"
+      "tournament": "Syed Mushtaq Ali Trophy",
+      "tournament_key": "syed_mushtaq_ali_trophy",
+      "composite_weight": 0.6603,
+      "tier": "1B",
+      "factors": {
+        "pqi": 0.5682,
+        "effective_ci": 0.3598,
+        "recency": 0.8409,
+        "conditions_similarity": 0.85,
+        "sample_confidence": 0.95
+      },
+      "seasons_analyzed": 9,
+      "total_matches": 695
     },
     {
-      "tournament_id": "sa20",
-      "tournament_name": "SA20",
-      "matches": 121,
-      "pqi": 47.1,
-      "ci_close_pct": 19.3,
-      "ci_score": 32.2,
-      "conditions_similarity": 88.3,
-      "sample_confidence": 60.5,
-      "recency": 90.0,
-      "composite": 0.636,
-      "tier": "1C"
+      "tournament": "Big Bash League",
+      "tournament_key": "big_bash_league",
+      "composite_weight": 0.5261,
+      "tier": "1C",
+      "factors": {
+        "pqi": 0.2136,
+        "effective_ci": 0.4911,
+        "recency": 1.0,
+        "conditions_similarity": 0.5,
+        "sample_confidence": 0.95
+      },
+      "seasons_analyzed": 15,
+      "total_matches": 654
     },
     {
-      "tournament_id": "big_bash_league",
-      "tournament_name": "Big Bash League",
-      "matches": 654,
-      "pqi": 37.8,
-      "ci_close_pct": 19.9,
-      "ci_score": 33.2,
-      "conditions_similarity": 86.1,
-      "sample_confidence": 100.0,
-      "recency": 90.0,
-      "composite": 0.663,
-      "tier": "1C"
+      "tournament": "Pakistan Super League",
+      "tournament_key": "pakistan_super_league",
+      "composite_weight": 0.514,
+      "tier": "1C",
+      "factors": {
+        "pqi": 0.1818,
+        "effective_ci": 0.4864,
+        "recency": 0.9033,
+        "conditions_similarity": 0.65,
+        "sample_confidence": 0.95
+      },
+      "seasons_analyzed": 11,
+      "total_matches": 314
     },
     {
-      "tournament_id": "caribbean_premier_league",
-      "tournament_name": "Caribbean Premier League",
-      "matches": 407,
-      "pqi": 38.8,
-      "ci_close_pct": 19.0,
-      "ci_score": 31.7,
-      "conditions_similarity": 86.1,
-      "sample_confidence": 100.0,
-      "recency": 90.0,
-      "composite": 0.664,
-      "tier": "1C"
+      "tournament": "The Hundred",
+      "tournament_key": "the_hundred_mens_competition",
+      "composite_weight": 0.5035,
+      "tier": "1C",
+      "factors": {
+        "pqi": 0.2227,
+        "effective_ci": 0.5305,
+        "recency": 1.0,
+        "conditions_similarity": 0.4,
+        "sample_confidence": 0.7925
+      },
+      "seasons_analyzed": 5,
+      "total_matches": 167
     },
     {
-      "tournament_id": "the_hundred_mens_competition",
-      "tournament_name": "The Hundred Men's Competition",
-      "matches": 167,
-      "pqi": 39.4,
-      "ci_close_pct": 25.6,
-      "ci_score": 42.7,
-      "conditions_similarity": 86.6,
-      "sample_confidence": 83.5,
-      "recency": 90.0,
-      "composite": 0.659,
-      "tier": "1C"
+      "tournament": "SA20",
+      "tournament_key": "sa20",
+      "composite_weight": 0.5021,
+      "tier": "1C",
+      "factors": {
+        "pqi": 0.2455,
+        "effective_ci": 0.4791,
+        "recency": 1.0,
+        "conditions_similarity": 0.55,
+        "sample_confidence": 0.6035
+      },
+      "seasons_analyzed": 4,
+      "total_matches": 121
     },
     {
-      "tournament_id": "major_league_cricket",
-      "tournament_name": "Major League Cricket",
-      "matches": 75,
-      "pqi": 74.1,
-      "ci_close_pct": 21.6,
-      "ci_score": 36.0,
-      "conditions_similarity": 91.5,
-      "sample_confidence": 37.5,
-      "recency": 90.0,
-      "composite": 0.696,
-      "tier": "1C"
+      "tournament": "ICC Men's T20 World Cup",
+      "tournament_key": "icc_mens_t20_world_cup",
+      "composite_weight": 0.4984,
+      "tier": "1C",
+      "factors": {
+        "pqi": 0.3591,
+        "effective_ci": 0.3965,
+        "recency": 0.7596,
+        "conditions_similarity": 0.5,
+        "sample_confidence": 0.6177
+      },
+      "seasons_analyzed": 3,
+      "total_matches": 124
     },
     {
-      "tournament_id": "international_league_t20",
-      "tournament_name": "International League T20",
-      "matches": 134,
-      "pqi": 75.0,
-      "ci_close_pct": 12.0,
-      "ci_score": 20.0,
-      "conditions_similarity": 88.1,
-      "sample_confidence": 67.0,
-      "recency": 90.0,
-      "composite": 0.711,
-      "tier": "1B"
+      "tournament": "Vitality Blast",
+      "tournament_key": "vitality_blast",
+      "composite_weight": 0.4976,
+      "tier": "1C",
+      "factors": {
+        "pqi": 0.2,
+        "effective_ci": 0.5198,
+        "recency": 0.8409,
+        "conditions_similarity": 0.45,
+        "sample_confidence": 0.95
+      },
+      "seasons_analyzed": 7,
+      "total_matches": 835
     },
     {
-      "tournament_id": "lanka_premier_league",
-      "tournament_name": "Lanka Premier League",
-      "matches": 119,
-      "pqi": 55.5,
-      "ci_close_pct": 20.5,
-      "ci_score": 34.2,
-      "conditions_similarity": 87.3,
-      "sample_confidence": 59.5,
-      "recency": 90.0,
-      "composite": 0.66,
-      "tier": "1C"
+      "tournament": "Caribbean Premier League",
+      "tournament_key": "caribbean_premier_league",
+      "composite_weight": 0.4967,
+      "tier": "1C",
+      "factors": {
+        "pqi": 0.1727,
+        "effective_ci": 0.4808,
+        "recency": 1.0,
+        "conditions_similarity": 0.5,
+        "sample_confidence": 0.95
+      },
+      "seasons_analyzed": 13,
+      "total_matches": 407
     },
     {
-      "tournament_id": "vitality_blast",
-      "tournament_name": "Vitality Blast",
-      "matches": 835,
-      "pqi": 49.8,
-      "ci_close_pct": 21.6,
-      "ci_score": 36.0,
-      "conditions_similarity": 89.7,
-      "sample_confidence": 100.0,
-      "recency": 90.0,
-      "composite": 0.713,
-      "tier": "1B"
+      "tournament": "International League T20",
+      "tournament_key": "international_league_t20",
+      "composite_weight": 0.4889,
+      "tier": "1C",
+      "factors": {
+        "pqi": 0.2136,
+        "effective_ci": 0.4535,
+        "recency": 1.0,
+        "conditions_similarity": 0.55,
+        "sample_confidence": 0.6637
+      },
+      "seasons_analyzed": 4,
+      "total_matches": 134
     },
     {
-      "tournament_id": "super_smash",
-      "tournament_name": "Super Smash",
-      "matches": 256,
-      "pqi": 21.4,
-      "ci_close_pct": 18.4,
-      "ci_score": 30.7,
-      "conditions_similarity": 87.9,
-      "sample_confidence": 100.0,
-      "recency": 90.0,
-      "composite": 0.615,
-      "tier": "1C"
+      "tournament": "Major League Cricket",
+      "tournament_key": "major_league_cricket",
+      "composite_weight": 0.4233,
+      "tier": "2",
+      "factors": {
+        "pqi": 0.2091,
+        "effective_ci": 0.4637,
+        "recency": 1.0,
+        "conditions_similarity": 0.45,
+        "sample_confidence": 0.3775
+      },
+      "seasons_analyzed": 3,
+      "total_matches": 75
     },
     {
-      "tournament_id": "icc_mens_t20_world_cup",
-      "tournament_name": "ICC Men's T20 World Cup",
-      "matches": 124,
-      "pqi": 50.8,
-      "ci_close_pct": 17.2,
-      "ci_score": 28.7,
-      "conditions_similarity": 78.8,
-      "sample_confidence": 62.0,
-      "recency": 90.0,
-      "composite": 0.62,
-      "tier": "1C"
+      "tournament": "Lanka Premier League",
+      "tournament_key": "lanka_premier_league",
+      "composite_weight": 0.3982,
+      "tier": "2",
+      "factors": {
+        "pqi": 0.1,
+        "effective_ci": 0.5227,
+        "recency": 0.8409,
+        "conditions_similarity": 0.6,
+        "sample_confidence": 0.5939
+      },
+      "seasons_analyzed": 5,
+      "total_matches": 119
     },
     {
-      "tournament_id": "syed_mushtaq_ali_trophy",
-      "tournament_name": "Syed Mushtaq Ali Trophy",
-      "matches": 695,
-      "pqi": 21.3,
-      "ci_close_pct": 14.8,
-      "ci_score": 24.7,
-      "conditions_similarity": 83.9,
-      "sample_confidence": 100.0,
-      "recency": 90.0,
-      "composite": 0.596,
-      "tier": "1C"
+      "tournament": "CSA T20 Challenge",
+      "tournament_key": "csa_t20_challenge",
+      "composite_weight": 0.3834,
+      "tier": "2",
+      "factors": {
+        "pqi": 0.0727,
+        "effective_ci": 0.5469,
+        "recency": 0.8409,
+        "conditions_similarity": 0.55,
+        "sample_confidence": 0.7465
+      },
+      "seasons_analyzed": 7,
+      "total_matches": 154
     },
     {
-      "tournament_id": "csa_t20_challenge",
-      "tournament_name": "CSA T20 Challenge",
-      "matches": 154,
-      "pqi": 43.5,
-      "ci_close_pct": 26.2,
-      "ci_score": 43.7,
-      "conditions_similarity": 83.8,
-      "sample_confidence": 77.0,
-      "recency": 90.0,
-      "composite": 0.656,
-      "tier": "1C"
+      "tournament": "Super Smash",
+      "tournament_key": "super_smash",
+      "composite_weight": 0.3633,
+      "tier": "2",
+      "factors": {
+        "pqi": 0.0545,
+        "effective_ci": 0.5024,
+        "recency": 1.0,
+        "conditions_similarity": 0.4,
+        "sample_confidence": 0.95
+      },
+      "seasons_analyzed": 9,
+      "total_matches": 256
     }
   ],
-  "metadata": {
-    "generated": "2026-02-11",
-    "status": "PHASE_1_DRAFT",
-    "note": "Requires Founder approval before integration"
+  "conditions_similarity_reasoning": {
+    "indian_premier_league": "Baseline. IPL conditions are the reference standard.",
+    "syed_mushtaq_ali_trophy": "Same Indian grounds and pitch types, but lower-quality outfields, smaller crowds, and domestic-level pressure. Strong conditions overlap; lower intensity.",
+    "pakistan_super_league": "Subcontinent venue profile with similar spinning conditions and heat. Key differences: Pakistan pitches tend to be slower and lower-scoring. Lahore/Karachi wickets behave differently from Mumbai/Bengaluru.",
+    "lanka_premier_league": "Subcontinent with spin-friendly conditions. Sri Lankan pitches offer more turn and are generally slower than IPL surfaces. Pallekele and Hambantota differ significantly from Indian venues.",
+    "sa20": "Pace-friendly South African wickets (Wanderers, Newlands, SuperSport Park) differ substantially from Indian conditions. Higher bounce, more seam movement, different ball behavior.",
+    "big_bash_league": "Australian conditions: harder, bouncier pitches with bigger boundaries. MCG/SCG grounds are structurally different from Indian venues. Different ball (Kookaburra vs SG).",
+    "caribbean_premier_league": "Caribbean pitches can be slow and low, somewhat similar to Indian sub-continent conditions in that respect. But smaller grounds, different climate, and variable pitch quality.",
+    "international_league_t20": "UAE conditions: flat batting surfaces in Dubai/Sharjah/Abu Dhabi. Some similarity to Indian flat tracks but different dew factor, ball behavior, and outfield speed.",
+    "the_hundred_mens_competition": "100-ball format is structurally different from T20. English conditions (seam movement, overcast skies, green pitches) are fundamentally unlike Indian batting paradises. Format + conditions compound the dissimilarity.",
+    "major_league_cricket": "American venues with drop-in pitches and unfamiliar conditions. Dallas, Morrisville grounds are nothing like Indian venues. Still T20 format but conditions are non-transferable.",
+    "vitality_blast": "English county grounds with seaming/swinging conditions. Green pitches, overcast skies, Dukes-style ball behavior. Very different from Indian conditions despite being full T20 format.",
+    "csa_t20_challenge": "Same South African conditions as SA20 but domestic-level. Pace-friendly wickets, higher bounce. Limited overlap with Indian conditions.",
+    "super_smash": "New Zealand conditions: green tops, seam movement, smaller grounds but very different pitch behavior from India. Limited transferability of performance data.",
+    "icc_mens_t20_world_cup": "Varies by host country. Recent editions: UAE 2021, Australia 2022, West Indies/USA 2024. Average across host conditions is moderate similarity. Some editions (India 2016) were on IPL grounds."
   }
 }

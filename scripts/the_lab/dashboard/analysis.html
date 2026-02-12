@@ -933,8 +933,8 @@
                         </a>
                     </div>
 
-                    <div class="analysis-card" style="border: 1px solid rgba(48, 209, 88, 0.25);">
-                        <span class="card-category" style="background: rgba(48, 209, 88, 0.15); color: #30d158;">Delivered</span>
+                    <div class="analysis-card">
+                        <span class="card-category data">Research</span>
                         <div class="card-header">
                             <div class="card-icon">&#9917;</div>
                             <div>
@@ -948,11 +948,11 @@
                             sigmoid-based sample size scoring. 231 IPL 2026 players rated across 14 T20 tournaments.
                         </p>
                         <div class="card-why">
-                            <div class="card-why-label">Deliverables</div>
+                            <div class="card-why-label">Why this was done</div>
                             <div class="card-why-text">
-                                Full spec (Jose Mourinho) &rarr; Tournament weights engine (TKT-187) &rarr;
-                                Player feed with weighted composites (TKT-190). Results in stat pack Section 13
-                                and Tournament Intelligence table below.
+                                KenPom transformed college basketball evaluation. This spec translates
+                                that methodology to T20 cricket &mdash; adjusting for opponent quality, venue
+                                conditions, and sample size to produce honest player efficiency ratings.
                             </div>
                         </div>
                         <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/research/cricpom_prototype_spec_020926_v1.md"
@@ -962,6 +962,123 @@
                         <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/cricpom_weighted_feed.json"
                            target="_blank" class="card-link" style="margin-top: 6px;">
                             📊 View Player Feed (231 players) →
+                        </a>
+                    </div>
+
+                    <div class="analysis-card">
+                        <span class="card-category data">Research</span>
+                        <div class="card-header">
+                            <div class="card-icon">&#9878;</div>
+                            <div>
+                                <h3 class="card-title">Tournament Composite Weights</h3>
+                                <span class="card-file">tkt187_final_weights.py</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Geometric mean formula weighting 14 T20 tournaments across 5 factors:
+                            Player Quality Index, Effective Conditions Index, Recency decay,
+                            Conditions Similarity, and Sample Confidence. Produces per-team
+                            weighted SR, avg, economy, boundary%, and dot% composites.
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this was done</div>
+                            <div class="card-why-text">
+                                A simple average of IPL + BBL + PSL stats would be misleading. Different
+                                tournaments have different quality levels. This engine ensures the IPL
+                                carries more weight than a T10 league, while still using cross-tournament
+                                data for players with limited IPL samples.
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/scripts/tkt187_final_weights.py"
+                           target="_blank" class="card-link">
+                            📄 View Weights Engine →
+                        </a>
+                    </div>
+
+                    <div class="analysis-card">
+                        <span class="card-category data">Research</span>
+                        <div class="card-header">
+                            <div class="card-icon">&#128200;</div>
+                            <div>
+                                <h3 class="card-title">Insight Confidence Framework</h3>
+                                <span class="card-file">sigmoid_confidence()</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Sigmoid-based confidence scoring: 1 / (1 + exp(-0.02 &times; (matches - 100))).
+                            Players with 200+ matches get 95%+ confidence. Under 30 matches = low confidence.
+                            Applied to all 231 CricPom player ratings and pressure performance metrics.
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this was done</div>
+                            <div class="card-why-text">
+                                Treating a player with 5 IPL innings the same as one with 150 is dishonest.
+                                This framework quantifies statistical reliability so readers know which
+                                insights are backed by deep data and which are small-sample estimates.
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/scripts/tkt187_final_weights.py"
+                           target="_blank" class="card-link">
+                            📄 View Implementation →
+                        </a>
+                    </div>
+
+                    <div class="analysis-card">
+                        <span class="card-category data">Research</span>
+                        <div class="card-header">
+                            <div class="card-icon">&#128302;</div>
+                            <div>
+                                <h3 class="card-title">Silhouette Score Validation</h3>
+                                <span class="card-file">baseline_comparison.py</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Three-metric cluster validation: silhouette score (cohesion vs separation),
+                            Davies-Bouldin index (cluster similarity), and Calinski-Harabasz index
+                            (between/within variance ratio). Tests K-means against random baseline
+                            to confirm clustering is meaningful, not noise.
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this was done</div>
+                            <div class="card-why-text">
+                                Clustering algorithms will always produce clusters &mdash; even from random data.
+                                Without validation metrics, our batter/bowler archetypes could be statistical
+                                artifacts. Silhouette scoring proves the structure is real.
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/scripts/ml_ops/baseline_comparison.py"
+                           target="_blank" class="card-link">
+                            📄 View Validation Code →
+                        </a>
+                    </div>
+
+                    <div class="analysis-card">
+                        <span class="card-category data">Research</span>
+                        <div class="card-header">
+                            <div class="card-icon">&#127919;</div>
+                            <div>
+                                <h3 class="card-title">Pressure Sequence Analysis</h3>
+                                <span class="card-file">generate_momentum_data.py</span>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Consecutive dot ball and boundary sequence analysis for bowling pressure
+                            and batting resilience profiling. Rates teams Elite/Strong/Average/Weak
+                            based on sequence length thresholds. Identifies clutch performers and
+                            choke risks via SR delta under pressure.
+                        </p>
+                        <div class="card-why">
+                            <div class="card-why-label">Why this was done</div>
+                            <div class="card-why-text">
+                                Traditional bowling stats (economy, SR) miss the ability to build
+                                sustained pressure. A bowler who bowls 4 dots then leaks a boundary
+                                is different from one who never strings 3 dots together. Sequences
+                                reveal pressure capability that averages hide.
+                            </div>
+                        </div>
+                        <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/scripts/the_lab/generate_momentum_data.py"
+                           target="_blank" class="card-link">
+                            📄 View Generator →
                         </a>
                     </div>
 

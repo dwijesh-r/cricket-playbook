@@ -1771,6 +1771,22 @@
 
         .pressure-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 
+        /* Pressure roster table */
+        .pressure-roster .pressure-table-row { cursor: pointer; transition: background 0.15s; }
+        .pressure-roster .pressure-table-row:hover { background: var(--bg-elevated); }
+        .pressure-roster .pressure-table-row.expanded { background: var(--bg-elevated); border-bottom: none; }
+        .pressure-roster .pressure-table-name { white-space: nowrap; }
+        .pressure-table-role-tag {
+            display: inline-block; font-size: 9px; font-weight: 700; padding: 1px 5px;
+            border-radius: 4px; margin-left: 6px; vertical-align: middle; letter-spacing: 0.5px;
+        }
+        .pressure-table-role-tag.bat { background: rgba(10, 132, 255, 0.15); color: var(--accent); }
+        .pressure-table-role-tag.bwl { background: rgba(255, 159, 10, 0.15); color: var(--accent-orange); }
+        .pressure-table-detail { display: none; }
+        .pressure-table-detail.visible { display: table-row; }
+        .pressure-table-detail td { padding: 12px 16px; background: var(--bg-tertiary); border-top: none; }
+        .pressure-table-detail .pressure-detail-inner { max-width: 700px; }
+
         /* Qualification criteria */
         .pressure-qual-note {
             margin-top: 16px; padding: 12px 16px;
@@ -1933,6 +1949,80 @@
         .pressure-filtered-stat .pressure-stat-value { font-size: 15px; }
         .pressure-filtered-stat .pressure-stat-label { font-size: 9px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.3px; }
 
+        /* Pressure Table (TKT-050 redesign) */
+        .pressure-table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .pressure-roster-table {
+            width: 100%; border-collapse: collapse; font-size: 12px;
+        }
+        .pressure-roster-table thead { position: sticky; top: 0; z-index: 10; }
+        .pressure-roster-table th {
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-elevated) 100%);
+            padding: 10px 6px; text-align: left; font-weight: 700;
+            font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px;
+            color: var(--text-secondary); border-bottom: 2px solid var(--accent);
+            cursor: pointer; user-select: none; white-space: nowrap;
+        }
+        .pressure-roster-table th:first-child { border-radius: 8px 0 0 0; }
+        .pressure-roster-table th:last-child { border-radius: 0 8px 0 0; }
+        .pressure-roster-table th:hover { color: var(--accent); }
+        .pressure-roster-table th .sort-arrow {
+            display: inline-block; margin-left: 3px; font-size: 8px;
+            color: var(--text-tertiary); transition: color 0.15s;
+        }
+        .pressure-roster-table th.sorted-asc .sort-arrow,
+        .pressure-roster-table th.sorted-desc .sort-arrow { color: var(--accent); }
+        .pressure-roster-table td {
+            padding: 8px 6px; border-bottom: 1px solid var(--border);
+            transition: background 0.2s ease;
+        }
+        .pressure-roster-table tr.pressure-data-row { cursor: pointer; }
+        .pressure-roster-table tr.pressure-data-row:hover td { background: var(--glass); }
+        .pressure-roster-table tr:nth-child(4n+1).pressure-data-row td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .pressure-roster-table tr:nth-child(4n+1).pressure-data-row:hover td {
+            background: var(--glass);
+        }
+        .pressure-roster-table tr.pressure-data-row.pressure-dimmed td { opacity: 0.35; }
+        .pressure-roster-table .player-name-text { font-weight: 600; font-size: 13px; }
+
+        /* Pressure table role badge */
+        .pressure-role-badge {
+            display: inline-block; padding: 2px 6px; border-radius: 4px;
+            font-size: 9px; font-weight: 700; text-transform: uppercase;
+        }
+        .pressure-role-badge.role-bat { background: rgba(48, 209, 88, 0.15); color: var(--accent-green); }
+        .pressure-role-badge.role-bowl { background: rgba(255, 69, 58, 0.15); color: var(--accent-red); }
+
+        /* Expandable detail row in pressure table */
+        .pressure-detail-row { display: none; }
+        .pressure-detail-row.expanded { display: table-row; }
+        .pressure-detail-row td {
+            padding: 0 !important; border-bottom: 1px solid var(--border);
+        }
+        .pressure-detail-content {
+            padding: 12px 16px; display: flex; flex-direction: column; gap: 12px;
+            background: var(--bg-tertiary); border-left: 3px solid var(--accent);
+        }
+
+        /* Pressure table search/filter bar */
+        .pressure-search-filter-bar {
+            display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .pressure-search-box input {
+            background: var(--bg-tertiary); border: 1px solid var(--border);
+            border-radius: 8px; padding: 8px 12px; color: var(--text-primary);
+            font-size: 13px; width: 200px; outline: none;
+        }
+        .pressure-search-box input:focus { border-color: var(--accent); }
+        .pressure-role-filter {
+            display: flex; gap: 6px; align-items: center;
+        }
+        .pressure-table-count {
+            font-size: 12px; color: var(--text-tertiary); margin-left: auto;
+        }
+
         @media (max-width: 768px) {
             .pressure-summary-grid { grid-template-columns: repeat(2, 1fr); }
             .pressure-summary-table { font-size: 12px; }
@@ -1948,6 +2038,10 @@
             .pressure-player-summary { gap: 8px; padding: 10px 12px; }
             .pressure-filter-bar { gap: 10px; padding: 10px 12px; }
             .pressure-filter-group { flex-wrap: wrap; }
+            .pressure-roster-table { font-size: 11px; min-width: 700px; }
+            .pressure-roster-table th, .pressure-roster-table td { padding: 8px 4px; }
+            .pressure-search-box input { width: 140px; }
+            .pressure-search-filter-bar { gap: 8px; }
         }
 
         /* Prevent horizontal overflow */
@@ -2096,7 +2190,9 @@
                         bowlerTags: p.bowlerTags || [],
                         isCaptain: p.isCaptain,
                         price: p.price || 0,
-                        retainedStatus: p.retained ? 'Retained' : 'Auction'
+                        retainedStatus: p.acquisition || (p.retained ? 'Retained' : 'Auction'),
+                        iplMatches: p.iplMatches || 0,
+                        isUncapped: p.isUncapped || false
                     }));
                     // Sort: Captain first, then by role, then alphabetically
                     players.sort((a, b) => {
@@ -2289,7 +2385,7 @@
             const balance = predicted.balance;
             const balanceContent = document.getElementById('balance-content');
             // Compute additional balance metrics from predicted XI
-            const xi = predicted.players || [];
+            const xi = predicted.xi || [];
             const lhb = xi.filter(p => p.batting === 'Left-hand').length;
             const rhb = xi.filter(p => p.batting === 'Right-hand').length;
             const totalPrice = xi.reduce((s, p) => s + (p.price || 0), 0);
@@ -2734,196 +2830,109 @@
                     </div>
                 </div>`;
 
-            // Sort and filter batters based on active filter, then take top 5
-            const MAX_SHOWN = 5;
-            let filteredBatters = [...(pressure.allBatters || pressure.topBatters || [])];
+            // Build unified ALL-players table (batters + bowlers combined)
+            let allBatters = [...(pressure.allBatters || pressure.topBatters || [])];
+            let allBowlers = [...(pressure.allBowlers || pressure.topBowlers || [])];
 
-            // Apply entry context filter
+            // Apply entry context filter (batters only)
             if (pf.entry !== 'all') {
-                filteredBatters = filteredBatters.filter(b => b.entryContext === pf.entry);
+                allBatters = allBatters.filter(b => b.entryContext === pf.entry);
             }
 
-            // Re-sort based on active filter
+            // Sort batters
             if (pf.phase === 'death') {
-                filteredBatters.sort((a, b) => {
-                    const asr = a.phaseStats?.death?.sr || 0;
-                    const bsr = b.phaseStats?.death?.sr || 0;
-                    return bsr - asr; // Higher SR = better
-                });
+                allBatters.sort((a, b) => (b.phaseStats?.death?.sr || 0) - (a.phaseStats?.death?.sr || 0));
             } else if (pf.phase === 'setup') {
-                filteredBatters.sort((a, b) => {
-                    const asr = a.phaseStats?.setup?.sr || 0;
-                    const bsr = b.phaseStats?.setup?.sr || 0;
+                allBatters.sort((a, b) => (b.phaseStats?.setup?.sr || 0) - (a.phaseStats?.setup?.sr || 0));
+            } else if (pf.band !== 'all') {
+                allBatters.sort((a, b) => {
+                    const asr = ((a.bandBreakdown || []).find(x => x.band === pf.band) || {}).sr || -1;
+                    const bsr = ((b.bandBreakdown || []).find(x => x.band === pf.band) || {}).sr || -1;
                     return bsr - asr;
                 });
+            }
+
+            // Sort bowlers
+            if (pf.phase === 'death') {
+                allBowlers.sort((a, b) => (a.phaseStats?.death?.economy || 99) - (b.phaseStats?.death?.economy || 99));
+            } else if (pf.phase === 'setup') {
+                allBowlers.sort((a, b) => (a.phaseStats?.setup?.economy || 99) - (b.phaseStats?.setup?.economy || 99));
             } else if (pf.band !== 'all') {
-                filteredBatters.sort((a, b) => {
-                    const abd = (a.bandBreakdown || []).find(x => x.band === pf.band);
-                    const bbd = (b.bandBreakdown || []).find(x => x.band === pf.band);
-                    const asr = abd ? abd.sr : -1;
-                    const bsr = bbd ? bbd.sr : -1;
-                    return bsr - asr; // Higher SR in band = better
+                allBowlers.sort((a, b) => {
+                    const ae = ((a.bandBreakdown || []).find(x => x.band === pf.band) || {}).economy || 99;
+                    const be = ((b.bandBreakdown || []).find(x => x.band === pf.band) || {}).economy || 99;
+                    return ae - be;
                 });
             }
-            // else: default sort by pressureScore (already sorted from DB)
 
-            filteredBatters = filteredBatters.slice(0, MAX_SHOWN);
+            // Merge into unified rows: batters first, then bowlers
+            const allRows = [
+                ...allBatters.map(b => ({ type: 'BAT', ...b })),
+                ...allBowlers.map(bw => ({ type: 'BWL', ...bw }))
+            ];
 
-            // Build batter cards
-            const battersHtml = filteredBatters.map((b, i) => {
-                const hasBand = playerHasBand(b.bandBreakdown, pf.band);
-                const dimClass = !hasBand ? ' pressure-dimmed' : '';
+            // Pressure table sort state
+            const pressureSortCol = window._pressureSortCol || 'default';
+            const pressureSortAsc = window._pressureSortAsc !== undefined ? window._pressureSortAsc : true;
 
-                // Determine what stat to show prominently
-                let primaryStatHtml;
-                const phaseStat = getBatterFilteredPhaseStat(b);
-                const bandStat = getBatterBandStat(b);
-
-                if (pf.band !== 'all' && bandStat) {
-                    primaryStatHtml = `
-                        <div class="pressure-filtered-stat">
-                            <div class="pressure-stat-value" style="color: ${bandStat.color};">${bandStat.value}</div>
-                            <div class="pressure-stat-label">${bandStat.label}</div>
-                        </div>`;
-                } else if (pf.band !== 'all' && !hasBand) {
-                    primaryStatHtml = `
-                        <div class="pressure-filtered-stat">
-                            <div class="pressure-stat-value" style="color: var(--text-tertiary);">N/A</div>
-                            <div class="pressure-stat-label">${pf.band.replace('_', ' ')} SR</div>
-                        </div>`;
-                } else if (pf.phase !== 'all' && phaseStat) {
-                    primaryStatHtml = `
-                        <div class="pressure-filtered-stat">
-                            <div class="pressure-stat-value" style="color: ${phaseStat.color};">${phaseStat.value}</div>
-                            <div class="pressure-stat-label">${phaseStat.label}</div>
-                        </div>`;
-                } else {
-                    primaryStatHtml = `
-                        <div class="pressure-stat">
-                            <div class="pressure-stat-value">${srDeltaDisplay(b.srDelta)}</div>
-                            <div class="pressure-stat-label">SR Delta</div>
-                        </div>`;
-                }
-
+            // Build batter row
+            const batterRow = (b, idx) => {
+                const sampleCls = b.pressureBalls >= 150 ? 'large' : b.pressureBalls >= 80 ? 'medium' : 'small';
+                const sampleLabel = b.pressureBalls >= 150 ? 'L' : b.pressureBalls >= 80 ? 'M' : 'S';
                 return `
-                <div class="pressure-player-card${dimClass}" id="batter-card-${i}">
-                    <div class="pressure-player-summary" onclick="this.parentElement.classList.toggle('expanded');">
-                        <div class="pressure-rank ${i === 0 ? 'top' : ''}">${i + 1}</div>
-                        <div class="pressure-player-info">
-                            <div class="pressure-player-name">
-                                <span class="player-name-text">${b.name}</span>
-                                ${entryBadge(b.entryContext, b.avgBallsBefore || 0)}
-                            </div>
-                            <div class="pressure-player-detail">
-                                SR: ${b.overallSR.toFixed(1)} overall, ${b.pressureSR.toFixed(1)} under pressure
-                                <span class="pressure-balls-prominent" title="Sample size: ${b.pressureBalls} pressure balls faced">${b.pressureBalls} balls</span>
-                                <span class="sample-badge sample-${b.pressureBalls >= 150 ? 'large' : b.pressureBalls >= 80 ? 'medium' : 'small'}" title="${b.pressureBalls >= 150 ? 'Large sample (150+ balls)' : b.pressureBalls >= 80 ? 'Medium sample (80-149 balls)' : 'Small sample (<80 balls) — interpret with caution'}">${b.pressureBalls >= 150 ? 'L' : b.pressureBalls >= 80 ? 'M' : 'S'}</span>
-                            </div>
-                        </div>
-                        ${primaryStatHtml}
-                        <div class="pressure-wscore">
-                            <div class="pressure-wscore-value" style="color: ${wScoreColor(b.pressureScore)};">${b.pressureScore.toFixed(1)}</div>
-                            <div class="pressure-wscore-label">W.Score</div>
-                        </div>
-                        ${ratingBadge(b.rating)}
-                        <div class="pressure-expand-icon">&#9660;</div>
-                    </div>
-                    <div class="pressure-player-detail-panel">
+                <tr class="pressure-table-row" onclick="this.classList.toggle('expanded'); this.nextElementSibling.classList.toggle('visible');">
+                    <td>${idx + 1}</td>
+                    <td class="pressure-table-name">
+                        <span class="player-name-text">${b.name}</span>
+                        <span class="pressure-table-role-tag bat">BAT</span>
+                    </td>
+                    <td>${ratingBadge(b.rating)}</td>
+                    <td style="color: ${srColor(b.pressureSR)}; font-weight: 700;">${b.pressureSR.toFixed(1)}</td>
+                    <td>${srDeltaDisplay(b.srDelta)}</td>
+                    <td style="color: ${wScoreColor(b.pressureScore)}; font-weight: 700;">${b.pressureScore.toFixed(1)}</td>
+                    <td><span class="sample-badge sample-${sampleCls}">${sampleLabel}</span> ${b.pressureBalls}</td>
+                    <td><span class="entry-badge ${b.entryContext.toLowerCase().replace('_','-')}">${b.entryContext.replace('_',' ')}</span></td>
+                </tr>
+                <tr class="pressure-table-detail">
+                    <td colspan="8">
                         <div class="pressure-detail-inner">
                             ${batterPhaseHtml(b.phaseStats)}
                             ${batterBandTable(b.bandBreakdown)}
                         </div>
-                    </div>
-                </div>`;
-            }).join('');
+                    </td>
+                </tr>`;
+            };
 
-            // Sort and filter bowlers based on active filter, then take top 5
-            let filteredBowlers = [...(pressure.allBowlers || pressure.topBowlers || [])];
-
-            if (pf.phase === 'death') {
-                filteredBowlers.sort((a, b) => {
-                    const ae = a.phaseStats?.death?.economy || 99;
-                    const be = b.phaseStats?.death?.economy || 99;
-                    return ae - be; // Lower economy = better
-                });
-            } else if (pf.phase === 'setup') {
-                filteredBowlers.sort((a, b) => {
-                    const ae = a.phaseStats?.setup?.economy || 99;
-                    const be = b.phaseStats?.setup?.economy || 99;
-                    return ae - be;
-                });
-            } else if (pf.band !== 'all') {
-                filteredBowlers.sort((a, b) => {
-                    const abd = (a.bandBreakdown || []).find(x => x.band === pf.band);
-                    const bbd = (b.bandBreakdown || []).find(x => x.band === pf.band);
-                    const ae = abd ? abd.economy : 99;
-                    const be = bbd ? bbd.economy : 99;
-                    return ae - be; // Lower economy in band = better
-                });
-            }
-            // else: default sort by economy ASC (already sorted from DB)
-
-            filteredBowlers = filteredBowlers.slice(0, MAX_SHOWN);
-
-            // Build bowler cards
-            const bowlersHtml = filteredBowlers.map((bw, i) => {
-                const hasBand = playerHasBand(bw.bandBreakdown, pf.band);
-                const dimClass = !hasBand ? ' pressure-dimmed' : '';
-
-                let primaryStatHtml;
-                const phaseStat = getBowlerFilteredPhaseStat(bw);
-                const bandStat = getBowlerBandStat(bw);
-
-                if (pf.band !== 'all' && bandStat) {
-                    primaryStatHtml = `
-                        <div class="pressure-filtered-stat">
-                            <div class="pressure-stat-value" style="color: ${bandStat.color};">${bandStat.value}</div>
-                            <div class="pressure-stat-label">${bandStat.label}</div>
-                        </div>`;
-                } else if (pf.band !== 'all' && !hasBand) {
-                    primaryStatHtml = `
-                        <div class="pressure-filtered-stat">
-                            <div class="pressure-stat-value" style="color: var(--text-tertiary);">N/A</div>
-                            <div class="pressure-stat-label">${pf.band.replace('_', ' ')} Econ</div>
-                        </div>`;
-                } else if (pf.phase !== 'all' && phaseStat) {
-                    primaryStatHtml = `
-                        <div class="pressure-filtered-stat">
-                            <div class="pressure-stat-value" style="color: ${phaseStat.color};">${phaseStat.value}</div>
-                            <div class="pressure-stat-label">${phaseStat.label}</div>
-                        </div>`;
-                } else {
-                    primaryStatHtml = `
-                        <div class="pressure-stat">
-                            <div class="pressure-stat-value">${econDisplay(bw.economy)}</div>
-                            <div class="pressure-stat-label">Economy</div>
-                        </div>`;
-                }
-
+            // Build bowler row
+            const bowlerRow = (bw, idx) => {
+                const sampleCls = bw.legalBalls >= 120 ? 'large' : bw.legalBalls >= 60 ? 'medium' : 'small';
+                const sampleLabel = bw.legalBalls >= 120 ? 'L' : bw.legalBalls >= 60 ? 'M' : 'S';
                 return `
-                <div class="pressure-player-card${dimClass}" id="bowler-card-${i}">
-                    <div class="pressure-player-summary" onclick="this.parentElement.classList.toggle('expanded');">
-                        <div class="pressure-rank ${i === 0 ? 'top' : ''}">${i + 1}</div>
-                        <div class="pressure-player-info">
-                            <div class="pressure-player-name">${bw.name}</div>
-                            <div class="pressure-player-detail">
-                                ${bw.pressureBand.replace('_', ' ')} band | ${bw.wickets} wkts | ${bw.dotBallPct.toFixed(1)}% dots
-                                <span class="pressure-balls-prominent" title="Sample size: ${bw.legalBalls} legal balls bowled under pressure">${bw.legalBalls} balls</span>
-                                <span class="sample-badge sample-${bw.legalBalls >= 120 ? 'large' : bw.legalBalls >= 60 ? 'medium' : 'small'}" title="${bw.legalBalls >= 120 ? 'Large sample (120+ balls)' : bw.legalBalls >= 60 ? 'Medium sample (60-119 balls)' : 'Small sample (<60 balls) — interpret with caution'}">${bw.legalBalls >= 120 ? 'L' : bw.legalBalls >= 60 ? 'M' : 'S'}</span>
-                            </div>
-                        </div>
-                        ${primaryStatHtml}
-                        ${ratingBadge(bw.rating)}
-                        <div class="pressure-expand-icon">&#9660;</div>
-                    </div>
-                    <div class="pressure-player-detail-panel">
+                <tr class="pressure-table-row" onclick="this.classList.toggle('expanded'); this.nextElementSibling.classList.toggle('visible');">
+                    <td>${idx + 1}</td>
+                    <td class="pressure-table-name">
+                        <span class="player-name-text">${bw.name}</span>
+                        <span class="pressure-table-role-tag bwl">BWL</span>
+                    </td>
+                    <td>${ratingBadge(bw.rating)}</td>
+                    <td>${econDisplay(bw.economy)}</td>
+                    <td><span style="color: var(--text-secondary);">${bw.dotBallPct.toFixed(1)}%</span></td>
+                    <td><span style="color: var(--text-secondary);">${bw.wickets} wkt</span></td>
+                    <td><span class="sample-badge sample-${sampleCls}">${sampleLabel}</span> ${bw.legalBalls}</td>
+                    <td><span class="pressure-band-tag ${bandTagClass(bw.pressureBand)}" style="font-size:10px;">${bw.pressureBand.replace('_',' ')}</span></td>
+                </tr>
+                <tr class="pressure-table-detail">
+                    <td colspan="8">
                         <div class="pressure-detail-inner">
                             ${bowlerPhaseHtml(bw.phaseStats)}
                             ${bowlerBandTable(bw.bandBreakdown)}
                         </div>
-                    </div>
-                </div>`;
-            }).join('');
+                    </td>
+                </tr>`;
+            };
+
+            const batterRowsHtml = allBatters.map((b, i) => batterRow(b, i)).join('');
+            const bowlerRowsHtml = allBowlers.map((bw, i) => bowlerRow(bw, i)).join('');
 
             const qualNote = meta ? `
                 <div class="pressure-qual-note">
@@ -3083,19 +3092,46 @@
 
                 ${filterBarHtml}
 
-                <div class="pressure-columns">
-                    <div>
-                        <div class="pressure-section-title">Top Clutch Batters (by Weighted Score)</div>
-                        <div class="pressure-player-list">
-                            ${battersHtml || '<div style="color: var(--text-tertiary); padding: 16px; text-align: center;">No batter data available' + (pf.entry !== 'all' ? ' for ' + pf.entry.replace('_', ' ') + ' entry context' : '') + '</div>'}
-                        </div>
-                    </div>
-                    <div>
-                        <div class="pressure-section-title">Best Bowlers Under Pressure (by Economy)</div>
-                        <div class="pressure-player-list">
-                            ${bowlersHtml || '<div style="color: var(--text-tertiary); padding: 16px; text-align: center;">No bowler data available</div>'}
-                        </div>
-                    </div>
+                <div class="pressure-section-title" style="margin-top: 16px;">Batters Under Pressure (${allBatters.length} players)</div>
+                <div class="roster-table-wrapper">
+                <table class="roster-table phil-steele pressure-roster">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Player</th>
+                            <th class="has-tooltip" data-tooltip="Pressure rating: CLUTCH, PRESSURE_PROOF, MODERATE, or PRESSURE_SENSITIVE">Rating</th>
+                            <th class="has-tooltip" data-tooltip="Strike rate under pressure (RRR >= 10)">Pressure SR</th>
+                            <th class="has-tooltip" data-tooltip="Change in SR from overall to pressure situations. Positive = better under pressure.">SR Delta</th>
+                            <th class="has-tooltip" data-tooltip="Weighted pressure score combining SR delta, sample size, and death overs bonus">W.Score</th>
+                            <th class="has-tooltip" data-tooltip="Sample size: L (150+), M (80-149), S (<80 balls)">Sample</th>
+                            <th class="has-tooltip" data-tooltip="How established the batter was when pressure began">Entry</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${batterRowsHtml || '<tr><td colspan="8" style="text-align:center; padding:24px; color:var(--text-tertiary);">No batter pressure data' + (pf.entry !== 'all' ? ' for ' + pf.entry.replace('_', ' ') + ' entry context' : '') + '</td></tr>'}
+                    </tbody>
+                </table>
+                </div>
+
+                <div class="pressure-section-title" style="margin-top: 24px;">Bowlers Under Pressure (${allBowlers.length} players)</div>
+                <div class="roster-table-wrapper">
+                <table class="roster-table phil-steele pressure-roster">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Player</th>
+                            <th class="has-tooltip" data-tooltip="Pressure rating: ELITE, STRONG, AVERAGE, or VULNERABLE">Rating</th>
+                            <th class="has-tooltip" data-tooltip="Economy rate under pressure (HIGH+ RRR bands)">Economy</th>
+                            <th class="has-tooltip" data-tooltip="Dot ball percentage under pressure">Dot%</th>
+                            <th class="has-tooltip" data-tooltip="Wickets taken under pressure">Wkts</th>
+                            <th class="has-tooltip" data-tooltip="Sample size: L (120+), M (60-119), S (<60 balls)">Sample</th>
+                            <th class="has-tooltip" data-tooltip="Highest RRR pressure band with qualifying data">Top Band</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${bowlerRowsHtml || '<tr><td colspan="8" style="text-align:center; padding:24px; color:var(--text-tertiary);">No bowler pressure data</td></tr>'}
+                    </tbody>
+                </table>
                 </div>
 
                 ${qualNote}

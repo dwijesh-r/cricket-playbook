@@ -1685,6 +1685,37 @@
         .pressure-badge.strong { background: rgba(10, 132, 255, 0.2); color: var(--accent); }
         .pressure-badge.average { background: rgba(255, 214, 10, 0.2); color: var(--accent-yellow); }
         .pressure-badge.vulnerable { background: rgba(255, 69, 58, 0.2); color: var(--accent-red); }
+        /* Entry context badges */
+        .entry-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            flex-shrink: 0;
+        }
+        .entry-badge.fresh { background: rgba(10, 132, 255, 0.15); color: #4aa8ff; }
+        .entry-badge.building { background: rgba(255, 159, 10, 0.15); color: #ff9f0a; }
+        .entry-badge.set { background: rgba(48, 209, 88, 0.15); color: #30d158; }
+        .entry-badge.deep-set { background: rgba(0, 125, 27, 0.25); color: #00c22b; }
+        /* Weighted pressure score */
+        .pressure-wscore {
+            text-align: right;
+            flex-shrink: 0;
+            min-width: 48px;
+        }
+        .pressure-wscore-value {
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .pressure-wscore-label {
+            font-size: 9px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
         .pressure-columns {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -2308,17 +2339,35 @@
                 return `<span style="color: ${color}; font-weight: 700;">${econ.toFixed(2)}</span>`;
             };
 
+            // Entry context badge helper
+            const entryBadge = (ctx) => {
+                const cls = ctx.toLowerCase().replace('_', '-');
+                return `<span class="entry-badge ${cls}">${ctx.replace('_', ' ')}</span>`;
+            };
+
+            // Weighted score color helper
+            const wScoreColor = (score) => {
+                if (score >= 30) return 'var(--accent-green)';
+                if (score >= 15) return 'var(--accent-yellow)';
+                if (score >= 0) return 'var(--text-secondary)';
+                return 'var(--accent-red)';
+            };
+
             // Top batters HTML
             const battersHtml = pressure.topBatters.map((b, i) => `
                 <div class="pressure-player-row">
                     <div class="pressure-rank ${i === 0 ? 'top' : ''}">${i + 1}</div>
                     <div class="pressure-player-info">
-                        <div class="pressure-player-name">${b.name}</div>
+                        <div class="pressure-player-name">${b.name} ${entryBadge(b.entryContext)}</div>
                         <div class="pressure-player-detail">SR: ${b.overallSR.toFixed(1)} overall, ${b.pressureSR.toFixed(1)} under pressure (${b.pressureBalls} balls)</div>
                     </div>
                     <div class="pressure-stat">
                         <div class="pressure-stat-value">${srDeltaDisplay(b.srDelta)}</div>
                         <div class="pressure-stat-label">SR Delta</div>
+                    </div>
+                    <div class="pressure-wscore">
+                        <div class="pressure-wscore-value" style="color: ${wScoreColor(b.pressureScore)};">${b.pressureScore.toFixed(1)}</div>
+                        <div class="pressure-wscore-label">W.Score</div>
                     </div>
                     ${ratingBadge(b.rating)}
                 </div>

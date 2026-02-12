@@ -3794,25 +3794,21 @@ def create_pressure_performance_views(conn: duckdb.DuckDBPyConnection) -> None:
             FROM running_context
             WHERE balls_remaining > 0
         ),
-        -- Entry point: first ball each batter faces in HIGH_PRESSURE per innings
-        pressure_entry AS (
-            SELECT batter_id, match_id, innings,
-                MIN(batter_balls_before) AS entry_balls_before
-            FROM with_bands
-            WHERE pressure_group = 'HIGH_PRESSURE'
-            GROUP BY batter_id, match_id, innings
-        ),
-        -- Average entry context per batter across all pressure innings
+        -- Average balls faced before each pressure ball across all innings.
+        -- Uses AVG across ALL pressure deliveries (not just the first entry
+        -- point per innings) to better reflect how settled the batter typically
+        -- is during high-pressure situations.
         batter_entry_context AS (
             SELECT batter_id,
-                ROUND(AVG(entry_balls_before), 1) AS avg_balls_before_pressure,
+                ROUND(AVG(batter_balls_before), 1) AS avg_balls_before_pressure,
                 CASE
-                    WHEN AVG(entry_balls_before) > 40 THEN 'DEEP_SET'
-                    WHEN AVG(entry_balls_before) > 25 THEN 'SET'
-                    WHEN AVG(entry_balls_before) >= 10 THEN 'BUILDING'
+                    WHEN AVG(batter_balls_before) > 40 THEN 'DEEP_SET'
+                    WHEN AVG(batter_balls_before) > 25 THEN 'SET'
+                    WHEN AVG(batter_balls_before) >= 10 THEN 'BUILDING'
                     ELSE 'FRESH'
                 END AS entry_context
-            FROM pressure_entry
+            FROM with_bands
+            WHERE pressure_group = 'HIGH_PRESSURE'
             GROUP BY batter_id
         ),
         batter_overall AS (

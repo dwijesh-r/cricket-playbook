@@ -1,7 +1,7 @@
 /**
  * The Lab - Pressure Performance Metrics
  * IPL 2026 Pre-Season Analytics (TKT-050)
- * Auto-generated: 2026-02-11T23:37:22.941236
+ * Auto-generated: 2026-02-12T07:41:50.518160
  * Source: analytics_ipl_pressure_deltas_since2023,
  *         analytics_ipl_batter_pressure_bands_since2023,
  *         analytics_ipl_bowler_pressure_bands_since2023
@@ -19,8 +19,8 @@ const PRESSURE_DATA = {
         },
         topBatters: [
             { name: "Naman Dhir", srDelta: 19.6, pressureSR: 209.84, overallSR: 175.45, rating: "CLUTCH", confidence: "MEDIUM", pressureBalls: 61, pressureScore: 45.33, deathPressureBalls: 29, entryContext: "FRESH" },
-            { name: "Tilak Varma", srDelta: 6.2, pressureSR: 164.06, overallSR: 154.5, rating: "MODERATE", confidence: "HIGH", pressureBalls: 217, pressureScore: 25.4, deathPressureBalls: 47, entryContext: "FRESH" },
-            { name: "Q de Kock", srDelta: 3.1, pressureSR: 146.94, overallSR: 142.53, rating: "PRESSURE_PROOF", confidence: "MEDIUM", pressureBalls: 98, pressureScore: 8.48, deathPressureBalls: 4, entryContext: "FRESH" },
+            { name: "Tilak Varma", srDelta: 6.2, pressureSR: 164.06, overallSR: 154.5, rating: "MODERATE", confidence: "HIGH", pressureBalls: 217, pressureScore: 25.4, deathPressureBalls: 47, entryContext: "BUILDING" },
+            { name: "Q de Kock", srDelta: 3.1, pressureSR: 146.94, overallSR: 142.53, rating: "PRESSURE_PROOF", confidence: "MEDIUM", pressureBalls: 98, pressureScore: 8.48, deathPressureBalls: 4, entryContext: "BUILDING" },
         ],
         topBowlers: [
             { name: "MJ Santner", pressureBand: "HIGH", economy: 4.35, legalBalls: 40, wickets: 3, dotBallPct: 40.0, rating: "ELITE" },
@@ -39,8 +39,8 @@ const PRESSURE_DATA = {
         },
         topBatters: [
             { name: "MS Dhoni", srDelta: 12.4, pressureSR: 169.09, overallSR: 150.38, rating: "CLUTCH", confidence: "HIGH", pressureBalls: 110, pressureScore: 45.32, deathPressureBalls: 98, entryContext: "FRESH" },
-            { name: "RD Gaikwad", srDelta: 9.8, pressureSR: 141.05, overallSR: 128.49, rating: "MODERATE", confidence: "MEDIUM", pressureBalls: 95, pressureScore: 26.2, deathPressureBalls: 2, entryContext: "FRESH" },
-            { name: "S Dube", srDelta: 6.0, pressureSR: 140.19, overallSR: 132.29, rating: "MODERATE", confidence: "HIGH", pressureBalls: 209, pressureScore: 24.65, deathPressureBalls: 60, entryContext: "FRESH" },
+            { name: "RD Gaikwad", srDelta: 9.8, pressureSR: 141.05, overallSR: 128.49, rating: "MODERATE", confidence: "MEDIUM", pressureBalls: 95, pressureScore: 26.2, deathPressureBalls: 2, entryContext: "BUILDING" },
+            { name: "S Dube", srDelta: 6.0, pressureSR: 140.19, overallSR: 132.29, rating: "MODERATE", confidence: "HIGH", pressureBalls: 209, pressureScore: 24.65, deathPressureBalls: 60, entryContext: "BUILDING" },
         ],
         topBowlers: [
             { name: "KV Sharma", pressureBand: "NEAR_IMPOSSIBLE", economy: 5.2, legalBalls: 30, wickets: 3, dotBallPct: 46.67, rating: "ELITE" },
@@ -60,7 +60,7 @@ const PRESSURE_DATA = {
         topBatters: [
             { name: "JM Sharma", srDelta: 5.6, pressureSR: 174.38, overallSR: 165.17, rating: "MODERATE", confidence: "HIGH", pressureBalls: 121, pressureScore: 19.04, deathPressureBalls: 54, entryContext: "FRESH" },
             { name: "RM Patidar", srDelta: 7.5, pressureSR: 165.15, overallSR: 153.68, rating: "MODERATE", confidence: "MEDIUM", pressureBalls: 66, pressureScore: 16.17, deathPressureBalls: 3, entryContext: "FRESH" },
-            { name: "V Kohli", srDelta: 2.6, pressureSR: 156.22, overallSR: 152.32, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 217, pressureScore: 10.05, deathPressureBalls: 13, entryContext: "FRESH" },
+            { name: "V Kohli", srDelta: 2.6, pressureSR: 156.22, overallSR: 152.32, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 217, pressureScore: 10.05, deathPressureBalls: 13, entryContext: "BUILDING" },
         ],
         topBowlers: [
             { name: "Yash Dayal", pressureBand: "EXTREME", economy: 6.35, legalBalls: 34, wickets: 0, dotBallPct: 47.06, rating: "STRONG" },
@@ -78,9 +78,9 @@ const PRESSURE_DATA = {
             clutchScore: 5.6
         },
         topBatters: [
-            { name: "RK Singh", srDelta: 15.1, pressureSR: 168.5, overallSR: 146.38, rating: "CLUTCH", confidence: "HIGH", pressureBalls: 127, pressureScore: 53.17, deathPressureBalls: 60, entryContext: "FRESH" },
-            { name: "MK Pandey", srDelta: 12.9, pressureSR: 128.0, overallSR: 113.33, rating: "CLUTCH", confidence: "MEDIUM", pressureBalls: 75, pressureScore: 30.9, deathPressureBalls: 7, entryContext: "FRESH" },
-            { name: "AM Rahane", srDelta: 2.4, pressureSR: 152.47, overallSR: 148.84, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 162, pressureScore: 8.37, deathPressureBalls: 0, entryContext: "FRESH" },
+            { name: "RK Singh", srDelta: 15.1, pressureSR: 168.5, overallSR: 146.38, rating: "CLUTCH", confidence: "HIGH", pressureBalls: 127, pressureScore: 53.17, deathPressureBalls: 60, entryContext: "BUILDING" },
+            { name: "MK Pandey", srDelta: 12.9, pressureSR: 128.0, overallSR: 113.33, rating: "CLUTCH", confidence: "MEDIUM", pressureBalls: 75, pressureScore: 30.9, deathPressureBalls: 7, entryContext: "BUILDING" },
+            { name: "AM Rahane", srDelta: 2.4, pressureSR: 152.47, overallSR: 148.84, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 162, pressureScore: 8.37, deathPressureBalls: 0, entryContext: "BUILDING" },
         ],
         topBowlers: [
             { name: "SP Narine", pressureBand: "EXTREME", economy: 5.73, legalBalls: 90, wickets: 6, dotBallPct: 42.22, rating: "ELITE" },
@@ -99,8 +99,8 @@ const PRESSURE_DATA = {
         },
         topBatters: [
             { name: "DA Miller", srDelta: 10.9, pressureSR: 165.32, overallSR: 149.04, rating: "CLUTCH", confidence: "HIGH", pressureBalls: 124, pressureScore: 35.3, deathPressureBalls: 25, entryContext: "FRESH" },
-            { name: "N Rana", srDelta: 4.1, pressureSR: 148.35, overallSR: 142.5, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 182, pressureScore: 15.15, deathPressureBalls: 15, entryContext: "FRESH" },
-            { name: "PP Shaw", srDelta: 4.5, pressureSR: 151.56, overallSR: 145.05, rating: "PRESSURE_PROOF", confidence: "MEDIUM", pressureBalls: 64, pressureScore: 9.39, deathPressureBalls: 0, entryContext: "FRESH" },
+            { name: "N Rana", srDelta: 4.1, pressureSR: 148.35, overallSR: 142.5, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 182, pressureScore: 15.15, deathPressureBalls: 15, entryContext: "BUILDING" },
+            { name: "PP Shaw", srDelta: 4.5, pressureSR: 151.56, overallSR: 145.05, rating: "PRESSURE_PROOF", confidence: "MEDIUM", pressureBalls: 64, pressureScore: 9.39, deathPressureBalls: 0, entryContext: "BUILDING" },
         ],
         topBowlers: [
             { name: "Kuldeep Yadav", pressureBand: "HIGH", economy: 6.87, legalBalls: 90, wickets: 2, dotBallPct: 26.67, rating: "STRONG" },
@@ -118,9 +118,9 @@ const PRESSURE_DATA = {
             clutchScore: 4.0
         },
         topBatters: [
-            { name: "Shashank Singh", srDelta: 6.9, pressureSR: 173.96, overallSR: 162.77, rating: "MODERATE", confidence: "HIGH", pressureBalls: 169, pressureScore: 26.83, deathPressureBalls: 66, entryContext: "FRESH" },
-            { name: "MP Stoinis", srDelta: 5.5, pressureSR: 152.82, overallSR: 144.9, rating: "MODERATE", confidence: "HIGH", pressureBalls: 195, pressureScore: 21.1, deathPressureBalls: 28, entryContext: "FRESH" },
-            { name: "SS Iyer", srDelta: 3.5, pressureSR: 173.42, overallSR: 167.58, rating: "PRESSURE_PROOF", confidence: "MEDIUM", pressureBalls: 79, pressureScore: 8.86, deathPressureBalls: 16, entryContext: "FRESH" },
+            { name: "Shashank Singh", srDelta: 6.9, pressureSR: 173.96, overallSR: 162.77, rating: "MODERATE", confidence: "HIGH", pressureBalls: 169, pressureScore: 26.83, deathPressureBalls: 66, entryContext: "BUILDING" },
+            { name: "MP Stoinis", srDelta: 5.5, pressureSR: 152.82, overallSR: 144.9, rating: "MODERATE", confidence: "HIGH", pressureBalls: 195, pressureScore: 21.1, deathPressureBalls: 28, entryContext: "BUILDING" },
+            { name: "SS Iyer", srDelta: 3.5, pressureSR: 173.42, overallSR: 167.58, rating: "PRESSURE_PROOF", confidence: "MEDIUM", pressureBalls: 79, pressureScore: 8.86, deathPressureBalls: 16, entryContext: "BUILDING" },
         ],
         topBowlers: [
             { name: "Harpreet Brar", pressureBand: "HIGH", economy: 6.49, legalBalls: 61, wickets: 5, dotBallPct: 37.7, rating: "STRONG" },
@@ -138,9 +138,9 @@ const PRESSURE_DATA = {
             clutchScore: 5.6
         },
         topBatters: [
-            { name: "RA Jadeja", srDelta: 6.8, pressureSR: 159.43, overallSR: 149.34, rating: "MODERATE", confidence: "HIGH", pressureBalls: 175, pressureScore: 28.01, deathPressureBalls: 99, entryContext: "FRESH" },
-            { name: "R Parag", srDelta: 4.4, pressureSR: 163.37, overallSR: 156.46, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 243, pressureScore: 18.58, deathPressureBalls: 38, entryContext: "FRESH" },
-            { name: "Dhruv Jurel", srDelta: 1.1, pressureSR: 159.32, overallSR: 157.6, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 236, pressureScore: 4.88, deathPressureBalls: 98, entryContext: "FRESH" },
+            { name: "RA Jadeja", srDelta: 6.8, pressureSR: 159.43, overallSR: 149.34, rating: "MODERATE", confidence: "HIGH", pressureBalls: 175, pressureScore: 28.01, deathPressureBalls: 99, entryContext: "BUILDING" },
+            { name: "R Parag", srDelta: 4.4, pressureSR: 163.37, overallSR: 156.46, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 243, pressureScore: 18.58, deathPressureBalls: 38, entryContext: "BUILDING" },
+            { name: "Dhruv Jurel", srDelta: 1.1, pressureSR: 159.32, overallSR: 157.6, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 236, pressureScore: 4.88, deathPressureBalls: 98, entryContext: "BUILDING" },
         ],
         topBowlers: [
             { name: "Sandeep Sharma", pressureBand: "HIGH", economy: 6.79, legalBalls: 91, wickets: 2, dotBallPct: 35.16, rating: "STRONG" },
@@ -158,9 +158,9 @@ const PRESSURE_DATA = {
             clutchScore: 0
         },
         topBatters: [
-            { name: "H Klaasen", srDelta: 0.8, pressureSR: 162.32, overallSR: 160.98, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 207, pressureScore: 3.43, deathPressureBalls: 60, entryContext: "FRESH" },
-            { name: "LS Livingstone", srDelta: 0.0, pressureSR: 175.0, overallSR: 175.0, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 112, pressureScore: 0.0, deathPressureBalls: 44, entryContext: "FRESH" },
-            { name: "Abhishek Sharma", srDelta: -5.3, pressureSR: 198.13, overallSR: 209.31, rating: "MODERATE", confidence: "HIGH", pressureBalls: 214, pressureScore: -20.68, deathPressureBalls: 7, entryContext: "FRESH" },
+            { name: "H Klaasen", srDelta: 0.8, pressureSR: 162.32, overallSR: 160.98, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 207, pressureScore: 3.43, deathPressureBalls: 60, entryContext: "BUILDING" },
+            { name: "LS Livingstone", srDelta: 0.0, pressureSR: 175.0, overallSR: 175.0, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 112, pressureScore: 0.0, deathPressureBalls: 44, entryContext: "BUILDING" },
+            { name: "Abhishek Sharma", srDelta: -5.3, pressureSR: 198.13, overallSR: 209.31, rating: "MODERATE", confidence: "HIGH", pressureBalls: 214, pressureScore: -20.68, deathPressureBalls: 7, entryContext: "BUILDING" },
         ],
         topBowlers: [
             { name: "Abhishek Sharma", pressureBand: "HIGH", economy: 7.35, legalBalls: 31, wickets: 1, dotBallPct: 22.58, rating: "STRONG" },
@@ -178,9 +178,9 @@ const PRESSURE_DATA = {
             clutchScore: 6.7
         },
         topBatters: [
-            { name: "Shubman Gill", srDelta: 16.0, pressureSR: 164.06, overallSR: 141.42, rating: "CLUTCH", confidence: "HIGH", pressureBalls: 217, pressureScore: 62.82, deathPressureBalls: 13, entryContext: "FRESH" },
-            { name: "B Sai Sudharsan", srDelta: 3.9, pressureSR: 147.45, overallSR: 141.85, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 274, pressureScore: 16.6, deathPressureBalls: 3, entryContext: "FRESH" },
-            { name: "JC Buttler", srDelta: 3.2, pressureSR: 152.6, overallSR: 147.8, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 192, pressureScore: 12.5, deathPressureBalls: 30, entryContext: "FRESH" },
+            { name: "Shubman Gill", srDelta: 16.0, pressureSR: 164.06, overallSR: 141.42, rating: "CLUTCH", confidence: "HIGH", pressureBalls: 217, pressureScore: 62.82, deathPressureBalls: 13, entryContext: "BUILDING" },
+            { name: "B Sai Sudharsan", srDelta: 3.9, pressureSR: 147.45, overallSR: 141.85, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 274, pressureScore: 16.6, deathPressureBalls: 3, entryContext: "BUILDING" },
+            { name: "JC Buttler", srDelta: 3.2, pressureSR: 152.6, overallSR: 147.8, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 192, pressureScore: 12.5, deathPressureBalls: 30, entryContext: "BUILDING" },
         ],
         topBowlers: [
             { name: "M Prasidh Krishna", pressureBand: "EXTREME", economy: 4.5, legalBalls: 16, wickets: 1, dotBallPct: 56.25, rating: "ELITE" },
@@ -199,8 +199,8 @@ const PRESSURE_DATA = {
         },
         topBatters: [
             { name: "A Badoni", srDelta: 4.8, pressureSR: 135.21, overallSR: 129.03, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 142, pressureScore: 17.14, deathPressureBalls: 49, entryContext: "FRESH" },
-            { name: "RR Pant", srDelta: 3.9, pressureSR: 144.32, overallSR: 138.86, rating: "PRESSURE_PROOF", confidence: "MEDIUM", pressureBalls: 88, pressureScore: 10.52, deathPressureBalls: 14, entryContext: "FRESH" },
-            { name: "N Pooran", srDelta: 2.6, pressureSR: 200.58, overallSR: 195.45, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 172, pressureScore: 10.08, deathPressureBalls: 52, entryContext: "FRESH" },
+            { name: "RR Pant", srDelta: 3.9, pressureSR: 144.32, overallSR: 138.86, rating: "PRESSURE_PROOF", confidence: "MEDIUM", pressureBalls: 88, pressureScore: 10.52, deathPressureBalls: 14, entryContext: "BUILDING" },
+            { name: "N Pooran", srDelta: 2.6, pressureSR: 200.58, overallSR: 195.45, rating: "PRESSURE_PROOF", confidence: "HIGH", pressureBalls: 172, pressureScore: 10.08, deathPressureBalls: 52, entryContext: "BUILDING" },
         ],
         topBowlers: [
             { name: "Mohammed Shami", pressureBand: "NEAR_IMPOSSIBLE", economy: 6.33, legalBalls: 36, wickets: 3, dotBallPct: 30.56, rating: "STRONG" },

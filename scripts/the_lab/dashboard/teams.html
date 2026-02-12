@@ -2111,7 +2111,7 @@
             <button class="content-tab active" data-tab="xi">Predicted XI</button>
             <button class="content-tab" data-tab="squad">Full Squad</button>
             <button class="content-tab" data-tab="depth">Depth Chart</button>
-            <button class="content-tab" data-tab="balance">Team Balance</button>
+            <button class="content-tab" data-tab="balance">Strategic Balance</button>
             <button class="content-tab" data-tab="pressure">Pressure</button>
             <button class="content-tab" data-tab="compare">⚔️ Compare</button>
         </div>
@@ -2381,61 +2381,183 @@
                 </div>
             `;
 
-            // Balance Content
+            // ========== STRATEGIC BALANCE SCORECARD (Andy Flower + Jose Mourinho) ==========
             const balance = predicted.balance;
             const balanceContent = document.getElementById('balance-content');
-            // Compute additional balance metrics from predicted XI
             const xi = predicted.xi || [];
-            const lhb = xi.filter(p => p.batting === 'Left-hand').length;
-            const rhb = xi.filter(p => p.batting === 'Right-hand').length;
-            const totalPrice = xi.reduce((s, p) => s + (p.price || 0), 0);
-            const avgPrice = xi.length > 0 ? (totalPrice / xi.length).toFixed(1) : '0';
-            const overseasNames = xi.filter(p => p.overseas).map(p => p.name.split(' ').pop());
-            // Squad experience from full_squads data
             const squad = FULL_SQUADS[currentTeam] || [];
             const xiNames = new Set(xi.map(p => p.name));
-            const xiExp = squad.filter(p => xiNames.has(p.name));
-            const totalXIMatches = xiExp.reduce((s, p) => s + (p.iplMatches || 0), 0);
-            const avgXIMatches = xiExp.length > 0 ? Math.round(totalXIMatches / xiExp.length) : 0;
-            const uncappedInXI = xiExp.filter(p => p.isUncapped).length;
+            const xiSquadData = squad.filter(p => xiNames.has(p.name));
+            const depthData = typeof FULL_DEPTH_CHARTS !== 'undefined' ? FULL_DEPTH_CHARTS[currentTeam] : null;
 
-            const spinPaceRatio = `${balance.spinners}:${balance.pacers}`;
-            const overseasStatus = balance.overseas === 4 ? 'max' : balance.overseas >= 3 ? 'good' : 'warn';
-            const bowlStatus = balance.bowlingOptions >= 6 ? 'good' : 'warn';
+            // --- Phase Coverage (Bowling) ---
+            const ppBowlers = xiSquadData.filter(p =>
+                (p.bowlerTags || []).some(t => t.includes('PP_') || t === 'NEW_BALL_SPECIALIST') ||
+                (p.bowlerClass || '') === 'Powerplay Assassin'
+            );
+            const midBowlers = xiSquadData.filter(p =>
+                ['Middle-Overs Spinner', 'Holding Spinner'].includes(p.bowlerClass || '') ||
+                (p.bowlerTags || []).some(t => t.includes('MIDDLE') || t === 'WORKHORSE')
+            );
+            const deathBowlers = xiSquadData.filter(p =>
+                (p.bowlerTags || []).some(t => t.includes('DEATH'))
+            );
+            const phaseColor = (count) => count >= 3 ? 'var(--accent-green)' : count >= 2 ? 'var(--accent-yellow)' : 'var(--accent-red)';
+            const phaseLabel = (count) => count >= 3 ? 'Strong' : count >= 2 ? 'Adequate' : 'Thin';
+
+            // --- Batting Depth ---
+            const canBat = xiSquadData.filter(p => p.batterClass && p.batterClass !== '-').length;
+            const finishers = xiSquadData.filter(p => (p.batterTags || []).some(t => t.includes('FINISHER') || t.includes('DEATH'))).length;
+            const sixHitters = xiSquadData.filter(p => (p.batterTags || []).some(t => t.includes('SIX_HITTER'))).length;
+
+            // --- Key Player Dependency ---
+            const totalXIPrice = xi.reduce((s, p) => s + (p.price || 0), 0);
+            const sortedByPrice = [...xi].sort((a, b) => b.price - a.price);
+            const top3Price = sortedByPrice.slice(0, 3).reduce((s, p) => s + p.price, 0);
+            const top3Pct = totalXIPrice > 0 ? ((top3Price / totalXIPrice) * 100).toFixed(0) : 0;
+            const top3Names = sortedByPrice.slice(0, 3).map(p => p.name.split(' ').pop()).join(', ');
+            const dependencyColor = top3Pct >= 55 ? 'var(--accent-red)' : top3Pct >= 45 ? 'var(--accent-yellow)' : 'var(--accent-green)';
+            const dependencyLabel = top3Pct >= 55 ? 'High Risk' : top3Pct >= 45 ? 'Moderate' : 'Distributed';
+
+            // --- Squad Age Profile ---
+            const xiAges = xiSquadData.map(p => p.age).filter(a => a > 0);
+            const medianAge = xiAges.length > 0 ? xiAges.sort((a,b) => a-b)[Math.floor(xiAges.length/2)] : 0;
+            const u23 = xiAges.filter(a => a < 23).length;
+            const prime = xiAges.filter(a => a >= 23 && a <= 28).length;
+            const experienced = xiAges.filter(a => a >= 29 && a <= 32).length;
+            const veteran = xiAges.filter(a => a >= 33).length;
+            const veterans50Plus = xiSquadData.filter(p => (p.iplMatches || 0) >= 50).length;
+            const uncappedCount = xiSquadData.filter(p => p.isUncapped).length;
+
+            // --- Venue Alignment ---
+            const venueBias = team.venueBias || 'neutral';
+            const spinCount = balance.spinners || 0;
+            const paceCount = balance.pacers || 0;
+            let venueAligned = true;
+            let venueNote = 'Neutral venue - flexible composition works';
+            if (venueBias === 'spin' && paceCount > spinCount + 3) { venueAligned = false; venueNote = `Spin venue but pace-heavy XI (${paceCount}P vs ${spinCount}S)`; }
+            else if (venueBias === 'pace' && spinCount > paceCount) { venueAligned = false; venueNote = `Pace venue but spin-heavy XI (${spinCount}S vs ${paceCount}P)`; }
+            else if (venueBias === 'spin') { venueNote = `Spin venue - ${spinCount} spin options available`; }
+            else if (venueBias === 'pace') { venueNote = `Pace venue - ${paceCount} pace options available`; }
+
+            // --- Overseas Flexibility ---
+            const overseasInXI = xi.filter(p => p.overseas);
+            const overseasInSquad = squad.filter(p => p.nationality !== 'IND');
+            const overseasBench = overseasInSquad.filter(p => !xiNames.has(p.name));
+
+            // --- Vulnerabilities from Depth Chart ---
+            const vulns = depthData && depthData.vulnerabilities ? depthData.vulnerabilities : [];
 
             balanceContent.innerHTML = `
-                <h3>Team Balance - ${team.fullName}</h3>
-                <div class="balance-grid">
-                    <div class="balance-item">
-                        <div class="balance-value">${balance.overseas}/4</div>
-                        <div class="balance-label">Overseas Slots</div>
-                        <div class="balance-status ${overseasStatus}">${balance.overseas === 4 ? 'MAX' : balance.overseas + ' USED'}</div>
-                    </div>
-                    <div class="balance-item">
-                        <div class="balance-value">${spinPaceRatio}</div>
-                        <div class="balance-label">Spin : Pace</div>
-                        <div class="balance-status good">${balance.bowlingOptions} options</div>
-                    </div>
-                    <div class="balance-item">
-                        <div class="balance-value">${lhb}/${rhb}</div>
-                        <div class="balance-label">LHB / RHB</div>
-                        <div class="balance-status ${lhb >= 2 ? 'good' : 'max'}">${lhb >= 3 ? 'Well Mixed' : lhb >= 2 ? 'Balanced' : 'RH Heavy'}</div>
-                    </div>
-                    <div class="balance-item">
-                        <div class="balance-value">${avgXIMatches}</div>
-                        <div class="balance-label">Avg IPL Matches</div>
-                        <div class="balance-status ${avgXIMatches >= 25 ? 'good' : 'max'}">${uncappedInXI > 0 ? uncappedInXI + ' uncapped' : 'All capped'}</div>
-                    </div>
-                    <div class="balance-item">
-                        <div class="balance-value">₹${avgPrice}Cr</div>
-                        <div class="balance-label">Avg Price / Player</div>
-                        <div class="balance-status good">₹${totalPrice.toFixed(1)}Cr total</div>
+                <h3 style="margin-bottom: 20px;">Strategic Balance - ${team.fullName}</h3>
+
+                <div style="margin-bottom: 20px; padding: 16px; background: var(--bg-elevated); border-radius: 12px;">
+                    <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px;">Bowling Phase Coverage</div>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                        <div style="text-align: center; padding: 12px; background: var(--bg-secondary); border-radius: 8px; border-top: 3px solid ${phaseColor(ppBowlers.length)};">
+                            <div style="font-size: 28px; font-weight: 800; color: ${phaseColor(ppBowlers.length)};">${ppBowlers.length}</div>
+                            <div style="font-size: 11px; color: var(--text-tertiary); text-transform: uppercase;">Powerplay</div>
+                            <div style="font-size: 10px; color: ${phaseColor(ppBowlers.length)}; margin-top: 2px;">${phaseLabel(ppBowlers.length)}</div>
+                            <div style="font-size: 10px; color: var(--text-tertiary); margin-top: 4px;">${ppBowlers.map(p => p.name.split(' ').pop()).join(', ') || 'None tagged'}</div>
+                        </div>
+                        <div style="text-align: center; padding: 12px; background: var(--bg-secondary); border-radius: 8px; border-top: 3px solid ${phaseColor(midBowlers.length)};">
+                            <div style="font-size: 28px; font-weight: 800; color: ${phaseColor(midBowlers.length)};">${midBowlers.length}</div>
+                            <div style="font-size: 11px; color: var(--text-tertiary); text-transform: uppercase;">Middle Overs</div>
+                            <div style="font-size: 10px; color: ${phaseColor(midBowlers.length)}; margin-top: 2px;">${phaseLabel(midBowlers.length)}</div>
+                            <div style="font-size: 10px; color: var(--text-tertiary); margin-top: 4px;">${midBowlers.map(p => p.name.split(' ').pop()).join(', ') || 'None tagged'}</div>
+                        </div>
+                        <div style="text-align: center; padding: 12px; background: var(--bg-secondary); border-radius: 8px; border-top: 3px solid ${phaseColor(deathBowlers.length)};">
+                            <div style="font-size: 28px; font-weight: 800; color: ${phaseColor(deathBowlers.length)};">${deathBowlers.length}</div>
+                            <div style="font-size: 11px; color: var(--text-tertiary); text-transform: uppercase;">Death Overs</div>
+                            <div style="font-size: 10px; color: ${phaseColor(deathBowlers.length)}; margin-top: 2px;">${phaseLabel(deathBowlers.length)}</div>
+                            <div style="font-size: 10px; color: var(--text-tertiary); margin-top: 4px;">${deathBowlers.map(p => p.name.split(' ').pop()).join(', ') || 'None tagged'}</div>
+                        </div>
                     </div>
                 </div>
-                ${overseasNames.length > 0 ? `
-                <div style="margin-top: 16px; padding: 12px 16px; background: var(--bg-elevated); border-radius: 10px; border-left: 3px solid var(--accent-orange);">
-                    <div style="font-size: 11px; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 4px;">Overseas Picks</div>
-                    <div style="font-size: 14px; font-weight: 600;">${overseasNames.join(' · ')}</div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+                    <div style="padding: 16px; background: var(--bg-elevated); border-radius: 12px;">
+                        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px;">Batting Depth</div>
+                        <div style="display: flex; justify-content: space-around; text-align: center;">
+                            <div>
+                                <div style="font-size: 28px; font-weight: 800; color: ${canBat >= 7 ? 'var(--accent-green)' : canBat >= 5 ? 'var(--accent-yellow)' : 'var(--accent-red)'};">${canBat}</div>
+                                <div style="font-size: 10px; color: var(--text-tertiary); text-transform: uppercase;">Can Bat</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 28px; font-weight: 800; color: ${finishers >= 3 ? 'var(--accent-green)' : finishers >= 2 ? 'var(--accent-yellow)' : 'var(--accent-red)'};">${finishers}</div>
+                                <div style="font-size: 10px; color: var(--text-tertiary); text-transform: uppercase;">Finishers</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 28px; font-weight: 800; color: var(--accent);">${sixHitters}</div>
+                                <div style="font-size: 10px; color: var(--text-tertiary); text-transform: uppercase;">Six Hitters</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding: 16px; background: var(--bg-elevated); border-radius: 12px;">
+                        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px;">Star Dependency</div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 28px; font-weight: 800; color: ${dependencyColor};">${top3Pct}%</div>
+                            <div style="font-size: 10px; color: var(--text-tertiary); text-transform: uppercase;">Salary in Top 3</div>
+                            <div style="font-size: 10px; color: ${dependencyColor}; margin-top: 2px;">${dependencyLabel}</div>
+                            <div style="font-size: 10px; color: var(--text-tertiary); margin-top: 4px;">${top3Names}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+                    <div style="padding: 16px; background: var(--bg-elevated); border-radius: 12px;">
+                        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px;">XI Age Profile</div>
+                        <div style="text-align: center; margin-bottom: 8px;">
+                            <span style="font-size: 20px; font-weight: 800; color: var(--accent);">${medianAge}</span>
+                            <span style="font-size: 11px; color: var(--text-tertiary);"> median age</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-around; text-align: center; font-size: 11px;">
+                            <div><span style="font-weight: 700; color: var(--accent-green);">${u23}</span><br/><span style="color: var(--text-tertiary);">U-23</span></div>
+                            <div><span style="font-weight: 700; color: var(--accent);">${prime}</span><br/><span style="color: var(--text-tertiary);">23-28</span></div>
+                            <div><span style="font-weight: 700; color: var(--accent-yellow);">${experienced}</span><br/><span style="color: var(--text-tertiary);">29-32</span></div>
+                            <div><span style="font-weight: 700; color: var(--accent-orange);">${veteran}</span><br/><span style="color: var(--text-tertiary);">33+</span></div>
+                        </div>
+                        <div style="font-size: 10px; color: var(--text-tertiary); text-align: center; margin-top: 8px;">${veterans50Plus} IPL veterans (50+ caps) · ${uncappedCount} uncapped</div>
+                    </div>
+                    <div style="padding: 16px; background: var(--bg-elevated); border-radius: 12px;">
+                        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px;">Venue Alignment</div>
+                        <div style="text-align: center; margin-bottom: 8px;">
+                            <span style="font-size: 20px; font-weight: 800; color: ${venueAligned ? 'var(--accent-green)' : 'var(--accent-red)'};">${venueAligned ? 'ALIGNED' : 'MISALIGNED'}</span>
+                        </div>
+                        <div style="font-size: 12px; color: var(--text-secondary); text-align: center;">${team.homeVenue}</div>
+                        <div style="font-size: 11px; color: var(--text-tertiary); text-align: center; margin-top: 4px;">${venueNote}</div>
+                        <div style="display: flex; justify-content: center; gap: 16px; margin-top: 8px; font-size: 11px;">
+                            <div><span style="font-weight: 700;">${spinCount}</span> spin</div>
+                            <div><span style="font-weight: 700;">${paceCount}</span> pace</div>
+                            <div style="color: var(--accent-orange); font-weight: 600;">${venueBias}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="padding: 16px; background: var(--bg-elevated); border-radius: 12px; margin-bottom: 20px;">
+                    <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 12px;">Overseas Flexibility</div>
+                    <div style="display: flex; gap: 24px; align-items: center;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 28px; font-weight: 800; color: var(--accent-orange);">${overseasInXI.length}/4</div>
+                            <div style="font-size: 10px; color: var(--text-tertiary);">XI Slots Used</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 28px; font-weight: 800; color: ${overseasBench.length >= 4 ? 'var(--accent-green)' : overseasBench.length >= 2 ? 'var(--accent-yellow)' : 'var(--accent-red)'};">${overseasBench.length}</div>
+                            <div style="font-size: 10px; color: var(--text-tertiary);">Bench Options</div>
+                        </div>
+                        <div style="flex: 1; font-size: 11px; color: var(--text-secondary);">
+                            <div style="margin-bottom: 4px;"><strong>In XI:</strong> ${overseasInXI.map(p => p.name.split(' ').pop()).join(', ')}</div>
+                            <div><strong>Bench:</strong> ${overseasBench.slice(0, 5).map(p => p.name.split(' ').pop()).join(', ')}${overseasBench.length > 5 ? ' +' + (overseasBench.length - 5) + ' more' : ''}</div>
+                        </div>
+                    </div>
+                </div>
+
+                ${vulns.length > 0 ? `
+                <div style="padding: 16px; background: rgba(255, 159, 10, 0.05); border: 1px dashed var(--accent-orange); border-radius: 12px;">
+                    <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--accent-orange); margin-bottom: 8px;">Structural Vulnerabilities</div>
+                    <ul style="margin: 0; padding-left: 20px; color: var(--text-secondary); font-size: 12px;">
+                        ${vulns.map(v => '<li style="margin: 4px 0;">' + v + '</li>').join('')}
+                    </ul>
                 </div>
                 ` : ''}
             `;

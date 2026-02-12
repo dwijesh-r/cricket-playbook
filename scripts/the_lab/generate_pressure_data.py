@@ -39,11 +39,12 @@ TEAM_ABBREV = {
 
 TEAM_ORDER = ["MI", "CSK", "RCB", "KKR", "DC", "PBKS", "RR", "SRH", "GT", "LSG"]
 
-# Qualification thresholds
-MIN_BATTER_PRESSURE_BALLS = 60
-MIN_BATTER_OVERALL_BALLS = 50
-MIN_BOWLER_LEGAL_BALLS = 30  # 5 overs across HIGH+ bands (was 60; lowered for better coverage)
-MIN_BOWLER_BAND_BALLS = 10  # Per-band minimum for band breakdown (was 15; lowered)
+# Qualification thresholds (lowered from original 60/50/30/10 for broader coverage)
+# Small-sample players are flagged in the UI with "S" badge
+MIN_BATTER_PRESSURE_BALLS = 20  # ~3.3 overs under pressure (was 60)
+MIN_BATTER_OVERALL_BALLS = 30  # ~5 overs overall (was 50)
+MIN_BOWLER_LEGAL_BALLS = 15  # 2.5 overs across HIGH+ bands (was 30)
+MIN_BOWLER_BAND_BALLS = 5  # Per-band minimum for band breakdown (was 10)
 
 # Entry context thresholds (recalibrated from data: range 3.9-20.5, median 11.6)
 # Overrides the SQL view's thresholds which are too high for T20 data
@@ -89,25 +90,105 @@ def get_team_pressure_summary(conn):
 
 
 def get_top_clutch_batters(conn):
-    """Get ALL qualifying batters per team (JS handles sort/limit by active filter)."""
-    rows = conn.execute("""
-        SELECT
-            sq.team_name,
-            pd.player_id,
-            pd.player_name,
-            pd.sr_delta_pct,
-            pd.pressure_sr,
-            pd.overall_sr,
-            pd.pressure_rating,
-            pd.sample_confidence,
-            pd.pressure_balls,
-            pd.pressure_score,
-            pd.death_pressure_balls,
-            pd.entry_context,
-            pd.avg_balls_before_pressure
-        FROM analytics_ipl_pressure_deltas_since2023 pd
-        JOIN ipl_2026_squads sq ON pd.player_id = sq.player_id
-        ORDER BY sq.team_name, pd.pressure_score DESC
+    """Get ALL qualifying batters per team with relaxed thresholds.
+
+    Bypasses the analytics view (which requires 10+ innings) and queries
+    fact_ball directly for broader coverage. Small-sample players are
+    flagged in the UI with 'S' badge.
+    """
+    rows = conn.execute(f"""
+        WITH ipl_matches AS (
+            SELECT dm.match_id FROM dim_match dm
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '2023-01-01'
+        ),
+        overall_stats AS (
+            SELECT
+                fb.batter_id,
+                COUNT(CASE WHEN fb.is_legal_ball THEN 1 END) AS total_balls,
+                ROUND(SUM(fb.batter_runs) * 100.0
+                    / NULLIF(COUNT(CASE WHEN fb.is_legal_ball THEN 1 END), 0), 2) AS overall_sr
+            FROM fact_ball fb
+            WHERE fb.match_id IN (SELECT match_id FROM ipl_matches)
+              AND fb.is_legal_ball
+            GROUP BY fb.batter_id
+            HAVING total_balls >= {MIN_BATTER_OVERALL_BALLS}
+        ),
+        pressure_balls_raw AS (
+            SELECT
+                fb.batter_id,
+                fb.match_id,
+                fb.innings,
+                fb.over,
+                fb.ball_seq,
+                fb.batter_runs,
+                fb.is_legal_ball,
+                COALESCE(
+                    SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END)
+                        OVER (PARTITION BY fb.match_id, fb.innings, fb.batter_id
+                              ORDER BY fb.ball_seq
+                              ROWS BETWEEN UNBOUNDED PRECEDING AND 1 PRECEDING),
+                    0) AS balls_before_this
+            FROM fact_ball fb
+            JOIN analytics_ipl_innings_progression_since2023 ip
+                ON fb.match_id = ip.match_id
+                AND fb.innings = ip.innings
+                AND fb.over = ip.over_number
+            WHERE fb.innings = 2
+              AND ip.required_run_rate >= 10
+              AND fb.match_id IN (SELECT match_id FROM ipl_matches)
+        ),
+        pressure_stats AS (
+            SELECT
+                batter_id,
+                COUNT(CASE WHEN is_legal_ball THEN 1 END) AS pressure_balls,
+                ROUND(SUM(batter_runs) * 100.0
+                    / NULLIF(COUNT(CASE WHEN is_legal_ball THEN 1 END), 0), 2) AS pressure_sr,
+                SUM(CASE WHEN over >= 17 AND is_legal_ball THEN 1 ELSE 0 END) AS death_pressure_balls,
+                ROUND(AVG(balls_before_this), 1) AS avg_balls_before
+            FROM pressure_balls_raw
+            GROUP BY batter_id
+            HAVING pressure_balls >= {MIN_BATTER_PRESSURE_BALLS}
+        ),
+        combined AS (
+            SELECT
+                sq.team_name,
+                sq.player_id,
+                sq.player_name,
+                ROUND((ps.pressure_sr - os.overall_sr) * 100.0
+                    / NULLIF(os.overall_sr, 0), 1) AS sr_delta_pct,
+                ps.pressure_sr,
+                os.overall_sr,
+                CASE
+                    WHEN (ps.pressure_sr - os.overall_sr) * 100.0 / NULLIF(os.overall_sr, 0) >= 10 THEN 'CLUTCH'
+                    WHEN ABS((ps.pressure_sr - os.overall_sr) * 100.0 / NULLIF(os.overall_sr, 0)) <= 5 THEN 'PRESSURE_PROOF'
+                    WHEN (ps.pressure_sr - os.overall_sr) * 100.0 / NULLIF(os.overall_sr, 0) <= -10 THEN 'PRESSURE_SENSITIVE'
+                    ELSE 'MODERATE'
+                END AS pressure_rating,
+                CASE
+                    WHEN ps.pressure_balls >= 150 THEN 'HIGH'
+                    WHEN ps.pressure_balls >= 80 THEN 'MEDIUM'
+                    ELSE 'LOW'
+                END AS sample_confidence,
+                ps.pressure_balls,
+                ROUND(
+                    ((ps.pressure_sr - os.overall_sr) * 100.0 / NULLIF(os.overall_sr, 0))
+                    * LOG2(GREATEST(ps.pressure_balls, 2))
+                    * (1 + 0.3 * ps.death_pressure_balls / GREATEST(ps.pressure_balls, 1)),
+                2) AS pressure_score,
+                ps.death_pressure_balls,
+                ps.avg_balls_before
+            FROM pressure_stats ps
+            JOIN overall_stats os ON ps.batter_id = os.batter_id
+            JOIN ipl_2026_squads sq ON ps.batter_id = sq.player_id
+        )
+        SELECT team_name, player_id, player_name, sr_delta_pct, pressure_sr,
+               overall_sr, pressure_rating, sample_confidence, pressure_balls,
+               pressure_score, death_pressure_balls, 'SET' as entry_context,
+               avg_balls_before
+        FROM combined
+        ORDER BY team_name, pressure_score DESC
     """).fetchall()
 
     batters = {}

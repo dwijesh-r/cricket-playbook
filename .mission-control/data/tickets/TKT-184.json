@@ -1,39 +1,45 @@
 {
   "id": "TKT-184",
   "title": "TKT-183.1: Recency Decay Curve Analysis — Candidate Rates for Founder",
-  "state": "IN_PROGRESS",
+  "state": "DONE",
   "priority": "P1",
-  "progress_pct": 90,
+  "progress_pct": 100,
   "description": "Compute candidate exponential decay rates for Factor 3 (Recency Decay). Analyze how tournament relevance degrades over time. Present 3-5 candidate decay curves with supporting evidence for Founder selection (per Decision #5). Use IPL 2023-2025 baseline. Output: decay curve comparison chart + recommendation memo.",
   "epic_id": "EPIC-016",
-  "parent": "TKT-183",
   "assignee": "Jose Mourinho",
   "sprint_id": "SPRINT-004",
-  "blocked_by": [],
-  "documents": [
-    {
-      "title": "Tournament Quality Weighting Plan (Founder Approved)",
-      "path": "reviews/founder/tournament_weighting_plan_021126_v1.md",
-      "relevance": "Factor 3 spec, Founder Decision #5 (decay rates)"
-    },
-    {
-      "title": "Phase 1 Factor Scores (207 tournaments)",
-      "path": "outputs/tournament_factor_scores_phase1.json",
-      "relevance": "Raw factor data to apply decay against"
-    },
-    {
-      "title": "Recency Decay Analysis (Output)",
-      "path": "outputs/tournament_weighting/recency_decay_analysis.md",
-      "relevance": "5 candidate decay curves with recommendation — pending Founder selection"
-    }
-  ],
   "gates": {
     "florentino_gate": {
       "status": "APPROVED",
       "reason": "Sub-ticket of TKT-183 (already approved).",
       "date": "2026-02-11"
+    },
+    "domain_sanity": {
+      "andy_flower": "YES",
+      "date": "2026-02-12",
+      "jose_mourinho": "YES"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "issues": [],
+      "checked_by": "Tom Brady",
+      "date": "2026-02-12"
+    },
+    "system_check": {
+      "status": "PASS",
+      "tests_passed": 253,
+      "tests_total": 253,
+      "checked_by": "Kante",
+      "date": "2026-02-12"
+    },
+    "founder_validation": {
+      "status": "APPROVED",
+      "feedback": "Founder Decision: Exponential decay with 4-year half-life approved. Aligns with mega auction cycles, honors 2023 structural break.",
+      "validated_by": "Founder",
+      "date": "2026-02-12"
     }
   },
   "created_at": "2026-02-11T16:22:22.441266Z",
-  "updated_at": "2026-02-12T07:45:00.000000Z"
+  "updated_at": "2026-02-12T02:19:02.772488Z",
+  "completed_at": "2026-02-12T02:19:02.770822Z"
 }

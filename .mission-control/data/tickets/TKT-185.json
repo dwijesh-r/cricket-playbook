@@ -1,44 +1,45 @@
 {
   "id": "TKT-185",
   "title": "TKT-183.2: Season-Level Competitiveness Index Granularity",
-  "state": "IN_PROGRESS",
+  "state": "DONE",
   "priority": "P1",
-  "progress_pct": 90,
+  "progress_pct": 100,
   "description": "Refine Factor 2 (Competitiveness Index) from tournament-lifetime aggregates to per-season splits. Current CI uses all-time close match % — need season-by-season CI to pair with recency decay. Covers 207 tournaments. Output: season-level CI scores in tournament_factor_scores_phase1.json.",
   "epic_id": "EPIC-016",
-  "parent": "TKT-183",
   "assignee": "Jose Mourinho",
   "sprint_id": "SPRINT-004",
-  "blocked_by": [],
-  "documents": [
-    {
-      "title": "Tournament Quality Weighting Plan (Founder Approved)",
-      "path": "reviews/founder/tournament_weighting_plan_021126_v1.md",
-      "relevance": "Factor 2 spec (close match %, margin analysis)"
-    },
-    {
-      "title": "Phase 1 Composite Weights",
-      "path": "outputs/tournament_composite_weights_phase1.json",
-      "relevance": "Current CI scores to refine with season granularity"
-    },
-    {
-      "title": "Season-Level Competitiveness Index (Output)",
-      "path": "outputs/tournament_weighting/season_competitiveness_index.md",
-      "relevance": "Per-season CI for 14 major tournaments — replaces all-time aggregates"
-    },
-    {
-      "title": "Season CI Scores JSON (Output)",
-      "path": "outputs/tournament_weighting/season_ci_scores.json",
-      "relevance": "Raw season-level CI data for downstream integration"
-    }
-  ],
   "gates": {
     "florentino_gate": {
       "status": "APPROVED",
       "reason": "Sub-ticket of TKT-183 (already approved).",
       "date": "2026-02-11"
+    },
+    "domain_sanity": {
+      "andy_flower": "YES",
+      "date": "2026-02-12",
+      "jose_mourinho": "YES"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "issues": [],
+      "checked_by": "Tom Brady",
+      "date": "2026-02-12"
+    },
+    "system_check": {
+      "status": "PASS",
+      "tests_passed": 253,
+      "tests_total": 253,
+      "checked_by": "Kante",
+      "date": "2026-02-12"
+    },
+    "founder_validation": {
+      "status": "APPROVED",
+      "feedback": "Founder Decision: Replace all-time CI with recency-weighted season CI using Effective_CI = SUM(CI*Decay)/SUM(Decay).",
+      "validated_by": "Founder",
+      "date": "2026-02-12"
     }
   },
   "created_at": "2026-02-11T16:22:29.064878Z",
-  "updated_at": "2026-02-12T07:45:00.000000Z"
+  "updated_at": "2026-02-12T02:19:18.227509Z",
+  "completed_at": "2026-02-12T02:19:18.225775Z"
 }

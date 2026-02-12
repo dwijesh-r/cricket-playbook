@@ -4,12 +4,12 @@
   "state": "IDEA",
   "priority": "P0",
   "progress_pct": 0,
-  "description": "HARD GATE (Founder Decision #4). Compile all Phase 1 outputs — PQI, CI (season-level), recency decay (Founder-selected rate), conditions similarity (IPL 2023+ baseline), sample confidence — into final composite weights for all 207 tournaments. Present to Founder with tier assignments. NO Phase 2 work can begin until Founder approves.",
+  "description": "HARD GATE (Founder Decision #4). Compile all Phase 1 outputs \u2014 PQI, CI (season-level), recency decay (Founder-selected rate), conditions similarity (IPL 2023+ baseline), sample confidence \u2014 into final composite weights for all 207 tournaments. Present to Founder with tier assignments. NO Phase 2 work can begin until Founder approves.",
   "epic_id": "EPIC-016",
   "parent": "TKT-183",
   "assignee": "Jose Mourinho",
   "sprint_id": "SPRINT-004",
-  "blocked_by": ["TKT-184", "TKT-185", "TKT-186"],
+  "blocked_by": [],
   "documents": [
     {
       "title": "Tournament Quality Weighting Plan (Founder Approved)",
@@ -35,5 +35,6 @@
     }
   },
   "created_at": "2026-02-11T16:22:44.200452Z",
-  "updated_at": "2026-02-11T17:45:00.000000Z"
+  "updated_at": "2026-02-11T17:45:00.000000Z",
+  "founderReviewNote": "UNBLOCKED: TKT-184 (Exponential HL=4yr), TKT-185 (Season CI), TKT-186 (Geometric Mean) all approved. Founder decisions locked. Ready for final weight presentation."
 }

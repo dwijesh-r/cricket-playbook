@@ -3100,9 +3100,11 @@ def main() -> int:
             try:
                 stat_pack = generate_team_stat_pack(conn, team_name, tags_lookup)
 
-                # Write to file
+                # Write to team subdirectory (stat_packs/MI/MI_stat_pack.md)
                 filename = f"{team_code}_stat_pack.md"
-                filepath = OUTPUT_DIR / filename
+                team_dir = OUTPUT_DIR / team_code
+                team_dir.mkdir(exist_ok=True)
+                filepath = team_dir / filename
                 filepath.write_text(stat_pack)
 
                 logger.info("Generated %s -> %s", team_code, filepath)

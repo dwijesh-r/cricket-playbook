@@ -1,6 +1,6 @@
 # Delhi Capitals (DC) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-05 20:52
+**Generated:** 2026-02-12 17:02
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -107,9 +107,9 @@
 
 | Season | Matches | Wins | Losses | Win% | Avg Score | Playoff |
 |--------|---------|------|--------|------|-----------|---------|
-| 2023 | 14 | 5 | 9 | 35.7% | 155.9 | No |
-| 2024 | 14 | 7 | 7 | 50.0% | 183.8 | No |
-| 2025 | 15 | 6 | 6 | 40.0% | 177.6 | No |
+| 2023 | 14 | 5 | 9 | 35.7% | 156 | No |
+| 2024 | 14 | 7 | 7 | 50.0% | 184 | No |
+| 2025 | 15 | 6 | 6 | 40.0% | 178 | No |
 
 ### Batting Trends
 
@@ -132,17 +132,17 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** MR Marsh (12w @ 7.82), AR Patel (11w @ 7.17), Kuldeep Yadav (10w @ 7.32)
-- **2024:** KK Ahmed (17w @ 9.13), Mukesh Kumar (17w @ 10.2), Kuldeep Yadav (16w @ 8.45)
+- **2023:** MR Marsh (12w @ 7.82), AR Patel (11w @ 7.17), I Sharma (10w @ 8.03)
+- **2024:** Mukesh Kumar (17w @ 10.2), KK Ahmed (17w @ 9.13), Kuldeep Yadav (16w @ 8.45)
 - **2025:** Kuldeep Yadav (15w @ 7.26), MA Starc (14w @ 10.09), Mukesh Kumar (12w @ 9.67)
 
 **Economy Rate Evolution (Key Bowlers):**
 
 | Player | 2023 | 2024 | 2025 | Trend |
 |--------|------|------|------|-------|
-| AR Patel | 7.17 | 7.7 | 8.6 | DECLINING |
-| Kuldeep Yadav | 7.32 | 8.45 | 7.26 | STEADY |
-| Mukesh Kumar | 9.99 | 10.2 | 9.67 | STEADY |
+| AR Patel | 7.2 | 7.7 | 8.6 | DECLINING |
+| Kuldeep Yadav | 7.3 | 8.4 | 7.3 | STEADY |
+| Mukesh Kumar | 10.0 | 10.2 | 9.7 | STEADY |
 
 ### Form Trajectory
 
@@ -157,6 +157,79 @@
 
 ---
 *Note: Historical trends limited to IPL 2023-2025 data. Some players may not have data across all seasons due to team changes or limited playing time.*
+
+## 3.5 Team Phase Approach (2023-2025)
+
+*How the team approaches each phase of the game — strategy DNA across seasons*
+
+### Powerplay DNA (Batting)
+
+| Season | SR | Boundary% | Dot% | Wkts Lost | RR | Approach |
+|--------|-----|-----------|------|-----------|------|----------|
+| 2023 | 130.8 | 22.4% | 48.8% | 2.0/inn | 7.85 | Balanced |
+| 2024 | 168.1 | 30.7% | 45.7% | 2.0/inn | 10.09 | All-Out Attack ↑↑ |
+| 2025 | 138.5 | 22.4% | 42.9% | 1.9/inn | 8.31 | Aggressive ↑↑ |
+
+### Middle Overs Identity (Batting)
+
+| Season | SR | Boundary% | Dot% | Wkts Lost | RR | Style |
+|--------|-----|-----------|------|-----------|------|-------|
+| 2023 | 119.8 | 13.8% | 35.7% | 2.7/inn | 7.19 | Consolidating |
+| 2024 | 139.6 | 17.4% | 32.8% | 2.6/inn | 8.38 | Steady ↑↑ |
+| 2025 | 141.7 | 16.9% | 27.9% | 2.3/inn | 8.50 | Steady ↑↑ |
+
+### Death Overs Execution (Batting)
+
+| Season | SR | Boundary% | Dot% | Wkts Lost | RR | Rating |
+|--------|-----|-----------|------|-----------|------|--------|
+| 2023 | 128.9 | 15.2% | 34.5% | 2.7/inn | 7.74 | Average |
+| 2024 | 173.1 | 23.8% | 30.0% | 2.2/inn | 10.39 | Strong ↑↑ |
+| 2025 | 176.7 | 25.3% | 25.3% | 2.1/inn | 10.60 | Explosive ↑↑ |
+
+### Death Overs Bowling
+
+| Season | Economy | Dot% | Boundary Conceded% | Wkts/Match | Rating |
+|--------|---------|------|-------------------|------------|--------|
+| 2023 | 11.15 | 31.5% | 23.7% | 1.9 | Vulnerable |
+| 2024 | 12.44 | 28.9% | 27.6% | 2.4 | Vulnerable ↑ |
+| 2025 | 10.56 | 25.9% | 22.6% | 1.9 | Good → |
+
+### Lineup Balance
+
+| Season | Top 3 Runs% | Middle Order% | Lower Order% | Top 3 SR | Assessment |
+|--------|------------|---------------|-------------|----------|------------|
+| 2023 | 48.4% | 22.5% | 29.1% | 140.6 | Balanced |
+| 2024 | 49.0% | 29.6% | 21.4% | 169.4 | Balanced → |
+| 2025 | 48.7% | 26.5% | 24.8% | 149.4 | Balanced → |
+
+### Key Phase Players (2026 Squad)
+
+| Phase | Role | Player | Key Stat | Sample |
+|-------|------|--------|----------|--------|
+| Powerplay | Bat | Abishek Porel | 316 runs @ 151.9 SR | 208 balls |
+| Powerplay | Bat | PP Shaw | 218 runs @ 143.4 SR | 152 balls |
+| Powerplay | Bowl | AR Patel | Econ 8.8 (7 wkts) | 180 balls |
+| Powerplay | Bowl | Mukesh Kumar | Econ 9.0 (10 wkts) | 264 balls |
+| Middle | Bat | AR Patel | 409 runs @ 132.4 SR | 309 balls |
+| Middle | Bat | Abishek Porel | 287 runs @ 143.5 SR | 200 balls |
+| Middle | Bowl | AR Patel | Econ 7.48 (21 wkts) | 540 balls |
+| Middle | Bowl | Kuldeep Yadav | Econ 7.72 (32 wkts) | 708 balls |
+| Death | Bat | T Stubbs | 421 runs @ 231.3 SR | 182 balls |
+| Death | Bat | AR Patel | 312 runs @ 166.0 SR | 188 balls |
+| Death | Bowl | Kuldeep Yadav | Econ 7.81 (10 wkts) | 156 balls |
+| Death | Bowl | Mukesh Kumar | Econ 12.9 (24 wkts) | 240 balls |
+
+### Keys to Victory
+
+1. **Powerplay aggression from Abishek Porel** — 316 runs at 151.9 SR sets the tone; need early intent without reckless wicket loss.
+2. **AR Patel must control the new ball** — 8.8 economy with 7 wickets in the powerplay; early breakthroughs are non-negotiable.
+3. **Middle-overs accumulation through AR Patel and Abishek Porel** — building partnerships in overs 7-15 prevents middle-order collapses and sets up the death.
+4. **AR Patel must squeeze in the middle** — 7.48 economy in overs 7-15 with 21 wickets; choking run flow here builds scoreboard pressure.
+5. **Death hitting from T Stubbs** — 231.3 SR in overs 16-20; maximizing the last 5 overs is the difference between 170 and 190+.
+6. **Kuldeep Yadav's elite death bowling** — 7.81 economy at the death; defending totals requires yorker accuracy and nerve under pressure.
+
+---
+*Phase approach analysis based on IPL 2023-2025 ball-by-ball data. Key players filtered to 2026 squad only.*
 
 
 ---
@@ -179,13 +252,13 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Dr. Y.S. Rajasekhara Reddy ACA-VDCA | 4 | 3 | 75.0% | 183.5 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 158.0 |
 | M Chinnaswamy Stadium | 3 | 1 | 33.3% | 153.3 |
 | Narendra Modi Stadium | 3 | 2 | 66.7% | 141.7 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 158.0 |
 | MA Chidambaram Stadium | 2 | 1 | 50.0% | 161.5 |
+| Sawai Mansingh Stadium | 2 | 1 | 50.0% | 190.5 |
 | Wankhede Stadium | 2 | 0 | 0.0% | 163.0 |
 | Rajiv Gandhi International Stadium | 2 | 1 | 50.0% | 138.5 |
-| Sawai Mansingh Stadium | 2 | 1 | 50.0% | 190.5 |
 | Himachal Pradesh Cricket Associatio | 2 | 1 | 50.0% | 213.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
@@ -197,11 +270,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -213,27 +286,25 @@
 
 | Player | Venue | Inn | Runs | SR | Avg |
 |--------|-------|-----|------|-----|-----|
-| KL Rahul | Dubai International Crick | 11 | 606 | 146.73 | 67.33 |
 | KL Rahul | Bharat Ratna Shri Atal Bi | 13 | 534 | 130.56 | 48.55 |
-| DA Miller | Punjab Cricket Associatio | 13 | 415 | 155.43 | 59.29 |
-| KL Rahul | Punjab Cricket Associatio | 10 | 406 | 142.46 | 50.75 |
-| KL Rahul | Wankhede Stadium | 9 | 403 | 149.81 | 57.57 |
 | AR Patel | Arun Jaitley Stadium | 17 | 392 | 161.32 | 32.67 |
 | Abishek Porel | Arun Jaitley Stadium | 11 | 366 | 161.95 | 36.6 |
 | T Stubbs | Arun Jaitley Stadium | 10 | 273 | 193.62 | 54.6 |
+| KL Rahul | Arun Jaitley Stadium | 6 | 218 | 138.85 | 54.5 |
+| KL Rahul | Sawai Mansingh Stadium | 3 | 132 | 136.08 | 44.0 |
+| KL Rahul | M Chinnaswamy Stadium | 3 | 131 | 150.57 | 65.5 |
+| Ashutosh Sharma | Maharaja Yadavindra Singh | 4 | 122 | 190.63 | 40.67 |
 
 **Top Bowling Performances:**
 
 | Player | Venue | Matches | Wkts | Econ | SR |
 |--------|-------|---------|------|------|-----|
-| Kuldeep Yadav | Eden Gardens | 21 | 21 | 8.17 | 21.24 |
 | AR Patel | Arun Jaitley Stadium | 16 | 13 | 7.66 | 23.08 |
-| MA Starc | M Chinnaswamy Stadium | 9 | 12 | 7.5 | 16.0 |
-| AR Patel | Dubai International Crick | 13 | 11 | 6.35 | 26.18 |
 | MA Starc | Dr. Y.S. Rajasekhara Redd | 3 | 10 | 9.28 | 6.4 |
-| AR Patel | Punjab Cricket Associatio | 7 | 10 | 7.04 | 14.4 |
-| Kuldeep Yadav | Brabourne Stadium | 4 | 10 | 7.19 | 9.6 |
-| T Natarajan | Dubai International Crick | 8 | 9 | 8.42 | 21.22 |
+| Kuldeep Yadav | M Chinnaswamy Stadium | 3 | 5 | 7.83 | 14.4 |
+| Kuldeep Yadav | Dr. Y.S. Rajasekhara Redd | 2 | 5 | 5.38 | 9.6 |
+| Mukesh Kumar | Bharat Ratna Shri Atal Bi | 3 | 5 | 8.83 | 14.4 |
+| T Natarajan | Arun Jaitley Stadium | 3 | 5 | 9.18 | 13.2 |
 
 
 ---
@@ -346,34 +417,29 @@
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Mumbai Indians | 20 | 976 | 720 | 135.56 | 69.71 | 15.97 | 31.81 | 14 | HIGH |
-| Royal Challengers Bengaluru | 17 | 781 | 540 | 144.63 | 71.0 | 18.33 | 32.41 | 11 | HIGH |
-| Rajasthan Royals | 17 | 745 | 567 | 131.39 | 49.67 | 15.7 | 32.8 | 15 | HIGH |
-| Chennai Super Kings | 15 | 630 | 441 | 142.86 | 48.46 | 19.27 | 34.01 | 13 | HIGH |
-| Kolkata Knight Riders | 15 | 521 | 377 | 138.2 | 43.42 | 17.24 | 30.77 | 12 | HIGH |
-| Sunrisers Hyderabad | 15 | 481 | 395 | 121.77 | 34.36 | 14.18 | 35.7 | 14 | HIGH |
-| Delhi Capitals | 15 | 425 | 299 | 142.14 | 28.33 | 20.4 | 38.13 | 15 | HIGH |
-| Punjab Kings | 10 | 252 | 178 | 141.57 | 31.5 | 20.79 | 34.83 | 8 | HIGH |
-| Gujarat Titans | 6 | 249 | 188 | 132.45 | 49.8 | 18.62 | 34.57 | 5 | HIGH |
+| Gujarat Titans | 4 | 241 | 171 | 140.94 | 80.33 | 19.88 | 30.99 | 3 | HIGH |
+| Rajasthan Royals | 4 | 205 | 155 | 132.26 | 51.25 | 15.48 | 31.61 | 4 | HIGH |
+| Chennai Super Kings | 4 | 195 | 136 | 143.38 | 48.75 | 18.38 | 30.15 | 4 | HIGH |
+| Royal Challengers Bengaluru | 5 | 172 | 128 | 134.38 | 57.33 | 14.84 | 30.47 | 3 | HIGH |
+| Punjab Kings | 4 | 136 | 95 | 143.16 | 34.0 | 21.05 | 34.74 | 4 | MEDIUM |
+| Mumbai Indians | 4 | 109 | 82 | 132.93 | 27.25 | 15.85 | 32.93 | 4 | MEDIUM |
+| Sunrisers Hyderabad | 4 | 89 | 83 | 107.23 | 22.25 | 12.05 | 40.96 | 4 | MEDIUM |
+| Kolkata Knight Riders | 3 | 71 | 52 | 136.54 | 35.5 | 17.31 | 28.85 | 2 | MEDIUM |
 | Lucknow Super Giants | 1 | 57 | 42 | 135.71 | - | 14.29 | 28.57 | 0 | MEDIUM |
-| Gujarat Lions | 2 | 51 | 36 | 141.67 | 51.0 | 19.44 | 33.33 | 1 | MEDIUM |
-| Rising Pune Supergiant | 2 | 45 | 45 | 100.0 | 22.5 | 8.89 | 42.22 | 2 | MEDIUM |
+| Delhi Capitals | 3 | 52 | 37 | 140.54 | 17.33 | 21.62 | 40.54 | 3 | MEDIUM |
 
 ### Axar Patel
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Royal Challengers Bengaluru | 16 | 279 | 184 | 151.63 | 34.88 | 20.65 | 30.43 | 8 | HIGH |
-| Mumbai Indians | 18 | 275 | 193 | 142.49 | 22.92 | 17.1 | 32.64 | 12 | HIGH |
-| Sunrisers Hyderabad | 14 | 207 | 161 | 128.57 | 20.7 | 13.04 | 29.19 | 10 | HIGH |
-| Kolkata Knight Riders | 18 | 203 | 166 | 122.29 | 18.45 | 13.86 | 36.14 | 11 | HIGH |
-| Gujarat Titans | 6 | 201 | 147 | 136.73 | 33.5 | 17.01 | 35.37 | 6 | HIGH |
-| Chennai Super Kings | 15 | 179 | 149 | 120.13 | 14.92 | 12.75 | 33.56 | 12 | HIGH |
-| Rajasthan Royals | 13 | 153 | 112 | 136.61 | 15.3 | 16.07 | 27.68 | 10 | HIGH |
-| Delhi Capitals | 6 | 148 | 127 | 116.54 | 37.0 | 11.81 | 36.22 | 4 | HIGH |
-| Lucknow Super Giants | 5 | 128 | 76 | 168.42 | 64.0 | 22.37 | 31.58 | 2 | MEDIUM |
-| Rising Pune Supergiant | 3 | 47 | 45 | 104.44 | 15.67 | 8.89 | 37.78 | 3 | MEDIUM |
-| Punjab Kings | 5 | 46 | 44 | 104.55 | 11.5 | 11.36 | 40.91 | 4 | MEDIUM |
+| Gujarat Titans | 5 | 193 | 143 | 134.97 | 38.6 | 16.08 | 34.97 | 5 | HIGH |
+| Royal Challengers Bengaluru | 5 | 116 | 80 | 145.0 | 29.0 | 20.0 | 33.75 | 4 | MEDIUM |
+| Lucknow Super Giants | 4 | 86 | 52 | 165.38 | 43.0 | 25.0 | 34.62 | 2 | MEDIUM |
+| Mumbai Indians | 4 | 76 | 43 | 176.74 | 25.33 | 27.91 | 30.23 | 3 | MEDIUM |
+| Sunrisers Hyderabad | 4 | 75 | 63 | 119.05 | 25.0 | 12.7 | 34.92 | 3 | MEDIUM |
+| Kolkata Knight Riders | 4 | 75 | 66 | 113.64 | 25.0 | 15.15 | 45.45 | 3 | MEDIUM |
+| Rajasthan Royals | 4 | 66 | 43 | 153.49 | 22.0 | 20.93 | 27.91 | 3 | MEDIUM |
+| Chennai Super Kings | 4 | 64 | 42 | 152.38 | 21.33 | 19.05 | 23.81 | 3 | MEDIUM |
 
 ### Tristan Stubbs
 
@@ -384,26 +450,21 @@
 | Lucknow Super Giants | 3 | 106 | 56 | 189.29 | 106.0 | 21.43 | 17.86 | 1 | MEDIUM |
 | Gujarat Titans | 3 | 78 | 38 | 205.26 | 78.0 | 26.32 | 10.53 | 1 | MEDIUM |
 | Royal Challengers Bengaluru | 3 | 75 | 45 | 166.67 | 75.0 | 24.44 | 15.56 | 1 | MEDIUM |
-| Sunrisers Hyderabad | 4 | 74 | 63 | 117.46 | 74.0 | 11.11 | 23.81 | 1 | MEDIUM |
+| Sunrisers Hyderabad | 3 | 72 | 61 | 118.03 | 72.0 | 11.48 | 24.59 | 1 | MEDIUM |
 | Kolkata Knight Riders | 3 | 59 | 42 | 140.48 | 19.67 | 19.05 | 38.1 | 3 | MEDIUM |
-| Chennai Super Kings | 5 | 49 | 47 | 104.26 | 12.25 | 10.64 | 40.43 | 4 | MEDIUM |
+| Chennai Super Kings | 4 | 49 | 45 | 108.89 | 16.33 | 11.11 | 37.78 | 3 | MEDIUM |
 
 ### Nitish Rana
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Sunrisers Hyderabad | 17 | 553 | 406 | 136.21 | 32.53 | 20.44 | 42.12 | 17 | HIGH |
-| Delhi Capitals | 14 | 425 | 291 | 146.05 | 32.69 | 20.27 | 34.36 | 13 | HIGH |
-| Chennai Super Kings | 12 | 365 | 263 | 138.78 | 40.56 | 21.29 | 38.78 | 9 | HIGH |
-| Royal Challengers Bengaluru | 16 | 359 | 263 | 136.5 | 25.64 | 18.63 | 39.54 | 14 | HIGH |
-| Punjab Kings | 14 | 296 | 204 | 145.1 | 24.67 | 19.61 | 39.71 | 12 | HIGH |
-| Mumbai Indians | 12 | 267 | 209 | 127.75 | 24.27 | 18.18 | 44.02 | 11 | HIGH |
-| Rajasthan Royals | 11 | 224 | 188 | 119.15 | 24.89 | 13.3 | 37.77 | 9 | HIGH |
-| Gujarat Lions | 3 | 138 | 87 | 158.62 | 46.0 | 20.69 | 27.59 | 3 | MEDIUM |
-| Lucknow Super Giants | 4 | 60 | 50 | 120.0 | 15.0 | 22.0 | 50.0 | 4 | MEDIUM |
-| Kolkata Knight Riders | 2 | 58 | 38 | 152.63 | 29.0 | 21.05 | 28.95 | 2 | MEDIUM |
-| Gujarat Titans | 5 | 56 | 44 | 127.27 | 11.2 | 20.45 | 50.0 | 5 | MEDIUM |
-| Rising Pune Supergiant | 2 | 37 | 37 | 100.0 | 18.5 | 8.11 | 40.54 | 2 | MEDIUM |
+| Chennai Super Kings | 3 | 165 | 100 | 165.0 | 165.0 | 27.0 | 34.0 | 1 | HIGH |
+| Sunrisers Hyderabad | 4 | 133 | 90 | 147.78 | 33.25 | 21.11 | 41.11 | 4 | MEDIUM |
+| Punjab Kings | 3 | 87 | 62 | 140.32 | 29.0 | 20.97 | 35.48 | 3 | MEDIUM |
+| Royal Challengers Bengaluru | 4 | 81 | 49 | 165.31 | 27.0 | 24.49 | 30.61 | 3 | MEDIUM |
+| Delhi Capitals | 2 | 55 | 35 | 157.14 | 27.5 | 25.71 | 31.43 | 2 | MEDIUM |
+| Gujarat Titans | 4 | 54 | 37 | 145.95 | 13.5 | 24.32 | 45.95 | 4 | MEDIUM |
+| Mumbai Indians | 3 | 47 | 44 | 106.82 | 15.67 | 15.91 | 50.0 | 3 | MEDIUM |
 
 ### Abhishek Porel
 
@@ -424,18 +485,15 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Sunrisers Hyderabad | 15 | 324 | 429 | 19 | 7.94 | 22.58 | 17.05 | 32.72 | 14.51 | HIGH |
-| Rajasthan Royals | 11 | 246 | 302 | 12 | 7.37 | 25.17 | 20.5 | 31.3 | 12.6 | HIGH |
-| Punjab Kings | 11 | 204 | 281 | 11 | 8.26 | 25.55 | 18.55 | 27.94 | 14.71 | HIGH |
-| Mumbai Indians | 12 | 246 | 357 | 10 | 8.71 | 35.7 | 24.6 | 29.67 | 16.26 | HIGH |
-| Kolkata Knight Riders | 5 | 102 | 123 | 10 | 7.24 | 12.3 | 10.2 | 38.24 | 13.73 | HIGH |
-| Lucknow Super Giants | 7 | 160 | 202 | 9 | 7.58 | 22.44 | 17.78 | 31.88 | 13.13 | HIGH |
-| Royal Challengers Bengaluru | 10 | 234 | 341 | 9 | 8.74 | 37.89 | 26.0 | 29.91 | 16.24 | HIGH |
-| Delhi Capitals | 6 | 122 | 178 | 5 | 8.75 | 35.6 | 24.4 | 22.95 | 13.93 | HIGH |
-| Gujarat Titans | 7 | 162 | 176 | 5 | 6.52 | 35.2 | 32.4 | 31.48 | 8.64 | HIGH |
-| Gujarat Lions | 2 | 48 | 58 | 4 | 7.25 | 14.5 | 12.0 | 31.25 | 12.5 | MEDIUM |
-| Chennai Super Kings | 8 | 168 | 236 | 4 | 8.43 | 59.0 | 42.0 | 24.4 | 14.29 | HIGH |
-| Rising Pune Supergiant | 2 | 48 | 66 | 3 | 8.25 | 22.0 | 16.0 | 37.5 | 14.58 | MEDIUM |
+| Sunrisers Hyderabad | 4 | 90 | 124 | 8 | 8.27 | 15.5 | 11.25 | 34.44 | 14.44 | MEDIUM |
+| Lucknow Super Giants | 5 | 120 | 142 | 7 | 7.1 | 20.29 | 17.14 | 35.0 | 10.83 | HIGH |
+| Punjab Kings | 5 | 102 | 138 | 5 | 8.12 | 27.6 | 20.4 | 26.47 | 13.73 | HIGH |
+| Royal Challengers Bengaluru | 5 | 120 | 159 | 5 | 7.95 | 31.8 | 24.0 | 31.67 | 13.33 | HIGH |
+| Rajasthan Royals | 4 | 96 | 127 | 5 | 7.94 | 25.4 | 19.2 | 31.25 | 13.54 | MEDIUM |
+| Gujarat Titans | 6 | 138 | 144 | 4 | 6.26 | 36.0 | 34.5 | 29.71 | 7.25 | HIGH |
+| Mumbai Indians | 4 | 78 | 113 | 3 | 8.69 | 37.67 | 26.0 | 30.77 | 19.23 | MEDIUM |
+| Kolkata Knight Riders | 3 | 60 | 75 | 2 | 7.5 | 37.5 | 30.0 | 40.0 | 15.0 | MEDIUM |
+| Chennai Super Kings | 3 | 66 | 90 | 2 | 8.18 | 45.0 | 33.0 | 16.67 | 10.61 | MEDIUM |
 
 ### Mukesh Kumar
 
@@ -455,15 +513,13 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Sunrisers Hyderabad | 7 | 152 | 204 | 13 | 8.05 | 15.69 | 11.69 | 40.13 | 19.08 | HIGH |
-| Delhi Capitals | 6 | 132 | 176 | 9 | 8.0 | 19.56 | 14.67 | 42.42 | 18.94 | HIGH |
+| Sunrisers Hyderabad | 4 | 88 | 122 | 10 | 8.32 | 12.2 | 8.8 | 47.73 | 22.73 | MEDIUM |
 | Lucknow Super Giants | 4 | 84 | 117 | 8 | 8.36 | 14.63 | 10.5 | 41.67 | 22.62 | MEDIUM |
-| Kolkata Knight Riders | 4 | 84 | 122 | 7 | 8.71 | 17.43 | 12.0 | 34.52 | 20.24 | MEDIUM |
-| Mumbai Indians | 6 | 119 | 178 | 7 | 8.97 | 25.43 | 17.0 | 34.45 | 21.85 | HIGH |
-| Punjab Kings | 5 | 96 | 108 | 7 | 6.75 | 15.43 | 13.71 | 45.83 | 15.63 | MEDIUM |
-| Rajasthan Royals | 6 | 138 | 177 | 7 | 7.7 | 25.29 | 19.71 | 42.03 | 18.84 | HIGH |
-| Chennai Super Kings | 7 | 156 | 186 | 6 | 7.15 | 31.0 | 26.0 | 40.38 | 15.38 | HIGH |
+| Mumbai Indians | 3 | 47 | 83 | 4 | 10.6 | 20.75 | 11.75 | 40.43 | 31.91 | MEDIUM |
+| Delhi Capitals | 2 | 36 | 66 | 3 | 11.0 | 22.0 | 12.0 | 41.67 | 30.56 | MEDIUM |
 | Royal Challengers Bengaluru | 4 | 78 | 162 | 1 | 12.46 | 162.0 | 78.0 | 32.05 | 32.05 | MEDIUM |
+| Chennai Super Kings | 2 | 42 | 50 | 1 | 7.14 | 50.0 | 42.0 | 42.86 | 16.67 | MEDIUM |
+| Rajasthan Royals | 2 | 48 | 76 | 1 | 9.5 | 76.0 | 48.0 | 27.08 | 22.92 | MEDIUM |
 
 ---
 
@@ -474,60 +530,16 @@
 | Player | Venue | Inn | Runs | Balls | SR | Avg | Bound% | Sample |
 |--------|-------|-----|------|-------|-----|-----|--------|--------|
 | AR Patel | Arun Jaitley Stadium, Delhi | 17 | 392 | 243 | 161.32 | 32.67 | 22.22 | HIGH |
-| AR Patel | Feroz Shah Kotla | 4 | 119 | 112 | 106.25 | 39.67 | 10.71 | HIGH |
-| AR Patel | Wankhede Stadium, Mumbai | 6 | 104 | 69 | 150.72 | 52.0 | 15.94 | MEDIUM |
 | Abishek Porel | Arun Jaitley Stadium, Delhi | 11 | 366 | 226 | 161.95 | 36.6 | 23.01 | HIGH |
 | Ashutosh Sharma | Maharaja Yadavindra Singh Internati... | 4 | 122 | 64 | 190.63 | 40.67 | 26.56 | MEDIUM |
-| DA Miller | Punjab Cricket Association Stadium,... | 13 | 415 | 267 | 155.43 | 59.29 | 17.6 | HIGH |
-| DA Miller | Narendra Modi Stadium, Ahmedabad | 12 | 254 | 168 | 151.19 | 42.33 | 17.86 | HIGH |
-| DA Miller | Wankhede Stadium, Mumbai | 10 | 249 | 200 | 124.5 | 31.13 | 14.5 | HIGH |
-| DA Miller | Rajiv Gandhi International Stadium,... | 5 | 151 | 103 | 146.6 | 75.5 | 16.5 | HIGH |
-| DA Miller | Wankhede Stadium | 6 | 146 | 101 | 144.55 | 36.5 | 17.82 | HIGH |
-| DA Miller | Maharashtra Cricket Association Sta... | 3 | 140 | 89 | 157.3 | 140.0 | 20.22 | MEDIUM |
-| DA Miller | Eden Gardens | 6 | 139 | 106 | 131.13 | 34.75 | 15.09 | HIGH |
-| DA Miller | Punjab Cricket Association IS Bindr... | 5 | 123 | 93 | 132.26 | 41.0 | 13.98 | MEDIUM |
-| DA Miller | Feroz Shah Kotla | 6 | 115 | 130 | 88.46 | 28.75 | 7.69 | HIGH |
-| DA Miller | Eden Gardens, Kolkata | 3 | 104 | 59 | 176.27 | - | 20.34 | MEDIUM |
-| DA Miller | Arun Jaitley Stadium, Delhi | 4 | 100 | 46 | 217.39 | 100.0 | 32.61 | MEDIUM |
-| KK Nair | Feroz Shah Kotla | 13 | 386 | 289 | 133.56 | 32.17 | 19.72 | HIGH |
-| KK Nair | Sardar Patel Stadium, Motera | 7 | 165 | 110 | 150.0 | 33.0 | 19.09 | HIGH |
-| KK Nair | Punjab Cricket Association IS Bindr... | 3 | 110 | 71 | 154.93 | 36.67 | 19.72 | MEDIUM |
-| KK Nair | M Chinnaswamy Stadium | 3 | 109 | 83 | 131.33 | 54.5 | 18.07 | MEDIUM |
+| DA Miller | Narendra Modi Stadium, Ahmedabad | 11 | 222 | 149 | 148.99 | 37.0 | 17.45 | HIGH |
 | KK Nair | Arun Jaitley Stadium, Delhi | 4 | 108 | 60 | 180.0 | 36.0 | 33.33 | MEDIUM |
-| KL Rahul | Dubai International Cricket Stadium | 11 | 606 | 413 | 146.73 | 67.33 | 18.64 | HIGH |
 | KL Rahul | Bharat Ratna Shri Atal Bihari Vajpa... | 13 | 534 | 409 | 130.56 | 48.55 | 16.38 | HIGH |
-| KL Rahul | Punjab Cricket Association IS Bindr... | 10 | 406 | 285 | 142.46 | 50.75 | 20.35 | HIGH |
-| KL Rahul | Wankhede Stadium, Mumbai | 9 | 403 | 269 | 149.81 | 57.57 | 20.45 | HIGH |
-| KL Rahul | Sharjah Cricket Stadium | 7 | 270 | 238 | 113.45 | 45.0 | 11.76 | HIGH |
-| KL Rahul | M Chinnaswamy Stadium | 10 | 254 | 185 | 137.3 | 36.29 | 17.3 | HIGH |
-| KL Rahul | Wankhede Stadium | 4 | 242 | 165 | 146.67 | 80.67 | 18.18 | HIGH |
 | KL Rahul | Arun Jaitley Stadium, Delhi | 6 | 218 | 157 | 138.85 | 54.5 | 17.83 | HIGH |
-| KL Rahul | Holkar Cricket Stadium | 4 | 195 | 118 | 165.25 | 65.0 | 21.19 | HIGH |
-| KL Rahul | Dr DY Patil Sports Academy, Mumbai | 4 | 189 | 149 | 126.85 | 63.0 | 13.42 | HIGH |
-| KL Rahul | Sheikh Zayed Stadium | 5 | 186 | 163 | 114.11 | 37.2 | 11.04 | HIGH |
-| KL Rahul | MA Chidambaram Stadium, Chepauk, Ch... | 5 | 177 | 141 | 125.53 | 44.25 | 13.48 | HIGH |
-| KL Rahul | Brabourne Stadium, Mumbai | 3 | 153 | 105 | 145.71 | 76.5 | 19.05 | HIGH |
-| KL Rahul | Narendra Modi Stadium, Ahmedabad | 3 | 138 | 91 | 151.65 | 69.0 | 21.98 | MEDIUM |
 | KL Rahul | Sawai Mansingh Stadium, Jaipur | 3 | 132 | 97 | 136.08 | 44.0 | 18.56 | MEDIUM |
 | KL Rahul | M Chinnaswamy Stadium, Bengaluru | 3 | 131 | 87 | 150.57 | 65.5 | 18.39 | MEDIUM |
-| KL Rahul | Eden Gardens, Kolkata | 2 | 118 | 84 | 140.48 | 59.0 | 15.48 | MEDIUM |
-| KL Rahul | Rajiv Gandhi International Stadium,... | 5 | 117 | 90 | 130.0 | 29.25 | 15.56 | MEDIUM |
-| KL Rahul | Rajiv Gandhi International Stadium | 2 | 110 | 81 | 135.8 | 55.0 | 17.28 | MEDIUM |
-| N Rana | Eden Gardens | 14 | 450 | 321 | 140.19 | 34.62 | 20.56 | HIGH |
-| N Rana | Wankhede Stadium | 9 | 255 | 198 | 128.79 | 28.33 | 16.67 | HIGH |
+| KL Rahul | MA Chidambaram Stadium, Chepauk, Ch... | 3 | 113 | 83 | 136.14 | 37.67 | 15.66 | MEDIUM |
 | N Rana | Eden Gardens, Kolkata | 9 | 230 | 168 | 136.9 | 25.56 | 19.64 | HIGH |
-| N Rana | MA Chidambaram Stadium, Chepauk, Ch... | 4 | 212 | 158 | 134.18 | 70.67 | 19.62 | HIGH |
-| N Rana | Sheikh Zayed Stadium | 8 | 176 | 125 | 140.8 | 25.14 | 23.2 | HIGH |
-| N Rana | Dubai International Cricket Stadium | 6 | 165 | 131 | 125.95 | 27.5 | 18.32 | HIGH |
-| N Rana | Wankhede Stadium, Mumbai | 7 | 156 | 136 | 114.71 | 26.0 | 13.24 | HIGH |
-| N Rana | Sharjah Cricket Stadium | 7 | 150 | 118 | 127.12 | 25.0 | 15.25 | HIGH |
-| N Rana | Brabourne Stadium, Mumbai | 3 | 102 | 67 | 152.24 | 34.0 | 19.4 | MEDIUM |
-| PP Shaw | Arun Jaitley Stadium | 14 | 364 | 254 | 143.31 | 30.33 | 22.44 | HIGH |
-| PP Shaw | Dubai International Cricket Stadium | 11 | 265 | 185 | 143.24 | 24.09 | 22.7 | HIGH |
-| PP Shaw | Wankhede Stadium, Mumbai | 9 | 254 | 171 | 148.54 | 28.22 | 23.39 | HIGH |
-| PP Shaw | Narendra Modi Stadium, Ahmedabad | 4 | 149 | 86 | 173.26 | 37.25 | 27.91 | MEDIUM |
-| PP Shaw | Brabourne Stadium, Mumbai | 3 | 130 | 73 | 178.08 | 43.33 | 31.51 | MEDIUM |
-| PP Shaw | Sharjah Cricket Stadium | 5 | 109 | 72 | 151.39 | 21.8 | 20.83 | MEDIUM |
 | T Stubbs | Arun Jaitley Stadium, Delhi | 10 | 273 | 141 | 193.62 | 54.6 | 26.95 | HIGH |
 | T Stubbs | Dr. Y.S. Rajasekhara Reddy ACA-VDCA... | 4 | 109 | 70 | 155.71 | 36.33 | 21.43 | MEDIUM |
 
@@ -553,7 +565,187 @@
 
 *Vulnerability criteria: SR < 110 OR Avg < 12 OR BPD < 12 (gets out too often)*
 
-- **AR Patel** vs off-spin: SR 100.0, Avg 11.0, BPD 11.0 (77 balls)
+*No significant spin vulnerabilities identified*
+
+---
+
+## 11. Pressure Performance
+
+*How the squad performs when the required run rate escalates — IPL 2023+ data*
+
+### 11.1 Batting Under Pressure
+
+*Performance across Required Run Rate (RRR) bands — IPL 2023+*
+
+| Player | Band | Balls | SR | Avg | Boundary% | Dot% | Entry | Confidence |
+|--------|------|-------|----|-----|-----------|------|-------|------------|
+| AR Patel | COMFORTABLE | 38 | 137 | 52 | 18.4 | 42.1 | FRESH | LOW |
+| AR Patel | BUILDING | 38 | 145 | 27.5 | 23.7 | 31.6 | FRESH | LOW |
+| AR Patel | HIGH | 60 | 180 | 36 | 26.7 | 26.7 | FRESH | MEDIUM |
+| AR Patel | NEAR_IMPOSSIBLE | 75 | 139 | 14.9 | 14.7 | 22.7 | FRESH | MEDIUM |
+| Abishek Porel | COMFORTABLE | 50 | 172 | 43 | 24 | 20 | FRESH | MEDIUM |
+| Abishek Porel | BUILDING | 38 | 113 | 10.8 | 10.5 | 34.2 | FRESH | LOW |
+| Abishek Porel | HIGH | 29 | 96.5 | 9.3 | 10.3 | 34.5 | FRESH | LOW |
+| Abishek Porel | EXTREME | 53 | 157 | 83 | 22.6 | 30.2 | FRESH | MEDIUM |
+| Abishek Porel | NEAR_IMPOSSIBLE | 24 | 66.7 | 4 | 8.3 | 54.2 | FRESH | LOW |
+| Ashutosh Sharma | HIGH | 46 | 139 | - | 19.6 | 43.5 | FRESH | LOW |
+| Ashutosh Sharma | EXTREME | 39 | 151 | 59 | 15.4 | 23.1 | FRESH | LOW |
+| Ashutosh Sharma | NEAR_IMPOSSIBLE | 50 | 206 | 17.2 | 34 | 26 | FRESH | MEDIUM |
+| DA Miller | COMFORTABLE | 46 | 139 | 64 | 17.4 | 23.9 | FRESH | LOW |
+| DA Miller | BUILDING | 38 | 108 | 20.5 | 7.9 | 21.1 | FRESH | LOW |
+| DA Miller | HIGH | 24 | 196 | - | 29.2 | 25 | FRESH | LOW |
+| DA Miller | EXTREME | 69 | 141 | 48.5 | 18.8 | 27.5 | FRESH | MEDIUM |
+| DA Miller | NEAR_IMPOSSIBLE | 31 | 197 | 12.2 | 29.0 | 25.8 | FRESH | LOW |
+| KK Nair | BUILDING | 19 | 295 | 56 | 52.6 | 15.8 | BUILDING | LOW |
+| KK Nair | HIGH | 60 | 152 | 45.5 | 26.7 | 35 | FRESH | MEDIUM |
+| KL Rahul | COMFORTABLE | 146 | 141 | 68.7 | 19.2 | 32.9 | FRESH | HIGH |
+| KL Rahul | BUILDING | 102 | 138 | 70.5 | 17.6 | 29.4 | FRESH | HIGH |
+| KL Rahul | HIGH | 140 | 143 | 40 | 20 | 32.1 | FRESH | HIGH |
+| KL Rahul | EXTREME | 42 | 92.9 | 13 | 4.8 | 28.6 | BUILDING | LOW |
+| Kuldeep Yadav | NEAR_IMPOSSIBLE | 47 | 70.2 | 8.2 | 2.1 | 44.7 | FRESH | LOW |
+| N Rana | COMFORTABLE | 36 | 131 | 47 | 16.7 | 33.3 | FRESH | LOW |
+| N Rana | BUILDING | 62 | 132 | 41 | 17.7 | 32.3 | FRESH | MEDIUM |
+| N Rana | HIGH | 92 | 135 | 31 | 21.7 | 39.1 | FRESH | MEDIUM |
+| N Rana | EXTREME | 68 | 165 | 37.3 | 27.9 | 36.8 | FRESH | MEDIUM |
+| N Rana | NEAR_IMPOSSIBLE | 22 | 155 | 11.3 | 18.2 | 36.4 | BUILDING | LOW |
+| PP Shaw | COMFORTABLE | 21 | 143 | 15 | 23.8 | 38.1 | FRESH | LOW |
+| PP Shaw | BUILDING | 26 | 131 | 17 | 23.1 | 38.5 | FRESH | LOW |
+| PP Shaw | HIGH | 17 | 64.7 | 3.7 | 11.8 | 82.3 | FRESH | LOW |
+| PP Shaw | EXTREME | 46 | 187 | 43 | 34.8 | 30.4 | FRESH | LOW |
+| T Stubbs | COMFORTABLE | 27 | 170 | - | 22.2 | 11.1 | FRESH | LOW |
+| T Stubbs | HIGH | 33 | 97.0 | 32 | 6.1 | 27.3 | FRESH | LOW |
+| T Stubbs | EXTREME | 37 | 130 | 24 | 13.5 | 29.7 | FRESH | LOW |
+| T Stubbs | NEAR_IMPOSSIBLE | 77 | 218 | 84 | 29.9 | 14.3 | FRESH | MEDIUM |
+
+### 11.2 Bowling Under Pressure
+
+*Bowling performance across RRR bands — IPL 2023+*
+
+| Player | Band | Balls | Economy | Dot% | Bdry% Conc | Wickets | Confidence |
+|--------|------|-------|---------|------|------------|---------|------------|
+| AR Patel | COMFORTABLE | 52 | 6.1 | 40.4 | 11.5 | 2 | MEDIUM |
+| AR Patel | BUILDING | 80 | 6.7 | 35 | 10 | 4 | MEDIUM |
+| AR Patel | HIGH | 72 | 7.7 | 36.1 | 15.3 | 3 | MEDIUM |
+| AR Patel | EXTREME | 66 | 9.3 | 24.2 | 19.7 | 3 | MEDIUM |
+| AR Patel | NEAR_IMPOSSIBLE | 18 | 9.7 | 11.1 | 16.7 | 0 | LOW |
+| Kuldeep Yadav | COMFORTABLE | 37 | 8.3 | 35.1 | 16.2 | 1 | LOW |
+| Kuldeep Yadav | BUILDING | 85 | 6.8 | 25.9 | 8.2 | 2 | MEDIUM |
+| Kuldeep Yadav | HIGH | 90 | 6.9 | 26.7 | 8.9 | 2 | MEDIUM |
+| Kuldeep Yadav | EXTREME | 95 | 7.7 | 25.3 | 9.5 | 3 | MEDIUM |
+| Kuldeep Yadav | NEAR_IMPOSSIBLE | 47 | 9.6 | 25.5 | 23.4 | 4 | LOW |
+| MA Starc | COMFORTABLE | 21 | 11.1 | 33.3 | 33.3 | 0 | LOW |
+| MA Starc | BUILDING | 52 | 9.7 | 50 | 23.1 | 2 | MEDIUM |
+| MA Starc | HIGH | 70 | 12.1 | 28.6 | 32.9 | 0 | MEDIUM |
+| MA Starc | EXTREME | 29 | 9.1 | 37.9 | 24.1 | 2 | LOW |
+| MA Starc | NEAR_IMPOSSIBLE | 42 | 13 | 35.7 | 26.2 | 5 | LOW |
+| Mukesh Kumar | COMFORTABLE | 19 | 10.7 | 42.1 | 36.8 | 0 | LOW |
+| Mukesh Kumar | BUILDING | 55 | 11.8 | 32.7 | 30.9 | 3 | MEDIUM |
+| Mukesh Kumar | HIGH | 61 | 11.2 | 26.2 | 27.9 | 0 | MEDIUM |
+| Mukesh Kumar | EXTREME | 34 | 8.5 | 38.2 | 20.6 | 2 | LOW |
+| Mukesh Kumar | NEAR_IMPOSSIBLE | 75 | 12.1 | 20 | 26.7 | 7 | MEDIUM |
+| N Rana | COMFORTABLE | 35 | 10.5 | 25.7 | 25.7 | 2 | LOW |
+| T Natarajan | COMFORTABLE | 62 | 10.2 | 35.5 | 25.8 | 1 | MEDIUM |
+| T Natarajan | BUILDING | 50 | 10.1 | 28 | 24 | 0 | MEDIUM |
+| T Natarajan | HIGH | 43 | 8.5 | 32.6 | 16.3 | 2 | LOW |
+| T Natarajan | EXTREME | 47 | 9.1 | 27.7 | 17.0 | 1 | LOW |
+| T Natarajan | NEAR_IMPOSSIBLE | 77 | 8.5 | 35.1 | 16.9 | 8 | MEDIUM |
+| V Nigam | BUILDING | 21 | 12.6 | 23.8 | 23.8 | 0 | LOW |
+| V Nigam | HIGH | 46 | 8.6 | 30.4 | 15.2 | 2 | LOW |
+
+### 11.3 Pressure Ratings
+
+*How player performance shifts under pressure vs overall — IPL 2023+*
+
+*Weighted Score = SR Delta x sample-size bonus x death-overs bonus*
+
+| Player | Role | Balls | Delta% | W.Score | Rating | Entry | Confidence |
+|--------|------|-------|--------|---------|--------|-------|------------|
+| DA Miller | BATTER | 124 | +10.9% | 35.3 | **CLUTCH** | FRESH | HIGH |
+| N Rana | BATTER | 182 | +4.1% | 15.2 | **PRESSURE_PROOF** | BUILDING | HIGH |
+| PP Shaw | BATTER | 64 | +4.5% | 9.4 | **PRESSURE_PROOF** | BUILDING | MEDIUM |
+| AR Patel | BATTER | 146 | +2.5% | 9.1 | **PRESSURE_PROOF** | FRESH | HIGH |
+| T Stubbs | BATTER | 147 | +0.7% | 2.4 | **PRESSURE_PROOF** | BUILDING | HIGH |
+| Ashutosh Sharma | BATTER | 135 | +0.2% | 0.6 | **PRESSURE_PROOF** | FRESH | HIGH |
+| Kuldeep Yadav | BATTER | 51 | 0.0% | 0 | **PRESSURE_PROOF** | FRESH | MEDIUM |
+| KL Rahul | BATTER | 186 | -4.4% | -16.2 | **PRESSURE_PROOF** | BUILDING | HIGH |
+| Abishek Porel | BATTER | 106 | -9.2% | -26.9 | MODERATE | FRESH | HIGH |
+
+### 11.4 Glossary
+
+*Quick reference for all pressure metrics, bands, and ratings used in this section.*
+
+#### Pressure Bands (RRR-Based)
+
+| Band | RRR Range | What It Means |
+|------|-----------|---------------|
+| COMFORTABLE | < 8 | Cruising — run rate is manageable, batters can play normally |
+| BUILDING | 8–10 | Above par — scoring needs to accelerate, risk-taking begins |
+| HIGH | 10–12 | Aggressive required — boundaries needed every 2-3 balls |
+| EXTREME | 12–15 | Six-hitting territory — almost every ball must score |
+| NEAR_IMPOSSIBLE | 15+ | Miracle needed — requires continuous boundaries to win |
+
+#### Pressure Ratings (Performance Tags)
+
+| Rating | For Batters | For Bowlers |
+|--------|------------|-------------|
+| CLUTCH | SR improves 10%+ AND dot% drops in 12+ RRR bands | Economy improves AND dot% rises in 12+ RRR bands |
+| PRESSURE_PROOF | Metrics within +/-5% of overall across all bands | Metrics within +/-5% of overall across all bands |
+| MODERATE | Performance changes between 5-10% under pressure | Economy/dot% changes 5-10% under pressure |
+| PRESSURE_SENSITIVE | SR drops 10%+ OR dot% rises 10%+ in 12+ RRR bands | Economy rises 15%+ OR boundary% conceded rises 10%+ |
+| FINISHER | SR in 15+ band exceeds 170 with adequate sample | N/A |
+| CLOSER | N/A | Economy < 8.5 in 15+ band with 5+ overs |
+
+#### Entry Context (Batter Only)
+
+| Context | Balls Before Pressure | Meaning |
+|---------|----------------------|---------|
+| FRESH | < 10 | Walked in during pressure phase — facing it cold |
+| BUILDING | 10–25 | Getting set when pressure hit — partially established |
+| SET | 25–40 | Well established before pressure phase |
+| DEEP_SET | 40+ | Long innings before pressure — fully in rhythm |
+
+#### Other Terms
+
+- **Weighted Score (W.Score)**: Composite metric that combines SR delta with sample size (log2 scaling) and death overs bonus (30% weight for overs 16-20 execution)
+- **SR Delta**: Percentage change in strike rate between overall performance and pressure situations. Positive = better under pressure.
+- **Death Pressure Ratio**: Proportion of pressure balls faced in overs 16-20 vs all pressure balls
+
+---
+*Note: Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify.*
+
+
+---
+
+## 12. Uncapped Watch
+
+*Players with zero IPL 2023+ appearances — T20 career data from other tournaments*
+
+**6 uncapped player(s) in squad**
+
+### 12.1 T20 Batting Profile
+
+| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Tournaments |
+|--------|------|---------|----------|--------|---------|------------|-------------|
+| Ben Duckett | Batter | 204 | 5357 | 141 | 30.8 | HIGH | Blast, Blast, 100 |
+| Pathum Nissanka | Batter | 111 | 3266 | 130 | 30.8 | HIGH | LPL, T20WC, ILT20 |
+| Ajay Mandal | All-rounder | 20 | 217 | 117 | 16.7 | HIGH | SMAT |
+
+### 12.2 T20 Bowling Profile
+
+| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Tournaments |
+|--------|------|-------------|----------|----------|---------|------------|-------------|
+| Ajay Mandal | Medium | 26 | 26 | 7.1 | 22.8 | HIGH | SMAT |
+| Auqib Nabi Dar | Fast | 9 | 3 | 8.7 | 34.7 | LOW | ICC T20, Intl, Intl |
+
+### 12.3 Limited / No T20 Data
+
+*These players have insufficient T20 data for profiling (<5 batting innings and <3 bowling matches)*
+
+| Player | Role | Nationality |
+|--------|------|-------------|
+| Sahil Parakh | All-rounder | IND |
+| Tripurana Vijay | Batter | IND |
+
 
 ---
 

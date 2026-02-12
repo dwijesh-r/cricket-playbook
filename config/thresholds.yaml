@@ -61,9 +61,10 @@ batting:
   # Phase-specific SR (powerplay)
   powerplay_sr: 130              # Minimum for PP specialists
 
-  # Spin vulnerability
-  spin_vulnerability_avg: 12
-  spin_vulnerability_bpd: 12
+  # Spin vulnerability (batter vs spin types)
+  spin_vulnerability_sr: 110      # SR below this = vulnerable vs spin
+  spin_vulnerability_avg: 12      # Avg below this = vulnerable vs spin
+  spin_vulnerability_bpd: 12      # BPD below this (with 3+ dismissals)
 
 # =============================================================================
 # BOWLING THRESHOLDS
@@ -89,6 +90,24 @@ bowling:
 
   # Spin analysis
   spin_friendly_economy: 5.0     # Pitch bias threshold
+
+  # Spin-specific phase thresholds (parallel to pace beast/liability)
+  spin:
+    powerplay:
+      beast_economy: 6.5          # Exceptional PP spinner
+      liability_economy: 9.0      # Struggling PP spinner
+    middle:
+      beast_economy: 6.5          # Elite middle-overs spinner
+      liability_economy: 8.5      # Expensive middle-overs spinner
+    death:
+      beast_economy: 8.0          # Good death spinner (rare skill)
+      liability_economy: 11.0     # Expensive death spinner
+
+  # Pitch bias classification
+  pitch_bias:
+    spin_pace_differential: 5.0   # SR difference to classify spin/pace friendly
+    min_spin_balls_venue: 200     # Minimum spin deliveries for venue classification
+    min_pace_balls_venue: 200     # Minimum pace deliveries for venue classification
 
 # =============================================================================
 # HANDEDNESS MATCHUP THRESHOLDS
@@ -236,8 +255,9 @@ validation:
 # METADATA
 # =============================================================================
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   created: "2026-02-08"
+  updated: "2026-02-12"
   owner: "Stephen Curry"
   ticket: "TKT-132"
   epic: "EPIC-014"

@@ -1,6 +1,6 @@
 # Mumbai Indians (MI) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 17:02
+**Generated:** 2026-02-12 17:17
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -133,7 +133,7 @@
 **Top Wicket Takers by Season:**
 
 - **2023:** PP Chawla (22w @ 8.07), Akash Madhwal (14w @ 8.32), JP Behrendorff (14w @ 9.05)
-- **2024:** JJ Bumrah (20w @ 6.24), G Coetzee (13w @ 9.92), PP Chawla (13w @ 8.71)
+- **2024:** JJ Bumrah (20w @ 6.24), PP Chawla (13w @ 8.71), G Coetzee (13w @ 9.92)
 - **2025:** TA Boult (22w @ 8.74), JJ Bumrah (18w @ 6.69), HH Pandya (14w @ 9.04)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -253,10 +253,10 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Narendra Modi Stadium | 5 | 0 | 0.0% | 169.6 |
-| MA Chidambaram Stadium | 3 | 1 | 33.3% | 158.7 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 0 | 0.0% | 169.0 |
 | Arun Jaitley Stadium | 3 | 2 | 66.7% | 208.3 |
 | Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 194.7 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 0 | 0.0% | 169.0 |
+| MA Chidambaram Stadium | 3 | 1 | 33.3% | 158.7 |
 | Sawai Mansingh Stadium | 3 | 1 | 33.3% | 193.3 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
@@ -270,8 +270,8 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
@@ -298,13 +298,13 @@
 | Player | Venue | Matches | Wkts | Econ | SR |
 |--------|-------|---------|------|------|-----|
 | JJ Bumrah | Wankhede Stadium | 12 | 23 | 5.32 | 12.3 |
-| TA Boult | Wankhede Stadium | 9 | 14 | 7.89 | 15.43 |
 | DL Chahar | MA Chidambaram Stadium | 11 | 14 | 8.1 | 13.86 |
+| TA Boult | Wankhede Stadium | 9 | 14 | 7.89 | 15.43 |
 | HH Pandya | Wankhede Stadium | 11 | 11 | 10.11 | 15.27 |
 | TA Boult | Sawai Mansingh Stadium | 9 | 8 | 8.44 | 21.5 |
+| HH Pandya | Bharat Ratna Shri Atal Bi | 3 | 7 | 7.11 | 7.71 |
 | MJ Santner | Wankhede Stadium | 6 | 7 | 5.95 | 16.57 |
 | Ashwani Kumar | Wankhede Stadium | 3 | 7 | 10.33 | 7.71 |
-| HH Pandya | Bharat Ratna Shri Atal Bi | 3 | 7 | 7.11 | 7.71 |
 
 
 ---
@@ -498,8 +498,8 @@
 | Lucknow Super Giants | 5 | 114 | 137 | 8 | 7.21 | 17.13 | 14.25 | 48.25 | 18.42 | HIGH |
 | Gujarat Titans | 6 | 126 | 191 | 6 | 9.1 | 31.83 | 21.0 | 34.92 | 20.63 | HIGH |
 | Mumbai Indians | 3 | 72 | 94 | 6 | 7.83 | 15.67 | 12.0 | 40.28 | 18.06 | MEDIUM |
-| Royal Challengers Bengaluru | 4 | 90 | 139 | 5 | 9.27 | 27.8 | 18.0 | 35.56 | 23.33 | MEDIUM |
 | Delhi Capitals | 5 | 102 | 151 | 5 | 8.88 | 30.2 | 20.4 | 39.22 | 25.49 | HIGH |
+| Royal Challengers Bengaluru | 4 | 90 | 139 | 5 | 9.27 | 27.8 | 18.0 | 35.56 | 23.33 | MEDIUM |
 | Kolkata Knight Riders | 3 | 66 | 70 | 4 | 6.36 | 17.5 | 16.5 | 56.06 | 13.64 | MEDIUM |
 | Punjab Kings | 6 | 135 | 190 | 4 | 8.44 | 47.5 | 33.75 | 39.26 | 22.22 | HIGH |
 | Chennai Super Kings | 3 | 56 | 92 | 0 | 9.86 | - | - | 28.57 | 21.43 | MEDIUM |
@@ -515,8 +515,8 @@
 | Punjab Kings | 3 | 72 | 83 | 4 | 6.92 | 20.75 | 18.0 | 45.83 | 15.28 | MEDIUM |
 | Lucknow Super Giants | 2 | 48 | 38 | 4 | 4.75 | 9.5 | 12.0 | 62.5 | 8.33 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 96 | 114 | 3 | 7.13 | 38.0 | 32.0 | 30.21 | 11.46 | MEDIUM |
-| Chennai Super Kings | 2 | 48 | 49 | 2 | 6.13 | 24.5 | 24.0 | 35.42 | 10.42 | MEDIUM |
 | Rajasthan Royals | 3 | 72 | 71 | 2 | 5.92 | 35.5 | 36.0 | 54.17 | 15.28 | MEDIUM |
+| Chennai Super Kings | 2 | 48 | 49 | 2 | 6.13 | 24.5 | 24.0 | 35.42 | 10.42 | MEDIUM |
 
 ---
 
@@ -736,7 +736,7 @@
 | Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Tournaments |
 |--------|------|-------------|----------|----------|---------|------------|-------------|
 | AM Ghazanfar | Off-spin | 32 | 34 | 7.2 | 24.9 | HIGH | ILT20, Blast, CPL |
-| Sherfane Rutherford | Medium | 23 | 11 | 10.7 | 35 | HIGH | CPL, Intl, SA20 |
+| Sherfane Rutherford | Medium | 23 | 11 | 10.7 | 35 | HIGH | CPL, SA20, Intl |
 | Atharva Ankolekar | Left-arm ort | 11 | 9 | 5.8 | 26.7 | MEDIUM | SMAT |
 | Raghu Sharma | Fast | 3 | 3 | 8.1 | 29.7 | LOW | SMAT |
 

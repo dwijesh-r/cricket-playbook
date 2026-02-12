@@ -1,6 +1,6 @@
 # Kolkata Knight Riders (KKR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 17:02
+**Generated:** 2026-02-12 17:17
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -131,7 +131,7 @@
 **Top Wicket Takers by Season:**
 
 - **2023:** CV Varun (20w @ 8.27), SP Narine (11w @ 7.89), Suyash Sharma (10w @ 8.28)
-- **2024:** CV Varun (21w @ 7.98), AD Russell (19w @ 9.7), Harshit Rana (19w @ 8.75)
+- **2024:** CV Varun (21w @ 7.98), Harshit Rana (19w @ 8.75), AD Russell (19w @ 9.7)
 - **2025:** CV Varun (17w @ 7.6), VG Arora (17w @ 9.51), Harshit Rana (15w @ 9.93)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -251,10 +251,10 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | MA Chidambaram Stadium | 4 | 3 | 75.0% | 126.3 |
-| Arun Jaitley Stadium | 3 | 1 | 33.3% | 166.3 |
 | Wankhede Stadium | 3 | 1 | 33.3% | 156.7 |
-| Narendra Modi Stadium | 2 | 2 | 100.0% | 185.5 |
+| Arun Jaitley Stadium | 3 | 1 | 33.3% | 166.3 |
 | M Chinnaswamy Stadium | 2 | 2 | 100.0% | 193.0 |
+| Narendra Modi Stadium | 2 | 2 | 100.0% | 185.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -267,9 +267,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -298,7 +298,7 @@
 | VG Arora | Eden Gardens | 13 | 17 | 10.03 | 15.94 |
 | SP Narine | Eden Gardens | 21 | 16 | 7.16 | 28.88 |
 | SP Narine | MA Chidambaram Stadium | 4 | 7 | 4.94 | 13.71 |
-| SP Narine | Arun Jaitley Stadium | 3 | 5 | 8.92 | 14.4 |
+| M Pathirana | Bharat Ratna Shri Atal Bi | 3 | 5 | 7.32 | 13.6 |
 | M Pathirana | M Chinnaswamy Stadium | 2 | 5 | 9.13 | 9.6 |
 
 
@@ -417,8 +417,8 @@
 | Royal Challengers Bengaluru | 4 | 153 | 92 | 166.3 | 38.25 | 22.83 | 33.7 | 4 | MEDIUM |
 | Gujarat Titans | 5 | 107 | 76 | 140.79 | 26.75 | 15.79 | 28.95 | 4 | MEDIUM |
 | Sunrisers Hyderabad | 5 | 106 | 87 | 121.84 | 21.2 | 13.79 | 40.23 | 5 | MEDIUM |
-| Mumbai Indians | 4 | 98 | 59 | 166.1 | 24.5 | 25.42 | 33.9 | 4 | MEDIUM |
 | Lucknow Super Giants | 3 | 98 | 62 | 158.06 | 32.67 | 25.81 | 35.48 | 3 | MEDIUM |
+| Mumbai Indians | 4 | 98 | 59 | 166.1 | 24.5 | 25.42 | 33.9 | 4 | MEDIUM |
 | Rajasthan Royals | 4 | 94 | 71 | 132.39 | 23.5 | 11.27 | 26.76 | 4 | MEDIUM |
 | Delhi Capitals | 3 | 92 | 64 | 143.75 | 30.67 | 21.88 | 32.81 | 3 | MEDIUM |
 | Kolkata Knight Riders | 2 | 87 | 40 | 217.5 | 87.0 | 32.5 | 15.0 | 1 | MEDIUM |
@@ -474,11 +474,11 @@
 | Delhi Capitals | 4 | 97 | 111 | 10 | 6.87 | 11.1 | 9.7 | 43.3 | 13.4 | MEDIUM |
 | Royal Challengers Bengaluru | 5 | 106 | 142 | 9 | 8.04 | 15.78 | 11.78 | 39.62 | 19.81 | HIGH |
 | Sunrisers Hyderabad | 7 | 150 | 223 | 9 | 8.92 | 24.78 | 16.67 | 32.67 | 18.67 | HIGH |
-| Chennai Super Kings | 5 | 120 | 150 | 7 | 7.5 | 21.43 | 17.14 | 38.33 | 12.5 | HIGH |
 | Punjab Kings | 5 | 114 | 157 | 7 | 8.26 | 22.43 | 16.29 | 35.09 | 16.67 | HIGH |
+| Chennai Super Kings | 5 | 120 | 150 | 7 | 7.5 | 21.43 | 17.14 | 38.33 | 12.5 | HIGH |
 | Rajasthan Royals | 4 | 90 | 111 | 6 | 7.4 | 18.5 | 15.0 | 48.89 | 17.78 | MEDIUM |
-| Mumbai Indians | 4 | 90 | 88 | 5 | 5.87 | 17.6 | 18.0 | 45.56 | 10.0 | MEDIUM |
 | Lucknow Super Giants | 4 | 90 | 133 | 5 | 8.87 | 26.6 | 18.0 | 36.67 | 17.78 | MEDIUM |
+| Mumbai Indians | 4 | 90 | 88 | 5 | 5.87 | 17.6 | 18.0 | 45.56 | 10.0 | MEDIUM |
 | Gujarat Titans | 3 | 60 | 102 | 0 | 10.2 | - | - | 21.67 | 23.33 | MEDIUM |
 
 ### Matheesha Pathirana
@@ -486,12 +486,12 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 4 | 96 | 112 | 9 | 7.0 | 12.44 | 10.67 | 34.38 | 13.54 | MEDIUM |
+| Royal Challengers Bengaluru | 3 | 72 | 107 | 7 | 8.92 | 15.29 | 10.29 | 38.89 | 22.22 | MEDIUM |
 | Mumbai Indians | 3 | 58 | 78 | 7 | 8.07 | 11.14 | 8.29 | 39.66 | 15.52 | MEDIUM |
 | Lucknow Super Giants | 4 | 92 | 117 | 7 | 7.63 | 16.71 | 13.14 | 31.52 | 13.04 | MEDIUM |
-| Royal Challengers Bengaluru | 3 | 72 | 107 | 7 | 8.92 | 15.29 | 10.29 | 38.89 | 22.22 | MEDIUM |
 | Gujarat Titans | 4 | 90 | 125 | 6 | 8.33 | 20.83 | 15.0 | 38.89 | 17.78 | MEDIUM |
-| Sunrisers Hyderabad | 3 | 54 | 59 | 3 | 6.56 | 19.67 | 18.0 | 37.04 | 11.11 | MEDIUM |
 | Punjab Kings | 3 | 72 | 127 | 3 | 10.58 | 42.33 | 24.0 | 19.44 | 19.44 | MEDIUM |
+| Sunrisers Hyderabad | 3 | 54 | 59 | 3 | 6.56 | 19.67 | 18.0 | 37.04 | 11.11 | MEDIUM |
 | Rajasthan Royals | 3 | 61 | 92 | 2 | 9.05 | 46.0 | 30.5 | 27.87 | 18.03 | MEDIUM |
 | Kolkata Knight Riders | 3 | 66 | 80 | 1 | 7.27 | 80.0 | 66.0 | 31.82 | 12.12 | MEDIUM |
 
@@ -503,9 +503,9 @@
 | Chennai Super Kings | 5 | 108 | 110 | 6 | 6.11 | 18.33 | 18.0 | 35.19 | 7.41 | HIGH |
 | Sunrisers Hyderabad | 7 | 156 | 195 | 6 | 7.5 | 32.5 | 26.0 | 29.49 | 10.26 | HIGH |
 | Delhi Capitals | 4 | 96 | 119 | 5 | 7.44 | 23.8 | 19.2 | 37.5 | 14.58 | MEDIUM |
-| Lucknow Super Giants | 4 | 90 | 103 | 4 | 6.87 | 25.75 | 22.5 | 31.11 | 10.0 | MEDIUM |
 | Punjab Kings | 5 | 114 | 138 | 4 | 7.26 | 34.5 | 28.5 | 38.6 | 13.16 | HIGH |
 | Gujarat Titans | 3 | 66 | 90 | 4 | 8.18 | 22.5 | 16.5 | 22.73 | 13.64 | MEDIUM |
+| Lucknow Super Giants | 4 | 90 | 103 | 4 | 6.87 | 25.75 | 22.5 | 31.11 | 10.0 | MEDIUM |
 | Mumbai Indians | 4 | 78 | 113 | 3 | 8.69 | 37.67 | 26.0 | 38.46 | 19.23 | MEDIUM |
 | Rajasthan Royals | 3 | 60 | 68 | 2 | 6.8 | 34.0 | 30.0 | 36.67 | 10.0 | MEDIUM |
 
@@ -520,8 +520,8 @@
 | Royal Challengers Bengaluru | 3 | 66 | 102 | 4 | 9.27 | 25.5 | 16.5 | 28.79 | 19.7 | MEDIUM |
 | Chennai Super Kings | 3 | 60 | 77 | 4 | 7.7 | 19.25 | 15.0 | 50.0 | 18.33 | MEDIUM |
 | Mumbai Indians | 2 | 30 | 57 | 2 | 11.4 | 28.5 | 15.0 | 40.0 | 33.33 | MEDIUM |
-| Delhi Capitals | 2 | 48 | 77 | 2 | 9.63 | 38.5 | 24.0 | 37.5 | 27.08 | MEDIUM |
 | Gujarat Titans | 2 | 42 | 67 | 2 | 9.57 | 33.5 | 21.0 | 26.19 | 26.19 | MEDIUM |
+| Delhi Capitals | 2 | 48 | 77 | 2 | 9.63 | 38.5 | 24.0 | 37.5 | 27.08 | MEDIUM |
 
 ### Vaibhav Arora
 
@@ -531,8 +531,8 @@
 | Chennai Super Kings | 4 | 90 | 131 | 7 | 8.73 | 18.71 | 12.86 | 38.89 | 20.0 | MEDIUM |
 | Delhi Capitals | 3 | 60 | 70 | 6 | 7.0 | 11.67 | 10.0 | 51.67 | 20.0 | MEDIUM |
 | Rajasthan Royals | 3 | 66 | 126 | 4 | 11.45 | 31.5 | 16.5 | 31.82 | 30.3 | MEDIUM |
-| Lucknow Super Giants | 4 | 78 | 109 | 3 | 8.38 | 36.33 | 26.0 | 35.9 | 15.38 | MEDIUM |
 | Punjab Kings | 3 | 57 | 90 | 3 | 9.47 | 30.0 | 19.0 | 36.84 | 29.82 | MEDIUM |
+| Lucknow Super Giants | 4 | 78 | 109 | 3 | 8.38 | 36.33 | 26.0 | 35.9 | 15.38 | MEDIUM |
 | Royal Challengers Bengaluru | 2 | 30 | 63 | 1 | 12.6 | 63.0 | 30.0 | 16.67 | 36.67 | MEDIUM |
 | Mumbai Indians | 2 | 31 | 52 | 0 | 10.06 | - | - | 38.71 | 25.81 | MEDIUM |
 
@@ -747,14 +747,14 @@
 |--------|------|---------|----------|--------|---------|------------|-------------|
 | Tim Seifert | Wicketkeeper | 250 | 6621 | 137 | 30.6 | HIGH | SS, CPL, BBL |
 | Finn Allen | Wicketkeeper | 120 | 1447 | 143 | 16.8 | HIGH | CPL, LPL, SA20 |
-| Tejasvi Singh | Wicketkeeper | 53 | 556 | 135 | 12.9 | HIGH | NPL, MLC, ILT20 |
+| Tejasvi Singh | Wicketkeeper | 53 | 556 | 135 | 12.9 | HIGH | MLC, NPL, ILT20 |
 | Daksh Kamra | All-rounder | 11 | 122 | 109 | 15.2 | MEDIUM | Intl, ICC T20, Intl |
 
 ### 12.2 T20 Bowling Profile
 
 | Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Tournaments |
 |--------|------|-------------|----------|----------|---------|------------|-------------|
-| Daksh Kamra | Medium | 19 | 28 | 5.1 | 13.1 | MEDIUM | Intl, Intl, ICC T20 |
+| Daksh Kamra | Medium | 19 | 28 | 5.1 | 13.1 | MEDIUM | Intl, ICC T20, Intl |
 | Prashant Solanki | Left-arm ort | 4 | 4 | 8.4 | 27.2 | LOW | SMAT |
 
 ### 12.3 Limited / No T20 Data

@@ -133,6 +133,19 @@ class Thresholds:
     ECONOMY_DEATH_BEAST = 8.5  # Economy threshold for death specialists
     ECONOMY_SPIN_FRIENDLY = 5  # Pitch bias threshold
 
+    # Spin bowling thresholds (TKT-051)
+    SPIN_PP_BEAST_ECON = 6.5
+    SPIN_PP_LIABILITY_ECON = 9.0
+    SPIN_MID_BEAST_ECON = 6.5
+    SPIN_MID_LIABILITY_ECON = 8.5
+    SPIN_DEATH_BEAST_ECON = 8.0
+    SPIN_DEATH_LIABILITY_ECON = 11.0
+
+    # Pitch bias classification (TKT-051)
+    PITCH_BIAS_DIFFERENTIAL = 5.0  # SR difference for spin/pace classification
+    MIN_SPIN_BALLS_VENUE = 200  # Minimum spin deliveries for venue bias
+    MIN_PACE_BALLS_VENUE = 200  # Minimum pace deliveries for venue bias
+
     # Vulnerability thresholds
     SPIN_VULNERABILITY_SR = 110  # SR below this indicates spin vulnerability
     SPIN_VULNERABILITY_AVG = 12  # Average below this indicates vulnerability
@@ -1573,11 +1586,12 @@ def generate_venue_analysis(
             pace_sr = round(pace_balls / pace_wkts, 1) if pace_wkts > 0 else 0
             spin_sr = round(spin_balls / spin_wkts, 1) if spin_wkts > 0 else 0
 
-            # Determine pitch bias
+            # Determine pitch bias (TKT-051: use configurable differential)
+            diff = Thresholds.PITCH_BIAS_DIFFERENTIAL
             if pace_sr > 0 and spin_sr > 0:
-                if pace_sr < spin_sr - 5:
+                if pace_sr < spin_sr - diff:
                     pitch_type = "Pace-friendly"
-                elif spin_sr < pace_sr - 5:
+                elif spin_sr < pace_sr - diff:
                     pitch_type = "Spin-friendly"
                 else:
                     pitch_type = "Balanced"
@@ -1663,7 +1677,7 @@ def generate_venue_analysis(
     md.append("### Pitch Characteristics (All IPL Venues 2023+)\n")
     md.append("*Based on bowling strike rates - lower SR = more effective*\n")
 
-    pitch_bias = conn.execute("""
+    pitch_bias = conn.execute(f"""
         WITH ipl_balls AS (
             SELECT fb.*, dv.venue_name,
                    COALESCE(bc.bowling_style, 'Unknown') as bowling_style
@@ -1693,8 +1707,8 @@ def generate_venue_analysis(
             ROUND(pace_balls * 1.0 / NULLIF(pace_wickets, 0), 1) as pace_sr,
             ROUND(spin_balls * 1.0 / NULLIF(spin_wickets, 0), 1) as spin_sr,
             CASE
-                WHEN pace_balls * 1.0 / NULLIF(pace_wickets, 0) < spin_balls * 1.0 / NULLIF(spin_wickets, 0) - 5 THEN 'PACE'
-                WHEN spin_balls * 1.0 / NULLIF(spin_wickets, 0) < pace_balls * 1.0 / NULLIF(pace_wickets, 0) - 5 THEN 'SPIN'
+                WHEN pace_balls * 1.0 / NULLIF(pace_wickets, 0) < spin_balls * 1.0 / NULLIF(spin_wickets, 0) - {Thresholds.PITCH_BIAS_DIFFERENTIAL} THEN 'PACE'
+                WHEN spin_balls * 1.0 / NULLIF(spin_wickets, 0) < pace_balls * 1.0 / NULLIF(pace_wickets, 0) - {Thresholds.PITCH_BIAS_DIFFERENTIAL} THEN 'SPIN'
                 ELSE 'BALANCED'
             END as pitch_bias
         FROM venue_pitch

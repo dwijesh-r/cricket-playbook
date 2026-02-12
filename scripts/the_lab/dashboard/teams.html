@@ -2908,10 +2908,58 @@
             const vulns = depthData && depthData.vulnerabilities ? depthData.vulnerabilities : [];
 
             // --- Venue Data (new data source) ---
-            const venueData = typeof VENUE_DATA !== 'undefined' ? VENUE_DATA[currentTeam] : null;
+            let venueData = null;
+            if (typeof VENUE_DATA !== 'undefined' && VENUE_DATA.venueProfiles && VENUE_DATA.venueProfiles[currentTeam]) {
+                const vp = VENUE_DATA.venueProfiles[currentTeam];
+                const pp = vp.phases && vp.phases.powerplay;
+                const mid = vp.phases && vp.phases.middle;
+                const dth = vp.phases && vp.phases.death;
+                const avgRR = (phase) => phase ? ((phase.battingFirst.runRate + phase.chasing.runRate) / 2).toFixed(2) : '-';
+                const avgBdry = (phase) => phase ? ((phase.battingFirst.boundaryPct + phase.chasing.boundaryPct) / 2).toFixed(1) : '-';
+                const avgDot = (phase) => phase ? ((phase.battingFirst.dotPct + phase.chasing.dotPct) / 2).toFixed(1) : '-';
+                venueData = {
+                    homeVenue: {
+                        name: vp.venueName,
+                        character: vp.character,
+                        avgFirstInningsScore: vp.avgFirstInningsScore,
+                        chaseFriendly: vp.chaseFriendly,
+                        chaseWinPct: vp.chaseWinPct,
+                        ppRunRate: avgRR(pp),
+                        middleRunRate: avgRR(mid),
+                        deathRunRate: avgRR(dth),
+                        ppBoundaryPct: avgBdry(pp),
+                        middleDotPct: avgDot(mid),
+                        deathBoundaryPct: avgBdry(dth)
+                    },
+                    records: (VENUE_DATA.teamVenueRecords && VENUE_DATA.teamVenueRecords[currentTeam]) || []
+                };
+            }
 
             // --- Historic Trends (new data source) ---
-            const historicData = typeof HISTORIC_TRENDS !== 'undefined' ? HISTORIC_TRENDS[currentTeam] : null;
+            let historicData = null;
+            if (typeof HISTORIC_TRENDS !== 'undefined' && HISTORIC_TRENDS.seasonRecords && HISTORIC_TRENDS.seasonRecords[currentTeam]) {
+                const seasons = HISTORIC_TRENDS.seasonRecords[currentTeam].map(s => ({
+                    year: s.season, matches: s.matches, wins: s.wins, losses: s.losses, winPct: s.winPct, position: s.position
+                }));
+                let phaseTrends = null;
+                const pt = HISTORIC_TRENDS.phaseTrends && HISTORIC_TRENDS.phaseTrends[currentTeam];
+                if (pt && pt.batting && pt.bowling) {
+                    const battingSR = { Powerplay: {}, Middle: {}, Death: {} };
+                    const bowlingEcon = { Powerplay: {}, Middle: {}, Death: {} };
+                    pt.batting.forEach(b => {
+                        battingSR.Powerplay[b.season] = b.powerplaySR;
+                        battingSR.Middle[b.season] = b.middleSR;
+                        battingSR.Death[b.season] = b.deathSR;
+                    });
+                    pt.bowling.forEach(b => {
+                        bowlingEcon.Powerplay[b.season] = b.powerplayEcon;
+                        bowlingEcon.Middle[b.season] = b.middleEcon;
+                        bowlingEcon.Death[b.season] = b.deathEcon;
+                    });
+                    phaseTrends = { battingSR, bowlingEcon };
+                }
+                historicData = { seasons, phaseTrends };
+            }
 
             // ===== Build Section 1: Team Composition Scorecard =====
             let section1HTML = `

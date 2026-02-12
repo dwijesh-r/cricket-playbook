@@ -6515,7 +6515,7 @@
             { id: 'TKT-041', title: 'Create depth chart algorithm', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 100, tags: ['Algorithm', 'Core'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               context: { ask: 'Create algorithm to rank players by position', goal: 'Composite scoring system for positional ranking', reason: 'PRD requirement: Automated depth chart generation', audible: ['Design scoring formula', 'Implement algorithm', 'Test with sample data', 'Domain review'] }
             },
-            { id: 'TKT-042', title: 'Generate all 10 depth charts', state: 'REVIEW', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 95, tags: ['Pipeline', 'Output', '🌹 Founder Review'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES' }, entered_review_date: '2026-02-03', daysSpent: 4, iterations: 2,
+            { id: 'TKT-042', title: 'Generate all 10 depth charts', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 100, tags: ['Pipeline', 'Output'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', domain_sanity: 'YES', founder_validation: 'APPROVED' }, entered_review_date: '2026-02-03', daysSpent: 4, iterations: 2,
               founderReviewNote: 'Review depth chart pipeline outputs for all 10 IPL teams. Verify positional rankings (1-11) are generated correctly with composite scores matching cricket logic.',
               links: [
                 { label: 'Depth Charts Folder', url: 'https://github.com/dwijesh-r/cricket-playbook/tree/main/outputs/depth_charts' },
@@ -6578,7 +6578,7 @@
                 audible: ['Query partnership data from DuckDB', 'Calculate partnership metrics', 'Add to stat pack generator', 'Test with MI, CSK']
               }
             },
-            { id: 'TKT-050', title: 'Add pressure performance section', state: 'RUNNING', priority: 'P1', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 30, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED' }, plan: 'docs/plans/TKT_050_PRESSURE_PERFORMANCE_PLAN.md',
+            { id: 'TKT-050', title: 'Add pressure performance section', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Feature', 'Analytics'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' }, plan: 'docs/plans/TKT_050_PRESSURE_PERFORMANCE_PLAN.md',
               founderReviewNote: 'Review the Pressure Performance plan. Verify pressure scenario definitions (RRR > 10, last 5 overs) and clutch factor methodology before implementation continues.',
               context: {
                 ask: 'Add Pressure Performance section showing high-RRR scenario batting',
@@ -7631,7 +7631,7 @@ Gate Inheritance:
             },
 
             // Ops & Tooling
-            { id: 'TKT-103', title: 'Configure GitHub email notifications', state: 'VALIDATION', priority: 'P2', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-010', progress: 95, tags: ['Ops', 'GitHub', '🌹 Awaiting Founder'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' }, daysSpent: 1, iterations: 1,
+            { id: 'TKT-103', title: 'Configure GitHub email notifications', state: 'DONE', priority: 'P2', effort: 'quick-win', assignee: 'Founder', epic: 'EPIC-010', progress: 100, tags: ['Ops', 'GitHub'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS', founder_validation: 'APPROVED' }, daysSpent: 1, iterations: 1,
               founderReviewNote: 'Configure 3 GitHub secrets (EMAIL_USERNAME, EMAIL_APP_PASSWORD, NOTIFY_EMAIL) in repo Settings → Secrets → Actions. The notify-on-push workflow is ready and waiting for these credentials.',
               links: [
                 { label: 'GitHub Repo Settings', url: 'https://github.com/dwijesh-r/cricket-playbook/settings' },
@@ -7773,14 +7773,14 @@ Gate Inheritance:
             { id: 'TKT-178', title: 'Research Desk — Design & Visual Integration', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-012', progress: 100, tags: ['Frontend', 'Design', 'Research Desk'], gates: { florentino_gate: 'APPROVED', domain_sanity: { andy_flower: 'YES' }, system_check: 'PASS', founder_validation: 'APPROVED' },
               context: { ask: 'Build research-desk.html page with consistent design language, nav integration', goal: 'Seamless visual integration with The Lab', reason: 'Must feel like a natural extension, not bolted on', audible: ['Create HTML page', 'Match Lab design', 'Update all nav links'] }
             },
-            { id: 'TKT-179', title: 'Document Film Room NL Search Patterns & Example Prompts', state: 'RUNNING', priority: 'P1', effort: 'hustle', assignee: 'Founder', epic: 'EPIC-012', progress: 0, tags: ['Documentation', 'Research Desk'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-179', title: 'Document Film Room NL Search Patterns & Example Prompts', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Founder', epic: 'EPIC-012', progress: 100, tags: ['Documentation', 'Research Desk'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               founderReviewNote: 'Founder-owned task: Document all 11 NL search patterns with example prompts for Film Room users. Create the reference doc when ready.',
               context: { ask: 'Create reference doc listing all 11 NL search patterns with example prompts', goal: 'Help users understand what queries work in the Film Room', reason: 'Users need guidance on NL search capabilities', audible: ['Document 11 patterns', 'Write example prompts', 'Note limitations'] }
             },
             { id: 'TKT-180', title: 'Mobile-First Film Room: Lightweight DuckDB Strategy', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-012', progress: 100, tags: ['Mobile', 'Performance', 'Research Desk'], gates: { florentino_gate: 'APPROVED', domain_sanity: { andy_flower: 'YES' }, system_check: 'PASS', founder_validation: 'APPROVED' },
               context: { ask: 'Implement httpfs remote Parquet for fact_ball on mobile to avoid memory crashes', goal: 'Full Film Room functionality on mobile devices', reason: 'Mobile is primary audience — cannot block DuckDB on mobile', audible: ['Implement httpfs strategy', 'HTTP range requests for fact_ball', 'Desktop unchanged'] }
             },
-            { id: 'TKT-181', title: 'Film Room SQL Views Overhaul: Dual-Scope + 13 New Views', state: 'RUNNING', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-005', progress: 90, tags: ['Analytics', 'Film Room', 'Research Desk'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-181', title: 'NL Search Engine: dynamic query builder for Research Desk (Film Room)', state: 'DONE', priority: 'P1', effort: 'marathon', assignee: 'Jose Mourinho', epic: 'EPIC-005', progress: 100, tags: ['Analytics', 'Film Room', 'Research Desk'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               context: { ask: 'Audit all 35+ Film Room SQL views for IPL data scope, create dual-scope naming (_alltime/_since2023), add 13 new tactical views', goal: '80 dual-scope views + all scripts using 2023+ data + SQL editor fixes', reason: 'Data scope clarity is critical — 2023+ IPL is the analytical window', audible: ['Create dual-scope views', 'Migrate scripts to _since2023', 'Fix SQL editor escaping', 'Regenerate all outputs'] }
             },
             { id: 'TKT-182', title: 'T20 Fallback Data for Uncapped IPL Players in Stat Packs', state: 'REVIEW', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 0, tags: ['Analytics', 'Stat Packs'], gates: { florentino_gate: 'APPROVED' },

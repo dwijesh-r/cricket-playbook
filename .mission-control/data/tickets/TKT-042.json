@@ -1,14 +1,41 @@
 {
   "id": "TKT-042",
-  "epic_id": "EPIC-005",
   "title": "Create outputs/metrics/README.md",
-  "description": "Document metrics outputs with purpose and schema",
-  "state": "REVIEW",
+  "state": "DONE",
   "priority": "P1",
-  "progress_pct": 0,
+  "progress_pct": 100,
+  "description": "Document metrics outputs with purpose and schema",
+  "epic_id": "EPIC-005",
   "owner": "Stephen Curry",
   "sprint_id": "SPRINT-001",
-  "gates": {},
+  "gates": {
+    "domain_sanity": {
+      "andy_flower": "YES",
+      "date": "2026-02-12",
+      "jose_mourinho": "YES",
+      "pep_guardiola": "YES"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "issues": [],
+      "checked_by": "Tom Brady",
+      "date": "2026-02-12"
+    },
+    "system_check": {
+      "status": "PASS",
+      "tests_passed": 253,
+      "tests_total": 253,
+      "checked_by": "Kante",
+      "date": "2026-02-12"
+    },
+    "founder_validation": {
+      "status": "APPROVED",
+      "feedback": "README.md exists with full schema documentation for all 9 metric CSVs. Deliverable complete.",
+      "validated_by": "Founder",
+      "date": "2026-02-12"
+    }
+  },
   "created_at": "2026-02-03T00:00:00Z",
-  "updated_at": "2026-02-05T00:00:00Z"
+  "updated_at": "2026-02-12T02:08:47.594467Z",
+  "completed_at": "2026-02-12T02:08:47.592917Z"
 }

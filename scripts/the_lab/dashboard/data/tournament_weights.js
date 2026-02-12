@@ -41,9 +41,9 @@ var TOURNAMENT_WEIGHTS = {
         {
             tournament: "Syed Mushtaq Ali Trophy",
             key: "syed_mushtaq_ali_trophy",
-            compositeWeight: 0.6603,
+            compositeWeight: 0.6454,
             tier: "1B",
-            factors: { pqi: 0.5682, effective_ci: 0.3598, recency: 0.8409, conditions_similarity: 0.85, sample_confidence: 0.95 },
+            factors: { pqi: 0.5682, effective_ci: 0.3598, recency: 0.8409, conditions_similarity: 0.73, sample_confidence: 0.95 },
             seasonsAnalyzed: 9,
             totalMatches: 695
         },
@@ -158,7 +158,7 @@ var TOURNAMENT_WEIGHTS = {
     ],
     conditionsReasoning: {
         indian_premier_league: "Baseline. IPL conditions are the reference standard.",
-        syed_mushtaq_ali_trophy: "Same Indian grounds and pitch types, but lower-quality outfields, smaller crowds, and domestic-level pressure. Strong conditions overlap; lower intensity.",
+        syed_mushtaq_ali_trophy: "Same Indian grounds but 2023+ data shows 1.48 RR gap and 4.0 Bdry% gap from IPL. No Impact Player rule, lower outfield quality, domestic-level pressure.",
         pakistan_super_league: "Subcontinent venue profile with similar spinning conditions and heat. Key differences: Pakistan pitches tend to be slower and lower-scoring.",
         lanka_premier_league: "Subcontinent with spin-friendly conditions. Sri Lankan pitches offer more turn and are generally slower than IPL surfaces.",
         sa20: "Pace-friendly South African wickets differ substantially from Indian conditions. Higher bounce, more seam movement, different ball behavior.",

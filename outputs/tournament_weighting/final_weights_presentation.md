@@ -2,7 +2,7 @@
 
 **Owner:** Jose Mourinho (Quant Researcher)
 **Parent Ticket:** TKT-183 (Tournament Quality Weighting System)
-**Generated:** 2026-02-12T02:35:25.077253+00:00
+**Generated:** 2026-02-12T14:40:13.992048+00:00
 **Status:** READY FOR FOUNDER APPROVAL
 
 ---
@@ -37,7 +37,7 @@ This document presents the **final composite tournament weights** for the Cricke
 | Rank | Tournament | Composite | Tier | PQI | Eff CI | Recency | Conditions | Sample | Seasons | Matches |
 |------|-----------|-----------|------|-----|--------|--------|------------|--------|---------|---------|
 | 1 | Indian Premier League | **0.8721** | **1A** | 1.00 | 0.53 | 1.00 | 1.00 | 0.95 | 18 | 1169 |
-| 2 | Syed Mushtaq Ali Trophy | **0.6603** | **1B** | 0.57 | 0.36 | 0.84 | 0.85 | 0.95 | 9 | 695 |
+| 2 | Syed Mushtaq Ali Trophy | **0.6454** | **1B** | 0.57 | 0.36 | 0.84 | 0.73 | 0.95 | 9 | 695 |
 | 3 | Big Bash League | **0.5261** | **1C** | 0.21 | 0.49 | 1.00 | 0.50 | 0.95 | 15 | 654 |
 | 4 | Pakistan Super League | **0.5140** | **1C** | 0.18 | 0.49 | 0.90 | 0.65 | 0.95 | 11 | 314 |
 | 5 | The Hundred | **0.5035** | **1C** | 0.22 | 0.53 | 1.00 | 0.40 | 0.79 | 5 | 167 |
@@ -64,8 +64,8 @@ This document presents the **final composite tournament weights** for the Cricke
 ### Tier 1B: High Quality -- strong across most factors, composite >= 0.50
 **Count:** 1
 
-- **Syed Mushtaq Ali Trophy** (composite: 0.6603)
-  - Strengths: Recency (0.84), Conditions Similarity (0.85), Sample Confidence (0.95)
+- **Syed Mushtaq Ali Trophy** (composite: 0.6454)
+  - Strengths: Recency (0.84), Conditions Similarity (0.73), Sample Confidence (0.95)
 
 ### Tier 1C: Moderate Quality -- useful data but with notable weaknesses, composite 0.40-0.50
 **Count:** 8
@@ -118,7 +118,7 @@ This document presents the **final composite tournament weights** for the Cricke
 
 1. **Indian Premier League** is the clear Tier 1A tournament (composite: 0.8721). Its dominance comes from having the highest PQI (1.00), perfect conditions similarity (1.00), and the largest sample size.
 
-2. **Gap between #1 and #2:** 0.2118. This confirms separation of the IPL from the rest of the field.
+2. **Gap between #1 and #2:** 0.2267. This confirms separation of the IPL from the rest of the field.
 
 3. **Surprises and Edge Cases:**
 
@@ -136,11 +136,11 @@ How correlated are the 5 factors? High correlation between factors would indicat
 
 | | PQI | Eff CI | Recency | Conditions | Sample |
 |---|-----|--------|---------|------------|--------|
-| **PQI** | 1.00 | -0.21 | 0.04 | 0.85 | 0.24 |
-| **Eff CI** | -0.21 | 1.00 | 0.30 | -0.18 | 0.12 |
-| **Recency** | 0.04 | 0.30 | 1.00 | -0.10 | 0.06 |
-| **Conditions** | 0.85 | -0.18 | -0.10 | 1.00 | 0.29 |
-| **Sample** | 0.24 | 0.12 | 0.06 | 0.29 | 1.00 |
+| **PQI** | 1.00 | -0.21 | 0.04 | 0.84 | 0.24 |
+| **Eff CI** | -0.21 | 1.00 | 0.30 | -0.06 | 0.12 |
+| **Recency** | 0.04 | 0.30 | 1.00 | -0.05 | 0.06 |
+| **Conditions** | 0.84 | -0.06 | -0.05 | 1.00 | 0.26 |
+| **Sample** | 0.24 | 0.12 | 0.06 | 0.26 | 1.00 |
 
 **Interpretation:** Low cross-factor correlations confirm that the 5 factors measure distinct quality dimensions. The geometric mean correctly combines these independent signals into a holistic tournament quality score.
 
@@ -153,7 +153,7 @@ The Conditions Similarity factor is expert-defined. Below is the reasoning for e
 | Tournament | Score | Reasoning |
 |-----------|-------|-----------|
 | Indian Premier League | 1.00 | Baseline. IPL conditions are the reference standard. |
-| Syed Mushtaq Ali Trophy | 0.85 | Same Indian grounds and pitch types, but lower-quality outfields, smaller crowds, and domestic-level pressure. Strong conditions overlap; lower intensity. |
+| Syed Mushtaq Ali Trophy | 0.73 | Same Indian grounds and pitch types, but 2023+ data shows a 1.48 RR gap and 4.0 Bdry% gap from IPL — larger than PSL's gaps. Lower-quality outfields, no Impact Player rule, and domestic-level pressure significantly reduce transferability. |
 | Pakistan Super League | 0.65 | Subcontinent venue profile with similar spinning conditions and heat. Key differences: Pakistan pitches tend to be slower and lower-scoring. Lahore/Karachi wickets behave differently from Mumbai/Bengaluru. |
 | Lanka Premier League | 0.60 | Subcontinent with spin-friendly conditions. Sri Lankan pitches offer more turn and are generally slower than IPL surfaces. Pallekele and Hambantota differ significantly from Indian venues. |
 | SA20 | 0.55 | Pace-friendly South African wickets (Wanderers, Newlands, SuperSport Park) differ substantially from Indian conditions. Higher bounce, more seam movement, different ball behavior. |
@@ -175,8 +175,8 @@ The gaps between adjacent tournaments help identify natural tier boundaries:
 
 | Between | Gap | Significance |
 |---------|-----|-------------|
-| IPL-SMAT | 0.2118 | LARGE -- clear tier boundary |
-| SMAT-BBL | 0.1342 | LARGE -- clear tier boundary |
+| IPL-SMAT | 0.2267 | LARGE -- clear tier boundary |
+| SMAT-BBL | 0.1193 | LARGE -- clear tier boundary |
 | BBL-PSL | 0.0121 | Minimal -- same cluster |
 | PSL-Hundred | 0.0105 | Minimal -- same cluster |
 | Hundred-SA20 | 0.0014 | Minimal -- same cluster |

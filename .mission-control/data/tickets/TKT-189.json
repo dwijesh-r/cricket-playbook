@@ -1,9 +1,9 @@
 {
   "id": "TKT-189",
   "title": "TKT-183.6: Phase 3 \u2014 Domain Sanity & Statistical Validation",
-  "state": "READY",
+  "state": "DONE",
   "priority": "P1",
-  "progress_pct": 0,
+  "progress_pct": 100,
   "description": "Validation phase. Domain sanity review (Andy Flower), statistical robustness checks (Jose Mourinho), edge case analysis (Pep Guardiola). Verify weights produce cricket-sensible outputs. Check for outliers, small-sample artifacts, and counter-intuitive rankings. Estimated: 1-2 days.",
   "epic_id": "EPIC-016",
   "parent": "TKT-183",
@@ -21,6 +21,11 @@
       "title": "Tournament Quality Weighting Plan (Founder Approved)",
       "path": "reviews/founder/tournament_weighting_plan_021126_v1.md",
       "relevance": "Phase 3 spec, veto rights (Section: Governance)"
+    },
+    {
+      "title": "Domain Sanity & Statistical Validation Review",
+      "path": "reviews/domain_sanity/TKT_189_domain_validation_021226_v1.md",
+      "relevance": "Phase 3 output: formal review with APPROVED WITH CONDITIONS verdict"
     }
   ],
   "gates": {
@@ -28,8 +33,27 @@
       "status": "APPROVED",
       "reason": "Sub-ticket of TKT-183 (already approved).",
       "date": "2026-02-11"
+    },
+    "domain_sanity": {
+      "status": "APPROVED_WITH_CONDITIONS",
+      "reviewers": ["Andy Flower", "Jose Mourinho", "Pep Guardiola"],
+      "verdict": "APPROVED WITH CONDITIONS",
+      "conditions": [
+        "MAJOR-01: Reduce SMAT conditions_similarity from 0.85 to 0.72-0.75 (quantitative evidence shows 1.48 RR gap and 4.0 Bdry% gap from IPL 2023+)",
+        "MINOR-01: Document IPL baseline metric discrepancy (plan RR 8.98 vs DB 9.39)",
+        "MINOR-02: Document match count discrepancies (VB: 967 vs 835, T20WC: 231 vs 124)"
+      ],
+      "date": "2026-02-12"
     }
   },
+  "review_notes": {
+    "verdict": "APPROVED WITH CONDITIONS",
+    "critical_findings": 0,
+    "major_findings": 1,
+    "minor_findings": 4,
+    "key_finding": "SMAT conditions_similarity (0.85) is too high relative to quantitative evidence. All other weights are cricket-sensible and statistically robust. Geometric mean formula verified. PQI scores verified against DuckDB. Match counts verified. No small-sample artifacts detected.",
+    "next_step": "TIL Step 4 (Enforcement - Tom Brady) once MAJOR-01 is addressed"
+  },
   "created_at": "2026-02-11T16:22:58.157851Z",
-  "updated_at": "2026-02-11T17:45:00.000000Z"
+  "updated_at": "2026-02-12T12:00:00.000000Z"
 }

@@ -117,11 +117,12 @@ CONDITIONS_SIMILARITY = {
         "reasoning": "Baseline. IPL conditions are the reference standard.",
     },
     "syed_mushtaq_ali_trophy": {
-        "score": 0.85,
+        "score": 0.73,
         "reasoning": (
-            "Same Indian grounds and pitch types, but lower-quality "
-            "outfields, smaller crowds, and domestic-level pressure. "
-            "Strong conditions overlap; lower intensity."
+            "Same Indian grounds and pitch types, but 2023+ data shows "
+            "a 1.48 RR gap and 4.0 Bdry% gap from IPL — larger than PSL's "
+            "gaps. Lower-quality outfields, no Impact Player rule, and "
+            "domestic-level pressure significantly reduce transferability."
         ),
     },
     "pakistan_super_league": {

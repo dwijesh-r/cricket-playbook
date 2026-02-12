@@ -3,7 +3,7 @@
     "formula": "geometric_mean",
     "decay_halflife_years": 4.0,
     "conditions_baseline": "IPL 2023-2025",
-    "computed_at": "2026-02-12T02:35:25.077253+00:00",
+    "computed_at": "2026-02-12T14:40:13.992048+00:00",
     "ticket": "TKT-187",
     "owner": "Jose Mourinho",
     "factor_weights": {
@@ -35,13 +35,13 @@
     {
       "tournament": "Syed Mushtaq Ali Trophy",
       "tournament_key": "syed_mushtaq_ali_trophy",
-      "composite_weight": 0.6603,
+      "composite_weight": 0.6454,
       "tier": "1B",
       "factors": {
         "pqi": 0.5682,
         "effective_ci": 0.3598,
         "recency": 0.8409,
-        "conditions_similarity": 0.85,
+        "conditions_similarity": 0.73,
         "sample_confidence": 0.95
       },
       "seasons_analyzed": 9,
@@ -230,7 +230,7 @@
   ],
   "conditions_similarity_reasoning": {
     "indian_premier_league": "Baseline. IPL conditions are the reference standard.",
-    "syed_mushtaq_ali_trophy": "Same Indian grounds and pitch types, but lower-quality outfields, smaller crowds, and domestic-level pressure. Strong conditions overlap; lower intensity.",
+    "syed_mushtaq_ali_trophy": "Same Indian grounds and pitch types, but 2023+ data shows a 1.48 RR gap and 4.0 Bdry% gap from IPL \u2014 larger than PSL's gaps. Lower-quality outfields, no Impact Player rule, and domestic-level pressure significantly reduce transferability.",
     "pakistan_super_league": "Subcontinent venue profile with similar spinning conditions and heat. Key differences: Pakistan pitches tend to be slower and lower-scoring. Lahore/Karachi wickets behave differently from Mumbai/Bengaluru.",
     "lanka_premier_league": "Subcontinent with spin-friendly conditions. Sri Lankan pitches offer more turn and are generally slower than IPL surfaces. Pallekele and Hambantota differ significantly from Indian venues.",
     "sa20": "Pace-friendly South African wickets (Wanderers, Newlands, SuperSport Park) differ substantially from Indian conditions. Higher bounce, more seam movement, different ball behavior.",

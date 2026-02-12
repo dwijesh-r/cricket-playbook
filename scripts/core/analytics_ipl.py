@@ -4005,7 +4005,7 @@ def create_tournament_weights_table(conn: duckdb.DuckDBPyConnection) -> None:
     conn.execute("""
         INSERT INTO dim_tournament_weights VALUES
         ('Indian Premier League',           '1A', 0.8721, 1.00, 0.53, 1.00, 1.00, 0.95, 18, 1169),
-        ('Syed Mushtaq Ali Trophy',         '1B', 0.6603, 0.57, 0.36, 0.84, 0.85, 0.95,  9,  695),
+        ('Syed Mushtaq Ali Trophy',         '1B', 0.6454, 0.57, 0.36, 0.84, 0.73, 0.95,  9,  695),
         ('Big Bash League',                 '1C', 0.5261, 0.21, 0.49, 1.00, 0.50, 0.95, 15,  654),
         ('Pakistan Super League',           '1C', 0.5140, 0.18, 0.49, 0.90, 0.65, 0.95, 11,  314),
         ('The Hundred Men''s Competition',  '1C', 0.5035, 0.22, 0.53, 1.00, 0.40, 0.79,  5,  167),
@@ -4023,6 +4023,190 @@ def create_tournament_weights_table(conn: duckdb.DuckDBPyConnection) -> None:
     # Verify
     count = conn.execute("SELECT COUNT(*) FROM dim_tournament_weights").fetchone()[0]
     print(f"  - dim_tournament_weights: {count} tournaments loaded")
+
+
+def create_weighted_composite_views(conn: duckdb.DuckDBPyConnection) -> None:
+    """Create weighted cross-tournament composite views (TKT-190).
+
+    Joins per-tournament player stats with dim_tournament_weights to produce
+    weighted composite batting/bowling profiles. Used for:
+    - Small-sample IPL player enrichment (<300 bat balls, <200 bowl balls)
+    - Uncapped player confidence scoring
+    - CricPom feed data layer
+    """
+
+    print("\nCreating Weighted Composite views (TKT-190)...")
+
+    # Weighted composite batting: per player, aggregated across tournaments
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_weighted_composite_batting AS
+        WITH per_tournament AS (
+            SELECT
+                fb.batter_id AS player_id,
+                dp.current_name AS player_name,
+                dt.tournament_name,
+                dtw.composite_weight,
+                dtw.tier,
+                COUNT(DISTINCT fb.match_id) AS matches,
+                SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS balls_faced,
+                SUM(fb.batter_runs) AS runs,
+                SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN
+                    ('run out', 'retired hurt', 'retired out', 'obstructing the field')
+                    THEN 1 ELSE 0 END) AS dismissals,
+                SUM(CASE WHEN fb.batter_runs = 4 THEN 1 ELSE 0 END) AS fours,
+                SUM(CASE WHEN fb.batter_runs = 6 THEN 1 ELSE 0 END) AS sixes
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            JOIN dim_tournament_weights dtw ON dt.tournament_name = dtw.tournament_name
+            JOIN dim_player dp ON fb.batter_id = dp.player_id
+            WHERE fb.is_legal_ball = true
+            GROUP BY fb.batter_id, dp.current_name, dt.tournament_name,
+                     dtw.composite_weight, dtw.tier
+            HAVING balls_faced >= 20
+        )
+        SELECT
+            player_id,
+            player_name,
+            COUNT(DISTINCT tournament_name) AS tournaments_played,
+            SUM(matches) AS total_matches,
+            SUM(balls_faced) AS total_balls,
+            SUM(runs) AS total_runs,
+            -- Weighted strike rate: SUM(runs * weight) / SUM(balls * weight) * 100
+            ROUND(SUM(runs * composite_weight) * 100.0
+                / NULLIF(SUM(balls_faced * composite_weight), 0), 2) AS weighted_sr,
+            -- Weighted average: SUM(runs * weight) / SUM(dismissals * weight)
+            ROUND(SUM(runs * composite_weight)
+                / NULLIF(SUM(dismissals * composite_weight), 0), 2) AS weighted_avg,
+            -- Raw (unweighted) SR for comparison
+            ROUND(SUM(runs) * 100.0 / NULLIF(SUM(balls_faced), 0), 2) AS raw_sr,
+            -- Weighted boundary %
+            ROUND(SUM((fours + sixes) * composite_weight) * 100.0
+                / NULLIF(SUM(balls_faced * composite_weight), 0), 2) AS weighted_boundary_pct,
+            -- Confidence score: weighted sum of balls / max possible
+            ROUND(SUM(balls_faced * composite_weight)
+                / NULLIF(SUM(balls_faced), 0), 4) AS avg_weight,
+            -- Top 3 tournaments by balls faced
+            LIST(STRUCT_PACK(
+                t := tournament_name,
+                w := composite_weight,
+                b := balls_faced,
+                sr := ROUND(runs * 100.0 / NULLIF(balls_faced, 0), 1)
+            ) ORDER BY balls_faced DESC)[:3] AS top_tournaments
+        FROM per_tournament
+        GROUP BY player_id, player_name
+    """)
+    print("  - analytics_weighted_composite_batting created")
+
+    # Weighted composite bowling
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_weighted_composite_bowling AS
+        WITH per_tournament AS (
+            SELECT
+                fb.bowler_id AS player_id,
+                dp.current_name AS player_name,
+                dt.tournament_name,
+                dtw.composite_weight,
+                dtw.tier,
+                COUNT(DISTINCT fb.match_id) AS matches,
+                SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS legal_balls,
+                SUM(fb.total_runs) AS runs_conceded,
+                SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) AS wickets,
+                SUM(CASE WHEN fb.batter_runs = 0 AND fb.is_legal_ball
+                    THEN 1 ELSE 0 END) AS dot_balls
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            JOIN dim_tournament_weights dtw ON dt.tournament_name = dtw.tournament_name
+            JOIN dim_player dp ON fb.bowler_id = dp.player_id
+            WHERE fb.is_legal_ball = true
+            GROUP BY fb.bowler_id, dp.current_name, dt.tournament_name,
+                     dtw.composite_weight, dtw.tier
+            HAVING legal_balls >= 12
+        )
+        SELECT
+            player_id,
+            player_name,
+            COUNT(DISTINCT tournament_name) AS tournaments_played,
+            SUM(matches) AS total_matches,
+            SUM(legal_balls) AS total_balls,
+            SUM(wickets) AS total_wickets,
+            -- Weighted economy: SUM(runs * weight) / SUM(overs * weight) * 6
+            ROUND(SUM(runs_conceded * composite_weight) * 6.0
+                / NULLIF(SUM(legal_balls * composite_weight), 0), 2) AS weighted_economy,
+            -- Weighted SR: SUM(balls * weight) / SUM(wickets * weight)
+            ROUND(SUM(legal_balls * composite_weight)
+                / NULLIF(SUM(wickets * composite_weight), 0), 2) AS weighted_bowling_sr,
+            -- Raw economy for comparison
+            ROUND(SUM(runs_conceded) * 6.0 / NULLIF(SUM(legal_balls), 0), 2) AS raw_economy,
+            -- Weighted dot ball %
+            ROUND(SUM(dot_balls * composite_weight) * 100.0
+                / NULLIF(SUM(legal_balls * composite_weight), 0), 2) AS weighted_dot_pct,
+            -- Avg weight
+            ROUND(SUM(legal_balls * composite_weight)
+                / NULLIF(SUM(legal_balls), 0), 4) AS avg_weight,
+            -- Top 3 tournaments
+            LIST(STRUCT_PACK(
+                t := tournament_name,
+                w := composite_weight,
+                b := legal_balls,
+                econ := ROUND(runs_conceded * 6.0 / NULLIF(legal_balls, 0), 1)
+            ) ORDER BY legal_balls DESC)[:3] AS top_tournaments
+        FROM per_tournament
+        GROUP BY player_id, player_name
+    """)
+    print("  - analytics_weighted_composite_bowling created")
+
+    # Small-sample IPL player enrichment view (players with <300 bat / <200 bowl balls in IPL 2023+)
+    conn.execute(f"""
+        CREATE OR REPLACE VIEW analytics_ipl_small_sample_enrichment AS
+        WITH ipl_bat AS (
+            SELECT
+                fb.batter_id AS player_id,
+                SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS ipl_balls
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            WHERE dm.tournament_id = 'indian_premier_league'
+              AND dm.match_date >= '{IPL_MIN_DATE}'
+            GROUP BY fb.batter_id
+        ),
+        ipl_bowl AS (
+            SELECT
+                fb.bowler_id AS player_id,
+                SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS ipl_balls
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            WHERE dm.tournament_id = 'indian_premier_league'
+              AND dm.match_date >= '{IPL_MIN_DATE}'
+            GROUP BY fb.bowler_id
+        )
+        SELECT
+            sq.player_id,
+            sq.player_name,
+            sq.team_name,
+            sq.role,
+            COALESCE(ib.ipl_balls, 0) AS ipl_bat_balls,
+            COALESCE(ibl.ipl_balls, 0) AS ipl_bowl_balls,
+            CASE WHEN COALESCE(ib.ipl_balls, 0) < 300 THEN true ELSE false END AS bat_small_sample,
+            CASE WHEN COALESCE(ibl.ipl_balls, 0) < 200 THEN true ELSE false END AS bowl_small_sample,
+            wcb.weighted_sr AS cross_tournament_bat_sr,
+            wcb.weighted_avg AS cross_tournament_bat_avg,
+            wcb.weighted_boundary_pct AS cross_tournament_boundary_pct,
+            wcb.tournaments_played AS bat_tournaments,
+            wcb.total_balls AS bat_total_t20_balls,
+            wcbl.weighted_economy AS cross_tournament_bowl_econ,
+            wcbl.weighted_bowling_sr AS cross_tournament_bowl_sr,
+            wcbl.weighted_dot_pct AS cross_tournament_dot_pct,
+            wcbl.tournaments_played AS bowl_tournaments,
+            wcbl.total_balls AS bowl_total_t20_balls
+        FROM ipl_2026_squads sq
+        LEFT JOIN ipl_bat ib ON sq.player_id = ib.player_id
+        LEFT JOIN ipl_bowl ibl ON sq.player_id = ibl.player_id
+        LEFT JOIN analytics_weighted_composite_batting wcb ON sq.player_id = wcb.player_id
+        LEFT JOIN analytics_weighted_composite_bowling wcbl ON sq.player_id = wcbl.player_id
+        WHERE COALESCE(ib.ipl_balls, 0) < 300 OR COALESCE(ibl.ipl_balls, 0) < 200
+    """)
+    print("  - analytics_ipl_small_sample_enrichment created")
 
 
 def create_team_phase_views(conn: duckdb.DuckDBPyConnection) -> None:
@@ -4186,6 +4370,7 @@ def main() -> int:
     create_film_room_views(conn)
     create_pressure_performance_views(conn)
     create_tournament_weights_table(conn)
+    create_weighted_composite_views(conn)
     create_team_phase_views(conn)
 
     # Verify

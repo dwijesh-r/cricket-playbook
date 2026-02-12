@@ -5,11 +5,13 @@
 # Owner: Brad Stevens (Architecture & Performance)
 # Based on: Kevin de Bruyne's visualization work
 # Fixed: Ime Udoka - added permissions, lightweight deps, resilient verify
+# Fixed: Ime Udoka - switched to GitHub Actions Pages deployment to prevent
+#        cascading "pages build and deployment" cancellation emails
 #
 # This workflow:
 # 1. Runs after output generation completes
 # 2. Updates The Lab dashboard data files
-# 3. Commits changes for GitHub Pages auto-publish
+# 3. Deploys directly to GitHub Pages (no auto-build needed)
 
 name: Deploy Dashboard
 
@@ -18,6 +20,10 @@ on:
   workflow_run:
     workflows: ["Generate Outputs"]
     types: [completed]
+    branches: [main]
+
+  # Also run on direct pushes to main (replaces built-in Pages auto-deploy)
+  push:
     branches: [main]
 
   # Manual trigger
@@ -29,23 +35,30 @@ on:
         default: "false"
         type: boolean
 
-# Required for git push (workflow_run events default to read-only token)
+# Required for Pages deployment + git push
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
-# Prevent multiple deploy runs from racing — only latest matters
+# Only one deploy at a time — cancels older runs, prevents cascading builds
 concurrency:
-  group: deploy-dashboard
+  group: pages
   cancel-in-progress: true
 
 jobs:
   # ==========================================================================
-  # Update The Lab Dashboard
+  # Update The Lab Dashboard Data
   # ==========================================================================
   update-the-lab:
     name: "Update The Lab Dashboard"
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    # For workflow_run: only if the triggering workflow succeeded
+    # For push/dispatch: always run
+    if: >-
+      github.event_name == 'push' ||
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
     steps:
       - uses: actions/checkout@v4
         with:
@@ -78,7 +91,7 @@ jobs:
             echo "Dashboard changes detected"
           fi
 
-      - name: Commit and push
+      - name: Commit and push data updates
         if: steps.changes.outputs.has_changes == 'true' || github.event.inputs.force_update == 'true'
         run: |
           git config user.name "github-actions[bot]"
@@ -105,48 +118,45 @@ jobs:
 
           git push
 
+  # ==========================================================================
+  # Deploy to GitHub Pages (replaces built-in "pages build and deployment")
+  # ==========================================================================
+  deploy:
+    name: "Deploy to GitHub Pages"
+    runs-on: ubuntu-latest
+    needs: update-the-lab
+    if: ${{ !cancelled() && (needs.update-the-lab.result == 'success' || needs.update-the-lab.result == 'skipped') }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Get latest commit (including any data updates from previous job)
+          ref: main
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Deploy the entire repo (GitHub Pages serves from root)
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
       - name: Summary
         run: |
           echo "## Dashboard Deployment Complete" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### The Lab Dashboard" >> $GITHUB_STEP_SUMMARY
           echo "- **URL:** https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/" >> $GITHUB_STEP_SUMMARY
-          echo "- **Status:** Updated and live" >> $GITHUB_STEP_SUMMARY
+          echo "- **Status:** Deployed via GitHub Actions" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### Updated Data Files:" >> $GITHUB_STEP_SUMMARY
-          ls -la scripts/the_lab/dashboard/data/*.js 2>/dev/null | while read line; do
-            echo "- $line" >> $GITHUB_STEP_SUMMARY
-          done
+          echo "### Mission Control Dashboard" >> $GITHUB_STEP_SUMMARY
+          echo "- **URL:** https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "*Deployed by Brad Stevens' automation pipeline*" >> $GITHUB_STEP_SUMMARY
-
-  # ==========================================================================
-  # Verify Deployment
-  # ==========================================================================
-  verify:
-    name: "Verify Dashboard Live"
-    runs-on: ubuntu-latest
-    needs: update-the-lab
-    # Only verify if the update job actually ran (not skipped)
-    if: ${{ !cancelled() && needs.update-the-lab.result == 'success' }}
-    steps:
-      - name: Wait for GitHub Pages
-        run: sleep 30
-
-      - name: Check dashboard is accessible
-        run: |
-          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/)
-          if [ "$HTTP_STATUS" -eq 200 ]; then
-            echo "Dashboard is live and accessible (HTTP $HTTP_STATUS)"
-          else
-            echo "::warning::Dashboard returned HTTP $HTTP_STATUS"
-          fi
-
-      - name: Check teams page
-        run: |
-          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/teams.html)
-          if [ "$HTTP_STATUS" -eq 200 ]; then
-            echo "Teams page is live (HTTP $HTTP_STATUS)"
-          else
-            echo "::warning::Teams page returned HTTP $HTTP_STATUS"
-          fi
+          echo "*Deployed by Brad Stevens' automation pipeline (Ime Udoka fix: Actions-based Pages)*" >> $GITHUB_STEP_SUMMARY

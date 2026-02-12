@@ -2904,6 +2904,60 @@
             color: var(--text-secondary);
         }
 
+        /* List View Search Bar */
+        .list-search-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 16px;
+            margin-bottom: 4px;
+        }
+        .list-search-box {
+            position: relative;
+            flex: 1;
+            max-width: 480px;
+        }
+        .list-search-box::before {
+            content: '\1F50D';
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            pointer-events: none;
+        }
+        .list-search-box input {
+            width: 100%;
+            padding: 11px 16px 11px 42px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.25s ease;
+        }
+        .list-search-box input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.2);
+        }
+        .list-search-box input::placeholder {
+            color: var(--text-tertiary, var(--text-secondary));
+        }
+        .list-search-count {
+            font-size: 13px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            padding: 8px 14px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .list-search-count strong {
+            color: var(--text-primary);
+        }
+
         /* Desktop Table */
         .ticket-table {
             width: 100%;
@@ -4438,6 +4492,9 @@
             .filter-btn { padding: 8px 6px; font-size: 11px; min-height: 44px; }
             .filter-dropdown-btn, .agent-filter-btn { font-size: 11px; }
             .search-box-mc input { padding: 10px 12px 10px 36px; font-size: 13px; }
+            .list-search-bar { flex-direction: column; align-items: stretch; }
+            .list-search-box { max-width: 100%; }
+            .list-search-box input { font-size: 13px; padding: 10px 12px 10px 36px; }
             /* Agent Stats */
             .agent-stats { gap: 8px; }
             .agent-stat { padding: 10px 6px; }
@@ -4737,6 +4794,12 @@
                 <div class="list-header">
                     <h1 class="list-title">All Tickets</h1>
                     <p class="list-subtitle">Complete ticket overview with all details</p>
+                    <div class="list-search-bar">
+                        <div class="list-search-box">
+                            <input type="text" id="listSearchInput" placeholder="Filter by ID, title, assignee, or state..." oninput="handleListSearch(this.value)">
+                        </div>
+                        <span class="list-search-count" id="listSearchCount"></span>
+                    </div>
                 </div>
 
                 <!-- Desktop Table -->
@@ -7889,11 +7952,18 @@ Gate Inheritance:
         let activePriorityFilter = 'all';
         let activeEffortFilter = 'all';
         let searchQuery = '';
+        let listSearchQuery = '';
 
-        // Search handler
+        // Search handler (Kanban board search — also updates List view)
         function handleTicketSearch(event) {
             searchQuery = event.target.value.toLowerCase().trim();
             renderBoard();
+            renderList();
+        }
+
+        // Search handler (List view dedicated search)
+        function handleListSearch(value) {
+            listSearchQuery = value.toLowerCase().trim();
             renderList();
         }
 
@@ -7992,14 +8062,18 @@ Gate Inheritance:
             activeAgentFilter = null;
             activeStaleFilter = false;
             searchQuery = '';
+            listSearchQuery = '';
 
             document.getElementById('priorityFilterLabel').textContent = '🎯 Priority';
             document.getElementById('effortFilterLabel').textContent = '💪 Effort';
             document.getElementById('agentFilterLabel').textContent = '👥 All Agents';
             document.getElementById('ticketSearch').value = '';
+            const listInput = document.getElementById('listSearchInput');
+            if (listInput) listInput.value = '';
 
             updateFilterButtons();
             renderBoard();
+            renderList();
         }
 
         // TKT-105: Filter to show only stale reviews (>2 days in REVIEW)
@@ -9610,11 +9684,27 @@ Gate Inheritance:
         }
 
         function renderList() {
-            // Filter tickets based on search query
-            let filteredTickets = searchQuery ? tickets.filter(t => {
-                const searchTarget = `${t.id} ${t.title} ${t.assignee || ''} ${t.tags.join(' ')}`.toLowerCase();
-                return searchTarget.includes(searchQuery);
+            // Combine Kanban search and List-specific search
+            const activeQuery = listSearchQuery || searchQuery;
+
+            // Filter tickets based on search query (includes state for List view filtering)
+            let filteredTickets = activeQuery ? tickets.filter(t => {
+                const searchTarget = `${t.id} ${t.title} ${t.assignee || ''} ${t.state} ${t.priority} ${t.epic || ''} ${t.tags.join(' ')}`.toLowerCase();
+                return searchTarget.includes(activeQuery);
             }) : [...tickets];
+
+            // Update result count
+            const countEl = document.getElementById('listSearchCount');
+            if (countEl) {
+                if (activeQuery) {
+                    countEl.textContent = '';
+                    countEl.innerHTML = `<strong>${filteredTickets.length}</strong> of ${tickets.length} tickets`;
+                    countEl.style.display = '';
+                } else {
+                    countEl.innerHTML = `<strong>${tickets.length}</strong> tickets`;
+                    countEl.style.display = '';
+                }
+            }
 
             // Sort: P0 first, stale reviews second, then by recency (newer first)
             filteredTickets.sort((a, b) => {

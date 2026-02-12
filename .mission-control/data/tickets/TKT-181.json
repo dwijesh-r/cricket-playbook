@@ -3,7 +3,7 @@
   "title": "NL Search Engine: dynamic query builder for Research Desk (Film Room)",
   "state": "RUNNING",
   "priority": "P1",
-  "progress_pct": 0,
+  "progress_pct": 60,
   "description": "Build intelligent NL search engine for Research Desk (Film Room). Replace 11-pattern regex matcher with 5-stage dynamic query pipeline: entity extraction, intent classification, table selection/join planning, SQL generation, validation/fallback. Supports win/loss context, composite multi-filter queries, comparison queries, and arbitrary dimension stacking. Phase 1: entity extraction + intent classifier + view coverage matrix. Phase 2: QueryBuilder with composable filters. Phase 3: comparisons + disambiguation. Phase 4: query explanation panel + history.",
   "epic_id": "EPIC-005",
   "owner": "Stephen Curry",

@@ -1,7 +1,7 @@
 /**
  * The Lab - Predicted XII Data
  * IPL 2026 Pre-Season Analytics
- * Auto-generated: 2026-02-12T02:46:56.282752
+ * Auto-generated: 2026-02-12T02:48:19.349500
  * Algorithm: SUPER SELECTOR
  */
 
@@ -256,7 +256,7 @@ const PREDICTED_XII = {
 
 /**
  * The Lab - Depth Chart Ratings
- * Auto-generated: 2026-02-12T02:46:56.282893
+ * Auto-generated: 2026-02-12T02:48:19.349698
  */
 
 const DEPTH_CHART_RATINGS = {

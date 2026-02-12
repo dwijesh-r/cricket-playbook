@@ -274,6 +274,63 @@
         }
       ]
     },
+    "dim_tournament_weights": {
+      "type": "dimension",
+      "rows": 14,
+      "description": "Dim tournament weights",
+      "columns": [
+        {
+          "name": "tournament_name",
+          "type": "VARCHAR",
+          "description": "Tournament name"
+        },
+        {
+          "name": "tier",
+          "type": "VARCHAR",
+          "description": "Tier"
+        },
+        {
+          "name": "composite_weight",
+          "type": "FLOAT",
+          "description": "Composite weight"
+        },
+        {
+          "name": "pqi_score",
+          "type": "FLOAT",
+          "description": "Pqi score"
+        },
+        {
+          "name": "competitiveness_score",
+          "type": "FLOAT",
+          "description": "Competitiveness score"
+        },
+        {
+          "name": "recency_score",
+          "type": "FLOAT",
+          "description": "Recency score"
+        },
+        {
+          "name": "conditions_similarity",
+          "type": "FLOAT",
+          "description": "Conditions similarity"
+        },
+        {
+          "name": "sample_confidence",
+          "type": "FLOAT",
+          "description": "Sample confidence"
+        },
+        {
+          "name": "seasons_count",
+          "type": "INTEGER",
+          "description": "Seasons count"
+        },
+        {
+          "name": "match_count",
+          "type": "INTEGER",
+          "description": "Match count"
+        }
+      ]
+    },
     "dim_venue": {
       "type": "dimension",
       "rows": 531,
@@ -9572,6 +9629,102 @@
         }
       ]
     },
+    "analytics_ipl_small_sample_enrichment": {
+      "category": "general",
+      "description": "IPL Small sample enrichment",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "VARCHAR",
+          "description": "Unique player identifier"
+        },
+        {
+          "name": "player_name",
+          "type": "VARCHAR",
+          "description": "Player name"
+        },
+        {
+          "name": "team_name",
+          "type": "VARCHAR",
+          "description": "Team name"
+        },
+        {
+          "name": "role",
+          "type": "VARCHAR",
+          "description": "Player role (batter, bowler, all-rounder)"
+        },
+        {
+          "name": "ipl_bat_balls",
+          "type": "HUGEINT",
+          "description": "Ipl bat balls"
+        },
+        {
+          "name": "ipl_bowl_balls",
+          "type": "HUGEINT",
+          "description": "Ipl bowl balls"
+        },
+        {
+          "name": "bat_small_sample",
+          "type": "BOOLEAN",
+          "description": "Bat small sample"
+        },
+        {
+          "name": "bowl_small_sample",
+          "type": "BOOLEAN",
+          "description": "Bowl small sample"
+        },
+        {
+          "name": "cross_tournament_bat_sr",
+          "type": "DOUBLE",
+          "description": "Cross tournament bat sr"
+        },
+        {
+          "name": "cross_tournament_bat_avg",
+          "type": "DOUBLE",
+          "description": "Cross tournament bat avg"
+        },
+        {
+          "name": "cross_tournament_boundary_pct",
+          "type": "DOUBLE",
+          "description": "Cross tournament boundary pct"
+        },
+        {
+          "name": "bat_tournaments",
+          "type": "BIGINT",
+          "description": "Bat tournaments"
+        },
+        {
+          "name": "bat_total_t20_balls",
+          "type": "HUGEINT",
+          "description": "Bat total t20 balls"
+        },
+        {
+          "name": "cross_tournament_bowl_econ",
+          "type": "DOUBLE",
+          "description": "Cross tournament bowl econ"
+        },
+        {
+          "name": "cross_tournament_bowl_sr",
+          "type": "DOUBLE",
+          "description": "Cross tournament bowl sr"
+        },
+        {
+          "name": "cross_tournament_dot_pct",
+          "type": "DOUBLE",
+          "description": "Cross tournament dot pct"
+        },
+        {
+          "name": "bowl_tournaments",
+          "type": "BIGINT",
+          "description": "Bowl tournaments"
+        },
+        {
+          "name": "bowl_total_t20_balls",
+          "type": "HUGEINT",
+          "description": "Bowl total t20 balls"
+        }
+      ]
+    },
     "analytics_ipl_squad_batting": {
       "category": "batting",
       "description": "IPL Squad batting",
@@ -10709,6 +10862,159 @@
         }
       ]
     },
+    "analytics_ipl_team_batting_order_since2023": {
+      "category": "batting",
+      "description": "IPL Team batting order since2023",
+      "columns": [
+        {
+          "name": "batting_team",
+          "type": "VARCHAR",
+          "description": "Batting team"
+        },
+        {
+          "name": "season",
+          "type": "VARCHAR",
+          "description": "IPL season year"
+        },
+        {
+          "name": "order_segment",
+          "type": "VARCHAR",
+          "description": "Order segment"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "balls",
+          "type": "HUGEINT",
+          "description": "Balls"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        }
+      ]
+    },
+    "analytics_ipl_team_phase_batting_since2023": {
+      "category": "batting",
+      "description": "IPL Team phase batting since2023",
+      "columns": [
+        {
+          "name": "batting_team",
+          "type": "VARCHAR",
+          "description": "Batting team"
+        },
+        {
+          "name": "season",
+          "type": "VARCHAR",
+          "description": "IPL season year"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "legal_balls",
+          "type": "HUGEINT",
+          "description": "Legal balls"
+        },
+        {
+          "name": "runs",
+          "type": "HUGEINT",
+          "description": "Runs"
+        },
+        {
+          "name": "strike_rate",
+          "type": "DOUBLE",
+          "description": "Strike rate"
+        },
+        {
+          "name": "run_rate",
+          "type": "DOUBLE",
+          "description": "Run rate"
+        },
+        {
+          "name": "boundary_pct",
+          "type": "DOUBLE",
+          "description": "Boundary pct"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "wickets_lost",
+          "type": "HUGEINT",
+          "description": "Wickets lost"
+        }
+      ]
+    },
+    "analytics_ipl_team_phase_bowling_since2023": {
+      "category": "bowling",
+      "description": "IPL Team phase bowling since2023",
+      "columns": [
+        {
+          "name": "bowling_team",
+          "type": "VARCHAR",
+          "description": "Bowling team"
+        },
+        {
+          "name": "season",
+          "type": "VARCHAR",
+          "description": "IPL season year"
+        },
+        {
+          "name": "match_phase",
+          "type": "VARCHAR",
+          "description": "Phase of play (powerplay, middle, death)"
+        },
+        {
+          "name": "matches",
+          "type": "BIGINT",
+          "description": "Matches"
+        },
+        {
+          "name": "legal_balls",
+          "type": "HUGEINT",
+          "description": "Legal balls"
+        },
+        {
+          "name": "runs_conceded",
+          "type": "HUGEINT",
+          "description": "Runs conceded"
+        },
+        {
+          "name": "economy",
+          "type": "DOUBLE",
+          "description": "Economy"
+        },
+        {
+          "name": "wickets_taken",
+          "type": "HUGEINT",
+          "description": "Wickets taken"
+        },
+        {
+          "name": "dot_ball_pct",
+          "type": "DOUBLE",
+          "description": "Dot ball pct"
+        },
+        {
+          "name": "boundary_conceded_pct",
+          "type": "DOUBLE",
+          "description": "Boundary conceded pct"
+        }
+      ]
+    },
     "analytics_ipl_team_phase_scoring_alltime": {
       "category": "team",
       "description": "IPL Team phase scoring alltime",
@@ -11838,13 +12144,145 @@
           "description": "Sample size matches"
         }
       ]
+    },
+    "analytics_weighted_composite_batting": {
+      "category": "batting",
+      "description": "Weighted composite batting",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "VARCHAR",
+          "description": "Unique player identifier"
+        },
+        {
+          "name": "player_name",
+          "type": "VARCHAR",
+          "description": "Player name"
+        },
+        {
+          "name": "tournaments_played",
+          "type": "BIGINT",
+          "description": "Tournaments played"
+        },
+        {
+          "name": "total_matches",
+          "type": "HUGEINT",
+          "description": "Total matches"
+        },
+        {
+          "name": "total_balls",
+          "type": "HUGEINT",
+          "description": "Total balls"
+        },
+        {
+          "name": "total_runs",
+          "type": "HUGEINT",
+          "description": "Total runs from the delivery"
+        },
+        {
+          "name": "weighted_sr",
+          "type": "DOUBLE",
+          "description": "Weighted sr"
+        },
+        {
+          "name": "weighted_avg",
+          "type": "DOUBLE",
+          "description": "Weighted avg"
+        },
+        {
+          "name": "raw_sr",
+          "type": "DOUBLE",
+          "description": "Raw sr"
+        },
+        {
+          "name": "weighted_boundary_pct",
+          "type": "DOUBLE",
+          "description": "Weighted boundary pct"
+        },
+        {
+          "name": "avg_weight",
+          "type": "DOUBLE",
+          "description": "Avg weight"
+        },
+        {
+          "name": "top_tournaments",
+          "type": "STRUCT(t VARCHAR, w FLOAT, b HUGEINT, sr DOUBLE)[]",
+          "description": "Top tournaments"
+        }
+      ]
+    },
+    "analytics_weighted_composite_bowling": {
+      "category": "bowling",
+      "description": "Weighted composite bowling",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "VARCHAR",
+          "description": "Unique player identifier"
+        },
+        {
+          "name": "player_name",
+          "type": "VARCHAR",
+          "description": "Player name"
+        },
+        {
+          "name": "tournaments_played",
+          "type": "BIGINT",
+          "description": "Tournaments played"
+        },
+        {
+          "name": "total_matches",
+          "type": "HUGEINT",
+          "description": "Total matches"
+        },
+        {
+          "name": "total_balls",
+          "type": "HUGEINT",
+          "description": "Total balls"
+        },
+        {
+          "name": "total_wickets",
+          "type": "HUGEINT",
+          "description": "Total wickets"
+        },
+        {
+          "name": "weighted_economy",
+          "type": "DOUBLE",
+          "description": "Weighted economy"
+        },
+        {
+          "name": "weighted_bowling_sr",
+          "type": "DOUBLE",
+          "description": "Weighted bowling sr"
+        },
+        {
+          "name": "raw_economy",
+          "type": "DOUBLE",
+          "description": "Raw economy"
+        },
+        {
+          "name": "weighted_dot_pct",
+          "type": "DOUBLE",
+          "description": "Weighted dot pct"
+        },
+        {
+          "name": "avg_weight",
+          "type": "DOUBLE",
+          "description": "Avg weight"
+        },
+        {
+          "name": "top_tournaments",
+          "type": "STRUCT(t VARCHAR, w FLOAT, b HUGEINT, econ DOUBLE)[]",
+          "description": "Top tournaments"
+        }
+      ]
     }
   },
   "stats": {
-    "total_tables": 15,
-    "total_views": 152,
-    "total_rows": 2380093,
+    "total_tables": 16,
+    "total_views": 158,
+    "total_rows": 2380107,
     "parquet_size_mb": 15.25,
-    "generated_at": "2026-02-11T18:07:37.129975+00:00"
+    "generated_at": "2026-02-12T15:32:37.569012+00:00"
   }
 }

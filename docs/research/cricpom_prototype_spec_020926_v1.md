@@ -5,8 +5,15 @@
 **Author:** Jose Mourinho, Quant Researcher / Data Scientist
 **Version:** 1.0
 **Date:** 2026-02-09
-**Status:** SPEC ONLY -- Not Implementation
-**Scope Cap:** Enforced. No code. No infrastructure changes. No deployment artifacts.
+**Status:** DELIVERED — Prototype implemented via TKT-187 (weights) + TKT-190 (feed generation)
+**Scope Cap:** Originally enforced as SPEC ONLY. Implementation approved and delivered in Sprint 4.0.
+
+**Implementation Artifacts:**
+- Tournament weights: `scripts/tkt187_final_weights.py` (5-factor geometric mean formula)
+- Weighted composite views: `analytics_weighted_composite_batting`, `analytics_weighted_composite_bowling`
+- Player feed: `outputs/cricpom_weighted_feed.json` (231 IPL 2026 players)
+- Dashboard: The Lab → Analysis → Tournament Intelligence
+- Stat packs: Section 13 "Cross-Tournament Intelligence" (all 10 teams)
 
 ---
 

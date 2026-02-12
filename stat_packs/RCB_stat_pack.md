@@ -1,6 +1,6 @@
 # Royal Challengers Bengaluru (RCB) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 16:37
+**Generated:** 2026-02-12 16:46
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -127,7 +127,7 @@
 **Top Wicket Takers by Season:**
 
 - **2023:** Mohammed Siraj (19w @ 7.2), HV Patel (14w @ 9.3), KV Sharma (10w @ 10.41)
-- **2024:** Mohammed Siraj (15w @ 8.69), Yash Dayal (15w @ 8.8), C Green (10w @ 8.21)
+- **2024:** Yash Dayal (15w @ 8.8), Mohammed Siraj (15w @ 8.69), C Green (10w @ 8.21)
 - **2025:** JR Hazlewood (22w @ 8.64), KH Pandya (17w @ 8.06), B Kumar (17w @ 9.25)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -191,8 +191,32 @@
 | 2024 | 55.3% | 23.6% | 21.1% | 157.9 | Top-Heavy ↓↓ |
 | 2025 | 57.7% | 22.4% | 19.9% | 154.4 | Top-Heavy ↓↓ |
 
+### Key Phase Players (2026 Squad)
+
+| Phase | Role | Player | Key Stat | Sample |
+|-------|------|--------|----------|--------|
+| Powerplay | Bat | V Kohli | 992 runs @ 151.9 SR | 653 balls |
+| Powerplay | Bat | PD Salt | 318 runs @ 176.7 SR | 180 balls |
+| Powerplay | Bowl | JR Hazlewood | Econ 7.54 (12 wkts) | 168 balls |
+| Powerplay | Bowl | B Kumar | Econ 8.23 (8 wkts) | 186 balls |
+| Middle | Bat | V Kohli | 836 runs @ 134.2 SR | 623 balls |
+| Middle | Bat | RM Patidar | 535 runs @ 168.2 SR | 318 balls |
+| Death | Bat | R Shepherd | 70 runs @ 304.3 SR | 23 balls |
+| Death | Bat | JM Sharma | 160 runs @ 200.0 SR | 80 balls |
+| Death | Bowl | Suyash Sharma | Econ 10.0 (1 wkts) | 36 balls |
+| Death | Bowl | JR Hazlewood | Econ 10.65 (8 wkts) | 89 balls |
+
+### Keys to Victory
+
+1. **Powerplay aggression from V Kohli** — 992 runs at 151.9 SR sets the tone; need early intent without reckless wicket loss.
+2. **JR Hazlewood must control the new ball** — 7.54 economy with 12 wickets in the powerplay; early breakthroughs are non-negotiable.
+3. **Middle-overs accumulation through V Kohli and RM Patidar** — building partnerships in overs 7-15 prevents middle-order collapses and sets up the death.
+4. **Death hitting from R Shepherd** — 304.3 SR in overs 16-20; maximizing the last 5 overs is the difference between 170 and 190+.
+5. **Suyash Sharma's reliable death bowling** — 10.0 economy at the death; defending totals requires yorker accuracy and nerve under pressure.
+6. **Reduce top-order dependency** — top 3 contributed 58% of runs in 2025; middle order must step up to avoid batting collapses if openers fail.
+
 ---
-*Phase approach analysis based on IPL 2023-2025 ball-by-ball data. Approach labels derived from strike rate and boundary% thresholds.*
+*Phase approach analysis based on IPL 2023-2025 ball-by-ball data. Key players filtered to 2026 squad only.*
 
 
 ---
@@ -214,15 +238,15 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
-| Eden Gardens | 3 | 1 | 33.3% | 173.7 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 176.3 |
 | Wankhede Stadium | 3 | 1 | 33.3% | 205.3 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 181.7 |
-| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 176.3 |
 | Narendra Modi Stadium | 3 | 2 | 66.7% | 189.3 |
+| Eden Gardens | 3 | 1 | 33.3% | 173.7 |
 | MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
 | Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
-| Rajiv Gandhi International Stadium | 2 | 2 | 100.0% | 196.5 |
 | Arun Jaitley Stadium | 2 | 1 | 50.0% | 173.0 |
+| Rajiv Gandhi International Stadium | 2 | 2 | 100.0% | 196.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -233,11 +257,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -442,8 +466,8 @@
 | Punjab Kings | 7 | 150 | 205 | 8 | 8.2 | 25.63 | 18.75 | 40.67 | 21.33 | HIGH |
 | Gujarat Titans | 3 | 72 | 82 | 6 | 6.83 | 13.67 | 12.0 | 40.28 | 12.5 | MEDIUM |
 | Rajasthan Royals | 6 | 132 | 233 | 6 | 10.59 | 38.83 | 22.0 | 34.85 | 28.79 | HIGH |
-| Mumbai Indians | 5 | 120 | 191 | 4 | 9.55 | 47.75 | 30.0 | 37.5 | 21.67 | HIGH |
 | Lucknow Super Giants | 4 | 84 | 104 | 4 | 7.43 | 26.0 | 21.0 | 38.1 | 15.48 | MEDIUM |
+| Mumbai Indians | 5 | 120 | 191 | 4 | 9.55 | 47.75 | 30.0 | 37.5 | 21.67 | HIGH |
 | Chennai Super Kings | 5 | 102 | 152 | 3 | 8.94 | 50.67 | 34.0 | 36.27 | 23.53 | HIGH |
 | Kolkata Knight Riders | 5 | 102 | 161 | 2 | 9.47 | 80.5 | 51.0 | 40.2 | 24.51 | HIGH |
 | Royal Challengers Bengaluru | 3 | 54 | 117 | 1 | 13.0 | 117.0 | 54.0 | 29.63 | 42.59 | MEDIUM |
@@ -453,9 +477,9 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 3 | 72 | 80 | 6 | 6.67 | 13.33 | 12.0 | 44.44 | 13.89 | MEDIUM |
+| Mumbai Indians | 4 | 96 | 139 | 5 | 8.69 | 27.8 | 19.2 | 35.42 | 20.83 | MEDIUM |
 | Punjab Kings | 7 | 102 | 130 | 5 | 7.65 | 26.0 | 20.4 | 38.24 | 15.69 | HIGH |
 | Gujarat Titans | 4 | 90 | 100 | 5 | 6.67 | 20.0 | 18.0 | 36.67 | 11.11 | MEDIUM |
-| Mumbai Indians | 4 | 96 | 139 | 5 | 8.69 | 27.8 | 19.2 | 35.42 | 20.83 | MEDIUM |
 | Kolkata Knight Riders | 4 | 66 | 93 | 4 | 8.45 | 23.25 | 16.5 | 28.79 | 19.7 | MEDIUM |
 | Chennai Super Kings | 5 | 72 | 104 | 3 | 8.67 | 34.67 | 24.0 | 27.78 | 18.06 | MEDIUM |
 | Rajasthan Royals | 4 | 96 | 102 | 3 | 6.38 | 34.0 | 32.0 | 25.0 | 7.29 | MEDIUM |

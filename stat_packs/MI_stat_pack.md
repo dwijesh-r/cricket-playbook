@@ -1,6 +1,6 @@
 # Mumbai Indians (MI) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 16:37
+**Generated:** 2026-02-12 16:46
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -133,7 +133,7 @@
 **Top Wicket Takers by Season:**
 
 - **2023:** PP Chawla (22w @ 8.07), Akash Madhwal (14w @ 8.32), JP Behrendorff (14w @ 9.05)
-- **2024:** JJ Bumrah (20w @ 6.24), G Coetzee (13w @ 9.92), PP Chawla (13w @ 8.71)
+- **2024:** JJ Bumrah (20w @ 6.24), PP Chawla (13w @ 8.71), G Coetzee (13w @ 9.92)
 - **2025:** TA Boult (22w @ 8.74), JJ Bumrah (18w @ 6.69), HH Pandya (14w @ 9.04)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -202,8 +202,32 @@
 | 2024 | 41.0% | 33.7% | 25.2% | 150.4 | Balanced ↓↓ |
 | 2025 | 52.9% | 29.9% | 17.2% | 152.7 | Top-Heavy → |
 
+### Key Phase Players (2026 Squad)
+
+| Phase | Role | Player | Key Stat | Sample |
+|-------|------|--------|----------|--------|
+| Powerplay | Bat | RG Sharma | 752 runs @ 144.9 SR | 519 balls |
+| Powerplay | Bat | RD Rickelton | 297 runs @ 153.9 SR | 193 balls |
+| Powerplay | Bowl | JJ Bumrah | Econ 6.97 (10 wkts) | 216 balls |
+| Powerplay | Bowl | TA Boult | Econ 8.63 (10 wkts) | 180 balls |
+| Middle | Bat | SA Yadav | 1185 runs @ 173.0 SR | 685 balls |
+| Middle | Bat | Tilak Varma | 679 runs @ 138.9 SR | 489 balls |
+| Death | Bat | SA Yadav | 273 runs @ 213.3 SR | 128 balls |
+| Death | Bat | Naman Dhir | 247 runs @ 204.1 SR | 121 balls |
+| Death | Bowl | Naman Dhir | Econ 4.0 (1 wkts) | 12 balls |
+| Death | Bowl | C Bosch | Econ 4.5 (1 wkts) | 12 balls |
+
+### Keys to Victory
+
+1. **Powerplay aggression from RG Sharma** — 752 runs at 144.9 SR sets the tone; need early intent without reckless wicket loss.
+2. **JJ Bumrah must control the new ball** — 6.97 economy with 10 wickets in the powerplay; early breakthroughs are non-negotiable.
+3. **Middle-overs accumulation through SA Yadav and Tilak Varma** — building partnerships in overs 7-15 prevents middle-order collapses and sets up the death.
+4. **Death hitting from SA Yadav** — 213.3 SR in overs 16-20; maximizing the last 5 overs is the difference between 170 and 190+.
+5. **Naman Dhir's elite death bowling** — 4.0 economy at the death; defending totals requires yorker accuracy and nerve under pressure.
+6. **Reduce top-order dependency** — top 3 contributed 53% of runs in 2025; middle order must step up to avoid batting collapses if openers fail.
+
 ---
-*Phase approach analysis based on IPL 2023-2025 ball-by-ball data. Approach labels derived from strike rate and boundary% thresholds.*
+*Phase approach analysis based on IPL 2023-2025 ball-by-ball data. Key players filtered to 2026 squad only.*
 
 
 ---
@@ -227,10 +251,10 @@
 |-------|---------|------|------|-----------|
 | Narendra Modi Stadium | 5 | 0 | 0.0% | 169.6 |
 | Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 194.7 |
+| Sawai Mansingh Stadium | 3 | 1 | 33.3% | 193.3 |
 | Arun Jaitley Stadium | 3 | 2 | 66.7% | 208.3 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 0 | 0.0% | 169.0 |
 | MA Chidambaram Stadium | 3 | 1 | 33.3% | 158.7 |
-| Sawai Mansingh Stadium | 3 | 1 | 33.3% | 193.3 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -275,8 +299,8 @@
 | DL Chahar | MA Chidambaram Stadium | 11 | 14 | 8.1 | 13.86 |
 | HH Pandya | Wankhede Stadium | 11 | 11 | 10.11 | 15.27 |
 | TA Boult | Sawai Mansingh Stadium | 9 | 8 | 8.44 | 21.5 |
-| MJ Santner | Wankhede Stadium | 6 | 7 | 5.95 | 16.57 |
 | Ashwani Kumar | Wankhede Stadium | 3 | 7 | 10.33 | 7.71 |
+| MJ Santner | Wankhede Stadium | 6 | 7 | 5.95 | 16.57 |
 | HH Pandya | Bharat Ratna Shri Atal Bi | 3 | 7 | 7.11 | 7.71 |
 
 
@@ -469,8 +493,8 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 5 | 120 | 148 | 10 | 7.4 | 14.8 | 12.0 | 40.0 | 16.67 | HIGH |
 | Lucknow Super Giants | 5 | 114 | 137 | 8 | 7.21 | 17.13 | 14.25 | 48.25 | 18.42 | HIGH |
-| Gujarat Titans | 6 | 126 | 191 | 6 | 9.1 | 31.83 | 21.0 | 34.92 | 20.63 | HIGH |
 | Mumbai Indians | 3 | 72 | 94 | 6 | 7.83 | 15.67 | 12.0 | 40.28 | 18.06 | MEDIUM |
+| Gujarat Titans | 6 | 126 | 191 | 6 | 9.1 | 31.83 | 21.0 | 34.92 | 20.63 | HIGH |
 | Delhi Capitals | 5 | 102 | 151 | 5 | 8.88 | 30.2 | 20.4 | 39.22 | 25.49 | HIGH |
 | Royal Challengers Bengaluru | 4 | 90 | 139 | 5 | 9.27 | 27.8 | 18.0 | 35.56 | 23.33 | MEDIUM |
 | Kolkata Knight Riders | 3 | 66 | 70 | 4 | 6.36 | 17.5 | 16.5 | 56.06 | 13.64 | MEDIUM |
@@ -709,7 +733,7 @@
 | Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Tournaments |
 |--------|------|-------------|----------|----------|---------|------------|-------------|
 | AM Ghazanfar | Off-spin | 32 | 34 | 7.2 | 24.9 | HIGH | ILT20, Blast, CPL |
-| Sherfane Rutherford | Medium | 23 | 11 | 10.7 | 35 | HIGH | CPL, SA20, Intl |
+| Sherfane Rutherford | Medium | 23 | 11 | 10.7 | 35 | HIGH | CPL, SA20, BBL |
 | Atharva Ankolekar | Left-arm ort | 11 | 9 | 5.8 | 26.7 | MEDIUM | SMAT |
 | Raghu Sharma | Fast | 3 | 3 | 8.1 | 29.7 | LOW | SMAT |
 

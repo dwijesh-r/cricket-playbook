@@ -1,6 +1,6 @@
 # Sunrisers Hyderabad (SRH) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 16:37
+**Generated:** 2026-02-12 16:46
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -134,7 +134,7 @@
 
 - **2023:** B Kumar (16w @ 8.13), M Markande (12w @ 7.83), T Natarajan (10w @ 9.04)
 - **2024:** T Natarajan (19w @ 8.48), PJ Cummins (18w @ 9.14), B Kumar (11w @ 9.33)
-- **2025:** PJ Cummins (16w @ 8.85), HV Patel (16w @ 9.1), E Malinga (13w @ 8.87)
+- **2025:** HV Patel (16w @ 9.1), PJ Cummins (16w @ 8.85), E Malinga (13w @ 8.87)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -199,8 +199,32 @@
 | 2024 | 48.1% | 29.9% | 22.0% | 181.5 | Balanced → |
 | 2025 | 50.4% | 30.7% | 18.9% | 175.4 | Top-Heavy ↑ |
 
+### Key Phase Players (2026 Squad)
+
+| Phase | Role | Player | Key Stat | Sample |
+|-------|------|--------|----------|--------|
+| Powerplay | Bat | Abhishek Sharma | 720 runs @ 178.2 SR | 404 balls |
+| Powerplay | Bat | TM Head | 663 runs @ 190.5 SR | 348 balls |
+| Powerplay | Bowl | JD Unadkat | Econ 8.93 (3 wkts) | 84 balls |
+| Powerplay | Bowl | Nithish Kumar Reddy | Econ 9.33 (0 wkts) | 18 balls |
+| Middle | Bat | H Klaasen | 830 runs @ 161.5 SR | 514 balls |
+| Middle | Bat | Abhishek Sharma | 384 runs @ 199.0 SR | 193 balls |
+| Death | Bat | Abhishek Sharma | 45 runs @ 236.8 SR | 19 balls |
+| Death | Bat | Ishan Kishan | 99 runs @ 210.6 SR | 47 balls |
+| Death | Bowl | E Malinga | Econ 9.21 (8 wkts) | 58 balls |
+| Death | Bowl | JD Unadkat | Econ 10.09 (9 wkts) | 66 balls |
+
+### Keys to Victory
+
+1. **Powerplay aggression from Abhishek Sharma** — 720 runs at 178.2 SR sets the tone; need early intent without reckless wicket loss.
+2. **JD Unadkat must control the new ball** — 8.93 economy with 3 wickets in the powerplay; early breakthroughs are non-negotiable.
+3. **Middle-overs accumulation through H Klaasen and Abhishek Sharma** — building partnerships in overs 7-15 prevents middle-order collapses and sets up the death.
+4. **Death hitting from Abhishek Sharma** — 236.8 SR in overs 16-20; maximizing the last 5 overs is the difference between 170 and 190+.
+5. **E Malinga's strong death bowling** — 9.21 economy at the death; defending totals requires yorker accuracy and nerve under pressure.
+6. **Reduce top-order dependency** — top 3 contributed 50% of runs in 2025; middle order must step up to avoid batting collapses if openers fail.
+
 ---
-*Phase approach analysis based on IPL 2023-2025 ball-by-ball data. Approach labels derived from strike rate and boundary% thresholds.*
+*Phase approach analysis based on IPL 2023-2025 ball-by-ball data. Key players filtered to 2026 squad only.*
 
 
 ---
@@ -225,8 +249,8 @@
 | MA Chidambaram Stadium | 5 | 2 | 40.0% | 142.2 |
 | Narendra Modi Stadium | 4 | 0 | 0.0% | 165.3 |
 | Eden Gardens | 3 | 1 | 33.3% | 184.0 |
-| Wankhede Stadium | 3 | 0 | 0.0% | 178.3 |
 | Arun Jaitley Stadium | 3 | 3 | 100.0% | 247.0 |
+| Wankhede Stadium | 3 | 0 | 0.0% | 178.3 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 186.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
@@ -267,8 +291,8 @@
 
 | Player | Venue | Matches | Wkts | Econ | SR |
 |--------|-------|---------|------|------|-----|
-| HV Patel | Maharaja Yadavindra Singh | 5 | 11 | 8.59 | 9.27 |
 | HV Patel | Rajiv Gandhi Internationa | 7 | 11 | 8.92 | 13.64 |
+| HV Patel | Maharaja Yadavindra Singh | 5 | 11 | 8.59 | 9.27 |
 | JD Unadkat | Rajiv Gandhi Internationa | 8 | 8 | 7.88 | 18.75 |
 | HV Patel | Himachal Pradesh Cricket  | 2 | 6 | 7.5 | 8.0 |
 
@@ -409,8 +433,8 @@
 | Rajasthan Royals | 4 | 150 | 87 | 172.41 | 50.0 | 27.59 | 31.03 | 3 | MEDIUM |
 | Kolkata Knight Riders | 5 | 142 | 79 | 179.75 | 28.4 | 30.38 | 37.97 | 5 | MEDIUM |
 | Chennai Super Kings | 4 | 106 | 79 | 134.18 | 26.5 | 20.25 | 36.71 | 4 | MEDIUM |
-| Sunrisers Hyderabad | 4 | 95 | 63 | 150.79 | 23.75 | 23.81 | 46.03 | 4 | MEDIUM |
 | Delhi Capitals | 4 | 95 | 68 | 139.71 | 23.75 | 23.53 | 39.71 | 4 | MEDIUM |
+| Sunrisers Hyderabad | 4 | 95 | 63 | 150.79 | 23.75 | 23.81 | 46.03 | 4 | MEDIUM |
 | Punjab Kings | 4 | 93 | 59 | 157.63 | 31.0 | 22.03 | 27.12 | 3 | MEDIUM |
 | Gujarat Titans | 5 | 74 | 76 | 97.37 | 14.8 | 10.53 | 46.05 | 5 | MEDIUM |
 
@@ -449,11 +473,11 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Chennai Super Kings | 4 | 74 | 81 | 8 | 6.57 | 10.13 | 9.25 | 40.54 | 10.81 | MEDIUM |
 | Rajasthan Royals | 4 | 84 | 112 | 8 | 8.0 | 14.0 | 10.5 | 27.38 | 13.1 | MEDIUM |
+| Gujarat Titans | 4 | 84 | 126 | 5 | 9.0 | 25.2 | 16.8 | 25.0 | 17.86 | MEDIUM |
 | Royal Challengers Bengaluru | 3 | 71 | 117 | 5 | 9.89 | 23.4 | 14.2 | 29.58 | 25.35 | MEDIUM |
 | Punjab Kings | 2 | 44 | 51 | 5 | 6.95 | 10.2 | 8.8 | 36.36 | 11.36 | MEDIUM |
 | Lucknow Super Giants | 5 | 107 | 170 | 5 | 9.53 | 34.0 | 21.4 | 27.1 | 23.36 | HIGH |
 | Mumbai Indians | 5 | 106 | 169 | 5 | 9.57 | 33.8 | 21.2 | 22.64 | 19.81 | HIGH |
-| Gujarat Titans | 4 | 84 | 126 | 5 | 9.0 | 25.2 | 16.8 | 25.0 | 17.86 | MEDIUM |
 | Delhi Capitals | 5 | 102 | 161 | 5 | 9.47 | 32.2 | 20.4 | 30.39 | 21.57 | HIGH |
 | Sunrisers Hyderabad | 3 | 72 | 104 | 5 | 8.67 | 20.8 | 14.4 | 25.0 | 19.44 | MEDIUM |
 | Kolkata Knight Riders | 5 | 96 | 190 | 3 | 11.88 | 63.33 | 32.0 | 27.08 | 31.25 | MEDIUM |
@@ -465,11 +489,11 @@
 | Royal Challengers Bengaluru | 3 | 72 | 128 | 7 | 10.67 | 18.29 | 10.29 | 29.17 | 27.78 | MEDIUM |
 | Mumbai Indians | 4 | 90 | 124 | 6 | 8.27 | 20.67 | 15.0 | 43.33 | 20.0 | MEDIUM |
 | Kolkata Knight Riders | 5 | 90 | 159 | 4 | 10.6 | 39.75 | 22.5 | 38.89 | 27.78 | MEDIUM |
-| Lucknow Super Giants | 3 | 66 | 106 | 3 | 9.64 | 35.33 | 22.0 | 31.82 | 24.24 | MEDIUM |
+| Delhi Capitals | 3 | 60 | 80 | 3 | 8.0 | 26.67 | 20.0 | 41.67 | 20.0 | MEDIUM |
+| Rajasthan Royals | 3 | 72 | 120 | 3 | 10.0 | 40.0 | 24.0 | 36.11 | 23.61 | MEDIUM |
 | Gujarat Titans | 3 | 70 | 92 | 3 | 7.89 | 30.67 | 23.33 | 30.0 | 15.71 | MEDIUM |
 | Chennai Super Kings | 3 | 72 | 100 | 3 | 8.33 | 33.33 | 24.0 | 27.78 | 16.67 | MEDIUM |
-| Rajasthan Royals | 3 | 72 | 120 | 3 | 10.0 | 40.0 | 24.0 | 36.11 | 23.61 | MEDIUM |
-| Delhi Capitals | 3 | 60 | 80 | 3 | 8.0 | 26.67 | 20.0 | 41.67 | 20.0 | MEDIUM |
+| Lucknow Super Giants | 3 | 66 | 106 | 3 | 9.64 | 35.33 | 22.0 | 31.82 | 24.24 | MEDIUM |
 | Punjab Kings | 3 | 72 | 97 | 2 | 8.08 | 48.5 | 36.0 | 36.11 | 19.44 | MEDIUM |
 
 ---

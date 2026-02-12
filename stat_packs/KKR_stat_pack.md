@@ -1,6 +1,6 @@
 # Kolkata Knight Riders (KKR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 16:37
+**Generated:** 2026-02-12 16:46
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -201,8 +201,31 @@
 | 2024 | 56.4% | 24.0% | 19.5% | 175.0 | Top-Heavy ↑↑ |
 | 2025 | 47.0% | 27.8% | 25.1% | 147.8 | Balanced ↑↑ |
 
+### Key Phase Players (2026 Squad)
+
+| Phase | Role | Player | Key Stat | Sample |
+|-------|------|--------|----------|--------|
+| Powerplay | Bat | SP Narine | 485 runs @ 167.2 SR | 290 balls |
+| Powerplay | Bat | AM Rahane | 238 runs @ 187.4 SR | 127 balls |
+| Powerplay | Bowl | CV Varun | Econ 8.19 (9 wkts) | 186 balls |
+| Powerplay | Bowl | VG Arora | Econ 9.03 (15 wkts) | 349 balls |
+| Middle | Bat | RK Singh | 346 runs @ 116.9 SR | 296 balls |
+| Middle | Bat | A Raghuvanshi | 251 runs @ 136.4 SR | 184 balls |
+| Death | Bat | MK Pandey | 48 runs @ 218.2 SR | 22 balls |
+| Death | Bat | RK Singh | 475 runs @ 197.1 SR | 241 balls |
+| Death | Bowl | SP Narine | Econ 7.47 (8 wkts) | 102 balls |
+| Death | Bowl | CV Varun | Econ 8.6 (11 wkts) | 166 balls |
+
+### Keys to Victory
+
+1. **Powerplay aggression from SP Narine** — 485 runs at 167.2 SR sets the tone; need early intent without reckless wicket loss.
+2. **CV Varun must control the new ball** — 8.19 economy with 9 wickets in the powerplay; early breakthroughs are non-negotiable.
+3. **Middle-overs accumulation through RK Singh and A Raghuvanshi** — building partnerships in overs 7-15 prevents middle-order collapses and sets up the death.
+4. **Death hitting from MK Pandey** — 218.2 SR in overs 16-20; maximizing the last 5 overs is the difference between 170 and 190+.
+5. **SP Narine's elite death bowling** — 7.47 economy at the death; defending totals requires yorker accuracy and nerve under pressure.
+
 ---
-*Phase approach analysis based on IPL 2023-2025 ball-by-ball data. Approach labels derived from strike rate and boundary% thresholds.*
+*Phase approach analysis based on IPL 2023-2025 ball-by-ball data. Key players filtered to 2026 squad only.*
 
 
 ---
@@ -273,7 +296,7 @@
 | SP Narine | Eden Gardens | 21 | 16 | 7.16 | 28.88 |
 | SP Narine | MA Chidambaram Stadium | 4 | 7 | 4.94 | 13.71 |
 | CV Varun | MA Chidambaram Stadium | 4 | 5 | 6.71 | 16.8 |
-| M Pathirana | Bharat Ratna Shri Atal Bi | 3 | 5 | 7.32 | 13.6 |
+| SP Narine | Arun Jaitley Stadium | 3 | 5 | 8.92 | 14.4 |
 
 
 ---
@@ -446,13 +469,13 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 4 | 97 | 111 | 10 | 6.87 | 11.1 | 9.7 | 43.3 | 13.4 | MEDIUM |
-| Royal Challengers Bengaluru | 5 | 106 | 142 | 9 | 8.04 | 15.78 | 11.78 | 39.62 | 19.81 | HIGH |
 | Sunrisers Hyderabad | 7 | 150 | 223 | 9 | 8.92 | 24.78 | 16.67 | 32.67 | 18.67 | HIGH |
+| Royal Challengers Bengaluru | 5 | 106 | 142 | 9 | 8.04 | 15.78 | 11.78 | 39.62 | 19.81 | HIGH |
 | Chennai Super Kings | 5 | 120 | 150 | 7 | 7.5 | 21.43 | 17.14 | 38.33 | 12.5 | HIGH |
 | Punjab Kings | 5 | 114 | 157 | 7 | 8.26 | 22.43 | 16.29 | 35.09 | 16.67 | HIGH |
 | Rajasthan Royals | 4 | 90 | 111 | 6 | 7.4 | 18.5 | 15.0 | 48.89 | 17.78 | MEDIUM |
-| Mumbai Indians | 4 | 90 | 88 | 5 | 5.87 | 17.6 | 18.0 | 45.56 | 10.0 | MEDIUM |
 | Lucknow Super Giants | 4 | 90 | 133 | 5 | 8.87 | 26.6 | 18.0 | 36.67 | 17.78 | MEDIUM |
+| Mumbai Indians | 4 | 90 | 88 | 5 | 5.87 | 17.6 | 18.0 | 45.56 | 10.0 | MEDIUM |
 | Gujarat Titans | 3 | 60 | 102 | 0 | 10.2 | - | - | 21.67 | 23.33 | MEDIUM |
 
 ### Matheesha Pathirana
@@ -460,12 +483,12 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 4 | 96 | 112 | 9 | 7.0 | 12.44 | 10.67 | 34.38 | 13.54 | MEDIUM |
-| Royal Challengers Bengaluru | 3 | 72 | 107 | 7 | 8.92 | 15.29 | 10.29 | 38.89 | 22.22 | MEDIUM |
 | Mumbai Indians | 3 | 58 | 78 | 7 | 8.07 | 11.14 | 8.29 | 39.66 | 15.52 | MEDIUM |
 | Lucknow Super Giants | 4 | 92 | 117 | 7 | 7.63 | 16.71 | 13.14 | 31.52 | 13.04 | MEDIUM |
+| Royal Challengers Bengaluru | 3 | 72 | 107 | 7 | 8.92 | 15.29 | 10.29 | 38.89 | 22.22 | MEDIUM |
 | Gujarat Titans | 4 | 90 | 125 | 6 | 8.33 | 20.83 | 15.0 | 38.89 | 17.78 | MEDIUM |
-| Punjab Kings | 3 | 72 | 127 | 3 | 10.58 | 42.33 | 24.0 | 19.44 | 19.44 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 54 | 59 | 3 | 6.56 | 19.67 | 18.0 | 37.04 | 11.11 | MEDIUM |
+| Punjab Kings | 3 | 72 | 127 | 3 | 10.58 | 42.33 | 24.0 | 19.44 | 19.44 | MEDIUM |
 | Rajasthan Royals | 3 | 61 | 92 | 2 | 9.05 | 46.0 | 30.5 | 27.87 | 18.03 | MEDIUM |
 | Kolkata Knight Riders | 3 | 66 | 80 | 1 | 7.27 | 80.0 | 66.0 | 31.82 | 12.12 | MEDIUM |
 
@@ -473,8 +496,8 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Chennai Super Kings | 5 | 108 | 110 | 6 | 6.11 | 18.33 | 18.0 | 35.19 | 7.41 | HIGH |
 | Royal Challengers Bengaluru | 5 | 120 | 166 | 6 | 8.3 | 27.67 | 20.0 | 25.83 | 13.33 | HIGH |
+| Chennai Super Kings | 5 | 108 | 110 | 6 | 6.11 | 18.33 | 18.0 | 35.19 | 7.41 | HIGH |
 | Sunrisers Hyderabad | 7 | 156 | 195 | 6 | 7.5 | 32.5 | 26.0 | 29.49 | 10.26 | HIGH |
 | Delhi Capitals | 4 | 96 | 119 | 5 | 7.44 | 23.8 | 19.2 | 37.5 | 14.58 | MEDIUM |
 | Gujarat Titans | 3 | 66 | 90 | 4 | 8.18 | 22.5 | 16.5 | 22.73 | 13.64 | MEDIUM |
@@ -488,14 +511,14 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 6 | 132 | 168 | 8 | 7.64 | 21.0 | 16.5 | 43.18 | 16.67 | HIGH |
-| Lucknow Super Giants | 4 | 85 | 129 | 6 | 9.11 | 21.5 | 14.17 | 37.65 | 23.53 | MEDIUM |
 | Rajasthan Royals | 4 | 84 | 139 | 6 | 9.93 | 23.17 | 14.0 | 36.9 | 27.38 | MEDIUM |
+| Lucknow Super Giants | 4 | 85 | 129 | 6 | 9.11 | 21.5 | 14.17 | 37.65 | 23.53 | MEDIUM |
 | Punjab Kings | 4 | 72 | 146 | 5 | 12.17 | 29.2 | 14.4 | 36.11 | 33.33 | MEDIUM |
-| Chennai Super Kings | 3 | 60 | 77 | 4 | 7.7 | 19.25 | 15.0 | 50.0 | 18.33 | MEDIUM |
 | Royal Challengers Bengaluru | 3 | 66 | 102 | 4 | 9.27 | 25.5 | 16.5 | 28.79 | 19.7 | MEDIUM |
+| Chennai Super Kings | 3 | 60 | 77 | 4 | 7.7 | 19.25 | 15.0 | 50.0 | 18.33 | MEDIUM |
+| Delhi Capitals | 2 | 48 | 77 | 2 | 9.63 | 38.5 | 24.0 | 37.5 | 27.08 | MEDIUM |
 | Mumbai Indians | 2 | 30 | 57 | 2 | 11.4 | 28.5 | 15.0 | 40.0 | 33.33 | MEDIUM |
 | Gujarat Titans | 2 | 42 | 67 | 2 | 9.57 | 33.5 | 21.0 | 26.19 | 26.19 | MEDIUM |
-| Delhi Capitals | 2 | 48 | 77 | 2 | 9.63 | 38.5 | 24.0 | 37.5 | 27.08 | MEDIUM |
 
 ### Vaibhav Arora
 
@@ -505,8 +528,8 @@
 | Chennai Super Kings | 4 | 90 | 131 | 7 | 8.73 | 18.71 | 12.86 | 38.89 | 20.0 | MEDIUM |
 | Delhi Capitals | 3 | 60 | 70 | 6 | 7.0 | 11.67 | 10.0 | 51.67 | 20.0 | MEDIUM |
 | Rajasthan Royals | 3 | 66 | 126 | 4 | 11.45 | 31.5 | 16.5 | 31.82 | 30.3 | MEDIUM |
-| Lucknow Super Giants | 4 | 78 | 109 | 3 | 8.38 | 36.33 | 26.0 | 35.9 | 15.38 | MEDIUM |
 | Punjab Kings | 3 | 57 | 90 | 3 | 9.47 | 30.0 | 19.0 | 36.84 | 29.82 | MEDIUM |
+| Lucknow Super Giants | 4 | 78 | 109 | 3 | 8.38 | 36.33 | 26.0 | 35.9 | 15.38 | MEDIUM |
 | Royal Challengers Bengaluru | 2 | 30 | 63 | 1 | 12.6 | 63.0 | 30.0 | 16.67 | 36.67 | MEDIUM |
 | Mumbai Indians | 2 | 31 | 52 | 0 | 10.06 | - | - | 38.71 | 25.81 | MEDIUM |
 
@@ -721,14 +744,14 @@
 |--------|------|---------|----------|--------|---------|------------|-------------|
 | Tim Seifert | Wicketkeeper | 250 | 6621 | 137 | 30.6 | HIGH | SS, CPL, BBL |
 | Finn Allen | Wicketkeeper | 120 | 1447 | 143 | 16.8 | HIGH | CPL, LPL, SA20 |
-| Tejasvi Singh | Wicketkeeper | 53 | 556 | 135 | 12.9 | HIGH | MLC, NPL, ILT20 |
+| Tejasvi Singh | Wicketkeeper | 53 | 556 | 135 | 12.9 | HIGH | NPL, MLC, ILT20 |
 | Daksh Kamra | All-rounder | 11 | 122 | 109 | 15.2 | MEDIUM | Intl, ICC T20, Intl |
 
 ### 12.2 T20 Bowling Profile
 
 | Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Tournaments |
 |--------|------|-------------|----------|----------|---------|------------|-------------|
-| Daksh Kamra | Medium | 19 | 28 | 5.1 | 13.1 | MEDIUM | Intl, Intl, ICC T20 |
+| Daksh Kamra | Medium | 19 | 28 | 5.1 | 13.1 | MEDIUM | Intl, ICC T20, Intl |
 | Prashant Solanki | Left-arm ort | 4 | 4 | 8.4 | 27.2 | LOW | SMAT |
 
 ### 12.3 Limited / No T20 Data

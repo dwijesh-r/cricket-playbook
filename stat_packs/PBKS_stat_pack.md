@@ -1,6 +1,6 @@
 # Punjab Kings (PBKS) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 16:37
+**Generated:** 2026-02-12 16:46
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -129,7 +129,7 @@
 
 - **2023:** Arshdeep Singh (17w @ 9.2), NT Ellis (13w @ 8.81), SM Curran (10w @ 9.97)
 - **2024:** HV Patel (24w @ 9.18), Arshdeep Singh (19w @ 9.46), SM Curran (16w @ 9.97)
-- **2025:** Arshdeep Singh (21w @ 8.62), YS Chahal (16w @ 9.34), M Jansen (16w @ 8.96)
+- **2025:** Arshdeep Singh (21w @ 8.62), M Jansen (16w @ 8.96), YS Chahal (16w @ 9.34)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -195,8 +195,32 @@
 | 2024 | 45.6% | 25.9% | 28.5% | 152.8 | Balanced → |
 | 2025 | 55.1% | 22.9% | 22.0% | 174.4 | Top-Heavy ↑↑ |
 
+### Key Phase Players (2026 Squad)
+
+| Phase | Role | Player | Key Stat | Sample |
+|-------|------|--------|----------|--------|
+| Powerplay | Bat | P Simran Singh | 828 runs @ 153.0 SR | 541 balls |
+| Powerplay | Bat | Priyansh Arya | 384 runs @ 177.0 SR | 217 balls |
+| Powerplay | Bowl | LH Ferguson | Econ 7.5 (1 wkts) | 20 balls |
+| Powerplay | Bowl | XC Bartlett | Econ 9.0 (2 wkts) | 48 balls |
+| Middle | Bat | P Simran Singh | 404 runs @ 160.3 SR | 252 balls |
+| Middle | Bat | SS Iyer | 325 runs @ 165.8 SR | 196 balls |
+| Death | Bat | MP Stoinis | 107 runs @ 289.2 SR | 37 balls |
+| Death | Bat | P Simran Singh | 59 runs @ 236.0 SR | 25 balls |
+| Death | Bowl | M Jansen | Econ 10.36 (8 wkts) | 55 balls |
+| Death | Bowl | YS Chahal | Econ 10.4 (6 wkts) | 30 balls |
+
+### Keys to Victory
+
+1. **Powerplay aggression from P Simran Singh** — 828 runs at 153.0 SR sets the tone; need early intent without reckless wicket loss.
+2. **LH Ferguson must control the new ball** — 7.5 economy with 1 wickets in the powerplay; early breakthroughs are non-negotiable.
+3. **Middle-overs accumulation through P Simran Singh and SS Iyer** — building partnerships in overs 7-15 prevents middle-order collapses and sets up the death.
+4. **Death hitting from MP Stoinis** — 289.2 SR in overs 16-20; maximizing the last 5 overs is the difference between 170 and 190+.
+5. **M Jansen's reliable death bowling** — 10.36 economy at the death; defending totals requires yorker accuracy and nerve under pressure.
+6. **Reduce top-order dependency** — top 3 contributed 55% of runs in 2025; middle order must step up to avoid batting collapses if openers fail.
+
 ---
-*Phase approach analysis based on IPL 2023-2025 ball-by-ball data. Approach labels derived from strike rate and boundary% thresholds.*
+*Phase approach analysis based on IPL 2023-2025 ball-by-ball data. Key players filtered to 2026 squad only.*
 
 
 ---
@@ -220,13 +244,13 @@
 |-------|---------|------|------|-----------|
 | Himachal Pradesh Cricket Associatio | 6 | 1 | 16.7% | 177.2 |
 | Narendra Modi Stadium | 4 | 3 | 75.0% | 208.5 |
-| MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
-| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
-| Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
 | Eden Gardens | 3 | 1 | 33.3% | 214.0 |
-| Barsapara Cricket Stadium | 2 | 2 | 100.0% | 171.0 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
+| Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
+| MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
 | M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
+| Barsapara Cricket Stadium | 2 | 2 | 100.0% | 171.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -237,11 +261,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -272,8 +296,8 @@
 | YS Chahal | MA Chidambaram Stadium | 4 | 7 | 7.33 | 12.86 |
 | Arshdeep Singh | Himachal Pradesh Cricket  | 5 | 7 | 9.0 | 14.57 |
 | Arshdeep Singh | Punjab Cricket Associatio | 5 | 7 | 10.78 | 16.14 |
-| M Jansen | Sawai Mansingh Stadium | 4 | 6 | 10.48 | 15.17 |
-| M Jansen | Rajiv Gandhi Internationa | 6 | 6 | 9.94 | 18.0 |
+| YS Chahal | Maharaja Yadavindra Singh | 5 | 6 | 8.0 | 16.0 |
+| YS Chahal | Barsapara Cricket Stadium | 3 | 6 | 8.75 | 12.0 |
 
 
 ---
@@ -459,8 +483,8 @@
 | Royal Challengers Bengaluru | 7 | 134 | 223 | 8 | 9.99 | 27.88 | 16.75 | 32.09 | 25.37 | HIGH |
 | Mumbai Indians | 5 | 113 | 196 | 7 | 10.41 | 28.0 | 16.14 | 30.97 | 29.2 | HIGH |
 | Rajasthan Royals | 6 | 143 | 247 | 6 | 10.36 | 41.17 | 23.83 | 40.56 | 27.97 | HIGH |
-| Kolkata Knight Riders | 4 | 84 | 112 | 6 | 8.0 | 18.67 | 14.0 | 46.43 | 20.24 | MEDIUM |
 | Chennai Super Kings | 5 | 116 | 180 | 6 | 9.31 | 30.0 | 19.33 | 34.48 | 25.0 | HIGH |
+| Kolkata Knight Riders | 4 | 84 | 112 | 6 | 8.0 | 18.67 | 14.0 | 46.43 | 20.24 | MEDIUM |
 | Gujarat Titans | 4 | 85 | 124 | 4 | 8.75 | 31.0 | 21.25 | 30.59 | 18.82 | MEDIUM |
 | Delhi Capitals | 4 | 84 | 112 | 2 | 8.0 | 56.0 | 42.0 | 39.29 | 19.05 | MEDIUM |
 

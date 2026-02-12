@@ -1,6 +1,6 @@
 # Gujarat Titans (GT) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 16:37
+**Generated:** 2026-02-12 16:46
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -127,7 +127,7 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** Mohammed Shami (28w @ 7.92), MM Sharma (27w @ 8.1), Rashid Khan (27w @ 8.21)
+- **2023:** Mohammed Shami (28w @ 7.92), Rashid Khan (27w @ 8.21), MM Sharma (27w @ 8.1)
 - **2024:** MM Sharma (13w @ 10.48), Rashid Khan (10w @ 8.52), UT Yadav (8w @ 9.81)
 - **2025:** M Prasidh Krishna (25w @ 8.34), R Sai Kishore (19w @ 9.07), Mohammed Siraj (16w @ 8.83)
 
@@ -194,8 +194,32 @@
 | 2024 | 57.0% | 22.4% | 20.6% | 138.2 | Top-Heavy ↓↓ |
 | 2025 | 71.1% | 21.5% | 7.4% | 158.6 | Top-Heavy ↑↑ |
 
+### Key Phase Players (2026 Squad)
+
+| Phase | Role | Player | Key Stat | Sample |
+|-------|------|--------|----------|--------|
+| Powerplay | Bat | Shubman Gill | 832 runs @ 143.7 SR | 579 balls |
+| Powerplay | Bat | B Sai Sudharsan | 646 runs @ 139.5 SR | 463 balls |
+| Powerplay | Bowl | J Yadav | Econ 8.0 (0 wkts) | 12 balls |
+| Powerplay | Bowl | Rashid Khan | Econ 8.04 (7 wkts) | 144 balls |
+| Middle | Bat | Shubman Gill | 910 runs @ 160.2 SR | 568 balls |
+| Middle | Bat | B Sai Sudharsan | 802 runs @ 145.8 SR | 550 balls |
+| Death | Bat | B Sai Sudharsan | 200 runs @ 210.5 SR | 95 balls |
+| Death | Bat | Shubman Gill | 224 runs @ 193.1 SR | 116 balls |
+| Death | Bowl | Washington Sundar | Econ 7.76 (1 wkts) | 17 balls |
+| Death | Bowl | M Prasidh Krishna | Econ 10.39 (16 wkts) | 108 balls |
+
+### Keys to Victory
+
+1. **Powerplay aggression from Shubman Gill** — 832 runs at 143.7 SR sets the tone; need early intent without reckless wicket loss.
+2. **J Yadav must control the new ball** — 8.0 economy with 0 wickets in the powerplay; early breakthroughs are non-negotiable.
+3. **Middle-overs accumulation through Shubman Gill and B Sai Sudharsan** — building partnerships in overs 7-15 prevents middle-order collapses and sets up the death.
+4. **Death hitting from B Sai Sudharsan** — 210.5 SR in overs 16-20; maximizing the last 5 overs is the difference between 170 and 190+.
+5. **Washington Sundar's elite death bowling** — 7.76 economy at the death; defending totals requires yorker accuracy and nerve under pressure.
+6. **Reduce top-order dependency** — top 3 contributed 71% of runs in 2025; middle order must step up to avoid batting collapses if openers fail.
+
 ---
-*Phase approach analysis based on IPL 2023-2025 ball-by-ball data. Approach labels derived from strike rate and boundary% thresholds.*
+*Phase approach analysis based on IPL 2023-2025 ball-by-ball data. Key players filtered to 2026 squad only.*
 
 
 ---
@@ -218,12 +242,12 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 175.7 |
-| Arun Jaitley Stadium | 3 | 2 | 66.7% | 196.0 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 148.3 |
 | M Chinnaswamy Stadium | 3 | 2 | 66.7% | 171.7 |
+| Arun Jaitley Stadium | 3 | 2 | 66.7% | 196.0 |
+| Wankhede Stadium | 2 | 1 | 50.0% | 169.0 |
 | MA Chidambaram Stadium | 2 | 0 | 0.0% | 150.0 |
 | Eden Gardens | 2 | 2 | 100.0% | 189.0 |
-| Wankhede Stadium | 2 | 1 | 50.0% | 169.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -236,8 +260,8 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
@@ -429,9 +453,9 @@
 | Punjab Kings | 4 | 96 | 146 | 9 | 9.13 | 16.22 | 10.67 | 40.63 | 25.0 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 96 | 84 | 7 | 5.25 | 12.0 | 13.71 | 53.13 | 11.46 | MEDIUM |
 | Rajasthan Royals | 6 | 120 | 158 | 6 | 7.9 | 26.33 | 20.0 | 38.33 | 19.17 | HIGH |
-| Lucknow Super Giants | 5 | 114 | 167 | 5 | 8.79 | 33.4 | 22.8 | 44.74 | 23.68 | HIGH |
-| Mumbai Indians | 6 | 126 | 182 | 5 | 8.67 | 36.4 | 25.2 | 44.44 | 22.22 | HIGH |
 | Gujarat Titans | 3 | 72 | 90 | 5 | 7.5 | 18.0 | 14.4 | 44.44 | 18.06 | MEDIUM |
+| Mumbai Indians | 6 | 126 | 182 | 5 | 8.67 | 36.4 | 25.2 | 44.44 | 22.22 | HIGH |
+| Lucknow Super Giants | 5 | 114 | 167 | 5 | 8.79 | 33.4 | 22.8 | 44.74 | 23.68 | HIGH |
 | Kolkata Knight Riders | 5 | 114 | 187 | 4 | 9.84 | 46.75 | 28.5 | 38.6 | 26.32 | HIGH |
 | Delhi Capitals | 5 | 108 | 162 | 4 | 9.0 | 40.5 | 27.0 | 44.44 | 25.93 | HIGH |
 | Chennai Super Kings | 4 | 96 | 149 | 2 | 9.31 | 74.5 | 48.0 | 35.42 | 20.83 | MEDIUM |
@@ -443,8 +467,8 @@
 | Rajasthan Royals | 5 | 120 | 136 | 9 | 6.8 | 15.11 | 13.33 | 37.5 | 10.83 | HIGH |
 | Mumbai Indians | 7 | 156 | 179 | 9 | 6.88 | 19.89 | 17.33 | 37.18 | 12.82 | HIGH |
 | Chennai Super Kings | 6 | 138 | 240 | 8 | 10.43 | 30.0 | 17.25 | 23.19 | 22.46 | HIGH |
-| Delhi Capitals | 6 | 132 | 176 | 5 | 8.0 | 35.2 | 26.4 | 30.3 | 14.39 | HIGH |
 | Kolkata Knight Riders | 3 | 72 | 116 | 5 | 9.67 | 23.2 | 14.4 | 26.39 | 20.83 | MEDIUM |
+| Delhi Capitals | 6 | 132 | 176 | 5 | 8.0 | 35.2 | 26.4 | 30.3 | 14.39 | HIGH |
 | Punjab Kings | 4 | 96 | 134 | 4 | 8.38 | 33.5 | 24.0 | 36.46 | 16.67 | MEDIUM |
 | Lucknow Super Giants | 5 | 108 | 164 | 4 | 9.11 | 41.0 | 27.0 | 25.93 | 17.59 | HIGH |
 | Royal Challengers Bengaluru | 4 | 82 | 154 | 1 | 11.27 | 154.0 | 82.0 | 19.51 | 24.39 | MEDIUM |

@@ -1560,14 +1560,14 @@
                             <div class="qq-desc">Lowest economy at death (min 200 balls)</div>
                         </div>
                     </div>
-                    <div class="schema-quick-query" onclick="setEditorSQL('SELECT venue_name, total_matches,\n  ROUND(avg_first_innings_total, 0) AS avg_1st,\n  ROUND(avg_second_innings_total, 0) AS avg_2nd,\n  ROUND(bat_first_win_pct, 1) AS bat_first_win_pct\nFROM analytics_ipl_venue_profile_alltime\nORDER BY total_matches DESC\nLIMIT 20;'); window.executeQuery();">
+                    <div class="schema-quick-query" onclick="setEditorSQL('SELECT venue_name, MAX(matches) AS matches,\n  ROUND(AVG(run_rate), 2) AS run_rate,\n  ROUND(AVG(boundary_pct), 1) AS boundary_pct,\n  ROUND(AVG(dot_ball_pct), 1) AS dot_pct\nFROM analytics_ipl_venue_profile_alltime\nGROUP BY venue_name\nORDER BY matches DESC\nLIMIT 20;'); window.executeQuery();">
                         <span class="qq-icon">&#127967;</span>
                         <div class="qq-text">
                             <div class="qq-title">Venue Profiles</div>
                             <div class="qq-desc">Ground characteristics and scoring patterns</div>
                         </div>
                     </div>
-                    <div class="schema-quick-query" onclick="setEditorSQL('SELECT team_name, player_name, role,\n  ipl_matches, ipl_runs, ipl_wickets\nFROM analytics_ipl_team_roster\nORDER BY team_name, role;'); window.executeQuery();">
+                    <div class="schema-quick-query" onclick="setEditorSQL('SELECT team_name, player_name, role,\n  price_cr, acquisition_type, batting_hand\nFROM analytics_ipl_team_roster\nORDER BY team_name, role;'); window.executeQuery();">
                         <span class="qq-icon">&#128101;</span>
                         <div class="qq-text">
                             <div class="qq-title">IPL 2026 Squads</div>
@@ -3226,75 +3226,109 @@ LIMIT 20;</textarea>
 
         // ---- 1B: Player nickname/alias map (50+ common nicknames -> full names) ----
         const PLAYER_ALIASES = {
-            // Indian batters
-            'sky': 'Suryakumar Yadav', 'surya': 'Suryakumar Yadav', 'suryakumar': 'Suryakumar Yadav',
-            'kohli': 'Virat Kohli', 'virat': 'Virat Kohli', 'vk': 'Virat Kohli', 'king kohli': 'Virat Kohli',
-            'rohit': 'Rohit Sharma', 'hitman': 'Rohit Sharma', 'ro': 'Rohit Sharma',
-            'pant': 'Rishabh Pant', 'rishabh': 'Rishabh Pant',
+            // Indian batters (nicknames + full names → DB names)
+            'sky': 'SA Yadav', 'surya': 'SA Yadav', 'suryakumar': 'SA Yadav',
+            'suryakumar yadav': 'SA Yadav',
+            'kohli': 'V Kohli', 'virat': 'V Kohli', 'vk': 'V Kohli', 'king kohli': 'V Kohli',
+            'virat kohli': 'V Kohli',
+            'rohit': 'RG Sharma', 'hitman': 'RG Sharma', 'ro': 'RG Sharma',
+            'rohit sharma': 'RG Sharma',
+            'pant': 'RR Pant', 'rishabh': 'RR Pant',
+            'rishabh pant': 'RR Pant',
             'dhoni': 'MS Dhoni', 'msd': 'MS Dhoni', 'thala': 'MS Dhoni', 'mahi': 'MS Dhoni',
             'gill': 'Shubman Gill', 'shubman': 'Shubman Gill',
-            'iyer': 'Shreyas Iyer', 'shreyas': 'Shreyas Iyer',
+            'shubman gill': 'Shubman Gill',
+            'iyer': 'SS Iyer', 'shreyas': 'SS Iyer',
+            'shreyas iyer': 'SS Iyer',
             'kl': 'KL Rahul', 'kl rahul': 'KL Rahul', 'rahul': 'KL Rahul',
-            'sanju': 'Sanju Samson', 'samson': 'Sanju Samson',
-            'rutu': 'Ruturaj Gaikwad', 'ruturaj': 'Ruturaj Gaikwad', 'gaikwad': 'Ruturaj Gaikwad',
+            'sanju': 'SV Samson', 'samson': 'SV Samson',
+            'sanju samson': 'SV Samson',
+            'rutu': 'RD Gaikwad', 'ruturaj': 'RD Gaikwad', 'gaikwad': 'RD Gaikwad',
+            'ruturaj gaikwad': 'RD Gaikwad',
             'kishan': 'Ishan Kishan', 'ishan': 'Ishan Kishan',
+            'ishan kishan': 'Ishan Kishan',
             'tilak': 'Tilak Varma', 'tilak varma': 'Tilak Varma',
-            'rinku': 'Rinku Singh', 'rinku singh': 'Rinku Singh',
-            'jaiswal': 'Yashasvi Jaiswal', 'yashasvi': 'Yashasvi Jaiswal',
-            'padikkal': 'Devdutt Padikkal', 'devdutt': 'Devdutt Padikkal',
-            // Indian bowlers
-            'bumrah': 'Jasprit Bumrah', 'jasprit': 'Jasprit Bumrah', 'boom': 'Jasprit Bumrah',
-            'chahal': 'Yuzvendra Chahal', 'yuzi': 'Yuzvendra Chahal',
-            'ashwin': 'Ravichandran Ashwin', 'ash': 'Ravichandran Ashwin', 'ravi ashwin': 'Ravichandran Ashwin',
-            'jadeja': 'Ravindra Jadeja', 'jaddu': 'Ravindra Jadeja', 'sir jadeja': 'Ravindra Jadeja',
+            'rinku': 'RK Singh', 'rinku singh': 'RK Singh',
+            'jaiswal': 'YBK Jaiswal', 'yashasvi': 'YBK Jaiswal',
+            'yashasvi jaiswal': 'YBK Jaiswal',
+            'padikkal': 'D Padikkal', 'devdutt': 'D Padikkal',
+            'devdutt padikkal': 'D Padikkal',
+            // Indian bowlers (nicknames + full names → DB names)
+            'bumrah': 'JJ Bumrah', 'jasprit': 'JJ Bumrah', 'boom': 'JJ Bumrah',
+            'jasprit bumrah': 'JJ Bumrah',
+            'chahal': 'YS Chahal', 'yuzi': 'YS Chahal',
+            'yuzvendra chahal': 'YS Chahal',
+            'ashwin': 'R Ashwin', 'ash': 'R Ashwin', 'ravi ashwin': 'R Ashwin',
+            'ravichandran ashwin': 'R Ashwin',
+            'jadeja': 'RA Jadeja', 'jaddu': 'RA Jadeja', 'sir jadeja': 'RA Jadeja',
+            'ravindra jadeja': 'RA Jadeja',
             'shami': 'Mohammed Shami', 'md shami': 'Mohammed Shami',
+            'mohammed shami': 'Mohammed Shami',
             'siraj': 'Mohammed Siraj', 'md siraj': 'Mohammed Siraj',
+            'mohammed siraj': 'Mohammed Siraj',
             'kuldeep': 'Kuldeep Yadav', 'kuldeep yadav': 'Kuldeep Yadav',
             'arshdeep': 'Arshdeep Singh', 'arshdeep singh': 'Arshdeep Singh',
             'bishnoi': 'Ravi Bishnoi', 'ravi bishnoi': 'Ravi Bishnoi',
             'avesh': 'Avesh Khan', 'avesh khan': 'Avesh Khan',
             'umran': 'Umran Malik', 'umran malik': 'Umran Malik',
-            // Indian all-rounders
-            'hardik': 'Hardik Pandya', 'hp': 'Hardik Pandya', 'hardik pandya': 'Hardik Pandya',
-            'krunal': 'Krunal Pandya', 'krunal pandya': 'Krunal Pandya',
-            'axar': 'Axar Patel', 'axar patel': 'Axar Patel',
+            // Indian all-rounders (nicknames + full names → DB names)
+            'hardik': 'HH Pandya', 'hp': 'HH Pandya', 'hardik pandya': 'HH Pandya',
+            'krunal': 'KH Pandya', 'krunal pandya': 'KH Pandya',
+            'axar': 'AR Patel', 'axar patel': 'AR Patel',
             'shardul': 'Shardul Thakur', 'lord shardul': 'Shardul Thakur', 'shardul thakur': 'Shardul Thakur',
-            'venky': 'Venkatesh Iyer', 'venkatesh': 'Venkatesh Iyer',
-            // Overseas batters
+            'venky': 'VR Iyer', 'venkatesh': 'VR Iyer',
+            'venkatesh iyer': 'VR Iyer',
+            // Additional Indian players
+            'riyan parag': 'R Parag', 'parag': 'R Parag',
+            'shivam dube': 'S Dube', 'dube': 'S Dube',
+            'patidar': 'RM Patidar', 'rajat patidar': 'RM Patidar',
+            'abhishek sharma': 'Abhishek Sharma', 'abhishek': 'Abhishek Sharma',
+            'hetmyer': 'SO Hetmyer', 'shimron hetmyer': 'SO Hetmyer',
+            'de kock': 'Q de Kock', 'quinton': 'Q de Kock', 'quinton de kock': 'Q de Kock',
+            // Overseas batters (nicknames + full names → DB names)
             'abd': 'AB de Villiers', 'ab de villiers': 'AB de Villiers', 'ab': 'AB de Villiers',
-            'gayle': 'Chris Gayle', 'universe boss': 'Chris Gayle', 'chris gayle': 'Chris Gayle',
-            'warner': 'David Warner', 'david warner': 'David Warner', 'bull': 'David Warner',
-            'buttler': 'Jos Buttler', 'jos': 'Jos Buttler', 'jos buttler': 'Jos Buttler',
-            'bairstow': 'Jonny Bairstow', 'jonny': 'Jonny Bairstow',
-            'head': 'Travis Head', 'travis head': 'Travis Head',
-            'salt': 'Phil Salt', 'phil salt': 'Phil Salt',
-            'du plessis': 'Faf du Plessis', 'faf': 'Faf du Plessis',
-            'maxwell': 'Glenn Maxwell', 'maxi': 'Glenn Maxwell', 'glenn maxwell': 'Glenn Maxwell',
-            'pooran': 'Nicholas Pooran', 'nicholas pooran': 'Nicholas Pooran',
-            'green': 'Cameron Green', 'cameron green': 'Cameron Green',
-            'marsh': 'Mitchell Marsh', 'mitch marsh': 'Mitchell Marsh',
-            'klaasen': 'Heinrich Klaasen', 'heinrich': 'Heinrich Klaasen',
-            'markram': 'Aiden Markram', 'aiden markram': 'Aiden Markram',
-            'miller': 'David Miller', 'killer miller': 'David Miller',
-            // Overseas bowlers
+            'gayle': 'CH Gayle', 'universe boss': 'CH Gayle', 'chris gayle': 'CH Gayle',
+            'warner': 'DA Warner', 'david warner': 'DA Warner', 'bull': 'DA Warner',
+            'buttler': 'JC Buttler', 'jos': 'JC Buttler', 'jos buttler': 'JC Buttler',
+            'bairstow': 'JM Bairstow', 'jonny': 'JM Bairstow',
+            'jonny bairstow': 'JM Bairstow',
+            'head': 'TM Head', 'travis head': 'TM Head',
+            'salt': 'PD Salt', 'phil salt': 'PD Salt',
+            'du plessis': 'F du Plessis', 'faf': 'F du Plessis',
+            'faf du plessis': 'F du Plessis',
+            'maxwell': 'GJ Maxwell', 'maxi': 'GJ Maxwell', 'glenn maxwell': 'GJ Maxwell',
+            'pooran': 'N Pooran', 'nicholas pooran': 'N Pooran',
+            'green': 'C Green', 'cameron green': 'C Green',
+            'marsh': 'MR Marsh', 'mitch marsh': 'MR Marsh',
+            'mitchell marsh': 'MR Marsh',
+            'klaasen': 'H Klaasen', 'heinrich': 'H Klaasen',
+            'heinrich klaasen': 'H Klaasen',
+            'markram': 'AK Markram', 'aiden markram': 'AK Markram',
+            'miller': 'DA Miller', 'killer miller': 'DA Miller',
+            'david miller': 'DA Miller',
+            // Overseas bowlers (nicknames + full names → DB names)
             'rashid': 'Rashid Khan', 'rashid khan': 'Rashid Khan',
-            'narine': 'Sunil Narine', 'sunil narine': 'Sunil Narine',
-            'starc': 'Mitchell Starc', 'mitchell starc': 'Mitchell Starc',
-            'cummins': 'Pat Cummins', 'pat cummins': 'Pat Cummins',
-            'rabada': 'Kagiso Rabada', 'kg': 'Kagiso Rabada', 'kagiso': 'Kagiso Rabada',
-            'archer': 'Jofra Archer', 'jofra': 'Jofra Archer', 'jofra archer': 'Jofra Archer',
-            'boult': 'Trent Boult', 'trent boult': 'Trent Boult',
-            'zampa': 'Adam Zampa', 'adam zampa': 'Adam Zampa',
-            'hasaranga': 'Wanindu Hasaranga', 'wanindu': 'Wanindu Hasaranga',
-            'theekshana': 'Maheesh Theekshana', 'maheesh': 'Maheesh Theekshana',
-            'ferguson': 'Lockie Ferguson', 'lockie': 'Lockie Ferguson',
-            'topley': 'Reece Topley', 'reece topley': 'Reece Topley',
-            // Overseas all-rounders
-            'stokes': 'Ben Stokes', 'ben stokes': 'Ben Stokes',
-            'russell': 'Andre Russell', 'dre russ': 'Andre Russell', 'andre russell': 'Andre Russell',
-            'curran': 'Sam Curran', 'sam curran': 'Sam Curran',
-            'livingstone': 'Liam Livingstone', 'liam livingstone': 'Liam Livingstone',
-            'stoinis': 'Marcus Stoinis', 'marcus stoinis': 'Marcus Stoinis',
+            'narine': 'SP Narine', 'sunil narine': 'SP Narine',
+            'starc': 'MA Starc', 'mitchell starc': 'MA Starc',
+            'cummins': 'PJ Cummins', 'pat cummins': 'PJ Cummins',
+            'rabada': 'K Rabada', 'kg': 'K Rabada', 'kagiso': 'K Rabada',
+            'kagiso rabada': 'K Rabada',
+            'archer': 'JC Archer', 'jofra': 'JC Archer', 'jofra archer': 'JC Archer',
+            'boult': 'TA Boult', 'trent boult': 'TA Boult',
+            'zampa': 'A Zampa', 'adam zampa': 'A Zampa',
+            'hasaranga': 'PW Hasaranga', 'wanindu': 'PW Hasaranga',
+            'wanindu hasaranga': 'PW Hasaranga',
+            'theekshana': 'M Theekshana', 'maheesh': 'M Theekshana',
+            'maheesh theekshana': 'M Theekshana',
+            'ferguson': 'LH Ferguson', 'lockie': 'LH Ferguson',
+            'lockie ferguson': 'LH Ferguson',
+            'topley': 'RJW Topley', 'reece topley': 'RJW Topley',
+            // Overseas all-rounders (nicknames + full names → DB names)
+            'stokes': 'BA Stokes', 'ben stokes': 'BA Stokes',
+            'russell': 'AD Russell', 'dre russ': 'AD Russell', 'andre russell': 'AD Russell',
+            'curran': 'SM Curran', 'sam curran': 'SM Curran',
+            'livingstone': 'LS Livingstone', 'liam livingstone': 'LS Livingstone',
+            'stoinis': 'MP Stoinis', 'marcus stoinis': 'MP Stoinis',
         };
 
         // ---- 1C: Phase keywords map (expanded) ----

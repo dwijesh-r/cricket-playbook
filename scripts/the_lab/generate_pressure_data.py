@@ -39,10 +39,10 @@ TEAM_ABBREV = {
 
 TEAM_ORDER = ["MI", "CSK", "RCB", "KKR", "DC", "PBKS", "RR", "SRH", "GT", "LSG"]
 
-# Qualification thresholds
-MIN_BATTER_PRESSURE_BALLS = 30
+# Qualification thresholds (10 overs = 60 balls minimum)
+MIN_BATTER_PRESSURE_BALLS = 60
 MIN_BATTER_OVERALL_BALLS = 50
-MIN_BOWLER_LEGAL_BALLS = 30  # Raised from 15 for credibility
+MIN_BOWLER_LEGAL_BALLS = 60  # 10 overs across HIGH+ bands
 MIN_BOWLER_BAND_BALLS = 15  # Per-band minimum for band breakdown display
 
 # RRR band ordering for display
@@ -109,7 +109,7 @@ def get_top_clutch_batters(conn):
                pressure_score, death_pressure_balls, entry_context,
                avg_balls_before_pressure
         FROM ranked
-        WHERE rn <= 3
+        WHERE rn <= 5
         ORDER BY team_name, rn
     """).fetchall()
 
@@ -210,7 +210,7 @@ def get_top_pressure_bowlers(conn):
         SELECT team_name, player_id, player_name, pressure_band, economy,
                legal_balls, wickets, dot_ball_pct
         FROM ranked
-        WHERE rn <= 3
+        WHERE rn <= 5
         ORDER BY team_name, rn
     """).fetchall()
 

@@ -469,6 +469,170 @@
             display: none; /* Use tooltip instead */
         }
 
+        /* ---- Improved Schema Browser: Category Groups & Scope Toggle ---- */
+        .schema-view-category {
+            padding: 4px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .schema-view-category:last-child { border-bottom: none; }
+        .schema-view-category-header {
+            padding: 8px 16px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-tertiary);
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s ease;
+        }
+        .schema-view-category-header:hover { color: var(--text-secondary); }
+        .schema-view-category-header .cat-icon {
+            font-size: 13px;
+            flex-shrink: 0;
+            width: 18px;
+            text-align: center;
+        }
+        .schema-view-category-header .cat-count {
+            margin-left: auto;
+            font-size: 9px;
+            font-weight: 600;
+            padding: 1px 6px;
+            border-radius: 8px;
+            background: var(--glass);
+            color: var(--text-tertiary);
+        }
+        .schema-view-category-header .group-chevron {
+            font-size: 8px;
+            transition: transform 0.2s ease;
+        }
+        .schema-view-category.cat-collapsed .schema-view-category-header .group-chevron {
+            transform: rotate(-90deg);
+        }
+        .schema-view-category.cat-collapsed .schema-view-items { display: none; }
+        .schema-view-item-desc {
+            display: block;
+            padding: 0 16px 4px 42px;
+            font-size: 10px;
+            color: var(--text-tertiary);
+            font-style: italic;
+            line-height: 1.3;
+        }
+
+        /* Scope Toggle */
+        .schema-scope-toggle {
+            display: flex;
+            margin: 8px 16px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            padding: 3px;
+            gap: 2px;
+        }
+        .schema-scope-btn {
+            flex: 1;
+            padding: 5px 8px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            color: var(--text-tertiary);
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        .schema-scope-btn:hover { color: var(--text-secondary); }
+        .schema-scope-btn.active {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 1px 4px rgba(10, 132, 255, 0.3);
+        }
+
+        /* Quick Start Section */
+        .schema-quick-start {
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        .schema-quick-start-title {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--accent);
+            padding: 4px 4px 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .schema-quick-query {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 6px 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.15s ease;
+            margin-bottom: 2px;
+        }
+        .schema-quick-query:hover { background: var(--bg-tertiary); }
+        .schema-quick-query .qq-icon {
+            font-size: 12px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .schema-quick-query .qq-text {
+            flex: 1;
+            min-width: 0;
+        }
+        .schema-quick-query .qq-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .schema-quick-query .qq-desc {
+            font-size: 9px;
+            color: var(--text-tertiary);
+            line-height: 1.3;
+            margin-top: 1px;
+        }
+
+        /* NL Search Chips */
+        .nl-search-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding: 8px 0 0 0;
+        }
+        .nl-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            border-radius: 16px;
+            font-size: 11px;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            background: var(--glass);
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            font-family: inherit;
+        }
+        .nl-chip:hover {
+            background: rgba(10, 132, 255, 0.12);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .nl-chip .chip-icon { font-size: 12px; }
+
         /* ---- Example Card Enhancements (TKT-176) ---- */
         .example-card-category.phase { background: rgba(100, 210, 255, 0.15); color: var(--accent-teal); }
         .example-card-category.ipl2026 { background: rgba(255, 55, 95, 0.15); color: var(--accent-pink); }
@@ -985,7 +1149,10 @@
                 position: static;
             }
             .schema-sidebar.collapsed .schema-group { display: none; }
+            .schema-sidebar.collapsed .schema-view-category { display: none; }
             .schema-sidebar.collapsed .schema-search { display: none; }
+            .schema-sidebar.collapsed .schema-quick-start { display: none; }
+            .schema-sidebar.collapsed .schema-scope-toggle { display: none; }
             .workspace {
                 border-left: 1px solid var(--border);
                 border-radius: 0 0 12px 12px;
@@ -1251,6 +1418,8 @@
             .nl-search-bar { padding: 8px 10px; gap: 6px; }
             .nl-search-input { font-size: 16px; }  /* keep 16px — below triggers iOS auto-zoom */
             .nl-search-hint { padding: 4px 0 0 0; font-size: 10px; }
+            .nl-search-chips { gap: 4px; padding: 6px 0 0 0; }
+            .nl-chip { font-size: 10px; padding: 3px 8px; }
 
             /* Insight card: compact */
             .insight-card { padding: 12px 14px; }
@@ -1355,11 +1524,63 @@
             <aside class="schema-sidebar" id="schema-browser">
                 <div class="schema-header">
                     <h3>Schema Browser</h3>
-                    <span class="has-tooltip has-tooltip-below" data-tooltip="Click to expand columns. Click a column to insert into editor.">
+                    <span class="has-tooltip has-tooltip-below" data-tooltip="Click to expand columns. Click a column to insert into editor. Use scope toggle to switch between all-time and recent data.">
                         <span class="help-icon">?</span>
                     </span>
                 </div>
-                <input type="text" class="schema-search" placeholder="Search tables, views & columns..." id="schema-search" autocomplete="off">
+                <input type="text" class="schema-search" placeholder="Filter views, tables & columns..." id="schema-search" autocomplete="off">
+                <!-- Quick Start Queries -->
+                <div class="schema-quick-start" id="schema-quick-start">
+                    <div class="schema-quick-start-title">&#9889; Quick Start Queries</div>
+                    <div class="schema-quick-query" onclick="setEditorSQL('SELECT player_name, runs, balls_faced,\n  ROUND(strike_rate, 2) AS strike_rate,\n  ROUND(batting_average, 1) AS avg\nFROM analytics_ipl_batting_career\nORDER BY runs DESC\nLIMIT 20;'); window.executeQuery();">
+                        <span class="qq-icon">&#127942;</span>
+                        <div class="qq-text">
+                            <div class="qq-title">Top 20 Run Scorers</div>
+                            <div class="qq-desc">All-time highest IPL run scorers</div>
+                        </div>
+                    </div>
+                    <div class="schema-quick-query" onclick="setEditorSQL('SELECT player_name, matches_bowled, wickets,\n  ROUND(economy_rate, 2) AS economy,\n  ROUND(bowling_average, 1) AS avg\nFROM analytics_ipl_bowling_career\nORDER BY wickets DESC\nLIMIT 20;'); window.executeQuery();">
+                        <span class="qq-icon">&#127936;</span>
+                        <div class="qq-text">
+                            <div class="qq-title">Top 20 Wicket Takers</div>
+                            <div class="qq-desc">All-time leading IPL wicket takers</div>
+                        </div>
+                    </div>
+                    <div class="schema-quick-query" onclick="setEditorSQL('SELECT player_name, match_phase, innings, runs, balls_faced,\n  ROUND(strike_rate, 2) AS sr,\n  ROUND(boundary_pct, 1) AS boundary_pct\nFROM analytics_ipl_batter_phase\nWHERE match_phase = \'death\' AND balls_faced >= 200\nORDER BY strike_rate DESC\nLIMIT 20;'); window.executeQuery();">
+                        <span class="qq-icon">&#128293;</span>
+                        <div class="qq-text">
+                            <div class="qq-title">Death Over Hitters</div>
+                            <div class="qq-desc">Best death-overs batters (min 200 balls)</div>
+                        </div>
+                    </div>
+                    <div class="schema-quick-query" onclick="setEditorSQL('SELECT player_name, matches, balls_bowled,\n  ROUND(economy_rate, 2) AS economy,\n  ROUND(dot_ball_pct, 1) AS dot_pct, wickets\nFROM analytics_ipl_bowler_phase\nWHERE match_phase = \'death\' AND balls_bowled >= 200\nORDER BY economy_rate ASC\nLIMIT 20;'); window.executeQuery();">
+                        <span class="qq-icon">&#127919;</span>
+                        <div class="qq-text">
+                            <div class="qq-title">Best Death Bowlers</div>
+                            <div class="qq-desc">Lowest economy at death (min 200 balls)</div>
+                        </div>
+                    </div>
+                    <div class="schema-quick-query" onclick="setEditorSQL('SELECT venue_name, total_matches,\n  ROUND(avg_first_innings_total, 0) AS avg_1st,\n  ROUND(avg_second_innings_total, 0) AS avg_2nd,\n  ROUND(bat_first_win_pct, 1) AS bat_first_win_pct\nFROM analytics_ipl_venue_profile_alltime\nORDER BY total_matches DESC\nLIMIT 20;'); window.executeQuery();">
+                        <span class="qq-icon">&#127967;</span>
+                        <div class="qq-text">
+                            <div class="qq-title">Venue Profiles</div>
+                            <div class="qq-desc">Ground characteristics and scoring patterns</div>
+                        </div>
+                    </div>
+                    <div class="schema-quick-query" onclick="setEditorSQL('SELECT team_name, player_name, role,\n  ipl_matches, ipl_runs, ipl_wickets\nFROM analytics_ipl_team_roster\nORDER BY team_name, role;'); window.executeQuery();">
+                        <span class="qq-icon">&#128101;</span>
+                        <div class="qq-text">
+                            <div class="qq-title">IPL 2026 Squads</div>
+                            <div class="qq-desc">Full team rosters with player roles</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Scope Toggle -->
+                <div class="schema-scope-toggle" id="schema-scope-toggle">
+                    <button type="button" class="schema-scope-btn active" data-scope="default" onclick="setSchemaScope('default')">Default</button>
+                    <button type="button" class="schema-scope-btn" data-scope="alltime" onclick="setSchemaScope('alltime')">All-Time</button>
+                    <button type="button" class="schema-scope-btn" data-scope="since2023" onclick="setSchemaScope('since2023')">Since 2023</button>
+                </div>
                 <!-- Schema groups will be rendered dynamically by TKT-175 JS -->
                 <div id="schema-groups-container"></div>
             </aside>
@@ -1370,7 +1591,7 @@
                 <div class="nl-search-section" id="nl-search-bar">
                     <div class="nl-search-bar">
                         <span class="nl-search-icon">&#128269;</span>
-                        <input type="text" class="nl-search-input" placeholder="'Kohli stats', 'Bumrah year wise', 'Kohli at Chinnaswamy', 'top 10 batsmen', 'CSK squad'..." id="nl-search-input" autocomplete="off" enterkeyhint="search">
+                        <input type="text" class="nl-search-input" placeholder="Ask in plain English: &quot;Kohli stats&quot;, &quot;best death bowlers&quot;, &quot;CSK squad&quot;..." id="nl-search-input" autocomplete="off" enterkeyhint="search">
                         <button type="button" class="nl-search-btn" id="nl-search-btn" title="Search" style="
                             padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600;
                             cursor: pointer; border: 1px solid var(--accent); background: var(--accent);
@@ -1378,7 +1599,30 @@
                         " onclick="handleNLSearch()">&#9654; Ask</button>
                     </div>
                     <div class="nl-search-hint">
-                        <kbd>Enter</kbd> to search &middot; Try: <em>[name] stats</em> &middot; <em>[name] year wise</em> &middot; <em>[name] at [venue]</em> &middot; <em>[name] vs [name/team]</em> &middot; <em>top N [batsmen/bowlers]</em>
+                        <kbd>Enter</kbd> to search &middot; Type a player name, team, matchup, or stat question in plain English
+                    </div>
+                    <div class="nl-search-chips">
+                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='Kohli stats';handleNLSearch();">
+                            <span class="chip-icon">&#128100;</span> Kohli stats
+                        </span>
+                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='top 10 batsmen';handleNLSearch();">
+                            <span class="chip-icon">&#127942;</span> Top 10 batsmen
+                        </span>
+                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='best death bowlers';handleNLSearch();">
+                            <span class="chip-icon">&#127919;</span> Best death bowlers
+                        </span>
+                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='Kohli vs MI';handleNLSearch();">
+                            <span class="chip-icon">&#9876;</span> Kohli vs MI
+                        </span>
+                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='CSK squad';handleNLSearch();">
+                            <span class="chip-icon">&#128101;</span> CSK squad
+                        </span>
+                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='Bumrah year wise';handleNLSearch();">
+                            <span class="chip-icon">&#128200;</span> Bumrah year wise
+                        </span>
+                        <span class="nl-chip" onclick="document.getElementById('nl-search-input').value='clutch batters';handleNLSearch();">
+                            <span class="chip-icon">&#128293;</span> Clutch batters
+                        </span>
                     </div>
                 </div>
 
@@ -1657,6 +1901,7 @@ LIMIT 20;</textarea>
         function setEditorSQL(sqlText) {
             document.getElementById('sql-editor-textarea').value = sqlText;
         }
+        window.setEditorSQL = setEditorSQL;
 
         function clearEditor() {
             setEditorSQL('');
@@ -2296,6 +2541,105 @@ LIMIT 20;</textarea>
 
         /* ==================== TKT-175: INTERACTIVE SCHEMA BROWSER ==================== */
         let tableMetadata = null;
+        let currentSchemaScope = 'default';
+
+        // View category definitions with icons and descriptions
+        const VIEW_CATEGORIES = [
+            { id: 'batting',   label: 'Batting',           icon: '&#127951;', desc: 'Career stats, phase splits, strike rates, averages' },
+            { id: 'bowling',   label: 'Bowling',           icon: '&#127936;', desc: 'Wickets, economy, phase splits, bowling types' },
+            { id: 'pressure',  label: 'Pressure / Clutch', icon: '&#128293;', desc: 'Pressure bands, dot sequences, boundary sequences' },
+            { id: 'matchups',  label: 'Matchups',          icon: '&#9876;',   desc: 'Batter vs bowler, batter vs team, bowler vs team' },
+            { id: 'venue',     label: 'Venue',             icon: '&#127967;', desc: 'Venue profiles, player venue splits, phase by venue' },
+            { id: 'squad',     label: 'Squad / Team',      icon: '&#128101;', desc: 'Team rosters, squad batting/bowling, phase scoring' },
+            { id: 'season',    label: 'Season & Trends',   icon: '&#128200;', desc: 'By season, by tournament, innings progression' },
+            { id: 'benchmarks',label: 'Benchmarks',        icon: '&#128202;', desc: 'Career benchmarks, batting/bowling percentiles' },
+            { id: 'leaderboard', label: 'Leaderboards',    icon: '&#127942;', desc: 'Top run scorers, top wicket takers, best SR/economy' },
+        ];
+
+        // Assign views to refined categories (overrides the flat metadata category)
+        function classifyView(name, metaCategory) {
+            const n = name.toLowerCase();
+            // Matchups: batter_vs_bowler, batter_vs_team, bowler_vs_team, bowler_vs_batter, vs_bowler_type
+            if (n.includes('_vs_bowler') || n.includes('_vs_team') || n.includes('_vs_batter') || n.includes('handedness')) return 'matchups';
+            // Venue
+            if (n.includes('_venue')) return 'venue';
+            // Squad / Team
+            if (n.includes('_squad_') || n.includes('_team_roster') || n.includes('_team_phase_scoring')) return 'squad';
+            // Season & Trends
+            if (n.includes('_by_season') || n.includes('_by_tournament') || n.includes('_innings_progression') || n.includes('_match_context') || n.includes('_partnership_analysis') || n.includes('_required_rate') || n.includes('_wicket_clusters') || n.includes('_new_batter_vulnerability') || n.includes('_entry_point') || n.includes('_batting_order_flexibility') || n.includes('_bowling_change_impact')) return 'season';
+            // Pressure
+            if (metaCategory === 'pressure' || n.includes('_pressure_') || n.includes('_dot_ball_pressure') || n.includes('_dot_sequences') || n.includes('_boundary_sequences')) return 'pressure';
+            // Benchmarks
+            if (n.includes('_benchmark') || n.includes('_percentile')) return 'benchmarks';
+            // Leaderboards
+            if (metaCategory === 'leaderboard' || n.includes('_top_run_') || n.includes('_top_wicket_') || n.includes('_best_economy') || n.includes('_best_strike_rate') || n.includes('_powerplay_hitters') || n.includes('_death_over_specialists')) return 'leaderboard';
+            // Fall through to batting/bowling from metadata
+            if (metaCategory === 'bowling') return 'bowling';
+            return 'batting';
+        }
+
+        // Determine scope from view name
+        function getViewScope(name) {
+            if (name.endsWith('_alltime')) return 'alltime';
+            if (name.endsWith('_since2023')) return 'since2023';
+            return 'default';
+        }
+
+        // Create a human-readable display name from a view name
+        function viewDisplayName(name) {
+            let display = name
+                .replace(/^analytics_ipl_/, '')
+                .replace(/^analytics_t20_/, 't20_')
+                .replace(/^analytics_/, '')
+                .replace(/_alltime$/, '')
+                .replace(/_since2023$/, '');
+            // Convert underscores to spaces and title-case
+            display = display.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+            // Fix common abbreviations
+            display = display.replace(/\bVs\b/g, 'vs').replace(/\bPct\b/g, '%').replace(/\bSr\b/g, 'SR').replace(/\bIpl\b/g, 'IPL').replace(/\bT20\b/g, 'T20');
+            return display;
+        }
+
+        // Human-readable description for a view (uses metadata desc or generates one)
+        function viewDescription(name, info) {
+            const desc = (info.description || '').trim();
+            // If description is just the auto-generated short label, generate a better one
+            if (desc && desc.length > 20) return desc;
+            const n = name.toLowerCase();
+            if (n.includes('_career')) return 'Career aggregates across all matches';
+            if (n.includes('_phase_percentile')) return 'Percentile rankings by match phase';
+            if (n.includes('_percentile')) return 'Percentile rankings for key metrics';
+            if (n.includes('_phase_distribution')) return 'Phase-wise workload distribution';
+            if (n.includes('_phase')) return 'Splits by powerplay, middle, and death overs';
+            if (n.includes('_venue')) return 'Performance broken down by ground';
+            if (n.includes('_vs_bowler_type')) return 'Splits against pace, spin, and variants';
+            if (n.includes('_vs_bowler')) return 'Head-to-head matchup statistics';
+            if (n.includes('_vs_team')) return 'Performance against each franchise';
+            if (n.includes('_vs_batter')) return 'Bowler head-to-head vs specific batters';
+            if (n.includes('_pressure_deltas')) return 'How pressure changes batting/bowling output';
+            if (n.includes('_pressure_bands')) return 'Performance across low/medium/high pressure';
+            if (n.includes('_benchmark')) return 'Reference thresholds for key metrics';
+            if (n.includes('_squad_batting')) return 'Team-level batting aggregates';
+            if (n.includes('_squad_bowling')) return 'Team-level bowling aggregates';
+            if (n.includes('_team_roster')) return 'Current squad composition and roles';
+            if (n.includes('_team_phase_scoring')) return 'Team scoring rates by match phase';
+            if (n.includes('_venue_profile')) return 'Ground characteristics and scoring trends';
+            if (n.includes('_innings_progression')) return 'Over-by-over scoring and wicket patterns';
+            if (n.includes('_match_context')) return 'Situational performance in match scenarios';
+            if (n.includes('_partnership')) return 'Partnership-level analysis and patterns';
+            if (n.includes('_entry_point')) return 'Batting position and entry point impact';
+            if (n.includes('_order_flexibility')) return 'Batting order versatility metrics';
+            if (n.includes('_over_breakdown')) return 'Bowling breakdown by specific overs';
+            if (n.includes('_change_impact')) return 'Bowling change impact on game flow';
+            if (n.includes('_wicket_clusters')) return 'Patterns of wickets falling in clusters';
+            if (n.includes('_dot_ball_pressure')) return 'Dot ball accumulation pressure metrics';
+            if (n.includes('_dot_sequences')) return 'Consecutive dot ball sequence analysis';
+            if (n.includes('_boundary_sequences')) return 'Boundary-heavy over sequences';
+            if (n.includes('_required_rate')) return 'Performance at different required run rates';
+            if (n.includes('_new_batter_vulnerability')) return 'New batter early-innings vulnerability';
+            if (n.includes('_handedness')) return 'Left-hand vs right-hand matchup splits';
+            return desc || 'Analytics view';
+        }
 
         // Load metadata and build interactive schema browser
         async function buildInteractiveSchema() {
@@ -2308,11 +2652,15 @@ LIMIT 20;</textarea>
                 return;
             }
 
+            renderSchemaGroups();
+        }
+
+        function renderSchemaGroups() {
             const container = document.getElementById('schema-groups-container');
-            if (!container) return;
+            if (!container || !tableMetadata) return;
 
             // Group tables by type
-            const groups = [
+            const tableGroups = [
                 { label: 'Dimension Tables', type: 'dimension', cssClass: 'dim', icon: '&#9679;' },
                 { label: 'Fact Tables', type: 'fact', cssClass: 'fact', icon: '&#9679;' },
                 { label: 'Reference Tables', type: 'reference', cssClass: 'ref', icon: '&#9679;' },
@@ -2321,8 +2669,8 @@ LIMIT 20;</textarea>
 
             let html = '';
 
-            // Render table groups
-            for (const group of groups) {
+            // --- Render table groups (unchanged) ---
+            for (const group of tableGroups) {
                 const tables = Object.entries(tableMetadata.tables || {}).filter(([, info]) => info.type === group.type);
                 if (tables.length === 0) continue;
 
@@ -2336,20 +2684,85 @@ LIMIT 20;</textarea>
                 html += `</div>`;
             }
 
-            // Render views group
-            const views = Object.entries(tableMetadata.views || {});
-            if (views.length > 0) {
-                html += `<div class="schema-group" data-group-type="views">`;
-                html += `<div class="schema-group-label"><span class="group-chevron">&#9660;</span>Analytics Views (${views.length})</div>`;
-                for (const [name, info] of views) {
-                    html += buildSchemaItem(name, info, 'view', '', 'view');
+            // --- Render views grouped by category with scope filtering ---
+            const allViews = Object.entries(tableMetadata.views || {});
+
+            // Classify and deduplicate views: group by base name, filter by scope
+            const viewsByCategory = {};
+            for (const cat of VIEW_CATEGORIES) {
+                viewsByCategory[cat.id] = [];
+            }
+
+            // Collect unique base view names for the current scope
+            const seenBaseNames = new Set();
+
+            for (const [name, info] of allViews) {
+                const scope = getViewScope(name);
+                const cat = classifyView(name, info.category);
+
+                // For scope filtering: show "default" views always, and also show scoped views matching the toggle
+                if (currentSchemaScope === 'default') {
+                    // Show only default-scope views (no _alltime or _since2023 suffix)
+                    if (scope !== 'default') continue;
+                } else if (currentSchemaScope === 'alltime') {
+                    // Show alltime views; for views that don't have an alltime variant, show default
+                    if (scope === 'since2023') continue;
+                    if (scope === 'default') {
+                        // Check if an alltime variant exists
+                        const alltimeVariant = name + '_alltime';
+                        if (tableMetadata.views[alltimeVariant]) continue; // skip default, alltime exists
+                    }
+                } else if (currentSchemaScope === 'since2023') {
+                    if (scope === 'alltime') continue;
+                    if (scope === 'default') {
+                        const since2023Variant = name + '_since2023';
+                        if (tableMetadata.views[since2023Variant]) continue;
+                    }
                 }
+
+                if (!viewsByCategory[cat]) viewsByCategory[cat] = [];
+                viewsByCategory[cat].push({ name, info, scope });
+            }
+
+            // Render each view category
+            for (const cat of VIEW_CATEGORIES) {
+                const views = viewsByCategory[cat.id] || [];
+                if (views.length === 0) continue;
+
+                html += `<div class="schema-view-category" data-view-category="${cat.id}">`;
+                html += `<div class="schema-view-category-header">`;
+                html += `<span class="group-chevron">&#9660;</span>`;
+                html += `<span class="cat-icon">${cat.icon}</span>`;
+                html += `<span>${cat.label}</span>`;
+                html += `<span class="cat-count">${views.length}</span>`;
+                html += `</div>`;
+                html += `<div class="schema-view-items">`;
+
+                for (const { name, info } of views) {
+                    const displayName = viewDisplayName(name);
+                    const desc = viewDescription(name, info);
+                    html += buildSchemaItem(name, info, 'view', '', 'view', displayName);
+                    html += `<span class="schema-view-item-desc" data-desc-for="${name}">${desc}</span>`;
+                }
+
+                html += `</div>`;
                 html += `</div>`;
             }
 
             container.innerHTML = html;
             wireSchemaInteractions();
         }
+
+        // Scope toggle handler
+        function setSchemaScope(scope) {
+            currentSchemaScope = scope;
+            document.querySelectorAll('.schema-scope-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-scope') === scope);
+            });
+            // Re-render the schema groups with new scope
+            renderSchemaGroups();
+        }
+        window.setSchemaScope = setSchemaScope;
 
         function formatSchemaRowCount(n) {
             if (n === undefined || n === null) return '';
@@ -2369,14 +2782,15 @@ LIMIT 20;</textarea>
             return 'type-default';
         }
 
-        function buildSchemaItem(name, info, cssClass, rowDisplay, itemType) {
+        function buildSchemaItem(name, info, cssClass, rowDisplay, itemType, displayLabel) {
             const columns = info.columns || [];
             const dataAttr = itemType === 'view' ? `data-view="${name}"` : `data-table="${name}"`;
+            const label = displayLabel || name;
             let html = '';
             html += `<div class="schema-item schema-item-${cssClass}" ${dataAttr}>`;
             html += `<span class="chevron">&#9654;</span>`;
             html += `<span class="icon">&#9679;</span>`;
-            html += `<span class="table-name">${name}</span>`;
+            html += `<span class="table-name" title="${name}">${label}</span>`;
             html += `<button type="button" class="query-btn" title="SELECT * FROM ${name} LIMIT 100">SQL</button>`;
             if (rowDisplay) html += `<span class="row-count">${rowDisplay}</span>`;
             html += `</div>`;
@@ -2396,12 +2810,21 @@ LIMIT 20;</textarea>
         }
 
         function wireSchemaInteractions() {
-            // Click group label to collapse/expand category
+            // Click table group label to collapse/expand
             document.querySelectorAll('#schema-groups-container .schema-group-label').forEach(label => {
                 label.addEventListener('click', function(e) {
                     e.stopPropagation();
                     const group = this.closest('.schema-group');
                     if (group) group.classList.toggle('group-collapsed');
+                });
+            });
+
+            // Click view category header to collapse/expand
+            document.querySelectorAll('#schema-groups-container .schema-view-category-header').forEach(header => {
+                header.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const cat = this.closest('.schema-view-category');
+                    if (cat) cat.classList.toggle('cat-collapsed');
                 });
             });
 
@@ -2452,16 +2875,25 @@ LIMIT 20;</textarea>
             });
         }
 
-        // Schema search: filter by table name AND column names
+        // Schema search: filter by table/view name, display name, description, AND column names
         document.getElementById('schema-search').addEventListener('input', function(e) {
             const query = e.target.value.toLowerCase().trim();
+            const quickStart = document.getElementById('schema-quick-start');
+
+            // Hide quick start when searching, show when empty
+            if (quickStart) quickStart.style.display = query ? 'none' : '';
 
             document.querySelectorAll('#schema-groups-container .schema-item').forEach(item => {
                 const tableName = (item.getAttribute('data-table') || item.getAttribute('data-view') || '').toLowerCase();
+                const displayName = (item.querySelector('.table-name')?.textContent || '').toLowerCase();
                 const columnsEl = document.querySelector(`.schema-columns[data-parent="${tableName}"]`);
+                // Also check the description text
+                const descEl = document.querySelector(`.schema-view-item-desc[data-desc-for="${item.getAttribute('data-view')}"]`);
+                const descText = descEl ? descEl.textContent.toLowerCase() : '';
 
                 if (!query) {
                     item.style.display = '';
+                    if (descEl) descEl.style.display = '';
                     // Remove search-triggered expansions
                     if (item.hasAttribute('data-search-expanded')) {
                         item.classList.remove('expanded');
@@ -2475,8 +2907,8 @@ LIMIT 20;</textarea>
                     return;
                 }
 
-                // Check table name match
-                let tableMatch = tableName.includes(query);
+                // Check table/view name match or display name match or description match
+                let tableMatch = tableName.includes(query) || displayName.includes(query) || descText.includes(query);
 
                 // Check column name matches
                 let anyColMatch = false;
@@ -2494,6 +2926,7 @@ LIMIT 20;</textarea>
 
                 if (tableMatch || anyColMatch) {
                     item.style.display = '';
+                    if (descEl) descEl.style.display = '';
                     // Auto-expand if column match found
                     if (anyColMatch && !tableMatch && columnsEl) {
                         if (!item.classList.contains('expanded')) {
@@ -2504,15 +2937,21 @@ LIMIT 20;</textarea>
                     }
                 } else {
                     item.style.display = 'none';
+                    if (descEl) descEl.style.display = 'none';
                     if (columnsEl) columnsEl.style.display = 'none';
                 }
             });
 
-            // Show/hide group labels if all their items are hidden
+            // Show/hide table group labels if all their items are hidden
             document.querySelectorAll('#schema-groups-container .schema-group').forEach(group => {
-                const visibleItems = group.querySelectorAll('.schema-item[style=""], .schema-item:not([style])');
                 const hasVisible = Array.from(group.querySelectorAll('.schema-item')).some(i => i.style.display !== 'none');
                 group.style.display = hasVisible ? '' : 'none';
+            });
+
+            // Show/hide view category blocks if all their items are hidden
+            document.querySelectorAll('#schema-groups-container .schema-view-category').forEach(cat => {
+                const hasVisible = Array.from(cat.querySelectorAll('.schema-item')).some(i => i.style.display !== 'none');
+                cat.style.display = hasVisible ? '' : 'none';
             });
         });
 
@@ -5181,7 +5620,7 @@ LIMIT 20;</textarea>
 
                 // Auto-execute after a brief delay to let user see the SQL
                 setTimeout(() => {
-                    executeQueryWithInsights();
+                    window.executeQuery();
                 }, 300);
             } else {
                 // No pattern matched - show helpful hint
@@ -5233,11 +5672,12 @@ LIMIT 20;</textarea>
         }
 
         window.executeQuery = executeQueryWithInsights;
+        window.executeQueryWithInsights = executeQueryWithInsights;
         document.getElementById('run-button').removeEventListener('click', _originalExecuteQuery);
         document.getElementById('run-button').addEventListener('click', executeQueryWithInsights);
 
         // Update NL search bar placeholder
-        nlInput.placeholder = "Ask: 'top batsmen', 'Kohli stats', 'CSK squad', 'best death bowlers', 'Kohli vs MI'...";
+        nlInput.placeholder = "Ask in plain English: player stats, matchups, leaderboards, team squads...";
 
         /* ==================== START INITIALIZATION ==================== */
         /* Import DuckDB with a 15-second timeout so a hung CDN never blocks the page */

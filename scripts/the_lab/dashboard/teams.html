@@ -1753,6 +1753,73 @@
         }
         .pressure-glossary-note { font-size: 11px; color: var(--text-tertiary); line-height: 1.6; margin-top: 8px; }
 
+        /* Filter bar and pill toggle buttons */
+        .pressure-filter-bar {
+            display: flex; flex-wrap: wrap; gap: 16px; align-items: center;
+            margin-bottom: 20px; padding: 14px 18px;
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+        .pressure-filter-group {
+            display: flex; align-items: center; gap: 6px;
+        }
+        .pressure-filter-group-label {
+            font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.5px; color: var(--text-tertiary); margin-right: 4px;
+            white-space: nowrap;
+        }
+        .pressure-pill {
+            display: inline-block; padding: 5px 12px; border-radius: 20px;
+            font-size: 11px; font-weight: 600; cursor: pointer;
+            background: var(--bg-tertiary); color: var(--text-secondary);
+            border: 1px solid var(--border); transition: all 0.2s ease;
+            user-select: none; white-space: nowrap;
+        }
+        .pressure-pill:hover {
+            border-color: var(--accent); color: var(--text-primary);
+        }
+        .pressure-pill.active {
+            background: var(--accent); color: white;
+            border-color: var(--accent);
+        }
+
+        /* Dimmed card when player lacks selected band */
+        .pressure-player-card.pressure-dimmed {
+            opacity: 0.35; pointer-events: none;
+        }
+
+        /* Phase comparison color indicators in detail panel */
+        .pressure-phase-comparison {
+            font-size: 10px; font-weight: 700; margin-top: 4px;
+            padding: 2px 8px; border-radius: 4px; display: inline-block;
+        }
+        .pressure-phase-comparison.improved { color: var(--accent-green); background: rgba(48, 209, 88, 0.12); }
+        .pressure-phase-comparison.declined { color: var(--accent-red); background: rgba(255, 69, 58, 0.12); }
+
+        /* Prominent qualification note */
+        .pressure-qual-note-prominent {
+            display: block; font-size: 12px; font-weight: 700;
+            color: var(--text-secondary); margin-top: 2px;
+        }
+        .pressure-qual-note-prominent span {
+            background: var(--bg-tertiary); padding: 2px 8px;
+            border-radius: 4px; font-size: 11px;
+        }
+
+        /* Prominent ball count in summary */
+        .pressure-balls-prominent {
+            display: inline-block; padding: 1px 6px; border-radius: 4px;
+            background: var(--bg-tertiary); font-size: 11px; font-weight: 700;
+            color: var(--text-secondary); margin-left: 4px;
+        }
+
+        /* Filtered phase stat display on card */
+        .pressure-filtered-stat {
+            text-align: right; flex-shrink: 0;
+        }
+        .pressure-filtered-stat .pressure-stat-value { font-size: 15px; }
+        .pressure-filtered-stat .pressure-stat-label { font-size: 9px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.3px; }
+
         @media (max-width: 768px) {
             .pressure-summary-grid { grid-template-columns: repeat(2, 1fr); }
             .pressure-columns { grid-template-columns: 1fr; }
@@ -1762,6 +1829,8 @@
             .pressure-glossary-section { overflow-x: auto; -webkit-overflow-scrolling: touch; }
             .pressure-band-table { font-size: 10px; }
             .pressure-player-summary { gap: 8px; padding: 10px 12px; }
+            .pressure-filter-bar { gap: 10px; padding: 10px 12px; }
+            .pressure-filter-group { flex-wrap: wrap; }
         }
 
         /* Prevent horizontal overflow */
@@ -1968,6 +2037,7 @@
         let currentTeam = 'MI';
         let compareTeam = 'CSK';
         let squadFilters = { search: '', role: '', nationality: '', ageGroup: '' };
+        let pressureFilters = { phase: 'all', band: 'all', entry: 'all' };
 
         function toggleTheme() {
             const html = document.documentElement;
@@ -2236,6 +2306,11 @@
             renderPressureCard();
         }
 
+        function setPressureFilter(filterType, value) {
+            pressureFilters[filterType] = value;
+            renderPressureCard();
+        }
+
         function renderPressureCard() {
             const pressureContent = document.getElementById('pressure-content');
             const pressure = typeof PRESSURE_DATA !== 'undefined' ? PRESSURE_DATA[currentTeam] : null;
@@ -2254,6 +2329,7 @@
 
             const s = pressure.summary;
             const team = TEAMS[currentTeam];
+            const pf = pressureFilters;
 
             const clutchColor = s.clutchScore >= 6 ? 'var(--accent-green)' :
                                s.clutchScore >= 4 ? 'var(--accent-yellow)' :
@@ -2289,6 +2365,30 @@
                 return 'var(--accent-red)';
             };
 
+            // Economy color for band table (lower is better for bowlers)
+            const econColor = (econ) => {
+                if (!econ) return 'var(--text-tertiary)';
+                if (econ <= 6.0) return 'var(--accent-green)';
+                if (econ <= 7.5) return 'var(--accent-yellow)';
+                if (econ <= 9.0) return 'var(--accent-orange)';
+                return 'var(--accent-red)';
+            };
+
+            // Dot% color (higher dot% is good for bowlers, bad for batters)
+            const dotPctColorBatter = (pct) => {
+                if (!pct) return 'var(--text-tertiary)';
+                if (pct <= 25) return 'var(--accent-green)';
+                if (pct <= 35) return 'var(--accent-yellow)';
+                return 'var(--accent-red)';
+            };
+
+            const dotPctColorBowler = (pct) => {
+                if (!pct) return 'var(--text-tertiary)';
+                if (pct >= 45) return 'var(--accent-green)';
+                if (pct >= 35) return 'var(--accent-yellow)';
+                return 'var(--accent-red)';
+            };
+
             const entryBadge = (ctx, avgBalls) => {
                 const cls = ctx.toLowerCase().replace('_', '-');
                 const ballsLabel = avgBalls > 0 ? `<span class="entry-balls">~${avgBalls.toFixed(0)}b</span>` : '';
@@ -2304,7 +2404,59 @@
 
             const bandTagClass = (band) => band.toLowerCase().replace('_', '-');
 
-            // Batter band breakdown table
+            // Phase comparison indicator
+            const phaseCompareIndicator = (deathVal, setupVal, higherIsBetter) => {
+                if (!deathVal || !setupVal) return '';
+                const diff = deathVal - setupVal;
+                const better = higherIsBetter ? diff > 0 : diff < 0;
+                const cls = better ? 'improved' : 'declined';
+                const sign = diff >= 0 ? '+' : '';
+                const label = better ? 'Death > Setup' : 'Death < Setup';
+                return `<div class="pressure-phase-comparison ${cls}">${label} (${sign}${diff.toFixed(1)})</div>`;
+            };
+
+            // Get batter's filtered phase stat for card display
+            const getBatterFilteredPhaseStat = (b) => {
+                if (pf.phase === 'all' || !b.phaseStats) return null;
+                const phaseKey = pf.phase === 'setup' ? 'setup' : 'death';
+                const phaseData = b.phaseStats[phaseKey];
+                if (!phaseData || !phaseData.sr) return null;
+                const phaseLabel = pf.phase === 'setup' ? 'Ov 15-17 SR' : 'Ov 18-20 SR';
+                return { value: phaseData.sr.toFixed(1), label: phaseLabel, color: srColor(phaseData.sr) };
+            };
+
+            // Get bowler's filtered phase stat for card display
+            const getBowlerFilteredPhaseStat = (bw) => {
+                if (pf.phase === 'all' || !bw.phaseStats) return null;
+                const phaseKey = pf.phase === 'setup' ? 'setup' : 'death';
+                const phaseData = bw.phaseStats[phaseKey];
+                if (!phaseData || !phaseData.economy) return null;
+                const phaseLabel = pf.phase === 'setup' ? 'Ov 15-17 Econ' : 'Ov 18-20 Econ';
+                return { value: phaseData.economy.toFixed(2), label: phaseLabel, color: econColor(phaseData.economy) };
+            };
+
+            // Check if player has a matching band in bandBreakdown
+            const playerHasBand = (bandBreakdown, bandFilter) => {
+                if (bandFilter === 'all' || !bandBreakdown) return true;
+                return bandBreakdown.some(bd => bd.band === bandFilter);
+            };
+
+            // Get band-specific stat for display
+            const getBatterBandStat = (b) => {
+                if (pf.band === 'all' || !b.bandBreakdown) return null;
+                const bd = b.bandBreakdown.find(x => x.band === pf.band);
+                if (!bd) return null;
+                return { value: bd.sr.toFixed(1), label: `${pf.band.replace('_', ' ')} SR`, color: srColor(bd.sr), balls: bd.balls };
+            };
+
+            const getBowlerBandStat = (bw) => {
+                if (pf.band === 'all' || !bw.bandBreakdown) return null;
+                const bd = bw.bandBreakdown.find(x => x.band === pf.band);
+                if (!bd) return null;
+                return { value: bd.economy.toFixed(2), label: `${pf.band.replace('_', ' ')} Econ`, color: econColor(bd.economy), balls: bd.balls };
+            };
+
+            // Batter band breakdown table with color-coded values
             const batterBandTable = (bands) => {
                 if (!bands || bands.length === 0) return '';
                 return `
@@ -2316,16 +2468,16 @@
                                     <td><span class="pressure-band-tag ${bandTagClass(bd.band)}">${bd.band.replace('_', ' ')}</span></td>
                                     <td>${bd.balls}</td>
                                     <td style="color: ${srColor(bd.sr)}; font-weight: 600;">${bd.sr.toFixed(1)}</td>
-                                    <td>${bd.boundaryPct.toFixed(1)}%</td>
-                                    <td>${bd.sixPct.toFixed(1)}%</td>
-                                    <td>${bd.dotPct.toFixed(1)}%</td>
+                                    <td style="color: ${srColor(bd.boundaryPct * 4)}; font-weight: 600;">${bd.boundaryPct.toFixed(1)}%</td>
+                                    <td style="color: ${srColor(bd.sixPct * 6)}; font-weight: 600;">${bd.sixPct.toFixed(1)}%</td>
+                                    <td style="color: ${dotPctColorBatter(bd.dotPct)}; font-weight: 600;">${bd.dotPct.toFixed(1)}%</td>
                                 </tr>
                             `).join('')}
                         </tbody>
                     </table>`;
             };
 
-            // Bowler band breakdown table
+            // Bowler band breakdown table with color-coded values
             const bowlerBandTable = (bands) => {
                 if (!bands || bands.length === 0) return '';
                 return `
@@ -2336,9 +2488,9 @@
                                 <tr>
                                     <td><span class="pressure-band-tag ${bandTagClass(bd.band)}">${bd.band.replace('_', ' ')}</span></td>
                                     <td>${bd.balls}</td>
-                                    <td>${econDisplay(bd.economy)}</td>
-                                    <td>${bd.dotPct.toFixed(1)}%</td>
-                                    <td>${bd.boundaryConcededPct.toFixed(1)}%</td>
+                                    <td style="color: ${econColor(bd.economy)}; font-weight: 600;">${bd.economy ? bd.economy.toFixed(2) : '-'}</td>
+                                    <td style="color: ${dotPctColorBowler(bd.dotPct)}; font-weight: 600;">${bd.dotPct.toFixed(1)}%</td>
+                                    <td style="color: ${bd.boundaryConcededPct <= 20 ? 'var(--accent-green)' : bd.boundaryConcededPct <= 35 ? 'var(--accent-yellow)' : 'var(--accent-red)'}; font-weight: 600;">${bd.boundaryConcededPct.toFixed(1)}%</td>
                                     <td>${bd.wickets}</td>
                                 </tr>
                             `).join('')}
@@ -2346,12 +2498,13 @@
                     </table>`;
             };
 
-            // Batter phase stats
+            // Batter phase stats with color-coded comparison
             const batterPhaseHtml = (ps) => {
                 if (!ps) return '';
                 const setup = ps.setup || {};
                 const death = ps.death || {};
                 if (!setup.balls && !death.balls) return '';
+                const srCompare = phaseCompareIndicator(death.sr, setup.sr, true);
                 return `
                     <div class="pressure-phase-grid">
                         <div class="pressure-phase-card">
@@ -2359,8 +2512,8 @@
                             <div class="pressure-phase-stats">
                                 <div class="pressure-phase-stat"><div class="val">${setup.balls || 0}</div><div class="lbl">Balls</div></div>
                                 <div class="pressure-phase-stat"><div class="val" style="color: ${srColor(setup.sr)};">${setup.sr ? setup.sr.toFixed(1) : '-'}</div><div class="lbl">SR</div></div>
-                                <div class="pressure-phase-stat"><div class="val">${setup.boundaryPct ? setup.boundaryPct.toFixed(1) + '%' : '-'}</div><div class="lbl">Bdry</div></div>
-                                <div class="pressure-phase-stat"><div class="val">${setup.dotPct ? setup.dotPct.toFixed(1) + '%' : '-'}</div><div class="lbl">Dot</div></div>
+                                <div class="pressure-phase-stat"><div class="val" style="color: ${srColor((setup.boundaryPct || 0) * 4)};">${setup.boundaryPct ? setup.boundaryPct.toFixed(1) + '%' : '-'}</div><div class="lbl">Bdry</div></div>
+                                <div class="pressure-phase-stat"><div class="val" style="color: ${dotPctColorBatter(setup.dotPct)};">${setup.dotPct ? setup.dotPct.toFixed(1) + '%' : '-'}</div><div class="lbl">Dot</div></div>
                             </div>
                         </div>
                         <div class="pressure-phase-card">
@@ -2368,27 +2521,29 @@
                             <div class="pressure-phase-stats">
                                 <div class="pressure-phase-stat"><div class="val">${death.balls || 0}</div><div class="lbl">Balls</div></div>
                                 <div class="pressure-phase-stat"><div class="val" style="color: ${srColor(death.sr)};">${death.sr ? death.sr.toFixed(1) : '-'}</div><div class="lbl">SR</div></div>
-                                <div class="pressure-phase-stat"><div class="val">${death.boundaryPct ? death.boundaryPct.toFixed(1) + '%' : '-'}</div><div class="lbl">Bdry</div></div>
-                                <div class="pressure-phase-stat"><div class="val">${death.dotPct ? death.dotPct.toFixed(1) + '%' : '-'}</div><div class="lbl">Dot</div></div>
+                                <div class="pressure-phase-stat"><div class="val" style="color: ${srColor((death.boundaryPct || 0) * 4)};">${death.boundaryPct ? death.boundaryPct.toFixed(1) + '%' : '-'}</div><div class="lbl">Bdry</div></div>
+                                <div class="pressure-phase-stat"><div class="val" style="color: ${dotPctColorBatter(death.dotPct)};">${death.dotPct ? death.dotPct.toFixed(1) + '%' : '-'}</div><div class="lbl">Dot</div></div>
                             </div>
+                            ${srCompare}
                         </div>
                     </div>`;
             };
 
-            // Bowler phase stats
+            // Bowler phase stats with color-coded comparison
             const bowlerPhaseHtml = (ps) => {
                 if (!ps) return '';
                 const setup = ps.setup || {};
                 const death = ps.death || {};
                 if (!setup.balls && !death.balls) return '';
+                const econCompare = phaseCompareIndicator(death.economy, setup.economy, false);
                 return `
                     <div class="pressure-phase-grid">
                         <div class="pressure-phase-card">
                             <div class="pressure-phase-label">Overs 15-17 (Setup)</div>
                             <div class="pressure-phase-stats">
                                 <div class="pressure-phase-stat"><div class="val">${setup.balls || 0}</div><div class="lbl">Balls</div></div>
-                                <div class="pressure-phase-stat"><div class="val">${econDisplay(setup.economy)}</div><div class="lbl">Econ</div></div>
-                                <div class="pressure-phase-stat"><div class="val">${setup.dotPct ? setup.dotPct.toFixed(1) + '%' : '-'}</div><div class="lbl">Dot</div></div>
+                                <div class="pressure-phase-stat"><div class="val" style="color: ${econColor(setup.economy)};">${setup.economy ? setup.economy.toFixed(2) : '-'}</div><div class="lbl">Econ</div></div>
+                                <div class="pressure-phase-stat"><div class="val" style="color: ${dotPctColorBowler(setup.dotPct)};">${setup.dotPct ? setup.dotPct.toFixed(1) + '%' : '-'}</div><div class="lbl">Dot</div></div>
                                 <div class="pressure-phase-stat"><div class="val">${setup.wickets || 0}</div><div class="lbl">Wkts</div></div>
                             </div>
                         </div>
@@ -2396,20 +2551,91 @@
                             <div class="pressure-phase-label">Overs 18-20 (Death)</div>
                             <div class="pressure-phase-stats">
                                 <div class="pressure-phase-stat"><div class="val">${death.balls || 0}</div><div class="lbl">Balls</div></div>
-                                <div class="pressure-phase-stat"><div class="val">${econDisplay(death.economy)}</div><div class="lbl">Econ</div></div>
-                                <div class="pressure-phase-stat"><div class="val">${death.dotPct ? death.dotPct.toFixed(1) + '%' : '-'}</div><div class="lbl">Dot</div></div>
+                                <div class="pressure-phase-stat"><div class="val" style="color: ${econColor(death.economy)};">${death.economy ? death.economy.toFixed(2) : '-'}</div><div class="lbl">Econ</div></div>
+                                <div class="pressure-phase-stat"><div class="val" style="color: ${dotPctColorBowler(death.dotPct)};">${death.dotPct ? death.dotPct.toFixed(1) + '%' : '-'}</div><div class="lbl">Dot</div></div>
                                 <div class="pressure-phase-stat"><div class="val">${death.wickets || 0}</div><div class="lbl">Wkts</div></div>
                             </div>
+                            ${econCompare}
                         </div>
                     </div>`;
             };
 
-            // Toggle expand handler (assigned after innerHTML)
-            const toggleId = `pressure-toggle-${Date.now()}`;
+            // Filter pill builder
+            const pill = (filterType, value, label) => {
+                const isActive = pf[filterType] === value;
+                return `<span class="pressure-pill ${isActive ? 'active' : ''}" onclick="setPressureFilter('${filterType}', '${value}')">${label}</span>`;
+            };
+
+            // Build filter bar
+            const filterBarHtml = `
+                <div class="pressure-filter-bar">
+                    <div class="pressure-filter-group">
+                        <span class="pressure-filter-group-label">Phase</span>
+                        ${pill('phase', 'all', 'All')}
+                        ${pill('phase', 'setup', 'Ov 15-17')}
+                        ${pill('phase', 'death', 'Ov 18-20')}
+                    </div>
+                    <div class="pressure-filter-group">
+                        <span class="pressure-filter-group-label">Band</span>
+                        ${pill('band', 'all', 'All')}
+                        ${pill('band', 'HIGH', 'HIGH')}
+                        ${pill('band', 'EXTREME', 'EXTREME')}
+                        ${pill('band', 'NEAR_IMPOSSIBLE', 'NEAR IMPOSSIBLE')}
+                    </div>
+                    <div class="pressure-filter-group">
+                        <span class="pressure-filter-group-label">Entry Context</span>
+                        ${pill('entry', 'all', 'All')}
+                        ${pill('entry', 'FRESH', 'FRESH')}
+                        ${pill('entry', 'BUILDING', 'BUILDING')}
+                        ${pill('entry', 'SET', 'SET')}
+                        ${pill('entry', 'DEEP_SET', 'DEEP SET')}
+                    </div>
+                </div>`;
+
+            // Apply entry context filter to batters
+            let filteredBatters = pressure.topBatters;
+            if (pf.entry !== 'all') {
+                filteredBatters = filteredBatters.filter(b => b.entryContext === pf.entry);
+            }
 
             // Build batter cards
-            const battersHtml = pressure.topBatters.map((b, i) => `
-                <div class="pressure-player-card" id="batter-card-${i}">
+            const battersHtml = filteredBatters.map((b, i) => {
+                const hasBand = playerHasBand(b.bandBreakdown, pf.band);
+                const dimClass = !hasBand ? ' pressure-dimmed' : '';
+
+                // Determine what stat to show prominently
+                let primaryStatHtml;
+                const phaseStat = getBatterFilteredPhaseStat(b);
+                const bandStat = getBatterBandStat(b);
+
+                if (pf.band !== 'all' && bandStat) {
+                    primaryStatHtml = `
+                        <div class="pressure-filtered-stat">
+                            <div class="pressure-stat-value" style="color: ${bandStat.color};">${bandStat.value}</div>
+                            <div class="pressure-stat-label">${bandStat.label}</div>
+                        </div>`;
+                } else if (pf.band !== 'all' && !hasBand) {
+                    primaryStatHtml = `
+                        <div class="pressure-filtered-stat">
+                            <div class="pressure-stat-value" style="color: var(--text-tertiary);">N/A</div>
+                            <div class="pressure-stat-label">${pf.band.replace('_', ' ')} SR</div>
+                        </div>`;
+                } else if (pf.phase !== 'all' && phaseStat) {
+                    primaryStatHtml = `
+                        <div class="pressure-filtered-stat">
+                            <div class="pressure-stat-value" style="color: ${phaseStat.color};">${phaseStat.value}</div>
+                            <div class="pressure-stat-label">${phaseStat.label}</div>
+                        </div>`;
+                } else {
+                    primaryStatHtml = `
+                        <div class="pressure-stat">
+                            <div class="pressure-stat-value">${srDeltaDisplay(b.srDelta)}</div>
+                            <div class="pressure-stat-label">SR Delta</div>
+                        </div>`;
+                }
+
+                return `
+                <div class="pressure-player-card${dimClass}" id="batter-card-${i}">
                     <div class="pressure-player-summary" onclick="this.parentElement.classList.toggle('expanded');">
                         <div class="pressure-rank ${i === 0 ? 'top' : ''}">${i + 1}</div>
                         <div class="pressure-player-info">
@@ -2418,13 +2644,12 @@
                                 ${entryBadge(b.entryContext, b.avgBallsBefore || 0)}
                             </div>
                             <div class="pressure-player-detail">
-                                SR: ${b.overallSR.toFixed(1)} overall, ${b.pressureSR.toFixed(1)} under pressure (${b.pressureBalls} balls, ${b.confidence} conf.)
+                                SR: ${b.overallSR.toFixed(1)} overall, ${b.pressureSR.toFixed(1)} under pressure
+                                <span class="pressure-balls-prominent">${b.pressureBalls} balls</span>
+                                (${b.confidence} conf.)
                             </div>
                         </div>
-                        <div class="pressure-stat">
-                            <div class="pressure-stat-value">${srDeltaDisplay(b.srDelta)}</div>
-                            <div class="pressure-stat-label">SR Delta</div>
-                        </div>
+                        ${primaryStatHtml}
                         <div class="pressure-wscore">
                             <div class="pressure-wscore-value" style="color: ${wScoreColor(b.pressureScore)};">${b.pressureScore.toFixed(1)}</div>
                             <div class="pressure-wscore-label">W.Score</div>
@@ -2438,24 +2663,56 @@
                             ${batterBandTable(b.bandBreakdown)}
                         </div>
                     </div>
-                </div>
-            `).join('');
+                </div>`;
+            }).join('');
 
             // Build bowler cards
-            const bowlersHtml = pressure.topBowlers.map((bw, i) => `
-                <div class="pressure-player-card" id="bowler-card-${i}">
+            const bowlersHtml = pressure.topBowlers.map((bw, i) => {
+                const hasBand = playerHasBand(bw.bandBreakdown, pf.band);
+                const dimClass = !hasBand ? ' pressure-dimmed' : '';
+
+                let primaryStatHtml;
+                const phaseStat = getBowlerFilteredPhaseStat(bw);
+                const bandStat = getBowlerBandStat(bw);
+
+                if (pf.band !== 'all' && bandStat) {
+                    primaryStatHtml = `
+                        <div class="pressure-filtered-stat">
+                            <div class="pressure-stat-value" style="color: ${bandStat.color};">${bandStat.value}</div>
+                            <div class="pressure-stat-label">${bandStat.label}</div>
+                        </div>`;
+                } else if (pf.band !== 'all' && !hasBand) {
+                    primaryStatHtml = `
+                        <div class="pressure-filtered-stat">
+                            <div class="pressure-stat-value" style="color: var(--text-tertiary);">N/A</div>
+                            <div class="pressure-stat-label">${pf.band.replace('_', ' ')} Econ</div>
+                        </div>`;
+                } else if (pf.phase !== 'all' && phaseStat) {
+                    primaryStatHtml = `
+                        <div class="pressure-filtered-stat">
+                            <div class="pressure-stat-value" style="color: ${phaseStat.color};">${phaseStat.value}</div>
+                            <div class="pressure-stat-label">${phaseStat.label}</div>
+                        </div>`;
+                } else {
+                    primaryStatHtml = `
+                        <div class="pressure-stat">
+                            <div class="pressure-stat-value">${econDisplay(bw.economy)}</div>
+                            <div class="pressure-stat-label">Economy</div>
+                        </div>`;
+                }
+
+                return `
+                <div class="pressure-player-card${dimClass}" id="bowler-card-${i}">
                     <div class="pressure-player-summary" onclick="this.parentElement.classList.toggle('expanded');">
                         <div class="pressure-rank ${i === 0 ? 'top' : ''}">${i + 1}</div>
                         <div class="pressure-player-info">
                             <div class="pressure-player-name">${bw.name}</div>
                             <div class="pressure-player-detail">
-                                ${bw.pressureBand.replace('_', ' ')} band | ${bw.wickets} wkts | ${bw.dotBallPct.toFixed(1)}% dots (${bw.legalBalls} balls)
+                                ${bw.pressureBand.replace('_', ' ')} band | ${bw.wickets} wkts | ${bw.dotBallPct.toFixed(1)}% dots
+                                <span class="pressure-balls-prominent">${bw.legalBalls} balls</span>
                             </div>
                         </div>
-                        <div class="pressure-stat">
-                            <div class="pressure-stat-value">${econDisplay(bw.economy)}</div>
-                            <div class="pressure-stat-label">Economy</div>
-                        </div>
+                        ${primaryStatHtml}
                         ${ratingBadge(bw.rating)}
                         <div class="pressure-expand-icon">&#9660;</div>
                     </div>
@@ -2465,13 +2722,14 @@
                             ${bowlerBandTable(bw.bandBreakdown)}
                         </div>
                     </div>
-                </div>
-            `).join('');
+                </div>`;
+            }).join('');
 
             const qualNote = meta ? `
                 <div class="pressure-qual-note">
                     <strong>Qualification:</strong> Batters need ${meta.minBatterPressureBalls}+ pressure balls (RRR &ge; 10) and ${meta.minBatterOverallBalls}+ overall balls.
                     Bowlers need ${meta.minBowlerLegalBalls}+ balls across HIGH/EXTREME/NEAR_IMPOSSIBLE bands (${meta.minBowlerBandBalls}+ per band).
+                    <span class="pressure-qual-note-prominent"><span>10-over minimum (60 balls)</span></span>
                     Click any player card to expand RRR band breakdown and over-phase execution stats.
                 </div>` : '';
 
@@ -2506,11 +2764,13 @@
                     </div>
                 </div>
 
+                ${filterBarHtml}
+
                 <div class="pressure-columns">
                     <div>
                         <div class="pressure-section-title">Top Clutch Batters (by Weighted Score)</div>
                         <div class="pressure-player-list">
-                            ${battersHtml || '<div style="color: var(--text-tertiary); padding: 16px; text-align: center;">No batter data available</div>'}
+                            ${battersHtml || '<div style="color: var(--text-tertiary); padding: 16px; text-align: center;">No batter data available' + (pf.entry !== 'all' ? ' for ' + pf.entry.replace('_', ' ') + ' entry context' : '') + '</div>'}
                         </div>
                     </div>
                     <div>

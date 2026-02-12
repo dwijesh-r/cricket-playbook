@@ -4403,15 +4403,15 @@
             .nav-btn.refresh-btn {
                 padding: 8px;
                 font-size: 0;
-                min-width: 38px;
-                min-height: 38px;
+                min-width: 44px;
+                min-height: 44px;
                 justify-content: center;
             }
             .nav-btn.refresh-btn::before {
                 content: '🔄';
                 font-size: 16px;
             }
-            .theme-toggle { width: 38px; height: 38px; }
+            .theme-toggle { width: 44px; height: 44px; }
         }
 
         /* 480px Breakpoint - Small Phones */
@@ -4427,15 +4427,15 @@
             .ticket { padding: 12px; }
             .agent-avatar { width: 36px; height: 36px; }
             .ticket-title { font-size: 13px; }
-            .mobile-nav-tab { padding: 5px 6px; min-height: 40px; min-width: 44px; font-size: 8px; }
+            .mobile-nav-tab { padding: 5px 6px; min-height: 44px; min-width: 44px; font-size: 8px; }
             .mobile-nav-icon { font-size: 16px; }
             .column { min-height: 180px; }
-            .theme-toggle { width: 34px; height: 34px; font-size: 14px; }
-            .nav-btn.refresh-btn { width: 34px; height: 34px; min-width: 34px; min-height: 34px; padding: 6px; }
+            .theme-toggle { width: 44px; height: 44px; font-size: 14px; }
+            .nav-btn.refresh-btn { width: 44px; height: 44px; min-width: 44px; min-height: 44px; padding: 6px; }
             .nav-btn.refresh-btn::before { font-size: 14px; }
             /* Filter buttons - more compact */
             .board-filters { gap: 6px; }
-            .filter-btn { padding: 8px 6px; font-size: 11px; min-height: 40px; }
+            .filter-btn { padding: 8px 6px; font-size: 11px; min-height: 44px; }
             .filter-dropdown-btn, .agent-filter-btn { font-size: 11px; }
             .search-box-mc input { padding: 10px 12px 10px 36px; font-size: 13px; }
             /* Agent Stats */
@@ -4455,7 +4455,7 @@
 
         /* Touch Target Minimum Sizes (WCAG Compliance) */
         .filter-btn { min-height: 44px; }
-        .mobile-nav-tab { min-height: 40px; min-width: 44px; }
+        .mobile-nav-tab { min-height: 44px; min-width: 44px; }
 
         /* Scrollbar Styling */
         .column-body::-webkit-scrollbar { width: 6px; }
@@ -7783,24 +7783,24 @@ Gate Inheritance:
             { id: 'TKT-181', title: 'NL Search Engine: dynamic query builder for Research Desk (Film Room)', state: 'DONE', priority: 'P1', effort: 'marathon', assignee: 'Jose Mourinho', epic: 'EPIC-005', progress: 100, tags: ['Analytics', 'Film Room', 'Research Desk'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               context: { ask: 'Audit all 35+ Film Room SQL views for IPL data scope, create dual-scope naming (_alltime/_since2023), add 13 new tactical views', goal: '80 dual-scope views + all scripts using 2023+ data + SQL editor fixes', reason: 'Data scope clarity is critical — 2023+ IPL is the analytical window', audible: ['Create dual-scope views', 'Migrate scripts to _since2023', 'Fix SQL editor escaping', 'Regenerate all outputs'] }
             },
-            { id: 'TKT-182', title: 'T20 Fallback Data for Uncapped IPL Players in Stat Packs', state: 'REVIEW', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 0, tags: ['Analytics', 'Stat Packs'], gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-182', title: 'T20 Fallback Data for Uncapped IPL Players in Stat Packs', state: 'DONE', priority: 'P2', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-006', progress: 100, tags: ['Analytics', 'Stat Packs'], gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               context: { ask: 'Add T20 fallback data from other tournaments for 51 uncapped IPL 2026 players', goal: 'Uncapped Watch section in stat packs with T20 profiles for players without IPL history', reason: '34 of 51 uncapped players have meaningful T20 data from BBL, PSL, CPL, etc.', audible: ['Render T20 columns for uncapped players', 'Add Uncapped Watch section', 'Tag uncapped players in player_tags.json'] }
             },
-            { id: 'TKT-183', title: 'Tournament Quality Weighting System: 5-Factor Composite', state: 'RUNNING', priority: 'P1', effort: 'marathon', assignee: 'Jose Mourinho', epic: 'EPIC-016', progress: 10, tags: ['Analytics', 'Quant Research'], gates: { florentino_gate: 'APPROVED', founder_prd_approval: 'APPROVED' },
+            { id: 'TKT-183', title: 'Tournament Quality Weighting System: 5-Factor Composite', state: 'RUNNING', priority: 'P1', effort: 'marathon', assignee: 'Jose Mourinho', epic: 'EPIC-016', progress: 60, tags: ['Analytics', 'Quant Research'], gates: { florentino_gate: 'APPROVED', founder_prd_approval: 'APPROVED' },
               context: { ask: 'Build 5-factor composite weight system: PQI, Competitiveness, Recency Decay, Conditions Similarity, Sample Size Confidence', goal: 'Tournament quality weights across 426 tournaments / 9,357 matches', reason: 'Analytical credibility requires principled weighting of non-IPL T20 data', audible: ['Phase 1: Data Layer', 'Phase 2: Weight Computation', 'Phase 3: Integration', 'Phase 4: Validation'] },
               documents: [{ title: 'Tournament Quality Weighting Plan (Founder Approved)', path: 'reviews/founder/tournament_weighting_plan_021126_v1.md', status: 'FOUNDER_APPROVED' }]
             },
             // TKT-183 sub-tickets: Tournament Quality Weighting Phases (EPIC-016, 7 tickets: TKT-184 to TKT-190)
-            { id: 'TKT-184', title: 'TKT-183.1: Recency Decay Curve Analysis', state: 'IDEA', priority: 'P1', effort: 'deep-work', assignee: 'Jose Mourinho', epic: 'EPIC-016', progress: 0, tags: ['Analytics', 'Quant Research'], parent: 'TKT-183', gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-184', title: 'TKT-183.1: Recency Decay Curve Analysis', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Jose Mourinho', epic: 'EPIC-016', progress: 100, tags: ['Analytics', 'Quant Research'], parent: 'TKT-183', gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               context: { ask: 'Compute 3-5 candidate exponential decay rates for Factor 3', goal: 'Present decay curves with evidence for Founder selection (Decision #5)', reason: 'Tournament relevance degrades over time — need principled decay rate', audible: ['Analyze temporal relevance', 'Model decay curves', 'Present to Founder'] }
             },
-            { id: 'TKT-185', title: 'TKT-183.2: Season-Level Competitiveness Index', state: 'IDEA', priority: 'P1', effort: 'deep-work', assignee: 'Jose Mourinho', epic: 'EPIC-016', progress: 0, tags: ['Analytics', 'Quant Research'], parent: 'TKT-183', gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-185', title: 'TKT-183.2: Season-Level Competitiveness Index', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Jose Mourinho', epic: 'EPIC-016', progress: 100, tags: ['Analytics', 'Quant Research'], parent: 'TKT-183', gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               context: { ask: 'Refine Factor 2 CI from tournament-lifetime to per-season splits', goal: 'Season-level CI scores for 207 tournaments to pair with recency decay', reason: 'Current CI uses all-time aggregates — masks season-by-season quality variation', audible: ['Split CI by season', 'Update factor scores JSON', 'Validate against known quality changes'] }
             },
-            { id: 'TKT-186', title: 'TKT-183.3: Composite Formula Refinement', state: 'IDEA', priority: 'P1', effort: 'deep-work', assignee: 'Jose Mourinho', epic: 'EPIC-016', progress: 0, tags: ['Analytics', 'Quant Research'], parent: 'TKT-183', gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-186', title: 'TKT-183.3: Composite Formula Refinement', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Jose Mourinho', epic: 'EPIC-016', progress: 100, tags: ['Analytics', 'Quant Research'], parent: 'TKT-183', gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               context: { ask: 'Compare weighted avg vs geometric mean vs harmonic mean for composite', goal: 'Identify formula that prevents single high factor from masking weak factors', reason: 'Aggregation method choice materially affects tier assignments', audible: ['Run sensitivity analysis', 'Compare 3 methods', 'Recommend to Founder'] }
             },
-            { id: 'TKT-187', title: 'TKT-183.4: Founder Approval Gate — Final Weights', state: 'IDEA', priority: 'P0', effort: 'hustle', assignee: 'Jose Mourinho', epic: 'EPIC-016', progress: 0, tags: ['Analytics', 'Governance'], parent: 'TKT-183', gates: { florentino_gate: 'APPROVED' },
+            { id: 'TKT-187', title: 'TKT-183.4: Founder Approval Gate — Final Weights', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Jose Mourinho', epic: 'EPIC-016', progress: 100, tags: ['Analytics', 'Governance'], parent: 'TKT-183', gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', system_check: 'PASS', founder_validation: 'APPROVED' },
               blockedBy: ['TKT-184', 'TKT-185', 'TKT-186'],
               founderReviewNote: 'HARD GATE (Decision #4): Review and approve final composite weights for all 207 tournaments. Verify tier assignments align with cricket intuition. No Phase 2 work can proceed without sign-off.',
               context: { ask: 'Compile final weights for 207 tournaments and present to Founder', goal: 'Founder sign-off on all weight values (Decision #4 hard gate)', reason: 'No Phase 2 work can begin without Founder approval of derived weights', audible: ['Compile Phase 1 outputs', 'Present tier assignments', 'Obtain Founder sign-off'] }

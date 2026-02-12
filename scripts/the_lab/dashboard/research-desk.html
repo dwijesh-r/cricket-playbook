@@ -119,6 +119,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { overflow-x: hidden; max-width: 100vw; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-primary);
@@ -199,7 +200,7 @@
         /* Mobile hamburger menu */
         .mobile-menu-btn {
             display: none;
-            width: 38px; height: 38px; border-radius: 10px;
+            width: 44px; height: 44px; border-radius: 10px;
             background: var(--bg-secondary); border: 1px solid var(--border);
             color: var(--text-primary); cursor: pointer;
             flex-direction: column; align-items: center; justify-content: center;
@@ -1260,6 +1261,9 @@
             /* Editor shortcuts hint */
             .editor-shortcuts-hint { display: none; }
         }
+
+        /* Touch target minimum sizes (WCAG 44x44px) */
+        .theme-toggle { min-width: 44px; min-height: 44px; }
     </style>
 </head>
 <body>

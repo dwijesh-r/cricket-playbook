@@ -41,12 +41,13 @@ const TOKEN_DATA = {
         { date: "2026-02-09", messages: 0, sessions: 1, tools: 0, tokens: 0, commits: 4, source: "git-log" },
         { date: "2026-02-10", messages: 0, sessions: 1, tools: 0, tokens: 0, commits: 28, source: "git-log" },
         { date: "2026-02-11", messages: 0, sessions: 1, tools: 0, tokens: 0, commits: 13, source: "git-log" },
+        { date: "2026-02-12", messages: 0, sessions: 1, tools: 0, tokens: 0, commits: 0, source: "git-log" },
     ],
     billingEstimate: {
         plan: "Claude Max",
         cycleStart: "2026-02-01",
         cycleEnd: "2026-03-01",
-        daysRemaining: 18,
+        daysRemaining: 17,
         note: "Subscription plan - no per-token charges"
     }
 };

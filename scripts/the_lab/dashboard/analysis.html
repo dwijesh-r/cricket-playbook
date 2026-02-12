@@ -384,10 +384,217 @@
         .footer a { color: var(--accent); text-decoration: none; }
         .footer a:hover { text-decoration: underline; }
 
+        /* ==================== TOURNAMENT INTELLIGENCE (TKT-183/187) ==================== */
+        .tw-section { margin-bottom: 48px; }
+
+        .tw-table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+        }
+        .tw-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            min-width: 820px;
+        }
+        .tw-table thead th {
+            padding: 14px 12px;
+            text-align: left;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-tertiary);
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-tertiary);
+            white-space: nowrap;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+        .tw-table thead th:first-child { padding-left: 16px; border-radius: 16px 0 0 0; }
+        .tw-table thead th:last-child { border-radius: 0 16px 0 0; }
+        .tw-table tbody td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            vertical-align: middle;
+        }
+        .tw-table tbody td:first-child { padding-left: 16px; }
+        .tw-table tbody tr:last-child td { border-bottom: none; }
+        .tw-table tbody tr:hover { background: rgba(255, 255, 255, 0.03); }
+        [data-theme="light"] .tw-table tbody tr:hover { background: rgba(0, 0, 0, 0.02); }
+
+        .tw-rank {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+        }
+        .tw-rank.top { background: var(--accent); color: white; }
+
+        .tw-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            white-space: nowrap;
+        }
+
+        .tw-weight {
+            font-weight: 800;
+            font-size: 15px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .tw-tier {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .tw-tier.tier-1a { background: rgba(255, 214, 10, 0.2); color: #ffd60a; }
+        .tw-tier.tier-1b { background: rgba(174, 174, 178, 0.2); color: #aeaeb2; }
+        .tw-tier.tier-1c { background: rgba(10, 132, 255, 0.2); color: var(--accent); }
+        .tw-tier.tier-2  { background: rgba(142, 142, 147, 0.2); color: var(--text-tertiary); }
+
+        .tw-factor-bar-cell {
+            min-width: 70px;
+        }
+        .tw-factor-bar {
+            height: 6px;
+            border-radius: 3px;
+            background: var(--bg-elevated);
+            overflow: hidden;
+            margin-bottom: 2px;
+        }
+        .tw-factor-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.6s ease;
+        }
+        .tw-factor-val {
+            font-size: 11px;
+            font-variant-numeric: tabular-nums;
+            color: var(--text-tertiary);
+            font-weight: 500;
+        }
+
+        .tw-matches {
+            font-variant-numeric: tabular-nums;
+            color: var(--text-secondary);
+            font-size: 12px;
+        }
+
+        /* Summary cards above table */
+        .tw-summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .tw-summary-card {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .tw-summary-card .tw-sc-value {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+        .tw-summary-card .tw-sc-label {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        /* Methodology note */
+        .tw-methodology {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-top: 24px;
+        }
+        .tw-methodology-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-teal);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        .tw-methodology-text {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .tw-methodology-text code {
+            background: var(--bg-tertiary);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--accent);
+        }
+
+        /* Factor legend row */
+        .tw-factor-legend {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+            padding: 12px 16px;
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        .tw-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .tw-legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 3px;
+        }
+
+        /* Responsive for tournament intelligence */
+        @media (max-width: 768px) {
+            .tw-summary-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .tw-summary-card { padding: 14px; }
+            .tw-summary-card .tw-sc-value { font-size: 22px; }
+            .tw-factor-legend { gap: 10px; padding: 10px 12px; }
+            .tw-legend-item { font-size: 10px; }
+        }
+        @media (max-width: 480px) {
+            .tw-summary-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .tw-summary-card { padding: 12px; }
+            .tw-summary-card .tw-sc-value { font-size: 20px; }
+            .tw-methodology { padding: 16px; }
+        }
+
         /* Mobile hamburger menu */
         .mobile-menu-btn {
             display: none;
-            width: 38px; height: 38px; border-radius: 10px;
+            width: 44px; height: 44px; border-radius: 10px;
             background: var(--bg-secondary); border: 1px solid var(--border);
             color: var(--text-primary); cursor: pointer;
             flex-direction: column; align-items: center; justify-content: center;
@@ -428,6 +635,13 @@
             .page-subtitle { font-size: 14px; padding: 0 16px; }
             .nav-btn { display: none; }
         }
+
+        /* Prevent horizontal overflow */
+        html, body { overflow-x: hidden; max-width: 100vw; }
+
+        /* Touch target minimum sizes (WCAG 44x44px) */
+        .mobile-nav-menu .nav-tab { min-height: 44px; }
+        .theme-toggle { min-width: 44px; min-height: 44px; }
 
         /* ==================== NAVIGATION GUIDE ==================== */
         .nav-guide-btn {
@@ -1164,6 +1378,61 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Tournament Intelligence (TKT-183/187) -->
+            <section class="tw-section">
+                <h2 class="section-title">
+                    <span class="icon">🌍</span>
+                    Tournament Intelligence
+                </h2>
+
+                <div id="tw-summary-grid" class="tw-summary-grid">
+                    <!-- Populated by JS -->
+                </div>
+
+                <div class="tw-factor-legend">
+                    <div class="tw-legend-item"><div class="tw-legend-dot" style="background: #30d158;"></div> PQI (Player Quality)</div>
+                    <div class="tw-legend-item"><div class="tw-legend-dot" style="background: #0a84ff;"></div> Eff. CI (Competition)</div>
+                    <div class="tw-legend-item"><div class="tw-legend-dot" style="background: #bf5af2;"></div> Recency</div>
+                    <div class="tw-legend-item"><div class="tw-legend-dot" style="background: #ff9f0a;"></div> Conditions</div>
+                    <div class="tw-legend-item"><div class="tw-legend-dot" style="background: #64d2ff;"></div> Sample Size</div>
+                </div>
+
+                <div class="tw-table-wrap">
+                    <table class="tw-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Tournament</th>
+                                <th>Weight</th>
+                                <th>Tier</th>
+                                <th class="has-tooltip" data-tooltip="Player Quality Index: % of top 220 IPL players in this tournament">PQI</th>
+                                <th class="has-tooltip" data-tooltip="Effective Competition Index: match competitiveness adjusted for league depth">Eff. CI</th>
+                                <th class="has-tooltip" data-tooltip="Recency: data freshness with 4-year half-life decay">Recency</th>
+                                <th class="has-tooltip" data-tooltip="Conditions Similarity: how similar pitches/grounds are to IPL venues">Conditions</th>
+                                <th class="has-tooltip" data-tooltip="Sample Confidence: statistical reliability based on seasons and matches">Sample</th>
+                                <th>Matches</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tw-table-body">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="tw-methodology">
+                    <div class="tw-methodology-title">Methodology</div>
+                    <div class="tw-methodology-text">
+                        Tournament weights determine how much non-IPL performance data is trusted when building player profiles.
+                        Each tournament is scored on 5 factors: <code>PQI</code> (25%), <code>Effective CI</code> (20%),
+                        <code>Recency</code> (20%), <code>Conditions Similarity</code> (15%), and <code>Sample Confidence</code> (20%).
+                        The composite weight is the geometric mean of all factors (weighted). Recency uses a 4-year half-life decay.
+                        Conditions similarity is benchmarked against IPL 2023-2025 as the baseline.
+                        Tier assignments: <strong>1A</strong> (0.80+), <strong>1B</strong> (0.60-0.79),
+                        <strong>1C</strong> (0.45-0.59), <strong>2</strong> (&lt;0.45).
+                    </div>
+                </div>
+            </section>
         </div>
 
         <footer class="footer">
@@ -1173,6 +1442,7 @@
         </footer>
     </main>
 
+    <script src="data/tournament_weights.js"></script>
     <script>
         function toggleTheme() {
             const html = document.documentElement;
@@ -1204,6 +1474,95 @@
         // Navigation Guide
         function toggleNavGuide() { document.getElementById('nav-guide-overlay').classList.toggle('active'); }
         function closeNavGuide(e) { if (e.target === e.currentTarget) toggleNavGuide(); }
+
+        // ==================== TOURNAMENT INTELLIGENCE RENDERER (TKT-183/187) ====================
+        (function renderTournamentIntelligence() {
+            if (typeof TOURNAMENT_WEIGHTS === 'undefined') return;
+
+            const data = TOURNAMENT_WEIGHTS;
+            const tournaments = data.tournaments;
+
+            // Factor colors
+            const factorColors = {
+                pqi: '#30d158',
+                effective_ci: '#0a84ff',
+                recency: '#bf5af2',
+                conditions_similarity: '#ff9f0a',
+                sample_confidence: '#64d2ff'
+            };
+
+            // Tier styling
+            const tierClass = (tier) => 'tier-' + tier.toLowerCase();
+            const tierLabel = (tier) => {
+                const labels = { '1A': 'Tier 1A', '1B': 'Tier 1B', '1C': 'Tier 1C', '2': 'Tier 2' };
+                return labels[tier] || tier;
+            };
+
+            // Weight color based on value
+            const weightColor = (w) => {
+                if (w >= 0.80) return '#ffd60a';
+                if (w >= 0.60) return '#aeaeb2';
+                if (w >= 0.45) return '#0a84ff';
+                return '#636366';
+            };
+
+            // Factor bar HTML
+            const factorBar = (value, color) => {
+                const pct = Math.round(value * 100);
+                return '<div class="tw-factor-bar-cell">' +
+                    '<div class="tw-factor-bar"><div class="tw-factor-fill" style="width:' + pct + '%;background:' + color + ';"></div></div>' +
+                    '<div class="tw-factor-val">' + value.toFixed(2) + '</div>' +
+                    '</div>';
+            };
+
+            // Summary cards
+            const tier1A = tournaments.filter(t => t.tier === '1A').length;
+            const tier1B = tournaments.filter(t => t.tier === '1B').length;
+            const tier1C = tournaments.filter(t => t.tier === '1C').length;
+            const tier2 = tournaments.filter(t => t.tier === '2').length;
+            const totalMatches = tournaments.reduce((sum, t) => sum + t.totalMatches, 0);
+
+            const summaryEl = document.getElementById('tw-summary-grid');
+            if (summaryEl) {
+                summaryEl.innerHTML =
+                    '<div class="tw-summary-card">' +
+                        '<div class="tw-sc-value" style="color: #ffd60a;">' + tier1A + '</div>' +
+                        '<div class="tw-sc-label">Tier 1A</div>' +
+                    '</div>' +
+                    '<div class="tw-summary-card">' +
+                        '<div class="tw-sc-value" style="color: #aeaeb2;">' + (tier1B + tier1C) + '</div>' +
+                        '<div class="tw-sc-label">Tier 1B/1C</div>' +
+                    '</div>' +
+                    '<div class="tw-summary-card">' +
+                        '<div class="tw-sc-value" style="color: var(--text-tertiary);">' + tier2 + '</div>' +
+                        '<div class="tw-sc-label">Tier 2</div>' +
+                    '</div>' +
+                    '<div class="tw-summary-card">' +
+                        '<div class="tw-sc-value" style="color: var(--accent-teal);">' + totalMatches.toLocaleString() + '</div>' +
+                        '<div class="tw-sc-label">Total Matches</div>' +
+                    '</div>';
+            }
+
+            // Table rows
+            const tbody = document.getElementById('tw-table-body');
+            if (tbody) {
+                tbody.innerHTML = tournaments.map((t, i) => {
+                    const f = t.factors;
+                    return '<tr>' +
+                        '<td><span class="tw-rank ' + (i === 0 ? 'top' : '') + '">' + (i + 1) + '</span></td>' +
+                        '<td><span class="tw-name">' + t.tournament + '</span></td>' +
+                        '<td><span class="tw-weight" style="color:' + weightColor(t.compositeWeight) + ';">' + t.compositeWeight.toFixed(4) + '</span></td>' +
+                        '<td><span class="tw-tier ' + tierClass(t.tier) + '">' + tierLabel(t.tier) + '</span></td>' +
+                        '<td>' + factorBar(f.pqi, factorColors.pqi) + '</td>' +
+                        '<td>' + factorBar(f.effective_ci, factorColors.effective_ci) + '</td>' +
+                        '<td>' + factorBar(f.recency, factorColors.recency) + '</td>' +
+                        '<td>' + factorBar(f.conditions_similarity, factorColors.conditions_similarity) + '</td>' +
+                        '<td>' + factorBar(f.sample_confidence, factorColors.sample_confidence) + '</td>' +
+                        '<td><span class="tw-matches">' + t.totalMatches.toLocaleString() + '</span></td>' +
+                        '</tr>';
+                }).join('');
+            }
+        })();
     </script>
 
     <!-- Navigation Guide Button -->

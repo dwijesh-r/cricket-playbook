@@ -1374,8 +1374,8 @@
         /* Mobile hamburger */
         .mobile-menu-btn {
             display: none;
-            width: 38px;
-            height: 38px;
+            width: 44px;
+            height: 44px;
             border-radius: 10px;
             background: var(--bg-secondary);
             border: 1px solid var(--border);
@@ -1424,7 +1424,8 @@
             .team-meta { justify-content: center; flex-wrap: wrap; gap: 12px; }
             .meta-item { font-size: 11px; }
             .xi-grid { grid-template-columns: 1fr; }
-            .roster-table { font-size: 11px; }
+            .roster-table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .roster-table { font-size: 11px; min-width: 600px; }
             .roster-table th, .roster-table td { padding: 8px 4px; }
             .squad-summary { grid-template-columns: 1fr; }
             .search-filter-bar { flex-direction: column; align-items: stretch; }
@@ -1835,7 +1836,18 @@
             .pressure-glossary-table td {
                 padding: 5px 6px;
             }
+            .pressure-glossary-section {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
         }
+
+        /* Prevent horizontal overflow */
+        html, body { overflow-x: hidden; max-width: 100vw; }
+
+        /* Touch target minimum sizes (WCAG 44x44px) */
+        .mobile-nav a { min-height: 44px; display: flex; align-items: center; }
+        .theme-toggle { min-width: 44px; min-height: 44px; }
     </style>
 </head>
 <body>
@@ -2635,6 +2647,7 @@
                 </div>
                 ${isFiltered ? `<div class="filter-count">${filterCountText}</div>` : ''}
 
+                <div class="roster-table-wrapper">
                 <table class="roster-table phil-steele">
                     <thead>
                         <tr>
@@ -2742,6 +2755,7 @@
                         `}).join('')}
                     </tbody>
                 </table>
+                </div>
                 ${filteredSquad.length > 11 ? `
                 <div class="show-more-container">
                     <button class="show-more-btn" onclick="toggleExtendedSquad()">

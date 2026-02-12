@@ -1,0 +1,31 @@
+{
+  "id": "EPIC-014",
+  "title": "Foundation Fortification",
+  "owner": "Brad Stevens",
+  "tickets": [
+    "TKT-132",
+    "TKT-133",
+    "TKT-134",
+    "TKT-135",
+    "TKT-136",
+    "TKT-137",
+    "TKT-138",
+    "TKT-139",
+    "TKT-140",
+    "TKT-141",
+    "TKT-142",
+    "TKT-143",
+    "TKT-144",
+    "TKT-145",
+    "TKT-146",
+    "TKT-147",
+    "TKT-148",
+    "IDEA-006"
+  ],
+  "progress_pct": 100,
+  "status": "COMPLETED",
+  "description": "Harden system foundations: centralize config, enforce quality gates, add data constraints, implement baselines, improve test coverage. Production-grade infrastructure scoring 96/100 on system health metrics with enforced CI/CD gates and comprehensive validation.",
+  "sprint_id": "SPRINT-001",
+  "created_at": "2026-02-08T00:00:00Z",
+  "updated_at": "2026-02-12T00:00:00Z"
+}

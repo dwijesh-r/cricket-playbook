@@ -1,0 +1,18 @@
+{
+  "id": "EPIC-015",
+  "title": "Operational Maturity",
+  "owner": "Brad Stevens",
+  "tickets": [
+    "TKT-154",
+    "TKT-155",
+    "TKT-156",
+    "TKT-157",
+    "TKT-158"
+  ],
+  "progress_pct": 100,
+  "status": "COMPLETED",
+  "description": "Close the gap to 85/100 health score: Docker containerization, test coverage enforcement, ML retraining pipeline, production monitoring, operational runbooks. Achieved 96/100 system health score.",
+  "sprint_id": "SPRINT-001",
+  "created_at": "2026-02-08T00:00:00Z",
+  "updated_at": "2026-02-12T00:00:00Z"
+}

@@ -741,6 +741,7 @@
         }
         .balance-status.good { background: rgba(48, 209, 88, 0.2); color: var(--accent-green); }
         .balance-status.max { background: rgba(255, 159, 10, 0.2); color: var(--accent-orange); }
+        .balance-status.warn { background: rgba(255, 69, 58, 0.2); color: var(--accent-red); }
 
         /* Impact Player */
         .impact-player {
@@ -1584,6 +1585,50 @@
             font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
             color: var(--text-tertiary); margin-top: 4px;
         }
+        .pressure-summary-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+        .pressure-summary-table thead th {
+            padding: 10px 16px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-tertiary);
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+            font-weight: 600;
+        }
+        .pressure-summary-table thead th:first-child { text-align: left; }
+        .pressure-summary-table tbody td {
+            padding: 12px 16px;
+            font-size: 14px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+        .pressure-summary-table tbody td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        .pressure-summary-table tbody tr:last-child td { border-bottom: none; }
+        .pressure-summary-table .table-count {
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        .pressure-summary-table .table-pct {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            margin-top: 2px;
+        }
         .pressure-section-title {
             font-size: 16px; font-weight: 700; margin-bottom: 16px;
             padding-bottom: 8px; border-bottom: 1px solid var(--border);
@@ -1890,6 +1935,10 @@
 
         @media (max-width: 768px) {
             .pressure-summary-grid { grid-template-columns: repeat(2, 1fr); }
+            .pressure-summary-table { font-size: 12px; }
+            .pressure-summary-table thead th { padding: 8px 10px; font-size: 10px; }
+            .pressure-summary-table tbody td { padding: 10px; }
+            .pressure-summary-table .table-count { font-size: 16px; }
             .pressure-columns { grid-template-columns: 1fr; }
             .pressure-phase-grid { grid-template-columns: 1fr; }
             .pressure-glossary-table { font-size: 11px; }
@@ -2239,35 +2288,60 @@
             // Balance Content
             const balance = predicted.balance;
             const balanceContent = document.getElementById('balance-content');
+            // Compute additional balance metrics from predicted XI
+            const xi = predicted.players || [];
+            const lhb = xi.filter(p => p.batting === 'Left-hand').length;
+            const rhb = xi.filter(p => p.batting === 'Right-hand').length;
+            const totalPrice = xi.reduce((s, p) => s + (p.price || 0), 0);
+            const avgPrice = xi.length > 0 ? (totalPrice / xi.length).toFixed(1) : '0';
+            const overseasNames = xi.filter(p => p.overseas).map(p => p.name.split(' ').pop());
+            // Squad experience from full_squads data
+            const squad = FULL_SQUADS[currentTeam] || [];
+            const xiNames = new Set(xi.map(p => p.name));
+            const xiExp = squad.filter(p => xiNames.has(p.name));
+            const totalXIMatches = xiExp.reduce((s, p) => s + (p.iplMatches || 0), 0);
+            const avgXIMatches = xiExp.length > 0 ? Math.round(totalXIMatches / xiExp.length) : 0;
+            const uncappedInXI = xiExp.filter(p => p.isUncapped).length;
+
+            const spinPaceRatio = `${balance.spinners}:${balance.pacers}`;
+            const overseasStatus = balance.overseas === 4 ? 'max' : balance.overseas >= 3 ? 'good' : 'warn';
+            const bowlStatus = balance.bowlingOptions >= 6 ? 'good' : 'warn';
+
             balanceContent.innerHTML = `
                 <h3>Team Balance - ${team.fullName}</h3>
                 <div class="balance-grid">
                     <div class="balance-item">
                         <div class="balance-value">${balance.overseas}/4</div>
-                        <div class="balance-label">Overseas</div>
-                        <div class="balance-status ${balance.overseas === 4 ? 'max' : 'good'}">${balance.overseas === 4 ? 'MAX' : 'OK'}</div>
+                        <div class="balance-label">Overseas Slots</div>
+                        <div class="balance-status ${overseasStatus}">${balance.overseas === 4 ? 'MAX' : balance.overseas + ' USED'}</div>
                     </div>
                     <div class="balance-item">
-                        <div class="balance-value">${balance.bowlingOptions}</div>
-                        <div class="balance-label">Bowling Options</div>
-                        <div class="balance-status good">✓</div>
+                        <div class="balance-value">${spinPaceRatio}</div>
+                        <div class="balance-label">Spin : Pace</div>
+                        <div class="balance-status good">${balance.bowlingOptions} options</div>
                     </div>
                     <div class="balance-item">
-                        <div class="balance-value">${balance.spinners}</div>
-                        <div class="balance-label">Spinners</div>
-                        <div class="balance-status good">✓</div>
+                        <div class="balance-value">${lhb}/${rhb}</div>
+                        <div class="balance-label">LHB / RHB</div>
+                        <div class="balance-status ${lhb >= 2 ? 'good' : 'max'}">${lhb >= 3 ? 'Well Mixed' : lhb >= 2 ? 'Balanced' : 'RH Heavy'}</div>
                     </div>
                     <div class="balance-item">
-                        <div class="balance-value">${balance.pacers}</div>
-                        <div class="balance-label">Pacers</div>
-                        <div class="balance-status good">✓</div>
+                        <div class="balance-value">${avgXIMatches}</div>
+                        <div class="balance-label">Avg IPL Matches</div>
+                        <div class="balance-status ${avgXIMatches >= 25 ? 'good' : 'max'}">${uncappedInXI > 0 ? uncappedInXI + ' uncapped' : 'All capped'}</div>
                     </div>
                     <div class="balance-item">
-                        <div class="balance-value">${balance.leftHandersTop6}</div>
-                        <div class="balance-label">LHB in Top 6</div>
-                        <div class="balance-status good">✓</div>
+                        <div class="balance-value">₹${avgPrice}Cr</div>
+                        <div class="balance-label">Avg Price / Player</div>
+                        <div class="balance-status good">₹${totalPrice.toFixed(1)}Cr total</div>
                     </div>
                 </div>
+                ${overseasNames.length > 0 ? `
+                <div style="margin-top: 16px; padding: 12px 16px; background: var(--bg-elevated); border-radius: 10px; border-left: 3px solid var(--accent-orange);">
+                    <div style="font-size: 11px; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 4px;">Overseas Picks</div>
+                    <div style="font-size: 14px; font-weight: 600;">${overseasNames.join(' · ')}</div>
+                </div>
+                ` : ''}
             `;
 
             // Depth Chart (full inline display)
@@ -2970,24 +3044,42 @@
                     </div>
                 </div>
 
-                <div class="pressure-summary-grid">
-                    <div class="pressure-summary-card">
-                        <div class="count" style="color: var(--accent-green);">${s.clutch}</div>
-                        <div class="label">Clutch</div>
-                    </div>
-                    <div class="pressure-summary-card">
-                        <div class="count" style="color: var(--accent);">${s.pressureProof}</div>
-                        <div class="label">Pressure-Proof</div>
-                    </div>
-                    <div class="pressure-summary-card">
-                        <div class="count" style="color: var(--accent-yellow);">${s.moderate}</div>
-                        <div class="label">Moderate</div>
-                    </div>
-                    <div class="pressure-summary-card">
-                        <div class="count" style="color: var(--accent-red);">${s.pressureSensitive}</div>
-                        <div class="label">Pressure-Sensitive</div>
-                    </div>
-                </div>
+                <table class="pressure-summary-table">
+                    <thead>
+                        <tr>
+                            <th>Rating</th>
+                            <th>Players</th>
+                            <th>% of Squad</th>
+                            <th>Indicator</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="color: var(--accent-green);">Clutch</td>
+                            <td><span class="table-count" style="color: var(--accent-green);">${s.clutch}</span></td>
+                            <td><span class="table-pct">${s.total > 0 ? ((s.clutch / s.total) * 100).toFixed(0) : 0}%</span></td>
+                            <td><span class="pressure-badge clutch">SR +10% under pressure</span></td>
+                        </tr>
+                        <tr>
+                            <td style="color: var(--accent);">Pressure-Proof</td>
+                            <td><span class="table-count" style="color: var(--accent);">${s.pressureProof}</span></td>
+                            <td><span class="table-pct">${s.total > 0 ? ((s.pressureProof / s.total) * 100).toFixed(0) : 0}%</span></td>
+                            <td><span class="pressure-badge pressure-proof">Within &plusmn;5%</span></td>
+                        </tr>
+                        <tr>
+                            <td style="color: var(--accent-yellow);">Moderate</td>
+                            <td><span class="table-count" style="color: var(--accent-yellow);">${s.moderate}</span></td>
+                            <td><span class="table-pct">${s.total > 0 ? ((s.moderate / s.total) * 100).toFixed(0) : 0}%</span></td>
+                            <td><span class="pressure-badge moderate">5-10% change</span></td>
+                        </tr>
+                        <tr>
+                            <td style="color: var(--accent-red);">Pressure-Sensitive</td>
+                            <td><span class="table-count" style="color: var(--accent-red);">${s.pressureSensitive}</span></td>
+                            <td><span class="table-pct">${s.total > 0 ? ((s.pressureSensitive / s.total) * 100).toFixed(0) : 0}%</span></td>
+                            <td><span class="pressure-badge pressure-sensitive">SR -10% under pressure</span></td>
+                        </tr>
+                    </tbody>
+                </table>
 
                 ${filterBarHtml}
 
@@ -3517,18 +3609,30 @@
             const rating1 = DEPTH_CHART_RATINGS[currentTeam];
             const rating2 = DEPTH_CHART_RATINGS[compareTeam];
 
+            // Pressure data for clutch score comparison
+            const pressure1 = typeof PRESSURE_DATA !== 'undefined' ? PRESSURE_DATA[currentTeam] : null;
+            const pressure2 = typeof PRESSURE_DATA !== 'undefined' ? PRESSURE_DATA[compareTeam] : null;
+
             // Calculate comparison metrics
             const metrics = [
                 { label: 'Overall Rating', val1: rating1.overall, val2: rating2.overall, higher: 'better', tooltip: 'Composite team strength rating (0-100)' },
                 { label: 'Titles Won', val1: team1.titles, val2: team2.titles, higher: 'better', tooltip: 'IPL championship titles won' },
                 { label: 'Squad Size', val1: squad1.squad.length, val2: squad2.squad.length, higher: 'neutral', tooltip: 'Total players in squad roster' },
                 { label: 'Purse Spent (Cr)', val1: squad1.purseSpent.toFixed(1), val2: squad2.purseSpent.toFixed(1), higher: 'neutral', tooltip: 'Auction spend in Indian Rupees (Crores)' },
+                { label: 'Purse Remaining (Cr)', val1: squad1.purseRemaining.toFixed(1), val2: squad2.purseRemaining.toFixed(1), higher: 'neutral', tooltip: 'Remaining auction budget out of 120 Cr salary cap' },
                 { label: 'Overseas Players', val1: squad1.squad.filter(p => p.nationality !== 'IND').length, val2: squad2.squad.filter(p => p.nationality !== 'IND').length, higher: 'neutral', tooltip: 'Non-Indian players (max 4 can play per XI)' },
                 { label: 'Avg Squad Age', val1: (squad1.squad.reduce((s, p) => s + p.age, 0) / squad1.squad.length).toFixed(1), val2: (squad2.squad.reduce((s, p) => s + p.age, 0) / squad2.squad.length).toFixed(1), higher: 'neutral', tooltip: 'Average age of squad members' },
                 { label: 'Batters', val1: squad1.squad.filter(p => p.role === 'Batter').length, val2: squad2.squad.filter(p => p.role === 'Batter').length, higher: 'neutral', tooltip: 'Players whose primary role is batting' },
                 { label: 'Bowlers', val1: squad1.squad.filter(p => p.role === 'Bowler').length, val2: squad2.squad.filter(p => p.role === 'Bowler').length, higher: 'neutral', tooltip: 'Players whose primary role is bowling' },
                 { label: 'All-Rounders', val1: squad1.squad.filter(p => p.role === 'All-rounder').length, val2: squad2.squad.filter(p => p.role === 'All-rounder').length, higher: 'neutral', tooltip: 'Players who contribute with both bat and ball' },
                 { label: 'Left-Handers in Top 6', val1: predicted1.balance.leftHandersTop6, val2: predicted2.balance.leftHandersTop6, higher: 'neutral', tooltip: 'Left-handed batters in top 6 positions (disrupts bowling rhythm)' },
+                { label: 'Bowling Options', val1: predicted1.balance.bowlingOptions, val2: predicted2.balance.bowlingOptions, higher: 'better', tooltip: 'Total bowling options available in predicted XI (part-timers included)' },
+                { label: 'Spinners in XI', val1: predicted1.balance.spinners, val2: predicted2.balance.spinners, higher: 'neutral', tooltip: 'Spin bowling options in predicted XI' },
+                { label: 'Pacers in XI', val1: predicted1.balance.pacers, val2: predicted2.balance.pacers, higher: 'neutral', tooltip: 'Pace bowling options in predicted XI' },
+                { label: 'Strongest Position', val1: rating1.strongest, val2: rating2.strongest, higher: 'neutral', tooltip: 'Highest-rated position in depth chart' },
+                { label: 'Weakest Position', val1: rating1.weakest, val2: rating2.weakest, higher: 'neutral', tooltip: 'Lowest-rated position in depth chart (area of concern)' },
+                { label: 'Venue Bias', val1: predicted1.venueBias.charAt(0).toUpperCase() + predicted1.venueBias.slice(1), val2: predicted2.venueBias.charAt(0).toUpperCase() + predicted2.venueBias.slice(1), higher: 'neutral', tooltip: 'Home venue surface bias (pace or spin favoring)' },
+                { label: 'Clutch Score', val1: pressure1 ? pressure1.summary.clutchScore.toFixed(1) : 'N/A', val2: pressure2 ? pressure2.summary.clutchScore.toFixed(1) : 'N/A', higher: 'better', tooltip: 'Team clutch performance rating under pressure (RRR >= 10)' },
             ];
 
             const getCompareClass = (metric, isTeam1) => {

@@ -1,0 +1,12 @@
+{
+  "id": "EPIC-013",
+  "title": "Future Enhancements",
+  "owner": "Tom Brady",
+  "tickets": [],
+  "progress_pct": 0,
+  "status": "BACKLOG",
+  "description": "Research and prototype future capabilities: win probability, form tracking, CricPom. Validated concepts ready for Sprint 5.0+ implementation.",
+  "sprint_id": null,
+  "created_at": "2026-02-05T00:00:00Z",
+  "updated_at": "2026-02-12T00:00:00Z"
+}

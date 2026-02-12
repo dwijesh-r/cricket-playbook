@@ -1,9 +1,9 @@
 {
   "id": "TKT-184",
   "title": "TKT-183.1: Recency Decay Curve Analysis — Candidate Rates for Founder",
-  "state": "IDEA",
+  "state": "IN_PROGRESS",
   "priority": "P1",
-  "progress_pct": 0,
+  "progress_pct": 90,
   "description": "Compute candidate exponential decay rates for Factor 3 (Recency Decay). Analyze how tournament relevance degrades over time. Present 3-5 candidate decay curves with supporting evidence for Founder selection (per Decision #5). Use IPL 2023-2025 baseline. Output: decay curve comparison chart + recommendation memo.",
   "epic_id": "EPIC-016",
   "parent": "TKT-183",
@@ -20,6 +20,11 @@
       "title": "Phase 1 Factor Scores (207 tournaments)",
       "path": "outputs/tournament_factor_scores_phase1.json",
       "relevance": "Raw factor data to apply decay against"
+    },
+    {
+      "title": "Recency Decay Analysis (Output)",
+      "path": "outputs/tournament_weighting/recency_decay_analysis.md",
+      "relevance": "5 candidate decay curves with recommendation — pending Founder selection"
     }
   ],
   "gates": {
@@ -30,5 +35,5 @@
     }
   },
   "created_at": "2026-02-11T16:22:22.441266Z",
-  "updated_at": "2026-02-11T17:45:00.000000Z"
+  "updated_at": "2026-02-12T07:45:00.000000Z"
 }

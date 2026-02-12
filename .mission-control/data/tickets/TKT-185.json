@@ -1,9 +1,9 @@
 {
   "id": "TKT-185",
   "title": "TKT-183.2: Season-Level Competitiveness Index Granularity",
-  "state": "IDEA",
+  "state": "IN_PROGRESS",
   "priority": "P1",
-  "progress_pct": 0,
+  "progress_pct": 90,
   "description": "Refine Factor 2 (Competitiveness Index) from tournament-lifetime aggregates to per-season splits. Current CI uses all-time close match % — need season-by-season CI to pair with recency decay. Covers 207 tournaments. Output: season-level CI scores in tournament_factor_scores_phase1.json.",
   "epic_id": "EPIC-016",
   "parent": "TKT-183",
@@ -20,6 +20,16 @@
       "title": "Phase 1 Composite Weights",
       "path": "outputs/tournament_composite_weights_phase1.json",
       "relevance": "Current CI scores to refine with season granularity"
+    },
+    {
+      "title": "Season-Level Competitiveness Index (Output)",
+      "path": "outputs/tournament_weighting/season_competitiveness_index.md",
+      "relevance": "Per-season CI for 14 major tournaments — replaces all-time aggregates"
+    },
+    {
+      "title": "Season CI Scores JSON (Output)",
+      "path": "outputs/tournament_weighting/season_ci_scores.json",
+      "relevance": "Raw season-level CI data for downstream integration"
     }
   ],
   "gates": {
@@ -30,5 +40,5 @@
     }
   },
   "created_at": "2026-02-11T16:22:29.064878Z",
-  "updated_at": "2026-02-11T17:45:00.000000Z"
+  "updated_at": "2026-02-12T07:45:00.000000Z"
 }

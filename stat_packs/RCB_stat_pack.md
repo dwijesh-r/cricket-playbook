@@ -1,6 +1,6 @@
 # Royal Challengers Bengaluru (RCB) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-11 23:37
+**Generated:** 2026-02-12 07:50
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -127,7 +127,7 @@
 **Top Wicket Takers by Season:**
 
 - **2023:** Mohammed Siraj (19w @ 7.2), HV Patel (14w @ 9.3), KV Sharma (10w @ 10.41)
-- **2024:** Mohammed Siraj (15w @ 8.69), Yash Dayal (15w @ 8.8), C Green (10w @ 8.21)
+- **2024:** Yash Dayal (15w @ 8.8), Mohammed Siraj (15w @ 8.69), C Green (10w @ 8.21)
 - **2025:** JR Hazlewood (22w @ 8.64), B Kumar (17w @ 9.25), KH Pandya (17w @ 8.06)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -167,15 +167,15 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
+| Eden Gardens | 3 | 1 | 33.3% | 173.7 |
 | Wankhede Stadium | 3 | 1 | 33.3% | 205.3 |
 | Narendra Modi Stadium | 3 | 2 | 66.7% | 189.3 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 176.3 |
-| Eden Gardens | 3 | 1 | 33.3% | 173.7 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 181.7 |
+| Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
+| MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
 | Arun Jaitley Stadium | 2 | 1 | 50.0% | 173.0 |
 | Rajiv Gandhi International Stadium | 2 | 2 | 100.0% | 196.5 |
-| MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
-| Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -188,9 +188,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -219,8 +219,8 @@
 | JR Hazlewood | M Chinnaswamy Stadium | 4 | 8 | 9.33 | 10.38 |
 | B Kumar | Narendra Modi Stadium | 4 | 7 | 8.47 | 12.86 |
 | B Kumar | Arun Jaitley Stadium | 3 | 5 | 8.92 | 14.4 |
-| KH Pandya | Wankhede Stadium | 2 | 5 | 8.75 | 9.6 |
 | Suyash Sharma | Maharaja Yadavindra Singh | 2 | 5 | 5.71 | 8.4 |
+| KH Pandya | Wankhede Stadium | 2 | 5 | 8.75 | 9.6 |
 
 
 ---
@@ -393,8 +393,8 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 5 | 120 | 145 | 9 | 7.25 | 16.11 | 13.33 | 40.83 | 15.83 | HIGH |
 | Punjab Kings | 7 | 150 | 205 | 8 | 8.2 | 25.63 | 18.75 | 40.67 | 21.33 | HIGH |
-| Rajasthan Royals | 6 | 132 | 233 | 6 | 10.59 | 38.83 | 22.0 | 34.85 | 28.79 | HIGH |
 | Gujarat Titans | 3 | 72 | 82 | 6 | 6.83 | 13.67 | 12.0 | 40.28 | 12.5 | MEDIUM |
+| Rajasthan Royals | 6 | 132 | 233 | 6 | 10.59 | 38.83 | 22.0 | 34.85 | 28.79 | HIGH |
 | Lucknow Super Giants | 4 | 84 | 104 | 4 | 7.43 | 26.0 | 21.0 | 38.1 | 15.48 | MEDIUM |
 | Mumbai Indians | 5 | 120 | 191 | 4 | 9.55 | 47.75 | 30.0 | 37.5 | 21.67 | HIGH |
 | Chennai Super Kings | 5 | 102 | 152 | 3 | 8.94 | 50.67 | 34.0 | 36.27 | 23.53 | HIGH |
@@ -406,9 +406,9 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 3 | 72 | 80 | 6 | 6.67 | 13.33 | 12.0 | 44.44 | 13.89 | MEDIUM |
+| Gujarat Titans | 4 | 90 | 100 | 5 | 6.67 | 20.0 | 18.0 | 36.67 | 11.11 | MEDIUM |
 | Punjab Kings | 7 | 102 | 130 | 5 | 7.65 | 26.0 | 20.4 | 38.24 | 15.69 | HIGH |
 | Mumbai Indians | 4 | 96 | 139 | 5 | 8.69 | 27.8 | 19.2 | 35.42 | 20.83 | MEDIUM |
-| Gujarat Titans | 4 | 90 | 100 | 5 | 6.67 | 20.0 | 18.0 | 36.67 | 11.11 | MEDIUM |
 | Kolkata Knight Riders | 4 | 66 | 93 | 4 | 8.45 | 23.25 | 16.5 | 28.79 | 19.7 | MEDIUM |
 | Chennai Super Kings | 5 | 72 | 104 | 3 | 8.67 | 34.67 | 24.0 | 27.78 | 18.06 | MEDIUM |
 | Rajasthan Royals | 4 | 96 | 102 | 3 | 6.38 | 34.0 | 32.0 | 25.0 | 7.29 | MEDIUM |
@@ -562,13 +562,13 @@
 |--------|------|-------|--------|---------|--------|-------|------------|
 | JM Sharma | BATTER | 121 | +5.6% | 19.0 | MODERATE | FRESH | HIGH |
 | RM Patidar | BATTER | 66 | +7.5% | 16.2 | MODERATE | FRESH | MEDIUM |
-| V Kohli | BATTER | 217 | +2.6% | 10.1 | **PRESSURE_PROOF** | FRESH | HIGH |
+| V Kohli | BATTER | 217 | +2.6% | 10.1 | **PRESSURE_PROOF** | BUILDING | HIGH |
 | B Kumar | BATTER | 60 | 0.0% | 0 | **PRESSURE_PROOF** | FRESH | MEDIUM |
-| KH Pandya | BATTER | 62 | -4.2% | -9.3 | **PRESSURE_PROOF** | FRESH | MEDIUM |
+| KH Pandya | BATTER | 62 | -4.2% | -9.3 | **PRESSURE_PROOF** | BUILDING | MEDIUM |
 | TH David | BATTER | 129 | -6.1% | -23.8 | MODERATE | FRESH | HIGH |
-| PD Salt | BATTER | 70 | -11.7% | -26.1 | PRESSURE_SENSITIVE | FRESH | MEDIUM |
-| VR Iyer | BATTER | 152 | -8.4% | -28.5 | MODERATE | FRESH | HIGH |
-| D Padikkal | BATTER | 115 | -18.3% | -55.7 | PRESSURE_SENSITIVE | FRESH | HIGH |
+| PD Salt | BATTER | 70 | -11.7% | -26.1 | PRESSURE_SENSITIVE | BUILDING | MEDIUM |
+| VR Iyer | BATTER | 152 | -8.4% | -28.5 | MODERATE | BUILDING | HIGH |
+| D Padikkal | BATTER | 115 | -18.3% | -55.7 | PRESSURE_SENSITIVE | BUILDING | HIGH |
 
 ### 11.4 Glossary
 
@@ -612,6 +612,38 @@
 
 ---
 *Note: Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify.*
+
+
+---
+
+## 12. Uncapped Watch
+
+*Players with zero IPL 2023+ appearances — T20 career data from other tournaments*
+
+**5 uncapped player(s) in squad**
+
+### 12.1 T20 Batting Profile
+
+| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Tournaments |
+|--------|------|---------|----------|--------|---------|------------|-------------|
+| Jordan Cox | Wicketkeeper | 160 | 3931 | 141 | 30.7 | HIGH | Blast, ILT20, 100 |
+
+### 12.2 T20 Bowling Profile
+
+| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Tournaments |
+|--------|------|-------------|----------|----------|---------|------------|-------------|
+| Jacob Duffy | Fast | 115 | 137 | 8.3 | 24.3 | HIGH | SS, Blast, 100 |
+| Jacob Bethell | Left-arm ort | 29 | 18 | 8.8 | 26.8 | HIGH | Blast, BBL, 100 |
+
+### 12.3 Limited / No T20 Data
+
+*These players have insufficient T20 data for profiling (<5 batting innings and <3 bowling matches)*
+
+| Player | Role | Nationality |
+|--------|------|-------------|
+| Abhinandan Singh | Bowler | IND |
+| Kanishk Chouhan | Bowler | IND |
+| Satvik Deswal | Bowler | IND |
 
 
 ---

@@ -1,6 +1,6 @@
 # Punjab Kings (PBKS) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-11 23:37
+**Generated:** 2026-02-12 07:50
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -173,11 +173,11 @@
 |-------|---------|------|------|-----------|
 | Himachal Pradesh Cricket Associatio | 6 | 1 | 16.7% | 177.2 |
 | Narendra Modi Stadium | 4 | 3 | 75.0% | 208.5 |
-| Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
 | Eden Gardens | 3 | 1 | 33.3% | 214.0 |
 | MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
-| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
+| Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
 | Barsapara Cricket Stadium | 2 | 2 | 100.0% | 171.0 |
 | M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
 
@@ -222,11 +222,11 @@
 | Yash Thakur | Bharat Ratna Shri Atal Bi | 8 | 12 | 9.19 | 14.42 |
 | Arshdeep Singh | Maharaja Yadavindra Singh | 10 | 11 | 8.64 | 18.0 |
 | Vijaykumar Vyshak | M Chinnaswamy Stadium | 8 | 10 | 9.8 | 17.7 |
-| Arshdeep Singh | Punjab Cricket Associatio | 5 | 7 | 10.78 | 16.14 |
 | Arshdeep Singh | Himachal Pradesh Cricket  | 5 | 7 | 9.0 | 14.57 |
+| Arshdeep Singh | Punjab Cricket Associatio | 5 | 7 | 10.78 | 16.14 |
 | YS Chahal | MA Chidambaram Stadium | 4 | 7 | 7.33 | 12.86 |
-| Arshdeep Singh | Bharat Ratna Shri Atal Bi | 3 | 6 | 9.1 | 10.0 |
-| Harpreet Brar | Sawai Mansingh Stadium | 3 | 6 | 8.17 | 12.0 |
+| M Jansen | Sawai Mansingh Stadium | 4 | 6 | 10.48 | 15.17 |
+| YS Chahal | Barsapara Cricket Stadium | 3 | 6 | 8.75 | 12.0 |
 
 
 ---
@@ -408,8 +408,8 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Lucknow Super Giants | 5 | 108 | 158 | 10 | 8.78 | 15.8 | 10.8 | 34.26 | 23.15 | HIGH |
-| Royal Challengers Bengaluru | 7 | 134 | 223 | 8 | 9.99 | 27.88 | 16.75 | 32.09 | 25.37 | HIGH |
 | Sunrisers Hyderabad | 4 | 90 | 121 | 8 | 8.07 | 15.13 | 11.25 | 45.56 | 23.33 | MEDIUM |
+| Royal Challengers Bengaluru | 7 | 134 | 223 | 8 | 9.99 | 27.88 | 16.75 | 32.09 | 25.37 | HIGH |
 | Mumbai Indians | 5 | 113 | 196 | 7 | 10.41 | 28.0 | 16.14 | 30.97 | 29.2 | HIGH |
 | Kolkata Knight Riders | 4 | 84 | 112 | 6 | 8.0 | 18.67 | 14.0 | 46.43 | 20.24 | MEDIUM |
 | Chennai Super Kings | 5 | 116 | 180 | 6 | 9.31 | 30.0 | 19.33 | 34.48 | 25.0 | HIGH |
@@ -421,15 +421,15 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Kolkata Knight Riders | 3 | 72 | 105 | 9 | 8.75 | 11.67 | 8.0 | 40.28 | 19.44 | MEDIUM |
 | Sunrisers Hyderabad | 5 | 120 | 194 | 9 | 9.7 | 21.56 | 13.33 | 33.33 | 20.83 | HIGH |
+| Kolkata Knight Riders | 3 | 72 | 105 | 9 | 8.75 | 11.67 | 8.0 | 40.28 | 19.44 | MEDIUM |
 | Royal Challengers Bengaluru | 7 | 162 | 222 | 8 | 8.22 | 27.75 | 20.25 | 25.31 | 12.96 | HIGH |
 | Chennai Super Kings | 5 | 84 | 108 | 7 | 7.71 | 15.43 | 12.0 | 28.57 | 11.9 | MEDIUM |
 | Delhi Capitals | 3 | 66 | 93 | 6 | 8.45 | 15.5 | 11.0 | 28.79 | 15.15 | MEDIUM |
 | Mumbai Indians | 4 | 90 | 129 | 5 | 8.6 | 25.8 | 18.0 | 36.67 | 20.0 | MEDIUM |
 | Punjab Kings | 4 | 96 | 147 | 4 | 9.19 | 36.75 | 24.0 | 25.0 | 19.79 | MEDIUM |
-| Gujarat Titans | 4 | 89 | 134 | 3 | 9.03 | 44.67 | 29.67 | 17.98 | 15.73 | MEDIUM |
 | Lucknow Super Giants | 5 | 114 | 189 | 3 | 9.95 | 63.0 | 38.0 | 25.44 | 21.05 | HIGH |
+| Gujarat Titans | 4 | 89 | 134 | 3 | 9.03 | 44.67 | 29.67 | 17.98 | 15.73 | MEDIUM |
 | Rajasthan Royals | 2 | 42 | 57 | 0 | 8.14 | - | - | 23.81 | 14.29 | MEDIUM |
 
 ---
@@ -574,11 +574,11 @@
 
 | Player | Role | Balls | Delta% | W.Score | Rating | Entry | Confidence |
 |--------|------|-------|--------|---------|--------|-------|------------|
-| Shashank Singh | BATTER | 169 | +6.9% | 26.8 | MODERATE | FRESH | HIGH |
-| MP Stoinis | BATTER | 195 | +5.5% | 21.1 | MODERATE | FRESH | HIGH |
-| SS Iyer | BATTER | 79 | +3.5% | 8.9 | **PRESSURE_PROOF** | FRESH | MEDIUM |
-| N Wadhera | BATTER | 172 | -6.8% | -24.9 | MODERATE | FRESH | HIGH |
-| P Simran Singh | BATTER | 156 | -8.9% | -29.9 | MODERATE | FRESH | HIGH |
+| Shashank Singh | BATTER | 169 | +6.9% | 26.8 | MODERATE | BUILDING | HIGH |
+| MP Stoinis | BATTER | 195 | +5.5% | 21.1 | MODERATE | BUILDING | HIGH |
+| SS Iyer | BATTER | 79 | +3.5% | 8.9 | **PRESSURE_PROOF** | BUILDING | MEDIUM |
+| N Wadhera | BATTER | 172 | -6.8% | -24.9 | MODERATE | BUILDING | HIGH |
+| P Simran Singh | BATTER | 156 | -8.9% | -29.9 | MODERATE | BUILDING | HIGH |
 
 ### 11.4 Glossary
 
@@ -622,6 +622,37 @@
 
 ---
 *Note: Players must have faced/bowled >= 30 balls in pressure bands and >= 50 overall to qualify.*
+
+
+---
+
+## 12. Uncapped Watch
+
+*Players with zero IPL 2023+ appearances — T20 career data from other tournaments*
+
+**4 uncapped player(s) in squad**
+
+### 12.1 T20 Batting Profile
+
+| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Tournaments |
+|--------|------|---------|----------|--------|---------|------------|-------------|
+| Harnoor Singh | Batter | 110 | 1062 | 133 | 15.6 | HIGH | SMAT, T20WC, Unknow |
+| Cooper Connolly | All-rounder | 37 | 841 | 136 | 30.0 | HIGH | BBL, MLC, Intl |
+
+### 12.2 T20 Bowling Profile
+
+| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Tournaments |
+|--------|------|-------------|----------|----------|---------|------------|-------------|
+| Ben Dwarshuis | Fast | 179 | 229 | 8.6 | 23.9 | HIGH | BBL, Blast, Blast |
+| Cooper Connolly | Left-arm ort | 29 | 24 | 7.5 | 22.6 | HIGH | BBL, Intl, Intl |
+
+### 12.3 Limited / No T20 Data
+
+*These players have insufficient T20 data for profiling (<5 batting innings and <3 bowling matches)*
+
+| Player | Role | Nationality |
+|--------|------|-------------|
+| Pyla Avinash | Batter | IND |
 
 
 ---

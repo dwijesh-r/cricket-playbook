@@ -1554,6 +1554,319 @@ def _generate_pressure_ratings(conn: duckdb.DuckDBPyConnection, team_name: str) 
     return md
 
 
+# =============================================================================
+# UNCAPPED WATCH HELPERS (TKT-182)
+# =============================================================================
+
+# Top T20 franchise tournaments for display in Uncapped Watch
+T20_FRANCHISE_TOURNAMENTS = (
+    "Big Bash League",
+    "Vitality Blast",
+    "Vitality Blast Men",
+    "NatWest T20 Blast",
+    "Pakistan Super League",
+    "Caribbean Premier League",
+    "SA20",
+    "The Hundred Men's Competition",
+    "Super Smash",
+    "International League T20",
+    "Lanka Premier League",
+    "Major League Cricket",
+    "Syed Mushtaq Ali Trophy",
+    "CSA T20 Challenge",
+    "Mzansi Super League",
+    "Nepal Premier League",
+)
+
+# Minimum T20 innings/matches to qualify as "meaningful" data
+MIN_T20_INNINGS_MEANINGFUL = 5
+MIN_T20_MATCHES_BOWLING_MEANINGFUL = 3
+
+
+def _classify_t20_confidence(t20_innings_or_matches: Optional[int]) -> str:
+    """
+    Classify confidence level for T20 fallback data.
+
+    Args:
+        t20_innings_or_matches: Number of T20 innings (batting) or matches (bowling)
+
+    Returns:
+        "HIGH" if >= 20, "MEDIUM" if 10-19, "LOW" if < 10, "NONE" if None/0
+    """
+    if not t20_innings_or_matches:
+        return "NONE"
+    if t20_innings_or_matches >= 20:
+        return "HIGH"
+    if t20_innings_or_matches >= 10:
+        return "MEDIUM"
+    return "LOW"
+
+
+def _get_top_tournaments_for_player(
+    conn: duckdb.DuckDBPyConnection, player_id: str, mode: str = "batting"
+) -> str:
+    """
+    Get the top 3 non-IPL T20 tournaments where a player has played.
+
+    Args:
+        conn: Database connection
+        player_id: Player ID to look up
+        mode: 'batting' or 'bowling'
+
+    Returns:
+        Comma-separated string of tournament short names, or '-' if none
+    """
+    if mode == "batting":
+        query = f"""
+            SELECT tournament_name, innings
+            FROM analytics_batting_by_tournament
+            WHERE player_id = '{player_id}'
+              AND tournament_name != 'Indian Premier League'
+            ORDER BY innings DESC
+            LIMIT 3
+        """
+    else:
+        query = f"""
+            SELECT tournament_name, matches
+            FROM analytics_bowling_by_tournament
+            WHERE player_id = '{player_id}'
+              AND tournament_name != 'Indian Premier League'
+            ORDER BY matches DESC
+            LIMIT 3
+        """
+
+    rows = execute_query_safe(conn, query, default=[])
+    if not rows:
+        return "-"
+
+    # Shorten tournament names for display
+    short_names = {
+        "Big Bash League": "BBL",
+        "Vitality Blast": "Blast",
+        "Vitality Blast Men": "Blast",
+        "NatWest T20 Blast": "Blast",
+        "Pakistan Super League": "PSL",
+        "Caribbean Premier League": "CPL",
+        "SA20": "SA20",
+        "The Hundred Men's Competition": "100",
+        "Super Smash": "SS",
+        "International League T20": "ILT20",
+        "Lanka Premier League": "LPL",
+        "Major League Cricket": "MLC",
+        "Syed Mushtaq Ali Trophy": "SMAT",
+        "CSA T20 Challenge": "CSA",
+        "Mzansi Super League": "MSL",
+        "Nepal Premier League": "NPL",
+        "ICC Men's T20 World Cup": "T20WC",
+        "ICC World Twenty20": "T20WC",
+        "World T20": "T20WC",
+        "Ram Slam T20 Challenge": "Ram Slam",
+    }
+
+    def _shorten(name: str) -> str:
+        if name in short_names:
+            return short_names[name]
+        if name.startswith("ICC"):
+            return "ICC T20"
+        if " tour of " in name or "T20I Series" in name:
+            return "Intl"
+        first_word = name.split()[0] if name else name
+        return first_word[:6]
+
+    names = []
+    for row in rows:
+        t_name = row[0]
+        short = _shorten(t_name)
+        names.append(short)
+
+    return ", ".join(names)
+
+
+def generate_uncapped_watch(conn: duckdb.DuckDBPyConnection, team_name: str) -> List[str]:
+    """
+    Generate Section 12: Uncapped Watch for a team's stat pack.
+
+    Lists players in the squad with zero IPL 2023+ data, showing their T20
+    career stats from other tournaments as fallback data. Players are split
+    into batting and bowling profiles with confidence levels.
+
+    Subsections:
+    - 12.1 T20 Batting Profile — batting stats from non-IPL T20 career
+    - 12.2 T20 Bowling Profile — bowling stats from non-IPL T20 career
+    - 12.3 No Data Available — players with zero T20 data anywhere
+
+    Data sourced from analytics_ipl_squad_batting_since2023 and
+    analytics_ipl_squad_bowling_since2023 views (T20 columns), plus
+    analytics_batting_by_tournament for tournament breakdown.
+
+    Args:
+        conn: DuckDB database connection
+        team_name: Full team name (e.g., "Chennai Super Kings")
+
+    Returns:
+        List of markdown-formatted strings for the uncapped watch section
+    """
+    md: List[str] = []
+    md.append("## 12. Uncapped Watch\n")
+    md.append(
+        "*Players with zero IPL 2023+ appearances — T20 career data from other tournaments*\n"
+    )
+
+    # -------------------------------------------------------------------------
+    # Identify uncapped players for this team
+    # -------------------------------------------------------------------------
+    uncapped_query = f"""
+        WITH ipl_bat AS (
+            SELECT player_id, innings AS bat_inn
+            FROM analytics_ipl_batting_career_since2023
+        ),
+        ipl_bowl AS (
+            SELECT player_id, matches_bowled AS bowl_m
+            FROM analytics_ipl_bowling_career_since2023
+        )
+        SELECT sq.player_id, sq.player_name, sq.role, sq.nationality
+        FROM ipl_2026_squads sq
+        LEFT JOIN ipl_bat ib ON sq.player_id = ib.player_id
+        LEFT JOIN ipl_bowl ibl ON sq.player_id = ibl.player_id
+        WHERE sq.team_name = '{team_name}'
+          AND COALESCE(ib.bat_inn, 0) = 0
+          AND COALESCE(ibl.bowl_m, 0) = 0
+        ORDER BY sq.player_name
+    """
+    uncapped_players = execute_query_safe(conn, uncapped_query, default=[])
+
+    if not uncapped_players:
+        md.append("*All squad members have IPL 2023+ data — no uncapped players.*\n")
+        return md
+
+    md.append(f"**{len(uncapped_players)} uncapped player(s) in squad**\n")
+
+    # -------------------------------------------------------------------------
+    # 12.1  T20 Batting Profile
+    # -------------------------------------------------------------------------
+    md.append("### 12.1 T20 Batting Profile\n")
+
+    bat_query = f"""
+        SELECT player_name, role, t20_innings, t20_runs, t20_sr, t20_avg, t20_sample_size
+        FROM analytics_ipl_squad_batting_since2023
+        WHERE team_name = '{team_name}'
+          AND (ipl_innings IS NULL OR ipl_innings = 0)
+          AND t20_innings IS NOT NULL
+          AND t20_innings >= {MIN_T20_INNINGS_MEANINGFUL}
+        ORDER BY t20_runs DESC NULLS LAST
+    """
+    bat_rows = execute_query_safe(conn, bat_query, default=[])
+
+    if bat_rows:
+        md.append(
+            "| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Tournaments |"
+        )
+        md.append(
+            "|--------|------|---------|----------|--------|---------|------------|-------------|"
+        )
+        for row in bat_rows:
+            name, role, t20_inn, t20_runs, t20_sr, t20_avg, t20_sample = row
+            confidence = _classify_t20_confidence(t20_inn)
+            # Look up player_id for tournament breakdown
+            pid_row = execute_query_safe(
+                conn,
+                f"SELECT player_id FROM ipl_2026_squads WHERE team_name = '{team_name}' AND player_name = '{name}' LIMIT 1",
+                fetch_one=True,
+            )
+            tournaments = "-"
+            if pid_row:
+                tournaments = _get_top_tournaments_for_player(conn, pid_row[0], mode="batting")
+            md.append(
+                f"| {name} | {role or '-'} | {t20_inn or 0} | {t20_runs or 0} | "
+                f"{format_stat(t20_sr)} | {format_stat(t20_avg)} | {confidence} | {tournaments} |"
+            )
+    else:
+        md.append("*No uncapped players with meaningful T20 batting data (5+ innings)*\n")
+
+    md.append("")
+
+    # -------------------------------------------------------------------------
+    # 12.2  T20 Bowling Profile
+    # -------------------------------------------------------------------------
+    md.append("### 12.2 T20 Bowling Profile\n")
+
+    bowl_query = f"""
+        SELECT player_name, role, bowling_type, t20_matches, t20_wickets, t20_economy, t20_avg, t20_sample_size
+        FROM analytics_ipl_squad_bowling_since2023
+        WHERE team_name = '{team_name}'
+          AND (ipl_matches IS NULL OR ipl_matches = 0)
+          AND t20_matches IS NOT NULL
+          AND t20_matches >= {MIN_T20_MATCHES_BOWLING_MEANINGFUL}
+        ORDER BY t20_wickets DESC NULLS LAST
+    """
+    bowl_rows = execute_query_safe(conn, bowl_query, default=[])
+
+    if bowl_rows:
+        md.append(
+            "| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Tournaments |"
+        )
+        md.append(
+            "|--------|------|-------------|----------|----------|---------|------------|-------------|"
+        )
+        for row in bowl_rows:
+            name, role, btype, t20_m, t20_w, t20_econ, t20_avg, t20_sample = row
+            confidence = _classify_t20_confidence(t20_m)
+            btype_short = (btype or "-")[:12]
+            pid_row = execute_query_safe(
+                conn,
+                f"SELECT player_id FROM ipl_2026_squads WHERE team_name = '{team_name}' AND player_name = '{name}' LIMIT 1",
+                fetch_one=True,
+            )
+            tournaments = "-"
+            if pid_row:
+                tournaments = _get_top_tournaments_for_player(conn, pid_row[0], mode="bowling")
+            md.append(
+                f"| {name} | {btype_short} | {t20_m or 0} | {t20_w or 0} | "
+                f"{format_stat(t20_econ)} | {format_stat(t20_avg)} | {confidence} | {tournaments} |"
+            )
+    else:
+        md.append("*No uncapped players with meaningful T20 bowling data (3+ matches)*\n")
+
+    md.append("")
+
+    # -------------------------------------------------------------------------
+    # 12.3  No Data Available
+    # -------------------------------------------------------------------------
+    # Find players with truly zero T20 data anywhere
+    no_data_players = []
+    for player_id, player_name, role, nationality in uncapped_players:
+        bat_check = execute_query_safe(
+            conn,
+            f"SELECT t20_innings FROM analytics_ipl_squad_batting_since2023 WHERE team_name = '{team_name}' AND player_name = '{player_name}'",
+            fetch_one=True,
+        )
+        bowl_check = execute_query_safe(
+            conn,
+            f"SELECT t20_matches FROM analytics_ipl_squad_bowling_since2023 WHERE team_name = '{team_name}' AND player_name = '{player_name}'",
+            fetch_one=True,
+        )
+        has_bat = bat_check and bat_check[0] and bat_check[0] >= MIN_T20_INNINGS_MEANINGFUL
+        has_bowl = (
+            bowl_check and bowl_check[0] and bowl_check[0] >= MIN_T20_MATCHES_BOWLING_MEANINGFUL
+        )
+        if not has_bat and not has_bowl:
+            no_data_players.append((player_name, role, nationality))
+
+    if no_data_players:
+        md.append("### 12.3 Limited / No T20 Data\n")
+        md.append(
+            "*These players have insufficient T20 data for profiling "
+            f"(<{MIN_T20_INNINGS_MEANINGFUL} batting innings and <{MIN_T20_MATCHES_BOWLING_MEANINGFUL} bowling matches)*\n"
+        )
+        md.append("| Player | Role | Nationality |")
+        md.append("|--------|------|-------------|")
+        for name, role, nat in no_data_players:
+            md.append(f"| {name} | {role or '-'} | {nat or '-'} |")
+
+    md.append("")
+    return md
+
+
 def generate_pressure_performance(conn: duckdb.DuckDBPyConnection, team_name: str) -> List[str]:
     """
     Generate Section 11: Pressure Performance for a team's stat pack.
@@ -1679,6 +1992,7 @@ def generate_team_stat_pack(
     9. Key Player Venue Performance - venue-specific stats
     10. Tactical Insights - death bowling, powerplay, spin vulnerabilities
     11. Pressure Performance - batting/bowling under pressure, pressure ratings, glossary
+    12. Uncapped Watch - T20 fallback data for players without IPL 2023+ history (TKT-182)
 
     Args:
         conn: DuckDB database connection (read-only recommended)
@@ -2243,6 +2557,13 @@ def generate_team_stat_pack(
     md.append("\n---\n")
     pressure_section = generate_pressure_performance(conn, team_name)
     md.extend(pressure_section)
+
+    # ==========================================================================
+    # SECTION 12: UNCAPPED WATCH (TKT-182)
+    # ==========================================================================
+    md.append("\n---\n")
+    uncapped_section = generate_uncapped_watch(conn, team_name)
+    md.extend(uncapped_section)
 
     md.append("\n---\n")
     md.append(f"*End of {team_name} Stat Pack*")

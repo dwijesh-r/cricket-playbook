@@ -1504,7 +1504,8 @@
         "VULNERABLE_VS_LEG_SPIN",
         "VULNERABLE_VS_LEFT_ARM_SPIN",
         "VULNERABLE_VS_OFF_SPIN",
-        "VULNERABLE_VS_PACE"
+        "VULNERABLE_VS_PACE",
+        "T20_ONLY"
       ]
     },
     {
@@ -2186,6 +2187,150 @@
         "VULNERABLE_VS_OFF_SPIN",
         "MIDDLE_ORDER",
         "VULNERABLE_VS_LEG_SPIN"
+      ]
+    },
+    {
+      "player_name": "Ajay Mandal",
+      "player_id": "31ee319e",
+      "overall_sr": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Aman Rao",
+      "player_id": "0420f51f",
+      "overall_sr": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Ben Duckett",
+      "player_id": "5f26f677",
+      "overall_sr": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Brijesh Sharma",
+      "player_id": "c18496e1",
+      "overall_sr": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Cooper Connolly",
+      "player_id": "fe366f34",
+      "overall_sr": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Daksh Kamra",
+      "player_id": "1a628a92",
+      "overall_sr": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Finn Allen",
+      "player_id": "b52ffbbd",
+      "overall_sr": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Himmat Singh",
+      "player_id": "ebcfef83",
+      "overall_sr": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Jack Edwards",
+      "player_id": "f787e0eb",
+      "overall_sr": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Jordan Cox",
+      "player_id": "ff154ecd",
+      "overall_sr": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Lhuan-dre Pretorius",
+      "player_id": "60aa2db3",
+      "overall_sr": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Nishant Sindhu",
+      "player_id": "3cea23da",
+      "overall_sr": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Pathum Nissanka",
+      "player_id": "8ee36b18",
+      "overall_sr": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Prashant Veer",
+      "player_id": "e148e6bd",
+      "overall_sr": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Salil Arora",
+      "player_id": "263f1761",
+      "overall_sr": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Tejasvi Singh",
+      "player_id": "0bf15e52",
+      "overall_sr": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Tim Seifert",
+      "player_id": "4663bd23",
+      "overall_sr": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Tripurana Vijay",
+      "player_id": "51ec3919",
+      "overall_sr": null,
+      "tags": [
+        "T20_ONLY"
       ]
     }
   ],
@@ -3760,7 +3905,8 @@
         "LHB_SPECIALIST",
         "DEATH_LIABILITY",
         "PRESSURE_BUILDER",
-        "RHB_VULNERABLE"
+        "RHB_VULNERABLE",
+        "T20_ONLY"
       ]
     },
     {
@@ -4397,7 +4543,9 @@
       "player_id": "c18496e1",
       "economy": 8.18,
       "wickets": 17.0,
-      "tags": []
+      "tags": [
+        "T20_ONLY"
+      ]
     },
     {
       "player_name": "Vijaykumar Vyshak",
@@ -5186,7 +5334,9 @@
       "player_id": "350bb1b1",
       "economy": 9.83,
       "wickets": 7.0,
-      "tags": []
+      "tags": [
+        "T20_ONLY"
+      ]
     },
     {
       "player_name": "Y Venugopal Rao",
@@ -5300,6 +5450,168 @@
       "economy": 8.87,
       "wickets": 4.0,
       "tags": []
+    },
+    {
+      "player_name": "AM Ghazanfar",
+      "player_id": "9ca68676",
+      "economy": null,
+      "wickets": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Ajay Mandal",
+      "player_id": "31ee319e",
+      "economy": null,
+      "wickets": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Atharva Ankolekar",
+      "player_id": "d6cd318e",
+      "economy": null,
+      "wickets": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Auqib Nabi Dar",
+      "player_id": "557550a4",
+      "economy": null,
+      "wickets": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Ben Dwarshuis",
+      "player_id": "e1b9f3a9",
+      "economy": null,
+      "wickets": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Brydon Carse",
+      "player_id": "cad40f5e",
+      "economy": null,
+      "wickets": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Cooper Connolly",
+      "player_id": "fe366f34",
+      "economy": null,
+      "wickets": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Daksh Kamra",
+      "player_id": "1a628a92",
+      "economy": null,
+      "wickets": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Himmat Singh",
+      "player_id": "ebcfef83",
+      "economy": null,
+      "wickets": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Jack Edwards",
+      "player_id": "f787e0eb",
+      "economy": null,
+      "wickets": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Jacob Duffy",
+      "player_id": "dadbdb68",
+      "economy": null,
+      "wickets": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Mayank Yadav",
+      "player_id": "c6355538",
+      "economy": null,
+      "wickets": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Nishant Sindhu",
+      "player_id": "3cea23da",
+      "economy": null,
+      "wickets": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Prashant Solanki",
+      "player_id": "c695b423",
+      "economy": null,
+      "wickets": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Prashant Veer",
+      "player_id": "e148e6bd",
+      "economy": null,
+      "wickets": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Raghu Sharma",
+      "player_id": "5b615e7c",
+      "economy": null,
+      "wickets": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Sakib Hussain",
+      "player_id": "280fff14",
+      "economy": null,
+      "wickets": null,
+      "tags": [
+        "T20_ONLY"
+      ]
+    },
+    {
+      "player_name": "Zak Foulkes",
+      "player_id": "30f92334",
+      "economy": null,
+      "wickets": null,
+      "tags": [
+        "T20_ONLY"
+      ]
     }
   ],
   "tag_definitions": {
@@ -5320,7 +5632,8 @@
       "SPIN_SPECIALIST": "SR vs spin > 20 better than vs pace",
       "PACE_SPECIALIST": "SR vs pace > 20 better than vs spin",
       "VULNERABLE_VS_SPIN": "SR vs spin < 105",
-      "VULNERABLE_VS_PACE": "SR vs pace < 105"
+      "VULNERABLE_VS_PACE": "SR vs pace < 105",
+      "T20_ONLY": "Player has T20 career data but zero IPL 2023+ appearances"
     },
     "bowler_archetypes": {
       "NEW_BALL_SPECIALIST": "PP workload >45%, PP economy < 8",
@@ -5336,7 +5649,8 @@
       "PRESSURE_BUILDER": "Overall dot ball% > 38%",
       "PROVEN_WICKET_TAKER": "100+ IPL wickets",
       "SPINNER": "Spin bowling style",
-      "PACER": "Pace bowling style"
+      "PACER": "Pace bowling style",
+      "T20_ONLY": "Player has T20 career data but zero IPL 2023+ appearances"
     }
   }
 }

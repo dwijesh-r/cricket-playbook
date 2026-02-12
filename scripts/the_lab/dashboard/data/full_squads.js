@@ -1,6 +1,7 @@
 // Full Squad Data for Phil Steele Style Roster
 // Generated from data/ipl_2026_squads.csv + ipl_2026_player_contracts.csv
-// Includes player prices from contracts
+// Enriched with IPL experience from outputs/team/ipl_2026_squad_experience.csv
+// Fields: iplMatches (max of batting innings / bowling matches), isUncapped
 // 231 players across 10 IPL franchises
 
 const FULL_SQUADS = {
@@ -26,7 +27,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 3.4,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 26,
+      "isUncapped": false
     },
     {
       "name": "Avesh Khan",
@@ -45,7 +48,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 9.75,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 37,
+      "isUncapped": false
     },
     {
       "name": "Mohammed Shami",
@@ -67,7 +72,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 10.0,
-      "acquisition": "Traded"
+      "acquisition": "Traded",
+      "iplMatches": 26,
+      "isUncapped": false
     },
     {
       "name": "Anrich Nortje",
@@ -86,7 +93,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 2.0,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 18,
+      "isUncapped": false
     },
     {
       "name": "Mohsin Khan",
@@ -106,7 +115,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 4.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 14,
+      "isUncapped": false
     },
     {
       "name": "Wanindu Hasaranga",
@@ -125,7 +136,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 7.0,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 19,
+      "isUncapped": false
     },
     {
       "name": "Digvesh Rathi",
@@ -144,7 +157,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 13,
+      "isUncapped": false
     },
     {
       "name": "Nicholas Pooran",
@@ -166,7 +181,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 21.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 43,
+      "isUncapped": false
     },
     {
       "name": "Aiden Markram",
@@ -186,7 +203,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 2.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 37,
+      "isUncapped": false
     },
     {
       "name": "Rishabh Pant",
@@ -207,7 +226,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": true,
       "price": 27.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 26,
+      "isUncapped": false
     },
     {
       "name": "Mayank Yadav",
@@ -224,7 +245,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 11.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Abdul Samad",
@@ -244,7 +267,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 4.2,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 32,
+      "isUncapped": false
     },
     {
       "name": "Ayush Badoni",
@@ -264,7 +289,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 4.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 35,
+      "isUncapped": false
     },
     {
       "name": "Matthew Breetzke",
@@ -281,7 +308,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.75,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 1,
+      "isUncapped": false
     },
     {
       "name": "Manimaran Siddharth",
@@ -298,7 +327,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.75,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 5,
+      "isUncapped": false
     },
     {
       "name": "Himmat Singh",
@@ -315,7 +346,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Akash Singh",
@@ -334,7 +367,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 9,
+      "isUncapped": false
     },
     {
       "name": "Josh Inglis",
@@ -351,7 +386,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 8.6,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 11,
+      "isUncapped": false
     },
     {
       "name": "Arjun Tendulkar",
@@ -368,7 +405,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Traded"
+      "acquisition": "Traded",
+      "iplMatches": 5,
+      "isUncapped": false
     },
     {
       "name": "Arshin Kulkarni",
@@ -385,7 +424,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 2,
+      "isUncapped": false
     }
   ],
   "CSK": [
@@ -407,7 +448,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 4.8,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 37,
+      "isUncapped": false
     },
     {
       "name": "Nathan Ellis",
@@ -426,7 +469,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 2.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 12,
+      "isUncapped": false
     },
     {
       "name": "Aman Khan",
@@ -445,7 +490,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 9,
+      "isUncapped": false
     },
     {
       "name": "Rahul Chahar",
@@ -464,7 +511,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 1.8,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 24,
+      "isUncapped": false
     },
     {
       "name": "Kartik Sharma",
@@ -483,7 +532,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 14.2,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 21,
+      "isUncapped": false
     },
     {
       "name": "Ruturaj Gaikwad",
@@ -504,7 +555,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": true,
       "price": 18.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 34,
+      "isUncapped": false
     },
     {
       "name": "Sanju Samson",
@@ -525,7 +578,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 18.0,
-      "acquisition": "Traded"
+      "acquisition": "Traded",
+      "iplMatches": 38,
+      "isUncapped": false
     },
     {
       "name": "MS Dhoni",
@@ -546,7 +601,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 4.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 36,
+      "isUncapped": false
     },
     {
       "name": "Shivam Dube",
@@ -567,7 +624,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 12.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 42,
+      "isUncapped": false
     },
     {
       "name": "Dewald Brevis",
@@ -588,7 +647,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 2.2,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 9,
+      "isUncapped": false
     },
     {
       "name": "Ayush Mhatre",
@@ -605,7 +666,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 7,
+      "isUncapped": false
     },
     {
       "name": "Noor Ahmad",
@@ -624,7 +687,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 10.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 37,
+      "isUncapped": false
     },
     {
       "name": "Jamie Overton",
@@ -641,7 +706,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 1.5,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 3,
+      "isUncapped": false
     },
     {
       "name": "Anshul Kamboj",
@@ -658,7 +725,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 3.4,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 11,
+      "isUncapped": false
     },
     {
       "name": "Gurjapneet Singh",
@@ -677,7 +746,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 2.2,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Shreyas Gopal",
@@ -696,7 +767,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 3,
+      "isUncapped": false
     },
     {
       "name": "Mukesh Choudhary",
@@ -716,7 +789,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 3,
+      "isUncapped": false
     },
     {
       "name": "Prashant Veer",
@@ -733,7 +808,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 14.2,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Matthew Short",
@@ -750,7 +827,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 1.0,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 6,
+      "isUncapped": false
     },
     {
       "name": "Sarfaraz Khan",
@@ -770,7 +849,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.5,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 4,
+      "isUncapped": false
     },
     {
       "name": "Akeal Hosein",
@@ -787,7 +868,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.4,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 1,
+      "isUncapped": false
     },
     {
       "name": "Urvil Patel",
@@ -804,7 +887,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 3,
+      "isUncapped": false
     },
     {
       "name": "Ramakrishna Ghosh",
@@ -821,7 +906,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Matt Henry",
@@ -838,7 +925,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 1.2,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 4,
+      "isUncapped": false
     },
     {
       "name": "Zak Foulkes",
@@ -855,7 +944,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.4,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     }
   ],
   "MI": [
@@ -879,7 +970,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 12.5,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 41,
+      "isUncapped": false
     },
     {
       "name": "Mohammed Izhar",
@@ -900,7 +993,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 43,
+      "isUncapped": false
     },
     {
       "name": "Jasprit Bumrah",
@@ -922,7 +1017,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 18.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 25,
+      "isUncapped": false
     },
     {
       "name": "Deepak Chahar",
@@ -942,7 +1039,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 9.25,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 32,
+      "isUncapped": false
     },
     {
       "name": "Hardik Pandya",
@@ -963,7 +1062,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": true,
       "price": 16.35,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 40,
+      "isUncapped": false
     },
     {
       "name": "Shardul Thakur",
@@ -983,7 +1084,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 1.0,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 28,
+      "isUncapped": false
     },
     {
       "name": "Rohit Sharma",
@@ -1006,7 +1109,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 16.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 45,
+      "isUncapped": false
     },
     {
       "name": "Tilak Varma",
@@ -1028,7 +1133,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 8.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 37,
+      "isUncapped": false
     },
     {
       "name": "Suryakumar Yadav",
@@ -1052,7 +1159,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 16.35,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 43,
+      "isUncapped": false
     },
     {
       "name": "Quinton de Kock",
@@ -1073,7 +1182,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 1.0,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 23,
+      "isUncapped": false
     },
     {
       "name": "Mitchell Santner",
@@ -1093,7 +1204,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 2.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 19,
+      "isUncapped": false
     },
     {
       "name": "Naman Dhir",
@@ -1110,7 +1223,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 5.25,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 19,
+      "isUncapped": false
     },
     {
       "name": "AM Ghazanfar",
@@ -1127,7 +1242,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 4.8,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Ryan Rickelton",
@@ -1144,7 +1261,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 1.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 14,
+      "isUncapped": false
     },
     {
       "name": "Robin Minz",
@@ -1161,7 +1280,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.65,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 2,
+      "isUncapped": false
     },
     {
       "name": "Raj Bawa",
@@ -1178,7 +1299,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 1,
+      "isUncapped": false
     },
     {
       "name": "Will Jacks",
@@ -1201,7 +1324,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 5.25,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 19,
+      "isUncapped": false
     },
     {
       "name": "Sherfane Rutherford",
@@ -1218,7 +1343,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.5,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 11,
+      "isUncapped": false
     },
     {
       "name": "Danish Malewar",
@@ -1235,7 +1362,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Corbin Bosch",
@@ -1252,7 +1381,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 2,
+      "isUncapped": false
     },
     {
       "name": "Atharva Ankolekar",
@@ -1269,7 +1400,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Mayank Markande",
@@ -1288,7 +1421,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 17,
+      "isUncapped": false
     },
     {
       "name": "Raghu Sharma",
@@ -1305,7 +1440,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Ashwani Kumar",
@@ -1322,7 +1459,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 7,
+      "isUncapped": false
     }
   ],
   "DC": [
@@ -1345,7 +1484,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 11.75,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 24,
+      "isUncapped": false
     },
     {
       "name": "T Natarajan",
@@ -1364,7 +1505,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 10.75,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 28,
+      "isUncapped": false
     },
     {
       "name": "Lungi Ngidi",
@@ -1385,7 +1528,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 1.0,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 2,
+      "isUncapped": false
     },
     {
       "name": "Axar Patel",
@@ -1409,7 +1554,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": true,
       "price": 16.5,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 39,
+      "isUncapped": false
     },
     {
       "name": "Kuldeep Yadav",
@@ -1429,7 +1576,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 13.25,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 39,
+      "isUncapped": false
     },
     {
       "name": "Mukesh Kumar",
@@ -1448,7 +1597,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 8.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 32,
+      "isUncapped": false
     },
     {
       "name": "Dushmantha Chameera",
@@ -1468,7 +1619,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 0.75,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 7,
+      "isUncapped": false
     },
     {
       "name": "Karun Nair",
@@ -1487,7 +1640,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.5,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 8,
+      "isUncapped": false
     },
     {
       "name": "Nitish Rana",
@@ -1508,7 +1663,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.5,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 27,
+      "isUncapped": false
     },
     {
       "name": "David Miller",
@@ -1528,7 +1685,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 2.0,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 32,
+      "isUncapped": false
     },
     {
       "name": "KL Rahul",
@@ -1548,7 +1707,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 14.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 36,
+      "isUncapped": false
     },
     {
       "name": "Tristan Stubbs",
@@ -1570,7 +1731,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 10.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 28,
+      "isUncapped": false
     },
     {
       "name": "Ashutosh Sharma",
@@ -1587,7 +1750,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 3.8,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 18,
+      "isUncapped": false
     },
     {
       "name": "Abhishek Porel",
@@ -1611,7 +1776,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 4.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 29,
+      "isUncapped": false
     },
     {
       "name": "Sameer Rizvi",
@@ -1628,7 +1795,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.95,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 9,
+      "isUncapped": false
     },
     {
       "name": "Vipraj Nigam",
@@ -1647,7 +1816,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 0.5,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 13,
+      "isUncapped": false
     },
     {
       "name": "Madhav Tiwari",
@@ -1664,7 +1835,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.4,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 1,
+      "isUncapped": false
     },
     {
       "name": "Tripurana Vijay",
@@ -1681,7 +1854,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Ajay Mandal",
@@ -1698,7 +1873,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Pathum Nissanka",
@@ -1715,7 +1892,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 3.2,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Kyle Jamieson",
@@ -1735,7 +1914,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 0.75,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 4,
+      "isUncapped": false
     },
     {
       "name": "Ben Duckett",
@@ -1752,7 +1933,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.75,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Prithvi Shaw",
@@ -1773,7 +1956,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 16,
+      "isUncapped": false
     },
     {
       "name": "Sahil Parakh",
@@ -1790,7 +1975,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Auqib Nabi Dar",
@@ -1807,7 +1994,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 8.4,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     }
   ],
   "PBKS": [
@@ -1828,7 +2017,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 18.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 44,
+      "isUncapped": false
     },
     {
       "name": "Lockie Ferguson",
@@ -1847,7 +2038,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 2.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 14,
+      "isUncapped": false
     },
     {
       "name": "Yuzvendra Chahal",
@@ -1867,7 +2060,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 18.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 42,
+      "isUncapped": false
     },
     {
       "name": "Harnoor Singh",
@@ -1890,7 +2085,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Marcus Stoinis",
@@ -1912,7 +2109,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 11.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 40,
+      "isUncapped": false
     },
     {
       "name": "Marco Jansen",
@@ -1932,7 +2131,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 11.25,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 25,
+      "isUncapped": false
     },
     {
       "name": "Yash Thakur",
@@ -1951,7 +2152,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 1.6,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 21,
+      "isUncapped": false
     },
     {
       "name": "Shreyas Iyer",
@@ -1971,7 +2174,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": true,
       "price": 26.75,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 31,
+      "isUncapped": false
     },
     {
       "name": "Shashank Singh",
@@ -1994,7 +2199,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 5.5,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 28,
+      "isUncapped": false
     },
     {
       "name": "Nehal Wadhera",
@@ -2016,7 +2223,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 4.2,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 31,
+      "isUncapped": false
     },
     {
       "name": "Prabhsimran Singh",
@@ -2039,7 +2248,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 4.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 46,
+      "isUncapped": false
     },
     {
       "name": "Priyansh Arya",
@@ -2056,7 +2267,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 3.8,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 18,
+      "isUncapped": false
     },
     {
       "name": "Azmatullah Omarzai",
@@ -2075,7 +2288,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 2.4,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 15,
+      "isUncapped": false
     },
     {
       "name": "Vijaykumar Vyshak",
@@ -2094,7 +2309,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 1.8,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 16,
+      "isUncapped": false
     },
     {
       "name": "Harpreet Brar",
@@ -2114,7 +2331,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 1.5,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 31,
+      "isUncapped": false
     },
     {
       "name": "Vishnu Vinod",
@@ -2131,7 +2350,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.95,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 3,
+      "isUncapped": false
     },
     {
       "name": "Xavier Bartlett",
@@ -2148,7 +2369,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.8,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 4,
+      "isUncapped": false
     },
     {
       "name": "Suryansh Shedge",
@@ -2165,7 +2388,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 3,
+      "isUncapped": false
     },
     {
       "name": "Pyla Avinash",
@@ -2182,7 +2407,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Musheer Khan",
@@ -2199,7 +2426,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 1,
+      "isUncapped": false
     },
     {
       "name": "Cooper Connolly",
@@ -2216,7 +2445,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 1.0,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Ben Dwarshuis",
@@ -2233,7 +2464,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     }
   ],
   "RR": [
@@ -2257,7 +2490,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 4.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 32,
+      "isUncapped": false
     },
     {
       "name": "Jofra Archer",
@@ -2278,7 +2513,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 12.5,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 17,
+      "isUncapped": false
     },
     {
       "name": "Ravindra Jadeja",
@@ -2301,7 +2538,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 17.5,
-      "acquisition": "Traded"
+      "acquisition": "Traded",
+      "iplMatches": 44,
+      "isUncapped": false
     },
     {
       "name": "Ravi Bishnoi",
@@ -2320,7 +2559,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 7.2,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 39,
+      "isUncapped": false
     },
     {
       "name": "Sam Curran",
@@ -2344,7 +2585,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 10.0,
-      "acquisition": "Traded"
+      "acquisition": "Traded",
+      "iplMatches": 32,
+      "isUncapped": false
     },
     {
       "name": "Tushar Deshpande",
@@ -2363,7 +2606,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 6.5,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 39,
+      "isUncapped": false
     },
     {
       "name": "Yashasvi Jaiswal",
@@ -2386,7 +2631,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 18.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 43,
+      "isUncapped": false
     },
     {
       "name": "Riyan Parag",
@@ -2407,7 +2654,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": true,
       "price": 14.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 35,
+      "isUncapped": false
     },
     {
       "name": "Dhruv Jurel",
@@ -2427,7 +2676,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 14.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 35,
+      "isUncapped": false
     },
     {
       "name": "Shimron Hetmyer",
@@ -2447,7 +2698,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 11.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 35,
+      "isUncapped": false
     },
     {
       "name": "Vaibhav Suryavanshi",
@@ -2464,7 +2717,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 1.1,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 7,
+      "isUncapped": false
     },
     {
       "name": "Nandre Burger",
@@ -2481,7 +2736,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 3.5,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 5,
+      "isUncapped": false
     },
     {
       "name": "Kwena Maphaka",
@@ -2498,7 +2755,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 1.5,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 4,
+      "isUncapped": false
     },
     {
       "name": "Lhuan-dre Pretorius",
@@ -2515,7 +2774,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Yudhvir Singh",
@@ -2532,7 +2793,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.35,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 9,
+      "isUncapped": false
     },
     {
       "name": "Shubham Dubey",
@@ -2551,7 +2814,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.8,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 42,
+      "isUncapped": false
     },
     {
       "name": "Adam Milne",
@@ -2570,7 +2835,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Kuldeep Sen",
@@ -2589,7 +2856,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 5,
+      "isUncapped": false
     },
     {
       "name": "Aman Rao",
@@ -2606,7 +2875,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Ravi Singh",
@@ -2628,7 +2899,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 36,
+      "isUncapped": false
     },
     {
       "name": "Donovan Ferreira",
@@ -2645,7 +2918,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.75,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 3,
+      "isUncapped": false
     },
     {
       "name": "Yash Raj Punja",
@@ -2662,7 +2937,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Vignesh Puthur",
@@ -2679,7 +2956,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 5,
+      "isUncapped": false
     },
     {
       "name": "Sushant Mishra",
@@ -2696,7 +2975,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Brijesh Sharma",
@@ -2715,7 +2996,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     }
   ],
   "SRH": [
@@ -2740,7 +3023,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": true,
       "price": 18.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 30,
+      "isUncapped": false
     },
     {
       "name": "Harshal Patel",
@@ -2760,7 +3045,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 8.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 40,
+      "isUncapped": false
     },
     {
       "name": "Jaydev Unadkat",
@@ -2780,7 +3067,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 1.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 21,
+      "isUncapped": false
     },
     {
       "name": "Shivam Mavi",
@@ -2800,7 +3089,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Travis Head",
@@ -2823,7 +3114,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 14.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 27,
+      "isUncapped": false
     },
     {
       "name": "Abhishek Sharma",
@@ -2847,7 +3140,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 14.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 40,
+      "isUncapped": false
     },
     {
       "name": "Ishan Kishan",
@@ -2868,7 +3163,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 11.25,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 42,
+      "isUncapped": false
     },
     {
       "name": "Liam Livingstone",
@@ -2892,7 +3189,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 13.0,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 24,
+      "isUncapped": false
     },
     {
       "name": "Heinrich Klaasen",
@@ -2916,7 +3215,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 23.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 39,
+      "isUncapped": false
     },
     {
       "name": "Nitish Kumar Reddy",
@@ -2936,7 +3237,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 6.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 22,
+      "isUncapped": false
     },
     {
       "name": "Brydon Carse",
@@ -2953,7 +3256,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 1.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Kamindu Mendis",
@@ -2970,7 +3275,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.75,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 5,
+      "isUncapped": false
     },
     {
       "name": "Eshan Malinga",
@@ -2987,7 +3294,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 1.2,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 7,
+      "isUncapped": false
     },
     {
       "name": "Zeeshan Ansari",
@@ -3006,7 +3315,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 0.4,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 10,
+      "isUncapped": false
     },
     {
       "name": "Aniket Verma",
@@ -3023,7 +3334,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 12,
+      "isUncapped": false
     },
     {
       "name": "Ravichandran Smaran",
@@ -3040,7 +3353,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Harsh Dubey",
@@ -3057,7 +3372,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 3,
+      "isUncapped": false
     },
     {
       "name": "Jack Edwards",
@@ -3074,7 +3391,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Shivang Kumar",
@@ -3091,7 +3410,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 3,
+      "isUncapped": false
     },
     {
       "name": "Krains Fuletra",
@@ -3108,7 +3429,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Salil Arora",
@@ -3125,7 +3448,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Amit Kumar",
@@ -3142,7 +3467,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 7,
+      "isUncapped": false
     },
     {
       "name": "Onkar Tarmale",
@@ -3159,7 +3486,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.5,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Sakib Hussain",
@@ -3176,7 +3505,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Praful Hinge",
@@ -3193,7 +3524,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.5,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     }
   ],
   "GT": [
@@ -3216,7 +3549,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 12.25,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 43,
+      "isUncapped": false
     },
     {
       "name": "Kagiso Rabada",
@@ -3237,7 +3572,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 10.75,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 21,
+      "isUncapped": false
     },
     {
       "name": "Prasidh Krishna",
@@ -3257,7 +3594,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 9.5,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 15,
+      "isUncapped": false
     },
     {
       "name": "Ishant Sharma",
@@ -3278,7 +3617,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 0.75,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 24,
+      "isUncapped": false
     },
     {
       "name": "Rashid Khan",
@@ -3301,7 +3642,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 18.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 44,
+      "isUncapped": false
     },
     {
       "name": "Washington Sundar",
@@ -3325,7 +3668,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 3.2,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 14,
+      "isUncapped": false
     },
     {
       "name": "Shubman Gill",
@@ -3346,7 +3691,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": true,
       "price": 16.5,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 44,
+      "isUncapped": false
     },
     {
       "name": "Sai Sudharsan",
@@ -3370,7 +3717,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 8.5,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 35,
+      "isUncapped": false
     },
     {
       "name": "Jos Buttler",
@@ -3393,7 +3742,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 15.75,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 38,
+      "isUncapped": false
     },
     {
       "name": "Rahul Tewatia",
@@ -3415,7 +3766,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 4.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 30,
+      "isUncapped": false
     },
     {
       "name": "Shahrukh Khan",
@@ -3435,7 +3788,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 4.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 30,
+      "isUncapped": false
     },
     {
       "name": "Sai Kishore",
@@ -3454,7 +3809,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 2.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 20,
+      "isUncapped": false
     },
     {
       "name": "Glenn Phillips",
@@ -3471,7 +3828,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 2.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 5,
+      "isUncapped": false
     },
     {
       "name": "Arshad Khan",
@@ -3490,7 +3849,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 1.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 19,
+      "isUncapped": false
     },
     {
       "name": "Gurnoor Brar",
@@ -3507,7 +3868,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 1.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 1,
+      "isUncapped": false
     },
     {
       "name": "Jayant Yadav",
@@ -3529,7 +3892,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 0.75,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 1,
+      "isUncapped": false
     },
     {
       "name": "Kumar Kushagra",
@@ -3546,7 +3911,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.65,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 3,
+      "isUncapped": false
     },
     {
       "name": "Anuj Rawat",
@@ -3563,7 +3930,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 12,
+      "isUncapped": false
     },
     {
       "name": "Nishant Sindhu",
@@ -3580,7 +3949,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Manav Suthar",
@@ -3597,7 +3968,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 1,
+      "isUncapped": false
     }
   ],
   "RCB": [
@@ -3620,7 +3993,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 12.5,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 15,
+      "isUncapped": false
     },
     {
       "name": "Bhuvneshwar Kumar",
@@ -3644,7 +4019,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 10.75,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 44,
+      "isUncapped": false
     },
     {
       "name": "Krunal Pandya",
@@ -3666,7 +4043,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 5.75,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 39,
+      "isUncapped": false
     },
     {
       "name": "Yash Dayal",
@@ -3685,7 +4064,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 5.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 34,
+      "isUncapped": false
     },
     {
       "name": "Devdutt Padikkal",
@@ -3704,7 +4085,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 2.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 28,
+      "isUncapped": false
     },
     {
       "name": "Venkatesh Iyer",
@@ -3723,7 +4106,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 7.0,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 34,
+      "isUncapped": false
     },
     {
       "name": "Virat Kohli",
@@ -3746,7 +4131,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 21.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 44,
+      "isUncapped": false
     },
     {
       "name": "Rajat Patidar",
@@ -3769,7 +4156,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": true,
       "price": 11.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 27,
+      "isUncapped": false
     },
     {
       "name": "Phil Salt",
@@ -3792,7 +4181,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 11.5,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 34,
+      "isUncapped": false
     },
     {
       "name": "Tim David",
@@ -3813,7 +4204,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 3.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 35,
+      "isUncapped": false
     },
     {
       "name": "Jitesh Sharma",
@@ -3835,7 +4228,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 11.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 37,
+      "isUncapped": false
     },
     {
       "name": "Suyash Sharma",
@@ -3854,7 +4249,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 2.6,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 27,
+      "isUncapped": false
     },
     {
       "name": "Jacob Bethell",
@@ -3871,7 +4268,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 2.6,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 2,
+      "isUncapped": false
     },
     {
       "name": "Swapnil Singh",
@@ -3888,7 +4287,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.5,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 9,
+      "isUncapped": false
     },
     {
       "name": "Romario Shepherd",
@@ -3907,7 +4308,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 2.0,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 12,
+      "isUncapped": false
     },
     {
       "name": "Satvik Deswal",
@@ -3924,7 +4327,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.5,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Abhinandan Singh",
@@ -3941,7 +4346,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Mangesh Yadav",
@@ -3958,7 +4365,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 6,
+      "isUncapped": false
     },
     {
       "name": "Jacob Duffy",
@@ -3975,7 +4384,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.75,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Jordan Cox",
@@ -3992,7 +4403,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Kanishk Chouhan",
@@ -4009,7 +4422,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.5,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     }
   ],
   "KKR": [
@@ -4038,7 +4453,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 12.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 40,
+      "isUncapped": false
     },
     {
       "name": "Varun Chakravarthy",
@@ -4058,7 +4475,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 12.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 41,
+      "isUncapped": false
     },
     {
       "name": "Harshit Rana",
@@ -4078,7 +4497,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 4.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 30,
+      "isUncapped": false
     },
     {
       "name": "Vaibhav Arora",
@@ -4097,7 +4518,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 1.8,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 27,
+      "isUncapped": false
     },
     {
       "name": "Kartik Tyagi",
@@ -4116,7 +4539,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 4,
+      "isUncapped": false
     },
     {
       "name": "Rahul Tripathi",
@@ -4135,7 +4560,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 2.0,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 24,
+      "isUncapped": false
     },
     {
       "name": "Manish Pandey",
@@ -4154,7 +4581,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.75,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 13,
+      "isUncapped": false
     },
     {
       "name": "Ajinkya Rahane",
@@ -4173,7 +4602,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": true,
       "price": 1.5,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 35,
+      "isUncapped": false
     },
     {
       "name": "Rinku Singh",
@@ -4195,7 +4626,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 13.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 36,
+      "isUncapped": false
     },
     {
       "name": "Ramandeep Singh",
@@ -4212,7 +4645,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 4.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 16,
+      "isUncapped": false
     },
     {
       "name": "Angkrish Raghuvanshi",
@@ -4231,7 +4666,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 3.0,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 18,
+      "isUncapped": false
     },
     {
       "name": "Rovman Powell",
@@ -4248,7 +4685,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 1.5,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 11,
+      "isUncapped": false
     },
     {
       "name": "Umran Malik",
@@ -4268,7 +4707,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 0.75,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 9,
+      "isUncapped": false
     },
     {
       "name": "Anukul Roy",
@@ -4285,7 +4726,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.4,
-      "acquisition": "Retained"
+      "acquisition": "Retained",
+      "iplMatches": 7,
+      "isUncapped": false
     },
     {
       "name": "Cameron Green",
@@ -4302,7 +4745,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 25.2,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Matheesha Pathirana",
@@ -4321,7 +4766,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 18.0,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 30,
+      "isUncapped": false
     },
     {
       "name": "Finn Allen",
@@ -4338,7 +4785,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Tim Seifert",
@@ -4355,7 +4804,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Rachin Ravindra",
@@ -4372,7 +4823,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 4.0,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 18,
+      "isUncapped": false
     },
     {
       "name": "Akash Deep",
@@ -4391,7 +4844,9 @@ const FULL_SQUADS = {
       ],
       "isCaptain": false,
       "price": 1.6,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 9,
+      "isUncapped": false
     },
     {
       "name": "Prashant Solanki",
@@ -4408,7 +4863,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Tejasvi Singh",
@@ -4425,7 +4882,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Sarthak Ranjan",
@@ -4442,7 +4901,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     },
     {
       "name": "Daksh Kamra",
@@ -4459,7 +4920,9 @@ const FULL_SQUADS = {
       "bowlerTags": [],
       "isCaptain": false,
       "price": 0.3,
-      "acquisition": "Auction"
+      "acquisition": "Auction",
+      "iplMatches": 0,
+      "isUncapped": true
     }
   ]
 };

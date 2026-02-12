@@ -966,6 +966,14 @@
         .age-prime { color: var(--text-primary); }
         .age-veteran { color: var(--accent-orange); }
 
+        /* IPL Experience Column */
+        .ipl-exp-badge {
+            font-weight: 600;
+            font-size: 12px;
+        }
+        .ipl-exp-badge.veteran { color: var(--accent-green); }
+        .ipl-exp-badge.uncapped { color: var(--accent-orange); font-style: italic; }
+
         /* Batting Hand */
         .batting-badge {
             display: inline-block;
@@ -3201,13 +3209,14 @@
                             <th class="has-tooltip" data-tooltip="Player archetype from clustering analysis (e.g., Power Hitter, Anchor, Finisher)">Archetype</th>
                             <th class="has-tooltip" data-tooltip="Phase specialization split by batting (BAT) and bowling (BWL): PP (1-6), MID (7-15), DTH (16-20)">Phase</th>
                             <th class="has-tooltip" data-tooltip="Player's current age">Age</th>
+                            <th class="has-tooltip" data-tooltip="IPL matches played (max of batting innings or bowling matches since 2023). U = uncapped">IPL</th>
                             <th class="has-tooltip" data-tooltip="Nationality: Indian or Overseas (max 4 overseas per XI)">Nat</th>
                         </tr>
                     </thead>
                     <tbody>
                         ${filteredSquad.length === 0 ? `
                             <tr>
-                                <td colspan="9" style="text-align: center; padding: 32px; color: var(--text-tertiary);">
+                                <td colspan="10" style="text-align: center; padding: 32px; color: var(--text-tertiary);">
                                     No players match your filters. Try adjusting your search criteria.
                                 </td>
                             </tr>
@@ -3287,6 +3296,9 @@
                                 </td>
                                 <td>
                                     <span class="age-cell ${getAgeClass(player.age)}">${player.age}</span>
+                                </td>
+                                <td class="compact-cell">
+                                    <span class="ipl-exp-badge ${player.isUncapped ? 'uncapped' : (player.iplMatches || 0) >= 30 ? 'veteran' : ''}">${player.isUncapped ? 'U' : (player.iplMatches || 0)}</span>
                                 </td>
                                 <td>
                                     <span class="nat-badge ${player.nationality !== 'IND' ? 'overseas' : ''}">
@@ -3387,6 +3399,36 @@
                                 <span class="breakdown-label">Countries</span>
                                 <span class="breakdown-value">${new Set(squad.map(p => p.nationality)).size}</span>
                             </div>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>IPL Experience</h4>
+                        <div class="summary-breakdown">
+                            ${(() => {
+                                const experienced = squad.filter(p => (p.iplMatches || 0) > 0).sort((a,b) => b.iplMatches - a.iplMatches);
+                                const uncapped = squad.filter(p => p.isUncapped).length;
+                                const totalMatches = squad.reduce((sum, p) => sum + (p.iplMatches || 0), 0);
+                                const avgMatches = experienced.length > 0 ? Math.round(totalMatches / squad.length) : 0;
+                                const mostExp = experienced.length > 0 ? experienced[0] : null;
+                                return `
+                                <div class="breakdown-row">
+                                    <span class="breakdown-label">Uncapped Players</span>
+                                    <span class="breakdown-value">${uncapped}</span>
+                                </div>
+                                <div class="breakdown-row">
+                                    <span class="breakdown-label">Avg IPL Matches</span>
+                                    <span class="breakdown-value">${avgMatches}</span>
+                                </div>
+                                <div class="breakdown-row">
+                                    <span class="breakdown-label">Most Experienced</span>
+                                    <span class="breakdown-value">${mostExp ? mostExp.name.split(' ').pop() + ' (' + mostExp.iplMatches + ')' : '-'}</span>
+                                </div>
+                                <div class="breakdown-row">
+                                    <span class="breakdown-label">IPL Veterans (30+)</span>
+                                    <span class="breakdown-value">${squad.filter(p => (p.iplMatches || 0) >= 30).length}</span>
+                                </div>
+                                `;
+                            })()}
                         </div>
                     </div>
                 </div>

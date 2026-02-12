@@ -1230,7 +1230,10 @@ def generate_team_phase_approach(
             )
         md.append("")
 
-    # --- Key Phase Players (current squad only) ---
+    # --- Key Phase Players (current squad only, min sample sizes) ---
+    # Minimums: 50 balls batting, 60 balls bowling (~10 overs)
+    MIN_BAT_BALLS = 50
+    MIN_BOWL_BALLS = 60
     md.append("### Key Phase Players (2026 Squad)\n")
 
     squad_filter = f"""
@@ -1238,130 +1241,68 @@ def generate_team_phase_approach(
             AND sq.team_name = '{team_name}'
     """
 
-    # PP batters
-    pp_bat = execute_query_safe(
-        conn,
-        f"""
-        SELECT dp.current_name, sq.role,
-            COUNT(CASE WHEN fb.is_legal_ball THEN 1 END) as balls,
-            SUM(fb.batter_runs) as runs,
-            ROUND(SUM(fb.batter_runs)*100.0
-                /NULLIF(COUNT(CASE WHEN fb.is_legal_ball THEN 1 END),0),1) as sr
-        FROM fact_ball fb
-        JOIN dim_match dm ON fb.match_id = dm.match_id
-        JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
-        JOIN dim_team dtt ON fb.batting_team_id = dtt.team_id
-        JOIN dim_player dp ON fb.batter_id = dp.player_id
-        {squad_filter}
-        WHERE dtr.tournament_name = 'Indian Premier League'
-          AND dm.match_date >= '2023-01-01'
-          AND dtt.team_name IN ({alias_clause})
-          AND fb.match_phase = 'powerplay'
-        GROUP BY dp.current_name, sq.role
-        HAVING COUNT(CASE WHEN fb.is_legal_ball THEN 1 END) >= 20
-        ORDER BY runs DESC LIMIT 3
-        """,
-    )
+    def _phase_batters(phase: str) -> list:
+        return (
+            execute_query_safe(
+                conn,
+                f"""
+            SELECT dp.current_name, sq.role,
+                COUNT(CASE WHEN fb.is_legal_ball THEN 1 END) as balls,
+                SUM(fb.batter_runs) as runs,
+                ROUND(SUM(fb.batter_runs)*100.0
+                    /NULLIF(COUNT(CASE WHEN fb.is_legal_ball THEN 1 END),0),1) as sr
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
+            JOIN dim_team dtt ON fb.batting_team_id = dtt.team_id
+            JOIN dim_player dp ON fb.batter_id = dp.player_id
+            {squad_filter}
+            WHERE dtr.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '2023-01-01'
+              AND dtt.team_name IN ({alias_clause})
+              AND fb.match_phase = '{phase}'
+            GROUP BY dp.current_name, sq.role
+            HAVING COUNT(CASE WHEN fb.is_legal_ball THEN 1 END) >= {MIN_BAT_BALLS}
+            ORDER BY runs DESC LIMIT 3
+            """,
+            )
+            or []
+        )
 
-    # PP bowlers
-    pp_bowl = execute_query_safe(
-        conn,
-        f"""
-        SELECT dp.current_name, sq.role,
-            COUNT(CASE WHEN fb.is_legal_ball THEN 1 END) as balls,
-            ROUND(SUM(fb.total_runs)*6.0
-                /NULLIF(COUNT(CASE WHEN fb.is_legal_ball THEN 1 END),0),2) as economy,
-            SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) as wickets
-        FROM fact_ball fb
-        JOIN dim_match dm ON fb.match_id = dm.match_id
-        JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
-        JOIN dim_team dtt ON fb.bowling_team_id = dtt.team_id
-        JOIN dim_player dp ON fb.bowler_id = dp.player_id
-        {squad_filter}
-        WHERE dtr.tournament_name = 'Indian Premier League'
-          AND dm.match_date >= '2023-01-01'
-          AND dtt.team_name IN ({alias_clause})
-          AND fb.match_phase = 'powerplay'
-        GROUP BY dp.current_name, sq.role
-        HAVING COUNT(CASE WHEN fb.is_legal_ball THEN 1 END) >= 12
-        ORDER BY economy ASC LIMIT 3
-        """,
-    )
+    def _phase_bowlers(phase: str) -> list:
+        return (
+            execute_query_safe(
+                conn,
+                f"""
+            SELECT dp.current_name, sq.role,
+                COUNT(CASE WHEN fb.is_legal_ball THEN 1 END) as balls,
+                ROUND(SUM(fb.total_runs)*6.0
+                    /NULLIF(COUNT(CASE WHEN fb.is_legal_ball THEN 1 END),0),2) as economy,
+                SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) as wickets
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
+            JOIN dim_team dtt ON fb.bowling_team_id = dtt.team_id
+            JOIN dim_player dp ON fb.bowler_id = dp.player_id
+            {squad_filter}
+            WHERE dtr.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '2023-01-01'
+              AND dtt.team_name IN ({alias_clause})
+              AND fb.match_phase = '{phase}'
+            GROUP BY dp.current_name, sq.role
+            HAVING COUNT(CASE WHEN fb.is_legal_ball THEN 1 END) >= {MIN_BOWL_BALLS}
+            ORDER BY economy ASC LIMIT 3
+            """,
+            )
+            or []
+        )
 
-    # Middle overs batters
-    mid_bat = execute_query_safe(
-        conn,
-        f"""
-        SELECT dp.current_name, sq.role,
-            COUNT(CASE WHEN fb.is_legal_ball THEN 1 END) as balls,
-            SUM(fb.batter_runs) as runs,
-            ROUND(SUM(fb.batter_runs)*100.0
-                /NULLIF(COUNT(CASE WHEN fb.is_legal_ball THEN 1 END),0),1) as sr
-        FROM fact_ball fb
-        JOIN dim_match dm ON fb.match_id = dm.match_id
-        JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
-        JOIN dim_team dtt ON fb.batting_team_id = dtt.team_id
-        JOIN dim_player dp ON fb.batter_id = dp.player_id
-        {squad_filter}
-        WHERE dtr.tournament_name = 'Indian Premier League'
-          AND dm.match_date >= '2023-01-01'
-          AND dtt.team_name IN ({alias_clause})
-          AND fb.match_phase = 'middle'
-        GROUP BY dp.current_name, sq.role
-        HAVING COUNT(CASE WHEN fb.is_legal_ball THEN 1 END) >= 20
-        ORDER BY runs DESC LIMIT 3
-        """,
-    )
-
-    # Death batters
-    death_bat = execute_query_safe(
-        conn,
-        f"""
-        SELECT dp.current_name, sq.role,
-            COUNT(CASE WHEN fb.is_legal_ball THEN 1 END) as balls,
-            SUM(fb.batter_runs) as runs,
-            ROUND(SUM(fb.batter_runs)*100.0
-                /NULLIF(COUNT(CASE WHEN fb.is_legal_ball THEN 1 END),0),1) as sr
-        FROM fact_ball fb
-        JOIN dim_match dm ON fb.match_id = dm.match_id
-        JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
-        JOIN dim_team dtt ON fb.batting_team_id = dtt.team_id
-        JOIN dim_player dp ON fb.batter_id = dp.player_id
-        {squad_filter}
-        WHERE dtr.tournament_name = 'Indian Premier League'
-          AND dm.match_date >= '2023-01-01'
-          AND dtt.team_name IN ({alias_clause})
-          AND fb.match_phase = 'death'
-        GROUP BY dp.current_name, sq.role
-        HAVING COUNT(CASE WHEN fb.is_legal_ball THEN 1 END) >= 15
-        ORDER BY sr DESC LIMIT 3
-        """,
-    )
-
-    # Death bowlers
-    death_bowl = execute_query_safe(
-        conn,
-        f"""
-        SELECT dp.current_name, sq.role,
-            COUNT(CASE WHEN fb.is_legal_ball THEN 1 END) as balls,
-            ROUND(SUM(fb.total_runs)*6.0
-                /NULLIF(COUNT(CASE WHEN fb.is_legal_ball THEN 1 END),0),2) as economy,
-            SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) as wickets
-        FROM fact_ball fb
-        JOIN dim_match dm ON fb.match_id = dm.match_id
-        JOIN dim_tournament dtr ON dm.tournament_id = dtr.tournament_id
-        JOIN dim_team dtt ON fb.bowling_team_id = dtt.team_id
-        JOIN dim_player dp ON fb.bowler_id = dp.player_id
-        {squad_filter}
-        WHERE dtr.tournament_name = 'Indian Premier League'
-          AND dm.match_date >= '2023-01-01'
-          AND dtt.team_name IN ({alias_clause})
-          AND fb.match_phase = 'death'
-        GROUP BY dp.current_name, sq.role
-        HAVING COUNT(CASE WHEN fb.is_legal_ball THEN 1 END) >= 12
-        ORDER BY economy ASC LIMIT 3
-        """,
-    )
+    pp_bat = _phase_batters("powerplay")
+    pp_bowl = _phase_bowlers("powerplay")
+    mid_bat = _phase_batters("middle")
+    mid_bowl = _phase_bowlers("middle")
+    death_bat = _phase_batters("death")
+    death_bowl = _phase_bowlers("death")
 
     md.append("| Phase | Role | Player | Key Stat | Sample |")
     md.append("|-------|------|--------|----------|--------|")
@@ -1374,6 +1315,9 @@ def generate_team_phase_approach(
     if mid_bat:
         for p in mid_bat[:2]:
             md.append(f"| Middle | Bat | {p[0]} | {p[3]} runs @ {p[4]} SR | {p[2]} balls |")
+    if mid_bowl:
+        for p in mid_bowl[:2]:
+            md.append(f"| Middle | Bowl | {p[0]} | Econ {p[3]} ({p[4]} wkts) | {p[2]} balls |")
     if death_bat:
         for p in death_bat[:2]:
             md.append(f"| Death | Bat | {p[0]} | {p[3]} runs @ {p[4]} SR | {p[2]} balls |")
@@ -1388,6 +1332,7 @@ def generate_team_phase_approach(
         pp_bat,
         pp_bowl,
         mid_bat,
+        mid_bowl,
         death_bat,
         death_bowl,
         lineup_rows if lineup_rows else [],
@@ -1409,6 +1354,7 @@ def _build_keys_to_victory(
     pp_bat: list,
     pp_bowl: list,
     mid_bat: list,
+    mid_bowl: list,
     death_bat: list,
     death_bowl: list,
     lineup_rows: list,
@@ -1417,7 +1363,7 @@ def _build_keys_to_victory(
     keys = []
 
     # PP batting key
-    if pp_bat and len(pp_bat) >= 1:
+    if pp_bat:
         top = pp_bat[0]
         keys.append(
             f"**Powerplay aggression from {top[0]}** — {top[3]} runs at {top[4]} SR "
@@ -1425,14 +1371,14 @@ def _build_keys_to_victory(
         )
 
     # PP bowling key
-    if pp_bowl and len(pp_bowl) >= 1:
+    if pp_bowl:
         top = pp_bowl[0]
         keys.append(
             f"**{top[0]} must control the new ball** — {top[3]} economy with {top[4]} "
             f"wickets in the powerplay; early breakthroughs are non-negotiable."
         )
 
-    # Middle overs key
+    # Middle overs batting key
     if mid_bat and len(mid_bat) >= 2:
         names = f"{mid_bat[0][0]} and {mid_bat[1][0]}"
         keys.append(
@@ -1445,8 +1391,17 @@ def _build_keys_to_victory(
             f"at {mid_bat[0][4]} SR; needs support from the other end."
         )
 
+    # Middle overs bowling key
+    if mid_bowl:
+        top = mid_bowl[0]
+        keys.append(
+            f"**{top[0]} must squeeze in the middle** — {top[3]} economy in overs "
+            f"7-15 with {top[4]} wickets; choking run flow here builds scoreboard "
+            f"pressure."
+        )
+
     # Death batting key
-    if death_bat and len(death_bat) >= 1:
+    if death_bat:
         top = death_bat[0]
         keys.append(
             f"**Death hitting from {top[0]}** — {top[4]} SR in overs 16-20; "
@@ -1454,7 +1409,7 @@ def _build_keys_to_victory(
         )
 
     # Death bowling key
-    if death_bowl and len(death_bowl) >= 1:
+    if death_bowl:
         top = death_bowl[0]
         if top[3] < 8.0:
             qualifier = "elite"

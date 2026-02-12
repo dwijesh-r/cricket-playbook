@@ -1,6 +1,6 @@
 # Delhi Capitals (DC) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 16:46
+**Generated:** 2026-02-12 16:51
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -133,7 +133,7 @@
 **Top Wicket Takers by Season:**
 
 - **2023:** MR Marsh (12w @ 7.82), AR Patel (11w @ 7.17), I Sharma (10w @ 8.03)
-- **2024:** Mukesh Kumar (17w @ 10.2), KK Ahmed (17w @ 9.13), Kuldeep Yadav (16w @ 8.45)
+- **2024:** KK Ahmed (17w @ 9.13), Mukesh Kumar (17w @ 10.2), Kuldeep Yadav (16w @ 8.45)
 - **2025:** Kuldeep Yadav (15w @ 7.26), MA Starc (14w @ 10.09), Mukesh Kumar (12w @ 9.67)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -212,18 +212,21 @@
 | Powerplay | Bowl | Mukesh Kumar | Econ 9.0 (10 wkts) | 264 balls |
 | Middle | Bat | AR Patel | 409 runs @ 132.4 SR | 309 balls |
 | Middle | Bat | Abishek Porel | 287 runs @ 143.5 SR | 200 balls |
-| Death | Bat | Sameer Rizvi | 35 runs @ 233.3 SR | 15 balls |
+| Middle | Bowl | AR Patel | Econ 7.48 (21 wkts) | 540 balls |
+| Middle | Bowl | Kuldeep Yadav | Econ 7.72 (32 wkts) | 708 balls |
 | Death | Bat | T Stubbs | 421 runs @ 231.3 SR | 182 balls |
-| Death | Bowl | V Nigam | Econ 6.17 (2 wkts) | 36 balls |
+| Death | Bat | AR Patel | 312 runs @ 166.0 SR | 188 balls |
 | Death | Bowl | Kuldeep Yadav | Econ 7.81 (10 wkts) | 156 balls |
+| Death | Bowl | Mukesh Kumar | Econ 12.9 (24 wkts) | 240 balls |
 
 ### Keys to Victory
 
 1. **Powerplay aggression from Abishek Porel** — 316 runs at 151.9 SR sets the tone; need early intent without reckless wicket loss.
 2. **AR Patel must control the new ball** — 8.8 economy with 7 wickets in the powerplay; early breakthroughs are non-negotiable.
 3. **Middle-overs accumulation through AR Patel and Abishek Porel** — building partnerships in overs 7-15 prevents middle-order collapses and sets up the death.
-4. **Death hitting from Sameer Rizvi** — 233.3 SR in overs 16-20; maximizing the last 5 overs is the difference between 170 and 190+.
-5. **V Nigam's elite death bowling** — 6.17 economy at the death; defending totals requires yorker accuracy and nerve under pressure.
+4. **AR Patel must squeeze in the middle** — 7.48 economy in overs 7-15 with 21 wickets; choking run flow here builds scoreboard pressure.
+5. **Death hitting from T Stubbs** — 231.3 SR in overs 16-20; maximizing the last 5 overs is the difference between 170 and 190+.
+6. **Kuldeep Yadav's elite death bowling** — 7.81 economy at the death; defending totals requires yorker accuracy and nerve under pressure.
 
 ---
 *Phase approach analysis based on IPL 2023-2025 ball-by-ball data. Key players filtered to 2026 squad only.*
@@ -249,14 +252,14 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Dr. Y.S. Rajasekhara Reddy ACA-VDCA | 4 | 3 | 75.0% | 183.5 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 158.0 |
 | M Chinnaswamy Stadium | 3 | 1 | 33.3% | 153.3 |
 | Narendra Modi Stadium | 3 | 2 | 66.7% | 141.7 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 158.0 |
-| Sawai Mansingh Stadium | 2 | 1 | 50.0% | 190.5 |
+| Wankhede Stadium | 2 | 0 | 0.0% | 163.0 |
+| Himachal Pradesh Cricket Associatio | 2 | 1 | 50.0% | 213.0 |
 | Rajiv Gandhi International Stadium | 2 | 1 | 50.0% | 138.5 |
 | MA Chidambaram Stadium | 2 | 1 | 50.0% | 161.5 |
-| Himachal Pradesh Cricket Associatio | 2 | 1 | 50.0% | 213.0 |
-| Wankhede Stadium | 2 | 0 | 0.0% | 163.0 |
+| Sawai Mansingh Stadium | 2 | 1 | 50.0% | 190.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -269,9 +272,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -299,9 +302,9 @@
 | AR Patel | Arun Jaitley Stadium | 16 | 13 | 7.66 | 23.08 |
 | MA Starc | Dr. Y.S. Rajasekhara Redd | 3 | 10 | 9.28 | 6.4 |
 | Kuldeep Yadav | M Chinnaswamy Stadium | 3 | 5 | 7.83 | 14.4 |
-| Mukesh Kumar | Bharat Ratna Shri Atal Bi | 3 | 5 | 8.83 | 14.4 |
-| T Natarajan | Arun Jaitley Stadium | 3 | 5 | 9.18 | 13.2 |
 | Kuldeep Yadav | Dr. Y.S. Rajasekhara Redd | 2 | 5 | 5.38 | 9.6 |
+| T Natarajan | Arun Jaitley Stadium | 3 | 5 | 9.18 | 13.2 |
+| Mukesh Kumar | Bharat Ratna Shri Atal Bi | 3 | 5 | 8.83 | 14.4 |
 
 
 ---
@@ -433,8 +436,8 @@
 | Royal Challengers Bengaluru | 5 | 116 | 80 | 145.0 | 29.0 | 20.0 | 33.75 | 4 | MEDIUM |
 | Lucknow Super Giants | 4 | 86 | 52 | 165.38 | 43.0 | 25.0 | 34.62 | 2 | MEDIUM |
 | Mumbai Indians | 4 | 76 | 43 | 176.74 | 25.33 | 27.91 | 30.23 | 3 | MEDIUM |
-| Kolkata Knight Riders | 4 | 75 | 66 | 113.64 | 25.0 | 15.15 | 45.45 | 3 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 75 | 63 | 119.05 | 25.0 | 12.7 | 34.92 | 3 | MEDIUM |
+| Kolkata Knight Riders | 4 | 75 | 66 | 113.64 | 25.0 | 15.15 | 45.45 | 3 | MEDIUM |
 | Rajasthan Royals | 4 | 66 | 43 | 153.49 | 22.0 | 20.93 | 27.91 | 3 | MEDIUM |
 | Chennai Super Kings | 4 | 64 | 42 | 152.38 | 21.33 | 19.05 | 23.81 | 3 | MEDIUM |
 
@@ -484,8 +487,8 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 4 | 90 | 124 | 8 | 8.27 | 15.5 | 11.25 | 34.44 | 14.44 | MEDIUM |
 | Lucknow Super Giants | 5 | 120 | 142 | 7 | 7.1 | 20.29 | 17.14 | 35.0 | 10.83 | HIGH |
-| Royal Challengers Bengaluru | 5 | 120 | 159 | 5 | 7.95 | 31.8 | 24.0 | 31.67 | 13.33 | HIGH |
 | Punjab Kings | 5 | 102 | 138 | 5 | 8.12 | 27.6 | 20.4 | 26.47 | 13.73 | HIGH |
+| Royal Challengers Bengaluru | 5 | 120 | 159 | 5 | 7.95 | 31.8 | 24.0 | 31.67 | 13.33 | HIGH |
 | Rajasthan Royals | 4 | 96 | 127 | 5 | 7.94 | 25.4 | 19.2 | 31.25 | 13.54 | MEDIUM |
 | Gujarat Titans | 6 | 138 | 144 | 4 | 6.26 | 36.0 | 34.5 | 29.71 | 7.25 | HIGH |
 | Mumbai Indians | 4 | 78 | 113 | 3 | 8.69 | 37.67 | 26.0 | 30.77 | 19.23 | MEDIUM |
@@ -503,8 +506,8 @@
 | Chennai Super Kings | 2 | 42 | 57 | 4 | 8.14 | 14.25 | 10.5 | 26.19 | 14.29 | MEDIUM |
 | Royal Challengers Bengaluru | 4 | 75 | 122 | 3 | 9.76 | 40.67 | 25.0 | 41.33 | 26.67 | MEDIUM |
 | Punjab Kings | 3 | 54 | 100 | 2 | 11.11 | 50.0 | 27.0 | 35.19 | 29.63 | MEDIUM |
-| Kolkata Knight Riders | 2 | 36 | 45 | 1 | 7.5 | 45.0 | 36.0 | 58.33 | 22.22 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 66 | 132 | 1 | 12.0 | 132.0 | 66.0 | 19.7 | 33.33 | MEDIUM |
+| Kolkata Knight Riders | 2 | 36 | 45 | 1 | 7.5 | 45.0 | 36.0 | 58.33 | 22.22 | MEDIUM |
 
 ### Mitchell Starc
 
@@ -514,8 +517,8 @@
 | Lucknow Super Giants | 4 | 84 | 117 | 8 | 8.36 | 14.63 | 10.5 | 41.67 | 22.62 | MEDIUM |
 | Mumbai Indians | 3 | 47 | 83 | 4 | 10.6 | 20.75 | 11.75 | 40.43 | 31.91 | MEDIUM |
 | Delhi Capitals | 2 | 36 | 66 | 3 | 11.0 | 22.0 | 12.0 | 41.67 | 30.56 | MEDIUM |
-| Royal Challengers Bengaluru | 4 | 78 | 162 | 1 | 12.46 | 162.0 | 78.0 | 32.05 | 32.05 | MEDIUM |
 | Chennai Super Kings | 2 | 42 | 50 | 1 | 7.14 | 50.0 | 42.0 | 42.86 | 16.67 | MEDIUM |
+| Royal Challengers Bengaluru | 4 | 78 | 162 | 1 | 12.46 | 162.0 | 78.0 | 32.05 | 32.05 | MEDIUM |
 | Rajasthan Royals | 2 | 48 | 76 | 1 | 9.5 | 76.0 | 48.0 | 27.08 | 22.92 | MEDIUM |
 
 ---

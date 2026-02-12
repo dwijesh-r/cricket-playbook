@@ -1,6 +1,6 @@
 # Royal Challengers Bengaluru (RCB) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 16:46
+**Generated:** 2026-02-12 16:51
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -201,19 +201,22 @@
 | Powerplay | Bowl | B Kumar | Econ 8.23 (8 wkts) | 186 balls |
 | Middle | Bat | V Kohli | 836 runs @ 134.2 SR | 623 balls |
 | Middle | Bat | RM Patidar | 535 runs @ 168.2 SR | 318 balls |
-| Death | Bat | R Shepherd | 70 runs @ 304.3 SR | 23 balls |
+| Middle | Bowl | Yash Dayal | Econ 7.36 (5 wkts) | 115 balls |
+| Middle | Bowl | KH Pandya | Econ 7.78 (12 wkts) | 216 balls |
+| Death | Bat | V Kohli | 209 runs @ 183.3 SR | 114 balls |
 | Death | Bat | JM Sharma | 160 runs @ 200.0 SR | 80 balls |
-| Death | Bowl | Suyash Sharma | Econ 10.0 (1 wkts) | 36 balls |
 | Death | Bowl | JR Hazlewood | Econ 10.65 (8 wkts) | 89 balls |
+| Death | Bowl | Yash Dayal | Econ 11.01 (14 wkts) | 157 balls |
 
 ### Keys to Victory
 
 1. **Powerplay aggression from V Kohli** — 992 runs at 151.9 SR sets the tone; need early intent without reckless wicket loss.
 2. **JR Hazlewood must control the new ball** — 7.54 economy with 12 wickets in the powerplay; early breakthroughs are non-negotiable.
 3. **Middle-overs accumulation through V Kohli and RM Patidar** — building partnerships in overs 7-15 prevents middle-order collapses and sets up the death.
-4. **Death hitting from R Shepherd** — 304.3 SR in overs 16-20; maximizing the last 5 overs is the difference between 170 and 190+.
-5. **Suyash Sharma's reliable death bowling** — 10.0 economy at the death; defending totals requires yorker accuracy and nerve under pressure.
-6. **Reduce top-order dependency** — top 3 contributed 58% of runs in 2025; middle order must step up to avoid batting collapses if openers fail.
+4. **Yash Dayal must squeeze in the middle** — 7.36 economy in overs 7-15 with 5 wickets; choking run flow here builds scoreboard pressure.
+5. **Death hitting from V Kohli** — 183.3 SR in overs 16-20; maximizing the last 5 overs is the difference between 170 and 190+.
+6. **JR Hazlewood's reliable death bowling** — 10.65 economy at the death; defending totals requires yorker accuracy and nerve under pressure.
+7. **Reduce top-order dependency** — top 3 contributed 58% of runs in 2025; middle order must step up to avoid batting collapses if openers fail.
 
 ---
 *Phase approach analysis based on IPL 2023-2025 ball-by-ball data. Key players filtered to 2026 squad only.*
@@ -238,15 +241,15 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
-| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 176.3 |
 | Wankhede Stadium | 3 | 1 | 33.3% | 205.3 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 181.7 |
-| Narendra Modi Stadium | 3 | 2 | 66.7% | 189.3 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 176.3 |
 | Eden Gardens | 3 | 1 | 33.3% | 173.7 |
-| MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
-| Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
+| Narendra Modi Stadium | 3 | 2 | 66.7% | 189.3 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 181.7 |
 | Arun Jaitley Stadium | 2 | 1 | 50.0% | 173.0 |
 | Rajiv Gandhi International Stadium | 2 | 2 | 100.0% | 196.5 |
+| Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
+| MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -259,9 +262,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -289,8 +292,8 @@
 | KH Pandya | Bharat Ratna Shri Atal Bi | 13 | 12 | 6.84 | 22.0 |
 | JR Hazlewood | M Chinnaswamy Stadium | 4 | 8 | 9.33 | 10.38 |
 | B Kumar | Narendra Modi Stadium | 4 | 7 | 8.47 | 12.86 |
-| Suyash Sharma | Maharaja Yadavindra Singh | 2 | 5 | 5.71 | 8.4 |
 | B Kumar | Arun Jaitley Stadium | 3 | 5 | 8.92 | 14.4 |
+| Suyash Sharma | Maharaja Yadavindra Singh | 2 | 5 | 5.71 | 8.4 |
 | KH Pandya | Wankhede Stadium | 2 | 5 | 8.75 | 9.6 |
 
 
@@ -477,9 +480,9 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 3 | 72 | 80 | 6 | 6.67 | 13.33 | 12.0 | 44.44 | 13.89 | MEDIUM |
-| Mumbai Indians | 4 | 96 | 139 | 5 | 8.69 | 27.8 | 19.2 | 35.42 | 20.83 | MEDIUM |
-| Punjab Kings | 7 | 102 | 130 | 5 | 7.65 | 26.0 | 20.4 | 38.24 | 15.69 | HIGH |
 | Gujarat Titans | 4 | 90 | 100 | 5 | 6.67 | 20.0 | 18.0 | 36.67 | 11.11 | MEDIUM |
+| Punjab Kings | 7 | 102 | 130 | 5 | 7.65 | 26.0 | 20.4 | 38.24 | 15.69 | HIGH |
+| Mumbai Indians | 4 | 96 | 139 | 5 | 8.69 | 27.8 | 19.2 | 35.42 | 20.83 | MEDIUM |
 | Kolkata Knight Riders | 4 | 66 | 93 | 4 | 8.45 | 23.25 | 16.5 | 28.79 | 19.7 | MEDIUM |
 | Chennai Super Kings | 5 | 72 | 104 | 3 | 8.67 | 34.67 | 24.0 | 27.78 | 18.06 | MEDIUM |
 | Rajasthan Royals | 4 | 96 | 102 | 3 | 6.38 | 34.0 | 32.0 | 25.0 | 7.29 | MEDIUM |
@@ -704,7 +707,7 @@
 | Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Tournaments |
 |--------|------|-------------|----------|----------|---------|------------|-------------|
 | Jacob Duffy | Fast | 115 | 137 | 8.3 | 24.3 | HIGH | SS, Blast, 100 |
-| Jacob Bethell | Left-arm ort | 29 | 18 | 8.8 | 26.8 | HIGH | Blast, 100, BBL |
+| Jacob Bethell | Left-arm ort | 29 | 18 | 8.8 | 26.8 | HIGH | Blast, BBL, 100 |
 
 ### 12.3 Limited / No T20 Data
 

@@ -1,6 +1,6 @@
 # Gujarat Titans (GT) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 16:46
+**Generated:** 2026-02-12 16:51
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -200,23 +200,26 @@
 |-------|------|--------|----------|--------|
 | Powerplay | Bat | Shubman Gill | 832 runs @ 143.7 SR | 579 balls |
 | Powerplay | Bat | B Sai Sudharsan | 646 runs @ 139.5 SR | 463 balls |
-| Powerplay | Bowl | J Yadav | Econ 8.0 (0 wkts) | 12 balls |
 | Powerplay | Bowl | Rashid Khan | Econ 8.04 (7 wkts) | 144 balls |
+| Powerplay | Bowl | Mohammed Siraj | Econ 8.8 (9 wkts) | 240 balls |
 | Middle | Bat | Shubman Gill | 910 runs @ 160.2 SR | 568 balls |
 | Middle | Bat | B Sai Sudharsan | 802 runs @ 145.8 SR | 550 balls |
-| Death | Bat | B Sai Sudharsan | 200 runs @ 210.5 SR | 95 balls |
+| Middle | Bowl | M Prasidh Krishna | Econ 6.82 (7 wkts) | 168 balls |
+| Middle | Bowl | Rashid Khan | Econ 8.38 (23 wkts) | 652 balls |
+| Death | Bat | R Tewatia | 313 runs @ 176.8 SR | 177 balls |
 | Death | Bat | Shubman Gill | 224 runs @ 193.1 SR | 116 balls |
-| Death | Bowl | Washington Sundar | Econ 7.76 (1 wkts) | 17 balls |
 | Death | Bowl | M Prasidh Krishna | Econ 10.39 (16 wkts) | 108 balls |
+| Death | Bowl | Rashid Khan | Econ 10.55 (17 wkts) | 198 balls |
 
 ### Keys to Victory
 
 1. **Powerplay aggression from Shubman Gill** — 832 runs at 143.7 SR sets the tone; need early intent without reckless wicket loss.
-2. **J Yadav must control the new ball** — 8.0 economy with 0 wickets in the powerplay; early breakthroughs are non-negotiable.
+2. **Rashid Khan must control the new ball** — 8.04 economy with 7 wickets in the powerplay; early breakthroughs are non-negotiable.
 3. **Middle-overs accumulation through Shubman Gill and B Sai Sudharsan** — building partnerships in overs 7-15 prevents middle-order collapses and sets up the death.
-4. **Death hitting from B Sai Sudharsan** — 210.5 SR in overs 16-20; maximizing the last 5 overs is the difference between 170 and 190+.
-5. **Washington Sundar's elite death bowling** — 7.76 economy at the death; defending totals requires yorker accuracy and nerve under pressure.
-6. **Reduce top-order dependency** — top 3 contributed 71% of runs in 2025; middle order must step up to avoid batting collapses if openers fail.
+4. **M Prasidh Krishna must squeeze in the middle** — 6.82 economy in overs 7-15 with 7 wickets; choking run flow here builds scoreboard pressure.
+5. **Death hitting from R Tewatia** — 176.8 SR in overs 16-20; maximizing the last 5 overs is the difference between 170 and 190+.
+6. **M Prasidh Krishna's reliable death bowling** — 10.39 economy at the death; defending totals requires yorker accuracy and nerve under pressure.
+7. **Reduce top-order dependency** — top 3 contributed 71% of runs in 2025; middle order must step up to avoid batting collapses if openers fail.
 
 ---
 *Phase approach analysis based on IPL 2023-2025 ball-by-ball data. Key players filtered to 2026 squad only.*
@@ -241,10 +244,10 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
+| Arun Jaitley Stadium | 3 | 2 | 66.7% | 196.0 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 175.7 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 148.3 |
 | M Chinnaswamy Stadium | 3 | 2 | 66.7% | 171.7 |
-| Arun Jaitley Stadium | 3 | 2 | 66.7% | 196.0 |
 | Wankhede Stadium | 2 | 1 | 50.0% | 169.0 |
 | MA Chidambaram Stadium | 2 | 0 | 0.0% | 150.0 |
 | Eden Gardens | 2 | 2 | 100.0% | 189.0 |
@@ -260,9 +263,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -292,8 +295,8 @@
 | R Sai Kishore | Narendra Modi Stadium | 9 | 11 | 8.63 | 13.09 |
 | I Sharma | Arun Jaitley Stadium | 6 | 8 | 8.45 | 15.0 |
 | I Sharma | Narendra Modi Stadium | 5 | 6 | 6.84 | 14.33 |
-| Rashid Khan | Sawai Mansingh Stadium | 3 | 5 | 4.58 | 14.4 |
 | Rashid Khan | Wankhede Stadium | 2 | 5 | 6.88 | 9.6 |
+| Rashid Khan | Sawai Mansingh Stadium | 3 | 5 | 4.58 | 14.4 |
 | Mohammed Siraj | Rajiv Gandhi Internationa | 3 | 5 | 4.33 | 14.4 |
 
 
@@ -464,15 +467,15 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Rajasthan Royals | 5 | 120 | 136 | 9 | 6.8 | 15.11 | 13.33 | 37.5 | 10.83 | HIGH |
 | Mumbai Indians | 7 | 156 | 179 | 9 | 6.88 | 19.89 | 17.33 | 37.18 | 12.82 | HIGH |
+| Rajasthan Royals | 5 | 120 | 136 | 9 | 6.8 | 15.11 | 13.33 | 37.5 | 10.83 | HIGH |
 | Chennai Super Kings | 6 | 138 | 240 | 8 | 10.43 | 30.0 | 17.25 | 23.19 | 22.46 | HIGH |
-| Kolkata Knight Riders | 3 | 72 | 116 | 5 | 9.67 | 23.2 | 14.4 | 26.39 | 20.83 | MEDIUM |
 | Delhi Capitals | 6 | 132 | 176 | 5 | 8.0 | 35.2 | 26.4 | 30.3 | 14.39 | HIGH |
-| Punjab Kings | 4 | 96 | 134 | 4 | 8.38 | 33.5 | 24.0 | 36.46 | 16.67 | MEDIUM |
+| Kolkata Knight Riders | 3 | 72 | 116 | 5 | 9.67 | 23.2 | 14.4 | 26.39 | 20.83 | MEDIUM |
 | Lucknow Super Giants | 5 | 108 | 164 | 4 | 9.11 | 41.0 | 27.0 | 25.93 | 17.59 | HIGH |
-| Royal Challengers Bengaluru | 4 | 82 | 154 | 1 | 11.27 | 154.0 | 82.0 | 19.51 | 24.39 | MEDIUM |
+| Punjab Kings | 4 | 96 | 134 | 4 | 8.38 | 33.5 | 24.0 | 36.46 | 16.67 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 90 | 142 | 1 | 9.47 | 142.0 | 90.0 | 25.56 | 17.78 | MEDIUM |
+| Royal Challengers Bengaluru | 4 | 82 | 154 | 1 | 11.27 | 154.0 | 82.0 | 19.51 | 24.39 | MEDIUM |
 
 ---
 

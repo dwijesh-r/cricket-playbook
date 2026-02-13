@@ -594,14 +594,40 @@ def _build_bowler_vs_teams(matchups: List[Dict]) -> Dict[str, List[Dict]]:
 
 
 def _merge_tags(json_tags: List[str], csv_tags: List[str]) -> List[str]:
-    """Merge and deduplicate tags from JSON and CSV sources, preserving order."""
+    """Merge and deduplicate tags from JSON (analytics) and CSV (squad) sources.
+
+    Analytics-derived tags take precedence over CSV squad tags when there's
+    a phase conflict (e.g. PP_LIABILITY from analytics vs PP_DOMINATOR from CSV).
+    Phase prefixes PP_, MIDDLE_, DEATH_ are mutually exclusive families.
+    """
+    PHASE_PREFIXES = ("PP_", "MIDDLE_", "DEATH_")
+
+    # Track which phase families are already covered by analytics tags
+    json_phases = set()
+    for tag in json_tags:
+        t = tag.strip().upper()
+        for prefix in PHASE_PREFIXES:
+            if t.startswith(prefix):
+                json_phases.add(prefix)
+                break
+
     seen = set()
     merged = []
     for tag in json_tags + csv_tags:
         tag_upper = tag.strip().upper()
-        if tag_upper and tag_upper not in seen:
+        if not tag_upper or tag_upper in seen:
+            continue
+        # Skip CSV tags that conflict with analytics-derived phase tags
+        if tag in csv_tags:
+            for prefix in PHASE_PREFIXES:
+                if tag_upper.startswith(prefix) and prefix in json_phases:
+                    break
+            else:
+                seen.add(tag_upper)
+                merged.append(tag_upper)
+        else:
             seen.add(tag_upper)
-            merged.append(tag.strip().upper())
+            merged.append(tag_upper)
     return merged
 
 

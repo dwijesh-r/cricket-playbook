@@ -718,6 +718,8 @@
             touch-action: manipulation;
         }
         .nl-search-input::placeholder { color: var(--text-tertiary); }
+        .typeahead-item:hover, .typeahead-item.selected { background: rgba(100, 210, 80, 0.08); }
+        .typeahead-item:last-child { border-bottom: none; }
         .nl-search-hint {
             font-size: 11px;
             color: var(--text-tertiary);
@@ -1830,7 +1832,7 @@
             <div class="workspace">
                 <!-- Natural Language Search (TKT-177) -->
                 <div class="nl-search-section" id="nl-search-bar">
-                    <div class="nl-search-bar">
+                    <div class="nl-search-bar" style="position:relative;">
                         <span class="nl-search-icon">&#128269;</span>
                         <input type="text" class="nl-search-input" placeholder="Ask in plain English: &quot;Kohli stats&quot;, &quot;best death bowlers&quot;, &quot;CSK squad&quot;..." id="nl-search-input" autocomplete="off" enterkeyhint="search">
                         <button type="button" class="nl-search-btn" id="nl-search-btn" title="Search" style="
@@ -1838,6 +1840,13 @@
                             cursor: pointer; border: 1px solid var(--accent); background: var(--accent);
                             color: #fff; transition: all 0.2s ease; white-space: nowrap;
                         " onclick="handleNLSearch()">&#9654; Ask</button>
+                        <!-- Typeahead dropdown -->
+                        <div id="nl-typeahead" class="nl-typeahead-dropdown" style="
+                            display:none; position:absolute; top:100%; left:0; right:0; z-index:100;
+                            background:var(--bg-card, #1a1a2e); border:1px solid var(--border-subtle, #333);
+                            border-radius:0 0 10px 10px; max-height:260px; overflow-y:auto;
+                            box-shadow:0 8px 24px rgba(0,0,0,0.4); margin-top:-1px;
+                        "></div>
                     </div>
                     <div class="nl-search-hint">
                         <kbd>Enter</kbd> to search &middot; Type a player name, team, matchup, or stat question in plain English
@@ -3940,11 +3949,19 @@ LIMIT 20;</textarea>
             }
 
             // -- Detect role (batting / bowling) --
-            if (/\bbowl(?:ing|ers?)?\b/i.test(remaining)) {
+            if (/\bbowl(?:ing|ers?)?\b/i.test(remaining) || /\b(wicket.?tak(?:ers?|ing)|spell|overs?\s*bowled)\b/i.test(remaining)) {
                 entities.role = 'bowling';
             }
-            if (/\bbat(?:ting|ters?|smen|sman)?\b/i.test(remaining) || /\b(run.?scorers?|hitters?|strikers?)\b/i.test(remaining)) {
+            if (/\bbat(?:ting|ters?|smen|sman)?\b/i.test(remaining) || /\b(run.?scorers?|hitters?|strikers?|innings\s*played|openers?)\b/i.test(remaining)) {
                 entities.role = entities.role === 'bowling' ? 'both' : 'batting';
+            }
+            // Metric-implied role: economy/wickets -> bowling, runs/sixes/fours/average/SR -> batting
+            if (!entities.role) {
+                if (/\b(economy|econ|wickets?|maiden|dot.?ball.?%?)\b/i.test(remaining)) {
+                    entities.role = 'bowling';
+                } else if (/\b(runs?|sixes|fours|centuries|fifties|hundreds|strike.?rate|sr\b|boundaries)\b/i.test(remaining)) {
+                    entities.role = 'batting';
+                }
             }
 
             // -- STEP 1: Extract seasons (years) BEFORE player names to avoid confusion --
@@ -4156,34 +4173,41 @@ LIMIT 20;</textarea>
             if (isSeasonWise) return 'SEASON_TREND';
 
             // Contract/auction queries
-            if (/\b(most expensive|highest paid|costliest|auction|contracts?|price|retained|rtm)\b/i.test(lower)) return 'CONTRACTS';
+            if (/\b(most expensive|highest paid|costliest|auction|contracts?|price|retained|rtm|bargain|cheap(?:est)?)\b/i.test(lower)) return 'CONTRACTS';
 
             // Overseas/foreign queries
             if (/\b(overseas|foreign|international|non.?indian|imports?)\b/i.test(lower)) return 'OVERSEAS';
 
             // Squad/roster queries
-            if (/\b(squad|roster|team\s*list)\b/i.test(lower) || /\bwho\s+(is|are)\s+in\b/i.test(lower)) return 'SQUAD';
+            if (/\b(squad|roster|team\s*list|lineup|playing\s*xi|xi)\b/i.test(lower) || /\bwho\s+(is|are)\s+in\b/i.test(lower)) return 'SQUAD';
 
             // Pressure/clutch queries
-            if (/\b(pressure|clutch|chok(?:e|er|ing)|finisher|closer|rrr|required run rate)\b/i.test(lower)) return 'PRESSURE';
+            if (/\b(pressure|clutch|chok(?:e|er|ing)|finisher|closer|rrr|required run rate|under\s*pressure|crunch|tight)\b/i.test(lower)) return 'PRESSURE';
 
             // Two players = matchup
             if (entities.players.length === 2) return 'MATCHUP';
 
             // Player vs team
             if (entities.players.length === 1 && entities.teams.length === 1 && entities.hasVsToken) return 'PLAYER_VS_TEAM';
+            // Also catch "Kohli against MI" or "Kohli vs MI" without explicit vs token
+            if (entities.players.length === 1 && entities.teams.length === 1 && /\b(against|facing|versus)\b/i.test(lower)) return 'PLAYER_VS_TEAM';
 
             // Player vs bowler type
             if (entities.players.length === 1 && entities.bowlerTypes.length >= 1) return 'PLAYER_VS_TYPE';
 
-            // Leaderboard tokens
-            const hasLeaderboardToken = /\b(top|best|worst|most|highest|leading|lowest)\b/i.test(lower);
+            // Leaderboard tokens (expanded set)
+            const hasLeaderboardToken = /\b(top|best|worst|most|highest|leading|lowest|greatest|elite|dominant)\b/i.test(lower);
 
-            // Two teams = comparison
+            // "compare X and Y" or "X vs Y" with two teams
             if (entities.teams.length === 2) return 'TEAM_COMPARISON';
+            // Explicit comparison keywords with one team and no player
+            if (/\b(compare|comparison|head.?to.?head)\b/i.test(lower) && entities.teams.length >= 1) return 'TEAM_COMPARISON';
 
             // Leaderboard (no specific player)
             if (hasLeaderboardToken && entities.players.length === 0) return 'LEADERBOARD';
+
+            // Single player with team context (not explicit vs but team present)
+            if (entities.players.length === 1 && entities.teams.length === 1) return 'PLAYER_VS_TEAM';
 
             // Single player lookup
             if (entities.players.length === 1) return 'PLAYER_LOOKUP';
@@ -4193,6 +4217,9 @@ LIMIT 20;</textarea>
 
             // Win/loss comparison
             if (entities.modifiers.winLoss === 'split') return 'COMPARISON';
+
+            // Role-only leaderboard (e.g., "bowling stats" or "batting averages")
+            if (entities.role && entities.metrics.length > 0 && entities.players.length === 0) return 'LEADERBOARD';
 
             return 'EXPLORATORY';
         }
@@ -5745,6 +5772,115 @@ LIMIT 20;</textarea>
                 };
             }
 
+            // --- SMART PARTIAL EXECUTION ---
+            // If entities were extracted but no intent matched perfectly, attempt best-effort query
+            const hasEntities = entities.players.length > 0 || entities.teams.length > 0 ||
+                                entities.phases.length > 0 || entities.venues.length > 0;
+            if (hasEntities) {
+                return buildPartialQuery(entities, intent);
+            }
+
+            return null;
+        }
+
+        /**
+         * buildPartialQuery(entities, intent)
+         * Generates a best-effort query when intent routing didn't find a perfect match.
+         * Uses whatever entities were extracted to build a useful query.
+         * Annotates what was understood vs what was missed.
+         */
+        function buildPartialQuery(entities, intent) {
+            const isBowling = entities.role === 'bowling';
+            const contextParts = [];
+            const missedParts = [];
+
+            // Priority: player > team > venue > phase
+            if (entities.players.length >= 1) {
+                const playerName = entities.players[0].name;
+
+                // Check for context modifiers (defer to dynamic builder)
+                if (entities.modifiers.winLoss || entities.modifiers.innings || entities.modifiers.stage || entities.modifiers.totalContext) {
+                    return buildDynamicQuery(entities, intent || 'PLAYER_LOOKUP');
+                }
+
+                // Try view-based routing with relaxed matching
+                const bestView = findBestView(entities, 'PLAYER_LOOKUP');
+                if (bestView) {
+                    const sql = buildViewSQL(bestView.viewName, bestView.viewMeta, entities, 'PLAYER_LOOKUP');
+                    return {
+                        sql,
+                        type: 'player_lookup',
+                        entity: playerName,
+                        context: 'partial match',
+                        partial: true
+                    };
+                }
+
+                // Fallback: career lookup with available filters
+                if (isBowling) {
+                    return {
+                        sql: `SELECT player_name, primary_role, matches_bowled, overs_bowled, wickets, economy_rate, bowling_average, bowling_strike_rate, dot_ball_pct\nFROM analytics_ipl_bowling_career\nWHERE player_name ILIKE '%${escapeSql(playerName)}%';`,
+                        type: 'player_bowling',
+                        entity: playerName,
+                        context: 'partial match',
+                        partial: true
+                    };
+                }
+                return {
+                    sql: `SELECT player_name, primary_role, innings, runs, balls_faced, strike_rate, batting_average, boundary_pct, fifties, hundreds, sixes\nFROM analytics_ipl_batting_career\nWHERE player_name ILIKE '%${escapeSql(playerName)}%';`,
+                    type: 'player_lookup',
+                    entity: playerName,
+                    context: 'partial match',
+                    partial: true
+                };
+            }
+
+            if (entities.teams.length >= 1) {
+                const teamName = entities.teams[0].canonical;
+                const view = isBowling ? 'analytics_ipl_squad_bowling' : 'analytics_ipl_squad_batting';
+                const orderCol = isBowling ? 'player_name' : 'ipl_runs DESC NULLS LAST';
+                let phaseFilter = '';
+                if (entities.phases.length > 0) {
+                    const phaseView = isBowling ? 'analytics_ipl_squad_bowling_phase' : 'analytics_ipl_squad_batting_phase';
+                    phaseFilter = `\n  AND match_phase = '${escapeSql(entities.phases[0])}'`;
+                    return {
+                        sql: `SELECT * FROM ${phaseView}\nWHERE team_name ILIKE '%${escapeSql(teamName)}%'${phaseFilter}\nORDER BY ${isBowling ? 'economy_rate ASC NULLS LAST' : 'runs DESC NULLS LAST'};`,
+                        type: 'team_analysis',
+                        entity: teamName,
+                        context: 'partial match',
+                        partial: true
+                    };
+                }
+                return {
+                    sql: `SELECT * FROM ${view}\nWHERE team_name ILIKE '%${escapeSql(teamName)}%'\nORDER BY ${orderCol};`,
+                    type: 'team_analysis',
+                    entity: teamName,
+                    context: 'partial match',
+                    partial: true
+                };
+            }
+
+            // Phase-only or venue-only: show leaderboard
+            if (entities.phases.length > 0) {
+                const phase = entities.phases[0];
+                if (isBowling) {
+                    return {
+                        sql: `SELECT player_name, match_phase, matches, balls_bowled, overs, runs_conceded, wickets, economy_rate, dot_ball_pct\nFROM analytics_ipl_bowler_phase\nWHERE match_phase = '${escapeSql(phase)}'\n  AND balls_bowled >= 120\nORDER BY wickets DESC\nLIMIT 20;`,
+                        type: 'phase_leaderboard',
+                        entity: phase + ' bowlers',
+                        context: 'partial match',
+                        partial: true
+                    };
+                }
+                return {
+                    sql: `SELECT player_name, match_phase, innings, runs, balls_faced, strike_rate, batting_average, boundary_pct\nFROM analytics_ipl_batter_phase\nWHERE match_phase = '${escapeSql(phase)}'\n  AND balls_faced >= 120\nORDER BY strike_rate DESC\nLIMIT 20;`,
+                    type: 'phase_leaderboard',
+                    entity: phase + ' batters',
+                    context: 'partial match',
+                    partial: true
+                };
+            }
+
             return null;
         }
 
@@ -6143,44 +6279,142 @@ LIMIT 20;</textarea>
         }
 
         // ---- Disambiguation: find similar example queries ----
-        function findSimilarExamples(query, maxResults) {
+        // ================================================================
+        // QUERY TEMPLATE GALLERY (50+ parameterized examples)
+        // ================================================================
+        const NL_QUERY_TEMPLATES = [
+            // --- Tier 1: Player Career Lookup ---
+            { text: 'Kohli stats', desc: 'Player career batting', intent: 'PLAYER_LOOKUP', dims: ['player'] },
+            { text: 'Bumrah bowling', desc: 'Player career bowling', intent: 'PLAYER_LOOKUP', dims: ['player'], role: 'bowling' },
+            { text: 'Pant career', desc: 'Player career batting', intent: 'PLAYER_LOOKUP', dims: ['player'] },
+
+            // --- Tier 2: Player + Phase ---
+            { text: 'Kohli in powerplay', desc: 'Player phase batting', intent: 'PLAYER_LOOKUP', dims: ['player', 'phase'] },
+            { text: 'Bumrah in death overs', desc: 'Player phase bowling', intent: 'PLAYER_LOOKUP', dims: ['player', 'phase'], role: 'bowling' },
+            { text: 'SKY middle overs', desc: 'Player phase batting', intent: 'PLAYER_LOOKUP', dims: ['player', 'phase'] },
+            { text: 'Kohli by phase', desc: 'Player breakdown by phase', intent: 'PLAYER_LOOKUP', dims: ['player', 'phase'] },
+
+            // --- Tier 3: Player + Venue ---
+            { text: 'Kohli at Chinnaswamy', desc: 'Player venue splits', intent: 'PLAYER_LOOKUP', dims: ['player', 'venue'] },
+            { text: 'Gill at Wankhede', desc: 'Player venue splits', intent: 'PLAYER_LOOKUP', dims: ['player', 'venue'] },
+            { text: 'Warner at Eden Gardens', desc: 'Player venue splits', intent: 'PLAYER_LOOKUP', dims: ['player', 'venue'] },
+
+            // --- Tier 4: Player vs Team ---
+            { text: 'Kohli vs MI', desc: 'Player vs opposition team', intent: 'PLAYER_VS_TEAM', dims: ['player', 'team'] },
+            { text: 'Bumrah vs CSK', desc: 'Bowler vs opposition team', intent: 'PLAYER_VS_TEAM', dims: ['player', 'team'], role: 'bowling' },
+            { text: 'Warner vs RCB in powerplay', desc: 'Player vs team + phase', intent: 'PLAYER_VS_TEAM', dims: ['player', 'team', 'phase'] },
+
+            // --- Tier 5: Head-to-Head Matchups ---
+            { text: 'Kohli vs Bumrah', desc: 'Head-to-head matchup', intent: 'MATCHUP', dims: ['matchup'] },
+            { text: 'Kohli vs Rashid Khan', desc: 'Batter vs bowler matchup', intent: 'MATCHUP', dims: ['matchup'] },
+            { text: 'Kohli vs Bumrah by phase', desc: 'Matchup breakdown by phase', intent: 'MATCHUP', dims: ['matchup', 'phase'] },
+            { text: 'Pant vs Bumrah in powerplay since 2023', desc: 'Matchup with filters', intent: 'MATCHUP', dims: ['matchup', 'phase'] },
+
+            // --- Tier 6: Bowler Type Matchup ---
+            { text: 'Pant against spin', desc: 'Batter vs bowling type', intent: 'PLAYER_VS_TYPE', dims: ['player', 'bowlerType'] },
+            { text: 'Kohli vs left-arm pace', desc: 'Batter vs specific bowling type', intent: 'PLAYER_VS_TYPE', dims: ['player', 'bowlerType'] },
+            { text: 'SKY vs leg-spin in death', desc: 'Batter vs bowling type + phase', intent: 'PLAYER_VS_TYPE', dims: ['player', 'bowlerType', 'phase'] },
+
+            // --- Tier 7: Leaderboards ---
+            { text: 'top 10 run scorers', desc: 'Batting leaderboard by runs', intent: 'LEADERBOARD', dims: [] },
+            { text: 'top 10 wicket takers', desc: 'Bowling leaderboard by wickets', intent: 'LEADERBOARD', dims: [], role: 'bowling' },
+            { text: 'best death bowlers by economy', desc: 'Phase bowling leaderboard', intent: 'LEADERBOARD', dims: ['phase'], role: 'bowling' },
+            { text: 'best powerplay batters', desc: 'Phase batting leaderboard', intent: 'LEADERBOARD', dims: ['phase'] },
+            { text: 'highest strike rate in death overs', desc: 'Death over specialists', intent: 'LEADERBOARD', dims: ['phase'] },
+            { text: 'most sixes in IPL', desc: 'Sixes leaderboard', intent: 'LEADERBOARD', dims: [] },
+            { text: 'top run scorers at Wankhede', desc: 'Venue leaderboard', intent: 'LEADERBOARD', dims: ['venue'] },
+            { text: 'best average in middle overs', desc: 'Phase batting average', intent: 'LEADERBOARD', dims: ['phase'] },
+            { text: 'most economical bowlers', desc: 'Economy rate leaderboard', intent: 'LEADERBOARD', dims: [], role: 'bowling' },
+
+            // --- Tier 8: Team Analysis ---
+            { text: 'CSK squad', desc: 'Team roster', intent: 'SQUAD', dims: ['squad'] },
+            { text: 'MI batting', desc: 'Team batting stats', intent: 'TEAM_ANALYSIS', dims: ['squad'] },
+            { text: 'RCB bowling in death overs', desc: 'Team bowling by phase', intent: 'TEAM_ANALYSIS', dims: ['squad', 'phase'], role: 'bowling' },
+            { text: 'CSK batting in powerplay', desc: 'Team batting by phase', intent: 'TEAM_ANALYSIS', dims: ['squad', 'phase'] },
+            { text: 'GT bowling', desc: 'Team bowling stats', intent: 'TEAM_ANALYSIS', dims: ['squad'], role: 'bowling' },
+
+            // --- Tier 9: Team Comparison ---
+            { text: 'MI vs CSK bowling economy', desc: 'Team comparison', intent: 'TEAM_COMPARISON', dims: ['team', 'team'] },
+            { text: 'compare RCB and MI batting', desc: 'Team comparison', intent: 'TEAM_COMPARISON', dims: ['team', 'team'] },
+            { text: 'CSK vs MI in powerplay since 2023', desc: 'Team comparison with filters', intent: 'TEAM_COMPARISON', dims: ['team', 'team', 'phase'] },
+
+            // --- Tier 10: Win/Loss Context ---
+            { text: 'Kohli in wins vs losses', desc: 'Win/loss performance split', intent: 'PLAYER_LOOKUP', dims: ['player'], modifiers: ['winLoss'] },
+            { text: 'SKY middle overs wins vs losses', desc: 'Phase + win/loss split', intent: 'PLAYER_LOOKUP', dims: ['player', 'phase'], modifiers: ['winLoss'] },
+            { text: 'Bumrah economy in wins', desc: 'Bowling in wins only', intent: 'PLAYER_LOOKUP', dims: ['player'], modifiers: ['winLoss'], role: 'bowling' },
+            { text: 'CSK batting in wins since 2023', desc: 'Team batting in wins', intent: 'TEAM_ANALYSIS', dims: ['squad'], modifiers: ['winLoss'] },
+
+            // --- Tier 11: Season Trends ---
+            { text: 'Kohli season wise', desc: 'Season-by-season breakdown', intent: 'SEASON_TREND', dims: ['player'] },
+            { text: 'Bumrah year by year bowling', desc: 'Bowling season trend', intent: 'SEASON_TREND', dims: ['player'], role: 'bowling' },
+
+            // --- Tier 12: Innings Context ---
+            { text: 'Bumrah economy when defending', desc: 'Bowling in 2nd innings', intent: 'PLAYER_LOOKUP', dims: ['player'], modifiers: ['innings'], role: 'bowling' },
+            { text: 'best death bowlers when chasing', desc: 'Bowling leaderboard + innings', intent: 'LEADERBOARD', dims: ['phase'], modifiers: ['innings'], role: 'bowling' },
+            { text: 'Kohli batting first vs chasing', desc: 'Innings context comparison', intent: 'PLAYER_LOOKUP', dims: ['player'], modifiers: ['innings'] },
+
+            // --- Tier 13: Playoff/Stage Context ---
+            { text: 'Kohli in playoffs', desc: 'Knockout performance', intent: 'PLAYER_LOOKUP', dims: ['player'], modifiers: ['stage'] },
+            { text: 'best death bowlers in playoffs', desc: 'Playoff leaderboard', intent: 'LEADERBOARD', dims: ['phase'], modifiers: ['stage'], role: 'bowling' },
+
+            // --- Tier 14: Pressure / Clutch ---
+            { text: 'clutch batters', desc: 'Batters under pressure', intent: 'PRESSURE', dims: ['pressure'] },
+            { text: 'best finishers under pressure', desc: 'Pressure batting performers', intent: 'PRESSURE', dims: ['pressure'] },
+            { text: 'pressure bowlers', desc: 'Bowlers under pressure', intent: 'PRESSURE', dims: ['pressure'], role: 'bowling' },
+            { text: 'pressure ratings', desc: 'Pressure rating delta analysis', intent: 'PRESSURE', dims: ['pressure'] },
+
+            // --- Tier 15: Contracts ---
+            { text: 'most expensive players', desc: 'IPL 2026 auction prices', intent: 'CONTRACTS', dims: [] },
+            { text: 'MI contracts', desc: 'Team auction spending', intent: 'CONTRACTS', dims: ['team'] },
+            { text: 'cheapest buys', desc: 'Bargain auction picks', intent: 'CONTRACTS', dims: [] },
+
+            // --- Tier 16: Overseas ---
+            { text: 'RCB overseas players', desc: 'Overseas squad roster', intent: 'OVERSEAS', dims: ['team'] },
+            { text: 'overseas players', desc: 'All overseas players', intent: 'OVERSEAS', dims: [] },
+
+            // --- Tier 17: Complex Composite ---
+            { text: 'Kohli at Chinnaswamy in death overs', desc: 'Player + venue + phase', intent: 'PLAYER_LOOKUP', dims: ['player', 'venue', 'phase'] },
+            { text: 'Bumrah economy vs MI in powerplay', desc: 'Player + team + phase + metric', intent: 'PLAYER_VS_TEAM', dims: ['player', 'team', 'phase'], role: 'bowling' },
+            { text: 'top 5 spinners in middle overs by economy', desc: 'Bowler type + phase leaderboard', intent: 'LEADERBOARD', dims: ['phase', 'bowlerType'], role: 'bowling' },
+        ];
+
+        function findSimilarExamples(query, maxResults, extractedEntities) {
             const lower = query.toLowerCase();
             const words = lower.split(/\s+/).filter(w => w.length >= 3);
             const scored = [];
 
-            // Build a combined list of NL chip queries + example gallery queries
-            const nlExamples = [
-                { text: 'Kohli stats', desc: 'Player career lookup' },
-                { text: 'Kohli year wise', desc: 'Season-by-season breakdown' },
-                { text: 'Kohli at Chinnaswamy', desc: 'Venue splits' },
-                { text: 'top 10 batsmen', desc: 'Batting leaderboard' },
-                { text: 'Kohli vs MI', desc: 'Player vs team' },
-                { text: 'best death bowlers', desc: 'Phase bowling specialists' },
-                { text: 'CSK squad', desc: 'Team roster' },
-                { text: 'most expensive players', desc: 'IPL 2026 contracts' },
-                { text: 'clutch batters', desc: 'Pressure performance' },
-                { text: 'Bumrah bowling economy', desc: 'Player bowling stats' },
-                { text: 'top 10 wicket takers', desc: 'Bowling leaderboard' },
-                { text: 'Kohli vs Bumrah', desc: 'Head-to-head matchup' },
-                { text: 'RCB overseas players', desc: 'Overseas squad' },
-                { text: 'Kohli wins vs losses', desc: 'Win/loss performance split' },
-                { text: 'best powerplay batters', desc: 'Powerplay specialists' },
-                { text: 'top run scorers at Wankhede', desc: 'Venue leaderboard' },
-                { text: 'CSK squad batting in powerplay', desc: 'Team squad phase stats' },
-            ];
-
-            for (const ex of nlExamples) {
+            for (const ex of NL_QUERY_TEMPLATES) {
                 const exLower = ex.text.toLowerCase();
                 let score = 0;
-                // Substring match: any word from query found in example
+
+                // Word overlap scoring
                 for (const word of words) {
-                    if (exLower.includes(word)) score += 2;
+                    if (exLower.includes(word)) score += 3;
                 }
-                // Also check if any word from example found in query
                 const exWords = exLower.split(/\s+/);
                 for (const ew of exWords) {
                     if (ew.length >= 3 && lower.includes(ew)) score += 1;
                 }
+
+                // Intent matching bonus (if entities were extracted)
+                if (extractedEntities) {
+                    // Boost examples that share extracted dimensions
+                    if (extractedEntities.players.length > 0 && ex.dims.includes('player')) score += 4;
+                    if (extractedEntities.teams.length > 0 && (ex.dims.includes('team') || ex.dims.includes('squad'))) score += 4;
+                    if (extractedEntities.phases.length > 0 && ex.dims.includes('phase')) score += 4;
+                    if (extractedEntities.venues.length > 0 && ex.dims.includes('venue')) score += 4;
+                    if (extractedEntities.bowlerTypes.length > 0 && ex.dims.includes('bowlerType')) score += 4;
+
+                    // Role matching bonus
+                    if (extractedEntities.role === 'bowling' && ex.role === 'bowling') score += 3;
+                    if (extractedEntities.role === 'batting' && ex.role !== 'bowling') score += 2;
+
+                    // Modifier matching bonus
+                    if (extractedEntities.modifiers.winLoss && ex.modifiers && ex.modifiers.includes('winLoss')) score += 5;
+                    if (extractedEntities.modifiers.stage && ex.modifiers && ex.modifiers.includes('stage')) score += 5;
+                    if (extractedEntities.modifiers.innings && ex.modifiers && ex.modifiers.includes('innings')) score += 5;
+                }
+
                 if (score > 0) {
                     scored.push({ ...ex, score });
                 }
@@ -6188,12 +6422,45 @@ LIMIT 20;</textarea>
 
             scored.sort((a, b) => b.score - a.score);
 
-            // If no substring matches, return a diverse default set
+            // If no substring matches, return diverse defaults based on what was extracted
             if (scored.length === 0) {
-                return nlExamples.slice(0, maxResults);
+                // Curate based on entities
+                if (extractedEntities && extractedEntities.players.length > 0) {
+                    const pName = extractedEntities.players[0].name;
+                    return [
+                        { text: `${pName} stats`, desc: 'Career batting stats', score: 10 },
+                        { text: `${pName} bowling`, desc: 'Career bowling stats', score: 9 },
+                        { text: `${pName} by phase`, desc: 'Phase breakdown', score: 8 },
+                        { text: `${pName} wins vs losses`, desc: 'Win/loss split', score: 7 },
+                        { text: `${pName} season wise`, desc: 'Season trend', score: 6 },
+                    ].slice(0, maxResults);
+                }
+                if (extractedEntities && extractedEntities.teams.length > 0) {
+                    const tName = extractedEntities.teams[0].canonical;
+                    const abbr = extractedEntities.teams[0].name;
+                    return [
+                        { text: `${abbr} squad`, desc: 'Team roster', score: 10 },
+                        { text: `${abbr} batting`, desc: 'Team batting stats', score: 9 },
+                        { text: `${abbr} bowling`, desc: 'Team bowling stats', score: 8 },
+                        { text: `${abbr} batting in powerplay`, desc: 'Team phase stats', score: 7 },
+                        { text: `${abbr} contracts`, desc: 'Auction spending', score: 6 },
+                    ].slice(0, maxResults);
+                }
+                return NL_QUERY_TEMPLATES.filter((_, i) => i % 4 === 0).slice(0, maxResults);
             }
 
-            return scored.slice(0, maxResults);
+            // Deduplicate by intent+dims to ensure diversity
+            const seen = new Set();
+            const diverse = [];
+            for (const item of scored) {
+                const key = item.intent + ':' + (item.dims || []).join(',');
+                if (!seen.has(key)) {
+                    seen.add(key);
+                    diverse.push(item);
+                }
+                if (diverse.length >= maxResults) break;
+            }
+            return diverse;
         }
 
         // ---- Disambiguation: check for ambiguous player matches ----
@@ -6271,11 +6538,11 @@ LIMIT 20;</textarea>
         }
 
         // ---- Render fallback suggestions ----
-        function renderFallbackSuggestions(query) {
+        function renderFallbackSuggestions(query, entities) {
             const panel = document.getElementById('disambiguation-panel');
             if (!panel) return;
 
-            const suggestions = findSimilarExamples(query, 5);
+            const suggestions = findSimilarExamples(query, 5, entities);
             let suggestionsHTML = '';
             suggestions.forEach(s => {
                 suggestionsHTML += `<div class="fallback-suggestion-item" onclick="document.getElementById('nl-search-input').value='${escapeAttr(s.text)}';handleNLSearch();">
@@ -6285,10 +6552,43 @@ LIMIT 20;</textarea>
                 </div>`;
             });
 
+            // Build "what I understood" section if entities were partially extracted
+            let understoodHTML = '';
+            if (entities) {
+                const parts = [];
+                if (entities.players.length > 0) parts.push(`<span class="qe-tag player">Player: ${escapeHtml(entities.players[0].name)}</span>`);
+                if (entities.teams.length > 0) parts.push(`<span class="qe-tag team">Team: ${escapeHtml(entities.teams[0].canonical)}</span>`);
+                if (entities.phases.length > 0) parts.push(`<span class="qe-tag phase">Phase: ${escapeHtml(entities.phases[0])}</span>`);
+                if (entities.venues.length > 0) parts.push(`<span class="qe-tag venue">Venue: ${escapeHtml(entities.venues[0].keyword)}</span>`);
+                if (entities.role) parts.push(`<span class="qe-tag role">Role: ${escapeHtml(entities.role)}</span>`);
+                if (parts.length > 0) {
+                    understoodHTML = `<div style="margin-bottom:10px;padding:8px 12px;background:rgba(100,210,80,0.08);border-radius:8px;">
+                        <span style="font-size:12px;font-weight:600;color:var(--text-secondary);">Understood:</span> ${parts.join(' ')}
+                        <span style="font-size:11px;color:var(--text-tertiary);margin-left:8px;">but couldn't determine what analysis to run</span>
+                    </div>`;
+                }
+            }
+
+            // Build "available analyses" hint if a player or team was detected
+            let analysisHintsHTML = '';
+            if (entities && entities.players.length > 0) {
+                const pName = entities.players[0].name;
+                analysisHintsHTML = `<div style="margin-top:8px;padding:8px 12px;font-size:12px;color:var(--text-tertiary);border-top:1px solid var(--border-subtle);">
+                    Available for <strong>${escapeHtml(pName)}</strong>: career stats, phase breakdown, venue splits, vs team, vs bowler type, matchup, pressure, season trend, wins vs losses
+                </div>`;
+            } else if (entities && entities.teams.length > 0) {
+                const tName = entities.teams[0].canonical;
+                analysisHintsHTML = `<div style="margin-top:8px;padding:8px 12px;font-size:12px;color:var(--text-tertiary);border-top:1px solid var(--border-subtle);">
+                    Available for <strong>${escapeHtml(tName)}</strong>: squad roster, batting stats, bowling stats, phase breakdown, contracts, overseas players, comparison
+                </div>`;
+            }
+
             panel.innerHTML = `
                 <div class="disambiguation-card" style="border-color: rgba(255, 159, 10, 0.2);">
-                    <h4>&#128269; I couldn't understand that query. Try one of these:</h4>
+                    ${understoodHTML}
+                    <h4>&#128269; Try one of these queries:</h4>
                     <div class="fallback-suggestions">${suggestionsHTML}</div>
+                    ${analysisHintsHTML}
                 </div>`;
         }
 
@@ -6338,6 +6638,25 @@ LIMIT 20;</textarea>
                 // Show query explanation immediately (result count filled after execution)
                 renderQueryExplanation(entities, intent, null, lastNLViewName);
 
+                // If partial match, show a hint about what was approximated
+                if (result.partial) {
+                    const panel = document.getElementById('disambiguation-panel');
+                    if (panel) {
+                        const suggestions = findSimilarExamples(query, 3, entities);
+                        let sugHTML = '';
+                        suggestions.forEach(s => {
+                            sugHTML += `<div class="fallback-suggestion-item" style="padding:4px 8px;" onclick="document.getElementById('nl-search-input').value='${escapeAttr(s.text)}';handleNLSearch();">
+                                <span class="fsi-icon">&#9654;</span> <strong>"${escapeHtml(s.text)}"</strong>
+                                <span style="color:var(--text-tertiary);">&mdash; ${escapeHtml(s.desc)}</span>
+                            </div>`;
+                        });
+                        panel.innerHTML = `<div class="disambiguation-card" style="border-color:rgba(100,210,80,0.3);background:rgba(100,210,80,0.03);">
+                            <h4 style="font-size:12px;margin-bottom:6px;">Showing best-effort results. For more precise analysis, try:</h4>
+                            <div class="fallback-suggestions">${sugHTML}</div>
+                        </div>`;
+                    }
+                }
+
                 setEditorSQL(result.sql);
                 document.getElementById('sql-editor').scrollIntoView({ behavior: 'smooth', block: 'center' });
 
@@ -6351,8 +6670,8 @@ LIMIT 20;</textarea>
                 if (ambiguous.length > 0) {
                     renderDisambiguation(ambiguous, query);
                 } else {
-                    // Show fallback suggestions
-                    renderFallbackSuggestions(query);
+                    // Show context-aware fallback suggestions
+                    renderFallbackSuggestions(query, entities);
                 }
             }
         }
@@ -6360,9 +6679,73 @@ LIMIT 20;</textarea>
         window.handleNLSearch = handleNLSearch;
 
         nlInput.addEventListener('keydown', function(e) {
+            const dropdown = document.getElementById('nl-typeahead');
             if (e.key === 'Enter') {
                 e.preventDefault();
+                // If typeahead is visible and has a selected item, use it
+                const selected = dropdown ? dropdown.querySelector('.typeahead-item.selected') : null;
+                if (selected && dropdown.style.display !== 'none') {
+                    nlInput.value = selected.dataset.query;
+                    dropdown.style.display = 'none';
+                }
                 handleNLSearch();
+            } else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+                if (dropdown && dropdown.style.display !== 'none') {
+                    e.preventDefault();
+                    const items = dropdown.querySelectorAll('.typeahead-item');
+                    if (items.length === 0) return;
+                    let idx = -1;
+                    items.forEach((item, i) => { if (item.classList.contains('selected')) idx = i; });
+                    items.forEach(item => item.classList.remove('selected'));
+                    if (e.key === 'ArrowDown') idx = (idx + 1) % items.length;
+                    else idx = idx <= 0 ? items.length - 1 : idx - 1;
+                    items[idx].classList.add('selected');
+                    items[idx].scrollIntoView({ block: 'nearest' });
+                }
+            } else if (e.key === 'Escape') {
+                if (dropdown) dropdown.style.display = 'none';
+            }
+        });
+
+        // --- Typeahead: show suggestions as user types ---
+        let _typeaheadTimer = null;
+        nlInput.addEventListener('input', function() {
+            clearTimeout(_typeaheadTimer);
+            const dropdown = document.getElementById('nl-typeahead');
+            if (!dropdown) return;
+            const val = nlInput.value.trim();
+            if (val.length < 3) {
+                dropdown.style.display = 'none';
+                return;
+            }
+            _typeaheadTimer = setTimeout(() => {
+                const entities = extractEntities(val);
+                const matches = findSimilarExamples(val, 6, entities);
+                if (matches.length === 0) {
+                    dropdown.style.display = 'none';
+                    return;
+                }
+                let html = '';
+                matches.forEach((m, i) => {
+                    html += `<div class="typeahead-item${i === 0 ? ' selected' : ''}" data-query="${escapeAttr(m.text)}"
+                        onclick="document.getElementById('nl-search-input').value='${escapeAttr(m.text)}';document.getElementById('nl-typeahead').style.display='none';handleNLSearch();"
+                        onmouseenter="document.querySelectorAll('.typeahead-item').forEach(el=>el.classList.remove('selected'));this.classList.add('selected');"
+                        style="padding:8px 16px;cursor:pointer;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border-subtle, #222);transition:background 0.15s;">
+                        <span style="color:var(--accent);font-size:11px;opacity:0.7;">&#9654;</span>
+                        <span style="font-weight:500;font-size:13px;">${escapeHtml(m.text)}</span>
+                        <span style="margin-left:auto;font-size:11px;color:var(--text-tertiary);opacity:0.6;">${escapeHtml(m.desc)}</span>
+                    </div>`;
+                });
+                dropdown.innerHTML = html;
+                dropdown.style.display = 'block';
+            }, 150); // 150ms debounce
+        });
+
+        // Hide typeahead when clicking outside
+        document.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('nl-typeahead');
+            if (dropdown && !e.target.closest('.nl-search-bar')) {
+                dropdown.style.display = 'none';
             }
         });
 

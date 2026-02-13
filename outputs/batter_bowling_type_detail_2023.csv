@@ -1,228 +1,877 @@
 batter_id,batter_name,bowling_type,balls,runs,dismissals,fours,sixes,dot_balls,strike_rate,average,dot_pct,boundary_pct
+872b03f7,A Badoni,Left-arm orthodox,45,75.0,1.0,7.0,3.0,9.0,166.67,75.0,20.0,22.22
 872b03f7,A Badoni,Left-arm pace,99,132.0,9.0,12.0,4.0,31.0,133.33,14.67,31.31,16.16
+872b03f7,A Badoni,Left-arm wrist spin,24,25.0,1.0,0.0,0.0,5.0,104.17,25.0,20.83,0.0
 872b03f7,A Badoni,Right-arm leg-spin,55,64.0,4.0,2.0,3.0,15.0,116.36,16.0,27.27,9.09
 872b03f7,A Badoni,Right-arm off-spin,87,113.0,3.0,6.0,4.0,23.0,129.89,37.67,26.44,11.49
 872b03f7,A Badoni,Right-arm pace,239,362.0,8.0,34.0,14.0,73.0,151.46,45.25,30.54,20.08
+fcc21ace,A Kamboj,Left-arm pace,3,3.0,0.0,0.0,0.0,1.0,100.0,,33.33,0.0
+fcc21ace,A Kamboj,Right-arm leg-spin,1,0.0,1.0,0.0,0.0,1.0,0.0,0.0,100.0,0.0
+fcc21ace,A Kamboj,Right-arm pace,10,13.0,1.0,2.0,0.0,4.0,130.0,13.0,40.0,20.0
+0890552f,A Manohar,Left-arm orthodox,24,17.0,0.0,0.0,1.0,12.0,70.83,,50.0,4.17
+0890552f,A Manohar,Left-arm pace,15,29.0,1.0,0.0,3.0,3.0,193.33,29.0,20.0,20.0
+0890552f,A Manohar,Left-arm wrist spin,19,13.0,1.0,0.0,0.0,7.0,68.42,13.0,36.84,0.0
+0890552f,A Manohar,Right-arm leg-spin,27,32.0,4.0,2.0,2.0,11.0,118.52,8.0,40.74,14.81
+0890552f,A Manohar,Right-arm off-spin,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
 0890552f,A Manohar,Right-arm pace,70,88.0,6.0,6.0,5.0,28.0,125.71,14.67,40.0,15.71
+b2b4f545,A Mhatre,Left-arm orthodox,3,2.0,0.0,0.0,0.0,1.0,66.67,,33.33,0.0
+b2b4f545,A Mhatre,Left-arm pace,35,79.0,2.0,8.0,5.0,9.0,225.71,39.5,25.71,37.14
+b2b4f545,A Mhatre,Right-arm leg-spin,8,12.0,0.0,1.0,0.0,1.0,150.0,,12.5,12.5
 b2b4f545,A Mhatre,Right-arm pace,81,147.0,5.0,22.0,6.0,30.0,181.48,29.4,37.04,34.57
+6b19d823,A Mishra,Left-arm orthodox,7,2.0,0.0,0.0,0.0,5.0,28.57,,71.43,0.0
+6b19d823,A Mishra,Right-arm leg-spin,5,0.0,0.0,0.0,0.0,5.0,0.0,,100.0,0.0
+6b19d823,A Mishra,Right-arm pace,18,17.0,1.0,2.0,0.0,7.0,94.44,17.0,38.89,11.11
+acdc62f5,A Nortje,Left-arm pace,12,14.0,1.0,2.0,0.0,5.0,116.67,14.0,41.67,16.67
+acdc62f5,A Nortje,Right-arm leg-spin,3,1.0,0.0,0.0,0.0,2.0,33.33,,66.67,0.0
+acdc62f5,A Nortje,Right-arm off-spin,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+acdc62f5,A Nortje,Right-arm pace,20,25.0,3.0,4.0,0.0,6.0,125.0,8.33,30.0,20.0
+d7017798,A Raghuvanshi,Left-arm orthodox,15,18.0,1.0,2.0,0.0,2.0,120.0,18.0,13.33,13.33
+d7017798,A Raghuvanshi,Left-arm pace,45,63.0,3.0,9.0,2.0,21.0,140.0,21.0,46.67,24.44
+d7017798,A Raghuvanshi,Left-arm wrist spin,9,6.0,1.0,0.0,0.0,4.0,66.67,6.0,44.44,0.0
 d7017798,A Raghuvanshi,Right-arm leg-spin,83,131.0,1.0,14.0,3.0,14.0,157.83,131.0,16.87,20.48
+d7017798,A Raghuvanshi,Right-arm off-spin,31,34.0,1.0,2.0,1.0,10.0,109.68,34.0,32.26,9.68
 d7017798,A Raghuvanshi,Right-arm pace,128,195.0,9.0,18.0,9.0,35.0,152.34,21.67,27.34,21.09
+14f96089,A Zampa,Left-arm orthodox,1,0.0,1.0,0.0,0.0,1.0,0.0,0.0,100.0,0.0
+14f96089,A Zampa,Left-arm wrist spin,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+14f96089,A Zampa,Right-arm leg-spin,3,2.0,0.0,0.0,0.0,1.0,66.67,,33.33,0.0
+14f96089,A Zampa,Right-arm off-spin,5,2.0,0.0,0.0,0.0,3.0,40.0,,60.0,0.0
+14f96089,A Zampa,Right-arm pace,5,5.0,2.0,0.0,0.0,0.0,100.0,2.5,0.0,0.0
+2d140b79,AA Kulkarni,Left-arm pace,7,9.0,1.0,2.0,0.0,4.0,128.57,9.0,57.14,28.57
+2d140b79,AA Kulkarni,Right-arm pace,1,0.0,1.0,0.0,0.0,1.0,0.0,0.0,100.0,0.0
+bbd41817,AD Russell,Left-arm orthodox,29,33.0,1.0,3.0,2.0,15.0,113.79,33.0,51.72,17.24
 bbd41817,AD Russell,Left-arm pace,59,110.0,5.0,10.0,7.0,17.0,186.44,22.0,28.81,28.81
+bbd41817,AD Russell,Left-arm wrist spin,14,18.0,1.0,2.0,1.0,7.0,128.57,18.0,50.0,21.43
 bbd41817,AD Russell,Right-arm leg-spin,79,106.0,7.0,5.0,11.0,44.0,134.18,15.14,55.7,20.25
+bbd41817,AD Russell,Right-arm off-spin,23,40.0,1.0,1.0,5.0,12.0,173.91,40.0,52.17,26.09
 bbd41817,AD Russell,Right-arm pace,166,298.0,11.0,27.0,21.0,59.0,179.52,27.09,35.54,28.92
+4d7f517e,AJ Hosein,Right-arm pace,10,16.0,0.0,1.0,1.0,3.0,160.0,,30.0,20.0
+ff1e12a0,AJ Turner,Right-arm off-spin,8,16.0,1.0,0.0,2.0,2.0,200.0,16.0,25.0,25.0
+ff1e12a0,AJ Turner,Right-arm pace,10,5.0,1.0,0.0,0.0,4.0,50.0,5.0,40.0,0.0
 6a26221c,AK Markram,Left-arm orthodox,79,92.0,4.0,5.0,2.0,19.0,116.46,23.0,24.05,8.86
 6a26221c,AK Markram,Left-arm pace,111,140.0,4.0,15.0,4.0,43.0,126.13,35.0,38.74,17.12
+6a26221c,AK Markram,Left-arm wrist spin,33,33.0,1.0,0.0,2.0,12.0,100.0,33.0,36.36,6.06
 6a26221c,AK Markram,Right-arm leg-spin,61,106.0,3.0,4.0,8.0,12.0,173.77,35.33,19.67,19.67
 6a26221c,AK Markram,Right-arm off-spin,109,143.0,4.0,11.0,4.0,26.0,131.19,35.75,23.85,13.76
 6a26221c,AK Markram,Right-arm pace,269,386.0,17.0,38.0,14.0,88.0,143.49,22.71,32.71,19.33
 29e95537,AM Rahane,Left-arm orthodox,68,71.0,4.0,4.0,1.0,18.0,104.41,17.75,26.47,7.35
 29e95537,AM Rahane,Left-arm pace,98,191.0,4.0,20.0,10.0,26.0,194.9,47.75,26.53,30.61
+29e95537,AM Rahane,Left-arm wrist spin,17,15.0,0.0,0.0,0.0,2.0,88.24,,11.76,0.0
 29e95537,AM Rahane,Right-arm leg-spin,134,167.0,8.0,15.0,2.0,32.0,124.63,20.88,23.88,12.69
 29e95537,AM Rahane,Right-arm off-spin,71,89.0,5.0,3.0,5.0,22.0,125.35,17.8,30.99,11.27
 29e95537,AM Rahane,Right-arm pace,257,421.0,13.0,42.0,25.0,96.0,163.81,32.38,37.35,26.07
+2e171977,AR Patel,Left-arm orthodox,41,88.0,0.0,4.0,8.0,8.0,214.63,,19.51,29.27
 2e171977,AR Patel,Left-arm pace,52,75.0,3.0,6.0,3.0,16.0,144.23,25.0,30.77,17.31
+2e171977,AR Patel,Left-arm wrist spin,22,36.0,2.0,3.0,2.0,6.0,163.64,18.0,27.27,22.73
 2e171977,AR Patel,Right-arm leg-spin,112,185.0,4.0,16.0,10.0,32.0,165.18,46.25,28.57,23.21
 2e171977,AR Patel,Right-arm off-spin,83,102.0,5.0,5.0,7.0,32.0,122.89,20.4,38.55,14.46
 2e171977,AR Patel,Right-arm pace,232,283.0,15.0,28.0,9.0,84.0,121.98,18.87,36.21,15.95
+b0946605,AS Joseph,Left-arm pace,2,2.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+b0946605,AS Joseph,Right-arm leg-spin,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+b0946605,AS Joseph,Right-arm pace,9,4.0,0.0,1.0,0.0,7.0,44.44,,77.78,11.11
+e4cdf230,AS Roy,Left-arm pace,11,8.0,2.0,1.0,0.0,6.0,72.73,4.0,54.55,9.09
+e4cdf230,AS Roy,Left-arm wrist spin,1,0.0,1.0,0.0,0.0,1.0,0.0,0.0,100.0,0.0
+e4cdf230,AS Roy,Right-arm leg-spin,4,4.0,0.0,0.0,0.0,1.0,100.0,,25.0,0.0
+e4cdf230,AS Roy,Right-arm pace,7,14.0,0.0,2.0,0.0,0.0,200.0,,0.0,28.57
+70d205c9,AT Rayudu,Left-arm orthodox,5,7.0,0.0,1.0,0.0,2.0,140.0,,40.0,20.0
+70d205c9,AT Rayudu,Left-arm pace,15,25.0,1.0,3.0,1.0,5.0,166.67,25.0,33.33,26.67
+70d205c9,AT Rayudu,Left-arm wrist spin,3,3.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+70d205c9,AT Rayudu,Right-arm leg-spin,34,28.0,3.0,1.0,1.0,15.0,82.35,9.33,44.12,5.88
+70d205c9,AT Rayudu,Right-arm off-spin,14,16.0,2.0,1.0,1.0,7.0,114.29,8.0,50.0,14.29
+70d205c9,AT Rayudu,Right-arm pace,34,69.0,3.0,4.0,5.0,4.0,202.94,23.0,11.76,26.47
+249d60c9,AU Rashid,Right-arm leg-spin,8,9.0,2.0,1.0,0.0,4.0,112.5,4.5,50.0,12.5
+249d60c9,AU Rashid,Right-arm off-spin,3,6.0,0.0,0.0,1.0,2.0,200.0,,66.67,33.33
+249d60c9,AU Rashid,Right-arm pace,4,7.0,0.0,1.0,0.0,1.0,175.0,,25.0,25.0
+cc777ffa,Abdul Basith,Right-arm pace,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+8e514b4c,Abdul Samad,Left-arm orthodox,21,14.0,1.0,0.0,0.0,6.0,66.67,14.0,28.57,0.0
 8e514b4c,Abdul Samad,Left-arm pace,56,101.0,6.0,11.0,6.0,18.0,180.36,16.83,32.14,30.36
+8e514b4c,Abdul Samad,Left-arm wrist spin,7,12.0,0.0,0.0,1.0,0.0,171.43,,0.0,14.29
+8e514b4c,Abdul Samad,Right-arm leg-spin,31,47.0,1.0,2.0,4.0,10.0,151.61,47.0,32.26,19.35
+8e514b4c,Abdul Samad,Right-arm off-spin,31,28.0,2.0,0.0,2.0,15.0,90.32,14.0,48.39,6.45
 8e514b4c,Abdul Samad,Right-arm pace,180,313.0,14.0,20.0,23.0,52.0,173.89,22.36,28.89,23.89
+f29185a1,Abhishek Sharma,Left-arm orthodox,16,25.0,2.0,1.0,2.0,5.0,156.25,12.5,31.25,18.75
 f29185a1,Abhishek Sharma,Left-arm pace,129,246.0,10.0,28.0,16.0,53.0,190.7,24.6,41.09,34.11
+f29185a1,Abhishek Sharma,Left-arm wrist spin,19,43.0,2.0,2.0,5.0,7.0,226.32,21.5,36.84,36.84
 f29185a1,Abhishek Sharma,Right-arm leg-spin,73,173.0,3.0,6.0,18.0,15.0,236.99,57.67,20.55,32.88
 f29185a1,Abhishek Sharma,Right-arm off-spin,84,160.0,4.0,8.0,13.0,17.0,190.48,40.0,20.24,25.0
 f29185a1,Abhishek Sharma,Right-arm pace,286,481.0,16.0,62.0,21.0,104.0,168.18,30.06,36.36,29.02
+ad3b6e95,Abishek Porel,Left-arm orthodox,35,63.0,4.0,7.0,3.0,9.0,180.0,15.75,25.71,28.57
 ad3b6e95,Abishek Porel,Left-arm pace,65,97.0,4.0,11.0,4.0,25.0,149.23,24.25,38.46,23.08
 ad3b6e95,Abishek Porel,Right-arm leg-spin,81,95.0,5.0,5.0,3.0,22.0,117.28,19.0,27.16,9.88
+ad3b6e95,Abishek Porel,Right-arm off-spin,43,43.0,4.0,2.0,1.0,13.0,100.0,10.75,30.23,6.98
 ad3b6e95,Abishek Porel,Right-arm pace,209,349.0,12.0,39.0,15.0,68.0,166.99,29.08,32.54,25.84
+0a67aec0,Akash Deep,Right-arm leg-spin,4,12.0,0.0,1.0,1.0,0.0,300.0,,0.0,50.0
+0a67aec0,Akash Deep,Right-arm off-spin,4,5.0,1.0,1.0,0.0,2.0,125.0,5.0,50.0,25.0
+0a67aec0,Akash Deep,Right-arm pace,4,8.0,1.0,0.0,1.0,1.0,200.0,8.0,25.0,25.0
+4bd09374,Akash Madhwal,Left-arm orthodox,7,3.0,0.0,0.0,0.0,4.0,42.86,,57.14,0.0
+4bd09374,Akash Madhwal,Left-arm pace,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+4bd09374,Akash Madhwal,Right-arm pace,5,4.0,0.0,0.0,0.0,1.0,80.0,,20.0,0.0
+378daa89,Aman Hakim Khan,Left-arm orthodox,4,1.0,0.0,0.0,0.0,3.0,25.0,,75.0,0.0
+378daa89,Aman Hakim Khan,Left-arm pace,17,26.0,0.0,2.0,2.0,7.0,152.94,,41.18,23.53
+378daa89,Aman Hakim Khan,Left-arm wrist spin,14,9.0,0.0,0.0,0.0,7.0,64.29,,50.0,0.0
+378daa89,Aman Hakim Khan,Right-arm leg-spin,27,22.0,2.0,1.0,2.0,17.0,81.48,11.0,62.96,11.11
+378daa89,Aman Hakim Khan,Right-arm off-spin,5,6.0,2.0,1.0,0.0,2.0,120.0,3.0,40.0,20.0
+378daa89,Aman Hakim Khan,Right-arm pace,34,46.0,4.0,3.0,2.0,11.0,135.29,11.5,32.35,14.71
+a3b0600d,Aniket Verma,Left-arm orthodox,32,49.0,0.0,1.0,5.0,12.0,153.13,,37.5,18.75
+a3b0600d,Aniket Verma,Left-arm pace,10,13.0,0.0,1.0,1.0,3.0,130.0,,30.0,20.0
+a3b0600d,Aniket Verma,Left-arm wrist spin,12,11.0,2.0,0.0,1.0,6.0,91.67,5.5,50.0,8.33
+a3b0600d,Aniket Verma,Right-arm leg-spin,18,63.0,1.0,2.0,8.0,2.0,350.0,63.0,11.11,55.56
+a3b0600d,Aniket Verma,Right-arm off-spin,6,6.0,1.0,1.0,0.0,3.0,100.0,6.0,50.0,16.67
 a3b0600d,Aniket Verma,Right-arm pace,64,94.0,5.0,7.0,5.0,22.0,146.88,18.8,34.38,18.75
+1399b39c,Anmolpreet Singh,Left-arm pace,8,10.0,0.0,0.0,1.0,4.0,125.0,,50.0,12.5
+1399b39c,Anmolpreet Singh,Right-arm leg-spin,19,22.0,2.0,2.0,1.0,9.0,115.79,11.0,47.37,15.79
+1399b39c,Anmolpreet Singh,Right-arm off-spin,4,6.0,0.0,1.0,0.0,1.0,150.0,,25.0,25.0
 1399b39c,Anmolpreet Singh,Right-arm pace,57,72.0,4.0,13.0,0.0,25.0,126.32,18.0,43.86,22.81
+c8f5f961,Anuj Rawat,Left-arm orthodox,11,9.0,0.0,0.0,0.0,3.0,81.82,,27.27,0.0
+c8f5f961,Anuj Rawat,Left-arm pace,21,23.0,2.0,2.0,1.0,8.0,109.52,11.5,38.1,14.29
+c8f5f961,Anuj Rawat,Left-arm wrist spin,8,2.0,0.0,0.0,0.0,5.0,25.0,,62.5,0.0
+c8f5f961,Anuj Rawat,Right-arm leg-spin,16,16.0,1.0,1.0,0.0,5.0,100.0,16.0,31.25,6.25
+c8f5f961,Anuj Rawat,Right-arm off-spin,12,8.0,1.0,0.0,0.0,5.0,66.67,8.0,41.67,0.0
 c8f5f961,Anuj Rawat,Right-arm pace,80,131.0,2.0,13.0,6.0,23.0,163.75,65.5,28.75,23.75
+44aac2f0,Arjun Tendulkar,Left-arm pace,3,3.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+44aac2f0,Arjun Tendulkar,Right-arm pace,6,10.0,1.0,0.0,1.0,2.0,166.67,10.0,33.33,16.67
+12314277,Arshad Khan,Left-arm orthodox,9,4.0,2.0,0.0,0.0,5.0,44.44,2.0,55.56,0.0
+12314277,Arshad Khan,Left-arm pace,5,6.0,1.0,1.0,0.0,2.0,120.0,6.0,40.0,20.0
+12314277,Arshad Khan,Left-arm wrist spin,16,19.0,1.0,1.0,1.0,7.0,118.75,19.0,43.75,12.5
+12314277,Arshad Khan,Right-arm off-spin,3,7.0,0.0,0.0,1.0,1.0,233.33,,33.33,33.33
 12314277,Arshad Khan,Right-arm pace,55,88.0,3.0,4.0,7.0,18.0,160.0,29.33,32.73,20.0
+244048f6,Arshdeep Singh,Left-arm pace,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+244048f6,Arshdeep Singh,Right-arm off-spin,2,0.0,0.0,0.0,0.0,2.0,0.0,,100.0,0.0
+244048f6,Arshdeep Singh,Right-arm pace,8,7.0,2.0,1.0,0.0,5.0,87.5,3.5,62.5,12.5
+84d9c311,Ashutosh Sharma,Left-arm orthodox,45,63.0,4.0,3.0,4.0,14.0,140.0,15.75,31.11,15.56
+84d9c311,Ashutosh Sharma,Left-arm pace,26,43.0,2.0,3.0,3.0,9.0,165.38,21.5,34.62,23.08
+84d9c311,Ashutosh Sharma,Left-arm wrist spin,3,2.0,0.0,0.0,0.0,1.0,66.67,,33.33,0.0
+84d9c311,Ashutosh Sharma,Right-arm leg-spin,28,54.0,1.0,3.0,5.0,8.0,192.86,54.0,28.57,28.57
+84d9c311,Ashutosh Sharma,Right-arm off-spin,4,1.0,1.0,0.0,0.0,3.0,25.0,1.0,75.0,0.0
 84d9c311,Ashutosh Sharma,Right-arm pace,130,230.0,7.0,15.0,16.0,31.0,176.92,32.86,23.85,23.85
+1ac746c8,Atharva Taide,Left-arm orthodox,22,35.0,1.0,4.0,1.0,5.0,159.09,35.0,22.73,22.73
+1ac746c8,Atharva Taide,Left-arm pace,20,30.0,1.0,4.0,1.0,8.0,150.0,30.0,40.0,25.0
+1ac746c8,Atharva Taide,Left-arm wrist spin,8,7.0,0.0,0.0,0.0,2.0,87.5,,25.0,0.0
+1ac746c8,Atharva Taide,Right-arm leg-spin,20,26.0,2.0,2.0,1.0,8.0,130.0,13.0,40.0,15.0
+1ac746c8,Atharva Taide,Right-arm off-spin,8,10.0,0.0,1.0,0.0,1.0,125.0,,12.5,12.5
 1ac746c8,Atharva Taide,Right-arm pace,99,152.0,5.0,19.0,5.0,34.0,153.54,30.4,34.34,24.24
+eef2536f,Avesh Khan,Left-arm pace,2,4.0,0.0,1.0,0.0,1.0,200.0,,50.0,50.0
+eef2536f,Avesh Khan,Right-arm leg-spin,4,10.0,0.0,1.0,1.0,2.0,250.0,,50.0,50.0
+eef2536f,Avesh Khan,Right-arm pace,12,17.0,1.0,2.0,0.0,3.0,141.67,17.0,25.0,16.67
+8f6dd463,Azmatullah Omarzai,Left-arm orthodox,15,11.0,2.0,0.0,1.0,10.0,73.33,5.5,66.67,6.67
+8f6dd463,Azmatullah Omarzai,Left-arm pace,10,19.0,1.0,2.0,1.0,2.0,190.0,19.0,20.0,30.0
+8f6dd463,Azmatullah Omarzai,Left-arm wrist spin,4,2.0,1.0,0.0,0.0,2.0,50.0,2.0,50.0,0.0
+8f6dd463,Azmatullah Omarzai,Right-arm leg-spin,14,29.0,0.0,0.0,3.0,1.0,207.14,,7.14,21.43
+8f6dd463,Azmatullah Omarzai,Right-arm off-spin,2,5.0,0.0,1.0,0.0,0.0,250.0,,0.0,50.0
+8f6dd463,Azmatullah Omarzai,Right-arm pace,26,32.0,4.0,5.0,0.0,10.0,123.08,8.0,38.46,19.23
+2e81a32d,B Kumar,Left-arm orthodox,9,8.0,1.0,2.0,0.0,7.0,88.89,8.0,77.78,22.22
+2e81a32d,B Kumar,Left-arm pace,23,23.0,3.0,2.0,0.0,9.0,100.0,7.67,39.13,8.7
+2e81a32d,B Kumar,Left-arm wrist spin,8,9.0,0.0,1.0,0.0,2.0,112.5,,25.0,12.5
+2e81a32d,B Kumar,Right-arm leg-spin,16,12.0,1.0,1.0,0.0,8.0,75.0,12.0,50.0,6.25
+2e81a32d,B Kumar,Right-arm off-spin,9,2.0,1.0,0.0,0.0,6.0,22.22,2.0,66.67,0.0
+2e81a32d,B Kumar,Right-arm pace,35,25.0,3.0,2.0,0.0,19.0,71.43,8.33,54.29,5.71
 d5130a30,B Sai Sudharsan,Left-arm orthodox,119,213.0,1.0,19.0,8.0,18.0,178.99,213.0,15.13,22.69
 d5130a30,B Sai Sudharsan,Left-arm pace,190,259.0,6.0,30.0,6.0,66.0,136.32,43.17,34.74,18.95
+d5130a30,B Sai Sudharsan,Left-arm wrist spin,34,42.0,1.0,2.0,1.0,7.0,123.53,42.0,20.59,8.82
 d5130a30,B Sai Sudharsan,Right-arm leg-spin,124,172.0,2.0,12.0,5.0,25.0,138.71,86.0,20.16,13.71
 d5130a30,B Sai Sudharsan,Right-arm off-spin,109,172.0,2.0,15.0,7.0,23.0,157.8,86.0,21.1,20.18
 d5130a30,B Sai Sudharsan,Right-arm pace,490,720.0,18.0,82.0,22.0,154.0,146.94,40.0,31.43,21.22
+e087956b,BA Stokes,Right-arm leg-spin,6,7.0,1.0,1.0,0.0,2.0,116.67,7.0,33.33,16.67
+e087956b,BA Stokes,Right-arm pace,8,8.0,1.0,1.0,0.0,3.0,100.0,8.0,37.5,12.5
+5d1e7582,BKG Mendis,Left-arm orthodox,1,0.0,1.0,0.0,0.0,1.0,0.0,0.0,100.0,0.0
+5d1e7582,BKG Mendis,Left-arm pace,4,14.0,0.0,0.0,2.0,1.0,350.0,,25.0,50.0
+5d1e7582,BKG Mendis,Right-arm pace,5,6.0,0.0,1.0,0.0,2.0,120.0,,40.0,20.0
+c2dd89ea,BR Sharath,Right-arm leg-spin,3,1.0,0.0,0.0,0.0,2.0,33.33,,66.67,0.0
+c2dd89ea,BR Sharath,Right-arm pace,2,1.0,1.0,0.0,0.0,1.0,50.0,1.0,50.0,0.0
+172dff15,C Bosch,Right-arm leg-spin,8,15.0,0.0,1.0,1.0,2.0,187.5,,25.0,25.0
+172dff15,C Bosch,Right-arm pace,24,32.0,2.0,2.0,2.0,10.0,133.33,16.0,41.67,16.67
 eaa76d3c,C Green,Left-arm orthodox,56,65.0,1.0,5.0,3.0,23.0,116.07,65.0,41.07,14.29
 eaa76d3c,C Green,Left-arm pace,88,146.0,5.0,20.0,3.0,23.0,165.91,29.2,26.14,26.14
+eaa76d3c,C Green,Left-arm wrist spin,29,55.0,1.0,0.0,6.0,10.0,189.66,55.0,34.48,20.69
 eaa76d3c,C Green,Right-arm leg-spin,68,91.0,0.0,5.0,3.0,14.0,133.82,,20.59,11.76
 eaa76d3c,C Green,Right-arm off-spin,51,69.0,3.0,4.0,4.0,17.0,135.29,23.0,33.33,15.69
 eaa76d3c,C Green,Right-arm pace,161,272.0,10.0,28.0,12.0,40.0,168.94,27.2,24.84,24.84
+2cdce1be,C Sakariya,Right-arm off-spin,2,0.0,0.0,0.0,0.0,2.0,0.0,,100.0,0.0
+2cdce1be,C Sakariya,Right-arm pace,4,4.0,1.0,1.0,0.0,3.0,100.0,4.0,75.0,25.0
+ffe699c0,CJ Jordan,Left-arm pace,5,2.0,1.0,0.0,0.0,3.0,40.0,2.0,60.0,0.0
+ffe699c0,CJ Jordan,Right-arm leg-spin,3,2.0,0.0,0.0,0.0,1.0,66.67,,33.33,0.0
+ffe699c0,CJ Jordan,Right-arm pace,4,2.0,1.0,0.0,0.0,2.0,50.0,2.0,50.0,0.0
+5b7ab5a9,CV Varun,Left-arm pace,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+5b7ab5a9,CV Varun,Left-arm wrist spin,3,1.0,0.0,0.0,0.0,2.0,33.33,,66.67,0.0
+5b7ab5a9,CV Varun,Right-arm off-spin,3,0.0,0.0,0.0,0.0,3.0,0.0,,100.0,0.0
+5b7ab5a9,CV Varun,Right-arm pace,3,0.0,0.0,0.0,0.0,3.0,0.0,,100.0,0.0
+844e79d1,D Brevis,Left-arm orthodox,17,14.0,0.0,0.0,1.0,8.0,82.35,,47.06,5.88
+844e79d1,D Brevis,Left-arm pace,22,52.0,1.0,5.0,4.0,5.0,236.36,52.0,22.73,40.91
+844e79d1,D Brevis,Right-arm leg-spin,38,57.0,0.0,2.0,4.0,11.0,150.0,,28.95,15.79
+844e79d1,D Brevis,Right-arm off-spin,29,44.0,1.0,1.0,4.0,11.0,151.72,44.0,37.93,17.24
 844e79d1,D Brevis,Right-arm pace,70,117.0,7.0,7.0,9.0,24.0,167.14,16.71,34.29,22.86
+f0af99a7,D Ferreira,Left-arm wrist spin,1,0.0,1.0,0.0,0.0,1.0,0.0,0.0,100.0,0.0
+f0af99a7,D Ferreira,Right-arm leg-spin,3,1.0,0.0,0.0,0.0,2.0,33.33,,66.67,0.0
+f0af99a7,D Ferreira,Right-arm pace,10,8.0,2.0,0.0,0.0,3.0,80.0,4.0,30.0,0.0
+2c25d4f5,D Padikkal,Left-arm orthodox,34,38.0,3.0,4.0,1.0,15.0,111.76,12.67,44.12,14.71
 2c25d4f5,D Padikkal,Left-arm pace,67,81.0,4.0,8.0,4.0,30.0,120.9,20.25,44.78,17.91
+2c25d4f5,D Padikkal,Left-arm wrist spin,8,5.0,2.0,0.0,0.0,3.0,62.5,2.5,37.5,0.0
 2c25d4f5,D Padikkal,Right-arm leg-spin,74,90.0,2.0,7.0,2.0,19.0,121.62,45.0,25.68,12.16
 2c25d4f5,D Padikkal,Right-arm off-spin,56,68.0,3.0,7.0,0.0,13.0,121.43,22.67,23.21,12.5
 2c25d4f5,D Padikkal,Right-arm pace,176,264.0,13.0,30.0,13.0,74.0,150.0,20.31,42.05,24.43
+aa8d28ae,D Wiese,Left-arm pace,2,7.0,0.0,0.0,1.0,0.0,350.0,,0.0,50.0
+aa8d28ae,D Wiese,Left-arm wrist spin,3,0.0,0.0,0.0,0.0,3.0,0.0,,100.0,0.0
+aa8d28ae,D Wiese,Right-arm pace,6,14.0,1.0,0.0,2.0,1.0,233.33,14.0,16.67,33.33
+d67d5f00,DA Miller,Left-arm orthodox,17,23.0,2.0,0.0,2.0,3.0,135.29,11.5,17.65,11.76
 d67d5f00,DA Miller,Left-arm pace,57,67.0,3.0,4.0,2.0,15.0,117.54,22.33,26.32,10.53
+d67d5f00,DA Miller,Left-arm wrist spin,24,25.0,1.0,3.0,0.0,7.0,104.17,25.0,29.17,12.5
 d67d5f00,DA Miller,Right-arm leg-spin,78,134.0,1.0,8.0,8.0,14.0,171.79,134.0,17.95,20.51
+d67d5f00,DA Miller,Right-arm off-spin,42,52.0,1.0,6.0,0.0,12.0,123.81,52.0,28.57,14.29
 d67d5f00,DA Miller,Right-arm pace,212,310.0,12.0,28.0,13.0,61.0,146.23,25.83,28.77,19.34
+dcce6f09,DA Warner,Left-arm orthodox,45,70.0,2.0,6.0,4.0,13.0,155.56,35.0,28.89,22.22
 dcce6f09,DA Warner,Left-arm pace,122,188.0,4.0,26.0,6.0,45.0,154.1,47.0,36.89,26.23
 dcce6f09,DA Warner,Right-arm leg-spin,52,65.0,1.0,4.0,1.0,11.0,125.0,65.0,21.15,9.62
 dcce6f09,DA Warner,Right-arm off-spin,63,84.0,2.0,10.0,2.0,21.0,133.33,42.0,33.33,19.05
 dcce6f09,DA Warner,Right-arm pace,231,276.0,12.0,40.0,7.0,118.0,119.48,23.0,51.08,20.35
+cd8d2859,DG Nalkande,Left-arm orthodox,4,8.0,0.0,0.0,1.0,1.0,200.0,,25.0,25.0
+cd8d2859,DG Nalkande,Right-arm leg-spin,2,2.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+cd8d2859,DG Nalkande,Right-arm pace,6,2.0,2.0,0.0,0.0,4.0,33.33,1.0,66.67,0.0
+73ad96ed,DJ Hooda,Left-arm orthodox,16,15.0,1.0,0.0,0.0,5.0,93.75,15.0,31.25,0.0
 73ad96ed,DJ Hooda,Left-arm pace,59,81.0,4.0,10.0,2.0,21.0,137.29,20.25,35.59,20.34
+73ad96ed,DJ Hooda,Left-arm wrist spin,13,10.0,2.0,0.0,0.0,5.0,76.92,5.0,38.46,0.0
+73ad96ed,DJ Hooda,Right-arm leg-spin,37,44.0,4.0,2.0,1.0,9.0,118.92,11.0,24.32,8.11
+73ad96ed,DJ Hooda,Right-arm off-spin,20,12.0,5.0,1.0,0.0,11.0,60.0,2.4,55.0,5.0
 73ad96ed,DJ Hooda,Right-arm pace,85,90.0,8.0,7.0,3.0,34.0,105.88,11.25,40.0,11.76
+eade4650,DJ Mitchell,Left-arm orthodox,31,50.0,1.0,3.0,3.0,9.0,161.29,50.0,29.03,19.35
+eade4650,DJ Mitchell,Left-arm pace,43,51.0,3.0,5.0,1.0,14.0,118.6,17.0,32.56,13.95
+eade4650,DJ Mitchell,Left-arm wrist spin,4,4.0,0.0,0.0,0.0,1.0,100.0,,25.0,0.0
+eade4650,DJ Mitchell,Right-arm leg-spin,17,29.0,1.0,3.0,1.0,2.0,170.59,29.0,11.76,23.53
+eade4650,DJ Mitchell,Right-arm off-spin,21,34.0,1.0,3.0,1.0,4.0,161.9,34.0,19.05,19.05
 eade4650,DJ Mitchell,Right-arm pace,107,150.0,5.0,13.0,4.0,27.0,140.19,30.0,25.23,15.89
+7f048519,DJ Willey,Left-arm pace,4,7.0,0.0,1.0,0.0,0.0,175.0,,0.0,25.0
+7f048519,DJ Willey,Right-arm leg-spin,9,8.0,0.0,1.0,0.0,4.0,88.89,,44.44,11.11
+7f048519,DJ Willey,Right-arm off-spin,9,6.0,0.0,0.0,0.0,4.0,66.67,,44.44,0.0
+7f048519,DJ Willey,Right-arm pace,10,14.0,0.0,2.0,0.0,3.0,140.0,,30.0,20.0
+23eeb873,DL Chahar,Left-arm wrist spin,4,1.0,0.0,0.0,0.0,3.0,25.0,,75.0,0.0
+23eeb873,DL Chahar,Right-arm leg-spin,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+23eeb873,DL Chahar,Right-arm pace,21,36.0,1.0,3.0,2.0,5.0,171.43,36.0,23.81,23.81
+df5a6881,DP Conway,Left-arm orthodox,18,17.0,1.0,1.0,0.0,5.0,94.44,17.0,27.78,5.56
 df5a6881,DP Conway,Left-arm pace,95,157.0,1.0,20.0,4.0,25.0,165.26,157.0,26.32,25.26
+df5a6881,DP Conway,Left-arm wrist spin,28,29.0,1.0,2.0,0.0,8.0,103.57,29.0,28.57,7.14
 df5a6881,DP Conway,Right-arm leg-spin,94,142.0,4.0,13.0,4.0,25.0,151.06,35.5,26.6,18.09
 df5a6881,DP Conway,Right-arm off-spin,84,113.0,3.0,12.0,4.0,28.0,134.52,37.67,33.33,19.05
 df5a6881,DP Conway,Right-arm pace,262,350.0,9.0,45.0,10.0,96.0,133.59,38.89,36.64,20.99
+13fc5c6d,DS Rathi,Left-arm pace,2,1.0,1.0,0.0,0.0,1.0,50.0,1.0,50.0,0.0
+13fc5c6d,DS Rathi,Right-arm pace,1,0.0,0.0,0.0,0.0,1.0,0.0,,100.0,0.0
+bcf325d2,Dhruv Jurel,Left-arm orthodox,49,76.0,1.0,8.0,3.0,14.0,155.1,76.0,28.57,22.45
 bcf325d2,Dhruv Jurel,Left-arm pace,75,116.0,4.0,11.0,5.0,20.0,154.67,29.0,26.67,21.33
+bcf325d2,Dhruv Jurel,Left-arm wrist spin,21,30.0,2.0,4.0,0.0,5.0,142.86,15.0,23.81,19.05
 bcf325d2,Dhruv Jurel,Right-arm leg-spin,54,70.0,2.0,1.0,6.0,21.0,129.63,35.0,38.89,12.96
+bcf325d2,Dhruv Jurel,Right-arm off-spin,32,31.0,3.0,1.0,2.0,14.0,96.88,10.33,43.75,9.38
 bcf325d2,Dhruv Jurel,Right-arm pace,211,357.0,10.0,26.0,22.0,57.0,169.19,35.7,27.01,22.75
 3355b542,F du Plessis,Left-arm orthodox,126,193.0,3.0,11.0,12.0,35.0,153.17,64.33,27.78,18.25
 3355b542,F du Plessis,Left-arm pace,168,238.0,9.0,25.0,12.0,66.0,141.67,26.44,39.29,22.02
+3355b542,F du Plessis,Left-arm wrist spin,10,8.0,1.0,0.0,0.0,3.0,80.0,8.0,30.0,0.0
 3355b542,F du Plessis,Right-arm leg-spin,141,178.0,5.0,9.0,6.0,34.0,126.24,35.6,24.11,10.64
 3355b542,F du Plessis,Right-arm off-spin,76,82.0,4.0,5.0,3.0,22.0,107.89,20.5,28.95,10.53
 3355b542,F du Plessis,Right-arm pace,371,648.0,15.0,72.0,31.0,111.0,174.66,43.2,29.92,27.76
+e9c7f0d0,Fazalhaq Farooqi,Left-arm pace,2,2.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+e9c7f0d0,Fazalhaq Farooqi,Right-arm pace,2,0.0,0.0,0.0,0.0,2.0,0.0,,100.0,0.0
+3204c99f,G Coetzee,Left-arm pace,9,7.0,1.0,1.0,0.0,4.0,77.78,7.0,44.44,11.11
+3204c99f,G Coetzee,Left-arm wrist spin,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+3204c99f,G Coetzee,Right-arm leg-spin,5,1.0,1.0,0.0,0.0,4.0,20.0,1.0,80.0,0.0
+3204c99f,G Coetzee,Right-arm off-spin,2,2.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+3204c99f,G Coetzee,Right-arm pace,15,20.0,4.0,1.0,2.0,8.0,133.33,5.0,53.33,20.0
+9a46c4e5,GD Phillips,Right-arm leg-spin,7,25.0,1.0,1.0,3.0,1.0,357.14,25.0,14.29,57.14
+9a46c4e5,GD Phillips,Right-arm off-spin,2,1.0,1.0,0.0,0.0,1.0,50.0,1.0,50.0,0.0
+9a46c4e5,GD Phillips,Right-arm pace,13,13.0,3.0,1.0,1.0,8.0,100.0,4.33,61.54,15.38
+b681e71e,GJ Maxwell,Left-arm orthodox,20,29.0,3.0,0.0,3.0,7.0,145.0,9.67,35.0,15.0
+b681e71e,GJ Maxwell,Left-arm pace,34,56.0,3.0,11.0,0.0,13.0,164.71,18.67,38.24,32.35
+b681e71e,GJ Maxwell,Left-arm wrist spin,5,11.0,1.0,1.0,1.0,2.0,220.0,11.0,40.0,40.0
 b681e71e,GJ Maxwell,Right-arm leg-spin,62,102.0,3.0,8.0,6.0,16.0,164.52,34.0,25.81,22.58
 b681e71e,GJ Maxwell,Right-arm off-spin,77,108.0,10.0,6.0,8.0,30.0,140.26,10.8,38.96,18.18
 b681e71e,GJ Maxwell,Right-arm pace,112,194.0,7.0,14.0,16.0,41.0,173.21,27.71,36.61,26.79
+9f77963a,Gulbadin Naib,Left-arm pace,2,1.0,1.0,0.0,0.0,1.0,50.0,1.0,50.0,0.0
+9f77963a,Gulbadin Naib,Right-arm leg-spin,5,13.0,0.0,1.0,1.0,0.0,260.0,,0.0,40.0
+9f77963a,Gulbadin Naib,Right-arm off-spin,4,3.0,0.0,0.0,0.0,1.0,75.0,,25.0,0.0
+9f77963a,Gulbadin Naib,Right-arm pace,4,2.0,0.0,0.0,0.0,2.0,50.0,,50.0,0.0
 235c2bb6,H Klaasen,Left-arm orthodox,110,196.0,5.0,9.0,14.0,21.0,178.18,39.2,19.09,20.91
 235c2bb6,H Klaasen,Left-arm pace,87,145.0,1.0,10.0,8.0,22.0,166.67,145.0,25.29,20.69
+235c2bb6,H Klaasen,Left-arm wrist spin,36,88.0,0.0,6.0,8.0,6.0,244.44,,16.67,38.89
 235c2bb6,H Klaasen,Right-arm leg-spin,121,228.0,5.0,10.0,19.0,30.0,188.43,45.6,24.79,23.97
 235c2bb6,H Klaasen,Right-arm off-spin,106,182.0,1.0,9.0,12.0,21.0,171.7,182.0,19.81,19.81
 235c2bb6,H Klaasen,Right-arm pace,328,534.0,19.0,47.0,23.0,77.0,162.8,28.11,23.48,21.34
+4ae1755b,HC Brook,Left-arm orthodox,11,18.0,1.0,2.0,1.0,4.0,163.64,18.0,36.36,27.27
+4ae1755b,HC Brook,Left-arm pace,28,26.0,2.0,5.0,0.0,18.0,92.86,13.0,64.29,17.86
+4ae1755b,HC Brook,Right-arm leg-spin,17,16.0,2.0,1.0,0.0,7.0,94.12,8.0,41.18,5.88
+4ae1755b,HC Brook,Right-arm off-spin,24,29.0,0.0,2.0,0.0,4.0,120.83,,16.67,8.33
 4ae1755b,HC Brook,Right-arm pace,73,101.0,4.0,13.0,3.0,31.0,138.36,25.25,42.47,21.92
+dbe50b21,HH Pandya,Left-arm orthodox,49,49.0,3.0,3.0,2.0,20.0,100.0,16.33,40.82,10.2
 dbe50b21,HH Pandya,Left-arm pace,66,95.0,5.0,11.0,3.0,24.0,143.94,19.0,36.36,21.21
+dbe50b21,HH Pandya,Left-arm wrist spin,25,32.0,0.0,3.0,1.0,7.0,128.0,,28.0,16.0
 dbe50b21,HH Pandya,Right-arm leg-spin,78,146.0,4.0,11.0,9.0,17.0,187.18,36.5,21.79,25.64
+dbe50b21,HH Pandya,Right-arm off-spin,34,51.0,2.0,4.0,2.0,8.0,150.0,25.5,23.53,17.65
 dbe50b21,HH Pandya,Right-arm pace,284,410.0,19.0,29.0,22.0,95.0,144.37,21.58,33.45,17.96
+0c9652b0,HR Shokeen,Left-arm orthodox,2,5.0,0.0,1.0,0.0,0.0,250.0,,0.0,50.0
+0c9652b0,HR Shokeen,Left-arm pace,1,0.0,0.0,0.0,0.0,1.0,0.0,,100.0,0.0
+0c9652b0,HR Shokeen,Right-arm pace,11,15.0,1.0,3.0,0.0,4.0,136.36,15.0,36.36,27.27
+f986ca1a,HV Patel,Left-arm orthodox,5,7.0,1.0,0.0,1.0,3.0,140.0,7.0,60.0,20.0
+f986ca1a,HV Patel,Left-arm pace,3,2.0,1.0,0.0,0.0,1.0,66.67,2.0,33.33,0.0
+f986ca1a,HV Patel,Left-arm wrist spin,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+f986ca1a,HV Patel,Right-arm leg-spin,4,2.0,0.0,0.0,0.0,2.0,50.0,,50.0,0.0
+f986ca1a,HV Patel,Right-arm off-spin,3,1.0,1.0,0.0,0.0,2.0,33.33,1.0,66.67,0.0
+f986ca1a,HV Patel,Right-arm pace,35,27.0,4.0,1.0,1.0,17.0,77.14,6.75,48.57,5.71
+c05edf8e,Harpreet Brar,Left-arm orthodox,8,18.0,1.0,2.0,1.0,2.0,225.0,18.0,25.0,37.5
+c05edf8e,Harpreet Brar,Left-arm pace,16,32.0,2.0,3.0,2.0,4.0,200.0,16.0,25.0,31.25
+c05edf8e,Harpreet Brar,Left-arm wrist spin,1,0.0,1.0,0.0,0.0,1.0,0.0,0.0,100.0,0.0
+c05edf8e,Harpreet Brar,Right-arm leg-spin,17,12.0,0.0,1.0,0.0,8.0,70.59,,47.06,5.88
 c05edf8e,Harpreet Brar,Right-arm pace,64,73.0,6.0,7.0,2.0,23.0,114.06,12.17,35.94,14.06
+28c78fb3,Harpreet Singh,Left-arm orthodox,17,17.0,0.0,1.0,0.0,5.0,100.0,,29.41,5.88
+28c78fb3,Harpreet Singh,Left-arm pace,8,25.0,0.0,3.0,2.0,3.0,312.5,,37.5,62.5
+28c78fb3,Harpreet Singh,Right-arm leg-spin,8,4.0,1.0,0.0,0.0,4.0,50.0,4.0,50.0,0.0
+28c78fb3,Harpreet Singh,Right-arm off-spin,3,2.0,0.0,0.0,0.0,1.0,66.67,,33.33,0.0
 28c78fb3,Harpreet Singh,Right-arm pace,52,51.0,3.0,6.0,1.0,24.0,98.08,17.0,46.15,13.46
+77b1aa15,Harshit Rana,Left-arm orthodox,10,22.0,0.0,1.0,2.0,4.0,220.0,,40.0,30.0
+77b1aa15,Harshit Rana,Left-arm pace,13,5.0,3.0,0.0,0.0,8.0,38.46,1.67,61.54,0.0
+77b1aa15,Harshit Rana,Left-arm wrist spin,1,0.0,1.0,0.0,0.0,1.0,0.0,0.0,100.0,0.0
+77b1aa15,Harshit Rana,Right-arm leg-spin,7,6.0,0.0,1.0,0.0,3.0,85.71,,42.86,14.29
+77b1aa15,Harshit Rana,Right-arm off-spin,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+77b1aa15,Harshit Rana,Right-arm pace,21,23.0,2.0,3.0,1.0,12.0,109.52,11.5,57.14,19.05
+5bb1a1c4,I Sharma,Left-arm pace,3,1.0,0.0,0.0,0.0,2.0,33.33,,66.67,0.0
+5bb1a1c4,I Sharma,Right-arm pace,5,1.0,0.0,0.0,0.0,4.0,20.0,,80.0,0.0
+752f7486,Ishan Kishan,Left-arm orthodox,44,61.0,3.0,5.0,3.0,13.0,138.64,20.33,29.55,18.18
 752f7486,Ishan Kishan,Left-arm pace,141,226.0,9.0,31.0,9.0,53.0,160.28,25.11,37.59,28.37
+752f7486,Ishan Kishan,Left-arm wrist spin,12,22.0,1.0,2.0,1.0,2.0,183.33,22.0,16.67,25.0
 752f7486,Ishan Kishan,Right-arm leg-spin,80,89.0,6.0,10.0,1.0,30.0,111.25,14.83,37.5,13.75
 752f7486,Ishan Kishan,Right-arm off-spin,95,137.0,5.0,15.0,6.0,37.0,144.21,27.4,38.95,22.11
 752f7486,Ishan Kishan,Right-arm pace,377,561.0,15.0,53.0,29.0,135.0,148.81,37.4,35.81,21.75
+9b6e1b3f,J Fraser-McGurk,Left-arm orthodox,8,15.0,0.0,0.0,2.0,3.0,187.5,,37.5,25.0
+9b6e1b3f,J Fraser-McGurk,Left-arm pace,27,50.0,2.0,6.0,3.0,11.0,185.19,25.0,40.74,33.33
+9b6e1b3f,J Fraser-McGurk,Right-arm leg-spin,25,55.0,3.0,4.0,5.0,8.0,220.0,18.33,32.0,36.0
+9b6e1b3f,J Fraser-McGurk,Right-arm off-spin,8,30.0,1.0,3.0,3.0,2.0,375.0,30.0,25.0,75.0
 9b6e1b3f,J Fraser-McGurk,Right-arm pace,117,216.0,8.0,23.0,16.0,53.0,184.62,27.0,45.3,33.33
+59559bc2,J Overton,Left-arm pace,1,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0
+59559bc2,J Overton,Right-arm pace,6,15.0,0.0,1.0,1.0,1.0,250.0,,16.67,33.33
+1ee08e9a,JA Richardson,Right-arm pace,2,2.0,1.0,0.0,0.0,1.0,100.0,2.0,50.0,0.0
+5574750c,JC Archer,Left-arm orthodox,9,11.0,0.0,1.0,0.0,1.0,122.22,,11.11,11.11
+5574750c,JC Archer,Left-arm pace,5,4.0,1.0,0.0,0.0,2.0,80.0,4.0,40.0,0.0
+5574750c,JC Archer,Right-arm leg-spin,2,3.0,0.0,0.0,0.0,0.0,150.0,,0.0,0.0
+5574750c,JC Archer,Right-arm pace,38,49.0,4.0,2.0,4.0,18.0,128.95,12.25,47.37,15.79
 99b75528,JC Buttler,Left-arm orthodox,67,95.0,2.0,8.0,5.0,22.0,141.79,47.5,32.84,19.4
 99b75528,JC Buttler,Left-arm pace,164,275.0,5.0,37.0,6.0,49.0,167.68,55.0,29.88,26.22
+99b75528,JC Buttler,Left-arm wrist spin,28,32.0,1.0,3.0,0.0,10.0,114.29,32.0,35.71,10.71
 99b75528,JC Buttler,Right-arm leg-spin,95,155.0,6.0,9.0,12.0,29.0,163.16,25.83,30.53,22.11
 99b75528,JC Buttler,Right-arm off-spin,95,146.0,3.0,11.0,7.0,25.0,153.68,48.67,26.32,18.95
 99b75528,JC Buttler,Right-arm pace,391,545.0,18.0,60.0,18.0,138.0,139.39,30.28,35.29,19.95
+1e66c162,JD Unadkat,Left-arm pace,6,10.0,1.0,0.0,1.0,1.0,166.67,10.0,16.67,16.67
+1e66c162,JD Unadkat,Right-arm off-spin,5,3.0,1.0,0.0,0.0,2.0,60.0,3.0,40.0,0.0
+1e66c162,JD Unadkat,Right-arm pace,22,20.0,1.0,3.0,0.0,11.0,90.91,20.0,50.0,13.64
+a343262c,JE Root,Left-arm pace,8,4.0,1.0,0.0,0.0,4.0,50.0,4.0,50.0,0.0
+a343262c,JE Root,Right-arm off-spin,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+a343262c,JE Root,Right-arm pace,6,5.0,0.0,1.0,0.0,4.0,83.33,,66.67,16.67
+3c55c703,JG Bethell,Left-arm orthodox,8,8.0,1.0,1.0,0.0,3.0,100.0,8.0,37.5,12.5
+3c55c703,JG Bethell,Left-arm pace,5,16.0,0.0,2.0,1.0,0.0,320.0,,0.0,60.0
+3c55c703,JG Bethell,Left-arm wrist spin,6,14.0,0.0,2.0,1.0,3.0,233.33,,50.0,50.0
+3c55c703,JG Bethell,Right-arm pace,20,29.0,1.0,4.0,1.0,8.0,145.0,29.0,40.0,25.0
+462411b3,JJ Bumrah,Left-arm pace,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+462411b3,JJ Bumrah,Right-arm leg-spin,3,1.0,0.0,0.0,0.0,2.0,33.33,,66.67,0.0
+462411b3,JJ Bumrah,Right-arm pace,8,10.0,0.0,1.0,0.0,2.0,125.0,,25.0,12.5
+d1c36f5c,JJ Roy,Left-arm orthodox,16,40.0,1.0,1.0,5.0,4.0,250.0,40.0,25.0,37.5
+d1c36f5c,JJ Roy,Left-arm pace,32,48.0,1.0,8.0,1.0,14.0,150.0,48.0,43.75,28.13
+d1c36f5c,JJ Roy,Left-arm wrist spin,7,8.0,1.0,0.0,1.0,4.0,114.29,8.0,57.14,14.29
+d1c36f5c,JJ Roy,Right-arm leg-spin,10,15.0,0.0,3.0,0.0,4.0,150.0,,40.0,30.0
+d1c36f5c,JJ Roy,Right-arm off-spin,17,48.0,1.0,4.0,4.0,2.0,282.35,48.0,11.76,47.06
 d1c36f5c,JJ Roy,Right-arm pace,105,126.0,4.0,20.0,1.0,45.0,120.0,31.5,42.86,20.0
+abb83e27,JM Bairstow,Left-arm orthodox,24,49.0,2.0,7.0,2.0,8.0,204.17,24.5,33.33,37.5
+abb83e27,JM Bairstow,Left-arm pace,34,46.0,0.0,5.0,2.0,12.0,135.29,,35.29,20.59
+abb83e27,JM Bairstow,Left-arm wrist spin,1,0.0,1.0,0.0,0.0,1.0,0.0,0.0,100.0,0.0
+abb83e27,JM Bairstow,Right-arm leg-spin,16,7.0,1.0,0.0,0.0,8.0,43.75,7.0,50.0,0.0
+abb83e27,JM Bairstow,Right-arm off-spin,24,48.0,0.0,3.0,4.0,6.0,200.0,,25.0,29.17
 abb83e27,JM Bairstow,Right-arm pace,136,229.0,6.0,25.0,11.0,44.0,168.38,38.17,32.35,26.47
+800d2d97,JM Sharma,Left-arm orthodox,27,58.0,4.0,4.0,5.0,8.0,214.81,14.5,29.63,33.33
 800d2d97,JM Sharma,Left-arm pace,73,120.0,3.0,10.0,8.0,28.0,164.38,40.0,38.36,24.66
+800d2d97,JM Sharma,Left-arm wrist spin,16,15.0,3.0,0.0,1.0,7.0,93.75,5.0,43.75,6.25
 800d2d97,JM Sharma,Right-arm leg-spin,86,131.0,4.0,7.0,9.0,25.0,152.33,32.75,29.07,18.6
+800d2d97,JM Sharma,Right-arm off-spin,24,30.0,1.0,0.0,3.0,10.0,125.0,30.0,41.67,12.5
 800d2d97,JM Sharma,Right-arm pace,239,373.0,16.0,32.0,22.0,84.0,156.07,23.31,35.15,22.59
+0f721006,JO Holder,Left-arm pace,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+0f721006,JO Holder,Right-arm leg-spin,4,2.0,0.0,0.0,0.0,2.0,50.0,,50.0,0.0
+0f721006,JO Holder,Right-arm pace,6,9.0,2.0,0.0,1.0,2.0,150.0,4.5,33.33,16.67
+4933f499,JP Behrendorff,Left-arm pace,6,3.0,0.0,0.0,0.0,3.0,50.0,,50.0,0.0
+4933f499,JP Behrendorff,Right-arm pace,3,3.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+989889ff,JP Inglis,Left-arm orthodox,19,28.0,1.0,3.0,1.0,7.0,147.37,28.0,36.84,21.05
+989889ff,JP Inglis,Left-arm pace,33,60.0,0.0,8.0,2.0,11.0,181.82,,33.33,30.3
+989889ff,JP Inglis,Right-arm leg-spin,12,23.0,3.0,1.0,2.0,2.0,191.67,7.67,16.67,25.0
+989889ff,JP Inglis,Right-arm off-spin,6,4.0,1.0,0.0,0.0,3.0,66.67,4.0,50.0,0.0
 989889ff,JP Inglis,Right-arm pace,101,163.0,5.0,14.0,11.0,37.0,161.39,32.6,36.63,24.75
+03806cf8,JR Hazlewood,Left-arm orthodox,1,0.0,0.0,0.0,0.0,1.0,0.0,,100.0,0.0
+03806cf8,JR Hazlewood,Right-arm pace,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+90de905a,K Gowtham,Left-arm orthodox,6,13.0,0.0,1.0,1.0,1.0,216.67,,16.67,33.33
+90de905a,K Gowtham,Left-arm pace,3,7.0,1.0,0.0,1.0,1.0,233.33,7.0,33.33,33.33
+90de905a,K Gowtham,Right-arm leg-spin,8,10.0,1.0,0.0,1.0,3.0,125.0,10.0,37.5,12.5
+90de905a,K Gowtham,Right-arm pace,17,30.0,2.0,1.0,2.0,3.0,176.47,15.0,17.65,17.65
+f6d8a7ab,K Kartikeya,Left-arm orthodox,4,2.0,1.0,0.0,0.0,2.0,50.0,2.0,50.0,0.0
+f6d8a7ab,K Kartikeya,Left-arm pace,3,5.0,0.0,1.0,0.0,1.0,166.67,,33.33,33.33
+f6d8a7ab,K Kartikeya,Right-arm pace,5,2.0,1.0,0.0,0.0,2.0,40.0,2.0,40.0,0.0
+e62dd25d,K Rabada,Right-arm pace,20,28.0,2.0,0.0,3.0,6.0,140.0,14.0,30.0,15.0
+68c56d09,KA Jamieson,Left-arm pace,2,0.0,0.0,0.0,0.0,1.0,0.0,,50.0,0.0
+68c56d09,KA Jamieson,Right-arm pace,3,0.0,0.0,0.0,0.0,2.0,0.0,,66.67,0.0
+0b60eb09,KA Maharaj,Left-arm pace,2,1.0,1.0,0.0,0.0,1.0,50.0,1.0,50.0,0.0
+c03f1114,KD Karthik,Left-arm orthodox,8,10.0,0.0,0.0,1.0,2.0,125.0,,25.0,12.5
+c03f1114,KD Karthik,Left-arm pace,44,97.0,3.0,9.0,6.0,8.0,220.45,32.33,18.18,34.09
+c03f1114,KD Karthik,Left-arm wrist spin,5,2.0,1.0,0.0,0.0,3.0,40.0,2.0,60.0,0.0
 c03f1114,KD Karthik,Right-arm leg-spin,55,88.0,3.0,8.0,4.0,15.0,160.0,29.33,27.27,21.82
+c03f1114,KD Karthik,Right-arm off-spin,23,36.0,1.0,3.0,1.0,4.0,156.52,36.0,17.39,17.39
 c03f1114,KD Karthik,Right-arm pace,142,233.0,13.0,20.0,15.0,49.0,164.08,17.92,34.51,24.65
+5b8c830e,KH Pandya,Left-arm orthodox,34,32.0,1.0,2.0,1.0,15.0,94.12,32.0,44.12,8.82
 5b8c830e,KH Pandya,Left-arm pace,57,75.0,4.0,5.0,3.0,20.0,131.58,18.75,35.09,14.04
+5b8c830e,KH Pandya,Left-arm wrist spin,39,35.0,2.0,2.0,1.0,16.0,89.74,17.5,41.03,7.69
+5b8c830e,KH Pandya,Right-arm leg-spin,44,64.0,2.0,4.0,3.0,14.0,145.45,32.0,31.82,15.91
+5b8c830e,KH Pandya,Right-arm off-spin,44,29.0,4.0,2.0,0.0,21.0,65.91,7.25,47.73,4.55
 5b8c830e,KH Pandya,Right-arm pace,130,187.0,9.0,17.0,6.0,39.0,143.85,20.78,30.0,17.69
+a2f46292,KK Ahmed,Right-arm pace,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+944533a5,KK Nair,Left-arm orthodox,21,37.0,2.0,5.0,1.0,4.0,176.19,18.5,19.05,28.57
+944533a5,KK Nair,Left-arm pace,32,47.0,2.0,5.0,3.0,14.0,146.88,23.5,43.75,25.0
+944533a5,KK Nair,Right-arm leg-spin,14,24.0,0.0,4.0,0.0,3.0,171.43,,21.43,28.57
+944533a5,KK Nair,Right-arm off-spin,3,6.0,1.0,0.0,1.0,2.0,200.0,6.0,66.67,33.33
+944533a5,KK Nair,Right-arm pace,45,84.0,2.0,10.0,5.0,16.0,186.67,42.0,35.56,33.33
 b17e2f24,KL Rahul,Left-arm orthodox,70,100.0,1.0,9.0,3.0,16.0,142.86,100.0,22.86,17.14
 b17e2f24,KL Rahul,Left-arm pace,185,262.0,7.0,32.0,7.0,63.0,141.62,37.43,34.05,21.08
+b17e2f24,KL Rahul,Left-arm wrist spin,31,43.0,1.0,4.0,1.0,7.0,138.71,43.0,22.58,16.13
 b17e2f24,KL Rahul,Right-arm leg-spin,139,170.0,3.0,12.0,5.0,40.0,122.3,56.67,28.78,12.23
 b17e2f24,KL Rahul,Right-arm off-spin,104,138.0,2.0,9.0,5.0,28.0,132.69,69.0,26.92,13.46
 b17e2f24,KL Rahul,Right-arm pace,417,593.0,17.0,58.0,23.0,140.0,142.21,34.88,33.57,19.42
+798cc28e,KM Asif,Left-arm orthodox,2,0.0,1.0,0.0,0.0,2.0,0.0,0.0,100.0,0.0
+99d63244,KM Jadhav,Right-arm leg-spin,2,3.0,0.0,0.0,0.0,0.0,150.0,,0.0,0.0
+99d63244,KM Jadhav,Right-arm pace,8,9.0,0.0,1.0,0.0,3.0,112.5,,37.5,12.5
+73c18486,KR Mayers,Left-arm orthodox,15,26.0,2.0,1.0,3.0,7.0,173.33,13.0,46.67,26.67
+73c18486,KR Mayers,Left-arm pace,46,56.0,1.0,8.0,2.0,24.0,121.74,56.0,52.17,21.74
+73c18486,KR Mayers,Left-arm wrist spin,15,27.0,0.0,2.0,2.0,5.0,180.0,,33.33,26.67
+73c18486,KR Mayers,Right-arm leg-spin,20,40.0,1.0,3.0,3.0,5.0,200.0,40.0,25.0,30.0
+73c18486,KR Mayers,Right-arm off-spin,23,33.0,3.0,2.0,2.0,10.0,143.48,11.0,43.48,17.39
 73c18486,KR Mayers,Right-arm pace,117,166.0,5.0,19.0,8.0,57.0,141.88,33.2,48.72,23.08
+e3851766,KS Rathore,Left-arm pace,2,0.0,0.0,0.0,0.0,2.0,0.0,,100.0,0.0
+e3851766,KS Rathore,Right-arm off-spin,3,0.0,1.0,0.0,0.0,3.0,0.0,0.0,100.0,0.0
+39ed0d2f,KS Sharma,Left-arm orthodox,4,3.0,0.0,0.0,0.0,1.0,75.0,,25.0,0.0
+39ed0d2f,KS Sharma,Left-arm pace,3,2.0,0.0,0.0,0.0,1.0,66.67,,33.33,0.0
+39ed0d2f,KS Sharma,Right-arm off-spin,9,5.0,1.0,0.0,0.0,4.0,55.56,5.0,44.44,0.0
+39ed0d2f,KS Sharma,Right-arm pace,5,2.0,1.0,0.0,0.0,3.0,40.0,2.0,60.0,0.0
+d027ba9f,KS Williamson,Left-arm orthodox,7,8.0,1.0,1.0,0.0,4.0,114.29,8.0,57.14,14.29
+d027ba9f,KS Williamson,Left-arm pace,8,11.0,0.0,2.0,0.0,4.0,137.5,,50.0,25.0
+d027ba9f,KS Williamson,Right-arm leg-spin,2,0.0,1.0,0.0,0.0,2.0,0.0,0.0,100.0,0.0
+d027ba9f,KS Williamson,Right-arm pace,10,8.0,0.0,1.0,0.0,5.0,80.0,,50.0,10.0
+107c26fb,KT Maphaka,Left-arm pace,2,8.0,0.0,2.0,0.0,0.0,400.0,,0.0,100.0
+119678fd,KV Sharma,Left-arm pace,5,18.0,1.0,0.0,3.0,2.0,360.0,18.0,40.0,60.0
+119678fd,KV Sharma,Right-arm leg-spin,2,0.0,1.0,0.0,0.0,2.0,0.0,0.0,100.0,0.0
+119678fd,KV Sharma,Right-arm pace,14,17.0,2.0,2.0,0.0,3.0,121.43,8.5,21.43,14.29
+8d2c70ad,Kuldeep Yadav,Left-arm orthodox,8,11.0,2.0,2.0,0.0,4.0,137.5,5.5,50.0,25.0
+8d2c70ad,Kuldeep Yadav,Left-arm pace,29,21.0,3.0,1.0,1.0,16.0,72.41,7.0,55.17,6.9
+8d2c70ad,Kuldeep Yadav,Right-arm leg-spin,6,3.0,0.0,0.0,0.0,3.0,50.0,,50.0,0.0
+8d2c70ad,Kuldeep Yadav,Right-arm off-spin,11,12.0,1.0,2.0,0.0,5.0,109.09,12.0,45.45,18.18
 8d2c70ad,Kuldeep Yadav,Right-arm pace,51,49.0,2.0,5.0,0.0,21.0,96.08,24.5,41.18,9.8
+57ca01b3,Kumar Kushagra,Right-arm off-spin,3,1.0,1.0,0.0,0.0,2.0,33.33,1.0,66.67,0.0
+57ca01b3,Kumar Kushagra,Right-arm pace,4,2.0,2.0,0.0,0.0,3.0,50.0,1.0,75.0,0.0
+f834dcfc,L Ngidi,Right-arm pace,2,0.0,0.0,0.0,0.0,2.0,0.0,,100.0,0.0
+65b6943c,L Wood,Right-arm pace,3,9.0,0.0,0.0,1.0,0.0,300.0,,0.0,33.33
+a1d95bd8,LB Williams,Right-arm pace,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+2f9d0389,LH Ferguson,Left-arm pace,1,1.0,1.0,0.0,0.0,0.0,100.0,1.0,0.0,0.0
+2f9d0389,LH Ferguson,Right-arm pace,1,4.0,0.0,1.0,0.0,0.0,400.0,,0.0,100.0
+50c6bc2b,LS Livingstone,Left-arm orthodox,34,22.0,1.0,1.0,0.0,15.0,64.71,22.0,44.12,2.94
+50c6bc2b,LS Livingstone,Left-arm pace,19,25.0,0.0,4.0,0.0,7.0,131.58,,36.84,21.05
+50c6bc2b,LS Livingstone,Left-arm wrist spin,27,31.0,2.0,1.0,2.0,9.0,114.81,15.5,33.33,11.11
 50c6bc2b,LS Livingstone,Right-arm leg-spin,64,83.0,2.0,2.0,6.0,19.0,129.69,41.5,29.69,12.5
+50c6bc2b,LS Livingstone,Right-arm off-spin,14,18.0,1.0,1.0,1.0,4.0,128.57,18.0,28.57,14.29
 50c6bc2b,LS Livingstone,Right-arm pace,166,316.0,14.0,23.0,25.0,54.0,190.36,22.57,32.53,28.92
+ad427b5c,Lalit Yadav,Left-arm pace,11,18.0,2.0,3.0,0.0,3.0,163.64,9.0,27.27,27.27
+ad427b5c,Lalit Yadav,Right-arm leg-spin,9,12.0,1.0,2.0,0.0,3.0,133.33,12.0,33.33,22.22
+ad427b5c,Lalit Yadav,Right-arm off-spin,14,8.0,1.0,0.0,0.0,7.0,57.14,8.0,50.0,0.0
+ad427b5c,Lalit Yadav,Right-arm pace,37,38.0,3.0,4.0,0.0,13.0,102.7,12.67,35.14,10.81
+0404d43c,Liton Das,Right-arm pace,4,4.0,1.0,1.0,0.0,3.0,100.0,4.0,75.0,25.0
+81c36ee9,M Jansen,Left-arm orthodox,2,3.0,0.0,0.0,0.0,0.0,150.0,,0.0,0.0
+81c36ee9,M Jansen,Left-arm pace,11,4.0,3.0,0.0,0.0,8.0,36.36,1.33,72.73,0.0
+81c36ee9,M Jansen,Left-arm wrist spin,4,6.0,0.0,1.0,0.0,1.0,150.0,,25.0,25.0
+81c36ee9,M Jansen,Right-arm leg-spin,13,23.0,0.0,1.0,2.0,3.0,176.92,,23.08,23.08
+81c36ee9,M Jansen,Right-arm off-spin,15,7.0,2.0,0.0,0.0,7.0,46.67,3.5,46.67,0.0
 81c36ee9,M Jansen,Right-arm pace,74,89.0,4.0,6.0,3.0,18.0,120.27,22.25,24.32,12.16
+a9fd84fb,M Markande,Left-arm pace,4,3.0,0.0,0.0,0.0,1.0,75.0,,25.0,0.0
+a9fd84fb,M Markande,Right-arm off-spin,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+a9fd84fb,M Markande,Right-arm pace,4,11.0,0.0,1.0,1.0,1.0,275.0,,25.0,50.0
+7dcb9bc9,M Shahrukh Khan,Left-arm orthodox,28,42.0,1.0,1.0,3.0,6.0,150.0,42.0,21.43,14.29
+7dcb9bc9,M Shahrukh Khan,Left-arm pace,38,80.0,2.0,6.0,5.0,7.0,210.53,40.0,18.42,28.95
+7dcb9bc9,M Shahrukh Khan,Left-arm wrist spin,4,3.0,0.0,0.0,0.0,1.0,75.0,,25.0,0.0
+7dcb9bc9,M Shahrukh Khan,Right-arm leg-spin,25,31.0,2.0,3.0,1.0,9.0,124.0,15.5,36.0,16.0
+7dcb9bc9,M Shahrukh Khan,Right-arm off-spin,24,46.0,1.0,4.0,3.0,7.0,191.67,46.0,29.17,29.17
 7dcb9bc9,M Shahrukh Khan,Right-arm pace,144,245.0,11.0,19.0,17.0,43.0,170.14,22.27,29.86,25.0
+f24c6701,M Theekshana,Left-arm orthodox,4,2.0,2.0,0.0,0.0,2.0,50.0,1.0,50.0,0.0
+f24c6701,M Theekshana,Right-arm pace,23,8.0,0.0,0.0,0.0,14.0,34.78,,60.87,0.0
+fb5f69e4,M Tiwari,Left-arm orthodox,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+fb5f69e4,M Tiwari,Right-arm pace,2,2.0,1.0,0.0,0.0,1.0,100.0,2.0,50.0,0.0
+c03e2850,M Vohra,Right-arm off-spin,4,2.0,1.0,0.0,0.0,2.0,50.0,2.0,50.0,0.0
+c03e2850,M Vohra,Right-arm pace,7,8.0,0.0,1.0,0.0,2.0,114.29,,28.57,14.29
+00ea847a,MA Agarwal,Left-arm orthodox,25,26.0,2.0,3.0,0.0,9.0,104.0,13.0,36.0,12.0
 00ea847a,MA Agarwal,Left-arm pace,58,83.0,0.0,11.0,2.0,20.0,143.1,,34.48,22.41
+00ea847a,MA Agarwal,Left-arm wrist spin,7,5.0,0.0,0.0,0.0,2.0,71.43,,28.57,0.0
 00ea847a,MA Agarwal,Right-arm leg-spin,50,68.0,3.0,6.0,2.0,12.0,136.0,22.67,24.0,16.0
+00ea847a,MA Agarwal,Right-arm off-spin,14,14.0,0.0,1.0,0.0,4.0,100.0,,28.57,7.14
 00ea847a,MA Agarwal,Right-arm pace,170,221.0,11.0,25.0,4.0,62.0,130.0,20.09,36.47,17.06
+3fb19989,MA Starc,Left-arm orthodox,2,2.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+3fb19989,MA Starc,Left-arm pace,6,6.0,1.0,1.0,0.0,3.0,100.0,6.0,50.0,16.67
+3fb19989,MA Starc,Right-arm leg-spin,5,2.0,1.0,0.0,0.0,3.0,40.0,2.0,60.0,0.0
+3fb19989,MA Starc,Right-arm off-spin,1,0.0,1.0,0.0,0.0,1.0,0.0,0.0,100.0,0.0
+3fb19989,MA Starc,Right-arm pace,7,5.0,1.0,0.0,0.0,2.0,71.43,5.0,28.57,0.0
+8d92a2c3,MA Wood,Left-arm pace,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+8d92a2c3,MA Wood,Right-arm pace,4,10.0,1.0,1.0,1.0,2.0,250.0,10.0,50.0,50.0
+3ff033bb,MD Shanaka,Left-arm orthodox,6,2.0,1.0,0.0,0.0,4.0,33.33,2.0,66.67,0.0
+3ff033bb,MD Shanaka,Left-arm pace,6,8.0,0.0,1.0,0.0,1.0,133.33,,16.67,16.67
+3ff033bb,MD Shanaka,Right-arm off-spin,10,15.0,0.0,1.0,1.0,4.0,150.0,,40.0,20.0
+3ff033bb,MD Shanaka,Right-arm pace,4,1.0,1.0,0.0,0.0,3.0,25.0,1.0,75.0,0.0
+e38bce7a,MG Bracewell,Left-arm pace,2,2.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+e38bce7a,MG Bracewell,Left-arm wrist spin,4,6.0,0.0,1.0,0.0,0.0,150.0,,0.0,25.0
+e38bce7a,MG Bracewell,Right-arm leg-spin,11,14.0,0.0,0.0,1.0,3.0,127.27,,27.27,9.09
+e38bce7a,MG Bracewell,Right-arm off-spin,13,12.0,0.0,1.0,0.0,3.0,92.31,,23.08,7.69
+e38bce7a,MG Bracewell,Right-arm pace,17,24.0,2.0,4.0,0.0,6.0,141.18,12.0,35.29,23.53
+f2c936d7,MJ Owen,Left-arm pace,1,0.0,1.0,0.0,0.0,1.0,0.0,0.0,100.0,0.0
+f2c936d7,MJ Owen,Right-arm pace,1,0.0,0.0,0.0,0.0,1.0,0.0,,100.0,0.0
+e4a0deae,MJ Santner,Left-arm orthodox,4,2.0,0.0,0.0,0.0,2.0,50.0,,50.0,0.0
+e4a0deae,MJ Santner,Left-arm pace,7,8.0,0.0,1.0,0.0,1.0,114.29,,14.29,14.29
+e4a0deae,MJ Santner,Left-arm wrist spin,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+e4a0deae,MJ Santner,Right-arm leg-spin,5,2.0,2.0,0.0,0.0,3.0,40.0,1.0,60.0,0.0
+e4a0deae,MJ Santner,Right-arm off-spin,2,2.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+e4a0deae,MJ Santner,Right-arm pace,35,41.0,3.0,2.0,3.0,14.0,117.14,13.67,40.0,14.29
+025c4400,MJ Suthar,Right-arm pace,2,1.0,1.0,0.0,0.0,1.0,50.0,1.0,50.0,0.0
+da934ee8,MK Lomror,Left-arm pace,28,46.0,1.0,4.0,2.0,5.0,164.29,46.0,17.86,21.43
+da934ee8,MK Lomror,Left-arm wrist spin,14,31.0,1.0,1.0,3.0,2.0,221.43,31.0,14.29,28.57
+da934ee8,MK Lomror,Right-arm leg-spin,20,32.0,3.0,0.0,4.0,8.0,160.0,10.67,40.0,20.0
+da934ee8,MK Lomror,Right-arm off-spin,27,46.0,2.0,3.0,3.0,7.0,170.37,23.0,25.93,22.22
 da934ee8,MK Lomror,Right-arm pace,75,105.0,10.0,10.0,5.0,22.0,140.0,10.5,29.33,20.0
+93b4fc78,MK Pandey,Left-arm orthodox,42,48.0,3.0,6.0,0.0,15.0,114.29,16.0,35.71,14.29
+93b4fc78,MK Pandey,Left-arm pace,16,16.0,4.0,2.0,0.0,6.0,100.0,4.0,37.5,12.5
+93b4fc78,MK Pandey,Left-arm wrist spin,10,16.0,0.0,1.0,1.0,2.0,160.0,,20.0,20.0
+93b4fc78,MK Pandey,Right-arm leg-spin,30,36.0,2.0,3.0,1.0,10.0,120.0,18.0,33.33,13.33
 93b4fc78,MK Pandey,Right-arm off-spin,54,60.0,0.0,3.0,1.0,15.0,111.11,,27.78,7.41
 93b4fc78,MK Pandey,Right-arm pace,88,118.0,4.0,7.0,7.0,31.0,134.09,29.5,35.23,15.91
+bb351c23,MM Ali,Left-arm orthodox,7,4.0,0.0,0.0,0.0,3.0,57.14,,42.86,0.0
+bb351c23,MM Ali,Left-arm pace,21,33.0,2.0,3.0,2.0,7.0,157.14,16.5,33.33,23.81
+bb351c23,MM Ali,Left-arm wrist spin,13,24.0,1.0,0.0,3.0,3.0,184.62,24.0,23.08,23.08
 bb351c23,MM Ali,Right-arm leg-spin,55,66.0,8.0,4.0,4.0,23.0,120.0,8.25,41.82,14.55
+bb351c23,MM Ali,Right-arm off-spin,17,12.0,1.0,1.0,0.0,8.0,70.59,12.0,47.06,5.88
 bb351c23,MM Ali,Right-arm pace,87,118.0,2.0,11.0,5.0,31.0,135.63,59.0,35.63,18.39
+759ac88f,MM Sharma,Left-arm orthodox,9,2.0,0.0,0.0,0.0,7.0,22.22,,77.78,0.0
+759ac88f,MM Sharma,Left-arm wrist spin,5,0.0,0.0,0.0,0.0,4.0,0.0,,80.0,0.0
+759ac88f,MM Sharma,Right-arm pace,5,1.0,3.0,0.0,0.0,3.0,20.0,0.33,60.0,0.0
+35f173a0,MP Breetzke,Right-arm pace,12,14.0,1.0,1.0,1.0,6.0,116.67,14.0,50.0,16.67
 d9273ee7,MP Stoinis,Left-arm orthodox,87,129.0,6.0,6.0,10.0,30.0,148.28,21.5,34.48,18.39
 d9273ee7,MP Stoinis,Left-arm pace,87,144.0,3.0,15.0,8.0,34.0,165.52,48.0,39.08,26.44
+d9273ee7,MP Stoinis,Left-arm wrist spin,26,22.0,1.0,0.0,1.0,9.0,84.62,22.0,34.62,3.85
 d9273ee7,MP Stoinis,Right-arm leg-spin,88,110.0,4.0,7.0,6.0,29.0,125.0,27.5,32.95,14.77
+d9273ee7,MP Stoinis,Right-arm off-spin,34,65.0,5.0,5.0,4.0,6.0,191.18,13.0,17.65,26.47
 d9273ee7,MP Stoinis,Right-arm pace,292,474.0,13.0,41.0,28.0,101.0,162.33,36.46,34.59,23.63
 3d8feaf8,MR Marsh,Left-arm orthodox,72,86.0,1.0,8.0,3.0,27.0,119.44,86.0,37.5,15.28
 3d8feaf8,MR Marsh,Left-arm pace,106,174.0,9.0,22.0,8.0,45.0,164.15,19.33,42.45,28.3
+3d8feaf8,MR Marsh,Left-arm wrist spin,17,18.0,1.0,0.0,1.0,6.0,105.88,18.0,35.29,5.88
+3d8feaf8,MR Marsh,Right-arm leg-spin,45,83.0,1.0,8.0,4.0,5.0,184.44,83.0,11.11,26.67
+3d8feaf8,MR Marsh,Right-arm off-spin,46,61.0,2.0,5.0,3.0,18.0,132.61,30.5,39.13,17.39
 3d8feaf8,MR Marsh,Right-arm pace,218,378.0,10.0,33.0,26.0,71.0,173.39,37.8,32.57,27.06
+e96801ea,MS Bhandage,Left-arm pace,2,0.0,1.0,0.0,0.0,2.0,0.0,0.0,100.0,0.0
+e96801ea,MS Bhandage,Right-arm leg-spin,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+4a8a2e3b,MS Dhoni,Left-arm orthodox,6,5.0,0.0,0.0,0.0,1.0,83.33,,16.67,0.0
+4a8a2e3b,MS Dhoni,Left-arm pace,49,96.0,3.0,7.0,7.0,13.0,195.92,32.0,26.53,28.57
+4a8a2e3b,MS Dhoni,Left-arm wrist spin,4,4.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
 4a8a2e3b,MS Dhoni,Right-arm leg-spin,51,67.0,1.0,3.0,5.0,20.0,131.37,67.0,39.22,15.69
+4a8a2e3b,MS Dhoni,Right-arm off-spin,17,8.0,1.0,0.0,0.0,9.0,47.06,8.0,52.94,0.0
 4a8a2e3b,MS Dhoni,Right-arm pace,144,281.0,11.0,19.0,23.0,37.0,195.14,25.55,25.69,29.17
+afa7e784,MS Wade,Right-arm leg-spin,2,2.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+afa7e784,MS Wade,Right-arm pace,4,2.0,1.0,0.0,0.0,2.0,50.0,2.0,50.0,0.0
+a90e53ec,MW Short,Left-arm pace,29,36.0,1.0,4.0,2.0,15.0,124.14,36.0,51.72,20.69
+a90e53ec,MW Short,Right-arm leg-spin,16,8.0,3.0,0.0,0.0,8.0,50.0,2.67,50.0,0.0
+a90e53ec,MW Short,Right-arm off-spin,5,7.0,1.0,0.0,1.0,3.0,140.0,7.0,60.0,20.0
+a90e53ec,MW Short,Right-arm pace,42,66.0,1.0,11.0,1.0,17.0,157.14,66.0,40.48,28.57
+c3a96caf,Mandeep Singh,Left-arm orthodox,5,3.0,1.0,0.0,0.0,3.0,60.0,3.0,60.0,0.0
+c3a96caf,Mandeep Singh,Left-arm pace,5,2.0,2.0,0.0,0.0,3.0,40.0,1.0,60.0,0.0
+c3a96caf,Mandeep Singh,Right-arm pace,6,9.0,0.0,0.0,1.0,2.0,150.0,,33.33,16.67
+a457cfb5,Mayank Dagar,Right-arm pace,1,0.0,0.0,0.0,0.0,1.0,0.0,,100.0,0.0
+62af8546,Mohammad Nabi,Left-arm pace,7,6.0,0.0,0.0,0.0,0.0,85.71,,0.0,0.0
+62af8546,Mohammad Nabi,Right-arm leg-spin,2,1.0,1.0,0.0,0.0,1.0,50.0,1.0,50.0,0.0
+62af8546,Mohammad Nabi,Right-arm off-spin,2,2.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+62af8546,Mohammad Nabi,Right-arm pace,20,26.0,3.0,2.0,2.0,9.0,130.0,8.67,45.0,20.0
+8cf9814c,Mohammed Shami,Left-arm pace,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+8cf9814c,Mohammed Shami,Right-arm off-spin,3,1.0,0.0,0.0,0.0,2.0,33.33,,66.67,0.0
+8cf9814c,Mohammed Shami,Right-arm pace,12,13.0,3.0,2.0,0.0,6.0,108.33,4.33,50.0,16.67
+2f49c897,Mohammed Siraj,Left-arm wrist spin,2,0.0,0.0,0.0,0.0,1.0,0.0,,50.0,0.0
+2f49c897,Mohammed Siraj,Right-arm leg-spin,4,12.0,0.0,0.0,2.0,2.0,300.0,,50.0,50.0
+2f49c897,Mohammed Siraj,Right-arm pace,8,4.0,2.0,0.0,0.0,5.0,50.0,2.0,62.5,0.0
+9a5f2863,Mohit Rathee,Right-arm pace,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+c33d8116,Mohsin Khan,Left-arm pace,1,2.0,0.0,0.0,0.0,0.0,200.0,,0.0,0.0
+c33d8116,Mohsin Khan,Right-arm pace,7,0.0,1.0,0.0,0.0,7.0,0.0,0.0,100.0,0.0
+2cffab74,Mukesh Kumar,Left-arm pace,5,3.0,0.0,0.0,0.0,2.0,60.0,,40.0,0.0
+2cffab74,Mukesh Kumar,Right-arm pace,13,7.0,1.0,0.0,0.0,6.0,53.85,7.0,46.15,0.0
+d621b427,Musheer Khan,Right-arm leg-spin,3,0.0,1.0,0.0,0.0,3.0,0.0,0.0,100.0,0.0
+0a8fce53,Mustafizur Rahman,Right-arm pace,2,1.0,1.0,0.0,0.0,1.0,50.0,1.0,50.0,0.0
+bd54eef5,N Jagadeesan,Left-arm orthodox,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+bd54eef5,N Jagadeesan,Left-arm pace,26,33.0,1.0,5.0,1.0,12.0,126.92,33.0,46.15,23.08
+bd54eef5,N Jagadeesan,Right-arm leg-spin,13,13.0,1.0,2.0,0.0,7.0,100.0,13.0,53.85,15.38
+bd54eef5,N Jagadeesan,Right-arm off-spin,3,5.0,0.0,1.0,0.0,1.0,166.67,,33.33,33.33
+bd54eef5,N Jagadeesan,Right-arm pace,38,37.0,4.0,6.0,0.0,22.0,97.37,9.25,57.89,15.79
 3241e3fd,N Pooran,Left-arm orthodox,52,146.0,1.0,4.0,19.0,13.0,280.77,146.0,25.0,44.23
 3241e3fd,N Pooran,Left-arm pace,108,230.0,5.0,20.0,15.0,21.0,212.96,46.0,19.44,32.41
+3241e3fd,N Pooran,Left-arm wrist spin,31,36.0,3.0,4.0,1.0,15.0,116.13,12.0,48.39,16.13
 3241e3fd,N Pooran,Right-arm leg-spin,79,164.0,2.0,10.0,15.0,28.0,207.59,82.0,35.44,31.65
 3241e3fd,N Pooran,Right-arm off-spin,107,151.0,1.0,7.0,11.0,33.0,141.12,151.0,30.84,16.82
 3241e3fd,N Pooran,Right-arm pace,355,599.0,18.0,56.0,36.0,115.0,168.73,33.28,32.39,25.92
+fb2d1dda,N Rana,Left-arm orthodox,19,25.0,2.0,3.0,1.0,7.0,131.58,12.5,36.84,21.05
 fb2d1dda,N Rana,Left-arm pace,85,111.0,5.0,12.0,5.0,39.0,130.59,22.2,45.88,20.0
+fb2d1dda,N Rana,Left-arm wrist spin,12,22.0,0.0,2.0,1.0,1.0,183.33,,8.33,25.0
 fb2d1dda,N Rana,Right-arm leg-spin,67,79.0,6.0,7.0,2.0,24.0,117.91,13.17,35.82,13.43
 fb2d1dda,N Rana,Right-arm off-spin,81,114.0,5.0,10.0,4.0,20.0,140.74,22.8,24.69,17.28
 fb2d1dda,N Rana,Right-arm pace,178,286.0,7.0,32.0,16.0,69.0,160.67,40.86,38.76,26.97
+d1a60072,N Wadhera,Left-arm orthodox,37,60.0,2.0,6.0,3.0,12.0,162.16,30.0,32.43,24.32
+d1a60072,N Wadhera,Left-arm pace,37,50.0,6.0,4.0,3.0,16.0,135.14,8.33,43.24,18.92
+d1a60072,N Wadhera,Left-arm wrist spin,15,34.0,0.0,3.0,2.0,3.0,226.67,,20.0,33.33
 d1a60072,N Wadhera,Right-arm leg-spin,129,202.0,3.0,15.0,12.0,40.0,156.59,67.33,31.01,20.93
 d1a60072,N Wadhera,Right-arm off-spin,62,72.0,2.0,6.0,2.0,22.0,116.13,36.0,35.48,12.9
 d1a60072,N Wadhera,Right-arm pace,221,301.0,13.0,26.0,17.0,85.0,136.2,23.15,38.46,19.46
+9eb1455b,NT Ellis,Right-arm leg-spin,2,0.0,1.0,0.0,0.0,2.0,0.0,0.0,100.0,0.0
+9eb1455b,NT Ellis,Right-arm pace,5,1.0,1.0,0.0,0.0,4.0,20.0,1.0,80.0,0.0
+fffa744b,Naman Dhir,Left-arm orthodox,10,19.0,0.0,3.0,0.0,0.0,190.0,,0.0,30.0
+fffa744b,Naman Dhir,Left-arm pace,40,66.0,3.0,10.0,2.0,15.0,165.0,22.0,37.5,30.0
+fffa744b,Naman Dhir,Left-arm wrist spin,3,2.0,1.0,0.0,0.0,1.0,66.67,2.0,33.33,0.0
+fffa744b,Naman Dhir,Right-arm leg-spin,19,24.0,1.0,2.0,1.0,5.0,126.32,24.0,26.32,15.79
+fffa744b,Naman Dhir,Right-arm off-spin,5,8.0,1.0,1.0,0.0,1.0,160.0,8.0,20.0,20.0
 fffa744b,Naman Dhir,Right-arm pace,139,273.0,8.0,21.0,20.0,38.0,196.4,34.13,27.34,29.5
+c0c411cb,Naveen-ul-Haq,Left-arm orthodox,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+c0c411cb,Naveen-ul-Haq,Right-arm leg-spin,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+c0c411cb,Naveen-ul-Haq,Right-arm pace,21,16.0,2.0,2.0,0.0,10.0,76.19,8.0,47.62,9.52
 aad0c365,Nithish Kumar Reddy,Left-arm orthodox,71,103.0,4.0,8.0,5.0,18.0,145.07,25.75,25.35,18.31
 aad0c365,Nithish Kumar Reddy,Left-arm pace,54,66.0,4.0,4.0,4.0,22.0,122.22,16.5,40.74,14.81
+aad0c365,Nithish Kumar Reddy,Left-arm wrist spin,8,14.0,1.0,0.0,1.0,3.0,175.0,14.0,37.5,12.5
 aad0c365,Nithish Kumar Reddy,Right-arm leg-spin,59,92.0,1.0,5.0,6.0,18.0,155.93,92.0,30.51,18.64
+aad0c365,Nithish Kumar Reddy,Right-arm off-spin,17,30.0,1.0,1.0,3.0,6.0,176.47,30.0,35.29,23.53
 aad0c365,Nithish Kumar Reddy,Right-arm pace,153,178.0,7.0,13.0,6.0,56.0,116.34,25.43,36.6,12.42
+efc04be7,Noor Ahmad,Left-arm orthodox,4,1.0,0.0,0.0,0.0,3.0,25.0,,75.0,0.0
+efc04be7,Noor Ahmad,Left-arm pace,3,2.0,2.0,0.0,0.0,2.0,66.67,1.0,66.67,0.0
+efc04be7,Noor Ahmad,Left-arm wrist spin,2,0.0,0.0,0.0,0.0,2.0,0.0,,100.0,0.0
+efc04be7,Noor Ahmad,Right-arm leg-spin,4,1.0,2.0,0.0,0.0,3.0,25.0,0.5,75.0,0.0
+efc04be7,Noor Ahmad,Right-arm off-spin,7,1.0,0.0,0.0,0.0,6.0,14.29,,85.71,0.0
+efc04be7,Noor Ahmad,Right-arm pace,15,15.0,4.0,2.0,0.0,7.0,100.0,3.75,46.67,13.33
+ed5a5510,P Dubey,Left-arm orthodox,2,2.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+ed5a5510,P Dubey,Left-arm pace,5,7.0,0.0,1.0,0.0,1.0,140.0,,20.0,20.0
+ed5a5510,P Dubey,Right-arm leg-spin,6,4.0,0.0,1.0,0.0,5.0,66.67,,83.33,16.67
+ed5a5510,P Dubey,Right-arm off-spin,4,1.0,0.0,0.0,0.0,3.0,25.0,,75.0,0.0
+ed5a5510,P Dubey,Right-arm pace,3,2.0,1.0,0.0,0.0,1.0,66.67,2.0,33.33,0.0
 9418198b,P Simran Singh,Left-arm orthodox,86,104.0,4.0,12.0,2.0,31.0,120.93,26.0,36.05,16.28
 9418198b,P Simran Singh,Left-arm pace,140,194.0,8.0,20.0,9.0,55.0,138.57,24.25,39.29,20.71
+9418198b,P Simran Singh,Left-arm wrist spin,37,65.0,3.0,5.0,4.0,9.0,175.68,21.67,24.32,24.32
 9418198b,P Simran Singh,Right-arm leg-spin,73,128.0,5.0,12.0,8.0,24.0,175.34,25.6,32.88,27.4
 9418198b,P Simran Singh,Right-arm off-spin,66,121.0,2.0,10.0,8.0,17.0,183.33,60.5,25.76,27.27
 9418198b,P Simran Singh,Right-arm pace,410,666.0,24.0,74.0,38.0,171.0,162.44,27.75,41.71,27.32
+6c882e9a,PBB Rajapaksa,Left-arm pace,5,3.0,0.0,0.0,0.0,2.0,60.0,,40.0,0.0
+6c882e9a,PBB Rajapaksa,Right-arm leg-spin,7,3.0,0.0,0.0,0.0,3.0,42.86,,42.86,0.0
+6c882e9a,PBB Rajapaksa,Right-arm off-spin,15,25.0,0.0,3.0,1.0,5.0,166.67,,33.33,26.67
+6c882e9a,PBB Rajapaksa,Right-arm pace,35,40.0,3.0,3.0,1.0,12.0,114.29,13.33,34.29,11.43
 3d284ca3,PD Salt,Left-arm orthodox,56,95.0,5.0,14.0,3.0,18.0,169.64,19.0,32.14,30.36
 3d284ca3,PD Salt,Left-arm pace,144,242.0,5.0,26.0,12.0,50.0,168.06,48.4,34.72,26.39
+3d284ca3,PD Salt,Left-arm wrist spin,4,8.0,1.0,0.0,1.0,1.0,200.0,8.0,25.0,25.0
 3d284ca3,PD Salt,Right-arm leg-spin,60,76.0,4.0,6.0,3.0,21.0,126.67,19.0,35.0,15.0
+3d284ca3,PD Salt,Right-arm off-spin,33,78.0,1.0,9.0,5.0,6.0,236.36,78.0,18.18,42.42
 3d284ca3,PD Salt,Right-arm pace,275,518.0,16.0,63.0,30.0,100.0,188.36,32.38,36.36,33.82
+08548b13,PHKD Mendis,Left-arm orthodox,7,7.0,0.0,0.0,0.0,2.0,100.0,,28.57,0.0
+08548b13,PHKD Mendis,Left-arm pace,5,0.0,0.0,0.0,0.0,5.0,0.0,,100.0,0.0
+08548b13,PHKD Mendis,Left-arm wrist spin,8,14.0,0.0,2.0,0.0,2.0,175.0,,25.0,25.0
+08548b13,PHKD Mendis,Right-arm leg-spin,8,17.0,0.0,3.0,0.0,2.0,212.5,,25.0,37.5
+08548b13,PHKD Mendis,Right-arm off-spin,8,6.0,1.0,0.0,0.0,3.0,75.0,6.0,37.5,0.0
+08548b13,PHKD Mendis,Right-arm pace,32,48.0,3.0,2.0,2.0,6.0,150.0,16.0,18.75,12.5
+ded9240e,PJ Cummins,Left-arm orthodox,13,30.0,0.0,1.0,3.0,2.0,230.77,,15.38,30.77
+ded9240e,PJ Cummins,Left-arm pace,15,18.0,1.0,1.0,1.0,5.0,120.0,18.0,33.33,13.33
+ded9240e,PJ Cummins,Left-arm wrist spin,5,1.0,1.0,0.0,0.0,4.0,20.0,1.0,80.0,0.0
+ded9240e,PJ Cummins,Right-arm leg-spin,7,16.0,0.0,0.0,2.0,1.0,228.57,,14.29,28.57
+ded9240e,PJ Cummins,Right-arm off-spin,29,29.0,1.0,2.0,1.0,10.0,100.0,29.0,34.48,10.34
 ded9240e,PJ Cummins,Right-arm pace,83,139.0,8.0,11.0,8.0,28.0,167.47,17.38,33.73,22.89
+bb965e9a,PK Garg,Left-arm orthodox,5,9.0,0.0,1.0,0.0,0.0,180.0,,0.0,20.0
+bb965e9a,PK Garg,Left-arm pace,4,5.0,0.0,0.0,0.0,1.0,125.0,,25.0,0.0
+bb965e9a,PK Garg,Right-arm leg-spin,2,1.0,1.0,0.0,0.0,1.0,50.0,1.0,50.0,0.0
+bb965e9a,PK Garg,Right-arm pace,9,5.0,2.0,0.0,0.0,6.0,55.56,2.5,66.67,0.0
+663b5e34,PN Mankad,Left-arm orthodox,4,6.0,0.0,1.0,0.0,1.0,150.0,,25.0,25.0
+663b5e34,PN Mankad,Left-arm pace,28,36.0,2.0,4.0,1.0,11.0,128.57,18.0,39.29,17.86
+663b5e34,PN Mankad,Right-arm leg-spin,8,16.0,0.0,1.0,1.0,1.0,200.0,,12.5,25.0
+663b5e34,PN Mankad,Right-arm off-spin,5,10.0,0.0,2.0,0.0,1.0,200.0,,20.0,40.0
+663b5e34,PN Mankad,Right-arm pace,19,18.0,1.0,3.0,0.0,11.0,94.74,18.0,57.89,15.79
+98ae73b1,PP Chawla,Left-arm pace,2,1.0,1.0,0.0,0.0,1.0,50.0,1.0,50.0,0.0
+98ae73b1,PP Chawla,Right-arm leg-spin,3,1.0,0.0,0.0,0.0,1.0,33.33,,33.33,0.0
+98ae73b1,PP Chawla,Right-arm off-spin,3,2.0,0.0,0.0,0.0,1.0,66.67,,33.33,0.0
+98ae73b1,PP Chawla,Right-arm pace,26,34.0,5.0,2.0,2.0,10.0,130.77,6.8,38.46,15.38
+8b3e9c7c,PP Shaw,Left-arm orthodox,11,20.0,2.0,1.0,2.0,4.0,181.82,10.0,36.36,27.27
 8b3e9c7c,PP Shaw,Left-arm pace,56,92.0,4.0,16.0,1.0,18.0,164.29,23.0,32.14,30.36
+8b3e9c7c,PP Shaw,Right-arm leg-spin,19,37.0,1.0,6.0,1.0,6.0,194.74,37.0,31.58,36.84
+8b3e9c7c,PP Shaw,Right-arm off-spin,21,39.0,2.0,6.0,1.0,6.0,185.71,19.5,28.57,33.33
 8b3e9c7c,PP Shaw,Right-arm pace,98,116.0,7.0,17.0,1.0,43.0,118.37,16.57,43.88,18.37
+327b58d3,PVD Chameera,Left-arm orthodox,3,3.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+327b58d3,PVD Chameera,Left-arm pace,4,2.0,0.0,0.0,0.0,2.0,50.0,,50.0,0.0
+327b58d3,PVD Chameera,Right-arm off-spin,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+327b58d3,PVD Chameera,Right-arm pace,6,4.0,0.0,0.0,0.0,1.0,66.67,,16.67,0.0
+c27b5a0e,PVSN Raju,Right-arm pace,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+c96f6ac5,PWA Mulder,Left-arm orthodox,2,0.0,0.0,0.0,0.0,2.0,0.0,,100.0,0.0
+c96f6ac5,PWA Mulder,Left-arm pace,2,1.0,1.0,0.0,0.0,1.0,50.0,1.0,50.0,0.0
+c96f6ac5,PWA Mulder,Left-arm wrist spin,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+c96f6ac5,PWA Mulder,Right-arm leg-spin,2,2.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+c96f6ac5,PWA Mulder,Right-arm pace,3,5.0,0.0,1.0,0.0,1.0,166.67,,33.33,33.33
+a97c8ec2,PWH de Silva,Left-arm orthodox,1,0.0,1.0,0.0,0.0,1.0,0.0,0.0,100.0,0.0
+a97c8ec2,PWH de Silva,Left-arm pace,2,1.0,2.0,0.0,0.0,1.0,50.0,0.5,50.0,0.0
+a97c8ec2,PWH de Silva,Left-arm wrist spin,4,4.0,0.0,0.0,0.0,1.0,100.0,,25.0,0.0
+a97c8ec2,PWH de Silva,Right-arm leg-spin,4,5.0,0.0,0.0,0.0,0.0,125.0,,0.0,0.0
+a97c8ec2,PWH de Silva,Right-arm off-spin,9,9.0,2.0,0.0,0.0,3.0,100.0,4.5,33.33,0.0
+a97c8ec2,PWH de Silva,Right-arm pace,23,23.0,3.0,3.0,0.0,10.0,100.0,7.67,43.48,13.04
+80b2fb19,Prince Yadav,Left-arm pace,4,2.0,0.0,0.0,0.0,2.0,50.0,,50.0,0.0
+80b2fb19,Prince Yadav,Right-arm leg-spin,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+80b2fb19,Prince Yadav,Right-arm pace,5,2.0,0.0,0.0,0.0,3.0,40.0,,60.0,0.0
+b5797845,Priyansh Arya,Left-arm orthodox,17,27.0,1.0,1.0,2.0,4.0,158.82,27.0,23.53,17.65
 b5797845,Priyansh Arya,Left-arm pace,82,159.0,4.0,25.0,4.0,23.0,193.9,39.75,28.05,35.37
+b5797845,Priyansh Arya,Left-arm wrist spin,13,27.0,1.0,2.0,2.0,3.0,207.69,27.0,23.08,30.77
+b5797845,Priyansh Arya,Right-arm leg-spin,7,10.0,2.0,2.0,0.0,3.0,142.86,5.0,42.86,28.57
+b5797845,Priyansh Arya,Right-arm off-spin,25,47.0,0.0,1.0,5.0,7.0,188.0,,28.0,24.0
 b5797845,Priyansh Arya,Right-arm pace,153,274.0,10.0,29.0,18.0,61.0,179.08,27.4,39.87,30.72
+372455c4,Q de Kock,Left-arm orthodox,20,34.0,0.0,3.0,1.0,2.0,170.0,,10.0,20.0
 372455c4,Q de Kock,Left-arm pace,86,95.0,6.0,11.0,2.0,39.0,110.47,15.83,45.35,15.12
+372455c4,Q de Kock,Left-arm wrist spin,6,11.0,0.0,2.0,0.0,1.0,183.33,,16.67,33.33
 372455c4,Q de Kock,Right-arm leg-spin,50,81.0,3.0,6.0,4.0,10.0,162.0,27.0,20.0,20.0
+372455c4,Q de Kock,Right-arm off-spin,39,31.0,1.0,1.0,1.0,16.0,79.49,31.0,41.03,5.13
 372455c4,Q de Kock,Right-arm pace,199,290.0,12.0,25.0,20.0,84.0,145.73,24.17,42.21,22.61
+495d42a5,R Ashwin,Left-arm orthodox,23,15.0,2.0,1.0,0.0,12.0,65.22,7.5,52.17,4.35
+495d42a5,R Ashwin,Left-arm pace,17,12.0,2.0,1.0,0.0,7.0,70.59,6.0,41.18,5.88
+495d42a5,R Ashwin,Left-arm wrist spin,10,13.0,1.0,0.0,1.0,2.0,130.0,13.0,20.0,10.0
+495d42a5,R Ashwin,Right-arm leg-spin,27,27.0,3.0,2.0,1.0,12.0,100.0,9.0,44.44,11.11
+495d42a5,R Ashwin,Right-arm off-spin,17,17.0,1.0,2.0,0.0,8.0,100.0,17.0,47.06,11.76
 495d42a5,R Ashwin,Right-arm pace,55,95.0,6.0,7.0,6.0,11.0,172.73,15.83,20.0,23.64
+26a85969,R Dhawan,Left-arm pace,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+26a85969,R Dhawan,Right-arm off-spin,11,19.0,1.0,1.0,1.0,3.0,172.73,19.0,27.27,18.18
+bafd0398,R Minz,Left-arm orthodox,3,1.0,1.0,0.0,0.0,2.0,33.33,1.0,66.67,0.0
+bafd0398,R Minz,Left-arm wrist spin,5,2.0,1.0,0.0,0.0,3.0,40.0,2.0,60.0,0.0
+bafd0398,R Minz,Right-arm off-spin,4,1.0,0.0,0.0,0.0,3.0,25.0,,75.0,0.0
+bafd0398,R Minz,Right-arm pace,3,2.0,0.0,0.0,0.0,2.0,66.67,,66.67,0.0
 04a418e8,R Parag,Left-arm orthodox,82,110.0,3.0,9.0,4.0,24.0,134.15,36.67,29.27,15.85
 04a418e8,R Parag,Left-arm pace,99,163.0,5.0,18.0,8.0,33.0,164.65,32.6,33.33,26.26
 04a418e8,R Parag,Left-arm wrist spin,57,83.0,1.0,3.0,7.0,21.0,145.61,83.0,36.84,17.54
 04a418e8,R Parag,Right-arm leg-spin,98,115.0,3.0,5.0,5.0,30.0,117.35,38.33,30.61,10.2
 04a418e8,R Parag,Right-arm off-spin,50,96.0,1.0,2.0,9.0,10.0,192.0,96.0,20.0,22.0
 04a418e8,R Parag,Right-arm pace,294,476.0,16.0,34.0,32.0,95.0,161.9,29.75,32.31,22.45
+650d5e49,R Powell,Left-arm orthodox,8,4.0,0.0,0.0,0.0,4.0,50.0,,50.0,0.0
+650d5e49,R Powell,Left-arm pace,14,22.0,3.0,5.0,0.0,8.0,157.14,7.33,57.14,35.71
+650d5e49,R Powell,Left-arm wrist spin,2,2.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+650d5e49,R Powell,Right-arm leg-spin,10,6.0,3.0,1.0,0.0,8.0,60.0,2.0,80.0,10.0
+650d5e49,R Powell,Right-arm off-spin,11,18.0,2.0,1.0,2.0,6.0,163.64,9.0,54.55,27.27
+650d5e49,R Powell,Right-arm pace,37,63.0,2.0,5.0,4.0,12.0,170.27,31.5,32.43,24.32
+ba5e1069,R Ravindra,Left-arm orthodox,21,35.0,1.0,1.0,3.0,5.0,166.67,35.0,23.81,19.05
 ba5e1069,R Ravindra,Left-arm pace,70,90.0,4.0,12.0,1.0,27.0,128.57,22.5,38.57,18.57
+ba5e1069,R Ravindra,Left-arm wrist spin,10,24.0,0.0,0.0,3.0,2.0,240.0,,20.0,30.0
+ba5e1069,R Ravindra,Right-arm leg-spin,27,38.0,2.0,4.0,1.0,7.0,140.74,19.0,25.93,18.52
+ba5e1069,R Ravindra,Right-arm off-spin,45,44.0,4.0,1.0,0.0,9.0,97.78,11.0,20.0,2.22
 ba5e1069,R Ravindra,Right-arm pace,109,180.0,5.0,22.0,8.0,42.0,165.14,36.0,38.53,27.52
+c7a995d3,R Sai Kishore,Left-arm wrist spin,5,2.0,0.0,0.0,0.0,3.0,40.0,,60.0,0.0
+c7a995d3,R Sai Kishore,Right-arm pace,8,14.0,2.0,0.0,2.0,3.0,175.0,7.0,37.5,25.0
+c5aef772,R Shepherd,Left-arm pace,2,1.0,1.0,0.0,0.0,1.0,50.0,1.0,50.0,0.0
+c5aef772,R Shepherd,Right-arm leg-spin,6,14.0,1.0,2.0,1.0,3.0,233.33,14.0,50.0,50.0
+c5aef772,R Shepherd,Right-arm pace,37,112.0,3.0,8.0,11.0,6.0,302.7,37.33,16.22,51.35
+39a2dfa8,R Tewatia,Left-arm orthodox,21,39.0,1.0,6.0,1.0,7.0,185.71,39.0,33.33,33.33
+39a2dfa8,R Tewatia,Left-arm pace,35,72.0,4.0,8.0,4.0,9.0,205.71,18.0,25.71,34.29
+39a2dfa8,R Tewatia,Left-arm wrist spin,13,7.0,2.0,0.0,0.0,6.0,53.85,3.5,46.15,0.0
+39a2dfa8,R Tewatia,Right-arm leg-spin,10,12.0,1.0,1.0,0.0,2.0,120.0,12.0,20.0,10.0
+39a2dfa8,R Tewatia,Right-arm off-spin,8,15.0,1.0,2.0,0.0,1.0,187.5,15.0,12.5,25.0
 39a2dfa8,R Tewatia,Right-arm pace,146,211.0,9.0,14.0,13.0,46.0,144.52,23.44,31.51,18.49
+ba6b2f91,RA Bawa,Left-arm pace,2,3.0,0.0,0.0,0.0,0.0,150.0,,0.0,0.0
+ba6b2f91,RA Bawa,Right-arm pace,2,5.0,0.0,0.0,0.0,0.0,250.0,,0.0,0.0
+fe93fd9d,RA Jadeja,Left-arm orthodox,14,17.0,1.0,3.0,0.0,6.0,121.43,17.0,42.86,21.43
 fe93fd9d,RA Jadeja,Left-arm pace,89,147.0,5.0,10.0,8.0,21.0,165.17,29.4,23.6,20.22
+fe93fd9d,RA Jadeja,Left-arm wrist spin,13,15.0,1.0,0.0,1.0,5.0,115.38,15.0,38.46,7.69
 fe93fd9d,RA Jadeja,Right-arm leg-spin,98,127.0,3.0,7.0,5.0,26.0,129.59,42.33,26.53,12.24
 fe93fd9d,RA Jadeja,Right-arm off-spin,53,50.0,5.0,1.0,2.0,20.0,94.34,10.0,37.74,5.66
 fe93fd9d,RA Jadeja,Right-arm pace,274,402.0,8.0,37.0,11.0,56.0,146.72,50.25,20.44,17.52
+77255a9e,RA Tripathi,Left-arm orthodox,28,34.0,1.0,5.0,0.0,10.0,121.43,34.0,35.71,17.86
 77255a9e,RA Tripathi,Left-arm pace,82,114.0,4.0,14.0,4.0,32.0,139.02,28.5,39.02,21.95
+77255a9e,RA Tripathi,Left-arm wrist spin,5,4.0,0.0,0.0,0.0,1.0,80.0,,20.0,0.0
 77255a9e,RA Tripathi,Right-arm leg-spin,62,85.0,3.0,8.0,4.0,22.0,137.1,28.33,35.48,19.35
 77255a9e,RA Tripathi,Right-arm off-spin,82,99.0,3.0,8.0,2.0,22.0,120.73,33.0,26.83,12.2
 77255a9e,RA Tripathi,Right-arm pace,115,136.0,11.0,16.0,5.0,55.0,118.26,12.36,47.83,18.26
+2ed569a0,RD Chahar,Right-arm leg-spin,4,0.0,1.0,0.0,0.0,4.0,0.0,0.0,100.0,0.0
+2ed569a0,RD Chahar,Right-arm pace,20,21.0,2.0,3.0,1.0,13.0,105.0,10.5,65.0,20.0
 45a43fe2,RD Gaikwad,Left-arm orthodox,65,111.0,2.0,12.0,5.0,19.0,170.77,55.5,29.23,26.15
 45a43fe2,RD Gaikwad,Left-arm pace,187,284.0,5.0,29.0,12.0,64.0,151.87,56.8,34.22,21.93
+45a43fe2,RD Gaikwad,Left-arm wrist spin,27,45.0,2.0,2.0,3.0,5.0,166.67,22.5,18.52,18.52
 45a43fe2,RD Gaikwad,Right-arm leg-spin,127,173.0,6.0,14.0,5.0,33.0,136.22,28.83,25.98,14.96
 45a43fe2,RD Gaikwad,Right-arm off-spin,85,121.0,3.0,6.0,6.0,23.0,142.35,40.33,27.06,14.12
 45a43fe2,RD Gaikwad,Right-arm pace,396,551.0,11.0,53.0,21.0,140.0,139.14,50.09,35.35,18.69
+e66732f8,RD Rickelton,Left-arm orthodox,10,16.0,1.0,2.0,1.0,5.0,160.0,16.0,50.0,30.0
+e66732f8,RD Rickelton,Left-arm pace,36,58.0,2.0,10.0,1.0,15.0,161.11,29.0,41.67,30.56
+e66732f8,RD Rickelton,Left-arm wrist spin,5,4.0,2.0,0.0,0.0,2.0,80.0,2.0,40.0,0.0
+e66732f8,RD Rickelton,Right-arm leg-spin,38,64.0,1.0,5.0,5.0,14.0,168.42,64.0,36.84,26.32
+e66732f8,RD Rickelton,Right-arm off-spin,35,43.0,1.0,3.0,3.0,15.0,122.86,43.0,42.86,17.14
 e66732f8,RD Rickelton,Right-arm pace,127,195.0,6.0,27.0,6.0,51.0,153.54,32.5,40.16,25.98
 740742ef,RG Sharma,Left-arm orthodox,85,114.0,4.0,12.0,4.0,28.0,134.12,28.5,32.94,18.82
 740742ef,RG Sharma,Left-arm pace,155,220.0,10.0,24.0,13.0,76.0,141.94,22.0,49.03,23.87
+740742ef,RG Sharma,Left-arm wrist spin,13,18.0,0.0,2.0,0.0,2.0,138.46,,15.38,15.38
 740742ef,RG Sharma,Right-arm leg-spin,75,112.0,8.0,13.0,5.0,29.0,149.33,14.0,38.67,24.0
 740742ef,RG Sharma,Right-arm off-spin,67,97.0,3.0,13.0,2.0,20.0,144.78,32.33,29.85,22.39
 740742ef,RG Sharma,Right-arm pace,394,575.0,18.0,56.0,35.0,173.0,145.94,31.94,43.91,23.1
+402f8494,RJ Gleeson,Left-arm pace,2,2.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+8db7f47f,RJW Topley,Right-arm leg-spin,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+8db7f47f,RJW Topley,Right-arm pace,4,2.0,0.0,0.0,0.0,2.0,50.0,,50.0,0.0
+b63e358a,RK Bhui,Left-arm orthodox,2,0.0,1.0,0.0,0.0,2.0,0.0,0.0,100.0,0.0
+b63e358a,RK Bhui,Left-arm pace,2,0.0,1.0,0.0,0.0,2.0,0.0,0.0,100.0,0.0
+b63e358a,RK Bhui,Right-arm leg-spin,3,2.0,0.0,0.0,0.0,1.0,66.67,,33.33,0.0
+b63e358a,RK Bhui,Right-arm pace,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
 0a509d6b,RK Singh,Left-arm orthodox,67,89.0,1.0,1.0,6.0,19.0,132.84,89.0,28.36,10.45
 0a509d6b,RK Singh,Left-arm pace,54,111.0,3.0,8.0,9.0,16.0,205.56,37.0,29.63,31.48
+0a509d6b,RK Singh,Left-arm wrist spin,38,49.0,2.0,6.0,2.0,18.0,128.95,24.5,47.37,21.05
 0a509d6b,RK Singh,Right-arm leg-spin,69,93.0,5.0,7.0,4.0,21.0,134.78,18.6,30.43,15.94
 0a509d6b,RK Singh,Right-arm off-spin,68,68.0,1.0,4.0,1.0,19.0,100.0,68.0,27.94,7.35
 0a509d6b,RK Singh,Right-arm pace,256,431.0,11.0,37.0,25.0,83.0,168.36,39.18,32.42,24.22
 c740ea83,RM Patidar,Left-arm orthodox,51,77.0,2.0,3.0,6.0,14.0,150.98,38.5,27.45,17.65
+c740ea83,RM Patidar,Left-arm pace,44,63.0,6.0,5.0,2.0,10.0,143.18,10.5,22.73,15.91
+c740ea83,RM Patidar,Left-arm wrist spin,32,36.0,1.0,1.0,2.0,10.0,112.5,36.0,31.25,9.38
 c740ea83,RM Patidar,Right-arm leg-spin,72,162.0,3.0,6.0,17.0,17.0,225.0,54.0,23.61,31.94
+c740ea83,RM Patidar,Right-arm off-spin,33,49.0,0.0,1.0,4.0,9.0,148.48,,27.27,15.15
 c740ea83,RM Patidar,Right-arm pace,198,298.0,14.0,29.0,14.0,65.0,150.51,21.29,32.83,21.72
+64775749,RP Meredith,Right-arm pace,2,0.0,0.0,0.0,0.0,2.0,0.0,,100.0,0.0
+919a3be2,RR Pant,Left-arm orthodox,19,25.0,0.0,2.0,1.0,6.0,131.58,,31.58,15.79
 919a3be2,RR Pant,Left-arm pace,64,99.0,0.0,9.0,6.0,27.0,154.69,,42.19,23.44
+919a3be2,RR Pant,Left-arm wrist spin,37,28.0,1.0,2.0,1.0,21.0,75.68,28.0,56.76,8.11
 919a3be2,RR Pant,Right-arm leg-spin,78,116.0,4.0,11.0,5.0,23.0,148.72,29.0,29.49,20.51
 919a3be2,RR Pant,Right-arm off-spin,52,51.0,4.0,3.0,1.0,18.0,98.08,12.75,34.62,7.69
 919a3be2,RR Pant,Right-arm pace,224,357.0,13.0,28.0,24.0,81.0,159.38,27.46,36.16,23.21
+cad00a4d,RR Rossouw,Left-arm orthodox,38,66.0,3.0,6.0,3.0,9.0,173.68,22.0,23.68,23.68
+cad00a4d,RR Rossouw,Left-arm pace,33,57.0,0.0,9.0,2.0,14.0,172.73,,42.42,33.33
+cad00a4d,RR Rossouw,Left-arm wrist spin,4,5.0,1.0,1.0,0.0,2.0,125.0,5.0,50.0,25.0
+cad00a4d,RR Rossouw,Right-arm leg-spin,28,40.0,1.0,4.0,2.0,11.0,142.86,40.0,39.29,21.43
 cad00a4d,RR Rossouw,Right-arm off-spin,51,42.0,2.0,0.0,2.0,21.0,82.35,21.0,41.18,3.92
 cad00a4d,RR Rossouw,Right-arm pace,97,197.0,8.0,21.0,12.0,32.0,203.09,24.63,32.99,34.02
+60500956,RV Patel,Left-arm orthodox,4,2.0,0.0,0.0,0.0,2.0,50.0,,50.0,0.0
+60500956,RV Patel,Left-arm pace,10,17.0,0.0,2.0,0.0,0.0,170.0,,0.0,20.0
+60500956,RV Patel,Left-arm wrist spin,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+60500956,RV Patel,Right-arm leg-spin,2,7.0,0.0,0.0,1.0,0.0,350.0,,0.0,50.0
+60500956,RV Patel,Right-arm off-spin,4,2.0,0.0,0.0,0.0,1.0,50.0,,25.0,0.0
+60500956,RV Patel,Right-arm pace,21,20.0,3.0,1.0,0.0,5.0,95.24,6.67,23.81,4.76
+0bacade8,Rahmanullah Gurbaz,Left-arm orthodox,20,27.0,2.0,1.0,3.0,11.0,135.0,13.5,55.0,20.0
 0bacade8,Rahmanullah Gurbaz,Left-arm pace,74,96.0,4.0,12.0,4.0,38.0,129.73,24.0,51.35,21.62
+0bacade8,Rahmanullah Gurbaz,Left-arm wrist spin,5,9.0,1.0,0.0,1.0,1.0,180.0,9.0,20.0,20.0
+0bacade8,Rahmanullah Gurbaz,Right-arm leg-spin,24,46.0,1.0,5.0,2.0,4.0,191.67,46.0,16.67,29.17
+0bacade8,Rahmanullah Gurbaz,Right-arm off-spin,13,27.0,1.0,1.0,2.0,1.0,207.69,27.0,7.69,23.08
 0bacade8,Rahmanullah Gurbaz,Right-arm pace,130,157.0,8.0,15.0,10.0,69.0,120.77,19.63,53.08,19.23
+be24ead0,Ramandeep Singh,Left-arm orthodox,13,19.0,1.0,0.0,2.0,6.0,146.15,19.0,46.15,15.38
+be24ead0,Ramandeep Singh,Left-arm pace,12,23.0,0.0,1.0,2.0,3.0,191.67,,25.0,25.0
+be24ead0,Ramandeep Singh,Left-arm wrist spin,4,7.0,0.0,1.0,0.0,0.0,175.0,,0.0,25.0
+be24ead0,Ramandeep Singh,Right-arm leg-spin,14,14.0,2.0,0.0,1.0,6.0,100.0,7.0,42.86,7.14
+be24ead0,Ramandeep Singh,Right-arm off-spin,7,19.0,2.0,0.0,3.0,3.0,271.43,9.5,42.86,42.86
+be24ead0,Ramandeep Singh,Right-arm pace,44,88.0,4.0,4.0,8.0,10.0,200.0,22.0,22.73,27.27
+5f547c8b,Rashid Khan,Left-arm orthodox,12,13.0,0.0,1.0,0.0,4.0,108.33,,33.33,8.33
+5f547c8b,Rashid Khan,Left-arm pace,12,13.0,4.0,1.0,1.0,8.0,108.33,3.25,66.67,16.67
+5f547c8b,Rashid Khan,Left-arm wrist spin,11,17.0,1.0,0.0,2.0,4.0,154.55,17.0,36.36,18.18
+5f547c8b,Rashid Khan,Right-arm leg-spin,13,32.0,0.0,0.0,5.0,7.0,246.15,,53.85,38.46
+5f547c8b,Rashid Khan,Right-arm off-spin,2,3.0,0.0,0.0,0.0,0.0,150.0,,0.0,0.0
 5f547c8b,Rashid Khan,Right-arm pace,100,180.0,8.0,18.0,10.0,33.0,180.0,22.5,33.0,28.0
+b8527c3d,Rasikh Salam,Left-arm orthodox,3,1.0,0.0,0.0,0.0,2.0,33.33,,66.67,0.0
+b8527c3d,Rasikh Salam,Left-arm pace,7,10.0,1.0,2.0,0.0,3.0,142.86,10.0,42.86,28.57
+b8527c3d,Rasikh Salam,Right-arm off-spin,8,4.0,0.0,0.0,0.0,4.0,50.0,,50.0,0.0
+b8527c3d,Rasikh Salam,Right-arm pace,12,13.0,3.0,2.0,0.0,4.0,108.33,4.33,33.33,16.67
+df064e1a,Ravi Bishnoi,Left-arm orthodox,5,2.0,1.0,0.0,0.0,3.0,40.0,2.0,60.0,0.0
+df064e1a,Ravi Bishnoi,Left-arm pace,7,5.0,2.0,0.0,0.0,4.0,71.43,2.5,57.14,0.0
+df064e1a,Ravi Bishnoi,Right-arm leg-spin,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+df064e1a,Ravi Bishnoi,Right-arm off-spin,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+df064e1a,Ravi Bishnoi,Right-arm pace,35,28.0,4.0,1.0,2.0,21.0,80.0,7.0,60.0,8.57
+0a476045,S Dhawan,Left-arm orthodox,18,34.0,0.0,4.0,2.0,6.0,188.89,,33.33,33.33
 0a476045,S Dhawan,Left-arm pace,74,90.0,2.0,11.0,4.0,39.0,121.62,45.0,52.7,20.27
 0a476045,S Dhawan,Right-arm leg-spin,52,76.0,2.0,10.0,2.0,18.0,146.15,38.0,34.62,23.08
 0a476045,S Dhawan,Right-arm off-spin,58,63.0,4.0,7.0,1.0,23.0,108.62,15.75,39.66,13.79
 0a476045,S Dhawan,Right-arm pace,177,262.0,7.0,35.0,7.0,64.0,148.02,37.43,36.16,23.73
+a4e37e47,S Dube,Left-arm orthodox,26,54.0,1.0,2.0,6.0,8.0,207.69,54.0,30.77,30.77
 a4e37e47,S Dube,Left-arm pace,107,203.0,8.0,11.0,17.0,31.0,189.72,25.38,28.97,26.17
+a4e37e47,S Dube,Left-arm wrist spin,12,8.0,2.0,0.0,0.0,4.0,66.67,4.0,33.33,0.0
 a4e37e47,S Dube,Right-arm leg-spin,115,175.0,7.0,5.0,16.0,37.0,152.17,25.0,32.17,18.26
 a4e37e47,S Dube,Right-arm off-spin,129,179.0,2.0,4.0,15.0,44.0,138.76,89.5,34.11,14.73
 a4e37e47,S Dube,Right-arm pace,375,531.0,12.0,40.0,27.0,116.0,141.6,44.25,30.93,17.87
@@ -232,66 +881,265 @@ a4e37e47,S Dube,Right-arm pace,375,531.0,12.0,40.0,27.0,116.0,141.6,44.25,30.93,
 271f83cd,SA Yadav,Right-arm leg-spin,195,335.0,1.0,38.0,13.0,48.0,171.79,335.0,24.62,26.15
 271f83cd,SA Yadav,Right-arm off-spin,83,111.0,1.0,13.0,2.0,25.0,133.73,111.0,30.12,18.07
 271f83cd,SA Yadav,Right-arm pace,405,766.0,20.0,74.0,49.0,140.0,189.14,38.3,34.57,30.37
+6b2ff18f,SB Dubey,Left-arm pace,14,26.0,3.0,2.0,2.0,5.0,185.71,8.67,35.71,28.57
+6b2ff18f,SB Dubey,Left-arm wrist spin,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+6b2ff18f,SB Dubey,Right-arm leg-spin,8,13.0,1.0,1.0,1.0,3.0,162.5,13.0,37.5,25.0
+6b2ff18f,SB Dubey,Right-arm off-spin,10,6.0,0.0,0.0,0.0,4.0,60.0,,40.0,0.0
 6b2ff18f,SB Dubey,Right-arm pace,50,93.0,3.0,6.0,7.0,13.0,186.0,31.0,26.0,26.0
+1fc6ef83,SD Hope,Left-arm orthodox,10,8.0,0.0,0.0,0.0,2.0,80.0,,20.0,0.0
+1fc6ef83,SD Hope,Left-arm pace,30,33.0,2.0,5.0,1.0,18.0,110.0,16.5,60.0,20.0
+1fc6ef83,SD Hope,Right-arm leg-spin,25,42.0,2.0,3.0,3.0,8.0,168.0,21.0,32.0,24.0
+1fc6ef83,SD Hope,Right-arm off-spin,7,17.0,0.0,0.0,2.0,0.0,242.86,,0.0,28.57
+1fc6ef83,SD Hope,Right-arm pace,45,68.0,3.0,4.0,4.0,16.0,151.11,22.67,35.56,17.78
+d014d5ac,SE Rutherford,Left-arm orthodox,14,33.0,0.0,5.0,1.0,3.0,235.71,,21.43,42.86
+d014d5ac,SE Rutherford,Left-arm pace,27,44.0,4.0,2.0,3.0,6.0,162.96,11.0,22.22,18.52
+d014d5ac,SE Rutherford,Left-arm wrist spin,11,17.0,0.0,1.0,1.0,2.0,154.55,,18.18,18.18
+d014d5ac,SE Rutherford,Right-arm leg-spin,20,10.0,0.0,0.0,0.0,9.0,50.0,,45.0,0.0
+d014d5ac,SE Rutherford,Right-arm off-spin,8,21.0,0.0,2.0,2.0,3.0,262.5,,37.5,50.0
 d014d5ac,SE Rutherford,Right-arm pace,101,158.0,7.0,12.0,10.0,34.0,156.44,22.57,33.66,21.78
+83c3e8e3,SH Johnson,Left-arm pace,4,4.0,0.0,1.0,0.0,2.0,100.0,,50.0,25.0
+83c3e8e3,SH Johnson,Left-arm wrist spin,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+83c3e8e3,SH Johnson,Right-arm pace,5,3.0,0.0,0.0,0.0,2.0,60.0,,40.0,0.0
+cbf58a86,SK Rasheed,Left-arm orthodox,6,4.0,1.0,0.0,0.0,2.0,66.67,4.0,33.33,0.0
+cbf58a86,SK Rasheed,Left-arm pace,18,23.0,1.0,2.0,2.0,11.0,127.78,23.0,61.11,22.22
+cbf58a86,SK Rasheed,Right-arm leg-spin,5,5.0,0.0,1.0,0.0,3.0,100.0,,60.0,20.0
+cbf58a86,SK Rasheed,Right-arm pace,34,39.0,3.0,6.0,0.0,17.0,114.71,13.0,50.0,17.65
+e94915e6,SM Curran,Left-arm orthodox,47,66.0,1.0,1.0,3.0,9.0,140.43,66.0,19.15,8.51
 e94915e6,SM Curran,Left-arm pace,53,73.0,4.0,7.0,4.0,22.0,137.74,18.25,41.51,20.75
+e94915e6,SM Curran,Left-arm wrist spin,26,21.0,0.0,1.0,0.0,7.0,80.77,,26.92,3.85
 e94915e6,SM Curran,Right-arm leg-spin,85,113.0,6.0,11.0,3.0,26.0,132.94,18.83,30.59,16.47
 e94915e6,SM Curran,Right-arm off-spin,57,57.0,1.0,3.0,2.0,22.0,100.0,57.0,38.6,8.77
 e94915e6,SM Curran,Right-arm pace,214,288.0,13.0,28.0,9.0,71.0,134.58,22.15,33.18,17.29
+f088b960,SN Khan,Left-arm orthodox,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+f088b960,SN Khan,Left-arm pace,16,21.0,1.0,1.0,1.0,5.0,131.25,21.0,31.25,12.5
+f088b960,SN Khan,Right-arm leg-spin,13,11.0,1.0,1.0,0.0,5.0,84.62,11.0,38.46,7.69
+f088b960,SN Khan,Right-arm off-spin,1,0.0,1.0,0.0,0.0,1.0,0.0,0.0,100.0,0.0
+f088b960,SN Khan,Right-arm pace,27,18.0,1.0,2.0,0.0,15.0,66.67,18.0,55.56,7.41
+1abb78f8,SN Thakur,Left-arm orthodox,11,16.0,1.0,2.0,0.0,3.0,145.45,16.0,27.27,18.18
+1abb78f8,SN Thakur,Left-arm pace,21,39.0,1.0,4.0,2.0,5.0,185.71,39.0,23.81,28.57
+1abb78f8,SN Thakur,Left-arm wrist spin,2,0.0,1.0,0.0,0.0,2.0,0.0,0.0,100.0,0.0
+1abb78f8,SN Thakur,Right-arm leg-spin,14,12.0,2.0,1.0,0.0,5.0,85.71,6.0,35.71,7.14
+1abb78f8,SN Thakur,Right-arm off-spin,4,14.0,0.0,0.0,2.0,0.0,350.0,,0.0,50.0
+1abb78f8,SN Thakur,Right-arm pace,44,65.0,7.0,10.0,1.0,17.0,147.73,9.29,38.64,25.0
+48a1d7b7,SO Hetmyer,Left-arm orthodox,26,45.0,2.0,2.0,4.0,9.0,173.08,22.5,34.62,23.08
 48a1d7b7,SO Hetmyer,Left-arm pace,98,162.0,6.0,14.0,8.0,27.0,165.31,27.0,27.55,22.45
+48a1d7b7,SO Hetmyer,Left-arm wrist spin,16,17.0,0.0,0.0,1.0,5.0,106.25,,31.25,6.25
+48a1d7b7,SO Hetmyer,Right-arm leg-spin,44,67.0,2.0,4.0,5.0,15.0,152.27,33.5,34.09,20.45
 48a1d7b7,SO Hetmyer,Right-arm off-spin,53,63.0,3.0,3.0,3.0,19.0,118.87,21.0,35.85,11.32
 48a1d7b7,SO Hetmyer,Right-arm pace,181,281.0,13.0,14.0,19.0,52.0,155.25,21.62,28.73,18.23
+9d430b40,SP Narine,Left-arm orthodox,12,18.0,3.0,1.0,2.0,7.0,150.0,6.0,58.33,25.0
 9d430b40,SP Narine,Left-arm pace,82,109.0,7.0,15.0,5.0,39.0,132.93,15.57,47.56,24.39
+9d430b40,SP Narine,Left-arm wrist spin,2,0.0,2.0,0.0,0.0,2.0,0.0,0.0,100.0,0.0
+9d430b40,SP Narine,Right-arm leg-spin,41,77.0,6.0,5.0,6.0,12.0,187.8,12.83,29.27,26.83
+9d430b40,SP Narine,Right-arm off-spin,38,79.0,0.0,7.0,7.0,16.0,207.89,,42.11,36.84
 9d430b40,SP Narine,Right-arm pace,256,462.0,13.0,48.0,33.0,98.0,180.47,35.54,38.28,31.64
 85ec8e33,SS Iyer,Left-arm orthodox,83,131.0,0.0,11.0,6.0,17.0,157.83,,20.48,20.48
 85ec8e33,SS Iyer,Left-arm pace,95,184.0,3.0,13.0,15.0,30.0,193.68,61.33,31.58,29.47
+85ec8e33,SS Iyer,Left-arm wrist spin,29,45.0,1.0,0.0,4.0,8.0,155.17,45.0,27.59,13.79
 85ec8e33,SS Iyer,Right-arm leg-spin,70,109.0,3.0,7.0,7.0,17.0,155.71,36.33,24.29,20.0
+85ec8e33,SS Iyer,Right-arm off-spin,23,26.0,0.0,1.0,0.0,4.0,113.04,,17.39,4.35
 85ec8e33,SS Iyer,Right-arm pace,259,409.0,14.0,40.0,17.0,70.0,157.92,29.21,27.03,22.01
+9385de2e,SS Prabhudessai,Right-arm leg-spin,7,3.0,2.0,0.0,0.0,4.0,42.86,1.5,57.14,0.0
+9385de2e,SS Prabhudessai,Right-arm off-spin,13,16.0,0.0,2.0,0.0,6.0,123.08,,46.15,15.38
+9385de2e,SS Prabhudessai,Right-arm pace,27,40.0,2.0,2.0,2.0,9.0,148.15,20.0,33.33,14.81
 a4cc73aa,SV Samson,Left-arm orthodox,73,95.0,3.0,5.0,5.0,22.0,130.14,31.67,30.14,13.7
 a4cc73aa,SV Samson,Left-arm pace,131,203.0,5.0,23.0,8.0,45.0,154.96,40.6,34.35,23.66
+a4cc73aa,SV Samson,Left-arm wrist spin,26,35.0,3.0,1.0,2.0,8.0,134.62,11.67,30.77,11.54
 a4cc73aa,SV Samson,Right-arm leg-spin,138,241.0,3.0,13.0,18.0,30.0,174.64,80.33,21.74,22.46
+a4cc73aa,SV Samson,Right-arm off-spin,48,70.0,1.0,2.0,6.0,15.0,145.83,70.0,31.25,16.67
 a4cc73aa,SV Samson,Right-arm pace,346,501.0,17.0,53.0,21.0,123.0,144.8,29.47,35.55,21.39
+9d704f6f,SZ Mulani,Right-arm pace,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+f89d3b11,Sameer Rizvi,Left-arm orthodox,37,34.0,2.0,1.0,2.0,18.0,91.89,17.0,48.65,8.11
+f89d3b11,Sameer Rizvi,Left-arm pace,21,36.0,0.0,3.0,2.0,4.0,171.43,,19.05,23.81
+f89d3b11,Sameer Rizvi,Left-arm wrist spin,3,8.0,0.0,0.0,1.0,0.0,266.67,,0.0,33.33
+f89d3b11,Sameer Rizvi,Right-arm leg-spin,11,19.0,0.0,0.0,2.0,3.0,172.73,,27.27,18.18
 f89d3b11,Sameer Rizvi,Right-arm pace,50,75.0,5.0,11.0,2.0,20.0,150.0,15.0,40.0,26.0
+ce820073,Sandeep Sharma,Left-arm orthodox,2,3.0,0.0,0.0,0.0,0.0,150.0,,0.0,0.0
+ce820073,Sandeep Sharma,Right-arm off-spin,1,0.0,0.0,0.0,0.0,1.0,0.0,,100.0,0.0
+ce820073,Sandeep Sharma,Right-arm pace,8,5.0,0.0,0.0,0.0,3.0,62.5,,37.5,0.0
+b0f2baf4,Sanvir Singh,Left-arm orthodox,3,2.0,0.0,0.0,0.0,1.0,66.67,,33.33,0.0
+b0f2baf4,Sanvir Singh,Right-arm leg-spin,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+b0f2baf4,Sanvir Singh,Right-arm off-spin,1,0.0,1.0,0.0,0.0,1.0,0.0,0.0,100.0,0.0
+b0f2baf4,Sanvir Singh,Right-arm pace,15,18.0,1.0,1.0,1.0,5.0,120.0,18.0,33.33,13.33
+9e7225b0,Saurav Chauhan,Left-arm pace,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+9e7225b0,Saurav Chauhan,Right-arm leg-spin,1,0.0,1.0,0.0,0.0,1.0,0.0,0.0,100.0,0.0
+9e7225b0,Saurav Chauhan,Right-arm off-spin,3,7.0,0.0,0.0,1.0,1.0,233.33,,33.33,33.33
+9e7225b0,Saurav Chauhan,Right-arm pace,10,10.0,2.0,1.0,0.0,4.0,100.0,5.0,40.0,10.0
+3c28853f,Sediqullah Atal,Left-arm orthodox,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+3c28853f,Sediqullah Atal,Left-arm pace,5,8.0,0.0,0.0,1.0,1.0,160.0,,20.0,20.0
+3c28853f,Sediqullah Atal,Right-arm leg-spin,4,2.0,1.0,0.0,0.0,2.0,50.0,2.0,50.0,0.0
+3c28853f,Sediqullah Atal,Right-arm pace,5,11.0,0.0,0.0,1.0,1.0,220.0,,20.0,20.0
+f9e6e7ef,Shahbaz Ahmed,Left-arm orthodox,28,28.0,0.0,0.0,1.0,6.0,100.0,,21.43,3.57
+f9e6e7ef,Shahbaz Ahmed,Left-arm pace,38,57.0,5.0,5.0,2.0,11.0,150.0,11.4,28.95,18.42
+f9e6e7ef,Shahbaz Ahmed,Left-arm wrist spin,5,7.0,0.0,1.0,0.0,1.0,140.0,,20.0,20.0
+f9e6e7ef,Shahbaz Ahmed,Right-arm leg-spin,19,15.0,1.0,0.0,0.0,7.0,78.95,15.0,36.84,0.0
+f9e6e7ef,Shahbaz Ahmed,Right-arm off-spin,36,43.0,3.0,0.0,4.0,13.0,119.44,14.33,36.11,11.11
 f9e6e7ef,Shahbaz Ahmed,Right-arm pace,85,114.0,6.0,5.0,7.0,25.0,134.12,19.0,29.41,14.12
+26989d80,Shashank Singh,Left-arm orthodox,48,66.0,3.0,5.0,3.0,15.0,137.5,22.0,31.25,16.67
+26989d80,Shashank Singh,Left-arm pace,44,55.0,3.0,4.0,2.0,15.0,125.0,18.33,34.09,13.64
+26989d80,Shashank Singh,Left-arm wrist spin,25,41.0,0.0,1.0,4.0,7.0,164.0,,28.0,20.0
 26989d80,Shashank Singh,Right-arm leg-spin,50,83.0,1.0,2.0,7.0,7.0,166.0,83.0,14.0,18.0
+26989d80,Shashank Singh,Right-arm off-spin,43,60.0,0.0,1.0,5.0,14.0,139.53,,32.56,13.95
 26989d80,Shashank Singh,Right-arm pace,225,383.0,7.0,37.0,17.0,52.0,170.22,54.71,23.11,24.0
+e1d9ae9c,Shivam Singh,Left-arm pace,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+e1d9ae9c,Shivam Singh,Right-arm pace,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
 b4b99816,Shubman Gill,Left-arm orthodox,131,176.0,1.0,13.0,7.0,41.0,134.35,176.0,31.3,15.27
 b4b99816,Shubman Gill,Left-arm pace,188,247.0,3.0,24.0,4.0,47.0,131.38,82.33,25.0,14.89
+b4b99816,Shubman Gill,Left-arm wrist spin,13,22.0,0.0,1.0,1.0,1.0,169.23,,7.69,15.38
 b4b99816,Shubman Gill,Right-arm leg-spin,185,281.0,7.0,23.0,9.0,38.0,151.89,40.14,20.54,17.3
 b4b99816,Shubman Gill,Right-arm off-spin,148,258.0,5.0,30.0,6.0,27.0,174.32,51.6,18.24,24.32
 b4b99816,Shubman Gill,Right-arm pace,549,885.0,23.0,87.0,39.0,172.0,161.2,38.48,31.33,22.95
+26d041c4,Sikandar Raza,Left-arm orthodox,4,8.0,0.0,0.0,1.0,1.0,200.0,,25.0,25.0
+26d041c4,Sikandar Raza,Left-arm pace,8,9.0,1.0,0.0,1.0,4.0,112.5,9.0,50.0,12.5
+26d041c4,Sikandar Raza,Left-arm wrist spin,9,11.0,0.0,0.0,0.0,2.0,122.22,,22.22,0.0
+26d041c4,Sikandar Raza,Right-arm leg-spin,17,28.0,1.0,3.0,1.0,5.0,164.71,28.0,29.41,23.53
+26d041c4,Sikandar Raza,Right-arm off-spin,22,23.0,2.0,1.0,1.0,10.0,104.55,11.5,45.45,9.09
 26d041c4,Sikandar Raza,Right-arm pace,76,103.0,3.0,8.0,4.0,28.0,135.53,34.33,36.84,15.79
+30df8c66,Simarjeet Singh,Right-arm off-spin,1,0.0,1.0,0.0,0.0,1.0,0.0,0.0,100.0,0.0
+30df8c66,Simarjeet Singh,Right-arm pace,6,3.0,1.0,0.0,0.0,3.0,50.0,3.0,50.0,0.0
+8998a68f,Sumit Kumar,Left-arm pace,3,0.0,1.0,0.0,0.0,3.0,0.0,0.0,100.0,0.0
+8998a68f,Sumit Kumar,Left-arm wrist spin,6,8.0,0.0,2.0,0.0,3.0,133.33,,50.0,33.33
+8998a68f,Sumit Kumar,Right-arm leg-spin,5,1.0,0.0,0.0,0.0,4.0,20.0,,80.0,0.0
+8998a68f,Sumit Kumar,Right-arm off-spin,6,7.0,1.0,0.0,1.0,3.0,116.67,7.0,50.0,16.67
+8998a68f,Sumit Kumar,Right-arm pace,4,2.0,0.0,0.0,0.0,1.0,50.0,,25.0,0.0
+970ddd24,Suryansh Shedge,Right-arm leg-spin,3,2.0,0.0,0.0,0.0,0.0,66.67,,0.0,0.0
+970ddd24,Suryansh Shedge,Right-arm off-spin,3,3.0,1.0,0.0,0.0,1.0,100.0,3.0,33.33,0.0
+970ddd24,Suryansh Shedge,Right-arm pace,5,2.0,2.0,0.0,0.0,3.0,40.0,1.0,60.0,0.0
+983f2f61,Swapnil Singh,Left-arm pace,5,11.0,1.0,1.0,1.0,2.0,220.0,11.0,40.0,40.0
+983f2f61,Swapnil Singh,Left-arm wrist spin,9,9.0,0.0,2.0,0.0,5.0,100.0,,55.56,22.22
+983f2f61,Swapnil Singh,Right-arm leg-spin,3,7.0,0.0,0.0,1.0,1.0,233.33,,33.33,33.33
+983f2f61,Swapnil Singh,Right-arm pace,8,12.0,1.0,0.0,1.0,1.0,150.0,12.0,12.5,12.5
+f836b33d,T Kohler-Cadmore,Left-arm orthodox,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+f836b33d,T Kohler-Cadmore,Left-arm pace,15,20.0,0.0,3.0,1.0,9.0,133.33,,60.0,26.67
+f836b33d,T Kohler-Cadmore,Right-arm leg-spin,1,0.0,1.0,0.0,0.0,1.0,0.0,0.0,100.0,0.0
+f836b33d,T Kohler-Cadmore,Right-arm pace,36,27.0,2.0,4.0,0.0,21.0,75.0,13.5,58.33,11.11
+85b3fab2,T Stubbs,Left-arm orthodox,45,74.0,2.0,4.0,5.0,11.0,164.44,37.0,24.44,20.0
+85b3fab2,T Stubbs,Left-arm pace,46,86.0,0.0,9.0,5.0,12.0,186.96,,26.09,30.43
 85b3fab2,T Stubbs,Right-arm leg-spin,72,109.0,2.0,3.0,7.0,14.0,151.39,54.5,19.44,13.89
+85b3fab2,T Stubbs,Right-arm off-spin,47,75.0,3.0,3.0,6.0,12.0,159.57,25.0,25.53,19.15
 85b3fab2,T Stubbs,Right-arm pace,201,321.0,8.0,25.0,13.0,39.0,159.7,40.13,19.4,18.91
+a818c1be,TA Boult,Left-arm pace,3,0.0,0.0,0.0,0.0,3.0,0.0,,100.0,0.0
+a818c1be,TA Boult,Left-arm wrist spin,7,13.0,0.0,1.0,1.0,2.0,185.71,,28.57,28.57
+a818c1be,TA Boult,Right-arm leg-spin,3,2.0,0.0,0.0,0.0,1.0,66.67,,33.33,0.0
+a818c1be,TA Boult,Right-arm off-spin,1,0.0,0.0,0.0,0.0,1.0,0.0,,100.0,0.0
+a818c1be,TA Boult,Right-arm pace,19,17.0,3.0,2.0,0.0,9.0,89.47,5.67,47.37,10.53
+f1f99156,TH David,Left-arm orthodox,29,55.0,1.0,1.0,6.0,10.0,189.66,55.0,34.48,24.14
 f1f99156,TH David,Left-arm pace,90,184.0,3.0,16.0,12.0,24.0,204.44,61.33,26.67,31.11
+f1f99156,TH David,Left-arm wrist spin,9,3.0,1.0,0.0,0.0,6.0,33.33,3.0,66.67,0.0
+f1f99156,TH David,Right-arm leg-spin,32,30.0,2.0,2.0,0.0,9.0,93.75,15.0,28.13,6.25
+f1f99156,TH David,Right-arm off-spin,22,28.0,0.0,1.0,2.0,8.0,127.27,,36.36,13.64
 f1f99156,TH David,Right-arm pace,211,357.0,12.0,22.0,24.0,61.0,169.19,29.75,28.91,21.8
+12b610c2,TM Head,Left-arm orthodox,7,6.0,1.0,0.0,0.0,1.0,85.71,6.0,14.29,0.0
 12b610c2,TM Head,Left-arm pace,89,164.0,8.0,21.0,8.0,31.0,184.27,20.5,34.83,32.58
+12b610c2,TM Head,Left-arm wrist spin,11,9.0,2.0,1.0,0.0,5.0,81.82,4.5,45.45,9.09
+12b610c2,TM Head,Right-arm leg-spin,49,90.0,2.0,8.0,6.0,15.0,183.67,45.0,30.61,28.57
 12b610c2,TM Head,Right-arm off-spin,91,150.0,4.0,8.0,13.0,32.0,164.84,37.5,35.16,23.08
 12b610c2,TM Head,Right-arm pace,269,513.0,10.0,76.0,19.0,82.0,190.71,51.3,30.48,35.32
+46a9bea1,TU Deshpande,Left-arm orthodox,3,3.0,1.0,0.0,0.0,1.0,100.0,3.0,33.33,0.0
+46a9bea1,TU Deshpande,Left-arm pace,2,1.0,0.0,0.0,0.0,0.0,50.0,,0.0,0.0
+46a9bea1,TU Deshpande,Right-arm pace,5,3.0,0.0,0.0,0.0,1.0,60.0,,20.0,0.0
+5724e517,Tanush Kotian,Left-arm pace,13,12.0,0.0,2.0,0.0,7.0,92.31,,53.85,15.38
+5724e517,Tanush Kotian,Right-arm leg-spin,7,1.0,1.0,0.0,0.0,6.0,14.29,1.0,85.71,0.0
+5724e517,Tanush Kotian,Right-arm pace,11,11.0,0.0,1.0,0.0,4.0,100.0,,36.36,9.09
 b0482a1d,Tilak Varma,Left-arm orthodox,87,136.0,1.0,7.0,8.0,20.0,156.32,136.0,22.99,17.24
 b0482a1d,Tilak Varma,Left-arm pace,79,127.0,1.0,8.0,9.0,28.0,160.76,127.0,35.44,21.52
+b0482a1d,Tilak Varma,Left-arm wrist spin,45,65.0,1.0,4.0,4.0,15.0,144.44,65.0,33.33,17.78
 b0482a1d,Tilak Varma,Right-arm leg-spin,127,173.0,5.0,13.0,8.0,42.0,136.22,34.6,33.07,16.54
 b0482a1d,Tilak Varma,Right-arm off-spin,71,88.0,1.0,6.0,3.0,23.0,123.94,88.0,32.39,12.68
 b0482a1d,Tilak Varma,Right-arm pace,321,513.0,19.0,46.0,26.0,92.0,159.81,27.0,28.66,22.43
+cc1e8c68,UT Yadav,Left-arm pace,8,4.0,0.0,0.0,0.0,4.0,50.0,,50.0,0.0
+cc1e8c68,UT Yadav,Left-arm wrist spin,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+cc1e8c68,UT Yadav,Right-arm leg-spin,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+cc1e8c68,UT Yadav,Right-arm off-spin,1,0.0,1.0,0.0,0.0,1.0,0.0,0.0,100.0,0.0
+cc1e8c68,UT Yadav,Right-arm pace,21,25.0,2.0,1.0,1.0,8.0,119.05,12.5,38.1,9.52
+81c08fa3,Umran Malik,Left-arm pace,5,12.0,0.0,1.0,1.0,2.0,240.0,,40.0,40.0
+81c08fa3,Umran Malik,Right-arm leg-spin,1,0.0,0.0,0.0,0.0,1.0,0.0,,100.0,0.0
+81c08fa3,Umran Malik,Right-arm pace,1,7.0,0.0,0.0,1.0,0.0,700.0,,0.0,100.0
+cf59b3f0,Urvil Patel,Left-arm orthodox,4,11.0,1.0,1.0,1.0,1.0,275.0,11.0,25.0,50.0
+cf59b3f0,Urvil Patel,Left-arm pace,3,7.0,0.0,0.0,1.0,1.0,233.33,,33.33,33.33
+cf59b3f0,Urvil Patel,Right-arm leg-spin,3,6.0,0.0,1.0,0.0,0.0,200.0,,0.0,33.33
+cf59b3f0,Urvil Patel,Right-arm off-spin,4,17.0,0.0,1.0,2.0,0.0,425.0,,0.0,75.0
+cf59b3f0,Urvil Patel,Right-arm pace,18,27.0,2.0,2.0,2.0,9.0,150.0,13.5,50.0,22.22
 ba607b88,V Kohli,Left-arm orthodox,181,211.0,3.0,17.0,7.0,60.0,116.57,70.33,33.15,13.26
 ba607b88,V Kohli,Left-arm pace,259,425.0,9.0,48.0,15.0,67.0,164.09,47.22,25.87,24.32
 ba607b88,V Kohli,Left-arm wrist spin,76,109.0,2.0,12.0,2.0,18.0,143.42,54.5,23.68,18.42
 ba607b88,V Kohli,Right-arm leg-spin,211,281.0,5.0,14.0,11.0,47.0,133.18,56.2,22.27,11.85
 ba607b88,V Kohli,Right-arm off-spin,119,136.0,3.0,6.0,4.0,30.0,114.29,45.33,25.21,8.4
 ba607b88,V Kohli,Right-arm pace,520,834.0,16.0,95.0,30.0,152.0,160.38,52.13,29.23,24.04
+5ffc0565,V Nigam,Left-arm orthodox,26,48.0,2.0,6.0,2.0,6.0,184.62,24.0,23.08,30.77
+5ffc0565,V Nigam,Left-arm pace,8,8.0,0.0,1.0,0.0,3.0,100.0,,37.5,12.5
+5ffc0565,V Nigam,Right-arm leg-spin,12,26.0,1.0,3.0,2.0,5.0,216.67,26.0,41.67,41.67
+5ffc0565,V Nigam,Right-arm off-spin,8,23.0,0.0,2.0,2.0,1.0,287.5,,12.5,50.0
+5ffc0565,V Nigam,Right-arm pace,24,37.0,2.0,4.0,2.0,9.0,154.17,18.5,37.5,25.0
+0994d0ae,V Shankar,Left-arm orthodox,20,17.0,0.0,1.0,0.0,7.0,85.0,,35.0,5.0
+0994d0ae,V Shankar,Left-arm pace,32,53.0,0.0,9.0,1.0,11.0,165.63,,34.38,31.25
+0994d0ae,V Shankar,Left-arm wrist spin,23,31.0,0.0,3.0,0.0,5.0,134.78,,21.74,13.04
 0994d0ae,V Shankar,Right-arm leg-spin,57,71.0,5.0,6.0,2.0,18.0,124.56,14.2,31.58,14.04
+0994d0ae,V Shankar,Right-arm off-spin,32,68.0,1.0,4.0,5.0,3.0,212.5,68.0,9.38,28.13
 0994d0ae,V Shankar,Right-arm pace,165,238.0,8.0,17.0,11.0,47.0,144.24,29.75,28.48,16.97
+470f446b,V Suryavanshi,Left-arm orthodox,8,22.0,1.0,2.0,2.0,2.0,275.0,22.0,25.0,50.0
+470f446b,V Suryavanshi,Left-arm pace,16,37.0,1.0,3.0,4.0,8.0,231.25,37.0,50.0,43.75
+470f446b,V Suryavanshi,Left-arm wrist spin,8,24.0,0.0,2.0,2.0,1.0,300.0,,12.5,50.0
+470f446b,V Suryavanshi,Right-arm leg-spin,18,26.0,0.0,2.0,2.0,7.0,144.44,,38.89,22.22
+470f446b,V Suryavanshi,Right-arm off-spin,16,23.0,2.0,1.0,2.0,6.0,143.75,11.5,37.5,18.75
+470f446b,V Suryavanshi,Right-arm pace,49,90.0,3.0,5.0,9.0,20.0,183.67,30.0,40.82,28.57
+03a83c50,V Viyaskanth,Left-arm pace,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+03a83c50,V Viyaskanth,Right-arm off-spin,2,2.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+03a83c50,V Viyaskanth,Right-arm pace,2,4.0,0.0,0.0,0.0,0.0,200.0,,0.0,0.0
+7c3b3b78,VG Arora,Left-arm pace,10,3.0,2.0,0.0,0.0,8.0,30.0,1.5,80.0,0.0
+7c3b3b78,VG Arora,Right-arm pace,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+a24be938,VR Iyer,Left-arm orthodox,49,67.0,3.0,4.0,3.0,13.0,136.73,22.33,26.53,14.29
 a24be938,VR Iyer,Left-arm pace,95,156.0,7.0,18.0,7.0,33.0,164.21,22.29,34.74,26.32
+a24be938,VR Iyer,Left-arm wrist spin,16,12.0,0.0,1.0,0.0,8.0,75.0,,50.0,6.25
 a24be938,VR Iyer,Right-arm leg-spin,99,133.0,4.0,13.0,3.0,29.0,134.34,33.25,29.29,16.16
 a24be938,VR Iyer,Right-arm off-spin,70,86.0,3.0,4.0,4.0,23.0,122.86,28.67,32.86,11.43
 a24be938,VR Iyer,Right-arm pace,264,428.0,13.0,41.0,24.0,90.0,162.12,32.92,34.09,24.62
+54e52590,Vijaykumar Vyshak,Left-arm pace,3,3.0,0.0,0.0,0.0,1.0,100.0,,33.33,0.0
+54e52590,Vijaykumar Vyshak,Right-arm off-spin,2,2.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+54e52590,Vijaykumar Vyshak,Right-arm pace,7,9.0,2.0,0.0,1.0,3.0,128.57,4.5,42.86,14.29
+0494fa6e,Vishnu Vinod,Left-arm pace,5,5.0,0.0,0.0,0.0,1.0,100.0,,20.0,0.0
+0494fa6e,Vishnu Vinod,Left-arm wrist spin,8,8.0,0.0,1.0,0.0,3.0,100.0,,37.5,12.5
+0494fa6e,Vishnu Vinod,Right-arm pace,17,24.0,3.0,1.0,2.0,6.0,141.18,8.0,35.29,17.65
+1b7b0fa7,Vivrant Sharma,Left-arm pace,11,13.0,0.0,1.0,1.0,6.0,118.18,,54.55,18.18
+1b7b0fa7,Vivrant Sharma,Right-arm leg-spin,19,32.0,0.0,4.0,1.0,4.0,168.42,,21.05,26.32
+1b7b0fa7,Vivrant Sharma,Right-arm pace,17,24.0,1.0,4.0,0.0,4.0,141.18,24.0,23.53,23.53
+3a60e0b5,WD Parnell,Right-arm pace,5,2.0,1.0,0.0,0.0,3.0,40.0,2.0,60.0,0.0
+9caf69a1,WG Jacks,Left-arm orthodox,26,35.0,1.0,0.0,3.0,7.0,134.62,35.0,26.92,11.54
+9caf69a1,WG Jacks,Left-arm pace,45,96.0,0.0,11.0,6.0,12.0,213.33,,26.67,37.78
+9caf69a1,WG Jacks,Left-arm wrist spin,19,31.0,2.0,1.0,3.0,6.0,163.16,15.5,31.58,21.05
 9caf69a1,WG Jacks,Right-arm leg-spin,68,87.0,3.0,4.0,6.0,24.0,127.94,29.0,35.29,14.71
+9caf69a1,WG Jacks,Right-arm off-spin,30,31.0,1.0,3.0,1.0,12.0,103.33,31.0,40.0,13.33
 9caf69a1,WG Jacks,Right-arm pace,111,182.0,8.0,19.0,10.0,42.0,163.96,22.75,37.84,26.13
+fe11caa6,WP Saha,Left-arm orthodox,39,42.0,2.0,4.0,1.0,15.0,107.69,21.0,38.46,12.82
 fe11caa6,WP Saha,Left-arm pace,74,125.0,3.0,19.0,3.0,25.0,168.92,41.67,33.78,29.73
+fe11caa6,WP Saha,Left-arm wrist spin,4,2.0,1.0,0.0,0.0,2.0,50.0,2.0,50.0,0.0
+fe11caa6,WP Saha,Right-arm leg-spin,33,33.0,1.0,2.0,0.0,9.0,100.0,33.0,27.27,6.06
+fe11caa6,WP Saha,Right-arm off-spin,17,18.0,1.0,1.0,0.0,3.0,105.88,18.0,17.65,5.88
 fe11caa6,WP Saha,Right-arm pace,225,281.0,16.0,38.0,7.0,96.0,124.89,17.56,42.67,20.0
+f19ccfad,Washington Sundar,Left-arm orthodox,4,3.0,0.0,0.0,0.0,1.0,75.0,,25.0,0.0
+f19ccfad,Washington Sundar,Left-arm pace,23,52.0,2.0,6.0,3.0,5.0,226.09,26.0,21.74,39.13
+f19ccfad,Washington Sundar,Left-arm wrist spin,3,3.0,0.0,0.0,0.0,1.0,100.0,,33.33,0.0
+f19ccfad,Washington Sundar,Right-arm leg-spin,31,24.0,2.0,0.0,0.0,10.0,77.42,12.0,32.26,0.0
+f19ccfad,Washington Sundar,Right-arm off-spin,11,12.0,0.0,1.0,0.0,2.0,109.09,,18.18,9.09
 f19ccfad,Washington Sundar,Right-arm pace,69,99.0,5.0,9.0,4.0,21.0,143.48,19.8,30.43,18.84
+3b53243a,XC Bartlett,Left-arm pace,1,1.0,1.0,0.0,0.0,0.0,100.0,1.0,0.0,0.0
+3b53243a,XC Bartlett,Right-arm off-spin,10,6.0,0.0,0.0,0.0,4.0,60.0,,40.0,0.0
+3b53243a,XC Bartlett,Right-arm pace,4,4.0,0.0,1.0,0.0,3.0,100.0,,75.0,25.0
 6c19c6e5,YBK Jaiswal,Left-arm orthodox,71,99.0,2.0,10.0,3.0,23.0,139.44,49.5,32.39,18.31
 6c19c6e5,YBK Jaiswal,Left-arm pace,198,349.0,12.0,48.0,15.0,77.0,176.26,29.08,38.89,31.82
+6c19c6e5,YBK Jaiswal,Left-arm wrist spin,9,16.0,1.0,0.0,2.0,3.0,177.78,16.0,33.33,22.22
 6c19c6e5,YBK Jaiswal,Right-arm leg-spin,131,173.0,0.0,13.0,6.0,31.0,132.06,,23.66,14.5
 6c19c6e5,YBK Jaiswal,Right-arm off-spin,100,162.0,2.0,13.0,11.0,35.0,162.0,81.0,35.0,24.0
 6c19c6e5,YBK Jaiswal,Right-arm pace,494,808.0,22.0,112.0,32.0,198.0,163.56,36.73,40.08,29.15
+dd7e9b3b,YV Dhull,Left-arm orthodox,7,9.0,1.0,1.0,0.0,1.0,128.57,9.0,14.29,14.29
+dd7e9b3b,YV Dhull,Left-arm pace,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+dd7e9b3b,YV Dhull,Right-arm leg-spin,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+dd7e9b3b,YV Dhull,Right-arm off-spin,7,4.0,0.0,0.0,0.0,3.0,57.14,,42.86,0.0
+dd7e9b3b,YV Dhull,Right-arm pace,5,1.0,2.0,0.0,0.0,4.0,20.0,0.5,80.0,0.0
+7210d461,Yash Dayal,Left-arm orthodox,1,0.0,1.0,0.0,0.0,1.0,0.0,0.0,100.0,0.0
+7210d461,Yash Dayal,Left-arm pace,1,1.0,0.0,0.0,0.0,0.0,100.0,,0.0,0.0
+7210d461,Yash Dayal,Right-arm pace,6,3.0,1.0,0.0,0.0,4.0,50.0,3.0,66.67,0.0
+4885bbe6,Yudhvir Singh,Left-arm pace,1,0.0,1.0,0.0,0.0,1.0,0.0,0.0,100.0,0.0
+4885bbe6,Yudhvir Singh,Left-arm wrist spin,2,1.0,0.0,0.0,0.0,1.0,50.0,,50.0,0.0
+4885bbe6,Yudhvir Singh,Right-arm off-spin,5,6.0,1.0,0.0,1.0,4.0,120.0,6.0,80.0,20.0
+4885bbe6,Yudhvir Singh,Right-arm pace,8,15.0,2.0,1.0,1.0,2.0,187.5,7.5,25.0,25.0

@@ -106,8 +106,7 @@
       "tags": [
         "SPECIALIST_VS_PACE",
         "SPECIALIST_VS_SPIN",
-        "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "VULNERABLE_VS_OFF_SPIN"
+        "SPECIALIST_VS_LEFT_ARM_SPIN"
       ]
     },
     {
@@ -118,6 +117,7 @@
         "SPECIALIST_VS_PACE",
         "SPECIALIST_VS_SPIN",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
         "SPECIALIST_VS_OFF_SPIN",
         "PP_ACCUMULATOR",
         "MIDDLE_ANCHOR",
@@ -172,7 +172,9 @@
         "SPECIALIST_VS_PACE",
         "SPECIALIST_VS_SPIN",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
+        "VULNERABLE_VS_LEFT_ARM_WRIST_SPIN",
         "SPECIALIST_VS_LEG_SPIN",
+        "SPECIALIST_VS_OFF_SPIN",
         "PP_ACCUMULATOR",
         "DEATH_FINISHER"
       ]
@@ -184,6 +186,7 @@
       "tags": [
         "SPECIALIST_VS_PACE",
         "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
         "SPECIALIST_VS_LEG_SPIN",
         "SPECIALIST_VS_OFF_SPIN",
         "MIDDLE_ANCHOR"
@@ -197,7 +200,6 @@
         "SPECIALIST_VS_PACE",
         "SPECIALIST_VS_SPIN",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "VULNERABLE_VS_LEG_SPIN",
         "SPECIALIST_VS_OFF_SPIN"
       ]
     },
@@ -220,6 +222,7 @@
       "overall_sr": 147.64,
       "tags": [
         "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_SPIN",
         "SPECIALIST_VS_OFF_SPIN",
         "DEATH_FINISHER"
       ]
@@ -232,6 +235,7 @@
         "SPECIALIST_VS_PACE",
         "SPECIALIST_VS_SPIN",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
         "SPECIALIST_VS_LEG_SPIN",
         "PP_ACCUMULATOR",
         "MIDDLE_ANCHOR",
@@ -244,7 +248,7 @@
       "overall_sr": 177.48,
       "tags": [
         "SPECIALIST_VS_PACE",
-        "VULNERABLE_VS_LEFT_ARM_SPIN",
+        "SPECIALIST_VS_OFF_SPIN",
         "PP_DOMINATOR",
         "MIDDLE_ACCELERATOR"
       ]
@@ -269,7 +273,6 @@
       "overall_sr": 147.61,
       "tags": [
         "SPECIALIST_VS_PACE",
-        "VULNERABLE_VS_LEFT_ARM_SPIN",
         "PP_DOMINATOR",
         "MIDDLE_LIABILITY"
       ]
@@ -280,7 +283,6 @@
       "overall_sr": 154.69,
       "tags": [
         "SPECIALIST_VS_PACE",
-        "SPECIALIST_VS_SPIN",
         "DEATH_HITTER"
       ]
     },
@@ -291,6 +293,7 @@
       "tags": [
         "SPECIALIST_VS_PACE",
         "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
         "SPECIALIST_VS_LEG_SPIN",
         "PP_LIABILITY",
         "MIDDLE_ANCHOR",
@@ -304,6 +307,7 @@
       "tags": [
         "SPECIALIST_VS_PACE",
         "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_LEG_SPIN",
         "SPECIALIST_VS_OFF_SPIN",
         "PP_DOMINATOR",
         "MIDDLE_ACCELERATOR"
@@ -315,6 +319,7 @@
       "overall_sr": 149.92,
       "tags": [
         "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
         "SPECIALIST_VS_LEG_SPIN",
         "MIDDLE_ANCHOR",
         "DEATH_LIABILITY"
@@ -338,7 +343,6 @@
       "tags": [
         "SPECIALIST_VS_PACE",
         "SPECIALIST_VS_LEFT_ARM_SPIN",
-        "VULNERABLE_VS_OFF_SPIN",
         "MIDDLE_ANCHOR",
         "DEATH_FINISHER"
       ]
@@ -362,6 +366,9 @@
       "overall_sr": 158.14,
       "tags": [
         "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_LEG_SPIN",
+        "SPECIALIST_VS_OFF_SPIN",
         "MIDDLE_ACCELERATOR"
       ]
     },
@@ -371,6 +378,8 @@
       "overall_sr": 142.45,
       "tags": [
         "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
         "PP_LIABILITY",
         "MIDDLE_ANCHOR"
       ]
@@ -382,6 +391,7 @@
       "tags": [
         "SPECIALIST_VS_SPIN",
         "SPECIALIST_VS_LEG_SPIN",
+        "SPECIALIST_VS_OFF_SPIN",
         "PP_LIABILITY"
       ]
     },
@@ -412,7 +422,6 @@
       "overall_sr": 156.08,
       "tags": [
         "SPECIALIST_VS_PACE",
-        "SPECIALIST_VS_SPIN",
         "SPECIALIST_VS_LEG_SPIN"
       ]
     },
@@ -432,8 +441,8 @@
       "player_id": "d1a60072",
       "overall_sr": 143.51,
       "tags": [
-        "SPECIALIST_VS_PACE",
         "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
         "SPECIALIST_VS_LEG_SPIN",
         "PP_ACCUMULATOR",
         "MIDDLE_ANCHOR",
@@ -447,20 +456,8 @@
       "tags": [
         "SPECIALIST_VS_PACE",
         "SPECIALIST_VS_LEG_SPIN",
-        "VULNERABLE_VS_OFF_SPIN",
         "PP_ACCUMULATOR",
         "DEATH_HITTER"
-      ]
-    },
-    {
-      "player_name": "C Green",
-      "player_id": "eaa76d3c",
-      "overall_sr": 154.7,
-      "tags": [
-        "SPECIALIST_VS_PACE",
-        "SPECIALIST_VS_OFF_SPIN",
-        "PP_DOMINATOR",
-        "DEATH_FINISHER"
       ]
     },
     {
@@ -477,12 +474,26 @@
       ]
     },
     {
+      "player_name": "C Green",
+      "player_id": "eaa76d3c",
+      "overall_sr": 154.7,
+      "tags": [
+        "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_WRIST_SPIN",
+        "SPECIALIST_VS_OFF_SPIN",
+        "PP_DOMINATOR",
+        "DEATH_FINISHER"
+      ]
+    },
+    {
       "player_name": "Shashank Singh",
       "player_id": "26989d80",
       "overall_sr": 158.92,
       "tags": [
         "SPECIALIST_VS_PACE",
         "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
         "SPECIALIST_VS_LEG_SPIN",
         "MIDDLE_ANCHOR",
         "DEATH_FINISHER"
@@ -495,7 +506,9 @@
       "tags": [
         "SPECIALIST_VS_PACE",
         "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
         "SPECIALIST_VS_LEG_SPIN",
+        "SPECIALIST_VS_OFF_SPIN",
         "MIDDLE_LIABILITY",
         "DEATH_FINISHER"
       ]
@@ -506,6 +519,8 @@
       "overall_sr": 132.56,
       "tags": [
         "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
         "SPECIALIST_VS_OFF_SPIN",
         "PP_ACCUMULATOR",
         "MIDDLE_LIABILITY",
@@ -518,6 +533,9 @@
       "overall_sr": 153.85,
       "tags": [
         "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
+        "VULNERABLE_VS_OFF_SPIN",
         "MIDDLE_LIABILITY"
       ]
     },
@@ -527,7 +545,6 @@
       "overall_sr": 146.09,
       "tags": [
         "SPECIALIST_VS_PACE",
-        "VULNERABLE_VS_LEG_SPIN",
         "SPECIALIST_VS_OFF_SPIN",
         "PP_ACCUMULATOR"
       ]
@@ -537,7 +554,8 @@
       "player_id": "ad3b6e95",
       "overall_sr": 150.23,
       "tags": [
-        "SPECIALIST_VS_PACE"
+        "SPECIALIST_VS_PACE",
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -546,7 +564,7 @@
       "overall_sr": 132.0,
       "tags": [
         "SPECIALIST_VS_PACE",
-        "VULNERABLE_VS_OFF_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
         "PP_LIABILITY",
         "MIDDLE_LIABILITY"
       ]
@@ -557,6 +575,7 @@
       "overall_sr": 166.84,
       "tags": [
         "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
         "MIDDLE_ANCHOR"
       ]
     },
@@ -565,6 +584,8 @@
       "player_id": "48a1d7b7",
       "overall_sr": 152.1,
       "tags": [
+        "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_LEG_SPIN",
         "MIDDLE_ANCHOR"
       ]
     },
@@ -584,8 +605,7 @@
       "player_id": "bbd41817",
       "overall_sr": 164.71,
       "tags": [
-        "VULNERABLE_VS_SPIN",
-        "VULNERABLE_VS_LEG_SPIN",
+        "SPECIALIST_VS_OFF_SPIN",
         "DEATH_HITTER"
       ]
     },
@@ -604,6 +624,7 @@
       "overall_sr": 182.89,
       "tags": [
         "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_SPIN",
         "PP_DOMINATOR",
         "MIDDLE_ACCELERATOR"
       ]
@@ -625,8 +646,8 @@
       "overall_sr": 138.52,
       "tags": [
         "SPECIALIST_VS_PACE",
-        "SPECIALIST_VS_LEG_SPIN",
-        "VULNERABLE_VS_OFF_SPIN"
+        "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_LEG_SPIN"
       ]
     },
     {
@@ -634,7 +655,7 @@
       "player_id": "8e514b4c",
       "overall_sr": 157.98,
       "tags": [
-        "VULNERABLE_VS_PACE"
+        "SPECIALIST_VS_LEG_SPIN"
       ]
     },
     {
@@ -652,8 +673,8 @@
       "overall_sr": 143.84,
       "tags": [
         "SPECIALIST_VS_PACE",
-        "VULNERABLE_VS_SPIN",
-        "VULNERABLE_VS_LEG_SPIN",
+        "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_OFF_SPIN",
         "PP_ACCUMULATOR",
         "MIDDLE_LIABILITY",
         "DEATH_FINISHER"
@@ -664,7 +685,6 @@
       "player_id": "50c6bc2b",
       "overall_sr": 153.05,
       "tags": [
-        "VULNERABLE_VS_PACE",
         "PP_LIABILITY",
         "MIDDLE_LIABILITY",
         "DEATH_FINISHER"
@@ -675,8 +695,7 @@
       "player_id": "b681e71e",
       "overall_sr": 161.29,
       "tags": [
-        "SPECIALIST_VS_PACE",
-        "VULNERABLE_VS_SPIN",
+        "VULNERABLE_VS_LEFT_ARM_SPIN",
         "SPECIALIST_VS_LEG_SPIN",
         "VULNERABLE_VS_OFF_SPIN",
         "PP_AGGRESSOR",
@@ -707,9 +726,9 @@
       "player_id": "c03f1114",
       "overall_sr": 168.23,
       "tags": [
-        "VULNERABLE_VS_PACE",
         "SPECIALIST_VS_SPIN",
-        "SPECIALIST_VS_LEG_SPIN"
+        "SPECIALIST_VS_LEG_SPIN",
+        "SPECIALIST_VS_OFF_SPIN"
       ]
     },
     {
@@ -727,13 +746,19 @@
       "player_name": "WG Jacks",
       "player_id": "9caf69a1",
       "overall_sr": 153.31,
-      "tags": []
+      "tags": [
+        "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_LEFT_ARM_SPIN"
+      ]
     },
     {
       "player_name": "M Shahrukh Khan",
       "player_id": "7dcb9bc9",
       "overall_sr": 171.75,
       "tags": [
+        "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
+        "SPECIALIST_VS_OFF_SPIN",
         "MIDDLE_ACCELERATOR"
       ]
     },
@@ -742,7 +767,6 @@
       "player_id": "4a8a2e3b",
       "overall_sr": 170.11,
       "tags": [
-        "SPECIALIST_VS_SPIN",
         "SPECIALIST_VS_LEG_SPIN",
         "MIDDLE_ANCHOR"
       ]
@@ -752,6 +776,8 @@
       "player_id": "5b8c830e",
       "overall_sr": 121.13,
       "tags": [
+        "SPECIALIST_VS_LEG_SPIN",
+        "VULNERABLE_VS_OFF_SPIN",
         "PP_LIABILITY",
         "MIDDLE_LIABILITY",
         "DEATH_LIABILITY"
@@ -763,7 +789,6 @@
       "overall_sr": 130.4,
       "tags": [
         "SPECIALIST_VS_PACE",
-        "SPECIALIST_VS_SPIN",
         "SPECIALIST_VS_LEG_SPIN",
         "PP_LIABILITY"
       ]
@@ -773,8 +798,8 @@
       "player_id": "cad00a4d",
       "overall_sr": 164.71,
       "tags": [
-        "VULNERABLE_VS_SPIN",
-        "VULNERABLE_VS_OFF_SPIN",
+        "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_LEG_SPIN",
         "PP_AGGRESSOR",
         "MIDDLE_ACCELERATOR",
         "DEATH_FINISHER"
@@ -785,7 +810,9 @@
       "player_id": "ba5e1069",
       "overall_sr": 145.42,
       "tags": [
-        "SPECIALIST_VS_PACE"
+        "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
+        "VULNERABLE_VS_OFF_SPIN"
       ]
     },
     {
@@ -793,7 +820,8 @@
       "player_id": "84d9c311",
       "overall_sr": 166.53,
       "tags": [
-        "SPECIALIST_VS_PACE"
+        "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_LEG_SPIN"
       ]
     },
     {
@@ -812,6 +840,8 @@
       "overall_sr": 152.16,
       "tags": [
         "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_LEG_SPIN",
         "MIDDLE_LIABILITY"
       ]
     },
@@ -830,6 +860,7 @@
       "overall_sr": 158.92,
       "tags": [
         "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_SPIN",
         "PP_AGGRESSOR",
         "MIDDLE_LIABILITY"
       ]
@@ -840,6 +871,8 @@
       "overall_sr": 146.9,
       "tags": [
         "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_LEG_SPIN",
+        "VULNERABLE_VS_OFF_SPIN",
         "MIDDLE_ACCELERATOR"
       ]
     },
@@ -848,7 +881,7 @@
       "player_id": "39a2dfa8",
       "overall_sr": 154.55,
       "tags": [
-        "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
         "MIDDLE_LIABILITY"
       ]
     },
@@ -857,6 +890,7 @@
       "player_id": "0bacade8",
       "overall_sr": 135.45,
       "tags": [
+        "SPECIALIST_VS_LEG_SPIN",
         "PP_LIABILITY"
       ]
     },
@@ -866,6 +900,9 @@
       "overall_sr": 142.6,
       "tags": [
         "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_SPIN",
+        "SPECIALIST_VS_OFF_SPIN",
         "PP_ACCUMULATOR",
         "DEATH_FINISHER"
       ]
@@ -883,7 +920,6 @@
       "player_id": "93b4fc78",
       "overall_sr": 122.5,
       "tags": [
-        "SPECIALIST_VS_PACE",
         "PP_LIABILITY",
         "MIDDLE_ANCHOR",
         "DEATH_LIABILITY"
@@ -894,7 +930,8 @@
       "player_id": "844e79d1",
       "overall_sr": 159.78,
       "tags": [
-        "VULNERABLE_VS_PACE",
+        "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_OFF_SPIN",
         "MIDDLE_ACCELERATOR",
         "DEATH_FINISHER"
       ]
@@ -912,6 +949,7 @@
       "player_id": "d1c36f5c",
       "overall_sr": 152.41,
       "tags": [
+        "SPECIALIST_VS_SPIN",
         "PP_ACCUMULATOR",
         "MIDDLE_ACCELERATOR"
       ]
@@ -945,7 +983,9 @@
       "player_id": "1ac746c8",
       "overall_sr": 146.89,
       "tags": [
-        "SPECIALIST_VS_PACE"
+        "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_SPIN",
+        "SPECIALIST_VS_LEFT_ARM_SPIN"
       ]
     },
     {
@@ -953,6 +993,9 @@
       "player_id": "73ad96ed",
       "overall_sr": 110.64,
       "tags": [
+        "VULNERABLE_VS_SPIN",
+        "VULNERABLE_VS_LEG_SPIN",
+        "VULNERABLE_VS_OFF_SPIN",
         "PP_LIABILITY",
         "MIDDLE_LIABILITY",
         "DEATH_LIABILITY"
@@ -963,7 +1006,7 @@
       "player_id": "da934ee8",
       "overall_sr": 158.54,
       "tags": [
-        "VULNERABLE_VS_PACE",
+        "VULNERABLE_VS_LEG_SPIN",
         "MIDDLE_ACCELERATOR"
       ]
     },
@@ -984,6 +1027,8 @@
       "player_id": "470f446b",
       "overall_sr": 208.26,
       "tags": [
+        "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_SPIN",
         "PP_AGGRESSOR",
         "MIDDLE_ACCELERATOR"
       ]
@@ -1003,6 +1048,7 @@
       "player_id": "a3b0600d",
       "overall_sr": 166.2,
       "tags": [
+        "SPECIALIST_VS_SPIN",
         "MIDDLE_ACCELERATOR"
       ]
     },
@@ -1011,7 +1057,7 @@
       "player_id": "ded9240e",
       "overall_sr": 153.29,
       "tags": [
-        "VULNERABLE_VS_PACE"
+        "SPECIALIST_VS_SPIN"
       ]
     },
     {
@@ -1019,6 +1065,7 @@
       "player_id": "944533a5",
       "overall_sr": 172.17,
       "tags": [
+        "SPECIALIST_VS_PACE",
         "PP_AGGRESSOR",
         "MIDDLE_ACCELERATOR"
       ]
@@ -1037,7 +1084,6 @@
       "player_id": "4ae1755b",
       "overall_sr": 124.18,
       "tags": [
-        "SPECIALIST_VS_PACE",
         "PP_LIABILITY",
         "MIDDLE_LIABILITY",
         "DEATH_FINISHER"
@@ -1057,7 +1103,9 @@
       "player_id": "495d42a5",
       "overall_sr": 120.0,
       "tags": [
-        "VULNERABLE_VS_PACE",
+        "VULNERABLE_VS_SPIN",
+        "VULNERABLE_VS_LEFT_ARM_SPIN",
+        "VULNERABLE_VS_LEG_SPIN",
         "MIDDLE_LIABILITY"
       ]
     },
@@ -1066,7 +1114,7 @@
       "player_id": "0890552f",
       "overall_sr": 115.0,
       "tags": [
-        "VULNERABLE_VS_PACE",
+        "VULNERABLE_VS_LEG_SPIN",
         "MIDDLE_LIABILITY",
         "DEATH_LIABILITY"
       ]
@@ -1076,6 +1124,7 @@
       "player_id": "1fc6ef83",
       "overall_sr": 150.0,
       "tags": [
+        "SPECIALIST_VS_PACE",
         "PP_LIABILITY",
         "MIDDLE_ACCELERATOR"
       ]
@@ -1086,6 +1135,8 @@
       "overall_sr": 133.82,
       "tags": [
         "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_SPIN",
+        "VULNERABLE_VS_OFF_SPIN",
         "DEATH_LIABILITY"
       ]
     },
@@ -1094,7 +1145,6 @@
       "player_id": "f89d3b11",
       "overall_sr": 140.98,
       "tags": [
-        "VULNERABLE_VS_PACE",
         "MIDDLE_LIABILITY",
         "DEATH_HITTER"
       ]
@@ -1104,6 +1154,8 @@
       "player_id": "70d205c9",
       "overall_sr": 139.82,
       "tags": [
+        "VULNERABLE_VS_SPIN",
+        "VULNERABLE_VS_LEG_SPIN",
         "MIDDLE_LIABILITY"
       ]
     },
@@ -1112,7 +1164,6 @@
       "player_id": "c05edf8e",
       "overall_sr": 127.78,
       "tags": [
-        "VULNERABLE_VS_PACE",
         "MIDDLE_LIABILITY"
       ]
     },
@@ -1130,6 +1181,8 @@
       "player_id": "378daa89",
       "overall_sr": 108.91,
       "tags": [
+        "VULNERABLE_VS_SPIN",
+        "VULNERABLE_VS_LEG_SPIN",
         "MIDDLE_ANCHOR",
         "DEATH_LIABILITY"
       ]
@@ -1139,7 +1192,6 @@
       "player_id": "8d2c70ad",
       "overall_sr": 91.43,
       "tags": [
-        "VULNERABLE_VS_PACE",
         "DEATH_LIABILITY"
       ]
     },
@@ -1148,6 +1200,7 @@
       "player_id": "2e81a32d",
       "overall_sr": 78.22,
       "tags": [
+        "VULNERABLE_VS_PACE",
         "MIDDLE_ANCHOR",
         "DEATH_LIABILITY"
       ]
@@ -1275,15 +1328,6 @@
       ]
     },
     {
-      "player_name": "Avesh Khan",
-      "player_id": "eef2536f",
-      "economy": 9.96,
-      "tags": [
-        "PP_LIABILITY",
-        "DEATH_CONTAINER"
-      ]
-    },
-    {
       "player_name": "KK Ahmed",
       "player_id": "a2f46292",
       "economy": 9.69,
@@ -1292,10 +1336,11 @@
       ]
     },
     {
-      "player_name": "Kuldeep Yadav",
-      "player_id": "8d2c70ad",
-      "economy": 7.82,
+      "player_name": "Avesh Khan",
+      "player_id": "eef2536f",
+      "economy": 9.96,
       "tags": [
+        "PP_LIABILITY",
         "DEATH_CONTAINER"
       ]
     },
@@ -1308,6 +1353,14 @@
         "PP_CONTAINER",
         "MIDDLE_STRANGLER",
         "DEATH_COMPLETE"
+      ]
+    },
+    {
+      "player_name": "Kuldeep Yadav",
+      "player_id": "8d2c70ad",
+      "economy": 7.82,
+      "tags": [
+        "DEATH_CONTAINER"
       ]
     },
     {
@@ -1358,14 +1411,6 @@
       ]
     },
     {
-      "player_name": "PP Chawla",
-      "player_id": "98ae73b1",
-      "economy": 8.45,
-      "tags": [
-        "MIDDLE_WICKET_TAKER"
-      ]
-    },
-    {
       "player_name": "Ravi Bishnoi",
       "player_id": "df064e1a",
       "economy": 9.0,
@@ -1374,6 +1419,14 @@
         "RHB_VULNERABLE",
         "LHB_WICKET_TAKER",
         "DEATH_LIABILITY"
+      ]
+    },
+    {
+      "player_name": "PP Chawla",
+      "player_id": "98ae73b1",
+      "economy": 8.45,
+      "tags": [
+        "MIDDLE_WICKET_TAKER"
       ]
     },
     {
@@ -1386,6 +1439,24 @@
         "LHB_WICKET_TAKER",
         "MIDDLE_WICKET_TAKER",
         "DEATH_STRIKE"
+      ]
+    },
+    {
+      "player_name": "T Natarajan",
+      "player_id": "ce794613",
+      "economy": 9.33,
+      "tags": [
+        "MIDDLE_LIABILITY",
+        "DEATH_CONTAINER"
+      ]
+    },
+    {
+      "player_name": "Mohammed Shami",
+      "player_id": "8cf9814c",
+      "economy": 9.25,
+      "tags": [
+        "PP_STRIKE",
+        "MIDDLE_LIABILITY"
       ]
     },
     {
@@ -1410,20 +1481,13 @@
       ]
     },
     {
-      "player_name": "Mohammed Shami",
-      "player_id": "8cf9814c",
-      "economy": 9.25,
+      "player_name": "KH Pandya",
+      "player_id": "5b8c830e",
+      "economy": 7.92,
       "tags": [
-        "PP_STRIKE",
-        "MIDDLE_LIABILITY"
-      ]
-    },
-    {
-      "player_name": "T Natarajan",
-      "player_id": "ce794613",
-      "economy": 9.33,
-      "tags": [
-        "MIDDLE_LIABILITY",
+        "RHB_SPECIALIST",
+        "LHB_VULNERABLE",
+        "PP_LIABILITY",
         "DEATH_CONTAINER"
       ]
     },
@@ -1436,17 +1500,6 @@
         "LHB_VULNERABLE",
         "MIDDLE_STRANGLER",
         "DEATH_LIABILITY"
-      ]
-    },
-    {
-      "player_name": "KH Pandya",
-      "player_id": "5b8c830e",
-      "economy": 7.92,
-      "tags": [
-        "RHB_SPECIALIST",
-        "LHB_VULNERABLE",
-        "PP_LIABILITY",
-        "DEATH_CONTAINER"
       ]
     },
     {
@@ -1491,6 +1544,15 @@
       ]
     },
     {
+      "player_name": "AR Patel",
+      "player_id": "2e171977",
+      "economy": 7.86,
+      "tags": [
+        "RHB_SPECIALIST",
+        "LHB_VULNERABLE"
+      ]
+    },
+    {
       "player_name": "SM Curran",
       "player_id": "e94915e6",
       "economy": 10.45,
@@ -1499,15 +1561,6 @@
         "RHB_VULNERABLE",
         "MIDDLE_WICKET_TAKER",
         "DEATH_LIABILITY"
-      ]
-    },
-    {
-      "player_name": "AR Patel",
-      "player_id": "2e171977",
-      "economy": 7.86,
-      "tags": [
-        "RHB_SPECIALIST",
-        "LHB_VULNERABLE"
       ]
     },
     {
@@ -1541,6 +1594,16 @@
       ]
     },
     {
+      "player_name": "Naveen-ul-Haq",
+      "player_id": "c0c411cb",
+      "economy": 9.31,
+      "tags": [
+        "RHB_WICKET_TAKER",
+        "MIDDLE_STRANGLER",
+        "DEATH_CONTAINER"
+      ]
+    },
+    {
       "player_name": "Akash Madhwal",
       "player_id": "4bd09374",
       "economy": 10.19,
@@ -1552,13 +1615,25 @@
       ]
     },
     {
-      "player_name": "Naveen-ul-Haq",
-      "player_id": "c0c411cb",
-      "economy": 9.31,
+      "player_name": "R Sai Kishore",
+      "player_id": "c7a995d3",
+      "economy": 9.27,
       "tags": [
+        "RHB_SPECIALIST",
+        "LHB_VULNERABLE",
         "RHB_WICKET_TAKER",
-        "MIDDLE_STRANGLER",
-        "DEATH_CONTAINER"
+        "MIDDLE_WICKET_TAKER",
+        "DEATH_STRIKE"
+      ]
+    },
+    {
+      "player_name": "I Sharma",
+      "player_id": "5bb1a1c4",
+      "economy": 9.75,
+      "tags": [
+        "PP_STRIKE",
+        "MIDDLE_WICKET_TAKER",
+        "DEATH_LIABILITY"
       ]
     },
     {
@@ -1575,25 +1650,13 @@
       ]
     },
     {
-      "player_name": "I Sharma",
-      "player_id": "5bb1a1c4",
-      "economy": 9.75,
-      "tags": [
-        "PP_STRIKE",
-        "MIDDLE_WICKET_TAKER",
-        "DEATH_LIABILITY"
-      ]
-    },
-    {
-      "player_name": "R Sai Kishore",
-      "player_id": "c7a995d3",
-      "economy": 9.27,
+      "player_name": "KV Sharma",
+      "player_id": "119678fd",
+      "economy": 10.21,
       "tags": [
         "RHB_SPECIALIST",
         "LHB_VULNERABLE",
-        "RHB_WICKET_TAKER",
-        "MIDDLE_WICKET_TAKER",
-        "DEATH_STRIKE"
+        "MIDDLE_WICKET_TAKER"
       ]
     },
     {
@@ -1605,16 +1668,6 @@
         "LHB_VULNERABLE",
         "LHB_WICKET_TAKER",
         "PP_STRIKE",
-        "MIDDLE_WICKET_TAKER"
-      ]
-    },
-    {
-      "player_name": "KV Sharma",
-      "player_id": "119678fd",
-      "economy": 10.21,
-      "tags": [
-        "RHB_SPECIALIST",
-        "LHB_VULNERABLE",
         "MIDDLE_WICKET_TAKER"
       ]
     },
@@ -1648,9 +1701,9 @@
       ]
     },
     {
-      "player_name": "K Rabada",
-      "player_id": "e62dd25d",
-      "economy": 10.02,
+      "player_name": "Suyash Sharma",
+      "player_id": "9440ef41",
+      "economy": 8.98,
       "tags": [
         "DEATH_LIABILITY"
       ]
@@ -1674,9 +1727,9 @@
       ]
     },
     {
-      "player_name": "Suyash Sharma",
-      "player_id": "9440ef41",
-      "economy": 8.98,
+      "player_name": "K Rabada",
+      "player_id": "e62dd25d",
+      "economy": 10.02,
       "tags": [
         "DEATH_LIABILITY"
       ]
@@ -1692,6 +1745,16 @@
       ]
     },
     {
+      "player_name": "Mustafizur Rahman",
+      "player_id": "0a8fce53",
+      "economy": 9.33,
+      "tags": [
+        "LHB_SPECIALIST",
+        "RHB_VULNERABLE",
+        "MIDDLE_STRANGLER"
+      ]
+    },
+    {
       "player_name": "A Nortje",
       "player_id": "acdc62f5",
       "economy": 10.94,
@@ -1701,16 +1764,6 @@
         "RHB_WICKET_TAKER",
         "PP_STRIKE",
         "DEATH_LIABILITY"
-      ]
-    },
-    {
-      "player_name": "Mustafizur Rahman",
-      "player_id": "0a8fce53",
-      "economy": 9.33,
-      "tags": [
-        "LHB_SPECIALIST",
-        "RHB_VULNERABLE",
-        "MIDDLE_STRANGLER"
       ]
     },
     {
@@ -1830,16 +1883,6 @@
       ]
     },
     {
-      "player_name": "Mohsin Khan",
-      "player_id": "c33d8116",
-      "economy": 10.33,
-      "tags": [
-        "LHB_WICKET_TAKER",
-        "PP_LIABILITY",
-        "MIDDLE_LIABILITY"
-      ]
-    },
-    {
       "player_name": "J Little",
       "player_id": "9061a703",
       "economy": 8.97,
@@ -1852,12 +1895,13 @@
       ]
     },
     {
-      "player_name": "Arshad Khan",
-      "player_id": "12314277",
-      "economy": 11.63,
+      "player_name": "Mohsin Khan",
+      "player_id": "c33d8116",
+      "economy": 10.33,
       "tags": [
+        "LHB_WICKET_TAKER",
         "PP_LIABILITY",
-        "DEATH_LIABILITY"
+        "MIDDLE_LIABILITY"
       ]
     },
     {
@@ -1876,6 +1920,15 @@
         "LHB_WICKET_TAKER",
         "PP_LIABILITY",
         "MIDDLE_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "Arshad Khan",
+      "player_id": "12314277",
+      "economy": 11.63,
+      "tags": [
+        "PP_LIABILITY",
+        "DEATH_LIABILITY"
       ]
     },
     {
@@ -1919,14 +1972,6 @@
       ]
     },
     {
-      "player_name": "MP Yadav",
-      "player_id": "b1ad996b",
-      "economy": 9.32,
-      "tags": [
-        "MIDDLE_WICKET_TAKER"
-      ]
-    },
-    {
       "player_name": "Rasikh Salam",
       "player_id": "b8527c3d",
       "economy": 11.21,
@@ -1938,6 +1983,20 @@
       "player_name": "UT Yadav",
       "player_id": "cc1e8c68",
       "economy": 10.03,
+      "tags": []
+    },
+    {
+      "player_name": "MP Yadav",
+      "player_id": "b1ad996b",
+      "economy": 9.32,
+      "tags": [
+        "MIDDLE_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "WD Parnell",
+      "player_id": "3a60e0b5",
+      "economy": 9.42,
       "tags": []
     },
     {
@@ -1962,12 +2021,6 @@
       ]
     },
     {
-      "player_name": "WD Parnell",
-      "player_id": "3a60e0b5",
-      "economy": 9.42,
-      "tags": []
-    },
-    {
       "player_name": "Shahbaz Ahmed",
       "player_id": "f9e6e7ef",
       "economy": 11.05,
@@ -1977,46 +2030,9 @@
       ]
     },
     {
-      "player_name": "AS Joseph",
-      "player_id": "b0946605",
-      "economy": 10.37,
-      "tags": [
-        "MIDDLE_LIABILITY",
-        "DEATH_LIABILITY"
-      ]
-    },
-    {
       "player_name": "WG Jacks",
       "player_id": "9caf69a1",
       "economy": 9.61,
-      "tags": [
-        "MIDDLE_WICKET_TAKER"
-      ]
-    },
-    {
-      "player_name": "R Shepherd",
-      "player_id": "c5aef772",
-      "economy": 12.23,
-      "tags": [
-        "MIDDLE_LIABILITY"
-      ]
-    },
-    {
-      "player_name": "Zeeshan Ansari",
-      "player_id": "36619795",
-      "economy": 9.87,
-      "tags": []
-    },
-    {
-      "player_name": "A Mishra",
-      "player_id": "6b19d823",
-      "economy": 8.14,
-      "tags": []
-    },
-    {
-      "player_name": "Simarjeet Singh",
-      "player_id": "30df8c66",
-      "economy": 12.18,
       "tags": [
         "MIDDLE_WICKET_TAKER"
       ]
@@ -2030,6 +2046,37 @@
       ]
     },
     {
+      "player_name": "A Mishra",
+      "player_id": "6b19d823",
+      "economy": 8.14,
+      "tags": []
+    },
+    {
+      "player_name": "AS Joseph",
+      "player_id": "b0946605",
+      "economy": 10.37,
+      "tags": [
+        "MIDDLE_LIABILITY",
+        "DEATH_LIABILITY"
+      ]
+    },
+    {
+      "player_name": "Simarjeet Singh",
+      "player_id": "30df8c66",
+      "economy": 12.18,
+      "tags": [
+        "MIDDLE_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "R Shepherd",
+      "player_id": "c5aef772",
+      "economy": 12.23,
+      "tags": [
+        "MIDDLE_LIABILITY"
+      ]
+    },
+    {
       "player_name": "Yudhvir Singh",
       "player_id": "4885bbe6",
       "economy": 11.09,
@@ -2038,11 +2085,17 @@
       ]
     },
     {
-      "player_name": "RP Meredith",
-      "player_id": "64775749",
-      "economy": 10.63,
+      "player_name": "Zeeshan Ansari",
+      "player_id": "36619795",
+      "economy": 9.87,
+      "tags": []
+    },
+    {
+      "player_name": "N Burger",
+      "player_id": "465aa633",
+      "economy": 8.94,
       "tags": [
-        "DEATH_LIABILITY"
+        "PP_STRIKE"
       ]
     },
     {
@@ -2050,6 +2103,14 @@
       "player_id": "f6d8a7ab",
       "economy": 9.09,
       "tags": []
+    },
+    {
+      "player_name": "RP Meredith",
+      "player_id": "64775749",
+      "economy": 10.63,
+      "tags": [
+        "DEATH_LIABILITY"
+      ]
     },
     {
       "player_name": "LS Livingstone",
@@ -2062,11 +2123,17 @@
       ]
     },
     {
-      "player_name": "N Burger",
-      "player_id": "465aa633",
-      "economy": 8.94,
+      "player_name": "W O'Rourke",
+      "player_id": "cb9b8664",
+      "economy": 12.77,
+      "tags": []
+    },
+    {
+      "player_name": "Swapnil Singh",
+      "player_id": "983f2f61",
+      "economy": 8.88,
       "tags": [
-        "PP_STRIKE"
+        "MIDDLE_LIABILITY"
       ]
     },
     {
@@ -2079,10 +2146,12 @@
       ]
     },
     {
-      "player_name": "W O'Rourke",
-      "player_id": "cb9b8664",
-      "economy": 12.77,
-      "tags": []
+      "player_name": "V Puthur",
+      "player_id": "1e030637",
+      "economy": 9.08,
+      "tags": [
+        "MIDDLE_WICKET_TAKER"
+      ]
     },
     {
       "player_name": "KR Sen",
@@ -2091,20 +2160,10 @@
       "tags": []
     },
     {
-      "player_name": "AS Roy",
-      "player_id": "e4cdf230",
-      "economy": 8.6,
-      "tags": [
-        "MIDDLE_STRANGLER"
-      ]
-    },
-    {
-      "player_name": "Swapnil Singh",
-      "player_id": "983f2f61",
-      "economy": 8.88,
-      "tags": [
-        "MIDDLE_LIABILITY"
-      ]
+      "player_name": "Umran Malik",
+      "player_id": "81c08fa3",
+      "economy": 11.14,
+      "tags": []
     },
     {
       "player_name": "S Sandeep Warrier",
@@ -2115,23 +2174,23 @@
       ]
     },
     {
+      "player_name": "AS Roy",
+      "player_id": "e4cdf230",
+      "economy": 8.6,
+      "tags": [
+        "MIDDLE_STRANGLER"
+      ]
+    },
+    {
       "player_name": "MG Bracewell",
       "player_id": "e38bce7a",
       "economy": 8.64,
       "tags": []
     },
     {
-      "player_name": "V Puthur",
-      "player_id": "1e030637",
-      "economy": 9.08,
-      "tags": [
-        "MIDDLE_WICKET_TAKER"
-      ]
-    },
-    {
-      "player_name": "Umran Malik",
-      "player_id": "81c08fa3",
-      "economy": 11.14,
+      "player_name": "KA Jamieson",
+      "player_id": "68c56d09",
+      "economy": 9.8,
       "tags": []
     },
     {
@@ -2139,6 +2198,14 @@
       "player_id": "80b2fb19",
       "economy": 9.9,
       "tags": []
+    },
+    {
+      "player_name": "SH Johnson",
+      "player_id": "83c3e8e3",
+      "economy": 10.57,
+      "tags": [
+        "PP_LIABILITY"
+      ]
     },
     {
       "player_name": "AK Markram",
@@ -2165,29 +2232,9 @@
       ]
     },
     {
-      "player_name": "KA Jamieson",
-      "player_id": "68c56d09",
-      "economy": 9.8,
-      "tags": []
-    },
-    {
-      "player_name": "SH Johnson",
-      "player_id": "83c3e8e3",
-      "economy": 10.57,
-      "tags": [
-        "PP_LIABILITY"
-      ]
-    },
-    {
       "player_name": "Harsh Dubey",
       "player_id": "25228673",
       "economy": 9.8,
-      "tags": []
-    },
-    {
-      "player_name": "PVD Chameera",
-      "player_id": "327b58d3",
-      "economy": 12.35,
       "tags": []
     },
     {
@@ -2199,15 +2246,15 @@
       ]
     },
     {
-      "player_name": "Arjun Tendulkar",
-      "player_id": "44aac2f0",
-      "economy": 9.62,
+      "player_name": "PVD Chameera",
+      "player_id": "327b58d3",
+      "economy": 12.35,
       "tags": []
     },
     {
-      "player_name": "Abhishek Sharma",
-      "player_id": "f29185a1",
-      "economy": 9.7,
+      "player_name": "Arjun Tendulkar",
+      "player_id": "44aac2f0",
+      "economy": 9.62,
       "tags": []
     },
     {
@@ -2234,11 +2281,17 @@
       "tags": []
     },
     {
-      "player_name": "CJ Jordan",
-      "player_id": "ffe699c0",
-      "economy": 10.95,
+      "player_name": "Abhishek Sharma",
+      "player_id": "f29185a1",
+      "economy": 9.7,
+      "tags": []
+    },
+    {
+      "player_name": "Sikandar Raza",
+      "player_id": "26d041c4",
+      "economy": 10.31,
       "tags": [
-        "DEATH_LIABILITY"
+        "MIDDLE_LIABILITY"
       ]
     },
     {
@@ -2254,23 +2307,17 @@
       "tags": []
     },
     {
-      "player_name": "N Rana",
-      "player_id": "fb2d1dda",
-      "economy": 8.58,
-      "tags": []
+      "player_name": "CJ Jordan",
+      "player_id": "ffe699c0",
+      "economy": 10.95,
+      "tags": [
+        "DEATH_LIABILITY"
+      ]
     },
     {
       "player_name": "HR Shokeen",
       "player_id": "0c9652b0",
       "economy": 10.0,
-      "tags": [
-        "MIDDLE_LIABILITY"
-      ]
-    },
-    {
-      "player_name": "Sikandar Raza",
-      "player_id": "26d041c4",
-      "economy": 10.31,
       "tags": [
         "MIDDLE_LIABILITY"
       ]
@@ -2294,21 +2341,21 @@
       "tags": []
     },
     {
-      "player_name": "Mohammad Nabi",
-      "player_id": "62af8546",
-      "economy": 8.92,
-      "tags": []
-    },
-    {
-      "player_name": "RJ Gleeson",
-      "player_id": "402f8494",
-      "economy": 9.79,
+      "player_name": "N Rana",
+      "player_id": "fb2d1dda",
+      "economy": 8.58,
       "tags": []
     },
     {
       "player_name": "Mayank Dagar",
       "player_id": "a457cfb5",
       "economy": 8.98,
+      "tags": []
+    },
+    {
+      "player_name": "Mohammad Nabi",
+      "player_id": "62af8546",
+      "economy": 8.92,
       "tags": []
     },
     {
@@ -2321,6 +2368,12 @@
       "player_name": "KT Maphaka",
       "player_id": "107c26fb",
       "economy": 13.45,
+      "tags": []
+    },
+    {
+      "player_name": "RJ Gleeson",
+      "player_id": "402f8494",
+      "economy": 9.79,
       "tags": []
     },
     {
@@ -2338,15 +2391,15 @@
       "tags": []
     },
     {
-      "player_name": "Kartik Tyagi",
-      "player_id": "5d2eea49",
-      "economy": 14.16,
-      "tags": []
-    },
-    {
       "player_name": "V Viyaskanth",
       "player_id": "03a83c50",
       "economy": 9.0,
+      "tags": []
+    },
+    {
+      "player_name": "Kartik Tyagi",
+      "player_id": "5d2eea49",
+      "economy": 14.16,
       "tags": []
     }
   ],

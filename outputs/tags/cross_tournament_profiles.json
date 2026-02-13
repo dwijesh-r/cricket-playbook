@@ -1,7 +1,250 @@
 {
-  "generated_at": "2026-02-13T16:07:10.505704+00:00",
+  "generated_at": "2026-02-13T16:48:19.467631+00:00",
   "data_scope": "all_t20_since_2023_excl_ipl",
   "players": {
+    "4663bd23": {
+      "batting": {
+        "innings": 131,
+        "runs": 3745,
+        "balls_faced": 2589,
+        "average": 32.01,
+        "strike_rate": 144.65,
+        "fifties": 18,
+        "hundreds": 3,
+        "fours": 356,
+        "sixes": 168,
+        "boundary_pct": 20.24,
+        "dot_ball_pct": 34.92,
+        "highest_score": 125,
+        "sample_size": "HIGH",
+        "avg_batting_position": 1.04
+      },
+      "phase": {
+        "powerplay": {
+          "sr": 153.2,
+          "avg": 42.13,
+          "boundary_pct": 24.51,
+          "balls": 1265,
+          "runs": 1938,
+          "sample_size": "HIGH"
+        },
+        "middle": {
+          "sr": 127.22,
+          "avg": 25.29,
+          "boundary_pct": 13.75,
+          "balls": 1113,
+          "runs": 1416,
+          "sample_size": "HIGH"
+        },
+        "death": {
+          "sr": 185.31,
+          "avg": 26.07,
+          "boundary_pct": 28.91,
+          "balls": 211,
+          "runs": 391,
+          "sample_size": "HIGH"
+        }
+      },
+      "bowling": null,
+      "cluster_label": "POWERPLAY_AGGRESSOR",
+      "tournaments": [
+        "Australia tour of New Zealand",
+        "Bangladesh tour of New Zealand",
+        "Big Bash League",
+        "Caribbean Premier League",
+        "England tour of New Zealand",
+        "International League T20",
+        "Lanka Premier League",
+        "Major League Cricket",
+        "New Zealand tour of England",
+        "New Zealand tour of Pakistan",
+        "New Zealand tour of United Arab Emirates",
+        "Pakistan Super League",
+        "Pakistan tour of New Zealand",
+        "Sri Lanka tour of New Zealand",
+        "Super Smash",
+        "Zimbabwe Twenty20 Tri-Series"
+      ],
+      "total_balls": 2589
+    },
+    "f787e0eb": {
+      "batting": {
+        "innings": 27,
+        "runs": 450,
+        "balls_faced": 323,
+        "average": 19.57,
+        "strike_rate": 139.32,
+        "fifties": 0,
+        "hundreds": 0,
+        "fours": 43,
+        "sixes": 17,
+        "boundary_pct": 18.58,
+        "dot_ball_pct": 34.67,
+        "highest_score": 46,
+        "sample_size": "HIGH",
+        "avg_batting_position": 1.0
+      },
+      "phase": {
+        "powerplay": {
+          "sr": 135.58,
+          "avg": 28.2,
+          "boundary_pct": 20.19,
+          "balls": 104,
+          "runs": 141,
+          "sample_size": "HIGH"
+        },
+        "middle": {
+          "sr": 138.06,
+          "avg": 26.75,
+          "boundary_pct": 16.13,
+          "balls": 155,
+          "runs": 214,
+          "sample_size": "HIGH"
+        },
+        "death": {
+          "sr": 148.44,
+          "avg": 9.5,
+          "boundary_pct": 21.88,
+          "balls": 64,
+          "runs": 95,
+          "sample_size": "MEDIUM"
+        }
+      },
+      "bowling": {
+        "matches": 40,
+        "wickets": 52,
+        "overs": 129.7,
+        "runs_conceded": 1079,
+        "economy": 8.32,
+        "average": 20.75,
+        "strike_rate": 14.96,
+        "dot_ball_pct": 38.05,
+        "boundary_conceded_pct": 16.97,
+        "sample_size": "HIGH"
+      },
+      "cluster_label": "BOUNDARY_HITTER",
+      "tournaments": [
+        "Big Bash League",
+        "Major League Cricket"
+      ],
+      "total_balls": 1101
+    },
+    "bf74b130": {
+      "batting": {
+        "innings": 90,
+        "runs": 2610,
+        "balls_faced": 1460,
+        "average": 29.33,
+        "strike_rate": 178.77,
+        "fifties": 15,
+        "hundreds": 4,
+        "fours": 221,
+        "sixes": 190,
+        "boundary_pct": 28.15,
+        "dot_ball_pct": 35.62,
+        "highest_score": 151,
+        "sample_size": "HIGH",
+        "avg_batting_position": 1.03
+      },
+      "phase": {
+        "powerplay": {
+          "sr": 163.16,
+          "avg": 27.32,
+          "boundary_pct": 27.02,
+          "balls": 988,
+          "runs": 1612,
+          "sample_size": "HIGH"
+        },
+        "middle": {
+          "sr": 211.63,
+          "avg": 36.38,
+          "boundary_pct": 30.65,
+          "balls": 447,
+          "runs": 946,
+          "sample_size": "HIGH"
+        },
+        "death": {
+          "sr": 208.0,
+          "avg": 13.0,
+          "boundary_pct": 28.0,
+          "balls": 25,
+          "runs": 52,
+          "sample_size": "LOW"
+        }
+      },
+      "bowling": null,
+      "cluster_label": "POWERPLAY_AGGRESSOR",
+      "tournaments": [
+        "Australia tour of New Zealand",
+        "Bangladesh tour of New Zealand",
+        "Big Bash League",
+        "ICC Men's T20 World Cup",
+        "Major League Cricket",
+        "New Zealand tour of England",
+        "New Zealand tour of India",
+        "Pakistan Super League",
+        "Pakistan tour of New Zealand",
+        "Super Smash",
+        "The Hundred Men's Competition"
+      ],
+      "total_balls": 1460
+    },
+    "5f26f677": {
+      "batting": {
+        "innings": 42,
+        "runs": 1129,
+        "balls_faced": 754,
+        "average": 28.95,
+        "strike_rate": 149.73,
+        "fifties": 7,
+        "hundreds": 0,
+        "fours": 143,
+        "sixes": 28,
+        "boundary_pct": 22.68,
+        "dot_ball_pct": 33.16,
+        "highest_score": 92,
+        "sample_size": "HIGH",
+        "avg_batting_position": 1.0
+      },
+      "phase": {
+        "powerplay": {
+          "sr": 157.56,
+          "avg": 32.3,
+          "boundary_pct": 27.56,
+          "balls": 410,
+          "runs": 646,
+          "sample_size": "HIGH"
+        },
+        "middle": {
+          "sr": 141.95,
+          "avg": 35.25,
+          "boundary_pct": 16.78,
+          "balls": 298,
+          "runs": 423,
+          "sample_size": "HIGH"
+        },
+        "death": {
+          "sr": 130.43,
+          "avg": 8.57,
+          "boundary_pct": 17.39,
+          "balls": 46,
+          "runs": 60,
+          "sample_size": "MEDIUM"
+        }
+      },
+      "bowling": null,
+      "cluster_label": "POWERPLAY_AGGRESSOR",
+      "tournaments": [
+        "Big Bash League",
+        "England tour of Bangladesh",
+        "England tour of India",
+        "England tour of West Indies",
+        "The Hundred Men's Competition",
+        "Vitality Blast",
+        "West Indies tour of England"
+      ],
+      "total_balls": 754
+    },
     "fe366f34": {
       "batting": {
         "innings": 37,
@@ -48,11 +291,13 @@
       "bowling": {
         "matches": 29,
         "wickets": 26,
-        "balls_bowled": 432,
+        "overs": 72.0,
+        "runs_conceded": 543,
         "economy": 7.54,
         "average": 20.88,
         "strike_rate": 16.62,
         "dot_ball_pct": 35.42,
+        "boundary_conceded_pct": 12.96,
         "sample_size": "HIGH"
       },
       "cluster_label": "BALANCED",
@@ -128,212 +373,64 @@
       ],
       "total_balls": 1421
     },
-    "350bb1b1": {
+    "ff154ecd": {
       "batting": {
-        "innings": 33,
-        "runs": 161,
-        "balls_faced": 162,
-        "average": 7.32,
-        "strike_rate": 99.38,
-        "fifties": 0,
-        "hundreds": 0,
-        "fours": 7,
-        "sixes": 9,
-        "boundary_pct": 9.88,
-        "dot_ball_pct": 41.98,
-        "highest_score": 22,
+        "innings": 109,
+        "runs": 2660,
+        "balls_faced": 1864,
+        "average": 30.23,
+        "strike_rate": 142.7,
+        "fifties": 13,
+        "hundreds": 1,
+        "fours": 230,
+        "sixes": 117,
+        "boundary_pct": 18.62,
+        "dot_ball_pct": 32.78,
+        "highest_score": 139,
         "sample_size": "HIGH",
-        "avg_batting_position": 1.88
+        "avg_batting_position": 1.0
       },
       "phase": {
         "powerplay": {
-          "sr": null,
-          "avg": null,
-          "boundary_pct": null,
-          "balls": null,
-          "runs": null,
-          "sample_size": "LOW"
-        },
-        "middle": {
-          "sr": 67.57,
-          "avg": 6.25,
-          "boundary_pct": 2.7,
-          "balls": 37,
-          "runs": 25,
-          "sample_size": "MEDIUM"
-        },
-        "death": {
-          "sr": 108.8,
-          "avg": 7.56,
-          "boundary_pct": 12.0,
-          "balls": 125,
-          "runs": 136,
-          "sample_size": "HIGH"
-        }
-      },
-      "bowling": {
-        "matches": 76,
-        "wickets": 105,
-        "balls_bowled": 1545,
-        "economy": 8.49,
-        "average": 20.82,
-        "strike_rate": 14.71,
-        "dot_ball_pct": 43.24,
-        "sample_size": "HIGH"
-      },
-      "cluster_label": "BALANCED",
-      "tournaments": [
-        "Australia tour of New Zealand",
-        "Bangladesh tour of New Zealand",
-        "Big Bash League",
-        "International League T20",
-        "Major League Cricket",
-        "New Zealand tour of England",
-        "New Zealand tour of Pakistan",
-        "Pakistan Super League",
-        "Pakistan tour of New Zealand",
-        "SA20",
-        "Sri Lanka tour of New Zealand",
-        "Super Smash",
-        "The Hundred Men's Competition",
-        "Zimbabwe Twenty20 Tri-Series"
-      ],
-      "total_balls": 1707
-    },
-    "dadbdb68": {
-      "batting": {
-        "innings": 19,
-        "runs": 71,
-        "balls_faced": 58,
-        "average": 7.1,
-        "strike_rate": 122.41,
-        "fifties": 0,
-        "hundreds": 0,
-        "fours": 4,
-        "sixes": 3,
-        "boundary_pct": 12.07,
-        "dot_ball_pct": 27.59,
-        "highest_score": 24,
-        "sample_size": "MEDIUM",
-        "avg_batting_position": 1.58
-      },
-      "phase": {
-        "powerplay": {
-          "sr": null,
-          "avg": null,
-          "boundary_pct": null,
-          "balls": null,
-          "runs": null,
-          "sample_size": "LOW"
-        },
-        "middle": {
-          "sr": null,
-          "avg": null,
-          "boundary_pct": null,
-          "balls": null,
-          "runs": null,
-          "sample_size": "LOW"
-        },
-        "death": {
-          "sr": 125.45,
-          "avg": 7.67,
-          "boundary_pct": 12.73,
-          "balls": 55,
-          "runs": 69,
-          "sample_size": "MEDIUM"
-        }
-      },
-      "bowling": {
-        "matches": 59,
-        "wickets": 87,
-        "balls_bowled": 1228,
-        "economy": 7.99,
-        "average": 18.79,
-        "strike_rate": 14.11,
-        "dot_ball_pct": 45.11,
-        "sample_size": "HIGH"
-      },
-      "cluster_label": "BALANCED",
-      "tournaments": [
-        "Australia tour of New Zealand",
-        "England tour of New Zealand",
-        "New Zealand tour of India",
-        "New Zealand tour of Pakistan",
-        "New Zealand tour of Sri Lanka",
-        "Pakistan tour of New Zealand",
-        "Sri Lanka tour of New Zealand",
-        "Super Smash",
-        "The Hundred Men's Competition",
-        "Vitality Blast Men",
-        "West Indies tour of New Zealand",
-        "Zimbabwe Twenty20 Tri-Series"
-      ],
-      "total_balls": 1286
-    },
-    "4663bd23": {
-      "batting": {
-        "innings": 131,
-        "runs": 3745,
-        "balls_faced": 2589,
-        "average": 32.01,
-        "strike_rate": 144.65,
-        "fifties": 18,
-        "hundreds": 3,
-        "fours": 356,
-        "sixes": 168,
-        "boundary_pct": 20.24,
-        "dot_ball_pct": 34.92,
-        "highest_score": 125,
-        "sample_size": "HIGH",
-        "avg_batting_position": 1.04
-      },
-      "phase": {
-        "powerplay": {
-          "sr": 153.2,
-          "avg": 42.13,
-          "boundary_pct": 24.51,
-          "balls": 1265,
-          "runs": 1938,
+          "sr": 123.98,
+          "avg": 21.44,
+          "boundary_pct": 19.91,
+          "balls": 467,
+          "runs": 579,
           "sample_size": "HIGH"
         },
         "middle": {
-          "sr": 127.22,
-          "avg": 25.29,
-          "boundary_pct": 13.75,
-          "balls": 1113,
-          "runs": 1416,
+          "sr": 139.98,
+          "avg": 36.36,
+          "boundary_pct": 16.45,
+          "balls": 1143,
+          "runs": 1600,
           "sample_size": "HIGH"
         },
         "death": {
-          "sr": 185.31,
-          "avg": 26.07,
-          "boundary_pct": 28.91,
-          "balls": 211,
-          "runs": 391,
+          "sr": 189.37,
+          "avg": 28.29,
+          "boundary_pct": 25.98,
+          "balls": 254,
+          "runs": 481,
           "sample_size": "HIGH"
         }
       },
       "bowling": null,
-      "cluster_label": "POWERPLAY_AGGRESSOR",
+      "cluster_label": "BOUNDARY_HITTER",
       "tournaments": [
-        "Australia tour of New Zealand",
-        "Bangladesh tour of New Zealand",
+        "Australia tour of England",
         "Big Bash League",
-        "Caribbean Premier League",
+        "England tour of Ireland",
         "England tour of New Zealand",
         "International League T20",
-        "Lanka Premier League",
-        "Major League Cricket",
-        "New Zealand tour of England",
-        "New Zealand tour of Pakistan",
-        "New Zealand tour of United Arab Emirates",
         "Pakistan Super League",
-        "Pakistan tour of New Zealand",
-        "Sri Lanka tour of New Zealand",
-        "Super Smash",
-        "Zimbabwe Twenty20 Tri-Series"
+        "SA20",
+        "The Hundred Men's Competition",
+        "Vitality Blast",
+        "Vitality Blast Men"
       ],
-      "total_balls": 2589
+      "total_balls": 1864
     },
     "9ca68676": {
       "batting": {
@@ -381,11 +478,13 @@
       "bowling": {
         "matches": 32,
         "wickets": 38,
-        "balls_bowled": 701,
+        "overs": 116.8,
+        "runs_conceded": 846,
         "economy": 7.24,
         "average": 22.26,
         "strike_rate": 18.45,
         "dot_ball_pct": 39.8,
+        "boundary_conceded_pct": 12.41,
         "sample_size": "HIGH"
       },
       "cluster_label": "BALANCED",
@@ -445,6 +544,218 @@
         "Syed Mushtaq Ali Trophy"
       ],
       "total_balls": 73
+    },
+    "350bb1b1": {
+      "batting": {
+        "innings": 33,
+        "runs": 161,
+        "balls_faced": 162,
+        "average": 7.32,
+        "strike_rate": 99.38,
+        "fifties": 0,
+        "hundreds": 0,
+        "fours": 7,
+        "sixes": 9,
+        "boundary_pct": 9.88,
+        "dot_ball_pct": 41.98,
+        "highest_score": 22,
+        "sample_size": "HIGH",
+        "avg_batting_position": 1.88
+      },
+      "phase": {
+        "powerplay": {
+          "sr": null,
+          "avg": null,
+          "boundary_pct": null,
+          "balls": null,
+          "runs": null,
+          "sample_size": "LOW"
+        },
+        "middle": {
+          "sr": 67.57,
+          "avg": 6.25,
+          "boundary_pct": 2.7,
+          "balls": 37,
+          "runs": 25,
+          "sample_size": "MEDIUM"
+        },
+        "death": {
+          "sr": 108.8,
+          "avg": 7.56,
+          "boundary_pct": 12.0,
+          "balls": 125,
+          "runs": 136,
+          "sample_size": "HIGH"
+        }
+      },
+      "bowling": {
+        "matches": 76,
+        "wickets": 105,
+        "overs": 257.5,
+        "runs_conceded": 2186,
+        "economy": 8.49,
+        "average": 20.82,
+        "strike_rate": 14.71,
+        "dot_ball_pct": 43.24,
+        "boundary_conceded_pct": 19.35,
+        "sample_size": "HIGH"
+      },
+      "cluster_label": "BALANCED",
+      "tournaments": [
+        "Australia tour of New Zealand",
+        "Bangladesh tour of New Zealand",
+        "Big Bash League",
+        "International League T20",
+        "Major League Cricket",
+        "New Zealand tour of England",
+        "New Zealand tour of Pakistan",
+        "Pakistan Super League",
+        "Pakistan tour of New Zealand",
+        "SA20",
+        "Sri Lanka tour of New Zealand",
+        "Super Smash",
+        "The Hundred Men's Competition",
+        "Zimbabwe Twenty20 Tri-Series"
+      ],
+      "total_balls": 1707
+    },
+    "30f92334": {
+      "batting": {
+        "innings": 31,
+        "runs": 252,
+        "balls_faced": 200,
+        "average": 13.26,
+        "strike_rate": 126.0,
+        "fifties": 0,
+        "hundreds": 0,
+        "fours": 18,
+        "sixes": 9,
+        "boundary_pct": 13.5,
+        "dot_ball_pct": 32.5,
+        "highest_score": 32,
+        "sample_size": "HIGH",
+        "avg_batting_position": 1.19
+      },
+      "phase": {
+        "powerplay": {
+          "sr": null,
+          "avg": null,
+          "boundary_pct": null,
+          "balls": null,
+          "runs": null,
+          "sample_size": "LOW"
+        },
+        "middle": {
+          "sr": 111.86,
+          "avg": 16.5,
+          "boundary_pct": 10.17,
+          "balls": 59,
+          "runs": 66,
+          "sample_size": "MEDIUM"
+        },
+        "death": {
+          "sr": 131.91,
+          "avg": 12.4,
+          "boundary_pct": 14.89,
+          "balls": 141,
+          "runs": 186,
+          "sample_size": "HIGH"
+        }
+      },
+      "bowling": {
+        "matches": 59,
+        "wickets": 76,
+        "overs": 202.0,
+        "runs_conceded": 1636,
+        "economy": 8.1,
+        "average": 21.53,
+        "strike_rate": 15.95,
+        "dot_ball_pct": 39.52,
+        "boundary_conceded_pct": 16.91,
+        "sample_size": "HIGH"
+      },
+      "cluster_label": "BALANCED",
+      "tournaments": [
+        "Australia tour of New Zealand",
+        "New Zealand tour of Pakistan",
+        "New Zealand tour of Sri Lanka",
+        "Pakistan tour of New Zealand",
+        "Sri Lanka tour of New Zealand",
+        "Super Smash",
+        "Vitality Blast",
+        "Vitality Blast Men",
+        "West Indies tour of New Zealand",
+        "Zimbabwe Twenty20 Tri-Series"
+      ],
+      "total_balls": 1412
+    },
+    "cad40f5e": {
+      "batting": {
+        "innings": 24,
+        "runs": 278,
+        "balls_faced": 202,
+        "average": 15.44,
+        "strike_rate": 137.62,
+        "fifties": 1,
+        "hundreds": 0,
+        "fours": 15,
+        "sixes": 16,
+        "boundary_pct": 15.35,
+        "dot_ball_pct": 30.69,
+        "highest_score": 58,
+        "sample_size": "HIGH",
+        "avg_batting_position": 1.29
+      },
+      "phase": {
+        "powerplay": {
+          "sr": null,
+          "avg": null,
+          "boundary_pct": null,
+          "balls": null,
+          "runs": null,
+          "sample_size": "LOW"
+        },
+        "middle": {
+          "sr": 144.54,
+          "avg": 19.11,
+          "boundary_pct": 15.97,
+          "balls": 119,
+          "runs": 172,
+          "sample_size": "HIGH"
+        },
+        "death": {
+          "sr": 125.32,
+          "avg": 11.0,
+          "boundary_pct": 13.92,
+          "balls": 79,
+          "runs": 99,
+          "sample_size": "MEDIUM"
+        }
+      },
+      "bowling": {
+        "matches": 28,
+        "wickets": 29,
+        "overs": 81.3,
+        "runs_conceded": 781,
+        "economy": 9.6,
+        "average": 26.93,
+        "strike_rate": 16.83,
+        "dot_ball_pct": 36.68,
+        "boundary_conceded_pct": 22.95,
+        "sample_size": "HIGH"
+      },
+      "cluster_label": "BALANCED",
+      "tournaments": [
+        "Australia tour of England",
+        "England tour of India",
+        "England tour of New Zealand",
+        "New Zealand tour of England",
+        "SA20",
+        "The Hundred Men's Competition",
+        "Vitality Blast",
+        "West Indies tour of England"
+      ],
+      "total_balls": 690
     },
     "3cea23da": {
       "batting": {
@@ -542,11 +853,13 @@
       "bowling": {
         "matches": 3,
         "wickets": 6,
-        "balls_bowled": 72,
+        "overs": 12.0,
+        "runs_conceded": 71,
         "economy": 5.92,
         "average": 11.83,
         "strike_rate": 12.0,
         "dot_ball_pct": 30.56,
+        "boundary_conceded_pct": 2.78,
         "sample_size": "MEDIUM"
       },
       "cluster_label": "BALANCED",
@@ -554,6 +867,78 @@
         "Syed Mushtaq Ali Trophy"
       ],
       "total_balls": 116
+    },
+    "dadbdb68": {
+      "batting": {
+        "innings": 19,
+        "runs": 71,
+        "balls_faced": 58,
+        "average": 7.1,
+        "strike_rate": 122.41,
+        "fifties": 0,
+        "hundreds": 0,
+        "fours": 4,
+        "sixes": 3,
+        "boundary_pct": 12.07,
+        "dot_ball_pct": 27.59,
+        "highest_score": 24,
+        "sample_size": "MEDIUM",
+        "avg_batting_position": 1.58
+      },
+      "phase": {
+        "powerplay": {
+          "sr": null,
+          "avg": null,
+          "boundary_pct": null,
+          "balls": null,
+          "runs": null,
+          "sample_size": "LOW"
+        },
+        "middle": {
+          "sr": null,
+          "avg": null,
+          "boundary_pct": null,
+          "balls": null,
+          "runs": null,
+          "sample_size": "LOW"
+        },
+        "death": {
+          "sr": 125.45,
+          "avg": 7.67,
+          "boundary_pct": 12.73,
+          "balls": 55,
+          "runs": 69,
+          "sample_size": "MEDIUM"
+        }
+      },
+      "bowling": {
+        "matches": 59,
+        "wickets": 87,
+        "overs": 204.7,
+        "runs_conceded": 1635,
+        "economy": 7.99,
+        "average": 18.79,
+        "strike_rate": 14.11,
+        "dot_ball_pct": 45.11,
+        "boundary_conceded_pct": 18.08,
+        "sample_size": "HIGH"
+      },
+      "cluster_label": "BALANCED",
+      "tournaments": [
+        "Australia tour of New Zealand",
+        "England tour of New Zealand",
+        "New Zealand tour of India",
+        "New Zealand tour of Pakistan",
+        "New Zealand tour of Sri Lanka",
+        "Pakistan tour of New Zealand",
+        "Sri Lanka tour of New Zealand",
+        "Super Smash",
+        "The Hundred Men's Competition",
+        "Vitality Blast Men",
+        "West Indies tour of New Zealand",
+        "Zimbabwe Twenty20 Tri-Series"
+      ],
+      "total_balls": 1286
     },
     "557550a4": {
       "batting": {
@@ -761,11 +1146,13 @@
       "bowling": {
         "matches": 80,
         "wickets": 112,
-        "balls_bowled": 1714,
+        "overs": 285.7,
+        "runs_conceded": 2463,
         "economy": 8.62,
         "average": 21.99,
         "strike_rate": 15.3,
         "dot_ball_pct": 38.33,
+        "boundary_conceded_pct": 19.02,
         "sample_size": "HIGH"
       },
       "cluster_label": "BOUNDARY_HITTER",
@@ -829,11 +1216,13 @@
       "bowling": {
         "matches": 68,
         "wickets": 84,
-        "balls_bowled": 1432,
+        "overs": 238.7,
+        "runs_conceded": 1612,
         "economy": 6.75,
         "average": 19.19,
         "strike_rate": 17.05,
         "dot_ball_pct": 38.97,
+        "boundary_conceded_pct": 10.96,
         "sample_size": "HIGH"
       },
       "cluster_label": "BALANCED",
@@ -852,386 +1241,19 @@
       ],
       "total_balls": 1820
     },
-    "ff154ecd": {
-      "batting": {
-        "innings": 109,
-        "runs": 2660,
-        "balls_faced": 1864,
-        "average": 30.23,
-        "strike_rate": 142.7,
-        "fifties": 13,
-        "hundreds": 1,
-        "fours": 230,
-        "sixes": 117,
-        "boundary_pct": 18.62,
-        "dot_ball_pct": 32.78,
-        "highest_score": 139,
-        "sample_size": "HIGH",
-        "avg_batting_position": 1.0
-      },
-      "phase": {
-        "powerplay": {
-          "sr": 123.98,
-          "avg": 21.44,
-          "boundary_pct": 19.91,
-          "balls": 467,
-          "runs": 579,
-          "sample_size": "HIGH"
-        },
-        "middle": {
-          "sr": 139.98,
-          "avg": 36.36,
-          "boundary_pct": 16.45,
-          "balls": 1143,
-          "runs": 1600,
-          "sample_size": "HIGH"
-        },
-        "death": {
-          "sr": 189.37,
-          "avg": 28.29,
-          "boundary_pct": 25.98,
-          "balls": 254,
-          "runs": 481,
-          "sample_size": "HIGH"
-        }
-      },
-      "bowling": null,
-      "cluster_label": "BOUNDARY_HITTER",
-      "tournaments": [
-        "Australia tour of England",
-        "Big Bash League",
-        "England tour of Ireland",
-        "England tour of New Zealand",
-        "International League T20",
-        "Pakistan Super League",
-        "SA20",
-        "The Hundred Men's Competition",
-        "Vitality Blast",
-        "Vitality Blast Men"
-      ],
-      "total_balls": 1864
-    },
-    "f787e0eb": {
-      "batting": {
-        "innings": 27,
-        "runs": 450,
-        "balls_faced": 323,
-        "average": 19.57,
-        "strike_rate": 139.32,
-        "fifties": 0,
-        "hundreds": 0,
-        "fours": 43,
-        "sixes": 17,
-        "boundary_pct": 18.58,
-        "dot_ball_pct": 34.67,
-        "highest_score": 46,
-        "sample_size": "HIGH",
-        "avg_batting_position": 1.0
-      },
-      "phase": {
-        "powerplay": {
-          "sr": 135.58,
-          "avg": 28.2,
-          "boundary_pct": 20.19,
-          "balls": 104,
-          "runs": 141,
-          "sample_size": "HIGH"
-        },
-        "middle": {
-          "sr": 138.06,
-          "avg": 26.75,
-          "boundary_pct": 16.13,
-          "balls": 155,
-          "runs": 214,
-          "sample_size": "HIGH"
-        },
-        "death": {
-          "sr": 148.44,
-          "avg": 9.5,
-          "boundary_pct": 21.88,
-          "balls": 64,
-          "runs": 95,
-          "sample_size": "MEDIUM"
-        }
-      },
-      "bowling": {
-        "matches": 40,
-        "wickets": 52,
-        "balls_bowled": 778,
-        "economy": 8.32,
-        "average": 20.75,
-        "strike_rate": 14.96,
-        "dot_ball_pct": 38.05,
-        "sample_size": "HIGH"
-      },
-      "cluster_label": "BOUNDARY_HITTER",
-      "tournaments": [
-        "Big Bash League",
-        "Major League Cricket"
-      ],
-      "total_balls": 1101
-    },
-    "bf74b130": {
-      "batting": {
-        "innings": 90,
-        "runs": 2610,
-        "balls_faced": 1460,
-        "average": 29.33,
-        "strike_rate": 178.77,
-        "fifties": 15,
-        "hundreds": 4,
-        "fours": 221,
-        "sixes": 190,
-        "boundary_pct": 28.15,
-        "dot_ball_pct": 35.62,
-        "highest_score": 151,
-        "sample_size": "HIGH",
-        "avg_batting_position": 1.03
-      },
-      "phase": {
-        "powerplay": {
-          "sr": 163.16,
-          "avg": 27.32,
-          "boundary_pct": 27.02,
-          "balls": 988,
-          "runs": 1612,
-          "sample_size": "HIGH"
-        },
-        "middle": {
-          "sr": 211.63,
-          "avg": 36.38,
-          "boundary_pct": 30.65,
-          "balls": 447,
-          "runs": 946,
-          "sample_size": "HIGH"
-        },
-        "death": {
-          "sr": 208.0,
-          "avg": 13.0,
-          "boundary_pct": 28.0,
-          "balls": 25,
-          "runs": 52,
-          "sample_size": "LOW"
-        }
-      },
-      "bowling": null,
-      "cluster_label": "POWERPLAY_AGGRESSOR",
-      "tournaments": [
-        "Australia tour of New Zealand",
-        "Bangladesh tour of New Zealand",
-        "Big Bash League",
-        "ICC Men's T20 World Cup",
-        "Major League Cricket",
-        "New Zealand tour of England",
-        "New Zealand tour of India",
-        "Pakistan Super League",
-        "Pakistan tour of New Zealand",
-        "Super Smash",
-        "The Hundred Men's Competition"
-      ],
-      "total_balls": 1460
-    },
-    "5f26f677": {
-      "batting": {
-        "innings": 42,
-        "runs": 1129,
-        "balls_faced": 754,
-        "average": 28.95,
-        "strike_rate": 149.73,
-        "fifties": 7,
-        "hundreds": 0,
-        "fours": 143,
-        "sixes": 28,
-        "boundary_pct": 22.68,
-        "dot_ball_pct": 33.16,
-        "highest_score": 92,
-        "sample_size": "HIGH",
-        "avg_batting_position": 1.0
-      },
-      "phase": {
-        "powerplay": {
-          "sr": 157.56,
-          "avg": 32.3,
-          "boundary_pct": 27.56,
-          "balls": 410,
-          "runs": 646,
-          "sample_size": "HIGH"
-        },
-        "middle": {
-          "sr": 141.95,
-          "avg": 35.25,
-          "boundary_pct": 16.78,
-          "balls": 298,
-          "runs": 423,
-          "sample_size": "HIGH"
-        },
-        "death": {
-          "sr": 130.43,
-          "avg": 8.57,
-          "boundary_pct": 17.39,
-          "balls": 46,
-          "runs": 60,
-          "sample_size": "MEDIUM"
-        }
-      },
-      "bowling": null,
-      "cluster_label": "POWERPLAY_AGGRESSOR",
-      "tournaments": [
-        "Big Bash League",
-        "England tour of Bangladesh",
-        "England tour of India",
-        "England tour of West Indies",
-        "The Hundred Men's Competition",
-        "Vitality Blast",
-        "West Indies tour of England"
-      ],
-      "total_balls": 754
-    },
-    "30f92334": {
-      "batting": {
-        "innings": 31,
-        "runs": 252,
-        "balls_faced": 200,
-        "average": 13.26,
-        "strike_rate": 126.0,
-        "fifties": 0,
-        "hundreds": 0,
-        "fours": 18,
-        "sixes": 9,
-        "boundary_pct": 13.5,
-        "dot_ball_pct": 32.5,
-        "highest_score": 32,
-        "sample_size": "HIGH",
-        "avg_batting_position": 1.19
-      },
-      "phase": {
-        "powerplay": {
-          "sr": null,
-          "avg": null,
-          "boundary_pct": null,
-          "balls": null,
-          "runs": null,
-          "sample_size": "LOW"
-        },
-        "middle": {
-          "sr": 111.86,
-          "avg": 16.5,
-          "boundary_pct": 10.17,
-          "balls": 59,
-          "runs": 66,
-          "sample_size": "MEDIUM"
-        },
-        "death": {
-          "sr": 131.91,
-          "avg": 12.4,
-          "boundary_pct": 14.89,
-          "balls": 141,
-          "runs": 186,
-          "sample_size": "HIGH"
-        }
-      },
-      "bowling": {
-        "matches": 59,
-        "wickets": 76,
-        "balls_bowled": 1212,
-        "economy": 8.1,
-        "average": 21.53,
-        "strike_rate": 15.95,
-        "dot_ball_pct": 39.52,
-        "sample_size": "HIGH"
-      },
-      "cluster_label": "BALANCED",
-      "tournaments": [
-        "Australia tour of New Zealand",
-        "New Zealand tour of Pakistan",
-        "New Zealand tour of Sri Lanka",
-        "Pakistan tour of New Zealand",
-        "Sri Lanka tour of New Zealand",
-        "Super Smash",
-        "Vitality Blast",
-        "Vitality Blast Men",
-        "West Indies tour of New Zealand",
-        "Zimbabwe Twenty20 Tri-Series"
-      ],
-      "total_balls": 1412
-    },
-    "cad40f5e": {
-      "batting": {
-        "innings": 24,
-        "runs": 278,
-        "balls_faced": 202,
-        "average": 15.44,
-        "strike_rate": 137.62,
-        "fifties": 1,
-        "hundreds": 0,
-        "fours": 15,
-        "sixes": 16,
-        "boundary_pct": 15.35,
-        "dot_ball_pct": 30.69,
-        "highest_score": 58,
-        "sample_size": "HIGH",
-        "avg_batting_position": 1.29
-      },
-      "phase": {
-        "powerplay": {
-          "sr": null,
-          "avg": null,
-          "boundary_pct": null,
-          "balls": null,
-          "runs": null,
-          "sample_size": "LOW"
-        },
-        "middle": {
-          "sr": 144.54,
-          "avg": 19.11,
-          "boundary_pct": 15.97,
-          "balls": 119,
-          "runs": 172,
-          "sample_size": "HIGH"
-        },
-        "death": {
-          "sr": 125.32,
-          "avg": 11.0,
-          "boundary_pct": 13.92,
-          "balls": 79,
-          "runs": 99,
-          "sample_size": "MEDIUM"
-        }
-      },
-      "bowling": {
-        "matches": 28,
-        "wickets": 29,
-        "balls_bowled": 488,
-        "economy": 9.6,
-        "average": 26.93,
-        "strike_rate": 16.83,
-        "dot_ball_pct": 36.68,
-        "sample_size": "HIGH"
-      },
-      "cluster_label": "BALANCED",
-      "tournaments": [
-        "Australia tour of England",
-        "England tour of India",
-        "England tour of New Zealand",
-        "New Zealand tour of England",
-        "SA20",
-        "The Hundred Men's Competition",
-        "Vitality Blast",
-        "West Indies tour of England"
-      ],
-      "total_balls": 690
-    },
     "d6cd318e": {
       "batting": null,
       "phase": {},
       "bowling": {
         "matches": 4,
         "wickets": 4,
-        "balls_bowled": 84,
+        "overs": 14.0,
+        "runs_conceded": 92,
         "economy": 6.57,
         "average": 23.0,
         "strike_rate": 21.0,
         "dot_ball_pct": 30.95,
+        "boundary_conceded_pct": 9.52,
         "sample_size": "MEDIUM"
       },
       "cluster_label": null,
@@ -1246,11 +1268,13 @@
       "bowling": {
         "matches": 7,
         "wickets": 7,
-        "balls_bowled": 108,
+        "overs": 18.0,
+        "runs_conceded": 176,
         "economy": 9.78,
         "average": 25.14,
         "strike_rate": 15.43,
         "dot_ball_pct": 35.19,
+        "boundary_conceded_pct": 23.15,
         "sample_size": "HIGH"
       },
       "cluster_label": null,
@@ -1267,11 +1291,13 @@
       "bowling": {
         "matches": 7,
         "wickets": 18,
-        "balls_bowled": 151,
+        "overs": 25.2,
+        "runs_conceded": 75,
         "economy": 2.98,
         "average": 4.17,
         "strike_rate": 8.39,
         "dot_ball_pct": 70.2,
+        "boundary_conceded_pct": 4.64,
         "sample_size": "HIGH"
       },
       "cluster_label": null,

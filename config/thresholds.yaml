@@ -16,7 +16,8 @@
 sample_size:
   # Batting analysis
   min_balls_batter: 300          # Minimum balls faced for clustering inclusion
-  min_balls_vs_type: 50          # Minimum balls vs pace/spin for matchup analysis
+  min_balls_vs_type: 50          # Minimum balls vs pace/spin for aggregate matchup tags
+  min_balls_per_type: 20         # Minimum balls for individual bowling type tags
   min_balls_vs_hand: 60          # Minimum balls for handedness matchup
   min_innings: 5                 # Minimum innings for player inclusion
 
@@ -48,7 +49,7 @@ batting:
     average: 20                  # Minimum average
     balls_per_dismissal: 15      # Minimum BPD
 
-  # Vulnerable thresholds (player meets ANY criteria)
+  # Vulnerable thresholds (player must meet 2+ criteria)
   vulnerable:
     strike_rate: 110             # Maximum SR to be vulnerable
     average: 12                  # Maximum average

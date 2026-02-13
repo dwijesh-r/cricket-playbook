@@ -32,7 +32,8 @@ OUTPUT_DIR = PROJECT_DIR / "outputs"
 IPL_MIN_DATE = "2023-01-01"
 
 # Thresholds (Updated per Andy Flower review - Sprint 4.0)
-MIN_BALLS_VS_TYPE = 50  # Increased from 30 for more stable sample
+MIN_BALLS_VS_TYPE = 50  # Aggregate pace/spin minimum for tag assignment
+MIN_BALLS_PER_TYPE = 20  # Individual bowling type minimum for per-type tags
 MIN_BALLS_VS_HAND = 60
 
 # Bowling type categories
@@ -175,7 +176,7 @@ def generate_batter_bowling_type_2023(
             WHERE dt.tournament_name = 'Indian Premier League'
               AND dm.match_date >= '{IPL_MIN_DATE}'
             GROUP BY fb.batter_id, dp.current_name, bc.bowling_style
-            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= {MIN_BALLS_VS_TYPE}
+            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= 1
         )
         SELECT
             batter_id,
@@ -252,7 +253,7 @@ def generate_batter_bowling_type_2023(
         batter_id = row["batter_id"]
         player_tags = []
 
-        # Pace tags
+        # Pace tags (aggregate across all pace types)
         if row["pace_balls"] >= MIN_BALLS_VS_TYPE:
             pace_sr = row["pace_sr"] or 0
             pace_avg = row["pace_avg"]
@@ -265,14 +266,20 @@ def generate_batter_bowling_type_2023(
                 and pace_bpd >= SPECIALIST_BPD_THRESHOLD
             ):
                 player_tags.append("SPECIALIST_VS_PACE")
-            elif (
-                pace_sr < VULNERABLE_SR_THRESHOLD
-                or (pace_avg is not None and pace_avg < VULNERABLE_AVG_THRESHOLD)
-                or (pace_dismissals >= 3 and pace_bpd < VULNERABLE_BPD_THRESHOLD)
-            ):
-                player_tags.append("VULNERABLE_VS_PACE")
+            else:
+                # Require 2+ vulnerability signals to avoid false positives
+                # (e.g. slow scorer with high survival, or power hitter with frequent dismissals)
+                pace_vuln = 0
+                if pace_sr < VULNERABLE_SR_THRESHOLD:
+                    pace_vuln += 1
+                if pace_avg is not None and pace_avg < VULNERABLE_AVG_THRESHOLD:
+                    pace_vuln += 1
+                if pace_dismissals >= 3 and pace_bpd < VULNERABLE_BPD_THRESHOLD:
+                    pace_vuln += 1
+                if pace_vuln >= 2:
+                    player_tags.append("VULNERABLE_VS_PACE")
 
-        # Spin tags
+        # Spin tags (aggregate across all spin types)
         if row["spin_balls"] >= MIN_BALLS_VS_TYPE:
             spin_sr = row["spin_sr"] or 0
             spin_avg = row["spin_avg"]
@@ -285,12 +292,16 @@ def generate_batter_bowling_type_2023(
                 and spin_bpd >= SPECIALIST_BPD_THRESHOLD
             ):
                 player_tags.append("SPECIALIST_VS_SPIN")
-            elif (
-                spin_sr < VULNERABLE_SR_THRESHOLD
-                or (spin_avg is not None and spin_avg < VULNERABLE_AVG_THRESHOLD)
-                or (spin_dismissals >= 3 and spin_bpd < VULNERABLE_BPD_THRESHOLD)
-            ):
-                player_tags.append("VULNERABLE_VS_SPIN")
+            else:
+                spin_vuln = 0
+                if spin_sr < VULNERABLE_SR_THRESHOLD:
+                    spin_vuln += 1
+                if spin_avg is not None and spin_avg < VULNERABLE_AVG_THRESHOLD:
+                    spin_vuln += 1
+                if spin_dismissals >= 3 and spin_bpd < VULNERABLE_BPD_THRESHOLD:
+                    spin_vuln += 1
+                if spin_vuln >= 2:
+                    player_tags.append("VULNERABLE_VS_SPIN")
 
         batter_tags_dict[batter_id] = {
             "name": row["batter_name"],
@@ -325,18 +336,22 @@ def generate_batter_bowling_type_2023(
                 "overall_sr": sr,
             }
 
-        if bowling_type in type_map:
+        if bowling_type in type_map and balls >= MIN_BALLS_PER_TYPE:
             suffix = type_map[bowling_type]
             is_specialist = (
                 sr >= SPECIALIST_SR_THRESHOLD
                 and (avg is None or avg >= SPECIALIST_AVG_THRESHOLD)
                 and bpd >= SPECIALIST_BPD_THRESHOLD
             )
-            is_vulnerable = (
-                sr < VULNERABLE_SR_THRESHOLD
-                or (avg is not None and avg < VULNERABLE_AVG_THRESHOLD)
-                or (dismissals >= 3 and bpd < VULNERABLE_BPD_THRESHOLD)
-            )
+            # Require 2+ vulnerability signals for individual types too
+            type_vuln = 0
+            if sr < VULNERABLE_SR_THRESHOLD:
+                type_vuln += 1
+            if avg is not None and avg < VULNERABLE_AVG_THRESHOLD:
+                type_vuln += 1
+            if dismissals >= 3 and bpd < VULNERABLE_BPD_THRESHOLD:
+                type_vuln += 1
+            is_vulnerable = type_vuln >= 2
 
             if is_specialist:
                 tag = f"SPECIALIST_VS_{suffix}"

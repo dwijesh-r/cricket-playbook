@@ -274,11 +274,15 @@ def get_all_t20_bowling(conn: duckdb.DuckDBPyConnection, player_ids: Set[str]) -
                 COUNT(*) FILTER (WHERE fb.is_legal_ball) as balls,
                 SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) as wickets,
                 COUNT(DISTINCT fb.match_id) as matches,
+                SUM(fb.batter_runs + fb.extra_runs) as runs_conceded,
+                ROUND(COUNT(*) FILTER (WHERE fb.is_legal_ball) / 6.0, 1) as overs,
                 ROUND(SUM(fb.batter_runs + fb.extra_runs) * 6.0 / NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as economy,
                 ROUND(SUM(fb.batter_runs + fb.extra_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END), 0), 2) as avg,
                 ROUND(COUNT(*) FILTER (WHERE fb.is_legal_ball) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END), 0), 2) as sr,
                 ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 /
-                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as dot_pct
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as dot_pct,
+                ROUND(SUM(CASE WHEN fb.batter_runs IN (4,6) THEN 1 ELSE 0 END) * 100.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as boundary_conceded_pct
             FROM fact_ball fb
             JOIN dim_match dm ON fb.match_id = dm.match_id
             JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
@@ -503,11 +507,13 @@ def main() -> None:
                 player_entry["bowling"] = {
                     "matches": _safe_int_val(brow["matches"]),
                     "wickets": _safe_int_val(brow["wickets"]),
-                    "balls_bowled": _safe_int_val(brow["balls"]),
+                    "overs": _safe_float(brow.get("overs")),
+                    "runs_conceded": _safe_int_val(brow.get("runs_conceded")),
                     "economy": _safe_float(brow["economy"]),
                     "average": _safe_float(brow["avg"]),
                     "strike_rate": _safe_float(brow["sr"]),
                     "dot_ball_pct": _safe_float(brow.get("dot_pct")),
+                    "boundary_conceded_pct": _safe_float(brow.get("boundary_conceded_pct")),
                     "sample_size": _classify_sample(_safe_int_val(brow["balls"])),
                 }
                 player_entry["total_balls"] += _safe_int_val(brow["balls"]) or 0
@@ -532,11 +538,13 @@ def main() -> None:
             "bowling": {
                 "matches": _safe_int_val(brow["matches"]),
                 "wickets": _safe_int_val(brow["wickets"]),
-                "balls_bowled": _safe_int_val(brow["balls"]),
+                "overs": _safe_float(brow.get("overs")),
+                "runs_conceded": _safe_int_val(brow.get("runs_conceded")),
                 "economy": _safe_float(brow["economy"]),
                 "average": _safe_float(brow["avg"]),
                 "strike_rate": _safe_float(brow["sr"]),
                 "dot_ball_pct": _safe_float(brow.get("dot_pct")),
+                "boundary_conceded_pct": _safe_float(brow.get("boundary_conceded_pct")),
                 "sample_size": _classify_sample(_safe_int_val(brow["balls"])),
             },
             "cluster_label": None,

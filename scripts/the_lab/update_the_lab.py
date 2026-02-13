@@ -574,6 +574,46 @@ const FULL_SQUADS = {{
     return js
 
 
+def _round_floats(obj, precision=2):
+    """Recursively round all floats in a nested dict/list structure."""
+    if isinstance(obj, float):
+        return round(obj, precision)
+    if isinstance(obj, dict):
+        return {k: _round_floats(v, precision) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_round_floats(item, precision) for item in obj]
+    return obj
+
+
+def generate_player_profiles_js():
+    """Generate player_profiles.js from per-team profile JSONs."""
+    profiles_dir = OUTPUTS_DIR / "player_profiles" / "by_team"
+    all_teams = {}
+
+    for abbrev in TEAM_ORDER:
+        team_file = profiles_dir / f"{abbrev}_profiles.json"
+        if not team_file.exists():
+            continue
+        with open(team_file) as f:
+            data = json.load(f)
+        players = data.get("players", {})
+        # Round all floats to 2 decimal places to save space
+        all_teams[abbrev] = _round_floats(players)
+
+    # Compact JSON (no indentation) to keep file small
+    json_str = json.dumps(all_teams, separators=(",", ":"))
+    timestamp = datetime.now().isoformat()
+    js_content = f"""/**
+ * The Lab - Player Profiles Data
+ * IPL 2026 Pre-Season Analytics
+ * Auto-generated: {timestamp}
+ */
+
+const PLAYER_PROFILES = {json_str};
+"""
+    return js_content
+
+
 def main():
     print("🏏 The Lab - Data Update Script")
     print("=" * 50)
@@ -629,6 +669,13 @@ def main():
     with open(squads_path, "w") as f:
         f.write(full_squads_js)
     print(f"  ✓ {squads_path.name}")
+
+    # player_profiles.js
+    profiles_js = generate_player_profiles_js()
+    profiles_path = DASHBOARD_DATA_DIR / "player_profiles.js"
+    with open(profiles_path, "w") as f:
+        f.write(profiles_js)
+    print(f"  ✓ {profiles_path.name}")
 
     print("\n✅ Data update complete!")
     print(f"   Files written to: {DASHBOARD_DATA_DIR}")

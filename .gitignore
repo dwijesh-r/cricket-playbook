@@ -13,6 +13,7 @@ __pycache__/
 data/raw/*.zip
 data/cricket_playbook.duckdb
 *.duckdb
+outputs/player_profiles/player_profiles_2023.json
 
 # OS files
 .DS_Store

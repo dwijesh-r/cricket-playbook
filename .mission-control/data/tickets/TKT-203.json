@@ -1,10 +1,10 @@
 {
   "id": "TKT-203",
   "title": "Andy Flower domain review of player profiles",
-  "state": "TODO",
+  "state": "DONE",
   "priority": "P1",
   "size": "S",
-  "progress_pct": 0,
+  "progress_pct": 100,
   "description": "Cricket domain validation: Verify all tag color-coding makes sense (green=strength, red=vulnerability, blue=neutral). Check that phase performance thresholds are correct. Validate vs bowling type categories (Pace/Spin/Off-spin/Leg-spin/Left-arm). Confirm entry point classifications. Review sample profiles for 5 players across roles (1 opener, 1 middle-order, 1 finisher, 1 bowler, 1 all-rounder). Sign off that profiles are cricket-accurate.",
   "owner": "Andy Flower",
   "assignee": "Andy Flower",
@@ -26,5 +26,5 @@
     }
   },
   "created_at": "2026-02-13T11:00:00.000000Z",
-  "updated_at": "2026-02-13T11:30:00.000000Z"
+  "updated_at": "2026-02-13T06:30:00.000000Z"
 }

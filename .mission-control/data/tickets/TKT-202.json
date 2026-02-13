@@ -1,10 +1,10 @@
 {
   "id": "TKT-202",
   "title": "Mobile responsive styles for player profile modal",
-  "state": "TODO",
+  "state": "DONE",
   "priority": "P1",
   "size": "S",
-  "progress_pct": 0,
+  "progress_pct": 100,
   "description": "Full-screen overlay on mobile (<768px). Stacked vertical layout. 16px body font, 44px minimum touch targets. Close button + swipe-down gesture. Sections collapsible on mobile to manage scroll length. Test on iPhone SE, iPhone 14, iPad Mini breakpoints.",
   "owner": "Jayson Tatum",
   "assignee": "Jayson Tatum",
@@ -28,5 +28,5 @@
     }
   },
   "created_at": "2026-02-13T11:00:00.000000Z",
-  "updated_at": "2026-02-13T11:30:00.000000Z"
+  "updated_at": "2026-02-13T06:15:00.000000Z"
 }

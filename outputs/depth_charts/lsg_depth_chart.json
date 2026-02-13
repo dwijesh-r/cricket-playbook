@@ -1,13 +1,15 @@
 {
   "team": "LSG",
   "team_name": "Lucknow Super Giants",
-  "overall_rating": 7.0,
+  "overall_rating": 6.4,
   "strongest_position": "#3 Batter",
-  "weakest_position": "Left-arm Spin",
+  "weakest_position": "Left-arm Wrist Spin",
   "vulnerabilities": [
     "Opener: overseas dependent",
-    "Left-arm Pace: thin depth (rating 4.0)",
-    "Left-arm Spin: thin depth (rating 3.9)"
+    "Left-arm Pace: thin depth (rating 3.8)",
+    "Off Spin: thin depth (rating 4.4)",
+    "Leg Spin: thin depth (rating 4.9)",
+    "Left-arm Orthodox: thin depth (rating 3.9)"
   ],
   "positions": {
     "opener": {
@@ -58,12 +60,24 @@
     "number_3": {
       "name": "#3 Batter",
       "rating": 10.0,
-      "what_works": "Elite #1 in nicholas pooran. quality backup in rishabh pant",
+      "what_works": "Elite #1 in mitchell marsh. quality backup in nicholas pooran",
       "what_doesnt": "Overseas mix (2 of 3)",
       "overseas_count": 2,
       "players": [
         {
           "rank": 1,
+          "name": "Mitchell Marsh",
+          "player_id": "3d8feaf8",
+          "score": 100.0,
+          "rationale": "Founder XII. Strong in PP. Middle overs accelerator",
+          "is_overseas": true,
+          "price_cr": 3.4,
+          "bowling_type": "Fast",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
           "name": "Nicholas Pooran",
           "player_id": "3241e3fd",
           "score": 100.0,
@@ -75,7 +89,7 @@
           "secondary_positions": []
         },
         {
-          "rank": 2,
+          "rank": 3,
           "name": "Rishabh Pant",
           "player_id": "919a3be2",
           "score": 100.0,
@@ -83,18 +97,6 @@
           "is_overseas": false,
           "price_cr": 27.0,
           "bowling_type": "Medium",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
-          "name": "Mitchell Marsh",
-          "player_id": "3d8feaf8",
-          "score": 87.7,
-          "rationale": "Founder XII. Strong in PP. Middle overs accelerator",
-          "is_overseas": true,
-          "price_cr": 3.4,
-          "bowling_type": "Fast",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
@@ -192,17 +194,17 @@
     },
     "wicketkeeper": {
       "name": "Wicketkeeper",
-      "rating": 8.4,
-      "what_works": "Elite #1 in rishabh pant. quality backup in nicholas pooran",
-      "what_doesnt": "Minimal concerns",
-      "overseas_count": 1,
+      "rating": 8.7,
+      "what_works": "Elite #1 in rishabh pant. quality backup in josh inglis",
+      "what_doesnt": "Overseas mix (2 of 3)",
+      "overseas_count": 2,
       "players": [
         {
           "rank": 1,
           "name": "Rishabh Pant",
           "player_id": "919a3be2",
           "score": 84.5,
-          "rationale": "Primary keeper. Capable batter (score: 69)",
+          "rationale": "Elite keeper (Founder XII). Capable batter (score: 69)",
           "is_overseas": false,
           "price_cr": 27.0,
           "bowling_type": "Medium",
@@ -211,10 +213,22 @@
         },
         {
           "rank": 2,
+          "name": "Josh Inglis",
+          "player_id": "989889ff",
+          "score": 69.1,
+          "rationale": "Elite keeper (Founder XII). Experienced keeper",
+          "is_overseas": true,
+          "price_cr": 8.6,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
           "name": "Nicholas Pooran",
           "player_id": "3241e3fd",
           "score": 68.6,
-          "rationale": "Primary keeper. Experienced keeper",
+          "rationale": "Elite keeper (Founder XII). Experienced keeper",
           "is_overseas": true,
           "price_cr": 21.0,
           "bowling_type": "Medium",
@@ -270,7 +284,7 @@
     },
     "left_arm_pace": {
       "name": "Left-arm Pace",
-      "rating": 4.0,
+      "rating": 3.8,
       "what_works": "Mohsin khan leads. akash singh as backup",
       "what_doesnt": "Weak backup option. no standout performer",
       "overseas_count": 0,
@@ -303,8 +317,8 @@
           "rank": 3,
           "name": "Arjun Tendulkar",
           "player_id": "44aac2f0",
-          "score": 35.0,
-          "rationale": "Elite PP eco (6.3)",
+          "score": 26.2,
+          "rationale": "Elite PP eco (6.3). Light bowler (12 ov)",
           "is_overseas": false,
           "price_cr": 0.3,
           "bowling_type": "Fast",
@@ -315,25 +329,13 @@
     },
     "off_spin": {
       "name": "Off Spin",
-      "rating": 6.4,
-      "what_works": "Strong #1 with digvesh rathi. quality backup in aiden markram",
-      "what_doesnt": "Minimal concerns",
+      "rating": 4.4,
+      "what_works": "Aiden markram leads. ayush badoni as backup",
+      "what_doesnt": "Weak backup option. big gap between #1 and #2",
       "overseas_count": 1,
       "players": [
         {
           "rank": 1,
-          "name": "Digvesh Rathi",
-          "player_id": "13fc5c6d",
-          "score": 71.0,
-          "rationale": "Founder XII. Lead spinner",
-          "is_overseas": false,
-          "price_cr": 0.3,
-          "bowling_type": "Leg-spin",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 2,
           "name": "Aiden Markram",
           "player_id": "6a26221c",
           "score": 57.0,
@@ -345,11 +347,11 @@
           "secondary_positions": []
         },
         {
-          "rank": 3,
+          "rank": 2,
           "name": "Ayush Badoni",
           "player_id": "872b03f7",
-          "score": 33.0,
-          "rationale": "Founder XII. Lead spinner",
+          "score": 22.6,
+          "rationale": "Founder XII. Part-timer (4 ov)",
           "is_overseas": false,
           "price_cr": 4.0,
           "bowling_type": "Off-spin",
@@ -360,7 +362,7 @@
     },
     "leg_spin": {
       "name": "Leg Spin",
-      "rating": 5.0,
+      "rating": 4.9,
       "what_works": "Strong #1 with digvesh rathi. wanindu hasaranga as backup",
       "what_doesnt": "Weak backup option. big gap between #1 and #2",
       "overseas_count": 1,
@@ -393,8 +395,8 @@
           "rank": 3,
           "name": "Abdul Samad",
           "player_id": "8e514b4c",
-          "score": 23.0,
-          "rationale": "Founder XII. Lead spinner",
+          "score": 17.1,
+          "rationale": "Founder XII. Part-timer (0 ov)",
           "is_overseas": false,
           "price_cr": 4.2,
           "bowling_type": "Leg-spin",
@@ -403,8 +405,8 @@
         }
       ]
     },
-    "left_arm_spin": {
-      "name": "Left-arm Spin",
+    "left_arm_orthodox": {
+      "name": "Left-arm Orthodox",
       "rating": 3.9,
       "what_works": "Manimaran siddharth leads. all indian options",
       "what_doesnt": "Only one option. no standout performer",
@@ -423,6 +425,14 @@
           "secondary_positions": []
         }
       ]
+    },
+    "left_arm_wrist_spin": {
+      "name": "Left-arm Wrist Spin",
+      "rating": 0.0,
+      "what_works": "No options available",
+      "what_doesnt": "No options",
+      "overseas_count": 0,
+      "players": []
     },
     "middle_overs_specialist": {
       "name": "Middle Overs Specialist",
@@ -470,8 +480,8 @@
       ]
     },
     "allrounder_batting": {
-      "name": "Allrounder",
-      "rating": 7.8,
+      "name": "Allrounder (Batting)",
+      "rating": 7.9,
       "what_works": "Strong #1 with aiden markram. quality backup in ayush badoni",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
@@ -492,7 +502,7 @@
           "rank": 2,
           "name": "Ayush Badoni",
           "player_id": "872b03f7",
-          "score": 65.9,
+          "score": 69.9,
           "rationale": "Founder XII. Useful death bowling. Bowls 4 overs",
           "is_overseas": false,
           "price_cr": 4.0,
@@ -515,14 +525,26 @@
       ]
     },
     "allrounder_bowling": {
-      "name": "Allrounder",
-      "rating": 5.5,
-      "what_works": "Aiden markram leads. mitchell marsh as backup",
+      "name": "Allrounder (Bowling)",
+      "rating": 6.2,
+      "what_works": "Mitchell marsh leads. quality backup in aiden markram",
       "what_doesnt": "Overseas mix (2 of 3)",
       "overseas_count": 2,
       "players": [
         {
           "rank": 1,
+          "name": "Mitchell Marsh",
+          "player_id": "3d8feaf8",
+          "score": 55.4,
+          "rationale": "Founder XII. Handy bat (44). SR 158",
+          "is_overseas": true,
+          "price_cr": 3.4,
+          "bowling_type": "Fast",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
           "name": "Aiden Markram",
           "player_id": "6a26221c",
           "score": 53.9,
@@ -534,22 +556,10 @@
           "secondary_positions": []
         },
         {
-          "rank": 2,
-          "name": "Mitchell Marsh",
-          "player_id": "3d8feaf8",
-          "score": 48.2,
-          "rationale": "Founder XII. SR 158",
-          "is_overseas": true,
-          "price_cr": 3.4,
-          "bowling_type": "Fast",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
           "rank": 3,
           "name": "Abdul Samad",
           "player_id": "8e514b4c",
-          "score": 45.1,
+          "score": 42.2,
           "rationale": "Founder XII. Unproven bowling. Handy bat (70)",
           "is_overseas": false,
           "price_cr": 4.2,

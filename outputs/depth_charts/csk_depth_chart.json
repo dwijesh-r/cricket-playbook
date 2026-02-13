@@ -1,13 +1,15 @@
 {
   "team": "CSK",
   "team_name": "Chennai Super Kings",
-  "overall_rating": 6.9,
+  "overall_rating": 6.5,
   "strongest_position": "#3 Batter",
-  "weakest_position": "Left-arm Pace",
+  "weakest_position": "Off Spin",
   "vulnerabilities": [
     "Left-arm Pace: thin depth (rating 4.0)",
-    "Leg Spin: thin depth (rating 4.9)",
-    "Allrounder: thin depth (rating 4.8)"
+    "Off Spin: thin depth (rating 2.4)",
+    "Leg Spin: thin depth (rating 4.1)",
+    "Left-arm Orthodox: thin depth (rating 2.5)",
+    "Allrounder (Bowling): thin depth (rating 4.3)"
   ],
   "positions": {
     "opener": {
@@ -102,7 +104,7 @@
     },
     "middle_order": {
       "name": "Middle Order #4-5",
-      "rating": 9.6,
+      "rating": 10.0,
       "what_works": "Elite #1 in shivam dube. quality backup in dewald brevis",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
@@ -123,7 +125,7 @@
           "rank": 2,
           "name": "Dewald Brevis",
           "player_id": "844e79d1",
-          "score": 71.7,
+          "score": 91.7,
           "rationale": "Founder XII. Middle overs accelerator",
           "is_overseas": true,
           "price_cr": 2.2,
@@ -192,9 +194,9 @@
     },
     "wicketkeeper": {
       "name": "Wicketkeeper",
-      "rating": 6.9,
-      "what_works": "Elite #1 in sanju samson. kartik sharma as backup",
-      "what_doesnt": "Big gap between #1 and #2",
+      "rating": 7.3,
+      "what_works": "Elite #1 in sanju samson. quality backup in ms dhoni",
+      "what_doesnt": "Minimal concerns",
       "overseas_count": 0,
       "players": [
         {
@@ -202,7 +204,7 @@
           "name": "Sanju Samson",
           "player_id": "a4cc73aa",
           "score": 80.8,
-          "rationale": "Primary keeper. Capable batter (score: 62)",
+          "rationale": "Elite keeper (Founder XII). Capable batter (score: 62)",
           "is_overseas": false,
           "price_cr": 18.0,
           "bowling_type": "Medium",
@@ -211,10 +213,22 @@
         },
         {
           "rank": 2,
+          "name": "MS Dhoni",
+          "player_id": "4a8a2e3b",
+          "score": 69.0,
+          "rationale": "Elite keeper (Founder XII). Experienced keeper",
+          "is_overseas": false,
+          "price_cr": 4.0,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
           "name": "Kartik Sharma",
           "player_id": "119678fd",
-          "score": 49.4,
-          "rationale": "Experienced keeper",
+          "score": 34.4,
+          "rationale": "Wicketkeeper",
           "is_overseas": false,
           "price_cr": 14.2,
           "bowling_type": "Medium",
@@ -315,41 +329,17 @@
     },
     "off_spin": {
       "name": "Off Spin",
-      "rating": 5.2,
-      "what_works": "Rahul chahar leads. shreyas gopal as backup",
-      "what_doesnt": "No standout performer",
+      "rating": 2.4,
+      "what_works": "Matthew short leads",
+      "what_doesnt": "Only one option. no standout performer",
       "overseas_count": 1,
       "players": [
         {
           "rank": 1,
-          "name": "Rahul Chahar",
-          "player_id": "2ed569a0",
-          "score": 49.0,
-          "rationale": "Lead spinner",
-          "is_overseas": false,
-          "price_cr": 1.8,
-          "bowling_type": "Leg-spin",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 2,
-          "name": "Shreyas Gopal",
-          "player_id": "7a8bd078",
-          "score": 48.0,
-          "rationale": "Wicket-taker (SR 14.0)",
-          "is_overseas": false,
-          "price_cr": 0.3,
-          "bowling_type": "Leg-spin",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
           "name": "Matthew Short",
           "player_id": "a90e53ec",
-          "score": 43.0,
-          "rationale": "Elite middle eco (5.5)",
+          "score": 23.7,
+          "rationale": "Elite middle eco (5.5). Part-timer (4 ov)",
           "is_overseas": true,
           "price_cr": 1.0,
           "bowling_type": "Off-spin",
@@ -360,9 +350,9 @@
     },
     "leg_spin": {
       "name": "Leg Spin",
-      "rating": 4.9,
+      "rating": 4.1,
       "what_works": "Rahul chahar leads. shreyas gopal as backup",
-      "what_doesnt": "No standout performer",
+      "what_doesnt": "Weak backup option. no standout performer",
       "overseas_count": 0,
       "players": [
         {
@@ -381,8 +371,8 @@
           "rank": 2,
           "name": "Shreyas Gopal",
           "player_id": "7a8bd078",
-          "score": 48.0,
-          "rationale": "Wicket-taker (SR 14.0)",
+          "score": 26.4,
+          "rationale": "Wicket-taker (SR 14.0). Part-timer (7 ov)",
           "is_overseas": false,
           "price_cr": 0.3,
           "bowling_type": "Leg-spin",
@@ -391,12 +381,45 @@
         }
       ]
     },
-    "left_arm_spin": {
-      "name": "Left-arm Spin",
-      "rating": 6.2,
-      "what_works": "Elite #1 in noor ahmad. akeal hosein as backup",
-      "what_doesnt": "Overseas mix (2 of 3). big gap between #1 and #2",
-      "overseas_count": 2,
+    "left_arm_orthodox": {
+      "name": "Left-arm Orthodox",
+      "rating": 2.5,
+      "what_works": "Akeal hosein leads. prashant veer as backup",
+      "what_doesnt": "Weak backup option. no standout performer",
+      "overseas_count": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Akeal Hosein",
+          "player_id": "4d7f517e",
+          "score": 26.4,
+          "rationale": "Wicket-taker (SR 6.0). Part-timer (4 ov)",
+          "is_overseas": true,
+          "price_cr": 0.4,
+          "bowling_type": "LA Orthodox",
+          "bowling_arm": "Left-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Prashant Veer",
+          "player_id": "e148e6bd",
+          "score": 22.1,
+          "rationale": "Founder XII. Part-timer (0 ov)",
+          "is_overseas": false,
+          "price_cr": 14.2,
+          "bowling_type": "LA Orthodox",
+          "bowling_arm": "Left-arm",
+          "secondary_positions": []
+        }
+      ]
+    },
+    "left_arm_wrist_spin": {
+      "name": "Left-arm Wrist Spin",
+      "rating": 8.3,
+      "what_works": "Elite #1 in noor ahmad",
+      "what_doesnt": "Only one option",
+      "overseas_count": 1,
       "players": [
         {
           "rank": 1,
@@ -409,36 +432,12 @@
           "bowling_type": "Wrist-spin",
           "bowling_arm": "Left-arm",
           "secondary_positions": []
-        },
-        {
-          "rank": 2,
-          "name": "Akeal Hosein",
-          "player_id": "4d7f517e",
-          "score": 48.0,
-          "rationale": "Wicket-taker (SR 6.0)",
-          "is_overseas": true,
-          "price_cr": 0.4,
-          "bowling_type": "LA Orthodox",
-          "bowling_arm": "Left-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
-          "name": "Prashant Veer",
-          "player_id": "e148e6bd",
-          "score": 32.0,
-          "rationale": "Founder XII. Lead spinner",
-          "is_overseas": false,
-          "price_cr": 14.2,
-          "bowling_type": "LA Orthodox",
-          "bowling_arm": "Left-arm",
-          "secondary_positions": []
         }
       ]
     },
     "middle_overs_specialist": {
       "name": "Middle Overs Specialist",
-      "rating": 8.5,
+      "rating": 8.3,
       "what_works": "Elite #1 in noor ahmad. quality backup in nathan ellis",
       "what_doesnt": "Overseas mix (2 of 3)",
       "overseas_count": 2,
@@ -469,21 +468,21 @@
         },
         {
           "rank": 3,
-          "name": "Shivam Dube",
-          "player_id": "a4e37e47",
-          "score": 56.2,
-          "rationale": "Founder XII. Middle overs specialist",
+          "name": "Rahul Chahar",
+          "player_id": "2ed569a0",
+          "score": 50.0,
+          "rationale": "Middle overs specialist",
           "is_overseas": false,
-          "price_cr": 12.0,
-          "bowling_type": "Fast",
+          "price_cr": 1.8,
+          "bowling_type": "Leg-spin",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
       ]
     },
     "allrounder_batting": {
-      "name": "Allrounder",
-      "rating": 7.3,
+      "name": "Allrounder (Batting)",
+      "rating": 7.2,
       "what_works": "Elite #1 in shivam dube. jamie overton as backup",
       "what_doesnt": "Big gap between #1 and #2",
       "overseas_count": 1,
@@ -516,7 +515,7 @@
           "rank": 3,
           "name": "Aman Khan",
           "player_id": "378daa89",
-          "score": 42.4,
+          "score": 40.4,
           "rationale": "Bowls 4 overs",
           "is_overseas": false,
           "price_cr": 0.3,
@@ -527,17 +526,17 @@
       ]
     },
     "allrounder_bowling": {
-      "name": "Allrounder",
-      "rating": 4.8,
+      "name": "Allrounder (Bowling)",
+      "rating": 4.3,
       "what_works": "Shivam dube leads. aman khan as backup",
-      "what_doesnt": "Room for improvement at the top",
+      "what_doesnt": "Weak backup option",
       "overseas_count": 0,
       "players": [
         {
           "rank": 1,
           "name": "Shivam Dube",
           "player_id": "a4e37e47",
-          "score": 56.7,
+          "score": 53.7,
           "rationale": "Founder XII. Unproven bowling. Handy bat (92)",
           "is_overseas": false,
           "price_cr": 12.0,
@@ -549,7 +548,7 @@
           "rank": 2,
           "name": "Aman Khan",
           "player_id": "378daa89",
-          "score": 42.4,
+          "score": 35.0,
           "rationale": "Bowling specialist tag",
           "is_overseas": false,
           "price_cr": 0.3,
@@ -559,14 +558,14 @@
         },
         {
           "rank": 3,
-          "name": "Shreyas Gopal",
-          "player_id": "7a8bd078",
-          "score": 36.0,
-          "rationale": "Bowling all-rounder",
+          "name": "Prashant Veer",
+          "player_id": "e148e6bd",
+          "score": 26.1,
+          "rationale": "Founder XII. Unproven bowling",
           "is_overseas": false,
-          "price_cr": 0.3,
-          "bowling_type": "Leg-spin",
-          "bowling_arm": "Right-arm",
+          "price_cr": 14.2,
+          "bowling_type": "LA Orthodox",
+          "bowling_arm": "Left-arm",
           "secondary_positions": []
         }
       ]

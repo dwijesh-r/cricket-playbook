@@ -24,10 +24,10 @@
     "TKT-167",
     "TKT-182"
   ],
-  "progress_pct": 85,
-  "status": "IN_PROGRESS",
+  "progress_pct": 100,
+  "status": "COMPLETED",
   "description": "Transform stat packs to magazine-style editorial with Predicted XI and Depth Charts",
   "sprint_id": "SPRINT-001",
   "created_at": "2026-01-31T00:00:00Z",
-  "updated_at": "2026-02-12T00:00:00Z"
+  "updated_at": "2026-02-13T12:00:00.000000Z"
 }

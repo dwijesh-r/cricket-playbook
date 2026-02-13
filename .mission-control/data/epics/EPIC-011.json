@@ -2,11 +2,11 @@
   "id": "EPIC-011",
   "title": "The Lab Dashboard",
   "owner": "Kevin de Bruyne",
-  "description": "The Lab analytics dashboard and future analytics ideas. 9/11 tickets DONE (TKT-086-095, TKT-107). Remaining: TKT-089 (Toss Advantage), TKT-092 (CI/CD Artifact Comparison) deferred to Sprint 5.0.",
+  "description": "The Lab analytics dashboard and future analytics ideas. 2/11 tickets DONE. 9 tickets deferred to IDEA state for Sprint 5.",
   "sprint_id": "SPRINT-004",
   "status": "IN_PROGRESS",
-  "progress_pct": 82,
+  "progress_pct": 18,
   "tickets": ["TKT-086", "TKT-087", "TKT-088", "TKT-089", "TKT-090", "TKT-091", "TKT-092", "TKT-093", "TKT-094", "TKT-095", "TKT-107"],
   "created_at": "2026-02-05T00:00:00Z",
-  "updated_at": "2026-02-12T22:15:00Z"
+  "updated_at": "2026-02-13T12:00:00.000000Z"
 }

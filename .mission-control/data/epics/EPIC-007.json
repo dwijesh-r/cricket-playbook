@@ -10,10 +10,10 @@
     "TKT-065",
     "TKT-066"
   ],
-  "progress_pct": 67,
+  "progress_pct": 83,
   "status": "IN_PROGRESS",
   "description": "Transparency in models and processes",
   "sprint_id": "SPRINT-001",
   "created_at": "2026-01-31T00:00:00Z",
-  "updated_at": "2026-02-12T00:00:00Z"
+  "updated_at": "2026-02-13T12:00:00.000000Z"
 }

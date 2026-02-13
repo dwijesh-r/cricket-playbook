@@ -27,9 +27,9 @@ class TestPositionGuard:
                 "avg_batting_position": 1.3,
                 "pp_sr": 160.0,
                 "death_sr": 180.0,
-                "death_boundary": 25.0,
-                "sr": 145.0,
-                "avg": 30.0,
+                "death_boundary_pct": 25.0,
+                "strike_rate": 145.0,
+                "average": 30.0,
                 "boundary_pct": 20.0,
             }
         )
@@ -46,9 +46,9 @@ class TestPositionGuard:
                 "avg_batting_position": 5.0,
                 "pp_sr": 130.0,
                 "death_sr": 180.0,
-                "death_boundary": 25.0,
-                "sr": 145.0,
-                "avg": 25.0,
+                "death_boundary_pct": 25.0,
+                "strike_rate": 145.0,
+                "average": 25.0,
                 "boundary_pct": 15.0,
             }
         )
@@ -64,9 +64,9 @@ class TestPositionGuard:
                 "avg_batting_position": 2.5,
                 "pp_sr": 130.0,
                 "death_sr": 180.0,
-                "death_boundary": 25.0,
-                "sr": 145.0,
-                "avg": 25.0,
+                "death_boundary_pct": 25.0,
+                "strike_rate": 145.0,
+                "average": 25.0,
                 "boundary_pct": 20.0,
             }
         )
@@ -82,9 +82,9 @@ class TestPositionGuard:
                 "avg_batting_position": 2.6,
                 "pp_sr": 130.0,
                 "death_sr": 180.0,
-                "death_boundary": 25.0,
-                "sr": 145.0,
-                "avg": 25.0,
+                "death_boundary_pct": 25.0,
+                "strike_rate": 145.0,
+                "average": 25.0,
                 "boundary_pct": 15.0,
             }
         )
@@ -100,9 +100,9 @@ class TestPositionGuard:
                 "avg_batting_position": 1.8,
                 "pp_sr": 120.0,
                 "death_sr": 140.0,
-                "death_boundary": 15.0,
-                "sr": 120.0,
-                "avg": 40.0,
+                "death_boundary_pct": 15.0,
+                "strike_rate": 120.0,
+                "average": 40.0,
                 "boundary_pct": 14.0,
             }
         )
@@ -116,9 +116,9 @@ class TestPositionGuard:
                 "avg_batting_position": 2.0,
                 "pp_sr": 140.0,
                 "death_sr": 160.0,
-                "death_boundary": 22.0,
-                "sr": 140.0,
-                "avg": 28.0,
+                "death_boundary_pct": 22.0,
+                "strike_rate": 140.0,
+                "average": 28.0,
                 "boundary_pct": 22.0,
             }
         )

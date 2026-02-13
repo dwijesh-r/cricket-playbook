@@ -1,26 +1,26 @@
 {
   "team": "MI",
   "team_name": "Mumbai Indians",
-  "overall_rating": 7.8,
+  "overall_rating": 7.9,
   "strongest_position": "#3 Batter",
-  "weakest_position": "Wicketkeeper",
+  "weakest_position": "Leg Spin",
   "vulnerabilities": [
-    "Wicketkeeper: thin depth (rating 4.3)",
+    "Wicketkeeper: thin depth (rating 4.9)",
     "Leg Spin: thin depth (rating 4.7)"
   ],
   "positions": {
     "opener": {
       "name": "Opener",
-      "rating": 8.4,
+      "rating": 9.0,
       "what_works": "Elite #1 in rohit sharma. quality backup in quinton de kock",
-      "what_doesnt": "Big gap between #1 and #2",
+      "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
       "players": [
         {
           "rank": 1,
           "name": "Rohit Sharma",
           "player_id": "740742ef",
-          "score": 98.2,
+          "score": 100.0,
           "rationale": "Founder XII. Captain. Franchise opener",
           "is_overseas": false,
           "price_cr": 16.3,
@@ -32,8 +32,8 @@
           "rank": 2,
           "name": "Quinton de Kock",
           "player_id": "372455c4",
-          "score": 53.0,
-          "rationale": "Founder XII. Franchise opener",
+          "score": 71.0,
+          "rationale": "Founder XII. Franchise opener. PP Dominator",
           "is_overseas": true,
           "price_cr": 1.0,
           "bowling_type": "Medium",
@@ -87,13 +87,13 @@
         },
         {
           "rank": 3,
-          "name": "Hardik Pandya",
-          "player_id": "dbe50b21",
-          "score": 53.9,
-          "rationale": "Founder XII. Spin specialist",
+          "name": "Rohit Sharma",
+          "player_id": "740742ef",
+          "score": 83.6,
+          "rationale": "Founder XII. Strong in PP. Spin specialist",
           "is_overseas": false,
-          "price_cr": 16.35,
-          "bowling_type": "Fast-Medium",
+          "price_cr": 16.3,
+          "bowling_type": "Off-spin",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
@@ -191,17 +191,17 @@
     },
     "wicketkeeper": {
       "name": "Wicketkeeper",
-      "rating": 4.3,
+      "rating": 4.9,
       "what_works": "Quinton de kock leads. ryan rickelton as backup",
-      "what_doesnt": "Weak backup option. no standout performer",
+      "what_doesnt": "Weak backup option. overseas mix (2 of 2)",
       "overseas_count": 2,
       "players": [
         {
           "rank": 1,
           "name": "Quinton de Kock",
           "player_id": "372455c4",
-          "score": 46.5,
-          "rationale": "Wicketkeeper",
+          "score": 55.5,
+          "rationale": "Capable batter (score: 61)",
           "is_overseas": true,
           "price_cr": 1.0,
           "bowling_type": "Medium",

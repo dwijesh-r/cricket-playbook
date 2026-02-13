@@ -581,26 +581,26 @@
     "MI": {
       "team": "MI",
       "team_name": "Mumbai Indians",
-      "overall_rating": 7.8,
+      "overall_rating": 7.9,
       "strongest_position": "#3 Batter",
-      "weakest_position": "Wicketkeeper",
+      "weakest_position": "Leg Spin",
       "vulnerabilities": [
-        "Wicketkeeper: thin depth (rating 4.3)",
+        "Wicketkeeper: thin depth (rating 4.9)",
         "Leg Spin: thin depth (rating 4.7)"
       ],
       "positions": {
         "opener": {
           "name": "Opener",
-          "rating": 8.4,
+          "rating": 9.0,
           "what_works": "Elite #1 in rohit sharma. quality backup in quinton de kock",
-          "what_doesnt": "Big gap between #1 and #2",
+          "what_doesnt": "Minimal concerns",
           "overseas_count": 1,
           "players": [
             {
               "rank": 1,
               "name": "Rohit Sharma",
               "player_id": "740742ef",
-              "score": 98.2,
+              "score": 100.0,
               "rationale": "Founder XII. Captain. Franchise opener",
               "is_overseas": false,
               "price_cr": 16.3,
@@ -612,8 +612,8 @@
               "rank": 2,
               "name": "Quinton de Kock",
               "player_id": "372455c4",
-              "score": 53.0,
-              "rationale": "Founder XII. Franchise opener",
+              "score": 71.0,
+              "rationale": "Founder XII. Franchise opener. PP Dominator",
               "is_overseas": true,
               "price_cr": 1.0,
               "bowling_type": "Medium",
@@ -667,13 +667,13 @@
             },
             {
               "rank": 3,
-              "name": "Hardik Pandya",
-              "player_id": "dbe50b21",
-              "score": 53.9,
-              "rationale": "Founder XII. Spin specialist",
+              "name": "Rohit Sharma",
+              "player_id": "740742ef",
+              "score": 83.6,
+              "rationale": "Founder XII. Strong in PP. Spin specialist",
               "is_overseas": false,
-              "price_cr": 16.35,
-              "bowling_type": "Fast-Medium",
+              "price_cr": 16.3,
+              "bowling_type": "Off-spin",
               "bowling_arm": "Right-arm",
               "secondary_positions": []
             }
@@ -771,17 +771,17 @@
         },
         "wicketkeeper": {
           "name": "Wicketkeeper",
-          "rating": 4.3,
+          "rating": 4.9,
           "what_works": "Quinton de kock leads. ryan rickelton as backup",
-          "what_doesnt": "Weak backup option. no standout performer",
+          "what_doesnt": "Weak backup option. overseas mix (2 of 2)",
           "overseas_count": 2,
           "players": [
             {
               "rank": 1,
               "name": "Quinton de Kock",
               "player_id": "372455c4",
-              "score": 46.5,
-              "rationale": "Wicketkeeper",
+              "score": 55.5,
+              "rationale": "Capable batter (score: 61)",
               "is_overseas": true,
               "price_cr": 1.0,
               "bowling_type": "Medium",
@@ -3879,8 +3879,8 @@
           "name": "Opener",
           "rating": 10.0,
           "what_works": "Elite #1 in travis head. quality backup in abhishek sharma",
-          "what_doesnt": "Overseas mix (2 of 3)",
-          "overseas_count": 2,
+          "what_doesnt": "Minimal concerns",
+          "overseas_count": 1,
           "players": [
             {
               "rank": 1,
@@ -3908,12 +3908,12 @@
             },
             {
               "rank": 3,
-              "name": "Heinrich Klaasen",
-              "player_id": "235c2bb6",
-              "score": 54.8,
-              "rationale": "Founder XII. Elite SR (175.2). PP Aggressor",
-              "is_overseas": true,
-              "price_cr": 23.0,
+              "name": "Ishan Kishan",
+              "player_id": "752f7486",
+              "score": 71.9,
+              "rationale": "Founder XII. PP Dominator",
+              "is_overseas": false,
+              "price_cr": 11.25,
               "bowling_type": "Medium",
               "bowling_arm": "Right-arm",
               "secondary_positions": []
@@ -4057,9 +4057,9 @@
         },
         "wicketkeeper": {
           "name": "Wicketkeeper",
-          "rating": 8.9,
+          "rating": 9.3,
           "what_works": "Elite #1 in heinrich klaasen. quality backup in ishan kishan",
-          "what_doesnt": "Big gap between #1 and #2",
+          "what_doesnt": "Minimal concerns",
           "overseas_count": 1,
           "players": [
             {
@@ -4078,8 +4078,8 @@
               "rank": 2,
               "name": "Ishan Kishan",
               "player_id": "752f7486",
-              "score": 64.9,
-              "rationale": "Experienced keeper",
+              "score": 75.9,
+              "rationale": "Capable batter (score: 62). Experienced keeper",
               "is_overseas": false,
               "price_cr": 11.25,
               "bowling_type": "Medium",
@@ -5542,16 +5542,16 @@
       "overall": 6.9
     },
     "MI": {
-      "opener": 8.4,
+      "opener": 9.0,
       "number_3": 10.0,
       "middle_order": 10.0,
       "finisher": 10.0,
-      "wicketkeeper": 4.3,
+      "wicketkeeper": 4.9,
       "pace": 7.7,
       "spin": 5.4,
       "middle_overs_specialist": 9.9,
       "allrounder": 8.5,
-      "overall": 7.8
+      "overall": 7.9
     },
     "RCB": {
       "opener": 8.6,
@@ -5618,7 +5618,7 @@
       "number_3": 10.0,
       "middle_order": 9.3,
       "finisher": 9.7,
-      "wicketkeeper": 8.9,
+      "wicketkeeper": 9.3,
       "pace": 6.6,
       "spin": 5.1,
       "middle_overs_specialist": 8.4,

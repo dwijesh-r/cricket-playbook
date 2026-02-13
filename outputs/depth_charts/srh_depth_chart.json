@@ -13,8 +13,8 @@
       "name": "Opener",
       "rating": 10.0,
       "what_works": "Elite #1 in travis head. quality backup in abhishek sharma",
-      "what_doesnt": "Overseas mix (2 of 3)",
-      "overseas_count": 2,
+      "what_doesnt": "Minimal concerns",
+      "overseas_count": 1,
       "players": [
         {
           "rank": 1,
@@ -42,12 +42,12 @@
         },
         {
           "rank": 3,
-          "name": "Heinrich Klaasen",
-          "player_id": "235c2bb6",
-          "score": 54.8,
-          "rationale": "Founder XII. Elite SR (175.2). PP Aggressor",
-          "is_overseas": true,
-          "price_cr": 23.0,
+          "name": "Ishan Kishan",
+          "player_id": "752f7486",
+          "score": 71.9,
+          "rationale": "Founder XII. PP Dominator",
+          "is_overseas": false,
+          "price_cr": 11.25,
           "bowling_type": "Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
@@ -191,9 +191,9 @@
     },
     "wicketkeeper": {
       "name": "Wicketkeeper",
-      "rating": 8.9,
+      "rating": 9.3,
       "what_works": "Elite #1 in heinrich klaasen. quality backup in ishan kishan",
-      "what_doesnt": "Big gap between #1 and #2",
+      "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
       "players": [
         {
@@ -212,8 +212,8 @@
           "rank": 2,
           "name": "Ishan Kishan",
           "player_id": "752f7486",
-          "score": 64.9,
-          "rationale": "Experienced keeper",
+          "score": 75.9,
+          "rationale": "Capable batter (score: 62). Experienced keeper",
           "is_overseas": false,
           "price_cr": 11.25,
           "bowling_type": "Medium",

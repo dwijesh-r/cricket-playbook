@@ -86,10 +86,14 @@ class TestEnrichedPlayerData:
 
         for pid, entry in batting_players.items():
             bat = entry["batting"]
-            assert bat["balls"] > 0, f"Player {pid} has 0 balls"
+            assert bat["balls_faced"] > 0, f"Player {pid} has 0 balls_faced"
             assert bat["runs"] >= 0, f"Player {pid} has negative runs"
-            assert bat["sr"] is not None, f"Player {pid} has null SR"
-            assert bat["sr"] > 0, f"Player {pid} has non-positive SR"
+            assert bat["strike_rate"] is not None, f"Player {pid} has null strike_rate"
+            assert bat["strike_rate"] > 0, f"Player {pid} has non-positive strike_rate"
+            assert bat["innings"] is not None, f"Player {pid} has null innings"
+            assert "fifties" in bat, f"Player {pid} missing fifties"
+            assert "hundreds" in bat, f"Player {pid} missing hundreds"
+            assert "dot_ball_pct" in bat, f"Player {pid} missing dot_ball_pct"
 
     def test_enriched_player_has_tournaments(self, cross_tournament_data):
         """Every enriched player must have at least one tournament."""

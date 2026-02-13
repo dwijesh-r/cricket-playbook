@@ -1,6 +1,6 @@
 # Lucknow Super Giants (LSG) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-13 20:14
+**Generated:** 2026-02-13 21:38
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -126,7 +126,7 @@
 **Top Wicket Takers by Season:**
 
 - **2023:** Ravi Bishnoi (16w @ 7.58), Yash Thakur (13w @ 8.61), MA Wood (11w @ 8.35)
-- **2024:** Naveen-ul-Haq (14w @ 9.7), Yash Thakur (11w @ 10.8), Mohsin Khan (10w @ 9.75)
+- **2024:** Naveen-ul-Haq (14w @ 9.7), Yash Thakur (11w @ 10.8), Ravi Bishnoi (10w @ 8.53)
 - **2025:** DS Rathi (14w @ 8.13), Avesh Khan (13w @ 9.94), SN Thakur (13w @ 9.98)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -240,10 +240,10 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
+| Eden Gardens | 3 | 2 | 66.7% | 191.7 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 169.0 |
 | MA Chidambaram Stadium | 3 | 1 | 33.3% | 173.0 |
 | Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 181.0 |
-| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 169.0 |
-| Eden Gardens | 3 | 2 | 66.7% | 191.7 |
 | Wankhede Stadium | 2 | 1 | 50.0% | 187.5 |
 | Narendra Modi Stadium | 2 | 1 | 50.0% | 203.0 |
 | M Chinnaswamy Stadium | 2 | 2 | 100.0% | 197.0 |
@@ -259,8 +259,8 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
@@ -288,12 +288,12 @@
 |--------|-------|---------|------|------|-----|
 | Mohammed Shami | Narendra Modi Stadium | 10 | 17 | 7.76 | 13.06 |
 | Avesh Khan | Sawai Mansingh Stadium | 7 | 9 | 9.19 | 18.0 |
-| Avesh Khan | Bharat Ratna Shri Atal Bi | 11 | 7 | 8.27 | 32.14 |
 | DS Rathi | Bharat Ratna Shri Atal Bi | 7 | 7 | 7.18 | 24.0 |
+| Avesh Khan | Bharat Ratna Shri Atal Bi | 11 | 7 | 8.27 | 32.14 |
 | MR Marsh | Arun Jaitley Stadium | 5 | 7 | 8.43 | 11.29 |
 | Avesh Khan | Narendra Modi Stadium | 3 | 6 | 10.99 | 11.83 |
-| PWH de Silva | M Chinnaswamy Stadium | 5 | 5 | 8.47 | 20.4 |
 | PWH de Silva | Barsapara Cricket Stadium | 2 | 5 | 10.0 | 8.4 |
+| Avesh Khan | MA Chidambaram Stadium | 3 | 5 | 7.78 | 10.8 |
 
 
 ---
@@ -481,9 +481,9 @@
 | Mumbai Indians | 4 | 96 | 157 | 5 | 9.81 | 31.4 | 19.2 | 31.25 | 22.92 | MEDIUM |
 | Punjab Kings | 6 | 119 | 198 | 4 | 9.98 | 49.5 | 29.75 | 27.73 | 22.69 | HIGH |
 | Royal Challengers Bengaluru | 4 | 90 | 175 | 4 | 11.67 | 43.75 | 22.5 | 23.33 | 32.22 | MEDIUM |
+| Kolkata Knight Riders | 2 | 48 | 83 | 3 | 10.38 | 27.67 | 16.0 | 39.58 | 29.17 | MEDIUM |
 | Delhi Capitals | 4 | 78 | 117 | 3 | 9.0 | 39.0 | 26.0 | 37.18 | 24.36 | MEDIUM |
 | Chennai Super Kings | 3 | 51 | 76 | 3 | 8.94 | 25.33 | 17.0 | 25.49 | 21.57 | MEDIUM |
-| Kolkata Knight Riders | 2 | 48 | 83 | 3 | 10.38 | 27.67 | 16.0 | 39.58 | 29.17 | MEDIUM |
 | Lucknow Super Giants | 2 | 42 | 54 | 1 | 7.71 | 54.0 | 42.0 | 23.81 | 9.52 | MEDIUM |
 
 ### Mohammed Shami
@@ -491,8 +491,8 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 3 | 66 | 76 | 7 | 6.91 | 10.86 | 9.43 | 60.61 | 18.18 | MEDIUM |
-| Rajasthan Royals | 3 | 66 | 82 | 5 | 7.45 | 16.4 | 13.2 | 57.58 | 19.7 | MEDIUM |
 | Kolkata Knight Riders | 3 | 72 | 94 | 5 | 7.83 | 18.8 | 14.4 | 43.06 | 16.67 | MEDIUM |
+| Rajasthan Royals | 3 | 66 | 82 | 5 | 7.45 | 16.4 | 13.2 | 57.58 | 19.7 | MEDIUM |
 | Chennai Super Kings | 4 | 85 | 115 | 5 | 8.12 | 23.0 | 17.0 | 38.82 | 18.82 | MEDIUM |
 | Lucknow Super Giants | 3 | 60 | 90 | 2 | 9.0 | 45.0 | 30.0 | 31.67 | 21.67 | MEDIUM |
 | Mumbai Indians | 4 | 84 | 142 | 2 | 10.14 | 71.0 | 42.0 | 39.29 | 26.19 | MEDIUM |
@@ -519,8 +519,8 @@
 | N Pooran | Eden Gardens, Kolkata | 3 | 190 | 98 | 193.88 | 95.0 | 30.61 | MEDIUM |
 | N Pooran | Rajiv Gandhi International Stadium,... | 3 | 162 | 65 | 249.23 | 162.0 | 40.0 | MEDIUM |
 | N Pooran | Sawai Mansingh Stadium, Jaipur | 3 | 104 | 69 | 150.72 | 104.0 | 18.84 | MEDIUM |
-| N Pooran | Wankhede Stadium, Mumbai | 2 | 102 | 44 | 231.82 | 51.0 | 38.64 | MEDIUM |
 | N Pooran | M Chinnaswamy Stadium, Bengaluru | 2 | 102 | 40 | 255.0 | 102.0 | 42.5 | MEDIUM |
+| N Pooran | Wankhede Stadium, Mumbai | 2 | 102 | 44 | 231.82 | 51.0 | 38.64 | MEDIUM |
 | RR Pant | Bharat Ratna Shri Atal Bihari Vajpa... | 8 | 254 | 171 | 148.54 | 36.29 | 22.22 | HIGH |
 | RR Pant | Arun Jaitley Stadium, Delhi | 5 | 209 | 133 | 157.14 | 52.25 | 21.8 | HIGH |
 | RR Pant | Dr. Y.S. Rajasekhara Reddy ACA-VDCA... | 3 | 106 | 63 | 168.25 | 35.33 | 25.4 | MEDIUM |

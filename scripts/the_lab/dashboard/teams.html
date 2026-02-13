@@ -5321,7 +5321,7 @@
                                     ${types.map(([type, v]) => `<tr>
                                         <td class="pp-vs-label">${type}</td>
                                         <td>${v.sr != null ? v.sr.toFixed(1) : '-'}</td>
-                                        <td>${v.avg != null ? v.avg.toFixed(1) : '-'}</td>
+                                        <td>${v.avg != null ? v.avg.toFixed(1) : '<span title="Not dismissed">N/O</span>'}</td>
                                         <td>${v.balls}${v.sample_size === 'LOW' ? ' <span style="color:var(--accent-orange);">(LOW)</span>' : ''}</td>
                                     </tr>`).join('')}
                                 </tbody>

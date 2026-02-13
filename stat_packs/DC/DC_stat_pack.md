@@ -1,6 +1,6 @@
 # Delhi Capitals (DC) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-13 20:14
+**Generated:** 2026-02-13 21:38
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -132,7 +132,7 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** MR Marsh (12w @ 7.82), AR Patel (11w @ 7.17), Kuldeep Yadav (10w @ 7.32)
+- **2023:** MR Marsh (12w @ 7.82), AR Patel (11w @ 7.17), I Sharma (10w @ 8.03)
 - **2024:** Mukesh Kumar (17w @ 10.2), KK Ahmed (17w @ 9.13), Kuldeep Yadav (16w @ 8.45)
 - **2025:** Kuldeep Yadav (15w @ 7.26), MA Starc (14w @ 10.09), Mukesh Kumar (12w @ 9.67)
 
@@ -252,13 +252,13 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Dr. Y.S. Rajasekhara Reddy ACA-VDCA | 4 | 3 | 75.0% | 183.5 |
-| Narendra Modi Stadium | 3 | 2 | 66.7% | 141.7 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 158.0 |
+| Narendra Modi Stadium | 3 | 2 | 66.7% | 141.7 |
 | M Chinnaswamy Stadium | 3 | 1 | 33.3% | 153.3 |
-| Sawai Mansingh Stadium | 2 | 1 | 50.0% | 190.5 |
-| Himachal Pradesh Cricket Associatio | 2 | 1 | 50.0% | 213.0 |
-| Wankhede Stadium | 2 | 0 | 0.0% | 163.0 |
 | MA Chidambaram Stadium | 2 | 1 | 50.0% | 161.5 |
+| Wankhede Stadium | 2 | 0 | 0.0% | 163.0 |
+| Himachal Pradesh Cricket Associatio | 2 | 1 | 50.0% | 213.0 |
+| Sawai Mansingh Stadium | 2 | 1 | 50.0% | 190.5 |
 | Rajiv Gandhi International Stadium | 2 | 1 | 50.0% | 138.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
@@ -273,8 +273,8 @@
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -301,10 +301,10 @@
 |--------|-------|---------|------|------|-----|
 | AR Patel | Arun Jaitley Stadium | 16 | 13 | 7.66 | 23.08 |
 | MA Starc | Dr. Y.S. Rajasekhara Redd | 3 | 10 | 9.28 | 6.4 |
-| Kuldeep Yadav | M Chinnaswamy Stadium | 3 | 5 | 7.83 | 14.4 |
 | Kuldeep Yadav | Dr. Y.S. Rajasekhara Redd | 2 | 5 | 5.38 | 9.6 |
 | Mukesh Kumar | Bharat Ratna Shri Atal Bi | 3 | 5 | 8.83 | 14.4 |
 | T Natarajan | Arun Jaitley Stadium | 3 | 5 | 9.18 | 13.2 |
+| Kuldeep Yadav | M Chinnaswamy Stadium | 3 | 5 | 7.83 | 14.4 |
 
 
 ---
@@ -436,8 +436,8 @@
 | Royal Challengers Bengaluru | 5 | 116 | 80 | 145.0 | 29.0 | 20.0 | 33.75 | 4 | MEDIUM |
 | Lucknow Super Giants | 4 | 86 | 52 | 165.38 | 43.0 | 25.0 | 34.62 | 2 | MEDIUM |
 | Mumbai Indians | 4 | 76 | 43 | 176.74 | 25.33 | 27.91 | 30.23 | 3 | MEDIUM |
-| Sunrisers Hyderabad | 4 | 75 | 63 | 119.05 | 25.0 | 12.7 | 34.92 | 3 | MEDIUM |
 | Kolkata Knight Riders | 4 | 75 | 66 | 113.64 | 25.0 | 15.15 | 45.45 | 3 | MEDIUM |
+| Sunrisers Hyderabad | 4 | 75 | 63 | 119.05 | 25.0 | 12.7 | 34.92 | 3 | MEDIUM |
 | Rajasthan Royals | 4 | 66 | 43 | 153.49 | 22.0 | 20.93 | 27.91 | 3 | MEDIUM |
 | Chennai Super Kings | 4 | 64 | 42 | 152.38 | 21.33 | 19.05 | 23.81 | 3 | MEDIUM |
 
@@ -501,13 +501,13 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Mumbai Indians | 4 | 84 | 175 | 8 | 12.5 | 21.88 | 10.5 | 32.14 | 35.71 | MEDIUM |
 | Lucknow Super Giants | 5 | 108 | 158 | 7 | 8.78 | 22.57 | 15.43 | 31.48 | 19.44 | HIGH |
-| Rajasthan Royals | 4 | 84 | 149 | 5 | 10.64 | 29.8 | 16.8 | 30.95 | 27.38 | MEDIUM |
 | Gujarat Titans | 4 | 87 | 134 | 5 | 9.24 | 26.8 | 17.4 | 31.03 | 22.99 | MEDIUM |
+| Rajasthan Royals | 4 | 84 | 149 | 5 | 10.64 | 29.8 | 16.8 | 30.95 | 27.38 | MEDIUM |
 | Chennai Super Kings | 2 | 42 | 57 | 4 | 8.14 | 14.25 | 10.5 | 26.19 | 14.29 | MEDIUM |
 | Royal Challengers Bengaluru | 4 | 75 | 122 | 3 | 9.76 | 40.67 | 25.0 | 41.33 | 26.67 | MEDIUM |
 | Punjab Kings | 3 | 54 | 100 | 2 | 11.11 | 50.0 | 27.0 | 35.19 | 29.63 | MEDIUM |
-| Sunrisers Hyderabad | 4 | 66 | 132 | 1 | 12.0 | 132.0 | 66.0 | 19.7 | 33.33 | MEDIUM |
 | Kolkata Knight Riders | 2 | 36 | 45 | 1 | 7.5 | 45.0 | 36.0 | 58.33 | 22.22 | MEDIUM |
+| Sunrisers Hyderabad | 4 | 66 | 132 | 1 | 12.0 | 132.0 | 66.0 | 19.7 | 33.33 | MEDIUM |
 
 ### Mitchell Starc
 
@@ -899,8 +899,8 @@ Pre-tournament priorities must include: shore up pace-hitting deficiencies (4 ba
 | Nitish Rana | Batter | 65 | 7.1 | 17.8 | 2 | 601 | 72 | SMAT (0.65, Econ 6.4); IPL (0.87, Econ 8.3) |
 | Ajay Mandal | All-rounder | 0 | 7.0 | 19.9 | 1 | 498 | 64 | SMAT (0.65, Econ 7.0) |
 | Tristan Stubbs | All-rounder | 36 | 9.8 | 15.6 | 3 | 135 | 16 | 100 (0.50, Econ 9.0); IPL (0.87, Econ 11.3); CSA (0.38, Econ 7.8) |
-| Tripurana Vijay | Batter | 0 | 11.4 | 16 | 1 | 48 | 6 | SMAT (0.65, Econ 11.4) |
 | Karun Nair | Batter | 0 | 5.2 | 24 | 1 | 48 | 6 | SMAT (0.65, Econ 5.3) |
+| Tripurana Vijay | Batter | 0 | 11.4 | 16 | 1 | 48 | 6 | SMAT (0.65, Econ 11.4) |
 
 ### 13.3 Methodology
 

@@ -1,6 +1,6 @@
 # Punjab Kings (PBKS) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-13 20:14
+**Generated:** 2026-02-13 21:38
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -247,12 +247,12 @@
 | Himachal Pradesh Cricket Associatio | 6 | 1 | 16.7% | 177.2 |
 | Narendra Modi Stadium | 4 | 3 | 75.0% | 208.5 |
 | Eden Gardens | 3 | 1 | 33.3% | 214.0 |
-| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
-| Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
 | MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
-| M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
+| Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
 | Barsapara Cricket Stadium | 2 | 2 | 100.0% | 171.0 |
+| M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -295,11 +295,11 @@
 | Yash Thakur | Bharat Ratna Shri Atal Bi | 8 | 12 | 9.19 | 14.42 |
 | Arshdeep Singh | Maharaja Yadavindra Singh | 10 | 11 | 8.64 | 18.0 |
 | Vijaykumar Vyshak | M Chinnaswamy Stadium | 8 | 10 | 9.8 | 17.7 |
-| Arshdeep Singh | Himachal Pradesh Cricket  | 5 | 7 | 9.0 | 14.57 |
 | YS Chahal | MA Chidambaram Stadium | 4 | 7 | 7.33 | 12.86 |
+| Arshdeep Singh | Himachal Pradesh Cricket  | 5 | 7 | 9.0 | 14.57 |
 | Arshdeep Singh | Punjab Cricket Associatio | 5 | 7 | 10.78 | 16.14 |
-| YS Chahal | Maharaja Yadavindra Singh | 5 | 6 | 8.0 | 16.0 |
-| M Jansen | Sawai Mansingh Stadium | 4 | 6 | 10.48 | 15.17 |
+| Harpreet Brar | Sawai Mansingh Stadium | 3 | 6 | 8.17 | 12.0 |
+| YS Chahal | Barsapara Cricket Stadium | 3 | 6 | 8.75 | 12.0 |
 
 
 ---
@@ -485,8 +485,8 @@
 | Royal Challengers Bengaluru | 7 | 134 | 223 | 8 | 9.99 | 27.88 | 16.75 | 32.09 | 25.37 | HIGH |
 | Mumbai Indians | 5 | 113 | 196 | 7 | 10.41 | 28.0 | 16.14 | 30.97 | 29.2 | HIGH |
 | Chennai Super Kings | 5 | 116 | 180 | 6 | 9.31 | 30.0 | 19.33 | 34.48 | 25.0 | HIGH |
-| Kolkata Knight Riders | 4 | 84 | 112 | 6 | 8.0 | 18.67 | 14.0 | 46.43 | 20.24 | MEDIUM |
 | Rajasthan Royals | 6 | 143 | 247 | 6 | 10.36 | 41.17 | 23.83 | 40.56 | 27.97 | HIGH |
+| Kolkata Knight Riders | 4 | 84 | 112 | 6 | 8.0 | 18.67 | 14.0 | 46.43 | 20.24 | MEDIUM |
 | Gujarat Titans | 4 | 85 | 124 | 4 | 8.75 | 31.0 | 21.25 | 30.59 | 18.82 | MEDIUM |
 | Delhi Capitals | 4 | 84 | 112 | 2 | 8.0 | 56.0 | 42.0 | 39.29 | 19.05 | MEDIUM |
 
@@ -501,8 +501,8 @@
 | Delhi Capitals | 3 | 66 | 93 | 6 | 8.45 | 15.5 | 11.0 | 28.79 | 15.15 | MEDIUM |
 | Mumbai Indians | 4 | 90 | 129 | 5 | 8.6 | 25.8 | 18.0 | 36.67 | 20.0 | MEDIUM |
 | Punjab Kings | 4 | 96 | 147 | 4 | 9.19 | 36.75 | 24.0 | 25.0 | 19.79 | MEDIUM |
-| Lucknow Super Giants | 5 | 114 | 189 | 3 | 9.95 | 63.0 | 38.0 | 25.44 | 21.05 | HIGH |
 | Gujarat Titans | 4 | 89 | 134 | 3 | 9.03 | 44.67 | 29.67 | 17.98 | 15.73 | MEDIUM |
+| Lucknow Super Giants | 5 | 114 | 189 | 3 | 9.95 | 63.0 | 38.0 | 25.44 | 21.05 | HIGH |
 | Rajasthan Royals | 2 | 42 | 57 | 0 | 8.14 | - | - | 23.81 | 14.29 | MEDIUM |
 
 ---

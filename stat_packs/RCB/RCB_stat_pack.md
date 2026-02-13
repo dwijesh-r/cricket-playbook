@@ -1,6 +1,6 @@
 # Royal Challengers Bengaluru (RCB) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-13 20:14
+**Generated:** 2026-02-13 21:38
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -127,8 +127,8 @@
 **Top Wicket Takers by Season:**
 
 - **2023:** Mohammed Siraj (19w @ 7.2), HV Patel (14w @ 9.3), KV Sharma (10w @ 10.41)
-- **2024:** Mohammed Siraj (15w @ 8.69), Yash Dayal (15w @ 8.8), C Green (10w @ 8.21)
-- **2025:** JR Hazlewood (22w @ 8.64), B Kumar (17w @ 9.25), KH Pandya (17w @ 8.06)
+- **2024:** Yash Dayal (15w @ 8.8), Mohammed Siraj (15w @ 8.69), C Green (10w @ 8.21)
+- **2025:** JR Hazlewood (22w @ 8.64), KH Pandya (17w @ 8.06), B Kumar (17w @ 9.25)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -243,13 +243,13 @@
 |-------|---------|------|------|-----------|
 | Wankhede Stadium | 3 | 1 | 33.3% | 205.3 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 181.7 |
-| Narendra Modi Stadium | 3 | 2 | 66.7% | 189.3 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 176.3 |
 | Eden Gardens | 3 | 1 | 33.3% | 173.7 |
+| Narendra Modi Stadium | 3 | 2 | 66.7% | 189.3 |
 | MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
-| Rajiv Gandhi International Stadium | 2 | 2 | 100.0% | 196.5 |
 | Arun Jaitley Stadium | 2 | 1 | 50.0% | 173.0 |
 | Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
+| Rajiv Gandhi International Stadium | 2 | 2 | 100.0% | 196.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -262,8 +262,8 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
@@ -469,8 +469,8 @@
 | Punjab Kings | 7 | 150 | 205 | 8 | 8.2 | 25.63 | 18.75 | 40.67 | 21.33 | HIGH |
 | Rajasthan Royals | 6 | 132 | 233 | 6 | 10.59 | 38.83 | 22.0 | 34.85 | 28.79 | HIGH |
 | Gujarat Titans | 3 | 72 | 82 | 6 | 6.83 | 13.67 | 12.0 | 40.28 | 12.5 | MEDIUM |
-| Lucknow Super Giants | 4 | 84 | 104 | 4 | 7.43 | 26.0 | 21.0 | 38.1 | 15.48 | MEDIUM |
 | Mumbai Indians | 5 | 120 | 191 | 4 | 9.55 | 47.75 | 30.0 | 37.5 | 21.67 | HIGH |
+| Lucknow Super Giants | 4 | 84 | 104 | 4 | 7.43 | 26.0 | 21.0 | 38.1 | 15.48 | MEDIUM |
 | Chennai Super Kings | 5 | 102 | 152 | 3 | 8.94 | 50.67 | 34.0 | 36.27 | 23.53 | HIGH |
 | Kolkata Knight Riders | 5 | 102 | 161 | 2 | 9.47 | 80.5 | 51.0 | 40.2 | 24.51 | HIGH |
 | Royal Challengers Bengaluru | 3 | 54 | 117 | 1 | 13.0 | 117.0 | 54.0 | 29.63 | 42.59 | MEDIUM |
@@ -480,9 +480,9 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 3 | 72 | 80 | 6 | 6.67 | 13.33 | 12.0 | 44.44 | 13.89 | MEDIUM |
-| Mumbai Indians | 4 | 96 | 139 | 5 | 8.69 | 27.8 | 19.2 | 35.42 | 20.83 | MEDIUM |
 | Gujarat Titans | 4 | 90 | 100 | 5 | 6.67 | 20.0 | 18.0 | 36.67 | 11.11 | MEDIUM |
 | Punjab Kings | 7 | 102 | 130 | 5 | 7.65 | 26.0 | 20.4 | 38.24 | 15.69 | HIGH |
+| Mumbai Indians | 4 | 96 | 139 | 5 | 8.69 | 27.8 | 19.2 | 35.42 | 20.83 | MEDIUM |
 | Kolkata Knight Riders | 4 | 66 | 93 | 4 | 8.45 | 23.25 | 16.5 | 28.79 | 19.7 | MEDIUM |
 | Chennai Super Kings | 5 | 72 | 104 | 3 | 8.67 | 34.67 | 24.0 | 27.78 | 18.06 | MEDIUM |
 | Rajasthan Royals | 4 | 96 | 102 | 3 | 6.38 | 34.0 | 32.0 | 25.0 | 7.29 | MEDIUM |
@@ -843,7 +843,7 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 | Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
 |--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
-| Jordan Cox | Wicketkeeper | 0 | 139 | 31.9 | 7 | 2522 | 49 | Blast (0.50, SR 145.3); 100 (0.50, SR 155.2); ILT20 (0.49, SR 119.3) |
+| Jordan Cox | Wicketkeeper | 0 | 139 | 31.9 | 7 | 2522 | 49 | Blast (0.50, SR 145.3); ILT20 (0.49, SR 119.3); 100 (0.50, SR 155.2) |
 | Romario Shepherd | All-rounder | 45 | 166 | 24.2 | 6 | 902 | 52 | CPL (0.50, SR 162.9); ILT20 (0.49, SR 180.2); SA20 (0.50, SR 132.5) |
 | Jacob Bethell | All-rounder | 39 | 139 | 25.2 | 4 | 812 | 52 | Blast (0.50, SR 141.8); 100 (0.50, SR 133.8); BBL (0.53, SR 125.0) |
 | Swapnil Singh | All-rounder | 25 | 122 | 23.3 | 2 | 476 | 63 | SMAT (0.65, SR 123.4); IPL (0.87, SR 113.3) |

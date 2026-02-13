@@ -1,7 +1,7 @@
 /**
  * The Lab - Predicted XII Data
  * IPL 2026 Pre-Season Analytics
- * Auto-generated: 2026-02-13T14:48:56.446057
+ * Auto-generated: 2026-02-13T21:39:13.039967
  * Algorithm: SUPER SELECTOR
  */
 
@@ -256,11 +256,11 @@ const PREDICTED_XII = {
 
 /**
  * The Lab - Depth Chart Ratings
- * Auto-generated: 2026-02-13T14:48:56.446200
+ * Auto-generated: 2026-02-13T21:39:13.040119
  */
 
 const DEPTH_CHART_RATINGS = {
-    MI: { overall: 7.8, strongest: "#3 Batter", weakest: "Wicketkeeper" },
+    MI: { overall: 7.9, strongest: "#3 Batter", weakest: "Leg Spin" },
     CSK: { overall: 6.9, strongest: "#3 Batter", weakest: "Left-arm Pace" },
     RCB: { overall: 7.5, strongest: "#3 Batter", weakest: "Off Spin" },
     KKR: { overall: 6.7, strongest: "#3 Batter", weakest: "Left-arm Pace" },

@@ -1526,7 +1526,7 @@ def main() -> int:
     # Generate player_tags_2023.json
     player_tags = generate_player_tags_2023(conn, batter_tags_dict, bowler_tags_dict)
 
-    tags_path = OUTPUT_DIR / "player_tags_2023.json"
+    tags_path = OUTPUT_DIR / "tags" / "player_tags_2023.json"
     with open(tags_path, "w") as f:
         json.dump(player_tags, f, indent=2)
     print(f"   Saved: {tags_path}")

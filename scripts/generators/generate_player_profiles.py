@@ -918,13 +918,29 @@ def build_profile(
         profile["data_tournaments"] = ct.get("tournaments", [])
 
         if ct.get("batting"):
+            # Build phase dict with fallback nulls for missing phases
+            ct_phase = ct.get("phase", {})
+            phase = {}
+            for p in ("powerplay", "middle", "death"):
+                if p in ct_phase:
+                    phase[p] = ct_phase[p]
+                else:
+                    phase[p] = {
+                        "sr": None,
+                        "avg": None,
+                        "boundary_pct": None,
+                        "balls": None,
+                        "runs": None,
+                        "sample_size": None,
+                    }
+
             profile["batting"] = {
                 "career": ct["batting"],
-                "phase": {},
+                "phase": phase,
                 "vs_bowling_type": {},
                 "vs_teams": {"best": [], "worst": []},
                 "entry_point": None,
-                "tags": [],
+                "tags": merged_batter_tags,
             }
 
         if ct.get("bowling"):
@@ -938,7 +954,7 @@ def build_profile(
                     "type": squad.get("bowling_type"),
                     "archetype": ct.get("cluster_label"),
                 },
-                "tags": [],
+                "tags": merged_bowler_tags,
             }
 
         # Use cross-tournament cluster label as archetype if no IPL cluster

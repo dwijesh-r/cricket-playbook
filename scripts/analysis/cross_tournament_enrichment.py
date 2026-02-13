@@ -86,6 +86,10 @@ def get_all_t20_batting(conn: duckdb.DuckDBPyConnection, player_ids: Set[str]) -
                 fb.batter_id,
                 fb.ball_seq,
                 fb.is_legal_ball,
+                fb.batter_runs,
+                fb.extra_runs,
+                fb.is_wicket,
+                fb.match_phase,
                 SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END)
                     OVER (PARTITION BY fb.match_id, fb.innings ORDER BY fb.ball_seq) as legal_ball_num
             FROM fact_ball fb
@@ -119,20 +123,31 @@ def get_all_t20_batting(conn: duckdb.DuckDBPyConnection, player_ids: Set[str]) -
             ) t
             GROUP BY batter_id
         ),
+        innings_scores AS (
+            SELECT
+                batter_id as player_id,
+                match_id,
+                innings,
+                SUM(batter_runs) as innings_runs
+            FROM legal_balls_numbered
+            GROUP BY batter_id, match_id, innings
+        ),
         career AS (
             SELECT
                 fb.batter_id as player_id,
                 dp.current_name as player_name,
-                COUNT(*) FILTER (WHERE fb.is_legal_ball) as balls,
+                COUNT(*) FILTER (WHERE fb.is_legal_ball) as balls_faced,
                 SUM(fb.batter_runs) as runs,
-                COUNT(DISTINCT fb.match_id) as matches,
+                COUNT(DISTINCT CONCAT(fb.match_id, '_', fb.innings)) as innings,
                 SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) as dismissals,
-                ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as sr,
-                ROUND(SUM(fb.batter_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END), 0), 2) as avg,
+                ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as strike_rate,
+                ROUND(SUM(fb.batter_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END), 0), 2) as average,
+                SUM(CASE WHEN fb.batter_runs = 4 THEN 1 ELSE 0 END) as fours,
+                SUM(CASE WHEN fb.batter_runs = 6 THEN 1 ELSE 0 END) as sixes,
                 ROUND(SUM(CASE WHEN fb.batter_runs IN (4,6) THEN 1 ELSE 0 END) * 100.0 /
                       NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as boundary_pct,
                 ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 /
-                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as dot_pct
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as dot_ball_pct
             FROM fact_ball fb
             JOIN dim_match dm ON fb.match_id = dm.match_id
             JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
@@ -142,6 +157,15 @@ def get_all_t20_batting(conn: duckdb.DuckDBPyConnection, player_ids: Set[str]) -
               AND fb.batter_id IN ({ids_str})
             GROUP BY fb.batter_id, dp.current_name
             HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= 30
+        ),
+        milestones AS (
+            SELECT
+                player_id,
+                MAX(innings_runs) as highest_score,
+                SUM(CASE WHEN innings_runs >= 50 AND innings_runs < 100 THEN 1 ELSE 0 END) as fifties,
+                SUM(CASE WHEN innings_runs >= 100 THEN 1 ELSE 0 END) as hundreds
+            FROM innings_scores
+            GROUP BY player_id
         ),
         tournaments AS (
             SELECT
@@ -159,9 +183,12 @@ def get_all_t20_batting(conn: duckdb.DuckDBPyConnection, player_ids: Set[str]) -
         pp AS (
             SELECT
                 fb.batter_id as player_id,
+                COUNT(*) FILTER (WHERE fb.is_legal_ball) as pp_balls,
+                SUM(fb.batter_runs) as pp_runs,
                 ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as pp_sr,
+                ROUND(SUM(fb.batter_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END), 0), 2) as pp_avg,
                 ROUND(SUM(CASE WHEN fb.batter_runs IN (4,6) THEN 1 ELSE 0 END) * 100.0 /
-                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as pp_boundary
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as pp_boundary_pct
             FROM fact_ball fb
             JOIN dim_match dm ON fb.match_id = dm.match_id
             JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
@@ -172,12 +199,34 @@ def get_all_t20_batting(conn: duckdb.DuckDBPyConnection, player_ids: Set[str]) -
             GROUP BY fb.batter_id
             HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= 20
         ),
+        mid AS (
+            SELECT
+                fb.batter_id as player_id,
+                COUNT(*) FILTER (WHERE fb.is_legal_ball) as mid_balls,
+                SUM(fb.batter_runs) as mid_runs,
+                ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as mid_sr,
+                ROUND(SUM(fb.batter_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END), 0), 2) as mid_avg,
+                ROUND(SUM(CASE WHEN fb.batter_runs IN (4,6) THEN 1 ELSE 0 END) * 100.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as mid_boundary_pct
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dm.match_date >= '{T20_MIN_DATE}'
+              AND dt.tournament_name != 'Indian Premier League'
+              AND fb.match_phase = 'middle'
+              AND fb.batter_id IN ({ids_str})
+            GROUP BY fb.batter_id
+            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= 15
+        ),
         death AS (
             SELECT
                 fb.batter_id as player_id,
+                COUNT(*) FILTER (WHERE fb.is_legal_ball) as death_balls,
+                SUM(fb.batter_runs) as death_runs,
                 ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as death_sr,
+                ROUND(SUM(fb.batter_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END), 0), 2) as death_avg,
                 ROUND(SUM(CASE WHEN fb.batter_runs IN (4,6) THEN 1 ELSE 0 END) * 100.0 /
-                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as death_boundary
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as death_boundary_pct
             FROM fact_ball fb
             JOIN dim_match dm ON fb.match_id = dm.match_id
             JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
@@ -190,16 +239,20 @@ def get_all_t20_batting(conn: duckdb.DuckDBPyConnection, player_ids: Set[str]) -
         )
         SELECT
             c.*,
+            COALESCE(ms.highest_score, 0) as highest_score,
+            COALESCE(ms.fifties, 0) as fifties,
+            COALESCE(ms.hundreds, 0) as hundreds,
             t.tournament_list,
             COALESCE(bp.avg_batting_position, 4) as avg_batting_position,
-            p.pp_sr,
-            p.pp_boundary,
-            d.death_sr,
-            d.death_boundary
+            p.pp_balls, p.pp_runs, p.pp_sr, p.pp_avg, p.pp_boundary_pct,
+            m.mid_balls, m.mid_runs, m.mid_sr, m.mid_avg, m.mid_boundary_pct,
+            d.death_balls, d.death_runs, d.death_sr, d.death_avg, d.death_boundary_pct
         FROM career c
+        LEFT JOIN milestones ms ON c.player_id = ms.player_id
         LEFT JOIN tournaments t ON c.player_id = t.player_id
         LEFT JOIN batting_position bp ON c.player_id = bp.player_id
         LEFT JOIN pp p ON c.player_id = p.player_id
+        LEFT JOIN mid m ON c.player_id = m.player_id
         LEFT JOIN death d ON c.player_id = d.player_id
     """).df()
 
@@ -262,9 +315,9 @@ def assign_label(row: pd.Series) -> str:
     avg_pos = row.get("avg_batting_position", 4.0)
     pp_sr = row.get("pp_sr")
     death_sr = row.get("death_sr")
-    death_boundary = row.get("death_boundary")
-    overall_sr = row.get("sr", 130)
-    overall_avg = row.get("avg", 25)
+    death_boundary = row.get("death_boundary_pct")
+    overall_sr = row.get("strike_rate", 130)
+    overall_avg = row.get("average", 25)
     boundary_pct = row.get("boundary_pct", 15)
 
     if avg_pos <= TOP_ORDER_POS_THRESHOLD:
@@ -307,6 +360,29 @@ def _safe_float(val) -> Optional[float]:
         return None if math.isnan(f) or math.isinf(f) else round(f, 2)
     except (TypeError, ValueError):
         return None
+
+
+def _safe_int_val(val) -> Optional[int]:
+    """Safely convert to int, returning None for NaN/None."""
+    if val is None:
+        return None
+    try:
+        import math
+
+        f = float(val)
+        return None if math.isnan(f) or math.isinf(f) else int(f)
+    except (TypeError, ValueError):
+        return None
+
+
+def _classify_sample(balls: Optional[int]) -> str:
+    """Classify sample size based on balls faced/bowled."""
+    if balls is None or balls < 30:
+        return "LOW"
+    elif balls < 100:
+        return "MEDIUM"
+    else:
+        return "HIGH"
 
 
 def main() -> None:
@@ -361,23 +437,58 @@ def main() -> None:
 
             cluster_label = assign_label(row)
 
+            # Build phase data matching IPL profile convention
+            phase: dict = {}
+            if row.get("pp_sr") is not None:
+                phase["powerplay"] = {
+                    "sr": _safe_float(row["pp_sr"]),
+                    "avg": _safe_float(row.get("pp_avg")),
+                    "boundary_pct": _safe_float(row.get("pp_boundary_pct")),
+                    "balls": _safe_int_val(row.get("pp_balls")),
+                    "runs": _safe_int_val(row.get("pp_runs")),
+                    "sample_size": _classify_sample(_safe_int_val(row.get("pp_balls"))),
+                }
+            if row.get("mid_sr") is not None:
+                phase["middle"] = {
+                    "sr": _safe_float(row["mid_sr"]),
+                    "avg": _safe_float(row.get("mid_avg")),
+                    "boundary_pct": _safe_float(row.get("mid_boundary_pct")),
+                    "balls": _safe_int_val(row.get("mid_balls")),
+                    "runs": _safe_int_val(row.get("mid_runs")),
+                    "sample_size": _classify_sample(_safe_int_val(row.get("mid_balls"))),
+                }
+            if row.get("death_sr") is not None:
+                phase["death"] = {
+                    "sr": _safe_float(row["death_sr"]),
+                    "avg": _safe_float(row.get("death_avg")),
+                    "boundary_pct": _safe_float(row.get("death_boundary_pct")),
+                    "balls": _safe_int_val(row.get("death_balls")),
+                    "runs": _safe_int_val(row.get("death_runs")),
+                    "sample_size": _classify_sample(_safe_int_val(row.get("death_balls"))),
+                }
+
             player_entry: dict = {
                 "batting": {
-                    "balls": int(row["balls"]),
-                    "runs": int(row["runs"]),
-                    "matches": int(row["matches"]),
-                    "sr": _safe_float(row["sr"]),
-                    "avg": _safe_float(row["avg"]),
+                    "innings": _safe_int_val(row["innings"]),
+                    "runs": _safe_int_val(row["runs"]),
+                    "balls_faced": _safe_int_val(row["balls_faced"]),
+                    "average": _safe_float(row["average"]),
+                    "strike_rate": _safe_float(row["strike_rate"]),
+                    "fifties": _safe_int_val(row.get("fifties", 0)),
+                    "hundreds": _safe_int_val(row.get("hundreds", 0)),
+                    "fours": _safe_int_val(row.get("fours", 0)),
+                    "sixes": _safe_int_val(row.get("sixes", 0)),
                     "boundary_pct": _safe_float(row.get("boundary_pct")),
-                    "dot_pct": _safe_float(row.get("dot_pct")),
-                    "pp_sr": _safe_float(row.get("pp_sr")),
-                    "death_sr": _safe_float(row.get("death_sr")),
+                    "dot_ball_pct": _safe_float(row.get("dot_ball_pct")),
+                    "highest_score": _safe_int_val(row.get("highest_score", 0)),
+                    "sample_size": _classify_sample(_safe_int_val(row["balls_faced"])),
                     "avg_batting_position": _safe_float(row.get("avg_batting_position")),
                 },
+                "phase": phase,
                 "bowling": None,
                 "cluster_label": cluster_label,
                 "tournaments": list(tournaments),
-                "total_balls": int(row["balls"]),
+                "total_balls": _safe_int_val(row["balls_faced"]),
             }
 
             # Add bowling if available
@@ -390,15 +501,16 @@ def main() -> None:
                     bowl_tournaments = []
 
                 player_entry["bowling"] = {
-                    "balls": int(brow["balls"]),
-                    "wickets": int(brow["wickets"]),
-                    "matches": int(brow["matches"]),
+                    "matches": _safe_int_val(brow["matches"]),
+                    "wickets": _safe_int_val(brow["wickets"]),
+                    "balls_bowled": _safe_int_val(brow["balls"]),
                     "economy": _safe_float(brow["economy"]),
-                    "avg": _safe_float(brow["avg"]),
-                    "sr": _safe_float(brow["sr"]),
-                    "dot_pct": _safe_float(brow.get("dot_pct")),
+                    "average": _safe_float(brow["avg"]),
+                    "strike_rate": _safe_float(brow["sr"]),
+                    "dot_ball_pct": _safe_float(brow.get("dot_pct")),
+                    "sample_size": _classify_sample(_safe_int_val(brow["balls"])),
                 }
-                player_entry["total_balls"] += int(brow["balls"])
+                player_entry["total_balls"] += _safe_int_val(brow["balls"]) or 0
                 # Merge tournament lists
                 all_tournaments = set(tournaments) | set(bowl_tournaments)
                 player_entry["tournaments"] = sorted(all_tournaments)
@@ -416,18 +528,20 @@ def main() -> None:
 
         players[pid] = {
             "batting": None,
+            "phase": {},
             "bowling": {
-                "balls": int(brow["balls"]),
-                "wickets": int(brow["wickets"]),
-                "matches": int(brow["matches"]),
+                "matches": _safe_int_val(brow["matches"]),
+                "wickets": _safe_int_val(brow["wickets"]),
+                "balls_bowled": _safe_int_val(brow["balls"]),
                 "economy": _safe_float(brow["economy"]),
-                "avg": _safe_float(brow["avg"]),
-                "sr": _safe_float(brow["sr"]),
-                "dot_pct": _safe_float(brow.get("dot_pct")),
+                "average": _safe_float(brow["avg"]),
+                "strike_rate": _safe_float(brow["sr"]),
+                "dot_ball_pct": _safe_float(brow.get("dot_pct")),
+                "sample_size": _classify_sample(_safe_int_val(brow["balls"])),
             },
             "cluster_label": None,
             "tournaments": list(tournaments),
-            "total_balls": int(brow["balls"]),
+            "total_balls": _safe_int_val(brow["balls"]) or 0,
         }
 
     # Step 5: Write output

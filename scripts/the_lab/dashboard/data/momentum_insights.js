@@ -1,7 +1,7 @@
 /**
  * The Lab - Momentum & Pressure Sequence Insights
  * IPL 2026 Pre-Season Analytics
- * Auto-generated: 2026-02-12T15:50:05.983884+00:00
+ * Auto-generated: 2026-02-13T14:44:35.608329+00:00
  * Source: analytics_ipl_pressure_dot_sequences_since2023,
  *         analytics_ipl_pressure_boundary_sequences_since2023,
  *         analytics_ipl_pressure_deltas_since2023
@@ -10,7 +10,7 @@
 
 var MOMENTUM_INSIGHTS = {
     "metadata": {
-        "computedAt": "2026-02-12T15:50:05.983884+00:00",
+        "computedAt": "2026-02-13T14:44:35.608329+00:00",
         "source": "analytics_ipl_pressure_dot/boundary_sequences_since2023 + pressure_deltas_since2023",
         "owner": "Andy Flower (Cricket Domain Expert)"
     },
@@ -26,16 +26,16 @@ var MOMENTUM_INSIGHTS = {
                         "maxLength": 6
                     },
                     {
-                        "name": "C Bosch",
-                        "dotSequences": 5,
-                        "avgLength": 2.6,
-                        "maxLength": 4
-                    },
-                    {
                         "name": "JJ Bumrah",
                         "dotSequences": 20,
                         "avgLength": 2.6,
                         "maxLength": 5
+                    },
+                    {
+                        "name": "C Bosch",
+                        "dotSequences": 5,
+                        "avgLength": 2.6,
+                        "maxLength": 4
                     }
                 ],
                 "teamTotalSequences": 101,
@@ -128,10 +128,10 @@ var MOMENTUM_INSIGHTS = {
                         "maxLength": 6
                     },
                     {
-                        "name": "KV Sharma",
-                        "dotSequences": 10,
+                        "name": "Noor Ahmad",
+                        "dotSequences": 12,
                         "avgLength": 2.5,
-                        "maxLength": 3
+                        "maxLength": 5
                     }
                 ],
                 "teamTotalSequences": 50,
@@ -153,7 +153,7 @@ var MOMENTUM_INSIGHTS = {
                         "maxLength": 3
                     },
                     {
-                        "name": "RD Gaikwad",
+                        "name": "MS Dhoni",
                         "boundarySequences": 3,
                         "avgLength": 2.0,
                         "maxLength": 2
@@ -397,8 +397,8 @@ var MOMENTUM_INSIGHTS = {
                         "maxLength": 4
                     },
                     {
-                        "name": "MA Starc",
-                        "dotSequences": 12,
+                        "name": "Kuldeep Yadav",
+                        "dotSequences": 11,
                         "avgLength": 2.2,
                         "maxLength": 3
                     }
@@ -571,14 +571,14 @@ var MOMENTUM_INSIGHTS = {
                         "maxLength": 4
                     },
                     {
-                        "name": "TU Deshpande",
-                        "dotSequences": 14,
+                        "name": "RA Jadeja",
+                        "dotSequences": 12,
                         "avgLength": 2.6,
                         "maxLength": 4
                     },
                     {
-                        "name": "RA Jadeja",
-                        "dotSequences": 12,
+                        "name": "TU Deshpande",
+                        "dotSequences": 14,
                         "avgLength": 2.6,
                         "maxLength": 4
                     }
@@ -590,16 +590,16 @@ var MOMENTUM_INSIGHTS = {
                 "rating": "Limited",
                 "topBatters": [
                     {
-                        "name": "Dhruv Jurel",
-                        "boundarySequences": 7,
-                        "avgLength": 2.4,
-                        "maxLength": 3
-                    },
-                    {
                         "name": "YBK Jaiswal",
                         "boundarySequences": 9,
                         "avgLength": 2.4,
                         "maxLength": 4
+                    },
+                    {
+                        "name": "Dhruv Jurel",
+                        "boundarySequences": 7,
+                        "avgLength": 2.4,
+                        "maxLength": 3
                     },
                     {
                         "name": "SO Hetmyer",
@@ -648,7 +648,7 @@ var MOMENTUM_INSIGHTS = {
                 ],
                 "teamAvgDelta": 0.3
             },
-            "andyFlowerInsight": "RR lacks a sustained dot-ball pressure weapon -- longest avg sequence is just 2.7. Counter-attack capability is limited -- Dhruv Jurel leads with just 2.4 avg boundary sequence length. Key vulnerability: YBK Jaiswal's SR drops 7% under pressure -- opposition will target this window."
+            "andyFlowerInsight": "RR lacks a sustained dot-ball pressure weapon -- longest avg sequence is just 2.7. Counter-attack capability is limited -- YBK Jaiswal leads with just 2.4 avg boundary sequence length. Key vulnerability: YBK Jaiswal's SR drops 7% under pressure -- opposition will target this window."
         },
         "SRH": {
             "bowlingPressure": {
@@ -680,6 +680,12 @@ var MOMENTUM_INSIGHTS = {
                 "rating": "Average",
                 "topBatters": [
                     {
+                        "name": "Ishan Kishan",
+                        "boundarySequences": 8,
+                        "avgLength": 2.5,
+                        "maxLength": 3
+                    },
+                    {
                         "name": "H Klaasen",
                         "boundarySequences": 4,
                         "avgLength": 2.5,
@@ -688,12 +694,6 @@ var MOMENTUM_INSIGHTS = {
                     {
                         "name": "TM Head",
                         "boundarySequences": 2,
-                        "avgLength": 2.5,
-                        "maxLength": 3
-                    },
-                    {
-                        "name": "Ishan Kishan",
-                        "boundarySequences": 8,
                         "avgLength": 2.5,
                         "maxLength": 3
                     }
@@ -732,7 +732,7 @@ var MOMENTUM_INSIGHTS = {
                 ],
                 "teamAvgDelta": -8.2
             },
-            "andyFlowerInsight": "SRH lacks a sustained dot-ball pressure weapon -- longest avg sequence is just 2.8. Counter-attack capability is limited -- H Klaasen leads with just 2.5 avg boundary sequence length. Key vulnerability: Nithish Kumar Reddy's SR drops 21% under pressure -- opposition will target this window."
+            "andyFlowerInsight": "SRH lacks a sustained dot-ball pressure weapon -- longest avg sequence is just 2.8. Counter-attack capability is limited -- Ishan Kishan leads with just 2.5 avg boundary sequence length. Key vulnerability: Nithish Kumar Reddy's SR drops 21% under pressure -- opposition will target this window."
         },
         "GT": {
             "bowlingPressure": {
@@ -872,7 +872,7 @@ var MOMENTUM_INSIGHTS = {
                         "maxLength": 3
                     },
                     {
-                        "name": "Abdul Samad",
+                        "name": "AK Markram",
                         "boundarySequences": 2,
                         "avgLength": 2.0,
                         "maxLength": 2

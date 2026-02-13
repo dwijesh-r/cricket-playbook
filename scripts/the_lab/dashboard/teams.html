@@ -2273,6 +2273,25 @@
             font-size: 14px;
             font-style: italic;
         }
+        .pp-cross-tournament-notice {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            margin: 12px 0 16px 0;
+            border-radius: 8px;
+            background: rgba(59, 130, 246, 0.08);
+            border-left: 3px solid var(--accent, #3b82f6);
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .pp-cross-tournament-notice .pp-ct-icon {
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .pp-cross-tournament-notice strong {
+            color: var(--text-primary);
+        }
         /* Clickable player names */
         .player-clickable {
             cursor: pointer;
@@ -5231,8 +5250,16 @@
             </div>`;
 
             if (!p.has_ipl_data) {
-                html += '<div class="pp-no-data">No IPL data available (uncapped/new signing)</div>';
-                return html;
+                if (p.has_cross_tournament_data && p.data_tournaments && p.data_tournaments.length > 0) {
+                    const tournamentNames = p.data_tournaments.join(', ');
+                    html += `<div class="pp-cross-tournament-notice">
+                        <span class="pp-ct-icon">&#127760;</span>
+                        <span><strong>No IPL data</strong> &mdash; T20 stats from ${tournamentNames}</span>
+                    </div>`;
+                } else {
+                    html += '<div class="pp-no-data">No IPL or T20 data available</div>';
+                    return html;
+                }
             }
 
             // Batting Section
@@ -5240,7 +5267,7 @@
             if (bat && bat.career) {
                 const c = bat.career;
                 html += `<div class="pp-section">
-                    <div class="pp-section-title">Batting Career (IPL 2023+)</div>
+                    <div class="pp-section-title">Batting Career (${p.data_source === 'cross_tournament' ? 'T20 2023+' : 'IPL 2023+'})</div>
                     <div class="pp-stat-grid">
                         <div class="pp-stat-card"><div class="pp-stat-value">${c.runs || 0}</div><div class="pp-stat-label">Runs</div></div>
                         <div class="pp-stat-card"><div class="pp-stat-value">${c.innings || 0}</div><div class="pp-stat-label">Innings</div></div>
@@ -5347,7 +5374,7 @@
             if (bowl && bowl.career) {
                 const c = bowl.career;
                 html += `<div class="pp-section">
-                    <div class="pp-section-title bowling">Bowling Career (IPL 2023+)</div>
+                    <div class="pp-section-title bowling">Bowling Career (${p.data_source === 'cross_tournament' ? 'T20 2023+' : 'IPL 2023+'})</div>
                     <div class="pp-stat-grid">
                         <div class="pp-stat-card"><div class="pp-stat-value">${c.wickets || 0}</div><div class="pp-stat-label">Wickets</div></div>
                         <div class="pp-stat-card"><div class="pp-stat-value">${c.overs || 0}</div><div class="pp-stat-label">Overs</div></div>

@@ -453,17 +453,6 @@
       ]
     },
     {
-      "player_name": "C Green",
-      "player_id": "eaa76d3c",
-      "overall_sr": 154.7,
-      "tags": [
-        "SPECIALIST_VS_PACE",
-        "SPECIALIST_VS_OFF_SPIN",
-        "PP_DOMINATOR",
-        "DEATH_FINISHER"
-      ]
-    },
-    {
       "player_name": "RM Patidar",
       "player_id": "c740ea83",
       "overall_sr": 160.68,
@@ -474,6 +463,17 @@
         "PP_ACCUMULATOR",
         "MIDDLE_ACCELERATOR",
         "DEATH_LIABILITY"
+      ]
+    },
+    {
+      "player_name": "C Green",
+      "player_id": "eaa76d3c",
+      "overall_sr": 154.7,
+      "tags": [
+        "SPECIALIST_VS_PACE",
+        "SPECIALIST_VS_OFF_SPIN",
+        "PP_DOMINATOR",
+        "DEATH_FINISHER"
       ]
     },
     {
@@ -647,6 +647,17 @@
       ]
     },
     {
+      "player_name": "LS Livingstone",
+      "player_id": "50c6bc2b",
+      "overall_sr": 153.05,
+      "tags": [
+        "VULNERABLE_VS_PACE",
+        "PP_LIABILITY",
+        "MIDDLE_LIABILITY",
+        "DEATH_FINISHER"
+      ]
+    },
+    {
       "player_name": "V Shankar",
       "player_id": "0994d0ae",
       "overall_sr": 143.84,
@@ -655,17 +666,6 @@
         "VULNERABLE_VS_SPIN",
         "VULNERABLE_VS_LEG_SPIN",
         "PP_ACCUMULATOR",
-        "MIDDLE_LIABILITY",
-        "DEATH_FINISHER"
-      ]
-    },
-    {
-      "player_name": "LS Livingstone",
-      "player_id": "50c6bc2b",
-      "overall_sr": 153.05,
-      "tags": [
-        "VULNERABLE_VS_PACE",
-        "PP_LIABILITY",
         "MIDDLE_LIABILITY",
         "DEATH_FINISHER"
       ]
@@ -941,6 +941,14 @@
       ]
     },
     {
+      "player_name": "Atharva Taide",
+      "player_id": "1ac746c8",
+      "overall_sr": 146.89,
+      "tags": [
+        "SPECIALIST_VS_PACE"
+      ]
+    },
+    {
       "player_name": "DJ Hooda",
       "player_id": "73ad96ed",
       "overall_sr": 110.64,
@@ -957,14 +965,6 @@
       "tags": [
         "VULNERABLE_VS_PACE",
         "MIDDLE_ACCELERATOR"
-      ]
-    },
-    {
-      "player_name": "Atharva Taide",
-      "player_id": "1ac746c8",
-      "overall_sr": 146.89,
-      "tags": [
-        "SPECIALIST_VS_PACE"
       ]
     },
     {
@@ -1200,14 +1200,6 @@
       ]
     },
     {
-      "player_name": "M Pathirana",
-      "player_id": "64839cb3",
-      "economy": 9.0,
-      "tags": [
-        "DEATH_COMPLETE"
-      ]
-    },
-    {
       "player_name": "Mohammed Siraj",
       "player_id": "2f49c897",
       "economy": 8.96,
@@ -1215,6 +1207,14 @@
         "PP_CONTAINER",
         "MIDDLE_WICKET_TAKER",
         "DEATH_CONTAINER"
+      ]
+    },
+    {
+      "player_name": "M Pathirana",
+      "player_id": "64839cb3",
+      "economy": 9.0,
+      "tags": [
+        "DEATH_COMPLETE"
       ]
     },
     {
@@ -1238,6 +1238,14 @@
       ]
     },
     {
+      "player_name": "Noor Ahmad",
+      "player_id": "efc04be7",
+      "economy": 8.24,
+      "tags": [
+        "DEATH_COMPLETE"
+      ]
+    },
+    {
       "player_name": "B Kumar",
       "player_id": "2e81a32d",
       "economy": 9.23,
@@ -1245,14 +1253,6 @@
         "RHB_WICKET_TAKER",
         "PP_CONTAINER",
         "MIDDLE_LIABILITY"
-      ]
-    },
-    {
-      "player_name": "Noor Ahmad",
-      "player_id": "efc04be7",
-      "economy": 8.24,
-      "tags": [
-        "DEATH_COMPLETE"
       ]
     },
     {
@@ -1275,6 +1275,15 @@
       ]
     },
     {
+      "player_name": "Avesh Khan",
+      "player_id": "eef2536f",
+      "economy": 9.96,
+      "tags": [
+        "PP_LIABILITY",
+        "DEATH_CONTAINER"
+      ]
+    },
+    {
       "player_name": "KK Ahmed",
       "player_id": "a2f46292",
       "economy": 9.69,
@@ -1283,11 +1292,10 @@
       ]
     },
     {
-      "player_name": "Avesh Khan",
-      "player_id": "eef2536f",
-      "economy": 9.96,
+      "player_name": "Kuldeep Yadav",
+      "player_id": "8d2c70ad",
+      "economy": 7.82,
       "tags": [
-        "PP_LIABILITY",
         "DEATH_CONTAINER"
       ]
     },
@@ -1303,10 +1311,11 @@
       ]
     },
     {
-      "player_name": "Kuldeep Yadav",
-      "player_id": "8d2c70ad",
-      "economy": 7.82,
+      "player_name": "Harshit Rana",
+      "player_id": "77b1aa15",
+      "economy": 9.64,
       "tags": [
+        "MIDDLE_WICKET_TAKER",
         "DEATH_CONTAINER"
       ]
     },
@@ -1316,15 +1325,6 @@
       "economy": 7.58,
       "tags": [
         "MIDDLE_STRANGLER",
-        "DEATH_CONTAINER"
-      ]
-    },
-    {
-      "player_name": "Harshit Rana",
-      "player_id": "77b1aa15",
-      "economy": 9.64,
-      "tags": [
-        "MIDDLE_WICKET_TAKER",
         "DEATH_CONTAINER"
       ]
     },
@@ -1389,16 +1389,6 @@
       ]
     },
     {
-      "player_name": "PJ Cummins",
-      "player_id": "ded9240e",
-      "economy": 9.32,
-      "tags": [
-        "RHB_WICKET_TAKER",
-        "MIDDLE_STRANGLER",
-        "DEATH_LIABILITY"
-      ]
-    },
-    {
       "player_name": "AD Russell",
       "player_id": "bbd41817",
       "economy": 11.09,
@@ -1428,12 +1418,11 @@
       ]
     },
     {
-      "player_name": "Yash Dayal",
-      "player_id": "7210d461",
-      "economy": 9.85,
+      "player_name": "PJ Cummins",
+      "player_id": "ded9240e",
+      "economy": 9.32,
       "tags": [
-        "RHB_SPECIALIST",
-        "LHB_VULNERABLE",
+        "RHB_WICKET_TAKER",
         "MIDDLE_STRANGLER",
         "DEATH_LIABILITY"
       ]
@@ -1447,6 +1436,17 @@
         "LHB_VULNERABLE",
         "PP_LIABILITY",
         "DEATH_CONTAINER"
+      ]
+    },
+    {
+      "player_name": "Yash Dayal",
+      "player_id": "7210d461",
+      "economy": 9.85,
+      "tags": [
+        "RHB_SPECIALIST",
+        "LHB_VULNERABLE",
+        "MIDDLE_STRANGLER",
+        "DEATH_LIABILITY"
       ]
     },
     {
@@ -1479,6 +1479,18 @@
       ]
     },
     {
+      "player_name": "M Jansen",
+      "player_id": "81c36ee9",
+      "economy": 10.12,
+      "tags": [
+        "RHB_SPECIALIST",
+        "LHB_VULNERABLE",
+        "PP_STRIKE",
+        "MIDDLE_LIABILITY",
+        "DEATH_STRIKE"
+      ]
+    },
+    {
       "player_name": "AR Patel",
       "player_id": "2e171977",
       "economy": 7.86,
@@ -1496,18 +1508,6 @@
         "PP_LIABILITY",
         "MIDDLE_LIABILITY",
         "DEATH_LIABILITY"
-      ]
-    },
-    {
-      "player_name": "M Jansen",
-      "player_id": "81c36ee9",
-      "economy": 10.12,
-      "tags": [
-        "RHB_SPECIALIST",
-        "LHB_VULNERABLE",
-        "PP_STRIKE",
-        "MIDDLE_LIABILITY",
-        "DEATH_STRIKE"
       ]
     },
     {
@@ -1532,16 +1532,6 @@
       ]
     },
     {
-      "player_name": "I Sharma",
-      "player_id": "5bb1a1c4",
-      "economy": 9.75,
-      "tags": [
-        "PP_STRIKE",
-        "MIDDLE_WICKET_TAKER",
-        "DEATH_LIABILITY"
-      ]
-    },
-    {
       "player_name": "M Prasidh Krishna",
       "player_id": "85e0cf10",
       "economy": 8.58,
@@ -1555,6 +1545,16 @@
       ]
     },
     {
+      "player_name": "I Sharma",
+      "player_id": "5bb1a1c4",
+      "economy": 9.75,
+      "tags": [
+        "PP_STRIKE",
+        "MIDDLE_WICKET_TAKER",
+        "DEATH_LIABILITY"
+      ]
+    },
+    {
       "player_name": "R Sai Kishore",
       "player_id": "c7a995d3",
       "economy": 9.27,
@@ -1564,17 +1564,6 @@
         "RHB_WICKET_TAKER",
         "MIDDLE_WICKET_TAKER",
         "DEATH_STRIKE"
-      ]
-    },
-    {
-      "player_name": "Akash Madhwal",
-      "player_id": "4bd09374",
-      "economy": 10.19,
-      "tags": [
-        "LHB_SPECIALIST",
-        "RHB_VULNERABLE",
-        "PP_STRIKE",
-        "MIDDLE_WICKET_TAKER"
       ]
     },
     {
@@ -1597,13 +1586,12 @@
       ]
     },
     {
-      "player_name": "JR Hazlewood",
-      "player_id": "03806cf8",
-      "economy": 8.77,
+      "player_name": "Akash Madhwal",
+      "player_id": "4bd09374",
+      "economy": 10.19,
       "tags": [
-        "RHB_SPECIALIST",
-        "LHB_VULNERABLE",
-        "LHB_WICKET_TAKER",
+        "LHB_SPECIALIST",
+        "RHB_VULNERABLE",
         "PP_STRIKE",
         "MIDDLE_WICKET_TAKER"
       ]
@@ -1615,6 +1603,18 @@
       "tags": [
         "RHB_SPECIALIST",
         "LHB_VULNERABLE",
+        "MIDDLE_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "JR Hazlewood",
+      "player_id": "03806cf8",
+      "economy": 8.77,
+      "tags": [
+        "RHB_SPECIALIST",
+        "LHB_VULNERABLE",
+        "LHB_WICKET_TAKER",
+        "PP_STRIKE",
         "MIDDLE_WICKET_TAKER"
       ]
     },
@@ -1658,19 +1658,9 @@
       ]
     },
     {
-      "player_name": "M Markande",
-      "player_id": "a9fd84fb",
-      "economy": 9.32,
-      "tags": [
-        "RHB_WICKET_TAKER",
-        "MIDDLE_WICKET_TAKER",
-        "DEATH_LIABILITY"
-      ]
-    },
-    {
-      "player_name": "K Rabada",
-      "player_id": "e62dd25d",
-      "economy": 10.02,
+      "player_name": "Suyash Sharma",
+      "player_id": "9440ef41",
+      "economy": 8.98,
       "tags": [
         "DEATH_LIABILITY"
       ]
@@ -1684,10 +1674,20 @@
       ]
     },
     {
-      "player_name": "Suyash Sharma",
-      "player_id": "9440ef41",
-      "economy": 8.98,
+      "player_name": "K Rabada",
+      "player_id": "e62dd25d",
+      "economy": 10.02,
       "tags": [
+        "DEATH_LIABILITY"
+      ]
+    },
+    {
+      "player_name": "M Markande",
+      "player_id": "a9fd84fb",
+      "economy": 9.32,
+      "tags": [
+        "RHB_WICKET_TAKER",
+        "MIDDLE_WICKET_TAKER",
         "DEATH_LIABILITY"
       ]
     },
@@ -1726,15 +1726,6 @@
       ]
     },
     {
-      "player_name": "MM Ali",
-      "player_id": "bb351c23",
-      "economy": 8.1,
-      "tags": [
-        "LHB_SPECIALIST",
-        "RHB_VULNERABLE"
-      ]
-    },
-    {
       "player_name": "JP Behrendorff",
       "player_id": "4933f499",
       "economy": 9.4,
@@ -1751,6 +1742,15 @@
         "RHB_VULNERABLE",
         "MIDDLE_WICKET_TAKER",
         "DEATH_LIABILITY"
+      ]
+    },
+    {
+      "player_name": "MM Ali",
+      "player_id": "bb351c23",
+      "economy": 8.1,
+      "tags": [
+        "LHB_SPECIALIST",
+        "RHB_VULNERABLE"
       ]
     },
     {
@@ -1784,6 +1784,24 @@
       ]
     },
     {
+      "player_name": "E Malinga",
+      "player_id": "5750bcb4",
+      "economy": 9.15,
+      "tags": [
+        "MIDDLE_STRANGLER",
+        "DEATH_COMPLETE"
+      ]
+    },
+    {
+      "player_name": "DS Rathi",
+      "player_id": "13fc5c6d",
+      "economy": 8.37,
+      "tags": [
+        "PP_LIABILITY",
+        "DEATH_CONTAINER"
+      ]
+    },
+    {
       "player_name": "JC Archer",
       "player_id": "5574750c",
       "economy": 9.85,
@@ -1804,20 +1822,14 @@
       ]
     },
     {
-      "player_name": "E Malinga",
-      "player_id": "5750bcb4",
-      "economy": 9.15,
+      "player_name": "J Little",
+      "player_id": "9061a703",
+      "economy": 8.97,
       "tags": [
+        "LHB_SPECIALIST",
+        "RHB_VULNERABLE",
+        "LHB_WICKET_TAKER",
         "MIDDLE_STRANGLER",
-        "DEATH_COMPLETE"
-      ]
-    },
-    {
-      "player_name": "DS Rathi",
-      "player_id": "13fc5c6d",
-      "economy": 8.37,
-      "tags": [
-        "PP_LIABILITY",
         "DEATH_CONTAINER"
       ]
     },
@@ -1837,18 +1849,6 @@
       "economy": 9.76,
       "tags": [
         "MIDDLE_WICKET_TAKER"
-      ]
-    },
-    {
-      "player_name": "J Little",
-      "player_id": "9061a703",
-      "economy": 8.97,
-      "tags": [
-        "LHB_SPECIALIST",
-        "RHB_VULNERABLE",
-        "LHB_WICKET_TAKER",
-        "MIDDLE_STRANGLER",
-        "DEATH_CONTAINER"
       ]
     },
     {
@@ -1879,14 +1879,6 @@
       ]
     },
     {
-      "player_name": "A Zampa",
-      "player_id": "14f96089",
-      "economy": 9.43,
-      "tags": [
-        "MIDDLE_LIABILITY"
-      ]
-    },
-    {
       "player_name": "MP Stoinis",
       "player_id": "d9273ee7",
       "economy": 10.38,
@@ -1897,15 +1889,37 @@
       ]
     },
     {
+      "player_name": "A Zampa",
+      "player_id": "14f96089",
+      "economy": 9.43,
+      "tags": [
+        "MIDDLE_LIABILITY"
+      ]
+    },
+    {
+      "player_name": "Ashwani Kumar",
+      "player_id": "d45c29b1",
+      "economy": 11.41,
+      "tags": []
+    },
+    {
       "player_name": "MA Wood",
       "player_id": "8d92a2c3",
       "economy": 8.88,
       "tags": []
     },
     {
-      "player_name": "Ashwani Kumar",
-      "player_id": "d45c29b1",
-      "economy": 11.41,
+      "player_name": "Rasikh Salam",
+      "player_id": "b8527c3d",
+      "economy": 11.21,
+      "tags": [
+        "MIDDLE_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "UT Yadav",
+      "player_id": "cc1e8c68",
+      "economy": 10.03,
       "tags": []
     },
     {
@@ -1924,29 +1938,6 @@
         "RHB_SPECIALIST",
         "LHB_VULNERABLE",
         "LHB_WICKET_TAKER"
-      ]
-    },
-    {
-      "player_name": "Rasikh Salam",
-      "player_id": "b8527c3d",
-      "economy": 11.21,
-      "tags": [
-        "MIDDLE_WICKET_TAKER"
-      ]
-    },
-    {
-      "player_name": "UT Yadav",
-      "player_id": "cc1e8c68",
-      "economy": 10.03,
-      "tags": []
-    },
-    {
-      "player_name": "Shahbaz Ahmed",
-      "player_id": "f9e6e7ef",
-      "economy": 11.05,
-      "tags": [
-        "PP_LIABILITY",
-        "MIDDLE_LIABILITY"
       ]
     },
     {
@@ -1977,6 +1968,62 @@
       ]
     },
     {
+      "player_name": "Shahbaz Ahmed",
+      "player_id": "f9e6e7ef",
+      "economy": 11.05,
+      "tags": [
+        "PP_LIABILITY",
+        "MIDDLE_LIABILITY"
+      ]
+    },
+    {
+      "player_name": "AS Joseph",
+      "player_id": "b0946605",
+      "economy": 10.37,
+      "tags": [
+        "MIDDLE_LIABILITY",
+        "DEATH_LIABILITY"
+      ]
+    },
+    {
+      "player_name": "WG Jacks",
+      "player_id": "9caf69a1",
+      "economy": 9.61,
+      "tags": [
+        "MIDDLE_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "Yudhvir Singh",
+      "player_id": "4885bbe6",
+      "economy": 11.09,
+      "tags": [
+        "PP_STRIKE"
+      ]
+    },
+    {
+      "player_name": "Nithish Kumar Reddy",
+      "player_id": "aad0c365",
+      "economy": 11.01,
+      "tags": [
+        "MIDDLE_LIABILITY"
+      ]
+    },
+    {
+      "player_name": "Simarjeet Singh",
+      "player_id": "30df8c66",
+      "economy": 12.18,
+      "tags": [
+        "MIDDLE_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "A Mishra",
+      "player_id": "6b19d823",
+      "economy": 8.14,
+      "tags": []
+    },
+    {
       "player_name": "Zeeshan Ansari",
       "player_id": "36619795",
       "economy": 9.87,
@@ -1991,48 +2038,9 @@
       ]
     },
     {
-      "player_name": "WG Jacks",
-      "player_id": "9caf69a1",
-      "economy": 9.61,
-      "tags": [
-        "MIDDLE_WICKET_TAKER"
-      ]
-    },
-    {
-      "player_name": "A Mishra",
-      "player_id": "6b19d823",
-      "economy": 8.14,
-      "tags": []
-    },
-    {
-      "player_name": "AS Joseph",
-      "player_id": "b0946605",
-      "economy": 10.37,
-      "tags": [
-        "MIDDLE_LIABILITY",
-        "DEATH_LIABILITY"
-      ]
-    },
-    {
-      "player_name": "Simarjeet Singh",
-      "player_id": "30df8c66",
-      "economy": 12.18,
-      "tags": [
-        "MIDDLE_WICKET_TAKER"
-      ]
-    },
-    {
-      "player_name": "Nithish Kumar Reddy",
-      "player_id": "aad0c365",
-      "economy": 11.01,
-      "tags": [
-        "MIDDLE_LIABILITY"
-      ]
-    },
-    {
-      "player_name": "Yudhvir Singh",
-      "player_id": "4885bbe6",
-      "economy": 11.09,
+      "player_name": "N Burger",
+      "player_id": "465aa633",
+      "economy": 8.94,
       "tags": [
         "PP_STRIKE"
       ]
@@ -2048,6 +2056,12 @@
       ]
     },
     {
+      "player_name": "K Kartikeya",
+      "player_id": "f6d8a7ab",
+      "economy": 9.09,
+      "tags": []
+    },
+    {
       "player_name": "RP Meredith",
       "player_id": "64775749",
       "economy": 10.63,
@@ -2056,17 +2070,12 @@
       ]
     },
     {
-      "player_name": "K Kartikeya",
-      "player_id": "f6d8a7ab",
-      "economy": 9.09,
-      "tags": []
-    },
-    {
-      "player_name": "N Burger",
-      "player_id": "465aa633",
-      "economy": 8.94,
+      "player_name": "Washington Sundar",
+      "player_id": "f19ccfad",
+      "economy": 9.88,
       "tags": [
-        "PP_STRIKE"
+        "LHB_SPECIALIST",
+        "RHB_VULNERABLE"
       ]
     },
     {
@@ -2074,20 +2083,6 @@
       "player_id": "81c08fa3",
       "economy": 11.14,
       "tags": []
-    },
-    {
-      "player_name": "KR Sen",
-      "player_id": "2e78f685",
-      "economy": 10.4,
-      "tags": []
-    },
-    {
-      "player_name": "AS Roy",
-      "player_id": "e4cdf230",
-      "economy": 8.6,
-      "tags": [
-        "MIDDLE_STRANGLER"
-      ]
     },
     {
       "player_name": "Swapnil Singh",
@@ -2098,12 +2093,19 @@
       ]
     },
     {
-      "player_name": "Washington Sundar",
-      "player_id": "f19ccfad",
-      "economy": 9.88,
+      "player_name": "V Puthur",
+      "player_id": "1e030637",
+      "economy": 9.08,
       "tags": [
-        "LHB_SPECIALIST",
-        "RHB_VULNERABLE"
+        "MIDDLE_WICKET_TAKER"
+      ]
+    },
+    {
+      "player_name": "AS Roy",
+      "player_id": "e4cdf230",
+      "economy": 8.6,
+      "tags": [
+        "MIDDLE_STRANGLER"
       ]
     },
     {
@@ -2127,11 +2129,29 @@
       "tags": []
     },
     {
-      "player_name": "V Puthur",
-      "player_id": "1e030637",
-      "economy": 9.08,
+      "player_name": "KR Sen",
+      "player_id": "2e78f685",
+      "economy": 10.4,
+      "tags": []
+    },
+    {
+      "player_name": "KA Jamieson",
+      "player_id": "68c56d09",
+      "economy": 9.8,
+      "tags": []
+    },
+    {
+      "player_name": "Harsh Dubey",
+      "player_id": "25228673",
+      "economy": 9.8,
+      "tags": []
+    },
+    {
+      "player_name": "SH Johnson",
+      "player_id": "83c3e8e3",
+      "economy": 10.57,
       "tags": [
-        "MIDDLE_WICKET_TAKER"
+        "PP_LIABILITY"
       ]
     },
     {
@@ -2159,30 +2179,10 @@
       ]
     },
     {
-      "player_name": "Harsh Dubey",
-      "player_id": "25228673",
-      "economy": 9.8,
-      "tags": []
-    },
-    {
-      "player_name": "KA Jamieson",
-      "player_id": "68c56d09",
-      "economy": 9.8,
-      "tags": []
-    },
-    {
       "player_name": "Prince Yadav",
       "player_id": "80b2fb19",
       "economy": 9.9,
       "tags": []
-    },
-    {
-      "player_name": "SH Johnson",
-      "player_id": "83c3e8e3",
-      "economy": 10.57,
-      "tags": [
-        "PP_LIABILITY"
-      ]
     },
     {
       "player_name": "DJ Willey",
@@ -2191,10 +2191,27 @@
       "tags": []
     },
     {
+      "player_name": "Fazalhaq Farooqi",
+      "player_id": "e9c7f0d0",
+      "economy": 10.88,
+      "tags": [
+        "PP_LIABILITY"
+      ]
+    },
+    {
       "player_name": "Abhishek Sharma",
       "player_id": "f29185a1",
       "economy": 9.7,
       "tags": []
+    },
+    {
+      "player_name": "JO Holder",
+      "player_id": "0f721006",
+      "economy": 10.18,
+      "tags": [
+        "MIDDLE_LIABILITY",
+        "DEATH_LIABILITY"
+      ]
     },
     {
       "player_name": "R Parag",
@@ -2217,43 +2234,18 @@
       "tags": []
     },
     {
-      "player_name": "JO Holder",
-      "player_id": "0f721006",
-      "economy": 10.18,
-      "tags": [
-        "MIDDLE_LIABILITY",
-        "DEATH_LIABILITY"
-      ]
-    },
-    {
-      "player_name": "Fazalhaq Farooqi",
-      "player_id": "e9c7f0d0",
-      "economy": 10.88,
-      "tags": [
-        "PP_LIABILITY"
-      ]
-    },
-    {
-      "player_name": "N Rana",
-      "player_id": "fb2d1dda",
-      "economy": 8.58,
-      "tags": []
-    },
-    {
-      "player_name": "HR Shokeen",
-      "player_id": "0c9652b0",
-      "economy": 10.0,
-      "tags": [
-        "MIDDLE_LIABILITY"
-      ]
-    },
-    {
       "player_name": "CJ Jordan",
       "player_id": "ffe699c0",
       "economy": 10.95,
       "tags": [
         "DEATH_LIABILITY"
       ]
+    },
+    {
+      "player_name": "C Sakariya",
+      "player_id": "2cdce1be",
+      "economy": 11.64,
+      "tags": []
     },
     {
       "player_name": "Sikandar Raza",
@@ -2264,15 +2256,17 @@
       ]
     },
     {
+      "player_name": "HR Shokeen",
+      "player_id": "0c9652b0",
+      "economy": 10.0,
+      "tags": [
+        "MIDDLE_LIABILITY"
+      ]
+    },
+    {
       "player_name": "M Siddharth",
       "player_id": "cf0ccafa",
       "economy": 8.66,
-      "tags": []
-    },
-    {
-      "player_name": "C Sakariya",
-      "player_id": "2cdce1be",
-      "economy": 11.64,
       "tags": []
     },
     {
@@ -2294,21 +2288,21 @@
       "tags": []
     },
     {
-      "player_name": "RJ Gleeson",
-      "player_id": "402f8494",
-      "economy": 9.79,
-      "tags": []
-    },
-    {
-      "player_name": "Mayank Dagar",
-      "player_id": "a457cfb5",
-      "economy": 8.98,
+      "player_name": "N Rana",
+      "player_id": "fb2d1dda",
+      "economy": 8.58,
       "tags": []
     },
     {
       "player_name": "Mohammad Nabi",
       "player_id": "62af8546",
       "economy": 8.92,
+      "tags": []
+    },
+    {
+      "player_name": "Mayank Dagar",
+      "player_id": "a457cfb5",
+      "economy": 8.98,
       "tags": []
     },
     {
@@ -2324,15 +2318,15 @@
       "tags": []
     },
     {
-      "player_name": "V Viyaskanth",
-      "player_id": "03a83c50",
-      "economy": 9.0,
+      "player_name": "RJ Gleeson",
+      "player_id": "402f8494",
+      "economy": 9.79,
       "tags": []
     },
     {
-      "player_name": "Kartik Tyagi",
-      "player_id": "5d2eea49",
-      "economy": 14.16,
+      "player_name": "V Viyaskanth",
+      "player_id": "03a83c50",
+      "economy": 9.0,
       "tags": []
     },
     {
@@ -2348,6 +2342,12 @@
       "tags": [
         "PP_LIABILITY"
       ]
+    },
+    {
+      "player_name": "Kartik Tyagi",
+      "player_id": "5d2eea49",
+      "economy": 14.16,
+      "tags": []
     }
   ],
   "metadata": {

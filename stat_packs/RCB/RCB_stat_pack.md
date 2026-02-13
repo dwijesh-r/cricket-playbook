@@ -1,6 +1,6 @@
 # Royal Challengers Bengaluru (RCB) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-13 08:07
+**Generated:** 2026-02-13 20:14
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -128,7 +128,7 @@
 
 - **2023:** Mohammed Siraj (19w @ 7.2), HV Patel (14w @ 9.3), KV Sharma (10w @ 10.41)
 - **2024:** Mohammed Siraj (15w @ 8.69), Yash Dayal (15w @ 8.8), C Green (10w @ 8.21)
-- **2025:** JR Hazlewood (22w @ 8.64), KH Pandya (17w @ 8.06), B Kumar (17w @ 9.25)
+- **2025:** JR Hazlewood (22w @ 8.64), B Kumar (17w @ 9.25), KH Pandya (17w @ 8.06)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -241,15 +241,15 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
-| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 176.3 |
 | Wankhede Stadium | 3 | 1 | 33.3% | 205.3 |
-| Eden Gardens | 3 | 1 | 33.3% | 173.7 |
-| Narendra Modi Stadium | 3 | 2 | 66.7% | 189.3 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 181.7 |
+| Narendra Modi Stadium | 3 | 2 | 66.7% | 189.3 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 176.3 |
+| Eden Gardens | 3 | 1 | 33.3% | 173.7 |
+| MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
+| Rajiv Gandhi International Stadium | 2 | 2 | 100.0% | 196.5 |
 | Arun Jaitley Stadium | 2 | 1 | 50.0% | 173.0 |
 | Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
-| Rajiv Gandhi International Stadium | 2 | 2 | 100.0% | 196.5 |
-| MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -263,8 +263,8 @@
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -480,8 +480,8 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 3 | 72 | 80 | 6 | 6.67 | 13.33 | 12.0 | 44.44 | 13.89 | MEDIUM |
-| Gujarat Titans | 4 | 90 | 100 | 5 | 6.67 | 20.0 | 18.0 | 36.67 | 11.11 | MEDIUM |
 | Mumbai Indians | 4 | 96 | 139 | 5 | 8.69 | 27.8 | 19.2 | 35.42 | 20.83 | MEDIUM |
+| Gujarat Titans | 4 | 90 | 100 | 5 | 6.67 | 20.0 | 18.0 | 36.67 | 11.11 | MEDIUM |
 | Punjab Kings | 7 | 102 | 130 | 5 | 7.65 | 26.0 | 20.4 | 38.24 | 15.69 | HIGH |
 | Kolkata Knight Riders | 4 | 66 | 93 | 4 | 8.45 | 23.25 | 16.5 | 28.79 | 19.7 | MEDIUM |
 | Chennai Super Kings | 5 | 72 | 104 | 3 | 8.67 | 34.67 | 24.0 | 27.78 | 18.06 | MEDIUM |
@@ -820,7 +820,7 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|-------------|----------|----------|---------|------------|-------|-------------|
 | Jacob Duffy | Fast | 115 | 137 | 8.3 | 24.3 | HIGH | 38 | SS, Blast, 100 |
-| Jacob Bethell | Left-arm ort | 29 | 18 | 8.8 | 26.8 | HIGH | 26 | Blast, BBL, 100 |
+| Jacob Bethell | Left-arm ort | 29 | 18 | 8.8 | 26.8 | HIGH | 26 | Blast, 100, BBL |
 
 ### 12.3 Limited / No T20 Data
 

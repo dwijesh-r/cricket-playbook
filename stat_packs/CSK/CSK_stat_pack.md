@@ -1,6 +1,6 @@
 # Chennai Super Kings (CSK) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-13 08:07
+**Generated:** 2026-02-13 20:13
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -246,10 +246,10 @@
 |-------|---------|------|------|-----------|
 | Narendra Modi Stadium | 4 | 2 | 50.0% | 193.8 |
 | Wankhede Stadium | 3 | 2 | 66.7% | 180.3 |
-| M Chinnaswamy Stadium | 3 | 1 | 33.3% | 209.3 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 172.0 |
-| Arun Jaitley Stadium | 2 | 1 | 50.0% | 205.0 |
+| M Chinnaswamy Stadium | 3 | 1 | 33.3% | 209.3 |
 | Eden Gardens | 2 | 2 | 100.0% | 209.0 |
+| Arun Jaitley Stadium | 2 | 1 | 50.0% | 205.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -262,9 +262,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
 
@@ -289,8 +289,8 @@
 
 | Player | Venue | Matches | Wkts | Econ | SR |
 |--------|-------|---------|------|------|-----|
-| Noor Ahmad | Narendra Modi Stadium | 13 | 13 | 8.23 | 20.31 |
 | Noor Ahmad | MA Chidambaram Stadium | 7 | 13 | 7.96 | 11.54 |
+| Noor Ahmad | Narendra Modi Stadium | 13 | 13 | 8.23 | 20.31 |
 | KK Ahmed | MA Chidambaram Stadium | 7 | 10 | 7.75 | 15.4 |
 | Noor Ahmad | Eden Gardens | 2 | 6 | 6.38 | 8.0 |
 | NT Ellis | Barsapara Cricket Stadium | 2 | 5 | 6.75 | 9.6 |
@@ -442,11 +442,11 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Mumbai Indians | 5 | 114 | 162 | 7 | 8.53 | 23.14 | 16.29 | 34.21 | 16.67 | HIGH |
-| Royal Challengers Bengaluru | 5 | 120 | 170 | 7 | 8.5 | 24.29 | 17.14 | 34.17 | 19.17 | HIGH |
 | Kolkata Knight Riders | 3 | 60 | 59 | 7 | 5.9 | 8.43 | 8.57 | 45.0 | 11.67 | MEDIUM |
-| Rajasthan Royals | 5 | 98 | 154 | 6 | 9.43 | 25.67 | 16.33 | 29.59 | 19.39 | MEDIUM |
+| Royal Challengers Bengaluru | 5 | 120 | 170 | 7 | 8.5 | 24.29 | 17.14 | 34.17 | 19.17 | HIGH |
+| Mumbai Indians | 5 | 114 | 162 | 7 | 8.53 | 23.14 | 16.29 | 34.21 | 16.67 | HIGH |
 | Punjab Kings | 4 | 90 | 122 | 6 | 8.13 | 20.33 | 15.0 | 30.0 | 14.44 | MEDIUM |
+| Rajasthan Royals | 5 | 98 | 154 | 6 | 9.43 | 25.67 | 16.33 | 29.59 | 19.39 | MEDIUM |
 | Chennai Super Kings | 3 | 54 | 68 | 3 | 7.56 | 22.67 | 18.0 | 27.78 | 11.11 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 65 | 103 | 3 | 9.51 | 34.33 | 21.67 | 29.23 | 20.0 | MEDIUM |
 | Lucknow Super Giants | 4 | 96 | 78 | 3 | 4.88 | 26.0 | 32.0 | 44.79 | 6.25 | MEDIUM |
@@ -461,10 +461,10 @@
 | Lucknow Super Giants | 4 | 84 | 132 | 6 | 9.43 | 22.0 | 14.0 | 50.0 | 26.19 | MEDIUM |
 | Rajasthan Royals | 5 | 102 | 163 | 5 | 9.59 | 32.6 | 20.4 | 42.16 | 29.41 | HIGH |
 | Gujarat Titans | 5 | 102 | 123 | 5 | 7.24 | 24.6 | 20.4 | 46.08 | 19.61 | HIGH |
-| Chennai Super Kings | 3 | 72 | 92 | 4 | 7.67 | 23.0 | 18.0 | 41.67 | 16.67 | MEDIUM |
 | Royal Challengers Bengaluru | 4 | 90 | 163 | 4 | 10.87 | 40.75 | 22.5 | 34.44 | 28.89 | MEDIUM |
-| Sunrisers Hyderabad | 2 | 36 | 72 | 1 | 12.0 | 72.0 | 36.0 | 33.33 | 33.33 | MEDIUM |
+| Chennai Super Kings | 3 | 72 | 92 | 4 | 7.67 | 23.0 | 18.0 | 41.67 | 16.67 | MEDIUM |
 | Kolkata Knight Riders | 4 | 72 | 117 | 1 | 9.75 | 117.0 | 72.0 | 48.61 | 26.39 | MEDIUM |
+| Sunrisers Hyderabad | 2 | 36 | 72 | 1 | 12.0 | 72.0 | 36.0 | 33.33 | 33.33 | MEDIUM |
 
 ---
 
@@ -792,8 +792,8 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | Dewald Brevis | All-rounder | 184 | 148 | 28.2 | 5 | 1469 | 54 | SA20 (0.50, SR 145.3); CSA (0.38, SR 149.0); IPL (0.87, SR 153.2) |
 | Jamie Overton | All-rounder | 7 | 156 | 23.8 | 4 | 1000 | 51 | Blast (0.50, SR 171.8); BBL (0.53, SR 138.7); 100 (0.50, SR 156.0) |
 | Akeal Hosein | Bowler | 10 | 108 | 19.8 | 7 | 862 | 49 | CPL (0.50, SR 109.0); ILT20 (0.49, SR 82.3); PSL (0.51, SR 120.8) |
-| Sarfaraz Khan | Batter | 61 | 127 | 23.1 | 2 | 676 | 79 | IPL (0.87, SR 130.2); SMAT (0.65, SR 120.3) |
 | Kartik Sharma | Wicketkeeper | 21 | 129 | 18.4 | 2 | 676 | 74 | SMAT (0.65, SR 138.8); IPL (0.87, SR 119.3) |
+| Sarfaraz Khan | Batter | 61 | 127 | 23.1 | 2 | 676 | 79 | IPL (0.87, SR 130.2); SMAT (0.65, SR 120.3) |
 | Urvil Patel | Wicketkeeper | 32 | 158 | 21.3 | 2 | 433 | 57 | SMAT (0.65, SR 152.4); IPL (0.87, SR 212.5) |
 | Nathan Ellis | Bowler | 7 | 117 | 12.7 | 4 | 402 | 44 | BBL (0.53, SR 129.8); Blast (0.50, SR 109.4); 100 (0.50, SR 65.7) |
 | Shreyas Gopal | Bowler | 0 | 109 | 13.9 | 2 | 223 | 36 | IPL (0.87, SR 106.5); SMAT (0.65, SR 120.4) |

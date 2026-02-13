@@ -43,6 +43,7 @@ SQUADS_PATH = PROJECT_DIR / "data" / "ipl_2026_squads.csv"
 CONTRACTS_PATH = PROJECT_DIR / "data" / "ipl_2026_player_contracts.csv"
 TAGS_PATH = PROJECT_DIR / "outputs" / "tags" / "player_tags_2023.json"
 CLUSTERING_PATH = PROJECT_DIR / "outputs" / "tags" / "player_clustering_2023.csv"
+CROSS_TOURNAMENT_PATH = PROJECT_DIR / "outputs" / "tags" / "cross_tournament_profiles.json"
 ENTRY_POINTS_PATH = PROJECT_DIR / "outputs" / "matchups" / "batter_entry_points_2023.csv"
 HANDEDNESS_PATH = PROJECT_DIR / "outputs" / "matchups" / "bowler_handedness_matchup_2023.csv"
 
@@ -473,6 +474,19 @@ def load_clusters() -> Dict[str, str]:
     return result
 
 
+def load_cross_tournament() -> Dict[str, Dict]:
+    """Load cross-tournament enrichment data for uncapped players."""
+    if not CROSS_TOURNAMENT_PATH.exists():
+        logger.warning("Cross-tournament file not found: %s", CROSS_TOURNAMENT_PATH)
+        return {}
+    logger.info("Loading cross-tournament data from %s", CROSS_TOURNAMENT_PATH)
+    with open(CROSS_TOURNAMENT_PATH, encoding="utf-8") as f:
+        data = json.load(f)
+    result = data.get("players", {})
+    logger.info("Loaded cross-tournament data for %d players", len(result))
+    return result
+
+
 def load_entry_points() -> Dict[str, Dict]:
     """Load batter entry point data from CSV, keyed by player_id."""
     logger.info("Loading batter entry points from %s", ENTRY_POINTS_PATH)
@@ -763,6 +777,7 @@ def build_profile(
     tags_data: Dict[str, Dict],
     clusters: Dict[str, str],
     entry_points: Dict[str, Dict],
+    cross_tournament: Optional[Dict[str, Dict]] = None,
 ) -> Dict:
     """Build a complete player profile dict."""
     squad = squad_data[player_id]
@@ -895,6 +910,49 @@ def build_profile(
         else:
             profile["bowling"] = None
 
+    # Cross-tournament enrichment for uncapped players
+    if not has_ipl_data and cross_tournament and player_id in cross_tournament:
+        ct = cross_tournament[player_id]
+        profile["data_source"] = "cross_tournament"
+        profile["has_cross_tournament_data"] = True
+        profile["data_tournaments"] = ct.get("tournaments", [])
+
+        if ct.get("batting"):
+            profile["batting"] = {
+                "career": ct["batting"],
+                "phase": {},
+                "vs_bowling_type": {},
+                "vs_teams": {"best": [], "worst": []},
+                "entry_point": None,
+                "tags": [],
+            }
+
+        if ct.get("bowling"):
+            profile["bowling"] = {
+                "career": ct["bowling"],
+                "phase": {},
+                "vs_batting_hand": {},
+                "vs_teams": {"best": [], "worst": []},
+                "classification": {
+                    "arm": squad.get("bowling_arm"),
+                    "type": squad.get("bowling_type"),
+                    "archetype": ct.get("cluster_label"),
+                },
+                "tags": [],
+            }
+
+        # Use cross-tournament cluster label as archetype if no IPL cluster
+        if ct.get("cluster_label"):
+            profile["archetype"] = ct["cluster_label"]
+    elif not has_ipl_data:
+        profile["data_source"] = "none"
+        profile["has_cross_tournament_data"] = False
+        profile["data_tournaments"] = []
+    else:
+        profile["data_source"] = "ipl"
+        profile["has_cross_tournament_data"] = False
+        profile["data_tournaments"] = []
+
     return profile
 
 
@@ -920,6 +978,7 @@ def main() -> None:
     # Load auxiliary CSV/JSON data
     tags_data = load_tags()
     clusters = load_clusters()
+    cross_tournament = load_cross_tournament()
     entry_points = load_entry_points()
     bowler_hand_csv = load_bowler_handedness_csv()
 
@@ -968,6 +1027,7 @@ def main() -> None:
             tags_data=tags_data,
             clusters=clusters,
             entry_points=entry_points,
+            cross_tournament=cross_tournament,
         )
 
         profiles[player_id] = profile

@@ -6,7 +6,7 @@
     "CSK": {
       "team": "CSK",
       "team_name": "Chennai Super Kings",
-      "overall_rating": 7.0,
+      "overall_rating": 6.9,
       "strongest_position": "#3 Batter",
       "weakest_position": "Left-arm Pace",
       "vulnerabilities": [
@@ -107,8 +107,8 @@
         },
         "middle_order": {
           "name": "Middle Order #4-5",
-          "rating": 10.0,
-          "what_works": "Elite #1 in shivam dube. quality backup in sanju samson",
+          "rating": 9.6,
+          "what_works": "Elite #1 in shivam dube. quality backup in dewald brevis",
           "what_doesnt": "Minimal concerns",
           "overseas_count": 1,
           "players": [
@@ -126,18 +126,6 @@
             },
             {
               "rank": 2,
-              "name": "Sanju Samson",
-              "player_id": "a4cc73aa",
-              "score": 88.8,
-              "rationale": "Founder XII. Excellent vs spin",
-              "is_overseas": false,
-              "price_cr": 18.0,
-              "bowling_type": "Medium",
-              "bowling_arm": "Right-arm",
-              "secondary_positions": []
-            },
-            {
-              "rank": 3,
               "name": "Dewald Brevis",
               "player_id": "844e79d1",
               "score": 71.7,
@@ -147,12 +135,24 @@
               "bowling_type": "Leg-spin",
               "bowling_arm": "Right-arm",
               "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Sanju Samson",
+              "player_id": "a4cc73aa",
+              "score": 71.5,
+              "rationale": "Founder XII. Excellent vs spin",
+              "is_overseas": false,
+              "price_cr": 18.0,
+              "bowling_type": "Medium",
+              "bowling_arm": "Right-arm",
+              "secondary_positions": []
             }
           ]
         },
         "finisher": {
           "name": "Finisher #6-7",
-          "rating": 9.1,
+          "rating": 9.0,
           "what_works": "Elite #1 in dewald brevis. quality backup in shivam dube",
           "what_doesnt": "Minimal concerns",
           "overseas_count": 1,
@@ -185,7 +185,7 @@
               "rank": 3,
               "name": "Sanju Samson",
               "player_id": "a4cc73aa",
-              "score": 60.0,
+              "score": 51.4,
               "rationale": "Founder XII. Death overs finisher. Six-hitting ability",
               "is_overseas": false,
               "price_cr": 18.0,
@@ -197,7 +197,7 @@
         },
         "wicketkeeper": {
           "name": "Wicketkeeper",
-          "rating": 7.4,
+          "rating": 6.9,
           "what_works": "Elite #1 in sanju samson. kartik sharma as backup",
           "what_doesnt": "Big gap between #1 and #2",
           "overseas_count": 0,
@@ -206,8 +206,8 @@
               "rank": 1,
               "name": "Sanju Samson",
               "player_id": "a4cc73aa",
-              "score": 89.4,
-              "rationale": "Primary keeper. Strong batter (score: 79)",
+              "score": 80.8,
+              "rationale": "Primary keeper. Capable batter (score: 62)",
               "is_overseas": false,
               "price_cr": 18.0,
               "bowling_type": "Medium",
@@ -585,13 +585,13 @@
       "strongest_position": "#3 Batter",
       "weakest_position": "Wicketkeeper",
       "vulnerabilities": [
-        "Wicketkeeper: thin depth (rating 4.6)",
+        "Wicketkeeper: thin depth (rating 4.3)",
         "Leg Spin: thin depth (rating 4.7)"
       ],
       "positions": {
         "opener": {
           "name": "Opener",
-          "rating": 8.7,
+          "rating": 8.4,
           "what_works": "Elite #1 in rohit sharma. quality backup in quinton de kock",
           "what_doesnt": "Big gap between #1 and #2",
           "overseas_count": 1,
@@ -600,7 +600,7 @@
               "rank": 1,
               "name": "Rohit Sharma",
               "player_id": "740742ef",
-              "score": 100.0,
+              "score": 98.2,
               "rationale": "Founder XII. Captain. Franchise opener",
               "is_overseas": false,
               "price_cr": 16.3,
@@ -612,7 +612,7 @@
               "rank": 2,
               "name": "Quinton de Kock",
               "player_id": "372455c4",
-              "score": 61.0,
+              "score": 53.0,
               "rationale": "Founder XII. Franchise opener",
               "is_overseas": true,
               "price_cr": 1.0,
@@ -667,13 +667,13 @@
             },
             {
               "rank": 3,
-              "name": "Rohit Sharma",
-              "player_id": "740742ef",
-              "score": 68.1,
-              "rationale": "Founder XII. Spin specialist. Pos penalty (mode 1)",
+              "name": "Hardik Pandya",
+              "player_id": "dbe50b21",
+              "score": 53.9,
+              "rationale": "Founder XII. Spin specialist",
               "is_overseas": false,
-              "price_cr": 16.3,
-              "bowling_type": "Off-spin",
+              "price_cr": 16.35,
+              "bowling_type": "Fast-Medium",
               "bowling_arm": "Right-arm",
               "secondary_positions": []
             }
@@ -771,17 +771,17 @@
         },
         "wicketkeeper": {
           "name": "Wicketkeeper",
-          "rating": 4.6,
+          "rating": 4.3,
           "what_works": "Quinton de kock leads. ryan rickelton as backup",
-          "what_doesnt": "Weak backup option. overseas mix (2 of 2)",
+          "what_doesnt": "Weak backup option. no standout performer",
           "overseas_count": 2,
           "players": [
             {
               "rank": 1,
               "name": "Quinton de Kock",
               "player_id": "372455c4",
-              "score": 50.5,
-              "rationale": "Capable batter (score: 51)",
+              "score": 46.5,
+              "rationale": "Wicketkeeper",
               "is_overseas": true,
               "price_cr": 1.0,
               "bowling_type": "Medium",
@@ -1892,7 +1892,7 @@
             {
               "rank": 1,
               "name": "Finn Allen",
-              "player_id": "b52ffbbd",
+              "player_id": "bf74b130",
               "score": 25.0,
               "rationale": "Wicketkeeper",
               "is_overseas": true,
@@ -2219,7 +2219,7 @@
     "DC": {
       "team": "DC",
       "team_name": "Delhi Capitals",
-      "overall_rating": 8.1,
+      "overall_rating": 8.0,
       "strongest_position": "Middle Overs Specialist",
       "weakest_position": "Leg Spin",
       "vulnerabilities": [
@@ -2228,8 +2228,8 @@
       "positions": {
         "opener": {
           "name": "Opener",
-          "rating": 8.5,
-          "what_works": "Elite #1 in kl rahul. quality backup in karun nair",
+          "rating": 7.8,
+          "what_works": "Elite #1 in kl rahul. karun nair as backup",
           "what_doesnt": "Big gap between #1 and #2",
           "overseas_count": 0,
           "players": [
@@ -2249,7 +2249,7 @@
               "rank": 2,
               "name": "Karun Nair",
               "player_id": "944533a5",
-              "score": 56.5,
+              "score": 48.5,
               "rationale": "Elite SR (172.2). PP Aggressor",
               "is_overseas": false,
               "price_cr": 0.5,
@@ -3879,8 +3879,8 @@
           "name": "Opener",
           "rating": 10.0,
           "what_works": "Elite #1 in travis head. quality backup in abhishek sharma",
-          "what_doesnt": "Minimal concerns",
-          "overseas_count": 1,
+          "what_doesnt": "Overseas mix (2 of 3)",
+          "overseas_count": 2,
           "players": [
             {
               "rank": 1,
@@ -3908,12 +3908,12 @@
             },
             {
               "rank": 3,
-              "name": "Ishan Kishan",
-              "player_id": "752f7486",
-              "score": 58.7,
-              "rationale": "Founder XII. Opens for the team",
-              "is_overseas": false,
-              "price_cr": 11.25,
+              "name": "Heinrich Klaasen",
+              "player_id": "235c2bb6",
+              "score": 54.8,
+              "rationale": "Founder XII. Elite SR (175.2). PP Aggressor",
+              "is_overseas": true,
+              "price_cr": 23.0,
               "bowling_type": "Medium",
               "bowling_arm": "Right-arm",
               "secondary_positions": []
@@ -4057,9 +4057,9 @@
         },
         "wicketkeeper": {
           "name": "Wicketkeeper",
-          "rating": 9.1,
+          "rating": 8.9,
           "what_works": "Elite #1 in heinrich klaasen. quality backup in ishan kishan",
-          "what_doesnt": "Minimal concerns",
+          "what_doesnt": "Big gap between #1 and #2",
           "overseas_count": 1,
           "players": [
             {
@@ -4078,7 +4078,7 @@
               "rank": 2,
               "name": "Ishan Kishan",
               "player_id": "752f7486",
-              "score": 69.3,
+              "score": 64.9,
               "rationale": "Experienced keeper",
               "is_overseas": false,
               "price_cr": 11.25,
@@ -4517,25 +4517,13 @@
         },
         "middle_order": {
           "name": "Middle Order #4-5",
-          "rating": 7.1,
-          "what_works": "Strong #1 with jos buttler. quality backup in shubman gill",
+          "rating": 6.7,
+          "what_works": "Strong #1 with shubman gill. quality backup in sai sudharsan",
           "what_doesnt": "Room for improvement at the top",
           "overseas_count": 1,
           "players": [
             {
               "rank": 1,
-              "name": "Jos Buttler",
-              "player_id": "99b75528",
-              "score": 63.0,
-              "rationale": "Founder XII. Middle overs anchor. Excellent vs spin",
-              "is_overseas": true,
-              "price_cr": 15.75,
-              "bowling_type": "Medium",
-              "bowling_arm": "Right-arm",
-              "secondary_positions": []
-            },
-            {
-              "rank": 2,
               "name": "Shubman Gill",
               "player_id": "b4b99816",
               "score": 61.3,
@@ -4547,13 +4535,25 @@
               "secondary_positions": []
             },
             {
-              "rank": 3,
+              "rank": 2,
               "name": "Sai Sudharsan",
               "player_id": "d5130a30",
               "score": 53.1,
               "rationale": "Founder XII. Middle overs anchor. Excellent vs spin",
               "is_overseas": false,
               "price_cr": 8.5,
+              "bowling_type": "Medium",
+              "bowling_arm": "Right-arm",
+              "secondary_positions": []
+            },
+            {
+              "rank": 3,
+              "name": "Jos Buttler",
+              "player_id": "99b75528",
+              "score": 52.7,
+              "rationale": "Founder XII. Middle overs anchor. Excellent vs spin",
+              "is_overseas": true,
+              "price_cr": 15.75,
               "bowling_type": "Medium",
               "bowling_arm": "Right-arm",
               "secondary_positions": []
@@ -4607,7 +4607,7 @@
         },
         "wicketkeeper": {
           "name": "Wicketkeeper",
-          "rating": 7.5,
+          "rating": 7.3,
           "what_works": "Elite #1 in jos buttler. anuj rawat as backup",
           "what_doesnt": "Weak backup option. big gap between #1 and #2",
           "overseas_count": 1,
@@ -4616,8 +4616,8 @@
               "rank": 1,
               "name": "Jos Buttler",
               "player_id": "99b75528",
-              "score": 100.0,
-              "rationale": "Primary keeper. Strong batter (score: 100)",
+              "score": 97.4,
+              "rationale": "Primary keeper. Strong batter (score: 95)",
               "is_overseas": true,
               "price_cr": 15.75,
               "bowling_type": "Medium",
@@ -4967,7 +4967,7 @@
     "LSG": {
       "team": "LSG",
       "team_name": "Lucknow Super Giants",
-      "overall_rating": 7.1,
+      "overall_rating": 7.0,
       "strongest_position": "#3 Batter",
       "weakest_position": "Left-arm Spin",
       "vulnerabilities": [
@@ -4978,25 +4978,13 @@
       "positions": {
         "opener": {
           "name": "Opener",
-          "rating": 6.2,
-          "what_works": "Strong #1 with mitchell marsh. quality backup in nicholas pooran",
+          "rating": 5.9,
+          "what_works": "Strong #1 with nicholas pooran. quality backup in mitchell marsh",
           "what_doesnt": "Overseas mix (3 of 3)",
           "overseas_count": 3,
           "players": [
             {
               "rank": 1,
-              "name": "Mitchell Marsh",
-              "player_id": "3d8feaf8",
-              "score": 66.4,
-              "rationale": "Founder XII. Good SR (158.1). PP Dominator",
-              "is_overseas": true,
-              "price_cr": 3.4,
-              "bowling_type": "Fast",
-              "bowling_arm": "Right-arm",
-              "secondary_positions": []
-            },
-            {
-              "rank": 2,
               "name": "Nicholas Pooran",
               "player_id": "3241e3fd",
               "score": 63.5,
@@ -5004,6 +4992,18 @@
               "is_overseas": true,
               "price_cr": 21.0,
               "bowling_type": "Medium",
+              "bowling_arm": "Right-arm",
+              "secondary_positions": []
+            },
+            {
+              "rank": 2,
+              "name": "Mitchell Marsh",
+              "player_id": "3d8feaf8",
+              "score": 58.4,
+              "rationale": "Founder XII. Good SR (158.1). PP Dominator",
+              "is_overseas": true,
+              "price_cr": 3.4,
+              "bowling_type": "Fast",
               "bowling_arm": "Right-arm",
               "secondary_positions": []
             },
@@ -5482,8 +5482,8 @@
         },
         "allrounder_bowling": {
           "name": "Allrounder",
-          "rating": 6.2,
-          "what_works": "Aiden markram leads. quality backup in mitchell marsh",
+          "rating": 5.5,
+          "what_works": "Aiden markram leads. mitchell marsh as backup",
           "what_doesnt": "Overseas mix (2 of 3)",
           "overseas_count": 2,
           "players": [
@@ -5503,7 +5503,7 @@
               "rank": 2,
               "name": "Mitchell Marsh",
               "player_id": "3d8feaf8",
-              "score": 53.1,
+              "score": 48.2,
               "rationale": "Founder XII. SR 158",
               "is_overseas": true,
               "price_cr": 3.4,
@@ -5532,21 +5532,21 @@
     "CSK": {
       "opener": 7.3,
       "number_3": 10.0,
-      "middle_order": 10.0,
-      "finisher": 9.1,
-      "wicketkeeper": 7.4,
+      "middle_order": 9.6,
+      "finisher": 9.0,
+      "wicketkeeper": 6.9,
       "pace": 4.8,
       "spin": 5.4,
       "middle_overs_specialist": 8.5,
       "allrounder": 6.0,
-      "overall": 7.0
+      "overall": 6.9
     },
     "MI": {
-      "opener": 8.7,
+      "opener": 8.4,
       "number_3": 10.0,
       "middle_order": 10.0,
       "finisher": 10.0,
-      "wicketkeeper": 4.6,
+      "wicketkeeper": 4.3,
       "pace": 7.7,
       "spin": 5.4,
       "middle_overs_specialist": 9.9,
@@ -5578,7 +5578,7 @@
       "overall": 6.7
     },
     "DC": {
-      "opener": 8.5,
+      "opener": 7.8,
       "number_3": 9.1,
       "middle_order": 8.8,
       "finisher": 9.7,
@@ -5587,7 +5587,7 @@
       "spin": 6.1,
       "middle_overs_specialist": 10.0,
       "allrounder": 9.6,
-      "overall": 8.1
+      "overall": 8.0
     },
     "PBKS": {
       "opener": 8.1,
@@ -5618,7 +5618,7 @@
       "number_3": 10.0,
       "middle_order": 9.3,
       "finisher": 9.7,
-      "wicketkeeper": 9.1,
+      "wicketkeeper": 8.9,
       "pace": 6.6,
       "spin": 5.1,
       "middle_overs_specialist": 8.4,
@@ -5628,9 +5628,9 @@
     "GT": {
       "opener": 10.0,
       "number_3": 10.0,
-      "middle_order": 7.1,
+      "middle_order": 6.7,
       "finisher": 8.3,
-      "wicketkeeper": 7.5,
+      "wicketkeeper": 7.3,
       "pace": 5.5,
       "spin": 6.2,
       "middle_overs_specialist": 9.1,
@@ -5638,7 +5638,7 @@
       "overall": 7.6
     },
     "LSG": {
-      "opener": 6.2,
+      "opener": 5.9,
       "number_3": 10.0,
       "middle_order": 9.9,
       "finisher": 9.2,
@@ -5646,8 +5646,8 @@
       "pace": 6.0,
       "spin": 5.1,
       "middle_overs_specialist": 7.3,
-      "allrounder": 7.0,
-      "overall": 7.1
+      "allrounder": 6.7,
+      "overall": 7.0
     }
   }
 }

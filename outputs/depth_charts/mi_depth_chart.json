@@ -5,13 +5,13 @@
   "strongest_position": "#3 Batter",
   "weakest_position": "Wicketkeeper",
   "vulnerabilities": [
-    "Wicketkeeper: thin depth (rating 4.6)",
+    "Wicketkeeper: thin depth (rating 4.3)",
     "Leg Spin: thin depth (rating 4.7)"
   ],
   "positions": {
     "opener": {
       "name": "Opener",
-      "rating": 8.7,
+      "rating": 8.4,
       "what_works": "Elite #1 in rohit sharma. quality backup in quinton de kock",
       "what_doesnt": "Big gap between #1 and #2",
       "overseas_count": 1,
@@ -20,7 +20,7 @@
           "rank": 1,
           "name": "Rohit Sharma",
           "player_id": "740742ef",
-          "score": 100.0,
+          "score": 98.2,
           "rationale": "Founder XII. Captain. Franchise opener",
           "is_overseas": false,
           "price_cr": 16.3,
@@ -32,7 +32,7 @@
           "rank": 2,
           "name": "Quinton de Kock",
           "player_id": "372455c4",
-          "score": 61.0,
+          "score": 53.0,
           "rationale": "Founder XII. Franchise opener",
           "is_overseas": true,
           "price_cr": 1.0,
@@ -87,13 +87,13 @@
         },
         {
           "rank": 3,
-          "name": "Rohit Sharma",
-          "player_id": "740742ef",
-          "score": 68.1,
-          "rationale": "Founder XII. Spin specialist. Pos penalty (mode 1)",
+          "name": "Hardik Pandya",
+          "player_id": "dbe50b21",
+          "score": 53.9,
+          "rationale": "Founder XII. Spin specialist",
           "is_overseas": false,
-          "price_cr": 16.3,
-          "bowling_type": "Off-spin",
+          "price_cr": 16.35,
+          "bowling_type": "Fast-Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
@@ -191,17 +191,17 @@
     },
     "wicketkeeper": {
       "name": "Wicketkeeper",
-      "rating": 4.6,
+      "rating": 4.3,
       "what_works": "Quinton de kock leads. ryan rickelton as backup",
-      "what_doesnt": "Weak backup option. overseas mix (2 of 2)",
+      "what_doesnt": "Weak backup option. no standout performer",
       "overseas_count": 2,
       "players": [
         {
           "rank": 1,
           "name": "Quinton de Kock",
           "player_id": "372455c4",
-          "score": 50.5,
-          "rationale": "Capable batter (score: 51)",
+          "score": 46.5,
+          "rationale": "Wicketkeeper",
           "is_overseas": true,
           "price_cr": 1.0,
           "bowling_type": "Medium",

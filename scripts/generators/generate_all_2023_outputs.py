@@ -1043,7 +1043,46 @@ def get_batter_features_2023(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Extract batter feature vectors for clustering (2023+ only)."""
 
     df = conn.execute(f"""
-        WITH career AS (
+        WITH legal_balls_numbered AS (
+            SELECT
+                fb.match_id,
+                fb.innings,
+                fb.batter_id,
+                fb.ball_seq,
+                fb.is_legal_ball,
+                SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END)
+                    OVER (PARTITION BY fb.match_id, fb.innings ORDER BY fb.ball_seq) as legal_ball_num
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+              AND dm.match_date >= '{IPL_MIN_DATE}'
+        ),
+        batting_position AS (
+            SELECT
+                batter_id as player_id,
+                AVG(batting_position) as avg_batting_position
+            FROM (
+                SELECT
+                    batter_id,
+                    match_id,
+                    innings,
+                    MIN(legal_ball_num) as first_legal_ball,
+                    CASE
+                        WHEN MIN(legal_ball_num) <= 6 THEN 1
+                        WHEN MIN(legal_ball_num) <= 24 THEN 2
+                        WHEN MIN(legal_ball_num) <= 48 THEN 3
+                        WHEN MIN(legal_ball_num) <= 72 THEN 4
+                        WHEN MIN(legal_ball_num) <= 96 THEN 5
+                        ELSE 6
+                    END as batting_position
+                FROM legal_balls_numbered
+                WHERE is_legal_ball = true
+                GROUP BY batter_id, match_id, innings
+            ) t
+            GROUP BY batter_id
+        ),
+        career AS (
             SELECT
                 fb.batter_id as player_id,
                 dp.current_name as player_name,
@@ -1132,11 +1171,13 @@ def get_batter_features_2023(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
             m.mid_dot,
             d.death_sr,
             d.death_boundary,
-            d.death_dot
+            d.death_dot,
+            COALESCE(bp.avg_batting_position, 4) as avg_batting_position
         FROM career c
         LEFT JOIN powerplay pp ON c.player_id = pp.player_id
         LEFT JOIN middle m ON c.player_id = m.player_id
         LEFT JOIN death d ON c.player_id = d.player_id
+        LEFT JOIN batting_position bp ON c.player_id = bp.player_id
         WHERE pp.pp_sr IS NOT NULL
           AND m.mid_sr IS NOT NULL
     """).df()
@@ -1309,21 +1350,38 @@ def cluster_players_2023(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
                 columns=batter_feature_cols,
             )
 
+            # Position threshold for top-order guard
+            TOP_ORDER_POS_THRESHOLD = 2.5
+
             for _, row in batter_clean.iterrows():
                 cluster_id = int(row["cluster"])
                 center = cluster_centers.iloc[cluster_id]
+                avg_pos = row.get("avg_batting_position", 4.0)
 
                 # Determine cluster label based on center characteristics
-                if center["death_sr"] > 150 and center["death_boundary"] > 20:
-                    cluster_label = "DEATH_FINISHER"
-                elif center["pp_sr"] > 145:
-                    cluster_label = "POWERPLAY_AGGRESSOR"
-                elif center["overall_sr"] < 125 and center["overall_avg"] > 35:
-                    cluster_label = "ANCHOR"
-                elif center["overall_boundary"] > 18:
-                    cluster_label = "BOUNDARY_HITTER"
+                # Position guard: top-order batters (avg_pos <= 2.5) cannot be DEATH_FINISHER
+                if avg_pos <= TOP_ORDER_POS_THRESHOLD:
+                    # Top-order labeling (no DEATH_FINISHER)
+                    if center["pp_sr"] > 145:
+                        cluster_label = "POWERPLAY_AGGRESSOR"
+                    elif center["overall_sr"] < 125 and center["overall_avg"] > 35:
+                        cluster_label = "ANCHOR"
+                    elif center["overall_boundary"] > 18:
+                        cluster_label = "BOUNDARY_HITTER"
+                    else:
+                        cluster_label = "BALANCED"
                 else:
-                    cluster_label = "BALANCED"
+                    # Middle/lower order — DEATH_FINISHER allowed
+                    if center["death_sr"] > 150 and center["death_boundary"] > 20:
+                        cluster_label = "DEATH_FINISHER"
+                    elif center["pp_sr"] > 145:
+                        cluster_label = "POWERPLAY_AGGRESSOR"
+                    elif center["overall_sr"] < 125 and center["overall_avg"] > 35:
+                        cluster_label = "ANCHOR"
+                    elif center["overall_boundary"] > 18:
+                        cluster_label = "BOUNDARY_HITTER"
+                    else:
+                        cluster_label = "BALANCED"
 
                 results.append(
                     {
@@ -1341,6 +1399,7 @@ def cluster_players_2023(conn: duckdb.DuckDBPyConnection) -> pd.DataFrame:
                         "mid_sr": row["mid_sr"],
                         "death_sr": row["death_sr"],
                         "death_boundary_pct": row["death_boundary"],
+                        "avg_batting_position": round(float(avg_pos), 1),
                     }
                 )
 
@@ -1475,7 +1534,7 @@ def main() -> int:
     # Generate player clustering 2023+
     clustering_df = cluster_players_2023(conn)
 
-    clustering_path = OUTPUT_DIR / "player_clustering_2023.csv"
+    clustering_path = OUTPUT_DIR / "tags" / "player_clustering_2023.csv"
     clustering_df.to_csv(clustering_path, index=False)
     print(f"   Saved: {clustering_path}")
 

@@ -135,6 +135,7 @@ ml:
     min_cluster_size: 10         # Minimum players per cluster
     n_clusters_batter: 6         # Number of batter archetypes
     n_clusters_bowler: 7         # Number of bowler archetypes
+    top_order_position_threshold: 2.5  # avg_pos <= this = top order (no DEATH_FINISHER)
 
   # Drift detection
   drift:

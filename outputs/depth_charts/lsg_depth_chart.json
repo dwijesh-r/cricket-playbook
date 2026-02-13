@@ -1,7 +1,7 @@
 {
   "team": "LSG",
   "team_name": "Lucknow Super Giants",
-  "overall_rating": 7.1,
+  "overall_rating": 7.0,
   "strongest_position": "#3 Batter",
   "weakest_position": "Left-arm Spin",
   "vulnerabilities": [
@@ -12,25 +12,13 @@
   "positions": {
     "opener": {
       "name": "Opener",
-      "rating": 6.2,
-      "what_works": "Strong #1 with mitchell marsh. quality backup in nicholas pooran",
+      "rating": 5.9,
+      "what_works": "Strong #1 with nicholas pooran. quality backup in mitchell marsh",
       "what_doesnt": "Overseas mix (3 of 3)",
       "overseas_count": 3,
       "players": [
         {
           "rank": 1,
-          "name": "Mitchell Marsh",
-          "player_id": "3d8feaf8",
-          "score": 66.4,
-          "rationale": "Founder XII. Good SR (158.1). PP Dominator",
-          "is_overseas": true,
-          "price_cr": 3.4,
-          "bowling_type": "Fast",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 2,
           "name": "Nicholas Pooran",
           "player_id": "3241e3fd",
           "score": 63.5,
@@ -38,6 +26,18 @@
           "is_overseas": true,
           "price_cr": 21.0,
           "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Mitchell Marsh",
+          "player_id": "3d8feaf8",
+          "score": 58.4,
+          "rationale": "Founder XII. Good SR (158.1). PP Dominator",
+          "is_overseas": true,
+          "price_cr": 3.4,
+          "bowling_type": "Fast",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
@@ -516,8 +516,8 @@
     },
     "allrounder_bowling": {
       "name": "Allrounder",
-      "rating": 6.2,
-      "what_works": "Aiden markram leads. quality backup in mitchell marsh",
+      "rating": 5.5,
+      "what_works": "Aiden markram leads. mitchell marsh as backup",
       "what_doesnt": "Overseas mix (2 of 3)",
       "overseas_count": 2,
       "players": [
@@ -537,7 +537,7 @@
           "rank": 2,
           "name": "Mitchell Marsh",
           "player_id": "3d8feaf8",
-          "score": 53.1,
+          "score": 48.2,
           "rationale": "Founder XII. SR 158",
           "is_overseas": true,
           "price_cr": 3.4,

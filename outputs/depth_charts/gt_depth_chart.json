@@ -101,25 +101,13 @@
     },
     "middle_order": {
       "name": "Middle Order #4-5",
-      "rating": 7.1,
-      "what_works": "Strong #1 with jos buttler. quality backup in shubman gill",
+      "rating": 6.7,
+      "what_works": "Strong #1 with shubman gill. quality backup in sai sudharsan",
       "what_doesnt": "Room for improvement at the top",
       "overseas_count": 1,
       "players": [
         {
           "rank": 1,
-          "name": "Jos Buttler",
-          "player_id": "99b75528",
-          "score": 63.0,
-          "rationale": "Founder XII. Middle overs anchor. Excellent vs spin",
-          "is_overseas": true,
-          "price_cr": 15.75,
-          "bowling_type": "Medium",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 2,
           "name": "Shubman Gill",
           "player_id": "b4b99816",
           "score": 61.3,
@@ -131,13 +119,25 @@
           "secondary_positions": []
         },
         {
-          "rank": 3,
+          "rank": 2,
           "name": "Sai Sudharsan",
           "player_id": "d5130a30",
           "score": 53.1,
           "rationale": "Founder XII. Middle overs anchor. Excellent vs spin",
           "is_overseas": false,
           "price_cr": 8.5,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Jos Buttler",
+          "player_id": "99b75528",
+          "score": 52.7,
+          "rationale": "Founder XII. Middle overs anchor. Excellent vs spin",
+          "is_overseas": true,
+          "price_cr": 15.75,
           "bowling_type": "Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
@@ -191,7 +191,7 @@
     },
     "wicketkeeper": {
       "name": "Wicketkeeper",
-      "rating": 7.5,
+      "rating": 7.3,
       "what_works": "Elite #1 in jos buttler. anuj rawat as backup",
       "what_doesnt": "Weak backup option. big gap between #1 and #2",
       "overseas_count": 1,
@@ -200,8 +200,8 @@
           "rank": 1,
           "name": "Jos Buttler",
           "player_id": "99b75528",
-          "score": 100.0,
-          "rationale": "Primary keeper. Strong batter (score: 100)",
+          "score": 97.4,
+          "rationale": "Primary keeper. Strong batter (score: 95)",
           "is_overseas": true,
           "price_cr": 15.75,
           "bowling_type": "Medium",

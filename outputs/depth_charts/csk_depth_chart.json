@@ -1,7 +1,7 @@
 {
   "team": "CSK",
   "team_name": "Chennai Super Kings",
-  "overall_rating": 7.0,
+  "overall_rating": 6.9,
   "strongest_position": "#3 Batter",
   "weakest_position": "Left-arm Pace",
   "vulnerabilities": [
@@ -102,8 +102,8 @@
     },
     "middle_order": {
       "name": "Middle Order #4-5",
-      "rating": 10.0,
-      "what_works": "Elite #1 in shivam dube. quality backup in sanju samson",
+      "rating": 9.6,
+      "what_works": "Elite #1 in shivam dube. quality backup in dewald brevis",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
       "players": [
@@ -121,18 +121,6 @@
         },
         {
           "rank": 2,
-          "name": "Sanju Samson",
-          "player_id": "a4cc73aa",
-          "score": 88.8,
-          "rationale": "Founder XII. Excellent vs spin",
-          "is_overseas": false,
-          "price_cr": 18.0,
-          "bowling_type": "Medium",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
           "name": "Dewald Brevis",
           "player_id": "844e79d1",
           "score": 71.7,
@@ -142,12 +130,24 @@
           "bowling_type": "Leg-spin",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Sanju Samson",
+          "player_id": "a4cc73aa",
+          "score": 71.5,
+          "rationale": "Founder XII. Excellent vs spin",
+          "is_overseas": false,
+          "price_cr": 18.0,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
         }
       ]
     },
     "finisher": {
       "name": "Finisher #6-7",
-      "rating": 9.1,
+      "rating": 9.0,
       "what_works": "Elite #1 in dewald brevis. quality backup in shivam dube",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
@@ -180,7 +180,7 @@
           "rank": 3,
           "name": "Sanju Samson",
           "player_id": "a4cc73aa",
-          "score": 60.0,
+          "score": 51.4,
           "rationale": "Founder XII. Death overs finisher. Six-hitting ability",
           "is_overseas": false,
           "price_cr": 18.0,
@@ -192,7 +192,7 @@
     },
     "wicketkeeper": {
       "name": "Wicketkeeper",
-      "rating": 7.4,
+      "rating": 6.9,
       "what_works": "Elite #1 in sanju samson. kartik sharma as backup",
       "what_doesnt": "Big gap between #1 and #2",
       "overseas_count": 0,
@@ -201,8 +201,8 @@
           "rank": 1,
           "name": "Sanju Samson",
           "player_id": "a4cc73aa",
-          "score": 89.4,
-          "rationale": "Primary keeper. Strong batter (score: 79)",
+          "score": 80.8,
+          "rationale": "Primary keeper. Capable batter (score: 62)",
           "is_overseas": false,
           "price_cr": 18.0,
           "bowling_type": "Medium",

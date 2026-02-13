@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-13T05:54:18.542687+00:00",
+  "generated_at": "2026-02-13T14:44:30.592955+00:00",
   "version": "1.0.0",
   "team": "DC",
   "total_players": 25,
@@ -180,22 +180,16 @@
           }
         },
         "vs_bowling_type": {
-          "Off-spin": {
-            "sr": 0.0,
-            "avg": 0.0,
-            "balls": 1,
-            "sample_size": "LOW"
-          },
-          "Leg-spin": {
-            "sr": 40.0,
-            "avg": 2.0,
-            "balls": 5,
-            "sample_size": "LOW"
-          },
           "Left-arm orthodox": {
             "sr": 100.0,
             "avg": null,
             "balls": 2,
+            "sample_size": "LOW"
+          },
+          "Off-spin": {
+            "sr": 0.0,
+            "avg": 0.0,
+            "balls": 1,
             "sample_size": "LOW"
           },
           "Fast": {
@@ -208,6 +202,12 @@
             "sr": 0.0,
             "avg": 0.0,
             "balls": 3,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 40.0,
+            "avg": 2.0,
+            "balls": 5,
             "sample_size": "LOW"
           }
         },
@@ -249,7 +249,10 @@
           "innings": 10
         },
         "tags": []
-      }
+      },
+      "data_source": "ipl",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "ce794613": {
       "player_id": "ce794613",
@@ -265,7 +268,7 @@
       "bowling_arm": "Left-arm",
       "bowling_type": "Fast",
       "is_captain": false,
-      "archetype": "POWERPLAY_SPECIALIST",
+      "archetype": "BALANCED",
       "player_type": "bowler",
       "has_ipl_data": true,
       "bowling": {
@@ -374,13 +377,16 @@
         "classification": {
           "arm": "Left-arm",
           "type": "Fast",
-          "archetype": "POWERPLAY_SPECIALIST"
+          "archetype": "BALANCED"
         },
         "tags": [
           "WORKHORSE"
         ]
       },
-      "batting": null
+      "batting": null,
+      "data_source": "ipl",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "f834dcfc": {
       "player_id": "f834dcfc",
@@ -561,7 +567,10 @@
           "innings": 1
         },
         "tags": []
-      }
+      },
+      "data_source": "ipl",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "2e171977": {
       "player_id": "2e171977",
@@ -623,36 +632,6 @@
           }
         },
         "vs_bowling_type": {
-          "Left-arm orthodox": {
-            "sr": 183.72,
-            "avg": null,
-            "balls": 43,
-            "sample_size": "LOW"
-          },
-          "Medium": {
-            "sr": 215.79,
-            "avg": null,
-            "balls": 19,
-            "sample_size": "LOW"
-          },
-          "Fast": {
-            "sr": 117.19,
-            "avg": 18.5,
-            "balls": 221,
-            "sample_size": "HIGH"
-          },
-          "Left-arm pace": {
-            "sr": 172.22,
-            "avg": 31.0,
-            "balls": 18,
-            "sample_size": "LOW"
-          },
-          "Left-arm wrist spin": {
-            "sr": 163.64,
-            "avg": 18.0,
-            "balls": 22,
-            "sample_size": "LOW"
-          },
           "Right-arm off-spin": {
             "sr": 171.43,
             "avg": 18.0,
@@ -664,6 +643,18 @@
             "avg": 25.0,
             "balls": 64,
             "sample_size": "MEDIUM"
+          },
+          "Left-arm orthodox": {
+            "sr": 183.72,
+            "avg": null,
+            "balls": 43,
+            "sample_size": "LOW"
+          },
+          "Medium": {
+            "sr": 215.79,
+            "avg": null,
+            "balls": 19,
+            "sample_size": "LOW"
           },
           "Leg-spin": {
             "sr": 166.67,
@@ -681,6 +672,24 @@
             "sr": 50.0,
             "avg": null,
             "balls": 2,
+            "sample_size": "LOW"
+          },
+          "Fast": {
+            "sr": 117.19,
+            "avg": 18.5,
+            "balls": 221,
+            "sample_size": "HIGH"
+          },
+          "Left-arm wrist spin": {
+            "sr": 163.64,
+            "avg": 18.0,
+            "balls": 22,
+            "sample_size": "LOW"
+          },
+          "Left-arm pace": {
+            "sr": 172.22,
+            "avg": 31.0,
+            "balls": 18,
             "sample_size": "LOW"
           }
         },
@@ -856,7 +865,10 @@
           "PROVEN_WICKET_TAKER",
           "LHB_WICKET_TAKER"
         ]
-      }
+      },
+      "data_source": "ipl",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "8d2c70ad": {
       "player_id": "8d2c70ad",
@@ -1031,16 +1043,28 @@
           }
         },
         "vs_bowling_type": {
-          "Fast": {
-            "sr": 83.1,
-            "avg": 19.67,
-            "balls": 71,
-            "sample_size": "MEDIUM"
+          "Right-arm pace": {
+            "sr": 137.5,
+            "avg": null,
+            "balls": 8,
+            "sample_size": "LOW"
           },
-          "Left-arm pace": {
-            "sr": 0.0,
-            "avg": 0.0,
-            "balls": 1,
+          "Leg-spin": {
+            "sr": 50.0,
+            "avg": null,
+            "balls": 6,
+            "sample_size": "LOW"
+          },
+          "Off-spin": {
+            "sr": 166.67,
+            "avg": null,
+            "balls": 6,
+            "sample_size": "LOW"
+          },
+          "Right-arm off-spin": {
+            "sr": 40.0,
+            "avg": 2.0,
+            "balls": 5,
             "sample_size": "LOW"
           },
           "Left-arm orthodox": {
@@ -1055,28 +1079,16 @@
             "balls": 4,
             "sample_size": "LOW"
           },
-          "Leg-spin": {
-            "sr": 50.0,
-            "avg": null,
-            "balls": 6,
-            "sample_size": "LOW"
+          "Fast": {
+            "sr": 83.1,
+            "avg": 19.67,
+            "balls": 71,
+            "sample_size": "MEDIUM"
           },
-          "Right-arm pace": {
-            "sr": 137.5,
-            "avg": null,
-            "balls": 8,
-            "sample_size": "LOW"
-          },
-          "Right-arm off-spin": {
-            "sr": 40.0,
-            "avg": 2.0,
-            "balls": 5,
-            "sample_size": "LOW"
-          },
-          "Off-spin": {
-            "sr": 166.67,
-            "avg": null,
-            "balls": 6,
+          "Left-arm pace": {
+            "sr": 0.0,
+            "avg": 0.0,
+            "balls": 1,
             "sample_size": "LOW"
           }
         },
@@ -1130,7 +1142,10 @@
           "innings": 20
         },
         "tags": []
-      }
+      },
+      "data_source": "ipl",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "2cffab74": {
       "player_id": "2cffab74",
@@ -1307,16 +1322,16 @@
           }
         },
         "vs_bowling_type": {
-          "Fast": {
-            "sr": 58.82,
-            "avg": 10.0,
-            "balls": 17,
-            "sample_size": "LOW"
-          },
           "Right-arm pace": {
             "sr": 0.0,
             "avg": null,
             "balls": 1,
+            "sample_size": "LOW"
+          },
+          "Fast": {
+            "sr": 58.82,
+            "avg": 10.0,
+            "balls": 17,
             "sample_size": "LOW"
           }
         },
@@ -1332,7 +1347,10 @@
           "innings": 5
         },
         "tags": []
-      }
+      },
+      "data_source": "ipl",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "327b58d3": {
       "player_id": "327b58d3",
@@ -1508,14 +1526,20 @@
           }
         },
         "vs_bowling_type": {
+          "Right-arm pace": {
+            "sr": 0.0,
+            "avg": null,
+            "balls": 1,
+            "sample_size": "LOW"
+          },
           "Fast": {
             "sr": 66.67,
             "avg": null,
             "balls": 9,
             "sample_size": "LOW"
           },
-          "Right-arm pace": {
-            "sr": 0.0,
+          "Off-spin": {
+            "sr": 100.0,
             "avg": null,
             "balls": 1,
             "sample_size": "LOW"
@@ -1531,12 +1555,6 @@
             "avg": null,
             "balls": 2,
             "sample_size": "LOW"
-          },
-          "Off-spin": {
-            "sr": 100.0,
-            "avg": null,
-            "balls": 1,
-            "sample_size": "LOW"
           }
         },
         "vs_teams": {
@@ -1551,7 +1569,10 @@
           "innings": 3
         },
         "tags": []
-      }
+      },
+      "data_source": "ipl",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "944533a5": {
       "player_id": "944533a5",
@@ -1567,7 +1588,7 @@
       "bowling_arm": "Right-arm",
       "bowling_type": "Off-spin",
       "is_captain": false,
-      "archetype": "All-Round Finisher",
+      "archetype": "Anchor Top-Order",
       "player_type": "batter",
       "has_ipl_data": true,
       "batting": {
@@ -1625,11 +1646,11 @@
             "balls": 12,
             "sample_size": "LOW"
           },
-          "Off-spin": {
-            "sr": 200.0,
-            "avg": 6.0,
-            "balls": 3,
-            "sample_size": "LOW"
+          "Fast": {
+            "sr": 166.2,
+            "avg": 29.5,
+            "balls": 71,
+            "sample_size": "MEDIUM"
           },
           "Leg-spin": {
             "sr": 85.71,
@@ -1643,11 +1664,11 @@
             "balls": 7,
             "sample_size": "LOW"
           },
-          "Fast": {
-            "sr": 166.2,
-            "avg": 29.5,
-            "balls": 71,
-            "sample_size": "MEDIUM"
+          "Off-spin": {
+            "sr": 200.0,
+            "avg": 6.0,
+            "balls": 3,
+            "sample_size": "LOW"
           }
         },
         "vs_teams": {
@@ -1667,7 +1688,10 @@
           "MIDDLE_ORDER"
         ]
       },
-      "bowling": null
+      "bowling": null,
+      "data_source": "ipl",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "fb2d1dda": {
       "player_id": "fb2d1dda",
@@ -1729,24 +1753,6 @@
           }
         },
         "vs_bowling_type": {
-          "Left-arm wrist spin": {
-            "sr": 183.33,
-            "avg": null,
-            "balls": 12,
-            "sample_size": "LOW"
-          },
-          "Fast": {
-            "sr": 153.85,
-            "avg": 40.0,
-            "balls": 234,
-            "sample_size": "HIGH"
-          },
-          "Left-arm pace": {
-            "sr": 169.23,
-            "avg": 22.0,
-            "balls": 13,
-            "sample_size": "LOW"
-          },
           "Right-arm pace": {
             "sr": 135.29,
             "avg": 23.0,
@@ -1765,6 +1771,42 @@
             "balls": 10,
             "sample_size": "LOW"
           },
+          "Left-arm wrist spin": {
+            "sr": 183.33,
+            "avg": null,
+            "balls": 12,
+            "sample_size": "LOW"
+          },
+          "Fast": {
+            "sr": 153.85,
+            "avg": 40.0,
+            "balls": 234,
+            "sample_size": "HIGH"
+          },
+          "Left-arm pace": {
+            "sr": 169.23,
+            "avg": 22.0,
+            "balls": 13,
+            "sample_size": "LOW"
+          },
+          "Off-spin": {
+            "sr": 110.53,
+            "avg": 21.0,
+            "balls": 19,
+            "sample_size": "LOW"
+          },
+          "Right-arm off-spin": {
+            "sr": 150.0,
+            "avg": 31.0,
+            "balls": 62,
+            "sample_size": "MEDIUM"
+          },
+          "Unknown": {
+            "sr": 114.29,
+            "avg": null,
+            "balls": 7,
+            "sample_size": "LOW"
+          },
           "Left-arm orthodox": {
             "sr": 130.77,
             "avg": 11.33,
@@ -1776,24 +1818,6 @@
             "avg": null,
             "balls": 3,
             "sample_size": "LOW"
-          },
-          "Off-spin": {
-            "sr": 110.53,
-            "avg": 21.0,
-            "balls": 19,
-            "sample_size": "LOW"
-          },
-          "Unknown": {
-            "sr": 114.29,
-            "avg": null,
-            "balls": 7,
-            "sample_size": "LOW"
-          },
-          "Right-arm off-spin": {
-            "sr": 150.0,
-            "avg": 31.0,
-            "balls": 62,
-            "sample_size": "MEDIUM"
           }
         },
         "vs_teams": {
@@ -1935,7 +1959,10 @@
           "archetype": "DEATH_FINISHER"
         },
         "tags": []
-      }
+      },
+      "data_source": "ipl",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "d67d5f00": {
       "player_id": "d67d5f00",
@@ -1997,24 +2024,6 @@
           }
         },
         "vs_bowling_type": {
-          "Leg-spin": {
-            "sr": 167.92,
-            "avg": 89.0,
-            "balls": 53,
-            "sample_size": "MEDIUM"
-          },
-          "Right-arm leg-spin": {
-            "sr": 175.86,
-            "avg": null,
-            "balls": 29,
-            "sample_size": "LOW"
-          },
-          "Right-arm pace": {
-            "sr": 164.58,
-            "avg": 79.0,
-            "balls": 48,
-            "sample_size": "LOW"
-          },
           "Fast": {
             "sr": 133.8,
             "avg": 23.75,
@@ -2033,6 +2042,36 @@
             "balls": 8,
             "sample_size": "LOW"
           },
+          "Leg-spin": {
+            "sr": 167.92,
+            "avg": 89.0,
+            "balls": 53,
+            "sample_size": "MEDIUM"
+          },
+          "Right-arm pace": {
+            "sr": 164.58,
+            "avg": 79.0,
+            "balls": 48,
+            "sample_size": "LOW"
+          },
+          "Right-arm leg-spin": {
+            "sr": 175.86,
+            "avg": null,
+            "balls": 29,
+            "sample_size": "LOW"
+          },
+          "Left-arm orthodox": {
+            "sr": 85.71,
+            "avg": 12.0,
+            "balls": 14,
+            "sample_size": "LOW"
+          },
+          "Medium": {
+            "sr": 283.33,
+            "avg": 17.0,
+            "balls": 6,
+            "sample_size": "LOW"
+          },
           "Off-spin": {
             "sr": 133.33,
             "avg": 32.0,
@@ -2049,18 +2088,6 @@
             "sr": 140.0,
             "avg": null,
             "balls": 5,
-            "sample_size": "LOW"
-          },
-          "Left-arm orthodox": {
-            "sr": 85.71,
-            "avg": 12.0,
-            "balls": 14,
-            "sample_size": "LOW"
-          },
-          "Medium": {
-            "sr": 283.33,
-            "avg": 17.0,
-            "balls": 6,
             "sample_size": "LOW"
           }
         },
@@ -2120,7 +2147,10 @@
           "CONSISTENT"
         ]
       },
-      "bowling": null
+      "bowling": null,
+      "data_source": "ipl",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "b17e2f24": {
       "player_id": "b17e2f24",
@@ -2182,36 +2212,6 @@
           }
         },
         "vs_bowling_type": {
-          "Off-spin": {
-            "sr": 101.79,
-            "avg": null,
-            "balls": 56,
-            "sample_size": "MEDIUM"
-          },
-          "Right-arm off-spin": {
-            "sr": 133.33,
-            "avg": 46.0,
-            "balls": 69,
-            "sample_size": "MEDIUM"
-          },
-          "Leg-spin": {
-            "sr": 118.64,
-            "avg": null,
-            "balls": 118,
-            "sample_size": "MEDIUM"
-          },
-          "Right-arm pace": {
-            "sr": 126.42,
-            "avg": 16.75,
-            "balls": 53,
-            "sample_size": "MEDIUM"
-          },
-          "Right-arm leg-spin": {
-            "sr": 152.63,
-            "avg": 14.5,
-            "balls": 19,
-            "sample_size": "LOW"
-          },
           "Medium": {
             "sr": 118.18,
             "avg": 26.0,
@@ -2222,6 +2222,18 @@
             "sr": 143.18,
             "avg": 126.0,
             "balls": 88,
+            "sample_size": "MEDIUM"
+          },
+          "Off-spin": {
+            "sr": 101.79,
+            "avg": null,
+            "balls": 56,
+            "sample_size": "MEDIUM"
+          },
+          "Right-arm off-spin": {
+            "sr": 133.33,
+            "avg": 46.0,
+            "balls": 69,
             "sample_size": "MEDIUM"
           },
           "Fast": {
@@ -2240,6 +2252,24 @@
             "sr": 121.05,
             "avg": 23.0,
             "balls": 38,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 118.64,
+            "avg": null,
+            "balls": 118,
+            "sample_size": "MEDIUM"
+          },
+          "Right-arm pace": {
+            "sr": 126.42,
+            "avg": 16.75,
+            "balls": 53,
+            "sample_size": "MEDIUM"
+          },
+          "Right-arm leg-spin": {
+            "sr": 152.63,
+            "avg": 14.5,
+            "balls": 19,
             "sample_size": "LOW"
           }
         },
@@ -2299,7 +2329,10 @@
           "CONSISTENT"
         ]
       },
-      "bowling": null
+      "bowling": null,
+      "data_source": "ipl",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "85b3fab2": {
       "player_id": "85b3fab2",
@@ -2373,23 +2406,11 @@
             "balls": 64,
             "sample_size": "MEDIUM"
           },
-          "Right-arm off-spin": {
-            "sr": 192.86,
-            "avg": null,
-            "balls": 14,
-            "sample_size": "LOW"
-          },
-          "Unknown": {
-            "sr": 237.5,
-            "avg": 38.0,
-            "balls": 16,
-            "sample_size": "LOW"
-          },
-          "Off-spin": {
-            "sr": 145.45,
-            "avg": 16.0,
-            "balls": 33,
-            "sample_size": "LOW"
+          "Fast": {
+            "sr": 151.3,
+            "avg": 41.71,
+            "balls": 193,
+            "sample_size": "MEDIUM"
           },
           "Leg-spin": {
             "sr": 154.72,
@@ -2409,11 +2430,23 @@
             "balls": 9,
             "sample_size": "LOW"
           },
-          "Fast": {
-            "sr": 151.3,
-            "avg": 41.71,
-            "balls": 193,
-            "sample_size": "MEDIUM"
+          "Right-arm off-spin": {
+            "sr": 192.86,
+            "avg": null,
+            "balls": 14,
+            "sample_size": "LOW"
+          },
+          "Off-spin": {
+            "sr": 145.45,
+            "avg": 16.0,
+            "balls": 33,
+            "sample_size": "LOW"
+          },
+          "Unknown": {
+            "sr": 237.5,
+            "avg": 38.0,
+            "balls": 16,
+            "sample_size": "LOW"
           }
         },
         "vs_teams": {
@@ -2537,7 +2570,10 @@
           "archetype": null
         },
         "tags": []
-      }
+      },
+      "data_source": "ipl",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "84d9c311": {
       "player_id": "84d9c311",
@@ -2599,18 +2635,6 @@
           }
         },
         "vs_bowling_type": {
-          "Fast": {
-            "sr": 172.66,
-            "avg": 31.57,
-            "balls": 128,
-            "sample_size": "MEDIUM"
-          },
-          "Left-arm wrist spin": {
-            "sr": 66.67,
-            "avg": null,
-            "balls": 3,
-            "sample_size": "LOW"
-          },
           "Leg-spin": {
             "sr": 177.27,
             "avg": null,
@@ -2623,6 +2647,24 @@
             "balls": 24,
             "sample_size": "LOW"
           },
+          "Fast": {
+            "sr": 172.66,
+            "avg": 31.57,
+            "balls": 128,
+            "sample_size": "MEDIUM"
+          },
+          "Left-arm wrist spin": {
+            "sr": 66.67,
+            "avg": null,
+            "balls": 3,
+            "sample_size": "LOW"
+          },
+          "Off-spin": {
+            "sr": 25.0,
+            "avg": 1.0,
+            "balls": 4,
+            "sample_size": "LOW"
+          },
           "Medium": {
             "sr": 227.27,
             "avg": null,
@@ -2633,12 +2675,6 @@
             "sr": 145.45,
             "avg": 16.0,
             "balls": 44,
-            "sample_size": "LOW"
-          },
-          "Off-spin": {
-            "sr": 25.0,
-            "avg": 1.0,
-            "balls": 4,
             "sample_size": "LOW"
           }
         },
@@ -2696,7 +2732,10 @@
           "SIX_HITTER"
         ]
       },
-      "bowling": null
+      "bowling": null,
+      "data_source": "ipl",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "ad3b6e95": {
       "player_id": "ad3b6e95",
@@ -2712,7 +2751,7 @@
       "bowling_arm": "Right-arm",
       "bowling_type": "Medium",
       "is_captain": false,
-      "archetype": "DEATH_FINISHER",
+      "archetype": "POWERPLAY_AGGRESSOR",
       "player_type": "batter",
       "has_ipl_data": true,
       "batting": {
@@ -2758,6 +2797,18 @@
           }
         },
         "vs_bowling_type": {
+          "Fast": {
+            "sr": 155.96,
+            "avg": 37.78,
+            "balls": 218,
+            "sample_size": "HIGH"
+          },
+          "Left-arm pace": {
+            "sr": 114.29,
+            "avg": 8.0,
+            "balls": 7,
+            "sample_size": "LOW"
+          },
           "Leg-spin": {
             "sr": 111.11,
             "avg": 15.0,
@@ -2776,16 +2827,16 @@
             "balls": 9,
             "sample_size": "LOW"
           },
-          "Fast": {
-            "sr": 155.96,
-            "avg": 37.78,
-            "balls": 218,
-            "sample_size": "HIGH"
+          "Left-arm orthodox": {
+            "sr": 180.95,
+            "avg": 25.33,
+            "balls": 42,
+            "sample_size": "LOW"
           },
-          "Left-arm pace": {
-            "sr": 114.29,
-            "avg": 8.0,
-            "balls": 7,
+          "Medium": {
+            "sr": 188.24,
+            "avg": 16.0,
+            "balls": 17,
             "sample_size": "LOW"
           },
           "Off-spin": {
@@ -2804,18 +2855,6 @@
             "sr": 200.0,
             "avg": null,
             "balls": 7,
-            "sample_size": "LOW"
-          },
-          "Left-arm orthodox": {
-            "sr": 180.95,
-            "avg": 25.33,
-            "balls": 42,
-            "sample_size": "LOW"
-          },
-          "Medium": {
-            "sr": 188.24,
-            "avg": 16.0,
-            "balls": 17,
             "sample_size": "LOW"
           }
         },
@@ -2881,7 +2920,10 @@
           "PACE_SPECIALIST"
         ]
       },
-      "bowling": null
+      "bowling": null,
+      "data_source": "ipl",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "f89d3b11": {
       "player_id": "f89d3b11",
@@ -2943,24 +2985,6 @@
           }
         },
         "vs_bowling_type": {
-          "Leg-spin": {
-            "sr": 190.0,
-            "avg": null,
-            "balls": 10,
-            "sample_size": "LOW"
-          },
-          "Right-arm pace": {
-            "sr": 0.0,
-            "avg": 0.0,
-            "balls": 2,
-            "sample_size": "LOW"
-          },
-          "Right-arm leg-spin": {
-            "sr": 0.0,
-            "avg": null,
-            "balls": 1,
-            "sample_size": "LOW"
-          },
           "Left-arm orthodox": {
             "sr": 65.63,
             "avg": 7.0,
@@ -2983,6 +3007,24 @@
             "sr": 266.67,
             "avg": null,
             "balls": 3,
+            "sample_size": "LOW"
+          },
+          "Right-arm leg-spin": {
+            "sr": 0.0,
+            "avg": null,
+            "balls": 1,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 190.0,
+            "avg": null,
+            "balls": 10,
+            "sample_size": "LOW"
+          },
+          "Right-arm pace": {
+            "sr": 0.0,
+            "avg": 0.0,
+            "balls": 2,
             "sample_size": "LOW"
           }
         },
@@ -3027,7 +3069,10 @@
           "AGGRESSIVE"
         ]
       },
-      "bowling": null
+      "bowling": null,
+      "data_source": "ipl",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "5ffc0565": {
       "player_id": "5ffc0565",
@@ -3089,10 +3134,22 @@
           }
         },
         "vs_bowling_type": {
-          "Fast": {
-            "sr": 132.14,
-            "avg": 37.0,
-            "balls": 28,
+          "Right-arm pace": {
+            "sr": 200.0,
+            "avg": 8.0,
+            "balls": 4,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 266.67,
+            "avg": 16.0,
+            "balls": 6,
+            "sample_size": "LOW"
+          },
+          "Off-spin": {
+            "sr": 287.5,
+            "avg": null,
+            "balls": 8,
             "sample_size": "LOW"
           },
           "Medium": {
@@ -3107,22 +3164,10 @@
             "balls": 30,
             "sample_size": "LOW"
           },
-          "Leg-spin": {
-            "sr": 266.67,
-            "avg": 16.0,
-            "balls": 6,
-            "sample_size": "LOW"
-          },
-          "Right-arm pace": {
-            "sr": 200.0,
-            "avg": 8.0,
-            "balls": 4,
-            "sample_size": "LOW"
-          },
-          "Off-spin": {
-            "sr": 287.5,
-            "avg": null,
-            "balls": 8,
+          "Fast": {
+            "sr": 132.14,
+            "avg": 37.0,
+            "balls": 28,
             "sample_size": "LOW"
           }
         },
@@ -3264,7 +3309,10 @@
         "tags": [
           "WORKHORSE"
         ]
-      }
+      },
+      "data_source": "ipl",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "fb5f69e4": {
       "player_id": "fb5f69e4",
@@ -3415,7 +3463,10 @@
           "archetype": null
         },
         "tags": []
-      }
+      },
+      "data_source": "ipl",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "51ec3919": {
       "player_id": "51ec3919",
@@ -3435,7 +3486,10 @@
       "player_type": "bowler",
       "has_ipl_data": false,
       "bowling": null,
-      "batting": null
+      "batting": null,
+      "data_source": "none",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "31ee319e": {
       "player_id": "31ee319e",
@@ -3451,11 +3505,59 @@
       "bowling_arm": "Left-arm",
       "bowling_type": "LA Orthodox",
       "is_captain": false,
-      "archetype": null,
+      "archetype": "BALANCED",
       "player_type": "allrounder",
       "has_ipl_data": false,
-      "batting": null,
-      "bowling": null
+      "batting": {
+        "career": {
+          "balls": 44,
+          "runs": 47,
+          "matches": 3,
+          "sr": 106.82,
+          "avg": 23.5,
+          "boundary_pct": 13.64,
+          "dot_pct": 40.91,
+          "pp_sr": null,
+          "death_sr": 184.21,
+          "avg_batting_position": 1.0
+        },
+        "phase": {},
+        "vs_bowling_type": {},
+        "vs_teams": {
+          "best": [],
+          "worst": []
+        },
+        "entry_point": null,
+        "tags": []
+      },
+      "bowling": {
+        "career": {
+          "balls": 72,
+          "wickets": 6,
+          "matches": 3,
+          "economy": 5.92,
+          "avg": 11.83,
+          "sr": 12.0,
+          "dot_pct": 30.56
+        },
+        "phase": {},
+        "vs_batting_hand": {},
+        "vs_teams": {
+          "best": [],
+          "worst": []
+        },
+        "classification": {
+          "arm": "Left-arm",
+          "type": "LA Orthodox",
+          "archetype": "BALANCED"
+        },
+        "tags": []
+      },
+      "data_source": "cross_tournament",
+      "has_cross_tournament_data": true,
+      "data_tournaments": [
+        "Syed Mushtaq Ali Trophy"
+      ]
     },
     "8ee36b18": {
       "player_id": "8ee36b18",
@@ -3471,11 +3573,50 @@
       "bowling_arm": "Right-arm",
       "bowling_type": "Off-spin",
       "is_captain": false,
-      "archetype": null,
+      "archetype": "BOUNDARY_HITTER",
       "player_type": "batter",
       "has_ipl_data": false,
-      "batting": null,
-      "bowling": null
+      "batting": {
+        "career": {
+          "balls": 1421,
+          "runs": 2014,
+          "matches": 66,
+          "sr": 141.73,
+          "avg": 31.97,
+          "boundary_pct": 19.92,
+          "dot_pct": 34.55,
+          "pp_sr": 139.79,
+          "death_sr": 194.34,
+          "avg_batting_position": 1.0
+        },
+        "phase": {},
+        "vs_bowling_type": {},
+        "vs_teams": {
+          "best": [],
+          "worst": []
+        },
+        "entry_point": null,
+        "tags": []
+      },
+      "bowling": null,
+      "data_source": "cross_tournament",
+      "has_cross_tournament_data": true,
+      "data_tournaments": [
+        "Bangladesh tour of Sri Lanka",
+        "ICC Men's T20 World Cup",
+        "India tour of Sri Lanka",
+        "International League T20",
+        "Lanka Premier League",
+        "Men's T20 Asia Cup",
+        "New Zealand tour of Sri Lanka",
+        "Pakistan T20I Tri-Series",
+        "Pakistan tour of Sri Lanka",
+        "Sri Lanka tour of India",
+        "Sri Lanka tour of New Zealand",
+        "Sri Lanka tour of Zimbabwe",
+        "West Indies tour of Sri Lanka",
+        "Zimbabwe tour of Sri Lanka"
+      ]
     },
     "68c56d09": {
       "player_id": "68c56d09",
@@ -3670,7 +3811,10 @@
           "PART_TIMER",
           "PRESSURE_BUILDER"
         ]
-      }
+      },
+      "data_source": "ipl",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "5f26f677": {
       "player_id": "5f26f677",
@@ -3686,11 +3830,43 @@
       "bowling_arm": "Right-arm",
       "bowling_type": "Medium",
       "is_captain": false,
-      "archetype": null,
+      "archetype": "POWERPLAY_AGGRESSOR",
       "player_type": "batter",
       "has_ipl_data": false,
-      "batting": null,
-      "bowling": null
+      "batting": {
+        "career": {
+          "balls": 754,
+          "runs": 1129,
+          "matches": 42,
+          "sr": 149.73,
+          "avg": 28.95,
+          "boundary_pct": 22.68,
+          "dot_pct": 33.16,
+          "pp_sr": 157.56,
+          "death_sr": 130.43,
+          "avg_batting_position": 1.0
+        },
+        "phase": {},
+        "vs_bowling_type": {},
+        "vs_teams": {
+          "best": [],
+          "worst": []
+        },
+        "entry_point": null,
+        "tags": []
+      },
+      "bowling": null,
+      "data_source": "cross_tournament",
+      "has_cross_tournament_data": true,
+      "data_tournaments": [
+        "Big Bash League",
+        "England tour of Bangladesh",
+        "England tour of India",
+        "England tour of West Indies",
+        "The Hundred Men's Competition",
+        "Vitality Blast",
+        "West Indies tour of England"
+      ]
     },
     "8b3e9c7c": {
       "player_id": "8b3e9c7c",
@@ -3752,24 +3928,6 @@
           }
         },
         "vs_bowling_type": {
-          "Right-arm pace": {
-            "sr": 139.39,
-            "avg": 15.33,
-            "balls": 33,
-            "sample_size": "LOW"
-          },
-          "Leg-spin": {
-            "sr": 146.67,
-            "avg": 22.0,
-            "balls": 15,
-            "sample_size": "LOW"
-          },
-          "Right-arm leg-spin": {
-            "sr": 375.0,
-            "avg": null,
-            "balls": 4,
-            "sample_size": "LOW"
-          },
           "Fast": {
             "sr": 114.89,
             "avg": 13.5,
@@ -3782,16 +3940,22 @@
             "balls": 11,
             "sample_size": "LOW"
           },
-          "Off-spin": {
-            "sr": 183.33,
-            "avg": 11.0,
-            "balls": 12,
+          "Right-arm pace": {
+            "sr": 139.39,
+            "avg": 15.33,
+            "balls": 33,
             "sample_size": "LOW"
           },
-          "Right-arm off-spin": {
-            "sr": 188.89,
+          "Right-arm leg-spin": {
+            "sr": 375.0,
             "avg": null,
-            "balls": 9,
+            "balls": 4,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 146.67,
+            "avg": 22.0,
+            "balls": 15,
             "sample_size": "LOW"
           },
           "Medium": {
@@ -3804,6 +3968,18 @@
             "sr": 193.75,
             "avg": 15.5,
             "balls": 16,
+            "sample_size": "LOW"
+          },
+          "Right-arm off-spin": {
+            "sr": 188.89,
+            "avg": null,
+            "balls": 9,
+            "sample_size": "LOW"
+          },
+          "Off-spin": {
+            "sr": 183.33,
+            "avg": 11.0,
+            "balls": 12,
             "sample_size": "LOW"
           }
         },
@@ -3865,7 +4041,10 @@
           "MIDDLE_OVERS_ACCELERATOR"
         ]
       },
-      "bowling": null
+      "bowling": null,
+      "data_source": "ipl",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "90d86fbd": {
       "player_id": "90d86fbd",
@@ -3885,7 +4064,10 @@
       "player_type": "batter",
       "has_ipl_data": false,
       "batting": null,
-      "bowling": null
+      "bowling": null,
+      "data_source": "none",
+      "has_cross_tournament_data": false,
+      "data_tournaments": []
     },
     "557550a4": {
       "player_id": "557550a4",
@@ -3901,11 +4083,40 @@
       "bowling_arm": "Right-arm",
       "bowling_type": "Fast",
       "is_captain": false,
-      "archetype": null,
+      "archetype": "BOUNDARY_HITTER",
       "player_type": "allrounder",
       "has_ipl_data": false,
-      "batting": null,
-      "bowling": null
+      "batting": {
+        "career": {
+          "balls": 190,
+          "runs": 370,
+          "matches": 13,
+          "sr": 194.74,
+          "avg": 52.86,
+          "boundary_pct": 27.37,
+          "dot_pct": 26.84,
+          "pp_sr": 113.04,
+          "death_sr": 288.41,
+          "avg_batting_position": 1.0
+        },
+        "phase": {},
+        "vs_bowling_type": {},
+        "vs_teams": {
+          "best": [],
+          "worst": []
+        },
+        "entry_point": null,
+        "tags": []
+      },
+      "bowling": null,
+      "data_source": "cross_tournament",
+      "has_cross_tournament_data": true,
+      "data_tournaments": [
+        "Croatia tour of Spain",
+        "ICC Men's T20 World Cup Sub Regional Europe Qualifier Group C",
+        "Jersey tour of Spain",
+        "Spain tour of Croatia"
+      ]
     }
   }
 }

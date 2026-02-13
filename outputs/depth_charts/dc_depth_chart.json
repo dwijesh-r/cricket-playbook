@@ -1,7 +1,7 @@
 {
   "team": "DC",
   "team_name": "Delhi Capitals",
-  "overall_rating": 8.1,
+  "overall_rating": 8.0,
   "strongest_position": "Middle Overs Specialist",
   "weakest_position": "Leg Spin",
   "vulnerabilities": [
@@ -10,8 +10,8 @@
   "positions": {
     "opener": {
       "name": "Opener",
-      "rating": 8.5,
-      "what_works": "Elite #1 in kl rahul. quality backup in karun nair",
+      "rating": 7.8,
+      "what_works": "Elite #1 in kl rahul. karun nair as backup",
       "what_doesnt": "Big gap between #1 and #2",
       "overseas_count": 0,
       "players": [
@@ -31,7 +31,7 @@
           "rank": 2,
           "name": "Karun Nair",
           "player_id": "944533a5",
-          "score": 56.5,
+          "score": 48.5,
           "rationale": "Elite SR (172.2). PP Aggressor",
           "is_overseas": false,
           "price_cr": 0.5,

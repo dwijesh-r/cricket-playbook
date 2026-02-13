@@ -2019,6 +2019,251 @@
             box-shadow: 0 6px 28px rgba(255, 159, 10, 0.6);
             animation: none;
         }
+        /* ==================== PLAYER PROFILE MODAL (TKT-200) ==================== */
+        .player-profile-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 250;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .player-profile-overlay.active { display: flex; }
+        .player-profile-modal {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 640px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        .player-profile-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 32px;
+            height: 32px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+        .player-profile-close:hover { background: var(--bg-elevated); color: var(--text-primary); }
+        .pp-header {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        .pp-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 4px 0;
+        }
+        .pp-subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        .pp-meta {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        .pp-meta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        .pp-meta-badge.price { color: var(--accent-green); }
+        .pp-meta-badge.captain { color: var(--accent-yellow); }
+        .pp-section {
+            margin-bottom: 20px;
+        }
+        .pp-section-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            border-left: 3px solid var(--accent);
+            padding-left: 10px;
+        }
+        .pp-section-title.bowling { border-left-color: var(--accent-green); }
+        .pp-stat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .pp-stat-card {
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+        .pp-stat-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .pp-stat-label {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+        .pp-phase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+        .pp-phase-card {
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+        .pp-phase-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .pp-phase-label.pp { color: var(--accent); }
+        .pp-phase-label.mid { color: var(--accent-yellow); }
+        .pp-phase-label.death { color: var(--accent-red); }
+        .pp-phase-stat {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .pp-phase-stat strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        .pp-sample {
+            font-size: 10px;
+            color: var(--text-tertiary);
+            display: block;
+            margin-top: 2px;
+        }
+        .pp-sample.low { color: var(--accent-orange); }
+        .pp-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .pp-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .pp-tag.strength { background: rgba(48, 209, 88, 0.15); color: var(--accent-green); }
+        .pp-tag.vulnerability { background: rgba(255, 69, 58, 0.15); color: var(--accent-red); }
+        .pp-tag.phase-tag { background: rgba(10, 132, 255, 0.15); color: var(--accent); }
+        .pp-tag.style { background: var(--bg-tertiary); color: var(--text-secondary); }
+        .pp-matchup-table {
+            width: 100%;
+            font-size: 13px;
+            border-collapse: collapse;
+        }
+        .pp-matchup-table th {
+            text-align: left;
+            padding: 6px 8px;
+            color: var(--text-tertiary);
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border);
+        }
+        .pp-matchup-table td {
+            padding: 6px 8px;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--border);
+        }
+        .pp-matchup-table tr:last-child td { border-bottom: none; }
+        .pp-vs-label { font-weight: 600; }
+        .pp-vs-good { color: var(--accent-green); }
+        .pp-vs-bad { color: var(--accent-red); }
+        .pp-entry-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .pp-no-data {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-tertiary);
+            font-size: 13px;
+            font-style: italic;
+        }
+        /* Clickable player names */
+        .player-clickable {
+            cursor: pointer;
+            transition: color 0.15s ease;
+        }
+        .player-clickable:hover {
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        @media (max-width: 768px) {
+            .player-profile-overlay { padding: 0; }
+            .player-profile-modal {
+                max-width: 100%;
+                max-height: 100vh;
+                height: 100vh;
+                border-radius: 0;
+                padding: 16px;
+                font-size: 16px;
+            }
+            .player-profile-close {
+                width: 44px;
+                height: 44px;
+                font-size: 20px;
+                top: 12px;
+                right: 12px;
+            }
+            .pp-name { font-size: 20px; }
+            .pp-stat-grid { grid-template-columns: repeat(2, 1fr); }
+            .pp-phase-grid { grid-template-columns: 1fr; }
+            .pp-stat-card { padding: 12px; min-height: 44px; }
+            .pp-matchup-table td, .pp-matchup-table th { padding: 10px 8px; }
+            .pp-tag { padding: 8px 12px; font-size: 12px; min-height: 44px; display: inline-flex; align-items: center; }
+            .pp-meta-badge { padding: 8px 12px; min-height: 44px; display: inline-flex; align-items: center; }
+            .pp-section-title { font-size: 14px; padding: 8px 10px; }
+        }
         .nav-guide-overlay {
             position: fixed;
             inset: 0;
@@ -2695,6 +2940,7 @@
     <script src="data/venue_data.js"></script>
     <script src="data/historic_trends.js"></script>
     <script src="data/momentum_insights.js"></script>
+    <script src="data/player_profiles.js"></script>
 
     <script>
         // Pixelated Team Logos (8x8 grid style)
@@ -2903,7 +3149,7 @@
                 card.innerHTML = `
                     <div class="player-position">${player.position}</div>
                     <div class="player-info">
-                        <div class="player-name">${player.name}</div>
+                        <div class="player-name player-clickable" onclick="openPlayerProfile('${player.name.replace(/'/g, "\\\\'")}')">${player.name}</div>
                         <div class="player-role">${player.role} • ${player.batting}</div>
                     </div>
                     <div class="player-meta">
@@ -2919,7 +3165,7 @@
             impact.innerHTML = `
                 <div class="impact-badge">⚡ IMPACT</div>
                 <div class="player-info">
-                    <div class="player-name">${predicted.impactPlayer.name}</div>
+                    <div class="player-name player-clickable" onclick="openPlayerProfile('${predicted.impactPlayer.name.replace(/'/g, "\\\\'")}')">${predicted.impactPlayer.name}</div>
                     <div class="player-role">${predicted.impactPlayer.role}</div>
                 </div>
                 <div class="player-meta">
@@ -3507,9 +3753,9 @@
                     return `
                         <tr class="depth-row" onclick="toggleDepthDetail(${posIdx})">
                             <td style="font-weight:600;">${pos.name}</td>
-                            <td>${p1.name}${osBadge(p1)}${bowlBadge(p1)}</td>
-                            <td>${p2.name}${osBadge(p2)}${bowlBadge(p2)}</td>
-                            <td>${p3.name}${osBadge(p3)}${bowlBadge(p3)}</td>
+                            <td>${p1.name !== '-' ? `<span class="player-clickable" onclick="event.stopPropagation(); openPlayerProfile('${p1.name.replace(/'/g, "\\\\'")}')">${p1.name}</span>` : '-'}${osBadge(p1)}${bowlBadge(p1)}</td>
+                            <td>${p2.name !== '-' ? `<span class="player-clickable" onclick="event.stopPropagation(); openPlayerProfile('${p2.name.replace(/'/g, "\\\\'")}')">${p2.name}</span>` : '-'}${osBadge(p2)}${bowlBadge(p2)}</td>
+                            <td>${p3.name !== '-' ? `<span class="player-clickable" onclick="event.stopPropagation(); openPlayerProfile('${p3.name.replace(/'/g, "\\\\'")}')">${p3.name}</span>` : '-'}${osBadge(p3)}${bowlBadge(p3)}</td>
                             <td class="${ratingClass}">${pos.rating}/10</td>
                         </tr>
                         <tr class="depth-detail-row">
@@ -3971,7 +4217,7 @@
                 <tr class="pressure-table-row" onclick="this.classList.toggle('expanded'); this.nextElementSibling.classList.toggle('visible');">
                     <td>${idx + 1}</td>
                     <td class="pressure-table-name">
-                        <span class="player-name-text">${b.name}</span>
+                        <span class="player-name-text player-clickable" onclick="event.stopPropagation(); openPlayerProfile('${b.name.replace(/'/g, "\\\\'")}')">${b.name}</span>
                         <span class="pressure-table-role-tag bat">BAT</span>
                     </td>
                     <td>${ratingBadge(b.rating)}</td>
@@ -3999,7 +4245,7 @@
                 <tr class="pressure-table-row" onclick="this.classList.toggle('expanded'); this.nextElementSibling.classList.toggle('visible');">
                     <td>${idx + 1}</td>
                     <td class="pressure-table-name">
-                        <span class="player-name-text">${bw.name}</span>
+                        <span class="player-name-text player-clickable" onclick="event.stopPropagation(); openPlayerProfile('${bw.name.replace(/'/g, "\\\\'")}')">${bw.name}</span>
                         <span class="pressure-table-role-tag bwl">BWL</span>
                     </td>
                     <td>${ratingBadge(bw.rating)}</td>
@@ -4492,7 +4738,7 @@
                                 </td>
                                 <td>
                                     <div class="player-name-cell">
-                                        <span class="player-name-text">${player.name}</span>
+                                        <span class="player-name-text player-clickable" onclick="openPlayerProfile('${player.name.replace(/'/g, "\\\\'")}', '${player.playerId}')">${player.name}</span>
                                     </div>
                                 </td>
                                 <td>
@@ -4856,10 +5102,313 @@
         function closeNavGuide(e) {
             if (e.target === e.currentTarget) toggleNavGuide();
         }
+
+        // ==================== PLAYER PROFILE MODAL (TKT-200) ====================
+
+        function openPlayerProfile(playerName, playerId, teamAbbrev) {
+            const team = teamAbbrev || currentTeam;
+            const profiles = typeof PLAYER_PROFILES !== 'undefined' ? PLAYER_PROFILES[team] : null;
+            if (!profiles) {
+                console.warn('No profile data for team:', team);
+                return;
+            }
+
+            // Find profile by ID first, then by name
+            let profile = playerId ? profiles[playerId] : null;
+            if (!profile) {
+                profile = Object.values(profiles).find(p => p.player_name === playerName);
+            }
+            if (!profile) {
+                console.warn('No profile found for:', playerName);
+                return;
+            }
+
+            const content = document.getElementById('player-profile-content');
+            content.innerHTML = renderPlayerProfile(profile);
+
+            const overlay = document.getElementById('player-profile-overlay');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePlayerProfile(event) {
+            if (event && event.target !== event.currentTarget && event.type === 'click') return;
+            const overlay = document.getElementById('player-profile-overlay');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function classifyTag(tag) {
+            const strengthTags = ['SPECIALIST_VS_PACE', 'SPECIALIST_VS_SPIN', 'SPECIALIST_VS_OFF_SPIN', 'SPECIALIST_VS_LEG_SPIN', 'SPECIALIST_VS_LEFT_ARM_SPIN', 'PP_DOMINATOR', 'EXPLOSIVE_OPENER', 'DEATH_FINISHER', 'CONSISTENT', 'LHB_SPECIALIST', 'RHB_SPECIALIST', 'LHB_WICKET_TAKER', 'RHB_WICKET_TAKER', 'ECONOMICAL', 'DOT_BALL_KING', 'PROVEN_WICKET_TAKER', 'DEATH_ELITE', 'MID_OVERS_ELITE', 'PP_STRIKE_WEAPON', 'PACE_SPECIALIST'];
+            const vulnerabilityTags = ['VULNERABLE_VS_PACE', 'VULNERABLE_VS_SPIN', 'VULNERABLE_VS_OFF_SPIN', 'VULNERABLE_VS_LEG_SPIN', 'VULNERABLE_VS_LEFT_ARM_SPIN', 'LHB_VULNERABLE', 'RHB_VULNERABLE', 'EXPENSIVE', 'PP_LIABILITY'];
+            const phaseTags = ['PP_DOMINATOR', 'MIDDLE_OVERS_ACCELERATOR', 'MIDDLE_ANCHOR', 'DEATH_SPECIALIST', 'MIDDLE_OVERS_CONTROLLER', 'PRESSURE_BUILDER', 'NEW_BALL_SPECIALIST', 'DEATH_COMPLETE'];
+
+            if (vulnerabilityTags.includes(tag)) return 'vulnerability';
+            if (phaseTags.includes(tag)) return 'phase-tag';
+            if (strengthTags.includes(tag)) return 'strength';
+            return 'style';
+        }
+
+        function formatTagName(tag) {
+            return tag.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+                      .replace('Vs ', 'vs ').replace('Pp ', 'PP ')
+                      .replace('Lhb ', 'LHB ').replace('Rhb ', 'RHB ')
+                      .replace('Mid ', 'Mid-').replace('Sr ', 'SR ');
+        }
+
+        function sampleBadge(size) {
+            if (!size) return '';
+            if (size === 'LOW') return '<span class="pp-sample low">(LOW sample)</span>';
+            if (size === 'MEDIUM') return '<span class="pp-sample">(MEDIUM)</span>';
+            return '';
+        }
+
+        function renderPlayerProfile(p) {
+            let html = '';
+
+            // Header
+            const subtitle = [p.role, p.batting_hand, p.bowling_type ? `${p.bowling_arm} ${p.bowling_type}` : null, p.nationality].filter(Boolean).join(' \u00b7 ');
+            html += `<div class="pp-header">
+                <h2 class="pp-name">${p.player_name}</h2>
+                <p class="pp-subtitle">${subtitle}</p>
+                <div class="pp-meta">
+                    <span class="pp-meta-badge price">\u20b9${p.price_cr} Cr</span>
+                    <span class="pp-meta-badge">${p.acquisition_type}</span>
+                    ${p.is_captain ? '<span class="pp-meta-badge captain">\ud83d\udc51 Captain</span>' : ''}
+                    ${p.archetype && p.archetype !== '-' ? `<span class="pp-meta-badge">${p.archetype}</span>` : ''}
+                    <span class="pp-meta-badge">Age ${p.age}</span>
+                </div>
+            </div>`;
+
+            if (!p.has_ipl_data) {
+                html += '<div class="pp-no-data">No IPL data available (uncapped/new signing)</div>';
+                return html;
+            }
+
+            // Batting Section
+            const bat = p.batting;
+            if (bat && bat.career) {
+                const c = bat.career;
+                html += `<div class="pp-section">
+                    <div class="pp-section-title">Batting Career (IPL 2023+)</div>
+                    <div class="pp-stat-grid">
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.runs || 0}</div><div class="pp-stat-label">Runs</div></div>
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.innings || 0}</div><div class="pp-stat-label">Innings</div></div>
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.average != null ? c.average.toFixed(1) : '-'}</div><div class="pp-stat-label">Average</div></div>
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.strike_rate != null ? c.strike_rate.toFixed(1) : '-'}</div><div class="pp-stat-label">SR</div></div>
+                    </div>
+                    <div class="pp-stat-grid">
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.fifties || 0}</div><div class="pp-stat-label">50s</div></div>
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.hundreds || 0}</div><div class="pp-stat-label">100s</div></div>
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.boundary_pct != null ? c.boundary_pct.toFixed(1) + '%' : '-'}</div><div class="pp-stat-label">Boundary%</div></div>
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.dot_ball_pct != null ? c.dot_ball_pct.toFixed(1) + '%' : '-'}</div><div class="pp-stat-label">Dot%</div></div>
+                    </div>
+                    ${sampleBadge(c.sample_size)}
+                </div>`;
+
+                // Phase Performance
+                if (bat.phase) {
+                    const phases = ['powerplay', 'middle', 'death'];
+                    const phaseLabels = {powerplay: 'Powerplay', middle: 'Middle', death: 'Death'};
+                    const phaseClasses = {powerplay: 'pp', middle: 'mid', death: 'death'};
+                    html += `<div class="pp-section">
+                        <div class="pp-section-title">Phase Performance</div>
+                        <div class="pp-phase-grid">
+                            ${phases.map(ph => {
+                                const d = bat.phase[ph];
+                                if (!d) return '';
+                                return `<div class="pp-phase-card">
+                                    <div class="pp-phase-label ${phaseClasses[ph]}">${phaseLabels[ph]}</div>
+                                    <div class="pp-phase-stat"><strong>SR ${d.sr != null ? d.sr.toFixed(1) : '-'}</strong></div>
+                                    <div class="pp-phase-stat">Avg ${d.avg != null ? d.avg.toFixed(1) : '-'}</div>
+                                    <div class="pp-phase-stat">Bound ${d.boundary_pct != null ? d.boundary_pct.toFixed(1) : '-'}%</div>
+                                    <div class="pp-phase-stat">${d.balls || 0} balls</div>
+                                    ${sampleBadge(d.sample_size)}
+                                </div>`;
+                            }).join('')}
+                        </div>
+                    </div>`;
+                }
+
+                // vs Bowling Type
+                if (bat.vs_bowling_type && Object.keys(bat.vs_bowling_type).length > 0) {
+                    const types = Object.entries(bat.vs_bowling_type)
+                        .filter(([_, v]) => v.balls >= 10)
+                        .sort((a, b) => (b[1].balls || 0) - (a[1].balls || 0));
+                    if (types.length > 0) {
+                        html += `<div class="pp-section">
+                            <div class="pp-section-title">vs Bowling Type</div>
+                            <table class="pp-matchup-table">
+                                <thead><tr><th>Type</th><th>SR</th><th>Avg</th><th>Balls</th></tr></thead>
+                                <tbody>
+                                    ${types.map(([type, v]) => `<tr>
+                                        <td class="pp-vs-label">${type}</td>
+                                        <td>${v.sr != null ? v.sr.toFixed(1) : '-'}</td>
+                                        <td>${v.avg != null ? v.avg.toFixed(1) : '-'}</td>
+                                        <td>${v.balls}${v.sample_size === 'LOW' ? ' <span style="color:var(--accent-orange);">(LOW)</span>' : ''}</td>
+                                    </tr>`).join('')}
+                                </tbody>
+                            </table>
+                        </div>`;
+                    }
+                }
+
+                // vs Teams (best and worst)
+                if (bat.vs_teams) {
+                    const best = bat.vs_teams.best || [];
+                    const worst = bat.vs_teams.worst || [];
+                    if (best.length > 0 || worst.length > 0) {
+                        html += `<div class="pp-section">
+                            <div class="pp-section-title">vs Teams</div>
+                            <table class="pp-matchup-table">
+                                <thead><tr><th>Team</th><th>SR</th><th>Avg</th><th>Inn</th></tr></thead>
+                                <tbody>
+                                    ${best.map(t => `<tr><td class="pp-vs-label pp-vs-good">${t.team}</td><td>${t.sr != null ? t.sr.toFixed(1) : '-'}</td><td>${t.avg != null ? t.avg.toFixed(1) : '-'}</td><td>${t.innings || 0}</td></tr>`).join('')}
+                                    ${worst.length > 0 ? `<tr><td colspan="4" style="padding:4px;border:none;"></td></tr>` : ''}
+                                    ${worst.map(t => `<tr><td class="pp-vs-label pp-vs-bad">${t.team}</td><td>${t.sr != null ? t.sr.toFixed(1) : '-'}</td><td>${t.avg != null ? t.avg.toFixed(1) : '-'}</td><td>${t.innings || 0}</td></tr>`).join('')}
+                                </tbody>
+                            </table>
+                        </div>`;
+                    }
+                }
+
+                // Entry Point
+                if (bat.entry_point) {
+                    const ep = bat.entry_point;
+                    html += `<div class="pp-section">
+                        <div class="pp-section-title">Entry Point</div>
+                        <div class="pp-entry-badge">${ep.classification || '-'} \u00b7 Position ${ep.mode_batting_position || '-'} \u00b7 Ball ${ep.avg_entry_ball != null ? Math.round(ep.avg_entry_ball) : '-'}</div>
+                    </div>`;
+                }
+
+                // Batting Tags
+                if (bat.tags && bat.tags.length > 0) {
+                    html += `<div class="pp-section">
+                        <div class="pp-section-title">Batting Tags</div>
+                        <div class="pp-tags">
+                            ${bat.tags.map(tag => `<span class="pp-tag ${classifyTag(tag)}">${formatTagName(tag)}</span>`).join('')}
+                        </div>
+                    </div>`;
+                }
+            }
+
+            // Bowling Section
+            const bowl = p.bowling;
+            if (bowl && bowl.career) {
+                const c = bowl.career;
+                html += `<div class="pp-section">
+                    <div class="pp-section-title bowling">Bowling Career (IPL 2023+)</div>
+                    <div class="pp-stat-grid">
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.wickets || 0}</div><div class="pp-stat-label">Wickets</div></div>
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.overs || 0}</div><div class="pp-stat-label">Overs</div></div>
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.economy != null ? c.economy.toFixed(2) : '-'}</div><div class="pp-stat-label">Economy</div></div>
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.strike_rate != null ? c.strike_rate.toFixed(1) : '-'}</div><div class="pp-stat-label">SR</div></div>
+                    </div>
+                    <div class="pp-stat-grid">
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.average != null ? c.average.toFixed(1) : '-'}</div><div class="pp-stat-label">Average</div></div>
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.dot_ball_pct != null ? c.dot_ball_pct.toFixed(1) + '%' : '-'}</div><div class="pp-stat-label">Dot%</div></div>
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.boundary_conceded_pct != null ? c.boundary_conceded_pct.toFixed(1) + '%' : '-'}</div><div class="pp-stat-label">Bound%</div></div>
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.matches || 0}</div><div class="pp-stat-label">Matches</div></div>
+                    </div>
+                    ${sampleBadge(c.sample_size)}
+                </div>`;
+
+                // Bowling Phase Performance
+                if (bowl.phase) {
+                    const phases = ['powerplay', 'middle', 'death'];
+                    const phaseLabels = {powerplay: 'Powerplay', middle: 'Middle', death: 'Death'};
+                    const phaseClasses = {powerplay: 'pp', middle: 'mid', death: 'death'};
+                    html += `<div class="pp-section">
+                        <div class="pp-section-title bowling">Bowling Phase</div>
+                        <div class="pp-phase-grid">
+                            ${phases.map(ph => {
+                                const d = bowl.phase[ph];
+                                if (!d) return '';
+                                return `<div class="pp-phase-card">
+                                    <div class="pp-phase-label ${phaseClasses[ph]}">${phaseLabels[ph]}</div>
+                                    <div class="pp-phase-stat"><strong>Econ ${d.economy != null ? d.economy.toFixed(2) : '-'}</strong></div>
+                                    <div class="pp-phase-stat">Wkts ${d.wickets || 0}</div>
+                                    <div class="pp-phase-stat">SR ${d.strike_rate != null ? d.strike_rate.toFixed(1) : '-'}</div>
+                                    <div class="pp-phase-stat">${d.overs || 0} overs</div>
+                                    ${sampleBadge(d.sample_size)}
+                                </div>`;
+                            }).join('')}
+                        </div>
+                    </div>`;
+                }
+
+                // vs Batting Hand
+                if (bowl.vs_batting_hand && Object.keys(bowl.vs_batting_hand).length > 0) {
+                    html += `<div class="pp-section">
+                        <div class="pp-section-title bowling">vs Batting Hand</div>
+                        <table class="pp-matchup-table">
+                            <thead><tr><th>Hand</th><th>Econ</th><th>SR</th><th>Wkts</th></tr></thead>
+                            <tbody>
+                                ${Object.entries(bowl.vs_batting_hand).map(([hand, v]) => `<tr>
+                                    <td class="pp-vs-label">${hand}</td>
+                                    <td>${v.economy != null ? v.economy.toFixed(2) : '-'}</td>
+                                    <td>${v.strike_rate != null ? v.strike_rate.toFixed(1) : '-'}</td>
+                                    <td>${v.wickets || 0}${v.sample_size === 'LOW' ? ' <span style="color:var(--accent-orange);">(LOW)</span>' : ''}</td>
+                                </tr>`).join('')}
+                            </tbody>
+                        </table>
+                    </div>`;
+                }
+
+                // vs Teams (bowling)
+                if (bowl.vs_teams) {
+                    const best = bowl.vs_teams.best || [];
+                    const worst = bowl.vs_teams.worst || [];
+                    if (best.length > 0 || worst.length > 0) {
+                        html += `<div class="pp-section">
+                            <div class="pp-section-title bowling">vs Teams (Bowling)</div>
+                            <table class="pp-matchup-table">
+                                <thead><tr><th>Team</th><th>Econ</th><th>SR</th><th>Wkts</th></tr></thead>
+                                <tbody>
+                                    ${best.map(t => `<tr><td class="pp-vs-label pp-vs-good">${t.team}</td><td>${t.economy != null ? t.economy.toFixed(2) : '-'}</td><td>${t.strike_rate != null ? t.strike_rate.toFixed(1) : '-'}</td><td>${t.wickets || 0}</td></tr>`).join('')}
+                                    ${worst.length > 0 ? `<tr><td colspan="4" style="padding:4px;border:none;"></td></tr>` : ''}
+                                    ${worst.map(t => `<tr><td class="pp-vs-label pp-vs-bad">${t.team}</td><td>${t.economy != null ? t.economy.toFixed(2) : '-'}</td><td>${t.strike_rate != null ? t.strike_rate.toFixed(1) : '-'}</td><td>${t.wickets || 0}</td></tr>`).join('')}
+                                </tbody>
+                            </table>
+                        </div>`;
+                    }
+                }
+
+                // Bowling Tags
+                if (bowl.tags && bowl.tags.length > 0) {
+                    html += `<div class="pp-section">
+                        <div class="pp-section-title bowling">Bowling Tags</div>
+                        <div class="pp-tags">
+                            ${bowl.tags.map(tag => `<span class="pp-tag ${classifyTag(tag)}">${formatTagName(tag)}</span>`).join('')}
+                        </div>
+                    </div>`;
+                }
+            }
+
+            return html;
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const overlay = document.getElementById('player-profile-overlay');
+                if (overlay && overlay.classList.contains('active')) {
+                    closePlayerProfile();
+                    e.stopPropagation();
+                }
+            }
+        });
     </script>
 
     <!-- Navigation Guide Button -->
     <button class="nav-guide-btn" onclick="toggleNavGuide()" title="Quick Navigation Guide">❓</button>
+
+    <!-- Player Profile Modal (TKT-200) -->
+    <div class="player-profile-overlay" id="player-profile-overlay" onclick="closePlayerProfile(event)">
+        <div class="player-profile-modal" onclick="event.stopPropagation()">
+            <button class="player-profile-close" onclick="closePlayerProfile()">&#x2715;</button>
+            <div id="player-profile-content"></div>
+        </div>
+    </div>
 
     <!-- Navigation Guide Modal -->
     <div class="nav-guide-overlay" id="nav-guide-overlay" onclick="closeNavGuide(event)">

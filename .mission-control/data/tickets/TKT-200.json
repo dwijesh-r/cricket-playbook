@@ -1,10 +1,10 @@
 {
   "id": "TKT-200",
   "title": "Build PlayerProfileModal component in teams.html",
-  "state": "TODO",
+  "state": "DONE",
   "priority": "P0",
   "size": "L",
-  "progress_pct": 0,
+  "progress_pct": 100,
   "description": "Build the modal overlay UI per PRD Section 4.1. Sections: Header (name, team, role, price, archetype), Career Stats, Phase Performance (PP/Middle/Death table), Role Tags (color-coded chips), Matchups (vs bowling type for batters, vs batting hand for bowlers), vs Teams (top 3 best + bottom 3 worst), Entry Point (batters) / Classification (bowlers). Dark theme, consistent with The Lab design. Close on X button, Escape key, or backdrop click. Internal scrolling for long profiles.",
   "owner": "Kevin De Bruyne",
   "assignee": "Kevin De Bruyne",
@@ -30,5 +30,5 @@
     }
   },
   "created_at": "2026-02-13T11:00:00.000000Z",
-  "updated_at": "2026-02-13T11:30:00.000000Z"
+  "updated_at": "2026-02-13T06:00:00.000000Z"
 }

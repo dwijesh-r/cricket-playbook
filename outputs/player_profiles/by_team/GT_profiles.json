@@ -1,0 +1,3534 @@
+{
+  "generated_at": "2026-02-13T05:00:07.976718+00:00",
+  "version": "1.0.0",
+  "team": "GT",
+  "total_players": 20,
+  "players": {
+    "2f49c897": {
+      "player_id": "2f49c897",
+      "player_name": "Mohammed Siraj",
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "role": "Bowler",
+      "price_cr": 12.25,
+      "acquisition_type": "Retained",
+      "nationality": "IND",
+      "age": 31,
+      "batting_hand": "Right-hand",
+      "bowling_arm": "Right-arm",
+      "bowling_type": "Fast-Medium",
+      "is_captain": false,
+      "archetype": "POWERPLAY_SPECIALIST",
+      "player_type": "bowler",
+      "has_ipl_data": true,
+      "bowling": {
+        "career": {
+          "matches": 43,
+          "wickets": 50,
+          "overs": 161.0,
+          "runs_conceded": 1442,
+          "economy": 8.96,
+          "average": 28.84,
+          "strike_rate": 19.32,
+          "dot_ball_pct": 42.75,
+          "boundary_conceded_pct": 21.43,
+          "sample_size": "HIGH"
+        },
+        "phase": {
+          "powerplay": {
+            "economy": 8.35,
+            "wickets": 24,
+            "overs": 98.0,
+            "sr": 34.08,
+            "sample_size": "HIGH"
+          },
+          "middle": {
+            "economy": 9.62,
+            "wickets": 7,
+            "overs": 21.0,
+            "sr": 28.86,
+            "sample_size": "MEDIUM"
+          },
+          "death": {
+            "economy": 10.05,
+            "wickets": 19,
+            "overs": 42.0,
+            "sr": 22.21,
+            "sample_size": "MEDIUM"
+          }
+        },
+        "vs_batting_hand": {
+          "Left-hand": {
+            "economy": 9.27,
+            "sr": 20.5,
+            "wickets": 18,
+            "balls": 369,
+            "sample_size": "HIGH"
+          },
+          "Right-hand": {
+            "economy": 9.01,
+            "sr": 18.3,
+            "wickets": 23,
+            "balls": 421,
+            "sample_size": "HIGH"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "RCB",
+              "economy": 5.0,
+              "overs": 4.0
+            },
+            {
+              "team": "SRH",
+              "economy": 5.25,
+              "overs": 16.0
+            },
+            {
+              "team": "GT",
+              "economy": 7.5,
+              "overs": 12.0
+            }
+          ],
+          "worst": [
+            {
+              "team": "KKR",
+              "economy": 9.84,
+              "overs": 19.0
+            },
+            {
+              "team": "CSK",
+              "economy": 9.31,
+              "overs": 16.0
+            },
+            {
+              "team": "PBKS",
+              "economy": 9.13,
+              "overs": 16.0
+            }
+          ]
+        },
+        "classification": {
+          "arm": "Right-arm",
+          "type": "Fast-Medium",
+          "archetype": "POWERPLAY_SPECIALIST"
+        },
+        "tags": [
+          "WORKHORSE",
+          "PRESSURE_BUILDER",
+          "PROVEN_WICKET_TAKER"
+        ]
+      },
+      "batting": {
+        "career": {
+          "innings": 4,
+          "runs": 16,
+          "balls_faced": 14,
+          "average": 8.0,
+          "strike_rate": 114.29,
+          "fifties": 0,
+          "hundreds": 0,
+          "fours": 0,
+          "sixes": 2,
+          "boundary_pct": 14.29,
+          "dot_ball_pct": 64.29,
+          "highest_score": 12,
+          "sample_size": "LOW"
+        },
+        "phase": {
+          "powerplay": {
+            "sr": null,
+            "avg": null,
+            "boundary_pct": null,
+            "balls": null,
+            "runs": null,
+            "sample_size": null
+          },
+          "middle": {
+            "sr": null,
+            "avg": null,
+            "boundary_pct": null,
+            "balls": null,
+            "runs": null,
+            "sample_size": null
+          },
+          "death": {
+            "sr": 114.29,
+            "avg": 8.0,
+            "boundary_pct": 14.29,
+            "balls": 14,
+            "runs": 16,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_bowling_type": {
+          "Fast": {
+            "sr": 100.0,
+            "avg": null,
+            "balls": 4,
+            "sample_size": "LOW"
+          },
+          "Left-arm wrist spin": {
+            "sr": 0.0,
+            "avg": null,
+            "balls": 2,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 300.0,
+            "avg": null,
+            "balls": 4,
+            "sample_size": "LOW"
+          },
+          "Right-arm pace": {
+            "sr": 0.0,
+            "avg": 0.0,
+            "balls": 4,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "LSG",
+              "sr": 133.33,
+              "innings": 2
+            }
+          ],
+          "worst": [
+            {
+              "team": "LSG",
+              "sr": 133.33,
+              "innings": 2
+            }
+          ]
+        },
+        "entry_point": {
+          "classification": "LOWER_ORDER",
+          "mode_batting_position": 10,
+          "mean_batting_position": 10.5,
+          "avg_entry_ball": 116.0,
+          "innings": 4
+        },
+        "tags": []
+      }
+    },
+    "e62dd25d": {
+      "player_id": "e62dd25d",
+      "player_name": "Kagiso Rabada",
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "role": "Bowler",
+      "price_cr": 10.75,
+      "acquisition_type": "Retained",
+      "nationality": "RSA",
+      "age": 30,
+      "batting_hand": "Right-hand",
+      "bowling_arm": "Right-arm",
+      "bowling_type": "Fast-Medium",
+      "is_captain": false,
+      "archetype": "POWERPLAY_SPECIALIST",
+      "player_type": "bowler",
+      "has_ipl_data": true,
+      "bowling": {
+        "career": {
+          "matches": 21,
+          "wickets": 20,
+          "overs": 79.2,
+          "runs_conceded": 793,
+          "economy": 10.02,
+          "average": 39.65,
+          "strike_rate": 23.75,
+          "dot_ball_pct": 36.42,
+          "boundary_conceded_pct": 23.79,
+          "sample_size": "MEDIUM"
+        },
+        "phase": {
+          "powerplay": {
+            "economy": 9.67,
+            "wickets": 9,
+            "overs": 39.0,
+            "sr": 41.89,
+            "sample_size": "MEDIUM"
+          },
+          "middle": {
+            "economy": 8.95,
+            "wickets": 5,
+            "overs": 22.0,
+            "sr": 39.4,
+            "sample_size": "MEDIUM"
+          },
+          "death": {
+            "economy": 12.06,
+            "wickets": 6,
+            "overs": 18.2,
+            "sr": 36.5,
+            "sample_size": "MEDIUM"
+          }
+        },
+        "vs_batting_hand": {
+          "Left-hand": {
+            "economy": 10.59,
+            "sr": 26.33,
+            "wickets": 6,
+            "balls": 158,
+            "sample_size": "MEDIUM"
+          },
+          "Right-hand": {
+            "economy": 9.78,
+            "sr": 28.38,
+            "wickets": 8,
+            "balls": 227,
+            "sample_size": "HIGH"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "RCB",
+              "economy": 6.75,
+              "overs": 4.0
+            },
+            {
+              "team": "RR",
+              "economy": 7.0,
+              "overs": 8.0
+            },
+            {
+              "team": "CSK",
+              "economy": 7.27,
+              "overs": 11.0
+            }
+          ],
+          "worst": [
+            {
+              "team": "KKR",
+              "economy": 16.0,
+              "overs": 3.0
+            },
+            {
+              "team": "DC",
+              "economy": 12.22,
+              "overs": 9.0
+            },
+            {
+              "team": "MI",
+              "economy": 10.5,
+              "overs": 8.0
+            }
+          ]
+        },
+        "classification": {
+          "arm": "Right-arm",
+          "type": "Fast-Medium",
+          "archetype": "POWERPLAY_SPECIALIST"
+        },
+        "tags": [
+          "RHB_SPECIALIST",
+          "LHB_VULNERABLE",
+          "EXPENSIVE",
+          "WORKHORSE",
+          "PRESSURE_BUILDER",
+          "PROVEN_WICKET_TAKER"
+        ]
+      },
+      "batting": {
+        "career": {
+          "innings": 7,
+          "runs": 29,
+          "balls_faced": 24,
+          "average": 9.67,
+          "strike_rate": 120.83,
+          "fifties": 0,
+          "hundreds": 0,
+          "fours": 0,
+          "sixes": 3,
+          "boundary_pct": 12.5,
+          "dot_ball_pct": 41.67,
+          "highest_score": 11,
+          "sample_size": "LOW"
+        },
+        "phase": {
+          "powerplay": {
+            "sr": null,
+            "avg": null,
+            "boundary_pct": null,
+            "balls": null,
+            "runs": null,
+            "sample_size": null
+          },
+          "middle": {
+            "sr": null,
+            "avg": null,
+            "boundary_pct": null,
+            "balls": null,
+            "runs": null,
+            "sample_size": null
+          },
+          "death": {
+            "sr": 120.83,
+            "avg": 9.67,
+            "boundary_pct": 12.5,
+            "balls": 24,
+            "runs": 29,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_bowling_type": {
+          "Fast": {
+            "sr": 150.0,
+            "avg": null,
+            "balls": 12,
+            "sample_size": "LOW"
+          },
+          "Right-arm pace": {
+            "sr": 125.0,
+            "avg": 5.0,
+            "balls": 8,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 50.0,
+            "avg": 1.0,
+            "balls": 2,
+            "sample_size": "LOW"
+          },
+          "Unknown": {
+            "sr": 0.0,
+            "avg": null,
+            "balls": 2,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "MI",
+              "sr": 187.5,
+              "innings": 2
+            },
+            {
+              "team": "LSG",
+              "sr": 40.0,
+              "innings": 3
+            }
+          ],
+          "worst": [
+            {
+              "team": "LSG",
+              "sr": 40.0,
+              "innings": 3
+            },
+            {
+              "team": "MI",
+              "sr": 187.5,
+              "innings": 2
+            }
+          ]
+        },
+        "entry_point": {
+          "classification": "LOWER_ORDER",
+          "mode_batting_position": 11,
+          "mean_batting_position": 9.7,
+          "avg_entry_ball": 118.9,
+          "innings": 7
+        },
+        "tags": []
+      }
+    },
+    "85e0cf10": {
+      "player_id": "85e0cf10",
+      "player_name": "Prasidh Krishna",
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "role": "Bowler",
+      "price_cr": 9.5,
+      "acquisition_type": "Retained",
+      "nationality": "IND",
+      "age": 29,
+      "batting_hand": "Right-hand",
+      "bowling_arm": "Right-arm",
+      "bowling_type": "Fast-Medium",
+      "is_captain": false,
+      "archetype": "BALANCED",
+      "player_type": "bowler",
+      "has_ipl_data": true,
+      "bowling": {
+        "career": {
+          "matches": 15,
+          "wickets": 25,
+          "overs": 59.0,
+          "runs_conceded": 506,
+          "economy": 8.58,
+          "average": 20.24,
+          "strike_rate": 14.16,
+          "dot_ball_pct": 38.14,
+          "boundary_conceded_pct": 18.93,
+          "sample_size": "MEDIUM"
+        },
+        "phase": {
+          "powerplay": {
+            "economy": 9.85,
+            "wickets": 3,
+            "overs": 13.0,
+            "sr": 42.67,
+            "sample_size": "LOW"
+          },
+          "middle": {
+            "economy": 6.82,
+            "wickets": 7,
+            "overs": 28.0,
+            "sr": 27.29,
+            "sample_size": "MEDIUM"
+          },
+          "death": {
+            "economy": 10.39,
+            "wickets": 15,
+            "overs": 18.0,
+            "sr": 12.47,
+            "sample_size": "MEDIUM"
+          }
+        },
+        "vs_batting_hand": {
+          "Left-hand": {
+            "economy": 6.82,
+            "sr": 10.0,
+            "wickets": 11,
+            "balls": 110,
+            "sample_size": "MEDIUM"
+          },
+          "Right-hand": {
+            "economy": 9.07,
+            "sr": 15.36,
+            "wickets": 14,
+            "balls": 215,
+            "sample_size": "HIGH"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "SRH",
+              "economy": 5.5,
+              "overs": 8.0
+            },
+            {
+              "team": "KKR",
+              "economy": 6.0,
+              "overs": 4.0
+            },
+            {
+              "team": "CSK",
+              "economy": 6.25,
+              "overs": 4.0
+            }
+          ],
+          "worst": [
+            {
+              "team": "PBKS",
+              "economy": 13.67,
+              "overs": 3.0
+            },
+            {
+              "team": "DC",
+              "economy": 10.13,
+              "overs": 8.0
+            },
+            {
+              "team": "MI",
+              "economy": 9.58,
+              "overs": 12.0
+            }
+          ]
+        },
+        "classification": {
+          "arm": "Right-arm",
+          "type": "Fast-Medium",
+          "archetype": "BALANCED"
+        },
+        "tags": [
+          "LHB_SPECIALIST",
+          "RHB_VULNERABLE",
+          "LHB_WICKET_TAKER",
+          "WORKHORSE",
+          "PRESSURE_BUILDER"
+        ]
+      },
+      "batting": null
+    },
+    "5bb1a1c4": {
+      "player_id": "5bb1a1c4",
+      "player_name": "Ishant Sharma",
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "role": "Bowler",
+      "price_cr": 0.75,
+      "acquisition_type": "Retained",
+      "nationality": "IND",
+      "age": 37,
+      "batting_hand": "Right-hand",
+      "bowling_arm": "Right-arm",
+      "bowling_type": "Fast-Medium",
+      "is_captain": false,
+      "archetype": "POWERPLAY_SPECIALIST",
+      "player_type": "bowler",
+      "has_ipl_data": true,
+      "bowling": {
+        "career": {
+          "matches": 24,
+          "wickets": 24,
+          "overs": 70.3,
+          "runs_conceded": 686,
+          "economy": 9.75,
+          "average": 28.58,
+          "strike_rate": 17.58,
+          "dot_ball_pct": 37.2,
+          "boundary_conceded_pct": 24.41,
+          "sample_size": "MEDIUM"
+        },
+        "phase": {
+          "powerplay": {
+            "economy": 9.3,
+            "wickets": 13,
+            "overs": 43.0,
+            "sr": 30.77,
+            "sample_size": "MEDIUM"
+          },
+          "middle": {
+            "economy": 9.6,
+            "wickets": 5,
+            "overs": 15.0,
+            "sr": 28.8,
+            "sample_size": "LOW"
+          },
+          "death": {
+            "economy": 11.51,
+            "wickets": 6,
+            "overs": 12.3,
+            "sr": 23.67,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_batting_hand": {
+          "Left-hand": {
+            "economy": 10.08,
+            "sr": 16.0,
+            "wickets": 8,
+            "balls": 128,
+            "sample_size": "MEDIUM"
+          },
+          "Right-hand": {
+            "economy": 10.53,
+            "sr": 21.2,
+            "wickets": 10,
+            "balls": 212,
+            "sample_size": "HIGH"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "GT",
+              "economy": 4.67,
+              "overs": 6.0
+            },
+            {
+              "team": "DC",
+              "economy": 6.67,
+              "overs": 3.0
+            },
+            {
+              "team": "LSG",
+              "economy": 8.0,
+              "overs": 8.0
+            }
+          ],
+          "worst": [
+            {
+              "team": "RR",
+              "economy": 13.4,
+              "overs": 5.0
+            },
+            {
+              "team": "RCB",
+              "economy": 10.38,
+              "overs": 8.0
+            },
+            {
+              "team": "SRH",
+              "economy": 10.28,
+              "overs": 13.3
+            }
+          ]
+        },
+        "classification": {
+          "arm": "Right-arm",
+          "type": "Fast-Medium",
+          "archetype": "POWERPLAY_SPECIALIST"
+        },
+        "tags": [
+          "EXPENSIVE",
+          "NEW_BALL_SPECIALIST",
+          "PP_ELITE",
+          "PRESSURE_BUILDER"
+        ]
+      },
+      "batting": {
+        "career": {
+          "innings": 3,
+          "runs": 2,
+          "balls_faced": 8,
+          "average": null,
+          "strike_rate": 25.0,
+          "fifties": 0,
+          "hundreds": 0,
+          "fours": 0,
+          "sixes": 0,
+          "boundary_pct": 0.0,
+          "dot_ball_pct": 75.0,
+          "highest_score": 1,
+          "sample_size": "LOW"
+        },
+        "phase": {
+          "powerplay": {
+            "sr": null,
+            "avg": null,
+            "boundary_pct": null,
+            "balls": null,
+            "runs": null,
+            "sample_size": null
+          },
+          "middle": {
+            "sr": null,
+            "avg": null,
+            "boundary_pct": null,
+            "balls": null,
+            "runs": null,
+            "sample_size": null
+          },
+          "death": {
+            "sr": 25.0,
+            "avg": null,
+            "boundary_pct": 0.0,
+            "balls": 8,
+            "runs": 2,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_bowling_type": {
+          "Fast": {
+            "sr": 25.0,
+            "avg": null,
+            "balls": 8,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [],
+          "worst": []
+        },
+        "entry_point": {
+          "classification": "LOWER_ORDER",
+          "mode_batting_position": 11,
+          "mean_batting_position": 11.0,
+          "avg_entry_ball": 111.0,
+          "innings": 3
+        },
+        "tags": []
+      }
+    },
+    "5f547c8b": {
+      "player_id": "5f547c8b",
+      "player_name": "Rashid Khan",
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "role": "All-rounder",
+      "price_cr": 18.0,
+      "acquisition_type": "Retained",
+      "nationality": "AFG",
+      "age": 27,
+      "batting_hand": "Right-hand",
+      "bowling_arm": "Right-arm",
+      "bowling_type": "Leg-spin",
+      "is_captain": false,
+      "archetype": "BALANCED",
+      "player_type": "allrounder",
+      "has_ipl_data": true,
+      "batting": {
+        "career": {
+          "innings": 25,
+          "runs": 272,
+          "balls_faced": 157,
+          "average": 19.43,
+          "strike_rate": 173.25,
+          "fifties": 1,
+          "hundreds": 0,
+          "fours": 21,
+          "sixes": 19,
+          "boundary_pct": 25.48,
+          "dot_ball_pct": 38.85,
+          "highest_score": 79,
+          "sample_size": "MEDIUM"
+        },
+        "phase": {
+          "powerplay": {
+            "sr": null,
+            "avg": null,
+            "boundary_pct": null,
+            "balls": null,
+            "runs": null,
+            "sample_size": null
+          },
+          "middle": {
+            "sr": 150.0,
+            "avg": 36.0,
+            "boundary_pct": 18.75,
+            "balls": 48,
+            "runs": 72,
+            "sample_size": "LOW"
+          },
+          "death": {
+            "sr": 183.49,
+            "avg": 16.67,
+            "boundary_pct": 28.44,
+            "balls": 109,
+            "runs": 200,
+            "sample_size": "MEDIUM"
+          }
+        },
+        "vs_bowling_type": {
+          "Fast": {
+            "sr": 154.44,
+            "avg": 12.64,
+            "balls": 90,
+            "sample_size": "MEDIUM"
+          },
+          "Left-arm wrist spin": {
+            "sr": 154.55,
+            "avg": 17.0,
+            "balls": 11,
+            "sample_size": "LOW"
+          },
+          "Left-arm pace": {
+            "sr": 216.67,
+            "avg": 13.0,
+            "balls": 6,
+            "sample_size": "LOW"
+          },
+          "Unknown": {
+            "sr": 200.0,
+            "avg": 6.0,
+            "balls": 3,
+            "sample_size": "LOW"
+          },
+          "Right-arm off-spin": {
+            "sr": 150.0,
+            "avg": null,
+            "balls": 2,
+            "sample_size": "LOW"
+          },
+          "Right-arm pace": {
+            "sr": 231.25,
+            "avg": null,
+            "balls": 16,
+            "sample_size": "LOW"
+          },
+          "Right-arm leg-spin": {
+            "sr": 246.15,
+            "avg": null,
+            "balls": 13,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 100.0,
+            "avg": null,
+            "balls": 2,
+            "sample_size": "LOW"
+          },
+          "Left-arm orthodox": {
+            "sr": 108.33,
+            "avg": null,
+            "balls": 12,
+            "sample_size": "LOW"
+          },
+          "Medium": {
+            "sr": 300.0,
+            "avg": null,
+            "balls": 2,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "RR",
+              "sr": 220.0,
+              "innings": 3
+            },
+            {
+              "team": "MI",
+              "sr": 208.51,
+              "innings": 7
+            },
+            {
+              "team": "CSK",
+              "sr": 170.97,
+              "innings": 5
+            }
+          ],
+          "worst": [
+            {
+              "team": "SRH",
+              "sr": 0.0,
+              "innings": 2
+            },
+            {
+              "team": "LSG",
+              "sr": 88.89,
+              "innings": 3
+            },
+            {
+              "team": "DC",
+              "sr": 152.78,
+              "innings": 3
+            }
+          ]
+        },
+        "entry_point": {
+          "classification": "LOWER_ORDER",
+          "mode_batting_position": 8,
+          "mean_batting_position": 7.5,
+          "avg_entry_ball": 108.5,
+          "innings": 25
+        },
+        "tags": [
+          "PLAYMAKER",
+          "SIX_HITTER",
+          "ACCUMULATOR"
+        ]
+      },
+      "bowling": {
+        "career": {
+          "matches": 44,
+          "wickets": 46,
+          "overs": 165.7,
+          "runs_conceded": 1452,
+          "economy": 8.76,
+          "average": 31.57,
+          "strike_rate": 21.61,
+          "dot_ball_pct": 29.78,
+          "boundary_conceded_pct": 17.0,
+          "sample_size": "HIGH"
+        },
+        "phase": {
+          "powerplay": {
+            "economy": 8.04,
+            "wickets": 6,
+            "overs": 24.0,
+            "sr": 32.17,
+            "sample_size": "MEDIUM"
+          },
+          "middle": {
+            "economy": 8.38,
+            "wickets": 23,
+            "overs": 108.7,
+            "sr": 39.61,
+            "sample_size": "HIGH"
+          },
+          "death": {
+            "economy": 10.55,
+            "wickets": 17,
+            "overs": 33.0,
+            "sr": 20.47,
+            "sample_size": "MEDIUM"
+          }
+        },
+        "vs_batting_hand": {
+          "Left-hand": {
+            "economy": 8.23,
+            "sr": 17.84,
+            "wickets": 19,
+            "balls": 339,
+            "sample_size": "HIGH"
+          },
+          "Right-hand": {
+            "economy": 9.21,
+            "sr": 29.76,
+            "wickets": 17,
+            "balls": 506,
+            "sample_size": "HIGH"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "RR",
+              "economy": 6.8,
+              "overs": 20.0
+            },
+            {
+              "team": "MI",
+              "economy": 6.88,
+              "overs": 26.0
+            },
+            {
+              "team": "DC",
+              "economy": 8.0,
+              "overs": 22.0
+            }
+          ],
+          "worst": [
+            {
+              "team": "RCB",
+              "economy": 11.27,
+              "overs": 13.7
+            },
+            {
+              "team": "CSK",
+              "economy": 10.43,
+              "overs": 23.0
+            },
+            {
+              "team": "KKR",
+              "economy": 9.67,
+              "overs": 12.0
+            }
+          ]
+        },
+        "classification": {
+          "arm": "Right-arm",
+          "type": "Leg-spin",
+          "archetype": "BALANCED"
+        },
+        "tags": [
+          "LHB_SPECIALIST",
+          "RHB_VULNERABLE",
+          "LHB_WICKET_TAKER",
+          "MIDDLE_OVERS_CONTROLLER",
+          "MID_OVERS_ELITE",
+          "PROVEN_WICKET_TAKER"
+        ]
+      }
+    },
+    "f19ccfad": {
+      "player_id": "f19ccfad",
+      "player_name": "Washington Sundar",
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "role": "All-rounder",
+      "price_cr": 3.2,
+      "acquisition_type": "Retained",
+      "nationality": "IND",
+      "age": 26,
+      "batting_hand": "Left-hand",
+      "bowling_arm": "Right-arm",
+      "bowling_type": "Off-spin",
+      "is_captain": false,
+      "archetype": "Holding Spinner",
+      "player_type": "allrounder",
+      "has_ipl_data": true,
+      "batting": {
+        "career": {
+          "innings": 11,
+          "runs": 193,
+          "balls_faced": 141,
+          "average": 21.44,
+          "strike_rate": 136.88,
+          "fifties": 0,
+          "hundreds": 0,
+          "fours": 16,
+          "sixes": 7,
+          "boundary_pct": 16.31,
+          "dot_ball_pct": 28.37,
+          "highest_score": 49,
+          "sample_size": "MEDIUM"
+        },
+        "phase": {
+          "powerplay": {
+            "sr": 255.56,
+            "avg": null,
+            "boundary_pct": 44.44,
+            "balls": 9,
+            "runs": 23,
+            "sample_size": "LOW"
+          },
+          "middle": {
+            "sr": 120.0,
+            "avg": 24.0,
+            "boundary_pct": 13.75,
+            "balls": 80,
+            "runs": 96,
+            "sample_size": "LOW"
+          },
+          "death": {
+            "sr": 142.31,
+            "avg": 14.8,
+            "boundary_pct": 15.38,
+            "balls": 52,
+            "runs": 74,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_bowling_type": {
+          "Right-arm off-spin": {
+            "sr": 100.0,
+            "avg": null,
+            "balls": 3,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 45.45,
+            "avg": 5.0,
+            "balls": 11,
+            "sample_size": "LOW"
+          },
+          "Right-arm pace": {
+            "sr": 158.82,
+            "avg": 13.5,
+            "balls": 17,
+            "sample_size": "LOW"
+          },
+          "Right-arm leg-spin": {
+            "sr": 70.0,
+            "avg": 7.0,
+            "balls": 10,
+            "sample_size": "LOW"
+          },
+          "Left-arm orthodox": {
+            "sr": 96.15,
+            "avg": null,
+            "balls": 26,
+            "sample_size": "LOW"
+          },
+          "Fast": {
+            "sr": 170.15,
+            "avg": 28.5,
+            "balls": 67,
+            "sample_size": "MEDIUM"
+          },
+          "Left-arm pace": {
+            "sr": 225.0,
+            "avg": 9.0,
+            "balls": 4,
+            "sample_size": "LOW"
+          },
+          "Left-arm wrist spin": {
+            "sr": 100.0,
+            "avg": null,
+            "balls": 3,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "MI",
+              "sr": 193.33,
+              "innings": 2
+            },
+            {
+              "team": "SRH",
+              "sr": 155.56,
+              "innings": 2
+            },
+            {
+              "team": "RR",
+              "sr": 107.69,
+              "innings": 2
+            }
+          ],
+          "worst": [
+            {
+              "team": "LSG",
+              "sr": 58.06,
+              "innings": 2
+            },
+            {
+              "team": "RR",
+              "sr": 107.69,
+              "innings": 2
+            },
+            {
+              "team": "SRH",
+              "sr": 155.56,
+              "innings": 2
+            }
+          ]
+        },
+        "entry_point": {
+          "classification": "MIDDLE_ORDER",
+          "mode_batting_position": 4,
+          "mean_batting_position": 5.7,
+          "avg_entry_ball": 78.2,
+          "innings": 11
+        },
+        "tags": [
+          "ACCUMULATOR",
+          "PACE_SPECIALIST",
+          "VULNERABLE_VS_SPIN"
+        ]
+      },
+      "bowling": {
+        "career": {
+          "matches": 14,
+          "wickets": 6,
+          "overs": 33.5,
+          "runs_conceded": 331,
+          "economy": 9.88,
+          "average": 55.17,
+          "strike_rate": 33.5,
+          "dot_ball_pct": 26.37,
+          "boundary_conceded_pct": 21.89,
+          "sample_size": "MEDIUM"
+        },
+        "phase": {
+          "powerplay": {
+            "economy": 17.57,
+            "wickets": 1,
+            "overs": 7.0,
+            "sr": 123.0,
+            "sample_size": "LOW"
+          },
+          "middle": {
+            "economy": 7.86,
+            "wickets": 4,
+            "overs": 22.0,
+            "sr": 43.25,
+            "sample_size": "MEDIUM"
+          },
+          "death": {
+            "economy": 7.78,
+            "wickets": 1,
+            "overs": 4.5,
+            "sr": 35.0,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_batting_hand": {
+          "Left-hand": {
+            "economy": 8.32,
+            "sr": 46.5,
+            "wickets": 2,
+            "balls": 93,
+            "sample_size": "MEDIUM"
+          },
+          "Right-hand": {
+            "economy": 10.6,
+            "sr": 24.33,
+            "wickets": 3,
+            "balls": 73,
+            "sample_size": "MEDIUM"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "LSG",
+              "economy": 8.0,
+              "overs": 5.0
+            },
+            {
+              "team": "MI",
+              "economy": 8.0,
+              "overs": 5.0
+            },
+            {
+              "team": "GT",
+              "economy": 9.0,
+              "overs": 3.0
+            }
+          ],
+          "worst": [
+            {
+              "team": "RR",
+              "economy": 13.66,
+              "overs": 4.8
+            },
+            {
+              "team": "DC",
+              "economy": 12.33,
+              "overs": 6.0
+            },
+            {
+              "team": "KKR",
+              "economy": 11.0,
+              "overs": 5.0
+            }
+          ]
+        },
+        "classification": {
+          "arm": "Right-arm",
+          "type": "Off-spin",
+          "archetype": "Holding Spinner"
+        },
+        "tags": [
+          "LHB_SPECIALIST",
+          "RHB_VULNERABLE",
+          "EXPENSIVE",
+          "WORKHORSE",
+          "MID_OVERS_ELITE",
+          "RHB_WICKET_TAKER"
+        ]
+      }
+    },
+    "b4b99816": {
+      "player_id": "b4b99816",
+      "player_name": "Shubman Gill",
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "role": "Batter",
+      "price_cr": 16.5,
+      "acquisition_type": "Retained",
+      "nationality": "IND",
+      "age": 26,
+      "batting_hand": "Right-hand",
+      "bowling_arm": "Right-arm",
+      "bowling_type": "Off-spin",
+      "is_captain": true,
+      "archetype": "DEATH_FINISHER",
+      "player_type": "batter",
+      "has_ipl_data": true,
+      "batting": {
+        "career": {
+          "innings": 44,
+          "runs": 1966,
+          "balls_faced": 1263,
+          "average": 51.74,
+          "strike_rate": 155.66,
+          "fifties": 16,
+          "hundreds": 4,
+          "fours": 184,
+          "sixes": 72,
+          "boundary_pct": 20.27,
+          "dot_ball_pct": 27.08,
+          "highest_score": 129,
+          "sample_size": "HIGH"
+        },
+        "phase": {
+          "powerplay": {
+            "sr": 143.7,
+            "avg": 55.47,
+            "boundary_pct": 21.76,
+            "balls": 579,
+            "runs": 832,
+            "sample_size": "HIGH"
+          },
+          "middle": {
+            "sr": 160.21,
+            "avg": 60.67,
+            "boundary_pct": 17.78,
+            "balls": 568,
+            "runs": 910,
+            "sample_size": "HIGH"
+          },
+          "death": {
+            "sr": 193.1,
+            "avg": 28.0,
+            "boundary_pct": 25.0,
+            "balls": 116,
+            "runs": 224,
+            "sample_size": "MEDIUM"
+          }
+        },
+        "vs_bowling_type": {
+          "Left-arm orthodox": {
+            "sr": 141.52,
+            "avg": 121.0,
+            "balls": 171,
+            "sample_size": "MEDIUM"
+          },
+          "Medium": {
+            "sr": 187.88,
+            "avg": null,
+            "balls": 33,
+            "sample_size": "LOW"
+          },
+          "Right-arm pace": {
+            "sr": 177.97,
+            "avg": 52.5,
+            "balls": 59,
+            "sample_size": "MEDIUM"
+          },
+          "Leg-spin": {
+            "sr": 139.36,
+            "avg": 43.67,
+            "balls": 94,
+            "sample_size": "MEDIUM"
+          },
+          "Right-arm leg-spin": {
+            "sr": 156.86,
+            "avg": 40.0,
+            "balls": 51,
+            "sample_size": "MEDIUM"
+          },
+          "Right-arm off-spin": {
+            "sr": 175.0,
+            "avg": 42.0,
+            "balls": 72,
+            "sample_size": "MEDIUM"
+          },
+          "Unknown": {
+            "sr": 202.13,
+            "avg": null,
+            "balls": 47,
+            "sample_size": "LOW"
+          },
+          "Off-spin": {
+            "sr": 172.0,
+            "avg": 64.5,
+            "balls": 75,
+            "sample_size": "MEDIUM"
+          },
+          "Fast": {
+            "sr": 149.08,
+            "avg": 38.96,
+            "balls": 601,
+            "sample_size": "HIGH"
+          },
+          "Left-arm pace": {
+            "sr": 153.19,
+            "avg": null,
+            "balls": 47,
+            "sample_size": "LOW"
+          },
+          "Left-arm wrist spin": {
+            "sr": 169.23,
+            "avg": null,
+            "balls": 13,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "CSK",
+              "sr": 165.03,
+              "innings": 6
+            },
+            {
+              "team": "SRH",
+              "sr": 164.07,
+              "innings": 4
+            },
+            {
+              "team": "PBKS",
+              "sr": 160.0,
+              "innings": 4
+            }
+          ],
+          "worst": [
+            {
+              "team": "RR",
+              "sr": 144.85,
+              "innings": 5
+            },
+            {
+              "team": "KKR",
+              "sr": 147.5,
+              "innings": 3
+            },
+            {
+              "team": "DC",
+              "sr": 147.73,
+              "innings": 6
+            }
+          ]
+        },
+        "entry_point": {
+          "classification": "OPENER",
+          "mode_batting_position": 2,
+          "mean_batting_position": 2.0,
+          "avg_entry_ball": 4.2,
+          "innings": 44
+        },
+        "tags": [
+          "SPECIALIST_VS_PACE",
+          "SPECIALIST_VS_SPIN",
+          "SPECIALIST_VS_LEG_SPIN",
+          "SPECIALIST_VS_OFF_SPIN",
+          "PLAYMAKER",
+          "SIX_HITTER",
+          "MIDDLE_OVERS_ACCELERATOR",
+          "CONSISTENT"
+        ]
+      },
+      "bowling": null
+    },
+    "d5130a30": {
+      "player_id": "d5130a30",
+      "player_name": "Sai Sudharsan",
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "role": "Batter",
+      "price_cr": 8.5,
+      "acquisition_type": "Retained",
+      "nationality": "IND",
+      "age": 24,
+      "batting_hand": "Left-hand",
+      "bowling_arm": "Right-arm",
+      "bowling_type": "Medium",
+      "is_captain": false,
+      "archetype": "DEATH_FINISHER",
+      "player_type": "batter",
+      "has_ipl_data": true,
+      "batting": {
+        "career": {
+          "innings": 35,
+          "runs": 1648,
+          "balls_faced": 1108,
+          "average": 53.16,
+          "strike_rate": 148.74,
+          "fifties": 13,
+          "hundreds": 2,
+          "fours": 169,
+          "sixes": 50,
+          "boundary_pct": 19.77,
+          "dot_ball_pct": 28.25,
+          "highest_score": 108,
+          "sample_size": "HIGH"
+        },
+        "phase": {
+          "powerplay": {
+            "sr": 139.52,
+            "avg": 129.2,
+            "boundary_pct": 20.95,
+            "balls": 463,
+            "runs": 646,
+            "sample_size": "MEDIUM"
+          },
+          "middle": {
+            "sr": 145.82,
+            "avg": 47.18,
+            "boundary_pct": 16.73,
+            "balls": 550,
+            "runs": 802,
+            "sample_size": "HIGH"
+          },
+          "death": {
+            "sr": 210.53,
+            "avg": 22.22,
+            "boundary_pct": 31.58,
+            "balls": 95,
+            "runs": 200,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_bowling_type": {
+          "Left-arm orthodox": {
+            "sr": 167.67,
+            "avg": 74.33,
+            "balls": 133,
+            "sample_size": "MEDIUM"
+          },
+          "Medium": {
+            "sr": 177.42,
+            "avg": null,
+            "balls": 31,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 145.78,
+            "avg": 121.0,
+            "balls": 83,
+            "sample_size": "MEDIUM"
+          },
+          "Right-arm pace": {
+            "sr": 163.79,
+            "avg": 19.0,
+            "balls": 58,
+            "sample_size": "MEDIUM"
+          },
+          "Right-arm leg-spin": {
+            "sr": 128.0,
+            "avg": null,
+            "balls": 25,
+            "sample_size": "LOW"
+          },
+          "Right-arm off-spin": {
+            "sr": 160.94,
+            "avg": 103.0,
+            "balls": 64,
+            "sample_size": "MEDIUM"
+          },
+          "Unknown": {
+            "sr": 164.52,
+            "avg": 51.0,
+            "balls": 31,
+            "sample_size": "LOW"
+          },
+          "Off-spin": {
+            "sr": 141.86,
+            "avg": 61.0,
+            "balls": 43,
+            "sample_size": "LOW"
+          },
+          "Fast": {
+            "sr": 139.83,
+            "avg": 44.67,
+            "balls": 575,
+            "sample_size": "HIGH"
+          },
+          "Left-arm wrist spin": {
+            "sr": 123.53,
+            "avg": 42.0,
+            "balls": 34,
+            "sample_size": "LOW"
+          },
+          "Left-arm pace": {
+            "sr": 158.06,
+            "avg": null,
+            "balls": 31,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "CSK",
+              "sr": 172.25,
+              "innings": 5
+            },
+            {
+              "team": "DC",
+              "sr": 159.89,
+              "innings": 5
+            },
+            {
+              "team": "MI",
+              "sr": 143.03,
+              "innings": 5
+            }
+          ],
+          "worst": [
+            {
+              "team": "RR",
+              "sr": 134.35,
+              "innings": 4
+            },
+            {
+              "team": "SRH",
+              "sr": 136.27,
+              "innings": 4
+            },
+            {
+              "team": "PBKS",
+              "sr": 137.72,
+              "innings": 4
+            }
+          ]
+        },
+        "entry_point": {
+          "classification": "OPENER",
+          "mode_batting_position": 1,
+          "mean_batting_position": 1.9,
+          "avg_entry_ball": 11.5,
+          "innings": 35
+        },
+        "tags": [
+          "SPECIALIST_VS_PACE",
+          "SPECIALIST_VS_SPIN",
+          "SPECIALIST_VS_OFF_SPIN",
+          "AGGRESSIVE",
+          "EXPLOSIVE_OPENER",
+          "MIDDLE_OVERS_ACCELERATOR",
+          "DEATH_SPECIALIST",
+          "SIX_HITTER",
+          "CONSISTENT",
+          "SPIN_SPECIALIST"
+        ]
+      },
+      "bowling": null
+    },
+    "99b75528": {
+      "player_id": "99b75528",
+      "player_name": "Jos Buttler",
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "role": "Wicketkeeper",
+      "price_cr": 15.75,
+      "acquisition_type": "Retained",
+      "nationality": "ENG",
+      "age": 35,
+      "batting_hand": "Right-hand",
+      "bowling_arm": "Right-arm",
+      "bowling_type": "Medium",
+      "is_captain": false,
+      "archetype": "DEATH_FINISHER",
+      "player_type": "batter",
+      "has_ipl_data": true,
+      "batting": {
+        "career": {
+          "innings": 38,
+          "runs": 1289,
+          "balls_faced": 865,
+          "average": 40.28,
+          "strike_rate": 149.02,
+          "fifties": 11,
+          "hundreds": 2,
+          "fours": 130,
+          "sixes": 50,
+          "boundary_pct": 20.81,
+          "dot_ball_pct": 33.64,
+          "highest_score": 107,
+          "sample_size": "HIGH"
+        },
+        "phase": {
+          "powerplay": {
+            "sr": 131.61,
+            "avg": 30.53,
+            "boundary_pct": 20.11,
+            "balls": 348,
+            "runs": 458,
+            "sample_size": "MEDIUM"
+          },
+          "middle": {
+            "sr": 150.26,
+            "avg": 52.45,
+            "boundary_pct": 19.27,
+            "balls": 384,
+            "runs": 577,
+            "sample_size": "MEDIUM"
+          },
+          "death": {
+            "sr": 190.98,
+            "avg": 42.33,
+            "boundary_pct": 27.07,
+            "balls": 133,
+            "runs": 254,
+            "sample_size": "MEDIUM"
+          }
+        },
+        "vs_bowling_type": {
+          "Fast": {
+            "sr": 147.77,
+            "avg": 38.94,
+            "balls": 448,
+            "sample_size": "HIGH"
+          },
+          "Left-arm pace": {
+            "sr": 142.31,
+            "avg": 18.5,
+            "balls": 26,
+            "sample_size": "LOW"
+          },
+          "Left-arm wrist spin": {
+            "sr": 114.29,
+            "avg": 32.0,
+            "balls": 28,
+            "sample_size": "LOW"
+          },
+          "Off-spin": {
+            "sr": 143.24,
+            "avg": null,
+            "balls": 37,
+            "sample_size": "LOW"
+          },
+          "Unknown": {
+            "sr": 172.73,
+            "avg": null,
+            "balls": 22,
+            "sample_size": "LOW"
+          },
+          "Right-arm off-spin": {
+            "sr": 164.15,
+            "avg": 29.0,
+            "balls": 53,
+            "sample_size": "MEDIUM"
+          },
+          "Right-arm pace": {
+            "sr": 154.55,
+            "avg": 34.0,
+            "balls": 66,
+            "sample_size": "MEDIUM"
+          },
+          "Leg-spin": {
+            "sr": 146.15,
+            "avg": 38.0,
+            "balls": 52,
+            "sample_size": "MEDIUM"
+          },
+          "Right-arm leg-spin": {
+            "sr": 133.33,
+            "avg": 12.0,
+            "balls": 18,
+            "sample_size": "LOW"
+          },
+          "Left-arm orthodox": {
+            "sr": 154.12,
+            "avg": 65.5,
+            "balls": 85,
+            "sample_size": "MEDIUM"
+          },
+          "Medium": {
+            "sr": 143.33,
+            "avg": null,
+            "balls": 30,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "SRH",
+              "sr": 174.59,
+              "innings": 5
+            },
+            {
+              "team": "KKR",
+              "sr": 174.12,
+              "innings": 3
+            },
+            {
+              "team": "RCB",
+              "sr": 171.29,
+              "innings": 4
+            }
+          ],
+          "worst": [
+            {
+              "team": "GT",
+              "sr": 76.19,
+              "innings": 3
+            },
+            {
+              "team": "CSK",
+              "sr": 117.98,
+              "innings": 4
+            },
+            {
+              "team": "MI",
+              "sr": 121.62,
+              "innings": 5
+            }
+          ]
+        },
+        "entry_point": {
+          "classification": "OPENER",
+          "mode_batting_position": 2,
+          "mean_batting_position": 2.4,
+          "avg_entry_ball": 16.4,
+          "innings": 38
+        },
+        "tags": [
+          "SPECIALIST_VS_PACE",
+          "SPECIALIST_VS_SPIN",
+          "SPECIALIST_VS_OFF_SPIN",
+          "AGGRESSIVE",
+          "SIX_HITTER",
+          "EXPLOSIVE_OPENER",
+          "MIDDLE_OVERS_ACCELERATOR",
+          "DEATH_SPECIALIST",
+          "CONSISTENT"
+        ]
+      },
+      "bowling": null
+    },
+    "39a2dfa8": {
+      "player_id": "39a2dfa8",
+      "player_name": "Rahul Tewatia",
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "role": "All-rounder",
+      "price_cr": 4.0,
+      "acquisition_type": "Retained",
+      "nationality": "IND",
+      "age": 26,
+      "batting_hand": "Left-hand",
+      "bowling_arm": "Right-arm",
+      "bowling_type": "Leg-spin",
+      "is_captain": false,
+      "archetype": null,
+      "player_type": "allrounder",
+      "has_ipl_data": true,
+      "batting": {
+        "career": {
+          "innings": 30,
+          "runs": 374,
+          "balls_faced": 242,
+          "average": 22.0,
+          "strike_rate": 154.55,
+          "fifties": 0,
+          "hundreds": 0,
+          "fours": 33,
+          "sixes": 19,
+          "boundary_pct": 21.49,
+          "dot_ball_pct": 32.64,
+          "highest_score": 36,
+          "sample_size": "HIGH"
+        },
+        "phase": {
+          "powerplay": {
+            "sr": null,
+            "avg": null,
+            "boundary_pct": null,
+            "balls": null,
+            "runs": null,
+            "sample_size": null
+          },
+          "middle": {
+            "sr": 93.85,
+            "avg": 20.33,
+            "boundary_pct": 7.69,
+            "balls": 65,
+            "runs": 61,
+            "sample_size": "LOW"
+          },
+          "death": {
+            "sr": 176.84,
+            "avg": 22.36,
+            "boundary_pct": 26.55,
+            "balls": 177,
+            "runs": 313,
+            "sample_size": "MEDIUM"
+          }
+        },
+        "vs_bowling_type": {
+          "Right-arm pace": {
+            "sr": 107.69,
+            "avg": 14.0,
+            "balls": 26,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 150.0,
+            "avg": null,
+            "balls": 2,
+            "sample_size": "LOW"
+          },
+          "Right-arm leg-spin": {
+            "sr": 112.5,
+            "avg": 9.0,
+            "balls": 8,
+            "sample_size": "LOW"
+          },
+          "Right-arm off-spin": {
+            "sr": 187.5,
+            "avg": 15.0,
+            "balls": 8,
+            "sample_size": "LOW"
+          },
+          "Unknown": {
+            "sr": 200.0,
+            "avg": null,
+            "balls": 9,
+            "sample_size": "LOW"
+          },
+          "Left-arm orthodox": {
+            "sr": 100.0,
+            "avg": 17.0,
+            "balls": 17,
+            "sample_size": "LOW"
+          },
+          "Medium": {
+            "sr": 287.5,
+            "avg": null,
+            "balls": 8,
+            "sample_size": "LOW"
+          },
+          "Fast": {
+            "sr": 163.89,
+            "avg": 29.5,
+            "balls": 144,
+            "sample_size": "MEDIUM"
+          },
+          "Left-arm wrist spin": {
+            "sr": 53.85,
+            "avg": 3.5,
+            "balls": 13,
+            "sample_size": "LOW"
+          },
+          "Left-arm pace": {
+            "sr": 228.57,
+            "avg": 8.0,
+            "balls": 7,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "PBKS",
+              "sr": 233.33,
+              "innings": 4
+            },
+            {
+              "team": "RR",
+              "sr": 200.0,
+              "innings": 4
+            },
+            {
+              "team": "MI",
+              "sr": 162.75,
+              "innings": 5
+            }
+          ],
+          "worst": [
+            {
+              "team": "CSK",
+              "sr": 95.0,
+              "innings": 4
+            },
+            {
+              "team": "LSG",
+              "sr": 106.67,
+              "innings": 4
+            },
+            {
+              "team": "RCB",
+              "sr": 150.0,
+              "innings": 2
+            }
+          ]
+        },
+        "entry_point": {
+          "classification": "FINISHER",
+          "mode_batting_position": 6,
+          "mean_batting_position": 6.2,
+          "avg_entry_ball": 99.5,
+          "innings": 30
+        },
+        "tags": [
+          "PLAYMAKER",
+          "SIX_HITTER",
+          "ACCUMULATOR",
+          "PACE_SPECIALIST"
+        ]
+      },
+      "bowling": {
+        "career": {
+          "matches": 2,
+          "wickets": 0,
+          "overs": 2.2,
+          "runs_conceded": 15,
+          "economy": 6.92,
+          "average": null,
+          "strike_rate": null,
+          "dot_ball_pct": 53.85,
+          "boundary_conceded_pct": 15.38,
+          "sample_size": "LOW"
+        },
+        "phase": {
+          "powerplay": {
+            "economy": null,
+            "wickets": null,
+            "overs": null,
+            "sr": null,
+            "sample_size": null
+          },
+          "middle": {
+            "economy": 8.0,
+            "wickets": 0,
+            "overs": 1.0,
+            "sr": null,
+            "sample_size": "LOW"
+          },
+          "death": {
+            "economy": 6.0,
+            "wickets": 0,
+            "overs": 1.2,
+            "sr": null,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_batting_hand": {
+          "Left-hand": {
+            "economy": 10.5,
+            "sr": null,
+            "wickets": 0,
+            "balls": 4,
+            "sample_size": "LOW"
+          },
+          "Right-hand": {
+            "economy": 7.0,
+            "sr": null,
+            "wickets": 0,
+            "balls": 6,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [],
+          "worst": []
+        },
+        "classification": {
+          "arm": "Right-arm",
+          "type": "Leg-spin",
+          "archetype": null
+        },
+        "tags": [
+          "MIDDLE_OVERS_CONTROLLER"
+        ]
+      }
+    },
+    "7dcb9bc9": {
+      "player_id": "7dcb9bc9",
+      "player_name": "Shahrukh Khan",
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "role": "All-rounder",
+      "price_cr": 4.0,
+      "acquisition_type": "Retained",
+      "nationality": "IND",
+      "age": 30,
+      "batting_hand": "Right-hand",
+      "bowling_arm": "Right-arm",
+      "bowling_type": "Off-spin",
+      "is_captain": false,
+      "archetype": null,
+      "player_type": "allrounder",
+      "has_ipl_data": true,
+      "batting": {
+        "career": {
+          "innings": 30,
+          "runs": 462,
+          "balls_faced": 269,
+          "average": 25.67,
+          "strike_rate": 171.75,
+          "fifties": 2,
+          "hundreds": 0,
+          "fours": 33,
+          "sixes": 31,
+          "boundary_pct": 23.79,
+          "dot_ball_pct": 29.37,
+          "highest_score": 58,
+          "sample_size": "HIGH"
+        },
+        "phase": {
+          "powerplay": {
+            "sr": 88.89,
+            "avg": null,
+            "boundary_pct": 11.11,
+            "balls": 9,
+            "runs": 8,
+            "sample_size": "LOW"
+          },
+          "middle": {
+            "sr": 165.83,
+            "avg": 33.17,
+            "boundary_pct": 24.17,
+            "balls": 120,
+            "runs": 199,
+            "sample_size": "MEDIUM"
+          },
+          "death": {
+            "sr": 182.14,
+            "avg": 21.25,
+            "boundary_pct": 24.29,
+            "balls": 140,
+            "runs": 255,
+            "sample_size": "MEDIUM"
+          }
+        },
+        "vs_bowling_type": {
+          "Right-arm off-spin": {
+            "sr": 209.09,
+            "avg": 46.0,
+            "balls": 22,
+            "sample_size": "LOW"
+          },
+          "Off-spin": {
+            "sr": 0.0,
+            "avg": null,
+            "balls": 2,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 113.64,
+            "avg": 12.5,
+            "balls": 22,
+            "sample_size": "LOW"
+          },
+          "Right-arm pace": {
+            "sr": 178.79,
+            "avg": 29.5,
+            "balls": 33,
+            "sample_size": "LOW"
+          },
+          "Right-arm leg-spin": {
+            "sr": 200.0,
+            "avg": null,
+            "balls": 3,
+            "sample_size": "LOW"
+          },
+          "Medium": {
+            "sr": 180.95,
+            "avg": null,
+            "balls": 21,
+            "sample_size": "LOW"
+          },
+          "Left-arm orthodox": {
+            "sr": 146.15,
+            "avg": 19.0,
+            "balls": 13,
+            "sample_size": "LOW"
+          },
+          "Fast": {
+            "sr": 179.14,
+            "avg": 24.9,
+            "balls": 139,
+            "sample_size": "MEDIUM"
+          },
+          "Left-arm pace": {
+            "sr": 170.0,
+            "avg": 17.0,
+            "balls": 10,
+            "sample_size": "LOW"
+          },
+          "Left-arm wrist spin": {
+            "sr": 75.0,
+            "avg": null,
+            "balls": 4,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "PBKS",
+              "sr": 280.0,
+              "innings": 2
+            },
+            {
+              "team": "KKR",
+              "sr": 215.0,
+              "innings": 3
+            },
+            {
+              "team": "SRH",
+              "sr": 200.0,
+              "innings": 2
+            }
+          ],
+          "worst": [
+            {
+              "team": "CSK",
+              "sr": 109.52,
+              "innings": 3
+            },
+            {
+              "team": "DC",
+              "sr": 123.08,
+              "innings": 4
+            },
+            {
+              "team": "MI",
+              "sr": 140.0,
+              "innings": 3
+            }
+          ]
+        },
+        "entry_point": {
+          "classification": "FINISHER",
+          "mode_batting_position": 7,
+          "mean_batting_position": 6.1,
+          "avg_entry_ball": 91.1,
+          "innings": 30
+        },
+        "tags": [
+          "SPECIALIST_VS_PACE",
+          "PLAYMAKER",
+          "SIX_HITTER",
+          "ACCUMULATOR",
+          "PACE_SPECIALIST"
+        ]
+      },
+      "bowling": {
+        "career": {
+          "matches": 3,
+          "wickets": 1,
+          "overs": 3.0,
+          "runs_conceded": 29,
+          "economy": 9.67,
+          "average": 29.0,
+          "strike_rate": 18.0,
+          "dot_ball_pct": 22.22,
+          "boundary_conceded_pct": 16.67,
+          "sample_size": "LOW"
+        },
+        "phase": {
+          "powerplay": {
+            "economy": null,
+            "wickets": null,
+            "overs": null,
+            "sr": null,
+            "sample_size": null
+          },
+          "middle": {
+            "economy": 11.0,
+            "wickets": 1,
+            "overs": 2.0,
+            "sr": 22.0,
+            "sample_size": "LOW"
+          },
+          "death": {
+            "economy": 7.0,
+            "wickets": 0,
+            "overs": 1.0,
+            "sr": null,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_batting_hand": {
+          "Left-hand": {
+            "economy": 10.8,
+            "sr": 10.0,
+            "wickets": 1,
+            "balls": 10,
+            "sample_size": "LOW"
+          },
+          "Right-hand": {
+            "economy": 15.0,
+            "sr": null,
+            "wickets": 0,
+            "balls": 2,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [],
+          "worst": []
+        },
+        "classification": {
+          "arm": "Right-arm",
+          "type": "Off-spin",
+          "archetype": null
+        },
+        "tags": []
+      }
+    },
+    "c7a995d3": {
+      "player_id": "c7a995d3",
+      "player_name": "Sai Kishore",
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "role": "Bowler",
+      "price_cr": 2.0,
+      "acquisition_type": "Retained",
+      "nationality": "IND",
+      "age": 29,
+      "batting_hand": "Left-hand",
+      "bowling_arm": "Left-arm",
+      "bowling_type": "LA Orthodox",
+      "is_captain": false,
+      "archetype": null,
+      "player_type": "bowler",
+      "has_ipl_data": true,
+      "bowling": {
+        "career": {
+          "matches": 20,
+          "wickets": 26,
+          "overs": 57.5,
+          "runs_conceded": 533,
+          "economy": 9.27,
+          "average": 20.5,
+          "strike_rate": 13.27,
+          "dot_ball_pct": 30.14,
+          "boundary_conceded_pct": 18.26,
+          "sample_size": "MEDIUM"
+        },
+        "phase": {
+          "powerplay": {
+            "economy": 11.0,
+            "wickets": 1,
+            "overs": 3.0,
+            "sr": 33.0,
+            "sample_size": "LOW"
+          },
+          "middle": {
+            "economy": 8.72,
+            "wickets": 18,
+            "overs": 43.0,
+            "sr": 20.83,
+            "sample_size": "MEDIUM"
+          },
+          "death": {
+            "economy": 10.87,
+            "wickets": 7,
+            "overs": 11.5,
+            "sr": 17.86,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_batting_hand": {
+          "Left-hand": {
+            "economy": 11.91,
+            "sr": 23.0,
+            "wickets": 3,
+            "balls": 69,
+            "sample_size": "MEDIUM"
+          },
+          "Right-hand": {
+            "economy": 8.87,
+            "sr": 13.42,
+            "wickets": 19,
+            "balls": 255,
+            "sample_size": "HIGH"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "KKR",
+              "economy": 5.67,
+              "overs": 3.0
+            },
+            {
+              "team": "SRH",
+              "economy": 5.79,
+              "overs": 4.7
+            },
+            {
+              "team": "RCB",
+              "economy": 7.29,
+              "overs": 7.0
+            }
+          ],
+          "worst": [
+            {
+              "team": "LSG",
+              "economy": 15.56,
+              "overs": 4.5
+            },
+            {
+              "team": "DC",
+              "economy": 12.83,
+              "overs": 6.0
+            },
+            {
+              "team": "RR",
+              "economy": 10.5,
+              "overs": 3.3
+            }
+          ]
+        },
+        "classification": {
+          "arm": "Left-arm",
+          "type": "LA Orthodox",
+          "archetype": null
+        },
+        "tags": [
+          "RHB_SPECIALIST",
+          "LHB_VULNERABLE",
+          "RHB_WICKET_TAKER",
+          "WORKHORSE"
+        ]
+      },
+      "batting": {
+        "career": {
+          "innings": 4,
+          "runs": 18,
+          "balls_faced": 16,
+          "average": 6.0,
+          "strike_rate": 112.5,
+          "fifties": 0,
+          "hundreds": 0,
+          "fours": 0,
+          "sixes": 2,
+          "boundary_pct": 12.5,
+          "dot_ball_pct": 50.0,
+          "highest_score": 13,
+          "sample_size": "LOW"
+        },
+        "phase": {
+          "powerplay": {
+            "sr": null,
+            "avg": null,
+            "boundary_pct": null,
+            "balls": null,
+            "runs": null,
+            "sample_size": null
+          },
+          "middle": {
+            "sr": null,
+            "avg": null,
+            "boundary_pct": null,
+            "balls": null,
+            "runs": null,
+            "sample_size": null
+          },
+          "death": {
+            "sr": 112.5,
+            "avg": 6.0,
+            "boundary_pct": 12.5,
+            "balls": 16,
+            "runs": 18,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_bowling_type": {
+          "Fast": {
+            "sr": 50.0,
+            "avg": 2.0,
+            "balls": 4,
+            "sample_size": "LOW"
+          },
+          "Left-arm wrist spin": {
+            "sr": 40.0,
+            "avg": null,
+            "balls": 5,
+            "sample_size": "LOW"
+          },
+          "Right-arm pace": {
+            "sr": 300.0,
+            "avg": 12.0,
+            "balls": 4,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 50.0,
+            "avg": 1.0,
+            "balls": 2,
+            "sample_size": "LOW"
+          },
+          "Unknown": {
+            "sr": 100.0,
+            "avg": null,
+            "balls": 1,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [],
+          "worst": []
+        },
+        "entry_point": {
+          "classification": "LOWER_ORDER",
+          "mode_batting_position": 10,
+          "mean_batting_position": 9.3,
+          "avg_entry_ball": 114.8,
+          "innings": 4
+        },
+        "tags": []
+      }
+    },
+    "9a46c4e5": {
+      "player_id": "9a46c4e5",
+      "player_name": "Glenn Phillips",
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "role": "All-rounder",
+      "price_cr": 2.0,
+      "acquisition_type": "Retained",
+      "nationality": "NZ",
+      "age": 29,
+      "batting_hand": "Right-hand",
+      "bowling_arm": "Right-arm",
+      "bowling_type": "Off-spin",
+      "is_captain": false,
+      "archetype": null,
+      "player_type": "allrounder",
+      "has_ipl_data": true,
+      "batting": {
+        "career": {
+          "innings": 5,
+          "runs": 39,
+          "balls_faced": 22,
+          "average": 7.8,
+          "strike_rate": 177.27,
+          "fifties": 0,
+          "hundreds": 0,
+          "fours": 2,
+          "sixes": 4,
+          "boundary_pct": 27.27,
+          "dot_ball_pct": 45.45,
+          "highest_score": 25,
+          "sample_size": "LOW"
+        },
+        "phase": {
+          "powerplay": {
+            "sr": null,
+            "avg": null,
+            "boundary_pct": null,
+            "balls": null,
+            "runs": null,
+            "sample_size": null
+          },
+          "middle": {
+            "sr": 114.29,
+            "avg": 4.0,
+            "boundary_pct": 14.29,
+            "balls": 7,
+            "runs": 8,
+            "sample_size": "LOW"
+          },
+          "death": {
+            "sr": 206.67,
+            "avg": 10.33,
+            "boundary_pct": 33.33,
+            "balls": 15,
+            "runs": 31,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_bowling_type": {
+          "Right-arm pace": {
+            "sr": 100.0,
+            "avg": 8.0,
+            "balls": 8,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 150.0,
+            "avg": null,
+            "balls": 2,
+            "sample_size": "LOW"
+          },
+          "Right-arm leg-spin": {
+            "sr": 440.0,
+            "avg": 22.0,
+            "balls": 5,
+            "sample_size": "LOW"
+          },
+          "Fast": {
+            "sr": 125.0,
+            "avg": 5.0,
+            "balls": 4,
+            "sample_size": "LOW"
+          },
+          "Left-arm orthodox": {
+            "sr": 0.0,
+            "avg": 0.0,
+            "balls": 1,
+            "sample_size": "LOW"
+          },
+          "Right-arm off-spin": {
+            "sr": 50.0,
+            "avg": 1.0,
+            "balls": 2,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "RR",
+              "sr": 253.85,
+              "innings": 2
+            }
+          ],
+          "worst": [
+            {
+              "team": "RR",
+              "sr": 253.85,
+              "innings": 2
+            }
+          ]
+        },
+        "entry_point": {
+          "classification": "FINISHER",
+          "mode_batting_position": 6,
+          "mean_batting_position": 5.6,
+          "avg_entry_ball": 92.0,
+          "innings": 5
+        },
+        "tags": []
+      },
+      "bowling": {
+        "career": {
+          "matches": 2,
+          "wickets": 1,
+          "overs": 3.0,
+          "runs_conceded": 20,
+          "economy": 6.67,
+          "average": 20.0,
+          "strike_rate": 18.0,
+          "dot_ball_pct": 33.33,
+          "boundary_conceded_pct": 11.11,
+          "sample_size": "LOW"
+        },
+        "phase": {
+          "powerplay": {
+            "economy": 4.0,
+            "wickets": 1,
+            "overs": 1.0,
+            "sr": 4.0,
+            "sample_size": "LOW"
+          },
+          "middle": {
+            "economy": 8.0,
+            "wickets": 0,
+            "overs": 2.0,
+            "sr": null,
+            "sample_size": "LOW"
+          },
+          "death": {
+            "economy": null,
+            "wickets": null,
+            "overs": null,
+            "sr": null,
+            "sample_size": null
+          }
+        },
+        "vs_batting_hand": {
+          "Left-hand": {
+            "economy": 6.0,
+            "sr": null,
+            "wickets": 0,
+            "balls": 3,
+            "sample_size": "LOW"
+          },
+          "Right-hand": {
+            "economy": 10.5,
+            "sr": null,
+            "wickets": 0,
+            "balls": 4,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [],
+          "worst": []
+        },
+        "classification": {
+          "arm": "Right-arm",
+          "type": "Off-spin",
+          "archetype": null
+        },
+        "tags": []
+      }
+    },
+    "12314277": {
+      "player_id": "12314277",
+      "player_name": "Arshad Khan",
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "role": "All-rounder",
+      "price_cr": 1.3,
+      "acquisition_type": "Retained",
+      "nationality": "IND",
+      "age": 28,
+      "batting_hand": "Left-hand",
+      "bowling_arm": "Left-arm",
+      "bowling_type": "Fast",
+      "is_captain": false,
+      "archetype": "POWERPLAY_SPECIALIST",
+      "player_type": "allrounder",
+      "has_ipl_data": true,
+      "batting": {
+        "career": {
+          "innings": 11,
+          "runs": 124,
+          "balls_faced": 88,
+          "average": 20.67,
+          "strike_rate": 140.91,
+          "fifties": 1,
+          "hundreds": 0,
+          "fours": 6,
+          "sixes": 9,
+          "boundary_pct": 17.05,
+          "dot_ball_pct": 39.77,
+          "highest_score": 58,
+          "sample_size": "MEDIUM"
+        },
+        "phase": {
+          "powerplay": {
+            "sr": null,
+            "avg": null,
+            "boundary_pct": null,
+            "balls": null,
+            "runs": null,
+            "sample_size": null
+          },
+          "middle": {
+            "sr": 130.0,
+            "avg": 39.0,
+            "boundary_pct": 16.67,
+            "balls": 30,
+            "runs": 39,
+            "sample_size": "LOW"
+          },
+          "death": {
+            "sr": 146.55,
+            "avg": 17.0,
+            "boundary_pct": 17.24,
+            "balls": 58,
+            "runs": 85,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_bowling_type": {
+          "Right-arm off-spin": {
+            "sr": 233.33,
+            "avg": null,
+            "balls": 3,
+            "sample_size": "LOW"
+          },
+          "Left-arm wrist spin": {
+            "sr": 118.75,
+            "avg": 19.0,
+            "balls": 16,
+            "sample_size": "LOW"
+          },
+          "Fast": {
+            "sr": 159.18,
+            "avg": 39.0,
+            "balls": 49,
+            "sample_size": "LOW"
+          },
+          "Left-arm orthodox": {
+            "sr": 44.44,
+            "avg": 2.0,
+            "balls": 9,
+            "sample_size": "LOW"
+          },
+          "Right-arm pace": {
+            "sr": 145.45,
+            "avg": 16.0,
+            "balls": 11,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "DC",
+              "sr": 159.18,
+              "innings": 2
+            },
+            {
+              "team": "CSK",
+              "sr": 115.0,
+              "innings": 3
+            },
+            {
+              "team": "MI",
+              "sr": 50.0,
+              "innings": 2
+            }
+          ],
+          "worst": [
+            {
+              "team": "MI",
+              "sr": 50.0,
+              "innings": 2
+            },
+            {
+              "team": "CSK",
+              "sr": 115.0,
+              "innings": 3
+            },
+            {
+              "team": "DC",
+              "sr": 159.18,
+              "innings": 2
+            }
+          ]
+        },
+        "entry_point": {
+          "classification": "LOWER_ORDER",
+          "mode_batting_position": 9,
+          "mean_batting_position": 7.7,
+          "avg_entry_ball": 100.7,
+          "innings": 11
+        },
+        "tags": []
+      },
+      "bowling": {
+        "career": {
+          "matches": 19,
+          "wickets": 12,
+          "overs": 45.3,
+          "runs_conceded": 527,
+          "economy": 11.63,
+          "average": 43.92,
+          "strike_rate": 22.67,
+          "dot_ball_pct": 34.56,
+          "boundary_conceded_pct": 31.25,
+          "sample_size": "MEDIUM"
+        },
+        "phase": {
+          "powerplay": {
+            "economy": 10.52,
+            "wickets": 7,
+            "overs": 31.0,
+            "sr": 46.57,
+            "sample_size": "MEDIUM"
+          },
+          "middle": {
+            "economy": 11.4,
+            "wickets": 2,
+            "overs": 5.0,
+            "sr": 28.5,
+            "sample_size": "LOW"
+          },
+          "death": {
+            "economy": 15.43,
+            "wickets": 3,
+            "overs": 9.3,
+            "sr": 48.0,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_batting_hand": {
+          "Left-hand": {
+            "economy": 12.89,
+            "sr": 15.67,
+            "wickets": 3,
+            "balls": 47,
+            "sample_size": "LOW"
+          },
+          "Right-hand": {
+            "economy": 11.97,
+            "sr": 31.83,
+            "wickets": 6,
+            "balls": 191,
+            "sample_size": "MEDIUM"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "MI",
+              "economy": 5.4,
+              "overs": 5.0
+            },
+            {
+              "team": "LSG",
+              "economy": 9.0,
+              "overs": 5.0
+            },
+            {
+              "team": "RCB",
+              "economy": 9.69,
+              "overs": 4.3
+            }
+          ],
+          "worst": [
+            {
+              "team": "CSK",
+              "economy": 17.14,
+              "overs": 5.8
+            },
+            {
+              "team": "PBKS",
+              "economy": 13.4,
+              "overs": 5.0
+            },
+            {
+              "team": "RR",
+              "economy": 10.8,
+              "overs": 5.0
+            }
+          ]
+        },
+        "classification": {
+          "arm": "Left-arm",
+          "type": "Fast",
+          "archetype": "POWERPLAY_SPECIALIST"
+        },
+        "tags": [
+          "EXPENSIVE",
+          "PART_TIMER"
+        ]
+      }
+    },
+    "99258814": {
+      "player_id": "99258814",
+      "player_name": "Gurnoor Brar",
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "role": "Bowler",
+      "price_cr": 1.3,
+      "acquisition_type": "Retained",
+      "nationality": "IND",
+      "age": 25,
+      "batting_hand": "Left-hand",
+      "bowling_arm": "Right-arm",
+      "bowling_type": "Fast-Medium",
+      "is_captain": false,
+      "archetype": null,
+      "player_type": "bowler",
+      "has_ipl_data": true,
+      "bowling": {
+        "career": {
+          "matches": 1,
+          "wickets": 0,
+          "overs": 3.0,
+          "runs_conceded": 42,
+          "economy": 14.0,
+          "average": null,
+          "strike_rate": null,
+          "dot_ball_pct": 38.89,
+          "boundary_conceded_pct": 38.89,
+          "sample_size": "LOW"
+        },
+        "phase": {
+          "powerplay": {
+            "economy": 9.0,
+            "wickets": 0,
+            "overs": 2.0,
+            "sr": null,
+            "sample_size": "LOW"
+          },
+          "middle": {
+            "economy": 24.0,
+            "wickets": 0,
+            "overs": 1.0,
+            "sr": null,
+            "sample_size": "LOW"
+          },
+          "death": {
+            "economy": null,
+            "wickets": null,
+            "overs": null,
+            "sr": null,
+            "sample_size": null
+          }
+        },
+        "vs_batting_hand": {
+          "Left-hand": {
+            "economy": null,
+            "sr": null,
+            "wickets": null,
+            "balls": null,
+            "sample_size": null
+          },
+          "Right-hand": {
+            "economy": 13.85,
+            "sr": null,
+            "wickets": 0,
+            "balls": 13,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "LSG",
+              "economy": 12.67,
+              "overs": 3.0
+            }
+          ],
+          "worst": [
+            {
+              "team": "LSG",
+              "economy": 12.67,
+              "overs": 3.0
+            }
+          ]
+        },
+        "classification": {
+          "arm": "Right-arm",
+          "type": "Fast-Medium",
+          "archetype": null
+        },
+        "tags": []
+      },
+      "batting": null
+    },
+    "81049310": {
+      "player_id": "81049310",
+      "player_name": "Jayant Yadav",
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "role": "Bowler",
+      "price_cr": 0.75,
+      "acquisition_type": "Retained",
+      "nationality": "IND",
+      "age": 36,
+      "batting_hand": "Right-hand",
+      "bowling_arm": "Right-arm",
+      "bowling_type": "Off-spin",
+      "is_captain": false,
+      "archetype": null,
+      "player_type": "bowler",
+      "has_ipl_data": true,
+      "bowling": {
+        "career": {
+          "matches": 1,
+          "wickets": 0,
+          "overs": 4.0,
+          "runs_conceded": 26,
+          "economy": 6.5,
+          "average": null,
+          "strike_rate": null,
+          "dot_ball_pct": 33.33,
+          "boundary_conceded_pct": 8.33,
+          "sample_size": "LOW"
+        },
+        "phase": {
+          "powerplay": {
+            "economy": 8.0,
+            "wickets": 0,
+            "overs": 2.0,
+            "sr": null,
+            "sample_size": "LOW"
+          },
+          "middle": {
+            "economy": 7.0,
+            "wickets": 0,
+            "overs": 1.0,
+            "sr": null,
+            "sample_size": "LOW"
+          },
+          "death": {
+            "economy": 3.0,
+            "wickets": 0,
+            "overs": 1.0,
+            "sr": null,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_batting_hand": {
+          "Left-hand": {
+            "economy": 3.0,
+            "sr": null,
+            "wickets": 0,
+            "balls": 2,
+            "sample_size": "LOW"
+          },
+          "Right-hand": {
+            "economy": 5.54,
+            "sr": null,
+            "wickets": 0,
+            "balls": 13,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "LSG",
+              "economy": 6.5,
+              "overs": 4.0
+            }
+          ],
+          "worst": [
+            {
+              "team": "LSG",
+              "economy": 6.5,
+              "overs": 4.0
+            }
+          ]
+        },
+        "classification": {
+          "arm": "Right-arm",
+          "type": "Off-spin",
+          "archetype": null
+        },
+        "tags": [
+          "WORKHORSE",
+          "PP_ELITE",
+          "MID_OVERS_ELITE",
+          "PRESSURE_BUILDER"
+        ]
+      },
+      "batting": null
+    },
+    "57ca01b3": {
+      "player_id": "57ca01b3",
+      "player_name": "Kumar Kushagra",
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "role": "Wicketkeeper",
+      "price_cr": 0.65,
+      "acquisition_type": "Retained",
+      "nationality": "IND",
+      "age": 21,
+      "batting_hand": "Right-hand",
+      "bowling_arm": "Right-arm",
+      "bowling_type": "Medium",
+      "is_captain": false,
+      "archetype": null,
+      "player_type": "batter",
+      "has_ipl_data": true,
+      "batting": {
+        "career": {
+          "innings": 3,
+          "runs": 3,
+          "balls_faced": 7,
+          "average": 1.0,
+          "strike_rate": 42.86,
+          "fifties": 0,
+          "hundreds": 0,
+          "fours": 0,
+          "sixes": 0,
+          "boundary_pct": 0.0,
+          "dot_ball_pct": 71.43,
+          "highest_score": 2,
+          "sample_size": "LOW"
+        },
+        "phase": {
+          "powerplay": {
+            "sr": 66.67,
+            "avg": 2.0,
+            "boundary_pct": 0.0,
+            "balls": 3,
+            "runs": 2,
+            "sample_size": "LOW"
+          },
+          "middle": {
+            "sr": 33.33,
+            "avg": 1.0,
+            "boundary_pct": 0.0,
+            "balls": 3,
+            "runs": 1,
+            "sample_size": "LOW"
+          },
+          "death": {
+            "sr": 0.0,
+            "avg": 0.0,
+            "boundary_pct": 0.0,
+            "balls": 1,
+            "runs": 0,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_bowling_type": {
+          "Fast": {
+            "sr": 66.67,
+            "avg": 2.0,
+            "balls": 3,
+            "sample_size": "LOW"
+          },
+          "Off-spin": {
+            "sr": 33.33,
+            "avg": 1.0,
+            "balls": 3,
+            "sample_size": "LOW"
+          },
+          "Right-arm pace": {
+            "sr": 0.0,
+            "avg": 0.0,
+            "balls": 1,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [],
+          "worst": []
+        },
+        "entry_point": {
+          "classification": "LOWER_ORDER",
+          "mode_batting_position": 8,
+          "mean_batting_position": 7.0,
+          "avg_entry_ball": 72.3,
+          "innings": 3
+        },
+        "tags": []
+      },
+      "bowling": null
+    },
+    "c8f5f961": {
+      "player_id": "c8f5f961",
+      "player_name": "Anuj Rawat",
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "role": "Wicketkeeper",
+      "price_cr": 0.3,
+      "acquisition_type": "Retained",
+      "nationality": "IND",
+      "age": 26,
+      "batting_hand": "Left-hand",
+      "bowling_arm": "Right-arm",
+      "bowling_type": "Medium",
+      "is_captain": false,
+      "archetype": null,
+      "player_type": "batter",
+      "has_ipl_data": true,
+      "batting": {
+        "career": {
+          "innings": 12,
+          "runs": 189,
+          "balls_faced": 148,
+          "average": 31.5,
+          "strike_rate": 127.7,
+          "fifties": 0,
+          "hundreds": 0,
+          "fours": 16,
+          "sixes": 7,
+          "boundary_pct": 15.54,
+          "dot_ball_pct": 35.81,
+          "highest_score": 48,
+          "sample_size": "MEDIUM"
+        },
+        "phase": {
+          "powerplay": {
+            "sr": 150.0,
+            "avg": 6.0,
+            "boundary_pct": 25.0,
+            "balls": 4,
+            "runs": 6,
+            "sample_size": "LOW"
+          },
+          "middle": {
+            "sr": 78.57,
+            "avg": 18.33,
+            "boundary_pct": 5.71,
+            "balls": 70,
+            "runs": 55,
+            "sample_size": "LOW"
+          },
+          "death": {
+            "sr": 172.97,
+            "avg": 64.0,
+            "boundary_pct": 24.32,
+            "balls": 74,
+            "runs": 128,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_bowling_type": {
+          "Left-arm orthodox": {
+            "sr": 81.82,
+            "avg": null,
+            "balls": 11,
+            "sample_size": "LOW"
+          },
+          "Fast": {
+            "sr": 138.03,
+            "avg": 32.67,
+            "balls": 71,
+            "sample_size": "MEDIUM"
+          },
+          "Left-arm wrist spin": {
+            "sr": 25.0,
+            "avg": null,
+            "balls": 8,
+            "sample_size": "LOW"
+          },
+          "Left-arm pace": {
+            "sr": 153.85,
+            "avg": 20.0,
+            "balls": 13,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 100.0,
+            "avg": 15.0,
+            "balls": 15,
+            "sample_size": "LOW"
+          },
+          "Right-arm pace": {
+            "sr": 211.76,
+            "avg": null,
+            "balls": 17,
+            "sample_size": "LOW"
+          },
+          "Right-arm leg-spin": {
+            "sr": 100.0,
+            "avg": null,
+            "balls": 1,
+            "sample_size": "LOW"
+          },
+          "Right-arm off-spin": {
+            "sr": 66.67,
+            "avg": 8.0,
+            "balls": 12,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [
+            {
+              "team": "DC",
+              "sr": 92.0,
+              "innings": 2
+            },
+            {
+              "team": "LSG",
+              "sr": 62.5,
+              "innings": 2
+            },
+            {
+              "team": "KKR",
+              "sr": 50.0,
+              "innings": 2
+            }
+          ],
+          "worst": [
+            {
+              "team": "KKR",
+              "sr": 50.0,
+              "innings": 2
+            },
+            {
+              "team": "LSG",
+              "sr": 62.5,
+              "innings": 2
+            },
+            {
+              "team": "DC",
+              "sr": 92.0,
+              "innings": 2
+            }
+          ]
+        },
+        "entry_point": {
+          "classification": "FINISHER",
+          "mode_batting_position": 6,
+          "mean_batting_position": 6.1,
+          "avg_entry_ball": 78.2,
+          "innings": 12
+        },
+        "tags": []
+      },
+      "bowling": null
+    },
+    "3cea23da": {
+      "player_id": "3cea23da",
+      "player_name": "Nishant Sindhu",
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "role": "All-rounder",
+      "price_cr": 0.3,
+      "acquisition_type": "Retained",
+      "nationality": "IND",
+      "age": 21,
+      "batting_hand": "Left-hand",
+      "bowling_arm": "Left-arm",
+      "bowling_type": "LA Orthodox",
+      "is_captain": false,
+      "archetype": null,
+      "player_type": "allrounder",
+      "has_ipl_data": false,
+      "batting": null,
+      "bowling": null
+    },
+    "025c4400": {
+      "player_id": "025c4400",
+      "player_name": "Manav Suthar",
+      "team_name": "Gujarat Titans",
+      "team_abbrev": "GT",
+      "role": "All-rounder",
+      "price_cr": 0.3,
+      "acquisition_type": "Retained",
+      "nationality": "IND",
+      "age": 23,
+      "batting_hand": "Left-hand",
+      "bowling_arm": "Left-arm",
+      "bowling_type": "LA Orthodox",
+      "is_captain": false,
+      "archetype": null,
+      "player_type": "allrounder",
+      "has_ipl_data": true,
+      "batting": {
+        "career": {
+          "innings": 1,
+          "runs": 1,
+          "balls_faced": 2,
+          "average": 1.0,
+          "strike_rate": 50.0,
+          "fifties": 0,
+          "hundreds": 0,
+          "fours": 0,
+          "sixes": 0,
+          "boundary_pct": 0.0,
+          "dot_ball_pct": 50.0,
+          "highest_score": 1,
+          "sample_size": "LOW"
+        },
+        "phase": {
+          "powerplay": {
+            "sr": null,
+            "avg": null,
+            "boundary_pct": null,
+            "balls": null,
+            "runs": null,
+            "sample_size": null
+          },
+          "middle": {
+            "sr": null,
+            "avg": null,
+            "boundary_pct": null,
+            "balls": null,
+            "runs": null,
+            "sample_size": null
+          },
+          "death": {
+            "sr": 50.0,
+            "avg": 1.0,
+            "boundary_pct": 0.0,
+            "balls": 2,
+            "runs": 1,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_bowling_type": {
+          "Fast": {
+            "sr": 50.0,
+            "avg": 1.0,
+            "balls": 2,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [],
+          "worst": []
+        },
+        "entry_point": {
+          "classification": "LOWER_ORDER",
+          "mode_batting_position": 9,
+          "mean_batting_position": 9.0,
+          "avg_entry_ball": 115.0,
+          "innings": 1
+        },
+        "tags": []
+      },
+      "bowling": {
+        "career": {
+          "matches": 1,
+          "wickets": 0,
+          "overs": 2.0,
+          "runs_conceded": 26,
+          "economy": 13.0,
+          "average": null,
+          "strike_rate": null,
+          "dot_ball_pct": 33.33,
+          "boundary_conceded_pct": 33.33,
+          "sample_size": "LOW"
+        },
+        "phase": {
+          "powerplay": {
+            "economy": 13.0,
+            "wickets": 0,
+            "overs": 2.0,
+            "sr": null,
+            "sample_size": "LOW"
+          },
+          "middle": {
+            "economy": null,
+            "wickets": null,
+            "overs": null,
+            "sr": null,
+            "sample_size": null
+          },
+          "death": {
+            "economy": null,
+            "wickets": null,
+            "overs": null,
+            "sr": null,
+            "sample_size": null
+          }
+        },
+        "vs_batting_hand": {
+          "Left-hand": {
+            "economy": null,
+            "sr": null,
+            "wickets": null,
+            "balls": null,
+            "sample_size": null
+          },
+          "Right-hand": {
+            "economy": 12.0,
+            "sr": null,
+            "wickets": 0,
+            "balls": 7,
+            "sample_size": "LOW"
+          }
+        },
+        "vs_teams": {
+          "best": [],
+          "worst": []
+        },
+        "classification": {
+          "arm": "Left-arm",
+          "type": "LA Orthodox",
+          "archetype": null
+        },
+        "tags": []
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "TKT-199",
+  "title": "Generate all-rounder profiles (dual batting + bowling)",
+  "state": "TODO",
+  "priority": "P0",
+  "size": "M",
+  "progress_pct": 0,
+  "description": "For all-rounders (role == 'All-rounder'), generate combined profiles with both batting and bowling sections. Determine primary_type ('batting' or 'bowling') based on which side has more data. Include all batter fields AND all bowler fields. Ensure players like Hardik Pandya, Will Jacks, Mitchell Santner all have complete dual profiles.",
+  "owner": "Brock Purdy",
+  "assignee": "Brock Purdy",
+  "reviewer": "Andy Flower",
+  "epic_id": "EPIC-017",
+  "sprint_id": "SPRINT-001",
+  "blocked_by": [
+    "TKT-196"
+  ],
+  "tags": [
+    "Data Pipeline",
+    "All-Rounders",
+    "Player Profiles"
+  ],
+  "gates": {},
+  "created_at": "2026-02-13T11:00:00.000000Z",
+  "updated_at": "2026-02-13T11:00:00.000000Z"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "TKT-198",
+  "title": "Generate bowler profiles from DuckDB + CSV sources",
+  "state": "TODO",
+  "priority": "P0",
+  "size": "M",
+  "progress_pct": 0,
+  "description": "Populate bowler profiles: career stats from analytics_ipl_bowling_career (since 2023), phase from analytics_ipl_bowler_phase, tags from player_tags_2023.json, clusters from player_clustering_2023.csv, vs batting hand from bowler_handedness_matchup_2023.csv, vs teams from analytics_ipl_bowler_vs_team. Include bowling classification (arm + type) from squad data.",
+  "owner": "Brock Purdy",
+  "assignee": "Brock Purdy",
+  "reviewer": "Stephen Curry",
+  "epic_id": "EPIC-017",
+  "sprint_id": "SPRINT-001",
+  "blocked_by": [
+    "TKT-196"
+  ],
+  "tags": [
+    "Data Pipeline",
+    "Bowling",
+    "Player Profiles"
+  ],
+  "gates": {},
+  "created_at": "2026-02-13T11:00:00.000000Z",
+  "updated_at": "2026-02-13T11:00:00.000000Z"
+}

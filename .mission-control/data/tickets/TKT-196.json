@@ -1,0 +1,26 @@
+{
+  "id": "TKT-196",
+  "title": "Define player profile JSON schema & generator scaffold",
+  "state": "TODO",
+  "priority": "P0",
+  "size": "S",
+  "progress_pct": 0,
+  "description": "Create `scripts/generators/generate_player_profiles.py` scaffold. Define the JSON schema for player profiles per the PRD Section 6.1 — header, career_stats, phase_performance, tags, vs_bowling_type (batters), vs_batting_hand (bowlers), vs_teams, entry_point. Output to `outputs/player_profiles/player_profiles_2023.json`. Validate schema against PRD Appendix A examples.",
+  "owner": "Brock Purdy",
+  "assignee": "Brock Purdy",
+  "epic_id": "EPIC-017",
+  "sprint_id": "SPRINT-001",
+  "blocks": [
+    "TKT-197",
+    "TKT-198",
+    "TKT-199"
+  ],
+  "tags": [
+    "Data Pipeline",
+    "Schema",
+    "Player Profiles"
+  ],
+  "gates": {},
+  "created_at": "2026-02-13T11:00:00.000000Z",
+  "updated_at": "2026-02-13T11:00:00.000000Z"
+}

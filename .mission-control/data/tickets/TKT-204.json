@@ -1,0 +1,27 @@
+{
+  "id": "TKT-204",
+  "title": "Kante QA: integration testing + performance validation",
+  "state": "TODO",
+  "priority": "P1",
+  "size": "M",
+  "progress_pct": 0,
+  "description": "Test all 231 players across 10 teams can open profiles. Verify no missing data crashes. Check modal load time <500ms. Verify mobile responsiveness. Run pytest to ensure no regressions. Validate JSON schema for all profiles. Check sample size indicators show correctly ((LOW) for <30 balls). Final system check before release.",
+  "owner": "N'Golo Kante",
+  "assignee": "N'Golo Kante",
+  "epic_id": "EPIC-017",
+  "sprint_id": "SPRINT-001",
+  "blocked_by": [
+    "TKT-201",
+    "TKT-202",
+    "TKT-203"
+  ],
+  "tags": [
+    "QA",
+    "Testing",
+    "Performance",
+    "Player Profiles"
+  ],
+  "gates": {},
+  "created_at": "2026-02-13T11:00:00.000000Z",
+  "updated_at": "2026-02-13T11:00:00.000000Z"
+}

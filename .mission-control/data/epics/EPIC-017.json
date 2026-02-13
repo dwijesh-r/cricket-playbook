@@ -1,0 +1,23 @@
+{
+  "id": "EPIC-017",
+  "title": "Player Profile View — Click-to-See Player Stats Modal",
+  "owner": "Tom Brady",
+  "tickets": [
+    "TKT-196",
+    "TKT-197",
+    "TKT-198",
+    "TKT-199",
+    "TKT-200",
+    "TKT-201",
+    "TKT-202",
+    "TKT-203",
+    "TKT-204"
+  ],
+  "progress_pct": 0,
+  "status": "IN_PROGRESS",
+  "description": "Interactive player profile modal in The Lab Teams section. Click any player name to see career stats (IPL 2023+), phase performance, role tags, matchup data (vs bowling type for batters, vs batting hand for bowlers), vs team performance, entry points, and archetypes. Pre-computed JSON data pipeline + modal UI with mobile support. PRD: docs/specs/PLAYER_PROFILE_VIEW_PRD.md",
+  "sprint_id": "SPRINT-001",
+  "created_at": "2026-02-13T11:00:00.000000Z",
+  "updated_at": "2026-02-13T11:00:00.000000Z",
+  "target_date": "2026-02-28"
+}

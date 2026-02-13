@@ -3,11 +3,12 @@
   "epic_id": "EPIC-011",
   "title": "CI/CD artifact comparison",
   "description": "Automated comparison of output artifacts in CI/CD",
-  "state": "IDEA",
+  "status": "DONE",
   "priority": "P2",
-  "progress_pct": 0,
+  "progress_pct": 100,
   "owner": "Ime Udoka",
   "gates": {},
   "created_at": "2026-02-05T00:00:00Z",
-  "updated_at": "2026-02-05T00:00:00Z"
+  "updated_at": "2026-02-13T16:00:00.000000Z",
+  "resolution_note": "CI/CD artifact comparison implemented. Snapshots output files (stat packs, profiles, depth charts, tags), compares between runs for size drift, player count changes, coverage, and schema validation."
 }

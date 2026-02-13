@@ -362,12 +362,14 @@ const FULL_DEPTH_CHARTS = {{
             "middle_order",
             "finisher",
             "wicketkeeper",
-            "all_rounder_batting",
-            "all_rounder_bowling",
-            "lead_spinner",
-            "lead_pacer",
-            "support_spinner",
-            "support_pacer",
+            "allrounder_batting",
+            "allrounder_bowling",
+            "right_arm_pace",
+            "left_arm_pace",
+            "off_spin",
+            "leg_spin",
+            "left_arm_spin",
+            "middle_overs_specialist",
         ]
 
         positions_js = []
@@ -379,10 +381,14 @@ const FULL_DEPTH_CHARTS = {{
             for player in pos.get("players", [])[:4]:  # Top 4 players per position
                 overseas_str = "true" if player.get("is_overseas") else "false"
                 rationale = player.get("rationale", "").replace('"', "'")
+                bowl_type = player.get("bowling_type", "").replace('"', "'")
+                bowl_arm = player.get("bowling_arm", "").replace('"', "'")
                 players_js.append(
                     f'{{ rank: {player.get("rank", 0)}, name: "{player.get("name", "")}", '
                     f"score: {player.get('score', 0)}, overseas: {overseas_str}, "
-                    f'price: {player.get("price_cr", 0)}, rationale: "{rationale}" }}'
+                    f"price: {player.get('price_cr', 0)}, "
+                    f'bowlingType: "{bowl_type}", bowlingArm: "{bowl_arm}", '
+                    f'rationale: "{rationale}" }}'
                 )
 
             what_works = pos.get("what_works", "").replace('"', "'")
@@ -471,6 +477,20 @@ def generate_full_squads_js():
             contract = contracts.get(key, {})
             exp = experience.get(key, {})
             founder_pos = founder_xii.get(row["player_id"])
+            # Parse pipe-delimited tags into lists
+            batter_tags_raw = row.get("batter_tags", "")
+            bowler_tags_raw = row.get("bowler_tags", "")
+            batter_tags = (
+                [t.strip() for t in batter_tags_raw.split("|") if t.strip()]
+                if batter_tags_raw
+                else []
+            )
+            bowler_tags = (
+                [t.strip() for t in bowler_tags_raw.split("|") if t.strip()]
+                if bowler_tags_raw
+                else []
+            )
+
             squads[team].append(
                 {
                     "name": row["player_name"],
@@ -483,6 +503,8 @@ def generate_full_squads_js():
                     "age": row.get("age", ""),
                     "batter_classification": row.get("batter_classification", ""),
                     "bowler_classification": row.get("bowler_classification", ""),
+                    "batter_tags": batter_tags,
+                    "bowler_tags": bowler_tags,
                     "is_captain": row.get("is_captain", "").strip().upper() == "TRUE",
                     "price_cr": contract.get("price_cr", 0),
                     "acquisition_type": contract.get("acquisition_type", ""),
@@ -511,17 +533,33 @@ const FULL_SQUADS = {{
         players_js = []
         for p in team_players:
             overseas = p["nationality"] not in ("IND", "India", "")
-            cap_str = "true" if p["is_captain"] else "false"
-            xii_str = "true" if p["is_predicted_xii"] else "false"
-            fpos = p["founder_position"] if p["founder_position"] else "null"
+            is_uncapped = p["ipl_matches"] == 0
             name_esc = p["name"].replace("'", "\\'")
             role_esc = p["role"].replace("'", "\\'")
+            bat_class_esc = p["batter_classification"].replace("'", "\\'")
+            bwl_class_esc = p["bowler_classification"].replace("'", "\\'")
+            bat_tags_js = json.dumps(p["batter_tags"])
+            bwl_tags_js = json.dumps(p["bowler_tags"])
+            acq_esc = p["acquisition_type"].replace("'", "\\'")
+            fpos = p["founder_position"] if p["founder_position"] else "null"
             players_js.append(
                 f"        {{ name: '{name_esc}', role: '{role_esc}', "
-                f"batting: '{p['batting_hand']}', bowling: '{p['bowling_type']}', "
-                f"nat: '{p['nationality']}', age: '{p['age']}', "
-                f"price: {p['price_cr']}, overseas: {'true' if overseas else 'false'}, "
-                f"captain: {cap_str}, predictedXII: {xii_str}, founderPos: {fpos}, "
+                f"battingHand: '{p['batting_hand']}', "
+                f"bowlingArm: '{p['bowling_arm']}', "
+                f"bowlingType: '{p['bowling_type']}', "
+                f"nationality: '{p['nationality']}', "
+                f"age: {p['age'] if p['age'] else 0}, "
+                f"price: {p['price_cr']}, "
+                f"overseas: {'true' if overseas else 'false'}, "
+                f"isCaptain: {'true' if p['is_captain'] else 'false'}, "
+                f"batterClass: '{bat_class_esc}', "
+                f"bowlerClass: '{bwl_class_esc}', "
+                f"batterTags: {bat_tags_js}, "
+                f"bowlerTags: {bwl_tags_js}, "
+                f"isUncapped: {'true' if is_uncapped else 'false'}, "
+                f"acquisition: '{acq_esc}', "
+                f"predictedXII: {'true' if p['is_predicted_xii'] else 'false'}, "
+                f"founderPos: {fpos}, "
                 f"iplMatches: {p['ipl_matches']}, iplRuns: {p['ipl_runs']}, "
                 f"iplSR: {p['ipl_sr']}, iplWickets: {p['ipl_wickets']}, "
                 f"iplEconomy: {p['ipl_economy']} }}"

@@ -1,15 +1,18 @@
 {
   "team": "GT",
   "team_name": "Gujarat Titans",
-  "overall_rating": 7.8,
+  "overall_rating": 7.9,
   "strongest_position": "Opener",
-  "weakest_position": "All-rounder (Batting-first)",
-  "vulnerabilities": [],
+  "weakest_position": "Left-arm Pace",
+  "vulnerabilities": [
+    "Left-arm Pace: thin depth (rating 2.1)",
+    "Left-arm Spin: thin depth (rating 4.3)"
+  ],
   "positions": {
     "opener": {
       "name": "Opener",
       "rating": 10.0,
-      "what_works": "Elite #1 in shubman gill. quality backup in jos buttler",
+      "what_works": "Elite #1 in shubman gill. quality backup in sai sudharsan",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
       "players": [
@@ -18,29 +21,35 @@
           "name": "Shubman Gill",
           "player_id": "b4b99816",
           "score": 100.0,
-          "rationale": "Captain. Franchise opener",
+          "rationale": "Founder XII. Captain. Franchise opener",
           "is_overseas": false,
           "price_cr": 16.5,
+          "bowling_type": "Off-spin",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
         {
           "rank": 2,
-          "name": "Jos Buttler",
-          "player_id": "99b75528",
+          "name": "Sai Sudharsan",
+          "player_id": "d5130a30",
           "score": 100.0,
-          "rationale": "Franchise opener. Explosive opener",
-          "is_overseas": true,
-          "price_cr": 15.75,
+          "rationale": "Founder XII. Franchise opener. Explosive opener",
+          "is_overseas": false,
+          "price_cr": 8.5,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
         {
           "rank": 3,
-          "name": "Sai Sudharsan",
-          "player_id": "d5130a30",
-          "score": 91.7,
-          "rationale": "Franchise opener. Explosive opener",
-          "is_overseas": false,
-          "price_cr": 8.5,
+          "name": "Jos Buttler",
+          "player_id": "99b75528",
+          "score": 100.0,
+          "rationale": "Founder XII. Franchise opener. Explosive opener",
+          "is_overseas": true,
+          "price_cr": 15.75,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
       ]
@@ -57,36 +66,42 @@
           "name": "Shubman Gill",
           "player_id": "b4b99816",
           "score": 100.0,
-          "rationale": "Elite top-order. Spin specialist",
+          "rationale": "Founder XII. Elite top-order. Spin specialist",
           "is_overseas": false,
           "price_cr": 16.5,
+          "bowling_type": "Off-spin",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
         {
           "rank": 2,
           "name": "Sai Sudharsan",
           "player_id": "d5130a30",
-          "score": 89.5,
-          "rationale": "Elite top-order. Spin specialist",
+          "score": 99.5,
+          "rationale": "Founder XII. Elite top-order. Spin specialist",
           "is_overseas": false,
           "price_cr": 8.5,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
         {
           "rank": 3,
           "name": "Jos Buttler",
           "player_id": "99b75528",
-          "score": 82.7,
-          "rationale": "Spin specialist. Highly adaptable",
+          "score": 92.7,
+          "rationale": "Founder XII. Spin specialist. Highly adaptable",
           "is_overseas": true,
           "price_cr": 15.75,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
       ]
     },
     "middle_order": {
       "name": "Middle Order #4-5",
-      "rating": 9.4,
+      "rating": 10.0,
       "what_works": "Elite #1 in jos buttler. quality backup in shubman gill",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
@@ -95,37 +110,43 @@
           "rank": 1,
           "name": "Jos Buttler",
           "player_id": "99b75528",
-          "score": 88.3,
-          "rationale": "Middle overs anchor. Excellent vs spin",
+          "score": 98.3,
+          "rationale": "Founder XII. Middle overs anchor. Excellent vs spin",
           "is_overseas": true,
           "price_cr": 15.75,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
         {
           "rank": 2,
           "name": "Shubman Gill",
           "player_id": "b4b99816",
-          "score": 85.5,
-          "rationale": "Middle overs anchor. Excellent vs spin",
+          "score": 95.5,
+          "rationale": "Founder XII. Middle overs anchor. Excellent vs spin",
           "is_overseas": false,
           "price_cr": 16.5,
+          "bowling_type": "Off-spin",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
         {
           "rank": 3,
           "name": "Sai Sudharsan",
           "player_id": "d5130a30",
-          "score": 71.8,
-          "rationale": "Middle overs anchor. Excellent vs spin",
+          "score": 81.8,
+          "rationale": "Founder XII. Middle overs anchor. Excellent vs spin",
           "is_overseas": false,
           "price_cr": 8.5,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
       ]
     },
     "finisher": {
       "name": "Finisher #6-7",
-      "rating": 9.3,
+      "rating": 10.0,
       "what_works": "Elite #1 in jos buttler. quality backup in sai sudharsan",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
@@ -134,30 +155,36 @@
           "rank": 1,
           "name": "Jos Buttler",
           "player_id": "99b75528",
-          "score": 95.4,
-          "rationale": "Death overs finisher. Six-hitting ability",
+          "score": 100.0,
+          "rationale": "Founder XII. Death overs finisher. Six-hitting ability",
           "is_overseas": true,
           "price_cr": 15.75,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
         {
           "rank": 2,
           "name": "Sai Sudharsan",
           "player_id": "d5130a30",
-          "score": 71.4,
-          "rationale": "Death overs finisher. Six-hitting ability",
+          "score": 81.4,
+          "rationale": "Founder XII. Death overs finisher. Six-hitting ability",
           "is_overseas": false,
           "price_cr": 8.5,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
         {
           "rank": 3,
           "name": "Shubman Gill",
           "player_id": "b4b99816",
-          "score": 71.3,
-          "rationale": "Death overs hitter. Bowling utility",
+          "score": 81.3,
+          "rationale": "Founder XII. Death overs hitter. Bowling utility",
           "is_overseas": false,
           "price_cr": 16.5,
+          "bowling_type": "Off-spin",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
       ]
@@ -177,6 +204,8 @@
           "rationale": "Primary keeper. Strong batter (score: 100)",
           "is_overseas": true,
           "price_cr": 15.75,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
         {
@@ -187,220 +216,332 @@
           "rationale": "Wicketkeeper",
           "is_overseas": false,
           "price_cr": 0.3,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
       ]
     },
-    "lead_pacer": {
-      "name": "Lead Pacer",
-      "rating": 7.7,
+    "right_arm_pace": {
+      "name": "Right-arm Pace",
+      "rating": 8.9,
       "what_works": "Elite #1 in mohammed siraj. quality backup in prasidh krishna",
       "what_doesnt": "Minimal concerns",
-      "overseas_count": 0,
+      "overseas_count": 1,
       "players": [
         {
           "rank": 1,
           "name": "Mohammed Siraj",
           "player_id": "2f49c897",
-          "score": 80.3,
-          "rationale": "Proven wicket-taker",
+          "score": 90.3,
+          "rationale": "Founder XII. Proven wicket-taker",
           "is_overseas": false,
           "price_cr": 12.25,
+          "bowling_type": "Fast-Medium",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
         {
           "rank": 2,
           "name": "Prasidh Krishna",
           "player_id": "85e0cf10",
-          "score": 58.8,
-          "rationale": "Lead pacer",
+          "score": 68.8,
+          "rationale": "Founder XII. Lead pacer",
           "is_overseas": false,
           "price_cr": 9.5,
-          "secondary_positions": []
-        }
-      ]
-    },
-    "supporting_pacer_pp": {
-      "name": "Supporting Pacer (PP Specialist)",
-      "rating": 5.6,
-      "what_works": "Ishant sharma leads. quality backup in mohammed siraj",
-      "what_doesnt": "Room for improvement at the top",
-      "overseas_count": 0,
-      "players": [
-        {
-          "rank": 1,
-          "name": "Ishant Sharma",
-          "player_id": "5bb1a1c4",
-          "score": 56.0,
-          "rationale": "PP specialist",
-          "is_overseas": false,
-          "price_cr": 0.75,
-          "secondary_positions": []
-        },
-        {
-          "rank": 2,
-          "name": "Mohammed Siraj",
-          "player_id": "2f49c897",
-          "score": 50.0,
-          "rationale": "PP specialist",
-          "is_overseas": false,
-          "price_cr": 12.25,
+          "bowling_type": "Fast-Medium",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
         {
           "rank": 3,
+          "name": "Kagiso Rabada",
+          "player_id": "e62dd25d",
+          "score": 68.3,
+          "rationale": "Founder XII. Proven wicket-taker",
+          "is_overseas": true,
+          "price_cr": 10.75,
+          "bowling_type": "Fast-Medium",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        }
+      ]
+    },
+    "left_arm_pace": {
+      "name": "Left-arm Pace",
+      "rating": 2.1,
+      "what_works": "Arshad khan leads. all indian options",
+      "what_doesnt": "Only one option. no standout performer",
+      "overseas_count": 0,
+      "players": [
+        {
+          "rank": 1,
           "name": "Arshad Khan",
           "player_id": "12314277",
-          "score": 39.0,
-          "rationale": "PP specialist",
+          "score": 21.0,
+          "rationale": "Lead pacer",
           "is_overseas": false,
           "price_cr": 1.3,
+          "bowling_type": "Fast",
+          "bowling_arm": "Left-arm",
           "secondary_positions": []
         }
       ]
     },
-    "supporting_pacer_death": {
-      "name": "Supporting Pacer (Death Specialist)",
-      "rating": 7.0,
-      "what_works": "Strong #1 with mohammed siraj. quality backup in prasidh krishna",
-      "what_doesnt": "Room for improvement at the top",
-      "overseas_count": 0,
-      "players": [
-        {
-          "rank": 1,
-          "name": "Mohammed Siraj",
-          "player_id": "2f49c897",
-          "score": 69.0,
-          "rationale": "Death specialist",
-          "is_overseas": false,
-          "price_cr": 12.25,
-          "secondary_positions": []
-        },
-        {
-          "rank": 2,
-          "name": "Prasidh Krishna",
-          "player_id": "85e0cf10",
-          "score": 59.0,
-          "rationale": "Death wicket-taker (SR 6.8)",
-          "is_overseas": false,
-          "price_cr": 9.5,
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
-          "name": "Ishant Sharma",
-          "player_id": "5bb1a1c4",
-          "score": 41.0,
-          "rationale": "Death specialist",
-          "is_overseas": false,
-          "price_cr": 0.75,
-          "secondary_positions": []
-        }
-      ]
-    },
-    "lead_spinner": {
-      "name": "Lead Spinner",
-      "rating": 7.1,
-      "what_works": "Strong #1 with rashid khan. quality backup in sai kishore",
-      "what_doesnt": "Room for improvement at the top",
+    "off_spin": {
+      "name": "Off Spin",
+      "rating": 7.7,
+      "what_works": "Strong #1 with rashid khan. quality backup in shahrukh khan",
+      "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
       "players": [
         {
           "rank": 1,
           "name": "Rashid Khan",
           "player_id": "5f547c8b",
-          "score": 67.8,
-          "rationale": "Lead spinner (18.0 Cr)",
+          "score": 77.8,
+          "rationale": "Founder XII. Lead spinner (18.0 Cr)",
           "is_overseas": true,
           "price_cr": 18.0,
+          "bowling_type": "Leg-spin",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
         {
           "rank": 2,
+          "name": "Shahrukh Khan",
+          "player_id": "7dcb9bc9",
+          "score": 58.0,
+          "rationale": "Founder XII. Wicket-taker (SR 12.0)",
+          "is_overseas": false,
+          "price_cr": 4.0,
+          "bowling_type": "Off-spin",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Washington Sundar",
+          "player_id": "f19ccfad",
+          "score": 53.0,
+          "rationale": "Founder XII. Lead spinner",
+          "is_overseas": false,
+          "price_cr": 3.2,
+          "bowling_type": "Off-spin",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        }
+      ]
+    },
+    "leg_spin": {
+      "name": "Leg Spin",
+      "rating": 6.7,
+      "what_works": "Strong #1 with rashid khan. rahul tewatia as backup",
+      "what_doesnt": "Minimal concerns",
+      "overseas_count": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Rashid Khan",
+          "player_id": "5f547c8b",
+          "score": 77.8,
+          "rationale": "Founder XII. Lead spinner (18.0 Cr)",
+          "is_overseas": true,
+          "price_cr": 18.0,
+          "bowling_type": "Leg-spin",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Rahul Tewatia",
+          "player_id": "39a2dfa8",
+          "score": 48.0,
+          "rationale": "Founder XII. Lead spinner",
+          "is_overseas": false,
+          "price_cr": 4.0,
+          "bowling_type": "Leg-spin",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        }
+      ]
+    },
+    "left_arm_spin": {
+      "name": "Left-arm Spin",
+      "rating": 4.3,
+      "what_works": "Strong #1 with sai kishore. nishant sindhu as backup",
+      "what_doesnt": "Weak backup option. big gap between #1 and #2",
+      "overseas_count": 0,
+      "players": [
+        {
+          "rank": 1,
           "name": "Sai Kishore",
           "player_id": "c7a995d3",
-          "score": 63.0,
-          "rationale": "Wicket-taker (SR 14.3)",
+          "score": 73.0,
+          "rationale": "Founder XII. Wicket-taker (SR 14.3)",
           "is_overseas": false,
           "price_cr": 2.0,
+          "bowling_type": "LA Orthodox",
+          "bowling_arm": "Left-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Nishant Sindhu",
+          "player_id": "3cea23da",
+          "score": 13.0,
+          "rationale": "Lead spinner",
+          "is_overseas": false,
+          "price_cr": 0.3,
+          "bowling_type": "LA Orthodox",
+          "bowling_arm": "Left-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Manav Suthar",
+          "player_id": "025c4400",
+          "score": 13.0,
+          "rationale": "Lead spinner",
+          "is_overseas": false,
+          "price_cr": 0.3,
+          "bowling_type": "LA Orthodox",
+          "bowling_arm": "Left-arm",
+          "secondary_positions": []
+        }
+      ]
+    },
+    "middle_overs_specialist": {
+      "name": "Middle Overs Specialist",
+      "rating": 9.1,
+      "what_works": "Elite #1 in rashid khan. quality backup in prasidh krishna",
+      "what_doesnt": "Minimal concerns",
+      "overseas_count": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Rashid Khan",
+          "player_id": "5f547c8b",
+          "score": 83.6,
+          "rationale": "Founder XII. Franchise bowler (18.0 Cr)",
+          "is_overseas": true,
+          "price_cr": 18.0,
+          "bowling_type": "Leg-spin",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Prasidh Krishna",
+          "player_id": "85e0cf10",
+          "score": 83.5,
+          "rationale": "Founder XII. Strong middle eco (6.8)",
+          "is_overseas": false,
+          "price_cr": 9.5,
+          "bowling_type": "Fast-Medium",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Mohammed Siraj",
+          "player_id": "2f49c897",
+          "score": 69.4,
+          "rationale": "Founder XII. Middle overs specialist",
+          "is_overseas": false,
+          "price_cr": 12.25,
+          "bowling_type": "Fast-Medium",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
       ]
     },
     "allrounder_batting": {
       "name": "All-rounder (Batting-first)",
-      "rating": 5.3,
-      "what_works": "Rashid khan leads. shahrukh khan as backup",
-      "what_doesnt": "Room for improvement at the top",
+      "rating": 8.2,
+      "what_works": "Strong #1 with rashid khan. quality backup in shahrukh khan",
+      "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
       "players": [
         {
           "rank": 1,
           "name": "Rashid Khan",
           "player_id": "5f547c8b",
-          "score": 51.2,
-          "rationale": "Bowls 4 overs",
+          "score": 77.9,
+          "rationale": "Founder XII. Strong finisher (67). Bowls 4 overs",
           "is_overseas": true,
           "price_cr": 18.0,
+          "bowling_type": "Leg-spin",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
         {
           "rank": 2,
           "name": "Shahrukh Khan",
           "player_id": "7dcb9bc9",
-          "score": 44.5,
-          "rationale": "Useful death bowling. Bowls 4 overs",
+          "score": 67.1,
+          "rationale": "Founder XII. Useful death bowling. Bowls 4 overs",
           "is_overseas": false,
           "price_cr": 4.0,
+          "bowling_type": "Off-spin",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
         {
           "rank": 3,
           "name": "Rahul Tewatia",
           "player_id": "39a2dfa8",
-          "score": 43.1,
-          "rationale": "Useful death bowling. Bowls 4 overs",
+          "score": 63.0,
+          "rationale": "Founder XII. Useful death bowling. Bowls 4 overs",
           "is_overseas": false,
           "price_cr": 4.0,
+          "bowling_type": "Leg-spin",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
       ]
     },
     "allrounder_bowling": {
       "name": "All-rounder (Bowling-first)",
-      "rating": 6.8,
-      "what_works": "Strong #1 with rashid khan. quality backup in shahrukh khan",
-      "what_doesnt": "Room for improvement at the top",
+      "rating": 8.5,
+      "what_works": "Elite #1 in rashid khan. quality backup in shahrukh khan",
+      "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
       "players": [
         {
           "rank": 1,
           "name": "Rashid Khan",
           "player_id": "5f547c8b",
-          "score": 67.5,
-          "rationale": "Primary bowler (68). SR 173",
+          "score": 85.6,
+          "rationale": "Founder XII. Primary bowler (68). Handy bat (67)",
           "is_overseas": true,
           "price_cr": 18.0,
+          "bowling_type": "Leg-spin",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
         {
           "rank": 2,
           "name": "Shahrukh Khan",
           "player_id": "7dcb9bc9",
-          "score": 50.5,
-          "rationale": "SR 172",
+          "score": 67.5,
+          "rationale": "Founder XII. Handy bat (58). SR 172",
           "is_overseas": false,
           "price_cr": 4.0,
+          "bowling_type": "Off-spin",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
         {
           "rank": 3,
           "name": "Rahul Tewatia",
           "player_id": "39a2dfa8",
-          "score": 44.8,
-          "rationale": "SR 155",
+          "score": 60.2,
+          "rationale": "Founder XII. Handy bat (49). SR 155",
           "is_overseas": false,
           "price_cr": 4.0,
+          "bowling_type": "Leg-spin",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
       ]

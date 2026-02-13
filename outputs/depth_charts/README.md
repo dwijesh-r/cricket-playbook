@@ -6,17 +6,29 @@ Version: 1.0
 ## Overview
 
 This directory contains position-by-position depth charts for all 10 IPL 2026 teams.
-Each team's depth chart shows ranked player options at 9 defined positions:
+Each team's depth chart shows ranked player options at defined positions:
 
+**Batting:**
 1. **Opener** - Top 3 options for opening the batting
 2. **#3 Batter** - Top 3 versatile options for the crucial #3 slot
 3. **Middle Order #4-5** - Top 3 middle order batters
 4. **Finisher #6-7** - Top 3 death overs specialists
 5. **Wicketkeeper** - Primary + Backup keepers
-6. **Lead Pacer** - Top 2 strike bowlers
-7. **Supporting Pacer** - PP Specialists + Death Specialists
-8. **Lead Spinner** - Top 2 spin options
-9. **All-rounder** - Batting-first + Bowling-first ARs
+
+**Bowling (type-specific):**
+6. **Right-arm Pace** - Right-arm fast/medium bowlers
+7. **Left-arm Pace** - Left-arm fast/medium bowlers
+8. **Off Spin** - Off-spinners and right-arm finger spinners
+9. **Leg Spin** - Leg-spinners and wrist-spinners (non left-arm)
+10. **Left-arm Spin** - Left-arm orthodox/slow spinners
+11. **Middle Overs Specialist** - All bowling types, scored by overs 7-15
+
+**Hybrid:**
+12. **All-rounder (Batting)** - Batting-first ARs
+13. **All-rounder (Bowling)** - Bowling-first ARs
+
+All-rounders compete in batting positions with NO role penalty. Founder XII
+players receive a +10 scoring bonus across all positions.
 
 ## Position Ratings
 
@@ -28,18 +40,18 @@ Ratings are out of 10 (with decimals) based on:
 
 ## Cross-Team Comparison
 
-| Team | Opener | #3 | Middle | Finisher | Keeper | Pace | Spin | AR | Overall |
-|------|--------|-----|--------|----------|--------|------|------|-----|---------|
-| MI | 8.9 | 10.0 | 10.0 | 10.0 | 4.6 | 9.9 | 6.9 | 7.3 | **8.5** |
-| RCB | 10.0 | 10.0 | 10.0 | 9.8 | 9.5 | 8.2 | 6.0 | 5.8 | **8.3** |
-| GT | 10.0 | 10.0 | 9.4 | 9.3 | 7.4 | 7.7 | 7.1 | 6.0 | **7.8** |
-| DC | 8.2 | 8.6 | 7.9 | 9.2 | 6.8 | 7.1 | 8.0 | 8.2 | **7.7** |
-| RR | 9.1 | 10.0 | 5.4 | 9.6 | 5.2 | 7.1 | 7.6 | 8.1 | **7.7** |
-| SRH | 10.0 | 10.0 | 6.6 | 10.0 | 8.6 | 6.5 | 6.0 | 6.6 | **7.5** |
-| PBKS | 8.4 | 10.0 | 9.1 | 9.7 | 5.3 | 7.1 | 6.9 | 6.2 | **7.4** |
-| LSG | 7.8 | 10.0 | 8.2 | 7.8 | 8.5 | 7.3 | 5.6 | 5.6 | **7.4** |
-| CSK | 7.0 | 10.0 | 9.8 | 10.0 | 7.4 | 4.6 | 6.4 | 5.1 | **7.2** |
-| KKR | 9.7 | 10.0 | 5.6 | 7.5 | 2.5 | 7.3 | 8.4 | 6.2 | **6.9** |
+| Team | Opener | #3 | Middle | Finisher | Keeper | Pace | Spin | Mid-Ov | AR | Overall |
+|------|--------|-----|--------|----------|--------|------|------|--------|-----|---------|
+| DC | 8.7 | 9.4 | 9.6 | 10.0 | 7.1 | 7.4 | 6.1 | 10.0 | 9.5 | **8.2** |
+| RR | 9.6 | 10.0 | 8.3 | 10.0 | 5.2 | 6.8 | 6.5 | 9.3 | 9.2 | **8.0** |
+| SRH | 10.0 | 10.0 | 9.8 | 10.0 | 9.1 | 6.6 | 5.1 | 8.4 | 9.2 | **8.0** |
+| MI | 9.5 | 10.0 | 10.0 | 10.0 | 4.6 | 7.7 | 5.4 | 9.9 | 8.7 | **7.9** |
+| GT | 10.0 | 10.0 | 10.0 | 10.0 | 7.4 | 5.5 | 6.2 | 9.1 | 8.3 | **7.9** |
+| RCB | 10.0 | 10.0 | 10.0 | 10.0 | 9.5 | 6.0 | 5.1 | 9.3 | 7.4 | **7.8** |
+| PBKS | 9.4 | 10.0 | 10.0 | 10.0 | 5.3 | 5.2 | 6.6 | 8.6 | 8.3 | **7.7** |
+| LSG | 8.8 | 10.0 | 9.9 | 9.6 | 8.5 | 6.0 | 5.1 | 7.3 | 7.6 | **7.4** |
+| KKR | 10.0 | 10.0 | 8.7 | 9.2 | 2.5 | 8.4 | 5.2 | 10.0 | 8.9 | **7.1** |
+| CSK | 7.3 | 10.0 | 10.0 | 10.0 | 7.4 | 4.8 | 5.4 | 8.5 | 6.0 | **7.0** |
 
 ## Files
 
@@ -57,11 +69,10 @@ Scoring criteria per position as defined in PRD:
 - **Middle Order**: Middle overs performance (45%), Spin performance (25%), Reliability (30%)
 - **Finisher**: Death SR (35%), Boundary% (20%), Career SR (15%), Death Avg (15%), Bowling (15%)
 
-### Bowling Positions
-- **Lead Pacer**: Wickets (25%), Death Eco (25%), PP Eco (20%), Career Eco (15%), Experience (15%)
-- **PP Specialist**: PP Eco (35%), PP SR (30%), Swing (20%), Overall Eco (15%)
-- **Death Specialist**: Death Eco (40%), Death SR (25%), Variations (20%), Overall Eco (15%)
-- **Lead Spinner**: Middle Eco (30%), SR (25%), Career Eco (15%), Versatility (15%), Experience (15%)
+### Bowling Positions (type-specific)
+- **Right-arm Pace / Left-arm Pace**: Wickets (25%), Death Eco (25%), PP Eco (20%), Career Eco (15%), Experience (15%)
+- **Off Spin / Leg Spin / Left-arm Spin**: Middle Eco (30%), SR (25%), Career Eco (15%), Versatility (15%), Experience (15%)
+- **Middle Overs Specialist**: Middle Eco (40%), Middle Wkts (20%), Overall Eco (20%), Experience (20%)
 
 ### Special Positions
 - **Wicketkeeper**: Keeping quality (30%), Batting at slot (50%), Experience (20%)

@@ -1,7 +1,7 @@
 /**
  * The Lab - Predicted XII Data
  * IPL 2026 Pre-Season Analytics
- * Auto-generated: 2026-02-13T03:09:25.362633
+ * Auto-generated: 2026-02-13T09:36:34.215695
  * Algorithm: SUPER SELECTOR
  */
 
@@ -256,18 +256,18 @@ const PREDICTED_XII = {
 
 /**
  * The Lab - Depth Chart Ratings
- * Auto-generated: 2026-02-13T03:09:25.362792
+ * Auto-generated: 2026-02-13T09:36:34.215845
  */
 
 const DEPTH_CHART_RATINGS = {
-    MI: { overall: 8.5, strongest: "#3 Batter", weakest: "Wicketkeeper" },
-    CSK: { overall: 7.2, strongest: "#3 Batter", weakest: "All-rounder (Bowling-first)" },
-    RCB: { overall: 8.3, strongest: "Opener", weakest: "All-rounder (Bowling-first)" },
-    KKR: { overall: 6.9, strongest: "#3 Batter", weakest: "Wicketkeeper" },
-    DC: { overall: 7.7, strongest: "Finisher #6-7", weakest: "Supporting Pacer (PP Specialist)" },
-    PBKS: { overall: 7.4, strongest: "#3 Batter", weakest: "Wicketkeeper" },
-    RR: { overall: 7.7, strongest: "#3 Batter", weakest: "Wicketkeeper" },
-    SRH: { overall: 7.5, strongest: "Opener", weakest: "Supporting Pacer (PP Specialist)" },
-    GT: { overall: 7.8, strongest: "Opener", weakest: "All-rounder (Batting-first)" },
-    LSG: { overall: 7.4, strongest: "#3 Batter", weakest: "All-rounder (Bowling-first)" },
+    MI: { overall: 7.9, strongest: "#3 Batter", weakest: "Wicketkeeper" },
+    CSK: { overall: 7.0, strongest: "#3 Batter", weakest: "Left-arm Pace" },
+    RCB: { overall: 7.8, strongest: "Opener", weakest: "Off Spin" },
+    KKR: { overall: 7.1, strongest: "Opener", weakest: "Left-arm Pace" },
+    DC: { overall: 8.2, strongest: "Finisher #6-7", weakest: "Leg Spin" },
+    PBKS: { overall: 7.7, strongest: "#3 Batter", weakest: "Right-arm Pace" },
+    RR: { overall: 8.0, strongest: "#3 Batter", weakest: "Leg Spin" },
+    SRH: { overall: 8.0, strongest: "Opener", weakest: "Leg Spin" },
+    GT: { overall: 7.9, strongest: "Opener", weakest: "Left-arm Pace" },
+    LSG: { overall: 7.4, strongest: "#3 Batter", weakest: "Left-arm Spin" },
 };

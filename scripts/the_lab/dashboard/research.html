@@ -611,6 +611,65 @@
                 </div>
             </article>
 
+            <!-- CricPom: Novel Composite Metrics (TKT-090/TKT-167/TKT-190) -->
+            <article class="research-card">
+                <div class="research-header">
+                    <div class="research-icon" style="background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-teal) 100%);">📊</div>
+                    <div>
+                        <h2 class="research-title">CricPom: Novel Composite Metrics</h2>
+                        <p class="research-subtitle">KenPom-for-Cricket adjusted rating system</p>
+                    </div>
+                </div>
+                <div class="research-content">
+                    <p>CricPom adapts college basketball's KenPom methodology to T20 cricket, producing opponent-adjusted, venue-neutral player ratings that account for tournament quality and conditions similarity.</p>
+
+                    <h4>Core Adjusted Metrics</h4>
+                    <ul>
+                        <li><strong>AdjBRR (Adjusted Batting Run Rate)</strong> — Batting run rate adjusted for bowling quality faced, venue park factor, and match context. Formula: <code>raw_RR × (league_avg_bowling / opponent_bowling_quality) × venue_factor</code></li>
+                        <li><strong>AdjBE (Adjusted Bowling Economy)</strong> — Economy rate adjusted for batting quality faced and venue. Lower is better. <code>raw_econ × (league_avg_batting / opponent_batting_quality) × venue_factor</code></li>
+                        <li><strong>CEM (Composite Efficiency Metric)</strong> — All-rounder evaluation combining AdjBRR and AdjBE into a single efficiency score. <code>CEM = w₁·AdjBRR_percentile + w₂·(1 - AdjBE_percentile)</code></li>
+                        <li><strong>OSI (Opponent Strength Index)</strong> — Weighted average quality of opponents faced, used as the adjustment denominator in all CricPom ratings</li>
+                    </ul>
+
+                    <h4>5-Factor Tournament Quality Engine</h4>
+                    <p>CricPom consumes the <strong>Tournament Quality Weighting</strong> system (see below) to weight data from 426 T20 tournaments. Each tournament's data receives a composite weight computed as:</p>
+                    <p style="text-align:center; margin: 16px 0; font-family: monospace; font-size: 13px; color: var(--accent);">
+                        W = ∏(fᵢ^wᵢ)^(1/Σwᵢ) — geometric mean of 5 factors
+                    </p>
+                    <ul>
+                        <li><strong>PQI (25%)</strong> — Player Quality Index: average career quality of participants</li>
+                        <li><strong>Competitiveness (20%)</strong> — Match balance and outcome distributions</li>
+                        <li><strong>Recency (20%)</strong> — Exponential decay favoring recent data</li>
+                        <li><strong>Conditions Similarity (15%)</strong> — How closely conditions match IPL 2023-2025</li>
+                        <li><strong>Sample Confidence (20%)</strong> — Statistical reliability from match volume</li>
+                    </ul>
+
+                    <h4>How It Differs from Raw Stats</h4>
+                    <table style="width:100%; border-collapse:collapse; margin:12px 0; font-size:0.85rem;">
+                        <thead>
+                            <tr style="border-bottom:1px solid var(--border); text-align:left;">
+                                <th style="padding:6px 8px;">Aspect</th>
+                                <th style="padding:6px 8px;">Raw Stats</th>
+                                <th style="padding:6px 8px;">CricPom Adjusted</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td style="padding:4px 8px;">Opposition quality</td><td style="padding:4px 8px;">Ignored</td><td style="padding:4px 8px;">OSI-adjusted</td></tr>
+                            <tr><td style="padding:4px 8px;">Venue effects</td><td style="padding:4px 8px;">Ignored</td><td style="padding:4px 8px;">Park factor adjusted</td></tr>
+                            <tr><td style="padding:4px 8px;">Tournament relevance</td><td style="padding:4px 8px;">All equal</td><td style="padding:4px 8px;">5-factor weighted</td></tr>
+                            <tr><td style="padding:4px 8px;">Recency</td><td style="padding:4px 8px;">All equal</td><td style="padding:4px 8px;">Exponential decay</td></tr>
+                            <tr><td style="padding:4px 8px;">All-rounder evaluation</td><td style="padding:4px 8px;">Separate batting/bowling</td><td style="padding:4px 8px;">Unified CEM score</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p style="margin-top: 16px;"><strong>Status:</strong> Tournament weights computed (TKT-187). CricPom foundation metrics (AdjBRR, AdjBE, CEM) implemented (TKT-190). Groundwork research complete.</p>
+
+                    <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/research/kenpom_methodology_research.md" target="_blank" class="doc-link">
+                        📄 View KenPom Research Foundation
+                    </a>
+                </div>
+            </article>
+
             <!-- Tournament Quality Weighting (NEW - TKT-183) -->
             <article class="research-card">
                 <div class="research-header">
@@ -707,6 +766,38 @@
                     <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/reviews/founder/tkt181_film_room_review_021126_v1.md" target="_blank" class="doc-link">
                         📄 View TKT-181 Review Document
                     </a>
+                </div>
+            </article>
+
+            <!-- Insight Confidence Framework (TKT-094) -->
+            <article class="research-card">
+                <div class="research-header">
+                    <div class="research-icon" style="background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-orange) 100%);">🎯</div>
+                    <div>
+                        <h2 class="research-title">Insight Confidence Framework</h2>
+                        <p class="research-subtitle">Editorial confidence scoring for analytical insights (TKT-094)</p>
+                    </div>
+                </div>
+                <div class="research-content">
+                    <p>Every insight published in the magazine needs a confidence assessment. This framework scores each analytical claim on a 0-100 scale with letter grades:</p>
+
+                    <h4>Scoring Breakdown</h4>
+                    <ul>
+                        <li><strong>Sample Size (40%)</strong> — Capped at 300 balls/innings. HIGH (≥300), MEDIUM (≥100), LOW (&lt;100)</li>
+                        <li><strong>Consistency (25%)</strong> — Metric stability across sub-samples (first half vs second half of career)</li>
+                        <li><strong>Recency (20%)</strong> — How recent the underlying data is (1.0 = all 2025, 0.5 = mix)</li>
+                        <li><strong>Cross-Validation (15%)</strong> — Does the insight hold across conditions (home/away, bat/field)?</li>
+                    </ul>
+
+                    <h4>Grade Boundaries</h4>
+                    <ul>
+                        <li><span class="priority-badge p0">A (≥85)</span> Publish with confidence</li>
+                        <li><span class="priority-badge p1">B (≥70)</span> Publish with minor caveats</li>
+                        <li><span class="priority-badge p2">C (≥55)</span> Add sample size caveat and limitations</li>
+                        <li><span style="display:inline-block;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:700;margin-right:8px;background:var(--accent-red);color:white;">D (&lt;55)</span> Do not publish as standalone insight</li>
+                    </ul>
+
+                    <p style="margin-top: 16px;"><strong>Status:</strong> Framework implemented. Bridges with existing Confidence Intervals (TKT-145). Used editorially for all stat pack claims.</p>
                 </div>
             </article>
 

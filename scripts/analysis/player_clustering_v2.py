@@ -38,6 +38,7 @@ import numpy as np
 import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
+from sklearn.metrics import silhouette_score
 from sklearn.preprocessing import StandardScaler
 
 warnings.filterwarnings("ignore")
@@ -417,6 +418,16 @@ def cluster_batters_v2(df: pd.DataFrame, n_clusters: int = 5) -> Tuple[pd.DataFr
     kmeans = KMeans(n_clusters=n_clusters, random_state=42, n_init=10)
     df_clean["cluster"] = kmeans.fit_predict(X)
 
+    # Silhouette score validation (TKT-095)
+    sil_score = silhouette_score(X, df_clean["cluster"])
+    print(f"\n  Silhouette Score: {sil_score:.4f}")
+    if sil_score < 0.1:
+        print("    WARNING: Weak cluster structure (< 0.1)")
+    elif sil_score < 0.3:
+        print("    Moderate cluster structure (0.1-0.3)")
+    else:
+        print("    Strong cluster structure (>= 0.3)")
+
     # Cluster centers
     centers = pd.DataFrame(
         scaler.inverse_transform(
@@ -428,7 +439,7 @@ def cluster_batters_v2(df: pd.DataFrame, n_clusters: int = 5) -> Tuple[pd.DataFr
     )
     centers["cluster"] = range(n_clusters)
 
-    return df_clean, centers, pca_result
+    return df_clean, centers, pca_result, sil_score
 
 
 def cluster_bowlers_v2(df: pd.DataFrame, n_clusters: int = 5) -> Tuple[pd.DataFrame, pd.DataFrame]:
@@ -494,6 +505,16 @@ def cluster_bowlers_v2(df: pd.DataFrame, n_clusters: int = 5) -> Tuple[pd.DataFr
     kmeans = KMeans(n_clusters=n_clusters, random_state=42, n_init=10)
     df_clean["cluster"] = kmeans.fit_predict(X)
 
+    # Silhouette score validation (TKT-095)
+    sil_score = silhouette_score(X, df_clean["cluster"])
+    print(f"\n  Silhouette Score: {sil_score:.4f}")
+    if sil_score < 0.1:
+        print("    WARNING: Weak cluster structure (< 0.1)")
+    elif sil_score < 0.3:
+        print("    Moderate cluster structure (0.1-0.3)")
+    else:
+        print("    Strong cluster structure (>= 0.3)")
+
     centers = pd.DataFrame(
         scaler.inverse_transform(
             kmeans.cluster_centers_ / np.sqrt(weights.mean())
@@ -504,7 +525,7 @@ def cluster_bowlers_v2(df: pd.DataFrame, n_clusters: int = 5) -> Tuple[pd.DataFr
     )
     centers["cluster"] = range(n_clusters)
 
-    return df_clean, centers, pca_result
+    return df_clean, centers, pca_result, sil_score
 
 
 def validate_specific_players(batter_df: pd.DataFrame, bowler_df: pd.DataFrame) -> None:
@@ -772,13 +793,17 @@ def main() -> int:
     print("\n" + "=" * 70)
     print("2. CLUSTERING BATTERS (V2)")
     print("=" * 70)
-    batter_clusters, batter_centers, batter_pca = cluster_batters_v2(batter_df, n_clusters=5)
+    batter_clusters, batter_centers, batter_pca, batter_sil = cluster_batters_v2(
+        batter_df, n_clusters=5
+    )
 
     # Cluster bowlers
     print("\n" + "=" * 70)
     print("3. CLUSTERING BOWLERS (V2)")
     print("=" * 70)
-    bowler_clusters, bowler_centers, bowler_pca = cluster_bowlers_v2(bowler_df, n_clusters=5)
+    bowler_clusters, bowler_centers, bowler_pca, bowler_sil = cluster_bowlers_v2(
+        bowler_df, n_clusters=5
+    )
 
     # Analyze clusters
     analyze_clusters_v2(batter_clusters, batter_centers, "batter")
@@ -802,6 +827,41 @@ def main() -> int:
         bowler_feature_cols,
     )
 
+    # Save clustering quality report (TKT-095)
+    import json
+    from datetime import datetime
+
+    quality_path = OUTPUT_DIR / "clustering_quality.json"
+    quality_report = {
+        "generated_at": datetime.now().isoformat(),
+        "ticket": "TKT-095",
+        "batters": {
+            "n_players": len(batter_clusters),
+            "n_clusters": 5,
+            "silhouette_score": round(float(batter_sil), 4),
+            "pca_components_for_50pct": int(batter_pca["n_components_for_target"]),
+            "quality": "strong"
+            if batter_sil >= 0.3
+            else "moderate"
+            if batter_sil >= 0.1
+            else "weak",
+        },
+        "bowlers": {
+            "n_players": len(bowler_clusters),
+            "n_clusters": 5,
+            "silhouette_score": round(float(bowler_sil), 4),
+            "pca_components_for_50pct": int(bowler_pca["n_components_for_target"]),
+            "quality": "strong"
+            if bowler_sil >= 0.3
+            else "moderate"
+            if bowler_sil >= 0.1
+            else "weak",
+        },
+    }
+    with open(quality_path, "w") as f:
+        json.dump(quality_report, f, indent=2)
+    print(f"\n  Clustering quality report saved: {quality_path}")
+
     # Summary
     print("\n" + "=" * 70)
     print("V2 CLUSTERING SUMMARY")
@@ -818,6 +878,10 @@ def main() -> int:
         f"    Components for 50%: {bowler_pca['n_components_for_target']}/{bowler_pca['total_components']}"
     )
     print(f"    First 3 PCs explain: {bowler_pca['cumulative_variance'][2] * 100:.1f}%")
+
+    print("\n  Silhouette Scores (TKT-095):")
+    print(f"    Batters: {batter_sil:.4f} ({quality_report['batters']['quality']})")
+    print(f"    Bowlers: {bowler_sil:.4f} ({quality_report['bowlers']['quality']})")
 
     conn.close()
 

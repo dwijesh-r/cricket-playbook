@@ -1,0 +1,44 @@
+{
+  "id": "TKT-191",
+  "title": "Depth Chart Overhaul: Bowling-Type Positions & All-Rounder Scoring",
+  "state": "DONE",
+  "priority": "P0",
+  "progress_pct": 100,
+  "description": "Replaced generic bowling positions with 6 type-specific positions (right_arm_pace, left_arm_pace, off_spin, leg_spin, left_arm_spin, middle_overs_specialist). All-rounders compete in batting positions with zero penalty. Founder XII +10 boost. Overseas dependency softened (threshold \u22653). Display split into Batting/Bowling sections with variety badges. Hardik Pandya now correctly appears in MI middle-order.",
+  "owner": "Andy Flower",
+  "assignee": "Andy Flower",
+  "reviewer": "Stephen Curry",
+  "sprint_id": "SPRINT-001",
+  "epic": "EPIC-006",
+  "tags": [
+    "Depth Charts",
+    "Analytics",
+    "All-Rounders",
+    "Bowling"
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "Core depth chart restructure required for editorial accuracy",
+      "date": "2026-02-13"
+    },
+    "domain_sanity": {
+      "status": "PASS",
+      "andy_flower": "YES",
+      "stephen_curry": "YES",
+      "notes": "All 10 teams x 13 positions validated. Hardik Pandya correctly in MI middle-order."
+    },
+    "system_check": {
+      "status": "PASS",
+      "notes": "257 tests passing, ruff clean"
+    },
+    "founder_validation": {
+      "status": "APPROVED",
+      "notes": "Depth chart overhaul verified across all teams",
+      "commit": "e92c385"
+    }
+  },
+  "created_at": "2026-02-13T12:00:00.000000Z",
+  "updated_at": "2026-02-13T12:00:00.000000Z",
+  "completed_at": "2026-02-13T12:00:00.000000Z"
+}

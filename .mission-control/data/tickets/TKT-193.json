@@ -1,0 +1,40 @@
+{
+  "id": "TKT-193",
+  "title": "Pressure Tab: Show Thresholds Instead of Player Counts",
+  "state": "DONE",
+  "priority": "P2",
+  "progress_pct": 100,
+  "description": "Replaced \"(X players)\" in pressure section subtitles with threshold criteria: \"min 20 balls at RRR \u2265 10\" for batters, \"min 15 balls in HIGH+ bands\" for bowlers.",
+  "owner": "Stephen Curry",
+  "assignee": "Stephen Curry",
+  "sprint_id": "SPRINT-001",
+  "epic": "EPIC-006",
+  "tags": [
+    "Pressure",
+    "UX",
+    "Thresholds"
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "UX clarity improvement for pressure tab subtitles",
+      "date": "2026-02-13"
+    },
+    "domain_sanity": {
+      "status": "PASS",
+      "notes": "Threshold criteria match config/thresholds.yaml values"
+    },
+    "system_check": {
+      "status": "PASS",
+      "notes": "257 tests passing, ruff clean"
+    },
+    "founder_validation": {
+      "status": "APPROVED",
+      "notes": "Pressure subtitles now show meaningful thresholds instead of player counts",
+      "commit": "e92c385"
+    }
+  },
+  "created_at": "2026-02-13T12:00:00.000000Z",
+  "updated_at": "2026-02-13T12:00:00.000000Z",
+  "completed_at": "2026-02-13T12:00:00.000000Z"
+}

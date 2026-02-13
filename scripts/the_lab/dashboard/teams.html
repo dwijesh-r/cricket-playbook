@@ -2239,16 +2239,30 @@
             text-underline-offset: 2px;
         }
         @media (max-width: 768px) {
+            .player-profile-overlay { padding: 0; }
             .player-profile-modal {
                 max-width: 100%;
                 max-height: 100vh;
                 height: 100vh;
                 border-radius: 0;
-                padding: 20px;
+                padding: 16px;
+                font-size: 16px;
+            }
+            .player-profile-close {
+                width: 44px;
+                height: 44px;
+                font-size: 20px;
+                top: 12px;
+                right: 12px;
             }
             .pp-name { font-size: 20px; }
             .pp-stat-grid { grid-template-columns: repeat(2, 1fr); }
             .pp-phase-grid { grid-template-columns: 1fr; }
+            .pp-stat-card { padding: 12px; min-height: 44px; }
+            .pp-matchup-table td, .pp-matchup-table th { padding: 10px 8px; }
+            .pp-tag { padding: 8px 12px; font-size: 12px; min-height: 44px; display: inline-flex; align-items: center; }
+            .pp-meta-badge { padding: 8px 12px; min-height: 44px; display: inline-flex; align-items: center; }
+            .pp-section-title { font-size: 14px; padding: 8px 10px; }
         }
         .nav-guide-overlay {
             position: fixed;

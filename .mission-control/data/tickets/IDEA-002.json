@@ -1,10 +1,11 @@
 {
   "id": "IDEA-002",
   "title": "Create CricPom (KenPom clone)",
-  "state": "IDEA",
+  "state": "DONE",
   "priority": "P0",
-  "progress_pct": 0,
+  "progress_pct": 100,
   "description": "Build cricket equivalent of KenPom basketball analytics",
+  "resolution_note": "Delivered via TKT-167 (CricPom Spec) + TKT-190 (weighted cross-tournament feed). Spec: docs/research/cricpom_prototype_spec_020926_v1.md. Output: cricpom_weighted_feed.json (231 players).",
   "owner": "Jose Mourinho",
   "assignee": "Jose Mourinho",
   "sprint_id": "SPRINT-001",
@@ -15,5 +16,5 @@
   ],
   "gates": {},
   "created_at": "2026-02-08T00:00:00.000000Z",
-  "updated_at": "2026-02-08T00:00:00.000000Z"
+  "updated_at": "2026-02-13T18:00:00.000000Z"
 }

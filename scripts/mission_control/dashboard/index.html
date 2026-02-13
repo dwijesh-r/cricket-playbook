@@ -7647,19 +7647,22 @@ Gate Inheritance:
             },
 
             // Sprint 5.0+ Ideas (IDEA-XXX notation for unscoped work)
-            { id: 'IDEA-001', title: 'Implement Match Phase Index', state: 'IDEA', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 0, tags: ['Feature', 'Analytics'], gates: {},
-              context: { ask: 'Create composite index measuring player impact by match phase', goal: 'Single metric combining PP/Middle/Death performance', reason: 'Simplify phase analysis into actionable score', audible: ['Define index formula', 'Weight phases', 'Validate with Andy Flower'] }
+            { id: 'IDEA-001', title: 'Implement Match Phase Index', state: 'DONE', priority: 'P1', effort: 'marathon', assignee: 'Stephen Curry', epic: null, progress: 100, tags: ['Feature', 'Analytics'], gates: {},
+              completedNote: 'Delivered via TKT-087 (Match Phase Index). Phase views in analytics_ipl.py covering PP/middle/death breakdowns for batting and bowling.',
+              context: { ask: 'Create composite index measuring player impact by match phase', goal: 'Single metric combining PP/Middle/Death performance', reason: 'Simplify phase analysis into actionable score', audible: ['✅ Delivered via TKT-087', '✅ Phase views in analytics_ipl.py', '✅ PP/middle/death breakdowns'] }
             },
             // TKT-088 REMOVED: Duplicate of TKT-050 (Pressure Performance)
-            { id: 'IDEA-002', title: 'Create CricPom (KenPom clone)', state: 'IDEA', priority: 'P0', effort: 'marathon', assignee: 'Jose Mourinho', epic: null, progress: 0, tags: ['Feature', 'Research'], gates: {},
-              context: { ask: 'Build cricket equivalent of KenPom basketball analytics', goal: 'Team/player rating system with predictive power', reason: 'PRD inspiration: KenPom-style rankings', audible: ['Research KenPom methodology', 'Adapt for cricket', 'Design rating algorithm'] }
+            { id: 'IDEA-002', title: 'Create CricPom (KenPom clone)', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Jose Mourinho', epic: null, progress: 100, tags: ['Feature', 'Research'], gates: {},
+              completedNote: 'Delivered via TKT-167 (CricPom Spec) + TKT-190 (weighted cross-tournament feed). Spec: docs/research/cricpom_prototype_spec_020926_v1.md. Output: cricpom_weighted_feed.json (231 players).',
+              context: { ask: 'Build cricket equivalent of KenPom basketball analytics', goal: 'Team/player rating system with predictive power', reason: 'PRD inspiration: KenPom-style rankings', audible: ['✅ Delivered via TKT-167 + TKT-190', '✅ CricPom spec published', '✅ 231-player weighted feed generated'] }
             },
             // TKT-090 REMOVED: REST API deferred - no clear use case yet
             { id: 'IDEA-003', title: 'Create Win Probability model', state: 'IDEA', priority: 'P2', effort: 'marathon', assignee: 'Ime Udoka', epic: null, progress: 0, tags: ['ML', 'Model'], gates: {},
               context: { ask: 'Build ML model predicting win probability during match', goal: 'Real-time win % based on match situation', reason: 'Advanced analytics for in-game decisions', audible: ['Collect training data', 'Train model', 'Validate accuracy'] }
             },
-            { id: 'IDEA-004', title: 'Build Player Form Tracker', state: 'IDEA', priority: 'P1', effort: 'deep-work', assignee: 'Stephen Curry', epic: null, progress: 0, tags: ['Feature', 'Analytics'], gates: {},
-              context: { ask: 'Track player form across recent matches', goal: 'Rolling form indicator (hot/cold/neutral)', reason: 'Current form impacts team selection', audible: ['Define form window', 'Calculate form metrics', 'Add to player profiles'] }
+            { id: 'IDEA-004', title: 'Build Player Form Tracker', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Stephen Curry', epic: null, progress: 100, tags: ['Feature', 'Analytics'], gates: {},
+              completedNote: 'Delivered via TKT-050 (recent_form DuckDB views) + EPIC-017 (player profile recent form sparklines). Recent form surfaced in The Lab player profiles and stat packs.',
+              context: { ask: 'Track player form across recent matches', goal: 'Rolling form indicator (hot/cold/neutral)', reason: 'Current form impacts team selection', audible: ['✅ Delivered via TKT-050 + EPIC-017', '✅ Recent form DuckDB views', '✅ Sparklines in player profiles'] }
             },
             { id: 'IDEA-005', title: 'Create interactive dashboard (React)', state: 'IDEA', priority: 'P2', effort: 'marathon', assignee: 'Kevin de Bruyne', epic: null, progress: 0, tags: ['Frontend', 'Feature'], gates: {},
               context: { ask: 'Build React-based interactive dashboard', goal: 'Dynamic filtering, charts, drill-downs', reason: 'Static HTML limits user exploration', audible: ['Design components', 'Integrate with data', 'Add interactivity'] }

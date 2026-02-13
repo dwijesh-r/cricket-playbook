@@ -3053,6 +3053,7 @@
         // Generate SQUADS from PREDICTED_XII if not loaded separately
         // Use FULL_SQUADS if available (Phil Steele style full roster)
         // Falls back to predicted XI if full data not loaded
+        const IPL_PURSE_CR = 120; // IPL 2026 auction purse cap in Crores
         const SQUADS = {};
         if (typeof FULL_SQUADS !== 'undefined' && typeof TEAM_ORDER !== 'undefined') {
             // Use full squad data from CSV (20-25 players per team)
@@ -3090,7 +3091,7 @@
                     SQUADS[abbrev] = {
                         squad: players,
                         purseSpent: totalSpent,
-                        purseRemaining: 120 - totalSpent
+                        purseRemaining: IPL_PURSE_CR - totalSpent
                     };
                 }
             });
@@ -3126,7 +3127,7 @@
                     SQUADS[abbrev] = {
                         squad: players,
                         purseSpent: totalSpent,
-                        purseRemaining: 120 - totalSpent
+                        purseRemaining: IPL_PURSE_CR - totalSpent
                     };
                 }
             });

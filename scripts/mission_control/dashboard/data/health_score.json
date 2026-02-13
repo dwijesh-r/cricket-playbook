@@ -21,7 +21,7 @@
         "6 bare except handlers (GOOD)",
         "Thresholds centralized in YAML (TKT-132 DONE)",
         "No sys.path hacks (EXCELLENT)",
-        "Type hints: 27% coverage (OK)"
+        "Type hints: 26% coverage (OK)"
       ]
     },
     "data_robustness": {
@@ -47,9 +47,9 @@
       "score": 100.0,
       "weight": 15,
       "findings": [
-        "5 test files found (GOOD)",
+        "8 test files found (GOOD)",
         "Integration tests exist",
-        "265 tests collected (GOOD)"
+        "288 tests collected (GOOD)"
       ]
     },
     "documentation": {
@@ -62,7 +62,7 @@
       ]
     }
   },
-  "timestamp": "2026-02-12T15:49:45.895721",
+  "timestamp": "2026-02-14T01:33:52.142519",
   "ticket": "TKT-147",
   "epic": "EPIC-014",
   "generated_by": "system_health_score.py",

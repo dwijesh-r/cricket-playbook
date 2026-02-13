@@ -1,7 +1,7 @@
 /**
  * The Lab - Momentum & Pressure Sequence Insights
  * IPL 2026 Pre-Season Analytics
- * Auto-generated: 2026-02-13T14:44:35.608329+00:00
+ * Auto-generated: 2026-02-13T20:03:14.352548+00:00
  * Source: analytics_ipl_pressure_dot_sequences_since2023,
  *         analytics_ipl_pressure_boundary_sequences_since2023,
  *         analytics_ipl_pressure_deltas_since2023
@@ -10,7 +10,7 @@
 
 var MOMENTUM_INSIGHTS = {
     "metadata": {
-        "computedAt": "2026-02-13T14:44:35.608329+00:00",
+        "computedAt": "2026-02-13T20:03:14.352548+00:00",
         "source": "analytics_ipl_pressure_dot/boundary_sequences_since2023 + pressure_deltas_since2023",
         "owner": "Andy Flower (Cricket Domain Expert)"
     },
@@ -128,10 +128,10 @@ var MOMENTUM_INSIGHTS = {
                         "maxLength": 6
                     },
                     {
-                        "name": "Noor Ahmad",
-                        "dotSequences": 12,
+                        "name": "KV Sharma",
+                        "dotSequences": 10,
                         "avgLength": 2.5,
-                        "maxLength": 5
+                        "maxLength": 3
                     }
                 ],
                 "teamTotalSequences": 50,
@@ -153,8 +153,8 @@ var MOMENTUM_INSIGHTS = {
                         "maxLength": 3
                     },
                     {
-                        "name": "MS Dhoni",
-                        "boundarySequences": 3,
+                        "name": "S Dube",
+                        "boundarySequences": 5,
                         "avgLength": 2.0,
                         "maxLength": 2
                     }
@@ -230,7 +230,7 @@ var MOMENTUM_INSIGHTS = {
                         "maxLength": 3
                     },
                     {
-                        "name": "D Padikkal",
+                        "name": "RM Patidar",
                         "boundarySequences": 2,
                         "avgLength": 2.0,
                         "maxLength": 2
@@ -320,13 +320,13 @@ var MOMENTUM_INSIGHTS = {
                         "maxLength": 3
                     },
                     {
-                        "name": "R Powell",
+                        "name": "MK Pandey",
                         "boundarySequences": 2,
                         "avgLength": 2.5,
                         "maxLength": 3
                     },
                     {
-                        "name": "MK Pandey",
+                        "name": "R Powell",
                         "boundarySequences": 2,
                         "avgLength": 2.5,
                         "maxLength": 3
@@ -481,16 +481,16 @@ var MOMENTUM_INSIGHTS = {
                         "maxLength": 4
                     },
                     {
-                        "name": "Yash Thakur",
-                        "dotSequences": 8,
-                        "avgLength": 2.6,
-                        "maxLength": 5
-                    },
-                    {
                         "name": "Arshdeep Singh",
                         "dotSequences": 25,
                         "avgLength": 2.6,
                         "maxLength": 4
+                    },
+                    {
+                        "name": "Yash Thakur",
+                        "dotSequences": 8,
+                        "avgLength": 2.6,
+                        "maxLength": 5
                     }
                 ],
                 "teamTotalSequences": 83,
@@ -506,13 +506,13 @@ var MOMENTUM_INSIGHTS = {
                         "maxLength": 3
                     },
                     {
-                        "name": "Shashank Singh",
+                        "name": "MP Stoinis",
                         "boundarySequences": 5,
                         "avgLength": 2.2,
                         "maxLength": 3
                     },
                     {
-                        "name": "MP Stoinis",
+                        "name": "Shashank Singh",
                         "boundarySequences": 5,
                         "avgLength": 2.2,
                         "maxLength": 3
@@ -686,16 +686,16 @@ var MOMENTUM_INSIGHTS = {
                         "maxLength": 3
                     },
                     {
-                        "name": "H Klaasen",
-                        "boundarySequences": 4,
-                        "avgLength": 2.5,
-                        "maxLength": 4
-                    },
-                    {
                         "name": "TM Head",
                         "boundarySequences": 2,
                         "avgLength": 2.5,
                         "maxLength": 3
+                    },
+                    {
+                        "name": "H Klaasen",
+                        "boundarySequences": 4,
+                        "avgLength": 2.5,
+                        "maxLength": 4
                     }
                 ],
                 "teamTotalSequences": 33,

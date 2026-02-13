@@ -18,6 +18,7 @@ And generates:
     - scripts/the_lab/dashboard/data/players.js
 """
 
+import csv
 import json
 from datetime import datetime
 from pathlib import Path
@@ -414,6 +415,124 @@ const FULL_DEPTH_CHARTS = {{
     return js_content
 
 
+def generate_full_squads_js():
+    """Generate full_squads.js from squad CSV + contracts + experience data."""
+    data_dir = ROOT_DIR / "data"
+    squad_file = data_dir / "ipl_2026_squads.csv"
+    contracts_file = data_dir / "ipl_2026_player_contracts.csv"
+    experience_file = ROOT_DIR / "outputs" / "team" / "ipl_2026_squad_experience.csv"
+
+    # Load contracts
+    contracts = {}
+    if contracts_file.exists():
+        with open(contracts_file) as f:
+            for row in csv.DictReader(f):
+                key = f"{row['team_name']}|{row['player_name']}"
+                contracts[key] = {
+                    "price_cr": float(row["price_cr"]),
+                    "acquisition_type": row["acquisition_type"],
+                }
+
+    # Load experience
+    experience = {}
+    if experience_file.exists():
+        with open(experience_file) as f:
+            for row in csv.DictReader(f):
+                key = f"{row['team_name']}|{row['player_name']}"
+                bat_inn = float(row.get("ipl_batting_innings") or 0)
+                bowl_m = float(row.get("ipl_bowling_matches") or 0)
+                experience[key] = {
+                    "ipl_matches": int(max(bat_inn, bowl_m)),
+                    "ipl_runs": int(float(row.get("ipl_batting_runs") or 0)),
+                    "ipl_sr": round(float(row.get("ipl_batting_sr") or 0), 1),
+                    "ipl_wickets": int(float(row.get("ipl_bowling_wickets") or 0)),
+                    "ipl_economy": round(float(row.get("ipl_bowling_economy") or 0), 2),
+                }
+
+    # Load founder data for predicted XII
+    founder_xii = {}
+    founder_file = ROOT_DIR / "outputs" / "founder_review" / "founder_squads_2026.json"
+    if founder_file.exists():
+        with open(founder_file) as f:
+            fd = json.load(f)
+            for team_data in fd.get("teams", {}).values():
+                for p in team_data.get("players", []):
+                    if p.get("player_id") and p.get("is_predicted_xii"):
+                        founder_xii[p["player_id"]] = p["squad_number"]
+
+    # Load squads
+    squads = {}
+    with open(squad_file) as f:
+        for row in csv.DictReader(f):
+            team = row["team_name"]
+            if team not in squads:
+                squads[team] = []
+            key = f"{team}|{row['player_name']}"
+            contract = contracts.get(key, {})
+            exp = experience.get(key, {})
+            founder_pos = founder_xii.get(row["player_id"])
+            squads[team].append(
+                {
+                    "name": row["player_name"],
+                    "player_id": row["player_id"],
+                    "role": row["role"],
+                    "batting_hand": row.get("batting_hand", ""),
+                    "bowling_arm": row.get("bowling_arm", ""),
+                    "bowling_type": row.get("bowling_type", ""),
+                    "nationality": row.get("nationality", "IND"),
+                    "age": row.get("age", ""),
+                    "batter_classification": row.get("batter_classification", ""),
+                    "bowler_classification": row.get("bowler_classification", ""),
+                    "is_captain": row.get("is_captain", "").strip().upper() == "TRUE",
+                    "price_cr": contract.get("price_cr", 0),
+                    "acquisition_type": contract.get("acquisition_type", ""),
+                    "ipl_matches": exp.get("ipl_matches", 0),
+                    "ipl_runs": exp.get("ipl_runs", 0),
+                    "ipl_sr": exp.get("ipl_sr", 0),
+                    "ipl_wickets": exp.get("ipl_wickets", 0),
+                    "ipl_economy": exp.get("ipl_economy", 0),
+                    "is_predicted_xii": founder_pos is not None,
+                    "founder_position": founder_pos,
+                }
+            )
+
+    timestamp = datetime.now().isoformat()
+    js = f"""/**
+ * The Lab - Full Squad Data
+ * IPL 2026 Pre-Season Analytics
+ * Auto-generated: {timestamp}
+ */
+
+const FULL_SQUADS = {{
+"""
+    for abbrev in TEAM_ORDER:
+        full_name = TEAMS_META[abbrev]["fullName"]
+        team_players = squads.get(full_name, [])
+        players_js = []
+        for p in team_players:
+            overseas = p["nationality"] not in ("IND", "India", "")
+            cap_str = "true" if p["is_captain"] else "false"
+            xii_str = "true" if p["is_predicted_xii"] else "false"
+            fpos = p["founder_position"] if p["founder_position"] else "null"
+            name_esc = p["name"].replace("'", "\\'")
+            role_esc = p["role"].replace("'", "\\'")
+            players_js.append(
+                f"        {{ name: '{name_esc}', role: '{role_esc}', "
+                f"batting: '{p['batting_hand']}', bowling: '{p['bowling_type']}', "
+                f"nat: '{p['nationality']}', age: '{p['age']}', "
+                f"price: {p['price_cr']}, overseas: {'true' if overseas else 'false'}, "
+                f"captain: {cap_str}, predictedXII: {xii_str}, founderPos: {fpos}, "
+                f"iplMatches: {p['ipl_matches']}, iplRuns: {p['ipl_runs']}, "
+                f"iplSR: {p['ipl_sr']}, iplWickets: {p['ipl_wickets']}, "
+                f"iplEconomy: {p['ipl_economy']} }}"
+            )
+        joined = ",\n".join(players_js)
+        js += f"    {abbrev}: [\n{joined}\n    ],\n"
+
+    js += "};\n"
+    return js
+
+
 def main():
     print("🏏 The Lab - Data Update Script")
     print("=" * 50)
@@ -462,6 +581,13 @@ def main():
         with open(depth_path, "w") as f:
             f.write(full_depth_js)
         print(f"  ✓ {depth_path.name}")
+
+    # full_squads.js
+    full_squads_js = generate_full_squads_js()
+    squads_path = DASHBOARD_DATA_DIR / "full_squads.js"
+    with open(squads_path, "w") as f:
+        f.write(full_squads_js)
+    print(f"  ✓ {squads_path.name}")
 
     print("\n✅ Data update complete!")
     print(f"   Files written to: {DASHBOARD_DATA_DIR}")

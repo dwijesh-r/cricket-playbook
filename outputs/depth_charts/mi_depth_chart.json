@@ -1,12 +1,13 @@
 {
   "team": "MI",
   "team_name": "Mumbai Indians",
-  "overall_rating": 8.6,
+  "overall_rating": 8.5,
   "strongest_position": "#3 Batter",
   "weakest_position": "Wicketkeeper",
   "vulnerabilities": [
     "Wicketkeeper: overseas dependent",
     "Supporting Pacer (Death Specialist): overseas dependent",
+    "All-rounder (Bowling-first): overseas dependent",
     "Wicketkeeper: thin depth (rating 4.6)"
   ],
   "positions": {
@@ -333,23 +334,13 @@
     },
     "allrounder_batting": {
       "name": "All-rounder (Batting-first)",
-      "rating": 8.6,
-      "what_works": "Elite #1 in tilak varma. quality backup in naman dhir",
+      "rating": 7.7,
+      "what_works": "Strong #1 with naman dhir. quality backup in hardik pandya",
       "what_doesnt": "Minimal concerns",
-      "overseas_count": 0,
+      "overseas_count": 1,
       "players": [
         {
           "rank": 1,
-          "name": "Tilak Varma",
-          "player_id": "b0482a1d",
-          "score": 83.1,
-          "rationale": "Strong finisher (86). Middle order capable (87)",
-          "is_overseas": false,
-          "price_cr": 8.0,
-          "secondary_positions": []
-        },
-        {
-          "rank": 2,
           "name": "Naman Dhir",
           "player_id": "fffa744b",
           "score": 70.8,
@@ -359,7 +350,7 @@
           "secondary_positions": []
         },
         {
-          "rank": 3,
+          "rank": 2,
           "name": "Hardik Pandya",
           "player_id": "dbe50b21",
           "score": 63.9,
@@ -367,15 +358,25 @@
           "is_overseas": false,
           "price_cr": 16.35,
           "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Will Jacks",
+          "player_id": "9caf69a1",
+          "score": 63.5,
+          "rationale": "Strong finisher (79). Bowls 4 overs",
+          "is_overseas": true,
+          "price_cr": 5.25,
+          "secondary_positions": []
         }
       ]
     },
     "allrounder_bowling": {
       "name": "All-rounder (Bowling-first)",
-      "rating": 7.5,
-      "what_works": "Strong #1 with will jacks. quality backup in tilak varma",
-      "what_doesnt": "Room for improvement at the top",
-      "overseas_count": 1,
+      "rating": 7.0,
+      "what_works": "Strong #1 with will jacks. quality backup in hardik pandya",
+      "what_doesnt": "Overseas heavy (2 of 3)",
+      "overseas_count": 2,
       "players": [
         {
           "rank": 1,
@@ -389,22 +390,22 @@
         },
         {
           "rank": 2,
-          "name": "Tilak Varma",
-          "player_id": "b0482a1d",
-          "score": 67.9,
-          "rationale": "Handy bat (87). SR 151",
-          "is_overseas": false,
-          "price_cr": 8.0,
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
           "name": "Hardik Pandya",
           "player_id": "dbe50b21",
           "score": 52.0,
           "rationale": "Handy bat (49)",
           "is_overseas": false,
           "price_cr": 16.35,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Mitchell Santner",
+          "player_id": "e4a0deae",
+          "score": 49.2,
+          "rationale": "Primary bowler (67)",
+          "is_overseas": true,
+          "price_cr": 2.0,
           "secondary_positions": []
         }
       ]

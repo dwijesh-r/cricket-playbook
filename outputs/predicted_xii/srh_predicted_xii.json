@@ -10,21 +10,21 @@
       "batting_position": 1,
       "player_id": "12b610c2",
       "player_name": "Travis Head",
-      "role": "Opener",
+      "role": "Batter",
       "batting_hand": "Left-hand",
       "is_overseas": true,
       "price_cr": 14.0,
-      "rationale": "Key player investment (14.0 Cr). Powerplay aggressor"
+      "rationale": "Founder's Selection"
     },
     {
       "batting_position": 2,
       "player_id": "f29185a1",
       "player_name": "Abhishek Sharma",
-      "role": "Opener",
+      "role": "All-rounder",
       "batting_hand": "Left-hand",
       "is_overseas": false,
       "price_cr": 14.0,
-      "rationale": "Key player investment (14.0 Cr). Powerplay aggressor"
+      "rationale": "Founder's Selection"
     },
     {
       "batting_position": 3,
@@ -34,57 +34,57 @@
       "batting_hand": "Left-hand",
       "is_overseas": false,
       "price_cr": 11.25,
-      "rationale": "Key player investment (11.2 Cr). Explosive death-overs finisher"
+      "rationale": "Founder's Selection"
     },
     {
       "batting_position": 4,
-      "player_id": "aad0c365",
-      "player_name": "Nitish Kumar Reddy",
-      "role": "Middle Order",
+      "player_id": "235c2bb6",
+      "player_name": "Heinrich Klaasen",
+      "role": "Wicketkeeper",
       "batting_hand": "Right-hand",
-      "is_overseas": false,
-      "price_cr": 6.0,
-      "rationale": "Provides batting depth and bowling option"
+      "is_overseas": true,
+      "price_cr": 23.0,
+      "rationale": "Founder's Selection"
     },
     {
       "batting_position": 5,
       "player_id": "50c6bc2b",
       "player_name": "Liam Livingstone",
-      "role": "Middle Order",
+      "role": "All-rounder",
       "batting_hand": "Right-hand",
       "is_overseas": true,
       "price_cr": 13.0,
-      "rationale": "Key player investment (13.0 Cr). Explosive death-overs finisher"
+      "rationale": "Founder's Selection \u2014 Bowls off-spin to left-handers, leg-spin to right-handers"
     },
     {
       "batting_position": 6,
-      "player_id": "235c2bb6",
-      "player_name": "Heinrich Klaasen",
-      "role": "Finisher",
+      "player_id": "aad0c365",
+      "player_name": "Nitish Kumar Reddy",
+      "role": "All-rounder",
       "batting_hand": "Right-hand",
-      "is_overseas": true,
-      "price_cr": 23.0,
-      "rationale": "Franchise cornerstone at Rs 23.0 Cr"
+      "is_overseas": false,
+      "price_cr": 6.0,
+      "rationale": "Founder's Selection"
     },
     {
       "batting_position": 7,
-      "player_id": "5750bcb4",
-      "player_name": "Eshan Malinga",
-      "role": "Pace Bowler",
+      "player_id": "a3b0600d",
+      "player_name": "Aniket Verma",
+      "role": "Middle Order",
       "batting_hand": "Right-hand",
       "is_overseas": false,
-      "price_cr": 1.2,
-      "rationale": "Pace bowling depth"
+      "price_cr": 0.3,
+      "rationale": "Founder's Selection"
     },
     {
       "batting_position": 8,
-      "player_id": "08548b13",
-      "player_name": "Kamindu Mendis",
+      "player_id": "ded9240e",
+      "player_name": "Pat Cummins",
       "role": "All-rounder",
-      "batting_hand": "Left-hand",
+      "batting_hand": "Right-hand",
       "is_overseas": true,
-      "price_cr": 0.75,
-      "rationale": "Provides batting depth and bowling option"
+      "price_cr": 18.0,
+      "rationale": "Founder's Selection"
     },
     {
       "batting_position": 9,
@@ -94,37 +94,37 @@
       "batting_hand": "Right-hand",
       "is_overseas": false,
       "price_cr": 8.0,
-      "rationale": "Tagged: proven wicket taker"
+      "rationale": "Founder's Selection"
     },
     {
       "batting_position": 10,
       "player_id": "1e66c162",
       "player_name": "Jaydev Unadkat",
       "role": "Pace Bowler",
-      "batting_hand": "Left-hand",
+      "batting_hand": "Right-hand",
       "is_overseas": false,
       "price_cr": 1.0,
-      "rationale": "Tagged: proven wicket taker"
+      "rationale": "Founder's Selection"
     },
     {
       "batting_position": 11,
-      "player_id": "c38d3503",
-      "player_name": "Shivam Mavi",
-      "role": "Pace Bowler",
+      "player_id": "36619795",
+      "player_name": "Zeeshan Ansari",
+      "role": "Spinner",
       "batting_hand": "Right-hand",
       "is_overseas": false,
-      "price_cr": 0.3,
-      "rationale": "Pace bowling depth"
+      "price_cr": 0.4,
+      "rationale": "Founder's Selection"
     }
   ],
   "impact_player": {
-    "player_id": "a3b0600d",
-    "player_name": "Aniket Verma",
-    "role": "Impact Player",
-    "batting_hand": "Right-hand",
+    "player_id": "25228673",
+    "player_name": "Harsh Dubey",
+    "role": "All-rounder",
+    "batting_hand": "Left-hand",
     "is_overseas": false,
     "price_cr": 0.3,
-    "rationale": "Provides batting depth as Impact substitute"
+    "rationale": "Founder's Selection"
   },
   "balance": {
     "overseas_count": 4,
@@ -136,6 +136,6 @@
   "constraints_satisfied": true,
   "constraint_violations": [],
   "generation_notes": [
-    "Selected Ishan Kishan as keeper"
+    "Founder Override \u2014 11 XI + impact"
   ]
 }

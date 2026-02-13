@@ -14,67 +14,67 @@
       "batting_hand": "Right-hand",
       "is_overseas": true,
       "price_cr": 11.5,
-      "rationale": "Key player investment (11.5 Cr)"
+      "rationale": "Founder's Selection"
     },
     {
       "batting_position": 2,
       "player_id": "ba607b88",
       "player_name": "Virat Kohli",
-      "role": "Opener",
+      "role": "Batter",
       "batting_hand": "Right-hand",
       "is_overseas": false,
       "price_cr": 21.0,
-      "rationale": "Franchise cornerstone at Rs 21.0 Cr. Elite top-order anchor"
+      "rationale": "Founder's Selection"
     },
     {
       "batting_position": 3,
       "player_id": "a24be938",
       "player_name": "Venkatesh Iyer",
-      "role": "Opener",
+      "role": "All-rounder",
       "batting_hand": "Left-hand",
       "is_overseas": false,
       "price_cr": 7.0,
-      "rationale": "Provides batting depth and bowling option"
+      "rationale": "Founder's Selection"
     },
     {
       "batting_position": 4,
-      "player_id": "2c25d4f5",
-      "player_name": "Devdutt Padikkal",
-      "role": "Middle Order",
-      "batting_hand": "Left-hand",
-      "is_overseas": false,
-      "price_cr": 2.0,
-      "rationale": "Batting value"
-    },
-    {
-      "batting_position": 5,
       "player_id": "c740ea83",
       "player_name": "Rajat Patidar",
-      "role": "Middle Order",
+      "role": "Batter",
       "batting_hand": "Right-hand",
       "is_overseas": false,
       "price_cr": 11.0,
-      "rationale": "Key player investment (11.0 Cr). Explosive death-overs finisher"
+      "rationale": "Founder's Selection"
+    },
+    {
+      "batting_position": 5,
+      "player_id": "f1f99156",
+      "player_name": "Tim David",
+      "role": "All-rounder",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 3.0,
+      "rationale": "Founder's Selection"
     },
     {
       "batting_position": 6,
       "player_id": "800d2d97",
       "player_name": "Jitesh Sharma",
-      "role": "Finisher",
+      "role": "Wicketkeeper",
       "batting_hand": "Right-hand",
       "is_overseas": false,
       "price_cr": 11.0,
-      "rationale": "Key player investment (11.0 Cr)"
+      "rationale": "Founder's Selection"
     },
     {
       "batting_position": 7,
-      "player_id": "f1f99156",
-      "player_name": "Tim David",
-      "role": "Finisher",
+      "player_id": "c5aef772",
+      "player_name": "Romario Shepherd",
+      "role": "All-rounder",
       "batting_hand": "Right-hand",
       "is_overseas": true,
-      "price_cr": 3.0,
-      "rationale": "Batting value"
+      "price_cr": 2.0,
+      "rationale": "Founder's Selection"
     },
     {
       "batting_position": 8,
@@ -84,7 +84,7 @@
       "batting_hand": "Left-hand",
       "is_overseas": false,
       "price_cr": 5.75,
-      "rationale": "Spin bowling strength in middle overs"
+      "rationale": "Founder's Selection"
     },
     {
       "batting_position": 9,
@@ -94,7 +94,7 @@
       "batting_hand": "Right-hand",
       "is_overseas": false,
       "price_cr": 10.75,
-      "rationale": "Key player investment (10.8 Cr). New ball specialist"
+      "rationale": "Founder's Selection"
     },
     {
       "batting_position": 10,
@@ -104,42 +104,38 @@
       "batting_hand": "Left-hand",
       "is_overseas": true,
       "price_cr": 12.5,
-      "rationale": "Key player investment (12.5 Cr). New ball specialist"
+      "rationale": "Founder's Selection"
     },
     {
       "batting_position": 11,
-      "player_id": "ff154ecd",
-      "player_name": "Jordan Cox",
-      "role": "Pace Bowler",
+      "player_id": "9440ef41",
+      "player_name": "Suyash Sharma",
+      "role": "Spinner",
       "batting_hand": "Right-hand",
-      "is_overseas": true,
-      "price_cr": 0.3,
-      "rationale": "Primary wicketkeeper"
+      "is_overseas": false,
+      "price_cr": 2.6,
+      "rationale": "Founder's Selection"
     }
   ],
   "impact_player": {
-    "player_id": "b1ad996b",
-    "player_name": "Mangesh Yadav",
-    "role": "Impact Player",
-    "batting_hand": "Left-hand",
+    "player_id": "7210d461",
+    "player_name": "Yash Dayal",
+    "role": "Pace Bowler",
+    "batting_hand": "Right-hand",
     "is_overseas": false,
-    "price_cr": 0.3,
-    "rationale": "Provides batting depth as Impact substitute"
+    "price_cr": 5.0,
+    "rationale": "Founder's Selection \u2014 Status unknown right now (off-the-field issues)"
   },
   "balance": {
     "overseas_count": 4,
-    "bowling_options": 5,
-    "spinners": 3,
-    "pacers": 8,
-    "left_handers_top6": 2
+    "bowling_options": 8,
+    "spinners": 4,
+    "pacers": 7,
+    "left_handers_top6": 1
   },
-  "constraints_satisfied": false,
-  "constraint_violations": [
-    "C4: Insufficient primary bowling options (3/4)"
-  ],
+  "constraints_satisfied": true,
+  "constraint_violations": [],
   "generation_notes": [
-    "Selected Phil Salt as keeper",
-    "Overseas optimization: Swapped Mangesh Yadav for Jordan Cox",
-    "Constraint violations: ['C4: Insufficient primary bowling options (3/4)']"
+    "Founder Override \u2014 11 XI + impact"
   ]
 }

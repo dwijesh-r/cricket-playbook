@@ -1,7 +1,7 @@
 {
   "team": "SRH",
   "team_name": "Sunrisers Hyderabad",
-  "overall_rating": 7.4,
+  "overall_rating": 7.5,
   "strongest_position": "Opener",
   "weakest_position": "Supporting Pacer (PP Specialist)",
   "vulnerabilities": [
@@ -335,10 +335,10 @@
     },
     "allrounder_batting": {
       "name": "All-rounder (Batting-first)",
-      "rating": 6.0,
-      "what_works": "Elite #1 in liam livingstone. kamindu mendis as backup",
-      "what_doesnt": "Weak backup option. overseas heavy (2 of 3)",
-      "overseas_count": 2,
+      "rating": 6.4,
+      "what_works": "Elite #1 in liam livingstone. pat cummins as backup",
+      "what_doesnt": "Overseas heavy (3 of 3). big gap between #1 and #2",
+      "overseas_count": 3,
       "players": [
         {
           "rank": 1,
@@ -352,6 +352,16 @@
         },
         {
           "rank": 2,
+          "name": "Pat Cummins",
+          "player_id": "ded9240e",
+          "score": 44.8,
+          "rationale": "Bowls 4 overs",
+          "is_overseas": true,
+          "price_cr": 18.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
           "name": "Kamindu Mendis",
           "player_id": "08548b13",
           "score": 31.9,
@@ -359,25 +369,15 @@
           "is_overseas": true,
           "price_cr": 0.75,
           "secondary_positions": []
-        },
-        {
-          "rank": 3,
-          "name": "Nitish Kumar Reddy",
-          "player_id": "aad0c365",
-          "score": 30.8,
-          "rationale": "Bowls 4 overs",
-          "is_overseas": false,
-          "price_cr": 6.0,
-          "secondary_positions": []
         }
       ]
     },
     "allrounder_bowling": {
       "name": "All-rounder (Bowling-first)",
-      "rating": 5.9,
-      "what_works": "Strong #1 with liam livingstone. quality backup in abhishek sharma",
-      "what_doesnt": "Room for improvement at the top",
-      "overseas_count": 1,
+      "rating": 6.8,
+      "what_works": "Strong #1 with liam livingstone. quality backup in pat cummins",
+      "what_doesnt": "Overseas heavy (2 of 3)",
+      "overseas_count": 2,
       "players": [
         {
           "rank": 1,
@@ -391,22 +391,22 @@
         },
         {
           "rank": 2,
+          "name": "Pat Cummins",
+          "player_id": "ded9240e",
+          "score": 56.3,
+          "rationale": "SR 153",
+          "is_overseas": true,
+          "price_cr": 18.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
           "name": "Abhishek Sharma",
           "player_id": "f29185a1",
           "score": 53.0,
           "rationale": "SR 187",
           "is_overseas": false,
           "price_cr": 14.0,
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
-          "name": "Nitish Kumar Reddy",
-          "player_id": "aad0c365",
-          "score": 39.3,
-          "rationale": "Handy bat (47)",
-          "is_overseas": false,
-          "price_cr": 6.0,
           "secondary_positions": []
         }
       ]

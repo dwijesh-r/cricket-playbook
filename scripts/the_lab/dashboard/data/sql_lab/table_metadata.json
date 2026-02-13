@@ -12276,12 +12276,119 @@
           "description": "Top tournaments"
         }
       ]
+    },
+    "founder_squads_2026": {
+      "type": "reference",
+      "rows": 250,
+      "description": "Founder's IPL 2026 team review with predicted XIIs, roles, and player metadata",
+      "columns": [
+        {
+          "name": "team_abbrev",
+          "type": "VARCHAR",
+          "description": "Team abbreviation (MI, CSK, DC, etc.)"
+        },
+        {
+          "name": "team_name",
+          "type": "VARCHAR",
+          "description": "Full team name"
+        },
+        {
+          "name": "squad_number",
+          "type": "INTEGER",
+          "description": "Position in Founder's squad list (1-25)"
+        },
+        {
+          "name": "player_name",
+          "type": "VARCHAR",
+          "description": "Player name"
+        },
+        {
+          "name": "player_id",
+          "type": "VARCHAR",
+          "description": "Unique player identifier"
+        },
+        {
+          "name": "batting_hand",
+          "type": "VARCHAR",
+          "description": "Batting hand (Left-hand / Right-hand)"
+        },
+        {
+          "name": "bowling_arm",
+          "type": "VARCHAR",
+          "description": "Bowling arm (Left-arm / Right-arm)"
+        },
+        {
+          "name": "bowling_type",
+          "type": "VARCHAR",
+          "description": "Normalized bowling type"
+        },
+        {
+          "name": "role",
+          "type": "VARCHAR",
+          "description": "Player role (Batter/Bowler/All-rounder/Wicketkeeper)"
+        },
+        {
+          "name": "age",
+          "type": "INTEGER",
+          "description": "Player age in years"
+        },
+        {
+          "name": "nationality",
+          "type": "VARCHAR",
+          "description": "3-letter nationality code"
+        },
+        {
+          "name": "notes",
+          "type": "VARCHAR",
+          "description": "Founder's notes on the player"
+        },
+        {
+          "name": "is_predicted_xii",
+          "type": "BOOLEAN",
+          "description": "True if in Founder's predicted XII (squad_number 1-12)"
+        },
+        {
+          "name": "batting_position",
+          "type": "INTEGER",
+          "description": "Batting position in predicted XII (null if not in XII)"
+        },
+        {
+          "name": "price_cr",
+          "type": "DOUBLE",
+          "description": "Auction/retention price in crores"
+        },
+        {
+          "name": "ipl_matches",
+          "type": "INTEGER",
+          "description": "Total IPL matches played"
+        },
+        {
+          "name": "ipl_batting_runs",
+          "type": "INTEGER",
+          "description": "Total IPL batting runs"
+        },
+        {
+          "name": "ipl_batting_sr",
+          "type": "DOUBLE",
+          "description": "IPL batting strike rate"
+        },
+        {
+          "name": "ipl_bowling_wickets",
+          "type": "INTEGER",
+          "description": "Total IPL bowling wickets"
+        },
+        {
+          "name": "ipl_bowling_economy",
+          "type": "DOUBLE",
+          "description": "IPL bowling economy rate"
+        }
+      ]
     }
   },
   "stats": {
-    "total_tables": 16,
-    "total_views": 158,
-    "total_rows": 2380107,
+    "total_tables": 17,
+    "total_views": 159,
+    "total_rows": 2380357,
     "parquet_size_mb": 15.25,
     "generated_at": "2026-02-12T15:32:37.569012+00:00"
   }

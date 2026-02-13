@@ -2443,7 +2443,8 @@ LIMIT 20;</textarea>
             'ipl_2026_contracts',
             'ipl_2026_squads',
             'player_clusters_batters',
-            'player_clusters_bowlers'
+            'player_clusters_bowlers',
+            'founder_squads_2026'
         ];
 
         function setLoadingStep(stepId, state) {
@@ -3345,6 +3346,18 @@ LIMIT 20;</textarea>
                 title: 'Most Expensive IPL 2026 Buys',
                 description: 'The biggest price tags from the IPL 2026 mega auction and retentions.',
                 sql: `SELECT c.player_name, c.team_name,\n  c.price_cr, c.acquisition_type,\n  s.nationality, s.role, s.age\nFROM ipl_2026_contracts c\nJOIN ipl_2026_squads s\n  ON c.player_name = s.player_name\n  AND c.team_name = s.team_name\nORDER BY c.price_cr DESC\nLIMIT 25;`
+            },
+            {
+                category: 'ipl2026',
+                title: 'Founder Predicted XIIs',
+                description: 'The Founder\'s predicted XII for each team with roles, ages, nationalities, IPL experience, and price.',
+                sql: `SELECT team_abbrev, squad_number AS pos,\n  player_name, role, age,\n  nationality, price_cr,\n  ipl_matches, batting_hand\nFROM founder_squads_2026\nWHERE is_predicted_xii = true\nORDER BY team_abbrev, squad_number;`
+            },
+            {
+                category: 'ipl2026',
+                title: 'IPL 2026 Final Version',
+                description: 'Complete merged view: Founder selections + analytics tags + contracts + experience data.',
+                sql: `SELECT team_abbrev, squad_number AS pos,\n  player_name, role, age,\n  nationality, price_cr,\n  ipl_matches, is_predicted_xii,\n  batter_classification,\n  bowler_classification\nFROM IPL_2026_Final_Version\nWHERE is_predicted_xii = true\nORDER BY team_abbrev, squad_number;`
             },
         ];
 

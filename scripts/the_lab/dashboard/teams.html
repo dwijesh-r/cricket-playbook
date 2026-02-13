@@ -1217,7 +1217,7 @@
             color: white;
         }
 
-        /* Depth Chart Panel */
+        /* Depth Chart Panel — Tabular Redesign */
         .depth-section {
             background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
             border: 1px solid var(--border);
@@ -1242,6 +1242,59 @@
             border-radius: 8px;
             font-size: 14px;
             font-weight: 700;
+        }
+        .depth-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .depth-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        .depth-table thead { position: sticky; top: 0; z-index: 2; }
+        .depth-table th {
+            background: var(--bg-tertiary);
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            border-bottom: 2px solid var(--border);
+            white-space: nowrap;
+        }
+        .depth-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: middle;
+        }
+        .depth-table tr:hover td { background: rgba(255,255,255,0.03); }
+        .depth-table tr.depth-row { cursor: pointer; transition: background 0.15s; }
+        .depth-table tr.depth-row:hover { background: rgba(10,132,255,0.06); }
+        .depth-table .rating-high { color: var(--accent-green); font-weight: 700; }
+        .depth-table .rating-mid { color: var(--accent-yellow); font-weight: 700; }
+        .depth-table .rating-low { color: var(--accent-red); font-weight: 700; }
+        .depth-table .os-badge {
+            font-size: 9px; color: var(--accent-orange);
+            border: 1px solid var(--accent-orange);
+            border-radius: 3px; padding: 1px 4px; margin-left: 4px;
+        }
+        .depth-detail-row td {
+            padding: 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .depth-detail-inner {
+            padding: 12px 16px;
+            background: var(--bg-elevated);
+            font-size: 12px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            display: none;
+        }
+        .depth-detail-inner.open { display: block; }
+        .depth-detail-inner .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 24px;
         }
         .depth-players {
             display: flex;
@@ -3357,52 +3410,51 @@
             // ===== Assemble Full Strategy Outlook =====
             balanceContent.innerHTML = section1HTML + section2HTML + section3HTML + section4HTML + section5HTML;
 
-            // Depth Chart (full inline display)
+            // Depth Chart — Tabular Redesign
             const depthContent = document.getElementById('depth-content');
             const fullDepth = FULL_DEPTH_CHARTS[currentTeam];
 
             if (fullDepth && fullDepth.positions && fullDepth.positions.length > 0) {
-                const positionsHtml = fullDepth.positions.map(pos => {
-                    const ratingColor = pos.rating >= 8 ? 'var(--accent-green)' :
-                                       pos.rating >= 6 ? 'var(--accent-yellow)' : 'var(--accent-red)';
+                // Build table rows
+                const tableRows = fullDepth.positions.map((pos, posIdx) => {
+                    const ratingClass = pos.rating >= 8 ? 'rating-high' : pos.rating >= 6 ? 'rating-mid' : 'rating-low';
+                    const p1 = pos.players[0] || { name: '-', score: 0, overseas: false, price: 0, rationale: '' };
+                    const p2 = pos.players[1] || { name: '-', score: 0, overseas: false, price: 0, rationale: '' };
+                    const p3 = pos.players[2] || { name: '-', score: 0, overseas: false, price: 0, rationale: '' };
+                    const osBadge = (p) => p.overseas ? '<span class="os-badge">OS</span>' : '';
 
-                    const playersHtml = pos.players.map((p, idx) => `
-                        <div class="depth-player">
-                            <div class="depth-rank ${idx === 0 ? 'primary' : ''}">${p.rank}</div>
-                            <div class="depth-player-info">
-                                <div class="depth-player-name">
-                                    ${p.name}
-                                    ${p.overseas ? '<span style="color: var(--accent-orange); font-size: 10px; margin-left: 6px;">🌍 OS</span>' : ''}
-                                </div>
-                                <div class="depth-player-rationale">${p.rationale} • ₹${p.price} Cr</div>
-                            </div>
-                            <div style="font-size: 12px; color: var(--text-tertiary);">${p.score.toFixed(0)}%</div>
+                    const detailContent = `
+                        <div class="detail-grid">
+                            <div><span style="color:var(--accent-green);">Strength:</span> ${pos.whatWorks}</div>
+                            <div><span style="color:var(--accent-orange);">Concern:</span> ${pos.whatDoesnt}</div>
                         </div>
-                    `).join('');
+                        <div style="margin-top:8px; display:flex; gap:16px; flex-wrap:wrap;">
+                            ${pos.players.map(p => `<span style="font-size:11px;"><strong>${p.name}</strong> ${p.score.toFixed(0)}% — ${p.rationale} (₹${p.price} Cr)</span>`).join(' | ')}
+                        </div>
+                    `;
 
                     return `
-                        <div class="depth-section">
-                            <div class="depth-header">
-                                <div class="depth-position">${pos.name}</div>
-                                <div class="depth-rating" style="background: linear-gradient(135deg, ${ratingColor} 0%, ${ratingColor}80 100%);">
-                                    ⭐ ${pos.rating}/10
+                        <tr class="depth-row" onclick="toggleDepthDetail(${posIdx})">
+                            <td style="font-weight:600;">${pos.name}</td>
+                            <td>${p1.name}${osBadge(p1)}</td>
+                            <td>${p2.name}${osBadge(p2)}</td>
+                            <td>${p3.name}${osBadge(p3)}</td>
+                            <td class="${ratingClass}">${pos.rating}/10</td>
+                        </tr>
+                        <tr class="depth-detail-row">
+                            <td colspan="5">
+                                <div class="depth-detail-inner" id="depth-detail-${posIdx}">
+                                    ${detailContent}
                                 </div>
-                            </div>
-                            <div style="font-size: 12px; margin-bottom: 12px;">
-                                <span style="color: var(--accent-green);">✓ ${pos.whatWorks}</span>
-                                ${pos.whatDoesnt !== 'Minimal concerns' ? `<br><span style="color: var(--accent-orange);">⚠️ ${pos.whatDoesnt}</span>` : ''}
-                            </div>
-                            <div class="depth-players">
-                                ${playersHtml}
-                            </div>
-                        </div>
+                            </td>
+                        </tr>
                     `;
                 }).join('');
 
                 const vulnerabilitiesHtml = fullDepth.vulnerabilities && fullDepth.vulnerabilities.length > 0 ?
-                    `<div class="depth-section" style="border: 1px dashed var(--accent-orange); background: rgba(255, 159, 10, 0.05);">
+                    `<div class="depth-section" style="border: 1px dashed var(--accent-orange); background: rgba(255, 159, 10, 0.05); margin-bottom: 16px;">
                         <div class="depth-header">
-                            <div class="depth-position">⚠️ Key Vulnerabilities</div>
+                            <div class="depth-position">Key Vulnerabilities</div>
                         </div>
                         <ul style="margin: 0; padding-left: 20px; color: var(--text-secondary);">
                             ${fullDepth.vulnerabilities.map(v => `<li style="margin: 6px 0; font-size: 13px;">${v}</li>`).join('')}
@@ -3413,8 +3465,8 @@
                     <div class="depth-section" style="background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-elevated) 100%); margin-bottom: 24px;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div>
-                                <div style="font-size: 24px; font-weight: 800;">📊 Full Depth Chart</div>
-                                <div style="color: var(--text-tertiary); font-size: 13px;">Position-by-position breakdown with player rankings</div>
+                                <div style="font-size: 24px; font-weight: 800;">Full Depth Chart</div>
+                                <div style="color: var(--text-tertiary); font-size: 13px;">Click any row for details</div>
                             </div>
                             <div style="text-align: right;">
                                 <div style="font-size: 36px; font-weight: 800; color: var(--accent);">${fullDepth.overall}</div>
@@ -3422,29 +3474,44 @@
                             </div>
                         </div>
                         <div style="display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap;">
-                            <div><span style="color: var(--accent-green);">💪 Strongest:</span> ${fullDepth.strongest}</div>
-                            <div><span style="color: var(--accent-orange);">⚠️ Weakest:</span> ${fullDepth.weakest}</div>
+                            <div><span style="color: var(--accent-green);">Strongest:</span> ${fullDepth.strongest}</div>
+                            <div><span style="color: var(--accent-orange);">Weakest:</span> ${fullDepth.weakest}</div>
                         </div>
                     </div>
                     ${vulnerabilitiesHtml}
-                    ${positionsHtml}
+                    <div class="depth-table-wrap">
+                        <table class="depth-table">
+                            <thead>
+                                <tr>
+                                    <th>Position</th>
+                                    <th>#1 Primary</th>
+                                    <th>#2 Backup</th>
+                                    <th>#3 Option</th>
+                                    <th>Rating</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${tableRows}
+                            </tbody>
+                        </table>
+                    </div>
                 `;
             } else {
                 depthContent.innerHTML = `
                     <div class="depth-section">
                         <div class="depth-header">
-                            <div class="depth-position">📊 Depth Chart Summary</div>
-                            <div class="depth-rating">⭐ ${rating.overall}</div>
+                            <div class="depth-position">Depth Chart Summary</div>
+                            <div class="depth-rating">${rating.overall}</div>
                         </div>
                         <div class="depth-players">
                             <div class="depth-player">
-                                <div class="depth-rank primary">💪</div>
+                                <div class="depth-rank primary">+</div>
                                 <div class="depth-player-info">
                                     <div class="depth-player-name">Strongest: ${rating.strongest}</div>
                                 </div>
                             </div>
                             <div class="depth-player">
-                                <div class="depth-rank">⚠️</div>
+                                <div class="depth-rank">!</div>
                                 <div class="depth-player-info">
                                     <div class="depth-player-name">Weakest: ${rating.weakest}</div>
                                 </div>
@@ -3459,6 +3526,11 @@
 
             // Pressure Performance (TKT-050)
             renderPressureCard();
+        }
+
+        function toggleDepthDetail(idx) {
+            const el = document.getElementById('depth-detail-' + idx);
+            if (el) el.classList.toggle('open');
         }
 
         function setPressureFilter(filterType, value) {

@@ -166,10 +166,10 @@
     },
     "wicketkeeper": {
       "name": "Wicketkeeper",
-      "rating": 5.0,
-      "what_works": "Strong #1 with dhruv jurel. aman rao as backup",
+      "rating": 5.2,
+      "what_works": "Strong #1 with dhruv jurel. donovan ferreira as backup",
       "what_doesnt": "Weak backup option. big gap between #1 and #2",
-      "overseas_count": 0,
+      "overseas_count": 1,
       "players": [
         {
           "rank": 1,
@@ -183,12 +183,12 @@
         },
         {
           "rank": 2,
-          "name": "Aman Rao",
-          "player_id": "0420f51f",
-          "score": 25.0,
+          "name": "Donovan Ferreira",
+          "player_id": "f0af99a7",
+          "score": 32.5,
           "rationale": "Wicketkeeper",
-          "is_overseas": false,
-          "price_cr": 0.3,
+          "is_overseas": true,
+          "price_cr": 0.75,
           "secondary_positions": []
         }
       ]
@@ -224,8 +224,8 @@
     },
     "supporting_pacer_pp": {
       "name": "Supporting Pacer (PP Specialist)",
-      "rating": 7.0,
-      "what_works": "Strong #1 with sandeep sharma. quality backup in jofra archer",
+      "rating": 7.3,
+      "what_works": "Strong #1 with sandeep sharma. quality backup in nandre burger",
       "what_doesnt": "Overseas heavy (2 of 3)",
       "overseas_count": 2,
       "players": [
@@ -241,22 +241,22 @@
         },
         {
           "rank": 2,
+          "name": "Nandre Burger",
+          "player_id": "465aa633",
+          "score": 64.0,
+          "rationale": "PP wicket-taker (SR 15.0)",
+          "is_overseas": true,
+          "price_cr": 3.5,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
           "name": "Jofra Archer",
           "player_id": "5574750c",
           "score": 57.0,
           "rationale": "PP specialist",
           "is_overseas": true,
           "price_cr": 12.5,
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
-          "name": "Nandre Burger",
-          "player_id": "465aa633",
-          "score": 52.0,
-          "rationale": "PP wicket-taker (SR 15.0)",
-          "is_overseas": true,
-          "price_cr": 3.5,
           "secondary_positions": []
         }
       ]

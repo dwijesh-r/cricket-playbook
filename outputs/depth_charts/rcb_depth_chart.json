@@ -1,8 +1,8 @@
 {
   "team": "RCB",
   "team_name": "Royal Challengers Bengaluru",
-  "overall_rating": 7.8,
-  "strongest_position": "Opener",
+  "overall_rating": 7.5,
+  "strongest_position": "#3 Batter",
   "weakest_position": "Off Spin",
   "vulnerabilities": [
     "Left-arm Pace: thin depth (rating 4.1)",
@@ -11,10 +11,10 @@
   "positions": {
     "opener": {
       "name": "Opener",
-      "rating": 10.0,
+      "rating": 8.6,
       "what_works": "Elite #1 in virat kohli. quality backup in phil salt",
-      "what_doesnt": "Minimal concerns",
-      "overseas_count": 1,
+      "what_doesnt": "Overseas mix (2 of 3)",
+      "overseas_count": 2,
       "players": [
         {
           "rank": 1,
@@ -39,36 +39,48 @@
           "bowling_type": "Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Jacob Bethell",
+          "player_id": "3c55c703",
+          "score": 2.6,
+          "rationale": "Opens for the team",
+          "is_overseas": true,
+          "price_cr": 2.6,
+          "bowling_type": "LA Orthodox",
+          "bowling_arm": "Left-arm",
+          "secondary_positions": []
         }
       ]
     },
     "number_3": {
       "name": "#3 Batter",
       "rating": 10.0,
-      "what_works": "Elite #1 in virat kohli. quality backup in phil salt",
+      "what_works": "Elite #1 in phil salt. quality backup in virat kohli",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
       "players": [
         {
           "rank": 1,
-          "name": "Virat Kohli",
-          "player_id": "ba607b88",
-          "score": 100.0,
-          "rationale": "Founder XII. Elite top-order. Highly adaptable",
-          "is_overseas": false,
-          "price_cr": 21.0,
-          "bowling_type": "Medium",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 2,
           "name": "Phil Salt",
           "player_id": "3d284ca3",
           "score": 100.0,
           "rationale": "Founder XII. Strong in PP. Middle overs accelerator",
           "is_overseas": true,
           "price_cr": 11.5,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Virat Kohli",
+          "player_id": "ba607b88",
+          "score": 99.0,
+          "rationale": "Founder XII. Elite top-order. Highly adaptable",
+          "is_overseas": false,
+          "price_cr": 21.0,
           "bowling_type": "Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
@@ -89,25 +101,13 @@
     },
     "middle_order": {
       "name": "Middle Order #4-5",
-      "rating": 10.0,
-      "what_works": "Elite #1 in virat kohli. quality backup in rajat patidar",
-      "what_doesnt": "Minimal concerns",
+      "rating": 9.4,
+      "what_works": "Elite #1 in rajat patidar. quality backup in venkatesh iyer",
+      "what_doesnt": "Big gap between #1 and #2",
       "overseas_count": 0,
       "players": [
         {
           "rank": 1,
-          "name": "Virat Kohli",
-          "player_id": "ba607b88",
-          "score": 100.0,
-          "rationale": "Founder XII. Middle overs anchor",
-          "is_overseas": false,
-          "price_cr": 21.0,
-          "bowling_type": "Medium",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 2,
           "name": "Rajat Patidar",
           "player_id": "c740ea83",
           "score": 100.0,
@@ -119,14 +119,26 @@
           "secondary_positions": []
         },
         {
-          "rank": 3,
+          "rank": 2,
           "name": "Venkatesh Iyer",
           "player_id": "a24be938",
-          "score": 83.8,
-          "rationale": "Founder XII. Middle overs anchor. Middle order entry",
+          "score": 68.0,
+          "rationale": "Founder XII. Middle overs anchor",
           "is_overseas": false,
           "price_cr": 7.0,
           "bowling_type": "Fast",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Virat Kohli",
+          "player_id": "ba607b88",
+          "score": 66.6,
+          "rationale": "Founder XII. Middle overs anchor. Pos penalty (opener)",
+          "is_overseas": false,
+          "price_cr": 21.0,
+          "bowling_type": "Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
@@ -135,15 +147,15 @@
     "finisher": {
       "name": "Finisher #6-7",
       "rating": 10.0,
-      "what_works": "Elite #1 in rajat patidar. quality backup in phil salt",
-      "what_doesnt": "Overseas mix (2 of 3)",
-      "overseas_count": 2,
+      "what_works": "Elite #1 in rajat patidar. quality backup in tim david",
+      "what_doesnt": "Minimal concerns",
+      "overseas_count": 1,
       "players": [
         {
           "rank": 1,
           "name": "Rajat Patidar",
           "player_id": "c740ea83",
-          "score": 100.0,
+          "score": 94.2,
           "rationale": "Founder XII. Death specialist. Six-hitting ability",
           "is_overseas": false,
           "price_cr": 11.0,
@@ -153,25 +165,25 @@
         },
         {
           "rank": 2,
-          "name": "Phil Salt",
-          "player_id": "3d284ca3",
-          "score": 88.1,
+          "name": "Tim David",
+          "player_id": "f1f99156",
+          "score": 92.5,
           "rationale": "Founder XII. Death specialist. Six-hitting ability",
           "is_overseas": true,
-          "price_cr": 11.5,
-          "bowling_type": "Medium",
+          "price_cr": 3.0,
+          "bowling_type": "Off-spin",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
         {
           "rank": 3,
-          "name": "Tim David",
-          "player_id": "f1f99156",
-          "score": 85.0,
+          "name": "Jitesh Sharma",
+          "player_id": "800d2d97",
+          "score": 73.6,
           "rationale": "Founder XII. Death specialist. Six-hitting ability",
-          "is_overseas": true,
-          "price_cr": 3.0,
-          "bowling_type": "Off-spin",
+          "is_overseas": false,
+          "price_cr": 11.0,
+          "bowling_type": "Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
@@ -179,7 +191,7 @@
     },
     "wicketkeeper": {
       "name": "Wicketkeeper",
-      "rating": 9.5,
+      "rating": 9.3,
       "what_works": "Elite #1 in phil salt. quality backup in jitesh sharma",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
@@ -200,8 +212,8 @@
           "rank": 2,
           "name": "Jitesh Sharma",
           "player_id": "800d2d97",
-          "score": 82.4,
-          "rationale": "Strong batter (score: 75). Experienced keeper",
+          "score": 76.8,
+          "rationale": "Capable batter (score: 64). Experienced keeper",
           "is_overseas": false,
           "price_cr": 11.0,
           "bowling_type": "Medium",
@@ -445,9 +457,9 @@
       ]
     },
     "allrounder_batting": {
-      "name": "All-rounder (Batting-first)",
-      "rating": 8.1,
-      "what_works": "Strong #1 with tim david. quality backup in venkatesh iyer",
+      "name": "Allrounder",
+      "rating": 7.9,
+      "what_works": "Strong #1 with tim david. quality backup in krunal pandya",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
       "players": [
@@ -455,8 +467,8 @@
           "rank": 1,
           "name": "Tim David",
           "player_id": "f1f99156",
-          "score": 74.2,
-          "rationale": "Founder XII. Strong finisher (75). Bowls 4 overs",
+          "score": 77.6,
+          "rationale": "Founder XII. Strong finisher (82). Bowls 4 overs",
           "is_overseas": true,
           "price_cr": 3.0,
           "bowling_type": "Off-spin",
@@ -465,43 +477,43 @@
         },
         {
           "rank": 2,
-          "name": "Venkatesh Iyer",
-          "player_id": "a24be938",
-          "score": 71.6,
-          "rationale": "Founder XII. Middle order capable (74). Bowls 4 overs",
-          "is_overseas": false,
-          "price_cr": 7.0,
-          "bowling_type": "Fast",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
           "name": "Krunal Pandya",
           "player_id": "5b8c830e",
-          "score": 64.5,
+          "score": 62.4,
           "rationale": "Founder XII. Bowls 4 overs",
           "is_overseas": false,
           "price_cr": 5.75,
           "bowling_type": "LA Orthodox",
           "bowling_arm": "Left-arm",
           "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Venkatesh Iyer",
+          "player_id": "a24be938",
+          "score": 58.4,
+          "rationale": "Founder XII. Middle order capable (58). Bowls 4 overs",
+          "is_overseas": false,
+          "price_cr": 7.0,
+          "bowling_type": "Fast",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
         }
       ]
     },
     "allrounder_bowling": {
-      "name": "All-rounder (Bowling-first)",
-      "rating": 6.8,
-      "what_works": "Strong #1 with krunal pandya. quality backup in tim david",
-      "what_doesnt": "Room for improvement at the top",
+      "name": "Allrounder",
+      "rating": 6.2,
+      "what_works": "Strong #1 with krunal pandya. tim david as backup",
+      "what_doesnt": "Big gap between #1 and #2",
       "overseas_count": 1,
       "players": [
         {
           "rank": 1,
           "name": "Krunal Pandya",
           "player_id": "5b8c830e",
-          "score": 62.7,
-          "rationale": "Founder XII. Primary bowler (68)",
+          "score": 78.3,
+          "rationale": "Founder XII. Primary bowler (68). Proven bowling credentials",
           "is_overseas": false,
           "price_cr": 5.75,
           "bowling_type": "LA Orthodox",
@@ -512,8 +524,8 @@
           "rank": 2,
           "name": "Tim David",
           "player_id": "f1f99156",
-          "score": 54.2,
-          "rationale": "Founder XII. Handy bat (75). SR 167",
+          "score": 48.1,
+          "rationale": "Founder XII. Unproven bowling. Handy bat (82)",
           "is_overseas": true,
           "price_cr": 3.0,
           "bowling_type": "Off-spin",
@@ -524,8 +536,8 @@
           "rank": 3,
           "name": "Venkatesh Iyer",
           "player_id": "a24be938",
-          "score": 51.6,
-          "rationale": "Founder XII. Handy bat (74)",
+          "score": 39.7,
+          "rationale": "Founder XII. Unproven bowling. Handy bat (58)",
           "is_overseas": false,
           "price_cr": 7.0,
           "bowling_type": "Fast",

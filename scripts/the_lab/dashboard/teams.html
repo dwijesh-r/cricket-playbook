@@ -3454,8 +3454,8 @@
 
             if (fullDepth && fullDepth.positions && fullDepth.positions.length > 0) {
                 // Classify positions into batting and bowling sections
-                const battingPositionNames = ['Opener', 'Number 3', '#3 Batter', 'Middle Order', 'Finisher', 'Wicketkeeper', 'All-rounder (Batting)', 'All-rounder (Bat)', 'Batting All-rounder'];
-                const bowlingPositionNames = ['Right-arm Pace', 'Left-arm Pace', 'Off-spin', 'Leg-spin', 'Left-arm Spin', 'Middle Overs Specialist', 'All-rounder (Bowling)', 'All-rounder (Bowl)', 'Bowling All-rounder',
+                const battingPositionNames = ['Opener', 'Number 3', '#3 Batter', 'Middle Order', 'Finisher', 'Wicketkeeper', 'Allrounder'];
+                const bowlingPositionNames = ['Right-arm Pace', 'Left-arm Pace', 'Off-spin', 'Leg-spin', 'Left-arm Spin', 'Middle Overs Specialist', 'Allrounder',
                     'Lead Pacer', 'Lead Spinner', 'Supporting Pacer (PP)', 'Supporting Pacer (Death)'];
 
                 const battingPositions = [];
@@ -4440,7 +4440,8 @@
                             const archetype = player.batterClass !== '-' ? player.batterClass : player.bowlerClass !== '-' ? player.bowlerClass : '-';
                             // Bowl column: arm abbreviation + type
                             const bowlArm = player.bowlingArm === 'Left-arm' ? 'LA' : player.bowlingArm === 'Right-arm' ? 'RA' : '';
-                            const bowlType = player.bowlingType !== '-' ? player.bowlingType : '';
+                            const bowlTypeRaw = player.bowlingType !== '-' ? player.bowlingType : '';
+                            const bowlType = bowlTypeRaw === 'LA Orthodox' ? 'Orthodox' : bowlTypeRaw;
                             const isLeftArm = bowlArm === 'LA';
                             const batHand = player.batting ? (player.batting.includes('Left') ? 'L' : 'R') : '-';
                             const isExtendedSquad = idx >= 11; // Beyond Predicted XI
@@ -4492,7 +4493,6 @@
                                 <td>
                                     <div class="player-name-cell">
                                         <span class="player-name-text">${player.name}</span>
-                                        ${player.retainedStatus === 'Retained' ? '<span class="retained-badge">RTM</span>' : ''}
                                     </div>
                                 </td>
                                 <td>

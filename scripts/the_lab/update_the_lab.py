@@ -542,11 +542,14 @@ const FULL_SQUADS = {{
             bwl_tags_js = json.dumps(p["bowler_tags"])
             acq_esc = p["acquisition_type"].replace("'", "\\'")
             fpos = p["founder_position"] if p["founder_position"] else "null"
+            bowl_type_display = (
+                p["bowling_type"].replace("LA Orthodox", "Orthodox") if p["bowling_type"] else ""
+            )
             players_js.append(
                 f"        {{ name: '{name_esc}', role: '{role_esc}', "
                 f"battingHand: '{p['batting_hand']}', "
                 f"bowlingArm: '{p['bowling_arm']}', "
-                f"bowlingType: '{p['bowling_type']}', "
+                f"bowlingType: '{bowl_type_display}', "
                 f"nationality: '{p['nationality']}', "
                 f"age: {p['age'] if p['age'] else 0}, "
                 f"price: {p['price_cr']}, "

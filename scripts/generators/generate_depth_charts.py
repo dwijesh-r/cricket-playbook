@@ -109,6 +109,8 @@ class Player:
     # Entry point data (batting position)
     avg_entry_ball: Optional[float] = None
     entry_classification: Optional[str] = None
+    mode_batting_position: Optional[int] = None
+    mean_batting_position: Optional[float] = None
 
     # Phase performance data (bowlers)
     pp_economy: Optional[float] = None
@@ -410,6 +412,15 @@ def load_entry_points() -> Dict[str, Dict[str, Any]]:
                     if row.get("avg_entry_ball")
                     else None,
                     "classification": row.get("entry_point_classification", ""),
+                    "mode_batting_position": int(row["mode_batting_position"])
+                    if row.get("mode_batting_position")
+                    else None,
+                    "mean_batting_position": float(row["mean_batting_position"])
+                    if row.get("mean_batting_position")
+                    else None,
+                    "avg_entry_over": float(row["avg_entry_over"])
+                    if row.get("avg_entry_over")
+                    else None,
                 }
 
     return entry_points
@@ -548,6 +559,8 @@ def build_players(
                 bowler_tags=bowler_tags,
                 avg_entry_ball=entry_data.get("avg_entry_ball"),
                 entry_classification=entry_data.get("classification"),
+                mode_batting_position=entry_data.get("mode_batting_position"),
+                mean_batting_position=entry_data.get("mean_batting_position"),
                 pp_economy=bowler_data.get("pp_economy"),
                 pp_wickets=bowler_data.get("pp_wickets"),
                 pp_overs=bowler_data.get("pp_overs"),
@@ -668,6 +681,15 @@ def score_opener(player: Player) -> Tuple[float, str]:
     # Experience (15%)
     base_score += get_experience_bonus(player.price_cr) * 100
 
+    # Mode batting position penalty: non-openers penalised for opener slot
+    if player.mode_batting_position is not None:
+        if player.mode_batting_position > 3:
+            base_score *= 0.50  # Middle-order/finisher: -50%
+            rationale_parts.append("Pos penalty (mode > 3)")
+        elif player.mode_batting_position == 3:
+            base_score *= 0.80  # #3 batter: -20%
+            rationale_parts.append("Pos penalty (mode 3)")
+
     # Apply auction bonus
     base_score *= 1 + get_auction_bonus(player.price_cr)
 
@@ -770,6 +792,15 @@ def score_number_three(player: Player) -> Tuple[float, str]:
     # Price bonus
     base_score += min(player.price_cr * 0.5, 10)
 
+    # Mode batting position penalty: deep lower-order/pure openers penalised for #3
+    if player.mode_batting_position is not None:
+        if player.mode_batting_position > 5:
+            base_score *= 0.60  # Lower-order/tail: -40%
+            rationale_parts.append("Pos penalty (mode > 5)")
+        elif player.mode_batting_position == 1:
+            base_score *= 0.90  # Pure opener: -10%
+            rationale_parts.append("Pos penalty (mode 1)")
+
     # Apply auction bonus
     base_score *= 1 + get_auction_bonus(player.price_cr)
 
@@ -866,6 +897,15 @@ def score_middle_order(player: Player) -> Tuple[float, str]:
 
     # Recent form proxy (15%)
     base_score += min(player.price_cr * 0.75, 15)
+
+    # Mode batting position penalty: openers and tail-enders penalised for middle order
+    if player.mode_batting_position is not None:
+        if player.mode_batting_position <= 2:
+            base_score *= 0.60  # Openers: -40%
+            rationale_parts.append("Pos penalty (opener)")
+        elif player.mode_batting_position >= 8:
+            base_score *= 0.70  # Tail-enders: -30%
+            rationale_parts.append("Pos penalty (lower order)")
 
     # Apply auction bonus
     base_score *= 1 + get_auction_bonus(player.price_cr)
@@ -968,6 +1008,22 @@ def score_finisher(player: Player) -> Tuple[float, str]:
         rationale_parts.append("Bowling utility")
     elif player.can_bowl:
         base_score += 8
+
+    # Mode batting position penalty: openers/top-order penalised for finisher slot
+    # Critical fix: e.g. Rohit Sharma (mode_pos=1) should NOT rank as #1 finisher
+    if player.mode_batting_position is not None:
+        if player.mode_batting_position <= 2:
+            base_score *= 0.30  # Opener: -70%
+            rationale_parts.append("Pos penalty (opener)")
+        elif player.mode_batting_position == 3:
+            base_score *= 0.50  # #3 batter: -50%
+            rationale_parts.append("Pos penalty (#3)")
+        elif player.mode_batting_position in (4, 5):
+            base_score *= 0.85  # Middle order: -15% (can finish sometimes)
+            rationale_parts.append("Pos adj (mid-order)")
+        elif player.mode_batting_position in (6, 7):
+            base_score *= 1.10  # Natural finisher slot: +10% boost
+            rationale_parts.append("Natural finisher slot")
 
     # Apply auction bonus
     base_score *= 1 + get_auction_bonus(player.price_cr)
@@ -1483,6 +1539,33 @@ def score_bowling_allrounder(player: Player) -> Tuple[float, str]:
     if bowling_score >= 60:
         rationale_parts.append(f"Primary bowler ({bowling_score:.0f})")
 
+    # Proven bowling credentials bonus — rewards players with actual bowling tags
+    # This ensures bowlers with elite tags (e.g. Santner with MIDDLE_OVERS_CONTROLLER,
+    # economy 7.64, 15 wickets) clearly rank above players with sparse bowling stats
+    proven_bowling_tags = [
+        "MIDDLE_OVERS_CONTROLLER",
+        "MID_OVERS_ELITE",
+        "MIDDLE_STRANGLER",
+        "PROVEN_WICKET_TAKER",
+        "DEATH_ELITE",
+        "DEATH_COMPLETE",
+        "DEATH_SPECIALIST",
+        "PP_ELITE",
+        "NEW_BALL_SPECIALIST",
+        "PRESSURE_BUILDER",
+    ]
+    proven_tag_count = sum(1 for tag in player.bowler_tags if tag in proven_bowling_tags)
+    if proven_tag_count >= 2:
+        base_score += 15
+        rationale_parts.append("Proven bowling credentials")
+    elif proven_tag_count == 1:
+        base_score += 10
+        rationale_parts.append("Bowling specialist tag")
+    elif not player.bowler_tags:
+        # No bowler tags at all — significantly reduce bowling credibility
+        base_score -= 8
+        rationale_parts.append("Unproven bowling")
+
     # Batting average/capability (25%)
     batting_score, _ = score_middle_order(player)
     if batting_score < 30:
@@ -1915,10 +1998,10 @@ def generate_team_depth_chart(team: str, players: List[Player]) -> DepthChart:
 
     # All-rounder positions
     positions["allrounder_batting"] = _create_position(
-        players, score_batting_allrounder, "Batting AR", "All-rounder (Batting-first)", 3
+        players, score_batting_allrounder, "Batting AR", "Allrounder", 3
     )
     positions["allrounder_bowling"] = _create_position(
-        players, score_bowling_allrounder, "Bowling AR", "All-rounder (Bowling-first)", 3
+        players, score_bowling_allrounder, "Bowling AR", "Allrounder", 3
     )
 
     # Calculate overall metrics

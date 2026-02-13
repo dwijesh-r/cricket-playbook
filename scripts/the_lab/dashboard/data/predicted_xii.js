@@ -1,7 +1,7 @@
 /**
  * The Lab - Predicted XII Data
  * IPL 2026 Pre-Season Analytics
- * Auto-generated: 2026-02-13T04:21:37.129083
+ * Auto-generated: 2026-02-13T10:04:12.817021
  * Algorithm: SUPER SELECTOR
  */
 
@@ -256,18 +256,18 @@ const PREDICTED_XII = {
 
 /**
  * The Lab - Depth Chart Ratings
- * Auto-generated: 2026-02-13T04:21:37.129294
+ * Auto-generated: 2026-02-13T10:04:12.817171
  */
 
 const DEPTH_CHART_RATINGS = {
-    MI: { overall: 7.9, strongest: "#3 Batter", weakest: "Wicketkeeper" },
+    MI: { overall: 7.8, strongest: "#3 Batter", weakest: "Wicketkeeper" },
     CSK: { overall: 7.0, strongest: "#3 Batter", weakest: "Left-arm Pace" },
-    RCB: { overall: 7.8, strongest: "Opener", weakest: "Off Spin" },
-    KKR: { overall: 7.1, strongest: "Opener", weakest: "Left-arm Pace" },
-    DC: { overall: 8.2, strongest: "Finisher #6-7", weakest: "Leg Spin" },
-    PBKS: { overall: 7.7, strongest: "#3 Batter", weakest: "Right-arm Pace" },
+    RCB: { overall: 7.5, strongest: "#3 Batter", weakest: "Off Spin" },
+    KKR: { overall: 6.7, strongest: "#3 Batter", weakest: "Left-arm Pace" },
+    DC: { overall: 8.1, strongest: "Middle Overs Specialist", weakest: "Leg Spin" },
+    PBKS: { overall: 7.6, strongest: "#3 Batter", weakest: "Right-arm Pace" },
     RR: { overall: 8.0, strongest: "#3 Batter", weakest: "Leg Spin" },
-    SRH: { overall: 8.0, strongest: "Opener", weakest: "Leg Spin" },
-    GT: { overall: 7.9, strongest: "Opener", weakest: "Left-arm Pace" },
-    LSG: { overall: 7.4, strongest: "#3 Batter", weakest: "Left-arm Spin" },
+    SRH: { overall: 7.9, strongest: "Opener", weakest: "Leg Spin" },
+    GT: { overall: 7.6, strongest: "Opener", weakest: "Left-arm Pace" },
+    LSG: { overall: 7.1, strongest: "#3 Batter", weakest: "Left-arm Spin" },
 };

@@ -6,7 +6,8 @@
   "weakest_position": "Left-arm Pace",
   "vulnerabilities": [
     "Left-arm Pace: thin depth (rating 4.0)",
-    "Leg Spin: thin depth (rating 4.9)"
+    "Leg Spin: thin depth (rating 4.9)",
+    "Allrounder: thin depth (rating 4.8)"
   ],
   "positions": {
     "opener": {
@@ -102,9 +103,9 @@
     "middle_order": {
       "name": "Middle Order #4-5",
       "rating": 10.0,
-      "what_works": "Elite #1 in shivam dube. quality backup in ruturaj gaikwad",
+      "what_works": "Elite #1 in shivam dube. quality backup in sanju samson",
       "what_doesnt": "Minimal concerns",
-      "overseas_count": 0,
+      "overseas_count": 1,
       "players": [
         {
           "rank": 1,
@@ -120,18 +121,6 @@
         },
         {
           "rank": 2,
-          "name": "Ruturaj Gaikwad",
-          "player_id": "45a43fe2",
-          "score": 96.8,
-          "rationale": "Founder XII. Middle overs anchor. Excellent vs spin",
-          "is_overseas": false,
-          "price_cr": 18.0,
-          "bowling_type": "Medium",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
           "name": "Sanju Samson",
           "player_id": "a4cc73aa",
           "score": 88.8,
@@ -141,33 +130,33 @@
           "bowling_type": "Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Dewald Brevis",
+          "player_id": "844e79d1",
+          "score": 71.7,
+          "rationale": "Founder XII. Middle overs accelerator",
+          "is_overseas": true,
+          "price_cr": 2.2,
+          "bowling_type": "Leg-spin",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
         }
       ]
     },
     "finisher": {
       "name": "Finisher #6-7",
-      "rating": 10.0,
-      "what_works": "Elite #1 in sanju samson. quality backup in dewald brevis",
+      "rating": 9.1,
+      "what_works": "Elite #1 in dewald brevis. quality backup in shivam dube",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
       "players": [
         {
           "rank": 1,
-          "name": "Sanju Samson",
-          "player_id": "a4cc73aa",
-          "score": 100.0,
-          "rationale": "Founder XII. Death overs finisher. Six-hitting ability",
-          "is_overseas": false,
-          "price_cr": 18.0,
-          "bowling_type": "Medium",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 2,
           "name": "Dewald Brevis",
           "player_id": "844e79d1",
-          "score": 100.0,
+          "score": 89.9,
           "rationale": "Founder XII. Death overs finisher. Six-hitting ability",
           "is_overseas": true,
           "price_cr": 2.2,
@@ -176,14 +165,26 @@
           "secondary_positions": []
         },
         {
-          "rank": 3,
+          "rank": 2,
           "name": "Shivam Dube",
           "player_id": "a4e37e47",
-          "score": 93.6,
+          "score": 81.1,
           "rationale": "Founder XII. AR death SR (151). All-round finisher",
           "is_overseas": false,
           "price_cr": 12.0,
           "bowling_type": "Fast",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Sanju Samson",
+          "player_id": "a4cc73aa",
+          "score": 60.0,
+          "rationale": "Founder XII. Death overs finisher. Six-hitting ability",
+          "is_overseas": false,
+          "price_cr": 18.0,
+          "bowling_type": "Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
@@ -481,18 +482,63 @@
       ]
     },
     "allrounder_batting": {
-      "name": "All-rounder (Batting-first)",
-      "rating": 6.9,
-      "what_works": "Elite #1 in shivam dube. aman khan as backup",
+      "name": "Allrounder",
+      "rating": 7.3,
+      "what_works": "Elite #1 in shivam dube. jamie overton as backup",
       "what_doesnt": "Big gap between #1 and #2",
+      "overseas_count": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "Shivam Dube",
+          "player_id": "a4e37e47",
+          "score": 93.0,
+          "rationale": "Founder XII. Strong finisher (71). Middle order capable (92)",
+          "is_overseas": false,
+          "price_cr": 12.0,
+          "bowling_type": "Fast",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Jamie Overton",
+          "player_id": "59559bc2",
+          "score": 42.4,
+          "rationale": "Founder XII. Bowls 4 overs",
+          "is_overseas": true,
+          "price_cr": 1.5,
+          "bowling_type": "Fast",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Aman Khan",
+          "player_id": "378daa89",
+          "score": 42.4,
+          "rationale": "Bowls 4 overs",
+          "is_overseas": false,
+          "price_cr": 0.3,
+          "bowling_type": "Fast",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        }
+      ]
+    },
+    "allrounder_bowling": {
+      "name": "Allrounder",
+      "rating": 4.8,
+      "what_works": "Shivam dube leads. aman khan as backup",
+      "what_doesnt": "Room for improvement at the top",
       "overseas_count": 0,
       "players": [
         {
           "rank": 1,
           "name": "Shivam Dube",
           "player_id": "a4e37e47",
-          "score": 99.2,
-          "rationale": "Founder XII. Strong finisher (84). Middle order capable (92)",
+          "score": 56.7,
+          "rationale": "Founder XII. Unproven bowling. Handy bat (92)",
           "is_overseas": false,
           "price_cr": 12.0,
           "bowling_type": "Fast",
@@ -503,57 +549,12 @@
           "rank": 2,
           "name": "Aman Khan",
           "player_id": "378daa89",
-          "score": 41.3,
-          "rationale": "Bowls 4 overs",
+          "score": 42.4,
+          "rationale": "Bowling specialist tag",
           "is_overseas": false,
           "price_cr": 0.3,
           "bowling_type": "Fast",
           "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
-          "name": "Prashant Veer",
-          "player_id": "e148e6bd",
-          "score": 37.5,
-          "rationale": "Founder XII. Bowls 4 overs",
-          "is_overseas": false,
-          "price_cr": 14.2,
-          "bowling_type": "LA Orthodox",
-          "bowling_arm": "Left-arm",
-          "secondary_positions": []
-        }
-      ]
-    },
-    "allrounder_bowling": {
-      "name": "All-rounder (Bowling-first)",
-      "rating": 5.1,
-      "what_works": "Strong #1 with shivam dube. prashant veer as backup",
-      "what_doesnt": "Weak backup option",
-      "overseas_count": 0,
-      "players": [
-        {
-          "rank": 1,
-          "name": "Shivam Dube",
-          "player_id": "a4e37e47",
-          "score": 64.7,
-          "rationale": "Founder XII. Handy bat (92). SR 151",
-          "is_overseas": false,
-          "price_cr": 12.0,
-          "bowling_type": "Fast",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 2,
-          "name": "Prashant Veer",
-          "player_id": "e148e6bd",
-          "score": 39.0,
-          "rationale": "Founder XII. Bowling all-rounder",
-          "is_overseas": false,
-          "price_cr": 14.2,
-          "bowling_type": "LA Orthodox",
-          "bowling_arm": "Left-arm",
           "secondary_positions": []
         },
         {

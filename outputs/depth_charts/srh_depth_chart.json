@@ -1,10 +1,11 @@
 {
   "team": "SRH",
   "team_name": "Sunrisers Hyderabad",
-  "overall_rating": 8.0,
+  "overall_rating": 7.9,
   "strongest_position": "Opener",
   "weakest_position": "Leg Spin",
   "vulnerabilities": [
+    "Finisher #6-7: overseas dependent",
     "Leg Spin: thin depth (rating 3.8)"
   ],
   "positions": {
@@ -12,8 +13,8 @@
       "name": "Opener",
       "rating": 10.0,
       "what_works": "Elite #1 in travis head. quality backup in abhishek sharma",
-      "what_doesnt": "Overseas mix (2 of 3)",
-      "overseas_count": 2,
+      "what_doesnt": "Minimal concerns",
+      "overseas_count": 1,
       "players": [
         {
           "rank": 1,
@@ -41,12 +42,12 @@
         },
         {
           "rank": 3,
-          "name": "Heinrich Klaasen",
-          "player_id": "235c2bb6",
-          "score": 99.7,
-          "rationale": "Founder XII. Elite SR (175.2). PP Aggressor",
-          "is_overseas": true,
-          "price_cr": 23.0,
+          "name": "Ishan Kishan",
+          "player_id": "752f7486",
+          "score": 58.7,
+          "rationale": "Founder XII. Opens for the team",
+          "is_overseas": false,
+          "price_cr": 11.25,
           "bowling_type": "Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
@@ -100,10 +101,10 @@
     },
     "middle_order": {
       "name": "Middle Order #4-5",
-      "rating": 9.8,
-      "what_works": "Elite #1 in heinrich klaasen. quality backup in abhishek sharma",
-      "what_doesnt": "Minimal concerns",
-      "overseas_count": 1,
+      "rating": 9.3,
+      "what_works": "Elite #1 in heinrich klaasen. quality backup in nitish kumar reddy",
+      "what_doesnt": "Overseas mix (2 of 3). big gap between #1 and #2",
+      "overseas_count": 2,
       "players": [
         {
           "rank": 1,
@@ -119,18 +120,6 @@
         },
         {
           "rank": 2,
-          "name": "Abhishek Sharma",
-          "player_id": "f29185a1",
-          "score": 82.1,
-          "rationale": "Founder XII. Middle overs accelerator. Excellent vs spin",
-          "is_overseas": false,
-          "price_cr": 14.0,
-          "bowling_type": "LA Orthodox",
-          "bowling_arm": "Left-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
           "name": "Nitish Kumar Reddy",
           "player_id": "aad0c365",
           "score": 69.3,
@@ -140,33 +129,33 @@
           "bowling_type": "Fast",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Liam Livingstone",
+          "player_id": "50c6bc2b",
+          "score": 59.2,
+          "rationale": "Founder XII. Middle order batter",
+          "is_overseas": true,
+          "price_cr": 13.0,
+          "bowling_type": "Off-Spin/Leg-Spin",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
         }
       ]
     },
     "finisher": {
       "name": "Finisher #6-7",
-      "rating": 10.0,
-      "what_works": "Elite #1 in ishan kishan. quality backup in liam livingstone",
-      "what_doesnt": "Overseas mix (2 of 3)",
-      "overseas_count": 2,
+      "rating": 9.7,
+      "what_works": "Elite #1 in liam livingstone. quality backup in heinrich klaasen",
+      "what_doesnt": "Overseas mix (3 of 3)",
+      "overseas_count": 3,
       "players": [
         {
           "rank": 1,
-          "name": "Ishan Kishan",
-          "player_id": "752f7486",
-          "score": 100.0,
-          "rationale": "Founder XII. Death overs finisher. Six-hitting ability",
-          "is_overseas": false,
-          "price_cr": 11.25,
-          "bowling_type": "Medium",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 2,
           "name": "Liam Livingstone",
           "player_id": "50c6bc2b",
-          "score": 100.0,
+          "score": 97.9,
           "rationale": "Founder XII. Death overs finisher. Six-hitting ability",
           "is_overseas": true,
           "price_cr": 13.0,
@@ -175,14 +164,26 @@
           "secondary_positions": []
         },
         {
-          "rank": 3,
+          "rank": 2,
           "name": "Heinrich Klaasen",
           "player_id": "235c2bb6",
-          "score": 96.2,
+          "score": 83.3,
           "rationale": "Founder XII. Death overs finisher. Six-hitting ability",
           "is_overseas": true,
           "price_cr": 23.0,
           "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Pat Cummins",
+          "player_id": "ded9240e",
+          "score": 66.3,
+          "rationale": "Founder XII. AR death SR (153). Bowling utility",
+          "is_overseas": true,
+          "price_cr": 18.0,
+          "bowling_type": "Fast-Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
@@ -456,9 +457,9 @@
       ]
     },
     "allrounder_batting": {
-      "name": "All-rounder (Batting-first)",
-      "rating": 9.8,
-      "what_works": "Elite #1 in liam livingstone. quality backup in abhishek sharma",
+      "name": "Allrounder",
+      "rating": 8.8,
+      "what_works": "Elite #1 in liam livingstone. quality backup in pat cummins",
       "what_doesnt": "Overseas mix (2 of 3)",
       "overseas_count": 2,
       "players": [
@@ -466,8 +467,8 @@
           "rank": 1,
           "name": "Liam Livingstone",
           "player_id": "50c6bc2b",
-          "score": 97.8,
-          "rationale": "Founder XII. Strong finisher (100). Bowls 4 overs",
+          "score": 91.8,
+          "rationale": "Founder XII. Strong finisher (88). Bowls 4 overs",
           "is_overseas": true,
           "price_cr": 13.0,
           "bowling_type": "Off-Spin/Leg-Spin",
@@ -476,18 +477,6 @@
         },
         {
           "rank": 2,
-          "name": "Abhishek Sharma",
-          "player_id": "f29185a1",
-          "score": 84.9,
-          "rationale": "Founder XII. Strong finisher (64). Middle order capable (72)",
-          "is_overseas": false,
-          "price_cr": 14.0,
-          "bowling_type": "LA Orthodox",
-          "bowling_arm": "Left-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
           "name": "Pat Cummins",
           "player_id": "ded9240e",
           "score": 67.9,
@@ -497,38 +486,50 @@
           "bowling_type": "Fast-Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
-        }
-      ]
-    },
-    "allrounder_bowling": {
-      "name": "All-rounder (Bowling-first)",
-      "rating": 8.6,
-      "what_works": "Elite #1 in abhishek sharma. quality backup in pat cummins",
-      "what_doesnt": "Overseas mix (2 of 3)",
-      "overseas_count": 2,
-      "players": [
+        },
         {
-          "rank": 1,
+          "rank": 3,
           "name": "Abhishek Sharma",
           "player_id": "f29185a1",
-          "score": 81.1,
-          "rationale": "Founder XII. Handy bat (72). SR 187",
+          "score": 56.5,
+          "rationale": "Founder XII. Bowls 4 overs",
           "is_overseas": false,
           "price_cr": 14.0,
           "bowling_type": "LA Orthodox",
           "bowling_arm": "Left-arm",
           "secondary_positions": []
-        },
+        }
+      ]
+    },
+    "allrounder_bowling": {
+      "name": "Allrounder",
+      "rating": 8.8,
+      "what_works": "Elite #1 in pat cummins. quality backup in abhishek sharma",
+      "what_doesnt": "Overseas mix (2 of 3)",
+      "overseas_count": 2,
+      "players": [
         {
-          "rank": 2,
+          "rank": 1,
           "name": "Pat Cummins",
           "player_id": "ded9240e",
-          "score": 72.7,
-          "rationale": "Founder XII. Handy bat (56). SR 153",
+          "score": 82.7,
+          "rationale": "Founder XII. Bowling specialist tag. Handy bat (56)",
           "is_overseas": true,
           "price_cr": 18.0,
           "bowling_type": "Fast-Medium",
           "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Abhishek Sharma",
+          "player_id": "f29185a1",
+          "score": 73.9,
+          "rationale": "Founder XII. Handy bat (43). SR 187",
+          "is_overseas": false,
+          "price_cr": 14.0,
+          "bowling_type": "LA Orthodox",
+          "bowling_arm": "Left-arm",
           "secondary_positions": []
         },
         {

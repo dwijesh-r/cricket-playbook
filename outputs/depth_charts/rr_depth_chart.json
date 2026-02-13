@@ -10,9 +10,9 @@
   "positions": {
     "opener": {
       "name": "Opener",
-      "rating": 9.6,
-      "what_works": "Elite #1 in yashasvi jaiswal. quality backup in riyan parag",
-      "what_doesnt": "Minimal concerns",
+      "rating": 8.7,
+      "what_works": "Elite #1 in yashasvi jaiswal. quality backup in vaibhav suryavanshi",
+      "what_doesnt": "Big gap between #1 and #2",
       "overseas_count": 0,
       "players": [
         {
@@ -29,18 +29,6 @@
         },
         {
           "rank": 2,
-          "name": "Riyan Parag",
-          "player_id": "04a418e8",
-          "score": 80.4,
-          "rationale": "Founder XII. Good SR (152.9). PP Dominator",
-          "is_overseas": false,
-          "price_cr": 14.0,
-          "bowling_type": "Off-spin",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
           "name": "Vaibhav Suryavanshi",
           "player_id": "470f446b",
           "score": 59.1,
@@ -49,6 +37,18 @@
           "price_cr": 1.1,
           "bowling_type": "LA Orthodox",
           "bowling_arm": "Left-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Riyan Parag",
+          "player_id": "04a418e8",
+          "score": 45.2,
+          "rationale": "Founder XII. Good SR (152.9). PP Dominator",
+          "is_overseas": false,
+          "price_cr": 14.0,
+          "bowling_type": "Off-spin",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
       ]
@@ -86,12 +86,12 @@
         },
         {
           "rank": 3,
-          "name": "Ravindra Jadeja",
-          "player_id": "fe93fd9d",
-          "score": 85.6,
-          "rationale": "Founder XII. Can bat #3",
+          "name": "Vaibhav Suryavanshi",
+          "player_id": "470f446b",
+          "score": 69.5,
+          "rationale": "Founder XII. Strong in PP. Middle overs accelerator",
           "is_overseas": false,
-          "price_cr": 17.5,
+          "price_cr": 1.1,
           "bowling_type": "LA Orthodox",
           "bowling_arm": "Left-arm",
           "secondary_positions": []
@@ -100,7 +100,7 @@
     },
     "middle_order": {
       "name": "Middle Order #4-5",
-      "rating": 8.3,
+      "rating": 8.2,
       "what_works": "Elite #1 in riyan parag. quality backup in ravindra jadeja",
       "what_doesnt": "Big gap between #1 and #2",
       "overseas_count": 1,
@@ -131,42 +131,30 @@
         },
         {
           "rank": 3,
-          "name": "Sam Curran",
-          "player_id": "e94915e6",
-          "score": 51.2,
-          "rationale": "Founder XII. Middle order entry",
+          "name": "Shimron Hetmyer",
+          "player_id": "48a1d7b7",
+          "score": 46.6,
+          "rationale": "Founder XII. Middle overs anchor",
           "is_overseas": true,
-          "price_cr": 10.0,
-          "bowling_type": "Fast",
-          "bowling_arm": "Left-arm",
+          "price_cr": 11.0,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
       ]
     },
     "finisher": {
       "name": "Finisher #6-7",
-      "rating": 10.0,
-      "what_works": "Elite #1 in yashasvi jaiswal. quality backup in sam curran",
+      "rating": 9.5,
+      "what_works": "Elite #1 in sam curran. quality backup in ravindra jadeja",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
       "players": [
         {
           "rank": 1,
-          "name": "Yashasvi Jaiswal",
-          "player_id": "6c19c6e5",
-          "score": 100.0,
-          "rationale": "Founder XII. Death overs hitter. Six-hitting ability",
-          "is_overseas": false,
-          "price_cr": 18.0,
-          "bowling_type": "Leg-spin",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 2,
           "name": "Sam Curran",
           "player_id": "e94915e6",
-          "score": 98.0,
+          "score": 100.0,
           "rationale": "Founder XII. Death specialist. Six-hitting ability",
           "is_overseas": true,
           "price_cr": 10.0,
@@ -175,31 +163,43 @@
           "secondary_positions": []
         },
         {
-          "rank": 3,
+          "rank": 2,
           "name": "Ravindra Jadeja",
           "player_id": "fe93fd9d",
-          "score": 73.2,
+          "score": 79.6,
           "rationale": "Founder XII. Death overs finisher. Bowling utility",
           "is_overseas": false,
           "price_cr": 17.5,
           "bowling_type": "LA Orthodox",
           "bowling_arm": "Left-arm",
           "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Ravi Singh",
+          "player_id": "f8d66d89",
+          "score": 56.0,
+          "rationale": "Death specialist. Six-hitting ability",
+          "is_overseas": false,
+          "price_cr": 0.3,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
         }
       ]
     },
     "wicketkeeper": {
       "name": "Wicketkeeper",
-      "rating": 5.2,
+      "rating": 5.1,
       "what_works": "Strong #1 with dhruv jurel. donovan ferreira as backup",
-      "what_doesnt": "Weak backup option. big gap between #1 and #2",
+      "what_doesnt": "Weak backup option",
       "overseas_count": 1,
       "players": [
         {
           "rank": 1,
           "name": "Dhruv Jurel",
           "player_id": "bcf325d2",
-          "score": 64.2,
+          "score": 61.4,
           "rationale": "Experienced keeper",
           "is_overseas": false,
           "price_cr": 14.0,
@@ -468,8 +468,8 @@
       ]
     },
     "allrounder_batting": {
-      "name": "All-rounder (Batting-first)",
-      "rating": 9.4,
+      "name": "Allrounder",
+      "rating": 9.6,
       "what_works": "Elite #1 in ravindra jadeja. quality backup in sam curran",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
@@ -478,8 +478,8 @@
           "rank": 1,
           "name": "Ravindra Jadeja",
           "player_id": "fe93fd9d",
-          "score": 93.1,
-          "rationale": "Founder XII. Strong finisher (63). Bowls 4 overs",
+          "score": 96.3,
+          "rationale": "Founder XII. Strong finisher (70). Bowls 4 overs",
           "is_overseas": false,
           "price_cr": 17.5,
           "bowling_type": "LA Orthodox",
@@ -490,8 +490,8 @@
           "rank": 2,
           "name": "Sam Curran",
           "player_id": "e94915e6",
-          "score": 84.6,
-          "rationale": "Founder XII. Strong finisher (88). Bowls 4 overs",
+          "score": 85.4,
+          "rationale": "Founder XII. Strong finisher (97). Bowls 4 overs",
           "is_overseas": true,
           "price_cr": 10.0,
           "bowling_type": "Fast",
@@ -513,14 +513,26 @@
       ]
     },
     "allrounder_bowling": {
-      "name": "All-rounder (Bowling-first)",
-      "rating": 8.9,
-      "what_works": "Elite #1 in riyan parag. quality backup in ravindra jadeja",
+      "name": "Allrounder",
+      "rating": 9.9,
+      "what_works": "Elite #1 in ravindra jadeja. quality backup in riyan parag",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
       "players": [
         {
           "rank": 1,
+          "name": "Ravindra Jadeja",
+          "player_id": "fe93fd9d",
+          "score": 96.5,
+          "rationale": "Founder XII. Primary bowler (77). Proven bowling credentials",
+          "is_overseas": false,
+          "price_cr": 17.5,
+          "bowling_type": "LA Orthodox",
+          "bowling_arm": "Left-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
           "name": "Riyan Parag",
           "player_id": "04a418e8",
           "score": 85.5,
@@ -532,23 +544,11 @@
           "secondary_positions": []
         },
         {
-          "rank": 2,
-          "name": "Ravindra Jadeja",
-          "player_id": "fe93fd9d",
-          "score": 81.5,
-          "rationale": "Founder XII. Primary bowler (77). Handy bat (44)",
-          "is_overseas": false,
-          "price_cr": 17.5,
-          "bowling_type": "LA Orthodox",
-          "bowling_arm": "Left-arm",
-          "secondary_positions": []
-        },
-        {
           "rank": 3,
           "name": "Sam Curran",
           "player_id": "e94915e6",
-          "score": 59.8,
-          "rationale": "Founder XII. Handy bat (41)",
+          "score": 73.7,
+          "rationale": "Founder XII. Handy bat (97)",
           "is_overseas": true,
           "price_cr": 10.0,
           "bowling_type": "Fast",

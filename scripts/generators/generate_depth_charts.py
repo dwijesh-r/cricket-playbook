@@ -376,7 +376,7 @@ def load_contracts() -> Dict[str, Dict[str, Any]]:
 def load_player_tags() -> Dict[str, Dict[str, Dict[str, Any]]]:
     """Load player tags from 2023+ analysis"""
     tags = {"batters": {}, "bowlers": {}}
-    tags_file = OUTPUT_DIR / "player_tags_2023.json"
+    tags_file = OUTPUT_DIR / "tags" / "player_tags_2023.json"
 
     if tags_file.exists():
         logger.debug("Loading player tags from %s", tags_file)
@@ -662,6 +662,8 @@ def score_opener(player: Player) -> Tuple[float, str]:
         rationale_parts.append("Explosive opener")
     elif "PP_ACCUMULATOR" in player.batter_tags:
         base_score += 10
+    elif "PP_RECENT_DIP" in player.batter_tags:
+        base_score += 8
     elif "PP_LIABILITY" in player.batter_tags:
         base_score += 2
 
@@ -821,6 +823,14 @@ def score_middle_order(player: Player) -> Tuple[float, str]:
 
     # Check if player can bat middle order
     # All-rounders with batting credentials are explicitly eligible
+    # Phase performance tags (MIDDLE_ANCHOR etc.) alone don't qualify pure openers —
+    # an opener batting through the innings has good middle-overs numbers but isn't a #4-5 option
+    is_pure_opener = (
+        player.mode_batting_position is not None
+        and player.mode_batting_position <= 2
+        and player.avg_entry_ball is not None
+        and player.avg_entry_ball < 15
+    )
     middle_entry = player.avg_entry_ball is not None and 30 <= player.avg_entry_ball <= 80
     is_middle_order = player.batter_classification in [
         "All-Round Finisher",
@@ -834,6 +844,11 @@ def score_middle_order(player: Player) -> Tuple[float, str]:
         and player.batter_classification != ""
     )
 
+    # Pure openers only qualify via explicit middle-order classification or entry point,
+    # not via phase performance tags (which reflect batting through, not batting position)
+    if is_pure_opener and not (is_middle_order or middle_entry or is_allrounder_with_batting):
+        return 0.0, "Not a middle order profile (opener)"
+
     if not (is_middle_order or middle_entry or has_middle_tags or is_allrounder_with_batting):
         return 0.0, "Not a middle order profile"
 
@@ -844,6 +859,8 @@ def score_middle_order(player: Player) -> Tuple[float, str]:
     elif "MIDDLE_ACCELERATOR" in player.batter_tags:
         base_score += 30
         rationale_parts.append("Middle overs accelerator")
+    elif "MIDDLE_RECENT_DIP" in player.batter_tags:
+        base_score += 12
     elif "MIDDLE_LIABILITY" in player.batter_tags:
         base_score += 5
     elif player.role == "All-rounder" and player.overall_sr:
@@ -959,6 +976,8 @@ def score_finisher(player: Player) -> Tuple[float, str]:
     elif "DEATH_SPECIALIST" in player.batter_tags:
         base_score += 28
         rationale_parts.append("Death specialist")
+    elif "DEATH_RECENT_DIP" in player.batter_tags:
+        base_score += 12
     elif "DEATH_LIABILITY" in player.batter_tags:
         base_score += 5
     elif player.role == "All-rounder" and player.overall_sr:
@@ -1043,13 +1062,14 @@ def score_wicketkeeper(player: Player, batting_position_score: float) -> Tuple[f
     base_score = 0.0
     rationale_parts = []
 
-    # Keeping quality (30%) - proxy using price and classification
-    if player.price_cr >= 15:
+    # Keeping quality (30%) - based on pedigree, not auction price
+    if is_founder_xii(player.player_id):
         base_score += 30
-        rationale_parts.append("Primary keeper")
-    elif player.price_cr >= 8:
+        rationale_parts.append("Elite keeper (Founder XII)")
+    elif player.batter_classification in ["Explosive Opener", "Power Top-Order"]:
         base_score += 25
-    elif player.price_cr >= 4:
+        rationale_parts.append("Primary keeper")
+    elif player.batter_classification is not None and player.batter_classification != "":
         base_score += 20
     else:
         base_score += 15
@@ -1061,11 +1081,13 @@ def score_wicketkeeper(player: Player, batting_position_score: float) -> Tuple[f
     elif batting_position_score >= 50:
         rationale_parts.append(f"Capable batter (score: {batting_position_score:.0f})")
 
-    # IPL keeping experience (20%) - proxy using price and tenure
-    if player.price_cr >= 10:
+    # IPL keeping experience (20%) - based on pedigree and tag depth
+    if is_founder_xii(player.player_id):
         base_score += 20
         rationale_parts.append("Experienced keeper")
-    elif player.price_cr >= 5:
+    elif len(player.batter_tags) >= 3:
+        base_score += 18
+    elif player.price_cr >= 10:
         base_score += 15
     else:
         base_score += 10
@@ -1158,6 +1180,18 @@ def score_lead_pacer(player: Player) -> Tuple[float, str]:
     else:
         base_score += 5
 
+    # Part-timer penalty: based on bowling workload (total overs in 2023+)
+    if player.role == "All-rounder":
+        total_overs = (
+            (player.pp_overs or 0) + (player.middle_overs or 0) + (player.death_overs or 0)
+        )
+        if total_overs < 10:
+            base_score *= 0.55
+            rationale_parts.append(f"Part-timer ({total_overs:.0f} ov)")
+        elif total_overs < 20:
+            base_score *= 0.75
+            rationale_parts.append(f"Light bowler ({total_overs:.0f} ov)")
+
     # Apply auction bonus
     base_score *= 1 + get_auction_bonus(player.price_cr)
 
@@ -1226,6 +1260,18 @@ def score_supporting_pacer_pp(player: Player) -> Tuple[float, str]:
         else:
             base_score += 5
 
+    # Part-timer penalty: based on bowling workload (total overs in 2023+)
+    if player.role == "All-rounder":
+        total_overs = (
+            (player.pp_overs or 0) + (player.middle_overs or 0) + (player.death_overs or 0)
+        )
+        if total_overs < 10:
+            base_score *= 0.55
+            rationale_parts.append(f"Part-timer ({total_overs:.0f} ov)")
+        elif total_overs < 20:
+            base_score *= 0.75
+            rationale_parts.append(f"Light bowler ({total_overs:.0f} ov)")
+
     rationale = ". ".join(rationale_parts[:2]) if rationale_parts else "PP specialist"
     return min(base_score, 100.0), rationale
 
@@ -1293,6 +1339,18 @@ def score_supporting_pacer_death(player: Player) -> Tuple[float, str]:
             base_score += 10
         else:
             base_score += 5
+
+    # Part-timer penalty: based on bowling workload (total overs in 2023+)
+    if player.role == "All-rounder":
+        total_overs = (
+            (player.pp_overs or 0) + (player.middle_overs or 0) + (player.death_overs or 0)
+        )
+        if total_overs < 10:
+            base_score *= 0.55
+            rationale_parts.append(f"Part-timer ({total_overs:.0f} ov)")
+        elif total_overs < 20:
+            base_score *= 0.75
+            rationale_parts.append(f"Light bowler ({total_overs:.0f} ov)")
 
     rationale = ". ".join(rationale_parts[:2]) if rationale_parts else "Death specialist"
     return min(base_score, 100.0), rationale
@@ -1376,6 +1434,19 @@ def score_lead_spinner(player: Player) -> Tuple[float, str]:
     else:
         base_score += 5
 
+    # Part-timer penalty: based on bowling workload (total overs in 2023+)
+    # < 10 overs = negligible bowler, 10-20 = light bowler
+    if player.role == "All-rounder":
+        total_overs = (
+            (player.pp_overs or 0) + (player.middle_overs or 0) + (player.death_overs or 0)
+        )
+        if total_overs < 10:
+            base_score *= 0.55
+            rationale_parts.append(f"Part-timer ({total_overs:.0f} ov)")
+        elif total_overs < 20:
+            base_score *= 0.75
+            rationale_parts.append(f"Light bowler ({total_overs:.0f} ov)")
+
     # Apply auction bonus
     base_score *= 1 + get_auction_bonus(player.price_cr)
 
@@ -1454,6 +1525,18 @@ def score_middle_overs_specialist(player: Player) -> Tuple[float, str]:
         base_score += 12
     else:
         base_score += 6
+
+    # Part-timer penalty: based on bowling workload (total overs in 2023+)
+    if player.role == "All-rounder":
+        total_overs = (
+            (player.pp_overs or 0) + (player.middle_overs or 0) + (player.death_overs or 0)
+        )
+        if total_overs < 10:
+            base_score *= 0.55
+            rationale_parts.append(f"Part-timer ({total_overs:.0f} ov)")
+        elif total_overs < 20:
+            base_score *= 0.75
+            rationale_parts.append(f"Light bowler ({total_overs:.0f} ov)")
 
     # Apply auction bonus
     base_score *= 1 + get_auction_bonus(player.price_cr)
@@ -1767,19 +1850,14 @@ def _filter_left_arm_pace(players: List[Player]) -> List[Player]:
 
 
 def _filter_off_spin(players: List[Player]) -> List[Player]:
-    """Filter players who bowl off-spin (includes right-arm finger spin)"""
-    result = []
-    for p in players:
-        if p.role not in ("Bowler", "All-rounder"):
-            continue
-        if not p.bowling_type:
-            continue
-        bt = p.bowling_type
-        if bt in ("Off-spin", "Off-break"):
-            result.append(p)
-        elif p.bowling_arm == "Right-arm" and "spin" in bt.lower():
-            result.append(p)
-    return result
+    """Filter players who bowl off-spin (right-arm finger spin only)"""
+    return [
+        p
+        for p in players
+        if p.role in ("Bowler", "All-rounder")
+        and p.bowling_type
+        and p.bowling_type in ("Off-spin", "Off-break")
+    ]
 
 
 def _filter_leg_spin(players: List[Player]) -> List[Player]:
@@ -1796,18 +1874,30 @@ def _filter_leg_spin(players: List[Player]) -> List[Player]:
     return result
 
 
-def _filter_left_arm_spin(players: List[Player]) -> List[Player]:
-    """Filter players who are left-arm spinners (orthodox, slow left-arm)"""
+def _filter_left_arm_orthodox(players: List[Player]) -> List[Player]:
+    """Filter players who are left-arm orthodox spinners (Jadeja, Axar, Santner)"""
     result = []
     for p in players:
         if p.role not in ("Bowler", "All-rounder"):
             continue
-        if not p.bowling_type:
-            continue
-        if p.bowling_arm != "Left-arm":
+        if not p.bowling_type or p.bowling_arm != "Left-arm":
             continue
         bt_lower = p.bowling_type.lower()
-        if any(kw in bt_lower for kw in ("orthodox", "spin", "slow")):
+        if any(kw in bt_lower for kw in ("orthodox", "slow")):
+            result.append(p)
+    return result
+
+
+def _filter_left_arm_wrist_spin(players: List[Player]) -> List[Player]:
+    """Filter players who are left-arm wrist spinners (Kuldeep, Noor Ahmad)"""
+    result = []
+    for p in players:
+        if p.role not in ("Bowler", "All-rounder"):
+            continue
+        if not p.bowling_type or p.bowling_arm != "Left-arm":
+            continue
+        bt_lower = p.bowling_type.lower()
+        if any(kw in bt_lower for kw in ("wrist", "leg")):
             result.append(p)
     return result
 
@@ -1899,7 +1989,7 @@ def _create_wicketkeeper_position(players: List[Player]) -> Position:
     for i, kp in enumerate(keeper_scored):
         kp.rank = i + 1
 
-    keeper_players = keeper_scored[:2]
+    keeper_players = keeper_scored[:3]
     return Position(
         name="Wicketkeeper",
         rating=calculate_position_rating(keeper_players, "Wicketkeeper"),
@@ -1985,8 +2075,21 @@ def generate_team_depth_chart(team: str, players: List[Player]) -> DepthChart:
     positions["leg_spin"] = _create_typed_bowling_position(
         players, _filter_leg_spin, score_lead_spinner, "Leg Spin", "Leg Spin", 3
     )
-    positions["left_arm_spin"] = _create_typed_bowling_position(
-        players, _filter_left_arm_spin, score_lead_spinner, "Left-arm Spin", "Left-arm Spin", 3
+    positions["left_arm_orthodox"] = _create_typed_bowling_position(
+        players,
+        _filter_left_arm_orthodox,
+        score_lead_spinner,
+        "Left-arm Orthodox",
+        "Left-arm Orthodox",
+        3,
+    )
+    positions["left_arm_wrist_spin"] = _create_typed_bowling_position(
+        players,
+        _filter_left_arm_wrist_spin,
+        score_lead_spinner,
+        "Left-arm Wrist Spin",
+        "Left-arm Wrist Spin",
+        3,
     )
     positions["middle_overs_specialist"] = _create_position(
         players,
@@ -1998,10 +2101,10 @@ def generate_team_depth_chart(team: str, players: List[Player]) -> DepthChart:
 
     # All-rounder positions
     positions["allrounder_batting"] = _create_position(
-        players, score_batting_allrounder, "Batting AR", "Allrounder", 3
+        players, score_batting_allrounder, "Batting AR", "Allrounder (Batting)", 3
     )
     positions["allrounder_bowling"] = _create_position(
-        players, score_bowling_allrounder, "Bowling AR", "Allrounder", 3
+        players, score_bowling_allrounder, "Bowling AR", "Allrounder (Bowling)", 3
     )
 
     # Calculate overall metrics
@@ -2083,10 +2186,10 @@ def generate_cross_team_comparison(
         ]
         avg_pace = round(sum(pace_ratings) / len(pace_ratings), 1) if pace_ratings else 0.0
 
-        # Compute average spin rating across off-spin, leg-spin, left-arm spin
+        # Compute average spin rating across off-spin, leg-spin, left-arm orthodox, left-arm wrist spin
         spin_ratings = [
             dc.positions[k].rating
-            for k in ("off_spin", "leg_spin", "left_arm_spin")
+            for k in ("off_spin", "leg_spin", "left_arm_orthodox", "left_arm_wrist_spin")
             if k in dc.positions and dc.positions[k].rating > 0
         ]
         avg_spin = round(sum(spin_ratings) / len(spin_ratings), 1) if spin_ratings else 0.0

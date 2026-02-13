@@ -746,6 +746,71 @@ def generate_player_tags_2023(
     """).df()
 
     # ==========================================================================
+    # ALLTIME CAREER CONTEXT (no date filter) — used to override recency-biased LIABILITY tags
+    # If a player is career-long elite in a phase but 2023+ data dipped, tag as RECENT_DIP not LIABILITY
+    # ==========================================================================
+    alltime_batter_df = conn.execute("""
+        WITH pp_alltime AS (
+            SELECT
+                fb.batter_id as player_id,
+                COUNT(*) FILTER (WHERE fb.is_legal_ball) as pp_balls,
+                ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as pp_sr,
+                ROUND(SUM(CASE WHEN fb.batter_runs IN (4,6) THEN 1 ELSE 0 END) * 100.0 /
+                      NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as pp_boundary_pct
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+              AND fb.match_phase = 'powerplay'
+            GROUP BY fb.batter_id
+            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= 100
+        ),
+        mid_alltime AS (
+            SELECT
+                fb.batter_id as player_id,
+                COUNT(*) FILTER (WHERE fb.is_legal_ball) as mid_balls,
+                ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as mid_sr
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+              AND fb.match_phase = 'middle'
+            GROUP BY fb.batter_id
+            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= 100
+        ),
+        death_alltime AS (
+            SELECT
+                fb.batter_id as player_id,
+                COUNT(*) FILTER (WHERE fb.is_legal_ball) as death_balls,
+                ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*) FILTER (WHERE fb.is_legal_ball), 0), 2) as death_sr
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+              AND fb.match_phase = 'death'
+            GROUP BY fb.batter_id
+            HAVING COUNT(*) FILTER (WHERE fb.is_legal_ball) >= 60
+        )
+        SELECT
+            pp.player_id,
+            pp.pp_sr, pp.pp_boundary_pct,
+            m.mid_sr,
+            d.death_sr
+        FROM pp_alltime pp
+        LEFT JOIN mid_alltime m ON pp.player_id = m.player_id
+        LEFT JOIN death_alltime d ON pp.player_id = d.player_id
+    """).df()
+
+    alltime_lookup = {}
+    for _, arow in alltime_batter_df.iterrows():
+        alltime_lookup[arow["player_id"]] = {
+            "pp_sr": float(arow["pp_sr"]) if pd.notna(arow.get("pp_sr")) else None,
+            "mid_sr": float(arow["mid_sr"]) if pd.notna(arow.get("mid_sr")) else None,
+            "death_sr": float(arow["death_sr"]) if pd.notna(arow.get("death_sr")) else None,
+        }
+    print(f"   Alltime career context: {len(alltime_lookup)} batters")
+
+    # ==========================================================================
     # BATTER MULTI-METRIC PROFILE TAGGING
     # ==========================================================================
     batters = []
@@ -807,7 +872,11 @@ def generate_player_tags_2023(
             ):
                 entry["tags"].append("PP_ACCUMULATOR")
             elif pp_exploitable_count >= 2:
-                entry["tags"].append("PP_LIABILITY")
+                alltime = alltime_lookup.get(player_id)
+                if alltime and alltime.get("pp_sr") and alltime["pp_sr"] >= pp["sr"]["elite"]:
+                    entry["tags"].append("PP_RECENT_DIP")
+                else:
+                    entry["tags"].append("PP_LIABILITY")
 
         # --- MIDDLE OVERS PROFILE TAGS (Multi-metric) ---
         if pd.notna(row.get("mid_sr")) and pd.notna(row.get("mid_balls")):
@@ -854,7 +923,11 @@ def generate_player_tags_2023(
                 # Elite survival alone = anchor profile
                 entry["tags"].append("MIDDLE_ANCHOR")
             elif mid_exploitable_count >= 2:
-                entry["tags"].append("MIDDLE_LIABILITY")
+                alltime = alltime_lookup.get(player_id)
+                if alltime and alltime.get("mid_sr") and alltime["mid_sr"] >= mid["sr"]["elite"]:
+                    entry["tags"].append("MIDDLE_RECENT_DIP")
+                else:
+                    entry["tags"].append("MIDDLE_LIABILITY")
 
         # --- DEATH OVERS PROFILE TAGS (Multi-metric) ---
         if pd.notna(row.get("death_sr")) and pd.notna(row.get("death_balls")):
@@ -904,7 +977,15 @@ def generate_player_tags_2023(
                 # Elite in 2 metrics = capable finisher
                 entry["tags"].append("DEATH_FINISHER")
             elif death_exploitable_count >= 2:
-                entry["tags"].append("DEATH_LIABILITY")
+                alltime = alltime_lookup.get(player_id)
+                if (
+                    alltime
+                    and alltime.get("death_sr")
+                    and alltime["death_sr"] >= death["sr"]["elite"]
+                ):
+                    entry["tags"].append("DEATH_RECENT_DIP")
+                else:
+                    entry["tags"].append("DEATH_LIABILITY")
 
         batters.append(entry)
 

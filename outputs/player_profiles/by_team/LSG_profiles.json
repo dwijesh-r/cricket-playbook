@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-13T16:48:23.737092+00:00",
+  "generated_at": "2026-02-13T19:03:02.387974+00:00",
   "version": "1.0.0",
   "team": "LSG",
   "total_players": 20,
@@ -64,18 +64,6 @@
           }
         },
         "vs_bowling_type": {
-          "Off-spin": {
-            "sr": 150.0,
-            "avg": 60.0,
-            "balls": 40,
-            "sample_size": "LOW"
-          },
-          "Right-arm off-spin": {
-            "sr": 25.0,
-            "avg": null,
-            "balls": 4,
-            "sample_size": "LOW"
-          },
           "Left-arm orthodox": {
             "sr": 122.99,
             "avg": 35.67,
@@ -88,22 +76,16 @@
             "balls": 22,
             "sample_size": "LOW"
           },
-          "Leg-spin": {
-            "sr": 171.43,
-            "avg": 24.0,
-            "balls": 28,
+          "Off-spin": {
+            "sr": 150.0,
+            "avg": 60.0,
+            "balls": 40,
             "sample_size": "LOW"
           },
-          "Right-arm pace": {
-            "sr": 155.0,
-            "avg": 15.5,
-            "balls": 20,
-            "sample_size": "LOW"
-          },
-          "Right-arm leg-spin": {
-            "sr": 160.0,
+          "Right-arm off-spin": {
+            "sr": 25.0,
             "avg": null,
-            "balls": 5,
+            "balls": 4,
             "sample_size": "LOW"
           },
           "Fast": {
@@ -122,6 +104,24 @@
             "sr": 0.0,
             "avg": 0.0,
             "balls": 4,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 171.43,
+            "avg": 24.0,
+            "balls": 28,
+            "sample_size": "LOW"
+          },
+          "Right-arm pace": {
+            "sr": 155.0,
+            "avg": 15.5,
+            "balls": 20,
+            "sample_size": "LOW"
+          },
+          "Right-arm leg-spin": {
+            "sr": 160.0,
+            "avg": null,
+            "balls": 5,
             "sample_size": "LOW"
           }
         },
@@ -316,7 +316,7 @@
       "bowling_arm": "Right-arm",
       "bowling_type": "Fast-Medium",
       "is_captain": false,
-      "archetype": "BALANCED",
+      "archetype": "DEATH_SPECIALIST",
       "player_type": "bowler",
       "has_ipl_data": true,
       "bowling": {
@@ -425,7 +425,7 @@
         "classification": {
           "arm": "Right-arm",
           "type": "Fast-Medium",
-          "archetype": "BALANCED"
+          "archetype": "DEATH_SPECIALIST"
         },
         "tags": [
           "PP_LIABILITY",
@@ -715,16 +715,16 @@
             "balls": 3,
             "sample_size": "LOW"
           },
-          "Right-arm pace": {
-            "sr": 100.0,
-            "avg": null,
-            "balls": 1,
-            "sample_size": "LOW"
-          },
           "Fast": {
             "sr": 108.33,
             "avg": 4.33,
             "balls": 12,
+            "sample_size": "LOW"
+          },
+          "Right-arm pace": {
+            "sr": 100.0,
+            "avg": null,
+            "balls": 1,
             "sample_size": "LOW"
           }
         },
@@ -759,7 +759,7 @@
       "bowling_arm": "Right-arm",
       "bowling_type": "Fast",
       "is_captain": false,
-      "archetype": "BALANCED",
+      "archetype": "DEATH_SPECIALIST",
       "player_type": "bowler",
       "has_ipl_data": true,
       "bowling": {
@@ -868,7 +868,7 @@
         "classification": {
           "arm": "Right-arm",
           "type": "Fast",
-          "archetype": "BALANCED"
+          "archetype": "DEATH_SPECIALIST"
         },
         "tags": [
           "RHB_SPECIALIST",
@@ -922,18 +922,6 @@
           }
         },
         "vs_bowling_type": {
-          "Fast": {
-            "sr": 127.78,
-            "avg": 11.5,
-            "balls": 18,
-            "sample_size": "LOW"
-          },
-          "Left-arm pace": {
-            "sr": 150.0,
-            "avg": null,
-            "balls": 6,
-            "sample_size": "LOW"
-          },
           "Off-spin": {
             "sr": 50.0,
             "avg": null,
@@ -950,6 +938,18 @@
             "sr": 33.33,
             "avg": null,
             "balls": 3,
+            "sample_size": "LOW"
+          },
+          "Fast": {
+            "sr": 127.78,
+            "avg": 11.5,
+            "balls": 18,
+            "sample_size": "LOW"
+          },
+          "Left-arm pace": {
+            "sr": 150.0,
+            "avg": null,
+            "balls": 6,
             "sample_size": "LOW"
           }
         },
@@ -1010,7 +1010,7 @@
       "bowling_arm": "Left-arm",
       "bowling_type": "Fast-Medium",
       "is_captain": false,
-      "archetype": "BALANCED",
+      "archetype": "POWERPLAY_SPECIALIST",
       "player_type": "bowler",
       "has_ipl_data": true,
       "bowling": {
@@ -1119,7 +1119,7 @@
         "classification": {
           "arm": "Left-arm",
           "type": "Fast-Medium",
-          "archetype": "BALANCED"
+          "archetype": "POWERPLAY_SPECIALIST"
         },
         "tags": [
           "LHB_WICKET_TAKER",
@@ -1262,6 +1262,12 @@
           }
         },
         "vs_bowling_type": {
+          "Left-arm orthodox": {
+            "sr": 0.0,
+            "avg": 0.0,
+            "balls": 1,
+            "sample_size": "LOW"
+          },
           "Off-spin": {
             "sr": 100.0,
             "avg": 4.0,
@@ -1274,10 +1280,16 @@
             "balls": 1,
             "sample_size": "LOW"
           },
-          "Left-arm orthodox": {
-            "sr": 0.0,
-            "avg": 0.0,
-            "balls": 1,
+          "Left-arm wrist spin": {
+            "sr": 100.0,
+            "avg": null,
+            "balls": 4,
+            "sample_size": "LOW"
+          },
+          "Fast": {
+            "sr": 50.0,
+            "avg": 2.5,
+            "balls": 10,
             "sample_size": "LOW"
           },
           "Leg-spin": {
@@ -1290,18 +1302,6 @@
             "sr": 126.67,
             "avg": 19.0,
             "balls": 15,
-            "sample_size": "LOW"
-          },
-          "Fast": {
-            "sr": 50.0,
-            "avg": 2.5,
-            "balls": 10,
-            "sample_size": "LOW"
-          },
-          "Left-arm wrist spin": {
-            "sr": 100.0,
-            "avg": null,
-            "balls": 4,
             "sample_size": "LOW"
           }
         },
@@ -1552,10 +1552,10 @@
               "overs": 8.0
             },
             {
-              "team": "RR",
+              "team": "GT",
               "economy": 7.5,
-              "sr": null,
-              "wickets": 0,
+              "sr": 24.0,
+              "wickets": 1,
               "overs": 4.0
             }
           ],
@@ -1722,34 +1722,22 @@
           }
         },
         "vs_bowling_type": {
-          "Off-spin": {
-            "sr": 147.46,
-            "avg": 87.0,
-            "balls": 59,
+          "Leg-spin": {
+            "sr": 198.36,
+            "avg": 60.5,
+            "balls": 61,
             "sample_size": "MEDIUM"
           },
-          "Right-arm off-spin": {
-            "sr": 114.89,
-            "avg": null,
-            "balls": 47,
-            "sample_size": "LOW"
+          "Right-arm pace": {
+            "sr": 179.1,
+            "avg": 40.0,
+            "balls": 67,
+            "sample_size": "MEDIUM"
           },
-          "Unknown": {
-            "sr": 250.0,
+          "Right-arm leg-spin": {
+            "sr": 175.0,
             "avg": null,
-            "balls": 10,
-            "sample_size": "LOW"
-          },
-          "Left-arm orthodox": {
-            "sr": 295.65,
-            "avg": null,
-            "balls": 46,
-            "sample_size": "LOW"
-          },
-          "Medium": {
-            "sr": 319.23,
-            "avg": 83.0,
-            "balls": 26,
+            "balls": 12,
             "sample_size": "LOW"
           },
           "Fast": {
@@ -1770,22 +1758,34 @@
             "balls": 28,
             "sample_size": "LOW"
           },
-          "Leg-spin": {
-            "sr": 198.36,
-            "avg": 60.5,
-            "balls": 61,
-            "sample_size": "MEDIUM"
+          "Medium": {
+            "sr": 319.23,
+            "avg": 83.0,
+            "balls": 26,
+            "sample_size": "LOW"
           },
-          "Right-arm pace": {
-            "sr": 179.1,
-            "avg": 40.0,
-            "balls": 67,
-            "sample_size": "MEDIUM"
-          },
-          "Right-arm leg-spin": {
-            "sr": 175.0,
+          "Left-arm orthodox": {
+            "sr": 295.65,
             "avg": null,
-            "balls": 12,
+            "balls": 46,
+            "sample_size": "LOW"
+          },
+          "Right-arm off-spin": {
+            "sr": 114.89,
+            "avg": null,
+            "balls": 47,
+            "sample_size": "LOW"
+          },
+          "Off-spin": {
+            "sr": 147.46,
+            "avg": 87.0,
+            "balls": 59,
+            "sample_size": "MEDIUM"
+          },
+          "Unknown": {
+            "sr": 250.0,
+            "avg": null,
+            "balls": 10,
             "sample_size": "LOW"
           }
         },
@@ -1917,6 +1917,24 @@
           }
         },
         "vs_bowling_type": {
+          "Right-arm off-spin": {
+            "sr": 132.5,
+            "avg": 26.5,
+            "balls": 40,
+            "sample_size": "LOW"
+          },
+          "Off-spin": {
+            "sr": 130.43,
+            "avg": 45.0,
+            "balls": 69,
+            "sample_size": "MEDIUM"
+          },
+          "Unknown": {
+            "sr": 162.5,
+            "avg": null,
+            "balls": 8,
+            "sample_size": "LOW"
+          },
           "Left-arm orthodox": {
             "sr": 120.73,
             "avg": 16.5,
@@ -1927,42 +1945,6 @@
             "sr": 152.38,
             "avg": 32.0,
             "balls": 21,
-            "sample_size": "LOW"
-          },
-          "Off-spin": {
-            "sr": 130.43,
-            "avg": 45.0,
-            "balls": 69,
-            "sample_size": "MEDIUM"
-          },
-          "Right-arm off-spin": {
-            "sr": 132.5,
-            "avg": 26.5,
-            "balls": 40,
-            "sample_size": "LOW"
-          },
-          "Unknown": {
-            "sr": 162.5,
-            "avg": null,
-            "balls": 8,
-            "sample_size": "LOW"
-          },
-          "Leg-spin": {
-            "sr": 168.75,
-            "avg": 40.5,
-            "balls": 48,
-            "sample_size": "LOW"
-          },
-          "Right-arm pace": {
-            "sr": 172.97,
-            "avg": 32.0,
-            "balls": 37,
-            "sample_size": "LOW"
-          },
-          "Right-arm leg-spin": {
-            "sr": 157.14,
-            "avg": null,
-            "balls": 14,
             "sample_size": "LOW"
           },
           "Fast": {
@@ -1981,6 +1963,24 @@
             "sr": 110.53,
             "avg": null,
             "balls": 19,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 168.75,
+            "avg": 40.5,
+            "balls": 48,
+            "sample_size": "LOW"
+          },
+          "Right-arm pace": {
+            "sr": 172.97,
+            "avg": 32.0,
+            "balls": 37,
+            "sample_size": "LOW"
+          },
+          "Right-arm leg-spin": {
+            "sr": 157.14,
+            "avg": null,
+            "balls": 14,
             "sample_size": "LOW"
           }
         },
@@ -2114,27 +2114,27 @@
               "overs": 4.0
             },
             {
-              "team": "RR",
+              "team": "DC",
               "economy": 9.0,
-              "sr": 18.0,
-              "wickets": 1,
-              "overs": 3.0
+              "sr": 12.0,
+              "wickets": 2,
+              "overs": 4.0
             }
           ],
           "worst": [
-            {
-              "team": "RR",
-              "economy": 9.0,
-              "sr": 18.0,
-              "wickets": 1,
-              "overs": 3.0
-            },
             {
               "team": "DC",
               "economy": 9.0,
               "sr": 12.0,
               "wickets": 2,
               "overs": 4.0
+            },
+            {
+              "team": "RR",
+              "economy": 9.0,
+              "sr": 18.0,
+              "wickets": 1,
+              "overs": 3.0
             },
             {
               "team": "KKR",
@@ -2216,22 +2216,34 @@
           }
         },
         "vs_bowling_type": {
-          "Leg-spin": {
-            "sr": 149.3,
-            "avg": 26.5,
-            "balls": 71,
-            "sample_size": "MEDIUM"
-          },
           "Right-arm pace": {
             "sr": 201.75,
             "avg": 57.5,
             "balls": 57,
             "sample_size": "MEDIUM"
           },
+          "Leg-spin": {
+            "sr": 149.3,
+            "avg": 26.5,
+            "balls": 71,
+            "sample_size": "MEDIUM"
+          },
           "Right-arm leg-spin": {
             "sr": 110.0,
             "avg": null,
             "balls": 10,
+            "sample_size": "LOW"
+          },
+          "Off-spin": {
+            "sr": 100.0,
+            "avg": 9.67,
+            "balls": 29,
+            "sample_size": "LOW"
+          },
+          "Right-arm off-spin": {
+            "sr": 95.65,
+            "avg": 22.0,
+            "balls": 23,
             "sample_size": "LOW"
           },
           "Fast": {
@@ -2262,18 +2274,6 @@
             "sr": 190.48,
             "avg": null,
             "balls": 21,
-            "sample_size": "LOW"
-          },
-          "Off-spin": {
-            "sr": 100.0,
-            "avg": 9.67,
-            "balls": 29,
-            "sample_size": "LOW"
-          },
-          "Right-arm off-spin": {
-            "sr": 95.65,
-            "avg": 22.0,
-            "balls": 23,
             "sample_size": "LOW"
           }
         },
@@ -2476,12 +2476,6 @@
           }
         },
         "vs_bowling_type": {
-          "Left-arm wrist spin": {
-            "sr": 171.43,
-            "avg": null,
-            "balls": 7,
-            "sample_size": "LOW"
-          },
           "Fast": {
             "sr": 171.75,
             "avg": 21.71,
@@ -2494,34 +2488,10 @@
             "balls": 7,
             "sample_size": "LOW"
           },
-          "Leg-spin": {
-            "sr": 143.48,
+          "Left-arm wrist spin": {
+            "sr": 171.43,
             "avg": null,
-            "balls": 23,
-            "sample_size": "LOW"
-          },
-          "Right-arm leg-spin": {
-            "sr": 175.0,
-            "avg": 14.0,
-            "balls": 8,
-            "sample_size": "LOW"
-          },
-          "Right-arm pace": {
-            "sr": 157.14,
-            "avg": 22.0,
-            "balls": 42,
-            "sample_size": "LOW"
-          },
-          "Left-arm orthodox": {
-            "sr": 78.57,
-            "avg": null,
-            "balls": 28,
-            "sample_size": "LOW"
-          },
-          "Medium": {
-            "sr": 66.67,
-            "avg": 2.0,
-            "balls": 3,
+            "balls": 7,
             "sample_size": "LOW"
           },
           "Off-spin": {
@@ -2534,6 +2504,36 @@
             "sr": 62.5,
             "avg": null,
             "balls": 8,
+            "sample_size": "LOW"
+          },
+          "Right-arm leg-spin": {
+            "sr": 175.0,
+            "avg": 14.0,
+            "balls": 8,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 143.48,
+            "avg": null,
+            "balls": 23,
+            "sample_size": "LOW"
+          },
+          "Right-arm pace": {
+            "sr": 157.14,
+            "avg": 22.0,
+            "balls": 42,
+            "sample_size": "LOW"
+          },
+          "Medium": {
+            "sr": 66.67,
+            "avg": 2.0,
+            "balls": 3,
+            "sample_size": "LOW"
+          },
+          "Left-arm orthodox": {
+            "sr": 78.57,
+            "avg": null,
+            "balls": 28,
             "sample_size": "LOW"
           }
         },
@@ -2720,6 +2720,18 @@
           }
         },
         "vs_bowling_type": {
+          "Left-arm orthodox": {
+            "sr": 158.33,
+            "avg": 57.0,
+            "balls": 36,
+            "sample_size": "LOW"
+          },
+          "Medium": {
+            "sr": 200.0,
+            "avg": 30.0,
+            "balls": 15,
+            "sample_size": "LOW"
+          },
           "Off-spin": {
             "sr": 108.0,
             "avg": 18.0,
@@ -2738,16 +2750,22 @@
             "balls": 3,
             "sample_size": "LOW"
           },
-          "Left-arm orthodox": {
-            "sr": 158.33,
-            "avg": 57.0,
-            "balls": 36,
+          "Fast": {
+            "sr": 145.89,
+            "avg": 32.77,
+            "balls": 292,
+            "sample_size": "HIGH"
+          },
+          "Left-arm pace": {
+            "sr": 173.33,
+            "avg": 13.0,
+            "balls": 15,
             "sample_size": "LOW"
           },
-          "Medium": {
-            "sr": 200.0,
-            "avg": 30.0,
-            "balls": 15,
+          "Left-arm wrist spin": {
+            "sr": 100.0,
+            "avg": 20.0,
+            "balls": 20,
             "sample_size": "LOW"
           },
           "Leg-spin": {
@@ -2766,24 +2784,6 @@
             "sr": 57.14,
             "avg": 4.0,
             "balls": 7,
-            "sample_size": "LOW"
-          },
-          "Left-arm wrist spin": {
-            "sr": 100.0,
-            "avg": 20.0,
-            "balls": 20,
-            "sample_size": "LOW"
-          },
-          "Fast": {
-            "sr": 145.89,
-            "avg": 32.77,
-            "balls": 292,
-            "sample_size": "HIGH"
-          },
-          "Left-arm pace": {
-            "sr": 173.33,
-            "avg": 13.0,
-            "balls": 15,
             "sample_size": "LOW"
           }
         },
@@ -3410,6 +3410,12 @@
           }
         },
         "vs_bowling_type": {
+          "Off-spin": {
+            "sr": 66.67,
+            "avg": 4.0,
+            "balls": 6,
+            "sample_size": "LOW"
+          },
           "Left-arm orthodox": {
             "sr": 148.72,
             "avg": 29.0,
@@ -3422,10 +3428,16 @@
             "balls": 2,
             "sample_size": "LOW"
           },
-          "Off-spin": {
-            "sr": 66.67,
-            "avg": 4.0,
-            "balls": 6,
+          "Fast": {
+            "sr": 168.93,
+            "avg": 43.5,
+            "balls": 103,
+            "sample_size": "MEDIUM"
+          },
+          "Left-arm pace": {
+            "sr": 240.0,
+            "avg": null,
+            "balls": 5,
             "sample_size": "LOW"
           },
           "Leg-spin": {
@@ -3438,18 +3450,6 @@
             "sr": 116.67,
             "avg": null,
             "balls": 6,
-            "sample_size": "LOW"
-          },
-          "Fast": {
-            "sr": 168.93,
-            "avg": 43.5,
-            "balls": 103,
-            "sample_size": "MEDIUM"
-          },
-          "Left-arm pace": {
-            "sr": 240.0,
-            "avg": null,
-            "balls": 5,
             "sample_size": "LOW"
           }
         },
@@ -3573,16 +3573,16 @@
           }
         },
         "vs_bowling_type": {
-          "Right-arm pace": {
-            "sr": 166.67,
-            "avg": 10.0,
-            "balls": 6,
-            "sample_size": "LOW"
-          },
           "Left-arm pace": {
             "sr": 100.0,
             "avg": null,
             "balls": 3,
+            "sample_size": "LOW"
+          },
+          "Right-arm pace": {
+            "sr": 166.67,
+            "avg": 10.0,
+            "balls": 6,
             "sample_size": "LOW"
           }
         },

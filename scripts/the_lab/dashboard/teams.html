@@ -3793,8 +3793,8 @@
 
             if (fullDepth && fullDepth.positions && fullDepth.positions.length > 0) {
                 // Classify positions into batting and bowling sections
-                const battingPositionNames = ['Opener', 'Number 3', '#3 Batter', 'Middle Order', 'Finisher', 'Wicketkeeper', 'Allrounder'];
-                const bowlingPositionNames = ['Right-arm Pace', 'Left-arm Pace', 'Off-spin', 'Leg-spin', 'Left-arm Spin', 'Middle Overs Specialist', 'Allrounder',
+                const battingPositionNames = ['Opener', 'Number 3', '#3 Batter', 'Middle Order', 'Finisher', 'Wicketkeeper', 'Allrounder (Batting)', 'Allrounder (Bowling)'];
+                const bowlingPositionNames = ['Right-arm Pace', 'Left-arm Pace', 'Off-spin', 'Leg-spin', 'Left-arm Orthodox', 'Left-arm Wrist Spin', 'Middle Overs Specialist', 'Allrounder (Batting)', 'Allrounder (Bowling)',
                     'Lead Pacer', 'Lead Spinner', 'Supporting Pacer (PP)', 'Supporting Pacer (Death)'];
 
                 const battingPositions = [];
@@ -3809,7 +3809,7 @@
 
                 // Bowling variety summary from bowler positions
                 const bowlTypeSummary = {};
-                const bowlTypeLabels = {'Right-arm Pace': 'RA Pace', 'Left-arm Pace': 'LA Pace', 'Off-spin': 'Off', 'Leg-spin': 'Leg', 'Left-arm Spin': 'LA Spin'};
+                const bowlTypeLabels = {'Right-arm Pace': 'RA Pace', 'Left-arm Pace': 'LA Pace', 'Off-spin': 'Off', 'Leg-spin': 'Leg', 'Left-arm Orthodox': 'LA Orth', 'Left-arm Wrist Spin': 'LA WS'};
                 bowlingPositions.forEach(pos => {
                     const label = bowlTypeLabels[pos.name];
                     if (label) {
@@ -3818,16 +3818,18 @@
                 });
                 const varietySummary = Object.entries(bowlTypeSummary).map(([k, v]) => `<span class="bowl-variety-badge">${k}: ${v}</span>`).join(' ');
 
-                // Build table rows helper
-                const buildRows = (positions, globalOffset) => positions.map((pos, localIdx) => {
+                // Build table rows helper — section='batting' hides bowling badges for pure batting positions
+                const battingOnlyPositions = new Set(['Opener', '#3 Batter', 'Number 3', 'Middle Order', 'Middle Order #4-5', 'Finisher', 'Finisher #6-7', 'Wicketkeeper']);
+                const buildRows = (positions, globalOffset, section) => positions.map((pos, localIdx) => {
                     const posIdx = globalOffset + localIdx;
                     const ratingClass = pos.rating >= 8 ? 'rating-high' : pos.rating >= 6 ? 'rating-mid' : 'rating-low';
                     const p1 = pos.players[0] || { name: '-', score: 0, overseas: false, price: 0, rationale: '', bowlingType: '' };
                     const p2 = pos.players[1] || { name: '-', score: 0, overseas: false, price: 0, rationale: '', bowlingType: '' };
                     const p3 = pos.players[2] || { name: '-', score: 0, overseas: false, price: 0, rationale: '', bowlingType: '' };
                     const osBadge = (p) => p.overseas ? '<span class="os-badge">OS</span>' : '';
+                    const showBowlBadge = section === 'bowling' || !battingOnlyPositions.has(pos.name);
                     const bowlBadge = (p) => {
-                        if (!p.bowlingType || p.name === '-') return '';
+                        if (!showBowlBadge || !p.bowlingType || p.name === '-') return '';
                         const short = {'Fast': 'F', 'Fast-Medium': 'FM', 'Medium': 'M', 'Off-spin': 'Off', 'Off-break': 'Off', 'Leg-spin': 'Leg', 'Wrist-spin': 'WS', 'Orthodox': 'Orth', 'Slow Left-arm': 'SLA', 'LA Orthodox': 'Orth'}[p.bowlingType] || p.bowlingType.substring(0, 3);
                         const arm = p.bowlingArm === 'Left-arm' ? 'L' : 'R';
                         return `<span class="bowl-type-tag">${arm}${short}</span>`;
@@ -3861,8 +3863,8 @@
                     `;
                 }).join('');
 
-                const battingRows = buildRows(battingPositions, 0);
-                const bowlingRows = buildRows(bowlingPositions, battingPositions.length);
+                const battingRows = buildRows(battingPositions, 0, 'batting');
+                const bowlingRows = buildRows(bowlingPositions, battingPositions.length, 'bowling');
 
                 const vulnerabilitiesHtml = fullDepth.vulnerabilities && fullDepth.vulnerabilities.length > 0 ?
                     `<div class="depth-section" style="border: 1px dashed var(--accent-orange); background: rgba(255, 159, 10, 0.05); margin-bottom: 16px;">

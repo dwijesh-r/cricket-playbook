@@ -1,12 +1,13 @@
 {
   "team": "MI",
   "team_name": "Mumbai Indians",
-  "overall_rating": 7.9,
+  "overall_rating": 7.2,
   "strongest_position": "#3 Batter",
-  "weakest_position": "Leg Spin",
+  "weakest_position": "Left-arm Wrist Spin",
   "vulnerabilities": [
-    "Wicketkeeper: thin depth (rating 4.9)",
-    "Leg Spin: thin depth (rating 4.7)"
+    "Off Spin: thin depth (rating 3.7)",
+    "Leg Spin: thin depth (rating 4.7)",
+    "Left-arm Wrist Spin: thin depth (rating 0.0)"
   ],
   "positions": {
     "opener": {
@@ -102,12 +103,24 @@
     "middle_order": {
       "name": "Middle Order #4-5",
       "rating": 10.0,
-      "what_works": "Elite #1 in suryakumar yadav. quality backup in tilak varma",
+      "what_works": "Elite #1 in hardik pandya. quality backup in suryakumar yadav",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 0,
       "players": [
         {
           "rank": 1,
+          "name": "Hardik Pandya",
+          "player_id": "dbe50b21",
+          "score": 100.0,
+          "rationale": "Founder XII. AR middle-overs SR (146). Middle order entry",
+          "is_overseas": false,
+          "price_cr": 16.35,
+          "bowling_type": "Fast-Medium",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
           "name": "Suryakumar Yadav",
           "player_id": "271f83cd",
           "score": 100.0,
@@ -119,7 +132,7 @@
           "secondary_positions": []
         },
         {
-          "rank": 2,
+          "rank": 3,
           "name": "Tilak Varma",
           "player_id": "b0482a1d",
           "score": 97.2,
@@ -127,18 +140,6 @@
           "is_overseas": false,
           "price_cr": 8.0,
           "bowling_type": "Off-spin",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
-          "name": "Hardik Pandya",
-          "player_id": "dbe50b21",
-          "score": 96.6,
-          "rationale": "Founder XII. AR middle-overs SR (146). Middle order entry",
-          "is_overseas": false,
-          "price_cr": 16.35,
-          "bowling_type": "Fast-Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
@@ -191,17 +192,17 @@
     },
     "wicketkeeper": {
       "name": "Wicketkeeper",
-      "rating": 4.9,
-      "what_works": "Quinton de kock leads. ryan rickelton as backup",
-      "what_doesnt": "Weak backup option. overseas mix (2 of 2)",
+      "rating": 6.0,
+      "what_works": "Elite #1 in quinton de kock. ryan rickelton as backup",
+      "what_doesnt": "Overseas mix (2 of 3). big gap between #1 and #2",
       "overseas_count": 2,
       "players": [
         {
           "rank": 1,
           "name": "Quinton de Kock",
           "player_id": "372455c4",
-          "score": 55.5,
-          "rationale": "Capable batter (score: 61)",
+          "score": 80.5,
+          "rationale": "Elite keeper (Founder XII). Capable batter (score: 61)",
           "is_overseas": true,
           "price_cr": 1.0,
           "bowling_type": "Medium",
@@ -212,10 +213,22 @@
           "rank": 2,
           "name": "Ryan Rickelton",
           "player_id": "e66732f8",
-          "score": 38.0,
+          "score": 46.0,
           "rationale": "Wicketkeeper",
           "is_overseas": true,
           "price_cr": 1.0,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Robin Minz",
+          "player_id": "bafd0398",
+          "score": 28.4,
+          "rationale": "Wicketkeeper",
+          "is_overseas": false,
+          "price_cr": 0.65,
           "bowling_type": "Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
@@ -314,25 +327,13 @@
     },
     "off_spin": {
       "name": "Off Spin",
-      "rating": 6.3,
-      "what_works": "Strong #1 with mayank markande. quality backup in will jacks",
-      "what_doesnt": "Room for improvement at the top",
-      "overseas_count": 1,
+      "rating": 3.7,
+      "what_works": "Will jacks leads. naman dhir as backup",
+      "what_doesnt": "Weak backup option. overseas mix (2 of 3)",
+      "overseas_count": 2,
       "players": [
         {
           "rank": 1,
-          "name": "Mayank Markande",
-          "player_id": "a9fd84fb",
-          "score": 68.0,
-          "rationale": "Founder XII. Lead spinner",
-          "is_overseas": false,
-          "price_cr": 0.3,
-          "bowling_type": "Leg-spin",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 2,
           "name": "Will Jacks",
           "player_id": "9caf69a1",
           "score": 53.6,
@@ -344,13 +345,25 @@
           "secondary_positions": []
         },
         {
-          "rank": 3,
+          "rank": 2,
           "name": "Naman Dhir",
           "player_id": "fffa744b",
-          "score": 37.3,
-          "rationale": "Founder XII. Lead spinner",
+          "score": 25.0,
+          "rationale": "Founder XII. Part-timer (9 ov)",
           "is_overseas": false,
           "price_cr": 5.25,
+          "bowling_type": "Off-spin",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "AM Ghazanfar",
+          "player_id": "9ca68676",
+          "score": 13.0,
+          "rationale": "Lead spinner",
+          "is_overseas": true,
+          "price_cr": 4.8,
           "bowling_type": "Off-spin",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
@@ -390,9 +403,9 @@
         }
       ]
     },
-    "left_arm_spin": {
-      "name": "Left-arm Spin",
-      "rating": 5.3,
+    "left_arm_orthodox": {
+      "name": "Left-arm Orthodox",
+      "rating": 5.1,
       "what_works": "Strong #1 with mitchell santner. atharva ankolekar as backup",
       "what_doesnt": "Weak backup option. big gap between #1 and #2",
       "overseas_count": 1,
@@ -413,8 +426,8 @@
           "rank": 2,
           "name": "Atharva Ankolekar",
           "player_id": "d6cd318e",
-          "score": 13.0,
-          "rationale": "Lead spinner",
+          "score": 7.2,
+          "rationale": "Part-timer (0 ov)",
           "is_overseas": false,
           "price_cr": 0.3,
           "bowling_type": "LA Orthodox",
@@ -422,6 +435,14 @@
           "secondary_positions": []
         }
       ]
+    },
+    "left_arm_wrist_spin": {
+      "name": "Left-arm Wrist Spin",
+      "rating": 0.0,
+      "what_works": "No options available",
+      "what_doesnt": "No options",
+      "overseas_count": 0,
+      "players": []
     },
     "middle_overs_specialist": {
       "name": "Middle Overs Specialist",
@@ -469,8 +490,8 @@
       ]
     },
     "allrounder_batting": {
-      "name": "Allrounder",
-      "rating": 9.0,
+      "name": "Allrounder (Batting)",
+      "rating": 9.1,
       "what_works": "Elite #1 in hardik pandya. quality backup in naman dhir",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
@@ -479,8 +500,8 @@
           "rank": 1,
           "name": "Hardik Pandya",
           "player_id": "dbe50b21",
-          "score": 89.3,
-          "rationale": "Founder XII. Strong finisher (70). Middle order capable (87)",
+          "score": 90.7,
+          "rationale": "Founder XII. Strong finisher (70). Middle order capable (92)",
           "is_overseas": false,
           "price_cr": 16.35,
           "bowling_type": "Fast-Medium",
@@ -514,8 +535,8 @@
       ]
     },
     "allrounder_bowling": {
-      "name": "Allrounder",
-      "rating": 8.0,
+      "name": "Allrounder (Bowling)",
+      "rating": 8.1,
       "what_works": "Strong #1 with mitchell santner. quality backup in hardik pandya",
       "what_doesnt": "Overseas mix (2 of 3)",
       "overseas_count": 2,
@@ -536,8 +557,8 @@
           "rank": 2,
           "name": "Hardik Pandya",
           "player_id": "dbe50b21",
-          "score": 71.5,
-          "rationale": "Founder XII. Handy bat (87)",
+          "score": 72.9,
+          "rationale": "Founder XII. Handy bat (92)",
           "is_overseas": false,
           "price_cr": 16.35,
           "bowling_type": "Fast-Medium",

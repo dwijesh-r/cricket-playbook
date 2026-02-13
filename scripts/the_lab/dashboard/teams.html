@@ -2023,8 +2023,8 @@
         .player-profile-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(4px);
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
             z-index: 250;
             display: none;
             align-items: center;
@@ -2033,26 +2033,26 @@
         }
         .player-profile-overlay.active { display: flex; }
         .player-profile-modal {
-            background: var(--bg-secondary);
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
             border-radius: 20px;
             padding: 32px;
             max-width: 640px;
             width: 100%;
             max-height: 85vh;
             overflow-y: auto;
-            border: 1px solid var(--border);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
             position: relative;
         }
         .player-profile-close {
             position: absolute;
             top: 16px;
             right: 16px;
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             background: var(--bg-tertiary);
             border: 1px solid var(--border);
-            border-radius: 8px;
+            border-radius: 10px;
             color: var(--text-secondary);
             font-size: 18px;
             cursor: pointer;
@@ -2062,17 +2062,18 @@
             transition: all 0.2s ease;
             z-index: 10;
         }
-        .player-profile-close:hover { background: var(--bg-elevated); color: var(--text-primary); }
+        .player-profile-close:hover { background: var(--bg-elevated); color: var(--text-primary); transform: scale(1.05); }
         .pp-header {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             padding-bottom: 16px;
             border-bottom: 1px solid var(--border);
         }
         .pp-name {
-            font-size: 24px;
-            font-weight: 700;
+            font-size: 26px;
+            font-weight: 800;
             color: var(--text-primary);
             margin: 0 0 4px 0;
+            letter-spacing: -0.3px;
         }
         .pp-subtitle {
             font-size: 14px;
@@ -2081,32 +2082,55 @@
         }
         .pp-meta {
             display: flex;
-            gap: 12px;
-            margin-top: 10px;
+            gap: 8px;
+            margin-top: 12px;
             flex-wrap: wrap;
         }
         .pp-meta-badge {
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            padding: 4px 10px;
+            padding: 5px 12px;
             background: var(--bg-tertiary);
-            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 8px;
             font-size: 12px;
             font-weight: 600;
             color: var(--text-secondary);
         }
-        .pp-meta-badge.price { color: var(--accent-green); }
-        .pp-meta-badge.captain { color: var(--accent-yellow); }
+        .pp-meta-badge.price { color: var(--accent-green); border-color: rgba(48, 209, 88, 0.2); }
+        .pp-meta-badge.captain { color: var(--accent-yellow); border-color: rgba(255, 214, 10, 0.2); }
+        /* Archetype hero badge — visually prominent */
+        .pp-archetype-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, rgba(10, 132, 255, 0.15) 0%, rgba(94, 92, 230, 0.12) 100%);
+            border: 1px solid rgba(10, 132, 255, 0.25);
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.3px;
+            margin-top: 12px;
+        }
+        /* Tags hero strip — shown right after header */
+        .pp-tags-hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
         .pp-section {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
         .pp-section-title {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
-            color: var(--text-primary);
+            color: var(--text-secondary);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
             margin-bottom: 10px;
             border-left: 3px solid var(--accent);
             padding-left: 10px;
@@ -2119,38 +2143,52 @@
             margin-bottom: 12px;
         }
         .pp-stat-card {
-            background: var(--bg-tertiary);
-            border-radius: 10px;
-            padding: 10px;
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 12px 10px;
             text-align: center;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .pp-stat-card:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
         .pp-stat-value {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
             color: var(--text-primary);
         }
         .pp-stat-label {
-            font-size: 11px;
-            color: var(--text-secondary);
-            margin-top: 2px;
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 3px;
         }
         .pp-phase-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
+            gap: 10px;
         }
         .pp-phase-card {
-            background: var(--bg-tertiary);
-            border-radius: 10px;
-            padding: 10px;
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 14px 10px;
             text-align: center;
+            transition: transform 0.15s ease;
         }
+        .pp-phase-card:hover { transform: translateY(-1px); }
         .pp-phase-label {
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
+            letter-spacing: 0.8px;
+            margin-bottom: 8px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid currentColor;
         }
         .pp-phase-label.pp { color: var(--accent); }
         .pp-phase-label.mid { color: var(--accent-yellow); }
@@ -2158,17 +2196,17 @@
         .pp-phase-stat {
             font-size: 12px;
             color: var(--text-secondary);
-            line-height: 1.6;
+            line-height: 1.7;
         }
         .pp-phase-stat strong {
             color: var(--text-primary);
-            font-weight: 600;
+            font-weight: 700;
         }
         .pp-sample {
             font-size: 10px;
             color: var(--text-tertiary);
             display: block;
-            margin-top: 2px;
+            margin-top: 4px;
         }
         .pp-sample.low { color: var(--accent-orange); }
         .pp-tags {
@@ -2178,15 +2216,18 @@
         }
         .pp-tag {
             display: inline-block;
-            padding: 4px 10px;
-            border-radius: 6px;
+            padding: 5px 12px;
+            border-radius: 8px;
             font-size: 11px;
             font-weight: 600;
+            border: 1px solid transparent;
+            transition: transform 0.15s ease;
         }
-        .pp-tag.strength { background: rgba(48, 209, 88, 0.15); color: var(--accent-green); }
-        .pp-tag.vulnerability { background: rgba(255, 69, 58, 0.15); color: var(--accent-red); }
-        .pp-tag.phase-tag { background: rgba(10, 132, 255, 0.15); color: var(--accent); }
-        .pp-tag.style { background: var(--bg-tertiary); color: var(--text-secondary); }
+        .pp-tag:hover { transform: scale(1.03); }
+        .pp-tag.strength { background: rgba(48, 209, 88, 0.12); color: var(--accent-green); border-color: rgba(48, 209, 88, 0.2); }
+        .pp-tag.vulnerability { background: rgba(255, 69, 58, 0.12); color: var(--accent-red); border-color: rgba(255, 69, 58, 0.2); }
+        .pp-tag.phase-tag { background: rgba(10, 132, 255, 0.12); color: var(--accent); border-color: rgba(10, 132, 255, 0.2); }
+        .pp-tag.style { background: rgba(255, 255, 255, 0.04); color: var(--text-secondary); border-color: rgba(255, 255, 255, 0.06); }
         .pp-matchup-table {
             width: 100%;
             font-size: 13px;
@@ -2194,18 +2235,21 @@
         }
         .pp-matchup-table th {
             text-align: left;
-            padding: 6px 8px;
+            padding: 8px 10px;
             color: var(--text-tertiary);
             font-weight: 600;
-            font-size: 11px;
+            font-size: 10px;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
             border-bottom: 1px solid var(--border);
         }
         .pp-matchup-table td {
-            padding: 6px 8px;
+            padding: 8px 10px;
             color: var(--text-primary);
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 13px;
         }
+        .pp-matchup-table tbody tr:hover { background: rgba(255, 255, 255, 0.02); }
         .pp-matchup-table tr:last-child td { border-bottom: none; }
         .pp-vs-label { font-weight: 600; }
         .pp-vs-good { color: var(--accent-green); }
@@ -2214,18 +2258,19 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 8px 14px;
-            background: var(--bg-tertiary);
-            border-radius: 10px;
+            padding: 10px 16px;
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, rgba(10, 132, 255, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
             font-size: 13px;
             font-weight: 600;
             color: var(--text-primary);
         }
         .pp-no-data {
             text-align: center;
-            padding: 20px;
+            padding: 32px 20px;
             color: var(--text-tertiary);
-            font-size: 13px;
+            font-size: 14px;
             font-style: italic;
         }
         /* Clickable player names */
@@ -5175,9 +5220,14 @@
                     <span class="pp-meta-badge price">\u20b9${p.price_cr} Cr</span>
                     <span class="pp-meta-badge">${p.acquisition_type}</span>
                     ${p.is_captain ? '<span class="pp-meta-badge captain">\ud83d\udc51 Captain</span>' : ''}
-                    ${p.archetype && p.archetype !== '-' ? `<span class="pp-meta-badge">${p.archetype}</span>` : ''}
                     <span class="pp-meta-badge">Age ${p.age}</span>
                 </div>
+                ${p.archetype && p.archetype !== '-' ? `<div class="pp-archetype-badge">${p.archetype}</div>` : ''}
+                ${(() => {
+                    const allTags = [...(p.batting && p.batting.tags ? p.batting.tags : []), ...(p.bowling && p.bowling.tags ? p.bowling.tags : [])];
+                    if (allTags.length === 0) return '';
+                    return '<div class="pp-tags-hero">' + allTags.slice(0, 6).map(tag => '<span class="pp-tag ' + classifyTag(tag) + '">' + formatTagName(tag) + '</span>').join('') + '</div>';
+                })()}
             </div>`;
 
             if (!p.has_ipl_data) {
@@ -5328,7 +5378,8 @@
                                     <div class="pp-phase-label ${phaseClasses[ph]}">${phaseLabels[ph]}</div>
                                     <div class="pp-phase-stat"><strong>Econ ${d.economy != null ? d.economy.toFixed(2) : '-'}</strong></div>
                                     <div class="pp-phase-stat">Wkts ${d.wickets || 0}</div>
-                                    <div class="pp-phase-stat">SR ${d.strike_rate != null ? d.strike_rate.toFixed(1) : '-'}</div>
+                                    <div class="pp-phase-stat">SR ${d.sr != null ? d.sr.toFixed(1) : '-'}</div>
+                                    <div class="pp-phase-stat">Avg ${d.avg != null ? d.avg.toFixed(1) : '-'}</div>
                                     <div class="pp-phase-stat">${d.overs || 0} overs</div>
                                     ${sampleBadge(d.sample_size)}
                                 </div>`;
@@ -5347,7 +5398,7 @@
                                 ${Object.entries(bowl.vs_batting_hand).map(([hand, v]) => `<tr>
                                     <td class="pp-vs-label">${hand}</td>
                                     <td>${v.economy != null ? v.economy.toFixed(2) : '-'}</td>
-                                    <td>${v.strike_rate != null ? v.strike_rate.toFixed(1) : '-'}</td>
+                                    <td>${v.sr != null ? v.sr.toFixed(1) : '-'}</td>
                                     <td>${v.wickets || 0}${v.sample_size === 'LOW' ? ' <span style="color:var(--accent-orange);">(LOW)</span>' : ''}</td>
                                 </tr>`).join('')}
                             </tbody>
@@ -5365,9 +5416,9 @@
                             <table class="pp-matchup-table">
                                 <thead><tr><th>Team</th><th>Econ</th><th>SR</th><th>Wkts</th></tr></thead>
                                 <tbody>
-                                    ${best.map(t => `<tr><td class="pp-vs-label pp-vs-good">${t.team}</td><td>${t.economy != null ? t.economy.toFixed(2) : '-'}</td><td>${t.strike_rate != null ? t.strike_rate.toFixed(1) : '-'}</td><td>${t.wickets || 0}</td></tr>`).join('')}
+                                    ${best.map(t => `<tr><td class="pp-vs-label pp-vs-good">${t.team}</td><td>${t.economy != null ? t.economy.toFixed(2) : '-'}</td><td>${t.sr != null ? t.sr.toFixed(1) : '-'}</td><td>${t.wickets || 0}</td></tr>`).join('')}
                                     ${worst.length > 0 ? `<tr><td colspan="4" style="padding:4px;border:none;"></td></tr>` : ''}
-                                    ${worst.map(t => `<tr><td class="pp-vs-label pp-vs-bad">${t.team}</td><td>${t.economy != null ? t.economy.toFixed(2) : '-'}</td><td>${t.strike_rate != null ? t.strike_rate.toFixed(1) : '-'}</td><td>${t.wickets || 0}</td></tr>`).join('')}
+                                    ${worst.map(t => `<tr><td class="pp-vs-label pp-vs-bad">${t.team}</td><td>${t.economy != null ? t.economy.toFixed(2) : '-'}</td><td>${t.sr != null ? t.sr.toFixed(1) : '-'}</td><td>${t.wickets || 0}</td></tr>`).join('')}
                                 </tbody>
                             </table>
                         </div>`;

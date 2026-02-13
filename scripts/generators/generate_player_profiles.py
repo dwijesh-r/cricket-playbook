@@ -276,11 +276,16 @@ def load_bowler_phase(conn: duckdb.DuckDBPyConnection) -> Dict[str, Dict]:
         phase = d["match_phase"]
         if pid not in result:
             result[pid] = {}
+        overs_val = d.get("overs") or 0
+        wickets_val = d.get("wickets") or 0
+        balls_approx = float(overs_val) * 6 if overs_val else 0
+        bowl_sr = round(balls_approx / wickets_val, 1) if wickets_val > 0 else None
         result[pid][phase] = {
             "economy": _round(d.get("economy_rate")),
             "wickets": _safe_int(d.get("wickets")),
             "overs": _round(d.get("overs")),
-            "sr": _round(d.get("bowling_average")),
+            "sr": bowl_sr,
+            "avg": _round(d.get("bowling_average")),
             "sample_size": d.get("sample_size"),
         }
     logger.info("Loaded bowler phase stats for %d players", len(result))
@@ -307,6 +312,7 @@ def load_batter_vs_teams(conn: duckdb.DuckDBPyConnection) -> Dict[str, List[Dict
             {
                 "team": _get_team_abbrev(d["opposition"]),
                 "sr": _round(d.get("strike_rate")),
+                "avg": _round(d.get("average")),
                 "innings": _safe_int(d.get("innings")),
             }
         )
@@ -334,6 +340,8 @@ def load_bowler_vs_teams(conn: duckdb.DuckDBPyConnection) -> Dict[str, List[Dict
             {
                 "team": _get_team_abbrev(d["opposition"]),
                 "economy": _round(d.get("economy")),
+                "sr": _round(d.get("strike_rate")),
+                "wickets": _safe_int(d.get("wickets")),
                 "overs": _round(float(d.get("balls", 0) or 0) / 6, 1),
                 "balls": _safe_int(d.get("balls")),
             }
@@ -518,8 +526,14 @@ def _build_batter_vs_teams(matchups: List[Dict]) -> Dict[str, List[Dict]]:
     by_sr_desc = sorted(qualified, key=lambda x: x["sr"], reverse=True)
     by_sr_asc = sorted(qualified, key=lambda x: x["sr"])
 
-    best = [{"team": m["team"], "sr": m["sr"], "innings": m["innings"]} for m in by_sr_desc[:3]]
-    worst = [{"team": m["team"], "sr": m["sr"], "innings": m["innings"]} for m in by_sr_asc[:3]]
+    best = [
+        {"team": m["team"], "sr": m["sr"], "avg": m.get("avg"), "innings": m["innings"]}
+        for m in by_sr_desc[:3]
+    ]
+    worst = [
+        {"team": m["team"], "sr": m["sr"], "avg": m.get("avg"), "innings": m["innings"]}
+        for m in by_sr_asc[:3]
+    ]
 
     return {"best": best, "worst": worst}
 
@@ -542,10 +556,24 @@ def _build_bowler_vs_teams(matchups: List[Dict]) -> Dict[str, List[Dict]]:
     by_econ_desc = sorted(qualified, key=lambda x: x["economy"], reverse=True)
 
     best = [
-        {"team": m["team"], "economy": m["economy"], "overs": m["overs"]} for m in by_econ_asc[:3]
+        {
+            "team": m["team"],
+            "economy": m["economy"],
+            "sr": m.get("sr"),
+            "wickets": m.get("wickets"),
+            "overs": m["overs"],
+        }
+        for m in by_econ_asc[:3]
     ]
     worst = [
-        {"team": m["team"], "economy": m["economy"], "overs": m["overs"]} for m in by_econ_desc[:3]
+        {
+            "team": m["team"],
+            "economy": m["economy"],
+            "sr": m.get("sr"),
+            "wickets": m.get("wickets"),
+            "overs": m["overs"],
+        }
+        for m in by_econ_desc[:3]
     ]
 
     return {"best": best, "worst": worst}

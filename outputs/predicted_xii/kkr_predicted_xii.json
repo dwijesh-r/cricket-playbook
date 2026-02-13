@@ -8,134 +8,134 @@
   "xi": [
     {
       "batting_position": 1,
-      "player_id": "9d430b40",
-      "player_name": "Sunil Narine",
-      "role": "Opener",
-      "batting_hand": "Left-hand",
-      "is_overseas": true,
-      "price_cr": 12.0,
-      "rationale": "Key player investment (12.0 Cr). Powerplay aggressor"
-    },
-    {
-      "batting_position": 2,
-      "player_id": "29e95537",
-      "player_name": "Ajinkya Rahane",
-      "role": "Opener",
-      "batting_hand": "Right-hand",
-      "is_overseas": false,
-      "price_cr": 1.5,
-      "rationale": "Elite top-order anchor"
-    },
-    {
-      "batting_position": 3,
-      "player_id": "77255a9e",
-      "player_name": "Rahul Tripathi",
-      "role": "Middle Order",
-      "batting_hand": "Right-hand",
-      "is_overseas": false,
-      "price_cr": 2.0,
-      "rationale": "Batting value"
-    },
-    {
-      "batting_position": 4,
-      "player_id": "d7017798",
-      "player_name": "Angkrish Raghuvanshi",
-      "role": "Middle Order",
-      "batting_hand": "Right-hand",
-      "is_overseas": false,
-      "price_cr": 3.0,
-      "rationale": "Batting value"
-    },
-    {
-      "batting_position": 5,
-      "player_id": "eaa76d3c",
-      "player_name": "Cameron Green",
-      "role": "All-rounder",
-      "batting_hand": "Left-hand",
-      "is_overseas": true,
-      "price_cr": 25.2,
-      "rationale": "Franchise cornerstone at Rs 25.2 Cr"
-    },
-    {
-      "batting_position": 6,
-      "player_id": "0a509d6b",
-      "player_name": "Rinku Singh",
-      "role": "Finisher",
-      "batting_hand": "Left-hand",
-      "is_overseas": false,
-      "price_cr": 13.0,
-      "rationale": "Key player investment (13.0 Cr)"
-    },
-    {
-      "batting_position": 7,
-      "player_id": "7c3b3b78",
-      "player_name": "Vaibhav Arora",
-      "role": "Pace Bowler",
-      "batting_hand": "Right-hand",
-      "is_overseas": false,
-      "price_cr": 1.8,
-      "rationale": "Pace bowling depth"
-    },
-    {
-      "batting_position": 8,
       "player_id": "b52ffbbd",
       "player_name": "Finn Allen",
       "role": "Wicketkeeper",
       "batting_hand": "Right-hand",
       "is_overseas": true,
       "price_cr": 0.3,
-      "rationale": "Primary wicketkeeper"
+      "rationale": "Founder's Selection \u2014 Uncapped IPL, Opener"
+    },
+    {
+      "batting_position": 2,
+      "player_id": "29e95537",
+      "player_name": "Ajinkya Rahane",
+      "role": "Batter",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 1.5,
+      "rationale": "Founder's Selection"
+    },
+    {
+      "batting_position": 3,
+      "player_id": "eaa76d3c",
+      "player_name": "Cameron Green",
+      "role": "All-rounder",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 25.2,
+      "rationale": "Founder's Selection"
+    },
+    {
+      "batting_position": 4,
+      "player_id": "d7017798",
+      "player_name": "Angkrish Raghuvanshi",
+      "role": "Batter",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 3.0,
+      "rationale": "Founder's Selection"
+    },
+    {
+      "batting_position": 5,
+      "player_id": "0a509d6b",
+      "player_name": "Rinku Singh",
+      "role": "Batter",
+      "batting_hand": "Left-hand",
+      "is_overseas": false,
+      "price_cr": 13.0,
+      "rationale": "Founder's Selection"
+    },
+    {
+      "batting_position": 6,
+      "player_id": "be24ead0",
+      "player_name": "Ramandeep Singh",
+      "role": "All-rounder",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 4.0,
+      "rationale": "Founder's Selection"
+    },
+    {
+      "batting_position": 7,
+      "player_id": "e4cdf230",
+      "player_name": "Anukul Roy",
+      "role": "All-rounder",
+      "batting_hand": "Left-hand",
+      "is_overseas": false,
+      "price_cr": 0.4,
+      "rationale": "Founder's Selection"
+    },
+    {
+      "batting_position": 8,
+      "player_id": "9d430b40",
+      "player_name": "Sunil Narine",
+      "role": "All-rounder",
+      "batting_hand": "Left-hand",
+      "is_overseas": true,
+      "price_cr": 12.0,
+      "rationale": "Founder's Selection \u2014 Can be used as an opener to pinch-hit"
     },
     {
       "batting_position": 9,
-      "player_id": "64839cb3",
-      "player_name": "Matheesha Pathirana",
-      "role": "Pace Bowler",
-      "batting_hand": "Right-hand",
-      "is_overseas": true,
-      "price_cr": 18.0,
-      "rationale": "Franchise cornerstone at Rs 18.0 Cr"
-    },
-    {
-      "batting_position": 10,
-      "player_id": "5b7ab5a9",
-      "player_name": "Varun Chakravarthy",
-      "role": "Spinner",
-      "batting_hand": "Right-hand",
-      "is_overseas": false,
-      "price_cr": 12.0,
-      "rationale": "Key player investment (12.0 Cr). Spin bowling strength in middle overs"
-    },
-    {
-      "batting_position": 11,
       "player_id": "77b1aa15",
       "player_name": "Harshit Rana",
       "role": "Pace Bowler",
       "batting_hand": "Right-hand",
       "is_overseas": false,
       "price_cr": 4.0,
-      "rationale": "Pace bowling depth"
+      "rationale": "Founder's Selection"
+    },
+    {
+      "batting_position": 10,
+      "player_id": "64839cb3",
+      "player_name": "Matheesha Pathirana",
+      "role": "Pace Bowler",
+      "batting_hand": "Right-hand",
+      "is_overseas": true,
+      "price_cr": 18.0,
+      "rationale": "Founder's Selection"
+    },
+    {
+      "batting_position": 11,
+      "player_id": "5b7ab5a9",
+      "player_name": "Varun Chakravarthy",
+      "role": "Spinner",
+      "batting_hand": "Right-hand",
+      "is_overseas": false,
+      "price_cr": 12.0,
+      "rationale": "Founder's Selection"
     }
   ],
   "impact_player": {
-    "player_id": "93b4fc78",
-    "player_name": "Manish Pandey",
-    "role": "Impact Player",
+    "player_id": "7c3b3b78",
+    "player_name": "Vaibhav Arora",
+    "role": "Pace Bowler",
     "batting_hand": "Right-hand",
     "is_overseas": false,
-    "price_cr": 0.75,
-    "rationale": "Provides batting depth as Impact substitute"
+    "price_cr": 1.8,
+    "rationale": "Founder's Selection"
   },
   "balance": {
     "overseas_count": 4,
     "bowling_options": 7,
-    "spinners": 3,
-    "pacers": 8,
-    "left_handers_top6": 3
+    "spinners": 4,
+    "pacers": 7,
+    "left_handers_top6": 1
   },
   "constraints_satisfied": true,
   "constraint_violations": [],
   "generation_notes": [
-    "Selected Finn Allen as keeper"
+    "Founder Override \u2014 11 XI + impact"
   ]
 }

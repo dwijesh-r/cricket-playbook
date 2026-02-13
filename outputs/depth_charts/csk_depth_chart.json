@@ -1,13 +1,12 @@
 {
   "team": "CSK",
   "team_name": "Chennai Super Kings",
-  "overall_rating": 7.4,
+  "overall_rating": 7.2,
   "strongest_position": "#3 Batter",
-  "weakest_position": "Lead Pacer",
+  "weakest_position": "All-rounder (Bowling-first)",
   "vulnerabilities": [
-    "All-rounder (Bowling-first): overseas dependent",
     "Lead Pacer: thin depth (rating 4.6)",
-    "All-rounder (Bowling-first): thin depth (rating 4.6)"
+    "All-rounder (Bowling-first): thin depth (rating 4.5)"
   ],
   "positions": {
     "opener": {
@@ -129,7 +128,7 @@
     },
     "finisher": {
       "name": "Finisher #6-7",
-      "rating": 9.9,
+      "rating": 10.0,
       "what_works": "Elite #1 in sanju samson. quality backup in dewald brevis",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
@@ -158,8 +157,8 @@
           "rank": 3,
           "name": "Shivam Dube",
           "player_id": "a4e37e47",
-          "score": 51.7,
-          "rationale": "All-round finisher",
+          "score": 59.4,
+          "rationale": "All-round finisher. Bowling utility",
           "is_overseas": false,
           "price_cr": 12.0,
           "secondary_positions": []
@@ -333,33 +332,23 @@
     },
     "allrounder_batting": {
       "name": "All-rounder (Batting-first)",
-      "rating": 7.8,
-      "what_works": "Strong #1 with dewald brevis. quality backup in shivam dube",
-      "what_doesnt": "Minimal concerns",
-      "overseas_count": 1,
+      "rating": 5.7,
+      "what_works": "Strong #1 with shivam dube. aman khan as backup",
+      "what_doesnt": "Big gap between #1 and #2",
+      "overseas_count": 0,
       "players": [
         {
           "rank": 1,
-          "name": "Dewald Brevis",
-          "player_id": "844e79d1",
-          "score": 79.6,
-          "rationale": "Strong finisher (94). Middle order capable (62)",
-          "is_overseas": true,
-          "price_cr": 2.2,
-          "secondary_positions": []
-        },
-        {
-          "rank": 2,
           "name": "Shivam Dube",
           "player_id": "a4e37e47",
-          "score": 65.7,
-          "rationale": "Middle order capable (92)",
+          "score": 77.2,
+          "rationale": "Middle order capable (92). Bowls 4 overs",
           "is_overseas": false,
           "price_cr": 12.0,
           "secondary_positions": []
         },
         {
-          "rank": 3,
+          "rank": 2,
           "name": "Aman Khan",
           "player_id": "378daa89",
           "score": 41.3,
@@ -367,15 +356,25 @@
           "is_overseas": false,
           "price_cr": 0.3,
           "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Prashant Veer",
+          "player_id": "e148e6bd",
+          "score": 27.5,
+          "rationale": "Bowls 4 overs",
+          "is_overseas": false,
+          "price_cr": 14.2,
+          "secondary_positions": []
         }
       ]
     },
     "allrounder_bowling": {
       "name": "All-rounder (Bowling-first)",
-      "rating": 4.6,
-      "what_works": "Shivam dube leads. dewald brevis as backup",
-      "what_doesnt": "Overseas heavy (2 of 3)",
-      "overseas_count": 2,
+      "rating": 4.5,
+      "what_works": "Shivam dube leads. shreyas gopal as backup",
+      "what_doesnt": "Weak backup option",
+      "overseas_count": 1,
       "players": [
         {
           "rank": 1,
@@ -389,22 +388,22 @@
         },
         {
           "rank": 2,
-          "name": "Dewald Brevis",
-          "player_id": "844e79d1",
-          "score": 40.9,
-          "rationale": "Handy bat (62). SR 160",
-          "is_overseas": true,
-          "price_cr": 2.2,
+          "name": "Shreyas Gopal",
+          "player_id": "7a8bd078",
+          "score": 36.0,
+          "rationale": "Bowling all-rounder",
+          "is_overseas": false,
+          "price_cr": 0.3,
           "secondary_positions": []
         },
         {
           "rank": 3,
-          "name": "Matthew Short",
-          "player_id": "a90e53ec",
-          "score": 33.5,
+          "name": "Akeal Hosein",
+          "player_id": "4d7f517e",
+          "score": 36.0,
           "rationale": "Bowling all-rounder",
           "is_overseas": true,
-          "price_cr": 1.0,
+          "price_cr": 0.4,
           "secondary_positions": []
         }
       ]

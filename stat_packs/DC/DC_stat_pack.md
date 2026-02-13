@@ -1,6 +1,6 @@
 # Delhi Capitals (DC) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-12 20:53
+**Generated:** 2026-02-13 08:07
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -258,8 +258,8 @@
 | Wankhede Stadium | 2 | 0 | 0.0% | 163.0 |
 | Rajiv Gandhi International Stadium | 2 | 1 | 50.0% | 138.5 |
 | Himachal Pradesh Cricket Associatio | 2 | 1 | 50.0% | 213.0 |
-| Sawai Mansingh Stadium | 2 | 1 | 50.0% | 190.5 |
 | MA Chidambaram Stadium | 2 | 1 | 50.0% | 161.5 |
+| Sawai Mansingh Stadium | 2 | 1 | 50.0% | 190.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -270,8 +270,8 @@
 | Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
 | MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
@@ -301,8 +301,8 @@
 |--------|-------|---------|------|------|-----|
 | AR Patel | Arun Jaitley Stadium | 16 | 13 | 7.66 | 23.08 |
 | MA Starc | Dr. Y.S. Rajasekhara Redd | 3 | 10 | 9.28 | 6.4 |
-| Mukesh Kumar | Bharat Ratna Shri Atal Bi | 3 | 5 | 8.83 | 14.4 |
 | T Natarajan | Arun Jaitley Stadium | 3 | 5 | 9.18 | 13.2 |
+| Mukesh Kumar | Bharat Ratna Shri Atal Bi | 3 | 5 | 8.83 | 14.4 |
 | Kuldeep Yadav | M Chinnaswamy Stadium | 3 | 5 | 7.83 | 14.4 |
 | Kuldeep Yadav | Dr. Y.S. Rajasekhara Redd | 2 | 5 | 5.38 | 9.6 |
 
@@ -487,13 +487,13 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 4 | 90 | 124 | 8 | 8.27 | 15.5 | 11.25 | 34.44 | 14.44 | MEDIUM |
 | Lucknow Super Giants | 5 | 120 | 142 | 7 | 7.1 | 20.29 | 17.14 | 35.0 | 10.83 | HIGH |
-| Rajasthan Royals | 4 | 96 | 127 | 5 | 7.94 | 25.4 | 19.2 | 31.25 | 13.54 | MEDIUM |
 | Punjab Kings | 5 | 102 | 138 | 5 | 8.12 | 27.6 | 20.4 | 26.47 | 13.73 | HIGH |
 | Royal Challengers Bengaluru | 5 | 120 | 159 | 5 | 7.95 | 31.8 | 24.0 | 31.67 | 13.33 | HIGH |
+| Rajasthan Royals | 4 | 96 | 127 | 5 | 7.94 | 25.4 | 19.2 | 31.25 | 13.54 | MEDIUM |
 | Gujarat Titans | 6 | 138 | 144 | 4 | 6.26 | 36.0 | 34.5 | 29.71 | 7.25 | HIGH |
 | Mumbai Indians | 4 | 78 | 113 | 3 | 8.69 | 37.67 | 26.0 | 30.77 | 19.23 | MEDIUM |
-| Chennai Super Kings | 3 | 66 | 90 | 2 | 8.18 | 45.0 | 33.0 | 16.67 | 10.61 | MEDIUM |
 | Kolkata Knight Riders | 3 | 60 | 75 | 2 | 7.5 | 37.5 | 30.0 | 40.0 | 15.0 | MEDIUM |
+| Chennai Super Kings | 3 | 66 | 90 | 2 | 8.18 | 45.0 | 33.0 | 16.67 | 10.61 | MEDIUM |
 
 ### Mukesh Kumar
 
@@ -501,13 +501,13 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Mumbai Indians | 4 | 84 | 175 | 8 | 12.5 | 21.88 | 10.5 | 32.14 | 35.71 | MEDIUM |
 | Lucknow Super Giants | 5 | 108 | 158 | 7 | 8.78 | 22.57 | 15.43 | 31.48 | 19.44 | HIGH |
-| Rajasthan Royals | 4 | 84 | 149 | 5 | 10.64 | 29.8 | 16.8 | 30.95 | 27.38 | MEDIUM |
 | Gujarat Titans | 4 | 87 | 134 | 5 | 9.24 | 26.8 | 17.4 | 31.03 | 22.99 | MEDIUM |
+| Rajasthan Royals | 4 | 84 | 149 | 5 | 10.64 | 29.8 | 16.8 | 30.95 | 27.38 | MEDIUM |
 | Chennai Super Kings | 2 | 42 | 57 | 4 | 8.14 | 14.25 | 10.5 | 26.19 | 14.29 | MEDIUM |
 | Royal Challengers Bengaluru | 4 | 75 | 122 | 3 | 9.76 | 40.67 | 25.0 | 41.33 | 26.67 | MEDIUM |
 | Punjab Kings | 3 | 54 | 100 | 2 | 11.11 | 50.0 | 27.0 | 35.19 | 29.63 | MEDIUM |
-| Sunrisers Hyderabad | 4 | 66 | 132 | 1 | 12.0 | 132.0 | 66.0 | 19.7 | 33.33 | MEDIUM |
 | Kolkata Knight Riders | 2 | 36 | 45 | 1 | 7.5 | 45.0 | 36.0 | 58.33 | 22.22 | MEDIUM |
+| Sunrisers Hyderabad | 4 | 66 | 132 | 1 | 12.0 | 132.0 | 66.0 | 19.7 | 33.33 | MEDIUM |
 
 ### Mitchell Starc
 
@@ -517,9 +517,9 @@
 | Lucknow Super Giants | 4 | 84 | 117 | 8 | 8.36 | 14.63 | 10.5 | 41.67 | 22.62 | MEDIUM |
 | Mumbai Indians | 3 | 47 | 83 | 4 | 10.6 | 20.75 | 11.75 | 40.43 | 31.91 | MEDIUM |
 | Delhi Capitals | 2 | 36 | 66 | 3 | 11.0 | 22.0 | 12.0 | 41.67 | 30.56 | MEDIUM |
-| Chennai Super Kings | 2 | 42 | 50 | 1 | 7.14 | 50.0 | 42.0 | 42.86 | 16.67 | MEDIUM |
-| Rajasthan Royals | 2 | 48 | 76 | 1 | 9.5 | 76.0 | 48.0 | 27.08 | 22.92 | MEDIUM |
 | Royal Challengers Bengaluru | 4 | 78 | 162 | 1 | 12.46 | 162.0 | 78.0 | 32.05 | 32.05 | MEDIUM |
+| Rajasthan Royals | 2 | 48 | 76 | 1 | 9.5 | 76.0 | 48.0 | 27.08 | 22.92 | MEDIUM |
+| Chennai Super Kings | 2 | 42 | 50 | 1 | 7.14 | 50.0 | 42.0 | 42.86 | 16.67 | MEDIUM |
 
 ---
 
@@ -844,7 +844,7 @@ Pre-tournament priorities must include: shore up pace-hitting deficiencies (4 ba
 | Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|---------|----------|--------|---------|------------|-------|-------------|
 | Ben Duckett | Batter | 204 | 5357 | 141 | 30.8 | HIGH | 50 | Blast, Blast, 100 |
-| Pathum Nissanka | Batter | 111 | 3266 | 130 | 30.8 | HIGH | 44 | LPL, T20WC, Intl |
+| Pathum Nissanka | Batter | 111 | 3266 | 130 | 30.8 | HIGH | 44 | LPL, T20WC, ILT20 |
 | Ajay Mandal | All-rounder | 20 | 217 | 117 | 16.7 | HIGH | 24 | SMAT |
 
 ### 12.2 T20 Bowling Profile

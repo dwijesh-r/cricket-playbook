@@ -1,7 +1,7 @@
 /**
  * The Lab - Pressure Performance Metrics (Enhanced)
  * IPL 2026 Pre-Season Analytics (TKT-050)
- * Auto-generated: 2026-02-12T21:02:41.799494
+ * Auto-generated: 2026-02-13T08:08:08.855317
  * Source: analytics_ipl_pressure_deltas_since2023,
  *         analytics_ipl_batter_pressure_bands_since2023,
  *         analytics_ipl_bowler_pressure_bands_since2023,
@@ -13,7 +13,7 @@
 
 const PRESSURE_DATA = {
     _meta: {
-        generated: "2026-02-12T21:02:41.799494",
+        generated: "2026-02-13T08:08:08.855317",
         minBatterPressureBalls: 20,
         minBatterOverallBalls: 30,
         minBowlerLegalBalls: 15,

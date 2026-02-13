@@ -15,6 +15,7 @@ Per approved PRD: /governance/tasks/PREDICTED_XI_PRD.md
 import csv
 import json
 from dataclasses import dataclass, field
+from datetime import datetime
 from enum import Enum
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
@@ -1773,6 +1774,127 @@ def predicted_xii_to_dict(pxii: PredictedXII) -> Dict[str, Any]:
     }
 
 
+def load_founder_override() -> Optional[Dict[str, Any]]:
+    """Load Founder's predicted XII data if available."""
+    founder_file = OUTPUT_DIR / "founder_review" / "founder_squads_2026.json"
+    if not founder_file.exists():
+        return None
+
+    with open(founder_file, "r") as f:
+        data = json.load(f)
+
+    logger.info("Founder override data loaded: %d teams", len(data.get("teams", {})))
+    return data
+
+
+def generate_founder_predicted_xii(
+    team: str,
+    team_abbrev: str,
+    founder_team_data: Dict[str, Any],
+    team_players: List[Player],
+    squad_captains: Optional[Dict[str, str]] = None,
+) -> PredictedXII:
+    """
+    Generate Predicted XII using Founder's selections as override.
+    Founder is authoritative — constraint violations are logged as warnings only.
+    """
+    logger.info("FOUNDER OVERRIDE for %s", team)
+    venue_info = HOME_VENUES.get(team, {"venue": "Unknown", "bias": "neutral"})
+
+    # Build lookup by player_id
+    player_lookup = {p.player_id: p for p in team_players}
+
+    founder_players = founder_team_data.get("players", [])
+    xii_players = [p for p in founder_players if p.get("is_predicted_xii")]
+
+    # Map Founder's selections to existing Player objects
+    xi_selections = []
+    impact_selection = None
+
+    for fp in xii_players:
+        pid = fp.get("player_id")
+        player_obj = player_lookup.get(pid) if pid else None
+
+        if not player_obj:
+            # Create minimal Player for unmatched Founder picks
+            player_obj = Player(
+                player_id=pid or f"founder_{fp['player_name']}",
+                player_name=fp["player_name"],
+                team=team,
+                role=fp.get("role", "Batter"),
+                batting_hand=fp.get("batting_hand", "Right-hand"),
+                bowling_arm=fp.get("bowling_arm"),
+                bowling_type=fp.get("bowling_type"),
+                is_overseas=fp.get("nationality", "IND") != "IND",
+            )
+            logger.warning(
+                "  Founder pick %s not in squad CSV, created minimal object", fp["player_name"]
+            )
+
+        score_player(player_obj)
+
+        # Determine role in XI
+        role_in_xi = fp.get("role", player_obj.role)
+        if role_in_xi == "All-rounder":
+            role_in_xi = "All-rounder"
+        elif role_in_xi == "Wicketkeeper":
+            role_in_xi = "Wicketkeeper"
+        elif player_obj.is_pacer and player_obj.role == "Bowler":
+            role_in_xi = "Pace Bowler"
+        elif player_obj.is_spinner and player_obj.role == "Bowler":
+            role_in_xi = "Spinner"
+        elif role_in_xi in ("Batter", "Batting Allrounder"):
+            role_in_xi = "Batter" if fp["squad_number"] <= 6 else "Middle Order"
+
+        rationale = "Founder's Selection"
+        if fp.get("notes"):
+            rationale += f" — {fp['notes']}"
+
+        sp = SelectedPlayer(
+            player=player_obj,
+            batting_position=fp["squad_number"],
+            role_in_xi=role_in_xi,
+            rationale=rationale,
+            is_impact_player=fp["squad_number"] == 12,
+        )
+
+        if fp["squad_number"] <= 11:
+            xi_selections.append(sp)
+        else:
+            impact_selection = sp
+
+    # Check constraints but only as warnings
+    constraints_ok, violations = check_constraints(xi_selections)
+    if not constraints_ok:
+        logger.warning(
+            "FOUNDER OVERRIDE %s — constraint warnings (non-blocking): %s", team, violations
+        )
+
+    # Identify captain and keeper
+    captain = identify_captain(xi_selections, team, squad_captains)
+    keeper = identify_keeper(xi_selections)
+    balance = get_balance_metrics(xi_selections)
+
+    return PredictedXII(
+        team_name=team,
+        team_abbrev=team_abbrev,
+        home_venue=venue_info["venue"],
+        venue_bias=venue_info["bias"],
+        xi=xi_selections,
+        impact_player=impact_selection,
+        captain=captain,
+        wicketkeeper=keeper,
+        overseas_count=balance["overseas_count"],
+        bowling_options=balance["bowling_options"],
+        spinners_count=balance["spinners"],
+        pacers_count=balance["pacers"],
+        left_handers_top6=balance["left_handers_top6"],
+        constraints_satisfied=constraints_ok,
+        constraint_violations=violations,
+        generation_notes=[f"Founder Override — {len(xi_selections)} XI + impact"],
+    )
+
+
 def main() -> int:
     """Main entry point"""
     global BATTER_METRICS, BOWLER_METRICS
@@ -1781,7 +1903,14 @@ def main() -> int:
     logger.info("CRICKET PLAYBOOK - SUPER SELECTOR v3.0")
     logger.info("Statistical Unified Player Evaluation and Ranking SELECTOR")
     logger.info("=" * 70)
-    logger.info("Algorithm: Competency + Variety + Metrics-Based Scoring")
+
+    # Check for Founder override
+    founder_data = load_founder_override()
+    use_founder = founder_data is not None
+    if use_founder:
+        logger.info("*** FOUNDER OVERRIDE MODE — Founder's selections are authoritative ***")
+    else:
+        logger.info("Algorithm: Competency + Variety + Metrics-Based Scoring")
 
     # Load data
     logger.info("[1/4] Loading data...")
@@ -1820,7 +1949,19 @@ def main() -> int:
             logger.warning("No players found for %s", team)
             continue
 
-        prediction = generate_predicted_xii(team, players, entry_points, squad_captains)
+        if use_founder:
+            team_abbrev = TEAM_ABBREV[team]
+            founder_team = founder_data.get("teams", {}).get(team_abbrev)
+            if founder_team:
+                prediction = generate_founder_predicted_xii(
+                    team, team_abbrev, founder_team, players, squad_captains
+                )
+            else:
+                logger.warning("No Founder data for %s, using algorithm", team)
+                prediction = generate_predicted_xii(team, players, entry_points, squad_captains)
+        else:
+            prediction = generate_predicted_xii(team, players, entry_points, squad_captains)
+
         all_predictions[team] = prediction
 
         # Log summary
@@ -1845,11 +1986,14 @@ def main() -> int:
 
     # Save consolidated JSON
     output_data = {
-        "generated_at": "2026-02-04",
-        "version": "3.0",
+        "generated_at": datetime.now().strftime("%Y-%m-%d") if use_founder else "2026-02-04",
+        "version": "3.1" if use_founder else "3.0",
         "algorithm_name": "SUPER SELECTOR",
         "algorithm_full_name": "Statistical Unified Player Evaluation and Ranking SELECTOR",
-        "methodology": "Competency + Variety + Metrics-Based Scoring",
+        "override_source": "founder" if use_founder else None,
+        "methodology": "Founder Override + Analytics"
+        if use_founder
+        else "Competency + Variety + Metrics-Based Scoring",
         "scoring_components": {
             "base": "Classification bonuses (0-30 pts)",
             "tags": "Phase-specific performance tags",

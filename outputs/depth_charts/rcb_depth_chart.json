@@ -1,13 +1,12 @@
 {
   "team": "RCB",
   "team_name": "Royal Challengers Bengaluru",
-  "overall_rating": 8.1,
+  "overall_rating": 8.3,
   "strongest_position": "Opener",
   "weakest_position": "All-rounder (Bowling-first)",
   "vulnerabilities": [
     "Finisher #6-7: overseas dependent",
-    "All-rounder (Batting-first): thin depth (rating 4.7)",
-    "All-rounder (Bowling-first): thin depth (rating 4.6)"
+    "All-rounder (Bowling-first): thin depth (rating 4.7)"
   ],
   "positions": {
     "opener": {
@@ -323,13 +322,33 @@
     },
     "allrounder_batting": {
       "name": "All-rounder (Batting-first)",
-      "rating": 4.7,
-      "what_works": "Krunal pandya leads. venkatesh iyer as backup",
+      "rating": 7.0,
+      "what_works": "Strong #1 with tim david. quality backup in venkatesh iyer",
       "what_doesnt": "Room for improvement at the top",
-      "overseas_count": 0,
+      "overseas_count": 1,
       "players": [
         {
           "rank": 1,
+          "name": "Tim David",
+          "player_id": "f1f99156",
+          "score": 64.2,
+          "rationale": "Strong finisher (75). Bowls 4 overs",
+          "is_overseas": true,
+          "price_cr": 3.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Venkatesh Iyer",
+          "player_id": "a24be938",
+          "score": 58.3,
+          "rationale": "Middle order capable (58). Bowls 4 overs",
+          "is_overseas": false,
+          "price_cr": 7.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
           "name": "Krunal Pandya",
           "player_id": "5b8c830e",
           "score": 51.2,
@@ -337,35 +356,15 @@
           "is_overseas": false,
           "price_cr": 5.75,
           "secondary_positions": []
-        },
-        {
-          "rank": 2,
-          "name": "Venkatesh Iyer",
-          "player_id": "a24be938",
-          "score": 47.5,
-          "rationale": "Middle order capable (58)",
-          "is_overseas": false,
-          "price_cr": 7.0,
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
-          "name": "Swapnil Singh",
-          "player_id": "983f2f61",
-          "score": 35.8,
-          "rationale": "Bowls 4 overs",
-          "is_overseas": false,
-          "price_cr": 0.5,
-          "secondary_positions": []
         }
       ]
     },
     "allrounder_bowling": {
       "name": "All-rounder (Bowling-first)",
-      "rating": 4.6,
-      "what_works": "Krunal pandya leads. swapnil singh as backup",
-      "what_doesnt": "Weak backup option",
-      "overseas_count": 0,
+      "rating": 4.7,
+      "what_works": "Krunal pandya leads. tim david as backup",
+      "what_doesnt": "Room for improvement at the top",
+      "overseas_count": 1,
       "players": [
         {
           "rank": 1,
@@ -379,22 +378,22 @@
         },
         {
           "rank": 2,
+          "name": "Tim David",
+          "player_id": "f1f99156",
+          "score": 44.2,
+          "rationale": "Handy bat (75). SR 167",
+          "is_overseas": true,
+          "price_cr": 3.0,
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
           "name": "Swapnil Singh",
           "player_id": "983f2f61",
           "score": 39.2,
           "rationale": "Bowling all-rounder",
           "is_overseas": false,
           "price_cr": 0.5,
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
-          "name": "Venkatesh Iyer",
-          "player_id": "a24be938",
-          "score": 37.7,
-          "rationale": "Handy bat (58)",
-          "is_overseas": false,
-          "price_cr": 7.0,
           "secondary_positions": []
         }
       ]

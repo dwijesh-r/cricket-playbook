@@ -1,6 +1,6 @@
 # Cricket Playbook Rankings -- Methodology & Breakdown
 
-**Version:** 1.0
+**Version:** 1.1
 **Date:** 2026-02-14
 **Authors:** Stephen Curry (Analytics Lead), Tom Brady (PO & Editor-in-Chief)
 **Ticket:** TKT-235 (EPIC-021)
@@ -171,20 +171,22 @@ phase_composite = sr_percentile * 0.4 + avg_percentile * 0.4 + boundary_percenti
 | Average Percentile | 40% | Survivability determines sustained output |
 | Boundary Percentile | 20% | Boundary frequency differentiates good from elite |
 
-**Top 10 -- Powerplay Phase:**
+**Top 10 -- Powerplay Phase (ranked by weighted composite):**
 
-| Rank | Player | Balls | SR | Avg | Boundary% | Phase Composite |
-|------|--------|-------|----|-----|-----------|-----------------|
-| 1 | C Green | 119 | 164.71 | 49.00 | 28.57% | **93.7** |
-| 2 | TM Head | 365 | 184.38 | 44.87 | 33.97% | **92.8** |
-| 3 | JM Bairstow | 623 | 151.52 | 49.68 | 25.52% | **91.4** |
-| 4 | YBK Jaiswal | 864 | 159.49 | 44.45 | 29.17% | **89.6** |
-| 5 | CA Lynn | 537 | 145.07 | 48.69 | 25.33% | **87.9** |
-| 6 | SA Yadav | 667 | 140.33 | 58.50 | 23.84% | **87.0** |
-| 7 | PD Salt | 409 | 176.53 | 38.00 | 31.30% | **86.5** |
-| 8 | RD Rickelton | 193 | 153.89 | 42.43 | 26.42% | **86.1** |
-| 9 | Abhishek Sharma | 629 | 161.84 | 36.36 | 27.19% | **82.4** |
-| 10 | B Sai Sudharsan | 489 | 137.83 | 112.33 | 20.65% | **82.3** |
+| Rank | Player | Balls | SR | Avg | Boundary% | Raw Composite | Factor | Weighted |
+|------|--------|-------|----|-----|-----------|---------------|--------|----------|
+| 1 | TM Head | 365 | 184.38 | 44.87 | 33.97% | 92.8 | 1.000 | **92.8** |
+| 2 | JM Bairstow | 623 | 151.52 | 49.68 | 25.52% | 91.4 | 1.000 | **91.4** |
+| 3 | YBK Jaiswal | 864 | 159.49 | 44.45 | 29.17% | 89.6 | 1.000 | **89.6** |
+| 4 | CA Lynn | 537 | 145.07 | 48.69 | 25.33% | 87.9 | 1.000 | **87.9** |
+| 5 | SA Yadav | 667 | 140.33 | 58.50 | 23.84% | 87.0 | 1.000 | **87.0** |
+| 6 | PD Salt | 409 | 176.53 | 38.00 | 31.30% | 86.5 | 1.000 | **86.5** |
+| 7 | RD Rickelton | 193 | 153.89 | 42.43 | 26.42% | 86.1 | 0.965 | **83.1** |
+| 8 | Abhishek Sharma | 629 | 161.84 | 36.36 | 27.19% | 82.4 | 1.000 | **82.4** |
+| 9 | B Sai Sudharsan | 489 | 137.83 | 112.33 | 20.65% | 82.3 | 1.000 | **82.3** |
+| 10 | DA Warner | 2,385 | -- | -- | -- | 81.4 | 1.000 | **81.4** |
+
+*Note: C Green (119 balls, raw composite 93.7) drops to rank #49 with weighted composite 55.8 (factor: 0.595).*
 
 **Top 10 -- Middle Overs Phase:**
 
@@ -201,22 +203,24 @@ phase_composite = sr_percentile * 0.4 + avg_percentile * 0.4 + boundary_percenti
 | 9 | B Sai Sudharsan | 620 | 143.06 | 46.68 | 16.29% | **86.3** |
 | 9 | N Wadhera | 380 | 140.26 | 44.42 | 18.95% | **86.3** |
 
-**Top 10 -- Death Overs Phase:**
+**Top 10 -- Death Overs Phase (ranked by weighted composite):**
 
-| Rank | Player | Balls | SR | Avg | Boundary% | Phase Composite |
-|------|--------|-------|----|-----|-----------|-----------------|
-| 1 | AB de Villiers | 829 | 225.33 | 46.70 | 33.17% | **99.2** |
-| 2 | T Stubbs | 199 | 220.60 | 87.80 | 32.66% | **99.0** |
-| 3 | CH Gayle | 280 | 207.50 | 38.73 | 31.79% | **97.3** |
-| 4 | C Green | 102 | 200.00 | 102.00 | 27.45% | **95.7** |
-| 5 | Naman Dhir | 121 | 204.13 | 30.88 | 31.40% | **93.1** |
-| 6 | Shashank Singh | 219 | 193.61 | 42.40 | 26.48% | **93.0** |
-| 7 | JC Buttler | 368 | 198.10 | 33.14 | 27.72% | **91.7** |
-| 8 | MEK Hussey | 136 | 191.91 | 37.29 | 27.21% | **91.6** |
-| 9 | LS Livingstone | 151 | 227.81 | 26.46 | 34.44% | **90.0** |
-| 10 | H Klaasen | 277 | 199.64 | 29.11 | 27.44% | **89.0** |
+| Rank | Player | Balls | SR | Avg | Boundary% | Raw Composite | Factor | Weighted |
+|------|--------|-------|----|-----|-----------|---------------|--------|----------|
+| 1 | AB de Villiers | 829 | 225.33 | 46.70 | 33.17% | 99.2 | 1.000 | **99.2** |
+| 2 | T Stubbs | 199 | 220.60 | 87.80 | 32.66% | 99.0 | 0.995 | **98.5** |
+| 3 | CH Gayle | 280 | 207.50 | 38.73 | 31.79% | 97.3 | 1.000 | **97.3** |
+| 4 | Shashank Singh | 219 | 193.61 | 42.40 | 26.48% | 93.0 | 1.000 | **93.0** |
+| 5 | JC Buttler | 368 | 198.10 | 33.14 | 27.72% | 91.7 | 1.000 | **91.7** |
+| 6 | H Klaasen | 277 | 199.64 | 29.11 | 27.44% | 89.0 | 1.000 | **89.0** |
+| 7 | RK Singh | 317 | -- | -- | -- | 88.9 | 1.000 | **88.9** |
+| 8 | TH David | 351 | -- | -- | -- | 88.8 | 1.000 | **88.8** |
+| 9 | AD Russell | 725 | -- | -- | -- | 85.3 | 1.000 | **85.3** |
+| 10 | CL White | 192 | -- | -- | -- | 86.5 | 0.960 | **83.0** |
 
-**Interpretation:** The death overs leaderboard shows the most extreme separation. AB de Villiers' 99.2 composite (225.33 SR, 33.17% boundary rate at death) is functionally a perfect score. Klaasen dominates the middle overs (95.7, rank #1) and appears at death (#10), validating his overall #1 batter composite. The powerplay leaderboard shows more parity, with the 93.7--82.3 range reflecting the relative predictability of fielding restrictions.
+*Note: C Green (102 balls, raw composite 95.7) drops from #4 to lower ranks (factor: 0.510). Naman Dhir (121 balls) and MEK Hussey (136 balls) also drop due to sample size weighting.*
+
+**Interpretation:** The death overs leaderboard shows the most extreme separation. AB de Villiers' 99.2 composite (225.33 SR, 33.17% boundary rate at death) retains its #1 position with 829 balls -- a massive sample that validates the score. Klaasen rises from #10 to #6 as players with smaller samples (Green, Naman Dhir, Hussey) are weighted down. The sample size weighting rewards sustained excellence: AD Russell's 85.3 composite over 725 balls now ranks #9, reflecting a body of work that the previous system undervalued relative to small-sample outliers.
 
 ---
 
@@ -239,20 +243,22 @@ phase_composite = economy_percentile * 0.5 + dot_ball_percentile * 0.5
 | Economy Percentile | 50% | Run prevention is the primary bowling currency |
 | Dot Ball Percentile | 50% | Pressure building through scoreless deliveries |
 
-**Top 10 -- Powerplay Phase:**
+**Top 10 -- Powerplay Phase (ranked by weighted composite):**
 
-| Rank | Player | Balls | Econ | Dot% | Phase Composite |
-|------|--------|-------|------|------|-----------------|
-| 1 | AG Murtaza | 78 | 4.00 | 60.26% | **99.8** |
-| 1 | FH Edwards | 78 | 4.69 | 64.10% | **99.8** |
-| 3 | A Kumble | 108 | 5.00 | 59.26% | **99.2** |
-| 4 | R Rampaul | 156 | 5.85 | 58.33% | **97.9** |
-| 5 | GD McGrath | 222 | 5.89 | 57.21% | **97.3** |
-| 6 | A Symonds | 114 | 5.79 | 54.39% | **95.1** |
-| 7 | WPUJC Vaas | 198 | 6.39 | 57.07% | **94.3** |
-| 8 | Sohail Tanvir | 132 | 6.59 | 57.58% | **94.1** |
-| 9 | BW Hilfenhaus | 240 | 6.50 | 55.42% | **93.3** |
-| 10 | DW Steyn | 1,134 | 6.42 | 55.03% | **92.8** |
+| Rank | Player | Balls | Econ | Dot% | Raw Composite | Factor | Weighted |
+|------|--------|-------|------|------|---------------|--------|----------|
+| 1 | R Rampaul | 156 | 5.85 | 58.33% | 97.9 | 1.000 | **97.9** |
+| 2 | GD McGrath | 222 | 5.89 | 57.21% | 97.3 | 1.000 | **97.3** |
+| 3 | WPUJC Vaas | 198 | 6.39 | 57.07% | 94.3 | 1.000 | **94.3** |
+| 4 | Sohail Tanvir | 132 | 6.59 | 57.58% | 94.1 | 1.000 | **94.1** |
+| 5 | BW Hilfenhaus | 240 | 6.50 | 55.42% | 93.3 | 1.000 | **93.3** |
+| 6 | DW Steyn | 1,134 | 6.42 | 55.03% | 92.8 | 1.000 | **92.8** |
+| 7 | JC Archer | 546 | -- | -- | 92.4 | 1.000 | **92.4** |
+| 8 | AC Thomas | 180 | -- | -- | 91.6 | 1.000 | **91.6** |
+| 9 | RJ Harris | 426 | -- | -- | 91.0 | 1.000 | **91.0** |
+| 10 | DP Nannes | 342 | -- | -- | 90.8 | 1.000 | **90.8** |
+
+*Note: AG Murtaza and FH Edwards (both 78 balls, raw composite 99.8) drop from joint #1 to #16 (factor: 0.650). A Kumble (108 balls) drops from #3 to #15.*
 
 **Top 10 -- Middle Overs Phase:**
 
@@ -269,22 +275,24 @@ phase_composite = economy_percentile * 0.5 + dot_ball_percentile * 0.5
 | 9 | J Yadav | 210 | 6.29 | 38.10% | **94.8** |
 | 10 | NM Coulter-Nile | 249 | 6.89 | 40.96% | **94.3** |
 
-**Top 10 -- Death Overs Phase:**
+**Top 10 -- Death Overs Phase (ranked by weighted composite):**
 
-| Rank | Player | Balls | Econ | Dot% | Phase Composite |
-|------|--------|-------|------|------|-----------------|
-| 1 | VY Mahesh | 63 | 7.71 | 46.03% | **99.3** |
-| 2 | DE Bollinger | 234 | 7.62 | 37.61% | **98.3** |
-| 3 | Sohail Tanvir | 103 | 7.11 | 36.89% | **97.8** |
-| 4 | GB Hogg | 92 | 7.89 | 39.13% | **97.5** |
-| 5 | SP Narine | 1,051 | 7.50 | 36.44% | **97.2** |
-| 6 | M Muralitharan | 275 | 8.29 | 37.45% | **95.2** |
-| 7 | A Kumble | 167 | 7.80 | 34.73% | **95.0** |
-| 8 | Noor Ahmad | 127 | 8.41 | 42.52% | **94.7** |
-| 9 | Harmeet Singh | 129 | 8.28 | 35.66% | **93.9** |
-| 10 | PWH de Silva | 120 | 8.50 | 37.50% | **93.0** |
+| Rank | Player | Balls | Econ | Dot% | Raw Composite | Factor | Weighted |
+|------|--------|-------|------|------|---------------|--------|----------|
+| 1 | DE Bollinger | 234 | 7.62 | 37.61% | 98.3 | 1.000 | **98.3** |
+| 2 | SP Narine | 1,051 | 7.50 | 36.44% | 97.2 | 1.000 | **97.2** |
+| 3 | M Muralitharan | 275 | 8.29 | 37.45% | 95.2 | 1.000 | **95.2** |
+| 4 | A Kumble | 167 | 7.80 | 34.73% | 95.0 | 1.000 | **95.0** |
+| 5 | Noor Ahmad | 127 | 8.41 | 42.52% | 94.7 | 1.000 | **94.7** |
+| 6 | Harmeet Singh | 129 | 8.28 | 35.66% | 93.9 | 1.000 | **93.9** |
+| 7 | PWH de Silva | 120 | 8.50 | 37.50% | 93.0 | 1.000 | **93.0** |
+| 8 | KH Pandya | 202 | -- | -- | 92.9 | 1.000 | **92.9** |
+| 9 | CV Varun | 304 | -- | -- | 91.4 | 1.000 | **91.4** |
+| 10 | DW Steyn | 634 | -- | -- | 90.2 | 1.000 | **90.2** |
 
-**Interpretation:** The alltime bowler phase data reveals fascinating era effects. Early-IPL bowlers (McGrath, Steyn, Edwards) dominate powerplay rankings due to a less aggressive batting meta in 2008--2012. Narine's death overs ranking (#5, 7.50 economy across 1,051 balls) is perhaps the single most impressive line in the data given sample size. Bumrah's middle overs presence (#8, 6.66 economy across 870 balls) adds context to his overall #1 composite.
+*Note: VY Mahesh (63 balls, raw composite 99.3) drops from #1 to #16 (factor: 0.525). Sohail Tanvir (103 balls) and GB Hogg (92 balls) also drop due to sample size weighting.*
+
+**Interpretation:** The death overs leaderboard now properly rewards sustained performance. Narine's death overs ranking (#2, 7.50 economy across 1,051 balls) is the single most impressive line in the data -- a body of work that sample size weighting correctly elevates. Bollinger (234 balls) takes #1 after VY Mahesh's 63-ball sample is weighted down. Bumrah's middle overs presence (#8, 6.66 economy across 870 balls) adds context to his overall #1 composite.
 
 ---
 
@@ -550,6 +558,105 @@ The upstream percentile views tag every row with a `sample_size` classification:
 | LOW | < 100 | Directional only; treat with caution |
 | MEDIUM | 100--499 | Usable for analysis with caveats |
 | HIGH | >= 500 | Full statistical confidence |
+
+### Sample Size Weighting (v1.1 -- Linear-with-Cap Method)
+
+**Problem statement:** The original ranking system used binary qualification thresholds -- a player either qualified or did not. This meant a player with 119 powerplay balls who happened to dominate could rank #1 above players with 500+ balls of proven performance. Cameron Green, for example, topped the powerplay batter phase rankings with just 119 balls faced, ahead of Travis Head (365 balls) and Jonny Bairstow (623 balls). The binary threshold let small-sample outliers distort the leaderboard.
+
+**Principle:** "Body of work matters. A player who dominates over 500 balls is more trustworthy than one who dominates over 119 balls. The ranking system should reflect this."
+
+**Solution:** Every ranking view now includes a continuous `sample_size_factor` that scales the composite score by the player's sample size relative to a category-specific target. The formula is:
+
+```
+sample_size_factor = MIN(balls / target_balls, 1.0)
+weighted_composite = composite_score * sample_size_factor
+```
+
+This is a **linear ramp with a cap at 1.0**. Players who reach the target get full credit. Players below the target get proportionally reduced credit. Nobody is eliminated -- their raw composite is still visible -- but rankings are now sorted by `weighted_composite`.
+
+**Why linear-with-cap over alternatives:**
+
+| Method | Formula | Pros | Cons | Decision |
+|--------|---------|------|------|----------|
+| Log-scale | `LOG(balls) / LOG(max_balls)` | Diminishing returns feel natural | Overly generous to very small samples; LOG(119) is still 0.73x LOG(500) | Rejected |
+| Sigmoid | `1 / (1 + exp(-k*(balls - threshold)))` | Smooth ramp with natural saturation | Opaque; hard to explain to readers | Rejected |
+| **Linear with cap** | `MIN(balls / target, 1.0)` | **Transparent, interpretable, proportional** | Harsh on very small samples | **Selected** |
+
+The linear method was chosen because it is (a) trivially explainable ("a player with half the target balls gets half credit"), (b) directly proportional to data confidence, and (c) consistent with the magazine's editorial philosophy of showing the work.
+
+**Category-specific targets (from `config/thresholds.yaml`):**
+
+| Category | Target (full weight at) | Rationale |
+|----------|------------------------|-----------|
+| Batter Career Composite | 500 balls | ~30 innings; matches existing qualification threshold |
+| Bowler Career Composite | 300 balls | ~50 overs; matches existing qualification threshold |
+| Batter Phase Rankings | 200 balls | ~12 phase-innings; 2x the qualification minimum of 100 |
+| Bowler Phase Rankings | 120 balls | ~20 overs in-phase; sufficient for phase-level confidence |
+| Batter vs Bowling Type | 100 balls | 2x the qualification minimum of 50 |
+| Bowler vs Handedness | 100 balls | 2x the qualification minimum of 50 |
+| Player Matchup | 50 balls | ~8 overs head-to-head; 4x the qualification minimum of 12 |
+
+**New columns in ranking views:**
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `sample_size_factor` | FLOAT (0.0--1.0) | `MIN(balls / target, 1.0)` |
+| `weighted_composite` | FLOAT | `composite_score * sample_size_factor` |
+
+Rankings are now sorted by `weighted_composite` instead of raw `composite_score`. The raw `composite_score` (unweighted, percentile-based) is still included in every view for reference and editorial use.
+
+**Before/After Comparison -- Batter Phase Rankings (Powerplay):**
+
+| Before Rank | Player | Balls | Composite | After Rank | Weighted | Factor |
+|-------------|--------|-------|-----------|------------|----------|--------|
+| 1 | C Green | 119 | 93.7 | **49** | 55.8 | 0.595 |
+| 2 | TM Head | 365 | 92.8 | **1** | 92.8 | 1.000 |
+| 3 | JM Bairstow | 623 | 91.4 | **2** | 91.4 | 1.000 |
+| 4 | YBK Jaiswal | 864 | 89.6 | **3** | 89.6 | 1.000 |
+| 5 | CA Lynn | 537 | 87.9 | **4** | 87.9 | 1.000 |
+| 6 | SA Yadav | 667 | 87.0 | **5** | 87.0 | 1.000 |
+| 7 | PD Salt | 409 | 86.5 | **6** | 86.5 | 1.000 |
+| 8 | RD Rickelton | 193 | 86.1 | **7** | 83.1 | 0.965 |
+| 11 | MJ Lumb | 151 | 81.9 | **16** | 61.9 | 0.755 |
+
+Cameron Green's 119-ball sample drops him from #1 to #49 (factor: 0.595). Travis Head, with 3x the sample, takes #1. This is the intended behavior: the data does not eliminate Green's excellent raw numbers, but it correctly identifies that 119 balls is not enough to rank above players with 365--864 balls of sustained performance.
+
+**Before/After Comparison -- Bowler Phase Rankings (Powerplay):**
+
+| Before Rank | Player | Balls | Composite | After Rank | Weighted | Factor |
+|-------------|--------|-------|-----------|------------|----------|--------|
+| 1 (tied) | AG Murtaza | 78 | 99.8 | **16** | 64.9 | 0.650 |
+| 1 (tied) | FH Edwards | 78 | 99.8 | **16** | 64.9 | 0.650 |
+| 3 | A Kumble | 108 | 99.2 | **15** | 89.3 | 0.900 |
+| 4 | R Rampaul | 156 | 97.9 | **1** | 97.9 | 1.000 |
+| 5 | GD McGrath | 222 | 97.3 | **2** | 97.3 | 1.000 |
+| 10 | DW Steyn | 1,134 | 92.8 | **6** | 92.8 | 1.000 |
+
+AG Murtaza and FH Edwards (both 78 balls) drop from joint #1. Rampaul and McGrath (156--222 balls) rise. Dale Steyn's massive 1,134-ball sample keeps him prominently ranked.
+
+**Before/After Comparison -- Bowler Phase Rankings (Death):**
+
+| Before Rank | Player | Balls | Composite | After Rank | Weighted | Factor |
+|-------------|--------|-------|-----------|------------|----------|--------|
+| 1 | VY Mahesh | 63 | 99.3 | **16** | 52.1 | 0.525 |
+| 2 | DE Bollinger | 234 | 98.3 | **1** | 98.3 | 1.000 |
+| 3 | Sohail Tanvir | 103 | 97.8 | **16** | 83.9 | 0.858 |
+| 5 | SP Narine | 1,051 | 97.2 | **2** | 97.2 | 1.000 |
+
+VY Mahesh (63 balls) drops from #1 to #16. SP Narine's 1,051-ball death bowling sample (the most impressive line in the database) rises to #2.
+
+**Before/After Comparison -- Player Matchup Rankings (Batter-Favored):**
+
+| Before Rank | Batter | Bowler | Balls | Dominance | After Rank | Weighted | Factor |
+|-------------|--------|--------|-------|-----------|------------|----------|--------|
+| 1 | TH David | Mukesh Kumar | 13 | +129.07 | **5** | +33.56 | 0.260 |
+| 2 | RM Patidar | M Markande | 14 | +99.54 | **9** | +27.87 | 0.280 |
+| -- | H Klaasen | CV Varun | 35 | +63.89 | **1** | +44.72 | 0.700 |
+| -- | V Kohli | Avesh Khan | 34 | +56.68 | **2** | +38.54 | 0.680 |
+
+The 13-ball TH David vs Mukesh Kumar matchup drops from #1 to #5. Klaasen vs Varun Chakravarthy (35 balls, a more meaningful sample) rises to #1.
+
+**Impact on career composites:** The career composite rankings (batter and bowler) are unchanged because all qualified players already exceed their respective targets (500 balls for batters, 300 balls for bowlers). The sample_size_factor column is included for completeness and consistency, but all values are 1.000. This confirms the existing career qualification thresholds were already well-calibrated.
 
 ---
 

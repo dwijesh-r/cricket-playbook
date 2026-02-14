@@ -275,14 +275,27 @@ rankings:
     min_balls_bowler: 300
     min_balls_phase: 100
     min_balls_vs_type: 50
+  # Sample size weighting targets (linear-with-cap method)
+  # Players reaching the target get full weight (1.0).
+  # Below target: weight = balls / target (linear ramp).
+  # Formula: sample_size_factor = MIN(balls / target, 1.0)
+  # weighted_composite = composite_score * sample_size_factor
+  sample_size_targets:
+    batter_career: 500              # Full weight at 500 balls faced (career composite)
+    bowler_career: 300              # Full weight at 300 balls bowled (career composite)
+    batter_phase: 200               # Full weight at 200 balls (phase-specific batter rankings)
+    bowler_phase: 120               # Full weight at 120 balls (phase-specific bowler rankings)
+    vs_bowling_type: 100            # Full weight at 100 balls (batter vs bowling type)
+    vs_handedness: 100              # Full weight at 100 balls (bowler vs handedness)
+    matchup: 50                     # Full weight at 50 balls (head-to-head matchups)
 
 # =============================================================================
 # METADATA
 # =============================================================================
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
   created: "2026-02-08"
-  updated: "2026-02-12"
+  updated: "2026-02-14"
   owner: "Stephen Curry"
   ticket: "TKT-132"
   epic: "EPIC-014"

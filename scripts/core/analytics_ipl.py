@@ -1471,6 +1471,7 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
     # -----------------------------------------------------------------------
     # 1. Batter Phase Rankings — composite across phases
     # Combines phase SR + avg percentiles, qualified >= 100 balls per phase
+    # Sample size weighting: linear ramp to target (200 balls), capped at 1.0
     # -----------------------------------------------------------------------
     conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_batter_phase_rankings AS
@@ -1487,7 +1488,8 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
                 avg_percentile,
                 boundary_percentile,
                 ROUND((sr_percentile * 0.4 + avg_percentile * 0.4 + boundary_percentile * 0.2), 1)
-                    AS phase_composite
+                    AS phase_composite,
+                ROUND(LEAST(balls_faced / 200.0, 1.0), 3) AS sample_size_factor
             FROM analytics_ipl_batter_phase_percentiles
         )
         SELECT
@@ -1502,7 +1504,9 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
             avg_percentile,
             boundary_percentile,
             phase_composite,
-            RANK() OVER (PARTITION BY match_phase ORDER BY phase_composite DESC) AS phase_rank
+            sample_size_factor,
+            ROUND(phase_composite * sample_size_factor, 1) AS weighted_composite,
+            RANK() OVER (PARTITION BY match_phase ORDER BY phase_composite * sample_size_factor DESC) AS phase_rank
         FROM phase_scores
     """)
     print("  - analytics_ipl_batter_phase_rankings")
@@ -1518,6 +1522,7 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
 
     # -----------------------------------------------------------------------
     # 2. Bowler Phase Rankings — composite across phases
+    # Sample size weighting: linear ramp to target (120 balls), capped at 1.0
     # -----------------------------------------------------------------------
     conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_bowler_phase_rankings AS
@@ -1532,7 +1537,8 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
                 economy_percentile,
                 dot_ball_percentile,
                 ROUND((economy_percentile * 0.5 + dot_ball_percentile * 0.5), 1)
-                    AS phase_composite
+                    AS phase_composite,
+                ROUND(LEAST(balls_bowled / 120.0, 1.0), 3) AS sample_size_factor
             FROM analytics_ipl_bowler_phase_percentiles
         )
         SELECT
@@ -1545,7 +1551,9 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
             economy_percentile,
             dot_ball_percentile,
             phase_composite,
-            RANK() OVER (PARTITION BY match_phase ORDER BY phase_composite DESC) AS phase_rank
+            sample_size_factor,
+            ROUND(phase_composite * sample_size_factor, 1) AS weighted_composite,
+            RANK() OVER (PARTITION BY match_phase ORDER BY phase_composite * sample_size_factor DESC) AS phase_rank
         FROM phase_scores
     """)
     print("  - analytics_ipl_bowler_phase_rankings")
@@ -1562,6 +1570,7 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
     # -----------------------------------------------------------------------
     # 3. Batter vs Bowling Type Rankings
     # Uses analytics_ipl_batter_vs_bowler_type — SR + avg vs each type
+    # Sample size weighting: linear ramp to target (100 balls), capped at 1.0
     # -----------------------------------------------------------------------
     conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_batter_vs_bowling_type_rankings AS
@@ -1592,12 +1601,14 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
                     PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY strike_rate) * 0.4 +
                     PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY average) * 0.4 +
                     PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY dismissal_rate DESC) * 0.2
-                ) * 100, 1) AS vs_type_composite
+                ) * 100, 1) AS vs_type_composite,
+                ROUND(LEAST(q.balls / 100.0, 1.0), 3) AS sample_size_factor
             FROM qualified q
         )
         SELECT
             w.*,
-            RANK() OVER (PARTITION BY bowler_type ORDER BY vs_type_composite DESC) AS vs_type_rank
+            ROUND(vs_type_composite * sample_size_factor, 1) AS weighted_composite,
+            RANK() OVER (PARTITION BY bowler_type ORDER BY vs_type_composite * sample_size_factor DESC) AS vs_type_rank
         FROM with_pctls w
     """)
     print("  - analytics_ipl_batter_vs_bowling_type_rankings")
@@ -1614,6 +1625,7 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
     # -----------------------------------------------------------------------
     # 4. Bowler vs Handedness Rankings
     # Uses analytics_ipl_bowler_vs_batter_handedness
+    # Sample size weighting: linear ramp to target (100 balls), capped at 1.0
     # -----------------------------------------------------------------------
     conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_bowler_vs_handedness_rankings AS
@@ -1639,12 +1651,14 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
                 ROUND((
                     PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY economy DESC) * 0.5 +
                     PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY bowling_sr DESC) * 0.5
-                ) * 100, 1) AS vs_hand_composite
+                ) * 100, 1) AS vs_hand_composite,
+                ROUND(LEAST(q.balls / 100.0, 1.0), 3) AS sample_size_factor
             FROM qualified q
         )
         SELECT
             w.*,
-            RANK() OVER (PARTITION BY batting_hand ORDER BY vs_hand_composite DESC) AS vs_hand_rank
+            ROUND(vs_hand_composite * sample_size_factor, 1) AS weighted_composite,
+            RANK() OVER (PARTITION BY batting_hand ORDER BY vs_hand_composite * sample_size_factor DESC) AS vs_hand_rank
         FROM with_pctls w
     """)
     print("  - analytics_ipl_bowler_vs_handedness_rankings")
@@ -1660,6 +1674,7 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
 
     # -----------------------------------------------------------------------
     # 5. Player Matchup Rankings — dominance index from matchup matrix
+    # Sample size weighting: linear ramp to target (50 balls), capped at 1.0
     # -----------------------------------------------------------------------
     conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_player_matchup_rankings AS
@@ -1679,10 +1694,18 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
                 (runs * 100.0 / NULLIF(balls, 0) - 130) * 0.5 +
                 (runs * 1.0 / NULLIF(dismissals, 0) - 25) * 0.3 +
                 (boundary_pct - 15) * 0.2,
-            2) AS dominance_index
+            2) AS dominance_index,
+            ROUND(LEAST(balls / 50.0, 1.0), 3) AS sample_size_factor,
+            ROUND(
+                (
+                    (runs * 100.0 / NULLIF(balls, 0) - 130) * 0.5 +
+                    (runs * 1.0 / NULLIF(dismissals, 0) - 25) * 0.3 +
+                    (boundary_pct - 15) * 0.2
+                ) * LEAST(balls / 50.0, 1.0),
+            2) AS weighted_dominance
         FROM analytics_ipl_player_matchup_matrix
         WHERE balls >= 12
-        ORDER BY dominance_index DESC
+        ORDER BY weighted_dominance DESC
     """)
     print("  - analytics_ipl_player_matchup_rankings")
 
@@ -1699,7 +1722,8 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
     # 6. Overall Batter Composite Rankings
     # Weighted: career percentiles (30%) + phase avg (30%) + boundary% (20%)
     #           + avg_percentile (10%) + dot_ball discipline (10%)
-    # Qualification: >= 500 balls faced career
+    # Qualification: >= 500 balls faced career (upstream)
+    # Sample size weighting: linear ramp to target (500 balls), capped at 1.0
     # -----------------------------------------------------------------------
     conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_batter_composite_rankings AS
@@ -1752,6 +1776,17 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
                 c.career_avg_pctl * 0.10 +
                 c.career_dotball_pctl * 0.10
             , 1) AS composite_score,
+            ROUND(LEAST(c.balls_faced / 500.0, 1.0), 3) AS sample_size_factor,
+            ROUND(
+                (
+                    (c.career_sr_pctl + c.career_avg_pctl) / 2 * 0.30 +
+                    (COALESCE(p.avg_phase_sr_pctl, c.career_sr_pctl) +
+                     COALESCE(p.avg_phase_avg_pctl, c.career_avg_pctl)) / 2 * 0.30 +
+                    c.career_boundary_pctl * 0.20 +
+                    c.career_avg_pctl * 0.10 +
+                    c.career_dotball_pctl * 0.10
+                ) * LEAST(c.balls_faced / 500.0, 1.0)
+            , 1) AS weighted_composite,
             RANK() OVER (ORDER BY (
                 (c.career_sr_pctl + c.career_avg_pctl) / 2 * 0.30 +
                 (COALESCE(p.avg_phase_sr_pctl, c.career_sr_pctl) +
@@ -1759,7 +1794,7 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
                 c.career_boundary_pctl * 0.20 +
                 c.career_avg_pctl * 0.10 +
                 c.career_dotball_pctl * 0.10
-            ) DESC) AS overall_rank
+            ) * LEAST(c.balls_faced / 500.0, 1.0) DESC) AS overall_rank
         FROM career c
         LEFT JOIN phase_avg p ON c.player_id = p.player_id
     """)
@@ -1778,7 +1813,8 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
     # 7. Overall Bowler Composite Rankings
     # Weighted: career percentiles (30%) + phase avg (30%) + economy (20%)
     #           + wicket-taking (10%) + dot ball% (10%)
-    # Qualification: >= 300 balls bowled career
+    # Qualification: >= 300 balls bowled career (upstream)
+    # Sample size weighting: linear ramp to target (300 balls), capped at 1.0
     # -----------------------------------------------------------------------
     conn.execute("""
         CREATE OR REPLACE VIEW analytics_ipl_bowler_composite_rankings AS
@@ -1832,6 +1868,17 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
                 c.career_sr_pctl * 0.10 +
                 c.career_dotball_pctl * 0.10
             , 1) AS composite_score,
+            ROUND(LEAST(c.balls_bowled / 300.0, 1.0), 3) AS sample_size_factor,
+            ROUND(
+                (
+                    (c.career_econ_pctl + c.career_avg_pctl) / 2 * 0.30 +
+                    (COALESCE(p.avg_phase_econ_pctl, c.career_econ_pctl) +
+                     COALESCE(p.avg_phase_dotball_pctl, c.career_dotball_pctl)) / 2 * 0.30 +
+                    c.career_econ_pctl * 0.20 +
+                    c.career_sr_pctl * 0.10 +
+                    c.career_dotball_pctl * 0.10
+                ) * LEAST(c.balls_bowled / 300.0, 1.0)
+            , 1) AS weighted_composite,
             RANK() OVER (ORDER BY (
                 (c.career_econ_pctl + c.career_avg_pctl) / 2 * 0.30 +
                 (COALESCE(p.avg_phase_econ_pctl, c.career_econ_pctl) +
@@ -1839,7 +1886,7 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
                 c.career_econ_pctl * 0.20 +
                 c.career_sr_pctl * 0.10 +
                 c.career_dotball_pctl * 0.10
-            ) DESC) AS overall_rank
+            ) * LEAST(c.balls_bowled / 300.0, 1.0) DESC) AS overall_rank
         FROM career c
         LEFT JOIN phase_avg p ON c.player_id = p.player_id
     """)

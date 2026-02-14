@@ -1,0 +1,13 @@
+{
+  "id": "TKT-246",
+  "title": "Run fresh data ingestion — data 30 days stale",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "epic_id": "EPIC-023",
+  "sprint_id": "SPRINT-002",
+  "assignee": "Brock Purdy",
+  "effort": "Deep Work",
+  "description": "Run a fresh data ingestion from Cricsheet to update the DuckDB database. Current data is approximately 30 days stale. Download latest Cricsheet ZIP files, run ingest.py, verify row counts in fact_ball and dim tables, regenerate all downstream outputs (analytics views, stat packs, depth charts, predicted XIs). Blocked by TKT-245 (ingest.yml fix).",
+  "created_at": "2026-02-14T10:00:00Z",
+  "updated_at": "2026-02-14T10:00:00Z"
+}

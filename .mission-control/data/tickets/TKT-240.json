@@ -1,0 +1,13 @@
+{
+  "id": "TKT-240",
+  "title": "Stat Pack Editorial Pass — review all 10 stat packs",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "epic_id": "EPIC-022",
+  "sprint_id": "SPRINT-002",
+  "assignee": "Virat Kohli",
+  "effort": "Marathon",
+  "description": "Virat Kohli + Andy Flower review all 10 team stat packs for editorial quality. Check narrative tone, factual accuracy, stat presentation, section flow, and consistency across teams. Fix any editorial issues, stale data references, or narrative gaps. Ensure each stat pack reads like professional pre-tournament analysis.",
+  "created_at": "2026-02-14T10:00:00Z",
+  "updated_at": "2026-02-14T10:00:00Z"
+}

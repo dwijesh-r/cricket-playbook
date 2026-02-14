@@ -1,0 +1,13 @@
+{
+  "id": "TKT-238",
+  "title": "Domain validation of rankings",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "epic_id": "EPIC-021",
+  "sprint_id": "SPRINT-002",
+  "assignee": "Andy Flower",
+  "effort": "Hustle",
+  "description": "Domain expert review of all 7 ranking categories for cricket validity. Verify composite scoring weights produce sensible leaderboards. Spot-check top-10 and bottom-10 in each category against known IPL performance. Flag any surprising rankings for investigation. Validate that thresholds and minimum qualification criteria are appropriate.",
+  "created_at": "2026-02-14T10:00:00Z",
+  "updated_at": "2026-02-14T10:00:00Z"
+}

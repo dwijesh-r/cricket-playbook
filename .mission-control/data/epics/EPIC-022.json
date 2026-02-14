@@ -1,0 +1,13 @@
+{
+  "id": "EPIC-022",
+  "title": "Sprint 4 Close-Out & Editorial Polish",
+  "owner": "Tom Brady",
+  "tickets": ["TKT-240", "TKT-241", "TKT-242", "TKT-243", "TKT-244"],
+  "progress_pct": 0,
+  "status": "PLANNED",
+  "description": "Consolidates all review-driven P0 bug fixes and editorial improvements from Sprint 4 review. Includes stat pack editorial pass, PRD section numbering fixes, SUPER SELECTOR positional diversity constraints, MI/RR salary cap overruns, and predicted XII players missing from depth charts.",
+  "sprint_id": "SPRINT-002",
+  "created_at": "2026-02-14T10:00:00Z",
+  "updated_at": "2026-02-14T10:00:00Z",
+  "target_date": "2026-02-28"
+}

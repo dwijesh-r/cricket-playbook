@@ -1,0 +1,13 @@
+{
+  "id": "EPIC-024",
+  "title": "UI/UX & Accessibility Improvements",
+  "owner": "Kevin de Bruyne",
+  "tickets": ["TKT-250", "TKT-251", "TKT-252", "TKT-253"],
+  "progress_pct": 0,
+  "status": "PLANNED",
+  "description": "UI/UX polish and accessibility improvements for The Lab dashboard. Fixes minimum font sizes, Film Room mobile overlap, smooth scroll. Adds Mission Control nav link to all Lab pages, standardizes mobile nav. Removes stale UI hints and dead CSS. Adds WCAG 2.1 AA accessibility basics including ARIA labels, focus-visible, and skip-nav.",
+  "sprint_id": "SPRINT-002",
+  "created_at": "2026-02-14T10:00:00Z",
+  "updated_at": "2026-02-14T10:00:00Z",
+  "target_date": "2026-02-28"
+}

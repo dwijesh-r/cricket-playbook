@@ -1,0 +1,13 @@
+{
+  "id": "EPIC-021",
+  "title": "Player Rankings System (Lindy's Style)",
+  "owner": "Stephen Curry",
+  "tickets": ["TKT-235", "TKT-236", "TKT-237", "TKT-238", "TKT-239"],
+  "progress_pct": 0,
+  "status": "PLANNED",
+  "description": "Comprehensive player ranking system displayed as a new Rankings tab in The Lab. Inspired by Lindy's Sports Annual rankings. Includes phase-wise batter/bowler rankings, batter vs bowling type rankings, bowler vs LHB/RHB rankings, best player-vs-player matchups, and overall batter/bowler composite rankings. All rankings since 2023 IPL unless stated. Leverages existing percentile views, phase views, matchup matrix, and thresholds.",
+  "sprint_id": "SPRINT-002",
+  "created_at": "2026-02-14T10:00:00Z",
+  "updated_at": "2026-02-14T10:00:00Z",
+  "target_date": "2026-02-28"
+}

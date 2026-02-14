@@ -1,0 +1,13 @@
+{
+  "id": "TKT-247",
+  "title": "Implement lightweight model registry",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "epic_id": "EPIC-023",
+  "sprint_id": "SPRINT-002",
+  "assignee": "Ime Udoka",
+  "effort": "Deep Work",
+  "description": "Implement a lightweight model registry to track ML model versions, hyperparameters, metrics, and artifacts. Addresses the known gap in ML Rigor category (system health score). Registry should track: model name, version, training date, dataset hash, hyperparameters, validation metrics, artifact path, status (active/archived). JSON-based storage in .mission-control/data/models/.",
+  "created_at": "2026-02-14T10:00:00Z",
+  "updated_at": "2026-02-14T10:00:00Z"
+}

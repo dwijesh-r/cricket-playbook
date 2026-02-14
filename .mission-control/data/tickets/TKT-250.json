@@ -1,0 +1,13 @@
+{
+  "id": "TKT-250",
+  "title": "Fix minimum font sizes, Film Room mobile overlap, smooth scroll",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "epic_id": "EPIC-024",
+  "sprint_id": "SPRINT-002",
+  "assignee": "Kevin de Bruyne",
+  "effort": "Deep Work",
+  "description": "Fix UI issues identified in Sprint 4 review: enforce minimum font sizes across all Lab pages (no text below 12px), fix Film Room page layout overlap on mobile viewports, and implement smooth scroll behavior for anchor links and page navigation. Test across Chrome, Safari, Firefox on desktop and mobile.",
+  "created_at": "2026-02-14T10:00:00Z",
+  "updated_at": "2026-02-14T10:00:00Z"
+}

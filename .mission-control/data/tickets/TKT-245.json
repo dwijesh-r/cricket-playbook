@@ -1,0 +1,13 @@
+{
+  "id": "TKT-245",
+  "title": "Fix ingest.yml script path and download URL format mismatch",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "epic_id": "EPIC-023",
+  "sprint_id": "SPRINT-002",
+  "assignee": "Brock Purdy",
+  "effort": "Hustle",
+  "description": "Fix the ingest.yml GitHub Actions workflow. The script path reference and Cricsheet download URL format have a mismatch that causes ingestion failures. Verify the correct script path for ingest.py and update the Cricsheet ZIP download URL to the current format. Test the workflow end-to-end.",
+  "created_at": "2026-02-14T10:00:00Z",
+  "updated_at": "2026-02-14T10:00:00Z"
+}

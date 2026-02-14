@@ -1,0 +1,13 @@
+{
+  "id": "TKT-252",
+  "title": "Remove stale Ctrl+Space hint, fix typewriter delay, remove dead CSS",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "epic_id": "EPIC-024",
+  "sprint_id": "SPRINT-002",
+  "assignee": "Jayson Tatum",
+  "effort": "Hustle",
+  "description": "UX cleanup: remove the stale Ctrl+Space keyboard shortcut hint that references deprecated functionality. Fix the typewriter animation delay that causes text to appear sluggish on page load. Audit and remove dead CSS rules that are no longer referenced by any HTML elements. Jayson Tatum UX audit items.",
+  "created_at": "2026-02-14T10:00:00Z",
+  "updated_at": "2026-02-14T10:00:00Z"
+}

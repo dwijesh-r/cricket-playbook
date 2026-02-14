@@ -1,0 +1,13 @@
+{
+  "id": "TKT-236",
+  "title": "Build ranking generator script — generate_rankings.py",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "epic_id": "EPIC-021",
+  "sprint_id": "SPRINT-002",
+  "assignee": "Stephen Curry",
+  "effort": "Deep Work",
+  "description": "Build generate_rankings.py script that queries the composite ranking views created in TKT-235 and outputs ranking JSON files for The Lab dashboard consumption. Generates leaderboards for each ranking category: phase-wise batter rankings (3 phases), phase-wise bowler rankings (3 phases), batter vs bowling type (5 types), bowler vs LHB/RHB (2 + all-time), player-vs-player matchups, overall batter rankings, overall bowler rankings. Output to outputs/rankings/ directory.",
+  "created_at": "2026-02-14T10:00:00Z",
+  "updated_at": "2026-02-14T10:00:00Z"
+}

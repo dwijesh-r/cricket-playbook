@@ -1,0 +1,13 @@
+{
+  "id": "TKT-253",
+  "title": "Add WCAG 2.1 AA accessibility basics — ARIA labels, focus-visible, skip-nav",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "epic_id": "EPIC-024",
+  "sprint_id": "SPRINT-002",
+  "assignee": "Kevin de Bruyne",
+  "effort": "Deep Work",
+  "description": "Add WCAG 2.1 AA accessibility basics to The Lab dashboard. Add ARIA labels to all interactive elements (buttons, links, form inputs, tabs). Implement focus-visible styles for keyboard navigation. Add skip-nav link for screen readers. Ensure color contrast ratios meet AA standards (4.5:1 for normal text, 3:1 for large text).",
+  "created_at": "2026-02-14T10:00:00Z",
+  "updated_at": "2026-02-14T10:00:00Z"
+}

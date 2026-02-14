@@ -1,0 +1,13 @@
+{
+  "id": "TKT-248",
+  "title": "Add Lab data generators to generate-outputs.yml automation chain",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "epic_id": "EPIC-023",
+  "sprint_id": "SPRINT-002",
+  "assignee": "Brad Stevens",
+  "effort": "Hustle",
+  "description": "Add The Lab data generator scripts to the generate-outputs.yml GitHub Actions workflow automation chain. Ensure that when stat packs, depth charts, and predicted XIs are regenerated, the Lab data files are also updated automatically. Include generate_rankings.py (TKT-236) in the chain once available.",
+  "created_at": "2026-02-14T10:00:00Z",
+  "updated_at": "2026-02-14T10:00:00Z"
+}

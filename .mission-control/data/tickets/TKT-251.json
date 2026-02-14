@@ -1,0 +1,13 @@
+{
+  "id": "TKT-251",
+  "title": "Add Mission Control nav link to all Lab pages + standardize mobile nav",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "epic_id": "EPIC-024",
+  "sprint_id": "SPRINT-002",
+  "assignee": "Kevin de Bruyne",
+  "effort": "Hustle",
+  "description": "Add a navigation link to Mission Control dashboard from all Lab pages. Standardize the mobile navigation menu across all Lab pages for consistent UX. Ensure the nav bar includes links to all major sections: Home, Teams, Film Room, Research Desk, Rankings (new), Mission Control.",
+  "created_at": "2026-02-14T10:00:00Z",
+  "updated_at": "2026-02-14T10:00:00Z"
+}

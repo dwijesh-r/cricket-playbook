@@ -1,0 +1,13 @@
+{
+  "id": "TKT-239",
+  "title": "QA validation of ranking data integrity",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "epic_id": "EPIC-021",
+  "sprint_id": "SPRINT-002",
+  "assignee": "N'Golo Kante",
+  "effort": "Hustle",
+  "description": "QA validation of ranking data integrity. Verify no duplicate players in leaderboards. Confirm all players meet minimum qualification thresholds. Cross-check ranking scores against source views. Validate JSON output schema consistency. Ensure all-time and since-2023 scopes produce distinct rankings. Check for null/NaN values in composite scores.",
+  "created_at": "2026-02-14T10:00:00Z",
+  "updated_at": "2026-02-14T10:00:00Z"
+}

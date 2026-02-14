@@ -1,0 +1,13 @@
+{
+  "id": "TKT-243",
+  "title": "Fix MI and RR salary cap overruns — cross-check against auction data",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "epic_id": "EPIC-022",
+  "sprint_id": "SPRINT-002",
+  "assignee": "Stephen Curry",
+  "effort": "Hustle",
+  "description": "Investigate and fix MI and RR salary cap overruns identified in Sprint 4 review. Cross-check squad costs against official IPL 2025 mega auction data. Verify salary figures in team data files. Ensure all 10 teams are within the INR 120 Cr salary cap. Update any incorrect auction prices.",
+  "created_at": "2026-02-14T10:00:00Z",
+  "updated_at": "2026-02-14T10:00:00Z"
+}

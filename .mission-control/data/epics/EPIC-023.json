@@ -1,0 +1,13 @@
+{
+  "id": "EPIC-023",
+  "title": "Infrastructure & Pipeline Hardening",
+  "owner": "Brad Stevens",
+  "tickets": ["TKT-245", "TKT-246", "TKT-247", "TKT-248", "TKT-249"],
+  "progress_pct": 0,
+  "status": "PLANNED",
+  "description": "Consolidates CI/CD fixes, model registry implementation, and pipeline improvements. Fixes ingest.yml script path mismatch, runs fresh data ingestion (data 30 days stale), implements lightweight model registry, adds Lab data generators to automation chain, and adds data freshness indicator to The Lab dashboard.",
+  "sprint_id": "SPRINT-002",
+  "created_at": "2026-02-14T10:00:00Z",
+  "updated_at": "2026-02-14T10:00:00Z",
+  "target_date": "2026-02-28"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "TKT-249",
+  "title": "Add data freshness indicator to The Lab dashboard",
+  "state": "BACKLOG",
+  "priority": "P2",
+  "epic_id": "EPIC-023",
+  "sprint_id": "SPRINT-002",
+  "assignee": "Kevin de Bruyne",
+  "effort": "Hustle",
+  "description": "Add a visible data freshness indicator to The Lab dashboard showing when the underlying data was last updated. Display last ingestion date, last output generation date, and data staleness warning if data is older than 14 days. Small UI element in the dashboard header or footer.",
+  "created_at": "2026-02-14T10:00:00Z",
+  "updated_at": "2026-02-14T10:00:00Z"
+}

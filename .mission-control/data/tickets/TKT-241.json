@@ -1,0 +1,13 @@
+{
+  "id": "TKT-241",
+  "title": "Fix PRD section numbering, player/view counts, agent counts across all docs",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "epic_id": "EPIC-022",
+  "sprint_id": "SPRINT-002",
+  "assignee": "Virat Kohli",
+  "effort": "Deep Work",
+  "description": "Audit and fix all documentation for stale or incorrect counts. PRD section numbering must be sequential. Player count, view count, and agent count references must match current reality. Cross-check PRD, CONSTITUTION, AGENT_PLAYBOOK, and CLAUDE.md for consistency. Update any references to old sprint numbers or outdated metrics.",
+  "created_at": "2026-02-14T10:00:00Z",
+  "updated_at": "2026-02-14T10:00:00Z"
+}

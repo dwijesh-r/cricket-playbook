@@ -3,7 +3,7 @@
   "epic_id": "EPIC-020",
   "title": "Shareable comparison links + PNG export",
   "description": "Generate URL-encoded comparison links (e.g., ?compare=kohli,pant,gill) that restore comparison state on page load. Add 'Export as PNG' button for radar chart + stats card. Share-friendly format for social media.",
-  "state": "BACKLOG",
+  "state": "DEFERRED",
   "priority": "P2",
   "size": "S",
   "progress_pct": 0,
@@ -14,6 +14,8 @@
   "sprint_id": "SPRINT-002",
   "tags": ["Frontend", "Social", "Export"],
   "gates": {},
+  "deferred_reason": "Florentino deprioritize decision: Shareable links and PNG export are nice-to-have features that do not impact core Sprint 5 deliverables. Deferred to reduce Kevin de Bruyne workload.",
+  "deferred_to": "SPRINT-003",
   "created_at": "2026-02-14T01:40:00Z",
-  "updated_at": "2026-02-14T01:40:00Z"
+  "updated_at": "2026-02-14T10:00:00Z"
 }

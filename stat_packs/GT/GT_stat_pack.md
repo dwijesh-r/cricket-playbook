@@ -1,6 +1,6 @@
 # Gujarat Titans (GT) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-14 17:14
+**Generated:** 2026-02-14 18:41
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -127,8 +127,8 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** Mohammed Shami (28w @ 7.92), MM Sharma (27w @ 8.1), Rashid Khan (27w @ 8.21)
-- **2024:** MM Sharma (13w @ 10.48), Rashid Khan (10w @ 8.52), UT Yadav (8w @ 9.81)
+- **2023:** Mohammed Shami (28w @ 7.92), Rashid Khan (27w @ 8.21), MM Sharma (27w @ 8.1)
+- **2024:** MM Sharma (13w @ 10.48), Rashid Khan (10w @ 8.52), Noor Ahmad (8w @ 8.33)
 - **2025:** M Prasidh Krishna (25w @ 8.34), R Sai Kishore (19w @ 9.07), Mohammed Siraj (16w @ 8.83)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -244,13 +244,13 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
-| Arun Jaitley Stadium | 3 | 2 | 66.7% | 196.0 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 148.3 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 175.7 |
 | M Chinnaswamy Stadium | 3 | 2 | 66.7% | 171.7 |
-| Wankhede Stadium | 2 | 1 | 50.0% | 169.0 |
-| Eden Gardens | 2 | 2 | 100.0% | 189.0 |
+| Arun Jaitley Stadium | 3 | 2 | 66.7% | 196.0 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 148.3 |
 | MA Chidambaram Stadium | 2 | 0 | 0.0% | 150.0 |
+| Eden Gardens | 2 | 2 | 100.0% | 189.0 |
+| Wankhede Stadium | 2 | 1 | 50.0% | 169.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -263,9 +263,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.3 | 23.8 | PACE |
 | Wankhede Stadium | 21 | 18.8 | 21.0 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.5 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.4 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.1 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.8 | 16.8 | BALANCED |
 
@@ -296,8 +296,8 @@
 | I Sharma | Arun Jaitley Stadium | 6 | 8 | 8.45 | 15.0 |
 | I Sharma | Narendra Modi Stadium | 5 | 6 | 6.84 | 14.33 |
 | Rashid Khan | Wankhede Stadium | 2 | 5 | 6.88 | 9.6 |
-| Rashid Khan | Sawai Mansingh Stadium | 3 | 5 | 4.58 | 14.4 |
 | Mohammed Siraj | Rajiv Gandhi Internationa | 3 | 5 | 4.33 | 14.4 |
+| Rashid Khan | Sawai Mansingh Stadium | 3 | 5 | 4.58 | 14.4 |
 
 
 ---
@@ -472,8 +472,8 @@
 | Rajasthan Royals | 5 | 120 | 136 | 9 | 6.8 | 15.11 | 13.33 | 37.5 | 10.83 | HIGH |
 | Mumbai Indians | 7 | 156 | 179 | 9 | 6.88 | 19.89 | 17.33 | 37.18 | 12.82 | HIGH |
 | Chennai Super Kings | 6 | 138 | 240 | 8 | 10.43 | 30.0 | 17.25 | 23.19 | 22.46 | HIGH |
-| Delhi Capitals | 6 | 132 | 176 | 5 | 8.0 | 35.2 | 26.4 | 30.3 | 14.39 | HIGH |
 | Kolkata Knight Riders | 3 | 72 | 116 | 5 | 9.67 | 23.2 | 14.4 | 26.39 | 20.83 | MEDIUM |
+| Delhi Capitals | 6 | 132 | 176 | 5 | 8.0 | 35.2 | 26.4 | 30.3 | 14.39 | HIGH |
 | Punjab Kings | 4 | 96 | 134 | 4 | 8.38 | 33.5 | 24.0 | 36.46 | 16.67 | MEDIUM |
 | Lucknow Super Giants | 5 | 108 | 164 | 4 | 9.11 | 41.0 | 27.0 | 25.93 | 17.59 | HIGH |
 | Sunrisers Hyderabad | 4 | 90 | 142 | 1 | 9.47 | 142.0 | 90.0 | 25.56 | 17.78 | MEDIUM |
@@ -575,13 +575,13 @@
 
 | Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
 |--------|-----------|-----------|-----------|-----------|----------|
-| **Shubman Gill** | 149 | 161 | 19.4 | 19.9 | Balanced |
-| **B Sai Sudharsan** | 149 | 151 | 21.3 | 17.5 | Balanced |
+| **Shubman Gill** | 150 | 161 | 19.6 | 19.9 | Balanced |
+| **B Sai Sudharsan** | 150 | 151 | 21.5 | 17.5 | Balanced |
 | **JC Buttler** | 146 | 159 | 22.0 | 21.2 | Balanced |
 | **M Shahrukh Khan** | 156 | 158 | 22.3 | 21.1 | Balanced |
 | **R Tewatia** | 162 | 150 | 22.9 | 16.7 | Balanced |
 | **Rashid Khan** | 176 | 226 | 27.0 | 31.6 | Spin Dominant |
-| **Anuj Rawat** | 157 | 85.7 | 23.2 | 3.6 | Pace Dominant |
+| **Anuj Rawat** | 150 | 85.7 | 21.6 | 3.6 | Pace Dominant |
 | **Washington Sundar** | 168 | 78.4 | 25.4 | 0 | Pace Dominant |
 
 *Exploitable vs spin: **Anuj Rawat** (86 SR), **Washington Sundar** (78 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **R Tewatia** (162 SR), **Rashid Khan** (176 SR), **Washington Sundar** (168 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
@@ -818,8 +818,8 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | Rahul Tewatia | All-rounder | 13 | 7.6 | 23.6 | 2 | 1224 | 80 | IPL (0.87, Econ 7.8); SMAT (0.65, Econ 7.2) |
 | Jayant Yadav | Bowler | 24 | 6.6 | 30.8 | 2 | 1007 | 73 | SMAT (0.65, Econ 6.5); IPL (0.87, Econ 6.7) |
 | Glenn Phillips | All-rounder | 18 | 8.8 | 22.7 | 8 | 515 | 45 | SS (0.36, Econ 8.2); Blast (0.50, Econ 7.9); 100 (0.50, Econ 10.9) |
-| Shahrukh Khan | All-rounder | 18 | 9.9 | 26.9 | 2 | 30 | 5 | IPL (0.87, Econ 9.7); SMAT (0.65, Econ 10.5) |
 | Manav Suthar | All-rounder | 12 | 10.4 | - | 2 | 30 | 4 | SMAT (0.65, Econ 8.0); IPL (0.87, Econ 13.0) |
+| Shahrukh Khan | All-rounder | 18 | 9.9 | 26.9 | 2 | 30 | 5 | IPL (0.87, Econ 9.7); SMAT (0.65, Econ 10.5) |
 | Nishant Sindhu | All-rounder | 0 | 5.2 | 12 | 1 | 24 | 3 | SMAT (0.65, Econ 5.3) |
 | Gurnoor Brar | Bowler | 18 | 12.7 | - | 1 | 18 | 3 | IPL (0.87, Econ 12.7) |
 

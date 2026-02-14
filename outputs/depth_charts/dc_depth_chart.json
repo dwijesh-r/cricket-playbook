@@ -2,7 +2,7 @@
   "team": "DC",
   "team_name": "Delhi Capitals",
   "overall_rating": 7.7,
-  "strongest_position": "Middle Overs Specialist",
+  "strongest_position": "Finisher #6-7",
   "weakest_position": "Leg Spin",
   "vulnerabilities": [
     "Off Spin: thin depth (rating 4.5)",
@@ -146,8 +146,8 @@
     },
     "finisher": {
       "name": "Finisher #6-7",
-      "rating": 9.7,
-      "what_works": "Elite #1 in tristan stubbs. quality backup in nitish rana",
+      "rating": 10.0,
+      "what_works": "Elite #1 in tristan stubbs. quality backup in ashutosh sharma",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
       "players": [
@@ -165,24 +165,24 @@
         },
         {
           "rank": 2,
-          "name": "Nitish Rana",
-          "player_id": "fb2d1dda",
-          "score": 80.5,
+          "name": "Ashutosh Sharma",
+          "player_id": "84d9c311",
+          "score": 100.0,
           "rationale": "Founder XII. Death specialist. Six-hitting ability",
           "is_overseas": false,
-          "price_cr": 0.5,
+          "price_cr": 3.8,
           "bowling_type": "Off-spin",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
         {
           "rank": 3,
-          "name": "Sameer Rizvi",
-          "player_id": "f89d3b11",
-          "score": 63.8,
-          "rationale": "Death overs hitter. Bowling utility",
+          "name": "Nitish Rana",
+          "player_id": "fb2d1dda",
+          "score": 80.5,
+          "rationale": "Founder XII. Death specialist. Six-hitting ability",
           "is_overseas": false,
-          "price_cr": 0.95,
+          "price_cr": 0.5,
           "bowling_type": "Off-spin",
           "bowling_arm": "Right-arm",
           "secondary_positions": []

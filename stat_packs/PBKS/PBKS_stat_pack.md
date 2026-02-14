@@ -1,6 +1,6 @@
 # Punjab Kings (PBKS) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-14 17:15
+**Generated:** 2026-02-14 18:41
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -247,10 +247,10 @@
 | Himachal Pradesh Cricket Associatio | 6 | 1 | 16.7% | 177.2 |
 | Narendra Modi Stadium | 4 | 3 | 75.0% | 208.5 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
+| MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
 | Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
 | Eden Gardens | 3 | 1 | 33.3% | 214.0 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
-| MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
 | M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
 | Barsapara Cricket Stadium | 2 | 2 | 100.0% | 171.0 |
 
@@ -265,9 +265,9 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.3 | 23.8 | PACE |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.8 | 21.0 | BALANCED |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.4 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.5 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.4 | BALANCED |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.1 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.8 | 16.8 | BALANCED |
 
@@ -295,11 +295,11 @@
 | Yash Thakur | Bharat Ratna Shri Atal Bi | 8 | 12 | 9.19 | 14.42 |
 | Arshdeep Singh | Maharaja Yadavindra Singh | 10 | 11 | 8.64 | 18.0 |
 | Vijaykumar Vyshak | M Chinnaswamy Stadium | 8 | 10 | 9.8 | 17.7 |
+| Arshdeep Singh | Himachal Pradesh Cricket  | 5 | 7 | 9.0 | 14.57 |
 | Arshdeep Singh | Punjab Cricket Associatio | 5 | 7 | 10.78 | 16.14 |
 | YS Chahal | MA Chidambaram Stadium | 4 | 7 | 7.33 | 12.86 |
-| Arshdeep Singh | Himachal Pradesh Cricket  | 5 | 7 | 9.0 | 14.57 |
-| M Jansen | Sawai Mansingh Stadium | 4 | 6 | 10.48 | 15.17 |
 | YS Chahal | Barsapara Cricket Stadium | 3 | 6 | 8.75 | 12.0 |
+| M Jansen | Rajiv Gandhi Internationa | 6 | 6 | 9.94 | 18.0 |
 
 
 ---
@@ -485,9 +485,9 @@
 | Sunrisers Hyderabad | 4 | 90 | 121 | 8 | 8.07 | 15.13 | 11.25 | 45.56 | 23.33 | MEDIUM |
 | Royal Challengers Bengaluru | 7 | 134 | 223 | 8 | 9.99 | 27.88 | 16.75 | 32.09 | 25.37 | HIGH |
 | Mumbai Indians | 5 | 113 | 196 | 7 | 10.41 | 28.0 | 16.14 | 30.97 | 29.2 | HIGH |
-| Rajasthan Royals | 6 | 143 | 247 | 6 | 10.36 | 41.17 | 23.83 | 40.56 | 27.97 | HIGH |
 | Kolkata Knight Riders | 4 | 84 | 112 | 6 | 8.0 | 18.67 | 14.0 | 46.43 | 20.24 | MEDIUM |
 | Chennai Super Kings | 5 | 116 | 180 | 6 | 9.31 | 30.0 | 19.33 | 34.48 | 25.0 | HIGH |
+| Rajasthan Royals | 6 | 143 | 247 | 6 | 10.36 | 41.17 | 23.83 | 40.56 | 27.97 | HIGH |
 | Gujarat Titans | 4 | 85 | 124 | 4 | 8.75 | 31.0 | 21.25 | 30.59 | 18.82 | MEDIUM |
 | Delhi Capitals | 4 | 84 | 112 | 2 | 8.0 | 56.0 | 42.0 | 39.29 | 19.05 | MEDIUM |
 
@@ -608,16 +608,16 @@
 
 | Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
 |--------|-----------|-----------|-----------|-----------|----------|
-| **P Simran Singh** | 162 | 175 | 25.8 | 26.4 | Balanced |
+| **P Simran Singh** | 164 | 175 | 26.0 | 26.4 | Balanced |
 | **MP Stoinis** | 168 | 155 | 25.4 | 20 | Balanced |
-| **SS Iyer** | 167 | 173 | 24.0 | 22.1 | Balanced |
-| **N Wadhera** | 141 | 144 | 19.6 | 18.5 | Balanced |
-| **Shashank Singh** | 167 | 152 | 22.4 | 15.5 | Pace Dominant |
+| **SS Iyer** | 166 | 173 | 24.1 | 22.1 | Balanced |
+| **N Wadhera** | 143 | 144 | 20.4 | 18.5 | Balanced |
+| **Shashank Singh** | 169 | 152 | 22.8 | 15.5 | Pace Dominant |
 | **Priyansh Arya** | 172 | 178 | 29.3 | 25 | Balanced |
 | **M Jansen** | 108 | 107 | 10.2 | 10.7 | Balanced |
 | **Harpreet Brar** | 133 | 79.0 | 19.3 | 5.3 | Pace Dominant |
 
-*Exploitable vs spin: **M Jansen** (107 SR), **Harpreet Brar** (79 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **P Simran Singh** (162 SR), **MP Stoinis** (168 SR), **SS Iyer** (167 SR), **Shashank Singh** (167 SR), **Priyansh Arya** (172 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+*Exploitable vs spin: **M Jansen** (107 SR), **Harpreet Brar** (79 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **P Simran Singh** (164 SR), **MP Stoinis** (168 SR), **SS Iyer** (166 SR), **Shashank Singh** (169 SR), **Priyansh Arya** (172 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
 
 ### 10.3 Pace Attack Intelligence
 

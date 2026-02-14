@@ -1,13 +1,35 @@
 {
   "id": "TKT-251",
   "title": "Add Mission Control nav link to all Lab pages + standardize mobile nav",
-  "state": "BACKLOG",
+  "state": "DONE",
   "priority": "P0",
+  "size": "S",
+  "progress_pct": 100,
   "epic_id": "EPIC-024",
   "sprint_id": "SPRINT-002",
+  "owner": "Kevin de Bruyne",
   "assignee": "Kevin de Bruyne",
+  "reviewer": "Jayson Tatum",
   "effort": "Hustle",
   "description": "Add a navigation link to Mission Control dashboard from all Lab pages. Standardize the mobile navigation menu across all Lab pages for consistent UX. Ensure the nav bar includes links to all major sections: Home, Teams, Film Room, Research Desk, Rankings (new), Mission Control.",
+  "tags": ["Frontend", "Navigation", "UX", "The Lab"],
+  "gates": {
+    "florentino_gate": { "status": "APPROVED", "reason": "UX improvement, nav consistency.", "date": "2026-02-14" },
+    "build": "PASS",
+    "domain_sanity": "PASS",
+    "enforcement": "PASS"
+  },
+  "deliverables": [
+    "scripts/the_lab/dashboard/index.html (Mission Control nav link added)",
+    "scripts/the_lab/dashboard/teams.html (Mission Control nav link added)",
+    "scripts/the_lab/dashboard/research.html (Mission Control nav link added)",
+    "scripts/the_lab/dashboard/research-desk.html (Mission Control nav link added)",
+    "scripts/the_lab/dashboard/analysis.html (Mission Control nav link added)",
+    "scripts/the_lab/dashboard/artifacts.html (Mission Control nav link added)",
+    "scripts/the_lab/dashboard/about.html (Mission Control nav link added)",
+    "Mobile nav standardized across all 7 Lab pages"
+  ],
   "created_at": "2026-02-14T10:00:00Z",
-  "updated_at": "2026-02-14T10:00:00Z"
+  "updated_at": "2026-02-14T18:00:00Z",
+  "completed_at": "2026-02-14T16:30:00Z"
 }

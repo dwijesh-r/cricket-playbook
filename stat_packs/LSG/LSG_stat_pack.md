@@ -1,6 +1,6 @@
 # Lucknow Super Giants (LSG) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-14 17:15
+**Generated:** 2026-02-14 18:41
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -126,9 +126,9 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** Ravi Bishnoi (16w @ 7.58), Yash Thakur (13w @ 8.61), Naveen-ul-Haq (11w @ 7.78)
-- **2024:** Naveen-ul-Haq (14w @ 9.7), Yash Thakur (11w @ 10.8), Ravi Bishnoi (10w @ 8.53)
-- **2025:** DS Rathi (14w @ 8.13), Avesh Khan (13w @ 9.94), SN Thakur (13w @ 9.98)
+- **2023:** Ravi Bishnoi (16w @ 7.58), Yash Thakur (13w @ 8.61), MA Wood (11w @ 8.35)
+- **2024:** Naveen-ul-Haq (14w @ 9.7), Yash Thakur (11w @ 10.8), Mohsin Khan (10w @ 9.75)
+- **2025:** DS Rathi (14w @ 8.13), SN Thakur (13w @ 9.98), Avesh Khan (13w @ 9.94)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -241,13 +241,13 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
-| Eden Gardens | 3 | 2 | 66.7% | 191.7 |
+| MA Chidambaram Stadium | 3 | 1 | 33.3% | 173.0 |
 | Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 181.0 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 169.0 |
-| MA Chidambaram Stadium | 3 | 1 | 33.3% | 173.0 |
-| Wankhede Stadium | 2 | 1 | 50.0% | 187.5 |
+| Eden Gardens | 3 | 2 | 66.7% | 191.7 |
 | Narendra Modi Stadium | 2 | 1 | 50.0% | 203.0 |
 | M Chinnaswamy Stadium | 2 | 2 | 100.0% | 197.0 |
+| Wankhede Stadium | 2 | 1 | 50.0% | 187.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -261,8 +261,8 @@
 | Wankhede Stadium | 21 | 18.8 | 21.0 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.4 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.5 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.5 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.1 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.8 | 16.8 | BALANCED |
 
@@ -289,11 +289,11 @@
 |--------|-------|---------|------|------|-----|
 | Mohammed Shami | Narendra Modi Stadium | 10 | 17 | 7.76 | 13.06 |
 | Avesh Khan | Sawai Mansingh Stadium | 7 | 9 | 9.19 | 18.0 |
-| Avesh Khan | Bharat Ratna Shri Atal Bi | 11 | 7 | 8.27 | 32.14 |
 | MR Marsh | Arun Jaitley Stadium | 5 | 7 | 8.43 | 11.29 |
+| Avesh Khan | Bharat Ratna Shri Atal Bi | 11 | 7 | 8.27 | 32.14 |
 | DS Rathi | Bharat Ratna Shri Atal Bi | 7 | 7 | 7.18 | 24.0 |
 | Avesh Khan | Narendra Modi Stadium | 3 | 6 | 10.99 | 11.83 |
-| Avesh Khan | MA Chidambaram Stadium | 3 | 5 | 7.78 | 10.8 |
+| PWH de Silva | Barsapara Cricket Stadium | 2 | 5 | 10.0 | 8.4 |
 | PWH de Silva | M Chinnaswamy Stadium | 5 | 5 | 8.47 | 20.4 |
 
 
@@ -357,6 +357,7 @@
 | Digvesh Rathi | Leg-spin | 13 | 52.0 | 14 | 8.37 | 31.07 | 22.29 | 30.45 | 16.35 | MEDIUM |
 | Mohsin Khan | Fast-Mediu | 14 | 48.0 | 13 | 10.33 | 38.15 | 22.15 | 36.11 | 25.35 | MEDIUM |
 | Mitchell Marsh | Fast | 11 | 28.2 | 13 | 9.76 | 21.15 | 13.0 | 25.44 | 18.34 | MEDIUM |
+| Mayank Yadav | Fast | 6 | 20.2 | 9 | 9.32 | 20.89 | 13.44 | 47.11 | 23.97 | LOW |
 | Shahbaz Ahmed | Left-arm o | 23 | 43.0 | 9 | 11.05 | 52.78 | 28.67 | 25.97 | 25.19 | MEDIUM |
 | Akash Singh | Fast | 9 | 30.2 | 9 | 9.51 | 31.89 | 20.11 | 36.46 | 25.41 | LOW |
 | Aiden Markram | Off-spin | 13 | 21.2 | 5 | 8.88 | 37.6 | 25.4 | 23.62 | 15.75 | MEDIUM |
@@ -386,6 +387,9 @@
 | DS Rathi | powerplay | 15.0 | 2 | 7.93 | 33.33 | 28.8% | 14.3% | -14.6 | HIGH |
 | DS Rathi | middle | 27.0 | 8 | 7.67 | 30.86 | 51.9% | 57.1% | +5.2 | HIGH |
 | DS Rathi | death | 10.0 | 4 | 9.5 | 25.0 | 19.2% | 28.6% | +9.3 | HIGH |
+| MP Yadav | powerplay | 6.0 | 2 | 12.0 | 47.22 | 29.8% | 22.2% | -7.5 | MEDIUM |
+| MP Yadav | middle | 11.0 | 4 | 7.73 | 48.48 | 54.5% | 44.4% | -10.1 | MEDIUM |
+| MP Yadav | death | 3.2 | 3 | 6.95 | 42.11 | 15.7% | 33.3% | +17.6 | MEDIUM |
 | MR Marsh | powerplay | 4.0 | 2 | 7.25 | 33.33 | 14.2% | 15.4% | +1.2 | MEDIUM |
 | MR Marsh | middle | 19.0 | 8 | 8.58 | 23.68 | 67.5% | 61.5% | -5.9 | MEDIUM |
 | MR Marsh | death | 5.2 | 3 | 12.77 | 25.81 | 18.3% | 23.1% | +4.7 | MEDIUM |
@@ -492,9 +496,9 @@
 | Mumbai Indians | 4 | 96 | 157 | 5 | 9.81 | 31.4 | 19.2 | 31.25 | 22.92 | MEDIUM |
 | Royal Challengers Bengaluru | 4 | 90 | 175 | 4 | 11.67 | 43.75 | 22.5 | 23.33 | 32.22 | MEDIUM |
 | Punjab Kings | 6 | 119 | 198 | 4 | 9.98 | 49.5 | 29.75 | 27.73 | 22.69 | HIGH |
+| Chennai Super Kings | 3 | 51 | 76 | 3 | 8.94 | 25.33 | 17.0 | 25.49 | 21.57 | MEDIUM |
 | Delhi Capitals | 4 | 78 | 117 | 3 | 9.0 | 39.0 | 26.0 | 37.18 | 24.36 | MEDIUM |
 | Kolkata Knight Riders | 2 | 48 | 83 | 3 | 10.38 | 27.67 | 16.0 | 39.58 | 29.17 | MEDIUM |
-| Chennai Super Kings | 3 | 51 | 76 | 3 | 8.94 | 25.33 | 17.0 | 25.49 | 21.57 | MEDIUM |
 | Lucknow Super Giants | 2 | 42 | 54 | 1 | 7.71 | 54.0 | 42.0 | 23.81 | 9.52 | MEDIUM |
 
 ### Mohammed Shami
@@ -503,11 +507,11 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 3 | 66 | 76 | 7 | 6.91 | 10.86 | 9.43 | 60.61 | 18.18 | MEDIUM |
 | Kolkata Knight Riders | 3 | 72 | 94 | 5 | 7.83 | 18.8 | 14.4 | 43.06 | 16.67 | MEDIUM |
-| Chennai Super Kings | 4 | 85 | 115 | 5 | 8.12 | 23.0 | 17.0 | 38.82 | 18.82 | MEDIUM |
 | Rajasthan Royals | 3 | 66 | 82 | 5 | 7.45 | 16.4 | 13.2 | 57.58 | 19.7 | MEDIUM |
+| Chennai Super Kings | 4 | 85 | 115 | 5 | 8.12 | 23.0 | 17.0 | 38.82 | 18.82 | MEDIUM |
 | Gujarat Titans | 2 | 42 | 74 | 2 | 10.57 | 37.0 | 21.0 | 28.57 | 30.95 | MEDIUM |
-| Lucknow Super Giants | 3 | 60 | 90 | 2 | 9.0 | 45.0 | 30.0 | 31.67 | 21.67 | MEDIUM |
 | Mumbai Indians | 4 | 84 | 142 | 2 | 10.14 | 71.0 | 42.0 | 39.29 | 26.19 | MEDIUM |
+| Lucknow Super Giants | 3 | 60 | 90 | 2 | 9.0 | 45.0 | 30.0 | 31.67 | 21.67 | MEDIUM |
 | Punjab Kings | 2 | 48 | 118 | 1 | 14.75 | 118.0 | 48.0 | 25.0 | 43.75 | MEDIUM |
 
 ---
@@ -530,8 +534,8 @@
 | N Pooran | Eden Gardens, Kolkata | 3 | 190 | 98 | 193.88 | 95.0 | 30.61 | MEDIUM |
 | N Pooran | Rajiv Gandhi International Stadium,... | 3 | 162 | 65 | 249.23 | 162.0 | 40.0 | MEDIUM |
 | N Pooran | Sawai Mansingh Stadium, Jaipur | 3 | 104 | 69 | 150.72 | 104.0 | 18.84 | MEDIUM |
-| N Pooran | M Chinnaswamy Stadium, Bengaluru | 2 | 102 | 40 | 255.0 | 102.0 | 42.5 | MEDIUM |
 | N Pooran | Wankhede Stadium, Mumbai | 2 | 102 | 44 | 231.82 | 51.0 | 38.64 | MEDIUM |
+| N Pooran | M Chinnaswamy Stadium, Bengaluru | 2 | 102 | 40 | 255.0 | 102.0 | 42.5 | MEDIUM |
 | RR Pant | Bharat Ratna Shri Atal Bihari Vajpa... | 8 | 254 | 171 | 148.54 | 36.29 | 22.22 | HIGH |
 | RR Pant | Arun Jaitley Stadium, Delhi | 5 | 209 | 133 | 157.14 | 52.25 | 21.8 | HIGH |
 | RR Pant | Dr. Y.S. Rajasekhara Reddy ACA-VDCA... | 3 | 106 | 63 | 168.25 | 35.33 | 25.4 | MEDIUM |
@@ -618,9 +622,9 @@
 | **RR Pant** | 184 | 126 | 27.8 | 15.2 | Pace Dominant |
 | **Abdul Samad** | 182 | 121 | 26.1 | 12.9 | Pace Dominant |
 | **Shahbaz Ahmed** | 140 | 105 | 15.2 | 7.3 | Pace Dominant |
-| **JP Inglis** | 182 | 150 | 29.9 | 16.7 | Pace Dominant |
+| **JP Inglis** | 192 | 150 | 31.5 | 16.7 | Pace Dominant |
 
-*Exploitable vs spin: **Shahbaz Ahmed** (105 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **N Pooran** (189 SR), **A Badoni** (173 SR), **MR Marsh** (170 SR), **RR Pant** (184 SR), **Abdul Samad** (182 SR), **JP Inglis** (182 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+*Exploitable vs spin: **Shahbaz Ahmed** (105 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **N Pooran** (189 SR), **A Badoni** (173 SR), **MR Marsh** (170 SR), **RR Pant** (184 SR), **Abdul Samad** (182 SR), **JP Inglis** (192 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
 
 ### 10.3 Pace Attack Intelligence
 
@@ -628,6 +632,7 @@
 |--------|---------|----------|------------|------------|----------|
 | **A Nortje** | 9.5 | 8.4 | 12.1 | Middle | 0.26 |
 | **MR Marsh** | 7.2 | 8.6 | 12.8 | PP | 0.46 |
+| **MP Yadav** | 12 | 7.7 | 7.0 | Death | 0.45 |
 | **Akash Singh** | 9.2 | 10.1 | 10 | PP | 0.30 |
 
 ***Akash Singh** is the designated death option at 10.0 economy (league avg 10.9). **Akash Singh** should lead the powerplay attack (9.2 economy).*
@@ -827,7 +832,7 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 *Players with zero IPL 2023+ appearances — T20 career data from other tournaments*
 
-**2 uncapped player(s) in squad**
+**1 uncapped player(s) in squad**
 
 ### 12.1 T20 Batting Profile
 
@@ -837,9 +842,8 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 ### 12.2 T20 Bowling Profile
 
-| Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
-|--------|------|-------------|----------|----------|---------|------------|-------|-------------|
-| Mayank Yadav | Fast | 3 | 2 | 6.3 | 9.5 | LOW | - | - |
+*No uncapped players with meaningful T20 bowling data (3+ matches)*
+
 
 
 
@@ -874,6 +878,7 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | Akash Singh | Bowler | 181 | 8.9 | 25.3 | 2 | 337 | 53 | IPL (0.87, Econ 9.5); SMAT (0.65, Econ 7.9) |
 | Arjun Tendulkar | All-rounder | 73 | 7.7 | 16.1 | 2 | 223 | 32 | SMAT (0.65, Econ 7.2); IPL (0.87, Econ 8.5) |
 | Manimaran Siddharth | Bowler | 97 | 6.5 | 12.6 | 2 | 205 | 31 | SMAT (0.65, Econ 4.7); IPL (0.87, Econ 8.0) |
+| Mayank Yadav | Bowler | 121 | 8.5 | 13.2 | 2 | 175 | 28 | IPL (0.87, Econ 8.9); SMAT (0.65, Econ 7.4) |
 | Abdul Samad | All-rounder | 2 | 10.2 | 36.6 | 2 | 116 | 18 | SMAT (0.65, Econ 7.7); IPL (0.87, Econ 12.2) |
 | Ayush Badoni | All-rounder | 23 | 9.4 | 12.1 | 2 | 77 | 12 | SMAT (0.65, Econ 10.4); IPL (0.87, Econ 8.6) |
 

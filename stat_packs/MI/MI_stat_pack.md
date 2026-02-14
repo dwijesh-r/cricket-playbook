@@ -1,6 +1,6 @@
 # Mumbai Indians (MI) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-14 17:15
+**Generated:** 2026-02-14 18:41
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -253,11 +253,11 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Narendra Modi Stadium | 5 | 0 | 0.0% | 169.6 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 0 | 0.0% | 169.0 |
-| MA Chidambaram Stadium | 3 | 1 | 33.3% | 158.7 |
-| Sawai Mansingh Stadium | 3 | 1 | 33.3% | 193.3 |
 | Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 194.7 |
+| Sawai Mansingh Stadium | 3 | 1 | 33.3% | 193.3 |
 | Arun Jaitley Stadium | 3 | 2 | 66.7% | 208.3 |
+| MA Chidambaram Stadium | 3 | 1 | 33.3% | 158.7 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 0 | 0.0% | 169.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -498,8 +498,8 @@
 | Lucknow Super Giants | 5 | 114 | 137 | 8 | 7.21 | 17.13 | 14.25 | 48.25 | 18.42 | HIGH |
 | Mumbai Indians | 3 | 72 | 94 | 6 | 7.83 | 15.67 | 12.0 | 40.28 | 18.06 | MEDIUM |
 | Gujarat Titans | 6 | 126 | 191 | 6 | 9.1 | 31.83 | 21.0 | 34.92 | 20.63 | HIGH |
-| Royal Challengers Bengaluru | 4 | 90 | 139 | 5 | 9.27 | 27.8 | 18.0 | 35.56 | 23.33 | MEDIUM |
 | Delhi Capitals | 5 | 102 | 151 | 5 | 8.88 | 30.2 | 20.4 | 39.22 | 25.49 | HIGH |
+| Royal Challengers Bengaluru | 4 | 90 | 139 | 5 | 9.27 | 27.8 | 18.0 | 35.56 | 23.33 | MEDIUM |
 | Kolkata Knight Riders | 3 | 66 | 70 | 4 | 6.36 | 17.5 | 16.5 | 56.06 | 13.64 | MEDIUM |
 | Punjab Kings | 6 | 135 | 190 | 4 | 8.44 | 47.5 | 33.75 | 39.26 | 22.22 | HIGH |
 | Chennai Super Kings | 3 | 56 | 92 | 0 | 9.86 | - | - | 28.57 | 21.43 | MEDIUM |
@@ -512,11 +512,11 @@
 | Gujarat Titans | 3 | 72 | 60 | 6 | 5.0 | 10.0 | 12.0 | 52.78 | 8.33 | MEDIUM |
 | Kolkata Knight Riders | 2 | 47 | 58 | 5 | 7.4 | 11.6 | 9.4 | 51.06 | 19.15 | MEDIUM |
 | Royal Challengers Bengaluru | 2 | 48 | 51 | 5 | 6.38 | 10.2 | 9.6 | 35.42 | 8.33 | MEDIUM |
-| Lucknow Super Giants | 2 | 48 | 38 | 4 | 4.75 | 9.5 | 12.0 | 62.5 | 8.33 | MEDIUM |
 | Punjab Kings | 3 | 72 | 83 | 4 | 6.92 | 20.75 | 18.0 | 45.83 | 15.28 | MEDIUM |
+| Lucknow Super Giants | 2 | 48 | 38 | 4 | 4.75 | 9.5 | 12.0 | 62.5 | 8.33 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 96 | 114 | 3 | 7.13 | 38.0 | 32.0 | 30.21 | 11.46 | MEDIUM |
-| Rajasthan Royals | 3 | 72 | 71 | 2 | 5.92 | 35.5 | 36.0 | 54.17 | 15.28 | MEDIUM |
 | Chennai Super Kings | 2 | 48 | 49 | 2 | 6.13 | 24.5 | 24.0 | 35.42 | 10.42 | MEDIUM |
+| Rajasthan Royals | 3 | 72 | 71 | 2 | 5.92 | 35.5 | 36.0 | 54.17 | 15.28 | MEDIUM |
 
 ---
 
@@ -620,15 +620,15 @@
 | Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
 |--------|-----------|-----------|-----------|-----------|----------|
 | **SA Yadav** | 188 | 160 | 29.8 | 23.2 | Pace Dominant |
-| **RG Sharma** | 160 | 142 | 26.9 | 21.9 | Pace Dominant |
+| **RG Sharma** | 161 | 142 | 27.1 | 21.9 | Pace Dominant |
 | **Tilak Varma** | 152 | 137 | 20.2 | 16.1 | Balanced |
-| **HH Pandya** | 156 | 173 | 19.8 | 22.6 | Spin Dominant |
+| **HH Pandya** | 156 | 173 | 19.7 | 22.6 | Spin Dominant |
 | **Q de Kock** | 132 | 130 | 18.6 | 14 | Balanced |
-| **WG Jacks** | 186 | 117 | 30.2 | 13.7 | Pace Dominant |
-| **RD Rickelton** | 167 | 153 | 28.6 | 24.1 | Balanced |
-| **Naman Dhir** | 213 | 155 | 32.4 | 22.6 | Pace Dominant |
+| **WG Jacks** | 190 | 117 | 31 | 13.7 | Pace Dominant |
+| **RD Rickelton** | 162 | 153 | 27.9 | 24.1 | Balanced |
+| **Naman Dhir** | 204 | 155 | 30.7 | 22.6 | Pace Dominant |
 
-*Exploitable vs spin: **WG Jacks** (117 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **SA Yadav** (188 SR), **RG Sharma** (160 SR), **WG Jacks** (186 SR), **RD Rickelton** (167 SR), **Naman Dhir** (213 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+*Exploitable vs spin: **WG Jacks** (117 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **SA Yadav** (188 SR), **RG Sharma** (161 SR), **WG Jacks** (190 SR), **RD Rickelton** (162 SR), **Naman Dhir** (204 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
 
 ### 10.3 Pace Attack Intelligence
 

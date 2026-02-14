@@ -1,7 +1,7 @@
 {
   "team": "LSG",
   "team_name": "Lucknow Super Giants",
-  "overall_rating": 6.5,
+  "overall_rating": 6.6,
   "strongest_position": "#3 Batter",
   "weakest_position": "Left-arm Wrist Spin",
   "vulnerabilities": [
@@ -239,10 +239,10 @@
     },
     "right_arm_pace": {
       "name": "Right-arm Pace",
-      "rating": 8.1,
+      "rating": 8.5,
       "what_works": "Elite #1 in mohammed shami. quality backup in avesh khan",
       "what_doesnt": "Minimal concerns",
-      "overseas_count": 1,
+      "overseas_count": 0,
       "players": [
         {
           "rank": 1,
@@ -270,12 +270,12 @@
         },
         {
           "rank": 3,
-          "name": "Mitchell Marsh",
-          "player_id": "3d8feaf8",
-          "score": 41.0,
-          "rationale": "Founder XII. Lead pacer",
-          "is_overseas": true,
-          "price_cr": 3.4,
+          "name": "Mayank Yadav",
+          "player_id": "b1ad996b",
+          "score": 62.8,
+          "rationale": "Founder XII. Elite death eco (7.6)",
+          "is_overseas": false,
+          "price_cr": 11.0,
           "bowling_type": "Fast",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
@@ -448,13 +448,25 @@
     },
     "middle_overs_specialist": {
       "name": "Middle Overs Specialist",
-      "rating": 7.3,
-      "what_works": "Strong #1 with digvesh rathi. quality backup in avesh khan",
-      "what_doesnt": "Room for improvement at the top",
-      "overseas_count": 1,
+      "rating": 8.2,
+      "what_works": "Elite #1 in mayank yadav. quality backup in digvesh rathi",
+      "what_doesnt": "Minimal concerns",
+      "overseas_count": 0,
       "players": [
         {
           "rank": 1,
+          "name": "Mayank Yadav",
+          "player_id": "b1ad996b",
+          "score": 80.4,
+          "rationale": "Founder XII. Middle overs specialist",
+          "is_overseas": false,
+          "price_cr": 11.0,
+          "bowling_type": "Fast",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
           "name": "Digvesh Rathi",
           "player_id": "13fc5c6d",
           "score": 66.0,
@@ -466,7 +478,7 @@
           "secondary_positions": []
         },
         {
-          "rank": 2,
+          "rank": 3,
           "name": "Avesh Khan",
           "player_id": "eef2536f",
           "score": 60.4,
@@ -474,18 +486,6 @@
           "is_overseas": false,
           "price_cr": 9.75,
           "bowling_type": "Fast-Medium",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
-          "name": "Mitchell Marsh",
-          "player_id": "3d8feaf8",
-          "score": 60.0,
-          "rationale": "Founder XII. Middle wkt-taker (SR 14.2)",
-          "is_overseas": true,
-          "price_cr": 3.4,
-          "bowling_type": "Fast",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         }

@@ -1,0 +1,452 @@
+{
+  "timestamp": "2026-02-13T18:50:25.330862",
+  "timestamp_label": "20260213_185025",
+  "project_dir": "/Users/dwijeshreddy/cricket-playbook",
+  "files_count": 24,
+  "teams_found": [
+    "CSK",
+    "DC",
+    "GT",
+    "KKR",
+    "LSG",
+    "MI",
+    "PBKS",
+    "RCB",
+    "RR",
+    "SRH"
+  ],
+  "teams_missing": [],
+  "files": {
+    "outputs/depth_charts/csk_depth_chart.json": {
+      "relative_path": "outputs/depth_charts/csk_depth_chart.json",
+      "file_size": 17105,
+      "md5_hash": "bd7acec89269b4e08c41a2d747b898bb",
+      "top_level_key_count": 7,
+      "top_level_keys": [
+        "overall_rating",
+        "positions",
+        "strongest_position",
+        "team",
+        "team_name",
+        "vulnerabilities",
+        "weakest_position"
+      ],
+      "extracted_stats": {
+        "team": "CSK",
+        "position_count": 13,
+        "overall_rating": 7.0
+      }
+    },
+    "outputs/depth_charts/dc_depth_chart.json": {
+      "relative_path": "outputs/depth_charts/dc_depth_chart.json",
+      "file_size": 16531,
+      "md5_hash": "b4d9e6dabfd8cbd566b487fa0809497f",
+      "top_level_key_count": 7,
+      "top_level_keys": [
+        "overall_rating",
+        "positions",
+        "strongest_position",
+        "team",
+        "team_name",
+        "vulnerabilities",
+        "weakest_position"
+      ],
+      "extracted_stats": {
+        "team": "DC",
+        "position_count": 13,
+        "overall_rating": 8.1
+      }
+    },
+    "outputs/depth_charts/depth_charts_2026.json": {
+      "relative_path": "outputs/depth_charts/depth_charts_2026.json",
+      "file_size": 191936,
+      "md5_hash": "41b7a04bb27434144926734caf0c54eb",
+      "top_level_key_count": 5,
+      "top_level_keys": [
+        "cross_team_comparison",
+        "generated_at",
+        "methodology",
+        "teams",
+        "version"
+      ],
+      "extracted_stats": {}
+    },
+    "outputs/depth_charts/gt_depth_chart.json": {
+      "relative_path": "outputs/depth_charts/gt_depth_chart.json",
+      "file_size": 16741,
+      "md5_hash": "76395a6ef2f24dcb64cb01e8c88b52b6",
+      "top_level_key_count": 7,
+      "top_level_keys": [
+        "overall_rating",
+        "positions",
+        "strongest_position",
+        "team",
+        "team_name",
+        "vulnerabilities",
+        "weakest_position"
+      ],
+      "extracted_stats": {
+        "team": "GT",
+        "position_count": 13,
+        "overall_rating": 7.6
+      }
+    },
+    "outputs/depth_charts/kkr_depth_chart.json": {
+      "relative_path": "outputs/depth_charts/kkr_depth_chart.json",
+      "file_size": 15838,
+      "md5_hash": "68a63e908c534057cf0e78c6b010e4ba",
+      "top_level_key_count": 7,
+      "top_level_keys": [
+        "overall_rating",
+        "positions",
+        "strongest_position",
+        "team",
+        "team_name",
+        "vulnerabilities",
+        "weakest_position"
+      ],
+      "extracted_stats": {
+        "team": "KKR",
+        "position_count": 13,
+        "overall_rating": 6.7
+      }
+    },
+    "outputs/depth_charts/lsg_depth_chart.json": {
+      "relative_path": "outputs/depth_charts/lsg_depth_chart.json",
+      "file_size": 17022,
+      "md5_hash": "ce6fb785437872d231f7a02548dec8db",
+      "top_level_key_count": 7,
+      "top_level_keys": [
+        "overall_rating",
+        "positions",
+        "strongest_position",
+        "team",
+        "team_name",
+        "vulnerabilities",
+        "weakest_position"
+      ],
+      "extracted_stats": {
+        "team": "LSG",
+        "position_count": 13,
+        "overall_rating": 7.1
+      }
+    },
+    "outputs/depth_charts/mi_depth_chart.json": {
+      "relative_path": "outputs/depth_charts/mi_depth_chart.json",
+      "file_size": 17102,
+      "md5_hash": "2511c5b4c199319211de24c0cdb63c1b",
+      "top_level_key_count": 7,
+      "top_level_keys": [
+        "overall_rating",
+        "positions",
+        "strongest_position",
+        "team",
+        "team_name",
+        "vulnerabilities",
+        "weakest_position"
+      ],
+      "extracted_stats": {
+        "team": "MI",
+        "position_count": 13,
+        "overall_rating": 7.8
+      }
+    },
+    "outputs/depth_charts/pbks_depth_chart.json": {
+      "relative_path": "outputs/depth_charts/pbks_depth_chart.json",
+      "file_size": 16355,
+      "md5_hash": "672507aa3e4f800f6865b1e192d32aaa",
+      "top_level_key_count": 7,
+      "top_level_keys": [
+        "overall_rating",
+        "positions",
+        "strongest_position",
+        "team",
+        "team_name",
+        "vulnerabilities",
+        "weakest_position"
+      ],
+      "extracted_stats": {
+        "team": "PBKS",
+        "position_count": 13,
+        "overall_rating": 7.6
+      }
+    },
+    "outputs/depth_charts/rcb_depth_chart.json": {
+      "relative_path": "outputs/depth_charts/rcb_depth_chart.json",
+      "file_size": 16590,
+      "md5_hash": "8fb35dea382007632ad5304839f5aae5",
+      "top_level_key_count": 7,
+      "top_level_keys": [
+        "overall_rating",
+        "positions",
+        "strongest_position",
+        "team",
+        "team_name",
+        "vulnerabilities",
+        "weakest_position"
+      ],
+      "extracted_stats": {
+        "team": "RCB",
+        "position_count": 13,
+        "overall_rating": 7.5
+      }
+    },
+    "outputs/depth_charts/rr_depth_chart.json": {
+      "relative_path": "outputs/depth_charts/rr_depth_chart.json",
+      "file_size": 16917,
+      "md5_hash": "e2ae9198d9aacc81a0bb9a3040a9ccf3",
+      "top_level_key_count": 7,
+      "top_level_keys": [
+        "overall_rating",
+        "positions",
+        "strongest_position",
+        "team",
+        "team_name",
+        "vulnerabilities",
+        "weakest_position"
+      ],
+      "extracted_stats": {
+        "team": "RR",
+        "position_count": 13,
+        "overall_rating": 8.0
+      }
+    },
+    "outputs/depth_charts/srh_depth_chart.json": {
+      "relative_path": "outputs/depth_charts/srh_depth_chart.json",
+      "file_size": 16749,
+      "md5_hash": "d73fdaab0f071b35f4d986d379818ef6",
+      "top_level_key_count": 7,
+      "top_level_keys": [
+        "overall_rating",
+        "positions",
+        "strongest_position",
+        "team",
+        "team_name",
+        "vulnerabilities",
+        "weakest_position"
+      ],
+      "extracted_stats": {
+        "team": "SRH",
+        "position_count": 13,
+        "overall_rating": 7.9
+      }
+    },
+    "outputs/player_profiles/by_team/CSK_profiles.json": {
+      "relative_path": "outputs/player_profiles/by_team/CSK_profiles.json",
+      "file_size": 87628,
+      "md5_hash": "106082df3ebfe3705ad28b1030dda263",
+      "top_level_key_count": 5,
+      "top_level_keys": [
+        "generated_at",
+        "players",
+        "team",
+        "total_players",
+        "version"
+      ],
+      "extracted_stats": {
+        "team": "CSK",
+        "player_count": 25
+      }
+    },
+    "outputs/player_profiles/by_team/DC_profiles.json": {
+      "relative_path": "outputs/player_profiles/by_team/DC_profiles.json",
+      "file_size": 96509,
+      "md5_hash": "5466ce299fb5a260415abd91f81bbd9f",
+      "top_level_key_count": 5,
+      "top_level_keys": [
+        "generated_at",
+        "players",
+        "team",
+        "total_players",
+        "version"
+      ],
+      "extracted_stats": {
+        "team": "DC",
+        "player_count": 25
+      }
+    },
+    "outputs/player_profiles/by_team/GT_profiles.json": {
+      "relative_path": "outputs/player_profiles/by_team/GT_profiles.json",
+      "file_size": 92132,
+      "md5_hash": "3c0f362ee8ff4c95805400ca36fbd6ae",
+      "top_level_key_count": 5,
+      "top_level_keys": [
+        "generated_at",
+        "players",
+        "team",
+        "total_players",
+        "version"
+      ],
+      "extracted_stats": {
+        "team": "GT",
+        "player_count": 20
+      }
+    },
+    "outputs/player_profiles/by_team/KKR_profiles.json": {
+      "relative_path": "outputs/player_profiles/by_team/KKR_profiles.json",
+      "file_size": 94538,
+      "md5_hash": "45a52586db9eeca6625ac0939c46ee62",
+      "top_level_key_count": 5,
+      "top_level_keys": [
+        "generated_at",
+        "players",
+        "team",
+        "total_players",
+        "version"
+      ],
+      "extracted_stats": {
+        "team": "KKR",
+        "player_count": 24
+      }
+    },
+    "outputs/player_profiles/by_team/LSG_profiles.json": {
+      "relative_path": "outputs/player_profiles/by_team/LSG_profiles.json",
+      "file_size": 88832,
+      "md5_hash": "05ec8de50d8a96d8261f18558ea9f3da",
+      "top_level_key_count": 5,
+      "top_level_keys": [
+        "generated_at",
+        "players",
+        "team",
+        "total_players",
+        "version"
+      ],
+      "extracted_stats": {
+        "team": "LSG",
+        "player_count": 20
+      }
+    },
+    "outputs/player_profiles/by_team/MI_profiles.json": {
+      "relative_path": "outputs/player_profiles/by_team/MI_profiles.json",
+      "file_size": 97787,
+      "md5_hash": "9e4e5a7f4ae54b1ae24d07c59abde031",
+      "top_level_key_count": 5,
+      "top_level_keys": [
+        "generated_at",
+        "players",
+        "team",
+        "total_players",
+        "version"
+      ],
+      "extracted_stats": {
+        "team": "MI",
+        "player_count": 24
+      }
+    },
+    "outputs/player_profiles/by_team/PBKS_profiles.json": {
+      "relative_path": "outputs/player_profiles/by_team/PBKS_profiles.json",
+      "file_size": 90817,
+      "md5_hash": "bc43c963d3890c4d42c2a7b104f7deb6",
+      "top_level_key_count": 5,
+      "top_level_keys": [
+        "generated_at",
+        "players",
+        "team",
+        "total_players",
+        "version"
+      ],
+      "extracted_stats": {
+        "team": "PBKS",
+        "player_count": 22
+      }
+    },
+    "outputs/player_profiles/by_team/RCB_profiles.json": {
+      "relative_path": "outputs/player_profiles/by_team/RCB_profiles.json",
+      "file_size": 81709,
+      "md5_hash": "ce78a968247cd416dd6fb0b60e75a536",
+      "top_level_key_count": 5,
+      "top_level_keys": [
+        "generated_at",
+        "players",
+        "team",
+        "total_players",
+        "version"
+      ],
+      "extracted_stats": {
+        "team": "RCB",
+        "player_count": 21
+      }
+    },
+    "outputs/player_profiles/by_team/RR_profiles.json": {
+      "relative_path": "outputs/player_profiles/by_team/RR_profiles.json",
+      "file_size": 87208,
+      "md5_hash": "1c2da63508cc94b8722171ca1b6ccffe",
+      "top_level_key_count": 5,
+      "top_level_keys": [
+        "generated_at",
+        "players",
+        "team",
+        "total_players",
+        "version"
+      ],
+      "extracted_stats": {
+        "team": "RR",
+        "player_count": 25
+      }
+    },
+    "outputs/player_profiles/by_team/SRH_profiles.json": {
+      "relative_path": "outputs/player_profiles/by_team/SRH_profiles.json",
+      "file_size": 82268,
+      "md5_hash": "740180056bafec1ff18727b78b6a5a0a",
+      "top_level_key_count": 5,
+      "top_level_keys": [
+        "generated_at",
+        "players",
+        "team",
+        "total_players",
+        "version"
+      ],
+      "extracted_stats": {
+        "team": "SRH",
+        "player_count": 25
+      }
+    },
+    "outputs/tags/cluster_explanations.json": {
+      "relative_path": "outputs/tags/cluster_explanations.json",
+      "file_size": 8069,
+      "md5_hash": "485fbd098e0634d529d42efe2ac835ea",
+      "top_level_key_count": 5,
+      "top_level_keys": [
+        "batter_clusters",
+        "bowler_clusters",
+        "generated_at",
+        "model_version",
+        "ticket"
+      ],
+      "extracted_stats": {
+        "batter_cluster_count": 4,
+        "bowler_cluster_count": 4
+      }
+    },
+    "outputs/tags/player_tags.json": {
+      "relative_path": "outputs/tags/player_tags.json",
+      "file_size": 124186,
+      "md5_hash": "336f26c0e6884b1d0021a34c7b60e6bb",
+      "top_level_key_count": 3,
+      "top_level_keys": [
+        "batters",
+        "bowlers",
+        "tag_definitions"
+      ],
+      "extracted_stats": {
+        "batter_count": 193,
+        "bowler_count": 286
+      }
+    },
+    "outputs/tags/player_tags_2023.json": {
+      "relative_path": "outputs/tags/player_tags_2023.json",
+      "file_size": 42017,
+      "md5_hash": "09c2c1a364679dee1bc257ce730979fd",
+      "top_level_key_count": 3,
+      "top_level_keys": [
+        "batters",
+        "bowlers",
+        "metadata"
+      ],
+      "extracted_stats": {
+        "batter_count": 110,
+        "bowler_count": 139
+      }
+    }
+  }
+}

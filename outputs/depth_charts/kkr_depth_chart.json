@@ -1,7 +1,7 @@
 {
   "team": "KKR",
   "team_name": "Kolkata Knight Riders",
-  "overall_rating": 6.3,
+  "overall_rating": 6.5,
   "strongest_position": "#3 Batter",
   "weakest_position": "Left-arm Pace",
   "vulnerabilities": [
@@ -45,12 +45,12 @@
         },
         {
           "rank": 3,
-          "name": "Ajinkya Rahane",
-          "player_id": "29e95537",
-          "score": 55.2,
+          "name": "Angkrish Raghuvanshi",
+          "player_id": "d7017798",
+          "score": 56.4,
           "rationale": "Founder XII. PP Dominator. Elite top-order",
           "is_overseas": false,
-          "price_cr": 1.5,
+          "price_cr": 3.0,
           "bowling_type": "Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
@@ -90,12 +90,12 @@
         },
         {
           "rank": 3,
-          "name": "Ajinkya Rahane",
-          "player_id": "29e95537",
-          "score": 66.8,
+          "name": "Angkrish Raghuvanshi",
+          "player_id": "d7017798",
+          "score": 81.5,
           "rationale": "Founder XII. Elite top-order. Strong in PP",
           "is_overseas": false,
-          "price_cr": 1.5,
+          "price_cr": 3.0,
           "bowling_type": "Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
@@ -104,7 +104,7 @@
     },
     "middle_order": {
       "name": "Middle Order #4-5",
-      "rating": 7.8,
+      "rating": 7.9,
       "what_works": "Strong #1 with cameron green. quality backup in rinku singh",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
@@ -135,12 +135,12 @@
         },
         {
           "rank": 3,
-          "name": "Manish Pandey",
-          "player_id": "93b4fc78",
-          "score": 52.6,
-          "rationale": "Middle overs anchor",
+          "name": "Angkrish Raghuvanshi",
+          "player_id": "d7017798",
+          "score": 59.2,
+          "rationale": "Founder XII. Middle order batter",
           "is_overseas": false,
-          "price_cr": 0.75,
+          "price_cr": 3.0,
           "bowling_type": "Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
@@ -149,9 +149,9 @@
     },
     "finisher": {
       "name": "Finisher #6-7",
-      "rating": 6.8,
-      "what_works": "Elite #1 in rinku singh. cameron green as backup",
-      "what_doesnt": "Big gap between #1 and #2",
+      "rating": 9.2,
+      "what_works": "Elite #1 in rinku singh. quality backup in ramandeep singh",
+      "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
       "players": [
         {
@@ -168,6 +168,18 @@
         },
         {
           "rank": 2,
+          "name": "Ramandeep Singh",
+          "player_id": "be24ead0",
+          "score": 78.0,
+          "rationale": "Founder XII. Death specialist. Six-hitting ability",
+          "is_overseas": false,
+          "price_cr": 4.0,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
           "name": "Cameron Green",
           "player_id": "eaa76d3c",
           "score": 43.9,
@@ -175,18 +187,6 @@
           "is_overseas": true,
           "price_cr": 25.2,
           "bowling_type": "Fast",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
-          "name": "Varun Chakravarthy",
-          "player_id": "5b7ab5a9",
-          "score": 26.5,
-          "rationale": "Founder XII. Bowling utility",
-          "is_overseas": false,
-          "price_cr": 12.0,
-          "bowling_type": "Off-spin",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
@@ -444,7 +444,7 @@
     },
     "allrounder_batting": {
       "name": "Allrounder (Batting)",
-      "rating": 7.3,
+      "rating": 7.6,
       "what_works": "Strong #1 with cameron green. quality backup in sunil narine",
       "what_doesnt": "Overseas mix (2 of 3)",
       "overseas_count": 2,
@@ -475,14 +475,14 @@
         },
         {
           "rank": 3,
-          "name": "Anukul Roy",
-          "player_id": "e4cdf230",
-          "score": 45.8,
-          "rationale": "Founder XII. Bowls 4 overs",
+          "name": "Ramandeep Singh",
+          "player_id": "be24ead0",
+          "score": 58.4,
+          "rationale": "Founder XII. Strong finisher (68)",
           "is_overseas": false,
-          "price_cr": 0.4,
-          "bowling_type": "LA Orthodox",
-          "bowling_arm": "Left-arm",
+          "price_cr": 4.0,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
       ]

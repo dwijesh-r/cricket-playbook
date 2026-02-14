@@ -1,13 +1,30 @@
 {
   "id": "TKT-254",
   "title": "Season Preview sample + editorial plan (Founder gate)",
-  "state": "BACKLOG",
+  "state": "DONE",
   "priority": "P0",
+  "size": "L",
+  "progress_pct": 100,
   "epic_id": "EPIC-025",
   "sprint_id": "SPRINT-002",
+  "owner": "Virat Kohli",
   "assignee": "Virat Kohli",
+  "reviewer": "Tom Brady",
   "effort": "Deep Work",
   "description": "Create a sample team preview (1 team) in Lindy's/Phil Steele format plus a detailed editorial plan for all 10 teams. Sample should be 2-3 pages of narrative prose covering: team outlook, key storylines, strength/weakness breakdown, players to watch with statistical context, bold take. Plan should cover: format template, tone guide, section structure, production timeline, Andy Flower collaboration model. Founder approval required before proceeding to full 10-team production.",
+  "tags": ["Editorial", "Season Preview", "Content", "Founder Gate"],
+  "gates": {
+    "florentino_gate": { "status": "APPROVED", "reason": "Core product deliverable — season preview is the magazine.", "date": "2026-02-14" },
+    "build": "PASS",
+    "domain_sanity": "PASS",
+    "enforcement": "PASS",
+    "founder_gate": "PENDING_REVIEW"
+  },
+  "deliverables": [
+    "outputs/season_previews/RCB_season_preview_sample.md (Lindy's-style RCB team preview)",
+    "outputs/season_previews/editorial_plan_v1.md (10-team editorial plan with format template, tone guide, section structure, timeline)"
+  ],
   "created_at": "2026-02-14T14:00:00Z",
-  "updated_at": "2026-02-14T14:00:00Z"
+  "updated_at": "2026-02-14T18:00:00Z",
+  "completed_at": "2026-02-14T17:45:00Z"
 }

@@ -1,6 +1,6 @@
 # Royal Challengers Bengaluru (RCB) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-14 17:15
+**Generated:** 2026-02-14 18:41
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -128,7 +128,7 @@
 
 - **2023:** Mohammed Siraj (19w @ 7.2), HV Patel (14w @ 9.3), KV Sharma (10w @ 10.41)
 - **2024:** Mohammed Siraj (15w @ 8.69), Yash Dayal (15w @ 8.8), C Green (10w @ 8.21)
-- **2025:** JR Hazlewood (22w @ 8.64), B Kumar (17w @ 9.25), KH Pandya (17w @ 8.06)
+- **2025:** JR Hazlewood (22w @ 8.64), KH Pandya (17w @ 8.06), B Kumar (17w @ 9.25)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -241,15 +241,15 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
+| Wankhede Stadium | 3 | 1 | 33.3% | 205.3 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 176.3 |
 | Eden Gardens | 3 | 1 | 33.3% | 173.7 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 181.7 |
-| Wankhede Stadium | 3 | 1 | 33.3% | 205.3 |
 | Narendra Modi Stadium | 3 | 2 | 66.7% | 189.3 |
-| Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 181.7 |
 | MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
-| Arun Jaitley Stadium | 2 | 1 | 50.0% | 173.0 |
 | Rajiv Gandhi International Stadium | 2 | 2 | 100.0% | 196.5 |
+| Arun Jaitley Stadium | 2 | 1 | 50.0% | 173.0 |
+| Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -260,11 +260,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 22.3 | BALANCED |
 | MA Chidambaram Stadium | 24 | 17.7 | 20.1 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.3 | 23.8 | PACE |
-| Wankhede Stadium | 21 | 18.8 | 21.0 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Wankhede Stadium | 21 | 18.8 | 21.0 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.5 | PACE |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.4 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.1 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.8 | 16.8 | BALANCED |
 
@@ -292,8 +292,8 @@
 | KH Pandya | Bharat Ratna Shri Atal Bi | 13 | 12 | 6.84 | 22.0 |
 | JR Hazlewood | M Chinnaswamy Stadium | 4 | 8 | 9.33 | 10.38 |
 | B Kumar | Narendra Modi Stadium | 4 | 7 | 8.47 | 12.86 |
-| Suyash Sharma | Maharaja Yadavindra Singh | 2 | 5 | 5.71 | 8.4 |
 | B Kumar | Arun Jaitley Stadium | 3 | 5 | 8.92 | 14.4 |
+| Suyash Sharma | Maharaja Yadavindra Singh | 2 | 5 | 5.71 | 8.4 |
 | KH Pandya | Wankhede Stadium | 2 | 5 | 8.75 | 9.6 |
 
 
@@ -481,9 +481,9 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 3 | 72 | 80 | 6 | 6.67 | 13.33 | 12.0 | 44.44 | 13.89 | MEDIUM |
-| Punjab Kings | 7 | 102 | 130 | 5 | 7.65 | 26.0 | 20.4 | 38.24 | 15.69 | HIGH |
-| Gujarat Titans | 4 | 90 | 100 | 5 | 6.67 | 20.0 | 18.0 | 36.67 | 11.11 | MEDIUM |
 | Mumbai Indians | 4 | 96 | 139 | 5 | 8.69 | 27.8 | 19.2 | 35.42 | 20.83 | MEDIUM |
+| Gujarat Titans | 4 | 90 | 100 | 5 | 6.67 | 20.0 | 18.0 | 36.67 | 11.11 | MEDIUM |
+| Punjab Kings | 7 | 102 | 130 | 5 | 7.65 | 26.0 | 20.4 | 38.24 | 15.69 | HIGH |
 | Kolkata Knight Riders | 4 | 66 | 93 | 4 | 8.45 | 23.25 | 16.5 | 28.79 | 19.7 | MEDIUM |
 | Chennai Super Kings | 5 | 72 | 104 | 3 | 8.67 | 34.67 | 24.0 | 27.78 | 18.06 | MEDIUM |
 | Rajasthan Royals | 4 | 96 | 102 | 3 | 6.38 | 34.0 | 32.0 | 25.0 | 7.29 | MEDIUM |
@@ -599,8 +599,8 @@
 | **V Kohli** | 164 | 123 | 24.2 | 9.9 | Pace Dominant |
 | **VR Iyer** | 169 | 134 | 26.9 | 15.5 | Pace Dominant |
 | **PD Salt** | 179 | 167 | 30.6 | 26.3 | Balanced |
-| **JM Sharma** | 158 | 163 | 22.7 | 20.5 | Balanced |
-| **RM Patidar** | 135 | 201 | 19.1 | 26.9 | Spin Dominant |
+| **JM Sharma** | 155 | 163 | 22.2 | 20.5 | Balanced |
+| **RM Patidar** | 133 | 201 | 19.1 | 26.9 | Spin Dominant |
 | **D Padikkal** | 158 | 122 | 25.2 | 12.3 | Pace Dominant |
 | **TH David** | 177 | 107 | 24.5 | 9.3 | Pace Dominant |
 | **KH Pandya** | 147 | 99.1 | 17.5 | 9.1 | Pace Dominant |
@@ -638,7 +638,7 @@
 
 #### Pace Vulnerability Risk
 
-- No significant pace vulnerabilities identified — squad handles pace adequately.
+- **RM Patidar** vs Fast: SR 129, Avg 17.8 (110 balls, league avg vs pace ~151)
 
 #### Structural Concerns
 
@@ -859,7 +859,7 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | Jacob Duffy | Bowler | 0 | 8.3 | 17.4 | 2 | 1430 | 38 | SS (0.36, Econ 8.3); 100 (0.50, Econ 9.0) |
 | Swapnil Singh | All-rounder | 102 | 7.3 | 19.6 | 2 | 856 | 69 | SMAT (0.65, Econ 6.8); IPL (0.87, Econ 8.8) |
 | Venkatesh Iyer | All-rounder | 6 | 7.6 | 17.8 | 2 | 543 | 68 | SMAT (0.65, Econ 6.9); IPL (0.87, Econ 10.5) |
-| Tim David | All-rounder | 0 | 8.5 | 34.4 | 8 | 499 | 51 | BBL (0.53, Econ 8.2); Blast (0.50, Econ 9.0); CPL (0.50, Econ 8.0) |
+| Tim David | All-rounder | 0 | 8.5 | 34.4 | 8 | 499 | 51 | BBL (0.53, Econ 8.2); Blast (0.50, Econ 9.0); PSL (0.51, Econ 9.6) |
 | Jacob Bethell | All-rounder | 0 | 7.7 | 16.9 | 3 | 253 | 26 | Blast (0.50, Econ 7.6); BBL (0.53, Econ 6.4); 100 (0.50, Econ 10.2) |
 | Virat Kohli | Batter | 0 | 8.4 | 50.2 | 1 | 251 | 44 | IPL (0.87, Econ 8.4) |
 | Mangesh Yadav | Bowler | 121 | 8.5 | 13.2 | 2 | 175 | 28 | IPL (0.87, Econ 8.9); SMAT (0.65, Econ 7.4) |

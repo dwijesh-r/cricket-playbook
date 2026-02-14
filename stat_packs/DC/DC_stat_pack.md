@@ -1,6 +1,6 @@
 # Delhi Capitals (DC) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-14 17:14
+**Generated:** 2026-02-14 18:41
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -18,7 +18,6 @@
 | Mitchell Starc | Bowler | Fast | Left-hand | 11.75 | Retained | 2024 |
 | T Natarajan | Bowler | Fast | Left-hand | 10.75 | Retained | 2024 |
 | Tristan Stubbs | All-rounder | Off-spin | Right-hand | 10.00 | Retained | 2023 |
-| Auqib Nabi Dar | All-rounder | Fast | Right-hand | 8.40 | Auction | 2026 |
 | Mukesh Kumar | Bowler | Fast | Right-hand | 8.00 | Retained | 2022 |
 | Abhishek Porel | Wicketkeeper | Medium | Left-hand | 4.00 | Retained | 2023 |
 | Ashutosh Sharma | Batter | Off-spin | Right-hand | 3.80 | Retained | 2024 |
@@ -26,20 +25,21 @@
 | David Miller | Batter | Off-spin | Left-hand | 2.00 | Auction | 2026 |
 | Lungi Ngidi | Bowler | Fast-Medium | Right-hand | 1.00 | Auction | 2026 |
 | Sameer Rizvi | Batter | Off-spin | Right-hand | 0.95 | Retained | 2024 |
+| Dushmantha Chameera | Bowler | Fast | Right-hand | 0.75 | Retained | 2024 |
 | Kyle Jamieson | All-rounder | Fast-Medium | Right-hand | 0.75 | Auction | 2026 |
 | Ben Duckett | Wicketkeeper | Medium | Left-hand | 0.75 | Auction | 2026 |
-| Dushmantha Chameera | Bowler | Fast | Right-hand | 0.75 | Retained | 2024 |
-| Karun Nair | Batter | Off-spin | Right-hand | 0.50 | Retained | 2024 |
 | Nitish Rana | All-rounder | Off-spin | Left-hand | 0.50 | Auction | 2026 |
 | Vipraj Nigam | All-rounder | Leg-spin | Right-hand | 0.50 | Retained | 2025 |
+| Karun Nair | Batter | Off-spin | Right-hand | 0.50 | Retained | 2024 |
 | Madhav Tiwari | All-rounder | Fast | Right-hand | 0.40 | Retained | 2025 |
 | Tripurana Vijay | Bowler | Off-spin | Right-hand | 0.30 | Retained | 2025 |
 | Ajay Mandal | All-rounder | LA Orthodox | Left-hand | 0.30 | Retained | 2025 |
 | Prithvi Shaw | Batter | Leg-spin | Right-hand | 0.30 | Auction | 2026 |
 | Sahil Parakh | Batter | Leg-spin | Left-hand | 0.30 | Auction | 2026 |
+| Auqib Nabi | All-rounder | Fast | Right-hand | 0.00 | - | - |
 
 **Total Squad Size:** 25 players
-**Total Spend:** ₹112.95 Cr
+**Total Spend:** ₹104.55 Cr
 
 **Role Breakdown:** All-rounder: 8, Batter: 7, Bowler: 7, Wicketkeeper: 3
 
@@ -273,8 +273,8 @@
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.8 | 21.0 | BALANCED |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.4 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.5 | PACE |
+| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.1 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.8 | 16.8 | BALANCED |
 
@@ -301,8 +301,8 @@
 |--------|-------|---------|------|------|-----|
 | AR Patel | Arun Jaitley Stadium | 16 | 13 | 7.66 | 23.08 |
 | MA Starc | Dr. Y.S. Rajasekhara Redd | 3 | 10 | 9.28 | 6.4 |
-| Kuldeep Yadav | M Chinnaswamy Stadium | 3 | 5 | 7.83 | 14.4 |
 | Kuldeep Yadav | Dr. Y.S. Rajasekhara Redd | 2 | 5 | 5.38 | 9.6 |
+| Kuldeep Yadav | M Chinnaswamy Stadium | 3 | 5 | 7.83 | 14.4 |
 | T Natarajan | Arun Jaitley Stadium | 3 | 5 | 9.18 | 13.2 |
 | Mukesh Kumar | Bharat Ratna Shri Atal Bi | 3 | 5 | 8.83 | 14.4 |
 
@@ -328,11 +328,11 @@
 | Vipraj Nigam | All-rounder | 8 | 142 | 78 | 182.05 | 28.4 | 30.77 | 33.33 | 0 | 0 | LOW |
 | Madhav Tiwari | All-rounder | 1 | 3 | 4 | 75.0 | 3.0 | - | 50.0 | 0 | 0 | LOW |
 | Kyle Jamieson | All-rounder | 2 | 0 | 5 | - | - | - | 100.0 | 0 | 0 | LOW |
-| Auqib Nabi Dar | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Pathum Nissanka | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Ben Duckett | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Ajay Mandal | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Sahil Parakh | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
+| Auqib Nabi | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
 ### 5.2 Phase-wise Batting (Qualified players)
 
@@ -439,8 +439,8 @@
 | Royal Challengers Bengaluru | 5 | 116 | 80 | 145.0 | 29.0 | 20.0 | 33.75 | 4 | MEDIUM |
 | Lucknow Super Giants | 4 | 86 | 52 | 165.38 | 43.0 | 25.0 | 34.62 | 2 | MEDIUM |
 | Mumbai Indians | 4 | 76 | 43 | 176.74 | 25.33 | 27.91 | 30.23 | 3 | MEDIUM |
-| Kolkata Knight Riders | 4 | 75 | 66 | 113.64 | 25.0 | 15.15 | 45.45 | 3 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 75 | 63 | 119.05 | 25.0 | 12.7 | 34.92 | 3 | MEDIUM |
+| Kolkata Knight Riders | 4 | 75 | 66 | 113.64 | 25.0 | 15.15 | 45.45 | 3 | MEDIUM |
 | Rajasthan Royals | 4 | 66 | 43 | 153.49 | 22.0 | 20.93 | 27.91 | 3 | MEDIUM |
 | Chennai Super Kings | 4 | 64 | 42 | 152.38 | 21.33 | 19.05 | 23.81 | 3 | MEDIUM |
 
@@ -490,13 +490,13 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 4 | 90 | 124 | 8 | 8.27 | 15.5 | 11.25 | 34.44 | 14.44 | MEDIUM |
 | Lucknow Super Giants | 5 | 120 | 142 | 7 | 7.1 | 20.29 | 17.14 | 35.0 | 10.83 | HIGH |
+| Rajasthan Royals | 4 | 96 | 127 | 5 | 7.94 | 25.4 | 19.2 | 31.25 | 13.54 | MEDIUM |
 | Royal Challengers Bengaluru | 5 | 120 | 159 | 5 | 7.95 | 31.8 | 24.0 | 31.67 | 13.33 | HIGH |
 | Punjab Kings | 5 | 102 | 138 | 5 | 8.12 | 27.6 | 20.4 | 26.47 | 13.73 | HIGH |
-| Rajasthan Royals | 4 | 96 | 127 | 5 | 7.94 | 25.4 | 19.2 | 31.25 | 13.54 | MEDIUM |
 | Gujarat Titans | 6 | 138 | 144 | 4 | 6.26 | 36.0 | 34.5 | 29.71 | 7.25 | HIGH |
 | Mumbai Indians | 4 | 78 | 113 | 3 | 8.69 | 37.67 | 26.0 | 30.77 | 19.23 | MEDIUM |
-| Kolkata Knight Riders | 3 | 60 | 75 | 2 | 7.5 | 37.5 | 30.0 | 40.0 | 15.0 | MEDIUM |
 | Chennai Super Kings | 3 | 66 | 90 | 2 | 8.18 | 45.0 | 33.0 | 16.67 | 10.61 | MEDIUM |
+| Kolkata Knight Riders | 3 | 60 | 75 | 2 | 7.5 | 37.5 | 30.0 | 40.0 | 15.0 | MEDIUM |
 
 ### Mukesh Kumar
 
@@ -504,13 +504,13 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Mumbai Indians | 4 | 84 | 175 | 8 | 12.5 | 21.88 | 10.5 | 32.14 | 35.71 | MEDIUM |
 | Lucknow Super Giants | 5 | 108 | 158 | 7 | 8.78 | 22.57 | 15.43 | 31.48 | 19.44 | HIGH |
-| Gujarat Titans | 4 | 87 | 134 | 5 | 9.24 | 26.8 | 17.4 | 31.03 | 22.99 | MEDIUM |
 | Rajasthan Royals | 4 | 84 | 149 | 5 | 10.64 | 29.8 | 16.8 | 30.95 | 27.38 | MEDIUM |
+| Gujarat Titans | 4 | 87 | 134 | 5 | 9.24 | 26.8 | 17.4 | 31.03 | 22.99 | MEDIUM |
 | Chennai Super Kings | 2 | 42 | 57 | 4 | 8.14 | 14.25 | 10.5 | 26.19 | 14.29 | MEDIUM |
 | Royal Challengers Bengaluru | 4 | 75 | 122 | 3 | 9.76 | 40.67 | 25.0 | 41.33 | 26.67 | MEDIUM |
 | Punjab Kings | 3 | 54 | 100 | 2 | 11.11 | 50.0 | 27.0 | 35.19 | 29.63 | MEDIUM |
-| Kolkata Knight Riders | 2 | 36 | 45 | 1 | 7.5 | 45.0 | 36.0 | 58.33 | 22.22 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 66 | 132 | 1 | 12.0 | 132.0 | 66.0 | 19.7 | 33.33 | MEDIUM |
+| Kolkata Knight Riders | 2 | 36 | 45 | 1 | 7.5 | 45.0 | 36.0 | 58.33 | 22.22 | MEDIUM |
 
 ### Mitchell Starc
 
@@ -846,15 +846,15 @@ Pre-tournament priorities must include: shore up pace-hitting deficiencies (4 ba
 |--------|------|---------|----------|--------|---------|------------|-------|-------------|
 | Ben Duckett | Wicketkeeper | 204 | 5357 | 141 | 30.8 | HIGH | 50 | - |
 | Pathum Nissanka | Batter | 111 | 3266 | 130 | 30.8 | HIGH | 44 | - |
-| Auqib Nabi Dar | All-rounder | 26 | 640 | 150 | 40 | HIGH | - | - |
 | Ajay Mandal | All-rounder | 20 | 217 | 117 | 16.7 | HIGH | 24 | - |
+| Auqib Nabi | All-rounder | 5 | 33 | 80.5 | 6.6 | LOW | 5 | - |
 
 ### 12.2 T20 Bowling Profile
 
 | Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|-------------|----------|----------|---------|------------|-------|-------------|
 | Ajay Mandal | LA Orthodox | 26 | 26 | 7.1 | 22.8 | HIGH | 64 | - |
-| Auqib Nabi Dar | Fast | 9 | 3 | 8.7 | 34.7 | LOW | - | - |
+| Auqib Nabi | Fast | 11 | 13 | 8.7 | 23.3 | MEDIUM | 27 | - |
 
 ### 12.3 Limited / No T20 Data
 
@@ -888,6 +888,7 @@ Pre-tournament priorities must include: shore up pace-hitting deficiencies (4 ba
 | Mitchell Starc | Bowler | 21 | 94.3 | 12.1 | 2 | 139 | 23 | IPL (0.87, SR 93.3); T20WC (0.50, SR 105.0) |
 | Dushmantha Chameera | Bowler | 14 | 106 | 12.2 | 3 | 120 | 14 | LPL (0.40, SR 92.5); IPL (0.87, SR 126.2); T20WC (0.50, SR 68.0) |
 | Vipraj Nigam | All-rounder | 78 | 182 | 35.5 | 1 | 78 | 14 | IPL (0.87, SR 182.1) |
+| Auqib Nabi | All-rounder | 0 | 80.5 | 6.6 | 1 | 41 | 5 | SMAT (0.65, SR 80.5) |
 | Lungi Ngidi | Bowler | 2 | 82.5 | 5.5 | 1 | 40 | 4 | SA20 (0.50, SR 82.5) |
 | Tripurana Vijay | Bowler | 0 | 79.3 | 23 | 1 | 29 | 4 | SMAT (0.65, SR 79.3) |
 
@@ -900,6 +901,7 @@ Pre-tournament priorities must include: shore up pace-hitting deficiencies (4 ba
 | Kyle Jamieson | All-rounder | 90 | 8 | 16.6 | 4 | 1281 | 48 | SS (0.36, Econ 6.9); IPL (0.87, Econ 9.2); Blast (0.50, Econ 9.3) |
 | Nitish Rana | All-rounder | 65 | 7.1 | 17.8 | 2 | 601 | 72 | SMAT (0.65, Econ 6.4); IPL (0.87, Econ 8.3) |
 | Ajay Mandal | All-rounder | 0 | 7.0 | 19.9 | 1 | 498 | 64 | SMAT (0.65, Econ 7.0) |
+| Auqib Nabi | All-rounder | 0 | 8.4 | 14 | 1 | 210 | 27 | SMAT (0.65, Econ 8.4) |
 | Tristan Stubbs | All-rounder | 36 | 9.3 | 17.1 | 4 | 150 | 17 | 100 (0.50, Econ 9.0); IPL (0.87, Econ 11.3); CSA (0.38, Econ 7.8) |
 | Tripurana Vijay | Bowler | 0 | 11.4 | 16 | 1 | 48 | 6 | SMAT (0.65, Econ 11.4) |
 | Karun Nair | Batter | 0 | 5.2 | 24 | 1 | 48 | 6 | SMAT (0.65, Econ 5.3) |

@@ -1,6 +1,6 @@
 # Kolkata Knight Riders (KKR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-14 17:14
+**Generated:** 2026-02-14 18:41
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -131,7 +131,7 @@
 **Top Wicket Takers by Season:**
 
 - **2023:** CV Varun (20w @ 8.27), SP Narine (11w @ 7.89), Suyash Sharma (10w @ 8.28)
-- **2024:** CV Varun (21w @ 7.98), Harshit Rana (19w @ 8.75), AD Russell (19w @ 9.7)
+- **2024:** CV Varun (21w @ 7.98), AD Russell (19w @ 9.7), Harshit Rana (19w @ 8.75)
 - **2025:** CV Varun (17w @ 7.6), VG Arora (17w @ 9.51), Harshit Rana (15w @ 9.93)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -251,8 +251,8 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | MA Chidambaram Stadium | 4 | 3 | 75.0% | 126.3 |
-| Wankhede Stadium | 3 | 1 | 33.3% | 156.7 |
 | Arun Jaitley Stadium | 3 | 1 | 33.3% | 166.3 |
+| Wankhede Stadium | 3 | 1 | 33.3% | 156.7 |
 | Narendra Modi Stadium | 2 | 2 | 100.0% | 185.5 |
 | M Chinnaswamy Stadium | 2 | 2 | 100.0% | 193.0 |
 
@@ -265,11 +265,11 @@
 | Narendra Modi Stadium | 26 | 18.2 | 22.3 | BALANCED |
 | MA Chidambaram Stadium | 24 | 17.7 | 20.1 | BALANCED |
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.3 | 23.8 | PACE |
-| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Wankhede Stadium | 21 | 18.8 | 21.0 | BALANCED |
+| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
 | Arun Jaitley Stadium | 19 | 19.3 | 19.4 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.5 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.5 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.1 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.8 | 16.8 | BALANCED |
 
@@ -299,7 +299,7 @@
 | SP Narine | Eden Gardens | 21 | 16 | 7.16 | 28.88 |
 | SP Narine | MA Chidambaram Stadium | 4 | 7 | 4.94 | 13.71 |
 | M Pathirana | M Chinnaswamy Stadium | 2 | 5 | 9.13 | 9.6 |
-| M Pathirana | Bharat Ratna Shri Atal Bi | 3 | 5 | 7.32 | 13.6 |
+| CV Varun | MA Chidambaram Stadium | 4 | 5 | 6.71 | 16.8 |
 
 
 ---
@@ -321,11 +321,11 @@
 | Ramandeep Singh | All-rounder | 16 | 172 | 96 | 179.17 | 19.11 | 22.92 | 31.25 | 0 | 0 | MEDIUM |
 | Rovman Powell | All-rounder | 11 | 115 | 82 | 140.24 | 11.5 | 21.95 | 47.56 | 0 | 0 | MEDIUM |
 | Anukul Roy | All-rounder | 6 | 26 | 23 | 113.04 | 8.67 | 13.04 | 39.13 | 0 | 0 | LOW |
-| Sarthak Ranjan | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
-| Tejasvi Singh | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Tim Seifert | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Finn Allen | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Daksh Kamra | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
+| Sarthak Ranjan | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
+| Tejasvi Singh | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
 ### 5.2 Phase-wise Batting (Qualified players)
 
@@ -488,9 +488,9 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 4 | 96 | 112 | 9 | 7.0 | 12.44 | 10.67 | 34.38 | 13.54 | MEDIUM |
-| Royal Challengers Bengaluru | 3 | 72 | 107 | 7 | 8.92 | 15.29 | 10.29 | 38.89 | 22.22 | MEDIUM |
 | Mumbai Indians | 3 | 58 | 78 | 7 | 8.07 | 11.14 | 8.29 | 39.66 | 15.52 | MEDIUM |
 | Lucknow Super Giants | 4 | 92 | 117 | 7 | 7.63 | 16.71 | 13.14 | 31.52 | 13.04 | MEDIUM |
+| Royal Challengers Bengaluru | 3 | 72 | 107 | 7 | 8.92 | 15.29 | 10.29 | 38.89 | 22.22 | MEDIUM |
 | Gujarat Titans | 4 | 90 | 125 | 6 | 8.33 | 20.83 | 15.0 | 38.89 | 17.78 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 54 | 59 | 3 | 6.56 | 19.67 | 18.0 | 37.04 | 11.11 | MEDIUM |
 | Punjab Kings | 3 | 72 | 127 | 3 | 10.58 | 42.33 | 24.0 | 19.44 | 19.44 | MEDIUM |
@@ -502,12 +502,12 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Chennai Super Kings | 5 | 108 | 110 | 6 | 6.11 | 18.33 | 18.0 | 35.19 | 7.41 | HIGH |
-| Royal Challengers Bengaluru | 5 | 120 | 166 | 6 | 8.3 | 27.67 | 20.0 | 25.83 | 13.33 | HIGH |
 | Sunrisers Hyderabad | 7 | 156 | 195 | 6 | 7.5 | 32.5 | 26.0 | 29.49 | 10.26 | HIGH |
+| Royal Challengers Bengaluru | 5 | 120 | 166 | 6 | 8.3 | 27.67 | 20.0 | 25.83 | 13.33 | HIGH |
 | Delhi Capitals | 4 | 96 | 119 | 5 | 7.44 | 23.8 | 19.2 | 37.5 | 14.58 | MEDIUM |
 | Lucknow Super Giants | 4 | 90 | 103 | 4 | 6.87 | 25.75 | 22.5 | 31.11 | 10.0 | MEDIUM |
-| Gujarat Titans | 3 | 66 | 90 | 4 | 8.18 | 22.5 | 16.5 | 22.73 | 13.64 | MEDIUM |
 | Punjab Kings | 5 | 114 | 138 | 4 | 7.26 | 34.5 | 28.5 | 38.6 | 13.16 | HIGH |
+| Gujarat Titans | 3 | 66 | 90 | 4 | 8.18 | 22.5 | 16.5 | 22.73 | 13.64 | MEDIUM |
 | Mumbai Indians | 4 | 78 | 113 | 3 | 8.69 | 37.67 | 26.0 | 38.46 | 19.23 | MEDIUM |
 | Rajasthan Royals | 3 | 60 | 68 | 2 | 6.8 | 34.0 | 30.0 | 36.67 | 10.0 | MEDIUM |
 
@@ -516,14 +516,14 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 6 | 132 | 168 | 8 | 7.64 | 21.0 | 16.5 | 43.18 | 16.67 | HIGH |
-| Rajasthan Royals | 4 | 84 | 139 | 6 | 9.93 | 23.17 | 14.0 | 36.9 | 27.38 | MEDIUM |
 | Lucknow Super Giants | 4 | 85 | 129 | 6 | 9.11 | 21.5 | 14.17 | 37.65 | 23.53 | MEDIUM |
+| Rajasthan Royals | 4 | 84 | 139 | 6 | 9.93 | 23.17 | 14.0 | 36.9 | 27.38 | MEDIUM |
 | Punjab Kings | 4 | 72 | 146 | 5 | 12.17 | 29.2 | 14.4 | 36.11 | 33.33 | MEDIUM |
-| Royal Challengers Bengaluru | 3 | 66 | 102 | 4 | 9.27 | 25.5 | 16.5 | 28.79 | 19.7 | MEDIUM |
 | Chennai Super Kings | 3 | 60 | 77 | 4 | 7.7 | 19.25 | 15.0 | 50.0 | 18.33 | MEDIUM |
-| Gujarat Titans | 2 | 42 | 67 | 2 | 9.57 | 33.5 | 21.0 | 26.19 | 26.19 | MEDIUM |
-| Delhi Capitals | 2 | 48 | 77 | 2 | 9.63 | 38.5 | 24.0 | 37.5 | 27.08 | MEDIUM |
+| Royal Challengers Bengaluru | 3 | 66 | 102 | 4 | 9.27 | 25.5 | 16.5 | 28.79 | 19.7 | MEDIUM |
 | Mumbai Indians | 2 | 30 | 57 | 2 | 11.4 | 28.5 | 15.0 | 40.0 | 33.33 | MEDIUM |
+| Delhi Capitals | 2 | 48 | 77 | 2 | 9.63 | 38.5 | 24.0 | 37.5 | 27.08 | MEDIUM |
+| Gujarat Titans | 2 | 42 | 67 | 2 | 9.57 | 33.5 | 21.0 | 26.19 | 26.19 | MEDIUM |
 
 ### Vaibhav Arora
 
@@ -533,8 +533,8 @@
 | Chennai Super Kings | 4 | 90 | 131 | 7 | 8.73 | 18.71 | 12.86 | 38.89 | 20.0 | MEDIUM |
 | Delhi Capitals | 3 | 60 | 70 | 6 | 7.0 | 11.67 | 10.0 | 51.67 | 20.0 | MEDIUM |
 | Rajasthan Royals | 3 | 66 | 126 | 4 | 11.45 | 31.5 | 16.5 | 31.82 | 30.3 | MEDIUM |
-| Lucknow Super Giants | 4 | 78 | 109 | 3 | 8.38 | 36.33 | 26.0 | 35.9 | 15.38 | MEDIUM |
 | Punjab Kings | 3 | 57 | 90 | 3 | 9.47 | 30.0 | 19.0 | 36.84 | 29.82 | MEDIUM |
+| Lucknow Super Giants | 4 | 78 | 109 | 3 | 8.38 | 36.33 | 26.0 | 35.9 | 15.38 | MEDIUM |
 | Royal Challengers Bengaluru | 2 | 30 | 63 | 1 | 12.6 | 63.0 | 30.0 | 16.67 | 36.67 | MEDIUM |
 | Mumbai Indians | 2 | 31 | 52 | 0 | 10.06 | - | - | 38.71 | 25.81 | MEDIUM |
 
@@ -634,14 +634,14 @@
 |--------|-----------|-----------|-----------|-----------|----------|
 | **AM Rahane** | 184 | 123 | 28.4 | 11.6 | Pace Dominant |
 | **RK Singh** | 170 | 112 | 23.9 | 10.3 | Pace Dominant |
-| **C Green** | 163 | 143 | 23.3 | 16.5 | Pace Dominant |
+| **C Green** | 161 | 143 | 23.2 | 16.5 | Pace Dominant |
 | **SP Narine** | 167 | 193 | 29.2 | 30.9 | Spin Dominant |
 | **RA Tripathi** | 141 | 128 | 22.2 | 15.3 | Balanced |
 | **A Raghuvanshi** | 158 | 156 | 24.4 | 20 | Balanced |
 | **R Ravindra** | 170 | 105 | 27.7 | 6.2 | Pace Dominant |
 | **MK Pandey** | 127 | 128 | 14.7 | 12.6 | Balanced |
 
-*Exploitable vs spin: **RK Singh** (112 SR), **R Ravindra** (105 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **AM Rahane** (184 SR), **RK Singh** (170 SR), **C Green** (163 SR), **SP Narine** (167 SR), **R Ravindra** (170 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+*Exploitable vs spin: **RK Singh** (112 SR), **R Ravindra** (105 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **AM Rahane** (184 SR), **RK Singh** (170 SR), **C Green** (161 SR), **SP Narine** (167 SR), **R Ravindra** (170 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
 
 ### 10.3 Pace Attack Intelligence
 
@@ -898,8 +898,8 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | Tejasvi Singh | Wicketkeeper | 0 | 115 | 9.2 | 4 | 202 | 20 | MLC (0.42, SR 93.2); ILT20 (0.49, SR 89.3); T20WC (0.50, SR 140.8) |
 | Anukul Roy | All-rounder | 23 | 158 | 20.4 | 2 | 165 | 22 | SMAT (0.65, SR 170.7); IPL (0.87, SR 104.0) |
 | Harshit Rana | Bowler | 53 | 107 | 14.8 | 1 | 55 | 10 | IPL (0.87, SR 107.3) |
-| Varun Chakravarthy | Bowler | 10 | 55.3 | 26 | 1 | 47 | 8 | IPL (0.87, SR 55.3) |
 | Sarthak Ranjan | Batter | 0 | 130 | 15.2 | 1 | 47 | 6 | SMAT (0.65, SR 129.8) |
+| Varun Chakravarthy | Bowler | 10 | 55.3 | 26 | 1 | 47 | 8 | IPL (0.87, SR 55.3) |
 | Akash Deep | Bowler | 12 | 132 | 24.5 | 1 | 37 | 5 | SMAT (0.65, SR 132.4) |
 | Vaibhav Arora | Bowler | 11 | 37.5 | 3 | 1 | 24 | 4 | IPL (0.87, SR 37.5) |
 

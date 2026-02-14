@@ -1,6 +1,6 @@
 # Rajasthan Royals (RR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-14 17:15
+**Generated:** 2026-02-14 18:41
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -253,14 +253,14 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Barsapara Cricket Stadium | 5 | 2 | 40.0% | 173.6 |
-| MA Chidambaram Stadium | 3 | 1 | 33.3% | 151.7 |
-| Arun Jaitley Stadium | 3 | 1 | 33.3% | 192.3 |
-| Rajiv Gandhi International Stadium | 3 | 1 | 33.3% | 215.0 |
-| Eden Gardens | 3 | 2 | 66.7% | 193.3 |
 | Narendra Modi Stadium | 3 | 2 | 66.7% | 170.7 |
+| Eden Gardens | 3 | 2 | 66.7% | 193.3 |
+| Rajiv Gandhi International Stadium | 3 | 1 | 33.3% | 215.0 |
+| Arun Jaitley Stadium | 3 | 1 | 33.3% | 192.3 |
+| MA Chidambaram Stadium | 3 | 1 | 33.3% | 151.7 |
 | M Chinnaswamy Stadium | 2 | 0 | 0.0% | 188.0 |
-| Wankhede Stadium | 2 | 1 | 50.0% | 169.5 |
 | Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 178.5 |
+| Wankhede Stadium | 2 | 1 | 50.0% | 169.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -273,8 +273,8 @@
 | Bharat Ratna Shri Atal Bihari  | 22 | 18.3 | 23.8 | PACE |
 | Wankhede Stadium | 21 | 18.8 | 21.0 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.4 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.4 | BALANCED |
 | Rajiv Gandhi International Sta | 19 | 19.4 | 26.5 | PACE |
 | Sawai Mansingh Stadium | 17 | 24.1 | 22.1 | BALANCED |
 | Maharaja Yadavindra Singh Inte | 10 | 15.8 | 16.8 | BALANCED |
@@ -365,8 +365,8 @@
 | Jofra Archer | Fast | 17 | 65.7 | 13 | 9.85 | 49.77 | 30.31 | 37.06 | 22.59 | MEDIUM |
 | Yudhvir Singh | Fast-Mediu | 9 | 23.2 | 8 | 11.09 | 32.13 | 17.38 | 38.85 | 29.5 | LOW |
 | Nandre Burger | Fast | 5 | 17.0 | 7 | 8.94 | 21.71 | 14.57 | 45.1 | 22.55 | LOW |
-| Kuldeep Sen | Fast | 5 | 15.0 | 6 | 10.4 | 26.0 | 15.0 | 30.0 | 24.44 | LOW |
 | Vignesh Puthur | Wrist-spin | 5 | 12.0 | 6 | 9.08 | 18.17 | 12.0 | 33.33 | 18.06 | LOW |
+| Kuldeep Sen | Fast | 5 | 15.0 | 6 | 10.4 | 26.0 | 15.0 | 30.0 | 24.44 | LOW |
 | Riyan Parag | Off-spin | 11 | 23.0 | 3 | 8.61 | 66.0 | 46.0 | 24.64 | 13.77 | MEDIUM |
 | Kwena Maphaka | Fast-Mediu | 4 | 11.0 | 2 | 13.45 | 74.0 | 33.0 | 33.33 | 39.39 | LOW |
 
@@ -443,8 +443,8 @@
 | Royal Challengers Bengaluru | 5 | 179 | 111 | 161.26 | 89.5 | 18.92 | 21.62 | 2 | HIGH |
 | Rajasthan Royals | 5 | 86 | 63 | 136.51 | 43.0 | 14.29 | 22.22 | 2 | MEDIUM |
 | Gujarat Titans | 6 | 84 | 55 | 152.73 | 21.0 | 18.18 | 23.64 | 4 | MEDIUM |
-| Lucknow Super Giants | 4 | 83 | 76 | 109.21 | 27.67 | 10.53 | 32.89 | 3 | MEDIUM |
 | Punjab Kings | 5 | 83 | 57 | 145.61 | 20.75 | 17.54 | 29.82 | 4 | MEDIUM |
+| Lucknow Super Giants | 4 | 83 | 76 | 109.21 | 27.67 | 10.53 | 32.89 | 3 | MEDIUM |
 | Mumbai Indians | 2 | 70 | 53 | 132.08 | 70.0 | 13.21 | 26.42 | 1 | MEDIUM |
 | Delhi Capitals | 4 | 64 | 43 | 148.84 | 32.0 | 18.6 | 23.26 | 2 | MEDIUM |
 | Kolkata Knight Riders | 4 | 56 | 43 | 130.23 | 14.0 | 13.95 | 39.53 | 4 | MEDIUM |
@@ -454,8 +454,8 @@
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Sunrisers Hyderabad | 3 | 127 | 73 | 173.97 | 63.5 | 27.4 | 34.25 | 2 | MEDIUM |
 | Royal Challengers Bengaluru | 6 | 127 | 91 | 139.56 | 42.33 | 16.48 | 32.97 | 3 | MEDIUM |
+| Sunrisers Hyderabad | 3 | 127 | 73 | 173.97 | 63.5 | 27.4 | 34.25 | 2 | MEDIUM |
 | Punjab Kings | 6 | 114 | 67 | 170.15 | 38.0 | 22.39 | 26.87 | 3 | MEDIUM |
 | Chennai Super Kings | 5 | 100 | 58 | 172.41 | 33.33 | 22.41 | 25.86 | 3 | MEDIUM |
 | Lucknow Super Giants | 4 | 78 | 52 | 150.0 | 78.0 | 17.31 | 26.92 | 1 | MEDIUM |
@@ -492,8 +492,8 @@
 | Kolkata Knight Riders | 4 | 75 | 105 | 5 | 8.4 | 21.0 | 15.0 | 46.67 | 20.0 | MEDIUM |
 | Royal Challengers Bengaluru | 5 | 96 | 187 | 4 | 11.69 | 46.75 | 24.0 | 34.38 | 31.25 | MEDIUM |
 | Lucknow Super Giants | 5 | 97 | 132 | 3 | 8.16 | 44.0 | 32.33 | 34.02 | 15.46 | MEDIUM |
-| Chennai Super Kings | 2 | 48 | 77 | 1 | 9.63 | 77.0 | 48.0 | 35.42 | 25.0 | MEDIUM |
 | Delhi Capitals | 4 | 84 | 106 | 1 | 7.57 | 106.0 | 84.0 | 38.1 | 17.86 | MEDIUM |
+| Chennai Super Kings | 2 | 48 | 77 | 1 | 9.63 | 77.0 | 48.0 | 35.42 | 25.0 | MEDIUM |
 
 ### Ravindra Jadeja
 
@@ -502,8 +502,8 @@
 | Punjab Kings | 5 | 102 | 122 | 6 | 7.18 | 20.33 | 17.0 | 35.29 | 13.73 | HIGH |
 | Gujarat Titans | 6 | 114 | 146 | 6 | 7.68 | 24.33 | 19.0 | 26.32 | 12.28 | HIGH |
 | Kolkata Knight Riders | 5 | 79 | 109 | 5 | 8.28 | 21.8 | 15.8 | 35.44 | 16.46 | MEDIUM |
-| Mumbai Indians | 5 | 108 | 141 | 5 | 7.83 | 28.2 | 21.6 | 33.33 | 16.67 | HIGH |
 | Sunrisers Hyderabad | 4 | 94 | 97 | 5 | 6.19 | 19.4 | 18.8 | 30.85 | 5.32 | MEDIUM |
+| Mumbai Indians | 5 | 108 | 141 | 5 | 7.83 | 28.2 | 21.6 | 33.33 | 16.67 | HIGH |
 | Delhi Capitals | 4 | 84 | 129 | 4 | 9.21 | 32.25 | 21.0 | 27.38 | 17.86 | MEDIUM |
 | Rajasthan Royals | 5 | 96 | 106 | 4 | 6.63 | 26.5 | 24.0 | 31.25 | 8.33 | MEDIUM |
 | Lucknow Super Giants | 5 | 72 | 95 | 3 | 7.92 | 31.67 | 24.0 | 26.39 | 15.28 | MEDIUM |
@@ -514,10 +514,10 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 5 | 114 | 171 | 7 | 9.0 | 24.43 | 16.29 | 35.96 | 19.3 | HIGH |
-| Mumbai Indians | 6 | 144 | 199 | 6 | 8.29 | 33.17 | 24.0 | 28.47 | 17.36 | HIGH |
 | Chennai Super Kings | 4 | 78 | 107 | 6 | 8.23 | 17.83 | 13.0 | 37.18 | 17.95 | MEDIUM |
-| Punjab Kings | 4 | 75 | 125 | 4 | 10.0 | 31.25 | 18.75 | 37.33 | 25.33 | MEDIUM |
+| Mumbai Indians | 6 | 144 | 199 | 6 | 8.29 | 33.17 | 24.0 | 28.47 | 17.36 | HIGH |
 | Kolkata Knight Riders | 4 | 88 | 114 | 4 | 7.77 | 28.5 | 22.0 | 36.36 | 18.18 | MEDIUM |
+| Punjab Kings | 4 | 75 | 125 | 4 | 10.0 | 31.25 | 18.75 | 37.33 | 25.33 | MEDIUM |
 | Gujarat Titans | 4 | 72 | 108 | 3 | 9.0 | 36.0 | 24.0 | 23.61 | 16.67 | MEDIUM |
 | Royal Challengers Bengaluru | 3 | 66 | 90 | 2 | 8.18 | 45.0 | 33.0 | 27.27 | 12.12 | MEDIUM |
 | Sunrisers Hyderabad | 5 | 78 | 139 | 2 | 10.69 | 69.5 | 39.0 | 30.77 | 23.08 | MEDIUM |
@@ -527,8 +527,8 @@
 
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
-| Mumbai Indians | 2 | 48 | 51 | 6 | 6.38 | 8.5 | 8.0 | 37.5 | 12.5 | MEDIUM |
 | Royal Challengers Bengaluru | 5 | 111 | 199 | 6 | 10.76 | 33.17 | 18.5 | 21.62 | 27.93 | HIGH |
+| Mumbai Indians | 2 | 48 | 51 | 6 | 6.38 | 8.5 | 8.0 | 37.5 | 12.5 | MEDIUM |
 | Lucknow Super Giants | 4 | 90 | 138 | 5 | 9.2 | 27.6 | 18.0 | 28.89 | 20.0 | MEDIUM |
 | Gujarat Titans | 4 | 90 | 112 | 4 | 7.47 | 28.0 | 22.5 | 33.33 | 14.44 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 96 | 152 | 4 | 9.5 | 38.0 | 24.0 | 30.21 | 20.83 | MEDIUM |
@@ -897,7 +897,7 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
 |--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
 | Adam Milne | Bowler | 0 | 7.7 | 17.4 | 10 | 2560 | 51 | Blast (0.50, Econ 7.3); 100 (0.50, Econ 7.1); BBL (0.53, Econ 7.7) |
-| Nandre Burger | Bowler | 102 | 8.2 | 17.7 | 5 | 923 | 51 | SA20 (0.50, Econ 8.5); MLC (0.42, Econ 8.5); IPL (0.87, Econ 8.5) |
+| Nandre Burger | Bowler | 102 | 8.2 | 17.7 | 5 | 923 | 51 | SA20 (0.50, Econ 8.5); MLC (0.42, Econ 8.5); CSA (0.38, Econ 5.6) |
 | Brijesh Sharma | Bowler | 0 | 7.0 | 22.2 | 2 | 882 | 75 | SMAT (0.65, Econ 5.8); IPL (0.87, Econ 8.0) |
 | Riyan Parag | All-rounder | 138 | 7.8 | 26.1 | 2 | 839 | 73 | SMAT (0.65, Econ 6.6); IPL (0.87, Econ 9.4) |
 | Kuldeep Sen | Bowler | 90 | 8.7 | 22.0 | 2 | 663 | 73 | SMAT (0.65, Econ 8.3); IPL (0.87, Econ 9.3) |

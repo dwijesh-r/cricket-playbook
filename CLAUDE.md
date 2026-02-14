@@ -216,10 +216,23 @@ Per José Mourinho's audit (2026-02-10):
 
 ---
 
+## Agent Delegation Rule (MANDATORY)
+
+All work delegation **MUST** flow through the 14-agent roster defined in `config/agents/`. No anonymous "local agents" or generic sub-processes.
+
+- Every delegated task must be assigned to a **named agent** from the roster
+- The assigned agent must operate within their defined responsibilities per the **Constitution** (`config/CONSTITUTION.md`)
+- All delegated work must follow the **Task Integrity Loop** (`governance/TASK_INTEGRITY_LOOP.md`) — 8-step process, no exceptions
+- Agent selection must match the task domain (e.g., cricket accuracy → Andy Flower, analytics → Stephen Curry, UX → Jayson Tatum)
+
+**If it's not assigned to a roster agent, it doesn't get delegated.**
+
+---
+
 ## One-Line Reminder
 
 > **If a change affects how work is tracked, approved, or measured, surface it to Tom Brady and Brad Stevens before implementing.**
 
 ---
 
-*Cricket Playbook v4.0.0*
+*Cricket Playbook v5.0.0*

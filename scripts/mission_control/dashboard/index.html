@@ -1259,6 +1259,7 @@
             50% { box-shadow: 0 0 16px rgba(196, 30, 58, 0.8); }
         }
         .dot-done { background: var(--accent-green); }
+        .dot-deferred { background: #888; opacity: 0.6; }
 
         .column-count {
             font-size: 12px;
@@ -4697,7 +4698,7 @@
             <section class="hero">
                 <div class="hero-content">
                     <div class="sprint-label">Active Sprint</div>
-                    <h1 class="sprint-title">Sprint 4</h1>
+                    <h1 class="sprint-title">Sprint 5</h1>
                     <p class="sprint-dates">Jan 31 — Feb 14, 2026</p>
 
                     <div class="stats-grid">
@@ -4773,6 +4774,13 @@
                                 <div class="filter-option" data-filter="deep-work" onclick="setEffortFilter('deep-work')">🧠 Deep Work — 3-5 days</div>
                                 <div class="filter-option" data-filter="marathon" onclick="setEffortFilter('marathon')">🏔️ Marathon — 5+ days</div>
                             </div>
+                        </div>
+
+                        <!-- Sprint Filter (Kanban) -->
+                        <div class="board-sprint-filter" style="display: flex; gap: 8px; align-items: center;">
+                            <button class="filter-btn active" onclick="setBoardSprintFilter('all')" data-board-sprint="all">All Sprints</button>
+                            <button class="filter-btn" onclick="setBoardSprintFilter('sprint4')" data-board-sprint="sprint4">Sprint 4</button>
+                            <button class="filter-btn" onclick="setBoardSprintFilter('sprint5')" data-board-sprint="sprint5">Sprint 5</button>
                         </div>
 
                         <!-- Agent Filter -->
@@ -6472,7 +6480,8 @@
             { id: 'BLOCKED', name: 'Blocked', dot: 'dot-blocked', collapsible: true, defaultCollapsed: true },
             { id: 'REVIEW', name: 'Review', dot: 'dot-review', collapsible: true, defaultCollapsed: false },
             { id: 'VALIDATION', name: '🌹 Founder Review', dot: 'dot-founder', isFounder: true, collapsible: true, defaultCollapsed: false },
-            { id: 'DONE', name: 'Done', dot: 'dot-done', collapsible: true, defaultCollapsed: true }
+            { id: 'DONE', name: 'Done', dot: 'dot-done', collapsible: true, defaultCollapsed: true },
+            { id: 'DEFERRED', name: 'Deferred', dot: 'dot-deferred', collapsible: true, defaultCollapsed: true }
         ];
 
         const gates = [
@@ -6561,7 +6570,20 @@
               outcome: 'Modern React SPA with design system, data layer hooks, and migrated team + research pages (6 tickets: TKT-210 to TKT-215)' },
             { id: 'EPIC-020', title: 'Player Comparison Tool', type: 'delivery', owner: 'Stephen Curry',
               goal: 'Head-to-head analytics with radar charts, side-by-side stats, multi-player comparison, and shareable links with PNG export',
-              outcome: 'Interactive player comparison feature supporting 2+ players with exportable visualizations (4 tickets: TKT-216 to TKT-219)' }
+              outcome: 'Interactive player comparison feature supporting 2+ players with exportable visualizations (4 tickets: TKT-216 to TKT-219)' },
+            // Sprint 5.0 EPICs (SPRINT-002) — New
+            { id: 'EPIC-021', title: 'Player Rankings System', type: 'delivery', owner: 'Stephen Curry',
+              goal: 'Lindy\'s-style player ranking system — phase rankings, vs bowling type, vs handedness, matchup matrix, overall composite',
+              outcome: 'Interactive Player Rankings tab in The Lab with 5 ranking dimensions (5 tickets: TKT-235 to TKT-239)' },
+            { id: 'EPIC-022', title: 'Sprint 4 Close-Out & Editorial Polish', type: 'delivery', owner: 'Tom Brady',
+              goal: 'Close all Sprint 4.0 open items — depth chart bugs, tag career context, editorial prose, data fixes',
+              outcome: 'All Sprint 4.0 items resolved, editorial quality elevated, data accuracy verified (5 tickets: TKT-240 to TKT-244)' },
+            { id: 'EPIC-023', title: 'Infrastructure & Pipeline Hardening', type: 'delivery', owner: 'Brad Stevens',
+              goal: 'Production-grade infrastructure — CI/CD fixes, model registry, token accounting, Docker optimization',
+              outcome: 'Infrastructure gaps from Sprint 4 reviews addressed, automation coverage increased to 90% (5 tickets: TKT-245 to TKT-249)' },
+            { id: 'EPIC-024', title: 'UI/UX & Accessibility', type: 'delivery', owner: 'Kevin De Bruyne',
+              goal: 'Mobile optimization, dark mode, accessibility compliance, print-ready stat packs',
+              outcome: 'WCAG 2.1 AA compliance, mobile-first responsive design, print-friendly outputs (4 tickets: TKT-250 to TKT-253)' }
         ];
 
         // Helper function to get EPIC by ID
@@ -8130,11 +8152,11 @@ Gate Inheritance:
             { id: 'TKT-212', title: 'Data layer — DuckDB-WASM integration + React hooks', state: 'BACKLOG', priority: 'P0', effort: 'marathon', assignee: 'Brad Stevens', epic: 'EPIC-019', progress: 0, tags: ['React', 'DuckDB', 'Data Layer'],
               context: { ask: 'Integrate DuckDB-WASM with custom React hooks', goal: 'Browser-native SQL queries via React hooks', reason: 'Core data layer for interactive dashboard', audible: ['Integrate DuckDB-WASM', 'Build hooks', 'Test queries'] }
             },
-            { id: 'TKT-213', title: 'Team pages — migrate squad, depth chart, pressure tabs', state: 'BACKLOG', priority: 'P1', effort: 'marathon', assignee: 'Kevin de Bruyne', epic: 'EPIC-019', progress: 0, tags: ['React', 'Migration', 'Teams'],
-              context: { ask: 'Migrate team pages from static HTML to React', goal: 'React-based team pages with all existing features', reason: 'Feature parity before launching React dashboard', audible: ['Migrate squad tab', 'Migrate depth chart', 'Migrate pressure tab'] }
+            { id: 'TKT-213', title: 'Team pages — migrate squad, depth chart, pressure tabs', state: 'DEFERRED', priority: 'P1', effort: 'marathon', assignee: 'Kevin de Bruyne', epic: 'EPIC-019', progress: 0, tags: ['React', 'Migration', 'Teams', 'Deferred to Sprint 6'],
+              context: { ask: 'Migrate team pages from static HTML to React', goal: 'React-based team pages with all existing features', reason: 'Deferred: React migration killed by Florentino — premature before content stabilizes', audible: ['Migrate squad tab', 'Migrate depth chart', 'Migrate pressure tab'] }
             },
-            { id: 'TKT-214', title: 'Research Desk — migrate NL search + SQL Lab to React', state: 'BACKLOG', priority: 'P1', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-019', progress: 0, tags: ['React', 'Migration', 'Research Desk'],
-              context: { ask: 'Migrate Research Desk to React', goal: 'React-based NL search and SQL Lab', reason: 'Complete migration of all Lab features', audible: ['Migrate NL search', 'Migrate SQL Lab', 'Test all queries'] }
+            { id: 'TKT-214', title: 'Research Desk — migrate NL search + SQL Lab to React', state: 'DEFERRED', priority: 'P1', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-019', progress: 0, tags: ['React', 'Migration', 'Research Desk', 'Deferred to Sprint 6'],
+              context: { ask: 'Migrate Research Desk to React', goal: 'React-based NL search and SQL Lab', reason: 'Deferred: React migration killed by Florentino — premature before content stabilizes', audible: ['Migrate NL search', 'Migrate SQL Lab', 'Test all queries'] }
             },
             { id: 'TKT-215', title: 'Testing + CI integration for React dashboard', state: 'BACKLOG', priority: 'P1', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-019', progress: 0, tags: ['React', 'Testing', 'CI'],
               context: { ask: 'Add testing and CI for React dashboard', goal: 'Automated tests with CI/CD integration', reason: 'Quality assurance for React migration', audible: ['Add unit tests', 'Add integration tests', 'Configure CI'] }
@@ -8150,8 +8172,120 @@ Gate Inheritance:
             { id: 'TKT-218', title: 'Multi-player comparison (3+ players)', state: 'BACKLOG', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-020', progress: 0, tags: ['Analytics', 'Comparison', 'Multi-Player'],
               context: { ask: 'Extend comparison to support 3+ players', goal: 'Multi-player comparison with overlay visualization', reason: 'Power users want to compare multiple players', audible: ['Extend data model', 'Update UI', 'Test with 3+ players'] }
             },
-            { id: 'TKT-219', title: 'Shareable comparison links + PNG export', state: 'BACKLOG', priority: 'P2', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-020', progress: 0, tags: ['Frontend', 'Export', 'Sharing'],
-              context: { ask: 'Add shareable links and PNG export for comparisons', goal: 'Users can share and export comparison results', reason: 'Social atomization and content sharing', audible: ['Build URL encoding', 'Add PNG export', 'Test sharing flow'] }
+            { id: 'TKT-219', title: 'Shareable comparison links + PNG export', state: 'DEFERRED', priority: 'P2', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-020', progress: 0, tags: ['Frontend', 'Export', 'Sharing', 'Deferred to Sprint 6'],
+              context: { ask: 'Add shareable links and PNG export for comparisons', goal: 'Users can share and export comparison results', reason: 'Deferred: shareable links deferred by Florentino — not MVP-critical', audible: ['Build URL encoding', 'Add PNG export', 'Test sharing flow'] }
+            },
+
+            // ==================== SPRINT 4.0 CLOSE-OUT (TKT-220 to TKT-234) ====================
+            { id: 'TKT-220', title: 'Sprint 4.0 Retrospective', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Pep Guardiola', epic: 'EPIC-022', progress: 100, tags: ['Retrospective', 'Sprint 4.0', '✅ Done'],
+              context: { ask: 'Full retrospective of Sprint 4.0', goal: 'What worked, what failed, velocity analysis, process improvements', reason: 'Sprint closure requires formal retrospective', audible: 'Delivered. What Worked / What Didn\'t / Systemic Improvement Proposal.' }
+            },
+            { id: 'TKT-221', title: 'Agent performance review + Mission Control roster', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-022', progress: 100, tags: ['Performance Review', 'Mission Control', '✅ Done'],
+              context: { ask: 'Review all 14 agents + Founder performance', goal: 'Ratings, skills radar, tier list, retraining recommendations', reason: 'Mid-sprint assessment to identify underperformers', audible: 'All 14 agents + Founder rated 1-5. 239 tickets analyzed, 99.5% completion rate.' }
+            },
+            { id: 'TKT-222', title: 'Archive Sprint 4.0 + create Sprint views + plan Sprint 5.0', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Tom Brady', epic: 'EPIC-022', progress: 100, tags: ['Sprint Management', 'Planning', '✅ Done'],
+              context: { ask: 'Archive Sprint 4.0, create sprint history view, plan Sprint 5.0', goal: 'Sprint 4 archived, Sprint 5 kickoff plan published', reason: 'Sprint transition requires formal closure and planning', audible: 'Sprint 4 archived. Sprint 5 plan at reviews/sprint_5_kickoff_plan_021426_v2.md. 31 tickets across 7 EPICs.' }
+            },
+            { id: 'TKT-223', title: 'System health analysis + Token Audit tab', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Jose Mourinho', epic: 'EPIC-022', progress: 100, tags: ['System Health', 'Token Audit', '✅ Done'],
+              context: { ask: 'Run system health scores, update Token Audit tabs', goal: 'Current health snapshot with improvement areas identified', reason: 'System health monitoring is a continuous requirement', audible: 'Score: 92/100 (EXCELLENT). Token Audit section updated in Mission Control.' }
+            },
+            { id: 'TKT-224', title: 'Teams tab data validation + fixes', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-022', progress: 100, tags: ['The Lab', 'Data Validation', '✅ Done'],
+              context: { ask: 'Verify Teams tab data accuracy in The Lab', goal: 'All team data displays correctly with no stale references', reason: 'Data integrity is foundational for reader trust', audible: 'Grade: B+. Report at reviews/teams_data_validation_021426_v1.md.' }
+            },
+            { id: 'TKT-225', title: 'Artifacts, Analysis & Research tabs review', state: 'DONE', priority: 'P0', effort: 'hustle', assignee: 'Tom Brady', epic: 'EPIC-022', progress: 100, tags: ['The Lab', 'Content Review', '✅ Done'],
+              context: { ask: 'Review Artifacts, Analysis, Research tabs for relevance and accuracy', goal: 'All content updated, no stale references, broken links fixed', reason: 'Editorial quality across all Lab surfaces', audible: 'Fixed 2 broken GitHub links in analysis.html. Report at reviews/lab_content_audit_021426_v1.md.' }
+            },
+            { id: 'TKT-226', title: 'Film Room update + NL Search improvement scoping', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Jose Mourinho', epic: 'EPIC-022', progress: 100, tags: ['Film Room', 'NL Search', '✅ Done'],
+              context: { ask: 'Audit Film Room + scope NL Search improvements for Sprint 5', goal: 'Film Room verified, NL Search limitations documented', reason: 'Research Desk is a key differentiator — needs continuous improvement', audible: 'Audit complete. NL search limitations: no joins, no aggregation, no autonomous reasoning. Sprint 5 scope written.' }
+            },
+            { id: 'TKT-227', title: 'Language, readability & detail audit', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Virat Kohli', epic: 'EPIC-022', progress: 100, tags: ['Editorial', 'Language', '✅ Done'],
+              context: { ask: 'Audit language, readability, and detail across all dashboards', goal: 'Consistent tone, grammar, jargon clarity, editorial quality', reason: 'Virat Kohli mandate: Tone & Narrative Guard', audible: 'Report at reviews/language_audit_021426_v1.md.' }
+            },
+            { id: 'TKT-228', title: 'UI/UX optimization + mobile responsiveness', state: 'DONE', priority: 'P0', effort: 'marathon', assignee: 'Kevin de Bruyne', epic: 'EPIC-022', progress: 100, tags: ['UI/UX', 'Mobile', '✅ Done'],
+              context: { ask: 'Optimize UI/UX for both Lab and Mission Control', goal: 'Improved visualizations, mobile responsiveness', reason: 'UX quality is product differentiator', audible: 'Both dashboards optimized. Visualizations improved.' }
+            },
+            { id: 'TKT-229', title: 'Data freshness pipeline + Cricsheet update', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Brock Purdy', epic: 'EPIC-022', progress: 100, tags: ['Data Pipeline', 'Cricsheet', '✅ Done'],
+              context: { ask: 'Assess data freshness, set up weekly refresh process', goal: 'Data pipeline status documented, refresh process defined', reason: 'Data staleness impacts analysis accuracy', audible: 'Report at reviews/data_pipeline_assessment_021426_v1.md.' }
+            },
+            { id: 'TKT-230', title: 'Cricket insights & domain accuracy review', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'Andy Flower', epic: 'EPIC-022', progress: 100, tags: ['Domain Review', 'Cricket', '✅ Done'],
+              context: { ask: 'Review all cricket insights for domain accuracy', goal: 'Every claim verified against IPL reality', reason: 'Cricket accuracy is non-negotiable — Andy Flower mandate', audible: 'Grade: B+. Report at reviews/cricket_domain_review_021426_v1.md.' }
+            },
+            { id: 'TKT-231', title: 'Full QA audit across all systems', state: 'DONE', priority: 'P0', effort: 'deep-work', assignee: 'N\'Golo Kante', epic: 'EPIC-022', progress: 100, tags: ['QA', 'Audit', '✅ Done'],
+              context: { ask: 'Comprehensive QA pass across all dashboards, outputs, tests', goal: 'Data integrity, test coverage, system reliability verified', reason: 'QA is the final gate before sprint closure', audible: 'Grade: A-. 280/280 tests pass. System health 92/100. Report at reviews/qa_audit_021426_v1.md.' }
+            },
+            { id: 'TKT-232', title: 'Dashboard UX optimization with Kevin de Bruyne', state: 'DONE', priority: 'P1', effort: 'deep-work', assignee: 'Jayson Tatum', epic: 'EPIC-022', progress: 100, tags: ['UX', 'Dashboard', '✅ Done'],
+              context: { ask: 'Optimize UX across every dashboard tab', goal: 'UX improvements implemented with KDB collaboration', reason: 'Jayson Tatum mandate: UX & Reader Flow Auditor', audible: 'All tabs reviewed and optimized in collaboration with Kevin de Bruyne.' }
+            },
+            { id: 'TKT-233', title: 'The Lab proof + strengths/weaknesses/suggestions', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'LeBron James', epic: 'EPIC-022', progress: 100, tags: ['Review', 'Social', '✅ Done'],
+              context: { ask: 'Proof The Lab dashboard — strengths, weaknesses, suggestions', goal: 'Reader perspective audit from social atomization angle', reason: 'LeBron mandate: Reader Perspective Auditor', audible: 'Report at reviews/lab_proof_lebron_021426_v1.md.' }
+            },
+            { id: 'TKT-234', title: 'Strategic direction rundown', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: 'Florentino Perez', epic: 'EPIC-022', progress: 100, tags: ['Strategy', 'Vision', '✅ Done'],
+              context: { ask: 'Strategic direction — where Cricket Playbook is headed', goal: 'Product vision, roadmap alignment, risk assessment', reason: 'Florentino mandate: Program Director', audible: 'Report at reviews/strategic_direction_021426_v1.md.' }
+            },
+
+            // ==================== SPRINT 5.0: EPIC-021 — Player Rankings System ====================
+            { id: 'TKT-235', title: 'Create ranking composite views in analytics_ipl.py', state: 'BACKLOG', priority: 'P0', effort: 'marathon', assignee: 'Stephen Curry', epic: 'EPIC-021', progress: 0, tags: ['Analytics', 'Rankings', 'SQL'],
+              context: { ask: 'Create composite ranking SQL views for all 7 ranking categories', goal: 'Phase-wise batter/bowler rankings, vs bowling type, vs handedness, matchups, overall composite', reason: 'Data foundation for Lindy\'s-style player rankings system', audible: ['Leverage existing percentile views', 'All dual-scope (_alltime + _since2023)', 'Use thresholds from config/thresholds.yaml'] }
+            },
+            { id: 'TKT-236', title: 'Build ranking generator script — generate_rankings.py', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-021', progress: 0, tags: ['Generator', 'Rankings', 'Pipeline'],
+              context: { ask: 'Build generate_rankings.py to output ranking JSON files', goal: 'Leaderboards for each ranking category output to outputs/rankings/', reason: 'Dashboard needs pre-generated JSON data for fast rendering', audible: ['Query composite views from TKT-235', 'Output to outputs/rankings/', 'Blocked by TKT-235'] }
+            },
+            { id: 'TKT-237', title: 'Build Rankings tab UI in The Lab dashboard', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-021', progress: 0, tags: ['Frontend', 'Rankings', 'Dashboard'],
+              context: { ask: 'Build new Rankings tab in The Lab', goal: 'Sub-navigation, sortable leaderboards, phase/type filters, responsive design', reason: 'Signature Sprint 5 feature — Lindy\'s-style player rankings', audible: ['Consistent Lab design system', 'Loads JSON from outputs/rankings/', 'Blocked by TKT-236'] }
+            },
+            { id: 'TKT-238', title: 'Domain validation of rankings', state: 'BACKLOG', priority: 'P1', effort: 'hustle', assignee: 'Andy Flower', epic: 'EPIC-021', progress: 0, tags: ['Domain Review', 'Rankings', 'Cricket'],
+              context: { ask: 'Domain expert review of all 7 ranking categories', goal: 'Verify composite weights produce sensible leaderboards', reason: 'Rankings must pass the cricket smell test', audible: ['Spot-check top-10 and bottom-10', 'Validate min qualification criteria', 'Blocked by TKT-236'] }
+            },
+            { id: 'TKT-239', title: 'QA validation of ranking data integrity', state: 'BACKLOG', priority: 'P1', effort: 'hustle', assignee: 'N\'Golo Kante', epic: 'EPIC-021', progress: 0, tags: ['QA', 'Rankings', 'Data Integrity'],
+              context: { ask: 'QA validation of ranking data integrity', goal: 'No duplicates, all players qualified, JSON schema consistent', reason: 'System Check gate for rankings feature', audible: ['Cross-check scores against source views', 'Validate _alltime vs _since2023 produce distinct rankings', 'Blocked by TKT-236'] }
+            },
+
+            // ==================== SPRINT 5.0: EPIC-022 — Sprint 4 Close-Out & Editorial Polish ====================
+            { id: 'TKT-240', title: 'Stat Pack Editorial Pass — review all 10 stat packs', state: 'BACKLOG', priority: 'P0', effort: 'marathon', assignee: 'Virat Kohli', epic: 'EPIC-022', progress: 0, tags: ['Editorial', 'Stat Packs'],
+              context: { ask: 'Review all 10 team stat packs for editorial quality', goal: 'Professional pre-tournament analysis tone and factual accuracy', reason: 'Stat packs are the core product — must read like Lindy\'s', audible: ['Virat Kohli + Andy Flower collaborative review', 'Fix narrative gaps and stale data references'] }
+            },
+            { id: 'TKT-241', title: 'Fix PRD section numbering, player/view counts across docs', state: 'BACKLOG', priority: 'P1', effort: 'deep-work', assignee: 'Virat Kohli', epic: 'EPIC-022', progress: 0, tags: ['Documentation', 'Audit'],
+              context: { ask: 'Audit and fix all documentation for stale counts', goal: 'PRD, CONSTITUTION, AGENT_PLAYBOOK, CLAUDE.md all consistent', reason: 'Documentation drift undermines governance credibility', audible: ['Sequential section numbering', 'Correct player/view/agent counts', 'Cross-check all docs'] }
+            },
+            { id: 'TKT-242', title: 'Fix SUPER SELECTOR positional diversity constraints', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-022', progress: 0, tags: ['Analytics', 'Predicted XII', 'Bug Fix'],
+              context: { ask: 'Fix SUPER SELECTOR to enforce positional diversity', goal: 'No >2 keepers, minimum 2 frontline spinners in XI', reason: 'Current algorithm produces unrealistic XI selections', audible: ['Review selection logic', 'Add positional constraints', 'Verify all 10 teams'] }
+            },
+            { id: 'TKT-243', title: 'Fix MI and RR salary cap overruns', state: 'BACKLOG', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-022', progress: 0, tags: ['Data', 'Salary Cap', 'Bug Fix'],
+              context: { ask: 'Fix MI and RR salary cap overruns', goal: 'All 10 teams within INR 120 Cr salary cap', reason: 'Salary cap violations flagged in Sprint 4 review', audible: ['Cross-check against official IPL 2025 mega auction data', 'Update incorrect auction prices'] }
+            },
+            { id: 'TKT-244', title: 'Fix 9 predicted XII players missing from depth charts', state: 'BACKLOG', priority: 'P1', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-022', progress: 0, tags: ['Analytics', 'Depth Charts', 'Bug Fix'],
+              context: { ask: 'Fix 9 players in predicted XII but missing from depth charts', goal: 'Every predicted XII player has a valid depth chart entry', reason: 'Data consistency between generators', audible: ['Cross-reference predicted_xii vs depth_chart outputs', 'Ensure role, batting position, bowling type present'] }
+            },
+
+            // ==================== SPRINT 5.0: EPIC-023 — Infrastructure & Pipeline Hardening ====================
+            { id: 'TKT-245', title: 'Fix ingest.yml script path + download URL mismatch', state: 'BACKLOG', priority: 'P0', effort: 'hustle', assignee: 'Brock Purdy', epic: 'EPIC-023', progress: 0, tags: ['CI/CD', 'Data Pipeline', 'Bug Fix'],
+              context: { ask: 'Fix ingest.yml workflow script path and Cricsheet URL', goal: 'Ingestion workflow runs successfully end-to-end', reason: 'Broken ingestion blocks data freshness', audible: ['Verify correct script path for ingest.py', 'Update Cricsheet ZIP download URL', 'Test workflow end-to-end'] }
+            },
+            { id: 'TKT-246', title: 'Run fresh data ingestion — data 30 days stale', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Brock Purdy', epic: 'EPIC-023', progress: 0, tags: ['Data Pipeline', 'Ingestion'],
+              context: { ask: 'Run fresh data ingestion from Cricsheet', goal: 'DuckDB updated with latest match data, all downstream outputs regenerated', reason: 'Data is ~30 days stale — impacts analysis accuracy', audible: ['Download latest Cricsheet ZIPs', 'Run ingest.py', 'Verify row counts', 'Regenerate all outputs', 'Blocked by TKT-245'] }
+            },
+            { id: 'TKT-247', title: 'Implement lightweight model registry', state: 'BACKLOG', priority: 'P1', effort: 'deep-work', assignee: 'Ime Udoka', epic: 'EPIC-023', progress: 0, tags: ['ML Ops', 'Model Registry'],
+              context: { ask: 'Build lightweight model registry', goal: 'Track model versions, hyperparameters, metrics, artifacts', reason: 'Known gap in ML Rigor category (system health score)', audible: ['JSON-based storage in .mission-control/data/models/', 'Track: name, version, training date, dataset hash, metrics, artifact path'] }
+            },
+            { id: 'TKT-248', title: 'Add Lab data generators to generate-outputs.yml', state: 'BACKLOG', priority: 'P1', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-023', progress: 0, tags: ['CI/CD', 'Automation'],
+              context: { ask: 'Add Lab data generators to automation chain', goal: 'Lab data files auto-update when outputs regenerate', reason: 'Currently Lab data requires manual regeneration', audible: ['Include generate_rankings.py when available', 'Ensure full pipeline: gate-check → generate-outputs → deploy-dashboard'] }
+            },
+            { id: 'TKT-249', title: 'Add data freshness indicator to The Lab', state: 'BACKLOG', priority: 'P2', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-023', progress: 0, tags: ['UI', 'Data Pipeline'],
+              context: { ask: 'Add visible data freshness indicator to Lab dashboard', goal: 'Show last ingestion date + staleness warning if >14 days old', reason: 'Users should know how fresh the underlying data is', audible: ['Small UI element in header or footer', 'Show last ingestion date, last output generation date'] }
+            },
+
+            // ==================== SPRINT 5.0: EPIC-024 — UI/UX & Accessibility ====================
+            { id: 'TKT-250', title: 'Fix min font sizes, Film Room mobile overlap, smooth scroll', state: 'BACKLOG', priority: 'P1', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-024', progress: 0, tags: ['UI/UX', 'Mobile', 'Bug Fix'],
+              context: { ask: 'Fix UI issues: min font sizes, Film Room mobile overlap, smooth scroll', goal: 'No text below 12px, Film Room layout works on mobile, smooth anchor scrolling', reason: 'Sprint 4 review identified these UX gaps', audible: ['Test Chrome, Safari, Firefox on desktop + mobile'] }
+            },
+            { id: 'TKT-251', title: 'Add Mission Control nav link to all Lab pages', state: 'BACKLOG', priority: 'P0', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-024', progress: 0, tags: ['Navigation', 'UI/UX'],
+              context: { ask: 'Add Mission Control link + standardize mobile nav across Lab', goal: 'Consistent navigation: Home, Teams, Film Room, Research Desk, Rankings, Mission Control', reason: 'No way to navigate to Mission Control from Lab pages', audible: ['Standardize mobile nav menu across all Lab pages'] }
+            },
+            { id: 'TKT-252', title: 'Remove stale Ctrl+Space hint, fix typewriter delay, remove dead CSS', state: 'BACKLOG', priority: 'P1', effort: 'hustle', assignee: 'Jayson Tatum', epic: 'EPIC-024', progress: 0, tags: ['UX', 'Cleanup'],
+              context: { ask: 'UX cleanup: stale hints, animation delay, dead CSS', goal: 'Clean UI with no deprecated elements or unused styles', reason: 'Jayson Tatum UX audit items from Sprint 4', audible: ['Remove Ctrl+Space hint', 'Fix typewriter animation delay', 'Audit and remove dead CSS'] }
+            },
+            { id: 'TKT-253', title: 'Add WCAG 2.1 AA accessibility basics', state: 'BACKLOG', priority: 'P1', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-024', progress: 0, tags: ['Accessibility', 'WCAG', 'A11y'],
+              context: { ask: 'Add WCAG 2.1 AA accessibility basics to Lab dashboard', goal: 'ARIA labels, focus-visible styles, skip-nav, color contrast 4.5:1', reason: 'No accessibility compliance currently — blocks professional credibility', audible: ['ARIA labels on all interactive elements', 'Focus-visible for keyboard nav', 'Skip-nav for screen readers'] }
             }
         ];
 
@@ -8226,15 +8360,23 @@ Gate Inheritance:
         let searchQuery = '';
         let listSearchQuery = '';
         let listSprintFilter = 'all';
+        let boardSprintFilter = 'all';
 
         // Sprint 5 epic IDs for filtering
-        const sprint5Epics = ['EPIC-018', 'EPIC-019', 'EPIC-020'];
+        const sprint5Epics = ['EPIC-018', 'EPIC-019', 'EPIC-020', 'EPIC-021', 'EPIC-022', 'EPIC-023', 'EPIC-024'];
 
         function setListSprintFilter(filter) {
             listSprintFilter = filter;
             document.querySelectorAll('[data-sprint-filter]').forEach(btn => btn.classList.remove('active'));
             document.querySelector(`[data-sprint-filter="${filter}"]`).classList.add('active');
             renderList();
+        }
+
+        function setBoardSprintFilter(filter) {
+            boardSprintFilter = filter;
+            document.querySelectorAll('[data-board-sprint]').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[data-board-sprint="${filter}"]`).classList.add('active');
+            renderBoard();
         }
 
         // Search handler (Kanban board search — also updates List view)
@@ -9152,6 +9294,14 @@ Gate Inheritance:
             columns.forEach(col => {
                 const container = document.getElementById(`col-${col.id}`);
                 let colTickets = tickets.filter(t => t.state === col.id);
+
+                // Apply sprint filter (Board view)
+                if (boardSprintFilter === 'sprint4') {
+                    colTickets = colTickets.filter(t => !sprint5Epics.includes(t.epic));
+                } else if (boardSprintFilter === 'sprint5') {
+                    colTickets = colTickets.filter(t => sprint5Epics.includes(t.epic));
+                }
+
                 document.getElementById(`count-${col.id}`).textContent = colTickets.length;
 
                 // Sort tickets: P0 first, stale reviews second, then by recency (higher ID = newer)

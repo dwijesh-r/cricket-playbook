@@ -24,6 +24,7 @@ Agents are expected to operate within defined responsibilities and surface uncer
 | System Health | `scripts/ml_ops/system_health_score.py` |
 | Agent Configs | `config/agents/` |
 | Sprint Response | `reviews/founder/sprint_4_checkin_response_020426_v1.md` |
+| Content Language | `config/content_language_guide.md` |
 
 ---
 

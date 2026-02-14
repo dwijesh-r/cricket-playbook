@@ -384,6 +384,24 @@ A section must satisfy at least one:
 - ❌ Live/in-tournament reactive content
 - ❌ Content that weakens clarity or conviction
 
+### 8.4 Content Language Standards
+
+**Owner:** Virat Kohli (Tone & Narrative Guard)
+**Enforced by:** Tom Brady (Editorial Consistency)
+
+All editorial content must comply with the Content Language Guide (`config/content_language_guide.md`).
+
+**Core tone:** Dry, witty, professional, engaging. Authority first, personality second.
+
+Key rules:
+- No em dashes (—) in editorial content
+- Puns: max 1-2 per 1000 words, must feel organic
+- Analogies: encouraged, one per paragraph max, no stacking
+- No internet-speak, no cliche metaphors, no forced humor
+- Every section must pass the Phil Steele Rule
+
+See `config/content_language_guide.md` for full standards, calibration examples, and enforcement protocol.
+
 ---
 
 ## Section 9: Agent Boundaries

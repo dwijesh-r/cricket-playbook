@@ -1,0 +1,13 @@
+{
+  "id": "TKT-254",
+  "title": "Season Preview sample + editorial plan (Founder gate)",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "epic_id": "EPIC-025",
+  "sprint_id": "SPRINT-002",
+  "assignee": "Virat Kohli",
+  "effort": "Deep Work",
+  "description": "Create a sample team preview (1 team) in Lindy's/Phil Steele format plus a detailed editorial plan for all 10 teams. Sample should be 2-3 pages of narrative prose covering: team outlook, key storylines, strength/weakness breakdown, players to watch with statistical context, bold take. Plan should cover: format template, tone guide, section structure, production timeline, Andy Flower collaboration model. Founder approval required before proceeding to full 10-team production.",
+  "created_at": "2026-02-14T14:00:00Z",
+  "updated_at": "2026-02-14T14:00:00Z"
+}

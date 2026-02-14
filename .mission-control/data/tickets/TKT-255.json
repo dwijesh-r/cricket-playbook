@@ -1,0 +1,13 @@
+{
+  "id": "TKT-255",
+  "title": "Revise all 8 stale agent configs for Sprint 5",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "epic_id": "EPIC-022",
+  "sprint_id": "SPRINT-002",
+  "assignee": "Brad Stevens",
+  "effort": "Deep Work",
+  "description": "Revise all 8 agent .md config files unchanged since Jan 21. Update responsibilities, add Sprint 5 mandates, reflect Sprint 4 performance review lessons, set measurable targets. Agents: Brad Stevens, Tom Brady, Stephen Curry, Kevin de Bruyne, N'Golo Kante, Pep Guardiola, Ime Udoka, Jayson Tatum.",
+  "created_at": "2026-02-14T14:00:00Z",
+  "updated_at": "2026-02-14T14:00:00Z"
+}

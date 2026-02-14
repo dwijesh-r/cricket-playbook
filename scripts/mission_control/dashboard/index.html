@@ -6583,7 +6583,10 @@
               outcome: 'Infrastructure gaps from Sprint 4 reviews addressed, automation coverage increased to 90% (5 tickets: TKT-245 to TKT-249)' },
             { id: 'EPIC-024', title: 'UI/UX & Accessibility', type: 'delivery', owner: 'Kevin De Bruyne',
               goal: 'Mobile optimization, dark mode, accessibility compliance, print-ready stat packs',
-              outcome: 'WCAG 2.1 AA compliance, mobile-first responsive design, print-friendly outputs (4 tickets: TKT-250 to TKT-253)' }
+              outcome: 'WCAG 2.1 AA compliance, mobile-first responsive design, print-friendly outputs (4 tickets: TKT-250 to TKT-253)' },
+            { id: 'EPIC-025', title: 'Season Preview Magazine Content', type: 'delivery', owner: 'Virat Kohli',
+              goal: 'Lindy\'s/Phil Steele style IPL 2026 season preview — team narratives, storylines, players to watch, bold takes',
+              outcome: 'Professional pre-tournament editorial content for all 10 IPL teams (gated: sample approval required before full production)' }
         ];
 
         // Helper function to get EPIC by ID
@@ -8143,14 +8146,14 @@ Gate Inheritance:
             },
 
             // ==================== SPRINT 5.0: EPIC-019 — React Dashboard ====================
-            { id: 'TKT-210', title: 'React project setup + build pipeline', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-019', progress: 0, tags: ['React', 'Infrastructure', 'Build'],
-              context: { ask: 'Set up React project with build pipeline', goal: 'Working React scaffold with CI integration', reason: 'Foundation for interactive dashboard', audible: ['Create React app', 'Configure build', 'Add CI'] }
+            { id: 'TKT-210', title: 'React project setup + build pipeline', state: 'DEFERRED', priority: 'P0', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-019', progress: 0, tags: ['React', 'Infrastructure', 'Build', 'Deferred to Sprint 6'],
+              context: { ask: 'Set up React project with build pipeline', goal: 'Working React scaffold with CI integration', reason: 'Deferred: Founder decision — content and rankings take priority over scaffolding', audible: ['Create React app', 'Configure build', 'Add CI'] }
             },
-            { id: 'TKT-211', title: 'Design system — component library + theme tokens', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-019', progress: 0, tags: ['React', 'Design System', 'UI'],
-              context: { ask: 'Build component library with theme tokens', goal: 'Reusable component library matching existing design', reason: 'Consistent UI across all React pages', audible: ['Define tokens', 'Build components', 'Document usage'] }
+            { id: 'TKT-211', title: 'Design system — component library + theme tokens', state: 'DEFERRED', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-019', progress: 0, tags: ['React', 'Design System', 'UI', 'Deferred to Sprint 6'],
+              context: { ask: 'Build component library with theme tokens', goal: 'Reusable component library matching existing design', reason: 'Deferred: Founder decision — content and rankings take priority over scaffolding', audible: ['Define tokens', 'Build components', 'Document usage'] }
             },
-            { id: 'TKT-212', title: 'Data layer — DuckDB-WASM integration + React hooks', state: 'BACKLOG', priority: 'P0', effort: 'marathon', assignee: 'Brad Stevens', epic: 'EPIC-019', progress: 0, tags: ['React', 'DuckDB', 'Data Layer'],
-              context: { ask: 'Integrate DuckDB-WASM with custom React hooks', goal: 'Browser-native SQL queries via React hooks', reason: 'Core data layer for interactive dashboard', audible: ['Integrate DuckDB-WASM', 'Build hooks', 'Test queries'] }
+            { id: 'TKT-212', title: 'Data layer — DuckDB-WASM integration + React hooks', state: 'DEFERRED', priority: 'P0', effort: 'marathon', assignee: 'Brad Stevens', epic: 'EPIC-019', progress: 0, tags: ['React', 'DuckDB', 'Data Layer', 'Deferred to Sprint 6'],
+              context: { ask: 'Integrate DuckDB-WASM with custom React hooks', goal: 'Browser-native SQL queries via React hooks', reason: 'Deferred: Founder decision — content and rankings take priority over scaffolding', audible: ['Integrate DuckDB-WASM', 'Build hooks', 'Test queries'] }
             },
             { id: 'TKT-213', title: 'Team pages — migrate squad, depth chart, pressure tabs', state: 'DEFERRED', priority: 'P1', effort: 'marathon', assignee: 'Kevin de Bruyne', epic: 'EPIC-019', progress: 0, tags: ['React', 'Migration', 'Teams', 'Deferred to Sprint 6'],
               context: { ask: 'Migrate team pages from static HTML to React', goal: 'React-based team pages with all existing features', reason: 'Deferred: React migration killed by Florentino — premature before content stabilizes', audible: ['Migrate squad tab', 'Migrate depth chart', 'Migrate pressure tab'] }
@@ -8158,8 +8161,8 @@ Gate Inheritance:
             { id: 'TKT-214', title: 'Research Desk — migrate NL search + SQL Lab to React', state: 'DEFERRED', priority: 'P1', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-019', progress: 0, tags: ['React', 'Migration', 'Research Desk', 'Deferred to Sprint 6'],
               context: { ask: 'Migrate Research Desk to React', goal: 'React-based NL search and SQL Lab', reason: 'Deferred: React migration killed by Florentino — premature before content stabilizes', audible: ['Migrate NL search', 'Migrate SQL Lab', 'Test all queries'] }
             },
-            { id: 'TKT-215', title: 'Testing + CI integration for React dashboard', state: 'BACKLOG', priority: 'P1', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-019', progress: 0, tags: ['React', 'Testing', 'CI'],
-              context: { ask: 'Add testing and CI for React dashboard', goal: 'Automated tests with CI/CD integration', reason: 'Quality assurance for React migration', audible: ['Add unit tests', 'Add integration tests', 'Configure CI'] }
+            { id: 'TKT-215', title: 'Testing + CI integration for React dashboard', state: 'DEFERRED', priority: 'P1', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-019', progress: 0, tags: ['React', 'Testing', 'CI', 'Deferred to Sprint 6'],
+              context: { ask: 'Add testing and CI for React dashboard', goal: 'Automated tests with CI/CD integration', reason: 'Deferred: Founder decision — entire EPIC-019 deferred to Sprint 6', audible: ['Add unit tests', 'Add integration tests', 'Configure CI'] }
             },
 
             // ==================== SPRINT 5.0: EPIC-020 — Player Comparison Tool ====================
@@ -8286,6 +8289,16 @@ Gate Inheritance:
             },
             { id: 'TKT-253', title: 'Add WCAG 2.1 AA accessibility basics', state: 'BACKLOG', priority: 'P1', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-024', progress: 0, tags: ['Accessibility', 'WCAG', 'A11y'],
               context: { ask: 'Add WCAG 2.1 AA accessibility basics to Lab dashboard', goal: 'ARIA labels, focus-visible styles, skip-nav, color contrast 4.5:1', reason: 'No accessibility compliance currently — blocks professional credibility', audible: ['ARIA labels on all interactive elements', 'Focus-visible for keyboard nav', 'Skip-nav for screen readers'] }
+            },
+
+            // ==================== SPRINT 5.0: EPIC-025 — Season Preview Magazine Content ====================
+            { id: 'TKT-254', title: 'Season Preview sample + editorial plan (Founder gate)', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Virat Kohli', epic: 'EPIC-025', progress: 0, tags: ['Editorial', 'Season Preview', 'Gate'],
+              context: { ask: 'Create a sample team preview (1 team) + detailed editorial plan for all 10 teams', goal: 'Lindy\'s/Phil Steele quality sample — narrative, storylines, players to watch, bold take. Plus a plan for the full 10-team production.', reason: 'Founder gate: full production only proceeds after sample approval', audible: ['Pick one team for sample preview', 'Write 2-3 page narrative in Lindy\'s style', 'Create editorial plan: format, tone, sections, timeline for all 10'] }
+            },
+
+            // ==================== PRE-SPRINT: Agent Retraining ====================
+            { id: 'TKT-255', title: 'Revise all 8 stale agent configs for Sprint 5', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-022', progress: 0, tags: ['Governance', 'Agent Config', 'Retraining'],
+              context: { ask: 'Revise all 8 stale agent .md files (unchanged since Jan 21) with Sprint 5 mandates', goal: 'Every agent config reflects current responsibilities, Sprint 4 lessons, and Sprint 5 targets', reason: 'Agent configs drive behavior — stale configs produce stale output', audible: ['Brad Stevens, Tom Brady, Stephen Curry, Kevin de Bruyne, N\'Golo Kante, Pep Guardiola, Ime Udoka, Jayson Tatum'] }
             }
         ];
 
@@ -8363,7 +8376,7 @@ Gate Inheritance:
         let boardSprintFilter = 'all';
 
         // Sprint 5 epic IDs for filtering
-        const sprint5Epics = ['EPIC-018', 'EPIC-019', 'EPIC-020', 'EPIC-021', 'EPIC-022', 'EPIC-023', 'EPIC-024'];
+        const sprint5Epics = ['EPIC-018', 'EPIC-019', 'EPIC-020', 'EPIC-021', 'EPIC-022', 'EPIC-023', 'EPIC-024', 'EPIC-025'];
 
         function setListSprintFilter(filter) {
             listSprintFilter = filter;

@@ -1,0 +1,10 @@
+{
+  "id": "EPIC-025",
+  "title": "Season Preview Magazine Content",
+  "description": "Lindy's/Phil Steele style IPL 2026 season preview. 10 team previews with narratives, storylines, players to watch, schedule outlook, bold takes. Gated: sample approval required before full production.",
+  "owner": "Virat Kohli",
+  "sprint_id": "SPRINT-002",
+  "status": "PLANNED",
+  "tickets": ["TKT-254"],
+  "created_at": "2026-02-14T14:00:00Z"
+}

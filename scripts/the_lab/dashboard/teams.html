@@ -2931,6 +2931,536 @@
         /* Touch target minimum sizes (WCAG 44x44px) */
         .mobile-nav a { min-height: 44px; display: flex; align-items: center; }
         .theme-toggle { min-width: 44px; min-height: 44px; }
+
+        /* ==================== SEASON PREVIEW TAB (TKT-257) ==================== */
+
+        /* Hero Section */
+        .preview-hero {
+            padding: 32px 24px;
+            background: linear-gradient(135deg, var(--glass) 0%, transparent 100%);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            margin-bottom: 24px;
+        }
+        .preview-hero-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+        .preview-hero-intro {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 800px;
+        }
+        .preview-hero-meta {
+            display: flex;
+            gap: 16px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+        .preview-meta-tag {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            background: var(--glass);
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+        }
+
+        /* Verdict Card */
+        .preview-verdict {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 24px;
+            padding: 24px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            margin-bottom: 24px;
+            align-items: center;
+        }
+        .preview-verdict-text {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-style: italic;
+        }
+        .preview-verdict-grades {
+            display: flex;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+        .preview-grade-card {
+            text-align: center;
+            padding: 12px 16px;
+            border-radius: 10px;
+            min-width: 80px;
+        }
+        .preview-grade-card.projected {
+            background: var(--accent);
+            color: #fff;
+        }
+        .preview-grade-card.ceiling {
+            background: var(--accent-green);
+            color: #000;
+        }
+        .preview-grade-card.floor {
+            background: var(--accent-red);
+            color: #fff;
+        }
+        .preview-grade-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+        .preview-grade-value {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-top: 4px;
+        }
+
+        /* Key Stats Row */
+        .preview-stats-row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .preview-stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            padding: 16px 12px;
+            text-align: center;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .preview-stat-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+        .preview-stat-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            letter-spacing: -0.5px;
+        }
+        .preview-stat-label {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            line-height: 1.3;
+        }
+        .preview-stat-context {
+            font-size: 0.65rem;
+            color: var(--text-tertiary);
+            margin-top: 6px;
+            line-height: 1.3;
+        }
+
+        /* Category Ratings */
+        .preview-ratings {
+            margin-bottom: 24px;
+        }
+        .preview-ratings-grid {
+            display: grid;
+            gap: 8px;
+        }
+        .preview-rating-row {
+            display: grid;
+            grid-template-columns: 140px 1fr 60px 200px;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+        }
+        .preview-rating-row.overall {
+            background: var(--glass);
+            border-color: var(--accent);
+        }
+        .preview-rating-cat {
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        .preview-rating-bar-bg {
+            height: 8px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .preview-rating-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.8s ease;
+        }
+        .preview-rating-score {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-align: right;
+        }
+        .preview-rating-note {
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+            text-align: right;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Collapsible Sections */
+        .preview-section {
+            margin-bottom: 12px;
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--bg-secondary);
+        }
+        .preview-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            user-select: none;
+        }
+        .preview-section-header:hover {
+            background: var(--glass);
+        }
+        .preview-section-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .preview-section-summary {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+            margin-top: 4px;
+            max-width: 600px;
+        }
+        .preview-section-toggle {
+            font-size: 0.8rem;
+            color: var(--accent);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 12px;
+        }
+        .preview-section.open .preview-section-toggle {
+            transform: rotate(180deg);
+        }
+        .preview-section-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .preview-section.open .preview-section-body {
+            max-height: 15000px;
+        }
+        .preview-section-inner {
+            padding: 0 20px 20px 20px;
+        }
+
+        /* Preview Tables - Magazine Quality */
+        .preview-table-wrap {
+            overflow-x: auto;
+            margin: 16px 0;
+            border-radius: 8px;
+            border: 1px solid var(--glass-border);
+        }
+        .preview-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+        }
+        .preview-table caption {
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+            text-align: left;
+            padding: 8px 12px 4px;
+            font-style: italic;
+        }
+        .preview-table thead th {
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 10px 12px;
+            text-align: left;
+            white-space: nowrap;
+            border-bottom: 2px solid var(--border);
+            position: sticky;
+            top: 0;
+        }
+        .preview-table tbody td {
+            padding: 10px 12px;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--glass-border);
+            white-space: nowrap;
+        }
+        .preview-table tbody tr:hover {
+            background: var(--glass);
+        }
+        .preview-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        /* Highlight cells with strong/bold content */
+        .preview-table td strong {
+            color: var(--accent);
+            font-weight: 700;
+        }
+        /* Numeric emphasis */
+        .preview-table .num-positive {
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+        .preview-table .num-negative {
+            color: var(--accent-red);
+            font-weight: 600;
+        }
+        .preview-table .num-neutral {
+            color: var(--text-secondary);
+        }
+
+        /* Preview Text Blocks */
+        .preview-text {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+        .preview-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        .preview-text em {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        /* Preview Subheadings */
+        .preview-subheading {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 24px 0 12px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        /* Preview Callout Box */
+        .preview-callout {
+            background: linear-gradient(135deg, rgba(10, 132, 255, 0.08) 0%, rgba(10, 132, 255, 0.03) 100%);
+            border-left: 3px solid var(--accent);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Bold Take Card */
+        .preview-bold-take {
+            background: linear-gradient(135deg, rgba(255, 69, 58, 0.1) 0%, rgba(255, 69, 58, 0.03) 100%);
+            border: 1px solid rgba(255, 69, 58, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        .preview-bold-take-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-red);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .preview-bold-take-claim {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .preview-bold-take-argument {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Keys to Victory */
+        .preview-keys {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .preview-key-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            padding: 16px;
+        }
+        .preview-key-num {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            opacity: 0.3;
+            float: right;
+            line-height: 1;
+        }
+        .preview-key-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            padding-right: 30px;
+        }
+        .preview-key-text {
+            font-size: 0.78rem;
+            color: var(--text-tertiary);
+            line-height: 1.5;
+        }
+
+        /* Scouting Report */
+        .preview-scout {
+            background: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        .preview-scout-identity {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+        .preview-scout-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .preview-scout-col h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-green);
+            margin-bottom: 8px;
+        }
+        .preview-scout-col.vuln h4 {
+            color: var(--accent-red);
+        }
+        .preview-scout-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .preview-scout-col li {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            padding: 4px 0;
+            padding-left: 12px;
+            position: relative;
+            line-height: 1.5;
+        }
+        .preview-scout-col li::before {
+            content: '\2022';
+            position: absolute;
+            left: 0;
+            color: var(--text-tertiary);
+        }
+        .preview-scout-blueprint {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--glass-border);
+        }
+        .preview-scout-blueprint h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-orange);
+            margin-bottom: 8px;
+        }
+        .preview-scout-blueprint p {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Coming Soon Placeholder */
+        .preview-coming-soon {
+            text-align: center;
+            padding: 80px 24px;
+        }
+        .preview-coming-soon-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .preview-coming-soon-text {
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Responsive - Mobile */
+        @media (max-width: 768px) {
+            .preview-hero { padding: 20px 16px; }
+            .preview-hero-title { font-size: 1.3rem; }
+            .preview-hero-intro { font-size: 0.92rem; }
+            .preview-verdict { grid-template-columns: 1fr; }
+            .preview-verdict-grades { justify-content: center; }
+            .preview-stats-row { grid-template-columns: repeat(2, 1fr); }
+            .preview-stats-row .preview-stat-card:last-child { grid-column: span 2; }
+            .preview-rating-row { grid-template-columns: 100px 1fr 50px; }
+            .preview-rating-note { display: none; }
+            .preview-keys { grid-template-columns: 1fr; }
+            .preview-scout-grid { grid-template-columns: 1fr; }
+            .preview-bold-take-claim { font-size: 1rem; }
+            .preview-section-summary { display: none; }
+        }
+        @media (max-width: 480px) {
+            .preview-stats-row { grid-template-columns: 1fr 1fr; }
+            .preview-hero-title { font-size: 1.1rem; }
+            .preview-stat-value { font-size: 1.2rem; }
+            .preview-hero-meta { gap: 8px; }
+            .preview-section-header { padding: 12px 14px; }
+            .preview-section-inner { padding: 0 14px 14px 14px; }
+        }
+
+        /* Expand All Button */
+        .preview-expand-all {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 12px;
+        }
+        .preview-expand-all-btn {
+            background: none;
+            border: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .preview-expand-all-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
     </style>
 </head>
 <body>
@@ -2991,7 +3521,8 @@
 
         <!-- Content Tabs -->
         <div class="content-tabs">
-            <button class="content-tab active" data-tab="xi">Predicted XI</button>
+            <button class="content-tab active" data-tab="preview">📰 Preview</button>
+            <button class="content-tab" data-tab="xi">Predicted XI</button>
             <button class="content-tab" data-tab="squad">Full Squad</button>
             <button class="content-tab" data-tab="depth">Depth Chart</button>
             <button class="content-tab" data-tab="balance">Strategy Outlook</button>
@@ -3001,7 +3532,10 @@
 
         <!-- Content Panels -->
         <div class="content-panel">
-            <div class="panel active" id="panel-xi">
+            <div class="panel active" id="panel-preview">
+                <div id="preview-content"></div>
+            </div>
+            <div class="panel" id="panel-xi">
                 <div class="xi-grid" id="xi-grid"></div>
                 <div class="impact-player" id="impact-player"></div>
             </div>
@@ -3036,6 +3570,7 @@
     <script src="data/historic_trends.js"></script>
     <script src="data/momentum_insights.js"></script>
     <script src="data/player_profiles.js"></script>
+    <script src="data/season_previews.js"></script>
 
     <script>
         // Pixelated Team Logos (8x8 grid style)
@@ -3208,6 +3743,7 @@
         };
 
         function renderTeam() {
+            renderPreviewPanel();
             const team = TEAMS[currentTeam];
             const predicted = PREDICTED_XII[currentTeam];
             const rating = DEPTH_CHART_RATINGS[currentTeam];
@@ -5167,6 +5703,216 @@
             }
         }
 
+        // ==================== SEASON PREVIEW RENDERING (TKT-257) ====================
+        function renderPreviewPanel() {
+            const container = document.getElementById('preview-content');
+            if (!container) return;
+
+            const data = (typeof SEASON_PREVIEWS !== 'undefined') ? SEASON_PREVIEWS[currentTeam] : null;
+
+            if (!data || !data.available) {
+                container.innerHTML = `
+                    <div class="preview-coming-soon">
+                        <div class="preview-coming-soon-title">Season Preview Coming Soon</div>
+                        <div class="preview-coming-soon-text">The ${TEAMS[currentTeam]?.name || currentTeam} season preview is being prepared by Cricket Playbook's editorial team.</div>
+                    </div>`;
+                return;
+            }
+
+            let html = '';
+
+            // Hero Section
+            html += `<div class="preview-hero">
+                <div class="preview-hero-title">${data.headline.title}</div>
+                <div class="preview-hero-intro">${data.headline.intro}</div>
+                <div class="preview-hero-meta">
+                    <span class="preview-meta-tag">${data.meta.dataWindow}</span>
+                    <span class="preview-meta-tag">${data.meta.revision}</span>
+                    <span class="preview-meta-tag">${data.meta.agents}</span>
+                </div>
+            </div>`;
+
+            // Verdict Card
+            html += `<div class="preview-verdict">
+                <div class="preview-verdict-text">${data.verdict.text}</div>
+                <div class="preview-verdict-grades">
+                    <div class="preview-grade-card projected">
+                        <div class="preview-grade-label">Projected</div>
+                        <div class="preview-grade-value">${data.verdict.projected}</div>
+                    </div>
+                    <div class="preview-grade-card ceiling">
+                        <div class="preview-grade-label">Ceiling</div>
+                        <div class="preview-grade-value">${data.verdict.ceiling}</div>
+                    </div>
+                    <div class="preview-grade-card floor">
+                        <div class="preview-grade-label">Floor</div>
+                        <div class="preview-grade-value">${data.verdict.floor}</div>
+                    </div>
+                </div>
+            </div>`;
+
+            // By The Numbers
+            html += `<div class="preview-stats-row">`;
+            data.byTheNumbers.forEach(s => {
+                html += `<div class="preview-stat-card">
+                    <div class="preview-stat-value">${s.value}</div>
+                    <div class="preview-stat-label">${s.label}</div>
+                    <div class="preview-stat-context">${s.context}</div>
+                </div>`;
+            });
+            html += `</div>`;
+
+            // Category Ratings
+            html += `<div class="preview-ratings"><div class="preview-ratings-grid">`;
+            data.categoryRatings.forEach(r => {
+                const pct = (r.rating / 10) * 100;
+                const color = r.rating >= 8 ? 'var(--accent-green)' : r.rating >= 6.5 ? 'var(--accent)' : r.rating >= 5 ? 'var(--accent-yellow)' : 'var(--accent-red)';
+                const isOverall = r.cat.toLowerCase().includes('overall');
+                html += `<div class="preview-rating-row${isOverall ? ' overall' : ''}">
+                    <div class="preview-rating-cat">${r.cat}</div>
+                    <div class="preview-rating-bar-bg"><div class="preview-rating-bar-fill" style="width:${pct}%;background:${color}"></div></div>
+                    <div class="preview-rating-score">${r.rating}/10</div>
+                    <div class="preview-rating-note">${r.metric ? r.metric + ' — ' : ''}${r.note}</div>
+                </div>`;
+            });
+            html += `</div></div>`;
+
+            // Bold Take
+            if (data.boldTake) {
+                html += `<div class="preview-bold-take">
+                    <div class="preview-bold-take-label">🔥 The Bold Take</div>
+                    <div class="preview-bold-take-claim">${data.boldTake.claim}</div>
+                    <div class="preview-bold-take-argument">${data.boldTake.argument}</div>
+                </div>`;
+            }
+
+            // Keys to Victory
+            if (data.keysToVictory && data.keysToVictory.length) {
+                html += `<div class="preview-keys">`;
+                data.keysToVictory.forEach((k, i) => {
+                    html += `<div class="preview-key-card">
+                        <div class="preview-key-num">${i + 1}</div>
+                        <div class="preview-key-title">${k.title}</div>
+                        <div class="preview-key-text">${k.text}</div>
+                    </div>`;
+                });
+                html += `</div>`;
+            }
+
+            // Scouting Report
+            if (data.scoutingReport) {
+                const sr = data.scoutingReport;
+                html += `<div class="preview-scout">
+                    <div class="preview-scout-identity">Tactical Identity: ${sr.identity}</div>
+                    <div class="preview-scout-grid">
+                        <div class="preview-scout-col">
+                            <h4>Structural Strengths</h4>
+                            <ul>${sr.strengths.map(s => `<li>${s}</li>`).join('')}</ul>
+                        </div>
+                        <div class="preview-scout-col vuln">
+                            <h4>Structural Vulnerabilities</h4>
+                            <ul>${sr.vulnerabilities.map(v => `<li>${v}</li>`).join('')}</ul>
+                        </div>
+                    </div>
+                    <div class="preview-scout-blueprint">
+                        <h4>Opposition Blueprint</h4>
+                        <p>${sr.oppositionBlueprint}</p>
+                    </div>
+                    ${sr.matchupTargets ? `<div class="preview-scout-blueprint"><h4>Matchup Targets</h4><p>${sr.matchupTargets}</p></div>` : ''}
+                </div>`;
+            }
+
+            // Expand All Button
+            html += `<div class="preview-expand-all">
+                <button class="preview-expand-all-btn" onclick="toggleAllPreviewSections()">Expand All Sections ▼</button>
+            </div>`;
+
+            // Collapsible Sections
+            if (data.sections && data.sections.length) {
+                data.sections.forEach(sec => {
+                    html += `<div class="preview-section" id="preview-sec-${sec.id}">
+                        <div class="preview-section-header" onclick="this.parentElement.classList.toggle('open')">
+                            <div>
+                                <div class="preview-section-title">${sec.title}</div>
+                                ${sec.summary ? `<div class="preview-section-summary">${sec.summary}</div>` : ''}
+                            </div>
+                            <div class="preview-section-toggle">▼</div>
+                        </div>
+                        <div class="preview-section-body">
+                            <div class="preview-section-inner">
+                                ${renderPreviewBlocks(sec.blocks)}
+                            </div>
+                        </div>
+                    </div>`;
+                });
+            }
+
+            // Footer
+            html += `<div style="text-align:center;padding:24px;color:var(--text-tertiary);font-size:0.75rem;">
+                Cricket Playbook v5.0.0 | Data: Cricsheet (9,289 matches) | Analytics: 172+ views<br>
+                Every claim above is backed by data. No vibes. No predictions. Just evidence.
+            </div>`;
+
+            container.innerHTML = html;
+        }
+
+        function renderPreviewBlocks(blocks) {
+            if (!blocks || !blocks.length) return '';
+            let html = '';
+            blocks.forEach(block => {
+                switch (block.type) {
+                    case 'text':
+                        html += `<div class="preview-text">${block.content}</div>`;
+                        break;
+                    case 'subheading':
+                        html += `<div class="preview-subheading">${block.content}</div>`;
+                        break;
+                    case 'callout':
+                        html += `<div class="preview-callout">${block.content}</div>`;
+                        break;
+                    case 'table':
+                        html += renderPreviewTable(block);
+                        break;
+                }
+            });
+            return html;
+        }
+
+        function renderPreviewTable(block) {
+            let html = '<div class="preview-table-wrap"><table class="preview-table">';
+            if (block.caption) html += `<caption>${block.caption}</caption>`;
+            html += '<thead><tr>';
+            block.headers.forEach(h => { html += `<th>${h}</th>`; });
+            html += '</tr></thead><tbody>';
+            block.rows.forEach(row => {
+                html += '<tr>';
+                row.forEach((cell, i) => {
+                    let cls = '';
+                    // Auto-detect positive/negative numbers for coloring
+                    const cellStr = String(cell);
+                    if (cellStr.match(/^\+\d/) || cellStr.match(/^\*\*\+/)) cls = ' class="num-positive"';
+                    else if (cellStr.match(/^-\d/) || cellStr.match(/^\*\*-/)) cls = ' class="num-negative"';
+                    // Render bold markers
+                    let rendered = cellStr.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+                    html += `<td${cls}>${rendered}</td>`;
+                });
+                html += '</tr>';
+            });
+            html += '</tbody></table></div>';
+            return html;
+        }
+
+        function toggleAllPreviewSections() {
+            const sections = document.querySelectorAll('.preview-section');
+            const btn = document.querySelector('.preview-expand-all-btn');
+            const allOpen = Array.from(sections).every(s => s.classList.contains('open'));
+            sections.forEach(s => {
+                if (allOpen) s.classList.remove('open');
+                else s.classList.add('open');
+            });
+            btn.textContent = allOpen ? 'Expand All Sections ▼' : 'Collapse All Sections ▲';
+        }
+
         // Tab switching
         document.querySelectorAll('.content-tab').forEach(tab => {
             tab.addEventListener('click', () => {
@@ -5179,6 +5925,9 @@
                 // Render compare view when tab is clicked
                 if (tabId === 'compare') {
                     renderCompareView();
+                }
+                if (tabId === 'preview') {
+                    renderPreviewPanel();
                 }
             });
         });

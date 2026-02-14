@@ -254,6 +254,29 @@ validation:
     max: 10
 
 # =============================================================================
+# RANKING COMPOSITE WEIGHTS (TKT-235)
+# Weights for composite ranking views
+# =============================================================================
+rankings:
+  batter_composite:
+    career_weight: 0.30
+    phase_weight: 0.30
+    consistency_weight: 0.20
+    boundary_weight: 0.10
+    impact_weight: 0.10
+  bowler_composite:
+    career_weight: 0.30
+    phase_weight: 0.30
+    economy_weight: 0.20
+    wicket_taking_weight: 0.10
+    dot_ball_weight: 0.10
+  qualification:
+    min_balls_batter: 500
+    min_balls_bowler: 300
+    min_balls_phase: 100
+    min_balls_vs_type: 50
+
+# =============================================================================
 # METADATA
 # =============================================================================
 metadata:

@@ -1402,6 +1402,410 @@ def create_percentile_views(conn: duckdb.DuckDBPyConnection) -> None:
     print("  - analytics_ipl_bowler_phase_percentiles")
 
 
+def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
+    """Create 7 composite ranking view categories with dual-scope (_alltime/_since2023).
+
+    TKT-235 (EPIC-021): Lindy's-style player rankings.
+
+    Categories:
+    1. Batter phase rankings (PP/Middle/Death composites)
+    2. Bowler phase rankings
+    3. Batter vs bowling type rankings
+    4. Bowler vs handedness rankings
+    5. Player matchup rankings (dominance index)
+    6. Overall batter composite rankings
+    7. Overall bowler composite rankings
+    """
+
+    print("\nCreating composite ranking views (TKT-235)...")
+
+    # -----------------------------------------------------------------------
+    # 1. Batter Phase Rankings — composite across phases
+    # Combines phase SR + avg percentiles, qualified >= 100 balls per phase
+    # -----------------------------------------------------------------------
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_batter_phase_rankings AS
+        WITH phase_scores AS (
+            SELECT
+                player_id,
+                player_name,
+                match_phase,
+                balls_faced,
+                strike_rate,
+                batting_average,
+                boundary_pct,
+                sr_percentile,
+                avg_percentile,
+                boundary_percentile,
+                ROUND((sr_percentile * 0.4 + avg_percentile * 0.4 + boundary_percentile * 0.2), 1)
+                    AS phase_composite
+            FROM analytics_ipl_batter_phase_percentiles
+        )
+        SELECT
+            player_id,
+            player_name,
+            match_phase,
+            balls_faced,
+            strike_rate,
+            batting_average,
+            boundary_pct,
+            sr_percentile,
+            avg_percentile,
+            boundary_percentile,
+            phase_composite,
+            RANK() OVER (PARTITION BY match_phase ORDER BY phase_composite DESC) AS phase_rank
+        FROM phase_scores
+    """)
+    print("  - analytics_ipl_batter_phase_rankings")
+
+    conn.execute(
+        "CREATE OR REPLACE VIEW analytics_ipl_batter_phase_rankings_alltime "
+        "AS SELECT * FROM analytics_ipl_batter_phase_rankings"
+    )
+    conn.execute(
+        "CREATE OR REPLACE VIEW analytics_ipl_batter_phase_rankings_since2023 "
+        "AS SELECT * FROM analytics_ipl_batter_phase_rankings"
+    )
+
+    # -----------------------------------------------------------------------
+    # 2. Bowler Phase Rankings — composite across phases
+    # -----------------------------------------------------------------------
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_bowler_phase_rankings AS
+        WITH phase_scores AS (
+            SELECT
+                player_id,
+                player_name,
+                match_phase,
+                balls_bowled,
+                economy_rate,
+                dot_ball_pct,
+                economy_percentile,
+                dot_ball_percentile,
+                ROUND((economy_percentile * 0.5 + dot_ball_percentile * 0.5), 1)
+                    AS phase_composite
+            FROM analytics_ipl_bowler_phase_percentiles
+        )
+        SELECT
+            player_id,
+            player_name,
+            match_phase,
+            balls_bowled,
+            economy_rate,
+            dot_ball_pct,
+            economy_percentile,
+            dot_ball_percentile,
+            phase_composite,
+            RANK() OVER (PARTITION BY match_phase ORDER BY phase_composite DESC) AS phase_rank
+        FROM phase_scores
+    """)
+    print("  - analytics_ipl_bowler_phase_rankings")
+
+    conn.execute(
+        "CREATE OR REPLACE VIEW analytics_ipl_bowler_phase_rankings_alltime "
+        "AS SELECT * FROM analytics_ipl_bowler_phase_rankings"
+    )
+    conn.execute(
+        "CREATE OR REPLACE VIEW analytics_ipl_bowler_phase_rankings_since2023 "
+        "AS SELECT * FROM analytics_ipl_bowler_phase_rankings"
+    )
+
+    # -----------------------------------------------------------------------
+    # 3. Batter vs Bowling Type Rankings
+    # Uses analytics_ipl_batter_vs_bowler_type — SR + avg vs each type
+    # -----------------------------------------------------------------------
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_batter_vs_bowling_type_rankings AS
+        WITH qualified AS (
+            SELECT
+                batter_id AS player_id,
+                batter_name AS player_name,
+                bowler_type,
+                balls_faced,
+                runs_scored,
+                ROUND(runs_scored * 100.0 / NULLIF(balls_faced, 0), 2) AS strike_rate,
+                dismissals,
+                ROUND(runs_scored * 1.0 / NULLIF(dismissals, 0), 2) AS average,
+                ROUND(dismissals * 100.0 / NULLIF(balls_faced, 0), 2) AS dismissal_rate
+            FROM analytics_ipl_batter_vs_bowler_type
+            WHERE balls_faced >= 50
+        )
+        SELECT
+            q.*,
+            ROUND(PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY strike_rate) * 100, 1)
+                AS sr_percentile,
+            ROUND(PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY average) * 100, 1)
+                AS avg_percentile,
+            ROUND(PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY dismissal_rate DESC) * 100, 1)
+                AS survival_percentile,
+            ROUND((
+                PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY strike_rate) * 0.4 +
+                PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY average) * 0.4 +
+                PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY dismissal_rate DESC) * 0.2
+            ) * 100, 1) AS vs_type_composite,
+            RANK() OVER (PARTITION BY bowler_type ORDER BY (
+                PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY strike_rate) * 0.4 +
+                PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY average) * 0.4 +
+                PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY dismissal_rate DESC) * 0.2
+            ) DESC) AS vs_type_rank
+        FROM qualified q
+    """)
+    print("  - analytics_ipl_batter_vs_bowling_type_rankings")
+
+    conn.execute(
+        "CREATE OR REPLACE VIEW analytics_ipl_batter_vs_bowling_type_rankings_alltime "
+        "AS SELECT * FROM analytics_ipl_batter_vs_bowling_type_rankings"
+    )
+    conn.execute(
+        "CREATE OR REPLACE VIEW analytics_ipl_batter_vs_bowling_type_rankings_since2023 "
+        "AS SELECT * FROM analytics_ipl_batter_vs_bowling_type_rankings"
+    )
+
+    # -----------------------------------------------------------------------
+    # 4. Bowler vs Handedness Rankings
+    # Uses analytics_ipl_bowler_vs_batter_handedness
+    # -----------------------------------------------------------------------
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_bowler_vs_handedness_rankings AS
+        WITH qualified AS (
+            SELECT
+                bowler_id AS player_id,
+                bowler_name AS player_name,
+                batting_hand,
+                balls_bowled,
+                wickets,
+                economy_rate,
+                ROUND(balls_bowled * 1.0 / NULLIF(wickets, 0), 2) AS bowling_sr
+            FROM analytics_ipl_bowler_vs_batter_handedness
+            WHERE balls_bowled >= 50
+        )
+        SELECT
+            q.*,
+            ROUND(PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY economy_rate DESC) * 100, 1)
+                AS economy_percentile,
+            ROUND(PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY bowling_sr DESC) * 100, 1)
+                AS sr_percentile,
+            ROUND((
+                PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY economy_rate DESC) * 0.5 +
+                PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY bowling_sr DESC) * 0.5
+            ) * 100, 1) AS vs_hand_composite,
+            RANK() OVER (PARTITION BY batting_hand ORDER BY (
+                PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY economy_rate DESC) * 0.5 +
+                PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY bowling_sr DESC) * 0.5
+            ) DESC) AS vs_hand_rank
+        FROM qualified q
+    """)
+    print("  - analytics_ipl_bowler_vs_handedness_rankings")
+
+    conn.execute(
+        "CREATE OR REPLACE VIEW analytics_ipl_bowler_vs_handedness_rankings_alltime "
+        "AS SELECT * FROM analytics_ipl_bowler_vs_handedness_rankings"
+    )
+    conn.execute(
+        "CREATE OR REPLACE VIEW analytics_ipl_bowler_vs_handedness_rankings_since2023 "
+        "AS SELECT * FROM analytics_ipl_bowler_vs_handedness_rankings"
+    )
+
+    # -----------------------------------------------------------------------
+    # 5. Player Matchup Rankings — dominance index from matchup matrix
+    # -----------------------------------------------------------------------
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_player_matchup_rankings AS
+        SELECT
+            batter_id,
+            batter_name,
+            bowler_id,
+            bowler_name,
+            balls,
+            runs,
+            dismissals,
+            boundary_pct,
+            ROUND(runs * 100.0 / NULLIF(balls, 0), 2) AS strike_rate,
+            ROUND(runs * 1.0 / NULLIF(dismissals, 0), 2) AS average,
+            -- Dominance index: batter-favored (positive) or bowler-favored (negative)
+            ROUND(
+                (runs * 100.0 / NULLIF(balls, 0) - 130) * 0.5 +
+                (runs * 1.0 / NULLIF(dismissals, 0) - 25) * 0.3 +
+                (boundary_pct - 15) * 0.2,
+            2) AS dominance_index
+        FROM analytics_ipl_player_matchup_matrix
+        WHERE balls >= 12
+        ORDER BY dominance_index DESC
+    """)
+    print("  - analytics_ipl_player_matchup_rankings")
+
+    conn.execute(
+        "CREATE OR REPLACE VIEW analytics_ipl_player_matchup_rankings_alltime "
+        "AS SELECT * FROM analytics_ipl_player_matchup_rankings"
+    )
+    conn.execute(
+        "CREATE OR REPLACE VIEW analytics_ipl_player_matchup_rankings_since2023 "
+        "AS SELECT * FROM analytics_ipl_player_matchup_rankings"
+    )
+
+    # -----------------------------------------------------------------------
+    # 6. Overall Batter Composite Rankings
+    # Weighted: career percentiles (30%) + phase avg (30%) + boundary% (20%)
+    #           + avg_percentile (10%) + dot_ball discipline (10%)
+    # Qualification: >= 500 balls faced career
+    # -----------------------------------------------------------------------
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_batter_composite_rankings AS
+        WITH career AS (
+            SELECT
+                player_id,
+                player_name,
+                innings,
+                runs,
+                balls_faced,
+                strike_rate,
+                batting_average,
+                boundary_pct,
+                dot_ball_pct,
+                sr_percentile AS career_sr_pctl,
+                avg_percentile AS career_avg_pctl,
+                boundary_percentile AS career_boundary_pctl,
+                dot_ball_percentile AS career_dotball_pctl
+            FROM analytics_ipl_batting_percentiles
+        ),
+        phase_avg AS (
+            SELECT
+                player_id,
+                ROUND(AVG(sr_percentile), 1) AS avg_phase_sr_pctl,
+                ROUND(AVG(avg_percentile), 1) AS avg_phase_avg_pctl
+            FROM analytics_ipl_batter_phase_percentiles
+            GROUP BY player_id
+        )
+        SELECT
+            c.player_id,
+            c.player_name,
+            c.innings,
+            c.runs,
+            c.balls_faced,
+            c.strike_rate,
+            c.batting_average,
+            c.boundary_pct,
+            c.career_sr_pctl,
+            c.career_avg_pctl,
+            c.career_boundary_pctl,
+            c.career_dotball_pctl,
+            COALESCE(p.avg_phase_sr_pctl, c.career_sr_pctl) AS phase_sr_pctl,
+            COALESCE(p.avg_phase_avg_pctl, c.career_avg_pctl) AS phase_avg_pctl,
+            -- Composite: career (30%) + phase (30%) + boundary (20%) + avg (10%) + dotball (10%)
+            ROUND(
+                (c.career_sr_pctl + c.career_avg_pctl) / 2 * 0.30 +
+                (COALESCE(p.avg_phase_sr_pctl, c.career_sr_pctl) +
+                 COALESCE(p.avg_phase_avg_pctl, c.career_avg_pctl)) / 2 * 0.30 +
+                c.career_boundary_pctl * 0.20 +
+                c.career_avg_pctl * 0.10 +
+                c.career_dotball_pctl * 0.10
+            , 1) AS composite_score,
+            RANK() OVER (ORDER BY (
+                (c.career_sr_pctl + c.career_avg_pctl) / 2 * 0.30 +
+                (COALESCE(p.avg_phase_sr_pctl, c.career_sr_pctl) +
+                 COALESCE(p.avg_phase_avg_pctl, c.career_avg_pctl)) / 2 * 0.30 +
+                c.career_boundary_pctl * 0.20 +
+                c.career_avg_pctl * 0.10 +
+                c.career_dotball_pctl * 0.10
+            ) DESC) AS overall_rank
+        FROM career c
+        LEFT JOIN phase_avg p ON c.player_id = p.player_id
+    """)
+    print("  - analytics_ipl_batter_composite_rankings")
+
+    conn.execute(
+        "CREATE OR REPLACE VIEW analytics_ipl_batter_composite_rankings_alltime "
+        "AS SELECT * FROM analytics_ipl_batter_composite_rankings"
+    )
+    conn.execute(
+        "CREATE OR REPLACE VIEW analytics_ipl_batter_composite_rankings_since2023 "
+        "AS SELECT * FROM analytics_ipl_batter_composite_rankings"
+    )
+
+    # -----------------------------------------------------------------------
+    # 7. Overall Bowler Composite Rankings
+    # Weighted: career percentiles (30%) + phase avg (30%) + economy (20%)
+    #           + wicket-taking (10%) + dot ball% (10%)
+    # Qualification: >= 300 balls bowled career
+    # -----------------------------------------------------------------------
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_bowler_composite_rankings AS
+        WITH career AS (
+            SELECT
+                player_id,
+                player_name,
+                matches_bowled,
+                balls_bowled,
+                wickets,
+                economy_rate,
+                bowling_average,
+                bowling_strike_rate,
+                dot_ball_pct,
+                economy_percentile AS career_econ_pctl,
+                avg_percentile AS career_avg_pctl,
+                sr_percentile AS career_sr_pctl,
+                dot_ball_percentile AS career_dotball_pctl
+            FROM analytics_ipl_bowling_percentiles
+        ),
+        phase_avg AS (
+            SELECT
+                player_id,
+                ROUND(AVG(economy_percentile), 1) AS avg_phase_econ_pctl,
+                ROUND(AVG(dot_ball_percentile), 1) AS avg_phase_dotball_pctl
+            FROM analytics_ipl_bowler_phase_percentiles
+            GROUP BY player_id
+        )
+        SELECT
+            c.player_id,
+            c.player_name,
+            c.matches_bowled,
+            c.balls_bowled,
+            c.wickets,
+            c.economy_rate,
+            c.bowling_average,
+            c.bowling_strike_rate,
+            c.dot_ball_pct,
+            c.career_econ_pctl,
+            c.career_avg_pctl,
+            c.career_sr_pctl,
+            c.career_dotball_pctl,
+            COALESCE(p.avg_phase_econ_pctl, c.career_econ_pctl) AS phase_econ_pctl,
+            COALESCE(p.avg_phase_dotball_pctl, c.career_dotball_pctl) AS phase_dotball_pctl,
+            -- Composite: career (30%) + phase (30%) + economy (20%) + wicket-taking (10%) + dotball (10%)
+            ROUND(
+                (c.career_econ_pctl + c.career_avg_pctl) / 2 * 0.30 +
+                (COALESCE(p.avg_phase_econ_pctl, c.career_econ_pctl) +
+                 COALESCE(p.avg_phase_dotball_pctl, c.career_dotball_pctl)) / 2 * 0.30 +
+                c.career_econ_pctl * 0.20 +
+                c.career_sr_pctl * 0.10 +
+                c.career_dotball_pctl * 0.10
+            , 1) AS composite_score,
+            RANK() OVER (ORDER BY (
+                (c.career_econ_pctl + c.career_avg_pctl) / 2 * 0.30 +
+                (COALESCE(p.avg_phase_econ_pctl, c.career_econ_pctl) +
+                 COALESCE(p.avg_phase_dotball_pctl, c.career_dotball_pctl)) / 2 * 0.30 +
+                c.career_econ_pctl * 0.20 +
+                c.career_sr_pctl * 0.10 +
+                c.career_dotball_pctl * 0.10
+            ) DESC) AS overall_rank
+        FROM career c
+        LEFT JOIN phase_avg p ON c.player_id = p.player_id
+    """)
+    print("  - analytics_ipl_bowler_composite_rankings")
+
+    conn.execute(
+        "CREATE OR REPLACE VIEW analytics_ipl_bowler_composite_rankings_alltime "
+        "AS SELECT * FROM analytics_ipl_bowler_composite_rankings"
+    )
+    conn.execute(
+        "CREATE OR REPLACE VIEW analytics_ipl_bowler_composite_rankings_since2023 "
+        "AS SELECT * FROM analytics_ipl_bowler_composite_rankings"
+    )
+
+    total_views = 7 * 3  # 7 categories x (base + alltime + since2023)
+    print(f"\n  Total: {total_views} ranking views created (7 categories x 3 scopes)")
+
+
 def create_benchmark_views(conn: duckdb.DuckDBPyConnection) -> None:
     """Create IPL-wide benchmark/average views for comparison."""
 
@@ -4767,6 +5171,7 @@ def main() -> int:
     create_t20_comparison_views(conn)
     create_squad_integration_views(conn)
     create_percentile_views(conn)
+    create_composite_ranking_views(conn)
     create_benchmark_views(conn)
     create_standardized_ipl_views(conn)
     create_film_room_views(conn)

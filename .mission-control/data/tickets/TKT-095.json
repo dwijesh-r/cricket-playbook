@@ -3,7 +3,7 @@
   "epic_id": "EPIC-011",
   "title": "Silhouette score validation",
   "description": "Validate clustering quality with silhouette scores",
-  "status": "DONE",
+  "state": "DONE",
   "priority": "P1",
   "progress_pct": 100,
   "owner": "Ime Udoka",

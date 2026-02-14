@@ -7,7 +7,7 @@
   "description": "HARD GATE (Founder Decision #4). Compile all Phase 1 outputs — PQI, CI (season-level), recency decay (Founder-selected rate), conditions similarity (IPL 2023+ baseline), sample confidence — into final composite weights for all 207 tournaments. Present to Founder with tier assignments. NO Phase 2 work can begin until Founder approves.",
   "epic_id": "EPIC-016",
   "assignee": "Jose Mourinho",
-  "sprint_id": "SPRINT-004",
+  "sprint_id": "SPRINT-001",
   "gates": {
     "florentino_gate": {
       "status": "APPROVED",

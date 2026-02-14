@@ -3,7 +3,7 @@
   "epic_id": "EPIC-011",
   "title": "Toss Advantage Index",
   "description": "Analyze toss advantage by venue and conditions",
-  "status": "DONE",
+  "state": "DONE",
   "priority": "P1",
   "progress_pct": 100,
   "owner": "Stephen Curry",

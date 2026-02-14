@@ -7,7 +7,7 @@
   "description": "Compare aggregation methods for the 5-factor composite: weighted average (current), geometric mean, and harmonic mean. Evaluate which method best prevents a single high factor from masking weak factors. Run sensitivity analysis on key leagues. Output: formula comparison report with recommendation for Founder.",
   "epic_id": "EPIC-016",
   "assignee": "Jose Mourinho",
-  "sprint_id": "SPRINT-004",
+  "sprint_id": "SPRINT-001",
   "gates": {
     "florentino_gate": {
       "status": "APPROVED",

@@ -3,7 +3,7 @@
   "epic_id": "EPIC-011",
   "title": "CI/CD artifact comparison",
   "description": "Automated comparison of output artifacts in CI/CD",
-  "status": "DONE",
+  "state": "DONE",
   "priority": "P2",
   "progress_pct": 100,
   "owner": "Ime Udoka",

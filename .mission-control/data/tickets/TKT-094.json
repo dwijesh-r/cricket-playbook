@@ -3,7 +3,7 @@
   "epic_id": "EPIC-011",
   "title": "Insight Confidence Framework",
   "description": "Framework for scoring confidence in insights",
-  "status": "DONE",
+  "state": "DONE",
   "priority": "P1",
   "progress_pct": 100,
   "owner": "Andy Flower",

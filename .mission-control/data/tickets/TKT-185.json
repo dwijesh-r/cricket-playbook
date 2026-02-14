@@ -7,7 +7,7 @@
   "description": "Refine Factor 2 (Competitiveness Index) from tournament-lifetime aggregates to per-season splits. Current CI uses all-time close match % — need season-by-season CI to pair with recency decay. Covers 207 tournaments. Output: season-level CI scores in tournament_factor_scores_phase1.json.",
   "epic_id": "EPIC-016",
   "assignee": "Jose Mourinho",
-  "sprint_id": "SPRINT-004",
+  "sprint_id": "SPRINT-001",
   "gates": {
     "florentino_gate": {
       "status": "APPROVED",

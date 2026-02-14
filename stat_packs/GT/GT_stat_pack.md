@@ -1,6 +1,6 @@
 # Gujarat Titans (GT) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-13 21:38
+**Generated:** 2026-02-14 17:14
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -12,31 +12,31 @@
 
 | Player | Role | Bowling | Batting | Price (Cr) | Type | Joined |
 |--------|------|---------|---------|------------|------|--------|
-| Rashid Khan | Bowler | Leg-spin | Right-hand | 18.00 | Retained | 2018 |
+| Rashid Khan | All-rounder | Leg-spin | Right-hand | 18.00 | Retained | 2018 |
 | Shubman Gill | Batter | Off-spin | Right-hand | 16.50 | Retained | 2022 |
 | Jos Buttler | Wicketkeeper | Medium | Right-hand | 15.75 | Retained | 2025 |
-| Mohammed Siraj | Bowler | Fast | Right-hand | 12.25 | Retained | 2025 |
-| Kagiso Rabada | Bowler | Fast | Right-hand | 10.75 | Retained | 2025 |
-| Prasidh Krishna | Bowler | Fast | Right-hand | 9.50 | Retained | 2022 |
+| Mohammed Siraj | Bowler | Fast-Medium | Right-hand | 12.25 | Retained | 2025 |
+| Kagiso Rabada | Bowler | Fast-Medium | Right-hand | 10.75 | Retained | 2025 |
+| Prasidh Krishna | Bowler | Fast-Medium | Right-hand | 9.50 | Retained | 2022 |
 | Sai Sudharsan | Batter | Medium | Left-hand | 8.50 | Retained | 2023 |
 | Rahul Tewatia | All-rounder | Leg-spin | Left-hand | 4.00 | Retained | 2022 |
-| Shahrukh Khan | Batter | Medium | Right-hand | 4.00 | Retained | 2025 |
+| Shahrukh Khan | All-rounder | Off-spin | Right-hand | 4.00 | Retained | 2025 |
 | Washington Sundar | All-rounder | Off-spin | Left-hand | 3.20 | Retained | 2025 |
-| Sai Kishore | Bowler | Left-arm orthodox | Left-hand | 2.00 | Retained | 2024 |
+| Sai Kishore | Bowler | LA Orthodox | Left-hand | 2.00 | Retained | 2024 |
 | Glenn Phillips | All-rounder | Off-spin | Right-hand | 2.00 | Retained | 2024 |
-| Arshad Khan | All-rounder | Medium | Right-hand | 1.30 | Retained | 2024 |
-| Gurnoor Brar | All-rounder | Left-arm orthodox | Left-hand | 1.30 | Retained | 2025 |
-| Ishant Sharma | Bowler | Fast | Right-hand | 0.75 | Retained | 2024 |
-| Jayant Yadav | All-rounder | Off-spin | Right-hand | 0.75 | Retained | 2024 |
+| Arshad Khan | All-rounder | Fast | Left-hand | 1.30 | Retained | 2024 |
+| Gurnoor Brar | Bowler | Fast-Medium | Left-hand | 1.30 | Retained | 2025 |
+| Ishant Sharma | Bowler | Fast-Medium | Right-hand | 0.75 | Retained | 2024 |
+| Jayant Yadav | Bowler | Off-spin | Right-hand | 0.75 | Retained | 2024 |
 | Kumar Kushagra | Wicketkeeper | Medium | Right-hand | 0.65 | Retained | 2024 |
 | Anuj Rawat | Wicketkeeper | Medium | Left-hand | 0.30 | Retained | 2025 |
-| Nishant Sindhu | All-rounder | Left-arm orthodox | Left-hand | 0.30 | Retained | 2024 |
-| Manav Suthar | Bowler | Left-arm orthodox | Left-hand | 0.30 | Retained | 2024 |
+| Nishant Sindhu | All-rounder | LA Orthodox | Left-hand | 0.30 | Retained | 2024 |
+| Manav Suthar | All-rounder | LA Orthodox | Left-hand | 0.30 | Retained | 2024 |
 
 **Total Squad Size:** 20 players
 **Total Spend:** ₹112.10 Cr
 
-**Role Breakdown:** All-rounder: 7, Batter: 3, Bowler: 7, Wicketkeeper: 3
+**Role Breakdown:** All-rounder: 8, Batter: 2, Bowler: 7, Wicketkeeper: 3
 
 ### 1.2 Player Archetypes (K-means V2 Model)
 
@@ -127,7 +127,7 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** Mohammed Shami (28w @ 7.92), Rashid Khan (27w @ 8.21), MM Sharma (27w @ 8.1)
+- **2023:** Mohammed Shami (28w @ 7.92), MM Sharma (27w @ 8.1), Rashid Khan (27w @ 8.21)
 - **2024:** MM Sharma (13w @ 10.48), Rashid Khan (10w @ 8.52), UT Yadav (8w @ 9.81)
 - **2025:** M Prasidh Krishna (25w @ 8.34), R Sai Kishore (19w @ 9.07), Mohammed Siraj (16w @ 8.83)
 
@@ -238,19 +238,19 @@
 - **Avg Score (batting):** 192.5
 - **Highest/Lowest:** 233/89
 - **Pitch Type:** Balanced
-- **Pace SR:** 18.2 | **Spin SR:** 23.2
+- **Pace SR:** 18.2 | **Spin SR:** 22.3
 
 ### Away Performance
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
-| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 175.7 |
-| M Chinnaswamy Stadium | 3 | 2 | 66.7% | 171.7 |
 | Arun Jaitley Stadium | 3 | 2 | 66.7% | 196.0 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 148.3 |
-| MA Chidambaram Stadium | 2 | 0 | 0.0% | 150.0 |
-| Eden Gardens | 2 | 2 | 100.0% | 189.0 |
+| Sawai Mansingh Stadium | 3 | 2 | 66.7% | 175.7 |
+| M Chinnaswamy Stadium | 3 | 2 | 66.7% | 171.7 |
 | Wankhede Stadium | 2 | 1 | 50.0% | 169.0 |
+| Eden Gardens | 2 | 2 | 100.0% | 189.0 |
+| MA Chidambaram Stadium | 2 | 0 | 0.0% | 150.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -258,16 +258,16 @@
 
 | Venue | Matches | Pace SR | Spin SR | Bias |
 |-------|---------|---------|---------|------|
-| Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
-| MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
-| Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Narendra Modi Stadium | 26 | 18.2 | 22.3 | BALANCED |
+| MA Chidambaram Stadium | 24 | 17.7 | 20.1 | BALANCED |
+| Bharat Ratna Shri Atal Bihari  | 22 | 18.3 | 23.8 | PACE |
+| Wankhede Stadium | 21 | 18.8 | 21.0 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.5 | PACE |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.4 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
-| Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
+| Sawai Mansingh Stadium | 17 | 24.1 | 22.1 | BALANCED |
+| Maharaja Yadavindra Singh Inte | 10 | 15.8 | 16.8 | BALANCED |
 
 ### Venue Specialists
 
@@ -296,8 +296,8 @@
 | I Sharma | Arun Jaitley Stadium | 6 | 8 | 8.45 | 15.0 |
 | I Sharma | Narendra Modi Stadium | 5 | 6 | 6.84 | 14.33 |
 | Rashid Khan | Wankhede Stadium | 2 | 5 | 6.88 | 9.6 |
-| Mohammed Siraj | Rajiv Gandhi Internationa | 3 | 5 | 4.33 | 14.4 |
 | Rashid Khan | Sawai Mansingh Stadium | 3 | 5 | 4.58 | 14.4 |
+| Mohammed Siraj | Rajiv Gandhi Internationa | 3 | 5 | 4.33 | 14.4 |
 
 
 ---
@@ -311,15 +311,15 @@
 | Shubman Gill | Batter | 44 | 1966 | 1263 | 155.66 | 51.74 | 20.27 | 27.08 | 16 | 4 | HIGH |
 | Sai Sudharsan | Batter | 35 | 1648 | 1108 | 148.74 | 53.16 | 19.77 | 28.25 | 13 | 2 | HIGH |
 | Jos Buttler | Wicketkeeper | 38 | 1289 | 865 | 149.02 | 40.28 | 20.81 | 33.64 | 11 | 2 | HIGH |
-| Shahrukh Khan | Batter | 30 | 462 | 269 | 171.75 | 25.67 | 23.79 | 29.37 | 2 | 0 | HIGH |
+| Shahrukh Khan | All-rounder | 30 | 462 | 269 | 171.75 | 25.67 | 23.79 | 29.37 | 2 | 0 | HIGH |
 | Rahul Tewatia | All-rounder | 30 | 374 | 242 | 154.55 | 22.0 | 21.49 | 32.64 | 0 | 0 | HIGH |
+| Rashid Khan | All-rounder | 25 | 272 | 157 | 173.25 | 19.43 | 25.48 | 38.85 | 1 | 0 | MEDIUM |
 | Washington Sundar | All-rounder | 11 | 193 | 141 | 136.88 | 21.44 | 16.31 | 28.37 | 0 | 0 | MEDIUM |
 | Anuj Rawat | Wicketkeeper | 12 | 189 | 148 | 127.7 | 31.5 | 15.54 | 35.81 | 0 | 0 | MEDIUM |
 | Arshad Khan | All-rounder | 11 | 124 | 88 | 140.91 | 20.67 | 17.05 | 39.77 | 1 | 0 | MEDIUM |
 | Glenn Phillips | All-rounder | 5 | 39 | 22 | 177.27 | 7.8 | 27.27 | 45.45 | 0 | 0 | LOW |
 | Kumar Kushagra | Wicketkeeper | 3 | 3 | 7 | 42.86 | 1.0 | - | 71.43 | 0 | 0 | LOW |
-| Gurnoor Brar | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
-| Jayant Yadav | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
+| Manav Suthar | All-rounder | 1 | 1 | 2 | 50.0 | 1.0 | - | 50.0 | 0 | 0 | LOW |
 | Nishant Sindhu | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
 ### 5.2 Phase-wise Batting (Qualified players)
@@ -331,6 +331,7 @@
 | Jos Buttler | death | 38 | 729 | 368 | 198.1 | 33.14 | 27.72 | 25.54 | MEDIUM |
 | Rahul Tewatia | middle | 36 | 312 | 329 | 94.83 | 26.0 | 8.81 | 41.95 | MEDIUM |
 | Rahul Tewatia | death | 63 | 794 | 471 | 168.58 | 24.06 | 24.2 | 31.21 | MEDIUM |
+| Rashid Khan | death | 63 | 503 | 296 | 169.93 | 12.9 | 24.66 | 39.19 | MEDIUM |
 | Sai Sudharsan | powerplay | 35 | 674 | 489 | 137.83 | 112.33 | 20.65 | 38.24 | MEDIUM |
 | Sai Sudharsan | middle | 33 | 887 | 620 | 143.06 | 46.68 | 16.29 | 22.42 | HIGH |
 | Sai Sudharsan | death | 14 | 232 | 112 | 207.14 | 23.2 | 30.36 | 19.64 | MEDIUM |
@@ -350,19 +351,20 @@
 
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
-| Mohammed Siraj | Fast | 43 | 161.0 | 50 | 8.96 | 28.84 | 19.32 | 42.75 | 21.43 | HIGH |
+| Mohammed Siraj | Fast-Mediu | 43 | 161.0 | 50 | 8.96 | 28.84 | 19.32 | 42.75 | 21.43 | HIGH |
 | Rashid Khan | Leg-spin | 44 | 165.7 | 46 | 8.76 | 31.57 | 21.61 | 29.78 | 17.0 | HIGH |
-| Sai Kishore | Left-arm o | 20 | 57.5 | 26 | 9.27 | 20.5 | 13.27 | 30.14 | 18.26 | MEDIUM |
-| Prasidh Krishna | Fast | 15 | 59.0 | 25 | 8.58 | 20.24 | 14.16 | 38.14 | 18.93 | MEDIUM |
-| Ishant Sharma | Fast | 24 | 70.3 | 24 | 9.75 | 28.58 | 17.58 | 37.2 | 24.41 | MEDIUM |
-| Kagiso Rabada | Fast | 21 | 79.2 | 20 | 10.02 | 39.65 | 23.75 | 36.42 | 23.79 | MEDIUM |
-| Arshad Khan | Medium | 19 | 45.3 | 12 | 11.63 | 43.92 | 22.67 | 34.56 | 31.25 | MEDIUM |
+| Sai Kishore | LA Orthodo | 20 | 57.5 | 26 | 9.27 | 20.5 | 13.27 | 30.14 | 18.26 | MEDIUM |
+| Prasidh Krishna | Fast-Mediu | 15 | 59.0 | 25 | 8.58 | 20.24 | 14.16 | 38.14 | 18.93 | MEDIUM |
+| Ishant Sharma | Fast-Mediu | 24 | 70.3 | 24 | 9.75 | 28.58 | 17.58 | 37.2 | 24.41 | MEDIUM |
+| Kagiso Rabada | Fast-Mediu | 21 | 79.2 | 20 | 10.02 | 39.65 | 23.75 | 36.42 | 23.79 | MEDIUM |
+| Arshad Khan | Fast | 19 | 45.3 | 12 | 11.63 | 43.92 | 22.67 | 34.56 | 31.25 | MEDIUM |
 | Washington Sundar | Off-spin | 14 | 33.5 | 6 | 9.88 | 55.17 | 33.5 | 26.37 | 21.89 | MEDIUM |
+| Shahrukh Khan | Off-spin | 3 | 3.0 | 1 | 9.67 | 29.0 | 18.0 | 22.22 | 16.67 | LOW |
 | Glenn Phillips | Off-spin | 2 | 3.0 | 1 | 6.67 | 20.0 | 18.0 | 33.33 | 11.11 | LOW |
 | Rahul Tewatia | Leg-spin | 2 | 2.2 | 0 | 6.92 | - | - | 53.85 | 15.38 | LOW |
-| Gurnoor Brar | Left-arm o | 1 | 3.0 | 0 | 14.0 | - | - | 38.89 | 38.89 | LOW |
+| Gurnoor Brar | Fast-Mediu | 1 | 3.0 | 0 | 14.0 | - | - | 38.89 | 38.89 | LOW |
 | Jayant Yadav | Off-spin | 1 | 4.0 | 0 | 6.5 | - | - | 33.33 | 8.33 | LOW |
-| Manav Suthar | Left-arm o | 1 | 2.0 | 0 | 13.0 | - | - | 33.33 | 33.33 | LOW |
+| Manav Suthar | LA Orthodo | 1 | 2.0 | 0 | 13.0 | - | - | 33.33 | 33.33 | LOW |
 
 ### 6.2 Bowler Phase Distribution
 
@@ -456,9 +458,9 @@
 | Punjab Kings | 4 | 96 | 146 | 9 | 9.13 | 16.22 | 10.67 | 40.63 | 25.0 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 96 | 84 | 7 | 5.25 | 12.0 | 13.71 | 53.13 | 11.46 | MEDIUM |
 | Rajasthan Royals | 6 | 120 | 158 | 6 | 7.9 | 26.33 | 20.0 | 38.33 | 19.17 | HIGH |
+| Gujarat Titans | 3 | 72 | 90 | 5 | 7.5 | 18.0 | 14.4 | 44.44 | 18.06 | MEDIUM |
 | Mumbai Indians | 6 | 126 | 182 | 5 | 8.67 | 36.4 | 25.2 | 44.44 | 22.22 | HIGH |
 | Lucknow Super Giants | 5 | 114 | 167 | 5 | 8.79 | 33.4 | 22.8 | 44.74 | 23.68 | HIGH |
-| Gujarat Titans | 3 | 72 | 90 | 5 | 7.5 | 18.0 | 14.4 | 44.44 | 18.06 | MEDIUM |
 | Kolkata Knight Riders | 5 | 114 | 187 | 4 | 9.84 | 46.75 | 28.5 | 38.6 | 26.32 | HIGH |
 | Delhi Capitals | 5 | 108 | 162 | 4 | 9.0 | 40.5 | 27.0 | 44.44 | 25.93 | HIGH |
 | Chennai Super Kings | 4 | 96 | 149 | 2 | 9.31 | 74.5 | 48.0 | 35.42 | 20.83 | MEDIUM |
@@ -556,8 +558,8 @@
 |--------|-----|-----|-----|-------|--------------|
 | **Rahul Tewatia** | 63 | 169 | 24.1 | 24.2 | -1.6 |
 | **Jos Buttler** | 38 | 198 | 33.1 | 27.7 | +27.9 |
+| **Rashid Khan** | 63 | 170 | 12.9 | 24.7 | -0.3 |
 | **Shubman Gill** | 36 | 158 | 21.9 | 18.8 | -12.5 |
-| **Shahrukh Khan** | 36 | 169 | 19.6 | 22.4 | -1.7 |
 
 **Bowling**
 
@@ -573,45 +575,40 @@
 
 | Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
 |--------|-----------|-----------|-----------|-----------|----------|
-| **Shubman Gill** | 153 | 153 | 20.8 | 18.7 | Balanced |
-| **B Sai Sudharsan** | 144 | 152 | 20.4 | 18.1 | Balanced |
-| **JC Buttler** | 148 | 148 | 21.8 | 18.7 | Balanced |
-| **M Shahrukh Khan** | 179 | 150 | 25.6 | 18.2 | Pace Dominant |
-| **R Tewatia** | 164 | 106 | 23.8 | 10.4 | Pace Dominant |
-| **Rashid Khan** | 171 | 168 | 26.3 | 20 | Balanced |
-| **Anuj Rawat** | 152 | 74.5 | 21.8 | 2.1 | Pace Dominant |
-| **Washington Sundar** | 170 | 81.1 | 25 | 1.9 | Pace Dominant |
+| **Shubman Gill** | 149 | 161 | 19.4 | 19.9 | Balanced |
+| **B Sai Sudharsan** | 149 | 151 | 21.3 | 17.5 | Balanced |
+| **JC Buttler** | 146 | 159 | 22.0 | 21.2 | Balanced |
+| **M Shahrukh Khan** | 156 | 158 | 22.3 | 21.1 | Balanced |
+| **R Tewatia** | 162 | 150 | 22.9 | 16.7 | Balanced |
+| **Rashid Khan** | 176 | 226 | 27.0 | 31.6 | Spin Dominant |
+| **Anuj Rawat** | 157 | 85.7 | 23.2 | 3.6 | Pace Dominant |
+| **Washington Sundar** | 168 | 78.4 | 25.4 | 0 | Pace Dominant |
 
-*Exploitable vs spin: **R Tewatia** (106 SR), **Anuj Rawat** (74 SR), **Washington Sundar** (81 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **M Shahrukh Khan** (179 SR), **R Tewatia** (164 SR), **Rashid Khan** (171 SR), **Washington Sundar** (170 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+*Exploitable vs spin: **Anuj Rawat** (86 SR), **Washington Sundar** (78 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **R Tewatia** (162 SR), **Rashid Khan** (176 SR), **Washington Sundar** (168 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
 
 ### 10.3 Pace Attack Intelligence
 
 | Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Wkt Rate |
 |--------|---------|----------|------------|------------|----------|
-| **Mohammed Siraj** | 7.9 | 9.1 | 9.1 | PP | 0.31 |
-| **M Prasidh Krishna** | 9.5 | 6.6 | 10.3 | Middle | 0.42 |
-| **I Sharma** | 8.8 | 8.9 | 10.3 | PP | 0.34 |
-| **K Rabada** | 9.4 | 8.6 | 11.6 | Middle | 0.25 |
 | **Arshad Khan** | 9.8 | 10.6 | 14.4 | PP | 0.26 |
 
-***I Sharma** is the designated death option at 10.3 economy (league avg 10.9). **I Sharma** should lead the powerplay attack (8.8 economy). Middle-overs pace economy is above league average — consider deploying spin through this phase to contain.*
+*No pace bowler operates below the league death average of 10.9 — death bowling is a structural concern. Middle-overs pace economy is above league average — consider deploying spin through this phase to contain.*
 
 ### 10.4 Spin Attack Intelligence
 
 | Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Control Rating |
 |--------|---------|----------|------------|------------|----------------|
 | **Rashid Khan** | 8.0 | 8.3 | 10.5 | PP | 29.8% |
-| **R Sai Kishore** | 11 | 8.6 | 10.6 | Middle | 30.1% |
 | **Washington Sundar** | 17.6 | 7.8 | 7.8 | Middle | 26.4% |
 
-***Washington Sundar** is the middle-overs anchor at 7.8 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **Washington Sundar** offers a viable death option at 7.8 economy, giving the captain tactical flexibility. Spin dependency is high with 257 combined overs across 3 spinners — a strength on turning pitches but a risk on pace-friendly surfaces.*
+***Washington Sundar** is the middle-overs anchor at 7.8 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **Washington Sundar** offers a viable death option at 7.8 economy, giving the captain tactical flexibility. Spin dependency is high with 199 combined overs across 2 spinners — a strength on turning pitches but a risk on pace-friendly surfaces.*
 
 ### 10.5 Key Vulnerabilities & Matchup Risks
 
 #### Phase Gaps
 
 - **Powerplay**: batting SR 122.8 vs league 146.3
-- **Middle**: batting SR 123.0 vs league 140.3
+- **Middle**: batting SR 123.9 vs league 140.3
 
 #### Spin Vulnerability Risk
 
@@ -778,15 +775,14 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 ### 12.1 T20 Batting Profile
 
-| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Trust | Tournaments |
-|--------|------|---------|----------|--------|---------|------------|-------|-------------|
-| Jayant Yadav | All-rounder | 16 | 94 | 108 | 10.4 | MEDIUM | 13 | SMAT |
+*No uncapped players with meaningful T20 batting data (5+ innings)*
+
 
 ### 12.2 T20 Bowling Profile
 
 | Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|-------------|----------|----------|---------|------------|-------|-------------|
-| Nishant Sindhu | Left-arm ort | 3 | 2 | 5.2 | 10.5 | LOW | 3 | SMAT |
+| Nishant Sindhu | LA Orthodox | 3 | 2 | 5.2 | 10.5 | LOW | 3 | - |
 
 
 
@@ -801,15 +797,15 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
 |--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
 | Glenn Phillips | All-rounder | 22 | 140 | 31.1 | 8 | 3527 | 46 | CPL (0.50, SR 135.1); SS (0.36, SR 145.0); Blast (0.50, SR 150.3) |
-| Rashid Khan | Bowler | 157 | 151 | 14.3 | 8 | 1200 | 61 | IPL (0.87, SR 160.4); BBL (0.53, SR 151.3); PSL (0.51, SR 136.3) |
+| Rashid Khan | All-rounder | 157 | 151 | 14.3 | 8 | 1200 | 61 | IPL (0.87, SR 160.4); BBL (0.53, SR 151.3); PSL (0.51, SR 136.3) |
 | Rahul Tewatia | All-rounder | 242 | 143 | 28.9 | 2 | 1174 | 80 | IPL (0.87, SR 137.5); SMAT (0.65, SR 159.1) |
 | Washington Sundar | All-rounder | 141 | 122 | 21.4 | 2 | 893 | 75 | SMAT (0.65, SR 117.8); IPL (0.87, SR 126.2) |
-| Shahrukh Khan | Batter | 269 | 148 | 25.8 | 2 | 747 | 79 | IPL (0.87, SR 149.1); SMAT (0.65, SR 146.5) |
+| Shahrukh Khan | All-rounder | 269 | 148 | 25.8 | 2 | 747 | 79 | IPL (0.87, SR 149.1); SMAT (0.65, SR 146.5) |
 | Anuj Rawat | Wicketkeeper | 148 | 123 | 26.6 | 2 | 728 | 73 | SMAT (0.65, SR 125.4); IPL (0.87, SR 119.1) |
 | Kagiso Rabada | Bowler | 24 | 105 | 14.7 | 3 | 293 | 44 | IPL (0.87, SR 107.5); SA20 (0.50, SR 83.0); T20WC (0.50, SR 106.5) |
 | Mohammed Siraj | Bowler | 14 | 87.8 | 10.6 | 2 | 148 | 25 | IPL (0.87, SR 92.6); SMAT (0.65, SR 59.3) |
 | Arshad Khan | All-rounder | 88 | 131 | 18.2 | 2 | 109 | 18 | IPL (0.87, SR 140.9); SMAT (0.65, SR 76.2) |
-| Jayant Yadav | All-rounder | 0 | 108 | 11.1 | 2 | 87 | 13 | SMAT (0.65, SR 105.9); IPL (0.87, SR 111.1) |
+| Jayant Yadav | Bowler | 0 | 108 | 11.1 | 2 | 87 | 13 | SMAT (0.65, SR 105.9); IPL (0.87, SR 111.1) |
 | Nishant Sindhu | All-rounder | 0 | 127 | 36 | 1 | 85 | 11 | SMAT (0.65, SR 127.1) |
 | Ishant Sharma | Bowler | 8 | 82.6 | 11.4 | 1 | 69 | 12 | IPL (0.87, SR 82.6) |
 | Sai Kishore | Bowler | 16 | 86.7 | 6.5 | 1 | 30 | 4 | SMAT (0.65, SR 86.7) |
@@ -820,12 +816,12 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
 |--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
 | Rahul Tewatia | All-rounder | 13 | 7.6 | 23.6 | 2 | 1224 | 80 | IPL (0.87, Econ 7.8); SMAT (0.65, Econ 7.2) |
-| Jayant Yadav | All-rounder | 24 | 6.6 | 30.8 | 2 | 1007 | 73 | SMAT (0.65, Econ 6.5); IPL (0.87, Econ 6.7) |
+| Jayant Yadav | Bowler | 24 | 6.6 | 30.8 | 2 | 1007 | 73 | SMAT (0.65, Econ 6.5); IPL (0.87, Econ 6.7) |
 | Glenn Phillips | All-rounder | 18 | 8.8 | 22.7 | 8 | 515 | 45 | SS (0.36, Econ 8.2); Blast (0.50, Econ 7.9); 100 (0.50, Econ 10.9) |
-| Manav Suthar | Bowler | 12 | 10.4 | - | 2 | 30 | 4 | SMAT (0.65, Econ 8.0); IPL (0.87, Econ 13.0) |
-| Shahrukh Khan | Batter | 18 | 9.9 | 26.9 | 2 | 30 | 5 | IPL (0.87, Econ 9.7); SMAT (0.65, Econ 10.5) |
+| Shahrukh Khan | All-rounder | 18 | 9.9 | 26.9 | 2 | 30 | 5 | IPL (0.87, Econ 9.7); SMAT (0.65, Econ 10.5) |
+| Manav Suthar | All-rounder | 12 | 10.4 | - | 2 | 30 | 4 | SMAT (0.65, Econ 8.0); IPL (0.87, Econ 13.0) |
 | Nishant Sindhu | All-rounder | 0 | 5.2 | 12 | 1 | 24 | 3 | SMAT (0.65, Econ 5.3) |
-| Gurnoor Brar | All-rounder | 18 | 12.7 | - | 1 | 18 | 3 | IPL (0.87, Econ 12.7) |
+| Gurnoor Brar | Bowler | 18 | 12.7 | - | 1 | 18 | 3 | IPL (0.87, Econ 12.7) |
 
 ### 13.3 Methodology
 

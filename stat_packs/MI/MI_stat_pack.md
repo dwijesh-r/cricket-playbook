@@ -1,6 +1,6 @@
 # Mumbai Indians (MI) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-13 21:38
+**Generated:** 2026-02-14 17:15
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -14,33 +14,33 @@
 |--------|------|---------|---------|------------|------|--------|
 | Jasprit Bumrah | Bowler | Fast | Right-hand | 18.00 | Retained | 2013 |
 | Suryakumar Yadav | Batter | Off-spin | Right-hand | 16.35 | Retained | 2018 |
-| Hardik Pandya | All-rounder | Fast | Right-hand | 16.35 | Retained | 2015 |
+| Hardik Pandya | All-rounder | Fast-Medium | Right-hand | 16.35 | Retained | 2015 |
 | Rohit Sharma | Batter | Off-spin | Right-hand | 16.30 | Retained | 2011 |
-| Trent Boult | Bowler | Fast | Left-hand | 12.50 | Retained | 2020 |
+| Trent Boult | Bowler | Fast-Medium | Right-hand | 12.50 | Retained | 2020 |
 | Deepak Chahar | Bowler | Fast | Right-hand | 9.25 | Retained | 2025 |
-| Tilak Varma | All-rounder | Off-spin | Left-hand | 8.00 | Retained | 2022 |
+| Tilak Varma | Batter | Off-spin | Left-hand | 8.00 | Retained | 2022 |
 | Will Jacks | All-rounder | Off-spin | Right-hand | 5.25 | Auction | 2026 |
-| Naman Dhir | All-rounder | Left-arm orthodox | Left-hand | 5.25 | Retained | 2025 |
+| Naman Dhir | All-rounder | Off-spin | Right-hand | 5.25 | Retained | 2025 |
 | AM Ghazanfar | Bowler | Off-spin | Right-hand | 4.80 | Retained | 2025 |
-| Mitchell Santner | All-rounder | Left-arm orthodox | Left-hand | 2.00 | Retained | 2025 |
+| Mitchell Santner | All-rounder | LA Orthodox | Left-hand | 2.00 | Retained | 2025 |
 | Ryan Rickelton | Wicketkeeper | Medium | Left-hand | 1.00 | Retained | 2025 |
 | Quinton de Kock | Wicketkeeper | Medium | Left-hand | 1.00 | Auction | 2026 |
 | Shardul Thakur | All-rounder | Fast | Right-hand | 1.00 | Auction | 2026 |
-| Robin Minz | Wicketkeeper | Medium | Right-hand | 0.65 | Retained | 2025 |
+| Robin Minz | Wicketkeeper | Medium | Left-hand | 0.65 | Retained | 2025 |
 | Sherfane Rutherford | All-rounder | Medium | Left-hand | 0.50 | Auction | 2026 |
 | Raj Bawa | All-rounder | Fast | Left-hand | 0.30 | Retained | 2025 |
 | Danish Malewar | Batter | Leg-spin | Right-hand | 0.30 | Auction | 2026 |
-| Corbin Bosch | All-rounder | Fast | Right-hand | 0.30 | Retained | 2025 |
-| Atharva Ankolekar | Bowler | Left-arm orthodox | Left-hand | 0.30 | Auction | 2026 |
+| Corbin Bosch | All-rounder | Fast-Medium | Right-hand | 0.30 | Retained | 2025 |
+| Atharva Ankolekar | All-rounder | LA Orthodox | Left-hand | 0.30 | Auction | 2026 |
 | Mayank Markande | Bowler | Leg-spin | Right-hand | 0.30 | Auction | 2026 |
-| Raghu Sharma | Bowler | Fast | Right-hand | 0.30 | Auction | 2026 |
-| Ashwani Kumar | Bowler | Fast | Right-hand | 0.30 | Retained | 2025 |
+| Raghu Sharma | Bowler | Leg-spin | Right-hand | 0.30 | Auction | 2026 |
+| Ashwani Kumar | Bowler | Fast | Left-hand | 0.30 | Retained | 2025 |
 | Mohammed Izhar | Bowler | Fast | Right-hand | 0.30 | Auction | 2026 |
 
 **Total Squad Size:** 24 players
 **Total Spend:** ₹120.60 Cr
 
-**Role Breakdown:** All-rounder: 9, Batter: 3, Bowler: 9, Wicketkeeper: 3
+**Role Breakdown:** All-rounder: 9, Batter: 4, Bowler: 8, Wicketkeeper: 3
 
 ### 1.2 Player Archetypes (K-means V2 Model)
 
@@ -132,8 +132,8 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** PP Chawla (22w @ 8.07), JP Behrendorff (14w @ 9.05), Akash Madhwal (14w @ 8.32)
-- **2024:** JJ Bumrah (20w @ 6.24), PP Chawla (13w @ 8.71), G Coetzee (13w @ 9.92)
+- **2023:** PP Chawla (22w @ 8.07), Akash Madhwal (14w @ 8.32), JP Behrendorff (14w @ 9.05)
+- **2024:** JJ Bumrah (20w @ 6.24), G Coetzee (13w @ 9.92), PP Chawla (13w @ 8.71)
 - **2025:** TA Boult (22w @ 8.74), JJ Bumrah (18w @ 6.69), HH Pandya (14w @ 9.04)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -245,19 +245,19 @@
 - **Win Rate:** 61.9% (13W - 8L)
 - **Avg Score (batting):** 183.8
 - **Highest/Lowest:** 234/121
-- **Pitch Type:** Pace-friendly
-- **Pace SR:** 18.6 | **Spin SR:** 20.9
+- **Pitch Type:** Balanced
+- **Pace SR:** 18.8 | **Spin SR:** 21.0
 
 ### Away Performance
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Narendra Modi Stadium | 5 | 0 | 0.0% | 169.6 |
-| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 194.7 |
-| Sawai Mansingh Stadium | 3 | 1 | 33.3% | 193.3 |
-| Arun Jaitley Stadium | 3 | 2 | 66.7% | 208.3 |
-| MA Chidambaram Stadium | 3 | 1 | 33.3% | 158.7 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 0 | 0.0% | 169.0 |
+| MA Chidambaram Stadium | 3 | 1 | 33.3% | 158.7 |
+| Sawai Mansingh Stadium | 3 | 1 | 33.3% | 193.3 |
+| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 194.7 |
+| Arun Jaitley Stadium | 3 | 2 | 66.7% | 208.3 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -265,16 +265,16 @@
 
 | Venue | Matches | Pace SR | Spin SR | Bias |
 |-------|---------|---------|---------|------|
-| Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
-| MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
-| Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
+| Narendra Modi Stadium | 26 | 18.2 | 22.3 | BALANCED |
+| MA Chidambaram Stadium | 24 | 17.7 | 20.1 | BALANCED |
+| Bharat Ratna Shri Atal Bihari  | 22 | 18.3 | 23.8 | PACE |
+| Wankhede Stadium | 21 | 18.8 | 21.0 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.4 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.5 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
-| Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
-| Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
+| Sawai Mansingh Stadium | 17 | 24.1 | 22.1 | BALANCED |
+| Maharaja Yadavindra Singh Inte | 10 | 15.8 | 16.8 | BALANCED |
 
 ### Venue Specialists
 
@@ -298,13 +298,13 @@
 | Player | Venue | Matches | Wkts | Econ | SR |
 |--------|-------|---------|------|------|-----|
 | JJ Bumrah | Wankhede Stadium | 12 | 23 | 5.32 | 12.3 |
-| TA Boult | Wankhede Stadium | 9 | 14 | 7.89 | 15.43 |
 | DL Chahar | MA Chidambaram Stadium | 11 | 14 | 8.1 | 13.86 |
+| TA Boult | Wankhede Stadium | 9 | 14 | 7.89 | 15.43 |
 | HH Pandya | Wankhede Stadium | 11 | 11 | 10.11 | 15.27 |
 | TA Boult | Sawai Mansingh Stadium | 9 | 8 | 8.44 | 21.5 |
+| HH Pandya | Bharat Ratna Shri Atal Bi | 3 | 7 | 7.11 | 7.71 |
 | Ashwani Kumar | Wankhede Stadium | 3 | 7 | 10.33 | 7.71 |
 | MJ Santner | Wankhede Stadium | 6 | 7 | 5.95 | 16.57 |
-| HH Pandya | Bharat Ratna Shri Atal Bi | 3 | 7 | 7.11 | 7.71 |
 
 
 ---
@@ -317,7 +317,7 @@
 |--------|------|-----|------|-------|-----|-----|--------|------|-----|------|--------|
 | Suryakumar Yadav | Batter | 43 | 1667 | 964 | 172.93 | 47.63 | 26.35 | 31.12 | 15 | 2 | HIGH |
 | Rohit Sharma | Batter | 45 | 1167 | 804 | 145.15 | 27.14 | 22.76 | 42.04 | 8 | 1 | HIGH |
-| Tilak Varma | All-rounder | 37 | 1102 | 730 | 150.96 | 39.36 | 19.45 | 31.51 | 6 | 0 | HIGH |
+| Tilak Varma | Batter | 37 | 1102 | 730 | 150.96 | 39.36 | 19.45 | 31.51 | 6 | 0 | HIGH |
 | Hardik Pandya | All-rounder | 40 | 786 | 539 | 145.83 | 24.56 | 18.55 | 32.28 | 2 | 0 | HIGH |
 | Quinton de Kock | Wicketkeeper | 23 | 545 | 403 | 135.24 | 24.77 | 18.86 | 38.96 | 5 | 0 | MEDIUM |
 | Will Jacks | All-rounder | 19 | 463 | 302 | 153.31 | 28.94 | 22.19 | 36.42 | 3 | 1 | MEDIUM |
@@ -329,6 +329,7 @@
 | Corbin Bosch | All-rounder | 2 | 47 | 32 | 146.88 | 23.5 | 18.75 | 37.5 | 0 | 0 | LOW |
 | Raj Bawa | All-rounder | 1 | 8 | 4 | 200.0 | - | - | - | 0 | 0 | LOW |
 | Robin Minz | Wicketkeeper | 2 | 6 | 15 | 40.0 | 3.0 | - | 66.67 | 0 | 0 | LOW |
+| Atharva Ankolekar | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Danish Malewar | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
 ### 5.2 Phase-wise Batting (Qualified players)
@@ -366,18 +367,17 @@
 
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
-| Trent Boult | Fast | 41 | 149.0 | 51 | 8.62 | 25.18 | 17.53 | 40.16 | 20.47 | HIGH |
+| Trent Boult | Fast-Mediu | 41 | 149.0 | 51 | 8.62 | 25.18 | 17.53 | 40.16 | 20.47 | HIGH |
 | Jasprit Bumrah | Fast | 25 | 99.2 | 38 | 6.69 | 17.45 | 15.66 | 45.21 | 12.94 | MEDIUM |
 | Deepak Chahar | Fast | 32 | 98.5 | 29 | 8.95 | 30.41 | 20.38 | 41.62 | 21.49 | HIGH |
-| Hardik Pandya | Fast | 37 | 96.0 | 28 | 10.16 | 34.82 | 20.57 | 32.29 | 23.44 | HIGH |
+| Hardik Pandya | Fast-Mediu | 37 | 96.0 | 28 | 10.16 | 34.82 | 20.57 | 32.29 | 23.44 | HIGH |
 | Shardul Thakur | Fast | 28 | 86.7 | 25 | 10.53 | 36.52 | 20.8 | 26.35 | 24.42 | MEDIUM |
 | Mayank Markande | Leg-spin | 17 | 60.0 | 20 | 9.32 | 27.95 | 18.0 | 29.17 | 18.89 | MEDIUM |
-| Mitchell Santner | Left-arm o | 19 | 60.5 | 15 | 7.64 | 30.8 | 24.2 | 33.06 | 14.88 | MEDIUM |
+| Mitchell Santner | LA Orthodo | 19 | 60.5 | 15 | 7.64 | 30.8 | 24.2 | 33.06 | 14.88 | MEDIUM |
 | Ashwani Kumar | Fast | 7 | 20.5 | 11 | 11.41 | 21.27 | 11.18 | 28.46 | 26.83 | LOW |
 | Will Jacks | Off-spin | 13 | 23.0 | 8 | 9.61 | 27.63 | 17.25 | 30.43 | 20.29 | MEDIUM |
-| Corbin Bosch | Fast | 2 | 7.0 | 1 | 8.0 | 56.0 | 42.0 | 54.76 | 19.05 | LOW |
-| Tilak Varma | Off-spin | 2 | 1.7 | 0 | 9.0 | - | - | 30.0 | 20.0 | LOW |
-| Naman Dhir | Left-arm o | 5 | 8.7 | 0 | 8.77 | - | - | 21.15 | 15.38 | LOW |
+| Corbin Bosch | Fast-Mediu | 2 | 7.0 | 1 | 8.0 | 56.0 | 42.0 | 54.76 | 19.05 | LOW |
+| Naman Dhir | Off-spin | 5 | 8.7 | 0 | 8.77 | - | - | 21.15 | 15.38 | LOW |
 
 ### 6.2 Bowler Phase Distribution
 
@@ -496,8 +496,8 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 5 | 120 | 148 | 10 | 7.4 | 14.8 | 12.0 | 40.0 | 16.67 | HIGH |
 | Lucknow Super Giants | 5 | 114 | 137 | 8 | 7.21 | 17.13 | 14.25 | 48.25 | 18.42 | HIGH |
-| Gujarat Titans | 6 | 126 | 191 | 6 | 9.1 | 31.83 | 21.0 | 34.92 | 20.63 | HIGH |
 | Mumbai Indians | 3 | 72 | 94 | 6 | 7.83 | 15.67 | 12.0 | 40.28 | 18.06 | MEDIUM |
+| Gujarat Titans | 6 | 126 | 191 | 6 | 9.1 | 31.83 | 21.0 | 34.92 | 20.63 | HIGH |
 | Royal Challengers Bengaluru | 4 | 90 | 139 | 5 | 9.27 | 27.8 | 18.0 | 35.56 | 23.33 | MEDIUM |
 | Delhi Capitals | 5 | 102 | 151 | 5 | 8.88 | 30.2 | 20.4 | 39.22 | 25.49 | HIGH |
 | Kolkata Knight Riders | 3 | 66 | 70 | 4 | 6.36 | 17.5 | 16.5 | 56.06 | 13.64 | MEDIUM |
@@ -512,8 +512,8 @@
 | Gujarat Titans | 3 | 72 | 60 | 6 | 5.0 | 10.0 | 12.0 | 52.78 | 8.33 | MEDIUM |
 | Kolkata Knight Riders | 2 | 47 | 58 | 5 | 7.4 | 11.6 | 9.4 | 51.06 | 19.15 | MEDIUM |
 | Royal Challengers Bengaluru | 2 | 48 | 51 | 5 | 6.38 | 10.2 | 9.6 | 35.42 | 8.33 | MEDIUM |
-| Punjab Kings | 3 | 72 | 83 | 4 | 6.92 | 20.75 | 18.0 | 45.83 | 15.28 | MEDIUM |
 | Lucknow Super Giants | 2 | 48 | 38 | 4 | 4.75 | 9.5 | 12.0 | 62.5 | 8.33 | MEDIUM |
+| Punjab Kings | 3 | 72 | 83 | 4 | 6.92 | 20.75 | 18.0 | 45.83 | 15.28 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 96 | 114 | 3 | 7.13 | 38.0 | 32.0 | 30.21 | 11.46 | MEDIUM |
 | Rajasthan Royals | 3 | 72 | 71 | 2 | 5.92 | 35.5 | 36.0 | 54.17 | 15.28 | MEDIUM |
 | Chennai Super Kings | 2 | 48 | 49 | 2 | 6.13 | 24.5 | 24.0 | 35.42 | 10.42 | MEDIUM |
@@ -619,25 +619,23 @@
 
 | Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
 |--------|-----------|-----------|-----------|-----------|----------|
-| **SA Yadav** | 186 | 154 | 30 | 21.2 | Pace Dominant |
-| **RG Sharma** | 146 | 141 | 23.6 | 20.9 | Balanced |
-| **Tilak Varma** | 157 | 140 | 21.7 | 16.1 | Pace Dominant |
-| **HH Pandya** | 144 | 146 | 18.6 | 18.2 | Balanced |
-| **Q de Kock** | 135 | 136 | 20.4 | 15.2 | Balanced |
-| **WG Jacks** | 177 | 126 | 29.7 | 13.9 | Pace Dominant |
-| **RD Rickelton** | 156 | 144 | 26.6 | 21.9 | Balanced |
-| **Naman Dhir** | 186 | 162 | 28.7 | 23.8 | Pace Dominant |
+| **SA Yadav** | 188 | 160 | 29.8 | 23.2 | Pace Dominant |
+| **RG Sharma** | 160 | 142 | 26.9 | 21.9 | Pace Dominant |
+| **Tilak Varma** | 152 | 137 | 20.2 | 16.1 | Balanced |
+| **HH Pandya** | 156 | 173 | 19.8 | 22.6 | Spin Dominant |
+| **Q de Kock** | 132 | 130 | 18.6 | 14 | Balanced |
+| **WG Jacks** | 186 | 117 | 30.2 | 13.7 | Pace Dominant |
+| **RD Rickelton** | 167 | 153 | 28.6 | 24.1 | Balanced |
+| **Naman Dhir** | 213 | 155 | 32.4 | 22.6 | Pace Dominant |
 
-*Pace-hitting strength: **SA Yadav** (186 SR), **WG Jacks** (177 SR), **Naman Dhir** (186 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+*Exploitable vs spin: **WG Jacks** (117 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **SA Yadav** (188 SR), **RG Sharma** (160 SR), **WG Jacks** (186 SR), **RD Rickelton** (167 SR), **Naman Dhir** (213 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
 
 ### 10.3 Pace Attack Intelligence
 
 | Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Wkt Rate |
 |--------|---------|----------|------------|------------|----------|
-| **TA Boult** | 7.3 | 10.1 | 9.9 | PP | 0.34 |
 | **JJ Bumrah** | 6.4 | 5.8 | 6.8 | Middle | 0.38 |
 | **DL Chahar** | 8.2 | 7.8 | 14.1 | Middle | 0.29 |
-| **HH Pandya** | 10.4 | 8.8 | 13.1 | Middle | 0.29 |
 | **SN Thakur** | 11.0 | 8.1 | 10.6 | Middle | 0.29 |
 | **Ashwani Kumar** | 12 | 8.3 | 13.8 | Middle | 0.54 |
 
@@ -648,10 +646,9 @@
 | Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Control Rating |
 |--------|---------|----------|------------|------------|----------------|
 | **M Markande** | - | 8.4 | 12.7 | Middle | 29.2% |
-| **MJ Santner** | 7.4 | 7.0 | 10.9 | Middle | 33.1% |
 | **WG Jacks** | 9.8 | 8.8 | 10 | Middle | 30.4% |
 
-***MJ Santner** is the middle-overs anchor at 7.0 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **WG Jacks** offers a viable death option at 10.0 economy, giving the captain tactical flexibility. Spin dependency is high with 144 combined overs across 3 spinners — a strength on turning pitches but a risk on pace-friendly surfaces.*
+***M Markande** is the middle-overs anchor at 8.4 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **WG Jacks** offers a viable death option at 10.0 economy, giving the captain tactical flexibility.*
 
 ### 10.5 Key Vulnerabilities & Matchup Risks
 
@@ -661,11 +658,11 @@
 
 #### Spin Vulnerability Risk
 
-- **HH Pandya** vs LA orthodox: SR 101, Avg 22.7, BPD 22.3 (67 balls, league avg 138.7)
+- No significant spin vulnerabilities identified in MEDIUM/HIGH sample data.
 
 #### Pace Vulnerability Risk
 
-- No significant pace vulnerabilities identified — squad handles pace adequately.
+- **SE Rutherford** vs Fast: SR 129, Avg 15 (58 balls, league avg vs pace ~151)
 
 #### Structural Concerns
 
@@ -842,17 +839,18 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 ### 12.1 T20 Batting Profile
 
-*No uncapped players with meaningful T20 batting data (5+ innings)*
-
+| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Trust | Tournaments |
+|--------|------|---------|----------|--------|---------|------------|-------|-------------|
+| Atharva Ankolekar | All-rounder | 5 | 78 | 139 | 39 | LOW | 7 | - |
 
 ### 12.2 T20 Bowling Profile
 
 | Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|-------------|----------|----------|---------|------------|-------|-------------|
-| AM Ghazanfar | Off-spin | 32 | 34 | 7.2 | 24.9 | HIGH | 36 | ILT20, Blast, CPL |
-| Sherfane Rutherford | Medium | 23 | 11 | 10.7 | 35 | HIGH | 20 | CPL, Intl, ILT20 |
-| Atharva Ankolekar | Left-arm ort | 11 | 9 | 5.8 | 26.7 | MEDIUM | 32 | SMAT |
-| Raghu Sharma | Fast | 3 | 3 | 8.1 | 29.7 | LOW | 9 | SMAT |
+| AM Ghazanfar | Off-spin | 32 | 34 | 7.2 | 24.9 | HIGH | 36 | - |
+| Sherfane Rutherford | Medium | 24 | 11 | 10.7 | 35.8 | HIGH | 20 | - |
+| Atharva Ankolekar | LA Orthodox | 11 | 9 | 5.8 | 26.7 | MEDIUM | 32 | - |
+| Raghu Sharma | Leg-spin | 3 | 3 | 8.1 | 29.7 | LOW | 9 | - |
 
 ### 12.3 Limited / No T20 Data
 
@@ -874,17 +872,17 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 | Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
 |--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
-| Sherfane Rutherford | All-rounder | 184 | 140 | 26.8 | 9 | 2524 | 53 | CPL (0.50, SR 134.1); ILT20 (0.49, SR 147.6); PSL (0.51, SR 148.1) |
-| Ryan Rickelton | Wicketkeeper | 255 | 154 | 36 | 4 | 1591 | 53 | SA20 (0.50, SR 163.8); CSA (0.38, SR 129.4); IPL (0.87, SR 152.2) |
+| Sherfane Rutherford | All-rounder | 184 | 140 | 27.2 | 9 | 2586 | 53 | CPL (0.50, SR 134.1); ILT20 (0.49, SR 147.6); PSL (0.51, SR 148.1) |
+| Ryan Rickelton | Wicketkeeper | 255 | 152 | 35.2 | 4 | 1613 | 53 | SA20 (0.50, SR 161.0); CSA (0.38, SR 129.4); IPL (0.87, SR 152.2) |
 | Mitchell Santner | All-rounder | 54 | 133 | 25.0 | 7 | 1009 | 48 | SS (0.36, SR 145.5); Blast (0.50, SR 149.6); CPL (0.50, SR 115.1) |
-| Corbin Bosch | All-rounder | 32 | 114 | 20.2 | 4 | 481 | 48 | CPL (0.50, SR 114.1); CSA (0.38, SR 125.0); SA20 (0.50, SR 82.7) |
+| Corbin Bosch | All-rounder | 32 | 114 | 20.3 | 4 | 485 | 49 | CPL (0.50, SR 114.1); CSA (0.38, SR 125.0); SA20 (0.50, SR 83.5) |
 | Shardul Thakur | All-rounder | 99 | 129 | 13.3 | 2 | 293 | 48 | IPL (0.87, SR 139.7); SMAT (0.65, SR 72.1) |
 | Naman Dhir | All-rounder | 216 | 178 | 24.8 | 2 | 244 | 41 | IPL (0.87, SR 181.5); SMAT (0.65, SR 139.3) |
 | Deepak Chahar | Bowler | 27 | 124 | 15.1 | 2 | 199 | 29 | SMAT (0.65, SR 109.6); IPL (0.87, SR 139.3) |
 | Trent Boult | Bowler | 33 | 117 | 17.0 | 3 | 179 | 23 | IPL (0.87, SR 104.9); MLC (0.42, SR 147.8); BBL (0.53, SR 112.9) |
 | Mayank Markande | Bowler | 13 | 117 | 19.6 | 2 | 87 | 13 | SMAT (0.65, SR 120.0); IPL (0.87, SR 114.3) |
 | Jasprit Bumrah | Bowler | 13 | 87.2 | 13.6 | 1 | 78 | 14 | IPL (0.87, SR 87.2) |
-| Atharva Ankolekar | Bowler | 0 | 139 | 39 | 1 | 56 | 7 | SMAT (0.65, SR 139.3) |
+| Atharva Ankolekar | All-rounder | 0 | 139 | 39 | 1 | 56 | 7 | SMAT (0.65, SR 139.3) |
 | Raj Bawa | All-rounder | 4 | 160 | 32 | 1 | 20 | 3 | SMAT (0.65, SR 160.0) |
 
 ### 13.2 Bowling Intelligence
@@ -892,13 +890,13 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
 |--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
 | Will Jacks | All-rounder | 138 | 7.4 | 16.8 | 5 | 1205 | 54 | Blast (0.50, Econ 7.4); SA20 (0.50, Econ 6.5); 100 (0.50, Econ 6.5) |
-| Corbin Bosch | All-rounder | 42 | 8.9 | 17.9 | 4 | 818 | 48 | SA20 (0.50, Econ 9.5); CSA (0.38, Econ 7.7); CPL (0.50, Econ 9.8) |
+| Corbin Bosch | All-rounder | 42 | 8.9 | 16.6 | 4 | 859 | 48 | SA20 (0.50, Econ 9.4); CSA (0.38, Econ 7.7); CPL (0.50, Econ 9.8) |
 | AM Ghazanfar | Bowler | 0 | 6.8 | 16.9 | 2 | 371 | 36 | ILT20 (0.49, Econ 6.9); CPL (0.50, Econ 6.4) |
 | Rohit Sharma | Batter | 0 | 7.9 | 21.2 | 1 | 339 | 59 | IPL (0.87, Econ 7.9) |
-| Atharva Ankolekar | Bowler | 0 | 5.8 | 24.6 | 1 | 246 | 32 | SMAT (0.65, Econ 5.9) |
-| Sherfane Rutherford | All-rounder | 0 | 8.8 | 18.4 | 3 | 167 | 20 | CPL (0.50, Econ 9.8); IPL (0.87, Econ 8.0); SA20 (0.50, Econ 6.0) |
+| Atharva Ankolekar | All-rounder | 0 | 5.8 | 24.6 | 1 | 246 | 32 | SMAT (0.65, Econ 5.9) |
+| Sherfane Rutherford | All-rounder | 0 | 8.8 | 18.9 | 3 | 173 | 20 | CPL (0.50, Econ 9.8); IPL (0.87, Econ 8.0); SA20 (0.50, Econ 6.5) |
 | Ashwani Kumar | Bowler | 123 | 10.8 | 12.4 | 2 | 153 | 25 | IPL (0.87, Econ 11.0); SMAT (0.65, Econ 9.8) |
-| Tilak Varma | All-rounder | 10 | 7.6 | 44.9 | 2 | 82 | 12 | SMAT (0.65, Econ 7.7); IPL (0.87, Econ 7.4) |
+| Tilak Varma | Batter | 10 | 7.6 | 44.9 | 2 | 82 | 12 | SMAT (0.65, Econ 7.7); IPL (0.87, Econ 7.4) |
 | Raghu Sharma | Bowler | 0 | 7.9 | 22 | 1 | 66 | 9 | SMAT (0.65, Econ 7.9) |
 | Naman Dhir | All-rounder | 52 | 8.7 | 52 | 1 | 52 | 9 | IPL (0.87, Econ 8.7) |
 | Raj Bawa | All-rounder | 0 | 6.8 | 12 | 1 | 24 | 3 | SMAT (0.65, Econ 6.8) |

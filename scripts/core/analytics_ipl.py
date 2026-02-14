@@ -1041,6 +1041,55 @@ def create_t20_comparison_views(conn: duckdb.DuckDBPyConnection) -> None:
     print("  - analytics_t20_bowler_phase")
 
 
+def create_all_t20_career_views(conn: duckdb.DuckDBPyConnection) -> None:
+    """Create All-T20 career views (across all tournaments)."""
+
+    print("\nCreating All-T20 career views...")
+
+    # All T20 Batting Career
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_batting_career AS
+        SELECT
+            dp.player_id,
+            dp.current_name as player_name,
+            COUNT(DISTINCT fb.match_id) as innings,
+            SUM(fb.batter_runs) as runs,
+            SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) as balls_faced,
+            SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) as dismissals,
+            ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) as strike_rate,
+            ROUND(SUM(fb.batter_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END), 0), 2) as batting_average,
+            CASE WHEN COUNT(DISTINCT fb.match_id) < 10 THEN 'LOW'
+                 WHEN COUNT(DISTINCT fb.match_id) < 30 THEN 'MEDIUM'
+                 ELSE 'HIGH' END as sample_size_innings
+        FROM fact_ball fb
+        JOIN dim_player dp ON fb.batter_id = dp.player_id
+        GROUP BY dp.player_id, dp.current_name
+    """)
+    print("  - analytics_batting_career")
+
+    # All T20 Bowling Career
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_bowling_career AS
+        SELECT
+            dp.player_id,
+            dp.current_name as player_name,
+            COUNT(DISTINCT fb.match_id) as matches_bowled,
+            SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) as balls_bowled,
+            ROUND(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) / 6.0, 1) as overs_bowled,
+            SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END) as wickets,
+            SUM(fb.total_runs) as runs_conceded,
+            ROUND(SUM(fb.total_runs) * 6.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) as economy_rate,
+            ROUND(SUM(fb.total_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END), 0), 2) as bowling_average,
+            CASE WHEN COUNT(DISTINCT fb.match_id) < 10 THEN 'LOW'
+                 WHEN COUNT(DISTINCT fb.match_id) < 30 THEN 'MEDIUM'
+                 ELSE 'HIGH' END as sample_size_matches
+        FROM fact_ball fb
+        JOIN dim_player dp ON fb.bowler_id = dp.player_id
+        GROUP BY dp.player_id, dp.current_name
+    """)
+    print("  - analytics_bowling_career")
+
+
 def create_squad_integration_views(conn: duckdb.DuckDBPyConnection) -> None:
     """Create views that integrate IPL 2026 squad data with analytics."""
 
@@ -1521,34 +1570,35 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
                 batter_id AS player_id,
                 batter_name AS player_name,
                 bowler_type,
-                balls_faced,
-                runs_scored,
-                ROUND(runs_scored * 100.0 / NULLIF(balls_faced, 0), 2) AS strike_rate,
+                balls,
+                runs,
+                strike_rate,
                 dismissals,
-                ROUND(runs_scored * 1.0 / NULLIF(dismissals, 0), 2) AS average,
-                ROUND(dismissals * 100.0 / NULLIF(balls_faced, 0), 2) AS dismissal_rate
+                average,
+                ROUND(dismissals * 100.0 / NULLIF(balls, 0), 2) AS dismissal_rate
             FROM analytics_ipl_batter_vs_bowler_type
-            WHERE balls_faced >= 50
+            WHERE balls >= 50
+        ),
+        with_pctls AS (
+            SELECT
+                q.*,
+                ROUND(PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY strike_rate) * 100, 1)
+                    AS sr_percentile,
+                ROUND(PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY average) * 100, 1)
+                    AS avg_percentile,
+                ROUND(PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY dismissal_rate DESC) * 100, 1)
+                    AS survival_percentile,
+                ROUND((
+                    PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY strike_rate) * 0.4 +
+                    PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY average) * 0.4 +
+                    PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY dismissal_rate DESC) * 0.2
+                ) * 100, 1) AS vs_type_composite
+            FROM qualified q
         )
         SELECT
-            q.*,
-            ROUND(PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY strike_rate) * 100, 1)
-                AS sr_percentile,
-            ROUND(PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY average) * 100, 1)
-                AS avg_percentile,
-            ROUND(PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY dismissal_rate DESC) * 100, 1)
-                AS survival_percentile,
-            ROUND((
-                PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY strike_rate) * 0.4 +
-                PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY average) * 0.4 +
-                PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY dismissal_rate DESC) * 0.2
-            ) * 100, 1) AS vs_type_composite,
-            RANK() OVER (PARTITION BY bowler_type ORDER BY (
-                PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY strike_rate) * 0.4 +
-                PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY average) * 0.4 +
-                PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY dismissal_rate DESC) * 0.2
-            ) DESC) AS vs_type_rank
-        FROM qualified q
+            w.*,
+            RANK() OVER (PARTITION BY bowler_type ORDER BY vs_type_composite DESC) AS vs_type_rank
+        FROM with_pctls w
     """)
     print("  - analytics_ipl_batter_vs_bowling_type_rankings")
 
@@ -1572,28 +1622,30 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
                 bowler_id AS player_id,
                 bowler_name AS player_name,
                 batting_hand,
-                balls_bowled,
+                balls,
                 wickets,
-                economy_rate,
-                ROUND(balls_bowled * 1.0 / NULLIF(wickets, 0), 2) AS bowling_sr
+                economy,
+                strike_rate AS bowling_sr
             FROM analytics_ipl_bowler_vs_batter_handedness
-            WHERE balls_bowled >= 50
+            WHERE balls >= 50
+        ),
+        with_pctls AS (
+            SELECT
+                q.*,
+                ROUND(PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY economy DESC) * 100, 1)
+                    AS economy_percentile,
+                ROUND(PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY bowling_sr DESC) * 100, 1)
+                    AS sr_percentile,
+                ROUND((
+                    PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY economy DESC) * 0.5 +
+                    PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY bowling_sr DESC) * 0.5
+                ) * 100, 1) AS vs_hand_composite
+            FROM qualified q
         )
         SELECT
-            q.*,
-            ROUND(PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY economy_rate DESC) * 100, 1)
-                AS economy_percentile,
-            ROUND(PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY bowling_sr DESC) * 100, 1)
-                AS sr_percentile,
-            ROUND((
-                PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY economy_rate DESC) * 0.5 +
-                PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY bowling_sr DESC) * 0.5
-            ) * 100, 1) AS vs_hand_composite,
-            RANK() OVER (PARTITION BY batting_hand ORDER BY (
-                PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY economy_rate DESC) * 0.5 +
-                PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY bowling_sr DESC) * 0.5
-            ) DESC) AS vs_hand_rank
-        FROM qualified q
+            w.*,
+            RANK() OVER (PARTITION BY batting_hand ORDER BY vs_hand_composite DESC) AS vs_hand_rank
+        FROM with_pctls w
     """)
     print("  - analytics_ipl_bowler_vs_handedness_rankings")
 
@@ -5169,18 +5221,19 @@ def main() -> int:
     create_phase_matchup_views(conn)
     create_team_venue_views(conn)
     create_t20_comparison_views(conn)
-    create_squad_integration_views(conn)
+    create_all_t20_career_views(conn)
     create_percentile_views(conn)
+    create_matchup_matrix_views(conn)
     create_composite_ranking_views(conn)
     create_benchmark_views(conn)
     create_standardized_ipl_views(conn)
+    create_squad_integration_views(conn)
     create_film_room_views(conn)
     create_pressure_performance_views(conn)
     create_tournament_weights_table(conn)
     create_weighted_composite_views(conn)
     create_team_phase_views(conn)
     create_recent_form_views(conn)
-    create_matchup_matrix_views(conn)
 
     # Verify
     verify_views(conn)

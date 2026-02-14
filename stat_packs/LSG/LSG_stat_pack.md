@@ -1,6 +1,6 @@
 # Lucknow Super Giants (LSG) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-13 21:38
+**Generated:** 2026-02-14 17:15
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -15,28 +15,29 @@
 | Rishabh Pant | Wicketkeeper | Medium | Left-hand | 27.00 | Retained | 2025 |
 | Nicholas Pooran | Wicketkeeper | Medium | Left-hand | 21.00 | Retained | 2022 |
 | Mayank Yadav | Bowler | Fast | Right-hand | 11.00 | Retained | 2024 |
-| Mohammed Shami | Bowler | Fast | Right-hand | 10.00 | Traded | 2026 |
-| Avesh Khan | Bowler | Fast | Right-hand | 9.75 | Retained | 2022 |
+| Mohammed Shami | Bowler | Fast-Medium | Right-hand | 10.00 | Traded | 2026 |
+| Avesh Khan | Bowler | Fast-Medium | Right-hand | 9.75 | Retained | 2022 |
 | Josh Inglis | Wicketkeeper | Medium | Right-hand | 8.60 | Auction | 2026 |
 | Wanindu Hasaranga | All-rounder | Leg-spin | Right-hand | 7.00 | Auction | 2026 |
-| Abdul Samad | Batter | Leg-spin | Right-hand | 4.20 | Retained | 2025 |
-| Mohsin Khan | Bowler | Fast | Left-hand | 4.00 | Retained | 2022 |
-| Ayush Badoni | Batter | Leg-spin | Right-hand | 4.00 | Retained | 2022 |
+| Abdul Samad | All-rounder | Leg-spin | Right-hand | 4.20 | Retained | 2025 |
+| Mohsin Khan | Bowler | Fast-Medium | Left-hand | 4.00 | Retained | 2022 |
+| Ayush Badoni | All-rounder | Off-spin | Right-hand | 4.00 | Retained | 2022 |
 | Mitchell Marsh | All-rounder | Fast | Right-hand | 3.40 | Retained | 2025 |
+| Shahbaz Ahmed | All-rounder | Left-arm orthodox | Left-hand | 2.40 | Auction | 2025 |
 | Aiden Markram | All-rounder | Off-spin | Right-hand | 2.00 | Retained | 2022 |
 | Anrich Nortje | Bowler | Fast | Right-hand | 2.00 | Auction | 2026 |
-| Matthew Breetzke | Batter | Medium | Right-hand | 0.75 | Retained | 2025 |
-| Manimaran Siddharth | Bowler | Left-arm orthodox | Left-hand | 0.75 | Retained | 2024 |
-| Himmat Singh | All-rounder | Off-spin | Right-hand | 0.30 | Retained | 2025 |
+| Matthew Breetzke | Wicketkeeper | Medium | Right-hand | 0.75 | Retained | 2025 |
+| Manimaran Siddharth | Bowler | LA Orthodox | Right-hand | 0.75 | Retained | 2024 |
+| Himmat Singh | Batter | Off-spin | Right-hand | 0.30 | Retained | 2025 |
 | Digvesh Rathi | Bowler | Leg-spin | Right-hand | 0.30 | Retained | 2025 |
-| Akash Singh | Bowler | Fast | Left-hand | 0.30 | Retained | 2024 |
-| Arjun Tendulkar | Bowler | Fast | Left-hand | 0.30 | Traded | 2026 |
-| Arshin Kulkarni | All-rounder | Off-spin | Right-hand | 0.30 | Retained | 2025 |
+| Akash Singh | Bowler | Fast | Right-hand | 0.30 | Retained | 2024 |
+| Arjun Tendulkar | All-rounder | Fast | Left-hand | 0.30 | Traded | 2026 |
+| Arshin Kulkarni | All-rounder | Fast | Right-hand | 0.30 | Retained | 2025 |
 
-**Total Squad Size:** 20 players
-**Total Spend:** ₹116.95 Cr
+**Total Squad Size:** 21 players
+**Total Spend:** ₹119.35 Cr
 
-**Role Breakdown:** All-rounder: 5, Batter: 3, Bowler: 9, Wicketkeeper: 3
+**Role Breakdown:** All-rounder: 8, Batter: 1, Bowler: 8, Wicketkeeper: 4
 
 ### 1.2 Player Archetypes (K-means V2 Model)
 
@@ -125,7 +126,7 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** Ravi Bishnoi (16w @ 7.58), Yash Thakur (13w @ 8.61), MA Wood (11w @ 8.35)
+- **2023:** Ravi Bishnoi (16w @ 7.58), Yash Thakur (13w @ 8.61), Naveen-ul-Haq (11w @ 7.78)
 - **2024:** Naveen-ul-Haq (14w @ 9.7), Yash Thakur (11w @ 10.8), Ravi Bishnoi (10w @ 8.53)
 - **2025:** DS Rathi (14w @ 8.13), Avesh Khan (13w @ 9.94), SN Thakur (13w @ 9.98)
 
@@ -233,17 +234,17 @@
 - **Win Rate:** 42.9% (9W - 11L)
 - **Avg Score (batting):** 167.7
 - **Highest/Lowest:** 227/108
-- **Pitch Type:** Balanced
-- **Pace SR:** 18.2 | **Spin SR:** 23.2
+- **Pitch Type:** Pace-friendly
+- **Pace SR:** 18.3 | **Spin SR:** 23.8
 
 ### Away Performance
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Eden Gardens | 3 | 2 | 66.7% | 191.7 |
+| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 181.0 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 169.0 |
 | MA Chidambaram Stadium | 3 | 1 | 33.3% | 173.0 |
-| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 181.0 |
 | Wankhede Stadium | 2 | 1 | 50.0% | 187.5 |
 | Narendra Modi Stadium | 2 | 1 | 50.0% | 203.0 |
 | M Chinnaswamy Stadium | 2 | 2 | 100.0% | 197.0 |
@@ -254,16 +255,16 @@
 
 | Venue | Matches | Pace SR | Spin SR | Bias |
 |-------|---------|---------|---------|------|
-| Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
-| MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
-| Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
+| Narendra Modi Stadium | 26 | 18.2 | 22.3 | BALANCED |
+| MA Chidambaram Stadium | 24 | 17.7 | 20.1 | BALANCED |
+| Bharat Ratna Shri Atal Bihari  | 22 | 18.3 | 23.8 | PACE |
+| Wankhede Stadium | 21 | 18.8 | 21.0 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.4 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.5 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
-| Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
+| Sawai Mansingh Stadium | 17 | 24.1 | 22.1 | BALANCED |
+| Maharaja Yadavindra Singh Inte | 10 | 15.8 | 16.8 | BALANCED |
 
 ### Venue Specialists
 
@@ -288,12 +289,12 @@
 |--------|-------|---------|------|------|-----|
 | Mohammed Shami | Narendra Modi Stadium | 10 | 17 | 7.76 | 13.06 |
 | Avesh Khan | Sawai Mansingh Stadium | 7 | 9 | 9.19 | 18.0 |
-| DS Rathi | Bharat Ratna Shri Atal Bi | 7 | 7 | 7.18 | 24.0 |
 | Avesh Khan | Bharat Ratna Shri Atal Bi | 11 | 7 | 8.27 | 32.14 |
 | MR Marsh | Arun Jaitley Stadium | 5 | 7 | 8.43 | 11.29 |
+| DS Rathi | Bharat Ratna Shri Atal Bi | 7 | 7 | 7.18 | 24.0 |
 | Avesh Khan | Narendra Modi Stadium | 3 | 6 | 10.99 | 11.83 |
-| PWH de Silva | Barsapara Cricket Stadium | 2 | 5 | 10.0 | 8.4 |
 | Avesh Khan | MA Chidambaram Stadium | 3 | 5 | 7.78 | 10.8 |
+| PWH de Silva | M Chinnaswamy Stadium | 5 | 5 | 8.47 | 20.4 |
 
 
 ---
@@ -307,14 +308,16 @@
 | Nicholas Pooran | Wicketkeeper | 43 | 1381 | 751 | 183.89 | 46.03 | 27.7 | 31.56 | 10 | 0 | HIGH |
 | Aiden Markram | All-rounder | 37 | 913 | 670 | 136.27 | 27.67 | 16.12 | 30.45 | 7 | 0 | HIGH |
 | Mitchell Marsh | All-rounder | 26 | 816 | 516 | 158.14 | 32.64 | 23.84 | 36.82 | 8 | 1 | MEDIUM |
-| Ayush Badoni | Batter | 35 | 802 | 563 | 142.45 | 29.7 | 16.52 | 29.66 | 5 | 0 | HIGH |
+| Ayush Badoni | All-rounder | 35 | 802 | 563 | 142.45 | 29.7 | 16.52 | 29.66 | 5 | 0 | HIGH |
 | Rishabh Pant | Wicketkeeper | 26 | 715 | 489 | 146.22 | 32.5 | 20.45 | 37.01 | 5 | 1 | MEDIUM |
-| Abdul Samad | Batter | 32 | 515 | 326 | 157.98 | 24.52 | 21.17 | 33.74 | 0 | 0 | HIGH |
+| Abdul Samad | All-rounder | 32 | 515 | 326 | 157.98 | 24.52 | 21.17 | 33.74 | 0 | 0 | HIGH |
 | Josh Inglis | Wicketkeeper | 11 | 278 | 171 | 162.57 | 30.89 | 24.56 | 36.84 | 1 | 0 | MEDIUM |
+| Shahbaz Ahmed | All-rounder | 19 | 266 | 213 | 124.88 | 19.0 | 11.74 | 31.92 | 1 | 0 | MEDIUM |
 | Wanindu Hasaranga | All-rounder | 10 | 42 | 43 | 97.67 | 6.0 | 6.98 | 37.21 | 0 | 0 | MEDIUM |
-| Matthew Breetzke | Batter | 1 | 14 | 12 | 116.67 | 14.0 | 16.67 | 58.33 | 0 | 0 | LOW |
+| Matthew Breetzke | Wicketkeeper | 1 | 14 | 12 | 116.67 | 14.0 | 16.67 | 58.33 | 0 | 0 | LOW |
+| Arjun Tendulkar | All-rounder | 1 | 13 | 9 | 144.44 | 13.0 | 11.11 | 22.22 | 0 | 0 | LOW |
 | Arshin Kulkarni | All-rounder | 2 | 9 | 8 | 112.5 | 4.5 | 25.0 | 62.5 | 0 | 0 | LOW |
-| Himmat Singh | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
+| Himmat Singh | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
 ### 5.2 Phase-wise Batting (Qualified players)
 
@@ -336,6 +339,8 @@
 | Rishabh Pant | powerplay | 55 | 428 | 350 | 122.29 | 53.5 | 19.71 | 49.14 | MEDIUM |
 | Rishabh Pant | middle | 106 | 2125 | 1556 | 136.57 | 40.09 | 17.1 | 32.13 | HIGH |
 | Rishabh Pant | death | 59 | 1000 | 492 | 203.25 | 24.39 | 31.5 | 29.67 | MEDIUM |
+| Shahbaz Ahmed | middle | 22 | 258 | 237 | 108.86 | 43.0 | 9.28 | 35.02 | MEDIUM |
+| Shahbaz Ahmed | death | 29 | 266 | 183 | 145.36 | 14.0 | 16.94 | 32.79 | MEDIUM |
 
 ---
 
@@ -345,17 +350,20 @@
 
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
-| Avesh Khan | Fast | 37 | 131.2 | 40 | 9.96 | 32.67 | 19.68 | 29.48 | 23.13 | HIGH |
-| Mohammed Shami | Fast | 26 | 95.2 | 34 | 9.25 | 25.88 | 16.79 | 41.86 | 22.94 | MEDIUM |
+| Avesh Khan | Fast-Mediu | 37 | 131.2 | 40 | 9.96 | 32.67 | 19.68 | 29.48 | 23.13 | HIGH |
+| Mohammed Shami | Fast-Mediu | 26 | 95.2 | 34 | 9.25 | 25.88 | 16.79 | 41.86 | 22.94 | MEDIUM |
 | Wanindu Hasaranga | Leg-spin | 19 | 70.0 | 20 | 9.07 | 31.75 | 21.0 | 27.62 | 17.86 | MEDIUM |
 | Anrich Nortje | Fast | 18 | 69.0 | 18 | 10.94 | 41.94 | 23.0 | 33.82 | 27.05 | MEDIUM |
 | Digvesh Rathi | Leg-spin | 13 | 52.0 | 14 | 8.37 | 31.07 | 22.29 | 30.45 | 16.35 | MEDIUM |
-| Mohsin Khan | Fast | 14 | 48.0 | 13 | 10.33 | 38.15 | 22.15 | 36.11 | 25.35 | MEDIUM |
+| Mohsin Khan | Fast-Mediu | 14 | 48.0 | 13 | 10.33 | 38.15 | 22.15 | 36.11 | 25.35 | MEDIUM |
 | Mitchell Marsh | Fast | 11 | 28.2 | 13 | 9.76 | 21.15 | 13.0 | 25.44 | 18.34 | MEDIUM |
+| Shahbaz Ahmed | Left-arm o | 23 | 43.0 | 9 | 11.05 | 52.78 | 28.67 | 25.97 | 25.19 | MEDIUM |
 | Akash Singh | Fast | 9 | 30.2 | 9 | 9.51 | 31.89 | 20.11 | 36.46 | 25.41 | LOW |
 | Aiden Markram | Off-spin | 13 | 21.2 | 5 | 8.88 | 37.6 | 25.4 | 23.62 | 15.75 | MEDIUM |
-| Manimaran Siddharth | Left-arm o | 5 | 16.2 | 3 | 8.66 | 46.67 | 32.33 | 34.02 | 17.53 | LOW |
+| Manimaran Siddharth | LA Orthodo | 5 | 16.2 | 3 | 8.66 | 46.67 | 32.33 | 34.02 | 17.53 | LOW |
 | Arjun Tendulkar | Fast | 5 | 12.2 | 3 | 9.62 | 39.0 | 24.33 | 41.1 | 20.55 | LOW |
+| Ayush Badoni | Off-spin | 5 | 3.8 | 2 | 9.91 | 19.0 | 11.5 | 21.74 | 17.39 | LOW |
+| Abdul Samad | Leg-spin | 1 | 0.3 | 0 | 18.0 | - | - | 50.0 | 50.0 | LOW |
 
 ### 6.2 Bowler Phase Distribution
 
@@ -390,6 +398,9 @@
 | PWH de Silva | powerplay | 5.0 | 4 | 8.6 | 46.67 | 7.1% | 20.0% | +12.9 | HIGH |
 | PWH de Silva | middle | 58.0 | 11 | 9.16 | 24.71 | 82.9% | 55.0% | -27.9 | HIGH |
 | PWH de Silva | death | 7.0 | 5 | 7.71 | 38.1 | 10.0% | 25.0% | +15.0 | HIGH |
+| Shahbaz Ahmed | powerplay | 12.0 | 2 | 10.83 | 25.0 | 27.9% | 22.2% | -5.7 | MEDIUM |
+| Shahbaz Ahmed | middle | 28.5 | 6 | 10.6 | 26.9 | 66.3% | 66.7% | +0.4 | MEDIUM |
+| Shahbaz Ahmed | death | 2.5 | 1 | 12.4 | 20.0 | 5.8% | 11.1% | +5.3 | MEDIUM |
 
 ---
 
@@ -479,10 +490,10 @@
 | Rajasthan Royals | 2 | 48 | 63 | 6 | 7.88 | 10.5 | 8.0 | 35.42 | 16.67 | MEDIUM |
 | Gujarat Titans | 5 | 113 | 185 | 5 | 9.82 | 37.0 | 22.6 | 23.01 | 21.24 | HIGH |
 | Mumbai Indians | 4 | 96 | 157 | 5 | 9.81 | 31.4 | 19.2 | 31.25 | 22.92 | MEDIUM |
-| Punjab Kings | 6 | 119 | 198 | 4 | 9.98 | 49.5 | 29.75 | 27.73 | 22.69 | HIGH |
 | Royal Challengers Bengaluru | 4 | 90 | 175 | 4 | 11.67 | 43.75 | 22.5 | 23.33 | 32.22 | MEDIUM |
-| Kolkata Knight Riders | 2 | 48 | 83 | 3 | 10.38 | 27.67 | 16.0 | 39.58 | 29.17 | MEDIUM |
+| Punjab Kings | 6 | 119 | 198 | 4 | 9.98 | 49.5 | 29.75 | 27.73 | 22.69 | HIGH |
 | Delhi Capitals | 4 | 78 | 117 | 3 | 9.0 | 39.0 | 26.0 | 37.18 | 24.36 | MEDIUM |
+| Kolkata Knight Riders | 2 | 48 | 83 | 3 | 10.38 | 27.67 | 16.0 | 39.58 | 29.17 | MEDIUM |
 | Chennai Super Kings | 3 | 51 | 76 | 3 | 8.94 | 25.33 | 17.0 | 25.49 | 21.57 | MEDIUM |
 | Lucknow Super Giants | 2 | 42 | 54 | 1 | 7.71 | 54.0 | 42.0 | 23.81 | 9.52 | MEDIUM |
 
@@ -492,11 +503,11 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 3 | 66 | 76 | 7 | 6.91 | 10.86 | 9.43 | 60.61 | 18.18 | MEDIUM |
 | Kolkata Knight Riders | 3 | 72 | 94 | 5 | 7.83 | 18.8 | 14.4 | 43.06 | 16.67 | MEDIUM |
-| Rajasthan Royals | 3 | 66 | 82 | 5 | 7.45 | 16.4 | 13.2 | 57.58 | 19.7 | MEDIUM |
 | Chennai Super Kings | 4 | 85 | 115 | 5 | 8.12 | 23.0 | 17.0 | 38.82 | 18.82 | MEDIUM |
+| Rajasthan Royals | 3 | 66 | 82 | 5 | 7.45 | 16.4 | 13.2 | 57.58 | 19.7 | MEDIUM |
+| Gujarat Titans | 2 | 42 | 74 | 2 | 10.57 | 37.0 | 21.0 | 28.57 | 30.95 | MEDIUM |
 | Lucknow Super Giants | 3 | 60 | 90 | 2 | 9.0 | 45.0 | 30.0 | 31.67 | 21.67 | MEDIUM |
 | Mumbai Indians | 4 | 84 | 142 | 2 | 10.14 | 71.0 | 42.0 | 39.29 | 26.19 | MEDIUM |
-| Gujarat Titans | 2 | 42 | 74 | 2 | 10.57 | 37.0 | 21.0 | 28.57 | 30.95 | MEDIUM |
 | Punjab Kings | 2 | 48 | 118 | 1 | 14.75 | 118.0 | 48.0 | 25.0 | 43.75 | MEDIUM |
 
 ---
@@ -600,25 +611,23 @@
 
 | Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
 |--------|-----------|-----------|-----------|-----------|----------|
-| **N Pooran** | 185 | 178 | 28.4 | 25 | Balanced |
-| **AK Markram** | 138 | 131 | 18.3 | 12.8 | Balanced |
-| **A Badoni** | 150 | 128 | 19.6 | 11.4 | Pace Dominant |
-| **MR Marsh** | 171 | 134 | 27.4 | 17.2 | Pace Dominant |
-| **RR Pant** | 164 | 119 | 24.4 | 14.4 | Pace Dominant |
-| **Abdul Samad** | 175 | 112 | 25.3 | 10.3 | Pace Dominant |
-| **JP Inglis** | 175 | 136 | 28.4 | 16.4 | Pace Dominant |
+| **N Pooran** | 189 | 173 | 29.3 | 23.4 | Pace Dominant |
+| **AK Markram** | 135 | 143 | 16.2 | 15.0 | Balanced |
+| **A Badoni** | 173 | 121 | 24.4 | 9.8 | Pace Dominant |
+| **MR Marsh** | 170 | 157 | 26.5 | 21.0 | Balanced |
+| **RR Pant** | 184 | 126 | 27.8 | 15.2 | Pace Dominant |
+| **Abdul Samad** | 182 | 121 | 26.1 | 12.9 | Pace Dominant |
+| **Shahbaz Ahmed** | 140 | 105 | 15.2 | 7.3 | Pace Dominant |
+| **JP Inglis** | 182 | 150 | 29.9 | 16.7 | Pace Dominant |
 
-*Exploitable vs spin: **RR Pant** (119 SR), **Abdul Samad** (112 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **N Pooran** (185 SR), **MR Marsh** (171 SR), **RR Pant** (164 SR), **Abdul Samad** (175 SR), **JP Inglis** (175 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+*Exploitable vs spin: **Shahbaz Ahmed** (105 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **N Pooran** (189 SR), **A Badoni** (173 SR), **MR Marsh** (170 SR), **RR Pant** (184 SR), **Abdul Samad** (182 SR), **JP Inglis** (182 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
 
 ### 10.3 Pace Attack Intelligence
 
 | Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Wkt Rate |
 |--------|---------|----------|------------|------------|----------|
-| **Avesh Khan** | 10.9 | 8.4 | 9.7 | Middle | 0.31 |
-| **Mohammed Shami** | 8.3 | 9.7 | 11.0 | PP | 0.36 |
 | **A Nortje** | 9.5 | 8.4 | 12.1 | Middle | 0.26 |
 | **MR Marsh** | 7.2 | 8.6 | 12.8 | PP | 0.46 |
-| **Mohsin Khan** | 9.6 | 9.8 | 10.9 | PP | 0.27 |
 | **Akash Singh** | 9.2 | 10.1 | 10 | PP | 0.30 |
 
 ***Akash Singh** is the designated death option at 10.0 economy (league avg 10.9). **Akash Singh** should lead the powerplay attack (9.2 economy).*
@@ -629,15 +638,17 @@
 |--------|---------|----------|------------|------------|----------------|
 | **PWH de Silva** | 8.6 | 9.2 | 7.7 | Death | 27.6% |
 | **DS Rathi** | 7.9 | 7.7 | 9.5 | Middle | 30.4% |
+| **Shahbaz Ahmed** | 10.8 | 10.6 | 12.4 | Middle | 26.0% |
 | **AK Markram** | 10 | 8.5 | 6 | Death | 23.6% |
 
-***DS Rathi** is the middle-overs anchor at 7.7 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **AK Markram** offers a viable death option at 6.0 economy, giving the captain tactical flexibility. Spin dependency is high with 143 combined overs across 3 spinners — a strength on turning pitches but a risk on pace-friendly surfaces.*
+***DS Rathi** is the middle-overs anchor at 7.7 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **AK Markram** offers a viable death option at 6.0 economy, giving the captain tactical flexibility. Spin dependency is high with 186 combined overs across 4 spinners — a strength on turning pitches but a risk on pace-friendly surfaces.*
 
 ### 10.5 Key Vulnerabilities & Matchup Risks
 
 #### Phase Gaps
 
-- **Powerplay**: batting SR 130.9 vs league 146.3
+- **Powerplay**: batting SR 123.7 vs league 146.3
+- **Middle**: batting SR 128.9 vs league 140.3
 
 #### Spin Vulnerability Risk
 
@@ -743,6 +754,11 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | PWH de Silva | BUILDING | 53 | 11.2 | 24.5 | 28.3 | 4 | MEDIUM |
 | PWH de Silva | HIGH | 64 | 8.4 | 28.1 | 14.1 | 4 | MEDIUM |
 | PWH de Silva | EXTREME | 38 | 9.8 | 31.6 | 21.1 | 2 | LOW |
+| Shahbaz Ahmed | COMFORTABLE | 21 | 11.7 | 23.8 | 23.8 | 1 | LOW |
+| Shahbaz Ahmed | BUILDING | 18 | 9.3 | 16.7 | 16.7 | 2 | LOW |
+| Shahbaz Ahmed | HIGH | 30 | 9 | 33.3 | 23.3 | 1 | LOW |
+| Shahbaz Ahmed | EXTREME | 65 | 13.7 | 20 | 32.3 | 2 | MEDIUM |
+| Shahbaz Ahmed | NEAR_IMPOSSIBLE | 26 | 9.9 | 30.8 | 19.2 | 1 | LOW |
 
 ### 11.3 Pressure Ratings
 
@@ -752,6 +768,7 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 | Player | Role | Balls | Delta% | W.Score | Rating | Entry | Confidence |
 |--------|------|-------|--------|---------|--------|-------|------------|
+| Shahbaz Ahmed | BATTER | 56 | +15.6% | 33.1 | **CLUTCH** | FRESH | MEDIUM |
 | A Badoni | BATTER | 142 | +4.8% | 17.1 | **PRESSURE_PROOF** | FRESH | HIGH |
 | RR Pant | BATTER | 88 | +3.9% | 10.5 | **PRESSURE_PROOF** | BUILDING | MEDIUM |
 | N Pooran | BATTER | 172 | +2.6% | 10.1 | **PRESSURE_PROOF** | BUILDING | HIGH |
@@ -816,13 +833,13 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 | Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|---------|----------|--------|---------|------------|-------|-------------|
-| Himmat Singh | All-rounder | 33 | 599 | 127 | 29.9 | HIGH | 61 | SMAT |
+| Himmat Singh | Batter | 33 | 599 | 127 | 29.9 | HIGH | 61 | - |
 
 ### 12.2 T20 Bowling Profile
 
 | Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|-------------|----------|----------|---------|------------|-------|-------------|
-| Mayank Yadav | Fast | 3 | 2 | 6.3 | 9.5 | LOW | - | NPL |
+| Mayank Yadav | Fast | 3 | 2 | 6.3 | 9.5 | LOW | - | - |
 
 
 
@@ -836,15 +853,16 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 | Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
 |--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
-| Josh Inglis | Wicketkeeper | 171 | 149 | 32.1 | 5 | 2022 | 54 | BBL (0.53, SR 141.2); Blast (0.50, SR 177.3); IPL (0.87, SR 162.6) |
-| Matthew Breetzke | Batter | 12 | 134 | 31.6 | 3 | 1315 | 46 | SA20 (0.50, SR 126.2); CSA (0.38, SR 132.2); Blast (0.50, SR 153.5) |
+| Josh Inglis | Wicketkeeper | 171 | 147 | 31.8 | 5 | 2062 | 54 | BBL (0.53, SR 139.4); Blast (0.50, SR 177.3); IPL (0.87, SR 162.6) |
+| Matthew Breetzke | Wicketkeeper | 12 | 132 | 33.0 | 3 | 1464 | 47 | SA20 (0.50, SR 124.1); CSA (0.38, SR 132.2); Blast (0.50, SR 153.5) |
 | Wanindu Hasaranga | All-rounder | 43 | 145 | 16.6 | 5 | 874 | 49 | LPL (0.40, SR 176.0); ILT20 (0.49, SR 140.6); T20WC (0.50, SR 133.3) |
-| Himmat Singh | All-rounder | 0 | 127 | 35.2 | 1 | 472 | 61 | SMAT (0.65, SR 126.9) |
+| Shahbaz Ahmed | All-rounder | 213 | 123 | 20.6 | 2 | 680 | 79 | IPL (0.87, SR 122.0); SMAT (0.65, SR 125.6) |
+| Himmat Singh | Batter | 0 | 127 | 35.2 | 1 | 472 | 61 | SMAT (0.65, SR 126.9) |
 | Mohammed Shami | Bowler | 16 | 105 | 8.2 | 2 | 111 | 18 | IPL (0.87, SR 94.4); SMAT (0.65, SR 163.6) |
 | Anrich Nortje | Bowler | 37 | 110 | 12.4 | 3 | 110 | 14 | IPL (0.87, SR 100.0); CSA (0.38, SR 130.6); CPL (0.50, SR 120.0) |
 | Mohsin Khan | Bowler | 8 | 124 | 22.1 | 2 | 75 | 11 | SMAT (0.65, SR 137.3); IPL (0.87, SR 104.2) |
 | Avesh Khan | Bowler | 18 | 138 | 13.5 | 2 | 62 | 10 | IPL (0.87, SR 167.6); SMAT (0.65, SR 80.0) |
-| Arjun Tendulkar | Bowler | 9 | 69.0 | 5 | 1 | 29 | 4 | SMAT (0.65, SR 69.0) |
+| Arjun Tendulkar | All-rounder | 9 | 69.0 | 5 | 1 | 29 | 4 | SMAT (0.65, SR 69.0) |
 | Akash Singh | Bowler | 0 | 89.3 | 12.5 | 1 | 28 | 4 | SMAT (0.65, SR 89.3) |
 
 ### 13.2 Bowling Intelligence
@@ -852,12 +870,12 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
 |--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
 | Mitchell Marsh | All-rounder | 169 | 8.4 | 17.2 | 3 | 1223 | 68 | BBL (0.53, Econ 8.8); IPL (0.87, Econ 8.2); T20WC (0.50, Econ 8.5) |
-| Aiden Markram | All-rounder | 127 | 7.7 | 25.5 | 4 | 697 | 59 | SA20 (0.50, Econ 7.1); IPL (0.87, Econ 8.7); T20WC (0.50, Econ 6.6) |
+| Aiden Markram | All-rounder | 127 | 7.6 | 25.1 | 4 | 709 | 59 | SA20 (0.50, Econ 7.0); IPL (0.87, Econ 8.7); T20WC (0.50, Econ 6.6) |
 | Akash Singh | Bowler | 181 | 8.9 | 25.3 | 2 | 337 | 53 | IPL (0.87, Econ 9.5); SMAT (0.65, Econ 7.9) |
-| Arjun Tendulkar | Bowler | 73 | 7.7 | 16.1 | 2 | 223 | 32 | SMAT (0.65, Econ 7.2); IPL (0.87, Econ 8.5) |
+| Arjun Tendulkar | All-rounder | 73 | 7.7 | 16.1 | 2 | 223 | 32 | SMAT (0.65, Econ 7.2); IPL (0.87, Econ 8.5) |
 | Manimaran Siddharth | Bowler | 97 | 6.5 | 12.6 | 2 | 205 | 31 | SMAT (0.65, Econ 4.7); IPL (0.87, Econ 8.0) |
-| Abdul Samad | Batter | 2 | 10.2 | 36.6 | 2 | 116 | 18 | SMAT (0.65, Econ 7.7); IPL (0.87, Econ 12.2) |
-| Ayush Badoni | Batter | 23 | 9.4 | 12.1 | 2 | 77 | 12 | SMAT (0.65, Econ 10.4); IPL (0.87, Econ 8.6) |
+| Abdul Samad | All-rounder | 2 | 10.2 | 36.6 | 2 | 116 | 18 | SMAT (0.65, Econ 7.7); IPL (0.87, Econ 12.2) |
+| Ayush Badoni | All-rounder | 23 | 9.4 | 12.1 | 2 | 77 | 12 | SMAT (0.65, Econ 10.4); IPL (0.87, Econ 8.6) |
 
 ### 13.3 Methodology
 

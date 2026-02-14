@@ -1,6 +1,6 @@
 # Royal Challengers Bengaluru (RCB) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-13 21:38
+**Generated:** 2026-02-14 17:15
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -13,23 +13,23 @@
 | Player | Role | Bowling | Batting | Price (Cr) | Type | Joined |
 |--------|------|---------|---------|------------|------|--------|
 | Virat Kohli | Batter | Medium | Right-hand | 21.00 | Retained | 2008 |
-| Josh Hazlewood | Bowler | Fast | Left-hand | 12.50 | Retained | 2021 |
+| Josh Hazlewood | Bowler | Fast-Medium | Left-hand | 12.50 | Retained | 2021 |
 | Phil Salt | Wicketkeeper | Medium | Right-hand | 11.50 | Retained | 2024 |
 | Rajat Patidar | Batter | Off-spin | Right-hand | 11.00 | Retained | 2021 |
 | Jitesh Sharma | Wicketkeeper | Medium | Right-hand | 11.00 | Retained | 2025 |
 | Bhuvneshwar Kumar | Bowler | Fast | Right-hand | 10.75 | Retained | 2025 |
-| Venkatesh Iyer | All-rounder | Medium | Left-hand | 7.00 | Auction | 2026 |
-| Kanishk Chouhan | Bowler | Left-arm orthodox | Right-hand | 6.00 | Retained | 2025 |
-| Krunal Pandya | All-rounder | Left-arm orthodox | Left-hand | 5.75 | Retained | 2025 |
-| Yash Dayal | Bowler | Fast | Left-hand | 5.00 | Retained | 2022 |
-| Tim David | Batter | Off-spin | Right-hand | 3.00 | Retained | 2025 |
+| Venkatesh Iyer | All-rounder | Fast | Left-hand | 7.00 | Auction | 2026 |
+| Kanishk Chouhan | All-rounder | Off-spin | Right-hand | 6.00 | Retained | 2025 |
+| Krunal Pandya | All-rounder | LA Orthodox | Left-hand | 5.75 | Retained | 2025 |
+| Yash Dayal | Bowler | Fast | Right-hand | 5.00 | Retained | 2022 |
+| Tim David | All-rounder | Off-spin | Right-hand | 3.00 | Retained | 2025 |
 | Suyash Sharma | Bowler | Leg-spin | Right-hand | 2.60 | Retained | 2024 |
-| Jacob Bethell | All-rounder | Left-arm orthodox | Left-hand | 2.60 | Retained | 2025 |
-| Devdutt Padikkal | Batter | Medium | Left-hand | 2.00 | Retained | 2020 |
+| Jacob Bethell | All-rounder | LA Orthodox | Left-hand | 2.60 | Retained | 2025 |
+| Devdutt Padikkal | Batter | Off-spin | Left-hand | 2.00 | Retained | 2020 |
 | Romario Shepherd | All-rounder | Fast | Right-hand | 2.00 | Auction | 2026 |
-| Jacob Duffy | Bowler | Fast | Right-hand | 0.75 | Auction | 2026 |
-| Swapnil Singh | All-rounder | Left-arm orthodox | Left-hand | 0.50 | Retained | 2024 |
-| Satvik Deswal | Bowler | Left-arm wrist spin | Left-hand | 0.30 | Auction | 2026 |
+| Jacob Duffy | Bowler | Fast-Medium | Right-hand | 0.75 | Auction | 2026 |
+| Swapnil Singh | All-rounder | LA Orthodox | Right-hand | 0.50 | Retained | 2024 |
+| Satvik Deswal | Bowler | Wrist-spin | Right-hand | 0.30 | Auction | 2026 |
 | Abhinandan Singh | Bowler | Fast | Right-hand | 0.30 | Retained | 2025 |
 | Mangesh Yadav | Bowler | Fast | Left-hand | 0.30 | Auction | 2026 |
 | Jordan Cox | Wicketkeeper | Medium | Right-hand | 0.30 | Auction | 2026 |
@@ -37,7 +37,7 @@
 **Total Squad Size:** 21 players
 **Total Spend:** ₹116.15 Cr
 
-**Role Breakdown:** All-rounder: 5, Batter: 4, Bowler: 9, Wicketkeeper: 3
+**Role Breakdown:** All-rounder: 7, Batter: 3, Bowler: 8, Wicketkeeper: 3
 
 ### 1.2 Player Archetypes (K-means V2 Model)
 
@@ -127,8 +127,8 @@
 **Top Wicket Takers by Season:**
 
 - **2023:** Mohammed Siraj (19w @ 7.2), HV Patel (14w @ 9.3), KV Sharma (10w @ 10.41)
-- **2024:** Yash Dayal (15w @ 8.8), Mohammed Siraj (15w @ 8.69), C Green (10w @ 8.21)
-- **2025:** JR Hazlewood (22w @ 8.64), KH Pandya (17w @ 8.06), B Kumar (17w @ 9.25)
+- **2024:** Mohammed Siraj (15w @ 8.69), Yash Dayal (15w @ 8.8), C Green (10w @ 8.21)
+- **2025:** JR Hazlewood (22w @ 8.64), B Kumar (17w @ 9.25), KH Pandya (17w @ 8.06)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -241,14 +241,14 @@
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
-| Wankhede Stadium | 3 | 1 | 33.3% | 205.3 |
-| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 181.7 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 176.3 |
 | Eden Gardens | 3 | 1 | 33.3% | 173.7 |
+| Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 181.7 |
+| Wankhede Stadium | 3 | 1 | 33.3% | 205.3 |
 | Narendra Modi Stadium | 3 | 2 | 66.7% | 189.3 |
+| Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
 | MA Chidambaram Stadium | 2 | 1 | 50.0% | 184.5 |
 | Arun Jaitley Stadium | 2 | 1 | 50.0% | 173.0 |
-| Maharaja Yadavindra Singh Internati | 2 | 2 | 100.0% | 132.5 |
 | Rajiv Gandhi International Stadium | 2 | 2 | 100.0% | 196.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
@@ -257,16 +257,16 @@
 
 | Venue | Matches | Pace SR | Spin SR | Bias |
 |-------|---------|---------|---------|------|
-| Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
-| MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
-| Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Narendra Modi Stadium | 26 | 18.2 | 22.3 | BALANCED |
+| MA Chidambaram Stadium | 24 | 17.7 | 20.1 | BALANCED |
+| Bharat Ratna Shri Atal Bihari  | 22 | 18.3 | 23.8 | PACE |
+| Wankhede Stadium | 21 | 18.8 | 21.0 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.5 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
-| Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.4 | BALANCED |
+| Sawai Mansingh Stadium | 17 | 24.1 | 22.1 | BALANCED |
+| Maharaja Yadavindra Singh Inte | 10 | 15.8 | 16.8 | BALANCED |
 
 ### Venue Specialists
 
@@ -310,12 +310,13 @@
 | Venkatesh Iyer | All-rounder | 34 | 916 | 611 | 149.92 | 31.59 | 20.62 | 34.7 | 8 | 1 | HIGH |
 | Jitesh Sharma | Wicketkeeper | 37 | 757 | 485 | 156.08 | 24.42 | 21.65 | 36.08 | 1 | 0 | HIGH |
 | Rajat Patidar | Batter | 27 | 707 | 440 | 160.68 | 28.28 | 21.14 | 30.45 | 7 | 0 | MEDIUM |
-| Tim David | Batter | 35 | 659 | 395 | 166.84 | 34.68 | 21.77 | 31.39 | 1 | 0 | HIGH |
+| Tim David | All-rounder | 35 | 659 | 395 | 166.84 | 34.68 | 21.77 | 31.39 | 1 | 0 | HIGH |
 | Devdutt Padikkal | Batter | 28 | 546 | 415 | 131.57 | 21.0 | 18.31 | 38.55 | 4 | 0 | MEDIUM |
 | Krunal Pandya | All-rounder | 32 | 430 | 355 | 121.13 | 21.5 | 13.24 | 38.87 | 1 | 0 | HIGH |
 | Romario Shepherd | All-rounder | 9 | 127 | 45 | 282.22 | 25.4 | 48.89 | 22.22 | 1 | 0 | LOW |
 | Jacob Bethell | All-rounder | 2 | 67 | 39 | 171.79 | 33.5 | 30.77 | 35.9 | 1 | 0 | LOW |
 | Swapnil Singh | All-rounder | 6 | 39 | 25 | 156.0 | 19.5 | 24.0 | 40.0 | 0 | 0 | LOW |
+| Kanishk Chouhan | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Jordan Cox | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
 ### 5.2 Phase-wise Batting (Qualified players)
@@ -349,14 +350,14 @@
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
 | Bhuvneshwar Kumar | Fast | 44 | 160.0 | 44 | 9.23 | 33.57 | 21.82 | 37.81 | 22.5 | HIGH |
-| Krunal Pandya | Left-arm o | 39 | 121.0 | 32 | 7.92 | 29.94 | 22.69 | 31.68 | 14.74 | HIGH |
+| Krunal Pandya | LA Orthodo | 39 | 121.0 | 32 | 7.92 | 29.94 | 22.69 | 31.68 | 14.74 | HIGH |
 | Yash Dayal | Fast | 34 | 113.3 | 30 | 9.85 | 37.2 | 22.67 | 33.97 | 22.65 | HIGH |
-| Josh Hazlewood | Fast | 15 | 53.0 | 25 | 8.77 | 18.6 | 12.72 | 45.91 | 22.96 | MEDIUM |
+| Josh Hazlewood | Fast-Mediu | 15 | 53.0 | 25 | 8.77 | 18.6 | 12.72 | 45.91 | 22.96 | MEDIUM |
 | Suyash Sharma | Leg-spin | 27 | 93.0 | 18 | 8.98 | 46.39 | 31.0 | 31.9 | 18.82 | MEDIUM |
 | Mangesh Yadav | Fast | 6 | 20.2 | 9 | 9.32 | 20.89 | 13.44 | 47.11 | 23.97 | LOW |
 | Romario Shepherd | Fast | 12 | 26.0 | 7 | 12.23 | 45.43 | 22.29 | 25.64 | 28.85 | MEDIUM |
-| Swapnil Singh | Left-arm o | 9 | 17.0 | 6 | 8.88 | 25.17 | 17.0 | 28.43 | 18.63 | LOW |
-| Venkatesh Iyer | Medium | 1 | 1.0 | 0 | 28.0 | - | - | - | 100.0 | LOW |
+| Swapnil Singh | LA Orthodo | 9 | 17.0 | 6 | 8.88 | 25.17 | 17.0 | 28.43 | 18.63 | LOW |
+| Venkatesh Iyer | Fast | 1 | 1.0 | 0 | 28.0 | - | - | - | 100.0 | LOW |
 
 ### 6.2 Bowler Phase Distribution
 
@@ -467,10 +468,10 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 5 | 120 | 145 | 9 | 7.25 | 16.11 | 13.33 | 40.83 | 15.83 | HIGH |
 | Punjab Kings | 7 | 150 | 205 | 8 | 8.2 | 25.63 | 18.75 | 40.67 | 21.33 | HIGH |
-| Rajasthan Royals | 6 | 132 | 233 | 6 | 10.59 | 38.83 | 22.0 | 34.85 | 28.79 | HIGH |
 | Gujarat Titans | 3 | 72 | 82 | 6 | 6.83 | 13.67 | 12.0 | 40.28 | 12.5 | MEDIUM |
-| Mumbai Indians | 5 | 120 | 191 | 4 | 9.55 | 47.75 | 30.0 | 37.5 | 21.67 | HIGH |
+| Rajasthan Royals | 6 | 132 | 233 | 6 | 10.59 | 38.83 | 22.0 | 34.85 | 28.79 | HIGH |
 | Lucknow Super Giants | 4 | 84 | 104 | 4 | 7.43 | 26.0 | 21.0 | 38.1 | 15.48 | MEDIUM |
+| Mumbai Indians | 5 | 120 | 191 | 4 | 9.55 | 47.75 | 30.0 | 37.5 | 21.67 | HIGH |
 | Chennai Super Kings | 5 | 102 | 152 | 3 | 8.94 | 50.67 | 34.0 | 36.27 | 23.53 | HIGH |
 | Kolkata Knight Riders | 5 | 102 | 161 | 2 | 9.47 | 80.5 | 51.0 | 40.2 | 24.51 | HIGH |
 | Royal Challengers Bengaluru | 3 | 54 | 117 | 1 | 13.0 | 117.0 | 54.0 | 29.63 | 42.59 | MEDIUM |
@@ -480,8 +481,8 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 3 | 72 | 80 | 6 | 6.67 | 13.33 | 12.0 | 44.44 | 13.89 | MEDIUM |
-| Gujarat Titans | 4 | 90 | 100 | 5 | 6.67 | 20.0 | 18.0 | 36.67 | 11.11 | MEDIUM |
 | Punjab Kings | 7 | 102 | 130 | 5 | 7.65 | 26.0 | 20.4 | 38.24 | 15.69 | HIGH |
+| Gujarat Titans | 4 | 90 | 100 | 5 | 6.67 | 20.0 | 18.0 | 36.67 | 11.11 | MEDIUM |
 | Mumbai Indians | 4 | 96 | 139 | 5 | 8.69 | 27.8 | 19.2 | 35.42 | 20.83 | MEDIUM |
 | Kolkata Knight Riders | 4 | 66 | 93 | 4 | 8.45 | 23.25 | 16.5 | 28.79 | 19.7 | MEDIUM |
 | Chennai Super Kings | 5 | 72 | 104 | 3 | 8.67 | 34.67 | 24.0 | 27.78 | 18.06 | MEDIUM |
@@ -595,16 +596,16 @@
 
 | Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
 |--------|-----------|-----------|-----------|-----------|----------|
-| **V Kohli** | 162 | 128 | 24.2 | 12.9 | Pace Dominant |
-| **VR Iyer** | 163 | 125 | 25.2 | 13.5 | Pace Dominant |
-| **PD Salt** | 179 | 172 | 30.8 | 27.7 | Balanced |
-| **JM Sharma** | 157 | 155 | 23.0 | 18.9 | Balanced |
-| **RM Patidar** | 149 | 175 | 20.5 | 22.0 | Spin Dominant |
-| **D Padikkal** | 141 | 118 | 22.4 | 12.4 | Pace Dominant |
-| **TH David** | 174 | 123 | 23.6 | 12.5 | Pace Dominant |
-| **KH Pandya** | 137 | 98.7 | 15.8 | 9.5 | Pace Dominant |
+| **V Kohli** | 164 | 123 | 24.2 | 9.9 | Pace Dominant |
+| **VR Iyer** | 169 | 134 | 26.9 | 15.5 | Pace Dominant |
+| **PD Salt** | 179 | 167 | 30.6 | 26.3 | Balanced |
+| **JM Sharma** | 158 | 163 | 22.7 | 20.5 | Balanced |
+| **RM Patidar** | 135 | 201 | 19.1 | 26.9 | Spin Dominant |
+| **D Padikkal** | 158 | 122 | 25.2 | 12.3 | Pace Dominant |
+| **TH David** | 177 | 107 | 24.5 | 9.3 | Pace Dominant |
+| **KH Pandya** | 147 | 99.1 | 17.5 | 9.1 | Pace Dominant |
 
-*Exploitable vs spin: **D Padikkal** (118 SR), **KH Pandya** (99 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **V Kohli** (162 SR), **VR Iyer** (163 SR), **PD Salt** (179 SR), **TH David** (174 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+*Exploitable vs spin: **TH David** (107 SR), **KH Pandya** (99 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **V Kohli** (164 SR), **VR Iyer** (169 SR), **PD Salt** (179 SR), **TH David** (177 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
 
 ### 10.3 Pace Attack Intelligence
 
@@ -612,20 +613,18 @@
 |--------|---------|----------|------------|------------|----------|
 | **B Kumar** | 8.1 | 10 | 10.5 | PP | 0.28 |
 | **Yash Dayal** | 9.3 | 8.0 | 10.8 | Middle | 0.26 |
-| **JR Hazlewood** | 7.5 | 8.9 | 10.4 | PP | 0.47 |
 | **MP Yadav** | 12 | 7.7 | 7.0 | Death | 0.45 |
 | **R Shepherd** | 10.5 | 11.4 | 14 | PP | 0.27 |
 
-***MP Yadav** is the designated death option at 7.0 economy (league avg 10.9). **JR Hazlewood** should lead the powerplay attack (7.5 economy). Middle-overs pace economy is above league average — consider deploying spin through this phase to contain.*
+***MP Yadav** is the designated death option at 7.0 economy (league avg 10.9). **B Kumar** should lead the powerplay attack (8.1 economy). Middle-overs pace economy is above league average — consider deploying spin through this phase to contain.*
 
 ### 10.4 Spin Attack Intelligence
 
 | Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Control Rating |
 |--------|---------|----------|------------|------------|----------------|
-| **KH Pandya** | 8.6 | 7.3 | 8.9 | Middle | 31.7% |
 | **Suyash Sharma** | 7.3 | 8.6 | 10.3 | PP | 31.9% |
 
-***KH Pandya** is the middle-overs anchor at 7.3 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **Suyash Sharma** offers a viable death option at 10.3 economy, giving the captain tactical flexibility. Spin dependency is high with 214 combined overs across 2 spinners — a strength on turning pitches but a risk on pace-friendly surfaces.*
+***Suyash Sharma** is the middle-overs anchor at 8.6 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **Suyash Sharma** offers a viable death option at 10.3 economy, giving the captain tactical flexibility. Spin depth is thin — injury to the primary spinner would expose the middle overs significantly.*
 
 ### 10.5 Key Vulnerabilities & Matchup Risks
 
@@ -639,7 +638,7 @@
 
 #### Pace Vulnerability Risk
 
-- **B Kumar** vs Fast: SR 88, Avg 8.8 (50 balls, league avg vs pace ~151)
+- No significant pace vulnerabilities identified — squad handles pace adequately.
 
 #### Structural Concerns
 
@@ -813,14 +812,15 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 | Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|---------|----------|--------|---------|------------|-------|-------------|
-| Jordan Cox | Wicketkeeper | 160 | 3931 | 141 | 30.7 | HIGH | 49 | Blast, ILT20, 100 |
+| Jordan Cox | Wicketkeeper | 161 | 3934 | 141 | 30.7 | HIGH | 49 | - |
 
 ### 12.2 T20 Bowling Profile
 
 | Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|-------------|----------|----------|---------|------------|-------|-------------|
-| Jacob Duffy | Fast | 115 | 137 | 8.3 | 24.3 | HIGH | 38 | SS, Blast, 100 |
-| Jacob Bethell | Left-arm ort | 29 | 18 | 8.8 | 26.8 | HIGH | 26 | Blast, 100, BBL |
+| Jacob Duffy | Fast-Medium | 115 | 137 | 8.3 | 24.3 | HIGH | 38 | - |
+| Jacob Bethell | LA Orthodox | 29 | 18 | 8.8 | 26.8 | HIGH | 26 | - |
+| Tim David | Off-spin | 63 | 17 | 9.1 | 59.1 | HIGH | 51 | - |
 
 ### 12.3 Limited / No T20 Data
 
@@ -829,7 +829,7 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | Player | Role | Nationality |
 |--------|------|-------------|
 | Abhinandan Singh | Bowler | IND |
-| Kanishk Chouhan | Bowler | IND |
+| Kanishk Chouhan | All-rounder | IND |
 | Satvik Deswal | Bowler | IND |
 
 
@@ -843,7 +843,7 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 | Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
 |--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
-| Jordan Cox | Wicketkeeper | 0 | 139 | 31.9 | 7 | 2522 | 49 | Blast (0.50, SR 145.3); ILT20 (0.49, SR 119.3); 100 (0.50, SR 155.2) |
+| Jordan Cox | Wicketkeeper | 0 | 139 | 31.9 | 7 | 2526 | 49 | Blast (0.50, SR 145.3); 100 (0.50, SR 155.2); ILT20 (0.49, SR 119.3) |
 | Romario Shepherd | All-rounder | 45 | 166 | 24.2 | 6 | 902 | 52 | CPL (0.50, SR 162.9); ILT20 (0.49, SR 180.2); SA20 (0.50, SR 132.5) |
 | Jacob Bethell | All-rounder | 39 | 139 | 25.2 | 4 | 812 | 52 | Blast (0.50, SR 141.8); 100 (0.50, SR 133.8); BBL (0.53, SR 125.0) |
 | Swapnil Singh | All-rounder | 25 | 122 | 23.3 | 2 | 476 | 63 | SMAT (0.65, SR 123.4); IPL (0.87, SR 113.3) |
@@ -859,7 +859,7 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | Jacob Duffy | Bowler | 0 | 8.3 | 17.4 | 2 | 1430 | 38 | SS (0.36, Econ 8.3); 100 (0.50, Econ 9.0) |
 | Swapnil Singh | All-rounder | 102 | 7.3 | 19.6 | 2 | 856 | 69 | SMAT (0.65, Econ 6.8); IPL (0.87, Econ 8.8) |
 | Venkatesh Iyer | All-rounder | 6 | 7.6 | 17.8 | 2 | 543 | 68 | SMAT (0.65, Econ 6.9); IPL (0.87, Econ 10.5) |
-| Tim David | Batter | 0 | 8.5 | 34.4 | 8 | 499 | 51 | BBL (0.53, Econ 8.2); Blast (0.50, Econ 9.0); CPL (0.50, Econ 8.0) |
+| Tim David | All-rounder | 0 | 8.5 | 34.4 | 8 | 499 | 51 | BBL (0.53, Econ 8.2); Blast (0.50, Econ 9.0); CPL (0.50, Econ 8.0) |
 | Jacob Bethell | All-rounder | 0 | 7.7 | 16.9 | 3 | 253 | 26 | Blast (0.50, Econ 7.6); BBL (0.53, Econ 6.4); 100 (0.50, Econ 10.2) |
 | Virat Kohli | Batter | 0 | 8.4 | 50.2 | 1 | 251 | 44 | IPL (0.87, Econ 8.4) |
 | Mangesh Yadav | Bowler | 121 | 8.5 | 13.2 | 2 | 175 | 28 | IPL (0.87, Econ 8.9); SMAT (0.65, Econ 7.4) |

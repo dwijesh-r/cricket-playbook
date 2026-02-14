@@ -1,12 +1,12 @@
 /**
  * The Lab - Predicted XII Data
  * IPL 2026 Pre-Season Analytics
- * Auto-generated: 2026-02-14T10:04:51.389861
+ * Auto-generated: 2026-02-14T17:11:39.697970
  * Algorithm: SUPER SELECTOR
  */
 
 const PREDICTED_XII_META = {
-    generatedAt: "2026-02-13",
+    generatedAt: "2026-02-14",
     version: "3.1",
     algorithmName: "SUPER SELECTOR"
 };
@@ -256,7 +256,7 @@ const PREDICTED_XII = {
 
 /**
  * The Lab - Depth Chart Ratings
- * Auto-generated: 2026-02-14T10:04:51.389999
+ * Auto-generated: 2026-02-14T17:11:39.698145
  */
 
 const DEPTH_CHART_RATINGS = {
@@ -269,5 +269,5 @@ const DEPTH_CHART_RATINGS = {
     RR: { overall: 7.9, strongest: "#3 Batter", weakest: "Wicketkeeper" },
     SRH: { overall: 7.0, strongest: "Opener", weakest: "Off Spin" },
     GT: { overall: 6.5, strongest: "Opener", weakest: "Left-arm Wrist Spin" },
-    LSG: { overall: 6.4, strongest: "#3 Batter", weakest: "Left-arm Wrist Spin" },
+    LSG: { overall: 6.5, strongest: "#3 Batter", weakest: "Left-arm Wrist Spin" },
 };

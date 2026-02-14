@@ -1,6 +1,6 @@
 # Kolkata Knight Riders (KKR) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-13 21:38
+**Generated:** 2026-02-14 17:14
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -12,35 +12,35 @@
 
 | Player | Role | Bowling | Batting | Price (Cr) | Type | Joined |
 |--------|------|---------|---------|------------|------|--------|
-| Cameron Green | All-rounder | Fast | Left-hand | 25.20 | Auction | 2026 |
+| Cameron Green | All-rounder | Fast | Right-hand | 25.20 | Auction | 2026 |
 | Matheesha Pathirana | Bowler | Fast | Right-hand | 18.00 | Auction | 2026 |
-| Rinku Singh | Batter | Medium | Left-hand | 13.00 | Retained | 2018 |
+| Rinku Singh | Batter | Off-spin | Left-hand | 13.00 | Retained | 2018 |
 | Varun Chakravarthy | Bowler | Off-spin | Right-hand | 12.00 | Retained | 2020 |
 | Sunil Narine | All-rounder | Off-spin | Left-hand | 12.00 | Retained | 2012 |
-| Harshit Rana | Bowler | Fast | Right-hand | 4.00 | Retained | 2023 |
+| Harshit Rana | Bowler | Fast-Medium | Right-hand | 4.00 | Retained | 2023 |
 | Ramandeep Singh | All-rounder | Medium | Right-hand | 4.00 | Retained | 2022 |
-| Rachin Ravindra | All-rounder | Left-arm orthodox | Left-hand | 4.00 | Auction | 2026 |
+| Rachin Ravindra | All-rounder | LA Orthodox | Left-hand | 4.00 | Auction | 2026 |
 | Angkrish Raghuvanshi | Batter | Medium | Right-hand | 3.00 | Retained | 2024 |
 | Rahul Tripathi | Batter | Leg-spin | Right-hand | 2.00 | Auction | 2026 |
-| Vaibhav Arora | Bowler | Fast | Right-hand | 1.80 | Retained | 2024 |
-| Akash Deep | Bowler | Fast | Right-hand | 1.60 | Auction | 2026 |
+| Vaibhav Arora | Bowler | Fast-Medium | Right-hand | 1.80 | Retained | 2024 |
+| Akash Deep | Bowler | Fast-Medium | Right-hand | 1.60 | Auction | 2026 |
 | Ajinkya Rahane | Batter | Medium | Right-hand | 1.50 | Retained | 2024 |
-| Rovman Powell | Batter | Medium | Right-hand | 1.50 | Retained | 2022 |
+| Rovman Powell | All-rounder | Fast | Right-hand | 1.50 | Retained | 2022 |
 | Manish Pandey | Batter | Medium | Right-hand | 0.75 | Retained | 2014 |
 | Umran Malik | Bowler | Fast | Right-hand | 0.75 | Retained | 2025 |
-| Anukul Roy | All-rounder | Left-arm orthodox | Left-hand | 0.40 | Retained | 2018 |
+| Anukul Roy | All-rounder | LA Orthodox | Left-hand | 0.40 | Retained | 2018 |
 | Finn Allen | Wicketkeeper | Medium | Right-hand | 0.30 | Auction | 2026 |
 | Tim Seifert | Wicketkeeper | Medium | Right-hand | 0.30 | Auction | 2026 |
-| Prashant Solanki | Bowler | Left-arm orthodox | Left-hand | 0.30 | Auction | 2026 |
+| Prashant Solanki | Bowler | Leg-spin | Right-hand | 0.30 | Auction | 2026 |
 | Kartik Tyagi | Bowler | Fast | Right-hand | 0.30 | Auction | 2026 |
 | Tejasvi Singh | Wicketkeeper | Medium | Right-hand | 0.30 | Auction | 2026 |
-| Sarthak Ranjan | Bowler | Fast | Right-hand | 0.30 | Auction | 2026 |
-| Daksh Kamra | All-rounder | Medium | Right-hand | 0.30 | Auction | 2026 |
+| Sarthak Ranjan | Batter | Leg-spin | Right-hand | 0.30 | Auction | 2026 |
+| Daksh Kamra | All-rounder | Leg-spin | Right-hand | 0.30 | Auction | 2026 |
 
 **Total Squad Size:** 24 players
 **Total Spend:** ₹107.60 Cr
 
-**Role Breakdown:** All-rounder: 6, Batter: 6, Bowler: 9, Wicketkeeper: 3
+**Role Breakdown:** All-rounder: 7, Batter: 6, Bowler: 8, Wicketkeeper: 3
 
 ### 1.2 Player Archetypes (K-means V2 Model)
 
@@ -131,7 +131,7 @@
 **Top Wicket Takers by Season:**
 
 - **2023:** CV Varun (20w @ 8.27), SP Narine (11w @ 7.89), Suyash Sharma (10w @ 8.28)
-- **2024:** CV Varun (21w @ 7.98), AD Russell (19w @ 9.7), Harshit Rana (19w @ 8.75)
+- **2024:** CV Varun (21w @ 7.98), Harshit Rana (19w @ 8.75), AD Russell (19w @ 9.7)
 - **2025:** CV Varun (17w @ 7.6), VG Arora (17w @ 9.51), Harshit Rana (15w @ 9.93)
 
 **Economy Rate Evolution (Key Bowlers):**
@@ -243,7 +243,7 @@
 - **Win Rate:** 42.9% (9W - 11L)
 - **Avg Score (batting):** 182.3
 - **Highest/Lowest:** 261/7
-- **Pitch Type:** Spin-friendly
+- **Pitch Type:** Balanced
 - **Pace SR:** 18.4 | **Spin SR:** 20.9
 
 ### Away Performance
@@ -251,10 +251,10 @@
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | MA Chidambaram Stadium | 4 | 3 | 75.0% | 126.3 |
-| Arun Jaitley Stadium | 3 | 1 | 33.3% | 166.3 |
 | Wankhede Stadium | 3 | 1 | 33.3% | 156.7 |
-| M Chinnaswamy Stadium | 2 | 2 | 100.0% | 193.0 |
+| Arun Jaitley Stadium | 3 | 1 | 33.3% | 166.3 |
 | Narendra Modi Stadium | 2 | 2 | 100.0% | 185.5 |
+| M Chinnaswamy Stadium | 2 | 2 | 100.0% | 193.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -262,16 +262,16 @@
 
 | Venue | Matches | Pace SR | Spin SR | Bias |
 |-------|---------|---------|---------|------|
-| Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
-| MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
-| Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Narendra Modi Stadium | 26 | 18.2 | 22.3 | BALANCED |
+| MA Chidambaram Stadium | 24 | 17.7 | 20.1 | BALANCED |
+| Bharat Ratna Shri Atal Bihari  | 22 | 18.3 | 23.8 | PACE |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Wankhede Stadium | 21 | 18.8 | 21.0 | BALANCED |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.4 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.5 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
-| Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
-| Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
+| Sawai Mansingh Stadium | 17 | 24.1 | 22.1 | BALANCED |
+| Maharaja Yadavindra Singh Inte | 10 | 15.8 | 16.8 | BALANCED |
 
 ### Venue Specialists
 
@@ -298,8 +298,8 @@
 | VG Arora | Eden Gardens | 13 | 17 | 10.03 | 15.94 |
 | SP Narine | Eden Gardens | 21 | 16 | 7.16 | 28.88 |
 | SP Narine | MA Chidambaram Stadium | 4 | 7 | 4.94 | 13.71 |
-| CV Varun | MA Chidambaram Stadium | 4 | 5 | 6.71 | 16.8 |
-| SP Narine | Arun Jaitley Stadium | 3 | 5 | 8.92 | 14.4 |
+| M Pathirana | M Chinnaswamy Stadium | 2 | 5 | 9.13 | 9.6 |
+| M Pathirana | Bharat Ratna Shri Atal Bi | 3 | 5 | 7.32 | 13.6 |
 
 
 ---
@@ -319,11 +319,12 @@
 | Rachin Ravindra | All-rounder | 18 | 413 | 284 | 145.42 | 25.81 | 19.72 | 33.45 | 2 | 0 | MEDIUM |
 | Manish Pandey | Batter | 13 | 294 | 240 | 122.5 | 24.5 | 13.33 | 34.17 | 1 | 0 | MEDIUM |
 | Ramandeep Singh | All-rounder | 16 | 172 | 96 | 179.17 | 19.11 | 22.92 | 31.25 | 0 | 0 | MEDIUM |
-| Rovman Powell | Batter | 11 | 115 | 82 | 140.24 | 11.5 | 21.95 | 47.56 | 0 | 0 | MEDIUM |
+| Rovman Powell | All-rounder | 11 | 115 | 82 | 140.24 | 11.5 | 21.95 | 47.56 | 0 | 0 | MEDIUM |
 | Anukul Roy | All-rounder | 6 | 26 | 23 | 113.04 | 8.67 | 13.04 | 39.13 | 0 | 0 | LOW |
+| Sarthak Ranjan | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
+| Tejasvi Singh | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Tim Seifert | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Finn Allen | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
-| Tejasvi Singh | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Daksh Kamra | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
 ### 5.2 Phase-wise Batting (Qualified players)
@@ -363,14 +364,15 @@
 | Varun Chakravarthy | Off-spin | 41 | 152.8 | 58 | 8.15 | 21.48 | 15.81 | 38.17 | 16.47 | HIGH |
 | Matheesha Pathirana | Fast | 30 | 110.2 | 45 | 9.0 | 22.02 | 14.69 | 33.28 | 15.89 | HIGH |
 | Sunil Narine | Off-spin | 40 | 148.0 | 40 | 7.58 | 28.05 | 22.2 | 32.66 | 12.16 | HIGH |
-| Harshit Rana | Fast | 30 | 103.2 | 39 | 9.64 | 25.51 | 15.87 | 38.13 | 23.75 | HIGH |
-| Vaibhav Arora | Fast | 27 | 88.7 | 33 | 9.74 | 26.18 | 16.12 | 37.41 | 23.31 | MEDIUM |
+| Harshit Rana | Fast-Mediu | 30 | 103.2 | 39 | 9.64 | 25.51 | 15.87 | 38.13 | 23.75 | HIGH |
+| Vaibhav Arora | Fast-Mediu | 27 | 88.7 | 33 | 9.74 | 26.18 | 16.12 | 37.41 | 23.31 | MEDIUM |
 | Cameron Green | Fast | 29 | 73.2 | 16 | 9.23 | 42.19 | 27.44 | 33.94 | 20.27 | MEDIUM |
-| Akash Deep | Fast | 9 | 27.5 | 5 | 12.65 | 69.6 | 33.0 | 30.3 | 31.52 | LOW |
+| Akash Deep | Fast-Mediu | 9 | 27.5 | 5 | 12.65 | 69.6 | 33.0 | 30.3 | 31.52 | LOW |
 | Umran Malik | Fast | 9 | 21.0 | 5 | 11.14 | 46.8 | 25.2 | 34.13 | 30.16 | LOW |
-| Anukul Roy | Left-arm o | 7 | 17.7 | 4 | 8.6 | 38.0 | 26.5 | 38.68 | 20.75 | LOW |
+| Anukul Roy | LA Orthodo | 7 | 17.7 | 4 | 8.6 | 38.0 | 26.5 | 38.68 | 20.75 | LOW |
+| Rovman Powell | Fast | 1 | 2.0 | 1 | 9.0 | 18.0 | 12.0 | 33.33 | 16.67 | LOW |
 | Kartik Tyagi | Fast | 4 | 10.2 | 1 | 14.16 | 144.0 | 61.0 | 22.95 | 39.34 | LOW |
-| Rachin Ravindra | Left-arm o | 2 | 2.0 | 0 | 3.5 | - | - | 41.67 | - | LOW |
+| Rachin Ravindra | LA Orthodo | 2 | 2.0 | 0 | 3.5 | - | - | 41.67 | - | LOW |
 | Ramandeep Singh | Medium | 1 | 0.7 | 0 | 13.5 | - | - | - | 25.0 | LOW |
 
 ### 6.2 Bowler Phase Distribution
@@ -417,8 +419,8 @@
 | Royal Challengers Bengaluru | 4 | 153 | 92 | 166.3 | 38.25 | 22.83 | 33.7 | 4 | MEDIUM |
 | Gujarat Titans | 5 | 107 | 76 | 140.79 | 26.75 | 15.79 | 28.95 | 4 | MEDIUM |
 | Sunrisers Hyderabad | 5 | 106 | 87 | 121.84 | 21.2 | 13.79 | 40.23 | 5 | MEDIUM |
-| Mumbai Indians | 4 | 98 | 59 | 166.1 | 24.5 | 25.42 | 33.9 | 4 | MEDIUM |
 | Lucknow Super Giants | 3 | 98 | 62 | 158.06 | 32.67 | 25.81 | 35.48 | 3 | MEDIUM |
+| Mumbai Indians | 4 | 98 | 59 | 166.1 | 24.5 | 25.42 | 33.9 | 4 | MEDIUM |
 | Rajasthan Royals | 4 | 94 | 71 | 132.39 | 23.5 | 11.27 | 26.76 | 4 | MEDIUM |
 | Delhi Capitals | 3 | 92 | 64 | 143.75 | 30.67 | 21.88 | 32.81 | 3 | MEDIUM |
 | Kolkata Knight Riders | 2 | 87 | 40 | 217.5 | 87.0 | 32.5 | 15.0 | 1 | MEDIUM |
@@ -477,8 +479,8 @@
 | Punjab Kings | 5 | 114 | 157 | 7 | 8.26 | 22.43 | 16.29 | 35.09 | 16.67 | HIGH |
 | Chennai Super Kings | 5 | 120 | 150 | 7 | 7.5 | 21.43 | 17.14 | 38.33 | 12.5 | HIGH |
 | Rajasthan Royals | 4 | 90 | 111 | 6 | 7.4 | 18.5 | 15.0 | 48.89 | 17.78 | MEDIUM |
-| Mumbai Indians | 4 | 90 | 88 | 5 | 5.87 | 17.6 | 18.0 | 45.56 | 10.0 | MEDIUM |
 | Lucknow Super Giants | 4 | 90 | 133 | 5 | 8.87 | 26.6 | 18.0 | 36.67 | 17.78 | MEDIUM |
+| Mumbai Indians | 4 | 90 | 88 | 5 | 5.87 | 17.6 | 18.0 | 45.56 | 10.0 | MEDIUM |
 | Gujarat Titans | 3 | 60 | 102 | 0 | 10.2 | - | - | 21.67 | 23.33 | MEDIUM |
 
 ### Matheesha Pathirana
@@ -486,12 +488,12 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 4 | 96 | 112 | 9 | 7.0 | 12.44 | 10.67 | 34.38 | 13.54 | MEDIUM |
+| Royal Challengers Bengaluru | 3 | 72 | 107 | 7 | 8.92 | 15.29 | 10.29 | 38.89 | 22.22 | MEDIUM |
 | Mumbai Indians | 3 | 58 | 78 | 7 | 8.07 | 11.14 | 8.29 | 39.66 | 15.52 | MEDIUM |
 | Lucknow Super Giants | 4 | 92 | 117 | 7 | 7.63 | 16.71 | 13.14 | 31.52 | 13.04 | MEDIUM |
-| Royal Challengers Bengaluru | 3 | 72 | 107 | 7 | 8.92 | 15.29 | 10.29 | 38.89 | 22.22 | MEDIUM |
 | Gujarat Titans | 4 | 90 | 125 | 6 | 8.33 | 20.83 | 15.0 | 38.89 | 17.78 | MEDIUM |
-| Punjab Kings | 3 | 72 | 127 | 3 | 10.58 | 42.33 | 24.0 | 19.44 | 19.44 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 54 | 59 | 3 | 6.56 | 19.67 | 18.0 | 37.04 | 11.11 | MEDIUM |
+| Punjab Kings | 3 | 72 | 127 | 3 | 10.58 | 42.33 | 24.0 | 19.44 | 19.44 | MEDIUM |
 | Rajasthan Royals | 3 | 61 | 92 | 2 | 9.05 | 46.0 | 30.5 | 27.87 | 18.03 | MEDIUM |
 | Kolkata Knight Riders | 3 | 66 | 80 | 1 | 7.27 | 80.0 | 66.0 | 31.82 | 12.12 | MEDIUM |
 
@@ -504,8 +506,8 @@
 | Sunrisers Hyderabad | 7 | 156 | 195 | 6 | 7.5 | 32.5 | 26.0 | 29.49 | 10.26 | HIGH |
 | Delhi Capitals | 4 | 96 | 119 | 5 | 7.44 | 23.8 | 19.2 | 37.5 | 14.58 | MEDIUM |
 | Lucknow Super Giants | 4 | 90 | 103 | 4 | 6.87 | 25.75 | 22.5 | 31.11 | 10.0 | MEDIUM |
-| Punjab Kings | 5 | 114 | 138 | 4 | 7.26 | 34.5 | 28.5 | 38.6 | 13.16 | HIGH |
 | Gujarat Titans | 3 | 66 | 90 | 4 | 8.18 | 22.5 | 16.5 | 22.73 | 13.64 | MEDIUM |
+| Punjab Kings | 5 | 114 | 138 | 4 | 7.26 | 34.5 | 28.5 | 38.6 | 13.16 | HIGH |
 | Mumbai Indians | 4 | 78 | 113 | 3 | 8.69 | 37.67 | 26.0 | 38.46 | 19.23 | MEDIUM |
 | Rajasthan Royals | 3 | 60 | 68 | 2 | 6.8 | 34.0 | 30.0 | 36.67 | 10.0 | MEDIUM |
 
@@ -514,14 +516,14 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 6 | 132 | 168 | 8 | 7.64 | 21.0 | 16.5 | 43.18 | 16.67 | HIGH |
-| Lucknow Super Giants | 4 | 85 | 129 | 6 | 9.11 | 21.5 | 14.17 | 37.65 | 23.53 | MEDIUM |
 | Rajasthan Royals | 4 | 84 | 139 | 6 | 9.93 | 23.17 | 14.0 | 36.9 | 27.38 | MEDIUM |
+| Lucknow Super Giants | 4 | 85 | 129 | 6 | 9.11 | 21.5 | 14.17 | 37.65 | 23.53 | MEDIUM |
 | Punjab Kings | 4 | 72 | 146 | 5 | 12.17 | 29.2 | 14.4 | 36.11 | 33.33 | MEDIUM |
-| Chennai Super Kings | 3 | 60 | 77 | 4 | 7.7 | 19.25 | 15.0 | 50.0 | 18.33 | MEDIUM |
 | Royal Challengers Bengaluru | 3 | 66 | 102 | 4 | 9.27 | 25.5 | 16.5 | 28.79 | 19.7 | MEDIUM |
-| Mumbai Indians | 2 | 30 | 57 | 2 | 11.4 | 28.5 | 15.0 | 40.0 | 33.33 | MEDIUM |
+| Chennai Super Kings | 3 | 60 | 77 | 4 | 7.7 | 19.25 | 15.0 | 50.0 | 18.33 | MEDIUM |
 | Gujarat Titans | 2 | 42 | 67 | 2 | 9.57 | 33.5 | 21.0 | 26.19 | 26.19 | MEDIUM |
 | Delhi Capitals | 2 | 48 | 77 | 2 | 9.63 | 38.5 | 24.0 | 37.5 | 27.08 | MEDIUM |
+| Mumbai Indians | 2 | 30 | 57 | 2 | 11.4 | 28.5 | 15.0 | 40.0 | 33.33 | MEDIUM |
 
 ### Vaibhav Arora
 
@@ -531,8 +533,8 @@
 | Chennai Super Kings | 4 | 90 | 131 | 7 | 8.73 | 18.71 | 12.86 | 38.89 | 20.0 | MEDIUM |
 | Delhi Capitals | 3 | 60 | 70 | 6 | 7.0 | 11.67 | 10.0 | 51.67 | 20.0 | MEDIUM |
 | Rajasthan Royals | 3 | 66 | 126 | 4 | 11.45 | 31.5 | 16.5 | 31.82 | 30.3 | MEDIUM |
-| Punjab Kings | 3 | 57 | 90 | 3 | 9.47 | 30.0 | 19.0 | 36.84 | 29.82 | MEDIUM |
 | Lucknow Super Giants | 4 | 78 | 109 | 3 | 8.38 | 36.33 | 26.0 | 35.9 | 15.38 | MEDIUM |
+| Punjab Kings | 3 | 57 | 90 | 3 | 9.47 | 30.0 | 19.0 | 36.84 | 29.82 | MEDIUM |
 | Royal Challengers Bengaluru | 2 | 30 | 63 | 1 | 12.6 | 63.0 | 30.0 | 16.67 | 36.67 | MEDIUM |
 | Mumbai Indians | 2 | 31 | 52 | 0 | 10.06 | - | - | 38.71 | 25.81 | MEDIUM |
 
@@ -630,29 +632,26 @@
 
 | Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
 |--------|-----------|-----------|-----------|-----------|----------|
-| **AM Rahane** | 173 | 117 | 27.3 | 10.3 | Pace Dominant |
-| **RK Singh** | 171 | 120 | 24.4 | 12.9 | Pace Dominant |
-| **C Green** | 162 | 141 | 24.2 | 15.8 | Pace Dominant |
-| **SP Narine** | 165 | 195 | 29.3 | 30.9 | Spin Dominant |
-| **RA Tripathi** | 122 | 123 | 18.5 | 15.3 | Balanced |
-| **A Raghuvanshi** | 158 | 128 | 23.9 | 13.7 | Pace Dominant |
-| **R Ravindra** | 152 | 130 | 23.9 | 11.2 | Pace Dominant |
-| **MK Pandey** | 129 | 117 | 15.4 | 11.8 | Balanced |
+| **AM Rahane** | 184 | 123 | 28.4 | 11.6 | Pace Dominant |
+| **RK Singh** | 170 | 112 | 23.9 | 10.3 | Pace Dominant |
+| **C Green** | 163 | 143 | 23.3 | 16.5 | Pace Dominant |
+| **SP Narine** | 167 | 193 | 29.2 | 30.9 | Spin Dominant |
+| **RA Tripathi** | 141 | 128 | 22.2 | 15.3 | Balanced |
+| **A Raghuvanshi** | 158 | 156 | 24.4 | 20 | Balanced |
+| **R Ravindra** | 170 | 105 | 27.7 | 6.2 | Pace Dominant |
+| **MK Pandey** | 127 | 128 | 14.7 | 12.6 | Balanced |
 
-*Exploitable vs spin: **AM Rahane** (117 SR), **RK Singh** (120 SR), **MK Pandey** (117 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **AM Rahane** (173 SR), **RK Singh** (171 SR), **C Green** (162 SR), **SP Narine** (165 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+*Exploitable vs spin: **RK Singh** (112 SR), **R Ravindra** (105 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **AM Rahane** (184 SR), **RK Singh** (170 SR), **C Green** (163 SR), **SP Narine** (167 SR), **R Ravindra** (170 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
 
 ### 10.3 Pace Attack Intelligence
 
 | Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Wkt Rate |
 |--------|---------|----------|------------|------------|----------|
 | **M Pathirana** | - | 7.4 | 8.7 | Middle | 0.41 |
-| **Harshit Rana** | 9.4 | 9.1 | 9.4 | Middle | 0.38 |
-| **VG Arora** | 8.4 | 11.5 | 9.6 | PP | 0.37 |
 | **C Green** | 8.1 | 7.9 | 11.8 | Middle | 0.22 |
 | **Umran Malik** | 28 | 8.8 | 13.8 | Middle | 0.24 |
-| **Akash Deep** | 10.5 | 13 | 12.9 | PP | 0.18 |
 
-***VG Arora** is the designated death option at 9.6 economy (league avg 10.9). **C Green** should lead the powerplay attack (8.1 economy). Middle-overs pace economy is above league average — consider deploying spin through this phase to contain.*
+***M Pathirana** is the designated death option at 8.7 economy (league avg 10.9). **C Green** should lead the powerplay attack (8.1 economy).*
 
 ### 10.4 Spin Attack Intelligence
 
@@ -671,11 +670,12 @@
 
 #### Spin Vulnerability Risk
 
-- **AM Rahane** vs LA orthodox: SR 106, Avg 11.9, BPD 11.1 (78 balls, league avg 138.7)
+- No significant spin vulnerabilities identified in MEDIUM/HIGH sample data.
 
 #### Pace Vulnerability Risk
 
-- **RA Tripathi** vs Fast: SR 107, Avg 13.2 (147 balls, league avg vs pace ~151)
+- **MK Pandey** vs Fast: SR 129, Avg 19 (59 balls, league avg vs pace ~151)
+- **RA Tripathi** vs Fast: SR 118, Avg 17.4 (74 balls, league avg vs pace ~151)
 
 #### Structural Concerns
 
@@ -858,17 +858,17 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 | Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|---------|----------|--------|---------|------------|-------|-------------|
-| Tim Seifert | Wicketkeeper | 250 | 6621 | 137 | 30.6 | HIGH | 44 | SS, CPL, BBL |
-| Finn Allen | Wicketkeeper | 120 | 1447 | 143 | 16.8 | HIGH | 49 | CPL, LPL, SA20 |
-| Tejasvi Singh | Wicketkeeper | 53 | 556 | 135 | 12.9 | HIGH | 20 | MLC, NPL, ILT20 |
-| Daksh Kamra | All-rounder | 11 | 122 | 109 | 15.2 | MEDIUM | - | Intl, ICC T20, Intl |
+| Tim Seifert | Wicketkeeper | 251 | 6621 | 137 | 30.5 | HIGH | 44 | - |
+| Finn Allen | Wicketkeeper | 172 | 4931 | 177 | 29.7 | HIGH | 46 | - |
+| Tejasvi Singh | Wicketkeeper | 53 | 556 | 135 | 12.9 | HIGH | 20 | - |
+| Daksh Kamra | All-rounder | 11 | 122 | 109 | 15.2 | MEDIUM | - | - |
 
 ### 12.2 T20 Bowling Profile
 
 | Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|-------------|----------|----------|---------|------------|-------|-------------|
-| Daksh Kamra | Medium | 19 | 28 | 5.1 | 13.1 | MEDIUM | - | Intl, ICC T20, Intl |
-| Prashant Solanki | Left-arm ort | 4 | 4 | 8.4 | 27.2 | LOW | 12 | SMAT |
+| Daksh Kamra | Leg-spin | 19 | 28 | 5.1 | 13.1 | MEDIUM | - | - |
+| Prashant Solanki | Leg-spin | 4 | 4 | 8.4 | 27.2 | LOW | 12 | - |
 
 ### 12.3 Limited / No T20 Data
 
@@ -876,7 +876,7 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 | Player | Role | Nationality |
 |--------|------|-------------|
-| Sarthak Ranjan | Bowler | IND |
+| Sarthak Ranjan | Batter | IND |
 
 
 ---
@@ -890,16 +890,16 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
 |--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
 | Manish Pandey | Batter | 240 | 123 | 32.0 | 2 | 3965 | 83 | IPL (0.87, SR 121.3); SMAT (0.65, SR 134.5) |
-| Tim Seifert | Wicketkeeper | 0 | 133 | 30.6 | 9 | 3548 | 44 | SS (0.36, SR 135.5); CPL (0.50, SR 129.5); LPL (0.40, SR 134.5) |
-| Rovman Powell | Batter | 82 | 142 | 25.4 | 8 | 2868 | 53 | CPL (0.50, SR 133.4); ILT20 (0.49, SR 146.0); PSL (0.51, SR 154.1) |
+| Tim Seifert | Wicketkeeper | 0 | 133 | 30.4 | 9 | 3549 | 44 | SS (0.36, SR 135.5); CPL (0.50, SR 129.5); LPL (0.40, SR 134.5) |
+| Rovman Powell | All-rounder | 82 | 142 | 25.4 | 8 | 2868 | 53 | CPL (0.50, SR 133.4); ILT20 (0.49, SR 146.0); PSL (0.51, SR 154.1) |
+| Finn Allen | Wicketkeeper | 0 | 177 | 30.0 | 7 | 2102 | 46 | SS (0.36, SR 194.2); MLC (0.42, SR 198.9); Blast (0.50, SR 166.2) |
 | Rachin Ravindra | All-rounder | 284 | 141 | 23.6 | 5 | 1020 | 53 | SS (0.36, SR 123.5); IPL (0.87, SR 143.7); MLC (0.42, SR 159.8) |
-| Finn Allen | Wicketkeeper | 0 | 147 | 19.7 | 3 | 740 | 49 | CPL (0.50, SR 147.8); LPL (0.40, SR 146.3); SA20 (0.50, SR 120.0) |
 | Ramandeep Singh | All-rounder | 96 | 153 | 19.0 | 2 | 249 | 38 | IPL (0.87, SR 156.3); SMAT (0.65, SR 148.2) |
 | Tejasvi Singh | Wicketkeeper | 0 | 115 | 9.2 | 4 | 202 | 20 | MLC (0.42, SR 93.2); ILT20 (0.49, SR 89.3); T20WC (0.50, SR 140.8) |
 | Anukul Roy | All-rounder | 23 | 158 | 20.4 | 2 | 165 | 22 | SMAT (0.65, SR 170.7); IPL (0.87, SR 104.0) |
 | Harshit Rana | Bowler | 53 | 107 | 14.8 | 1 | 55 | 10 | IPL (0.87, SR 107.3) |
-| Sarthak Ranjan | Bowler | 0 | 130 | 15.2 | 1 | 47 | 6 | SMAT (0.65, SR 129.8) |
 | Varun Chakravarthy | Bowler | 10 | 55.3 | 26 | 1 | 47 | 8 | IPL (0.87, SR 55.3) |
+| Sarthak Ranjan | Batter | 0 | 130 | 15.2 | 1 | 47 | 6 | SMAT (0.65, SR 129.8) |
 | Akash Deep | Bowler | 12 | 132 | 24.5 | 1 | 37 | 5 | SMAT (0.65, SR 132.4) |
 | Vaibhav Arora | Bowler | 11 | 37.5 | 3 | 1 | 24 | 4 | IPL (0.87, SR 37.5) |
 
@@ -907,13 +907,12 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 | Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
 |--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
-| Finn Allen | Wicketkeeper | 0 | 8.2 | 20.3 | 8 | 1362 | 50 | CPL (0.50, Econ 8.0); LPL (0.40, Econ 7.6); IPL (0.87, Econ 9.0) |
 | Rachin Ravindra | All-rounder | 12 | 7.4 | 17.7 | 5 | 966 | 39 | SS (0.36, Econ 7.7); MLC (0.42, Econ 7.3); 100 (0.50, Econ 7.4) |
 | Tejasvi Singh | Wicketkeeper | 0 | 7.3 | 19.4 | 5 | 800 | 48 | MLC (0.42, Econ 7.2); ILT20 (0.49, Econ 6.4); T20WC (0.50, Econ 8.3) |
 | Akash Deep | Bowler | 165 | 8.7 | 19.8 | 2 | 733 | 73 | SMAT (0.65, Econ 6.6); IPL (0.87, Econ 11.2) |
 | Umran Malik | Bowler | 126 | 8.5 | 15.2 | 2 | 663 | 81 | IPL (0.87, Econ 9.0); SMAT (0.65, Econ 6.7) |
 | Anukul Roy | All-rounder | 106 | 7.2 | 27.4 | 2 | 597 | 71 | SMAT (0.65, Econ 6.9); IPL (0.87, Econ 7.9) |
-| Rovman Powell | Batter | 12 | 10.4 | 20.1 | 5 | 582 | 50 | CPL (0.50, Econ 10.2); ILT20 (0.49, Econ 9.5); LPL (0.40, Econ 12.5) |
+| Rovman Powell | All-rounder | 12 | 10.4 | 20.1 | 5 | 582 | 50 | CPL (0.50, Econ 10.2); ILT20 (0.49, Econ 9.5); LPL (0.40, Econ 12.5) |
 | Kartik Tyagi | Bowler | 61 | 9.1 | 27.6 | 2 | 531 | 83 | IPL (0.87, Econ 9.5); SMAT (0.65, Econ 6.9) |
 | Ramandeep Singh | All-rounder | 4 | 8.3 | 11.1 | 2 | 154 | 22 | SMAT (0.65, Econ 8.1); IPL (0.87, Econ 8.9) |
 | Rahul Tripathi | Batter | 0 | 7.5 | 27 | 1 | 108 | 14 | SMAT (0.65, Econ 7.5) |

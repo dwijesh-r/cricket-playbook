@@ -96,7 +96,7 @@
           "rationale": "Founder XII. Spin specialist",
           "is_overseas": false,
           "price_cr": 12.0,
-          "bowling_type": "Fast",
+          "bowling_type": "Medium-Fast",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         }
@@ -117,7 +117,7 @@
           "rationale": "Founder XII. Middle overs anchor. Excellent vs spin",
           "is_overseas": false,
           "price_cr": 12.0,
-          "bowling_type": "Fast",
+          "bowling_type": "Medium-Fast",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
@@ -174,7 +174,7 @@
           "rationale": "Founder XII. AR death SR (151). All-round finisher",
           "is_overseas": false,
           "price_cr": 12.0,
-          "bowling_type": "Fast",
+          "bowling_type": "Medium-Fast",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
@@ -495,7 +495,7 @@
           "rationale": "Founder XII. Strong finisher (71). Middle order capable (92)",
           "is_overseas": false,
           "price_cr": 12.0,
-          "bowling_type": "Fast",
+          "bowling_type": "Medium-Fast",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
@@ -540,7 +540,7 @@
           "rationale": "Founder XII. Unproven bowling. Handy bat (92)",
           "is_overseas": false,
           "price_cr": 12.0,
-          "bowling_type": "Fast",
+          "bowling_type": "Medium-Fast",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         },

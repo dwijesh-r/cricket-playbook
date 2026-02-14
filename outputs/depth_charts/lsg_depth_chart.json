@@ -1,7 +1,7 @@
 {
   "team": "LSG",
   "team_name": "Lucknow Super Giants",
-  "overall_rating": 6.4,
+  "overall_rating": 6.5,
   "strongest_position": "#3 Batter",
   "weakest_position": "Left-arm Wrist Spin",
   "vulnerabilities": [
@@ -9,7 +9,7 @@
     "Left-arm Pace: thin depth (rating 3.8)",
     "Off Spin: thin depth (rating 4.4)",
     "Leg Spin: thin depth (rating 4.9)",
-    "Left-arm Orthodox: thin depth (rating 3.9)"
+    "Left-arm Orthodox: thin depth (rating 4.3)"
   ],
   "positions": {
     "opener": {
@@ -407,13 +407,25 @@
     },
     "left_arm_orthodox": {
       "name": "Left-arm Orthodox",
-      "rating": 3.9,
-      "what_works": "Manimaran siddharth leads. all indian options",
-      "what_doesnt": "Only one option. no standout performer",
+      "rating": 4.3,
+      "what_works": "Shahbaz ahmed leads. manimaran siddharth as backup",
+      "what_doesnt": "Weak backup option. no standout performer",
       "overseas_count": 0,
       "players": [
         {
           "rank": 1,
+          "name": "Shahbaz Ahmed",
+          "player_id": "f9e6e7ef",
+          "score": 46.0,
+          "rationale": "Founder XII. Lead spinner",
+          "is_overseas": false,
+          "price_cr": 2.4,
+          "bowling_type": "Left-arm orthodox",
+          "bowling_arm": "Left-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
           "name": "Manimaran Siddharth",
           "player_id": "cf0ccafa",
           "score": 39.0,
@@ -557,14 +569,14 @@
         },
         {
           "rank": 3,
-          "name": "Abdul Samad",
-          "player_id": "8e514b4c",
-          "score": 42.2,
-          "rationale": "Founder XII. Unproven bowling. Handy bat (70)",
+          "name": "Shahbaz Ahmed",
+          "player_id": "f9e6e7ef",
+          "score": 42.5,
+          "rationale": "Founder XII. Bowling all-rounder",
           "is_overseas": false,
-          "price_cr": 4.2,
-          "bowling_type": "Leg-spin",
-          "bowling_arm": "Right-arm",
+          "price_cr": 2.4,
+          "bowling_type": "Left-arm orthodox",
+          "bowling_arm": "Left-arm",
           "secondary_positions": []
         }
       ]

@@ -30,7 +30,7 @@ from scripts.utils.logging_config import setup_logger
 logger = setup_logger(__name__)
 
 # Configuration
-PROJECT_ROOT = Path(__file__).parent.parent
+PROJECT_ROOT = Path(__file__).parent.parent.parent
 RAW_DIR = PROJECT_ROOT / "data" / "raw"
 DB_PATH = PROJECT_ROOT / "data" / "cricket_playbook.duckdb"
 MANIFEST_PATH = PROJECT_ROOT / "data" / "manifests" / "manifest.json"

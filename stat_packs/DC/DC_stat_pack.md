@@ -1,6 +1,6 @@
 # Delhi Capitals (DC) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-13 21:38
+**Generated:** 2026-02-14 17:14
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -12,36 +12,36 @@
 
 | Player | Role | Bowling | Batting | Price (Cr) | Type | Joined |
 |--------|------|---------|---------|------------|------|--------|
-| Axar Patel | All-rounder | Left-arm orthodox | Left-hand | 16.50 | Retained | 2019 |
+| Axar Patel | All-rounder | LA Orthodox | Left-hand | 16.50 | Retained | 2019 |
 | KL Rahul | Wicketkeeper | Medium | Right-hand | 14.00 | Retained | 2025 |
-| Kuldeep Yadav | Bowler | Left-arm wrist spin | Left-hand | 13.25 | Retained | 2022 |
+| Kuldeep Yadav | Bowler | Wrist-spin | Left-hand | 13.25 | Retained | 2022 |
 | Mitchell Starc | Bowler | Fast | Left-hand | 11.75 | Retained | 2024 |
 | T Natarajan | Bowler | Fast | Left-hand | 10.75 | Retained | 2024 |
-| Tristan Stubbs | All-rounder | Medium | Right-hand | 10.00 | Retained | 2023 |
-| Auqib Nabi Dar | Bowler | Fast | Right-hand | 8.40 | Auction | 2026 |
+| Tristan Stubbs | All-rounder | Off-spin | Right-hand | 10.00 | Retained | 2023 |
+| Auqib Nabi Dar | All-rounder | Fast | Right-hand | 8.40 | Auction | 2026 |
 | Mukesh Kumar | Bowler | Fast | Right-hand | 8.00 | Retained | 2022 |
-| Abhishek Porel | Wicketkeeper | Medium | Right-hand | 4.00 | Retained | 2023 |
-| Ashutosh Sharma | All-rounder | Off-spin | Right-hand | 3.80 | Retained | 2024 |
+| Abhishek Porel | Wicketkeeper | Medium | Left-hand | 4.00 | Retained | 2023 |
+| Ashutosh Sharma | Batter | Off-spin | Right-hand | 3.80 | Retained | 2024 |
 | Pathum Nissanka | Batter | Off-spin | Right-hand | 3.20 | Auction | 2026 |
 | David Miller | Batter | Off-spin | Left-hand | 2.00 | Auction | 2026 |
-| Lungi Ngidi | Bowler | Fast | Right-hand | 1.00 | Auction | 2026 |
-| Sameer Rizvi | Batter | Medium | Right-hand | 0.95 | Retained | 2024 |
-| Kyle Jamieson | Bowler | Fast | Right-hand | 0.75 | Auction | 2026 |
-| Ben Duckett | Batter | Medium | Left-hand | 0.75 | Auction | 2026 |
+| Lungi Ngidi | Bowler | Fast-Medium | Right-hand | 1.00 | Auction | 2026 |
+| Sameer Rizvi | Batter | Off-spin | Right-hand | 0.95 | Retained | 2024 |
+| Kyle Jamieson | All-rounder | Fast-Medium | Right-hand | 0.75 | Auction | 2026 |
+| Ben Duckett | Wicketkeeper | Medium | Left-hand | 0.75 | Auction | 2026 |
 | Dushmantha Chameera | Bowler | Fast | Right-hand | 0.75 | Retained | 2024 |
 | Karun Nair | Batter | Off-spin | Right-hand | 0.50 | Retained | 2024 |
-| Nitish Rana | Batter | Left-arm orthodox | Left-hand | 0.50 | Auction | 2026 |
-| Vipraj Nigam | Batter | Medium | Right-hand | 0.50 | Retained | 2025 |
-| Madhav Tiwari | All-rounder | Medium | Right-hand | 0.40 | Retained | 2025 |
-| Tripurana Vijay | Batter | Medium | Right-hand | 0.30 | Retained | 2025 |
-| Ajay Mandal | All-rounder | Medium | Right-hand | 0.30 | Retained | 2025 |
+| Nitish Rana | All-rounder | Off-spin | Left-hand | 0.50 | Auction | 2026 |
+| Vipraj Nigam | All-rounder | Leg-spin | Right-hand | 0.50 | Retained | 2025 |
+| Madhav Tiwari | All-rounder | Fast | Right-hand | 0.40 | Retained | 2025 |
+| Tripurana Vijay | Bowler | Off-spin | Right-hand | 0.30 | Retained | 2025 |
+| Ajay Mandal | All-rounder | LA Orthodox | Left-hand | 0.30 | Retained | 2025 |
 | Prithvi Shaw | Batter | Leg-spin | Right-hand | 0.30 | Auction | 2026 |
-| Sahil Parakh | All-rounder | Leg-spin | Left-hand | 0.30 | Auction | 2026 |
+| Sahil Parakh | Batter | Leg-spin | Left-hand | 0.30 | Auction | 2026 |
 
 **Total Squad Size:** 25 players
 **Total Spend:** ₹112.95 Cr
 
-**Role Breakdown:** All-rounder: 6, Batter: 9, Bowler: 8, Wicketkeeper: 2
+**Role Breakdown:** All-rounder: 8, Batter: 7, Bowler: 7, Wicketkeeper: 3
 
 ### 1.2 Player Archetypes (K-means V2 Model)
 
@@ -245,21 +245,21 @@
 - **Avg Score (batting):** 185.9
 - **Highest/Lowest:** 257/128
 - **Pitch Type:** Balanced
-- **Pace SR:** 19.3 | **Spin SR:** 19.3
+- **Pace SR:** 19.3 | **Spin SR:** 19.4
 
 ### Away Performance
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Dr. Y.S. Rajasekhara Reddy ACA-VDCA | 4 | 3 | 75.0% | 183.5 |
+| M Chinnaswamy Stadium | 3 | 1 | 33.3% | 153.3 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 158.0 |
 | Narendra Modi Stadium | 3 | 2 | 66.7% | 141.7 |
-| M Chinnaswamy Stadium | 3 | 1 | 33.3% | 153.3 |
-| MA Chidambaram Stadium | 2 | 1 | 50.0% | 161.5 |
-| Wankhede Stadium | 2 | 0 | 0.0% | 163.0 |
 | Himachal Pradesh Cricket Associatio | 2 | 1 | 50.0% | 213.0 |
-| Sawai Mansingh Stadium | 2 | 1 | 50.0% | 190.5 |
 | Rajiv Gandhi International Stadium | 2 | 1 | 50.0% | 138.5 |
+| Wankhede Stadium | 2 | 0 | 0.0% | 163.0 |
+| Sawai Mansingh Stadium | 2 | 1 | 50.0% | 190.5 |
+| MA Chidambaram Stadium | 2 | 1 | 50.0% | 161.5 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -267,16 +267,16 @@
 
 | Venue | Matches | Pace SR | Spin SR | Bias |
 |-------|---------|---------|---------|------|
-| Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
-| MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
-| Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Narendra Modi Stadium | 26 | 18.2 | 22.3 | BALANCED |
+| MA Chidambaram Stadium | 24 | 17.7 | 20.1 | BALANCED |
+| Bharat Ratna Shri Atal Bihari  | 22 | 18.3 | 23.8 | PACE |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
+| Wankhede Stadium | 21 | 18.8 | 21.0 | BALANCED |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.4 | BALANCED |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
-| Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.5 | PACE |
+| Sawai Mansingh Stadium | 17 | 24.1 | 22.1 | BALANCED |
+| Maharaja Yadavindra Singh Inte | 10 | 15.8 | 16.8 | BALANCED |
 
 ### Venue Specialists
 
@@ -301,10 +301,10 @@
 |--------|-------|---------|------|------|-----|
 | AR Patel | Arun Jaitley Stadium | 16 | 13 | 7.66 | 23.08 |
 | MA Starc | Dr. Y.S. Rajasekhara Redd | 3 | 10 | 9.28 | 6.4 |
-| Kuldeep Yadav | Dr. Y.S. Rajasekhara Redd | 2 | 5 | 5.38 | 9.6 |
-| Mukesh Kumar | Bharat Ratna Shri Atal Bi | 3 | 5 | 8.83 | 14.4 |
-| T Natarajan | Arun Jaitley Stadium | 3 | 5 | 9.18 | 13.2 |
 | Kuldeep Yadav | M Chinnaswamy Stadium | 3 | 5 | 7.83 | 14.4 |
+| Kuldeep Yadav | Dr. Y.S. Rajasekhara Redd | 2 | 5 | 5.38 | 9.6 |
+| T Natarajan | Arun Jaitley Stadium | 3 | 5 | 9.18 | 13.2 |
+| Mukesh Kumar | Bharat Ratna Shri Atal Bi | 3 | 5 | 8.83 | 14.4 |
 
 
 ---
@@ -318,20 +318,21 @@
 | KL Rahul | Wicketkeeper | 36 | 1333 | 981 | 135.88 | 43.0 | 17.23 | 32.42 | 10 | 1 | HIGH |
 | Axar Patel | All-rounder | 36 | 781 | 547 | 142.78 | 27.89 | 18.83 | 34.19 | 3 | 0 | HIGH |
 | Tristan Stubbs | All-rounder | 28 | 703 | 427 | 164.64 | 50.21 | 20.61 | 22.72 | 3 | 0 | MEDIUM |
-| Nitish Rana | Batter | 27 | 672 | 460 | 146.09 | 26.88 | 21.96 | 37.61 | 5 | 0 | MEDIUM |
+| Nitish Rana | All-rounder | 27 | 672 | 460 | 146.09 | 26.88 | 21.96 | 37.61 | 5 | 0 | MEDIUM |
 | Abhishek Porel | Wicketkeeper | 29 | 661 | 440 | 150.23 | 25.42 | 20.91 | 32.27 | 3 | 0 | MEDIUM |
 | David Miller | Batter | 32 | 622 | 436 | 142.66 | 32.74 | 17.43 | 29.36 | 1 | 0 | HIGH |
-| Ashutosh Sharma | All-rounder | 18 | 393 | 236 | 166.53 | 28.07 | 22.03 | 31.36 | 2 | 0 | MEDIUM |
+| Ashutosh Sharma | Batter | 18 | 393 | 236 | 166.53 | 28.07 | 22.03 | 31.36 | 2 | 0 | MEDIUM |
 | Prithvi Shaw | Batter | 16 | 304 | 205 | 148.29 | 19.0 | 25.37 | 38.54 | 2 | 0 | MEDIUM |
 | Karun Nair | Batter | 8 | 198 | 115 | 172.17 | 28.29 | 29.57 | 36.52 | 1 | 0 | LOW |
 | Sameer Rizvi | Batter | 9 | 172 | 122 | 140.98 | 24.57 | 19.67 | 37.7 | 1 | 0 | LOW |
-| Vipraj Nigam | Batter | 8 | 142 | 78 | 182.05 | 28.4 | 30.77 | 33.33 | 0 | 0 | LOW |
+| Vipraj Nigam | All-rounder | 8 | 142 | 78 | 182.05 | 28.4 | 30.77 | 33.33 | 0 | 0 | LOW |
 | Madhav Tiwari | All-rounder | 1 | 3 | 4 | 75.0 | 3.0 | - | 50.0 | 0 | 0 | LOW |
+| Kyle Jamieson | All-rounder | 2 | 0 | 5 | - | - | - | 100.0 | 0 | 0 | LOW |
+| Auqib Nabi Dar | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Pathum Nissanka | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
-| Ben Duckett | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
-| Tripurana Vijay | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
+| Ben Duckett | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Ajay Mandal | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
-| Sahil Parakh | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
+| Sahil Parakh | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
 ### 5.2 Phase-wise Batting (Qualified players)
 
@@ -367,16 +368,18 @@
 
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
-| Kuldeep Yadav | Left-arm w | 39 | 145.0 | 41 | 7.82 | 27.66 | 21.22 | 30.8 | 12.64 | HIGH |
+| Kuldeep Yadav | Wrist-spin | 39 | 145.0 | 41 | 7.82 | 27.66 | 21.22 | 30.8 | 12.64 | HIGH |
 | Mukesh Kumar | Fast | 32 | 106.0 | 36 | 10.55 | 31.06 | 17.67 | 32.86 | 26.26 | HIGH |
 | Mitchell Starc | Fast | 24 | 79.8 | 31 | 10.67 | 27.48 | 15.45 | 38.41 | 27.56 | MEDIUM |
 | T Natarajan | Fast | 28 | 100.5 | 30 | 9.33 | 31.27 | 20.1 | 30.68 | 20.56 | MEDIUM |
-| Axar Patel | Left-arm o | 39 | 127.0 | 27 | 7.86 | 36.96 | 28.22 | 32.15 | 14.57 | HIGH |
-| Kyle Jamieson | Fast | 4 | 15.0 | 5 | 9.8 | 29.4 | 18.0 | 37.78 | 24.44 | LOW |
-| Tristan Stubbs | Medium | 5 | 6.0 | 4 | 11.5 | 17.25 | 9.0 | 33.33 | 27.78 | LOW |
-| Lungi Ngidi | Fast | 2 | 8.0 | 4 | 10.13 | 20.25 | 12.0 | 27.08 | 22.92 | LOW |
+| Axar Patel | LA Orthodo | 39 | 127.0 | 27 | 7.86 | 36.96 | 28.22 | 32.15 | 14.57 | HIGH |
+| Vipraj Nigam | Leg-spin | 13 | 39.0 | 11 | 9.26 | 32.82 | 21.27 | 30.77 | 18.38 | MEDIUM |
+| Kyle Jamieson | Fast-Mediu | 4 | 15.0 | 5 | 9.8 | 29.4 | 18.0 | 37.78 | 24.44 | LOW |
+| Tristan Stubbs | Off-spin | 5 | 6.0 | 4 | 11.5 | 17.25 | 9.0 | 33.33 | 27.78 | LOW |
+| Lungi Ngidi | Fast-Mediu | 2 | 8.0 | 4 | 10.13 | 20.25 | 12.0 | 27.08 | 22.92 | LOW |
 | Dushmantha Chameera | Fast | 7 | 20.0 | 4 | 12.35 | 61.75 | 30.0 | 24.17 | 28.33 | LOW |
-| Madhav Tiwari | Medium | 1 | 1.0 | 0 | 14.0 | - | - | - | 33.33 | LOW |
+| Nitish Rana | Off-spin | 8 | 10.8 | 3 | 8.58 | 31.0 | 21.67 | 27.69 | 18.46 | LOW |
+| Madhav Tiwari | Fast | 1 | 1.0 | 0 | 14.0 | - | - | - | 33.33 | LOW |
 
 ### 6.2 Bowler Phase Distribution
 
@@ -487,9 +490,9 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 4 | 90 | 124 | 8 | 8.27 | 15.5 | 11.25 | 34.44 | 14.44 | MEDIUM |
 | Lucknow Super Giants | 5 | 120 | 142 | 7 | 7.1 | 20.29 | 17.14 | 35.0 | 10.83 | HIGH |
-| Rajasthan Royals | 4 | 96 | 127 | 5 | 7.94 | 25.4 | 19.2 | 31.25 | 13.54 | MEDIUM |
-| Punjab Kings | 5 | 102 | 138 | 5 | 8.12 | 27.6 | 20.4 | 26.47 | 13.73 | HIGH |
 | Royal Challengers Bengaluru | 5 | 120 | 159 | 5 | 7.95 | 31.8 | 24.0 | 31.67 | 13.33 | HIGH |
+| Punjab Kings | 5 | 102 | 138 | 5 | 8.12 | 27.6 | 20.4 | 26.47 | 13.73 | HIGH |
+| Rajasthan Royals | 4 | 96 | 127 | 5 | 7.94 | 25.4 | 19.2 | 31.25 | 13.54 | MEDIUM |
 | Gujarat Titans | 6 | 138 | 144 | 4 | 6.26 | 36.0 | 34.5 | 29.71 | 7.25 | HIGH |
 | Mumbai Indians | 4 | 78 | 113 | 3 | 8.69 | 37.67 | 26.0 | 30.77 | 19.23 | MEDIUM |
 | Kolkata Knight Riders | 3 | 60 | 75 | 2 | 7.5 | 37.5 | 30.0 | 40.0 | 15.0 | MEDIUM |
@@ -618,16 +621,16 @@
 
 | Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
 |--------|-----------|-----------|-----------|-----------|----------|
-| **KL Rahul** | 140 | 128 | 19.8 | 12.9 | Balanced |
-| **AR Patel** | 128 | 156 | 16.6 | 21.0 | Spin Dominant |
-| **N Rana** | 154 | 134 | 25.5 | 16.7 | Pace Dominant |
-| **Abishek Porel** | 163 | 125 | 25.1 | 13.3 | Pace Dominant |
-| **DA Miller** | 142 | 142 | 17.8 | 16.0 | Balanced |
-| **T Stubbs** | 162 | 158 | 21.0 | 16.8 | Balanced |
-| **Ashutosh Sharma** | 172 | 145 | 23.3 | 17.8 | Pace Dominant |
-| **PP Shaw** | 132 | 191 | 22.1 | 33.9 | Spin Dominant |
+| **KL Rahul** | 126 | 119 | 16.6 | 11.1 | Balanced |
+| **AR Patel** | 134 | 151 | 15.5 | 20.3 | Spin Dominant |
+| **N Rana** | 168 | 125 | 28.6 | 14.4 | Pace Dominant |
+| **Abishek Porel** | 163 | 121 | 25.2 | 11.6 | Pace Dominant |
+| **DA Miller** | 151 | 159 | 19.2 | 19.1 | Balanced |
+| **T Stubbs** | 168 | 151 | 22.4 | 15.1 | Pace Dominant |
+| **Ashutosh Sharma** | 159 | 202 | 21.8 | 28.9 | Spin Dominant |
+| **PP Shaw** | 138 | 182 | 23.6 | 34.1 | Spin Dominant |
 
-*Pace-hitting strength: **Abishek Porel** (163 SR), **T Stubbs** (162 SR), **Ashutosh Sharma** (172 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+*Exploitable vs spin: **KL Rahul** (119 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **N Rana** (168 SR), **Abishek Porel** (163 SR), **T Stubbs** (168 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
 
 ### 10.3 Pace Attack Intelligence
 
@@ -636,19 +639,17 @@
 | **Mukesh Kumar** | 8.8 | 8.9 | 12.3 | PP | 0.34 |
 | **MA Starc** | 10.2 | 7.5 | 10.3 | Middle | 0.39 |
 | **T Natarajan** | 8.6 | 8.1 | 9.9 | Middle | 0.30 |
-| **V Nigam** | 9.2 | 9.5 | 5.7 | Death | 0.26 |
 | **PVD Chameera** | 13.4 | 9.6 | 11.6 | Middle | 0.20 |
 
-***V Nigam** is the designated death option at 5.7 economy (league avg 10.9). **V Nigam** should lead the powerplay attack (9.2 economy).*
+***T Natarajan** is the designated death option at 9.9 economy (league avg 10.9). **T Natarajan** should lead the powerplay attack (8.6 economy).*
 
 ### 10.4 Spin Attack Intelligence
 
 | Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Control Rating |
 |--------|---------|----------|------------|------------|----------------|
-| **Kuldeep Yadav** | 20 | 7.6 | 7.6 | Middle | 30.8% |
-| **AR Patel** | 8.6 | 7.4 | 8.4 | Middle | 32.2% |
+| **V Nigam** | 9.2 | 9.5 | 5.7 | Death | 30.8% |
 
-***AR Patel** is the middle-overs anchor at 7.4 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **AR Patel** offers a viable death option at 8.4 economy, giving the captain tactical flexibility. Spin dependency is high with 272 combined overs across 2 spinners — a strength on turning pitches but a risk on pace-friendly surfaces.*
+***V Nigam** offers a viable death option at 5.7 economy, giving the captain tactical flexibility. Spin depth is thin — injury to the primary spinner would expose the middle overs significantly.*
 
 ### 10.5 Key Vulnerabilities & Matchup Risks
 
@@ -663,10 +664,10 @@
 
 #### Pace Vulnerability Risk
 
-- **AR Patel** vs Fast: SR 117, Avg 18.5 (221 balls, league avg vs pace ~151)
+- **AR Patel** vs Fast: SR 121, Avg 14.9 (123 balls, league avg vs pace ~151)
 - **KL Rahul** vs Right-arm pace: SR 126, Avg 16.8 (53 balls, league avg vs pace ~151)
-- **Kuldeep Yadav** vs Fast: SR 83.1, Avg 19.7 (71 balls, league avg vs pace ~151)
-- **PP Shaw** vs Fast: SR 115, Avg 13.5 (94 balls, league avg vs pace ~151)
+- **KL Rahul** vs Fast: SR 128, Avg 48.3 (226 balls, league avg vs pace ~151)
+- **PP Shaw** vs Fast: SR 123, Avg 27 (66 balls, league avg vs pace ~151)
 
 #### Structural Concerns
 
@@ -843,16 +844,17 @@ Pre-tournament priorities must include: shore up pace-hitting deficiencies (4 ba
 
 | Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|---------|----------|--------|---------|------------|-------|-------------|
-| Ben Duckett | Batter | 204 | 5357 | 141 | 30.8 | HIGH | 50 | Blast, Blast, 100 |
-| Pathum Nissanka | Batter | 111 | 3266 | 130 | 30.8 | HIGH | 44 | LPL, T20WC, Intl |
-| Ajay Mandal | All-rounder | 20 | 217 | 117 | 16.7 | HIGH | 24 | SMAT |
+| Ben Duckett | Wicketkeeper | 204 | 5357 | 141 | 30.8 | HIGH | 50 | - |
+| Pathum Nissanka | Batter | 111 | 3266 | 130 | 30.8 | HIGH | 44 | - |
+| Auqib Nabi Dar | All-rounder | 26 | 640 | 150 | 40 | HIGH | - | - |
+| Ajay Mandal | All-rounder | 20 | 217 | 117 | 16.7 | HIGH | 24 | - |
 
 ### 12.2 T20 Bowling Profile
 
 | Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|-------------|----------|----------|---------|------------|-------|-------------|
-| Ajay Mandal | Medium | 26 | 26 | 7.1 | 22.8 | HIGH | 64 | SMAT |
-| Auqib Nabi Dar | Fast | 9 | 3 | 8.7 | 34.7 | LOW | - | ICC T20, Intl, Intl |
+| Ajay Mandal | LA Orthodox | 26 | 26 | 7.1 | 22.8 | HIGH | 64 | - |
+| Auqib Nabi Dar | Fast | 9 | 3 | 8.7 | 34.7 | LOW | - | - |
 
 ### 12.3 Limited / No T20 Data
 
@@ -860,8 +862,8 @@ Pre-tournament priorities must include: shore up pace-hitting deficiencies (4 ba
 
 | Player | Role | Nationality |
 |--------|------|-------------|
-| Sahil Parakh | All-rounder | IND |
-| Tripurana Vijay | Batter | IND |
+| Sahil Parakh | Batter | IND |
+| Tripurana Vijay | Bowler | IND |
 
 
 ---
@@ -874,33 +876,33 @@ Pre-tournament priorities must include: shore up pace-hitting deficiencies (4 ba
 
 | Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
 |--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
-| Ben Duckett | Batter | 0 | 142 | 31.6 | 4 | 2422 | 50 | Blast (0.50, SR 147.2); 100 (0.50, SR 140.7); BBL (0.53, SR 139.0) |
+| Ben Duckett | Wicketkeeper | 0 | 142 | 31.6 | 4 | 2422 | 50 | Blast (0.50, SR 147.2); 100 (0.50, SR 140.7); BBL (0.53, SR 139.0) |
 | Karun Nair | Batter | 115 | 136 | 27.2 | 2 | 2108 | 78 | IPL (0.87, SR 131.5); SMAT (0.65, SR 144.8) |
 | Prithvi Shaw | Batter | 205 | 151 | 25.9 | 2 | 1722 | 81 | IPL (0.87, SR 147.7); SMAT (0.65, SR 162.4) |
 | Pathum Nissanka | Batter | 0 | 130 | 29.8 | 3 | 1170 | 44 | LPL (0.40, SR 128.5); T20WC (0.50, SR 115.3); ILT20 (0.49, SR 186.9) |
-| Ashutosh Sharma | All-rounder | 236 | 165 | 32.3 | 2 | 371 | 59 | IPL (0.87, SR 163.6); SMAT (0.65, SR 168.9) |
-| Kyle Jamieson | Bowler | 5 | 123 | 32.1 | 3 | 289 | 28 | SS (0.36, SR 128.3); IPL (0.87, SR 108.3); Blast (0.50, SR 151.6) |
+| Ashutosh Sharma | Batter | 236 | 165 | 32.3 | 2 | 371 | 59 | IPL (0.87, SR 163.6); SMAT (0.65, SR 168.9) |
+| Kyle Jamieson | All-rounder | 5 | 123 | 32.1 | 3 | 289 | 28 | SS (0.36, SR 128.3); IPL (0.87, SR 108.3); Blast (0.50, SR 151.6) |
 | Sameer Rizvi | Batter | 122 | 139 | 33.1 | 2 | 278 | 41 | SMAT (0.65, SR 136.5); IPL (0.87, SR 141.0) |
 | Kuldeep Yadav | Bowler | 105 | 88.1 | 25.0 | 2 | 254 | 43 | IPL (0.87, SR 86.6); SMAT (0.65, SR 109.1) |
 | Ajay Mandal | All-rounder | 0 | 113 | 16.2 | 1 | 186 | 24 | SMAT (0.65, SR 113.4) |
 | Mitchell Starc | Bowler | 21 | 94.3 | 12.1 | 2 | 139 | 23 | IPL (0.87, SR 93.3); T20WC (0.50, SR 105.0) |
 | Dushmantha Chameera | Bowler | 14 | 106 | 12.2 | 3 | 120 | 14 | LPL (0.40, SR 92.5); IPL (0.87, SR 126.2); T20WC (0.50, SR 68.0) |
-| Vipraj Nigam | Batter | 78 | 182 | 35.5 | 1 | 78 | 14 | IPL (0.87, SR 182.1) |
+| Vipraj Nigam | All-rounder | 78 | 182 | 35.5 | 1 | 78 | 14 | IPL (0.87, SR 182.1) |
 | Lungi Ngidi | Bowler | 2 | 82.5 | 5.5 | 1 | 40 | 4 | SA20 (0.50, SR 82.5) |
-| Tripurana Vijay | Batter | 0 | 79.3 | 23 | 1 | 29 | 4 | SMAT (0.65, SR 79.3) |
+| Tripurana Vijay | Bowler | 0 | 79.3 | 23 | 1 | 29 | 4 | SMAT (0.65, SR 79.3) |
 
 ### 13.2 Bowling Intelligence
 
 | Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
 |--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
+| Lungi Ngidi | Bowler | 48 | 8.2 | 15.1 | 5 | 1549 | 56 | SA20 (0.50, Econ 8.4); IPL (0.87, Econ 8.2); CSA (0.38, Econ 7.2) |
 | Dushmantha Chameera | Bowler | 120 | 8.8 | 19.1 | 4 | 1508 | 55 | LPL (0.40, Econ 8.8); IPL (0.87, Econ 9.5); ILT20 (0.49, Econ 8.0) |
-| Lungi Ngidi | Bowler | 48 | 8.3 | 14.7 | 5 | 1489 | 57 | SA20 (0.50, Econ 8.6); IPL (0.87, Econ 8.2); CSA (0.38, Econ 7.2) |
-| Kyle Jamieson | Bowler | 90 | 8 | 16.6 | 4 | 1281 | 48 | SS (0.36, Econ 6.9); IPL (0.87, Econ 9.2); Blast (0.50, Econ 9.3) |
-| Nitish Rana | Batter | 65 | 7.1 | 17.8 | 2 | 601 | 72 | SMAT (0.65, Econ 6.4); IPL (0.87, Econ 8.3) |
+| Kyle Jamieson | All-rounder | 90 | 8 | 16.6 | 4 | 1281 | 48 | SS (0.36, Econ 6.9); IPL (0.87, Econ 9.2); Blast (0.50, Econ 9.3) |
+| Nitish Rana | All-rounder | 65 | 7.1 | 17.8 | 2 | 601 | 72 | SMAT (0.65, Econ 6.4); IPL (0.87, Econ 8.3) |
 | Ajay Mandal | All-rounder | 0 | 7.0 | 19.9 | 1 | 498 | 64 | SMAT (0.65, Econ 7.0) |
-| Tristan Stubbs | All-rounder | 36 | 9.8 | 15.6 | 3 | 135 | 16 | 100 (0.50, Econ 9.0); IPL (0.87, Econ 11.3); CSA (0.38, Econ 7.8) |
+| Tristan Stubbs | All-rounder | 36 | 9.3 | 17.1 | 4 | 150 | 17 | 100 (0.50, Econ 9.0); IPL (0.87, Econ 11.3); CSA (0.38, Econ 7.8) |
+| Tripurana Vijay | Bowler | 0 | 11.4 | 16 | 1 | 48 | 6 | SMAT (0.65, Econ 11.4) |
 | Karun Nair | Batter | 0 | 5.2 | 24 | 1 | 48 | 6 | SMAT (0.65, Econ 5.3) |
-| Tripurana Vijay | Batter | 0 | 11.4 | 16 | 1 | 48 | 6 | SMAT (0.65, Econ 11.4) |
 
 ### 13.3 Methodology
 

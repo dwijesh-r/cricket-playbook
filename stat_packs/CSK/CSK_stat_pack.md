@@ -1,6 +1,6 @@
 # Chennai Super Kings (CSK) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-13 21:38
+**Generated:** 2026-02-14 17:14
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -14,34 +14,34 @@
 |--------|------|---------|---------|------------|------|--------|
 | Sanju Samson | Wicketkeeper | Medium | Right-hand | 18.00 | Traded | 2026 |
 | Ruturaj Gaikwad | Batter | Medium | Right-hand | 18.00 | Retained | 2019 |
-| Prashant Veer | All-rounder | Off-spin | Right-hand | 14.20 | Auction | 2026 |
+| Prashant Veer | All-rounder | LA Orthodox | Left-hand | 14.20 | Auction | 2026 |
 | Kartik Sharma | Wicketkeeper | Medium | Right-hand | 14.20 | Auction | 2026 |
-| Shivam Dube | All-rounder | Medium | Left-hand | 12.00 | Retained | 2024 |
-| Noor Ahmad | Bowler | Left-arm wrist spin | Left-hand | 10.00 | Retained | 2025 |
-| Khaleel Ahmed | Bowler | Fast | Left-hand | 4.80 | Retained | 2025 |
+| Shivam Dube | All-rounder | Medium-Fast | Left-hand | 12.00 | Retained | 2024 |
+| Noor Ahmad | Bowler | Wrist-spin | Right-hand | 10.00 | Retained | 2025 |
+| Khaleel Ahmed | Bowler | Fast-Medium | Right-hand | 4.80 | Retained | 2025 |
 | MS Dhoni | Wicketkeeper | Medium | Right-hand | 4.00 | Retained | 2008 |
 | Anshul Kamboj | Bowler | Fast | Right-hand | 3.40 | Retained | 2025 |
-| Dewald Brevis | All-rounder | Off-spin | Right-hand | 2.20 | Retained | 2025 |
-| Gurjapneet Singh | Bowler | Fast | Left-hand | 2.20 | Retained | 2025 |
-| Nathan Ellis | Bowler | Fast | Right-hand | 2.00 | Retained | 2024 |
+| Dewald Brevis | Batter | Leg-spin | Right-hand | 2.20 | Retained | 2025 |
+| Gurjapneet Singh | Bowler | Fast | Right-hand | 2.20 | Retained | 2025 |
+| Nathan Ellis | Bowler | Fast-Medium | Right-hand | 2.00 | Retained | 2024 |
 | Rahul Chahar | Bowler | Leg-spin | Right-hand | 1.80 | Auction | 2026 |
 | Jamie Overton | All-rounder | Fast | Right-hand | 1.50 | Retained | 2024 |
-| Matt Henry | Bowler | Fast | Right-hand | 1.20 | Auction | 2026 |
+| Matt Henry | Bowler | Fast-Medium | Right-hand | 1.20 | Auction | 2026 |
 | Matthew Short | All-rounder | Off-spin | Right-hand | 1.00 | Auction | 2026 |
 | Sarfaraz Khan | Batter | Leg-spin | Right-hand | 0.50 | Auction | 2026 |
-| Zak Foulkes | Bowler | Fast | Right-hand | 0.40 | Auction | 2026 |
-| Akeal Hosein | Bowler | Left-arm orthodox | Left-hand | 0.40 | Auction | 2026 |
-| Aman Khan | All-rounder | Off-spin | Left-hand | 0.30 | Auction | 2026 |
+| Zak Foulkes | All-rounder | Fast | Right-hand | 0.40 | Auction | 2026 |
+| Akeal Hosein | All-rounder | LA Orthodox | Left-hand | 0.40 | Auction | 2026 |
+| Aman Khan | All-rounder | Fast | Right-hand | 0.30 | Auction | 2026 |
 | Urvil Patel | Wicketkeeper | Medium | Right-hand | 0.30 | Auction | 2026 |
-| Ramakrishna Ghosh | Bowler | Fast | Right-hand | 0.30 | Auction | 2026 |
+| Ramakrishna Ghosh | All-rounder | Fast | Right-hand | 0.30 | Auction | 2026 |
 | Mukesh Choudhary | Bowler | Fast | Left-hand | 0.30 | Retained | 2022 |
-| Ayush Mhatre | Batter | Medium | Right-hand | 0.30 | Retained | 2025 |
-| Shreyas Gopal | Bowler | Leg-spin | Right-hand | 0.30 | Retained | 2024 |
+| Ayush Mhatre | Batter | Off-spin | Right-hand | 0.30 | Retained | 2025 |
+| Shreyas Gopal | All-rounder | Leg-spin | Right-hand | 0.30 | Retained | 2024 |
 
 **Total Squad Size:** 25 players
 **Total Spend:** ₹113.60 Cr
 
-**Role Breakdown:** All-rounder: 6, Batter: 3, Bowler: 12, Wicketkeeper: 4
+**Role Breakdown:** All-rounder: 9, Batter: 4, Bowler: 8, Wicketkeeper: 4
 
 ### 1.2 Player Archetypes (K-means V2 Model)
 
@@ -237,17 +237,17 @@
 - **Win Rate:** 52.4% (11W - 10L)
 - **Avg Score (batting):** 167.2
 - **Highest/Lowest:** 217/103
-- **Pitch Type:** Spin-friendly
-- **Pace SR:** 17.6 | **Spin SR:** 20.2
+- **Pitch Type:** Balanced
+- **Pace SR:** 17.7 | **Spin SR:** 20.1
 
 ### Away Performance
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
 | Narendra Modi Stadium | 4 | 2 | 50.0% | 193.8 |
-| M Chinnaswamy Stadium | 3 | 1 | 33.3% | 209.3 |
 | Wankhede Stadium | 3 | 2 | 66.7% | 180.3 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 1 | 33.3% | 172.0 |
+| M Chinnaswamy Stadium | 3 | 1 | 33.3% | 209.3 |
 | Eden Gardens | 2 | 2 | 100.0% | 209.0 |
 | Arun Jaitley Stadium | 2 | 1 | 50.0% | 205.0 |
 
@@ -257,16 +257,16 @@
 
 | Venue | Matches | Pace SR | Spin SR | Bias |
 |-------|---------|---------|---------|------|
-| Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
-| MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
-| Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
+| Narendra Modi Stadium | 26 | 18.2 | 22.3 | BALANCED |
+| MA Chidambaram Stadium | 24 | 17.7 | 20.1 | BALANCED |
+| Bharat Ratna Shri Atal Bihari  | 22 | 18.3 | 23.8 | PACE |
+| Wankhede Stadium | 21 | 18.8 | 21.0 | BALANCED |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.4 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.5 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
-| Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
-| Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
+| Sawai Mansingh Stadium | 17 | 24.1 | 22.1 | BALANCED |
+| Maharaja Yadavindra Singh Inte | 10 | 15.8 | 16.8 | BALANCED |
 
 ### Venue Specialists
 
@@ -289,13 +289,13 @@
 
 | Player | Venue | Matches | Wkts | Econ | SR |
 |--------|-------|---------|------|------|-----|
-| Noor Ahmad | Narendra Modi Stadium | 13 | 13 | 8.23 | 20.31 |
 | Noor Ahmad | MA Chidambaram Stadium | 7 | 13 | 7.96 | 11.54 |
+| Noor Ahmad | Narendra Modi Stadium | 13 | 13 | 8.23 | 20.31 |
 | KK Ahmed | MA Chidambaram Stadium | 7 | 10 | 7.75 | 15.4 |
 | Noor Ahmad | Eden Gardens | 2 | 6 | 6.38 | 8.0 |
 | NT Ellis | Barsapara Cricket Stadium | 2 | 5 | 6.75 | 9.6 |
-| KK Ahmed | Bharat Ratna Shri Atal Bi | 3 | 5 | 9.17 | 14.4 |
 | KV Sharma | Sawai Mansingh Stadium | 2 | 5 | 8.0 | 6.6 |
+| KK Ahmed | Bharat Ratna Shri Atal Bi | 3 | 5 | 9.17 | 14.4 |
 
 
 ---
@@ -310,15 +310,19 @@
 | Sanju Samson | Wicketkeeper | 38 | 1178 | 780 | 151.03 | 38.0 | 20.64 | 32.05 | 9 | 0 | HIGH |
 | Shivam Dube | All-rounder | 42 | 1171 | 775 | 151.1 | 35.48 | 18.84 | 33.16 | 7 | 0 | HIGH |
 | MS Dhoni | Wicketkeeper | 36 | 461 | 271 | 170.11 | 30.73 | 23.62 | 31.0 | 0 | 0 | HIGH |
-| Dewald Brevis | All-rounder | 9 | 294 | 184 | 159.78 | 32.67 | 20.65 | 32.61 | 2 | 0 | LOW |
+| Dewald Brevis | Batter | 9 | 294 | 184 | 159.78 | 32.67 | 20.65 | 32.61 | 2 | 0 | LOW |
 | Ayush Mhatre | Batter | 7 | 240 | 127 | 188.98 | 34.29 | 33.07 | 32.28 | 1 | 0 | LOW |
 | Matthew Short | All-rounder | 6 | 117 | 92 | 127.17 | 19.5 | 20.65 | 48.91 | 0 | 0 | LOW |
 | Aman Khan | All-rounder | 9 | 110 | 101 | 108.91 | 13.75 | 12.87 | 48.51 | 1 | 0 | LOW |
 | Urvil Patel | Wicketkeeper | 3 | 68 | 32 | 212.5 | 22.67 | 34.38 | 34.38 | 0 | 0 | LOW |
 | Sarfaraz Khan | Batter | 4 | 53 | 61 | 86.89 | 13.25 | 8.2 | 45.9 | 0 | 0 | LOW |
 | Kartik Sharma | Wicketkeeper | 6 | 35 | 21 | 166.67 | 8.75 | 23.81 | 38.1 | 0 | 0 | LOW |
+| Akeal Hosein | All-rounder | 1 | 16 | 10 | 160.0 | - | 20.0 | 30.0 | 0 | 0 | LOW |
 | Jamie Overton | All-rounder | 2 | 15 | 7 | 214.29 | - | 28.57 | 28.57 | 0 | 0 | LOW |
 | Prashant Veer | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
+| Zak Foulkes | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
+| Shreyas Gopal | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
+| Ramakrishna Ghosh | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
 ### 5.2 Phase-wise Batting (Qualified players)
 
@@ -339,6 +343,7 @@
 | Sarfaraz Khan | death | 21 | 280 | 168 | 166.67 | 23.33 | 23.81 | 26.19 | MEDIUM |
 | Shivam Dube | middle | 68 | 1190 | 873 | 136.31 | 36.06 | 16.27 | 34.59 | HIGH |
 | Shivam Dube | death | 41 | 633 | 372 | 170.16 | 23.44 | 22.58 | 31.72 | MEDIUM |
+| Shreyas Gopal | death | 19 | 135 | 104 | 129.81 | 15.0 | 16.35 | 31.73 | MEDIUM |
 
 ---
 
@@ -348,15 +353,15 @@
 
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
-| Noor Ahmad | Left-arm w | 37 | 132.0 | 48 | 8.24 | 22.67 | 16.5 | 34.47 | 15.4 | HIGH |
-| Khaleel Ahmed | Fast | 37 | 129.7 | 41 | 9.69 | 30.63 | 18.98 | 42.67 | 24.94 | HIGH |
+| Noor Ahmad | Wrist-spin | 37 | 132.0 | 48 | 8.24 | 22.67 | 16.5 | 34.47 | 15.4 | HIGH |
+| Khaleel Ahmed | Fast-Mediu | 37 | 129.7 | 41 | 9.69 | 30.63 | 18.98 | 42.67 | 24.94 | HIGH |
 | Rahul Chahar | Leg-spin | 24 | 81.7 | 18 | 8.29 | 37.61 | 27.22 | 30.61 | 16.12 | MEDIUM |
-| Nathan Ellis | Fast | 12 | 46.0 | 15 | 8.8 | 27.0 | 18.4 | 28.99 | 17.39 | MEDIUM |
+| Nathan Ellis | Fast-Mediu | 12 | 46.0 | 15 | 8.8 | 27.0 | 18.4 | 28.99 | 17.39 | MEDIUM |
 | Anshul Kamboj | Fast | 11 | 31.5 | 10 | 9.14 | 28.8 | 18.9 | 39.15 | 21.69 | MEDIUM |
 | Shreyas Gopal | Leg-spin | 3 | 7.0 | 3 | 9.57 | 22.33 | 14.0 | 23.81 | 14.29 | LOW |
-| Shivam Dube | Medium | 2 | 3.0 | 1 | 15.67 | 47.0 | 18.0 | 11.11 | 33.33 | LOW |
-| Matt Henry | Fast | 4 | 12.0 | 1 | 9.33 | 112.0 | 72.0 | 33.33 | 19.44 | LOW |
-| Akeal Hosein | Left-arm o | 1 | 4.0 | 1 | 10.25 | 41.0 | 24.0 | 20.83 | 25.0 | LOW |
+| Shivam Dube | Medium-Fas | 2 | 3.0 | 1 | 15.67 | 47.0 | 18.0 | 11.11 | 33.33 | LOW |
+| Matt Henry | Fast-Mediu | 4 | 12.0 | 1 | 9.33 | 112.0 | 72.0 | 33.33 | 19.44 | LOW |
+| Akeal Hosein | LA Orthodo | 1 | 4.0 | 1 | 10.25 | 41.0 | 24.0 | 20.83 | 25.0 | LOW |
 | Mukesh Choudhary | Fast | 3 | 7.0 | 1 | 14.0 | 98.0 | 42.0 | 30.95 | 42.86 | LOW |
 | Jamie Overton | Fast | 3 | 6.0 | 0 | 14.0 | - | - | 25.0 | 30.56 | LOW |
 | Matthew Short | Off-spin | 3 | 4.0 | 0 | 6.25 | - | - | 45.83 | 12.5 | LOW |
@@ -445,11 +450,11 @@
 | Royal Challengers Bengaluru | 5 | 120 | 170 | 7 | 8.5 | 24.29 | 17.14 | 34.17 | 19.17 | HIGH |
 | Mumbai Indians | 5 | 114 | 162 | 7 | 8.53 | 23.14 | 16.29 | 34.21 | 16.67 | HIGH |
 | Kolkata Knight Riders | 3 | 60 | 59 | 7 | 5.9 | 8.43 | 8.57 | 45.0 | 11.67 | MEDIUM |
-| Punjab Kings | 4 | 90 | 122 | 6 | 8.13 | 20.33 | 15.0 | 30.0 | 14.44 | MEDIUM |
 | Rajasthan Royals | 5 | 98 | 154 | 6 | 9.43 | 25.67 | 16.33 | 29.59 | 19.39 | MEDIUM |
-| Chennai Super Kings | 3 | 54 | 68 | 3 | 7.56 | 22.67 | 18.0 | 27.78 | 11.11 | MEDIUM |
-| Lucknow Super Giants | 4 | 96 | 78 | 3 | 4.88 | 26.0 | 32.0 | 44.79 | 6.25 | MEDIUM |
+| Punjab Kings | 4 | 90 | 122 | 6 | 8.13 | 20.33 | 15.0 | 30.0 | 14.44 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 65 | 103 | 3 | 9.51 | 34.33 | 21.67 | 29.23 | 20.0 | MEDIUM |
+| Lucknow Super Giants | 4 | 96 | 78 | 3 | 4.88 | 26.0 | 32.0 | 44.79 | 6.25 | MEDIUM |
+| Chennai Super Kings | 3 | 54 | 68 | 3 | 7.56 | 22.67 | 18.0 | 27.78 | 11.11 | MEDIUM |
 | Delhi Capitals | 4 | 71 | 104 | 2 | 8.79 | 52.0 | 35.5 | 30.99 | 19.72 | MEDIUM |
 
 ### Khaleel Ahmed
@@ -561,24 +566,22 @@
 
 | Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
 |--------|-----------|-----------|-----------|-----------|----------|
-| **RD Gaikwad** | 142 | 148 | 19.5 | 17.7 | Balanced |
-| **SV Samson** | 152 | 149 | 23.2 | 16.6 | Balanced |
-| **S Dube** | 151 | 145 | 19.5 | 16.6 | Balanced |
-| **MS Dhoni** | 190 | 121 | 27.8 | 13.8 | Pace Dominant |
-| **D Brevis** | 188 | 134 | 28.1 | 13.7 | Pace Dominant |
-| **A Mhatre** | 201 | 132 | 37.1 | 13.6 | Pace Dominant |
-| **Aman Hakim Khan** | 141 | 76 | 17.6 | 8 | Pace Dominant |
-| **MW Short** | 144 | 71.4 | 25.4 | 4.8 | Pace Dominant |
+| **RD Gaikwad** | 150 | 139 | 19.9 | 15.3 | Balanced |
+| **SV Samson** | 140 | 168 | 20.4 | 21.1 | Spin Dominant |
+| **S Dube** | 141 | 147 | 16.7 | 17.3 | Balanced |
+| **MS Dhoni** | 178 | 114 | 25 | 12.5 | Pace Dominant |
+| **D Brevis** | 151 | 142 | 18.6 | 15.2 | Balanced |
+| **A Mhatre** | 258 | 150 | 49.1 | 12.5 | Pace Dominant |
+| **Aman Hakim Khan** | 144 | 87.5 | 18.6 | 12.5 | Pace Dominant |
+| **MW Short** | 130 | 71.4 | 19.6 | 4.8 | Pace Dominant |
 
-*Exploitable vs spin: **Aman Hakim Khan** (76 SR), **MW Short** (71 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **MS Dhoni** (190 SR), **D Brevis** (188 SR), **A Mhatre** (201 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+*Exploitable vs spin: **MS Dhoni** (114 SR), **Aman Hakim Khan** (88 SR), **MW Short** (71 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **MS Dhoni** (178 SR), **A Mhatre** (258 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
 
 ### 10.3 Pace Attack Intelligence
 
 | Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Wkt Rate |
 |--------|---------|----------|------------|------------|----------|
-| **KK Ahmed** | 8.4 | 8.5 | 11.6 | PP | 0.32 |
 | **KV Sharma** | - | 10.2 | 9 | Death | 0.38 |
-| **NT Ellis** | 7.2 | 7.5 | 10.5 | PP | 0.33 |
 | **A Kamboj** | 8.6 | 9.8 | 6 | Death | 0.32 |
 
 ***A Kamboj** is the designated death option at 6.0 economy (league avg 10.9). **A Kamboj** should lead the powerplay attack (8.6 economy).*
@@ -587,17 +590,16 @@
 
 | Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Control Rating |
 |--------|---------|----------|------------|------------|----------------|
-| **Noor Ahmad** | 8.3 | 7.9 | 7.7 | Death | 34.5% |
 | **RD Chahar** | 9 | 8.0 | 9 | Middle | 30.6% |
 
-***Noor Ahmad** is the middle-overs anchor at 7.9 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **RD Chahar** offers a viable death option at 9.0 economy, giving the captain tactical flexibility. Spin dependency is high with 214 combined overs across 2 spinners — a strength on turning pitches but a risk on pace-friendly surfaces.*
+***RD Chahar** is the middle-overs anchor at 8.0 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **RD Chahar** offers a viable death option at 9.0 economy, giving the captain tactical flexibility. Spin depth is thin — injury to the primary spinner would expose the middle overs significantly.*
 
 ### 10.5 Key Vulnerabilities & Matchup Risks
 
 #### Phase Gaps
 
 - **Powerplay**: batting SR 124.4 vs league 146.3
-- **Middle**: batting SR 119.8 vs league 140.3
+- **Middle**: batting SR 114.7 vs league 140.3
 
 #### Spin Vulnerability Risk
 
@@ -755,16 +757,17 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 ### 12.1 T20 Batting Profile
 
-*No uncapped players with meaningful T20 batting data (5+ innings)*
-
+| Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Trust | Tournaments |
+|--------|------|---------|----------|--------|---------|------------|-------|-------------|
+| Zak Foulkes | All-rounder | 31 | 252 | 126 | 13.3 | HIGH | 10 | - |
+| Shreyas Gopal | All-rounder | 30 | 245 | 110 | 12.2 | HIGH | 36 | - |
 
 ### 12.2 T20 Bowling Profile
 
 | Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|-------------|----------|----------|---------|------------|-------|-------------|
-| Zak Foulkes | Fast | 59 | 73 | 8.1 | 22.4 | HIGH | 39 | SS, Blast, Blast |
-| Dewald Brevis | Off-spin | 21 | 16 | 7.7 | 20.6 | HIGH | 20 | CSA, SA20 |
-| Aman Khan | Off-spin | 8 | 4 | 8.2 | 34.8 | LOW | 12 | SMAT |
+| Zak Foulkes | Fast | 59 | 73 | 8.1 | 22.4 | HIGH | 39 | - |
+| Aman Khan | Fast | 8 | 4 | 8.2 | 34.8 | LOW | 12 | - |
 
 ### 12.3 Limited / No T20 Data
 
@@ -774,7 +777,7 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 |--------|------|-------------|
 | Gurjapneet Singh | Bowler | IND |
 | Prashant Veer | All-rounder | IND |
-| Ramakrishna Ghosh | Bowler | IND |
+| Ramakrishna Ghosh | All-rounder | IND |
 
 
 ---
@@ -788,36 +791,36 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
 |--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
 | MS Dhoni | Wicketkeeper | 271 | 137 | 41.0 | 1 | 3935 | 87 | IPL (0.87, SR 137.5) |
-| Matthew Short | All-rounder | 92 | 144 | 28.9 | 4 | 2378 | 52 | BBL (0.53, SR 142.1); MLC (0.42, SR 157.3); 100 (0.50, SR 151.4) |
-| Dewald Brevis | All-rounder | 184 | 148 | 28.2 | 5 | 1469 | 54 | SA20 (0.50, SR 145.3); CSA (0.38, SR 149.0); IPL (0.87, SR 153.2) |
+| Matthew Short | All-rounder | 92 | 144 | 28.9 | 4 | 2400 | 52 | BBL (0.53, SR 142.1); MLC (0.42, SR 157.3); 100 (0.50, SR 151.4) |
+| Dewald Brevis | Batter | 184 | 149 | 30.2 | 5 | 1610 | 54 | SA20 (0.50, SR 148.8); CSA (0.38, SR 149.0); IPL (0.87, SR 153.2) |
 | Jamie Overton | All-rounder | 7 | 156 | 23.8 | 4 | 1000 | 51 | Blast (0.50, SR 171.8); BBL (0.53, SR 138.7); 100 (0.50, SR 156.0) |
-| Akeal Hosein | Bowler | 10 | 108 | 19.8 | 7 | 862 | 49 | CPL (0.50, SR 109.0); ILT20 (0.49, SR 82.3); PSL (0.51, SR 120.8) |
+| Akeal Hosein | All-rounder | 10 | 109 | 19.4 | 7 | 873 | 49 | CPL (0.50, SR 109.0); ILT20 (0.49, SR 82.3); PSL (0.51, SR 120.8) |
 | Sarfaraz Khan | Batter | 61 | 127 | 23.1 | 2 | 676 | 79 | IPL (0.87, SR 130.2); SMAT (0.65, SR 120.3) |
 | Kartik Sharma | Wicketkeeper | 21 | 129 | 18.4 | 2 | 676 | 74 | SMAT (0.65, SR 138.8); IPL (0.87, SR 119.3) |
 | Urvil Patel | Wicketkeeper | 32 | 158 | 21.3 | 2 | 433 | 57 | SMAT (0.65, SR 152.4); IPL (0.87, SR 212.5) |
 | Nathan Ellis | Bowler | 7 | 117 | 12.7 | 4 | 402 | 44 | BBL (0.53, SR 129.8); Blast (0.50, SR 109.4); 100 (0.50, SR 65.7) |
-| Shreyas Gopal | Bowler | 0 | 109 | 13.9 | 2 | 223 | 36 | IPL (0.87, SR 106.5); SMAT (0.65, SR 120.4) |
+| Shreyas Gopal | All-rounder | 0 | 109 | 13.9 | 2 | 223 | 36 | IPL (0.87, SR 106.5); SMAT (0.65, SR 120.4) |
 | Matt Henry | Bowler | 0 | 144 | 14.5 | 3 | 169 | 14 | SS (0.36, SR 153.2); Blast (0.50, SR 133.3); 100 (0.50, SR 128.0) |
 | Rahul Chahar | Bowler | 24 | 98.9 | 8.6 | 2 | 165 | 27 | IPL (0.87, SR 104.0); SMAT (0.65, SR 78.0) |
 | Aman Khan | All-rounder | 101 | 123 | 12.7 | 2 | 152 | 24 | IPL (0.87, SR 110.6); SMAT (0.65, SR 158.3) |
 | Noor Ahmad | Bowler | 35 | 86.4 | 7.6 | 3 | 136 | 15 | LPL (0.40, SR 111.3); ILT20 (0.49, SR 102.1); IPL (0.87, SR 57.1) |
-| Zak Foulkes | Bowler | 0 | 126 | 16.8 | 1 | 133 | 10 | SS (0.36, SR 126.3) |
+| Zak Foulkes | All-rounder | 0 | 126 | 16.8 | 1 | 133 | 10 | SS (0.36, SR 126.3) |
 | Ayush Mhatre | Batter | 127 | 189 | 34.3 | 1 | 127 | 22 | IPL (0.87, SR 189.0) |
 
 ### 13.2 Bowling Intelligence
 
 | Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
 |--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
-| Akeal Hosein | Bowler | 24 | 6.9 | 20.2 | 9 | 3844 | 50 | CPL (0.50, Econ 6.5); ILT20 (0.49, Econ 7.1); BBL (0.53, Econ 6.8) |
-| Jamie Overton | All-rounder | 36 | 8.9 | 17.1 | 5 | 1730 | 51 | Blast (0.50, Econ 9.4); BBL (0.53, Econ 8.2); ILT20 (0.49, Econ 8.3) |
-| Shreyas Gopal | Bowler | 42 | 7.7 | 16.5 | 2 | 1491 | 80 | IPL (0.87, Econ 8.1); SMAT (0.65, Econ 6.7) |
+| Akeal Hosein | All-rounder | 24 | 7.0 | 20.4 | 9 | 3904 | 50 | CPL (0.50, Econ 6.5); ILT20 (0.49, Econ 7.1); BBL (0.53, Econ 6.8) |
+| Jamie Overton | All-rounder | 36 | 8.9 | 17.3 | 5 | 1748 | 51 | Blast (0.50, Econ 9.4); BBL (0.53, Econ 8.1); ILT20 (0.49, Econ 8.3) |
+| Shreyas Gopal | All-rounder | 42 | 7.7 | 16.5 | 2 | 1491 | 80 | IPL (0.87, Econ 8.1); SMAT (0.65, Econ 6.7) |
 | Matt Henry | Bowler | 72 | 8.0 | 13.6 | 5 | 1350 | 45 | SS (0.36, Econ 7.6); Blast (0.50, Econ 7.5); 100 (0.50, Econ 6.4) |
-| Matthew Short | All-rounder | 24 | 7.5 | 24.0 | 4 | 1295 | 52 | BBL (0.53, Econ 7.5); MLC (0.42, Econ 7.0); 100 (0.50, Econ 8.1) |
+| Matthew Short | All-rounder | 24 | 7.5 | 24.1 | 4 | 1301 | 52 | BBL (0.53, Econ 7.5); MLC (0.42, Econ 7.0); 100 (0.50, Econ 8.1) |
 | Shivam Dube | All-rounder | 18 | 8.6 | 20.0 | 2 | 720 | 68 | SMAT (0.65, Econ 8.1); IPL (0.87, Econ 10.3) |
-| Zak Foulkes | Bowler | 0 | 7.5 | 14.2 | 2 | 680 | 39 | SS (0.36, Econ 7.0); Blast (0.50, Econ 9.1) |
+| Zak Foulkes | All-rounder | 0 | 7.5 | 14.2 | 2 | 680 | 39 | SS (0.36, Econ 7.0); Blast (0.50, Econ 9.1) |
 | Mukesh Choudhary | Bowler | 42 | 9.0 | 17.1 | 2 | 556 | 77 | IPL (0.87, Econ 9.5); SMAT (0.65, Econ 8.1) |
 | Anshul Kamboj | Bowler | 189 | 8.3 | 15.7 | 2 | 255 | 41 | IPL (0.87, Econ 8.7); SMAT (0.65, Econ 6.8) |
-| Dewald Brevis | All-rounder | 0 | 7.6 | 13.1 | 2 | 252 | 20 | CSA (0.38, Econ 7.5); SA20 (0.50, Econ 8.0) |
+| Dewald Brevis | Batter | 0 | 7.6 | 13.1 | 2 | 252 | 20 | CSA (0.38, Econ 7.5); SA20 (0.50, Econ 8.0) |
 | Aman Khan | All-rounder | 0 | 7.7 | 24 | 1 | 96 | 12 | SMAT (0.65, Econ 7.7) |
 | Prashant Veer | All-rounder | 0 | 2.3 | 6 | 1 | 18 | 2 | SMAT (0.65, Econ 2.3) |
 

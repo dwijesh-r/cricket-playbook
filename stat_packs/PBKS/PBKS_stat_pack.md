@@ -1,6 +1,6 @@
 # Punjab Kings (PBKS) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-13 21:38
+**Generated:** 2026-02-14 17:15
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -13,32 +13,32 @@
 | Player | Role | Bowling | Batting | Price (Cr) | Type | Joined |
 |--------|------|---------|---------|------------|------|--------|
 | Shreyas Iyer | Batter | Leg-spin | Right-hand | 26.75 | Retained | 2025 |
-| Arshdeep Singh | Bowler | Fast | Left-hand | 18.00 | Retained | 2019 |
+| Arshdeep Singh | Bowler | Fast-Medium | Left-hand | 18.00 | Retained | 2019 |
 | Yuzvendra Chahal | Bowler | Leg-spin | Right-hand | 18.00 | Retained | 2025 |
-| Marco Jansen | All-rounder | Fast | Left-hand | 11.25 | Retained | 2025 |
+| Marco Jansen | All-rounder | Fast-Medium | Right-hand | 11.25 | Retained | 2025 |
 | Marcus Stoinis | All-rounder | Fast | Right-hand | 11.00 | Retained | 2025 |
 | Shashank Singh | All-rounder | Medium | Right-hand | 5.50 | Retained | 2023 |
-| Nehal Wadhera | Batter | Medium | Right-hand | 4.20 | Retained | 2024 |
+| Nehal Wadhera | Batter | Medium | Left-hand | 4.20 | Retained | 2024 |
 | Prabhsimran Singh | Wicketkeeper | Medium | Right-hand | 4.00 | Retained | 2019 |
 | Priyansh Arya | Batter | Medium | Left-hand | 3.80 | Retained | 2024 |
-| Azmatullah Omarzai | All-rounder | Fast | Right-hand | 2.40 | Retained | 2025 |
+| Azmatullah Omarzai | All-rounder | Fast-Medium | Right-hand | 2.40 | Retained | 2025 |
 | Lockie Ferguson | Bowler | Fast | Right-hand | 2.00 | Retained | 2024 |
 | Vijaykumar Vyshak | Bowler | Fast | Right-hand | 1.80 | Retained | 2024 |
-| Yash Thakur | Bowler | Fast | Right-hand | 1.60 | Retained | 2024 |
-| Harpreet Brar | All-rounder | Left-arm orthodox | Left-hand | 1.50 | Retained | 2019 |
-| Cooper Connolly | All-rounder | Left-arm orthodox | Left-hand | 1.00 | Auction | 2026 |
+| Yash Thakur | Bowler | Fast-Medium | Right-hand | 1.60 | Retained | 2024 |
+| Harpreet Brar | All-rounder | LA Orthodox | Left-hand | 1.50 | Retained | 2019 |
+| Cooper Connolly | All-rounder | LA Orthodox | Left-hand | 1.00 | Auction | 2026 |
 | Vishnu Vinod | Wicketkeeper | Medium | Right-hand | 0.95 | Retained | 2022 |
-| Xavier Bartlett | Bowler | Fast | Right-hand | 0.80 | Retained | 2024 |
-| Suryansh Shedge | All-rounder | Off-spin | Right-hand | 0.30 | Retained | 2025 |
+| Xavier Bartlett | Bowler | Fast-Medium | Right-hand | 0.80 | Retained | 2024 |
+| Suryansh Shedge | All-rounder | Fast | Right-hand | 0.30 | Retained | 2025 |
 | Pyla Avinash | Batter | Fast | Right-hand | 0.30 | Retained | 2025 |
-| Musheer Khan | All-rounder | Left-arm orthodox | Left-hand | 0.30 | Retained | 2025 |
+| Musheer Khan | All-rounder | LA Orthodox | Right-hand | 0.30 | Retained | 2025 |
 | Harnoor Singh | Batter | Medium | Left-hand | 0.30 | Retained | 2025 |
-| Ben Dwarshuis | Bowler | Fast | Left-hand | 0.30 | Auction | 2026 |
+| Ben Dwarshuis | All-rounder | Fast | Left-hand | 0.30 | Auction | 2026 |
 
 **Total Squad Size:** 22 players
 **Total Spend:** ₹116.05 Cr
 
-**Role Breakdown:** All-rounder: 8, Batter: 5, Bowler: 7, Wicketkeeper: 2
+**Role Breakdown:** All-rounder: 9, Batter: 5, Bowler: 6, Wicketkeeper: 2
 
 ### 1.2 Player Archetypes (K-means V2 Model)
 
@@ -129,7 +129,7 @@
 
 - **2023:** Arshdeep Singh (17w @ 9.2), NT Ellis (13w @ 8.81), SM Curran (10w @ 9.97)
 - **2024:** HV Patel (24w @ 9.18), Arshdeep Singh (19w @ 9.46), SM Curran (16w @ 9.97)
-- **2025:** Arshdeep Singh (21w @ 8.62), M Jansen (16w @ 8.96), YS Chahal (16w @ 9.34)
+- **2025:** Arshdeep Singh (21w @ 8.62), YS Chahal (16w @ 9.34), M Jansen (16w @ 8.96)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -238,7 +238,7 @@
 - **Avg Score (batting):** 165.4
 - **Highest/Lowest:** 219/101
 - **Pitch Type:** Balanced
-- **Pace SR:** 16.4 | **Spin SR:** 18.9
+- **Pace SR:** 16.4 | **Spin SR:** 19.1
 
 ### Away Performance
 
@@ -246,13 +246,13 @@
 |-------|---------|------|------|-----------|
 | Himachal Pradesh Cricket Associatio | 6 | 1 | 16.7% | 177.2 |
 | Narendra Modi Stadium | 4 | 3 | 75.0% | 208.5 |
-| Eden Gardens | 3 | 1 | 33.3% | 214.0 |
-| MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
-| Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
+| Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
+| Eden Gardens | 3 | 1 | 33.3% | 214.0 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
-| Barsapara Cricket Stadium | 2 | 2 | 100.0% | 171.0 |
+| MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
 | M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
+| Barsapara Cricket Stadium | 2 | 2 | 100.0% | 171.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -260,16 +260,16 @@
 
 | Venue | Matches | Pace SR | Spin SR | Bias |
 |-------|---------|---------|---------|------|
-| Narendra Modi Stadium | 26 | 18.2 | 23.2 | PACE |
-| MA Chidambaram Stadium | 24 | 17.6 | 20.2 | BALANCED |
-| Bharat Ratna Shri Atal Bihari  | 22 | 18.2 | 23.2 | BALANCED |
+| Narendra Modi Stadium | 26 | 18.2 | 22.3 | BALANCED |
+| MA Chidambaram Stadium | 24 | 17.7 | 20.1 | BALANCED |
+| Bharat Ratna Shri Atal Bihari  | 22 | 18.3 | 23.8 | PACE |
 | Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Wankhede Stadium | 21 | 18.6 | 20.9 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.6 | PACE |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.3 | BALANCED |
+| Wankhede Stadium | 21 | 18.8 | 21.0 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 19.4 | 26.5 | PACE |
 | M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Sawai Mansingh Stadium | 17 | 24.1 | 22.0 | BALANCED |
-| Maharaja Yadavindra Singh Inte | 10 | 15.7 | 16.6 | BALANCED |
+| Arun Jaitley Stadium | 19 | 19.3 | 19.4 | BALANCED |
+| Sawai Mansingh Stadium | 17 | 24.1 | 22.1 | BALANCED |
+| Maharaja Yadavindra Singh Inte | 10 | 15.8 | 16.8 | BALANCED |
 
 ### Venue Specialists
 
@@ -295,10 +295,10 @@
 | Yash Thakur | Bharat Ratna Shri Atal Bi | 8 | 12 | 9.19 | 14.42 |
 | Arshdeep Singh | Maharaja Yadavindra Singh | 10 | 11 | 8.64 | 18.0 |
 | Vijaykumar Vyshak | M Chinnaswamy Stadium | 8 | 10 | 9.8 | 17.7 |
+| Arshdeep Singh | Punjab Cricket Associatio | 5 | 7 | 10.78 | 16.14 |
 | YS Chahal | MA Chidambaram Stadium | 4 | 7 | 7.33 | 12.86 |
 | Arshdeep Singh | Himachal Pradesh Cricket  | 5 | 7 | 9.0 | 14.57 |
-| Arshdeep Singh | Punjab Cricket Associatio | 5 | 7 | 10.78 | 16.14 |
-| Harpreet Brar | Sawai Mansingh Stadium | 3 | 6 | 8.17 | 12.0 |
+| M Jansen | Sawai Mansingh Stadium | 4 | 6 | 10.48 | 15.17 |
 | YS Chahal | Barsapara Cricket Stadium | 3 | 6 | 8.75 | 12.0 |
 
 
@@ -324,6 +324,7 @@
 | Musheer Khan | All-rounder | 1 | 0 | 3 | - | - | - | 100.0 | 0 | 0 | LOW |
 | Cooper Connolly | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Harnoor Singh | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
+| Ben Dwarshuis | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Pyla Avinash | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
 ### 5.2 Phase-wise Batting (Qualified players)
@@ -354,19 +355,19 @@
 
 | Player | Type | Matches | Overs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |--------|------|---------|-------|------|------|-----|-----|------|--------|--------|
-| Arshdeep Singh | Fast | 44 | 159.5 | 57 | 9.64 | 26.98 | 16.79 | 36.78 | 24.14 | HIGH |
+| Arshdeep Singh | Fast-Mediu | 44 | 159.5 | 57 | 9.64 | 26.98 | 16.79 | 36.78 | 24.14 | HIGH |
 | Yuzvendra Chahal | Leg-spin | 42 | 155.8 | 55 | 9.07 | 25.69 | 17.0 | 28.34 | 17.22 | HIGH |
-| Marco Jansen | Fast | 25 | 84.5 | 27 | 10.12 | 31.67 | 18.78 | 37.48 | 24.06 | MEDIUM |
-| Harpreet Brar | Left-arm o | 31 | 87.2 | 26 | 8.24 | 27.62 | 20.12 | 31.74 | 15.87 | HIGH |
-| Yash Thakur | Fast | 21 | 73.8 | 25 | 10.59 | 31.28 | 17.72 | 31.15 | 24.15 | MEDIUM |
+| Marco Jansen | Fast-Mediu | 25 | 84.5 | 27 | 10.12 | 31.67 | 18.78 | 37.48 | 24.06 | MEDIUM |
+| Harpreet Brar | LA Orthodo | 31 | 87.2 | 26 | 8.24 | 27.62 | 20.12 | 31.74 | 15.87 | HIGH |
+| Yash Thakur | Fast-Mediu | 21 | 73.8 | 25 | 10.59 | 31.28 | 17.72 | 31.15 | 24.15 | MEDIUM |
 | Vijaykumar Vyshak | Fast | 16 | 55.5 | 17 | 10.4 | 33.94 | 19.59 | 28.23 | 22.22 | MEDIUM |
 | Lockie Ferguson | Fast | 14 | 43.0 | 15 | 10.81 | 31.0 | 17.2 | 29.84 | 24.42 | MEDIUM |
-| Azmatullah Omarzai | Fast | 15 | 48.0 | 12 | 9.92 | 39.67 | 24.0 | 32.99 | 23.96 | MEDIUM |
+| Azmatullah Omarzai | Fast-Mediu | 15 | 48.0 | 12 | 9.92 | 39.67 | 24.0 | 32.99 | 23.96 | MEDIUM |
 | Marcus Stoinis | Fast | 21 | 39.0 | 10 | 10.38 | 40.5 | 23.4 | 31.62 | 22.22 | MEDIUM |
-| Xavier Bartlett | Fast | 4 | 10.0 | 2 | 9.6 | 48.0 | 30.0 | 46.67 | 26.67 | LOW |
+| Xavier Bartlett | Fast-Mediu | 4 | 10.0 | 2 | 9.6 | 48.0 | 30.0 | 46.67 | 26.67 | LOW |
 | Shashank Singh | Medium | 2 | 3.0 | 1 | 10.67 | 32.0 | 18.0 | 22.22 | 27.78 | LOW |
-| Musheer Khan | Left-arm o | 1 | 2.0 | 1 | 13.5 | 27.0 | 12.0 | 8.33 | 33.33 | LOW |
-| Suryansh Shedge | Off-spin | 1 | 3.0 | 0 | 13.33 | - | - | 5.56 | 27.78 | LOW |
+| Musheer Khan | LA Orthodo | 1 | 2.0 | 1 | 13.5 | 27.0 | 12.0 | 8.33 | 33.33 | LOW |
+| Suryansh Shedge | Fast | 1 | 3.0 | 0 | 13.33 | - | - | 5.56 | 27.78 | LOW |
 
 ### 6.2 Bowler Phase Distribution
 
@@ -484,9 +485,9 @@
 | Sunrisers Hyderabad | 4 | 90 | 121 | 8 | 8.07 | 15.13 | 11.25 | 45.56 | 23.33 | MEDIUM |
 | Royal Challengers Bengaluru | 7 | 134 | 223 | 8 | 9.99 | 27.88 | 16.75 | 32.09 | 25.37 | HIGH |
 | Mumbai Indians | 5 | 113 | 196 | 7 | 10.41 | 28.0 | 16.14 | 30.97 | 29.2 | HIGH |
-| Chennai Super Kings | 5 | 116 | 180 | 6 | 9.31 | 30.0 | 19.33 | 34.48 | 25.0 | HIGH |
 | Rajasthan Royals | 6 | 143 | 247 | 6 | 10.36 | 41.17 | 23.83 | 40.56 | 27.97 | HIGH |
 | Kolkata Knight Riders | 4 | 84 | 112 | 6 | 8.0 | 18.67 | 14.0 | 46.43 | 20.24 | MEDIUM |
+| Chennai Super Kings | 5 | 116 | 180 | 6 | 9.31 | 30.0 | 19.33 | 34.48 | 25.0 | HIGH |
 | Gujarat Titans | 4 | 85 | 124 | 4 | 8.75 | 31.0 | 21.25 | 30.59 | 18.82 | MEDIUM |
 | Delhi Capitals | 4 | 84 | 112 | 2 | 8.0 | 56.0 | 42.0 | 39.29 | 19.05 | MEDIUM |
 
@@ -501,8 +502,8 @@
 | Delhi Capitals | 3 | 66 | 93 | 6 | 8.45 | 15.5 | 11.0 | 28.79 | 15.15 | MEDIUM |
 | Mumbai Indians | 4 | 90 | 129 | 5 | 8.6 | 25.8 | 18.0 | 36.67 | 20.0 | MEDIUM |
 | Punjab Kings | 4 | 96 | 147 | 4 | 9.19 | 36.75 | 24.0 | 25.0 | 19.79 | MEDIUM |
-| Gujarat Titans | 4 | 89 | 134 | 3 | 9.03 | 44.67 | 29.67 | 17.98 | 15.73 | MEDIUM |
 | Lucknow Super Giants | 5 | 114 | 189 | 3 | 9.95 | 63.0 | 38.0 | 25.44 | 21.05 | HIGH |
+| Gujarat Titans | 4 | 89 | 134 | 3 | 9.03 | 44.67 | 29.67 | 17.98 | 15.73 | MEDIUM |
 | Rajasthan Royals | 2 | 42 | 57 | 0 | 8.14 | - | - | 23.81 | 14.29 | MEDIUM |
 
 ---
@@ -607,39 +608,34 @@
 
 | Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
 |--------|-----------|-----------|-----------|-----------|----------|
-| **P Simran Singh** | 157 | 157 | 25.9 | 22.7 | Balanced |
-| **MP Stoinis** | 161 | 141 | 23.9 | 16.7 | Pace Dominant |
-| **SS Iyer** | 167 | 159 | 24.1 | 18.7 | Balanced |
-| **N Wadhera** | 139 | 148 | 19.9 | 19.7 | Balanced |
-| **Shashank Singh** | 172 | 138 | 23.8 | 14.7 | Pace Dominant |
-| **Priyansh Arya** | 185 | 176 | 32.3 | 23.8 | Balanced |
-| **M Jansen** | 109 | 115 | 10.6 | 11.8 | Balanced |
-| **Harpreet Brar** | 132 | 115 | 17.1 | 15.4 | Pace Dominant |
+| **P Simran Singh** | 162 | 175 | 25.8 | 26.4 | Balanced |
+| **MP Stoinis** | 168 | 155 | 25.4 | 20 | Balanced |
+| **SS Iyer** | 167 | 173 | 24.0 | 22.1 | Balanced |
+| **N Wadhera** | 141 | 144 | 19.6 | 18.5 | Balanced |
+| **Shashank Singh** | 167 | 152 | 22.4 | 15.5 | Pace Dominant |
+| **Priyansh Arya** | 172 | 178 | 29.3 | 25 | Balanced |
+| **M Jansen** | 108 | 107 | 10.2 | 10.7 | Balanced |
+| **Harpreet Brar** | 133 | 79.0 | 19.3 | 5.3 | Pace Dominant |
 
-*Exploitable vs spin: **M Jansen** (115 SR), **Harpreet Brar** (115 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **MP Stoinis** (161 SR), **SS Iyer** (167 SR), **Shashank Singh** (172 SR), **Priyansh Arya** (185 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+*Exploitable vs spin: **M Jansen** (107 SR), **Harpreet Brar** (79 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **P Simran Singh** (162 SR), **MP Stoinis** (168 SR), **SS Iyer** (167 SR), **Shashank Singh** (167 SR), **Priyansh Arya** (172 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
 
 ### 10.3 Pace Attack Intelligence
 
 | Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Wkt Rate |
 |--------|---------|----------|------------|------------|----------|
-| **Arshdeep Singh** | 8.9 | 8.7 | 10.0 | Middle | 0.36 |
-| **M Jansen** | 8.9 | 9.8 | 9.8 | PP | 0.32 |
-| **Yash Thakur** | 9.9 | 9.4 | 10.9 | Middle | 0.34 |
 | **Vijaykumar Vyshak** | 9.1 | 9.1 | 11.9 | Middle | 0.31 |
 | **LH Ferguson** | 10.7 | 9.1 | 11.0 | Middle | 0.35 |
-| **Azmatullah Omarzai** | 9.6 | 8.2 | 12 | Middle | 0.25 |
 | **MP Stoinis** | 8.2 | 9.5 | 14.2 | PP | 0.26 |
 
-***M Jansen** is the designated death option at 9.8 economy (league avg 10.9). **MP Stoinis** should lead the powerplay attack (8.2 economy).*
+*No pace bowler operates below the league death average of 10.9 — death bowling is a structural concern. **MP Stoinis** should lead the powerplay attack (8.2 economy).*
 
 ### 10.4 Spin Attack Intelligence
 
 | Bowler | PP Econ | Mid Econ | Death Econ | Best Phase | Control Rating |
 |--------|---------|----------|------------|------------|----------------|
 | **YS Chahal** | 5.3 | 8.7 | 9.9 | PP | 28.3% |
-| **Harpreet Brar** | 10.1 | 7.2 | 10.5 | Middle | 31.7% |
 
-***Harpreet Brar** is the middle-overs anchor at 7.2 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **Harpreet Brar** offers a viable death option at 10.5 economy, giving the captain tactical flexibility. Spin dependency is high with 243 combined overs across 2 spinners — a strength on turning pitches but a risk on pace-friendly surfaces.*
+***YS Chahal** is the middle-overs anchor at 8.7 economy (league avg 8.8) — must bowl 3-4 overs through the middle phase. **YS Chahal** offers a viable death option at 9.9 economy, giving the captain tactical flexibility. Spin depth is thin — injury to the primary spinner would expose the middle overs significantly.*
 
 ### 10.5 Key Vulnerabilities & Matchup Risks
 
@@ -650,12 +646,11 @@
 
 #### Spin Vulnerability Risk
 
-- **Shashank Singh** vs LA orthodox: SR 100, Avg 18.3, BPD 18.3 (55 balls, league avg 138.7)
+- No significant spin vulnerabilities identified in MEDIUM/HIGH sample data.
 
 #### Pace Vulnerability Risk
 
-- **Harpreet Brar** vs Fast: SR 102, Avg 10.6 (52 balls, league avg vs pace ~151)
-- **M Jansen** vs Fast: SR 116, Avg 28.7 (74 balls, league avg vs pace ~151)
+- No significant pace vulnerabilities identified — squad handles pace adequately.
 
 #### Structural Concerns
 
@@ -826,15 +821,16 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 | Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|---------|----------|--------|---------|------------|-------|-------------|
-| Harnoor Singh | Batter | 110 | 1062 | 133 | 15.6 | HIGH | 84 | SMAT, T20WC, Unknow |
-| Cooper Connolly | All-rounder | 37 | 841 | 136 | 30.0 | HIGH | 52 | BBL, MLC, Intl |
+| Ben Dwarshuis | All-rounder | 106 | 1179 | 142 | 19.3 | HIGH | 52 | - |
+| Harnoor Singh | Batter | 110 | 1062 | 133 | 15.6 | HIGH | 84 | - |
+| Cooper Connolly | All-rounder | 40 | 855 | 135 | 28.5 | HIGH | 52 | - |
 
 ### 12.2 T20 Bowling Profile
 
 | Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|-------------|----------|----------|---------|------------|-------|-------------|
-| Ben Dwarshuis | Fast | 179 | 229 | 8.6 | 23.9 | HIGH | 52 | BBL, Blast, Blast |
-| Cooper Connolly | Left-arm ort | 29 | 24 | 7.5 | 22.6 | HIGH | 40 | BBL, Intl, Intl |
+| Ben Dwarshuis | Fast | 183 | 234 | 8.6 | 23.8 | HIGH | 52 | - |
+| Cooper Connolly | LA Orthodox | 32 | 28 | 7.3 | 20.9 | HIGH | 45 | - |
 
 ### 12.3 Limited / No T20 Data
 
@@ -856,12 +852,12 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
 |--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
 | Harnoor Singh | Batter | 0 | 134 | 17.4 | 2 | 714 | 84 | IPL (0.87, SR 137.6); SMAT (0.65, SR 105.2) |
-| Marco Jansen | All-rounder | 119 | 130 | 19.5 | 5 | 657 | 55 | SA20 (0.50, SR 141.0); IPL (0.87, SR 109.3); CSA (0.38, SR 144.0) |
-| Ben Dwarshuis | Bowler | 0 | 144 | 19.8 | 4 | 620 | 52 | BBL (0.53, SR 144.4); Blast (0.50, SR 105.3); PSL (0.51, SR 170.0) |
-| Cooper Connolly | All-rounder | 0 | 137 | 32.1 | 2 | 608 | 52 | BBL (0.53, SR 139.2); MLC (0.42, SR 103.7) |
+| Marco Jansen | All-rounder | 119 | 131 | 19.6 | 5 | 684 | 55 | SA20 (0.50, SR 142.2); IPL (0.87, SR 109.3); CSA (0.38, SR 144.0) |
+| Ben Dwarshuis | All-rounder | 0 | 142 | 19.6 | 4 | 635 | 52 | BBL (0.53, SR 142.7); Blast (0.50, SR 105.3); PSL (0.51, SR 170.0) |
+| Cooper Connolly | All-rounder | 0 | 135 | 30.3 | 2 | 624 | 52 | BBL (0.53, SR 137.7); MLC (0.42, SR 103.7) |
 | Vishnu Vinod | Wicketkeeper | 30 | 139 | 32.7 | 2 | 584 | 67 | SMAT (0.65, SR 145.3); IPL (0.87, SR 98.2) |
 | Priyansh Arya | Batter | 298 | 173 | 31.0 | 2 | 474 | 75 | IPL (0.87, SR 182.9); SMAT (0.65, SR 151.1) |
-| Xavier Bartlett | Bowler | 15 | 130 | 19.9 | 3 | 339 | 34 | BBL (0.53, SR 123.1); MLC (0.42, SR 177.3); Blast (0.50, SR 88.6) |
+| Xavier Bartlett | Bowler | 15 | 128 | 19.1 | 3 | 344 | 34 | BBL (0.53, SR 121.4); MLC (0.42, SR 177.3); Blast (0.50, SR 88.6) |
 | Azmatullah Omarzai | All-rounder | 74 | 148 | 20.5 | 3 | 296 | 34 | ILT20 (0.49, SR 137.1); IPL (0.87, SR 133.8); LPL (0.40, SR 236.5) |
 | Harpreet Brar | All-rounder | 108 | 119 | 20.5 | 2 | 283 | 46 | IPL (0.87, SR 120.2); SMAT (0.65, SR 113.8) |
 | Lockie Ferguson | Bowler | 2 | 139 | 21.4 | 3 | 152 | 16 | SS (0.36, SR 130.2); IPL (0.87, SR 147.8); 100 (0.50, SR 135.0) |
@@ -875,9 +871,9 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
 |--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
 | Harnoor Singh | Batter | 0 | 7.0 | 21.5 | 2 | 3728 | 85 | IPL (0.87, Econ 7.0); SMAT (0.65, Econ 5.9) |
-| Ben Dwarshuis | Bowler | 0 | 8.2 | 16.2 | 4 | 3228 | 52 | BBL (0.53, Econ 8.0); Blast (0.50, Econ 8.4); PSL (0.51, Econ 10.2) |
-| Xavier Bartlett | Bowler | 60 | 8.7 | 15.4 | 4 | 1633 | 52 | BBL (0.53, Econ 8.6); MLC (0.42, Econ 8.7); Blast (0.50, Econ 8.8) |
-| Cooper Connolly | All-rounder | 0 | 7.0 | 16 | 1 | 384 | 40 | BBL (0.53, Econ 7.0) |
+| Ben Dwarshuis | All-rounder | 0 | 8.2 | 16.2 | 4 | 3303 | 52 | BBL (0.53, Econ 8.0); Blast (0.50, Econ 8.4); PSL (0.51, Econ 10.2) |
+| Xavier Bartlett | Bowler | 60 | 8.7 | 15.3 | 4 | 1655 | 52 | BBL (0.53, Econ 8.6); MLC (0.42, Econ 8.7); Blast (0.50, Econ 8.8) |
+| Cooper Connolly | All-rounder | 0 | 6.8 | 15.4 | 1 | 432 | 45 | BBL (0.53, Econ 6.8) |
 | Shashank Singh | All-rounder | 18 | 8.6 | 21.7 | 2 | 258 | 35 | SMAT (0.65, Econ 8.3); IPL (0.87, Econ 10.2) |
 | Suryansh Shedge | All-rounder | 18 | 10.5 | 12.1 | 2 | 66 | 9 | SMAT (0.65, Econ 9.6); IPL (0.87, Econ 12.3) |
 | Shreyas Iyer | Batter | 0 | 10.5 | 41 | 1 | 41 | 5 | SMAT (0.65, Econ 10.5) |

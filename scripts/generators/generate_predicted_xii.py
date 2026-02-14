@@ -772,6 +772,7 @@ def check_constraints(xi: List[SelectedPlayer]) -> Tuple[bool, List[str]]:
     C3: At least 1 wicketkeeper
     C4: Minimum 4 primary bowling options (bowlers + bowling all-rounders)
     C5: At least 1 spinner
+    C6: Minimum 1 frontline spinner (hard floor — bowler or bowling AR with spin type)
     """
     violations = []
     players = [sp.player for sp in xi]
@@ -814,6 +815,20 @@ def check_constraints(xi: List[SelectedPlayer]) -> Tuple[bool, List[str]]:
     if spinners < 1:
         violations.append("C5: No spinner in XI")
 
+    # C6: Frontline spinner — at least 1 player who is a dedicated spin bowler or
+    # a bowling all-rounder with spin type (can deliver 4 full overs of spin).
+    # Distinct from C5: C5 counts any spinner, C6 ensures at least one is a
+    # primary bowling option (Bowler or bowling All-rounder), not just a part-timer.
+    frontline_spinners = sum(
+        1
+        for p in players
+        if p.is_spinner
+        and p.bowling_overs_capability >= 4
+        and (p.role == "Bowler" or p.role == "All-rounder")
+    )
+    if frontline_spinners < 1:
+        violations.append("C6: No frontline spinner in XI (min 1 required)")
+
     return len(violations) == 0, violations
 
 
@@ -828,6 +843,11 @@ def get_balance_metrics(xi: List[SelectedPlayer]) -> Dict[str, int]:
         ),
         "total_bowling_overs": sum(p.bowling_overs_capability for p in players if p.can_bowl),
         "spinners": sum(1 for p in players if p.is_spinner),
+        "spin_options": sum(
+            1
+            for p in players
+            if p.is_spinner or (p.can_bowl and p.bowling_type and "spin" in p.bowling_type.lower())
+        ),
         "pacers": sum(1 for p in players if p.is_pacer),
         "wicketkeepers": sum(1 for p in players if p.is_wicketkeeper),
         "left_handers_top6": sum(1 for sp in xi[:6] if sp.player.batting_hand == "Left-hand"),
@@ -1076,14 +1096,26 @@ def select_xi(
         pacers_selected += 1
 
     # 8. Fill remaining slots with best available
+    # Apply soft spin depth preference: +5 score bonus for spin options when
+    # XI has < 2 spinners, encouraging 2+ spin options for tactical flexibility
     while len(selected) < 11:
         available = get_available(remaining)
         if not available:
             notes.append("WARNING: Not enough players to complete XI!")
             break
 
-        # Sort by overall score and pick best
-        available.sort(key=lambda x: x.overall_score, reverse=True)
+        # Count current spin options in XI
+        current_spinners = sum(1 for sp in selected if sp.player.is_spinner)
+
+        # Sort by overall score with spin depth bonus
+        def adjusted_score(p: Player) -> float:
+            score = p.overall_score
+            # Soft preference: +5 bonus for spin options when XI lacks spin depth
+            if current_spinners < 2 and p.is_spinner:
+                score += 5
+            return score
+
+        available.sort(key=adjusted_score, reverse=True)
         best = available[0]
 
         # Determine role
@@ -1140,6 +1172,13 @@ def select_xi(
                     )
                     if bowling_options <= 5:
                         continue  # Skip this swap
+
+                # Protect spin depth — don't swap out a spinner unless
+                # the overseas replacement is also a spinner
+                if indian_sp.player.is_spinner and not overseas_player.is_spinner:
+                    spinners_in_xi = sum(1 for sp in selected if sp.player.is_spinner)
+                    if spinners_in_xi <= 1:
+                        continue  # Would lose the only spinner
 
                 swap_target = indian_sp
                 break

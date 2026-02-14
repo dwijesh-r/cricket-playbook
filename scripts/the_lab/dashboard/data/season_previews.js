@@ -8,7 +8,7 @@ const SEASON_PREVIEWS = {
   RCB: {
     available: true,
     meta: {
-      revision: 'v1.7',
+      revision: 'v1.8',
       dataWindow: 'IPL 2023-2025 | 9,289 matches / 2.14M balls',
       agents: 'Virat Kohli (Tone & Narrative) | Andy Flower (Scouting Report)',
       matches: '9,289'
@@ -255,17 +255,17 @@ const SEASON_PREVIEWS = {
             ]
           },
           { type: 'text', content: '<p>The powerplay is where RCB separate themselves. A +9.6 SR differential over the league, plus a dot ball rate 3.6 percentage points below average (36.9% vs 40.5%). Translation: RCB batters find gaps more often than any other team in the first six overs. Salt\'s 177.5 SR is the obvious engine, but Kohli\'s ability to rotate strike and let Salt take the risks makes this a two-man partnership that\'s greater than the sum of its parts.</p>' },
-          { type: 'text', content: '<p>Middle overs are adequate but not elite. The +3.4 SR gap narrows considerably here, and the boundary rate (16.1%) is almost identical to the league (16.2%). This is where Krunal\'s batting contribution (124.4 SR) and Patidar\'s form slump create a drag. The saving grace: a dot ball rate of 26.0% (vs 28.3% league), meaning they rotate well even when boundaries dry up. Busy, not brutal.</p>' },
+          { type: 'text', content: '<p>Middle overs are adequate but not elite. The +3.4 SR gap narrows considerably here, and the boundary rate (16.1%) is almost identical to the league (16.2%). This is where Krunal\'s batting contribution (124.4 recent form SR; career 121.1) and Patidar\'s form slump create a drag. The saving grace: a dot ball rate of 26.0% (vs 28.3% league), meaning they rotate well even when boundaries dry up. Busy, not brutal.</p>' },
           { type: 'text', content: '<p>Death overs are strong (+4.0 SR) with a notably higher boundary rate (23.4% vs 21.8%). David, Jitesh, and late-innings Kohli combine to produce a three-pronged death assault that most teams simply can\'t match for depth.</p>' },
           { type: 'subheading', content: 'Where the Two Stories Collide: Phase x Bowling Type' },
           {
             type: 'table',
-            headers: ['Scenario', 'RCB SR', 'Context'],
+            headers: ['Scenario', 'RCB SR', 'Sample', 'Confidence', 'Context'],
             rows: [
-              ['Powerplay vs. RA pace', '160.0', 'Salt and Kohli destroying the most common new-ball attack'],
-              ['Death vs. LA pace', '181.5', 'David and Jitesh dismantling left-arm death bowling at will'],
-              ['Middle vs. off-spin', '128.3', '18 wickets lost. This is where campaigns get derailed'],
-              ['Middle vs. LA wrist-spin', '123.8', '11 wickets lost. The slower it gets, the less comfortable they look']
+              ['Powerplay vs. RA pace', '160.0', '785 balls', 'HIGH', 'Salt and Kohli destroying the most common new-ball attack'],
+              ['Death vs. LA pace', '181.5', '233 balls', 'HIGH', 'David and Jitesh dismantling left-arm death bowling at will'],
+              ['Middle vs. off-spin', '128.3', '329 balls', 'HIGH', '18 wickets lost. This is where campaigns get derailed'],
+              ['Middle vs. LA wrist-spin', '123.8', '202 balls', 'HIGH', '11 wickets lost. The slower it gets, the less comfortable they look']
             ]
           },
           { type: 'text', content: '<p>This cross-reference is where the scouting report gets really interesting. RCB\'s powerplay batting against right-arm pace (160.0 SR) is frankly ridiculous. It\'s the single most dominant batting scenario for this squad, and it explains why teams that open with pace at the Chinnaswamy often find themselves staring at 55-60 after six overs.</p>' },
@@ -292,6 +292,7 @@ const SEASON_PREVIEWS = {
               ['Batting second (chasing)', '18', '11', '61.1%']
             ]
           },
+          { type: 'text', content: '<p><em>Note: 44 total matches (26 setting, 18 chasing) is a moderate sample. Win% differences should be read as directional indicators, not definitive splits.</em></p>' },
           { type: 'text', content: '<p>That 7.3 percentage point gap is meaningful on its own. But the 2025 season makes it dramatic: RCB won 85.7% of their chases (6/7). Five of those were won with overs to spare.</p>' },
 
           // Team Batting
@@ -350,7 +351,7 @@ const SEASON_PREVIEWS = {
             type: 'table',
             headers: ['Bowler', 'Bowl First Econ', 'Defend Econ', 'Delta', 'Sample (Overs)'],
             rows: [
-              ['Josh Hazlewood', '7.91', '8.85', '+0.94', '18 / 36 (LOW / MEDIUM)'],
+              ['Josh Hazlewood', '7.91', '8.85', '+0.94', '17 / 36 (LOW / MEDIUM)'],
               ['Krunal Pandya', '7.36', '8.75', '+1.39', '24 / 24 (MEDIUM)'],
               ['Suyash Sharma', '9.11', '8.52', '-0.59', '46 / 49 (MEDIUM)'],
               ['Yash Dayal', '9.17', '9.54', '+0.37', '56 / 63 (MEDIUM)'],
@@ -358,7 +359,7 @@ const SEASON_PREVIEWS = {
             ]
           },
           { type: 'text', content: '<p>Krunal\'s split is the most striking: 7.36 economy bowling first vs 8.75 defending, a 1.39-run gap. When RCB bowl first, Krunal is nearly untouchable in the middle overs. When defending, opponents bat more freely against him, likely because the scoreboard pressure is reversed. This is a significant tactical consideration for toss decisions.</p>' },
-          { type: 'text', content: '<p>Hazlewood shows a similar pattern (7.91 vs 8.85), though his bowling-first sample is small (18 overs). Suyash Sharma is the only bowler who\'s <em>better</em> defending (8.52 vs 9.11), possibly because his leg-spin creates more pressure when opponents are chasing.</p>' },
+          { type: 'text', content: '<p>Hazlewood shows a similar pattern (7.91 vs 8.85), though his bowling-first sample is small (17 overs). Suyash Sharma is the only bowler who\'s <em>better</em> defending (8.52 vs 9.11, 46/49 overs split — MEDIUM sample both sides), possibly because his leg-spin creates more pressure when opponents are chasing.</p>' },
 
           // Chase Approach
           { type: 'subheading', content: 'The Chase Approach: Anatomy of a Run Down' },

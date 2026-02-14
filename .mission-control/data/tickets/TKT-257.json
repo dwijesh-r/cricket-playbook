@@ -1,0 +1,34 @@
+{
+  "id": "TKT-257",
+  "title": "Season Preview tab in The Lab teams page (Magazine-quality UI)",
+  "state": "IN_PROGRESS",
+  "priority": "P0",
+  "size": "L",
+  "progress_pct": 30,
+  "epic_id": "EPIC-025",
+  "sprint_id": "SPRINT-005",
+  "owner": "Kevin De Bruyne",
+  "assignee": "Kevin De Bruyne",
+  "reviewer": "Jayson Tatum",
+  "effort": "Deep Work",
+  "description": "Build a Season Preview tab as the default/first tab in The Lab teams page. Display the full editorial season preview (from outputs/season_previews/) as a magazine-quality, Lindy's/Phil Steele style page. Requirements: (1) All editorial content available with collapsible read-more sections, (2) Tables formatted visually with colored cells, badges, and visual hierarchy — not plain tabular, (3) Abbreviations and key stats highlighted with accent colors, (4) Mobile and desktop optimized, (5) Follows existing Lab design system (CSS variables, dark/light theme). RCB is the first team; other teams show 'Coming Soon' placeholder.",
+  "tags": ["UI", "Editorial", "The Lab", "Season Preview", "Mobile"],
+  "gates": {
+    "florentino_gate": { "status": "APPROVED", "reason": "Season preview display is the core product showcase — this IS the magazine.", "date": "2026-02-14" },
+    "build": "IN_PROGRESS",
+    "domain_sanity": "PENDING",
+    "enforcement": "PENDING",
+    "founder_gate": "PENDING"
+  },
+  "deliverables": [
+    "scripts/the_lab/dashboard/data/season_previews.js",
+    "scripts/the_lab/dashboard/teams.html (modified — Preview tab, CSS, rendering)"
+  ],
+  "progress_notes": {
+    "approach": "New Preview tab as first/default tab. Data stored in season_previews.js, rendered by renderPreviewPanel(). Collapsible sections, magazine-quality tables, bold take card, scouting report, category ratings with visual bars.",
+    "agents": "Kevin De Bruyne (Visualization), Jayson Tatum (UX/Reader Flow)",
+    "design_patterns": "Reusing existing Lab CSS variable system, expandable pattern, responsive breakpoints"
+  },
+  "created_at": "2026-02-14T23:45:00Z",
+  "updated_at": "2026-02-14T23:45:00Z"
+}

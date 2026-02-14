@@ -1,0 +1,16 @@
+{
+  "id": "TKT-232",
+  "title": "Dashboard UX optimization with Kevin de Bruyne",
+  "description": "Jayson Tatum: Go through every dashboard tab across The Lab and Mission Control. Optimize UX with Kevin de Bruyne. Do not miss any tab.",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "size": "L",
+  "progress_pct": 0,
+  "owner": "Jayson Tatum",
+  "assignee": "Jayson Tatum",
+  "sprint_id": "SPRINT-001",
+  "tags": ["UX", "Dashboard", "Optimization"],
+  "gates": {},
+  "created_at": "2026-02-14T02:00:00Z",
+  "updated_at": "2026-02-14T02:00:00Z"
+}

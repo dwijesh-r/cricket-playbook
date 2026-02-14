@@ -1,0 +1,16 @@
+{
+  "id": "TKT-229",
+  "title": "Data freshness pipeline + Cricsheet update process",
+  "description": "Brock Purdy: Get latest Cricsheet data dump (current data may only go to Jan 10-15). Set up weekly data refresh process. Ensure all pipelines, outputs, and dashboards regenerate automatically.",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "size": "L",
+  "progress_pct": 0,
+  "owner": "Brock Purdy",
+  "assignee": "Brock Purdy",
+  "sprint_id": "SPRINT-001",
+  "tags": ["Data Pipeline", "Cricsheet", "Automation"],
+  "gates": {},
+  "created_at": "2026-02-14T02:00:00Z",
+  "updated_at": "2026-02-14T02:00:00Z"
+}

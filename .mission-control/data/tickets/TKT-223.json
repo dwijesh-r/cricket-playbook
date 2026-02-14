@@ -1,0 +1,16 @@
+{
+  "id": "TKT-223",
+  "title": "System health analysis + Token Audit tab update",
+  "description": "Jose Mourinho: Run system health scores, identify improvement areas. Update Token Audit tabs in Mission Control dashboard.",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "size": "M",
+  "progress_pct": 0,
+  "owner": "Jose Mourinho",
+  "assignee": "Jose Mourinho",
+  "sprint_id": "SPRINT-001",
+  "tags": ["System Health", "Token Audit", "Analytics"],
+  "gates": {},
+  "created_at": "2026-02-14T02:00:00Z",
+  "updated_at": "2026-02-14T02:00:00Z"
+}

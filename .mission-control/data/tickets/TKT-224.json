@@ -1,0 +1,16 @@
+{
+  "id": "TKT-224",
+  "title": "Teams tab data validation + fixes",
+  "description": "Stephen Curry: Verify Teams tab in The Lab uses data correctly. Fix any data display issues, stale references, or incorrect calculations.",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "size": "M",
+  "progress_pct": 0,
+  "owner": "Stephen Curry",
+  "assignee": "Stephen Curry",
+  "sprint_id": "SPRINT-001",
+  "tags": ["The Lab", "Data Validation", "Teams"],
+  "gates": {},
+  "created_at": "2026-02-14T02:00:00Z",
+  "updated_at": "2026-02-14T02:00:00Z"
+}

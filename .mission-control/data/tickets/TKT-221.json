@@ -1,0 +1,16 @@
+{
+  "id": "TKT-221",
+  "title": "Mission Control roster view + agent performance review",
+  "description": "Brad Stevens: Update roster view in Mission Control dashboard. Review every agent's performance including Founder's. Suggest retraining needs.",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "size": "L",
+  "progress_pct": 0,
+  "owner": "Brad Stevens",
+  "assignee": "Brad Stevens",
+  "sprint_id": "SPRINT-001",
+  "tags": ["Mission Control", "Performance Review"],
+  "gates": {},
+  "created_at": "2026-02-14T02:00:00Z",
+  "updated_at": "2026-02-14T02:00:00Z"
+}

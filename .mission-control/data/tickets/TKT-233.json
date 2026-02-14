@@ -1,0 +1,16 @@
+{
+  "id": "TKT-233",
+  "title": "The Lab proof + strengths/weaknesses/suggestions",
+  "description": "LeBron James: Proof everything on The Lab dashboard. Provide opinion on strengths, weaknesses, and suggestions for improvement. Social atomization perspective.",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "size": "M",
+  "progress_pct": 0,
+  "owner": "LeBron James",
+  "assignee": "LeBron James",
+  "sprint_id": "SPRINT-001",
+  "tags": ["Review", "Social", "The Lab"],
+  "gates": {},
+  "created_at": "2026-02-14T02:00:00Z",
+  "updated_at": "2026-02-14T02:00:00Z"
+}

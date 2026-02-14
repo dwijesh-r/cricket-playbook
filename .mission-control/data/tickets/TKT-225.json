@@ -1,0 +1,16 @@
+{
+  "id": "TKT-225",
+  "title": "Artifacts, Analysis & Research tabs ownership + update",
+  "description": "Tom Brady: Take ownership of Artifacts, Analysis, and Research tabs in The Lab. Ensure everything is relevant, updated correctly, no stale content.",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "size": "M",
+  "progress_pct": 0,
+  "owner": "Tom Brady",
+  "assignee": "Tom Brady",
+  "sprint_id": "SPRINT-001",
+  "tags": ["The Lab", "Content Review", "Artifacts"],
+  "gates": {},
+  "created_at": "2026-02-14T02:00:00Z",
+  "updated_at": "2026-02-14T02:00:00Z"
+}

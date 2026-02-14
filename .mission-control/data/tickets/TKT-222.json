@@ -1,0 +1,16 @@
+{
+  "id": "TKT-222",
+  "title": "Archive Sprint 4.0 + create Sprint views + plan Sprint 5.0",
+  "description": "Tom Brady: Archive Sprint 4.0 if completed. Create sprint history view in MC dashboard. Update List and Epic views with progress. Plan Sprint 5.0 kickoff.",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "size": "L",
+  "progress_pct": 0,
+  "owner": "Tom Brady",
+  "assignee": "Tom Brady",
+  "sprint_id": "SPRINT-001",
+  "tags": ["Mission Control", "Sprint Management", "Planning"],
+  "gates": {},
+  "created_at": "2026-02-14T02:00:00Z",
+  "updated_at": "2026-02-14T02:00:00Z"
+}

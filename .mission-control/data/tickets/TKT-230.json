@@ -1,0 +1,16 @@
+{
+  "id": "TKT-230",
+  "title": "Cricket insights & domain accuracy review",
+  "description": "Andy Flower: Review all insights across dashboards. Verify cricket accuracy, player assessments, analysis, research, and artifacts. Flag any incorrect claims.",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "size": "L",
+  "progress_pct": 0,
+  "owner": "Andy Flower",
+  "assignee": "Andy Flower",
+  "sprint_id": "SPRINT-001",
+  "tags": ["Domain Review", "Cricket", "Insights"],
+  "gates": {},
+  "created_at": "2026-02-14T02:00:00Z",
+  "updated_at": "2026-02-14T02:00:00Z"
+}

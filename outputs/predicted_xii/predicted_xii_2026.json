@@ -665,7 +665,7 @@
         {
           "batting_position": 8,
           "player_id": "557550a4",
-          "player_name": "Auqib Nabi Dar",
+          "player_name": "Auqib Nabi",
           "role": "All-rounder",
           "batting_hand": "Right-hand",
           "is_overseas": false,
@@ -887,7 +887,7 @@
         {
           "batting_position": 2,
           "player_id": "470f446b",
-          "player_name": "Vaibhav Suryavanshi",
+          "player_name": "Vaibhav Sooryavanshi",
           "role": "Batter",
           "batting_hand": "Left-hand",
           "is_overseas": false,
@@ -1239,7 +1239,7 @@
         {
           "batting_position": 9,
           "player_id": "c7a995d3",
-          "player_name": "Sai Kishore",
+          "player_name": "R Sai Kishore",
           "role": "Spinner",
           "batting_hand": "Left-hand",
           "is_overseas": false,

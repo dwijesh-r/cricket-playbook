@@ -1,7 +1,7 @@
 /**
  * The Lab - Predicted XII Data
  * IPL 2026 Pre-Season Analytics
- * Auto-generated: 2026-02-14T17:11:39.697970
+ * Auto-generated: 2026-02-14T17:29:09.929283
  * Algorithm: SUPER SELECTOR
  */
 
@@ -123,7 +123,7 @@ const PREDICTED_XII = {
             { position: 5, name: "David Miller", role: "Batter", batting: "Left-hand", overseas: true, price: 2.0 },
             { position: 6, name: "Ashutosh Sharma", role: "Batter", batting: "Right-hand", overseas: false, price: 3.8 },
             { position: 7, name: "Axar Patel", role: "All-rounder", batting: "Left-hand", overseas: false, price: 16.5 },
-            { position: 8, name: "Auqib Nabi Dar", role: "All-rounder", batting: "Right-hand", overseas: false, price: 8.4 },
+            { position: 8, name: "Auqib Nabi", role: "All-rounder", batting: "Right-hand", overseas: false, price: 8.4 },
             { position: 9, name: "Mitchell Starc", role: "Pace Bowler", batting: "Left-hand", overseas: true, price: 11.75 },
             { position: 10, name: "Kuldeep Yadav", role: "Spinner", batting: "Left-hand", overseas: false, price: 13.25 },
             { position: 11, name: "Mukesh Kumar", role: "Pace Bowler", batting: "Right-hand", overseas: false, price: 8.0 }
@@ -165,7 +165,7 @@ const PREDICTED_XII = {
         wicketkeeper: "Dhruv Jurel",
         xi: [
             { position: 1, name: "Yashasvi Jaiswal", role: "Batter", batting: "Left-hand", overseas: false, price: 18.0 },
-            { position: 2, name: "Vaibhav Suryavanshi", role: "Batter", batting: "Left-hand", overseas: false, price: 1.1 },
+            { position: 2, name: "Vaibhav Sooryavanshi", role: "Batter", batting: "Left-hand", overseas: false, price: 1.1 },
             { position: 3, name: "Dhruv Jurel", role: "Wicketkeeper", batting: "Right-hand", overseas: false, price: 14.0 },
             { position: 4, name: "Riyan Parag", role: "All-rounder", batting: "Right-hand", overseas: false, price: 14.0 },
             { position: 5, name: "Sam Curran", role: "All-rounder", batting: "Left-hand", overseas: true, price: 10.0 },
@@ -220,7 +220,7 @@ const PREDICTED_XII = {
             { position: 6, name: "Shahrukh Khan", role: "All-rounder", batting: "Right-hand", overseas: false, price: 4.0 },
             { position: 7, name: "Rahul Tewatia", role: "All-rounder", batting: "Left-hand", overseas: false, price: 4.0 },
             { position: 8, name: "Rashid Khan", role: "All-rounder", batting: "Right-hand", overseas: true, price: 18.0 },
-            { position: 9, name: "Sai Kishore", role: "Spinner", batting: "Left-hand", overseas: false, price: 2.0 },
+            { position: 9, name: "R Sai Kishore", role: "Spinner", batting: "Left-hand", overseas: false, price: 2.0 },
             { position: 10, name: "Kagiso Rabada", role: "Pace Bowler", batting: "Right-hand", overseas: true, price: 10.75 },
             { position: 11, name: "Mohammed Siraj", role: "Pace Bowler", batting: "Right-hand", overseas: false, price: 12.25 }
         ],
@@ -256,7 +256,7 @@ const PREDICTED_XII = {
 
 /**
  * The Lab - Depth Chart Ratings
- * Auto-generated: 2026-02-14T17:11:39.698145
+ * Auto-generated: 2026-02-14T17:29:09.929412
  */
 
 const DEPTH_CHART_RATINGS = {

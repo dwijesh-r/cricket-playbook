@@ -1869,6 +1869,16 @@ def generate_founder_predicted_xii(
             logger.warning(
                 "  Founder pick %s not in squad CSV, created minimal object", fp["player_name"]
             )
+        else:
+            # Founder's name is authoritative — override Cricsheet DB name
+            founder_name = fp["player_name"]
+            if player_obj.player_name != founder_name:
+                logger.info(
+                    "  Name override: %s → %s (Founder authoritative)",
+                    player_obj.player_name,
+                    founder_name,
+                )
+                player_obj.player_name = founder_name
 
         score_player(player_obj)
 

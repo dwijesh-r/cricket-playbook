@@ -566,7 +566,7 @@
     },
     "ipl_2026_contracts": {
       "type": "reference",
-      "rows": 231,
+      "rows": 232,
       "description": "IPL 2026 player contract details and prices",
       "columns": [
         {
@@ -598,7 +598,7 @@
     },
     "ipl_2026_squads": {
       "type": "reference",
-      "rows": 231,
+      "rows": 232,
       "description": "IPL 2026 full squad rosters with player profiles",
       "columns": [
         {
@@ -12731,8 +12731,8 @@
   "stats": {
     "total_tables": 16,
     "total_views": 163,
-    "total_rows": 2380107,
+    "total_rows": 2380109,
     "parquet_size_mb": 15.27,
-    "generated_at": "2026-02-13T20:03:30.308817+00:00"
+    "generated_at": "2026-02-14T04:58:17.206586+00:00"
   }
 }

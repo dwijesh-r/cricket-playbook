@@ -237,7 +237,7 @@
 - **Win Rate:** 52.4% (11W - 10L)
 - **Avg Score (batting):** 167.2
 - **Highest/Lowest:** 217/103
-- **Pitch Type:** Balanced
+- **Pitch Type:** Spin-friendly
 - **Pace SR:** 17.6 | **Spin SR:** 20.2
 
 ### Away Performance

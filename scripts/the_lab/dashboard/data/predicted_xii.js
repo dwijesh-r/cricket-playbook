@@ -1,7 +1,7 @@
 /**
  * The Lab - Predicted XII Data
  * IPL 2026 Pre-Season Analytics
- * Auto-generated: 2026-02-14T04:21:09.149638
+ * Auto-generated: 2026-02-14T10:28:08.528267
  * Algorithm: SUPER SELECTOR
  */
 
@@ -243,7 +243,7 @@ const PREDICTED_XII = {
             { position: 5, name: "Josh Inglis", role: "Wicketkeeper", batting: "Right-hand", overseas: true, price: 8.6 },
             { position: 6, name: "Ayush Badoni", role: "All-rounder", batting: "Right-hand", overseas: false, price: 4.0 },
             { position: 7, name: "Abdul Samad", role: "All-rounder", batting: "Right-hand", overseas: false, price: 4.2 },
-            { position: 8, name: "Shahbaz Ahmed", role: "All-rounder", batting: "Left-hand", overseas: false, price: 0.0 },
+            { position: 8, name: "Shahbaz Ahmed", role: "All-rounder", batting: "Left-hand", overseas: false, price: 2.4 },
             { position: 9, name: "Avesh Khan", role: "Pace Bowler", batting: "Right-hand", overseas: false, price: 9.75 },
             { position: 10, name: "Mohammed Shami", role: "Pace Bowler", batting: "Right-hand", overseas: false, price: 10.0 },
             { position: 11, name: "Digvesh Rathi", role: "Spinner", batting: "Right-hand", overseas: false, price: 0.3 }
@@ -256,7 +256,7 @@ const PREDICTED_XII = {
 
 /**
  * The Lab - Depth Chart Ratings
- * Auto-generated: 2026-02-14T04:21:09.149800
+ * Auto-generated: 2026-02-14T10:28:08.528382
  */
 
 const DEPTH_CHART_RATINGS = {

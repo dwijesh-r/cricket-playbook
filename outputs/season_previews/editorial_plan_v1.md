@@ -1,39 +1,47 @@
-# Season Preview — Editorial Plan v1.1
+# Season Preview — Editorial Plan v1.2
 
 **Cricket Playbook | IPL 2026 Season Preview Series**
 *Agent: Virat Kohli (Tone & Narrative Guard)*
-*Status: Updated per Founder Review (12 Suggestions Incorporated)*
+*Status: Founder-Approved (RCB sample at v1.8). Templatized for 10-team production.*
 *Revision Date: 2026-02-14*
 
 ---
 
 ## 1. Format Per Team
 
-Each team preview follows a **17-section structure** inspired by Lindy's Football Annual and Phil Steele's College Football Preview. The Founder's 12 suggestions have been integrated as dedicated sections, replacing the original 7-section format.
+Each team preview follows a **21-section structure** inspired by Lindy's Football Annual and Phil Steele's College Football Preview. The Founder's 12 suggestions have been integrated. The approved RCB sample (v1.8) is the canonical reference for format and tone.
 
-| # | Section | Length | Purpose | Data Sources |
-|---|---------|--------|---------|-------------|
-| 1 | **The Headline** | 1-2 sentences | Bold thesis — the single most important storyline | Depth chart + tactical insights |
-| 2 | **The Story** | 400-500 words | Narrative: what changed, who's new, what to watch | Squad composition + recent form |
-| 3 | **Off-Season Changes** | 200-300 words | Trades, coaching changes, captaincy, what's different from 2025 | `ipl_2026_contracts`, `founder_squads_2026.json`, public reporting |
-| 4 | **New Additions** | 150-250 words | Each new signing: who they replace, what gap they fill, style fit | `ipl_2026_contracts` (acquisition_type='Auction'), batting/bowling career views |
-| 5 | **Full Squad Table** | Table | Entire squad with Name, Role, Price, Nationality, Key Stat, Founder Notes | `ipl_2026_squads`, `ipl_2026_contracts`, batting/bowling career views |
-| 6 | **Team Style Analysis** | 300-400 words | How the franchise manages on/off the field — evolution over last 3 IPL seasons | `team_phase_batting_since2023`, `team_phase_bowling_since2023` by season |
-| 7 | **Category Ratings** | Table + 150 words | Batting, Bowling, Fielding, Overall ratings with quantified breakdown | Phase batting/bowling aggregates, depth chart ratings, composite rankings |
-| 8 | **Venue Analysis** | 200-300 words | Home ground profile, historical data, how team strengths interact with venue | `venue_profile_since2023`, cross-referenced with team phase data |
-| 9 | **Schedule Analysis** | Placeholder (100 words) | Home/away split, cluster analysis, rest days — populated when schedule releases | TBD — schedule not yet released |
-| 10 | **Players to Watch** | 3-4 profiles, ~100 words each | Data-backed individual storylines | Career stats + phase analysis + recent form |
-| 11 | **Players Who Need to Step Up** | 200-300 words | Identify weaknesses and which players can address them | Depth chart gaps, phase stats, bowling type matchups |
-| 12 | **Recent Form** | Table + 150 words | Last 10/20 innings performance, format crossover where relevant | `batter_recent_form`, `bowler_phase_since2023` |
-| 13 | **Interesting Data Insights** | 3-5 insights, ~250 words | Non-obvious findings from 164+ analytics views | All analytics views — mined per team |
-| 14 | **The Bold Take** | 150-200 words | One contrarian opinion supported by evidence | Percentile rankings + matchup data |
-| 15 | **By the Numbers** | 5 key stats | The numbers that tell the season story | Cross-referenced from all sources |
-| 16 | **Keys to Victory** | 200-300 words | What must go right, what weaknesses will surface, historical patterns | Squad structure analysis, phase data, depth chart |
-| 17 | **Andy Flower's Scouting Report** | 200-300 words | Tactical overview: identity, strengths, vulnerabilities, opposition blueprint | Tactical insights + opposition data |
-| 18 | **Verdict** | 1-3 sentences | Projected finish range, ceiling/floor | Composite rankings + depth chart |
+| # | Section | JS `id` | Length | Purpose |
+|---|---------|---------|--------|---------|
+| 1 | **The Headline** | (hero) | 1-2 sentences | Bold thesis — the single most important storyline |
+| 2 | **The Story** | `story` | 400-500 words | Narrative: what changed, who's new, what to watch |
+| 3 | **Off-Season Changes** | `offseason` | 200-300 words | Trades, coaching, captaincy, structural differences from 2025 |
+| 4 | **New Additions** | `newAdditions` | 150-250 words | Each new signing: gap filled, style fit, key stat |
+| 5 | **Full Squad Table** | `squad` | Table | Predicted XII + Bench with Name, Role, Price, Nat, Key Stat, Founder Notes |
+| 6 | **Team Style Analysis** | `teamStyle` | 300-400 words | Year-over-year evolution with phase SR/econ tables |
+| 7 | **Category Ratings** | (ratings) | Table + 150 words | 7 categories (Bat PP/Mid/Death, Bowl PP/Mid/Death, Overall) rated 1-10 |
+| 8 | **Team Batting Profile** | `battingProfile` | 300-400 words | vs bowling types table + phase-wise table + Phase x Bowling Type cross-reference |
+| 9 | **Innings Context** | `inningsContext` | 400-500 words | Setting vs chasing splits (team + individual) + chase approach (target bands, collapse zones, early wickets, player scaling, year-over-year) |
+| 10 | **Venue Analysis** | `venue` | 200-300 words | Home ground phase profile vs league averages + team fit |
+| 11 | **Schedule Analysis** | `schedule` | Placeholder | Home/away, clusters, rest days — populated when schedule releases |
+| 12 | **Head-to-Head Record** | `headToHead` | 200-300 words | Since-2023 + all-time tables with key patterns per opponent |
+| 13 | **Players to Watch** | `playersToWatch` | 3-4 profiles, ~100 words each | Data-backed individual storylines |
+| 14 | **Players Who Need to Step Up** | `playersStepUp` | 200-300 words | Weakness + specific player who can address it |
+| 15 | **Recent Form** | `recentForm` | Table + 150 words | Last 10 innings SR + delta from career + bowler phase economies |
+| 16 | **Interesting Data Insights** | `dataInsights` | 3-5 insights, ~250 words | Non-obvious findings from 172+ analytics views |
+| 17 | **The Bold Take** | (boldTake) | 150-200 words | One contrarian opinion backed by 2+ data points |
+| 18 | **By the Numbers** | (byTheNumbers) | 5 key stats | The numbers that tell the season story |
+| 19 | **Keys to Victory** | (keysToVictory) | 200-300 words | 3-4 conditions that must be met to contend |
+| 20 | **Andy Flower's Scouting Report** | (scoutingReport) | 200-300 words | Identity, strengths, vulnerabilities, opposition blueprint |
+| 21 | **Verdict** | (verdict) | 1-3 sentences | Projected finish range, ceiling/floor |
 
-**Total per team:** ~3,000-4,000 words
-**Total series:** ~30,000-40,000 words across 10 teams
+**Total per team:** ~4,000-5,000 words (RCB sample: ~4,800 words)
+**Total series:** ~40,000-50,000 words across 10 teams
+
+### Sections Added Since v1.1 (Validated in RCB Sample)
+- **Section 8 (Team Batting Profile):** vs bowling types, phase-wise batting with boundary/dot%, Phase x Bowling Type cross-reference with ball counts and confidence labels
+- **Section 9 (Innings Context):** Setting vs chasing team splits, individual player splits, chase approach analysis (target bands, collapse zones, early wickets, player scaling by target, year-over-year trends)
+- **Section 12 (Head-to-Head Record):** Since-2023 + all-time tables with key pattern callouts per opponent
 
 ---
 
@@ -324,14 +332,155 @@ Every insight must be contextually accurate. If a stat appears surprising, expla
 
 ---
 
-## 9. Changelog
+## 9. The Lab Integration Spec
+
+### JS Data Structure (`scripts/the_lab/dashboard/data/season_previews.js`)
+
+Each team entry in `SEASON_PREVIEWS` follows this schema:
+
+```javascript
+const SEASON_PREVIEWS = {
+  TEAM_ABBREV: {
+    available: true|false,    // false = "Coming Soon" placeholder
+    meta: {
+      revision: 'v1.x',
+      dataWindow: 'IPL 2023-2025 | 9,289 matches / 2.14M balls',
+      agents: 'Virat Kohli (Tone & Narrative) | Andy Flower (Scouting Report)',
+      matches: '9,289'
+    },
+    headline: { title: '...', intro: '...' },
+    verdict: { text: '...', projected: '3rd-4th', ceiling: 'Champions', floor: '6th' },
+    byTheNumbers: [
+      { value: '8.73', label: 'RCB\'s 2025 PP econ', context: 'Down from 9.77...' }
+      // exactly 5 entries
+    ],
+    categoryRatings: [
+      { cat: 'Batting, Powerplay', rating: 6.5, metric: '154.1 SR', note: 'Above average...' }
+      // 7 entries: Bat PP/Mid/Death, Bowl PP/Mid/Death, Overall
+    ],
+    boldTake: { claim: '...', argument: '...' },
+    keysToVictory: [
+      { title: '...', text: '...' }
+      // 3-4 entries
+    ],
+    scoutingReport: {
+      identity: '...',
+      strengths: ['...', '...'],       // array of strings
+      vulnerabilities: ['...', '...'],  // array of strings
+      blueprint: '...'
+    },
+    sections: [
+      {
+        id: 'story',           // matches the JS id column in section table
+        title: 'The Story',
+        summary: '1-2 sentence summary shown in collapsed header',
+        blocks: [
+          { type: 'text', content: '<p>HTML paragraph...</p>' },
+          { type: 'subheading', content: 'Subheading Text' },
+          { type: 'table', headers: ['Col1', 'Col2'], rows: [['val', 'val']] },
+          { type: 'callout', content: 'Highlighted insight text' }
+        ]
+      }
+      // 14 collapsible sections (sections 2-6, 8-16 from the master list)
+    ]
+  }
+};
+```
+
+### Block Types
+| Type | Renders As | Notes |
+|------|-----------|-------|
+| `text` | `<p>` paragraph | HTML allowed. Use `<strong>` for emphasis, `<em>` for accent color |
+| `subheading` | Section sub-header | Used within a collapsible section for internal structure |
+| `table` | Magazine-quality table | `headers` array + `rows` array of arrays. Last column wraps. |
+| `callout` | Accent-bordered highlight box | For tactical prescriptions or key insights |
+
+### Rendering
+- Sections 1, 7, 17-21 render as **fixed components** (hero, ratings, bold take, by the numbers, keys, scouting report, verdict)
+- Sections 2-6, 8-16 render as **collapsible sections** via the `sections` array
+- Category ratings are collapsible cards with loader bars (click to expand note)
+- All text is justified. Tables allow last-column wrapping.
+
+---
+
+## 10. Jose Mourinho Quality Scoring Rubric
+
+Each preview is scored on a 10-point scale across 5 dimensions. Target: **8.5+ to ship**.
+
+| Dimension | Weight | Criteria | Score Range |
+|-----------|--------|----------|-------------|
+| **Statistical Accuracy** | 25% | All stats traceable, correct rounding, no calculation errors | 0-10 |
+| **Sample Size Integrity** | 20% | HIGH/MEDIUM/LOW labels present, ball counts for cross-references, caveats for small samples | 0-10 |
+| **Contextual Accuracy** | 20% | No stats presented without operational context (e.g., death SR from batting through vs entering at death) | 0-10 |
+| **Analytical Depth** | 20% | Phase x bowling type cross-references, innings context splits, non-obvious insights | 0-10 |
+| **Consistency** | 15% | No internal contradictions, totals add up, dual-scope used correctly | 0-10 |
+
+### Severity Levels for Issues
+| Level | Impact | Action |
+|-------|--------|--------|
+| **CRITICAL** | Factual error (wrong number, wrong player) | Must fix before any gate |
+| **HIGH** | Missing context that changes interpretation | Must fix before domain sanity |
+| **MEDIUM** | Improvement that strengthens a claim | Fix before enforcement |
+| **LOW** | Polish item (rounding, label, small sample caveat) | Fix before ship |
+
+### RCB Sample Scores (Reference)
+- Initial draft: 7.2/10 (3 HIGH, 2 MEDIUM, 5 LOW)
+- After HIGH/MEDIUM fixes: 8.4/10
+- After LOW fixes (v1.8): 9.0/10
+
+---
+
+## 11. Production Checklist (Per Team)
+
+### Phase 1: Data Assembly (~30 min)
+- [ ] Run stat pack generator for team: `python scripts/generators/generate_stat_packs.py --team ABBREV`
+- [ ] Run depth chart generator: `python scripts/generators/generate_depth_chart.py --team ABBREV`
+- [ ] Run predicted XII generator: `python scripts/generators/generate_predicted_xii.py --team ABBREV`
+- [ ] Query innings context views: `analytics_ipl_team_batting_by_innings_since2023`, `analytics_ipl_team_bowling_by_innings_since2023`
+- [ ] Query batting profile views: `analytics_ipl_batter_vs_bowler_type_since2023`, `analytics_ipl_batter_phase_since2023`
+- [ ] Query venue profile: `analytics_ipl_venue_profile_since2023`
+- [ ] Query head-to-head: `analytics_ipl_team_matchup_matrix_since2023`
+- [ ] Query recent form: `analytics_ipl_batter_recent_form`
+- [ ] Compile chase approach data: target bands, collapse zones, player scaling by target
+
+### Phase 2: Editorial Draft (~45 min)
+- [ ] Virat Kohli writes all 21 sections following this template
+- [ ] Every stat includes sample size + confidence label
+- [ ] Phase x Bowling Type cross-reference includes ball counts
+- [ ] Bold Take is genuinely contrarian (would surprise casual fans)
+- [ ] Output: `outputs/season_previews/{ABBREV}_season_preview.md`
+
+### Phase 3: Review Loop (~20 min)
+- [ ] Andy Flower: cricket accuracy, scouting report sign-off
+- [ ] Jose Mourinho: statistical accuracy score (target 8.5+)
+- [ ] Apply corrections per severity level
+- [ ] LeBron James: social proof (pull quotes, shareable stats)
+- [ ] Tom Brady: editorial consistency with other previews
+
+### Phase 4: Lab Integration (~15 min)
+- [ ] Build JS data entry in `season_previews.js` matching the schema above
+- [ ] Set `available: true` for the team
+- [ ] Verify rendering in Preview tab (desktop + mobile)
+- [ ] Commit + push
+
+### Phase 5: Quality Gate
+- [ ] Kante QA: rounding, sample sizes, confidence labels, internal consistency
+- [ ] Jose score >= 8.5
+- [ ] Andy Flower sign-off
+- [ ] Tom Brady enforcement pass
+
+---
+
+## 12. Changelog
 
 | Version | Date | Changes |
 |---------|------|---------|
 | v1.0 | 2026-02-13 | Initial 7-section format |
-| v1.1 | 2026-02-14 | Incorporated Founder's 12 suggestions: added Off-Season Changes, New Additions, Full Squad Table, Team Style Analysis, Category Ratings, Venue Analysis, Schedule Analysis (placeholder), Players Who Need to Step Up, Recent Form, Interesting Data Insights, Keys to Victory sections. Added Contextual Accuracy Rule. Expanded from 7 to 18 sections. Target word count increased to 3,000-4,000 per team. |
+| v1.1 | 2026-02-14 | Incorporated Founder's 12 suggestions. Expanded from 7 to 18 sections. |
+| v1.2 | 2026-02-14 | Founder approved RCB sample (v1.8). Updated to 21-section structure reflecting approved sample (added Team Batting Profile, Innings Context, Head-to-Head). Added Lab JS integration spec with data schema. Added Jose Mourinho quality scoring rubric. Added per-team production checklist. Word count target updated to 4,000-5,000 per team. |
 
 ---
 
-*This plan is updated per Founder review. RCB sample has been revised accordingly.*
-*Sample preview (RCB) is available at: `outputs/season_previews/RCB_season_preview_sample.md`*
+*Canonical reference: `outputs/season_previews/RCB_season_preview_sample.md` (v1.8, Founder-approved)*
+*Content language rules: `config/content_language_guide.md`*
+*Lab data schema: `scripts/the_lab/dashboard/data/season_previews.js`*

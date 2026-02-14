@@ -20,8 +20,8 @@
     "enforcement": "PASS"
   },
   "deliverables": [
-    ".github/workflows/ingest.yml (fixed script path and Cricsheet download URL)",
-    "scripts/core/ingest.py (verified correct path reference)"
+    ".github/workflows/ingest.yml",
+    "scripts/core/ingest.py"
   ],
   "created_at": "2026-02-14T10:00:00Z",
   "updated_at": "2026-02-14T18:00:00Z",

@@ -21,11 +21,23 @@
     "enforcement": "PASS"
   },
   "deliverables": [
-    "data/cricket_playbook.duckdb (refreshed — 154MB, ingestion completed 2026-02-14)",
-    "outputs/depth_charts/ (all 10 teams regenerated)",
-    "outputs/predicted_xii/ (all 10 teams regenerated)",
-    "stat_packs/ (all 10 teams regenerated)",
-    "scripts/core/analytics_ipl.py views materialized on fresh data"
+    "data/cricket_playbook.duckdb",
+    "data/manifests/manifest.json",
+    "scripts/core/analytics_ipl.py",
+    "data/bowler_classifications_v3.csv",
+    "stat_packs/CSK/CSK_stat_pack.md",
+    "stat_packs/DC/DC_stat_pack.md",
+    "stat_packs/GT/GT_stat_pack.md",
+    "stat_packs/KKR/KKR_stat_pack.md",
+    "stat_packs/LSG/LSG_stat_pack.md",
+    "stat_packs/MI/MI_stat_pack.md",
+    "stat_packs/PBKS/PBKS_stat_pack.md",
+    "stat_packs/RCB/RCB_stat_pack.md",
+    "stat_packs/RR/RR_stat_pack.md",
+    "stat_packs/SRH/SRH_stat_pack.md",
+    "outputs/depth_charts/depth_charts_2026.json",
+    "outputs/predicted_xii/predicted_xii_2026.json",
+    "outputs/player_profiles/player_profiles_2023.json"
   ],
   "created_at": "2026-02-14T10:00:00Z",
   "updated_at": "2026-02-14T18:00:00Z",

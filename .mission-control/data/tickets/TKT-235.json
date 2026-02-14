@@ -20,9 +20,10 @@
     "enforcement": "PASS"
   },
   "deliverables": [
-    "scripts/core/analytics_ipl.py — create_composite_ranking_views() function added",
-    "7 ranking view categories created: batter_phase_rankings, bowler_phase_rankings, batter_vs_bowling_type_rankings, bowler_vs_handedness_rankings, player_matchup_rankings, overall_batter_composite, overall_bowler_composite",
-    "All views dual-scoped (_alltime and _since2023)"
+    "scripts/core/analytics_ipl.py",
+    "config/thresholds.yaml",
+    "outputs/rankings/rankings_methodology_v1.md",
+    "DuckDB views: 7 ranking categories x 3 scopes = 21 composite ranking views (batter_phase_rankings, bowler_phase_rankings, batter_vs_bowling_type_rankings, bowler_vs_handedness_rankings, player_matchup_rankings, overall_batter_composite, overall_bowler_composite)"
   ],
   "created_at": "2026-02-14T10:00:00Z",
   "updated_at": "2026-02-14T18:00:00Z",

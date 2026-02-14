@@ -20,9 +20,9 @@
     "enforcement": "PASS"
   },
   "deliverables": [
-    "scripts/generators/generate_predicted_xii.py (positional diversity constraints enforced: min 2 spinners, WK penalty logic)",
-    "outputs/predicted_xii/ (all 10 teams regenerated with balanced XIs)",
-    "scripts/the_lab/dashboard/data/predicted_xii.js (Lab data refreshed)"
+    "scripts/generators/generate_predicted_xii.py",
+    "outputs/predicted_xii/predicted_xii_2026.json",
+    "scripts/the_lab/dashboard/data/predicted_xii.js"
   ],
   "created_at": "2026-02-14T10:00:00Z",
   "updated_at": "2026-02-14T18:00:00Z",

@@ -80,7 +80,7 @@ jobs:
 
       - name: Run ingestion pipeline
         run: |
-          python scripts/ingest.py
+          python scripts/core/ingest.py
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4

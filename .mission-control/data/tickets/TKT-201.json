@@ -6,8 +6,8 @@
   "size": "S",
   "progress_pct": 100,
   "description": "Add click handlers on player names in: Full Squad Roster table, Depth Chart player entries, Predicted XII display. On click, load player profile data and open PlayerProfileModal. Must work across all 10 team tabs. Player names should show pointer cursor and subtle hover effect to indicate clickability.",
-  "owner": "Kevin De Bruyne",
-  "assignee": "Kevin De Bruyne",
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
   "epic_id": "EPIC-017",
   "sprint_id": "SPRINT-001",
   "blocked_by": [

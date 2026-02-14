@@ -6,8 +6,8 @@
   "progress_pct": 100,
   "description": "Build a sidebar/panel showing all tables and views. Click to expand and see columns, data types, and row counts. Click a table name to insert it into the SQL editor. Group items by category: dimension tables, fact tables, analytics views. Include search/filter within the schema browser. Consumes table_metadata.json from TKT-A. Depends on TKT-B for runtime and TKT-C for editor integration.",
   "epic_id": "EPIC-012",
-  "owner": "Kevin De Bruyne",
-  "assignee": "Kevin De Bruyne",
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
   "sprint_id": "SPRINT-001",
   "gates": {
     "florentino_gate": {

@@ -6,8 +6,8 @@
   "progress_pct": 100,
   "description": "Match The Lab's dark theme using existing CSS variables and card-based layout. Responsive design (mobile-friendly — at minimum schema browser + example queries work on small screens). Add 'Research Desk' tab to The Lab navigation. Consistent loading states and animations. Brand consistency with existing sports analytics aesthetic. No clipart. This ticket runs in parallel with all others and provides the visual foundation.",
   "epic_id": "EPIC-012",
-  "owner": "Kevin De Bruyne",
-  "assignee": "Kevin De Bruyne",
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
   "sprint_id": "SPRINT-001",
   "gates": {
     "florentino_gate": {

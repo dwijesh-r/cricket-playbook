@@ -8,7 +8,7 @@
   "description": "Full-screen overlay on mobile (<768px). Stacked vertical layout. 16px body font, 44px minimum touch targets. Close button + swipe-down gesture. Sections collapsible on mobile to manage scroll length. Test on iPhone SE, iPhone 14, iPad Mini breakpoints.",
   "owner": "Jayson Tatum",
   "assignee": "Jayson Tatum",
-  "reviewer": "Kevin De Bruyne",
+  "reviewer": "Kevin de Bruyne",
   "epic_id": "EPIC-017",
   "sprint_id": "SPRINT-001",
   "blocked_by": [

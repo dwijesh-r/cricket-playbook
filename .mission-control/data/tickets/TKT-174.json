@@ -6,8 +6,8 @@
   "progress_pct": 100,
   "description": "Build the SQL editor component with CodeMirror for syntax highlighting. Include a Run button and Cmd+Enter keyboard shortcut. Render query results in a sortable, filterable data table. Display query execution time. Add CSV export for result sets. Implement query history stored in localStorage. Depends on TKT-B for DuckDB-WASM runtime.",
   "epic_id": "EPIC-012",
-  "owner": "Kevin De Bruyne",
-  "assignee": "Kevin De Bruyne",
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
   "sprint_id": "SPRINT-001",
   "gates": {
     "florentino_gate": {

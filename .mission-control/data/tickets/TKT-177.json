@@ -6,8 +6,8 @@
   "progress_pct": 100,
   "description": "Build a search bar: 'Ask a question about IPL cricket...' User provides Anthropic API key once (stored encrypted in localStorage). Sends schema context + user question to Claude API client-side to generate SQL. Runs generated SQL in DuckDB-WASM. Displays results in a styled widget. Andy Flower insight panel: sends query results back to Claude with Andy Flower persona prompt to generate cricket context and insights. Graceful fallback if no API key — redirects user to Example Queries. Depends on TKT-B, TKT-C, and TKT-E.",
   "epic_id": "EPIC-012",
-  "owner": "Kevin De Bruyne",
-  "assignee": "Kevin De Bruyne",
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
   "sprint_id": "SPRINT-001",
   "gates": {
     "florentino_gate": {

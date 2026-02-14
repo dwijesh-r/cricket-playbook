@@ -3350,7 +3350,7 @@ LIMIT 20;</textarea>
                 category: 'ipl2026',
                 title: 'IPL 2026 Overseas Players',
                 description: 'All overseas players in IPL 2026 squads with their roles and nationalities.',
-                sql: `SELECT team_name, player_name, nationality,\n  role, age, batting_hand,\n  bowling_type\nFROM ipl_2026_squads\nWHERE nationality != 'India'\nORDER BY team_name, player_name;`
+                sql: `SELECT team_name, player_name, nationality,\n  role, age, batting_hand,\n  bowling_type\nFROM ipl_2026_squads\nWHERE nationality != 'IND'\nORDER BY team_name, player_name;`
             },
             {
                 category: 'ipl2026',
@@ -5237,7 +5237,7 @@ LIMIT 20;</textarea>
                 let teamFound = entities.teams.length > 0 ? entities.teams[0].canonical : null;
                 const teamClause = teamFound ? `\n  AND team_name ILIKE '%${escapeSql(teamFound)}%'` : '';
                 return {
-                    sql: `SELECT player_name, team_name, nationality, role, age\nFROM ipl_2026_squads\nWHERE nationality != 'India'${teamClause}\nORDER BY team_name, player_name;`,
+                    sql: `SELECT player_name, team_name, nationality, role, age\nFROM ipl_2026_squads\nWHERE nationality != 'IND'${teamClause}\nORDER BY team_name, player_name;`,
                     type: 'overseas',
                     entity: teamFound || 'all teams'
                 };
@@ -5986,12 +5986,12 @@ LIMIT 20;</textarea>
                 }
                 case 'squad': {
                     const teamName = entity || 'This squad';
-                    const overseas = rows.filter(r => r.nationality && r.nationality !== 'India').length;
+                    const overseas = rows.filter(r => r.nationality && r.nationality !== 'IND').length;
                     const indian = totalRows - overseas;
                     insight = `<strong>${escapeHtml(teamName)}</strong> has <strong>${totalRows}</strong> players in the squad`;
                     insight += ` \u2014 <strong>${overseas}</strong> overseas slots used.`;
                     if (overseas > 0) {
-                        const overseasNames = rows.filter(r => r.nationality && r.nationality !== 'India').slice(0, 4).map(r => r.player_name);
+                        const overseasNames = rows.filter(r => r.nationality && r.nationality !== 'IND').slice(0, 4).map(r => r.player_name);
                         insight += ` Key overseas contingent: ${overseasNames.map(n => '<strong>' + escapeHtml(n) + '</strong>').join(', ')}.`;
                     }
                     insight += ` That is ${indian} Indian players forming the core \u2014 crucial for building the middle overs structure.`;

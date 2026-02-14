@@ -3198,6 +3198,15 @@
             history.pushState(null, '', `?team=${abbrev}`);
         }
 
+        // Nationality flags (global helper)
+        const getFlag = (nat) => {
+            const flags = {
+                'IND': '🇮🇳', 'AUS': '🇦🇺', 'ENG': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'RSA': '🇿🇦', 'SA': '🇿🇦', 'NZ': '🇳🇿',
+                'WI': '🏝️', 'AFG': '🇦🇫', 'SL': '🇱🇰', 'PAK': '🇵🇰', 'ZIM': '🇿🇼', 'BAN': '🇧🇩'
+            };
+            return flags[nat] || '🌍';
+        };
+
         function renderTeam() {
             const team = TEAMS[currentTeam];
             const predicted = PREDICTED_XII[currentTeam];
@@ -3239,7 +3248,13 @@
             // Predicted XI
             const xiGrid = document.getElementById('xi-grid');
             xiGrid.innerHTML = '';
+            // Build name→nationality lookup from full squad data
+            const squadNatLookup = {};
+            if (typeof FULL_SQUADS !== 'undefined' && FULL_SQUADS[currentTeam]) {
+                FULL_SQUADS[currentTeam].forEach(p => { squadNatLookup[p.name] = p.nationality; });
+            }
             predicted.xi.forEach(player => {
+                const nat = squadNatLookup[player.name] || (player.overseas ? 'OS' : 'IND');
                 const card = document.createElement('div');
                 card.className = 'player-card';
                 card.innerHTML = `
@@ -3250,7 +3265,7 @@
                     </div>
                     <div class="player-meta">
                         <div class="player-price">₹${player.price} Cr</div>
-                        ${player.overseas ? '<div class="player-overseas">🌍 Overseas</div>' : ''}
+                        ${player.overseas ? `<div class="player-overseas">${getFlag(nat)} ${nat}</div>` : ''}
                     </div>
                 `;
                 xiGrid.appendChild(card);
@@ -3258,6 +3273,8 @@
 
             // Impact Player
             const impact = document.getElementById('impact-player');
+            const impactNat = squadNatLookup[predicted.impactPlayer.name] || 'IND';
+            const impactOverseas = impactNat !== 'IND';
             impact.innerHTML = `
                 <div class="impact-badge">⚡ IMPACT</div>
                 <div class="player-info">
@@ -3266,6 +3283,7 @@
                 </div>
                 <div class="player-meta">
                     <div class="player-price">₹${predicted.impactPlayer.price} Cr</div>
+                    ${impactOverseas ? `<div class="player-overseas">${getFlag(impactNat)} ${impactNat}</div>` : ''}
                 </div>
             `;
 
@@ -4667,15 +4685,6 @@
             const allRounders = squad.filter(p => p.role === 'All-rounder').length;
             const keepers = squad.filter(p => p.role === 'Wicketkeeper').length;
 
-            // Nationality flags
-            const getFlag = (nat) => {
-                const flags = {
-                    'IND': '🇮🇳', 'AUS': '🇦🇺', 'ENG': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'SA': '🇿🇦', 'NZ': '🇳🇿',
-                    'WI': '🏝️', 'AFG': '🇦🇫', 'SL': '🇱🇰', 'PAK': '🇵🇰'
-                };
-                return flags[nat] || '🌍';
-            };
-
             // Role class
             const getRoleClass = (role) => {
                 const classes = {
@@ -5265,7 +5274,8 @@
             let html = '';
 
             // Header
-            const subtitle = [p.role, p.batting_hand, p.bowling_type ? `${p.bowling_arm} ${p.bowling_type}` : null, p.nationality].filter(Boolean).join(' \u00b7 ');
+            const natDisplay = p.nationality ? `${getFlag(p.nationality)} ${p.nationality}` : null;
+            const subtitle = [p.role, p.batting_hand, p.bowling_type ? `${p.bowling_arm} ${p.bowling_type}` : null, natDisplay].filter(Boolean).join(' \u00b7 ');
             html += `<div class="pp-header">
                 <h2 class="pp-name">${p.player_name}</h2>
                 <p class="pp-subtitle">${subtitle}</p>

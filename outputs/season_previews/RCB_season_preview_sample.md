@@ -3,7 +3,7 @@
 **Cricket Playbook | Season Preview Series**
 *Agent: Virat Kohli (Tone & Narrative) | Domain: Andy Flower (Scouting Report)*
 *Data Window: IPL 2023-2025 | 9,289 matches / 2.14M balls*
-*Revision: v1.6 | Added innings context analysis + team batting profile; tone refinement pass*
+*Revision: v1.7 | Chase approach analysis (score bands, collapse zones, player scaling); Jose Mourinho corrections applied*
 
 ---
 
@@ -35,7 +35,7 @@ For 2026, the title-winning core returns largely intact, with 15 players retaine
 
 **Key Departures (from 2025 squad):** Liam Livingstone (to SRH), Lungi Ngidi (to DC), MA Agarwal, and MS Bhandage. Livingstone's departure removes a power-hitting overseas swiss army knife who could bat anywhere from 3 to 6. But Ngidi's exit stings more. He was Hazlewood's partner in crime, the second overseas seamer who brought genuine pace and bounce. Losing him is like a restaurant losing its sous chef: the head chef is still there, but the kitchen runs thinner.
 
-**Key Retentions:** RCB kept 15 players from the championship squad, anchored by Kohli (21.00 Cr), Hazlewood (12.50 Cr), Salt (11.50 Cr), Patidar (11.00 Cr), and Jitesh Sharma (11.00 Cr). The eye-catching retention is Kanishk Chouhan (6.00 Cr), a 19-year-old uncapped off-spin all-rounder. Paying that kind of premium for an unproven teenager tells you everything about how seriously RCB take their spin gap.
+**Key Retentions:** RCB kept 15 players from the championship squad, anchored by Kohli (21.00 Cr), Hazlewood (12.50 Cr), Salt (11.50 Cr), Patidar (11.00 Cr), and Jitesh Sharma (11.00 Cr). Kanishk Chouhan (0.30 Cr), a 19-year-old uncapped off-spin all-rounder, is a low-cost retention that tells you RCB see potential worth developing, even if the current spin depth doesn't reflect it yet.
 
 **Auction Strategy:** Six purchases totaling 10.65 Cr, with Venkatesh Iyer (7.00 Cr) as the marquee buy. Romario Shepherd (2.00 Cr) was re-acquired at auction after playing for RCB in 2025 but not being retained. The remaining buys (Duffy, Deswal, Mangesh Yadav, Jordan Cox) were all below 1 Cr, focused on pace depth and backup options. The message was clear: keep the band together, fill the gaps cheap, and trust the system.
 
@@ -75,7 +75,7 @@ For 2026, the title-winning core returns largely intact, with 15 players retaine
 | 8 | Krunal Pandya | All-rounder | 5.75 | IND | 7.45 econ in middle (82 overs, MEDIUM) | |
 | 9 | Bhuvneshwar Kumar | Bowler | 10.75 | IND | 8.26 PP econ (99 overs, HIGH) | |
 | 10 | Josh Hazlewood | Bowler | 12.50 | AUS | 7.54 PP econ (28 overs, MEDIUM) | |
-| 11 | Suyash Sharma | Bowler (leg-spin) | 2.60 | IND | 8.78 mid econ / 18 wkts (78 mid ov, MEDIUM) | |
+| 11 | Suyash Sharma | Bowler (leg-spin) | 2.60 | IND | 8.78 mid econ / 13 mid wkts (78 mid ov, MEDIUM) | |
 | 12 | Yash Dayal | Bowler | 5.00 | IND | 30 wkts / 9.85 econ (113 overs, HIGH) | |
 
 ### Bench
@@ -84,7 +84,7 @@ For 2026, the title-winning core returns largely intact, with 15 players retaine
 |---|------|------|-----------|-----|--------------------------|---------------|
 | 13 | Devdutt Padikkal | Batter | 2.00 | IND | 131.6 SR (415 balls, MEDIUM) | |
 | 14 | Jacob Bethell | All-rounder | 2.60 | ENG | 171.8 SR (39 balls, LOW) | |
-| 15 | Kanishk Chouhan | All-rounder | 6.00 | IND | Uncapped IPL, off-spin AR | |
+| 15 | Kanishk Chouhan | All-rounder | 0.30 | IND | Uncapped IPL, off-spin AR | |
 | 16 | Mangesh Yadav | Bowler | 0.30 | IND | 6 IPL matches, 9 wkts / 9.32 econ (20 ov, LOW); SMAT experience | |
 | 17 | Jacob Duffy | Bowler | 0.75 | NZ | Uncapped IPL, RF-M depth | |
 | 18 | Swapnil Singh | All-rounder | 0.50 | IND | 8.88 econ / 6 wkts (17 overs, LOW) | |
@@ -96,7 +96,7 @@ For 2026, the title-winning core returns largely intact, with 15 players retaine
 | 24 | Rasikh Salam | Bowler | 6.00 | IND | 13 IPL matches / 10 wkts since 2023, 11.21 econ (30.5 ov, LOW) | |
 | 25 | Vihaan Malhotra | Batter | 0.30 | IND | Uncapped IPL, LHB, age 19 | |
 
-**Total squad salary:** 122.65 Cr | **Overseas slots in XII:** 4 (Salt, David, Hazlewood, Shepherd/Bethell/Duffy)
+**Total squad salary:** 116.95 Cr | **Overseas slots in XII:** 4 (Salt, David, Hazlewood, Shepherd/Bethell/Duffy)
 
 ---
 
@@ -270,13 +270,85 @@ Krunal's split is the most striking: 7.36 economy bowling first vs 8.75 defendin
 
 Hazlewood shows a similar pattern (7.91 vs 8.85), though his bowling-first sample is small (18 overs). Suyash Sharma is the only bowler who's *better* defending (8.52 vs 9.11), possibly because his leg-spin creates more pressure when opponents are chasing.
 
+### The Chase Approach: Anatomy of a Run Down
+
+RCB have chased 18 times since 2023. Their overall record (11/18, 61.1%) flatters them slightly, because it hides a dramatic cliff at the 180-run mark.
+
+**Chase Results by Target Band (Since 2023)**
+
+| Target Band | Chases | Wins | Win% | League Win% | RCB vs League |
+|-------------|--------|------|------|-------------|---------------|
+| ≤140 | 1 | 1 | 100.0% | 75.0% | +25.0 |
+| 141-160 | 2 | 2 | 100.0% | 87.0% | +13.0 |
+| 161-180 | 5 | 5 | 100.0% | 61.4% | **+38.6** |
+| 181-200 | 4 | 2 | 50.0% | 44.2% | +5.8 |
+| 200+ | 6 | 1 | 16.7% | 23.6% | -6.9 |
+
+Eight chases of 180 or below. Eight wins. Zero failures. The 161-180 band is where the differential is sharpest: RCB win 100% where the league average is 61.4%, a 38.6 percentage-point gap. Above 180, the picture inverts. The 200+ record (1/6, 16.7%) is below league average.
+
+The conclusion is unavoidable: RCB are elite at chasing achievable targets but crumble when asked to go beyond their natural run rate. The bowling needs to keep targets below 180 for the batting to function at full capacity.
+
+**How the Approach Changes by Target Size**
+
+| Target Band | PP SR | PP Wkts/Match | Mid SR | Mid Wkts/Match | Death SR | Death Wkts/Match |
+|-------------|-------|---------------|--------|----------------|----------|-----------------|
+| ≤160 | 11.50 | 1.00 | 8.37 | 2.33 | 9.65 | 1.00 |
+| 161-180 | 9.43 | 1.00 | 8.89 | 1.20 | **14.15** | 1.00 |
+| 180+ | **10.82** | 1.40 | 9.96 | **3.10** | 10.28 | **2.50** |
+
+Three distinct chase modes emerge. Against small targets (≤160), they attack the powerplay at 11.50 SR and cruise through the middle overs. Against mid-range targets (161-180), they play the long game: a measured powerplay (9.43), steady accumulation, then explode at the death (14.15 SR). That death-overs acceleration is the signature of a side that trusts its finishers.
+
+Against 180+, the approach breaks. Powerplay aggression rises (10.82 SR), but it comes at a cost: 1.4 PP wickets per match. The middle overs become a graveyard, averaging 3.1 wickets per chase. By the time the death overs arrive, too many top-order batters are back in the dugout to sustain the required rate.
+
+**The Collapse Zone: Middle Overs Under Pressure**
+
+| Phase | 3+ Wkt Collapses | Total Chase Innings | Collapse Rate | Lost After Collapse |
+|-------|------------------|---------------------|---------------|---------------------|
+| Powerplay | 3 | 18 | 16.7% | 2/3 (66.7%) |
+| **Middle** | **8** | **18** | **44.4%** | **6/8 (75.0%)** |
+| Death | 4 | 16 | 25.0% | 4/4 (100.0%) |
+
+In 44.4% of all chase innings, RCB lose 3 or more wickets in the middle overs. That is not a statistical blip. When it happens, they lose 75% of the time. Death-overs collapses are terminal (0/4 wins). One encouraging sign from 2025: they survived a middle-overs collapse in the 227 chase (match vs DC) and still won by 6 wickets. Depth, perhaps, beginning to mature.
+
+**Early Wickets: The 1-Wicket Sweet Spot**
+
+| PP Wickets Lost | Chases | Wins | Win% |
+|-----------------|--------|------|------|
+| 0 | 6 | 4 | 66.7% |
+| **1** | **5** | **5** | **100.0%** |
+| 2 | 4 | 1 | 25.0% |
+| 3 | 3 | 1 | 33.3% |
+
+Losing exactly one wicket in the powerplay correlates with a 100% chase win rate (5/5). The counterintuitive zero-wicket record (66.7%) likely reflects cautious starts against tough targets. Once two or more wickets fall in the first six overs, the chase win rate collapses to 25-33%. The coaching staff should understand: the optimal chase profile is Salt or Kohli going hard, one falling to a good ball in the process, and the other carrying through with Patidar or V Iyer arriving at a comfortable situation.
+
+**Who Scales and Who Doesn't**
+
+| Batter | SR (≤160) | SR (161-180) | SR (180+) | Scales? |
+|--------|-----------|-------------|-----------|---------|
+| Virat Kohli | 136.6 | 146.5 | **162.9** | Yes, +26.3 across bands |
+| Phil Salt | 190.0 | 189.1 | 184.0 | No, consistently elite regardless |
+| Rajat Patidar | 120.8 | 145.0 | **169.4** | Yes, +48.6 across bands |
+
+Kohli scales his strike rate precisely to the required rate: 136.6 against small targets, 162.9 when the chase demands it. At 37, the greatest chaser in IPL history still adjusts better than anyone else in this squad. Salt is the opposite: a flat 184-190 regardless of the target. He does not modulate. He attacks. The target is irrelevant. Patidar is the surprise: his SR jumps from 120.8 to 169.4 as targets increase, with sixes climbing from 1 per innings (≤160) to 1.8 per innings (180+). He is developing the range-hitting that RCB need from a number 3.
+
+**2025 Chase Evolution**
+
+The year-over-year trend tells a story of improvement:
+- 2023: 2/5 (40.0%) chase wins
+- 2024: 3/6 (50.0%)
+- 2025: 6/7 (85.7%)
+
+In 2025, every chase of 180 or below was won. The lone failure was a 231 target where RCB were bowled out for 189 (that death-overs collapse: 7 wickets in the final 5 overs at 4.55 SR). But they also chased down 227 against DC with 8 balls to spare, proving they *can* handle big targets when the top order fires together.
+
 ### What This Means for 2026
 
-RCB should want to chase. The data is overwhelming: better batting SR (+12.0), better bowling economy when defending (-0.23), higher chase win rate (61.1% vs 53.8%), and individual player splits that uniformly favour chasing. In 2025, they won 85.7% of chases.
+RCB should want to chase. The data is overwhelming: better batting SR (+12.0), better bowling economy when defending (-0.23), higher chase win rate (61.1% vs 53.8%), and individual player splits that uniformly favour chasing.
 
-But here's the nuance: when they bat first, their overall SR drops to league-average (143.2). The powerplay setting SR of 139.7 is particularly underwhelming. If opponents win the toss and insert RCB, the defending champions look significantly less threatening. The coaching staff needs to address the setting-mode powerplay approach, because in knockout cricket, you don't always get to choose.
+The tactical prescription is specific. If RCB restrict opponents to 180 or below, they should win. They are 8/8 in that scenario. The bowling unit's primary job is not to take 10 wickets; it is to ensure the target stays below 180. Everything about the squad composition, Bhuvneshwar and Hazlewood's powerplay stranglehold, Krunal's middle-overs control, the five all-rounders providing depth, supports a "restrict then chase" identity.
 
-The ideal scenario for RCB is simple: win the toss, chase, and let Salt-Kohli attack a known target. The risk scenario is equally clear: lose the toss, bat first, post a middling total with a 139.7 powerplay SR, and then try to defend it with Krunal bowling at 8.75 instead of 7.36. Same squad, very different prospects.
+The vulnerability is equally specific. When opponents breach 200, RCB's middle order faces a structural problem: the pressure of a high required rate produces 3.1 wickets per chase in the middle overs, and death-overs collapses become terminal. The 2025 coaching staff addressed this partly through improved depth (Tim David, Jitesh Sharma), but the 200+ record (1/6) remains the statistical evidence that this squad has a ceiling when chasing.
+
+If the coaching staff want one operational priority for 2026 chase preparation: train the middle order to survive the 8-15 over block when the required rate exceeds 10 per over. That is where chases die.
 
 ---
 
@@ -395,9 +467,9 @@ Krunal doesn't do viral moments. What he does is win matches while nobody's watc
 
 RCB's middle-overs batting (143.9 SR in 2025) is their weakest offensive phase, and Padikkal (2.00 Cr, retained) has the toolkit to fix it. He's a left-hander who can bat at 3 or 4, and his 186.9 SR against fast bowling (MEDIUM, 99 balls) shows real stroke-play ability. The problem: 131.6 career SR and a recent form SR of 151.5 (last 10) that still sits below most starters. His 108.8 SR against left-arm orthodox (LOW, 34 balls) and 62.5 SR against wrist-spin (LOW, 8 balls) are developmental red flags. But if Padikkal can sustain his upswing and push for the XI, he gives the middle order something it currently lacks: a left-handed option who can actually bat.
 
-**2. Kanishk Chouhan: The 6-Crore Question Mark**
+**2. Kanishk Chouhan: The Cheapest Fix for the Biggest Problem**
 
-RCB's off-spin depth chart is rated 1.4/10. That's not a typo. Chouhan (6.00 Cr, retained) is a 19-year-old uncapped off-spin all-rounder who was retained at that premium *specifically* because of this gap. He has zero IPL data, which makes any projection about as reliable as a weather forecast for next month. But RCB paid 6 Cr for a reason: they need someone who can bowl to left-handers in the middle overs, and Chouhan is the only player in the squad who can do it. If he can deliver even 2-3 overs per match at a sub-9 economy, it transforms RCB's options. If he can't, opponents with left-hand-heavy middle orders will keep treating overs 7-15 like batting practice.
+RCB's off-spin depth chart is rated 1.4/10. That's not a typo. Chouhan (0.30 Cr, retained) is a 19-year-old uncapped off-spin all-rounder retained at a bargain price, which tells you two things: RCB know they have an off-spin problem, and Chouhan is the long-shot bet rather than a proven solution. He has zero IPL data, which makes any projection speculative at best. But he's the only player in the squad who can bowl off-spin to left-handers in the middle overs. If he can deliver even 2-3 overs per match at a sub-9 economy, it transforms RCB's options. If he can't, opponents with left-hand-heavy middle orders will keep exploiting overs 7-15.
 
 **3. Suyash Sharma: Death Bowling Apprentice**
 
@@ -428,7 +500,7 @@ Suyash (2.60 Cr, retained) has carved out a comfortable niche as a middle-overs 
 | Player | Primary Phase | Econ (Primary) | Secondary Phase | Econ (Secondary) | Role |
 |--------|--------------|----------------|-----------------|------------------|------|
 | Bhuvneshwar Kumar | PP | 8.26 (99 ov, HIGH) | Death | 10.96 (48 ov, MEDIUM) | Primary new-ball |
-| Josh Hazlewood | PP | 7.54 (28 ov, MEDIUM) | Death | 10.65 (23 ov, MEDIUM) | Primary new-ball |
+| Josh Hazlewood | PP | 7.54 (28 ov, MEDIUM) | Death | 10.65 (15 ov, LOW) | Primary new-ball |
 | Krunal Pandya | Middle | 7.45 (82 ov, MEDIUM) | n/a | n/a | Primary middle-overs |
 | Suyash Sharma | Middle | 8.78 (78 ov, MEDIUM) | Death | 10.67 (12 ov, LOW) | Secondary middle-overs (leg-spin) |
 | Yash Dayal | Overall | 9.85 (113 ov, HIGH) | PP / Death | 9.67 / 11.73 | Primary death (status uncertain) |
@@ -493,7 +565,7 @@ In 2025, RCB's top 3 (Kohli, Salt, and the third batter) scored the lion's share
 
 **3. The Off-Spin Gap Cannot Be Wished Away**
 
-The 1.4/10 off-spin depth rating isn't a quirk. It's a structural vulnerability that competent opposition coaches will identify within minutes of reviewing the squad list. Without a frontline off-spinner, RCB cannot create matchup advantages against left-handed batters in the middle overs. Kanishk Chouhan (6.00 Cr, uncapped) is the investment thesis. If he delivers, brilliant. If he doesn't, opponents with left-hand-heavy middle orders (KKR, SRH, looking at you) will exploit this gap relentlessly. Krunal's left-arm orthodox is not a substitute for genuine off-spin. Different angle, different purpose.
+The 1.4/10 off-spin depth rating isn't a quirk. It's a structural vulnerability that competent opposition coaches will identify within minutes of reviewing the squad list. Without a frontline off-spinner, RCB cannot create matchup advantages against left-handed batters in the middle overs. Kanishk Chouhan (0.30 Cr, uncapped) is the only internal option. If he delivers, brilliant. If he doesn't, opponents with left-hand-heavy middle orders (KKR, SRH, looking at you) will exploit this gap relentlessly. Krunal's left-arm orthodox is not a substitute for genuine off-spin. Different angle, different purpose.
 
 **4. Overseas Slot Management Must Be Ruthless**
 

@@ -5243,6 +5243,288 @@ def create_matchup_matrix_views(conn: duckdb.DuckDBPyConnection) -> None:
             print(f"  ERROR verifying {vw}: {exc}")
 
 
+def create_innings_context_views(conn: duckdb.DuckDBPyConnection) -> None:
+    """Create innings-context ranking views (chase vs defend) with dual-scope.
+
+    TKT-256 / EPIC-021: Team and player rankings segmented by innings context
+    (batting first = Setting, batting second = Chasing; bowling first = Bowling First,
+    bowling second = Defending). Both all-time and since-2023 scopes.
+
+    Views created (8 total):
+      - analytics_ipl_team_batting_by_innings          (all-time)
+      - analytics_ipl_team_batting_by_innings_since2023
+      - analytics_ipl_team_bowling_by_innings          (all-time)
+      - analytics_ipl_team_bowling_by_innings_since2023
+      - analytics_ipl_player_batting_by_innings        (all-time)
+      - analytics_ipl_player_batting_by_innings_since2023
+      - analytics_ipl_player_bowling_by_innings        (all-time)
+      - analytics_ipl_player_bowling_by_innings_since2023
+    """
+
+    print("\nCreating Innings-Context Ranking views (TKT-256)...")
+
+    # ── 1a. Team Batting by Innings (all-time) ────────────────────
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_team_batting_by_innings AS
+        WITH ipl_matches AS (
+            SELECT dm.match_id, fb.innings
+            FROM dim_match dm
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            JOIN fact_ball fb ON dm.match_id = fb.match_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+            GROUP BY dm.match_id, fb.innings
+        )
+        SELECT
+            dtt.team_name,
+            CASE WHEN fb.innings = 1 THEN 'Setting' ELSE 'Chasing' END AS innings_context,
+            fb.match_phase,
+            SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS balls_faced,
+            SUM(fb.batter_runs) AS runs_scored,
+            ROUND(SUM(fb.batter_runs) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS strike_rate,
+            ROUND((SUM(CASE WHEN fb.batter_runs IN (4, 6) THEN 1 ELSE 0 END)) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS boundary_pct,
+            ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS dot_ball_pct,
+            SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) AS dismissals,
+            ROUND(SUM(fb.batter_runs) * 1.0
+                  / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END), 0), 2) AS batting_avg
+        FROM fact_ball fb
+        JOIN dim_match dm ON fb.match_id = dm.match_id
+        JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+        JOIN dim_team dtt ON fb.batting_team_id = dtt.team_id
+        WHERE dt.tournament_name = 'Indian Premier League'
+        GROUP BY dtt.team_name,
+                 CASE WHEN fb.innings = 1 THEN 'Setting' ELSE 'Chasing' END,
+                 fb.match_phase
+        HAVING SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) >= 100
+    """)
+    print("  - analytics_ipl_team_batting_by_innings")
+
+    # ── 1b. Team Batting by Innings (since 2023) ─────────────────
+    conn.execute(f"""
+        CREATE OR REPLACE VIEW analytics_ipl_team_batting_by_innings_since2023 AS
+        SELECT
+            dtt.team_name,
+            CASE WHEN fb.innings = 1 THEN 'Setting' ELSE 'Chasing' END AS innings_context,
+            fb.match_phase,
+            SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS balls_faced,
+            SUM(fb.batter_runs) AS runs_scored,
+            ROUND(SUM(fb.batter_runs) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS strike_rate,
+            ROUND((SUM(CASE WHEN fb.batter_runs IN (4, 6) THEN 1 ELSE 0 END)) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS boundary_pct,
+            ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS dot_ball_pct,
+            SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) AS dismissals,
+            ROUND(SUM(fb.batter_runs) * 1.0
+                  / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END), 0), 2) AS batting_avg
+        FROM fact_ball fb
+        JOIN dim_match dm ON fb.match_id = dm.match_id
+        JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+        JOIN dim_team dtt ON fb.batting_team_id = dtt.team_id
+        WHERE dt.tournament_name = 'Indian Premier League'
+          AND dm.match_date >= '{IPL_MIN_DATE}'
+        GROUP BY dtt.team_name,
+                 CASE WHEN fb.innings = 1 THEN 'Setting' ELSE 'Chasing' END,
+                 fb.match_phase
+        HAVING SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) >= 100
+    """)
+    print("  - analytics_ipl_team_batting_by_innings_since2023")
+
+    # ── 2a. Team Bowling by Innings (all-time) ───────────────────
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_team_bowling_by_innings AS
+        SELECT
+            dtt.team_name,
+            CASE WHEN fb.innings = 1 THEN 'Bowling First' ELSE 'Defending' END AS innings_context,
+            fb.match_phase,
+            SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS balls_bowled,
+            SUM(fb.batter_runs + fb.extra_runs) AS runs_conceded,
+            ROUND((SUM(fb.batter_runs + fb.extra_runs) * 6.0)
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS economy,
+            ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS dot_ball_pct,
+            ROUND(SUM(CASE WHEN fb.batter_runs IN (4, 6) THEN 1 ELSE 0 END) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS boundary_conceded_pct,
+            SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) AS wickets,
+            ROUND(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) * 1.0
+                  / NULLIF(SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END), 0), 2) AS strike_rate
+        FROM fact_ball fb
+        JOIN dim_match dm ON fb.match_id = dm.match_id
+        JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+        JOIN dim_team dtt ON fb.bowling_team_id = dtt.team_id
+        WHERE dt.tournament_name = 'Indian Premier League'
+        GROUP BY dtt.team_name,
+                 CASE WHEN fb.innings = 1 THEN 'Bowling First' ELSE 'Defending' END,
+                 fb.match_phase
+        HAVING SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) >= 100
+    """)
+    print("  - analytics_ipl_team_bowling_by_innings")
+
+    # ── 2b. Team Bowling by Innings (since 2023) ─────────────────
+    conn.execute(f"""
+        CREATE OR REPLACE VIEW analytics_ipl_team_bowling_by_innings_since2023 AS
+        SELECT
+            dtt.team_name,
+            CASE WHEN fb.innings = 1 THEN 'Bowling First' ELSE 'Defending' END AS innings_context,
+            fb.match_phase,
+            SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS balls_bowled,
+            SUM(fb.batter_runs + fb.extra_runs) AS runs_conceded,
+            ROUND((SUM(fb.batter_runs + fb.extra_runs) * 6.0)
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS economy,
+            ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS dot_ball_pct,
+            ROUND(SUM(CASE WHEN fb.batter_runs IN (4, 6) THEN 1 ELSE 0 END) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS boundary_conceded_pct,
+            SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) AS wickets,
+            ROUND(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) * 1.0
+                  / NULLIF(SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END), 0), 2) AS strike_rate
+        FROM fact_ball fb
+        JOIN dim_match dm ON fb.match_id = dm.match_id
+        JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+        JOIN dim_team dtt ON fb.bowling_team_id = dtt.team_id
+        WHERE dt.tournament_name = 'Indian Premier League'
+          AND dm.match_date >= '{IPL_MIN_DATE}'
+        GROUP BY dtt.team_name,
+                 CASE WHEN fb.innings = 1 THEN 'Bowling First' ELSE 'Defending' END,
+                 fb.match_phase
+        HAVING SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) >= 100
+    """)
+    print("  - analytics_ipl_team_bowling_by_innings_since2023")
+
+    # ── 3a. Player Batting by Innings (all-time) ─────────────────
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_player_batting_by_innings AS
+        SELECT
+            dp.current_name AS player_name,
+            CASE WHEN fb.innings = 1 THEN 'Setting' ELSE 'Chasing' END AS innings_context,
+            SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS balls_faced,
+            SUM(fb.batter_runs) AS runs_scored,
+            ROUND(SUM(fb.batter_runs) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS strike_rate,
+            ROUND((SUM(CASE WHEN fb.batter_runs IN (4, 6) THEN 1 ELSE 0 END)) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS boundary_pct,
+            ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS dot_ball_pct,
+            SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) AS dismissals,
+            ROUND(SUM(fb.batter_runs) * 1.0
+                  / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END), 0), 2) AS batting_avg
+        FROM fact_ball fb
+        JOIN dim_match dm ON fb.match_id = dm.match_id
+        JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+        JOIN dim_player dp ON fb.batter_id = dp.player_id
+        WHERE dt.tournament_name = 'Indian Premier League'
+        GROUP BY dp.current_name,
+                 CASE WHEN fb.innings = 1 THEN 'Setting' ELSE 'Chasing' END
+        HAVING SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) >= 50
+    """)
+    print("  - analytics_ipl_player_batting_by_innings")
+
+    # ── 3b. Player Batting by Innings (since 2023) ───────────────
+    conn.execute(f"""
+        CREATE OR REPLACE VIEW analytics_ipl_player_batting_by_innings_since2023 AS
+        SELECT
+            dp.current_name AS player_name,
+            CASE WHEN fb.innings = 1 THEN 'Setting' ELSE 'Chasing' END AS innings_context,
+            SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS balls_faced,
+            SUM(fb.batter_runs) AS runs_scored,
+            ROUND(SUM(fb.batter_runs) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS strike_rate,
+            ROUND((SUM(CASE WHEN fb.batter_runs IN (4, 6) THEN 1 ELSE 0 END)) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS boundary_pct,
+            ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS dot_ball_pct,
+            SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) AS dismissals,
+            ROUND(SUM(fb.batter_runs) * 1.0
+                  / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END), 0), 2) AS batting_avg
+        FROM fact_ball fb
+        JOIN dim_match dm ON fb.match_id = dm.match_id
+        JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+        JOIN dim_player dp ON fb.batter_id = dp.player_id
+        WHERE dt.tournament_name = 'Indian Premier League'
+          AND dm.match_date >= '{IPL_MIN_DATE}'
+        GROUP BY dp.current_name,
+                 CASE WHEN fb.innings = 1 THEN 'Setting' ELSE 'Chasing' END
+        HAVING SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) >= 50
+    """)
+    print("  - analytics_ipl_player_batting_by_innings_since2023")
+
+    # ── 4a. Player Bowling by Innings (all-time) ─────────────────
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_player_bowling_by_innings AS
+        SELECT
+            dp.current_name AS player_name,
+            CASE WHEN fb.innings = 1 THEN 'Bowling First' ELSE 'Defending' END AS innings_context,
+            SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS balls_bowled,
+            SUM(fb.batter_runs + fb.extra_runs) AS runs_conceded,
+            ROUND((SUM(fb.batter_runs + fb.extra_runs) * 6.0)
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS economy,
+            ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS dot_ball_pct,
+            ROUND(SUM(CASE WHEN fb.batter_runs IN (4, 6) THEN 1 ELSE 0 END) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS boundary_conceded_pct,
+            SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) AS wickets,
+            ROUND(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) * 1.0
+                  / NULLIF(SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END), 0), 2) AS strike_rate
+        FROM fact_ball fb
+        JOIN dim_match dm ON fb.match_id = dm.match_id
+        JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+        JOIN dim_player dp ON fb.bowler_id = dp.player_id
+        WHERE dt.tournament_name = 'Indian Premier League'
+        GROUP BY dp.current_name,
+                 CASE WHEN fb.innings = 1 THEN 'Bowling First' ELSE 'Defending' END
+        HAVING SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) >= 30
+    """)
+    print("  - analytics_ipl_player_bowling_by_innings")
+
+    # ── 4b. Player Bowling by Innings (since 2023) ───────────────
+    conn.execute(f"""
+        CREATE OR REPLACE VIEW analytics_ipl_player_bowling_by_innings_since2023 AS
+        SELECT
+            dp.current_name AS player_name,
+            CASE WHEN fb.innings = 1 THEN 'Bowling First' ELSE 'Defending' END AS innings_context,
+            SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) AS balls_bowled,
+            SUM(fb.batter_runs + fb.extra_runs) AS runs_conceded,
+            ROUND((SUM(fb.batter_runs + fb.extra_runs) * 6.0)
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS economy,
+            ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS dot_ball_pct,
+            ROUND(SUM(CASE WHEN fb.batter_runs IN (4, 6) THEN 1 ELSE 0 END) * 100.0
+                  / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) AS boundary_conceded_pct,
+            SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END) AS wickets,
+            ROUND(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) * 1.0
+                  / NULLIF(SUM(CASE WHEN fb.is_wicket THEN 1 ELSE 0 END), 0), 2) AS strike_rate
+        FROM fact_ball fb
+        JOIN dim_match dm ON fb.match_id = dm.match_id
+        JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+        JOIN dim_player dp ON fb.bowler_id = dp.player_id
+        WHERE dt.tournament_name = 'Indian Premier League'
+          AND dm.match_date >= '{IPL_MIN_DATE}'
+        GROUP BY dp.current_name,
+                 CASE WHEN fb.innings = 1 THEN 'Bowling First' ELSE 'Defending' END
+        HAVING SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) >= 30
+    """)
+    print("  - analytics_ipl_player_bowling_by_innings_since2023")
+
+    # Verify row counts
+    for vw in [
+        "analytics_ipl_team_batting_by_innings",
+        "analytics_ipl_team_batting_by_innings_since2023",
+        "analytics_ipl_team_bowling_by_innings",
+        "analytics_ipl_team_bowling_by_innings_since2023",
+        "analytics_ipl_player_batting_by_innings",
+        "analytics_ipl_player_batting_by_innings_since2023",
+        "analytics_ipl_player_bowling_by_innings",
+        "analytics_ipl_player_bowling_by_innings_since2023",
+    ]:
+        try:
+            count = conn.execute(f"SELECT COUNT(*) FROM {vw}").fetchone()[0]
+            print(f"  - {vw}: {count} rows")
+        except Exception as exc:
+            print(f"  ERROR verifying {vw}: {exc}")
+
+
 def main() -> int:
     """Main entry point."""
 
@@ -5281,6 +5563,7 @@ def main() -> int:
     create_weighted_composite_views(conn)
     create_team_phase_views(conn)
     create_recent_form_views(conn)
+    create_innings_context_views(conn)
 
     # Verify
     verify_views(conn)

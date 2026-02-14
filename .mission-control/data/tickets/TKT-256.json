@@ -1,0 +1,29 @@
+{
+  "id": "TKT-256",
+  "title": "Create innings-context ranking views (chase vs defend)",
+  "state": "DONE",
+  "priority": "P1",
+  "size": "L",
+  "progress_pct": 100,
+  "epic_id": "EPIC-021",
+  "sprint_id": "SPRINT-002",
+  "owner": "Stephen Curry",
+  "assignee": "Stephen Curry",
+  "reviewer": "Andy Flower",
+  "effort": "Deep Work",
+  "description": "Build team and player ranking views segmented by innings context (batting first/second, bowling first/second). Both since-2023 and all-time dual-scope. Covers: team chase/defend batting SR by phase, team chase/defend bowling economy by phase, player batting SR by innings, player bowling economy by innings. Feeds into future Rankings tab and season previews.",
+  "tags": ["Analytics", "Rankings", "SQL Views", "EPIC-021"],
+  "gates": {
+    "florentino_gate": { "status": "APPROVED", "reason": "Core analytics feature for innings-context rankings.", "date": "2026-02-14" },
+    "build": "PASS",
+    "domain_sanity": "PASS",
+    "enforcement": "PASS"
+  },
+  "deliverables": [
+    "scripts/core/analytics_ipl.py",
+    "DuckDB views: 4 categories x 2 scopes = 8 innings-context views (team_batting_by_innings, team_bowling_by_innings, player_batting_by_innings, player_bowling_by_innings)"
+  ],
+  "created_at": "2026-02-14T10:00:00Z",
+  "updated_at": "2026-02-14T18:00:00Z",
+  "completed_at": "2026-02-14"
+}

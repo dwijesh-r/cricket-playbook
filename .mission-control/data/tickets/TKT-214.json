@@ -1,0 +1,19 @@
+{
+  "id": "TKT-214",
+  "epic_id": "EPIC-019",
+  "title": "Research Desk — migrate NL search + SQL Lab to React",
+  "description": "Rebuild research-desk.html as React page. Components: NLSearchBar (with typeahead), QueryResultsTable, SchemaExplorer, SQLEditor. Preserve all 55+ NL templates, 150+ player aliases, partial query execution. DuckDB-WASM handles SQL execution.",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "size": "XL",
+  "progress_pct": 0,
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
+  "reviewer": "Jayson Tatum",
+  "blocked_by": ["TKT-211", "TKT-212"],
+  "sprint_id": "SPRINT-002",
+  "tags": ["Frontend", "React", "NL Search", "Migration"],
+  "gates": {},
+  "created_at": "2026-02-14T01:40:00Z",
+  "updated_at": "2026-02-14T01:40:00Z"
+}

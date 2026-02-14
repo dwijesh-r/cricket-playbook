@@ -1,0 +1,19 @@
+{
+  "id": "TKT-218",
+  "epic_id": "EPIC-020",
+  "title": "Multi-player comparison (3+ players)",
+  "description": "Extend comparison tool to support 3-4 player comparisons. Radar chart with multiple overlays (color-coded by team). Tabular view with sortable columns. Group comparison by role (e.g., compare all team openers, all death bowlers).",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "size": "M",
+  "progress_pct": 0,
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
+  "reviewer": "Jayson Tatum",
+  "blocked_by": ["TKT-217"],
+  "sprint_id": "SPRINT-002",
+  "tags": ["Frontend", "Visualization", "Comparison"],
+  "gates": {},
+  "created_at": "2026-02-14T01:40:00Z",
+  "updated_at": "2026-02-14T01:40:00Z"
+}

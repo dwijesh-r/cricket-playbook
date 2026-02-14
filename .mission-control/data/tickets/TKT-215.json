@@ -1,0 +1,19 @@
+{
+  "id": "TKT-215",
+  "epic_id": "EPIC-019",
+  "title": "Testing + CI integration for React dashboard",
+  "description": "Write component tests (Vitest + React Testing Library) for all core components. Integration test for DuckDB data loading. Add to CI pipeline (ci.yml). Target 80% coverage on new React code. E2E smoke test with Playwright optional.",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "size": "M",
+  "progress_pct": 0,
+  "owner": "Brad Stevens",
+  "assignee": "Brad Stevens",
+  "reviewer": "N'Golo Kante",
+  "blocked_by": ["TKT-213", "TKT-214"],
+  "sprint_id": "SPRINT-002",
+  "tags": ["Testing", "CI/CD", "React"],
+  "gates": {},
+  "created_at": "2026-02-14T01:40:00Z",
+  "updated_at": "2026-02-14T01:40:00Z"
+}

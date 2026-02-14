@@ -1,0 +1,19 @@
+{
+  "id": "TKT-211",
+  "epic_id": "EPIC-019",
+  "title": "Design system — component library + theme tokens",
+  "description": "Port The Lab dark theme to CSS-in-JS tokens. Build core components: Card, Table, Badge, Modal, Tab, TeamSelector, PlayerChip. Follow existing color palette (team primary/secondary from teams.js). Storybook optional.",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "size": "L",
+  "progress_pct": 0,
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
+  "reviewer": "Jayson Tatum",
+  "blocked_by": ["TKT-210"],
+  "sprint_id": "SPRINT-002",
+  "tags": ["Frontend", "Design System", "React"],
+  "gates": {},
+  "created_at": "2026-02-14T01:40:00Z",
+  "updated_at": "2026-02-14T01:40:00Z"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "TKT-209",
+  "epic_id": "EPIC-018",
+  "title": "Model monitoring & drift detection setup",
+  "description": "Extend existing ML monitoring (scripts/ml_ops/) with win probability specific checks: prediction calibration drift, feature distribution drift (KS test), latency monitoring. Add to weekly health check workflow.",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "size": "S",
+  "progress_pct": 0,
+  "owner": "Ime Udoka",
+  "assignee": "Ime Udoka",
+  "reviewer": "N'Golo Kante",
+  "blocked_by": ["TKT-207"],
+  "sprint_id": "SPRINT-002",
+  "tags": ["ML Ops", "Monitoring"],
+  "gates": {},
+  "created_at": "2026-02-14T01:40:00Z",
+  "updated_at": "2026-02-14T01:40:00Z"
+}

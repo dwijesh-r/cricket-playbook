@@ -1,0 +1,19 @@
+{
+  "id": "TKT-217",
+  "epic_id": "EPIC-020",
+  "title": "Comparison UI — radar charts + side-by-side stats",
+  "description": "Build comparison view with: player selector (search + autocomplete), radar chart overlay (6 dimensions: SR, Avg, Boundary%, Dot%, Phase Balance, Consistency), side-by-side stat table, phase heatmap comparison. Use Chart.js or D3 for radar.",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "size": "L",
+  "progress_pct": 0,
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
+  "reviewer": "Jayson Tatum",
+  "blocked_by": ["TKT-216"],
+  "sprint_id": "SPRINT-002",
+  "tags": ["Frontend", "Visualization", "Comparison"],
+  "gates": {},
+  "created_at": "2026-02-14T01:40:00Z",
+  "updated_at": "2026-02-14T01:40:00Z"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "TKT-216",
+  "epic_id": "EPIC-020",
+  "title": "Head-to-head comparison data pipeline",
+  "description": "Build SQL views and data export for player-vs-player comparison: career stats side-by-side, phase breakdown (PP/middle/death), vs bowling type matchups, venue performance, recent form (last 10 innings). Export as comparison_data.js for dashboard.",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "size": "M",
+  "progress_pct": 0,
+  "owner": "Stephen Curry",
+  "assignee": "Stephen Curry",
+  "reviewer": "Andy Flower",
+  "sprint_id": "SPRINT-002",
+  "tags": ["Analytics", "Data Pipeline", "Comparison"],
+  "gates": {},
+  "created_at": "2026-02-14T01:40:00Z",
+  "updated_at": "2026-02-14T01:40:00Z"
+}

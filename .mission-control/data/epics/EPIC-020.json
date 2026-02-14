@@ -1,0 +1,13 @@
+{
+  "id": "EPIC-020",
+  "title": "Player Comparison Tool — Head-to-Head Analytics",
+  "owner": "Kevin de Bruyne",
+  "tickets": ["TKT-216", "TKT-217", "TKT-218", "TKT-219"],
+  "progress_pct": 0,
+  "status": "PLANNED",
+  "description": "Build a dedicated player comparison feature allowing head-to-head analysis of 2+ players across batting, bowling, and fielding dimensions. Includes radar charts, phase breakdowns, matchup comparisons, and shareable comparison links. Builds on existing compare tab in teams.html.",
+  "sprint_id": "SPRINT-002",
+  "created_at": "2026-02-14T01:40:00Z",
+  "updated_at": "2026-02-14T01:40:00Z",
+  "target_date": "2026-02-28"
+}

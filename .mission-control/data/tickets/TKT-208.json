@@ -1,0 +1,19 @@
+{
+  "id": "TKT-208",
+  "epic_id": "EPIC-018",
+  "title": "Integrate win probability into The Lab dashboard",
+  "description": "Add win probability visualization to The Lab. Show historical match replays with win probability curve overlaid on key moments (wickets, sixes, milestones). Export probability data as JS for client-side rendering.",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "size": "M",
+  "progress_pct": 0,
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
+  "reviewer": "Jayson Tatum",
+  "blocked_by": ["TKT-207"],
+  "sprint_id": "SPRINT-002",
+  "tags": ["Frontend", "Visualization", "ML"],
+  "gates": {},
+  "created_at": "2026-02-14T01:40:00Z",
+  "updated_at": "2026-02-14T01:40:00Z"
+}

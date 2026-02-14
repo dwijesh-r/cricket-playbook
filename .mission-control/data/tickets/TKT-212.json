@@ -1,0 +1,19 @@
+{
+  "id": "TKT-212",
+  "epic_id": "EPIC-019",
+  "title": "Data layer — DuckDB-WASM integration + React hooks",
+  "description": "Integrate DuckDB-WASM with React. Create custom hooks: useQuery(sql), useTeamData(abbrev), usePlayerProfile(id). Load parquet files from sql_lab/tables/. Pre-register 163 views from views.sql. Connection pooling + error boundaries.",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "size": "L",
+  "progress_pct": 0,
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
+  "reviewer": "Brad Stevens",
+  "blocked_by": ["TKT-210"],
+  "sprint_id": "SPRINT-002",
+  "tags": ["Frontend", "Data Layer", "DuckDB"],
+  "gates": {},
+  "created_at": "2026-02-14T01:40:00Z",
+  "updated_at": "2026-02-14T01:40:00Z"
+}

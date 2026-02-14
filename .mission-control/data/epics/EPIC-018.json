@@ -1,0 +1,13 @@
+{
+  "id": "EPIC-018",
+  "title": "Win Probability Model — In-Match Prediction Engine",
+  "owner": "Ime Udoka",
+  "tickets": ["TKT-205", "TKT-206", "TKT-207", "TKT-208", "TKT-209"],
+  "progress_pct": 0,
+  "status": "PLANNED",
+  "description": "Build an ML model that predicts win probability at any point during an IPL match using ball-by-ball data from fact_ball. Includes feature engineering, model training/validation, dashboard integration, and monitoring setup.",
+  "sprint_id": "SPRINT-002",
+  "created_at": "2026-02-14T01:40:00Z",
+  "updated_at": "2026-02-14T01:40:00Z",
+  "target_date": "2026-02-28"
+}

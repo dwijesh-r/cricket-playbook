@@ -1,0 +1,19 @@
+{
+  "id": "TKT-213",
+  "epic_id": "EPIC-019",
+  "title": "Team pages — migrate squad, depth chart, pressure tabs",
+  "description": "Rebuild teams.html as React pages. Components: TeamSelector, SquadRoster, DepthChart, PredictedXI, PressureTab, VenueTab, HistoricTrends, MomentumTab, CompareView. Load data from existing JS files or DuckDB hooks.",
+  "state": "BACKLOG",
+  "priority": "P1",
+  "size": "XL",
+  "progress_pct": 0,
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
+  "reviewer": "Jayson Tatum",
+  "blocked_by": ["TKT-211", "TKT-212"],
+  "sprint_id": "SPRINT-002",
+  "tags": ["Frontend", "React", "Migration"],
+  "gates": {},
+  "created_at": "2026-02-14T01:40:00Z",
+  "updated_at": "2026-02-14T01:40:00Z"
+}

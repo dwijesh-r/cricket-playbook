@@ -1,0 +1,18 @@
+{
+  "id": "TKT-205",
+  "epic_id": "EPIC-018",
+  "title": "Research & define win probability model architecture",
+  "description": "Survey existing win probability models in cricket (WinViz, CricViz). Define feature set, model type (XGBoost/LightGBM vs neural), input schema from fact_ball, and evaluation metrics (Brier score, calibration). Produce architecture doc.",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "size": "M",
+  "progress_pct": 0,
+  "owner": "Ime Udoka",
+  "assignee": "Ime Udoka",
+  "reviewer": "Jose Mourinho",
+  "sprint_id": "SPRINT-002",
+  "tags": ["ML", "Research", "Architecture"],
+  "gates": {},
+  "created_at": "2026-02-14T01:40:00Z",
+  "updated_at": "2026-02-14T01:40:00Z"
+}

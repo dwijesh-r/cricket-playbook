@@ -1,0 +1,18 @@
+{
+  "id": "TKT-210",
+  "epic_id": "EPIC-019",
+  "title": "React project setup + build pipeline",
+  "description": "Initialize React project (Vite + TypeScript). Configure GitHub Pages deployment. Set up ESLint, Prettier, Vitest. Create folder structure: components/, pages/, hooks/, data/, utils/. Add CI workflow for build + deploy.",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "size": "M",
+  "progress_pct": 0,
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
+  "reviewer": "Brad Stevens",
+  "sprint_id": "SPRINT-002",
+  "tags": ["Frontend", "Infrastructure", "React"],
+  "gates": {},
+  "created_at": "2026-02-14T01:40:00Z",
+  "updated_at": "2026-02-14T01:40:00Z"
+}

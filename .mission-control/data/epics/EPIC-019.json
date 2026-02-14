@@ -1,0 +1,13 @@
+{
+  "id": "EPIC-019",
+  "title": "Interactive React Dashboard — The Lab v2",
+  "owner": "Kevin de Bruyne",
+  "tickets": ["TKT-210", "TKT-211", "TKT-212", "TKT-213", "TKT-214", "TKT-215"],
+  "progress_pct": 0,
+  "status": "PLANNED",
+  "description": "Rebuild The Lab dashboard as a React SPA with component-based architecture, client-side routing, and DuckDB-WASM integration. Phase 1 focuses on framework setup, design system, and migrating core team pages. Static HTML remains as fallback until React reaches parity.",
+  "sprint_id": "SPRINT-002",
+  "created_at": "2026-02-14T01:40:00Z",
+  "updated_at": "2026-02-14T01:40:00Z",
+  "target_date": "2026-03-15"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "SPRINT-002",
+  "title": "Sprint 5.0 - Interactive Intelligence & ML",
+  "start_date": "2026-02-15",
+  "end_date": "2026-02-28",
+  "duration_weeks": 2,
+  "epics": [
+    "EPIC-018",
+    "EPIC-019",
+    "EPIC-020"
+  ],
+  "tickets": [
+    "TKT-205",
+    "TKT-206",
+    "TKT-207",
+    "TKT-208",
+    "TKT-209",
+    "TKT-210",
+    "TKT-211",
+    "TKT-212",
+    "TKT-213",
+    "TKT-214",
+    "TKT-215",
+    "TKT-216",
+    "TKT-217",
+    "TKT-218",
+    "TKT-219"
+  ],
+  "llm_budget": {
+    "total_tokens": 500000,
+    "used_tokens": 0,
+    "approved_by": "Founder",
+    "approved_date": "2026-02-14"
+  },
+  "velocity": {
+    "planned_points": 0,
+    "completed_points": 0,
+    "burndown": []
+  },
+  "status": "PLANNED",
+  "description": "Three workstreams: (1) Win Probability ML model for in-match prediction, (2) React-based interactive dashboard to replace static HTML, (3) Enhanced player comparison tool with head-to-head analytics.",
+  "created_at": "2026-02-14T01:40:00Z",
+  "updated_at": "2026-02-14T01:40:00Z"
+}

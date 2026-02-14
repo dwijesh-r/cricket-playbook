@@ -1,0 +1,19 @@
+{
+  "id": "TKT-206",
+  "epic_id": "EPIC-018",
+  "title": "Feature engineering from fact_ball data",
+  "description": "Build feature pipeline extracting match state features: current score, wickets fallen, run rate, required rate, batting/bowling strength indices, venue bias, toss effect, phase (PP/middle/death), recent momentum (last 3 overs). Output training dataset as parquet.",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "size": "L",
+  "progress_pct": 0,
+  "owner": "Ime Udoka",
+  "assignee": "Ime Udoka",
+  "reviewer": "Stephen Curry",
+  "blocked_by": ["TKT-205"],
+  "sprint_id": "SPRINT-002",
+  "tags": ["ML", "Data Pipeline", "Feature Engineering"],
+  "gates": {},
+  "created_at": "2026-02-14T01:40:00Z",
+  "updated_at": "2026-02-14T01:40:00Z"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "TKT-207",
+  "epic_id": "EPIC-018",
+  "title": "Train & validate win probability model",
+  "description": "Train model on 2008-2024 IPL data, validate on 2025 season (holdout). Target Brier score < 0.20. Calibration plot required. Compare at least 2 model types. Cross-validate with 5-fold temporal split. Save best model + metrics.",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "size": "L",
+  "progress_pct": 0,
+  "owner": "Ime Udoka",
+  "assignee": "Ime Udoka",
+  "reviewer": "Jose Mourinho",
+  "blocked_by": ["TKT-206"],
+  "sprint_id": "SPRINT-002",
+  "tags": ["ML", "Training", "Validation"],
+  "gates": {},
+  "created_at": "2026-02-14T01:40:00Z",
+  "updated_at": "2026-02-14T01:40:00Z"
+}

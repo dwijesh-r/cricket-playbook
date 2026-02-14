@@ -1996,86 +1996,106 @@
         const agentProfiles = [
             {
                 name: 'Tom Brady',
-                role: 'Delivery Owner & Editor-in-Chief',
+                role: 'PO & Editor-in-Chief',
                 team: 'New England Patriots',
-                description: 'Owns scope, structure, approvals, and final ship decisions. Enforces the Constitution and maintains the Kanban board. No content ships without his sign-off.',
+                rating: 4.7,
+                description: 'Owns sprint management, scope, approvals, and final ship decisions. Enforces the Constitution, maintains the Kanban board, and coordinates agent delegation. No content ships without his sign-off.',
                 parallel: 'Like the GOAT reading defenses at the line of scrimmage, Tom scans the entire operation, adjusts the play, and delivers under pressure. Seven Super Bowl rings taught him one thing: execution wins championships.'
             },
             {
                 name: 'Stephen Curry',
-                role: 'Analytics Producer & Executor',
+                role: 'Analytics Lead',
                 team: 'Golden State Warriors',
-                description: 'The sole source of computed stats. Produces metric packs, runs queries, and delivers insight candidates. Everything is reproducible, explainable, and versioned.',
+                rating: 5.0,
+                description: 'Owns the DuckDB analytics layer (163 views, 103 dual-scope), all generator scripts, player rankings system, and the SUPER SELECTOR algorithm. Everything is reproducible, explainable, and versioned.',
                 parallel: 'The greatest shooter ever didn\'t become that by taking random shots. Every three-pointer is calculated angles and percentages. Curry brings that same precision—if it\'s not in the data, it doesn\'t exist.'
             },
             {
                 name: 'Kevin de Bruyne',
-                role: 'Visualization Lead',
+                role: 'Visualization & UI/UX Lead',
                 team: 'SSC Napoli',
-                description: 'Ensures charts encode truth clearly and consistently. Blocks misleading visuals. Every chart must be readable in under 5 seconds.',
+                rating: 4.5,
+                description: 'Owns The Lab dashboard, all HTML/CSS/JS surfaces, data visualization standards, and the Lab data pipeline. Blocks misleading visuals. Every chart must be readable in under 5 seconds.',
                 parallel: 'The best playmaker in world football sees passes others don\'t. KDB applies that vision to data viz—finding the clearest path from insight to understanding. If you can\'t see it instantly, it\'s not good enough.'
             },
             {
                 name: 'Jose Mourinho',
-                role: 'Data Science & Quant Lead',
+                role: 'Quant Researcher & NL Search Architect',
                 team: 'SL Benfica',
-                description: 'Benchmarks elite models, stress-tests assumptions, and builds practical "state of the world" models. Ruthlessly realistic about what data can and cannot prove.',
+                rating: 4.6,
+                description: 'Owns the system health score (92/100), NL Search intelligence, tournament quality weighting, and quant research. Ruthlessly realistic about what data can and cannot prove.',
                 parallel: 'The Special One built dynasties by outthinking opponents. Jose brings that tactical paranoia to models—assuming everything will fail until proven otherwise. If a fancy model can\'t beat a dumb baseline, it goes in the bin.'
             },
             {
                 name: 'LeBron James',
-                role: 'Design & Social Critic',
+                role: 'Social Atomization & Reader Perspective',
                 team: 'Los Angeles Lakers',
-                description: 'Reviews visual design and aesthetic choices. Converts approved content into platform-native posts. No new claims, just amplification of validated insights.',
+                rating: 3.0,
+                description: 'Reviews visual design from a reader perspective. Converts approved content into platform-native posts. Audits dashboard experience for casual fan accessibility.',
                 parallel: 'A four-time champion with an eye for building empires on and off the court. LeBron scrutinizes every visual element—does it pass the eye test? Would you put this on a billboard? Championship-level presentation only.'
             },
             {
                 name: 'Brad Stevens',
-                role: 'Architecture & Accountability Lead',
+                role: 'Architecture & Performance Lead',
                 team: 'Boston Celtics',
-                description: 'Produces performance evaluations for agents, maintains the Skills Radar, and proposes new agents. Reviews governance and technical architecture decisions.',
+                rating: 4.8,
+                description: 'Owns CI/CD pipeline, agent config management, quality gates enforcement, and system health co-ownership. Produces performance evaluations, maintains the Skills Radar, and proposes new agents.',
                 parallel: 'From Butler to the Celtics front office, Brad built systems that maximized talent. He sees the whole board—who\'s underperforming, what role is missing, how the pieces fit together. The ultimate roster optimizer.'
             },
             {
                 name: 'Brock Purdy',
                 role: 'Data Pipeline Owner',
                 team: 'San Francisco 49ers',
-                description: 'Owns data ingestion, schema design, and pipeline reliability. Pulls Cricsheet data, builds normalized tables, handles versioned corrections.',
+                rating: 4.9,
+                description: 'Owns data ingestion, schema design, pipeline reliability, and weekly data funnel. Highest gate compliance rate. Quietly indispensable—every downstream output depends on his pipeline.',
                 parallel: 'Mr. Irrelevant became Mr. Indispensable. Brock does the unsexy work that makes everything else possible—clean data in, reliable outputs out. No drama, just execution. The ultimate system quarterback.'
             },
             {
                 name: 'Andy Flower',
                 role: 'Cricket Domain Expert',
                 team: 'Royal Challengers Bengaluru',
-                description: 'Validates that insights are cricket-true and role-correct. Challenges stats that don\'t pass the cricket smell test. If it doesn\'t make sense on the field, it doesn\'t ship.',
+                rating: 4.5,
+                description: 'Validates that insights are cricket-true and role-correct. Challenges stats that don\'t pass the cricket smell test. Owns depth chart positions, player assessment, and domain sanity reviews.',
                 parallel: 'One of the greatest wicketkeeper-batsmen ever, Andy lived cricket at the highest level. He\'s the reality check—does this analysis match what actually happens between the boundary ropes? Cricket logic > statistical novelty.'
             },
             {
                 name: "N'Golo Kanté",
-                role: 'QA Lead & Stats Integrity',
+                role: 'QA & Stats Integrity Lead',
                 team: 'Chelsea FC / Al-Ittihad',
-                description: 'Audits data outputs, validates keys and totals, checks sample sizes and drift. Can BLOCK publication on integrity failures. Only Founder can override.',
+                rating: 4.8,
+                description: 'Audits all data outputs, validates referential integrity, checks sample sizes and drift. 257 tests passing. Can BLOCK publication on integrity failures. Only Founder can override.',
                 parallel: 'The most humble superstar in football covers every blade of grass, intercepting everything. Kanté does the same with data—no bad records escape, no integrity issues slip through. Always smiling, always blocking problems.'
             },
             {
                 name: 'Pep Guardiola',
-                role: 'Tactical Analysis & Retrospectives',
+                role: 'Retrospectives & Continuous Improvement',
                 team: 'Manchester City',
-                description: 'Runs post-issue process retrospectives. Proposes one systemic improvement per issue. Thinks in systems, not individual plays.',
+                rating: 3.5,
+                description: 'Runs formal sprint retrospectives, mid-sprint health checks, and process improvement tracking. Every sprint gets a retro. Every retro produces actionable systemic improvements.',
                 parallel: 'The architect of total football at its finest. Pep doesn\'t just win—he evolves the game itself. Every retrospective asks: does the system explain the behavior? Are roles complementary? Does it collapse under pressure?'
             },
             {
                 name: 'Ime Udoka',
-                role: 'ML Ops & DevOps Lead',
+                role: 'ML Ops Engineer',
                 team: 'Houston Rockets',
-                description: 'Manages the ML lifecycle from experimentation to production. Ensures models are versioned, reproducible, and deployable. Monitors drift and performance.',
+                rating: 4.0,
+                description: 'Manages the ML lifecycle from experimentation to production. Sprint 5 focus: model registry and win probability model (historical replay only — Florentino constraint).',
                 parallel: 'A coach who understands both the X\'s and O\'s and the human element. Ime ensures our models don\'t just work in theory—they ship, they scale, they stay healthy in production. No excuses, just results.'
             },
             {
+                name: 'Virat Kohli',
+                role: 'Tone & Narrative Guard',
+                team: 'Royal Challengers Bengaluru',
+                rating: 4.2,
+                description: 'Guards editorial quality, tone, and reader experience across all surfaces. Sprint 5: owns Season Preview magazine content (EPIC-025) and stat pack editorial pass.',
+                parallel: 'The King of cricket brings that same intensity to every word. If the narrative doesn\'t match the data, if the tone doesn\'t match the ambition — it gets sent back. Cricket deserves better than generic analysis.'
+            },
+            {
                 name: 'Jayson Tatum',
-                role: 'UX & Reader Flow',
+                role: 'UX & Reader Flow Auditor',
                 team: 'Boston Celtics',
-                description: 'Audits every page for skimmability, cognitive load, and reader experience. Ensures insights are scannable in seconds and layouts guide the eye naturally. Blocks content that overwhelms or confuses.',
+                rating: 4.3,
+                description: 'Audits every page for skimmability, cognitive load, and reader experience. Maintains UX debt backlog. Co-owns UX improvements with Kevin de Bruyne — Tatum identifies, KdB implements.',
                 parallel: 'The youngest player to ever lead the Celtics to a championship does it with effortless flow—every move purposeful, every decision clear. Tatum brings that same elegance to reader experience. If it takes more than a glance to understand, it needs another pass.'
             }
         ];
@@ -2093,20 +2113,23 @@
         // Render agents
         function renderAgents() {
             const grid = document.getElementById('agentsGrid');
-            grid.innerHTML = agentProfiles.map(agent => `
+            grid.innerHTML = agentProfiles.map(agent => {
+                const rColor = agent.rating >= 4.8 ? '#30d158' : agent.rating >= 4.5 ? '#0a84ff' : agent.rating >= 4.0 ? '#ffd60a' : agent.rating >= 3.5 ? '#ff9f0a' : '#ff453a';
+                const rLabel = agent.rating >= 4.8 ? 'Elite' : agent.rating >= 4.5 ? 'Excellent' : agent.rating >= 4.0 ? 'Strong' : agent.rating >= 3.5 ? 'Developing' : 'Needs Activation';
+                return `
                 <div class="agent-card">
                     <div class="agent-avatar">
                         ${getAvatarImg(agent.name)}
                     </div>
                     <div class="agent-info">
-                        <h3 class="agent-name">${agent.name}</h3>
+                        <h3 class="agent-name">${agent.name} <span style="background: ${rColor}; color: #000; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; margin-left: 8px; vertical-align: middle;">${agent.rating.toFixed(1)} ${rLabel}</span></h3>
                         <div class="agent-role">${agent.role}</div>
                         <div class="agent-team">${agent.team}</div>
                         <p class="agent-description">${agent.description}</p>
                         <p class="agent-parallel">"${agent.parallel}"</p>
                     </div>
                 </div>
-            `).join('');
+            `}).join('');
 
             // Render The Founder (Godfather) card
             const founderAvatar = document.getElementById('founderAvatar');

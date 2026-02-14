@@ -6340,95 +6340,109 @@
 
         // ==================== AGENTS DATA ====================
         const agents = {
-            'Tom Brady': { role: 'Delivery Owner', team: 'New England Patriots' },
-            'Stephen Curry': { role: 'Executor', team: 'Golden State Warriors' },
-            'Kevin de Bruyne': { role: 'Visualization Lead', team: 'SSC Napoli' },
-            'Jose Mourinho': { role: 'Quant Researcher & NL Search Architect', team: 'SL Benfica' },
-            'LeBron James': { role: 'Reader Perspective Auditor & Social Atomization', team: 'Los Angeles Lakers' },
-            'Brad Stevens': { role: 'Architecture', team: 'Boston Celtics' },
-            'Brock Purdy': { role: 'Data Pipeline & Monitoring', team: 'San Francisco 49ers' },
-            'Andy Flower': { role: 'Cricket Domain Specialist & Tactical Insights Lead', team: 'Royal Challengers Bengaluru' },
-            'Virat Kohli': { role: 'Editorial Lead & Tone Guard', team: 'Royal Challengers Bengaluru' },
-            "N'Golo Kanté": { role: 'QA Lead', team: 'France' },
-            'Florentino Perez': { role: 'President & Chairman', team: 'Real Madrid' },
-            'Florentino Pérez': { role: 'President & Chairman', team: 'Real Madrid' },
-            'Founder': { role: 'The Founder', team: 'Cricket Playbook' },  // Alias for founder approval tickets
-            'Pep Guardiola': { role: 'Retrospectives & CI', team: 'Manchester City' },
-            'Ime Udoka': { role: 'DevOps Lead', team: 'Houston Rockets' },
-            'Jayson Tatum': { role: 'UX & Reader Flow', team: 'Boston Celtics' }
+            'Tom Brady': { role: 'PO & Editor-in-Chief', team: 'New England Patriots', rating: 4.7 },
+            'Stephen Curry': { role: 'Analytics Lead', team: 'Golden State Warriors', rating: 5.0 },
+            'Kevin de Bruyne': { role: 'Visualization & UI/UX Lead', team: 'SSC Napoli', rating: 4.5 },
+            'Jose Mourinho': { role: 'Quant Researcher & NL Search Architect', team: 'SL Benfica', rating: 4.6 },
+            'LeBron James': { role: 'Social Atomization & Reader Perspective', team: 'Los Angeles Lakers', rating: 3.0 },
+            'Brad Stevens': { role: 'Architecture & Performance Lead', team: 'Boston Celtics', rating: 4.8 },
+            'Brock Purdy': { role: 'Data Pipeline Owner', team: 'San Francisco 49ers', rating: 4.9 },
+            'Andy Flower': { role: 'Cricket Domain Expert', team: 'Royal Challengers Bengaluru', rating: 4.5 },
+            'Virat Kohli': { role: 'Tone & Narrative Guard', team: 'Royal Challengers Bengaluru', rating: 4.2 },
+            "N'Golo Kanté": { role: 'QA & Stats Integrity Lead', team: 'France', rating: 4.8 },
+            'Florentino Perez': { role: 'Program Director', team: 'Real Madrid', rating: 4.5 },
+            'Florentino Pérez': { role: 'Program Director', team: 'Real Madrid', rating: 4.5 },
+            'Founder': { role: 'The Founder', team: 'Cricket Playbook', rating: 5.0 },
+            'Pep Guardiola': { role: 'Retrospectives & Continuous Improvement', team: 'Manchester City', rating: 3.5 },
+            'Ime Udoka': { role: 'ML Ops Engineer', team: 'Houston Rockets', rating: 4.0 },
+            'Jayson Tatum': { role: 'UX & Reader Flow Auditor', team: 'Boston Celtics', rating: 4.3 }
         };
 
-        // Agent Skills (out of 10) - Index Card Skill Ratings
+        // Agent Skills (out of 10) - Sprint 4.0 Performance Review Calibrated
         const agentSkills = {
             'Tom Brady': {
-                skills: { Leadership: 10, Planning: 9, Documentation: 9, Communication: 10, Execution: 8 },
-                strengths: ['Sprint planning', 'Team coordination', 'PRD writing'],
-                weaknesses: ['Deep technical work']
+                skills: { Leadership: 10, Planning: 9, Enforcement: 9, Communication: 10, Sprint_Mgmt: 9 },
+                rating: 4.7,
+                strengths: ['Sprint management', 'Cross-functional coordination', 'Editorial oversight'],
+                weaknesses: ['Deep technical execution']
             },
             'Stephen Curry': {
-                skills: { Execution: 10, Python: 9, Analytics: 9, Speed: 10, Accuracy: 8 },
-                strengths: ['Fast delivery', 'Algorithm design', 'Data analysis'],
-                weaknesses: ['Documentation']
+                skills: { Analytics: 10, Python: 10, DuckDB: 10, Speed: 10, Accuracy: 9 },
+                rating: 5.0,
+                strengths: ['Highest throughput', 'Algorithm design', 'SUPER SELECTOR & NL Search'],
+                weaknesses: ['Early gate compliance']
             },
             'Kevin de Bruyne': {
-                skills: { Visualization: 10, UI_Design: 9, CSS: 9, Creativity: 10, JavaScript: 8 },
-                strengths: ['Dashboard design', 'Data visualization', 'User experience'],
-                weaknesses: ['Backend systems']
+                skills: { Visualization: 10, UI_Design: 9, CSS: 9, JavaScript: 9, Responsive: 8 },
+                rating: 4.5,
+                strengths: ['Dashboard design', 'Film Room architecture', 'Design system'],
+                weaknesses: ['Backend systems', 'Scalability limits']
             },
             'Jose Mourinho': {
-                skills: { Strategy: 10, Analysis: 10, NL_Search: 9, Quant_Research: 10, Auditing: 10 },
-                strengths: ['NL search intelligence', 'Tournament weighting', 'System audits', 'Query architecture'],
-                weaknesses: ['Frontend styling']
+                skills: { Strategy: 10, Quant_Research: 10, NL_Search: 9, System_Health: 10, Auditing: 9 },
+                rating: 4.6,
+                strengths: ['System health scoring', 'Tournament weighting', 'Quant research'],
+                weaknesses: ['Frontend styling', 'Proactive health checks']
             },
             'LeBron James': {
-                skills: { Communication: 10, Marketing: 9, Social: 10, Branding: 9, Outreach: 8 },
-                strengths: ['Social engagement', 'Brand messaging', 'Community'],
-                weaknesses: ['Technical depth']
+                skills: { Communication: 8, Social: 7, Branding: 8, Reader_Perspective: 7, Outreach: 6 },
+                rating: 3.0,
+                strengths: ['Reader experience perspective', 'Brand messaging'],
+                weaknesses: ['Low ticket volume', 'Needs clear charter']
             },
             'Brad Stevens': {
-                skills: { Architecture: 10, CI_CD: 10, Quality: 9, Systems: 10, Automation: 9 },
-                strengths: ['System design', 'CI/CD pipelines', 'Code quality'],
-                weaknesses: ['Frontend work']
+                skills: { Architecture: 10, CI_CD: 10, Quality: 10, Agent_Config: 9, Governance: 9 },
+                rating: 4.8,
+                strengths: ['Zero incompletion', 'CI/CD infrastructure', 'Agent performance reviews'],
+                weaknesses: ['Cross-agent documentation']
             },
             'Brock Purdy': {
-                skills: { Data_Pipeline: 10, DuckDB: 10, ETL: 9, Schema: 9, Ingestion: 10 },
-                strengths: ['Data ingestion', 'Schema design', 'Pipeline reliability'],
-                weaknesses: ['UI/UX work']
+                skills: { Data_Pipeline: 10, DuckDB: 10, ETL: 10, Schema: 10, Ingestion: 9 },
+                rating: 4.9,
+                strengths: ['Highest gate compliance', 'Schema design', 'Quietly indispensable'],
+                weaknesses: ['Data staleness alerting']
             },
             'Andy Flower': {
-                skills: { Cricket: 10, Domain: 10, Validation: 9, Tactics: 10, Analysis: 9 },
-                strengths: ['Cricket expertise', 'Domain validation', 'Player assessment'],
-                weaknesses: ['Code writing']
+                skills: { Cricket: 10, Domain: 10, Validation: 10, Tactics: 9, Player_Assessment: 9 },
+                rating: 4.5,
+                strengths: ['Cricket expertise', 'Domain validation', 'Depth chart positions'],
+                weaknesses: ['Code writing', 'Formal gate creation']
             },
             'Virat Kohli': {
-                skills: { Editorial: 10, Writing: 10, Tone: 9, Passion: 10, Intensity: 9 },
-                strengths: ['Content quality', 'Editorial voice', 'Player narratives'],
-                weaknesses: ['Technical tasks']
+                skills: { Editorial: 9, Writing: 9, Tone: 9, Narrative: 8, Intensity: 10 },
+                rating: 4.2,
+                strengths: ['Editorial quality', 'Insight specificity', 'Reader-friendly analytics'],
+                weaknesses: ['Needs proactive flagging', 'Was passive early']
             },
             "N'Golo Kanté": {
-                skills: { QA: 10, Testing: 10, Coverage: 9, Diligence: 10, Reliability: 10 },
-                strengths: ['Quality assurance', 'Test coverage', 'Bug detection'],
-                weaknesses: ['Feature development']
+                skills: { QA: 10, Testing: 10, Coverage: 10, Integrity: 10, CI_Integration: 9 },
+                rating: 4.8,
+                strengths: ['257 tests passing', 'QA certificates', 'Data integrity'],
+                weaknesses: ['Edge case expansion']
             },
             'Florentino Perez': {
-                skills: { Vision: 10, Approval: 10, Strategy: 10, Governance: 10, Authority: 10 },
-                strengths: ['Strategic vision', 'Final approvals', 'Scope control'],
-                weaknesses: ['Implementation']
+                skills: { Vision: 10, Gate_Control: 10, Strategy: 10, Governance: 10, Scope_Mgmt: 10 },
+                rating: 4.5,
+                strengths: ['Gate approval process', 'Scope control', 'Strategic direction'],
+                weaknesses: ['Kill list freshness']
             },
             'Pep Guardiola': {
-                skills: { Tactics: 10, Analysis: 10, Patterns: 9, Matchups: 10, Innovation: 9 },
-                strengths: ['Tactical analysis', 'Pattern recognition', 'Matchup insights'],
-                weaknesses: ['Execution tasks']
+                skills: { Retrospectives: 8, Process: 7, Velocity: 7, Systems: 8, Improvement: 7 },
+                rating: 3.5,
+                strengths: ['ML retraining pipeline', 'Retrospective structure'],
+                weaknesses: ['Low ticket volume', 'Late activation', 'Needs proactivity']
             },
             'Ime Udoka': {
-                skills: { DevOps: 10, Automation: 10, MLOps: 9, Monitoring: 9, Deployment: 10 },
-                strengths: ['CI/CD automation', 'ML pipelines', 'System monitoring'],
-                weaknesses: ['Data analysis']
+                skills: { ML_Ops: 9, CI_CD: 9, Automation: 8, Monitoring: 8, Deployment: 8 },
+                rating: 4.0,
+                strengths: ['CI/CD operational fixes', 'ML lifecycle coverage'],
+                weaknesses: ['Win prob model undelivered', 'Scope overcommitment']
             },
             'Jayson Tatum': {
-                skills: { UX: 10, Readability: 10, Flow: 9, Skimmability: 10, Audit: 9 },
-                strengths: ['UX auditing', 'Reader flow optimization', 'Cognitive load reduction'],
-                weaknesses: ['Backend engineering']
+                skills: { UX: 9, Readability: 9, Flow: 8, Audit: 9, Mobile: 8 },
+                rating: 4.3,
+                strengths: ['Comprehensive UX audit', 'Mobile responsiveness'],
+                weaknesses: ['Low ticket volume', 'Needs continuous involvement']
             }
         };
 
@@ -9609,6 +9623,9 @@ Gate Inheritance:
                     const completionRate = stats.total ? Math.round((stats.done / stats.total) * 100) : 0;
                     const isAvailable = stats.total === 0;
 
+                    const ratingColor = info.rating >= 4.8 ? 'var(--accent-green)' : info.rating >= 4.5 ? 'var(--accent)' : info.rating >= 4.0 ? 'var(--accent-yellow)' : info.rating >= 3.5 ? 'var(--accent-orange)' : 'var(--accent-red)';
+                    const ratingLabel = info.rating >= 4.8 ? 'Elite' : info.rating >= 4.5 ? 'Excellent' : info.rating >= 4.0 ? 'Strong' : info.rating >= 3.5 ? 'Developing' : 'Needs Activation';
+
                     return `
                         <div class="agent-card ${isAvailable ? 'agent-available' : ''}" onclick="filterByAgent('${name}'); showView('board');">
                             <div class="agent-card-header">
@@ -9618,6 +9635,7 @@ Gate Inheritance:
                                     <div class="agent-card-role">${info.role}</div>
                                     <div class="agent-card-team">${info.team}</div>
                                 </div>
+                                ${info.rating ? `<div class="agent-rating-badge" style="background: ${ratingColor}; color: #000; padding: 4px 10px; border-radius: 8px; font-size: 12px; font-weight: 700; white-space: nowrap;">${info.rating.toFixed(1)} ${ratingLabel}</div>` : ''}
                                 ${isAvailable ? '<div class="available-badge">✨ Available</div>' : ''}
                             </div>
 

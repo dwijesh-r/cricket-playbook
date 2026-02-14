@@ -3,7 +3,7 @@
 **Cricket Playbook | Season Preview Series**
 *Agent: Virat Kohli (Tone & Narrative) | Domain: Andy Flower (Scouting Report)*
 *Data Window: IPL 2023-2025 | 9,289 matches / 2.14M balls*
-*Revision: v1.1 — Updated per Founder Review (12 suggestions incorporated)*
+*Revision: v1.3 — Applied 8 corrections from Andy Flower (9.1), Jose Mourinho (7.4), LeBron James (8.4) reviews; fixed since-2023 baselines, individual bowler economies, H2H records, roster corrections*
 
 ---
 
@@ -11,33 +11,33 @@
 
 **RCB's Bowling-First Revolution Has Arrived — And It's Sustainable**
 
-For a decade, Royal Challengers Bengaluru meant one thing: batting spectacle propped up by bowling fragility. That story ended in 2025. The franchise that once treated bowling as an afterthought posted a 73.3% win rate, reached the IPL Final, and did it behind a powerplay bowling attack that conceded over a run per over fewer than the league average. The question for 2026 is not whether RCB can bat — it is whether their bowling-first identity survives the pressure of expectations.
+For a decade, Royal Challengers Bengaluru meant one thing: batting spectacle propped up by bowling fragility. That story ended in 2025. The franchise that once treated bowling as an afterthought posted a 73.3% win rate, won their maiden IPL title, and did it behind a powerplay bowling attack that conceded over a run per over fewer than the league average. The question for 2026 is not whether RCB can bat — it is whether their bowling-first identity can deliver back-to-back titles as the defending champions.
 
 ---
 
 ## The Story
 
-The 2025 season was the most significant in RCB's modern history. Not because of the final they reached, but because of *how* they reached it. Josh Hazlewood (12.50 Cr, retained) and Bhuvneshwar Kumar (10.75 Cr, retained) formed a powerplay bowling partnership that opponents could not decode — Hazlewood at 7.54 economy, Bhuvneshwar at 8.26 across their IPL careers since 2023. For context, RCB's team powerplay bowling economy dropped from 9.77 in 2024 to 8.73 in 2025, a transformation of over a run per over. RCB's opening pair with the ball was doing what their opening pair with the bat had always done: setting the terms of engagement.
+The 2025 season was the most significant in RCB's 18-year history. Not because of the title they won, but because of *how* they won it. After the IPL 2025 mega auction rebuilt the squad almost entirely — only Virat Kohli, Rajat Patidar, and Yash Dayal survived from the 2024 roster — RCB emerged as a bowling-first team for the first time in franchise history. Josh Hazlewood (12.50 Cr, retained) and Bhuvneshwar Kumar (10.75 Cr, retained) formed a powerplay bowling partnership that opponents could not decode — Hazlewood at 7.54 economy, Bhuvneshwar at 8.26 across their IPL careers since 2023. RCB's team powerplay bowling economy dropped from 9.77 in 2024 to 8.73 in 2025, a transformation of over a run per over. The opening pair with the ball was doing what the opening pair with the bat had always done: setting the terms of engagement.
 
 The middle overs belonged to Krunal Pandya (5.75 Cr, retained). His 7.45 middle-overs economy across 82 overs gave RCB what they had never had before: a phase of controlled pressure. Opponents could not recover from Hazlewood-Bhuvneshwar starts because Krunal refused to let them breathe.
 
-The death overs revealed a different dimension: Tim David (3.00 Cr, retained) at 184.6 SR across 286 balls in death overs (MEDIUM sample), with Jitesh Sharma (11.00 Cr, retained) at 191.6 SR across 178 balls alongside him. The team that once needed Kohli to anchor now has designated death-overs firepower.
+The death overs revealed a different dimension: Tim David (3.00 Cr, retained) at 184.6 SR across 286 balls in death overs (MEDIUM sample), with Jitesh Sharma (11.00 Cr, retained) at 191.6 SR across 178 balls alongside him. The team that once needed Kohli to anchor now has designated death-overs firepower. The result: RCB beat Punjab Kings by 6 runs in the Final to claim their maiden IPL crown.
 
-For 2026, the core returns intact. Rajat Patidar (11.00 Cr, retained) takes the captaincy from Faf du Plessis. Phil Salt (11.50 Cr, retained) provides the explosive top-order presence that Kohli's measured accumulation needs as a counterweight. The squad has been supplemented with six auction purchases, headlined by Venkatesh Iyer (7.00 Cr) to shore up batting depth. The question marks are specific: Can Yash Dayal's off-field situation be resolved? Can the spin depth survive if opponents target the off-spin and wrist-spin gaps? And can the middle order shoulder more of the load?
+For 2026, the title-winning core returns largely intact — 15 players retained from the championship squad. The squad has been supplemented with six auction purchases, headlined by Venkatesh Iyer (7.00 Cr) to shore up batting depth. The question marks are specific: Can Yash Dayal's off-field situation be resolved? Can the spin depth survive if opponents target the off-spin and wrist-spin gaps? And can the middle order shoulder more of the load as defending champions face heightened scrutiny?
 
 ---
 
 ## Off-Season Changes
 
-**Captaincy:** Rajat Patidar takes over as captain, replacing Faf du Plessis. Patidar has never captained at this level, but his middle-order role (batting position 4) gives him a vantage point du Plessis lacked as an opening batter. The captaincy shift signals RCB's desire for a longer-term Indian leader.
+**Captaincy:** Rajat Patidar continues as captain after leading RCB to their maiden title in 2025. His middle-order role (batting position 4) gives him a tactical vantage point, and the championship run has cemented his authority. The continuity is a strength — no leadership disruption heading into the title defence.
 
-**Key Departures:** Faf du Plessis, Cameron Green, Lockie Ferguson, Mohammed Siraj, and Glenn Maxwell are no longer with the squad. The loss of Siraj removes a proven death-bowling option, while Maxwell's departure leaves a hole at the spin-hitting all-rounder slot. Ferguson's exit removes express pace depth.
+**Key Departures (from 2025 squad):** Liam Livingstone (to SRH), Lungi Ngidi (to DC), MA Agarwal, and MS Bhandage are the notable exits. Livingstone's departure removes a power-hitting overseas option who could bat anywhere from 3-6. Ngidi's exit is more consequential — he was the second overseas seamer alongside Hazlewood in 2025, providing genuine pace and bounce. RCB now have one fewer proven overseas quick.
 
-**Key Retentions:** RCB retained 15 players, anchored by Kohli (21.00 Cr), Hazlewood (12.50 Cr), Salt (11.50 Cr), and Patidar (11.00 Cr). The retention of Kanishk Chouhan (6.00 Cr) — a 19-year-old uncapped off-spin all-rounder — at a premium price signals a long-term investment in addressing the spin gap.
+**Key Retentions:** RCB retained 15 players from the title-winning squad, anchored by Kohli (21.00 Cr), Hazlewood (12.50 Cr), Salt (11.50 Cr), Patidar (11.00 Cr), and Jitesh Sharma (11.00 Cr). The retention of Kanishk Chouhan (6.00 Cr) — a 19-year-old uncapped off-spin all-rounder — at a premium price signals a long-term investment in addressing the spin gap.
 
-**Auction Strategy:** Six purchases totaling 10.65 Cr, with Venkatesh Iyer (7.00 Cr) as the headline buy. The remaining buys (Shepherd, Duffy, Deswal, Mangesh Yadav, Jordan Cox) were all below 2 Cr, focused on pace depth and backup options. The franchise prioritized retaining its core over splashing at auction.
+**Auction Strategy:** Six purchases totaling 10.65 Cr, with Venkatesh Iyer (7.00 Cr) as the headline buy. Romario Shepherd (2.00 Cr) was re-acquired at auction after playing for RCB in 2025 but not being retained. The remaining buys (Duffy, Deswal, Mangesh Yadav, Jordan Cox) were all below 1 Cr, focused on pace depth and backup options. The franchise prioritized retaining its championship core over splashing at auction.
 
-**What is Structurally Different from 2025:** The biggest change is squad composition philosophy. RCB has moved from having two premium overseas pace options (Hazlewood + Ferguson) to one (Hazlewood), freeing an overseas slot for batting (Salt, David, Bethell, or Shepherd). The bowling attack is now more reliant on Indian seamers (Bhuvneshwar, Yash Dayal, Mangesh Yadav) to complement Hazlewood.
+**What is Structurally Different from 2025:** The biggest change is the overseas pace equation. RCB has moved from having two premium overseas seamers (Hazlewood + Ngidi) to one (Hazlewood), and replaced Livingstone's batting utility with Venkatesh Iyer's Indian all-rounder profile. This frees overseas slot flexibility (David, Bethell, Shepherd, or Duffy can rotate as the fourth overseas player) but reduces bowling depth. The bowling attack is now more reliant on Indian seamers (Bhuvneshwar, Yash Dayal, Mangesh Yadav) to complement Hazlewood.
 
 ---
 
@@ -51,7 +51,7 @@ For 2026, the core returns intact. Rajat Patidar (11.00 Cr, retained) takes the 
 
 **Satvik Deswal (0.30 Cr, Bowler, IND)** — An 18-year-old left-arm wrist-spinner, addressing the most glaring depth chart gap. Uncapped in IPL, Deswal is a development pick that signals RCB's awareness of their wrist-spin deficit (depth chart rating: 1.3/10).
 
-**Mangesh Yadav (0.30 Cr, Bowler, IND)** — Left-arm fast bowler who has shown promise in 6 IPL matches: 9 wickets at 9.32 economy. His 47.1% dot ball percentage in middle overs (LOW, 11 overs) is eye-catching. Provides left-arm pace variety that the squad otherwise lacks with Yash Dayal's status uncertain.
+**Mangesh Yadav (0.30 Cr, Bowler, IND)** — Left-arm fast bowler who has shown promise in 6 IPL matches: 9 wickets at 9.32 economy. His 48.5% dot ball percentage in middle overs (LOW, 11 overs) is eye-catching. Provides left-arm pace variety that the squad otherwise lacks with Yash Dayal's status uncertain.
 
 **Jordan Cox (0.30 Cr, Wicketkeeper, ENG)** — Backup wicketkeeper option behind Salt and Jitesh Sharma. Uncapped in IPL. A low-cost insurance pick.
 
@@ -73,7 +73,7 @@ For 2026, the core returns intact. Rajat Patidar (11.00 Cr, retained) takes the 
 | 8 | Krunal Pandya | All-rounder | 5.75 | IND | 7.45 econ in middle (82 overs, MEDIUM) | |
 | 9 | Bhuvneshwar Kumar | Bowler | 10.75 | IND | 8.26 PP econ (99 overs, HIGH) | |
 | 10 | Josh Hazlewood | Bowler | 12.50 | AUS | 7.54 PP econ (28 overs, MEDIUM) | |
-| 11 | Suyash Sharma | Bowler | 2.60 | IND | 8.78 mid econ / 18 wkts (93 overs, MEDIUM) | |
+| 11 | Suyash Sharma | Bowler (leg-spin) | 2.60 | IND | 8.78 mid econ / 18 wkts (78 mid ov, MEDIUM) | |
 | 12 | Yash Dayal | Bowler | 5.00 | IND | 30 wkts / 9.85 econ (113 overs, HIGH) | |
 
 ### Bench
@@ -83,15 +83,15 @@ For 2026, the core returns intact. Rajat Patidar (11.00 Cr, retained) takes the 
 | 13 | Devdutt Padikkal | Batter | 2.00 | IND | 131.6 SR (415 balls, MEDIUM) | |
 | 14 | Jacob Bethell | All-rounder | 2.60 | ENG | 171.8 SR (39 balls, LOW) | |
 | 15 | Kanishk Chouhan | All-rounder | 6.00 | IND | Uncapped IPL — off-spin AR | |
-| 16 | Mangesh Yadav | Bowler | 0.30 | IND | 9 wkts / 9.32 econ (20 overs, LOW) | |
+| 16 | Mangesh Yadav | Bowler | 0.30 | IND | 6 IPL matches, 9 wkts / 9.32 econ (20 ov, LOW); SMAT experience | |
 | 17 | Jacob Duffy | Bowler | 0.75 | NZ | Uncapped IPL — RF-M depth | |
 | 18 | Swapnil Singh | All-rounder | 0.50 | IND | 8.88 econ / 6 wkts (17 overs, LOW) | |
 | 19 | Satvik Deswal | Bowler | 0.30 | IND | Uncapped IPL — LWS, age 18 | |
 | 20 | Jordan Cox | Wicketkeeper | 0.30 | ENG | Uncapped IPL — backup WK | |
 | 21 | Abhinandan Singh | Bowler | 0.30 | IND | Uncapped IPL — RF depth | |
-| 22 | Nuwan Thushara | Bowler | 0.00 | SL | Uncapped IPL — RF-M | |
+| 22 | Nuwan Thushara | Bowler | 0.00 | SL | 8 IPL matches / 9 wkts, PP specialist (9.31 econ, 16 ov, LOW) | |
 | 23 | Vicky Ostwal | All-rounder | 0.00 | IND | Uncapped IPL — LA Ortho | |
-| 24 | Rasikh Salam | Bowler | 0.00 | IND | Uncapped IPL — RF-M | |
+| 24 | Rasikh Salam | Bowler | 0.00 | IND | 13 IPL matches / 10 wkts since 2023, 11.21 econ (30.5 ov, LOW) | |
 | 25 | Vihaan Malhotra | Batter | 0.00 | IND | Uncapped IPL — LHB, age 19 | |
 
 **Total squad salary:** 114.45 Cr | **Overseas slots in XII:** 4 (Salt, David, Hazlewood, Shepherd/Bethell/Duffy)
@@ -152,7 +152,7 @@ The Chinnaswamy is one of IPL's most distinctive venues, and the data since 2023
 |-------|----------|-----------|-----------|-----------|
 | Powerplay | 9.09 | 23.6% | 42.3% | 1.6 |
 | Middle | 9.29 | 18.6% | 28.4% | 2.5 |
-| Death | 11.25 | 24.4% | 28.7% | 2.4 |
+| Death | 11.25 | 24.7% | 28.7% | 2.4 |
 
 **vs. League Averages (All Venues)**
 
@@ -187,19 +187,39 @@ When the schedule is available, this section will analyze:
 
 ---
 
+## Head-to-Head Record (Since 2023)
+
+| Opponent | W-L | Win % | Key Pattern |
+|----------|-----|-------|-------------|
+| PBKS | 6-1 | 85.7% | RCB's most dominant matchup; PBKS have no answer to the bowling attack |
+| RR | 4-2 | 66.7% | Consistently strong; RCB's pace depth matches up well |
+| CSK | 3-2 | 60.0% | Competitive series; spin matchups often decisive |
+| DC | 3-2 | 60.0% | Tight margins; venue often determines outcome |
+| GT | 2-2 | 50.0% | Even matchup; both teams' bowling strengths neutralize each other |
+| LSG | 2-2 | 50.0% | Balanced; RCB's middle-overs vulnerability exposed in losses |
+| MI | 2-2 | 50.0% | Classic rivalry; form on the day matters more than structural advantages |
+| SRH | 2-2 | 50.0% | Even despite contrasting styles; SRH's aggression tests RCB's bowling |
+| KKR | 1-4 | 20.0% | RCB's worst matchup; KKR's spin depth targets the off-spin gap |
+
+**Overall: 25-19 (56.8% win rate)**
+
+**Key Pattern:** RCB dominate PBKS (6-1) and struggle badly against KKR (1-4). The KKR record is instructive — KKR's deep spin options (Narine, Varun Chakravarthy) expose exactly the weakness RCB have not addressed: a lack of quality spin-hitting options in the middle overs. If RCB face KKR in the playoffs, this historical disadvantage is a genuine tactical problem.
+
+---
+
 ## Players to Watch
 
 ### Phil Salt — The Powerplay Detonator
-177.5 career strike rate across 595 balls (HIGH sample). Salt is not just quick — he is the most destructive opener in IPL who does not get the credit because he plays alongside Kohli. In 2026, Salt's role is existential: RCB's team powerplay SR of 154.1 needs a gear-shift, and Salt is the only player in this squad who can single-handedly provide it. Against fast-medium bowling, he strikes at 179.7 across 207 balls (HIGH). Against left-arm orthodox, he maintains 180.4 across 56 balls (MEDIUM). The one flag: 123.6 SR against leg-spin across 55 balls (MEDIUM) — teams with quality leg-spinners have a route to neutralize him.
+177.5 career strike rate across 595 balls (HIGH sample). Salt is not just quick — he is among the most destructive openers in the IPL, yet does not get the credit because he plays alongside Kohli. In 2026, Salt's role is existential: RCB's team powerplay SR of 154.1 needs a gear-shift, and Salt is the only player in this squad who can single-handedly provide it. Against fast-medium bowling, he strikes at 179.7 across 207 balls (HIGH). Against left-arm orthodox, he maintains 180.4 across 56 balls (MEDIUM). The one flag: 123.6 SR against leg-spin across 55 balls (MEDIUM) — teams with quality leg-spinners have a route to neutralize him.
 
 ### Rajat Patidar — The Captain's Burden
-Patidar's numbers tell two stories. Against leg-spin, he is devastating: 225.0 SR across 72 balls (MEDIUM), devouring slow bowlers. Against fast bowling, he is more mortal: 129.1 SR across 110 balls (MEDIUM). But he has never captained at this level, and he is taking over a team with momentum. His recent form is a concern: 120.8 SR in his last 10 innings, down 33.7 points from his 154.5 career SR. If Patidar can recapture even his average form, RCB's middle order strengthens considerably. If the captaincy weighs on his batting, the number 4 slot becomes a vulnerability.
+Patidar's numbers tell two stories. Against leg-spin, he is devastating: 225.0 SR across 72 balls (MEDIUM), devouring slow bowlers. Against fast bowling, he is more mortal: 129.1 SR across 110 balls (MEDIUM). But he has never captained at this level, and he is taking over a team with momentum. His recent form is a concern: 120.8 SR in his last 10 innings, down 39.9 points from his 160.7 since-2023 SR. If Patidar can recapture even his average form, RCB's middle order strengthens considerably. If the captaincy weighs on his batting, the number 4 slot becomes a vulnerability.
 
 ### Bhuvneshwar Kumar — The Load-Bearing Wall
 At 36, Bhuvneshwar should not still be this effective. His 8.26 powerplay economy across 99 overs (HIGH) and 47.5% dot ball percentage in the powerplay are elite numbers. He is RCB's only bowler who can reliably open an innings. But his death bowling — 10.96 economy across 48 overs (MEDIUM) — shows the cost of age. His 22.2% dot ball rate at the death is among the lowest for frontline seamers. If he breaks down, there is no like-for-like replacement in this squad. Bhuvneshwar's fitness is, quietly, the single most important variable in RCB's season.
 
 ### Krunal Pandya — The Invisible Anchor
-Krunal's numbers do not make highlights, but they make wins. His 7.45 economy in the middle overs across 82 overs (MEDIUM) is elite, and his 30.3% dot ball rate in that phase creates the pressure that sets up death-overs dominance. His 25 middle-overs wickets are the most for any RCB bowler in that phase. What makes Krunal irreplaceable is what he does not concede: 12.0% boundary rate in the middle, compared to a league average well above 17%. He is the reason RCB's bowling-first identity works — and he has no backup in this squad.
+Krunal's numbers do not make highlights, but they make wins. His 7.45 economy in the middle overs across 82 overs (MEDIUM) is elite, and his 30.3% dot ball rate in that phase creates the pressure that sets up death-overs dominance. His 25 middle-overs wickets are the most for any RCB bowler in that phase. What makes Krunal irreplaceable is what he does not concede: 12.0% boundary rate in the middle overs, compared to the 17.6% league average. He is the reason RCB's bowling-first identity works — and he has no backup in this squad.
 
 ---
 
@@ -220,31 +240,31 @@ Suyash (2.60 Cr, retained) has been a middle-overs specialist (8.78 economy, 13 
 
 ### Batters (IPL Recent Form)
 
-| Player | Last 10 Inn | L10 Runs | L10 SR | Career SR | SR Delta | Trend |
-|--------|------------|---------|--------|-----------|----------|-------|
-| Virat Kohli | 10 | 471 | 144.5 | 133.2 | +11.3 | Ascending |
-| Phil Salt | 10 | 301 | 180.2 | 177.5 | +2.8 | Stable-elite |
-| Jitesh Sharma | 10 | 249 | 176.6 | 157.8 | +18.8 | Career-best form |
-| Tim David | 10 | 187 | 183.3 | 174.8 | +8.5 | Above career |
-| Venkatesh Iyer | 10 | 287 | 162.2 | 137.5 | +24.7 | Significant uptick |
-| Romario Shepherd | 10 | 153 | 259.3 | 217.7 | +41.7 | Explosive (small sample) |
-| Devdutt Padikkal | 10 | 247 | 151.5 | 126.7 | +24.8 | Rebounding |
-| Rajat Patidar | 10 | 151 | 120.8 | 154.5 | -33.7 | Concerning decline |
-| Krunal Pandya | 10 | 163 | 124.4 | 132.6 | -8.2 | Slight dip |
+| Player | Last 10 Inn | L10 Runs | L10 SR | Since-2023 SR | SR Delta | Trend |
+|--------|------------|---------|--------|---------------|----------|-------|
+| Virat Kohli | 10 | 471 | 144.5 | 146.6 | -2.1 | Slight dip |
+| Phil Salt | 10 | 301 | 180.2 | 177.5 | +2.7 | Stable-elite |
+| Jitesh Sharma | 10 | 249 | 176.6 | 156.1 | +20.5 | Career-best form |
+| Tim David | 10 | 187 | 183.3 | 166.8 | +16.5 | Above career |
+| Venkatesh Iyer | 10 | 287 | 162.2 | 149.9 | +12.3 | Uptick |
+| Romario Shepherd | 10 | 153 | 259.3 | 282.2 | -22.9 | Declining (small sample) |
+| Devdutt Padikkal | 10 | 247 | 151.5 | 131.6 | +19.9 | Rebounding |
+| Rajat Patidar | 10 | 151 | 120.8 | 160.7 | -39.9 | Steep decline |
+| Krunal Pandya | 10 | 163 | 124.4 | 121.1 | +3.3 | Stable |
 
-**Key Takeaway:** The squad is largely in strong form. Kohli's recent 144.5 SR (last 10) is well above his 133.2 career mark, suggesting the 37-year-old is playing with more intent. Venkatesh Iyer's +24.7 SR delta makes him an especially timely acquisition. The red flag is Patidar: a -33.7 SR delta in his last 10 innings is the largest negative swing in the squad. For a new captain, this is a trend that needs reversing.
+**Key Takeaway:** The form picture is more nuanced than it first appears. Kohli's recent 144.5 SR (last 10) is fractionally below his since-2023 average of 146.6 — a slight dip, not the ascending trend his all-time numbers would suggest. The 37-year-old remains elite, but the trajectory is flat. Jitesh Sharma (+20.5) and Tim David (+16.5) are the genuine upswings. Venkatesh Iyer's +12.3 delta makes him a timely acquisition. Shepherd's -22.9 looks alarming, but with only 45 career balls, small-sample volatility is expected. The real red flag is Patidar: a -39.9 SR delta in his last 10 innings is the largest negative swing in the squad. For a new captain, this is a trend that demands reversing.
 
-### Bowlers (Phase Economy Trends, 2024 vs 2025)
+### Bowlers (Individual Phase Economies, Since 2023)
 
-| Player | Phase | 2025 Team Econ | Role |
-|--------|-------|---------------|------|
-| Bhuvneshwar Kumar | Powerplay | 8.73 (team) | Primary new-ball |
-| Josh Hazlewood | Powerplay | 8.73 (team) | Primary new-ball |
-| Krunal Pandya | Middle | 8.89 (team) | Primary middle-overs |
-| Yash Dayal | Death | 10.75 (team) | Primary death (status uncertain) |
-| Suyash Sharma | Middle | 8.89 (team) | Secondary middle-overs |
+| Player | Primary Phase | Econ (Primary) | Secondary Phase | Econ (Secondary) | Role |
+|--------|--------------|----------------|-----------------|------------------|------|
+| Bhuvneshwar Kumar | PP | 8.26 (99 ov, HIGH) | Death | 10.96 (48 ov, MEDIUM) | Primary new-ball |
+| Josh Hazlewood | PP | 7.54 (28 ov, MEDIUM) | Death | 10.65 (23 ov, MEDIUM) | Primary new-ball |
+| Krunal Pandya | Middle | 7.45 (82 ov, MEDIUM) | — | — | Primary middle-overs |
+| Suyash Sharma | Middle | 8.78 (78 ov, MEDIUM) | Death | 10.67 (12 ov, LOW) | Secondary middle-overs (leg-spin) |
+| Yash Dayal | Overall | 9.85 (113 ov, HIGH) | PP / Death | 9.67 / 11.73 | Primary death (status uncertain) |
 
-RCB's bowling unit improved across every phase from 2024 to 2025. The most dramatic improvement was in powerplay bowling (9.77 to 8.73), driven by the Hazlewood-Bhuvneshwar partnership. The death remains the weakest bowling phase at 10.75, though this was still an improvement from 2024's 10.90.
+The individual data tells a sharper story than team-level numbers. Hazlewood's 7.54 powerplay economy is a full 0.72 better than Bhuvneshwar's 8.26 — he is the true pace-setter. Both bowlers become expensive at the death (10.65 and 10.96 respectively), confirming death bowling as the structural weakness. Krunal's 7.45 middle-overs economy is in a class of its own within this squad. Yash Dayal's 11.73 death economy is the most concerning number in the bowling unit, and his uncertain availability makes it a compounding risk.
 
 ---
 
@@ -271,7 +291,7 @@ Yash Dayal is the only left-arm pacer in the predicted XII, and his status is un
 
 **Virat Kohli is no longer RCB's most important player — Bhuvneshwar Kumar is.**
 
-The data is unambiguous. Kohli's 2,037 runs at 146.6 SR are extraordinary, but his powerplay SR (151.9) and middle-overs SR (134.2) are not pace-setting numbers. His elite contribution comes at the death (183.3 SR), but as established above, this is a consequence of batting through — not a designated role. More importantly: remove Kohli, and RCB's batting has options (Salt, Patidar, Venkatesh Iyer, David, Padikkal). Remove Bhuvneshwar, and the bowling-first identity — the very thing that drove 73.3% win rate in 2025 — ceases to exist. There is no backup swing bowler. There is no second powerplay specialist who can match his 8.26 economy. At 36, Bhuvneshwar Kumar is not RCB's sentimental veteran — he is the load-bearing wall. His 47.5% powerplay dot ball rate is not replaceable by anyone in this squad.
+The data is unambiguous. Kohli's 2,037 runs at 146.6 SR are extraordinary, but his powerplay SR (151.9) and middle-overs SR (134.2) are not pace-setting numbers. His elite contribution comes at the death (183.3 SR), but as established above, this is a consequence of batting through — not a designated role. More importantly: remove Kohli, and RCB's batting has options (Salt, Patidar, Venkatesh Iyer, David, Padikkal). Remove Bhuvneshwar, and the bowling-first identity — the very thing that underpinned the 73.3% win rate in 2025 — ceases to exist. There is no backup swing bowler. There is no second powerplay specialist who can match his 8.26 economy. At 36, Bhuvneshwar Kumar is not RCB's sentimental veteran — he is the load-bearing wall. His 47.5% powerplay dot ball rate is not replaceable by anyone in this squad.
 
 ---
 
@@ -281,7 +301,7 @@ The data is unambiguous. Kohli's 2,037 runs at 146.6 SR are extraordinary, but h
 |------|-------|---------|
 | **8.73** | RCB's 2025 powerplay bowling economy | Down from 9.77 in 2024 — a run-per-over improvement that transformed the franchise |
 | **183.3** | Kohli's death SR (114 balls, MEDIUM) | Comes from batting through in 15/44 innings, not as a designated finisher |
-| **-33.7** | Patidar's SR delta (last 10 vs career) | New captain's batting form is the squad's most concerning trend |
+| **-39.9** | Patidar's SR delta (last 10 vs since-2023) | New captain's batting form is the squad's most concerning trend |
 | **7.45** | Krunal's middle-overs economy (82 overs, MEDIUM) | 1.44 runs per over below the league average — the invisible pillar of RCB's bowling plan |
 | **1.4 / 10** | Off-spin depth chart rating | No frontline off-spinner in squad; Kanishk Chouhan (uncapped) is the only option |
 
@@ -293,7 +313,7 @@ The data is unambiguous. Kohli's 2,037 runs at 146.6 SR are extraordinary, but h
 RCB's bowling identity is built on the Hazlewood-Bhuvneshwar powerplay partnership. Hazlewood, as an overseas player, may have availability windows. Bhuvneshwar, at 36, has managed workload concerns in recent seasons. If he misses more than 3-4 matches, RCB's powerplay bowling economy could revert toward the 9.77 it was in 2024. The franchise has no like-for-like replacement: Mangesh Yadav and Yash Dayal are not swing bowlers. This is the single biggest structural risk in the squad.
 
 **2. The Middle Order Must Contribute Beyond 42-43% of Runs**
-In 2025, RCB's top 3 (Kohli, Salt, du Plessis) contributed roughly 57.7% of runs. With du Plessis gone and Venkatesh Iyer slotting in at 3, the middle order (Patidar at 4, David at 5, Jitesh at 6) needs to shoulder a larger share. Specifically, Patidar's -33.7 SR delta must reverse. If the middle order can push toward 50-55% of the run contribution, it reduces the collapse risk that eliminated RCB in the 2025 final.
+In 2025, RCB's top 3 (Kohli, Salt, and the third batter) contributed the majority of runs. With Venkatesh Iyer slotting in at 3, the middle order (Patidar at 4, David at 5, Jitesh at 6) needs to shoulder a larger share. Specifically, Patidar's -39.9 SR delta must reverse. If the middle order can push toward 50-55% of the run contribution, it reduces the collapse risk that haunted RCB in previous seasons.
 
 **3. The Off-Spin Gap Cannot Be Left Unaddressed**
 The 1.4/10 off-spin depth rating is not a quirk — it is a structural vulnerability. Without a frontline off-spinner, RCB cannot create match-up advantages against left-handed batters in the middle overs. Kanishk Chouhan (6.00 Cr, uncapped) is the investment thesis, but he has zero IPL data. If Chouhan fails to deliver, opponents with left-hand-heavy middle orders (think KKR, SRH) will target this gap relentlessly. Krunal Pandya's left-arm orthodox is not a replacement for genuine off-spin.
@@ -323,13 +343,13 @@ RCB has 7 overseas players: Salt, Hazlewood, David, Shepherd, Bethell, Duffy, an
 
 **Opposition Blueprint:** Bowl off-spin and wrist-spin in the middle overs — RCB has no counter. Target Padikkal (62.5 SR vs wrist-spin, LOW sample but directional) and David (33.3 SR vs wrist-spin, LOW / 9 balls) if they play. Force Kohli into the middle overs where he strikes at 134.2 SR — materially below his powerplay (151.9) and death (183.3) rates. Avoid the powerplay bowling duel with Hazlewood-Bhuvneshwar at all costs. If chasing, do not let the game reach overs 16-20 with RCB needing less than 50 — their death batting is too deep.
 
-**Matchup Targets:** Kohli's weakest bowling type matchup is right-arm off-spin at 101.9 SR (53 balls, MEDIUM) — this is exploitable with a quality off-spinner. Tim David's wrist-spin vulnerability (33.3 SR, 9 balls) is a small sample but worth testing. Patidar's recent form slump (-33.7 SR delta) suggests he may be susceptible to early pressure if the new-ball bowlers can create doubt.
+**Matchup Targets:** Kohli's weakest bowling type matchup is right-arm off-spin at 101.9 SR (53 balls, MEDIUM) — this is exploitable with a quality off-spinner. Tim David's wrist-spin vulnerability (33.3 SR, 9 balls) is a small sample but worth testing. Patidar's recent form slump (-39.9 SR delta) suggests he may be susceptible to early pressure if the new-ball bowlers can create doubt.
 
 ---
 
 ## Verdict
 
-RCB in 2026 is a team that knows what it is — and that self-knowledge is worth more than any auction buy. The bowling-first identity that drove 73.3% win rate in 2025 returns with its core intact, augmented by Venkatesh Iyer's batting depth and Shepherd's death-overs impact. If Bhuvneshwar stays fit, Patidar's form recovers, and the off-spin gap does not prove fatal, this is a top-4 squad with a genuine shot at the franchise's first title. If any of those three pillars wobble, the old RCB — brilliant but brittle — is waiting just beneath the surface.
+RCB in 2026 is a team that knows what it is — and that self-knowledge is worth more than any auction buy. The bowling-first identity that delivered a maiden IPL title in 2025 returns with its championship core intact, augmented by Venkatesh Iyer's batting depth and Shepherd's death-overs impact. If Bhuvneshwar stays fit, Patidar's form recovers, and the off-spin gap does not prove fatal, this is a top-4 squad with a genuine shot at back-to-back titles. If any of those three pillars wobble, the defending champions will discover what every title winner learns: repeating is harder than winning.
 
 **Projected Finish: 3rd-4th** | **Ceiling: Champions** | **Floor: 6th**
 

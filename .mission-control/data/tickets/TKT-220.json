@@ -2,15 +2,16 @@
   "id": "TKT-220",
   "title": "Sprint 4.0 Retrospective",
   "description": "Pep Guardiola: Full retrospective of Sprint 4.0. What we did, what went wrong, lessons learned, velocity analysis, process improvements.",
-  "state": "BACKLOG",
+  "state": "DONE",
   "priority": "P0",
   "size": "M",
-  "progress_pct": 0,
+  "progress_pct": 100,
   "owner": "Pep Guardiola",
   "assignee": "Pep Guardiola",
   "sprint_id": "SPRINT-001",
   "tags": ["Retrospective", "Sprint 4.0"],
   "gates": {},
   "created_at": "2026-02-14T02:00:00Z",
-  "updated_at": "2026-02-14T02:00:00Z"
+  "updated_at": "2026-02-14T09:55:00Z",
+  "completed_at": "2026-02-14T09:55:00Z"
 }

@@ -2,15 +2,21 @@
   "id": "TKT-234",
   "title": "Strategic direction rundown",
   "description": "Florentino Perez: Give a rundown of where Cricket Playbook is headed. Product vision, roadmap alignment, risk assessment, resource allocation for Sprint 5+.",
-  "state": "BACKLOG",
+  "state": "DONE",
   "priority": "P1",
   "size": "M",
-  "progress_pct": 0,
+  "progress_pct": 100,
   "owner": "Florentino Perez",
   "assignee": "Florentino Perez",
   "sprint_id": "SPRINT-001",
   "tags": ["Strategy", "Vision", "Program Direction"],
-  "gates": {},
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "note": "Self-authored strategic assessment"
+    }
+  },
+  "deliverable": "reviews/strategic_direction_021426_v1.md",
   "created_at": "2026-02-14T02:00:00Z",
-  "updated_at": "2026-02-14T02:00:00Z"
+  "updated_at": "2026-02-14T03:00:00Z"
 }

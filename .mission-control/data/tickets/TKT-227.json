@@ -2,15 +2,16 @@
   "id": "TKT-227",
   "title": "Language, readability & detail audit of all dashboards",
   "description": "Virat Kohli: Audit language, readability, and detail across all dashboards and repo. Check tone consistency, grammar, jargon clarity, section headers, and editorial quality.",
-  "state": "BACKLOG",
+  "state": "DONE",
   "priority": "P1",
   "size": "L",
-  "progress_pct": 0,
+  "progress_pct": 100,
   "owner": "Virat Kohli",
   "assignee": "Virat Kohli",
   "sprint_id": "SPRINT-001",
   "tags": ["Editorial", "Language", "Audit"],
   "gates": {},
   "created_at": "2026-02-14T02:00:00Z",
-  "updated_at": "2026-02-14T02:00:00Z"
+  "updated_at": "2026-02-14T12:00:00Z",
+  "deliverable": "reviews/language_audit_021426_v1.md"
 }

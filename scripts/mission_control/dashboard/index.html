@@ -4798,6 +4798,11 @@
                         <div class="list-search-box">
                             <input type="text" id="listSearchInput" placeholder="Filter by ID, title, assignee, or state..." oninput="handleListSearch(this.value)">
                         </div>
+                        <div class="list-sprint-filter" style="display: flex; gap: 8px; align-items: center; margin-left: 12px;">
+                            <button class="filter-btn active" onclick="setListSprintFilter('all')" data-sprint-filter="all">All Sprints</button>
+                            <button class="filter-btn" onclick="setListSprintFilter('sprint4')" data-sprint-filter="sprint4">Sprint 4</button>
+                            <button class="filter-btn" onclick="setListSprintFilter('sprint5')" data-sprint-filter="sprint5">Sprint 5</button>
+                        </div>
                         <span class="list-search-count" id="listSearchCount"></span>
                     </div>
                 </div>
@@ -4853,6 +4858,11 @@
                         <button class="epic-filter-btn" onclick="filterEpics('delivery')">Delivery</button>
                         <button class="epic-filter-btn" onclick="filterEpics('research')">Research</button>
                         <button class="epic-filter-btn" onclick="filterEpics('spike')">Spike</button>
+                    </div>
+                    <div class="epic-filters" style="margin-left: 12px;">
+                        <button class="epic-filter-btn" onclick="filterEpicsBySprint('all')" data-epic-sprint="all" style="background: var(--accent); color: white;">All Sprints</button>
+                        <button class="epic-filter-btn" onclick="filterEpicsBySprint('sprint4')" data-epic-sprint="sprint4">Sprint 4</button>
+                        <button class="epic-filter-btn" onclick="filterEpicsBySprint('sprint5')" data-epic-sprint="sprint5">Sprint 5</button>
                     </div>
                 </div>
                 <div class="epic-summary" id="epicSummary"></div>
@@ -5328,6 +5338,108 @@
                             <div class="token-progress-fill" id="tokenProgressFill" style="width: 0%"></div>
                         </div>
                         <div style="font-size: 9px; color: var(--text-tertiary); margin-top: 4px; text-align: right;" id="tokenSyncTime"></div>
+                    </div>
+
+                    <!-- Sprint Token Budget (TKT-223) -->
+                    <div class="token-insight-card" style="margin-top: 12px; border: 1px solid rgba(48, 209, 88, 0.3); background: linear-gradient(135deg, rgba(48, 209, 88, 0.05) 0%, rgba(10, 132, 255, 0.05) 100%);">
+                        <div class="token-insight-header">
+                            <span class="token-insight-icon">🏏</span>
+                            <span class="token-insight-title">Sprint Token Budget</span>
+                            <span style="font-size: 10px; color: var(--text-tertiary); margin-left: auto;">Approved by Founder</span>
+                        </div>
+                        <div class="token-insight-content" id="sprintTokenBudget">
+                            <!-- Sprint 5 Budget -->
+                            <div style="margin-bottom: 14px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                    <strong style="font-size: 13px;">Sprint 5 Budget</strong>
+                                    <span style="background: rgba(48, 209, 88, 0.15); color: #30d158; padding: 2px 8px; border-radius: 8px; font-size: 10px; font-weight: 600;">APPROVED 2026-02-14</span>
+                                </div>
+                                <div style="display: flex; gap: 16px; margin-bottom: 8px;">
+                                    <div style="flex: 1; text-align: center; padding: 8px; background: var(--bg-elevated); border-radius: 8px;">
+                                        <div style="font-size: 18px; font-weight: 700; color: var(--accent-green);">500K</div>
+                                        <div style="font-size: 10px; color: var(--text-tertiary);">Total Budget</div>
+                                    </div>
+                                    <div style="flex: 1; text-align: center; padding: 8px; background: var(--bg-elevated); border-radius: 8px;">
+                                        <div style="font-size: 18px; font-weight: 700; color: var(--accent-blue);">14</div>
+                                        <div style="font-size: 10px; color: var(--text-tertiary);">Agents</div>
+                                    </div>
+                                    <div style="flex: 1; text-align: center; padding: 8px; background: var(--bg-elevated); border-radius: 8px;">
+                                        <div style="font-size: 18px; font-weight: 700; color: var(--accent-yellow);">~35.7K</div>
+                                        <div style="font-size: 10px; color: var(--text-tertiary);">Per Agent Avg</div>
+                                    </div>
+                                </div>
+                                <div style="height: 8px; background: var(--bg-elevated); border-radius: 4px; overflow: hidden; margin-bottom: 4px;">
+                                    <div style="width: 0%; height: 100%; background: linear-gradient(90deg, #30d158, #0a84ff); border-radius: 4px; transition: width 0.5s;" id="sprint5ProgressFill"></div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; font-size: 9px; color: var(--text-tertiary);">
+                                    <span>0 tokens used</span>
+                                    <span>500,000 budget</span>
+                                </div>
+                            </div>
+
+                            <!-- Per-Agent Allocation Table -->
+                            <details style="margin-top: 8px;">
+                                <summary style="cursor: pointer; font-size: 11px; font-weight: 600; color: var(--text-secondary); padding: 4px 0;">Per-Agent Token Allocation (Role-Weighted)</summary>
+                                <div style="margin-top: 8px; font-size: 11px;">
+                                    <table style="width: 100%; border-collapse: collapse;">
+                                        <thead>
+                                            <tr style="border-bottom: 1px solid var(--border);">
+                                                <th style="text-align: left; padding: 4px 6px; font-size: 10px; color: var(--text-tertiary);">Agent</th>
+                                                <th style="text-align: left; padding: 4px 6px; font-size: 10px; color: var(--text-tertiary);">Role</th>
+                                                <th style="text-align: right; padding: 4px 6px; font-size: 10px; color: var(--text-tertiary);">Allocation</th>
+                                                <th style="text-align: right; padding: 4px 6px; font-size: 10px; color: var(--text-tertiary);">Used</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody style="color: var(--text-secondary);">
+                                            <tr><td style="padding: 3px 6px;">Tom Brady</td><td style="padding: 3px 6px;">PO / Editor</td><td style="padding: 3px 6px; text-align: right;">50,000</td><td style="padding: 3px 6px; text-align: right; color: var(--text-tertiary);">--</td></tr>
+                                            <tr><td style="padding: 3px 6px;">Stephen Curry</td><td style="padding: 3px 6px;">Analytics Lead</td><td style="padding: 3px 6px; text-align: right;">50,000</td><td style="padding: 3px 6px; text-align: right; color: var(--text-tertiary);">--</td></tr>
+                                            <tr><td style="padding: 3px 6px;">Andy Flower</td><td style="padding: 3px 6px;">Cricket Domain</td><td style="padding: 3px 6px; text-align: right;">45,000</td><td style="padding: 3px 6px; text-align: right; color: var(--text-tertiary);">--</td></tr>
+                                            <tr><td style="padding: 3px 6px;">Brock Purdy</td><td style="padding: 3px 6px;">Data Pipeline</td><td style="padding: 3px 6px; text-align: right;">40,000</td><td style="padding: 3px 6px; text-align: right; color: var(--text-tertiary);">--</td></tr>
+                                            <tr><td style="padding: 3px 6px;">Brad Stevens</td><td style="padding: 3px 6px;">Architecture</td><td style="padding: 3px 6px; text-align: right;">40,000</td><td style="padding: 3px 6px; text-align: right; color: var(--text-tertiary);">--</td></tr>
+                                            <tr><td style="padding: 3px 6px;">Jose Mourinho</td><td style="padding: 3px 6px;">Quant Research</td><td style="padding: 3px 6px; text-align: right;">40,000</td><td style="padding: 3px 6px; text-align: right; color: var(--text-tertiary);">--</td></tr>
+                                            <tr><td style="padding: 3px 6px;">Ime Udoka</td><td style="padding: 3px 6px;">ML Ops</td><td style="padding: 3px 6px; text-align: right;">35,000</td><td style="padding: 3px 6px; text-align: right; color: var(--text-tertiary);">--</td></tr>
+                                            <tr><td style="padding: 3px 6px;">Kevin De Bruyne</td><td style="padding: 3px 6px;">Visualization</td><td style="padding: 3px 6px; text-align: right;">35,000</td><td style="padding: 3px 6px; text-align: right; color: var(--text-tertiary);">--</td></tr>
+                                            <tr><td style="padding: 3px 6px;">N'Golo Kante</td><td style="padding: 3px 6px;">QA / Integrity</td><td style="padding: 3px 6px; text-align: right;">35,000</td><td style="padding: 3px 6px; text-align: right; color: var(--text-tertiary);">--</td></tr>
+                                            <tr><td style="padding: 3px 6px;">Virat Kohli</td><td style="padding: 3px 6px;">Tone & Narrative</td><td style="padding: 3px 6px; text-align: right;">30,000</td><td style="padding: 3px 6px; text-align: right; color: var(--text-tertiary);">--</td></tr>
+                                            <tr><td style="padding: 3px 6px;">LeBron James</td><td style="padding: 3px 6px;">Social</td><td style="padding: 3px 6px; text-align: right;">25,000</td><td style="padding: 3px 6px; text-align: right; color: var(--text-tertiary);">--</td></tr>
+                                            <tr><td style="padding: 3px 6px;">Pep Guardiola</td><td style="padding: 3px 6px;">Retro & CI</td><td style="padding: 3px 6px; text-align: right;">25,000</td><td style="padding: 3px 6px; text-align: right; color: var(--text-tertiary);">--</td></tr>
+                                            <tr><td style="padding: 3px 6px;">Jayson Tatum</td><td style="padding: 3px 6px;">UX & Reader Flow</td><td style="padding: 3px 6px; text-align: right;">25,000</td><td style="padding: 3px 6px; text-align: right; color: var(--text-tertiary);">--</td></tr>
+                                            <tr><td style="padding: 3px 6px;">Florentino Perez</td><td style="padding: 3px 6px;">Program Director</td><td style="padding: 3px 6px; text-align: right;">25,000</td><td style="padding: 3px 6px; text-align: right; color: var(--text-tertiary);">--</td></tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr style="border-top: 1px solid var(--border); font-weight: 600;">
+                                                <td style="padding: 4px 6px;" colspan="2">Total</td>
+                                                <td style="padding: 4px 6px; text-align: right;">500,000</td>
+                                                <td style="padding: 4px 6px; text-align: right; color: var(--text-tertiary);">--</td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </details>
+
+                            <!-- Sprint 4 Summary -->
+                            <details style="margin-top: 8px;" open>
+                                <summary style="cursor: pointer; font-size: 11px; font-weight: 600; color: var(--text-secondary); padding: 4px 0;">Sprint 4 Usage Summary (Jan 31 - Feb 14)</summary>
+                                <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+                                    <div style="flex: 1; min-width: 80px; text-align: center; padding: 6px; background: var(--bg-elevated); border-radius: 6px;">
+                                        <div style="font-size: 14px; font-weight: 700; color: var(--accent-blue);">171</div>
+                                        <div style="font-size: 9px; color: var(--text-tertiary);">Tickets Done</div>
+                                    </div>
+                                    <div style="flex: 1; min-width: 80px; text-align: center; padding: 6px; background: var(--bg-elevated); border-radius: 6px;">
+                                        <div style="font-size: 14px; font-weight: 700; color: var(--accent-green);">90%</div>
+                                        <div style="font-size: 9px; color: var(--text-tertiary);">Completion</div>
+                                    </div>
+                                    <div style="flex: 1; min-width: 80px; text-align: center; padding: 6px; background: var(--bg-elevated); border-radius: 6px;">
+                                        <div style="font-size: 14px; font-weight: 700; color: var(--accent-yellow);">~497K</div>
+                                        <div style="font-size: 9px; color: var(--text-tertiary);">Tokens (I/O)</div>
+                                    </div>
+                                    <div style="flex: 1; min-width: 80px; text-align: center; padding: 6px; background: var(--bg-elevated); border-radius: 6px;">
+                                        <div style="font-size: 14px; font-weight: 700;">92.0</div>
+                                        <div style="font-size: 9px; color: var(--text-tertiary);">Health Score</div>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
                     </div>
 
                     <!-- Session Activity Timeline -->
@@ -6439,7 +6551,17 @@
               outcome: 'Founder-approved tournament weights integrated into clustering, tags, and analytical models (8 tickets: TKT-183 to TKT-190)' },
             { id: 'EPIC-017', title: 'Player Profile View', type: 'delivery', owner: 'Kevin De Bruyne',
               goal: 'Click-to-see player stats modal on all player name surfaces in The Lab — batting, bowling, phase splits, vs-team breakdowns, recent form',
-              outcome: 'Interactive player profile modals across depth chart, predicted XII, full squad, and pressure tabs (9 tickets: TKT-196 to TKT-204)' }
+              outcome: 'Interactive player profile modals across depth chart, predicted XII, full squad, and pressure tabs (9 tickets: TKT-196 to TKT-204)' },
+            // Sprint 5.0 EPICs (SPRINT-002)
+            { id: 'EPIC-018', title: 'Win Probability Model', type: 'delivery', owner: 'Jose Mourinho',
+              goal: 'In-match prediction engine using ball-by-ball features from DuckDB fact_ball data — research, feature engineering, training, integration, monitoring',
+              outcome: 'Production-grade win probability model integrated into The Lab with drift detection (5 tickets: TKT-205 to TKT-209)' },
+            { id: 'EPIC-019', title: 'Interactive React Dashboard', type: 'delivery', owner: 'Kevin De Bruyne',
+              goal: 'Replace static HTML Lab with React-based interactive dashboard — DuckDB-WASM, component library, theme tokens, team page migration',
+              outcome: 'Modern React SPA with design system, data layer hooks, and migrated team + research pages (6 tickets: TKT-210 to TKT-215)' },
+            { id: 'EPIC-020', title: 'Player Comparison Tool', type: 'delivery', owner: 'Stephen Curry',
+              goal: 'Head-to-head analytics with radar charts, side-by-side stats, multi-player comparison, and shareable links with PNG export',
+              outcome: 'Interactive player comparison feature supporting 2+ players with exportable visualizations (4 tickets: TKT-216 to TKT-219)' }
         ];
 
         // Helper function to get EPIC by ID
@@ -6447,7 +6569,7 @@
             return epics.find(e => e.id === epicId) || null;
         }
 
-        // All Sprint 4.0 Tickets (203 tickets — TKT-001 to TKT-204)
+        // All Tickets: Sprint 4.0 (TKT-001 to TKT-204) + Sprint 5.0 (TKT-205 to TKT-219)
         const tickets = [
             // Pre-Sprint (TKT-001 to TKT-005)
             { id: 'TKT-001', title: 'Define Sprint 4 Scope', state: 'DONE', priority: 'P0', effort: 'quick-win', assignee: 'Florentino Pérez', epic: 'EPIC-001', progress: 100, tags: ['Planning'], gates: { florentino_gate: 'APPROVED', founder_validation: 'APPROVED' },
@@ -7979,6 +8101,57 @@ Gate Inheritance:
             { id: 'TKT-204', title: 'Kante QA: integration testing + performance validation', state: 'DONE', priority: 'P1', effort: 'hustle', assignee: "N'Golo Kante", epic: 'EPIC-017', progress: 100, tags: ['QA', 'Testing', 'Performance', 'Player Profiles'], blockedBy: ['TKT-203'], gates: { florentino_gate: 'APPROVED', system_check: 'PASS' },
               completedNote: 'QA passed: 231 profiles loaded, all 10 teams covered, modal opens in <200ms, no JS errors, mobile breakpoints verified, accessibility labels present.',
               context: { ask: 'Integration testing and performance validation of player profiles', goal: 'QA sign-off on complete player profile feature', reason: 'System check gate requirement before shipping', audible: ['✅ 231 profiles validated', '✅ All 10 teams covered', '✅ Performance <200ms', '✅ No JS errors', '✅ Mobile verified'] }
+            },
+
+            // ==================== SPRINT 5.0: EPIC-018 — Win Probability Model ====================
+            { id: 'TKT-205', title: 'Research & define win probability model architecture', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Jose Mourinho', epic: 'EPIC-018', progress: 0, tags: ['ML', 'Research', 'Win Probability'],
+              context: { ask: 'Research ML architectures for ball-by-ball win probability', goal: 'Selected model architecture with feature specification', reason: 'Foundation for win probability prediction engine', audible: ['Research approaches', 'Define features', 'Select architecture'] }
+            },
+            { id: 'TKT-206', title: 'Feature engineering from fact_ball data', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-018', progress: 0, tags: ['Data', 'ML', 'Feature Engineering'],
+              context: { ask: 'Engineer features from DuckDB fact_ball for win probability', goal: 'Feature pipeline producing model-ready training data', reason: 'Model needs well-engineered features from ball-by-ball data', audible: ['Extract features', 'Build pipeline', 'Validate coverage'] }
+            },
+            { id: 'TKT-207', title: 'Train & validate win probability model', state: 'BACKLOG', priority: 'P0', effort: 'marathon', assignee: 'Ime Udoka', epic: 'EPIC-018', progress: 0, tags: ['ML', 'Training', 'Validation'],
+              context: { ask: 'Train and validate the win probability model', goal: 'Trained model with documented accuracy metrics', reason: 'Core deliverable of the win probability workstream', audible: ['Train model', 'Cross-validate', 'Document metrics'] }
+            },
+            { id: 'TKT-208', title: 'Integrate win probability into The Lab dashboard', state: 'BACKLOG', priority: 'P1', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-018', progress: 0, tags: ['Frontend', 'Dashboard', 'Win Probability'],
+              context: { ask: 'Integrate win probability model into The Lab UI', goal: 'Interactive win probability visualization in dashboard', reason: 'User-facing integration of ML model', audible: ['Design UI', 'Integrate model', 'Test visualization'] }
+            },
+            { id: 'TKT-209', title: 'Model monitoring & drift detection setup', state: 'BACKLOG', priority: 'P1', effort: 'hustle', assignee: 'Ime Udoka', epic: 'EPIC-018', progress: 0, tags: ['ML Ops', 'Monitoring'],
+              context: { ask: 'Set up monitoring and drift detection for win prob model', goal: 'Automated monitoring with drift alerts', reason: 'Production ML requires ongoing monitoring', audible: ['Setup monitoring', 'Configure drift detection', 'Create alerts'] }
+            },
+
+            // ==================== SPRINT 5.0: EPIC-019 — React Dashboard ====================
+            { id: 'TKT-210', title: 'React project setup + build pipeline', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Brad Stevens', epic: 'EPIC-019', progress: 0, tags: ['React', 'Infrastructure', 'Build'],
+              context: { ask: 'Set up React project with build pipeline', goal: 'Working React scaffold with CI integration', reason: 'Foundation for interactive dashboard', audible: ['Create React app', 'Configure build', 'Add CI'] }
+            },
+            { id: 'TKT-211', title: 'Design system — component library + theme tokens', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-019', progress: 0, tags: ['React', 'Design System', 'UI'],
+              context: { ask: 'Build component library with theme tokens', goal: 'Reusable component library matching existing design', reason: 'Consistent UI across all React pages', audible: ['Define tokens', 'Build components', 'Document usage'] }
+            },
+            { id: 'TKT-212', title: 'Data layer — DuckDB-WASM integration + React hooks', state: 'BACKLOG', priority: 'P0', effort: 'marathon', assignee: 'Brad Stevens', epic: 'EPIC-019', progress: 0, tags: ['React', 'DuckDB', 'Data Layer'],
+              context: { ask: 'Integrate DuckDB-WASM with custom React hooks', goal: 'Browser-native SQL queries via React hooks', reason: 'Core data layer for interactive dashboard', audible: ['Integrate DuckDB-WASM', 'Build hooks', 'Test queries'] }
+            },
+            { id: 'TKT-213', title: 'Team pages — migrate squad, depth chart, pressure tabs', state: 'BACKLOG', priority: 'P1', effort: 'marathon', assignee: 'Kevin de Bruyne', epic: 'EPIC-019', progress: 0, tags: ['React', 'Migration', 'Teams'],
+              context: { ask: 'Migrate team pages from static HTML to React', goal: 'React-based team pages with all existing features', reason: 'Feature parity before launching React dashboard', audible: ['Migrate squad tab', 'Migrate depth chart', 'Migrate pressure tab'] }
+            },
+            { id: 'TKT-214', title: 'Research Desk — migrate NL search + SQL Lab to React', state: 'BACKLOG', priority: 'P1', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-019', progress: 0, tags: ['React', 'Migration', 'Research Desk'],
+              context: { ask: 'Migrate Research Desk to React', goal: 'React-based NL search and SQL Lab', reason: 'Complete migration of all Lab features', audible: ['Migrate NL search', 'Migrate SQL Lab', 'Test all queries'] }
+            },
+            { id: 'TKT-215', title: 'Testing + CI integration for React dashboard', state: 'BACKLOG', priority: 'P1', effort: 'hustle', assignee: 'Brad Stevens', epic: 'EPIC-019', progress: 0, tags: ['React', 'Testing', 'CI'],
+              context: { ask: 'Add testing and CI for React dashboard', goal: 'Automated tests with CI/CD integration', reason: 'Quality assurance for React migration', audible: ['Add unit tests', 'Add integration tests', 'Configure CI'] }
+            },
+
+            // ==================== SPRINT 5.0: EPIC-020 — Player Comparison Tool ====================
+            { id: 'TKT-216', title: 'Head-to-head comparison data pipeline', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Stephen Curry', epic: 'EPIC-020', progress: 0, tags: ['Data', 'Comparison', 'Pipeline'],
+              context: { ask: 'Build data pipeline for player comparisons', goal: 'Comparison-ready data with normalized metrics', reason: 'Data foundation for comparison tool', audible: ['Design schema', 'Build pipeline', 'Normalize metrics'] }
+            },
+            { id: 'TKT-217', title: 'Comparison UI — radar charts + side-by-side stats', state: 'BACKLOG', priority: 'P0', effort: 'deep-work', assignee: 'Kevin de Bruyne', epic: 'EPIC-020', progress: 0, tags: ['Frontend', 'Visualization', 'Comparison'],
+              context: { ask: 'Build comparison UI with radar charts', goal: 'Interactive comparison visualization', reason: 'Core user-facing feature', audible: ['Build radar charts', 'Design side-by-side view', 'Add interactivity'] }
+            },
+            { id: 'TKT-218', title: 'Multi-player comparison (3+ players)', state: 'BACKLOG', priority: 'P1', effort: 'hustle', assignee: 'Stephen Curry', epic: 'EPIC-020', progress: 0, tags: ['Analytics', 'Comparison', 'Multi-Player'],
+              context: { ask: 'Extend comparison to support 3+ players', goal: 'Multi-player comparison with overlay visualization', reason: 'Power users want to compare multiple players', audible: ['Extend data model', 'Update UI', 'Test with 3+ players'] }
+            },
+            { id: 'TKT-219', title: 'Shareable comparison links + PNG export', state: 'BACKLOG', priority: 'P2', effort: 'hustle', assignee: 'Kevin de Bruyne', epic: 'EPIC-020', progress: 0, tags: ['Frontend', 'Export', 'Sharing'],
+              context: { ask: 'Add shareable links and PNG export for comparisons', goal: 'Users can share and export comparison results', reason: 'Social atomization and content sharing', audible: ['Build URL encoding', 'Add PNG export', 'Test sharing flow'] }
             }
         ];
 
@@ -8052,6 +8225,17 @@ Gate Inheritance:
         let activeEffortFilter = 'all';
         let searchQuery = '';
         let listSearchQuery = '';
+        let listSprintFilter = 'all';
+
+        // Sprint 5 epic IDs for filtering
+        const sprint5Epics = ['EPIC-018', 'EPIC-019', 'EPIC-020'];
+
+        function setListSprintFilter(filter) {
+            listSprintFilter = filter;
+            document.querySelectorAll('[data-sprint-filter]').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[data-sprint-filter="${filter}"]`).classList.add('active');
+            renderList();
+        }
 
         // Search handler (Kanban board search — also updates List view)
         function handleTicketSearch(event) {
@@ -8279,10 +8463,10 @@ Gate Inheritance:
             timestamp: new Date().toISOString(),
             categories: {
                 governance: { score: 100, weight: 15, label: 'Governance', findings: ['Constitution has 19 sections (GOOD)', 'Task Integrity Loop fully documented', 'Gate enforcement workflow exists'] },
-                code_quality: { score: 90, weight: 20, label: 'Code Quality', findings: ['1 bare except handlers (GOOD)', 'Thresholds centralized in YAML (TKT-132 DONE)', 'No sys.path hacks (EXCELLENT)', 'Type hints: 84% coverage (GOOD)'] },
+                code_quality: { score: 80, weight: 20, label: 'Code Quality', findings: ['6 bare except handlers (GOOD)', 'Thresholds centralized in YAML (TKT-132 DONE)', 'No sys.path hacks (EXCELLENT)', 'Type hints: 26% coverage (OK)'] },
                 data_robustness: { score: 100, weight: 20, label: 'Data Robustness', findings: ['Domain constraints module exists (TKT-133 DONE)', 'Schema validation exists', 'Data lineage tracking present'] },
                 ml_rigor: { score: 80, weight: 20, label: 'ML Rigor', findings: ['Model monitoring module exists', 'Baseline comparison exists', 'Model registry missing', 'Feature importance/SHAP present'] },
-                testing: { score: 100, weight: 15, label: 'Testing', findings: ['5 test files found (GOOD)', 'Integration tests exist', '265 tests collected (GOOD)'] },
+                testing: { score: 100, weight: 15, label: 'Testing', findings: ['8 test files found (GOOD)', 'Integration tests exist', '288 tests collected (GOOD)'] },
                 documentation: { score: 100, weight: 10, label: 'Documentation', findings: ['Core docs: 2/2', 'Thresholds well documented', '8 procedure/methodology docs'] }
             },
             benchmarks: {
@@ -9382,6 +9566,22 @@ Gate Inheritance:
             renderEpicView();
         }
 
+        let epicSprintFilter = 'all';
+
+        function filterEpicsBySprint(filter) {
+            epicSprintFilter = filter;
+            document.querySelectorAll('[data-epic-sprint]').forEach(btn => {
+                btn.style.background = '';
+                btn.style.color = '';
+            });
+            const activeBtn = document.querySelector(`[data-epic-sprint="${filter}"]`);
+            if (activeBtn) {
+                activeBtn.style.background = 'var(--accent)';
+                activeBtn.style.color = 'white';
+            }
+            renderEpicView();
+        }
+
         function setEpicSummaryFilter(filter) {
             epicSummaryFilter = epicSummaryFilter === filter ? null : filter; // Toggle off if same
             renderEpicView();
@@ -9458,6 +9658,13 @@ Gate Inheritance:
             let filteredEpics = epicFilter === 'all'
                 ? [...epics]
                 : epics.filter(e => e.type === epicFilter);
+
+            // Filter EPICs by sprint (TKT-222)
+            if (epicSprintFilter === 'sprint4') {
+                filteredEpics = filteredEpics.filter(e => !sprint5Epics.includes(e.id));
+            } else if (epicSprintFilter === 'sprint5') {
+                filteredEpics = filteredEpics.filter(e => sprint5Epics.includes(e.id));
+            }
 
             // Filter EPICs by search query
             if (epicSearchQuery) {
@@ -9791,6 +9998,13 @@ Gate Inheritance:
                 const searchTarget = `${t.id} ${t.title} ${t.assignee || ''} ${t.state} ${t.priority} ${t.epic || ''} ${t.tags.join(' ')}`.toLowerCase();
                 return searchTarget.includes(activeQuery);
             }) : [...tickets];
+
+            // Apply sprint filter (TKT-222: Sprint 4 vs Sprint 5)
+            if (listSprintFilter === 'sprint4') {
+                filteredTickets = filteredTickets.filter(t => !sprint5Epics.includes(t.epic));
+            } else if (listSprintFilter === 'sprint5') {
+                filteredTickets = filteredTickets.filter(t => sprint5Epics.includes(t.epic));
+            }
 
             // Update result count
             const countEl = document.getElementById('listSearchCount');

@@ -127,7 +127,7 @@
   },
   "velocity": {
     "planned_points": 83,
-    "completed_points": 58,
+    "completed_points": 83,
     "burndown": [
       83,
       80,
@@ -136,23 +136,29 @@
       65,
       55,
       45,
-      46,
-      47,
-      48,
-      49,
-      50,
-      51,
-      52,
-      53,
-      54,
-      55,
-      56,
-      57,
-      58
+      38,
+      28,
+      18,
+      12,
+      8,
+      4,
+      0
     ]
   },
-  "status": "ACTIVE",
+  "status": "CLOSING",
+  "close_out_tickets": [
+    "TKT-220", "TKT-221", "TKT-222", "TKT-223", "TKT-224",
+    "TKT-225", "TKT-226", "TKT-227", "TKT-228", "TKT-229",
+    "TKT-230", "TKT-231", "TKT-232", "TKT-233", "TKT-234"
+  ],
+  "completion_summary": {
+    "total_tickets": 100,
+    "done": 100,
+    "completion_pct": 100,
+    "close_out_remaining": 15,
+    "note": "All 100 core sprint tickets DONE. 15 close-out tickets (TKT-220 to TKT-234) still in progress. Sprint will transition to ARCHIVED once close-out is complete."
+  },
   "description": "Establish governance framework from Mega Review #1 while addressing critical product issues from Review 5. Focus on building sustainable processes and improving the core stat pack product.",
   "created_at": "2026-01-31T00:00:00Z",
-  "updated_at": "2026-02-13T11:00:00.000000Z"
+  "updated_at": "2026-02-14T12:00:00.000000Z"
 }

@@ -2,15 +2,15 @@
   "id": "TKT-228",
   "title": "UI/UX optimization + mobile responsiveness for both websites",
   "description": "Kevin de Bruyne: Optimize both The Lab and Mission Control dashboards for UI/UX. Improve visualizations to stand out. Ensure mobile responsiveness works well.",
-  "state": "BACKLOG",
+  "state": "DONE",
   "priority": "P0",
   "size": "XL",
-  "progress_pct": 0,
+  "progress_pct": 100,
   "owner": "Kevin de Bruyne",
   "assignee": "Kevin de Bruyne",
   "sprint_id": "SPRINT-001",
   "tags": ["UI/UX", "Mobile", "Visualization"],
   "gates": {},
   "created_at": "2026-02-14T02:00:00Z",
-  "updated_at": "2026-02-14T02:00:00Z"
+  "updated_at": "2026-02-14T12:00:00Z"
 }

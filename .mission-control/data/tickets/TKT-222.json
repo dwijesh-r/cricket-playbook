@@ -2,15 +2,16 @@
   "id": "TKT-222",
   "title": "Archive Sprint 4.0 + create Sprint views + plan Sprint 5.0",
   "description": "Tom Brady: Archive Sprint 4.0 if completed. Create sprint history view in MC dashboard. Update List and Epic views with progress. Plan Sprint 5.0 kickoff.",
-  "state": "BACKLOG",
+  "state": "DONE",
   "priority": "P0",
   "size": "L",
-  "progress_pct": 0,
+  "progress_pct": 100,
   "owner": "Tom Brady",
   "assignee": "Tom Brady",
   "sprint_id": "SPRINT-001",
   "tags": ["Mission Control", "Sprint Management", "Planning"],
   "gates": {},
+  "completedNote": "All 4 tasks completed: (1) SPRINT-001 archived to CLOSING status — 100/100 core tickets DONE, 15 close-out in progress. (2) sprints.html updated with current Sprint 4.0 data (CLOSING, 83/83 velocity) and Sprint 5.0 data (PLANNED, 15 tickets across 3 epics). (3) List view gained sprint filter (All/Sprint 4/Sprint 5), Epic view gained sprint filter + Sprint 5 epics (EPIC-018/019/020) with all 15 tickets added. (4) Sprint 5.0 kickoff plan written at reviews/sprint_5_kickoff_plan_021426_v1.md with goals, epic breakdown, dependencies, success criteria, and 500K token budget.",
   "created_at": "2026-02-14T02:00:00Z",
-  "updated_at": "2026-02-14T02:00:00Z"
+  "updated_at": "2026-02-14T12:00:00Z"
 }

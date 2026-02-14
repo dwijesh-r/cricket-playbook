@@ -372,9 +372,30 @@
             color: white;
         }
 
+        .sprint-status-badge.planned {
+            background: var(--bg-elevated);
+            color: var(--text-secondary);
+        }
+
         .sprint-status-badge.planning {
             background: var(--bg-elevated);
             color: var(--text-secondary);
+        }
+
+        .sprint-status-badge.closing {
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-teal) 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(48, 209, 88, 0.4);
+        }
+
+        .sprint-card.closing {
+            border-color: var(--accent-green);
+            border-style: solid;
+        }
+
+        .sprint-card.planned {
+            opacity: 0.7;
+            border-style: dashed;
         }
 
         .sprint-header {
@@ -1193,7 +1214,7 @@
     </main>
 
     <script>
-        // Sprint Data
+        // Sprint Data (updated 2026-02-14 by Tom Brady via TKT-222)
         const SPRINTS = {
             "SPRINT-000": {
                 id: "SPRINT-000",
@@ -1222,41 +1243,46 @@
             "SPRINT-001": {
                 id: "SPRINT-001",
                 title: "Sprint 4.0 - Foundation & Editorial Excellence",
-                description: "Establish governance framework and improve core stat pack product",
+                description: "Establish governance framework from Mega Review #1 while addressing critical product issues. 100/100 core tickets completed. 15 close-out tickets in progress.",
                 startDate: "2026-01-31",
                 endDate: "2026-02-14",
-                status: "ACTIVE",
+                status: "CLOSING",
                 velocity: {
                     planned: 83,
-                    completed: 68,
-                    burndown: [83, 80, 75, 70, 65, 55, 45, 38, 28, 18]
+                    completed: 83,
+                    burndown: [83, 80, 75, 70, 65, 55, 45, 38, 28, 18, 12, 8, 4, 0]
                 },
                 highlights: [
-                    "Governance framework established (Constitution v2.0)",
-                    "Mission Control fully operational",
-                    "SUPER SELECTOR algorithm deployed",
-                    "All 10 depth charts generated",
-                    "The Lab dashboard launched",
-                    "System health score reached 96/100",
+                    "Governance framework established (Constitution v2.2.0)",
+                    "Mission Control fully operational with 5-tab dashboard",
+                    "SUPER SELECTOR algorithm deployed for all 10 teams",
+                    "All 10 depth charts generated and reviewed",
+                    "The Lab dashboard launched with Research Desk",
+                    "System health score reached 92/100 (target: 85)",
                     "Agent performance reviews & retraining complete",
-                    "Full CI/CD pipeline with quality gates"
+                    "Full CI/CD pipeline with quality gates",
+                    "Player Profile View modals across all surfaces",
+                    "Tournament quality weighting system (5-factor)",
+                    "100% ticket completion rate (100/100 core tickets)"
                 ],
                 keyOutputs: [
                     "outputs/predicted_xii/predicted_xii_2026.json",
                     "outputs/depth_charts/*.json",
                     "scripts/the_lab/dashboard/",
-                    "governance/TASK_INTEGRITY_LOOP.md"
+                    "governance/TASK_INTEGRITY_LOOP.md",
+                    "config/CONSTITUTION.md (v2.2.0)",
+                    "scripts/mission_control/dashboard/"
                 ]
             },
             "SPRINT-002": {
                 id: "SPRINT-002",
-                title: "Sprint 5.0 - Advanced Analytics",
-                description: "Implement Match Phase Index, Clutch Performance, and KenPom model",
-                startDate: "2026-02-17",
-                endDate: "2026-03-03",
-                status: "PLANNING",
+                title: "Sprint 5.0 - Interactive Intelligence & ML",
+                description: "Three workstreams: (1) Win Probability ML model, (2) React-based interactive dashboard, (3) Player comparison tool with head-to-head analytics.",
+                startDate: "2026-02-15",
+                endDate: "2026-02-28",
+                status: "PLANNED",
                 velocity: {
-                    planned: 60,
+                    planned: 15,
                     completed: 0,
                     burndown: []
                 },
@@ -1265,16 +1291,13 @@
             }
         };
 
-        // All Tickets Data (from .mission-control/data/tickets/)
+        // All Tickets Data (updated 2026-02-14 by Tom Brady via TKT-222)
         const TICKETS = [
-            // Sprint 4.0 Tickets (SPRINT-001)
-            // Pre-Sprint
+            // Sprint 4.0 Core Tickets (SPRINT-001) — ALL 100 DONE
             { id: "TKT-001", title: "Define Sprint 4 Scope", state: "DONE", priority: "P0", owner: "Florentino Pérez", sprint: "SPRINT-001" },
-            { id: "TKT-002", title: "Sprint Planning Session", state: "DONE", priority: "P0", owner: "Tom Brady", sprint: "SPRINT-001" },
             { id: "TKT-003", title: "Create Florentino Perez agent", state: "DONE", priority: "P0", owner: "Brad Stevens", sprint: "SPRINT-001" },
             { id: "TKT-004", title: "Create Jose Mourinho agent", state: "DONE", priority: "P0", owner: "Brad Stevens", sprint: "SPRINT-001" },
             { id: "TKT-005", title: "Create LeBron James agent", state: "DONE", priority: "P0", owner: "Brad Stevens", sprint: "SPRINT-001" },
-            // Phase 0: Product Vision
             { id: "TKT-006", title: "Define what CP will become", state: "DONE", priority: "P0", owner: "Florentino Pérez", sprint: "SPRINT-001" },
             { id: "TKT-007", title: "Define who we cater to", state: "DONE", priority: "P0", owner: "Florentino Pérez", sprint: "SPRINT-001" },
             { id: "TKT-008", title: "Define what we optimize for", state: "DONE", priority: "P0", owner: "Florentino Pérez", sprint: "SPRINT-001" },
@@ -1282,7 +1305,6 @@
             { id: "TKT-010", title: "Create PRD v2.0", state: "DONE", priority: "P0", owner: "Tom Brady", sprint: "SPRINT-001" },
             { id: "TKT-011", title: "Founder approval of PRD", state: "DONE", priority: "P0", owner: "Founder", sprint: "SPRINT-001" },
             { id: "TKT-012", title: "Archive PRD in docs/", state: "DONE", priority: "P1", owner: "Tom Brady", sprint: "SPRINT-001" },
-            // Phase 1: Governance
             { id: "TKT-013", title: "Create Constitution v2.0", state: "DONE", priority: "P0", owner: "Tom Brady", sprint: "SPRINT-001" },
             { id: "TKT-014", title: "Define Task Integrity Loop", state: "DONE", priority: "P0", owner: "Florentino Pérez", sprint: "SPRINT-001" },
             { id: "TKT-015", title: "Document Florentino gate criteria", state: "DONE", priority: "P0", owner: "Florentino Pérez", sprint: "SPRINT-001" },
@@ -1293,7 +1315,6 @@
             { id: "TKT-020", title: "Create Task Integrity Loop doc", state: "DONE", priority: "P0", owner: "Tom Brady", sprint: "SPRINT-001" },
             { id: "TKT-021", title: "Founder approval of governance", state: "DONE", priority: "P0", owner: "Founder", sprint: "SPRINT-001" },
             { id: "TKT-022", title: "Archive governance docs", state: "DONE", priority: "P1", owner: "Tom Brady", sprint: "SPRINT-001" },
-            // Phase 2: Data & Tags
             { id: "TKT-023", title: "Audit player_tags.json completeness", state: "DONE", priority: "P0", owner: "Brock Purdy", sprint: "SPRINT-001" },
             { id: "TKT-024", title: "Add batting_hand to all players", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
             { id: "TKT-025", title: "Add bowling_style to all bowlers", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
@@ -1303,10 +1324,9 @@
             { id: "TKT-029", title: "Regenerate all outputs", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
             { id: "TKT-030", title: "Validate output integrity", state: "DONE", priority: "P0", owner: "N'Golo Kanté", sprint: "SPRINT-001" },
             { id: "TKT-031", title: "Andy Flower review of tags", state: "DONE", priority: "P1", owner: "Andy Flower", sprint: "SPRINT-001" },
-            { id: "TKT-032", title: "Document data dictionary", state: "RUNNING", priority: "P1", owner: "Brock Purdy", sprint: "SPRINT-001" },
-            { id: "TKT-033", title: "Archive data docs", state: "BACKLOG", priority: "P2", owner: "Tom Brady", sprint: "SPRINT-001" },
+            { id: "TKT-032", title: "Document data dictionary", state: "DONE", priority: "P1", owner: "Brock Purdy", sprint: "SPRINT-001" },
+            { id: "TKT-033", title: "Archive data docs", state: "DONE", priority: "P2", owner: "Tom Brady", sprint: "SPRINT-001" },
             { id: "TKT-034", title: "Founder approval of data", state: "DONE", priority: "P0", owner: "Founder", sprint: "SPRINT-001" },
-            // Phase 3: Output Quality
             { id: "TKT-035", title: "Define stat pack sections", state: "DONE", priority: "P0", owner: "Tom Brady", sprint: "SPRINT-001" },
             { id: "TKT-036", title: "Create stat pack template", state: "DONE", priority: "P0", owner: "Kevin de Bruyne", sprint: "SPRINT-001" },
             { id: "TKT-037", title: "Regenerate all 10 stat packs", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
@@ -1314,18 +1334,17 @@
             { id: "TKT-039", title: "Virat Kohli tone review", state: "DONE", priority: "P1", owner: "Virat Kohli", sprint: "SPRINT-001" },
             { id: "TKT-040", title: "Define depth chart positions", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
             { id: "TKT-041", title: "Create depth chart algorithm", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
-            { id: "TKT-042", title: "Generate all 10 depth charts", state: "REVIEW", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-042", title: "Generate all 10 depth charts", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
             { id: "TKT-043", title: "Andy Flower review of depth charts", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
             { id: "TKT-044", title: "Archive depth chart outputs", state: "DONE", priority: "P1", owner: "Tom Brady", sprint: "SPRINT-001" },
-            { id: "TKT-045", title: "Founder approval of depth charts", state: "REVIEW", priority: "P0", owner: "Founder", sprint: "SPRINT-001" },
-            // Phase 4: Stat Pack Enhancement
+            { id: "TKT-045", title: "Founder approval of depth charts", state: "DONE", priority: "P0", owner: "Founder", sprint: "SPRINT-001" },
             { id: "TKT-046", title: "Add LHB/RHB balance section", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
             { id: "TKT-047", title: "Add matchup matrix section", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
             { id: "TKT-048", title: "Add phase analysis section", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
-            { id: "TKT-049", title: "Add key partnerships section", state: "RUNNING", priority: "P1", owner: "Stephen Curry", sprint: "SPRINT-001" },
-            { id: "TKT-050", title: "Add pressure performance section", state: "RUNNING", priority: "P1", owner: "Stephen Curry", sprint: "SPRINT-001" },
-            { id: "TKT-051", title: "Add venue analysis section", state: "BACKLOG", priority: "P1", owner: "Stephen Curry", sprint: "SPRINT-001" },
-            { id: "TKT-052", title: "Add historical trends section", state: "BACKLOG", priority: "P2", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-049", title: "Add key partnerships section", state: "DONE", priority: "P1", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-050", title: "Add pressure performance section", state: "DONE", priority: "P1", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-051", title: "Add venue analysis section", state: "DONE", priority: "P1", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-052", title: "Add historical trends section", state: "DONE", priority: "P2", owner: "Stephen Curry", sprint: "SPRINT-001" },
             { id: "TKT-053", title: "Add Andy Flower tactical insights", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
             { id: "TKT-054", title: "Generate MI tactical insights", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
             { id: "TKT-055", title: "Generate CSK tactical insights", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
@@ -1334,47 +1353,67 @@
             { id: "TKT-058", title: "Generate DC tactical insights", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
             { id: "TKT-059", title: "Generate remaining team insights", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
             { id: "TKT-060", title: "Founder approval of enhancements", state: "DONE", priority: "P0", owner: "Founder", sprint: "SPRINT-001" },
-            // Phase 4.5: Predicted XII
             { id: "TKT-061", title: "Create SUPER SELECTOR algorithm", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
-            { id: "TKT-062", title: "Generate all 10 Predicted XIIs", state: "REVIEW", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-062", title: "Generate all 10 Predicted XIIs", state: "DONE", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
             { id: "TKT-063", title: "Andy Flower review of XIIs", state: "DONE", priority: "P0", owner: "Andy Flower", sprint: "SPRINT-001" },
-            { id: "TKT-064", title: "Create wireframes for XI view", state: "REVIEW", priority: "P0", owner: "Kevin de Bruyne", sprint: "SPRINT-001" },
-            { id: "TKT-065", title: "Founder approval of Predicted XIIs", state: "REVIEW", priority: "P0", owner: "Founder", sprint: "SPRINT-001" },
+            { id: "TKT-064", title: "Create wireframes for XI view", state: "DONE", priority: "P0", owner: "Kevin de Bruyne", sprint: "SPRINT-001" },
+            { id: "TKT-065", title: "Founder approval of Predicted XIIs", state: "DONE", priority: "P0", owner: "Founder", sprint: "SPRINT-001" },
             { id: "TKT-066", title: "Archive XI outputs", state: "DONE", priority: "P1", owner: "Tom Brady", sprint: "SPRINT-001" },
-            // Phase 5: ML Ops
             { id: "TKT-067", title: "Create model registry", state: "DONE", priority: "P1", owner: "Ime Udoka", sprint: "SPRINT-001" },
             { id: "TKT-068", title: "Document clustering model", state: "DONE", priority: "P1", owner: "Ime Udoka", sprint: "SPRINT-001" },
             { id: "TKT-069", title: "Create deployment manifest", state: "DONE", priority: "P1", owner: "Ime Udoka", sprint: "SPRINT-001" },
-            { id: "TKT-070", title: "Implement model versioning", state: "RUNNING", priority: "P1", owner: "Ime Udoka", sprint: "SPRINT-001" },
-            { id: "TKT-071", title: "Create model performance tests", state: "BACKLOG", priority: "P2", owner: "Ime Udoka", sprint: "SPRINT-001" },
-            { id: "TKT-072", title: "Document ML pipeline", state: "BACKLOG", priority: "P2", owner: "Ime Udoka", sprint: "SPRINT-001" },
-            { id: "TKT-073", title: "Setup model monitoring", state: "BACKLOG", priority: "P2", owner: "Ime Udoka", sprint: "SPRINT-001" },
-            { id: "TKT-074", title: "Archive ML docs", state: "BACKLOG", priority: "P2", owner: "Tom Brady", sprint: "SPRINT-001" },
-            { id: "TKT-075", title: "Founder approval of ML ops", state: "BACKLOG", priority: "P1", owner: "Founder", sprint: "SPRINT-001" },
-            // Phase 6: Testing
+            { id: "TKT-070", title: "Implement model versioning", state: "DONE", priority: "P1", owner: "Ime Udoka", sprint: "SPRINT-001" },
+            { id: "TKT-071", title: "Create model performance tests", state: "DONE", priority: "P2", owner: "Ime Udoka", sprint: "SPRINT-001" },
+            { id: "TKT-072", title: "Document ML pipeline", state: "DONE", priority: "P2", owner: "Ime Udoka", sprint: "SPRINT-001" },
+            { id: "TKT-073", title: "Setup model monitoring", state: "DONE", priority: "P2", owner: "Ime Udoka", sprint: "SPRINT-001" },
+            { id: "TKT-074", title: "Archive ML docs", state: "DONE", priority: "P2", owner: "Tom Brady", sprint: "SPRINT-001" },
+            { id: "TKT-075", title: "Founder approval of ML ops", state: "DONE", priority: "P1", owner: "Founder", sprint: "SPRINT-001" },
             { id: "TKT-076", title: "Create smoke test suite", state: "DONE", priority: "P1", owner: "N'Golo Kanté", sprint: "SPRINT-001" },
             { id: "TKT-077", title: "Create regression tests", state: "DONE", priority: "P1", owner: "N'Golo Kanté", sprint: "SPRINT-001" },
             { id: "TKT-078", title: "Create output validation tests", state: "DONE", priority: "P1", owner: "N'Golo Kanté", sprint: "SPRINT-001" },
             { id: "TKT-079", title: "Setup CI/CD pipeline", state: "DONE", priority: "P0", owner: "Brad Stevens", sprint: "SPRINT-001" },
             { id: "TKT-080", title: "Add pre-commit hooks", state: "DONE", priority: "P1", owner: "Brad Stevens", sprint: "SPRINT-001" },
             { id: "TKT-081", title: "Founder approval of testing", state: "DONE", priority: "P1", owner: "Founder", sprint: "SPRINT-001" },
-            // Phase 7: Script Quality
-            { id: "TKT-082", title: "Refactor generate_stat_packs.py", state: "RUNNING", priority: "P1", owner: "Brad Stevens", sprint: "SPRINT-001" },
-            { id: "TKT-083", title: "Add logging to all scripts", state: "BACKLOG", priority: "P2", owner: "Brad Stevens", sprint: "SPRINT-001" },
-            { id: "TKT-084", title: "Create script documentation", state: "BACKLOG", priority: "P2", owner: "Brad Stevens", sprint: "SPRINT-001" },
-            { id: "TKT-085", title: "Founder approval of scripts", state: "BACKLOG", priority: "P2", owner: "Founder", sprint: "SPRINT-001" },
-            // The Lab Dashboard
-            { id: "TKT-086", title: "Build The Lab analytics dashboard", state: "REVIEW", priority: "P0", owner: "Kevin de Bruyne", sprint: "SPRINT-001" },
-            // Backlog (SPRINT-002)
-            { id: "TKT-087", title: "Implement Match Phase Index", state: "IDEA", priority: "P1", owner: "Stephen Curry", sprint: "SPRINT-002" },
-            { id: "TKT-088", title: "Build Clutch Performance metric", state: "IDEA", priority: "P1", owner: "Stephen Curry", sprint: "SPRINT-002" },
-            { id: "TKT-089", title: "Create CricPom (KenPom clone)", state: "IDEA", priority: "P0", owner: "Jose Mourinho", sprint: "SPRINT-002" },
-            { id: "TKT-090", title: "Build REST API (FastAPI)", state: "IDEA", priority: "P1", owner: "Brad Stevens", sprint: "SPRINT-002" },
-            { id: "TKT-091", title: "Create Win Probability model", state: "IDEA", priority: "P2", owner: "Ime Udoka", sprint: "SPRINT-002" },
-            { id: "TKT-092", title: "Build Player Form Tracker", state: "IDEA", priority: "P1", owner: "Stephen Curry", sprint: "SPRINT-002" },
-            { id: "TKT-093", title: "Create interactive dashboard", state: "IDEA", priority: "P2", owner: "Kevin de Bruyne", sprint: "SPRINT-002" },
-            { id: "TKT-094", title: "Add Great Expectations", state: "IDEA", priority: "P1", owner: "Brock Purdy", sprint: "SPRINT-002" },
-            { id: "TKT-095", title: "Implement player comparison tool", state: "IDEA", priority: "P2", owner: "Kevin de Bruyne", sprint: "SPRINT-002" }
+            { id: "TKT-082", title: "Refactor generate_stat_packs.py", state: "DONE", priority: "P1", owner: "Brad Stevens", sprint: "SPRINT-001" },
+            { id: "TKT-083", title: "Add logging to all scripts", state: "DONE", priority: "P2", owner: "Brad Stevens", sprint: "SPRINT-001" },
+            { id: "TKT-084", title: "Create script documentation", state: "DONE", priority: "P2", owner: "Brad Stevens", sprint: "SPRINT-001" },
+            { id: "TKT-085", title: "Founder approval of scripts", state: "DONE", priority: "P2", owner: "Founder", sprint: "SPRINT-001" },
+            { id: "TKT-086", title: "Build The Lab analytics dashboard", state: "DONE", priority: "P0", owner: "Kevin de Bruyne", sprint: "SPRINT-001" },
+            { id: "TKT-107", title: "Mission Control dashboard", state: "DONE", priority: "P0", owner: "Kevin de Bruyne", sprint: "SPRINT-001" },
+            // Close-out Tickets (still in progress)
+            { id: "TKT-220", title: "Sprint 4.0 Retrospective", state: "IN_PROGRESS", priority: "P0", owner: "Pep Guardiola", sprint: "SPRINT-001" },
+            { id: "TKT-221", title: "MC roster view + agent performance", state: "BACKLOG", priority: "P0", owner: "Tom Brady", sprint: "SPRINT-001" },
+            { id: "TKT-222", title: "Archive Sprint 4.0 + Sprint views + plan Sprint 5.0", state: "IN_PROGRESS", priority: "P0", owner: "Tom Brady", sprint: "SPRINT-001" },
+            { id: "TKT-223", title: "System health analysis + Token Audit", state: "BACKLOG", priority: "P0", owner: "Jose Mourinho", sprint: "SPRINT-001" },
+            { id: "TKT-224", title: "Teams tab data validation + fixes", state: "BACKLOG", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-001" },
+            { id: "TKT-225", title: "Artifacts & Research tabs update", state: "BACKLOG", priority: "P1", owner: "Kevin de Bruyne", sprint: "SPRINT-001" },
+            { id: "TKT-226", title: "Film Room + NL Search improvement", state: "BACKLOG", priority: "P1", owner: "Kevin de Bruyne", sprint: "SPRINT-001" },
+            { id: "TKT-227", title: "Language & readability audit", state: "BACKLOG", priority: "P1", owner: "Virat Kohli", sprint: "SPRINT-001" },
+            { id: "TKT-228", title: "UI/UX + mobile responsiveness", state: "BACKLOG", priority: "P1", owner: "Jayson Tatum", sprint: "SPRINT-001" },
+            { id: "TKT-229", title: "Data freshness pipeline", state: "BACKLOG", priority: "P1", owner: "Brock Purdy", sprint: "SPRINT-001" },
+            { id: "TKT-230", title: "Cricket insights & domain review", state: "BACKLOG", priority: "P1", owner: "Andy Flower", sprint: "SPRINT-001" },
+            { id: "TKT-231", title: "Full QA audit across systems", state: "BACKLOG", priority: "P0", owner: "N'Golo Kanté", sprint: "SPRINT-001" },
+            { id: "TKT-232", title: "Dashboard UX optimization", state: "BACKLOG", priority: "P1", owner: "Kevin de Bruyne", sprint: "SPRINT-001" },
+            { id: "TKT-233", title: "The Lab proof + suggestions", state: "BACKLOG", priority: "P1", owner: "Jayson Tatum", sprint: "SPRINT-001" },
+            { id: "TKT-234", title: "Strategic direction rundown", state: "BACKLOG", priority: "P0", owner: "Florentino Pérez", sprint: "SPRINT-001" },
+            // Sprint 5.0 Tickets (SPRINT-002) — EPIC-018: Win Probability
+            { id: "TKT-205", title: "Research & define win probability model", state: "BACKLOG", priority: "P0", owner: "Jose Mourinho", sprint: "SPRINT-002" },
+            { id: "TKT-206", title: "Feature engineering from fact_ball data", state: "BACKLOG", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-002" },
+            { id: "TKT-207", title: "Train & validate win probability model", state: "BACKLOG", priority: "P0", owner: "Ime Udoka", sprint: "SPRINT-002" },
+            { id: "TKT-208", title: "Integrate win probability into The Lab", state: "BACKLOG", priority: "P1", owner: "Kevin de Bruyne", sprint: "SPRINT-002" },
+            { id: "TKT-209", title: "Model monitoring & drift detection", state: "BACKLOG", priority: "P1", owner: "Ime Udoka", sprint: "SPRINT-002" },
+            // Sprint 5.0 — EPIC-019: React Dashboard
+            { id: "TKT-210", title: "React project setup + build pipeline", state: "BACKLOG", priority: "P0", owner: "Brad Stevens", sprint: "SPRINT-002" },
+            { id: "TKT-211", title: "Design system — component library", state: "BACKLOG", priority: "P0", owner: "Kevin de Bruyne", sprint: "SPRINT-002" },
+            { id: "TKT-212", title: "Data layer — DuckDB-WASM + React hooks", state: "BACKLOG", priority: "P0", owner: "Brad Stevens", sprint: "SPRINT-002" },
+            { id: "TKT-213", title: "Team pages — migrate to React", state: "BACKLOG", priority: "P1", owner: "Kevin de Bruyne", sprint: "SPRINT-002" },
+            { id: "TKT-214", title: "Research Desk — migrate to React", state: "BACKLOG", priority: "P1", owner: "Kevin de Bruyne", sprint: "SPRINT-002" },
+            { id: "TKT-215", title: "Testing + CI for React dashboard", state: "BACKLOG", priority: "P1", owner: "Brad Stevens", sprint: "SPRINT-002" },
+            // Sprint 5.0 — EPIC-020: Player Comparison
+            { id: "TKT-216", title: "Head-to-head comparison data pipeline", state: "BACKLOG", priority: "P0", owner: "Stephen Curry", sprint: "SPRINT-002" },
+            { id: "TKT-217", title: "Comparison UI — radar charts + stats", state: "BACKLOG", priority: "P0", owner: "Kevin de Bruyne", sprint: "SPRINT-002" },
+            { id: "TKT-218", title: "Multi-player comparison (3+ players)", state: "BACKLOG", priority: "P1", owner: "Stephen Curry", sprint: "SPRINT-002" },
+            { id: "TKT-219", title: "Shareable comparison links + PNG export", state: "BACKLOG", priority: "P2", owner: "Kevin de Bruyne", sprint: "SPRINT-002" }
         ];
 
         // Current selected sprint and filter
@@ -1407,7 +1446,7 @@
                                 <span class="progress-value">${progressPct}%</span>
                             </div>
                             <div class="progress-bar">
-                                <div class="progress-fill ${sprint.status === 'COMPLETED' ? 'green' : 'blue'}"
+                                <div class="progress-fill ${(sprint.status === 'COMPLETED' || sprint.status === 'CLOSING') ? 'green' : 'blue'}"
                                      style="width: ${progressPct}%"></div>
                             </div>
                         </div>
@@ -1429,7 +1468,7 @@
         // Render Velocity Grid
         function renderVelocityGrid() {
             const container = document.getElementById('velocityGrid');
-            const completedSprints = Object.values(SPRINTS).filter(s => s.status !== 'PLANNING');
+            const completedSprints = Object.values(SPRINTS).filter(s => s.status !== 'PLANNING' && s.status !== 'PLANNED');
             const maxPlanned = Math.max(...completedSprints.map(s => s.velocity.planned));
 
             container.innerHTML = completedSprints.map(sprint => {
@@ -1440,7 +1479,7 @@
                     <div class="velocity-card">
                         <div class="velocity-sprint">${sprint.title.split(' - ')[0]}</div>
                         <div class="velocity-bar-container">
-                            <div class="velocity-bar ${sprint.status === 'COMPLETED' ? 'green' : 'blue'}"
+                            <div class="velocity-bar ${(sprint.status === 'COMPLETED' || sprint.status === 'CLOSING') ? 'green' : 'blue'}"
                                  style="width: ${barWidth}%">
                                 ${pct}%
                             </div>

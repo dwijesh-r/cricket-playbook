@@ -130,6 +130,8 @@ Look at those bowling numbers. Powerplay economy improved by a full run per over
 
 ## Category Ratings
 
+### Phase Performance
+
 | Category | Rating | Key Metric (2025) | Context |
 |----------|--------|-------------------|---------|
 | **Batting, Powerplay** | 6.5/10 | 154.1 SR | Above average, but it's basically a Salt solo show |
@@ -138,9 +140,24 @@ Look at those bowling numbers. Powerplay economy improved by a full run per over
 | **Bowling, Powerplay** | 8.5/10 | 8.73 econ | Hazlewood-Bhuvneshwar is a cheat code |
 | **Bowling, Middle** | 7.5/10 | 8.89 econ | Krunal's 7.45 econ is the secret ingredient |
 | **Bowling, Death** | 5.5/10 | 10.75 econ | Yash Dayal's status makes this worse; Bhuvneshwar at 10.96 is not death bowling |
-| **Overall** | **7.0/10** | | Bowling core + death batting offset middle-overs batting and death bowling gaps |
 
-The profile is clear: RCB are a team with sharp peaks and uncomfortable valleys. Powerplay bowling and death batting are elite. Middle-overs batting and death bowling are structural soft spots. The 7.0 reflects a squad that's excellent at what it does well, but doesn't have much room to improvise when Plan A gets shut down.
+### Squad Structure
+
+| Category | Rating | Key Metric | Context |
+|----------|--------|-----------|---------|
+| **Squad Depth** | 5.5/10 | 25 players, ~5 viable bench options | Off-spin depth 1.4/10, left-arm wrist-spin 1.3/10. Bench batters (Padikkal, Bethell) unproven or in poor form. One injury to Bhuvneshwar and there is no like-for-like replacement |
+| **XII Completeness** | 6.5/10 | 5 of 7 key roles filled | Openers, middle order, finishers, PP pace, middle-overs spin all covered. Missing: frontline off-spinner and dedicated death specialist. Yash Dayal's availability is a question mark |
+| **Batting Variety** | 6.0/10 | 1 LHB in top 7 (V Iyer) | Dominate pace (+8.7 to +9.6 vs league) but underperform vs off-spin (-1.5). Right-hand dominant lineup lets opposition plan one-dimensionally |
+| **Bowling Variety** | 5.0/10 | 4 bowling types in XII | No off-spin, no wrist-spin, only 1 left-arm option (Krunal). If Dayal unavailable, zero left-arm pace. Smart opponents will exploit the lack of variation |
+| **Experience** | 7.5/10 | 6 of XII have 50+ IPL caps | Kohli (240+), Bhuvneshwar (180+), Krunal (100+), Hazlewood (50+) provide tournament pedigree. Youth (Suyash 26 caps, Shepherd 12) adds energy. Rare balance of know-how and hunger |
+
+### Overall
+
+| Category | Rating | Context |
+|----------|--------|---------|
+| **Overall** | **6.8/10** | Phase performance (avg 7.0) offset by structural gaps in depth, bowling variety, and XII completeness. Sharp peaks (PP bowling 8.5, death batting 8.0) mask uncomfortable valleys (bowling variety 5.0, squad depth 5.5). A team built to win Plan A games; the question is what happens when Plan A gets shut down. |
+
+The expanded profile reveals something the phase-only ratings hide: RCB are structurally narrow. The phase performance averages 7.0, which is genuinely strong. But the squad structure averages 6.1. The gap between those two numbers is the distance between a team that performs well in ideal conditions and one that can adapt when conditions turn hostile. Every championship defence involves at least 3-4 matches where Plan A fails. RCB's structural ratings suggest they have fewer fallback options than a defending champion should.
 
 ---
 

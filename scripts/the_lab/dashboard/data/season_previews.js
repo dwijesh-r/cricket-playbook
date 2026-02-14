@@ -31,13 +31,21 @@ const SEASON_PREVIEWS = {
       { value: '1.4 / 10', label: 'Off-spin depth chart rating', context: 'No frontline off-spinner in the squad. Kanishk Chouhan (uncapped) is the only hope' }
     ],
     categoryRatings: [
-      { cat: 'Batting, Powerplay', rating: 6.5, metric: '154.1 SR', note: 'Above average, but it\'s basically a Salt solo show' },
-      { cat: 'Batting, Middle', rating: 6.0, metric: '143.9 SR', note: 'League-average. This is where the engine sputters' },
-      { cat: 'Batting, Death', rating: 8.0, metric: '180.8 SR', note: 'Elite trio of David (184.6), Jitesh (191.6), Kohli (183.3)' },
-      { cat: 'Bowling, Powerplay', rating: 8.5, metric: '8.73 econ', note: 'Hazlewood-Bhuvneshwar is a cheat code' },
-      { cat: 'Bowling, Middle', rating: 7.5, metric: '8.89 econ', note: 'Krunal\'s 7.45 econ is the secret ingredient' },
-      { cat: 'Bowling, Death', rating: 5.5, metric: '10.75 econ', note: 'Yash Dayal\'s status makes this worse; Bhuvneshwar at 10.96 is not death bowling' },
-      { cat: 'Overall', rating: 7.0, metric: '', note: 'Bowling core + death batting offset middle-overs batting and death bowling gaps' }
+      // Phase Performance
+      { cat: 'Batting, Powerplay', rating: 6.5, metric: '154.1 SR', note: 'Above average, but it\'s basically a Salt solo show', group: 'phase' },
+      { cat: 'Batting, Middle', rating: 6.0, metric: '143.9 SR', note: 'League-average. This is where the engine sputters', group: 'phase' },
+      { cat: 'Batting, Death', rating: 8.0, metric: '180.8 SR', note: 'Elite trio of David (184.6), Jitesh (191.6), Kohli (183.3)', group: 'phase' },
+      { cat: 'Bowling, Powerplay', rating: 8.5, metric: '8.73 econ', note: 'Hazlewood-Bhuvneshwar is a cheat code', group: 'phase' },
+      { cat: 'Bowling, Middle', rating: 7.5, metric: '8.89 econ', note: 'Krunal\'s 7.45 econ is the secret ingredient', group: 'phase' },
+      { cat: 'Bowling, Death', rating: 5.5, metric: '10.75 econ', note: 'Yash Dayal\'s status makes this worse; Bhuvneshwar at 10.96 is not death bowling', group: 'phase' },
+      // Squad Structure
+      { cat: 'Squad Depth', rating: 5.5, metric: '~5 bench options', note: 'Off-spin depth 1.4/10, left-arm wrist-spin 1.3/10. Bench batters (Padikkal, Bethell) unproven or in poor form. One Bhuvneshwar injury and there is no like-for-like replacement', group: 'structure' },
+      { cat: 'XII Completeness', rating: 6.5, metric: '5/7 key roles', note: 'Openers, middle order, finishers, PP pace, middle-overs spin covered. Missing: frontline off-spinner, dedicated death specialist. Dayal availability uncertain', group: 'structure' },
+      { cat: 'Batting Variety', rating: 6.0, metric: '1 LHB in top 7', note: 'Dominate pace (+8.7 to +9.6 vs league) but underperform vs off-spin (-1.5). Right-hand dominant lineup lets opposition plan one-dimensionally', group: 'structure' },
+      { cat: 'Bowling Variety', rating: 5.0, metric: '4 types in XII', note: 'No off-spin, no wrist-spin, only 1 left-arm option (Krunal). If Dayal unavailable, zero left-arm pace. Smart opponents will exploit the lack of variation', group: 'structure' },
+      { cat: 'Experience', rating: 7.5, metric: '6 of XII 50+ caps', note: 'Kohli (240+), Bhuvneshwar (180+), Krunal (100+), Hazlewood (50+) provide tournament pedigree. Youth (Suyash 26, Shepherd 12) adds energy. Rare balance of know-how and hunger', group: 'structure' },
+      // Overall
+      { cat: 'Overall', rating: 6.8, metric: '', note: 'Phase performance (avg 7.0) offset by structural gaps in depth, bowling variety, and XII completeness. Sharp peaks mask uncomfortable valleys. A team built for Plan A; the question is what happens when Plan A fails.' }
     ],
     boldTake: {
       claim: 'Virat Kohli is no longer RCB\'s most important player. Bhuvneshwar Kumar is.',

@@ -318,15 +318,15 @@ The conclusion is unavoidable: RCB are elite at chasing achievable targets but c
 
 **How the Approach Changes by Target Size**
 
-| Target Band | PP SR | PP Wkts/Match | Mid SR | Mid Wkts/Match | Death SR | Death Wkts/Match |
+| Target Band | PP RPO | PP Wkts/Match | Mid RPO | Mid Wkts/Match | Death RPO | Death Wkts/Match |
 |-------------|-------|---------------|--------|----------------|----------|-----------------|
 | ≤160 | 11.50 | 1.00 | 8.37 | 2.33 | 9.65 | 1.00 |
 | 161-180 | 9.43 | 1.00 | 8.89 | 1.20 | **14.15** | 1.00 |
 | 180+ | **10.82** | 1.40 | 9.96 | **3.10** | 10.28 | **2.50** |
 
-Three distinct chase modes emerge. Against small targets (≤160), they attack the powerplay at 11.50 SR and cruise through the middle overs. Against mid-range targets (161-180), they play the long game: a measured powerplay (9.43), steady accumulation, then explode at the death (14.15 SR). That death-overs acceleration is the signature of a side that trusts its finishers.
+Three distinct chase modes emerge. Against small targets (≤160), they attack the powerplay at 11.50 RPO and cruise through the middle overs. Against mid-range targets (161-180), they play the long game: a measured powerplay (9.43 RPO), steady accumulation, then explode at the death (14.15 RPO). That death-overs acceleration is the signature of a side that trusts its finishers.
 
-Against 180+, the approach breaks. Powerplay aggression rises (10.82 SR), but it comes at a cost: 1.4 PP wickets per match. The middle overs become a graveyard, averaging 3.1 wickets per chase. By the time the death overs arrive, too many top-order batters are back in the dugout to sustain the required rate.
+Against 180+, the approach breaks. Powerplay aggression rises (10.82 RPO), but it comes at a cost: 1.4 PP wickets per match. The middle overs become a graveyard, averaging 3.1 wickets per chase. By the time the death overs arrive, too many top-order batters are back in the dugout to sustain the required rate.
 
 **The Collapse Zone: Middle Overs Under Pressure**
 
@@ -366,7 +366,7 @@ The year-over-year trend tells a story of improvement:
 - 2024: 3/6 (50.0%)
 - 2025: 6/7 (85.7%)
 
-In 2025, every chase of 180 or below was won. The lone failure was a 231 target where RCB were bowled out for 189 (that death-overs collapse: 7 wickets in the final 5 overs at 4.55 SR). But they also chased down 227 against DC with 8 balls to spare, proving they *can* handle big targets when the top order fires together.
+In 2025, every chase of 180 or below was won. The lone failure was a 231 target where RCB were bowled out for 189 (that death-overs collapse: 7 wickets in the final 5 overs at 4.55 RPO). But they also chased down 227 against DC with 8 balls to spare, proving they *can* handle big targets when the top order fires together.
 
 ### What This Means for 2026
 

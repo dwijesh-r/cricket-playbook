@@ -398,15 +398,15 @@ const SEASON_PREVIEWS = {
           { type: 'subheading', content: 'How the Approach Changes by Target Size' },
           {
             type: 'table',
-            headers: ['Target Band', 'PP SR', 'PP Wkts/Match', 'Mid SR', 'Mid Wkts/Match', 'Death SR', 'Death Wkts/Match'],
+            headers: ['Target Band', 'PP RPO', 'PP Wkts/Match', 'Mid RPO', 'Mid Wkts/Match', 'Death RPO', 'Death Wkts/Match'],
             rows: [
               ['\u2264160', '11.50', '1.00', '8.37', '2.33', '9.65', '1.00'],
               ['161-180', '9.43', '1.00', '8.89', '1.20', '14.15', '1.00'],
               ['180+', '10.82', '1.40', '9.96', '3.10', '10.28', '2.50']
             ]
           },
-          { type: 'text', content: '<p>Three distinct chase modes emerge. Against small targets (\u2264160), they attack the powerplay at 11.50 SR and cruise through the middle overs. Against mid-range targets (161-180), they play the long game: a measured powerplay (9.43), steady accumulation, then explode at the death (14.15 SR). That death-overs acceleration is the signature of a side that trusts its finishers.</p>' },
-          { type: 'text', content: '<p>Against 180+, the approach breaks. Powerplay aggression rises (10.82 SR), but it comes at a cost: 1.4 PP wickets per match. The middle overs become a graveyard, averaging 3.1 wickets per chase. By the time the death overs arrive, too many top-order batters are back in the dugout to sustain the required rate.</p>' },
+          { type: 'text', content: '<p>Three distinct chase modes emerge. Against small targets (\u2264160), they attack the powerplay at 11.50 RPO and cruise through the middle overs. Against mid-range targets (161-180), they play the long game: a measured powerplay (9.43 RPO), steady accumulation, then explode at the death (14.15 RPO). That death-overs acceleration is the signature of a side that trusts its finishers.</p>' },
+          { type: 'text', content: '<p>Against 180+, the approach breaks. Powerplay aggression rises (10.82 RPO), but it comes at a cost: 1.4 PP wickets per match. The middle overs become a graveyard, averaging 3.1 wickets per chase. By the time the death overs arrive, too many top-order batters are back in the dugout to sustain the required rate.</p>' },
 
           // Collapse Zone
           { type: 'subheading', content: 'The Collapse Zone: Middle Overs Under Pressure' },
@@ -451,7 +451,7 @@ const SEASON_PREVIEWS = {
           // 2025 Chase Evolution
           { type: 'subheading', content: '2025 Chase Evolution' },
           { type: 'text', content: '<p>The year-over-year trend tells a story of improvement:</p><p>2023: 2/5 (40.0%) chase wins<br>2024: 3/6 (50.0%)<br>2025: 6/7 (85.7%)</p>' },
-          { type: 'text', content: '<p>In 2025, every chase of 180 or below was won. The lone failure was a 231 target where RCB were bowled out for 189 (that death-overs collapse: 7 wickets in the final 5 overs at 4.55 SR). But they also chased down 227 against DC with 8 balls to spare, proving they <em>can</em> handle big targets when the top order fires together.</p>' },
+          { type: 'text', content: '<p>In 2025, every chase of 180 or below was won. The lone failure was a 231 target where RCB were bowled out for 189 (that death-overs collapse: 7 wickets in the final 5 overs at 4.55 RPO). But they also chased down 227 against DC with 8 balls to spare, proving they <em>can</em> handle big targets when the top order fires together.</p>' },
 
           // What This Means for 2026
           { type: 'subheading', content: 'What This Means for 2026' },

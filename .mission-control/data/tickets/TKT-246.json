@@ -16,10 +16,11 @@
   "tags": ["Data Pipeline", "Ingestion", "DuckDB"],
   "gates": {
     "florentino_gate": { "status": "APPROVED", "reason": "Data freshness critical for all downstream outputs.", "date": "2026-02-14" },
-    "build": "PASS",
-    "domain_sanity": "PASS",
-    "enforcement": "PASS"
+    "build": { "status": "PASS", "date": "2026-02-14" },
+    "domain_sanity": { "status": "PASS", "notes": "Stephen Curry and Brock Purdy verified fresh data ingestion. DuckDB updated, all downstream outputs regenerated.", "date": "2026-02-14" },
+    "enforcement": { "status": "PASS", "date": "2026-02-14" }
   },
+  "artifact_link": "data/cricket_playbook.duckdb",
   "deliverables": [
     "data/cricket_playbook.duckdb",
     "data/manifests/manifest.json",

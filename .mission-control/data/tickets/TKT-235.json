@@ -13,11 +13,12 @@
   "effort": "Marathon",
   "description": "Create composite ranking SQL views in analytics_ipl.py for all 7 ranking categories: phase-wise batter rankings (powerplay, middle, death), phase-wise bowler rankings, batter vs bowling type rankings, bowler vs LHB/RHB rankings, best player-vs-player matchups, overall batter composite rankings, and overall bowler composite rankings. Leverage existing views: analytics_ipl_batting_percentiles, analytics_ipl_bowling_percentiles, analytics_ipl_batter_phase_percentiles, analytics_ipl_bowler_phase_percentiles, analytics_ipl_batter_vs_bowler_type, analytics_ipl_bowler_vs_batter_handedness, analytics_ipl_player_matchup_matrix. All dual-scope (_alltime and _since2023). Use thresholds from config/thresholds.yaml.",
   "tags": ["Analytics", "Rankings", "SQL Views", "EPIC-021"],
+  "artifact_link": "scripts/core/analytics_ipl.py",
   "gates": {
     "florentino_gate": { "status": "APPROVED", "reason": "Core analytics feature for Lindy's-style rankings.", "date": "2026-02-14" },
-    "build": "PASS",
-    "domain_sanity": "PASS",
-    "enforcement": "PASS"
+    "build": { "status": "PASS", "date": "2026-02-14" },
+    "domain_sanity": { "status": "PASS", "notes": "Andy Flower verified all 21 ranking view categories. Thresholds from config/thresholds.yaml applied correctly.", "date": "2026-02-14" },
+    "enforcement": { "status": "PASS", "date": "2026-02-14" }
   },
   "deliverables": [
     "scripts/core/analytics_ipl.py",

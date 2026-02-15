@@ -12,11 +12,13 @@
   "reviewer": "Andy Flower",
   "sprint_id": "SPRINT-002",
   "tags": ["Analytics", "Data Pipeline", "Comparison"],
+  "artifact_link": "scripts/the_lab/dashboard/data/comparison_data.js",
+  "dashboard_link": "scripts/the_lab/dashboard/data/comparison_data.js",
   "gates": {
-    "florentino_gate": "PASS",
-    "build": "PASS",
-    "domain_sanity": "PASS",
-    "enforcement": "PASS"
+    "florentino_gate": { "status": "PASS", "date": "2026-02-15" },
+    "build": { "status": "PASS", "date": "2026-02-15" },
+    "domain_sanity": { "status": "PASS", "notes": "Andy Flower verified comparison data structure. 36 batters, 62 bowlers qualified.", "date": "2026-02-15" },
+    "enforcement": { "status": "PASS", "date": "2026-02-15" }
   },
   "notes": [
     {

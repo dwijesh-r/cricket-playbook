@@ -15,10 +15,12 @@
   "tags": ["UI", "Dashboard", "Rankings", "EPIC-021"],
   "gates": {
     "florentino_gate": { "status": "APPROVED", "reason": "Rankings is the signature Sprint 5 feature.", "date": "2026-02-15" },
-    "build": "DONE",
-    "domain_sanity": "DONE",
-    "enforcement": "DONE"
+    "build": { "status": "PASS", "date": "2026-02-15" },
+    "domain_sanity": { "status": "PASS", "notes": "Andy Flower validated all 7 categories. Jayson Tatum approved responsive design and nav integration.", "date": "2026-02-15" },
+    "enforcement": { "status": "PASS", "notes": "Tom Brady: Rankings tab successfully integrated. All Lab pages updated with nav links.", "date": "2026-02-15" }
   },
+  "artifact_link": "scripts/the_lab/dashboard/rankings.html",
+  "dashboard_link": "scripts/the_lab/dashboard/rankings.html",
   "deliverables": [
     "scripts/the_lab/dashboard/rankings.html",
     "Nav links added to all 8 Lab pages (desktop + mobile)"

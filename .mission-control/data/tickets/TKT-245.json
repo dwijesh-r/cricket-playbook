@@ -15,10 +15,11 @@
   "tags": ["Data Pipeline", "CI/CD", "Infrastructure"],
   "gates": {
     "florentino_gate": { "status": "APPROVED", "reason": "Infrastructure fix, no new scope.", "date": "2026-02-14" },
-    "build": "PASS",
-    "domain_sanity": "PASS",
-    "enforcement": "PASS"
+    "build": { "status": "PASS", "date": "2026-02-14" },
+    "domain_sanity": { "status": "PASS", "notes": "Brad Stevens verified workflow fix. Script path and Cricsheet URL corrected.", "date": "2026-02-14" },
+    "enforcement": { "status": "PASS", "date": "2026-02-14" }
   },
+  "artifact_link": ".github/workflows/ingest.yml",
   "deliverables": [
     ".github/workflows/ingest.yml",
     "scripts/core/ingest.py"

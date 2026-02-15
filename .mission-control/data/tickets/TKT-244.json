@@ -8,6 +8,14 @@
   "assignee": "Stephen Curry",
   "effort": "Deep Work",
   "description": "Investigate and fix players who appear in predicted XII selections but are missing from corresponding depth charts. Cross-reference predicted_xii outputs with depth_chart outputs for all 10 teams. Ensure every player in the predicted XII has a valid depth chart entry with role, batting position, and bowling type.",
+  "artifact_link": "scripts/generators/generate_depth_charts.py",
+  "dashboard_link": "scripts/the_lab/dashboard/data/depth_charts.js",
+  "gates": {
+    "florentino_gate": { "status": "APPROVED", "date": "2026-02-15" },
+    "build": { "status": "PASS", "date": "2026-02-15" },
+    "domain_sanity": { "status": "PASS", "notes": "Andy Flower verified fix. Ajinkya Rahane (KKR) and Auqib Nabi (DC) now appear in depth charts. All 120 predicted XII players accounted for.", "date": "2026-02-15" },
+    "enforcement": { "status": "PASS", "notes": "Tom Brady: Data integrity gap closed. All tests passing (280 passed, 8 skipped).", "date": "2026-02-15" }
+  },
   "created_at": "2026-02-14T10:00:00Z",
   "updated_at": "2026-02-15T12:00:00Z",
   "progress_notes": [

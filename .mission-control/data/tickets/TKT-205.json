@@ -35,6 +35,7 @@
   "deliverables": [
     "docs/ml/research/win_probability_architecture_v1.md"
   ],
+  "artifact_link": "docs/ml/research/win_probability_architecture_v1.md",
   "progress_notes": {
     "2026-02-15T08:00:00Z": "Step 0 (PRD): Research scope defined — survey existing models, define feature set, model architecture, evaluation metrics.",
     "2026-02-15T08:05:00Z": "Step 1 (Florentino Gate): APPROVED. Win probability is Sprint 5 interactive feature for historical match replay.",

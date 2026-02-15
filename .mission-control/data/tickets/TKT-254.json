@@ -15,11 +15,13 @@
   "tags": ["Editorial", "Season Preview", "Content", "Founder Gate"],
   "gates": {
     "florentino_gate": { "status": "APPROVED", "reason": "Core product deliverable — season preview is the magazine.", "date": "2026-02-14" },
-    "build": "PASS",
-    "domain_sanity": "PASS",
-    "enforcement": "PASS",
-    "founder_gate": "APPROVED"
+    "build": { "status": "PASS", "date": "2026-02-14" },
+    "domain_sanity": { "status": "PASS", "notes": "Andy Flower 9.1/10, Jose Mourinho 9.0/10, LeBron James 8.4/10. RCB sample approved. Editorial plan v1.2 complete.", "date": "2026-02-14" },
+    "enforcement": { "status": "PASS", "notes": "Tom Brady: RCB sample at v1.8 meets publication threshold. Editorial plan and content language guide approved.", "date": "2026-02-14" },
+    "founder_gate": { "status": "APPROVED", "date": "2026-02-14" }
   },
+  "artifact_link": "outputs/season_previews/RCB_season_preview_sample.md",
+  "dashboard_link": "scripts/the_lab/dashboard/teams.html",
   "deliverables": [
     "outputs/season_previews/RCB_season_preview_sample.md",
     "outputs/season_previews/editorial_plan_v1.md",

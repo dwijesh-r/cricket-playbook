@@ -15,10 +15,12 @@
   "tags": ["Analytics", "SUPER SELECTOR", "Predicted XI", "Algorithm"],
   "gates": {
     "florentino_gate": { "status": "APPROVED", "reason": "Critical algorithm fix for predicted XI quality.", "date": "2026-02-14" },
-    "build": "PASS",
-    "domain_sanity": "PASS",
-    "enforcement": "PASS"
+    "build": { "status": "PASS", "date": "2026-02-14" },
+    "domain_sanity": { "status": "PASS", "notes": "Andy Flower verified positional diversity constraints. SUPER SELECTOR v3.0 now enforces min 2 spinners, max 2 wicketkeepers.", "date": "2026-02-14" },
+    "enforcement": { "status": "PASS", "date": "2026-02-14" }
   },
+  "artifact_link": "scripts/generators/generate_predicted_xii.py",
+  "dashboard_link": "scripts/the_lab/dashboard/data/predicted_xii.js",
   "deliverables": [
     "scripts/generators/generate_predicted_xii.py",
     "outputs/predicted_xii/predicted_xii_2026.json",

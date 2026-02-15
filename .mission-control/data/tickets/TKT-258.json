@@ -16,13 +16,26 @@
   "gates": {
     "florentino_gate": { "status": "APPROVED", "reason": "Season previews are the core product -- Founder approved sample and editorial plan.", "date": "2026-02-15" },
     "build": "DONE",
-    "domain_sanity": "PENDING",
-    "enforcement": "PENDING"
+    "domain_sanity": {
+      "status": "PASS",
+      "notes": "Andy Flower 8.85/10, Jose Mourinho 9.05/10, LeBron James 8.78/10. All three approved for publication. v2.0 with Khaleel left-arm fix shipped.",
+      "date": "2026-02-15"
+    },
+    "enforcement": {
+      "status": "PASS",
+      "notes": "Tom Brady enforcement: All review scores meet publication threshold. CSK preview v2.0 committed, review docs committed. Task Integrity Loop complete.",
+      "date": "2026-02-15"
+    }
   },
   "deliverables": [
     "outputs/season_previews/CSK_season_preview.md",
-    "scripts/the_lab/dashboard/data/season_previews.js (updated)"
+    "scripts/the_lab/dashboard/data/season_previews.js",
+    "outputs/reviews/CSK_preview_andy_flower_review_v2.md",
+    "outputs/reviews/CSK_preview_jose_mourinho_review_v2.md",
+    "outputs/reviews/CSK_preview_lebron_james_review_v2.md"
   ],
+  "artifact_link": "outputs/season_previews/CSK_season_preview.md",
+  "dashboard_link": "scripts/the_lab/dashboard/teams.html",
   "progress_notes": {
     "2026-02-15T08:00:00Z": {
       "agent": "Virat Kohli",
@@ -43,6 +56,26 @@
       "agent": "Virat Kohli",
       "step": "Step 4 - Ticket Update",
       "detail": "Ticket set to DONE. Build gate passed. Domain sanity and enforcement gates pending Andy Flower and Tom Brady review respectively. Key cricket insights documented: CSK's three-season decline (62.5% -> 50.0% -> 28.6%), Samson's leg-spin dominance (181.7 SR), Noor Ahmad's KKR record (5.90 econ), Dhoni's pace vs spin ageing pattern, Chepauk's spin-friendly middle overs (7.47 RPO vs 8.89 league), CSK's structural preference for batting first (+10.1 SR delta)."
+    },
+    "2026-02-15T15:30:00Z": {
+      "agent": "Andy Flower",
+      "step": "Step 5 - Domain Sanity Review",
+      "detail": "Domain review complete. Score: 8.85/10 (v2.0 post-fix). All blocking issues from v1.0 resolved. Chepauk venue classification corrected (BALANCED, not spin paradise), Noor Ahmad economy unified to 8.18, Khaleel bowling arm fixed to left-arm pace. Cricket accuracy +1.30 points vs v1.0. Review document: outputs/reviews/CSK_preview_andy_flower_review_v2.md"
+    },
+    "2026-02-15T15:35:00Z": {
+      "agent": "Jose Mourinho",
+      "step": "Step 5 - Domain Sanity Review",
+      "detail": "Quant review complete. Score: 9.05/10. All 8 blocking errors from v1.0 fixed: Dube ball count, H2H arithmetic, PBKS win %, Brevis/Mhatre confidence labels, Samson boundary sentence, Noor death confidence, denominator units, Rahul Chahar data windows. Statistical rigor exemplary. Review document: outputs/reviews/CSK_preview_jose_mourinho_review_v2.md"
+    },
+    "2026-02-15T15:37:00Z": {
+      "agent": "LeBron James",
+      "step": "Step 5 - Domain Sanity Review",
+      "detail": "Social proof review complete. Score: 8.78/10 (+0.98 vs v1.0). Scene-setting opener (Dhoni dot ball) is championship-level. What If scenario box, pull quotes, auction grade, Early Season Scenarios all implemented. Shareability dramatically improved. Review document: outputs/reviews/CSK_preview_lebron_james_review_v2.md"
+    },
+    "2026-02-15T15:40:00Z": {
+      "agent": "Tom Brady",
+      "step": "Step 6 - Enforcement Pass",
+      "detail": "Enforcement gate passed. All three reviewers scored above publication threshold (Andy 8.85, Jose 9.05, LeBron 8.78). Average: 8.89/10. CSK season preview v2.0 approved for publication. Deliverables committed: CSK_season_preview.md, season_previews.js updated, 3 review documents in outputs/reviews/. Task Integrity Loop complete."
     }
   },
   "created_at": "2026-02-15T06:00:00Z",

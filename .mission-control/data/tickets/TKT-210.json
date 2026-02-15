@@ -12,6 +12,8 @@
   "reviewer": "Brad Stevens",
   "sprint_id": "SPRINT-002",
   "tags": ["Frontend", "Infrastructure", "React", "The Lab"],
+  "artifact_link": "scripts/the_lab/react-app/",
+  "dashboard_link": "scripts/the_lab/react-app/",
   "gates": {
     "florentino_gate": {
       "status": "APPROVED",

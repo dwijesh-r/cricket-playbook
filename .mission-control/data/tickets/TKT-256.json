@@ -15,10 +15,11 @@
   "tags": ["Analytics", "Rankings", "SQL Views", "EPIC-021"],
   "gates": {
     "florentino_gate": { "status": "APPROVED", "reason": "Core analytics feature for innings-context rankings.", "date": "2026-02-14" },
-    "build": "PASS",
-    "domain_sanity": "PASS",
-    "enforcement": "PASS"
+    "build": { "status": "PASS", "date": "2026-02-14" },
+    "domain_sanity": { "status": "PASS", "notes": "Andy Flower verified innings-context views. Chase vs defend splits correctly implemented for teams and players.", "date": "2026-02-14" },
+    "enforcement": { "status": "PASS", "date": "2026-02-14" }
   },
+  "artifact_link": "scripts/core/analytics_ipl.py",
   "deliverables": [
     "scripts/core/analytics_ipl.py",
     "DuckDB views: 4 categories x 2 scopes = 8 innings-context views (team_batting_by_innings, team_bowling_by_innings, player_batting_by_innings, player_bowling_by_innings)"

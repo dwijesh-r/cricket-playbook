@@ -15,10 +15,11 @@
   "tags": ["Frontend", "Navigation", "UX", "The Lab"],
   "gates": {
     "florentino_gate": { "status": "APPROVED", "reason": "UX improvement, nav consistency.", "date": "2026-02-14" },
-    "build": "PASS",
-    "domain_sanity": "PASS",
-    "enforcement": "PASS"
+    "build": { "status": "PASS", "date": "2026-02-14" },
+    "domain_sanity": { "status": "PASS", "notes": "Jayson Tatum verified nav consistency across all Lab pages. Mission Control link added to desktop and mobile navs.", "date": "2026-02-14" },
+    "enforcement": { "status": "PASS", "date": "2026-02-14" }
   },
+  "dashboard_link": "scripts/the_lab/dashboard/index.html",
   "deliverables": [
     "scripts/the_lab/dashboard/teams.html",
     "scripts/the_lab/dashboard/artifacts.html",

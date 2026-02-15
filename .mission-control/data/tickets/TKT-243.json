@@ -67,9 +67,17 @@
       "note": "RR's 119.30 Cr XII spend (99.4% of cap) reveals an aggressive roster construction strategy: Jaiswal (18), Jurel (14), Parag (14), Jadeja (17.5), Archer (12.5), Hetmyer (11), Sam Curran (10), and Bishnoi (7.2) are all high-price acquisitions. RR's approach is to concentrate spend on 8 premium players and fill 4 positions cheaply (Sooryavanshi 1.1, Burger 3.5, Sandeep 4.0, Deshpande 6.5). This mirrors CSK's historical strategy of backing star performers, but leaves zero margin for mid-season roster adjustments. MI similarly invested in 4 marquee players at 16+ Cr each (Bumrah 18, SKY 16.35, Hardik 16.35, Rohit 16.3) while finding value in uncapped/low-cost overseas options (de Kock 1.0, Rutherford 0.5, Markande 0.3)."
     }
   ],
-  "domain_sanity": {
-    "jose_mourinho": "YES — Salary calculations verified against individual player price_cr fields in all 10 predicted XII JSONs. Cap correctly identified as 120 Cr from The Lab dashboard source code (IPL_PURSE_CR = 120). All totals cross-checked.",
-    "andy_flower": "N/A — No cricket content changes. Roster selections unchanged.",
-    "pep_guardiola": "YES — System integrity maintained. No code changes, no output mutations, no new assumptions introduced. Audit-only ticket with documented findings."
+  "gates": {
+    "florentino_gate": { "status": "APPROVED", "date": "2026-02-15" },
+    "build": { "status": "PASS", "notes": "Audit completed. No code changes required.", "date": "2026-02-15" },
+    "domain_sanity": {
+      "status": "PASS",
+      "notes": "Jose Mourinho verified all 10 teams under 120 Cr cap. RR highest at 119.30 Cr (0.70 Cr headroom). No overruns detected.",
+      "jose_mourinho": "YES — Salary calculations verified against individual player price_cr fields in all 10 predicted XII JSONs. Cap correctly identified as 120 Cr from The Lab dashboard source code (IPL_PURSE_CR = 120). All totals cross-checked.",
+      "andy_flower": "N/A — No cricket content changes. Roster selections unchanged.",
+      "pep_guardiola": "YES — System integrity maintained. No code changes, no output mutations, no new assumptions introduced. Audit-only ticket with documented findings.",
+      "date": "2026-02-15"
+    },
+    "enforcement": { "status": "PASS", "notes": "Tom Brady: Audit findings documented. No action required.", "date": "2026-02-15" }
   }
 }

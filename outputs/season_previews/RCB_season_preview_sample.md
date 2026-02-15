@@ -35,27 +35,36 @@ For 2026, the title-winning core returns largely intact, with 15 players retaine
 
 **Key Departures (from 2025 squad):** Liam Livingstone (to SRH), Lungi Ngidi (to DC), MA Agarwal, and MS Bhandage. Livingstone's departure removes a power-hitting overseas swiss army knife who could bat anywhere from 3 to 6. But Ngidi's exit stings more. He was Hazlewood's partner in crime, the second overseas seamer who brought genuine pace and bounce. Losing him is like a restaurant losing its sous chef: the head chef is still there, but the kitchen runs thinner.
 
-**Key Retentions:** RCB kept 15 players from the championship squad, anchored by Kohli (21.00 Cr), Hazlewood (12.50 Cr), Salt (11.50 Cr), Patidar (11.00 Cr), and Jitesh Sharma (11.00 Cr). Kanishk Chouhan (0.30 Cr), a 19-year-old uncapped off-spin all-rounder, is a low-cost retention that tells you RCB see potential worth developing, even if the current spin depth doesn't reflect it yet.
+**Key Retentions:** RCB kept 15 players from the championship squad, anchored by Kohli (21.00 Cr), Hazlewood (12.50 Cr), Salt (11.50 Cr), Patidar (11.00 Cr), and Jitesh Sharma (11.00 Cr). The retention strategy was clear: protect the championship core at premium prices and trust that the system, not individual upgrades, would carry forward.
 
-**Auction Strategy:** Six purchases totaling 10.65 Cr, with Venkatesh Iyer (7.00 Cr) as the marquee buy. Romario Shepherd (2.00 Cr) was re-acquired at auction after playing for RCB in 2025 but not being retained. The remaining buys (Duffy, Deswal, Mangesh Yadav, Jordan Cox) were all below 1 Cr, focused on pace depth and backup options. The message was clear: keep the band together, fill the gaps cheap, and trust the system.
+**Auction Strategy:** The auction tells a two-tier story. At the top: Venkatesh Iyer (7.00 Cr) and Romario Shepherd (2.00 Cr, re-acquired after playing for RCB in 2025) represent direct playing XII impact — Iyer fills the Maxwell-shaped hole at #3 and Shepherd returns as the designated death-overs chaos agent. Below them: Kanishk Chouhan (0.30 Cr, uncapped off-spin all-rounder), Duffy (0.75 Cr), Deswal (0.30 Cr), Mangesh Yadav (0.30 Cr), and Jordan Cox (0.30 Cr) are all depth buys — insurance policies, not starting XI disruptors. The message was clear: keep the band together, fill the gaps cheap, and trust the system.
 
 **What's Structurally Different from 2025:** The overseas pace equation has shifted. RCB went from two premium overseas quicks (Hazlewood + Ngidi) to one, and swapped Livingstone's batting utility for Venkatesh Iyer's Indian all-rounder profile. This frees overseas slot flexibility (David, Bethell, Shepherd, or Duffy can rotate as the fourth overseas player) but makes the bowling attack more reliant on Indian seamers (Bhuvneshwar, Yash Dayal, Mangesh Yadav) to complement Hazlewood. It's a calculated bet: more batting options, less bowling insurance.
 
 ---
 
-## New Additions
+## Auction Strategy: The Thinking Behind the Buys
 
-**Venkatesh Iyer (7.00 Cr, All-rounder, IND):** The headline act. Iyer's 149.9 SR and 31.6 average across 34 innings since 2023 (HIGH sample) bring genuine middle-order substance. A left-hander who can bat at 3 or 4 and chip in with part-time seam, he fills the Maxwell-shaped hole that's been in this squad. His 162.9 SR against fast bowling (MEDIUM, 151 balls) suggests he doesn't flinch against pace. The concern: 96.9 SR against left-arm orthodox (LOW, 32 balls) and 75.0 SR against wrist-spin (LOW, 16 balls). Limited data, but flags worth keeping on the radar.
+RCB's auction spent 10.65 Cr across seven purchases. The strategy splits cleanly into two tiers: one player who changes the starting XI, and six who deepen the bench without disrupting the championship formula.
 
-**Romario Shepherd (2.00 Cr, All-rounder, WI) — Returning:** Shepherd played for RCB in 2025 and was re-acquired at auction after not being retained. A familiar face, not a fresh one. 282.2 SR across 45 balls in IPL (LOW sample), including 127 runs at 288.6 SR at the death (LOW, 44 balls). His bowling economy of 12.23 across 26 overs isn't winning any awards, but his role is clear: come in at 7 or 8, hit with intent from ball one, and bowl a few overs of useful pace. His cross-format form (182.1 SR in ILT20/T20I L10) confirms the intent is genuine across tournaments, not just IPL small-sample noise. He's a designated chaos agent, the sort of player whose value doesn't show up in career averages but shows up in win probability swings.
+### Direct XII Impact
 
-**Jacob Duffy (0.75 Cr, Bowler, NZ):** Uncapped in IPL. A right-arm fast-medium option providing pace depth behind Hazlewood. Break-glass-in-case-of-emergency insurance for the overseas seamer slot.
+**Venkatesh Iyer (7.00 Cr)** is the only auction buy that alters the playing XI. He fills the left-handed all-rounder slot at #3 that's been vacant since Maxwell's departure — a batter who can stabilize or accelerate depending on the situation, and chip in with part-time seam if the bowling mix needs flexibility. His 149.9 SR and 31.6 average across 34 IPL innings since 2023 (HIGH sample) is genuine middle-order substance. The concern: 96.9 SR against left-arm orthodox (LOW, 32 balls) and 75.0 SR against wrist-spin (LOW, 16 balls). Limited data, but flags worth watching.
 
-**Satvik Deswal (0.30 Cr, Bowler, IND):** An 18-year-old left-arm wrist-spinner. Uncapped in IPL. Deswal is a development pick — a bonus option rather than a necessity, given Suyash Sharma already provides leg-spin. If Deswal develops, he adds a variation angle; if not, RCB's spin attack doesn't collapse.
+### Depth Buys: Insurance, Not Disruption
 
-**Mangesh Yadav (0.30 Cr, Bowler, IND):** Left-arm fast bowler who has quietly impressed in 6 IPL matches: 9 wickets at 9.32 economy. His 48.5% dot ball percentage in the middle overs (LOW, 11 overs) is the kind of number that makes coaches lean forward. With Yash Dayal's status up in the air, Mangesh might be bowling with the new ball sooner than anyone planned.
+The remaining six purchases total 3.65 Cr — bargain-bin reinforcements covering specific scenarios:
 
-**Jordan Cox (0.30 Cr, Wicketkeeper, ENG):** Backup keeper behind Salt and Jitesh. Uncapped in IPL. One of those picks you hope you never need to use.
+| Buy | Price | Role in Squad | XII Impact vs Depth |
+|-----|-------|---------------|---------------------|
+| Romario Shepherd (WI) | 2.00 Cr | Death-overs hitter + pace AR. Played for RCB in 2025, knows the system | **Rotation XII** — competes for 4th overseas slot with Bethell/Duffy |
+| Jacob Duffy (NZ) | 0.75 Cr | Overseas pace backup behind Hazlewood | **Pure depth** — plays only if Hazlewood is unavailable |
+| Kanishk Chouhan (IND) | 0.30 Cr | Uncapped off-spin all-rounder, 19 years old | **Development** — addresses off-spin gap on paper; may not play at all |
+| Satvik Deswal (IND) | 0.30 Cr | Left-arm wrist-spinner, 18 years old | **Development** — bonus variation, not a necessity given Suyash covers leg-spin |
+| Mangesh Yadav (IND) | 0.30 Cr | Left-arm fast, 6 IPL matches, 9 wkts at 9.32 econ | **Depth with upside** — could become relevant if Yash Dayal is unavailable |
+| Jordan Cox (ENG) | 0.30 Cr | Backup keeper behind Salt and Jitesh | **Pure depth** — emergency insurance only |
+
+**What the Auction Tells You:** RCB believe the championship was won by a system, not by individual talent. The auction reinforces that system rather than attempting to upgrade it. Only Iyer represents a genuine upgrade to the XI. Everyone else is a contingency plan. This is a franchise that has learned the hardest lesson in professional sport: when something works, don't fix it — just make sure you can survive when parts of it break.
 
 ---
 
@@ -500,44 +509,48 @@ Suyash (2.60 Cr, retained) has built a genuine middle-overs identity: 8.78 econo
 
 ### Batters (Cross-Format T20 Recent Form)
 
-*Last 10 T20 matches across all tournaments — not just IPL. This gives a truer picture of where each player's game is right now heading into IPL 2026.*
+*Last 10 T20 matches across all tournaments — not just IPL. Tournament weights applied using Cricket Playbook's composite scoring system (IPL: 0.87, SMAT: 0.65, BBL: 0.53, ILT20: 0.49). This gives a truer picture of where each player's game is right now heading into IPL 2026.*
 
-| Player | All-T20 L10 SR | IPL L10 SR | Delta | All-T20 L10 Avg | Key Tournaments in L10 | Trend |
-|--------|---------------|-----------|-------|-----------------|----------------------|-------|
-| Virat Kohli | 144.5 | 144.5 | 0.0 | 58.9 | IPL only | Stable-elite |
-| Phil Salt | 128.1 | 178.1 | **-50.0** | 28.3 | ILT20 | Form alarm |
-| Jitesh Sharma | 189.4 | 175.4 | **+14.0** | 46.6 | IPL, Ind tours (Aus, SA) | Career-best form |
-| Tim David | 167.1 | 179.8 | -12.7 | 34.9 | BBL, ILT20, T20I | Strong cross-format |
-| Venkatesh Iyer | 146.5 | 162.1 | -15.6 | 31.1 | IPL, SMAT | Tournament variability |
-| Romario Shepherd | 182.1 | 250.8 | -68.7 | 38.3 | ILT20, WI tours | IPL SR inflated by tiny samples |
-| Devdutt Padikkal | 150.6 | 150.6 | 0.0 | 27.4 | IPL only | Rebounding |
-| Rajat Patidar | 120.8 | 120.8 | 0.0 | 18.9 | IPL only | Steep decline |
-| Krunal Pandya | 123.4 | 123.5 | -0.1 | 19.8 | IPL, SMAT | Stable |
+| Player | Weighted L10 SR | Raw L10 SR | IPL L10 SR | L10 Tournament Breakdown | Trend |
+|--------|----------------|-----------|-----------|-------------------------|-------|
+| Virat Kohli | 144.5 | 144.5 | 144.5 | IPL 2025 (10/10 matches) | Stable-elite |
+| Phil Salt | 130.2 | 128.1 | 178.1 | ILT20 2025/26 (10/10 matches) | **Form alarm** |
+| Jitesh Sharma | 186.7 | 189.4 | 175.4 | IPL 2025 (7), India T20I vs Aus (2), vs SA (1) | Career-best form |
+| Tim David | 163.8 | 167.1 | 179.8 | BBL 2025/26 (5), ILT20 (3), Aus T20I vs Ind (2) | Strong cross-format |
+| Venkatesh Iyer | 150.1 | 146.5 | 162.1 | IPL 2025 (7), SMAT 2025 (3) | Tournament variability |
+| Romario Shepherd | 182.1 | 182.1 | 250.8 | ILT20 2025/26 (7), WI T20I vs NZ (3) | IPL SR inflated |
+| Devdutt Padikkal | 150.6 | 150.6 | 150.6 | IPL 2025 (10/10 matches) | Rebounding |
+| Rajat Patidar | 120.8 | 120.8 | 120.8 | IPL 2025 (10/10 matches) | Steep decline |
+| Krunal Pandya | 123.8 | 123.4 | 123.5 | IPL 2025 (8), SMAT 2025 (2) | Stable |
+
+*Tournament weights: IPL (0.87), SMAT (0.65), BBL (0.53), ILT20 (0.49), T20I (0.50). Weighted SR adjusts raw form to reflect how transferable each tournament's performance is to IPL conditions.*
 
 **What the Cross-Format Picture Changes:**
 
-The biggest revelation is **Phil Salt**. His IPL L10 of 178.1 SR painted a picture of a man in devastating form. His all-T20 L10 of 128.1 SR tells a different story entirely. His recent ILT20 stint has been underwhelming — batting average of 28.3, SR nearly 50 points below his IPL peak. If Salt arrives in IPL 2026 carrying ILT20 rust rather than IPL momentum, the powerplay equation shifts dramatically. RCB should be watching his pre-tournament warm-ups very carefully.
+The biggest revelation is **Phil Salt**. His IPL L10 of 178.1 SR painted a picture of a man in devastating form. But all 10 of his recent T20 matches are from ILT20 2025/26 (weight: 0.49 — half the IPL's weight), where he's averaging 28.3 at 128.1 SR. The weighted L10 (130.2) slightly adjusts upward from raw because ILT20 conditions are different from IPL, but the signal is clear: Salt is arriving with form concerns. If he's carrying ILT20 rust rather than IPL momentum, the powerplay equation shifts dramatically.
 
-**Jitesh Sharma** is the inverse story. His all-T20 L10 (189.4 SR) is *better* than his IPL L10 (175.4), boosted by T20I performances against Australia and South Africa. He's hitting at this level across formats, not just in the IPL bubble. That's the strongest form validation in the squad.
+**Jitesh Sharma** is the inverse story. His L10 spans IPL (7 matches, weight 0.87) and India T20Is against Australia and South Africa (3 matches, weight ~0.50). The weighted SR (186.7) is only slightly below raw (189.4) because the bulk of his form comes from the IPL, the highest-weighted tournament. He's hitting at this level where it counts most.
 
-**Tim David** at 167.1 SR across BBL, ILT20, and T20Is confirms he's not an IPL-only performer. His 74(38) against India in Australia stands out as genuine cross-format evidence.
+**Tim David** at 163.8 weighted SR across BBL (0.53), ILT20 (0.49), and T20Is (0.50) loses a few points from raw (167.1) because none of those tournaments carry IPL-level weight. But 163.8 is still strong — he's performing in three different conditions across three continents.
 
-**Patidar** (120.8) and **Kohli** (144.5) have L10s that are entirely IPL — neither played other T20 formats recently. What you see is what you get.
+**Venkatesh Iyer** is interesting: his weighted L10 (150.1) is actually *higher* than raw (146.5) because 7 of his 10 matches are IPL (0.87 weight) while 3 are SMAT (0.65). The IPL matches, where he hit at 162.1, pull the weighted average up.
+
+**Patidar** (120.8) and **Kohli** (144.5) have L10s that are entirely IPL — no weighting adjustment needed. What you see is what you get.
 
 The actual red flag remains Patidar: a -39.9 SR delta from his since-2023 average. For a new captain, that's not a concern. That's an alarm bell.
 
 ### Bowlers (Cross-Format T20 Recent Form)
 
-| Player | All-T20 L10 Econ | IPL L10 Econ | Delta | All-T20 Wkts | Key Tournaments | Trend |
-|--------|-----------------|-------------|-------|-------------|----------------|-------|
-| Josh Hazlewood | **8.31** | 9.58 | **-1.27** | 18 | IPL, AUS tours (NZ, Ind) | Peak form across formats |
-| Krunal Pandya | 7.29 | 7.29 | 0.00 | 10 | IPL only | Stable-elite |
-| Romario Shepherd | 8.97 | 12.05 | **-3.08** | 5 | ILT20 | Much better outside IPL |
-| Suyash Sharma | 9.29 | 9.29 | 0.00 | 6 | IPL only | Steady |
-| Bhuvneshwar Kumar | 10.03 | 10.03 | 0.00 | 12 | IPL only | Concerning for veteran |
-| Yash Dayal | 10.10 | 10.10 | 0.00 | 7 | IPL only | Economy pressure |
+| Player | Weighted L10 Econ | Raw L10 Econ | IPL L10 Econ | Wkts | L10 Tournament Breakdown | Trend |
+|--------|------------------|-------------|-------------|------|-------------------------|-------|
+| Josh Hazlewood | **8.45** | 8.31 | 9.58 | 18 | IPL 2025 (5), Aus T20I vs NZ (3), vs Ind (2) | Peak form |
+| Krunal Pandya | 7.29 | 7.29 | 7.29 | 10 | IPL 2025 (8), SMAT 2025 (2) | Stable-elite |
+| Romario Shepherd | 9.12 | 8.97 | 12.05 | 5 | ILT20 2025/26 (7), WI T20I vs NZ (3) | Better outside IPL |
+| Suyash Sharma | 9.29 | 9.29 | 9.29 | 6 | IPL 2025 (10/10 matches) | Steady |
+| Bhuvneshwar Kumar | 10.03 | 10.03 | 10.03 | 12 | IPL 2025 (10/10 matches) | Concerning |
+| Yash Dayal | 10.10 | 10.10 | 10.10 | 7 | IPL 2025 (10/10 matches) | Economy pressure |
 
-**Hazlewood is the standout.** His all-T20 L10 economy (8.31) is 1.27 better than his IPL L10 — boosted by international performances including 3.25 economy against India. He's arriving in peak form across formats, which should terrify opposing openers. Krunal's 7.29 exists in its own postcode within this squad. Shepherd's bowling economy of 8.97 across ILT20 is significantly better than his 12.05 IPL number — the IPL is a tougher bowling environment, but the cross-format data suggests more bowling competence than his IPL figures imply.
+**Hazlewood is the standout.** His weighted L10 economy (8.45) factors in that 5 of his matches are IPL (0.87 weight) while 5 are T20Is (0.50 weight). His international form — including 3.25 economy against India — is strong but carries lower weight in IPL-context projection. Even weighted, 8.45 is excellent. He's arriving in peak form across conditions. Krunal's 7.29 is entirely IPL-weighted and needs no adjustment. Shepherd's ILT20 bowling economy (8.97) is significantly better than his IPL number (12.05) — cross-format data suggests more bowling competence than IPL figures imply, though the lower tournament weight (0.49) means the gap narrows when weighted.
 
 ### Bowlers (Individual Phase Economies, Since 2023)
 

@@ -8,10 +8,10 @@ const SEASON_PREVIEWS = {
   RCB: {
     available: true,
     meta: {
-      revision: 'v1.9',
-      dataWindow: 'IPL 2023-2025 | 9,289 matches / 2.14M balls',
+      revision: 'v2.0',
+      dataWindow: 'IPL 2023-2025 | 9,496 matches / 2.14M balls',
       agents: 'Virat Kohli (Tone & Narrative) | Andy Flower (Scouting Report)',
-      matches: '9,289'
+      matches: '9,496'
     },
     headline: {
       title: 'The Bowling-First Revolution Is Real. Now Comes the Hard Part.',
@@ -580,7 +580,7 @@ const SEASON_PREVIEWS = {
           { type: 'subheading', content: '1. Devdutt Padikkal: The Middle-Overs Missing Piece' },
           { type: 'text', content: '<p>RCB\'s middle-overs batting (143.9 SR in 2025) is their weakest offensive phase, and Padikkal (2.00 Cr, retained) has the toolkit to fix it. He\'s a left-hander who can bat at 3 or 4, and his 186.9 SR against fast bowling (MEDIUM, 99 balls) shows real stroke-play ability. The problem: 131.6 career SR and a recent form SR of 151.5 (last 10) that still sits below most starters. His 108.8 SR against left-arm orthodox (LOW, 34 balls) and 62.5 SR against wrist-spin (LOW, 8 balls) are developmental red flags. But if Padikkal can sustain his upswing and push for the XI, he gives the middle order something it currently lacks: a left-handed option who can actually bat.</p>' },
           { type: 'subheading', content: '2. Venkatesh Iyer: Converting KKR Pedigree to RCB Impact' },
-          { type: 'text', content: '<p>The 7.00 Cr marquee buy comes from a very different system. At KKR, Iyer batted in a lineup that played aggressive, spin-heavy cricket. At RCB, he walks into a bowling-first franchise that values the middle-overs grind. His all-T20 L10 form (146.5 SR across IPL and SMAT) is a step below his IPL-specific L10 of 162.1 SR, suggesting some tournament variability. His part-time seam bowling (9.78 economy in all-T20 L10, 5 wickets) could be valuable in a squad short on bowling variety. The question: can he bat at 3 in a system that asks him to both stabilize and accelerate? His innings-context split (+0.3 SR delta between setting and chasing) says he won\'t change based on situation — same batter, same approach. RCB need that consistency.</p>' },
+          { type: 'text', content: '<p>The 7.00 Cr marquee buy comes from a very different system. At KKR, Iyer batted in a lineup that played aggressive, spin-heavy cricket. At RCB, he walks into a bowling-first franchise that values the middle-overs grind. His all-T20 L10 form (136.8 SR across IPL and SMAT 2024/25) is a significant step below his IPL-specific L10 of 162.1 SR — the SMAT matches from December 2024 drag the cross-format number down. His part-time seam bowling (7.53 economy in all-T20 L10, 5 wickets across 3 SMAT matches) could be valuable in a squad short on bowling variety. The question: can he bat at 3 in a system that asks him to both stabilize and accelerate? His innings-context split (+0.3 SR delta between setting and chasing) says he won\'t change based on situation — same batter, same approach. RCB need that consistency.</p>' },
           { type: 'subheading', content: '3. Suyash Sharma: The Middle-Overs Anchor Expanding His Range' },
           { type: 'text', content: '<p>Suyash (2.60 Cr, retained) has built a genuine middle-overs identity: 8.78 economy, 13 wickets in 78 overs (MEDIUM), bowling 264 of his 300 balls in overs 7-15. He\'s a pure middle-overs leg-spinner and a central pillar of the bowling-first identity. His best overs tell the story: over 7 at 5.83 economy, over 15 at 6.33 — bookending the spin phase with genuine control. The step-up isn\'t about bowling at the death (that may never be his role). It\'s about maintaining his 2025 standards under the weight of a title defence. His 3 powerplay wickets at 7.33 economy (LOW, 3 overs) hint at versatility if the coaching staff want to experiment.</p>' }
         ]
@@ -590,7 +590,7 @@ const SEASON_PREVIEWS = {
       {
         id: 'recentForm',
         title: 'Recent Form',
-        summary: 'Cross-format T20 form reveals Salt\'s ILT20 dip (-50 SR), Jitesh\'s cross-format surge (+14), and Hazlewood arriving in peak form. Patidar (-39.9) remains the red flag.',
+        summary: 'Cross-format T20 form reveals Salt at 128.1 SR in ILT20 (vs 180.2 IPL), Jitesh surging at 196.0 weighted SR, Shepherd dropping to 147.8. Patidar (-39.9) remains the red flag.',
         blocks: [
           { type: 'subheading', content: 'Batters (Cross-Format T20 Recent Form)' },
           { type: 'text', content: '<p><em>Last 10 T20 matches across all tournaments — not just IPL. Tournament weights (IPL 0.87, SMAT 0.65, BBL 0.53, ILT20 0.49, T20I 0.50) adjust raw form to reflect how transferable each performance is to IPL conditions.</em></p>' },
@@ -598,34 +598,34 @@ const SEASON_PREVIEWS = {
             type: 'table',
             headers: ['Player', 'Weighted SR', 'Raw SR', 'IPL SR', 'L10 Breakdown', 'Trend'],
             rows: [
-              ['Virat Kohli', '144.5', '144.5', '144.5', 'IPL 2025 (10/10)', 'Stable-elite'],
-              ['Phil Salt', '130.2', '128.1', '178.1', 'ILT20 2025/26 (10/10)', 'Form alarm'],
-              ['Jitesh Sharma', '186.7', '189.4', '175.4', 'IPL 2025 (7), Ind T20I vs Aus (2), vs SA (1)', 'Career-best'],
-              ['Tim David', '163.8', '167.1', '179.8', 'BBL 2025/26 (5), ILT20 (3), Aus T20I vs Ind (2)', 'Strong cross-format'],
-              ['Venkatesh Iyer', '150.1', '146.5', '162.1', 'IPL 2025 (7), SMAT 2025 (3)', 'Tournament variability'],
-              ['Romario Shepherd', '182.1', '182.1', '250.8', 'ILT20 2025/26 (7), WI T20I vs NZ (3)', 'IPL SR inflated'],
-              ['Devdutt Padikkal', '150.6', '150.6', '150.6', 'IPL 2025 (10/10)', 'Rebounding'],
-              ['Rajat Patidar', '120.8', '120.8', '120.8', 'IPL 2025 (10/10)', 'Steep decline'],
-              ['Krunal Pandya', '123.8', '123.4', '123.5', 'IPL 2025 (8), SMAT 2025 (2)', 'Stable']
+              ['Virat Kohli', '144.5', '144.5', '144.5', 'IPL 2025 (10)', 'Stable-elite'],
+              ['Phil Salt', '128.1', '128.1', '180.2', 'ILT20 2025/26 (10)', 'Form alarm'],
+              ['Jitesh Sharma', '196.0', '191.0', '176.6', 'IPL 2025 (6), SA tour of Ind (2), Ind tour of Aus (2)', 'Career-best'],
+              ['Tim David', '167.0', '168.1', '183.3', 'BBL 2025/26 (4), ILT20 (3), Ind tour of Aus (3)', 'Strong cross-format'],
+              ['Venkatesh Iyer', '137.3', '136.8', '162.1', 'IPL 2025 (7), SMAT 2024/25 (3)', 'Tournament variability'],
+              ['Romario Shepherd', '147.8', '147.8', '260.7', 'ILT20 2025/26 (10)', 'Form concern'],
+              ['Devdutt Padikkal', '151.5', '151.5', '151.5', 'IPL 2025 (10)', 'Rebounding'],
+              ['Rajat Patidar', '120.8', '120.8', '120.8', 'IPL 2025 (10)', 'Steep decline'],
+              ['Krunal Pandya', '145.8', '145.8', '145.8', 'IPL 2025 (10, batted 4/10)', 'Low sample']
             ]
           },
-          { type: 'text', content: '<p><strong>What the Cross-Format Picture Changes:</strong> The biggest revelation is <strong>Phil Salt</strong>. His IPL L10 of 178.1 SR painted a picture of devastating form. His weighted L10 of 130.2 SR tells a different story — his recent ILT20 stint (0.49 weight) drags the number down, revealing form that may not transfer to IPL conditions. If Salt arrives carrying ILT20 rust rather than IPL momentum, the powerplay equation shifts dramatically.</p>' },
-          { type: 'text', content: '<p><strong>Jitesh Sharma</strong> is the inverse story. His weighted L10 (186.7) stays strong because 7 of his 10 matches are IPL (0.87 weight), the highest-weighted tournament. The T20I matches against Australia and South Africa (0.50 weight) slightly lower the weighted average, but he is hitting at this level where it counts most. <strong>Tim David</strong> at 163.8 weighted SR across BBL (0.53), ILT20 (0.49), and T20Is (0.50) loses a few points from raw (167.1) because none of those tournaments carry IPL-level weight — but 163.8 is still strong across three continents.</p>' },
-          { type: 'text', content: '<p><strong>Venkatesh Iyer</strong> is interesting: his weighted L10 (150.1) is actually <em>higher</em> than raw (146.5) because 7 of his 10 matches are IPL (0.87 weight) while 3 are SMAT (0.65). The IPL matches, where he hit at 162.1, pull the weighted average up. <strong>Patidar</strong> (120.8) and <strong>Kohli</strong> (144.5) have L10s that are entirely IPL — no weighting adjustment needed. What you see is what you get. The actual red flag remains Patidar: a -39.9 SR delta from his since-2023 average. For a new captain, that is not a concern. That is an alarm bell.</p>' },
+          { type: 'text', content: '<p><strong>What the Cross-Format Picture Changes:</strong> The biggest revelation is <strong>Phil Salt</strong>. His IPL L10 of 180.2 SR painted a picture of devastating form. But all 10 of his recent T20 matches are ILT20 2025/26, where he hit at just 128.1 SR. No weighting adjustment needed since all 10 are the same tournament. If Salt arrives carrying ILT20 rust rather than IPL momentum, the powerplay equation shifts dramatically.</p>' },
+          { type: 'text', content: '<p><strong>Jitesh Sharma</strong> is the inverse story. His weighted L10 (196.0) is <em>higher</em> than raw (191.0) because 6 of his 10 matches are IPL (0.87 weight), where he hit at 176.6 SR. The T20I matches against SA and Australia (0.50 weight) slightly lower the weighted average, but he is hitting at elite levels where it counts most. <strong>Tim David</strong> at 167.0 weighted SR across BBL (4 matches, 0.53), ILT20 (3, 0.49), and T20Is (3, 0.50) is almost identical to raw (168.1) — genuinely strong across three continents.</p>' },
+          { type: 'text', content: '<p><strong>Venkatesh Iyer</strong> is the concern: his weighted L10 (137.3) barely moves from raw (136.8) — 7 IPL matches at 162.1 SR are weighed down by 3 SMAT 2024/25 matches. <strong>Romario Shepherd</strong> had the biggest correction: his entire L10 is ILT20 (10 matches), at just 147.8 SR. His IPL L10 of 260.7 is from a tiny sample and should not be relied upon. <strong>Krunal</strong> batted in only 4 of his last 10 matches (59 balls) — the 145.8 SR is dominated by one 73 off 46. His value is in bowling. <strong>Patidar</strong> (120.8) remains the red flag: -39.9 SR delta from career average.</p>' },
           { type: 'subheading', content: 'Bowlers (Cross-Format T20 Recent Form)' },
           {
             type: 'table',
             headers: ['Player', 'Weighted Econ', 'Raw Econ', 'IPL Econ', 'Wkts', 'L10 Breakdown', 'Trend'],
             rows: [
-              ['Josh Hazlewood', '8.45', '8.31', '9.58', '18', 'IPL 2025 (5), Aus T20I vs NZ (3), vs Ind (2)', 'Peak form'],
-              ['Krunal Pandya', '7.29', '7.29', '7.29', '10', 'IPL 2025 (8), SMAT 2025 (2)', 'Stable-elite'],
-              ['Romario Shepherd', '9.12', '8.97', '12.05', '5', 'ILT20 2025/26 (7), WI T20I vs NZ (3)', 'Better outside IPL'],
-              ['Suyash Sharma', '9.29', '9.29', '9.29', '6', 'IPL 2025 (10/10)', 'Steady'],
-              ['Bhuvneshwar Kumar', '10.03', '10.03', '10.03', '12', 'IPL 2025 (10/10)', 'Concerning'],
-              ['Yash Dayal', '10.10', '10.10', '10.10', '7', 'IPL 2025 (10/10)', 'Economy pressure']
+              ['Josh Hazlewood', '8.45', '8.20', '9.32', '18', 'IPL 2025 (3), SA tour of Aus (3), Aus vs NZ (2), Ind vs Aus (2)', 'Peak form'],
+              ['Krunal Pandya', '7.17', '7.17', '7.17', '10', 'IPL 2025 (10)', 'Stable-elite'],
+              ['Romario Shepherd', '8.15', '8.15', '11.21', '5', 'ILT20 2025/26 (10)', 'Better outside IPL'],
+              ['Suyash Sharma', '9.20', '9.20', '9.20', '6', 'IPL 2025 (10)', 'Steady'],
+              ['Bhuvneshwar Kumar', '9.89', '9.89', '9.89', '12', 'IPL 2025 (10)', 'Concerning'],
+              ['Yash Dayal', '9.65', '9.65', '9.65', '7', 'IPL 2025 (10)', 'Economy pressure']
             ]
           },
-          { type: 'text', content: '<p><strong>Hazlewood is the standout.</strong> His weighted L10 economy (8.45) adjusts slightly upward from raw (8.31) because his best recent matches are T20Is (0.50 weight) rather than IPL (0.87). Even so, 8.45 is excellent — boosted by international performances including 3.25 economy against India. Krunal\'s 7.29 exists in its own postcode within this squad. Shepherd\'s weighted bowling economy of 9.12 is closer to his raw (8.97) than his IPL number (12.05) — cross-format data weighted by tournament quality suggests more bowling competence than IPL figures imply.</p>' },
+          { type: 'text', content: '<p><strong>Hazlewood is the standout.</strong> His L10 is the most internationally diverse: 3 IPL matches (0.87 weight), 3 SA tour of Aus, 2 Aus vs NZ, and 2 Ind vs Aus T20Is. The weighted economy (8.45) is slightly above raw (8.20) because his IPL matches — where he went at 9.32 — carry the highest weight. Even so, 8.45 is excellent with 18 wickets in 10 matches. Krunal at 7.17 is the best bowling economy in the squad (all IPL, 10 matches). Shepherd at 8.15 in the ILT20 is significantly better than his IPL number (11.21) — cross-format data suggests more bowling competence than IPL figures imply.</p>' },
           { type: 'subheading', content: 'Bowlers (Individual Phase Economies, Since 2023)' },
           {
             type: 'table',
@@ -638,7 +638,8 @@ const SEASON_PREVIEWS = {
               ['Yash Dayal', 'Overall', '9.85 (113 ov, HIGH)', 'PP / Death', '9.67 / 11.73', 'Primary death (status uncertain)']
             ]
           },
-          { type: 'text', content: '<p>The individual phase numbers confirm the structural fault line: death bowling. Both Hazlewood (10.65) and Bhuvneshwar (10.96) become expensive at the death, and Yash Dayal\'s 11.73 death economy is the most concerning number in the entire bowling unit.</p>' }
+          { type: 'text', content: '<p>The individual phase numbers confirm the structural fault line: death bowling. Both Hazlewood (10.65) and Bhuvneshwar (10.96) become expensive at the death, and Yash Dayal\'s 11.73 death economy is the most concerning number in the entire bowling unit.</p>' },
+          { type: 'text', content: '<p><em><strong>Data Coverage:</strong> Statistics drawn from Cricsheet ball-by-ball T20 archive (9,496 matches through Jan 31, 2026). Tournaments: IPL (2008-2025), BBL (2011-2026), ILT20 (2023-2026), SMAT (2016-2024/25, partial), CPL, PSL, The Hundred, SA20, Super Smash, and international T20s. SMAT 2025/26 not yet available. Vijay Hazare (List A) not covered — T20-only database.</em></p>' }
         ]
       },
 

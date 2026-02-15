@@ -1,7 +1,7 @@
 /**
  * The Lab - Full Squad Data
  * IPL 2026 Pre-Season Analytics
- * Auto-generated: 2026-02-15T04:13:40.953937
+ * Auto-generated: 2026-02-15T04:35:37.585339
  */
 
 const FULL_SQUADS = {

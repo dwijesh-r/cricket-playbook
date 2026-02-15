@@ -743,7 +743,486 @@ const SEASON_PREVIEWS = {
   },
 
   MI: { available: false },
-  CSK: { available: false },
+  CSK: {
+    available: true,
+    meta: {
+      revision: 'v1.0',
+      dataWindow: 'IPL 2023-2025 | 9,496 matches / 2.14M balls',
+      agents: 'Virat Kohli (Tone & Narrative) | Andy Flower (Scouting Report)',
+      matches: '9,496'
+    },
+    headline: {
+      title: 'Dhoni\'s Final Chapter and the Post-Dynasty Transition.',
+      intro: 'Five titles, three finals, and the most successful franchise in IPL history. But the 2025 season wasn\'t a stumble; it was a fall. A 28.6% win rate, the worst in CSK\'s history, a powerplay batting SR that dropped to 137.2, and a bowling attack that leaked 9.58 in the powerplay after years of disciplined control. Now comes the hardest question any dynasty faces: how do you rebuild around a 43-year-old icon while integrating Sanju Samson and trusting a bowling attack anchored by a 20-year-old Afghan left-arm wrist spinner?'
+    },
+    verdict: {
+      text: 'CSK in 2026 is a franchise doing the hardest thing in professional sport: rebuilding in broad daylight while the greatest player in their history takes his final bow. The pieces are there — Samson\'s batting, Noor Ahmad\'s bowling, Gaikwad\'s captaincy — but the cement hasn\'t dried. If the 28.40 Cr gamble on uncapped players pays off and Dhoni\'s decline doesn\'t accelerate, this is a playoff-capable squad. If the transition stumbles, the dynasty\'s final chapter will be remembered for how it ended, not how long it lasted.',
+      projected: '5th-7th',
+      ceiling: '4th (Playoffs)',
+      floor: '9th'
+    },
+    byTheNumbers: [
+      { value: '28.6%', label: 'CSK\'s 2025 win rate', context: 'The worst in franchise history. From title winners (62.5%) in 2023 to bottom-dwellers in two seasons' },
+      { value: '7.65', label: 'Noor Ahmad\'s death economy (21.2 ov, HIGH)', context: 'A wrist spinner conceding under 8 at the death. The rarest skill in T20 cricket' },
+      { value: '-69.0', label: 'Dhoni\'s SR delta (2024 to 2025)', context: 'From 196.3 to 127.3 in one season. The steepest single-year decline of his career' },
+      { value: '181.7', label: 'Samson\'s SR vs leg-spin (93 balls, MEDIUM)', context: '40.6 points above the league average. The best leg-spin matchup in the CSK squad' },
+      { value: '28.40 Cr', label: 'Prashant Veer + Kartik Sharma auction spend', context: 'Zero IPL data between them. The biggest leap of faith in IPL 2026' }
+    ],
+    categoryRatings: [
+      // Phase Performance
+      { cat: 'Batting, Powerplay', rating: 4.5, metric: '137.2 SR', note: 'Below league average (146.3). Wickets lost per innings (2.1) is alarming', group: 'phase' },
+      { cat: 'Batting, Middle', rating: 5.0, metric: '131.1 SR', note: 'Below league (140.3). Dube and Gaikwad carry the load alone', group: 'phase' },
+      { cat: 'Batting, Death', rating: 6.0, metric: '155.8 SR', note: 'Below league (170.2). Dhoni\'s decline drags this down. Samson (191.7) offsets partially', group: 'phase' },
+      { cat: 'Bowling, Powerplay', rating: 5.0, metric: '9.58 econ', note: 'Above league (9.27). Loss of Pathirana and Deshpande is the cause', group: 'phase' },
+      { cat: 'Bowling, Middle', rating: 7.0, metric: '8.74 econ', note: 'Near league (8.77). Noor Ahmad at 7.90 econ (102 ov, HIGH) is the anchor', group: 'phase' },
+      { cat: 'Bowling, Death', rating: 5.0, metric: '10.92 econ', note: 'At league average (10.88). Khaleel at 11.58 death econ is a liability', group: 'phase' },
+      // Squad Structure
+      { cat: 'Squad Depth', rating: 5.0, metric: '~4 bench options', note: 'Off-spin 2.4/10. Three players above 14 Cr have zero IPL data. Bench thin on proven talent', group: 'structure' },
+      { cat: 'XII Completeness', rating: 6.0, metric: '5/7 key roles', note: 'PP opening, middle order, death finisher, middle-overs spin all covered. Missing: frontline off-spinner, proven death specialist', group: 'structure' },
+      { cat: 'Batting Variety', rating: 6.5, metric: '2 LHB in top 6', note: 'Samson excels vs spin (168 SR); Gaikwad vs pace (150 SR). Balanced handedness', group: 'structure' },
+      { cat: 'Bowling Variety', rating: 5.5, metric: '4 types in XII', note: 'LWS (8.3/10), LA pace (4.0/10), RA pace (5.7/10). Off-spin (2.4/10) and LA orthodox (2.5/10) are gaps', group: 'structure' },
+      { cat: 'Experience', rating: 6.0, metric: '4 of XII 30+ caps', note: 'Dhoni (240+), Samson (160+), Gaikwad (80+), Dube (70+) provide pedigree. But Prashant Veer (0), Mhatre (7), Overton (3) bring virtually none', group: 'structure' },
+      // Overall
+      { cat: 'Overall', rating: 5.8, metric: '', note: 'Phase performance (avg 5.4) offset by structural depth where Samson and Noor Ahmad carry disproportionate weight. The widest peak-to-valley gap in franchise history. A team in transition, not yet in contention.' }
+    ],
+    boldTake: {
+      claim: 'Noor Ahmad, not Ruturaj Gaikwad, is the most important player in CSK\'s squad.',
+      argument: 'Gaikwad is the captain with 1,295 runs at 145.3 SR (891 balls, HIGH). But take him out and CSK still have Samson (151.0 SR, 780 balls), Dube (151.1 SR, 775 balls), and Brevis (159.8 SR, 184 balls). The batting reshuffles. Take Noor Ahmad out and the 7.90 middle-overs economy across 102 overs is irreplaceable. Rahul Chahar (8.01 econ) is a backup, not a substitute — his wicket-taking rate is roughly half. Without Noor Ahmad, death bowling loses its only sub-8.0 option. The entire bowling strategy evaporates. His 48 wickets in 37 matches (1.3 per match) is among the highest for any spinner in the league. CSK\'s season rises and falls with a 20-year-old from Afghanistan.'
+    },
+    keysToVictory: [
+      {
+        title: 'Noor Ahmad Must Bowl 40+ Overs Across the Tournament',
+        text: 'CSK\'s bowling strategy collapses without him. His 7.90 middle-overs economy and 7.65 death economy are the twin pillars. If he bowls fewer than 3.5 overs per match due to injury or rest, middle-overs economy could regress by 0.5-1.0 RPO based on Chahar\'s 8.01 as replacement. Workload management is non-negotiable.'
+      },
+      {
+        title: 'The Powerplay Must Improve by 8+ SR Points',
+        text: 'CSK\'s 137.2 PP SR in 2025 was 9.1 below league average (146.3). Samson (124.1 PP SR career) is not a natural PP aggressor, and Mhatre\'s 189.0 SR is from 127 balls. The new pair needs to push PP SR above 145. If they can\'t, CSK start every innings at a deficit the middle and death overs can\'t consistently compensate for.'
+      },
+      {
+        title: 'Dhoni\'s Role Must Be Defined and Protected',
+        text: 'Dhoni at 43 cannot bat through an innings. His middle-overs dot rate (39.6%) and spin SR (114) make him a liability in overs 7-15. His death SR (176.5 career, 183.0 at Chepauk) makes him an asset in overs 16-20. Bat him #7, face 10-15 balls, hit at 170+ SR. Any deviation risks exposing weaknesses at the expense of strengths.'
+      },
+      {
+        title: 'Overseas Slot Management Must Balance Risk and Reward',
+        text: 'CSK have 8 overseas players, can play 4. Brevis, Noor Ahmad, and Ellis should be locked in. The fourth slot — Overton (14.0 econ in 6 IPL overs), Henry (1 IPL wicket), Hosein (7.0 cross-tournament econ), or Foulkes (uncapped IPL) — requires early auditions and commitment by match 5.'
+      }
+    ],
+    scoutingReport: {
+      identity: 'Spin-anchored, transition-mode. CSK\'s game plan is to survive the powerplay, control the middle overs through Noor Ahmad\'s wrist-spin, and exploit the death via Samson, Dube, and Dhoni\'s finishing. Defensive-by-design: restrict, accumulate, finish.',
+      strengths: [
+        'Middle-overs bowling (Noor Ahmad at 7.90 economy, 102 overs, HIGH) is elite and Chepauk-optimized',
+        'Death-overs batting depth (Samson 191.7 SR / 407 balls, Dhoni 176.5 / 1965 balls, Dube 170.2 / 372 balls)',
+        'Chepauk\'s low-scoring conditions (7.47 mid RPO vs 8.89 league) amplify the bowling attack',
+        'Gaikwad\'s middle-overs efficiency (24.7% dot rate, 732 balls, HIGH) keeps the scoreboard moving'
+      ],
+      vulnerabilities: [
+        'Powerplay batting (137.2 SR, 2025) is the weakest phase; Samson\'s career PP SR (124.1) won\'t fix it alone',
+        'Off-spin depth effectively absent (2.4/10 rating) — cannot exploit left-handers in middle overs',
+        'Death bowling relies on Khaleel (11.58 death econ, HIGH) who concedes too many runs',
+        'Three players costing 32.40 Cr (Prashant Veer, Kartik Sharma, Samson) have zero or minimal CSK context',
+        'Dhoni\'s decline (-69.0 SR in one season) creates death-overs vulnerability',
+        'Middle-overs batting (131.1 SR, 2025) below league average, dependent on Gaikwad and Dube'
+      ],
+      oppositionBlueprint: 'Attack the powerplay. CSK\'s 137.2 PP SR and 2.1 wickets lost/innings mean early bowling aggression pays off. Bowl off-spin in the middle overs — Gaikwad (125.0 SR) and Dube (118.0 SR) are below league average against off-spinners. Target 180+ if batting first: CSK\'s chasing SR (139.9 vs 150.0 setting) means they are significantly worse batting second. Do not bowl pace to Dhoni at the death. Do not bowl leg-spin to Samson at any point.',
+      matchupTargets: 'Dube\'s off-spin vulnerability (117.98 SR, 89 balls, MEDIUM) is exploitable. Samson\'s LA orthodox weakness (115.1 SR, 86 balls, MEDIUM) is high-confidence. Gaikwad\'s PP SR (128.7) makes him containable early. Dhoni should face zero spin — his 112.8 SR vs leg-spin and 85.7 vs off-spin confirm the vulnerability is real and growing.'
+    },
+    sections: [
+      // -- 1. THE STORY -----------------------------------------------
+      {
+        id: 'story',
+        title: 'The Story',
+        summary: 'From 2023 champions (62.5% win rate) to 2025\'s worst season (28.6%). CSK\'s dynasty ran out of capital, and the response was a radical rebuild: Samson traded in, Jadeja gone, and 28.40 Cr bet on uncapped talent.',
+        blocks: [
+          { type: 'text', content: '<p>The 2025 season was the reckoning CSK had been deferring for three years. A squad that won the title in 2023 on the back of Conway-Gaikwad partnerships and Jadeja-Pathirana bowling spells couldn\'t mask its age any longer. Four wins in 14 matches. A run rate that declined across every phase. And the unmistakable sense that the dynasty had finally exhausted its accumulated capital.</p>' },
+          { type: 'text', content: '<p>The numbers tell the story in three phases. Powerplay batting SR fell from 148.3 in 2023 to 137.2 in 2025, with wickets lost per innings climbing from 0.6 to 2.1. The middle overs regressed to 131.1 SR (batting) and 8.74 economy (bowling). Only the death overs retained any semblance of competitiveness, but even there, the batting SR dropped from 180.4 in 2024 to 155.8 in 2025.</p>' },
+          { type: 'text', content: '<p>The off-season response was radical. Ravindra Jadeja, Devon Conway, Matheesha Pathirana, Tushar Deshpande, and Daryl Mitchell are all gone. The replacement strategy involved two headline moves: trading for Sanju Samson (18.00 Cr) from Rajasthan Royals and retaining Noor Ahmad (10.00 Cr), the Afghan wrist spinner who took 24 wickets in 2025 at 7.95 economy. Around them, CSK invested 28.40 Cr in uncapped talent (Prashant Veer and Kartik Sharma), gambles that suggest the franchise is betting on the future even as it honours the past.</p>' },
+          { type: 'text', content: '<p>The central question for 2026 is whether CSK can function as a transitional franchise. Dhoni at 43, Samson replacing a legend, and a bowling attack pivoting on a 20-year-old. If it works, it\'s the most impressive franchise reinvention in IPL history. If it doesn\'t, the dynasty\'s final chapter will be shorter than anyone in Chennai wants to imagine.</p>' }
+        ]
+      },
+
+      // -- 2. OFF-SEASON CHANGES --------------------------------------
+      {
+        id: 'offseason',
+        title: 'Off-Season Changes',
+        summary: 'Gaikwad continues as captain. Jadeja, Conway, Pathirana, Deshpande, Mitchell all depart. Samson traded in (18.00 Cr). 28.40 Cr gambled on two uncapped players.',
+        blocks: [
+          { type: 'subheading', content: 'Captaincy' },
+          { type: 'text', content: '<p>Ruturaj Gaikwad (18.00 Cr, retained) continues as captain. His 2025 SR improved to 148.8 from 137.2, even as the team collapsed around him. The challenge in 2026 is managing not just a cricket team but a franchise in generational transition.</p>' },
+          { type: 'subheading', content: 'Key Departures (from 2025 squad)' },
+          { type: 'text', content: '<p>Ravindra Jadeja (to GT), Devon Conway (to DC), Matheesha Pathirana (to SRH), Tushar Deshpande (released), Daryl Mitchell (to PBKS), Rachin Ravindra (to MI). The scale of departure is staggering. Jadeja was CSK\'s all-phase utility player: 301 runs at 131.4 SR and 20 wickets at 7.45 economy across the 2023 season alone. Pathirana was the death-overs enforcer. Conway was the powerplay anchor.</p>' },
+          { type: 'subheading', content: 'Key Retentions' },
+          { type: 'text', content: '<p>CSK retained 11 players: Gaikwad (18.00 Cr), Dube (12.00 Cr), Noor Ahmad (10.00 Cr), Khaleel Ahmed (4.80 Cr), Dhoni (4.00 Cr), Kamboj (3.40 Cr), Brevis (2.20 Cr), Gurjapneet (2.20 Cr), Ellis (2.00 Cr), Overton (1.50 Cr), Mhatre (0.30 Cr). Priority: bowling core intact, Dube and Gaikwad as batting spine.</p>' },
+          { type: 'subheading', content: 'What\'s Structurally Different from 2025' },
+          { type: 'text', content: '<p>Two fundamental shifts. First, Pathirana\'s pace replaced by Ellis and Overton while Noor Ahmad expands as primary wicket-taker. Second, Samson replaces Conway as WK-batter and the top-3 run contribution dropped from 64.5% (2023) to 43.4% (2025). The squad is deeper but less experienced than any CSK team in memory.</p>' }
+        ]
+      },
+
+      // -- 3. AUCTION STRATEGY ----------------------------------------
+      {
+        id: 'auctionStrategy',
+        title: 'Auction Strategy',
+        summary: 'Samson traded in (18.00 Cr). Prashant Veer (14.20 Cr) and Kartik Sharma (14.20 Cr) are the biggest uncapped gambles in IPL 2026. Supporting buys total 5.60 Cr.',
+        blocks: [
+          { type: 'text', content: '<p>CSK\'s auction was a study in calculated aggression. The headline buys were Prashant Veer (14.20 Cr, uncapped LA orthodox AR) and Kartik Sharma (14.20 Cr, uncapped WK). The trade for Sanju Samson (18.00 Cr) from RR was the transformational move.</p>' },
+          { type: 'subheading', content: 'Direct XII Impact' },
+          { type: 'text', content: '<p><strong>Sanju Samson (18.00 Cr, traded)</strong> changes everything. 151.0 SR across 780 balls since 2023 (HIGH). 181.7 SR against leg-spin (93 balls, MEDIUM). 191.7 death SR (407 balls, MEDIUM). He replaces Conway at the top and Dhoni behind the stumps in the long-term plan.</p>' },
+          { type: 'text', content: '<p><strong>Prashant Veer (14.20 Cr)</strong> is the biggest auction gamble in IPL 2026. Zero IPL overs. Zero IPL batting balls. SMAT economy of 2.3 (18 balls, LOW) is the only data point. CSK are paying for potential, not production.</p>' },
+          { type: 'subheading', content: 'Depth Buys' },
+          {
+            type: 'table',
+            headers: ['Buy', 'Price', 'Role in Squad', 'XII Impact vs Depth'],
+            rows: [
+              ['Rahul Chahar (IND)', '1.80 Cr', 'Middle-overs leg-spin backup', 'Rotation XII — 7.8 mid econ (239 ov, HIGH)'],
+              ['Matt Henry (NZ)', '1.20 Cr', 'Overseas pace backup', 'Pure depth — 8.0 cross-tournament econ'],
+              ['Matthew Short (AUS)', '1.00 Cr', 'Batting AR + part-time off-spin', 'Bench depth — 127.2 IPL SR (92 balls, LOW)'],
+              ['Sarfaraz Khan (IND)', '0.50 Cr', 'Middle-order batting insurance', 'Pure depth — 86.9 IPL SR (61 balls, LOW)'],
+              ['Akeal Hosein (WI)', '0.40 Cr', 'LA orthodox spin depth', 'Depth — 7.0 cross-tournament econ'],
+              ['Zak Foulkes (AUS)', '0.40 Cr', 'Fast bowling AR depth', 'Development — 8.1 T20 econ (59 matches)']
+            ]
+          },
+          { type: 'text', content: '<p><strong>What the Auction Tells You:</strong> CSK are building two teams simultaneously. The 2026 XI is designed to compete now. The 2027+ squad (Prashant Veer, Kartik Sharma, Mhatre, Gurjapneet) is designed to thrive after the transition. A franchise that has always thought in cycles, not seasons.</p>' }
+        ]
+      },
+
+      // -- 4. FULL SQUAD TABLE ----------------------------------------
+      {
+        id: 'squad',
+        title: 'Full Squad',
+        summary: '25-player squad at 113.60 Cr total salary. 4 overseas slots in the predicted XII (Brevis, Overton, Ellis, Noor Ahmad).',
+        blocks: [
+          { type: 'subheading', content: 'Predicted XII' },
+          {
+            type: 'table',
+            headers: ['#', 'Name', 'Role', 'Price (Cr)', 'Nat', 'Key Stat (IPL since 2023)', 'Founder Notes'],
+            rows: [
+              ['1', 'Sanju Samson', 'Wicketkeeper', '18.00', 'IND', '151.0 SR (780 balls, HIGH)', ''],
+              ['2', 'Ayush Mhatre', 'Batter', '0.30', 'IND', '189.0 SR (127 balls, LOW)', ''],
+              ['3', 'Ruturaj Gaikwad (c)', 'Batter', '18.00', 'IND', '145.3 SR (891 balls, HIGH)', ''],
+              ['4', 'Dewald Brevis', 'Batter', '2.20', 'RSA', '159.8 SR (184 balls, LOW)', ''],
+              ['5', 'Shivam Dube', 'All-rounder', '12.00', 'IND', '151.1 SR (775 balls, HIGH)', ''],
+              ['6', 'Prashant Veer', 'All-rounder', '14.20', 'IND', 'Uncapped IPL, LA Orthodox AR', ''],
+              ['7', 'MS Dhoni', 'Wicketkeeper', '4.00', 'IND', '170.1 SR (271 balls, HIGH)', ''],
+              ['8', 'Jamie Overton', 'All-rounder', '1.50', 'ENG', '8.9 cross-tournament econ', ''],
+              ['9', 'Nathan Ellis', 'Pace Bowler', '2.00', 'AUS', '8.8 econ (46 ov, MEDIUM)', ''],
+              ['10', 'Noor Ahmad', 'Spinner', '10.00', 'AFG', '8.24 econ / 48 wkts (132 ov, HIGH)', ''],
+              ['11', 'Khaleel Ahmed', 'Pace Bowler', '4.80', 'IND', '9.69 econ / 41 wkts (130 ov, HIGH)', ''],
+              ['IP', 'Anshul Kamboj', 'Pace Bowler', '3.40', 'IND', '9.14 econ / 10 wkts (31.5 ov, MEDIUM)', '']
+            ],
+            caption: 'Predicted XII'
+          },
+          { type: 'subheading', content: 'Bench' },
+          {
+            type: 'table',
+            headers: ['#', 'Name', 'Role', 'Price (Cr)', 'Nat', 'Key Stat', 'Founder Notes'],
+            rows: [
+              ['13', 'Kartik Sharma', 'Wicketkeeper', '14.20', 'IND', 'Uncapped IPL; SMAT 138.8 SR', ''],
+              ['14', 'Rahul Chahar', 'Bowler (leg-spin)', '1.80', 'IND', '8.29 econ / 18 wkts (82 ov, MEDIUM)', ''],
+              ['15', 'Matt Henry', 'Bowler', '1.20', 'NZ', '8.0 cross-tournament econ', ''],
+              ['16', 'Matthew Short', 'All-rounder', '1.00', 'AUS', '127.2 SR (92 balls, LOW)', ''],
+              ['17', 'Sarfaraz Khan', 'Batter', '0.50', 'IND', '86.9 SR (61 balls, LOW)', ''],
+              ['18', 'Akeal Hosein', 'All-rounder', '0.40', 'WI', '7.0 cross-tournament econ', ''],
+              ['19', 'Zak Foulkes', 'All-rounder', '0.40', 'AUS', '8.1 T20 econ (59 matches)', ''],
+              ['20', 'Aman Khan', 'All-rounder', '0.30', 'IND', '108.9 SR (101 balls, LOW)', ''],
+              ['21', 'Urvil Patel', 'Wicketkeeper', '0.30', 'IND', '212.5 SR (32 balls, LOW)', ''],
+              ['22', 'Ramakrishna Ghosh', 'All-rounder', '0.30', 'IND', 'Uncapped IPL', ''],
+              ['23', 'Mukesh Choudhary', 'Bowler', '0.30', 'IND', '14.0 econ (7 overs, LOW)', ''],
+              ['24', 'Shreyas Gopal', 'All-rounder', '0.30', 'IND', '7.7 cross-tournament econ', ''],
+              ['25', 'Gurjapneet Singh', 'Bowler', '2.20', 'IND', 'Uncapped IPL, LF depth', '']
+            ],
+            caption: 'Bench'
+          },
+          { type: 'text', content: '<p><strong>Total squad salary:</strong> 113.60 Cr | <strong>Overseas slots in XII:</strong> 4 (Brevis, Overton, Ellis, Noor Ahmad)</p>' }
+        ]
+      },
+
+      // -- 5. TEAM STYLE ANALYSIS -------------------------------------
+      {
+        id: 'teamStyle',
+        title: 'Team Style Analysis',
+        summary: 'CSK\'s identity has been in free fall. Powerplay batting SR fell from 148.3 (2023) to 137.2 (2025). Middle-overs bowling economy rose from 7.65 to 8.74. Only Noor Ahmad prevented total collapse.',
+        blocks: [
+          { type: 'text', content: '<p>CSK\'s identity has been in free fall. The three-season trajectory tells a story of a franchise losing its grip on the formula that made it the most consistent team in IPL history.</p>' },
+          { type: 'subheading', content: '2023: The Last Hurrah' },
+          {
+            type: 'table',
+            headers: ['Phase', 'Batting SR', 'Bowling Economy'],
+            rows: [
+              ['Powerplay', '148.3', '8.77'],
+              ['Middle', '143.0', '7.65'],
+              ['Death', '165.2', '10.15']
+            ],
+            caption: '2023 Phase Profile'
+          },
+          { type: 'text', content: '<p>In 2023, CSK won the title with a balanced attack. The 7.65 middle-overs bowling economy was elite, driven by Jadeja (7.45 econ) and Pathirana. The batting was top-heavy (64.5% from top 3) but functional.</p>' },
+          { type: 'subheading', content: '2025: The Reckoning' },
+          {
+            type: 'table',
+            headers: ['Phase', 'Batting SR', 'Bowling Economy', 'Delta from 2023'],
+            rows: [
+              ['Powerplay', '137.2', '9.58', 'Bat: -11.1 / Bowl: +0.81'],
+              ['Middle', '131.1', '8.74', 'Bat: -11.9 / Bowl: +1.09'],
+              ['Death', '155.8', '10.92', 'Bat: -9.4 / Bowl: +0.77']
+            ],
+            caption: '2025 Phase Profile'
+          },
+          { type: 'text', content: '<p>Every number got worse across two seasons. Powerplay bowling economy spiked from 8.77 to 9.58. Death batting SR cratered from 165.2 to 155.8. Only Noor Ahmad (24 wickets at 7.95) provided genuine quality in 2025.</p>' },
+          { type: 'subheading', content: 'Squad-Building Philosophy' },
+          { type: 'text', content: '<p>CSK have gone from experienced Indian all-rounders (Jadeja, Bravo) to youth and overseas gambles. Nine all-rounders in the squad suggest flexibility, but five have minimal or zero IPL data. The philosophy: rebuild with controllable investments while Dhoni\'s presence provides institutional stability. The culture can sustain a rebuild. The 2025 record says the jury is still out.</p>' }
+        ]
+      },
+
+      // -- 6. TEAM BATTING PROFILE ------------------------------------
+      {
+        id: 'battingProfile',
+        title: 'Team Batting Profile',
+        summary: 'Samson destroys leg-spin (181.7 SR, +40.6 vs league). Dube and Gaikwad struggle against off-spin (118.0 and 125.0 SR). CSK sit below league average across all three batting phases.',
+        blocks: [
+          { type: 'text', content: '<p>CSK\'s batting profile reveals a squad built around pace exploitation and spin dominance from specific individuals. The aggregate numbers mask significant individual variation.</p>' },
+          { type: 'subheading', content: 'Key Batter vs Bowling Types (Since 2023)' },
+          {
+            type: 'table',
+            headers: ['Bowling Type', 'Samson SR', 'Gaikwad SR', 'Dube SR', 'League SR'],
+            rows: [
+              ['Fast-Medium', '165.6 (189b, MED)', '132.6 (239b, HIGH)', '167.1 (173b, MED)', '144.9'],
+              ['Leg-spin', '181.7 (93b, MED)', '134.4 (90b, MED)', '166.3 (92b, MED)', '141.1'],
+              ['Off-spin', '150.0 (22b, LOW)', '125.0 (40b, LOW)', '118.0 (89b, MED)', '132.3'],
+              ['LA Orthodox', '115.1 (86b, MED)', '171.0 (62b, MED)', '193.8 (16b, LOW)', '138.3'],
+              ['Wrist-spin', '134.6 (26b, LOW)', '166.7 (27b, LOW)', '66.7 (12b, LOW)', '124.7']
+            ]
+          },
+          { type: 'text', content: '<p>The leg-spin matchup is CSK\'s biggest batting weapon. Samson at 181.7 SR and Dube at 166.3 SR means opposition captains bowling leg-spin to either batter are handing CSK free runs. Against off-spin, the picture inverts: Dube at 118.0 (89 balls, MEDIUM) is the exploitable weakness. Gaikwad\'s 171.0 vs LA orthodox (62 balls, MEDIUM) is a useful counter-weapon at Chepauk where left-arm spinners thrive.</p>' },
+          { type: 'subheading', content: 'Phase-Wise Batting (Since 2023)' },
+          {
+            type: 'table',
+            headers: ['Phase', 'CSK SR', 'League SR', 'Diff'],
+            rows: [
+              ['Powerplay', '141.5', '146.3', '-4.8'],
+              ['Middle', '135.3', '140.3', '-5.0'],
+              ['Death', '166.2', '170.2', '-4.0']
+            ]
+          },
+          { type: 'text', content: '<p>CSK sit below the league average across all three phases. The powerplay deficit (-4.8) reflects the loss of Conway. The middle overs (-5.0) are the weakest link. The death overs (-4.0) are dragged by Dhoni\'s 2025 decline, though Samson\'s 191.7 death SR and Dube\'s 170.2 provide genuine firepower.</p>' },
+          { type: 'subheading', content: 'Innings Context: Setting vs Chasing' },
+          {
+            type: 'table',
+            headers: ['Phase', 'Setting SR', 'Chasing SR', 'Delta'],
+            rows: [
+              ['Powerplay', '143.1', '139.7', '-3.4'],
+              ['Middle', '140.6', '130.6', '-10.0'],
+              ['Death', '171.1', '161.2', '-9.9'],
+              ['Overall', '150.0', '139.9', '-10.1']
+            ]
+          },
+          { type: 'callout', content: 'CSK are significantly better when batting first (+10.1 SR delta). Middle-overs chasing SR of 130.6 is 10 points below setting. This is a team that should bat first when given the option.' }
+        ]
+      },
+
+      // -- 7. VENUE ANALYSIS ------------------------------------------
+      {
+        id: 'venue',
+        title: 'Venue Analysis',
+        summary: 'Chepauk is a low-scoring ground across all phases. Middle-overs RPO (7.47) is 1.42 below league average. Noor Ahmad\'s 7.96 economy at the venue with 13 wickets is perfectly calibrated.',
+        blocks: [
+          { type: 'text', content: '<p>Chepauk\'s reputation as a spin paradise is well earned. The data since 2023 (24 matches) tells a story of a venue that suffocates batting through the middle overs.</p>' },
+          {
+            type: 'table',
+            headers: ['Phase', 'Chepauk RPO', 'League RPO', 'Delta'],
+            rows: [
+              ['Powerplay', '8.74', '9.39', '-0.65'],
+              ['Middle', '7.47', '8.89', '-1.42'],
+              ['Death', '9.90', '10.89', '-0.99']
+            ]
+          },
+          { type: 'text', content: '<p>Chepauk is low-scoring across all three phases. The middle overs diverge most dramatically: 7.47 RPO vs 8.89 league, a 1.42-run deficit. Middle-overs boundary percentage (11.2%) is 6 points below league (17.3%). This is where Noor Ahmad thrives: 7.96 economy at Chepauk with 13 wickets in 7 matches.</p>' },
+          { type: 'text', content: '<p><strong>CSK home record since 2023:</strong> 11-10 (52.4%). Below franchise standard. Average batting score at Chepauk (167.2) confirms this is a bowler\'s ground where 170 is often enough.</p>' },
+          { type: 'callout', content: 'CSK\'s bowling attack is built for Chepauk. The batting order needs to accept that 170 is often enough at this venue. The off-spin gap (2.4/10 depth) means CSK can\'t fully weaponize their own home ground\'s spin-friendly conditions.' }
+        ]
+      },
+
+      // -- 8. SCHEDULE ANALYSIS (placeholder) -------------------------
+      {
+        id: 'schedule',
+        title: 'Schedule Analysis',
+        summary: 'IPL 2026 schedule has not been released. Placeholder retained per editorial plan.',
+        blocks: [
+          { type: 'callout', content: 'Status: IPL 2026 schedule has not been released.' },
+          { type: 'text', content: '<p>When the schedule drops, this section will cover: home/away split, cluster analysis, rest days (relevant for Dhoni at 43 and Noor Ahmad\'s workload), travel burden, and early vs late difficulty.</p>' },
+          { type: 'text', content: '<p><em>This section will be populated upon schedule release. Placeholder retained per editorial plan.</em></p>' }
+        ]
+      },
+
+      // -- 9. HEAD-TO-HEAD RECORD -------------------------------------
+      {
+        id: 'headToHead',
+        title: 'Head-to-Head Record',
+        summary: 'All-time: 131-100 (56.7%). CSK dominate SRH (68.2%), KKR (64.5%), and RCB (61.8%). MI is the kryptonite (46.2%). Samson switching from RR to CSK reshapes multiple matchups.',
+        blocks: [
+          { type: 'subheading', content: 'All-Time IPL Record' },
+          {
+            type: 'table',
+            headers: ['Opponent', 'Record', 'Win %', 'Key Pattern'],
+            rows: [
+              ['SRH', '15-7', '68.2%', 'CSK\'s most dominant all-time matchup'],
+              ['KKR', '20-11', '64.5%', 'Historically dominant; KKR\'s spin may shift this'],
+              ['RCB', '21-13', '61.8%', 'The original rivalry. CSK\'s comfort zone'],
+              ['DC', '19-12', '61.3%', 'CSK\'s second-best record against a major rival'],
+              ['RR', '16-15', '51.6%', 'Tight matches; Samson switching sides adds intrigue'],
+              ['PBKS', '16-15', '50.0%', 'Coin flip. No exploitable pattern'],
+              ['GT', '4-4', '50.0%', 'Small sample, too early to read'],
+              ['MI', '18-21', '46.2%', 'CSK\'s worst record. Wankhede is the villain'],
+              ['LSG', '2-3', '33.3%', 'Small sample, but CSK have struggled']
+            ]
+          },
+          { type: 'text', content: '<p><strong>All-Time: 131-100 (56.7% win rate)</strong></p>' },
+          { type: 'text', content: '<p>The SRH dominance (68.2%) and KKR record (64.5%) are the franchise\'s calling cards. The MI problem (46.2%) is the longest-running antagonism in the IPL. With Samson now playing for CSK instead of against them, every head-to-head involving his impact needs recalibration.</p>' }
+        ]
+      },
+
+      // -- 10. PLAYERS TO WATCH ----------------------------------------
+      {
+        id: 'playersToWatch',
+        title: 'Players to Watch',
+        summary: 'Four spotlight players: Noor Ahmad (the 20-year-old carrying the bowling), Sanju Samson (the successor who must not fail), MS Dhoni (the last dance), and Shivam Dube (the middle-overs anchor).',
+        blocks: [
+          { type: 'subheading', content: 'Noor Ahmad: The 20-Year-Old Carrying the Bowling' },
+          { type: 'text', content: '<p>48 IPL wickets at 8.24 economy across 132 overs (HIGH). Middle-overs economy of 7.90 (102 ov, HIGH). Death economy of 7.65 (21.2 ov, HIGH) with 42.5% dot ball rate. Against KKR: 5.90 economy with 7 wickets in 60 balls (MEDIUM). The workload concern is real: 132 overs in two seasons is heavy for a 20-year-old. CSK\'s entire bowling strategy pivots on his left shoulder.</p>' },
+          { type: 'subheading', content: 'Sanju Samson: The Successor Who Must Not Fail' },
+          { type: 'text', content: '<p>151.0 SR across 780 balls (HIGH). 191.7 death SR (407 balls, MEDIUM). 181.7 vs leg-spin (93 balls, MEDIUM). Pressure rating: PRESSURE_PROOF (4.7% SR uplift, 223 balls, HIGH). 201 SR in EXTREME pressure (73 balls, MEDIUM). The question is not whether Samson is good enough. It is whether the franchise can deploy him to maximize his strengths while he absorbs the weight of replacing Dhoni.</p>' },
+          { type: 'subheading', content: 'MS Dhoni: The Last Dance' },
+          { type: 'text', content: '<p>170.1 career SR (271 balls since 2023, HIGH). Trajectory: 196.3 SR in 2024, 127.3 in 2025. CLUTCH pressure rating (12.4% SR uplift, 110 balls, HIGH confidence). 183.0 death SR at Chepauk. At 43, every match is a potential farewell. The coaching staff\'s challenge is deploying him where his declining attributes matter least and his psychological presence matters most: overs 16-20, game on the line.</p>' },
+          { type: 'subheading', content: 'Shivam Dube: The Middle-Overs Anchor' },
+          { type: 'text', content: '<p>151.1 SR across 775 balls (HIGH). Middle-overs: 136.3 SR (873 balls, HIGH) with 1,190 runs. 166.3 vs leg-spin (92 balls, MEDIUM). 170.2 death SR (372 balls, MEDIUM). The concern: 2025 SR dropped to 123.5 (-29.4 from 2024). L10 delta of -11.5. If Dube returns to 150+ SR, CSK\'s middle order functions. If the slump continues, the batting collapses become structural.</p>' }
+        ]
+      },
+
+      // -- 11. PLAYERS WHO NEED TO STEP UP ----------------------------
+      {
+        id: 'playersStepUp',
+        title: 'Players Who Need to Step Up',
+        summary: 'Three development priorities: Ayush Mhatre (powerplay spark, 189.0 SR from 127 balls), Dewald Brevis (middle-order X-factor, 159.8 SR from 184 balls), Nathan Ellis (death-overs solution, 10.47 death econ).',
+        blocks: [
+          { type: 'subheading', content: '1. Ayush Mhatre: The Uncapped Powerplay Spark' },
+          { type: 'text', content: '<p>CSK\'s PP SR of 137.2 (2025) is 9 points below league. Mhatre\'s 189.0 SR (127 balls, LOW) demands attention. 257.6 SR against fast bowling (59 balls, MEDIUM) is startling. But 128.3 SR vs fast-medium (46 balls, LOW) suggests variation matters. The step-up: survive the PP consistently enough to push team PP SR above 145.</p>' },
+          { type: 'subheading', content: '2. Dewald Brevis: Unlocking the Middle-Order X-Factor' },
+          { type: 'text', content: '<p>294 runs at 159.8 SR across 9 IPL innings (LOW). 204.0 SR vs fast-medium (50 balls, MEDIUM). 155.1 middle SR (207 balls, MEDIUM). Step-up: play 12+ matches and convert franchise-league form (SA20: 148.8, CSA: 149.0) into sustained IPL production. At 22, the talent is unquestioned. The consistency is not.</p>' },
+          { type: 'subheading', content: '3. Nathan Ellis: Becoming the Death-Overs Solution' },
+          { type: 'text', content: '<p>10.47 death economy (17 overs, MEDIUM) with 6 wickets. 7.17 PP economy (12 ov, MEDIUM). 7.47 middle economy (17 ov, MEDIUM). The most phase-flexible pacer in the squad. Step-up: take over from Pathirana as designated death specialist and deliver 3 overs at under 10.0 economy at the death across 14 matches.</p>' }
+        ]
+      },
+
+      // -- 12. RECENT FORM --------------------------------------------
+      {
+        id: 'recentForm',
+        title: 'Recent Form',
+        summary: 'Dube (-11.5 SR delta) and Dhoni (-8.9) in steep decline. Gaikwad moderate dip (-5.2). Noor Ahmad stable-elite (+0.16). Khaleel concerning (+1.68 econ delta).',
+        blocks: [
+          { type: 'subheading', content: 'Batters (IPL Recent Form)' },
+          {
+            type: 'table',
+            headers: ['Player', 'L10 SR', 'Career SR', 'SR Delta', 'Trend'],
+            rows: [
+              ['Ruturaj Gaikwad', '133.0', '145.3', '-5.2', 'Moderate dip'],
+              ['Sanju Samson', '139.2', '151.0', '-0.5', 'Stable'],
+              ['Shivam Dube', '132.6', '151.1', '-11.5', 'Steep decline'],
+              ['Dewald Brevis', '152.5', '159.8', '-0.7', 'Stable'],
+              ['MS Dhoni', '129.3', '170.1', '-8.9', 'Steep decline'],
+              ['Ayush Mhatre', '189.0', '189.0', '0.0', 'Insufficient history']
+            ]
+          },
+          { type: 'text', content: '<p>Two batters in steep decline: Dhoni (-8.9) and Dube (-11.5). Dhoni\'s L20 of 155.2 suggests the decline is concentrated in late 2025. Dube\'s is more structurally worrying at 31. If both return to career averages, CSK gain ~15-20 SR points in death overs alone.</p>' },
+          { type: 'subheading', content: 'Bowlers (IPL Recent Form)' },
+          {
+            type: 'table',
+            headers: ['Player', 'L10 Econ', 'Career Econ', 'Delta', 'Trend'],
+            rows: [
+              ['Noor Ahmad', '8.40', '8.24', '+0.16', 'Stable-elite'],
+              ['Khaleel Ahmed', '10.83', '9.69', '+1.68', 'Concerning'],
+              ['Nathan Ellis', '8.90', '8.80', '+0.12', 'Stable'],
+              ['Anshul Kamboj', '8.91', '9.14', '-0.23', 'Improving'],
+              ['Rahul Chahar', '9.03', '8.29', '+1.22', 'Economy pressure']
+            ]
+          },
+          { type: 'text', content: '<p><strong>Khaleel is the red flag.</strong> L10 economy of 10.83 (+1.68 from career) driven by 11.58 death economy (31 ov, HIGH). He takes wickets (18 at death) but at ruinous cost. Noor Ahmad\'s stability (+0.16) is the bowling anchor. Kamboj is the only bowler trending right (-0.23).</p>' },
+          { type: 'text', content: '<p><em><strong>Data Coverage:</strong> Statistics from Cricsheet T20 archive (9,496 matches through Jan 31, 2026). IPL (2008-2025), BBL, ILT20, SMAT, CPL, PSL, The Hundred, SA20, Super Smash, and international T20s. Cross-tournament intelligence uses weighted composite model.</em></p>' }
+        ]
+      },
+
+      // -- 13. MOMENTUM & SCORING TENDENCIES --------------------------
+      {
+        id: 'momentum',
+        title: 'Momentum & Scoring Tendencies',
+        summary: 'Gaikwad is the most efficient rotator (24.7% mid dot rate, -5.9 vs league). Dhoni\'s 39.6% middle dot rate reflects spin vulnerability. Samson\'s death boundary rate (26.8%) signals finishing capability.',
+        blocks: [
+          { type: 'subheading', content: 'Dot Ball Discipline' },
+          {
+            type: 'table',
+            headers: ['Player', 'PP Dot %', 'League PP', 'Mid Dot %', 'League Mid', 'Death Dot %', 'League Death'],
+            rows: [
+              ['Gaikwad', '43.4%', '44.1%', '24.7%', '30.6%', '25.3%', '30.3%'],
+              ['Samson', '47.9%', '44.1%', '28.5%', '30.6%', '24.3%', '30.3%'],
+              ['Dube', '\u2014', '\u2014', '34.6%', '30.6%', '31.7%', '30.3%'],
+              ['Dhoni', '\u2014', '\u2014', '39.6%', '30.6%', '27.0%', '30.3%']
+            ]
+          },
+          { type: 'text', content: '<p>Gaikwad is the most efficient rotator: 24.7% middle-overs dot rate, 5.9 points below league. He never lets the scoreboard stall. Samson\'s PP dot rate (47.9%) is 3.8 above league, suggesting he takes time to settle. Dhoni\'s 39.6% middle dot rate \u2014 9 points above league \u2014 confirms he should face zero spin in overs 7-15.</p>' }
+        ]
+      },
+
+      // -- 14. TACTICAL BLUEPRINT -------------------------------------
+      {
+        id: 'tactical',
+        title: 'Tactical Blueprint',
+        summary: 'Gaikwad drops from opener to #3. Samson-Mhatre open. Noor Ahmad bowls 77% of overs in middle. Khaleel opens, Ellis flexes across phases. Dhoni bats #7 as pure death hitter.',
+        blocks: [
+          { type: 'subheading', content: 'Batting Order: The Founder\'s XII' },
+          {
+            type: 'table',
+            headers: ['Batter', 'Position', 'Role', 'Entry Profile'],
+            rows: [
+              ['Sanju Samson', '#1', 'WK-batter, opener', 'Opens every innings'],
+              ['Ayush Mhatre', '#2', 'Aggressive opener', 'PP spark. 189.0 SR attacks from ball 1'],
+              ['Ruturaj Gaikwad (c)', '#3', 'Anchor', 'Drops from opening to #3. Controls middle overs'],
+              ['Dewald Brevis', '#4', 'Middle-order accelerator', 'Enters overs 7-10. 155.1 mid SR'],
+              ['Shivam Dube', '#5', 'Middle/death finisher', '136.3 mid SR, 170.2 death SR'],
+              ['Prashant Veer', '#6', 'All-rounder', 'Uncapped. Left-arm orthodox with bat'],
+              ['MS Dhoni', '#7', 'Death finisher', 'Pure death hitter. Overs 15-20 only']
+            ]
+          },
+          { type: 'text', content: '<p>The structural shift: Gaikwad at #3 allows Samson-Mhatre to set the PP tone. Whether Gaikwad replicates his 142.5 middle-overs SR at #3 is the key tactical question.</p>' },
+          { type: 'subheading', content: 'Bowling Deployment' },
+          {
+            type: 'table',
+            headers: ['Phase', 'Primary Bowlers', 'Key Pattern'],
+            rows: [
+              ['Powerplay (1-6)', 'Khaleel + Kamboj/Ellis', '90%+ pace. Khaleel at 8.45 PP econ (86 ov, HIGH)'],
+              ['Middle (7-15)', 'Noor Ahmad + Chahar', '65-75% spin. Noor at 7.90 mid econ (102 ov, HIGH)'],
+              ['Death (16-20)', 'Khaleel + Ellis + Noor flex', 'Noor at 7.65 death econ provides spin option']
+            ]
+          },
+          { type: 'text', content: '<p>Noor Ahmad enters at over 7 and doesn\'t leave until over 15 at earliest. Chahar provides secondary spin. Khaleel returns at the death alongside Ellis. Noor saves one over for 19 or 20 if game demands it.</p>' }
+        ]
+      },
+
+      // -- 15. DATA INSIGHTS ------------------------------------------
+      {
+        id: 'dataInsights',
+        title: 'Interesting Data Insights',
+        summary: 'Five data-driven insights: Samson vs leg-spin weapon (181.7 SR), Noor Ahmad\'s KKR dominance (5.90 econ), Dhoni\'s pace-vs-spin split, Gaikwad\'s hidden efficiency, and the 28.40 Cr gamble nobody can evaluate.',
+        blocks: [
+          { type: 'subheading', content: '1. Samson Against Leg-Spin Is a Franchise-Altering Weapon' },
+          { type: 'text', content: '<p>181.7 SR against leg-spin across 93 balls (MEDIUM). 40.6 points above league average. 2 dismissals in 93 balls, averaging 84.5. At Chepauk, where opposition teams deploy wrist-spinners, having a batter who actively targets leg-spin is a genuine tactical advantage CSK never had before. Every captain bowling leg-spin in the powerplay at Chepauk should know: Samson is waiting.</p>' },
+          { type: 'subheading', content: '2. Noor Ahmad\'s KKR Record Is Borderline Unfair' },
+          { type: 'text', content: '<p>5.90 economy with 7 wickets in 60 balls (MEDIUM) against KKR. 45.0% dot ball rate against KKR \u2014 his highest against any opposition. The aggressive batting approach plays directly into his wrist-spin variations. Small sample, but the pattern is suggestive.</p>' },
+          { type: 'subheading', content: '3. Dhoni\'s Pace vs Spin Split Is the Story of Ageing in Cricket' },
+          { type: 'text', content: '<p>Since 2023: 198.8 SR vs fast (82 balls, MEDIUM), 219.1 vs fast-medium (63 balls, MEDIUM). Against leg-spin: 112.8 (39 balls, LOW). Against off-spin: 85.7 (14 balls, LOW). At 43, bat speed against pace remains extraordinary. Against spin, the overthinking begins. Keeping Dhoni away from overs 7-15 is a necessity, not a luxury.</p>' },
+          { type: 'subheading', content: '4. Gaikwad\'s Middle-Overs Efficiency Is Hiding in Plain Sight' },
+          { type: 'text', content: '<p>24.7% middle-overs dot rate (732 balls, HIGH), 5.9 points below league average (30.6%). The most efficient rotator in the squad. His 142.5 middle-overs SR is adequate, not explosive, but the low dot rate means the scoring never stalls. In a team struggling through the middle overs (131.1 SR in 2025), Gaikwad\'s rotation is worth more than his headline SR suggests.</p>' },
+          { type: 'subheading', content: '5. The 14.20 Cr Gamble Nobody Can Evaluate' },
+          { type: 'text', content: '<p>Prashant Veer and Kartik Sharma cost 28.40 Cr combined. Neither has a single IPL ball to their name. Prashant Veer\'s entire bowling database: 18 balls in SMAT at 2.3 economy. Kartik Sharma\'s batting: 35 runs from 21 IPL balls at a different franchise. Nearly 25% of squad salary on two players with zero proof of IPL viability. In IPL history, no franchise has wagered this much on this little evidence.</p>' }
+        ]
+      }
+    ]
+  },
   KKR: { available: false },
   DC: { available: false },
   PBKS: { available: false },

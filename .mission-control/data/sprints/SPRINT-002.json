@@ -7,7 +7,12 @@
   "epics": [
     "EPIC-018",
     "EPIC-019",
-    "EPIC-020"
+    "EPIC-020",
+    "EPIC-021",
+    "EPIC-022",
+    "EPIC-023",
+    "EPIC-024",
+    "EPIC-025"
   ],
   "tickets": [
     "TKT-205",
@@ -18,13 +23,42 @@
     "TKT-210",
     "TKT-211",
     "TKT-212",
-    "TKT-213",
-    "TKT-214",
     "TKT-215",
     "TKT-216",
     "TKT-217",
     "TKT-218",
-    "TKT-219"
+    "TKT-235",
+    "TKT-236",
+    "TKT-237",
+    "TKT-238",
+    "TKT-239",
+    "TKT-240",
+    "TKT-241",
+    "TKT-242",
+    "TKT-243",
+    "TKT-244",
+    "TKT-245",
+    "TKT-246",
+    "TKT-247",
+    "TKT-248",
+    "TKT-249",
+    "TKT-250",
+    "TKT-251",
+    "TKT-252",
+    "TKT-253",
+    "TKT-254",
+    "TKT-255",
+    "TKT-256",
+    "TKT-257",
+    "TKT-258",
+    "TKT-259",
+    "TKT-260",
+    "TKT-261",
+    "TKT-262",
+    "TKT-263",
+    "TKT-264",
+    "TKT-265",
+    "TKT-266"
   ],
   "llm_budget": {
     "total_tokens": 500000,
@@ -37,8 +71,8 @@
     "completed_points": 0,
     "burndown": []
   },
-  "status": "PLANNED",
-  "description": "Three workstreams: (1) Win Probability ML model for in-match prediction, (2) React-based interactive dashboard to replace static HTML, (3) Enhanced player comparison tool with head-to-head analytics.",
+  "status": "ACTIVE",
+  "description": "Seven workstreams: Win Probability (historical replay), React Dashboard (foundation), Player Comparison, Player Rankings (signature feature), Sprint 4 Close-Out, Infrastructure Hardening, UI/UX & Accessibility, and Season Preview Production (10 teams).",
   "created_at": "2026-02-14T01:40:00Z",
-  "updated_at": "2026-02-14T01:40:00Z"
+  "updated_at": "2026-02-15T06:00:00Z"
 }

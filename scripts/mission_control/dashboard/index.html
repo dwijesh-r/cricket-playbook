@@ -4699,7 +4699,7 @@
                 <div class="hero-content">
                     <div class="sprint-label">Active Sprint</div>
                     <h1 class="sprint-title">Sprint 5</h1>
-                    <p class="sprint-dates">Jan 31 — Feb 14, 2026</p>
+                    <p class="sprint-dates">Feb 15 — Feb 28, 2026</p>
 
                     <div class="stats-grid">
                         <div class="stat-item">
@@ -6600,7 +6600,7 @@
               outcome: 'WCAG 2.1 AA compliance, mobile-first responsive design, print-friendly outputs (4 tickets: TKT-250 to TKT-253)' },
             { id: 'EPIC-025', title: 'Season Preview Magazine Content', type: 'delivery', owner: 'Virat Kohli',
               goal: 'Lindy\'s/Phil Steele style IPL 2026 season preview — team narratives, storylines, players to watch, bold takes',
-              outcome: 'Professional pre-tournament editorial content for all 10 IPL teams (gated: sample approval required before full production)' }
+              outcome: 'Professional pre-tournament editorial content for all 10 IPL teams with Lab integration (11 tickets: TKT-254, TKT-257 to TKT-266)' }
         ];
 
         // Helper function to get EPIC by ID
@@ -6608,7 +6608,7 @@
             return epics.find(e => e.id === epicId) || null;
         }
 
-        // All Tickets: Sprint 4.0 (TKT-001 to TKT-204) + Sprint 5.0 (TKT-205 to TKT-219)
+        // All Tickets: Sprint 4.0 (TKT-001 to TKT-204) + Sprint 5.0 (TKT-205 to TKT-266, excl. deferred TKT-213/214/219)
         const tickets = [
             {
               id: 'TKT-001',
@@ -10366,6 +10366,202 @@
               gates: {},
               context: {
                 ask: 'Revise all 8 agent .md config files unchanged since Jan 21. Update responsibilities, add Sprint 5 mandates, reflect Sprint 4 performance review lessons, set measurable targets. Agents: Brad Stevens, Tom Brady, Stephen Curry, Kevin de Bruyne, N\'Golo Kante, Pep Guardiola, Ime Udoka, Jayson Tatum.'
+              }
+            },
+            // Sprint 5.0 — EPIC-021: Innings-Context Rankings
+            {
+              id: 'TKT-256',
+              title: 'Create innings-context ranking views (chase vs defend)',
+              state: 'DONE',
+              priority: 'P1',
+              effort: 'deep-work',
+              assignee: 'Stephen Curry',
+              epic: 'EPIC-021',
+              progress: 100,
+              tags: ['Analytics', 'Rankings', 'SQL Views', '✅ Done'],
+              gates: {
+                florentino_gate: 'APPROVED',
+                build: 'PASS',
+                domain_sanity: 'PASS',
+                enforcement: 'PASS'
+              },
+              context: {
+                ask: 'Build team and player ranking views segmented by innings context (batting first/second, bowling first/second). Both since-2023 and all-time dual-scope.'
+              }
+            },
+            // Sprint 5.0 — EPIC-025: Season Preview Magazine Content
+            {
+              id: 'TKT-257',
+              title: 'Season Preview tab in The Lab teams page (Magazine-quality UI)',
+              state: 'DONE',
+              priority: 'P0',
+              effort: 'deep-work',
+              assignee: 'Kevin De Bruyne',
+              epic: 'EPIC-025',
+              progress: 100,
+              tags: ['UI', 'Editorial', 'The Lab', 'Season Preview', '✅ Done'],
+              gates: {
+                florentino_gate: 'APPROVED',
+                build: 'PASS',
+                domain_sanity: 'PASS',
+                enforcement: 'PASS',
+                founder_gate: 'APPROVED'
+              },
+              context: {
+                ask: 'Build a Season Preview tab as the default/first tab in The Lab teams page. Display the full editorial season preview as a magazine-quality, Lindy\'s/Phil Steele style page.'
+              }
+            },
+            {
+              id: 'TKT-258',
+              title: 'Season Preview: Chennai Super Kings (21-section editorial + Lab integration)',
+              state: 'BACKLOG',
+              priority: 'P0',
+              effort: 'deep-work',
+              assignee: 'Virat Kohli',
+              epic: 'EPIC-025',
+              progress: 0,
+              tags: ['Editorial', 'Season Preview', 'Content'],
+              gates: {
+                florentino_gate: 'APPROVED'
+              },
+              context: {
+                ask: 'Produce a full 21-section season preview for Chennai Super Kings following the approved RCB template (v2.2). Narrative hook: Dhoni\'s final chapter and the post-dynasty transition.'
+              }
+            },
+            {
+              id: 'TKT-259',
+              title: 'Season Preview: Mumbai Indians (21-section editorial + Lab integration)',
+              state: 'BACKLOG',
+              priority: 'P0',
+              effort: 'deep-work',
+              assignee: 'Virat Kohli',
+              epic: 'EPIC-025',
+              progress: 0,
+              tags: ['Editorial', 'Season Preview', 'Content'],
+              gates: {
+                florentino_gate: 'APPROVED'
+              },
+              context: {
+                ask: 'Produce a full 21-section season preview for Mumbai Indians following the approved RCB template (v2.2). Narrative hook: Five-time champions in full rebuild mode.'
+              }
+            },
+            {
+              id: 'TKT-260',
+              title: 'Season Preview: Kolkata Knight Riders (21-section editorial + Lab integration)',
+              state: 'BACKLOG',
+              priority: 'P0',
+              effort: 'deep-work',
+              assignee: 'Virat Kohli',
+              epic: 'EPIC-025',
+              progress: 0,
+              tags: ['Editorial', 'Season Preview', 'Content'],
+              gates: {
+                florentino_gate: 'APPROVED'
+              },
+              context: {
+                ask: 'Produce a full 21-section season preview for Kolkata Knight Riders following the approved RCB template (v2.2). Narrative hook: Defending champions under title defense pressure.'
+              }
+            },
+            {
+              id: 'TKT-261',
+              title: 'Season Preview: Rajasthan Royals (21-section editorial + Lab integration)',
+              state: 'BACKLOG',
+              priority: 'P0',
+              effort: 'deep-work',
+              assignee: 'Virat Kohli',
+              epic: 'EPIC-025',
+              progress: 0,
+              tags: ['Editorial', 'Season Preview', 'Content'],
+              gates: {
+                florentino_gate: 'APPROVED'
+              },
+              context: {
+                ask: 'Produce a full 21-section season preview for Rajasthan Royals following the approved RCB template (v2.2). Narrative hook: The analytics-first franchise testing its model.'
+              }
+            },
+            {
+              id: 'TKT-262',
+              title: 'Season Preview: Delhi Capitals (21-section editorial + Lab integration)',
+              state: 'BACKLOG',
+              priority: 'P0',
+              effort: 'deep-work',
+              assignee: 'Virat Kohli',
+              epic: 'EPIC-025',
+              progress: 0,
+              tags: ['Editorial', 'Season Preview', 'Content'],
+              gates: {
+                florentino_gate: 'APPROVED'
+              },
+              context: {
+                ask: 'Produce a full 21-section season preview for Delhi Capitals following the approved RCB template (v2.2). Narrative hook: Pant\'s return and a squad rebuilt from scratch.'
+              }
+            },
+            {
+              id: 'TKT-263',
+              title: 'Season Preview: Sunrisers Hyderabad (21-section editorial + Lab integration)',
+              state: 'BACKLOG',
+              priority: 'P0',
+              effort: 'deep-work',
+              assignee: 'Virat Kohli',
+              epic: 'EPIC-025',
+              progress: 0,
+              tags: ['Editorial', 'Season Preview', 'Content'],
+              gates: {
+                florentino_gate: 'APPROVED'
+              },
+              context: {
+                ask: 'Produce a full 21-section season preview for Sunrisers Hyderabad following the approved RCB template (v2.2). Narrative hook: The most aggressive batting identity in IPL history.'
+              }
+            },
+            {
+              id: 'TKT-264',
+              title: 'Season Preview: Punjab Kings (21-section editorial + Lab integration)',
+              state: 'BACKLOG',
+              priority: 'P0',
+              effort: 'deep-work',
+              assignee: 'Virat Kohli',
+              epic: 'EPIC-025',
+              progress: 0,
+              tags: ['Editorial', 'Season Preview', 'Content'],
+              gates: {
+                florentino_gate: 'APPROVED'
+              },
+              context: {
+                ask: 'Produce a full 21-section season preview for Punjab Kings following the approved RCB template (v2.2). Narrative hook: Perpetual rebuilders searching for an identity.'
+              }
+            },
+            {
+              id: 'TKT-265',
+              title: 'Season Preview: Gujarat Titans (21-section editorial + Lab integration)',
+              state: 'BACKLOG',
+              priority: 'P0',
+              effort: 'deep-work',
+              assignee: 'Virat Kohli',
+              epic: 'EPIC-025',
+              progress: 0,
+              tags: ['Editorial', 'Season Preview', 'Content'],
+              gates: {
+                florentino_gate: 'APPROVED'
+              },
+              context: {
+                ask: 'Produce a full 21-section season preview for Gujarat Titans following the approved RCB template (v2.2). Narrative hook: Post-Hardik era — can the system survive without the star?'
+              }
+            },
+            {
+              id: 'TKT-266',
+              title: 'Season Preview: Lucknow Super Giants (21-section editorial + Lab integration)',
+              state: 'BACKLOG',
+              priority: 'P0',
+              effort: 'deep-work',
+              assignee: 'Virat Kohli',
+              epic: 'EPIC-025',
+              progress: 0,
+              tags: ['Editorial', 'Season Preview', 'Content'],
+              gates: {
+                florentino_gate: 'APPROVED'
+              },
+              context: {
+                ask: 'Produce a full 21-section season preview for Lucknow Super Giants following the approved RCB template (v2.2). Narrative hook: The stability play in a league of chaos.'
               }
             }
         ];

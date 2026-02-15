@@ -1,0 +1,29 @@
+{
+  "id": "TKT-266",
+  "title": "Season Preview: Lucknow Super Giants (21-section editorial + Lab integration)",
+  "state": "BACKLOG",
+  "priority": "P0",
+  "size": "L",
+  "progress_pct": 0,
+  "epic_id": "EPIC-025",
+  "sprint_id": "SPRINT-005",
+  "owner": "Virat Kohli",
+  "assignee": "Virat Kohli",
+  "reviewer": "Andy Flower",
+  "effort": "Deep Work",
+  "description": "Produce a full 21-section season preview for Lucknow Super Giants following the approved RCB template (v2.2). Sections: Headline, Story, Off-Season Changes, New Additions, Full Squad Table, Team Style Analysis, Category Ratings, Team Batting Profile, Innings Context, Venue Analysis, Schedule (placeholder), Head-to-Head, Players to Watch, Players Who Need to Step Up, Recent Form (tournament-weighted L10), Data Insights, Bold Take, By the Numbers, Keys to Victory, Scouting Report, Verdict. Production pipeline: (1) Data Assembly from stat pack + analytics views, (2) Virat Kohli editorial draft, (3) Andy Flower domain review (target 9.0+), (4) Jose Mourinho quant scoring (target 8.5+), (5) Lab JS integration in season_previews.js, (6) Tom Brady enforcement pass. Narrative hook: The stability play in a league of chaos.",
+  "tags": ["Editorial", "Season Preview", "Content", "EPIC-025"],
+  "gates": {
+    "florentino_gate": { "status": "APPROVED", "reason": "Season previews are the core product — Founder approved sample and editorial plan.", "date": "2026-02-15" },
+    "build": "PENDING",
+    "domain_sanity": "PENDING",
+    "enforcement": "PENDING"
+  },
+  "deliverables": [
+    "outputs/season_previews/LSG_season_preview.md",
+    "scripts/the_lab/dashboard/data/season_previews.js (updated)"
+  ],
+  "progress_notes": {},
+  "created_at": "2026-02-15T06:00:00Z",
+  "updated_at": "2026-02-15T06:00:00Z"
+}

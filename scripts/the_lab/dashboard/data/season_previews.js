@@ -8,7 +8,7 @@ const SEASON_PREVIEWS = {
   RCB: {
     available: true,
     meta: {
-      revision: 'v2.0',
+      revision: 'v2.2',
       dataWindow: 'IPL 2023-2025 | 9,496 matches / 2.14M balls',
       agents: 'Virat Kohli (Tone & Narrative) | Andy Flower (Scouting Report)',
       matches: '9,496'

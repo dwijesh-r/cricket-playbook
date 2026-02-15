@@ -3,7 +3,7 @@
 **Cricket Playbook | Season Preview Series**
 *Agent: Virat Kohli (Tone & Narrative) | Domain: Andy Flower (Scouting Report)*
 *Data Window: IPL 2023-2025 | 9,496 matches / 2.14M balls*
-*Revision: v2.0 | Data-verified edition (all L10 stats re-queried from DuckDB, tournament weights corrected, data disclaimer added)*
+*Revision: v2.2 | Data-verified edition (all L10 stats re-queried from DuckDB, per-series bilateral T20I weights, SR/RPO terminology corrected, data disclaimer added)*
 
 ---
 

@@ -498,6 +498,48 @@
             font-weight: 600;
         }
 
+        /* ==================== SCOPE TOGGLE ==================== */
+        .scope-toggle-wrap {
+            display: flex;
+            justify-content: center;
+            margin: 0 auto 20px;
+            max-width: 1200px;
+            padding: 0 24px;
+        }
+
+        .scope-toggle {
+            display: flex;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 4px;
+            gap: 4px;
+        }
+
+        .scope-btn {
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: none;
+            background: none;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+
+        .scope-btn:hover {
+            color: var(--text-primary);
+            background: var(--bg-tertiary);
+        }
+
+        .scope-btn.active {
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-teal) 100%);
+            color: #000;
+        }
+
         /* ==================== CATEGORY NAV ==================== */
         .category-nav {
             display: flex;
@@ -1296,6 +1338,14 @@
             </div>
         </div>
 
+        <!-- Scope Toggle -->
+        <div class="scope-toggle-wrap">
+            <div class="scope-toggle" id="scopeToggle">
+                <button class="scope-btn" data-scope="since2023" onclick="setScope('since2023')">Since 2023</button>
+                <button class="scope-btn" data-scope="alltime" onclick="setScope('alltime')">All-Time</button>
+            </div>
+        </div>
+
         <!-- Category Navigation -->
         <div class="category-nav" id="categoryNav"></div>
 
@@ -1379,7 +1429,7 @@
                 <a href="about.html">About</a>
             </div>
             <p class="footer-text">
-                Cricket Playbook &copy; 2026 | IPL 2026 Pre-Season Analytics | Data: 2008-2025 (All-Time)
+                Cricket Playbook &copy; 2026 | IPL 2026 Pre-Season Analytics | Dual-Scope: All-Time + Since 2023
             </p>
         </footer>
     </main>
@@ -1390,6 +1440,7 @@
     <script>
     // ==================== STATE ====================
     const state = {
+        currentScope: 'since2023',
         currentCategory: 0,
         currentSubcategory: 0,
         searchQuery: '',
@@ -1400,6 +1451,11 @@
         filteredRows: [],
         headers: []
     };
+
+    /** Return the active scope data (categories, stats) from RANKINGS_DATA. */
+    function getScopeData() {
+        return RANKINGS_DATA[state.currentScope];
+    }
 
     // ==================== CATEGORY ICONS ====================
     const CATEGORY_ICONS = {
@@ -1430,12 +1486,10 @@
             return;
         }
 
-        // Populate stats bar
-        const stats = RANKINGS_DATA.stats;
-        const totalEntries = Object.values(stats).reduce((a, b) => a + b, 0);
-        document.getElementById('statEntries').textContent = totalEntries.toLocaleString();
-        document.getElementById('statPlayers').textContent = (stats.batter_composite + stats.bowler_composite).toLocaleString();
-        document.getElementById('statWindow').textContent = '2008-25';
+        // Set default scope from metadata
+        state.currentScope = (RANKINGS_DATA.metadata && RANKINGS_DATA.metadata.defaultScope) || 'since2023';
+        updateScopeToggle();
+        updateStatsBar();
 
         // Build category nav
         buildCategoryNav();
@@ -1453,11 +1507,36 @@
         setInterval(updateTime, 1000);
     }
 
+    function setScope(scope) {
+        if (state.currentScope === scope) return;
+        state.currentScope = scope;
+        updateScopeToggle();
+        updateStatsBar();
+        buildCategoryNav();
+        selectCategory(0);
+    }
+
+    function updateScopeToggle() {
+        document.querySelectorAll('.scope-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-scope') === state.currentScope);
+        });
+    }
+
+    function updateStatsBar() {
+        const scopeData = getScopeData();
+        const stats = scopeData.stats;
+        const totalEntries = Object.values(stats).reduce((a, b) => a + b, 0);
+        document.getElementById('statEntries').textContent = totalEntries.toLocaleString();
+        document.getElementById('statPlayers').textContent = (stats.batter_composite + stats.bowler_composite).toLocaleString();
+        document.getElementById('statWindow').textContent = state.currentScope === 'since2023' ? '2023-25' : '2008-25';
+    }
+
     // ==================== CATEGORY NAV ====================
     function buildCategoryNav() {
         const nav = document.getElementById('categoryNav');
         nav.innerHTML = '';
-        RANKINGS_DATA.categories.forEach((cat, i) => {
+        const scopeData = getScopeData();
+        scopeData.categories.forEach((cat, i) => {
             const pill = document.createElement('button');
             pill.className = 'category-pill' + (i === 0 ? ' active' : '');
             pill.innerHTML = (CATEGORY_ICONS[cat.id] || '') + ' ' + (CATEGORY_SHORT_NAMES[cat.id] || cat.title);
@@ -1487,7 +1566,8 @@
         buildSubcategoryNav();
 
         // Show description
-        const cat = RANKINGS_DATA.categories[index];
+        const scopeData = getScopeData();
+        const cat = scopeData.categories[index];
         const descEl = document.getElementById('categoryDescription');
         descEl.innerHTML = '<p>' + escapeHtml(cat.description) + '</p>';
 
@@ -1498,7 +1578,8 @@
     // ==================== SUBCATEGORY NAV ====================
     function buildSubcategoryNav() {
         const nav = document.getElementById('subcategoryNav');
-        const cat = RANKINGS_DATA.categories[state.currentCategory];
+        const scopeData = getScopeData();
+        const cat = scopeData.categories[state.currentCategory];
         nav.innerHTML = '';
 
         if (cat.subcategories.length <= 1) return;
@@ -1527,7 +1608,8 @@
 
     // ==================== RENDER CURRENT VIEW ====================
     function renderCurrentView() {
-        const cat = RANKINGS_DATA.categories[state.currentCategory];
+        const scopeData = getScopeData();
+        const cat = scopeData.categories[state.currentCategory];
         const sub = cat.subcategories[state.currentSubcategory];
         state.headers = sub.headers;
 
@@ -1574,7 +1656,8 @@
         const tbody = document.getElementById('tableBody');
         const headers = state.headers;
         const rows = state.filteredRows;
-        const cat = RANKINGS_DATA.categories[state.currentCategory];
+        const scopeData = getScopeData();
+        const cat = scopeData.categories[state.currentCategory];
 
         // Determine which column holds the "composite" / "score" value
         const scoreColIndex = findScoreColumn(headers);
@@ -1634,7 +1717,8 @@
         const container = document.getElementById('mobileCards');
         const headers = state.headers;
         const rows = state.filteredRows;
-        const cat = RANKINGS_DATA.categories[state.currentCategory];
+        const scopeData = getScopeData();
+        const cat = scopeData.categories[state.currentCategory];
         const isMatchup = cat.id === 'player_matchups';
 
         const start = (state.currentPage - 1) * state.pageSize;
@@ -1770,7 +1854,8 @@
         } else {
             state.sortCol = colIdx;
             // Default sort direction: numeric = desc, text = asc
-            const cat = RANKINGS_DATA.categories[state.currentCategory];
+            const scopeData = getScopeData();
+            const cat = scopeData.categories[state.currentCategory];
             const sub = cat.subcategories[state.currentSubcategory];
             const sampleVal = sub.rows.length > 0 ? sub.rows[0][colIdx] : '';
             state.sortDir = typeof sampleVal === 'number' ? 'desc' : 'asc';
@@ -1880,7 +1965,7 @@
         if (e.key === 'ArrowLeft' && state.currentCategory > 0) {
             selectCategory(state.currentCategory - 1);
         }
-        if (e.key === 'ArrowRight' && state.currentCategory < RANKINGS_DATA.categories.length - 1) {
+        if (e.key === 'ArrowRight' && state.currentCategory < getScopeData().categories.length - 1) {
             selectCategory(state.currentCategory + 1);
         }
     });

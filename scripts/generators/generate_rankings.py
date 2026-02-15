@@ -7,6 +7,9 @@ Sprint: SPRINT-005 (Signature Feature)
 Queries the 7 composite ranking view categories from analytics_ipl.py and produces
 a JavaScript data file (rankings.js) for The Lab dashboard Rankings tab.
 
+Dual-scope: generates both "alltime" (IPL 2008-2025) and "since2023" (IPL 2023-2025)
+rankings in a single output file.
+
 Categories:
     1. Batter Phase Rankings       (powerplay / middle / death)
     2. Bowler Phase Rankings        (powerplay / middle / death)
@@ -79,6 +82,12 @@ HAND_TITLES = {
     "Right-hand": "vs Right-Hand Batters",
 }
 
+# Scope suffixes and labels
+SCOPES = {
+    "alltime": {"suffix": "_alltime", "label": "IPL 2008-2025 (All-Time)"},
+    "since2023": {"suffix": "_since2023", "label": "IPL 2023-2025 (Since 2023)"},
+}
+
 
 # =============================================================================
 # HELPER FUNCTIONS
@@ -107,20 +116,21 @@ def _format_num(val: Any, decimals: int = 1) -> Any:
 
 
 # =============================================================================
-# QUERY FUNCTIONS — one per ranking category
+# QUERY FUNCTIONS — one per ranking category, parameterized by scope suffix
 # =============================================================================
 
 
-def query_batter_phase_rankings(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
+def query_batter_phase_rankings(conn: duckdb.DuckDBPyConnection, suffix: str = "") -> List[Dict]:
     """Category 1: Batter phase rankings (powerplay/middle/death)."""
+    view = f"analytics_ipl_batter_phase_rankings{suffix}"
     subcategories = []
     for phase in PHASE_ORDER:
         rows = conn.execute(
-            """
+            f"""
             SELECT
                 phase_rank, player_name, balls_faced, strike_rate,
                 batting_average, boundary_pct, weighted_composite
-            FROM analytics_ipl_batter_phase_rankings
+            FROM {view}
             WHERE match_phase = ?
             ORDER BY phase_rank
             LIMIT ?
@@ -132,7 +142,15 @@ def query_batter_phase_rankings(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
             {
                 "id": phase,
                 "title": PHASE_TITLES[phase],
-                "headers": ["Rank", "Player", "Balls", "SR", "Avg", "Boundary%", "Composite"],
+                "headers": [
+                    "Rank",
+                    "Player",
+                    "Balls",
+                    "SR",
+                    "Avg",
+                    "Boundary%",
+                    "Composite",
+                ],
                 "rows": [
                     [
                         int(r[0]),
@@ -146,7 +164,7 @@ def query_batter_phase_rankings(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
                     for r in rows
                 ],
                 "qualifiedCount": conn.execute(
-                    "SELECT COUNT(*) FROM analytics_ipl_batter_phase_rankings WHERE match_phase = ?",
+                    f"SELECT COUNT(*) FROM {view} WHERE match_phase = ?",
                     [phase],
                 ).fetchone()[0],
             }
@@ -155,16 +173,17 @@ def query_batter_phase_rankings(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
     return subcategories
 
 
-def query_bowler_phase_rankings(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
+def query_bowler_phase_rankings(conn: duckdb.DuckDBPyConnection, suffix: str = "") -> List[Dict]:
     """Category 2: Bowler phase rankings (powerplay/middle/death)."""
+    view = f"analytics_ipl_bowler_phase_rankings{suffix}"
     subcategories = []
     for phase in PHASE_ORDER:
         rows = conn.execute(
-            """
+            f"""
             SELECT
                 phase_rank, player_name, balls_bowled, economy_rate,
                 dot_ball_pct, weighted_composite
-            FROM analytics_ipl_bowler_phase_rankings
+            FROM {view}
             WHERE match_phase = ?
             ORDER BY phase_rank
             LIMIT ?
@@ -189,7 +208,7 @@ def query_bowler_phase_rankings(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
                     for r in rows
                 ],
                 "qualifiedCount": conn.execute(
-                    "SELECT COUNT(*) FROM analytics_ipl_bowler_phase_rankings WHERE match_phase = ?",
+                    f"SELECT COUNT(*) FROM {view} WHERE match_phase = ?",
                     [phase],
                 ).fetchone()[0],
             }
@@ -198,15 +217,16 @@ def query_bowler_phase_rankings(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
     return subcategories
 
 
-def query_batter_vs_bowling_type(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
+def query_batter_vs_bowling_type(conn: duckdb.DuckDBPyConnection, suffix: str = "") -> List[Dict]:
     """Category 3: Batter vs bowling type rankings."""
+    view = f"analytics_ipl_batter_vs_bowling_type_rankings{suffix}"
     subcategories = []
 
     # Only include types present in the data
     available_types = [
         r[0]
         for r in conn.execute(
-            "SELECT DISTINCT bowler_type FROM analytics_ipl_batter_vs_bowling_type_rankings ORDER BY bowler_type"
+            f"SELECT DISTINCT bowler_type FROM {view} ORDER BY bowler_type"
         ).fetchall()
     ]
 
@@ -217,11 +237,11 @@ def query_batter_vs_bowling_type(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
 
     for btype in ordered_types:
         rows = conn.execute(
-            """
+            f"""
             SELECT
                 vs_type_rank, player_name, balls, strike_rate,
                 average, weighted_composite
-            FROM analytics_ipl_batter_vs_bowling_type_rankings
+            FROM {view}
             WHERE bowler_type = ?
             ORDER BY vs_type_rank
             LIMIT ?
@@ -249,7 +269,7 @@ def query_batter_vs_bowling_type(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
                     for r in rows
                 ],
                 "qualifiedCount": conn.execute(
-                    "SELECT COUNT(*) FROM analytics_ipl_batter_vs_bowling_type_rankings WHERE bowler_type = ?",
+                    f"SELECT COUNT(*) FROM {view} WHERE bowler_type = ?",
                     [btype],
                 ).fetchone()[0],
             }
@@ -258,16 +278,17 @@ def query_batter_vs_bowling_type(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
     return subcategories
 
 
-def query_bowler_vs_handedness(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
+def query_bowler_vs_handedness(conn: duckdb.DuckDBPyConnection, suffix: str = "") -> List[Dict]:
     """Category 4: Bowler vs batter handedness rankings."""
+    view = f"analytics_ipl_bowler_vs_handedness_rankings{suffix}"
     subcategories = []
     for hand in ["Left-hand", "Right-hand"]:
         rows = conn.execute(
-            """
+            f"""
             SELECT
                 vs_hand_rank, player_name, balls, wickets,
                 economy, weighted_composite
-            FROM analytics_ipl_bowler_vs_handedness_rankings
+            FROM {view}
             WHERE batting_hand = ?
             ORDER BY vs_hand_rank
             LIMIT ?
@@ -279,13 +300,27 @@ def query_bowler_vs_handedness(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
             {
                 "id": hand.lower().replace("-", "_"),
                 "title": HAND_TITLES[hand],
-                "headers": ["Rank", "Player", "Balls", "Wkts", "Econ", "Composite"],
+                "headers": [
+                    "Rank",
+                    "Player",
+                    "Balls",
+                    "Wkts",
+                    "Econ",
+                    "Composite",
+                ],
                 "rows": [
-                    [int(r[0]), r[1], int(r[2]), int(r[3]), _format_num(r[4], 2), _format_num(r[5])]
+                    [
+                        int(r[0]),
+                        r[1],
+                        int(r[2]),
+                        int(r[3]),
+                        _format_num(r[4], 2),
+                        _format_num(r[5]),
+                    ]
                     for r in rows
                 ],
                 "qualifiedCount": conn.execute(
-                    "SELECT COUNT(*) FROM analytics_ipl_bowler_vs_handedness_rankings WHERE batting_hand = ?",
+                    f"SELECT COUNT(*) FROM {view} WHERE batting_hand = ?",
                     [hand],
                 ).fetchone()[0],
             }
@@ -294,15 +329,16 @@ def query_bowler_vs_handedness(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
     return subcategories
 
 
-def query_player_matchup_rankings(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
+def query_player_matchup_rankings(conn: duckdb.DuckDBPyConnection, suffix: str = "") -> List[Dict]:
     """Category 5: Player matchup rankings (batter-favored + bowler-favored)."""
+    view = f"analytics_ipl_player_matchup_rankings{suffix}"
     # Batter-favored matchups (highest weighted dominance)
     batter_rows = conn.execute(
-        """
+        f"""
         SELECT
             batter_name, bowler_name, balls, runs, dismissals,
             strike_rate, dominance_index, weighted_dominance
-        FROM analytics_ipl_player_matchup_rankings
+        FROM {view}
         ORDER BY weighted_dominance DESC
         LIMIT ?
         """,
@@ -311,27 +347,34 @@ def query_player_matchup_rankings(conn: duckdb.DuckDBPyConnection) -> List[Dict]
 
     # Bowler-favored matchups (lowest weighted dominance)
     bowler_rows = conn.execute(
-        """
+        f"""
         SELECT
             batter_name, bowler_name, balls, runs, dismissals,
             strike_rate, dominance_index, weighted_dominance
-        FROM analytics_ipl_player_matchup_rankings
+        FROM {view}
         ORDER BY weighted_dominance ASC
         LIMIT ?
         """,
         [TOP_N],
     ).fetchall()
 
-    total_matchups = conn.execute(
-        "SELECT COUNT(*) FROM analytics_ipl_player_matchup_rankings"
-    ).fetchone()[0]
+    total_matchups = conn.execute(f"SELECT COUNT(*) FROM {view}").fetchone()[0]
 
     return [
         {
             "id": "batter_favored",
             "title": "Batter-Favored Matchups",
             "description": "Matchups where the batter dominates (high SR, high avg, low dismissal rate)",
-            "headers": ["Rank", "Batter", "Bowler", "Balls", "Runs", "Outs", "SR", "Dominance"],
+            "headers": [
+                "Rank",
+                "Batter",
+                "Bowler",
+                "Balls",
+                "Runs",
+                "Outs",
+                "SR",
+                "Dominance",
+            ],
             "rows": [
                 [
                     i + 1,
@@ -351,7 +394,16 @@ def query_player_matchup_rankings(conn: duckdb.DuckDBPyConnection) -> List[Dict]
             "id": "bowler_favored",
             "title": "Bowler-Favored Matchups",
             "description": "Matchups where the bowler dominates (low SR, frequent dismissals)",
-            "headers": ["Rank", "Batter", "Bowler", "Balls", "Runs", "Outs", "SR", "Dominance"],
+            "headers": [
+                "Rank",
+                "Batter",
+                "Bowler",
+                "Balls",
+                "Runs",
+                "Outs",
+                "SR",
+                "Dominance",
+            ],
             "rows": [
                 [
                     i + 1,
@@ -370,24 +422,25 @@ def query_player_matchup_rankings(conn: duckdb.DuckDBPyConnection) -> List[Dict]
     ]
 
 
-def query_batter_composite_rankings(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
+def query_batter_composite_rankings(
+    conn: duckdb.DuckDBPyConnection, suffix: str = ""
+) -> List[Dict]:
     """Category 6: Overall batter composite rankings."""
+    view = f"analytics_ipl_batter_composite_rankings{suffix}"
     rows = conn.execute(
-        """
+        f"""
         SELECT
             overall_rank, player_name, innings, runs, balls_faced,
             strike_rate, batting_average, boundary_pct,
             composite_score, weighted_composite
-        FROM analytics_ipl_batter_composite_rankings
+        FROM {view}
         ORDER BY overall_rank
         LIMIT ?
         """,
         [TOP_N],
     ).fetchall()
 
-    total = conn.execute("SELECT COUNT(*) FROM analytics_ipl_batter_composite_rankings").fetchone()[
-        0
-    ]
+    total = conn.execute(f"SELECT COUNT(*) FROM {view}").fetchone()[0]
 
     return [
         {
@@ -430,24 +483,25 @@ def query_batter_composite_rankings(conn: duckdb.DuckDBPyConnection) -> List[Dic
     ]
 
 
-def query_bowler_composite_rankings(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
+def query_bowler_composite_rankings(
+    conn: duckdb.DuckDBPyConnection, suffix: str = ""
+) -> List[Dict]:
     """Category 7: Overall bowler composite rankings."""
+    view = f"analytics_ipl_bowler_composite_rankings{suffix}"
     rows = conn.execute(
-        """
+        f"""
         SELECT
             overall_rank, player_name, matches_bowled, balls_bowled,
             wickets, economy_rate, bowling_average, bowling_strike_rate,
             composite_score, weighted_composite
-        FROM analytics_ipl_bowler_composite_rankings
+        FROM {view}
         ORDER BY overall_rank
         LIMIT ?
         """,
         [TOP_N],
     ).fetchall()
 
-    total = conn.execute("SELECT COUNT(*) FROM analytics_ipl_bowler_composite_rankings").fetchone()[
-        0
-    ]
+    total = conn.execute(f"SELECT COUNT(*) FROM {view}").fetchone()[0]
 
     return [
         {
@@ -491,14 +545,155 @@ def query_bowler_composite_rankings(conn: duckdb.DuckDBPyConnection) -> List[Dic
 
 
 # =============================================================================
+# SCOPE BUILDER — queries all 7 categories for one scope
+# =============================================================================
+
+CATEGORY_DEFS = [
+    {
+        "id": "batter_phase",
+        "title": "Batter Phase Rankings",
+        "description": (
+            "Phase-specific batter composites. Combines SR percentile (40%), "
+            "Avg percentile (40%), and Boundary% percentile (20%). "
+            "Sample-size weighted (target: 200 balls per phase)."
+        ),
+        "query_fn": "query_batter_phase_rankings",
+        "stat_key": "batter_phase",
+        "stat_mode": "sum",
+    },
+    {
+        "id": "bowler_phase",
+        "title": "Bowler Phase Rankings",
+        "description": (
+            "Phase-specific bowler composites. Combines Economy percentile (50%) "
+            "and Dot Ball% percentile (50%). "
+            "Sample-size weighted (target: 120 balls per phase)."
+        ),
+        "query_fn": "query_bowler_phase_rankings",
+        "stat_key": "bowler_phase",
+        "stat_mode": "sum",
+    },
+    {
+        "id": "batter_vs_bowling_type",
+        "title": "Batter vs Bowling Type",
+        "description": (
+            "How batters perform against each bowling classification. "
+            "Composite: SR (40%) + Avg (40%) + Survival Rate (20%). "
+            "Min 50 balls. Sample-size weighted (target: 100 balls)."
+        ),
+        "query_fn": "query_batter_vs_bowling_type",
+        "stat_key": "batter_vs_bowling_type",
+        "stat_mode": "sum",
+    },
+    {
+        "id": "bowler_vs_handedness",
+        "title": "Bowler vs Batter Handedness",
+        "description": (
+            "Bowler effectiveness against left-hand and right-hand batters. "
+            "Composite: Economy percentile (50%) + SR percentile (50%). "
+            "Min 50 balls. Sample-size weighted (target: 100 balls)."
+        ),
+        "query_fn": "query_bowler_vs_handedness",
+        "stat_key": "bowler_vs_handedness",
+        "stat_mode": "sum",
+    },
+    {
+        "id": "player_matchups",
+        "title": "Player Matchup Rankings",
+        "description": (
+            "Head-to-head dominance index. Positive = batter-favored, "
+            "negative = bowler-favored. Factors: SR deviation (50%), "
+            "Avg deviation (30%), Boundary% deviation (20%). "
+            "Min 12 balls. Sample-size weighted (target: 50 balls)."
+        ),
+        "query_fn": "query_player_matchup_rankings",
+        "stat_key": "player_matchups",
+        "stat_mode": "first",
+    },
+    {
+        "id": "batter_composite",
+        "title": "Overall Batter Rankings",
+        "description_from_sub": True,
+        "query_fn": "query_batter_composite_rankings",
+        "stat_key": "batter_composite",
+        "stat_mode": "first",
+    },
+    {
+        "id": "bowler_composite",
+        "title": "Overall Bowler Rankings",
+        "description_from_sub": True,
+        "query_fn": "query_bowler_composite_rankings",
+        "stat_key": "bowler_composite",
+        "stat_mode": "first",
+    },
+]
+
+# Map query function names to actual functions
+QUERY_FNS = {
+    "query_batter_phase_rankings": query_batter_phase_rankings,
+    "query_bowler_phase_rankings": query_bowler_phase_rankings,
+    "query_batter_vs_bowling_type": query_batter_vs_bowling_type,
+    "query_bowler_vs_handedness": query_bowler_vs_handedness,
+    "query_player_matchup_rankings": query_player_matchup_rankings,
+    "query_batter_composite_rankings": query_batter_composite_rankings,
+    "query_bowler_composite_rankings": query_bowler_composite_rankings,
+}
+
+
+def build_scope_data(conn: duckdb.DuckDBPyConnection, scope_key: str) -> Dict[str, Any]:
+    """Query all 7 categories for a given scope and return categories + stats."""
+    suffix = SCOPES[scope_key]["suffix"]
+    label = SCOPES[scope_key]["label"]
+
+    categories = []
+    stats: Dict[str, int] = {}
+
+    for i, cat_def in enumerate(CATEGORY_DEFS, 1):
+        print(f"  [{i}/7] {cat_def['title']}...")
+        query_fn = QUERY_FNS[cat_def["query_fn"]]
+        subs = query_fn(conn, suffix)
+
+        # Compute stat
+        if cat_def["stat_mode"] == "sum":
+            stat_val = sum(s["qualifiedCount"] for s in subs)
+        else:
+            stat_val = subs[0]["qualifiedCount"] if subs else 0
+
+        # Build category entry
+        description = (
+            subs[0].get("description", cat_def.get("title", ""))
+            if cat_def.get("description_from_sub")
+            else cat_def.get("description", "")
+        )
+
+        categories.append(
+            {
+                "id": cat_def["id"],
+                "title": cat_def["title"],
+                "description": description,
+                "subcategories": subs,
+            }
+        )
+        stats[cat_def["stat_key"]] = stat_val
+        print(f"    {stat_val} qualified entries")
+
+    return {
+        "categories": categories,
+        "stats": stats,
+        "dataWindow": label,
+    }
+
+
+# =============================================================================
 # MAIN GENERATOR
 # =============================================================================
 
 
 def generate_rankings() -> Dict[str, Any]:
-    """Query all 7 ranking categories and build the full rankings data structure."""
+    """Query all 7 ranking categories for both scopes and build the full data structure."""
     print("=" * 60)
     print("  RANKING GENERATOR (TKT-236 / EPIC-021)")
+    print("  Dual-scope: alltime + since2023")
     print("=" * 60)
 
     if not DB_PATH.exists():
@@ -508,147 +703,36 @@ def generate_rankings() -> Dict[str, Any]:
     conn = duckdb.connect(str(DB_PATH), read_only=True)
 
     try:
-        categories = []
-        stats = {}
+        # Build alltime scope
+        print("\n--- SCOPE: All-Time (IPL 2008-2025) ---")
+        alltime_data = build_scope_data(conn, "alltime")
 
-        # Category 1: Batter Phase Rankings
-        print("\n[1/7] Batter Phase Rankings...")
-        subs = query_batter_phase_rankings(conn)
-        total_rows = sum(s["qualifiedCount"] for s in subs)
-        categories.append(
-            {
-                "id": "batter_phase",
-                "title": "Batter Phase Rankings",
-                "description": (
-                    "Phase-specific batter composites. Combines SR percentile (40%), "
-                    "Avg percentile (40%), and Boundary% percentile (20%). "
-                    "Sample-size weighted (target: 200 balls per phase)."
-                ),
-                "subcategories": subs,
-            }
-        )
-        stats["batter_phase"] = total_rows
-        print(f"  {len(subs)} phases, {total_rows} total qualified players")
-
-        # Category 2: Bowler Phase Rankings
-        print("\n[2/7] Bowler Phase Rankings...")
-        subs = query_bowler_phase_rankings(conn)
-        total_rows = sum(s["qualifiedCount"] for s in subs)
-        categories.append(
-            {
-                "id": "bowler_phase",
-                "title": "Bowler Phase Rankings",
-                "description": (
-                    "Phase-specific bowler composites. Combines Economy percentile (50%) "
-                    "and Dot Ball% percentile (50%). "
-                    "Sample-size weighted (target: 120 balls per phase)."
-                ),
-                "subcategories": subs,
-            }
-        )
-        stats["bowler_phase"] = total_rows
-        print(f"  {len(subs)} phases, {total_rows} total qualified players")
-
-        # Category 3: Batter vs Bowling Type
-        print("\n[3/7] Batter vs Bowling Type Rankings...")
-        subs = query_batter_vs_bowling_type(conn)
-        total_rows = sum(s["qualifiedCount"] for s in subs)
-        categories.append(
-            {
-                "id": "batter_vs_bowling_type",
-                "title": "Batter vs Bowling Type",
-                "description": (
-                    "How batters perform against each bowling classification. "
-                    "Composite: SR (40%) + Avg (40%) + Survival Rate (20%). "
-                    "Min 50 balls. Sample-size weighted (target: 100 balls)."
-                ),
-                "subcategories": subs,
-            }
-        )
-        stats["batter_vs_bowling_type"] = total_rows
-        print(f"  {len(subs)} bowling types, {total_rows} total qualified entries")
-
-        # Category 4: Bowler vs Handedness
-        print("\n[4/7] Bowler vs Handedness Rankings...")
-        subs = query_bowler_vs_handedness(conn)
-        total_rows = sum(s["qualifiedCount"] for s in subs)
-        categories.append(
-            {
-                "id": "bowler_vs_handedness",
-                "title": "Bowler vs Batter Handedness",
-                "description": (
-                    "Bowler effectiveness against left-hand and right-hand batters. "
-                    "Composite: Economy percentile (50%) + SR percentile (50%). "
-                    "Min 50 balls. Sample-size weighted (target: 100 balls)."
-                ),
-                "subcategories": subs,
-            }
-        )
-        stats["bowler_vs_handedness"] = total_rows
-        print(f"  {len(subs)} hand splits, {total_rows} total qualified entries")
-
-        # Category 5: Player Matchup Rankings
-        print("\n[5/7] Player Matchup Rankings...")
-        subs = query_player_matchup_rankings(conn)
-        total_matchups = subs[0]["qualifiedCount"]
-        categories.append(
-            {
-                "id": "player_matchups",
-                "title": "Player Matchup Rankings",
-                "description": (
-                    "Head-to-head dominance index. Positive = batter-favored, "
-                    "negative = bowler-favored. Factors: SR deviation (50%), "
-                    "Avg deviation (30%), Boundary% deviation (20%). "
-                    "Min 12 balls. Sample-size weighted (target: 50 balls)."
-                ),
-                "subcategories": subs,
-            }
-        )
-        stats["player_matchups"] = total_matchups
-        print(f"  {total_matchups} qualified matchups")
-
-        # Category 6: Overall Batter Composite
-        print("\n[6/7] Overall Batter Composite Rankings...")
-        subs = query_batter_composite_rankings(conn)
-        total = subs[0]["qualifiedCount"]
-        categories.append(
-            {
-                "id": "batter_composite",
-                "title": "Overall Batter Rankings",
-                "description": subs[0]["description"],
-                "subcategories": subs,
-            }
-        )
-        stats["batter_composite"] = total
-        print(f"  {total} qualified batters")
-
-        # Category 7: Overall Bowler Composite
-        print("\n[7/7] Overall Bowler Composite Rankings...")
-        subs = query_bowler_composite_rankings(conn)
-        total = subs[0]["qualifiedCount"]
-        categories.append(
-            {
-                "id": "bowler_composite",
-                "title": "Overall Bowler Rankings",
-                "description": subs[0]["description"],
-                "subcategories": subs,
-            }
-        )
-        stats["bowler_composite"] = total
-        print(f"  {total} qualified bowlers")
+        # Build since2023 scope
+        print("\n--- SCOPE: Since 2023 (IPL 2023-2025) ---")
+        since2023_data = build_scope_data(conn, "since2023")
 
         # Build final data structure
         now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         rankings_data = {
-            "meta": {
+            "alltime": {
+                "categories": alltime_data["categories"],
+                "stats": alltime_data["stats"],
+            },
+            "since2023": {
+                "categories": since2023_data["categories"],
+                "stats": since2023_data["stats"],
+            },
+            "metadata": {
                 "generated": now,
-                "dataWindow": "IPL 2008-2025 (All-Time)",
-                "categories": len(categories),
+                "scopes": {
+                    "alltime": SCOPES["alltime"]["label"],
+                    "since2023": SCOPES["since2023"]["label"],
+                },
+                "defaultScope": "since2023",
+                "categoriesPerScope": len(CATEGORY_DEFS),
                 "ticket": "TKT-236",
                 "epic": "EPIC-021",
             },
-            "stats": stats,
-            "categories": categories,
         }
 
         return rankings_data
@@ -666,12 +750,13 @@ def write_js_output(data: Dict[str, Any]) -> None:
 
     js_content = (
         "/**\n"
-        " * The Lab - Player Rankings Data\n"
+        " * The Lab - Player Rankings Data (Dual-Scope)\n"
         " * IPL Pre-Season Analytics (EPIC-021 Signature Feature)\n"
-        f" * Auto-generated: {data['meta']['generated']}\n"
+        f" * Auto-generated: {data['metadata']['generated']}\n"
         " * Generator: scripts/generators/generate_rankings.py (TKT-236)\n"
         " *\n"
-        f" * Categories: {data['meta']['categories']}\n"
+        f" * Categories per scope: {data['metadata']['categoriesPerScope']}\n"
+        " * Scopes: alltime (2008-2025), since2023 (2023-2025)\n"
         " * Composite methodology: see config/thresholds.yaml > rankings\n"
         " */\n"
         "\n"
@@ -690,17 +775,24 @@ def print_summary(data: Dict[str, Any]) -> None:
     print("  RANKINGS SUMMARY")
     print("=" * 60)
 
-    for cat in data["categories"]:
-        print(f"\n--- {cat['title']} ---")
-        for sub in cat["subcategories"]:
-            rows = sub["rows"]
-            qualified = sub.get("qualifiedCount", len(rows))
-            top3 = ", ".join(str(r[1]) if len(r) > 1 else "?" for r in rows[:3])
-            print(f"  {sub['title']}: {qualified} qualified | Top 3: {top3}")
+    for scope_key in ["alltime", "since2023"]:
+        scope_data = data[scope_key]
+        label = data["metadata"]["scopes"][scope_key]
+        print(f"\n{'=' * 40}")
+        print(f"  SCOPE: {label}")
+        print(f"{'=' * 40}")
+
+        for cat in scope_data["categories"]:
+            print(f"\n--- {cat['title']} ---")
+            for sub in cat["subcategories"]:
+                rows = sub["rows"]
+                qualified = sub.get("qualifiedCount", len(rows))
+                top3 = ", ".join(str(r[1]) if len(r) > 1 else "?" for r in rows[:3])
+                print(f"  {sub['title']}: {qualified} qualified | Top 3: {top3}")
 
     print("\n" + "=" * 60)
-    print(f"  Total categories: {data['meta']['categories']}")
-    print(f"  Generated: {data['meta']['generated']}")
+    print(f"  Categories per scope: {data['metadata']['categoriesPerScope']}")
+    print(f"  Generated: {data['metadata']['generated']}")
     print("=" * 60)
 
 

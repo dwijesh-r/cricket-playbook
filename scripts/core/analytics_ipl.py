@@ -1511,14 +1511,78 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
     """)
     print("  - analytics_ipl_batter_phase_rankings")
 
-    conn.execute(
-        "CREATE OR REPLACE VIEW analytics_ipl_batter_phase_rankings_alltime "
-        "AS SELECT * FROM analytics_ipl_batter_phase_rankings"
-    )
-    conn.execute(
-        "CREATE OR REPLACE VIEW analytics_ipl_batter_phase_rankings_since2023 "
-        "AS SELECT * FROM analytics_ipl_batter_phase_rankings"
-    )
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_batter_phase_rankings_alltime AS
+        WITH phase_scores AS (
+            SELECT
+                player_id,
+                player_name,
+                match_phase,
+                balls_faced,
+                strike_rate,
+                batting_average,
+                boundary_pct,
+                sr_percentile,
+                avg_percentile,
+                boundary_percentile,
+                ROUND((sr_percentile * 0.4 + avg_percentile * 0.4 + boundary_percentile * 0.2), 1)
+                    AS phase_composite,
+                ROUND(LEAST(balls_faced / 200.0, 1.0), 3) AS sample_size_factor
+            FROM analytics_ipl_batter_phase_percentiles_alltime
+        )
+        SELECT
+            player_id,
+            player_name,
+            match_phase,
+            balls_faced,
+            strike_rate,
+            batting_average,
+            boundary_pct,
+            sr_percentile,
+            avg_percentile,
+            boundary_percentile,
+            phase_composite,
+            sample_size_factor,
+            ROUND(phase_composite * sample_size_factor, 1) AS weighted_composite,
+            RANK() OVER (PARTITION BY match_phase ORDER BY phase_composite * sample_size_factor DESC) AS phase_rank
+        FROM phase_scores
+    """)
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_batter_phase_rankings_since2023 AS
+        WITH phase_scores AS (
+            SELECT
+                player_id,
+                player_name,
+                match_phase,
+                balls_faced,
+                strike_rate,
+                batting_average,
+                boundary_pct,
+                sr_percentile,
+                avg_percentile,
+                boundary_percentile,
+                ROUND((sr_percentile * 0.4 + avg_percentile * 0.4 + boundary_percentile * 0.2), 1)
+                    AS phase_composite,
+                ROUND(LEAST(balls_faced / 200.0, 1.0), 3) AS sample_size_factor
+            FROM analytics_ipl_batter_phase_percentiles_since2023
+        )
+        SELECT
+            player_id,
+            player_name,
+            match_phase,
+            balls_faced,
+            strike_rate,
+            batting_average,
+            boundary_pct,
+            sr_percentile,
+            avg_percentile,
+            boundary_percentile,
+            phase_composite,
+            sample_size_factor,
+            ROUND(phase_composite * sample_size_factor, 1) AS weighted_composite,
+            RANK() OVER (PARTITION BY match_phase ORDER BY phase_composite * sample_size_factor DESC) AS phase_rank
+        FROM phase_scores
+    """)
 
     # -----------------------------------------------------------------------
     # 2. Bowler Phase Rankings — composite across phases
@@ -1558,14 +1622,70 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
     """)
     print("  - analytics_ipl_bowler_phase_rankings")
 
-    conn.execute(
-        "CREATE OR REPLACE VIEW analytics_ipl_bowler_phase_rankings_alltime "
-        "AS SELECT * FROM analytics_ipl_bowler_phase_rankings"
-    )
-    conn.execute(
-        "CREATE OR REPLACE VIEW analytics_ipl_bowler_phase_rankings_since2023 "
-        "AS SELECT * FROM analytics_ipl_bowler_phase_rankings"
-    )
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_bowler_phase_rankings_alltime AS
+        WITH phase_scores AS (
+            SELECT
+                player_id,
+                player_name,
+                match_phase,
+                balls_bowled,
+                economy_rate,
+                dot_ball_pct,
+                economy_percentile,
+                dot_ball_percentile,
+                ROUND((economy_percentile * 0.5 + dot_ball_percentile * 0.5), 1)
+                    AS phase_composite,
+                ROUND(LEAST(balls_bowled / 120.0, 1.0), 3) AS sample_size_factor
+            FROM analytics_ipl_bowler_phase_percentiles_alltime
+        )
+        SELECT
+            player_id,
+            player_name,
+            match_phase,
+            balls_bowled,
+            economy_rate,
+            dot_ball_pct,
+            economy_percentile,
+            dot_ball_percentile,
+            phase_composite,
+            sample_size_factor,
+            ROUND(phase_composite * sample_size_factor, 1) AS weighted_composite,
+            RANK() OVER (PARTITION BY match_phase ORDER BY phase_composite * sample_size_factor DESC) AS phase_rank
+        FROM phase_scores
+    """)
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_bowler_phase_rankings_since2023 AS
+        WITH phase_scores AS (
+            SELECT
+                player_id,
+                player_name,
+                match_phase,
+                balls_bowled,
+                economy_rate,
+                dot_ball_pct,
+                economy_percentile,
+                dot_ball_percentile,
+                ROUND((economy_percentile * 0.5 + dot_ball_percentile * 0.5), 1)
+                    AS phase_composite,
+                ROUND(LEAST(balls_bowled / 120.0, 1.0), 3) AS sample_size_factor
+            FROM analytics_ipl_bowler_phase_percentiles_since2023
+        )
+        SELECT
+            player_id,
+            player_name,
+            match_phase,
+            balls_bowled,
+            economy_rate,
+            dot_ball_pct,
+            economy_percentile,
+            dot_ball_percentile,
+            phase_composite,
+            sample_size_factor,
+            ROUND(phase_composite * sample_size_factor, 1) AS weighted_composite,
+            RANK() OVER (PARTITION BY match_phase ORDER BY phase_composite * sample_size_factor DESC) AS phase_rank
+        FROM phase_scores
+    """)
 
     # -----------------------------------------------------------------------
     # 3. Batter vs Bowling Type Rankings
@@ -1617,10 +1737,45 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
         "CREATE OR REPLACE VIEW analytics_ipl_batter_vs_bowling_type_rankings_alltime "
         "AS SELECT * FROM analytics_ipl_batter_vs_bowling_type_rankings"
     )
-    conn.execute(
-        "CREATE OR REPLACE VIEW analytics_ipl_batter_vs_bowling_type_rankings_since2023 "
-        "AS SELECT * FROM analytics_ipl_batter_vs_bowling_type_rankings"
-    )
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_batter_vs_bowling_type_rankings_since2023 AS
+        WITH qualified AS (
+            SELECT
+                batter_id AS player_id,
+                batter_name AS player_name,
+                bowler_type,
+                balls,
+                runs,
+                strike_rate,
+                dismissals,
+                average,
+                ROUND(dismissals * 100.0 / NULLIF(balls, 0), 2) AS dismissal_rate
+            FROM analytics_ipl_batter_vs_bowler_type_since2023
+            WHERE balls >= 50
+        ),
+        with_pctls AS (
+            SELECT
+                q.*,
+                ROUND(PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY strike_rate) * 100, 1)
+                    AS sr_percentile,
+                ROUND(PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY average) * 100, 1)
+                    AS avg_percentile,
+                ROUND(PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY dismissal_rate DESC) * 100, 1)
+                    AS survival_percentile,
+                ROUND((
+                    PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY strike_rate) * 0.4 +
+                    PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY average) * 0.4 +
+                    PERCENT_RANK() OVER (PARTITION BY bowler_type ORDER BY dismissal_rate DESC) * 0.2
+                ) * 100, 1) AS vs_type_composite,
+                ROUND(LEAST(q.balls / 100.0, 1.0), 3) AS sample_size_factor
+            FROM qualified q
+        )
+        SELECT
+            w.*,
+            ROUND(vs_type_composite * sample_size_factor, 1) AS weighted_composite,
+            RANK() OVER (PARTITION BY bowler_type ORDER BY vs_type_composite * sample_size_factor DESC) AS vs_type_rank
+        FROM with_pctls w
+    """)
 
     # -----------------------------------------------------------------------
     # 4. Bowler vs Handedness Rankings
@@ -1667,10 +1822,40 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
         "CREATE OR REPLACE VIEW analytics_ipl_bowler_vs_handedness_rankings_alltime "
         "AS SELECT * FROM analytics_ipl_bowler_vs_handedness_rankings"
     )
-    conn.execute(
-        "CREATE OR REPLACE VIEW analytics_ipl_bowler_vs_handedness_rankings_since2023 "
-        "AS SELECT * FROM analytics_ipl_bowler_vs_handedness_rankings"
-    )
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_bowler_vs_handedness_rankings_since2023 AS
+        WITH qualified AS (
+            SELECT
+                bowler_id AS player_id,
+                bowler_name AS player_name,
+                batting_hand,
+                balls,
+                wickets,
+                economy,
+                strike_rate AS bowling_sr
+            FROM analytics_ipl_bowler_vs_batter_handedness_since2023
+            WHERE balls >= 50
+        ),
+        with_pctls AS (
+            SELECT
+                q.*,
+                ROUND(PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY economy DESC) * 100, 1)
+                    AS economy_percentile,
+                ROUND(PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY bowling_sr DESC) * 100, 1)
+                    AS sr_percentile,
+                ROUND((
+                    PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY economy DESC) * 0.5 +
+                    PERCENT_RANK() OVER (PARTITION BY batting_hand ORDER BY bowling_sr DESC) * 0.5
+                ) * 100, 1) AS vs_hand_composite,
+                ROUND(LEAST(q.balls / 100.0, 1.0), 3) AS sample_size_factor
+            FROM qualified q
+        )
+        SELECT
+            w.*,
+            ROUND(vs_hand_composite * sample_size_factor, 1) AS weighted_composite,
+            RANK() OVER (PARTITION BY batting_hand ORDER BY vs_hand_composite * sample_size_factor DESC) AS vs_hand_rank
+        FROM with_pctls w
+    """)
 
     # -----------------------------------------------------------------------
     # 5. Player Matchup Rankings — dominance index from matchup matrix
@@ -1709,10 +1894,39 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
     """)
     print("  - analytics_ipl_player_matchup_rankings")
 
-    conn.execute(
-        "CREATE OR REPLACE VIEW analytics_ipl_player_matchup_rankings_alltime "
-        "AS SELECT * FROM analytics_ipl_player_matchup_rankings"
-    )
+    # Alltime matchup rankings — uses alltime matchup matrix (no date filter)
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_player_matchup_rankings_alltime AS
+        SELECT
+            batter_id,
+            batter_name,
+            bowler_id,
+            bowler_name,
+            balls,
+            runs,
+            dismissals,
+            boundary_pct,
+            ROUND(runs * 100.0 / NULLIF(balls, 0), 2) AS strike_rate,
+            ROUND(runs * 1.0 / NULLIF(dismissals, 0), 2) AS average,
+            ROUND(
+                (runs * 100.0 / NULLIF(balls, 0) - 130) * 0.5 +
+                (runs * 1.0 / NULLIF(dismissals, 0) - 25) * 0.3 +
+                (boundary_pct - 15) * 0.2,
+            2) AS dominance_index,
+            ROUND(LEAST(balls / 50.0, 1.0), 3) AS sample_size_factor,
+            ROUND(
+                (
+                    (runs * 100.0 / NULLIF(balls, 0) - 130) * 0.5 +
+                    (runs * 1.0 / NULLIF(dismissals, 0) - 25) * 0.3 +
+                    (boundary_pct - 15) * 0.2
+                ) * LEAST(balls / 50.0, 1.0),
+            2) AS weighted_dominance
+        FROM analytics_ipl_player_matchup_matrix_alltime
+        WHERE balls >= 12
+        ORDER BY weighted_dominance DESC
+    """)
+
+    # Since 2023 matchup rankings — uses default matchup matrix (date-filtered)
     conn.execute(
         "CREATE OR REPLACE VIEW analytics_ipl_player_matchup_rankings_since2023 "
         "AS SELECT * FROM analytics_ipl_player_matchup_rankings"
@@ -1800,14 +2014,150 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
     """)
     print("  - analytics_ipl_batter_composite_rankings")
 
-    conn.execute(
-        "CREATE OR REPLACE VIEW analytics_ipl_batter_composite_rankings_alltime "
-        "AS SELECT * FROM analytics_ipl_batter_composite_rankings"
-    )
-    conn.execute(
-        "CREATE OR REPLACE VIEW analytics_ipl_batter_composite_rankings_since2023 "
-        "AS SELECT * FROM analytics_ipl_batter_composite_rankings"
-    )
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_batter_composite_rankings_alltime AS
+        WITH career AS (
+            SELECT
+                player_id,
+                player_name,
+                innings,
+                runs,
+                balls_faced,
+                strike_rate,
+                batting_average,
+                boundary_pct,
+                dot_ball_pct,
+                sr_percentile AS career_sr_pctl,
+                avg_percentile AS career_avg_pctl,
+                boundary_percentile AS career_boundary_pctl,
+                dot_ball_percentile AS career_dotball_pctl
+            FROM analytics_ipl_batting_percentiles_alltime
+        ),
+        phase_avg AS (
+            SELECT
+                player_id,
+                ROUND(AVG(sr_percentile), 1) AS avg_phase_sr_pctl,
+                ROUND(AVG(avg_percentile), 1) AS avg_phase_avg_pctl
+            FROM analytics_ipl_batter_phase_percentiles_alltime
+            GROUP BY player_id
+        )
+        SELECT
+            c.player_id,
+            c.player_name,
+            c.innings,
+            c.runs,
+            c.balls_faced,
+            c.strike_rate,
+            c.batting_average,
+            c.boundary_pct,
+            c.career_sr_pctl,
+            c.career_avg_pctl,
+            c.career_boundary_pctl,
+            c.career_dotball_pctl,
+            COALESCE(p.avg_phase_sr_pctl, c.career_sr_pctl) AS phase_sr_pctl,
+            COALESCE(p.avg_phase_avg_pctl, c.career_avg_pctl) AS phase_avg_pctl,
+            ROUND(
+                (c.career_sr_pctl + c.career_avg_pctl) / 2 * 0.30 +
+                (COALESCE(p.avg_phase_sr_pctl, c.career_sr_pctl) +
+                 COALESCE(p.avg_phase_avg_pctl, c.career_avg_pctl)) / 2 * 0.30 +
+                c.career_boundary_pctl * 0.20 +
+                c.career_avg_pctl * 0.10 +
+                c.career_dotball_pctl * 0.10
+            , 1) AS composite_score,
+            ROUND(LEAST(c.balls_faced / 500.0, 1.0), 3) AS sample_size_factor,
+            ROUND(
+                (
+                    (c.career_sr_pctl + c.career_avg_pctl) / 2 * 0.30 +
+                    (COALESCE(p.avg_phase_sr_pctl, c.career_sr_pctl) +
+                     COALESCE(p.avg_phase_avg_pctl, c.career_avg_pctl)) / 2 * 0.30 +
+                    c.career_boundary_pctl * 0.20 +
+                    c.career_avg_pctl * 0.10 +
+                    c.career_dotball_pctl * 0.10
+                ) * LEAST(c.balls_faced / 500.0, 1.0)
+            , 1) AS weighted_composite,
+            RANK() OVER (ORDER BY (
+                (c.career_sr_pctl + c.career_avg_pctl) / 2 * 0.30 +
+                (COALESCE(p.avg_phase_sr_pctl, c.career_sr_pctl) +
+                 COALESCE(p.avg_phase_avg_pctl, c.career_avg_pctl)) / 2 * 0.30 +
+                c.career_boundary_pctl * 0.20 +
+                c.career_avg_pctl * 0.10 +
+                c.career_dotball_pctl * 0.10
+            ) * LEAST(c.balls_faced / 500.0, 1.0) DESC) AS overall_rank
+        FROM career c
+        LEFT JOIN phase_avg p ON c.player_id = p.player_id
+    """)
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_batter_composite_rankings_since2023 AS
+        WITH career AS (
+            SELECT
+                player_id,
+                player_name,
+                innings,
+                runs,
+                balls_faced,
+                strike_rate,
+                batting_average,
+                boundary_pct,
+                dot_ball_pct,
+                sr_percentile AS career_sr_pctl,
+                avg_percentile AS career_avg_pctl,
+                boundary_percentile AS career_boundary_pctl,
+                dot_ball_percentile AS career_dotball_pctl
+            FROM analytics_ipl_batting_percentiles_since2023
+        ),
+        phase_avg AS (
+            SELECT
+                player_id,
+                ROUND(AVG(sr_percentile), 1) AS avg_phase_sr_pctl,
+                ROUND(AVG(avg_percentile), 1) AS avg_phase_avg_pctl
+            FROM analytics_ipl_batter_phase_percentiles_since2023
+            GROUP BY player_id
+        )
+        SELECT
+            c.player_id,
+            c.player_name,
+            c.innings,
+            c.runs,
+            c.balls_faced,
+            c.strike_rate,
+            c.batting_average,
+            c.boundary_pct,
+            c.career_sr_pctl,
+            c.career_avg_pctl,
+            c.career_boundary_pctl,
+            c.career_dotball_pctl,
+            COALESCE(p.avg_phase_sr_pctl, c.career_sr_pctl) AS phase_sr_pctl,
+            COALESCE(p.avg_phase_avg_pctl, c.career_avg_pctl) AS phase_avg_pctl,
+            ROUND(
+                (c.career_sr_pctl + c.career_avg_pctl) / 2 * 0.30 +
+                (COALESCE(p.avg_phase_sr_pctl, c.career_sr_pctl) +
+                 COALESCE(p.avg_phase_avg_pctl, c.career_avg_pctl)) / 2 * 0.30 +
+                c.career_boundary_pctl * 0.20 +
+                c.career_avg_pctl * 0.10 +
+                c.career_dotball_pctl * 0.10
+            , 1) AS composite_score,
+            ROUND(LEAST(c.balls_faced / 500.0, 1.0), 3) AS sample_size_factor,
+            ROUND(
+                (
+                    (c.career_sr_pctl + c.career_avg_pctl) / 2 * 0.30 +
+                    (COALESCE(p.avg_phase_sr_pctl, c.career_sr_pctl) +
+                     COALESCE(p.avg_phase_avg_pctl, c.career_avg_pctl)) / 2 * 0.30 +
+                    c.career_boundary_pctl * 0.20 +
+                    c.career_avg_pctl * 0.10 +
+                    c.career_dotball_pctl * 0.10
+                ) * LEAST(c.balls_faced / 500.0, 1.0)
+            , 1) AS weighted_composite,
+            RANK() OVER (ORDER BY (
+                (c.career_sr_pctl + c.career_avg_pctl) / 2 * 0.30 +
+                (COALESCE(p.avg_phase_sr_pctl, c.career_sr_pctl) +
+                 COALESCE(p.avg_phase_avg_pctl, c.career_avg_pctl)) / 2 * 0.30 +
+                c.career_boundary_pctl * 0.20 +
+                c.career_avg_pctl * 0.10 +
+                c.career_dotball_pctl * 0.10
+            ) * LEAST(c.balls_faced / 500.0, 1.0) DESC) AS overall_rank
+        FROM career c
+        LEFT JOIN phase_avg p ON c.player_id = p.player_id
+    """)
 
     # -----------------------------------------------------------------------
     # 7. Overall Bowler Composite Rankings
@@ -1892,14 +2242,152 @@ def create_composite_ranking_views(conn: duckdb.DuckDBPyConnection) -> None:
     """)
     print("  - analytics_ipl_bowler_composite_rankings")
 
-    conn.execute(
-        "CREATE OR REPLACE VIEW analytics_ipl_bowler_composite_rankings_alltime "
-        "AS SELECT * FROM analytics_ipl_bowler_composite_rankings"
-    )
-    conn.execute(
-        "CREATE OR REPLACE VIEW analytics_ipl_bowler_composite_rankings_since2023 "
-        "AS SELECT * FROM analytics_ipl_bowler_composite_rankings"
-    )
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_bowler_composite_rankings_alltime AS
+        WITH career AS (
+            SELECT
+                player_id,
+                player_name,
+                matches_bowled,
+                balls_bowled,
+                wickets,
+                economy_rate,
+                bowling_average,
+                bowling_strike_rate,
+                dot_ball_pct,
+                economy_percentile AS career_econ_pctl,
+                avg_percentile AS career_avg_pctl,
+                sr_percentile AS career_sr_pctl,
+                dot_ball_percentile AS career_dotball_pctl
+            FROM analytics_ipl_bowling_percentiles_alltime
+        ),
+        phase_avg AS (
+            SELECT
+                player_id,
+                ROUND(AVG(economy_percentile), 1) AS avg_phase_econ_pctl,
+                ROUND(AVG(dot_ball_percentile), 1) AS avg_phase_dotball_pctl
+            FROM analytics_ipl_bowler_phase_percentiles_alltime
+            GROUP BY player_id
+        )
+        SELECT
+            c.player_id,
+            c.player_name,
+            c.matches_bowled,
+            c.balls_bowled,
+            c.wickets,
+            c.economy_rate,
+            c.bowling_average,
+            c.bowling_strike_rate,
+            c.dot_ball_pct,
+            c.career_econ_pctl,
+            c.career_avg_pctl,
+            c.career_sr_pctl,
+            c.career_dotball_pctl,
+            COALESCE(p.avg_phase_econ_pctl, c.career_econ_pctl) AS phase_econ_pctl,
+            COALESCE(p.avg_phase_dotball_pctl, c.career_dotball_pctl) AS phase_dotball_pctl,
+            ROUND(
+                (c.career_econ_pctl + c.career_avg_pctl) / 2 * 0.30 +
+                (COALESCE(p.avg_phase_econ_pctl, c.career_econ_pctl) +
+                 COALESCE(p.avg_phase_dotball_pctl, c.career_dotball_pctl)) / 2 * 0.30 +
+                c.career_econ_pctl * 0.20 +
+                c.career_sr_pctl * 0.10 +
+                c.career_dotball_pctl * 0.10
+            , 1) AS composite_score,
+            ROUND(LEAST(c.balls_bowled / 300.0, 1.0), 3) AS sample_size_factor,
+            ROUND(
+                (
+                    (c.career_econ_pctl + c.career_avg_pctl) / 2 * 0.30 +
+                    (COALESCE(p.avg_phase_econ_pctl, c.career_econ_pctl) +
+                     COALESCE(p.avg_phase_dotball_pctl, c.career_dotball_pctl)) / 2 * 0.30 +
+                    c.career_econ_pctl * 0.20 +
+                    c.career_sr_pctl * 0.10 +
+                    c.career_dotball_pctl * 0.10
+                ) * LEAST(c.balls_bowled / 300.0, 1.0)
+            , 1) AS weighted_composite,
+            RANK() OVER (ORDER BY (
+                (c.career_econ_pctl + c.career_avg_pctl) / 2 * 0.30 +
+                (COALESCE(p.avg_phase_econ_pctl, c.career_econ_pctl) +
+                 COALESCE(p.avg_phase_dotball_pctl, c.career_dotball_pctl)) / 2 * 0.30 +
+                c.career_econ_pctl * 0.20 +
+                c.career_sr_pctl * 0.10 +
+                c.career_dotball_pctl * 0.10
+            ) * LEAST(c.balls_bowled / 300.0, 1.0) DESC) AS overall_rank
+        FROM career c
+        LEFT JOIN phase_avg p ON c.player_id = p.player_id
+    """)
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_bowler_composite_rankings_since2023 AS
+        WITH career AS (
+            SELECT
+                player_id,
+                player_name,
+                matches_bowled,
+                balls_bowled,
+                wickets,
+                economy_rate,
+                bowling_average,
+                bowling_strike_rate,
+                dot_ball_pct,
+                economy_percentile AS career_econ_pctl,
+                avg_percentile AS career_avg_pctl,
+                sr_percentile AS career_sr_pctl,
+                dot_ball_percentile AS career_dotball_pctl
+            FROM analytics_ipl_bowling_percentiles_since2023
+        ),
+        phase_avg AS (
+            SELECT
+                player_id,
+                ROUND(AVG(economy_percentile), 1) AS avg_phase_econ_pctl,
+                ROUND(AVG(dot_ball_percentile), 1) AS avg_phase_dotball_pctl
+            FROM analytics_ipl_bowler_phase_percentiles_since2023
+            GROUP BY player_id
+        )
+        SELECT
+            c.player_id,
+            c.player_name,
+            c.matches_bowled,
+            c.balls_bowled,
+            c.wickets,
+            c.economy_rate,
+            c.bowling_average,
+            c.bowling_strike_rate,
+            c.dot_ball_pct,
+            c.career_econ_pctl,
+            c.career_avg_pctl,
+            c.career_sr_pctl,
+            c.career_dotball_pctl,
+            COALESCE(p.avg_phase_econ_pctl, c.career_econ_pctl) AS phase_econ_pctl,
+            COALESCE(p.avg_phase_dotball_pctl, c.career_dotball_pctl) AS phase_dotball_pctl,
+            ROUND(
+                (c.career_econ_pctl + c.career_avg_pctl) / 2 * 0.30 +
+                (COALESCE(p.avg_phase_econ_pctl, c.career_econ_pctl) +
+                 COALESCE(p.avg_phase_dotball_pctl, c.career_dotball_pctl)) / 2 * 0.30 +
+                c.career_econ_pctl * 0.20 +
+                c.career_sr_pctl * 0.10 +
+                c.career_dotball_pctl * 0.10
+            , 1) AS composite_score,
+            ROUND(LEAST(c.balls_bowled / 300.0, 1.0), 3) AS sample_size_factor,
+            ROUND(
+                (
+                    (c.career_econ_pctl + c.career_avg_pctl) / 2 * 0.30 +
+                    (COALESCE(p.avg_phase_econ_pctl, c.career_econ_pctl) +
+                     COALESCE(p.avg_phase_dotball_pctl, c.career_dotball_pctl)) / 2 * 0.30 +
+                    c.career_econ_pctl * 0.20 +
+                    c.career_sr_pctl * 0.10 +
+                    c.career_dotball_pctl * 0.10
+                ) * LEAST(c.balls_bowled / 300.0, 1.0)
+            , 1) AS weighted_composite,
+            RANK() OVER (ORDER BY (
+                (c.career_econ_pctl + c.career_avg_pctl) / 2 * 0.30 +
+                (COALESCE(p.avg_phase_econ_pctl, c.career_econ_pctl) +
+                 COALESCE(p.avg_phase_dotball_pctl, c.career_dotball_pctl)) / 2 * 0.30 +
+                c.career_econ_pctl * 0.20 +
+                c.career_sr_pctl * 0.10 +
+                c.career_dotball_pctl * 0.10
+            ) * LEAST(c.balls_bowled / 300.0, 1.0) DESC) AS overall_rank
+        FROM career c
+        LEFT JOIN phase_avg p ON c.player_id = p.player_id
+    """)
 
     total_views = 7 * 3  # 7 categories x (base + alltime + since2023)
     print(f"\n  Total: {total_views} ranking views created (7 categories x 3 scopes)")
@@ -5170,7 +5658,7 @@ def create_matchup_matrix_views(conn: duckdb.DuckDBPyConnection) -> None:
     """)
     print("  - analytics_ipl_team_matchup_batting")
 
-    # ── View 4: Player Matchup Matrix ───────────────────────────
+    # ── View 4: Player Matchup Matrix (since 2023 — default) ────
     conn.execute(f"""
         CREATE OR REPLACE VIEW analytics_ipl_player_matchup_matrix AS
         WITH raw AS (
@@ -5229,12 +5717,73 @@ def create_matchup_matrix_views(conn: duckdb.DuckDBPyConnection) -> None:
                  bowler_id, bowler_name, bowler_team
         HAVING COUNT(*) >= 10
     """)
-    print("  - analytics_ipl_player_matchup_matrix")
+    print("  - analytics_ipl_player_matchup_matrix (since 2023)")
+
+    # ── View 4b: Player Matchup Matrix (all-time IPL) ─────────
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_ipl_player_matchup_matrix_alltime AS
+        WITH raw AS (
+            SELECT
+                fb.batter_id,
+                dp_bat.current_name  AS batter_name,
+                sq_bat.team_name     AS batter_team,
+                fb.bowler_id,
+                dp_bowl.current_name AS bowler_name,
+                sq_bowl.team_name    AS bowler_team,
+                fb.batter_runs,
+                fb.is_legal_ball,
+                fb.is_wicket,
+                fb.player_out_id
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_tournament dt ON dm.tournament_id = dt.tournament_id
+            JOIN dim_player dp_bat  ON fb.batter_id  = dp_bat.player_id
+            JOIN dim_player dp_bowl ON fb.bowler_id   = dp_bowl.player_id
+            JOIN ipl_2026_squads sq_bat  ON fb.batter_id = sq_bat.player_id
+            JOIN ipl_2026_squads sq_bowl ON fb.bowler_id = sq_bowl.player_id
+            WHERE dt.tournament_name = 'Indian Premier League'
+              AND fb.is_legal_ball = TRUE
+        )
+        SELECT
+            batter_id,
+            batter_name,
+            batter_team,
+            bowler_id,
+            bowler_name,
+            bowler_team,
+            COUNT(*)                                       AS balls,
+            SUM(batter_runs)                               AS runs,
+            SUM(CASE WHEN is_wicket AND player_out_id = batter_id
+                     THEN 1 ELSE 0 END)                    AS dismissals,
+            ROUND(SUM(batter_runs) * 100.0
+                  / NULLIF(COUNT(*), 0), 2)                AS strike_rate,
+            ROUND(SUM(batter_runs) * 1.0
+                  / NULLIF(SUM(CASE WHEN is_wicket AND player_out_id = batter_id
+                                    THEN 1 ELSE 0 END), 0), 2)
+                                                           AS average,
+            SUM(CASE WHEN batter_runs = 0 THEN 1 ELSE 0 END)
+                                                           AS dots,
+            SUM(CASE WHEN batter_runs IN (4, 6) THEN 1 ELSE 0 END)
+                                                           AS boundaries,
+            ROUND(SUM(CASE WHEN batter_runs = 0 THEN 1 ELSE 0 END) * 100.0
+                  / NULLIF(COUNT(*), 0), 2)                AS dot_pct,
+            ROUND(SUM(CASE WHEN batter_runs IN (4, 6) THEN 1 ELSE 0 END) * 100.0
+                  / NULLIF(COUNT(*), 0), 2)                AS boundary_pct,
+            CASE WHEN COUNT(*) < 10 THEN 'LOW'
+                 WHEN COUNT(*) < 30 THEN 'MEDIUM'
+                 ELSE 'HIGH' END                           AS sample_size
+        FROM raw
+        GROUP BY batter_id, batter_name, batter_team,
+                 bowler_id, bowler_name, bowler_team
+        HAVING COUNT(*) >= 10
+    """)
+    print("  - analytics_ipl_player_matchup_matrix_alltime")
 
     # Verify row counts
     for vw in [
         "analytics_ipl_team_matchup_batting",
         "analytics_ipl_player_matchup_matrix",
+        "analytics_ipl_player_matchup_matrix_alltime",
     ]:
         try:
             count = conn.execute(f"SELECT COUNT(*) FROM {vw}").fetchone()[0]

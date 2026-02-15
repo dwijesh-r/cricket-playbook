@@ -233,6 +233,7 @@ FRANCHISE_CAPTAIN_OPENER_BONUS = 10.0
 # Founder XII bonus - players in Founder's predicted XII get a boost
 FOUNDER_XII_BONUS = 10.0
 FOUNDER_SQUADS_FILE = PROJECT_DIR / "outputs" / "founder_review" / "founder_squads_2026.json"
+PREDICTED_XII_FILE = PROJECT_DIR / "outputs" / "predicted_xii" / "predicted_xii_2026.json"
 
 
 # =============================================================================
@@ -497,6 +498,45 @@ _FOUNDER_XII: set = set()
 def is_founder_xii(player_id: str) -> bool:
     """Check if a player is in the Founder's XII"""
     return player_id in _FOUNDER_XII
+
+
+def load_predicted_xii_ids() -> Dict[str, set]:
+    """
+    Load predicted XII player IDs grouped by team abbreviation.
+
+    Every player in a team's predicted XII (xi + impact_player) must appear
+    in that team's depth chart.  This function provides the per-team sets
+    used by _ensure_predicted_xii_coverage().
+
+    Returns:
+        Dict mapping team abbreviation (e.g. "KKR") to a set of player_id strings.
+    """
+    predicted: Dict[str, set] = {}
+
+    if PREDICTED_XII_FILE.exists():
+        logger.debug("Loading predicted XII from %s", PREDICTED_XII_FILE)
+        with open(PREDICTED_XII_FILE, "r") as f:
+            data = json.load(f)
+
+        for team_abbrev, team_data in data.get("teams", {}).items():
+            ids: set = set()
+            for player in team_data.get("xi", []):
+                ids.add(player["player_id"])
+            impact = team_data.get("impact_player")
+            if impact:
+                ids.add(impact["player_id"])
+            predicted[team_abbrev] = ids
+
+        total = sum(len(v) for v in predicted.values())
+        logger.info("Loaded %d predicted XII players across %d teams", total, len(predicted))
+    else:
+        logger.warning("Predicted XII file not found: %s", PREDICTED_XII_FILE)
+
+    return predicted
+
+
+# Global predicted XII sets — loaded once in main()
+_PREDICTED_XII: Dict[str, set] = {}
 
 
 def build_players(
@@ -2029,6 +2069,149 @@ def _identify_vulnerabilities(positions: Dict[str, Position]) -> List[str]:
     return vulnerabilities[:5]
 
 
+def _ensure_predicted_xii_coverage(
+    positions: Dict[str, Position],
+    players: List[Player],
+    team_abbrev: str,
+) -> None:
+    """
+    Guarantee every predicted XII player appears in at least one depth chart position.
+
+    After positions are built with the standard top-3 limit, some predicted XII players
+    may rank 4th or lower in every position and therefore not appear at all.  This function
+    detects those gaps and appends the missing player to their highest-scoring position.
+
+    The player is appended at the *end* of that position's list (rank = len + 1) so the
+    existing top-3 ordering is preserved.  Position ratings are NOT recalculated — the
+    additional player is depth insurance, not a rating input.
+
+    Args:
+        positions: Mutable dict of positions already generated for the team.
+        players: Full list of Player objects for the team.
+        team_abbrev: Team abbreviation (e.g. "KKR") used to look up predicted XII.
+    """
+    predicted_ids = _PREDICTED_XII.get(team_abbrev, set())
+    if not predicted_ids:
+        return
+
+    # Collect all player IDs already present across every position
+    present_ids: set = set()
+    for pos in positions.values():
+        for pp in pos.players:
+            present_ids.add(pp.player.player_id)
+
+    # Identify missing predicted XII players
+    missing_ids = predicted_ids - present_ids
+    if not missing_ids:
+        return
+
+    # Build a lookup of Player objects by ID
+    player_lookup = {p.player_id: p for p in players}
+
+    # All scoring functions mapped to their position keys
+    # (wicketkeeper is handled specially below)
+    scoring_map: List[tuple] = [
+        ("opener", score_opener),
+        ("number_3", score_number_three),
+        ("middle_order", score_middle_order),
+        ("finisher", score_finisher),
+        ("right_arm_pace", score_lead_pacer),
+        ("left_arm_pace", score_lead_pacer),
+        ("off_spin", score_lead_spinner),
+        ("leg_spin", score_lead_spinner),
+        ("left_arm_orthodox", score_lead_spinner),
+        ("left_arm_wrist_spin", score_lead_spinner),
+        ("middle_overs_specialist", score_middle_overs_specialist),
+        ("allrounder_batting", score_batting_allrounder),
+        ("allrounder_bowling", score_bowling_allrounder),
+    ]
+
+    for pid in missing_ids:
+        player = player_lookup.get(pid)
+        if player is None:
+            logger.warning(
+                "Predicted XII player %s not in squad for %s — skipping", pid, team_abbrev
+            )
+            continue
+
+        # Score the player across all non-wicketkeeper positions
+        best_pos_key: Optional[str] = None
+        best_score: float = 0.0
+        best_rationale: str = ""
+
+        for pos_key, scoring_func in scoring_map:
+            if pos_key not in positions:
+                continue
+            try:
+                score, rationale = scoring_func(player)
+            except Exception:
+                continue
+            # Apply Founder XII bonus consistently
+            if is_founder_xii(player.player_id) and score > 0:
+                score = min(score + FOUNDER_XII_BONUS, 100.0)
+                rationale = f"Founder XII. {rationale}"
+            if score > best_score:
+                best_score = score
+                best_pos_key = pos_key
+                best_rationale = rationale
+
+        # Also check wicketkeeper if applicable
+        if player.is_wicketkeeper or player.role == "Wicketkeeper":
+            if player.avg_entry_ball and player.avg_entry_ball <= 20:
+                bat_score, _ = score_opener(player)
+            elif player.avg_entry_ball and player.avg_entry_ball >= 60:
+                bat_score, _ = score_finisher(player)
+            else:
+                bat_score, _ = score_middle_order(player)
+            try:
+                wk_score, wk_rationale = score_wicketkeeper(player, bat_score)
+            except Exception:
+                wk_score = 0.0
+                wk_rationale = ""
+            if is_founder_xii(player.player_id) and wk_score > 0:
+                wk_score = min(wk_score + FOUNDER_XII_BONUS, 100.0)
+                wk_rationale = f"Founder XII. {wk_rationale}"
+            if wk_score > best_score:
+                best_score = wk_score
+                best_pos_key = "wicketkeeper"
+                best_rationale = wk_rationale
+
+        if best_pos_key is None or best_score <= 0:
+            # Player cannot score on ANY position — add to a fallback position
+            # based on role to ensure coverage
+            if player.role == "Batter":
+                best_pos_key = "opener"
+            elif player.role == "All-rounder":
+                best_pos_key = "allrounder_bowling"
+            elif player.role == "Bowler":
+                best_pos_key = "right_arm_pace" if player.is_pacer else "off_spin"
+            elif player.role == "Wicketkeeper":
+                best_pos_key = "wicketkeeper"
+            else:
+                best_pos_key = "opener"
+            best_score = 1.0
+            best_rationale = "Predicted XII (no qualifying score)"
+
+        pos = positions[best_pos_key]
+        new_rank = len(pos.players) + 1
+        pos.players.append(
+            PositionPlayer(
+                rank=new_rank,
+                player=player,
+                score=round(best_score, 1),
+                rationale=best_rationale,
+            )
+        )
+        logger.info(
+            "Predicted XII coverage: added %s to %s (rank %d, score %.1f) for %s",
+            player.player_name,
+            pos.name,
+            new_rank,
+            best_score,
+            team_abbrev,
+        )
+
+
 def generate_team_depth_chart(team: str, players: List[Player]) -> DepthChart:
     """
     Generate complete depth chart for a team.
@@ -2106,6 +2289,10 @@ def generate_team_depth_chart(team: str, players: List[Player]) -> DepthChart:
     positions["allrounder_bowling"] = _create_position(
         players, score_bowling_allrounder, "Bowling AR", "Allrounder (Bowling)", 3
     )
+
+    # Ensure every predicted XII player appears in at least one position
+    team_abbrev = TEAM_ABBREV[team]
+    _ensure_predicted_xii_coverage(positions, players, team_abbrev)
 
     # Calculate overall metrics
     ratings = {k: v.rating for k, v in positions.items()}
@@ -2238,11 +2425,19 @@ def main() -> int:
     global _FOUNDER_XII
     _FOUNDER_XII = load_founder_xii()
 
+    # Load predicted XII data for depth chart coverage guarantee
+    global _PREDICTED_XII
+    _PREDICTED_XII = load_predicted_xii_ids()
+
     logger.info("Loaded %d teams", len(squads))
     logger.info("Loaded %d player contracts", len(contracts))
     logger.info("Loaded %d batting entry points", len(entry_points))
     logger.info("Loaded %d bowler phase records", len(bowler_metrics))
     logger.info("Loaded %d Founder XII players", len(_FOUNDER_XII))
+    logger.info(
+        "Loaded %d predicted XII players",
+        sum(len(v) for v in _PREDICTED_XII.values()),
+    )
 
     # Build player objects
     logger.info("[2/5] Building player database...")

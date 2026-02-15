@@ -1,13 +1,34 @@
 {
   "id": "TKT-252",
   "title": "Remove stale Ctrl+Space hint, fix typewriter delay, remove dead CSS",
-  "state": "BACKLOG",
+  "state": "DONE",
   "priority": "P1",
   "epic_id": "EPIC-024",
-  "sprint_id": "SPRINT-002",
+  "sprint_id": "SPRINT-005",
   "assignee": "Jayson Tatum",
   "effort": "Hustle",
   "description": "UX cleanup: remove the stale Ctrl+Space keyboard shortcut hint that references deprecated functionality. Fix the typewriter animation delay that causes text to appear sluggish on page load. Audit and remove dead CSS rules that are no longer referenced by any HTML elements. Jayson Tatum UX audit items.",
   "created_at": "2026-02-14T10:00:00Z",
-  "updated_at": "2026-02-14T10:00:00Z"
+  "updated_at": "2026-02-15T12:00:00Z",
+  "progress_notes": [
+    {
+      "date": "2026-02-15",
+      "author": "Jayson Tatum",
+      "note": "AUDIT FINDINGS: (1) Stale keyboard hints: research-desk.html displayed Ctrl+Space (Autocomplete), Ctrl+L (Clear), and Ctrl+/ (Comment) in the editor shortcuts hint bar. These were remnants of the CodeMirror integration removed in TKT-174. Only Ctrl+Enter (Run) has a live JS handler. (2) Typewriter delay: index.html hero title 'The Lab' had a 4.8s animation-delay, originally synced to a now-disabled intro overlay animation (display:none !important). All other pages use 0.3s. (3) Dead CSS: 12 lines of CodeMirror override CSS (.cm-editor, .cm-editor.cm-focused, .cm-scroller) in research-desk.html — CodeMirror was removed but its style overrides remained."
+    },
+    {
+      "date": "2026-02-15",
+      "author": "Jayson Tatum",
+      "note": "FIXES APPLIED: (1) research-desk.html: Removed stale Ctrl+L, Ctrl+/, Ctrl+Space hints. Kept Ctrl+Enter (Run) which has a live keydown handler. (2) research-desk.html: Removed 12 lines of dead CodeMirror CSS overrides (.cm-editor, .cm-focused, .cm-scroller). (3) index.html: Reduced typewriter animation-delay from 4.8s to 0.3s, typing duration from 1.2s to 0.8s, and adjusted blink-caret/hide-caret timings to match other pages. Hero title now appears in ~0.3s instead of ~4.8s."
+    },
+    {
+      "date": "2026-02-15",
+      "author": "Jayson Tatum",
+      "note": "CONSERVATIVE NOTES: (1) Did NOT remove the disabled intro-overlay animation CSS block (~300 lines in index.html) — it is explicitly marked 'BACKLOG' with a TODO to revisit, so it is intentionally retained dead code. (2) Did NOT remove the .editor-shortcuts-hint CSS class definitions — they are still used by the simplified hint bar. (3) All other Lab pages (teams, artifacts, analysis, research, about) already had 0.3s typewriter delays — no changes needed. (4) Mission Control dashboard files had no stale hints or dead CSS related to this ticket."
+    }
+  ],
+  "files_modified": [
+    "scripts/the_lab/dashboard/research-desk.html",
+    "scripts/the_lab/dashboard/index.html"
+  ]
 }

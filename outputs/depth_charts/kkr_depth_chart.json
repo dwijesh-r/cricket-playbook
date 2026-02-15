@@ -99,6 +99,18 @@
           "bowling_type": "Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
+        },
+        {
+          "rank": 4,
+          "name": "Ajinkya Rahane",
+          "player_id": "29e95537",
+          "score": 66.8,
+          "rationale": "Founder XII. Elite top-order. Strong in PP",
+          "is_overseas": false,
+          "price_cr": 1.5,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
         }
       ]
     },

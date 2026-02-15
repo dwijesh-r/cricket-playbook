@@ -1412,19 +1412,6 @@
             font-size: 11px;
         }
 
-        /* ==================== CODEMIRROR OVERRIDES (TKT-174) ==================== */
-        .sql-editor-wrapper .cm-editor {
-            min-height: 160px;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        .sql-editor-wrapper .cm-editor.cm-focused {
-            outline: none;
-        }
-        .sql-editor-wrapper .cm-scroller {
-            overflow: auto;
-        }
-
         /* ---- Pagination Controls (TKT-174) ---- */
         .results-pagination {
             display: none;
@@ -1918,12 +1905,9 @@ FROM analytics_ipl_batting_career
 ORDER BY runs DESC
 LIMIT 20;</textarea>
                     </div>
-                    <!-- Keyboard shortcuts hint (TKT-174) -->
+                    <!-- Keyboard shortcuts hint (TKT-174, cleaned by TKT-252) -->
                     <div class="editor-shortcuts-hint">
-                        <kbd>Ctrl+Enter</kbd> Run &middot;
-                        <kbd>Ctrl+L</kbd> Clear &middot;
-                        <kbd>Ctrl+/</kbd> Comment &middot;
-                        <kbd>Ctrl+Space</kbd> Autocomplete
+                        <kbd>Ctrl+Enter</kbd> Run
                     </div>
                 </div>
 

@@ -1,13 +1,54 @@
 {
   "id": "TKT-236",
   "title": "Build ranking generator script — generate_rankings.py",
-  "state": "BACKLOG",
+  "state": "DONE",
   "priority": "P0",
   "epic_id": "EPIC-021",
-  "sprint_id": "SPRINT-002",
+  "sprint_id": "SPRINT-005",
   "assignee": "Stephen Curry",
   "effort": "Deep Work",
-  "description": "Build generate_rankings.py script that queries the composite ranking views created in TKT-235 and outputs ranking JSON files for The Lab dashboard consumption. Generates leaderboards for each ranking category: phase-wise batter rankings (3 phases), phase-wise bowler rankings (3 phases), batter vs bowling type (5 types), bowler vs LHB/RHB (2 + all-time), player-vs-player matchups, overall batter rankings, overall bowler rankings. Output to outputs/rankings/ directory.",
+  "description": "Build generate_rankings.py script that queries the composite ranking views created in TKT-235 and outputs ranking JSON files for The Lab dashboard consumption. Generates leaderboards for each ranking category: phase-wise batter rankings (3 phases), phase-wise bowler rankings (3 phases), batter vs bowling type (12 types), bowler vs LHB/RHB (2 splits), player-vs-player matchups (batter-favored + bowler-favored), overall batter rankings, overall bowler rankings. Output to scripts/the_lab/dashboard/data/rankings.js.",
   "created_at": "2026-02-14T10:00:00Z",
-  "updated_at": "2026-02-14T10:00:00Z"
+  "updated_at": "2026-02-15T06:30:00Z",
+  "completed_at": "2026-02-15T06:30:00Z",
+  "progress_notes": [
+    {
+      "date": "2026-02-15",
+      "note": "Generator built and validated. 7 categories, 86.9 KB output file.",
+      "details": {
+        "categories_produced": 7,
+        "output_file": "scripts/the_lab/dashboard/data/rankings.js",
+        "output_size_kb": 86.9,
+        "qualification_counts": {
+          "batter_phase": 493,
+          "bowler_phase": 751,
+          "batter_vs_bowling_type": 1178,
+          "bowler_vs_handedness": 203,
+          "player_matchups": 844,
+          "batter_composite": 36,
+          "bowler_composite": 62
+        },
+        "top3_per_category": {
+          "batter_phase_powerplay": ["TM Head", "JM Bairstow", "YBK Jaiswal"],
+          "batter_phase_middle": ["H Klaasen", "DP Conway", "N Pooran"],
+          "batter_phase_death": ["AB de Villiers", "T Stubbs", "CH Gayle"],
+          "bowler_phase_powerplay": ["R Rampaul", "GD McGrath", "WPUJC Vaas"],
+          "bowler_phase_middle": ["MM Patel", "Azhar Mahmood", "DW Steyn"],
+          "bowler_phase_death": ["DE Bollinger", "SP Narine", "M Muralitharan"],
+          "batter_composite_overall": ["H Klaasen", "N Pooran", "SA Yadav"],
+          "bowler_composite_overall": ["JJ Bumrah", "CV Varun", "JR Hazlewood"],
+          "matchups_batter_favored": ["H Klaasen vs CV Varun", "V Kohli vs Avesh Khan", "N Wadhera vs PWH de Silva"],
+          "matchups_bowler_favored": ["AR Patel vs CV Varun", "RG Sharma vs CV Varun", "V Kohli vs Harpreet Brar"]
+        },
+        "data_quality_notes": [
+          "Bumrah #1 bowler composite (94.7) - passes sniff test",
+          "Kohli at #11 batter composite (not top-3) due to anchor-style play penalized by boundary%/dot-ball weights",
+          "Klaasen #1 batter composite (86.9) driven by SR 175 + avg 45.6 + 22.4% boundary rate",
+          "All-time scope used (data includes retired legends in phase rankings)",
+          "12 bowling type sub-categories generated (Unknown excluded)",
+          "No NaN or null values in output"
+        ]
+      }
+    }
+  ]
 }

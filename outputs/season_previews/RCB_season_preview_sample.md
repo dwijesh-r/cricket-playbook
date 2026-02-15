@@ -3,7 +3,7 @@
 **Cricket Playbook | Season Preview Series**
 *Agent: Virat Kohli (Tone & Narrative) | Domain: Andy Flower (Scouting Report)*
 *Data Window: IPL 2023-2025 | 9,289 matches / 2.14M balls*
-*Revision: v1.8 | Jose Mourinho LOW corrections applied (ball counts, sample caveats, rounding fixes); score target 9.0*
+*Revision: v1.9 | Founder corrections applied (factual fixes, cross-format form, momentum trends, tactical deployment)*
 
 ---
 
@@ -25,7 +25,7 @@ The middle overs belonged to Krunal Pandya (5.75 Cr, retained). Think of him as 
 
 The death overs revealed a different animal entirely: Tim David (3.00 Cr, retained) at 184.6 SR across 286 balls at the death, with Jitesh Sharma (11.00 Cr, retained) at 191.6 SR across 178 balls alongside him. The team that once needed Kohli to anchor every chase now has designated finishers who can close out an innings without needing an anchor at all. The result: RCB beat Punjab Kings by 6 runs in the Final to claim their maiden IPL crown.
 
-For 2026, the title-winning core returns largely intact, with 15 players retained. Six auction purchases, headlined by Venkatesh Iyer (7.00 Cr), shore up the batting depth. The question marks are specific and unavoidable. Can Yash Dayal's off-field situation be resolved? Can the spin depth survive if opponents target the off-spin and wrist-spin gaps? And can the middle order shoulder more of the load now that the defending champions have a target painted on their backs?
+For 2026, the title-winning core returns largely intact, with 15 players retained. Six auction purchases, headlined by Venkatesh Iyer (7.00 Cr), shore up the batting depth. The question marks are specific and unavoidable. Can Yash Dayal's off-field situation be resolved? Can the spin depth survive if opponents target the off-spin gap? And can the middle order shoulder more of the load now that the defending champions have a target painted on their backs?
 
 ---
 
@@ -47,11 +47,11 @@ For 2026, the title-winning core returns largely intact, with 15 players retaine
 
 **Venkatesh Iyer (7.00 Cr, All-rounder, IND):** The headline act. Iyer's 149.9 SR and 31.6 average across 34 innings since 2023 (HIGH sample) bring genuine middle-order substance. A left-hander who can bat at 3 or 4 and chip in with part-time seam, he fills the Maxwell-shaped hole that's been in this squad. His 162.9 SR against fast bowling (MEDIUM, 151 balls) suggests he doesn't flinch against pace. The concern: 96.9 SR against left-arm orthodox (LOW, 32 balls) and 75.0 SR against wrist-spin (LOW, 16 balls). Limited data, but flags worth keeping on the radar.
 
-**Romario Shepherd (2.00 Cr, All-rounder, WI):** Pure impact. 282.2 SR across 45 balls in IPL (LOW sample), including 127 runs at 288.6 SR at the death (LOW, 44 balls). His bowling economy of 12.23 across 26 overs isn't winning any awards, but his role is clear: come in at 7 or 8, hit with intent from ball one, and bowl a few overs of useful pace. He's a designated chaos agent, the sort of player whose value doesn't show up in career averages but shows up in win probability swings.
+**Romario Shepherd (2.00 Cr, All-rounder, WI) — Returning:** Shepherd played for RCB in 2025 and was re-acquired at auction after not being retained. A familiar face, not a fresh one. 282.2 SR across 45 balls in IPL (LOW sample), including 127 runs at 288.6 SR at the death (LOW, 44 balls). His bowling economy of 12.23 across 26 overs isn't winning any awards, but his role is clear: come in at 7 or 8, hit with intent from ball one, and bowl a few overs of useful pace. His cross-format form (182.1 SR in ILT20/T20I L10) confirms the intent is genuine across tournaments, not just IPL small-sample noise. He's a designated chaos agent, the sort of player whose value doesn't show up in career averages but shows up in win probability swings.
 
 **Jacob Duffy (0.75 Cr, Bowler, NZ):** Uncapped in IPL. A right-arm fast-medium option providing pace depth behind Hazlewood. Break-glass-in-case-of-emergency insurance for the overseas seamer slot.
 
-**Satvik Deswal (0.30 Cr, Bowler, IND):** An 18-year-old left-arm wrist-spinner addressing the most glaring gap on the depth chart. Uncapped in IPL. Deswal is a development pick, but the fact that RCB went looking for a left-arm wrist-spinner at all tells you how seriously they take their 1.3/10 depth chart rating in that department.
+**Satvik Deswal (0.30 Cr, Bowler, IND):** An 18-year-old left-arm wrist-spinner. Uncapped in IPL. Deswal is a development pick — a bonus option rather than a necessity, given Suyash Sharma already provides leg-spin. If Deswal develops, he adds a variation angle; if not, RCB's spin attack doesn't collapse.
 
 **Mangesh Yadav (0.30 Cr, Bowler, IND):** Left-arm fast bowler who has quietly impressed in 6 IPL matches: 9 wickets at 9.32 economy. His 48.5% dot ball percentage in the middle overs (LOW, 11 overs) is the kind of number that makes coaches lean forward. With Yash Dayal's status up in the air, Mangesh might be bowling with the new ball sooner than anyone planned.
 
@@ -145,19 +145,19 @@ Look at those bowling numbers. Powerplay economy improved by a full run per over
 
 | Category | Rating | Key Metric | Context |
 |----------|--------|-----------|---------|
-| **Squad Depth** | 5.5/10 | 25 players, ~5 viable bench options | Off-spin depth 1.4/10, left-arm wrist-spin 1.3/10. Bench batters (Padikkal, Bethell) unproven or in poor form. One injury to Bhuvneshwar and there is no like-for-like replacement |
-| **XII Completeness** | 6.5/10 | 5 of 7 key roles filled | Openers, middle order, finishers, PP pace, middle-overs spin all covered. Missing: frontline off-spinner and dedicated death specialist. Yash Dayal's availability is a question mark |
+| **Squad Depth** | 5.5/10 | 25 players, ~5 viable bench options | Off-spin depth 1.4/10. Padikkal showing form (151.5 L10 SR, rebounding); Bethell has limited IPL exposure. One injury to Bhuvneshwar and there is no like-for-like replacement |
+| **XII Completeness** | 6.5/10 | 5 of 7 key roles filled | Openers, middle order, finishers, PP pace, middle-overs spin all covered. Leg-spin covered by Suyash Sharma. Missing: frontline off-spinner and dedicated death specialist. Yash Dayal's availability is a question mark |
 | **Batting Variety** | 6.0/10 | 1 LHB in top 7 (V Iyer) | Dominate pace (+8.7 to +9.6 vs league) but underperform vs off-spin (-1.5). Right-hand dominant lineup lets opposition plan one-dimensionally |
-| **Bowling Variety** | 5.0/10 | 4 bowling types in XII | No off-spin, no wrist-spin, only 1 left-arm option (Krunal). If Dayal unavailable, zero left-arm pace. Smart opponents will exploit the lack of variation |
+| **Bowling Variety** | 5.5/10 | 4 bowling types in XII | Leg-spin covered (Suyash Sharma), no frontline off-spin, only 1 left-arm option (Krunal). If Dayal unavailable, zero left-arm pace. Off-spin is the genuine gap |
 | **Experience** | 7.5/10 | 6 of XII have 50+ IPL caps | Kohli (240+), Bhuvneshwar (180+), Krunal (100+), Hazlewood (50+) provide tournament pedigree. Youth (Suyash 26 caps, Shepherd 12) adds energy. Rare balance of know-how and hunger |
 
 ### Overall
 
 | Category | Rating | Context |
 |----------|--------|---------|
-| **Overall** | **6.8/10** | Phase performance (avg 7.0) offset by structural gaps in depth, bowling variety, and XII completeness. Sharp peaks (PP bowling 8.5, death batting 8.0) mask uncomfortable valleys (bowling variety 5.0, squad depth 5.5). A team built to win Plan A games; the question is what happens when Plan A gets shut down. |
+| **Overall** | **6.9/10** | Phase performance (avg 7.0) offset by structural gaps in depth and XII completeness. Sharp peaks (PP bowling 8.5, death batting 8.0) mask uncomfortable valleys (squad depth 5.5). A team built to win Plan A games; the question is what happens when Plan A gets shut down. |
 
-The expanded profile reveals something the phase-only ratings hide: RCB are structurally narrow. The phase performance averages 7.0, which is genuinely strong. But the squad structure averages 6.1. The gap between those two numbers is the distance between a team that performs well in ideal conditions and one that can adapt when conditions turn hostile. Every championship defence involves at least 3-4 matches where Plan A fails. RCB's structural ratings suggest they have fewer fallback options than a defending champion should.
+The expanded profile reveals something the phase-only ratings hide: RCB are structurally narrow. The phase performance averages 7.0, which is genuinely strong. But the squad structure averages 6.2. The gap between those two numbers is the distance between a team that performs well in ideal conditions and one that can adapt when conditions turn hostile. Suyash Sharma's leg-spin gives them one variation axis, and Krunal's left-arm orthodox gives them another. But the off-spin gap remains the genuine structural hole. Every championship defence involves at least 3-4 matches where Plan A fails. RCB's structural ratings suggest they have fewer fallback options than a defending champion should.
 
 ---
 
@@ -486,33 +486,58 @@ Krunal doesn't do viral moments. What he does is win matches while nobody's watc
 
 RCB's middle-overs batting (143.9 SR in 2025) is their weakest offensive phase, and Padikkal (2.00 Cr, retained) has the toolkit to fix it. He's a left-hander who can bat at 3 or 4, and his 186.9 SR against fast bowling (MEDIUM, 99 balls) shows real stroke-play ability. The problem: 131.6 career SR and a recent form SR of 151.5 (last 10) that still sits below most starters. His 108.8 SR against left-arm orthodox (LOW, 34 balls) and 62.5 SR against wrist-spin (LOW, 8 balls) are developmental red flags. But if Padikkal can sustain his upswing and push for the XI, he gives the middle order something it currently lacks: a left-handed option who can actually bat.
 
-**2. Kanishk Chouhan: The Cheapest Fix for the Biggest Problem**
+**2. Venkatesh Iyer: Converting KKR Pedigree to RCB Impact**
 
-RCB's off-spin depth chart is rated 1.4/10. That's not a typo. Chouhan (0.30 Cr, retained) is a 19-year-old uncapped off-spin all-rounder retained at a bargain price, which tells you two things: RCB know they have an off-spin problem, and Chouhan is the long-shot bet rather than a proven solution. He has zero IPL data, which makes any projection speculative at best. But he's the only player in the squad who can bowl off-spin to left-handers in the middle overs. If he can deliver even 2-3 overs per match at a sub-9 economy, it transforms RCB's options. If he can't, opponents with left-hand-heavy middle orders will keep exploiting overs 7-15.
+The 7.00 Cr marquee buy comes from a very different system. At KKR, Iyer batted in a lineup that played aggressive, spin-heavy cricket. At RCB, he walks into a bowling-first franchise that values the middle-overs grind. His all-T20 L10 form (146.5 SR across IPL and SMAT) is a step below his IPL-specific L10 of 162.1 SR, suggesting some tournament variability. His part-time seam bowling (9.78 economy in all-T20 L10, 5 wickets) could be valuable in a squad short on bowling variety. The question: can he bat at 3 in a system that asks him to both stabilize and accelerate? His innings-context split (+0.3 SR delta between setting and chasing) says he won't change based on situation — same batter, same approach. That's either reassuringly consistent or frustratingly one-dimensional. RCB need the former.
 
-**3. Suyash Sharma: Death Bowling Apprentice**
+**3. Suyash Sharma: The Middle-Overs Anchor Expanding His Range**
 
-Suyash (2.60 Cr, retained) has carved out a comfortable niche as a middle-overs leg-spinner (8.78 economy, 13 wickets in 78 overs, MEDIUM). But his death bowling economy of 10.67 across 12 overs (LOW) is expensive, and with Yash Dayal's status uncertain and Bhuvneshwar's death bowling below par (10.96 economy), RCB need their young leggie to grow into a death-overs option. His 3 powerplay wickets at 7.33 economy (LOW, 3 overs) hint at versatility. The death overs remain the frontier he hasn't conquered yet.
+Suyash (2.60 Cr, retained) has built a genuine middle-overs identity: 8.78 economy, 13 wickets in 78 overs (MEDIUM), bowling 264 of his 300 balls in overs 7-15. He's a pure middle-overs leg-spinner and a central pillar of the bowling-first identity. His best overs tell the story: over 7 at 5.83 economy, over 15 at 6.33 — bookending the spin phase with genuine control. The step-up isn't about bowling at the death (that may never be his role). It's about maintaining his 2025 standards under the weight of a title defence. At 26 IPL caps, he's experienced enough to be trusted but young enough that complacency is a risk. If he can replicate or improve his 2025 middle-overs numbers, RCB's spin control stays elite. His 3 powerplay wickets at 7.33 economy (LOW, 3 overs) hint at versatility if the coaching staff want to experiment.
 
 ---
 
 ## Recent Form
 
-### Batters (IPL Recent Form)
+### Batters (Cross-Format T20 Recent Form)
 
-| Player | Last 10 Inn | L10 Runs | L10 SR | Since-2023 SR | SR Delta | Trend |
-|--------|------------|---------|--------|---------------|----------|-------|
-| Virat Kohli | 10 | 471 | 144.5 | 146.6 | -2.1 | Slight dip |
-| Phil Salt | 10 | 301 | 180.2 | 177.5 | +2.7 | Stable-elite |
-| Jitesh Sharma | 10 | 249 | 176.6 | 156.1 | +20.5 | Career-best form |
-| Tim David | 10 | 187 | 183.3 | 166.8 | +16.5 | Above career |
-| Venkatesh Iyer | 10 | 287 | 162.2 | 149.9 | +12.3 | Uptick |
-| Romario Shepherd | 10 | 153 | 259.3 | 282.2 | -22.9 | Declining (small sample) |
-| Devdutt Padikkal | 10 | 247 | 151.5 | 131.6 | +19.9 | Rebounding |
-| Rajat Patidar | 10 | 151 | 120.8 | 160.7 | -39.9 | Steep decline |
-| Krunal Pandya | 10 | 163 | 124.4 | 121.1 | +3.3 | Stable |
+*Last 10 T20 matches across all tournaments — not just IPL. This gives a truer picture of where each player's game is right now heading into IPL 2026.*
 
-**What This Actually Tells You:** The form picture is sneakier than it looks at first glance. Kohli's recent 144.5 SR (last 10) is fractionally *below* his since-2023 average of 146.6. That's a slight dip, not the ascending trend his all-time numbers might suggest. The 37-year-old is still elite, but the trajectory is flat, not up. Jitesh (+20.5) and Tim David (+16.5) are the genuine upswings. Venkatesh Iyer's +12.3 delta makes him a well-timed acquisition. Shepherd's -22.9 looks alarming on paper, but with only 45 career balls, that's small-sample roulette rather than any real trend. The actual red flag, the one that should keep the coaching staff up at night, is Patidar: a -39.9 SR delta in his last 10 innings. That's the biggest negative swing in the entire squad. For a new captain, that's not a concern. That's an alarm bell.
+| Player | All-T20 L10 SR | IPL L10 SR | Delta | All-T20 L10 Avg | Key Tournaments in L10 | Trend |
+|--------|---------------|-----------|-------|-----------------|----------------------|-------|
+| Virat Kohli | 144.5 | 144.5 | 0.0 | 58.9 | IPL only | Stable-elite |
+| Phil Salt | 128.1 | 178.1 | **-50.0** | 28.3 | ILT20 | Form alarm |
+| Jitesh Sharma | 189.4 | 175.4 | **+14.0** | 46.6 | IPL, Ind tours (Aus, SA) | Career-best form |
+| Tim David | 167.1 | 179.8 | -12.7 | 34.9 | BBL, ILT20, T20I | Strong cross-format |
+| Venkatesh Iyer | 146.5 | 162.1 | -15.6 | 31.1 | IPL, SMAT | Tournament variability |
+| Romario Shepherd | 182.1 | 250.8 | -68.7 | 38.3 | ILT20, WI tours | IPL SR inflated by tiny samples |
+| Devdutt Padikkal | 150.6 | 150.6 | 0.0 | 27.4 | IPL only | Rebounding |
+| Rajat Patidar | 120.8 | 120.8 | 0.0 | 18.9 | IPL only | Steep decline |
+| Krunal Pandya | 123.4 | 123.5 | -0.1 | 19.8 | IPL, SMAT | Stable |
+
+**What the Cross-Format Picture Changes:**
+
+The biggest revelation is **Phil Salt**. His IPL L10 of 178.1 SR painted a picture of a man in devastating form. His all-T20 L10 of 128.1 SR tells a different story entirely. His recent ILT20 stint has been underwhelming — batting average of 28.3, SR nearly 50 points below his IPL peak. If Salt arrives in IPL 2026 carrying ILT20 rust rather than IPL momentum, the powerplay equation shifts dramatically. RCB should be watching his pre-tournament warm-ups very carefully.
+
+**Jitesh Sharma** is the inverse story. His all-T20 L10 (189.4 SR) is *better* than his IPL L10 (175.4), boosted by T20I performances against Australia and South Africa. He's hitting at this level across formats, not just in the IPL bubble. That's the strongest form validation in the squad.
+
+**Tim David** at 167.1 SR across BBL, ILT20, and T20Is confirms he's not an IPL-only performer. His 74(38) against India in Australia stands out as genuine cross-format evidence.
+
+**Patidar** (120.8) and **Kohli** (144.5) have L10s that are entirely IPL — neither played other T20 formats recently. What you see is what you get.
+
+The actual red flag remains Patidar: a -39.9 SR delta from his since-2023 average. For a new captain, that's not a concern. That's an alarm bell.
+
+### Bowlers (Cross-Format T20 Recent Form)
+
+| Player | All-T20 L10 Econ | IPL L10 Econ | Delta | All-T20 Wkts | Key Tournaments | Trend |
+|--------|-----------------|-------------|-------|-------------|----------------|-------|
+| Josh Hazlewood | **8.31** | 9.58 | **-1.27** | 18 | IPL, AUS tours (NZ, Ind) | Peak form across formats |
+| Krunal Pandya | 7.29 | 7.29 | 0.00 | 10 | IPL only | Stable-elite |
+| Romario Shepherd | 8.97 | 12.05 | **-3.08** | 5 | ILT20 | Much better outside IPL |
+| Suyash Sharma | 9.29 | 9.29 | 0.00 | 6 | IPL only | Steady |
+| Bhuvneshwar Kumar | 10.03 | 10.03 | 0.00 | 12 | IPL only | Concerning for veteran |
+| Yash Dayal | 10.10 | 10.10 | 0.00 | 7 | IPL only | Economy pressure |
+
+**Hazlewood is the standout.** His all-T20 L10 economy (8.31) is 1.27 better than his IPL L10 — boosted by international performances including 3.25 economy against India. He's arriving in peak form across formats, which should terrify opposing openers. Krunal's 7.29 exists in its own postcode within this squad. Shepherd's bowling economy of 8.97 across ILT20 is significantly better than his 12.05 IPL number — the IPL is a tougher bowling environment, but the cross-format data suggests more bowling competence than his IPL figures imply.
 
 ### Bowlers (Individual Phase Economies, Since 2023)
 
@@ -524,7 +549,104 @@ Suyash (2.60 Cr, retained) has carved out a comfortable niche as a middle-overs 
 | Suyash Sharma | Middle | 8.78 (78 ov, MEDIUM) | Death | 10.67 (12 ov, LOW) | Secondary middle-overs (leg-spin) |
 | Yash Dayal | Overall | 9.85 (113 ov, HIGH) | PP / Death | 9.67 / 11.73 | Primary death (status uncertain) |
 
-The individual numbers tell a sharper story than the team-level data. Hazlewood's 7.54 powerplay economy is a full 0.72 better than Bhuvneshwar's 8.26. He's the real ace; Bhuvneshwar is the very good king. Both become expensive at the death (10.65 and 10.96 respectively), confirming death bowling as the structural fault line. Krunal's 7.45 exists in its own postcode within this squad. And Yash Dayal's 11.73 death economy? That's the most concerning number in the entire bowling unit, made worse by the fact that nobody knows if he'll even be available.
+The individual phase numbers confirm the structural fault line: death bowling. Both Hazlewood (10.65) and Bhuvneshwar (10.96) become expensive at the death, and Yash Dayal's 11.73 death economy is the most concerning number in the entire bowling unit — made worse by the fact that nobody knows if he'll even be available.
+
+---
+
+## Momentum & Scoring Tendencies
+
+The recent form tells you *what* each player is doing. This section tells you *how* they do it — the micro-patterns that reveal whether a player builds innings patiently or detonates from ball one.
+
+### Dot Ball Discipline: Who Rotates, Who Stalls
+
+| Player | PP Dot % | League PP Avg | Middle Dot % | League Mid Avg | Death Dot % | League Death Avg |
+|--------|---------|--------------|-------------|---------------|------------|-----------------|
+| Virat Kohli | **33.5%** | 42.2% | **22.5%** | 29.3% | **21.1%** | 28.1% |
+| Phil Salt | **37.8%** | 42.2% | **24.3%** | 29.3% | — | — |
+| Rajat Patidar | 40.5% | 42.2% | 28.3% | 29.3% | 28.5% | 28.1% |
+| Jitesh Sharma | **72.7%** | 42.2% | **35.1%** | 29.3% | 25.2% | 28.1% |
+| Tim David | — | — | 33.0% | 29.3% | 28.7% | 28.1% |
+| Krunal Pandya | 60.5% | 42.2% | 25.5% | 29.3% | 25.5% | 28.1% |
+
+Kohli is the most efficient dot-ball avoider in the squad — 7-9% below league average across all three phases. He doesn't play dots. He rotates, nudges, works gaps. Salt mirrors this efficiency in the powerplay and middle overs. Together, they explain why RCB's team dot ball rate in the powerplay (37.8%) is 4.4% below the league average. The opening partnership doesn't just score quickly; it scores *constantly*.
+
+Jitesh Sharma's 72.7% dot ball rate in the powerplay is a red flag — but context matters. He rarely bats in the powerplay (small sample). When he enters at the death (his designated phase), his 25.2% dot rate is *below* the league average. He's a death-overs weapon, not a top-order solution.
+
+### Big Over Profiles: Detonators vs. Accumulators
+
+| Player | 15+ Run Over Rate | Six-to-Four Ratio | Death Boundary % | Scoring Profile |
+|--------|-------------------|-------------------|------------------|-----------------|
+| Romario Shepherd | 33.3% (small sample) | 1.10 | 47.7% | Pure detonator |
+| Tim David | 8.3% | 1.02 | 24.8% | Power-first |
+| Rajat Patidar | 5.4% | 1.02 | 20.3% | Six-heavy when set |
+| Phil Salt | 7.6% | 0.46 | 31.6% | Boundary-heavy, prefers fours |
+| Virat Kohli | 1.0% | 0.38 | 25.4% | Pure accumulator |
+
+The six-to-four ratio is revealing. Shepherd (1.10) and David (1.02) hit more sixes than fours — they're genuine power hitters who clear the boundary more often than they pierce it. Patidar matches that ratio (1.02), suggesting his big-hitting is more evolved than his recent form SR might indicate. Salt, by contrast, is a boundary accumulator: 0.46 ratio means he hits roughly two fours for every six. Kohli at 0.38 is the purest rotator — his runs come from precision placement, not brute force.
+
+### Team Momentum Patterns
+
+RCB as a team generates 14.5% of overs at 15+ runs (vs 13.2% league average) — slightly more explosive. But the real insight is *when* these overs come.
+
+**Over 14 is RCB's surge over:** 11.25 RPO (vs 8.93 league average, +2.32). This is where the acceleration kicks in, the transition from middle-overs control to death-overs assault. Over 10 also shows a +1.35 RPO surplus.
+
+**Over 13 is a cold spot:** 7.67 RPO (vs 8.75 league, -1.08). A momentum trough right before the surge — suggesting RCB batters take a breath before the death-overs acceleration.
+
+**Momentum sustainability:** After a big over (12+ runs), only 7.3% of RCB's next overs are dot-heavy (4+ dots), compared to 10.7% after a normal over. RCB sustains momentum after explosive overs better than the league average. Once they start hitting, they don't stop.
+
+---
+
+## Tactical Blueprint: How RCB Deploy Their Weapons
+
+### Batting Order: Rigid at the Top, Situational in the Middle
+
+| Batter | Avg Position | Most Common Spot | Avg Entry Over | Entry Under Pressure (2+ wkts in PP) |
+|--------|-------------|-----------------|----------------|--------------------------------------|
+| Phil Salt | 1.0 | #1 (100%) | 1.0 | Always opens |
+| Virat Kohli | 1.3 | #1 (66%), #2 (30%) | 1.0 | Always opens |
+| Rajat Patidar | 3.9 | #4 (74%) | 4.4 (stable) / 7.1 (pressure) | Drops to #4, enters later |
+| Tim David | 6.7 | #7 (42%) | 14.9 | Always death, team ~141 at entry |
+| Jitesh Sharma | 5.6 | #5-6 range | 11.9 | Flexible, overs 4-16 |
+| Krunal Pandya | 7.0 | #7 (55%) | 12.0 | Team ~111 at entry |
+
+The batting order tells a story of deliberate role clarity. Salt and Kohli always open — no exceptions across 44 innings. Patidar is locked at #4 in 74% of innings. The order barely changes between setting and chasing (Kohli: 1.38 setting vs 1.39 chasing). This is a team that trusts its structure and doesn't panic-promote.
+
+**Patidar is the key flex player.** In stable starts (0-1 wickets in PP), he enters around over 4.4 at position ~3. Under pressure (2+ PP wickets), he drops to #4 and enters at over 7.1 — a stabilizer, not an accelerator. This is deliberate: Patidar absorbs pressure while the lower-order power hitters wait for their designated death-overs window.
+
+**Tim David enters at over 14.9 on average** with the team score around 141. He's a pure death hitter — not a middle-order rescuer. His role is non-negotiable: bat 10-15 balls, hit at 184+ SR, and finish.
+
+### Bowling Deployment: The 20-Over Template
+
+**Phase allocation across 2023-2025:**
+
+| Phase | Pace % | Spin % | Key Pattern |
+|-------|--------|--------|-------------|
+| Powerplay (1-6) | 77-96% | 4-21% | Near-total pace dominance; over 6 sees first spin creep in |
+| Middle (7-15) | 25-59% | **41-73%** | Spin-first strategy: 60% spin across middle overs (~5.4 spin overs per match) |
+| Death (16-20) | 60-90% | 10-40% | Return to pace, but spin isn't abandoned entirely |
+
+**Middle-overs spin by season:** 2023: 72.9% spin → 2024: 42.2% → 2025: 66.2%. The 2024 dip (likely Maxwell's departure reducing spin options) was corrected in 2025 with Krunal and Suyash reclaiming the middle overs. The 2025 championship was built on this spin-control formula.
+
+### Individual Bowling Maps
+
+**Josh Hazlewood** is NOT a powerplay-only bowler. He bowled at the death in 67% of matches (10/15). Phase split: PP 51.9%, Middle 20.4%, Death 27.8%. His over 19 is devastating: 6.75 economy and 5 wickets in 24 balls — that's his yorker over, the one he saves for the kill shot. Teams who assume Hazlewood finishes after the powerplay are making a tactical error.
+
+**Bhuvneshwar Kumar** is a PP specialist who also handles death: PP 186 balls (8.23 econ), Death 108 balls (11.11 econ). He almost never bowls in the middle overs (only 18 balls across 3 seasons). The coaching staff treats middle overs 7-15 as Krunal-Suyash territory, and Bhuvneshwar's overs are rationed across the bookends.
+
+**Suyash Sharma** is a pure middle-overs asset: 264 of 300 balls (88%) bowled in overs 7-15. Only 36 death balls across three seasons. His best overs: over 7 at 5.83 economy, over 15 at 6.33 — bookending the spin phase. He is not a death bowler. He is not being developed as one. His role is to control the middle, and he does it well.
+
+**Krunal Pandya** bowls 67.8% of his overs in the middle phase at 7.26 economy — best among all RCB bowlers. Only 7.4% of his overs come at the death. He is the midfield anchor: his job is to suffocate between overs 7-15 and hand the ball back to the pace bowlers with the opposition under pressure.
+
+### The Bowling-First Template (What RCB Actually Do)
+
+1. **Overs 1-3:** Hazlewood + Bhuvneshwar. Pure pace. 7.54 and 8.26 economy. Swing and seam.
+2. **Overs 4-6:** Second spells of openers or Yash Dayal. Dot ball accumulation phase.
+3. **Overs 7-10:** Krunal comes on. Suyash follows. Spin takes over. ~60% spin deliveries.
+4. **Overs 11-15:** Krunal + Suyash continue. Occasional Hazlewood over if needed. The control phase.
+5. **Overs 16-18:** Return to pace. Bhuvneshwar/Dayal. Economy rises.
+6. **Overs 19-20:** Hazlewood's death overs (6.75 econ in over 19). The kill shot.
+
+This template barely changes between bowling first and defending. Spin in the middle overs: 62% bowling first vs 59.8% defending. Pace at death: 76.1% vs 75.8%. The coaching staff runs the same playbook regardless of innings context. It's rigid, it's predictable, and it won the title.
 
 ---
 
@@ -568,7 +690,7 @@ This will upset people. Good. The data is unambiguous. Kohli's 2,037 runs at 146
 | **183.3** | Kohli's death SR (114 balls, MEDIUM) | Comes from batting through in 15/44 innings, not as a designated finisher |
 | **-39.9** | Patidar's SR delta (last 10 vs since-2023) | The new captain's batting form is the squad's biggest concern |
 | **7.45** | Krunal's middle-overs economy (82 overs, MEDIUM) | 1.44 runs per over below the league average. The invisible engine |
-| **1.4 / 10** | Off-spin depth chart rating | No frontline off-spinner in the squad. Kanishk Chouhan (uncapped) is the only hope |
+| **1.4 / 10** | Off-spin depth chart rating | No frontline off-spinner in the squad. Leg-spin covered (Suyash), but off-spin remains the genuine gap |
 
 ---
 
@@ -584,7 +706,7 @@ In 2025, RCB's top 3 (Kohli, Salt, and the third batter) scored the lion's share
 
 **3. The Off-Spin Gap Cannot Be Wished Away**
 
-The 1.4/10 off-spin depth rating isn't a quirk. It's a structural vulnerability that competent opposition coaches will identify within minutes of reviewing the squad list. Without a frontline off-spinner, RCB cannot create matchup advantages against left-handed batters in the middle overs. Kanishk Chouhan (0.30 Cr, uncapped) is the only internal option. If he delivers, brilliant. If he doesn't, opponents with left-hand-heavy middle orders (KKR, SRH, looking at you) will exploit this gap relentlessly. Krunal's left-arm orthodox is not a substitute for genuine off-spin. Different angle, different purpose.
+The 1.4/10 off-spin depth rating isn't a quirk. It's a structural vulnerability that competent opposition coaches will identify within minutes of reviewing the squad list. Without a frontline off-spinner, RCB cannot create matchup advantages against left-handed batters in the middle overs. Suyash Sharma's leg-spin and Krunal's left-arm orthodox give RCB two spin axes, but neither turns the ball into a left-hander the way an off-spinner does. Opponents with left-hand-heavy middle orders (KKR, SRH) will exploit this gap. Krunal's left-arm orthodox is not a substitute for genuine off-spin. Different angle, different purpose.
 
 **4. Overseas Slot Management Must Be Ruthless**
 
@@ -603,14 +725,14 @@ RCB has 7 overseas players: Salt, Hazlewood, David, Shepherd, Bethell, Duffy, an
 - Chinnaswamy's slightly below-average powerplay scoring rate suits the bowling attack
 
 **Structural Vulnerabilities:**
-- Off-spin and left-arm wrist-spin are effectively absent (1.4 and 1.3/10 depth ratings)
+- Off-spin is effectively absent (1.4/10 depth rating) — the only genuine spin gap
 - Powerplay batting relies almost entirely on Salt
 - Top 3 dependency (57.7% of runs in 2025) creates knockout-stage collapse risk
 - Yash Dayal's off-field status creates left-arm pace depth uncertainty
 - Bhuvneshwar's workload management at 36 is a season-long tightrope walk
 - Death bowling economy (10.75 in 2025) remains the weakest bowling phase
 
-**Opposition Blueprint:** Bowl off-spin and wrist-spin in the middle overs. RCB has no counter. Target Padikkal (62.5 SR vs wrist-spin, LOW sample but directional) and David (33.3 SR vs wrist-spin, LOW / 9 balls) if they play. Force Kohli into the middle overs where he strikes at 134.2 SR, materially below his powerplay (151.9) and death (183.3) rates. Avoid the powerplay bowling duel with Hazlewood-Bhuvneshwar at all costs. If chasing, do not let the game reach overs 16-20 with RCB needing less than 50. Their death batting is too deep to defend against.
+**Opposition Blueprint:** Bowl off-spin in the middle overs — that's the genuine gap RCB cannot counter (130.8 SR, -1.5 vs league). Force Kohli into the middle overs where he strikes at 134.2 SR, materially below his powerplay (151.9) and death (183.3) rates. Avoid the powerplay bowling duel with Hazlewood-Bhuvneshwar at all costs. If chasing, do not let the game reach overs 16-20 with RCB needing less than 50. Their death batting is too deep to defend against.
 
 **Matchup Targets:** Kohli's weakest bowling type matchup is right-arm off-spin at 101.9 SR (53 balls, MEDIUM). That's exploitable with a quality off-spinner. Tim David's wrist-spin vulnerability (33.3 SR, 9 balls) is a small sample but worth probing. Patidar's form slump (-39.9 SR delta) suggests he may be susceptible to early pressure if the new-ball bowlers can create doubt before he settles.
 
@@ -628,4 +750,4 @@ The bowling-first identity that delivered a maiden title in 2025 returns with it
 
 *Cricket Playbook v5.0.0 | Data: Cricsheet (9,289 matches) | Analytics: 164+ views*
 *Every claim above is backed by data. No vibes. No predictions. Just evidence.*
-*Founder's 12 suggestions: all incorporated. See editorial_plan_v1.md for template.*
+*Founder corrections applied: factual fixes, cross-format form, momentum trends, tactical deployment. See editorial_plan_v1.md for template.*

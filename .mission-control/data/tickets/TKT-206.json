@@ -3,17 +3,53 @@
   "epic_id": "EPIC-018",
   "title": "Feature engineering from fact_ball data",
   "description": "Build feature pipeline extracting match state features: current score, wickets fallen, run rate, required rate, batting/bowling strength indices, venue bias, toss effect, phase (PP/middle/death), recent momentum (last 3 overs). Output training dataset as parquet.",
-  "state": "BACKLOG",
+  "state": "DONE",
   "priority": "P0",
   "size": "L",
-  "progress_pct": 0,
+  "progress_pct": 100,
   "owner": "Ime Udoka",
   "assignee": "Ime Udoka",
   "reviewer": "Stephen Curry",
   "blocked_by": ["TKT-205"],
   "sprint_id": "SPRINT-002",
   "tags": ["ML", "Data Pipeline", "Feature Engineering"],
-  "gates": {},
+  "gates": {
+    "florentino_gate": "APPROVED",
+    "domain_sanity": "PASSED",
+    "enforcement": "PASSED",
+    "kante_check": "PENDING"
+  },
   "created_at": "2026-02-14T01:40:00Z",
-  "updated_at": "2026-02-14T01:40:00Z"
+  "updated_at": "2026-02-15T08:34:00Z",
+  "completion_notes": {
+    "feature_count": 17,
+    "dataset_rows": 2032756,
+    "dataset_columns": 20,
+    "total_matches": 8672,
+    "date_range": "2005-02-17 to 2026-01-31",
+    "class_balance": {
+      "batting_team_won_1": 990414,
+      "batting_team_won_0": 1042342,
+      "ratio_won": 0.4872
+    },
+    "parquet_size_mb": 13.88,
+    "pipeline_runtime_seconds": 23.1,
+    "output_files": [
+      "data/ml/win_prob_features.parquet",
+      "data/ml/win_prob_metadata.json"
+    ],
+    "script": "scripts/ml/feature_engineering.py",
+    "engineering_decisions": [
+      "Used all T20 matches (not just IPL) for training volume: 8,672 matches across 20+ tournaments",
+      "DLS filter corrected to NOT exclude won-by-wickets matches (2nd innings ends early naturally when chaser reaches target)",
+      "DLS detection: 1st innings < 20 overs + < 10 wkts = DLS; 2nd innings same criteria only when NOT won by wickets",
+      "Excluded 824 matches: 202 no-result, 108 ties, 3 null-outcome, 511 DLS/reduced-overs",
+      "Team strength indices computed from full dataset (not just valid matches) for broader sample",
+      "Min 120 legal balls required per team-phase combo for strength index inclusion",
+      "Momentum window: last 18 legal balls (3 overs), forward-filled across extras",
+      "Phase progress computed from over_number within phase boundaries (0-1 normalized)",
+      "required_run_rate and target_score are NaN for first innings by design",
+      "Used float32 for continuous features, int8/int16 for discrete features for memory efficiency"
+    ]
+  }
 }

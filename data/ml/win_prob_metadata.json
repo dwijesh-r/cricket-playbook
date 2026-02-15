@@ -1,0 +1,65 @@
+{
+  "ticket": "TKT-206",
+  "description": "Win probability training features from fact_ball",
+  "generated_at": "2026-02-15T08:34:11.857900+00:00",
+  "total_matches": 8672,
+  "total_balls": 2032756,
+  "total_columns": 20,
+  "feature_count": 17,
+  "feature_names": [
+    "over_number",
+    "ball_in_over",
+    "current_score",
+    "wickets_fallen",
+    "balls_remaining",
+    "current_run_rate",
+    "required_run_rate",
+    "phase",
+    "phase_progress",
+    "last_3ov_run_rate",
+    "last_3ov_wickets",
+    "last_3ov_dot_pct",
+    "last_3ov_boundary_pct",
+    "batting_team_strength",
+    "bowling_team_strength",
+    "target_score",
+    "batting_team_won"
+  ],
+  "feature_types": {
+    "over_number": "int8",
+    "ball_in_over": "int8",
+    "current_score": "int16",
+    "wickets_fallen": "int8",
+    "balls_remaining": "int16",
+    "current_run_rate": "float32",
+    "required_run_rate": "float32",
+    "phase": "string",
+    "phase_progress": "float32",
+    "last_3ov_run_rate": "float32",
+    "last_3ov_wickets": "int8",
+    "last_3ov_dot_pct": "float32",
+    "last_3ov_boundary_pct": "float32",
+    "batting_team_strength": "float32",
+    "bowling_team_strength": "float32",
+    "target_score": "float32",
+    "batting_team_won": "int8"
+  },
+  "date_range": {
+    "min": "2005-02-17",
+    "max": "2026-01-31"
+  },
+  "class_balance": {
+    "batting_team_won_1": 990414,
+    "batting_team_won_0": 1042342,
+    "ratio_won": 0.4872
+  },
+  "exclusions": [
+    "DLS/reduced 1st innings (< 20 overs, < 10 wickets)",
+    "DLS/reduced 2nd innings (< 20 overs, < 10 wickets, not won by wickets)",
+    "No-result matches",
+    "Ties (no clear winner)",
+    "Super-over innings (only regulation innings 1 & 2)"
+  ],
+  "parquet_path": "/Users/dwijeshreddy/cricket-playbook/data/ml/win_prob_features.parquet",
+  "parquet_size_mb": 13.88
+}

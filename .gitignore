@@ -29,4 +29,7 @@ Thumbs.db
 
 # Jupyter
 .ipynb_checkpoints/
-.DS_Store
+
+# Node.js / React
+node_modules/
+scripts/the_lab/react-app/dist/

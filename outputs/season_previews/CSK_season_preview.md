@@ -27,7 +27,7 @@ The off-season response was radical. Ravindra Jadeja, the franchise's most compl
 
 The central question for 2026 is whether CSK can function as a transitional franchise. MS Dhoni (4.00 Cr, retained) is 44 years old. His 2025 SR of 127.3 was a 69-point drop from 196.3 in 2024. His death-overs career SR of 176.5 remains elite across 197 innings (HIGH), but the last 10 innings (129.3 SR) suggest the clock is ticking audibly. Samson's arrival gives CSK a genuine replacement behind the stumps, a batter who strikes at 151.0 across 780 balls since 2023 (HIGH) and offers 191.7 SR at the death (407 balls, MEDIUM). But Samson has never worn yellow before, and the weight of replacing Dhoni in Chennai carries a pressure that transcends cricket.
 
-If the bowling holds through Noor Ahmad's middle-overs brilliance and Khaleel Ahmed's new-ball aggression, and if the batting depth from Gaikwad, Samson, Dube, and Brevis can offset the structural losses, CSK have a plausible path to the playoffs. If the transition stumbles, the dynasty's final chapter could be shorter than anyone in Chennai wants to imagine.
+If the bowling holds through Noor Ahmad's middle-overs brilliance and left-arm seamer Khaleel Ahmed's new-ball aggression, and if the batting depth from Gaikwad, Samson, Dube, and Brevis can offset the structural losses, CSK have a plausible path to the playoffs. If the transition stumbles, the dynasty's final chapter could be shorter than anyone in Chennai wants to imagine.
 
 ---
 
@@ -432,7 +432,7 @@ The structural shift from 2025 is significant. Gaikwad moves from opener to #3, 
 | Middle (7-15) | 25-35% | 65-75% | Noor Ahmad + Rahul Chahar spin control |
 | Death (16-20) | 60-70% | 30-40% | Khaleel returns + Noor Ahmad death flex |
 
-**The Template:** Khaleel opens. Anshul Kamboj or Nathan Ellis partners him. Noor Ahmad enters at over 7 and doesn't leave until over 15 at the earliest. Rahul Chahar provides the secondary spin option. At the death, Khaleel returns alongside Ellis, with Noor Ahmad saved for key overs (19 or 20) if the game demands it.
+**The Template:** Khaleel opens with the left-arm angle, targeting right-handers' outside edge. Anshul Kamboj or Nathan Ellis partners him. Noor Ahmad enters at over 7 and doesn't leave until over 15 at the earliest. Rahul Chahar provides the secondary spin option. At the death, Khaleel returns alongside Ellis, with Noor Ahmad saved for key overs (19 or 20) if the game demands it.
 
 ---
 

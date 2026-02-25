@@ -459,6 +459,42 @@
             border: 1px solid var(--border);
         }
         @media (max-width: 600px) { .nav-time { display: none; } }
+
+        /* Data Freshness Indicator (TKT-249) */
+        .data-freshness {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            font-weight: 500;
+            padding: 6px 10px;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: default;
+        }
+        .data-freshness .freshness-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            flex-shrink: 0;
+        }
+        .data-freshness.stale .freshness-dot {
+            background: var(--accent-orange);
+            animation: pulse-warn 2s ease-in-out infinite;
+        }
+        @keyframes pulse-warn {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .data-freshness.stale {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+        @media (max-width: 768px) { .data-freshness { display: none; } }
+
         .theme-toggle {
             width: 38px;
             height: 38px;
@@ -3660,6 +3696,10 @@
             <a href="../../mission_control/dashboard/index.html" class="nav-tab">The Boardroom</a>
         </div>
         <div class="nav-actions">
+            <div class="data-freshness has-tooltip" id="dataFreshness" data-tooltip="Data ingestion timestamp from pipeline">
+                <span class="freshness-dot"></span>
+                <span class="freshness-label">Data: --</span>
+            </div>
             <span class="nav-time" id="navTime">--:--:--</span>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
             <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
@@ -3738,6 +3778,7 @@
         </div>
     </main>
 
+    <script src="data/freshness.js"></script>
     <script src="data/teams.js"></script>
     <script src="data/predicted_xii.js"></script>
     <script src="data/depth_charts.js"></script>
@@ -3748,6 +3789,27 @@
     <script src="data/momentum_insights.js"></script>
     <script src="data/player_profiles.js"></script>
     <script src="data/season_previews.js"></script>
+
+    <!-- Data Freshness Indicator (TKT-249) -->
+    <script>
+    (function() {
+        if (typeof DATA_FRESHNESS === 'undefined') return;
+        const el = document.getElementById('dataFreshness');
+        if (!el) return;
+        const label = el.querySelector('.freshness-label');
+        const ingested = new Date(DATA_FRESHNESS.ingested_at);
+        const now = new Date();
+        const ageDays = Math.floor((now - ingested) / (1000 * 60 * 60 * 24));
+        const dateStr = ingested.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        label.textContent = 'Data: ' + dateStr;
+        if (ageDays > DATA_FRESHNESS.staleness_threshold_days) {
+            el.classList.add('stale');
+            el.setAttribute('data-tooltip', 'Data is ' + ageDays + ' days old — may be stale (v' + DATA_FRESHNESS.data_version + ')');
+        } else {
+            el.setAttribute('data-tooltip', 'Data ingested ' + dateStr + ' — ' + ageDays + 'd ago (v' + DATA_FRESHNESS.data_version + ')');
+        }
+    })();
+    </script>
 
     <script>
         // Pixelated Team Logos (8x8 grid style)

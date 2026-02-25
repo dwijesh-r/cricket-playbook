@@ -11686,13 +11686,11 @@
                         ${t.effort ? `<span class="effort effort-${t.effort}">${effortLevels[t.effort]?.name || t.effort}</span>` : ''}
                         ${t.tags.slice(0, 2).map(tag => `<span class="tag ${getTagClass(tag)}">${tag}</span>`).join('')}
                     </div>
-                    ${t.prd || t.output || t.review || t.branch || (t.documents && (t.documents.prd || t.documents.deliverable)) ? `
+                    ${t.prd || t.output || t.review || t.branch ? `
                         <div class="ticket-links">
                             ${t.branch ? `<a href="https://github.com/dwijesh-r/cricket-playbook/tree/${t.branch}" target="_blank" rel="noopener" class="link-btn branch-btn" onclick="event.stopPropagation()">🌿 ${t.branch.replace('feature/', '').substring(0, 20)}</a>` : ''}
                             ${t.prd ? `<a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/${t.prd}" target="_blank" rel="noopener" class="link-btn" onclick="event.stopPropagation()">📄 PRD</a>` : ''}
-                            ${!t.prd && t.documents && t.documents.prd ? `<a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/${t.documents.prd}" target="_blank" rel="noopener" class="link-btn" onclick="event.stopPropagation()">📄 PRD</a>` : ''}
                             ${t.output ? `<a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/${t.output}" target="_blank" rel="noopener" class="link-btn" onclick="event.stopPropagation()">📁 Output</a>` : ''}
-                            ${!t.output && t.documents && t.documents.deliverable ? `<a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/${t.documents.deliverable}" target="_blank" rel="noopener" class="link-btn" onclick="event.stopPropagation()">📁 Deliverable</a>` : ''}
                             ${t.review ? `<a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/${t.review}" target="_blank" rel="noopener" class="link-btn review-btn" onclick="event.stopPropagation()">🌹 Review</a>` : ''}
                         </div>
                     ` : ''}
@@ -12309,17 +12307,19 @@
             `;
 
             // Build structured link categories
-            const docsPrd = t.documents && t.documents.prd ? t.documents.prd : null;
-            const docsDeliverable = t.documents && t.documents.deliverable ? t.documents.deliverable : null;
+            const docs = (t.documents && typeof t.documents === 'object' && !Array.isArray(t.documents)) ? t.documents : {};
+            const docsPrd = docs.prd || null;
+            const docsDeliverable = docs.deliverable || null;
+            const docsArray = Array.isArray(t.documents) ? t.documents : [];
             const hasPrd = !!t.prd || !!t.plan || !!docsPrd;
             const hasOutput = !!t.output || !!docsDeliverable;
-            const hasReview = !!t.review || (Array.isArray(t.documents) && t.documents.length > 0);
+            const hasReview = !!t.review || docsArray.length > 0;
             const hasCustomLinks = t.links && t.links.length > 0;
 
             // Count links per category
             const prdCount = (t.prd ? 1 : 0) + (t.plan ? 1 : 0) + (docsPrd ? 1 : 0);
             const outputCount = (t.output ? 1 : 0) + (docsDeliverable ? 1 : 0);
-            const reviewCount = (t.review ? 1 : 0) + (Array.isArray(t.documents) ? t.documents.length : 0);
+            const reviewCount = (t.review ? 1 : 0) + docsArray.length;
             const customCount = t.links ? t.links.length : 0;
 
             // Render founder review instruction bubble if present

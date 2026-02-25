@@ -742,7 +742,40 @@ const SEASON_PREVIEWS = {
     ]
   },
 
-  MI: { available: false },
+  MI: {
+    available: true,
+    meta: {
+      revision: 'v1.2',
+      dataWindow: 'IPL 2023-2025 | 9,496 matches / 2.14M balls',
+      agents: 'Virat Kohli (Tone & Narrative) | Andy Flower (Scouting Report)',
+      matches: '9,496'
+    },
+    headline: {
+      title: 'The Most Talented Squad in IPL 2026 Needs Its Openers to Match Its Stars.',
+      intro: 'Mumbai Indians have assembled the most individually gifted roster in the tournament. Suryakumar Yadav strikes at 172.9 across 964 balls since 2023 (HIGH). Jasprit Bumrah bowls at 6.69 economy across 99.2 overs (HIGH). Trent Boult, Hardik Pandya, Rohit Sharma. Five players who would walk into any IPL XI. And yet, MI\'s powerplay batting has been a persistent concern: Rohit Sharma strikes at 144.9 in overs 1-6 since 2023 (519 balls, HIGH), near but still below the league average of 146.3. His all-time PP SR of 125.3 (1,903 balls) illustrates a career-long pattern of conservative powerplay play. The gap between MI\'s ceiling and their floor lives in the first six overs.'
+    },
+    verdict: {
+      text: 'Mumbai Indians have the best individual talent in IPL 2026 and the best bowler on the planet. With SKY in career-best L10 form (179.0 SR, 79.7 avg), Bumrah\'s sub-7.0 economy across all phases, and Rohit trending upward (+18.9 SR delta), MI\'s key players are peaking simultaneously. If Bumrah stays fit, de Kock\'s form recovers, and the spin bowling replacement for Chawla holds, this is a squad built for a sixth title. If Bumrah\'s workload forces him out of a critical match, or the powerplay opener combination cannot push past the league average, the most talented squad finishes where the most talented squads often do: close to the top but short of the prize.',
+      projected: '2nd-4th',
+      ceiling: 'Champions',
+      floor: '6th'
+    },
+    byTheNumbers: [
+      { value: '5.32', label: 'Bumrah\'s economy at Wankhede (47.2 overs, HIGH)', context: 'The most dominant bowler-venue combination in the IPL since 2023. At a ground that averages 9.32 RPO in the powerplay, Bumrah concedes barely above 5' },
+      { value: '172.9', label: 'SKY\'s SR since 2023 (964 balls, HIGH)', context: 'The highest SR among any batter with 500+ balls in this window' },
+      { value: '1-4', label: 'MI\'s record vs CSK since 2023', context: 'The most storied rivalry in IPL history has become one-sided. MI\'s all-time 53.8% win rate against CSK has been inverted' },
+      { value: '+6.1', label: 'SKY\'s L10 SR delta from since-2023 SR', context: 'The strongest recent form of any MI batter. SKY\'s 179.0 L10 SR at 79.7 average shows he is peaking at the right time for 2026' },
+      { value: '240+', label: 'Rohit Sharma\'s IPL appearances', context: 'More matches than any other MI player in history. Fifteen years, five titles. Every match in 2026 is another chapter in the longest single-franchise career in IPL history' }
+    ],
+    categoryRatings: [
+      { cat: 'Batting, Powerplay', rating: 5.5, metric: '149.2 SR', note: 'Marginally above the league batting SR of 146.3 (+2.9). Rohit\'s since-2023 PP SR of 144.9 sits just below league average', group: 'phase' },
+      { cat: 'Batting, Middle', rating: 7.0, metric: '144.8 SR', note: 'SKY at 173.0 (685 balls, HIGH) and Tilak at 138.9 (489 balls, HIGH) drive this above the league average of 140.3', group: 'phase' },
+      { cat: 'Batting, Death', rating: 8.0, metric: '173.8 SR', note: 'Above league average of 170.2. SKY (213.3), Tilak (192.7), Pandya (168.0) anchor this phase', group: 'phase' },
+      { cat: 'Bowling, Powerplay', rating: 7.5, metric: '9.04 econ', note: 'Boult at 7.55 (94 overs, HIGH) and Bumrah at 6.97 (36 overs, HIGH) form the best new-ball pair in the league', group: 'phase' },
+      { cat: 'Bowling, Middle', rating: 6.5, metric: '8.99 econ', note: 'Bumrah elite (6.17, 30 ov, MEDIUM) but Pandya (9.16, 57 ov, HIGH) needs to be more consistent', group: 'phase' },
+      { cat: 'Bowling, Death', rating: 7.0, metric: '11.01 econ', note: 'Team death economy of 11.01 is 0.14 above league average, but Bumrah\'s individual 6.84 masks a unit that is otherwise at league average', group: 'phase' }
+    ]
+  },
   CSK: {
     available: true,
     meta: {
@@ -1223,11 +1256,242 @@ const SEASON_PREVIEWS = {
       }
     ]
   },
-  KKR: { available: false },
-  DC: { available: false },
-  PBKS: { available: false },
-  RR: { available: false },
-  SRH: { available: false },
-  GT: { available: false },
-  LSG: { available: false }
+  KKR: {
+    available: true,
+    meta: {
+      revision: 'v1.1',
+      dataWindow: 'IPL 2023-2025 | 9,496 matches / 2.14M balls',
+      agents: 'Virat Kohli (Tone & Narrative) | Andy Flower (Scouting Report)',
+      matches: '9,496'
+    },
+    headline: {
+      title: 'The Spin Empire Reloads: KKR Bet 43.20 Cr on Two Players to Fix What Narine and Varun Cannot.',
+      intro: 'Kolkata won the 2024 title with the most dominant spin attack in IPL history. Then 2025 happened: 5 wins in 13 matches, a middle-overs batting SR that cratered from 154.5 to 121.8, and an identity crisis that no amount of Sunil Narine mystery could solve. The response? Acquire Cameron Green (25.20 Cr) and Matheesha Pathirana (18.00 Cr) at auction, a 43.20 Cr investment in the two things KKR lacked: a genuine pace all-rounder and a death-overs enforcer. Whether that fixes the batting or just papers over it is the question that defines KKR\'s 2026.'
+    },
+    verdict: {
+      text: 'KKR in 2026 are a franchise with championship-quality bowling and a batting lineup that is either a top-3 attack or a mid-table collection, depending entirely on whether Cameron Green stays fit, Finn Allen adapts to IPL spin, and the middle-overs batting recovers from its 2025 collapse. The spin core (Narine + Varun) is the best in the league. The 43.20 Cr investment in Green and Pathirana addresses every gap except the one that matters most: the off-spin vulnerability that runs three deep through the batting order. If the batting clicks, KKR are in the final conversation. If it stutters again, they are a 6th-place team with a 37.00 Cr bowling attack that has nothing to defend.',
+      projected: '3rd-5th',
+      ceiling: 'Champions',
+      floor: '7th'
+    },
+    byTheNumbers: [
+      { value: '32.7', label: 'Middle-overs SR decline (2024 to 2025)', context: 'From 154.5 to 121.8. The single largest middle-overs regression by any team in the three-season window' },
+      { value: '7.36', label: 'Narine\'s middle-overs bowling economy (117 overs, HIGH)', context: '1.40 runs cheaper than the league average of 8.76. The best sustained economy in the IPL\'s middle overs since 2023' },
+      { value: '200.0', label: 'Green\'s death-overs SR (102 balls, MEDIUM)', context: 'An absurd number that immediately becomes the best death SR in the KKR squad' },
+      { value: '43.20', label: 'Combined spend on Green + Pathirana (Cr)', context: '40.1% of the squad salary on two players. The highest two-player concentration in KKR history' },
+      { value: '0.30', label: 'Finn Allen\'s price (Cr)', context: 'A T20 SR of 177 across 2,102 balls for the minimum price. Either the biggest bargain in IPL 2026 or a reminder that IPL spin is a different challenge' }
+    ],
+    categoryRatings: [
+      { cat: 'Batting, Powerplay', rating: 6.5, metric: '150.4 SR', note: '+4.1 above league (146.3). Narine at 167.2 PP SR is the engine, but the margin over league average is slim', group: 'phase' },
+      { cat: 'Batting, Middle', rating: 5.0, metric: '139.9 SR', note: '-0.4 below league (140.3); 2025 collapse to 121.8 drags confidence', group: 'phase' },
+      { cat: 'Batting, Death', rating: 6.5, metric: '174.7 SR', note: '+4.5 above league (170.2). Rinku 197.1 SR and Green 200.0 SR are elite', group: 'phase' },
+      { cat: 'Bowling, Powerplay', rating: 5.5, metric: '9.68 econ', note: '+0.42 above league average (9.26 RPO). Arora at 9.03 and Harshit at 9.74 are adequate, not dominant', group: 'phase' },
+      { cat: 'Bowling, Middle', rating: 8.5, metric: '8.62 econ', note: 'Elite. Narine 7.36 and Varun 8.01 form the best spin pairing in the IPL', group: 'phase' },
+      { cat: 'Bowling, Death', rating: 7.5, metric: '10.26 econ', note: '-0.61 below league (10.87 RPO). Pathirana at 9.46 and Narine at 7.47 are the anchors', group: 'phase' }
+    ]
+  },
+  DC: {
+    available: true,
+    meta: {
+      revision: 'v1.2',
+      dataWindow: 'IPL 2023-2025 | 9,496 matches / 2.14M balls',
+      agents: 'Virat Kohli (Tone & Narrative) | Andy Flower (Scouting Report)',
+      matches: '9,496'
+    },
+    headline: {
+      title: 'The Spin Twins Have Arrived. Now Delhi Needs Everything Else to Follow.',
+      intro: 'Kuldeep Yadav (left-arm wrist-spin; 7.82 economy, 41 wickets, 145 overs since 2023, HIGH) and Axar Patel (left-arm orthodox; 7.86 economy, 27 wickets, 127 overs, HIGH) give Delhi Capitals the most potent left-arm spin pairing in IPL 2026. They rank 8th and 21st respectively in the bowler composite rankings. But spin alone didn\'t save the franchise from an 18-25 record across the last three seasons, and the batting profile reveals a squad that strikes at 135.4 against fast bowling (619 balls, HIGH), a full 17.2 points below the league average. The question for 2026 is whether KL Rahul\'s captaincy and a reshaped squad can convert elite spin into a playoff campaign, or whether the same structural weaknesses that have plagued Delhi since 2020 will persist behind a different scoreboard graphic.'
+    },
+    verdict: {
+      text: 'Delhi Capitals in 2026 have the best middle-overs spin pairing in the league and one of the most destructive death-overs finishers in Tristan Stubbs. If the spin twins dominate overs 7-15 and Stubbs maintains his death-overs SR above 200, DC have a genuine playoff case. If the pace bowling leaks runs (Starc above 10.50, Mukesh above 10.50), the fast-bowling batting vulnerability goes unaddressed, and the 0-5 home record carries into 2026, this franchise is headed for a sixth consecutive year outside the top four. The margin is thin. The spin is real. Everything else is a question mark.',
+      projected: '5th-7th',
+      ceiling: '4th (Playoffs)',
+      floor: '9th'
+    },
+    byTheNumbers: [
+      { value: '7.50', label: 'Combined middle-overs economy of Kuldeep (7.58) and Axar (7.41), across 208 overs (HIGH)', context: 'The best spin pairing economy in the IPL\'s middle overs. 1.26 runs below the league average per over' },
+      { value: '221.8', label: 'Stubbs\' death-overs SR (197 balls, MEDIUM)', context: 'Among the highest in the league for any batter with 150+ death-overs balls since 2023' },
+      { value: '0-5', label: 'DC\'s home record at AJS in 2025', context: 'The worst single-season home record in franchise history. The high-scoring venue punishes DC\'s death bowling' },
+      { value: '135.4', label: 'DC squad SR vs fast bowling (619 balls, HIGH)', context: '17.2 points below the league average. No structural answer to elite pace' },
+      { value: '10.67', label: 'Mitchell Starc\'s economy since 2023 (79.8 overs, MEDIUM)', context: 'The most expensive retained bowler (11.75 Cr) in DC\'s squad by economy rate' }
+    ],
+    categoryRatings: [
+      { cat: 'Batting, Powerplay', rating: 5.0, metric: '145.8 SR', note: 'At league average (146.3). Rahul\'s 131.5 PP SR drags pace; Shaw provides aggression', group: 'phase' },
+      { cat: 'Batting, Middle', rating: 4.5, metric: '133.6 SR', note: 'Below league (140.3). Rahul (138.3 SR) and Axar (132.4) carry the load', group: 'phase' },
+      { cat: 'Batting, Death', rating: 6.5, metric: '158.4 SR', note: 'Below league (170.2). Stubbs (221.8 SR) is elite, but rest lag behind', group: 'phase' },
+      { cat: 'Bowling, Powerplay', rating: 5.5, metric: '9.52 econ', note: 'Near league (9.26). Starc\'s 10.17 PP econ offsets Natarajan\'s 8.90', group: 'phase' },
+      { cat: 'Bowling, Middle', rating: 7.5, metric: '8.39 econ', note: 'Well below league (8.76). Kuldeep 7.58, Axar 7.41 dominate', group: 'phase' },
+      { cat: 'Bowling, Death', rating: 4.0, metric: '11.39 econ', note: 'Above league (10.87). Death bowling is the squad\'s defining weakness', group: 'phase' }
+    ]
+  },
+  PBKS: {
+    available: true,
+    meta: {
+      revision: 'v1.2',
+      dataWindow: 'IPL 2023-2025 | 9,496 matches / 2.14M balls',
+      agents: 'Virat Kohli (Tone & Narrative) | Andy Flower (Scouting Report)',
+      matches: '9,496'
+    },
+    headline: {
+      title: 'The Perpetual Rebuild Finally Built Something. Now They Have to Prove It Wasn\'t an Accident.',
+      intro: 'Punjab Kings finished 2025 with a 55.6% win rate and a trip to the final, their best campaign in over a decade. The squad that was supposed to be transitioning was suddenly contending. Shreyas Iyer (26.75 Cr, retained) scored 604 runs at 167.8 SR, Prabhsimran Singh matured into a genuine powerplay force at 159.3 SR, and Arshdeep Singh\'s economy improved to 8.62. They retained 20 of 22 players. The question is no longer whether Punjab can assemble talent. It is whether the 2025 breakthrough was the beginning of a cycle or a one-season anomaly inflated by a favourable draw and a death-overs explosion that may not repeat.'
+    },
+    verdict: {
+      text: 'Punjab Kings in 2026 are a squad with one elite attribute (death batting at 182.3 SR, +12.1 above league), one critical weakness (death bowling at 11.16 economy), and a core that returns intact from the franchise\'s best season in a decade. The corrected baselines reveal a team whose batting advantage is narrower than initially assessed: only the death overs are genuinely above league average, while the powerplay is flat and the middle overs are below par. If the 2025 batting levels hold and the bowling improves even marginally, this team belongs in the top four. If the batting regresses to 2024 levels and the bowling stays flat, the final run was the anomaly, not the new normal. The margin between contention and mediocrity is thinner for Punjab than for any other franchise in this preview series.',
+      projected: '4th-6th',
+      ceiling: '3rd (Qualifier 1)',
+      floor: '8th'
+    },
+    byTheNumbers: [
+      { value: '55.6%', label: 'Punjab\'s 2025 win rate', context: 'From 35.7% in 2024 to the IPL final. The largest single-season improvement in franchise history' },
+      { value: '190.1', label: 'Death-overs batting SR (2025)', context: 'The highest death SR of any team in the 2025 season. Shashank (201.6), Iyer (230.8, LOW sample), and Stoinis (178.2) drove it' },
+      { value: '0-4', label: 'Record vs SRH since 2023', context: 'Four matches, four losses. Punjab have not figured out SRH\'s bowling attack in the current cycle' },
+      { value: '26.7%', label: 'Home win rate at Mullanpur', context: '4 wins in 15 home matches since 2023. The worst home record of any franchise in the period' },
+      { value: '7.21', label: 'Harpreet Brar\'s middle-overs economy (63 ov, HIGH)', context: 'The quietest elite stat in the squad. Brar\'s middle-overs control is 1.61 runs below the squad\'s bowling average in that phase' }
+    ],
+    categoryRatings: [
+      { cat: 'Batting, Powerplay', rating: 5.5, metric: '146.9 SR', note: 'Essentially at league average (146.3, diff: +0.6). 2025\'s 159.1 SR was the outlier, not the baseline', group: 'phase' },
+      { cat: 'Batting, Middle', rating: 4.5, metric: '138.5 SR', note: 'Below league average (140.3, diff: -1.8). Iyer (134.2 SR, 1,555 balls, HIGH) anchors but accumulates below league pace', group: 'phase' },
+      { cat: 'Batting, Death', rating: 8.0, metric: '182.3 SR', note: 'Genuinely above league (170.2, diff: +12.1). Shashank Singh (193.6 SR) and Stoinis (178.2 SR) are elite', group: 'phase' },
+      { cat: 'Bowling, Powerplay', rating: 5.5, metric: '9.24 econ', note: 'Marginally better than league (9.26 RPO, diff: -0.02). Arshdeep at 8.94 is adequate, not dominant', group: 'phase' },
+      { cat: 'Bowling, Middle', rating: 5.0, metric: '8.97 econ', note: 'Above league average (8.76 RPO). Harpreet Brar (7.21 econ, 63 ov, HIGH) is the lone bright spot', group: 'phase' },
+      { cat: 'Bowling, Death', rating: 3.5, metric: '11.16 econ', note: 'Well above league (10.87 RPO). Structural weakness. Arshdeep at 9.96 is the only sub-10 option', group: 'phase' }
+    ]
+  },
+  RR: {
+    available: true,
+    meta: {
+      revision: 'v1.2',
+      dataWindow: 'IPL 2023-2025 | 9,496 matches / 2.14M balls',
+      agents: 'Virat Kohli (Tone & Narrative) | Andy Flower (Scouting Report)',
+      matches: '9,496'
+    },
+    headline: {
+      title: 'The Royals Rebuilt Their Spine in a Single Window. Now Comes the Hard Part: Making It Work.',
+      intro: 'Rajasthan Royals won 9 of 15 matches in 2024, made Qualifier 2, and looked like a franchise on the rise. Then 2025 happened: 4 wins in 14 matches, a death bowling economy that ballooned to 12.37, and a finish that saw 9 losses in their last 10 games. The response was surgical. Ravindra Jadeja (17.50 Cr, traded from CSK), Sam Curran (10.00 Cr, traded from PBKS), and Ravi Bishnoi (7.20 Cr, auction) arrive to fill the structural gaps that dismantled the 2025 campaign. This is no longer the Samson-Buttler-Chahal franchise. It is, for the first time in modern IPL history, a Jaiswal-led, allrounder-heavy squad built to compete across all three phases. Whether these new pieces mesh is the only question that matters.'
+    },
+    verdict: {
+      text: 'Rajasthan Royals have performed the most aggressive roster surgery in the 2026 cycle. If Jadeja\'s bowling control, Curran\'s allround flexibility, and Archer\'s fitness converge, this is a squad with genuine playoff credentials. The batting lineup, led by Jaiswal and supplemented by Jurel and Hetmyer at the death, is deep enough to compete with any team in the league. The middle-overs batting and the death bowling remain structural concerns that no amount of squad-building can fully address. If the bowling holds, RR finish top four. If the 2025 death bowling ghost returns, the new faces will have changed the personnel but not the outcome.',
+      projected: '4th-6th',
+      ceiling: '3rd (Qualifier 1)',
+      floor: '8th'
+    },
+    byTheNumbers: [
+      { value: '174.4', label: 'RR\'s 2025 PP batting SR', context: 'The highest in the league, driven by Jaiswal. The powerplay is not the problem' },
+      { value: '12.37', label: 'RR\'s 2025 death bowling economy', context: '1.88 RPO worse than 2024. The single number that explains the 28.6% win rate' },
+      { value: '7.79', label: 'Jadeja\'s middle-overs bowling economy (135.2 overs, HIGH)', context: '0.97 better than the league average. The specific acquisition to fix the specific weakness' },
+      { value: '183.9', label: 'Sam Curran\'s death batting SR (248 balls, MEDIUM)', context: 'The allrounder dual-threat. 13.7 points above the league death average' },
+      { value: '1-9', label: 'RR\'s record in their last 10 matches', context: 'The worst run of form in the franchise\'s history. The 2026 squad is built to ensure this never happens again' }
+    ],
+    categoryRatings: [
+      { cat: 'Batting, Powerplay', rating: 7.5, metric: '152.8 SR', note: '6.5 points above league (146.3). Jaiswal at 159.5 PP SR is the primary engine', group: 'phase' },
+      { cat: 'Batting, Middle', rating: 4.5, metric: '135.3 SR', note: '5.0 points below league (140.3). The persistent weakness across all three seasons', group: 'phase' },
+      { cat: 'Batting, Death', rating: 6.0, metric: '170.7 SR', note: 'At league average (170.2). Hetmyer (174.7) and Jurel (179.0) carry the load', group: 'phase' },
+      { cat: 'Bowling, Powerplay', rating: 7.0, metric: '8.49 econ', note: '0.77 RPO below league (9.26). Sandeep Sharma at 7.38 is elite. Archer at 8.53 is solid', group: 'phase' },
+      { cat: 'Bowling, Middle', rating: 5.5, metric: '8.85 econ', note: 'Slightly above league (8.76). Jadeja (7.79) and Bishnoi (8.57) should improve this', group: 'phase' },
+      { cat: 'Bowling, Death', rating: 5.0, metric: '10.95 econ', note: '0.08 RPO above league (10.87). 2025 death economy of 12.37 was catastrophic; Curran and Archer represent the fix', group: 'phase' }
+    ]
+  },
+  SRH: {
+    available: true,
+    meta: {
+      revision: 'v1.2',
+      dataWindow: 'IPL 2023-2025 | 9,496 matches / 2.14M balls',
+      agents: 'Virat Kohli (Tone & Narrative) | Andy Flower (Scouting Report)',
+      matches: '9,496'
+    },
+    headline: {
+      title: 'The Most Dangerous Batting Lineup in the IPL Has a Bowling Problem It Cannot Ignore.',
+      intro: 'SRH\'s 2026 squad reads like a fantasy draft: Head, Abhishek, Klaasen, Livingstone, Cummins. Five players with strike rates above 150 since 2023. A powerplay batting SR of 177.6 in 2024 that rewrote the record books. Yet the franchise has missed the playoffs in two of the last three seasons because a bowling attack that leaks 9.09 economy in the middle overs and 11.13 at the death since 2023 keeps giving back what the batting earns. The question for 2026 is not whether SRH can score. It is whether they can stop anyone else from doing the same.'
+    },
+    verdict: {
+      text: 'SRH in 2026 are the most entertaining team in the IPL and the most frustrating to support. The batting lineup is, statistically, the best-assembled collection of power hitters in the tournament. But the bowling attack, without a quality spinner and with death-overs economy above the league average, means every match becomes a run-scoring contest that SRH will win more often than they lose, but not consistently enough to dominate. If the powerplay intent returns to 2024 levels, Klaasen stays fit for 14 matches, and Livingstone\'s death-overs ceiling translates from MEDIUM-confidence data to HIGH-confidence production, this is a playoff team. If the bowling leaks as it has for three consecutive seasons, SRH will score 190 regularly and lose regularly.',
+      projected: '4th-6th',
+      ceiling: '2nd (Finalist)',
+      floor: '8th'
+    },
+    byTheNumbers: [
+      { value: '177.6', label: 'SRH\'s 2024 powerplay batting SR', context: 'The highest single-season team PP SR in the data window. Head and Abhishek rewrote the record books' },
+      { value: '11.13', label: 'SRH\'s death bowling economy since 2023', context: '0.26 above the league average of 10.87. The gap between their batting and bowling at the death is the widest in the league' },
+      { value: '209.3', label: 'Abhishek Sharma\'s chasing SR (290 balls, MEDIUM)', context: '43.0 points above his setting SR. The largest setting/chasing delta among qualified SRH batters' },
+      { value: '0-4', label: 'SRH\'s record vs Gujarat Titans since 2023', context: 'Zero wins in four matches. The worst active matchup for any team in the league' },
+      { value: '42.1%', label: 'SRH\'s home win rate since 2023 (8-10)', context: 'A team with the most explosive batting in the IPL has a losing record at its own ground. The bowling is the cause' }
+    ],
+    categoryRatings: [
+      { cat: 'Batting, Powerplay', rating: 7.5, metric: '152.3 SR', note: '6.0 points above league avg (146.3). Head (184.4 SR) and Abhishek (161.8 SR) form the most aggressive opening pair', group: 'phase' },
+      { cat: 'Batting, Middle', rating: 6.0, metric: '144.1 SR', note: '3.8 points above league (140.3). Klaasen (161.5 SR, 514 balls, HIGH) anchors', group: 'phase' },
+      { cat: 'Batting, Death', rating: 5.5, metric: '164.4 SR', note: '5.8 points below league (170.2). Klaasen (206.5) and Livingstone (234.0) individually elite, but team aggregate underperforms', group: 'phase' },
+      { cat: 'Bowling, Powerplay', rating: 4.5, metric: '9.68 econ', note: '0.42 above league (9.26). Loss of Bhuvneshwar\'s new-ball control is unresolved', group: 'phase' },
+      { cat: 'Bowling, Middle', rating: 3.5, metric: '9.09 econ', note: '0.33 above league (8.76). No frontline spinner. Zeeshan Ansari is the best option', group: 'phase' },
+      { cat: 'Bowling, Death', rating: 4.0, metric: '11.13 econ', note: '0.26 above league (10.87). Harshal Patel (10.80 econ, 56.8 death overs) anchors the unit', group: 'phase' }
+    ]
+  },
+  GT: {
+    available: true,
+    meta: {
+      revision: 'v1.2',
+      dataWindow: 'IPL 2023-2025 | 9,496 matches / 2.14M balls',
+      agents: 'Virat Kohli (Tone & Narrative) | Andy Flower (Scouting Report)',
+      matches: '9,496'
+    },
+    headline: {
+      title: 'The Best Top Three in the IPL Meets the Hardest Question: Who Finishes the Innings?',
+      intro: 'Gujarat Titans scored 192.8 runs per match in 2025, the highest in franchise history. Shubman Gill (155.7 SR, 1,263 balls, HIGH), Sai Sudharsan (148.7 SR, 1,108 balls, HIGH), and Jos Buttler (149.0 SR, 865 balls, HIGH) form arguably the most complete top three in the tournament. Yet GT were eliminated in the knockouts, because the gap between overs 1-15 and overs 16-20 on the bowling side is a chasm the pace attack has not figured out how to cross. The death bowling economy went from 9.44 in 2023 to 10.94 in 2025. Until someone plugs that leak, the best top order in the IPL will keep watching from the couch in late May.'
+    },
+    verdict: {
+      text: 'Gujarat Titans have the best batting top three in the IPL and a bowling attack that has declined in each of the last three seasons. If Rashid Khan rediscovers his 2023 form and the death bowling improves by 1.0+ RPO, this squad has the firepower to win the title. If the bowling trajectory continues downward, GT will produce spectacular batting totals, thrilling run chases, and an early exit from the playoffs. The margin between champion and also-ran lives in overs 16-20 with the ball.',
+      projected: '3rd-5th',
+      ceiling: 'Champions',
+      floor: '7th'
+    },
+    byTheNumbers: [
+      { value: '192.8', label: 'GT\'s 2025 average match score', context: 'The highest in franchise history. Up from 170.0 in 2024. The batting is not the problem' },
+      { value: '10.94', label: 'GT\'s 2025 death bowling economy', context: 'Up from 9.44 in 2023. The bowling is the problem' },
+      { value: '160.2', label: 'Gill\'s middle-overs SR (568 balls, HIGH)', context: 'The best in the GT squad. Gill scores at 160.2 in the phase where most batters score at 140.3' },
+      { value: '6.82', label: 'Prasidh Krishna\'s middle-overs economy (28 overs, HIGH)', context: '1.94 RPO below the league average. The most underutilized bowling asset in the squad' },
+      { value: '0', label: 'New players signed for IPL 2026', context: 'The only franchise to make zero roster changes. A bet on continuity that will either vindicate or condemn the management' }
+    ],
+    categoryRatings: [
+      { cat: 'Batting, Powerplay', rating: 4.5, metric: '137.5 SR', note: '8.8 below league average (146.3). Gill at 143.7 PP SR is steady, not explosive', group: 'phase' },
+      { cat: 'Batting, Middle', rating: 8.0, metric: '147.6 SR', note: 'Well above league (140.3). Gill 160.2, Buttler 150.3, Sudharsan 145.8. The best middle-overs batting unit in the IPL', group: 'phase' },
+      { cat: 'Batting, Death', rating: 7.5, metric: '175.5 SR', note: 'Above league (170.2). Tewatia 176.8, Buttler 191.0, Gill 193.1. Depth of finishers is a genuine strength', group: 'phase' },
+      { cat: 'Bowling, Powerplay', rating: 5.5, metric: '9.24 econ', note: 'Near league average (9.26). Siraj at 8.35 anchors; Rabada at 9.67 is a concern', group: 'phase' },
+      { cat: 'Bowling, Middle', rating: 6.5, metric: '8.69 econ', note: 'Slightly better than league (8.76). Rashid at 8.38 and Prasidh at 6.82 carry this', group: 'phase' },
+      { cat: 'Bowling, Death', rating: 5.5, metric: '10.94 econ', note: 'Since-2023 aggregate (10.55) flatters; trajectory is 9.44 (2023) to 10.94 (2025). No elite death bowler', group: 'phase' }
+    ]
+  },
+  LSG: {
+    available: true,
+    meta: {
+      revision: 'v1.2',
+      dataWindow: 'IPL 2023-2025 | 9,496 matches / 2.14M balls',
+      agents: 'Virat Kohli (Tone & Narrative) | Andy Flower (Scouting Report)',
+      matches: '9,496'
+    },
+    headline: {
+      title: 'The Talent Is Obscene. The Structure Is the Question.',
+      intro: 'Lucknow Super Giants enter 2026 with the most expensive player in IPL history (Rishabh Pant, 27.00 Cr), a middle-order destroyer in Nicholas Pooran (183.9 SR, 751 balls, HIGH), three genuine all-rounders, and a pace attack headlined by Mohammed Shami. On paper, the batting firepower is staggering. But LSG\'s 2025 season ended with 6 wins from 14 matches and a bowling economy that hemorrhaged 10.73 in the powerplay. The talent ceiling is top-two. The structural floor is eighth. Which version shows up depends on whether the bowling can hold what the batting promises to deliver.'
+    },
+    verdict: {
+      text: 'LSG in 2026 are the IPL\'s highest-risk, highest-reward proposition. The batting, led by Pooran and Pant, has the firepower to post 200 on any given day. The bowling, dependent on a 35-year-old Shami in the powerplay and an unproven Rathi-Hasaranga combination in the middle overs, could just as easily concede 200. If Shami returns to his 8.67 powerplay self, if Rathi\'s 7.74 middle-overs economy scales across 14 matches, and if the toss goes their way more often than not, this squad has the talent to finish top four. If the bowling reverts to 2025 levels, the most expensive squad in the tournament will underachieve for the fourth consecutive season.',
+      projected: '4th-6th',
+      ceiling: '3rd (Playoff contender)',
+      floor: '8th'
+    },
+    byTheNumbers: [
+      { value: '183.9', label: 'Pooran\'s SR since 2023 (751 balls, HIGH)', context: 'The highest SR among batters with 700+ balls in the squad. He is the batting standard' },
+      { value: '10.73', label: 'LSG\'s 2025 powerplay bowling economy', context: '1.47 runs above the league average of 9.26. The single biggest reason for the declining win rate' },
+      { value: '210.0', label: 'Pant\'s death-overs SR (100 balls, MEDIUM)', context: 'The most explosive death-hitting number in the XII. His captaincy + his finishing = the LSG DNA shift' },
+      { value: '0.30 Cr', label: 'Digvesh Rathi\'s price', context: '7.74 middle-overs economy at 0.30 Cr. The best value contract in the squad by a wide margin' },
+      { value: '1-4', label: 'LSG\'s record vs Delhi Capitals since 2023', context: 'The worst head-to-head record against any opponent. Pant returns to face his former franchise' }
+    ],
+    categoryRatings: [
+      { cat: 'Batting, Powerplay', rating: 5.0, metric: '133.9 SR', note: 'Below league (146.3). Marsh (153.8 PP SR) and Markram (135.9) are competent, not explosive', group: 'phase' },
+      { cat: 'Batting, Middle', rating: 7.5, metric: '142.1 SR', note: 'Above league (140.3). Pooran at 183.9 (390 balls, MEDIUM) is the engine room', group: 'phase' },
+      { cat: 'Batting, Death', rating: 6.5, metric: '161.5 SR', note: '8.7 points below league (170.2) on aggregate, but Pant 210.0, Pooran 184.0, Samad 178.9 give three elite finishers', group: 'phase' },
+      { cat: 'Bowling, Powerplay', rating: 5.5, metric: '9.91 econ', note: '0.65 RPO above league (9.26). Shami (8.67 PP) is the fix; without him, this was 10.73 in 2025', group: 'phase' },
+      { cat: 'Bowling, Middle', rating: 6.0, metric: '8.54 econ', note: '0.22 RPO below league (8.76). Rathi (7.74) is the anchor. Hasaranga at 9.24 is average', group: 'phase' },
+      { cat: 'Bowling, Death', rating: 5.0, metric: '10.84 econ', note: '0.03 RPO below league (10.87), essentially at parity. Avesh at 9.96 death carries the phase alone', group: 'phase' }
+    ]
+  }
 };

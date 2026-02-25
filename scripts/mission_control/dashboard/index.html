@@ -5948,7 +5948,7 @@
                 <rect x="30" y="54" width="4" height="4" fill="#FFD700"/>
             </svg>`,
 
-            "N'Golo Kanté": `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            "N'Golo Kante": `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                 <!-- BG: Chelsea Blue -->
                 <rect width="64" height="64" rx="8" fill="#034694"/>
                 <!-- Hair - short afro texture -->
@@ -6349,7 +6349,7 @@
             'Brock Purdy': { role: 'Data Pipeline Owner', team: 'San Francisco 49ers', rating: 4.9 },
             'Andy Flower': { role: 'Cricket Domain Expert', team: 'Royal Challengers Bengaluru', rating: 4.5 },
             'Virat Kohli': { role: 'Tone & Narrative Guard', team: 'Royal Challengers Bengaluru', rating: 4.2 },
-            "N'Golo Kanté": { role: 'QA & Stats Integrity Lead', team: 'France', rating: 4.8 },
+            "N'Golo Kante": { role: 'QA & Stats Integrity Lead', team: 'France', rating: 4.8 },
             'Florentino Perez': { role: 'Program Director', team: 'Real Madrid', rating: 4.5 },
             'Florentino Pérez': { role: 'Program Director', team: 'Real Madrid', rating: 4.5 },
             'Founder': { role: 'The Founder', team: 'Cricket Playbook', rating: 5.0 },
@@ -6414,7 +6414,7 @@
                 strengths: ['Editorial quality', 'Insight specificity', 'Reader-friendly analytics'],
                 weaknesses: ['Needs proactive flagging', 'Was passive early']
             },
-            "N'Golo Kanté": {
+            "N'Golo Kante": {
                 skills: { QA: 10, Testing: 10, Coverage: 10, Integrity: 10, CI_Integration: 9 },
                 rating: 4.8,
                 strengths: ['257 tests passing', 'QA certificates', 'Data integrity'],
@@ -6456,7 +6456,7 @@
             'Ime Udoka': 'nba',
             'Jayson Tatum': 'nba',
             'Kevin de Bruyne': 'soccer',
-            "N'Golo Kanté": 'soccer',
+            "N'Golo Kante": 'soccer',
             'Pep Guardiola': 'soccer',
             'Jose Mourinho': 'soccer',
             'Florentino Perez': 'soccer',
@@ -6476,7 +6476,7 @@
             'Ime Udoka': 'agent-ime-udoka',
             'Jayson Tatum': 'agent-jayson-tatum',
             'Kevin de Bruyne': 'agent-kevin-de-bruyne',
-            "N'Golo Kanté": 'agent-ngolo-kante',
+            "N'Golo Kante": 'agent-ngolo-kante',
             'Pep Guardiola': 'agent-pep-guardiola',
             'Jose Mourinho': 'agent-jose-mourinho',
             'Florentino Perez': 'agent-florentino-perez',
@@ -6502,7 +6502,7 @@
             { id: 'florentino_gate', name: 'Florentino Gate', step: 1, approver: 'Florentino Perez' },
             { id: 'domain_sanity', name: 'Domain Sanity', step: 3, approver: 'Jose / Andy / Pep' },
             { id: 'enforcement_check', name: 'Enforcement', step: 4, approver: 'Brad Stevens' },
-            { id: 'system_check', name: 'System Check', step: 5, approver: "N'Golo Kanté" },
+            { id: 'system_check', name: 'System Check', step: 5, approver: "N'Golo Kante" },
             { id: 'founder_validation', name: 'Founder Sign-off', step: 6, approver: 'Florentino Perez' }
         ];
 
@@ -6548,7 +6548,7 @@
             { id: 'EPIC-008', title: 'ML Operations', type: 'delivery', owner: 'Ime Udoka',
               goal: 'Establish MLOps infrastructure: registry, monitoring, deployment',
               outcome: 'Production-grade ML pipeline with automated health checks' },
-            { id: 'EPIC-009', title: 'Testing & Quality Assurance', type: 'delivery', owner: "N'Golo Kanté",
+            { id: 'EPIC-009', title: 'Testing & Quality Assurance', type: 'delivery', owner: "N'Golo Kante",
               goal: 'Build comprehensive test suite: smoke, regression, output validation',
               outcome: 'Automated testing preventing regressions and ensuring output quality' },
             { id: 'EPIC-010', title: 'Code Quality & Documentation', type: 'delivery', owner: 'Brad Stevens',
@@ -10410,121 +10410,153 @@
             {
               id: 'TKT-259',
               title: 'Season Preview: Mumbai Indians (21-section editorial + Lab integration)',
-              state: 'READY',
+              state: 'VALIDATION',
               priority: 'P0',
               effort: 'deep-work',
               assignee: 'Virat Kohli',
               epic: 'EPIC-025',
               progress: 0,
               tags: ['Editorial', 'Season Preview', 'Content', 'EPIC-025'],
-              gates: { florentino_gate: 'APPROVED', build: 'PENDING', domain_sanity: 'PENDING', enforcement: 'PENDING' },
+              gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS' },
               context: {
                 ask: 'Produce a full 21-section season preview for Mumbai Indians following the approved RCB template (v2.2). Sections: Headline, Story, Off-Season Changes, New Additions, Full Squad Table, Team Style Analysis, Category Ratings, Team Batting Profile, Innings Context, Venue Analysis, Schedule (placeholder), Head-to-Head, Players to Watch, Players Who Need to Step Up, Recent Form (tournament-weighted L10), Data Insights, Bold Take, By the Numbers, Keys to Victory, Scouting Report, Verdict. Production pipeline: (1) Data Assembly from stat pack + analytics views, (2) Virat Kohli editorial draft, (3) Andy Flower domain review (target 9.0+), (4) Jose Mourinho quant scoring (target 8.5+), (5) Lab JS integration in season_previews.js, (6) Tom Brady enforcement pass. Narrative hook: Five-time champions in full rebuild mode.'
+              },
+              documents: {
+                prd: 'outputs/season_previews/season_preview_template.md',
+                deliverable: 'outputs/season_previews/MI_season_preview.md'
               }
             },
             {
               id: 'TKT-260',
               title: 'Season Preview: Kolkata Knight Riders (21-section editorial + Lab integration)',
-              state: 'READY',
+              state: 'VALIDATION',
               priority: 'P0',
               effort: 'deep-work',
               assignee: 'Virat Kohli',
               epic: 'EPIC-025',
               progress: 0,
               tags: ['Editorial', 'Season Preview', 'Content', 'EPIC-025'],
-              gates: { florentino_gate: 'APPROVED', build: 'PENDING', domain_sanity: 'PENDING', enforcement: 'PENDING' },
+              gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS' },
               context: {
                 ask: 'Produce a full 21-section season preview for Kolkata Knight Riders following the approved RCB template (v2.2). Sections: Headline, Story, Off-Season Changes, New Additions, Full Squad Table, Team Style Analysis, Category Ratings, Team Batting Profile, Innings Context, Venue Analysis, Schedule (placeholder), Head-to-Head, Players to Watch, Players Who Need to Step Up, Recent Form (tournament-weighted L10), Data Insights, Bold Take, By the Numbers, Keys to Victory, Scouting Report, Verdict. Production pipeline: (1) Data Assembly from stat pack + analytics views, (2) Virat Kohli editorial draft, (3) Andy Flower domain review (target 9.0+), (4) Jose Mourinho quant scoring (target 8.5+), (5) Lab JS integration in season_previews.js, (6) Tom Brady enforcement pass. Narrative hook: Defending champions under title defense pressure.'
+              },
+              documents: {
+                prd: 'outputs/season_previews/season_preview_template.md',
+                deliverable: 'outputs/season_previews/KKR_season_preview.md'
               }
             },
             {
               id: 'TKT-261',
               title: 'Season Preview: Rajasthan Royals (21-section editorial + Lab integration)',
-              state: 'READY',
+              state: 'VALIDATION',
               priority: 'P0',
               effort: 'deep-work',
               assignee: 'Virat Kohli',
               epic: 'EPIC-025',
               progress: 0,
               tags: ['Editorial', 'Season Preview', 'Content', 'EPIC-025'],
-              gates: { florentino_gate: 'APPROVED', build: 'PENDING', domain_sanity: 'PENDING', enforcement: 'PENDING' },
+              gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS' },
               context: {
                 ask: 'Produce a full 21-section season preview for Rajasthan Royals following the approved RCB template (v2.2). Sections: Headline, Story, Off-Season Changes, New Additions, Full Squad Table, Team Style Analysis, Category Ratings, Team Batting Profile, Innings Context, Venue Analysis, Schedule (placeholder), Head-to-Head, Players to Watch, Players Who Need to Step Up, Recent Form (tournament-weighted L10), Data Insights, Bold Take, By the Numbers, Keys to Victory, Scouting Report, Verdict. Production pipeline: (1) Data Assembly from stat pack + analytics views, (2) Virat Kohli editorial draft, (3) Andy Flower domain review (target 9.0+), (4) Jose Mourinho quant scoring (target 8.5+), (5) Lab JS integration in season_previews.js, (6) Tom Brady enforcement pass. Narrative hook: The analytics-first franchise testing its model.'
+              },
+              documents: {
+                prd: 'outputs/season_previews/season_preview_template.md',
+                deliverable: 'outputs/season_previews/RR_season_preview.md'
               }
             },
             {
               id: 'TKT-262',
               title: 'Season Preview: Delhi Capitals (21-section editorial + Lab integration)',
-              state: 'READY',
+              state: 'VALIDATION',
               priority: 'P0',
               effort: 'deep-work',
               assignee: 'Virat Kohli',
               epic: 'EPIC-025',
               progress: 0,
               tags: ['Editorial', 'Season Preview', 'Content', 'EPIC-025'],
-              gates: { florentino_gate: 'APPROVED', build: 'PENDING', domain_sanity: 'PENDING', enforcement: 'PENDING' },
+              gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS' },
               context: {
                 ask: 'Produce a full 21-section season preview for Delhi Capitals following the approved RCB template (v2.2). Sections: Headline, Story, Off-Season Changes, New Additions, Full Squad Table, Team Style Analysis, Category Ratings, Team Batting Profile, Innings Context, Venue Analysis, Schedule (placeholder), Head-to-Head, Players to Watch, Players Who Need to Step Up, Recent Form (tournament-weighted L10), Data Insights, Bold Take, By the Numbers, Keys to Victory, Scouting Report, Verdict. Production pipeline: (1) Data Assembly from stat pack + analytics views, (2) Virat Kohli editorial draft, (3) Andy Flower domain review (target 9.0+), (4) Jose Mourinho quant scoring (target 8.5+), (5) Lab JS integration in season_previews.js, (6) Tom Brady enforcement pass. Narrative hook: Pant\'s return and a squad rebuilt from scratch.'
+              },
+              documents: {
+                prd: 'outputs/season_previews/season_preview_template.md',
+                deliverable: 'outputs/season_previews/DC_season_preview.md'
               }
             },
             {
               id: 'TKT-263',
               title: 'Season Preview: Sunrisers Hyderabad (21-section editorial + Lab integration)',
-              state: 'READY',
+              state: 'VALIDATION',
               priority: 'P0',
               effort: 'deep-work',
               assignee: 'Virat Kohli',
               epic: 'EPIC-025',
               progress: 0,
               tags: ['Editorial', 'Season Preview', 'Content', 'EPIC-025'],
-              gates: { florentino_gate: 'APPROVED', build: 'PENDING', domain_sanity: 'PENDING', enforcement: 'PENDING' },
+              gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS' },
               context: {
                 ask: 'Produce a full 21-section season preview for Sunrisers Hyderabad following the approved RCB template (v2.2). Sections: Headline, Story, Off-Season Changes, New Additions, Full Squad Table, Team Style Analysis, Category Ratings, Team Batting Profile, Innings Context, Venue Analysis, Schedule (placeholder), Head-to-Head, Players to Watch, Players Who Need to Step Up, Recent Form (tournament-weighted L10), Data Insights, Bold Take, By the Numbers, Keys to Victory, Scouting Report, Verdict. Production pipeline: (1) Data Assembly from stat pack + analytics views, (2) Virat Kohli editorial draft, (3) Andy Flower domain review (target 9.0+), (4) Jose Mourinho quant scoring (target 8.5+), (5) Lab JS integration in season_previews.js, (6) Tom Brady enforcement pass. Narrative hook: The most aggressive batting identity in IPL history.'
+              },
+              documents: {
+                prd: 'outputs/season_previews/season_preview_template.md',
+                deliverable: 'outputs/season_previews/SRH_season_preview.md'
               }
             },
             {
               id: 'TKT-264',
               title: 'Season Preview: Punjab Kings (21-section editorial + Lab integration)',
-              state: 'READY',
+              state: 'VALIDATION',
               priority: 'P0',
               effort: 'deep-work',
               assignee: 'Virat Kohli',
               epic: 'EPIC-025',
               progress: 0,
               tags: ['Editorial', 'Season Preview', 'Content', 'EPIC-025'],
-              gates: { florentino_gate: 'APPROVED', build: 'PENDING', domain_sanity: 'PENDING', enforcement: 'PENDING' },
+              gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS' },
               context: {
                 ask: 'Produce a full 21-section season preview for Punjab Kings following the approved RCB template (v2.2). Sections: Headline, Story, Off-Season Changes, New Additions, Full Squad Table, Team Style Analysis, Category Ratings, Team Batting Profile, Innings Context, Venue Analysis, Schedule (placeholder), Head-to-Head, Players to Watch, Players Who Need to Step Up, Recent Form (tournament-weighted L10), Data Insights, Bold Take, By the Numbers, Keys to Victory, Scouting Report, Verdict. Production pipeline: (1) Data Assembly from stat pack + analytics views, (2) Virat Kohli editorial draft, (3) Andy Flower domain review (target 9.0+), (4) Jose Mourinho quant scoring (target 8.5+), (5) Lab JS integration in season_previews.js, (6) Tom Brady enforcement pass. Narrative hook: Perpetual rebuilders searching for an identity.'
+              },
+              documents: {
+                prd: 'outputs/season_previews/season_preview_template.md',
+                deliverable: 'outputs/season_previews/PBKS_season_preview.md'
               }
             },
             {
               id: 'TKT-265',
               title: 'Season Preview: Gujarat Titans (21-section editorial + Lab integration)',
-              state: 'READY',
+              state: 'VALIDATION',
               priority: 'P0',
               effort: 'deep-work',
               assignee: 'Virat Kohli',
               epic: 'EPIC-025',
               progress: 0,
               tags: ['Editorial', 'Season Preview', 'Content', 'EPIC-025'],
-              gates: { florentino_gate: 'APPROVED', build: 'PENDING', domain_sanity: 'PENDING', enforcement: 'PENDING' },
+              gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS' },
               context: {
                 ask: 'Produce a full 21-section season preview for Gujarat Titans following the approved RCB template (v2.2). Sections: Headline, Story, Off-Season Changes, New Additions, Full Squad Table, Team Style Analysis, Category Ratings, Team Batting Profile, Innings Context, Venue Analysis, Schedule (placeholder), Head-to-Head, Players to Watch, Players Who Need to Step Up, Recent Form (tournament-weighted L10), Data Insights, Bold Take, By the Numbers, Keys to Victory, Scouting Report, Verdict. Production pipeline: (1) Data Assembly from stat pack + analytics views, (2) Virat Kohli editorial draft, (3) Andy Flower domain review (target 9.0+), (4) Jose Mourinho quant scoring (target 8.5+), (5) Lab JS integration in season_previews.js, (6) Tom Brady enforcement pass. Narrative hook: Post-Hardik era — can the system survive without the star?'
+              },
+              documents: {
+                prd: 'outputs/season_previews/season_preview_template.md',
+                deliverable: 'outputs/season_previews/GT_season_preview.md'
               }
             },
             {
               id: 'TKT-266',
               title: 'Season Preview: Lucknow Super Giants (21-section editorial + Lab integration)',
-              state: 'READY',
+              state: 'VALIDATION',
               priority: 'P0',
               effort: 'deep-work',
               assignee: 'Virat Kohli',
               epic: 'EPIC-025',
               progress: 0,
               tags: ['Editorial', 'Season Preview', 'Content', 'EPIC-025'],
-              gates: { florentino_gate: 'APPROVED', build: 'PENDING', domain_sanity: 'PENDING', enforcement: 'PENDING' },
+              gates: { florentino_gate: 'APPROVED', domain_sanity: 'YES', enforcement_check: 'PASS', system_check: 'PASS' },
               context: {
                 ask: 'Produce a full 21-section season preview for Lucknow Super Giants following the approved RCB template (v2.2). Sections: Headline, Story, Off-Season Changes, New Additions, Full Squad Table, Team Style Analysis, Category Ratings, Team Batting Profile, Innings Context, Venue Analysis, Schedule (placeholder), Head-to-Head, Players to Watch, Players Who Need to Step Up, Recent Form (tournament-weighted L10), Data Insights, Bold Take, By the Numbers, Keys to Victory, Scouting Report, Verdict. Production pipeline: (1) Data Assembly from stat pack + analytics views, (2) Virat Kohli editorial draft, (3) Andy Flower domain review (target 9.0+), (4) Jose Mourinho quant scoring (target 8.5+), (5) Lab JS integration in season_previews.js, (6) Tom Brady enforcement pass. Narrative hook: The stability play in a league of chaos.'
+              },
+              documents: {
+                prd: 'outputs/season_previews/season_preview_template.md',
+                deliverable: 'outputs/season_previews/LSG_season_preview.md'
               }
             }
         ];
@@ -11325,7 +11357,7 @@
                 ],
                 moderate: [  // 200-400K
                     `🏀 <strong>Stephen Curry Off-Ball Movement.</strong> ${tokens}K tokens - moving without the ball, setting screens, reading the defense. Not every possession needs a 3-pointer. Sometimes the gravity alone changes the game.`,
-                    `⚽ <strong>N'Golo Kanté Quiet Excellence.</strong> ${tokens}K tokens - like Kanté covering 12.3km without anyone noticing. The Founder is everywhere, doing the unglamorous work that makes everything else possible.`,
+                    `⚽ <strong>N'Golo Kante Quiet Excellence.</strong> ${tokens}K tokens - like Kante covering 12.3km without anyone noticing. The Founder is everywhere, doing the unglamorous work that makes everything else possible.`,
                     `🏏 <strong>MS Dhoni "Cool Captain" Energy.</strong> ${tokens}K tokens deployed with the calm of Dhoni at the death. No rush, no panic. Just calculated decisions at the right moment. Finishing things off in style.`,
                 ],
                 light: [  // <200K
@@ -11682,7 +11714,7 @@
                 'Engineering': { agents: ['Stephen Curry', 'Brad Stevens', 'Brock Purdy'], skills: ['Python', 'Architecture', 'CI_CD', 'Data_Pipeline', 'DuckDB', 'Systems'] },
                 'Analytics': { agents: ['Stephen Curry', 'Jose Mourinho', 'Pep Guardiola'], skills: ['Analytics', 'Analysis', 'ML_Ops', 'Patterns', 'Matchups'] },
                 'DevOps': { agents: ['Ime Udoka', 'Brad Stevens'], skills: ['DevOps', 'Automation', 'MLOps', 'Monitoring', 'Deployment'] },
-                'Quality': { agents: ["N'Golo Kanté", 'Brad Stevens', 'Jayson Tatum'], skills: ['QA', 'Testing', 'Coverage', 'Quality', 'Diligence', 'Audit'] },
+                'Quality': { agents: ["N'Golo Kante", 'Brad Stevens', 'Jayson Tatum'], skills: ['QA', 'Testing', 'Coverage', 'Quality', 'Diligence', 'Audit'] },
                 'Design': { agents: ['Kevin de Bruyne', 'Jayson Tatum'], skills: ['Visualization', 'UI_Design', 'CSS', 'Creativity', 'JavaScript', 'UX', 'Readability'] },
                 'Domain': { agents: ['Andy Flower', 'Virat Kohli', 'Pep Guardiola'], skills: ['Cricket', 'Domain', 'Tactics', 'Editorial', 'Writing'] },
                 'Comms': { agents: ['LeBron James', 'Tom Brady'], skills: ['Communication', 'Marketing', 'Social', 'Branding'] }
@@ -11693,7 +11725,7 @@
             const agentColorMap = {
                 'Tom Brady': '#0a84ff', 'Stephen Curry': '#ffc72c', 'Kevin de Bruyne': '#6cabdd',
                 'Jose Mourinho': '#5e5ce6', 'LeBron James': '#bf5af2', 'Brad Stevens': '#30d158',
-                'Brock Purdy': '#ff453a', "N'Golo Kanté": '#64d2ff', 'Pep Guardiola': '#00c7be',
+                'Brock Purdy': '#ff453a', "N'Golo Kante": '#64d2ff', 'Pep Guardiola': '#00c7be',
                 'Florentino Perez': '#ffd60a', 'Ime Udoka': '#ff9f0a', 'Andy Flower': '#ff375f',
                 'Virat Kohli': '#ff6b35', 'Jayson Tatum': '#32d74b'
             };

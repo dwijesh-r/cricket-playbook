@@ -33,3 +33,4 @@ Thumbs.db
 # Node.js / React
 node_modules/
 scripts/the_lab/react-app/dist/
+data/manifests/incremental_manifest.json

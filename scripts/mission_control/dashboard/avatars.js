@@ -296,7 +296,7 @@ const AgentAvatars = {
     </svg>`,
 
     // N'Golo Kante - Chelsea/Al-Ittihad - Big smile, humble look
-    "N'Golo Kanté": `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+    "N'Golo Kante": `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
         <defs>
             <linearGradient id="kante-bg" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" style="stop-color:#034694"/>

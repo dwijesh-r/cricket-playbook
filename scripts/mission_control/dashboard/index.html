@@ -12390,8 +12390,8 @@
                         ${t.review
                             ? `<a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/${t.review}" target="_blank" rel="noopener" class="modal-link" onclick="event.stopPropagation()"><span class="modal-link-icon">✍️</span><span class="modal-link-text">Review Document</span><span class="modal-link-arrow">→</span></a>`
                             : ''}
-                        ${t.documents ? t.documents.map(doc => `<a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/${doc.path}" target="_blank" rel="noopener" class="modal-link" onclick="event.stopPropagation()"><span class="modal-link-icon">📋</span><span class="modal-link-text">${doc.title}</span><span class="modal-link-arrow">→</span></a>`).join('') : ''}
-                        ${!t.review && !(t.documents && t.documents.length) ? '<div class="link-category-empty">Pending founder sign-off</div>' : ''}
+                        ${docsArray.length ? docsArray.map(doc => `<a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/${doc.path}" target="_blank" rel="noopener" class="modal-link" onclick="event.stopPropagation()"><span class="modal-link-icon">📋</span><span class="modal-link-text">${doc.title}</span><span class="modal-link-arrow">→</span></a>`).join('') : ''}
+                        ${!t.review && !docsArray.length ? '<div class="link-category-empty">Pending founder sign-off</div>' : ''}
                     </div>
                 </div>
 

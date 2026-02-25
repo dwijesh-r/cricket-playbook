@@ -21,7 +21,7 @@ import duckdb
 
 # Paths
 SCRIPT_DIR = Path(__file__).parent
-PROJECT_DIR = SCRIPT_DIR.parent
+PROJECT_DIR = SCRIPT_DIR.parent.parent
 DB_PATH = PROJECT_DIR / "data" / "cricket_playbook.duckdb"
 
 # Color codes

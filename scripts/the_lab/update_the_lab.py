@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-The Lab - Data Update Script
+Statsledge - Data Update Script
 Regenerates JavaScript data files from source JSON/CSV outputs.
 
 Usage:
@@ -189,7 +189,7 @@ def generate_teams_js():
     """Generate teams.js with team metadata."""
     timestamp = datetime.now().isoformat()
     js_content = f"""/**
- * The Lab - Team Data
+ * Statsledge - Team Data
  * IPL 2026 Pre-Season Analytics
  * Auto-generated: {timestamp}
  */
@@ -242,7 +242,7 @@ def generate_predicted_xii_js(data):
     algorithm_name = data.get("algorithm_name", "SUPER SELECTOR")
 
     js_content = f"""/**
- * The Lab - Predicted XII Data
+ * Statsledge - Predicted XII Data
  * IPL 2026 Pre-Season Analytics
  * Auto-generated: {timestamp}
  * Algorithm: {algorithm_name}
@@ -301,7 +301,7 @@ def generate_depth_charts_js(depth_charts):
     """Generate depth_charts.js with ratings summary."""
     timestamp = datetime.now().isoformat()
     js_content = f"""/**
- * The Lab - Depth Chart Ratings
+ * Statsledge - Depth Chart Ratings
  * Auto-generated: {timestamp}
  */
 
@@ -337,7 +337,7 @@ def generate_full_depth_charts_js(consolidated_data):
 
     timestamp = datetime.now().isoformat()
     js_content = f"""/**
- * The Lab - Full Depth Charts Data
+ * Statsledge - Full Depth Charts Data
  * IPL 2026 Pre-Season Analytics
  * Auto-generated: {timestamp}
  */
@@ -520,7 +520,7 @@ def generate_full_squads_js():
 
     timestamp = datetime.now().isoformat()
     js = f"""/**
- * The Lab - Full Squad Data
+ * Statsledge - Full Squad Data
  * IPL 2026 Pre-Season Analytics
  * Auto-generated: {timestamp}
  */
@@ -604,7 +604,7 @@ def generate_player_profiles_js():
     json_str = json.dumps(all_teams, separators=(",", ":"))
     timestamp = datetime.now().isoformat()
     js_content = f"""/**
- * The Lab - Player Profiles Data
+ * Statsledge - Player Profiles Data
  * IPL 2026 Pre-Season Analytics
  * Auto-generated: {timestamp}
  */
@@ -615,7 +615,7 @@ const PLAYER_PROFILES = {json_str};
 
 
 def main():
-    print("🏏 The Lab - Data Update Script")
+    print("🏏 Statsledge - Data Update Script")
     print("=" * 50)
 
     # Ensure output directory exists

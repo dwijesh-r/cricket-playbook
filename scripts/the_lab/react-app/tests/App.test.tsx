@@ -4,14 +4,14 @@ import { MemoryRouter } from 'react-router-dom';
 import App from '../src/App';
 
 describe('App', () => {
-  it('renders the home page with the Cricket Playbook title', () => {
+  it('renders the home page with the Statsledge title', () => {
     render(
       <MemoryRouter initialEntries={['/']}>
         <App />
       </MemoryRouter>,
     );
 
-    expect(screen.getByText('Playbook')).toBeInTheDocument();
+    expect(screen.getByText('ledge')).toBeInTheDocument();
   });
 
   it('renders the comparison page when navigating to /comparison', () => {
@@ -53,6 +53,6 @@ describe('App', () => {
       </MemoryRouter>,
     );
 
-    expect(screen.getByText(/Cricket Playbook v5\.0\.0/)).toBeInTheDocument();
+    expect(screen.getByText(/Statsledge v5\.0\.0/)).toBeInTheDocument();
   });
 });

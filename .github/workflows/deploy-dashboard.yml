@@ -1,6 +1,6 @@
 # Dashboard Deployment Pipeline
 # =============================
-# Automatically updates The Lab dashboard when outputs change
+# Automatically updates Statsledge dashboard when outputs change
 #
 # Owner: Brad Stevens (Architecture & Performance)
 # Based on: Kevin de Bruyne's visualization work
@@ -10,7 +10,7 @@
 #
 # This workflow:
 # 1. Runs after output generation completes
-# 2. Updates The Lab dashboard data files
+# 2. Updates Statsledge dashboard data files
 # 3. Deploys directly to GitHub Pages (no auto-build needed)
 
 name: Deploy Dashboard
@@ -48,10 +48,10 @@ concurrency:
 
 jobs:
   # ==========================================================================
-  # Update The Lab Dashboard Data
+  # Update Statsledge Dashboard Data
   # ==========================================================================
   update-the-lab:
-    name: "Update The Lab Dashboard"
+    name: "Update Statsledge Dashboard"
     runs-on: ubuntu-latest
     # For workflow_run: only if the triggering workflow succeeded
     # For push/dispatch: always run
@@ -73,9 +73,9 @@ jobs:
       # No pip install needed — avoids slow/fragile installs of heavy
       # packages like great_expectations and scikit-learn.
 
-      - name: Update The Lab data files
+      - name: Update Statsledge data files
         run: |
-          echo "Updating The Lab dashboard data..."
+          echo "Updating Statsledge dashboard data..."
           python scripts/the_lab/update_the_lab.py
           echo "Dashboard data updated"
 
@@ -100,7 +100,7 @@ jobs:
           # Add all dashboard data files
           git add scripts/the_lab/dashboard/data/
 
-          git commit -m "chore(dashboard): Auto-update The Lab data files [skip ci]
+          git commit -m "chore(dashboard): Auto-update Statsledge data files [skip ci]
 
           Updated by: deploy-dashboard.yml workflow
           Trigger: ${{ github.event_name }}
@@ -112,7 +112,7 @@ jobs:
           - depth_charts.js
           - player_tags.js
 
-          Dashboard URL: https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/
+          Dashboard URL: https://www.statsledge.com
 
           Co-Authored-By: github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
 
@@ -135,14 +135,24 @@ jobs:
           # Get latest commit (including any data updates from previous job)
           ref: main
 
+      - name: Build site
+        run: |
+          mkdir -p _site
+          # Copy Lab dashboard to root (www.statsledge.com/ serves the dashboard)
+          cp -r scripts/the_lab/dashboard/* _site/
+          # Copy CNAME for custom domain
+          cp CNAME _site/
+          # Copy Mission Control dashboard (accessible at /scripts/mission_control/dashboard/)
+          mkdir -p _site/scripts/mission_control/dashboard
+          cp -r scripts/mission_control/dashboard/* _site/scripts/mission_control/dashboard/
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Deploy the entire repo (GitHub Pages serves from root)
-          path: '.'
+          path: '_site'
 
       - name: Deploy to GitHub Pages
         id: deployment
@@ -152,11 +162,11 @@ jobs:
         run: |
           echo "## Dashboard Deployment Complete" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### The Lab Dashboard" >> $GITHUB_STEP_SUMMARY
-          echo "- **URL:** https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/" >> $GITHUB_STEP_SUMMARY
+          echo "### Statsledge Dashboard" >> $GITHUB_STEP_SUMMARY
+          echo "- **URL:** https://www.statsledge.com" >> $GITHUB_STEP_SUMMARY
           echo "- **Status:** Deployed via GitHub Actions" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Mission Control Dashboard" >> $GITHUB_STEP_SUMMARY
-          echo "- **URL:** https://dwijesh-r.github.io/cricket-playbook/scripts/mission_control/dashboard/" >> $GITHUB_STEP_SUMMARY
+          echo "- **URL:** https://www.statsledge.com/scripts/mission_control/dashboard/" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "*Deployed by Brad Stevens' automation pipeline (Ime Udoka fix: Actions-based Pages)*" >> $GITHUB_STEP_SUMMARY

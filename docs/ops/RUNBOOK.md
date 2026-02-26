@@ -337,7 +337,7 @@ git push origin main
 
 **Via GitHub Actions:** Actions > "Deploy Dashboard" > Run workflow. Set `force_update` to `true` to update even if no data changed.
 
-**Dashboard URL:** `https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/`
+**Dashboard URL:** `https://www.statsledge.com`
 
 ### 4.2 Test Dashboard Changes Locally
 

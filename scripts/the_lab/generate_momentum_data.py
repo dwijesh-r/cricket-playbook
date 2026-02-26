@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate momentum_insights.js for The Lab dashboard.
+Generate momentum_insights.js for Statsledge dashboard.
 
 Queries DuckDB pressure dot/boundary sequence data per team, derives
 Andy Flower-style tactical insights, and outputs a self-contained
@@ -385,7 +385,7 @@ def generate_js(all_team_data):
 
     lines = [
         "/**",
-        " * The Lab - Momentum & Pressure Sequence Insights",
+        " * Statsledge - Momentum & Pressure Sequence Insights",
         " * IPL 2026 Pre-Season Analytics",
         f" * Auto-generated: {timestamp}",
         " * Source: analytics_ipl_pressure_dot_sequences_since2023,",
@@ -407,7 +407,7 @@ def generate_js(all_team_data):
 
 
 def main():
-    print("Generating momentum_insights.js for The Lab...")
+    print("Generating momentum_insights.js for Statsledge...")
     print("=" * 60)
 
     if not DB_PATH.exists():

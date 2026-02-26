@@ -341,7 +341,7 @@ def export_views(con) -> dict:
     # Write views.sql
     with open(VIEWS_SQL, "w") as f:
         f.write("-- =============================================================\n")
-        f.write("-- Cricket Playbook - View DDL Definitions\n")
+        f.write("-- Statsledge - View DDL Definitions\n")
         f.write(f"-- Generated: {datetime.now(timezone.utc).isoformat()}\n")
         f.write(f"-- Total views: {len(user_views)}\n")
         f.write("-- =============================================================\n\n")

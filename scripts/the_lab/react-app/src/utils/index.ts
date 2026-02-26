@@ -1,5 +1,5 @@
 /**
- * Utility functions for the Cricket Playbook React Dashboard.
+ * Utility functions for the Statsledge React Dashboard.
  */
 
 /**

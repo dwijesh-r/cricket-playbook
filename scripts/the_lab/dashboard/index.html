@@ -448,7 +448,7 @@
         }
 
         .hero-title {
-            font-size: 96px;
+            font-size: clamp(48px, 10vw, 128px);
             font-weight: 900;
             letter-spacing: -0.05em;
             line-height: 1;
@@ -457,6 +457,7 @@
             -webkit-text-fill-color: var(--text-primary);
             position: relative;
             z-index: 1;
+            text-shadow: 0 0 80px rgba(10, 132, 255, 0.2);
         }
         .hero-title .brand-accent {
             background: linear-gradient(135deg, var(--accent) 0%, var(--accent-teal) 40%, var(--accent-purple) 100%);
@@ -473,7 +474,7 @@
 
         /* Decorative accent bar under hero title */
         .hero-accent-bar {
-            width: 120px;
+            width: 160px;
             height: 4px;
             margin: 0 auto 28px;
             border-radius: 2px;
@@ -492,8 +493,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -60%);
-            width: 400px;
-            height: 400px;
+            width: 500px;
+            height: 500px;
             border-radius: 50%;
             background: radial-gradient(circle, rgba(10, 132, 255, 0.12) 0%, rgba(191, 90, 242, 0.06) 40%, transparent 70%);
             pointer-events: none;
@@ -513,7 +514,7 @@
             display: flex;
             justify-content: center;
             margin-bottom: 8px;
-            min-height: 100px;
+            min-height: 140px;
         }
 
         .typewriter {
@@ -3027,12 +3028,12 @@
             /* Hero Section - Responsive titles */
             .hero { padding: 80px 16px 60px; }
             .hero-title {
-                font-size: 48px;
                 word-break: break-word;
                 hyphens: auto;
                 text-align: center;
             }
-            .hero-glow { width: 280px; height: 280px; }
+            .hero-glow { width: 300px; height: 300px; }
+            .typewriter-container { min-height: 60px; }
             .hero-subtitle {
                 font-size: 14px;
                 padding: 0 8px;
@@ -3090,7 +3091,6 @@
 
         @media (max-width: 480px) {
             /* Extra small screens */
-            .hero-title { font-size: 36px; }
             .nav-logo { width: 28px; height: 28px; font-size: 14px; }
             .nav-title { font-size: 13px; }
             .stat-value { font-size: 24px; }
@@ -3104,7 +3104,6 @@
 
         @media (max-width: 380px) {
             /* Tiny screens */
-            .hero-title { font-size: 30px; }
             .hero-subtitle { font-size: 13px; }
             .nav-cards { gap: 12px; }
             .stats-bar { gap: 16px; }

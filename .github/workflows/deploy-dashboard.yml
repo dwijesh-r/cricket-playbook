@@ -142,9 +142,9 @@ jobs:
           cp -r scripts/the_lab/dashboard/* _site/
           # Copy CNAME for custom domain
           cp CNAME _site/
-          # Copy Mission Control dashboard (accessible at /scripts/mission_control/dashboard/)
-          mkdir -p _site/scripts/mission_control/dashboard
-          cp -r scripts/mission_control/dashboard/* _site/scripts/mission_control/dashboard/
+          # Copy Mission Control dashboard (accessible at /boardroom/)
+          mkdir -p _site/boardroom
+          cp -r scripts/mission_control/dashboard/* _site/boardroom/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -167,6 +167,6 @@ jobs:
           echo "- **Status:** Deployed via GitHub Actions" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Mission Control Dashboard" >> $GITHUB_STEP_SUMMARY
-          echo "- **URL:** https://www.statsledge.com/scripts/mission_control/dashboard/" >> $GITHUB_STEP_SUMMARY
+          echo "- **URL:** https://www.statsledge.com/boardroom/" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "*Deployed by Brad Stevens' automation pipeline (Ime Udoka fix: Actions-based Pages)*" >> $GITHUB_STEP_SUMMARY

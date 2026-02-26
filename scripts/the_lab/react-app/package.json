@@ -1,8 +1,8 @@
 {
-  "name": "cricket-playbook-react-dashboard",
+  "name": "statsledge-react-dashboard",
   "private": true,
   "version": "0.1.0",
-  "description": "Cricket Playbook - Interactive React Dashboard for The Lab",
+  "description": "Statsledge - Interactive React Dashboard for IPL 2026",
   "type": "module",
   "scripts": {
     "dev": "vite",

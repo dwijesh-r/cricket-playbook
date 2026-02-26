@@ -1,7 +1,7 @@
 /**
- * Data loading utilities for the Cricket Playbook React Dashboard.
+ * Data loading utilities for the Statsledge React Dashboard.
  *
- * The existing Lab dashboard uses .js files that assign data to global
+ * The existing Statsledge dashboard uses .js files that assign data to global
  * variables (e.g., `const COMPARISON_DATA = {...}`). For the React app,
  * we will eventually either:
  * 1. Import these files directly and parse the global assignments, or

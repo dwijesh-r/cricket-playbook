@@ -27,21 +27,21 @@ Cricket Playbook is a full-featured cricket analytics system built on ball-by-ba
 
 Cricket Playbook has two complementary dashboards hosted on GitHub Pages:
 
-### 🔬 The Lab: Analytics Showcase
+### 🔬 Statsledge: Analytics Showcase
 > *"Where the analytics magic happens."*
 
-The Lab is our user-facing analytics showcase, the "magazine version" of this repository. Browse all IPL 2026 insights in a beautiful, structured interface.
+Statsledge is our user-facing analytics showcase, the "magazine version" of this repository. Browse all IPL 2026 insights in a beautiful, structured interface.
 
-**🔗 Base URL:** https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/
+**🔗 Base URL:** https://www.statsledge.com
 
 | Page | URL | Description |
 |------|-----|-------------|
-| **Home** | [index.html](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/index.html) | Quick stats, team grid, navigation hub |
-| **Teams** | [teams.html](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/teams.html) | Predicted XIIs, squad analysis, depth charts, team comparison |
-| **Artifacts** | [artifacts.html](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/artifacts.html) | Depth chart comparisons, all outputs gallery |
-| **Analysis** | [analysis.html](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/analysis.html) | Links to repo analysis documents |
-| **Research** | [research.html](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/research.html) | SUPER SELECTOR algorithm, PFF/KenPom methodology |
-| **About** | [about.html](https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/about.html) | Vision, agents, founder section |
+| **Home** | [index.html](https://www.statsledge.com/index.html) | Quick stats, team grid, navigation hub |
+| **Teams** | [teams.html](https://www.statsledge.com/teams.html) | Predicted XIIs, squad analysis, depth charts, team comparison |
+| **Artifacts** | [artifacts.html](https://www.statsledge.com/artifacts.html) | Depth chart comparisons, all outputs gallery |
+| **Analysis** | [analysis.html](https://www.statsledge.com/analysis.html) | Links to repo analysis documents |
+| **Research** | [research.html](https://www.statsledge.com/research.html) | SUPER SELECTOR algorithm, PFF/KenPom methodology |
+| **About** | [about.html](https://www.statsledge.com/about.html) | Vision, agents, founder section |
 
 **Key Features (v4.1):**
 - 🔍 **Global Search:** Search players across all squads

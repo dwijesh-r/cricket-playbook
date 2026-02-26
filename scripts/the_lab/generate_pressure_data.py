@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate pressure_metrics.js for The Lab dashboard.
+Generate pressure_metrics.js for Statsledge dashboard.
 
 Queries DuckDB pressure performance views (TKT-050) and exports
 per-team pressure summaries as a self-contained JavaScript data file.
@@ -586,7 +586,7 @@ def generate_js(
 
     lines = [
         "/**",
-        " * The Lab - Pressure Performance Metrics (Enhanced)",
+        " * Statsledge - Pressure Performance Metrics (Enhanced)",
         " * IPL 2026 Pre-Season Analytics (TKT-050)",
         f" * Auto-generated: {timestamp}",
         " * Source: analytics_ipl_pressure_deltas_since2023,",
@@ -718,7 +718,7 @@ def generate_js(
 
 
 def main():
-    print("Generating pressure_metrics.js for The Lab (Enhanced)...")
+    print("Generating pressure_metrics.js for Statsledge (Enhanced)...")
     print("=" * 60)
 
     if not DB_PATH.exists():

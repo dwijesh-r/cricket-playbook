@@ -1,6 +1,6 @@
-# Cricket Playbook - React Dashboard
+# Statsledge - React Dashboard
 
-Interactive React-based dashboard for the Cricket Playbook IPL 2026 pre-tournament preview.
+Interactive React-based dashboard for the Statsledge IPL 2026 pre-tournament preview.
 
 ## Setup
 
@@ -45,7 +45,7 @@ react-app/
 │   ├── types/          # TypeScript type definitions
 │   ├── App.tsx         # Main app with React Router
 │   ├── main.tsx        # Entry point
-│   └── index.css       # Global styles (Lab design system)
+│   └── index.css       # Global styles (Statsledge design system)
 ├── public/             # Static assets
 ├── tests/              # Test files
 ├── vite.config.ts      # Vite + Vitest configuration
@@ -56,7 +56,7 @@ react-app/
 
 ## Design System
 
-Matches the existing Lab dashboard (`../dashboard/`):
+Matches the existing Statsledge dashboard (`../dashboard/`):
 - Dark theme by default with light theme support
 - Inter font family
 - CSS variables for all colors and spacing
@@ -65,11 +65,11 @@ Matches the existing Lab dashboard (`../dashboard/`):
 
 ## Deployment
 
-Configured for GitHub Pages at `/cricket-playbook/lab/`. The `base` path in `vite.config.ts` ensures all asset paths are correct for the deployment target.
+Configured for deployment at `/lab/`. The `base` path in `vite.config.ts` ensures all asset paths are correct for the deployment target.
 
 ## Data Sources
 
-The React app will consume data from the existing Lab data files:
+The React app will consume data from the existing Statsledge data files:
 - `comparison_data.js` - Player comparison metrics
 - `player_profiles.js` - Full player profiles
 - `depth_charts.js` - Team depth charts

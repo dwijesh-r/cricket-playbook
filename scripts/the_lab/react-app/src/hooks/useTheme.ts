@@ -5,7 +5,7 @@ import type { Theme } from '../types';
  * Custom hook for managing the dark/light theme toggle.
  * Persists preference to localStorage and syncs with the
  * data-theme attribute on the <html> element (matching the
- * existing Lab dashboard convention).
+ * existing Statsledge dashboard convention).
  */
 export function useTheme(): {
   theme: Theme;
@@ -13,7 +13,7 @@ export function useTheme(): {
 } {
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('cricket-playbook-theme');
+      const stored = localStorage.getItem('statsledge-theme');
       if (stored === 'light' || stored === 'dark') {
         return stored;
       }
@@ -23,7 +23,7 @@ export function useTheme(): {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('cricket-playbook-theme', theme);
+    localStorage.setItem('statsledge-theme', theme);
   }, [theme]);
 
   const toggleTheme = useCallback(() => {

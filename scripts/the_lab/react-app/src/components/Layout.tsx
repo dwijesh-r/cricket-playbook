@@ -23,9 +23,9 @@ function Layout() {
     <div className="layout">
       <nav className="nav">
         <div className="nav-brand">
-          <div className="nav-logo">P</div>
+          <div className="nav-logo">S</div>
           <div className="nav-title">
-            Cricket <span>Playbook</span>
+            Stats<span>ledge</span>
           </div>
         </div>
 
@@ -54,11 +54,11 @@ function Layout() {
 
         <div className="nav-actions">
           <a
-            href="https://dwijesh-r.github.io/cricket-playbook/scripts/the_lab/dashboard/"
+            href="https://www.statsledge.com/"
             className="nav-btn"
-            title="Back to Static Lab"
+            title="Back to Statsledge"
           >
-            Static Lab
+            Statsledge
           </a>
         </div>
       </nav>
@@ -86,7 +86,7 @@ function Layout() {
       <footer className="footer">
         <div className="container">
           <p className="footer-text">
-            Cricket Playbook v5.0.0 &middot; IPL 2026 Pre-Tournament Preview
+            Statsledge v5.0.0 &middot; IPL 2026 Pre-Tournament Preview
           </p>
           <p className="footer-sub">
             Built with data from{' '}

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate venue_data.js and historic_trends.js for The Lab dashboard.
+Generate venue_data.js and historic_trends.js for Statsledge dashboard.
 
 Queries DuckDB views for venue profiles, team venue records, match context,
 and team phase batting/bowling data. Exports two self-contained JavaScript
@@ -395,7 +395,7 @@ def generate_venue_js(profiles, venue_records):
 
     lines = [
         "/**",
-        " * The Lab - Venue Analysis Data",
+        " * Statsledge - Venue Analysis Data",
         " * IPL 2026 Pre-Season Analytics",
         f" * Auto-generated: {timestamp}",
         " * Source: analytics_ipl_venue_profile_since2023,",
@@ -600,7 +600,7 @@ def generate_trends_js(season_records, batting_trends, bowling_trends):
 
     lines = [
         "/**",
-        " * The Lab - Historic Season Trends",
+        " * Statsledge - Historic Season Trends",
         " * IPL 2026 Pre-Season Analytics",
         f" * Auto-generated: {timestamp}",
         " * Source: analytics_ipl_match_context_since2023,",
@@ -678,7 +678,7 @@ def generate_trends_js(season_records, batting_trends, bowling_trends):
 
 def main():
     print("=" * 60)
-    print("Generating venue_data.js and historic_trends.js for The Lab")
+    print("Generating venue_data.js and historic_trends.js for Statsledge")
     print("=" * 60)
 
     if not DB_PATH.exists():

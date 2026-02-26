@@ -167,7 +167,7 @@ All meaningful work is automated through GitHub Actions workflows:
 | `ci.yml` | Push/PR | Lint, format, tests | Brad Stevens |
 | `gate-check.yml` | Push/PR | Quality gates enforcement | Brad Stevens |
 | `generate-outputs.yml` | Daily + post-gate | Stat packs, depth charts, XIIs | Brad Stevens |
-| `deploy-dashboard.yml` | Post-outputs | The Lab data update | Brad Stevens |
+| `deploy-dashboard.yml` | Post-outputs | Statsledge data update | Brad Stevens |
 | `ingest.yml` | Weekly + manual | Data ingestion from Cricsheet | Brock Purdy |
 | `ml-health-check.yml` | Weekly + push | ML model monitoring | Ime Udoka |
 

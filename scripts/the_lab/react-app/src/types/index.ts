@@ -1,5 +1,5 @@
 /**
- * Core type definitions for Cricket Playbook React Dashboard.
+ * Core type definitions for Statsledge React Dashboard.
  *
  * These types mirror the data structures produced by the Python analytics
  * pipeline (analytics_ipl.py) and exposed via the dashboard/data/*.js files.

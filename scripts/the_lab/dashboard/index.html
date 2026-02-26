@@ -449,7 +449,11 @@
             letter-spacing: -0.03em;
             line-height: 1.1;
             margin-bottom: 16px;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 50%, var(--accent-purple) 100%);
+            color: var(--text-primary);
+            -webkit-text-fill-color: var(--text-primary);
+        }
+        .hero-title .brand-accent {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -3279,7 +3283,7 @@
     <nav class="nav">
         <div class="nav-brand">
             <div class="nav-logo">🏏</div>
-            <div class="nav-title">Stats<span>ledge</span></div>
+            <div class="nav-title">Stat<span>Sledge</span></div>
         </div>
         <div class="nav-tabs">
             <a href="index.html" class="nav-tab active">🏠 Home</a>
@@ -3392,7 +3396,7 @@
         <section class="hero">
             <div class="hero-badge">🏏 IPL 2026 Pre-Season Analytics</div>
             <div class="typewriter-container">
-                <h1 class="hero-title typewriter" id="hero-title">Statsledge</h1>
+                <h1 class="hero-title typewriter" id="hero-title">Stat<span class="brand-accent">Sledge</span></h1>
             </div>
             <p class="hero-subtitle">
                 Your all-access pass to the analytics that power IPL 2026 assessments.

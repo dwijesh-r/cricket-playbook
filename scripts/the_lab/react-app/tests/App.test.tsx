@@ -4,14 +4,14 @@ import { MemoryRouter } from 'react-router-dom';
 import App from '../src/App';
 
 describe('App', () => {
-  it('renders the home page with the Statsledge title', () => {
+  it('renders the home page with the StatSledge title', () => {
     render(
       <MemoryRouter initialEntries={['/']}>
         <App />
       </MemoryRouter>,
     );
 
-    expect(screen.getByText('ledge')).toBeInTheDocument();
+    expect(screen.getByText('Sledge')).toBeInTheDocument();
   });
 
   it('renders the comparison page when navigating to /comparison', () => {

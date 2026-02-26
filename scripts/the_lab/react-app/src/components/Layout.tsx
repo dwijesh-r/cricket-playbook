@@ -25,7 +25,7 @@ function Layout() {
         <div className="nav-brand">
           <div className="nav-logo">S</div>
           <div className="nav-title">
-            Stats<span>ledge</span>
+            Stat<span>Sledge</span>
           </div>
         </div>
 

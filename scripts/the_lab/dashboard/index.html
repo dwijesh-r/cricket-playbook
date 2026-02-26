@@ -240,13 +240,17 @@
         }
 
         .nav-title {
-            font-size: 16px;
-            font-weight: 700;
-            letter-spacing: -0.01em;
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-transform: none;
         }
 
         .nav-title span {
-            color: var(--accent);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-tabs {
@@ -444,19 +448,26 @@
         }
 
         .hero-title {
-            font-size: 56px;
+            font-size: 64px;
             font-weight: 800;
-            letter-spacing: -0.03em;
+            letter-spacing: -0.04em;
             line-height: 1.1;
             margin-bottom: 16px;
             color: var(--text-primary);
             -webkit-text-fill-color: var(--text-primary);
+            filter: drop-shadow(0 0 40px rgba(10, 132, 255, 0.15));
         }
         .hero-title .brand-accent {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-teal) 40%, var(--accent-purple) 100%);
+            background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: brand-shimmer 4s ease-in-out infinite;
+        }
+        @keyframes brand-shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         /* Typewriter Animation */
@@ -473,12 +484,12 @@
             border-right: 3px solid var(--accent);
             white-space: nowrap;
             width: 0;
-            animation: typing 0.8s steps(7, end) 0.3s forwards, blink-caret 0.75s step-end 0.3s 3, hide-caret 0.1s ease 2.8s forwards;
+            animation: typing 1s steps(10, end) 0.3s forwards, blink-caret 0.75s step-end 0.3s 4, hide-caret 0.1s ease 3.6s forwards;
         }
 
         @keyframes typing {
             from { width: 0; }
-            to { width: 7ch; }
+            to { width: 10ch; }
         }
 
         @keyframes blink-caret {

@@ -43,7 +43,7 @@ function HomePage() {
         <section className="hero">
           <div className="hero-badge badge badge--active">React Dashboard</div>
           <h1 className="hero-title">
-            Stats<span className="gradient-text">ledge</span>
+            Stat<span className="gradient-text">Sledge</span>
           </h1>
           <p className="hero-subtitle">
             IPL 2026 Pre-Tournament Preview &middot; Interactive Dashboard

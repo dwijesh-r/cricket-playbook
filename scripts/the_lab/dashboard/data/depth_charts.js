@@ -1,7 +1,7 @@
 /**
  * The Lab - Full Depth Charts Data
  * IPL 2026 Pre-Season Analytics
- * Auto-generated: 2026-02-25T20:45:48.799228
+ * Auto-generated: 2026-02-26T04:08:52.967505
  */
 
 const FULL_DEPTH_CHARTS = {

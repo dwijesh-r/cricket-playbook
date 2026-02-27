@@ -498,31 +498,48 @@
             letter-spacing: 0.15em;
         }
 
-        .hero-title {
-            font-family: var(--font-display);
-            font-size: clamp(36px, 10vw, 128px);
-            font-weight: 900;
-            letter-spacing: -0.02em;
-            text-transform: uppercase;
-            line-height: 1;
+        .hero-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(16px, 3vw, 28px);
             margin-bottom: 8px;
-            color: var(--text-primary);
-            -webkit-text-fill-color: var(--text-primary);
             position: relative;
             z-index: 1;
-            text-shadow: 0 0 60px rgba(0, 240, 255, 0.25), 0 0 120px rgba(168, 85, 247, 0.1);
         }
+
+        .hero-logo {
+            width: clamp(56px, 10vw, 96px);
+            height: clamp(56px, 10vw, 96px);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(28px, 5vw, 48px);
+            box-shadow: 0 0 20px var(--glow-accent), 0 0 40px rgba(0, 240, 255, 0.08);
+            animation: logo-pulse 3s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        .hero-title {
+            font-size: clamp(36px, 10vw, 128px);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            color: var(--text-primary);
+            -webkit-text-fill-color: var(--text-primary);
+        }
+
         .hero-title .brand-accent {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-teal) 40%, var(--accent-purple) 100%);
-            background-size: 200% 200%;
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: clamp(32px, 9vw, 112px);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: brand-shimmer 4s ease-in-out infinite;
-        }
-        @keyframes brand-shimmer {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
         }
 
         /* Decorative accent bar under hero title */
@@ -569,29 +586,6 @@
             justify-content: center;
             margin-bottom: 8px;
             min-height: 140px;
-        }
-
-        .typewriter {
-            display: inline-block;
-            overflow: hidden;
-            border-right: 4px solid var(--accent);
-            white-space: nowrap;
-            width: 0;
-            animation: typing 1.2s steps(10, end) 0.3s forwards, blink-caret 0.75s step-end 0.3s 5, hide-caret 0.1s ease 4.2s forwards;
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 12ch; }
-        }
-
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: var(--accent); }
-        }
-
-        @keyframes hide-caret {
-            to { border-color: transparent; }
         }
 
         /* ==================== INTRO ANIMATION - DISABLED (BACKLOG) ==================== */
@@ -3138,13 +3132,10 @@
 
             /* Hero Section - Responsive titles */
             .hero { padding: 80px 16px 60px; }
-            .hero-title {
-                word-break: break-word;
-                hyphens: auto;
-                text-align: center;
-            }
+            .hero-brand { gap: 12px; }
+            .hero-title { text-align: center; }
             /* hero-glow handled by min() in base rule */
-            .typewriter-container { min-height: 60px; }
+            .typewriter-container { min-height: 80px; }
             .hero-subtitle {
                 font-size: 14px;
                 padding: 0 8px;
@@ -3152,16 +3143,6 @@
             }
             .hero-tagline { font-size: 12px; }
             .hero-badge { font-size: 10px; padding: 6px 12px; }
-
-            /* Typewriter - responsive width */
-            .typewriter-container { min-height: 50px; }
-            .typewriter {
-                white-space: normal;
-                text-align: center;
-                width: auto !important;
-                animation: none;
-                border-right: none;
-            }
 
             /* Stats */
             .stats-bar { flex-wrap: wrap; gap: 24px; padding: 20px 16px; }
@@ -3255,9 +3236,9 @@
             .hero { padding: 60px 16px 40px; }
         }
 
-        /* Typewriter Mobile Fix */
-        @media (max-width: 768px) {
-            .typewriter { display: block; }
+        /* Hero Brand Mobile Fix */
+        @media (max-width: 480px) {
+            .hero-brand { flex-direction: column; gap: 12px; }
         }
 
         /* Navigation Actions Spacing at 480px */
@@ -3567,7 +3548,10 @@
             <div class="hero-glow"></div>
             <div class="hero-badge">🏏 IPL 2026 Pre-Season Analytics</div>
             <div class="typewriter-container">
-                <h1 class="hero-title typewriter" id="hero-title">Stat<span class="brand-accent">Sledge</span></h1>
+                <div class="hero-brand">
+                    <div class="hero-logo">🏏</div>
+                    <h1 class="hero-title" id="hero-title">Stat<span class="brand-accent">Sledge</span></h1>
+                </div>
             </div>
             <div class="hero-accent-bar"></div>
             <p class="hero-subtitle">

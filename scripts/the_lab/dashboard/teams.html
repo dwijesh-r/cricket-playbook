@@ -27,6 +27,10 @@
             --glass: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.08);
             --shadow: rgba(0, 0, 0, 0.4);
+            --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.24);
+            --elevation-2: 0 3px 6px rgba(0, 0, 0, 0.3), 0 3px 6px rgba(0, 0, 0, 0.23);
+            --elevation-3: 0 10px 20px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.23);
+            --elevation-hover: 0 14px 28px rgba(0, 0, 0, 0.35), 0 10px 10px rgba(0, 0, 0, 0.22);
         }
 
         [data-theme="light"] {
@@ -49,6 +53,10 @@
             --glass: rgba(0, 0, 0, 0.03);
             --glass-border: rgba(0, 0, 0, 0.06);
             --shadow: rgba(0, 0, 0, 0.15);
+            --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+            --elevation-2: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+            --elevation-3: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.08);
+            --elevation-hover: 0 14px 28px rgba(0, 0, 0, 0.12), 0 10px 10px rgba(0, 0, 0, 0.08);
         }
 
         /* ==================== TOOLTIP SYSTEM (TKT-109) ==================== */
@@ -531,13 +539,14 @@
             font-weight: 600;
             color: var(--text-secondary);
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             border: 1px solid var(--border);
             background: var(--bg-tertiary);
             font-family: inherit;
             display: flex;
             align-items: center;
             gap: 6px;
+            min-height: 44px;
         }
         .team-btn .pixel-logo,
         .team-btn svg {
@@ -553,7 +562,8 @@
         .team-btn:hover {
             color: var(--text-primary);
             border-color: var(--accent);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: var(--elevation-2);
         }
         .team-btn.active {
             background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
@@ -655,11 +665,12 @@
             font-weight: 600;
             color: var(--text-secondary);
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             border: 1px solid var(--border);
             border-bottom: none;
             background: var(--bg-tertiary);
             font-family: inherit;
+            min-height: 44px;
         }
         .content-tab:hover { color: var(--text-primary); }
         .content-tab.active {
@@ -2016,7 +2027,7 @@
             .meta-item { font-size: 11px; }
             .xi-grid { grid-template-columns: 1fr; }
             .roster-table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-            .roster-table { font-size: 11px; min-width: 600px; }
+            .roster-table { font-size: 11px; }
             .roster-table th, .roster-table td { padding: 8px 4px; }
             .squad-summary { grid-template-columns: 1fr; }
             .search-filter-bar { flex-direction: column; align-items: stretch; }
@@ -2026,6 +2037,26 @@
             .compare-container { grid-template-columns: 1fr; }
             .content-tabs { overflow-x: auto; white-space: nowrap; padding-bottom: 8px; }
             .content-tab { flex-shrink: 0; }
+            /* Depth chart headers - allow wrapping on tablet */
+            .depth-table th { white-space: normal; font-size: 10px; padding: 8px 6px; }
+            .depth-table td { padding: 8px 6px; }
+        }
+
+        /* 480px overrides */
+        @media (max-width: 480px) {
+            .pp-stat-grid { grid-template-columns: 1fr; }
+            .player-detail-grid { grid-template-columns: repeat(2, 1fr); }
+            .compare-team-header { flex-direction: column; }
+            .compare-team select { width: 100%; margin-left: 0; }
+            .content-panel { padding: 0 12px 40px; }
+            .team-selector { padding: 8px; }
+        }
+
+        /* 1024px iPad landscape breakpoint */
+        @media (max-width: 1024px) {
+            .content-panel { padding: 0 16px 60px; }
+            .content-tabs { padding: 0 16px; }
+            .team-selector { padding: 12px 16px; }
         }
 
         /* ==================== NAVIGATION GUIDE ==================== */
@@ -2958,7 +2989,7 @@
             .pressure-player-summary { gap: 8px; padding: 10px 12px; }
             .pressure-filter-bar { gap: 10px; padding: 10px 12px; }
             .pressure-filter-group { flex-wrap: wrap; }
-            .pressure-roster-table { font-size: 11px; min-width: 700px; }
+            .pressure-roster-table { font-size: 11px; }
             .pressure-roster-table th, .pressure-roster-table td { padding: 8px 4px; }
             .pressure-search-box input { width: 140px; }
             .pressure-search-filter-bar { gap: 8px; }

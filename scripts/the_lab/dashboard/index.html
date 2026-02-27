@@ -31,6 +31,11 @@
             --intro-scale: 1;
             --intro-translate-base: 70px;
             --intro-animation-speed: 0.7s;
+            /* Elevation system */
+            --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.24);
+            --elevation-2: 0 3px 6px rgba(0, 0, 0, 0.3), 0 3px 6px rgba(0, 0, 0, 0.23);
+            --elevation-3: 0 10px 20px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.23);
+            --elevation-hover: 0 14px 28px rgba(0, 0, 0, 0.35), 0 10px 10px rgba(0, 0, 0, 0.22);
         }
 
         [data-theme="light"] {
@@ -53,6 +58,11 @@
             --glass: rgba(0, 0, 0, 0.03);
             --glass-border: rgba(0, 0, 0, 0.06);
             --shadow: rgba(0, 0, 0, 0.15);
+            /* Elevation system - light */
+            --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+            --elevation-2: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+            --elevation-3: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.08);
+            --elevation-hover: 0 14px 28px rgba(0, 0, 0, 0.12), 0 10px 10px rgba(0, 0, 0, 0.08);
         }
 
         /* ==================== TOOLTIP SYSTEM (TKT-109) ==================== */
@@ -138,6 +148,17 @@
 
         [data-theme="light"] .bg-gradient {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f1f3f5 100%);
+        }
+        /* Light theme card polish */
+        [data-theme="light"] .nav-card,
+        [data-theme="light"] .team-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-color: rgba(0, 0, 0, 0.06);
+        }
+        [data-theme="light"] .nav-card:hover,
+        [data-theme="light"] .team-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--elevation-hover), 0 0 20px rgba(0, 122, 255, 0.08);
         }
 
         .bg-gradient::before {
@@ -448,7 +469,7 @@
         }
 
         .hero-title {
-            font-size: clamp(48px, 10vw, 128px);
+            font-size: clamp(36px, 10vw, 128px);
             font-weight: 900;
             letter-spacing: -0.05em;
             line-height: 1;
@@ -493,8 +514,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -60%);
-            width: 500px;
-            height: 500px;
+            width: min(500px, 80vw);
+            height: min(500px, 80vw);
             border-radius: 50%;
             background: radial-gradient(circle, rgba(10, 132, 255, 0.12) 0%, rgba(191, 90, 242, 0.06) 40%, transparent 70%);
             pointer-events: none;
@@ -2758,6 +2779,7 @@
 
         .stats-bar {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 60px;
             position: relative;
@@ -2851,11 +2873,12 @@
             border-radius: 16px;
             padding: 24px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
             text-decoration: none;
             color: inherit;
             position: relative;
             overflow: hidden;
+            box-shadow: var(--elevation-1);
         }
 
         .team-card::before {
@@ -2869,9 +2892,9 @@
         }
 
         .team-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px);
             border-color: var(--accent);
-            box-shadow: 0 12px 40px rgba(10, 132, 255, 0.2);
+            box-shadow: var(--elevation-hover), 0 0 30px rgba(10, 132, 255, 0.15);
         }
 
         .team-header {
@@ -2953,16 +2976,17 @@
             padding: 32px;
             text-decoration: none;
             color: inherit;
-            transition: all 0.3s ease;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
             display: flex;
             flex-direction: column;
             gap: 16px;
+            box-shadow: var(--elevation-1);
         }
 
         .nav-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px);
             border-color: var(--accent);
-            box-shadow: 0 12px 40px rgba(10, 132, 255, 0.2);
+            box-shadow: var(--elevation-hover), 0 0 30px rgba(10, 132, 255, 0.15);
         }
 
         .nav-card-icon {
@@ -3032,7 +3056,7 @@
                 hyphens: auto;
                 text-align: center;
             }
-            .hero-glow { width: 300px; height: 300px; }
+            /* hero-glow handled by min() in base rule */
             .typewriter-container { min-height: 60px; }
             .hero-subtitle {
                 font-size: 14px;
@@ -3093,6 +3117,7 @@
             /* Extra small screens */
             .nav-logo { width: 28px; height: 28px; font-size: 14px; }
             .nav-title { font-size: 13px; }
+            .hero-title { font-size: clamp(28px, 8vw, 48px); }
             .stat-value { font-size: 24px; }
             .stat-label { font-size: 9px; }
             .nav-card-icon { font-size: 24px; }
@@ -3100,6 +3125,11 @@
 
             /* Hide Mission Control button on very small screens */
             .nav-btn { display: none; }
+
+            /* Tighter padding on small screens */
+            .section { padding: 40px 12px; }
+            .nav-cards { padding: 0 12px; }
+            .footer { padding: 24px 12px; }
         }
 
         @media (max-width: 380px) {
@@ -3160,9 +3190,13 @@
             line-height: 1.6;
         }
 
-        /* Desktop Stats Bar Gap Transition */
+        /* 1024px iPad landscape breakpoint */
         @media (max-width: 1024px) {
             .stats-bar { gap: 40px; }
+            .hero { padding: 100px 24px 60px; }
+            .nav-cards { padding: 0 24px; }
+            .section { padding: 60px 24px; }
+            .footer { padding: 40px 24px; }
         }
 
         /* Footer Hover Accessibility */

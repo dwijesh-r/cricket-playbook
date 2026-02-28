@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Film Room - Statsledge</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* ==================== THEME SYSTEM ==================== */
         :root {
             /* === FONTS === */
-            --font-display: 'Orbitron', sans-serif;
-            --font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
+            --font-display: 'DM Serif Display', serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
 
             /* === COLORS === */
             --bg-primary: #06080f;
@@ -751,7 +751,7 @@
         .schema-item {
             padding: var(--space-1) 16px 6px 24px;
             font-size: 12px;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: var(--font-mono);
             color: var(--text-secondary);
             cursor: pointer;
             transition: all var(--transition-fast);
@@ -826,7 +826,7 @@
         .schema-col-item {
             padding: var(--space-1) 16px 3px 40px;
             font-size: var(--text-xs);
-            font-family: 'JetBrains Mono', monospace;
+            font-family: var(--font-mono);
             color: var(--text-secondary);
             cursor: pointer;
             transition: all 0.12s ease;
@@ -1048,7 +1048,7 @@
             font-size: var(--text-xs);
             color: var(--text-tertiary);
             line-height: 1.4;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: var(--font-mono);
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -1125,7 +1125,7 @@
             border-radius: var(--radius-sm);
             padding: var(--space-1) 5px;
             font-size: var(--text-xs);
-            font-family: 'JetBrains Mono', monospace;
+            font-family: var(--font-mono);
         }
 
         /* ---- SQL Editor Area ---- */
@@ -1200,7 +1200,7 @@
             padding: var(--space-3) 20px;
             background: var(--bg-primary);
             color: var(--text-secondary);
-            font-family: 'JetBrains Mono', monospace;
+            font-family: var(--font-mono);
             font-size: 13px;
             line-height: 1.6;
             border: none;
@@ -1274,7 +1274,7 @@
         .results-table td {
             padding: var(--space-1) 12px;
             border-bottom: 1px solid var(--border);
-            font-family: 'JetBrains Mono', monospace;
+            font-family: var(--font-mono);
             font-size: 12px;
             color: var(--text-primary);
             white-space: normal;
@@ -1423,7 +1423,7 @@
             font-size: var(--text-xs);
             color: var(--text-tertiary);
             line-height: 1.4;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: var(--font-mono);
         }
 
         /* ==================== LOADING OVERLAY ==================== */
@@ -1623,7 +1623,7 @@
             border-radius: var(--radius-sm);
             font-size: var(--text-xs);
             font-weight: 500;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: var(--font-mono);
             white-space: nowrap;
         }
         .qe-tag.player { background: rgba(10, 132, 255, 0.12); color: var(--accent); }
@@ -1647,7 +1647,7 @@
             margin-top: var(--space-1);
             font-size: var(--text-xs);
             color: var(--text-tertiary);
-            font-family: 'JetBrains Mono', monospace;
+            font-family: var(--font-mono);
         }
         .qe-route .qe-arrow { color: var(--accent); }
 
@@ -1688,7 +1688,7 @@
             margin-left: auto;
             font-size: var(--text-xs);
             color: var(--text-tertiary);
-            font-family: 'JetBrains Mono', monospace;
+            font-family: var(--font-mono);
         }
         .comparison-metrics {
             display: flex;
@@ -1711,7 +1711,7 @@
         .comparison-metric-value {
             font-size: 14px;
             font-weight: 700;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: var(--font-mono);
         }
         .comparison-delta-row {
             display: none;
@@ -1739,7 +1739,7 @@
             border-radius: var(--radius-md);
             font-size: var(--text-xs);
             font-weight: 600;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: var(--font-mono);
         }
         .delta-chip.positive { background: rgba(48, 209, 88, 0.12); color: var(--accent-green); }
         .delta-chip.negative { background: rgba(255, 69, 58, 0.12); color: var(--accent-red); }
@@ -1813,7 +1813,7 @@
         }
         .fallback-suggestion-item strong {
             color: var(--text-primary);
-            font-family: 'JetBrains Mono', monospace;
+            font-family: var(--font-mono);
             font-size: var(--text-xs);
         }
 
@@ -1831,7 +1831,7 @@
         .results-pagination.visible { display: flex; }
         [data-theme="light"] .results-pagination { background: rgba(0,0,0,0.02); }
         .results-pagination-info {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: var(--font-mono);
             font-size: var(--text-xs);
             color: var(--text-tertiary);
         }
@@ -1904,7 +1904,7 @@
             border-radius: var(--radius-md);
             cursor: pointer;
             transition: background var(--transition-fast);
-            font-family: 'JetBrains Mono', monospace;
+            font-family: var(--font-mono);
             font-size: var(--text-xs);
             color: var(--text-secondary);
             line-height: 1.4;
@@ -1940,7 +1940,7 @@
             border-radius: var(--radius-sm);
             padding: 0px var(--space-1);
             font-size: var(--text-xs);
-            font-family: 'JetBrains Mono', monospace;
+            font-family: var(--font-mono);
         }
 
         @media (max-width: 768px) {
@@ -3163,7 +3163,7 @@ LIMIT 20;</textarea>
                 <div class="results-empty" style="color: var(--accent-red);">
                     <div class="results-empty-icon">\u26A0\uFE0F</div>
                     <div class="results-empty-text" style="color: var(--accent-red); font-weight: 600;">Query Error</div>
-                    <div class="results-empty-hint" style="color: var(--text-secondary); max-width: 600px; word-break: break-word; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.6; text-align: left; background: var(--bg-tertiary); padding: 16px; border-radius: 8px; margin-top: 8px;">${escapeHtml(message)}</div>
+                    <div class="results-empty-hint" style="color: var(--text-secondary); max-width: 600px; word-break: break-word; font-family: var(--font-mono); font-size: 12px; line-height: 1.6; text-align: left; background: var(--bg-tertiary); padding: 16px; border-radius: 8px; margin-top: 8px;">${escapeHtml(message)}</div>
                 </div>`;
         }
 

@@ -3560,6 +3560,16 @@
             .section { padding: var(--space-6) 12px; }
             .nav-cards { padding: 0 12px; }
             .footer { padding: var(--space-4) 12px; }
+
+            /* Team cards tighter padding */
+            .team-card { padding: var(--space-3); }
+            .team-header { gap: var(--space-2); }
+            .team-icon { width: 36px; height: 36px; font-size: 18px; }
+            .team-icon svg { width: 30px; height: 30px; }
+
+            /* Section title sizing */
+            .section-title { font-size: 18px; letter-spacing: 0.03em; }
+            .section-title .icon { width: 32px; height: 32px; font-size: 14px; }
         }
 
         @media (max-width: 380px) {
@@ -3581,6 +3591,16 @@
             .nav-cards { grid-template-columns: 1fr; }
             .footer-links { gap: var(--space-3); }
             .nav-time { display: none; }
+
+            /* Section header stacking for mobile */
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-2);
+            }
+            .section-link {
+                align-self: flex-end;
+            }
         }
 
         /* Touch Target Minimum Sizes (WCAG Compliance - 44x44px) */

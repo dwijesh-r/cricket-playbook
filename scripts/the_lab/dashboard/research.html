@@ -177,15 +177,6 @@
             padding: 0 var(--space-4);
             backdrop-filter: blur(12px);
         }
-        .site-nav .nav-brand {
-            font-family: var(--font-display);
-            font-size: var(--text-lg);
-            font-weight: 700;
-            color: var(--accent);
-            text-decoration: none;
-            margin-right: var(--space-6);
-            white-space: nowrap;
-        }
         .site-nav .nav-links {
             display: flex;
             gap: var(--space-1);
@@ -558,14 +549,20 @@
         .nav-title {
             font-family: var(--font-body);
             font-size: var(--text-xl);
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            color: var(--text-primary);
+            letter-spacing: 0.02em;
             text-transform: uppercase;
             line-height: 1;
-            position: relative;
+            display: flex;
+            align-items: baseline;
+            gap: 1px;
         }
-        .nav-title span {
+        .nav-title .brand-stat {
+            font-weight: 300;
+            color: var(--text-secondary);
+            letter-spacing: 0.08em;
+        }
+        .nav-title .brand-sledge {
+            font-weight: 900;
             background: linear-gradient(135deg, var(--accent) 0%, #a855f7 50%, var(--accent) 100%);
             background-size: 200% 100%;
             -webkit-background-clip: text;
@@ -909,31 +906,24 @@
     <nav class="nav site-nav" aria-label="Site navigation">
         <div class="nav-brand">
             <div class="nav-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
-              <defs>
-                <linearGradient id="barGrad" x1="0" y1="1" x2="0" y2="0">
-                  <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.6"/>
-                  <stop offset="100%" stop-color="#00f0ff"/>
-                </linearGradient>
-                <linearGradient id="slashGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#a855f7"/>
-                  <stop offset="100%" stop-color="#00f0ff"/>
-                </linearGradient>
-                <filter id="glow">
-                  <feGaussianBlur stdDeviation="1" result="blur"/>
-                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                </filter>
-              </defs>
-              <!-- 6 ascending bars -->
-              <rect x="2" y="22" width="3" height="6" rx="0.5" fill="url(#barGrad)"/>
-              <rect x="7" y="18" width="3" height="10" rx="0.5" fill="url(#barGrad)"/>
-              <rect x="12" y="14" width="3" height="14" rx="0.5" fill="url(#barGrad)"/>
-              <rect x="17" y="11" width="3" height="17" rx="0.5" fill="url(#barGrad)"/>
-              <rect x="22" y="7" width="3" height="21" rx="0.5" fill="url(#barGrad)"/>
-              <rect x="27" y="4" width="3" height="24" rx="0.5" fill="url(#barGrad)"/>
-              <!-- The fracture slash -->
-              <line x1="26" y1="2" x2="6" y2="30" stroke="url(#slashGrad)" stroke-width="2" stroke-linecap="round" filter="url(#glow)"/>
-            </svg></div>
-            <div class="nav-title">Stat<span>Sledge</span></div>
+  <defs>
+    <linearGradient id="barGrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#00f0ff"/>
+    </linearGradient>
+    <linearGradient id="slashGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f472b6"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#00f0ff"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect x="4" y="18" width="5" height="10" rx="1" fill="url(#barGrad)"/>
+  <rect x="13" y="10" width="5" height="18" rx="1" fill="url(#barGrad)"/>
+  <rect x="22" y="4" width="5" height="24" rx="1" fill="url(#barGrad)"/>
+  <line x1="30" y1="2" x2="2" y2="26" stroke="url(#slashGrad)" stroke-width="3" stroke-linecap="round" filter="url(#glow)"/>
+</svg></div>
+            <div class="nav-title"><span class="brand-stat">STAT</span><span class="brand-sledge">SLEDGE</span></div>
         </div>
         <div class="nav-tabs">
             <a href="index.html" class="nav-tab">Home</a>

@@ -3,7 +3,7 @@
   "epic_id": "EPIC-019",
   "title": "Data layer — DuckDB-WASM integration + React hooks",
   "description": "Integrate DuckDB-WASM with React. Create custom hooks: useQuery(sql), useTeamData(abbrev), usePlayerProfile(id). Load parquet files from sql_lab/tables/. Pre-register 163 views from views.sql. Connection pooling + error boundaries.",
-  "state": "BACKLOG",
+  "state": "DEFERRED",
   "priority": "P0",
   "size": "L",
   "progress_pct": 0,
@@ -14,6 +14,15 @@
   "sprint_id": "SPRINT-002",
   "tags": ["Frontend", "Data Layer", "DuckDB"],
   "gates": {},
+  "deferred_reason": "Sprint 5 close-out: DuckDB-WASM integration is high-complexity Deep Work. TKT-210 (project setup) is DONE. Deferred to Sprint 6 alongside TKT-211 (design system) — both are React infrastructure prerequisites.",
+  "deferred_to": "SPRINT-003",
+  "progress_notes": {
+    "2026-02-28T00:00:00Z": {
+      "agent": "Tom Brady",
+      "step": "Sprint 5 Close-Out",
+      "detail": "Deferred to Sprint 6. Dependency TKT-210 is DONE. Brad Stevens to co-own with KDB given DuckDB-WASM complexity. Sprint 6 P0."
+    }
+  },
   "created_at": "2026-02-14T01:40:00Z",
-  "updated_at": "2026-02-14T01:40:00Z"
+  "updated_at": "2026-02-28T00:00:00Z"
 }

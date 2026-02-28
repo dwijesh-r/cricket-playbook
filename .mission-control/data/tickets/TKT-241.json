@@ -1,13 +1,64 @@
 {
   "id": "TKT-241",
   "title": "Fix PRD section numbering, player/view counts, agent counts across all docs",
-  "state": "BACKLOG",
+  "state": "DONE",
   "priority": "P1",
   "epic_id": "EPIC-022",
   "sprint_id": "SPRINT-002",
+  "owner": "Virat Kohli",
   "assignee": "Virat Kohli",
   "effort": "Deep Work",
+  "progress_pct": 100,
   "description": "Audit and fix all documentation for stale or incorrect counts. PRD section numbering must be sequential. Player count, view count, and agent count references must match current reality. Cross-check PRD, CONSTITUTION, AGENT_PLAYBOOK, and CLAUDE.md for consistency. Update any references to old sprint numbers or outdated metrics.",
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "Documentation accuracy is critical for a paid artifact. Stale counts erode credibility.",
+      "date": "2026-02-28"
+    },
+    "build": {
+      "status": "PASS",
+      "notes": "22 subsection headers renumbered in PRD (4.x→6.x, 5.x→7.x, 7.x→9.x, 8.x→11.x, 9.x→12.x). Analytics views count fixed: 43→163 (103 dual-scope). Duplicate data table removed. Agent Playbook: 12→14 agents (3 references). System health score: 81.5→92.0 (3 references in Playbook).",
+      "date": "2026-02-28"
+    },
+    "domain_sanity": {
+      "status": "PASS",
+      "notes": "Jose Mourinho: YES — counts now match source of truth (analytics_ipl.py, config/agents/). Andy Flower: YES — PRD accurately reflects the cricket data scale. Pep Guardiola: YES — no structural contradictions remain between PRD, Constitution, and Playbook.",
+      "date": "2026-02-28"
+    },
+    "enforcement": {
+      "status": "PASS",
+      "notes": "Tom Brady: Surgical edits only — no prose rewriting. Scope respected. All cross-references verified.",
+      "date": "2026-02-28"
+    },
+    "system_check": {
+      "status": "PASS",
+      "notes": "N'Golo Kante: Documentation integrity restored. No schema or code changes. Data counts verified against live system.",
+      "date": "2026-02-28"
+    }
+  },
+  "deliverables": [
+    "docs/PRD_CRICKET_PLAYBOOK.md (section numbering + view count fix)",
+    "docs/AGENT_PLAYBOOK.md (agent count + health score fix)"
+  ],
+  "post_task_note": {
+    "what_changed": "PRD section numbering made sequential (22 subsections fixed). Analytics views count corrected from 43 to 163 (103 dual-scope). Agent Playbook agent count corrected from 12 to 14. System health score references updated from 81.5 to 92.0. Duplicate data table removed from PRD.",
+    "assumption_tested": "Documentation drift happens silently — confirmed. PRD was 3 major numbering sections behind, view count was off by 120.",
+    "risk_introduced": "None — documentation-only changes.",
+    "usp": "Accurate documentation builds trust in the paid artifact. A magazine that can't count its own analytics views loses credibility."
+  },
+  "progress_notes": {
+    "2026-02-28T00:00:00Z": {
+      "agent": "Virat Kohli",
+      "step": "Build (Step 2)",
+      "detail": "Audited PRD v3.0.0 and Agent Playbook v1.0.0. Fixed all numbering, count, and metric discrepancies. Surgical edits only — no prose changes."
+    },
+    "2026-02-28T01:00:00Z": {
+      "agent": "Tom Brady",
+      "step": "Enforcement (Step 4)",
+      "detail": "All gates passed. Cross-references verified between PRD, Constitution, Playbook, and CLAUDE.md. Board updated."
+    }
+  },
   "created_at": "2026-02-14T10:00:00Z",
-  "updated_at": "2026-02-14T10:00:00Z"
+  "updated_at": "2026-02-28T01:00:00Z"
 }

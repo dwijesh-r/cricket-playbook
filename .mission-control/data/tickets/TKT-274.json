@@ -1,0 +1,56 @@
+{
+  "id": "TKT-274",
+  "title": "Smooth Scroll + Skeleton Loaders",
+  "state": "DONE",
+  "priority": "P1",
+  "size": "M",
+  "progress_pct": 100,
+  "epic_id": "EPIC-024",
+  "sprint_id": "SPRINT-006",
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
+  "reviewer": "Jayson Tatum",
+  "effort": "Standard",
+  "description": "Added smooth scroll with reduced-motion override, skeleton loader CSS with shimmer animation (.skeleton, .skeleton-text, .skeleton-card, .skeleton-row, .skeleton-avatar), removeSkeletons() JS function. Supersedes TKT-250 smooth scroll scope.",
+  "tags": [
+    "UX",
+    "Animation",
+    "Loading",
+    "EPIC-024"
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "UX overhaul is critical path for product quality. Approved per TKT-159 audit findings.",
+      "date": "2026-02-28"
+    },
+    "domain_sanity": {
+      "jose_mourinho": "YES",
+      "andy_flower": "N/A",
+      "pep_guardiola": "YES"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "enforcer": "tom_brady"
+    },
+    "system_check": {
+      "status": "PASS"
+    }
+  },
+  "blocked_by": [
+    "TKT-267",
+    "TKT-273"
+  ],
+  "supersedes": [
+    "TKT-250"
+  ],
+  "progress_notes": {
+    "2026-02-28T12:00:00Z": {
+      "agent": "Kevin de Bruyne",
+      "step": "Build Complete",
+      "detail": "Implemented as part of StatsLedge UX Overhaul (TKT-267 through TKT-280). All 20 QA checks pass."
+    }
+  },
+  "created_at": "2026-02-28T12:00:00Z",
+  "updated_at": "2026-02-28T12:00:00Z"
+}

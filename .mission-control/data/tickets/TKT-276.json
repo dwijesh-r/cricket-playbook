@@ -1,0 +1,56 @@
+{
+  "id": "TKT-276",
+  "title": "Fix Film Room Mobile Overlap",
+  "state": "DONE",
+  "priority": "P1",
+  "size": "M",
+  "progress_pct": 100,
+  "epic_id": "EPIC-024",
+  "sprint_id": "SPRINT-006",
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
+  "reviewer": "Jayson Tatum",
+  "effort": "Standard",
+  "description": "Fixed research-desk.html mobile issues: schema toggle overlap (flex-wrap + gap), editor toolbar alignment (flex-wrap + gap), NL chips sized to 44px min, pagination buttons 44px min. All spacing uses 8px grid tokens. Supersedes TKT-250 Film Room scope.",
+  "tags": [
+    "UX",
+    "Mobile",
+    "Film Room",
+    "EPIC-024"
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "UX overhaul is critical path for product quality. Approved per TKT-159 audit findings.",
+      "date": "2026-02-28"
+    },
+    "domain_sanity": {
+      "jose_mourinho": "YES",
+      "andy_flower": "N/A",
+      "pep_guardiola": "YES"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "enforcer": "tom_brady"
+    },
+    "system_check": {
+      "status": "PASS"
+    }
+  },
+  "blocked_by": [
+    "TKT-267",
+    "TKT-268"
+  ],
+  "supersedes": [
+    "TKT-250"
+  ],
+  "progress_notes": {
+    "2026-02-28T12:00:00Z": {
+      "agent": "Kevin de Bruyne",
+      "step": "Build Complete",
+      "detail": "Implemented as part of StatsLedge UX Overhaul (TKT-267 through TKT-280). All 20 QA checks pass."
+    }
+  },
+  "created_at": "2026-02-28T12:00:00Z",
+  "updated_at": "2026-02-28T12:00:00Z"
+}

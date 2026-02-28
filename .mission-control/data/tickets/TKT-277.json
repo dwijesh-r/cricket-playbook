@@ -1,0 +1,53 @@
+{
+  "id": "TKT-277",
+  "title": "Enforce 44px Tap Targets",
+  "state": "DONE",
+  "priority": "P1",
+  "size": "M",
+  "progress_pct": 100,
+  "epic_id": "EPIC-024",
+  "sprint_id": "SPRINT-006",
+  "owner": "Jayson Tatum",
+  "assignee": "Jayson Tatum",
+  "reviewer": "Kevin de Bruyne",
+  "effort": "Standard",
+  "description": "Global mobile rule (max-width: 768px) enforcing min-height: 44px on button, a, [role='tab'], [role='button'], select, .clickable, .btn, .chip, .tag, .filter-btn, .nav-link across all 11 files.",
+  "tags": [
+    "UX",
+    "Mobile",
+    "Accessibility",
+    "EPIC-024"
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "UX overhaul is critical path for product quality. Approved per TKT-159 audit findings.",
+      "date": "2026-02-28"
+    },
+    "domain_sanity": {
+      "jose_mourinho": "YES",
+      "andy_flower": "N/A",
+      "pep_guardiola": "YES"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "enforcer": "tom_brady"
+    },
+    "system_check": {
+      "status": "PASS"
+    }
+  },
+  "blocked_by": [
+    "TKT-267",
+    "TKT-272"
+  ],
+  "progress_notes": {
+    "2026-02-28T12:00:00Z": {
+      "agent": "Kevin de Bruyne",
+      "step": "Build Complete",
+      "detail": "Implemented as part of StatsLedge UX Overhaul (TKT-267 through TKT-280). All 20 QA checks pass."
+    }
+  },
+  "created_at": "2026-02-28T12:00:00Z",
+  "updated_at": "2026-02-28T12:00:00Z"
+}

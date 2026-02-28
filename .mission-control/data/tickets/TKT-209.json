@@ -3,17 +3,66 @@
   "epic_id": "EPIC-018",
   "title": "Model monitoring & drift detection setup",
   "description": "Extend existing ML monitoring (scripts/ml_ops/) with win probability specific checks: prediction calibration drift, feature distribution drift (KS test), latency monitoring. Add to weekly health check workflow.",
-  "state": "BACKLOG",
+  "state": "DONE",
   "priority": "P1",
   "size": "S",
-  "progress_pct": 0,
+  "progress_pct": 100,
   "owner": "Ime Udoka",
   "assignee": "Ime Udoka",
   "reviewer": "N'Golo Kante",
   "blocked_by": ["TKT-207"],
   "sprint_id": "SPRINT-002",
   "tags": ["ML Ops", "Monitoring"],
-  "gates": {},
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "Monitoring infrastructure supports ML Rigor score. Required for responsible model deployment.",
+      "date": "2026-02-28"
+    },
+    "build": {
+      "status": "PASS",
+      "notes": "win_prob_monitoring.py created (~600 lines). WinProbMonitor class with 5 check methods: Brier drift, feature KS test, calibration bins, phase performance, health report generation. Integrated into run_health_check.py (2 new steps). Baseline templates created.",
+      "date": "2026-02-28"
+    },
+    "domain_sanity": {
+      "status": "PASS",
+      "notes": "Jose Mourinho: YES — KS threshold 0.1 is standard, Brier thresholds (0.22 degraded, 0.25 critical) are justified. Andy Flower: YES — phase-specific monitoring (PP/middle/death) captures cricket-relevant drift. Pep Guardiola: YES — reuses existing AlertLevel/Alert patterns, structurally coherent.",
+      "date": "2026-02-28"
+    },
+    "enforcement": {
+      "status": "PASS",
+      "notes": "Tom Brady: Loop followed. Monitoring respects experimental status — no model loading, framework only. Integrates cleanly with existing health check pipeline.",
+      "date": "2026-02-28"
+    },
+    "system_check": {
+      "status": "PASS",
+      "notes": "N'Golo Kante: run_health_check.py updated with graceful degradation (try/except). ml-health-check.yml trigger paths expanded. Baseline templates created. No regressions in existing monitoring.",
+      "date": "2026-02-28"
+    }
+  },
+  "deliverables": [
+    "scripts/ml_ops/win_prob_monitoring.py",
+    "outputs/monitoring/win_prob_baseline/win_prob_innings1_baseline.json",
+    "outputs/monitoring/win_prob_baseline/win_prob_innings2_baseline.json"
+  ],
+  "post_task_note": {
+    "what_changed": "Win probability monitoring framework added. Brier score drift detection, feature distribution KS tests, calibration bin monitoring, phase-specific performance tracking. Integrated into existing health check runner and GitHub Actions workflow.",
+    "assumption_tested": "Existing model_monitoring.py patterns (AlertLevel, Alert, FeatureDriftResult) can be composed for new model types — confirmed.",
+    "risk_introduced": "Baseline templates are placeholders — must be replaced with actual training distributions after first model run.",
+    "usp": "Proactive model health monitoring prevents silent degradation. Phase-specific checks catch cricket-relevant drift that aggregate metrics would miss."
+  },
+  "progress_notes": {
+    "2026-02-28T01:30:00Z": {
+      "agent": "Ime Udoka",
+      "step": "Build (Step 2)",
+      "detail": "Created win_prob_monitoring.py following existing patterns. WinProbMonitor composes ModelMonitor for feature drift. 5 core checks. Integrated into run_health_check.py (Steps 5 and 7). GitHub workflow updated."
+    },
+    "2026-02-28T02:00:00Z": {
+      "agent": "Tom Brady",
+      "step": "Enforcement (Step 4)",
+      "detail": "All gates passed. Board updated. Monitoring framework ready — baselines need population after first model run."
+    }
+  },
   "created_at": "2026-02-14T01:40:00Z",
-  "updated_at": "2026-02-14T01:40:00Z"
+  "updated_at": "2026-02-28T02:00:00Z"
 }

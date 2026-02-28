@@ -3,7 +3,7 @@
   "epic_id": "EPIC-020",
   "title": "Comparison UI — radar charts + side-by-side stats",
   "description": "Build comparison view with: player selector (search + autocomplete), radar chart overlay (6 dimensions: SR, Avg, Boundary%, Dot%, Phase Balance, Consistency), side-by-side stat table, phase heatmap comparison. Use Chart.js or D3 for radar.",
-  "state": "BACKLOG",
+  "state": "DEFERRED",
   "priority": "P0",
   "size": "L",
   "progress_pct": 0,
@@ -14,6 +14,15 @@
   "sprint_id": "SPRINT-002",
   "tags": ["Frontend", "Visualization", "Comparison"],
   "gates": {},
+  "deferred_reason": "Sprint 5 close-out: Comparison UI blocked by TKT-216 (data pipeline, Stephen Curry). KDB bottleneck — cannot start until upstream dependency ships. Deferred to Sprint 6.",
+  "deferred_to": "SPRINT-003",
+  "progress_notes": {
+    "2026-02-28T00:00:00Z": {
+      "agent": "Tom Brady",
+      "step": "Sprint 5 Close-Out",
+      "detail": "Deferred to Sprint 6. Blocked by TKT-216 (head-to-head data pipeline). Once TKT-216 ships, KDB can build comparison UI. Sprint 6 P0 for EPIC-020."
+    }
+  },
   "created_at": "2026-02-14T01:40:00Z",
-  "updated_at": "2026-02-14T01:40:00Z"
+  "updated_at": "2026-02-28T00:00:00Z"
 }

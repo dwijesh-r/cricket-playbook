@@ -1,0 +1,64 @@
+{
+  "id": "TKT-280",
+  "title": "Visual Regression Audit",
+  "state": "DONE",
+  "priority": "P0",
+  "size": "L",
+  "progress_pct": 100,
+  "epic_id": "EPIC-024",
+  "sprint_id": "SPRINT-006",
+  "owner": "Jayson Tatum",
+  "assignee": "Jayson Tatum",
+  "reviewer": "Kevin de Bruyne",
+  "effort": "Deep Work",
+  "description": "20-point QA checklist \u2014 all PASS: unified tokens (11/11), no sub-12px fonts (0 violations), unified nav (11/11), 44px tap targets (11/11), focus-visible (11/11), skip-nav (11/11), reduced-motion (11/11), smooth scroll (11/11), skeletons (11/11), border-radius tokens (116+ uses), 8px spacing (123+ uses), transition tokens (15+ uses), table scroll indicators (11/11), breakpoints consolidated (0 ad-hoc), WCAG AA contrast fix, elevation system in MC, Orbitron/Space Grotesk in MC, ARIA on nav (11/11), container-max (11/11), no iOS blue in MC. Target UX score >= A-.",
+  "tags": [
+    "UX",
+    "QA",
+    "Audit",
+    "EPIC-024"
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "UX overhaul is critical path for product quality. Approved per TKT-159 audit findings.",
+      "date": "2026-02-28"
+    },
+    "domain_sanity": {
+      "jose_mourinho": "YES",
+      "andy_flower": "N/A",
+      "pep_guardiola": "YES"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "enforcer": "tom_brady"
+    },
+    "system_check": {
+      "status": "PASS"
+    }
+  },
+  "blocked_by": [
+    "TKT-267",
+    "TKT-268",
+    "TKT-269",
+    "TKT-270",
+    "TKT-271",
+    "TKT-272",
+    "TKT-273",
+    "TKT-274",
+    "TKT-275",
+    "TKT-276",
+    "TKT-277",
+    "TKT-278",
+    "TKT-279"
+  ],
+  "progress_notes": {
+    "2026-02-28T12:00:00Z": {
+      "agent": "Kevin de Bruyne",
+      "step": "Build Complete",
+      "detail": "Implemented as part of StatsLedge UX Overhaul (TKT-267 through TKT-280). All 20 QA checks pass."
+    }
+  },
+  "created_at": "2026-02-28T12:00:00Z",
+  "updated_at": "2026-02-28T12:00:00Z"
+}

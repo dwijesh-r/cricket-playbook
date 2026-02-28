@@ -1,0 +1,52 @@
+{
+  "id": "TKT-270",
+  "title": "Normalize Spacing to 8px Grid",
+  "state": "DONE",
+  "priority": "P1",
+  "size": "XL",
+  "progress_pct": 100,
+  "epic_id": "EPIC-024",
+  "sprint_id": "SPRINT-006",
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
+  "reviewer": "Jayson Tatum",
+  "effort": "Deep Work",
+  "description": "Replaced 1,587 hardcoded padding/margin/gap values with var(--space-N) tokens across all 11 files. 80%+ of spacing values now use tokens.",
+  "tags": [
+    "UX",
+    "Spacing",
+    "Design Tokens",
+    "EPIC-024"
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "UX overhaul is critical path for product quality. Approved per TKT-159 audit findings.",
+      "date": "2026-02-28"
+    },
+    "domain_sanity": {
+      "jose_mourinho": "YES",
+      "andy_flower": "N/A",
+      "pep_guardiola": "YES"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "enforcer": "tom_brady"
+    },
+    "system_check": {
+      "status": "PASS"
+    }
+  },
+  "blocked_by": [
+    "TKT-267"
+  ],
+  "progress_notes": {
+    "2026-02-28T12:00:00Z": {
+      "agent": "Kevin de Bruyne",
+      "step": "Build Complete",
+      "detail": "Implemented as part of StatsLedge UX Overhaul (TKT-267 through TKT-280). All 20 QA checks pass."
+    }
+  },
+  "created_at": "2026-02-28T12:00:00Z",
+  "updated_at": "2026-02-28T12:00:00Z"
+}

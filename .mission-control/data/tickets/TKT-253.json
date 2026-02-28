@@ -1,13 +1,30 @@
 {
   "id": "TKT-253",
-  "title": "Add WCAG 2.1 AA accessibility basics — ARIA labels, focus-visible, skip-nav",
-  "state": "BACKLOG",
+  "title": "Add WCAG 2.1 AA accessibility basics \u2014 ARIA labels, focus-visible, skip-nav",
+  "state": "SUPERSEDED",
   "priority": "P1",
   "epic_id": "EPIC-024",
   "sprint_id": "SPRINT-002",
   "assignee": "Kevin de Bruyne",
   "effort": "Deep Work",
   "description": "Add WCAG 2.1 AA accessibility basics to The Lab dashboard. Add ARIA labels to all interactive elements (buttons, links, form inputs, tabs). Implement focus-visible styles for keyboard navigation. Add skip-nav link for screen readers. Ensure color contrast ratios meet AA standards (4.5:1 for normal text, 3:1 for large text).",
+  "deferred_reason": "Sprint 5 close-out: Accessibility work is important but not Sprint 5 critical path. Kevin de Bruyne overloaded. Deferred to Sprint 6 where it can receive dedicated focus.",
+  "deferred_to": "SPRINT-003",
+  "progress_notes": {
+    "2026-02-28T00:00:00Z": {
+      "agent": "Tom Brady",
+      "step": "Sprint 5 Close-Out",
+      "detail": "Deferred per Sprint 5 close-out. A11y work carries forward to Sprint 6 as P1 priority. Will be addressed alongside React migration where component-level ARIA can be baked in from the start."
+    },
+    "2026-02-28T12:00:00Z": {
+      "agent": "Tom Brady",
+      "step": "Superseded",
+      "detail": "Superseded by StatsLedge UX Overhaul tickets: TKT-273. All scope covered by new tickets."
+    }
+  },
   "created_at": "2026-02-14T10:00:00Z",
-  "updated_at": "2026-02-14T10:00:00Z"
+  "updated_at": "2026-02-28T12:00:00Z",
+  "superseded_by": [
+    "TKT-273"
+  ]
 }

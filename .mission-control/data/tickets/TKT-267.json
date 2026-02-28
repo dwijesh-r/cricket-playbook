@@ -1,0 +1,53 @@
+{
+  "id": "TKT-267",
+  "title": "Create StatsLedge Design Token System",
+  "state": "DONE",
+  "priority": "P0",
+  "size": "L",
+  "progress_pct": 100,
+  "epic_id": "EPIC-024",
+  "sprint_id": "SPRINT-006",
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
+  "reviewer": "Jayson Tatum",
+  "effort": "Deep Work",
+  "description": "Replace per-page :root blocks with unified tokens across all 11 dashboard HTML files. Spacing scale (8px base), typography (12px floor), border-radius (4 tiers), unified colors (Lab cyberpunk canonical, MC retires iOS blue #0a84ff), unified fonts (Orbitron/Space Grotesk/JetBrains Mono \u2014 MC retires Inter/Cinzel), transitions, elevation, layout tokens. Fix --text-tertiary contrast from #484f58 (2.6:1 FAIL) to #6e7681 (~4.5:1 PASS).",
+  "tags": [
+    "UX",
+    "Design Tokens",
+    "Foundation",
+    "EPIC-024"
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "UX overhaul is critical path for product quality. Approved per TKT-159 audit findings.",
+      "date": "2026-02-28"
+    },
+    "domain_sanity": {
+      "jose_mourinho": "YES",
+      "andy_flower": "N/A",
+      "pep_guardiola": "YES"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "enforcer": "tom_brady"
+    },
+    "system_check": {
+      "status": "PASS"
+    }
+  },
+  "deliverables": [
+    "scripts/the_lab/dashboard/*.html",
+    "scripts/mission_control/dashboard/*.html"
+  ],
+  "progress_notes": {
+    "2026-02-28T12:00:00Z": {
+      "agent": "Kevin de Bruyne",
+      "step": "Build Complete",
+      "detail": "Implemented as part of StatsLedge UX Overhaul (TKT-267 through TKT-280). All 20 QA checks pass."
+    }
+  },
+  "created_at": "2026-02-28T12:00:00Z",
+  "updated_at": "2026-02-28T12:00:00Z"
+}

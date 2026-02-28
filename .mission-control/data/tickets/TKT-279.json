@@ -1,0 +1,53 @@
+{
+  "id": "TKT-279",
+  "title": "Add 1280px + 1440px Breakpoints",
+  "state": "DONE",
+  "priority": "P2",
+  "size": "M",
+  "progress_pct": 100,
+  "epic_id": "EPIC-024",
+  "sprint_id": "SPRINT-006",
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
+  "reviewer": "Jayson Tatum",
+  "effort": "Standard",
+  "description": "Consolidated 15 ad-hoc breakpoints (900px, 600px, 500px, 1400px) to clean 5-tier system: 1440px, 1280px, 1024px, 768px, 480px. Zero ad-hoc breakpoints remain.",
+  "tags": [
+    "UX",
+    "Responsive",
+    "Breakpoints",
+    "EPIC-024"
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "UX overhaul is critical path for product quality. Approved per TKT-159 audit findings.",
+      "date": "2026-02-28"
+    },
+    "domain_sanity": {
+      "jose_mourinho": "YES",
+      "andy_flower": "N/A",
+      "pep_guardiola": "YES"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "enforcer": "tom_brady"
+    },
+    "system_check": {
+      "status": "PASS"
+    }
+  },
+  "blocked_by": [
+    "TKT-267",
+    "TKT-268"
+  ],
+  "progress_notes": {
+    "2026-02-28T12:00:00Z": {
+      "agent": "Kevin de Bruyne",
+      "step": "Build Complete",
+      "detail": "Implemented as part of StatsLedge UX Overhaul (TKT-267 through TKT-280). All 20 QA checks pass."
+    }
+  },
+  "created_at": "2026-02-28T12:00:00Z",
+  "updated_at": "2026-02-28T12:00:00Z"
+}

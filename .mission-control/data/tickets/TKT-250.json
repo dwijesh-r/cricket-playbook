@@ -1,13 +1,32 @@
 {
   "id": "TKT-250",
   "title": "Fix minimum font sizes, Film Room mobile overlap, smooth scroll",
-  "state": "BACKLOG",
+  "state": "SUPERSEDED",
   "priority": "P1",
   "epic_id": "EPIC-024",
   "sprint_id": "SPRINT-002",
   "assignee": "Kevin de Bruyne",
   "effort": "Deep Work",
   "description": "Fix UI issues identified in Sprint 4 review: enforce minimum font sizes across all Lab pages (no text below 12px), fix Film Room page layout overlap on mobile viewports, and implement smooth scroll behavior for anchor links and page navigation. Test across Chrome, Safari, Firefox on desktop and mobile.",
+  "deferred_reason": "Sprint 5 close-out: Kevin de Bruyne workload reduction. UX polish ticket \u2014 not blocking any Sprint 5 deliverables. Deferred to Sprint 6 to allow KDB focus on core React migration and comparison tool work.",
+  "deferred_to": "SPRINT-003",
+  "progress_notes": {
+    "2026-02-28T00:00:00Z": {
+      "agent": "Tom Brady",
+      "step": "Sprint 5 Close-Out",
+      "detail": "Deferred per Sprint 5 close-out. KDB bottleneck mitigation \u2014 9 tickets was unsustainable. UX polish carries forward to Sprint 6."
+    },
+    "2026-02-28T12:00:00Z": {
+      "agent": "Tom Brady",
+      "step": "Superseded",
+      "detail": "Superseded by StatsLedge UX Overhaul tickets: TKT-269, TKT-274, TKT-276. All scope covered by new tickets."
+    }
+  },
   "created_at": "2026-02-14T10:00:00Z",
-  "updated_at": "2026-02-14T10:00:00Z"
+  "updated_at": "2026-02-28T12:00:00Z",
+  "superseded_by": [
+    "TKT-269",
+    "TKT-274",
+    "TKT-276"
+  ]
 }

@@ -3,7 +3,7 @@
   "epic_id": "EPIC-020",
   "title": "Multi-player comparison (3+ players)",
   "description": "Extend comparison tool to support 3-4 player comparisons. Radar chart with multiple overlays (color-coded by team). Tabular view with sortable columns. Group comparison by role (e.g., compare all team openers, all death bowlers).",
-  "state": "BACKLOG",
+  "state": "DEFERRED",
   "priority": "P1",
   "size": "M",
   "progress_pct": 0,
@@ -14,6 +14,15 @@
   "sprint_id": "SPRINT-002",
   "tags": ["Frontend", "Visualization", "Comparison"],
   "gates": {},
+  "deferred_reason": "Sprint 5 close-out: Depends on TKT-217 (2-player comparison UI) which is itself deferred. Chain dependency — cannot execute until comparison foundation exists. Sprint 6 P1.",
+  "deferred_to": "SPRINT-003",
+  "progress_notes": {
+    "2026-02-28T00:00:00Z": {
+      "agent": "Tom Brady",
+      "step": "Sprint 5 Close-Out",
+      "detail": "Deferred to Sprint 6. Chain blocked: TKT-218 ← TKT-217 ← TKT-216. Natural Sprint 6 follow-on after 2-player comparison ships."
+    }
+  },
   "created_at": "2026-02-14T01:40:00Z",
-  "updated_at": "2026-02-14T01:40:00Z"
+  "updated_at": "2026-02-28T00:00:00Z"
 }

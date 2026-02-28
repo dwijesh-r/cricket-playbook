@@ -799,7 +799,7 @@
             z-index: 100;
         }
         [data-theme="light"] .nav { background: rgba(240, 242, 245, 0.88); }
-        .nav-brand { display: flex; align-items: center; gap: var(--space-3); }
+        .nav-brand { display: flex; align-items: center; gap: var(--space-2); }
         .nav-logo {
             width: 32px;
             height: 32px;
@@ -814,17 +814,26 @@
             height: 100%;
         }
         .nav-title {
-            font-family: var(--font-display);
-            font-size: var(--text-lg);
-            font-weight: 700;
-            letter-spacing: -0.01em;
+            font-family: var(--font-body);
+            font-size: var(--text-xl);
+            font-weight: 800;
+            letter-spacing: -0.04em;
             color: var(--text-primary);
+            text-transform: uppercase;
+            line-height: 1;
+            position: relative;
         }
         .nav-title span {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, #a855f7 50%, var(--accent) 100%);
+            background-size: 200% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: gradient-shift 3s ease-in-out infinite;
+        }
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
         .nav-tabs {
             display: flex;
@@ -1717,6 +1726,7 @@
         /* Dot Matrix Depth Chart */
         .depth-matrix {
             width: 100%;
+            min-width: 500px;
             border-collapse: collapse;
             font-family: var(--font-mono);
             font-size: var(--text-sm);
@@ -1824,9 +1834,10 @@
             color: var(--text-secondary);
             margin-left: var(--space-1);
         }
-        .depth-matrix .table-wrap {
+        .table-wrap {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
+            margin: var(--space-2) 0;
         }
         /* Depth detail expandable */
         .depth-detail-row td {
@@ -5211,9 +5222,17 @@
                         </div>
                     `;
 
+                    const shortenName = (name) => {
+                        if (!name || name === '-') return name;
+                        const parts = name.trim().split(' ');
+                        if (parts.length < 2) return name;
+                        if (parts[0].length <= 2) return name; // KL, AB etc - keep full
+                        return parts[0][0] + '. ' + parts.slice(1).join(' ');
+                    };
+
                     const playerCell = (p, rank) => {
                         if (p.name === '-') return '<div class="player-cell"><span class="player-name empty">\u2014</span></div>';
-                        return `<div class="player-cell"><span class="rank-dot ${rank}"></span><span class="player-name" onclick="event.stopPropagation(); openPlayerProfile('${p.name.replace(/'/g, "\\\\'")}')">${p.name}</span><span class="player-badges">${osBadge(p)}${bowlBadge(p)}</span></div>`;
+                        return `<div class="player-cell"><span class="rank-dot ${rank}"></span><span class="player-name" onclick="event.stopPropagation(); openPlayerProfile('${p.name.replace(/'/g, "\\\\'")}')">${shortenName(p.name)}</span><span class="player-badges">${osBadge(p)}${bowlBadge(p)}</span></div>`;
                     };
 
                     return `

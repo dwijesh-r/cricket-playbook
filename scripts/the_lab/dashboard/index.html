@@ -587,20 +587,27 @@
 
         .bg-watermark {
             position: fixed;
-            bottom: 5%;
-            right: -5%;
-            font-size: 140px;
-            font-weight: 800;
-            letter-spacing: -0.05em;
-            color: rgba(255, 255, 255, 0.015);
+            bottom: 8%;
+            right: -2%;
+            font-family: var(--font-display);
+            font-size: clamp(100px, 15vw, 180px);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            color: transparent;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.06) 0%, rgba(168, 85, 247, 0.04) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
             z-index: -1;
             pointer-events: none;
             transform: rotate(-5deg);
             white-space: nowrap;
             user-select: none;
         }
-
-        [data-theme="light"] .bg-watermark { color: rgba(0, 0, 0, 0.02); }
+        [data-theme="light"] .bg-watermark {
+            background: linear-gradient(135deg, rgba(0, 136, 204, 0.06) 0%, rgba(139, 63, 217, 0.04) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
 
         /* ==================== NAVIGATION ==================== */
         .nav {
@@ -626,7 +633,7 @@
         .nav-brand {
             display: flex;
             align-items: center;
-            gap: var(--space-3);
+            gap: var(--space-2);
         }
 
         .nav-logo {
@@ -650,17 +657,26 @@
         }
 
         .nav-title {
-            font-family: var(--font-display);
-            font-size: var(--text-lg);
-            font-weight: 700;
-            letter-spacing: -0.01em;
+            font-family: var(--font-body);
+            font-size: var(--text-xl);
+            font-weight: 800;
+            letter-spacing: -0.04em;
             color: var(--text-primary);
+            text-transform: uppercase;
+            line-height: 1;
+            position: relative;
         }
         .nav-title span {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, #a855f7 50%, var(--accent) 100%);
+            background-size: 200% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: gradient-shift 3s ease-in-out infinite;
+        }
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .nav-tabs {

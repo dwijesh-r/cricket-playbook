@@ -545,12 +545,31 @@
         [data-theme="light"] .nav { background: rgba(240, 242, 245, 0.88); }
         .nav-brand { display: flex; align-items: center; gap: var(--space-3); }
         .nav-logo {
-            width: 32px; height: 32px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
-            border-radius: var(--radius-sm); box-shadow: 0 0 12px var(--glow-accent); display: flex; align-items: center; justify-content: center; font-size: 16px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 0 8px var(--glow-accent));
+            animation: logo-pulse 3s ease-in-out infinite;
         }
-        .nav-title { font-family: var(--font-display); font-size: 15px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
-        .nav-title span { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .nav-logo svg {
+            width: 100%;
+            height: 100%;
+        }
+        .nav-title {
+            font-family: var(--font-display);
+            font-size: var(--text-lg);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+        }
+        .nav-title span {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
         .nav-tabs {
             display: flex; gap: var(--space-1);
             background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
@@ -1153,7 +1172,31 @@
 
     <nav class="nav site-nav" aria-label="Site navigation">
         <div class="nav-brand">
-            <div class="nav-logo">🏏</div>
+            <div class="nav-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+              <defs>
+                <linearGradient id="barGrad" x1="0" y1="1" x2="0" y2="0">
+                  <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.6"/>
+                  <stop offset="100%" stop-color="#00f0ff"/>
+                </linearGradient>
+                <linearGradient id="slashGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#a855f7"/>
+                  <stop offset="100%" stop-color="#00f0ff"/>
+                </linearGradient>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="1" result="blur"/>
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+              <!-- 6 ascending bars -->
+              <rect x="2" y="22" width="3" height="6" rx="0.5" fill="url(#barGrad)"/>
+              <rect x="7" y="18" width="3" height="10" rx="0.5" fill="url(#barGrad)"/>
+              <rect x="12" y="14" width="3" height="14" rx="0.5" fill="url(#barGrad)"/>
+              <rect x="17" y="11" width="3" height="17" rx="0.5" fill="url(#barGrad)"/>
+              <rect x="22" y="7" width="3" height="21" rx="0.5" fill="url(#barGrad)"/>
+              <rect x="27" y="4" width="3" height="24" rx="0.5" fill="url(#barGrad)"/>
+              <!-- The fracture slash -->
+              <line x1="26" y1="2" x2="6" y2="30" stroke="url(#slashGrad)" stroke-width="2" stroke-linecap="round" filter="url(#glow)"/>
+            </svg></div>
             <div class="nav-title">Stat<span>Sledge</span></div>
         </div>
         <div class="nav-tabs">

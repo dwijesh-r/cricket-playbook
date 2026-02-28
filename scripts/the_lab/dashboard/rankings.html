@@ -628,23 +628,24 @@
         .nav-logo {
             width: 32px;
             height: 32px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
-            border-radius: var(--radius-sm);
-            box-shadow: 0 0 12px var(--glow-accent);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            filter: drop-shadow(0 0 8px var(--glow-accent));
+            animation: logo-pulse 3s ease-in-out infinite;
+        }
+        .nav-logo svg {
+            width: 100%;
+            height: 100%;
         }
 
         .nav-title {
             font-family: var(--font-display);
-            font-size: 15px;
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+            font-size: var(--text-lg);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
         }
-
         .nav-title span {
             background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
             -webkit-background-clip: text;

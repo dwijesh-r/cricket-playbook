@@ -1054,6 +1054,7 @@
             <a href="teams.html" class="nav-tab">&#127951; Teams</a>
             <a href="rankings.html" class="nav-tab">&#127942; Rankings</a>
             <a href="comparison.html" class="nav-tab active">&#9878;&#65039; Compare</a>
+            <a href="head-to-head.html" class="nav-tab">&#9876;&#65039; H2H</a>
             <a href="artifacts.html" class="nav-tab">&#128269; Artifacts</a>
             <a href="analysis.html" class="nav-tab">&#128300; Analysis</a>
             <a href="research.html" class="nav-tab">&#128218; Research</a>
@@ -1076,6 +1077,7 @@
         <a href="teams.html" class="nav-tab">&#127951; Teams</a>
         <a href="rankings.html" class="nav-tab">&#127942; Rankings</a>
         <a href="comparison.html" class="nav-tab active">&#9878;&#65039; Compare</a>
+        <a href="head-to-head.html" class="nav-tab">&#9876;&#65039; H2H</a>
         <a href="artifacts.html" class="nav-tab">&#128269; Artifacts</a>
         <a href="analysis.html" class="nav-tab">&#128300; Analysis</a>
         <a href="research.html" class="nav-tab">&#128218; Research</a>
@@ -1196,7 +1198,7 @@
         activeSides: ['A', 'B'],  // which slots are visible
         activePhase: 'powerplay',
         activeHeatmapMetric: 'all',
-        activeMatchupType: null,  // null = show all, or a specific bowling type / handedness
+        activeMatchupType: 'overall',  // 'overall' = aggregate career, 'all' = show all type cards, or a specific bowling type / handedness
         highlightedIdx: { A: -1, B: -1, C: -1, D: -1 },
         percentiles: { batter: null, bowler: null }
     };
@@ -1342,6 +1344,7 @@
     function buildRadarChart() {
         const players = getSelectedPlayers();
         if (players.length < 2) return '';
+        if (isMixedTypes()) return '<div style="padding: var(--space-3); text-align: center; color: var(--text-tertiary); font-size: var(--text-sm);">Radar chart not available for mixed player types — axes differ between batters and bowlers.</div>';
         const type = getEffectiveType();
         const dims = getDimensions(type);
 
@@ -1461,6 +1464,10 @@
 
     function buildStatsTable(dataA, dataB) {
         const players = getSelectedPlayers();
+
+        // Mixed-type: render each player's stats independently
+        if (isMixedTypes()) return buildStatsTableMixed(players);
+
         if (players.length > 2) return buildStatsTableMulti(players);
 
         const type = getEffectiveType();
@@ -1500,7 +1507,37 @@
         return html;
     }
 
+    function buildStatsTableMixed(players) {
+        // Each player rendered with their own type's stat rows
+        let html = '<div style="padding: var(--space-2) var(--space-3); background: var(--glass); border: 1px solid var(--accent-yellow); border-radius: var(--radius-md); margin-bottom: var(--space-3); font-size: var(--text-sm); color: var(--accent-yellow);">Different player types selected — each player shown with their own stat labels.</div>';
+        html += '<div style="display: grid; grid-template-columns: repeat(' + players.length + ', 1fr); gap: var(--space-3);">';
+        players.forEach(p => {
+            const pType = detectPlayerType(p.id);
+            const rows = getStatRows(pType);
+            const sideClass = SIDE_CSS_CLASS[p.side];
+            html += '<div style="background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--space-3);">';
+            html += '<div style="font-weight: 700; color: var(--player-' + sideClass + '); margin-bottom: var(--space-2); font-size: var(--text-md);">' + escapeHtml(p.data.career.name) + '</div>';
+            html += '<div style="font-size: var(--text-xs); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-2);">' + (pType === 'batter' ? 'Batter' : 'Bowler') + '</div>';
+            rows.forEach(row => {
+                let val;
+                if (row.custom && row.label === 'Best Figures') {
+                    val = (p.data.career.bestWkts || 0) + '/' + (p.data.career.bestRuns || 0);
+                } else {
+                    val = p.data.career[row.key];
+                }
+                html += '<div style="display: flex; justify-content: space-between; padding: var(--space-1) 0; border-bottom: 1px solid var(--border);">';
+                html += '<span style="font-size: var(--text-xs); color: var(--text-secondary);">' + row.label + '</span>';
+                html += '<span style="font-size: var(--text-sm); font-weight: 600; font-family: var(--font-mono); color: var(--text-primary);">' + fmtVal(val) + '</span>';
+                html += '</div>';
+            });
+            html += '</div>';
+        });
+        html += '</div>';
+        return html;
+    }
+
     function buildStatsTableMulti(players) {
+        if (isMixedTypes()) return buildStatsTableMixed(players);
         const type = getEffectiveType();
         const rows = getStatRows(type);
 
@@ -1572,8 +1609,36 @@
     function buildPhaseSection(dataA, dataB) {
         const phases = ['powerplay', 'middle', 'death'];
         const phaseLabels = { powerplay: 'Powerplay', middle: 'Middle', death: 'Death' };
-        const type = getEffectiveType();
         const players = getSelectedPlayers();
+
+        // Mixed types: render each player's phase stats independently
+        if (isMixedTypes()) {
+            let html = '<div style="padding: var(--space-2) var(--space-3); background: var(--glass); border: 1px solid var(--accent-yellow); border-radius: var(--radius-md); margin-bottom: var(--space-3); font-size: var(--text-sm); color: var(--accent-yellow);">Different player types — phase stats shown independently per player.</div>';
+            html += '<div style="display: grid; grid-template-columns: repeat(' + players.length + ', 1fr); gap: var(--space-3);">';
+            players.forEach(p => {
+                const pType = detectPlayerType(p.id);
+                const metrics = getPhaseMetrics(pType);
+                const sideClass = SIDE_CSS_CLASS[p.side];
+                html += '<div style="background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--space-3);">';
+                html += '<div style="font-weight: 700; color: var(--player-' + sideClass + '); margin-bottom: var(--space-2);">' + escapeHtml(p.data.career.name) + '</div>';
+                phases.forEach(ph => {
+                    const phaseData = p.data.phases[ph];
+                    if (!phaseData) return;
+                    html += '<div style="font-size: var(--text-xs); font-weight: 600; color: var(--accent); margin-top: var(--space-2); margin-bottom: var(--space-1); text-transform: uppercase;">' + phaseLabels[ph] + '</div>';
+                    metrics.forEach(m => {
+                        html += '<div style="display: flex; justify-content: space-between; padding: 2px 0; font-size: var(--text-xs);">';
+                        html += '<span style="color: var(--text-secondary);">' + m.label + '</span>';
+                        html += '<span style="font-family: var(--font-mono); color: var(--text-primary);">' + fmtVal(phaseData[m.key]) + '</span>';
+                        html += '</div>';
+                    });
+                });
+                html += '</div>';
+            });
+            html += '</div>';
+            return html;
+        }
+
+        const type = getEffectiveType();
 
         let html = '<div class="phase-pills" role="tablist" aria-label="Phase selection">';
         phases.forEach(p => {
@@ -1648,6 +1713,7 @@
     }
 
     function buildPhaseHeatmap(dataA, dataB) {
+        if (isMixedTypes()) return ''; // Heatmap not meaningful for mixed types
         const type = getEffectiveType();
         const phases = ['powerplay', 'middle', 'death'];
         const phaseLabels = { powerplay: 'PP', middle: 'MID', death: 'DTH' };
@@ -1732,8 +1798,58 @@
 
     // ==================== MATCHUP SPLITS ====================
     function buildMatchupSplits(dataA, dataB) {
-        const type = getEffectiveType();
         const players = getSelectedPlayers();
+
+        // Mixed types: render each player's matchup splits independently
+        if (isMixedTypes()) {
+            let html = '<div style="padding: var(--space-2) var(--space-3); background: var(--glass); border: 1px solid var(--accent-yellow); border-radius: var(--radius-md); margin-bottom: var(--space-3); font-size: var(--text-sm); color: var(--accent-yellow);">Different player types — matchup splits shown independently per player.</div>';
+            html += '<div style="display: grid; grid-template-columns: repeat(' + players.length + ', 1fr); gap: var(--space-3);">';
+            players.forEach(p => {
+                const pType = detectPlayerType(p.id);
+                const sideClass = SIDE_CSS_CLASS[p.side];
+                let allTypes, dataKey, metrics;
+                if (pType === 'batter') {
+                    allTypes = ['Fast', 'Fast-Medium', 'Off-spin', 'Leg-spin', 'LA Orthodox', 'Wrist-spin'];
+                    dataKey = 'vsBowlingType';
+                    metrics = [
+                        { label: 'Balls', key: 'balls', fmt: v => v != null ? v : '-' },
+                        { label: 'SR', key: 'sr', fmt: v => v != null ? v.toFixed(1) : '-' },
+                        { label: 'Avg', key: 'avg', fmt: v => v != null ? v.toFixed(1) : '-' },
+                        { label: 'Boundary%', key: 'boundaryPct', fmt: v => v != null ? v.toFixed(1) : '-' }
+                    ];
+                } else {
+                    allTypes = ['Left-hand', 'Right-hand'];
+                    dataKey = 'vsHandedness';
+                    metrics = [
+                        { label: 'Balls', key: 'balls', fmt: v => v != null ? v : '-' },
+                        { label: 'Econ', key: 'economy', fmt: v => v != null ? v.toFixed(1) : '-' },
+                        { label: 'Wkts', key: 'wickets', altKey: 'dismissals', fmt: v => v != null ? v : '-' },
+                        { label: 'Dot%', key: 'dotPct', fmt: v => v != null ? v.toFixed(1) : '-' }
+                    ];
+                }
+                html += '<div style="background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--space-3);">';
+                html += '<div style="font-weight: 700; color: var(--player-' + sideClass + '); margin-bottom: var(--space-2);">' + escapeHtml(p.data.career.name) + ' <span style="font-size: var(--text-xs); color: var(--text-tertiary);">(' + (pType === 'batter' ? 'vs Bowling Type' : 'vs Handedness') + ')</span></div>';
+                allTypes.forEach(t => {
+                    const src = p.data[dataKey];
+                    const d = src ? src[t] : null;
+                    if (!d) return;
+                    html += '<div style="font-size: var(--text-xs); font-weight: 600; color: var(--accent); margin-top: var(--space-2); margin-bottom: var(--space-1);">' + escapeHtml(t) + '</div>';
+                    metrics.forEach(m => {
+                        let val = d[m.key];
+                        if (val == null && m.altKey) val = d[m.altKey];
+                        html += '<div style="display: flex; justify-content: space-between; padding: 2px 0; font-size: var(--text-xs);">';
+                        html += '<span style="color: var(--text-secondary);">' + m.label + '</span>';
+                        html += '<span style="font-family: var(--font-mono); color: var(--text-primary);">' + m.fmt(val) + '</span>';
+                        html += '</div>';
+                    });
+                });
+                html += '</div>';
+            });
+            html += '</div>';
+            return html;
+        }
+
+        const type = getEffectiveType();
 
         let allTypes, metrics, dataKey;
         if (type === 'batter') {
@@ -1762,14 +1878,75 @@
         // Dropdown for selecting bowling type / handedness
         let html = '<div style="margin-bottom: var(--space-3);">';
         html += '<select class="team-filter-select" id="matchupTypeSelect" aria-label="Filter by matchup type" onchange="switchMatchupType(this.value)" style="width: auto;">';
-        html += '<option value="all"' + (state.activeMatchupType == null ? ' selected' : '') + '>All Types</option>';
+        html += '<option value="overall"' + (state.activeMatchupType === 'overall' ? ' selected' : '') + '>Overall</option>';
+        html += '<option value="all"' + (state.activeMatchupType === 'all' ? ' selected' : '') + '>All Types</option>';
         allTypes.forEach(t => {
             html += '<option value="' + escapeHtml(t) + '"' + (state.activeMatchupType === t ? ' selected' : '') + '>' + escapeHtml(t) + '</option>';
         });
         html += '</select></div>';
 
-        const filteredTypes = state.activeMatchupType ? allTypes.filter(t => t === state.activeMatchupType) : allTypes;
-        html += buildSplitsCards(players, filteredTypes, dataKey, metrics, type === 'batter' ? 'vs Bowling Type' : 'vs Handedness');
+        if (state.activeMatchupType === 'overall') {
+            // Render single "Overall" card using career aggregate stats
+            html += buildOverallSplitCard(players, type);
+        } else {
+            const filteredTypes = (state.activeMatchupType && state.activeMatchupType !== 'all') ? allTypes.filter(t => t === state.activeMatchupType) : allTypes;
+            html += buildSplitsCards(players, filteredTypes, dataKey, metrics, type === 'batter' ? 'vs Bowling Type' : 'vs Handedness');
+        }
+        return html;
+    }
+
+    function buildOverallSplitCard(players, type) {
+        let metrics;
+        if (type === 'batter') {
+            metrics = [
+                { label: 'Innings', key: 'innings', fmt: v => v != null ? v : '-', higher: true },
+                { label: 'Runs', key: 'runs', fmt: v => v != null ? v : '-', higher: true },
+                { label: 'SR', key: 'sr', fmt: v => v != null ? v.toFixed(1) : '-', higher: true },
+                { label: 'Avg', key: 'avg', fmt: v => v != null ? v.toFixed(1) : '-', higher: true },
+                { label: 'Boundary%', key: 'boundaryPct', fmt: v => v != null ? v.toFixed(1) : '-', higher: true },
+                { label: 'Dot%', key: 'dotPct', fmt: v => v != null ? v.toFixed(1) : '-', higher: false }
+            ];
+        } else {
+            metrics = [
+                { label: 'Matches', key: 'matches', fmt: v => v != null ? v : '-', higher: true },
+                { label: 'Wickets', key: 'wickets', fmt: v => v != null ? v : '-', higher: true },
+                { label: 'Economy', key: 'economy', fmt: v => v != null ? v.toFixed(2) : '-', higher: false },
+                { label: 'Average', key: 'avg', fmt: v => v != null ? v.toFixed(1) : '-', higher: false },
+                { label: 'Dot%', key: 'dotPct', fmt: v => v != null ? v.toFixed(1) : '-', higher: true }
+            ];
+        }
+
+        let html = '<div style="margin-bottom: var(--space-3); background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--space-3); overflow: hidden;">';
+        html += '<div style="font-size: var(--text-sm); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-2);">Overall Career</div>';
+        html += '<table class="stats-table-multi" aria-label="Overall career stats" style="font-size: var(--text-xs);">';
+        html += '<tr><th style="text-align:left;">Metric</th>';
+        players.forEach(p => {
+            html += '<th class="col-' + SIDE_CSS_CLASS[p.side] + '">' + escapeHtml(p.data.career.name.split(' ').pop()) + '</th>';
+        });
+        html += '</tr>';
+
+        metrics.forEach(m => {
+            const values = players.map(p => p.data.career[m.key]);
+            const numVals = values.filter(v => typeof v === 'number');
+            let best = null, worst = null;
+            if (numVals.length >= 2) {
+                best = m.higher ? Math.max(...numVals) : Math.min(...numVals);
+                worst = m.higher ? Math.min(...numVals) : Math.max(...numVals);
+                if (best === worst) { best = null; worst = null; }
+            }
+            html += '<tr><td style="text-align:left;">' + m.label + '</td>';
+            values.forEach(v => {
+                let cls = '';
+                if (typeof v === 'number' && best !== null) {
+                    if (v === best) cls = 'val-better';
+                    else if (v === worst) cls = 'val-worse';
+                }
+                html += '<td class="' + cls + '">' + m.fmt(v) + '</td>';
+            });
+            html += '</tr>';
+        });
+
+        html += '</table></div>';
         return html;
     }
 
@@ -1833,27 +2010,29 @@
 
     // ==================== FORM & RANKING ====================
     function buildFormSection(dataA, dataB) {
-        const type = getEffectiveType();
         const players = getSelectedPlayers();
+        // For form section, each player uses their own type already via the conditional rendering below
+        const type = isMixedTypes() ? null : getEffectiveType();
         const colCount = players.length;
         const gridCols = colCount <= 2 ? '1fr 1fr' : 'repeat(' + colCount + ', 1fr)';
         let html = '<div class="form-grid" style="grid-template-columns: ' + gridCols + ';">';
 
-        players.map(p => ({ data: p.data, side: SIDE_CSS_CLASS[p.side] })).forEach(({ data, side }) => {
+        players.map(p => ({ data: p.data, side: SIDE_CSS_CLASS[p.side], id: p.id })).forEach(({ data, side, id }) => {
             const rf = data.recentForm;
             const rk = data.ranking;
+            const pType = type || detectPlayerType(id);
             html += '<div class="form-card ' + side + '">';
             html += '<div class="form-player-name">' + escapeHtml(data.career.name) + '</div>';
             html += '<div class="form-team">' + escapeHtml(rf.team || 'Unknown') + '</div>';
 
-            if (type === 'batter' && rf.last10Innings) {
+            if (pType === 'batter' && rf.last10Innings) {
                 html += '<div class="form-stat"><span class="form-stat-label">Last 10 Inn</span><span class="form-stat-value">' + rf.last10Innings + '</span></div>';
                 html += '<div class="form-stat"><span class="form-stat-label">Last 10 Runs</span><span class="form-stat-value">' + rf.last10Runs + '</span></div>';
                 html += '<div class="form-stat"><span class="form-stat-label">Recent SR</span><span class="form-stat-value">' + rf.last10Sr.toFixed(1) + '</span></div>';
                 html += '<div class="form-stat"><span class="form-stat-label">Recent Avg</span><span class="form-stat-value">' + rf.last10Avg.toFixed(1) + '</span></div>';
                 const srDelta = rf.srDelta || (rf.last10Sr - rf.careerSr);
                 html += '<div class="form-stat"><span class="form-stat-label">SR Delta</span><span class="form-stat-value ' + (srDelta >= 0 ? 'delta-positive' : 'delta-negative') + '">' + (srDelta >= 0 ? '+' : '') + srDelta.toFixed(1) + '</span></div>';
-            } else if (type === 'bowler' && rf.last10Matches) {
+            } else if (pType === 'bowler' && rf.last10Matches) {
                 html += '<div class="form-stat"><span class="form-stat-label">Last 10 Matches</span><span class="form-stat-value">' + rf.last10Matches + '</span></div>';
                 html += '<div class="form-stat"><span class="form-stat-label">Last 10 Wkts</span><span class="form-stat-value">' + rf.last10Wickets + '</span></div>';
                 html += '<div class="form-stat"><span class="form-stat-label">Recent Econ</span><span class="form-stat-value">' + rf.last10Economy.toFixed(2) + '</span></div>';
@@ -1875,10 +2054,11 @@
         html += '</div>';
 
         // Legend for Form section metrics
-        const poolSize = type === 'batter' ? Object.keys(COMPARISON_DATA.batters).length : Object.keys(COMPARISON_DATA.bowlers).length;
-        const typeLabel = type === 'batter' ? 'batters' : 'bowlers';
-        const deltaLabel = type === 'batter' ? 'SR Delta' : 'Econ Delta';
-        const deltaExplain = type === 'batter'
+        const legendType = type || 'batter'; // fallback for mixed
+        const poolSize = legendType === 'batter' ? Object.keys(COMPARISON_DATA.batters).length : Object.keys(COMPARISON_DATA.bowlers).length;
+        const typeLabel = legendType === 'batter' ? 'batters' : 'bowlers';
+        const deltaLabel = legendType === 'batter' ? 'SR Delta' : 'Econ Delta';
+        const deltaExplain = legendType === 'batter'
             ? 'Difference between recent form (last 10 innings) and career average. Positive SR delta = improving.'
             : 'Difference between recent form (last 10 matches) and career average. Negative economy delta = improving.';
         html += '<div style="font-size: var(--text-xs); color: var(--text-tertiary); margin-top: var(--space-3); padding: var(--space-2) var(--space-3); background: var(--glass); border-radius: var(--radius-md);">';
@@ -1892,9 +2072,15 @@
 
     // ==================== VERDICT CARD ====================
     function buildVerdict(dataA, dataB) {
+        const players = getSelectedPlayers();
+
+        // Mixed types: verdict not applicable
+        if (isMixedTypes()) {
+            return '<div class="verdict-card"><div class="verdict-title">Verdict</div><div class="verdict-details"><div class="verdict-detail"><div class="bullet"></div><div>Different player types selected — direct statistical comparison not applicable. Each player\'s stats are shown independently in the sections above.</div></div></div></div>';
+        }
+
         const type = getEffectiveType();
         const dims = getDimensions(type);
-        const players = getSelectedPlayers();
 
         // Build percentile map for each player
         const playerPercs = players.map(p => {
@@ -2094,6 +2280,14 @@
         return 'batter'; // fallback
     }
 
+    function isMixedTypes() {
+        if (state.playerType !== 'all') return false;
+        const players = getSelectedPlayers();
+        if (players.length < 2) return false;
+        const firstType = detectPlayerType(players[0].id);
+        return players.some(p => detectPlayerType(p.id) !== firstType);
+    }
+
     function setPlayerType(type) {
         if (state.playerType === type) return;
         state.playerType = type;
@@ -2103,7 +2297,7 @@
         state.playerD = null;
         state.activePhase = 'powerplay';
         state.activeHeatmapMetric = 'all';
-        state.activeMatchupType = null;
+        state.activeMatchupType = 'overall';
         // Reset team color CSS variables
         ['a', 'b', 'c', 'd'].forEach(s => {
             document.documentElement.style.removeProperty('--player-' + s);
@@ -2373,7 +2567,7 @@
 
     // ==================== MATCHUP TYPE FILTER ====================
     function switchMatchupType(val) {
-        state.activeMatchupType = val === 'all' ? null : val;
+        state.activeMatchupType = val;
         if (getSelectedPlayers().length >= 2) {
             const section = document.getElementById('matchupSection');
             if (section) {

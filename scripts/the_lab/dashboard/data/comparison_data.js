@@ -1,11 +1,11 @@
 /**
  * The Lab - Player Comparison Data
  * IPL Pre-Season Analytics (TKT-216 / EPIC-020)
- * Auto-generated: 2026-02-15T08:08:42Z
+ * Auto-generated: 2026-03-01T06:38:13Z
  * Generator: scripts/generators/generate_comparison_data.py
  *
- * Batters: 36 qualified (500+ balls faced)
- * Bowlers: 62 qualified (300+ balls bowled)
+ * Batters: 83 qualified (200+ balls faced)
+ * Bowlers: 79 qualified (200+ balls bowled)
  * Data window: IPL Since 2023
  */
 
@@ -246,13 +246,13 @@ const COMPARISON_DATA = {
       },
       "vsBowlingType": {
         "Fast": {
-          "balls": 336,
-          "runs": 485,
+          "balls": 338,
+          "runs": 493,
           "dismissals": 15,
-          "sr": 144.3,
-          "avg": 32.3,
-          "boundaryPct": 18.4,
-          "dotPct": 31.6
+          "sr": 145.9,
+          "avg": 32.9,
+          "boundaryPct": 18.9,
+          "dotPct": 31.4
         },
         "Fast-Medium": {
           "balls": 279,
@@ -441,13 +441,13 @@ const COMPARISON_DATA = {
       },
       "vsBowlingType": {
         "Fast": {
-          "balls": 368,
-          "runs": 532,
+          "balls": 378,
+          "runs": 550,
           "dismissals": 9,
-          "sr": 144.6,
-          "avg": 59.1,
-          "boundaryPct": 20.4,
-          "dotPct": 32.1
+          "sr": 145.5,
+          "avg": 61.1,
+          "boundaryPct": 20.9,
+          "dotPct": 32.3
         },
         "Fast-Medium": {
           "balls": 216,
@@ -1008,13 +1008,13 @@ const COMPARISON_DATA = {
       },
       "vsBowlingType": {
         "Fast": {
-          "balls": 191,
-          "runs": 338,
+          "balls": 199,
+          "runs": 350,
           "dismissals": 10,
-          "sr": 177.0,
-          "avg": 33.8,
-          "boundaryPct": 27.2,
-          "dotPct": 32.5
+          "sr": 175.9,
+          "avg": 35.0,
+          "boundaryPct": 27.1,
+          "dotPct": 32.2
         },
         "Fast-Medium": {
           "balls": 230,
@@ -1185,13 +1185,13 @@ const COMPARISON_DATA = {
       },
       "vsBowlingType": {
         "Fast": {
-          "balls": 230,
+          "balls": 232,
           "runs": 346,
-          "dismissals": 14,
-          "sr": 150.4,
-          "avg": 24.7,
-          "boundaryPct": 24.4,
-          "dotPct": 38.3
+          "dismissals": 16,
+          "sr": 149.1,
+          "avg": 21.6,
+          "boundaryPct": 24.1,
+          "dotPct": 38.8
         },
         "Fast-Medium": {
           "balls": 162,
@@ -1713,13 +1713,13 @@ const COMPARISON_DATA = {
       },
       "vsBowlingType": {
         "Fast": {
-          "balls": 242,
-          "runs": 381,
-          "dismissals": 12,
-          "sr": 157.4,
-          "avg": 31.8,
-          "boundaryPct": 23.6,
-          "dotPct": 37.2
+          "balls": 266,
+          "runs": 433,
+          "dismissals": 14,
+          "sr": 162.8,
+          "avg": 30.9,
+          "boundaryPct": 24.4,
+          "dotPct": 36.8
         },
         "Fast-Medium": {
           "balls": 215,
@@ -2058,13 +2058,13 @@ const COMPARISON_DATA = {
       },
       "vsBowlingType": {
         "Fast": {
-          "balls": 233,
-          "runs": 382,
-          "dismissals": 10,
-          "sr": 163.9,
-          "avg": 38.2,
-          "boundaryPct": 27.5,
-          "dotPct": 41.6
+          "balls": 243,
+          "runs": 406,
+          "dismissals": 12,
+          "sr": 167.1,
+          "avg": 33.8,
+          "boundaryPct": 28.0,
+          "dotPct": 42.4
         },
         "Fast-Medium": {
           "balls": 215,
@@ -2607,13 +2607,13 @@ const COMPARISON_DATA = {
       },
       "vsBowlingType": {
         "Fast": {
-          "balls": 193,
-          "runs": 315,
+          "balls": 205,
+          "runs": 327,
           "dismissals": 10,
-          "sr": 163.2,
-          "avg": 31.5,
-          "boundaryPct": 24.4,
-          "dotPct": 35.8
+          "sr": 159.5,
+          "avg": 32.7,
+          "boundaryPct": 23.9,
+          "dotPct": 36.6
         },
         "Fast-Medium": {
           "balls": 220,
@@ -4560,13 +4560,13 @@ const COMPARISON_DATA = {
       },
       "vsBowlingType": {
         "Fast": {
-          "balls": 176,
-          "runs": 301,
+          "balls": 184,
+          "runs": 313,
           "dismissals": 8,
-          "sr": 171.0,
-          "avg": 37.6,
-          "boundaryPct": 25.6,
-          "dotPct": 27.8
+          "sr": 170.1,
+          "avg": 39.1,
+          "boundaryPct": 25.5,
+          "dotPct": 27.7
         },
         "Fast-Medium": {
           "balls": 129,
@@ -5454,13 +5454,13 @@ const COMPARISON_DATA = {
       },
       "vsBowlingType": {
         "Fast": {
-          "balls": 125,
+          "balls": 127,
           "runs": 182,
-          "dismissals": 9,
-          "sr": 145.6,
-          "avg": 20.2,
-          "boundaryPct": 16.8,
-          "dotPct": 32.8
+          "dismissals": 11,
+          "sr": 143.3,
+          "avg": 16.6,
+          "boundaryPct": 16.5,
+          "dotPct": 33.9
         },
         "Fast-Medium": {
           "balls": 135,
@@ -5741,6 +5741,153 @@ const COMPARISON_DATA = {
         "sampleFactor": 1.0
       }
     },
+    "dcce6f09": {
+      "career": {
+        "name": "DA Warner",
+        "innings": 22,
+        "runs": 684,
+        "balls": 516,
+        "dismissals": 21,
+        "hs": 86,
+        "fifties": 7,
+        "hundreds": 0,
+        "fours": 86,
+        "sixes": 20,
+        "dots": 217,
+        "sr": 132.6,
+        "avg": 32.6,
+        "boundaryPct": 20.5,
+        "dotPct": 42.0
+      },
+      "phases": {
+        "death": {
+          "innings": 4,
+          "runs": 32,
+          "balls": 29,
+          "sr": 110.3,
+          "avg": 8.0,
+          "boundaryPct": 10.3,
+          "dotPct": 34.5
+        },
+        "middle": {
+          "innings": 12,
+          "runs": 228,
+          "balls": 195,
+          "sr": 116.9,
+          "avg": 28.5,
+          "boundaryPct": 12.8,
+          "dotPct": 31.3
+        },
+        "powerplay": {
+          "innings": 22,
+          "runs": 424,
+          "balls": 292,
+          "sr": 145.2,
+          "avg": 47.1,
+          "boundaryPct": 26.7,
+          "dotPct": 50.0
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 154,
+          "runs": 197,
+          "dismissals": 9,
+          "sr": 127.9,
+          "avg": 21.9,
+          "boundaryPct": 20.8,
+          "dotPct": 46.8
+        },
+        "Fast-Medium": {
+          "balls": 114,
+          "runs": 175,
+          "dismissals": 4,
+          "sr": 153.5,
+          "avg": 43.8,
+          "boundaryPct": 28.1,
+          "dotPct": 46.5
+        },
+        "LA Orthodox": {
+          "balls": 37,
+          "runs": 65,
+          "dismissals": 2,
+          "sr": 175.7,
+          "avg": 32.5,
+          "boundaryPct": 27.0,
+          "dotPct": 27.0
+        },
+        "Left-arm orthodox": {
+          "balls": 8,
+          "runs": 5,
+          "dismissals": 0,
+          "sr": 62.5,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 37.5
+        },
+        "Left-arm pace": {
+          "balls": 33,
+          "runs": 40,
+          "dismissals": 2,
+          "sr": 121.2,
+          "avg": 20.0,
+          "boundaryPct": 21.2,
+          "dotPct": 48.5
+        },
+        "Leg-spin": {
+          "balls": 37,
+          "runs": 40,
+          "dismissals": 1,
+          "sr": 108.1,
+          "avg": 40.0,
+          "boundaryPct": 8.1,
+          "dotPct": 27.0
+        },
+        "Off-spin": {
+          "balls": 30,
+          "runs": 41,
+          "dismissals": 2,
+          "sr": 136.7,
+          "avg": 20.5,
+          "boundaryPct": 23.3,
+          "dotPct": 43.3
+        },
+        "Right-arm leg-spin": {
+          "balls": 15,
+          "runs": 25,
+          "dismissals": 0,
+          "sr": 166.7,
+          "avg": null,
+          "boundaryPct": 13.3,
+          "dotPct": 6.7
+        },
+        "Right-arm off-spin": {
+          "balls": 36,
+          "runs": 44,
+          "dismissals": 0,
+          "sr": 122.2,
+          "avg": null,
+          "boundaryPct": 13.9,
+          "dotPct": 30.6
+        },
+        "Right-arm pace": {
+          "balls": 52,
+          "runs": 52,
+          "dismissals": 1,
+          "sr": 100.0,
+          "avg": 52.0,
+          "boundaryPct": 15.4,
+          "dotPct": 53.9
+        }
+      },
+      "recentForm": {},
+      "ranking": {
+        "rank": 27,
+        "composite": 43.3,
+        "rawScore": 43.3,
+        "sampleFactor": 1.0
+      }
+    },
     "3d8feaf8": {
       "career": {
         "name": "MR Marsh",
@@ -5918,153 +6065,6 @@ const COMPARISON_DATA = {
         "sampleFactor": 1.0
       }
     },
-    "dcce6f09": {
-      "career": {
-        "name": "DA Warner",
-        "innings": 22,
-        "runs": 684,
-        "balls": 516,
-        "dismissals": 21,
-        "hs": 86,
-        "fifties": 7,
-        "hundreds": 0,
-        "fours": 86,
-        "sixes": 20,
-        "dots": 217,
-        "sr": 132.6,
-        "avg": 32.6,
-        "boundaryPct": 20.5,
-        "dotPct": 42.0
-      },
-      "phases": {
-        "death": {
-          "innings": 4,
-          "runs": 32,
-          "balls": 29,
-          "sr": 110.3,
-          "avg": 8.0,
-          "boundaryPct": 10.3,
-          "dotPct": 34.5
-        },
-        "middle": {
-          "innings": 12,
-          "runs": 228,
-          "balls": 195,
-          "sr": 116.9,
-          "avg": 28.5,
-          "boundaryPct": 12.8,
-          "dotPct": 31.3
-        },
-        "powerplay": {
-          "innings": 22,
-          "runs": 424,
-          "balls": 292,
-          "sr": 145.2,
-          "avg": 47.1,
-          "boundaryPct": 26.7,
-          "dotPct": 50.0
-        }
-      },
-      "vsBowlingType": {
-        "Fast": {
-          "balls": 154,
-          "runs": 197,
-          "dismissals": 9,
-          "sr": 127.9,
-          "avg": 21.9,
-          "boundaryPct": 20.8,
-          "dotPct": 46.8
-        },
-        "Fast-Medium": {
-          "balls": 114,
-          "runs": 175,
-          "dismissals": 4,
-          "sr": 153.5,
-          "avg": 43.8,
-          "boundaryPct": 28.1,
-          "dotPct": 46.5
-        },
-        "LA Orthodox": {
-          "balls": 37,
-          "runs": 65,
-          "dismissals": 2,
-          "sr": 175.7,
-          "avg": 32.5,
-          "boundaryPct": 27.0,
-          "dotPct": 27.0
-        },
-        "Left-arm orthodox": {
-          "balls": 8,
-          "runs": 5,
-          "dismissals": 0,
-          "sr": 62.5,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 37.5
-        },
-        "Left-arm pace": {
-          "balls": 33,
-          "runs": 40,
-          "dismissals": 2,
-          "sr": 121.2,
-          "avg": 20.0,
-          "boundaryPct": 21.2,
-          "dotPct": 48.5
-        },
-        "Leg-spin": {
-          "balls": 37,
-          "runs": 40,
-          "dismissals": 1,
-          "sr": 108.1,
-          "avg": 40.0,
-          "boundaryPct": 8.1,
-          "dotPct": 27.0
-        },
-        "Off-spin": {
-          "balls": 30,
-          "runs": 41,
-          "dismissals": 2,
-          "sr": 136.7,
-          "avg": 20.5,
-          "boundaryPct": 23.3,
-          "dotPct": 43.3
-        },
-        "Right-arm leg-spin": {
-          "balls": 15,
-          "runs": 25,
-          "dismissals": 0,
-          "sr": 166.7,
-          "avg": null,
-          "boundaryPct": 13.3,
-          "dotPct": 6.7
-        },
-        "Right-arm off-spin": {
-          "balls": 36,
-          "runs": 44,
-          "dismissals": 0,
-          "sr": 122.2,
-          "avg": null,
-          "boundaryPct": 13.9,
-          "dotPct": 30.6
-        },
-        "Right-arm pace": {
-          "balls": 52,
-          "runs": 52,
-          "dismissals": 1,
-          "sr": 100.0,
-          "avg": 52.0,
-          "boundaryPct": 15.4,
-          "dotPct": 53.9
-        }
-      },
-      "recentForm": {},
-      "ranking": {
-        "rank": 27,
-        "composite": 43.3,
-        "rawScore": 43.3,
-        "sampleFactor": 1.0
-      }
-    },
     "d1a60072": {
       "career": {
         "name": "N Wadhera",
@@ -6114,13 +6114,13 @@ const COMPARISON_DATA = {
       },
       "vsBowlingType": {
         "Fast": {
-          "balls": 139,
-          "runs": 193,
+          "balls": 163,
+          "runs": 235,
           "dismissals": 8,
-          "sr": 138.8,
-          "avg": 24.1,
-          "boundaryPct": 20.9,
-          "dotPct": 45.3
+          "sr": 144.2,
+          "avg": 29.4,
+          "boundaryPct": 22.7,
+          "dotPct": 47.2
         },
         "Fast-Medium": {
           "balls": 69,
@@ -6427,6 +6427,7265 @@ const COMPARISON_DATA = {
         "rawScore": 18.7,
         "sampleFactor": 1.0
       }
+    },
+    "919a3be2": {
+      "career": {
+        "name": "RR Pant",
+        "innings": 26,
+        "runs": 715,
+        "balls": 489,
+        "dismissals": 22,
+        "hs": 118,
+        "fifties": 5,
+        "hundreds": 1,
+        "fours": 59,
+        "sixes": 41,
+        "dots": 181,
+        "sr": 146.2,
+        "avg": 32.5,
+        "boundaryPct": 20.4,
+        "dotPct": 37.0
+      },
+      "phases": {
+        "death": {
+          "innings": 11,
+          "runs": 210,
+          "balls": 100,
+          "sr": 210.0,
+          "avg": 26.2,
+          "boundaryPct": 31.0,
+          "dotPct": 29.0
+        },
+        "middle": {
+          "innings": 22,
+          "runs": 428,
+          "balls": 317,
+          "sr": 135.0,
+          "avg": 32.9,
+          "boundaryPct": 18.0,
+          "dotPct": 35.0
+        },
+        "powerplay": {
+          "innings": 11,
+          "runs": 77,
+          "balls": 72,
+          "sr": 106.9,
+          "avg": 77.0,
+          "boundaryPct": 16.7,
+          "dotPct": 56.9
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 149,
+          "runs": 263,
+          "dismissals": 7,
+          "sr": 176.5,
+          "avg": 37.6,
+          "boundaryPct": 26.9,
+          "dotPct": 32.9
+        },
+        "Fast-Medium": {
+          "balls": 79,
+          "runs": 93,
+          "dismissals": 4,
+          "sr": 117.7,
+          "avg": 23.2,
+          "boundaryPct": 16.5,
+          "dotPct": 48.1
+        },
+        "LA Orthodox": {
+          "balls": 29,
+          "runs": 37,
+          "dismissals": 0,
+          "sr": 127.6,
+          "avg": null,
+          "boundaryPct": 17.2,
+          "dotPct": 34.5
+        },
+        "Left-arm pace": {
+          "balls": 6,
+          "runs": 13,
+          "dismissals": 0,
+          "sr": 216.7,
+          "avg": null,
+          "boundaryPct": 33.3,
+          "dotPct": 16.7
+        },
+        "Leg-spin": {
+          "balls": 68,
+          "runs": 105,
+          "dismissals": 4,
+          "sr": 154.4,
+          "avg": 26.2,
+          "boundaryPct": 22.1,
+          "dotPct": 30.9
+        },
+        "Off-spin": {
+          "balls": 31,
+          "runs": 28,
+          "dismissals": 3,
+          "sr": 90.3,
+          "avg": 9.3,
+          "boundaryPct": 6.5,
+          "dotPct": 45.2
+        },
+        "Right-arm leg-spin": {
+          "balls": 10,
+          "runs": 11,
+          "dismissals": 0,
+          "sr": 110.0,
+          "avg": null,
+          "boundaryPct": 10.0,
+          "dotPct": 20.0
+        },
+        "Right-arm off-spin": {
+          "balls": 23,
+          "runs": 22,
+          "dismissals": 1,
+          "sr": 95.7,
+          "avg": 22.0,
+          "boundaryPct": 8.7,
+          "dotPct": 30.4
+        },
+        "Right-arm pace": {
+          "balls": 57,
+          "runs": 115,
+          "dismissals": 2,
+          "sr": 201.8,
+          "avg": 57.5,
+          "boundaryPct": 29.8,
+          "dotPct": 31.6
+        },
+        "Wrist-spin": {
+          "balls": 37,
+          "runs": 28,
+          "dismissals": 1,
+          "sr": 75.7,
+          "avg": 28.0,
+          "boundaryPct": 8.1,
+          "dotPct": 56.8
+        }
+      },
+      "recentForm": {
+        "team": "Lucknow Super Giants",
+        "last10Innings": 10,
+        "last10Runs": 252,
+        "last10Balls": 176,
+        "last10Sr": 143.2,
+        "last10Avg": 31.5,
+        "last10BoundaryPct": 21.6,
+        "last10DotPct": 43.8,
+        "careerSr": 148.2,
+        "careerAvg": 34.8,
+        "srDelta": -5.0
+      },
+      "ranking": {}
+    },
+    "800d2d97": {
+      "career": {
+        "name": "JM Sharma",
+        "innings": 37,
+        "runs": 757,
+        "balls": 485,
+        "dismissals": 31,
+        "hs": 85,
+        "fifties": 1,
+        "hundreds": 0,
+        "fours": 55,
+        "sixes": 50,
+        "dots": 175,
+        "sr": 156.1,
+        "avg": 24.4,
+        "boundaryPct": 21.6,
+        "dotPct": 36.1
+      },
+      "phases": {
+        "death": {
+          "innings": 23,
+          "runs": 341,
+          "balls": 178,
+          "sr": 191.6,
+          "avg": 20.1,
+          "boundaryPct": 28.1,
+          "dotPct": 32.0
+        },
+        "middle": {
+          "innings": 25,
+          "runs": 404,
+          "balls": 285,
+          "sr": 141.8,
+          "avg": 36.7,
+          "boundaryPct": 18.6,
+          "dotPct": 35.8
+        },
+        "powerplay": {
+          "innings": 4,
+          "runs": 12,
+          "balls": 22,
+          "sr": 54.5,
+          "avg": 4.0,
+          "boundaryPct": 9.1,
+          "dotPct": 72.7
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 145,
+          "runs": 211,
+          "dismissals": 10,
+          "sr": 145.5,
+          "avg": 21.1,
+          "boundaryPct": 20.0,
+          "dotPct": 38.6
+        },
+        "Fast-Medium": {
+          "balls": 111,
+          "runs": 170,
+          "dismissals": 5,
+          "sr": 153.2,
+          "avg": 34.0,
+          "boundaryPct": 23.4,
+          "dotPct": 40.5
+        },
+        "LA Orthodox": {
+          "balls": 15,
+          "runs": 23,
+          "dismissals": 3,
+          "sr": 153.3,
+          "avg": 7.7,
+          "boundaryPct": 20.0,
+          "dotPct": 33.3
+        },
+        "Left-arm orthodox": {
+          "balls": 9,
+          "runs": 31,
+          "dismissals": 0,
+          "sr": 344.4,
+          "avg": null,
+          "boundaryPct": 55.6,
+          "dotPct": 11.1
+        },
+        "Left-arm pace": {
+          "balls": 7,
+          "runs": 18,
+          "dismissals": 1,
+          "sr": 257.1,
+          "avg": 18.0,
+          "boundaryPct": 42.9,
+          "dotPct": 28.6
+        },
+        "Leg-spin": {
+          "balls": 75,
+          "runs": 111,
+          "dismissals": 4,
+          "sr": 148.0,
+          "avg": 27.8,
+          "boundaryPct": 18.7,
+          "dotPct": 33.3
+        },
+        "Medium": {
+          "balls": 6,
+          "runs": 11,
+          "dismissals": 1,
+          "sr": 183.3,
+          "avg": 11.0,
+          "boundaryPct": 33.3,
+          "dotPct": 50.0
+        },
+        "Off-spin": {
+          "balls": 16,
+          "runs": 22,
+          "dismissals": 1,
+          "sr": 137.5,
+          "avg": 22.0,
+          "boundaryPct": 12.5,
+          "dotPct": 37.5
+        },
+        "Right-arm leg-spin": {
+          "balls": 11,
+          "runs": 19,
+          "dismissals": 0,
+          "sr": 172.7,
+          "avg": null,
+          "boundaryPct": 18.2,
+          "dotPct": 9.1
+        },
+        "Right-arm off-spin": {
+          "balls": 11,
+          "runs": 16,
+          "dismissals": 0,
+          "sr": 145.4,
+          "avg": null,
+          "boundaryPct": 18.2,
+          "dotPct": 45.5
+        },
+        "Right-arm pace": {
+          "balls": 64,
+          "runs": 91,
+          "dismissals": 6,
+          "sr": 142.2,
+          "avg": 15.2,
+          "boundaryPct": 20.3,
+          "dotPct": 40.6
+        },
+        "Wrist-spin": {
+          "balls": 20,
+          "runs": 21,
+          "dismissals": 3,
+          "sr": 105.0,
+          "avg": 7.0,
+          "boundaryPct": 10.0,
+          "dotPct": 40.0
+        }
+      },
+      "recentForm": {
+        "team": "Royal Challengers Bengaluru",
+        "last10Innings": 10,
+        "last10Runs": 249,
+        "last10Balls": 141,
+        "last10Sr": 176.6,
+        "last10Avg": 41.5,
+        "last10BoundaryPct": 27.7,
+        "last10DotPct": 33.3,
+        "careerSr": 157.8,
+        "careerAvg": 25.4,
+        "srDelta": 18.8
+      },
+      "ranking": {}
+    },
+    "fb2d1dda": {
+      "career": {
+        "name": "N Rana",
+        "innings": 27,
+        "runs": 672,
+        "balls": 460,
+        "dismissals": 25,
+        "hs": 81,
+        "fifties": 5,
+        "hundreds": 0,
+        "fours": 71,
+        "sixes": 30,
+        "dots": 173,
+        "sr": 146.1,
+        "avg": 26.9,
+        "boundaryPct": 22.0,
+        "dotPct": 37.6
+      },
+      "phases": {
+        "death": {
+          "innings": 6,
+          "runs": 71,
+          "balls": 37,
+          "sr": 191.9,
+          "avg": 17.8,
+          "boundaryPct": 29.7,
+          "dotPct": 32.4
+        },
+        "middle": {
+          "innings": 22,
+          "runs": 410,
+          "balls": 291,
+          "sr": 140.9,
+          "avg": 24.1,
+          "boundaryPct": 19.6,
+          "dotPct": 32.3
+        },
+        "powerplay": {
+          "innings": 19,
+          "runs": 191,
+          "balls": 132,
+          "sr": 144.7,
+          "avg": 47.8,
+          "boundaryPct": 25.0,
+          "dotPct": 50.8
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 155,
+          "runs": 265,
+          "dismissals": 4,
+          "sr": 171.0,
+          "avg": 66.2,
+          "boundaryPct": 29.7,
+          "dotPct": 41.9
+        },
+        "Fast-Medium": {
+          "balls": 80,
+          "runs": 96,
+          "dismissals": 5,
+          "sr": 120.0,
+          "avg": 19.2,
+          "boundaryPct": 17.5,
+          "dotPct": 48.8
+        },
+        "LA Orthodox": {
+          "balls": 23,
+          "runs": 33,
+          "dismissals": 2,
+          "sr": 143.5,
+          "avg": 16.5,
+          "boundaryPct": 21.7,
+          "dotPct": 30.4
+        },
+        "Left-arm orthodox": {
+          "balls": 3,
+          "runs": 1,
+          "dismissals": 1,
+          "sr": 33.3,
+          "avg": 1.0,
+          "boundaryPct": 0.0,
+          "dotPct": 66.7
+        },
+        "Left-arm pace": {
+          "balls": 13,
+          "runs": 22,
+          "dismissals": 1,
+          "sr": 169.2,
+          "avg": 22.0,
+          "boundaryPct": 30.8,
+          "dotPct": 38.5
+        },
+        "Leg-spin": {
+          "balls": 50,
+          "runs": 54,
+          "dismissals": 6,
+          "sr": 108.0,
+          "avg": 9.0,
+          "boundaryPct": 12.0,
+          "dotPct": 38.0
+        },
+        "Off-Spin/Leg-Spin": {
+          "balls": 7,
+          "runs": 17,
+          "dismissals": 0,
+          "sr": 242.9,
+          "avg": null,
+          "boundaryPct": 42.9,
+          "dotPct": 14.3
+        },
+        "Off-spin": {
+          "balls": 21,
+          "runs": 26,
+          "dismissals": 1,
+          "sr": 123.8,
+          "avg": 26.0,
+          "boundaryPct": 9.5,
+          "dotPct": 23.8
+        },
+        "Right-arm leg-spin": {
+          "balls": 10,
+          "runs": 8,
+          "dismissals": 0,
+          "sr": 80.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 40.0
+        },
+        "Right-arm off-spin": {
+          "balls": 62,
+          "runs": 93,
+          "dismissals": 3,
+          "sr": 150.0,
+          "avg": 31.0,
+          "boundaryPct": 21.0,
+          "dotPct": 25.8
+        },
+        "Right-arm pace": {
+          "balls": 17,
+          "runs": 23,
+          "dismissals": 1,
+          "sr": 135.3,
+          "avg": 23.0,
+          "boundaryPct": 17.6,
+          "dotPct": 41.2
+        },
+        "Wrist-spin": {
+          "balls": 12,
+          "runs": 22,
+          "dismissals": 0,
+          "sr": 183.3,
+          "avg": null,
+          "boundaryPct": 25.0,
+          "dotPct": 8.3
+        }
+      },
+      "recentForm": {
+        "team": "Delhi Capitals",
+        "last10Innings": 10,
+        "last10Runs": 206,
+        "last10Balls": 126,
+        "last10Sr": 163.5,
+        "last10Avg": 22.9,
+        "last10BoundaryPct": 27.0,
+        "last10DotPct": 34.9,
+        "careerSr": 137.2,
+        "careerAvg": 28.0,
+        "srDelta": 26.3
+      },
+      "ranking": {}
+    },
+    "eaa76d3c": {
+      "career": {
+        "name": "C Green",
+        "innings": 28,
+        "runs": 707,
+        "balls": 457,
+        "dismissals": 17,
+        "hs": 100,
+        "fifties": 3,
+        "hundreds": 1,
+        "fours": 62,
+        "sixes": 32,
+        "dots": 132,
+        "sr": 154.7,
+        "avg": 41.6,
+        "boundaryPct": 20.6,
+        "dotPct": 28.9
+      },
+      "phases": {
+        "death": {
+          "innings": 13,
+          "runs": 204,
+          "balls": 102,
+          "sr": 200.0,
+          "avg": 102.0,
+          "boundaryPct": 27.4,
+          "dotPct": 13.7
+        },
+        "middle": {
+          "innings": 18,
+          "runs": 307,
+          "balls": 236,
+          "sr": 130.1,
+          "avg": 27.9,
+          "boundaryPct": 13.6,
+          "dotPct": 31.4
+        },
+        "powerplay": {
+          "innings": 16,
+          "runs": 196,
+          "balls": 119,
+          "sr": 164.7,
+          "avg": 49.0,
+          "boundaryPct": 28.6,
+          "dotPct": 37.0
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 138,
+          "runs": 230,
+          "dismissals": 6,
+          "sr": 166.7,
+          "avg": 38.3,
+          "boundaryPct": 23.9,
+          "dotPct": 23.9
+        },
+        "Fast-Medium": {
+          "balls": 81,
+          "runs": 131,
+          "dismissals": 3,
+          "sr": 161.7,
+          "avg": 43.7,
+          "boundaryPct": 25.9,
+          "dotPct": 30.9
+        },
+        "LA Orthodox": {
+          "balls": 47,
+          "runs": 55,
+          "dismissals": 1,
+          "sr": 117.0,
+          "avg": 55.0,
+          "boundaryPct": 14.9,
+          "dotPct": 38.3
+        },
+        "Left-arm orthodox": {
+          "balls": 14,
+          "runs": 25,
+          "dismissals": 0,
+          "sr": 178.6,
+          "avg": null,
+          "boundaryPct": 28.6,
+          "dotPct": 35.7
+        },
+        "Left-arm pace": {
+          "balls": 21,
+          "runs": 24,
+          "dismissals": 4,
+          "sr": 114.3,
+          "avg": 6.0,
+          "boundaryPct": 19.1,
+          "dotPct": 52.4
+        },
+        "Leg-spin": {
+          "balls": 56,
+          "runs": 79,
+          "dismissals": 0,
+          "sr": 141.1,
+          "avg": null,
+          "boundaryPct": 14.3,
+          "dotPct": 21.4
+        },
+        "Off-Spin/Leg-Spin": {
+          "balls": 12,
+          "runs": 12,
+          "dismissals": 0,
+          "sr": 100.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 16.7
+        },
+        "Off-spin": {
+          "balls": 20,
+          "runs": 38,
+          "dismissals": 1,
+          "sr": 190.0,
+          "avg": 38.0,
+          "boundaryPct": 30.0,
+          "dotPct": 40.0
+        },
+        "Right-arm off-spin": {
+          "balls": 31,
+          "runs": 31,
+          "dismissals": 2,
+          "sr": 100.0,
+          "avg": 15.5,
+          "boundaryPct": 6.5,
+          "dotPct": 29.0
+        },
+        "Right-arm pace": {
+          "balls": 19,
+          "runs": 26,
+          "dismissals": 2,
+          "sr": 136.8,
+          "avg": 13.0,
+          "boundaryPct": 21.1,
+          "dotPct": 36.8
+        },
+        "Wrist-spin": {
+          "balls": 29,
+          "runs": 54,
+          "dismissals": 1,
+          "sr": 186.2,
+          "avg": 54.0,
+          "boundaryPct": 20.7,
+          "dotPct": 37.9
+        }
+      },
+      "recentForm": {
+        "team": "Kolkata Knight Riders",
+        "last10Innings": 10,
+        "last10Runs": 234,
+        "last10Balls": 151,
+        "last10Sr": 155.0,
+        "last10Avg": 39.0,
+        "last10BoundaryPct": 20.5,
+        "last10DotPct": 27.1,
+        "careerSr": 154.7,
+        "careerAvg": 41.6,
+        "srDelta": 0.3
+      },
+      "ranking": {}
+    },
+    "26989d80": {
+      "career": {
+        "name": "Shashank Singh",
+        "innings": 28,
+        "runs": 704,
+        "balls": 443,
+        "dismissals": 14,
+        "hs": 68,
+        "fifties": 5,
+        "hundreds": 0,
+        "fours": 51,
+        "sixes": 39,
+        "dots": 121,
+        "sr": 158.9,
+        "avg": 50.3,
+        "boundaryPct": 20.3,
+        "dotPct": 27.3
+      },
+      "phases": {
+        "death": {
+          "innings": 20,
+          "runs": 377,
+          "balls": 187,
+          "sr": 201.6,
+          "avg": 53.9,
+          "boundaryPct": 27.8,
+          "dotPct": 19.8
+        },
+        "middle": {
+          "innings": 20,
+          "runs": 293,
+          "balls": 231,
+          "sr": 126.8,
+          "avg": 48.8,
+          "boundaryPct": 13.8,
+          "dotPct": 32.0
+        },
+        "powerplay": {
+          "innings": 4,
+          "runs": 34,
+          "balls": 25,
+          "sr": 136.0,
+          "avg": 34.0,
+          "boundaryPct": 24.0,
+          "dotPct": 40.0
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 136,
+          "runs": 221,
+          "dismissals": 5,
+          "sr": 162.5,
+          "avg": 44.2,
+          "boundaryPct": 19.9,
+          "dotPct": 26.5
+        },
+        "Fast-Medium": {
+          "balls": 69,
+          "runs": 130,
+          "dismissals": 4,
+          "sr": 188.4,
+          "avg": 32.5,
+          "boundaryPct": 29.0,
+          "dotPct": 21.7
+        },
+        "LA Orthodox": {
+          "balls": 51,
+          "runs": 51,
+          "dismissals": 3,
+          "sr": 100.0,
+          "avg": 17.0,
+          "boundaryPct": 9.8,
+          "dotPct": 41.2
+        },
+        "Left-arm orthodox": {
+          "balls": 4,
+          "runs": 4,
+          "dismissals": 0,
+          "sr": 100.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 0.0
+        },
+        "Left-arm pace": {
+          "balls": 15,
+          "runs": 19,
+          "dismissals": 1,
+          "sr": 126.7,
+          "avg": 19.0,
+          "boundaryPct": 20.0,
+          "dotPct": 53.3
+        },
+        "Leg-spin": {
+          "balls": 44,
+          "runs": 74,
+          "dismissals": 1,
+          "sr": 168.2,
+          "avg": 74.0,
+          "boundaryPct": 18.2,
+          "dotPct": 20.4
+        },
+        "Medium": {
+          "balls": 9,
+          "runs": 27,
+          "dismissals": 0,
+          "sr": 300.0,
+          "avg": null,
+          "boundaryPct": 44.4,
+          "dotPct": 0.0
+        },
+        "Medium-Fast": {
+          "balls": 1,
+          "runs": 1,
+          "dismissals": 0,
+          "sr": 100.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 0.0
+        },
+        "Off-spin": {
+          "balls": 35,
+          "runs": 47,
+          "dismissals": 0,
+          "sr": 134.3,
+          "avg": null,
+          "boundaryPct": 14.3,
+          "dotPct": 34.3
+        },
+        "Right-arm off-spin": {
+          "balls": 14,
+          "runs": 22,
+          "dismissals": 0,
+          "sr": 157.1,
+          "avg": null,
+          "boundaryPct": 14.3,
+          "dotPct": 28.6
+        },
+        "Right-arm pace": {
+          "balls": 54,
+          "runs": 105,
+          "dismissals": 0,
+          "sr": 194.4,
+          "avg": null,
+          "boundaryPct": 29.6,
+          "dotPct": 18.5
+        },
+        "Wrist-spin": {
+          "balls": 25,
+          "runs": 41,
+          "dismissals": 0,
+          "sr": 164.0,
+          "avg": null,
+          "boundaryPct": 20.0,
+          "dotPct": 36.0
+        }
+      },
+      "recentForm": {
+        "team": "Punjab Kings",
+        "last10Innings": 10,
+        "last10Runs": 242,
+        "last10Balls": 160,
+        "last10Sr": 151.2,
+        "last10Avg": 40.3,
+        "last10BoundaryPct": 17.5,
+        "last10DotPct": 26.9,
+        "careerSr": 157.8,
+        "careerAvg": 42.9,
+        "srDelta": -6.5
+      },
+      "ranking": {}
+    },
+    "bcf325d2": {
+      "career": {
+        "name": "Dhruv Jurel",
+        "innings": 35,
+        "runs": 680,
+        "balls": 442,
+        "dismissals": 22,
+        "hs": 70,
+        "fifties": 4,
+        "hundreds": 0,
+        "fours": 51,
+        "sixes": 38,
+        "dots": 134,
+        "sr": 153.8,
+        "avg": 30.9,
+        "boundaryPct": 20.1,
+        "dotPct": 30.3
+      },
+      "phases": {
+        "death": {
+          "innings": 25,
+          "runs": 410,
+          "balls": 229,
+          "sr": 179.0,
+          "avg": 31.5,
+          "boundaryPct": 24.0,
+          "dotPct": 22.7
+        },
+        "middle": {
+          "innings": 22,
+          "runs": 247,
+          "balls": 200,
+          "sr": 123.5,
+          "avg": 27.4,
+          "boundaryPct": 15.0,
+          "dotPct": 38.5
+        },
+        "powerplay": {
+          "innings": 3,
+          "runs": 23,
+          "balls": 13,
+          "sr": 176.9,
+          "avg": null,
+          "boundaryPct": 30.8,
+          "dotPct": 38.5
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 106,
+          "runs": 171,
+          "dismissals": 6,
+          "sr": 161.3,
+          "avg": 28.5,
+          "boundaryPct": 20.8,
+          "dotPct": 23.6
+        },
+        "Fast-Medium": {
+          "balls": 112,
+          "runs": 206,
+          "dismissals": 6,
+          "sr": 183.9,
+          "avg": 34.3,
+          "boundaryPct": 27.7,
+          "dotPct": 25.9
+        },
+        "LA Orthodox": {
+          "balls": 61,
+          "runs": 75,
+          "dismissals": 0,
+          "sr": 123.0,
+          "avg": null,
+          "boundaryPct": 14.8,
+          "dotPct": 36.1
+        },
+        "Left-arm orthodox": {
+          "balls": 5,
+          "runs": 10,
+          "dismissals": 0,
+          "sr": 200.0,
+          "avg": null,
+          "boundaryPct": 40.0,
+          "dotPct": 20.0
+        },
+        "Left-arm pace": {
+          "balls": 16,
+          "runs": 19,
+          "dismissals": 1,
+          "sr": 118.8,
+          "avg": 19.0,
+          "boundaryPct": 12.5,
+          "dotPct": 43.8
+        },
+        "Leg-spin": {
+          "balls": 42,
+          "runs": 60,
+          "dismissals": 1,
+          "sr": 142.9,
+          "avg": 60.0,
+          "boundaryPct": 14.3,
+          "dotPct": 35.7
+        },
+        "Medium": {
+          "balls": 7,
+          "runs": 14,
+          "dismissals": 1,
+          "sr": 200.0,
+          "avg": 14.0,
+          "boundaryPct": 28.6,
+          "dotPct": 14.3
+        },
+        "Off-spin": {
+          "balls": 13,
+          "runs": 10,
+          "dismissals": 2,
+          "sr": 76.9,
+          "avg": 5.0,
+          "boundaryPct": 7.7,
+          "dotPct": 61.5
+        },
+        "Right-arm leg-spin": {
+          "balls": 12,
+          "runs": 10,
+          "dismissals": 1,
+          "sr": 83.3,
+          "avg": 10.0,
+          "boundaryPct": 8.3,
+          "dotPct": 58.3
+        },
+        "Right-arm off-spin": {
+          "balls": 19,
+          "runs": 21,
+          "dismissals": 1,
+          "sr": 110.5,
+          "avg": 21.0,
+          "boundaryPct": 10.5,
+          "dotPct": 31.6
+        },
+        "Right-arm pace": {
+          "balls": 28,
+          "runs": 54,
+          "dismissals": 1,
+          "sr": 192.9,
+          "avg": 54.0,
+          "boundaryPct": 25.0,
+          "dotPct": 28.6
+        },
+        "Wrist-spin": {
+          "balls": 21,
+          "runs": 30,
+          "dismissals": 2,
+          "sr": 142.9,
+          "avg": 15.0,
+          "boundaryPct": 19.1,
+          "dotPct": 23.8
+        }
+      },
+      "recentForm": {
+        "team": "Rajasthan Royals",
+        "last10Innings": 10,
+        "last10Runs": 227,
+        "last10Balls": 143,
+        "last10Sr": 158.7,
+        "last10Avg": 37.8,
+        "last10BoundaryPct": 19.6,
+        "last10DotPct": 29.4,
+        "careerSr": 153.8,
+        "careerAvg": 30.9,
+        "srDelta": 4.9
+      },
+      "ranking": {}
+    },
+    "ad3b6e95": {
+      "career": {
+        "name": "Abishek Porel",
+        "innings": 29,
+        "runs": 661,
+        "balls": 440,
+        "dismissals": 26,
+        "hs": 65,
+        "fifties": 3,
+        "hundreds": 0,
+        "fours": 65,
+        "sixes": 27,
+        "dots": 142,
+        "sr": 150.2,
+        "avg": 25.4,
+        "boundaryPct": 20.9,
+        "dotPct": 32.3
+      },
+      "phases": {
+        "death": {
+          "innings": 6,
+          "runs": 58,
+          "balls": 32,
+          "sr": 181.2,
+          "avg": 19.3,
+          "boundaryPct": 28.1,
+          "dotPct": 31.2
+        },
+        "middle": {
+          "innings": 15,
+          "runs": 287,
+          "balls": 200,
+          "sr": 143.5,
+          "avg": 22.1,
+          "boundaryPct": 16.0,
+          "dotPct": 25.0
+        },
+        "powerplay": {
+          "innings": 22,
+          "runs": 316,
+          "balls": 208,
+          "sr": 151.9,
+          "avg": 31.6,
+          "boundaryPct": 24.5,
+          "dotPct": 39.4
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 154,
+          "runs": 238,
+          "dismissals": 6,
+          "sr": 154.6,
+          "avg": 39.7,
+          "boundaryPct": 23.4,
+          "dotPct": 35.1
+        },
+        "Fast-Medium": {
+          "balls": 77,
+          "runs": 126,
+          "dismissals": 4,
+          "sr": 163.6,
+          "avg": 31.5,
+          "boundaryPct": 24.7,
+          "dotPct": 33.8
+        },
+        "LA Orthodox": {
+          "balls": 20,
+          "runs": 31,
+          "dismissals": 3,
+          "sr": 155.0,
+          "avg": 10.3,
+          "boundaryPct": 25.0,
+          "dotPct": 30.0
+        },
+        "Left-arm orthodox": {
+          "balls": 14,
+          "runs": 29,
+          "dismissals": 0,
+          "sr": 207.1,
+          "avg": null,
+          "boundaryPct": 35.7,
+          "dotPct": 21.4
+        },
+        "Left-arm pace": {
+          "balls": 7,
+          "runs": 8,
+          "dismissals": 1,
+          "sr": 114.3,
+          "avg": 8.0,
+          "boundaryPct": 14.3,
+          "dotPct": 42.9
+        },
+        "Leg-spin": {
+          "balls": 62,
+          "runs": 76,
+          "dismissals": 4,
+          "sr": 122.6,
+          "avg": 19.0,
+          "boundaryPct": 11.3,
+          "dotPct": 30.6
+        },
+        "Medium": {
+          "balls": 4,
+          "runs": 8,
+          "dismissals": 1,
+          "sr": 200.0,
+          "avg": 8.0,
+          "boundaryPct": 25.0,
+          "dotPct": 25.0
+        },
+        "Off-spin": {
+          "balls": 22,
+          "runs": 23,
+          "dismissals": 2,
+          "sr": 104.5,
+          "avg": 11.5,
+          "boundaryPct": 9.1,
+          "dotPct": 31.8
+        },
+        "Right-arm leg-spin": {
+          "balls": 9,
+          "runs": 8,
+          "dismissals": 0,
+          "sr": 88.9,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 11.1
+        },
+        "Right-arm off-spin": {
+          "balls": 31,
+          "runs": 31,
+          "dismissals": 2,
+          "sr": 100.0,
+          "avg": 15.5,
+          "boundaryPct": 6.5,
+          "dotPct": 29.0
+        },
+        "Right-arm pace": {
+          "balls": 33,
+          "runs": 68,
+          "dismissals": 2,
+          "sr": 206.1,
+          "avg": 34.0,
+          "boundaryPct": 36.4,
+          "dotPct": 33.3
+        }
+      },
+      "recentForm": {
+        "team": "Delhi Capitals",
+        "last10Innings": 10,
+        "last10Runs": 234,
+        "last10Balls": 165,
+        "last10Sr": 141.8,
+        "last10Avg": 23.4,
+        "last10BoundaryPct": 18.8,
+        "last10DotPct": 32.7,
+        "careerSr": 150.2,
+        "careerAvg": 25.4,
+        "srDelta": -8.4
+      },
+      "ranking": {}
+    },
+    "c740ea83": {
+      "career": {
+        "name": "RM Patidar",
+        "innings": 27,
+        "runs": 707,
+        "balls": 440,
+        "dismissals": 25,
+        "hs": 64,
+        "fifties": 7,
+        "hundreds": 0,
+        "fours": 46,
+        "sixes": 47,
+        "dots": 134,
+        "sr": 160.7,
+        "avg": 28.3,
+        "boundaryPct": 21.1,
+        "dotPct": 30.4
+      },
+      "phases": {
+        "death": {
+          "innings": 9,
+          "runs": 73,
+          "balls": 49,
+          "sr": 149.0,
+          "avg": 8.1,
+          "boundaryPct": 20.4,
+          "dotPct": 36.7
+        },
+        "middle": {
+          "innings": 24,
+          "runs": 535,
+          "balls": 318,
+          "sr": 168.2,
+          "avg": 35.7,
+          "boundaryPct": 21.1,
+          "dotPct": 27.4
+        },
+        "powerplay": {
+          "innings": 12,
+          "runs": 99,
+          "balls": 73,
+          "sr": 135.6,
+          "avg": 99.0,
+          "boundaryPct": 21.9,
+          "dotPct": 39.7
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 122,
+          "runs": 152,
+          "dismissals": 10,
+          "sr": 124.6,
+          "avg": 15.2,
+          "boundaryPct": 18.0,
+          "dotPct": 40.2
+        },
+        "Fast-Medium": {
+          "balls": 101,
+          "runs": 171,
+          "dismissals": 6,
+          "sr": 169.3,
+          "avg": 28.5,
+          "boundaryPct": 22.8,
+          "dotPct": 27.7
+        },
+        "LA Orthodox": {
+          "balls": 53,
+          "runs": 84,
+          "dismissals": 1,
+          "sr": 158.5,
+          "avg": 84.0,
+          "boundaryPct": 18.9,
+          "dotPct": 28.3
+        },
+        "Left-arm orthodox": {
+          "balls": 3,
+          "runs": 6,
+          "dismissals": 0,
+          "sr": 200.0,
+          "avg": null,
+          "boundaryPct": 33.3,
+          "dotPct": 0.0
+        },
+        "Left-arm pace": {
+          "balls": 5,
+          "runs": 1,
+          "dismissals": 2,
+          "sr": 20.0,
+          "avg": 0.5,
+          "boundaryPct": 0.0,
+          "dotPct": 80.0
+        },
+        "Leg-spin": {
+          "balls": 72,
+          "runs": 162,
+          "dismissals": 3,
+          "sr": 225.0,
+          "avg": 54.0,
+          "boundaryPct": 31.9,
+          "dotPct": 23.6
+        },
+        "Off-spin": {
+          "balls": 18,
+          "runs": 32,
+          "dismissals": 0,
+          "sr": 177.8,
+          "avg": null,
+          "boundaryPct": 22.2,
+          "dotPct": 22.2
+        },
+        "Right-arm off-spin": {
+          "balls": 15,
+          "runs": 17,
+          "dismissals": 0,
+          "sr": 113.3,
+          "avg": null,
+          "boundaryPct": 6.7,
+          "dotPct": 33.3
+        },
+        "Right-arm pace": {
+          "balls": 32,
+          "runs": 52,
+          "dismissals": 5,
+          "sr": 162.5,
+          "avg": 10.4,
+          "boundaryPct": 25.0,
+          "dotPct": 37.5
+        },
+        "Wrist-spin": {
+          "balls": 32,
+          "runs": 36,
+          "dismissals": 1,
+          "sr": 112.5,
+          "avg": 36.0,
+          "boundaryPct": 9.4,
+          "dotPct": 34.4
+        }
+      },
+      "recentForm": {
+        "team": "Royal Challengers Bengaluru",
+        "last10Innings": 10,
+        "last10Runs": 151,
+        "last10Balls": 125,
+        "last10Sr": 120.8,
+        "last10Avg": 18.9,
+        "last10BoundaryPct": 12.0,
+        "last10DotPct": 32.8,
+        "careerSr": 154.5,
+        "careerAvg": 31.7,
+        "srDelta": -33.7
+      },
+      "ranking": {}
+    },
+    "9d430b40": {
+      "career": {
+        "name": "SP Narine",
+        "innings": 36,
+        "runs": 755,
+        "balls": 439,
+        "dismissals": 31,
+        "hs": 109,
+        "fifties": 4,
+        "hundreds": 1,
+        "fours": 77,
+        "sixes": 53,
+        "dots": 195,
+        "sr": 172.0,
+        "avg": 24.4,
+        "boundaryPct": 29.6,
+        "dotPct": 44.4
+      },
+      "phases": {
+        "death": {
+          "innings": 8,
+          "runs": 46,
+          "balls": 26,
+          "sr": 176.9,
+          "avg": 9.2,
+          "boundaryPct": 30.8,
+          "dotPct": 38.5
+        },
+        "middle": {
+          "innings": 15,
+          "runs": 224,
+          "balls": 123,
+          "sr": 182.1,
+          "avg": 17.2,
+          "boundaryPct": 28.5,
+          "dotPct": 36.6
+        },
+        "powerplay": {
+          "innings": 28,
+          "runs": 485,
+          "balls": 290,
+          "sr": 167.2,
+          "avg": 37.3,
+          "boundaryPct": 30.0,
+          "dotPct": 48.3
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 133,
+          "runs": 211,
+          "dismissals": 7,
+          "sr": 158.7,
+          "avg": 30.1,
+          "boundaryPct": 27.1,
+          "dotPct": 45.1
+        },
+        "Fast-Medium": {
+          "balls": 161,
+          "runs": 269,
+          "dismissals": 12,
+          "sr": 167.1,
+          "avg": 22.4,
+          "boundaryPct": 30.4,
+          "dotPct": 50.3
+        },
+        "LA Orthodox": {
+          "balls": 16,
+          "runs": 34,
+          "dismissals": 2,
+          "sr": 212.5,
+          "avg": 17.0,
+          "boundaryPct": 31.2,
+          "dotPct": 31.2
+        },
+        "Left-arm orthodox": {
+          "balls": 2,
+          "runs": 0,
+          "dismissals": 1,
+          "sr": 0.0,
+          "avg": 0.0,
+          "boundaryPct": 0.0,
+          "dotPct": 100.0
+        },
+        "Left-arm pace": {
+          "balls": 4,
+          "runs": 1,
+          "dismissals": 0,
+          "sr": 25.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 75.0
+        },
+        "Leg-spin": {
+          "balls": 41,
+          "runs": 77,
+          "dismissals": 6,
+          "sr": 187.8,
+          "avg": 12.8,
+          "boundaryPct": 26.8,
+          "dotPct": 29.3
+        },
+        "Right-arm off-spin": {
+          "balls": 38,
+          "runs": 79,
+          "dismissals": 0,
+          "sr": 207.9,
+          "avg": null,
+          "boundaryPct": 36.8,
+          "dotPct": 42.1
+        },
+        "Right-arm pace": {
+          "balls": 34,
+          "runs": 74,
+          "dismissals": 1,
+          "sr": 217.7,
+          "avg": 74.0,
+          "boundaryPct": 41.2,
+          "dotPct": 35.3
+        },
+        "Wrist-spin": {
+          "balls": 6,
+          "runs": 3,
+          "dismissals": 2,
+          "sr": 50.0,
+          "avg": 1.5,
+          "boundaryPct": 0.0,
+          "dotPct": 50.0
+        }
+      },
+      "recentForm": {
+        "team": "Kolkata Knight Riders",
+        "last10Innings": 10,
+        "last10Runs": 202,
+        "last10Balls": 116,
+        "last10Sr": 174.1,
+        "last10Avg": 22.4,
+        "last10BoundaryPct": 31.0,
+        "last10DotPct": 48.3,
+        "careerSr": 166.7,
+        "careerAvg": 18.7,
+        "srDelta": 7.5
+      },
+      "ranking": {}
+    },
+    "d67d5f00": {
+      "career": {
+        "name": "DA Miller",
+        "innings": 32,
+        "runs": 622,
+        "balls": 436,
+        "dismissals": 19,
+        "hs": 55,
+        "fifties": 1,
+        "hundreds": 0,
+        "fours": 51,
+        "sixes": 25,
+        "dots": 128,
+        "sr": 142.7,
+        "avg": 32.7,
+        "boundaryPct": 17.4,
+        "dotPct": 29.4
+      },
+      "phases": {
+        "death": {
+          "innings": 24,
+          "runs": 338,
+          "balls": 219,
+          "sr": 154.3,
+          "avg": 30.7,
+          "boundaryPct": 19.2,
+          "dotPct": 27.4
+        },
+        "middle": {
+          "innings": 21,
+          "runs": 273,
+          "balls": 201,
+          "sr": 135.8,
+          "avg": 39.0,
+          "boundaryPct": 15.9,
+          "dotPct": 27.9
+        },
+        "powerplay": {
+          "innings": 4,
+          "runs": 11,
+          "balls": 16,
+          "sr": 68.8,
+          "avg": 11.0,
+          "boundaryPct": 12.5,
+          "dotPct": 75.0
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 125,
+          "runs": 177,
+          "dismissals": 7,
+          "sr": 141.6,
+          "avg": 25.3,
+          "boundaryPct": 17.6,
+          "dotPct": 30.4
+        },
+        "Fast-Medium": {
+          "balls": 88,
+          "runs": 108,
+          "dismissals": 5,
+          "sr": 122.7,
+          "avg": 21.6,
+          "boundaryPct": 14.8,
+          "dotPct": 35.2
+        },
+        "LA Orthodox": {
+          "balls": 12,
+          "runs": 10,
+          "dismissals": 1,
+          "sr": 83.3,
+          "avg": 10.0,
+          "boundaryPct": 0.0,
+          "dotPct": 16.7
+        },
+        "Left-arm pace": {
+          "balls": 8,
+          "runs": 9,
+          "dismissals": 1,
+          "sr": 112.5,
+          "avg": 9.0,
+          "boundaryPct": 12.5,
+          "dotPct": 37.5
+        },
+        "Leg-spin": {
+          "balls": 44,
+          "runs": 80,
+          "dismissals": 0,
+          "sr": 181.8,
+          "avg": null,
+          "boundaryPct": 20.4,
+          "dotPct": 18.2
+        },
+        "Medium": {
+          "balls": 6,
+          "runs": 17,
+          "dismissals": 1,
+          "sr": 283.3,
+          "avg": 17.0,
+          "boundaryPct": 50.0,
+          "dotPct": 33.3
+        },
+        "Off-Spin/Leg-Spin": {
+          "balls": 5,
+          "runs": 3,
+          "dismissals": 1,
+          "sr": 60.0,
+          "avg": 3.0,
+          "boundaryPct": 0.0,
+          "dotPct": 40.0
+        },
+        "Off-spin": {
+          "balls": 26,
+          "runs": 34,
+          "dismissals": 1,
+          "sr": 130.8,
+          "avg": 34.0,
+          "boundaryPct": 15.4,
+          "dotPct": 30.8
+        },
+        "Right-arm leg-spin": {
+          "balls": 29,
+          "runs": 51,
+          "dismissals": 0,
+          "sr": 175.9,
+          "avg": null,
+          "boundaryPct": 24.1,
+          "dotPct": 17.2
+        },
+        "Right-arm off-spin": {
+          "balls": 16,
+          "runs": 18,
+          "dismissals": 0,
+          "sr": 112.5,
+          "avg": null,
+          "boundaryPct": 12.5,
+          "dotPct": 31.2
+        },
+        "Right-arm pace": {
+          "balls": 48,
+          "runs": 79,
+          "dismissals": 1,
+          "sr": 164.6,
+          "avg": 79.0,
+          "boundaryPct": 20.8,
+          "dotPct": 31.2
+        },
+        "Wrist-spin": {
+          "balls": 24,
+          "runs": 25,
+          "dismissals": 1,
+          "sr": 104.2,
+          "avg": 25.0,
+          "boundaryPct": 12.5,
+          "dotPct": 33.3
+        }
+      },
+      "recentForm": {
+        "team": "Delhi Capitals",
+        "last10Innings": 10,
+        "last10Runs": 153,
+        "last10Balls": 119,
+        "last10Sr": 128.6,
+        "last10Avg": 30.6,
+        "last10BoundaryPct": 14.3,
+        "last10DotPct": 30.2,
+        "careerSr": 139.1,
+        "careerAvg": 37.1,
+        "srDelta": -10.5
+      },
+      "ranking": {}
+    },
+    "48a1d7b7": {
+      "career": {
+        "name": "SO Hetmyer",
+        "innings": 35,
+        "runs": 651,
+        "balls": 428,
+        "dismissals": 24,
+        "hs": 56,
+        "fifties": 2,
+        "hundreds": 0,
+        "fours": 38,
+        "sixes": 41,
+        "dots": 136,
+        "sr": 152.1,
+        "avg": 27.1,
+        "boundaryPct": 18.5,
+        "dotPct": 31.8
+      },
+      "phases": {
+        "death": {
+          "innings": 30,
+          "runs": 431,
+          "balls": 259,
+          "sr": 166.4,
+          "avg": 22.7,
+          "boundaryPct": 21.2,
+          "dotPct": 30.1
+        },
+        "middle": {
+          "innings": 22,
+          "runs": 213,
+          "balls": 163,
+          "sr": 130.7,
+          "avg": 53.2,
+          "boundaryPct": 14.1,
+          "dotPct": 33.1
+        },
+        "powerplay": {
+          "innings": 2,
+          "runs": 7,
+          "balls": 6,
+          "sr": 116.7,
+          "avg": 7.0,
+          "boundaryPct": 16.7,
+          "dotPct": 66.7
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 140,
+          "runs": 239,
+          "dismissals": 8,
+          "sr": 170.7,
+          "avg": 29.9,
+          "boundaryPct": 23.6,
+          "dotPct": 31.4
+        },
+        "Fast-Medium": {
+          "balls": 89,
+          "runs": 122,
+          "dismissals": 9,
+          "sr": 137.1,
+          "avg": 13.6,
+          "boundaryPct": 14.6,
+          "dotPct": 36.0
+        },
+        "LA Orthodox": {
+          "balls": 19,
+          "runs": 25,
+          "dismissals": 1,
+          "sr": 131.6,
+          "avg": 25.0,
+          "boundaryPct": 10.5,
+          "dotPct": 26.3
+        },
+        "Left-arm orthodox": {
+          "balls": 7,
+          "runs": 11,
+          "dismissals": 0,
+          "sr": 157.1,
+          "avg": null,
+          "boundaryPct": 28.6,
+          "dotPct": 42.9
+        },
+        "Left-arm pace": {
+          "balls": 22,
+          "runs": 27,
+          "dismissals": 1,
+          "sr": 122.7,
+          "avg": 27.0,
+          "boundaryPct": 13.6,
+          "dotPct": 31.8
+        },
+        "Leg-spin": {
+          "balls": 37,
+          "runs": 49,
+          "dismissals": 2,
+          "sr": 132.4,
+          "avg": 24.5,
+          "boundaryPct": 16.2,
+          "dotPct": 35.1
+        },
+        "Medium": {
+          "balls": 6,
+          "runs": 19,
+          "dismissals": 0,
+          "sr": 316.7,
+          "avg": null,
+          "boundaryPct": 50.0,
+          "dotPct": 33.3
+        },
+        "Off-spin": {
+          "balls": 30,
+          "runs": 31,
+          "dismissals": 1,
+          "sr": 103.3,
+          "avg": 31.0,
+          "boundaryPct": 6.7,
+          "dotPct": 36.7
+        },
+        "Right-arm leg-spin": {
+          "balls": 7,
+          "runs": 18,
+          "dismissals": 0,
+          "sr": 257.1,
+          "avg": null,
+          "boundaryPct": 42.9,
+          "dotPct": 28.6
+        },
+        "Right-arm off-spin": {
+          "balls": 27,
+          "runs": 36,
+          "dismissals": 2,
+          "sr": 133.3,
+          "avg": 18.0,
+          "boundaryPct": 14.8,
+          "dotPct": 33.3
+        },
+        "Right-arm pace": {
+          "balls": 28,
+          "runs": 57,
+          "dismissals": 0,
+          "sr": 203.6,
+          "avg": null,
+          "boundaryPct": 25.0,
+          "dotPct": 10.7
+        },
+        "Wrist-spin": {
+          "balls": 16,
+          "runs": 17,
+          "dismissals": 0,
+          "sr": 106.2,
+          "avg": null,
+          "boundaryPct": 6.2,
+          "dotPct": 31.2
+        }
+      },
+      "recentForm": {
+        "team": "Rajasthan Royals",
+        "last10Innings": 10,
+        "last10Runs": 171,
+        "last10Balls": 117,
+        "last10Sr": 146.2,
+        "last10Avg": 21.4,
+        "last10BoundaryPct": 17.1,
+        "last10DotPct": 28.2,
+        "careerSr": 152.6,
+        "careerAvg": 29.6,
+        "srDelta": -6.5
+      },
+      "ranking": {}
+    },
+    "85b3fab2": {
+      "career": {
+        "name": "T Stubbs",
+        "innings": 28,
+        "runs": 703,
+        "balls": 427,
+        "dismissals": 14,
+        "hs": 71,
+        "fifties": 3,
+        "hundreds": 0,
+        "fours": 51,
+        "sixes": 37,
+        "dots": 97,
+        "sr": 164.6,
+        "avg": 50.2,
+        "boundaryPct": 20.6,
+        "dotPct": 22.7
+      },
+      "phases": {
+        "death": {
+          "innings": 18,
+          "runs": 437,
+          "balls": 197,
+          "sr": 221.8,
+          "avg": 87.4,
+          "boundaryPct": 33.0,
+          "dotPct": 14.7
+        },
+        "middle": {
+          "innings": 24,
+          "runs": 254,
+          "balls": 220,
+          "sr": 115.5,
+          "avg": 28.2,
+          "boundaryPct": 9.6,
+          "dotPct": 29.1
+        },
+        "powerplay": {
+          "innings": 3,
+          "runs": 12,
+          "balls": 10,
+          "sr": 120.0,
+          "avg": null,
+          "boundaryPct": 20.0,
+          "dotPct": 40.0
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 123,
+          "runs": 201,
+          "dismissals": 6,
+          "sr": 163.4,
+          "avg": 33.5,
+          "boundaryPct": 21.9,
+          "dotPct": 25.2
+        },
+        "Fast-Medium": {
+          "balls": 77,
+          "runs": 116,
+          "dismissals": 1,
+          "sr": 150.7,
+          "avg": 116.0,
+          "boundaryPct": 18.2,
+          "dotPct": 22.1
+        },
+        "LA Orthodox": {
+          "balls": 45,
+          "runs": 81,
+          "dismissals": 1,
+          "sr": 180.0,
+          "avg": 81.0,
+          "boundaryPct": 22.2,
+          "dotPct": 13.3
+        },
+        "Left-arm orthodox": {
+          "balls": 9,
+          "runs": 8,
+          "dismissals": 0,
+          "sr": 88.9,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 33.3
+        },
+        "Leg-spin": {
+          "balls": 61,
+          "runs": 89,
+          "dismissals": 1,
+          "sr": 145.9,
+          "avg": 89.0,
+          "boundaryPct": 13.1,
+          "dotPct": 18.0
+        },
+        "Medium": {
+          "balls": 5,
+          "runs": 2,
+          "dismissals": 1,
+          "sr": 40.0,
+          "avg": 2.0,
+          "boundaryPct": 0.0,
+          "dotPct": 60.0
+        },
+        "Off-Spin/Leg-Spin": {
+          "balls": 2,
+          "runs": 2,
+          "dismissals": 0,
+          "sr": 100.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 0.0
+        },
+        "Off-spin": {
+          "balls": 33,
+          "runs": 48,
+          "dismissals": 3,
+          "sr": 145.4,
+          "avg": 16.0,
+          "boundaryPct": 18.2,
+          "dotPct": 36.4
+        },
+        "Right-arm leg-spin": {
+          "balls": 9,
+          "runs": 18,
+          "dismissals": 0,
+          "sr": 200.0,
+          "avg": null,
+          "boundaryPct": 22.2,
+          "dotPct": 33.3
+        },
+        "Right-arm off-spin": {
+          "balls": 14,
+          "runs": 27,
+          "dismissals": 0,
+          "sr": 192.9,
+          "avg": null,
+          "boundaryPct": 21.4,
+          "dotPct": 14.3
+        },
+        "Right-arm pace": {
+          "balls": 33,
+          "runs": 67,
+          "dismissals": 0,
+          "sr": 203.0,
+          "avg": null,
+          "boundaryPct": 27.3,
+          "dotPct": 15.2
+        }
+      },
+      "recentForm": {
+        "team": "Delhi Capitals",
+        "last10Innings": 10,
+        "last10Runs": 221,
+        "last10Balls": 151,
+        "last10Sr": 146.4,
+        "last10Avg": 44.2,
+        "last10BoundaryPct": 17.2,
+        "last10DotPct": 21.2,
+        "careerSr": 163.6,
+        "careerAvg": 47.0,
+        "srDelta": -17.2
+      },
+      "ranking": {}
+    },
+    "2c25d4f5": {
+      "career": {
+        "name": "D Padikkal",
+        "innings": 28,
+        "runs": 546,
+        "balls": 415,
+        "dismissals": 26,
+        "hs": 61,
+        "fifties": 4,
+        "hundreds": 0,
+        "fours": 56,
+        "sixes": 20,
+        "dots": 160,
+        "sr": 131.6,
+        "avg": 21.0,
+        "boundaryPct": 18.3,
+        "dotPct": 38.5
+      },
+      "phases": {
+        "death": {
+          "innings": 5,
+          "runs": 72,
+          "balls": 41,
+          "sr": 175.6,
+          "avg": 24.0,
+          "boundaryPct": 31.7,
+          "dotPct": 34.1
+        },
+        "middle": {
+          "innings": 18,
+          "runs": 276,
+          "balls": 221,
+          "sr": 124.9,
+          "avg": 19.7,
+          "boundaryPct": 13.6,
+          "dotPct": 30.8
+        },
+        "powerplay": {
+          "innings": 20,
+          "runs": 198,
+          "balls": 153,
+          "sr": 129.4,
+          "avg": 22.0,
+          "boundaryPct": 21.6,
+          "dotPct": 51.0
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 99,
+          "runs": 185,
+          "dismissals": 6,
+          "sr": 186.9,
+          "avg": 30.8,
+          "boundaryPct": 31.3,
+          "dotPct": 31.3
+        },
+        "Fast-Medium": {
+          "balls": 104,
+          "runs": 126,
+          "dismissals": 7,
+          "sr": 121.2,
+          "avg": 18.0,
+          "boundaryPct": 19.2,
+          "dotPct": 54.8
+        },
+        "LA Orthodox": {
+          "balls": 34,
+          "runs": 37,
+          "dismissals": 3,
+          "sr": 108.8,
+          "avg": 12.3,
+          "boundaryPct": 14.7,
+          "dotPct": 47.1
+        },
+        "Left-arm pace": {
+          "balls": 23,
+          "runs": 18,
+          "dismissals": 1,
+          "sr": 78.3,
+          "avg": 18.0,
+          "boundaryPct": 8.7,
+          "dotPct": 47.8
+        },
+        "Leg-spin": {
+          "balls": 55,
+          "runs": 67,
+          "dismissals": 1,
+          "sr": 121.8,
+          "avg": 67.0,
+          "boundaryPct": 10.9,
+          "dotPct": 21.8
+        },
+        "Off-spin": {
+          "balls": 25,
+          "runs": 33,
+          "dismissals": 1,
+          "sr": 132.0,
+          "avg": 33.0,
+          "boundaryPct": 16.0,
+          "dotPct": 24.0
+        },
+        "Right-arm leg-spin": {
+          "balls": 7,
+          "runs": 3,
+          "dismissals": 1,
+          "sr": 42.9,
+          "avg": 3.0,
+          "boundaryPct": 0.0,
+          "dotPct": 57.1
+        },
+        "Right-arm off-spin": {
+          "balls": 43,
+          "runs": 55,
+          "dismissals": 2,
+          "sr": 127.9,
+          "avg": 27.5,
+          "boundaryPct": 13.9,
+          "dotPct": 25.6
+        },
+        "Right-arm pace": {
+          "balls": 17,
+          "runs": 16,
+          "dismissals": 2,
+          "sr": 94.1,
+          "avg": 8.0,
+          "boundaryPct": 11.8,
+          "dotPct": 52.9
+        },
+        "Wrist-spin": {
+          "balls": 8,
+          "runs": 5,
+          "dismissals": 2,
+          "sr": 62.5,
+          "avg": 2.5,
+          "boundaryPct": 0.0,
+          "dotPct": 37.5
+        }
+      },
+      "recentForm": {
+        "team": "Royal Challengers Bengaluru",
+        "last10Innings": 10,
+        "last10Runs": 247,
+        "last10Balls": 163,
+        "last10Sr": 151.5,
+        "last10Avg": 27.4,
+        "last10BoundaryPct": 22.1,
+        "last10DotPct": 35.6,
+        "careerSr": 126.7,
+        "careerAvg": 25.8,
+        "srDelta": 24.8
+      },
+      "ranking": {}
+    },
+    "372455c4": {
+      "career": {
+        "name": "Q de Kock",
+        "innings": 23,
+        "runs": 545,
+        "balls": 403,
+        "dismissals": 22,
+        "hs": 97,
+        "fifties": 5,
+        "hundreds": 0,
+        "fours": 48,
+        "sixes": 28,
+        "dots": 157,
+        "sr": 135.2,
+        "avg": 24.8,
+        "boundaryPct": 18.9,
+        "dotPct": 39.0
+      },
+      "phases": {
+        "death": {
+          "innings": 3,
+          "runs": 43,
+          "balls": 23,
+          "sr": 187.0,
+          "avg": 21.5,
+          "boundaryPct": 30.4,
+          "dotPct": 34.8
+        },
+        "middle": {
+          "innings": 9,
+          "runs": 205,
+          "balls": 152,
+          "sr": 134.9,
+          "avg": 34.2,
+          "boundaryPct": 15.1,
+          "dotPct": 25.0
+        },
+        "powerplay": {
+          "innings": 23,
+          "runs": 297,
+          "balls": 228,
+          "sr": 130.3,
+          "avg": 21.2,
+          "boundaryPct": 20.2,
+          "dotPct": 48.7
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 115,
+          "runs": 154,
+          "dismissals": 4,
+          "sr": 133.9,
+          "avg": 38.5,
+          "boundaryPct": 19.1,
+          "dotPct": 40.0
+        },
+        "Fast-Medium": {
+          "balls": 124,
+          "runs": 172,
+          "dismissals": 11,
+          "sr": 138.7,
+          "avg": 15.6,
+          "boundaryPct": 22.6,
+          "dotPct": 48.4
+        },
+        "LA Orthodox": {
+          "balls": 12,
+          "runs": 19,
+          "dismissals": 0,
+          "sr": 158.3,
+          "avg": null,
+          "boundaryPct": 16.7,
+          "dotPct": 8.3
+        },
+        "Left-arm orthodox": {
+          "balls": 8,
+          "runs": 15,
+          "dismissals": 0,
+          "sr": 187.5,
+          "avg": null,
+          "boundaryPct": 25.0,
+          "dotPct": 12.5
+        },
+        "Left-arm pace": {
+          "balls": 26,
+          "runs": 27,
+          "dismissals": 2,
+          "sr": 103.8,
+          "avg": 13.5,
+          "boundaryPct": 15.4,
+          "dotPct": 46.1
+        },
+        "Leg-spin": {
+          "balls": 35,
+          "runs": 64,
+          "dismissals": 2,
+          "sr": 182.9,
+          "avg": 32.0,
+          "boundaryPct": 22.9,
+          "dotPct": 14.3
+        },
+        "Off-spin": {
+          "balls": 29,
+          "runs": 29,
+          "dismissals": 1,
+          "sr": 100.0,
+          "avg": 29.0,
+          "boundaryPct": 6.9,
+          "dotPct": 31.0
+        },
+        "Right-arm leg-spin": {
+          "balls": 1,
+          "runs": 0,
+          "dismissals": 1,
+          "sr": 0.0,
+          "avg": 0.0,
+          "boundaryPct": 0.0,
+          "dotPct": 100.0
+        },
+        "Right-arm off-spin": {
+          "balls": 27,
+          "runs": 22,
+          "dismissals": 0,
+          "sr": 81.5,
+          "avg": null,
+          "boundaryPct": 7.4,
+          "dotPct": 48.1
+        },
+        "Right-arm pace": {
+          "balls": 20,
+          "runs": 32,
+          "dismissals": 1,
+          "sr": 160.0,
+          "avg": 32.0,
+          "boundaryPct": 20.0,
+          "dotPct": 40.0
+        },
+        "Wrist-spin": {
+          "balls": 6,
+          "runs": 11,
+          "dismissals": 0,
+          "sr": 183.3,
+          "avg": null,
+          "boundaryPct": 33.3,
+          "dotPct": 16.7
+        }
+      },
+      "recentForm": {
+        "team": "Mumbai Indians",
+        "last10Innings": 10,
+        "last10Runs": 166,
+        "last10Balls": 129,
+        "last10Sr": 128.7,
+        "last10Avg": 18.4,
+        "last10BoundaryPct": 17.1,
+        "last10DotPct": 40.3,
+        "careerSr": 134.4,
+        "careerAvg": 31.5,
+        "srDelta": -5.7
+      },
+      "ranking": {}
+    },
+    "fe11caa6": {
+      "career": {
+        "name": "WP Saha",
+        "innings": 26,
+        "runs": 507,
+        "balls": 400,
+        "dismissals": 25,
+        "hs": 81,
+        "fifties": 2,
+        "hundreds": 0,
+        "fours": 65,
+        "sixes": 11,
+        "dots": 167,
+        "sr": 126.8,
+        "avg": 20.3,
+        "boundaryPct": 19.0,
+        "dotPct": 41.8
+      },
+      "phases": {
+        "middle": {
+          "innings": 6,
+          "runs": 90,
+          "balls": 81,
+          "sr": 111.1,
+          "avg": 18.0,
+          "boundaryPct": 9.9,
+          "dotPct": 27.2
+        },
+        "powerplay": {
+          "innings": 26,
+          "runs": 417,
+          "balls": 319,
+          "sr": 130.7,
+          "avg": 20.9,
+          "boundaryPct": 21.3,
+          "dotPct": 45.5
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 103,
+          "runs": 122,
+          "dismissals": 8,
+          "sr": 118.5,
+          "avg": 15.2,
+          "boundaryPct": 17.5,
+          "dotPct": 45.6
+        },
+        "Fast-Medium": {
+          "balls": 123,
+          "runs": 193,
+          "dismissals": 8,
+          "sr": 156.9,
+          "avg": 24.1,
+          "boundaryPct": 27.6,
+          "dotPct": 43.1
+        },
+        "LA Orthodox": {
+          "balls": 53,
+          "runs": 57,
+          "dismissals": 2,
+          "sr": 107.5,
+          "avg": 28.5,
+          "boundaryPct": 13.2,
+          "dotPct": 37.7
+        },
+        "Left-arm orthodox": {
+          "balls": 5,
+          "runs": 9,
+          "dismissals": 1,
+          "sr": 180.0,
+          "avg": 9.0,
+          "boundaryPct": 20.0,
+          "dotPct": 20.0
+        },
+        "Left-arm pace": {
+          "balls": 22,
+          "runs": 29,
+          "dismissals": 0,
+          "sr": 131.8,
+          "avg": null,
+          "boundaryPct": 22.7,
+          "dotPct": 36.4
+        },
+        "Leg-spin": {
+          "balls": 23,
+          "runs": 23,
+          "dismissals": 0,
+          "sr": 100.0,
+          "avg": null,
+          "boundaryPct": 8.7,
+          "dotPct": 30.4
+        },
+        "Off-spin": {
+          "balls": 6,
+          "runs": 8,
+          "dismissals": 1,
+          "sr": 133.3,
+          "avg": 8.0,
+          "boundaryPct": 16.7,
+          "dotPct": 33.3
+        },
+        "Right-arm leg-spin": {
+          "balls": 10,
+          "runs": 10,
+          "dismissals": 0,
+          "sr": 100.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 20.0
+        },
+        "Right-arm off-spin": {
+          "balls": 11,
+          "runs": 10,
+          "dismissals": 0,
+          "sr": 90.9,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 18.2
+        },
+        "Right-arm pace": {
+          "balls": 32,
+          "runs": 37,
+          "dismissals": 2,
+          "sr": 115.6,
+          "avg": 18.5,
+          "boundaryPct": 21.9,
+          "dotPct": 56.2
+        },
+        "Wrist-spin": {
+          "balls": 4,
+          "runs": 2,
+          "dismissals": 1,
+          "sr": 50.0,
+          "avg": 2.0,
+          "boundaryPct": 0.0,
+          "dotPct": 50.0
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
+    },
+    "f1f99156": {
+      "career": {
+        "name": "TH David",
+        "innings": 35,
+        "runs": 659,
+        "balls": 395,
+        "dismissals": 19,
+        "hs": 50,
+        "fifties": 1,
+        "hundreds": 0,
+        "fours": 42,
+        "sixes": 44,
+        "dots": 124,
+        "sr": 166.8,
+        "avg": 34.7,
+        "boundaryPct": 21.8,
+        "dotPct": 31.4
+      },
+      "phases": {
+        "death": {
+          "innings": 32,
+          "runs": 528,
+          "balls": 286,
+          "sr": 184.6,
+          "avg": 31.1,
+          "boundaryPct": 25.5,
+          "dotPct": 30.1
+        },
+        "middle": {
+          "innings": 16,
+          "runs": 131,
+          "balls": 109,
+          "sr": 120.2,
+          "avg": 65.5,
+          "boundaryPct": 11.9,
+          "dotPct": 34.9
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 116,
+          "runs": 215,
+          "dismissals": 9,
+          "sr": 185.3,
+          "avg": 23.9,
+          "boundaryPct": 28.4,
+          "dotPct": 32.8
+        },
+        "Fast-Medium": {
+          "balls": 114,
+          "runs": 198,
+          "dismissals": 3,
+          "sr": 173.7,
+          "avg": 66.0,
+          "boundaryPct": 22.8,
+          "dotPct": 28.1
+        },
+        "LA Orthodox": {
+          "balls": 28,
+          "runs": 49,
+          "dismissals": 0,
+          "sr": 175.0,
+          "avg": null,
+          "boundaryPct": 21.4,
+          "dotPct": 32.1
+        },
+        "Left-arm pace": {
+          "balls": 10,
+          "runs": 28,
+          "dismissals": 1,
+          "sr": 280.0,
+          "avg": 28.0,
+          "boundaryPct": 40.0,
+          "dotPct": 20.0
+        },
+        "Leg-spin": {
+          "balls": 32,
+          "runs": 30,
+          "dismissals": 2,
+          "sr": 93.8,
+          "avg": 15.0,
+          "boundaryPct": 6.2,
+          "dotPct": 28.1
+        },
+        "Medium": {
+          "balls": 3,
+          "runs": 2,
+          "dismissals": 1,
+          "sr": 66.7,
+          "avg": 2.0,
+          "boundaryPct": 0.0,
+          "dotPct": 33.3
+        },
+        "Off-spin": {
+          "balls": 16,
+          "runs": 24,
+          "dismissals": 0,
+          "sr": 150.0,
+          "avg": null,
+          "boundaryPct": 18.8,
+          "dotPct": 43.8
+        },
+        "Right-arm off-spin": {
+          "balls": 6,
+          "runs": 4,
+          "dismissals": 0,
+          "sr": 66.7,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 33.3
+        },
+        "Right-arm pace": {
+          "balls": 59,
+          "runs": 87,
+          "dismissals": 2,
+          "sr": 147.5,
+          "avg": 43.5,
+          "boundaryPct": 15.2,
+          "dotPct": 30.5
+        },
+        "Wrist-spin": {
+          "balls": 9,
+          "runs": 3,
+          "dismissals": 1,
+          "sr": 33.3,
+          "avg": 3.0,
+          "boundaryPct": 0.0,
+          "dotPct": 66.7
+        }
+      },
+      "recentForm": {
+        "team": "Royal Challengers Bengaluru",
+        "last10Innings": 10,
+        "last10Runs": 187,
+        "last10Balls": 102,
+        "last10Sr": 183.3,
+        "last10Avg": 46.8,
+        "last10BoundaryPct": 29.4,
+        "last10DotPct": 40.2,
+        "careerSr": 174.8,
+        "careerAvg": 33.8,
+        "srDelta": 8.5
+      },
+      "ranking": {}
+    },
+    "77255a9e": {
+      "career": {
+        "name": "RA Tripathi",
+        "innings": 24,
+        "runs": 493,
+        "balls": 382,
+        "dismissals": 22,
+        "hs": 74,
+        "fifties": 2,
+        "hundreds": 0,
+        "fours": 53,
+        "sixes": 17,
+        "dots": 155,
+        "sr": 129.1,
+        "avg": 22.4,
+        "boundaryPct": 18.3,
+        "dotPct": 40.6
+      },
+      "phases": {
+        "death": {
+          "innings": 3,
+          "runs": 24,
+          "balls": 19,
+          "sr": 126.3,
+          "avg": 12.0,
+          "boundaryPct": 15.8,
+          "dotPct": 42.1
+        },
+        "middle": {
+          "innings": 11,
+          "runs": 235,
+          "balls": 189,
+          "sr": 124.3,
+          "avg": 33.6,
+          "boundaryPct": 14.3,
+          "dotPct": 33.3
+        },
+        "powerplay": {
+          "innings": 24,
+          "runs": 234,
+          "balls": 174,
+          "sr": 134.5,
+          "avg": 18.0,
+          "boundaryPct": 23.0,
+          "dotPct": 48.3
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 74,
+          "runs": 87,
+          "dismissals": 5,
+          "sr": 117.6,
+          "avg": 17.4,
+          "boundaryPct": 16.2,
+          "dotPct": 43.2
+        },
+        "Fast-Medium": {
+          "balls": 76,
+          "runs": 72,
+          "dismissals": 7,
+          "sr": 94.7,
+          "avg": 10.3,
+          "boundaryPct": 13.2,
+          "dotPct": 54.0
+        },
+        "LA Orthodox": {
+          "balls": 41,
+          "runs": 46,
+          "dismissals": 1,
+          "sr": 112.2,
+          "avg": 46.0,
+          "boundaryPct": 17.1,
+          "dotPct": 43.9
+        },
+        "Left-arm pace": {
+          "balls": 22,
+          "runs": 40,
+          "dismissals": 1,
+          "sr": 181.8,
+          "avg": 40.0,
+          "boundaryPct": 31.8,
+          "dotPct": 40.9
+        },
+        "Leg-spin": {
+          "balls": 41,
+          "runs": 50,
+          "dismissals": 3,
+          "sr": 122.0,
+          "avg": 16.7,
+          "boundaryPct": 17.1,
+          "dotPct": 41.5
+        },
+        "Off-spin": {
+          "balls": 40,
+          "runs": 38,
+          "dismissals": 2,
+          "sr": 95.0,
+          "avg": 19.0,
+          "boundaryPct": 5.0,
+          "dotPct": 27.5
+        },
+        "Right-arm leg-spin": {
+          "balls": 21,
+          "runs": 35,
+          "dismissals": 0,
+          "sr": 166.7,
+          "avg": null,
+          "boundaryPct": 23.8,
+          "dotPct": 28.6
+        },
+        "Right-arm off-spin": {
+          "balls": 42,
+          "runs": 61,
+          "dismissals": 1,
+          "sr": 145.2,
+          "avg": 61.0,
+          "boundaryPct": 19.1,
+          "dotPct": 30.9
+        },
+        "Right-arm pace": {
+          "balls": 12,
+          "runs": 25,
+          "dismissals": 2,
+          "sr": 208.3,
+          "avg": 12.5,
+          "boundaryPct": 41.7,
+          "dotPct": 33.3
+        },
+        "Wrist-spin": {
+          "balls": 5,
+          "runs": 4,
+          "dismissals": 0,
+          "sr": 80.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 20.0
+        }
+      },
+      "recentForm": {
+        "team": "Kolkata Knight Riders",
+        "last10Innings": 10,
+        "last10Runs": 200,
+        "last10Balls": 150,
+        "last10Sr": 133.3,
+        "last10Avg": 22.2,
+        "last10BoundaryPct": 20.0,
+        "last10DotPct": 40.7,
+        "careerSr": 138.4,
+        "careerAvg": 26.9,
+        "srDelta": -5.1
+      },
+      "ranking": {}
+    },
+    "0a476045": {
+      "career": {
+        "name": "S Dhawan",
+        "innings": 16,
+        "runs": 525,
+        "balls": 379,
+        "dismissals": 14,
+        "hs": 99,
+        "fifties": 4,
+        "hundreds": 0,
+        "fours": 67,
+        "sixes": 16,
+        "dots": 157,
+        "sr": 138.5,
+        "avg": 37.5,
+        "boundaryPct": 21.9,
+        "dotPct": 41.4
+      },
+      "phases": {
+        "death": {
+          "innings": 3,
+          "runs": 82,
+          "balls": 47,
+          "sr": 174.5,
+          "avg": 82.0,
+          "boundaryPct": 27.7,
+          "dotPct": 42.5
+        },
+        "middle": {
+          "innings": 7,
+          "runs": 185,
+          "balls": 138,
+          "sr": 134.1,
+          "avg": 46.2,
+          "boundaryPct": 18.1,
+          "dotPct": 31.9
+        },
+        "powerplay": {
+          "innings": 16,
+          "runs": 258,
+          "balls": 194,
+          "sr": 133.0,
+          "avg": 28.7,
+          "boundaryPct": 23.2,
+          "dotPct": 47.9
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 146,
+          "runs": 219,
+          "dismissals": 3,
+          "sr": 150.0,
+          "avg": 73.0,
+          "boundaryPct": 24.7,
+          "dotPct": 41.1
+        },
+        "Fast-Medium": {
+          "balls": 66,
+          "runs": 80,
+          "dismissals": 4,
+          "sr": 121.2,
+          "avg": 20.0,
+          "boundaryPct": 21.2,
+          "dotPct": 50.0
+        },
+        "LA Orthodox": {
+          "balls": 15,
+          "runs": 23,
+          "dismissals": 0,
+          "sr": 153.3,
+          "avg": null,
+          "boundaryPct": 26.7,
+          "dotPct": 40.0
+        },
+        "Left-arm orthodox": {
+          "balls": 7,
+          "runs": 14,
+          "dismissals": 0,
+          "sr": 200.0,
+          "avg": null,
+          "boundaryPct": 28.6,
+          "dotPct": 14.3
+        },
+        "Left-arm pace": {
+          "balls": 8,
+          "runs": 8,
+          "dismissals": 1,
+          "sr": 100.0,
+          "avg": 8.0,
+          "boundaryPct": 25.0,
+          "dotPct": 75.0
+        },
+        "Leg-spin": {
+          "balls": 43,
+          "runs": 60,
+          "dismissals": 0,
+          "sr": 139.5,
+          "avg": null,
+          "boundaryPct": 20.9,
+          "dotPct": 39.5
+        },
+        "Off-spin": {
+          "balls": 39,
+          "runs": 47,
+          "dismissals": 2,
+          "sr": 120.5,
+          "avg": 23.5,
+          "boundaryPct": 17.9,
+          "dotPct": 41.0
+        },
+        "Right-arm leg-spin": {
+          "balls": 9,
+          "runs": 16,
+          "dismissals": 2,
+          "sr": 177.8,
+          "avg": 8.0,
+          "boundaryPct": 33.3,
+          "dotPct": 33.3
+        },
+        "Right-arm off-spin": {
+          "balls": 19,
+          "runs": 16,
+          "dismissals": 1,
+          "sr": 84.2,
+          "avg": 16.0,
+          "boundaryPct": 5.3,
+          "dotPct": 36.8
+        },
+        "Right-arm pace": {
+          "balls": 51,
+          "runs": 76,
+          "dismissals": 1,
+          "sr": 149.0,
+          "avg": 76.0,
+          "boundaryPct": 19.6,
+          "dotPct": 27.4
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
+    },
+    "bbd41817": {
+      "career": {
+        "name": "AD Russell",
+        "innings": 33,
+        "runs": 616,
+        "balls": 374,
+        "dismissals": 25,
+        "hs": 64,
+        "fifties": 2,
+        "hundreds": 0,
+        "fours": 49,
+        "sixes": 48,
+        "dots": 161,
+        "sr": 164.7,
+        "avg": 24.6,
+        "boundaryPct": 25.9,
+        "dotPct": 43.0
+      },
+      "phases": {
+        "death": {
+          "innings": 24,
+          "runs": 377,
+          "balls": 194,
+          "sr": 194.3,
+          "avg": 23.6,
+          "boundaryPct": 32.0,
+          "dotPct": 39.7
+        },
+        "middle": {
+          "innings": 22,
+          "runs": 239,
+          "balls": 180,
+          "sr": 132.8,
+          "avg": 26.6,
+          "boundaryPct": 19.4,
+          "dotPct": 46.7
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 123,
+          "runs": 246,
+          "dismissals": 6,
+          "sr": 200.0,
+          "avg": 41.0,
+          "boundaryPct": 32.5,
+          "dotPct": 30.9
+        },
+        "Fast-Medium": {
+          "balls": 58,
+          "runs": 83,
+          "dismissals": 7,
+          "sr": 143.1,
+          "avg": 11.9,
+          "boundaryPct": 20.7,
+          "dotPct": 41.4
+        },
+        "LA Orthodox": {
+          "balls": 31,
+          "runs": 39,
+          "dismissals": 1,
+          "sr": 125.8,
+          "avg": 39.0,
+          "boundaryPct": 19.4,
+          "dotPct": 54.8
+        },
+        "Left-arm pace": {
+          "balls": 9,
+          "runs": 5,
+          "dismissals": 0,
+          "sr": 55.6,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 55.6
+        },
+        "Leg-spin": {
+          "balls": 67,
+          "runs": 90,
+          "dismissals": 6,
+          "sr": 134.3,
+          "avg": 15.0,
+          "boundaryPct": 19.4,
+          "dotPct": 55.2
+        },
+        "Medium": {
+          "balls": 3,
+          "runs": 1,
+          "dismissals": 1,
+          "sr": 33.3,
+          "avg": 1.0,
+          "boundaryPct": 0.0,
+          "dotPct": 66.7
+        },
+        "Off-spin": {
+          "balls": 9,
+          "runs": 17,
+          "dismissals": 0,
+          "sr": 188.9,
+          "avg": null,
+          "boundaryPct": 33.3,
+          "dotPct": 55.6
+        },
+        "Right-arm leg-spin": {
+          "balls": 10,
+          "runs": 16,
+          "dismissals": 1,
+          "sr": 160.0,
+          "avg": 16.0,
+          "boundaryPct": 30.0,
+          "dotPct": 50.0
+        },
+        "Right-arm off-spin": {
+          "balls": 15,
+          "runs": 23,
+          "dismissals": 0,
+          "sr": 153.3,
+          "avg": null,
+          "boundaryPct": 20.0,
+          "dotPct": 53.3
+        },
+        "Right-arm pace": {
+          "balls": 31,
+          "runs": 58,
+          "dismissals": 2,
+          "sr": 187.1,
+          "avg": 29.0,
+          "boundaryPct": 32.3,
+          "dotPct": 38.7
+        },
+        "Wrist-spin": {
+          "balls": 14,
+          "runs": 18,
+          "dismissals": 1,
+          "sr": 128.6,
+          "avg": 18.0,
+          "boundaryPct": 21.4,
+          "dotPct": 50.0
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
+    },
+    "aad0c365": {
+      "career": {
+        "name": "Nithish Kumar Reddy",
+        "innings": 22,
+        "runs": 485,
+        "balls": 364,
+        "dismissals": 17,
+        "hs": 76,
+        "fifties": 2,
+        "hundreds": 0,
+        "fours": 31,
+        "sixes": 25,
+        "dots": 124,
+        "sr": 133.2,
+        "avg": 28.5,
+        "boundaryPct": 15.4,
+        "dotPct": 34.1
+      },
+      "phases": {
+        "death": {
+          "innings": 9,
+          "runs": 100,
+          "balls": 56,
+          "sr": 178.6,
+          "avg": 25.0,
+          "boundaryPct": 23.2,
+          "dotPct": 28.6
+        },
+        "middle": {
+          "innings": 16,
+          "runs": 314,
+          "balls": 234,
+          "sr": 134.2,
+          "avg": 31.4,
+          "boundaryPct": 15.4,
+          "dotPct": 30.8
+        },
+        "powerplay": {
+          "innings": 12,
+          "runs": 71,
+          "balls": 74,
+          "sr": 96.0,
+          "avg": 23.7,
+          "boundaryPct": 9.5,
+          "dotPct": 48.6
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 100,
+          "runs": 111,
+          "dismissals": 5,
+          "sr": 111.0,
+          "avg": 22.2,
+          "boundaryPct": 12.0,
+          "dotPct": 41.0
+        },
+        "Fast-Medium": {
+          "balls": 91,
+          "runs": 108,
+          "dismissals": 5,
+          "sr": 118.7,
+          "avg": 21.6,
+          "boundaryPct": 13.2,
+          "dotPct": 37.4
+        },
+        "LA Orthodox": {
+          "balls": 62,
+          "runs": 95,
+          "dismissals": 2,
+          "sr": 153.2,
+          "avg": 47.5,
+          "boundaryPct": 19.4,
+          "dotPct": 24.2
+        },
+        "Left-arm orthodox": {
+          "balls": 10,
+          "runs": 10,
+          "dismissals": 0,
+          "sr": 100.0,
+          "avg": null,
+          "boundaryPct": 10.0,
+          "dotPct": 30.0
+        },
+        "Left-arm pace": {
+          "balls": 7,
+          "runs": 12,
+          "dismissals": 0,
+          "sr": 171.4,
+          "avg": null,
+          "boundaryPct": 14.3,
+          "dotPct": 14.3
+        },
+        "Leg-spin": {
+          "balls": 57,
+          "runs": 90,
+          "dismissals": 1,
+          "sr": 157.9,
+          "avg": 90.0,
+          "boundaryPct": 19.3,
+          "dotPct": 31.6
+        },
+        "Medium": {
+          "balls": 4,
+          "runs": 2,
+          "dismissals": 1,
+          "sr": 50.0,
+          "avg": 2.0,
+          "boundaryPct": 0.0,
+          "dotPct": 50.0
+        },
+        "Off-spin": {
+          "balls": 6,
+          "runs": 4,
+          "dismissals": 0,
+          "sr": 66.7,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 50.0
+        },
+        "Right-arm leg-spin": {
+          "balls": 2,
+          "runs": 2,
+          "dismissals": 0,
+          "sr": 100.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 0.0
+        },
+        "Right-arm off-spin": {
+          "balls": 11,
+          "runs": 26,
+          "dismissals": 1,
+          "sr": 236.4,
+          "avg": 26.0,
+          "boundaryPct": 36.4,
+          "dotPct": 27.3
+        },
+        "Right-arm pace": {
+          "balls": 6,
+          "runs": 11,
+          "dismissals": 1,
+          "sr": 183.3,
+          "avg": 11.0,
+          "boundaryPct": 33.3,
+          "dotPct": 16.7
+        },
+        "Wrist-spin": {
+          "balls": 8,
+          "runs": 13,
+          "dismissals": 1,
+          "sr": 162.5,
+          "avg": 13.0,
+          "boundaryPct": 12.5,
+          "dotPct": 37.5
+        }
+      },
+      "recentForm": {
+        "team": "Sunrisers Hyderabad",
+        "last10Innings": 10,
+        "last10Runs": 152,
+        "last10Balls": 137,
+        "last10Sr": 111.0,
+        "last10Avg": 21.7,
+        "last10BoundaryPct": 10.9,
+        "last10DotPct": 35.0,
+        "careerSr": 133.2,
+        "careerAvg": 28.5,
+        "srDelta": -22.3
+      },
+      "ranking": {}
+    },
+    "5b8c830e": {
+      "career": {
+        "name": "KH Pandya",
+        "innings": 32,
+        "runs": 430,
+        "balls": 355,
+        "dismissals": 20,
+        "hs": 73,
+        "fifties": 1,
+        "hundreds": 0,
+        "fours": 32,
+        "sixes": 15,
+        "dots": 138,
+        "sr": 121.1,
+        "avg": 21.5,
+        "boundaryPct": 13.2,
+        "dotPct": 38.9
+      },
+      "phases": {
+        "death": {
+          "innings": 17,
+          "runs": 139,
+          "balls": 98,
+          "sr": 141.8,
+          "avg": 27.8,
+          "boundaryPct": 17.4,
+          "dotPct": 30.6
+        },
+        "middle": {
+          "innings": 17,
+          "runs": 257,
+          "balls": 214,
+          "sr": 120.1,
+          "avg": 21.4,
+          "boundaryPct": 12.2,
+          "dotPct": 38.3
+        },
+        "powerplay": {
+          "innings": 8,
+          "runs": 34,
+          "balls": 43,
+          "sr": 79.1,
+          "avg": 11.3,
+          "boundaryPct": 9.3,
+          "dotPct": 60.5
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 108,
+          "runs": 167,
+          "dismissals": 4,
+          "sr": 154.6,
+          "avg": 41.8,
+          "boundaryPct": 20.4,
+          "dotPct": 33.3
+        },
+        "Fast-Medium": {
+          "balls": 50,
+          "runs": 61,
+          "dismissals": 5,
+          "sr": 122.0,
+          "avg": 12.2,
+          "boundaryPct": 14.0,
+          "dotPct": 36.0
+        },
+        "LA Orthodox": {
+          "balls": 18,
+          "runs": 19,
+          "dismissals": 1,
+          "sr": 105.6,
+          "avg": 19.0,
+          "boundaryPct": 11.1,
+          "dotPct": 44.4
+        },
+        "Left-arm orthodox": {
+          "balls": 16,
+          "runs": 13,
+          "dismissals": 0,
+          "sr": 81.2,
+          "avg": null,
+          "boundaryPct": 6.2,
+          "dotPct": 56.2
+        },
+        "Left-arm pace": {
+          "balls": 11,
+          "runs": 18,
+          "dismissals": 1,
+          "sr": 163.6,
+          "avg": 18.0,
+          "boundaryPct": 9.1,
+          "dotPct": 18.2
+        },
+        "Leg-spin": {
+          "balls": 27,
+          "runs": 30,
+          "dismissals": 1,
+          "sr": 111.1,
+          "avg": 30.0,
+          "boundaryPct": 11.1,
+          "dotPct": 40.7
+        },
+        "Off-spin": {
+          "balls": 18,
+          "runs": 14,
+          "dismissals": 1,
+          "sr": 77.8,
+          "avg": 14.0,
+          "boundaryPct": 5.6,
+          "dotPct": 44.4
+        },
+        "Right-arm leg-spin": {
+          "balls": 21,
+          "runs": 36,
+          "dismissals": 1,
+          "sr": 171.4,
+          "avg": 36.0,
+          "boundaryPct": 19.1,
+          "dotPct": 28.6
+        },
+        "Right-arm off-spin": {
+          "balls": 28,
+          "runs": 16,
+          "dismissals": 3,
+          "sr": 57.1,
+          "avg": 5.3,
+          "boundaryPct": 3.6,
+          "dotPct": 53.6
+        },
+        "Right-arm pace": {
+          "balls": 18,
+          "runs": 16,
+          "dismissals": 1,
+          "sr": 88.9,
+          "avg": 16.0,
+          "boundaryPct": 5.6,
+          "dotPct": 38.9
+        },
+        "Wrist-spin": {
+          "balls": 39,
+          "runs": 35,
+          "dismissals": 2,
+          "sr": 89.7,
+          "avg": 17.5,
+          "boundaryPct": 7.7,
+          "dotPct": 46.1
+        }
+      },
+      "recentForm": {
+        "team": "Royal Challengers Bengaluru",
+        "last10Innings": 10,
+        "last10Runs": 163,
+        "last10Balls": 131,
+        "last10Sr": 124.4,
+        "last10Avg": 20.4,
+        "last10BoundaryPct": 14.5,
+        "last10DotPct": 38.9,
+        "careerSr": 132.6,
+        "careerAvg": 22.8,
+        "srDelta": -8.2
+      },
+      "ranking": {}
+    },
+    "0994d0ae": {
+      "career": {
+        "name": "V Shankar",
+        "innings": 22,
+        "runs": 502,
+        "balls": 349,
+        "dismissals": 16,
+        "hs": 69,
+        "fifties": 4,
+        "hundreds": 0,
+        "fours": 42,
+        "sixes": 20,
+        "dots": 104,
+        "sr": 143.8,
+        "avg": 31.4,
+        "boundaryPct": 17.8,
+        "dotPct": 29.8
+      },
+      "phases": {
+        "death": {
+          "innings": 10,
+          "runs": 182,
+          "balls": 92,
+          "sr": 197.8,
+          "avg": 45.5,
+          "boundaryPct": 26.1,
+          "dotPct": 18.5
+        },
+        "middle": {
+          "innings": 17,
+          "runs": 238,
+          "balls": 197,
+          "sr": 120.8,
+          "avg": 21.6,
+          "boundaryPct": 12.2,
+          "dotPct": 29.9
+        },
+        "powerplay": {
+          "innings": 6,
+          "runs": 82,
+          "balls": 60,
+          "sr": 136.7,
+          "avg": 82.0,
+          "boundaryPct": 23.3,
+          "dotPct": 46.7
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 104,
+          "runs": 154,
+          "dismissals": 4,
+          "sr": 148.1,
+          "avg": 38.5,
+          "boundaryPct": 18.3,
+          "dotPct": 31.7
+        },
+        "Fast-Medium": {
+          "balls": 42,
+          "runs": 49,
+          "dismissals": 3,
+          "sr": 116.7,
+          "avg": 16.3,
+          "boundaryPct": 14.3,
+          "dotPct": 35.7
+        },
+        "LA Orthodox": {
+          "balls": 26,
+          "runs": 22,
+          "dismissals": 0,
+          "sr": 84.6,
+          "avg": null,
+          "boundaryPct": 3.9,
+          "dotPct": 30.8
+        },
+        "Left-arm pace": {
+          "balls": 15,
+          "runs": 33,
+          "dismissals": 0,
+          "sr": 220.0,
+          "avg": null,
+          "boundaryPct": 46.7,
+          "dotPct": 33.3
+        },
+        "Leg-spin": {
+          "balls": 40,
+          "runs": 51,
+          "dismissals": 3,
+          "sr": 127.5,
+          "avg": 17.0,
+          "boundaryPct": 15.0,
+          "dotPct": 32.5
+        },
+        "Off-spin": {
+          "balls": 27,
+          "runs": 58,
+          "dismissals": 1,
+          "sr": 214.8,
+          "avg": 58.0,
+          "boundaryPct": 29.6,
+          "dotPct": 14.8
+        },
+        "Right-arm leg-spin": {
+          "balls": 17,
+          "runs": 20,
+          "dismissals": 2,
+          "sr": 117.7,
+          "avg": 10.0,
+          "boundaryPct": 11.8,
+          "dotPct": 35.3
+        },
+        "Right-arm off-spin": {
+          "balls": 5,
+          "runs": 10,
+          "dismissals": 0,
+          "sr": 200.0,
+          "avg": null,
+          "boundaryPct": 20.0,
+          "dotPct": 0.0
+        },
+        "Right-arm pace": {
+          "balls": 30,
+          "runs": 45,
+          "dismissals": 1,
+          "sr": 150.0,
+          "avg": 45.0,
+          "boundaryPct": 16.7,
+          "dotPct": 23.3
+        },
+        "Wrist-spin": {
+          "balls": 23,
+          "runs": 31,
+          "dismissals": 0,
+          "sr": 134.8,
+          "avg": null,
+          "boundaryPct": 13.0,
+          "dotPct": 21.7
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
+    },
+    "00ea847a": {
+      "career": {
+        "name": "MA Agarwal",
+        "innings": 18,
+        "runs": 429,
+        "balls": 329,
+        "dismissals": 17,
+        "hs": 83,
+        "fifties": 1,
+        "hundreds": 0,
+        "fours": 47,
+        "sixes": 9,
+        "dots": 116,
+        "sr": 130.4,
+        "avg": 25.2,
+        "boundaryPct": 17.0,
+        "dotPct": 35.3
+      },
+      "phases": {
+        "death": {
+          "innings": 2,
+          "runs": 15,
+          "balls": 11,
+          "sr": 136.4,
+          "avg": 15.0,
+          "boundaryPct": 9.1,
+          "dotPct": 9.1
+        },
+        "middle": {
+          "innings": 11,
+          "runs": 180,
+          "balls": 129,
+          "sr": 139.5,
+          "avg": 20.0,
+          "boundaryPct": 15.5,
+          "dotPct": 23.3
+        },
+        "powerplay": {
+          "innings": 15,
+          "runs": 234,
+          "balls": 189,
+          "sr": 123.8,
+          "avg": 33.4,
+          "boundaryPct": 18.5,
+          "dotPct": 45.0
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 68,
+          "runs": 88,
+          "dismissals": 2,
+          "sr": 129.4,
+          "avg": 44.0,
+          "boundaryPct": 17.6,
+          "dotPct": 36.8
+        },
+        "Fast-Medium": {
+          "balls": 92,
+          "runs": 108,
+          "dismissals": 5,
+          "sr": 117.4,
+          "avg": 21.6,
+          "boundaryPct": 17.4,
+          "dotPct": 48.9
+        },
+        "LA Orthodox": {
+          "balls": 31,
+          "runs": 38,
+          "dismissals": 4,
+          "sr": 122.6,
+          "avg": 9.5,
+          "boundaryPct": 16.1,
+          "dotPct": 35.5
+        },
+        "Left-arm orthodox": {
+          "balls": 5,
+          "runs": 8,
+          "dismissals": 0,
+          "sr": 160.0,
+          "avg": null,
+          "boundaryPct": 20.0,
+          "dotPct": 20.0
+        },
+        "Left-arm pace": {
+          "balls": 15,
+          "runs": 29,
+          "dismissals": 0,
+          "sr": 193.3,
+          "avg": null,
+          "boundaryPct": 33.3,
+          "dotPct": 20.0
+        },
+        "Leg-spin": {
+          "balls": 14,
+          "runs": 12,
+          "dismissals": 3,
+          "sr": 85.7,
+          "avg": 4.0,
+          "boundaryPct": 7.1,
+          "dotPct": 35.7
+        },
+        "Off-spin": {
+          "balls": 7,
+          "runs": 4,
+          "dismissals": 0,
+          "sr": 57.1,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 42.9
+        },
+        "Right-arm leg-spin": {
+          "balls": 36,
+          "runs": 56,
+          "dismissals": 0,
+          "sr": 155.6,
+          "avg": null,
+          "boundaryPct": 19.4,
+          "dotPct": 19.4
+        },
+        "Right-arm off-spin": {
+          "balls": 5,
+          "runs": 7,
+          "dismissals": 0,
+          "sr": 140.0,
+          "avg": null,
+          "boundaryPct": 20.0,
+          "dotPct": 20.0
+        },
+        "Right-arm pace": {
+          "balls": 49,
+          "runs": 70,
+          "dismissals": 3,
+          "sr": 142.9,
+          "avg": 23.3,
+          "boundaryPct": 14.3,
+          "dotPct": 26.5
+        },
+        "Wrist-spin": {
+          "balls": 7,
+          "runs": 5,
+          "dismissals": 0,
+          "sr": 71.4,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 28.6
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
+    },
+    "50c6bc2b": {
+      "career": {
+        "name": "LS Livingstone",
+        "innings": 24,
+        "runs": 502,
+        "balls": 328,
+        "dismissals": 19,
+        "hs": 94,
+        "fifties": 3,
+        "hundreds": 0,
+        "fours": 32,
+        "sixes": 35,
+        "dots": 116,
+        "sr": 153.1,
+        "avg": 26.4,
+        "boundaryPct": 20.4,
+        "dotPct": 35.4
+      },
+      "phases": {
+        "death": {
+          "innings": 11,
+          "runs": 234,
+          "balls": 100,
+          "sr": 234.0,
+          "avg": 39.0,
+          "boundaryPct": 36.0,
+          "dotPct": 30.0
+        },
+        "middle": {
+          "innings": 17,
+          "runs": 235,
+          "balls": 189,
+          "sr": 124.3,
+          "avg": 29.4,
+          "boundaryPct": 13.2,
+          "dotPct": 32.3
+        },
+        "powerplay": {
+          "innings": 7,
+          "runs": 33,
+          "balls": 39,
+          "sr": 84.6,
+          "avg": 6.6,
+          "boundaryPct": 15.4,
+          "dotPct": 64.1
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 74,
+          "runs": 156,
+          "dismissals": 1,
+          "sr": 210.8,
+          "avg": 156.0,
+          "boundaryPct": 31.1,
+          "dotPct": 27.0
+        },
+        "Fast-Medium": {
+          "balls": 72,
+          "runs": 90,
+          "dismissals": 7,
+          "sr": 125.0,
+          "avg": 12.9,
+          "boundaryPct": 18.1,
+          "dotPct": 47.2
+        },
+        "LA Orthodox": {
+          "balls": 38,
+          "runs": 32,
+          "dismissals": 1,
+          "sr": 84.2,
+          "avg": 32.0,
+          "boundaryPct": 7.9,
+          "dotPct": 39.5
+        },
+        "Left-arm orthodox": {
+          "balls": 3,
+          "runs": 1,
+          "dismissals": 0,
+          "sr": 33.3,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 66.7
+        },
+        "Leg-spin": {
+          "balls": 37,
+          "runs": 63,
+          "dismissals": 1,
+          "sr": 170.3,
+          "avg": 63.0,
+          "boundaryPct": 18.9,
+          "dotPct": 27.0
+        },
+        "Medium": {
+          "balls": 1,
+          "runs": 0,
+          "dismissals": 0,
+          "sr": 0.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 100.0
+        },
+        "Off-spin": {
+          "balls": 2,
+          "runs": 1,
+          "dismissals": 1,
+          "sr": 50.0,
+          "avg": 1.0,
+          "boundaryPct": 0.0,
+          "dotPct": 50.0
+        },
+        "Right-arm leg-spin": {
+          "balls": 27,
+          "runs": 20,
+          "dismissals": 0,
+          "sr": 74.1,
+          "avg": null,
+          "boundaryPct": 3.7,
+          "dotPct": 37.0
+        },
+        "Right-arm off-spin": {
+          "balls": 12,
+          "runs": 17,
+          "dismissals": 0,
+          "sr": 141.7,
+          "avg": null,
+          "boundaryPct": 16.7,
+          "dotPct": 33.3
+        },
+        "Right-arm pace": {
+          "balls": 37,
+          "runs": 72,
+          "dismissals": 5,
+          "sr": 194.6,
+          "avg": 14.4,
+          "boundaryPct": 29.7,
+          "dotPct": 29.7
+        },
+        "Wrist-spin": {
+          "balls": 29,
+          "runs": 37,
+          "dismissals": 2,
+          "sr": 127.6,
+          "avg": 18.5,
+          "boundaryPct": 13.8,
+          "dotPct": 34.5
+        }
+      },
+      "recentForm": {
+        "team": "Sunrisers Hyderabad",
+        "last10Innings": 10,
+        "last10Runs": 118,
+        "last10Balls": 95,
+        "last10Sr": 124.2,
+        "last10Avg": 13.1,
+        "last10BoundaryPct": 14.7,
+        "last10DotPct": 43.2,
+        "careerSr": 160.5,
+        "careerAvg": 26.9,
+        "srDelta": -36.2
+      },
+      "ranking": {}
+    },
+    "8e514b4c": {
+      "career": {
+        "name": "Abdul Samad",
+        "innings": 32,
+        "runs": 515,
+        "balls": 326,
+        "dismissals": 21,
+        "hs": 45,
+        "fifties": 0,
+        "hundreds": 0,
+        "fours": 33,
+        "sixes": 36,
+        "dots": 110,
+        "sr": 158.0,
+        "avg": 24.5,
+        "boundaryPct": 21.2,
+        "dotPct": 33.7
+      },
+      "phases": {
+        "death": {
+          "innings": 26,
+          "runs": 347,
+          "balls": 194,
+          "sr": 178.9,
+          "avg": 23.1,
+          "boundaryPct": 24.7,
+          "dotPct": 28.9
+        },
+        "middle": {
+          "innings": 19,
+          "runs": 168,
+          "balls": 132,
+          "sr": 127.3,
+          "avg": 28.0,
+          "boundaryPct": 15.9,
+          "dotPct": 40.9
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 109,
+          "runs": 196,
+          "dismissals": 7,
+          "sr": 179.8,
+          "avg": 28.0,
+          "boundaryPct": 24.8,
+          "dotPct": 32.1
+        },
+        "Fast-Medium": {
+          "balls": 68,
+          "runs": 108,
+          "dismissals": 7,
+          "sr": 158.8,
+          "avg": 15.4,
+          "boundaryPct": 23.5,
+          "dotPct": 35.3
+        },
+        "LA Orthodox": {
+          "balls": 28,
+          "runs": 22,
+          "dismissals": 0,
+          "sr": 78.6,
+          "avg": null,
+          "boundaryPct": 3.6,
+          "dotPct": 42.9
+        },
+        "Left-arm pace": {
+          "balls": 7,
+          "runs": 29,
+          "dismissals": 0,
+          "sr": 414.3,
+          "avg": null,
+          "boundaryPct": 85.7,
+          "dotPct": 0.0
+        },
+        "Leg-spin": {
+          "balls": 23,
+          "runs": 33,
+          "dismissals": 0,
+          "sr": 143.5,
+          "avg": null,
+          "boundaryPct": 17.4,
+          "dotPct": 34.8
+        },
+        "Medium": {
+          "balls": 3,
+          "runs": 2,
+          "dismissals": 1,
+          "sr": 66.7,
+          "avg": 2.0,
+          "boundaryPct": 0.0,
+          "dotPct": 33.3
+        },
+        "Off-spin": {
+          "balls": 23,
+          "runs": 23,
+          "dismissals": 1,
+          "sr": 100.0,
+          "avg": 23.0,
+          "boundaryPct": 8.7,
+          "dotPct": 47.8
+        },
+        "Right-arm leg-spin": {
+          "balls": 8,
+          "runs": 14,
+          "dismissals": 1,
+          "sr": 175.0,
+          "avg": 14.0,
+          "boundaryPct": 25.0,
+          "dotPct": 25.0
+        },
+        "Right-arm off-spin": {
+          "balls": 8,
+          "runs": 5,
+          "dismissals": 0,
+          "sr": 62.5,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 50.0
+        },
+        "Right-arm pace": {
+          "balls": 42,
+          "runs": 66,
+          "dismissals": 3,
+          "sr": 157.1,
+          "avg": 22.0,
+          "boundaryPct": 21.4,
+          "dotPct": 30.9
+        },
+        "Wrist-spin": {
+          "balls": 7,
+          "runs": 12,
+          "dismissals": 0,
+          "sr": 171.4,
+          "avg": null,
+          "boundaryPct": 14.3,
+          "dotPct": 0.0
+        }
+      },
+      "recentForm": {
+        "team": "Lucknow Super Giants",
+        "last10Innings": 10,
+        "last10Runs": 115,
+        "last10Balls": 73,
+        "last10Sr": 157.5,
+        "last10Avg": 16.4,
+        "last10BoundaryPct": 19.2,
+        "last10DotPct": 32.9,
+        "careerSr": 152.8,
+        "careerAvg": 20.0,
+        "srDelta": 4.8
+      },
+      "ranking": {}
+    },
+    "d7017798": {
+      "career": {
+        "name": "A Raghuvanshi",
+        "innings": 18,
+        "runs": 463,
+        "balls": 319,
+        "dismissals": 16,
+        "hs": 54,
+        "fifties": 2,
+        "hundreds": 0,
+        "fours": 46,
+        "sixes": 16,
+        "dots": 92,
+        "sr": 145.1,
+        "avg": 28.9,
+        "boundaryPct": 19.4,
+        "dotPct": 28.8
+      },
+      "phases": {
+        "death": {
+          "innings": 6,
+          "runs": 58,
+          "balls": 43,
+          "sr": 134.9,
+          "avg": 14.5,
+          "boundaryPct": 16.3,
+          "dotPct": 27.9
+        },
+        "middle": {
+          "innings": 14,
+          "runs": 251,
+          "balls": 184,
+          "sr": 136.4,
+          "avg": 27.9,
+          "boundaryPct": 15.8,
+          "dotPct": 23.9
+        },
+        "powerplay": {
+          "innings": 11,
+          "runs": 154,
+          "balls": 92,
+          "sr": 167.4,
+          "avg": 51.3,
+          "boundaryPct": 28.3,
+          "dotPct": 39.1
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 60,
+          "runs": 82,
+          "dismissals": 6,
+          "sr": 136.7,
+          "avg": 13.7,
+          "boundaryPct": 20.0,
+          "dotPct": 31.7
+        },
+        "Fast-Medium": {
+          "balls": 75,
+          "runs": 110,
+          "dismissals": 5,
+          "sr": 146.7,
+          "avg": 22.0,
+          "boundaryPct": 22.7,
+          "dotPct": 40.0
+        },
+        "LA Orthodox": {
+          "balls": 33,
+          "runs": 34,
+          "dismissals": 1,
+          "sr": 103.0,
+          "avg": 34.0,
+          "boundaryPct": 6.1,
+          "dotPct": 18.2
+        },
+        "Left-arm pace": {
+          "balls": 8,
+          "runs": 10,
+          "dismissals": 0,
+          "sr": 125.0,
+          "avg": null,
+          "boundaryPct": 25.0,
+          "dotPct": 50.0
+        },
+        "Leg-spin": {
+          "balls": 67,
+          "runs": 112,
+          "dismissals": 1,
+          "sr": 167.2,
+          "avg": 112.0,
+          "boundaryPct": 23.9,
+          "dotPct": 20.9
+        },
+        "Off-Spin/Left-Arm Orthodox": {
+          "balls": 3,
+          "runs": 1,
+          "dismissals": 1,
+          "sr": 33.3,
+          "avg": 1.0,
+          "boundaryPct": 0.0,
+          "dotPct": 66.7
+        },
+        "Off-Spin/Leg-Spin": {
+          "balls": 5,
+          "runs": 4,
+          "dismissals": 0,
+          "sr": 80.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 20.0
+        },
+        "Off-spin": {
+          "balls": 14,
+          "runs": 21,
+          "dismissals": 0,
+          "sr": 150.0,
+          "avg": null,
+          "boundaryPct": 14.3,
+          "dotPct": 0.0
+        },
+        "Right-arm off-spin": {
+          "balls": 19,
+          "runs": 23,
+          "dismissals": 0,
+          "sr": 121.0,
+          "avg": null,
+          "boundaryPct": 10.5,
+          "dotPct": 31.6
+        },
+        "Right-arm pace": {
+          "balls": 18,
+          "runs": 44,
+          "dismissals": 1,
+          "sr": 244.4,
+          "avg": 44.0,
+          "boundaryPct": 38.9,
+          "dotPct": 27.8
+        },
+        "Wrist-spin": {
+          "balls": 17,
+          "runs": 22,
+          "dismissals": 1,
+          "sr": 129.4,
+          "avg": 22.0,
+          "boundaryPct": 11.8,
+          "dotPct": 29.4
+        }
+      },
+      "recentForm": {
+        "team": "Kolkata Knight Riders",
+        "last10Innings": 10,
+        "last10Runs": 270,
+        "last10Balls": 192,
+        "last10Sr": 140.6,
+        "last10Avg": 33.8,
+        "last10BoundaryPct": 18.2,
+        "last10DotPct": 28.1,
+        "careerSr": 145.1,
+        "careerAvg": 28.9,
+        "srDelta": -4.5
+      },
+      "ranking": {}
+    },
+    "b681e71e": {
+      "career": {
+        "name": "GJ Maxwell",
+        "innings": 29,
+        "runs": 500,
+        "balls": 310,
+        "dismissals": 27,
+        "hs": 77,
+        "fifties": 5,
+        "hundreds": 0,
+        "fours": 40,
+        "sixes": 34,
+        "dots": 116,
+        "sr": 161.3,
+        "avg": 18.5,
+        "boundaryPct": 23.9,
+        "dotPct": 37.4
+      },
+      "phases": {
+        "death": {
+          "innings": 8,
+          "runs": 92,
+          "balls": 45,
+          "sr": 204.4,
+          "avg": 15.3,
+          "boundaryPct": 33.3,
+          "dotPct": 35.6
+        },
+        "middle": {
+          "innings": 22,
+          "runs": 325,
+          "balls": 216,
+          "sr": 150.5,
+          "avg": 18.1,
+          "boundaryPct": 19.9,
+          "dotPct": 35.6
+        },
+        "powerplay": {
+          "innings": 7,
+          "runs": 83,
+          "balls": 49,
+          "sr": 169.4,
+          "avg": 27.7,
+          "boundaryPct": 32.6,
+          "dotPct": 46.9
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 66,
+          "runs": 105,
+          "dismissals": 10,
+          "sr": 159.1,
+          "avg": 10.5,
+          "boundaryPct": 25.8,
+          "dotPct": 43.9
+        },
+        "Fast-Medium": {
+          "balls": 38,
+          "runs": 80,
+          "dismissals": 0,
+          "sr": 210.5,
+          "avg": null,
+          "boundaryPct": 34.2,
+          "dotPct": 26.3
+        },
+        "LA Orthodox": {
+          "balls": 20,
+          "runs": 29,
+          "dismissals": 3,
+          "sr": 145.0,
+          "avg": 9.7,
+          "boundaryPct": 15.0,
+          "dotPct": 35.0
+        },
+        "Left-arm pace": {
+          "balls": 13,
+          "runs": 21,
+          "dismissals": 2,
+          "sr": 161.5,
+          "avg": 10.5,
+          "boundaryPct": 38.5,
+          "dotPct": 53.9
+        },
+        "Leg-spin": {
+          "balls": 33,
+          "runs": 46,
+          "dismissals": 3,
+          "sr": 139.4,
+          "avg": 15.3,
+          "boundaryPct": 15.2,
+          "dotPct": 33.3
+        },
+        "Off-spin": {
+          "balls": 30,
+          "runs": 32,
+          "dismissals": 5,
+          "sr": 106.7,
+          "avg": 6.4,
+          "boundaryPct": 16.7,
+          "dotPct": 46.7
+        },
+        "Right-arm leg-spin": {
+          "balls": 29,
+          "runs": 56,
+          "dismissals": 0,
+          "sr": 193.1,
+          "avg": null,
+          "boundaryPct": 31.0,
+          "dotPct": 20.7
+        },
+        "Right-arm off-spin": {
+          "balls": 47,
+          "runs": 76,
+          "dismissals": 5,
+          "sr": 161.7,
+          "avg": 15.2,
+          "boundaryPct": 19.1,
+          "dotPct": 36.2
+        },
+        "Right-arm pace": {
+          "balls": 35,
+          "runs": 44,
+          "dismissals": 1,
+          "sr": 125.7,
+          "avg": 44.0,
+          "boundaryPct": 17.1,
+          "dotPct": 54.3
+        },
+        "Wrist-spin": {
+          "balls": 5,
+          "runs": 11,
+          "dismissals": 1,
+          "sr": 220.0,
+          "avg": 11.0,
+          "boundaryPct": 40.0,
+          "dotPct": 40.0
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
+    },
+    "9caf69a1": {
+      "career": {
+        "name": "WG Jacks",
+        "innings": 19,
+        "runs": 463,
+        "balls": 302,
+        "dismissals": 16,
+        "hs": 100,
+        "fifties": 3,
+        "hundreds": 1,
+        "fours": 38,
+        "sixes": 29,
+        "dots": 110,
+        "sr": 153.3,
+        "avg": 28.9,
+        "boundaryPct": 22.2,
+        "dotPct": 36.4
+      },
+      "phases": {
+        "death": {
+          "innings": 2,
+          "runs": 29,
+          "balls": 6,
+          "sr": 483.3,
+          "avg": null,
+          "boundaryPct": 83.3,
+          "dotPct": 0.0
+        },
+        "middle": {
+          "innings": 13,
+          "runs": 244,
+          "balls": 168,
+          "sr": 145.2,
+          "avg": 22.2,
+          "boundaryPct": 19.1,
+          "dotPct": 33.9
+        },
+        "powerplay": {
+          "innings": 16,
+          "runs": 190,
+          "balls": 128,
+          "sr": 148.4,
+          "avg": 38.0,
+          "boundaryPct": 23.4,
+          "dotPct": 41.4
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 74,
+          "runs": 142,
+          "dismissals": 2,
+          "sr": 191.9,
+          "avg": 71.0,
+          "boundaryPct": 31.1,
+          "dotPct": 31.1
+        },
+        "Fast-Medium": {
+          "balls": 54,
+          "runs": 88,
+          "dismissals": 2,
+          "sr": 163.0,
+          "avg": 44.0,
+          "boundaryPct": 27.8,
+          "dotPct": 35.2
+        },
+        "LA Orthodox": {
+          "balls": 28,
+          "runs": 39,
+          "dismissals": 1,
+          "sr": 139.3,
+          "avg": 39.0,
+          "boundaryPct": 14.3,
+          "dotPct": 28.6
+        },
+        "Left-arm orthodox": {
+          "balls": 4,
+          "runs": 1,
+          "dismissals": 1,
+          "sr": 25.0,
+          "avg": 1.0,
+          "boundaryPct": 0.0,
+          "dotPct": 75.0
+        },
+        "Left-arm pace": {
+          "balls": 7,
+          "runs": 12,
+          "dismissals": 0,
+          "sr": 171.4,
+          "avg": null,
+          "boundaryPct": 28.6,
+          "dotPct": 42.9
+        },
+        "Leg-spin": {
+          "balls": 68,
+          "runs": 87,
+          "dismissals": 3,
+          "sr": 127.9,
+          "avg": 29.0,
+          "boundaryPct": 14.7,
+          "dotPct": 36.8
+        },
+        "Off-spin": {
+          "balls": 28,
+          "runs": 30,
+          "dismissals": 0,
+          "sr": 107.1,
+          "avg": null,
+          "boundaryPct": 14.3,
+          "dotPct": 46.4
+        },
+        "Right-arm off-spin": {
+          "balls": 2,
+          "runs": 1,
+          "dismissals": 1,
+          "sr": 50.0,
+          "avg": 1.0,
+          "boundaryPct": 0.0,
+          "dotPct": 50.0
+        },
+        "Right-arm pace": {
+          "balls": 27,
+          "runs": 58,
+          "dismissals": 3,
+          "sr": 214.8,
+          "avg": 19.3,
+          "boundaryPct": 37.0,
+          "dotPct": 33.3
+        },
+        "Wrist-spin": {
+          "balls": 19,
+          "runs": 31,
+          "dismissals": 2,
+          "sr": 163.2,
+          "avg": 15.5,
+          "boundaryPct": 21.1,
+          "dotPct": 36.8
+        }
+      },
+      "recentForm": {
+        "team": "Mumbai Indians",
+        "last10Innings": 10,
+        "last10Runs": 222,
+        "last10Balls": 165,
+        "last10Sr": 134.6,
+        "last10Avg": 24.7,
+        "last10BoundaryPct": 18.8,
+        "last10DotPct": 37.6,
+        "careerSr": 153.3,
+        "careerAvg": 28.9,
+        "srDelta": -18.8
+      },
+      "ranking": {}
+    },
+    "b5797845": {
+      "career": {
+        "name": "Priyansh Arya",
+        "innings": 18,
+        "runs": 545,
+        "balls": 298,
+        "dismissals": 18,
+        "hs": 103,
+        "fifties": 4,
+        "hundreds": 1,
+        "fours": 60,
+        "sixes": 31,
+        "dots": 106,
+        "sr": 182.9,
+        "avg": 30.3,
+        "boundaryPct": 30.5,
+        "dotPct": 35.6
+      },
+      "phases": {
+        "middle": {
+          "innings": 5,
+          "runs": 161,
+          "balls": 81,
+          "sr": 198.8,
+          "avg": 32.2,
+          "boundaryPct": 29.6,
+          "dotPct": 27.2
+        },
+        "powerplay": {
+          "innings": 18,
+          "runs": 384,
+          "balls": 217,
+          "sr": 177.0,
+          "avg": 29.5,
+          "boundaryPct": 30.9,
+          "dotPct": 38.7
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 110,
+          "runs": 185,
+          "dismissals": 7,
+          "sr": 168.2,
+          "avg": 26.4,
+          "boundaryPct": 29.1,
+          "dotPct": 41.8
+        },
+        "Fast-Medium": {
+          "balls": 102,
+          "runs": 205,
+          "dismissals": 4,
+          "sr": 201.0,
+          "avg": 51.2,
+          "boundaryPct": 36.3,
+          "dotPct": 34.3
+        },
+        "LA Orthodox": {
+          "balls": 18,
+          "runs": 27,
+          "dismissals": 2,
+          "sr": 150.0,
+          "avg": 13.5,
+          "boundaryPct": 16.7,
+          "dotPct": 27.8
+        },
+        "Left-arm pace": {
+          "balls": 19,
+          "runs": 37,
+          "dismissals": 1,
+          "sr": 194.7,
+          "avg": 37.0,
+          "boundaryPct": 31.6,
+          "dotPct": 26.3
+        },
+        "Leg-spin": {
+          "balls": 7,
+          "runs": 10,
+          "dismissals": 2,
+          "sr": 142.9,
+          "avg": 5.0,
+          "boundaryPct": 28.6,
+          "dotPct": 42.9
+        },
+        "Off-spin": {
+          "balls": 15,
+          "runs": 19,
+          "dismissals": 0,
+          "sr": 126.7,
+          "avg": null,
+          "boundaryPct": 13.3,
+          "dotPct": 40.0
+        },
+        "Right-arm off-spin": {
+          "balls": 10,
+          "runs": 28,
+          "dismissals": 0,
+          "sr": 280.0,
+          "avg": null,
+          "boundaryPct": 40.0,
+          "dotPct": 10.0
+        },
+        "Right-arm pace": {
+          "balls": 4,
+          "runs": 7,
+          "dismissals": 1,
+          "sr": 175.0,
+          "avg": 7.0,
+          "boundaryPct": 25.0,
+          "dotPct": 50.0
+        },
+        "Wrist-spin": {
+          "balls": 13,
+          "runs": 27,
+          "dismissals": 1,
+          "sr": 207.7,
+          "avg": 27.0,
+          "boundaryPct": 30.8,
+          "dotPct": 23.1
+        }
+      },
+      "recentForm": {
+        "team": "Punjab Kings",
+        "last10Innings": 10,
+        "last10Runs": 291,
+        "last10Balls": 173,
+        "last10Sr": 168.2,
+        "last10Avg": 29.1,
+        "last10BoundaryPct": 28.3,
+        "last10DotPct": 36.4,
+        "careerSr": 182.9,
+        "careerAvg": 30.3,
+        "srDelta": -14.7
+      },
+      "ranking": {}
+    },
+    "ba5e1069": {
+      "career": {
+        "name": "R Ravindra",
+        "innings": 18,
+        "runs": 413,
+        "balls": 284,
+        "dismissals": 16,
+        "hs": 65,
+        "fifties": 2,
+        "hundreds": 0,
+        "fours": 40,
+        "sixes": 16,
+        "dots": 95,
+        "sr": 145.4,
+        "avg": 25.8,
+        "boundaryPct": 19.7,
+        "dotPct": 33.5
+      },
+      "phases": {
+        "death": {
+          "innings": 1,
+          "runs": 24,
+          "balls": 9,
+          "sr": 266.7,
+          "avg": null,
+          "boundaryPct": 33.3,
+          "dotPct": 0.0
+        },
+        "middle": {
+          "innings": 7,
+          "runs": 114,
+          "balls": 77,
+          "sr": 148.1,
+          "avg": 19.0,
+          "boundaryPct": 14.3,
+          "dotPct": 22.1
+        },
+        "powerplay": {
+          "innings": 18,
+          "runs": 275,
+          "balls": 198,
+          "sr": 138.9,
+          "avg": 27.5,
+          "boundaryPct": 21.2,
+          "dotPct": 39.4
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 69,
+          "runs": 109,
+          "dismissals": 5,
+          "sr": 158.0,
+          "avg": 21.8,
+          "boundaryPct": 26.1,
+          "dotPct": 33.3
+        },
+        "Fast-Medium": {
+          "balls": 90,
+          "runs": 119,
+          "dismissals": 4,
+          "sr": 132.2,
+          "avg": 29.8,
+          "boundaryPct": 20.0,
+          "dotPct": 44.4
+        },
+        "LA Orthodox": {
+          "balls": 16,
+          "runs": 21,
+          "dismissals": 0,
+          "sr": 131.2,
+          "avg": null,
+          "boundaryPct": 12.5,
+          "dotPct": 25.0
+        },
+        "Leg-spin": {
+          "balls": 20,
+          "runs": 24,
+          "dismissals": 2,
+          "sr": 120.0,
+          "avg": 12.0,
+          "boundaryPct": 15.0,
+          "dotPct": 40.0
+        },
+        "Medium": {
+          "balls": 5,
+          "runs": 14,
+          "dismissals": 1,
+          "sr": 280.0,
+          "avg": 14.0,
+          "boundaryPct": 40.0,
+          "dotPct": 20.0
+        },
+        "Off-Spin/Leg-Spin": {
+          "balls": 7,
+          "runs": 14,
+          "dismissals": 0,
+          "sr": 200.0,
+          "avg": null,
+          "boundaryPct": 28.6,
+          "dotPct": 0.0
+        },
+        "Off-spin": {
+          "balls": 18,
+          "runs": 20,
+          "dismissals": 1,
+          "sr": 111.1,
+          "avg": 20.0,
+          "boundaryPct": 0.0,
+          "dotPct": 11.1
+        },
+        "Right-arm off-spin": {
+          "balls": 27,
+          "runs": 24,
+          "dismissals": 3,
+          "sr": 88.9,
+          "avg": 8.0,
+          "boundaryPct": 3.7,
+          "dotPct": 25.9
+        },
+        "Right-arm pace": {
+          "balls": 20,
+          "runs": 37,
+          "dismissals": 0,
+          "sr": 185.0,
+          "avg": null,
+          "boundaryPct": 30.0,
+          "dotPct": 40.0
+        },
+        "Wrist-spin": {
+          "balls": 10,
+          "runs": 24,
+          "dismissals": 0,
+          "sr": 240.0,
+          "avg": null,
+          "boundaryPct": 30.0,
+          "dotPct": 20.0
+        }
+      },
+      "recentForm": {
+        "team": "Kolkata Knight Riders",
+        "last10Innings": 10,
+        "last10Runs": 279,
+        "last10Balls": 201,
+        "last10Sr": 138.8,
+        "last10Avg": 31.0,
+        "last10BoundaryPct": 16.4,
+        "last10DotPct": 30.9,
+        "careerSr": 145.4,
+        "careerAvg": 25.8,
+        "srDelta": -6.6
+      },
+      "ranking": {}
+    },
+    "c03f1114": {
+      "career": {
+        "name": "KD Karthik",
+        "innings": 26,
+        "runs": 466,
+        "balls": 277,
+        "dismissals": 19,
+        "hs": 83,
+        "fifties": 2,
+        "hundreds": 0,
+        "fours": 40,
+        "sixes": 27,
+        "dots": 85,
+        "sr": 168.2,
+        "avg": 24.5,
+        "boundaryPct": 24.2,
+        "dotPct": 30.7
+      },
+      "phases": {
+        "death": {
+          "innings": 22,
+          "runs": 356,
+          "balls": 189,
+          "sr": 188.4,
+          "avg": 22.2,
+          "boundaryPct": 28.6,
+          "dotPct": 30.7
+        },
+        "middle": {
+          "innings": 15,
+          "runs": 110,
+          "balls": 88,
+          "sr": 125.0,
+          "avg": 36.7,
+          "boundaryPct": 14.8,
+          "dotPct": 30.7
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 95,
+          "runs": 156,
+          "dismissals": 7,
+          "sr": 164.2,
+          "avg": 22.3,
+          "boundaryPct": 24.2,
+          "dotPct": 35.8
+        },
+        "Fast-Medium": {
+          "balls": 45,
+          "runs": 70,
+          "dismissals": 5,
+          "sr": 155.6,
+          "avg": 14.0,
+          "boundaryPct": 20.0,
+          "dotPct": 31.1
+        },
+        "LA Orthodox": {
+          "balls": 8,
+          "runs": 10,
+          "dismissals": 0,
+          "sr": 125.0,
+          "avg": null,
+          "boundaryPct": 12.5,
+          "dotPct": 37.5
+        },
+        "Left-arm pace": {
+          "balls": 8,
+          "runs": 10,
+          "dismissals": 0,
+          "sr": 125.0,
+          "avg": null,
+          "boundaryPct": 12.5,
+          "dotPct": 25.0
+        },
+        "Leg-spin": {
+          "balls": 38,
+          "runs": 54,
+          "dismissals": 1,
+          "sr": 142.1,
+          "avg": 54.0,
+          "boundaryPct": 15.8,
+          "dotPct": 23.7
+        },
+        "Off-spin": {
+          "balls": 14,
+          "runs": 14,
+          "dismissals": 1,
+          "sr": 100.0,
+          "avg": 14.0,
+          "boundaryPct": 7.1,
+          "dotPct": 28.6
+        },
+        "Right-arm leg-spin": {
+          "balls": 17,
+          "runs": 30,
+          "dismissals": 1,
+          "sr": 176.5,
+          "avg": 30.0,
+          "boundaryPct": 29.4,
+          "dotPct": 35.3
+        },
+        "Right-arm off-spin": {
+          "balls": 9,
+          "runs": 22,
+          "dismissals": 0,
+          "sr": 244.4,
+          "avg": null,
+          "boundaryPct": 33.3,
+          "dotPct": 0.0
+        },
+        "Right-arm pace": {
+          "balls": 50,
+          "runs": 97,
+          "dismissals": 3,
+          "sr": 194.0,
+          "avg": 32.3,
+          "boundaryPct": 34.0,
+          "dotPct": 38.0
+        },
+        "Wrist-spin": {
+          "balls": 5,
+          "runs": 2,
+          "dismissals": 1,
+          "sr": 40.0,
+          "avg": 2.0,
+          "boundaryPct": 0.0,
+          "dotPct": 60.0
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
+    },
+    "4a8a2e3b": {
+      "career": {
+        "name": "MS Dhoni",
+        "innings": 36,
+        "runs": 461,
+        "balls": 271,
+        "dismissals": 15,
+        "hs": 37,
+        "fifties": 0,
+        "hundreds": 0,
+        "fours": 29,
+        "sixes": 35,
+        "dots": 84,
+        "sr": 170.1,
+        "avg": 30.7,
+        "boundaryPct": 23.6,
+        "dotPct": 31.0
+      },
+      "phases": {
+        "death": {
+          "innings": 35,
+          "runs": 441,
+          "balls": 241,
+          "sr": 183.0,
+          "avg": 31.5,
+          "boundaryPct": 26.1,
+          "dotPct": 29.1
+        },
+        "middle": {
+          "innings": 6,
+          "runs": 20,
+          "balls": 30,
+          "sr": 66.7,
+          "avg": 20.0,
+          "boundaryPct": 3.3,
+          "dotPct": 46.7
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 82,
+          "runs": 163,
+          "dismissals": 7,
+          "sr": 198.8,
+          "avg": 23.3,
+          "boundaryPct": 30.5,
+          "dotPct": 26.8
+        },
+        "Fast-Medium": {
+          "balls": 63,
+          "runs": 138,
+          "dismissals": 2,
+          "sr": 219.1,
+          "avg": 69.0,
+          "boundaryPct": 34.9,
+          "dotPct": 23.8
+        },
+        "LA Orthodox": {
+          "balls": 12,
+          "runs": 21,
+          "dismissals": 0,
+          "sr": 175.0,
+          "avg": null,
+          "boundaryPct": 25.0,
+          "dotPct": 33.3
+        },
+        "Left-arm pace": {
+          "balls": 9,
+          "runs": 16,
+          "dismissals": 0,
+          "sr": 177.8,
+          "avg": null,
+          "boundaryPct": 22.2,
+          "dotPct": 22.2
+        },
+        "Leg-spin": {
+          "balls": 39,
+          "runs": 44,
+          "dismissals": 1,
+          "sr": 112.8,
+          "avg": 44.0,
+          "boundaryPct": 12.8,
+          "dotPct": 43.6
+        },
+        "Off-Spin/Leg-Spin": {
+          "balls": 4,
+          "runs": 2,
+          "dismissals": 0,
+          "sr": 50.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 75.0
+        },
+        "Off-spin": {
+          "balls": 14,
+          "runs": 12,
+          "dismissals": 1,
+          "sr": 85.7,
+          "avg": 12.0,
+          "boundaryPct": 7.1,
+          "dotPct": 57.1
+        },
+        "Right-arm leg-spin": {
+          "balls": 4,
+          "runs": 12,
+          "dismissals": 0,
+          "sr": 300.0,
+          "avg": null,
+          "boundaryPct": 50.0,
+          "dotPct": 0.0
+        },
+        "Right-arm off-spin": {
+          "balls": 7,
+          "runs": 5,
+          "dismissals": 0,
+          "sr": 71.4,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 28.6
+        },
+        "Right-arm pace": {
+          "balls": 33,
+          "runs": 42,
+          "dismissals": 4,
+          "sr": 127.3,
+          "avg": 10.5,
+          "boundaryPct": 12.1,
+          "dotPct": 33.3
+        },
+        "Wrist-spin": {
+          "balls": 4,
+          "runs": 4,
+          "dismissals": 0,
+          "sr": 100.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 0.0
+        }
+      },
+      "recentForm": {
+        "team": "Chennai Super Kings",
+        "last10Innings": 10,
+        "last10Runs": 150,
+        "last10Balls": 116,
+        "last10Sr": 129.3,
+        "last10Avg": 21.4,
+        "last10BoundaryPct": 14.7,
+        "last10DotPct": 32.8,
+        "careerSr": 138.2,
+        "careerAvg": 39.1,
+        "srDelta": -8.9
+      },
+      "ranking": {}
+    },
+    "7dcb9bc9": {
+      "career": {
+        "name": "M Shahrukh Khan",
+        "innings": 30,
+        "runs": 462,
+        "balls": 269,
+        "dismissals": 18,
+        "hs": 58,
+        "fifties": 2,
+        "hundreds": 0,
+        "fours": 33,
+        "sixes": 31,
+        "dots": 79,
+        "sr": 171.8,
+        "avg": 25.7,
+        "boundaryPct": 23.8,
+        "dotPct": 29.4
+      },
+      "phases": {
+        "death": {
+          "innings": 23,
+          "runs": 255,
+          "balls": 140,
+          "sr": 182.1,
+          "avg": 21.2,
+          "boundaryPct": 24.3,
+          "dotPct": 24.3
+        },
+        "middle": {
+          "innings": 12,
+          "runs": 199,
+          "balls": 120,
+          "sr": 165.8,
+          "avg": 33.2,
+          "boundaryPct": 24.2,
+          "dotPct": 33.3
+        },
+        "powerplay": {
+          "innings": 2,
+          "runs": 8,
+          "balls": 9,
+          "sr": 88.9,
+          "avg": null,
+          "boundaryPct": 11.1,
+          "dotPct": 55.6
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 72,
+          "runs": 104,
+          "dismissals": 3,
+          "sr": 144.4,
+          "avg": 34.7,
+          "boundaryPct": 20.8,
+          "dotPct": 37.5
+        },
+        "Fast-Medium": {
+          "balls": 67,
+          "runs": 145,
+          "dismissals": 7,
+          "sr": 216.4,
+          "avg": 20.7,
+          "boundaryPct": 31.3,
+          "dotPct": 22.4
+        },
+        "LA Orthodox": {
+          "balls": 6,
+          "runs": 6,
+          "dismissals": 1,
+          "sr": 100.0,
+          "avg": 6.0,
+          "boundaryPct": 0.0,
+          "dotPct": 16.7
+        },
+        "Left-arm orthodox": {
+          "balls": 7,
+          "runs": 13,
+          "dismissals": 0,
+          "sr": 185.7,
+          "avg": null,
+          "boundaryPct": 14.3,
+          "dotPct": 0.0
+        },
+        "Left-arm pace": {
+          "balls": 10,
+          "runs": 17,
+          "dismissals": 1,
+          "sr": 170.0,
+          "avg": 17.0,
+          "boundaryPct": 30.0,
+          "dotPct": 40.0
+        },
+        "Leg-spin": {
+          "balls": 22,
+          "runs": 25,
+          "dismissals": 2,
+          "sr": 113.6,
+          "avg": 12.5,
+          "boundaryPct": 13.6,
+          "dotPct": 45.5
+        },
+        "Medium": {
+          "balls": 15,
+          "runs": 23,
+          "dismissals": 0,
+          "sr": 153.3,
+          "avg": null,
+          "boundaryPct": 20.0,
+          "dotPct": 33.3
+        },
+        "Medium-Fast": {
+          "balls": 5,
+          "runs": 15,
+          "dismissals": 0,
+          "sr": 300.0,
+          "avg": null,
+          "boundaryPct": 40.0,
+          "dotPct": 0.0
+        },
+        "Off-spin": {
+          "balls": 3,
+          "runs": 0,
+          "dismissals": 0,
+          "sr": 0.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 100.0
+        },
+        "Right-arm leg-spin": {
+          "balls": 3,
+          "runs": 6,
+          "dismissals": 0,
+          "sr": 200.0,
+          "avg": null,
+          "boundaryPct": 33.3,
+          "dotPct": 0.0
+        },
+        "Right-arm off-spin": {
+          "balls": 22,
+          "runs": 46,
+          "dismissals": 1,
+          "sr": 209.1,
+          "avg": 46.0,
+          "boundaryPct": 31.8,
+          "dotPct": 22.7
+        },
+        "Right-arm pace": {
+          "balls": 33,
+          "runs": 59,
+          "dismissals": 2,
+          "sr": 178.8,
+          "avg": 29.5,
+          "boundaryPct": 24.2,
+          "dotPct": 24.2
+        },
+        "Wrist-spin": {
+          "balls": 4,
+          "runs": 3,
+          "dismissals": 0,
+          "sr": 75.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 25.0
+        }
+      },
+      "recentForm": {
+        "team": "Gujarat Titans",
+        "last10Innings": 10,
+        "last10Runs": 173,
+        "last10Balls": 99,
+        "last10Sr": 174.8,
+        "last10Avg": 28.8,
+        "last10BoundaryPct": 23.2,
+        "last10DotPct": 26.3,
+        "careerSr": 149.1,
+        "careerAvg": 23.6,
+        "srDelta": 25.7
+      },
+      "ranking": {}
+    },
+    "0bacade8": {
+      "career": {
+        "name": "Rahmanullah Gurbaz",
+        "innings": 18,
+        "runs": 363,
+        "balls": 268,
+        "dismissals": 17,
+        "hs": 81,
+        "fifties": 2,
+        "hundreds": 0,
+        "fours": 34,
+        "sixes": 22,
+        "dots": 132,
+        "sr": 135.4,
+        "avg": 21.4,
+        "boundaryPct": 20.9,
+        "dotPct": 49.2
+      },
+      "phases": {
+        "death": {
+          "innings": 1,
+          "runs": 0,
+          "balls": 1,
+          "sr": 0.0,
+          "avg": 0.0,
+          "boundaryPct": 0.0,
+          "dotPct": 100.0
+        },
+        "middle": {
+          "innings": 5,
+          "runs": 111,
+          "balls": 73,
+          "sr": 152.1,
+          "avg": 27.8,
+          "boundaryPct": 20.6,
+          "dotPct": 35.6
+        },
+        "powerplay": {
+          "innings": 17,
+          "runs": 252,
+          "balls": 194,
+          "sr": 129.9,
+          "avg": 21.0,
+          "boundaryPct": 21.1,
+          "dotPct": 54.1
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 83,
+          "runs": 112,
+          "dismissals": 5,
+          "sr": 134.9,
+          "avg": 22.4,
+          "boundaryPct": 22.9,
+          "dotPct": 50.6
+        },
+        "Fast-Medium": {
+          "balls": 89,
+          "runs": 106,
+          "dismissals": 7,
+          "sr": 119.1,
+          "avg": 15.1,
+          "boundaryPct": 20.2,
+          "dotPct": 60.7
+        },
+        "LA Orthodox": {
+          "balls": 4,
+          "runs": 2,
+          "dismissals": 0,
+          "sr": 50.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 50.0
+        },
+        "Left-arm orthodox": {
+          "balls": 13,
+          "runs": 18,
+          "dismissals": 1,
+          "sr": 138.5,
+          "avg": 18.0,
+          "boundaryPct": 23.1,
+          "dotPct": 61.5
+        },
+        "Left-arm pace": {
+          "balls": 24,
+          "runs": 24,
+          "dismissals": 0,
+          "sr": 100.0,
+          "avg": null,
+          "boundaryPct": 12.5,
+          "dotPct": 58.3
+        },
+        "Leg-spin": {
+          "balls": 22,
+          "runs": 45,
+          "dismissals": 0,
+          "sr": 204.6,
+          "avg": null,
+          "boundaryPct": 31.8,
+          "dotPct": 13.6
+        },
+        "Medium": {
+          "balls": 7,
+          "runs": 9,
+          "dismissals": 1,
+          "sr": 128.6,
+          "avg": 9.0,
+          "boundaryPct": 14.3,
+          "dotPct": 57.1
+        },
+        "Right-arm leg-spin": {
+          "balls": 2,
+          "runs": 1,
+          "dismissals": 1,
+          "sr": 50.0,
+          "avg": 1.0,
+          "boundaryPct": 0.0,
+          "dotPct": 50.0
+        },
+        "Right-arm off-spin": {
+          "balls": 13,
+          "runs": 27,
+          "dismissals": 1,
+          "sr": 207.7,
+          "avg": 27.0,
+          "boundaryPct": 23.1,
+          "dotPct": 7.7
+        },
+        "Right-arm pace": {
+          "balls": 4,
+          "runs": 3,
+          "dismissals": 0,
+          "sr": 75.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 25.0
+        },
+        "Wrist-spin": {
+          "balls": 5,
+          "runs": 9,
+          "dismissals": 1,
+          "sr": 180.0,
+          "avg": 9.0,
+          "boundaryPct": 20.0,
+          "dotPct": 20.0
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
+    },
+    "73c18486": {
+      "career": {
+        "name": "KR Mayers",
+        "innings": 13,
+        "runs": 379,
+        "balls": 258,
+        "dismissals": 13,
+        "hs": 73,
+        "fifties": 4,
+        "hundreds": 0,
+        "fours": 38,
+        "sixes": 22,
+        "dots": 124,
+        "sr": 146.9,
+        "avg": 29.1,
+        "boundaryPct": 23.3,
+        "dotPct": 48.1
+      },
+      "phases": {
+        "middle": {
+          "innings": 5,
+          "runs": 97,
+          "balls": 58,
+          "sr": 167.2,
+          "avg": 19.4,
+          "boundaryPct": 22.4,
+          "dotPct": 34.5
+        },
+        "powerplay": {
+          "innings": 13,
+          "runs": 282,
+          "balls": 200,
+          "sr": 141.0,
+          "avg": 35.2,
+          "boundaryPct": 23.5,
+          "dotPct": 52.0
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 58,
+          "runs": 87,
+          "dismissals": 0,
+          "sr": 150.0,
+          "avg": null,
+          "boundaryPct": 22.4,
+          "dotPct": 43.1
+        },
+        "Fast-Medium": {
+          "balls": 68,
+          "runs": 88,
+          "dismissals": 3,
+          "sr": 129.4,
+          "avg": 29.3,
+          "boundaryPct": 25.0,
+          "dotPct": 61.8
+        },
+        "LA Orthodox": {
+          "balls": 15,
+          "runs": 26,
+          "dismissals": 2,
+          "sr": 173.3,
+          "avg": 13.0,
+          "boundaryPct": 26.7,
+          "dotPct": 46.7
+        },
+        "Left-arm pace": {
+          "balls": 24,
+          "runs": 24,
+          "dismissals": 1,
+          "sr": 100.0,
+          "avg": 24.0,
+          "boundaryPct": 16.7,
+          "dotPct": 58.3
+        },
+        "Leg-spin": {
+          "balls": 20,
+          "runs": 40,
+          "dismissals": 1,
+          "sr": 200.0,
+          "avg": 40.0,
+          "boundaryPct": 30.0,
+          "dotPct": 25.0
+        },
+        "Off-spin": {
+          "balls": 22,
+          "runs": 26,
+          "dismissals": 1,
+          "sr": 118.2,
+          "avg": 26.0,
+          "boundaryPct": 18.2,
+          "dotPct": 50.0
+        },
+        "Right-arm off-spin": {
+          "balls": 18,
+          "runs": 27,
+          "dismissals": 3,
+          "sr": 150.0,
+          "avg": 9.0,
+          "boundaryPct": 16.7,
+          "dotPct": 44.4
+        },
+        "Right-arm pace": {
+          "balls": 18,
+          "runs": 28,
+          "dismissals": 2,
+          "sr": 155.6,
+          "avg": 14.0,
+          "boundaryPct": 22.2,
+          "dotPct": 38.9
+        },
+        "Wrist-spin": {
+          "balls": 15,
+          "runs": 27,
+          "dismissals": 0,
+          "sr": 180.0,
+          "avg": null,
+          "boundaryPct": 26.7,
+          "dotPct": 33.3
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
+    },
+    "cad00a4d": {
+      "career": {
+        "name": "RR Rossouw",
+        "innings": 17,
+        "runs": 420,
+        "balls": 255,
+        "dismissals": 15,
+        "hs": 82,
+        "fifties": 2,
+        "hundreds": 0,
+        "fours": 42,
+        "sixes": 22,
+        "dots": 90,
+        "sr": 164.7,
+        "avg": 28.0,
+        "boundaryPct": 25.1,
+        "dotPct": 35.3
+      },
+      "phases": {
+        "death": {
+          "innings": 3,
+          "runs": 61,
+          "balls": 28,
+          "sr": 217.9,
+          "avg": 61.0,
+          "boundaryPct": 28.6,
+          "dotPct": 10.7
+        },
+        "middle": {
+          "innings": 11,
+          "runs": 240,
+          "balls": 151,
+          "sr": 158.9,
+          "avg": 30.0,
+          "boundaryPct": 21.2,
+          "dotPct": 34.4
+        },
+        "powerplay": {
+          "innings": 10,
+          "runs": 119,
+          "balls": 76,
+          "sr": 156.6,
+          "avg": 19.8,
+          "boundaryPct": 31.6,
+          "dotPct": 46.0
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 66,
+          "runs": 130,
+          "dismissals": 4,
+          "sr": 197.0,
+          "avg": 32.5,
+          "boundaryPct": 31.8,
+          "dotPct": 33.3
+        },
+        "Fast-Medium": {
+          "balls": 44,
+          "runs": 81,
+          "dismissals": 3,
+          "sr": 184.1,
+          "avg": 27.0,
+          "boundaryPct": 34.1,
+          "dotPct": 38.6
+        },
+        "LA Orthodox": {
+          "balls": 31,
+          "runs": 54,
+          "dismissals": 2,
+          "sr": 174.2,
+          "avg": 27.0,
+          "boundaryPct": 22.6,
+          "dotPct": 19.4
+        },
+        "Left-arm pace": {
+          "balls": 4,
+          "runs": 8,
+          "dismissals": 0,
+          "sr": 200.0,
+          "avg": null,
+          "boundaryPct": 50.0,
+          "dotPct": 50.0
+        },
+        "Leg-spin": {
+          "balls": 28,
+          "runs": 40,
+          "dismissals": 1,
+          "sr": 142.9,
+          "avg": 40.0,
+          "boundaryPct": 21.4,
+          "dotPct": 39.3
+        },
+        "Medium": {
+          "balls": 7,
+          "runs": 12,
+          "dismissals": 1,
+          "sr": 171.4,
+          "avg": 12.0,
+          "boundaryPct": 28.6,
+          "dotPct": 42.9
+        },
+        "Medium-Fast": {
+          "balls": 4,
+          "runs": 13,
+          "dismissals": 0,
+          "sr": 325.0,
+          "avg": null,
+          "boundaryPct": 50.0,
+          "dotPct": 0.0
+        },
+        "Off-spin": {
+          "balls": 12,
+          "runs": 8,
+          "dismissals": 1,
+          "sr": 66.7,
+          "avg": 8.0,
+          "boundaryPct": 0.0,
+          "dotPct": 41.7
+        },
+        "Right-arm off-spin": {
+          "balls": 39,
+          "runs": 34,
+          "dismissals": 1,
+          "sr": 87.2,
+          "avg": 34.0,
+          "boundaryPct": 5.1,
+          "dotPct": 43.6
+        },
+        "Right-arm pace": {
+          "balls": 16,
+          "runs": 33,
+          "dismissals": 1,
+          "sr": 206.2,
+          "avg": 33.0,
+          "boundaryPct": 37.5,
+          "dotPct": 31.2
+        },
+        "Wrist-spin": {
+          "balls": 4,
+          "runs": 5,
+          "dismissals": 1,
+          "sr": 125.0,
+          "avg": 5.0,
+          "boundaryPct": 25.0,
+          "dotPct": 50.0
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
+    },
+    "e66732f8": {
+      "career": {
+        "name": "RD Rickelton",
+        "innings": 14,
+        "runs": 388,
+        "balls": 255,
+        "dismissals": 13,
+        "hs": 62,
+        "fifties": 3,
+        "hundreds": 0,
+        "fours": 47,
+        "sixes": 17,
+        "dots": 105,
+        "sr": 152.2,
+        "avg": 29.9,
+        "boundaryPct": 25.1,
+        "dotPct": 41.2
+      },
+      "phases": {
+        "middle": {
+          "innings": 7,
+          "runs": 91,
+          "balls": 62,
+          "sr": 146.8,
+          "avg": 15.2,
+          "boundaryPct": 21.0,
+          "dotPct": 35.5
+        },
+        "powerplay": {
+          "innings": 14,
+          "runs": 297,
+          "balls": 193,
+          "sr": 153.9,
+          "avg": 42.4,
+          "boundaryPct": 26.4,
+          "dotPct": 43.0
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 84,
+          "runs": 136,
+          "dismissals": 3,
+          "sr": 161.9,
+          "avg": 45.3,
+          "boundaryPct": 29.8,
+          "dotPct": 41.7
+        },
+        "Fast-Medium": {
+          "balls": 69,
+          "runs": 97,
+          "dismissals": 5,
+          "sr": 140.6,
+          "avg": 19.4,
+          "boundaryPct": 24.6,
+          "dotPct": 46.4
+        },
+        "LA Orthodox": {
+          "balls": 4,
+          "runs": 2,
+          "dismissals": 1,
+          "sr": 50.0,
+          "avg": 2.0,
+          "boundaryPct": 0.0,
+          "dotPct": 50.0
+        },
+        "Left-arm orthodox": {
+          "balls": 6,
+          "runs": 14,
+          "dismissals": 0,
+          "sr": 233.3,
+          "avg": null,
+          "boundaryPct": 50.0,
+          "dotPct": 50.0
+        },
+        "Left-arm pace": {
+          "balls": 9,
+          "runs": 14,
+          "dismissals": 0,
+          "sr": 155.6,
+          "avg": null,
+          "boundaryPct": 22.2,
+          "dotPct": 33.3
+        },
+        "Leg-spin": {
+          "balls": 28,
+          "runs": 47,
+          "dismissals": 1,
+          "sr": 167.9,
+          "avg": 47.0,
+          "boundaryPct": 25.0,
+          "dotPct": 35.7
+        },
+        "Off-spin": {
+          "balls": 21,
+          "runs": 35,
+          "dismissals": 0,
+          "sr": 166.7,
+          "avg": null,
+          "boundaryPct": 23.8,
+          "dotPct": 33.3
+        },
+        "Right-arm leg-spin": {
+          "balls": 7,
+          "runs": 12,
+          "dismissals": 0,
+          "sr": 171.4,
+          "avg": null,
+          "boundaryPct": 28.6,
+          "dotPct": 42.9
+        },
+        "Right-arm off-spin": {
+          "balls": 17,
+          "runs": 13,
+          "dismissals": 1,
+          "sr": 76.5,
+          "avg": 13.0,
+          "boundaryPct": 11.8,
+          "dotPct": 58.8
+        },
+        "Right-arm pace": {
+          "balls": 23,
+          "runs": 29,
+          "dismissals": 0,
+          "sr": 126.1,
+          "avg": null,
+          "boundaryPct": 17.4,
+          "dotPct": 43.5
+        },
+        "Wrist-spin": {
+          "balls": 5,
+          "runs": 4,
+          "dismissals": 2,
+          "sr": 80.0,
+          "avg": 2.0,
+          "boundaryPct": 0.0,
+          "dotPct": 40.0
+        }
+      },
+      "recentForm": {
+        "team": "Mumbai Indians",
+        "last10Innings": 10,
+        "last10Runs": 297,
+        "last10Balls": 194,
+        "last10Sr": 153.1,
+        "last10Avg": 29.7,
+        "last10BoundaryPct": 25.3,
+        "last10DotPct": 40.7,
+        "careerSr": 152.2,
+        "careerAvg": 29.9,
+        "srDelta": 0.9
+      },
+      "ranking": {}
+    },
+    "39a2dfa8": {
+      "career": {
+        "name": "R Tewatia",
+        "innings": 30,
+        "runs": 374,
+        "balls": 242,
+        "dismissals": 17,
+        "hs": 36,
+        "fifties": 0,
+        "hundreds": 0,
+        "fours": 33,
+        "sixes": 19,
+        "dots": 79,
+        "sr": 154.6,
+        "avg": 22.0,
+        "boundaryPct": 21.5,
+        "dotPct": 32.6
+      },
+      "phases": {
+        "death": {
+          "innings": 27,
+          "runs": 313,
+          "balls": 177,
+          "sr": 176.8,
+          "avg": 22.4,
+          "boundaryPct": 26.6,
+          "dotPct": 31.6
+        },
+        "middle": {
+          "innings": 10,
+          "runs": 61,
+          "balls": 65,
+          "sr": 93.8,
+          "avg": 20.3,
+          "boundaryPct": 7.7,
+          "dotPct": 35.4
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 112,
+          "runs": 181,
+          "dismissals": 4,
+          "sr": 161.6,
+          "avg": 45.2,
+          "boundaryPct": 23.2,
+          "dotPct": 35.7
+        },
+        "Fast-Medium": {
+          "balls": 32,
+          "runs": 55,
+          "dismissals": 4,
+          "sr": 171.9,
+          "avg": 13.8,
+          "boundaryPct": 28.1,
+          "dotPct": 28.1
+        },
+        "LA Orthodox": {
+          "balls": 17,
+          "runs": 17,
+          "dismissals": 1,
+          "sr": 100.0,
+          "avg": 17.0,
+          "boundaryPct": 11.8,
+          "dotPct": 47.1
+        },
+        "Left-arm pace": {
+          "balls": 7,
+          "runs": 16,
+          "dismissals": 2,
+          "sr": 228.6,
+          "avg": 8.0,
+          "boundaryPct": 28.6,
+          "dotPct": 28.6
+        },
+        "Leg-spin": {
+          "balls": 2,
+          "runs": 3,
+          "dismissals": 0,
+          "sr": 150.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 0.0
+        },
+        "Medium": {
+          "balls": 8,
+          "runs": 23,
+          "dismissals": 0,
+          "sr": 287.5,
+          "avg": null,
+          "boundaryPct": 62.5,
+          "dotPct": 25.0
+        },
+        "Right-arm leg-spin": {
+          "balls": 8,
+          "runs": 9,
+          "dismissals": 1,
+          "sr": 112.5,
+          "avg": 9.0,
+          "boundaryPct": 12.5,
+          "dotPct": 25.0
+        },
+        "Right-arm off-spin": {
+          "balls": 8,
+          "runs": 15,
+          "dismissals": 1,
+          "sr": 187.5,
+          "avg": 15.0,
+          "boundaryPct": 25.0,
+          "dotPct": 12.5
+        },
+        "Right-arm pace": {
+          "balls": 26,
+          "runs": 28,
+          "dismissals": 2,
+          "sr": 107.7,
+          "avg": 14.0,
+          "boundaryPct": 7.7,
+          "dotPct": 23.1
+        },
+        "Wrist-spin": {
+          "balls": 13,
+          "runs": 7,
+          "dismissals": 2,
+          "sr": 53.9,
+          "avg": 3.5,
+          "boundaryPct": 0.0,
+          "dotPct": 46.1
+        }
+      },
+      "recentForm": {
+        "team": "Gujarat Titans",
+        "last10Innings": 10,
+        "last10Runs": 93,
+        "last10Balls": 57,
+        "last10Sr": 163.2,
+        "last10Avg": 15.5,
+        "last10BoundaryPct": 21.1,
+        "last10DotPct": 29.8,
+        "careerSr": 137.8,
+        "careerAvg": 24.2,
+        "srDelta": 25.4
+      },
+      "ranking": {}
+    },
+    "abb83e27": {
+      "career": {
+        "name": "JM Bairstow",
+        "innings": 13,
+        "runs": 383,
+        "balls": 241,
+        "dismissals": 11,
+        "hs": 108,
+        "fifties": 1,
+        "hundreds": 1,
+        "fours": 40,
+        "sixes": 19,
+        "dots": 88,
+        "sr": 158.9,
+        "avg": 34.8,
+        "boundaryPct": 24.5,
+        "dotPct": 36.5
+      },
+      "phases": {
+        "death": {
+          "innings": 1,
+          "runs": 11,
+          "balls": 6,
+          "sr": 183.3,
+          "avg": null,
+          "boundaryPct": 16.7,
+          "dotPct": 16.7
+        },
+        "middle": {
+          "innings": 7,
+          "runs": 123,
+          "balls": 80,
+          "sr": 153.8,
+          "avg": 20.5,
+          "boundaryPct": 21.2,
+          "dotPct": 40.0
+        },
+        "powerplay": {
+          "innings": 13,
+          "runs": 249,
+          "balls": 155,
+          "sr": 160.7,
+          "avg": 49.8,
+          "boundaryPct": 26.4,
+          "dotPct": 35.5
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 65,
+          "runs": 73,
+          "dismissals": 7,
+          "sr": 112.3,
+          "avg": 10.4,
+          "boundaryPct": 18.5,
+          "dotPct": 50.8
+        },
+        "Fast-Medium": {
+          "balls": 89,
+          "runs": 161,
+          "dismissals": 2,
+          "sr": 180.9,
+          "avg": 80.5,
+          "boundaryPct": 29.2,
+          "dotPct": 31.5
+        },
+        "LA Orthodox": {
+          "balls": 32,
+          "runs": 65,
+          "dismissals": 1,
+          "sr": 203.1,
+          "avg": 65.0,
+          "boundaryPct": 34.4,
+          "dotPct": 31.2
+        },
+        "Left-arm pace": {
+          "balls": 4,
+          "runs": 2,
+          "dismissals": 0,
+          "sr": 50.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 50.0
+        },
+        "Leg-spin": {
+          "balls": 16,
+          "runs": 7,
+          "dismissals": 1,
+          "sr": 43.8,
+          "avg": 7.0,
+          "boundaryPct": 0.0,
+          "dotPct": 62.5
+        },
+        "Medium": {
+          "balls": 1,
+          "runs": 1,
+          "dismissals": 0,
+          "sr": 100.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 0.0
+        },
+        "Medium-Fast": {
+          "balls": 1,
+          "runs": 0,
+          "dismissals": 1,
+          "sr": 0.0,
+          "avg": 0.0,
+          "boundaryPct": 0.0,
+          "dotPct": 100.0
+        },
+        "Off-spin": {
+          "balls": 17,
+          "runs": 35,
+          "dismissals": 0,
+          "sr": 205.9,
+          "avg": null,
+          "boundaryPct": 29.4,
+          "dotPct": 23.5
+        },
+        "Right-arm off-spin": {
+          "balls": 7,
+          "runs": 13,
+          "dismissals": 0,
+          "sr": 185.7,
+          "avg": null,
+          "boundaryPct": 28.6,
+          "dotPct": 28.6
+        },
+        "Right-arm pace": {
+          "balls": 22,
+          "runs": 38,
+          "dismissals": 0,
+          "sr": 172.7,
+          "avg": null,
+          "boundaryPct": 27.3,
+          "dotPct": 31.8
+        },
+        "Wrist-spin": {
+          "balls": 1,
+          "runs": 0,
+          "dismissals": 1,
+          "sr": 0.0,
+          "avg": 0.0,
+          "boundaryPct": 0.0,
+          "dotPct": 100.0
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
+    },
+    "93b4fc78": {
+      "career": {
+        "name": "MK Pandey",
+        "innings": 13,
+        "runs": 294,
+        "balls": 240,
+        "dismissals": 12,
+        "hs": 50,
+        "fifties": 1,
+        "hundreds": 0,
+        "fours": 22,
+        "sixes": 10,
+        "dots": 82,
+        "sr": 122.5,
+        "avg": 24.5,
+        "boundaryPct": 13.3,
+        "dotPct": 34.2
+      },
+      "phases": {
+        "death": {
+          "innings": 5,
+          "runs": 60,
+          "balls": 35,
+          "sr": 171.4,
+          "avg": 15.0,
+          "boundaryPct": 17.1,
+          "dotPct": 22.9
+        },
+        "middle": {
+          "innings": 11,
+          "runs": 197,
+          "balls": 170,
+          "sr": 115.9,
+          "avg": 32.8,
+          "boundaryPct": 11.8,
+          "dotPct": 33.5
+        },
+        "powerplay": {
+          "innings": 5,
+          "runs": 37,
+          "balls": 35,
+          "sr": 105.7,
+          "avg": 18.5,
+          "boundaryPct": 17.1,
+          "dotPct": 48.6
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 59,
+          "runs": 76,
+          "dismissals": 4,
+          "sr": 128.8,
+          "avg": 19.0,
+          "boundaryPct": 13.6,
+          "dotPct": 27.1
+        },
+        "Fast-Medium": {
+          "balls": 29,
+          "runs": 39,
+          "dismissals": 3,
+          "sr": 134.5,
+          "avg": 13.0,
+          "boundaryPct": 17.2,
+          "dotPct": 51.7
+        },
+        "LA Orthodox": {
+          "balls": 39,
+          "runs": 32,
+          "dismissals": 3,
+          "sr": 82.0,
+          "avg": 10.7,
+          "boundaryPct": 7.7,
+          "dotPct": 46.1
+        },
+        "Left-arm orthodox": {
+          "balls": 11,
+          "runs": 24,
+          "dismissals": 0,
+          "sr": 218.2,
+          "avg": null,
+          "boundaryPct": 36.4,
+          "dotPct": 9.1
+        },
+        "Left-arm pace": {
+          "balls": 6,
+          "runs": 7,
+          "dismissals": 0,
+          "sr": 116.7,
+          "avg": null,
+          "boundaryPct": 16.7,
+          "dotPct": 33.3
+        },
+        "Leg-spin": {
+          "balls": 21,
+          "runs": 30,
+          "dismissals": 1,
+          "sr": 142.9,
+          "avg": 30.0,
+          "boundaryPct": 19.1,
+          "dotPct": 38.1
+        },
+        "Off-spin": {
+          "balls": 30,
+          "runs": 37,
+          "dismissals": 0,
+          "sr": 123.3,
+          "avg": null,
+          "boundaryPct": 6.7,
+          "dotPct": 13.3
+        },
+        "Right-arm leg-spin": {
+          "balls": 9,
+          "runs": 6,
+          "dismissals": 1,
+          "sr": 66.7,
+          "avg": 6.0,
+          "boundaryPct": 0.0,
+          "dotPct": 33.3
+        },
+        "Right-arm off-spin": {
+          "balls": 16,
+          "runs": 14,
+          "dismissals": 0,
+          "sr": 87.5,
+          "avg": null,
+          "boundaryPct": 6.2,
+          "dotPct": 50.0
+        },
+        "Right-arm pace": {
+          "balls": 10,
+          "runs": 12,
+          "dismissals": 0,
+          "sr": 120.0,
+          "avg": null,
+          "boundaryPct": 20.0,
+          "dotPct": 40.0
+        },
+        "Wrist-spin": {
+          "balls": 10,
+          "runs": 16,
+          "dismissals": 0,
+          "sr": 160.0,
+          "avg": null,
+          "boundaryPct": 20.0,
+          "dotPct": 30.0
+        }
+      },
+      "recentForm": {
+        "team": "Kolkata Knight Riders",
+        "last10Innings": 10,
+        "last10Runs": 218,
+        "last10Balls": 184,
+        "last10Sr": 118.5,
+        "last10Avg": 24.2,
+        "last10BoundaryPct": 11.4,
+        "last10DotPct": 33.1,
+        "careerSr": 121.8,
+        "careerAvg": 29.9,
+        "srDelta": -3.4
+      },
+      "ranking": {}
+    },
+    "84d9c311": {
+      "career": {
+        "name": "Ashutosh Sharma",
+        "innings": 18,
+        "runs": 393,
+        "balls": 236,
+        "dismissals": 14,
+        "hs": 66,
+        "fifties": 2,
+        "hundreds": 0,
+        "fours": 24,
+        "sixes": 28,
+        "dots": 74,
+        "sr": 166.5,
+        "avg": 28.1,
+        "boundaryPct": 22.0,
+        "dotPct": 31.4
+      },
+      "phases": {
+        "death": {
+          "innings": 14,
+          "runs": 272,
+          "balls": 143,
+          "sr": 190.2,
+          "avg": 27.2,
+          "boundaryPct": 26.6,
+          "dotPct": 26.6
+        },
+        "middle": {
+          "innings": 9,
+          "runs": 121,
+          "balls": 93,
+          "sr": 130.1,
+          "avg": 30.2,
+          "boundaryPct": 15.1,
+          "dotPct": 38.7
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 70,
+          "runs": 113,
+          "dismissals": 4,
+          "sr": 161.4,
+          "avg": 28.2,
+          "boundaryPct": 22.9,
+          "dotPct": 35.7
+        },
+        "Fast-Medium": {
+          "balls": 62,
+          "runs": 119,
+          "dismissals": 3,
+          "sr": 191.9,
+          "avg": 39.7,
+          "boundaryPct": 25.8,
+          "dotPct": 19.4
+        },
+        "LA Orthodox": {
+          "balls": 25,
+          "runs": 13,
+          "dismissals": 4,
+          "sr": 52.0,
+          "avg": 3.2,
+          "boundaryPct": 0.0,
+          "dotPct": 52.0
+        },
+        "Left-arm orthodox": {
+          "balls": 13,
+          "runs": 36,
+          "dismissals": 0,
+          "sr": 276.9,
+          "avg": null,
+          "boundaryPct": 38.5,
+          "dotPct": 0.0
+        },
+        "Leg-spin": {
+          "balls": 28,
+          "runs": 54,
+          "dismissals": 0,
+          "sr": 192.9,
+          "avg": null,
+          "boundaryPct": 28.6,
+          "dotPct": 28.6
+        },
+        "Medium": {
+          "balls": 7,
+          "runs": 14,
+          "dismissals": 0,
+          "sr": 200.0,
+          "avg": null,
+          "boundaryPct": 28.6,
+          "dotPct": 14.3
+        },
+        "Off-spin": {
+          "balls": 4,
+          "runs": 1,
+          "dismissals": 1,
+          "sr": 25.0,
+          "avg": 1.0,
+          "boundaryPct": 0.0,
+          "dotPct": 75.0
+        },
+        "Right-arm pace": {
+          "balls": 24,
+          "runs": 34,
+          "dismissals": 2,
+          "sr": 141.7,
+          "avg": 17.0,
+          "boundaryPct": 16.7,
+          "dotPct": 45.8
+        },
+        "Wrist-spin": {
+          "balls": 3,
+          "runs": 2,
+          "dismissals": 0,
+          "sr": 66.7,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 33.3
+        }
+      },
+      "recentForm": {
+        "team": "Delhi Capitals",
+        "last10Innings": 10,
+        "last10Runs": 206,
+        "last10Balls": 129,
+        "last10Sr": 159.7,
+        "last10Avg": 25.8,
+        "last10BoundaryPct": 20.9,
+        "last10DotPct": 30.2,
+        "careerSr": 166.5,
+        "careerAvg": 28.1,
+        "srDelta": -6.8
+      },
+      "ranking": {}
+    },
+    "73ad96ed": {
+      "career": {
+        "name": "DJ Hooda",
+        "innings": 26,
+        "runs": 260,
+        "balls": 235,
+        "dismissals": 23,
+        "hs": 50,
+        "fifties": 1,
+        "hundreds": 0,
+        "fours": 21,
+        "sixes": 6,
+        "dots": 89,
+        "sr": 110.6,
+        "avg": 11.3,
+        "boundaryPct": 11.5,
+        "dotPct": 37.9
+      },
+      "phases": {
+        "death": {
+          "innings": 5,
+          "runs": 48,
+          "balls": 31,
+          "sr": 154.8,
+          "avg": 16.0,
+          "boundaryPct": 22.6,
+          "dotPct": 41.9
+        },
+        "middle": {
+          "innings": 15,
+          "runs": 137,
+          "balls": 128,
+          "sr": 107.0,
+          "avg": 10.5,
+          "boundaryPct": 7.8,
+          "dotPct": 28.9
+        },
+        "powerplay": {
+          "innings": 11,
+          "runs": 75,
+          "balls": 76,
+          "sr": 98.7,
+          "avg": 10.7,
+          "boundaryPct": 13.2,
+          "dotPct": 51.3
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 52,
+          "runs": 61,
+          "dismissals": 4,
+          "sr": 117.3,
+          "avg": 15.2,
+          "boundaryPct": 17.3,
+          "dotPct": 48.1
+        },
+        "Fast-Medium": {
+          "balls": 57,
+          "runs": 66,
+          "dismissals": 4,
+          "sr": 115.8,
+          "avg": 16.5,
+          "boundaryPct": 15.8,
+          "dotPct": 42.1
+        },
+        "LA Orthodox": {
+          "balls": 16,
+          "runs": 15,
+          "dismissals": 1,
+          "sr": 93.8,
+          "avg": 15.0,
+          "boundaryPct": 0.0,
+          "dotPct": 31.2
+        },
+        "Left-arm pace": {
+          "balls": 20,
+          "runs": 21,
+          "dismissals": 2,
+          "sr": 105.0,
+          "avg": 10.5,
+          "boundaryPct": 10.0,
+          "dotPct": 40.0
+        },
+        "Leg-spin": {
+          "balls": 21,
+          "runs": 27,
+          "dismissals": 3,
+          "sr": 128.6,
+          "avg": 9.0,
+          "boundaryPct": 9.5,
+          "dotPct": 23.8
+        },
+        "Medium": {
+          "balls": 5,
+          "runs": 8,
+          "dismissals": 0,
+          "sr": 160.0,
+          "avg": null,
+          "boundaryPct": 20.0,
+          "dotPct": 0.0
+        },
+        "Off-spin": {
+          "balls": 5,
+          "runs": 0,
+          "dismissals": 2,
+          "sr": 0.0,
+          "avg": 0.0,
+          "boundaryPct": 0.0,
+          "dotPct": 100.0
+        },
+        "Right-arm leg-spin": {
+          "balls": 16,
+          "runs": 17,
+          "dismissals": 1,
+          "sr": 106.2,
+          "avg": 17.0,
+          "boundaryPct": 6.2,
+          "dotPct": 25.0
+        },
+        "Right-arm off-spin": {
+          "balls": 15,
+          "runs": 12,
+          "dismissals": 3,
+          "sr": 80.0,
+          "avg": 4.0,
+          "boundaryPct": 6.7,
+          "dotPct": 40.0
+        },
+        "Right-arm pace": {
+          "balls": 15,
+          "runs": 17,
+          "dismissals": 1,
+          "sr": 113.3,
+          "avg": 17.0,
+          "boundaryPct": 6.7,
+          "dotPct": 13.3
+        },
+        "Wrist-spin": {
+          "balls": 13,
+          "runs": 10,
+          "dismissals": 2,
+          "sr": 76.9,
+          "avg": 5.0,
+          "boundaryPct": 0.0,
+          "dotPct": 38.5
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
+    },
+    "eade4650": {
+      "career": {
+        "name": "DJ Mitchell",
+        "innings": 13,
+        "runs": 318,
+        "balls": 223,
+        "dismissals": 11,
+        "hs": 63,
+        "fifties": 2,
+        "hundreds": 0,
+        "fours": 27,
+        "sixes": 10,
+        "dots": 59,
+        "sr": 142.6,
+        "avg": 28.9,
+        "boundaryPct": 16.6,
+        "dotPct": 26.5
+      },
+      "phases": {
+        "death": {
+          "innings": 4,
+          "runs": 46,
+          "balls": 38,
+          "sr": 121.0,
+          "avg": 23.0,
+          "boundaryPct": 7.9,
+          "dotPct": 18.4
+        },
+        "middle": {
+          "innings": 8,
+          "runs": 175,
+          "balls": 112,
+          "sr": 156.2,
+          "avg": 25.0,
+          "boundaryPct": 18.8,
+          "dotPct": 24.1
+        },
+        "powerplay": {
+          "innings": 8,
+          "runs": 97,
+          "balls": 73,
+          "sr": 132.9,
+          "avg": 48.5,
+          "boundaryPct": 17.8,
+          "dotPct": 34.2
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 59,
+          "runs": 75,
+          "dismissals": 5,
+          "sr": 127.1,
+          "avg": 15.0,
+          "boundaryPct": 15.2,
+          "dotPct": 27.1
+        },
+        "Fast-Medium": {
+          "balls": 45,
+          "runs": 60,
+          "dismissals": 2,
+          "sr": 133.3,
+          "avg": 30.0,
+          "boundaryPct": 17.8,
+          "dotPct": 35.6
+        },
+        "LA Orthodox": {
+          "balls": 11,
+          "runs": 18,
+          "dismissals": 1,
+          "sr": 163.6,
+          "avg": 18.0,
+          "boundaryPct": 18.2,
+          "dotPct": 27.3
+        },
+        "Left-arm orthodox": {
+          "balls": 15,
+          "runs": 18,
+          "dismissals": 0,
+          "sr": 120.0,
+          "avg": null,
+          "boundaryPct": 13.3,
+          "dotPct": 33.3
+        },
+        "Leg-spin": {
+          "balls": 17,
+          "runs": 29,
+          "dismissals": 1,
+          "sr": 170.6,
+          "avg": 29.0,
+          "boundaryPct": 23.5,
+          "dotPct": 11.8
+        },
+        "Medium": {
+          "balls": 5,
+          "runs": 14,
+          "dismissals": 0,
+          "sr": 280.0,
+          "avg": null,
+          "boundaryPct": 40.0,
+          "dotPct": 20.0
+        },
+        "Off-spin": {
+          "balls": 13,
+          "runs": 21,
+          "dismissals": 1,
+          "sr": 161.5,
+          "avg": 21.0,
+          "boundaryPct": 15.4,
+          "dotPct": 23.1
+        },
+        "Right-arm off-spin": {
+          "balls": 8,
+          "runs": 13,
+          "dismissals": 0,
+          "sr": 162.5,
+          "avg": null,
+          "boundaryPct": 25.0,
+          "dotPct": 12.5
+        },
+        "Right-arm pace": {
+          "balls": 46,
+          "runs": 66,
+          "dismissals": 1,
+          "sr": 143.5,
+          "avg": 66.0,
+          "boundaryPct": 13.0,
+          "dotPct": 23.9
+        },
+        "Wrist-spin": {
+          "balls": 4,
+          "runs": 4,
+          "dismissals": 0,
+          "sr": 100.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 25.0
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
+    },
+    "fffa744b": {
+      "career": {
+        "name": "Naman Dhir",
+        "innings": 19,
+        "runs": 392,
+        "balls": 216,
+        "dismissals": 14,
+        "hs": 62,
+        "fifties": 1,
+        "hundreds": 0,
+        "fours": 37,
+        "sixes": 23,
+        "dots": 64,
+        "sr": 181.5,
+        "avg": 28.0,
+        "boundaryPct": 27.8,
+        "dotPct": 29.6
+      },
+      "phases": {
+        "death": {
+          "innings": 13,
+          "runs": 247,
+          "balls": 121,
+          "sr": 204.1,
+          "avg": 30.9,
+          "boundaryPct": 31.4,
+          "dotPct": 23.1
+        },
+        "middle": {
+          "innings": 8,
+          "runs": 72,
+          "balls": 45,
+          "sr": 160.0,
+          "avg": 36.0,
+          "boundaryPct": 22.2,
+          "dotPct": 28.9
+        },
+        "powerplay": {
+          "innings": 6,
+          "runs": 73,
+          "balls": 50,
+          "sr": 146.0,
+          "avg": 18.2,
+          "boundaryPct": 24.0,
+          "dotPct": 46.0
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 54,
+          "runs": 92,
+          "dismissals": 2,
+          "sr": 170.4,
+          "avg": 46.0,
+          "boundaryPct": 25.9,
+          "dotPct": 38.9
+        },
+        "Fast-Medium": {
+          "balls": 101,
+          "runs": 172,
+          "dismissals": 8,
+          "sr": 170.3,
+          "avg": 21.5,
+          "boundaryPct": 26.7,
+          "dotPct": 32.7
+        },
+        "LA Orthodox": {
+          "balls": 10,
+          "runs": 19,
+          "dismissals": 1,
+          "sr": 190.0,
+          "avg": 19.0,
+          "boundaryPct": 30.0,
+          "dotPct": 20.0
+        },
+        "Left-arm orthodox": {
+          "balls": 7,
+          "runs": 16,
+          "dismissals": 0,
+          "sr": 228.6,
+          "avg": null,
+          "boundaryPct": 42.9,
+          "dotPct": 0.0
+        },
+        "Left-arm pace": {
+          "balls": 2,
+          "runs": 1,
+          "dismissals": 0,
+          "sr": 50.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 50.0
+        },
+        "Leg-spin": {
+          "balls": 19,
+          "runs": 24,
+          "dismissals": 1,
+          "sr": 126.3,
+          "avg": 24.0,
+          "boundaryPct": 15.8,
+          "dotPct": 31.6
+        },
+        "Off-spin": {
+          "balls": 1,
+          "runs": 0,
+          "dismissals": 1,
+          "sr": 0.0,
+          "avg": 0.0,
+          "boundaryPct": 0.0,
+          "dotPct": 100.0
+        },
+        "Right-arm off-spin": {
+          "balls": 4,
+          "runs": 8,
+          "dismissals": 0,
+          "sr": 200.0,
+          "avg": null,
+          "boundaryPct": 25.0,
+          "dotPct": 0.0
+        },
+        "Right-arm pace": {
+          "balls": 27,
+          "runs": 64,
+          "dismissals": 0,
+          "sr": 237.0,
+          "avg": null,
+          "boundaryPct": 33.3,
+          "dotPct": 18.5
+        },
+        "Wrist-spin": {
+          "balls": 3,
+          "runs": 2,
+          "dismissals": 1,
+          "sr": 66.7,
+          "avg": 2.0,
+          "boundaryPct": 0.0,
+          "dotPct": 33.3
+        }
+      },
+      "recentForm": {
+        "team": "Mumbai Indians",
+        "last10Innings": 10,
+        "last10Runs": 217,
+        "last10Balls": 115,
+        "last10Sr": 188.7,
+        "last10Avg": 31.0,
+        "last10BoundaryPct": 29.6,
+        "last10DotPct": 27.8,
+        "careerSr": 181.5,
+        "careerAvg": 28.0,
+        "srDelta": 7.2
+      },
+      "ranking": {}
+    },
+    "f9e6e7ef": {
+      "career": {
+        "name": "Shahbaz Ahmed",
+        "innings": 19,
+        "runs": 266,
+        "balls": 213,
+        "dismissals": 14,
+        "hs": 59,
+        "fifties": 1,
+        "hundreds": 0,
+        "fours": 11,
+        "sixes": 14,
+        "dots": 68,
+        "sr": 124.9,
+        "avg": 19.0,
+        "boundaryPct": 11.7,
+        "dotPct": 31.9
+      },
+      "phases": {
+        "death": {
+          "innings": 14,
+          "runs": 164,
+          "balls": 110,
+          "sr": 149.1,
+          "avg": 18.2,
+          "boundaryPct": 17.3,
+          "dotPct": 30.0
+        },
+        "middle": {
+          "innings": 10,
+          "runs": 95,
+          "balls": 91,
+          "sr": 104.4,
+          "avg": 47.5,
+          "boundaryPct": 6.6,
+          "dotPct": 31.9
+        },
+        "powerplay": {
+          "innings": 4,
+          "runs": 7,
+          "balls": 12,
+          "sr": 58.3,
+          "avg": 2.3,
+          "boundaryPct": 0.0,
+          "dotPct": 50.0
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 57,
+          "runs": 78,
+          "dismissals": 3,
+          "sr": 136.8,
+          "avg": 26.0,
+          "boundaryPct": 12.3,
+          "dotPct": 24.6
+        },
+        "Fast-Medium": {
+          "balls": 38,
+          "runs": 47,
+          "dismissals": 5,
+          "sr": 123.7,
+          "avg": 9.4,
+          "boundaryPct": 13.2,
+          "dotPct": 42.1
+        },
+        "LA Orthodox": {
+          "balls": 23,
+          "runs": 25,
+          "dismissals": 0,
+          "sr": 108.7,
+          "avg": null,
+          "boundaryPct": 4.3,
+          "dotPct": 17.4
+        },
+        "Left-arm pace": {
+          "balls": 6,
+          "runs": 14,
+          "dismissals": 1,
+          "sr": 233.3,
+          "avg": 14.0,
+          "boundaryPct": 50.0,
+          "dotPct": 16.7
+        },
+        "Leg-spin": {
+          "balls": 13,
+          "runs": 9,
+          "dismissals": 1,
+          "sr": 69.2,
+          "avg": 9.0,
+          "boundaryPct": 0.0,
+          "dotPct": 46.1
+        },
+        "Medium": {
+          "balls": 7,
+          "runs": 5,
+          "dismissals": 0,
+          "sr": 71.4,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 28.6
+        },
+        "Off-spin": {
+          "balls": 11,
+          "runs": 8,
+          "dismissals": 2,
+          "sr": 72.7,
+          "avg": 4.0,
+          "boundaryPct": 9.1,
+          "dotPct": 72.7
+        },
+        "Right-arm leg-spin": {
+          "balls": 6,
+          "runs": 6,
+          "dismissals": 0,
+          "sr": 100.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 16.7
+        },
+        "Right-arm off-spin": {
+          "balls": 25,
+          "runs": 35,
+          "dismissals": 1,
+          "sr": 140.0,
+          "avg": 35.0,
+          "boundaryPct": 12.0,
+          "dotPct": 32.0
+        },
+        "Right-arm pace": {
+          "balls": 22,
+          "runs": 32,
+          "dismissals": 1,
+          "sr": 145.4,
+          "avg": 32.0,
+          "boundaryPct": 18.2,
+          "dotPct": 31.8
+        },
+        "Wrist-spin": {
+          "balls": 5,
+          "runs": 7,
+          "dismissals": 0,
+          "sr": 140.0,
+          "avg": null,
+          "boundaryPct": 20.0,
+          "dotPct": 20.0
+        }
+      },
+      "recentForm": {
+        "team": "Lucknow Super Giants",
+        "last10Innings": 10,
+        "last10Runs": 168,
+        "last10Balls": 130,
+        "last10Sr": 129.2,
+        "last10Avg": 24.0,
+        "last10BoundaryPct": 11.5,
+        "last10DotPct": 28.5,
+        "careerSr": 122.2,
+        "careerAvg": 19.5,
+        "srDelta": 7.0
+      },
+      "ranking": {}
+    },
+    "8b3e9c7c": {
+      "career": {
+        "name": "PP Shaw",
+        "innings": 16,
+        "runs": 304,
+        "balls": 205,
+        "dismissals": 16,
+        "hs": 66,
+        "fifties": 2,
+        "hundreds": 0,
+        "fours": 46,
+        "sixes": 6,
+        "dots": 79,
+        "sr": 148.3,
+        "avg": 19.0,
+        "boundaryPct": 25.4,
+        "dotPct": 38.5
+      },
+      "phases": {
+        "middle": {
+          "innings": 4,
+          "runs": 86,
+          "balls": 53,
+          "sr": 162.3,
+          "avg": 21.5,
+          "boundaryPct": 22.6,
+          "dotPct": 26.4
+        },
+        "powerplay": {
+          "innings": 16,
+          "runs": 218,
+          "balls": 152,
+          "sr": 143.4,
+          "avg": 18.2,
+          "boundaryPct": 26.3,
+          "dotPct": 42.8
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 66,
+          "runs": 81,
+          "dismissals": 3,
+          "sr": 122.7,
+          "avg": 27.0,
+          "boundaryPct": 19.7,
+          "dotPct": 40.9
+        },
+        "Fast-Medium": {
+          "balls": 39,
+          "runs": 44,
+          "dismissals": 5,
+          "sr": 112.8,
+          "avg": 8.8,
+          "boundaryPct": 17.9,
+          "dotPct": 51.3
+        },
+        "LA Orthodox": {
+          "balls": 12,
+          "runs": 27,
+          "dismissals": 1,
+          "sr": 225.0,
+          "avg": 27.0,
+          "boundaryPct": 33.3,
+          "dotPct": 16.7
+        },
+        "Left-arm orthodox": {
+          "balls": 4,
+          "runs": 4,
+          "dismissals": 1,
+          "sr": 100.0,
+          "avg": 4.0,
+          "boundaryPct": 25.0,
+          "dotPct": 75.0
+        },
+        "Left-arm pace": {
+          "balls": 11,
+          "runs": 25,
+          "dismissals": 0,
+          "sr": 227.3,
+          "avg": null,
+          "boundaryPct": 45.5,
+          "dotPct": 9.1
+        },
+        "Leg-spin": {
+          "balls": 15,
+          "runs": 22,
+          "dismissals": 1,
+          "sr": 146.7,
+          "avg": 22.0,
+          "boundaryPct": 26.7,
+          "dotPct": 40.0
+        },
+        "Off-spin": {
+          "balls": 12,
+          "runs": 22,
+          "dismissals": 2,
+          "sr": 183.3,
+          "avg": 11.0,
+          "boundaryPct": 41.7,
+          "dotPct": 41.7
+        },
+        "Right-arm leg-spin": {
+          "balls": 4,
+          "runs": 15,
+          "dismissals": 0,
+          "sr": 375.0,
+          "avg": null,
+          "boundaryPct": 75.0,
+          "dotPct": 0.0
+        },
+        "Right-arm off-spin": {
+          "balls": 9,
+          "runs": 17,
+          "dismissals": 0,
+          "sr": 188.9,
+          "avg": null,
+          "boundaryPct": 22.2,
+          "dotPct": 11.1
+        },
+        "Right-arm pace": {
+          "balls": 33,
+          "runs": 46,
+          "dismissals": 3,
+          "sr": 139.4,
+          "avg": 15.3,
+          "boundaryPct": 24.2,
+          "dotPct": 42.4
+        }
+      },
+      "recentForm": {
+        "team": "Delhi Capitals",
+        "last10Innings": 10,
+        "last10Runs": 257,
+        "last10Balls": 166,
+        "last10Sr": 154.8,
+        "last10Avg": 25.7,
+        "last10BoundaryPct": 26.5,
+        "last10DotPct": 36.8,
+        "careerSr": 147.8,
+        "careerAvg": 24.9,
+        "srDelta": 7.0
+      },
+      "ranking": {}
+    },
+    "bb351c23": {
+      "career": {
+        "name": "MM Ali",
+        "innings": 17,
+        "runs": 257,
+        "balls": 200,
+        "dismissals": 14,
+        "hs": 56,
+        "fifties": 1,
+        "hundreds": 0,
+        "fours": 19,
+        "sixes": 14,
+        "dots": 79,
+        "sr": 128.5,
+        "avg": 18.4,
+        "boundaryPct": 16.5,
+        "dotPct": 39.5
+      },
+      "phases": {
+        "death": {
+          "innings": 8,
+          "runs": 77,
+          "balls": 43,
+          "sr": 179.1,
+          "avg": 15.4,
+          "boundaryPct": 23.3,
+          "dotPct": 32.6
+        },
+        "middle": {
+          "innings": 11,
+          "runs": 135,
+          "balls": 118,
+          "sr": 114.4,
+          "avg": 16.9,
+          "boundaryPct": 12.7,
+          "dotPct": 37.3
+        },
+        "powerplay": {
+          "innings": 3,
+          "runs": 45,
+          "balls": 39,
+          "sr": 115.4,
+          "avg": 45.0,
+          "boundaryPct": 20.5,
+          "dotPct": 53.9
+        }
+      },
+      "vsBowlingType": {
+        "Fast": {
+          "balls": 40,
+          "runs": 33,
+          "dismissals": 2,
+          "sr": 82.5,
+          "avg": 16.5,
+          "boundaryPct": 7.5,
+          "dotPct": 42.5
+        },
+        "Fast-Medium": {
+          "balls": 40,
+          "runs": 73,
+          "dismissals": 1,
+          "sr": 182.5,
+          "avg": 73.0,
+          "boundaryPct": 30.0,
+          "dotPct": 30.0
+        },
+        "LA Orthodox": {
+          "balls": 10,
+          "runs": 6,
+          "dismissals": 0,
+          "sr": 60.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 40.0
+        },
+        "Left-arm pace": {
+          "balls": 5,
+          "runs": 11,
+          "dismissals": 0,
+          "sr": 220.0,
+          "avg": null,
+          "boundaryPct": 40.0,
+          "dotPct": 40.0
+        },
+        "Leg-spin": {
+          "balls": 44,
+          "runs": 52,
+          "dismissals": 5,
+          "sr": 118.2,
+          "avg": 10.4,
+          "boundaryPct": 13.6,
+          "dotPct": 47.7
+        },
+        "Off-Spin/Leg-Spin": {
+          "balls": 2,
+          "runs": 5,
+          "dismissals": 0,
+          "sr": 250.0,
+          "avg": null,
+          "boundaryPct": 50.0,
+          "dotPct": 0.0
+        },
+        "Off-spin": {
+          "balls": 7,
+          "runs": 8,
+          "dismissals": 2,
+          "sr": 114.3,
+          "avg": 4.0,
+          "boundaryPct": 14.3,
+          "dotPct": 28.6
+        },
+        "Right-arm leg-spin": {
+          "balls": 7,
+          "runs": 7,
+          "dismissals": 2,
+          "sr": 100.0,
+          "avg": 3.5,
+          "boundaryPct": 14.3,
+          "dotPct": 57.1
+        },
+        "Right-arm off-spin": {
+          "balls": 12,
+          "runs": 6,
+          "dismissals": 0,
+          "sr": 50.0,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 50.0
+        },
+        "Right-arm pace": {
+          "balls": 20,
+          "runs": 30,
+          "dismissals": 1,
+          "sr": 150.0,
+          "avg": 30.0,
+          "boundaryPct": 20.0,
+          "dotPct": 35.0
+        },
+        "Wrist-spin": {
+          "balls": 13,
+          "runs": 24,
+          "dismissals": 1,
+          "sr": 184.6,
+          "avg": 24.0,
+          "boundaryPct": 23.1,
+          "dotPct": 30.8
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
     }
   },
   "bowlers": {
@@ -12246,6 +19505,1452 @@ const COMPARISON_DATA = {
         "rawScore": 77.2,
         "sampleFactor": 1.0
       }
+    },
+    "8f6dd463": {
+      "career": {
+        "name": "Azmatullah Omarzai",
+        "matches": 15,
+        "balls": 288,
+        "overs": 48.0,
+        "runsConceded": 476,
+        "wickets": 12,
+        "bestWkts": 2,
+        "bestRuns": 27,
+        "dots": 95,
+        "foursConceded": 51,
+        "sixesConceded": 18,
+        "economy": 9.92,
+        "avg": 39.7,
+        "sr": 24.0,
+        "dotPct": 33.0,
+        "boundaryConcededPct": 24.0
+      },
+      "phases": {
+        "death": {
+          "matches": 6,
+          "balls": 48,
+          "overs": 8.0,
+          "runsConceded": 96,
+          "wickets": 3,
+          "dots": 9,
+          "economy": 12.0,
+          "avg": 32.0,
+          "dotPct": 18.8,
+          "boundaryConcededPct": 31.2
+        },
+        "middle": {
+          "matches": 8,
+          "balls": 78,
+          "overs": 13.0,
+          "runsConceded": 114,
+          "wickets": 6,
+          "dots": 22,
+          "economy": 8.77,
+          "avg": 19.0,
+          "dotPct": 28.2,
+          "boundaryConcededPct": 15.4
+        },
+        "powerplay": {
+          "matches": 14,
+          "balls": 162,
+          "overs": 27.0,
+          "runsConceded": 266,
+          "wickets": 3,
+          "dots": 64,
+          "economy": 9.85,
+          "avg": 88.7,
+          "dotPct": 39.5,
+          "boundaryConcededPct": 25.9
+        }
+      },
+      "vsHandedness": {
+        "Left-hand": {
+          "balls": 82,
+          "runs": 122,
+          "wickets": 5,
+          "economy": 8.93,
+          "sr": 16.4,
+          "dotPct": 31.7,
+          "boundaryPct": 19.5
+        },
+        "Right-hand": {
+          "balls": 158,
+          "runs": 263,
+          "wickets": 6,
+          "economy": 9.99,
+          "sr": 26.3,
+          "dotPct": 34.2,
+          "boundaryPct": 24.7
+        }
+      },
+      "recentForm": {
+        "team": "Punjab Kings",
+        "last10Matches": 10,
+        "last10Overs": 33.0,
+        "last10Wickets": 8,
+        "last10Economy": 10.24,
+        "last10Sr": 24.8,
+        "last10DotPct": 29.8,
+        "careerEconomy": 9.92,
+        "careerSr": 24.0,
+        "economyDelta": 0.33
+      },
+      "ranking": {}
+    },
+    "c33d8116": {
+      "career": {
+        "name": "Mohsin Khan",
+        "matches": 14,
+        "balls": 288,
+        "overs": 48.0,
+        "runsConceded": 496,
+        "wickets": 13,
+        "bestWkts": 2,
+        "bestRuns": 29,
+        "dots": 104,
+        "foursConceded": 43,
+        "sixesConceded": 30,
+        "economy": 10.33,
+        "avg": 38.1,
+        "sr": 22.1,
+        "dotPct": 36.1,
+        "boundaryConcededPct": 25.4
+      },
+      "phases": {
+        "death": {
+          "matches": 11,
+          "balls": 90,
+          "overs": 15.0,
+          "runsConceded": 169,
+          "wickets": 6,
+          "dots": 28,
+          "economy": 11.27,
+          "avg": 28.2,
+          "dotPct": 31.1,
+          "boundaryConcededPct": 23.3
+        },
+        "middle": {
+          "matches": 7,
+          "balls": 60,
+          "overs": 10.0,
+          "runsConceded": 101,
+          "wickets": 2,
+          "dots": 19,
+          "economy": 10.1,
+          "avg": 50.5,
+          "dotPct": 31.7,
+          "boundaryConcededPct": 25.0
+        },
+        "powerplay": {
+          "matches": 13,
+          "balls": 138,
+          "overs": 23.0,
+          "runsConceded": 226,
+          "wickets": 5,
+          "dots": 57,
+          "economy": 9.83,
+          "avg": 45.2,
+          "dotPct": 41.3,
+          "boundaryConcededPct": 26.8
+        }
+      },
+      "vsHandedness": {
+        "Left-hand": {
+          "balls": 75,
+          "runs": 123,
+          "wickets": 7,
+          "economy": 9.84,
+          "sr": 10.7,
+          "dotPct": 40.0,
+          "boundaryPct": 25.3
+        },
+        "Right-hand": {
+          "balls": 165,
+          "runs": 296,
+          "wickets": 4,
+          "economy": 10.76,
+          "sr": 41.2,
+          "dotPct": 31.5,
+          "boundaryPct": 25.4
+        }
+      },
+      "recentForm": {
+        "team": "Lucknow Super Giants",
+        "last10Matches": 10,
+        "last10Overs": 38.0,
+        "last10Wickets": 10,
+        "last10Economy": 10.13,
+        "last10Sr": 22.8,
+        "last10DotPct": 36.0,
+        "careerEconomy": 8.62,
+        "careerSr": 18.0,
+        "economyDelta": 1.51
+      },
+      "ranking": {}
+    },
+    "9eb1455b": {
+      "career": {
+        "name": "NT Ellis",
+        "matches": 12,
+        "balls": 276,
+        "overs": 46.0,
+        "runsConceded": 405,
+        "wickets": 15,
+        "bestWkts": 4,
+        "bestRuns": 30,
+        "dots": 80,
+        "foursConceded": 34,
+        "sixesConceded": 14,
+        "economy": 8.8,
+        "avg": 27.0,
+        "sr": 18.4,
+        "dotPct": 29.0,
+        "boundaryConcededPct": 17.4
+      },
+      "phases": {
+        "death": {
+          "matches": 10,
+          "balls": 102,
+          "overs": 17.0,
+          "runsConceded": 180,
+          "wickets": 6,
+          "dots": 24,
+          "economy": 10.59,
+          "avg": 30.0,
+          "dotPct": 23.5,
+          "boundaryConcededPct": 22.6
+        },
+        "middle": {
+          "matches": 10,
+          "balls": 102,
+          "overs": 17.0,
+          "runsConceded": 139,
+          "wickets": 5,
+          "dots": 28,
+          "economy": 8.18,
+          "avg": 27.8,
+          "dotPct": 27.4,
+          "boundaryConcededPct": 12.8
+        },
+        "powerplay": {
+          "matches": 12,
+          "balls": 72,
+          "overs": 12.0,
+          "runsConceded": 86,
+          "wickets": 4,
+          "dots": 28,
+          "economy": 7.17,
+          "avg": 21.5,
+          "dotPct": 38.9,
+          "boundaryConcededPct": 16.7
+        }
+      },
+      "vsHandedness": {
+        "Left-hand": {
+          "balls": 86,
+          "runs": 107,
+          "wickets": 3,
+          "economy": 7.47,
+          "sr": 28.7,
+          "dotPct": 32.6,
+          "boundaryPct": 11.6
+        },
+        "Right-hand": {
+          "balls": 128,
+          "runs": 209,
+          "wickets": 8,
+          "economy": 9.8,
+          "sr": 16.0,
+          "dotPct": 25.0,
+          "boundaryPct": 20.3
+        }
+      },
+      "recentForm": {
+        "team": "Chennai Super Kings",
+        "last10Matches": 10,
+        "last10Overs": 39.0,
+        "last10Wickets": 10,
+        "last10Economy": 8.9,
+        "last10Sr": 23.4,
+        "last10DotPct": 26.5,
+        "careerEconomy": 8.78,
+        "careerSr": 19.9,
+        "economyDelta": 0.12
+      },
+      "ranking": {}
+    },
+    "3204c99f": {
+      "career": {
+        "name": "G Coetzee",
+        "matches": 14,
+        "balls": 273,
+        "overs": 45.5,
+        "runsConceded": 490,
+        "wickets": 15,
+        "bestWkts": 4,
+        "bestRuns": 35,
+        "dots": 90,
+        "foursConceded": 41,
+        "sixesConceded": 26,
+        "economy": 10.77,
+        "avg": 32.7,
+        "sr": 18.2,
+        "dotPct": 33.0,
+        "boundaryConcededPct": 24.5
+      },
+      "phases": {
+        "death": {
+          "matches": 13,
+          "balls": 99,
+          "overs": 16.5,
+          "runsConceded": 183,
+          "wickets": 7,
+          "dots": 28,
+          "economy": 11.09,
+          "avg": 26.1,
+          "dotPct": 28.3,
+          "boundaryConcededPct": 21.2
+        },
+        "middle": {
+          "matches": 13,
+          "balls": 108,
+          "overs": 18.0,
+          "runsConceded": 187,
+          "wickets": 5,
+          "dots": 32,
+          "economy": 10.39,
+          "avg": 37.4,
+          "dotPct": 29.6,
+          "boundaryConcededPct": 25.0
+        },
+        "powerplay": {
+          "matches": 8,
+          "balls": 66,
+          "overs": 11.0,
+          "runsConceded": 120,
+          "wickets": 3,
+          "dots": 30,
+          "economy": 10.91,
+          "avg": 40.0,
+          "dotPct": 45.5,
+          "boundaryConcededPct": 28.8
+        }
+      },
+      "vsHandedness": {
+        "Left-hand": {
+          "balls": 93,
+          "runs": 174,
+          "wickets": 5,
+          "economy": 11.23,
+          "sr": 18.6,
+          "dotPct": 29.0,
+          "boundaryPct": 25.8
+        },
+        "Right-hand": {
+          "balls": 137,
+          "runs": 251,
+          "wickets": 7,
+          "economy": 10.99,
+          "sr": 19.6,
+          "dotPct": 32.9,
+          "boundaryPct": 25.6
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
+    },
+    "12314277": {
+      "career": {
+        "name": "Arshad Khan",
+        "matches": 19,
+        "balls": 272,
+        "overs": 45.3,
+        "runsConceded": 527,
+        "wickets": 12,
+        "bestWkts": 3,
+        "bestRuns": 40,
+        "dots": 94,
+        "foursConceded": 61,
+        "sixesConceded": 24,
+        "economy": 11.63,
+        "avg": 43.9,
+        "sr": 22.7,
+        "dotPct": 34.6,
+        "boundaryConcededPct": 31.2
+      },
+      "phases": {
+        "death": {
+          "matches": 10,
+          "balls": 56,
+          "overs": 9.3,
+          "runsConceded": 144,
+          "wickets": 3,
+          "dots": 11,
+          "economy": 15.43,
+          "avg": 48.0,
+          "dotPct": 19.6,
+          "boundaryConcededPct": 39.3
+        },
+        "middle": {
+          "matches": 4,
+          "balls": 30,
+          "overs": 5.0,
+          "runsConceded": 57,
+          "wickets": 2,
+          "dots": 10,
+          "economy": 11.4,
+          "avg": 28.5,
+          "dotPct": 33.3,
+          "boundaryConcededPct": 33.3
+        },
+        "powerplay": {
+          "matches": 17,
+          "balls": 186,
+          "overs": 31.0,
+          "runsConceded": 326,
+          "wickets": 7,
+          "dots": 73,
+          "economy": 10.52,
+          "avg": 46.6,
+          "dotPct": 39.2,
+          "boundaryConcededPct": 28.5
+        }
+      },
+      "vsHandedness": {
+        "Left-hand": {
+          "balls": 60,
+          "runs": 125,
+          "wickets": 4,
+          "economy": 12.5,
+          "sr": 15.0,
+          "dotPct": 35.0,
+          "boundaryPct": 33.3
+        },
+        "Right-hand": {
+          "balls": 178,
+          "runs": 357,
+          "wickets": 5,
+          "economy": 12.03,
+          "sr": 35.6,
+          "dotPct": 32.6,
+          "boundaryPct": 33.1
+        }
+      },
+      "recentForm": {
+        "team": "Gujarat Titans",
+        "last10Matches": 10,
+        "last10Overs": 23.0,
+        "last10Wickets": 6,
+        "last10Economy": 10.04,
+        "last10Sr": 23.0,
+        "last10DotPct": 38.4,
+        "careerEconomy": 11.63,
+        "careerSr": 22.7,
+        "economyDelta": -1.58
+      },
+      "ranking": {}
+    },
+    "f9e6e7ef": {
+      "career": {
+        "name": "Shahbaz Ahmed",
+        "matches": 23,
+        "balls": 258,
+        "overs": 43.0,
+        "runsConceded": 475,
+        "wickets": 9,
+        "bestWkts": 3,
+        "bestRuns": 23,
+        "dots": 67,
+        "foursConceded": 36,
+        "sixesConceded": 29,
+        "economy": 11.05,
+        "avg": 52.8,
+        "sr": 28.7,
+        "dotPct": 26.0,
+        "boundaryConcededPct": 25.2
+      },
+      "phases": {
+        "death": {
+          "matches": 3,
+          "balls": 15,
+          "overs": 2.5,
+          "runsConceded": 33,
+          "wickets": 1,
+          "dots": 3,
+          "economy": 13.2,
+          "avg": 33.0,
+          "dotPct": 20.0,
+          "boundaryConcededPct": 26.7
+        },
+        "middle": {
+          "matches": 19,
+          "balls": 171,
+          "overs": 28.5,
+          "runsConceded": 312,
+          "wickets": 6,
+          "dots": 46,
+          "economy": 10.95,
+          "avg": 52.0,
+          "dotPct": 26.9,
+          "boundaryConcededPct": 25.1
+        },
+        "powerplay": {
+          "matches": 9,
+          "balls": 72,
+          "overs": 12.0,
+          "runsConceded": 130,
+          "wickets": 2,
+          "dots": 18,
+          "economy": 10.83,
+          "avg": 65.0,
+          "dotPct": 25.0,
+          "boundaryConcededPct": 25.0
+        }
+      },
+      "vsHandedness": {
+        "Left-hand": {
+          "balls": 52,
+          "runs": 109,
+          "wickets": 3,
+          "economy": 12.58,
+          "sr": 17.3,
+          "dotPct": 19.2,
+          "boundaryPct": 26.9
+        },
+        "Right-hand": {
+          "balls": 151,
+          "runs": 247,
+          "wickets": 3,
+          "economy": 9.81,
+          "sr": 50.3,
+          "dotPct": 26.5,
+          "boundaryPct": 21.9
+        }
+      },
+      "recentForm": {
+        "team": "Lucknow Super Giants",
+        "last10Matches": 10,
+        "last10Overs": 23.0,
+        "last10Wickets": 5,
+        "last10Economy": 10.04,
+        "last10Sr": 27.6,
+        "last10DotPct": 27.5,
+        "careerEconomy": 9.72,
+        "careerSr": 26.7,
+        "economyDelta": 0.32
+      },
+      "ranking": {}
+    },
+    "2f9d0389": {
+      "career": {
+        "name": "LH Ferguson",
+        "matches": 14,
+        "balls": 258,
+        "overs": 43.0,
+        "runsConceded": 465,
+        "wickets": 15,
+        "bestWkts": 2,
+        "bestRuns": 24,
+        "dots": 77,
+        "foursConceded": 36,
+        "sixesConceded": 27,
+        "economy": 10.81,
+        "avg": 31.0,
+        "sr": 17.2,
+        "dotPct": 29.8,
+        "boundaryConcededPct": 24.4
+      },
+      "phases": {
+        "death": {
+          "matches": 11,
+          "balls": 76,
+          "overs": 12.7,
+          "runsConceded": 150,
+          "wickets": 5,
+          "dots": 19,
+          "economy": 11.84,
+          "avg": 30.0,
+          "dotPct": 25.0,
+          "boundaryConcededPct": 26.3
+        },
+        "middle": {
+          "matches": 13,
+          "balls": 126,
+          "overs": 21.0,
+          "runsConceded": 207,
+          "wickets": 7,
+          "dots": 37,
+          "economy": 9.86,
+          "avg": 29.6,
+          "dotPct": 29.4,
+          "boundaryConcededPct": 20.6
+        },
+        "powerplay": {
+          "matches": 9,
+          "balls": 56,
+          "overs": 9.3,
+          "runsConceded": 108,
+          "wickets": 3,
+          "dots": 21,
+          "economy": 11.57,
+          "avg": 36.0,
+          "dotPct": 37.5,
+          "boundaryConcededPct": 30.4
+        }
+      },
+      "vsHandedness": {
+        "Left-hand": {
+          "balls": 105,
+          "runs": 170,
+          "wickets": 7,
+          "economy": 9.71,
+          "sr": 15.0,
+          "dotPct": 32.4,
+          "boundaryPct": 20.0
+        },
+        "Right-hand": {
+          "balls": 106,
+          "runs": 191,
+          "wickets": 7,
+          "economy": 10.81,
+          "sr": 15.1,
+          "dotPct": 31.1,
+          "boundaryPct": 26.4
+        }
+      },
+      "recentForm": {
+        "team": "Punjab Kings",
+        "last10Matches": 10,
+        "last10Overs": 31.3,
+        "last10Wickets": 12,
+        "last10Economy": 9.99,
+        "last10Sr": 15.7,
+        "last10DotPct": 30.3,
+        "careerEconomy": 9.13,
+        "careerSr": 20.1,
+        "economyDelta": 0.86
+      },
+      "ranking": {}
+    },
+    "4933f499": {
+      "career": {
+        "name": "JP Behrendorff",
+        "matches": 12,
+        "balls": 252,
+        "overs": 42.0,
+        "runsConceded": 395,
+        "wickets": 14,
+        "bestWkts": 3,
+        "bestRuns": 23,
+        "dots": 88,
+        "foursConceded": 36,
+        "sixesConceded": 18,
+        "economy": 9.4,
+        "avg": 28.2,
+        "sr": 18.0,
+        "dotPct": 34.9,
+        "boundaryConcededPct": 21.4
+      },
+      "phases": {
+        "death": {
+          "matches": 7,
+          "balls": 54,
+          "overs": 9.0,
+          "runsConceded": 110,
+          "wickets": 5,
+          "dots": 16,
+          "economy": 12.22,
+          "avg": 22.0,
+          "dotPct": 29.6,
+          "boundaryConcededPct": 27.8
+        },
+        "middle": {
+          "matches": 6,
+          "balls": 36,
+          "overs": 6.0,
+          "runsConceded": 71,
+          "wickets": 1,
+          "dots": 6,
+          "economy": 11.83,
+          "avg": 71.0,
+          "dotPct": 16.7,
+          "boundaryConcededPct": 25.0
+        },
+        "powerplay": {
+          "matches": 12,
+          "balls": 162,
+          "overs": 27.0,
+          "runsConceded": 214,
+          "wickets": 8,
+          "dots": 66,
+          "economy": 7.93,
+          "avg": 26.8,
+          "dotPct": 40.7,
+          "boundaryConcededPct": 18.5
+        }
+      },
+      "vsHandedness": {
+        "Left-hand": {
+          "balls": 43,
+          "runs": 75,
+          "wickets": 7,
+          "economy": 10.47,
+          "sr": 6.1,
+          "dotPct": 32.6,
+          "boundaryPct": 20.9
+        },
+        "Right-hand": {
+          "balls": 86,
+          "runs": 131,
+          "wickets": 4,
+          "economy": 9.14,
+          "sr": 21.5,
+          "dotPct": 33.7,
+          "boundaryPct": 18.6
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
+    },
+    "cc1e8c68": {
+      "career": {
+        "name": "UT Yadav",
+        "matches": 15,
+        "balls": 240,
+        "overs": 40.0,
+        "runsConceded": 401,
+        "wickets": 9,
+        "bestWkts": 2,
+        "bestRuns": 22,
+        "dots": 96,
+        "foursConceded": 45,
+        "sixesConceded": 20,
+        "economy": 10.03,
+        "avg": 44.6,
+        "sr": 26.7,
+        "dotPct": 40.0,
+        "boundaryConcededPct": 27.1
+      },
+      "phases": {
+        "death": {
+          "matches": 3,
+          "balls": 18,
+          "overs": 3.0,
+          "runsConceded": 44,
+          "wickets": 2,
+          "dots": 3,
+          "economy": 14.67,
+          "avg": 22.0,
+          "dotPct": 16.7,
+          "boundaryConcededPct": 27.8
+        },
+        "middle": {
+          "matches": 5,
+          "balls": 36,
+          "overs": 6.0,
+          "runsConceded": 83,
+          "wickets": 2,
+          "dots": 7,
+          "economy": 13.83,
+          "avg": 41.5,
+          "dotPct": 19.4,
+          "boundaryConcededPct": 41.7
+        },
+        "powerplay": {
+          "matches": 15,
+          "balls": 186,
+          "overs": 31.0,
+          "runsConceded": 274,
+          "wickets": 5,
+          "dots": 86,
+          "economy": 8.84,
+          "avg": 54.8,
+          "dotPct": 46.2,
+          "boundaryConcededPct": 24.2
+        }
+      },
+      "vsHandedness": {
+        "Left-hand": {
+          "balls": 51,
+          "runs": 86,
+          "wickets": 3,
+          "economy": 10.12,
+          "sr": 17.0,
+          "dotPct": 49.0,
+          "boundaryPct": 31.4
+        },
+        "Right-hand": {
+          "balls": 103,
+          "runs": 189,
+          "wickets": 4,
+          "economy": 11.01,
+          "sr": 25.8,
+          "dotPct": 37.9,
+          "boundaryPct": 30.1
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
+    },
+    "b681e71e": {
+      "career": {
+        "name": "GJ Maxwell",
+        "matches": 19,
+        "balls": 236,
+        "overs": 39.3,
+        "runsConceded": 335,
+        "wickets": 13,
+        "bestWkts": 2,
+        "bestRuns": 23,
+        "dots": 79,
+        "foursConceded": 19,
+        "sixesConceded": 20,
+        "economy": 8.52,
+        "avg": 25.8,
+        "sr": 18.1,
+        "dotPct": 33.5,
+        "boundaryConcededPct": 16.5
+      },
+      "phases": {
+        "death": {
+          "matches": 3,
+          "balls": 14,
+          "overs": 2.3,
+          "runsConceded": 27,
+          "wickets": 1,
+          "dots": 3,
+          "economy": 11.57,
+          "avg": 27.0,
+          "dotPct": 21.4,
+          "boundaryConcededPct": 21.4
+        },
+        "middle": {
+          "matches": 15,
+          "balls": 144,
+          "overs": 24.0,
+          "runsConceded": 199,
+          "wickets": 7,
+          "dots": 48,
+          "economy": 8.29,
+          "avg": 28.4,
+          "dotPct": 33.3,
+          "boundaryConcededPct": 16.0
+        },
+        "powerplay": {
+          "matches": 11,
+          "balls": 78,
+          "overs": 13.0,
+          "runsConceded": 109,
+          "wickets": 5,
+          "dots": 28,
+          "economy": 8.38,
+          "avg": 21.8,
+          "dotPct": 35.9,
+          "boundaryConcededPct": 16.7
+        }
+      },
+      "vsHandedness": {
+        "Left-hand": {
+          "balls": 136,
+          "runs": 201,
+          "wickets": 7,
+          "economy": 8.87,
+          "sr": 19.4,
+          "dotPct": 30.1,
+          "boundaryPct": 17.6
+        },
+        "Right-hand": {
+          "balls": 69,
+          "runs": 93,
+          "wickets": 6,
+          "economy": 8.09,
+          "sr": 11.5,
+          "dotPct": 39.1,
+          "boundaryPct": 15.9
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
+    },
+    "d9273ee7": {
+      "career": {
+        "name": "MP Stoinis",
+        "matches": 21,
+        "balls": 234,
+        "overs": 39.0,
+        "runsConceded": 405,
+        "wickets": 10,
+        "bestWkts": 2,
+        "bestRuns": 20,
+        "dots": 74,
+        "foursConceded": 27,
+        "sixesConceded": 25,
+        "economy": 10.38,
+        "avg": 40.5,
+        "sr": 23.4,
+        "dotPct": 31.6,
+        "boundaryConcededPct": 22.2
+      },
+      "phases": {
+        "death": {
+          "matches": 5,
+          "balls": 27,
+          "overs": 4.5,
+          "runsConceded": 65,
+          "wickets": 2,
+          "dots": 5,
+          "economy": 14.44,
+          "avg": 32.5,
+          "dotPct": 18.5,
+          "boundaryConcededPct": 37.0
+        },
+        "middle": {
+          "matches": 16,
+          "balls": 156,
+          "overs": 26.0,
+          "runsConceded": 257,
+          "wickets": 5,
+          "dots": 49,
+          "economy": 9.88,
+          "avg": 51.4,
+          "dotPct": 31.4,
+          "boundaryConcededPct": 19.9
+        },
+        "powerplay": {
+          "matches": 6,
+          "balls": 51,
+          "overs": 8.5,
+          "runsConceded": 83,
+          "wickets": 3,
+          "dots": 20,
+          "economy": 9.76,
+          "avg": 27.7,
+          "dotPct": 39.2,
+          "boundaryConcededPct": 21.6
+        }
+      },
+      "vsHandedness": {
+        "Left-hand": {
+          "balls": 102,
+          "runs": 190,
+          "wickets": 6,
+          "economy": 11.18,
+          "sr": 17.0,
+          "dotPct": 33.3,
+          "boundaryPct": 26.5
+        },
+        "Right-hand": {
+          "balls": 95,
+          "runs": 156,
+          "wickets": 4,
+          "economy": 9.85,
+          "sr": 23.8,
+          "dotPct": 27.4,
+          "boundaryPct": 18.9
+        }
+      },
+      "recentForm": {
+        "team": "Punjab Kings",
+        "last10Matches": 10,
+        "last10Overs": 16.2,
+        "last10Wickets": 1,
+        "last10Economy": 12.74,
+        "last10Sr": 97.0,
+        "last10DotPct": 24.7,
+        "careerEconomy": 9.98,
+        "careerSr": 20.2,
+        "economyDelta": 2.76
+      },
+      "ranking": {}
+    },
+    "5ffc0565": {
+      "career": {
+        "name": "V Nigam",
+        "matches": 13,
+        "balls": 234,
+        "overs": 39.0,
+        "runsConceded": 361,
+        "wickets": 11,
+        "bestWkts": 2,
+        "bestRuns": 18,
+        "dots": 72,
+        "foursConceded": 22,
+        "sixesConceded": 21,
+        "economy": 9.26,
+        "avg": 32.8,
+        "sr": 21.3,
+        "dotPct": 30.8,
+        "boundaryConcededPct": 18.4
+      },
+      "phases": {
+        "death": {
+          "matches": 4,
+          "balls": 36,
+          "overs": 6.0,
+          "runsConceded": 37,
+          "wickets": 2,
+          "dots": 13,
+          "economy": 6.17,
+          "avg": 18.5,
+          "dotPct": 36.1,
+          "boundaryConcededPct": 5.6
+        },
+        "middle": {
+          "matches": 12,
+          "balls": 150,
+          "overs": 25.0,
+          "runsConceded": 248,
+          "wickets": 5,
+          "dots": 37,
+          "economy": 9.92,
+          "avg": 49.6,
+          "dotPct": 24.7,
+          "boundaryConcededPct": 18.7
+        },
+        "powerplay": {
+          "matches": 8,
+          "balls": 48,
+          "overs": 8.0,
+          "runsConceded": 76,
+          "wickets": 4,
+          "dots": 22,
+          "economy": 9.5,
+          "avg": 19.0,
+          "dotPct": 45.8,
+          "boundaryConcededPct": 27.1
+        }
+      },
+      "vsHandedness": {
+        "Left-hand": {
+          "balls": 79,
+          "runs": 117,
+          "wickets": 4,
+          "economy": 8.89,
+          "sr": 19.8,
+          "dotPct": 31.6,
+          "boundaryPct": 15.2
+        },
+        "Right-hand": {
+          "balls": 141,
+          "runs": 231,
+          "wickets": 7,
+          "economy": 9.83,
+          "sr": 20.1,
+          "dotPct": 29.8,
+          "boundaryPct": 21.3
+        }
+      },
+      "recentForm": {
+        "team": "Delhi Capitals",
+        "last10Matches": 10,
+        "last10Overs": 31.0,
+        "last10Wickets": 8,
+        "last10Economy": 8.97,
+        "last10Sr": 23.2,
+        "last10DotPct": 31.2,
+        "careerEconomy": 9.26,
+        "careerSr": 21.3,
+        "economyDelta": -0.29
+      },
+      "ranking": {}
+    },
+    "9061a703": {
+      "career": {
+        "name": "J Little",
+        "matches": 11,
+        "balls": 228,
+        "overs": 38.0,
+        "runsConceded": 341,
+        "wickets": 11,
+        "bestWkts": 4,
+        "bestRuns": 45,
+        "dots": 82,
+        "foursConceded": 30,
+        "sixesConceded": 16,
+        "economy": 8.97,
+        "avg": 31.0,
+        "sr": 20.7,
+        "dotPct": 36.0,
+        "boundaryConcededPct": 20.2
+      },
+      "phases": {
+        "death": {
+          "matches": 8,
+          "balls": 54,
+          "overs": 9.0,
+          "runsConceded": 90,
+          "wickets": 0,
+          "dots": 13,
+          "economy": 10.0,
+          "avg": null,
+          "dotPct": 24.1,
+          "boundaryConcededPct": 20.4
+        },
+        "middle": {
+          "matches": 8,
+          "balls": 96,
+          "overs": 16.0,
+          "runsConceded": 129,
+          "wickets": 8,
+          "dots": 35,
+          "economy": 8.06,
+          "avg": 16.1,
+          "dotPct": 36.5,
+          "boundaryConcededPct": 16.7
+        },
+        "powerplay": {
+          "matches": 7,
+          "balls": 78,
+          "overs": 13.0,
+          "runsConceded": 122,
+          "wickets": 3,
+          "dots": 34,
+          "economy": 9.38,
+          "avg": 40.7,
+          "dotPct": 43.6,
+          "boundaryConcededPct": 24.4
+        }
+      },
+      "vsHandedness": {
+        "Left-hand": {
+          "balls": 52,
+          "runs": 84,
+          "wickets": 3,
+          "economy": 9.69,
+          "sr": 17.3,
+          "dotPct": 26.9,
+          "boundaryPct": 21.1
+        },
+        "Right-hand": {
+          "balls": 77,
+          "runs": 115,
+          "wickets": 5,
+          "economy": 8.96,
+          "sr": 15.4,
+          "dotPct": 32.5,
+          "boundaryPct": 18.2
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
+    },
+    "f6d8a7ab": {
+      "career": {
+        "name": "K Kartikeya",
+        "matches": 12,
+        "balls": 204,
+        "overs": 34.0,
+        "runsConceded": 309,
+        "wickets": 7,
+        "bestWkts": 2,
+        "bestRuns": 37,
+        "dots": 56,
+        "foursConceded": 17,
+        "sixesConceded": 18,
+        "economy": 9.09,
+        "avg": 44.1,
+        "sr": 29.1,
+        "dotPct": 27.4,
+        "boundaryConcededPct": 17.2
+      },
+      "phases": {
+        "death": {
+          "matches": 3,
+          "balls": 24,
+          "overs": 4.0,
+          "runsConceded": 49,
+          "wickets": 0,
+          "dots": 7,
+          "economy": 12.25,
+          "avg": null,
+          "dotPct": 29.2,
+          "boundaryConcededPct": 29.2
+        },
+        "middle": {
+          "matches": 12,
+          "balls": 180,
+          "overs": 30.0,
+          "runsConceded": 260,
+          "wickets": 7,
+          "dots": 49,
+          "economy": 8.67,
+          "avg": 37.1,
+          "dotPct": 27.2,
+          "boundaryConcededPct": 15.6
+        }
+      },
+      "vsHandedness": {
+        "Left-hand": {
+          "balls": 41,
+          "runs": 51,
+          "wickets": 1,
+          "economy": 7.46,
+          "sr": 41.0,
+          "dotPct": 29.3,
+          "boundaryPct": 12.2
+        },
+        "Right-hand": {
+          "balls": 90,
+          "runs": 147,
+          "wickets": 4,
+          "economy": 9.8,
+          "sr": 22.5,
+          "dotPct": 28.9,
+          "boundaryPct": 18.9
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
+    },
+    "36619795": {
+      "career": {
+        "name": "Zeeshan Ansari",
+        "matches": 10,
+        "balls": 203,
+        "overs": 33.8,
+        "runsConceded": 334,
+        "wickets": 6,
+        "bestWkts": 3,
+        "bestRuns": 42,
+        "dots": 47,
+        "foursConceded": 24,
+        "sixesConceded": 17,
+        "economy": 9.87,
+        "avg": 55.7,
+        "sr": 33.8,
+        "dotPct": 23.1,
+        "boundaryConcededPct": 20.2
+      },
+      "phases": {
+        "death": {
+          "matches": 5,
+          "balls": 23,
+          "overs": 3.8,
+          "runsConceded": 50,
+          "wickets": 0,
+          "dots": 5,
+          "economy": 13.04,
+          "avg": null,
+          "dotPct": 21.7,
+          "boundaryConcededPct": 34.8
+        },
+        "middle": {
+          "matches": 10,
+          "balls": 180,
+          "overs": 30.0,
+          "runsConceded": 284,
+          "wickets": 6,
+          "dots": 42,
+          "economy": 9.47,
+          "avg": 47.3,
+          "dotPct": 23.3,
+          "boundaryConcededPct": 18.3
+        }
+      },
+      "vsHandedness": {
+        "Left-hand": {
+          "balls": 44,
+          "runs": 59,
+          "wickets": 1,
+          "economy": 8.05,
+          "sr": 44.0,
+          "dotPct": 18.2,
+          "boundaryPct": 9.1
+        },
+        "Right-hand": {
+          "balls": 144,
+          "runs": 249,
+          "wickets": 5,
+          "economy": 10.38,
+          "sr": 28.8,
+          "dotPct": 23.6,
+          "boundaryPct": 22.9
+        }
+      },
+      "recentForm": {
+        "team": "Sunrisers Hyderabad",
+        "last10Matches": 10,
+        "last10Overs": 33.8,
+        "last10Wickets": 6,
+        "last10Economy": 9.87,
+        "last10Sr": 33.8,
+        "last10DotPct": 23.1,
+        "careerEconomy": 9.87,
+        "careerSr": 33.8,
+        "economyDelta": 0.0
+      },
+      "ranking": {}
+    },
+    "b0946605": {
+      "career": {
+        "name": "AS Joseph",
+        "matches": 10,
+        "balls": 202,
+        "overs": 33.7,
+        "runsConceded": 349,
+        "wickets": 8,
+        "bestWkts": 2,
+        "bestRuns": 28,
+        "dots": 72,
+        "foursConceded": 19,
+        "sixesConceded": 25,
+        "economy": 10.37,
+        "avg": 43.6,
+        "sr": 25.2,
+        "dotPct": 35.6,
+        "boundaryConcededPct": 21.8
+      },
+      "phases": {
+        "death": {
+          "matches": 8,
+          "balls": 64,
+          "overs": 10.7,
+          "runsConceded": 126,
+          "wickets": 4,
+          "dots": 17,
+          "economy": 11.81,
+          "avg": 31.5,
+          "dotPct": 26.6,
+          "boundaryConcededPct": 21.9
+        },
+        "middle": {
+          "matches": 9,
+          "balls": 108,
+          "overs": 18.0,
+          "runsConceded": 170,
+          "wickets": 4,
+          "dots": 40,
+          "economy": 9.44,
+          "avg": 42.5,
+          "dotPct": 37.0,
+          "boundaryConcededPct": 20.4
+        },
+        "powerplay": {
+          "matches": 5,
+          "balls": 30,
+          "overs": 5.0,
+          "runsConceded": 53,
+          "wickets": 0,
+          "dots": 15,
+          "economy": 10.6,
+          "avg": null,
+          "dotPct": 50.0,
+          "boundaryConcededPct": 26.7
+        }
+      },
+      "vsHandedness": {
+        "Left-hand": {
+          "balls": 88,
+          "runs": 168,
+          "wickets": 3,
+          "economy": 11.45,
+          "sr": 29.3,
+          "dotPct": 33.0,
+          "boundaryPct": 22.7
+        },
+        "Right-hand": {
+          "balls": 87,
+          "runs": 147,
+          "wickets": 2,
+          "economy": 10.14,
+          "sr": 43.5,
+          "dotPct": 37.9,
+          "boundaryPct": 23.0
+        }
+      },
+      "recentForm": {},
+      "ranking": {}
+    },
+    "f19ccfad": {
+      "career": {
+        "name": "Washington Sundar",
+        "matches": 14,
+        "balls": 201,
+        "overs": 33.5,
+        "runsConceded": 331,
+        "wickets": 6,
+        "bestWkts": 3,
+        "bestRuns": 28,
+        "dots": 53,
+        "foursConceded": 28,
+        "sixesConceded": 16,
+        "economy": 9.88,
+        "avg": 55.2,
+        "sr": 33.5,
+        "dotPct": 26.4,
+        "boundaryConcededPct": 21.9
+      },
+      "phases": {
+        "death": {
+          "matches": 4,
+          "balls": 27,
+          "overs": 4.5,
+          "runsConceded": 35,
+          "wickets": 1,
+          "dots": 6,
+          "economy": 7.78,
+          "avg": 35.0,
+          "dotPct": 22.2,
+          "boundaryConcededPct": 11.1
+        },
+        "middle": {
+          "matches": 11,
+          "balls": 132,
+          "overs": 22.0,
+          "runsConceded": 173,
+          "wickets": 4,
+          "dots": 38,
+          "economy": 7.86,
+          "avg": 43.2,
+          "dotPct": 28.8,
+          "boundaryConcededPct": 12.9
+        },
+        "powerplay": {
+          "matches": 6,
+          "balls": 42,
+          "overs": 7.0,
+          "runsConceded": 123,
+          "wickets": 1,
+          "dots": 9,
+          "economy": 17.57,
+          "avg": 123.0,
+          "dotPct": 21.4,
+          "boundaryConcededPct": 57.1
+        }
+      },
+      "vsHandedness": {
+        "Left-hand": {
+          "balls": 80,
+          "runs": 108,
+          "wickets": 1,
+          "economy": 8.1,
+          "sr": 80.0,
+          "dotPct": 27.5,
+          "boundaryPct": 13.8
+        },
+        "Right-hand": {
+          "balls": 86,
+          "runs": 150,
+          "wickets": 4,
+          "economy": 10.47,
+          "sr": 21.5,
+          "dotPct": 22.1,
+          "boundaryPct": 23.3
+        }
+      },
+      "recentForm": {
+        "team": "Gujarat Titans",
+        "last10Matches": 10,
+        "last10Overs": 26.5,
+        "last10Wickets": 6,
+        "last10Economy": 9.89,
+        "last10Sr": 26.5,
+        "last10DotPct": 26.4,
+        "careerEconomy": 7.76,
+        "careerSr": 28.7,
+        "economyDelta": 2.13
+      },
+      "ranking": {}
     }
   },
   "batterIndex": {
@@ -12281,10 +20986,57 @@ const COMPARISON_DATA = {
     "RA Jadeja": "fe93fd9d",
     "HH Pandya": "dbe50b21",
     "TM Head": "12b610c2",
-    "MR Marsh": "3d8feaf8",
     "DA Warner": "dcce6f09",
+    "MR Marsh": "3d8feaf8",
     "N Wadhera": "d1a60072",
-    "SM Curran": "e94915e6"
+    "SM Curran": "e94915e6",
+    "RR Pant": "919a3be2",
+    "JM Sharma": "800d2d97",
+    "N Rana": "fb2d1dda",
+    "C Green": "eaa76d3c",
+    "Shashank Singh": "26989d80",
+    "Dhruv Jurel": "bcf325d2",
+    "Abishek Porel": "ad3b6e95",
+    "RM Patidar": "c740ea83",
+    "SP Narine": "9d430b40",
+    "DA Miller": "d67d5f00",
+    "SO Hetmyer": "48a1d7b7",
+    "T Stubbs": "85b3fab2",
+    "D Padikkal": "2c25d4f5",
+    "Q de Kock": "372455c4",
+    "WP Saha": "fe11caa6",
+    "TH David": "f1f99156",
+    "RA Tripathi": "77255a9e",
+    "S Dhawan": "0a476045",
+    "AD Russell": "bbd41817",
+    "Nithish Kumar Reddy": "aad0c365",
+    "KH Pandya": "5b8c830e",
+    "V Shankar": "0994d0ae",
+    "MA Agarwal": "00ea847a",
+    "LS Livingstone": "50c6bc2b",
+    "Abdul Samad": "8e514b4c",
+    "A Raghuvanshi": "d7017798",
+    "GJ Maxwell": "b681e71e",
+    "WG Jacks": "9caf69a1",
+    "Priyansh Arya": "b5797845",
+    "R Ravindra": "ba5e1069",
+    "KD Karthik": "c03f1114",
+    "MS Dhoni": "4a8a2e3b",
+    "M Shahrukh Khan": "7dcb9bc9",
+    "Rahmanullah Gurbaz": "0bacade8",
+    "KR Mayers": "73c18486",
+    "RR Rossouw": "cad00a4d",
+    "RD Rickelton": "e66732f8",
+    "R Tewatia": "39a2dfa8",
+    "JM Bairstow": "abb83e27",
+    "MK Pandey": "93b4fc78",
+    "Ashutosh Sharma": "84d9c311",
+    "DJ Hooda": "73ad96ed",
+    "DJ Mitchell": "eade4650",
+    "Naman Dhir": "fffa744b",
+    "Shahbaz Ahmed": "f9e6e7ef",
+    "PP Shaw": "8b3e9c7c",
+    "MM Ali": "bb351c23"
   },
   "bowlerIndex": {
     "Rashid Khan": "5f547c8b",
@@ -12348,15 +21100,32 @@ const COMPARISON_DATA = {
     "JR Hazlewood": "03806cf8",
     "Mustafizur Rahman": "0a8fce53",
     "DS Rathi": "13fc5c6d",
-    "MM Ali": "bb351c23"
+    "MM Ali": "bb351c23",
+    "Azmatullah Omarzai": "8f6dd463",
+    "Mohsin Khan": "c33d8116",
+    "NT Ellis": "9eb1455b",
+    "G Coetzee": "3204c99f",
+    "Arshad Khan": "12314277",
+    "Shahbaz Ahmed": "f9e6e7ef",
+    "LH Ferguson": "2f9d0389",
+    "JP Behrendorff": "4933f499",
+    "UT Yadav": "cc1e8c68",
+    "GJ Maxwell": "b681e71e",
+    "MP Stoinis": "d9273ee7",
+    "V Nigam": "5ffc0565",
+    "J Little": "9061a703",
+    "K Kartikeya": "f6d8a7ab",
+    "Zeeshan Ansari": "36619795",
+    "AS Joseph": "b0946605",
+    "Washington Sundar": "f19ccfad"
   },
   "metadata": {
-    "generated": "2026-02-15T08:08:42Z",
+    "generated": "2026-03-01T06:38:13Z",
     "dataWindow": "IPL Since 2023",
-    "batterQualification": "500+ balls faced",
-    "bowlerQualification": "300+ balls bowled",
-    "totalBatters": 36,
-    "totalBowlers": 62,
+    "batterQualification": "200+ balls faced",
+    "bowlerQualification": "200+ balls bowled",
+    "totalBatters": 83,
+    "totalBowlers": 79,
     "phases": [
       "powerplay",
       "middle",

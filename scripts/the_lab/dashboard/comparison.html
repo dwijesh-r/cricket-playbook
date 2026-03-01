@@ -1695,64 +1695,84 @@
 
         if (type === 'batter') {
             const types = ['Fast', 'Fast-Medium', 'Off-spin', 'Leg-spin', 'LA Orthodox', 'Wrist-spin'];
-            let html = '<div style="overflow-x: auto;">';
-            html += '<table class="splits-table" aria-label="Performance vs bowling types">';
-            html += '<tr><th class="split-type">vs Type</th>';
-            players.forEach(p => {
-                html += '<th class="player-' + SIDE_CSS_CLASS[p.side] + '-col" colspan="6">' + escapeHtml(p.data.career.name) + '</th>';
-            });
-            html += '</tr><tr><th></th>';
-            players.forEach(p => {
-                const sc = 'player-' + SIDE_CSS_CLASS[p.side] + '-col';
-                html += '<th class="' + sc + '">Balls</th><th class="' + sc + '">Outs</th><th class="' + sc + '">SR</th><th class="' + sc + '">Avg</th><th class="' + sc + '">Bnd%</th><th class="' + sc + '">Dot%</th>';
-            });
-            html += '</tr>';
-
-            types.forEach(t => {
-                html += '<tr><td class="split-type">' + t + '</td>';
-                players.forEach(p => {
-                    const d = p.data.vsBowlingType ? p.data.vsBowlingType[t] : null;
-                    html += '<td style="font-family:var(--font-mono);">' + (d && d.balls != null ? d.balls : '-') + '</td>';
-                    html += '<td style="font-family:var(--font-mono);">' + (d && d.dismissals != null ? d.dismissals : '-') + '</td>';
-                    html += '<td style="font-family:var(--font-mono);">' + (d && d.sr != null ? d.sr.toFixed(1) : '-') + '</td>';
-                    html += '<td style="font-family:var(--font-mono);">' + (d && d.avg != null ? d.avg.toFixed(1) : '-') + '</td>';
-                    html += '<td style="font-family:var(--font-mono);">' + (d && d.boundaryPct != null ? d.boundaryPct.toFixed(1) : '-') + '</td>';
-                    html += '<td style="font-family:var(--font-mono);">' + (d && d.dotPct != null ? d.dotPct.toFixed(1) : '-') + '</td>';
-                });
-                html += '</tr>';
-            });
-            html += '</table></div>';
-            return html;
+            const metrics = [
+                { label: 'Balls', key: 'balls', fmt: v => v != null ? v : '-', higher: true },
+                { label: 'Outs', key: 'dismissals', fmt: v => v != null ? v : '-', higher: false },
+                { label: 'SR', key: 'sr', fmt: v => v != null ? v.toFixed(1) : '-', higher: true },
+                { label: 'Avg', key: 'avg', fmt: v => v != null ? v.toFixed(1) : '-', higher: true },
+                { label: 'Boundary%', key: 'boundaryPct', fmt: v => v != null ? v.toFixed(1) : '-', higher: true },
+                { label: 'Dot%', key: 'dotPct', fmt: v => v != null ? v.toFixed(1) : '-', higher: false }
+            ];
+            return buildSplitsCards(players, types, 'vsBowlingType', metrics, 'vs Bowling Type');
         } else {
             const types = ['Left-hand', 'Right-hand'];
-            let html = '<div style="overflow-x: auto;">';
-            html += '<table class="splits-table" aria-label="Performance vs batting handedness">';
-            html += '<tr><th class="split-type">vs Hand</th>';
-            players.forEach(p => {
-                html += '<th class="player-' + SIDE_CSS_CLASS[p.side] + '-col" colspan="5">' + escapeHtml(p.data.career.name) + '</th>';
+            const metrics = [
+                { label: 'Balls', key: 'balls', fmt: v => v != null ? v : '-', higher: true },
+                { label: 'Wkts', key: 'wickets', altKey: 'dismissals', fmt: v => v != null ? v : '-', higher: true },
+                { label: 'Econ', key: 'economy', fmt: v => v != null ? v.toFixed(1) : '-', higher: false },
+                { label: 'SR', key: 'sr', fmt: v => v != null ? v.toFixed(1) : '-', higher: false },
+                { label: 'Dot%', key: 'dotPct', fmt: v => v != null ? v.toFixed(1) : '-', higher: true }
+            ];
+            return buildSplitsCards(players, types, 'vsHandedness', metrics, 'vs Handedness');
+        }
+    }
+
+    // ==================== SPLITS CARDS (side-by-side per type) ====================
+    function buildSplitsCards(players, types, dataKey, metrics, ariaLabel) {
+        let html = '';
+        types.forEach(t => {
+            // Check if at least one player has data for this type
+            const hasData = players.some(p => {
+                const src = p.data[dataKey];
+                return src && src[t];
             });
-            html += '</tr><tr><th></th>';
+            if (!hasData) return;
+
+            html += '<div style="margin-bottom: var(--space-3); background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--space-3); overflow: hidden;">';
+            html += '<div style="font-size: var(--text-sm); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-2);">' + escapeHtml(t) + '</div>';
+
+            // Build a comparison table: metric | Player A | Player B | ...
+            html += '<table class="stats-table-multi" aria-label="' + ariaLabel + ' — ' + t + '" style="font-size: var(--text-xs);">';
+            html += '<tr><th style="text-align:left;">Metric</th>';
             players.forEach(p => {
-                const sc = 'player-' + SIDE_CSS_CLASS[p.side] + '-col';
-                html += '<th class="' + sc + '">Balls</th><th class="' + sc + '">Wkts</th><th class="' + sc + '">Econ</th><th class="' + sc + '">SR</th><th class="' + sc + '">Dot%</th>';
+                html += '<th class="col-' + SIDE_CSS_CLASS[p.side] + '">' + escapeHtml(p.data.career.name.split(' ').pop()) + '</th>';
             });
             html += '</tr>';
 
-            types.forEach(t => {
-                html += '<tr><td class="split-type">' + t + '</td>';
-                players.forEach(p => {
-                    const d = p.data.vsHandedness ? p.data.vsHandedness[t] : null;
-                    html += '<td style="font-family:var(--font-mono);">' + (d && d.balls != null ? d.balls : '-') + '</td>';
-                    html += '<td style="font-family:var(--font-mono);">' + (d && (d.wickets != null || d.dismissals != null) ? (d.wickets != null ? d.wickets : d.dismissals) : '-') + '</td>';
-                    html += '<td style="font-family:var(--font-mono);">' + (d && d.economy != null ? d.economy.toFixed(1) : '-') + '</td>';
-                    html += '<td style="font-family:var(--font-mono);">' + (d && d.sr != null ? d.sr.toFixed(1) : '-') + '</td>';
-                    html += '<td style="font-family:var(--font-mono);">' + (d && d.dotPct != null ? d.dotPct.toFixed(1) : '-') + '</td>';
+            metrics.forEach(m => {
+                const values = players.map(p => {
+                    const src = p.data[dataKey];
+                    const d = src ? src[t] : null;
+                    if (!d) return null;
+                    let val = d[m.key];
+                    if (val == null && m.altKey) val = d[m.altKey];
+                    return val;
+                });
+
+                // Determine best/worst for coloring
+                const numVals = values.filter(v => typeof v === 'number');
+                let best = null, worst = null;
+                if (numVals.length >= 2) {
+                    best = m.higher ? Math.max(...numVals) : Math.min(...numVals);
+                    worst = m.higher ? Math.min(...numVals) : Math.max(...numVals);
+                    if (best === worst) { best = null; worst = null; }
+                }
+
+                html += '<tr><td style="text-align:left;">' + m.label + '</td>';
+                values.forEach(v => {
+                    let cls = '';
+                    if (typeof v === 'number' && best !== null) {
+                        if (v === best) cls = 'val-better';
+                        else if (v === worst) cls = 'val-worse';
+                    }
+                    html += '<td class="' + cls + '">' + m.fmt(v) + '</td>';
                 });
                 html += '</tr>';
             });
+
             html += '</table></div>';
-            return html;
-        }
+        });
+        return html;
     }
 
     // ==================== FORM & RANKING ====================
@@ -1958,16 +1978,14 @@
         html += '</div>';
 
         // 2. Career Stats
-        const playerNames = players.map(p => escapeHtml(p.data.career.name.split(' ').pop()));
-        const namesVsStr = playerNames.join(' vs ');
         html += '<div class="section">';
-        html += '<div class="section-title"><span class="icon">&#128202;</span> Career Stats &mdash; ' + namesVsStr + '</div>';
+        html += '<div class="section-title"><span class="icon">&#128202;</span> Career Stats</div>';
         html += buildStatsTable(dataA, dataB);
         html += '</div>';
 
         // 3. Phase Breakdown
         html += '<div class="section" id="phaseSection">';
-        html += '<div class="section-title"><span class="icon">&#127919;</span> Phase Breakdown &mdash; ' + namesVsStr + '</div>';
+        html += '<div class="section-title"><span class="icon">&#127919;</span> Phase Breakdown</div>';
         html += buildPhaseSection(dataA, dataB);
         html += '</div>';
 
@@ -2174,8 +2192,13 @@
         }
 
         dropdown.innerHTML = matches.map(([name, id], i) => {
+            const pData = pool[id];
+            const team = pData && pData.recentForm ? pData.recentForm.team : '';
+            const teamAbbr = team ? team.split(' ').map(w => w[0]).join('') : '';
             return '<div class="dropdown-item" role="option" data-name="' + escapeHtml(name) + '" data-id="' + id + '" onclick="selectPlayer(\'' + side + '\', \'' + escapeHtml(name).replace(/'/g, "\\'") + '\', \'' + id + '\')">' +
-                '<span>' + escapeHtml(name) + '</span></div>';
+                '<span>' + escapeHtml(name) + '</span>' +
+                (teamAbbr ? '<span class="team-tag">' + escapeHtml(teamAbbr) + '</span>' : '') +
+                '</div>';
         }).join('');
         dropdown.classList.add('open');
         state.highlightedIdx[side] = -1;

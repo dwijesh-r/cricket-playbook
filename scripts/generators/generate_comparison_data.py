@@ -46,8 +46,8 @@ OUTPUT_JS = PROJECT_DIR / "scripts" / "the_lab" / "dashboard" / "data" / "compar
 # =============================================================================
 
 # Qualification thresholds (since 2023)
-BATTER_MIN_BALLS = 500
-BOWLER_MIN_BALLS = 300
+BATTER_MIN_BALLS = 200
+BOWLER_MIN_BALLS = 200
 
 # Phase display order
 PHASE_ORDER = ["powerplay", "middle", "death"]

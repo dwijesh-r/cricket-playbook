@@ -347,7 +347,7 @@
             transform: translateY(-100%); opacity: 0;
             transition: all var(--transition-slow); pointer-events: none;
         }
-        .mobile-nav-menu.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
+        .mobile-nav-menu.active { display: flex; transform: translateY(0); opacity: 1; pointer-events: auto; }
         [data-theme="light"] .mobile-nav-menu { background: rgba(245, 245, 247, 0.95); }
         .mobile-nav-menu .nav-tab {
             width: 100%; text-align: center;
@@ -399,7 +399,7 @@
             display: inline-flex; align-items: center; gap: var(--space-2);
             background: var(--glass); border: 1px solid var(--glass-border);
             padding: var(--space-2) 16px; border-radius: var(--radius-xl);
-            font-size: 12px; font-weight: 600; color: var(--accent);
+            font-size: var(--text-xs); font-weight: 600; color: var(--accent);
             margin-bottom: var(--space-4); text-transform: uppercase;
             letter-spacing: 0.1em; max-width: 90%;
         }
@@ -424,14 +424,11 @@
             border-radius: var(--radius-xl);
             box-shadow: var(--elevation-2);
         }
-        .team-filter-row {
-            display: flex; justify-content: center;
-            margin-bottom: var(--space-3);
-        }
         .team-filter-select {
-            padding: var(--space-2) var(--space-4);
-            border-radius: var(--radius-full);
-            font-size: var(--text-sm); font-weight: 600;
+            width: 100%;
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-sm);
+            font-size: var(--text-xs); font-weight: 500;
             cursor: pointer; border: 1px solid var(--border);
             background: var(--bg-tertiary); color: var(--text-secondary);
             font-family: var(--font-body);
@@ -440,8 +437,9 @@
             -webkit-appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237d8590' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
-            background-position: right 12px center;
-            padding-right: 32px;
+            background-position: right 8px center;
+            padding-right: 24px;
+            margin-bottom: var(--space-1);
         }
         .team-filter-select:focus {
             outline: none; border-color: var(--accent);
@@ -609,7 +607,7 @@
         .radar-label {
             fill: var(--text-secondary);
             font-family: var(--font-body);
-            font-size: 12px; font-weight: 600;
+            font-size: var(--text-xs); font-weight: 600;
             text-anchor: middle;
         }
         .radar-poly-a { fill: var(--player-a-fill); stroke: var(--player-a); stroke-width: 2; }
@@ -965,8 +963,17 @@
             .section { padding: var(--space-3); }
             .verdict-card { padding: var(--space-3); }
             .radar-svg { max-width: 280px; }
-            .stats-table .stat-label { font-size: 12px; }
-            .radar-label { font-size: 12px; }
+            .stats-table .stat-label { font-size: var(--text-xs); }
+            .radar-label { font-size: var(--text-xs); }
+            .heatmap-toggle-pills {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                gap: var(--space-1);
+            }
+            .heatmap-toggle-pills::-webkit-scrollbar { display: none; }
+            .heatmap-pill { white-space: nowrap; flex-shrink: 0; }
         }
     </style>
 </head>
@@ -1041,7 +1048,7 @@
     <main id="main-content" class="main" role="main">
         <!-- Hero -->
         <section class="hero">
-            <div class="hero-badge">&#9878;&#65039; EPIC-020 Player Comparison</div>
+            <div class="hero-badge">&#9878;&#65039; Player Comparison</div>
             <h1 class="hero-title">Player Comparison</h1>
             <p class="hero-subtitle">Head-to-head radar charts, side-by-side stats, phase heatmaps, and matchup splits. Select two or more players to begin (up to 4).</p>
         </section>
@@ -1049,33 +1056,45 @@
         <!-- Selection Bar -->
         <div class="selection-bar" role="search" aria-label="Player selection">
             <div class="type-toggle" role="tablist" aria-label="Player type">
-                <button class="type-pill active" role="tab" aria-selected="true" data-type="batter" onclick="setPlayerType('batter')">&#127951; Batters</button>
-                <button class="type-pill" role="tab" aria-selected="false" data-type="bowler" onclick="setPlayerType('bowler')">&#127936; Bowlers</button>
-            </div>
-            <div class="team-filter-row">
-                <select class="team-filter-select" id="teamFilter" aria-label="Filter by team" onchange="handleTeamFilterChange()">
-                    <option value="">All Teams</option>
-                    <option value="Chennai Super Kings">Chennai Super Kings</option>
-                    <option value="Delhi Capitals">Delhi Capitals</option>
-                    <option value="Gujarat Titans">Gujarat Titans</option>
-                    <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
-                    <option value="Lucknow Super Giants">Lucknow Super Giants</option>
-                    <option value="Mumbai Indians">Mumbai Indians</option>
-                    <option value="Punjab Kings">Punjab Kings</option>
-                    <option value="Rajasthan Royals">Rajasthan Royals</option>
-                    <option value="Royal Challengers Bengaluru">Royal Challengers Bengaluru</option>
-                    <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
-                </select>
+                <button class="type-pill active" role="tab" aria-selected="true" data-type="all" onclick="setPlayerType('all')">All</button>
+                <button class="type-pill" role="tab" aria-selected="false" data-type="batter" onclick="setPlayerType('batter')">Batters</button>
+                <button class="type-pill" role="tab" aria-selected="false" data-type="bowler" onclick="setPlayerType('bowler')">Bowlers</button>
             </div>
             <div class="player-selectors" id="playerSelectors">
                 <div class="player-slot" id="slotA">
                     <div class="player-slot-label">Player A</div>
+                    <select class="team-filter-select" id="teamFilterA" aria-label="Filter Player A by team" onchange="handleSlotTeamFilterChange('A')">
+                        <option value="">All Teams</option>
+                        <option value="Chennai Super Kings">Chennai Super Kings</option>
+                        <option value="Delhi Capitals">Delhi Capitals</option>
+                        <option value="Gujarat Titans">Gujarat Titans</option>
+                        <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                        <option value="Lucknow Super Giants">Lucknow Super Giants</option>
+                        <option value="Mumbai Indians">Mumbai Indians</option>
+                        <option value="Punjab Kings">Punjab Kings</option>
+                        <option value="Rajasthan Royals">Rajasthan Royals</option>
+                        <option value="Royal Challengers Bengaluru">Royal Challengers Bengaluru</option>
+                        <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+                    </select>
                     <input type="text" class="search-input" id="searchA" placeholder="Search player..." autocomplete="off" aria-label="Search Player A">
                     <div class="dropdown" id="dropdownA" role="listbox" aria-label="Player A suggestions"></div>
                 </div>
                 <div class="vs-badge" aria-hidden="true">VS</div>
                 <div class="player-slot" id="slotB">
                     <div class="player-slot-label">Player B</div>
+                    <select class="team-filter-select" id="teamFilterB" aria-label="Filter Player B by team" onchange="handleSlotTeamFilterChange('B')">
+                        <option value="">All Teams</option>
+                        <option value="Chennai Super Kings">Chennai Super Kings</option>
+                        <option value="Delhi Capitals">Delhi Capitals</option>
+                        <option value="Gujarat Titans">Gujarat Titans</option>
+                        <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                        <option value="Lucknow Super Giants">Lucknow Super Giants</option>
+                        <option value="Mumbai Indians">Mumbai Indians</option>
+                        <option value="Punjab Kings">Punjab Kings</option>
+                        <option value="Rajasthan Royals">Rajasthan Royals</option>
+                        <option value="Royal Challengers Bengaluru">Royal Challengers Bengaluru</option>
+                        <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+                    </select>
                     <input type="text" class="search-input" id="searchB" placeholder="Search player..." autocomplete="off" aria-label="Search Player B">
                     <div class="dropdown" id="dropdownB" role="listbox" aria-label="Player B suggestions"></div>
                 </div>
@@ -1128,7 +1147,7 @@
     };
 
     const state = {
-        playerType: 'batter',
+        playerType: 'all',
         playerA: null,  // { id, data }
         playerB: null,
         playerC: null,
@@ -1281,14 +1300,17 @@
     function buildRadarChart() {
         const players = getSelectedPlayers();
         if (players.length < 2) return '';
-        const type = state.playerType;
+        const type = getEffectiveType();
         const dims = getDimensions(type);
 
-        const playerPercs = players.map(p => ({
-            side: p.side,
-            name: p.data.career.name,
-            perc: state.percentiles[type][p.id]
-        })).filter(p => p.perc);
+        const playerPercs = players.map(p => {
+            const pType = state.playerType === 'all' ? detectPlayerType(p.id) : type;
+            return {
+                side: p.side,
+                name: p.data.career.name,
+                perc: state.percentiles[pType] ? state.percentiles[pType][p.id] : null
+            };
+        }).filter(p => p.perc);
         if (playerPercs.length < 2) return '';
 
         const cx = 200, cy = 200, r = 150;
@@ -1399,10 +1421,11 @@
         const players = getSelectedPlayers();
         if (players.length > 2) return buildStatsTableMulti(players);
 
-        const type = state.playerType;
+        const type = getEffectiveType();
         const rows = getStatRows(type);
 
         let html = '<table class="stats-table" aria-label="Career statistics comparison">';
+        html += '<tr><td class="val-a" style="font-weight:700; color:var(--player-a); font-family:var(--font-body);">' + escapeHtml(dataA.career.name) + '</td><td class="stat-label"></td><td class="val-b" style="font-weight:700; color:var(--player-b); font-family:var(--font-body);">' + escapeHtml(dataB.career.name) + '</td></tr>';
         rows.forEach(row => {
             let valA, valB;
             if (row.custom && row.label === 'Best Figures') {
@@ -1436,7 +1459,7 @@
     }
 
     function buildStatsTableMulti(players) {
-        const type = state.playerType;
+        const type = getEffectiveType();
         const rows = getStatRows(type);
 
         let html = '<table class="stats-table-multi" aria-label="Career statistics comparison">';
@@ -1507,7 +1530,7 @@
     function buildPhaseSection(dataA, dataB) {
         const phases = ['powerplay', 'middle', 'death'];
         const phaseLabels = { powerplay: 'Powerplay', middle: 'Middle', death: 'Death' };
-        const type = state.playerType;
+        const type = getEffectiveType();
         const players = getSelectedPlayers();
 
         let html = '<div class="phase-pills" role="tablist" aria-label="Phase selection">';
@@ -1558,6 +1581,7 @@
             const phaseB = dataB.phases[state.activePhase];
             if (phaseA && phaseB) {
                 html += '<table class="stats-table" aria-label="Phase statistics for ' + phaseLabels[state.activePhase] + '">';
+                html += '<tr><td class="val-a" style="font-weight:700; color:var(--player-a); font-family:var(--font-body);">' + escapeHtml(dataA.career.name) + '</td><td class="stat-label"></td><td class="val-b" style="font-weight:700; color:var(--player-b); font-family:var(--font-body);">' + escapeHtml(dataB.career.name) + '</td></tr>';
                 metrics.forEach(m => {
                     const vA = phaseA[m.key], vB = phaseB[m.key];
                     let cA = '', cB = '';
@@ -1582,7 +1606,7 @@
     }
 
     function buildPhaseHeatmap(dataA, dataB) {
-        const type = state.playerType;
+        const type = getEffectiveType();
         const phases = ['powerplay', 'middle', 'death'];
         const phaseLabels = { powerplay: 'PP', middle: 'MID', death: 'DTH' };
         const players = getSelectedPlayers();
@@ -1666,43 +1690,51 @@
 
     // ==================== MATCHUP SPLITS ====================
     function buildMatchupSplits(dataA, dataB) {
-        const type = state.playerType;
+        const type = getEffectiveType();
         const players = getSelectedPlayers();
 
         if (type === 'batter') {
             const types = ['Fast', 'Fast-Medium', 'Off-spin', 'Leg-spin', 'LA Orthodox', 'Wrist-spin'];
-            let html = '<table class="splits-table" aria-label="Performance vs bowling types">';
+            let html = '<div style="overflow-x: auto;">';
+            html += '<table class="splits-table" aria-label="Performance vs bowling types">';
             html += '<tr><th class="split-type">vs Type</th>';
             players.forEach(p => {
-                html += '<th class="player-' + SIDE_CSS_CLASS[p.side] + '-col" colspan="2">' + escapeHtml(p.data.career.name) + '</th>';
+                html += '<th class="player-' + SIDE_CSS_CLASS[p.side] + '-col" colspan="6">' + escapeHtml(p.data.career.name) + '</th>';
             });
             html += '</tr><tr><th></th>';
             players.forEach(p => {
-                html += '<th class="player-' + SIDE_CSS_CLASS[p.side] + '-col">SR</th><th class="player-' + SIDE_CSS_CLASS[p.side] + '-col">Avg</th>';
+                const sc = 'player-' + SIDE_CSS_CLASS[p.side] + '-col';
+                html += '<th class="' + sc + '">Balls</th><th class="' + sc + '">Outs</th><th class="' + sc + '">SR</th><th class="' + sc + '">Avg</th><th class="' + sc + '">Bnd%</th><th class="' + sc + '">Dot%</th>';
             });
             html += '</tr>';
 
             types.forEach(t => {
                 html += '<tr><td class="split-type">' + t + '</td>';
                 players.forEach(p => {
-                    const d = p.data.vsBowlingType[t];
-                    html += '<td>' + (d ? d.sr.toFixed(1) : '-') + '</td>';
-                    html += '<td>' + (d && d.avg != null ? d.avg.toFixed(1) : '-') + '</td>';
+                    const d = p.data.vsBowlingType ? p.data.vsBowlingType[t] : null;
+                    html += '<td style="font-family:var(--font-mono);">' + (d && d.balls != null ? d.balls : '-') + '</td>';
+                    html += '<td style="font-family:var(--font-mono);">' + (d && d.dismissals != null ? d.dismissals : '-') + '</td>';
+                    html += '<td style="font-family:var(--font-mono);">' + (d && d.sr != null ? d.sr.toFixed(1) : '-') + '</td>';
+                    html += '<td style="font-family:var(--font-mono);">' + (d && d.avg != null ? d.avg.toFixed(1) : '-') + '</td>';
+                    html += '<td style="font-family:var(--font-mono);">' + (d && d.boundaryPct != null ? d.boundaryPct.toFixed(1) : '-') + '</td>';
+                    html += '<td style="font-family:var(--font-mono);">' + (d && d.dotPct != null ? d.dotPct.toFixed(1) : '-') + '</td>';
                 });
                 html += '</tr>';
             });
-            html += '</table>';
+            html += '</table></div>';
             return html;
         } else {
             const types = ['Left-hand', 'Right-hand'];
-            let html = '<table class="splits-table" aria-label="Performance vs batting handedness">';
+            let html = '<div style="overflow-x: auto;">';
+            html += '<table class="splits-table" aria-label="Performance vs batting handedness">';
             html += '<tr><th class="split-type">vs Hand</th>';
             players.forEach(p => {
-                html += '<th class="player-' + SIDE_CSS_CLASS[p.side] + '-col" colspan="2">' + escapeHtml(p.data.career.name) + '</th>';
+                html += '<th class="player-' + SIDE_CSS_CLASS[p.side] + '-col" colspan="5">' + escapeHtml(p.data.career.name) + '</th>';
             });
             html += '</tr><tr><th></th>';
             players.forEach(p => {
-                html += '<th class="player-' + SIDE_CSS_CLASS[p.side] + '-col">Econ</th><th class="player-' + SIDE_CSS_CLASS[p.side] + '-col">SR</th>';
+                const sc = 'player-' + SIDE_CSS_CLASS[p.side] + '-col';
+                html += '<th class="' + sc + '">Balls</th><th class="' + sc + '">Wkts</th><th class="' + sc + '">Econ</th><th class="' + sc + '">SR</th><th class="' + sc + '">Dot%</th>';
             });
             html += '</tr>';
 
@@ -1710,19 +1742,22 @@
                 html += '<tr><td class="split-type">' + t + '</td>';
                 players.forEach(p => {
                     const d = p.data.vsHandedness ? p.data.vsHandedness[t] : null;
-                    html += '<td>' + (d ? d.economy.toFixed(1) : '-') + '</td>';
-                    html += '<td>' + (d ? d.sr.toFixed(1) : '-') + '</td>';
+                    html += '<td style="font-family:var(--font-mono);">' + (d && d.balls != null ? d.balls : '-') + '</td>';
+                    html += '<td style="font-family:var(--font-mono);">' + (d && (d.wickets != null || d.dismissals != null) ? (d.wickets != null ? d.wickets : d.dismissals) : '-') + '</td>';
+                    html += '<td style="font-family:var(--font-mono);">' + (d && d.economy != null ? d.economy.toFixed(1) : '-') + '</td>';
+                    html += '<td style="font-family:var(--font-mono);">' + (d && d.sr != null ? d.sr.toFixed(1) : '-') + '</td>';
+                    html += '<td style="font-family:var(--font-mono);">' + (d && d.dotPct != null ? d.dotPct.toFixed(1) : '-') + '</td>';
                 });
                 html += '</tr>';
             });
-            html += '</table>';
+            html += '</table></div>';
             return html;
         }
     }
 
     // ==================== FORM & RANKING ====================
     function buildFormSection(dataA, dataB) {
-        const type = state.playerType;
+        const type = getEffectiveType();
         const players = getSelectedPlayers();
         const colCount = players.length;
         const gridCols = colCount <= 2 ? '1fr 1fr' : 'repeat(' + colCount + ', 1fr)';
@@ -1762,22 +1797,39 @@
             html += '</div>';
         });
         html += '</div>';
+
+        // Legend for Form section metrics
+        const poolSize = type === 'batter' ? Object.keys(COMPARISON_DATA.batters).length : Object.keys(COMPARISON_DATA.bowlers).length;
+        const typeLabel = type === 'batter' ? 'batters' : 'bowlers';
+        const deltaLabel = type === 'batter' ? 'SR Delta' : 'Econ Delta';
+        const deltaExplain = type === 'batter'
+            ? 'Difference between recent form (last 10 innings) and career average. Positive SR delta = improving.'
+            : 'Difference between recent form (last 10 matches) and career average. Negative economy delta = improving.';
+        html += '<div style="font-size: var(--text-xs); color: var(--text-tertiary); margin-top: var(--space-3); padding: var(--space-2) var(--space-3); background: var(--glass); border-radius: var(--radius-md);">';
+        html += '<div style="margin-bottom: var(--space-1);"><strong>' + deltaLabel + ':</strong> ' + deltaExplain + '</div>';
+        html += '<div style="margin-bottom: var(--space-1);"><strong>Composite:</strong> Weighted score combining key metrics (SR, Avg, Boundary%, Dot%) used for overall ranking.</div>';
+        html += '<div><strong>Rank:</strong> Position among all qualified ' + typeLabel + ' in the comparison pool (' + poolSize + ' players).</div>';
+        html += '</div>';
+
         return html;
     }
 
     // ==================== VERDICT CARD ====================
     function buildVerdict(dataA, dataB) {
-        const type = state.playerType;
+        const type = getEffectiveType();
         const dims = getDimensions(type);
         const players = getSelectedPlayers();
 
         // Build percentile map for each player
-        const playerPercs = players.map(p => ({
-            side: p.side,
-            name: p.data.career.name,
-            data: p.data,
-            perc: state.percentiles[type][p.id]
-        })).filter(p => p.perc);
+        const playerPercs = players.map(p => {
+            const pType = state.playerType === 'all' ? detectPlayerType(p.id) : type;
+            return {
+                side: p.side,
+                name: p.data.career.name,
+                data: p.data,
+                perc: state.percentiles[pType] ? state.percentiles[pType][p.id] : null
+            };
+        }).filter(p => p.perc);
         if (playerPercs.length < 2) return '';
 
         // Count dimension wins per player
@@ -1945,7 +1997,27 @@
         if (state.playerType === 'batter') {
             return { index: COMPARISON_DATA.batterIndex, pool: COMPARISON_DATA.batters };
         }
-        return { index: COMPARISON_DATA.bowlerIndex, pool: COMPARISON_DATA.bowlers };
+        if (state.playerType === 'bowler') {
+            return { index: COMPARISON_DATA.bowlerIndex, pool: COMPARISON_DATA.bowlers };
+        }
+        // 'all' — merge both pools and indices
+        const mergedPool = Object.assign({}, COMPARISON_DATA.batters, COMPARISON_DATA.bowlers);
+        const mergedIndex = Object.assign({}, COMPARISON_DATA.batterIndex, COMPARISON_DATA.bowlerIndex);
+        return { index: mergedIndex, pool: mergedPool };
+    }
+
+    function detectPlayerType(playerId) {
+        if (COMPARISON_DATA.batters && COMPARISON_DATA.batters[playerId]) return 'batter';
+        if (COMPARISON_DATA.bowlers && COMPARISON_DATA.bowlers[playerId]) return 'bowler';
+        return 'batter'; // fallback
+    }
+
+    function getEffectiveType() {
+        if (state.playerType !== 'all') return state.playerType;
+        // Detect from first selected player
+        const players = getSelectedPlayers();
+        if (players.length > 0) return detectPlayerType(players[0].id);
+        return 'batter'; // fallback
     }
 
     function setPlayerType(type) {
@@ -1962,8 +2034,11 @@
             document.documentElement.style.removeProperty('--player-' + s);
             document.documentElement.style.removeProperty('--player-' + s + '-fill');
         });
-        // Reset team filter
-        document.getElementById('teamFilter').value = '';
+        // Reset per-slot team filters
+        state.activeSides.forEach(s => {
+            const tf = document.getElementById('teamFilter' + s);
+            if (tf) tf.value = '';
+        });
 
         // Remove extra slots C/D
         ['C', 'D'].forEach(s => {
@@ -2002,7 +2077,7 @@
 
     function selectPlayer(side, name, id) {
         const { pool } = getPlayerPool();
-        const data = pool[id];
+        const data = pool[id] || (COMPARISON_DATA.batters[id]) || (COMPARISON_DATA.bowlers[id]);
         if (!data) return;
 
         state['player' + side] = { id, data };
@@ -2080,7 +2155,8 @@
             if (s !== side && state['player' + s]) excludeIds.add(state['player' + s].id);
         });
 
-        const teamFilter = document.getElementById('teamFilter').value;
+        const teamFilterEl = document.getElementById('teamFilter' + side);
+        const teamFilter = teamFilterEl ? teamFilterEl.value : '';
         const matches = Object.entries(index)
             .filter(([name, id]) => {
                 if (!name.toLowerCase().includes(query)) return false;
@@ -2156,6 +2232,19 @@
         slot.innerHTML =
             '<button class="remove-slot-btn" onclick="clearPlayer(\'' + nextSide + '\')" title="Remove this player slot">&#10005;</button>' +
             '<div class="player-slot-label label-' + sideClass + '">' + SIDE_LABELS[nextSide] + '</div>' +
+            '<select class="team-filter-select" id="teamFilter' + nextSide + '" aria-label="Filter ' + SIDE_LABELS[nextSide] + ' by team" onchange="handleSlotTeamFilterChange(\'' + nextSide + '\')">' +
+                '<option value="">All Teams</option>' +
+                '<option value="Chennai Super Kings">Chennai Super Kings</option>' +
+                '<option value="Delhi Capitals">Delhi Capitals</option>' +
+                '<option value="Gujarat Titans">Gujarat Titans</option>' +
+                '<option value="Kolkata Knight Riders">Kolkata Knight Riders</option>' +
+                '<option value="Lucknow Super Giants">Lucknow Super Giants</option>' +
+                '<option value="Mumbai Indians">Mumbai Indians</option>' +
+                '<option value="Punjab Kings">Punjab Kings</option>' +
+                '<option value="Rajasthan Royals">Rajasthan Royals</option>' +
+                '<option value="Royal Challengers Bengaluru">Royal Challengers Bengaluru</option>' +
+                '<option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>' +
+            '</select>' +
             '<input type="text" class="search-input" id="search' + nextSide + '" placeholder="Search player..." autocomplete="off" aria-label="Search ' + SIDE_LABELS[nextSide] + '">' +
             '<div class="dropdown" id="dropdown' + nextSide + '" role="listbox" aria-label="' + SIDE_LABELS[nextSide] + ' suggestions"></div>';
 
@@ -2203,14 +2292,12 @@
     }
 
     // ==================== TEAM FILTER ====================
-    function handleTeamFilterChange() {
-        // Re-trigger any open search dropdowns
-        state.activeSides.forEach(side => {
-            const input = document.getElementById('search' + side);
-            if (input && input.style.display !== 'none' && input.value.trim().length > 0) {
-                handleSearchInput(side);
-            }
-        });
+    function handleSlotTeamFilterChange(side) {
+        // Re-trigger search dropdown for this specific slot
+        const input = document.getElementById('search' + side);
+        if (input && input.style.display !== 'none' && input.value.trim().length > 0) {
+            handleSearchInput(side);
+        }
     }
 
     // ==================== UTILITY ====================

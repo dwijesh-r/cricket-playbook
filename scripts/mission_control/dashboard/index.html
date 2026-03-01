@@ -1084,6 +1084,10 @@
         .stat-value.accent-yellow { color: var(--accent-yellow); }
         .stat-value.accent-red { color: var(--accent-red); }
         .stat-value.accent-blue { color: var(--accent); }
+        .stat-value.accent-purple { color: var(--accent-purple); }
+        .stat-value.accent-orange { color: var(--accent-orange); }
+        .stat-value.accent-pink { color: var(--accent-pink); }
+        .stat-value.accent-teal { color: var(--accent-teal); }
 
         .stat-label {
             font-size: 12px;
@@ -5119,32 +5123,40 @@
                 <div class="hero-content">
                     <div class="sprint-label">Active Sprint</div>
                     <h1 class="sprint-title">Sprint 5</h1>
-                    <p class="sprint-dates">Feb 15 — Feb 28, 2026</p>
+                    <p class="sprint-dates">Feb 15 — Mar 14, 2026</p>
 
                     <div class="stats-grid">
                         <div class="stat-item">
-                            <div class="stat-value accent-blue" id="statTotal">156</div>
+                            <div class="stat-value accent-blue" id="statTotal">264</div>
                             <div class="stat-label">Total</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value accent-purple" id="statBacklog">6</div>
+                            <div class="stat-value accent-teal" id="statReady">13</div>
+                            <div class="stat-label">Ready</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value accent-purple" id="statBacklog">0</div>
                             <div class="stat-label">Backlog</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value accent-yellow" id="statRunning">2</div>
+                            <div class="stat-value accent-yellow" id="statRunning">0</div>
                             <div class="stat-label">In Progress</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value accent-orange" id="statReview">1</div>
+                            <div class="stat-value accent-orange" id="statReview">0</div>
                             <div class="stat-label">In Review</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value accent-pink" id="statFounder">3</div>
+                            <div class="stat-value accent-pink" id="statFounder">8</div>
                             <div class="stat-label">🌹 Founder</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value accent-green" id="statDone">141</div>
+                            <div class="stat-value accent-green" id="statDone">240</div>
                             <div class="stat-label">Done</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value accent-red" id="statDeferred">3</div>
+                            <div class="stat-label">Deferred</div>
                         </div>
                     </div>
                 </div>
@@ -12657,11 +12669,13 @@
 
         function updateStats() {
             document.getElementById('statTotal').textContent = tickets.length;
+            document.getElementById('statReady').textContent = tickets.filter(t => t.state === 'READY').length;
             document.getElementById('statBacklog').textContent = tickets.filter(t => t.state === 'BACKLOG').length;
             document.getElementById('statRunning').textContent = tickets.filter(t => t.state === 'RUNNING').length;
             document.getElementById('statReview').textContent = tickets.filter(t => t.state === 'REVIEW').length;
             document.getElementById('statFounder').textContent = tickets.filter(t => t.state === 'VALIDATION').length;
             document.getElementById('statDone').textContent = tickets.filter(t => t.state === 'DONE').length;
+            document.getElementById('statDeferred').textContent = tickets.filter(t => t.state === 'DEFERRED').length;
         }
 
         function openModal(ticketId) {

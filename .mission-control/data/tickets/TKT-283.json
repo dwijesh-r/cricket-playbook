@@ -1,0 +1,57 @@
+{
+  "id": "TKT-283",
+  "title": "Build Head-to-Head page (head-to-head.html) + nav updates",
+  "state": "DONE",
+  "priority": "P1",
+  "size": "XL",
+  "progress_pct": 100,
+  "epic_id": "EPIC-020",
+  "sprint_id": "SPRINT-002",
+  "owner": "Kevin de Bruyne",
+  "assignee": "Kevin de Bruyne",
+  "reviewer": "Tom Brady",
+  "effort": "Deep Work",
+  "description": "New single-file SPA (head-to-head.html) for batter-vs-bowler matchup deep-dive. Features: (1) Player selection with batter/bowler search + team filters, (2) Career summary card with dominance verdict badge (Batter-favored/Bowler-favored/Even) and sample size indicator (LOW/MEDIUM/HIGH), (3) Yearly breakdown table with per-year stats and totals row, (4) Phase breakdown (Powerplay/Middle/Death) with delta indicators vs career, (5) Over-wise SVG bar chart showing SR by over with dot% overlay and phase-colored backgrounds, (6) Recent form (since 2023) with career delta indicators, (7) Dark/light theme toggle, (8) Responsive at 768px/480px breakpoints. Also added H2H nav link to all 10 Lab dashboard pages (desktop + mobile nav).",
+  "tags": [
+    "Feature",
+    "Visualization",
+    "H2H",
+    "Navigation",
+    "EPIC-020"
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "New signature feature for The Lab. Batter-vs-bowler matchup analysis is core product capability.",
+      "date": "2026-03-01"
+    },
+    "domain_sanity": {
+      "jose_mourinho": "YES",
+      "andy_flower": "YES",
+      "pep_guardiola": "YES"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "enforcer": "tom_brady"
+    },
+    "system_check": {
+      "status": "PASS",
+      "detail": "All 10 Lab pages verified with H2H nav link. Page renders correctly with h2h_data.js."
+    }
+  },
+  "deliverables": [
+    "scripts/the_lab/dashboard/head-to-head.html",
+    "scripts/the_lab/dashboard/index.html (nav update)",
+    "scripts/the_lab/dashboard/teams.html (nav update)",
+    "scripts/the_lab/dashboard/rankings.html (nav update)",
+    "scripts/the_lab/dashboard/comparison.html (nav update)",
+    "scripts/the_lab/dashboard/artifacts.html (nav update)",
+    "scripts/the_lab/dashboard/analysis.html (nav update)",
+    "scripts/the_lab/dashboard/research.html (nav update)",
+    "scripts/the_lab/dashboard/research-desk.html (nav update)",
+    "scripts/the_lab/dashboard/about.html (nav update)"
+  ],
+  "created_at": "2026-03-01T11:00:00Z",
+  "updated_at": "2026-03-01T11:10:00Z",
+  "completed_at": "2026-03-01T11:10:00Z"
+}

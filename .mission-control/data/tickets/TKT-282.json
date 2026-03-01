@@ -1,0 +1,48 @@
+{
+  "id": "TKT-282",
+  "title": "Build Head-to-Head data generator (generate_h2h_data.py)",
+  "state": "DONE",
+  "priority": "P1",
+  "size": "L",
+  "progress_pct": 100,
+  "epic_id": "EPIC-020",
+  "sprint_id": "SPRINT-002",
+  "owner": "Stephen Curry",
+  "assignee": "Stephen Curry",
+  "reviewer": "Tom Brady",
+  "effort": "Deep Work",
+  "description": "New data generator following generate_comparison_data.py pattern. Queries DuckDB views for batter-vs-bowler matchup data: career aggregate (analytics_ipl_batter_vs_bowler_alltime), since-2023, phase breakdown (analytics_ipl_batter_vs_bowler_phase_alltime), yearly breakdown (direct fact_ball query), over-wise split (overs 0-19), and dominance index (analytics_ipl_player_matchup_rankings_alltime). Outputs h2h_data.js with 8,552 matchups across 612 players. Min 10 balls qualification. Compact JSON output with null stripping.",
+  "tags": [
+    "Data Pipeline",
+    "Analytics",
+    "H2H",
+    "EPIC-020"
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "H2H data pipeline required for new Head-to-Head page.",
+      "date": "2026-03-01"
+    },
+    "domain_sanity": {
+      "jose_mourinho": "YES",
+      "andy_flower": "YES",
+      "pep_guardiola": "YES"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "enforcer": "tom_brady"
+    },
+    "system_check": {
+      "status": "PASS",
+      "detail": "ruff check clean. 8,552 matchups generated successfully."
+    }
+  },
+  "deliverables": [
+    "scripts/generators/generate_h2h_data.py",
+    "scripts/the_lab/dashboard/data/h2h_data.js"
+  ],
+  "created_at": "2026-03-01T11:00:00Z",
+  "updated_at": "2026-03-01T11:10:00Z",
+  "completed_at": "2026-03-01T11:10:00Z"
+}

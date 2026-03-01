@@ -1,0 +1,47 @@
+{
+  "id": "TKT-281",
+  "title": "Fix cross-type comparison bug + Overall matchup default",
+  "state": "DONE",
+  "priority": "P1",
+  "size": "M",
+  "progress_pct": 100,
+  "epic_id": "EPIC-020",
+  "sprint_id": "SPRINT-002",
+  "owner": "Kevin de Bruyne",
+  "assignee": "Stephen Curry",
+  "reviewer": "Tom Brady",
+  "effort": "Deep Work",
+  "description": "Two comparison.html fixes: (1) When comparing batter vs bowler in 'All' mode, getEffectiveType() pinned to Player A's type, causing Player B's stats to show '-'. Fixed by adding isMixedTypes() detection and independent per-player rendering for stats table, radar chart, phase breakdown, matchup splits, form section, and verdict. (2) Changed matchup splits default from 'All Types' (showing every type as separate cards) to 'Overall' (single card with aggregate career stats). Added Overall/All Types/individual type dropdown.",
+  "tags": [
+    "Bug Fix",
+    "UX",
+    "Comparison",
+    "EPIC-020"
+  ],
+  "gates": {
+    "florentino_gate": {
+      "status": "APPROVED",
+      "reason": "Bug fix for core comparison feature. Critical for user experience.",
+      "date": "2026-03-01"
+    },
+    "domain_sanity": {
+      "jose_mourinho": "YES",
+      "andy_flower": "N/A",
+      "pep_guardiola": "YES"
+    },
+    "enforcement_check": {
+      "status": "PASS",
+      "enforcer": "tom_brady"
+    },
+    "system_check": {
+      "status": "PASS",
+      "detail": "280 tests passed, 0 failures. ruff check clean."
+    }
+  },
+  "deliverables": [
+    "scripts/the_lab/dashboard/comparison.html"
+  ],
+  "created_at": "2026-03-01T11:00:00Z",
+  "updated_at": "2026-03-01T11:10:00Z",
+  "completed_at": "2026-03-01T11:10:00Z"
+}

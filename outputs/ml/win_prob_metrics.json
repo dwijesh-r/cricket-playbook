@@ -1,0 +1,735 @@
+{
+  "ticket": "TKT-207",
+  "epic": "EPIC-018",
+  "title": "Historical Win Probability Replay \u2014 Model Training Report",
+  "disclaimer": "HISTORICAL REPLAY ONLY. This model is trained on completed match data and produces retrospective win probability curves. It is NOT a forward-looking prediction or betting tool.",
+  "generated_at": "2026-03-01T05:25:29.255777+00:00",
+  "training_time_seconds": 719.1,
+  "data_source": "/Users/dwijeshreddy/cricket-playbook/data/ml/win_prob_features.parquet",
+  "total_training_rows": 2032756,
+  "innings_1": {
+    "features": [
+      "over_number",
+      "ball_in_over",
+      "current_score",
+      "wickets_fallen",
+      "balls_remaining",
+      "current_run_rate",
+      "phase_progress",
+      "last_3ov_run_rate",
+      "last_3ov_wickets",
+      "last_3ov_dot_pct",
+      "last_3ov_boundary_pct",
+      "batting_team_strength",
+      "bowling_team_strength",
+      "phase_encoded"
+    ],
+    "n_features": 14,
+    "cross_validation": {
+      "innings": 1,
+      "n_folds": 5,
+      "lightgbm": {
+        "mean": {
+          "lgb_brier_score": 0.214088,
+          "lgb_log_loss": 0.614912,
+          "lgb_auc_roc": 0.71569
+        },
+        "std": {
+          "lgb_brier_score": 0.003813,
+          "lgb_log_loss": 0.009178,
+          "lgb_auc_roc": 0.011214
+        },
+        "per_fold": [
+          {
+            "lgb_brier_score": 0.21621564822656741,
+            "lgb_log_loss": 0.6209253778085205,
+            "lgb_auc_roc": 0.7105802285181191
+          },
+          {
+            "lgb_brier_score": 0.2137146847603577,
+            "lgb_log_loss": 0.6128868778560911,
+            "lgb_auc_roc": 0.7162333618634352
+          },
+          {
+            "lgb_brier_score": 0.21582760096285933,
+            "lgb_log_loss": 0.620293170407731,
+            "lgb_auc_roc": 0.7123298509961951
+          },
+          {
+            "lgb_brier_score": 0.20691451899910598,
+            "lgb_log_loss": 0.5978155735767147,
+            "lgb_auc_roc": 0.7363821080704257
+          },
+          {
+            "lgb_brier_score": 0.2177673254106949,
+            "lgb_log_loss": 0.6226383067301704,
+            "lgb_auc_roc": 0.7029268194830267
+          }
+        ]
+      },
+      "logistic_regression": {
+        "mean": {
+          "lr_brier_score": 0.216334,
+          "lr_log_loss": 0.620227,
+          "lr_auc_roc": 0.709558
+        },
+        "std": {
+          "lr_brier_score": 0.003714,
+          "lr_log_loss": 0.008498,
+          "lr_auc_roc": 0.011556
+        },
+        "per_fold": [
+          {
+            "lr_brier_score": 0.21696374896872242,
+            "lr_log_loss": 0.6212280122630722,
+            "lr_auc_roc": 0.7078836352985192
+          },
+          {
+            "lr_brier_score": 0.21659891977874574,
+            "lr_log_loss": 0.6207230734941255,
+            "lr_auc_roc": 0.7100290514783136
+          },
+          {
+            "lr_brier_score": 0.2200054537954382,
+            "lr_log_loss": 0.6292881974439027,
+            "lr_auc_roc": 0.6984340525647634
+          },
+          {
+            "lr_brier_score": 0.20932787676622763,
+            "lr_log_loss": 0.6044117097962864,
+            "lr_auc_roc": 0.7309690761881568
+          },
+          {
+            "lr_brier_score": 0.2187722534095937,
+            "lr_log_loss": 0.6254819821551,
+            "lr_auc_roc": 0.7004751151632278
+          }
+        ]
+      }
+    },
+    "final_model": {
+      "innings": 1,
+      "n_train": 679252,
+      "n_calibration": 110330,
+      "n_holdout": 275259,
+      "holdout_seasons": [
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "raw_metrics": {
+        "raw_brier_score": 0.212792,
+        "raw_log_loss": 0.613169,
+        "raw_auc_roc": 0.721381
+      },
+      "calibrated_metrics": {
+        "calibrated_brier_score": 0.212927,
+        "calibrated_log_loss": 0.613708,
+        "calibrated_auc_roc": 0.721381
+      },
+      "expected_calibration_error": 0.016368,
+      "calibration_bins": [
+        {
+          "bin": "0.0-0.1",
+          "count": 3750,
+          "mean_predicted": 0.0944,
+          "mean_observed": 0.0267,
+          "abs_error": 0.0677
+        },
+        {
+          "bin": "0.1-0.2",
+          "count": 30271,
+          "mean_predicted": 0.1441,
+          "mean_observed": 0.1825,
+          "abs_error": 0.0384
+        },
+        {
+          "bin": "0.2-0.3",
+          "count": 29048,
+          "mean_predicted": 0.2525,
+          "mean_observed": 0.2766,
+          "abs_error": 0.0241
+        },
+        {
+          "bin": "0.3-0.4",
+          "count": 35832,
+          "mean_predicted": 0.3525,
+          "mean_observed": 0.3662,
+          "abs_error": 0.0137
+        },
+        {
+          "bin": "0.4-0.5",
+          "count": 42831,
+          "mean_predicted": 0.4531,
+          "mean_observed": 0.4587,
+          "abs_error": 0.0056
+        },
+        {
+          "bin": "0.5-0.6",
+          "count": 49125,
+          "mean_predicted": 0.5502,
+          "mean_observed": 0.5445,
+          "abs_error": 0.0057
+        },
+        {
+          "bin": "0.6-0.7",
+          "count": 37977,
+          "mean_predicted": 0.6468,
+          "mean_observed": 0.6474,
+          "abs_error": 0.0006
+        },
+        {
+          "bin": "0.7-0.8",
+          "count": 28682,
+          "mean_predicted": 0.7486,
+          "mean_observed": 0.7079,
+          "abs_error": 0.0408
+        },
+        {
+          "bin": "0.8-0.9",
+          "count": 17701,
+          "mean_predicted": 0.8383,
+          "mean_observed": 0.8284,
+          "abs_error": 0.0099
+        },
+        {
+          "bin": "0.9-1.0",
+          "count": 42,
+          "mean_predicted": 0.9022,
+          "mean_observed": 0.619,
+          "abs_error": 0.2832
+        }
+      ],
+      "phase_metrics": {
+        "powerplay": {
+          "brier_score": 0.232307,
+          "log_loss": 0.657165,
+          "auc_roc": 0.653488
+        },
+        "middle": {
+          "brier_score": 0.208286,
+          "log_loss": 0.603529,
+          "auc_roc": 0.73539
+        },
+        "death": {
+          "brier_score": 0.197528,
+          "log_loss": 0.578753,
+          "auc_roc": 0.764487
+        }
+      },
+      "shap_importance": [
+        {
+          "rank": 1,
+          "feature": "current_run_rate",
+          "mean_abs_shap": 0.465016
+        },
+        {
+          "rank": 2,
+          "feature": "wickets_fallen",
+          "mean_abs_shap": 0.323078
+        },
+        {
+          "rank": 3,
+          "feature": "current_score",
+          "mean_abs_shap": 0.161837
+        },
+        {
+          "rank": 4,
+          "feature": "bowling_team_strength",
+          "mean_abs_shap": 0.108116
+        },
+        {
+          "rank": 5,
+          "feature": "batting_team_strength",
+          "mean_abs_shap": 0.090354
+        },
+        {
+          "rank": 6,
+          "feature": "last_3ov_run_rate",
+          "mean_abs_shap": 0.0429
+        },
+        {
+          "rank": 7,
+          "feature": "last_3ov_dot_pct",
+          "mean_abs_shap": 0.030625
+        },
+        {
+          "rank": 8,
+          "feature": "balls_remaining",
+          "mean_abs_shap": 0.021811
+        },
+        {
+          "rank": 9,
+          "feature": "last_3ov_wickets",
+          "mean_abs_shap": 0.019755
+        },
+        {
+          "rank": 10,
+          "feature": "over_number",
+          "mean_abs_shap": 0.013503
+        },
+        {
+          "rank": 11,
+          "feature": "phase_encoded",
+          "mean_abs_shap": 0.005131
+        },
+        {
+          "rank": 12,
+          "feature": "last_3ov_boundary_pct",
+          "mean_abs_shap": 0.003253
+        },
+        {
+          "rank": 13,
+          "feature": "phase_progress",
+          "mean_abs_shap": 0.000651
+        },
+        {
+          "rank": 14,
+          "feature": "ball_in_over",
+          "mean_abs_shap": 0.0
+        }
+      ],
+      "native_importance": [
+        {
+          "feature": "bowling_team_strength",
+          "importance_gain": 1496
+        },
+        {
+          "feature": "batting_team_strength",
+          "importance_gain": 1077
+        },
+        {
+          "feature": "current_run_rate",
+          "importance_gain": 507
+        },
+        {
+          "feature": "wickets_fallen",
+          "importance_gain": 444
+        },
+        {
+          "feature": "current_score",
+          "importance_gain": 346
+        },
+        {
+          "feature": "balls_remaining",
+          "importance_gain": 122
+        },
+        {
+          "feature": "last_3ov_dot_pct",
+          "importance_gain": 97
+        },
+        {
+          "feature": "over_number",
+          "importance_gain": 73
+        },
+        {
+          "feature": "last_3ov_run_rate",
+          "importance_gain": 70
+        },
+        {
+          "feature": "last_3ov_wickets",
+          "importance_gain": 61
+        }
+      ],
+      "hyperparameters": {
+        "boosting_type": "gbdt",
+        "class_weight": null,
+        "colsample_bytree": 0.8,
+        "importance_type": "split",
+        "learning_rate": 0.05,
+        "max_depth": 6,
+        "min_child_samples": 50,
+        "min_child_weight": 0.001,
+        "min_split_gain": 0.0,
+        "n_estimators": 800,
+        "n_jobs": -1,
+        "num_leaves": 48,
+        "objective": "binary",
+        "random_state": 42,
+        "reg_alpha": 0.1,
+        "reg_lambda": 2.0,
+        "subsample": 0.8,
+        "subsample_for_bin": 200000,
+        "subsample_freq": 0,
+        "metric": "binary_logloss",
+        "verbose": -1
+      },
+      "best_iteration": 95
+    }
+  },
+  "innings_2": {
+    "features": [
+      "over_number",
+      "ball_in_over",
+      "current_score",
+      "wickets_fallen",
+      "balls_remaining",
+      "current_run_rate",
+      "phase_progress",
+      "last_3ov_run_rate",
+      "last_3ov_wickets",
+      "last_3ov_dot_pct",
+      "last_3ov_boundary_pct",
+      "batting_team_strength",
+      "bowling_team_strength",
+      "phase_encoded",
+      "required_run_rate",
+      "target_score"
+    ],
+    "n_features": 16,
+    "cross_validation": {
+      "innings": 2,
+      "n_folds": 5,
+      "lightgbm": {
+        "mean": {
+          "lgb_brier_score": 0.129798,
+          "lgb_log_loss": 0.39621,
+          "lgb_auc_roc": 0.899226
+        },
+        "std": {
+          "lgb_brier_score": 0.005883,
+          "lgb_log_loss": 0.016367,
+          "lgb_auc_roc": 0.009022
+        },
+        "per_fold": [
+          {
+            "lgb_brier_score": 0.12888919905066593,
+            "lgb_log_loss": 0.3971624869795003,
+            "lgb_auc_roc": 0.8996999737775438
+          },
+          {
+            "lgb_brier_score": 0.12518537470255878,
+            "lgb_log_loss": 0.38440141337293593,
+            "lgb_auc_roc": 0.9058483449366512
+          },
+          {
+            "lgb_brier_score": 0.1394674459509208,
+            "lgb_log_loss": 0.42233007850837995,
+            "lgb_auc_roc": 0.8834493577527303
+          },
+          {
+            "lgb_brier_score": 0.12278058889532142,
+            "lgb_log_loss": 0.37443026277676855,
+            "lgb_auc_roc": 0.9097435517965493
+          },
+          {
+            "lgb_brier_score": 0.13266549987817075,
+            "lgb_log_loss": 0.40272360551355474,
+            "lgb_auc_roc": 0.8973873227109443
+          }
+        ]
+      },
+      "logistic_regression": {
+        "mean": {
+          "lr_brier_score": 0.131008,
+          "lr_log_loss": 0.401162,
+          "lr_auc_roc": 0.897155
+        },
+        "std": {
+          "lr_brier_score": 0.005605,
+          "lr_log_loss": 0.014392,
+          "lr_auc_roc": 0.008447
+        },
+        "per_fold": [
+          {
+            "lr_brier_score": 0.12857540353759164,
+            "lr_log_loss": 0.3955997891398715,
+            "lr_auc_roc": 0.9002624011982984
+          },
+          {
+            "lr_brier_score": 0.1272851545388469,
+            "lr_log_loss": 0.3928132111883399,
+            "lr_auc_roc": 0.9025103889000252
+          },
+          {
+            "lr_brier_score": 0.14119279337607302,
+            "lr_log_loss": 0.42776424987727013,
+            "lr_auc_roc": 0.8811968272477309
+          },
+          {
+            "lr_brier_score": 0.12542754966565908,
+            "lr_log_loss": 0.3862468840718011,
+            "lr_auc_roc": 0.9051273059145679
+          },
+          {
+            "lr_brier_score": 0.13256003764278426,
+            "lr_log_loss": 0.4033839047254378,
+            "lr_auc_roc": 0.8966764657729751
+          }
+        ]
+      }
+    },
+    "final_model": {
+      "innings": 2,
+      "n_train": 621805,
+      "n_calibration": 97735,
+      "n_holdout": 245597,
+      "holdout_seasons": [
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "raw_metrics": {
+        "raw_brier_score": 0.123235,
+        "raw_log_loss": 0.376626,
+        "raw_auc_roc": 0.909115
+      },
+      "calibrated_metrics": {
+        "calibrated_brier_score": 0.12535,
+        "calibrated_log_loss": 0.392905,
+        "calibrated_auc_roc": 0.909115
+      },
+      "expected_calibration_error": 0.039888,
+      "calibration_bins": [
+        {
+          "bin": "0.0-0.1",
+          "count": 55783,
+          "mean_predicted": 0.0701,
+          "mean_observed": 0.0268,
+          "abs_error": 0.0433
+        },
+        {
+          "bin": "0.1-0.2",
+          "count": 31815,
+          "mean_predicted": 0.1418,
+          "mean_observed": 0.1847,
+          "abs_error": 0.043
+        },
+        {
+          "bin": "0.2-0.3",
+          "count": 16737,
+          "mean_predicted": 0.247,
+          "mean_observed": 0.3381,
+          "abs_error": 0.0912
+        },
+        {
+          "bin": "0.3-0.4",
+          "count": 12273,
+          "mean_predicted": 0.3482,
+          "mean_observed": 0.4082,
+          "abs_error": 0.0601
+        },
+        {
+          "bin": "0.4-0.5",
+          "count": 10622,
+          "mean_predicted": 0.4489,
+          "mean_observed": 0.4675,
+          "abs_error": 0.0186
+        },
+        {
+          "bin": "0.5-0.6",
+          "count": 10653,
+          "mean_predicted": 0.5503,
+          "mean_observed": 0.5417,
+          "abs_error": 0.0085
+        },
+        {
+          "bin": "0.6-0.7",
+          "count": 11431,
+          "mean_predicted": 0.6515,
+          "mean_observed": 0.646,
+          "abs_error": 0.0056
+        },
+        {
+          "bin": "0.7-0.8",
+          "count": 14584,
+          "mean_predicted": 0.7529,
+          "mean_observed": 0.6949,
+          "abs_error": 0.0581
+        },
+        {
+          "bin": "0.8-0.9",
+          "count": 24033,
+          "mean_predicted": 0.856,
+          "mean_observed": 0.7887,
+          "abs_error": 0.0673
+        },
+        {
+          "bin": "0.9-1.0",
+          "count": 57666,
+          "mean_predicted": 0.9376,
+          "mean_observed": 0.9539,
+          "abs_error": 0.0163
+        }
+      ],
+      "phase_metrics": {
+        "powerplay": {
+          "brier_score": 0.157183,
+          "log_loss": 0.476738,
+          "auc_roc": 0.856107
+        },
+        "middle": {
+          "brier_score": 0.12135,
+          "log_loss": 0.383463,
+          "auc_roc": 0.914724
+        },
+        "death": {
+          "brier_score": 0.07678,
+          "log_loss": 0.26211,
+          "auc_roc": 0.965238
+        }
+      },
+      "shap_importance": [
+        {
+          "rank": 1,
+          "feature": "required_run_rate",
+          "mean_abs_shap": 1.692148
+        },
+        {
+          "rank": 2,
+          "feature": "wickets_fallen",
+          "mean_abs_shap": 0.437416
+        },
+        {
+          "rank": 3,
+          "feature": "target_score",
+          "mean_abs_shap": 0.353367
+        },
+        {
+          "rank": 4,
+          "feature": "current_score",
+          "mean_abs_shap": 0.34097
+        },
+        {
+          "rank": 5,
+          "feature": "balls_remaining",
+          "mean_abs_shap": 0.250586
+        },
+        {
+          "rank": 6,
+          "feature": "batting_team_strength",
+          "mean_abs_shap": 0.174307
+        },
+        {
+          "rank": 7,
+          "feature": "current_run_rate",
+          "mean_abs_shap": 0.171952
+        },
+        {
+          "rank": 8,
+          "feature": "over_number",
+          "mean_abs_shap": 0.150063
+        },
+        {
+          "rank": 9,
+          "feature": "bowling_team_strength",
+          "mean_abs_shap": 0.098221
+        },
+        {
+          "rank": 10,
+          "feature": "last_3ov_wickets",
+          "mean_abs_shap": 0.092339
+        },
+        {
+          "rank": 11,
+          "feature": "last_3ov_boundary_pct",
+          "mean_abs_shap": 0.039078
+        },
+        {
+          "rank": 12,
+          "feature": "last_3ov_run_rate",
+          "mean_abs_shap": 0.020127
+        },
+        {
+          "rank": 13,
+          "feature": "phase_encoded",
+          "mean_abs_shap": 0.012107
+        },
+        {
+          "rank": 14,
+          "feature": "last_3ov_dot_pct",
+          "mean_abs_shap": 0.005182
+        },
+        {
+          "rank": 15,
+          "feature": "phase_progress",
+          "mean_abs_shap": 0.004562
+        },
+        {
+          "rank": 16,
+          "feature": "ball_in_over",
+          "mean_abs_shap": 7.4e-05
+        }
+      ],
+      "native_importance": [
+        {
+          "feature": "target_score",
+          "importance_gain": 1529
+        },
+        {
+          "feature": "bowling_team_strength",
+          "importance_gain": 1525
+        },
+        {
+          "feature": "batting_team_strength",
+          "importance_gain": 1436
+        },
+        {
+          "feature": "required_run_rate",
+          "importance_gain": 1041
+        },
+        {
+          "feature": "wickets_fallen",
+          "importance_gain": 778
+        },
+        {
+          "feature": "current_score",
+          "importance_gain": 591
+        },
+        {
+          "feature": "current_run_rate",
+          "importance_gain": 501
+        },
+        {
+          "feature": "balls_remaining",
+          "importance_gain": 445
+        },
+        {
+          "feature": "last_3ov_wickets",
+          "importance_gain": 191
+        },
+        {
+          "feature": "over_number",
+          "importance_gain": 186
+        }
+      ],
+      "hyperparameters": {
+        "boosting_type": "gbdt",
+        "class_weight": null,
+        "colsample_bytree": 0.8,
+        "importance_type": "split",
+        "learning_rate": 0.05,
+        "max_depth": 6,
+        "min_child_samples": 50,
+        "min_child_weight": 0.001,
+        "min_split_gain": 0.0,
+        "n_estimators": 800,
+        "n_jobs": -1,
+        "num_leaves": 48,
+        "objective": "binary",
+        "random_state": 42,
+        "reg_alpha": 0.1,
+        "reg_lambda": 2.0,
+        "subsample": 0.8,
+        "subsample_for_bin": 200000,
+        "subsample_freq": 0,
+        "metric": "binary_logloss",
+        "verbose": -1
+      },
+      "best_iteration": 204
+    }
+  },
+  "model_comparison": {
+    "description": "LightGBM vs Logistic Regression baseline comparison",
+    "innings_1_lgb_brier": 0.214088,
+    "innings_1_lr_brier": 0.216334,
+    "innings_2_lgb_brier": 0.129798,
+    "innings_2_lr_brier": 0.131008
+  },
+  "models_saved": [
+    "models/win_prob_innings1_v1.lgbm",
+    "models/win_prob_innings2_v1.lgbm",
+    "models/win_prob_innings1_v1_calibrated.joblib",
+    "models/win_prob_innings2_v1_calibrated.joblib"
+  ]
+}

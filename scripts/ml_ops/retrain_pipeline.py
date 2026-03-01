@@ -142,46 +142,31 @@ def _load_thresholds() -> Dict[str, Any]:
 
 
 # ---------------------------------------------------------------------------
-# Registry helpers
+# Registry helpers (TKT-247: Uses Lightweight Model Registry)
 # ---------------------------------------------------------------------------
 
-
-def _load_registry() -> Dict[str, Any]:
-    """Load model_registry.json or return a blank structure."""
-    if REGISTRY_PATH.exists():
-        with open(REGISTRY_PATH) as fh:
-            return json.load(fh)
-    return {
-        "models": {
-            "player_clustering": {
-                "active_version": "v2.0.0",
-                "versions": {},
-            }
-        },
-        "last_updated": None,
-    }
+from scripts.ml_ops.model_registry import ModelRegistry, bump_version, compute_data_hash
 
 
-def _save_registry(registry: Dict[str, Any]) -> None:
-    """Persist model_registry.json."""
-    REGISTRY_PATH.parent.mkdir(parents=True, exist_ok=True)
-    registry["last_updated"] = datetime.now().isoformat()
-    with open(REGISTRY_PATH, "w") as fh:
-        json.dump(registry, fh, indent=2)
-    logger.info("Model registry updated at %s", REGISTRY_PATH)
+def _get_registry() -> ModelRegistry:
+    """Return a ModelRegistry instance backed by the standard registry path."""
+    return ModelRegistry(REGISTRY_PATH)
 
 
-def _bump_minor(version_str: str) -> str:
-    """Bump the MINOR component of a semver string.
+def _get_production_version(registry: ModelRegistry) -> Optional[str]:
+    """Get the version string of the current production clustering model."""
+    prod = registry.get_production("player_clustering")
+    if prod:
+        return prod.version
+    return None
 
-    v2.0.0 -> v2.1.0 ; v2.3.1 -> v2.4.0
-    """
-    stripped = version_str.lstrip("v")
-    parts = stripped.split(".")
-    if len(parts) != 3:
-        parts = ["2", "0", "0"]
-    major, minor, _ = parts
-    return f"v{major}.{int(minor) + 1}.0"
+
+def _get_production_metrics(registry: ModelRegistry) -> Dict[str, Any]:
+    """Get metrics dict from the current production clustering model."""
+    prod = registry.get_production("player_clustering")
+    if prod:
+        return prod.metrics
+    return {}
 
 
 # ---------------------------------------------------------------------------
@@ -953,15 +938,13 @@ def run_pipeline(
 
     conn = duckdb.connect(str(DB_PATH), read_only=True)
 
-    # Load current production metrics from registry (if they exist)
-    registry = _load_registry()
-    clustering_entry = registry["models"].get("player_clustering", {})
-    active_version = clustering_entry.get("active_version", "v2.0.0")
-    version_data = clustering_entry.get("versions", {}).get(active_version, {})
+    # Load current production metrics from registry (TKT-247 integration)
+    model_reg = _get_registry()
+    active_version = _get_production_version(model_reg) or "2.0.0"
+    prod_metrics = _get_production_metrics(model_reg)
 
     current_batter: Optional[ModelMetrics] = None
     current_bowler: Optional[ModelMetrics] = None
-    prod_metrics = version_data.get("metrics", {})
 
     if prod_metrics.get("batter_silhouette") is not None:
         current_batter = ModelMetrics(
@@ -1030,47 +1013,56 @@ def run_pipeline(
     )
 
     if should_promote:
-        new_version = _bump_minor(active_version)
+        new_version = bump_version(active_version.lstrip("v"), "minor")
         report.new_version = new_version
 
         if dry_run:
             logger.info("[DRY-RUN] Would promote to %s -- no files written", new_version)
         else:
-            # Update registry
-            new_entry: Dict[str, Any] = {
-                "created_at": datetime.now().isoformat(),
-                "created_by": "retrain_pipeline (TKT-156)",
+            # Build metrics dict for the new registry entry
+            new_metrics: Dict[str, Any] = {
                 "promoted_from": active_version,
                 "run_mode": mode,
-                "metrics": {},
             }
 
             if batter_result:
                 m = batter_result.candidate_metrics
-                new_entry["metrics"]["batter_silhouette"] = round(m.silhouette, 4)
-                new_entry["metrics"]["batter_n_players"] = m.n_players
-                new_entry["metrics"]["batter_n_clusters"] = m.n_clusters
-                new_entry["metrics"]["batter_cluster_sizes"] = m.cluster_sizes
-                new_entry["metrics"]["batter_pca_variance"] = round(m.pca_variance_3pc, 4)
-                new_entry["metrics"]["batter_features"] = m.feature_cols
+                new_metrics["batter_silhouette"] = round(m.silhouette, 4)
+                new_metrics["batter_n_players"] = m.n_players
+                new_metrics["batter_n_clusters"] = m.n_clusters
+                new_metrics["batter_cluster_sizes"] = m.cluster_sizes
+                new_metrics["batter_pca_variance"] = round(m.pca_variance_3pc, 4)
+                new_metrics["batter_features"] = m.feature_cols
 
             if bowler_result:
                 m = bowler_result.candidate_metrics
-                new_entry["metrics"]["bowler_silhouette"] = round(m.silhouette, 4)
-                new_entry["metrics"]["bowler_n_players"] = m.n_players
-                new_entry["metrics"]["bowler_n_clusters"] = m.n_clusters
-                new_entry["metrics"]["bowler_cluster_sizes"] = m.cluster_sizes
-                new_entry["metrics"]["bowler_pca_variance"] = round(m.pca_variance_3pc, 4)
-                new_entry["metrics"]["bowler_features"] = m.feature_cols
+                new_metrics["bowler_silhouette"] = round(m.silhouette, 4)
+                new_metrics["bowler_n_players"] = m.n_players
+                new_metrics["bowler_n_clusters"] = m.n_clusters
+                new_metrics["bowler_cluster_sizes"] = m.cluster_sizes
+                new_metrics["bowler_pca_variance"] = round(m.pca_variance_3pc, 4)
+                new_metrics["bowler_features"] = m.feature_cols
 
-            if "versions" not in clustering_entry:
-                clustering_entry["versions"] = {}
-            clustering_entry["versions"][new_version] = new_entry
-            clustering_entry["active_version"] = new_version
-            registry["models"]["player_clustering"] = clustering_entry
-
-            _save_registry(registry)
-            logger.info("Promoted new model to %s", new_version)
+            # Register as candidate then promote to production (TKT-247)
+            data_hash = compute_data_hash(DB_PATH)
+            entry = model_reg.register(
+                name="player_clustering",
+                version=new_version,
+                created_by="retrain_pipeline (TKT-156)",
+                model_type="kmeans",
+                path="outputs/tags/player_tags.json",
+                training_data_hash=data_hash,
+                hyperparameters={
+                    "min_improvement": min_improvement,
+                    "force": force,
+                },
+                metrics=new_metrics,
+                status="candidate",
+                tags=["player-clustering", "TKT-156"],
+                description=f"Retrained from {active_version}, mode={mode}",
+            )
+            model_reg.promote(entry.id)
+            logger.info("Registered and promoted model %s (v%s)", entry.id, new_version)
 
             # Write comparison report
             _write_report(report)

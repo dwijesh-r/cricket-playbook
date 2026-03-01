@@ -1,14 +1,14 @@
 # CLAUDE.md
 
-**Version:** 1.1
-**Last Updated:** 2026-02-08
+**Version:** 1.2
+**Last Updated:** 2026-03-01
 
 ## Project Operating Principles
 
 This repository uses a multi-agent workflow with explicit roles, task ownership, and validation loops.
 Agents are expected to operate within defined responsibilities and surface uncertainty early.
 
-**Binding Governance Document:** [Constitution v2.0](config/CONSTITUTION.md)
+**Binding Governance Document:** [Constitution v2.2.0](config/CONSTITUTION.md)
 
 ---
 

@@ -19,7 +19,7 @@ repos:
       # Whitelisted: *.md, *.pdf (documentation), *.parquet (SQL Lab data)
       - id: check-added-large-files
         args: ['--maxkb=500']
-        exclude: '\.(md|pdf|parquet)$'
+        exclude: '\.(md|pdf|parquet|lgbm|joblib)$'
 
   # Custom naming convention hook (P3-01)
   # Validates document naming: documentname_MMDDYY_v*.md/pdf

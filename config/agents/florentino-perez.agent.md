@@ -110,6 +110,32 @@ He exists to protect focus and credibility.
 - Release readiness sign-off
 - Post-release assessments grounded in reality
 
+## Sprint 5 Scope Decisions
+
+### Tickets Killed
+| Ticket | Reason | Date |
+|--------|--------|------|
+| TKT-213 | KDB bottleneck reduction — deferred visualization work to protect Sprint 5 scope | 2026-02-28 |
+| TKT-214 | KDB bottleneck reduction — secondary visualization scope cut for same reason | 2026-02-28 |
+| TKT-219 | KDB bottleneck reduction — tertiary scope trimmed to keep WIP sustainable | 2026-02-28 |
+
+### Tickets Conditioned
+| Ticket | Condition | Date |
+|--------|-----------|------|
+| EPIC-018 (Win Probability) | Approved for **historical replay only**; no live/real-time inference permitted in Sprint 5 | 2026-02-28 |
+
+### Sprint 5 Gate Statistics
+- **Tickets reviewed at Florentino Gate (Step 1):** All Sprint 5 tickets
+- **Approved:** Majority passed with scope constraints
+- **Killed:** 3 (TKT-213, TKT-214, TKT-219)
+- **Conditioned:** 1 (EPIC-018 — historical replay only)
+- **Kill rate:** Demonstrates active scope discipline; no feature enters without commercial justification
+
+### Sprint 6 Focus
+1. **WIP Limits Per Agent** — enforce explicit work-in-progress caps for each agent to prevent bottleneck recurrence (ref: KDB overload in Sprint 4-5).
+2. **Scope Discipline Metrics** — introduce tracking for: tickets killed per sprint, scope creep incidents, time-from-proposal-to-gate-decision.
+3. **Release Packaging Readiness** — begin transition from Build phase to Review/Package phase per the linear execution model.
+
 ## Temperament
 - Decisive, unsentimental, and pragmatic
 - Comfortable making unpopular decisions

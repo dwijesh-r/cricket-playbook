@@ -73,3 +73,60 @@ jobs:
           name: coverage-report
           path: coverage.xml
           retention-days: 30
+
+  # TKT-215: React Testing + CI Integration (Brad Stevens)
+  react-tests:
+    runs-on: ubuntu-latest
+    if: >
+      github.event_name == 'push' ||
+      github.event_name == 'pull_request'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check for react-app changes
+        id: changes
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            CHANGED=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }} -- scripts/the_lab/react-app/ | head -1)
+          else
+            CHANGED=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- scripts/the_lab/react-app/ | head -1)
+          fi
+          if [ -n "$CHANGED" ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Set up Node.js 20
+        if: steps.changes.outputs.has_changes == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: scripts/the_lab/react-app/package-lock.json
+
+      - name: Install dependencies
+        if: steps.changes.outputs.has_changes == 'true'
+        working-directory: scripts/the_lab/react-app
+        run: npm ci
+
+      - name: Run ESLint
+        if: steps.changes.outputs.has_changes == 'true'
+        working-directory: scripts/the_lab/react-app
+        run: npm run lint
+
+      - name: Run TypeScript type check
+        if: steps.changes.outputs.has_changes == 'true'
+        working-directory: scripts/the_lab/react-app
+        run: npx tsc --noEmit
+
+      - name: Run Vitest tests
+        if: steps.changes.outputs.has_changes == 'true'
+        working-directory: scripts/the_lab/react-app
+        run: npm run test
+
+      - name: Skip notification
+        if: steps.changes.outputs.has_changes == 'false'
+        run: echo "No changes in scripts/the_lab/react-app/ — skipping React tests."

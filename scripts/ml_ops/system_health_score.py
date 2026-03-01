@@ -262,11 +262,28 @@ def check_ml_rigor() -> Tuple[float, List[str]]:
     else:
         findings.append("Baseline comparison missing (TKT-137 pending)")
 
-    # Check 3: Model versioning (20 points)
+    # Check 3: Model versioning via Lightweight Model Registry (20 points) [TKT-247]
     model_registry = ml_ops_dir / "model_registry.json"
     if model_registry.exists():
-        score += 20
-        findings.append("Model registry exists")
+        try:
+            with open(model_registry) as f:
+                registry_data = json.load(f)
+            registered_models = registry_data.get("models", [])
+            if len(registered_models) > 0:
+                score += 20
+                production_count = sum(
+                    1 for m in registered_models if m.get("status") == "production"
+                )
+                findings.append(
+                    f"Model registry: {len(registered_models)} models, "
+                    f"{production_count} in production"
+                )
+            else:
+                score += 10
+                findings.append("Model registry exists but empty (register models)")
+        except (json.JSONDecodeError, KeyError):
+            score += 5
+            findings.append("Model registry exists but malformed")
     else:
         findings.append("Model registry missing")
 

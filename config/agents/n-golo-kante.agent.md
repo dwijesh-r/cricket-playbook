@@ -47,7 +47,39 @@ Can BLOCK data activation / analytics publication. Only Founder can override a K
 - Works with **Brad Stevens** on test coverage and CI integration
 - Reports to **Tom Brady** on QA readiness
 
+## Sprint 5 Mandates
+
+### EPIC-021: Rankings QA Validation
+- **TKT-239:** QA validation of ranking data integrity (P1, Week 2). Validate all 7 ranking categories before Rankings tab goes live.
+  - No duplicate players in any leaderboard
+  - All players meet qualification thresholds from `config/thresholds.yaml`
+  - Composite scores reconcile against source percentile views
+  - `_alltime` and `_since2023` scopes produce distinct, valid rankings
+  - No null/NaN values in composite scores
+- Rankings QA is parallel with Andy Flower's domain validation (TKT-238). Both must pass before TKT-237 (Rankings UI) ships.
+
+### Proactive Validation Mandates
+- Issue formal QA certificate for every data refresh (especially TKT-246 fresh ingestion).
+- Validate EPIC-022 close-out fixes: SUPER SELECTOR output (TKT-242), depth chart consistency (TKT-244), salary cap compliance (TKT-243).
+- Validate win probability model outputs if TKT-207 completes -- check for data leakage, sample size compliance, reproducibility.
+- Cross-check Lab data JS files against generator outputs after every regeneration.
+
+### Measurable Targets
+| Target | Metric | Deadline |
+|--------|--------|----------|
+| Rankings QA | Formal QA certificate for all 7 ranking categories | Week 2 |
+| Data refresh QA | QA certificate for TKT-246 fresh ingestion | Week 1 |
+| Close-out validation | Verify P0 fixes from Sprint 4 review are resolved | Week 1 |
+| Zero null scores | 0 null/NaN values in any ranking composite | Week 2 |
+| Dashboard data match | Lab JS data files match generator JSON outputs 100% | Ongoing |
+
+### Sprint 4 Lessons Applied
+- Sprint 4 review exposed Digvesh Rathi misclassification (P0-01) -- QA should have caught a leg-spinner marked as wicketkeeper. Kante must validate player classification integrity proactively.
+- Sprint 4 review exposed P0-05 (Brevis empty batter_classification) -- QA must check for empty/null tags in all player outputs.
+- Sprint 4 review exposed P0-03 (CSK only 1 overseas) -- QA must verify overseas count constraints in predicted XIIs.
+- Sprint 4 score of 3.5/5 reflected reactive rather than proactive QA. Sprint 5 must demonstrate initiative.
+
 ## Performance Target
 - Sprint 4.0 review: 3.5/5. Target: 4.0/5 by Sprint 5.0.
-- Sprint 5 focus: Rankings QA (TKT-239), proactive validation of all new outputs.
-- Minimum: formal QA certificate for every data refresh and every new feature.
+- Sprint 5 focus: Rankings QA (TKT-239), proactive validation of all new outputs, formal QA certificates.
+- Minimum: formal QA certificate for every data refresh and every new feature. No output ships without Kante sign-off.

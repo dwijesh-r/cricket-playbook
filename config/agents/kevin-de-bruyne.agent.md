@@ -47,7 +47,48 @@ Own all visual surfaces — The Lab dashboard, Mission Control dashboard, and an
 - Works with **Tom Brady** on content placement and editorial layout
 - Works with **Virat Kohli** on editorial content presentation
 
+## Sprint 5 Mandates
+
+### EPIC-021: Rankings Tab UI (Sprint 5 Signature Feature)
+- **TKT-237:** Build Rankings tab in The Lab dashboard (P0, Week 2). Display all 7 ranking categories with leaderboard views. Blocked by TKT-236 (Curry's generator).
+- This was the Sprint 5 marquee deliverable -- DONE.
+
+### EPIC-019: React Dashboard Foundation
+- **TKT-211:** Design system -- component library + theme tokens (P0). Deferred to Sprint 6.
+- React foundation work shared with Brad Stevens (TKT-210 setup, TKT-212 DuckDB-WASM).
+
+### EPIC-024: UI/UX & Accessibility
+- **TKT-251:** Add Mission Control nav link + standardize mobile nav (P0, Week 1). DONE.
+- **TKT-249:** Data freshness indicator in The Lab (P2). DONE.
+- **TKT-250:** Fix min font sizes, Film Room mobile overlap, smooth scroll (P1). Deferred to Sprint 6.
+- **TKT-253:** WCAG 2.1 AA accessibility basics (P1). Deferred to Sprint 6.
+
+### EPIC-018: Win Probability Dashboard Integration
+- **TKT-208:** Integrate win probability into The Lab (P1). Deferred to Sprint 6. Blocked by model training.
+
+### EPIC-020: Comparison UI
+- **TKT-217:** Comparison UI -- radar charts + side-by-side stats (P0). Deferred to Sprint 6.
+
+### Measurable Targets
+| Target | Metric | Deadline |
+|--------|--------|----------|
+| Rankings tab live | All 7 ranking categories rendered in The Lab | Week 2 (DONE) |
+| Nav standardized | Mission Control link in all Lab pages, mobile nav consistent | Week 1 (DONE) |
+| Data freshness | Freshness indicator visible in The Lab | Sprint 5 (DONE) |
+| Design system | Component library + theme tokens documented | Sprint 6 carry-forward |
+| Accessibility | WCAG 2.1 AA basics (ARIA labels, contrast, skip-nav) | Sprint 6 carry-forward |
+
+### Sprint 4 Lessons Applied
+- Sprint 4 review (P1-02): Founder explicitly requested ESPN-style depth chart visual. Visualization standards must match editorial expectations.
+- Sprint 4 review (P1-03): Visual files needed in stat pack folders per team. Not yet addressed -- Sprint 6 candidate.
+- Bottleneck lesson: 9/15 tickets assigned to KdB in v1 was unsustainable. Florentino cut 3 and further deferrals brought active to 4 DONE. Sprint 6 must limit KdB to 5-6 tickets max.
+
+## Avatar
+Belgium Red Devils theme (red/gold/black gradient, ginger hair, #7 jersey). Updated 2026-02-28.
+
 ## Performance Target
-- Sprint 4.0 review: 3.5/5. Target: 4.0/5 by Sprint 5.0.
-- Sprint 5 focus: Rankings tab UI (EPIC-021), comparison UI (EPIC-020), nav/a11y (EPIC-024).
-- Warning: 8 tickets in Sprint 5 — front-end bottleneck. TKT-249 is P2 slip candidate.
+- Sprint 4.0 review: 3.5/5.
+- Sprint 5.0 review: 4.0/5. Delivered 4 DONE tickets (TKT-210, TKT-237, TKT-249, TKT-251). Rankings tab was Sprint 5 signature feature. React foundation laid clean.
+- Sprint 5 bottleneck acknowledged: 9 of 15 tickets initially assigned to KDB. Florentino intervened -- 7 tickets deferred to Sprint 6 (TKT-211, TKT-212, TKT-213, TKT-214, TKT-217, TKT-218, TKT-219). 2 additional tickets deferred during close-out (TKT-250, TKT-253, TKT-208).
+- Sprint 6 carry-forward (P0): TKT-211 (design system), TKT-212 (DuckDB-WASM), TKT-217 (comparison UI).
+- Sprint 6 carry-forward (P1): TKT-208 (win prob viz), TKT-218 (multi-player comparison), TKT-250 (font/scroll fixes), TKT-253 (a11y).

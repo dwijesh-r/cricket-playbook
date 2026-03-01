@@ -76,16 +76,19 @@ const AgentAvatars = {
         <text x="8" y="58" font-size="8" fill="white" font-weight="bold" opacity="0.6">30</text>
     </svg>`,
 
-    // Kevin de Bruyne - Man City - Ginger hair
+    // Kevin de Bruyne - Belgium Red Devils - Ginger hair
     'Kevin de Bruyne': `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
         <defs>
             <linearGradient id="kdb-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#6cabdd"/>
-                <stop offset="100%" style="stop-color:#1c2c5b"/>
+                <stop offset="0%" style="stop-color:#ED2939"/>
+                <stop offset="50%" style="stop-color:#C8102E"/>
+                <stop offset="100%" style="stop-color:#1A1A1A"/>
             </linearGradient>
         </defs>
-        <!-- Background -->
+        <!-- Background (Belgium tricolor-inspired) -->
         <rect width="64" height="64" rx="12" fill="url(#kdb-bg)"/>
+        <!-- Gold accent stripe (Belgium yellow) -->
+        <rect x="0" y="56" width="64" height="8" rx="0" fill="#FFD700" opacity="0.3"/>
         <!-- Face -->
         <ellipse cx="32" cy="35" rx="17" ry="18" fill="#F5D0B0"/>
         <!-- Ginger hair -->
@@ -108,8 +111,8 @@ const AgentAvatars = {
         <path d="M27 48 Q32 51 37 48" stroke="#8B4513" stroke-width="2" fill="none" stroke-linecap="round"/>
         <!-- Stubble hint -->
         <ellipse cx="32" cy="52" rx="8" ry="3" fill="#D3835022"/>
-        <!-- Jersey number -->
-        <text x="8" y="58" font-size="8" fill="white" font-weight="bold" opacity="0.6">17</text>
+        <!-- Jersey number (Belgium #7) -->
+        <text x="8" y="58" font-size="8" fill="#FFD700" font-weight="bold" opacity="0.7">7</text>
     </svg>`,
 
     // Jose Mourinho - Chelsea/Roma - Silver hair, intense eyes

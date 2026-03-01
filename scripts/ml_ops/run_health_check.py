@@ -18,7 +18,9 @@ What It Checks:
     2. Cluster size distribution (min 10 per cluster)
     3. Feature drift detection (if baseline exists)
     4. Multivariate drift detection
-    5. Generates comprehensive health report
+    5. Win probability model health (artifacts, baselines)
+    6. Generates comprehensive health report
+    7. Win prob baseline readiness
 """
 
 import argparse
@@ -37,6 +39,7 @@ from scripts.ml_ops.model_monitoring import (
     AlertLevel,
     create_monitor_with_defaults,
 )
+from scripts.ml_ops.model_registry import ModelRegistry
 
 # Paths
 DATA_DIR = PROJECT_DIR / "data"
@@ -98,7 +101,7 @@ def run_health_check(verbose: bool = False, export: bool = False) -> dict:
     alerts = []
 
     # 1. Load player tags
-    print("\n[1/5] Loading player tags...")
+    print("\n[1/7] Loading player tags...")
     try:
         batters, bowlers = load_player_tags()
         print(f"   ✅ Batters: {len(batters)} players")
@@ -108,7 +111,7 @@ def run_health_check(verbose: bool = False, export: bool = False) -> dict:
         return {"status": "FAILED", "error": str(e)}
 
     # 2. Check cluster distribution
-    print("\n[2/5] Checking cluster distribution...")
+    print("\n[2/7] Checking cluster distribution...")
 
     batter_clusters = get_cluster_distribution(batters)
     bowler_clusters = get_cluster_distribution(bowlers)
@@ -134,43 +137,50 @@ def run_health_check(verbose: bool = False, export: bool = False) -> dict:
         print(f"   {status} Min cluster size: {min_bowler}")
 
     # 3. Check PCA variance (from model registry if available)
-    print("\n[3/5] Checking PCA variance...")
+    print("\n[3/7] Checking PCA variance...")
 
-    # Try to load from model registry
-    registry_file = PROJECT_DIR / "ml_ops" / "model_registry.json"
-    if registry_file.exists():
-        with open(registry_file) as f:
-            registry = json.load(f)
+    # Use the ModelRegistry class for proper integration (TKT-247)
+    model_registry = ModelRegistry()
+    registry_path = model_registry.path
 
-        # Get active model metrics
-        models = registry.get("models", {})
-        clustering = models.get("player_clustering", {})
-        active_version = clustering.get("active_version", "v2.0.0")
-        versions = clustering.get("versions", {})
-        active_model = versions.get(active_version, {})
+    if registry_path.exists():
+        # Look for the production clustering model's PCA metrics
+        production_model = model_registry.get_production("player_clustering")
+        if production_model is None:
+            # Fall back: try any model with PCA metrics
+            all_models = model_registry.list_models(name="player_clustering")
+            production_model = all_models[0] if all_models else None
 
-        batter_pca = active_model.get("metrics", {}).get("batter_pca_variance")
-        bowler_pca = active_model.get("metrics", {}).get("bowler_pca_variance")
+        if production_model and production_model.metrics:
+            batter_pca = production_model.metrics.get("batter_pca_variance")
+            bowler_pca = production_model.metrics.get("bowler_pca_variance")
 
-        if batter_pca:
-            pca_alerts = monitor.check_pca_variance(batter_pca, "batter")
-            alerts.extend(pca_alerts)
-            status = "✅" if batter_pca >= 0.70 else "❌"
-            print(f"   {status} Batter PCA: {batter_pca * 100:.1f}% (threshold: 70%)")
+            if batter_pca:
+                pca_alerts = monitor.check_pca_variance(batter_pca, "batter")
+                alerts.extend(pca_alerts)
+                status = "✅" if batter_pca >= 0.70 else "❌"
+                print(f"   {status} Batter PCA: {batter_pca * 100:.1f}% (threshold: 70%)")
 
-        if bowler_pca:
-            pca_alerts = monitor.check_pca_variance(bowler_pca, "bowler")
-            alerts.extend(pca_alerts)
-            status = "✅" if bowler_pca >= 0.50 else "❌"
-            print(f"   {status} Bowler PCA: {bowler_pca * 100:.1f}% (threshold: 50%)")
+            if bowler_pca:
+                pca_alerts = monitor.check_pca_variance(bowler_pca, "bowler")
+                alerts.extend(pca_alerts)
+                status = "✅" if bowler_pca >= 0.50 else "❌"
+                print(f"   {status} Bowler PCA: {bowler_pca * 100:.1f}% (threshold: 50%)")
 
-        if not batter_pca and not bowler_pca:
-            print("   ⚠️ PCA metrics not found in model registry")
+            if not batter_pca and not bowler_pca:
+                print("   ⚠️ PCA metrics not found in production model")
+        else:
+            print("   ⚠️ No clustering model registered - skipping PCA check")
+
+        # Print registry summary
+        all_registered = model_registry.list_models()
+        production_count = len(model_registry.list_models(status="production"))
+        print(f"   ℹ️  Registry: {len(all_registered)} models, {production_count} in production")
     else:
         print("   ⚠️ Model registry not found - skipping PCA check")
 
     # 4. Check for baseline and drift detection
-    print("\n[4/5] Checking drift detection...")
+    print("\n[4/7] Checking drift detection...")
 
     batter_baseline = monitor.get_baseline_metadata("batter_clustering")
     bowler_baseline = monitor.get_baseline_metadata("bowler_clustering")
@@ -210,8 +220,37 @@ def run_health_check(verbose: bool = False, export: bool = False) -> dict:
     print("\n   ℹ️  Drift detection ready when baselines exist.")
     print("   ℹ️  Multivariate drift (Mahalanobis) available via detect_multivariate_drift()")
 
-    # 5. Generate health report
-    print("\n[5/5] Generating health report...")
+    # 5. Win probability model health
+    print("\n[5/7] Checking win probability models...")
+
+    win_prob_result = None
+    try:
+        from scripts.ml_ops.win_prob_monitoring import run_win_prob_health_check
+
+        win_prob_result = run_win_prob_health_check(verbose=verbose)
+        win_prob_alerts_raw = win_prob_result.get("alerts", [])
+
+        # Convert alert dicts back to Alert objects for unified counting
+        for a_dict in win_prob_alerts_raw:
+            level = AlertLevel(a_dict.get("level", "info"))
+            alerts.append(
+                Alert(
+                    level=level,
+                    metric=a_dict.get("metric", "win_prob"),
+                    message=a_dict.get("message", ""),
+                    value=a_dict.get("value"),
+                    threshold=a_dict.get("threshold"),
+                )
+            )
+    except ImportError:
+        print("   Win prob monitoring not available (win_prob_monitoring.py missing)")
+        win_prob_result = None
+    except Exception as e:
+        print(f"   Win prob check error: {e}")
+        win_prob_result = None
+
+    # 6. Generate health report
+    print("\n[6/7] Generating health report...")
 
     _ = monitor.generate_health_report()  # Generates and saves report
 
@@ -235,6 +274,16 @@ def run_health_check(verbose: bool = False, export: bool = False) -> dict:
         export_path = monitor.export_metrics()
         print(f"\n   📁 Metrics exported to: {export_path}")
 
+    # 7. Win prob baseline readiness
+    print("\n[7/7] Checking win prob baseline readiness...")
+    baseline_dir = MONITORING_DIR / "win_prob_baseline"
+    for innings in ("innings1", "innings2"):
+        baseline_file = baseline_dir / f"win_prob_{innings}_baseline.json"
+        if baseline_file.exists():
+            print(f"   Baseline {innings}: found")
+        else:
+            print(f"   Baseline {innings}: not yet created (run --generate-baselines)")
+
     # Summary
     print("\n" + "=" * 60)
     print(f"HEALTH CHECK COMPLETE: {overall_status}")
@@ -256,6 +305,7 @@ def run_health_check(verbose: bool = False, export: bool = False) -> dict:
         "critical_alerts": critical_count,
         "warning_alerts": warning_count,
         "alerts": [a.to_dict() for a in alerts],
+        "win_prob_health": win_prob_result,
     }
 
 

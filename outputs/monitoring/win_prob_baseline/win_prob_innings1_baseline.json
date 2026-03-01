@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "innings": "innings1",
+    "created_at": "2026-02-28T11:51:31.859564",
+    "created_by": "Ime Udoka (template)",
+    "n_samples": 0,
+    "season_range": "2008-2025",
+    "model_status": "EXPERIMENTAL",
+    "notes": "TEMPLATE BASELINE for innings1. Placeholder statistics based on typical IPL T20 ranges. Replace with actual training distribution data after model training (TKT-207 outputs).",
+    "feature_count": 13
+  },
+  "feature_distributions": {
+    "over_number": {
+      "mean": 10.5,
+      "std": 5.8,
+      "min": 1.0,
+      "max": 20.0,
+      "median": 10.0,
+      "q25": 5.0,
+      "q75": 16.0
+    },
+    "ball_number": {
+      "mean": 3.5,
+      "std": 1.7,
+      "min": 1.0,
+      "max": 6.0,
+      "median": 3.0,
+      "q25": 2.0,
+      "q75": 5.0
+    },
+    "wickets_fallen": {
+      "mean": 3.2,
+      "std": 2.5,
+      "min": 0.0,
+      "max": 10.0,
+      "median": 3.0,
+      "q25": 1.0,
+      "q75": 5.0
+    },
+    "current_score": {
+      "mean": 85.0,
+      "std": 55.0,
+      "min": 0.0,
+      "max": 260.0,
+      "median": 78.0,
+      "q25": 38.0,
+      "q75": 130.0
+    },
+    "run_rate": {
+      "mean": 7.8,
+      "std": 2.5,
+      "min": 0.0,
+      "max": 36.0,
+      "median": 7.5,
+      "q25": 6.0,
+      "q75": 9.5
+    },
+    "required_run_rate": {
+      "mean": 8.5,
+      "std": 4.0,
+      "min": 0.0,
+      "max": 54.0,
+      "median": 7.8,
+      "q25": 6.0,
+      "q75": 10.5
+    },
+    "scoring_rate_last5": {
+      "mean": 8.0,
+      "std": 3.5,
+      "min": 0.0,
+      "max": 30.0,
+      "median": 7.5,
+      "q25": 5.5,
+      "q75": 10.0
+    },
+    "wickets_last5": {
+      "mean": 0.8,
+      "std": 1.0,
+      "min": 0.0,
+      "max": 5.0,
+      "median": 0.0,
+      "q25": 0.0,
+      "q75": 1.0
+    },
+    "innings_progress": {
+      "mean": 0.5,
+      "std": 0.29,
+      "min": 0.0,
+      "max": 1.0,
+      "median": 0.5,
+      "q25": 0.25,
+      "q75": 0.75
+    },
+    "runs_remaining": {
+      "mean": 80.0,
+      "std": 50.0,
+      "min": 0.0,
+      "max": 260.0,
+      "median": 75.0,
+      "q25": 35.0,
+      "q75": 120.0
+    },
+    "balls_remaining": {
+      "mean": 60.0,
+      "std": 35.0,
+      "min": 0.0,
+      "max": 120.0,
+      "median": 60.0,
+      "q25": 30.0,
+      "q75": 90.0
+    },
+    "partnership_runs": {
+      "mean": 25.0,
+      "std": 28.0,
+      "min": 0.0,
+      "max": 200.0,
+      "median": 15.0,
+      "q25": 5.0,
+      "q75": 35.0
+    },
+    "partnership_balls": {
+      "mean": 18.0,
+      "std": 20.0,
+      "min": 0.0,
+      "max": 120.0,
+      "median": 11.0,
+      "q25": 3.0,
+      "q75": 25.0
+    }
+  }
+}

@@ -26,6 +26,8 @@ on:
       - 'scripts/analysis/player_clustering*.py'
       - 'ml_ops/**'
       - 'outputs/tags/**'
+      - 'models/**'
+      - 'outputs/monitoring/win_prob_baseline/**'
 
   # Manual trigger for ad-hoc checks
   workflow_dispatch:
@@ -80,7 +82,10 @@ jobs:
         run: |
           mkdir -p outputs/tags
           mkdir -p outputs/monitoring/health_reports
+          mkdir -p outputs/monitoring/win_prob_health
+          mkdir -p outputs/monitoring/win_prob_baseline
           mkdir -p ml_ops
+          mkdir -p models
 
       - name: Check for player tags
         id: check-tags

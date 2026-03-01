@@ -1196,6 +1196,7 @@
         activeSides: ['A', 'B'],  // which slots are visible
         activePhase: 'powerplay',
         activeHeatmapMetric: 'all',
+        activeMatchupType: null,  // null = show all, or a specific bowling type / handedness
         highlightedIdx: { A: -1, B: -1, C: -1, D: -1 },
         percentiles: { batter: null, bowler: null }
     };
@@ -1734,9 +1735,11 @@
         const type = getEffectiveType();
         const players = getSelectedPlayers();
 
+        let allTypes, metrics, dataKey;
         if (type === 'batter') {
-            const types = ['Fast', 'Fast-Medium', 'Off-spin', 'Leg-spin', 'LA Orthodox', 'Wrist-spin'];
-            const metrics = [
+            allTypes = ['Fast', 'Fast-Medium', 'Off-spin', 'Leg-spin', 'LA Orthodox', 'Wrist-spin'];
+            dataKey = 'vsBowlingType';
+            metrics = [
                 { label: 'Balls', key: 'balls', fmt: v => v != null ? v : '-', higher: true },
                 { label: 'Outs', key: 'dismissals', fmt: v => v != null ? v : '-', higher: false },
                 { label: 'SR', key: 'sr', fmt: v => v != null ? v.toFixed(1) : '-', higher: true },
@@ -1744,18 +1747,30 @@
                 { label: 'Boundary%', key: 'boundaryPct', fmt: v => v != null ? v.toFixed(1) : '-', higher: true },
                 { label: 'Dot%', key: 'dotPct', fmt: v => v != null ? v.toFixed(1) : '-', higher: false }
             ];
-            return buildSplitsCards(players, types, 'vsBowlingType', metrics, 'vs Bowling Type');
         } else {
-            const types = ['Left-hand', 'Right-hand'];
-            const metrics = [
+            allTypes = ['Left-hand', 'Right-hand'];
+            dataKey = 'vsHandedness';
+            metrics = [
                 { label: 'Balls', key: 'balls', fmt: v => v != null ? v : '-', higher: true },
                 { label: 'Wkts', key: 'wickets', altKey: 'dismissals', fmt: v => v != null ? v : '-', higher: true },
                 { label: 'Econ', key: 'economy', fmt: v => v != null ? v.toFixed(1) : '-', higher: false },
                 { label: 'SR', key: 'sr', fmt: v => v != null ? v.toFixed(1) : '-', higher: false },
                 { label: 'Dot%', key: 'dotPct', fmt: v => v != null ? v.toFixed(1) : '-', higher: true }
             ];
-            return buildSplitsCards(players, types, 'vsHandedness', metrics, 'vs Handedness');
         }
+
+        // Dropdown for selecting bowling type / handedness
+        let html = '<div style="margin-bottom: var(--space-3);">';
+        html += '<select class="team-filter-select" id="matchupTypeSelect" aria-label="Filter by matchup type" onchange="switchMatchupType(this.value)" style="width: auto;">';
+        html += '<option value="all"' + (state.activeMatchupType == null ? ' selected' : '') + '>All Types</option>';
+        allTypes.forEach(t => {
+            html += '<option value="' + escapeHtml(t) + '"' + (state.activeMatchupType === t ? ' selected' : '') + '>' + escapeHtml(t) + '</option>';
+        });
+        html += '</select></div>';
+
+        const filteredTypes = state.activeMatchupType ? allTypes.filter(t => t === state.activeMatchupType) : allTypes;
+        html += buildSplitsCards(players, filteredTypes, dataKey, metrics, type === 'batter' ? 'vs Bowling Type' : 'vs Handedness');
+        return html;
     }
 
     // ==================== SPLITS CARDS (side-by-side per type) ====================
@@ -2031,7 +2046,7 @@
         html += '</div>';
 
         // 4. Matchup Splits
-        html += '<div class="section">';
+        html += '<div class="section" id="matchupSection">';
         html += '<div class="section-title"><span class="icon">&#9876;&#65039;</span> Matchup Splits</div>';
         html += buildMatchupSplits(dataA, dataB);
         html += '</div>';
@@ -2088,6 +2103,7 @@
         state.playerD = null;
         state.activePhase = 'powerplay';
         state.activeHeatmapMetric = 'all';
+        state.activeMatchupType = null;
         // Reset team color CSS variables
         ['a', 'b', 'c', 'd'].forEach(s => {
             document.documentElement.style.removeProperty('--player-' + s);
@@ -2348,6 +2364,21 @@
             if (section) {
                 const titleHtml = section.querySelector('.section-title').outerHTML;
                 section.innerHTML = titleHtml + buildPhaseSection(
+                    state.playerA ? state.playerA.data : null,
+                    state.playerB ? state.playerB.data : null
+                );
+            }
+        }
+    }
+
+    // ==================== MATCHUP TYPE FILTER ====================
+    function switchMatchupType(val) {
+        state.activeMatchupType = val === 'all' ? null : val;
+        if (getSelectedPlayers().length >= 2) {
+            const section = document.getElementById('matchupSection');
+            if (section) {
+                const titleHtml = section.querySelector('.section-title').outerHTML;
+                section.innerHTML = titleHtml + buildMatchupSplits(
                     state.playerA ? state.playerA.data : null,
                     state.playerB ? state.playerB.data : null
                 );

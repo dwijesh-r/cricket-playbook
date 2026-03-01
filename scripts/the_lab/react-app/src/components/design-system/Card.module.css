@@ -1,0 +1,59 @@
+/* Card — Glass morphism card with variant support */
+
+.card {
+  background: var(--glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px var(--shadow);
+  border-color: var(--accent);
+}
+
+/* Variants */
+
+.elevated {
+  background: var(--bg-secondary);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.elevated:hover {
+  box-shadow: 0 12px 40px var(--shadow);
+}
+
+.outlined {
+  background: transparent;
+  border: 1px solid var(--border);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.outlined:hover {
+  background: var(--glass);
+}
+
+/* Padding presets */
+
+.padNone {
+  padding: 0;
+}
+
+.padSm {
+  padding: 12px;
+}
+
+.padMd {
+  padding: 24px;
+}
+
+.padLg {
+  padding: 32px;
+}

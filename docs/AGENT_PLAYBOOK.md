@@ -1,5 +1,5 @@
 # The Agent Playbook
-## How 12 AI Agents Run Cricket Playbook Like a Championship Team
+## How 14 AI Agents Run Cricket Playbook Like a Championship Team
 
 **Owner:** Tom Brady (Product Owner)
 **Ticket:** TKT-148 (EPIC-014: Foundation Fortification)
@@ -9,13 +9,13 @@
 
 ## The Setup: A Tale of Two Worlds
 
-Imagine you're building a data analytics system, but instead of one developer grinding through code, you have 12 specialized agents working together like a championship roster. Some are star players who execute the gameplan. Others are coaches who set strategy. And a few are executives who make sure nobody goes off script.
+Imagine you're building a data analytics system, but instead of one developer grinding through code, you have 14 specialized agents working together like a championship roster. Some are star players who execute the gameplan. Others are coaches who set strategy. And a few are executives who make sure nobody goes off script.
 
 This is the Agent Coding Stack: a structured approach where AI agents with distinct personas, responsibilities, and veto powers collaborate to build robust software. Think of it less like traditional development and more like managing a franchise where every player knows their role and the front office keeps everyone accountable.
 
 ---
 
-## The Roster: Meet the 12 Agents
+## The Roster: Meet the 14 Agents
 
 ### The Athletes (The Ones Who Ship Code)
 
@@ -40,6 +40,9 @@ The creative playmaker. KDB sees patterns others miss and engineers features tha
 **N'Golo Kanté (Quality Assurance)**
 The tireless defender. Kanté covers every inch of the codebase looking for bugs, edge cases, and validation gaps. Nothing gets past him. If there's a way for bad data to sneak through, Kanté finds it and patches the hole.
 
+**Jayson Tatum (UX & Reader Flow)**
+The audience advocate. Tatum audits every dashboard, stat pack, and reader-facing output for flow, clarity, and usability. He ensures that the analytical depth never comes at the expense of readability. If a page takes too long to load or a chart confuses more than it clarifies, Tatum flags it before it ships.
+
 ### The Coaches (Strategy and Architecture)
 
 **Andy Flower (Cricket Coaching)**
@@ -50,6 +53,9 @@ The Special One for system evaluation. Mourinho audits the entire system, identi
 
 **Pep Guardiola (ML Architecture)**
 The philosopher of the system. Pep designs the machine learning components: clustering algorithms, dimensionality reduction, drift detection. He thinks three moves ahead about how models will behave under distribution shift.
+
+**Ime Udoka (ML Ops Engineer)**
+The deployment specialist. Udoka owns the model registry, ML monitoring, and production reliability for any machine learning components. If Pep designs the models, Udoka makes sure they run cleanly, version correctly, and degrade gracefully. His weekly health checks keep ML infrastructure honest.
 
 ### The Front Office (Governance and Enforcement)
 
@@ -87,7 +93,7 @@ Brad Stevens' gates kick in. Pre-commit hooks run linting and formatting. CI pip
 The work gets documented. What was built? What decisions were made? Any quirks future developers should know? This isn't optional housekeeping. It's how we maintain institutional memory as the system grows.
 
 ### Step 8: System Check
-José Mourinho runs the health score. Did this change improve the system or introduce new debt? The score updates, and we see exactly where we stand. 81.5 today. 85 is the target. The gap shrinks with every good commit.
+José Mourinho runs the health score. Did this change improve the system or introduce new debt? The score updates, and we see exactly where we stand. 92.0 today. 85 was the target, and we've exceeded it. The score keeps climbing with every good commit.
 
 ---
 
@@ -151,8 +157,8 @@ José Mourinho doesn't just complain. He quantifies. The system health score mea
 | Testing | 15% | Test coverage, integration tests, edge case handling |
 | Documentation | 10% | Threshold docs, methodology docs, API documentation |
 
-**Current Score:** 81.5/100
-**Target:** 85/100
+**Current Score:** 92.0/100
+**Target:** 85/100 (EXCEEDED)
 **Baseline (before EPIC-014):** 67.4/100
 
 The score runs automatically. Every commit either helps or hurts. There's no hiding from the numbers.
@@ -205,7 +211,7 @@ Since implementing EPIC-014 (Foundation Fortification):
 
 | Metric | Before | After | Change |
 |--------|--------|-------|--------|
-| System Health Score | 67.4 | 81.5 | +14.1 |
+| System Health Score | 67.4 | 92.0 | +24.6 |
 | Bare Except Handlers | 40+ | 2 | -95% |
 | Hardcoded Thresholds | 50+ | 0 | -100% |
 | CI Gates Enforced | No | Yes | New |
@@ -221,7 +227,7 @@ In the Godfather, Michael Corleone says "It's not personal. It's strictly busine
 
 That's the point. When you build with rigor, when every agent knows their role, when governance is real and not just documented, you get systems that actually work. Not just today, but tomorrow, and the day after that.
 
-Welcome to the team. Now let's get that score to 85.
+Welcome to the team. We hit 92.0 -- now let's keep it climbing.
 
 ---
 

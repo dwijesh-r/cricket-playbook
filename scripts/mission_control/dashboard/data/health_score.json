@@ -39,7 +39,7 @@
       "findings": [
         "Model monitoring module exists",
         "Baseline comparison exists",
-        "Model registry exists",
+        "Model registry: 2 models, 0 in production",
         "Feature importance/SHAP present"
       ]
     },
@@ -62,7 +62,7 @@
       ]
     }
   },
-  "timestamp": "2026-03-01T10:04:24.011514",
+  "timestamp": "2026-03-01T10:57:31.113655",
   "ticket": "TKT-147",
   "epic": "EPIC-014",
   "generated_by": "system_health_score.py",

@@ -1,7 +1,7 @@
 # Cricket Playbook - Product Requirements Document
 
-**Version:** 3.0.0
-**Last Updated:** 2026-02-01
+**Version:** 3.1.0
+**Last Updated:** 2026-03-01
 **Authors:** Tom Brady (Product Owner), Stephen Curry (Analytics Lead), Andy Flower (Cricket Domain Expert)
 **Binding Document:** Mega Review #1
 
@@ -75,20 +75,7 @@ The editorial products are powered by a comprehensive analytics warehouse built 
 | Ball-by-Ball Records | 2,137,915 |
 | Venues Covered | 531 |
 | Tournaments | 426 |
-| Analytics Views | 43 |
-| IPL 2026 Players Tracked | 231 |
-
-### Key Metrics
-
-| Metric | Value |
-|--------|-------|
-| Total Matches | 9,357 |
-| IPL Matches | 1,169 |
-| Total Players | 7,864 |
-| Ball-by-Ball Records | 2,137,915 |
-| Venues Covered | 531 |
-| Tournaments | 426 |
-| Analytics Views | 43 |
+| Analytics Views | 163 (103 dual-scope) |
 | IPL 2026 Players Tracked | 231 |
 
 ---
@@ -295,7 +282,7 @@ Contract and acquisition details.
 
 ## 6. Analytics Views Catalog
 
-### 4.1 Career Statistics Views
+### 6.1 Career Statistics Views
 
 | View | Description | Key Metrics |
 |------|-------------|-------------|
@@ -304,7 +291,7 @@ Contract and acquisition details.
 | `analytics_ipl_batting_career` | IPL-only batting | Same metrics, IPL filtered |
 | `analytics_ipl_bowling_career` | IPL-only bowling | Same metrics, IPL filtered |
 
-### 4.2 Phase-wise Breakdown Views
+### 6.2 Phase-wise Breakdown Views
 
 | View | Description | Phases |
 |------|-------------|--------|
@@ -315,7 +302,7 @@ Contract and acquisition details.
 | `analytics_t20_batter_phase` | All T20 batting by phase | PP/Middle/Death |
 | `analytics_t20_bowler_phase` | All T20 bowling by phase | PP/Middle/Death |
 
-### 4.3 Matchup Views
+### 6.3 Matchup Views
 
 | View | Description | Granularity |
 |------|-------------|-------------|
@@ -327,7 +314,7 @@ Contract and acquisition details.
 | `analytics_ipl_bowler_vs_batter_phase` | Bowler perspective | Bowler x Batter x Phase |
 | `analytics_t20_batter_vs_bowler_type` | All T20 vs type | Batter x Bowling Type |
 
-### 4.4 Opposition Analysis Views
+### 6.4 Opposition Analysis Views
 
 | View | Description | Key Use Case |
 |------|-------------|--------------|
@@ -337,7 +324,7 @@ Contract and acquisition details.
 | `analytics_ipl_bowler_vs_team` | Bowling vs each team | Bowler matchup analysis |
 | `analytics_ipl_bowler_vs_team_phase` | By team and phase | Phase-specific prep |
 
-### 4.5 Venue Analysis Views
+### 6.5 Venue Analysis Views
 
 | View | Description | Key Use Case |
 |------|-------------|--------------|
@@ -346,7 +333,7 @@ Contract and acquisition details.
 | `analytics_ipl_bowler_venue` | Bowling at each venue | Ground conditions |
 | `analytics_ipl_bowler_venue_phase` | Venue by phase | Phase-specific venue |
 
-### 4.6 Distribution & Specialist Views
+### 6.6 Distribution & Specialist Views
 
 | View | Description | Key Insight |
 |------|-------------|-------------|
@@ -356,7 +343,7 @@ Contract and acquisition details.
 | `analytics_best_strike_rates` | Qualified high SR batters | Impact batters |
 | `analytics_best_economy` | Qualified low economy bowlers | Economical options |
 
-### 4.7 Squad Integration Views
+### 6.7 Squad Integration Views
 
 | View | Description | Key Use Case |
 |------|-------------|--------------|
@@ -366,14 +353,14 @@ Contract and acquisition details.
 | `analytics_ipl_squad_bowling_phase` | Squad bowling by phase | Role assessment |
 | `analytics_ipl_team_roster` | Full roster with contracts | Squad overview |
 
-### 4.8 Leaderboard Views
+### 6.8 Leaderboard Views
 
 | View | Description | Qualification |
 |------|-------------|---------------|
 | `analytics_top_run_scorers` | Run scoring leaders | 10+ innings |
 | `analytics_top_wicket_takers` | Wicket taking leaders | 10+ matches |
 
-### 4.9 Team Aggregate Views
+### 6.9 Team Aggregate Views
 
 | View | Description |
 |------|-------------|
@@ -384,7 +371,7 @@ Contract and acquisition details.
 
 ## 7. Key Metrics Definitions
 
-### 5.1 Batting Metrics
+### 7.1 Batting Metrics
 
 | Metric | Formula | Description |
 |--------|---------|-------------|
@@ -393,7 +380,7 @@ Contract and acquisition details.
 | Boundary % | (4s + 6s) / Balls × 100 | % of balls hit for boundary |
 | Dot Ball % | Dot Balls / Balls × 100 | % of balls with no runs |
 
-### 5.2 Bowling Metrics
+### 7.2 Bowling Metrics
 
 | Metric | Formula | Description |
 |--------|---------|-------------|
@@ -403,7 +390,7 @@ Contract and acquisition details.
 | Dot Ball % | Dots / Balls × 100 | % dot balls bowled |
 | Boundary Conceded % | (4s + 6s) / Balls × 100 | % balls hit for boundary |
 
-### 5.3 Distribution Metrics
+### 7.3 Distribution Metrics
 
 | Metric | Formula | Description |
 |--------|---------|-------------|
@@ -411,7 +398,7 @@ Contract and acquisition details.
 | % Wickets in Phase | Phase Wickets / Total Wickets × 100 | Wicket distribution |
 | Wicket Efficiency | % Wickets - % Overs | Over/under-performance in phase |
 
-### 5.4 Sample Size Indicators
+### 7.4 Sample Size Indicators
 
 All views include sample size classification:
 
@@ -443,7 +430,7 @@ All views include sample size classification:
 
 ## 9. Sample Queries
 
-### 7.1 Player Analysis
+### 9.1 Player Analysis
 
 ```sql
 -- Virat Kohli's IPL career summary
@@ -459,7 +446,7 @@ SELECT * FROM analytics_ipl_batter_vs_bowler_type
 WHERE batter_name LIKE '%Kohli%' AND bowler_type IN ('Off-spin', 'Leg-spin');
 ```
 
-### 7.2 Head-to-Head
+### 9.2 Head-to-Head
 
 ```sql
 -- Kohli vs Bumrah by phase
@@ -467,7 +454,7 @@ SELECT * FROM analytics_ipl_batter_vs_bowler_phase
 WHERE batter_name LIKE '%Kohli%' AND bowler_name LIKE '%Bumrah%';
 ```
 
-### 7.3 Team Preparation
+### 9.3 Team Preparation
 
 ```sql
 -- RCB 2026 squad batting overview
@@ -481,7 +468,7 @@ WHERE batter_id IN (SELECT player_id FROM ipl_2026_squads WHERE team_name = 'Roy
 AND opposition = 'Mumbai Indians' AND match_phase = 'death';
 ```
 
-### 7.4 Bowler Role Analysis
+### 9.4 Bowler Role Analysis
 
 ```sql
 -- Death over specialists in MI squad
@@ -512,23 +499,23 @@ WHERE opposition IN ('Delhi Capitals', 'Delhi Daredevils')
 
 ## 11. Revolutionary Insights (Andy Flower's Cricket Notes)
 
-### 8.1 Wicket Efficiency Metric
+### 11.1 Wicket Efficiency Metric
 The `wicket_efficiency` column in `analytics_ipl_bowler_phase_distribution` identifies bowlers who take MORE wickets than their workload suggests:
 - **Positive value**: Over-performs in that phase (specialist)
 - **Negative value**: Under-performs relative to overs bowled
 
 **Example**: A bowler with `pct_overs_in_phase = 30%` but `pct_wickets_in_phase = 45%` has `wicket_efficiency = +15` - they're a phase specialist.
 
-### 8.2 Boundary % as Intent Indicator
+### 11.2 Boundary % as Intent Indicator
 High `boundary_pct` with moderate `strike_rate` suggests clean hitting. Low `boundary_pct` with high `strike_rate` suggests rotation and placement skills.
 
-### 8.3 Dot Ball Pressure
+### 11.3 Dot Ball Pressure
 `dot_ball_pct` > 40% for bowlers in death overs is exceptional. For batters, `dot_ball_pct` < 25% in powerplay indicates aggressive intent.
 
-### 8.4 Sample Size Discipline
+### 11.4 Sample Size Discipline
 Always filter for `sample_size = 'HIGH'` for strategic decisions. Use `MEDIUM` for directional insights. Treat `LOW` as anecdotal only.
 
-### 8.5 Phase Matchup Intelligence
+### 11.5 Phase Matchup Intelligence
 The combination of:
 - `analytics_ipl_batter_vs_bowler_type_phase`
 - `analytics_ipl_bowler_phase_distribution`
@@ -539,17 +526,17 @@ The combination of:
 
 ## 12. Technical Notes
 
-### 9.1 Database
+### 12.1 Database
 - **Engine**: DuckDB (embedded OLAP)
 - **File**: `data/cricket_playbook.duckdb`
 - **Size**: ~500MB
 
-### 9.2 Data Source
+### 12.2 Data Source
 - **Provider**: Cricsheet (https://cricsheet.org)
 - **Format**: JSON (ball-by-ball)
 - **Coverage**: All major T20 leagues and internationals
 
-### 9.3 Refresh Frequency
+### 12.3 Refresh Frequency
 - Manual ingestion via `scripts/ingest.py`
 - Squad data updated for IPL 2026 post-auction
 

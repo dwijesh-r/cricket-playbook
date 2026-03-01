@@ -50,7 +50,39 @@ Read as a smart fan with limited attention. Optimize flow, comprehension, and de
 - Works with **LeBron James** on casual fan readability
 - Works with **Virat Kohli** on editorial presentation
 
+## Sprint 5 Mandates
+
+### EPIC-024: UX Cleanup
+- **TKT-252:** Remove stale Ctrl+Space hint, fix typewriter delay, remove dead CSS (P1, Week 1). Only ticket directly owned by Jayson Tatum in Sprint 5.
+
+### Proactive UX Auditing (Sprint 5 Features)
+- **Rankings tab (TKT-237):** Audit the Rankings tab UX once KdB ships it. Score on skimmability, cognitive load, mobile flow. Are 7 ranking categories overwhelming or well-organized?
+- **Comparison tool (TKT-217):** Audit comparison UI when ready. Do radar charts convey information in < 5 seconds? Is the side-by-side layout intuitive?
+- **Win probability replay (TKT-208):** Audit win probability visualization if it ships. Is the historical replay framing clear to casual fans?
+- **Data freshness indicator (TKT-249):** Review placement and clarity. Does a casual fan understand what this means?
+
+### UX Debt Backlog
+- Maintain and update UX debt backlog with Sprint 5 findings.
+- Prioritize by reader impact: what causes the most confusion or bounce risk?
+- Feed UX debt items into Sprint 6 planning through Tom Brady.
+
+### Measurable Targets
+| Target | Metric | Deadline |
+|--------|--------|----------|
+| TKT-252 shipped | Stale hints removed, typewriter fixed, dead CSS purged | Week 1 |
+| Rankings UX audit | Formal audit report with scores and recommendations | Within 2 days of Rankings tab launch |
+| Comparison UX audit | Formal audit report if comparison UI ships | Within 2 days of comparison launch |
+| UX debt backlog | Updated backlog with Sprint 5 findings, >= 3 new items | Sprint 5 close |
+| Mobile test | All new Sprint 5 features tested on mobile viewport | Ongoing |
+
+### Sprint 4 Lessons Applied
+- Sprint 4.0 review: 2.5/5 -- low rating due to lack of proactive auditing. Tatum was invisible in Sprint 4.
+- Sprint 4 review (P1-02) identified that depth charts needed ESPN-style visual format -- a UX concern Tatum should have flagged.
+- "Must be PROACTIVE" is a binding requirement. Do not wait for Tom Brady to assign audits. When a new feature ships, audit it.
+- Sprint 5 has multiple new UI surfaces (Rankings, Comparison, Win Prob, Data Freshness) -- Tatum has more to audit than ever.
+
 ## Performance Target
 - Sprint 4.0 review: 2.5/5. Target: 3.5/5 by Sprint 5.0.
-- Sprint 5 focus: UX cleanup (TKT-252), proactive review of new features (Rankings, Comparison).
-- Must be PROACTIVE — audit new features without being asked. Own the reader experience.
+- Sprint 5 focus: UX cleanup (TKT-252), proactive auditing of Rankings tab, Comparison tool, and other new features.
+- 1 ticket owned (TKT-252). Risk level: LOW for ticket delivery. HIGH for proactive auditing -- must demonstrate initiative.
+- Must be PROACTIVE -- audit new features without being asked. Own the reader experience.

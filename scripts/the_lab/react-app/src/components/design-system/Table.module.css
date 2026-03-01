@@ -1,0 +1,101 @@
+/* Table component styles */
+
+.wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+/* Header */
+
+.th {
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.thSortable {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.thSortable:hover {
+  color: var(--accent);
+}
+
+.sortIndicator {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 0.625rem;
+  opacity: 0.6;
+}
+
+.sortActive {
+  color: var(--accent);
+}
+
+.sortActive .sortIndicator {
+  opacity: 1;
+}
+
+/* Alignment */
+
+.alignLeft {
+  text-align: left;
+}
+
+.alignCenter {
+  text-align: center;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+/* Body */
+
+.td {
+  padding: 10px 16px;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.row {
+  transition: background 0.15s ease;
+}
+
+.row:hover {
+  background: var(--glass);
+}
+
+/* Zebra striping */
+.row:nth-child(even) {
+  background: var(--glass);
+}
+
+.row:nth-child(even):hover {
+  background: var(--bg-tertiary);
+}
+
+/* Empty state */
+
+.empty {
+  padding: 32px;
+  text-align: center;
+  color: var(--text-tertiary);
+}

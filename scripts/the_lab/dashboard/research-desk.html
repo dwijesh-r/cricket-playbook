@@ -1590,7 +1590,6 @@
             .schema-sidebar {
                 border-radius: var(--radius-lg) var(--radius-lg) 0 0;
                 max-height: none;
-                position: static;
             }
             .schema-sidebar.collapsed .schema-group { display: none; }
             .schema-sidebar.collapsed .schema-view-category { display: none; }
@@ -2180,7 +2179,7 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="nav site-nav" aria-label="Site navigation">
+    <nav class="nav site-nav" aria-label="Site navigation" role="navigation">
         <div class="nav-brand">
             <div class="nav-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
   <defs>
@@ -2237,7 +2236,7 @@
         <a href="/boardroom/index.html" class="nav-tab" style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%); color: white;">📡 The Boardroom</a>
     </div>
 
-    <main id="main-content" class="main">
+    <main id="main-content" class="main" role="main">
         <header class="page-header">
             <div class="typewriter-container">
                 <h1 class="page-title">🎬 The Film Room</h1>
@@ -2525,7 +2524,7 @@ LIMIT 20;</textarea>
             </div>
         </div>
 
-        <footer class="footer">
+        <footer class="footer" role="contentinfo">
             <p class="footer-text">
                 Statsledge — The Film Room | EPIC-012 | Powered by DuckDB-WASM | <a href="https://github.com/dwijesh-r/cricket-playbook" target="_blank">View on GitHub</a>
             </p>

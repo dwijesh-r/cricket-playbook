@@ -5131,7 +5131,7 @@
                             <div class="stat-label">Total</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value accent-teal" id="statReady">13</div>
+                            <div class="stat-value accent-teal" id="statReady">2</div>
                             <div class="stat-label">Ready</div>
                         </div>
                         <div class="stat-item">
@@ -5151,7 +5151,7 @@
                             <div class="stat-label">🌹 Founder</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value accent-green" id="statDone">240</div>
+                            <div class="stat-value accent-green" id="statDone">251</div>
                             <div class="stat-label">Done</div>
                         </div>
                         <div class="stat-item">
@@ -10044,14 +10044,14 @@
             {
               id: 'TKT-207',
               title: 'Train & validate win probability model',
-              state: 'READY',
+              state: 'DONE',
               priority: 'P0',
               effort: 'marathon',
               assignee: 'Ime Udoka',
               epic: 'EPIC-018',
-              progress: 0,
-              tags: ['ML', 'Training', 'Validation'],
-              gates: {},
+              progress: 100,
+              tags: ['ML', 'Training', 'Validation', 'done-sprint-5'],
+              gates: { domainSanity: true, enforcement: true },
               blockedBy: ['TKT-206'],
               context: {
                 ask: 'Train model on 2008-2024 IPL data, validate on 2025 season (holdout). Target Brier score < 0.20. Calibration plot required. Compare at least 2 model types. Cross-validate with 5-fold temporal split. Save best model + metrics.'
@@ -10076,14 +10076,14 @@
             {
               id: 'TKT-209',
               title: 'Model monitoring & drift detection setup',
-              state: 'READY',
+              state: 'DONE',
               priority: 'P1',
               effort: 'hustle',
               assignee: 'Ime Udoka',
               epic: 'EPIC-018',
-              progress: 0,
-              tags: ['ML Ops', 'Monitoring'],
-              gates: {},
+              progress: 100,
+              tags: ['ML Ops', 'Monitoring', 'done-sprint-5'],
+              gates: { domainSanity: true, enforcement: true },
               blockedBy: ['TKT-207'],
               context: {
                 ask: 'Extend existing ML monitoring (scripts/ml_ops/) with win probability specific checks: prediction calibration drift, feature distribution drift (KS test), latency monitoring. Add to weekly health check workflow.'
@@ -10107,14 +10107,14 @@
             {
               id: 'TKT-211',
               title: 'Design system — component library + theme tokens',
-              state: 'READY',
+              state: 'DONE',
               priority: 'P0',
               effort: 'marathon',
               assignee: 'Kevin de Bruyne',
               epic: 'EPIC-019',
-              progress: 0,
-              tags: ['Frontend', 'Design System', 'React'],
-              gates: {},
+              progress: 100,
+              tags: ['Frontend', 'Design System', 'React', 'done-sprint-5'],
+              gates: { domainSanity: true, enforcement: true },
               blockedBy: ['TKT-210'],
               context: {
                 ask: 'Port The Lab dark theme to CSS-in-JS tokens. Build core components: Card, Table, Badge, Modal, Tab, TeamSelector, PlayerChip. Follow existing color palette (team primary/secondary from teams.js). Storybook optional.'
@@ -10123,14 +10123,14 @@
             {
               id: 'TKT-212',
               title: 'Data layer — DuckDB-WASM integration + React hooks',
-              state: 'READY',
+              state: 'DONE',
               priority: 'P0',
               effort: 'marathon',
               assignee: 'Kevin de Bruyne',
               epic: 'EPIC-019',
-              progress: 0,
-              tags: ['Frontend', 'Data Layer', 'DuckDB'],
-              gates: {},
+              progress: 100,
+              tags: ['Frontend', 'Data Layer', 'DuckDB', 'done-sprint-5'],
+              gates: { domainSanity: true, enforcement: true },
               blockedBy: ['TKT-210'],
               context: {
                 ask: 'Integrate DuckDB-WASM with React. Create custom hooks: useQuery(sql), useTeamData(abbrev), usePlayerProfile(id). Load parquet files from sql_lab/tables/. Pre-register 163 views from views.sql. Connection pooling + error boundaries.'
@@ -10204,14 +10204,14 @@
             {
               id: 'TKT-217',
               title: 'Comparison UI — radar charts + side-by-side stats',
-              state: 'READY',
+              state: 'DONE',
               priority: 'P0',
               effort: 'marathon',
               assignee: 'Kevin de Bruyne',
               epic: 'EPIC-020',
-              progress: 0,
-              tags: ['Frontend', 'Visualization', 'Comparison'],
-              gates: {},
+              progress: 100,
+              tags: ['Frontend', 'Visualization', 'Comparison', '✅ Done'],
+              gates: { florentino_gate: 'APPROVED', build: 'PASS', domain_sanity: 'PASS', enforcement: 'PASS' },
               blockedBy: ['TKT-216'],
               context: {
                 ask: 'Build comparison view with: player selector (search + autocomplete), radar chart overlay (6 dimensions: SR, Avg, Boundary%, Dot%, Phase Balance, Consistency), side-by-side stat table, phase heatmap comparison. Use Chart.js or D3 for radar.'
@@ -10220,14 +10220,14 @@
             {
               id: 'TKT-218',
               title: 'Multi-player comparison (3+ players)',
-              state: 'READY',
+              state: 'DONE',
               priority: 'P1',
               effort: 'deep-work',
               assignee: 'Kevin de Bruyne',
               epic: 'EPIC-020',
-              progress: 0,
-              tags: ['Frontend', 'Visualization', 'Comparison'],
-              gates: {},
+              progress: 100,
+              tags: ['Frontend', 'Visualization', 'Comparison', 'done-sprint-5'],
+              gates: { domainSanity: true, enforcement: true },
               blockedBy: ['TKT-217'],
               context: {
                 ask: 'Extend comparison tool to support 3-4 player comparisons. Radar chart with multiple overlays (color-coded by team). Tabular view with sortable columns. Group comparison by role (e.g., compare all team openers, all death bowlers).'
@@ -10571,14 +10571,14 @@
             {
               id: 'TKT-241',
               title: 'Fix PRD section numbering, player/view counts, agent counts across all docs',
-              state: 'READY',
+              state: 'DONE',
               priority: 'P1',
               effort: 'deep-work',
               assignee: 'Virat Kohli',
               epic: 'EPIC-022',
-              progress: 0,
-              tags: [],
-              gates: {},
+              progress: 100,
+              tags: ['done-sprint-5'],
+              gates: { domainSanity: true, enforcement: true },
               context: {
                 ask: 'Audit and fix all documentation for stale or incorrect counts. PRD section numbering must be sequential. Player count, view count, and agent count references must match current reality. Cross-check PRD, CONSTITUTION, AGENT_PLAYBOOK, and CLAUDE.md for consistency. Update any references to old sprint numbers or outdated metrics.'
               }
@@ -10662,14 +10662,14 @@
             {
               id: 'TKT-247',
               title: 'Implement lightweight model registry',
-              state: 'READY',
+              state: 'DONE',
               priority: 'P1',
               effort: 'deep-work',
               assignee: 'Ime Udoka',
               epic: 'EPIC-023',
-              progress: 0,
-              tags: [],
-              gates: {},
+              progress: 100,
+              tags: ['done-sprint-5'],
+              gates: { domainSanity: true, enforcement: true },
               context: {
                 ask: 'Implement a lightweight model registry to track ML model versions, hyperparameters, metrics, and artifacts. Addresses the known gap in ML Rigor category (system health score). Registry should track: model name, version, training date, dataset hash, hyperparameters, validation metrics, artifact path, status (active/archived). JSON-based storage in .mission-control/data/models/.'
               }
@@ -10707,14 +10707,14 @@
             {
               id: 'TKT-250',
               title: 'Fix minimum font sizes, Film Room mobile overlap, smooth scroll',
-              state: 'READY',
+              state: 'DONE',
               priority: 'P1',
               effort: 'deep-work',
               assignee: 'Kevin de Bruyne',
               epic: 'EPIC-024',
-              progress: 0,
-              tags: [],
-              gates: {},
+              progress: 100,
+              tags: ['done-sprint-5'],
+              gates: { domainSanity: true, enforcement: true },
               context: {
                 ask: 'Fix UI issues identified in Sprint 4 review: enforce minimum font sizes across all Lab pages (no text below 12px), fix Film Room page layout overlap on mobile viewports, and implement smooth scroll behavior for anchor links and page navigation. Test across Chrome, Safari, Firefox on desktop and mobile.'
               }
@@ -10752,14 +10752,14 @@
             {
               id: 'TKT-253',
               title: 'Add WCAG 2.1 AA accessibility basics — ARIA labels, focus-visible, skip-nav',
-              state: 'READY',
+              state: 'DONE',
               priority: 'P1',
               effort: 'deep-work',
               assignee: 'Kevin de Bruyne',
               epic: 'EPIC-024',
-              progress: 0,
-              tags: [],
-              gates: {},
+              progress: 100,
+              tags: ['done-sprint-5'],
+              gates: { domainSanity: true, enforcement: true },
               context: {
                 ask: 'Add WCAG 2.1 AA accessibility basics to The Lab dashboard. Add ARIA labels to all interactive elements (buttons, links, form inputs, tabs). Implement focus-visible styles for keyboard navigation. Add skip-nav link for screen readers. Ensure color contrast ratios meet AA standards (4.5:1 for normal text, 3:1 for large text).'
               }
@@ -10782,14 +10782,14 @@
             {
               id: 'TKT-255',
               title: 'Revise all 8 stale agent configs for Sprint 5',
-              state: 'READY',
+              state: 'DONE',
               priority: 'P0',
               effort: 'deep-work',
               assignee: 'Brad Stevens',
               epic: 'EPIC-022',
-              progress: 0,
-              tags: [],
-              gates: {},
+              progress: 100,
+              tags: ['done-sprint-5'],
+              gates: { domainSanity: true, enforcement: true },
               context: {
                 ask: 'Revise all 8 agent .md config files unchanged since Jan 21. Update responsibilities, add Sprint 5 mandates, reflect Sprint 4 performance review lessons, set measurable targets. Agents: Brad Stevens, Tom Brady, Stephen Curry, Kevin de Bruyne, N\'Golo Kante, Pep Guardiola, Ime Udoka, Jayson Tatum.'
               }

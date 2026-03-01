@@ -9,7 +9,13 @@
  *
  * For now, this module provides the interface that future data loaders
  * will implement.
+ *
+ * DuckDB-WASM is the primary data layer for SQL-powered queries.
+ * See ./duckdb.ts for the initialization singleton.
  */
+
+export { getDB, getConnection, executeQuery, resetDB } from './duckdb';
+export type { DuckDBConfig } from './duckdb';
 
 const DATA_BASE_URL = '../dashboard/data';
 

@@ -1,4 +1,4 @@
-# Cricket Playbook — Constitution v2.0
+# Cricket Playbook — Constitution v2.2.0
 
 **Status:** APPROVED
 **Version:** 2.2.0
@@ -571,7 +571,7 @@ All GitHub Actions workflows must:
 | Metric | Target | Current |
 |--------|--------|---------|
 | Workflow Coverage | 90% | 82% |
-| System Health Score | 85/100 | 81.5/100 |
+| System Health Score | 85/100 | 92.0/100 |
 | Test Coverage | 80% | Not measured |
 
 ### 15.4 Workflow Chain
@@ -619,6 +619,7 @@ All commits must pass pre-commit hooks:
 | **Virat Kohli** | Editorial | Content lead, narrative |
 | **Kevin de Bruyne** | Editorial | Visualization |
 | **LeBron James** | Editorial | Cross-team coordination |
+| **Jayson Tatum** | Editorial | UX & reader flow auditing |
 
 ---
 
@@ -654,6 +655,7 @@ All commits must pass pre-commit hooks:
 | 1.0 | 2026-01-24 | Tom Brady | Initial constitution |
 | 2.0 | 2026-01-31 | Brad Stevens, Florentino Perez, Tom Brady | Task Integrity Loop, team structure, graduation rules, expanded governance |
 | 2.1 | 2026-02-07 | Tom Brady | Added Section 5: Work Item Hierarchy (TKT-130) - EPIC/Parent/Child ticket structure, Epic View reference |
+| 2.2.0 | 2026-02-08 | Brad Stevens, Florentino Perez, Tom Brady | Added Section 15: CI/CD Governance, content language standards, branching strategy |
 
 ---
 
@@ -661,4 +663,4 @@ All commits must pass pre-commit hooks:
 
 ---
 
-*Cricket Playbook Constitution v2.0*
+*Cricket Playbook Constitution v2.2.0*

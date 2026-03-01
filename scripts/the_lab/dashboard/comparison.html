@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Comparison - Statsledge</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ==================== THEME SYSTEM ==================== */
+        :root {
+            /* === FONTS === */
+            --font-display: 'DM Serif Display', serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+
+            /* === COLORS === */
+            --bg-primary: #06080f;
+            --bg-secondary: #0d1117;
+            --bg-tertiary: #161b22;
+            --bg-elevated: #21262d;
+            --text-primary: #e6edf3;
+            --text-secondary: #7d8590;
+            --text-tertiary: #6e7681;
+            --accent: #00f0ff;
+            --accent-green: #00ff87;
+            --accent-yellow: #f0c000;
+            --accent-orange: #ff9f0a;
+            --accent-red: #ff3850;
+            --accent-purple: #a855f7;
+            --accent-pink: #f472b6;
+            --accent-teal: #22d3ee;
+            --border: rgba(0, 240, 255, 0.08);
+            --glass: rgba(0, 240, 255, 0.03);
+            --glass-border: rgba(0, 240, 255, 0.06);
+            --shadow: rgba(0, 0, 0, 0.5);
+            --glow-accent: rgba(0, 240, 255, 0.15);
+            --glow-purple: rgba(168, 85, 247, 0.15);
+            --border-accent: rgba(0, 240, 255, 0.3);
+            --scanline: rgba(0, 240, 255, 0.03);
+
+            /* === COMPARISON COLORS === */
+            --player-a: #00f0ff;
+            --player-a-fill: rgba(0, 240, 255, 0.2);
+            --player-b: #a855f7;
+            --player-b-fill: rgba(168, 85, 247, 0.2);
+
+            /* === SPACING (8px base) === */
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 16px;
+            --space-4: 24px;
+            --space-5: 32px;
+            --space-6: 40px;
+            --space-7: 48px;
+            --space-8: 56px;
+            --space-9: 64px;
+            --space-10: 72px;
+            --space-11: 80px;
+            --space-12: 96px;
+
+            /* === TYPOGRAPHY (12px floor) === */
+            --text-xs: 12px;
+            --text-sm: 13px;
+            --text-base: 14px;
+            --text-md: 16px;
+            --text-lg: 18px;
+            --text-xl: 20px;
+            --text-2xl: 24px;
+            --text-3xl: 32px;
+            --text-4xl: 40px;
+            --text-5xl: 48px;
+
+            /* === BORDER RADIUS === */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-full: 9999px;
+
+            /* === TRANSITIONS === */
+            --transition-fast: 150ms ease-in-out;
+            --transition-normal: 200ms ease-in-out;
+            --transition-slow: 250ms ease-in-out;
+
+            /* === LAYOUT === */
+            --container-max: 1280px;
+            --nav-height: 56px;
+
+            /* === ELEVATION === */
+            --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 8px rgba(0, 240, 255, 0.03);
+            --elevation-2: 0 3px 6px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 240, 255, 0.05);
+            --elevation-3: 0 10px 20px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 240, 255, 0.05);
+            --elevation-hover: 0 14px 28px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 240, 255, 0.1);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #f0f2f5;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #e2e6ea;
+            --bg-elevated: #d0d5db;
+            --text-primary: #1a1d21;
+            --text-secondary: #5a6270;
+            --text-tertiary: #8a919a;
+            --accent: #0088cc;
+            --accent-green: #00a86b;
+            --accent-yellow: #d4a000;
+            --accent-orange: #e08600;
+            --accent-red: #e0303f;
+            --accent-purple: #8b3fd9;
+            --accent-pink: #d94f8e;
+            --accent-teal: #0ea5c9;
+            --border: rgba(0, 50, 80, 0.08);
+            --glass: rgba(0, 50, 80, 0.03);
+            --glass-border: rgba(0, 50, 80, 0.06);
+            --shadow: rgba(0, 0, 0, 0.12);
+            --glow-accent: rgba(0, 136, 204, 0.15);
+            --glow-purple: rgba(139, 63, 217, 0.12);
+            --border-accent: rgba(0, 136, 204, 0.2);
+            --scanline: transparent;
+
+            --player-a: #0088cc;
+            --player-a-fill: rgba(0, 136, 204, 0.2);
+            --player-b: #8b3fd9;
+            --player-b-fill: rgba(139, 63, 217, 0.2);
+
+            --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+            --elevation-2: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+            --elevation-3: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.08);
+            --elevation-hover: 0 14px 28px rgba(0, 0, 0, 0.12), 0 10px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        /* ==================== GRID SYSTEM (TKT-268) ==================== */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 0 var(--space-3); }
+        }
+        @media (max-width: 480px) {
+            .container { padding: 0 var(--space-2); }
+        }
+
+        /* ==================== UNIFIED NAV (TKT-272) ==================== */
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: var(--nav-height);
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 var(--space-4);
+            backdrop-filter: blur(12px);
+        }
+
+        /* ==================== BASE ==================== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ==================== ACCESSIBILITY ==================== */
+        .skip-nav {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: var(--space-2) var(--space-4);
+            z-index: 200;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0 0 var(--radius-md) 0;
+            transition: top var(--transition-fast);
+        }
+        .skip-nav:focus { top: 0; }
+
+        .sr-only {
+            position: absolute; width: 1px; height: 1px;
+            padding: 0; margin: -1px; overflow: hidden;
+            clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* ==================== BACKGROUND LAYERS ==================== */
+        .bg-gradient {
+            position: fixed; inset: 0; z-index: -3; pointer-events: none;
+        }
+        .bg-gradient::before {
+            content: ''; position: absolute; width: 600px; height: 600px;
+            top: -10%; left: -10%;
+            background: radial-gradient(ellipse, rgba(0, 240, 255, 0.08) 0%, transparent 70%);
+            filter: blur(80px);
+            animation: pulse-glow 8s ease-in-out infinite;
+        }
+        .bg-gradient::after {
+            content: ''; position: absolute; width: 500px; height: 500px;
+            bottom: -10%; right: -10%;
+            background: radial-gradient(ellipse, rgba(191, 90, 242, 0.12) 0%, transparent 70%);
+            filter: blur(80px);
+            animation: pulse-glow 8s ease-in-out infinite 4s;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+        .bg-grid {
+            position: fixed; inset: 0; z-index: -2;
+            background-image:
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                repeating-linear-gradient(0deg, transparent, transparent 3px, var(--scanline) 3px, var(--scanline) 4px);
+            background-size: 60px 60px, 60px 60px, 100% 4px;
+        }
+        [data-theme="light"] .bg-grid {
+            background-image:
+                linear-gradient(rgba(0, 50, 80, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 50, 80, 0.04) 1px, transparent 1px);
+        }
+        .bg-watermark {
+            position: fixed; bottom: 5%; right: -5%;
+            font-size: 140px; font-weight: 800; letter-spacing: -0.05em;
+            color: rgba(255, 255, 255, 0.015); z-index: -1;
+            pointer-events: none; transform: rotate(-5deg);
+            white-space: nowrap; user-select: none;
+        }
+        [data-theme="light"] .bg-watermark { color: rgba(0, 0, 0, 0.02); }
+
+        /* ==================== NAVIGATION ==================== */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            height: 56px;
+            background: rgba(6, 8, 15, 0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 1px 0 rgba(0, 240, 255, 0.1), 0 4px 20px rgba(0, 0, 0, 0.3);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 24px; z-index: 100;
+        }
+        [data-theme="light"] .nav { background: rgba(240, 242, 245, 0.88); }
+
+        .nav-brand { display: flex; align-items: center; gap: var(--space-2); }
+        .nav-logo {
+            width: 32px; height: 32px;
+            display: flex; align-items: center; justify-content: center;
+            filter: drop-shadow(0 0 8px var(--glow-accent));
+            animation: logo-pulse 3s ease-in-out infinite;
+        }
+        .nav-logo svg { width: 100%; height: 100%; }
+        @keyframes logo-pulse {
+            0%, 100% { filter: drop-shadow(0 0 8px var(--glow-accent)); }
+            50% { filter: drop-shadow(0 0 16px var(--glow-accent)); }
+        }
+        .nav-title {
+            font-family: var(--font-body); font-size: var(--text-xl);
+            letter-spacing: 0.02em; text-transform: uppercase;
+            line-height: 1; display: flex; align-items: baseline; gap: 1px;
+        }
+        .nav-title .brand-stat { font-weight: 300; color: var(--text-secondary); letter-spacing: 0.08em; }
+        .nav-title .brand-sledge {
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent) 0%, #a855f7 50%, var(--accent) 100%);
+            background-size: 200% 100%;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 3s ease-in-out infinite;
+        }
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .nav-tabs {
+            display: flex; gap: var(--space-1);
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            padding: var(--space-1); border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+        }
+        .nav-tab {
+            padding: var(--space-2) 16px; border-radius: var(--radius-sm);
+            font-size: 13px; font-weight: 600; color: var(--text-secondary);
+            cursor: pointer; transition: all var(--transition-slow);
+            border: none; background: none; font-family: inherit; text-decoration: none;
+        }
+        .nav-tab:hover { color: var(--text-primary); background: var(--bg-tertiary); }
+        .nav-tab.active {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            color: white; box-shadow: 0 0 12px var(--glow-accent);
+        }
+        .mobile-menu-btn {
+            display: none; width: 38px; height: 38px;
+            border-radius: var(--radius-lg); background: var(--bg-secondary);
+            border: 1px solid var(--border); color: var(--text-primary);
+            cursor: pointer; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: var(--space-1); padding: var(--space-2);
+        }
+        .mobile-menu-btn span {
+            display: block; width: 18px; height: 2px;
+            background: currentColor; border-radius: var(--radius-sm);
+            transition: all var(--transition-slow);
+        }
+        .mobile-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+        .mobile-menu-btn.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+        .mobile-nav-menu {
+            display: none; position: fixed; top: 56px; left: 0; right: 0;
+            background: rgba(6, 8, 15, 0.95);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: var(--space-3); z-index: 99;
+            flex-direction: column; gap: var(--space-2);
+            transform: translateY(-100%); opacity: 0;
+            transition: all var(--transition-slow); pointer-events: none;
+        }
+        .mobile-nav-menu.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
+        [data-theme="light"] .mobile-nav-menu { background: rgba(245, 245, 247, 0.95); }
+        .mobile-nav-menu .nav-tab {
+            width: 100%; text-align: center;
+            padding: var(--space-3) 16px; border-radius: var(--radius-lg);
+            background: var(--bg-secondary);
+        }
+        .mobile-nav-menu .nav-tab.active {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+        }
+        .nav-actions { display: flex; align-items: center; gap: var(--space-3); }
+        .nav-time {
+            font-family: var(--font-mono); font-size: var(--text-xs);
+            color: var(--text-tertiary); font-variant-numeric: tabular-nums;
+            font-weight: 500; padding: var(--space-1) 10px;
+            background: var(--bg-secondary); border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+        }
+        .theme-toggle {
+            width: 38px; height: 38px; border-radius: var(--radius-lg);
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            color: var(--text-secondary); cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px; transition: all var(--transition-slow);
+        }
+        .theme-toggle:hover {
+            color: var(--accent); border-color: var(--accent);
+            box-shadow: 0 0 12px var(--glow-accent);
+        }
+        .nav-btn {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border); color: var(--accent);
+            padding: var(--space-2) 16px; border-radius: var(--radius-lg);
+            font-size: 13px; font-weight: 600; cursor: pointer;
+            font-family: inherit; text-decoration: none;
+            display: inline-flex; align-items: center; gap: var(--space-1);
+            transition: all var(--transition-slow);
+        }
+        .nav-btn:hover {
+            background: linear-gradient(135deg, rgba(10, 132, 255, 0.2) 0%, rgba(191, 90, 242, 0.2) 100%);
+            border-color: var(--accent);
+        }
+
+        /* ==================== MAIN ==================== */
+        .main { padding-top: var(--space-8); min-height: 100vh; }
+
+        /* ==================== HERO ==================== */
+        .hero { padding: var(--space-11) 24px 40px; text-align: center; position: relative; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: var(--space-2);
+            background: var(--glass); border: 1px solid var(--glass-border);
+            padding: var(--space-2) 16px; border-radius: var(--radius-xl);
+            font-size: 12px; font-weight: 600; color: var(--accent);
+            margin-bottom: var(--space-4); text-transform: uppercase;
+            letter-spacing: 0.1em; max-width: 90%;
+        }
+        .hero-title {
+            font-family: var(--font-display); text-transform: uppercase;
+            letter-spacing: 0.06em; font-size: 48px; font-weight: 800;
+            line-height: 1.1; margin-bottom: var(--space-3);
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 50%, var(--accent-purple) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .hero-subtitle {
+            font-size: 16px; color: var(--text-secondary);
+            max-width: 700px; margin: 0 auto 24px; line-height: 1.6;
+        }
+
+        /* ==================== SELECTION BAR ==================== */
+        .selection-bar {
+            max-width: 900px; margin: 0 auto var(--space-7);
+            padding: var(--space-4);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--elevation-2);
+        }
+        .type-toggle {
+            display: flex; justify-content: center;
+            gap: var(--space-2); margin-bottom: var(--space-4);
+        }
+        .type-pill {
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm); font-weight: 600;
+            cursor: pointer; border: 1px solid var(--border);
+            background: var(--bg-tertiary); color: var(--text-secondary);
+            font-family: var(--font-body);
+            transition: all var(--transition-normal);
+        }
+        .type-pill.active {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            color: white; border-color: transparent;
+            box-shadow: 0 0 12px var(--glow-accent);
+        }
+        .type-pill:hover:not(.active) { color: var(--text-primary); border-color: var(--accent); }
+
+        .player-selectors {
+            display: flex; align-items: center; gap: var(--space-3);
+        }
+        .player-slot {
+            flex: 1; position: relative;
+        }
+        .player-slot-label {
+            font-size: var(--text-xs); font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            margin-bottom: var(--space-1);
+        }
+        .player-slot:first-child .player-slot-label { color: var(--player-a); }
+        .player-slot:last-child .player-slot-label { color: var(--player-b); }
+
+        .search-input {
+            width: 100%; padding: var(--space-3);
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            transition: border-color var(--transition-normal);
+        }
+        .search-input:focus {
+            outline: none; border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--glow-accent);
+        }
+        .search-input::placeholder { color: var(--text-tertiary); }
+
+        .dropdown {
+            position: absolute; top: 100%; left: 0; right: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-accent);
+            border-radius: var(--radius-md);
+            max-height: 240px; overflow-y: auto;
+            z-index: 50; margin-top: var(--space-1);
+            box-shadow: var(--elevation-3);
+            display: none;
+        }
+        .dropdown.open { display: block; }
+        .dropdown-item {
+            padding: var(--space-2) var(--space-3);
+            cursor: pointer; font-size: var(--text-sm);
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+            display: flex; justify-content: space-between;
+            align-items: center;
+        }
+        .dropdown-item:hover, .dropdown-item.highlighted {
+            background: var(--glass); color: var(--text-primary);
+        }
+        .dropdown-item .team-tag {
+            font-size: var(--text-xs); color: var(--text-tertiary);
+            font-family: var(--font-mono);
+        }
+
+        .vs-badge {
+            flex-shrink: 0;
+            width: 48px; height: 48px;
+            border-radius: var(--radius-full);
+            background: linear-gradient(135deg, var(--player-a) 0%, var(--player-b) 100%);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: var(--text-lg); color: white;
+            box-shadow: 0 0 20px var(--glow-accent), 0 0 20px var(--glow-purple);
+            align-self: flex-end; margin-bottom: 4px;
+        }
+
+        .selected-chip {
+            display: flex; align-items: center; gap: var(--space-2);
+            padding: var(--space-2) var(--space-3);
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            font-size: var(--text-base);
+        }
+        .selected-chip .chip-name { font-weight: 600; color: var(--text-primary); }
+        .selected-chip .chip-team {
+            font-size: var(--text-xs); color: var(--text-tertiary);
+            font-family: var(--font-mono);
+        }
+        .selected-chip .chip-clear {
+            margin-left: auto;
+            background: none; border: none;
+            color: var(--text-tertiary); cursor: pointer;
+            font-size: var(--text-md); padding: 2px 6px;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-fast);
+        }
+        .selected-chip .chip-clear:hover { color: var(--accent-red); background: rgba(255, 56, 80, 0.1); }
+
+        .player-slot:first-child .selected-chip { border-left: 3px solid var(--player-a); }
+        .player-slot:last-child .selected-chip { border-left: 3px solid var(--player-b); }
+
+        /* ==================== CONTENT SECTIONS ==================== */
+        .comparison-content {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+        }
+        .empty-state {
+            text-align: center; padding: var(--space-12) var(--space-4);
+            color: var(--text-tertiary);
+        }
+        .empty-state-icon { font-size: 64px; margin-bottom: var(--space-3); opacity: 0.5; }
+        .empty-state-text { font-size: var(--text-lg); margin-bottom: var(--space-2); }
+        .empty-state-hint { font-size: var(--text-sm); }
+
+        .section {
+            margin-bottom: var(--space-7);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: var(--space-4);
+            box-shadow: var(--elevation-1);
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            margin-bottom: var(--space-4);
+            padding-bottom: var(--space-2);
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: var(--space-2);
+        }
+        .section-title .icon { font-size: var(--text-2xl); }
+
+        /* ==================== RADAR CHART ==================== */
+        .radar-wrap {
+            display: flex; justify-content: center;
+            align-items: center; padding: var(--space-3) 0;
+        }
+        .radar-svg { max-width: 420px; width: 100%; height: auto; }
+        .radar-grid { stroke: var(--border); stroke-width: 0.5; fill: none; }
+        .radar-axis { stroke: var(--border); stroke-width: 0.5; }
+        .radar-label {
+            fill: var(--text-secondary);
+            font-family: var(--font-body);
+            font-size: 11px; font-weight: 600;
+            text-anchor: middle;
+        }
+        .radar-poly-a { fill: var(--player-a-fill); stroke: var(--player-a); stroke-width: 2; }
+        .radar-poly-b { fill: var(--player-b-fill); stroke: var(--player-b); stroke-width: 2; }
+        .radar-dot-a { fill: var(--player-a); }
+        .radar-dot-b { fill: var(--player-b); }
+        .radar-legend {
+            display: flex; justify-content: center;
+            gap: var(--space-6); margin-top: var(--space-3);
+        }
+        .legend-item {
+            display: flex; align-items: center; gap: var(--space-2);
+            font-size: var(--text-sm); font-weight: 500;
+        }
+        .legend-swatch {
+            width: 12px; height: 12px; border-radius: 2px;
+        }
+        .legend-swatch.a { background: var(--player-a); }
+        .legend-swatch.b { background: var(--player-b); }
+
+        /* ==================== STATS TABLE ==================== */
+        .stats-table {
+            width: 100%; border-collapse: collapse;
+            font-family: var(--font-mono); font-size: var(--text-sm);
+        }
+        .stats-table tr {
+            border-bottom: 1px solid var(--border);
+        }
+        .stats-table tr:last-child { border-bottom: none; }
+        .stats-table td {
+            padding: var(--space-2) var(--space-3);
+            vertical-align: middle;
+        }
+        .stats-table .val-a { text-align: right; width: 30%; }
+        .stats-table .stat-label {
+            text-align: center; width: 40%;
+            font-family: var(--font-body);
+            font-weight: 600; color: var(--text-secondary);
+            font-size: var(--text-xs); text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .stats-table .val-b { text-align: left; width: 30%; }
+        .val-better { color: var(--accent-green); font-weight: 700; }
+        .val-worse { color: var(--accent-red); opacity: 0.7; }
+
+        /* ==================== PHASE BREAKDOWN ==================== */
+        .phase-pills {
+            display: flex; gap: var(--space-2);
+            margin-bottom: var(--space-3);
+        }
+        .phase-pill {
+            padding: var(--space-2) var(--space-3);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm); font-weight: 600;
+            cursor: pointer; border: 1px solid var(--border);
+            background: var(--bg-tertiary); color: var(--text-secondary);
+            font-family: var(--font-body);
+            transition: all var(--transition-normal);
+        }
+        .phase-pill.active {
+            background: var(--accent); color: var(--bg-primary);
+            border-color: var(--accent);
+        }
+        .phase-pill:hover:not(.active) { border-color: var(--accent); color: var(--text-primary); }
+
+        .heatmap-grid {
+            display: grid;
+            grid-template-columns: auto repeat(2, 1fr);
+            gap: 2px; margin-top: var(--space-3);
+        }
+        .heatmap-header {
+            font-size: var(--text-xs); font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.05em;
+            padding: var(--space-2); text-align: center;
+            color: var(--text-secondary);
+        }
+        .heatmap-header.player-a-header { color: var(--player-a); }
+        .heatmap-header.player-b-header { color: var(--player-b); }
+        .heatmap-metric {
+            font-size: var(--text-xs); font-weight: 600;
+            padding: var(--space-2) var(--space-3);
+            color: var(--text-secondary);
+            display: flex; align-items: center;
+        }
+        .heatmap-cell {
+            padding: var(--space-2);
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: var(--text-sm); font-weight: 600;
+            border-radius: var(--radius-sm);
+        }
+        .q5 { background: rgba(0, 255, 135, 0.25); color: var(--accent-green); }
+        .q4 { background: rgba(0, 255, 135, 0.12); color: var(--accent-green); }
+        .q3 { background: rgba(240, 192, 0, 0.12); color: var(--accent-yellow); }
+        .q2 { background: rgba(255, 159, 10, 0.12); color: var(--accent-orange); }
+        .q1 { background: rgba(255, 56, 80, 0.15); color: var(--accent-red); }
+
+        /* ==================== MATCHUP SPLITS ==================== */
+        .splits-table {
+            width: 100%; border-collapse: collapse;
+            font-size: var(--text-sm);
+        }
+        .splits-table th {
+            font-size: var(--text-xs); font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.05em;
+            padding: var(--space-2) var(--space-3);
+            color: var(--text-tertiary);
+            border-bottom: 2px solid var(--border);
+            text-align: center;
+        }
+        .splits-table th.player-a-col { color: var(--player-a); }
+        .splits-table th.player-b-col { color: var(--player-b); }
+        .splits-table td {
+            padding: var(--space-2) var(--space-3);
+            text-align: center; font-family: var(--font-mono);
+            border-bottom: 1px solid var(--border);
+        }
+        .splits-table .split-type {
+            text-align: left; font-family: var(--font-body);
+            font-weight: 600; color: var(--text-secondary);
+        }
+
+        /* ==================== VERDICT CARD ==================== */
+        .verdict-card {
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+            border: 1px solid var(--border-accent);
+            border-radius: var(--radius-xl);
+            padding: var(--space-5);
+            text-align: center;
+            box-shadow: var(--elevation-2);
+        }
+        .verdict-title {
+            font-family: var(--font-display);
+            font-size: var(--text-2xl);
+            margin-bottom: var(--space-3);
+        }
+        .verdict-score {
+            display: flex; justify-content: center;
+            align-items: center; gap: var(--space-4);
+            margin-bottom: var(--space-4);
+        }
+        .verdict-player {
+            text-align: center;
+        }
+        .verdict-player-name {
+            font-weight: 700; font-size: var(--text-md);
+            margin-bottom: var(--space-1);
+        }
+        .verdict-player-name.a { color: var(--player-a); }
+        .verdict-player-name.b { color: var(--player-b); }
+        .verdict-wins {
+            font-family: var(--font-mono);
+            font-size: var(--text-3xl); font-weight: 800;
+        }
+        .verdict-dash {
+            font-size: var(--text-2xl); color: var(--text-tertiary);
+            font-weight: 300;
+        }
+        .verdict-details {
+            text-align: left;
+            max-width: 600px; margin: 0 auto;
+        }
+        .verdict-detail {
+            display: flex; align-items: flex-start;
+            gap: var(--space-2); margin-bottom: var(--space-2);
+            font-size: var(--text-sm); color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .verdict-detail .bullet {
+            flex-shrink: 0; width: 6px; height: 6px;
+            border-radius: var(--radius-full);
+            background: var(--accent);
+            margin-top: 7px;
+        }
+
+        /* ==================== FORM COMPARISON ==================== */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-3);
+        }
+        .form-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-3);
+        }
+        .form-card.a { border-top: 3px solid var(--player-a); }
+        .form-card.b { border-top: 3px solid var(--player-b); }
+        .form-player-name {
+            font-weight: 700; font-size: var(--text-md);
+            margin-bottom: var(--space-1);
+        }
+        .form-team {
+            font-size: var(--text-xs); color: var(--text-tertiary);
+            font-family: var(--font-mono);
+            margin-bottom: var(--space-3);
+        }
+        .form-stat {
+            display: flex; justify-content: space-between;
+            padding: var(--space-1) 0;
+            font-size: var(--text-sm);
+        }
+        .form-stat-label { color: var(--text-secondary); }
+        .form-stat-value { font-family: var(--font-mono); font-weight: 600; }
+        .delta-positive { color: var(--accent-green); }
+        .delta-negative { color: var(--accent-red); }
+        .rank-badge {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono); font-size: var(--text-xs); font-weight: 700;
+            background: var(--glass); border: 1px solid var(--border);
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            text-align: center;
+            padding: var(--space-9) var(--space-4) var(--space-5);
+            border-top: 1px solid var(--border);
+            margin-top: var(--space-9);
+        }
+        .footer-links {
+            display: flex; justify-content: center;
+            gap: var(--space-5); margin-bottom: var(--space-3);
+        }
+        .footer-links a {
+            color: var(--text-secondary); text-decoration: none;
+            font-size: var(--text-sm); font-weight: 500;
+            transition: color var(--transition-normal);
+        }
+        .footer-links a:hover { color: var(--accent); }
+        .footer-text {
+            font-size: var(--text-xs); color: var(--text-tertiary);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .nav-tabs { display: none; }
+            .mobile-menu-btn { display: flex; }
+        }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 32px; }
+            .hero-subtitle { font-size: 14px; }
+            .player-selectors { flex-direction: column; }
+            .vs-badge { align-self: center; margin-bottom: 0; }
+            .radar-svg { max-width: 320px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .heatmap-grid { font-size: var(--text-xs); }
+            .nav-time { display: none; }
+            .nav-btn { display: none; }
+            button, a, [role="tab"], [role="button"], select,
+            input[type="checkbox"], input[type="radio"],
+            .clickable, .btn, .chip, .tag, .filter-btn, .nav-link {
+                min-height: 44px; min-width: 44px;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero { padding: var(--space-9) var(--space-3) var(--space-5); }
+            .hero-title { font-size: 28px; }
+            .selection-bar { padding: var(--space-3); margin: 0 var(--space-2) var(--space-6); }
+            .comparison-content { padding: 0 var(--space-2); }
+            .section { padding: var(--space-3); }
+            .verdict-card { padding: var(--space-3); }
+            .radar-svg { max-width: 280px; }
+            .stats-table .stat-label { font-size: 10px; }
+            .radar-label { font-size: 9px; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+    <!-- Background -->
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-watermark">COMPARE</div>
+
+    <!-- Navigation -->
+    <nav class="nav site-nav" aria-label="Site navigation">
+        <div class="nav-brand">
+            <div class="nav-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <defs>
+    <linearGradient id="barGrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#00f0ff"/>
+    </linearGradient>
+    <linearGradient id="slashGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f472b6"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#00f0ff"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect x="4" y="18" width="5" height="10" rx="1" fill="url(#barGrad)"/>
+  <rect x="13" y="10" width="5" height="18" rx="1" fill="url(#barGrad)"/>
+  <rect x="22" y="4" width="5" height="24" rx="1" fill="url(#barGrad)"/>
+  <line x1="30" y1="2" x2="2" y2="26" stroke="url(#slashGrad)" stroke-width="3" stroke-linecap="round" filter="url(#glow)"/>
+</svg></div>
+            <div class="nav-title"><span class="brand-stat">STAT</span><span class="brand-sledge">SLEDGE</span></div>
+        </div>
+        <div class="nav-tabs">
+            <a href="index.html" class="nav-tab">&#127968; Home</a>
+            <a href="teams.html" class="nav-tab">&#127951; Teams</a>
+            <a href="rankings.html" class="nav-tab">&#127942; Rankings</a>
+            <a href="comparison.html" class="nav-tab active">&#9878;&#65039; Compare</a>
+            <a href="artifacts.html" class="nav-tab">&#128269; Artifacts</a>
+            <a href="analysis.html" class="nav-tab">&#128300; Analysis</a>
+            <a href="research.html" class="nav-tab">&#128218; Research</a>
+            <a href="research-desk.html" class="nav-tab">&#127916; The Film Room</a>
+            <a href="about.html" class="nav-tab">&#127801; About</a>
+        </div>
+        <div class="nav-actions">
+            <span class="nav-time" id="navTime">--:--:--</span>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">&#127769;</button>
+            <a href="/boardroom/index.html" class="nav-btn">&#128225; Mission Control</a>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <a href="index.html" class="nav-tab">&#127968; Home</a>
+        <a href="teams.html" class="nav-tab">&#127951; Teams</a>
+        <a href="rankings.html" class="nav-tab">&#127942; Rankings</a>
+        <a href="comparison.html" class="nav-tab active">&#9878;&#65039; Compare</a>
+        <a href="artifacts.html" class="nav-tab">&#128269; Artifacts</a>
+        <a href="analysis.html" class="nav-tab">&#128300; Analysis</a>
+        <a href="research.html" class="nav-tab">&#128218; Research</a>
+        <a href="research-desk.html" class="nav-tab">&#127916; The Film Room</a>
+        <a href="about.html" class="nav-tab">&#127801; About</a>
+        <div style="border-top: 1px solid var(--border); margin-top: 8px; padding-top: 8px;">
+            <a href="/boardroom/index.html" class="nav-tab" style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%); color: white;">&#128225; The Boardroom</a>
+        </div>
+    </div>
+
+    <main id="main-content" class="main">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-badge">&#9878;&#65039; EPIC-020 Player Comparison</div>
+            <h1 class="hero-title">Player Comparison</h1>
+            <p class="hero-subtitle">Head-to-head radar charts, side-by-side stats, phase heatmaps, and matchup splits. Select two players to begin.</p>
+        </section>
+
+        <!-- Selection Bar -->
+        <div class="selection-bar" role="search" aria-label="Player selection">
+            <div class="type-toggle" role="tablist" aria-label="Player type">
+                <button class="type-pill active" role="tab" aria-selected="true" data-type="batter" onclick="setPlayerType('batter')">&#127951; Batters</button>
+                <button class="type-pill" role="tab" aria-selected="false" data-type="bowler" onclick="setPlayerType('bowler')">&#127936; Bowlers</button>
+            </div>
+            <div class="player-selectors">
+                <div class="player-slot" id="slotA">
+                    <div class="player-slot-label">Player A</div>
+                    <input type="text" class="search-input" id="searchA" placeholder="Search player..." autocomplete="off" aria-label="Search Player A">
+                    <div class="dropdown" id="dropdownA" role="listbox" aria-label="Player A suggestions"></div>
+                </div>
+                <div class="vs-badge" aria-hidden="true">VS</div>
+                <div class="player-slot" id="slotB">
+                    <div class="player-slot-label">Player B</div>
+                    <input type="text" class="search-input" id="searchB" placeholder="Search player..." autocomplete="off" aria-label="Search Player B">
+                    <div class="dropdown" id="dropdownB" role="listbox" aria-label="Player B suggestions"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Content -->
+        <div class="comparison-content" id="comparisonContent">
+            <div class="empty-state" id="emptyState">
+                <div class="empty-state-icon">&#9878;&#65039;</div>
+                <div class="empty-state-text">Select two players to compare</div>
+                <div class="empty-state-hint">Choose a player type above, then search for two players to see their head-to-head breakdown.</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="/boardroom/index.html">Mission Control</a>
+                <a href="https://github.com/dwijesh-r/cricket-playbook" target="_blank">GitHub</a>
+                <a href="about.html">About</a>
+            </div>
+            <p class="footer-text">
+                Statsledge &copy; 2026 | IPL 2026 Pre-Season Analytics | Player Comparison Tool
+            </p>
+        </footer>
+    </main>
+
+    <!-- Comparison Data -->
+    <script src="data/comparison_data.js"></script>
+
+    <script>
+    // ==================== STATE ====================
+    const state = {
+        playerType: 'batter',
+        playerA: null,  // { id, data }
+        playerB: null,
+        activePhase: 'powerplay',
+        highlightedIdx: { A: -1, B: -1 },
+        percentiles: { batter: null, bowler: null }
+    };
+
+    // ==================== PERCENTILE ENGINE ====================
+    function computePercentiles() {
+        state.percentiles.batter = computeTypePercentiles('batter');
+        state.percentiles.bowler = computeTypePercentiles('bowler');
+    }
+
+    function percentileRank(values, val) {
+        const sorted = values.slice().sort((a, b) => a - b);
+        let below = 0;
+        for (let i = 0; i < sorted.length; i++) {
+            if (sorted[i] < val) below++;
+        }
+        return (below / sorted.length) * 100;
+    }
+
+    function computeTypePercentiles(type) {
+        const pool = type === 'batter' ? COMPARISON_DATA.batters : COMPARISON_DATA.bowlers;
+        const ids = Object.keys(pool);
+        const result = {};
+
+        if (type === 'batter') {
+            // Collect raw values for each dimension
+            const srVals = [], avgVals = [], bpVals = [], dpVals = [];
+            const balanceVals = [], consistencyVals = [];
+
+            ids.forEach(id => {
+                const p = pool[id];
+                srVals.push(p.career.sr);
+                avgVals.push(p.career.avg);
+                bpVals.push(p.career.boundaryPct);
+                dpVals.push(p.career.dotPct);
+                balanceVals.push(computePhaseBalance(p, 'batter'));
+                consistencyVals.push(computeConsistency(p, 'batter'));
+            });
+
+            ids.forEach(id => {
+                const p = pool[id];
+                result[id] = {
+                    'Strike Rate': percentileRank(srVals, p.career.sr),
+                    'Average': percentileRank(avgVals, p.career.avg),
+                    'Boundary%': percentileRank(bpVals, p.career.boundaryPct),
+                    'Dot% Discipline': 100 - percentileRank(dpVals, p.career.dotPct),
+                    'Phase Balance': percentileRank(balanceVals, computePhaseBalance(p, 'batter')),
+                    'Consistency': percentileRank(consistencyVals, computeConsistency(p, 'batter'))
+                };
+            });
+        } else {
+            const ecoVals = [], avgVals = [], srVals = [], dpVals = [];
+            const balanceVals = [], consistencyVals = [];
+
+            ids.forEach(id => {
+                const p = pool[id];
+                ecoVals.push(p.career.economy);
+                avgVals.push(p.career.avg);
+                srVals.push(p.career.sr);
+                dpVals.push(p.career.dotPct);
+                balanceVals.push(computePhaseBalance(p, 'bowler'));
+                consistencyVals.push(computeConsistency(p, 'bowler'));
+            });
+
+            ids.forEach(id => {
+                const p = pool[id];
+                result[id] = {
+                    'Economy': 100 - percentileRank(ecoVals, p.career.economy),
+                    'Average': 100 - percentileRank(avgVals, p.career.avg),
+                    'Strike Rate': 100 - percentileRank(srVals, p.career.sr),
+                    'Dot%': percentileRank(dpVals, p.career.dotPct),
+                    'Phase Balance': percentileRank(balanceVals, computePhaseBalance(p, 'bowler')),
+                    'Consistency': percentileRank(consistencyVals, computeConsistency(p, 'bowler'))
+                };
+            });
+        }
+        return result;
+    }
+
+    function computePhaseBalance(player, type) {
+        const phases = player.phases;
+        if (!phases || !phases.powerplay || !phases.middle || !phases.death) return 50;
+
+        let values;
+        if (type === 'batter') {
+            values = [phases.powerplay.sr, phases.middle.sr, phases.death.sr];
+        } else {
+            values = [phases.powerplay.economy, phases.middle.economy, phases.death.economy];
+        }
+        const validValues = values.filter(v => v != null && !isNaN(v));
+        if (validValues.length < 2) return 50;
+
+        const mean = validValues.reduce((a, b) => a + b, 0) / validValues.length;
+        if (mean === 0) return 50;
+        const cv = Math.sqrt(validValues.reduce((s, v) => s + (v - mean) ** 2, 0) / validValues.length) / mean;
+        // Lower CV = better balance. Normalize: CV of 0 = 100, CV of 0.5+ = 0
+        return Math.max(0, Math.min(100, (1 - cv / 0.5) * 100));
+    }
+
+    function computeConsistency(player, type) {
+        const rf = player.recentForm;
+        if (!rf || Object.keys(rf).length === 0) return 50;
+
+        if (type === 'batter') {
+            if (rf.last10Sr == null || rf.careerSr == null) return 50;
+            // Positive srDelta = recent form better than career
+            const delta = (rf.last10Sr - rf.careerSr) / rf.careerSr;
+            // Map delta: -0.3 = 0, 0 = 50, +0.3 = 100
+            return Math.max(0, Math.min(100, 50 + (delta / 0.3) * 50));
+        } else {
+            if (rf.last10Economy == null || rf.careerEconomy == null) return 50;
+            // Negative economyDelta = recent form better (lower economy)
+            const delta = (rf.careerEconomy - rf.last10Economy) / rf.careerEconomy;
+            return Math.max(0, Math.min(100, 50 + (delta / 0.3) * 50));
+        }
+    }
+
+    // ==================== RADAR CHART ====================
+    function getDimensions(type) {
+        if (type === 'batter') {
+            return ['Strike Rate', 'Average', 'Boundary%', 'Dot% Discipline', 'Phase Balance', 'Consistency'];
+        }
+        return ['Economy', 'Average', 'Strike Rate', 'Dot%', 'Phase Balance', 'Consistency'];
+    }
+
+    function buildRadarChart(idA, idB) {
+        const type = state.playerType;
+        const dims = getDimensions(type);
+        const percA = state.percentiles[type][idA];
+        const percB = state.percentiles[type][idB];
+        if (!percA || !percB) return '';
+
+        const cx = 200, cy = 200, r = 150;
+        const n = dims.length;
+        const angleStep = (2 * Math.PI) / n;
+        const startAngle = -Math.PI / 2;
+
+        function polarToCart(angle, radius) {
+            return { x: cx + radius * Math.cos(angle), y: cy + radius * Math.sin(angle) };
+        }
+
+        function hexPoints(radius) {
+            return dims.map((_, i) => {
+                const a = startAngle + i * angleStep;
+                const p = polarToCart(a, radius);
+                return p.x + ',' + p.y;
+            }).join(' ');
+        }
+
+        // Grid rings
+        let svg = '<svg class="radar-svg" viewBox="0 0 400 400" role="img" aria-label="Radar chart comparing ' +
+            escapeHtml(state.playerA.data.career.name) + ' and ' + escapeHtml(state.playerB.data.career.name) + '">';
+        svg += '<desc>Hexagonal radar chart showing percentile rankings across 6 dimensions for both players.</desc>';
+
+        [20, 40, 60, 80, 100].forEach(pct => {
+            svg += '<polygon class="radar-grid" points="' + hexPoints(r * pct / 100) + '"/>';
+        });
+
+        // Axis lines
+        dims.forEach((_, i) => {
+            const a = startAngle + i * angleStep;
+            const p = polarToCart(a, r);
+            svg += '<line class="radar-axis" x1="' + cx + '" y1="' + cy + '" x2="' + p.x + '" y2="' + p.y + '"/>';
+        });
+
+        // Labels
+        dims.forEach((dim, i) => {
+            const a = startAngle + i * angleStep;
+            const p = polarToCart(a, r + 22);
+            let anchor = 'middle';
+            if (Math.cos(a) > 0.3) anchor = 'start';
+            else if (Math.cos(a) < -0.3) anchor = 'end';
+            svg += '<text class="radar-label" x="' + p.x + '" y="' + p.y + '" text-anchor="' + anchor + '" dominant-baseline="central">' + dim + '</text>';
+        });
+
+        // Player polygons
+        function playerPoints(perc) {
+            return dims.map((dim, i) => {
+                const a = startAngle + i * angleStep;
+                const val = Math.max(0, Math.min(100, perc[dim] || 0));
+                const p = polarToCart(a, r * val / 100);
+                return p.x + ',' + p.y;
+            }).join(' ');
+        }
+
+        svg += '<polygon class="radar-poly-a" points="' + playerPoints(percA) + '"/>';
+        svg += '<polygon class="radar-poly-b" points="' + playerPoints(percB) + '"/>';
+
+        // Data dots
+        dims.forEach((dim, i) => {
+            const a = startAngle + i * angleStep;
+            [{ perc: percA, cls: 'radar-dot-a' }, { perc: percB, cls: 'radar-dot-b' }].forEach(({ perc, cls }) => {
+                const val = Math.max(0, Math.min(100, perc[dim] || 0));
+                const p = polarToCart(a, r * val / 100);
+                svg += '<circle class="' + cls + '" cx="' + p.x + '" cy="' + p.y + '" r="4"/>';
+            });
+        });
+
+        svg += '</svg>';
+        return svg;
+    }
+
+    // ==================== STATS TABLE ====================
+    function buildStatsTable(dataA, dataB) {
+        const type = state.playerType;
+        let rows;
+        if (type === 'batter') {
+            rows = [
+                { label: 'Innings', key: 'innings', higher: true },
+                { label: 'Runs', key: 'runs', higher: true },
+                { label: 'Strike Rate', key: 'sr', higher: true },
+                { label: 'Average', key: 'avg', higher: true },
+                { label: 'Boundary%', key: 'boundaryPct', higher: true },
+                { label: 'Dot%', key: 'dotPct', higher: false },
+                { label: 'Fifties', key: 'fifties', higher: true },
+                { label: 'Hundreds', key: 'hundreds', higher: true },
+                { label: 'Highest Score', key: 'hs', higher: true }
+            ];
+        } else {
+            rows = [
+                { label: 'Matches', key: 'matches', higher: true },
+                { label: 'Wickets', key: 'wickets', higher: true },
+                { label: 'Economy', key: 'economy', higher: false },
+                { label: 'Average', key: 'avg', higher: false },
+                { label: 'Strike Rate', key: 'sr', higher: false },
+                { label: 'Dot%', key: 'dotPct', higher: true },
+                { label: 'Best Figures', key: null, custom: true }
+            ];
+        }
+
+        let html = '<table class="stats-table" aria-label="Career statistics comparison">';
+        rows.forEach(row => {
+            let valA, valB;
+            if (row.custom && row.label === 'Best Figures') {
+                valA = (dataA.career.bestWkts || 0) + '/' + (dataA.career.bestRuns || 0);
+                valB = (dataB.career.bestWkts || 0) + '/' + (dataB.career.bestRuns || 0);
+                html += '<tr><td class="val-a">' + valA + '</td><td class="stat-label">' + row.label + '</td><td class="val-b">' + valB + '</td></tr>';
+                return;
+            }
+
+            valA = dataA.career[row.key];
+            valB = dataB.career[row.key];
+
+            if (valA == null) valA = '-';
+            if (valB == null) valB = '-';
+
+            let classA = '', classB = '';
+            if (typeof valA === 'number' && typeof valB === 'number') {
+                if (row.higher) {
+                    classA = valA > valB ? 'val-better' : (valA < valB ? 'val-worse' : '');
+                    classB = valB > valA ? 'val-better' : (valB < valA ? 'val-worse' : '');
+                } else {
+                    classA = valA < valB ? 'val-better' : (valA > valB ? 'val-worse' : '');
+                    classB = valB < valA ? 'val-better' : (valB > valA ? 'val-worse' : '');
+                }
+            }
+
+            const fmtA = typeof valA === 'number' ? (Number.isInteger(valA) ? valA.toString() : valA.toFixed(1)) : valA;
+            const fmtB = typeof valB === 'number' ? (Number.isInteger(valB) ? valB.toString() : valB.toFixed(1)) : valB;
+
+            html += '<tr><td class="val-a ' + classA + '">' + fmtA + '</td><td class="stat-label">' + row.label + '</td><td class="val-b ' + classB + '">' + fmtB + '</td></tr>';
+        });
+        html += '</table>';
+        return html;
+    }
+
+    // ==================== PHASE BREAKDOWN ====================
+    function buildPhaseSection(dataA, dataB) {
+        const phases = ['powerplay', 'middle', 'death'];
+        const phaseLabels = { powerplay: 'Powerplay', middle: 'Middle', death: 'Death' };
+        const type = state.playerType;
+
+        let html = '<div class="phase-pills" role="tablist" aria-label="Phase selection">';
+        phases.forEach(p => {
+            const active = p === state.activePhase ? ' active' : '';
+            html += '<button class="phase-pill' + active + '" role="tab" aria-selected="' + (p === state.activePhase) + '" onclick="switchPhase(\'' + p + '\')">' + phaseLabels[p] + '</button>';
+        });
+        html += '</div>';
+
+        // Phase stats table for active phase
+        const phaseA = dataA.phases[state.activePhase];
+        const phaseB = dataB.phases[state.activePhase];
+
+        if (phaseA && phaseB) {
+            let metrics;
+            if (type === 'batter') {
+                metrics = [
+                    { label: 'Strike Rate', key: 'sr', higher: true },
+                    { label: 'Average', key: 'avg', higher: true },
+                    { label: 'Boundary%', key: 'boundaryPct', higher: true },
+                    { label: 'Dot%', key: 'dotPct', higher: false },
+                    { label: 'Runs', key: 'runs', higher: true },
+                    { label: 'Innings', key: 'innings', higher: true }
+                ];
+            } else {
+                metrics = [
+                    { label: 'Economy', key: 'economy', higher: false },
+                    { label: 'Average', key: 'avg', higher: false },
+                    { label: 'Dot%', key: 'dotPct', higher: true },
+                    { label: 'Wickets', key: 'wickets', higher: true },
+                    { label: 'Boundary Conceded%', key: 'boundaryConcededPct', higher: false }
+                ];
+            }
+
+            html += '<table class="stats-table" aria-label="Phase statistics for ' + phaseLabels[state.activePhase] + '">';
+            metrics.forEach(m => {
+                const vA = phaseA[m.key], vB = phaseB[m.key];
+                let cA = '', cB = '';
+                if (vA != null && vB != null) {
+                    if (m.higher) {
+                        cA = vA > vB ? 'val-better' : (vA < vB ? 'val-worse' : '');
+                        cB = vB > vA ? 'val-better' : (vB < vA ? 'val-worse' : '');
+                    } else {
+                        cA = vA < vB ? 'val-better' : (vA > vB ? 'val-worse' : '');
+                        cB = vB < vA ? 'val-better' : (vB > vA ? 'val-worse' : '');
+                    }
+                }
+                const fA = vA != null ? (Number.isInteger(vA) ? vA.toString() : vA.toFixed(1)) : '-';
+                const fB = vB != null ? (Number.isInteger(vB) ? vB.toString() : vB.toFixed(1)) : '-';
+                html += '<tr><td class="val-a ' + cA + '">' + fA + '</td><td class="stat-label">' + m.label + '</td><td class="val-b ' + cB + '">' + fB + '</td></tr>';
+            });
+            html += '</table>';
+        }
+
+        // Phase Heatmap
+        html += buildPhaseHeatmap(dataA, dataB);
+        return html;
+    }
+
+    function buildPhaseHeatmap(dataA, dataB) {
+        const type = state.playerType;
+        const phases = ['powerplay', 'middle', 'death'];
+        const phaseLabels = { powerplay: 'PP', middle: 'MID', death: 'DTH' };
+
+        let metrics;
+        if (type === 'batter') {
+            metrics = [
+                { label: 'SR', key: 'sr', higher: true },
+                { label: 'Avg', key: 'avg', higher: true },
+                { label: 'Boundary%', key: 'boundaryPct', higher: true },
+                { label: 'Dot%', key: 'dotPct', higher: false }
+            ];
+        } else {
+            metrics = [
+                { label: 'Econ', key: 'economy', higher: false },
+                { label: 'Dot%', key: 'dotPct', higher: true },
+                { label: 'Bndry Conc%', key: 'boundaryConcededPct', higher: false }
+            ];
+        }
+
+        // Collect all values per metric across phases for quintile computation
+        const pool = type === 'batter' ? COMPARISON_DATA.batters : COMPARISON_DATA.bowlers;
+        const allVals = {};
+        metrics.forEach(m => {
+            allVals[m.key] = {};
+            phases.forEach(phase => {
+                const vals = [];
+                Object.values(pool).forEach(p => {
+                    if (p.phases && p.phases[phase] && p.phases[phase][m.key] != null) {
+                        vals.push(p.phases[phase][m.key]);
+                    }
+                });
+                allVals[m.key][phase] = vals.sort((a, b) => a - b);
+            });
+        });
+
+        function getQuintile(val, sortedVals, higher) {
+            if (val == null || sortedVals.length === 0) return 'q3';
+            const pct = percentileRank(sortedVals, val);
+            const effectivePct = higher ? pct : (100 - pct);
+            if (effectivePct >= 80) return 'q5';
+            if (effectivePct >= 60) return 'q4';
+            if (effectivePct >= 40) return 'q3';
+            if (effectivePct >= 20) return 'q2';
+            return 'q1';
+        }
+
+        let html = '<div style="margin-top: var(--space-4);">';
+        html += '<div style="font-size: var(--text-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-tertiary); margin-bottom: var(--space-2);">Phase Heatmap</div>';
+
+        // One heatmap grid per metric
+        metrics.forEach(m => {
+            html += '<div style="margin-bottom: var(--space-2); font-size: var(--text-xs); font-weight: 600; color: var(--text-secondary);">' + m.label + '</div>';
+            html += '<div class="heatmap-grid" style="grid-template-columns: auto repeat(3, 1fr); margin-bottom: var(--space-3);">';
+            // Headers
+            html += '<div class="heatmap-header"></div>';
+            phases.forEach(p => html += '<div class="heatmap-header">' + phaseLabels[p] + '</div>');
+            // Player A row
+            html += '<div class="heatmap-metric player-a-header" style="color: var(--player-a);">' + escapeHtml(state.playerA.data.career.name.split(' ').pop()) + '</div>';
+            phases.forEach(p => {
+                const val = dataA.phases[p] ? dataA.phases[p][m.key] : null;
+                const q = getQuintile(val, allVals[m.key][p], m.higher);
+                html += '<div class="heatmap-cell ' + q + '">' + (val != null ? val.toFixed(1) : '-') + '</div>';
+            });
+            // Player B row
+            html += '<div class="heatmap-metric player-b-header" style="color: var(--player-b);">' + escapeHtml(state.playerB.data.career.name.split(' ').pop()) + '</div>';
+            phases.forEach(p => {
+                const val = dataB.phases[p] ? dataB.phases[p][m.key] : null;
+                const q = getQuintile(val, allVals[m.key][p], m.higher);
+                html += '<div class="heatmap-cell ' + q + '">' + (val != null ? val.toFixed(1) : '-') + '</div>';
+            });
+            html += '</div>';
+        });
+
+        html += '</div>';
+        return html;
+    }
+
+    // ==================== MATCHUP SPLITS ====================
+    function buildMatchupSplits(dataA, dataB) {
+        const type = state.playerType;
+
+        if (type === 'batter') {
+            const types = ['Fast', 'Fast-Medium', 'Off-spin', 'Leg-spin', 'LA Orthodox', 'Wrist-spin'];
+            let html = '<table class="splits-table" aria-label="Performance vs bowling types">';
+            html += '<tr><th class="split-type">vs Type</th><th class="player-a-col" colspan="2">' + escapeHtml(state.playerA.data.career.name) + '</th><th class="player-b-col" colspan="2">' + escapeHtml(state.playerB.data.career.name) + '</th></tr>';
+            html += '<tr><th></th><th class="player-a-col">SR</th><th class="player-a-col">Avg</th><th class="player-b-col">SR</th><th class="player-b-col">Avg</th></tr>';
+
+            types.forEach(t => {
+                const a = dataA.vsBowlingType[t];
+                const b = dataB.vsBowlingType[t];
+                html += '<tr><td class="split-type">' + t + '</td>';
+                html += '<td>' + (a ? a.sr.toFixed(1) : '-') + '</td>';
+                html += '<td>' + (a && a.avg != null ? a.avg.toFixed(1) : '-') + '</td>';
+                html += '<td>' + (b ? b.sr.toFixed(1) : '-') + '</td>';
+                html += '<td>' + (b && b.avg != null ? b.avg.toFixed(1) : '-') + '</td>';
+                html += '</tr>';
+            });
+            html += '</table>';
+            return html;
+        } else {
+            const types = ['Left-hand', 'Right-hand'];
+            let html = '<table class="splits-table" aria-label="Performance vs batting handedness">';
+            html += '<tr><th class="split-type">vs Hand</th><th class="player-a-col" colspan="2">' + escapeHtml(state.playerA.data.career.name) + '</th><th class="player-b-col" colspan="2">' + escapeHtml(state.playerB.data.career.name) + '</th></tr>';
+            html += '<tr><th></th><th class="player-a-col">Econ</th><th class="player-a-col">SR</th><th class="player-b-col">Econ</th><th class="player-b-col">SR</th></tr>';
+
+            types.forEach(t => {
+                const a = dataA.vsHandedness ? dataA.vsHandedness[t] : null;
+                const b = dataB.vsHandedness ? dataB.vsHandedness[t] : null;
+                html += '<tr><td class="split-type">' + t + '</td>';
+                html += '<td>' + (a ? a.economy.toFixed(1) : '-') + '</td>';
+                html += '<td>' + (a ? a.sr.toFixed(1) : '-') + '</td>';
+                html += '<td>' + (b ? b.economy.toFixed(1) : '-') + '</td>';
+                html += '<td>' + (b ? b.sr.toFixed(1) : '-') + '</td>';
+                html += '</tr>';
+            });
+            html += '</table>';
+            return html;
+        }
+    }
+
+    // ==================== FORM & RANKING ====================
+    function buildFormSection(dataA, dataB) {
+        const type = state.playerType;
+        let html = '<div class="form-grid">';
+
+        [{ data: dataA, side: 'a' }, { data: dataB, side: 'b' }].forEach(({ data, side }) => {
+            const rf = data.recentForm;
+            const rk = data.ranking;
+            html += '<div class="form-card ' + side + '">';
+            html += '<div class="form-player-name">' + escapeHtml(data.career.name) + '</div>';
+            html += '<div class="form-team">' + escapeHtml(rf.team || 'Unknown') + '</div>';
+
+            if (type === 'batter' && rf.last10Innings) {
+                html += '<div class="form-stat"><span class="form-stat-label">Last 10 Inn</span><span class="form-stat-value">' + rf.last10Innings + '</span></div>';
+                html += '<div class="form-stat"><span class="form-stat-label">Last 10 Runs</span><span class="form-stat-value">' + rf.last10Runs + '</span></div>';
+                html += '<div class="form-stat"><span class="form-stat-label">Recent SR</span><span class="form-stat-value">' + rf.last10Sr.toFixed(1) + '</span></div>';
+                html += '<div class="form-stat"><span class="form-stat-label">Recent Avg</span><span class="form-stat-value">' + rf.last10Avg.toFixed(1) + '</span></div>';
+                const srDelta = rf.srDelta || (rf.last10Sr - rf.careerSr);
+                html += '<div class="form-stat"><span class="form-stat-label">SR Delta</span><span class="form-stat-value ' + (srDelta >= 0 ? 'delta-positive' : 'delta-negative') + '">' + (srDelta >= 0 ? '+' : '') + srDelta.toFixed(1) + '</span></div>';
+            } else if (type === 'bowler' && rf.last10Matches) {
+                html += '<div class="form-stat"><span class="form-stat-label">Last 10 Matches</span><span class="form-stat-value">' + rf.last10Matches + '</span></div>';
+                html += '<div class="form-stat"><span class="form-stat-label">Last 10 Wkts</span><span class="form-stat-value">' + rf.last10Wickets + '</span></div>';
+                html += '<div class="form-stat"><span class="form-stat-label">Recent Econ</span><span class="form-stat-value">' + rf.last10Economy.toFixed(2) + '</span></div>';
+                const ecoDelta = rf.economyDelta || (rf.last10Economy - rf.careerEconomy);
+                html += '<div class="form-stat"><span class="form-stat-label">Econ Delta</span><span class="form-stat-value ' + (ecoDelta <= 0 ? 'delta-positive' : 'delta-negative') + '">' + (ecoDelta >= 0 ? '+' : '') + ecoDelta.toFixed(2) + '</span></div>';
+            } else {
+                html += '<div class="form-stat"><span class="form-stat-label">Recent form</span><span class="form-stat-value" style="color: var(--text-tertiary)">N/A</span></div>';
+            }
+
+            if (rk) {
+                html += '<div style="border-top: 1px solid var(--border); margin-top: var(--space-2); padding-top: var(--space-2);">';
+                html += '<div class="form-stat"><span class="form-stat-label">Rank</span><span class="form-stat-value"><span class="rank-badge">#' + rk.rank + '</span></span></div>';
+                html += '<div class="form-stat"><span class="form-stat-label">Composite</span><span class="form-stat-value">' + rk.composite.toFixed(1) + '</span></div>';
+                html += '</div>';
+            }
+
+            html += '</div>';
+        });
+        html += '</div>';
+        return html;
+    }
+
+    // ==================== VERDICT CARD ====================
+    function buildVerdict(dataA, dataB) {
+        const type = state.playerType;
+        const dims = getDimensions(type);
+        const percA = state.percentiles[type][state.playerA.id];
+        const percB = state.percentiles[type][state.playerB.id];
+        if (!percA || !percB) return '';
+
+        let winsA = 0, winsB = 0;
+        let biggestEdge = { dim: '', diff: 0, winner: '' };
+
+        dims.forEach(dim => {
+            const a = percA[dim] || 0;
+            const b = percB[dim] || 0;
+            if (a > b) winsA++;
+            else if (b > a) winsB++;
+            const diff = Math.abs(a - b);
+            if (diff > biggestEdge.diff) {
+                biggestEdge = { dim, diff, winner: a > b ? 'A' : 'B' };
+            }
+        });
+
+        // Phase dominance
+        const phases = ['powerplay', 'middle', 'death'];
+        const phaseLabels = { powerplay: 'Powerplay', middle: 'Middle', death: 'Death' };
+        let phaseWinsA = 0, phaseWinsB = 0;
+        const primaryMetric = type === 'batter' ? 'sr' : 'economy';
+        const primaryHigher = type === 'batter';
+
+        phases.forEach(p => {
+            const pA = dataA.phases[p];
+            const pB = dataB.phases[p];
+            if (pA && pB && pA[primaryMetric] != null && pB[primaryMetric] != null) {
+                if (primaryHigher ? pA[primaryMetric] > pB[primaryMetric] : pA[primaryMetric] < pB[primaryMetric]) {
+                    phaseWinsA++;
+                } else if (primaryHigher ? pB[primaryMetric] > pA[primaryMetric] : pB[primaryMetric] < pA[primaryMetric]) {
+                    phaseWinsB++;
+                }
+            }
+        });
+
+        // Find non-obvious insight
+        let insight = '';
+        if (type === 'batter') {
+            // Compare dot% discipline vs boundary%
+            const dotDiffA = percA['Dot% Discipline'] - percA['Boundary%'];
+            const dotDiffB = percB['Dot% Discipline'] - percB['Boundary%'];
+            if (Math.abs(dotDiffA) > 20 || Math.abs(dotDiffB) > 20) {
+                const more = dotDiffA > dotDiffB ? dataA.career.name : dataB.career.name;
+                insight = more + ' shows a stronger balance between boundary hitting and dot ball discipline, suggesting more adaptable game management.';
+            } else {
+                const consistency = percA['Consistency'] > percB['Consistency'] ? dataA.career.name : dataB.career.name;
+                insight = consistency + ' has been in better recent form relative to their career baseline, signaling upward trajectory heading into the tournament.';
+            }
+        } else {
+            const phaseBalA = percA['Phase Balance'];
+            const phaseBalB = percB['Phase Balance'];
+            if (Math.abs(phaseBalA - phaseBalB) > 15) {
+                const more = phaseBalA > phaseBalB ? dataA.career.name : dataB.career.name;
+                insight = more + ' demonstrates superior phase versatility, maintaining consistent economy rates across all three phases of the innings.';
+            } else {
+                const dotBetter = percA['Dot%'] > percB['Dot%'] ? dataA.career.name : dataB.career.name;
+                insight = dotBetter + ' creates more pressure through dot ball frequency, a key indicator of wicket-taking ability in T20 cricket.';
+            }
+        }
+
+        let html = '<div class="verdict-card">';
+        html += '<div class="verdict-title">Verdict</div>';
+        html += '<div class="verdict-score">';
+        html += '<div class="verdict-player"><div class="verdict-player-name a">' + escapeHtml(dataA.career.name) + '</div><div class="verdict-wins">' + winsA + '</div></div>';
+        html += '<div class="verdict-dash">-</div>';
+        html += '<div class="verdict-player"><div class="verdict-player-name b">' + escapeHtml(dataB.career.name) + '</div><div class="verdict-wins">' + winsB + '</div></div>';
+        html += '</div>';
+
+        html += '<div class="verdict-details">';
+        html += '<div class="verdict-detail"><div class="bullet"></div><div>Dimension wins: <strong>' + dataA.career.name + '</strong> leads ' + winsA + '-' + winsB + ' across ' + dims.length + ' radar dimensions.</div></div>';
+
+        if (biggestEdge.dim) {
+            const edgePlayer = biggestEdge.winner === 'A' ? dataA.career.name : dataB.career.name;
+            html += '<div class="verdict-detail"><div class="bullet"></div><div>Biggest edge: <strong>' + edgePlayer + '</strong> in ' + biggestEdge.dim + ' (+' + biggestEdge.diff.toFixed(0) + ' percentile points).</div></div>';
+        }
+
+        if (phaseWinsA + phaseWinsB > 0) {
+            const phaseDom = phaseWinsA > phaseWinsB ? dataA.career.name : (phaseWinsB > phaseWinsA ? dataB.career.name : 'Neither');
+            html += '<div class="verdict-detail"><div class="bullet"></div><div>Phase dominance: <strong>' + phaseDom + '</strong> (' + phaseWinsA + '-' + phaseWinsB + ' across Powerplay, Middle, Death).</div></div>';
+        }
+
+        html += '<div class="verdict-detail"><div class="bullet"></div><div>' + insight + '</div></div>';
+        html += '</div></div>';
+        return html;
+    }
+
+    // ==================== RENDER ALL ====================
+    function renderComparison() {
+        const container = document.getElementById('comparisonContent');
+
+        if (!state.playerA || !state.playerB) {
+            container.innerHTML = '<div class="empty-state" id="emptyState"><div class="empty-state-icon">&#9878;&#65039;</div><div class="empty-state-text">Select two players to compare</div><div class="empty-state-hint">Choose a player type above, then search for two players to see their head-to-head breakdown.</div></div>';
+            return;
+        }
+
+        const dataA = state.playerA.data;
+        const dataB = state.playerB.data;
+        let html = '';
+
+        // 1. Radar Chart
+        html += '<div class="section">';
+        html += '<div class="section-title"><span class="icon">&#128200;</span> Radar Overview</div>';
+        html += '<div class="radar-wrap">' + buildRadarChart(state.playerA.id, state.playerB.id) + '</div>';
+        html += '<div class="radar-legend"><div class="legend-item"><div class="legend-swatch a"></div>' + escapeHtml(dataA.career.name) + '</div><div class="legend-item"><div class="legend-swatch b"></div>' + escapeHtml(dataB.career.name) + '</div></div>';
+        html += '</div>';
+
+        // 2. Career Stats
+        html += '<div class="section">';
+        html += '<div class="section-title"><span class="icon">&#128202;</span> Career Stats</div>';
+        html += buildStatsTable(dataA, dataB);
+        html += '</div>';
+
+        // 3. Phase Breakdown
+        html += '<div class="section" id="phaseSection">';
+        html += '<div class="section-title"><span class="icon">&#127919;</span> Phase Breakdown</div>';
+        html += buildPhaseSection(dataA, dataB);
+        html += '</div>';
+
+        // 4. Matchup Splits
+        html += '<div class="section">';
+        html += '<div class="section-title"><span class="icon">&#9876;&#65039;</span> Matchup Splits</div>';
+        html += buildMatchupSplits(dataA, dataB);
+        html += '</div>';
+
+        // 5. Form & Ranking
+        html += '<div class="section">';
+        html += '<div class="section-title"><span class="icon">&#128293;</span> Recent Form & Ranking</div>';
+        html += buildFormSection(dataA, dataB);
+        html += '</div>';
+
+        // 6. Verdict
+        html += '<div class="section">';
+        html += '<div class="section-title"><span class="icon">&#9878;&#65039;</span> Verdict</div>';
+        html += buildVerdict(dataA, dataB);
+        html += '</div>';
+
+        container.innerHTML = html;
+    }
+
+    // ==================== PLAYER SELECTION ====================
+    function getPlayerPool() {
+        if (state.playerType === 'batter') {
+            return { index: COMPARISON_DATA.batterIndex, pool: COMPARISON_DATA.batters };
+        }
+        return { index: COMPARISON_DATA.bowlerIndex, pool: COMPARISON_DATA.bowlers };
+    }
+
+    function setPlayerType(type) {
+        if (state.playerType === type) return;
+        state.playerType = type;
+        state.playerA = null;
+        state.playerB = null;
+        state.activePhase = 'powerplay';
+
+        document.querySelectorAll('.type-pill').forEach(pill => {
+            pill.classList.toggle('active', pill.dataset.type === type);
+            pill.setAttribute('aria-selected', pill.dataset.type === type);
+        });
+
+        resetSlot('A');
+        resetSlot('B');
+        renderComparison();
+    }
+
+    function resetSlot(side) {
+        const input = document.getElementById('search' + side);
+        const dropdown = document.getElementById('dropdown' + side);
+        const slot = document.getElementById('slot' + side);
+
+        // Remove chip if exists
+        const chip = slot.querySelector('.selected-chip');
+        if (chip) chip.remove();
+
+        // Show input
+        input.style.display = '';
+        input.value = '';
+        dropdown.classList.remove('open');
+        dropdown.innerHTML = '';
+        state.highlightedIdx[side] = -1;
+    }
+
+    function selectPlayer(side, name, id) {
+        const { pool } = getPlayerPool();
+        const data = pool[id];
+        if (!data) return;
+
+        if (side === 'A') state.playerA = { id, data };
+        else state.playerB = { id, data };
+
+        const input = document.getElementById('search' + side);
+        const dropdown = document.getElementById('dropdown' + side);
+        const slot = document.getElementById('slot' + side);
+
+        input.style.display = 'none';
+        dropdown.classList.remove('open');
+
+        // Create chip
+        const chip = document.createElement('div');
+        chip.className = 'selected-chip';
+        chip.innerHTML = '<span class="chip-name">' + escapeHtml(name) + '</span><span class="chip-team">' + escapeHtml(data.recentForm.team || '') + '</span><button class="chip-clear" onclick="clearPlayer(\'' + side + '\')" aria-label="Remove ' + escapeHtml(name) + '">&#10005;</button>';
+        slot.appendChild(chip);
+
+        if (state.playerA && state.playerB) {
+            renderComparison();
+        }
+    }
+
+    function clearPlayer(side) {
+        if (side === 'A') state.playerA = null;
+        else state.playerB = null;
+        resetSlot(side);
+        renderComparison();
+    }
+
+    function switchPhase(phase) {
+        state.activePhase = phase;
+        if (state.playerA && state.playerB) {
+            const section = document.getElementById('phaseSection');
+            if (section) {
+                const titleHtml = section.querySelector('.section-title').outerHTML;
+                section.innerHTML = titleHtml + buildPhaseSection(state.playerA.data, state.playerB.data);
+            }
+        }
+    }
+
+    // ==================== SEARCH & DROPDOWN ====================
+    function handleSearchInput(side) {
+        const input = document.getElementById('search' + side);
+        const dropdown = document.getElementById('dropdown' + side);
+        const query = input.value.trim().toLowerCase();
+
+        if (query.length < 1) {
+            dropdown.classList.remove('open');
+            dropdown.innerHTML = '';
+            state.highlightedIdx[side] = -1;
+            return;
+        }
+
+        const { index, pool } = getPlayerPool();
+        const excludeId = side === 'A' ? (state.playerB ? state.playerB.id : null) : (state.playerA ? state.playerA.id : null);
+
+        const matches = Object.entries(index)
+            .filter(([name, id]) => name.toLowerCase().includes(query) && id !== excludeId)
+            .slice(0, 8);
+
+        if (matches.length === 0) {
+            dropdown.innerHTML = '<div class="dropdown-item" style="color: var(--text-tertiary); cursor: default;">No players found</div>';
+            dropdown.classList.add('open');
+            state.highlightedIdx[side] = -1;
+            return;
+        }
+
+        dropdown.innerHTML = matches.map(([name, id], i) => {
+            const team = pool[id].recentForm.team || '';
+            return '<div class="dropdown-item" role="option" data-name="' + escapeHtml(name) + '" data-id="' + id + '" onclick="selectPlayer(\'' + side + '\', \'' + escapeHtml(name).replace(/'/g, "\\'") + '\', \'' + id + '\')">' +
+                '<span>' + escapeHtml(name) + '</span><span class="team-tag">' + escapeHtml(team) + '</span></div>';
+        }).join('');
+        dropdown.classList.add('open');
+        state.highlightedIdx[side] = -1;
+    }
+
+    function handleSearchKeydown(side, e) {
+        const dropdown = document.getElementById('dropdown' + side);
+        const items = dropdown.querySelectorAll('.dropdown-item[data-id]');
+        if (items.length === 0) return;
+
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            state.highlightedIdx[side] = Math.min(state.highlightedIdx[side] + 1, items.length - 1);
+            updateHighlight(side, items);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            state.highlightedIdx[side] = Math.max(state.highlightedIdx[side] - 1, 0);
+            updateHighlight(side, items);
+        } else if (e.key === 'Enter') {
+            e.preventDefault();
+            const idx = state.highlightedIdx[side];
+            if (idx >= 0 && idx < items.length) {
+                items[idx].click();
+            }
+        } else if (e.key === 'Escape') {
+            dropdown.classList.remove('open');
+            state.highlightedIdx[side] = -1;
+        }
+    }
+
+    function updateHighlight(side, items) {
+        items.forEach((item, i) => {
+            item.classList.toggle('highlighted', i === state.highlightedIdx[side]);
+        });
+        // Scroll into view
+        const idx = state.highlightedIdx[side];
+        if (idx >= 0 && items[idx]) {
+            items[idx].scrollIntoView({ block: 'nearest' });
+        }
+    }
+
+    // ==================== UTILITY ====================
+    function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
+    }
+
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-nav-menu');
+        const btn = document.querySelector('.mobile-menu-btn');
+        menu.classList.toggle('active');
+        btn.classList.toggle('active');
+    }
+
+    function updateTime() {
+        const now = new Date();
+        document.getElementById('navTime').textContent = now.toLocaleTimeString('en-US', { hour12: false });
+    }
+
+    // ==================== INITIALIZATION ====================
+    function init() {
+        if (typeof COMPARISON_DATA === 'undefined') {
+            document.getElementById('comparisonContent').innerHTML =
+                '<div class="empty-state"><div class="empty-state-icon">&#9888;&#65039;</div><div class="empty-state-text">Comparison data not loaded</div><div class="empty-state-hint">Check that data/comparison_data.js is present.</div></div>';
+            return;
+        }
+
+        // Pre-compute percentiles
+        computePercentiles();
+
+        // Restore theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
+        }
+
+        // Wire up search inputs
+        ['A', 'B'].forEach(side => {
+            const input = document.getElementById('search' + side);
+            input.addEventListener('input', () => handleSearchInput(side));
+            input.addEventListener('keydown', (e) => handleSearchKeydown(side, e));
+            input.addEventListener('focus', () => handleSearchInput(side));
+        });
+
+        // Close dropdowns on outside click
+        document.addEventListener('click', (e) => {
+            ['A', 'B'].forEach(side => {
+                const slot = document.getElementById('slot' + side);
+                if (!slot.contains(e.target)) {
+                    document.getElementById('dropdown' + side).classList.remove('open');
+                    state.highlightedIdx[side] = -1;
+                }
+            });
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-nav-menu .nav-tab').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-nav-menu').classList.remove('active');
+                document.querySelector('.mobile-menu-btn').classList.remove('active');
+            });
+        });
+
+        // Start clock
+        updateTime();
+        setInterval(updateTime, 1000);
+    }
+
+    // ==================== KEYBOARD SHORTCUTS ====================
+    document.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            const inputA = document.getElementById('searchA');
+            if (inputA.style.display !== 'none') inputA.focus();
+            else {
+                const inputB = document.getElementById('searchB');
+                if (inputB.style.display !== 'none') inputB.focus();
+            }
+        }
+        if (e.key === 'Escape') {
+            document.getElementById('mobile-nav-menu').classList.remove('active');
+            document.querySelector('.mobile-menu-btn').classList.remove('active');
+        }
+    });
+
+    // ==================== BOOT ====================
+    document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

@@ -134,32 +134,15 @@
             grid-template-columns: repeat(12, 1fr);
             gap: var(--space-3);
         }
-        .col-span-1 { grid-column: span 1; }
-        .col-span-2 { grid-column: span 2; }
-        .col-span-3 { grid-column: span 3; }
-        .col-span-4 { grid-column: span 4; }
-        .col-span-5 { grid-column: span 5; }
-        .col-span-6 { grid-column: span 6; }
-        .col-span-7 { grid-column: span 7; }
-        .col-span-8 { grid-column: span 8; }
-        .col-span-9 { grid-column: span 9; }
-        .col-span-10 { grid-column: span 10; }
-        .col-span-11 { grid-column: span 11; }
-        .col-span-12 { grid-column: span 12; }
         @media (max-width: 1024px) {
             .grid-12 { grid-template-columns: repeat(8, 1fr); }
-            .col-span-9, .col-span-10, .col-span-11, .col-span-12 { grid-column: span 8; }
-            .col-span-7, .col-span-8 { grid-column: span 8; }
-            .col-span-5, .col-span-6 { grid-column: span 4; }
         }
         @media (max-width: 768px) {
             .grid-12 { grid-template-columns: repeat(4, 1fr); }
             .container { padding: 0 var(--space-3); }
-            [class*="col-span-"] { grid-column: span 4; }
         }
         @media (max-width: 480px) {
             .grid-12 { grid-template-columns: 1fr; }
-            [class*="col-span-"] { grid-column: span 1; }
             .container { padding: 0 var(--space-2); }
         }
 
@@ -176,37 +159,6 @@
             align-items: center;
             padding: 0 var(--space-4);
             backdrop-filter: blur(12px);
-        }
-        .site-nav .nav-links {
-            display: flex;
-            gap: var(--space-1);
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            flex: 1;
-        }
-        .site-nav .nav-links a {
-            display: flex;
-            align-items: center;
-            padding: var(--space-2) var(--space-3);
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-family: var(--font-body);
-            font-size: var(--text-sm);
-            font-weight: 500;
-            border-radius: var(--radius-md);
-            transition: all var(--transition-normal);
-            min-height: 44px;
-            white-space: nowrap;
-        }
-        .site-nav .nav-links a:hover {
-            color: var(--text-primary);
-            background: var(--glass);
-        }
-        .site-nav .nav-links a.active {
-            color: var(--accent);
-            background: rgba(0, 240, 255, 0.08);
-            border: 1px solid rgba(0, 240, 255, 0.15);
         }
         .site-nav .nav-actions {
             display: flex;
@@ -578,7 +530,9 @@
             display: flex; gap: var(--space-1);
             background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
             padding: var(--space-1); border-radius: var(--radius-lg); border: 1px solid var(--border);
+            overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
         }
+        .nav-tabs::-webkit-scrollbar { display: none; }
         .nav-tab {
             padding: var(--space-2) 16px; border-radius: var(--radius-md); font-size: 13px; font-weight: 600;
             color: var(--text-secondary); cursor: pointer; transition: all var(--transition-slow);
@@ -1108,6 +1062,7 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
     <div class="bg-gradient"></div>
     <div class="bg-grid"></div>
 
@@ -1134,23 +1089,24 @@
             <div class="nav-title"><span class="brand-stat">STAT</span><span class="brand-sledge">SLEDGE</span></div>
         </div>
         <div class="nav-tabs">
-            <a href="index.html" class="nav-tab">Home</a>
-            <a href="teams.html" class="nav-tab">Teams</a>
-            <a href="rankings.html" class="nav-tab">Rankings</a>
-            <a href="comparison.html" class="nav-tab">Compare</a>
-            <a href="head-to-head.html" class="nav-tab">H2H</a>
-            <a href="artifacts.html" class="nav-tab">Artifacts</a>
-            <a href="analysis.html" class="nav-tab">Analysis</a>
-            <a href="research.html" class="nav-tab">Research</a>
-            <a href="research-desk.html" class="nav-tab">The Film Room</a>
-            <a href="about.html" class="nav-tab active">About</a>
-            <a href="/boardroom/index.html" class="nav-tab">The Boardroom</a>
+            <a href="index.html" class="nav-tab">&#127968; Home</a>
+            <a href="teams.html" class="nav-tab">&#127951; Teams</a>
+            <a href="rankings.html" class="nav-tab">&#127942; Rankings</a>
+            <a href="comparison.html" class="nav-tab">&#9878;&#65039; Compare</a>
+            <a href="head-to-head.html" class="nav-tab">&#9876;&#65039; H2H</a>
+            <a href="artifacts.html" class="nav-tab">&#128269; Artifacts</a>
+            <a href="analysis.html" class="nav-tab">&#128300; Analysis</a>
+            <a href="research.html" class="nav-tab">&#128218; Research</a>
+            <a href="research-desk.html" class="nav-tab">&#127916; The Film Room</a>
+            <a href="about.html" class="nav-tab active">&#127801; About</a>
         </div>
         <div class="nav-actions">
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu">
+            <a href="/boardroom/index.html" class="nav-btn">&#128225; Mission Control</a>
+            <span class="nav-time" id="navTime">--:--:--</span>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu" title="Menu">
                 <span></span><span></span><span></span>
             </button>
-            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Switch to light theme">🌙</button>
         </div>
     </nav>
 
@@ -1195,7 +1151,7 @@
                         <li>Position-by-position Depth Charts with ratings</li>
                         <li>Player archetype classifications and matchup analysis</li>
                         <li>Tactical insights validated by cricket domain experts</li>
-                        <li>The Film Room: NL-powered SQL search across 2.38M ball-by-ball records</li>
+                        <li>The Film Room: NLP-powered SQL search across 2.38M ball-by-ball records</li>
                         <li>Pressure analytics with context-aware entry metrics</li>
                     </ul>
                     <p>
@@ -1251,7 +1207,7 @@
             <div class="audience-section">
                 <h3 class="audience-title">👥 Who We Cater To</h3>
                 <table class="audience-table">
-                    <th scope="col"ead>
+                    <thead>
                         <tr>
                             <th scope="col"></th>
                             <th scope="col">Audience</th>
@@ -1412,7 +1368,7 @@
                 <a href="/boardroom/index.html" class="link-btn">
                     📡 Mission Control
                 </a>
-                <a href="https://github.com/dwijesh-r/cricket-playbook" class="link-btn" target="_blank">
+                <a href="https://github.com/dwijesh-r/cricket-playbook" class="link-btn" target="_blank" rel="noopener noreferrer">
                     🐙 GitHub Repository
                 </a>
                 <a href="research.html" class="link-btn">
@@ -1441,15 +1397,28 @@
             const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
-            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '🌙' : '☀️';
+            const btn = document.querySelector('.theme-toggle');
+            btn.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+            btn.setAttribute('aria-label', newTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
         }
 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-nav-menu');
             const btn = document.querySelector('.mobile-menu-btn');
-            menu.classList.toggle('active');
+            const isOpen = menu.classList.toggle('active');
             btn.classList.toggle('active');
+            btn.setAttribute('aria-expanded', isOpen);
         }
+
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('mobile-nav-menu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            if (menu && menu.classList.contains('active') && !menu.contains(e.target) && !btn.contains(e.target)) {
+                menu.classList.remove('active');
+                btn.classList.remove('active');
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        });
 
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', savedTheme);

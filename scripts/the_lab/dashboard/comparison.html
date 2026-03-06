@@ -349,7 +349,9 @@
             background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
             padding: var(--space-1); border-radius: var(--radius-lg);
             border: 1px solid var(--border);
+            overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
         }
+        .nav-tabs::-webkit-scrollbar { display: none; }
         .nav-tab {
             padding: var(--space-2) 16px; border-radius: var(--radius-sm);
             font-size: 13px; font-weight: 600; color: var(--text-secondary);
@@ -1063,10 +1065,10 @@
         </div>
         <div class="nav-actions">
             <span class="nav-time" id="navTime">--:--:--</span>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu">
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu">
                 <span></span><span></span><span></span>
             </button>
-            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">&#127769;</button>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Switch to light theme">&#127769;</button>
             <a href="/boardroom/index.html" class="nav-btn">&#128225; Mission Control</a>
         </div>
     </nav>
@@ -1356,7 +1358,7 @@
                 perc: state.percentiles[pType] ? state.percentiles[pType][p.id] : null
             };
         }).filter(p => p.perc);
-        if (playerPercs.length < 2) return '';
+        if (playerPercs.length < 2) return '<div style="text-align:center;padding:var(--space-6);color:var(--text-secondary);font-size:var(--text-sm);">Radar chart unavailable — percentile data not found for selected players.</div>';
 
         const cx = 200, cy = 200, r = 150;
         const n = dims.length;
@@ -1878,8 +1880,8 @@
         // Dropdown for selecting bowling type / handedness
         let html = '<div style="margin-bottom: var(--space-3);">';
         html += '<select class="team-filter-select" id="matchupTypeSelect" aria-label="Filter by matchup type" onchange="switchMatchupType(this.value)" style="width: auto;">';
-        html += '<option value="overall"' + (state.activeMatchupType === 'overall' ? ' selected' : '') + '>Overall</option>';
-        html += '<option value="all"' + (state.activeMatchupType === 'all' ? ' selected' : '') + '>All Types</option>';
+        html += '<option value="overall"' + (state.activeMatchupType === 'overall' ? ' selected' : '') + '>Career Summary</option>';
+        html += '<option value="all"' + (state.activeMatchupType === 'all' ? ' selected' : '') + '>All Breakdowns</option>';
         allTypes.forEach(t => {
             html += '<option value="' + escapeHtml(t) + '"' + (state.activeMatchupType === t ? ' selected' : '') + '>' + escapeHtml(t) + '</option>';
         });
@@ -2598,18 +2600,20 @@
 
     function toggleTheme() {
         const html = document.documentElement;
-        const currentTheme = html.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
+        const btn = document.querySelector('.theme-toggle');
+        btn.textContent = newTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
+        btn.setAttribute('aria-label', newTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
     }
 
     function toggleMobileMenu() {
         const menu = document.getElementById('mobile-nav-menu');
         const btn = document.querySelector('.mobile-menu-btn');
-        menu.classList.toggle('active');
+        const isOpen = menu.classList.toggle('active');
         btn.classList.toggle('active');
+        btn.setAttribute('aria-expanded', isOpen);
     }
 
     function updateTime() {
@@ -2660,7 +2664,19 @@
             link.addEventListener('click', () => {
                 document.getElementById('mobile-nav-menu').classList.remove('active');
                 document.querySelector('.mobile-menu-btn').classList.remove('active');
+                document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded', 'false');
             });
+        });
+
+        // Close mobile menu on outside click
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('mobile-nav-menu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            if (menu && menu.classList.contains('active') && !menu.contains(e.target) && !btn.contains(e.target)) {
+                menu.classList.remove('active');
+                btn.classList.remove('active');
+                btn.setAttribute('aria-expanded', 'false');
+            }
         });
 
         // Start clock
@@ -2682,6 +2698,7 @@
         if (e.key === 'Escape') {
             document.getElementById('mobile-nav-menu').classList.remove('active');
             document.querySelector('.mobile-menu-btn').classList.remove('active');
+            document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded', 'false');
         }
     });
 

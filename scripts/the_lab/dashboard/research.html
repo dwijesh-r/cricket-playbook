@@ -134,32 +134,15 @@
             grid-template-columns: repeat(12, 1fr);
             gap: var(--space-3);
         }
-        .col-span-1 { grid-column: span 1; }
-        .col-span-2 { grid-column: span 2; }
-        .col-span-3 { grid-column: span 3; }
-        .col-span-4 { grid-column: span 4; }
-        .col-span-5 { grid-column: span 5; }
-        .col-span-6 { grid-column: span 6; }
-        .col-span-7 { grid-column: span 7; }
-        .col-span-8 { grid-column: span 8; }
-        .col-span-9 { grid-column: span 9; }
-        .col-span-10 { grid-column: span 10; }
-        .col-span-11 { grid-column: span 11; }
-        .col-span-12 { grid-column: span 12; }
         @media (max-width: 1024px) {
             .grid-12 { grid-template-columns: repeat(8, 1fr); }
-            .col-span-9, .col-span-10, .col-span-11, .col-span-12 { grid-column: span 8; }
-            .col-span-7, .col-span-8 { grid-column: span 8; }
-            .col-span-5, .col-span-6 { grid-column: span 4; }
         }
         @media (max-width: 768px) {
             .grid-12 { grid-template-columns: repeat(4, 1fr); }
             .container { padding: 0 var(--space-3); }
-            [class*="col-span-"] { grid-column: span 4; }
         }
         @media (max-width: 480px) {
             .grid-12 { grid-template-columns: 1fr; }
-            [class*="col-span-"] { grid-column: span 1; }
             .container { padding: 0 var(--space-2); }
         }
 
@@ -177,240 +160,19 @@
             padding: 0 var(--space-4);
             backdrop-filter: blur(12px);
         }
-        .site-nav .nav-links {
-            display: flex;
-            gap: var(--space-1);
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            flex: 1;
-        }
-        .site-nav .nav-links a {
-            display: flex;
-            align-items: center;
-            padding: var(--space-2) var(--space-3);
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-family: var(--font-body);
-            font-size: var(--text-sm);
-            font-weight: 500;
-            border-radius: var(--radius-md);
-            transition: all var(--transition-normal);
-            min-height: 44px;
-            white-space: nowrap;
-        }
-        .site-nav .nav-links a:hover {
-            color: var(--text-primary);
-            background: var(--glass);
-        }
-        .site-nav .nav-links a.active {
-            color: var(--accent);
-            background: rgba(0, 240, 255, 0.08);
-            border: 1px solid rgba(0, 240, 255, 0.15);
-        }
         .site-nav .nav-actions {
             display: flex;
             align-items: center;
             gap: var(--space-2);
             margin-left: auto;
         }
-        .hamburger-btn {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            background: none;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            color: var(--text-primary);
-            font-size: var(--text-xl);
-            cursor: pointer;
-            transition: all var(--transition-normal);
-        }
-        .hamburger-btn:hover { border-color: var(--accent); }
-        .mobile-nav-overlay {
-            display: none;
-            position: fixed;
-            top: var(--nav-height);
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 99;
-        }
-        .mobile-nav-overlay.active { display: block; }
-        .mobile-nav-dropdown {
-            display: none;
-            position: fixed;
-            top: var(--nav-height);
-            left: 0;
-            right: 0;
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border);
-            padding: var(--space-2);
-            z-index: 100;
-            max-height: calc(100vh - var(--nav-height));
-            overflow-y: auto;
-        }
-        .mobile-nav-dropdown.active { display: block; }
-        .mobile-nav-dropdown a {
-            display: flex;
-            align-items: center;
-            padding: var(--space-3);
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: var(--text-md);
-            border-radius: var(--radius-md);
-            min-height: 48px;
-            transition: all var(--transition-normal);
-        }
-        .mobile-nav-dropdown a:hover { background: var(--glass); color: var(--text-primary); }
-        .mobile-nav-dropdown a.active { color: var(--accent); background: rgba(0, 240, 255, 0.08); }
-        .view-tabs {
-            display: flex;
-            gap: var(--space-1);
-            padding: var(--space-2) var(--space-4);
-            background: var(--bg-primary);
-            border-bottom: 1px solid var(--border);
-            overflow-x: auto;
-        }
-        .view-tabs button {
-            padding: var(--space-2) var(--space-3);
-            background: none;
-            border: 1px solid transparent;
-            border-radius: var(--radius-md);
-            color: var(--text-secondary);
-            font-family: var(--font-body);
-            font-size: var(--text-sm);
-            cursor: pointer;
-            white-space: nowrap;
-            min-height: 44px;
-            transition: all var(--transition-normal);
-        }
-        .view-tabs button:hover { color: var(--text-primary); border-color: var(--border); }
-        .view-tabs button.active { color: var(--accent); border-color: var(--accent); background: rgba(0, 240, 255, 0.08); }
-        @media (max-width: 768px) {
-            .site-nav .nav-links { display: none; }
-            .hamburger-btn { display: flex; }
-            .view-tabs { padding: var(--space-2) var(--space-3); }
-        }
-
-        /* ==================== TOOLTIP SYSTEM (TKT-109) ==================== */
-        .has-tooltip {
-            position: relative;
-            cursor: help;
-        }
-        .has-tooltip::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: calc(100% + 8px);
-            left: 50%;
-            transform: translateX(-50%);
-            padding: var(--space-2) 12px;
-            background: var(--bg-elevated);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--text-primary);
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all var(--transition-normal);
-            z-index: 1000;
-            pointer-events: none;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-        }
-        .has-tooltip:hover::after {
-            opacity: 1;
-            visibility: visible;
-        }
-        .help-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 14px;
-            height: 14px;
-            font-size: var(--text-xs);
-            color: var(--text-tertiary);
-            cursor: help;
-            margin-left: var(--space-1);
-            vertical-align: middle;
-        }
-        .help-icon:hover { color: var(--accent); }
-
-        /* Mobile-safe tooltip adjustments */
-        @media (max-width: 768px) {
-            .has-tooltip::after {
-                white-space: normal;
-                max-width: 200px;
-                left: 0;
-                transform: none;
-                font-size: var(--text-xs);
-            }
-        }
-        @media (max-width: 480px) {
-            .has-tooltip::after {
-                max-width: 160px;
-                padding: var(--space-1) 10px;
-                font-size: var(--text-xs);
-            }
-        }
 
 
-        /* ==================== SMOOTH SCROLL & SKELETONS (TKT-274) ==================== */
+
+        /* ==================== SMOOTH SCROLL (TKT-274) ==================== */
         html { scroll-behavior: smooth; }
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
-        }
-        .skeleton {
-            background: var(--bg-tertiary);
-            border-radius: var(--radius-md);
-            position: relative;
-            overflow: hidden;
-        }
-        .skeleton::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(
-                90deg,
-                transparent 0%,
-                rgba(255, 255, 255, 0.04) 50%,
-                transparent 100%
-            );
-            animation: skeleton-shimmer 1.5s ease-in-out infinite;
-        }
-        @keyframes skeleton-shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .skeleton::after { animation: none; }
-        }
-        .skeleton-text {
-            height: 14px;
-            margin-bottom: var(--space-2);
-            width: 80%;
-        }
-        .skeleton-text.short { width: 40%; }
-        .skeleton-text.medium { width: 60%; }
-        .skeleton-card {
-            height: 120px;
-            margin-bottom: var(--space-3);
-        }
-        .skeleton-row {
-            height: 48px;
-            margin-bottom: var(--space-1);
-        }
-        .skeleton-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-full);
         }
 
         /* ==================== ACCESSIBILITY (TKT-273) ==================== */
@@ -460,38 +222,6 @@
             border-width: 0;
         }
 
-        /* ==================== TABLE SCROLL (TKT-278) ==================== */
-        .table-scroll-wrapper {
-            position: relative;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            margin: var(--space-2) 0;
-        }
-        .table-scroll-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            width: 40px;
-            background: linear-gradient(to right, transparent, var(--bg-primary));
-            pointer-events: none;
-            opacity: 1;
-            transition: opacity var(--transition-normal);
-        }
-        .table-scroll-wrapper.scrolled-end::after { opacity: 0; }
-        .table-scroll-wrapper.scrolled-start::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            width: 40px;
-            background: linear-gradient(to left, transparent, var(--bg-primary));
-            pointer-events: none;
-            z-index: 1;
-        }
-        .table-scroll-wrapper table { min-width: 600px; }
 
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -540,7 +270,6 @@
             align-items: center;
             justify-content: center;
             filter: drop-shadow(0 0 8px var(--glow-accent));
-            animation: logo-pulse 3s ease-in-out infinite;
         }
         .nav-logo svg {
             width: 100%;
@@ -578,7 +307,9 @@
             display: flex; gap: var(--space-1);
             background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
             padding: var(--space-1); border-radius: var(--radius-lg); border: 1px solid var(--border);
+            overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
         }
+        .nav-tabs::-webkit-scrollbar { display: none; }
         .nav-tab {
             padding: var(--space-2) 16px; border-radius: var(--radius-md); font-size: 13px; font-weight: 600;
             color: var(--text-secondary); cursor: pointer; transition: all var(--transition-slow);
@@ -900,6 +631,7 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
     <div class="bg-gradient"></div>
     <div class="bg-grid"></div>
 
@@ -926,24 +658,24 @@
             <div class="nav-title"><span class="brand-stat">STAT</span><span class="brand-sledge">SLEDGE</span></div>
         </div>
         <div class="nav-tabs">
-            <a href="index.html" class="nav-tab">Home</a>
-            <a href="teams.html" class="nav-tab">Teams</a>
-            <a href="rankings.html" class="nav-tab">Rankings</a>
-            <a href="comparison.html" class="nav-tab">Compare</a>
-            <a href="head-to-head.html" class="nav-tab">H2H</a>
-            <a href="artifacts.html" class="nav-tab">Artifacts</a>
-            <a href="analysis.html" class="nav-tab">Analysis</a>
-            <a href="research.html" class="nav-tab active">Research</a>
-            <a href="research-desk.html" class="nav-tab">The Film Room</a>
-            <a href="about.html" class="nav-tab">About</a>
-            <a href="/boardroom/index.html" class="nav-tab">The Boardroom</a>
+            <a href="index.html" class="nav-tab">&#127968; Home</a>
+            <a href="teams.html" class="nav-tab">&#127951; Teams</a>
+            <a href="rankings.html" class="nav-tab">&#127942; Rankings</a>
+            <a href="comparison.html" class="nav-tab">&#9878;&#65039; Compare</a>
+            <a href="head-to-head.html" class="nav-tab">&#9876;&#65039; H2H</a>
+            <a href="artifacts.html" class="nav-tab">&#128269; Artifacts</a>
+            <a href="analysis.html" class="nav-tab">&#128300; Analysis</a>
+            <a href="research.html" class="nav-tab active">&#128218; Research</a>
+            <a href="research-desk.html" class="nav-tab">&#127916; The Film Room</a>
+            <a href="about.html" class="nav-tab">&#127801; About</a>
         </div>
         <div class="nav-actions">
+            <a href="/boardroom/index.html" class="nav-btn">&#128225; Mission Control</a>
             <span class="nav-time" id="navTime">--:--:--</span>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu">
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu" title="Menu">
                 <span></span><span></span><span></span>
             </button>
-            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Switch to light theme">🌙</button>
         </div>
     </nav>
 
@@ -959,7 +691,7 @@
         <a href="research.html" class="nav-tab active">📚 Research</a>
         <a href="research-desk.html" class="nav-tab">🎬 The Film Room</a>
         <a href="about.html" class="nav-tab">🌹 About</a>
-        <a href="/boardroom/index.html" class="nav-tab" style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%); color: white;">📡 The Boardroom</a>
+        <a href="/boardroom/index.html" class="nav-tab" style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%); color: white;">📡 Mission Control</a>
     </div>
 
     <main id="main-content" class="main" role="main">
@@ -1034,7 +766,7 @@
                         <li><span class="priority-badge p2">P2</span> Captain decision grading</li>
                     </ul>
 
-                    <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/research/pff_grading_system_research.md" target="_blank" class="doc-link">
+                    <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/research/pff_grading_system_research.md" target="_blank" rel="noopener noreferrer" class="doc-link">
                         📄 View Full PFF Research Document
                     </a>
                 </div>
@@ -1068,7 +800,7 @@
                         <li><span class="priority-badge p1">P1</span> <strong>Adjusted Strike Rate:</strong> SR normalized by context</li>
                     </ul>
 
-                    <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/research/kenpom_methodology_research.md" target="_blank" class="doc-link">
+                    <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/research/kenpom_methodology_research.md" target="_blank" rel="noopener noreferrer" class="doc-link">
                         📄 View Full KenPom Research Document
                     </a>
                 </div>
@@ -1103,7 +835,7 @@
                         <li><strong>WICKET_TAKER</strong> - High wickets, aggressive approach</li>
                     </ul>
 
-                    <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/specs/cluster_archetypes_creative.md" target="_blank" class="doc-link">
+                    <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/specs/cluster_archetypes_creative.md" target="_blank" rel="noopener noreferrer" class="doc-link">
                         📄 View Creative Archetype Descriptions
                     </a>
                 </div>
@@ -1144,7 +876,7 @@
 
                     <h4>How It Differs from Raw Stats</h4>
                     <table style="width:100%; border-collapse:collapse; margin:12px 0; font-size:0.85rem;">
-                        <th scope="col"ead>
+                        <thead>
                             <tr style="border-bottom:1px solid var(--border); text-align:left;">
                                 <th scope="col" style="padding:6px 8px;">Aspect</th>
                                 <th scope="col" style="padding:6px 8px;">Raw Stats</th>
@@ -1162,7 +894,7 @@
 
                     <p style="margin-top: 16px;"><strong>Status:</strong> Tournament weights computed (TKT-187). CricPom foundation metrics (AdjBRR, AdjBE, CEM) implemented (TKT-190). Groundwork research complete.</p>
 
-                    <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/research/kenpom_methodology_research.md" target="_blank" class="doc-link">
+                    <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/research/kenpom_methodology_research.md" target="_blank" rel="noopener noreferrer" class="doc-link">
                         📄 View KenPom Research Foundation
                     </a>
                 </div>
@@ -1203,7 +935,7 @@
 
                     <p style="margin-top: 16px;"><strong>Status:</strong> Plan approved by Founder. IPL 2023+ baseline locked. Implementation via TKT-183 (8-12 days).</p>
 
-                    <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/reviews/founder/tournament_weighting_plan_021126_v1.md" target="_blank" class="doc-link">
+                    <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/reviews/founder/tournament_weighting_plan_021126_v1.md" target="_blank" rel="noopener noreferrer" class="doc-link">
                         📄 View Full Tournament Weighting Plan
                     </a>
                 </div>
@@ -1232,7 +964,7 @@
                     <p>DuckDB analysis of 1,169 IPL matches reveals a <strong>structural break at 2023</strong> — the largest single-era shift in IPL history:</p>
 
                     <table style="width:100%; border-collapse:collapse; margin:12px 0; font-size:0.85rem;">
-                        <th scope="col"ead>
+                        <thead>
                             <tr style="border-bottom:1px solid var(--border); text-align:left;">
                                 <th scope="col" style="padding:6px 8px;">Era</th>
                                 <th scope="col" style="padding:6px 8px;">Matches</th>
@@ -1261,7 +993,7 @@
                         <li><strong>219 matches</strong> provides sufficient sample for statistical reliability across all analytical views</li>
                     </ul>
 
-                    <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/reviews/founder/tkt181_film_room_review_021126_v1.md" target="_blank" class="doc-link">
+                    <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/reviews/founder/tkt181_film_room_review_021126_v1.md" target="_blank" rel="noopener noreferrer" class="doc-link">
                         📄 View TKT-181 Review Document
                     </a>
                 </div>
@@ -1350,15 +1082,28 @@
             const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
-            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '🌙' : '☀️';
+            const btn = document.querySelector('.theme-toggle');
+            btn.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+            btn.setAttribute('aria-label', newTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
         }
 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-nav-menu');
             const btn = document.querySelector('.mobile-menu-btn');
-            menu.classList.toggle('active');
+            const isOpen = menu.classList.toggle('active');
             btn.classList.toggle('active');
+            btn.setAttribute('aria-expanded', isOpen);
         }
+
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('mobile-nav-menu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            if (menu && menu.classList.contains('active') && !menu.contains(e.target) && !btn.contains(e.target)) {
+                menu.classList.remove('active');
+                btn.classList.remove('active');
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        });
 
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', savedTheme);
@@ -1375,49 +1120,7 @@
         function toggleNavGuide() { document.getElementById('nav-guide-overlay').classList.toggle('active'); }
         function closeNavGuide(e) { if (e.target === e.currentTarget) toggleNavGuide(); }
 
-    // TKT-278: Table scroll indicators
-    document.querySelectorAll('.table-scroll-wrapper').forEach(function(wrapper) {
-        wrapper.addEventListener('scroll', function() {
-            var atStart = this.scrollLeft > 10;
-            var atEnd = this.scrollLeft + this.clientWidth >= this.scrollWidth - 10;
-            this.classList.toggle('scrolled-start', atStart);
-            this.classList.toggle('scrolled-end', atEnd);
-        });
-    });
 
-    // TKT-273: Keyboard navigation for tabs and menus
-    document.querySelectorAll('[role="tablist"]').forEach(function(tablist) {
-        tablist.addEventListener('keydown', function(e) {
-            var tabs = Array.from(this.querySelectorAll('[role="tab"]'));
-            var idx = tabs.indexOf(document.activeElement);
-            if (idx === -1) return;
-            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-                e.preventDefault();
-                tabs[(idx + 1) % tabs.length].focus();
-            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-                e.preventDefault();
-                tabs[(idx - 1 + tabs.length) % tabs.length].focus();
-            }
-        });
-    });
-    // Escape closes mobile nav/modals
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            document.querySelectorAll('.mobile-nav-dropdown.active, .mobile-nav-overlay.active').forEach(function(el) {
-                el.classList.remove('active');
-            });
-            var modal = document.querySelector('.modal.active, .modal.show, [data-modal].active');
-            if (modal) modal.classList.remove('active', 'show');
-        }
-    });
-
-    // TKT-274: Remove skeleton loaders
-    function removeSkeletons() {
-        document.querySelectorAll('.skeleton').forEach(function(el) {
-            el.classList.remove('skeleton', 'skeleton-text', 'skeleton-card', 'skeleton-row', 'skeleton-avatar');
-            el.removeAttribute('aria-hidden');
-        });
-    }
 </script>
 
     <!-- Navigation Guide Button -->

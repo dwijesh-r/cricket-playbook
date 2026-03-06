@@ -145,32 +145,10 @@
             grid-template-columns: repeat(12, 1fr);
             gap: var(--space-3);
         }
-        .col-span-1 { grid-column: span 1; }
-        .col-span-2 { grid-column: span 2; }
-        .col-span-3 { grid-column: span 3; }
-        .col-span-4 { grid-column: span 4; }
-        .col-span-5 { grid-column: span 5; }
-        .col-span-6 { grid-column: span 6; }
-        .col-span-7 { grid-column: span 7; }
-        .col-span-8 { grid-column: span 8; }
-        .col-span-9 { grid-column: span 9; }
-        .col-span-10 { grid-column: span 10; }
-        .col-span-11 { grid-column: span 11; }
-        .col-span-12 { grid-column: span 12; }
-        @media (max-width: 1024px) {
-            .grid-12 { grid-template-columns: repeat(8, 1fr); }
-            .col-span-9, .col-span-10, .col-span-11, .col-span-12 { grid-column: span 8; }
-            .col-span-7, .col-span-8 { grid-column: span 8; }
-            .col-span-5, .col-span-6 { grid-column: span 4; }
-        }
         @media (max-width: 768px) {
-            .grid-12 { grid-template-columns: repeat(4, 1fr); }
             .container { padding: 0 var(--space-3); }
-            [class*="col-span-"] { grid-column: span 4; }
         }
         @media (max-width: 480px) {
-            .grid-12 { grid-template-columns: 1fr; }
-            [class*="col-span-"] { grid-column: span 1; }
             .container { padding: 0 var(--space-2); }
         }
 
@@ -666,7 +644,11 @@
             padding: var(--space-1);
             border-radius: var(--radius-lg);
             border: 1px solid var(--border);
+            overflow-x: auto;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
         }
+        .nav-tabs::-webkit-scrollbar { display: none; }
 
         .nav-tab {
             padding: var(--space-2) 16px;
@@ -1727,6 +1709,7 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
     <!-- Background -->
     <div class="bg-gradient"></div>
     <div class="bg-grid"></div>
@@ -1769,10 +1752,10 @@
         </div>
         <div class="nav-actions">
             <span class="nav-time" id="navTime">--:--:--</span>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu">
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu">
                 <span></span><span></span><span></span>
             </button>
-            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">&#127769;</button>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Switch to light theme">&#127769;</button>
             <a href="/boardroom/index.html" class="nav-btn">&#128225; Mission Control</a>
         </div>
     </nav>
@@ -1797,7 +1780,6 @@
     <main id="main-content" class="main" role="main">
         <!-- Hero -->
         <section class="hero">
-            <div class="hero-badge">&#127942; EPIC-021 Signature Feature</div>
             <h1 class="hero-title">Player Rankings</h1>
             <p class="hero-subtitle">Composite performance rankings across every phase, bowling type, and matchup in IPL history. Weighted, sample-size adjusted, and built for front-office scouting.</p>
         </section>
@@ -1856,7 +1838,7 @@
             <div class="leaderboard-table-wrap">
                 <div class="leaderboard-table-scroll">
                     <table class="leaderboard-table" id="leaderboardTable">
-                        <th scope="col"ead id="tableHead"></thead>
+                        <thead id="tableHead"></thead>
                         <tbody id="tableBody"></tbody>
                     </table>
                 </div>
@@ -2410,18 +2392,20 @@
     // ==================== UTILITY FUNCTIONS ====================
     function toggleTheme() {
         const html = document.documentElement;
-        const currentTheme = html.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
+        const btn = document.querySelector('.theme-toggle');
+        btn.textContent = newTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
+        btn.setAttribute('aria-label', newTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
     }
 
     function toggleMobileMenu() {
         const menu = document.getElementById('mobile-nav-menu');
         const btn = document.querySelector('.mobile-menu-btn');
-        menu.classList.toggle('active');
+        const isOpen = menu.classList.toggle('active');
         btn.classList.toggle('active');
+        btn.setAttribute('aria-expanded', isOpen);
     }
 
     // Close mobile menu when clicking a link
@@ -2429,7 +2413,19 @@
         link.addEventListener('click', () => {
             document.getElementById('mobile-nav-menu').classList.remove('active');
             document.querySelector('.mobile-menu-btn').classList.remove('active');
+            document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded', 'false');
         });
+    });
+
+    // Close mobile menu on outside click
+    document.addEventListener('click', function(e) {
+        const menu = document.getElementById('mobile-nav-menu');
+        const btn = document.querySelector('.mobile-menu-btn');
+        if (menu && menu.classList.contains('active') && !menu.contains(e.target) && !btn.contains(e.target)) {
+            menu.classList.remove('active');
+            btn.classList.remove('active');
+            btn.setAttribute('aria-expanded', 'false');
+        }
     });
 
     function updateTime() {

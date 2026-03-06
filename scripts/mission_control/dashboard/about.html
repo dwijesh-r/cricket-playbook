@@ -1576,12 +1576,13 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
     <!-- Background layers -->
     <div class="bg-gradient"></div>
     <div class="bg-grid"></div>
 
     <!-- Navigation -->
-    <nav class="nav site-nav" aria-label="Site navigation">
+    <nav class="nav site-nav" aria-label="Site navigation" role="navigation">
         <a href="index.html" class="nav-brand">
             <div class="nav-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
   <defs>
@@ -1607,7 +1608,7 @@
             <a href="index.html" class="nav-btn">← Back to Dashboard</a>
             <a href="sprints.html" class="nav-btn">📅 Sprints</a>
             <a href="/index.html" class="nav-btn">🔬 The Lab</a>
-            <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙</button>
+            <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Switch to light theme">🌙</button>
         </div>
     </nav>
 

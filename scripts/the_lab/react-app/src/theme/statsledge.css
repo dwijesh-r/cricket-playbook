@@ -1,0 +1,416 @@
+/**
+ * Statsledge Design Language — Master CSS
+ *
+ * Premium light-first theme combining Airbnb clarity, Stripe dashboard
+ * precision, and The Athletic editorial quality.
+ *
+ * All custom properties are prefixed with --sl- to avoid collisions with
+ * the existing dark-first design system variables.
+ */
+
+/* ==========================================================================
+   1. Custom Properties (Palette)
+   ========================================================================== */
+
+:root {
+  /* Core palette */
+  --sl-deep-navy: #0B1F33;
+  --sl-sports-red: #FF4D4F;
+  --sl-white: #FFFFFF;
+  --sl-light-gray-bg: #F5F7FA;
+  --sl-text-gray: #4A4A4A;
+  --sl-accent-blue: #1E88E5;
+
+  /* Meaning / trend colors */
+  --sl-positive: #2ECC71;
+  --sl-negative: #E74C3C;
+  --sl-neutral: #3498DB;
+
+  /* Surface hierarchy */
+  --sl-surface-primary: var(--sl-white);
+  --sl-surface-secondary: var(--sl-light-gray-bg);
+  --sl-surface-elevated: var(--sl-white);
+
+  /* Text hierarchy */
+  --sl-text-primary: var(--sl-deep-navy);
+  --sl-text-secondary: var(--sl-text-gray);
+  --sl-text-tertiary: #8A8A8A;
+  --sl-text-inverse: var(--sl-white);
+
+  /* Borders & dividers */
+  --sl-border: #E2E8F0;
+  --sl-border-subtle: #EDF2F7;
+
+  /* Shadows — subtle, layered for depth */
+  --sl-shadow-sm: 0 1px 3px rgba(11, 31, 51, 0.06);
+  --sl-shadow-md: 0 4px 12px rgba(11, 31, 51, 0.08);
+  --sl-shadow-lg: 0 8px 24px rgba(11, 31, 51, 0.10);
+  --sl-shadow-xl: 0 16px 48px rgba(11, 31, 51, 0.12);
+
+  /* Typography */
+  --sl-font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --sl-font-secondary: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --sl-font-h1: 40px;
+  --sl-font-h2: 28px;
+  --sl-font-h3: 20px;
+  --sl-font-body: 16px;
+  --sl-font-meta: 14px;
+  --sl-font-min: 14px;
+
+  --sl-line-height-tight: 1.2;
+  --sl-line-height-normal: 1.5;
+  --sl-line-height-relaxed: 1.75;
+
+  --sl-weight-normal: 400;
+  --sl-weight-medium: 500;
+  --sl-weight-semibold: 600;
+  --sl-weight-bold: 700;
+
+  /* Spacing — 8px base grid */
+  --sl-space-xs: 8px;
+  --sl-space-sm: 16px;
+  --sl-space-md: 24px;
+  --sl-space-lg: 32px;
+  --sl-space-xl: 48px;
+  --sl-space-2xl: 64px;
+
+  /* Grid */
+  --sl-grid-columns: 12;
+  --sl-grid-max-desktop: 1280px;
+  --sl-grid-max-tablet: 960px;
+  --sl-grid-gutter: 24px;
+
+  /* Radii */
+  --sl-radius-sm: 4px;
+  --sl-radius-md: 8px;
+  --sl-radius-lg: 12px;
+  --sl-radius-xl: 16px;
+
+  /* Transitions */
+  --sl-transition-fast: 150ms ease;
+  --sl-transition-normal: 250ms ease;
+  --sl-transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   2. Typography Scale Classes
+   ========================================================================== */
+
+.sl-h1 {
+  font-family: var(--sl-font-primary);
+  font-size: var(--sl-font-h1);
+  font-weight: var(--sl-weight-bold);
+  line-height: var(--sl-line-height-tight);
+  color: var(--sl-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.sl-h2 {
+  font-family: var(--sl-font-primary);
+  font-size: var(--sl-font-h2);
+  font-weight: var(--sl-weight-semibold);
+  line-height: var(--sl-line-height-tight);
+  color: var(--sl-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.sl-h3 {
+  font-family: var(--sl-font-primary);
+  font-size: var(--sl-font-h3);
+  font-weight: var(--sl-weight-semibold);
+  line-height: var(--sl-line-height-normal);
+  color: var(--sl-text-primary);
+}
+
+.sl-body {
+  font-family: var(--sl-font-primary);
+  font-size: var(--sl-font-body);
+  font-weight: var(--sl-weight-normal);
+  line-height: var(--sl-line-height-normal);
+  color: var(--sl-text-secondary);
+}
+
+.sl-meta {
+  font-family: var(--sl-font-secondary);
+  font-size: var(--sl-font-meta);
+  font-weight: var(--sl-weight-medium);
+  line-height: var(--sl-line-height-normal);
+  color: var(--sl-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sl-label {
+  font-family: var(--sl-font-secondary);
+  font-size: var(--sl-font-meta);
+  font-weight: var(--sl-weight-semibold);
+  line-height: var(--sl-line-height-normal);
+  color: var(--sl-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ==========================================================================
+   3. Spacing Utility Classes
+   ========================================================================== */
+
+.sl-p-xs  { padding: var(--sl-space-xs); }
+.sl-p-sm  { padding: var(--sl-space-sm); }
+.sl-p-md  { padding: var(--sl-space-md); }
+.sl-p-lg  { padding: var(--sl-space-lg); }
+.sl-p-xl  { padding: var(--sl-space-xl); }
+.sl-p-2xl { padding: var(--sl-space-2xl); }
+
+.sl-px-xs  { padding-left: var(--sl-space-xs); padding-right: var(--sl-space-xs); }
+.sl-px-sm  { padding-left: var(--sl-space-sm); padding-right: var(--sl-space-sm); }
+.sl-px-md  { padding-left: var(--sl-space-md); padding-right: var(--sl-space-md); }
+.sl-px-lg  { padding-left: var(--sl-space-lg); padding-right: var(--sl-space-lg); }
+
+.sl-py-xs  { padding-top: var(--sl-space-xs); padding-bottom: var(--sl-space-xs); }
+.sl-py-sm  { padding-top: var(--sl-space-sm); padding-bottom: var(--sl-space-sm); }
+.sl-py-md  { padding-top: var(--sl-space-md); padding-bottom: var(--sl-space-md); }
+.sl-py-lg  { padding-top: var(--sl-space-lg); padding-bottom: var(--sl-space-lg); }
+
+.sl-m-xs  { margin: var(--sl-space-xs); }
+.sl-m-sm  { margin: var(--sl-space-sm); }
+.sl-m-md  { margin: var(--sl-space-md); }
+.sl-m-lg  { margin: var(--sl-space-lg); }
+.sl-m-xl  { margin: var(--sl-space-xl); }
+.sl-m-2xl { margin: var(--sl-space-2xl); }
+
+.sl-mb-xs  { margin-bottom: var(--sl-space-xs); }
+.sl-mb-sm  { margin-bottom: var(--sl-space-sm); }
+.sl-mb-md  { margin-bottom: var(--sl-space-md); }
+.sl-mb-lg  { margin-bottom: var(--sl-space-lg); }
+
+.sl-mt-xs  { margin-top: var(--sl-space-xs); }
+.sl-mt-sm  { margin-top: var(--sl-space-sm); }
+.sl-mt-md  { margin-top: var(--sl-space-md); }
+.sl-mt-lg  { margin-top: var(--sl-space-lg); }
+
+.sl-gap-xs  { gap: var(--sl-space-xs); }
+.sl-gap-sm  { gap: var(--sl-space-sm); }
+.sl-gap-md  { gap: var(--sl-space-md); }
+.sl-gap-lg  { gap: var(--sl-space-lg); }
+
+/* ==========================================================================
+   4. Grid System (12-column responsive)
+   ========================================================================== */
+
+.sl-container {
+  width: 100%;
+  max-width: var(--sl-grid-max-desktop);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--sl-grid-gutter);
+  padding-right: var(--sl-grid-gutter);
+}
+
+.sl-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--sl-grid-columns), 1fr);
+  gap: var(--sl-grid-gutter);
+}
+
+.sl-col-1  { grid-column: span 1; }
+.sl-col-2  { grid-column: span 2; }
+.sl-col-3  { grid-column: span 3; }
+.sl-col-4  { grid-column: span 4; }
+.sl-col-5  { grid-column: span 5; }
+.sl-col-6  { grid-column: span 6; }
+.sl-col-7  { grid-column: span 7; }
+.sl-col-8  { grid-column: span 8; }
+.sl-col-9  { grid-column: span 9; }
+.sl-col-10 { grid-column: span 10; }
+.sl-col-11 { grid-column: span 11; }
+.sl-col-12 { grid-column: span 12; }
+
+/* ==========================================================================
+   5. Responsive Breakpoints
+   ========================================================================== */
+
+/* Tablet: 768px–1023px */
+@media (max-width: 1023px) {
+  .sl-container {
+    max-width: var(--sl-grid-max-tablet);
+    padding-left: var(--sl-space-sm);
+    padding-right: var(--sl-space-sm);
+  }
+
+  .sl-grid {
+    gap: var(--sl-space-sm);
+  }
+
+  .sl-col-md-4  { grid-column: span 4; }
+  .sl-col-md-6  { grid-column: span 6; }
+  .sl-col-md-8  { grid-column: span 8; }
+  .sl-col-md-12 { grid-column: span 12; }
+}
+
+/* Mobile: < 768px */
+@media (max-width: 767px) {
+  :root {
+    --sl-font-h1: 28px;
+    --sl-font-h2: 22px;
+    --sl-font-h3: 18px;
+    --sl-grid-gutter: 16px;
+  }
+
+  .sl-container {
+    padding-left: var(--sl-space-sm);
+    padding-right: var(--sl-space-sm);
+  }
+
+  .sl-grid {
+    grid-template-columns: 1fr;
+    gap: var(--sl-space-sm);
+  }
+
+  .sl-col-sm-6  { grid-column: span 1; }
+  .sl-col-sm-12 { grid-column: span 1; }
+}
+
+/* ==========================================================================
+   6. Card Base Styles
+   ========================================================================== */
+
+.sl-card {
+  background: var(--sl-surface-elevated);
+  border: 1px solid var(--sl-border-subtle);
+  border-radius: var(--sl-radius-lg);
+  box-shadow: var(--sl-shadow-sm);
+  padding: var(--sl-space-md);
+  transition:
+    transform var(--sl-transition-normal),
+    box-shadow var(--sl-transition-normal);
+}
+
+.sl-card:hover {
+  box-shadow: var(--sl-shadow-md);
+  transform: scale(1.02);
+}
+
+.sl-card--flat {
+  box-shadow: none;
+  border: 1px solid var(--sl-border);
+}
+
+.sl-card--flat:hover {
+  box-shadow: var(--sl-shadow-sm);
+  transform: none;
+}
+
+/* ==========================================================================
+   7. Animation Keyframes
+   ========================================================================== */
+
+@keyframes sl-count-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sl-skeleton-pulse {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes sl-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sl-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.sl-animate-count-up {
+  animation: sl-count-up 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.sl-animate-fade-in {
+  animation: sl-fade-in 0.3s ease forwards;
+}
+
+.sl-animate-scale-in {
+  animation: sl-scale-in 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.sl-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--sl-border-subtle) 25%,
+    #E8EDF3 37%,
+    var(--sl-border-subtle) 63%
+  );
+  background-size: 400% 100%;
+  animation: sl-skeleton-pulse 1.4s ease infinite;
+  border-radius: var(--sl-radius-sm);
+}
+
+/* ==========================================================================
+   8. Chart Container Styles
+   ========================================================================== */
+
+.sl-chart-container {
+  background: var(--sl-surface-elevated);
+  border: 1px solid var(--sl-border-subtle);
+  border-radius: var(--sl-radius-lg);
+  box-shadow: var(--sl-shadow-sm);
+  padding: var(--sl-space-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.sl-chart-container--full-width {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.sl-chart-header {
+  padding-bottom: var(--sl-space-sm);
+  border-bottom: 1px solid var(--sl-border-subtle);
+  margin-bottom: var(--sl-space-sm);
+}
+
+.sl-chart-title {
+  font-family: var(--sl-font-primary);
+  font-size: var(--sl-font-h3);
+  font-weight: var(--sl-weight-semibold);
+  color: var(--sl-text-primary);
+  margin: 0;
+}
+
+.sl-chart-subtitle {
+  font-family: var(--sl-font-secondary);
+  font-size: var(--sl-font-meta);
+  font-weight: var(--sl-weight-normal);
+  color: var(--sl-text-tertiary);
+  margin: 4px 0 0 0;
+}
+
+.sl-chart-body {
+  min-height: 200px;
+  position: relative;
+}

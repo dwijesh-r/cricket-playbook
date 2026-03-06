@@ -59,6 +59,62 @@ export const colors = {
 } as const;
 
 // ---------------------------------------------------------------------------
+// Statsledge Design Language Tokens
+// ---------------------------------------------------------------------------
+
+export const statsledge = {
+  /** Core palette — premium light-first theme */
+  palette: {
+    deepNavy: '#0B1F33',
+    sportsRed: '#FF4D4F',
+    white: '#FFFFFF',
+    lightGrayBg: '#F5F7FA',
+    textGray: '#4A4A4A',
+    accentBlue: '#1E88E5',
+  },
+  /** Meaning colors for data visualization trends */
+  meaning: {
+    positive: '#2ECC71',
+    negative: '#E74C3C',
+    neutral: '#3498DB',
+  },
+  /** Typography — Inter primary, DM Sans secondary */
+  typography: {
+    fontPrimary:
+      "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    fontSecondary:
+      "'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    scale: {
+      h1: '40px',
+      h2: '28px',
+      h3: '20px',
+      body: '16px',
+      meta: '14px',
+    },
+    /** Minimum accessible font size — never go below this */
+    minSize: '14px',
+  },
+  /** 8px base grid spacing */
+  spacing: {
+    xs: '8px',
+    sm: '16px',
+    md: '24px',
+    lg: '32px',
+    xl: '48px',
+    '2xl': '64px',
+  },
+  /** Grid system */
+  grid: {
+    columns: 12,
+    maxWidthDesktop: '1280px',
+    maxWidthTablet: '960px',
+    gutter: '24px',
+  },
+} as const;
+
+export type StatsledgeTokens = typeof statsledge;
+
+// ---------------------------------------------------------------------------
 // Typography
 // ---------------------------------------------------------------------------
 
@@ -227,6 +283,7 @@ export const theme = {
   breakpoints,
   dark: darkTheme,
   light: lightTheme,
+  statsledge,
 } as const;
 
 export type Theme = typeof theme;

@@ -93,34 +93,34 @@
         }
 
         [data-theme="light"] {
-            --bg-primary: #0B1120;
-            --bg-secondary: #111827;
-            --bg-tertiary: #1E293B;
-            --bg-elevated: #1E293B;
-            --text-primary: #F1F5F9;
-            --text-secondary: #94A3B8;
-            --text-tertiary: #64748B;
-            --accent: #3B82F6;
-            --accent-green: #22C55E;
-            --accent-yellow: #EAB308;
-            --accent-orange: #F97316;
-            --accent-red: #EF4444;
-            --accent-purple: #A855F7;
-            --accent-pink: #EC4899;
-            --accent-teal: #14B8A6;
-            --border: rgba(148, 163, 184, 0.1);
-            --glass: rgba(148, 163, 184, 0.03);
-            --glass-border: rgba(148, 163, 184, 0.06);
-            --shadow: rgba(0, 0, 0, 0.4);
-            --glow-accent: rgba(59, 130, 246, 0.1);
-            --glow-purple: rgba(168, 85, 247, 0.08);
-            --border-accent: rgba(59, 130, 246, 0.2);
+            --bg-primary: #F8FAFC;
+            --bg-secondary: #FFFFFF;
+            --bg-tertiary: #F1F5F9;
+            --bg-elevated: #FFFFFF;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-tertiary: #94A3B8;
+            --accent: #2563EB;
+            --accent-green: #16A34A;
+            --accent-yellow: #CA8A04;
+            --accent-orange: #EA580C;
+            --accent-red: #DC2626;
+            --accent-purple: #9333EA;
+            --accent-pink: #DB2777;
+            --accent-teal: #0D9488;
+            --border: #E2E8F0;
+            --glass: rgba(15, 23, 42, 0.02);
+            --glass-border: rgba(15, 23, 42, 0.04);
+            --shadow: rgba(15, 23, 42, 0.08);
+            --glow-accent: rgba(37, 99, 235, 0.06);
+            --glow-purple: rgba(147, 51, 234, 0.04);
+            --border-accent: rgba(37, 99, 235, 0.12);
             --scanline: transparent;
             /* Elevation system - light */
-            --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.3);
-            --elevation-2: 0 4px 12px rgba(0, 0, 0, 0.35);
-            --elevation-3: 0 8px 24px rgba(0, 0, 0, 0.4);
-            --elevation-hover: 0 16px 48px rgba(0, 0, 0, 0.45);
+            --elevation-1: 0 1px 3px rgba(15, 23, 42, 0.06);
+            --elevation-2: 0 4px 12px rgba(15, 23, 42, 0.08);
+            --elevation-3: 0 8px 24px rgba(15, 23, 42, 0.10);
+            --elevation-hover: 0 16px 48px rgba(15, 23, 42, 0.12);
         }
 
         /* ==================== GRID SYSTEM (TKT-268) ==================== */
@@ -304,10 +304,10 @@
         /* ==================== BACKGROUND ==================== */
         .bg-gradient {
             position: fixed; inset: 0; z-index: -4;
-            background: linear-gradient(135deg, #06080f 0%, #080c16 25%, #0a1020 50%, #080c18 75%, #06080f 100%);
+            background: linear-gradient(135deg, #0B1120 0%, #0D1526 25%, #0F1A2E 50%, #0D1526 75%, #0B1120 100%);
         }
         [data-theme="light"] .bg-gradient {
-            background: linear-gradient(135deg, #edf0f5 0%, #e4e8ee 50%, #edf0f5 100%);
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 50%, #F8FAFC 100%);
         }
         .bg-gradient::before {
             content: ''; position: absolute; top: -20%; right: -10%; width: 60%; height: 60%;
@@ -2166,7 +2166,7 @@ LIMIT 20;</textarea>
                         </div>
                     </div>
                     <!-- Pressure Glossary Panel (TKT-050 Glossary) — visible when Pressure filter active -->
-                    <div id="pressure-glossary-panel" style="display: none; margin-bottom: 16px; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 16px 20px; font-size: 12px; line-height: 1.6;">
+                    <div id="pressure-glossary-panel" style="display: none; margin-bottom: 16px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 16px 20px; font-size: 12px; line-height: 1.6;">
                         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; cursor: pointer; user-select: none;" onclick="const bd = document.getElementById('pressure-glossary-detail'); const isOpen = bd.style.maxHeight !== '0px' && bd.style.maxHeight; bd.style.maxHeight = isOpen ? '0px' : '1500px'; this.querySelector('.pg-arrow').style.transform = isOpen ? '' : 'rotate(180deg)';">
                             <span style="font-size: 14px; font-weight: 700; color: var(--text-primary);">Pressure Glossary</span>
                             <span class="pg-arrow" style="font-size: 12px; color: var(--text-tertiary); transition: transform 0.3s ease;">&#9660;</span>

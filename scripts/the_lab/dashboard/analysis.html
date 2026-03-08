@@ -324,37 +324,17 @@
             max-width: 800px;
             margin: 0 auto;
         }
-        .typewriter-container {
-            display: flex;
-            justify-content: center;
-            min-height: 50px;
-            margin-bottom: var(--space-3);
-        }
         .page-title {
             font-family: var(--font-display);
             text-transform: uppercase;
             letter-spacing: 0.06em;
             font-size: 40px;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-teal) 100%);
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 50%, var(--accent-purple) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            overflow: hidden;
-            border-right: 3px solid var(--accent-teal);
-            white-space: nowrap;
-            width: 0;
-            animation: typing-analysis 1s steps(13, end) 0.3s forwards, blink-caret-teal 0.75s step-end 3, hide-caret 0.1s ease 2.5s forwards;
-        }
-        @keyframes typing-analysis {
-            from { width: 0; }
-            to { width: 13ch; }
-        }
-        @keyframes blink-caret-teal {
-            from, to { border-color: transparent; }
-            50% { border-color: var(--accent-teal); }
-        }
-        @keyframes hide-caret {
-            to { border-color: transparent; }
+            background-clip: text;
         }
         .page-subtitle {
             font-size: 16px;
@@ -735,7 +715,7 @@
             .mobile-nav-menu { display: flex; }
             .main { margin-left: 0; padding-top: 56px; }
             .analysis-grid { grid-template-columns: 1fr; }
-            .page-title { font-size: 24px; white-space: normal; width: auto !important; animation: none; border-right: none; }
+            .page-title { font-size: 24px; }
             .page-subtitle { font-size: 14px; padding: 0 16px; }
         }
 
@@ -895,9 +875,7 @@
 
     <main id="main-content" class="main" role="main">
         <header class="page-header">
-            <div class="typewriter-container">
-                <h1 class="page-title">🔬 Deep Analysis</h1>
-            </div>
+            <h1 class="page-title">🔬 Deep Analysis</h1>
             <p class="page-subtitle">
                 Deep-dive reports that shaped our analytics decisions. Each document represents
                 a rigorous investigation into data quality, thresholds, and methodology validation.

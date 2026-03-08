@@ -2025,37 +2025,20 @@
             background: linear-gradient(90deg, transparent, var(--accent), var(--accent-purple), transparent);
         }
 
-        /* Typewriter Animation */
         .typewriter-container {
-            display: flex;
-            justify-content: center;
-            padding: var(--space-5) 24px 10px;
-            text-align: center;
+            margin-bottom: var(--space-4);
         }
-        .typewriter-title {
-            font-size: 36px;
+        .page-title {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-size: 40px;
             font-weight: 800;
+            line-height: 1.1;
             background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 50%, var(--accent-purple) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            overflow: hidden;
-            border-right: 3px solid var(--accent);
-            white-space: nowrap;
-            width: 0;
-            margin: 0 auto;
-            animation: typing-teams 1s steps(15, end) 0.3s forwards, blink-caret 0.75s step-end 3, hide-caret 0.1s ease 2.5s forwards;
-        }
-        @keyframes typing-teams {
-            from { width: 0; }
-            to { width: 15ch; }
-        }
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: var(--accent); }
-        }
-        @keyframes hide-caret {
-            to { border-color: transparent; }
         }
 
         /* Loading State */
@@ -3856,7 +3839,7 @@
     <main id="main-content" class="main" role="main">
         <!-- Page Title with Typewriter -->
         <div class="typewriter-container">
-            <h1 class="typewriter-title">IPL 2026 Teams</h1>
+            <h1 class="page-title">IPL 2026 Teams</h1>
         </div>
 
         <!-- Team Selector -->

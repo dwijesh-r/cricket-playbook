@@ -293,10 +293,7 @@
             margin: 0 auto;
         }
         .typewriter-container {
-            display: flex;
-            justify-content: center;
-            min-height: 50px;
-            margin-bottom: var(--space-3);
+            margin-bottom: var(--space-4);
         }
         .page-title {
             font-family: var(--font-display);
@@ -304,25 +301,11 @@
             letter-spacing: 0.06em;
             font-size: 40px;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 50%, var(--accent-purple) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            overflow: hidden;
-            border-right: 3px solid var(--accent);
-            white-space: nowrap;
-            width: 0;
-            animation: typing-research 1.2s steps(22, end) 0.3s forwards, blink-caret 0.75s step-end 3, hide-caret 0.1s ease 2.8s forwards;
-        }
-        @keyframes typing-research {
-            from { width: 0; }
-            to { width: 21ch; }
-        }
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: var(--accent); }
-        }
-        @keyframes hide-caret {
-            to { border-color: transparent; }
+            background-clip: text;
         }
         .page-subtitle {
             font-size: 16px;
@@ -442,7 +425,7 @@
             .mobile-nav-menu { display: flex; }
             .main { margin-left: 0; padding-top: 72px; }
             .research-header { flex-direction: column; align-items: center; text-align: center; }
-            .page-title { font-size: 24px; white-space: normal; width: auto !important; animation: none; border-right: none; }
+            .page-title { font-size: 24px; }
             .page-subtitle { font-size: 14px; padding: 0 16px; }
             .content { padding: 0 16px; }
             .research-card { padding: var(--space-4); }

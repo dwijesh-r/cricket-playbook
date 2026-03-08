@@ -3802,14 +3802,9 @@
             <a href="rankings.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Rankings</a>
             <a href="comparison.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Compare</a>
             <a href="head-to-head.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
-            <a href="artifacts.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Artifacts</a>
-            <a href="analysis.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Analysis</a>
-            <a href="research.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Research</a>
-            <a href="research-desk.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> The Film Room</a>
             <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
         </nav>
         <div class="sidebar-footer">
-            <a href="/boardroom/index.html" class="sidebar-link"><span class="sidebar-link-icon">&#9670;</span> Mission Control</a>
             <div class="sidebar-time" id="navTime">--:--:--</div>
         </div>
     </aside>
@@ -3826,14 +3821,7 @@
         <a href="rankings.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Rankings</a>
         <a href="comparison.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Compare</a>
         <a href="head-to-head.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
-        <a href="artifacts.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Artifacts</a>
-        <a href="analysis.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Analysis</a>
-        <a href="research.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Research</a>
-        <a href="research-desk.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> The Film Room</a>
         <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
-        <div style="border-top: 1px solid rgba(148,163,184,0.08); margin-top: 12px; padding-top: 12px;">
-            <a href="/boardroom/index.html" class="sidebar-link"><span class="sidebar-link-icon">&#9670;</span> Mission Control</a>
-        </div>
     </div>
 
     <main id="main-content" class="main" role="main">
@@ -4128,14 +4116,6 @@
                             <div class="meta-item">👑 Captain: <strong>${predicted.captain}</strong></div>
                             <div class="meta-item">🎯 Coach: <strong>${team.coach}</strong></div>
                             <div class="meta-item">⭐ Rating: <strong>${(typeof SEASON_PREVIEWS !== 'undefined' && SEASON_PREVIEWS[currentTeam]?.available && SEASON_PREVIEWS[currentTeam]?.categoryRatings?.find(r => r.cat === 'Overall')?.rating) || rating.overall}</strong></div>
-                        </div>
-                        <div style="margin-top: 12px;">
-                            <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/stat_packs/${currentTeam}/${currentTeam}_stat_pack.md"
-                               target="_blank"
-                               style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--accent); color: white; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600; transition: all 0.2s ease;">
-                                📊 View Full Stat Pack
-                                <span style="font-size: 12px; opacity: 0.8;">↗</span>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -5312,104 +5292,6 @@
                     </div>
                 </div>
 
-                <div class="pressure-methodology-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
-                    <span class="toggle-arrow">&#9660;</span> &#128203; Methodology &amp; Conditions &mdash; How is this calculated?
-                </div>
-                <div class="pressure-methodology-body">
-                    <div class="meth-section">
-                        <h4>1. Data Scope</h4>
-                        <ul>
-                            <li>IPL matches from <strong>2023&ndash;2025 only</strong> (since 2023)</li>
-                            <li><strong>2nd innings (chase) only</strong> &mdash; pressure is defined by the required run rate during a chase</li>
-                            <li>Source views: <code>analytics_ipl_pressure_deltas_since2023</code>, <code>analytics_ipl_batter_pressure_bands_since2023</code>, <code>analytics_ipl_bowler_pressure_bands_since2023</code></li>
-                        </ul>
-                    </div>
-                    <div class="meth-section">
-                        <h4>2. What Defines "Pressure"</h4>
-                        <ul>
-                            <li>Required Run Rate (RRR) <strong>&ge; 10.0</strong> runs per over</li>
-                            <li>Formula: <code>RRR = (Target &minus; Cumulative Runs) &times; 6.0 / Balls Remaining</code></li>
-                            <li>Only balls where <code>balls_remaining &gt; 0</code></li>
-                        </ul>
-                    </div>
-                    <div class="meth-section">
-                        <h4>3. RRR Pressure Bands</h4>
-                        <table class="meth-table">
-                            <thead><tr><th scope="col">Band</th><th scope="col">RRR Range</th><th scope="col">Description</th></tr></thead>
-                            <tbody>
-                                <tr><td class="meth-label">COMFORTABLE</td><td>RRR &lt; 8</td><td>Run rate is manageable, batters can play normally</td></tr>
-                                <tr><td class="meth-label">BUILDING</td><td>8 &le; RRR &lt; 10</td><td>Above par, scoring needs to accelerate</td></tr>
-                                <tr><td class="meth-label">HIGH</td><td>10 &le; RRR &lt; 12</td><td>Aggressive required, boundaries needed every 2&ndash;3 balls</td></tr>
-                                <tr><td class="meth-label">EXTREME</td><td>12 &le; RRR &lt; 15</td><td>Six-hitting territory, almost every ball must score</td></tr>
-                                <tr><td class="meth-label">NEAR_IMPOSSIBLE</td><td>RRR &ge; 15</td><td>Miracle needed, requires continuous boundaries to win</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="meth-section">
-                        <h4>4. Over Phases (Under Pressure)</h4>
-                        <table class="meth-table">
-                            <thead><tr><th scope="col">Phase</th><th scope="col">DB Over Index</th><th scope="col">Human Overs</th><th scope="col">Description</th></tr></thead>
-                            <tbody>
-                                <tr><td class="meth-label">Setup</td><td>14&ndash;16</td><td>Overs 15&ndash;17</td><td>Where batting teams begin acceleration</td></tr>
-                                <tr><td class="meth-label">Death</td><td>17&ndash;19</td><td>Overs 18&ndash;20</td><td>Highest-leverage balls of the innings</td></tr>
-                            </tbody>
-                        </table>
-                        <p style="margin-top: 6px;"><strong>Both phases:</strong> Only counted when RRR &ge; 10 at that specific ball.</p>
-                    </div>
-                    <div class="meth-section">
-                        <h4>5. Entry Context (Batters Only)</h4>
-                        <table class="meth-table">
-                            <thead><tr><th scope="col">Context</th><th scope="col">Balls Faced Before Pressure</th><th scope="col">Meaning</th></tr></thead>
-                            <tbody>
-                                <tr><td class="meth-label">FRESH</td><td>&lt; 8 balls</td><td>Walked in during pressure phase &mdash; facing it cold</td></tr>
-                                <tr><td class="meth-label">BUILDING</td><td>8&ndash;12 balls</td><td>Getting set when pressure hit &mdash; partially established</td></tr>
-                                <tr><td class="meth-label">SET</td><td>12&ndash;17 balls</td><td>Well established before pressure phase</td></tr>
-                                <tr><td class="meth-label">DEEP_SET</td><td>&ge; 17 balls</td><td>Long innings before pressure &mdash; fully in rhythm</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="meth-section">
-                        <h4>6. Qualification Thresholds (Who Appears on This Tab)</h4>
-                        <table class="meth-table">
-                            <thead><tr><th scope="col">Role</th><th scope="col">Condition</th></tr></thead>
-                            <tbody>
-                                <tr><td class="meth-label">Batters</td><td>&ge; 60 pressure balls (10 overs) <strong>AND</strong> &ge; 50 overall balls</td></tr>
-                                <tr><td class="meth-label">Bowlers</td><td>&ge; 30 legal balls across HIGH / EXTREME / NEAR_IMPOSSIBLE bands, with &ge; 10 balls per individual band</td></tr>
-                                <tr><td class="meth-label">Both</td><td>Player must be in an <strong>IPL 2026 squad</strong></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="meth-section">
-                        <h4>7. Pressure Ratings (How Players Are Tagged)</h4>
-                        <table class="meth-table">
-                            <thead><tr><th scope="col">Rating</th><th scope="col">Condition</th></tr></thead>
-                            <tbody>
-                                <tr><td class="meth-label">CLUTCH</td><td>SR improves 10%+ <strong>AND</strong> dot% drops in 12+ RRR bands</td></tr>
-                                <tr><td class="meth-label">PRESSURE_PROOF</td><td>Metrics within &plusmn;5% of overall across all bands</td></tr>
-                                <tr><td class="meth-label">MODERATE</td><td>Performance changes between 5&ndash;10% under pressure</td></tr>
-                                <tr><td class="meth-label">PRESSURE_SENSITIVE</td><td>SR drops 10%+ <strong>OR</strong> dot% rises 10%+ in 12+ RRR bands</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="meth-section">
-                        <h4>8. Weighted Score (Batter Ranking Metric)</h4>
-                        <ul>
-                            <li>Combines <strong>SR delta</strong> with <strong>sample size</strong> (log&#8322; scaling) and <strong>death overs bonus</strong> (30% weight for overs 16&ndash;20 execution)</li>
-                        </ul>
-                    </div>
-                    <div class="meth-section">
-                        <h4>9. Filter Behavior</h4>
-                        <table class="meth-table">
-                            <thead><tr><th scope="col">Filter</th><th scope="col">Behavior</th></tr></thead>
-                            <tbody>
-                                <tr><td class="meth-label">Phase</td><td>Shows top 5 players sorted by that phase's SR (batters) or economy (bowlers)</td></tr>
-                                <tr><td class="meth-label">Band</td><td>Shows top 5 sorted by band-specific SR / economy; dims players without data in that band</td></tr>
-                                <tr><td class="meth-label">Entry Context</td><td>Filters to batters matching that context, then shows top 5</td></tr>
-                                <tr><td class="meth-label">Default (All)</td><td>Batters by weighted pressure score, bowlers by economy</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
 
                 <table class="pressure-summary-table">
                     <thead>
@@ -6431,11 +6313,6 @@
                     <span class="pp-meta-badge">Age ${p.age}</span>
                 </div>
                 ${p.archetype && p.archetype !== '-' ? `<div class="pp-archetype-badge">${p.archetype}</div>` : ''}
-                ${(() => {
-                    const allTags = [...(p.batting && p.batting.tags ? p.batting.tags : []), ...(p.bowling && p.bowling.tags ? p.bowling.tags : [])];
-                    if (allTags.length === 0) return '';
-                    return '<div class="pp-tags-hero">' + allTags.slice(0, 6).map(tag => '<span class="pp-tag ' + classifyTag(tag) + '">' + formatTagName(tag) + '</span>').join('') + '</div>';
-                })()}
             </div>`;
 
             if (!p.has_ipl_data) {
@@ -6556,15 +6433,6 @@
                     </div>`;
                 }
 
-                // Batting Tags
-                if (bat.tags && bat.tags.length > 0) {
-                    html += `<div class="pp-section">
-                        <div class="pp-section-title">Batting Tags</div>
-                        <div class="pp-tags">
-                            ${bat.tags.map(tag => `<span class="pp-tag ${classifyTag(tag)}">${formatTagName(tag)}</span>`).join('')}
-                        </div>
-                    </div>`;
-                }
             }
 
             // Bowling Section
@@ -6650,15 +6518,6 @@
                     }
                 }
 
-                // Bowling Tags
-                if (bowl.tags && bowl.tags.length > 0) {
-                    html += `<div class="pp-section">
-                        <div class="pp-section-title bowling">Bowling Tags</div>
-                        <div class="pp-tags">
-                            ${bowl.tags.map(tag => `<span class="pp-tag ${classifyTag(tag)}">${formatTagName(tag)}</span>`).join('')}
-                        </div>
-                    </div>`;
-                }
             }
 
             return html;

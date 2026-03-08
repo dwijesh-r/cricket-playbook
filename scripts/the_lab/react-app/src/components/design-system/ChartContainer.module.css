@@ -1,11 +1,12 @@
-/* ChartContainer — Wrapper for all data visualizations */
+/* ChartContainer — Wrapper for data visualizations */
+/* Kevin De Bruyne · Visualization Lead */
 
 .container {
-  background: var(--sl-surface-elevated, #fff);
-  border: 1px solid var(--sl-border-subtle, #edf2f7);
-  border-radius: var(--sl-radius-lg, 12px);
-  box-shadow: var(--sl-shadow-sm, 0 1px 3px rgba(11, 31, 51, 0.06));
-  padding: var(--sl-space-md, 24px);
+  background: var(--bg-primary, #FFFFFF);
+  border: 1px solid var(--border-subtle, #EDF2F7);
+  border-radius: var(--radius-xl, 16px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(11, 31, 51, 0.06));
+  padding: var(--space-md, 24px);
   position: relative;
   overflow: hidden;
 }
@@ -16,32 +17,32 @@
 }
 
 .fullWidth .header {
-  padding-left: var(--sl-space-md, 24px);
-  padding-right: var(--sl-space-md, 24px);
+  padding-left: var(--space-md, 24px);
+  padding-right: var(--space-md, 24px);
 }
 
 /* Header */
 .header {
-  padding-bottom: var(--sl-space-sm, 16px);
-  border-bottom: 1px solid var(--sl-border-subtle, #edf2f7);
-  margin-bottom: var(--sl-space-sm, 16px);
+  padding-bottom: var(--space-sm, 16px);
+  border-bottom: 1px solid var(--border-subtle, #EDF2F7);
+  margin-bottom: var(--space-sm, 16px);
 }
 
 .title {
-  font-family: var(--sl-font-primary, 'Inter', sans-serif);
-  font-size: var(--sl-font-h3, 20px);
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  font-size: var(--font-h3, 20px);
   font-weight: 600;
-  line-height: 1.5;
-  color: var(--sl-text-primary, #0b1f33);
+  line-height: 1.3;
+  color: var(--text-primary, #0B1F33);
   margin: 0;
 }
 
 .subtitle {
-  font-family: var(--sl-font-secondary, 'DM Sans', sans-serif);
-  font-size: var(--sl-font-meta, 14px);
+  font-family: var(--font-secondary, 'DM Sans', sans-serif);
+  font-size: var(--font-meta, 14px);
   font-weight: 400;
   line-height: 1.5;
-  color: var(--sl-text-tertiary, #8a8a8a);
+  color: var(--text-tertiary, #8A8A8A);
   margin: 4px 0 0 0;
 }
 
@@ -57,18 +58,18 @@
   inset: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--sl-space-xs, 8px);
-  padding: var(--sl-space-sm, 16px);
+  gap: var(--space-xs, 8px);
+  padding: var(--space-sm, 16px);
 }
 
 .skeletonBar {
   height: 16px;
-  border-radius: var(--sl-radius-sm, 4px);
+  border-radius: var(--radius-sm, 4px);
   background: linear-gradient(
     90deg,
-    #edf2f7 25%,
-    #e8edf3 37%,
-    #edf2f7 63%
+    var(--bg-tertiary, #EDF2F7) 25%,
+    #E8EDF3 37%,
+    var(--bg-tertiary, #EDF2F7) 63%
   );
   background-size: 400% 100%;
   animation: skeleton-pulse 1.4s ease infinite;
@@ -81,15 +82,10 @@
 .skeletonBar:nth-child(5) { width: 70%; }
 
 @keyframes skeleton-pulse {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
-/* Fade-in for loaded content */
 .loaded {
   animation: fade-in 0.3s ease forwards;
 }
@@ -97,4 +93,19 @@
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: var(--space-sm, 16px);
+  }
+
+  .body {
+    min-height: 160px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeletonBar { animation: none; }
+  .loaded { animation: none; }
 }

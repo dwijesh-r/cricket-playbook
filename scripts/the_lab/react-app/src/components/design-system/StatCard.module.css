@@ -1,33 +1,34 @@
 /* StatCard — KPI card for quick insights */
+/* Kevin De Bruyne · Visualization Lead */
 
 .statCard {
-  background: var(--sl-surface-elevated, #fff);
-  border: 1px solid var(--sl-border-subtle, #edf2f7);
-  border-radius: var(--sl-radius-lg, 12px);
-  box-shadow: var(--sl-shadow-sm, 0 1px 3px rgba(11, 31, 51, 0.06));
-  padding: var(--sl-space-md, 24px);
+  background: var(--bg-primary, #FFFFFF);
+  border: 1px solid var(--border-subtle, #EDF2F7);
+  border-radius: var(--radius-xl, 16px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(11, 31, 51, 0.06));
+  padding: var(--space-md, 24px);
   display: flex;
   flex-direction: column;
-  gap: var(--sl-space-xs, 8px);
+  gap: var(--space-xs, 8px);
   transition:
-    transform 250ms ease,
-    box-shadow 250ms ease;
+    transform var(--transition-normal, 0.25s ease),
+    box-shadow var(--transition-normal, 0.25s ease);
   position: relative;
   overflow: hidden;
 }
 
 .statCard:hover {
-  box-shadow: var(--sl-shadow-md, 0 4px 12px rgba(11, 31, 51, 0.08));
-  transform: scale(1.02);
+  box-shadow: var(--shadow-md, 0 4px 12px rgba(11, 31, 51, 0.08));
+  transform: translateY(-2px);
 }
 
 /* Title label */
 .title {
-  font-family: var(--sl-font-secondary, 'DM Sans', sans-serif);
-  font-size: var(--sl-font-meta, 14px);
+  font-family: var(--font-secondary, 'DM Sans', sans-serif);
+  font-size: var(--font-meta, 14px);
   font-weight: 600;
   line-height: 1.5;
-  color: var(--sl-text-tertiary, #8a8a8a);
+  color: var(--text-tertiary, #8A8A8A);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin: 0;
@@ -35,11 +36,11 @@
 
 /* Large metric value */
 .value {
-  font-family: var(--sl-font-primary, 'Inter', sans-serif);
-  font-size: var(--sl-font-h1, 40px);
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  font-size: var(--font-h1, 40px);
   font-weight: 700;
   line-height: 1.2;
-  color: var(--sl-text-primary, #0b1f33);
+  color: var(--text-primary, #0B1F33);
   margin: 0;
   animation: sl-count-up 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
@@ -59,9 +60,9 @@
 .comparison {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-family: var(--sl-font-secondary, 'DM Sans', sans-serif);
-  font-size: var(--sl-font-meta, 14px);
+  gap: var(--space-xs, 8px);
+  font-family: var(--font-secondary, 'DM Sans', sans-serif);
+  font-size: var(--font-meta, 14px);
   font-weight: 500;
   line-height: 1.5;
   margin: 0;
@@ -75,18 +76,10 @@
   line-height: 1;
 }
 
-/* Trend color variants */
-.trendUp {
-  color: var(--sl-positive, #2ecc71);
-}
-
-.trendDown {
-  color: var(--sl-negative, #e74c3c);
-}
-
-.trendNeutral {
-  color: var(--sl-neutral, #3498db);
-}
+/* Trend color variants — color used only for meaning */
+.trendUp { color: var(--sl-positive, #2ECC71); }
+.trendDown { color: var(--sl-negative, #E74C3C); }
+.trendNeutral { color: var(--sl-neutral, #3498DB); }
 
 /* Left accent bar for visual weight */
 .accentBar {
@@ -95,17 +88,21 @@
   top: 0;
   bottom: 0;
   width: 4px;
-  border-radius: 12px 0 0 12px;
+  border-radius: 16px 0 0 16px;
 }
 
-.accentBarUp {
-  background: var(--sl-positive, #2ecc71);
+.accentBarUp { background: var(--sl-positive, #2ECC71); }
+.accentBarDown { background: var(--sl-negative, #E74C3C); }
+.accentBarNeutral { background: var(--sl-neutral, #3498DB); }
+
+@media (max-width: 767px) {
+  .statCard {
+    padding: var(--space-sm, 16px);
+  }
 }
 
-.accentBarDown {
-  background: var(--sl-negative, #e74c3c);
-}
-
-.accentBarNeutral {
-  background: var(--sl-neutral, #3498db);
+@media (prefers-reduced-motion: reduce) {
+  .value {
+    animation: none;
+  }
 }

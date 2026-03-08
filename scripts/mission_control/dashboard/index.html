@@ -135,32 +135,10 @@
             grid-template-columns: repeat(12, 1fr);
             gap: var(--space-3);
         }
-        .col-span-1 { grid-column: span 1; }
-        .col-span-2 { grid-column: span 2; }
-        .col-span-3 { grid-column: span 3; }
-        .col-span-4 { grid-column: span 4; }
-        .col-span-5 { grid-column: span 5; }
-        .col-span-6 { grid-column: span 6; }
-        .col-span-7 { grid-column: span 7; }
-        .col-span-8 { grid-column: span 8; }
-        .col-span-9 { grid-column: span 9; }
-        .col-span-10 { grid-column: span 10; }
-        .col-span-11 { grid-column: span 11; }
-        .col-span-12 { grid-column: span 12; }
-        @media (max-width: 1024px) {
-            .grid-12 { grid-template-columns: repeat(8, 1fr); }
-            .col-span-9, .col-span-10, .col-span-11, .col-span-12 { grid-column: span 8; }
-            .col-span-7, .col-span-8 { grid-column: span 8; }
-            .col-span-5, .col-span-6 { grid-column: span 4; }
-        }
         @media (max-width: 768px) {
-            .grid-12 { grid-template-columns: repeat(4, 1fr); }
             .container { padding: 0 var(--space-3); }
-            [class*="col-span-"] { grid-column: span 4; }
         }
         @media (max-width: 480px) {
-            .grid-12 { grid-template-columns: 1fr; }
-            [class*="col-span-"] { grid-column: span 1; }
             .container { padding: 0 var(--space-2); }
         }
 
@@ -178,240 +156,19 @@
             padding: 0 var(--space-4);
             backdrop-filter: blur(12px);
         }
-        .site-nav .nav-links {
-            display: flex;
-            gap: var(--space-1);
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            flex: 1;
-        }
-        .site-nav .nav-links a {
-            display: flex;
-            align-items: center;
-            padding: var(--space-2) var(--space-3);
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-family: var(--font-body);
-            font-size: var(--text-sm);
-            font-weight: 500;
-            border-radius: var(--radius-md);
-            transition: all var(--transition-normal);
-            min-height: 44px;
-            white-space: nowrap;
-        }
-        .site-nav .nav-links a:hover {
-            color: var(--text-primary);
-            background: var(--glass);
-        }
-        .site-nav .nav-links a.active {
-            color: var(--accent);
-            background: rgba(0, 240, 255, 0.08);
-            border: 1px solid rgba(0, 240, 255, 0.15);
-        }
         .site-nav .nav-actions {
             display: flex;
             align-items: center;
             gap: var(--space-2);
             margin-left: auto;
         }
-        .hamburger-btn {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            background: none;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            color: var(--text-primary);
-            font-size: var(--text-xl);
-            cursor: pointer;
-            transition: all var(--transition-normal);
-        }
-        .hamburger-btn:hover { border-color: var(--accent); }
-        .mobile-nav-overlay {
-            display: none;
-            position: fixed;
-            top: var(--nav-height);
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 99;
-        }
-        .mobile-nav-overlay.active { display: block; }
-        .mobile-nav-dropdown {
-            display: none;
-            position: fixed;
-            top: var(--nav-height);
-            left: 0;
-            right: 0;
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border);
-            padding: var(--space-2);
-            z-index: 100;
-            max-height: calc(100vh - var(--nav-height));
-            overflow-y: auto;
-        }
-        .mobile-nav-dropdown.active { display: block; }
-        .mobile-nav-dropdown a {
-            display: flex;
-            align-items: center;
-            padding: var(--space-3);
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: var(--text-md);
-            border-radius: var(--radius-md);
-            min-height: 48px;
-            transition: all var(--transition-normal);
-        }
-        .mobile-nav-dropdown a:hover { background: var(--glass); color: var(--text-primary); }
-        .mobile-nav-dropdown a.active { color: var(--accent); background: rgba(0, 240, 255, 0.08); }
-        .view-tabs {
-            display: flex;
-            gap: var(--space-1);
-            padding: var(--space-2) var(--space-4);
-            background: var(--bg-primary);
-            border-bottom: 1px solid var(--border);
-            overflow-x: auto;
-        }
-        .view-tabs button {
-            padding: var(--space-2) var(--space-3);
-            background: none;
-            border: 1px solid transparent;
-            border-radius: var(--radius-md);
-            color: var(--text-secondary);
-            font-family: var(--font-body);
-            font-size: var(--text-sm);
-            cursor: pointer;
-            white-space: nowrap;
-            min-height: 44px;
-            transition: all var(--transition-normal);
-        }
-        .view-tabs button:hover { color: var(--text-primary); border-color: var(--border); }
-        .view-tabs button.active { color: var(--accent); border-color: var(--accent); background: rgba(0, 240, 255, 0.08); }
-        @media (max-width: 768px) {
-            .site-nav .nav-links { display: none; }
-            .hamburger-btn { display: flex; }
-            .view-tabs { padding: var(--space-2) var(--space-3); }
-        }
 
-        /* ==================== TOOLTIP SYSTEM (TKT-109) ==================== */
-        .has-tooltip {
-            position: relative;
-            cursor: help;
-        }
-        .has-tooltip::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: calc(100% + 8px);
-            left: 50%;
-            transform: translateX(-50%);
-            padding: var(--space-2) 12px;
-            background: var(--bg-elevated);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--text-primary);
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all var(--transition-normal);
-            z-index: 1000;
-            pointer-events: none;
-            box-shadow: 0 4px 12px var(--shadow);
-        }
-        .has-tooltip:hover::after {
-            opacity: 1;
-            visibility: visible;
-        }
-        .help-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 14px;
-            height: 14px;
-            font-size: var(--text-xs);
-            color: var(--text-tertiary);
-            cursor: help;
-            margin-left: var(--space-1);
-            vertical-align: middle;
-        }
-        .help-icon:hover { color: var(--accent); }
-
-        /* Mobile-safe tooltip adjustments */
-        @media (max-width: 768px) {
-            .has-tooltip::after {
-                white-space: normal;
-                max-width: 200px;
-                left: 0;
-                transform: none;
-                font-size: var(--text-xs);
-            }
-        }
-        @media (max-width: 480px) {
-            .has-tooltip::after {
-                max-width: 160px;
-                padding: var(--space-1) 10px;
-                font-size: var(--text-xs);
-            }
-        }
 
 
         /* ==================== SMOOTH SCROLL & SKELETONS (TKT-274) ==================== */
         html { scroll-behavior: smooth; }
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
-        }
-        .skeleton {
-            background: var(--bg-tertiary);
-            border-radius: var(--radius-md);
-            position: relative;
-            overflow: hidden;
-        }
-        .skeleton::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(
-                90deg,
-                transparent 0%,
-                rgba(255, 255, 255, 0.04) 50%,
-                transparent 100%
-            );
-            animation: skeleton-shimmer 1.5s ease-in-out infinite;
-        }
-        @keyframes skeleton-shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .skeleton::after { animation: none; }
-        }
-        .skeleton-text {
-            height: 14px;
-            margin-bottom: var(--space-2);
-            width: 80%;
-        }
-        .skeleton-text.short { width: 40%; }
-        .skeleton-text.medium { width: 60%; }
-        .skeleton-card {
-            height: 120px;
-            margin-bottom: var(--space-3);
-        }
-        .skeleton-row {
-            height: 48px;
-            margin-bottom: var(--space-1);
-        }
-        .skeleton-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-full);
         }
 
         /* ==================== ACCESSIBILITY (TKT-273) ==================== */
@@ -461,38 +218,6 @@
             border-width: 0;
         }
 
-        /* ==================== TABLE SCROLL (TKT-278) ==================== */
-        .table-scroll-wrapper {
-            position: relative;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            margin: var(--space-2) 0;
-        }
-        .table-scroll-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            width: 40px;
-            background: linear-gradient(to right, transparent, var(--bg-primary));
-            pointer-events: none;
-            opacity: 1;
-            transition: opacity var(--transition-normal);
-        }
-        .table-scroll-wrapper.scrolled-end::after { opacity: 0; }
-        .table-scroll-wrapper.scrolled-start::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            width: 40px;
-            background: linear-gradient(to left, transparent, var(--bg-primary));
-            pointer-events: none;
-            z-index: 1;
-        }
-        .table-scroll-wrapper table { min-width: 600px; }
 
 
         * {
@@ -801,7 +526,6 @@
             align-items: center;
             justify-content: center;
             filter: drop-shadow(0 0 8px var(--glow-accent));
-            animation: logo-pulse 3s ease-in-out infinite;
         }
         .nav-logo svg {
             width: 100%;
@@ -5066,6 +4790,7 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
     <!-- Sports-themed background -->
     <div class="bg-gradient"></div>
     <div class="cricket-icons"></div>
@@ -5076,7 +4801,7 @@
     <div class="bg-watermark">THE BOARDROOM</div>
 
     <!-- Navigation -->
-    <nav class="nav site-nav" aria-label="Site navigation">
+    <nav class="nav site-nav" aria-label="Site navigation" role="navigation">
         <div class="nav-brand">
             <div class="nav-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
   <defs>
@@ -5110,7 +4835,7 @@
             <a href="sprints.html" class="nav-btn">📅 Sprints</a>
             <a href="/index.html" class="nav-btn">🔬 The Lab</a>
             <a href="about.html" class="nav-btn">About</a>
-            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" id="themeToggle">🌙</button>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" id="themeToggle" aria-label="Switch to light theme">🌙</button>
             <button class="nav-btn refresh-btn" onclick="loadData()">Refresh</button>
         </div>
     </nav>
@@ -5127,7 +4852,7 @@
 
                     <div class="stats-grid">
                         <div class="stat-item">
-                            <div class="stat-value accent-blue" id="statTotal">264</div>
+                            <div class="stat-value accent-blue" id="statTotal">281</div>
                             <div class="stat-label">Total</div>
                         </div>
                         <div class="stat-item">
@@ -5151,7 +4876,7 @@
                             <div class="stat-label">🌹 Founder</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value accent-green" id="statDone">251</div>
+                            <div class="stat-value accent-green" id="statDone">268</div>
                             <div class="stat-label">Done</div>
                         </div>
                         <div class="stat-item">
@@ -5250,7 +4975,7 @@
                 <!-- Desktop Table -->
                 <div class="table-wrapper">
                     <table class="ticket-table">
-                        <th scope="col"ead>
+                        <thead>
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Title</th>
@@ -5822,7 +5547,7 @@
                                 <summary style="cursor: pointer; font-size: 12px; font-weight: 600; color: var(--text-secondary); padding: 4px 0;">Per-Agent Token Allocation (Role-Weighted)</summary>
                                 <div style="margin-top: 8px; font-size: 12px;">
                                     <table style="width: 100%; border-collapse: collapse;">
-                                        <th scope="col"ead>
+                                        <thead>
                                             <tr style="border-bottom: 1px solid var(--border);">
                                                 <th scope="col" style="text-align: left; padding: 4px 6px; font-size: 12px; color: var(--text-tertiary);">Agent</th>
                                                 <th scope="col" style="text-align: left; padding: 4px 6px; font-size: 12px; color: var(--text-tertiary);">Role</th>
@@ -7040,7 +6765,7 @@
             return epics.find(e => e.id === epicId) || null;
         }
 
-        // All Tickets: Sprint 4.0 (TKT-001 to TKT-204) + Sprint 5.0 (TKT-205 to TKT-266, excl. deferred TKT-213/214/219)
+        // All Tickets: Sprint 4.0 (TKT-001 to TKT-204) + Sprint 5.0 (TKT-205 to TKT-283, excl. deferred TKT-213/214/219)
         const tickets = [
             {
               id: 'TKT-001',
@@ -10990,7 +10715,24 @@
                 prd: 'outputs/season_previews/season_preview_template.md',
                 deliverable: 'outputs/season_previews/LSG_season_preview.md'
               }
-            }
+            },
+            { id: 'TKT-267', title: 'UX Audit — System-wide Score Assessment', epic: 'EPIC-022', agent: 'Jayson Tatum', state: 'DONE', priority: 'HIGH', progress: 100, tags: ['ux', 'audit'] },
+            { id: 'TKT-268', title: 'Grid System & Design Token Standardization', epic: 'EPIC-022', agent: 'Kevin De Bruyne', state: 'DONE', priority: 'HIGH', progress: 100, tags: ['ux', 'css'] },
+            { id: 'TKT-269', title: 'Fix <thead> Corruption Across All Pages', epic: 'EPIC-022', agent: 'Brad Stevens', state: 'DONE', priority: 'CRITICAL', progress: 100, tags: ['html', 'fix'] },
+            { id: 'TKT-270', title: 'Add Missing CSS Variables (teams.html)', epic: 'EPIC-022', agent: 'Kevin De Bruyne', state: 'DONE', priority: 'HIGH', progress: 100, tags: ['css', 'fix'] },
+            { id: 'TKT-271', title: 'H2H Data Load Guard', epic: 'EPIC-022', agent: 'Brad Stevens', state: 'DONE', priority: 'HIGH', progress: 100, tags: ['js', 'resilience'] },
+            { id: 'TKT-272', title: 'Navigation Unification — Lab Pages', epic: 'EPIC-022', agent: 'Jayson Tatum', state: 'DONE', priority: 'HIGH', progress: 100, tags: ['ux', 'nav'] },
+            { id: 'TKT-273', title: 'Skip-nav & ARIA Labels — All Pages', epic: 'EPIC-022', agent: 'Jayson Tatum', state: 'DONE', priority: 'MEDIUM', progress: 100, tags: ['a11y'] },
+            { id: 'TKT-274', title: 'Mobile Menu ARIA & Outside-Click-to-Close', epic: 'EPIC-022', agent: 'Jayson Tatum', state: 'DONE', priority: 'MEDIUM', progress: 100, tags: ['a11y', 'ux'] },
+            { id: 'TKT-275', title: 'MC Dashboard — Skip-nav & ARIA', epic: 'EPIC-022', agent: 'Jayson Tatum', state: 'DONE', priority: 'MEDIUM', progress: 100, tags: ['a11y', 'mc'] },
+            { id: 'TKT-276', title: 'Sprint 5 Date Fix & Auto-select', epic: 'EPIC-022', agent: 'Tom Brady', state: 'DONE', priority: 'MEDIUM', progress: 100, tags: ['mc', 'fix'] },
+            { id: 'TKT-277', title: 'H2H Chart Tooltip & SVG Accessibility', epic: 'EPIC-022', agent: 'Kevin De Bruyne', state: 'DONE', priority: 'MEDIUM', progress: 100, tags: ['a11y', 'viz'] },
+            { id: 'TKT-278', title: 'H2H Career Stats Grid Responsiveness', epic: 'EPIC-022', agent: 'Jayson Tatum', state: 'DONE', priority: 'MEDIUM', progress: 100, tags: ['ux', 'responsive'] },
+            { id: 'TKT-279', title: 'Comparison Page — Labels & Radar Empty State', epic: 'EPIC-022', agent: 'Kevin De Bruyne', state: 'DONE', priority: 'LOW', progress: 100, tags: ['ux', 'fix'] },
+            { id: 'TKT-280', title: 'Add rel=noopener to External Links', epic: 'EPIC-022', agent: 'Brad Stevens', state: 'DONE', priority: 'LOW', progress: 100, tags: ['security'] },
+            { id: 'TKT-281', title: 'Remove Dead Code (index.html)', epic: 'EPIC-022', agent: 'Brad Stevens', state: 'DONE', priority: 'LOW', progress: 100, tags: ['cleanup'] },
+            { id: 'TKT-282', title: 'Light Theme Color Fixes', epic: 'EPIC-022', agent: 'Kevin De Bruyne', state: 'DONE', priority: 'LOW', progress: 100, tags: ['css', 'theme'] },
+            { id: 'TKT-283', title: 'Visual Polish & Dead CSS Cleanup', epic: 'EPIC-022', agent: 'Kevin De Bruyne', state: 'DONE', priority: 'LOW', progress: 100, tags: ['css', 'cleanup'] }
         ];
 
         // ==================== HIERARCHY HELPER FUNCTIONS (TKT-128) ====================
@@ -13006,49 +12748,6 @@
         function toggleNavGuide() { document.getElementById('nav-guide-overlay').classList.toggle('active'); }
         function closeNavGuide(e) { if (e.target === e.currentTarget) toggleNavGuide(); }
 
-    // TKT-278: Table scroll indicators
-    document.querySelectorAll('.table-scroll-wrapper').forEach(function(wrapper) {
-        wrapper.addEventListener('scroll', function() {
-            var atStart = this.scrollLeft > 10;
-            var atEnd = this.scrollLeft + this.clientWidth >= this.scrollWidth - 10;
-            this.classList.toggle('scrolled-start', atStart);
-            this.classList.toggle('scrolled-end', atEnd);
-        });
-    });
-
-    // TKT-273: Keyboard navigation for tabs and menus
-    document.querySelectorAll('[role="tablist"]').forEach(function(tablist) {
-        tablist.addEventListener('keydown', function(e) {
-            var tabs = Array.from(this.querySelectorAll('[role="tab"]'));
-            var idx = tabs.indexOf(document.activeElement);
-            if (idx === -1) return;
-            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-                e.preventDefault();
-                tabs[(idx + 1) % tabs.length].focus();
-            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-                e.preventDefault();
-                tabs[(idx - 1 + tabs.length) % tabs.length].focus();
-            }
-        });
-    });
-    // Escape closes mobile nav/modals
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            document.querySelectorAll('.mobile-nav-dropdown.active, .mobile-nav-overlay.active').forEach(function(el) {
-                el.classList.remove('active');
-            });
-            var modal = document.querySelector('.modal.active, .modal.show, [data-modal].active');
-            if (modal) modal.classList.remove('active', 'show');
-        }
-    });
-
-    // TKT-274: Remove skeleton loaders
-    function removeSkeletons() {
-        document.querySelectorAll('.skeleton').forEach(function(el) {
-            el.classList.remove('skeleton', 'skeleton-text', 'skeleton-card', 'skeleton-row', 'skeleton-avatar');
-            el.removeAttribute('aria-hidden');
-        });
-    }
 </script>
 
     <!-- Navigation Guide Button -->

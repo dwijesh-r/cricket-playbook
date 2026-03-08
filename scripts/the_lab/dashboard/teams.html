@@ -90,6 +90,9 @@
             --intro-scale: 1;
             --intro-translate-base: 70px;
             --intro-animation-speed: 0.7s;
+            --surface-secondary: var(--bg-tertiary);
+            --border-primary: var(--border);
+            --accent-blue: #3b82f6;
         }
 
         [data-theme="light"] {
@@ -121,6 +124,7 @@
             --elevation-2: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
             --elevation-3: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.08);
             --elevation-hover: 0 14px 28px rgba(0, 0, 0, 0.12), 0 10px 10px rgba(0, 0, 0, 0.08);
+            --accent-blue: #2563eb;
         }
 
         /* ==================== GRID SYSTEM (TKT-268) ==================== */
@@ -135,32 +139,10 @@
             grid-template-columns: repeat(12, 1fr);
             gap: var(--space-3);
         }
-        .col-span-1 { grid-column: span 1; }
-        .col-span-2 { grid-column: span 2; }
-        .col-span-3 { grid-column: span 3; }
-        .col-span-4 { grid-column: span 4; }
-        .col-span-5 { grid-column: span 5; }
-        .col-span-6 { grid-column: span 6; }
-        .col-span-7 { grid-column: span 7; }
-        .col-span-8 { grid-column: span 8; }
-        .col-span-9 { grid-column: span 9; }
-        .col-span-10 { grid-column: span 10; }
-        .col-span-11 { grid-column: span 11; }
-        .col-span-12 { grid-column: span 12; }
-        @media (max-width: 1024px) {
-            .grid-12 { grid-template-columns: repeat(8, 1fr); }
-            .col-span-9, .col-span-10, .col-span-11, .col-span-12 { grid-column: span 8; }
-            .col-span-7, .col-span-8 { grid-column: span 8; }
-            .col-span-5, .col-span-6 { grid-column: span 4; }
-        }
         @media (max-width: 768px) {
-            .grid-12 { grid-template-columns: repeat(4, 1fr); }
             .container { padding: 0 var(--space-3); }
-            [class*="col-span-"] { grid-column: span 4; }
         }
         @media (max-width: 480px) {
-            .grid-12 { grid-template-columns: 1fr; }
-            [class*="col-span-"] { grid-column: span 1; }
             .container { padding: 0 var(--space-2); }
         }
 
@@ -177,124 +159,6 @@
             align-items: center;
             padding: 0 var(--space-4);
             backdrop-filter: blur(12px);
-        }
-        .site-nav .nav-links {
-            display: flex;
-            gap: var(--space-1);
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            flex: 1;
-        }
-        .site-nav .nav-links a {
-            display: flex;
-            align-items: center;
-            padding: var(--space-2) var(--space-3);
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-family: var(--font-body);
-            font-size: var(--text-sm);
-            font-weight: 500;
-            border-radius: var(--radius-md);
-            transition: all var(--transition-normal);
-            min-height: 44px;
-            white-space: nowrap;
-        }
-        .site-nav .nav-links a:hover {
-            color: var(--text-primary);
-            background: var(--glass);
-        }
-        .site-nav .nav-links a.active {
-            color: var(--accent);
-            background: rgba(0, 240, 255, 0.08);
-            border: 1px solid rgba(0, 240, 255, 0.15);
-        }
-        .site-nav .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: var(--space-2);
-            margin-left: auto;
-        }
-        .hamburger-btn {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            background: none;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            color: var(--text-primary);
-            font-size: var(--text-xl);
-            cursor: pointer;
-            transition: all var(--transition-normal);
-        }
-        .hamburger-btn:hover { border-color: var(--accent); }
-        .mobile-nav-overlay {
-            display: none;
-            position: fixed;
-            top: var(--nav-height);
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 99;
-        }
-        .mobile-nav-overlay.active { display: block; }
-        .mobile-nav-dropdown {
-            display: none;
-            position: fixed;
-            top: var(--nav-height);
-            left: 0;
-            right: 0;
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border);
-            padding: var(--space-2);
-            z-index: 100;
-            max-height: calc(100vh - var(--nav-height));
-            overflow-y: auto;
-        }
-        .mobile-nav-dropdown.active { display: block; }
-        .mobile-nav-dropdown a {
-            display: flex;
-            align-items: center;
-            padding: var(--space-3);
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: var(--text-md);
-            border-radius: var(--radius-md);
-            min-height: 48px;
-            transition: all var(--transition-normal);
-        }
-        .mobile-nav-dropdown a:hover { background: var(--glass); color: var(--text-primary); }
-        .mobile-nav-dropdown a.active { color: var(--accent); background: rgba(0, 240, 255, 0.08); }
-        .view-tabs {
-            display: flex;
-            gap: var(--space-1);
-            padding: var(--space-2) var(--space-4);
-            background: var(--bg-primary);
-            border-bottom: 1px solid var(--border);
-            overflow-x: auto;
-        }
-        .view-tabs button {
-            padding: var(--space-2) var(--space-3);
-            background: none;
-            border: 1px solid transparent;
-            border-radius: var(--radius-md);
-            color: var(--text-secondary);
-            font-family: var(--font-body);
-            font-size: var(--text-sm);
-            cursor: pointer;
-            white-space: nowrap;
-            min-height: 44px;
-            transition: all var(--transition-normal);
-        }
-        .view-tabs button:hover { color: var(--text-primary); border-color: var(--border); }
-        .view-tabs button.active { color: var(--accent); border-color: var(--accent); background: rgba(0, 240, 255, 0.08); }
-        @media (max-width: 768px) {
-            .site-nav .nav-links { display: none; }
-            .hamburger-btn { display: flex; }
-            .view-tabs { padding: var(--space-2) var(--space-3); }
         }
 
         /* ==================== TOOLTIP SYSTEM (TKT-109) ==================== */
@@ -366,55 +230,6 @@
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
         }
-        .skeleton {
-            background: var(--bg-tertiary);
-            border-radius: var(--radius-md);
-            position: relative;
-            overflow: hidden;
-        }
-        .skeleton::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(
-                90deg,
-                transparent 0%,
-                rgba(255, 255, 255, 0.04) 50%,
-                transparent 100%
-            );
-            animation: skeleton-shimmer 1.5s ease-in-out infinite;
-        }
-        @keyframes skeleton-shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .skeleton::after { animation: none; }
-        }
-        .skeleton-text {
-            height: 14px;
-            margin-bottom: var(--space-2);
-            width: 80%;
-        }
-        .skeleton-text.short { width: 40%; }
-        .skeleton-text.medium { width: 60%; }
-        .skeleton-card {
-            height: 120px;
-            margin-bottom: var(--space-3);
-        }
-        .skeleton-row {
-            height: 48px;
-            margin-bottom: var(--space-1);
-        }
-        .skeleton-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-full);
-        }
-
         /* ==================== ACCESSIBILITY (TKT-273) ==================== */
         .skip-nav {
             position: absolute;
@@ -450,51 +265,6 @@
             }
             .intro-overlay { display: none !important; }
         }
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
-
-        /* ==================== TABLE SCROLL (TKT-278) ==================== */
-        .table-scroll-wrapper {
-            position: relative;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            margin: var(--space-2) 0;
-        }
-        .table-scroll-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            width: 40px;
-            background: linear-gradient(to right, transparent, var(--bg-primary));
-            pointer-events: none;
-            opacity: 1;
-            transition: opacity var(--transition-normal);
-        }
-        .table-scroll-wrapper.scrolled-end::after { opacity: 0; }
-        .table-scroll-wrapper.scrolled-start::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            width: 40px;
-            background: linear-gradient(to left, transparent, var(--bg-primary));
-            pointer-events: none;
-            z-index: 1;
-        }
-        .table-scroll-wrapper table { min-width: 600px; }
-
 
         /* ==================== PROGRESSIVE DISCLOSURE (TKT-110) ==================== */
         .expandable {
@@ -536,47 +306,6 @@
         .expandable.open .expandable-content {
             max-height: 500px;
             padding: var(--space-3);
-        }
-        /* Player row expandable details */
-        .player-details-toggle {
-            cursor: pointer;
-            color: var(--accent);
-            font-size: var(--text-xs);
-            margin-left: var(--space-2);
-        }
-        .player-details-toggle:hover {
-            text-decoration: underline;
-        }
-        .player-expanded-row {
-            display: none;
-            background: var(--bg-tertiary);
-        }
-        .player-expanded-row.show {
-            display: table-row;
-        }
-        .player-expanded-cell {
-            padding: var(--space-3) 24px !important;
-            border-bottom: 1px solid var(--border);
-        }
-        .player-detail-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: var(--space-3);
-        }
-        .player-detail-item {
-            text-align: center;
-        }
-        .player-detail-value {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-        .player-detail-label {
-            font-size: var(--text-xs);
-            text-transform: uppercase;
-            color: var(--text-tertiary);
-            letter-spacing: 0.5px;
-            margin-top: var(--space-1);
         }
         /* Show More / Extended Squad */
         .extended-squad-row {
@@ -798,7 +527,6 @@
             align-items: center;
             justify-content: center;
             filter: drop-shadow(0 0 8px var(--glow-accent));
-            animation: logo-pulse 3s ease-in-out infinite;
         }
         .nav-logo svg {
             width: 100%;
@@ -839,7 +567,28 @@
             padding: var(--space-1);
             border-radius: var(--radius-lg);
             border: 1px solid var(--border);
+            overflow-x: auto;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
         }
+        .nav-tabs::-webkit-scrollbar { display: none; }
+        .nav-btn {
+            padding: var(--space-2) 16px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-slow);
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            font-family: inherit;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--space-1);
+        }
+        .nav-btn:hover { color: var(--accent); border-color: var(--accent); box-shadow: 0 0 12px var(--glow-accent); }
         .nav-tab {
             padding: var(--space-2) 16px;
             border-radius: var(--radius-sm);
@@ -2485,7 +2234,7 @@
             align-items: center;
             justify-content: center;
         }
-        .mobile-nav {
+        .mobile-nav-menu {
             display: none;
             position: fixed;
             top: 56px;
@@ -2498,10 +2247,10 @@
             flex-direction: column;
             gap: var(--space-2);
         }
-        .mobile-nav.active {
+        .mobile-nav-menu.active {
             display: flex;
         }
-        .mobile-nav a {
+        .mobile-nav-menu a {
             padding: var(--space-3) 16px;
             border-radius: var(--radius-lg);
             color: var(--text-secondary);
@@ -2509,7 +2258,7 @@
             font-weight: 600;
             transition: all var(--transition-slow);
         }
-        .mobile-nav a:hover, .mobile-nav a.active {
+        .mobile-nav-menu a:hover, .mobile-nav-menu a.active {
             background: var(--accent);
             color: white;
         }
@@ -2535,9 +2284,6 @@
             .compare-container { grid-template-columns: 1fr; }
             .content-tabs { overflow-x: auto; white-space: nowrap; padding-bottom: var(--space-2); }
             .content-tab { flex-shrink: 0; }
-            /* Depth chart headers - allow wrapping on tablet */
-            .depth-table th { white-space: normal; font-size: var(--text-xs); padding: var(--space-2) 6px; }
-            .depth-table td { padding: var(--space-2) 6px; }
         }
 
         /* 480px overrides */
@@ -3497,7 +3243,7 @@
         html, body { overflow-x: hidden; max-width: 100vw; }
 
         /* Touch target minimum sizes (WCAG 44x44px) */
-        .mobile-nav a { min-height: 44px; display: flex; align-items: center; }
+        .mobile-nav-menu a { min-height: 44px; display: flex; align-items: center; }
         .theme-toggle { min-width: 44px; min-height: 44px; }
 
         /* ==================== SEASON PREVIEW TAB (TKT-257) ==================== */
@@ -4229,6 +3975,7 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
     <div class="bg-gradient"></div>
     <div class="bg-grid"></div>
     <div class="loading-overlay" id="loading"><div class="loading-spinner"></div></div>
@@ -4256,41 +4003,43 @@
             <div class="nav-title"><span class="brand-stat">STAT</span><span class="brand-sledge">SLEDGE</span></div>
         </div>
         <div class="nav-tabs">
-            <a href="index.html" class="nav-tab">Home</a>
-                <a href="teams.html" class="nav-tab active">Teams</a>
-            <a href="rankings.html" class="nav-tab">Rankings</a>
-            <a href="comparison.html" class="nav-tab">Compare</a>
-            <a href="head-to-head.html" class="nav-tab">H2H</a>
-            <a href="artifacts.html" class="nav-tab">Artifacts</a>
-            <a href="analysis.html" class="nav-tab">Analysis</a>
-            <a href="research.html" class="nav-tab">Research</a>
-            <a href="research-desk.html" class="nav-tab">The Film Room</a>
-            <a href="about.html" class="nav-tab">About</a>
-            <a href="/boardroom/index.html" class="nav-tab">The Boardroom</a>
+            <a href="index.html" class="nav-tab">&#127968; Home</a>
+            <a href="teams.html" class="nav-tab active">&#127951; Teams</a>
+            <a href="rankings.html" class="nav-tab">&#127942; Rankings</a>
+            <a href="comparison.html" class="nav-tab">&#9878;&#65039; Compare</a>
+            <a href="head-to-head.html" class="nav-tab">&#9876;&#65039; H2H</a>
+            <a href="artifacts.html" class="nav-tab">&#128269; Artifacts</a>
+            <a href="analysis.html" class="nav-tab">&#128300; Analysis</a>
+            <a href="research.html" class="nav-tab">&#128218; Research</a>
+            <a href="research-desk.html" class="nav-tab">&#127916; The Film Room</a>
+            <a href="about.html" class="nav-tab">&#127801; About</a>
         </div>
         <div class="nav-actions">
             <div class="data-freshness has-tooltip" id="dataFreshness" data-tooltip="Data ingestion timestamp from pipeline">
                 <span class="freshness-dot"></span>
                 <span class="freshness-label">Data: --</span>
             </div>
+            <a href="/boardroom/index.html" class="nav-btn">&#128225; Mission Control</a>
             <span class="nav-time" id="navTime">--:--:--</span>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
-            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu">
+                <span></span><span></span><span></span>
+            </button>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Switch to light theme">🌙</button>
         </div>
     </nav>
 
-    <div class="mobile-nav" id="mobile-nav">
-        <a href="index.html">Home</a>
-        <a href="teams.html" class="active">Teams</a>
-        <a href="rankings.html">Rankings</a>
-        <a href="comparison.html">Compare</a>
-        <a href="head-to-head.html">H2H</a>
-        <a href="artifacts.html">Artifacts</a>
-        <a href="analysis.html">Analysis</a>
-        <a href="research.html">Research</a>
-        <a href="research-desk.html">The Film Room</a>
-        <a href="about.html">About</a>
-        <a href="/boardroom/index.html">📡 The Boardroom</a>
+    <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <a href="index.html">&#127968; Home</a>
+        <a href="teams.html" class="active">&#127951; Teams</a>
+        <a href="rankings.html">&#127942; Rankings</a>
+        <a href="comparison.html">&#9878;&#65039; Compare</a>
+        <a href="head-to-head.html">&#9876;&#65039; H2H</a>
+        <a href="artifacts.html">&#128269; Artifacts</a>
+        <a href="analysis.html">&#128300; Analysis</a>
+        <a href="research.html">&#128218; Research</a>
+        <a href="research-desk.html">&#127916; The Film Room</a>
+        <a href="about.html">&#127801; About</a>
+        <a href="/boardroom/index.html">&#128225; Mission Control</a>
     </div>
 
     <main id="main-content" class="main" role="main">
@@ -4491,25 +4240,31 @@
 
         function toggleTheme() {
             const html = document.documentElement;
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
-            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '🌙' : '☀️';
+            const btn = document.querySelector('.theme-toggle');
+            btn.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+            btn.setAttribute('aria-label', newTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
         }
 
         function toggleMobileMenu() {
-            const nav = document.getElementById('mobile-nav');
-            nav.classList.toggle('active');
+            const menu = document.getElementById('mobile-nav-menu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            const isOpen = menu.classList.toggle('active');
+            btn.classList.toggle('active');
+            btn.setAttribute('aria-expanded', isOpen);
         }
 
-        function showLoading() {
-            document.getElementById('loading').classList.add('active');
-        }
-
-        function hideLoading() {
-            document.getElementById('loading').classList.remove('active');
-        }
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('mobile-nav-menu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            if (menu && menu.classList.contains('active') && !menu.contains(e.target) && !btn.contains(e.target)) {
+                menu.classList.remove('active');
+                btn.classList.remove('active');
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        });
 
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', savedTheme);
@@ -4859,7 +4614,7 @@
                 if (venueRecords.length > 0) {
                     recordsHTML = `
                     <table class="venue-records-table">
-                        <th scope="col"ead>
+                        <thead>
                             <tr>
                                 <th scope="col">Venue</th>
                                 <th scope="col">Mat</th>
@@ -5512,7 +5267,7 @@
                 if (!bands || bands.length === 0) return '';
                 return `
                     <table class="pressure-band-table">
-                        <th scope="col"ead><tr><th scope="col">RRR Band</th><th scope="col">Balls</th><th scope="col">SR</th><th scope="col">Bdry%</th><th scope="col">6s%</th><th scope="col">Dot%</th></tr></thead>
+                        <thead><tr><th scope="col">RRR Band</th><th scope="col">Balls</th><th scope="col">SR</th><th scope="col">Bdry%</th><th scope="col">6s%</th><th scope="col">Dot%</th></tr></thead>
                         <tbody>
                             ${bands.map(bd => `
                                 <tr>
@@ -5533,7 +5288,7 @@
                 if (!bands || bands.length === 0) return '';
                 return `
                     <table class="pressure-band-table">
-                        <th scope="col"ead><tr><th scope="col">RRR Band</th><th scope="col">Balls</th><th scope="col">Econ</th><th scope="col">Dot%</th><th scope="col">Bdry Conc%</th><th scope="col">Wkts</th></tr></thead>
+                        <thead><tr><th scope="col">RRR Band</th><th scope="col">Balls</th><th scope="col">Econ</th><th scope="col">Dot%</th><th scope="col">Bdry Conc%</th><th scope="col">Wkts</th></tr></thead>
                         <tbody>
                             ${bands.map(bd => `
                                 <tr>
@@ -5684,10 +5439,6 @@
                 ...allBowlers.map(bw => ({ type: 'BWL', ...bw }))
             ];
 
-            // Pressure table sort state
-            const pressureSortCol = window._pressureSortCol || 'default';
-            const pressureSortAsc = window._pressureSortAsc !== undefined ? window._pressureSortAsc : true;
-
             // Build batter row
             const batterRow = (b, idx) => {
                 const sampleCls = b.pressureBalls >= 150 ? 'large' : b.pressureBalls >= 80 ? 'medium' : 'small';
@@ -5790,7 +5541,7 @@
                     <div class="meth-section">
                         <h4>3. RRR Pressure Bands</h4>
                         <table class="meth-table">
-                            <th scope="col"ead><tr><th scope="col">Band</th><th scope="col">RRR Range</th><th scope="col">Description</th></tr></thead>
+                            <thead><tr><th scope="col">Band</th><th scope="col">RRR Range</th><th scope="col">Description</th></tr></thead>
                             <tbody>
                                 <tr><td class="meth-label">COMFORTABLE</td><td>RRR &lt; 8</td><td>Run rate is manageable, batters can play normally</td></tr>
                                 <tr><td class="meth-label">BUILDING</td><td>8 &le; RRR &lt; 10</td><td>Above par, scoring needs to accelerate</td></tr>
@@ -5803,7 +5554,7 @@
                     <div class="meth-section">
                         <h4>4. Over Phases (Under Pressure)</h4>
                         <table class="meth-table">
-                            <th scope="col"ead><tr><th scope="col">Phase</th><th scope="col">DB Over Index</th><th scope="col">Human Overs</th><th scope="col">Description</th></tr></thead>
+                            <thead><tr><th scope="col">Phase</th><th scope="col">DB Over Index</th><th scope="col">Human Overs</th><th scope="col">Description</th></tr></thead>
                             <tbody>
                                 <tr><td class="meth-label">Setup</td><td>14&ndash;16</td><td>Overs 15&ndash;17</td><td>Where batting teams begin acceleration</td></tr>
                                 <tr><td class="meth-label">Death</td><td>17&ndash;19</td><td>Overs 18&ndash;20</td><td>Highest-leverage balls of the innings</td></tr>
@@ -5814,7 +5565,7 @@
                     <div class="meth-section">
                         <h4>5. Entry Context (Batters Only)</h4>
                         <table class="meth-table">
-                            <th scope="col"ead><tr><th scope="col">Context</th><th scope="col">Balls Faced Before Pressure</th><th scope="col">Meaning</th></tr></thead>
+                            <thead><tr><th scope="col">Context</th><th scope="col">Balls Faced Before Pressure</th><th scope="col">Meaning</th></tr></thead>
                             <tbody>
                                 <tr><td class="meth-label">FRESH</td><td>&lt; 8 balls</td><td>Walked in during pressure phase &mdash; facing it cold</td></tr>
                                 <tr><td class="meth-label">BUILDING</td><td>8&ndash;12 balls</td><td>Getting set when pressure hit &mdash; partially established</td></tr>
@@ -5826,7 +5577,7 @@
                     <div class="meth-section">
                         <h4>6. Qualification Thresholds (Who Appears on This Tab)</h4>
                         <table class="meth-table">
-                            <th scope="col"ead><tr><th scope="col">Role</th><th scope="col">Condition</th></tr></thead>
+                            <thead><tr><th scope="col">Role</th><th scope="col">Condition</th></tr></thead>
                             <tbody>
                                 <tr><td class="meth-label">Batters</td><td>&ge; 60 pressure balls (10 overs) <strong>AND</strong> &ge; 50 overall balls</td></tr>
                                 <tr><td class="meth-label">Bowlers</td><td>&ge; 30 legal balls across HIGH / EXTREME / NEAR_IMPOSSIBLE bands, with &ge; 10 balls per individual band</td></tr>
@@ -5837,7 +5588,7 @@
                     <div class="meth-section">
                         <h4>7. Pressure Ratings (How Players Are Tagged)</h4>
                         <table class="meth-table">
-                            <th scope="col"ead><tr><th scope="col">Rating</th><th scope="col">Condition</th></tr></thead>
+                            <thead><tr><th scope="col">Rating</th><th scope="col">Condition</th></tr></thead>
                             <tbody>
                                 <tr><td class="meth-label">CLUTCH</td><td>SR improves 10%+ <strong>AND</strong> dot% drops in 12+ RRR bands</td></tr>
                                 <tr><td class="meth-label">PRESSURE_PROOF</td><td>Metrics within &plusmn;5% of overall across all bands</td></tr>
@@ -5855,7 +5606,7 @@
                     <div class="meth-section">
                         <h4>9. Filter Behavior</h4>
                         <table class="meth-table">
-                            <th scope="col"ead><tr><th scope="col">Filter</th><th scope="col">Behavior</th></tr></thead>
+                            <thead><tr><th scope="col">Filter</th><th scope="col">Behavior</th></tr></thead>
                             <tbody>
                                 <tr><td class="meth-label">Phase</td><td>Shows top 5 players sorted by that phase's SR (batters) or economy (bowlers)</td></tr>
                                 <tr><td class="meth-label">Band</td><td>Shows top 5 sorted by band-specific SR / economy; dims players without data in that band</td></tr>
@@ -5867,7 +5618,7 @@
                 </div>
 
                 <table class="pressure-summary-table">
-                    <th scope="col"ead>
+                    <thead>
                         <tr>
                             <th scope="col">Rating</th>
                             <th scope="col">Players</th>
@@ -5908,7 +5659,7 @@
                 <div class="pressure-section-title" style="margin-top: 16px;">Batters Under Pressure <span style="font-size: 12px; font-weight: 400; color: var(--text-tertiary); margin-left: 6px;">min 20 balls at RRR &ge; 10</span></div>
                 <div class="roster-table-wrapper">
                 <table class="roster-table phil-steele pressure-roster">
-                    <th scope="col"ead>
+                    <thead>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Player</th>
@@ -5929,7 +5680,7 @@
                 <div class="pressure-section-title" style="margin-top: 24px;">Bowlers Under Pressure <span style="font-size: 12px; font-weight: 400; color: var(--text-tertiary); margin-left: 6px;">min 15 balls in HIGH+ bands</span></div>
                 <div class="roster-table-wrapper">
                 <table class="roster-table phil-steele pressure-roster">
-                    <th scope="col"ead>
+                    <thead>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Player</th>
@@ -5956,7 +5707,7 @@
                     <div class="pressure-glossary-section">
                         <h4>Pressure Bands (RRR-Based)</h4>
                         <table class="pressure-glossary-table">
-                            <th scope="col"ead><tr><th scope="col">Band</th><th scope="col">RRR Range</th><th scope="col">What It Means</th></tr></thead>
+                            <thead><tr><th scope="col">Band</th><th scope="col">RRR Range</th><th scope="col">What It Means</th></tr></thead>
                             <tbody>
                                 <tr><td class="band-tag">COMFORTABLE</td><td>&lt; 8</td><td>Cruising — run rate is manageable, batters can play normally</td></tr>
                                 <tr><td class="band-tag">BUILDING</td><td>8 &ndash; 10</td><td>Above par — scoring needs to accelerate, risk-taking begins</td></tr>
@@ -5969,7 +5720,7 @@
                     <div class="pressure-glossary-section">
                         <h4>Pressure Ratings (Performance Tags)</h4>
                         <table class="pressure-glossary-table">
-                            <th scope="col"ead><tr><th scope="col">Rating</th><th scope="col">For Batters</th><th scope="col">For Bowlers</th></tr></thead>
+                            <thead><tr><th scope="col">Rating</th><th scope="col">For Batters</th><th scope="col">For Bowlers</th></tr></thead>
                             <tbody>
                                 <tr><td class="band-tag">CLUTCH</td><td>SR improves 10%+ AND dot% drops in 12+ RRR bands</td><td>Economy improves AND dot% rises in 12+ RRR bands</td></tr>
                                 <tr><td class="band-tag">PRESSURE_PROOF</td><td>Metrics within &plusmn;5% of overall across all bands</td><td>Metrics within &plusmn;5% of overall across all bands</td></tr>
@@ -5981,7 +5732,7 @@
                     <div class="pressure-glossary-section">
                         <h4>Entry Context (Batter Only)</h4>
                         <table class="pressure-glossary-table">
-                            <th scope="col"ead><tr><th scope="col">Context</th><th scope="col">Balls Before Pressure</th><th scope="col">Meaning</th></tr></thead>
+                            <thead><tr><th scope="col">Context</th><th scope="col">Balls Before Pressure</th><th scope="col">Meaning</th></tr></thead>
                             <tbody>
                                 <tr><td class="band-tag">FRESH</td><td>&lt; 10</td><td>Walked in during pressure phase — facing it cold</td></tr>
                                 <tr><td class="band-tag">BUILDING</td><td>10 &ndash; 25</td><td>Getting set when pressure hit — partially established</td></tr>
@@ -6131,7 +5882,7 @@
 
                 <div class="roster-table-wrapper">
                 <table class="roster-table phil-steele">
-                    <th scope="col"ead>
+                    <thead>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Player</th>
@@ -6377,11 +6128,6 @@
             squadFilters.role = document.getElementById('filter-role').value;
             squadFilters.nationality = document.getElementById('filter-nationality').value;
             squadFilters.ageGroup = document.getElementById('filter-age').value;
-            renderSquadTable(TEAMS[currentTeam], SQUADS[currentTeam]);
-        }
-
-        function clearFilters() {
-            squadFilters = { search: '', role: '', nationality: '', ageGroup: '' };
             renderSquadTable(TEAMS[currentTeam], SQUADS[currentTeam]);
         }
 
@@ -6737,7 +6483,7 @@
         function renderPreviewTable(block) {
             let html = '<div class="preview-table-wrap"><table class="preview-table">';
             if (block.caption) html += `<caption>${block.caption}</caption>`;
-            html += '<th scope="col"ead><tr>';
+            html += '<thead><tr>';
             block.headers.forEach(h => { html += `<th scope="col">${h}</th>`; });
             html += '</tr></thead><tbody>';
             block.rows.forEach(row => {
@@ -6974,7 +6720,7 @@
                         html += `<div class="pp-section">
                             <div class="pp-section-title">vs Bowling Type</div>
                             <table class="pp-matchup-table">
-                                <th scope="col"ead><tr><th scope="col">Type</th><th scope="col">SR</th><th scope="col">Avg</th><th scope="col">Balls</th></tr></thead>
+                                <thead><tr><th scope="col">Type</th><th scope="col">SR</th><th scope="col">Avg</th><th scope="col">Balls</th></tr></thead>
                                 <tbody>
                                     ${types.map(([type, v]) => `<tr>
                                         <td class="pp-vs-label">${type}</td>
@@ -6996,7 +6742,7 @@
                         html += `<div class="pp-section">
                             <div class="pp-section-title">vs Teams</div>
                             <table class="pp-matchup-table">
-                                <th scope="col"ead><tr><th scope="col">Team</th><th scope="col">SR</th><th scope="col">Avg</th><th scope="col">Inn</th></tr></thead>
+                                <thead><tr><th scope="col">Team</th><th scope="col">SR</th><th scope="col">Avg</th><th scope="col">Inn</th></tr></thead>
                                 <tbody>
                                     ${best.map(t => `<tr><td class="pp-vs-label pp-vs-good">${t.team}</td><td>${t.sr != null ? t.sr.toFixed(1) : '-'}</td><td>${t.avg != null ? t.avg.toFixed(1) : '-'}</td><td>${t.innings || 0}</td></tr>`).join('')}
                                     ${worst.length > 0 ? `<tr><td colspan="4" style="padding:4px;border:none;"></td></tr>` : ''}
@@ -7078,7 +6824,7 @@
                     html += `<div class="pp-section">
                         <div class="pp-section-title bowling">vs Batting Hand</div>
                         <table class="pp-matchup-table">
-                            <th scope="col"ead><tr><th scope="col">Hand</th><th scope="col">Econ</th><th scope="col">SR</th><th scope="col">Wkts</th></tr></thead>
+                            <thead><tr><th scope="col">Hand</th><th scope="col">Econ</th><th scope="col">SR</th><th scope="col">Wkts</th></tr></thead>
                             <tbody>
                                 ${Object.entries(bowl.vs_batting_hand).map(([hand, v]) => `<tr>
                                     <td class="pp-vs-label">${hand}</td>
@@ -7099,7 +6845,7 @@
                         html += `<div class="pp-section">
                             <div class="pp-section-title bowling">vs Teams (Bowling)</div>
                             <table class="pp-matchup-table">
-                                <th scope="col"ead><tr><th scope="col">Team</th><th scope="col">Econ</th><th scope="col">SR</th><th scope="col">Wkts</th></tr></thead>
+                                <thead><tr><th scope="col">Team</th><th scope="col">Econ</th><th scope="col">SR</th><th scope="col">Wkts</th></tr></thead>
                                 <tbody>
                                     ${best.map(t => `<tr><td class="pp-vs-label pp-vs-good">${t.team}</td><td>${t.economy != null ? t.economy.toFixed(2) : '-'}</td><td>${t.sr != null ? t.sr.toFixed(1) : '-'}</td><td>${t.wickets || 0}</td></tr>`).join('')}
                                     ${worst.length > 0 ? `<tr><td colspan="4" style="padding:4px;border:none;"></td></tr>` : ''}
@@ -7134,49 +6880,7 @@
             }
         });
 
-    // TKT-278: Table scroll indicators
-    document.querySelectorAll('.table-scroll-wrapper').forEach(function(wrapper) {
-        wrapper.addEventListener('scroll', function() {
-            var atStart = this.scrollLeft > 10;
-            var atEnd = this.scrollLeft + this.clientWidth >= this.scrollWidth - 10;
-            this.classList.toggle('scrolled-start', atStart);
-            this.classList.toggle('scrolled-end', atEnd);
-        });
-    });
 
-    // TKT-273: Keyboard navigation for tabs and menus
-    document.querySelectorAll('[role="tablist"]').forEach(function(tablist) {
-        tablist.addEventListener('keydown', function(e) {
-            var tabs = Array.from(this.querySelectorAll('[role="tab"]'));
-            var idx = tabs.indexOf(document.activeElement);
-            if (idx === -1) return;
-            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-                e.preventDefault();
-                tabs[(idx + 1) % tabs.length].focus();
-            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-                e.preventDefault();
-                tabs[(idx - 1 + tabs.length) % tabs.length].focus();
-            }
-        });
-    });
-    // Escape closes mobile nav/modals
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            document.querySelectorAll('.mobile-nav-dropdown.active, .mobile-nav-overlay.active').forEach(function(el) {
-                el.classList.remove('active');
-            });
-            var modal = document.querySelector('.modal.active, .modal.show, [data-modal].active');
-            if (modal) modal.classList.remove('active', 'show');
-        }
-    });
-
-    // TKT-274: Remove skeleton loaders
-    function removeSkeletons() {
-        document.querySelectorAll('.skeleton').forEach(function(el) {
-            el.classList.remove('skeleton', 'skeleton-text', 'skeleton-card', 'skeleton-row', 'skeleton-avatar');
-            el.removeAttribute('aria-hidden');
-        });
-    }
 </script>
 
     <!-- Navigation Guide Button -->

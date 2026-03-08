@@ -1,11 +1,13 @@
 /**
  * Statsledge Design Language — Master CSS
  *
+ * Kevin De Bruyne (Visualization Lead) · Jayson Tatum (UX & Reader Flow Auditor)
+ *
  * Premium light-first theme combining Airbnb clarity, Stripe dashboard
  * precision, and The Athletic editorial quality.
  *
  * All custom properties are prefixed with --sl- to avoid collisions with
- * the existing dark-first design system variables.
+ * the existing design system variables.
  */
 
 /* ==========================================================================
@@ -278,7 +280,7 @@
 .sl-card {
   background: var(--sl-surface-elevated);
   border: 1px solid var(--sl-border-subtle);
-  border-radius: var(--sl-radius-lg);
+  border-radius: var(--sl-radius-xl);
   box-shadow: var(--sl-shadow-sm);
   padding: var(--sl-space-md);
   transition:
@@ -288,7 +290,7 @@
 
 .sl-card:hover {
   box-shadow: var(--sl-shadow-md);
-  transform: scale(1.02);
+  transform: translateY(-2px);
 }
 
 .sl-card--flat {
@@ -376,7 +378,7 @@
 .sl-chart-container {
   background: var(--sl-surface-elevated);
   border: 1px solid var(--sl-border-subtle);
-  border-radius: var(--sl-radius-lg);
+  border-radius: var(--sl-radius-xl);
   box-shadow: var(--sl-shadow-sm);
   padding: var(--sl-space-md);
   position: relative;
@@ -413,4 +415,21 @@
 .sl-chart-body {
   min-height: 200px;
   position: relative;
+}
+
+/* ==========================================================================
+   9. Accessibility
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .sl-animate-count-up,
+  .sl-animate-fade-in,
+  .sl-animate-scale-in,
+  .sl-skeleton {
+    animation: none;
+  }
+
+  .sl-card:hover {
+    transform: none;
+  }
 }

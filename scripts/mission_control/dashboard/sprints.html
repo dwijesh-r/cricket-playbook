@@ -135,32 +135,10 @@
             grid-template-columns: repeat(12, 1fr);
             gap: var(--space-3);
         }
-        .col-span-1 { grid-column: span 1; }
-        .col-span-2 { grid-column: span 2; }
-        .col-span-3 { grid-column: span 3; }
-        .col-span-4 { grid-column: span 4; }
-        .col-span-5 { grid-column: span 5; }
-        .col-span-6 { grid-column: span 6; }
-        .col-span-7 { grid-column: span 7; }
-        .col-span-8 { grid-column: span 8; }
-        .col-span-9 { grid-column: span 9; }
-        .col-span-10 { grid-column: span 10; }
-        .col-span-11 { grid-column: span 11; }
-        .col-span-12 { grid-column: span 12; }
-        @media (max-width: 1024px) {
-            .grid-12 { grid-template-columns: repeat(8, 1fr); }
-            .col-span-9, .col-span-10, .col-span-11, .col-span-12 { grid-column: span 8; }
-            .col-span-7, .col-span-8 { grid-column: span 8; }
-            .col-span-5, .col-span-6 { grid-column: span 4; }
-        }
         @media (max-width: 768px) {
-            .grid-12 { grid-template-columns: repeat(4, 1fr); }
             .container { padding: 0 var(--space-3); }
-            [class*="col-span-"] { grid-column: span 4; }
         }
         @media (max-width: 480px) {
-            .grid-12 { grid-template-columns: 1fr; }
-            [class*="col-span-"] { grid-column: span 1; }
             .container { padding: 0 var(--space-2); }
         }
 
@@ -178,240 +156,19 @@
             padding: 0 var(--space-4);
             backdrop-filter: blur(12px);
         }
-        .site-nav .nav-links {
-            display: flex;
-            gap: var(--space-1);
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            flex: 1;
-        }
-        .site-nav .nav-links a {
-            display: flex;
-            align-items: center;
-            padding: var(--space-2) var(--space-3);
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-family: var(--font-body);
-            font-size: var(--text-sm);
-            font-weight: 500;
-            border-radius: var(--radius-md);
-            transition: all var(--transition-normal);
-            min-height: 44px;
-            white-space: nowrap;
-        }
-        .site-nav .nav-links a:hover {
-            color: var(--text-primary);
-            background: var(--glass);
-        }
-        .site-nav .nav-links a.active {
-            color: var(--accent);
-            background: rgba(0, 240, 255, 0.08);
-            border: 1px solid rgba(0, 240, 255, 0.15);
-        }
         .site-nav .nav-actions {
             display: flex;
             align-items: center;
             gap: var(--space-2);
             margin-left: auto;
         }
-        .hamburger-btn {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            background: none;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            color: var(--text-primary);
-            font-size: var(--text-xl);
-            cursor: pointer;
-            transition: all var(--transition-normal);
-        }
-        .hamburger-btn:hover { border-color: var(--accent); }
-        .mobile-nav-overlay {
-            display: none;
-            position: fixed;
-            top: var(--nav-height);
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 99;
-        }
-        .mobile-nav-overlay.active { display: block; }
-        .mobile-nav-dropdown {
-            display: none;
-            position: fixed;
-            top: var(--nav-height);
-            left: 0;
-            right: 0;
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border);
-            padding: var(--space-2);
-            z-index: 100;
-            max-height: calc(100vh - var(--nav-height));
-            overflow-y: auto;
-        }
-        .mobile-nav-dropdown.active { display: block; }
-        .mobile-nav-dropdown a {
-            display: flex;
-            align-items: center;
-            padding: var(--space-3);
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: var(--text-md);
-            border-radius: var(--radius-md);
-            min-height: 48px;
-            transition: all var(--transition-normal);
-        }
-        .mobile-nav-dropdown a:hover { background: var(--glass); color: var(--text-primary); }
-        .mobile-nav-dropdown a.active { color: var(--accent); background: rgba(0, 240, 255, 0.08); }
-        .view-tabs {
-            display: flex;
-            gap: var(--space-1);
-            padding: var(--space-2) var(--space-4);
-            background: var(--bg-primary);
-            border-bottom: 1px solid var(--border);
-            overflow-x: auto;
-        }
-        .view-tabs button {
-            padding: var(--space-2) var(--space-3);
-            background: none;
-            border: 1px solid transparent;
-            border-radius: var(--radius-md);
-            color: var(--text-secondary);
-            font-family: var(--font-body);
-            font-size: var(--text-sm);
-            cursor: pointer;
-            white-space: nowrap;
-            min-height: 44px;
-            transition: all var(--transition-normal);
-        }
-        .view-tabs button:hover { color: var(--text-primary); border-color: var(--border); }
-        .view-tabs button.active { color: var(--accent); border-color: var(--accent); background: rgba(0, 240, 255, 0.08); }
-        @media (max-width: 768px) {
-            .site-nav .nav-links { display: none; }
-            .hamburger-btn { display: flex; }
-            .view-tabs { padding: var(--space-2) var(--space-3); }
-        }
 
-        /* ==================== TOOLTIP SYSTEM (TKT-109) ==================== */
-        .has-tooltip {
-            position: relative;
-            cursor: help;
-        }
-        .has-tooltip::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: calc(100% + 8px);
-            left: 50%;
-            transform: translateX(-50%);
-            padding: var(--space-2) 12px;
-            background: var(--bg-elevated);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--text-primary);
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all var(--transition-normal);
-            z-index: 1000;
-            pointer-events: none;
-            box-shadow: 0 4px 12px var(--shadow);
-        }
-        .has-tooltip:hover::after {
-            opacity: 1;
-            visibility: visible;
-        }
-        .help-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 14px;
-            height: 14px;
-            font-size: var(--text-xs);
-            color: var(--text-tertiary);
-            cursor: help;
-            margin-left: var(--space-1);
-            vertical-align: middle;
-        }
-        .help-icon:hover { color: var(--accent); }
-
-        /* Mobile-safe tooltip adjustments */
-        @media (max-width: 768px) {
-            .has-tooltip::after {
-                white-space: normal;
-                max-width: 200px;
-                left: 0;
-                transform: none;
-                font-size: var(--text-xs);
-            }
-        }
-        @media (max-width: 480px) {
-            .has-tooltip::after {
-                max-width: 160px;
-                padding: var(--space-1) 10px;
-                font-size: var(--text-xs);
-            }
-        }
 
 
         /* ==================== SMOOTH SCROLL & SKELETONS (TKT-274) ==================== */
         html { scroll-behavior: smooth; }
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
-        }
-        .skeleton {
-            background: var(--bg-tertiary);
-            border-radius: var(--radius-md);
-            position: relative;
-            overflow: hidden;
-        }
-        .skeleton::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(
-                90deg,
-                transparent 0%,
-                rgba(255, 255, 255, 0.04) 50%,
-                transparent 100%
-            );
-            animation: skeleton-shimmer 1.5s ease-in-out infinite;
-        }
-        @keyframes skeleton-shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .skeleton::after { animation: none; }
-        }
-        .skeleton-text {
-            height: 14px;
-            margin-bottom: var(--space-2);
-            width: 80%;
-        }
-        .skeleton-text.short { width: 40%; }
-        .skeleton-text.medium { width: 60%; }
-        .skeleton-card {
-            height: 120px;
-            margin-bottom: var(--space-3);
-        }
-        .skeleton-row {
-            height: 48px;
-            margin-bottom: var(--space-1);
-        }
-        .skeleton-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-full);
         }
 
         /* ==================== ACCESSIBILITY (TKT-273) ==================== */
@@ -1504,10 +1261,11 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
     <div class="bg-gradient"></div>
 
     <!-- Navigation -->
-    <nav class="nav site-nav" aria-label="Site navigation">
+    <nav class="nav site-nav" aria-label="Site navigation" role="navigation">
         <div class="nav-brand">
             <div class="nav-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
   <defs>
@@ -1533,7 +1291,7 @@
             <a href="index.html" class="nav-btn">📋 Board</a>
             <a href="about.html" class="nav-btn">ℹ️ About</a>
             <a href="/index.html" class="nav-btn">🔬 The Lab</a>
-            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Switch to light theme">🌙</button>
         </div>
     </nav>
 
@@ -1709,7 +1467,7 @@
                 title: "Sprint 5.0 - Interactive Intelligence & Player Rankings",
                 description: "Eight EPICs across seven workstreams: Win Probability (historical replay), React Dashboard (foundation), Player Comparison, Player Rankings (signature feature), Sprint 4 Close-Out, Infrastructure Hardening, UI/UX & Accessibility, and Season Preview Production (10 teams). 44 active tickets.",
                 startDate: "2026-02-15",
-                endDate: "2026-02-28",
+                endDate: "2026-03-14",
                 status: "ACTIVE",
                 velocity: {
                     planned: 44,
@@ -1884,7 +1642,7 @@
         ];
 
         // Current selected sprint and filter
-        let selectedSprintId = 'SPRINT-001';
+        let selectedSprintId = SPRINTS.find(s => s.status === 'ACTIVE')?.id || SPRINTS[SPRINTS.length - 1].id;
         let currentFilter = 'all';
 
         // Render Sprint Timeline

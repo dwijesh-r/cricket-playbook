@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Film Room - Statsledge</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* ==================== THEME SYSTEM ==================== */
         :root {
@@ -136,32 +135,15 @@
             grid-template-columns: repeat(12, 1fr);
             gap: var(--space-3);
         }
-        .col-span-1 { grid-column: span 1; }
-        .col-span-2 { grid-column: span 2; }
-        .col-span-3 { grid-column: span 3; }
-        .col-span-4 { grid-column: span 4; }
-        .col-span-5 { grid-column: span 5; }
-        .col-span-6 { grid-column: span 6; }
-        .col-span-7 { grid-column: span 7; }
-        .col-span-8 { grid-column: span 8; }
-        .col-span-9 { grid-column: span 9; }
-        .col-span-10 { grid-column: span 10; }
-        .col-span-11 { grid-column: span 11; }
-        .col-span-12 { grid-column: span 12; }
         @media (max-width: 1024px) {
             .grid-12 { grid-template-columns: repeat(8, 1fr); }
-            .col-span-9, .col-span-10, .col-span-11, .col-span-12 { grid-column: span 8; }
-            .col-span-7, .col-span-8 { grid-column: span 8; }
-            .col-span-5, .col-span-6 { grid-column: span 4; }
         }
         @media (max-width: 768px) {
             .grid-12 { grid-template-columns: repeat(4, 1fr); }
             .container { padding: 0 var(--space-3); }
-            [class*="col-span-"] { grid-column: span 4; }
         }
         @media (max-width: 480px) {
             .grid-12 { grid-template-columns: 1fr; }
-            [class*="col-span-"] { grid-column: span 1; }
             .container { padding: 0 var(--space-2); }
         }
 
@@ -179,123 +161,11 @@
             padding: 0 var(--space-4);
             backdrop-filter: blur(12px);
         }
-        .site-nav .nav-links {
-            display: flex;
-            gap: var(--space-1);
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            flex: 1;
-        }
-        .site-nav .nav-links a {
-            display: flex;
-            align-items: center;
-            padding: var(--space-2) var(--space-3);
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-family: var(--font-body);
-            font-size: var(--text-sm);
-            font-weight: 500;
-            border-radius: var(--radius-md);
-            transition: all var(--transition-normal);
-            min-height: 44px;
-            white-space: nowrap;
-        }
-        .site-nav .nav-links a:hover {
-            color: var(--text-primary);
-            background: var(--glass);
-        }
-        .site-nav .nav-links a.active {
-            color: var(--accent);
-            background: rgba(0, 240, 255, 0.08);
-            border: 1px solid rgba(0, 240, 255, 0.15);
-        }
         .site-nav .nav-actions {
             display: flex;
             align-items: center;
             gap: var(--space-2);
             margin-left: auto;
-        }
-        .hamburger-btn {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            background: none;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            color: var(--text-primary);
-            font-size: var(--text-xl);
-            cursor: pointer;
-            transition: all var(--transition-normal);
-        }
-        .hamburger-btn:hover { border-color: var(--accent); }
-        .mobile-nav-overlay {
-            display: none;
-            position: fixed;
-            top: var(--nav-height);
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 99;
-        }
-        .mobile-nav-overlay.active { display: block; }
-        .mobile-nav-dropdown {
-            display: none;
-            position: fixed;
-            top: var(--nav-height);
-            left: 0;
-            right: 0;
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border);
-            padding: var(--space-2);
-            z-index: 100;
-            max-height: calc(100vh - var(--nav-height));
-            overflow-y: auto;
-        }
-        .mobile-nav-dropdown.active { display: block; }
-        .mobile-nav-dropdown a {
-            display: flex;
-            align-items: center;
-            padding: var(--space-3);
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: var(--text-md);
-            border-radius: var(--radius-md);
-            min-height: 48px;
-            transition: all var(--transition-normal);
-        }
-        .mobile-nav-dropdown a:hover { background: var(--glass); color: var(--text-primary); }
-        .mobile-nav-dropdown a.active { color: var(--accent); background: rgba(0, 240, 255, 0.08); }
-        .view-tabs {
-            display: flex;
-            gap: var(--space-1);
-            padding: var(--space-2) var(--space-4);
-            background: var(--bg-primary);
-            border-bottom: 1px solid var(--border);
-            overflow-x: auto;
-        }
-        .view-tabs button {
-            padding: var(--space-2) var(--space-3);
-            background: none;
-            border: 1px solid transparent;
-            border-radius: var(--radius-md);
-            color: var(--text-secondary);
-            font-family: var(--font-body);
-            font-size: var(--text-sm);
-            cursor: pointer;
-            white-space: nowrap;
-            min-height: 44px;
-            transition: all var(--transition-normal);
-        }
-        .view-tabs button:hover { color: var(--text-primary); border-color: var(--border); }
-        .view-tabs button.active { color: var(--accent); border-color: var(--accent); background: rgba(0, 240, 255, 0.08); }
-        @media (max-width: 768px) {
-            .site-nav .nav-links { display: none; }
-            .hamburger-btn { display: flex; }
-            .view-tabs { padding: var(--space-2) var(--space-3); }
         }
 
         /* ==================== TOOLTIP SYSTEM (TKT-109) ==================== */
@@ -365,58 +235,10 @@
         }
 
 
-        /* ==================== SMOOTH SCROLL & SKELETONS (TKT-274) ==================== */
+        /* ==================== SMOOTH SCROLL (TKT-274) ==================== */
         html { scroll-behavior: smooth; }
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
-        }
-        .skeleton {
-            background: var(--bg-tertiary);
-            border-radius: var(--radius-md);
-            position: relative;
-            overflow: hidden;
-        }
-        .skeleton::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(
-                90deg,
-                transparent 0%,
-                rgba(255, 255, 255, 0.04) 50%,
-                transparent 100%
-            );
-            animation: skeleton-shimmer 1.5s ease-in-out infinite;
-        }
-        @keyframes skeleton-shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .skeleton::after { animation: none; }
-        }
-        .skeleton-text {
-            height: 14px;
-            margin-bottom: var(--space-2);
-            width: 80%;
-        }
-        .skeleton-text.short { width: 40%; }
-        .skeleton-text.medium { width: 60%; }
-        .skeleton-card {
-            height: 120px;
-            margin-bottom: var(--space-3);
-        }
-        .skeleton-row {
-            height: 48px;
-            margin-bottom: var(--space-1);
-        }
-        .skeleton-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-full);
         }
 
         /* ==================== ACCESSIBILITY (TKT-273) ==================== */
@@ -466,38 +288,6 @@
             border-width: 0;
         }
 
-        /* ==================== TABLE SCROLL (TKT-278) ==================== */
-        .table-scroll-wrapper {
-            position: relative;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            margin: var(--space-2) 0;
-        }
-        .table-scroll-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            width: 40px;
-            background: linear-gradient(to right, transparent, var(--bg-primary));
-            pointer-events: none;
-            opacity: 1;
-            transition: opacity var(--transition-normal);
-        }
-        .table-scroll-wrapper.scrolled-end::after { opacity: 0; }
-        .table-scroll-wrapper.scrolled-start::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            width: 40px;
-            background: linear-gradient(to left, transparent, var(--bg-primary));
-            pointer-events: none;
-            z-index: 1;
-        }
-        .table-scroll-wrapper table { min-width: 600px; }
 
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -552,7 +342,6 @@
             align-items: center;
             justify-content: center;
             filter: drop-shadow(0 0 8px var(--glow-accent));
-            animation: logo-pulse 3s ease-in-out infinite;
         }
         .nav-logo svg {
             width: 100%;
@@ -589,7 +378,9 @@
         .nav-tabs {
             display: flex; gap: var(--space-1);
             background: var(--bg-secondary); border-radius: var(--radius-lg); padding: var(--space-1);
+            overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
         }
+        .nav-tabs::-webkit-scrollbar { display: none; }
         .nav-tab {
             padding: var(--space-1) 14px; border-radius: var(--radius-md); font-size: 13px; font-weight: 500;
             color: var(--text-secondary); text-decoration: none; transition: all var(--transition-normal);
@@ -2144,6 +1935,7 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
     <div class="bg-gradient"></div>
     <div class="bg-grid"></div>
 
@@ -2202,24 +1994,24 @@
             <div class="nav-title"><span class="brand-stat">STAT</span><span class="brand-sledge">SLEDGE</span></div>
         </div>
         <div class="nav-tabs">
-            <a href="index.html" class="nav-tab">Home</a>
-            <a href="teams.html" class="nav-tab">Teams</a>
-            <a href="rankings.html" class="nav-tab">Rankings</a>
-            <a href="comparison.html" class="nav-tab">Compare</a>
-            <a href="head-to-head.html" class="nav-tab">H2H</a>
-            <a href="artifacts.html" class="nav-tab">Artifacts</a>
-            <a href="analysis.html" class="nav-tab">Analysis</a>
-            <a href="research.html" class="nav-tab">Research</a>
-            <a href="research-desk.html" class="nav-tab active">The Film Room</a>
-            <a href="about.html" class="nav-tab">About</a>
-            <a href="/boardroom/index.html" class="nav-tab">The Boardroom</a>
+            <a href="index.html" class="nav-tab">&#127968; Home</a>
+            <a href="teams.html" class="nav-tab">&#127951; Teams</a>
+            <a href="rankings.html" class="nav-tab">&#127942; Rankings</a>
+            <a href="comparison.html" class="nav-tab">&#9878;&#65039; Compare</a>
+            <a href="head-to-head.html" class="nav-tab">&#9876;&#65039; H2H</a>
+            <a href="artifacts.html" class="nav-tab">&#128269; Artifacts</a>
+            <a href="analysis.html" class="nav-tab">&#128300; Analysis</a>
+            <a href="research.html" class="nav-tab">&#128218; Research</a>
+            <a href="research-desk.html" class="nav-tab active">&#127916; The Film Room</a>
+            <a href="about.html" class="nav-tab">&#127801; About</a>
         </div>
         <div class="nav-actions">
+            <a href="/boardroom/index.html" class="nav-btn">&#128225; Mission Control</a>
             <span class="nav-time" id="navTime">--:--:--</span>
-            <button type="button" class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu">
+            <button type="button" class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu" title="Menu">
                 <span></span><span></span><span></span>
             </button>
-            <button type="button" class="theme-toggle" onclick="toggleTheme()">🌙</button>
+            <button type="button" class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Switch to light theme">🌙</button>
         </div>
     </nav>
 
@@ -2235,7 +2027,7 @@
         <a href="research.html" class="nav-tab">📚 Research</a>
         <a href="research-desk.html" class="nav-tab active">🎬 The Film Room</a>
         <a href="about.html" class="nav-tab">🌹 About</a>
-        <a href="/boardroom/index.html" class="nav-tab" style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%); color: white;">📡 The Boardroom</a>
+        <a href="/boardroom/index.html" class="nav-tab" style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%); color: white;">📡 Mission Control</a>
     </div>
 
     <main id="main-content" class="main" role="main">
@@ -2579,20 +2371,32 @@ LIMIT 20;</textarea>
         /* ==================== THEME ==================== */
         window.toggleTheme = function() {
             const html = document.documentElement;
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
-            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
+            const btn = document.querySelector('.theme-toggle');
+            btn.textContent = newTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
+            btn.setAttribute('aria-label', newTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
         };
 
         /* ==================== MOBILE MENU ==================== */
         window.toggleMobileMenu = function() {
             const menu = document.getElementById('mobile-nav-menu');
             const btn = document.querySelector('.mobile-menu-btn');
-            menu.classList.toggle('active');
+            const isOpen = menu.classList.toggle('active');
             btn.classList.toggle('active');
+            btn.setAttribute('aria-expanded', isOpen);
         };
+
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('mobile-nav-menu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            if (menu && menu.classList.contains('active') && !menu.contains(e.target) && !btn.contains(e.target)) {
+                menu.classList.remove('active');
+                btn.classList.remove('active');
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        });
 
         /* ==================== INIT ==================== */
         const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -2783,7 +2587,7 @@ LIMIT 20;</textarea>
             resultsMeta.textContent = `Showing ${(startIdx + 1).toLocaleString()}-${endIdx.toLocaleString()} of ${totalRows.toLocaleString()} rows \u00B7 ${currentElapsed}s`;
 
             // Build table
-            let html = '<table class="results-table"><th scope="col"ead><tr>';
+            let html = '<table class="results-table"><thead><tr>';
             html += '<th scope="col" style="width:40px;text-align:right;min-width:40px;">#</th>';
             for (let ci = 0; ci < columns.length; ci++) {
                 const sortClass = sortColumn === ci ? (sortDirection === 'asc' ? 'sorted-asc' : 'sorted-desc') : '';
@@ -7511,49 +7315,7 @@ LIMIT 20;</textarea>
             }
         }
 
-    // TKT-278: Table scroll indicators
-    document.querySelectorAll('.table-scroll-wrapper').forEach(function(wrapper) {
-        wrapper.addEventListener('scroll', function() {
-            var atStart = this.scrollLeft > 10;
-            var atEnd = this.scrollLeft + this.clientWidth >= this.scrollWidth - 10;
-            this.classList.toggle('scrolled-start', atStart);
-            this.classList.toggle('scrolled-end', atEnd);
-        });
-    });
 
-    // TKT-273: Keyboard navigation for tabs and menus
-    document.querySelectorAll('[role="tablist"]').forEach(function(tablist) {
-        tablist.addEventListener('keydown', function(e) {
-            var tabs = Array.from(this.querySelectorAll('[role="tab"]'));
-            var idx = tabs.indexOf(document.activeElement);
-            if (idx === -1) return;
-            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-                e.preventDefault();
-                tabs[(idx + 1) % tabs.length].focus();
-            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-                e.preventDefault();
-                tabs[(idx - 1 + tabs.length) % tabs.length].focus();
-            }
-        });
-    });
-    // Escape closes mobile nav/modals
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            document.querySelectorAll('.mobile-nav-dropdown.active, .mobile-nav-overlay.active').forEach(function(el) {
-                el.classList.remove('active');
-            });
-            var modal = document.querySelector('.modal.active, .modal.show, [data-modal].active');
-            if (modal) modal.classList.remove('active', 'show');
-        }
-    });
-
-    // TKT-274: Remove skeleton loaders
-    function removeSkeletons() {
-        document.querySelectorAll('.skeleton').forEach(function(el) {
-            el.classList.remove('skeleton', 'skeleton-text', 'skeleton-card', 'skeleton-row', 'skeleton-avatar');
-            el.removeAttribute('aria-hidden');
-        });
-    }
 </script>
 </body>
 </html>

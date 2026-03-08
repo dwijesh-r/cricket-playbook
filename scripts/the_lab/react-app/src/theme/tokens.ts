@@ -1,5 +1,7 @@
 /**
- * Design System Tokens
+ * Design System Tokens — Statsledge Premium
+ *
+ * Kevin De Bruyne (Visualization Lead) · Jayson Tatum (UX & Reader Flow Auditor)
  *
  * TypeScript representation of the CSS custom properties defined in index.css.
  * These tokens serve as the single source of truth for the design system,
@@ -32,8 +34,6 @@ export const colors = {
     secondary: 'var(--bg-secondary)',
     tertiary: 'var(--bg-tertiary)',
     elevated: 'var(--bg-elevated)',
-    glass: 'var(--glass)',
-    glassBorder: 'var(--glass-border)',
   },
   text: {
     primary: 'var(--text-primary)',
@@ -41,7 +41,7 @@ export const colors = {
     tertiary: 'var(--text-tertiary)',
   },
   border: 'var(--border)',
-  shadow: 'var(--shadow)',
+  borderSubtle: 'var(--border-subtle)',
 
   /** IPL team colors for PlayerChip / team-specific UI */
   team: {
@@ -122,13 +122,12 @@ export const typography = {
   fontFamily:
     "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
   fontSize: {
-    xs: '0.6875rem', // 11px
-    sm: '0.75rem', // 12px
-    base: '0.875rem', // 14px
+    sm: '0.75rem', // 12px — only for non-content decorative elements
+    base: '0.875rem', // 14px — minimum readable size
     md: '1rem', // 16px
     lg: '1.25rem', // 20px
     xl: '1.5rem', // 24px
-    '2xl': '2rem', // 32px
+    '2xl': '1.75rem', // 28px
     '3xl': '2.5rem', // 40px
   },
   fontWeight: {
@@ -168,11 +167,10 @@ export const spacing = {
 // ---------------------------------------------------------------------------
 
 export const shadows = {
-  sm: '0 1px 2px var(--shadow)',
-  md: '0 4px 12px var(--shadow)',
-  lg: '0 8px 32px var(--shadow)',
-  xl: '0 16px 48px var(--shadow)',
-  glass: '0 8px 32px rgba(0, 0, 0, 0.2)',
+  sm: '0 1px 3px rgba(11, 31, 51, 0.06)',
+  md: '0 4px 12px rgba(11, 31, 51, 0.08)',
+  lg: '0 8px 24px rgba(11, 31, 51, 0.10)',
+  xl: '0 16px 48px rgba(11, 31, 51, 0.12)',
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -221,53 +219,52 @@ export interface ThemeColors {
   accentPink: string;
   accentTeal: string;
   border: string;
-  glass: string;
-  glassBorder: string;
+  borderSubtle: string;
   shadow: string;
 }
 
-export const darkTheme: ThemeColors = {
-  bgPrimary: '#000000',
-  bgSecondary: '#1c1c1e',
-  bgTertiary: '#2c2c2e',
-  bgElevated: '#3a3a3c',
-  textPrimary: '#ffffff',
-  textSecondary: '#8e8e93',
-  textTertiary: '#636366',
-  accent: '#0a84ff',
-  accentGreen: '#30d158',
-  accentYellow: '#ffd60a',
-  accentOrange: '#ff9f0a',
-  accentRed: '#ff453a',
-  accentPurple: '#bf5af2',
-  accentPink: '#ff375f',
-  accentTeal: '#64d2ff',
-  border: 'rgba(255, 255, 255, 0.1)',
-  glass: 'rgba(255, 255, 255, 0.05)',
-  glassBorder: 'rgba(255, 255, 255, 0.08)',
-  shadow: 'rgba(0, 0, 0, 0.4)',
+/** Light theme — primary Statsledge theme (Airbnb/Stripe/Athletic inspired) */
+export const lightTheme: ThemeColors = {
+  bgPrimary: '#FFFFFF',
+  bgSecondary: '#F5F7FA',
+  bgTertiary: '#EDF2F7',
+  bgElevated: '#FFFFFF',
+  textPrimary: '#0B1F33',
+  textSecondary: '#4A4A4A',
+  textTertiary: '#8A8A8A',
+  accent: '#1E88E5',
+  accentGreen: '#2ECC71',
+  accentYellow: '#F5A623',
+  accentOrange: '#FF9F0A',
+  accentRed: '#E74C3C',
+  accentPurple: '#8E44AD',
+  accentPink: '#FF375F',
+  accentTeal: '#00BCD4',
+  border: '#E2E8F0',
+  borderSubtle: '#EDF2F7',
+  shadow: 'rgba(11, 31, 51, 0.08)',
 };
 
-export const lightTheme: ThemeColors = {
-  bgPrimary: '#f5f5f7',
-  bgSecondary: '#ffffff',
-  bgTertiary: '#e5e5ea',
-  bgElevated: '#d1d1d6',
-  textPrimary: '#1d1d1f',
-  textSecondary: '#6e6e73',
-  textTertiary: '#8e8e93',
-  accent: '#007aff',
-  accentGreen: '#28cd41',
-  accentYellow: '#ffcc00',
-  accentOrange: '#ff9500',
-  accentRed: '#ff3b30',
-  accentPurple: '#af52de',
-  accentPink: '#ff2d55',
-  accentTeal: '#5ac8fa',
-  border: 'rgba(0, 0, 0, 0.08)',
-  glass: 'rgba(0, 0, 0, 0.03)',
-  glassBorder: 'rgba(0, 0, 0, 0.06)',
-  shadow: 'rgba(0, 0, 0, 0.15)',
+/** Dark theme — secondary theme for low-light contexts */
+export const darkTheme: ThemeColors = {
+  bgPrimary: '#0B1F33',
+  bgSecondary: '#132D47',
+  bgTertiary: '#1A3A5C',
+  bgElevated: '#1A3A5C',
+  textPrimary: '#FFFFFF',
+  textSecondary: '#B0BEC5',
+  textTertiary: '#78909C',
+  accent: '#42A5F5',
+  accentGreen: '#66BB6A',
+  accentYellow: '#FFA726',
+  accentOrange: '#FF7043',
+  accentRed: '#EF5350',
+  accentPurple: '#AB47BC',
+  accentPink: '#EC407A',
+  accentTeal: '#26C6DA',
+  border: 'rgba(255, 255, 255, 0.1)',
+  borderSubtle: 'rgba(255, 255, 255, 0.06)',
+  shadow: 'rgba(0, 0, 0, 0.4)',
 };
 
 // ---------------------------------------------------------------------------

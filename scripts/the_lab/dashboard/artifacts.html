@@ -134,283 +134,13 @@
             grid-template-columns: repeat(12, 1fr);
             gap: var(--space-3);
         }
-        .col-span-1 { grid-column: span 1; }
-        .col-span-2 { grid-column: span 2; }
-        .col-span-3 { grid-column: span 3; }
-        .col-span-4 { grid-column: span 4; }
-        .col-span-5 { grid-column: span 5; }
-        .col-span-6 { grid-column: span 6; }
-        .col-span-7 { grid-column: span 7; }
-        .col-span-8 { grid-column: span 8; }
-        .col-span-9 { grid-column: span 9; }
-        .col-span-10 { grid-column: span 10; }
-        .col-span-11 { grid-column: span 11; }
-        .col-span-12 { grid-column: span 12; }
-        @media (max-width: 1024px) {
-            .grid-12 { grid-template-columns: repeat(8, 1fr); }
-            .col-span-9, .col-span-10, .col-span-11, .col-span-12 { grid-column: span 8; }
-            .col-span-7, .col-span-8 { grid-column: span 8; }
-            .col-span-5, .col-span-6 { grid-column: span 4; }
-        }
-        @media (max-width: 768px) {
-            .grid-12 { grid-template-columns: repeat(4, 1fr); }
-            .container { padding: 0 var(--space-3); }
-            [class*="col-span-"] { grid-column: span 4; }
-        }
-        @media (max-width: 480px) {
-            .grid-12 { grid-template-columns: 1fr; }
-            [class*="col-span-"] { grid-column: span 1; }
-            .container { padding: 0 var(--space-2); }
-        }
 
 
-        /* ==================== UNIFIED NAV (TKT-272) ==================== */
-        .site-nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            height: var(--nav-height);
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            padding: 0 var(--space-4);
-            backdrop-filter: blur(12px);
-        }
-        .site-nav .nav-links {
-            display: flex;
-            gap: var(--space-1);
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            flex: 1;
-        }
-        .site-nav .nav-links a {
-            display: flex;
-            align-items: center;
-            padding: var(--space-2) var(--space-3);
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-family: var(--font-body);
-            font-size: var(--text-sm);
-            font-weight: 500;
-            border-radius: var(--radius-md);
-            transition: all var(--transition-normal);
-            min-height: 44px;
-            white-space: nowrap;
-        }
-        .site-nav .nav-links a:hover {
-            color: var(--text-primary);
-            background: var(--glass);
-        }
-        .site-nav .nav-links a.active {
-            color: var(--accent);
-            background: rgba(0, 240, 255, 0.08);
-            border: 1px solid rgba(0, 240, 255, 0.15);
-        }
-        .site-nav .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: var(--space-2);
-            margin-left: auto;
-        }
-        .hamburger-btn {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            background: none;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            color: var(--text-primary);
-            font-size: var(--text-xl);
-            cursor: pointer;
-            transition: all var(--transition-normal);
-        }
-        .hamburger-btn:hover { border-color: var(--accent); }
-        .mobile-nav-overlay {
-            display: none;
-            position: fixed;
-            top: var(--nav-height);
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 99;
-        }
-        .mobile-nav-overlay.active { display: block; }
-        .mobile-nav-dropdown {
-            display: none;
-            position: fixed;
-            top: var(--nav-height);
-            left: 0;
-            right: 0;
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border);
-            padding: var(--space-2);
-            z-index: 100;
-            max-height: calc(100vh - var(--nav-height));
-            overflow-y: auto;
-        }
-        .mobile-nav-dropdown.active { display: block; }
-        .mobile-nav-dropdown a {
-            display: flex;
-            align-items: center;
-            padding: var(--space-3);
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: var(--text-md);
-            border-radius: var(--radius-md);
-            min-height: 48px;
-            transition: all var(--transition-normal);
-        }
-        .mobile-nav-dropdown a:hover { background: var(--glass); color: var(--text-primary); }
-        .mobile-nav-dropdown a.active { color: var(--accent); background: rgba(0, 240, 255, 0.08); }
-        .view-tabs {
-            display: flex;
-            gap: var(--space-1);
-            padding: var(--space-2) var(--space-4);
-            background: var(--bg-primary);
-            border-bottom: 1px solid var(--border);
-            overflow-x: auto;
-        }
-        .view-tabs button {
-            padding: var(--space-2) var(--space-3);
-            background: none;
-            border: 1px solid transparent;
-            border-radius: var(--radius-md);
-            color: var(--text-secondary);
-            font-family: var(--font-body);
-            font-size: var(--text-sm);
-            cursor: pointer;
-            white-space: nowrap;
-            min-height: 44px;
-            transition: all var(--transition-normal);
-        }
-        .view-tabs button:hover { color: var(--text-primary); border-color: var(--border); }
-        .view-tabs button.active { color: var(--accent); border-color: var(--accent); background: rgba(0, 240, 255, 0.08); }
-        @media (max-width: 768px) {
-            .site-nav .nav-links { display: none; }
-            .hamburger-btn { display: flex; }
-            .view-tabs { padding: var(--space-2) var(--space-3); }
-        }
 
-        /* ==================== TOOLTIP SYSTEM (TKT-109) ==================== */
-        .has-tooltip {
-            position: relative;
-            cursor: help;
-        }
-        .has-tooltip::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: calc(100% + 8px);
-            left: 50%;
-            transform: translateX(-50%);
-            padding: var(--space-2) 12px;
-            background: var(--bg-elevated);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--text-primary);
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all var(--transition-normal);
-            z-index: 1000;
-            pointer-events: none;
-            box-shadow: 0 4px 12px var(--shadow);
-        }
-        .has-tooltip:hover::after {
-            opacity: 1;
-            visibility: visible;
-        }
-        .help-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 14px;
-            height: 14px;
-            font-size: var(--text-xs);
-            color: var(--text-tertiary);
-            cursor: help;
-            margin-left: var(--space-1);
-            vertical-align: middle;
-        }
-        .help-icon:hover { color: var(--accent); }
-
-        /* Mobile-safe tooltip adjustments */
-        @media (max-width: 768px) {
-            .has-tooltip::after {
-                white-space: normal;
-                max-width: 200px;
-                left: 0;
-                transform: none;
-                font-size: var(--text-xs);
-            }
-        }
-        @media (max-width: 480px) {
-            .has-tooltip::after {
-                max-width: 160px;
-                padding: var(--space-1) 10px;
-                font-size: var(--text-xs);
-            }
-        }
-
-
-        /* ==================== SMOOTH SCROLL & SKELETONS (TKT-274) ==================== */
+        /* ==================== SMOOTH SCROLL (TKT-274) ==================== */
         html { scroll-behavior: smooth; }
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
-        }
-        .skeleton {
-            background: var(--bg-tertiary);
-            border-radius: var(--radius-md);
-            position: relative;
-            overflow: hidden;
-        }
-        .skeleton::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(
-                90deg,
-                transparent 0%,
-                rgba(255, 255, 255, 0.04) 50%,
-                transparent 100%
-            );
-            animation: skeleton-shimmer 1.5s ease-in-out infinite;
-        }
-        @keyframes skeleton-shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .skeleton::after { animation: none; }
-        }
-        .skeleton-text {
-            height: 14px;
-            margin-bottom: var(--space-2);
-            width: 80%;
-        }
-        .skeleton-text.short { width: 40%; }
-        .skeleton-text.medium { width: 60%; }
-        .skeleton-card {
-            height: 120px;
-            margin-bottom: var(--space-3);
-        }
-        .skeleton-row {
-            height: 48px;
-            margin-bottom: var(--space-1);
-        }
-        .skeleton-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-full);
         }
 
         /* ==================== ACCESSIBILITY (TKT-273) ==================== */
@@ -460,39 +190,6 @@
             border-width: 0;
         }
 
-        /* ==================== TABLE SCROLL (TKT-278) ==================== */
-        .table-scroll-wrapper {
-            position: relative;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            margin: var(--space-2) 0;
-        }
-        .table-scroll-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            width: 40px;
-            background: linear-gradient(to right, transparent, var(--bg-primary));
-            pointer-events: none;
-            opacity: 1;
-            transition: opacity var(--transition-normal);
-        }
-        .table-scroll-wrapper.scrolled-end::after { opacity: 0; }
-        .table-scroll-wrapper.scrolled-start::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            width: 40px;
-            background: linear-gradient(to left, transparent, var(--bg-primary));
-            pointer-events: none;
-            z-index: 1;
-        }
-        .table-scroll-wrapper table { min-width: 600px; }
-
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -540,7 +237,6 @@
             align-items: center;
             justify-content: center;
             filter: drop-shadow(0 0 8px var(--glow-accent));
-            animation: logo-pulse 3s ease-in-out infinite;
         }
         .nav-logo svg {
             width: 100%;
@@ -578,7 +274,9 @@
             display: flex; gap: var(--space-1);
             background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
             padding: var(--space-1); border-radius: var(--radius-lg); border: 1px solid var(--border);
+            overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
         }
+        .nav-tabs::-webkit-scrollbar { display: none; }
         .nav-tab {
             padding: var(--space-2) 16px; border-radius: var(--radius-md); font-size: 13px; font-weight: 600;
             color: var(--text-secondary); cursor: pointer; transition: all var(--transition-slow);
@@ -605,6 +303,17 @@
             font-size: 16px; transition: all var(--transition-slow);
         }
         .theme-toggle:hover { color: var(--accent); border-color: var(--accent); box-shadow: 0 0 12px var(--glow-accent); }
+        .nav-btn {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border); color: var(--accent);
+            padding: var(--space-2) 16px; border-radius: var(--radius-lg); font-size: 13px; font-weight: 600;
+            cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: var(--space-1);
+            transition: all var(--transition-slow);
+        }
+        .nav-btn:hover {
+            background: linear-gradient(135deg, rgba(10, 132, 255, 0.2) 0%, rgba(191, 90, 242, 0.2) 100%);
+            border-color: var(--accent);
+        }
         .main { padding-top: var(--space-8); min-height: 100vh; }
 
         /* Page Header */
@@ -894,32 +603,42 @@
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             color: var(--text-primary);
-            font-size: 20px;
             cursor: pointer;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: var(--space-1);
+            padding: var(--space-2);
         }
-        .mobile-nav {
+        .mobile-menu-btn span {
+            display: block; width: 18px; height: 2px;
+            background: currentColor; border-radius: var(--radius-sm); transition: all var(--transition-slow);
+        }
+        .mobile-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+        .mobile-menu-btn.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+        .mobile-nav-menu {
             display: none;
             position: fixed;
             top: 56px; left: 0; right: 0;
-            background: var(--bg-secondary);
+            background: rgba(6, 8, 15, 0.95);
+            backdrop-filter: saturate(180%) blur(20px);
             border-bottom: 1px solid var(--border);
             padding: var(--space-3);
             z-index: 99;
             flex-direction: column;
             gap: var(--space-2);
+            transform: translateY(-100%); opacity: 0; transition: all var(--transition-slow);
+            pointer-events: none;
         }
-        .mobile-nav.active { display: flex; }
-        .mobile-nav a {
-            padding: var(--space-3) 16px;
-            border-radius: var(--radius-lg);
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 600;
+        .mobile-nav-menu.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
+        [data-theme="light"] .mobile-nav-menu { background: rgba(245, 245, 247, 0.95); }
+        .mobile-nav-menu .nav-tab {
+            width: 100%; text-align: center; padding: var(--space-3) 16px;
+            border-radius: var(--radius-lg); background: var(--bg-secondary);
         }
-        .mobile-nav a:hover, .mobile-nav a.active {
-            background: var(--accent);
+        .mobile-nav-menu .nav-tab.active {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
             color: white;
         }
 
@@ -989,6 +708,8 @@
         @media (max-width: 768px) {
             .nav-tabs { display: none; }
             .mobile-menu-btn { display: flex; }
+            .mobile-nav-menu { display: flex; }
+            .nav-btn { display: none; }
             .artifact-grid { grid-template-columns: 1fr; }
             .comparison-section { overflow-x: auto; }
             .comparison-table { font-size: 12px; min-width: 500px; }
@@ -1016,7 +737,7 @@
         html, body { overflow-x: hidden; max-width: 100vw; }
 
         /* Touch target minimum sizes (WCAG 44x44px) */
-        .mobile-nav a { min-height: 44px; display: flex; align-items: center; }
+        .mobile-nav-menu .nav-tab { min-height: 44px; }
         .theme-toggle { min-width: 44px; min-height: 44px; }
 
         /* ==================== NAVIGATION GUIDE ==================== */
@@ -1099,6 +820,7 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
     <div class="bg-gradient"></div>
     <div class="bg-grid"></div>
 
@@ -1125,37 +847,39 @@
             <div class="nav-title"><span class="brand-stat">STAT</span><span class="brand-sledge">SLEDGE</span></div>
         </div>
         <div class="nav-tabs">
-            <a href="index.html" class="nav-tab">Home</a>
-            <a href="teams.html" class="nav-tab">Teams</a>
-            <a href="rankings.html" class="nav-tab">Rankings</a>
-            <a href="comparison.html" class="nav-tab">Compare</a>
-            <a href="head-to-head.html" class="nav-tab">H2H</a>
-            <a href="artifacts.html" class="nav-tab active">Artifacts</a>
-            <a href="analysis.html" class="nav-tab">Analysis</a>
-            <a href="research.html" class="nav-tab">Research</a>
-            <a href="research-desk.html" class="nav-tab">The Film Room</a>
-            <a href="about.html" class="nav-tab">About</a>
-            <a href="/boardroom/index.html" class="nav-tab">The Boardroom</a>
+            <a href="index.html" class="nav-tab">&#127968; Home</a>
+            <a href="teams.html" class="nav-tab">&#127951; Teams</a>
+            <a href="rankings.html" class="nav-tab">&#127942; Rankings</a>
+            <a href="comparison.html" class="nav-tab">&#9878;&#65039; Compare</a>
+            <a href="head-to-head.html" class="nav-tab">&#9876;&#65039; H2H</a>
+            <a href="artifacts.html" class="nav-tab active">&#128269; Artifacts</a>
+            <a href="analysis.html" class="nav-tab">&#128300; Analysis</a>
+            <a href="research.html" class="nav-tab">&#128218; Research</a>
+            <a href="research-desk.html" class="nav-tab">&#127916; The Film Room</a>
+            <a href="about.html" class="nav-tab">&#127801; About</a>
         </div>
         <div class="nav-actions">
             <span class="nav-time" id="navTime">--:--:--</span>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
-            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu">
+                <span></span><span></span><span></span>
+            </button>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Switch to light theme">🌙</button>
+            <a href="/boardroom/index.html" class="nav-btn">&#128225; Mission Control</a>
         </div>
     </nav>
 
-    <div class="mobile-nav" id="mobile-nav">
-        <a href="index.html">Home</a>
-        <a href="teams.html">Teams</a>
-        <a href="rankings.html">Rankings</a>
-        <a href="comparison.html">Compare</a>
-        <a href="head-to-head.html">H2H</a>
-        <a href="artifacts.html" class="active">Artifacts</a>
-        <a href="analysis.html">Analysis</a>
-        <a href="research.html">Research</a>
-        <a href="research-desk.html">The Film Room</a>
-        <a href="about.html">About</a>
-        <a href="/boardroom/index.html">📡 The Boardroom</a>
+    <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <a href="index.html" class="nav-tab">&#127968; Home</a>
+        <a href="teams.html" class="nav-tab">&#127951; Teams</a>
+        <a href="rankings.html" class="nav-tab">&#127942; Rankings</a>
+        <a href="comparison.html" class="nav-tab">&#9878;&#65039; Compare</a>
+        <a href="head-to-head.html" class="nav-tab">&#9876;&#65039; H2H</a>
+        <a href="artifacts.html" class="nav-tab active">&#128269; Artifacts</a>
+        <a href="analysis.html" class="nav-tab">&#128300; Analysis</a>
+        <a href="research.html" class="nav-tab">&#128218; Research</a>
+        <a href="research-desk.html" class="nav-tab">&#127916; The Film Room</a>
+        <a href="about.html" class="nav-tab">&#127801; About</a>
+        <a href="/boardroom/index.html" class="nav-tab" style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%); color: white;">&#128225; Mission Control</a>
     </div>
 
     <main id="main-content" class="main" role="main">
@@ -1287,7 +1011,7 @@
             </div>
             <div class="comparison-section">
                 <table class="comparison-table">
-                    <th scope="col"ead>
+                    <thead>
                         <tr>
                             <th scope="col">Team</th>
                             <th scope="col">Overall</th>
@@ -1310,7 +1034,7 @@
                 </div>
             </div>
             <div class="data-files">
-                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/predicted_xii/predicted_xii_2026.json" class="data-file" target="_blank">
+                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/predicted_xii/predicted_xii_2026.json" class="data-file" target="_blank" rel="noopener noreferrer">
                     <div class="file-icon">📄</div>
                     <div class="file-info">
                         <div class="file-name">predicted_xii_2026.json</div>
@@ -1318,7 +1042,7 @@
                     </div>
                     <div class="github-badge">GitHub →</div>
                 </a>
-                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/depth_charts/depth_charts_2026.json" class="data-file" target="_blank">
+                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/depth_charts/depth_charts_2026.json" class="data-file" target="_blank" rel="noopener noreferrer">
                     <div class="file-icon">📄</div>
                     <div class="file-info">
                         <div class="file-name">depth_charts_2026.json</div>
@@ -1326,7 +1050,7 @@
                     </div>
                     <div class="github-badge">GitHub →</div>
                 </a>
-                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/tags/player_tags.json" class="data-file" target="_blank">
+                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/tags/player_tags.json" class="data-file" target="_blank" rel="noopener noreferrer">
                     <div class="file-icon">📄</div>
                     <div class="file-info">
                         <div class="file-name">player_tags.json</div>
@@ -1334,7 +1058,7 @@
                     </div>
                     <div class="github-badge">GitHub →</div>
                 </a>
-                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/matchups/batter_bowling_type_matchup_2023.csv" class="data-file" target="_blank">
+                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/matchups/batter_bowling_type_matchup_2023.csv" class="data-file" target="_blank" rel="noopener noreferrer">
                     <div class="file-icon">📊</div>
                     <div class="file-info">
                         <div class="file-name">batter_bowling_type_matchup.csv</div>
@@ -1342,7 +1066,7 @@
                     </div>
                     <div class="github-badge">GitHub →</div>
                 </a>
-                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/metrics/batter_consistency_index.csv" class="data-file" target="_blank">
+                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/metrics/batter_consistency_index.csv" class="data-file" target="_blank" rel="noopener noreferrer">
                     <div class="file-icon">📊</div>
                     <div class="file-info">
                         <div class="file-name">batter_consistency_index.csv</div>
@@ -1350,7 +1074,7 @@
                     </div>
                     <div class="github-badge">GitHub →</div>
                 </a>
-                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/metrics/partnership_synergy.csv" class="data-file" target="_blank">
+                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/metrics/partnership_synergy.csv" class="data-file" target="_blank" rel="noopener noreferrer">
                     <div class="file-icon">📊</div>
                     <div class="file-info">
                         <div class="file-name">partnership_synergy.csv</div>
@@ -1358,7 +1082,7 @@
                     </div>
                     <div class="github-badge">GitHub →</div>
                 </a>
-                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/metrics/bowler_pressure_sequences.csv" class="data-file" target="_blank">
+                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/outputs/metrics/bowler_pressure_sequences.csv" class="data-file" target="_blank" rel="noopener noreferrer">
                     <div class="file-icon">📊</div>
                     <div class="file-info">
                         <div class="file-name">bowler_pressure_sequences.csv</div>
@@ -1366,7 +1090,7 @@
                     </div>
                     <div class="github-badge">GitHub →</div>
                 </a>
-                <a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/stat_packs" class="data-file" target="_blank">
+                <a href="https://github.com/dwijesh-r/cricket-playbook/tree/main/stat_packs" class="data-file" target="_blank" rel="noopener noreferrer">
                     <div class="file-icon">📋</div>
                     <div class="file-info">
                         <div class="file-name">stat_packs/*.md</div>
@@ -1374,7 +1098,7 @@
                     </div>
                     <div class="github-badge">GitHub →</div>
                 </a>
-                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/DATA_DICTIONARY.md" class="data-file" target="_blank">
+                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/docs/DATA_DICTIONARY.md" class="data-file" target="_blank" rel="noopener noreferrer">
                     <div class="file-icon">📖</div>
                     <div class="file-info">
                         <div class="file-name">DATA_DICTIONARY.md</div>
@@ -1382,7 +1106,7 @@
                     </div>
                     <div class="github-badge">GitHub →</div>
                 </a>
-                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/ml_ops/MODEL_VERSIONING.md" class="data-file" target="_blank">
+                <a href="https://github.com/dwijesh-r/cricket-playbook/blob/main/ml_ops/MODEL_VERSIONING.md" class="data-file" target="_blank" rel="noopener noreferrer">
                     <div class="file-icon">🤖</div>
                     <div class="file-info">
                         <div class="file-name">MODEL_VERSIONING.md</div>
@@ -1421,17 +1145,31 @@
 
         function toggleTheme() {
             const html = document.documentElement;
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
-            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '🌙' : '☀️';
+            const btn = document.querySelector('.theme-toggle');
+            btn.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+            btn.setAttribute('aria-label', newTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
         }
 
         function toggleMobileMenu() {
-            const nav = document.getElementById('mobile-nav');
-            nav.classList.toggle('active');
+            const menu = document.getElementById('mobile-nav-menu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            const isOpen = menu.classList.toggle('active');
+            btn.classList.toggle('active');
+            btn.setAttribute('aria-expanded', isOpen);
         }
+
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('mobile-nav-menu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            if (menu && menu.classList.contains('active') && !menu.contains(e.target) && !btn.contains(e.target)) {
+                menu.classList.remove('active');
+                btn.classList.remove('active');
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        });
 
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', savedTheme);
@@ -1516,49 +1254,6 @@
         function toggleNavGuide() { document.getElementById('nav-guide-overlay').classList.toggle('active'); }
         function closeNavGuide(e) { if (e.target === e.currentTarget) toggleNavGuide(); }
 
-    // TKT-278: Table scroll indicators
-    document.querySelectorAll('.table-scroll-wrapper').forEach(function(wrapper) {
-        wrapper.addEventListener('scroll', function() {
-            var atStart = this.scrollLeft > 10;
-            var atEnd = this.scrollLeft + this.clientWidth >= this.scrollWidth - 10;
-            this.classList.toggle('scrolled-start', atStart);
-            this.classList.toggle('scrolled-end', atEnd);
-        });
-    });
-
-    // TKT-273: Keyboard navigation for tabs and menus
-    document.querySelectorAll('[role="tablist"]').forEach(function(tablist) {
-        tablist.addEventListener('keydown', function(e) {
-            var tabs = Array.from(this.querySelectorAll('[role="tab"]'));
-            var idx = tabs.indexOf(document.activeElement);
-            if (idx === -1) return;
-            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-                e.preventDefault();
-                tabs[(idx + 1) % tabs.length].focus();
-            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-                e.preventDefault();
-                tabs[(idx - 1 + tabs.length) % tabs.length].focus();
-            }
-        });
-    });
-    // Escape closes mobile nav/modals
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            document.querySelectorAll('.mobile-nav-dropdown.active, .mobile-nav-overlay.active').forEach(function(el) {
-                el.classList.remove('active');
-            });
-            var modal = document.querySelector('.modal.active, .modal.show, [data-modal].active');
-            if (modal) modal.classList.remove('active', 'show');
-        }
-    });
-
-    // TKT-274: Remove skeleton loaders
-    function removeSkeletons() {
-        document.querySelectorAll('.skeleton').forEach(function(el) {
-            el.classList.remove('skeleton', 'skeleton-text', 'skeleton-card', 'skeleton-row', 'skeleton-avatar');
-            el.removeAttribute('aria-hidden');
-        });
-    }
 </script>
 
     <!-- Navigation Guide Button -->

@@ -1,26 +1,31 @@
-/* ==================== SHARED PAGE STYLES ==================== */
+/* ==================== SHARED PAGE STYLES — Statsledge Premium ==================== */
+/* Jayson Tatum · UX & Reader Flow Auditor */
+
 .page {
-  padding: 16px 0 48px;
+  padding: var(--space-sm, 16px) 0 var(--space-xl, 48px);
 }
 
 .page-header {
   text-align: center;
-  padding-bottom: 32px;
+  padding-bottom: var(--space-lg, 32px);
 }
 
 .page-title {
+  font-family: var(--font-primary, 'Inter', sans-serif);
   font-size: 36px;
   font-weight: 800;
   letter-spacing: -0.03em;
-  margin-top: 12px;
-  margin-bottom: 12px;
+  color: var(--text-primary, #0B1F33);
+  margin-top: var(--space-sm, 16px);
+  margin-bottom: var(--space-sm, 16px);
 }
 
 .page-subtitle {
-  font-size: 16px;
-  color: var(--text-secondary);
+  font-size: var(--font-body, 16px);
+  color: var(--text-secondary, #4A4A4A);
   max-width: 560px;
   margin: 0 auto;
+  line-height: 1.6;
 }
 
 /* ==================== PLACEHOLDER SECTIONS ==================== */
@@ -31,14 +36,19 @@
 
 .placeholder-card {
   text-align: center;
+  background: var(--bg-primary, #FFFFFF);
+  border: 1px solid var(--border-subtle, #EDF2F7);
+  border-radius: var(--radius-xl, 16px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(11, 31, 51, 0.06));
+  padding: var(--space-xl, 48px) var(--space-lg, 32px);
 }
 
 .placeholder-icon {
   width: 64px;
   height: 64px;
-  margin: 0 auto 20px;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
-  border-radius: 16px;
+  margin: 0 auto var(--space-md, 24px);
+  background: var(--sl-deep-navy, #0B1F33);
+  border-radius: var(--radius-xl, 16px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,17 +58,18 @@
 }
 
 .placeholder-heading {
-  font-size: 20px;
+  font-size: var(--font-h3, 20px);
   font-weight: 700;
+  color: var(--text-primary, #0B1F33);
   letter-spacing: -0.01em;
-  margin-bottom: 12px;
+  margin-bottom: var(--space-sm, 16px);
 }
 
 .placeholder-text {
-  font-size: 14px;
-  color: var(--text-secondary);
+  font-size: var(--font-meta, 14px);
+  color: var(--text-secondary, #4A4A4A);
   line-height: 1.7;
-  margin-bottom: 28px;
+  margin-bottom: var(--space-lg, 32px);
   max-width: 540px;
   margin-left: auto;
   margin-right: auto;
@@ -67,45 +78,46 @@
 .placeholder-features {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-sm, 16px);
   text-align: left;
-  margin-top: 24px;
+  margin-top: var(--space-md, 24px);
 }
 
 .placeholder-feature {
   display: flex;
-  gap: 16px;
+  gap: var(--space-sm, 16px);
   align-items: flex-start;
-  padding: 16px;
-  background: var(--bg-tertiary);
-  border-radius: 12px;
-  border: 1px solid var(--border);
+  padding: var(--space-sm, 16px);
+  background: var(--bg-secondary, #F5F7FA);
+  border-radius: var(--radius-lg, 12px);
+  border: 1px solid var(--border-subtle, #EDF2F7);
 }
 
 .placeholder-feature-icon {
   width: 32px;
   height: 32px;
   min-width: 32px;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
-  border-radius: 8px;
+  background: var(--sl-deep-navy, #0B1F33);
+  border-radius: var(--radius-md, 8px);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: var(--font-meta, 14px);
   font-weight: 700;
   color: white;
 }
 
 .placeholder-feature strong {
   display: block;
-  font-size: 14px;
+  font-size: var(--font-meta, 14px);
   font-weight: 600;
-  margin-bottom: 4px;
+  color: var(--text-primary, #0B1F33);
+  margin-bottom: var(--space-xs, 8px);
 }
 
 .placeholder-feature p {
-  font-size: 13px;
-  color: var(--text-secondary);
+  font-size: var(--font-meta, 14px);
+  color: var(--text-secondary, #4A4A4A);
   line-height: 1.5;
   margin: 0;
 }
@@ -113,36 +125,27 @@
 /* ==================== DATA SOURCE NOTE ==================== */
 .data-source-note {
   text-align: center;
-  padding: 24px 0;
-  margin-top: 32px;
+  padding: var(--space-md, 24px) 0;
+  margin-top: var(--space-lg, 32px);
 }
 
 .data-source-note p {
-  font-size: 12px;
-  color: var(--text-tertiary);
+  font-size: var(--font-meta, 14px);
+  color: var(--text-tertiary, #8A8A8A);
 }
 
 .data-source-note code {
-  padding: 2px 6px;
-  background: var(--bg-tertiary);
-  border-radius: 4px;
-  font-size: 11px;
+  padding: 2px 8px;
+  background: var(--bg-secondary, #F5F7FA);
+  border-radius: var(--radius-sm, 4px);
+  font-size: var(--font-meta, 14px);
   font-family: 'SF Mono', 'Fira Code', monospace;
+  border: 1px solid var(--border-subtle, #EDF2F7);
 }
 
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 768px) {
-  .page-title {
-    font-size: 28px;
-  }
-
-  .page-subtitle {
-    font-size: 14px;
-  }
-
-  .placeholder-icon {
-    width: 52px;
-    height: 52px;
-    font-size: 20px;
-  }
+  .page-title { font-size: 28px; }
+  .page-subtitle { font-size: var(--font-meta, 14px); }
+  .placeholder-icon { width: 52px; height: 52px; font-size: 20px; }
 }

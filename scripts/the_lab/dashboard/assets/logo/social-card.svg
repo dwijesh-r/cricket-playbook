@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="sc-blade1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34D68A"/>
+      <stop offset="100%" stop-color="#2DB87A"/>
+    </linearGradient>
+    <linearGradient id="sc-blade2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="sc-blade3" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2DD4BF"/>
+      <stop offset="100%" stop-color="#14B8A6"/>
+    </linearGradient>
+    <linearGradient id="sc-blade4" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#F59E6B"/>
+      <stop offset="100%" stop-color="#E8734A"/>
+    </linearGradient>
+    <!-- Subtle radial glow behind icon -->
+    <radialGradient id="sc-glow" cx="50%" cy="42%" r="30%">
+      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0F1929" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Dark navy background -->
+  <rect width="1200" height="630" fill="#0F1929"/>
+  <!-- Subtle glow -->
+  <rect width="1200" height="630" fill="url(#sc-glow)"/>
+  <!-- Large swirl icon centered at (600, 250) -->
+  <g transform="translate(600, 250)">
+    <path d="M0,0 C0,-42 -18.8,-74.8 -37.2,-98 C-56,-121.2 -79.2,-126 -88.8,-107.2 C-98,-88.8 -84,-60.8 -60.8,-37.2 C-37.2,-14 -18.8,-4.8 0,0Z" fill="url(#sc-blade1)" opacity="0.95"/>
+    <path d="M0,0 C42,0 74.8,-18.8 98,-37.2 C121.2,-56 126,-79.2 107.2,-88.8 C88.8,-98 60.8,-84 37.2,-60.8 C14,-37.2 4.8,-18.8 0,0Z" fill="url(#sc-blade2)" opacity="0.95"/>
+    <path d="M0,0 C-42,0 -74.8,18.8 -98,37.2 C-121.2,56 -126,79.2 -107.2,88.8 C-88.8,98 -60.8,84 -37.2,60.8 C-14,37.2 -4.8,18.8 0,0Z" fill="url(#sc-blade3)" opacity="0.95"/>
+    <path d="M0,0 C0,42 18.8,74.8 37.2,98 C56,121.2 79.2,126 88.8,107.2 C98,88.8 84,60.8 60.8,37.2 C37.2,14 18.8,4.8 0,0Z" fill="url(#sc-blade4)" opacity="0.95"/>
+    <circle cx="0" cy="0" r="8" fill="white" opacity="0.9"/>
+  </g>
+  <!-- "StatSledge" text -->
+  <text x="600" y="440" text-anchor="middle" fill="white" font-family="'Nunito Sans', 'Poppins', 'Segoe UI', sans-serif" font-size="56" letter-spacing="1">
+    <tspan font-weight="400">Stat</tspan><tspan font-weight="700">Sledge</tspan>
+  </text>
+  <!-- Tagline -->
+  <text x="600" y="485" text-anchor="middle" fill="#64748B" font-family="'Nunito Sans', 'Poppins', 'Segoe UI', sans-serif" font-size="22" letter-spacing="3" font-weight="400">
+    IPL Pre-Season Analytics
+  </text>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <rect width="16" height="16" rx="3" fill="#0F1929"/>
+  <!-- Green blade (top-right) -->
+  <path d="M8,8 Q8,4.5 11,4 Q9.5,7 8,8Z" fill="#2DB87A"/>
+  <!-- Blue blade (bottom-right) -->
+  <path d="M8,8 Q11.5,8 12,11 Q9,9.5 8,8Z" fill="#3B82F6"/>
+  <!-- Teal blade (bottom-left) -->
+  <path d="M8,8 Q8,11.5 5,12 Q6.5,9 8,8Z" fill="#14B8A6"/>
+  <!-- Orange blade (top-left) -->
+  <path d="M8,8 Q4.5,8 4,5 Q7,6.5 8,8Z" fill="#E8734A"/>
+  <!-- Center dot -->
+  <circle cx="8" cy="8" r="1" fill="#FFFFFF" opacity="0.9"/>
+</svg>

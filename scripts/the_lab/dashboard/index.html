@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statsledge - IPL 2026 Analytics</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.svg">
+    <link rel="manifest" href="assets/logo/manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         /* ==================== THEME SYSTEM ==================== */
         :root {
             /* === FONTS === */
-            --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Nunito Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-body: 'Nunito Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-mono: 'IBM Plex Mono', monospace;
 
             /* === COLORS === */
@@ -1496,20 +1499,7 @@
     <!-- Sidebar Navigation -->
     <aside class="sidebar" aria-label="Site navigation">
         <div class="sidebar-brand">
-            <div class="sidebar-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
-  <defs>
-    <linearGradient id="sg1" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#3B82F6" stop-opacity="0.2"/><stop offset="100%" stop-color="#3B82F6" stop-opacity="0.9"/></linearGradient>
-    <linearGradient id="sg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#60A5FA"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient>
-  </defs>
-  <rect x="1" y="1" width="34" height="34" rx="8" fill="#0F172A" stroke="rgba(59,130,246,0.25)" stroke-width="1"/>
-  <rect x="7" y="21" width="5" height="9" rx="2" fill="url(#sg1)"/>
-  <rect x="15.5" y="15" width="5" height="15" rx="2" fill="url(#sg1)"/>
-  <rect x="24" y="8" width="5" height="22" rx="2" fill="url(#sg2)"/>
-  <circle cx="9.5" cy="19" r="2" fill="#60A5FA"/>
-  <circle cx="18" cy="13" r="2" fill="#60A5FA"/>
-  <circle cx="26.5" cy="6.5" r="2.5" fill="#3B82F6" stroke="#60A5FA" stroke-width="1"/>
-  <path d="M9.5 19 L18 13 L26.5 6.5" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6"/>
-</svg></div>
+            <div class="sidebar-logo"><img src="assets/logo/swirl-icon.svg" alt="Statsledge" width="36" height="36"></div>
             <div class="sidebar-title"><span class="brand-stat">STAT</span><span class="brand-sledge">SLEDGE</span></div>
         </div>
         <div class="sidebar-section-label">Navigate</div>
@@ -1529,13 +1519,7 @@
     <!-- Mobile Top Bar -->
     <div class="mobile-topbar">
         <div style="display:flex;align-items:center;gap:10px;">
-            <div class="sidebar-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
-  <defs><linearGradient id="msg1" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#3B82F6" stop-opacity="0.2"/><stop offset="100%" stop-color="#3B82F6" stop-opacity="0.9"/></linearGradient><linearGradient id="msg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#60A5FA"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient></defs>
-  <rect x="1" y="1" width="34" height="34" rx="8" fill="#0F172A" stroke="rgba(59,130,246,0.25)" stroke-width="1"/>
-  <rect x="7" y="21" width="5" height="9" rx="2" fill="url(#msg1)"/><rect x="15.5" y="15" width="5" height="15" rx="2" fill="url(#msg1)"/><rect x="24" y="8" width="5" height="22" rx="2" fill="url(#msg2)"/>
-  <circle cx="9.5" cy="19" r="2" fill="#60A5FA"/><circle cx="18" cy="13" r="2" fill="#60A5FA"/><circle cx="26.5" cy="6.5" r="2.5" fill="#3B82F6" stroke="#60A5FA" stroke-width="1"/>
-  <path d="M9.5 19 L18 13 L26.5 6.5" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6"/>
-</svg></div>
+            <div class="sidebar-logo"><img src="assets/logo/swirl-icon.svg" alt="Statsledge" width="28" height="28"></div>
             <div class="sidebar-title"><span class="brand-stat">STAT</span><span class="brand-sledge">SLEDGE</span></div>
         </div>
         <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu">
@@ -1596,13 +1580,7 @@
             <div class="hero-badge">🏏 IPL 2026 Pre-Season Analytics</div>
             <div class="typewriter-container">
                 <div class="hero-brand">
-                    <div class="hero-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
-  <defs><linearGradient id="hg1" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#3B82F6" stop-opacity="0.2"/><stop offset="100%" stop-color="#3B82F6" stop-opacity="0.9"/></linearGradient><linearGradient id="hg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#60A5FA"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient></defs>
-  <rect x="1" y="1" width="34" height="34" rx="8" fill="#0F172A" stroke="rgba(59,130,246,0.25)" stroke-width="1"/>
-  <rect x="7" y="21" width="5" height="9" rx="2" fill="url(#hg1)"/><rect x="15.5" y="15" width="5" height="15" rx="2" fill="url(#hg1)"/><rect x="24" y="8" width="5" height="22" rx="2" fill="url(#hg2)"/>
-  <circle cx="9.5" cy="19" r="2" fill="#60A5FA"/><circle cx="18" cy="13" r="2" fill="#60A5FA"/><circle cx="26.5" cy="6.5" r="2.5" fill="#3B82F6" stroke="#60A5FA" stroke-width="1"/>
-  <path d="M9.5 19 L18 13 L26.5 6.5" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6"/>
-</svg></div>
+                    <div class="hero-logo"><img src="assets/logo/swirl-icon.svg" alt="Statsledge" width="80" height="80"></div>
                     <h1 class="hero-title" id="hero-title"><span class="brand-stat">STAT</span><span class="brand-accent">SLEDGE</span></h1>
                 </div>
             </div>

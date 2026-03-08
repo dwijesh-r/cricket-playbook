@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <defs>
+    <linearGradient id="dk-blade1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34D68A"/>
+      <stop offset="100%" stop-color="#2DB87A"/>
+    </linearGradient>
+    <linearGradient id="dk-blade2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="dk-blade3" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2DD4BF"/>
+      <stop offset="100%" stop-color="#14B8A6"/>
+    </linearGradient>
+    <linearGradient id="dk-blade4" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#F59E6B"/>
+      <stop offset="100%" stop-color="#E8734A"/>
+    </linearGradient>
+  </defs>
+  <!-- Swirl icon centered at (100, 26), scaled to ~40px -->
+  <g transform="translate(100, 26)">
+    <path d="M0,0 C0,-9 -4,-16 -8,-21 C-12,-26 -17,-27 -19,-23 C-21,-19 -18,-13 -13,-8 C-8,-3 -4,-1 0,0Z" fill="url(#dk-blade1)" opacity="0.95"/>
+    <path d="M0,0 C9,0 16,-4 21,-8 C26,-12 27,-17 23,-19 C19,-21 13,-18 8,-13 C3,-8 1,-4 0,0Z" fill="url(#dk-blade2)" opacity="0.95"/>
+    <path d="M0,0 C-9,0 -16,4 -21,8 C-26,12 -27,17 -23,19 C-19,21 -13,18 -8,13 C-3,8 -1,4 0,0Z" fill="url(#dk-blade3)" opacity="0.95"/>
+    <path d="M0,0 C0,9 4,16 8,21 C12,26 17,27 19,23 C21,19 18,13 13,8 C8,3 4,1 0,0Z" fill="url(#dk-blade4)" opacity="0.95"/>
+    <circle cx="0" cy="0" r="2" fill="white" opacity="0.9"/>
+  </g>
+  <!-- "StatSledge" text - white for dark backgrounds -->
+  <text x="100" y="65" text-anchor="middle" fill="white" font-family="'Nunito Sans', 'Poppins', 'Segoe UI', sans-serif" font-size="16" letter-spacing="0.5">
+    <tspan font-weight="400">Stat</tspan><tspan font-weight="700">Sledge</tspan>
+  </text>
+</svg>

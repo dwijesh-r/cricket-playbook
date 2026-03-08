@@ -4,37 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Head to Head - Statsledge</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         /* ==================== THEME SYSTEM ==================== */
         :root {
-            --font-display: 'DM Serif Display', serif;
+            --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-mono: 'IBM Plex Mono', monospace;
-            --bg-primary: #06080f;
-            --bg-secondary: #0d1117;
-            --bg-tertiary: #161b22;
-            --bg-elevated: #21262d;
-            --text-primary: #e6edf3;
-            --text-secondary: #7d8590;
-            --text-tertiary: #6e7681;
-            --accent: #00f0ff;
-            --accent-green: #00ff87;
-            --accent-yellow: #f0c000;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F5F7FA;
+            --bg-tertiary: #EDF2F7;
+            --bg-elevated: #FFFFFF;
+            --text-primary: #0B1F33;
+            --text-secondary: #4A4A4A;
+            --text-tertiary: #8A8A8A;
+            --accent: #1E88E5;
+            --accent-green: #2ECC71;
+            --accent-yellow: #F5A623;
             --accent-orange: #ff9f0a;
-            --accent-red: #ff3850;
-            --accent-purple: #a855f7;
-            --accent-pink: #f472b6;
-            --accent-teal: #22d3ee;
-            --border: rgba(0, 240, 255, 0.08);
-            --glass: rgba(0, 240, 255, 0.03);
-            --glass-border: rgba(0, 240, 255, 0.06);
-            --shadow: rgba(0, 0, 0, 0.5);
-            --glow-accent: rgba(0, 240, 255, 0.15);
-            --glow-purple: rgba(168, 85, 247, 0.15);
-            --border-accent: rgba(0, 240, 255, 0.3);
-            --scanline: rgba(0, 240, 255, 0.03);
-            --player-a: #00f0ff;
+            --accent-red: #E74C3C;
+            --accent-purple: #8E44AD;
+            --accent-pink: #FF375F;
+            --accent-teal: #00BCD4;
+            --border: #E2E8F0;
+            --glass: rgba(11, 31, 51, 0.02);
+            --glass-border: rgba(11, 31, 51, 0.04);
+            --shadow: rgba(11, 31, 51, 0.08);
+            --glow-accent: rgba(30, 136, 229, 0.08);
+            --glow-purple: rgba(142, 68, 173, 0.06);
+            --border-accent: rgba(30, 136, 229, 0.15);
+            --scanline: transparent;
+            --player-a: #1E88E5;
             --player-a-fill: rgba(0, 240, 255, 0.2);
             --player-b: #a855f7;
             --player-b-fill: rgba(168, 85, 247, 0.2);
@@ -44,17 +44,17 @@
             --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px; --radius-xl: 16px; --radius-full: 9999px;
             --transition-fast: 150ms ease-in-out; --transition-normal: 200ms ease-in-out; --transition-slow: 250ms ease-in-out;
             --container-max: 1280px; --nav-height: 56px;
-            --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 8px rgba(0, 240, 255, 0.03);
-            --elevation-2: 0 3px 6px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 240, 255, 0.05);
+            --elevation-1: 0 1px 3px rgba(11, 31, 51, 0.06);
+            --elevation-2: 0 4px 12px rgba(11, 31, 51, 0.08);
         }
         [data-theme="light"] {
-            --bg-primary: #f0f2f5; --bg-secondary: #ffffff; --bg-tertiary: #e2e6ea; --bg-elevated: #d0d5db;
-            --text-primary: #1a1d21; --text-secondary: #5a6270; --text-tertiary: #8a919a;
-            --accent: #0088cc; --accent-green: #00a86b; --accent-yellow: #d4a000; --accent-orange: #e08600;
-            --accent-red: #e0303f; --accent-purple: #8b3fd9; --accent-pink: #d94f8e; --accent-teal: #0ea5c9;
-            --border: rgba(0, 50, 80, 0.08); --glass: rgba(0, 50, 80, 0.03); --glass-border: rgba(0, 50, 80, 0.06);
-            --shadow: rgba(0, 0, 0, 0.12); --glow-accent: rgba(0, 136, 204, 0.15); --glow-purple: rgba(139, 63, 217, 0.12);
-            --border-accent: rgba(0, 136, 204, 0.2); --scanline: transparent;
+            --bg-primary: #FFFFFF; --bg-secondary: #F5F7FA; --bg-tertiary: #EDF2F7; --bg-elevated: #FFFFFF;
+            --text-primary: #0B1F33; --text-secondary: #4A4A4A; --text-tertiary: #8A8A8A;
+            --accent: #1E88E5; --accent-green: #2ECC71; --accent-yellow: #F5A623; --accent-orange: #FF9F0A;
+            --accent-red: #E74C3C; --accent-purple: #8E44AD; --accent-pink: #FF375F; --accent-teal: #00BCD4;
+            --border: #E2E8F0; --glass: rgba(11, 31, 51, 0.02); --glass-border: rgba(11, 31, 51, 0.04);
+            --shadow: rgba(11, 31, 51, 0.08); --glow-accent: rgba(30, 136, 229, 0.08); --glow-purple: rgba(142, 68, 173, 0.06);
+            --border-accent: rgba(30, 136, 229, 0.15); --scanline: transparent;
             --player-a: #0088cc; --player-a-fill: rgba(0, 136, 204, 0.2);
             --player-b: #8b3fd9; --player-b-fill: rgba(139, 63, 217, 0.2);
             --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.08); --elevation-2: 0 3px 6px rgba(0, 0, 0, 0.1);
@@ -77,20 +77,20 @@
         [data-theme="light"] .bg-grid { background-image: linear-gradient(rgba(0, 50, 80, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 50, 80, 0.04) 1px, transparent 1px); }
 
         /* Navigation */
-        .nav { position: fixed; top: 0; left: 0; right: 0; height: 56px; background: rgba(6, 8, 15, 0.85); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; z-index: 100; }
+        .nav { position: fixed; top: 0; left: 0; right: 0; height: 56px; background: #0B1F33; backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; z-index: 100; }
         [data-theme="light"] .nav { background: rgba(240, 242, 245, 0.88); }
         .nav-brand { display: flex; align-items: center; gap: var(--space-2); }
-        .nav-logo { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; filter: drop-shadow(0 0 8px var(--glow-accent)); }
+        .nav-logo { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; filter: none; }
         .nav-logo svg { width: 100%; height: 100%; }
         .nav-title { font-family: var(--font-body); font-size: var(--text-xl); letter-spacing: 0.02em; text-transform: uppercase; line-height: 1; display: flex; align-items: baseline; gap: 1px; }
         .nav-title .brand-stat { font-weight: 300; color: var(--text-secondary); letter-spacing: 0.08em; }
-        .nav-title .brand-sledge { font-weight: 900; background: linear-gradient(135deg, var(--accent) 0%, #a855f7 50%, var(--accent) 100%); background-size: 200% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: gradient-shift 3s ease-in-out infinite; }
+        .nav-title .brand-sledge { -webkit-text-fill-color: #FFFFFF; font-weight: 900; color: #FFFFFF;  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;  }
         @keyframes gradient-shift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-        .nav-tabs { display: flex; gap: var(--space-1); background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); padding: var(--space-1); border-radius: var(--radius-lg); border: 1px solid var(--border); overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+        .nav-tabs { display: flex; gap: var(--space-1); background: rgba(255, 255, 255, 0.06); padding: var(--space-1); border-radius: var(--radius-lg); border: 1px solid var(--border); overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
         .nav-tabs::-webkit-scrollbar { display: none; }
-        .nav-tab { padding: var(--space-2) 16px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 600; color: var(--text-secondary); cursor: pointer; transition: all var(--transition-slow); border: none; background: none; font-family: inherit; text-decoration: none; }
-        .nav-tab:hover { color: var(--text-primary); background: var(--bg-tertiary); }
-        .nav-tab.active { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%); color: white; box-shadow: 0 0 12px var(--glow-accent); }
+        .nav-tab { padding: var(--space-2) 16px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 600; color: rgba(255, 255, 255, 0.65); cursor: pointer; transition: all var(--transition-slow); border: none; background: none; font-family: inherit; text-decoration: none; }
+        .nav-tab:hover { color: #FFFFFF; background: rgba(255, 255, 255, 0.1); }
+        .nav-tab.active { background: var(--accent); color: white; box-shadow: none; }
         .mobile-menu-btn { display: none; width: 38px; height: 38px; border-radius: var(--radius-lg); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-primary); cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-1); padding: var(--space-2); }
         .mobile-menu-btn span { display: block; width: 18px; height: 2px; background: currentColor; border-radius: var(--radius-sm); transition: all var(--transition-slow); }
         .mobile-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
@@ -100,12 +100,12 @@
         .mobile-nav-menu.active { display: flex; transform: translateY(0); opacity: 1; pointer-events: auto; }
         [data-theme="light"] .mobile-nav-menu { background: rgba(245, 245, 247, 0.95); }
         .mobile-nav-menu .nav-tab { width: 100%; text-align: center; padding: var(--space-3) 16px; border-radius: var(--radius-lg); background: var(--bg-secondary); }
-        .mobile-nav-menu .nav-tab.active { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%); color: white; }
+        .mobile-nav-menu .nav-tab.active { background: var(--accent); color: white; }
         .nav-actions { display: flex; align-items: center; gap: var(--space-2); }
         .nav-time { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-tertiary); }
         .theme-toggle { background: none; border: 1px solid var(--border); padding: var(--space-2); border-radius: var(--radius-md); cursor: pointer; font-size: var(--text-md); line-height: 1; transition: all var(--transition-fast); }
         .theme-toggle:hover { border-color: var(--accent); background: var(--glass); }
-        .nav-btn { padding: var(--space-2) var(--space-3); background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%); color: white; font-size: var(--text-xs); font-weight: 600; text-decoration: none; border-radius: var(--radius-md); }
+        .nav-btn { padding: var(--space-2) var(--space-3); background: var(--accent); color: white; font-size: var(--text-xs); font-weight: 600; text-decoration: none; border-radius: var(--radius-md); }
         @media (max-width: 1024px) { .nav-tabs { display: none; } .mobile-menu-btn { display: flex; } .nav-btn { display: none; } }
 
         /* Main */
@@ -214,13 +214,13 @@
             <div class="nav-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
   <defs>
     <linearGradient id="barGrad" x1="0" y1="1" x2="0" y2="0">
-      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#00f0ff"/>
+      <stop offset="0%" stop-color="#1E88E5" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#1E88E5"/>
     </linearGradient>
     <linearGradient id="slashGrad" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#f472b6"/>
       <stop offset="50%" stop-color="#a855f7"/>
-      <stop offset="100%" stop-color="#00f0ff"/>
+      <stop offset="100%" stop-color="#1E88E5"/>
     </linearGradient>
     <filter id="glow"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
   </defs>
@@ -265,7 +265,7 @@
         <a href="research-desk.html" class="nav-tab">&#127916; The Film Room</a>
         <a href="about.html" class="nav-tab">&#127801; About</a>
         <div style="border-top: 1px solid var(--border); margin-top: 8px; padding-top: 8px;">
-            <a href="/boardroom/index.html" class="nav-tab" style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%); color: white;">&#128225; The Boardroom</a>
+            <a href="/boardroom/index.html" class="nav-tab" style="background: var(--accent); color: white;">&#128225; The Boardroom</a>
         </div>
     </div>
 

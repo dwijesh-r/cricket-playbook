@@ -251,7 +251,6 @@
 
     <main id="main-content" class="main" role="main">
         <section class="hero">
-            <div class="hero-badge">&#9876;&#65039; Head to Head</div>
             <h1 class="hero-title">Head to Head</h1>
             <p class="hero-subtitle">Granular batter-versus-bowler intelligence — career arcs, phase-by-phase breakdowns, and over-level matchup data distilled into actionable scouting reads.</p>
         </section>
@@ -515,7 +514,7 @@
         else if (dom.verdict === 'Bowler-favored') verdictClass = 'bowler-favored';
 
         let html = '<div class="section">';
-        html += '<div class="section-title"><span class="icon">&#128202;</span> Career Summary</div>';
+        html += '<div class="section-title">Career Summary</div>';
 
         // Player names header
         html += '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-3);">';
@@ -563,7 +562,7 @@
         const years = Object.keys(byYear).sort();
 
         let html = '<div class="section">';
-        html += '<div class="section-title"><span class="icon">&#128197;</span> Yearly Breakdown</div>';
+        html += '<div class="section-title">Yearly Breakdown</div>';
         html += '<div class="table-scroll-wrapper">';
         html += '<table class="stats-table">';
         html += '<thead><tr><th>Year</th><th>Balls</th><th>Runs</th><th>Outs</th><th>SR</th><th>Avg</th><th>4s</th><th>6s</th><th>Boundary%</th><th>Dot%</th></tr></thead>';
@@ -616,7 +615,7 @@
         const career = matchup.career;
 
         let html = '<div class="section">';
-        html += '<div class="section-title"><span class="icon">&#127919;</span> Phase Breakdown</div>';
+        html += '<div class="section-title">Phase Breakdown</div>';
         html += '<div class="phase-grid">';
 
         phaseOrder.forEach(ph => {
@@ -736,7 +735,7 @@
         svg += '</svg>';
 
         let html = '<div class="section">';
-        html += '<div class="section-title"><span class="icon">&#128200;</span> Over-wise Split</div>';
+        html += '<div class="section-title">Over-wise Split</div>';
         html += '<div style="font-size: var(--text-xs); color: var(--text-tertiary); margin-bottom: var(--space-2);">Bars = Strike Rate | Yellow dots = Dot Ball %</div>';
         html += '<div class="chart-container">' + svg + '</div>';
         html += '</div>';
@@ -750,7 +749,7 @@
         const career = matchup.career;
 
         let html = '<div class="section">';
-        html += '<div class="section-title"><span class="icon">&#128293;</span> Recent Form (Since 2023)</div>';
+        html += '<div class="section-title">Recent Form (Since 2023)</div>';
 
         const stats = [
             { label: 'Balls', value: recent.balls, career: career.balls },

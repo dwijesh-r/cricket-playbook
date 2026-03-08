@@ -967,7 +967,7 @@
     <main id="main-content" class="main" role="main">
         <!-- Hero -->
         <section class="hero">
-            <div class="hero-badge">&#9878;&#65039; Player Comparison</div>
+
             <h1 class="hero-title">Player Comparison</h1>
             <p class="hero-subtitle">Multi-dimensional player profiles across radar charts, phase heatmaps, and matchup splits — the same comparative intelligence used in professional franchise war rooms.</p>
         </section>
@@ -2086,7 +2086,7 @@
 
         // 1. Radar Chart
         html += '<div class="section">';
-        html += '<div class="section-title"><span class="icon">&#128200;</span> Radar Overview</div>';
+        html += '<div class="section-title">Radar Overview</div>';
         html += '<div class="radar-wrap">' + buildRadarChart() + '</div>';
         html += '<div class="radar-legend">';
         players.forEach(p => {
@@ -2097,31 +2097,31 @@
 
         // 2. Career Stats
         html += '<div class="section">';
-        html += '<div class="section-title"><span class="icon">&#128202;</span> Career Stats</div>';
+        html += '<div class="section-title">Career Stats</div>';
         html += buildStatsTable(dataA, dataB);
         html += '</div>';
 
         // 3. Phase Breakdown
         html += '<div class="section" id="phaseSection">';
-        html += '<div class="section-title"><span class="icon">&#127919;</span> Phase Breakdown</div>';
+        html += '<div class="section-title">Phase Breakdown</div>';
         html += buildPhaseSection(dataA, dataB);
         html += '</div>';
 
         // 4. Matchup Splits
         html += '<div class="section" id="matchupSection">';
-        html += '<div class="section-title"><span class="icon">&#9876;&#65039;</span> Matchup Splits</div>';
+        html += '<div class="section-title">Matchup Splits</div>';
         html += buildMatchupSplits(dataA, dataB);
         html += '</div>';
 
         // 5. Form & Ranking
         html += '<div class="section">';
-        html += '<div class="section-title"><span class="icon">&#128293;</span> Recent Form & Ranking</div>';
+        html += '<div class="section-title">Recent Form & Ranking</div>';
         html += buildFormSection(dataA, dataB);
         html += '</div>';
 
         // 6. Verdict
         html += '<div class="section">';
-        html += '<div class="section-title"><span class="icon">&#9878;&#65039;</span> Verdict</div>';
+        html += '<div class="section-title">Verdict</div>';
         html += buildVerdict(dataA, dataB);
         html += '</div>';
 
@@ -2232,7 +2232,7 @@
         const teamColor = TEAM_COLORS[team];
         if (teamColor) {
             document.documentElement.style.setProperty('--player-' + SIDE_CSS_CLASS[side], teamColor.primary);
-            document.documentElement.style.setProperty('--player-' + SIDE_CSS_CLASS[side] + '-fill', teamColor.primary + '33');
+            document.documentElement.style.setProperty('--player-' + SIDE_CSS_CLASS[side] + '-fill', teamColor.primary + '55');
         }
 
         const input = document.getElementById('search' + side);

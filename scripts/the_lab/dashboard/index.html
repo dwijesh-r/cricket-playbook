@@ -1215,7 +1215,7 @@
             .footer { padding: var(--space-5) 16px; }
             .footer-links { gap: var(--space-3); flex-wrap: wrap; justify-content: center; }
 
-            /* Additional responsive fixes (Tom Brady UI/UX Review - February 2026) */
+            /* Additional responsive fixes - February 2026 */
             .hero-title { font-size: 28px; }
             .hero-subtitle { font-size: 13px; }
             .stat-value { font-size: 32px; }
@@ -1575,7 +1575,7 @@
                 <div class="nav-guide-icon">🏏</div>
                 <div class="nav-guide-text">
                     <h4>Team Breakdowns — "The Dugout"</h4>
-                    <p>Andy Flower's domain. Projected XIs, depth charts, full rosters. Pick your franchise.</p>
+                    <p>Projected line-ups, depth charts, and full rosters for all 10 franchises.</p>
                 </div>
             </a>
             <a href="about.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
@@ -1706,12 +1706,12 @@
     <script src="data/predicted_xii.js"></script>
 
     <script>
-        // ==================== AGENT INTRO SYSTEM ====================
-        // All agents with their trophy moments, sports, and styling
+        // ==================== INTRO SYSTEM (DISABLED) ====================
+        // Intro overlay is hidden (display: none). Names genericized.
         const AGENTS = {
             // ========== NFL PLAYERS ==========
             'tom-brady': {
-                name: 'Tom Brady',
+                name: 'QB Legend',
                 role: 'Product Owner',
                 sport: 'nfl',
                 trophy: 'lombardi',
@@ -1725,7 +1725,7 @@
                 hasBeard: false
             },
             'brock-purdy': {
-                name: 'Brock Purdy',
+                name: 'QB Rising',
                 role: 'Data Pipeline',
                 sport: 'nfl',
                 trophy: 'nfc',
@@ -1741,7 +1741,7 @@
 
             // ========== NBA PLAYERS ==========
             'stephen-curry': {
-                name: 'Stephen Curry',
+                name: 'Sharpshooter',
                 role: 'Analytics Lead',
                 sport: 'nba',
                 trophy: 'nba',
@@ -1757,7 +1757,7 @@
                 beardColor: '#1a1410'
             },
             'lebron-james': {
-                name: 'LeBron James',
+                name: 'The King',
                 role: 'Social & Engagement',
                 sport: 'nba',
                 trophy: 'nba',
@@ -1775,7 +1775,7 @@
 
             // ========== CRICKET PLAYERS ==========
             'virat-kohli': {
-                name: 'Virat Kohli',
+                name: 'Run Machine',
                 role: 'Cricket Legend',
                 sport: 'cricket',
                 trophy: 'ipl',
@@ -1795,7 +1795,7 @@
 
             // ========== SOCCER PLAYERS ==========
             'kdb': {
-                name: 'Kevin de Bruyne',
+                name: 'Playmaker',
                 role: 'Visualization',
                 sport: 'soccer',
                 trophy: 'premier-league',
@@ -1811,7 +1811,7 @@
                 beardColor: '#b8956a'
             },
             'kante': {
-                name: "N'Golo Kante",
+                name: 'The Engine',
                 role: 'QA Lead',
                 sport: 'soccer',
                 trophy: 'world-cup',
@@ -1821,13 +1821,13 @@
                 jersey: { main: '#002654', accent: '#ED2939' }, // France navy/red
                 shorts: '#002654',
                 skin: { color: '#4a3628', dark: '#3a2618', light: '#5a4638' }, // Dark African
-                build: 'slim', // Kanté is known for being compact
+                build: 'slim', // Compact build
                 hasBeard: false
             },
 
             // ========== COACHES/EXECUTIVES - BLACK SUITS WITH TEAM ACCENTS ==========
             'jose-mourinho': {
-                name: 'José Mourinho',
+                name: 'The Special One',
                 role: 'Data Science',
                 sport: 'soccer',
                 trophy: 'ucl',
@@ -1848,7 +1848,7 @@
                 hasScarf: false
             },
             'pep-guardiola': {
-                name: 'Pep Guardiola',
+                name: 'The Tactician',
                 role: 'Sprint Master',
                 sport: 'soccer',
                 trophy: 'premier-league',
@@ -1860,7 +1860,7 @@
                 skin: { color: '#d4b08a', dark: '#c4a07a', light: '#e4c09a' }, // Spanish/Mediterranean olive
                 build: 'slim',
                 hasBeard: true,
-                beardStyle: 'goatee', // Signature Pep goatee
+                beardStyle: 'goatee', // Signature goatee
                 beardColor: '#4a4a4a',
                 hasCoat: false,
                 hasSuit: true,
@@ -1872,7 +1872,7 @@
                 scarfColor: '#6cabdd'
             },
             'florentino': {
-                name: 'Florentino Pérez',
+                name: 'El Presidente',
                 role: 'Chief Strategist',
                 sport: 'soccer',
                 trophy: 'ucl',
@@ -1892,7 +1892,7 @@
                 tieColor: '#febe10' // Gold tie
             },
             'andy-flower': {
-                name: 'Andy Flower',
+                name: 'The Coach',
                 role: 'Cricket Expert',
                 sport: 'cricket',
                 trophy: 'ipl',
@@ -1913,7 +1913,7 @@
                 tracksuitShorts: '#000000'
             },
             'brad-stevens': {
-                name: 'Brad Stevens',
+                name: 'The Architect',
                 role: 'Architecture',
                 sport: 'nba',
                 trophy: 'nba',
@@ -1933,7 +1933,7 @@
                 tieColor: '#007a33' // Green tie
             },
             'ime-udoka': {
-                name: 'Ime Udoka',
+                name: 'The Operator',
                 role: 'DevOps Lead',
                 sport: 'nba',
                 trophy: 'nba',
@@ -1955,7 +1955,7 @@
                 tieColor: '#007a33' // Green tie
             },
             'jayson-tatum': {
-                name: 'Jayson Tatum',
+                name: 'The Finisher',
                 role: 'UX & Reader Flow',
                 sport: 'nba',
                 trophy: 'nba',

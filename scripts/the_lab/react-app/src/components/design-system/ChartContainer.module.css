@@ -95,6 +95,16 @@
   to { opacity: 1; }
 }
 
+@media (max-width: 767px) {
+  .container {
+    padding: var(--space-sm, 16px);
+  }
+
+  .body {
+    min-height: 160px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .skeletonBar { animation: none; }
   .loaded { animation: none; }

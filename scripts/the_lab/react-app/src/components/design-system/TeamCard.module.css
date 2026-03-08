@@ -118,3 +118,9 @@
   border-radius: 50%;
   flex-shrink: 0;
 }
+
+@media (max-width: 767px) {
+  .card {
+    padding: var(--space-sm, 16px);
+  }
+}

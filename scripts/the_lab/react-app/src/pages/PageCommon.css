@@ -46,7 +46,7 @@
 .placeholder-icon {
   width: 64px;
   height: 64px;
-  margin: 0 auto 20px;
+  margin: 0 auto var(--space-md, 24px);
   background: var(--sl-deep-navy, #0B1F33);
   border-radius: var(--radius-xl, 16px);
   display: flex;
@@ -112,7 +112,7 @@
   font-size: var(--font-meta, 14px);
   font-weight: 600;
   color: var(--text-primary, #0B1F33);
-  margin-bottom: 4px;
+  margin-bottom: var(--space-xs, 8px);
 }
 
 .placeholder-feature p {

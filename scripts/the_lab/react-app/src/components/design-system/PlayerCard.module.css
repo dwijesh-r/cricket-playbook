@@ -101,7 +101,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: var(--space-xs, 8px);
   min-width: 56px;
 }
 
@@ -116,4 +116,10 @@
   font-size: var(--font-meta, 14px);
   color: var(--text-tertiary, #8A8A8A);
   white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .card {
+    padding: var(--space-sm, 16px);
+  }
 }

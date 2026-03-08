@@ -67,10 +67,14 @@
   color: rgba(255, 255, 255, 0.4);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   .grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-md, 24px); }
 }
 
+@media (max-width: 767px) {
+  .inner { padding: var(--space-lg, 32px) var(--space-sm, 16px) var(--space-md, 24px); }
+}
+
 @media (max-width: 480px) {
-  .grid { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: 1fr; gap: var(--space-sm, 16px); }
 }

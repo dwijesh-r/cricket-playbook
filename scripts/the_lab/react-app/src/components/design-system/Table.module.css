@@ -21,7 +21,7 @@
 
 /* Header */
 .th {
-  padding: 14px var(--space-sm, 16px);
+  padding: var(--space-sm, 16px);
   font-weight: 600;
   font-size: var(--font-meta, 14px);
   text-transform: uppercase;
@@ -57,7 +57,7 @@
 
 /* Body */
 .td {
-  padding: 12px var(--space-sm, 16px);
+  padding: var(--space-sm, 16px);
   color: var(--text-primary, #0B1F33);
   border-bottom: 1px solid var(--border-subtle, #EDF2F7);
 }

@@ -41,3 +41,8 @@
 .padSm { padding: var(--space-sm, 16px); }
 .padMd { padding: var(--space-md, 24px); }
 .padLg { padding: var(--space-lg, 32px); }
+
+@media (max-width: 767px) {
+  .padMd { padding: var(--space-sm, 16px); }
+  .padLg { padding: var(--space-md, 24px); }
+}

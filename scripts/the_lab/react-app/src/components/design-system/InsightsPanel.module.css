@@ -47,3 +47,9 @@
   color: var(--text-secondary, #4A4A4A);
   line-height: 1.6;
 }
+
+@media (max-width: 767px) {
+  .panel {
+    padding: var(--space-sm, 16px);
+  }
+}

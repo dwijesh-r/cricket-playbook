@@ -11,7 +11,8 @@
   transition:
     transform var(--transition-normal, 0.25s ease),
     box-shadow var(--transition-normal, 0.25s ease);
-  min-width: 300px;
+  min-width: 280px;
+  max-width: 100%;
 }
 
 .card:hover {
@@ -119,7 +120,7 @@
 .probLabels {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 4px;
+  margin-bottom: var(--space-xs, 8px);
 }
 
 .probLabel {
@@ -169,6 +170,13 @@
 .keyPlayerName {
   color: var(--text-primary, #0B1F33);
   font-weight: 600;
+}
+
+@media (max-width: 767px) {
+  .card {
+    padding: var(--space-sm, 16px);
+    min-width: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

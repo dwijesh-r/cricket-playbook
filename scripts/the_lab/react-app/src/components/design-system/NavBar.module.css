@@ -47,7 +47,8 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 8px 16px;
+  padding: 10px 16px;
+  min-height: 44px;
   font-size: var(--font-meta, 14px);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.7);
@@ -161,6 +162,7 @@
 .mobileLink {
   display: block;
   padding: 12px 16px;
+  min-height: 44px;
   font-size: var(--font-body, 16px);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.7);

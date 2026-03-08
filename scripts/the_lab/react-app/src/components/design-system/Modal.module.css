@@ -38,7 +38,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px var(--space-md, 24px) var(--space-sm, 16px);
+  padding: var(--space-sm, 16px) var(--space-md, 24px);
   border-bottom: 1px solid var(--border-subtle, #EDF2F7);
 }
 
@@ -92,6 +92,11 @@
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(16px) scale(0.98); }
   to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 767px) {
+  .overlay { padding: var(--space-sm, 16px); }
+  .body { padding: var(--space-sm, 16px); }
 }
 
 @media (prefers-reduced-motion: reduce) {

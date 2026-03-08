@@ -60,7 +60,7 @@
 .comparison {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-xs, 8px);
   font-family: var(--font-secondary, 'DM Sans', sans-serif);
   font-size: var(--font-meta, 14px);
   font-weight: 500;
@@ -94,6 +94,12 @@
 .accentBarUp { background: var(--sl-positive, #2ECC71); }
 .accentBarDown { background: var(--sl-negative, #E74C3C); }
 .accentBarNeutral { background: var(--sl-neutral, #3498DB); }
+
+@media (max-width: 767px) {
+  .statCard {
+    padding: var(--space-sm, 16px);
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .value {

@@ -4,39 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statsledge - IPL 2026 Analytics</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         /* ==================== THEME SYSTEM ==================== */
         :root {
             /* === FONTS === */
-            --font-display: 'DM Serif Display', serif;
+            --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-mono: 'IBM Plex Mono', monospace;
 
             /* === COLORS === */
-            --bg-primary: #06080f;
-            --bg-secondary: #0d1117;
-            --bg-tertiary: #161b22;
-            --bg-elevated: #21262d;
-            --text-primary: #e6edf3;
-            --text-secondary: #7d8590;
-            --text-tertiary: #6e7681;
-            --accent: #00f0ff;
-            --accent-green: #00ff87;
-            --accent-yellow: #f0c000;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F5F7FA;
+            --bg-tertiary: #EDF2F7;
+            --bg-elevated: #FFFFFF;
+            --text-primary: #0B1F33;
+            --text-secondary: #4A4A4A;
+            --text-tertiary: #8A8A8A;
+            --accent: #1E88E5;
+            --accent-green: #2ECC71;
+            --accent-yellow: #F5A623;
             --accent-orange: #ff9f0a;
-            --accent-red: #ff3850;
-            --accent-purple: #a855f7;
-            --accent-pink: #f472b6;
-            --accent-teal: #22d3ee;
-            --border: rgba(0, 240, 255, 0.08);
-            --glass: rgba(0, 240, 255, 0.03);
-            --glass-border: rgba(0, 240, 255, 0.06);
-            --shadow: rgba(0, 0, 0, 0.5);
-            --glow-accent: rgba(0, 240, 255, 0.15);
-            --glow-purple: rgba(168, 85, 247, 0.15);
-            --border-accent: rgba(0, 240, 255, 0.3);
-            --scanline: rgba(0, 240, 255, 0.03);
+            --accent-red: #E74C3C;
+            --accent-purple: #8E44AD;
+            --accent-pink: #FF375F;
+            --accent-teal: #00BCD4;
+            --border: #E2E8F0;
+            --glass: rgba(11, 31, 51, 0.02);
+            --glass-border: rgba(11, 31, 51, 0.04);
+            --shadow: rgba(11, 31, 51, 0.08);
+            --glow-accent: rgba(30, 136, 229, 0.08);
+            --glow-purple: rgba(142, 68, 173, 0.06);
+            --border-accent: rgba(30, 136, 229, 0.15);
+            --scanline: transparent;
 
             /* === SPACING (8px base) === */
             --space-1: 4px;
@@ -81,42 +81,42 @@
             --nav-height: 56px;
 
             /* === ELEVATION === */
-            --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 8px rgba(0, 240, 255, 0.03);
-            --elevation-2: 0 3px 6px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 240, 255, 0.05);
-            --elevation-3: 0 10px 20px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 240, 255, 0.05);
-            --elevation-hover: 0 14px 28px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 240, 255, 0.1);
+            --elevation-1: 0 1px 3px rgba(11, 31, 51, 0.06);
+            --elevation-2: 0 4px 12px rgba(11, 31, 51, 0.08);
+            --elevation-3: 0 8px 24px rgba(11, 31, 51, 0.10);
+            --elevation-hover: 0 16px 48px rgba(11, 31, 51, 0.12);
 
         }
 
         [data-theme="light"] {
-            --bg-primary: #f0f2f5;
-            --bg-secondary: #ffffff;
-            --bg-tertiary: #e2e6ea;
-            --bg-elevated: #d0d5db;
-            --text-primary: #1a1d21;
-            --text-secondary: #5a6270;
-            --text-tertiary: #8a919a;
-            --accent: #0088cc;
-            --accent-green: #00a86b;
-            --accent-yellow: #d4a000;
-            --accent-orange: #e08600;
-            --accent-red: #e0303f;
-            --accent-purple: #8b3fd9;
-            --accent-pink: #d94f8e;
-            --accent-teal: #0ea5c9;
-            --border: rgba(0, 50, 80, 0.08);
-            --glass: rgba(0, 50, 80, 0.03);
-            --glass-border: rgba(0, 50, 80, 0.06);
-            --shadow: rgba(0, 0, 0, 0.12);
-            --glow-accent: rgba(0, 136, 204, 0.15);
-            --glow-purple: rgba(139, 63, 217, 0.12);
-            --border-accent: rgba(0, 136, 204, 0.2);
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F5F7FA;
+            --bg-tertiary: #EDF2F7;
+            --bg-elevated: #FFFFFF;
+            --text-primary: #0B1F33;
+            --text-secondary: #4A4A4A;
+            --text-tertiary: #8A8A8A;
+            --accent: #1E88E5;
+            --accent-green: #2ECC71;
+            --accent-yellow: #F5A623;
+            --accent-orange: #FF9F0A;
+            --accent-red: #E74C3C;
+            --accent-purple: #8E44AD;
+            --accent-pink: #FF375F;
+            --accent-teal: #00BCD4;
+            --border: #E2E8F0;
+            --glass: rgba(11, 31, 51, 0.02);
+            --glass-border: rgba(11, 31, 51, 0.04);
+            --shadow: rgba(11, 31, 51, 0.08);
+            --glow-accent: rgba(30, 136, 229, 0.08);
+            --glow-purple: rgba(142, 68, 173, 0.06);
+            --border-accent: rgba(30, 136, 229, 0.15);
             --scanline: transparent;
             /* Elevation system - light */
-            --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
-            --elevation-2: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
-            --elevation-3: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.08);
-            --elevation-hover: 0 14px 28px rgba(0, 0, 0, 0.12), 0 10px 10px rgba(0, 0, 0, 0.08);
+            --elevation-1: 0 1px 3px rgba(11, 31, 51, 0.06);
+            --elevation-2: 0 4px 12px rgba(11, 31, 51, 0.08);
+            --elevation-3: 0 8px 24px rgba(11, 31, 51, 0.10);
+            --elevation-hover: 0 16px 48px rgba(11, 31, 51, 0.12);
         }
 
         /* ==================== GRID SYSTEM (TKT-268) ==================== */
@@ -344,7 +344,7 @@
             right: -10%;
             width: 60%;
             height: 60%;
-            background: radial-gradient(ellipse, rgba(0, 240, 255, 0.12) 0%, transparent 70%);
+            background: radial-gradient(ellipse, rgba(30, 136, 229, 0.06) 0%, transparent 70%);
             filter: blur(80px);
             animation: pulse-glow 8s ease-in-out infinite;
         }
@@ -393,7 +393,7 @@
             font-weight: 900;
             letter-spacing: -0.03em;
             color: transparent;
-            background: linear-gradient(135deg, rgba(0, 240, 255, 0.06) 0%, rgba(168, 85, 247, 0.04) 100%);
+            background: linear-gradient(135deg, rgba(30, 136, 229, 0.04) 0%, rgba(142, 68, 173, 0.03) 100%);
             -webkit-background-clip: text;
             background-clip: text;
             z-index: -1;
@@ -401,11 +401,6 @@
             transform: rotate(-5deg);
             white-space: nowrap;
             user-select: none;
-        }
-        [data-theme="light"] .bg-watermark {
-            background: linear-gradient(135deg, rgba(0, 136, 204, 0.06) 0%, rgba(139, 63, 217, 0.04) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
         }
 
         /* ==================== NAVIGATION ==================== */
@@ -415,11 +410,11 @@
             left: 0;
             right: 0;
             height: 56px;
-            background: rgba(6, 8, 15, 0.85);
+            background: #0B1F33;
             backdrop-filter: saturate(180%) blur(20px);
             -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid var(--border);
-            box-shadow: 0 1px 0 rgba(0, 240, 255, 0.1), 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 1px 3px rgba(11, 31, 51, 0.12);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -427,7 +422,7 @@
             z-index: 100;
         }
 
-        [data-theme="light"] .nav { background: rgba(240, 242, 245, 0.88); box-shadow: 0 1px 0 rgba(0, 136, 204, 0.08), 0 4px 20px rgba(0, 0, 0, 0.06); }
+        [data-theme="light"] .nav { background: #0B1F33; box-shadow: 0 1px 3px rgba(11, 31, 51, 0.12); }
 
         .nav-brand {
             display: flex;
@@ -441,8 +436,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            filter: drop-shadow(0 0 8px var(--glow-accent));
-            animation: logo-pulse 3s ease-in-out infinite;
+            filter: none;
         }
         .nav-logo svg {
             width: 100%;
@@ -450,8 +444,8 @@
         }
 
         @keyframes logo-pulse {
-            0%, 100% { filter: drop-shadow(0 0 8px var(--glow-accent)); }
-            50% { filter: drop-shadow(0 0 14px var(--glow-accent)) drop-shadow(0 0 24px rgba(0, 240, 255, 0.08)); }
+            0%, 100% { filter: none; }
+            50% { filter: drop-shadow(0 0 14px var(--glow-accent)) ; }
         }
 
         .nav-title {
@@ -466,17 +460,13 @@
         }
         .nav-title .brand-stat {
             font-weight: 300;
-            color: var(--text-secondary);
+            color: rgba(255, 255, 255, 0.7);
             letter-spacing: 0.08em;
         }
-        .nav-title .brand-sledge {
+        .nav-title .brand-sledge { -webkit-text-fill-color: #FFFFFF;
             font-weight: 900;
-            background: linear-gradient(135deg, var(--accent) 0%, #a855f7 50%, var(--accent) 100%);
-            background-size: 200% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradient-shift 3s ease-in-out infinite;
+            color: #FFFFFF;
+            -webkit-text-fill-color: #FFFFFF;
         }
         @keyframes gradient-shift {
             0%, 100% { background-position: 0% 50%; }
@@ -486,7 +476,7 @@
         .nav-tabs {
             display: flex;
             gap: var(--space-1);
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            background: rgba(255, 255, 255, 0.06);
             padding: var(--space-1);
             border-radius: var(--radius-lg);
             border: 1px solid var(--border);
@@ -501,7 +491,7 @@
             border-radius: var(--radius-md);
             font-size: 13px;
             font-weight: 600;
-            color: var(--text-secondary);
+            color: rgba(255, 255, 255, 0.65);
             cursor: pointer;
             transition: all var(--transition-slow);
             border: none;
@@ -511,14 +501,14 @@
         }
 
         .nav-tab:hover {
-            color: var(--text-primary);
-            background: var(--bg-tertiary);
+            color: #FFFFFF;
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .nav-tab.active {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            background: var(--accent);
             color: white;
-            box-shadow: 0 0 12px var(--glow-accent);
+            box-shadow: none;
         }
 
         /* Mobile hamburger menu */
@@ -591,7 +581,7 @@
             background: var(--bg-secondary);
         }
         .mobile-nav-menu .nav-tab.active {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            background: var(--accent);
         }
 
         .nav-actions {
@@ -630,11 +620,11 @@
         .theme-toggle:hover {
             color: var(--accent);
             border-color: var(--accent);
-            box-shadow: 0 0 12px var(--glow-accent);
+            box-shadow: none;
         }
 
         .nav-btn {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            background: rgba(255, 255, 255, 0.06);
             border: 1px solid var(--border);
             color: var(--accent);
             padding: var(--space-2) 16px;
@@ -651,9 +641,9 @@
         }
 
         .nav-btn:hover {
-            background: linear-gradient(135deg, rgba(0, 240, 255, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%);
+            background: rgba(255, 255, 255, 0.12);
             border-color: var(--accent);
-            box-shadow: 0 0 12px var(--glow-accent);
+            box-shadow: none;
         }
 
         /* ==================== MAIN CONTENT ==================== */
@@ -699,14 +689,14 @@
         .hero-logo {
             width: clamp(56px, 10vw, 96px);
             height: clamp(56px, 10vw, 96px);
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            background: var(--accent);
             border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: clamp(28px, 5vw, 48px);
-            box-shadow: 0 0 20px var(--glow-accent), 0 0 40px rgba(0, 240, 255, 0.08);
-            animation: logo-pulse 3s ease-in-out infinite;
+            box-shadow: 0 4px 12px rgba(11, 31, 51, 0.12);
+
             flex-shrink: 0;
         }
 
@@ -726,7 +716,7 @@
         }
         .hero-title .brand-accent {
             font-weight: 900;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            background: var(--accent);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -739,9 +729,9 @@
             margin: 0 auto 28px;
             border-radius: var(--radius-sm);
             background: linear-gradient(90deg, var(--accent), var(--accent-teal), var(--accent-purple));
-            background-size: 200% 100%;
+
             animation: bar-shimmer 3s ease-in-out infinite;
-            box-shadow: 0 0 12px var(--glow-accent);
+            box-shadow: none;
         }
         @keyframes bar-shimmer {
             0%, 100% { background-position: 0% 50%; }
@@ -757,13 +747,13 @@
             width: min(500px, 80vw);
             height: min(500px, 80vw);
             border-radius: var(--radius-full);
-            background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, rgba(168, 85, 247, 0.06) 40%, transparent 70%);
+            background: radial-gradient(circle, rgba(30, 136, 229, 0.06) 0%, rgba(142, 68, 173, 0.03) 40%, transparent 70%);
             pointer-events: none;
             z-index: 0;
             animation: glow-pulse 5s ease-in-out infinite;
         }
         [data-theme="light"] .hero-glow {
-            background: radial-gradient(circle, rgba(0, 136, 204, 0.08) 0%, rgba(139, 63, 217, 0.04) 40%, transparent 70%);
+            background: radial-gradient(circle, rgba(30, 136, 229, 0.06) 0%, rgba(142, 68, 173, 0.03) 40%, transparent 70%);
         }
         @keyframes glow-pulse {
             0%, 100% { opacity: 0.7; transform: translate(-50%, -60%) scale(1); }
@@ -949,13 +939,13 @@
         .section-title .icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            background: var(--accent);
             border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 18px;
-            box-shadow: 0 0 12px var(--glow-accent);
+            box-shadow: none;
         }
 
         .section-link {
@@ -978,7 +968,7 @@
         }
 
         .team-card {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            background: rgba(255, 255, 255, 0.06);
             border: 1px solid var(--border);
             border-radius: var(--radius-sm);
             padding: var(--space-4);
@@ -1014,7 +1004,7 @@
         .team-card:hover {
             transform: translateY(-6px);
             border-color: var(--accent);
-            box-shadow: var(--elevation-hover), 0 0 30px var(--glow-accent), inset 0 0 20px rgba(0, 240, 255, 0.03);
+            box-shadow: var(--elevation-hover), ;
         }
 
         .team-card:hover::after {
@@ -1074,7 +1064,7 @@
         }
 
         .rating-badge {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            background: var(--accent);
             color: white;
             padding: var(--space-1) 12px;
             border-radius: var(--radius-sm);
@@ -1097,7 +1087,7 @@
         }
 
         .nav-card {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            background: rgba(255, 255, 255, 0.06);
             border: 1px solid var(--border);
             border-radius: var(--radius-sm);
             padding: var(--space-5);
@@ -1125,7 +1115,7 @@
         .nav-card:hover {
             transform: translateY(-6px);
             border-color: var(--accent);
-            box-shadow: var(--elevation-hover), 0 0 30px var(--glow-accent), inset 0 0 20px rgba(0, 240, 255, 0.03);
+            box-shadow: var(--elevation-hover), ;
         }
 
         .nav-card:hover::after {
@@ -1137,13 +1127,13 @@
         .nav-card-icon {
             width: 56px;
             height: 56px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            background: var(--accent);
             border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
-            box-shadow: 0 0 12px var(--glow-accent);
+            box-shadow: none;
         }
 
         .nav-card h3 {
@@ -1533,13 +1523,8 @@
     <!-- Intro Animation Sequence - Dynamic Trophy Lift -->
     <!-- Randomly displays 3 agents from pool of 14 -->
     <!-- Stadium background matches dominant sport of selected agents -->
-    <div class="intro-overlay" id="intro-overlay">
-        <div class="intro-title"><span>The Iconic.</span><span>The Trailblazers.</span><span>The Future.</span></div>
-        <div class="intro-grid" id="intro-grid">
-            <!-- Dynamically populated by JavaScript - see initIntroAnimation() -->
-            <!-- Content is generated with stadium backgrounds, upper-body athletes, and trophy tickers -->
-        </div>
-    </div>
+    <!-- Intro animation removed — Statsledge premium theme -->
+    <div class="intro-overlay" id="intro-overlay" style="display: none !important;"></div>
 
     <!-- Navigation -->
     <nav class="nav site-nav" aria-label="Site navigation" role="navigation">
@@ -1547,13 +1532,13 @@
             <div class="nav-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
   <defs>
     <linearGradient id="barGrad" x1="0" y1="1" x2="0" y2="0">
-      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#00f0ff"/>
+      <stop offset="0%" stop-color="#1E88E5" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#1E88E5"/>
     </linearGradient>
     <linearGradient id="slashGrad" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#f472b6"/>
       <stop offset="50%" stop-color="#a855f7"/>
-      <stop offset="100%" stop-color="#00f0ff"/>
+      <stop offset="100%" stop-color="#1E88E5"/>
     </linearGradient>
     <filter id="glow"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
   </defs>
@@ -1599,7 +1584,7 @@
         <a href="research-desk.html" class="nav-tab">🎬 The Film Room</a>
         <a href="about.html" class="nav-tab">🌹 About</a>
         <div style="border-top: 1px solid var(--border); margin-top: 8px; padding-top: 8px;">
-            <a href="/boardroom/index.html" class="nav-tab" style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%); color: white;">📡 The Boardroom</a>
+            <a href="/boardroom/index.html" class="nav-tab" style="background: var(--accent); color: white;">📡 The Boardroom</a>
         </div>
     </div>
 

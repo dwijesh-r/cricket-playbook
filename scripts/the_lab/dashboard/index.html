@@ -1,0 +1,2479 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statsledge - IPL 2026 Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ==================== THEME SYSTEM ==================== */
+        :root {
+            /* === FONTS === */
+            --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+
+            /* === COLORS === */
+            --bg-primary: #0B1120;
+            --bg-secondary: #111827;
+            --bg-tertiary: #1E293B;
+            --bg-elevated: #1E293B;
+            --text-primary: #F1F5F9;
+            --text-secondary: #94A3B8;
+            --text-tertiary: #64748B;
+            --accent: #3B82F6;
+            --accent-green: #22C55E;
+            --accent-yellow: #EAB308;
+            --accent-orange: #F97316;
+            --accent-red: #EF4444;
+            --accent-purple: #A855F7;
+            --accent-pink: #EC4899;
+            --accent-teal: #14B8A6;
+            --border: rgba(148, 163, 184, 0.1);
+            --glass: rgba(148, 163, 184, 0.03);
+            --glass-border: rgba(148, 163, 184, 0.06);
+            --shadow: rgba(0, 0, 0, 0.4);
+            --glow-accent: rgba(59, 130, 246, 0.1);
+            --glow-purple: rgba(168, 85, 247, 0.08);
+            --border-accent: rgba(59, 130, 246, 0.2);
+            --scanline: transparent;
+
+            /* === SPACING (8px base) === */
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 16px;
+            --space-4: 24px;
+            --space-5: 32px;
+            --space-6: 40px;
+            --space-7: 48px;
+            --space-8: 56px;
+            --space-9: 64px;
+            --space-10: 72px;
+            --space-11: 80px;
+            --space-12: 96px;
+
+            /* === TYPOGRAPHY (12px floor) === */
+            --text-xs: 12px;
+            --text-sm: 13px;
+            --text-base: 14px;
+            --text-md: 16px;
+            --text-lg: 18px;
+            --text-xl: 20px;
+            --text-2xl: 24px;
+            --text-3xl: 32px;
+            --text-4xl: 40px;
+            --text-5xl: 48px;
+
+            /* === BORDER RADIUS === */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-full: 9999px;
+
+            /* === TRANSITIONS === */
+            --transition-fast: 150ms ease-in-out;
+            --transition-normal: 200ms ease-in-out;
+            --transition-slow: 250ms ease-in-out;
+
+            /* === LAYOUT === */
+            --container-max: 1280px;
+            --nav-height: 56px;
+
+            /* === ELEVATION === */
+            --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.3);
+            --elevation-2: 0 4px 12px rgba(0, 0, 0, 0.35);
+            --elevation-3: 0 8px 24px rgba(0, 0, 0, 0.4);
+            --elevation-hover: 0 16px 48px rgba(0, 0, 0, 0.45);
+
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #F8FAFC;
+            --bg-secondary: #FFFFFF;
+            --bg-tertiary: #F1F5F9;
+            --bg-elevated: #FFFFFF;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-tertiary: #94A3B8;
+            --accent: #2563EB;
+            --accent-green: #16A34A;
+            --accent-yellow: #CA8A04;
+            --accent-orange: #EA580C;
+            --accent-red: #DC2626;
+            --accent-purple: #9333EA;
+            --accent-pink: #DB2777;
+            --accent-teal: #0D9488;
+            --border: #E2E8F0;
+            --glass: rgba(148, 163, 184, 0.03);
+            --glass-border: rgba(148, 163, 184, 0.06);
+            --shadow: rgba(15, 23, 42, 0.08);
+            --glow-accent: rgba(59, 130, 246, 0.1);
+            --glow-purple: rgba(168, 85, 247, 0.08);
+            --border-accent: rgba(59, 130, 246, 0.2);
+            --scanline: transparent;
+            /* Elevation system - light */
+            --elevation-1: 0 1px 3px rgba(15, 23, 42, 0.06);
+            --elevation-2: 0 4px 12px rgba(15, 23, 42, 0.08);
+            --elevation-3: 0 8px 24px rgba(15, 23, 42, 0.10);
+            --elevation-hover: 0 16px 48px rgba(15, 23, 42, 0.12);
+        }
+
+        /* ==================== GRID SYSTEM (TKT-268) ==================== */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+            width: 100%;
+        }
+        .grid-12 {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--space-3);
+        }
+
+
+        /* ==================== UNIFIED NAV (TKT-272) ==================== */
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: var(--nav-height);
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 var(--space-4);
+            backdrop-filter: blur(12px);
+        }
+        .site-nav .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            margin-left: auto;
+        }
+
+        /* ==================== TOOLTIP SYSTEM (TKT-109) ==================== */
+        .has-tooltip {
+            position: relative;
+            cursor: help;
+        }
+        .has-tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            padding: var(--space-2) 12px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-primary);
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+            z-index: 1000;
+            pointer-events: none;
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+        .has-tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+        .help-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 14px;
+            height: 14px;
+            font-size: var(--text-xs);
+            color: var(--text-tertiary);
+            cursor: help;
+            margin-left: var(--space-1);
+            vertical-align: middle;
+        }
+        .help-icon:hover { color: var(--accent); }
+
+        /* Mobile-safe tooltip adjustments */
+        @media (max-width: 768px) {
+            .has-tooltip::after {
+                white-space: normal;
+                max-width: 200px;
+                left: 0;
+                transform: none;
+                font-size: var(--text-xs);
+            }
+        }
+        @media (max-width: 480px) {
+            .has-tooltip::after {
+                max-width: 160px;
+                padding: var(--space-1) 10px;
+                font-size: var(--text-xs);
+            }
+        }
+
+
+        /* ==================== SMOOTH SCROLL & SKELETONS (TKT-274) ==================== */
+        html { scroll-behavior: smooth; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+        }
+
+        /* ==================== ACCESSIBILITY (TKT-273) ==================== */
+        .skip-nav {
+            position: absolute;
+            top: -100%;
+            left: var(--space-3);
+            padding: var(--space-2) var(--space-3);
+            background: var(--accent);
+            color: var(--bg-primary);
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            z-index: 1000;
+            text-decoration: none;
+            transition: top var(--transition-fast);
+        }
+        .skip-nav:focus {
+            top: var(--space-2);
+        }
+        *:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        *:focus:not(:focus-visible) {
+            outline: none;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .intro-overlay { display: none !important; }
+        }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* ==================== TABLE SCROLL (TKT-278) ==================== */
+        .table-scroll-wrapper {
+            position: relative;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: var(--space-2) 0;
+        }
+        .table-scroll-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 40px;
+            background: linear-gradient(to right, transparent, var(--bg-primary));
+            pointer-events: none;
+            opacity: 1;
+            transition: opacity var(--transition-normal);
+        }
+        .table-scroll-wrapper.scrolled-end::after { opacity: 0; }
+        .table-scroll-wrapper.scrolled-start::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            background: linear-gradient(to left, transparent, var(--bg-primary));
+            pointer-events: none;
+            z-index: 1;
+        }
+        .table-scroll-wrapper table { min-width: 600px; }
+
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            transition: background var(--transition-slow), color var(--transition-slow);
+        }
+
+        /* ==================== BACKGROUND ==================== */
+        .bg-gradient {
+            position: fixed;
+            inset: 0;
+            z-index: -4;
+            background: linear-gradient(135deg, #0B1120 0%, #0D1526 25%, #0F1A2E 50%, #0D1526 75%, #0B1120 100%);
+        }
+
+        [data-theme="light"] .bg-gradient {
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 50%, #F8FAFC 100%);
+        }
+        /* Light theme card polish */
+        [data-theme="light"] .nav-card,
+        [data-theme="light"] .team-card {
+            background: #FFFFFF;
+            border-color: #E2E8F0;
+        }
+        [data-theme="light"] .nav-card:hover,
+        [data-theme="light"] .team-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--elevation-hover), 0 0 20px var(--glow-accent);
+        }
+
+        .bg-gradient::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+            filter: blur(80px);
+            animation: pulse-glow 8s ease-in-out infinite;
+        }
+
+        .bg-gradient::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 50%;
+            height: 50%;
+            background: radial-gradient(ellipse, rgba(168, 85, 247, 0.08) 0%, transparent 70%);
+            filter: blur(80px);
+            animation: pulse-glow 8s ease-in-out infinite 4s;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background-image:
+                linear-gradient(var(--scanline) 1px, transparent 1px),
+                linear-gradient(90deg, var(--scanline) 1px, transparent 1px),
+                repeating-linear-gradient(0deg, transparent, transparent 3px, var(--scanline) 3px, var(--scanline) 4px);
+            background-size: 60px 60px, 60px 60px, 100% 4px;
+        }
+
+        [data-theme="light"] .bg-grid {
+            background-image:
+                linear-gradient(rgba(0, 50, 80, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 50, 80, 0.04) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .bg-watermark {
+            position: fixed;
+            bottom: 8%;
+            right: -2%;
+            font-family: var(--font-display);
+            font-size: clamp(100px, 15vw, 180px);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            color: transparent;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(168, 85, 247, 0.03) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            z-index: -1;
+            pointer-events: none;
+            transform: rotate(-5deg);
+            white-space: nowrap;
+            user-select: none;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        /* ==================== SIDEBAR NAVIGATION ==================== */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 240px;
+            background: #080D19;
+            border-right: 1px solid rgba(148, 163, 184, 0.08);
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(148, 163, 184, 0.15) transparent;
+        }
+        .sidebar::-webkit-scrollbar { width: 4px; }
+        .sidebar::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.15); border-radius: 4px; }
+
+        .sidebar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px 20px 16px;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.06);
+            margin-bottom: 8px;
+        }
+
+        .sidebar-logo {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .sidebar-logo svg { width: 100%; height: 100%; }
+
+        .sidebar-title {
+            font-family: var(--font-body);
+            font-size: 16px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+        .sidebar-title .brand-stat {
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.08em;
+        }
+        .sidebar-title .brand-sledge {
+            font-weight: 800;
+            color: #FFFFFF;
+        }
+
+        .sidebar-section-label {
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 16px 20px 8px;
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            padding: 0 8px;
+            flex: 1;
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: var(--radius-md);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+            border-left: 3px solid transparent;
+            white-space: nowrap;
+        }
+        .sidebar-link:hover {
+            color: var(--text-primary);
+            background: rgba(148, 163, 184, 0.06);
+        }
+        .sidebar-link.active {
+            color: var(--accent);
+            background: rgba(59, 130, 246, 0.08);
+            border-left-color: var(--accent);
+            font-weight: 600;
+        }
+        .sidebar-link-icon {
+            font-size: 16px;
+            width: 22px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .sidebar-footer {
+            padding: 12px 8px 16px;
+            border-top: 1px solid rgba(148, 163, 184, 0.06);
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .sidebar-footer .sidebar-link {
+            font-size: 12px;
+        }
+        .sidebar-time {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-tertiary);
+            font-variant-numeric: tabular-nums;
+            padding: 6px 12px;
+            text-align: center;
+        }
+
+        /* Mobile top bar (replaces sidebar on small screens) */
+        .mobile-topbar {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 56px;
+            background: #080D19;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            z-index: 100;
+        }
+        .mobile-topbar .sidebar-logo { width: 28px; height: 28px; }
+        .mobile-topbar .sidebar-title { font-size: 14px; }
+
+        .mobile-menu-btn {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-md);
+            background: transparent;
+            border: 1px solid rgba(148, 163, 184, 0.12);
+            color: var(--text-secondary);
+            cursor: pointer;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: var(--space-2);
+        }
+        .mobile-menu-btn span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: currentColor;
+            border-radius: 1px;
+            transition: all var(--transition-fast);
+        }
+        .mobile-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 5px); }
+        .mobile-menu-btn.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -5px); }
+
+        .mobile-nav-menu {
+            display: none;
+            position: fixed;
+            top: 56px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(8, 13, 25, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 16px;
+            z-index: 99;
+            flex-direction: column;
+            gap: 4px;
+            overflow-y: auto;
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: all var(--transition-normal);
+            pointer-events: none;
+        }
+        .mobile-nav-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .mobile-nav-menu .sidebar-link {
+            padding: 14px 16px;
+            font-size: 15px;
+            border-radius: var(--radius-lg);
+        }
+        .mobile-nav-menu .sidebar-link.active {
+            background: rgba(59, 130, 246, 0.12);
+        }
+
+        /* Legacy classes kept for compatibility */
+        .nav { display: none; }
+        .nav-tabs { display: none; }
+        .nav-tab { display: none; }
+        .nav-brand { display: none; }
+        .nav-actions { display: none; }
+        .nav-time { display: none; }
+        .theme-toggle { display: none; }
+        .nav-btn { display: none; }
+
+        /* ==================== MAIN CONTENT ==================== */
+        .main {
+            margin-left: 240px;
+            padding-top: var(--space-4);
+            min-height: 100vh;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            padding: var(--space-11) 24px 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: var(--glass);
+            border: 1px solid var(--border-accent);
+            padding: var(--space-2) 16px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: var(--space-4);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .hero-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(16px, 3vw, 28px);
+            margin-bottom: var(--space-2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-logo {
+            width: clamp(56px, 10vw, 96px);
+            height: clamp(56px, 10vw, 96px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .hero-logo svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 10vw, 128px);
+            text-transform: uppercase;
+            line-height: 1;
+            display: flex;
+            align-items: baseline;
+            gap: 0.02em;
+        }
+        .hero-title .brand-stat {
+            font-weight: 300;
+            color: var(--text-secondary);
+            letter-spacing: 0.08em;
+        }
+        .hero-title .brand-accent {
+            font-weight: 900;
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Decorative accent bar under hero title */
+        .hero-accent-bar {
+            width: 160px;
+            height: 4px;
+            margin: 0 auto 28px;
+            border-radius: var(--radius-sm);
+            background: linear-gradient(90deg, var(--accent), var(--accent-teal), var(--accent-purple));
+
+            animation: bar-shimmer 3s ease-in-out infinite;
+            box-shadow: none;
+        }
+        @keyframes bar-shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Glow orb behind hero text */
+        .hero-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            width: min(500px, 80vw);
+            height: min(500px, 80vw);
+            border-radius: var(--radius-full);
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(168, 85, 247, 0.04) 40%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+            animation: glow-pulse 5s ease-in-out infinite;
+        }
+        [data-theme="light"] .hero-glow {
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(168, 85, 247, 0.04) 40%, transparent 70%);
+        }
+        @keyframes glow-pulse {
+            0%, 100% { opacity: 0.7; transform: translate(-50%, -60%) scale(1); }
+            50% { opacity: 1; transform: translate(-50%, -60%) scale(1.1); }
+        }
+
+        /* Typewriter Animation */
+        .typewriter-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: var(--space-2);
+            min-height: 140px;
+        }
+
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.5;
+        }
+
+        .hero-tagline {
+            font-size: 14px;
+            color: var(--text-tertiary);
+            font-style: italic;
+        }
+
+        /* ==================== QUICK STATS ==================== */
+        .stats-container {
+            position: relative;
+            margin: 0 auto 60px;
+            max-width: 900px;
+            padding: var(--space-6) 24px;
+        }
+
+        /* Animated background widget */
+        .stats-bg {
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius-xl);
+            background: linear-gradient(135deg, rgba(10, 132, 255, 0.08) 0%, rgba(191, 90, 242, 0.08) 100%);
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+        }
+
+        .stats-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                rgba(10, 132, 255, 0.1) 60deg,
+                transparent 120deg,
+                rgba(191, 90, 242, 0.1) 180deg,
+                transparent 240deg,
+                rgba(48, 209, 88, 0.1) 300deg,
+                transparent 360deg
+            );
+            animation: rotate-bg 20s linear infinite;
+        }
+
+        @keyframes rotate-bg {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .stats-bg::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: var(--bg-primary);
+            border-radius: var(--radius-xl);
+            opacity: 0.95;
+        }
+
+        [data-theme="light"] .stats-bg::after {
+            opacity: 0.92;
+        }
+
+        /* Floating particles */
+        .stats-particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            border-radius: var(--radius-xl);
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: var(--radius-full);
+            opacity: 0.4;
+            animation: float-particle 8s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 80%; top: 30%; animation-delay: 1s; background: var(--accent-purple); }
+        .particle:nth-child(3) { left: 30%; top: 70%; animation-delay: 2s; background: var(--accent-green); }
+        .particle:nth-child(4) { left: 70%; top: 60%; animation-delay: 3s; }
+        .particle:nth-child(5) { left: 50%; top: 40%; animation-delay: 4s; background: var(--accent-pink); }
+        .particle:nth-child(6) { left: 20%; top: 50%; animation-delay: 5s; background: var(--accent-yellow); }
+
+        @keyframes float-particle {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
+            50% { transform: translateY(-20px) scale(1.5); opacity: 0.8; }
+        }
+
+        .stats-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--space-9);
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-prefix {
+            font-size: 14px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-1);
+        }
+
+        .stat-value {
+            font-family: var(--font-mono);
+            font-size: 48px;
+            font-weight: 800;
+            font-variant-numeric: tabular-nums;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            text-shadow: 0 0 20px var(--glow-accent);
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: var(--space-2);
+            font-weight: 500;
+        }
+
+        /* ==================== SECTION HEADERS ==================== */
+        .section {
+            padding: var(--space-6) 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-5);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+
+        .section-title .icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: none;
+        }
+
+        .section-link {
+            color: var(--accent);
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--space-1);
+        }
+
+        .section-link:hover { text-decoration: underline; }
+
+        /* ==================== TEAM CARDS ==================== */
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--space-4);
+        }
+
+        .team-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: var(--space-4);
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: visible;
+            box-shadow: var(--elevation-1);
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--team-color, var(--accent));
+        }
+
+        .team-card::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            pointer-events: none;
+            border: 2px solid transparent;
+            transition: all 0.35s ease;
+            opacity: 0.4;
+        }
+
+        .team-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: var(--elevation-hover);
+        }
+
+        .team-card:hover::after {
+            opacity: 1;
+            border-color: var(--accent);
+            clip-path: polygon(0 0, 20px 0, 20px 2px, 2px 2px, 2px 20px, 0 20px, 0 0, 100% 0, 100% 20px, calc(100% - 0px) 20px, calc(100% - 2px) 20px, calc(100% - 2px) 2px, calc(100% - 20px) 2px, calc(100% - 20px) 0, 100% 0, 100% 100%, calc(100% - 20px) 100%, calc(100% - 20px) calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) calc(100% - 20px), 100% calc(100% - 20px), 100% 100%, 0 100%, 0 calc(100% - 20px), 2px calc(100% - 20px), 2px calc(100% - 2px), 20px calc(100% - 2px), 20px 100%, 0 100%);
+        }
+
+        .team-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-3);
+        }
+
+        .team-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-elevated);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            image-rendering: pixelated;
+            overflow: hidden;
+        }
+
+        .team-icon svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Pixelated logo effect */
+        .pixel-logo {
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+
+        .team-info h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: var(--space-1);
+        }
+
+        .team-info p {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        .team-rating {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding-top: var(--space-3);
+            border-top: 1px solid var(--border);
+        }
+
+        .rating-badge {
+            background: var(--accent);
+            color: white;
+            padding: var(--space-1) 12px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .rating-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* ==================== NAVIGATION CARDS ==================== */
+        .nav-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-4);
+            margin-top: var(--space-6);
+        }
+
+        .nav-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: var(--space-5);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+            box-shadow: var(--elevation-1);
+            position: relative;
+            overflow: visible;
+        }
+
+        .nav-card::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            pointer-events: none;
+            border: 2px solid transparent;
+            transition: all 0.35s ease;
+            opacity: 0.4;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: var(--elevation-hover);
+        }
+
+        .nav-card:hover::after {
+            opacity: 1;
+            border-color: var(--accent);
+            clip-path: polygon(0 0, 20px 0, 20px 2px, 2px 2px, 2px 20px, 0 20px, 0 0, 100% 0, 100% 20px, calc(100% - 0px) 20px, calc(100% - 2px) 20px, calc(100% - 2px) 2px, calc(100% - 20px) 2px, calc(100% - 20px) 0, 100% 0, 100% 100%, calc(100% - 20px) 100%, calc(100% - 20px) calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) calc(100% - 20px), 100% calc(100% - 20px), 100% 100%, 0 100%, 0 calc(100% - 20px), 2px calc(100% - 20px), 2px calc(100% - 2px), 20px calc(100% - 2px), 20px 100%, 0 100%);
+        }
+
+        .nav-card-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--accent);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: none;
+        }
+
+        .nav-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .nav-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            padding: var(--space-6) 24px;
+            text-align: center;
+            border-top: none;
+            margin-top: var(--space-9);
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), var(--accent-purple), transparent);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-3);
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover { color: var(--accent); }
+
+        .footer-text {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        /* ==================== RESPONSIVE - MOBILE OPTIMIZATIONS ==================== */
+        @media (max-width: 768px) {
+            /* Sidebar collapses to mobile top bar */
+            .sidebar { display: none; }
+            .mobile-topbar { display: flex; }
+            .mobile-menu-btn { display: flex; }
+            .mobile-nav-menu { display: flex; }
+            .main { margin-left: 0; padding-top: 72px; }
+
+            /* Hero Section - Responsive titles */
+            .hero { padding: var(--space-11) 16px 60px; }
+            .hero-brand { gap: var(--space-3); }
+            .hero-title { text-align: center; }
+            /* hero-glow handled by min() in base rule */
+            .typewriter-container { min-height: 80px; }
+            .hero-subtitle {
+                font-size: 14px;
+                padding: 0 8px;
+                text-align: center;
+            }
+            .hero-tagline { font-size: 12px; }
+            .hero-badge { font-size: var(--text-xs); padding: var(--space-1) 12px; }
+
+            /* Stats */
+            .stats-bar { flex-wrap: wrap; gap: var(--space-4); padding: var(--space-4) 16px; }
+            .stat-item { min-width: 80px; }
+            .stat-value { font-size: 28px; }
+            .stat-label { font-size: var(--text-xs); }
+
+            /* Navigation Cards */
+            .nav-cards {
+                grid-template-columns: 1fr;
+                gap: var(--space-3);
+                padding: 0 16px;
+            }
+            .nav-card { padding: var(--space-4); }
+            .nav-card h3 { font-size: 16px; }
+            .nav-card p { font-size: 13px; }
+            .nav-card-icon { font-size: 28px; }
+
+            /* Teams Grid */
+            .teams-grid { grid-template-columns: 1fr; }
+
+            /* Section titles */
+            .section-title {
+                font-size: 22px;
+                text-align: center;
+                word-break: break-word;
+            }
+            .section-subtitle {
+                font-size: 13px;
+                text-align: center;
+                padding: 0 16px;
+            }
+
+            /* Footer */
+            .footer { padding: var(--space-5) 16px; }
+            .footer-links { gap: var(--space-3); flex-wrap: wrap; justify-content: center; }
+
+            /* Additional responsive fixes (Tom Brady UI/UX Review - February 2026) */
+            .hero-title { font-size: 28px; }
+            .hero-subtitle { font-size: 13px; }
+            .stat-value { font-size: 32px; }
+            .nav-time { display: none; }
+
+            /* Section header stacking for mobile */
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-2);
+            }
+            .section-link {
+                align-self: flex-end;
+            }
+
+            /* Stats Bar Alignment Fix */
+            .stats-bar { justify-content: space-evenly; }
+
+            /* Hero Padding Optimization for Mobile */
+            .hero { padding: var(--space-9) 16px 40px; }
+        }
+
+        @media (max-width: 480px) {
+            /* Extra small screens */
+            .hero-title { font-size: clamp(28px, 8vw, 48px); }
+            .stat-value { font-size: 24px; }
+            .stat-label { font-size: var(--text-xs); }
+            .nav-card-icon { font-size: 24px; }
+            .nav-card h3 { font-size: 15px; }
+
+            /* Hide Mission Control button on very small screens */
+            .nav-btn { display: none; }
+
+            /* Tighter padding on small screens */
+            .section { padding: var(--space-6) 12px; }
+            .nav-cards { padding: 0 12px; }
+            .footer { padding: var(--space-4) 12px; }
+
+            /* Team cards tighter padding */
+            .team-card { padding: var(--space-3); }
+            .team-header { gap: var(--space-2); }
+            .team-icon { width: 36px; height: 36px; font-size: 18px; }
+            .team-icon svg { width: 30px; height: 30px; }
+
+            /* Section title sizing */
+            .section-title { font-size: 18px; letter-spacing: 0.03em; }
+            .section-title .icon { width: 32px; height: 32px; font-size: 14px; }
+        }
+
+        @media (max-width: 380px) {
+            /* Tiny screens */
+            .hero-subtitle { font-size: 13px; }
+            .nav-cards { gap: var(--space-3); }
+            .stats-bar { gap: var(--space-3); }
+        }
+
+        /* Touch Target Minimum Sizes (WCAG Compliance - 44x44px) */
+        .mobile-menu-btn { width: 44px; height: 44px; }
+        .theme-toggle { min-width: 44px; min-height: 44px; }
+        .mobile-nav-menu .nav-tab { min-height: 44px; }
+
+        /* Hero Brand Mobile Fix */
+        @media (max-width: 480px) {
+            .hero-brand { flex-direction: column; gap: var(--space-3); }
+        }
+
+        /* Navigation Actions Spacing at 480px */
+        @media (max-width: 480px) {
+            .nav-actions { gap: var(--space-2); }
+        }
+
+        /* Grid Orphan Card Centering */
+        .nav-cards, .teams-grid { justify-content: center; }
+
+        /* Section Subtitle Base Style */
+        .section-subtitle {
+            font-size: 15px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 24px;
+            line-height: 1.6;
+        }
+
+        /* 1024px iPad landscape breakpoint */
+        @media (max-width: 1024px) {
+            .stats-bar { gap: var(--space-6); }
+            .hero { padding: 100px var(--space-4) var(--space-9); }
+            .nav-cards { padding: 0 24px; }
+            .section { padding: var(--space-9) 24px; }
+            .footer { padding: var(--space-6) 24px; }
+        }
+
+        /* Footer Hover Accessibility */
+        .footer-links a:hover { text-decoration: underline; }
+
+        /* Hero Badge Graceful Wrap */
+        .hero-badge { max-width: 90%; text-align: center; }
+
+        /* Prevent Horizontal Overflow */
+        body { overflow-x: hidden; }
+
+        /* Minimum Font Sizes at 380px (Readability) */
+        @media (max-width: 380px) {
+            .trophy-ticker .trophy-text { font-size: var(--text-xs); }
+            .label-group .name { font-size: var(--text-xs); }
+            .card-badge.team-badge { font-size: var(--text-xs); }
+        }
+
+        /* ==================== NAVIGATION GUIDE ==================== */
+        .nav-guide-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #ff9f0a 0%, #ff6b35 100%);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-full);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(255, 159, 10, 0.4);
+            z-index: 90;
+            transition: all var(--transition-slow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse-guide 2s ease-in-out infinite;
+        }
+        @keyframes pulse-guide {
+            0%, 100% { box-shadow: 0 4px 20px rgba(255, 159, 10, 0.4); }
+            50% { box-shadow: 0 4px 30px rgba(255, 159, 10, 0.6); }
+        }
+        .nav-guide-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 28px rgba(255, 159, 10, 0.6);
+            animation: none;
+        }
+        .nav-guide-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-4);
+        }
+        .nav-guide-overlay.active { display: flex; }
+        .nav-guide-modal {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-xl);
+            padding: var(--space-5);
+            max-width: 500px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .nav-guide-header {
+            text-align: center;
+            margin-bottom: var(--space-4);
+        }
+        .nav-guide-header h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: var(--space-2);
+        }
+        .nav-guide-header p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        .nav-guide-item {
+            display: flex;
+            gap: var(--space-3);
+            padding: var(--space-3);
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-3);
+            align-items: flex-start;
+            transition: all var(--transition-normal);
+        }
+        .nav-guide-item:hover {
+            background: var(--bg-elevated);
+            transform: translateX(4px);
+        }
+        .nav-guide-icon {
+            font-size: 28px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            flex-shrink: 0;
+        }
+        .nav-guide-text h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: var(--space-1);
+        }
+        .nav-guide-text p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+        .nav-guide-start {
+            background: linear-gradient(135deg, var(--accent-green) 0%, #28cd41 100%);
+            color: white;
+        }
+        .nav-guide-start .nav-guide-icon {
+            background: rgba(255,255,255,0.2);
+        }
+        .nav-guide-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 32px;
+            height: 32px;
+            background: var(--bg-tertiary);
+            border: none;
+            border-radius: var(--radius-full);
+            color: var(--text-primary);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @media (max-width: 768px) {
+            .nav-guide-btn { bottom: 16px; right: 16px; width: 48px; height: 48px; font-size: 20px; }
+            .nav-guide-modal { padding: var(--space-4) 20px; }
+        }
+
+        /* ==================== TAP TARGETS (TKT-277) ==================== */
+        @media (max-width: 768px) {
+            button,
+            a,
+            [role="tab"],
+            [role="button"],
+            select,
+            input[type="checkbox"],
+            input[type="radio"],
+            .clickable,
+            .btn,
+            .chip,
+            .tag,
+            .filter-btn,
+            .nav-link {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            input[type="checkbox"],
+            input[type="radio"] {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+    <!-- Background -->
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-watermark">STATSLEDGE</div>
+
+    <!-- Intro Animation Sequence - Dynamic Trophy Lift -->
+    <!-- Randomly displays 3 agents from pool of 14 -->
+    <!-- Stadium background matches dominant sport of selected agents -->
+    <!-- Intro animation removed — Statsledge premium theme -->
+    <div class="intro-overlay" id="intro-overlay" style="display: none !important;"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" aria-label="Site navigation">
+        <div class="sidebar-brand">
+            <div class="sidebar-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
+  <defs>
+    <linearGradient id="sg1" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#3B82F6" stop-opacity="0.2"/><stop offset="100%" stop-color="#3B82F6" stop-opacity="0.9"/></linearGradient>
+    <linearGradient id="sg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#60A5FA"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient>
+  </defs>
+  <rect x="1" y="1" width="34" height="34" rx="8" fill="#0F172A" stroke="rgba(59,130,246,0.25)" stroke-width="1"/>
+  <rect x="7" y="21" width="5" height="9" rx="2" fill="url(#sg1)"/>
+  <rect x="15.5" y="15" width="5" height="15" rx="2" fill="url(#sg1)"/>
+  <rect x="24" y="8" width="5" height="22" rx="2" fill="url(#sg2)"/>
+  <circle cx="9.5" cy="19" r="2" fill="#60A5FA"/>
+  <circle cx="18" cy="13" r="2" fill="#60A5FA"/>
+  <circle cx="26.5" cy="6.5" r="2.5" fill="#3B82F6" stroke="#60A5FA" stroke-width="1"/>
+  <path d="M9.5 19 L18 13 L26.5 6.5" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+</svg></div>
+            <div class="sidebar-title"><span class="brand-stat">STAT</span><span class="brand-sledge">SLEDGE</span></div>
+        </div>
+        <div class="sidebar-section-label">Navigate</div>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="sidebar-link active"><span class="sidebar-link-icon">&#9679;</span> Home</a>
+            <a href="teams.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Teams</a>
+            <a href="rankings.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Rankings</a>
+            <a href="comparison.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Compare</a>
+            <a href="head-to-head.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
+            <a href="artifacts.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Artifacts</a>
+            <a href="analysis.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Analysis</a>
+            <a href="research.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Research</a>
+            <a href="research-desk.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> The Film Room</a>
+            <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="/boardroom/index.html" class="sidebar-link"><span class="sidebar-link-icon">&#9670;</span> Mission Control</a>
+            <div class="sidebar-time" id="navTime">--:--:--</div>
+        </div>
+    </aside>
+
+    <!-- Mobile Top Bar -->
+    <div class="mobile-topbar">
+        <div style="display:flex;align-items:center;gap:10px;">
+            <div class="sidebar-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
+  <defs><linearGradient id="msg1" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#3B82F6" stop-opacity="0.2"/><stop offset="100%" stop-color="#3B82F6" stop-opacity="0.9"/></linearGradient><linearGradient id="msg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#60A5FA"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient></defs>
+  <rect x="1" y="1" width="34" height="34" rx="8" fill="#0F172A" stroke="rgba(59,130,246,0.25)" stroke-width="1"/>
+  <rect x="7" y="21" width="5" height="9" rx="2" fill="url(#msg1)"/><rect x="15.5" y="15" width="5" height="15" rx="2" fill="url(#msg1)"/><rect x="24" y="8" width="5" height="22" rx="2" fill="url(#msg2)"/>
+  <circle cx="9.5" cy="19" r="2" fill="#60A5FA"/><circle cx="18" cy="13" r="2" fill="#60A5FA"/><circle cx="26.5" cy="6.5" r="2.5" fill="#3B82F6" stroke="#60A5FA" stroke-width="1"/>
+  <path d="M9.5 19 L18 13 L26.5 6.5" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+</svg></div>
+            <div class="sidebar-title"><span class="brand-stat">STAT</span><span class="brand-sledge">SLEDGE</span></div>
+        </div>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <a href="index.html" class="sidebar-link active"><span class="sidebar-link-icon">&#9679;</span> Home</a>
+        <a href="teams.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Teams</a>
+        <a href="rankings.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Rankings</a>
+        <a href="comparison.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Compare</a>
+        <a href="head-to-head.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
+        <a href="artifacts.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Artifacts</a>
+        <a href="analysis.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Analysis</a>
+        <a href="research.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Research</a>
+        <a href="research-desk.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> The Film Room</a>
+        <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
+        <div style="border-top: 1px solid rgba(148,163,184,0.08); margin-top: 12px; padding-top: 12px;">
+            <a href="/boardroom/index.html" class="sidebar-link"><span class="sidebar-link-icon">&#9670;</span> Mission Control</a>
+        </div>
+    </div>
+
+    <!-- Navigation Guide Button -->
+    <button class="nav-guide-btn" onclick="toggleNavGuide()" title="Quick Navigation Guide">❓</button>
+
+    <!-- Navigation Guide Modal -->
+    <div class="nav-guide-overlay" id="nav-guide-overlay" onclick="closeNavGuide(event)">
+        <div class="nav-guide-modal" onclick="event.stopPropagation()">
+            <button class="nav-guide-close" onclick="toggleNavGuide()">✕</button>
+            <div class="nav-guide-header">
+                <h3>🏏 The Playbook Rundown</h3>
+                <p>Your pre-game briefing from the coaching staff</p>
+            </div>
+            <a href="index.html" class="nav-guide-item nav-guide-start" style="text-decoration: none; color: inherit;">
+                <div class="nav-guide-icon">🏠</div>
+                <div class="nav-guide-text">
+                    <h4>Home — "The Main Event"</h4>
+                    <p>📍 You Are Here. Statsledge homepage — your IPL 2026 analytics command center.</p>
+                </div>
+            </a>
+            <a href="teams.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
+                <div class="nav-guide-icon">🏏</div>
+                <div class="nav-guide-text">
+                    <h4>Team Breakdowns — "The Dugout"</h4>
+                    <p>Andy Flower's domain. Projected XIs, depth charts, full rosters. Pick your franchise.</p>
+                </div>
+            </a>
+            <a href="artifacts.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
+                <div class="nav-guide-icon">📊</div>
+                <div class="nav-guide-text">
+                    <h4>Artifacts — "The Trophy Cabinet"</h4>
+                    <p>All 10 franchise stat packs. Stephen Curry approved — clean data, no turnovers.</p>
+                </div>
+            </a>
+            <a href="analysis.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
+                <div class="nav-guide-icon">🔬</div>
+                <div class="nav-guide-text">
+                    <h4>Analysis — "Studying Film"</h4>
+                    <p>Tom Brady-level prep. Matchups, clustering, phase breakdowns. The X's and O's.</p>
+                </div>
+            </a>
+            <a href="research.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
+                <div class="nav-guide-icon">📚</div>
+                <div class="nav-guide-text">
+                    <h4>Research — "Pep's Tactical Notebook"</h4>
+                    <p>Methodology docs. How we grade players, explained with Guardiola-level detail.</p>
+                </div>
+            </a>
+            <a href="research-desk.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
+                <div class="nav-guide-icon">🎬</div>
+                <div class="nav-guide-text">
+                    <h4>The Film Room — "Breaking Down Tape"</h4>
+                    <p>Pull up the tape on any player, team, or matchup. The full scouting database, coach-style.</p>
+                </div>
+            </a>
+            <a href="about.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
+                <div class="nav-guide-icon">🌹</div>
+                <div class="nav-guide-text">
+                    <h4>About — "The Origin Story"</h4>
+                    <p>The story, the vision, the Founder. How Statsledge came to be.</p>
+                </div>
+            </a>
+            <a href="/boardroom/index.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
+                <div class="nav-guide-icon">📡</div>
+                <div class="nav-guide-text">
+                    <h4>The Boardroom — "Front Office Moves"</h4>
+                    <p>Florentino's war room. Tickets, sprints, agent roster. GM meets tech sprint.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main" role="main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-glow"></div>
+            <div class="hero-badge">🏏 IPL 2026 Pre-Season Analytics</div>
+            <div class="typewriter-container">
+                <div class="hero-brand">
+                    <div class="hero-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
+  <defs><linearGradient id="hg1" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#3B82F6" stop-opacity="0.2"/><stop offset="100%" stop-color="#3B82F6" stop-opacity="0.9"/></linearGradient><linearGradient id="hg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#60A5FA"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient></defs>
+  <rect x="1" y="1" width="34" height="34" rx="8" fill="#0F172A" stroke="rgba(59,130,246,0.25)" stroke-width="1"/>
+  <rect x="7" y="21" width="5" height="9" rx="2" fill="url(#hg1)"/><rect x="15.5" y="15" width="5" height="15" rx="2" fill="url(#hg1)"/><rect x="24" y="8" width="5" height="22" rx="2" fill="url(#hg2)"/>
+  <circle cx="9.5" cy="19" r="2" fill="#60A5FA"/><circle cx="18" cy="13" r="2" fill="#60A5FA"/><circle cx="26.5" cy="6.5" r="2.5" fill="#3B82F6" stroke="#60A5FA" stroke-width="1"/>
+  <path d="M9.5 19 L18 13 L26.5 6.5" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+</svg></div>
+                    <h1 class="hero-title" id="hero-title"><span class="brand-stat">STAT</span><span class="brand-accent">SLEDGE</span></h1>
+                </div>
+            </div>
+            <div class="hero-accent-bar"></div>
+            <p class="hero-subtitle">
+                Your all-access pass to the analytics that power IPL 2026 assessments.
+                Where strategy meets execution. Where the game is won before the toss.
+            </p>
+            <p class="hero-tagline">"The most comprehensive cricket analytics magazine"</p>
+        </section>
+
+        <!-- Quick Stats -->
+        <section class="stats-container">
+            <div class="stats-bg"></div>
+            <div class="stats-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-prefix">All</div>
+                    <div class="stat-value">10</div>
+                    <div class="stat-label has-tooltip" data-tooltip="Chennai, Mumbai, Bangalore, Kolkata, Delhi, Punjab, Rajasthan, Hyderabad, Gujarat, Lucknow">IPL Teams</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-prefix">Over</div>
+                    <div class="stat-value">200</div>
+                    <div class="stat-label has-tooltip" data-tooltip="Players clustered and analyzed using K-Means ML model">Players Analyzed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-prefix">Over</div>
+                    <div class="stat-value">200</div>
+                    <div class="stat-label has-tooltip" data-tooltip="T20 matches analyzed for performance metrics">Matches Analyzed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-prefix">Over</div>
+                    <div class="stat-value">50</div>
+                    <div class="stat-label has-tooltip" data-tooltip="Stat packs, depth charts, and projected XIs">Reports Generated</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Teams -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="icon">🏆</span>
+                    Projected XIs - IPL 2026
+                </h2>
+                <a href="teams.html" class="section-link">View all teams →</a>
+            </div>
+            <div class="teams-grid" id="teams-grid">
+                <!-- Populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Navigation Cards - What Each Section Offers -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="icon">📊</span>
+                    Explore Statsledge
+                </h2>
+            </div>
+            <p class="section-intro" style="text-align: center; color: var(--text-secondary); max-width: 700px; margin: 0 auto 32px; padding: 0 16px; font-size: 15px; line-height: 1.6;">
+                Everything you need to stay ahead of IPL 2026. From AI-powered team assessments to research-backed methodologies, pick your starting point below.
+            </p>
+            <div class="nav-cards">
+                <a href="teams.html" class="nav-card">
+                    <div class="nav-card-icon">🏏</div>
+                    <h3>Browse by Team</h3>
+                    <p><strong>Use this to:</strong> See projected XIs for any IPL team, explore squad depth, view player roles, and compare rosters. Start here if you want team-specific insights.</p>
+                </a>
+                <a href="artifacts.html" class="nav-card">
+                    <div class="nav-card-icon">📊</div>
+                    <h3>Artifacts</h3>
+                    <p><strong>Use this to:</strong> Compare all 10 teams at once. View depth charts, matchup matrices, and player tags in sortable tables. Great for cross-team scouting and head-to-head analysis.</p>
+                </a>
+                <a href="analysis.html" class="nav-card">
+                    <div class="nav-card-icon">🔬</div>
+                    <h3>Deep Analysis</h3>
+                    <p><strong>Use this to:</strong> Find matchup advantages, performance trends, and advanced metrics. Best for understanding why players succeed or struggle in specific situations.</p>
+                </a>
+                <a href="research.html" class="nav-card">
+                    <div class="nav-card-icon">📚</div>
+                    <h3>Research & Methodology</h3>
+                    <p><strong>Use this to:</strong> Learn how we built our analytics. See our PFF-inspired grading system, KenPom efficiency metrics, and the algorithms behind our assessments.</p>
+                </a>
+                <a href="research-desk.html" class="nav-card">
+                    <div class="nav-card-icon">🎬</div>
+                    <h3>The Film Room</h3>
+                    <p><strong>Use this to:</strong> Break down game tape like a coaching staff. Query every delivery, every matchup, every season. Build your own scouting reports and export the findings.</p>
+                </a>
+                <a href="about.html" class="nav-card">
+                    <div class="nav-card-icon">🌹</div>
+                    <h3>About Statsledge</h3>
+                    <p><strong>Use this to:</strong> Meet the AI agents behind the analytics, understand our mission, and see what makes Statsledge different from other platforms.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer" role="contentinfo">
+            <div class="footer-links">
+                <a href="/boardroom/index.html">Mission Control</a>
+                <a href="https://github.com/dwijesh-r/cricket-playbook" target="_blank">GitHub</a>
+                <a href="about.html">About</a>
+            </div>
+            <p class="footer-text">
+                Statsledge © 2026 | IPL 2026 Pre-Season Analytics | Data: 2023-2025 (219 matches)
+            </p>
+        </footer>
+    </main>
+
+    <!-- Data Files -->
+    <script src="data/teams.js"></script>
+    <script src="data/predicted_xii.js"></script>
+
+    <script>
+        // ==================== AGENT INTRO SYSTEM ====================
+        // All agents with their trophy moments, sports, and styling
+        const AGENTS = {
+            // ========== NFL PLAYERS ==========
+            'tom-brady': {
+                name: 'Tom Brady',
+                role: 'Product Owner',
+                sport: 'nfl',
+                trophy: 'lombardi',
+                trophyLabel: '7× Super Bowl Champion',
+                jerseyNumber: '12',
+                hair: { color: '#3d2b1f', style: 'short' },
+                jersey: { main: '#002244', accent: '#c60c30' }, // Patriots navy/red
+                shorts: '#002244',
+                skin: { color: '#e8c4a0', dark: '#d4b08a', light: '#f0d4b8' }, // Light Caucasian
+                build: 'athletic',
+                hasBeard: false
+            },
+            'brock-purdy': {
+                name: 'Brock Purdy',
+                role: 'Data Pipeline',
+                sport: 'nfl',
+                trophy: 'nfc',
+                trophyLabel: 'NFC Champion',
+                jerseyNumber: '13',
+                hair: { color: '#2a1f15', style: 'short' },
+                jersey: { main: '#aa0000', accent: '#b3995d' }, // 49ers red/gold
+                shorts: '#b3995d',
+                skin: { color: '#e8c4a0', dark: '#d4b08a', light: '#f0d4b8' }, // Light Caucasian
+                build: 'athletic',
+                hasBeard: false
+            },
+
+            // ========== NBA PLAYERS ==========
+            'stephen-curry': {
+                name: 'Stephen Curry',
+                role: 'Analytics Lead',
+                sport: 'nba',
+                trophy: 'nba',
+                trophyLabel: '4× NBA Champion',
+                jerseyNumber: '30',
+                hair: { color: '#1a1410', style: 'short' },
+                jersey: { main: '#1d428a', accent: '#ffc72c' }, // Warriors blue/gold
+                shorts: '#1d428a',
+                skin: { color: '#8d6b4a', dark: '#7a5c3e', light: '#9d7b5a' }, // Light brown
+                build: 'athletic',
+                hasBeard: true,
+                beardStyle: 'stubble', // Short, neat beard
+                beardColor: '#1a1410'
+            },
+            'lebron-james': {
+                name: 'LeBron James',
+                role: 'Social & Engagement',
+                sport: 'nba',
+                trophy: 'nba',
+                trophyLabel: '4× NBA Champion',
+                jerseyNumber: '23',
+                hair: { color: '#1a1410', style: 'short' },
+                jersey: { main: '#552583', accent: '#fdb927' }, // Lakers purple/gold
+                shorts: '#552583',
+                skin: { color: '#5c3d2e', dark: '#4a3022', light: '#6d4a3a' }, // Dark brown
+                build: 'muscular',
+                hasBeard: true,
+                beardStyle: 'full', // Full iconic beard
+                beardColor: '#1a1410'
+            },
+
+            // ========== CRICKET PLAYERS ==========
+            'virat-kohli': {
+                name: 'Virat Kohli',
+                role: 'Cricket Legend',
+                sport: 'cricket',
+                trophy: 'ipl',
+                trophyLabel: 'IPL 2025 Champion',
+                jerseyNumber: '18',
+                hair: { color: '#1a1410', style: 'styled' },
+                jersey: { main: '#ec1c24', accent: '#d4af37' }, // RCB red with gold
+                shorts: '#1a1a1a', // Cricket whites/dark
+                pantsColor: '#1a1a1a',
+                skin: { color: '#a67c52', dark: '#8a6642', light: '#b88c62' }, // Indian brown
+                build: 'athletic',
+                hasBeard: true,
+                beardStyle: 'full', // Full Indian cricket beard
+                beardColor: '#1a1410',
+                hasFullPants: true // Cricket players wear full pants
+            },
+
+            // ========== SOCCER PLAYERS ==========
+            'kdb': {
+                name: 'Kevin de Bruyne',
+                role: 'Visualization',
+                sport: 'soccer',
+                trophy: 'premier-league',
+                trophyLabel: 'Premier League Champion',
+                jerseyNumber: '17',
+                hair: { color: '#c9a86c', style: 'blonde' }, // Ginger-blonde
+                jersey: { main: '#6CABDD', accent: '#1C2C5B' }, // Man City sky blue
+                shorts: '#1C2C5B',
+                skin: { color: '#f0d4b8', dark: '#e0c4a8', light: '#ffe4c8' }, // Fair European
+                build: 'athletic',
+                hasBeard: true,
+                beardStyle: 'stubble', // Ginger stubble
+                beardColor: '#b8956a'
+            },
+            'kante': {
+                name: "N'Golo Kante",
+                role: 'QA Lead',
+                sport: 'soccer',
+                trophy: 'world-cup',
+                trophyLabel: 'World Cup 2018',
+                jerseyNumber: '13',
+                hair: { color: '#0f0a08', style: 'short' },
+                jersey: { main: '#002654', accent: '#ED2939' }, // France navy/red
+                shorts: '#002654',
+                skin: { color: '#4a3628', dark: '#3a2618', light: '#5a4638' }, // Dark African
+                build: 'slim', // Kanté is known for being compact
+                hasBeard: false
+            },
+
+            // ========== COACHES/EXECUTIVES - BLACK SUITS WITH TEAM ACCENTS ==========
+            'jose-mourinho': {
+                name: 'José Mourinho',
+                role: 'Data Science',
+                sport: 'soccer',
+                trophy: 'ucl',
+                trophyLabel: '2× UCL Champion',
+                jerseyNumber: null,
+                hair: { color: '#6b6b6b', style: 'grey' },
+                jersey: { main: '#1a1a1a', accent: '#010e80' }, // Black suit base
+                shorts: null,
+                skin: { color: '#d4b08a', dark: '#c4a07a', light: '#e4c09a' }, // Portuguese/Mediterranean olive
+                build: 'athletic',
+                hasBeard: false,
+                hasCoat: false,
+                hasSuit: true,
+                suitColor: '#1a1a1a', // BLACK suit
+                suitDark: '#0f0f0f',
+                suitAccent: '#010e80', // Inter blue accent on lapel
+                tieColor: '#010e80', // Inter blue tie
+                hasScarf: false
+            },
+            'pep-guardiola': {
+                name: 'Pep Guardiola',
+                role: 'Sprint Master',
+                sport: 'soccer',
+                trophy: 'premier-league',
+                trophyLabel: 'Treble Winner 2023',
+                jerseyNumber: null,
+                hair: { color: '#4a4a4a', style: 'bald' }, // Bald
+                jersey: { main: '#1a1a1a', accent: '#6cabdd' },
+                shorts: null,
+                skin: { color: '#d4b08a', dark: '#c4a07a', light: '#e4c09a' }, // Spanish/Mediterranean olive
+                build: 'slim',
+                hasBeard: true,
+                beardStyle: 'goatee', // Signature Pep goatee
+                beardColor: '#4a4a4a',
+                hasCoat: false,
+                hasSuit: true,
+                suitColor: '#1a1a1a', // BLACK suit
+                suitDark: '#0f0f0f',
+                suitAccent: '#6cabdd', // City blue accent
+                tieColor: '#6cabdd', // City blue tie
+                hasScarf: true,
+                scarfColor: '#6cabdd'
+            },
+            'florentino': {
+                name: 'Florentino Pérez',
+                role: 'Chief Strategist',
+                sport: 'soccer',
+                trophy: 'ucl',
+                trophyLabel: '6× UCL President',
+                jerseyNumber: null,
+                hair: { color: '#888888', style: 'grey' }, // Silver grey
+                jersey: { main: '#1a1a1a', accent: '#febe10' },
+                shorts: null,
+                skin: { color: '#e8c4a0', dark: '#d8b490', light: '#f8d4b0' }, // Spanish fair
+                build: 'slim',
+                hasBeard: false,
+                hasCoat: false,
+                hasSuit: true,
+                suitColor: '#1a1a1a', // BLACK suit
+                suitDark: '#0f0f0f',
+                suitAccent: '#febe10', // Real Madrid gold
+                tieColor: '#febe10' // Gold tie
+            },
+            'andy-flower': {
+                name: 'Andy Flower',
+                role: 'Cricket Expert',
+                sport: 'cricket',
+                trophy: 'ipl',
+                trophyLabel: 'IPL 2025 Champion',
+                jerseyNumber: null,
+                hair: { color: '#555555', style: 'grey' },
+                jersey: { main: '#ec1c24', accent: '#000000' },
+                shorts: '#000000',
+                skin: { color: '#e8c4a0', dark: '#d4b08a', light: '#f0d4b8' }, // Zimbabwean-British fair
+                build: 'athletic',
+                hasBeard: false,
+                hasCoat: false,
+                hasTracksuit: true,
+                tracksuitMain: '#ec1c24', // RCB red
+                tracksuitDark: '#c41017',
+                tracksuitAccent: '#d4af37', // Gold trim
+                tracksuitCollar: '#000000',
+                tracksuitShorts: '#000000'
+            },
+            'brad-stevens': {
+                name: 'Brad Stevens',
+                role: 'Architecture',
+                sport: 'nba',
+                trophy: 'nba',
+                trophyLabel: '2024 NBA Champion',
+                jerseyNumber: null,
+                hair: { color: '#4a3d2f', style: 'short' },
+                jersey: { main: '#1a1a1a', accent: '#007a33' },
+                shorts: null,
+                skin: { color: '#e8c4a0', dark: '#d4b08a', light: '#f0d4b8' }, // Caucasian
+                build: 'slim',
+                hasBeard: false,
+                hasCoat: false,
+                hasSuit: true,
+                suitColor: '#1a1a1a', // BLACK suit
+                suitDark: '#0f0f0f',
+                suitAccent: '#007a33', // Celtics green accent
+                tieColor: '#007a33' // Green tie
+            },
+            'ime-udoka': {
+                name: 'Ime Udoka',
+                role: 'DevOps Lead',
+                sport: 'nba',
+                trophy: 'nba',
+                trophyLabel: 'Eastern Conference Finals',
+                jerseyNumber: null,
+                hair: { color: '#0f0a08', style: 'short' },
+                jersey: { main: '#1a1a1a', accent: '#007a33' },
+                shorts: null,
+                skin: { color: '#6d4a3a', dark: '#5d3a2a', light: '#7d5a4a' }, // Nigerian-American brown
+                build: 'athletic',
+                hasBeard: true,
+                beardStyle: 'full', // Full beard
+                beardColor: '#0f0a08',
+                hasCoat: false,
+                hasSuit: true,
+                suitColor: '#1a1a1a', // BLACK suit
+                suitDark: '#0f0f0f',
+                suitAccent: '#007a33', // Celtics green accent
+                tieColor: '#007a33' // Green tie
+            },
+            'jayson-tatum': {
+                name: 'Jayson Tatum',
+                role: 'UX & Reader Flow',
+                sport: 'nba',
+                trophy: 'nba',
+                trophyLabel: '2024 NBA Champion',
+                jerseyNumber: '0',
+                hair: { color: '#1a1a1a', style: 'short' }, // Flat-top fade
+                jersey: { main: '#007a33', accent: '#ba9653' }, // Celtics green/gold
+                shorts: '#007a33',
+                skin: { color: '#c49a6c', dark: '#b08a5c', light: '#d4aa7c' }, // Light-skinned
+                build: 'athletic',
+                hasBeard: true,
+                beardStyle: 'goatee', // Signature goatee
+                beardColor: '#1a1a1a'
+            }
+        };
+
+        // Get random agents for intro
+        function getRandomAgents(count = 3) {
+            const agentKeys = Object.keys(AGENTS);
+            const shuffled = agentKeys.sort(() => Math.random() - 0.5);
+            return shuffled.slice(0, count);
+        }
+
+        // Get stadium class based on sport
+        function getStadiumClass(sport) {
+            const stadiums = {
+                'nfl': 'stadium-nfl',
+                'nba': 'stadium-nba',
+                'soccer': 'stadium-soccer',
+                'cricket': 'stadium-cricket'
+            };
+            return stadiums[sport] || 'stadium-soccer';
+        }
+
+        // Initialize intro with random agents
+        function initializeIntro() {
+            const overlay = document.getElementById('intro-overlay');
+            const grid = document.getElementById('intro-grid');
+            if (!overlay || !grid) return;
+
+            const selectedAgents = getRandomAgents(3);
+
+            // Determine dominant sport for background
+            const sports = selectedAgents.map(key => AGENTS[key].sport);
+            const sportCounts = sports.reduce((acc, sport) => {
+                acc[sport] = (acc[sport] || 0) + 1;
+                return acc;
+            }, {});
+            const dominantSport = Object.keys(sportCounts).reduce((a, b) =>
+                sportCounts[a] > sportCounts[b] ? a : b
+            );
+
+            // Apply stadium background
+            overlay.classList.add(getStadiumClass(dominantSport));
+
+            // Generate boxes for each agent
+            grid.innerHTML = selectedAgents.map((agentKey, index) => {
+                const agent = AGENTS[agentKey];
+                const delay = 0.3 + (index * 0.7);
+                return generateAgentBox(agent, agentKey, index, delay);
+            }).join('');
+        }
+
+        // Generate HTML for an agent box
+        function generateAgentBox(agent, key, index, delay) {
+            const athleteHTML = generateAthleteHTML(agent);
+
+            // Trophy icon based on sport
+            const trophyIcons = {
+                'nfl': '🏈',
+                'nba': '🏀',
+                'soccer': '⚽',
+                'cricket': '🏏'
+            };
+            const trophyIcon = trophyIcons[agent.sport] || '🏆';
+
+            // Team names for card badges
+            const teamNames = {
+                'tom-brady': 'Patriots',
+                'brock-purdy': '49ers',
+                'stephen-curry': 'Warriors',
+                'lebron-james': 'Lakers',
+                'virat-kohli': 'RCB',
+                'kdb': 'Man City',
+                'kante': 'France',
+                'jose-mourinho': 'Inter',
+                'pep-guardiola': 'Man City',
+                'florentino': 'Real Madrid',
+                'brad-stevens': 'Celtics',
+                'ime-udoka': 'Celtics',
+                'jayson-tatum': 'Celtics',
+                'andy-flower': 'RCB'
+            };
+            const teamName = teamNames[key] || '';
+
+            // Build CSS variables for inline style
+            const jerseyDark = adjustColor(agent.jersey.main, -25);
+            let cssVars = `--delay: ${delay}s; --jersey-main: ${agent.jersey.main}; --jersey-dark: ${jerseyDark}; --jersey-accent: ${agent.jersey.accent}; --shorts-color: ${agent.shorts || agent.jersey.main}; --hair-color: ${agent.hair.color};`;
+
+            // Add skin tone CSS variables
+            if (agent.skin) {
+                cssVars += ` --skin-color: ${agent.skin.color}; --skin-dark: ${agent.skin.dark || adjustColor(agent.skin.color, -15)}; --skin-light: ${agent.skin.light || adjustColor(agent.skin.color, 15)};`;
+            }
+
+            // Add pants color for full pants
+            if (agent.hasFullPants) {
+                cssVars += ` --pants-color: ${agent.pantsColor || agent.shorts || agent.jersey.main};`;
+            }
+
+            // Add suit-specific CSS variables
+            if (agent.hasSuit) {
+                cssVars += ` --suit-color: ${agent.suitColor || agent.jersey.main}; --suit-dark: ${agent.suitDark || adjustColor(agent.suitColor || agent.jersey.main, -20)}; --suit-accent: ${agent.suitAccent || agent.jersey.accent}; --tie-color: ${agent.tieColor || agent.jersey.accent}; --tie-dark: ${adjustColor(agent.tieColor || agent.jersey.accent, -30)};`;
+            }
+
+            // Add tracksuit-specific CSS variables
+            if (agent.hasTracksuit) {
+                cssVars += ` --tracksuit-main: ${agent.tracksuitMain || agent.jersey.main}; --tracksuit-dark: ${agent.tracksuitDark || adjustColor(agent.tracksuitMain || agent.jersey.main, -20)}; --tracksuit-accent: ${agent.tracksuitAccent || '#d4af37'}; --tracksuit-collar: ${agent.tracksuitCollar || '#000000'}; --tracksuit-shorts: ${agent.tracksuitShorts || agent.shorts || '#000000'};`;
+            }
+
+            // Add scarf CSS variable
+            if (agent.hasScarf) {
+                cssVars += ` --scarf-color: ${agent.scarfColor || agent.jersey.accent};`;
+            }
+
+            return `
+                <div class="intro-box intro-box-dynamic"
+                     data-agent="${key}"
+                     data-sport="${agent.sport}"
+                     style="${cssVars}">
+                    ${agent.jerseyNumber ? `<div class="card-badge jersey-badge">${agent.jerseyNumber}</div>` : ''}
+                    ${teamName ? `<div class="card-badge team-badge">${teamName}</div>` : ''}
+                    <div class="figure">
+                        ${athleteHTML}
+                    </div>
+                    <div class="flash flash-1"></div>
+                    <div class="flash flash-2"></div>
+                    <div class="flash flash-3"></div>
+                    <div class="label-group">
+                        <div class="name">${agent.name}</div>
+                        <div class="trophy-ticker">
+                            <span class="trophy-icon">${trophyIcon}</span>
+                            <span class="trophy-text">${agent.trophyLabel}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Generate trophy HTML based on type
+        function generateTrophyHTML(trophyType) {
+            const trophies = {
+                'lombardi': `<div class="lombardi"><div class="football"></div><div class="stand"></div><div class="base"></div><div class="base-plate"></div></div>`,
+                'ipl': `<div class="ipl-trophy"><div class="handle-left"></div><div class="handle-right"></div><div class="cup"></div><div class="node"></div><div class="stem"></div><div class="base-top"></div><div class="base-mid"></div><div class="base-bottom"></div><div class="nameplate"></div></div>`,
+                'ucl': `<div class="ucl-trophy"><div class="ear-left"></div><div class="ear-right"></div><div class="cup"></div><div class="ring ring-1"></div><div class="ring ring-2"></div><div class="stem"></div><div class="base"></div></div>`,
+                'nba': `<div class="nba-trophy"><div class="ball"></div><div class="net"></div><div class="stem"></div><div class="base"></div></div>`,
+                'premier-league': `<div class="pl-trophy"><div class="crown"></div><div class="handles"></div><div class="bowl"></div><div class="stem"></div><div class="base"></div></div>`,
+                'world-cup': `<div class="wc-trophy"><div class="globe"></div><div class="figures"></div><div class="stem"></div><div class="base"></div></div>`,
+                'world-cup-cricket': `<div class="cwc-trophy"><div class="globe"></div><div class="cup"></div><div class="stem"></div><div class="base"></div></div>`,
+                'nfc': `<div class="nfc-trophy"><div class="football"></div><div class="stand"></div><div class="base"></div></div>`
+            };
+            return trophies[trophyType] || trophies['ucl'];
+        }
+
+        // Generate jersey back or suit back HTML
+        function generateAthleteHTML(agent) {
+            // Check if this is a manager/executive (suit) or player (jersey)
+            const isSuit = agent.hasSuit || agent.hasCoat || agent.hasTracksuit;
+
+            // Get last name for jersey back
+            const nameParts = agent.name.split(' ');
+            const lastName = nameParts[nameParts.length - 1].toUpperCase();
+
+            if (isSuit) {
+                // Suit back for managers/executives
+                return `
+                    <div class="jersey-back suit-back">
+                        <div class="sleeve sleeve-left"></div>
+                        <div class="sleeve sleeve-right"></div>
+                        <div class="jersey">
+                            <div class="lapel lapel-left"></div>
+                            <div class="lapel lapel-right"></div>
+                            <div class="back-seam"></div>
+                            <div class="player-name">${lastName}</div>
+                            <div class="back-number">${agent.role || 'EXEC'}</div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                // Jersey back for players
+                return `
+                    <div class="jersey-back">
+                        <div class="sleeve sleeve-left"></div>
+                        <div class="sleeve sleeve-right"></div>
+                        <div class="jersey">
+                            <div class="player-name">${lastName}</div>
+                            <div class="back-number">${agent.jerseyNumber || ''}</div>
+                            <div class="accent-stripe"></div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // Helper to darken/lighten colors
+        function adjustColor(hex, percent) {
+            const num = parseInt(hex.replace('#', ''), 16);
+            const amt = Math.round(2.55 * percent);
+            const R = Math.max(0, Math.min(255, (num >> 16) + amt));
+            const G = Math.max(0, Math.min(255, ((num >> 8) & 0x00FF) + amt));
+            const B = Math.max(0, Math.min(255, (num & 0x0000FF) + amt));
+            return '#' + (0x1000000 + R * 0x10000 + G * 0x100 + B).toString(16).slice(1);
+        }
+
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            const btn = document.querySelector('.theme-toggle');
+            btn.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+            btn.setAttribute('aria-label', newTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-nav-menu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            const isOpen = menu.classList.toggle('active');
+            btn.classList.toggle('active');
+            btn.setAttribute('aria-expanded', isOpen);
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav-menu .nav-tab').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-nav-menu').classList.remove('active');
+                document.querySelector('.mobile-menu-btn').classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('mobile-nav-menu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            if (menu && menu.classList.contains('active') && !menu.contains(e.target) && !btn.contains(e.target)) {
+                menu.classList.remove('active');
+                btn.classList.remove('active');
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Navigation Guide functions
+        function toggleNavGuide() {
+            const overlay = document.getElementById('nav-guide-overlay');
+            overlay.classList.toggle('active');
+        }
+        function closeNavGuide(event) {
+            if (event.target.id === 'nav-guide-overlay') {
+                toggleNavGuide();
+            }
+        }
+        // Close nav guide with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.getElementById('nav-guide-overlay').classList.remove('active');
+            }
+        });
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+
+        // Pixelated Team Logos (8x8 grid style)
+        const TEAM_PIXEL_LOGOS = {
+            MI: `<svg viewBox="0 0 8 8" class="pixel-logo">
+                <rect fill="#004ba0" width="8" height="8"/>
+                <rect fill="#d4af37" x="2" y="1" width="1" height="5"/>
+                <rect fill="#d4af37" x="5" y="1" width="1" height="5"/>
+                <rect fill="#d4af37" x="3" y="2" width="1" height="1"/>
+                <rect fill="#d4af37" x="4" y="3" width="1" height="1"/>
+                <rect fill="#d4af37" x="3" y="4" width="1" height="1"/>
+            </svg>`,
+            CSK: `<svg viewBox="0 0 8 8" class="pixel-logo">
+                <rect fill="#ffc20e" width="8" height="8"/>
+                <rect fill="#0081e9" x="3" y="1" width="2" height="2"/>
+                <rect fill="#0081e9" x="2" y="3" width="4" height="1"/>
+                <rect fill="#0081e9" x="2" y="4" width="1" height="2"/>
+                <rect fill="#0081e9" x="5" y="4" width="1" height="2"/>
+                <rect fill="#0081e9" x="3" y="6" width="2" height="1"/>
+            </svg>`,
+            RCB: `<svg viewBox="0 0 8 8" class="pixel-logo">
+                <rect fill="#d4213d" width="8" height="8"/>
+                <rect fill="#000000" x="3" y="1" width="2" height="2"/>
+                <rect fill="#d4af37" x="2" y="3" width="4" height="1"/>
+                <rect fill="#d4af37" x="1" y="4" width="2" height="2"/>
+                <rect fill="#d4af37" x="5" y="4" width="2" height="2"/>
+                <rect fill="#000000" x="3" y="5" width="2" height="2"/>
+            </svg>`,
+            KKR: `<svg viewBox="0 0 8 8" class="pixel-logo">
+                <rect fill="#3a225d" width="8" height="8"/>
+                <rect fill="#d4af37" x="3" y="0" width="2" height="2"/>
+                <rect fill="#d4af37" x="2" y="2" width="4" height="1"/>
+                <rect fill="#d4af37" x="2" y="3" width="1" height="3"/>
+                <rect fill="#d4af37" x="5" y="3" width="1" height="3"/>
+                <rect fill="#d4af37" x="3" y="4" width="2" height="1"/>
+                <rect fill="#d4af37" x="3" y="6" width="2" height="2"/>
+            </svg>`,
+            DC: `<svg viewBox="0 0 8 8" class="pixel-logo">
+                <rect fill="#0078bc" width="8" height="8"/>
+                <rect fill="#ef1b23" x="2" y="1" width="4" height="1"/>
+                <rect fill="#ef1b23" x="1" y="2" width="2" height="2"/>
+                <rect fill="#ef1b23" x="5" y="2" width="2" height="2"/>
+                <rect fill="#ffffff" x="3" y="2" width="2" height="3"/>
+                <rect fill="#ef1b23" x="2" y="5" width="4" height="2"/>
+            </svg>`,
+            PBKS: `<svg viewBox="0 0 8 8" class="pixel-logo">
+                <rect fill="#ed1b24" width="8" height="8"/>
+                <rect fill="#a7a9ac" x="3" y="1" width="2" height="2"/>
+                <rect fill="#a7a9ac" x="2" y="3" width="4" height="1"/>
+                <rect fill="#a7a9ac" x="1" y="4" width="2" height="2"/>
+                <rect fill="#a7a9ac" x="5" y="4" width="2" height="2"/>
+                <rect fill="#a7a9ac" x="3" y="6" width="2" height="1"/>
+            </svg>`,
+            RR: `<svg viewBox="0 0 8 8" class="pixel-logo">
+                <rect fill="#ea1a85" width="8" height="8"/>
+                <rect fill="#254aa5" x="1" y="2" width="1" height="2"/>
+                <rect fill="#254aa5" x="6" y="2" width="1" height="2"/>
+                <rect fill="#d4af37" x="2" y="1" width="4" height="1"/>
+                <rect fill="#d4af37" x="2" y="2" width="1" height="1"/>
+                <rect fill="#d4af37" x="5" y="2" width="1" height="1"/>
+                <rect fill="#d4af37" x="3" y="3" width="2" height="1"/>
+                <rect fill="#254aa5" x="2" y="4" width="4" height="3"/>
+            </svg>`,
+            SRH: `<svg viewBox="0 0 8 8" class="pixel-logo">
+                <rect fill="#f7a721" width="8" height="8"/>
+                <rect fill="#000000" x="3" y="0" width="2" height="2"/>
+                <rect fill="#000000" x="2" y="2" width="1" height="1"/>
+                <rect fill="#000000" x="5" y="2" width="1" height="1"/>
+                <rect fill="#000000" x="1" y="3" width="1" height="1"/>
+                <rect fill="#000000" x="6" y="3" width="1" height="1"/>
+                <rect fill="#000000" x="0" y="4" width="1" height="2"/>
+                <rect fill="#000000" x="7" y="4" width="1" height="2"/>
+                <rect fill="#000000" x="1" y="6" width="6" height="1"/>
+            </svg>`,
+            GT: `<svg viewBox="0 0 8 8" class="pixel-logo">
+                <rect fill="#1c1c1c" width="8" height="8"/>
+                <rect fill="#d5a239" x="2" y="1" width="4" height="1"/>
+                <rect fill="#d5a239" x="1" y="2" width="6" height="1"/>
+                <rect fill="#d5a239" x="1" y="3" width="1" height="2"/>
+                <rect fill="#d5a239" x="6" y="3" width="1" height="2"/>
+                <rect fill="#d5a239" x="2" y="4" width="4" height="1"/>
+                <rect fill="#d5a239" x="3" y="5" width="2" height="2"/>
+            </svg>`,
+            LSG: `<svg viewBox="0 0 8 8" class="pixel-logo">
+                <rect fill="#a72056" width="8" height="8"/>
+                <rect fill="#ffcc00" x="3" y="0" width="2" height="2"/>
+                <rect fill="#ffcc00" x="2" y="2" width="4" height="1"/>
+                <rect fill="#00b7eb" x="2" y="3" width="1" height="3"/>
+                <rect fill="#00b7eb" x="5" y="3" width="1" height="3"/>
+                <rect fill="#00b7eb" x="3" y="4" width="2" height="1"/>
+                <rect fill="#ffcc00" x="1" y="5" width="1" height="1"/>
+                <rect fill="#ffcc00" x="6" y="5" width="1" height="1"/>
+                <rect fill="#00b7eb" x="3" y="6" width="2" height="2"/>
+            </svg>`
+        };
+
+        // Populate Teams Grid
+        function populateTeamsGrid() {
+            const grid = document.getElementById('teams-grid');
+            grid.innerHTML = '';
+
+            TEAM_ORDER.forEach(abbrev => {
+                const team = TEAMS[abbrev];
+                const rating = DEPTH_CHART_RATINGS[abbrev];
+                const pixelLogo = TEAM_PIXEL_LOGOS[abbrev] || team.icon;
+
+                const card = document.createElement('a');
+                card.href = `teams.html?team=${abbrev}`;
+                card.className = 'team-card';
+                card.style.setProperty('--team-color', team.primaryColor);
+
+                card.innerHTML = `
+                    <div class="team-header">
+                        <div class="team-icon">${pixelLogo}</div>
+                        <div class="team-info">
+                            <h3>${team.fullName}</h3>
+                            <p>${team.homeVenue}</p>
+                        </div>
+                    </div>
+                    <div class="team-rating">
+                        <div class="rating-badge">⭐ ${rating.overall.toFixed(1)}</div>
+                        <div class="rating-label">Overall Depth Rating</div>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        // Timer - User's local timezone
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('navTime').textContent = now.toLocaleTimeString('en-US', { hour12: false });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeIntro();  // Random agents intro
+            populateTeamsGrid();
+            updateTime();  // Initialize time
+            setInterval(updateTime, 1000);  // Update every second
+        });
+
+    // TKT-278: Table scroll indicators
+    document.querySelectorAll('.table-scroll-wrapper').forEach(function(wrapper) {
+        wrapper.addEventListener('scroll', function() {
+            var atStart = this.scrollLeft > 10;
+            var atEnd = this.scrollLeft + this.clientWidth >= this.scrollWidth - 10;
+            this.classList.toggle('scrolled-start', atStart);
+            this.classList.toggle('scrolled-end', atEnd);
+        });
+    });
+
+    // TKT-273: Keyboard navigation for tabs and menus
+    document.querySelectorAll('[role="tablist"]').forEach(function(tablist) {
+        tablist.addEventListener('keydown', function(e) {
+            var tabs = Array.from(this.querySelectorAll('[role="tab"]'));
+            var idx = tabs.indexOf(document.activeElement);
+            if (idx === -1) return;
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                e.preventDefault();
+                tabs[(idx + 1) % tabs.length].focus();
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                e.preventDefault();
+                tabs[(idx - 1 + tabs.length) % tabs.length].focus();
+            }
+        });
+    });
+    // Escape closes mobile nav/modals
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.mobile-nav-dropdown.active, .mobile-nav-overlay.active').forEach(function(el) {
+                el.classList.remove('active');
+            });
+            var modal = document.querySelector('.modal.active, .modal.show, [data-modal].active');
+            if (modal) modal.classList.remove('active', 'show');
+        }
+    });
+
+</script>
+</body>
+</html>

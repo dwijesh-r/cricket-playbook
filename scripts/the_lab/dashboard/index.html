@@ -930,6 +930,40 @@
 
         .section-link:hover { text-decoration: underline; }
 
+        /* ==================== TEAM TABS ==================== */
+        .team-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: var(--space-4);
+            padding: 4px;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+        }
+        .team-tab {
+            padding: 8px 16px;
+            border-radius: var(--radius-md);
+            font-size: 13px;
+            font-weight: 600;
+            font-family: var(--font-body);
+            color: var(--text-secondary);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all 150ms ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .team-tab:hover {
+            color: var(--text-primary);
+            background: rgba(148, 163, 184, 0.08);
+        }
+        .team-tab.active {
+            color: white;
+            background: var(--accent);
+        }
+
         /* ==================== TEAM CARDS ==================== */
         .teams-grid {
             display: grid;
@@ -1051,22 +1085,24 @@
         /* ==================== NAVIGATION CARDS ==================== */
         .nav-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: var(--space-4);
-            margin-top: var(--space-6);
+            grid-template-columns: repeat(5, 1fr);
+            gap: var(--space-3);
+            margin-top: var(--space-4);
         }
 
         .nav-card {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: var(--radius-sm);
-            padding: var(--space-5);
+            padding: var(--space-4);
             text-decoration: none;
             color: inherit;
             transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
             display: flex;
             flex-direction: column;
-            gap: var(--space-3);
+            align-items: center;
+            text-align: center;
+            gap: var(--space-2);
             box-shadow: var(--elevation-1);
             position: relative;
             overflow: visible;
@@ -1187,14 +1223,14 @@
 
             /* Navigation Cards */
             .nav-cards {
-                grid-template-columns: 1fr;
-                gap: var(--space-3);
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--space-2);
                 padding: 0 16px;
             }
-            .nav-card { padding: var(--space-4); }
-            .nav-card h3 { font-size: 16px; }
-            .nav-card p { font-size: 13px; }
-            .nav-card-icon { font-size: 28px; }
+            .nav-card { padding: var(--space-3); }
+            .nav-card h3 { font-size: 14px; }
+            .nav-card p { display: none; }
+            .nav-card-icon { font-size: 24px; }
 
             /* Teams Grid */
             .teams-grid { grid-template-columns: 1fr; }
@@ -1633,6 +1669,9 @@
                 </h2>
                 <a href="teams.html" class="section-link">View all teams →</a>
             </div>
+            <div class="team-tabs" id="team-tabs">
+                <!-- Populated by JavaScript -->
+            </div>
             <div class="teams-grid" id="teams-grid">
                 <!-- Populated by JavaScript -->
             </div>
@@ -1646,19 +1685,31 @@
                     Explore Statsledge
                 </h2>
             </div>
-            <p class="section-intro" style="text-align: center; color: var(--text-secondary); max-width: 700px; margin: 0 auto 32px; padding: 0 16px; font-size: 15px; line-height: 1.6;">
-                Everything you need to stay ahead of IPL 2026. From AI-powered team assessments to research-backed methodologies, pick your starting point below.
-            </p>
             <div class="nav-cards">
                 <a href="teams.html" class="nav-card">
                     <div class="nav-card-icon">🏏</div>
-                    <h3>Browse by Team</h3>
-                    <p><strong>Use this to:</strong> See projected XIs for any IPL team, explore squad depth, view player roles, and compare rosters. Start here if you want team-specific insights.</p>
+                    <h3>Teams</h3>
+                    <p>Projected XIs, squad depth, and player roles for all 10 franchises.</p>
+                </a>
+                <a href="rankings.html" class="nav-card">
+                    <div class="nav-card-icon">📊</div>
+                    <h3>Rankings</h3>
+                    <p>Composite player rankings across batting, bowling, and all-round categories.</p>
+                </a>
+                <a href="comparison.html" class="nav-card">
+                    <div class="nav-card-icon">⚖️</div>
+                    <h3>Compare</h3>
+                    <p>Radar charts, phase heatmaps, and side-by-side player breakdowns.</p>
+                </a>
+                <a href="head-to-head.html" class="nav-card">
+                    <div class="nav-card-icon">⚔️</div>
+                    <h3>Head to Head</h3>
+                    <p>Batter vs bowler matchup data — career, phase, and over-level splits.</p>
                 </a>
                 <a href="about.html" class="nav-card">
-                    <div class="nav-card-icon">🌹</div>
-                    <h3>About Statsledge</h3>
-                    <p><strong>Use this to:</strong> Meet the AI agents behind the analytics, understand our mission, and see what makes Statsledge different from other platforms.</p>
+                    <div class="nav-card-icon">📖</div>
+                    <h3>About</h3>
+                    <p>Our mission, methodology, and what makes Statsledge different.</p>
                 </a>
             </div>
         </section>
@@ -1666,9 +1717,9 @@
         <!-- Footer -->
         <footer class="footer" role="contentinfo">
             <div class="footer-links">
-                <a href="/boardroom/index.html">Mission Control</a>
-                <a href="https://github.com/dwijesh-r/cricket-playbook" target="_blank">GitHub</a>
                 <a href="about.html">About</a>
+                <a href="teams.html">Teams</a>
+                <a href="rankings.html">Rankings</a>
             </div>
             <p class="footer-text">
                 Statsledge © 2026 | IPL 2026 Pre-Season Analytics | Data: 2023-2025 (219 matches)
@@ -2299,6 +2350,30 @@
             </svg>`
         };
 
+        // Populate Team Tabs
+        function populateTeamTabs() {
+            const tabsContainer = document.getElementById('team-tabs');
+            tabsContainer.innerHTML = '';
+            TEAM_ORDER.forEach(abbrev => {
+                const team = TEAMS[abbrev];
+                const tab = document.createElement('a');
+                tab.href = `teams.html?team=${abbrev}`;
+                tab.className = 'team-tab';
+                tab.textContent = abbrev;
+                tab.title = team.fullName;
+                tab.style.setProperty('--tab-color', team.primaryColor);
+                tab.addEventListener('mouseenter', function() {
+                    this.style.background = team.primaryColor;
+                    this.style.color = '#fff';
+                });
+                tab.addEventListener('mouseleave', function() {
+                    this.style.background = '';
+                    this.style.color = '';
+                });
+                tabsContainer.appendChild(tab);
+            });
+        }
+
         // Populate Teams Grid
         function populateTeamsGrid() {
             const grid = document.getElementById('teams-grid');
@@ -2340,7 +2415,8 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            initializeIntro();  // Random agents intro
+            initializeIntro();
+            populateTeamTabs();
             populateTeamsGrid();
             updateTime();  // Initialize time
             setInterval(updateTime, 1000);  // Update every second

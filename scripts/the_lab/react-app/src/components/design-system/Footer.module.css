@@ -1,35 +1,32 @@
 /* Footer — Site footer */
+/* Kevin De Bruyne · Visualization Lead */
 
 .footer {
-  background: #F5F7FA;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--sl-deep-navy, #0B1F33);
+  font-family: var(--font-primary, 'Inter', sans-serif);
 }
 
 .inner {
-  max-width: 1280px;
+  max-width: var(--grid-max-desktop, 1280px);
   margin: 0 auto;
-  padding: 48px 24px 32px;
+  padding: var(--space-xl, 48px) var(--space-md, 24px) var(--space-lg, 32px);
 }
 
 /* Grid layout */
-
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  margin-bottom: 48px;
+  gap: var(--space-lg, 32px);
+  margin-bottom: var(--space-xl, 48px);
 }
 
-.column {
-  min-width: 0;
-}
+.column { min-width: 0; }
 
 .columnTitle {
-  font-size: 16px;
+  font-size: var(--font-body, 16px);
   font-weight: 700;
-  color: #0B1F33;
-  margin: 0 0 16px;
+  color: #FFFFFF;
+  margin: 0 0 var(--space-sm, 16px);
   line-height: 1.2;
 }
 
@@ -39,52 +36,41 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-xs, 8px);
 }
 
 .link {
-  font-size: 14px;
-  color: #4A4A4A;
+  font-size: var(--font-meta, 14px);
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color var(--transition-fast, 0.15s ease);
 }
 
-.link:hover {
-  color: #1E88E5;
-}
+.link:hover { color: #FFFFFF; }
 
 .link:focus-visible {
-  outline: 2px solid #1E88E5;
+  outline: 2px solid var(--accent, #1E88E5);
   outline-offset: 2px;
   border-radius: 2px;
 }
 
 /* Copyright */
-
 .copyright {
-  padding-top: 24px;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding-top: var(--space-md, 24px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
 }
 
 .copyright p {
   margin: 0;
-  font-size: 14px;
-  color: #4A4A4A;
+  font-size: var(--font-meta, 14px);
+  color: rgba(255, 255, 255, 0.4);
 }
 
-/* Responsive */
-
 @media (max-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
+  .grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-md, 24px); }
 }
 
 @media (max-width: 480px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
+  .grid { grid-template-columns: 1fr; }
 }

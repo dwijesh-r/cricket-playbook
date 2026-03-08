@@ -1,59 +1,43 @@
-/* Card — Glass morphism card with variant support */
+/* Card — Clean container with subtle shadow and rounded corners */
+/* Kevin De Bruyne · Visualization Lead */
 
 .card {
-  background: var(--glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
-  border-radius: 16px;
+  background: var(--bg-primary, #FFFFFF);
+  border: 1px solid var(--border-subtle, #EDF2F7);
+  border-radius: var(--radius-xl, 16px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(11, 31, 51, 0.06));
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
+    transform var(--transition-normal, 0.25s ease),
+    box-shadow var(--transition-normal, 0.25s ease);
 }
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px var(--shadow);
-  border-color: var(--accent);
+  box-shadow: var(--shadow-md, 0 4px 12px rgba(11, 31, 51, 0.08));
 }
 
 /* Variants */
-
 .elevated {
-  background: var(--bg-secondary);
-  box-shadow: 0 4px 12px var(--shadow);
+  box-shadow: var(--shadow-md, 0 4px 12px rgba(11, 31, 51, 0.08));
 }
 
 .elevated:hover {
-  box-shadow: 0 12px 40px var(--shadow);
+  box-shadow: var(--shadow-lg, 0 8px 24px rgba(11, 31, 51, 0.10));
 }
 
 .outlined {
   background: transparent;
-  border: 1px solid var(--border);
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+  border: 1px solid var(--border, #E2E8F0);
+  box-shadow: none;
 }
 
 .outlined:hover {
-  background: var(--glass);
+  background: var(--bg-primary, #FFFFFF);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(11, 31, 51, 0.06));
 }
 
 /* Padding presets */
-
-.padNone {
-  padding: 0;
-}
-
-.padSm {
-  padding: 12px;
-}
-
-.padMd {
-  padding: 24px;
-}
-
-.padLg {
-  padding: 32px;
-}
+.padNone { padding: 0; }
+.padSm { padding: var(--space-sm, 16px); }
+.padMd { padding: var(--space-md, 24px); }
+.padLg { padding: var(--space-lg, 32px); }

@@ -1,4 +1,5 @@
-/* Modal component styles */
+/* Modal — Dialog overlay */
+/* Jayson Tatum · UX & Reader Flow Auditor */
 
 .overlay {
   position: fixed;
@@ -7,19 +8,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(11, 31, 51, 0.5);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   animation: fadeIn 0.2s ease;
-  padding: 24px;
+  padding: var(--space-md, 24px);
 }
 
 .dialog {
   position: relative;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  box-shadow: 0 24px 64px var(--shadow);
+  background: var(--bg-primary, #FFFFFF);
+  border: 1px solid var(--border-subtle, #EDF2F7);
+  border-radius: var(--radius-xl, 16px);
+  box-shadow: var(--shadow-xl, 0 16px 48px rgba(11, 31, 51, 0.12));
   width: 100%;
   max-height: calc(100vh - 48px);
   display: flex;
@@ -28,33 +29,24 @@
 }
 
 /* Sizes */
-
-.sm {
-  max-width: 400px;
-}
-
-.md {
-  max-width: 560px;
-}
-
-.lg {
-  max-width: 780px;
-}
+.sm { max-width: 400px; }
+.md { max-width: 560px; }
+.lg { max-width: 780px; }
 
 /* Header */
-
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 24px 16px;
-  border-bottom: 1px solid var(--glass-border);
+  padding: 20px var(--space-md, 24px) var(--space-sm, 16px);
+  border-bottom: 1px solid var(--border-subtle, #EDF2F7);
 }
 
 .title {
-  font-size: 1.125rem;
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  font-size: 18px;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--text-primary, #0B1F33);
   margin: 0;
 }
 
@@ -62,56 +54,47 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border: none;
-  border-radius: 8px;
-  background: var(--glass);
-  color: var(--text-secondary);
-  font-size: 1.125rem;
+  border-radius: var(--radius-md, 8px);
+  background: var(--bg-secondary, #F5F7FA);
+  color: var(--text-secondary, #4A4A4A);
+  font-size: 18px;
   cursor: pointer;
-  transition:
-    background 0.15s ease,
-    color 0.15s ease;
+  transition: background var(--transition-fast, 0.15s ease), color var(--transition-fast, 0.15s ease);
   flex-shrink: 0;
 }
 
 .closeBtn:hover {
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
+  background: var(--bg-tertiary, #EDF2F7);
+  color: var(--text-primary, #0B1F33);
 }
 
 .closeBtn:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--accent, #1E88E5);
   outline-offset: 2px;
 }
 
 /* Body */
-
 .body {
-  padding: 24px;
+  padding: var(--space-md, 24px);
   overflow-y: auto;
   flex: 1;
 }
 
 /* Animations */
-
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay { animation: none; }
+  .dialog { animation: none; }
 }

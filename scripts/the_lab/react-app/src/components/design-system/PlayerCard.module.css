@@ -1,40 +1,39 @@
 /* PlayerCard — Player profile card */
+/* Kevin De Bruyne · Visualization Lead */
 
 .card {
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 16px;
-  padding: 24px;
+  background: var(--bg-primary, #FFFFFF);
+  border: 1px solid var(--border-subtle, #EDF2F7);
+  border-radius: var(--radius-xl, 16px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(11, 31, 51, 0.06));
+  padding: var(--space-md, 24px);
   text-align: center;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-primary, 'Inter', sans-serif);
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    transform var(--transition-normal, 0.25s ease),
+    box-shadow var(--transition-normal, 0.25s ease);
 }
 
 .card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md, 0 4px 12px rgba(11, 31, 51, 0.08));
 }
 
-.clickable {
-  cursor: pointer;
-}
+.clickable { cursor: pointer; }
 
 .clickable:focus-visible {
-  outline: 2px solid #1E88E5;
+  outline: 2px solid var(--accent, #1E88E5);
   outline-offset: 2px;
 }
 
 /* Headshot area */
-
 .imageWrapper {
   width: 96px;
   height: 96px;
-  margin: 0 auto 16px;
+  margin: 0 auto var(--space-sm, 16px);
   border-radius: 50%;
   overflow: hidden;
-  background: #F5F7FA;
+  background: var(--bg-tertiary, #EDF2F7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,7 +51,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #F5F7FA;
+  background: var(--bg-tertiary, #EDF2F7);
 }
 
 .avatarSvg {
@@ -61,45 +60,41 @@
 }
 
 /* Info */
-
-.info {
-  margin-bottom: 16px;
-}
+.info { margin-bottom: var(--space-sm, 16px); }
 
 .name {
-  font-size: 20px;
+  font-size: var(--font-h3, 20px);
   font-weight: 700;
-  color: #0B1F33;
+  color: var(--text-primary, #0B1F33);
   margin: 0 0 4px;
   line-height: 1.2;
 }
 
 .team {
-  font-size: 14px;
-  color: #4A4A4A;
-  margin: 0 0 8px;
+  font-size: var(--font-meta, 14px);
+  color: var(--text-secondary, #4A4A4A);
+  margin: 0 0 var(--space-xs, 8px);
 }
 
 .roleBadge {
   display: inline-block;
-  padding: 4px 12px;
+  padding: 4px 14px;
   border-radius: 9999px;
-  font-size: 14px;
+  font-size: var(--font-meta, 14px);
   font-weight: 600;
-  background: rgba(30, 136, 229, 0.1);
-  color: #1E88E5;
+  background: rgba(30, 136, 229, 0.08);
+  color: #1565C0;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 /* Stats row */
-
 .statsRow {
   display: flex;
   justify-content: center;
-  gap: 24px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  gap: var(--space-md, 24px);
+  padding-top: var(--space-sm, 16px);
+  border-top: 1px solid var(--border-subtle, #EDF2F7);
 }
 
 .stat {
@@ -111,14 +106,14 @@
 }
 
 .statValue {
-  font-size: 20px;
+  font-size: var(--font-h3, 20px);
   font-weight: 700;
-  color: #0B1F33;
+  color: var(--text-primary, #0B1F33);
   line-height: 1.2;
 }
 
 .statLabel {
-  font-size: 14px;
-  color: #4A4A4A;
+  font-size: var(--font-meta, 14px);
+  color: var(--text-tertiary, #8A8A8A);
   white-space: nowrap;
 }

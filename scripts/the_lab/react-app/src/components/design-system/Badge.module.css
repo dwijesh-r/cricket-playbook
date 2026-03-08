@@ -1,57 +1,57 @@
-/* Badge component styles */
+/* Badge — Status indicators */
+/* Kevin De Bruyne · Visualization Lead */
 
 .badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--font-secondary, 'DM Sans', sans-serif);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  border-radius: 6px;
+  border-radius: 9999px;
   white-space: nowrap;
   line-height: 1;
 }
 
 /* Sizes */
-
 .sm {
-  padding: 3px 8px;
-  font-size: 10px;
+  padding: 4px 10px;
+  font-size: 12px;
 }
 
 .md {
-  padding: 4px 10px;
-  font-size: 11px;
+  padding: 6px 14px;
+  font-size: var(--font-meta, 14px);
 }
 
-/* Variants */
-
+/* Variants — color used sparingly for meaning */
 .active {
-  background: rgba(48, 209, 88, 0.15);
-  color: var(--accent-green);
-  border: 1px solid rgba(48, 209, 88, 0.3);
+  background: rgba(46, 204, 113, 0.08);
+  color: #1B8A4E;
+  border: 1px solid rgba(46, 204, 113, 0.2);
 }
 
 .comingSoon {
-  background: rgba(255, 214, 10, 0.15);
-  color: var(--accent-yellow);
-  border: 1px solid rgba(255, 214, 10, 0.3);
+  background: rgba(245, 166, 35, 0.08);
+  color: #B87708;
+  border: 1px solid rgba(245, 166, 35, 0.2);
 }
 
 .success {
-  background: rgba(48, 209, 88, 0.15);
-  color: var(--accent-green);
-  border: 1px solid rgba(48, 209, 88, 0.3);
+  background: rgba(46, 204, 113, 0.08);
+  color: #1B8A4E;
+  border: 1px solid rgba(46, 204, 113, 0.2);
 }
 
 .warning {
-  background: rgba(255, 159, 10, 0.15);
-  color: var(--accent-orange);
-  border: 1px solid rgba(255, 159, 10, 0.3);
+  background: rgba(245, 166, 35, 0.08);
+  color: #B87708;
+  border: 1px solid rgba(245, 166, 35, 0.2);
 }
 
 .error {
-  background: rgba(255, 69, 58, 0.15);
-  color: var(--accent-red);
-  border: 1px solid rgba(255, 69, 58, 0.3);
+  background: rgba(231, 76, 60, 0.08);
+  color: #C0392B;
+  border: 1px solid rgba(231, 76, 60, 0.2);
 }

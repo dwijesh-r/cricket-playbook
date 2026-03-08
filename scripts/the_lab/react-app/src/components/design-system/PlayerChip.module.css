@@ -1,38 +1,34 @@
-/* PlayerChip component styles */
+/* PlayerChip — Compact player tag */
+/* Kevin De Bruyne · Visualization Lead */
 
 .chip {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
+  gap: var(--space-xs, 8px);
+  padding: 6px 14px;
+  background: var(--bg-secondary, #F5F7FA);
+  border: 1px solid var(--border-subtle, #EDF2F7);
   border-radius: 9999px;
-  font-size: 0.8125rem;
+  font-size: var(--font-meta, 14px);
   font-weight: 500;
-  color: var(--text-primary);
-  transition:
-    background 0.15s ease,
-    border-color 0.15s ease;
+  color: var(--text-primary, #0B1F33);
+  transition: background var(--transition-fast, 0.15s ease), border-color var(--transition-fast, 0.15s ease);
   white-space: nowrap;
 }
 
-.clickable {
-  cursor: pointer;
-}
+.clickable { cursor: pointer; }
 
 .clickable:hover {
-  background: var(--bg-tertiary);
-  border-color: var(--border);
+  background: var(--bg-tertiary, #EDF2F7);
+  border-color: var(--border, #E2E8F0);
 }
 
 .clickable:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--accent, #1E88E5);
   outline-offset: 2px;
 }
 
 /* Team color dot */
-
 .dot {
   width: 8px;
   height: 8px;
@@ -41,15 +37,11 @@
 }
 
 /* Role icon */
-
 .role {
-  font-size: 0.75rem;
-  opacity: 0.7;
+  font-size: 12px;
+  color: var(--text-tertiary, #8A8A8A);
   flex-shrink: 0;
 }
 
 /* Name */
-
-.name {
-  line-height: 1;
-}
+.name { line-height: 1; }

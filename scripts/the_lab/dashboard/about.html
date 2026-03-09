@@ -685,14 +685,25 @@
         .page-title {
             font-family: var(--font-display);
             text-transform: uppercase;
-            letter-spacing: 0.06em;
-            font-size: 40px;
-            font-weight: 800;
+            letter-spacing: 0.12em;
+            font-size: 36px;
+            font-weight: 700;
             line-height: 1.1;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 50%, var(--accent-purple) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 12px;
+        }
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 48px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
         }
         .page-subtitle {
             font-size: 16px;

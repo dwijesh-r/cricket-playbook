@@ -1,7 +1,7 @@
 /**
  * The Lab - Player Comparison Data
  * IPL Pre-Season Analytics (TKT-216 / EPIC-020)
- * Auto-generated: 2026-03-01T06:52:53Z
+ * Auto-generated: 2026-03-09T10:37:25Z
  * Generator: scripts/generators/generate_comparison_data.py
  *
  * Batters: 127 qualified (60+ balls faced)
@@ -87,22 +87,13 @@ const COMPARISON_DATA = {
           "dotPct": 34.0
         },
         "Left-arm orthodox": {
-          "balls": 33,
-          "runs": 31,
+          "balls": 18,
+          "runs": 14,
           "dismissals": 0,
-          "sr": 93.9,
+          "sr": 77.8,
           "avg": null,
-          "boundaryPct": 6.1,
-          "dotPct": 33.3
-        },
-        "Left-arm pace": {
-          "balls": 21,
-          "runs": 27,
-          "dismissals": 2,
-          "sr": 128.6,
-          "avg": 13.5,
-          "boundaryPct": 14.3,
-          "dotPct": 23.8
+          "boundaryPct": 5.6,
+          "dotPct": 38.9
         },
         "Leg-spin": {
           "balls": 155,
@@ -139,33 +130,6 @@ const COMPARISON_DATA = {
           "avg": 114.0,
           "boundaryPct": 14.6,
           "dotPct": 24.4
-        },
-        "Right-arm leg-spin": {
-          "balls": 29,
-          "runs": 37,
-          "dismissals": 1,
-          "sr": 127.6,
-          "avg": 37.0,
-          "boundaryPct": 10.3,
-          "dotPct": 24.1
-        },
-        "Right-arm off-spin": {
-          "balls": 53,
-          "runs": 54,
-          "dismissals": 1,
-          "sr": 101.9,
-          "avg": 54.0,
-          "boundaryPct": 3.8,
-          "dotPct": 24.5
-        },
-        "Right-arm pace": {
-          "balls": 74,
-          "runs": 136,
-          "dismissals": 2,
-          "sr": 183.8,
-          "avg": 68.0,
-          "boundaryPct": 28.4,
-          "dotPct": 24.3
         },
         "Wrist-spin": {
           "balls": 76,
@@ -281,15 +245,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 20.0,
           "dotPct": 40.0
         },
-        "Left-arm pace": {
-          "balls": 47,
-          "runs": 72,
-          "dismissals": 0,
-          "sr": 153.2,
-          "avg": null,
-          "boundaryPct": 21.3,
-          "dotPct": 23.4
-        },
         "Leg-spin": {
           "balls": 124,
           "runs": 184,
@@ -334,33 +289,6 @@ const COMPARISON_DATA = {
           "avg": 64.5,
           "boundaryPct": 21.3,
           "dotPct": 13.3
-        },
-        "Right-arm leg-spin": {
-          "balls": 51,
-          "runs": 80,
-          "dismissals": 2,
-          "sr": 156.9,
-          "avg": 40.0,
-          "boundaryPct": 17.6,
-          "dotPct": 25.5
-        },
-        "Right-arm off-spin": {
-          "balls": 72,
-          "runs": 126,
-          "dismissals": 3,
-          "sr": 175.0,
-          "avg": 42.0,
-          "boundaryPct": 25.0,
-          "dotPct": 25.0
-        },
-        "Right-arm pace": {
-          "balls": 59,
-          "runs": 105,
-          "dismissals": 2,
-          "sr": 178.0,
-          "avg": 52.5,
-          "boundaryPct": 25.4,
-          "dotPct": 25.4
         },
         "Wrist-spin": {
           "balls": 13,
@@ -476,15 +404,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 0.0,
           "dotPct": 0.0
         },
-        "Left-arm pace": {
-          "balls": 31,
-          "runs": 49,
-          "dismissals": 0,
-          "sr": 158.1,
-          "avg": null,
-          "boundaryPct": 22.6,
-          "dotPct": 25.8
-        },
         "Leg-spin": {
           "balls": 87,
           "runs": 131,
@@ -529,33 +448,6 @@ const COMPARISON_DATA = {
           "avg": 76.0,
           "boundaryPct": 18.0,
           "dotPct": 16.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 25,
-          "runs": 32,
-          "dismissals": 0,
-          "sr": 128.0,
-          "avg": null,
-          "boundaryPct": 8.0,
-          "dotPct": 16.0
-        },
-        "Right-arm off-spin": {
-          "balls": 64,
-          "runs": 103,
-          "dismissals": 1,
-          "sr": 160.9,
-          "avg": 103.0,
-          "boundaryPct": 21.9,
-          "dotPct": 26.6
-        },
-        "Right-arm pace": {
-          "balls": 58,
-          "runs": 95,
-          "dismissals": 5,
-          "sr": 163.8,
-          "avg": 19.0,
-          "boundaryPct": 25.9,
-          "dotPct": 34.5
         },
         "Wrist-spin": {
           "balls": 34,
@@ -663,22 +555,13 @@ const COMPARISON_DATA = {
           "dotPct": 27.4
         },
         "Left-arm orthodox": {
-          "balls": 16,
-          "runs": 24,
+          "balls": 6,
+          "runs": 14,
           "dismissals": 1,
-          "sr": 150.0,
-          "avg": 24.0,
-          "boundaryPct": 18.8,
-          "dotPct": 43.8
-        },
-        "Left-arm pace": {
-          "balls": 20,
-          "runs": 26,
-          "dismissals": 2,
-          "sr": 130.0,
-          "avg": 13.0,
-          "boundaryPct": 25.0,
-          "dotPct": 55.0
+          "sr": 233.3,
+          "avg": 14.0,
+          "boundaryPct": 33.3,
+          "dotPct": 16.7
         },
         "Leg-spin": {
           "balls": 82,
@@ -715,33 +598,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 31.5,
           "dotPct": 31.5
-        },
-        "Right-arm leg-spin": {
-          "balls": 43,
-          "runs": 62,
-          "dismissals": 0,
-          "sr": 144.2,
-          "avg": null,
-          "boundaryPct": 18.6,
-          "dotPct": 34.9
-        },
-        "Right-arm off-spin": {
-          "balls": 52,
-          "runs": 71,
-          "dismissals": 2,
-          "sr": 136.5,
-          "avg": 35.5,
-          "boundaryPct": 17.3,
-          "dotPct": 42.3
-        },
-        "Right-arm pace": {
-          "balls": 83,
-          "runs": 133,
-          "dismissals": 3,
-          "sr": 160.2,
-          "avg": 44.3,
-          "boundaryPct": 30.1,
-          "dotPct": 43.4
         },
         "Wrist-spin": {
           "balls": 9,
@@ -849,22 +705,13 @@ const COMPARISON_DATA = {
           "dotPct": 15.0
         },
         "Left-arm orthodox": {
-          "balls": 19,
-          "runs": 21,
+          "balls": 11,
+          "runs": 8,
           "dismissals": 0,
-          "sr": 110.5,
+          "sr": 72.7,
           "avg": null,
-          "boundaryPct": 10.5,
-          "dotPct": 36.8
-        },
-        "Left-arm pace": {
-          "balls": 38,
-          "runs": 46,
-          "dismissals": 2,
-          "sr": 121.0,
-          "avg": 23.0,
-          "boundaryPct": 15.8,
-          "dotPct": 34.2
+          "boundaryPct": 0.0,
+          "dotPct": 36.4
         },
         "Leg-spin": {
           "balls": 115,
@@ -901,33 +748,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 8.8,
           "dotPct": 31.6
-        },
-        "Right-arm leg-spin": {
-          "balls": 19,
-          "runs": 29,
-          "dismissals": 2,
-          "sr": 152.6,
-          "avg": 14.5,
-          "boundaryPct": 15.8,
-          "dotPct": 26.3
-        },
-        "Right-arm off-spin": {
-          "balls": 69,
-          "runs": 92,
-          "dismissals": 2,
-          "sr": 133.3,
-          "avg": 46.0,
-          "boundaryPct": 13.0,
-          "dotPct": 26.1
-        },
-        "Right-arm pace": {
-          "balls": 53,
-          "runs": 67,
-          "dismissals": 4,
-          "sr": 126.4,
-          "avg": 16.8,
-          "boundaryPct": 17.0,
-          "dotPct": 35.9
         },
         "Wrist-spin": {
           "balls": 31,
@@ -1035,22 +855,13 @@ const COMPARISON_DATA = {
           "dotPct": 23.1
         },
         "Left-arm orthodox": {
-          "balls": 16,
-          "runs": 29,
+          "balls": 5,
+          "runs": 10,
           "dismissals": 0,
-          "sr": 181.2,
+          "sr": 200.0,
           "avg": null,
-          "boundaryPct": 25.0,
-          "dotPct": 18.8
-        },
-        "Left-arm pace": {
-          "balls": 30,
-          "runs": 58,
-          "dismissals": 0,
-          "sr": 193.3,
-          "avg": null,
-          "boundaryPct": 33.3,
-          "dotPct": 33.3
+          "boundaryPct": 40.0,
+          "dotPct": 20.0
         },
         "Leg-spin": {
           "balls": 184,
@@ -1087,24 +898,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 14.6,
           "dotPct": 32.7
-        },
-        "Right-arm off-spin": {
-          "balls": 29,
-          "runs": 46,
-          "dismissals": 1,
-          "sr": 158.6,
-          "avg": 46.0,
-          "boundaryPct": 24.1,
-          "dotPct": 27.6
-        },
-        "Right-arm pace": {
-          "balls": 74,
-          "runs": 162,
-          "dismissals": 4,
-          "sr": 218.9,
-          "avg": 40.5,
-          "boundaryPct": 36.5,
-          "dotPct": 33.8
         },
         "Wrist-spin": {
           "balls": 54,
@@ -1212,22 +1005,13 @@ const COMPARISON_DATA = {
           "dotPct": 27.9
         },
         "Left-arm orthodox": {
-          "balls": 20,
-          "runs": 42,
+          "balls": 5,
+          "runs": 17,
           "dismissals": 0,
-          "sr": 210.0,
+          "sr": 340.0,
           "avg": null,
-          "boundaryPct": 30.0,
-          "dotPct": 25.0
-        },
-        "Left-arm pace": {
-          "balls": 39,
-          "runs": 89,
-          "dismissals": 2,
-          "sr": 228.2,
-          "avg": 44.5,
-          "boundaryPct": 41.0,
-          "dotPct": 33.3
+          "boundaryPct": 60.0,
+          "dotPct": 20.0
         },
         "Leg-spin": {
           "balls": 79,
@@ -1255,33 +1039,6 @@ const COMPARISON_DATA = {
           "avg": 9.7,
           "boundaryPct": 11.5,
           "dotPct": 34.6
-        },
-        "Right-arm leg-spin": {
-          "balls": 55,
-          "runs": 60,
-          "dismissals": 1,
-          "sr": 109.1,
-          "avg": 60.0,
-          "boundaryPct": 10.9,
-          "dotPct": 38.2
-        },
-        "Right-arm off-spin": {
-          "balls": 55,
-          "runs": 58,
-          "dismissals": 1,
-          "sr": 105.5,
-          "avg": 58.0,
-          "boundaryPct": 9.1,
-          "dotPct": 29.1
-        },
-        "Right-arm pace": {
-          "balls": 80,
-          "runs": 150,
-          "dismissals": 1,
-          "sr": 187.5,
-          "avg": 150.0,
-          "boundaryPct": 28.8,
-          "dotPct": 31.2
         },
         "Wrist-spin": {
           "balls": 10,
@@ -1377,22 +1134,13 @@ const COMPARISON_DATA = {
           "dotPct": 27.4
         },
         "Left-arm orthodox": {
-          "balls": 16,
-          "runs": 24,
+          "balls": 12,
+          "runs": 18,
           "dismissals": 1,
           "sr": 150.0,
-          "avg": 24.0,
+          "avg": 18.0,
           "boundaryPct": 25.0,
-          "dotPct": 31.2
-        },
-        "Left-arm pace": {
-          "balls": 27,
-          "runs": 38,
-          "dismissals": 1,
-          "sr": 140.7,
-          "avg": 38.0,
-          "boundaryPct": 18.5,
-          "dotPct": 40.7
+          "dotPct": 33.3
         },
         "Leg-spin": {
           "balls": 90,
@@ -1411,33 +1159,6 @@ const COMPARISON_DATA = {
           "avg": 50.0,
           "boundaryPct": 10.0,
           "dotPct": 30.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 37,
-          "runs": 52,
-          "dismissals": 2,
-          "sr": 140.5,
-          "avg": 26.0,
-          "boundaryPct": 16.2,
-          "dotPct": 24.3
-        },
-        "Right-arm off-spin": {
-          "balls": 45,
-          "runs": 71,
-          "dismissals": 2,
-          "sr": 157.8,
-          "avg": 35.5,
-          "boundaryPct": 17.8,
-          "dotPct": 26.7
-        },
-        "Right-arm pace": {
-          "balls": 87,
-          "runs": 160,
-          "dismissals": 4,
-          "sr": 183.9,
-          "avg": 40.0,
-          "boundaryPct": 28.7,
-          "dotPct": 33.3
         },
         "Wrist-spin": {
           "balls": 27,
@@ -1545,22 +1266,13 @@ const COMPARISON_DATA = {
           "dotPct": 33.9
         },
         "Left-arm orthodox": {
-          "balls": 7,
-          "runs": 21,
+          "balls": 1,
+          "runs": 1,
           "dismissals": 0,
-          "sr": 300.0,
+          "sr": 100.0,
           "avg": null,
-          "boundaryPct": 57.1,
-          "dotPct": 14.3
-        },
-        "Left-arm pace": {
-          "balls": 26,
-          "runs": 37,
-          "dismissals": 2,
-          "sr": 142.3,
-          "avg": 18.5,
-          "boundaryPct": 23.1,
-          "dotPct": 42.3
+          "boundaryPct": 0.0,
+          "dotPct": 0.0
         },
         "Leg-spin": {
           "balls": 74,
@@ -1606,33 +1318,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 18.9,
           "dotPct": 40.5
-        },
-        "Right-arm leg-spin": {
-          "balls": 18,
-          "runs": 24,
-          "dismissals": 2,
-          "sr": 133.3,
-          "avg": 12.0,
-          "boundaryPct": 22.2,
-          "dotPct": 44.4
-        },
-        "Right-arm off-spin": {
-          "balls": 53,
-          "runs": 87,
-          "dismissals": 3,
-          "sr": 164.2,
-          "avg": 29.0,
-          "boundaryPct": 20.8,
-          "dotPct": 22.6
-        },
-        "Right-arm pace": {
-          "balls": 66,
-          "runs": 102,
-          "dismissals": 3,
-          "sr": 154.6,
-          "avg": 34.0,
-          "boundaryPct": 24.2,
-          "dotPct": 33.3
         },
         "Wrist-spin": {
           "balls": 28,
@@ -1740,22 +1425,13 @@ const COMPARISON_DATA = {
           "dotPct": 43.2
         },
         "Left-arm orthodox": {
-          "balls": 15,
-          "runs": 22,
+          "balls": 1,
+          "runs": 1,
           "dismissals": 0,
-          "sr": 146.7,
+          "sr": 100.0,
           "avg": null,
-          "boundaryPct": 20.0,
-          "dotPct": 26.7
-        },
-        "Left-arm pace": {
-          "balls": 37,
-          "runs": 66,
-          "dismissals": 1,
-          "sr": 178.4,
-          "avg": 66.0,
-          "boundaryPct": 27.0,
-          "dotPct": 32.4
+          "boundaryPct": 0.0,
+          "dotPct": 0.0
         },
         "Leg-spin": {
           "balls": 63,
@@ -1774,33 +1450,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 29.6,
           "dotPct": 25.9
-        },
-        "Right-arm leg-spin": {
-          "balls": 10,
-          "runs": 15,
-          "dismissals": 1,
-          "sr": 150.0,
-          "avg": 15.0,
-          "boundaryPct": 20.0,
-          "dotPct": 30.0
-        },
-        "Right-arm off-spin": {
-          "balls": 40,
-          "runs": 68,
-          "dismissals": 2,
-          "sr": 170.0,
-          "avg": 34.0,
-          "boundaryPct": 25.0,
-          "dotPct": 32.5
-        },
-        "Right-arm pace": {
-          "balls": 63,
-          "runs": 115,
-          "dismissals": 6,
-          "sr": 182.5,
-          "avg": 19.2,
-          "boundaryPct": 34.9,
-          "dotPct": 47.6
         },
         "Wrist-spin": {
           "balls": 37,
@@ -1908,22 +1557,13 @@ const COMPARISON_DATA = {
           "dotPct": 28.7
         },
         "Left-arm orthodox": {
-          "balls": 26,
-          "runs": 58,
+          "balls": 12,
+          "runs": 32,
           "dismissals": 0,
-          "sr": 223.1,
+          "sr": 266.7,
           "avg": null,
-          "boundaryPct": 30.8,
-          "dotPct": 11.5
-        },
-        "Left-arm pace": {
-          "balls": 17,
-          "runs": 21,
-          "dismissals": 0,
-          "sr": 123.5,
-          "avg": null,
-          "boundaryPct": 5.9,
-          "dotPct": 17.6
+          "boundaryPct": 41.7,
+          "dotPct": 8.3
         },
         "Leg-spin": {
           "balls": 92,
@@ -1951,33 +1591,6 @@ const COMPARISON_DATA = {
           "avg": 150.0,
           "boundaryPct": 21.9,
           "dotPct": 21.9
-        },
-        "Right-arm leg-spin": {
-          "balls": 29,
-          "runs": 61,
-          "dismissals": 2,
-          "sr": 210.3,
-          "avg": 30.5,
-          "boundaryPct": 31.0,
-          "dotPct": 24.1
-        },
-        "Right-arm off-spin": {
-          "balls": 24,
-          "runs": 31,
-          "dismissals": 0,
-          "sr": 129.2,
-          "avg": null,
-          "boundaryPct": 12.5,
-          "dotPct": 16.7
-        },
-        "Right-arm pace": {
-          "balls": 54,
-          "runs": 87,
-          "dismissals": 2,
-          "sr": 161.1,
-          "avg": 43.5,
-          "boundaryPct": 18.5,
-          "dotPct": 20.4
         },
         "Wrist-spin": {
           "balls": 36,
@@ -2085,22 +1698,13 @@ const COMPARISON_DATA = {
           "dotPct": 35.2
         },
         "Left-arm orthodox": {
-          "balls": 12,
-          "runs": 10,
-          "dismissals": 1,
-          "sr": 83.3,
-          "avg": 10.0,
-          "boundaryPct": 8.3,
-          "dotPct": 50.0
-        },
-        "Left-arm pace": {
-          "balls": 35,
-          "runs": 43,
-          "dismissals": 3,
-          "sr": 122.9,
-          "avg": 14.3,
-          "boundaryPct": 20.0,
-          "dotPct": 54.3
+          "balls": 3,
+          "runs": 2,
+          "dismissals": 0,
+          "sr": 66.7,
+          "avg": null,
+          "boundaryPct": 0.0,
+          "dotPct": 66.7
         },
         "Leg-spin": {
           "balls": 58,
@@ -2128,33 +1732,6 @@ const COMPARISON_DATA = {
           "avg": 11.5,
           "boundaryPct": 15.9,
           "dotPct": 45.5
-        },
-        "Right-arm leg-spin": {
-          "balls": 5,
-          "runs": 10,
-          "dismissals": 0,
-          "sr": 200.0,
-          "avg": null,
-          "boundaryPct": 40.0,
-          "dotPct": 20.0
-        },
-        "Right-arm off-spin": {
-          "balls": 32,
-          "runs": 61,
-          "dismissals": 0,
-          "sr": 190.6,
-          "avg": null,
-          "boundaryPct": 28.1,
-          "dotPct": 9.4
-        },
-        "Right-arm pace": {
-          "balls": 61,
-          "runs": 106,
-          "dismissals": 2,
-          "sr": 173.8,
-          "avg": 53.0,
-          "boundaryPct": 29.5,
-          "dotPct": 39.3
         },
         "Wrist-spin": {
           "balls": 13,
@@ -2262,22 +1839,13 @@ const COMPARISON_DATA = {
           "dotPct": 26.7
         },
         "Left-arm orthodox": {
-          "balls": 8,
-          "runs": 16,
+          "balls": 2,
+          "runs": 2,
           "dismissals": 0,
-          "sr": 200.0,
+          "sr": 100.0,
           "avg": null,
-          "boundaryPct": 37.5,
-          "dotPct": 37.5
-        },
-        "Left-arm pace": {
-          "balls": 22,
-          "runs": 30,
-          "dismissals": 2,
-          "sr": 136.4,
-          "avg": 15.0,
-          "boundaryPct": 18.2,
-          "dotPct": 27.3
+          "boundaryPct": 0.0,
+          "dotPct": 0.0
         },
         "Leg-spin": {
           "balls": 93,
@@ -2314,33 +1882,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 18.2,
           "dotPct": 36.4
-        },
-        "Right-arm leg-spin": {
-          "balls": 37,
-          "runs": 59,
-          "dismissals": 0,
-          "sr": 159.5,
-          "avg": null,
-          "boundaryPct": 18.9,
-          "dotPct": 24.3
-        },
-        "Right-arm off-spin": {
-          "balls": 30,
-          "runs": 42,
-          "dismissals": 1,
-          "sr": 140.0,
-          "avg": 42.0,
-          "boundaryPct": 13.3,
-          "dotPct": 23.3
-        },
-        "Right-arm pace": {
-          "balls": 72,
-          "runs": 118,
-          "dismissals": 2,
-          "sr": 163.9,
-          "avg": 59.0,
-          "boundaryPct": 26.4,
-          "dotPct": 34.7
         },
         "Wrist-spin": {
           "balls": 26,
@@ -2448,22 +1989,13 @@ const COMPARISON_DATA = {
           "dotPct": 31.2
         },
         "Left-arm orthodox": {
-          "balls": 13,
-          "runs": 24,
+          "balls": 5,
+          "runs": 11,
           "dismissals": 0,
-          "sr": 184.6,
+          "sr": 220.0,
           "avg": null,
-          "boundaryPct": 30.8,
-          "dotPct": 38.5
-        },
-        "Left-arm pace": {
-          "balls": 9,
-          "runs": 16,
-          "dismissals": 2,
-          "sr": 177.8,
-          "avg": 8.0,
-          "boundaryPct": 22.2,
-          "dotPct": 44.4
+          "boundaryPct": 40.0,
+          "dotPct": 40.0
         },
         "Leg-spin": {
           "balls": 92,
@@ -2500,33 +2032,6 @@ const COMPARISON_DATA = {
           "avg": 105.0,
           "boundaryPct": 10.1,
           "dotPct": 36.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 18,
-          "runs": 18,
-          "dismissals": 2,
-          "sr": 100.0,
-          "avg": 9.0,
-          "boundaryPct": 11.1,
-          "dotPct": 44.4
-        },
-        "Right-arm off-spin": {
-          "balls": 48,
-          "runs": 83,
-          "dismissals": 2,
-          "sr": 172.9,
-          "avg": 41.5,
-          "boundaryPct": 22.9,
-          "dotPct": 33.3
-        },
-        "Right-arm pace": {
-          "balls": 104,
-          "runs": 145,
-          "dismissals": 2,
-          "sr": 139.4,
-          "avg": 72.5,
-          "boundaryPct": 17.3,
-          "dotPct": 27.9
         },
         "Wrist-spin": {
           "balls": 12,
@@ -2642,15 +2147,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 50.0,
           "dotPct": 50.0
         },
-        "Left-arm pace": {
-          "balls": 35,
-          "runs": 66,
-          "dismissals": 0,
-          "sr": 188.6,
-          "avg": null,
-          "boundaryPct": 37.1,
-          "dotPct": 40.0
-        },
         "Leg-spin": {
           "balls": 76,
           "runs": 87,
@@ -2686,24 +2182,6 @@ const COMPARISON_DATA = {
           "avg": 22.7,
           "boundaryPct": 17.6,
           "dotPct": 43.1
-        },
-        "Right-arm off-spin": {
-          "balls": 47,
-          "runs": 70,
-          "dismissals": 2,
-          "sr": 148.9,
-          "avg": 35.0,
-          "boundaryPct": 25.5,
-          "dotPct": 36.2
-        },
-        "Right-arm pace": {
-          "balls": 43,
-          "runs": 53,
-          "dismissals": 2,
-          "sr": 123.3,
-          "avg": 26.5,
-          "boundaryPct": 18.6,
-          "dotPct": 44.2
         },
         "Wrist-spin": {
           "balls": 12,
@@ -2810,15 +2288,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 46.5,
           "dotPct": 23.3
         },
-        "Left-arm pace": {
-          "balls": 28,
-          "runs": 75,
-          "dismissals": 0,
-          "sr": 267.9,
-          "avg": null,
-          "boundaryPct": 46.4,
-          "dotPct": 17.9
-        },
         "Leg-spin": {
           "balls": 64,
           "runs": 131,
@@ -2854,33 +2323,6 @@ const COMPARISON_DATA = {
           "avg": 127.0,
           "boundaryPct": 26.1,
           "dotPct": 36.2
-        },
-        "Right-arm leg-spin": {
-          "balls": 12,
-          "runs": 21,
-          "dismissals": 0,
-          "sr": 175.0,
-          "avg": null,
-          "boundaryPct": 33.3,
-          "dotPct": 58.3
-        },
-        "Right-arm off-spin": {
-          "balls": 47,
-          "runs": 54,
-          "dismissals": 0,
-          "sr": 114.9,
-          "avg": null,
-          "boundaryPct": 10.6,
-          "dotPct": 25.5
-        },
-        "Right-arm pace": {
-          "balls": 67,
-          "runs": 120,
-          "dismissals": 3,
-          "sr": 179.1,
-          "avg": 40.0,
-          "boundaryPct": 29.9,
-          "dotPct": 35.8
         },
         "Wrist-spin": {
           "balls": 31,
@@ -2988,22 +2430,13 @@ const COMPARISON_DATA = {
           "dotPct": 25.0
         },
         "Left-arm orthodox": {
-          "balls": 13,
-          "runs": 30,
+          "balls": 10,
+          "runs": 25,
           "dismissals": 0,
-          "sr": 230.8,
+          "sr": 250.0,
           "avg": null,
-          "boundaryPct": 30.8,
-          "dotPct": 23.1
-        },
-        "Left-arm pace": {
-          "balls": 4,
-          "runs": 2,
-          "dismissals": 0,
-          "sr": 50.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 50.0
+          "boundaryPct": 30.0,
+          "dotPct": 20.0
         },
         "Leg-spin": {
           "balls": 127,
@@ -3031,24 +2464,6 @@ const COMPARISON_DATA = {
           "avg": 29.0,
           "boundaryPct": 13.6,
           "dotPct": 27.3
-        },
-        "Right-arm off-spin": {
-          "balls": 49,
-          "runs": 59,
-          "dismissals": 0,
-          "sr": 120.4,
-          "avg": null,
-          "boundaryPct": 12.2,
-          "dotPct": 34.7
-        },
-        "Right-arm pace": {
-          "balls": 58,
-          "runs": 94,
-          "dismissals": 4,
-          "sr": 162.1,
-          "avg": 23.5,
-          "boundaryPct": 20.7,
-          "dotPct": 25.9
         },
         "Wrist-spin": {
           "balls": 45,
@@ -3156,22 +2571,13 @@ const COMPARISON_DATA = {
           "dotPct": 26.7
         },
         "Left-arm orthodox": {
-          "balls": 17,
-          "runs": 25,
+          "balls": 9,
+          "runs": 7,
           "dismissals": 1,
-          "sr": 147.1,
-          "avg": 25.0,
-          "boundaryPct": 23.5,
-          "dotPct": 47.1
-        },
-        "Left-arm pace": {
-          "balls": 6,
-          "runs": 3,
-          "dismissals": 1,
-          "sr": 50.0,
-          "avg": 3.0,
-          "boundaryPct": 0.0,
-          "dotPct": 50.0
+          "sr": 77.8,
+          "avg": 7.0,
+          "boundaryPct": 11.1,
+          "dotPct": 66.7
         },
         "Leg-spin": {
           "balls": 81,
@@ -3208,33 +2614,6 @@ const COMPARISON_DATA = {
           "avg": 40.0,
           "boundaryPct": 16.0,
           "dotPct": 24.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 14,
-          "runs": 21,
-          "dismissals": 1,
-          "sr": 150.0,
-          "avg": 21.0,
-          "boundaryPct": 14.3,
-          "dotPct": 21.4
-        },
-        "Right-arm off-spin": {
-          "balls": 25,
-          "runs": 56,
-          "dismissals": 0,
-          "sr": 224.0,
-          "avg": null,
-          "boundaryPct": 28.0,
-          "dotPct": 16.0
-        },
-        "Right-arm pace": {
-          "balls": 63,
-          "runs": 111,
-          "dismissals": 4,
-          "sr": 176.2,
-          "avg": 27.8,
-          "boundaryPct": 25.4,
-          "dotPct": 30.2
         },
         "Wrist-spin": {
           "balls": 57,
@@ -3342,22 +2721,13 @@ const COMPARISON_DATA = {
           "dotPct": 25.3
         },
         "Left-arm orthodox": {
-          "balls": 7,
-          "runs": 11,
+          "balls": 3,
+          "runs": 1,
           "dismissals": 1,
-          "sr": 157.1,
-          "avg": 11.0,
-          "boundaryPct": 14.3,
-          "dotPct": 28.6
-        },
-        "Left-arm pace": {
-          "balls": 19,
-          "runs": 21,
-          "dismissals": 0,
-          "sr": 110.5,
-          "avg": null,
-          "boundaryPct": 10.5,
-          "dotPct": 26.3
+          "sr": 33.3,
+          "avg": 1.0,
+          "boundaryPct": 0.0,
+          "dotPct": 66.7
         },
         "Leg-spin": {
           "balls": 47,
@@ -3385,33 +2755,6 @@ const COMPARISON_DATA = {
           "avg": 34.0,
           "boundaryPct": 10.2,
           "dotPct": 27.1
-        },
-        "Right-arm leg-spin": {
-          "balls": 14,
-          "runs": 22,
-          "dismissals": 0,
-          "sr": 157.1,
-          "avg": null,
-          "boundaryPct": 7.1,
-          "dotPct": 14.3
-        },
-        "Right-arm off-spin": {
-          "balls": 40,
-          "runs": 53,
-          "dismissals": 2,
-          "sr": 132.5,
-          "avg": 26.5,
-          "boundaryPct": 15.0,
-          "dotPct": 27.5
-        },
-        "Right-arm pace": {
-          "balls": 37,
-          "runs": 64,
-          "dismissals": 2,
-          "sr": 173.0,
-          "avg": 32.0,
-          "boundaryPct": 21.6,
-          "dotPct": 16.2
         },
         "Wrist-spin": {
           "balls": 33,
@@ -3518,24 +2861,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 10.0,
           "dotPct": 30.0
         },
-        "Left-arm orthodox": {
-          "balls": 10,
-          "runs": 9,
-          "dismissals": 0,
-          "sr": 90.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 20.0
-        },
-        "Left-arm pace": {
-          "balls": 21,
-          "runs": 49,
-          "dismissals": 0,
-          "sr": 233.3,
-          "avg": null,
-          "boundaryPct": 33.3,
-          "dotPct": 28.6
-        },
         "Leg-spin": {
           "balls": 89,
           "runs": 108,
@@ -3562,33 +2887,6 @@ const COMPARISON_DATA = {
           "avg": 29.0,
           "boundaryPct": 12.5,
           "dotPct": 15.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 32,
-          "runs": 48,
-          "dismissals": 2,
-          "sr": 150.0,
-          "avg": 24.0,
-          "boundaryPct": 18.8,
-          "dotPct": 21.9
-        },
-        "Right-arm off-spin": {
-          "balls": 44,
-          "runs": 42,
-          "dismissals": 3,
-          "sr": 95.5,
-          "avg": 14.0,
-          "boundaryPct": 6.8,
-          "dotPct": 47.7
-        },
-        "Right-arm pace": {
-          "balls": 53,
-          "runs": 102,
-          "dismissals": 4,
-          "sr": 192.4,
-          "avg": 25.5,
-          "boundaryPct": 28.3,
-          "dotPct": 34.0
         },
         "Wrist-spin": {
           "balls": 17,
@@ -3696,22 +2994,13 @@ const COMPARISON_DATA = {
           "dotPct": 41.4
         },
         "Left-arm orthodox": {
-          "balls": 19,
-          "runs": 43,
+          "balls": 6,
+          "runs": 15,
           "dismissals": 0,
-          "sr": 226.3,
+          "sr": 250.0,
           "avg": null,
-          "boundaryPct": 31.6,
-          "dotPct": 15.8
-        },
-        "Left-arm pace": {
-          "balls": 40,
-          "runs": 72,
-          "dismissals": 0,
-          "sr": 180.0,
-          "avg": null,
-          "boundaryPct": 27.5,
-          "dotPct": 35.0
+          "boundaryPct": 33.3,
+          "dotPct": 16.7
         },
         "Leg-spin": {
           "balls": 57,
@@ -3748,33 +3037,6 @@ const COMPARISON_DATA = {
           "avg": 10.0,
           "boundaryPct": 14.3,
           "dotPct": 14.3
-        },
-        "Right-arm leg-spin": {
-          "balls": 30,
-          "runs": 37,
-          "dismissals": 1,
-          "sr": 123.3,
-          "avg": 37.0,
-          "boundaryPct": 16.7,
-          "dotPct": 36.7
-        },
-        "Right-arm off-spin": {
-          "balls": 27,
-          "runs": 55,
-          "dismissals": 4,
-          "sr": 203.7,
-          "avg": 13.8,
-          "boundaryPct": 29.6,
-          "dotPct": 18.5
-        },
-        "Right-arm pace": {
-          "balls": 81,
-          "runs": 151,
-          "dismissals": 4,
-          "sr": 186.4,
-          "avg": 37.8,
-          "boundaryPct": 27.2,
-          "dotPct": 27.2
         },
         "Wrist-spin": {
           "balls": 26,
@@ -3881,15 +3143,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 18.8,
           "dotPct": 31.2
         },
-        "Left-arm pace": {
-          "balls": 25,
-          "runs": 53,
-          "dismissals": 1,
-          "sr": 212.0,
-          "avg": 53.0,
-          "boundaryPct": 36.0,
-          "dotPct": 24.0
-        },
         "Leg-spin": {
           "balls": 49,
           "runs": 123,
@@ -3916,33 +3169,6 @@ const COMPARISON_DATA = {
           "avg": 96.0,
           "boundaryPct": 31.8,
           "dotPct": 22.7
-        },
-        "Right-arm leg-spin": {
-          "balls": 24,
-          "runs": 50,
-          "dismissals": 2,
-          "sr": 208.3,
-          "avg": 25.0,
-          "boundaryPct": 25.0,
-          "dotPct": 25.0
-        },
-        "Right-arm off-spin": {
-          "balls": 43,
-          "runs": 75,
-          "dismissals": 3,
-          "sr": 174.4,
-          "avg": 25.0,
-          "boundaryPct": 20.9,
-          "dotPct": 18.6
-        },
-        "Right-arm pace": {
-          "balls": 33,
-          "runs": 58,
-          "dismissals": 3,
-          "sr": 175.8,
-          "avg": 19.3,
-          "boundaryPct": 27.3,
-          "dotPct": 33.3
         },
         "Wrist-spin": {
           "balls": 19,
@@ -4050,22 +3276,13 @@ const COMPARISON_DATA = {
           "dotPct": 43.8
         },
         "Left-arm orthodox": {
-          "balls": 23,
-          "runs": 38,
+          "balls": 5,
+          "runs": 4,
           "dismissals": 0,
-          "sr": 165.2,
+          "sr": 80.0,
           "avg": null,
-          "boundaryPct": 21.7,
-          "dotPct": 30.4
-        },
-        "Left-arm pace": {
-          "balls": 21,
-          "runs": 28,
-          "dismissals": 2,
-          "sr": 133.3,
-          "avg": 14.0,
-          "boundaryPct": 19.1,
-          "dotPct": 33.3
+          "boundaryPct": 0.0,
+          "dotPct": 40.0
         },
         "Leg-spin": {
           "balls": 76,
@@ -4111,33 +3328,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 9.1,
           "dotPct": 27.3
-        },
-        "Right-arm leg-spin": {
-          "balls": 22,
-          "runs": 18,
-          "dismissals": 1,
-          "sr": 81.8,
-          "avg": 18.0,
-          "boundaryPct": 4.5,
-          "dotPct": 45.5
-        },
-        "Right-arm off-spin": {
-          "balls": 50,
-          "runs": 64,
-          "dismissals": 3,
-          "sr": 128.0,
-          "avg": 21.3,
-          "boundaryPct": 14.0,
-          "dotPct": 38.0
-        },
-        "Right-arm pace": {
-          "balls": 72,
-          "runs": 140,
-          "dismissals": 2,
-          "sr": 194.4,
-          "avg": 70.0,
-          "boundaryPct": 31.9,
-          "dotPct": 34.7
         },
         "Wrist-spin": {
           "balls": 16,
@@ -4244,24 +3434,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 11.8,
           "dotPct": 29.4
         },
-        "Left-arm orthodox": {
-          "balls": 7,
-          "runs": 8,
-          "dismissals": 0,
-          "sr": 114.3,
-          "avg": null,
-          "boundaryPct": 14.3,
-          "dotPct": 28.6
-        },
-        "Left-arm pace": {
-          "balls": 26,
-          "runs": 47,
-          "dismissals": 1,
-          "sr": 180.8,
-          "avg": 47.0,
-          "boundaryPct": 26.9,
-          "dotPct": 26.9
-        },
         "Leg-spin": {
           "balls": 70,
           "runs": 109,
@@ -4288,33 +3460,6 @@ const COMPARISON_DATA = {
           "avg": 56.0,
           "boundaryPct": 13.3,
           "dotPct": 28.9
-        },
-        "Right-arm leg-spin": {
-          "balls": 20,
-          "runs": 22,
-          "dismissals": 1,
-          "sr": 110.0,
-          "avg": 22.0,
-          "boundaryPct": 10.0,
-          "dotPct": 30.0
-        },
-        "Right-arm off-spin": {
-          "balls": 46,
-          "runs": 64,
-          "dismissals": 2,
-          "sr": 139.1,
-          "avg": 32.0,
-          "boundaryPct": 21.7,
-          "dotPct": 34.8
-        },
-        "Right-arm pace": {
-          "balls": 62,
-          "runs": 87,
-          "dismissals": 2,
-          "sr": 140.3,
-          "avg": 43.5,
-          "boundaryPct": 21.0,
-          "dotPct": 35.5
         },
         "Wrist-spin": {
           "balls": 28,
@@ -4410,22 +3555,13 @@ const COMPARISON_DATA = {
           "dotPct": 25.0
         },
         "Left-arm orthodox": {
-          "balls": 12,
-          "runs": 26,
+          "balls": 7,
+          "runs": 14,
           "dismissals": 0,
-          "sr": 216.7,
+          "sr": 200.0,
           "avg": null,
-          "boundaryPct": 41.7,
-          "dotPct": 25.0
-        },
-        "Left-arm pace": {
-          "balls": 10,
-          "runs": 13,
-          "dismissals": 0,
-          "sr": 130.0,
-          "avg": null,
-          "boundaryPct": 20.0,
-          "dotPct": 30.0
+          "boundaryPct": 42.9,
+          "dotPct": 28.6
         },
         "Leg-spin": {
           "balls": 55,
@@ -4453,33 +3589,6 @@ const COMPARISON_DATA = {
           "avg": 32.0,
           "boundaryPct": 40.0,
           "dotPct": 26.7
-        },
-        "Right-arm leg-spin": {
-          "balls": 5,
-          "runs": 8,
-          "dismissals": 1,
-          "sr": 160.0,
-          "avg": 8.0,
-          "boundaryPct": 20.0,
-          "dotPct": 40.0
-        },
-        "Right-arm off-spin": {
-          "balls": 12,
-          "runs": 31,
-          "dismissals": 0,
-          "sr": 258.3,
-          "avg": null,
-          "boundaryPct": 50.0,
-          "dotPct": 25.0
-        },
-        "Right-arm pace": {
-          "balls": 36,
-          "runs": 72,
-          "dismissals": 3,
-          "sr": 200.0,
-          "avg": 24.0,
-          "boundaryPct": 38.9,
-          "dotPct": 41.7
         },
         "Wrist-spin": {
           "balls": 4,
@@ -4587,22 +3696,13 @@ const COMPARISON_DATA = {
           "dotPct": 23.9
         },
         "Left-arm orthodox": {
-          "balls": 12,
-          "runs": 28,
+          "balls": 2,
+          "runs": 5,
           "dismissals": 0,
-          "sr": 233.3,
+          "sr": 250.0,
           "avg": null,
-          "boundaryPct": 33.3,
-          "dotPct": 8.3
-        },
-        "Left-arm pace": {
-          "balls": 16,
-          "runs": 28,
-          "dismissals": 1,
-          "sr": 175.0,
-          "avg": 28.0,
-          "boundaryPct": 18.8,
-          "dotPct": 37.5
+          "boundaryPct": 50.0,
+          "dotPct": 0.0
         },
         "Leg-spin": {
           "balls": 67,
@@ -4630,24 +3730,6 @@ const COMPARISON_DATA = {
           "avg": 47.0,
           "boundaryPct": 31.8,
           "dotPct": 18.2
-        },
-        "Right-arm off-spin": {
-          "balls": 12,
-          "runs": 12,
-          "dismissals": 0,
-          "sr": 100.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 16.7
-        },
-        "Right-arm pace": {
-          "balls": 30,
-          "runs": 46,
-          "dismissals": 1,
-          "sr": 153.3,
-          "avg": 46.0,
-          "boundaryPct": 20.0,
-          "dotPct": 23.3
         },
         "Wrist-spin": {
           "balls": 29,
@@ -4754,15 +3836,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 18.2,
           "dotPct": 24.2
         },
-        "Left-arm pace": {
-          "balls": 15,
-          "runs": 26,
-          "dismissals": 2,
-          "sr": 173.3,
-          "avg": 13.0,
-          "boundaryPct": 26.7,
-          "dotPct": 33.3
-        },
         "Leg-spin": {
           "balls": 46,
           "runs": 54,
@@ -4798,33 +3871,6 @@ const COMPARISON_DATA = {
           "avg": 14.0,
           "boundaryPct": 9.4,
           "dotPct": 34.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 7,
-          "runs": 4,
-          "dismissals": 1,
-          "sr": 57.1,
-          "avg": 4.0,
-          "boundaryPct": 0.0,
-          "dotPct": 42.9
-        },
-        "Right-arm off-spin": {
-          "balls": 37,
-          "runs": 59,
-          "dismissals": 0,
-          "sr": 159.5,
-          "avg": null,
-          "boundaryPct": 13.5,
-          "dotPct": 18.9
-        },
-        "Right-arm pace": {
-          "balls": 36,
-          "runs": 55,
-          "dismissals": 2,
-          "sr": 152.8,
-          "avg": 27.5,
-          "boundaryPct": 22.2,
-          "dotPct": 33.3
         },
         "Wrist-spin": {
           "balls": 24,
@@ -4932,22 +3978,13 @@ const COMPARISON_DATA = {
           "dotPct": 37.3
         },
         "Left-arm orthodox": {
-          "balls": 9,
-          "runs": 8,
+          "balls": 1,
+          "runs": 1,
           "dismissals": 0,
-          "sr": 88.9,
+          "sr": 100.0,
           "avg": null,
           "boundaryPct": 0.0,
-          "dotPct": 22.2
-        },
-        "Left-arm pace": {
-          "balls": 10,
-          "runs": 13,
-          "dismissals": 0,
-          "sr": 130.0,
-          "avg": null,
-          "boundaryPct": 20.0,
-          "dotPct": 50.0
+          "dotPct": 0.0
         },
         "Leg-spin": {
           "balls": 56,
@@ -4993,33 +4030,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 15.4,
           "dotPct": 23.1
-        },
-        "Right-arm leg-spin": {
-          "balls": 9,
-          "runs": 13,
-          "dismissals": 1,
-          "sr": 144.4,
-          "avg": 13.0,
-          "boundaryPct": 22.2,
-          "dotPct": 44.4
-        },
-        "Right-arm off-spin": {
-          "balls": 49,
-          "runs": 43,
-          "dismissals": 0,
-          "sr": 87.8,
-          "avg": null,
-          "boundaryPct": 4.1,
-          "dotPct": 30.6
-        },
-        "Right-arm pace": {
-          "balls": 54,
-          "runs": 89,
-          "dismissals": 2,
-          "sr": 164.8,
-          "avg": 44.5,
-          "boundaryPct": 20.4,
-          "dotPct": 33.3
         },
         "Wrist-spin": {
           "balls": 38,
@@ -5126,24 +4136,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 26.7,
           "dotPct": 20.0
         },
-        "Left-arm orthodox": {
-          "balls": 7,
-          "runs": 14,
-          "dismissals": 0,
-          "sr": 200.0,
-          "avg": null,
-          "boundaryPct": 28.6,
-          "dotPct": 42.9
-        },
-        "Left-arm pace": {
-          "balls": 18,
-          "runs": 31,
-          "dismissals": 1,
-          "sr": 172.2,
-          "avg": 31.0,
-          "boundaryPct": 16.7,
-          "dotPct": 22.2
-        },
         "Leg-spin": {
           "balls": 105,
           "runs": 175,
@@ -5170,33 +4162,6 @@ const COMPARISON_DATA = {
           "avg": 29.0,
           "boundaryPct": 13.9,
           "dotPct": 41.7
-        },
-        "Right-arm leg-spin": {
-          "balls": 2,
-          "runs": 1,
-          "dismissals": 0,
-          "sr": 50.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 50.0
-        },
-        "Right-arm off-spin": {
-          "balls": 21,
-          "runs": 36,
-          "dismissals": 2,
-          "sr": 171.4,
-          "avg": 18.0,
-          "boundaryPct": 23.8,
-          "dotPct": 23.8
-        },
-        "Right-arm pace": {
-          "balls": 32,
-          "runs": 40,
-          "dismissals": 2,
-          "sr": 125.0,
-          "avg": 20.0,
-          "boundaryPct": 15.6,
-          "dotPct": 34.4
         },
         "Wrist-spin": {
           "balls": 22,
@@ -5303,15 +4268,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 12.9,
           "dotPct": 32.3
         },
-        "Left-arm pace": {
-          "balls": 10,
-          "runs": 24,
-          "dismissals": 1,
-          "sr": 240.0,
-          "avg": 24.0,
-          "boundaryPct": 40.0,
-          "dotPct": 30.0
-        },
         "Leg-spin": {
           "balls": 89,
           "runs": 116,
@@ -5347,33 +4303,6 @@ const COMPARISON_DATA = {
           "avg": 8.7,
           "boundaryPct": 3.1,
           "dotPct": 37.5
-        },
-        "Right-arm leg-spin": {
-          "balls": 5,
-          "runs": 5,
-          "dismissals": 0,
-          "sr": 100.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 0.0
-        },
-        "Right-arm off-spin": {
-          "balls": 15,
-          "runs": 22,
-          "dismissals": 1,
-          "sr": 146.7,
-          "avg": 22.0,
-          "boundaryPct": 13.3,
-          "dotPct": 26.7
-        },
-        "Right-arm pace": {
-          "balls": 41,
-          "runs": 73,
-          "dismissals": 3,
-          "sr": 178.1,
-          "avg": 24.3,
-          "boundaryPct": 24.4,
-          "dotPct": 24.4
         },
         "Wrist-spin": {
           "balls": 13,
@@ -5480,24 +4409,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 10.9,
           "dotPct": 43.8
         },
-        "Left-arm orthodox": {
-          "balls": 3,
-          "runs": 2,
-          "dismissals": 0,
-          "sr": 66.7,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 33.3
-        },
-        "Left-arm pace": {
-          "balls": 17,
-          "runs": 32,
-          "dismissals": 1,
-          "sr": 188.2,
-          "avg": 32.0,
-          "boundaryPct": 35.3,
-          "dotPct": 35.3
-        },
         "Leg-spin": {
           "balls": 62,
           "runs": 108,
@@ -5515,33 +4426,6 @@ const COMPARISON_DATA = {
           "avg": 22.0,
           "boundaryPct": 11.1,
           "dotPct": 38.9
-        },
-        "Right-arm leg-spin": {
-          "balls": 14,
-          "runs": 38,
-          "dismissals": 1,
-          "sr": 271.4,
-          "avg": 38.0,
-          "boundaryPct": 42.9,
-          "dotPct": 14.3
-        },
-        "Right-arm off-spin": {
-          "balls": 18,
-          "runs": 29,
-          "dismissals": 1,
-          "sr": 161.1,
-          "avg": 29.0,
-          "boundaryPct": 22.2,
-          "dotPct": 16.7
-        },
-        "Right-arm pace": {
-          "balls": 56,
-          "runs": 94,
-          "dismissals": 4,
-          "sr": 167.9,
-          "avg": 23.5,
-          "boundaryPct": 21.4,
-          "dotPct": 25.0
         },
         "Wrist-spin": {
           "balls": 25,
@@ -5639,24 +4523,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 0.0,
           "dotPct": 0.0
         },
-        "Left-arm orthodox": {
-          "balls": 1,
-          "runs": 0,
-          "dismissals": 1,
-          "sr": 0.0,
-          "avg": 0.0,
-          "boundaryPct": 0.0,
-          "dotPct": 100.0
-        },
-        "Left-arm pace": {
-          "balls": 9,
-          "runs": 28,
-          "dismissals": 0,
-          "sr": 311.1,
-          "avg": null,
-          "boundaryPct": 55.6,
-          "dotPct": 11.1
-        },
         "Leg-spin": {
           "balls": 45,
           "runs": 86,
@@ -5683,33 +4549,6 @@ const COMPARISON_DATA = {
           "avg": 20.7,
           "boundaryPct": 21.1,
           "dotPct": 28.9
-        },
-        "Right-arm leg-spin": {
-          "balls": 4,
-          "runs": 3,
-          "dismissals": 1,
-          "sr": 75.0,
-          "avg": 3.0,
-          "boundaryPct": 0.0,
-          "dotPct": 25.0
-        },
-        "Right-arm off-spin": {
-          "balls": 56,
-          "runs": 96,
-          "dismissals": 1,
-          "sr": 171.4,
-          "avg": 96.0,
-          "boundaryPct": 25.0,
-          "dotPct": 39.3
-        },
-        "Right-arm pace": {
-          "balls": 29,
-          "runs": 71,
-          "dismissals": 1,
-          "sr": 244.8,
-          "avg": 71.0,
-          "boundaryPct": 48.3,
-          "dotPct": 24.1
         },
         "Wrist-spin": {
           "balls": 11,
@@ -5816,24 +4655,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 18.0,
           "dotPct": 41.6
         },
-        "Left-arm orthodox": {
-          "balls": 2,
-          "runs": 2,
-          "dismissals": 0,
-          "sr": 100.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 0.0
-        },
-        "Left-arm pace": {
-          "balls": 4,
-          "runs": 0,
-          "dismissals": 1,
-          "sr": 0.0,
-          "avg": 0.0,
-          "boundaryPct": 0.0,
-          "dotPct": 100.0
-        },
         "Leg-spin": {
           "balls": 40,
           "runs": 75,
@@ -5860,33 +4681,6 @@ const COMPARISON_DATA = {
           "avg": 41.0,
           "boundaryPct": 16.7,
           "dotPct": 40.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 5,
-          "runs": 8,
-          "dismissals": 0,
-          "sr": 160.0,
-          "avg": null,
-          "boundaryPct": 20.0,
-          "dotPct": 0.0
-        },
-        "Right-arm off-spin": {
-          "balls": 4,
-          "runs": 1,
-          "dismissals": 0,
-          "sr": 25.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 75.0
-        },
-        "Right-arm pace": {
-          "balls": 20,
-          "runs": 31,
-          "dismissals": 2,
-          "sr": 155.0,
-          "avg": 15.5,
-          "boundaryPct": 25.0,
-          "dotPct": 30.0
         },
         "Wrist-spin": {
           "balls": 17,
@@ -5993,24 +4787,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 27.0,
           "dotPct": 27.0
         },
-        "Left-arm orthodox": {
-          "balls": 8,
-          "runs": 5,
-          "dismissals": 0,
-          "sr": 62.5,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 37.5
-        },
-        "Left-arm pace": {
-          "balls": 33,
-          "runs": 40,
-          "dismissals": 2,
-          "sr": 121.2,
-          "avg": 20.0,
-          "boundaryPct": 21.2,
-          "dotPct": 48.5
-        },
         "Leg-spin": {
           "balls": 37,
           "runs": 40,
@@ -6028,33 +4804,6 @@ const COMPARISON_DATA = {
           "avg": 20.5,
           "boundaryPct": 23.3,
           "dotPct": 43.3
-        },
-        "Right-arm leg-spin": {
-          "balls": 15,
-          "runs": 25,
-          "dismissals": 0,
-          "sr": 166.7,
-          "avg": null,
-          "boundaryPct": 13.3,
-          "dotPct": 6.7
-        },
-        "Right-arm off-spin": {
-          "balls": 36,
-          "runs": 44,
-          "dismissals": 0,
-          "sr": 122.2,
-          "avg": null,
-          "boundaryPct": 13.9,
-          "dotPct": 30.6
-        },
-        "Right-arm pace": {
-          "balls": 52,
-          "runs": 52,
-          "dismissals": 1,
-          "sr": 100.0,
-          "avg": 52.0,
-          "boundaryPct": 15.4,
-          "dotPct": 53.9
         }
       },
       "recentForm": {},
@@ -6140,24 +4889,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 18.2,
           "dotPct": 33.3
         },
-        "Left-arm orthodox": {
-          "balls": 4,
-          "runs": 7,
-          "dismissals": 1,
-          "sr": 175.0,
-          "avg": 7.0,
-          "boundaryPct": 25.0,
-          "dotPct": 50.0
-        },
-        "Left-arm pace": {
-          "balls": 8,
-          "runs": 20,
-          "dismissals": 0,
-          "sr": 250.0,
-          "avg": null,
-          "boundaryPct": 37.5,
-          "dotPct": 12.5
-        },
         "Leg-spin": {
           "balls": 118,
           "runs": 184,
@@ -6184,33 +4915,6 @@ const COMPARISON_DATA = {
           "avg": 11.0,
           "boundaryPct": 5.9,
           "dotPct": 52.9
-        },
-        "Right-arm leg-spin": {
-          "balls": 4,
-          "runs": 9,
-          "dismissals": 0,
-          "sr": 225.0,
-          "avg": null,
-          "boundaryPct": 25.0,
-          "dotPct": 0.0
-        },
-        "Right-arm off-spin": {
-          "balls": 52,
-          "runs": 70,
-          "dismissals": 1,
-          "sr": 134.6,
-          "avg": 70.0,
-          "boundaryPct": 15.4,
-          "dotPct": 26.9
-        },
-        "Right-arm pace": {
-          "balls": 46,
-          "runs": 62,
-          "dismissals": 3,
-          "sr": 134.8,
-          "avg": 20.7,
-          "boundaryPct": 15.2,
-          "dotPct": 32.6
         },
         "Wrist-spin": {
           "balls": 15,
@@ -6317,24 +5021,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 11.6,
           "dotPct": 20.9
         },
-        "Left-arm orthodox": {
-          "balls": 7,
-          "runs": 13,
-          "dismissals": 0,
-          "sr": 185.7,
-          "avg": null,
-          "boundaryPct": 14.3,
-          "dotPct": 14.3
-        },
-        "Left-arm pace": {
-          "balls": 4,
-          "runs": 4,
-          "dismissals": 0,
-          "sr": 100.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 25.0
-        },
         "Leg-spin": {
           "balls": 59,
           "runs": 93,
@@ -6370,33 +5056,6 @@ const COMPARISON_DATA = {
           "avg": 23.0,
           "boundaryPct": 7.4,
           "dotPct": 48.1
-        },
-        "Right-arm leg-spin": {
-          "balls": 22,
-          "runs": 17,
-          "dismissals": 1,
-          "sr": 77.3,
-          "avg": 17.0,
-          "boundaryPct": 4.5,
-          "dotPct": 40.9
-        },
-        "Right-arm off-spin": {
-          "balls": 30,
-          "runs": 34,
-          "dismissals": 0,
-          "sr": 113.3,
-          "avg": null,
-          "boundaryPct": 10.0,
-          "dotPct": 30.0
-        },
-        "Right-arm pace": {
-          "balls": 50,
-          "runs": 53,
-          "dismissals": 2,
-          "sr": 106.0,
-          "avg": 26.5,
-          "boundaryPct": 10.0,
-          "dotPct": 42.0
         },
         "Wrist-spin": {
           "balls": 28,
@@ -6503,15 +5162,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 17.2,
           "dotPct": 34.5
         },
-        "Left-arm pace": {
-          "balls": 6,
-          "runs": 13,
-          "dismissals": 0,
-          "sr": 216.7,
-          "avg": null,
-          "boundaryPct": 33.3,
-          "dotPct": 16.7
-        },
         "Leg-spin": {
           "balls": 68,
           "runs": 105,
@@ -6529,33 +5179,6 @@ const COMPARISON_DATA = {
           "avg": 9.3,
           "boundaryPct": 6.5,
           "dotPct": 45.2
-        },
-        "Right-arm leg-spin": {
-          "balls": 10,
-          "runs": 11,
-          "dismissals": 0,
-          "sr": 110.0,
-          "avg": null,
-          "boundaryPct": 10.0,
-          "dotPct": 20.0
-        },
-        "Right-arm off-spin": {
-          "balls": 23,
-          "runs": 22,
-          "dismissals": 1,
-          "sr": 95.7,
-          "avg": 22.0,
-          "boundaryPct": 8.7,
-          "dotPct": 30.4
-        },
-        "Right-arm pace": {
-          "balls": 57,
-          "runs": 115,
-          "dismissals": 2,
-          "sr": 201.8,
-          "avg": 57.5,
-          "boundaryPct": 29.8,
-          "dotPct": 31.6
         },
         "Wrist-spin": {
           "balls": 37,
@@ -6658,22 +5281,13 @@ const COMPARISON_DATA = {
           "dotPct": 33.3
         },
         "Left-arm orthodox": {
-          "balls": 9,
-          "runs": 31,
+          "balls": 5,
+          "runs": 17,
           "dismissals": 0,
-          "sr": 344.4,
+          "sr": 340.0,
           "avg": null,
-          "boundaryPct": 55.6,
-          "dotPct": 11.1
-        },
-        "Left-arm pace": {
-          "balls": 7,
-          "runs": 18,
-          "dismissals": 1,
-          "sr": 257.1,
-          "avg": 18.0,
-          "boundaryPct": 42.9,
-          "dotPct": 28.6
+          "boundaryPct": 60.0,
+          "dotPct": 0.0
         },
         "Leg-spin": {
           "balls": 75,
@@ -6701,33 +5315,6 @@ const COMPARISON_DATA = {
           "avg": 22.0,
           "boundaryPct": 12.5,
           "dotPct": 37.5
-        },
-        "Right-arm leg-spin": {
-          "balls": 11,
-          "runs": 19,
-          "dismissals": 0,
-          "sr": 172.7,
-          "avg": null,
-          "boundaryPct": 18.2,
-          "dotPct": 9.1
-        },
-        "Right-arm off-spin": {
-          "balls": 11,
-          "runs": 16,
-          "dismissals": 0,
-          "sr": 145.4,
-          "avg": null,
-          "boundaryPct": 18.2,
-          "dotPct": 45.5
-        },
-        "Right-arm pace": {
-          "balls": 64,
-          "runs": 91,
-          "dismissals": 6,
-          "sr": 142.2,
-          "avg": 15.2,
-          "boundaryPct": 20.3,
-          "dotPct": 40.6
         },
         "Wrist-spin": {
           "balls": 20,
@@ -6829,24 +5416,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 21.7,
           "dotPct": 30.4
         },
-        "Left-arm orthodox": {
-          "balls": 3,
-          "runs": 1,
-          "dismissals": 1,
-          "sr": 33.3,
-          "avg": 1.0,
-          "boundaryPct": 0.0,
-          "dotPct": 66.7
-        },
-        "Left-arm pace": {
-          "balls": 13,
-          "runs": 22,
-          "dismissals": 1,
-          "sr": 169.2,
-          "avg": 22.0,
-          "boundaryPct": 30.8,
-          "dotPct": 38.5
-        },
         "Leg-spin": {
           "balls": 50,
           "runs": 54,
@@ -6873,33 +5442,6 @@ const COMPARISON_DATA = {
           "avg": 26.0,
           "boundaryPct": 9.5,
           "dotPct": 23.8
-        },
-        "Right-arm leg-spin": {
-          "balls": 10,
-          "runs": 8,
-          "dismissals": 0,
-          "sr": 80.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 40.0
-        },
-        "Right-arm off-spin": {
-          "balls": 62,
-          "runs": 93,
-          "dismissals": 3,
-          "sr": 150.0,
-          "avg": 31.0,
-          "boundaryPct": 21.0,
-          "dotPct": 25.8
-        },
-        "Right-arm pace": {
-          "balls": 17,
-          "runs": 23,
-          "dismissals": 1,
-          "sr": 135.3,
-          "avg": 23.0,
-          "boundaryPct": 17.6,
-          "dotPct": 41.2
         },
         "Wrist-spin": {
           "balls": 12,
@@ -7002,22 +5544,13 @@ const COMPARISON_DATA = {
           "dotPct": 38.3
         },
         "Left-arm orthodox": {
-          "balls": 14,
-          "runs": 25,
+          "balls": 2,
+          "runs": 2,
           "dismissals": 0,
-          "sr": 178.6,
+          "sr": 100.0,
           "avg": null,
-          "boundaryPct": 28.6,
-          "dotPct": 35.7
-        },
-        "Left-arm pace": {
-          "balls": 21,
-          "runs": 24,
-          "dismissals": 4,
-          "sr": 114.3,
-          "avg": 6.0,
-          "boundaryPct": 19.1,
-          "dotPct": 52.4
+          "boundaryPct": 0.0,
+          "dotPct": 0.0
         },
         "Leg-spin": {
           "balls": 56,
@@ -7045,24 +5578,6 @@ const COMPARISON_DATA = {
           "avg": 38.0,
           "boundaryPct": 30.0,
           "dotPct": 40.0
-        },
-        "Right-arm off-spin": {
-          "balls": 31,
-          "runs": 31,
-          "dismissals": 2,
-          "sr": 100.0,
-          "avg": 15.5,
-          "boundaryPct": 6.5,
-          "dotPct": 29.0
-        },
-        "Right-arm pace": {
-          "balls": 19,
-          "runs": 26,
-          "dismissals": 2,
-          "sr": 136.8,
-          "avg": 13.0,
-          "boundaryPct": 21.1,
-          "dotPct": 36.8
         },
         "Wrist-spin": {
           "balls": 29,
@@ -7165,22 +5680,13 @@ const COMPARISON_DATA = {
           "dotPct": 41.2
         },
         "Left-arm orthodox": {
-          "balls": 4,
-          "runs": 4,
+          "balls": 2,
+          "runs": 2,
           "dismissals": 0,
           "sr": 100.0,
           "avg": null,
           "boundaryPct": 0.0,
           "dotPct": 0.0
-        },
-        "Left-arm pace": {
-          "balls": 15,
-          "runs": 19,
-          "dismissals": 1,
-          "sr": 126.7,
-          "avg": 19.0,
-          "boundaryPct": 20.0,
-          "dotPct": 53.3
         },
         "Leg-spin": {
           "balls": 44,
@@ -7217,24 +5723,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 14.3,
           "dotPct": 34.3
-        },
-        "Right-arm off-spin": {
-          "balls": 14,
-          "runs": 22,
-          "dismissals": 0,
-          "sr": 157.1,
-          "avg": null,
-          "boundaryPct": 14.3,
-          "dotPct": 28.6
-        },
-        "Right-arm pace": {
-          "balls": 54,
-          "runs": 105,
-          "dismissals": 0,
-          "sr": 194.4,
-          "avg": null,
-          "boundaryPct": 29.6,
-          "dotPct": 18.5
         },
         "Wrist-spin": {
           "balls": 25,
@@ -7337,22 +5825,13 @@ const COMPARISON_DATA = {
           "dotPct": 36.1
         },
         "Left-arm orthodox": {
-          "balls": 5,
-          "runs": 10,
+          "balls": 4,
+          "runs": 9,
           "dismissals": 0,
-          "sr": 200.0,
+          "sr": 225.0,
           "avg": null,
-          "boundaryPct": 40.0,
-          "dotPct": 20.0
-        },
-        "Left-arm pace": {
-          "balls": 16,
-          "runs": 19,
-          "dismissals": 1,
-          "sr": 118.8,
-          "avg": 19.0,
-          "boundaryPct": 12.5,
-          "dotPct": 43.8
+          "boundaryPct": 50.0,
+          "dotPct": 25.0
         },
         "Leg-spin": {
           "balls": 42,
@@ -7380,33 +5859,6 @@ const COMPARISON_DATA = {
           "avg": 5.0,
           "boundaryPct": 7.7,
           "dotPct": 61.5
-        },
-        "Right-arm leg-spin": {
-          "balls": 12,
-          "runs": 10,
-          "dismissals": 1,
-          "sr": 83.3,
-          "avg": 10.0,
-          "boundaryPct": 8.3,
-          "dotPct": 58.3
-        },
-        "Right-arm off-spin": {
-          "balls": 19,
-          "runs": 21,
-          "dismissals": 1,
-          "sr": 110.5,
-          "avg": 21.0,
-          "boundaryPct": 10.5,
-          "dotPct": 31.6
-        },
-        "Right-arm pace": {
-          "balls": 28,
-          "runs": 54,
-          "dismissals": 1,
-          "sr": 192.9,
-          "avg": 54.0,
-          "boundaryPct": 25.0,
-          "dotPct": 28.6
         },
         "Wrist-spin": {
           "balls": 21,
@@ -7517,15 +5969,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 33.3,
           "dotPct": 0.0
         },
-        "Left-arm pace": {
-          "balls": 5,
-          "runs": 1,
-          "dismissals": 2,
-          "sr": 20.0,
-          "avg": 0.5,
-          "boundaryPct": 0.0,
-          "dotPct": 80.0
-        },
         "Leg-spin": {
           "balls": 72,
           "runs": 162,
@@ -7543,24 +5986,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 22.2,
           "dotPct": 22.2
-        },
-        "Right-arm off-spin": {
-          "balls": 15,
-          "runs": 17,
-          "dismissals": 0,
-          "sr": 113.3,
-          "avg": null,
-          "boundaryPct": 6.7,
-          "dotPct": 33.3
-        },
-        "Right-arm pace": {
-          "balls": 32,
-          "runs": 52,
-          "dismissals": 5,
-          "sr": 162.5,
-          "avg": 10.4,
-          "boundaryPct": 25.0,
-          "dotPct": 37.5
         },
         "Wrist-spin": {
           "balls": 32,
@@ -7663,22 +6088,13 @@ const COMPARISON_DATA = {
           "dotPct": 30.0
         },
         "Left-arm orthodox": {
-          "balls": 14,
-          "runs": 29,
-          "dismissals": 0,
-          "sr": 207.1,
-          "avg": null,
-          "boundaryPct": 35.7,
-          "dotPct": 21.4
-        },
-        "Left-arm pace": {
           "balls": 7,
-          "runs": 8,
-          "dismissals": 1,
-          "sr": 114.3,
-          "avg": 8.0,
-          "boundaryPct": 14.3,
-          "dotPct": 42.9
+          "runs": 21,
+          "dismissals": 0,
+          "sr": 300.0,
+          "avg": null,
+          "boundaryPct": 57.1,
+          "dotPct": 0.0
         },
         "Leg-spin": {
           "balls": 62,
@@ -7706,33 +6122,6 @@ const COMPARISON_DATA = {
           "avg": 11.5,
           "boundaryPct": 9.1,
           "dotPct": 31.8
-        },
-        "Right-arm leg-spin": {
-          "balls": 9,
-          "runs": 8,
-          "dismissals": 0,
-          "sr": 88.9,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 11.1
-        },
-        "Right-arm off-spin": {
-          "balls": 31,
-          "runs": 31,
-          "dismissals": 2,
-          "sr": 100.0,
-          "avg": 15.5,
-          "boundaryPct": 6.5,
-          "dotPct": 29.0
-        },
-        "Right-arm pace": {
-          "balls": 33,
-          "runs": 68,
-          "dismissals": 2,
-          "sr": 206.1,
-          "avg": 34.0,
-          "boundaryPct": 36.4,
-          "dotPct": 33.3
         }
       },
       "recentForm": {
@@ -7825,24 +6214,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 31.2,
           "dotPct": 31.2
         },
-        "Left-arm orthodox": {
-          "balls": 2,
-          "runs": 0,
-          "dismissals": 1,
-          "sr": 0.0,
-          "avg": 0.0,
-          "boundaryPct": 0.0,
-          "dotPct": 100.0
-        },
-        "Left-arm pace": {
-          "balls": 4,
-          "runs": 1,
-          "dismissals": 0,
-          "sr": 25.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 75.0
-        },
         "Leg-spin": {
           "balls": 41,
           "runs": 77,
@@ -7851,24 +6222,6 @@ const COMPARISON_DATA = {
           "avg": 12.8,
           "boundaryPct": 26.8,
           "dotPct": 29.3
-        },
-        "Right-arm off-spin": {
-          "balls": 38,
-          "runs": 79,
-          "dismissals": 0,
-          "sr": 207.9,
-          "avg": null,
-          "boundaryPct": 36.8,
-          "dotPct": 42.1
-        },
-        "Right-arm pace": {
-          "balls": 34,
-          "runs": 74,
-          "dismissals": 1,
-          "sr": 217.7,
-          "avg": 74.0,
-          "boundaryPct": 41.2,
-          "dotPct": 35.3
         },
         "Wrist-spin": {
           "balls": 6,
@@ -7970,15 +6323,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 0.0,
           "dotPct": 16.7
         },
-        "Left-arm pace": {
-          "balls": 8,
-          "runs": 9,
-          "dismissals": 1,
-          "sr": 112.5,
-          "avg": 9.0,
-          "boundaryPct": 12.5,
-          "dotPct": 37.5
-        },
         "Leg-spin": {
           "balls": 44,
           "runs": 80,
@@ -8014,33 +6358,6 @@ const COMPARISON_DATA = {
           "avg": 34.0,
           "boundaryPct": 15.4,
           "dotPct": 30.8
-        },
-        "Right-arm leg-spin": {
-          "balls": 29,
-          "runs": 51,
-          "dismissals": 0,
-          "sr": 175.9,
-          "avg": null,
-          "boundaryPct": 24.1,
-          "dotPct": 17.2
-        },
-        "Right-arm off-spin": {
-          "balls": 16,
-          "runs": 18,
-          "dismissals": 0,
-          "sr": 112.5,
-          "avg": null,
-          "boundaryPct": 12.5,
-          "dotPct": 31.2
-        },
-        "Right-arm pace": {
-          "balls": 48,
-          "runs": 79,
-          "dismissals": 1,
-          "sr": 164.6,
-          "avg": 79.0,
-          "boundaryPct": 20.8,
-          "dotPct": 31.2
         },
         "Wrist-spin": {
           "balls": 24,
@@ -8143,22 +6460,13 @@ const COMPARISON_DATA = {
           "dotPct": 26.3
         },
         "Left-arm orthodox": {
-          "balls": 7,
-          "runs": 11,
+          "balls": 2,
+          "runs": 1,
           "dismissals": 0,
-          "sr": 157.1,
+          "sr": 50.0,
           "avg": null,
-          "boundaryPct": 28.6,
-          "dotPct": 42.9
-        },
-        "Left-arm pace": {
-          "balls": 22,
-          "runs": 27,
-          "dismissals": 1,
-          "sr": 122.7,
-          "avg": 27.0,
-          "boundaryPct": 13.6,
-          "dotPct": 31.8
+          "boundaryPct": 0.0,
+          "dotPct": 50.0
         },
         "Leg-spin": {
           "balls": 37,
@@ -8186,33 +6494,6 @@ const COMPARISON_DATA = {
           "avg": 31.0,
           "boundaryPct": 6.7,
           "dotPct": 36.7
-        },
-        "Right-arm leg-spin": {
-          "balls": 7,
-          "runs": 18,
-          "dismissals": 0,
-          "sr": 257.1,
-          "avg": null,
-          "boundaryPct": 42.9,
-          "dotPct": 28.6
-        },
-        "Right-arm off-spin": {
-          "balls": 27,
-          "runs": 36,
-          "dismissals": 2,
-          "sr": 133.3,
-          "avg": 18.0,
-          "boundaryPct": 14.8,
-          "dotPct": 33.3
-        },
-        "Right-arm pace": {
-          "balls": 28,
-          "runs": 57,
-          "dismissals": 0,
-          "sr": 203.6,
-          "avg": null,
-          "boundaryPct": 25.0,
-          "dotPct": 10.7
         },
         "Wrist-spin": {
           "balls": 16,
@@ -8315,13 +6596,13 @@ const COMPARISON_DATA = {
           "dotPct": 13.3
         },
         "Left-arm orthodox": {
-          "balls": 9,
-          "runs": 8,
+          "balls": 1,
+          "runs": 3,
           "dismissals": 0,
-          "sr": 88.9,
+          "sr": 300.0,
           "avg": null,
           "boundaryPct": 0.0,
-          "dotPct": 33.3
+          "dotPct": 0.0
         },
         "Leg-spin": {
           "balls": 61,
@@ -8358,33 +6639,6 @@ const COMPARISON_DATA = {
           "avg": 16.0,
           "boundaryPct": 18.2,
           "dotPct": 36.4
-        },
-        "Right-arm leg-spin": {
-          "balls": 9,
-          "runs": 18,
-          "dismissals": 0,
-          "sr": 200.0,
-          "avg": null,
-          "boundaryPct": 22.2,
-          "dotPct": 33.3
-        },
-        "Right-arm off-spin": {
-          "balls": 14,
-          "runs": 27,
-          "dismissals": 0,
-          "sr": 192.9,
-          "avg": null,
-          "boundaryPct": 21.4,
-          "dotPct": 14.3
-        },
-        "Right-arm pace": {
-          "balls": 33,
-          "runs": 67,
-          "dismissals": 0,
-          "sr": 203.0,
-          "avg": null,
-          "boundaryPct": 27.3,
-          "dotPct": 15.2
         }
       },
       "recentForm": {
@@ -8477,15 +6731,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 14.7,
           "dotPct": 47.1
         },
-        "Left-arm pace": {
-          "balls": 23,
-          "runs": 18,
-          "dismissals": 1,
-          "sr": 78.3,
-          "avg": 18.0,
-          "boundaryPct": 8.7,
-          "dotPct": 47.8
-        },
         "Leg-spin": {
           "balls": 55,
           "runs": 67,
@@ -8503,33 +6748,6 @@ const COMPARISON_DATA = {
           "avg": 33.0,
           "boundaryPct": 16.0,
           "dotPct": 24.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 7,
-          "runs": 3,
-          "dismissals": 1,
-          "sr": 42.9,
-          "avg": 3.0,
-          "boundaryPct": 0.0,
-          "dotPct": 57.1
-        },
-        "Right-arm off-spin": {
-          "balls": 43,
-          "runs": 55,
-          "dismissals": 2,
-          "sr": 127.9,
-          "avg": 27.5,
-          "boundaryPct": 13.9,
-          "dotPct": 25.6
-        },
-        "Right-arm pace": {
-          "balls": 17,
-          "runs": 16,
-          "dismissals": 2,
-          "sr": 94.1,
-          "avg": 8.0,
-          "boundaryPct": 11.8,
-          "dotPct": 52.9
         },
         "Wrist-spin": {
           "balls": 8,
@@ -8631,24 +6849,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 16.7,
           "dotPct": 8.3
         },
-        "Left-arm orthodox": {
-          "balls": 8,
-          "runs": 15,
-          "dismissals": 0,
-          "sr": 187.5,
-          "avg": null,
-          "boundaryPct": 25.0,
-          "dotPct": 12.5
-        },
-        "Left-arm pace": {
-          "balls": 26,
-          "runs": 27,
-          "dismissals": 2,
-          "sr": 103.8,
-          "avg": 13.5,
-          "boundaryPct": 15.4,
-          "dotPct": 46.1
-        },
         "Leg-spin": {
           "balls": 35,
           "runs": 64,
@@ -8666,33 +6866,6 @@ const COMPARISON_DATA = {
           "avg": 29.0,
           "boundaryPct": 6.9,
           "dotPct": 31.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 1,
-          "runs": 0,
-          "dismissals": 1,
-          "sr": 0.0,
-          "avg": 0.0,
-          "boundaryPct": 0.0,
-          "dotPct": 100.0
-        },
-        "Right-arm off-spin": {
-          "balls": 27,
-          "runs": 22,
-          "dismissals": 0,
-          "sr": 81.5,
-          "avg": null,
-          "boundaryPct": 7.4,
-          "dotPct": 48.1
-        },
-        "Right-arm pace": {
-          "balls": 20,
-          "runs": 32,
-          "dismissals": 1,
-          "sr": 160.0,
-          "avg": 32.0,
-          "boundaryPct": 20.0,
-          "dotPct": 40.0
         },
         "Wrist-spin": {
           "balls": 6,
@@ -8794,15 +6967,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 20.0,
           "dotPct": 20.0
         },
-        "Left-arm pace": {
-          "balls": 22,
-          "runs": 29,
-          "dismissals": 0,
-          "sr": 131.8,
-          "avg": null,
-          "boundaryPct": 22.7,
-          "dotPct": 36.4
-        },
         "Leg-spin": {
           "balls": 23,
           "runs": 23,
@@ -8820,33 +6984,6 @@ const COMPARISON_DATA = {
           "avg": 8.0,
           "boundaryPct": 16.7,
           "dotPct": 33.3
-        },
-        "Right-arm leg-spin": {
-          "balls": 10,
-          "runs": 10,
-          "dismissals": 0,
-          "sr": 100.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 20.0
-        },
-        "Right-arm off-spin": {
-          "balls": 11,
-          "runs": 10,
-          "dismissals": 0,
-          "sr": 90.9,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 18.2
-        },
-        "Right-arm pace": {
-          "balls": 32,
-          "runs": 37,
-          "dismissals": 2,
-          "sr": 115.6,
-          "avg": 18.5,
-          "boundaryPct": 21.9,
-          "dotPct": 56.2
         },
         "Wrist-spin": {
           "balls": 4,
@@ -8927,15 +7064,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 21.4,
           "dotPct": 32.1
         },
-        "Left-arm pace": {
-          "balls": 10,
-          "runs": 28,
-          "dismissals": 1,
-          "sr": 280.0,
-          "avg": 28.0,
-          "boundaryPct": 40.0,
-          "dotPct": 20.0
-        },
         "Leg-spin": {
           "balls": 32,
           "runs": 30,
@@ -8962,24 +7090,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 18.8,
           "dotPct": 43.8
-        },
-        "Right-arm off-spin": {
-          "balls": 6,
-          "runs": 4,
-          "dismissals": 0,
-          "sr": 66.7,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 33.3
-        },
-        "Right-arm pace": {
-          "balls": 59,
-          "runs": 87,
-          "dismissals": 2,
-          "sr": 147.5,
-          "avg": 43.5,
-          "boundaryPct": 15.2,
-          "dotPct": 30.5
         },
         "Wrist-spin": {
           "balls": 9,
@@ -9081,15 +7191,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 17.1,
           "dotPct": 43.9
         },
-        "Left-arm pace": {
-          "balls": 22,
-          "runs": 40,
-          "dismissals": 1,
-          "sr": 181.8,
-          "avg": 40.0,
-          "boundaryPct": 31.8,
-          "dotPct": 40.9
-        },
         "Leg-spin": {
           "balls": 41,
           "runs": 50,
@@ -9107,33 +7208,6 @@ const COMPARISON_DATA = {
           "avg": 19.0,
           "boundaryPct": 5.0,
           "dotPct": 27.5
-        },
-        "Right-arm leg-spin": {
-          "balls": 21,
-          "runs": 35,
-          "dismissals": 0,
-          "sr": 166.7,
-          "avg": null,
-          "boundaryPct": 23.8,
-          "dotPct": 28.6
-        },
-        "Right-arm off-spin": {
-          "balls": 42,
-          "runs": 61,
-          "dismissals": 1,
-          "sr": 145.2,
-          "avg": 61.0,
-          "boundaryPct": 19.1,
-          "dotPct": 30.9
-        },
-        "Right-arm pace": {
-          "balls": 12,
-          "runs": 25,
-          "dismissals": 2,
-          "sr": 208.3,
-          "avg": 12.5,
-          "boundaryPct": 41.7,
-          "dotPct": 33.3
         },
         "Wrist-spin": {
           "balls": 5,
@@ -9235,24 +7309,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 26.7,
           "dotPct": 40.0
         },
-        "Left-arm orthodox": {
-          "balls": 7,
-          "runs": 14,
-          "dismissals": 0,
-          "sr": 200.0,
-          "avg": null,
-          "boundaryPct": 28.6,
-          "dotPct": 14.3
-        },
-        "Left-arm pace": {
-          "balls": 8,
-          "runs": 8,
-          "dismissals": 1,
-          "sr": 100.0,
-          "avg": 8.0,
-          "boundaryPct": 25.0,
-          "dotPct": 75.0
-        },
         "Leg-spin": {
           "balls": 43,
           "runs": 60,
@@ -9270,33 +7326,6 @@ const COMPARISON_DATA = {
           "avg": 23.5,
           "boundaryPct": 17.9,
           "dotPct": 41.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 9,
-          "runs": 16,
-          "dismissals": 2,
-          "sr": 177.8,
-          "avg": 8.0,
-          "boundaryPct": 33.3,
-          "dotPct": 33.3
-        },
-        "Right-arm off-spin": {
-          "balls": 19,
-          "runs": 16,
-          "dismissals": 1,
-          "sr": 84.2,
-          "avg": 16.0,
-          "boundaryPct": 5.3,
-          "dotPct": 36.8
-        },
-        "Right-arm pace": {
-          "balls": 51,
-          "runs": 76,
-          "dismissals": 1,
-          "sr": 149.0,
-          "avg": 76.0,
-          "boundaryPct": 19.6,
-          "dotPct": 27.4
         }
       },
       "recentForm": {},
@@ -9368,15 +7397,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 19.4,
           "dotPct": 54.8
         },
-        "Left-arm pace": {
-          "balls": 9,
-          "runs": 5,
-          "dismissals": 0,
-          "sr": 55.6,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 55.6
-        },
         "Leg-spin": {
           "balls": 67,
           "runs": 90,
@@ -9403,33 +7423,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 33.3,
           "dotPct": 55.6
-        },
-        "Right-arm leg-spin": {
-          "balls": 10,
-          "runs": 16,
-          "dismissals": 1,
-          "sr": 160.0,
-          "avg": 16.0,
-          "boundaryPct": 30.0,
-          "dotPct": 50.0
-        },
-        "Right-arm off-spin": {
-          "balls": 15,
-          "runs": 23,
-          "dismissals": 0,
-          "sr": 153.3,
-          "avg": null,
-          "boundaryPct": 20.0,
-          "dotPct": 53.3
-        },
-        "Right-arm pace": {
-          "balls": 31,
-          "runs": 58,
-          "dismissals": 2,
-          "sr": 187.1,
-          "avg": 29.0,
-          "boundaryPct": 32.3,
-          "dotPct": 38.7
         },
         "Wrist-spin": {
           "balls": 14,
@@ -9519,24 +7512,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 19.4,
           "dotPct": 24.2
         },
-        "Left-arm orthodox": {
-          "balls": 10,
-          "runs": 10,
-          "dismissals": 0,
-          "sr": 100.0,
-          "avg": null,
-          "boundaryPct": 10.0,
-          "dotPct": 30.0
-        },
-        "Left-arm pace": {
-          "balls": 7,
-          "runs": 12,
-          "dismissals": 0,
-          "sr": 171.4,
-          "avg": null,
-          "boundaryPct": 14.3,
-          "dotPct": 14.3
-        },
         "Leg-spin": {
           "balls": 57,
           "runs": 90,
@@ -9563,33 +7538,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 0.0,
           "dotPct": 50.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 2,
-          "runs": 2,
-          "dismissals": 0,
-          "sr": 100.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 0.0
-        },
-        "Right-arm off-spin": {
-          "balls": 11,
-          "runs": 26,
-          "dismissals": 1,
-          "sr": 236.4,
-          "avg": 26.0,
-          "boundaryPct": 36.4,
-          "dotPct": 27.3
-        },
-        "Right-arm pace": {
-          "balls": 6,
-          "runs": 11,
-          "dismissals": 1,
-          "sr": 183.3,
-          "avg": 11.0,
-          "boundaryPct": 33.3,
-          "dotPct": 16.7
         },
         "Wrist-spin": {
           "balls": 8,
@@ -9692,22 +7640,13 @@ const COMPARISON_DATA = {
           "dotPct": 44.4
         },
         "Left-arm orthodox": {
-          "balls": 16,
-          "runs": 13,
+          "balls": 1,
+          "runs": 1,
           "dismissals": 0,
-          "sr": 81.2,
+          "sr": 100.0,
           "avg": null,
-          "boundaryPct": 6.2,
-          "dotPct": 56.2
-        },
-        "Left-arm pace": {
-          "balls": 11,
-          "runs": 18,
-          "dismissals": 1,
-          "sr": 163.6,
-          "avg": 18.0,
-          "boundaryPct": 9.1,
-          "dotPct": 18.2
+          "boundaryPct": 0.0,
+          "dotPct": 0.0
         },
         "Leg-spin": {
           "balls": 27,
@@ -9726,33 +7665,6 @@ const COMPARISON_DATA = {
           "avg": 14.0,
           "boundaryPct": 5.6,
           "dotPct": 44.4
-        },
-        "Right-arm leg-spin": {
-          "balls": 21,
-          "runs": 36,
-          "dismissals": 1,
-          "sr": 171.4,
-          "avg": 36.0,
-          "boundaryPct": 19.1,
-          "dotPct": 28.6
-        },
-        "Right-arm off-spin": {
-          "balls": 28,
-          "runs": 16,
-          "dismissals": 3,
-          "sr": 57.1,
-          "avg": 5.3,
-          "boundaryPct": 3.6,
-          "dotPct": 53.6
-        },
-        "Right-arm pace": {
-          "balls": 18,
-          "runs": 16,
-          "dismissals": 1,
-          "sr": 88.9,
-          "avg": 16.0,
-          "boundaryPct": 5.6,
-          "dotPct": 38.9
         },
         "Wrist-spin": {
           "balls": 39,
@@ -9854,15 +7766,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 3.9,
           "dotPct": 30.8
         },
-        "Left-arm pace": {
-          "balls": 15,
-          "runs": 33,
-          "dismissals": 0,
-          "sr": 220.0,
-          "avg": null,
-          "boundaryPct": 46.7,
-          "dotPct": 33.3
-        },
         "Leg-spin": {
           "balls": 40,
           "runs": 51,
@@ -9880,33 +7783,6 @@ const COMPARISON_DATA = {
           "avg": 58.0,
           "boundaryPct": 29.6,
           "dotPct": 14.8
-        },
-        "Right-arm leg-spin": {
-          "balls": 17,
-          "runs": 20,
-          "dismissals": 2,
-          "sr": 117.7,
-          "avg": 10.0,
-          "boundaryPct": 11.8,
-          "dotPct": 35.3
-        },
-        "Right-arm off-spin": {
-          "balls": 5,
-          "runs": 10,
-          "dismissals": 0,
-          "sr": 200.0,
-          "avg": null,
-          "boundaryPct": 20.0,
-          "dotPct": 0.0
-        },
-        "Right-arm pace": {
-          "balls": 30,
-          "runs": 45,
-          "dismissals": 1,
-          "sr": 150.0,
-          "avg": 45.0,
-          "boundaryPct": 16.7,
-          "dotPct": 23.3
         },
         "Wrist-spin": {
           "balls": 23,
@@ -9997,22 +7873,13 @@ const COMPARISON_DATA = {
           "dotPct": 35.5
         },
         "Left-arm orthodox": {
-          "balls": 5,
-          "runs": 8,
+          "balls": 2,
+          "runs": 5,
           "dismissals": 0,
-          "sr": 160.0,
+          "sr": 250.0,
           "avg": null,
-          "boundaryPct": 20.0,
-          "dotPct": 20.0
-        },
-        "Left-arm pace": {
-          "balls": 15,
-          "runs": 29,
-          "dismissals": 0,
-          "sr": 193.3,
-          "avg": null,
-          "boundaryPct": 33.3,
-          "dotPct": 20.0
+          "boundaryPct": 50.0,
+          "dotPct": 0.0
         },
         "Leg-spin": {
           "balls": 14,
@@ -10031,33 +7898,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 0.0,
           "dotPct": 42.9
-        },
-        "Right-arm leg-spin": {
-          "balls": 36,
-          "runs": 56,
-          "dismissals": 0,
-          "sr": 155.6,
-          "avg": null,
-          "boundaryPct": 19.4,
-          "dotPct": 19.4
-        },
-        "Right-arm off-spin": {
-          "balls": 5,
-          "runs": 7,
-          "dismissals": 0,
-          "sr": 140.0,
-          "avg": null,
-          "boundaryPct": 20.0,
-          "dotPct": 20.0
-        },
-        "Right-arm pace": {
-          "balls": 49,
-          "runs": 70,
-          "dismissals": 3,
-          "sr": 142.9,
-          "avg": 23.3,
-          "boundaryPct": 14.3,
-          "dotPct": 26.5
         },
         "Wrist-spin": {
           "balls": 7,
@@ -10147,15 +7987,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 7.9,
           "dotPct": 39.5
         },
-        "Left-arm orthodox": {
-          "balls": 3,
-          "runs": 1,
-          "dismissals": 0,
-          "sr": 33.3,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 66.7
-        },
         "Leg-spin": {
           "balls": 37,
           "runs": 63,
@@ -10182,33 +8013,6 @@ const COMPARISON_DATA = {
           "avg": 1.0,
           "boundaryPct": 0.0,
           "dotPct": 50.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 27,
-          "runs": 20,
-          "dismissals": 0,
-          "sr": 74.1,
-          "avg": null,
-          "boundaryPct": 3.7,
-          "dotPct": 37.0
-        },
-        "Right-arm off-spin": {
-          "balls": 12,
-          "runs": 17,
-          "dismissals": 0,
-          "sr": 141.7,
-          "avg": null,
-          "boundaryPct": 16.7,
-          "dotPct": 33.3
-        },
-        "Right-arm pace": {
-          "balls": 37,
-          "runs": 72,
-          "dismissals": 5,
-          "sr": 194.6,
-          "avg": 14.4,
-          "boundaryPct": 29.7,
-          "dotPct": 29.7
         },
         "Wrist-spin": {
           "balls": 29,
@@ -10301,15 +8105,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 3.6,
           "dotPct": 42.9
         },
-        "Left-arm pace": {
-          "balls": 7,
-          "runs": 29,
-          "dismissals": 0,
-          "sr": 414.3,
-          "avg": null,
-          "boundaryPct": 85.7,
-          "dotPct": 0.0
-        },
         "Leg-spin": {
           "balls": 23,
           "runs": 33,
@@ -10336,33 +8131,6 @@ const COMPARISON_DATA = {
           "avg": 23.0,
           "boundaryPct": 8.7,
           "dotPct": 47.8
-        },
-        "Right-arm leg-spin": {
-          "balls": 8,
-          "runs": 14,
-          "dismissals": 1,
-          "sr": 175.0,
-          "avg": 14.0,
-          "boundaryPct": 25.0,
-          "dotPct": 25.0
-        },
-        "Right-arm off-spin": {
-          "balls": 8,
-          "runs": 5,
-          "dismissals": 0,
-          "sr": 62.5,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 50.0
-        },
-        "Right-arm pace": {
-          "balls": 42,
-          "runs": 66,
-          "dismissals": 3,
-          "sr": 157.1,
-          "avg": 22.0,
-          "boundaryPct": 21.4,
-          "dotPct": 30.9
         },
         "Wrist-spin": {
           "balls": 7,
@@ -10464,15 +8232,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 6.1,
           "dotPct": 18.2
         },
-        "Left-arm pace": {
-          "balls": 8,
-          "runs": 10,
-          "dismissals": 0,
-          "sr": 125.0,
-          "avg": null,
-          "boundaryPct": 25.0,
-          "dotPct": 50.0
-        },
         "Leg-spin": {
           "balls": 67,
           "runs": 112,
@@ -10508,24 +8267,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 14.3,
           "dotPct": 0.0
-        },
-        "Right-arm off-spin": {
-          "balls": 19,
-          "runs": 23,
-          "dismissals": 0,
-          "sr": 121.0,
-          "avg": null,
-          "boundaryPct": 10.5,
-          "dotPct": 31.6
-        },
-        "Right-arm pace": {
-          "balls": 18,
-          "runs": 44,
-          "dismissals": 1,
-          "sr": 244.4,
-          "avg": 44.0,
-          "boundaryPct": 38.9,
-          "dotPct": 27.8
         },
         "Wrist-spin": {
           "balls": 17,
@@ -10627,15 +8368,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 15.0,
           "dotPct": 35.0
         },
-        "Left-arm pace": {
-          "balls": 13,
-          "runs": 21,
-          "dismissals": 2,
-          "sr": 161.5,
-          "avg": 10.5,
-          "boundaryPct": 38.5,
-          "dotPct": 53.9
-        },
         "Leg-spin": {
           "balls": 33,
           "runs": 46,
@@ -10653,33 +8385,6 @@ const COMPARISON_DATA = {
           "avg": 6.4,
           "boundaryPct": 16.7,
           "dotPct": 46.7
-        },
-        "Right-arm leg-spin": {
-          "balls": 29,
-          "runs": 56,
-          "dismissals": 0,
-          "sr": 193.1,
-          "avg": null,
-          "boundaryPct": 31.0,
-          "dotPct": 20.7
-        },
-        "Right-arm off-spin": {
-          "balls": 47,
-          "runs": 76,
-          "dismissals": 5,
-          "sr": 161.7,
-          "avg": 15.2,
-          "boundaryPct": 19.1,
-          "dotPct": 36.2
-        },
-        "Right-arm pace": {
-          "balls": 35,
-          "runs": 44,
-          "dismissals": 1,
-          "sr": 125.7,
-          "avg": 44.0,
-          "boundaryPct": 17.1,
-          "dotPct": 54.3
         },
         "Wrist-spin": {
           "balls": 5,
@@ -10770,22 +8475,13 @@ const COMPARISON_DATA = {
           "dotPct": 28.6
         },
         "Left-arm orthodox": {
-          "balls": 4,
+          "balls": 3,
           "runs": 1,
-          "dismissals": 1,
-          "sr": 25.0,
-          "avg": 1.0,
-          "boundaryPct": 0.0,
-          "dotPct": 75.0
-        },
-        "Left-arm pace": {
-          "balls": 7,
-          "runs": 12,
           "dismissals": 0,
-          "sr": 171.4,
+          "sr": 33.3,
           "avg": null,
-          "boundaryPct": 28.6,
-          "dotPct": 42.9
+          "boundaryPct": 0.0,
+          "dotPct": 66.7
         },
         "Leg-spin": {
           "balls": 68,
@@ -10804,24 +8500,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 14.3,
           "dotPct": 46.4
-        },
-        "Right-arm off-spin": {
-          "balls": 2,
-          "runs": 1,
-          "dismissals": 1,
-          "sr": 50.0,
-          "avg": 1.0,
-          "boundaryPct": 0.0,
-          "dotPct": 50.0
-        },
-        "Right-arm pace": {
-          "balls": 27,
-          "runs": 58,
-          "dismissals": 3,
-          "sr": 214.8,
-          "avg": 19.3,
-          "boundaryPct": 37.0,
-          "dotPct": 33.3
         },
         "Wrist-spin": {
           "balls": 19,
@@ -10914,15 +8592,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 16.7,
           "dotPct": 27.8
         },
-        "Left-arm pace": {
-          "balls": 19,
-          "runs": 37,
-          "dismissals": 1,
-          "sr": 194.7,
-          "avg": 37.0,
-          "boundaryPct": 31.6,
-          "dotPct": 26.3
-        },
         "Leg-spin": {
           "balls": 7,
           "runs": 10,
@@ -10940,24 +8609,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 13.3,
           "dotPct": 40.0
-        },
-        "Right-arm off-spin": {
-          "balls": 10,
-          "runs": 28,
-          "dismissals": 0,
-          "sr": 280.0,
-          "avg": null,
-          "boundaryPct": 40.0,
-          "dotPct": 10.0
-        },
-        "Right-arm pace": {
-          "balls": 4,
-          "runs": 7,
-          "dismissals": 1,
-          "sr": 175.0,
-          "avg": 7.0,
-          "boundaryPct": 25.0,
-          "dotPct": 50.0
         },
         "Wrist-spin": {
           "balls": 13,
@@ -11095,24 +8746,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 0.0,
           "dotPct": 11.1
         },
-        "Right-arm off-spin": {
-          "balls": 27,
-          "runs": 24,
-          "dismissals": 3,
-          "sr": 88.9,
-          "avg": 8.0,
-          "boundaryPct": 3.7,
-          "dotPct": 25.9
-        },
-        "Right-arm pace": {
-          "balls": 20,
-          "runs": 37,
-          "dismissals": 0,
-          "sr": 185.0,
-          "avg": null,
-          "boundaryPct": 30.0,
-          "dotPct": 40.0
-        },
         "Wrist-spin": {
           "balls": 10,
           "runs": 24,
@@ -11204,15 +8837,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 12.5,
           "dotPct": 37.5
         },
-        "Left-arm pace": {
-          "balls": 8,
-          "runs": 10,
-          "dismissals": 0,
-          "sr": 125.0,
-          "avg": null,
-          "boundaryPct": 12.5,
-          "dotPct": 25.0
-        },
         "Leg-spin": {
           "balls": 38,
           "runs": 54,
@@ -11230,33 +8854,6 @@ const COMPARISON_DATA = {
           "avg": 14.0,
           "boundaryPct": 7.1,
           "dotPct": 28.6
-        },
-        "Right-arm leg-spin": {
-          "balls": 17,
-          "runs": 30,
-          "dismissals": 1,
-          "sr": 176.5,
-          "avg": 30.0,
-          "boundaryPct": 29.4,
-          "dotPct": 35.3
-        },
-        "Right-arm off-spin": {
-          "balls": 9,
-          "runs": 22,
-          "dismissals": 0,
-          "sr": 244.4,
-          "avg": null,
-          "boundaryPct": 33.3,
-          "dotPct": 0.0
-        },
-        "Right-arm pace": {
-          "balls": 50,
-          "runs": 97,
-          "dismissals": 3,
-          "sr": 194.0,
-          "avg": 32.3,
-          "boundaryPct": 34.0,
-          "dotPct": 38.0
         },
         "Wrist-spin": {
           "balls": 5,
@@ -11337,15 +8934,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 25.0,
           "dotPct": 33.3
         },
-        "Left-arm pace": {
-          "balls": 9,
-          "runs": 16,
-          "dismissals": 0,
-          "sr": 177.8,
-          "avg": null,
-          "boundaryPct": 22.2,
-          "dotPct": 22.2
-        },
         "Leg-spin": {
           "balls": 39,
           "runs": 44,
@@ -11372,33 +8960,6 @@ const COMPARISON_DATA = {
           "avg": 12.0,
           "boundaryPct": 7.1,
           "dotPct": 57.1
-        },
-        "Right-arm leg-spin": {
-          "balls": 4,
-          "runs": 12,
-          "dismissals": 0,
-          "sr": 300.0,
-          "avg": null,
-          "boundaryPct": 50.0,
-          "dotPct": 0.0
-        },
-        "Right-arm off-spin": {
-          "balls": 7,
-          "runs": 5,
-          "dismissals": 0,
-          "sr": 71.4,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 28.6
-        },
-        "Right-arm pace": {
-          "balls": 33,
-          "runs": 42,
-          "dismissals": 4,
-          "sr": 127.3,
-          "avg": 10.5,
-          "boundaryPct": 12.1,
-          "dotPct": 33.3
         },
         "Wrist-spin": {
           "balls": 4,
@@ -11509,15 +9070,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 14.3,
           "dotPct": 0.0
         },
-        "Left-arm pace": {
-          "balls": 10,
-          "runs": 17,
-          "dismissals": 1,
-          "sr": 170.0,
-          "avg": 17.0,
-          "boundaryPct": 30.0,
-          "dotPct": 40.0
-        },
         "Leg-spin": {
           "balls": 22,
           "runs": 25,
@@ -11553,33 +9105,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 0.0,
           "dotPct": 100.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 3,
-          "runs": 6,
-          "dismissals": 0,
-          "sr": 200.0,
-          "avg": null,
-          "boundaryPct": 33.3,
-          "dotPct": 0.0
-        },
-        "Right-arm off-spin": {
-          "balls": 22,
-          "runs": 46,
-          "dismissals": 1,
-          "sr": 209.1,
-          "avg": 46.0,
-          "boundaryPct": 31.8,
-          "dotPct": 22.7
-        },
-        "Right-arm pace": {
-          "balls": 33,
-          "runs": 59,
-          "dismissals": 2,
-          "sr": 178.8,
-          "avg": 29.5,
-          "boundaryPct": 24.2,
-          "dotPct": 24.2
         },
         "Wrist-spin": {
           "balls": 4,
@@ -11690,15 +9215,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 23.1,
           "dotPct": 61.5
         },
-        "Left-arm pace": {
-          "balls": 24,
-          "runs": 24,
-          "dismissals": 0,
-          "sr": 100.0,
-          "avg": null,
-          "boundaryPct": 12.5,
-          "dotPct": 58.3
-        },
         "Leg-spin": {
           "balls": 22,
           "runs": 45,
@@ -11716,33 +9232,6 @@ const COMPARISON_DATA = {
           "avg": 9.0,
           "boundaryPct": 14.3,
           "dotPct": 57.1
-        },
-        "Right-arm leg-spin": {
-          "balls": 2,
-          "runs": 1,
-          "dismissals": 1,
-          "sr": 50.0,
-          "avg": 1.0,
-          "boundaryPct": 0.0,
-          "dotPct": 50.0
-        },
-        "Right-arm off-spin": {
-          "balls": 13,
-          "runs": 27,
-          "dismissals": 1,
-          "sr": 207.7,
-          "avg": 27.0,
-          "boundaryPct": 23.1,
-          "dotPct": 7.7
-        },
-        "Right-arm pace": {
-          "balls": 4,
-          "runs": 3,
-          "dismissals": 0,
-          "sr": 75.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 25.0
         },
         "Wrist-spin": {
           "balls": 5,
@@ -11823,15 +9312,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 26.7,
           "dotPct": 46.7
         },
-        "Left-arm pace": {
-          "balls": 24,
-          "runs": 24,
-          "dismissals": 1,
-          "sr": 100.0,
-          "avg": 24.0,
-          "boundaryPct": 16.7,
-          "dotPct": 58.3
-        },
         "Leg-spin": {
           "balls": 20,
           "runs": 40,
@@ -11849,24 +9329,6 @@ const COMPARISON_DATA = {
           "avg": 26.0,
           "boundaryPct": 18.2,
           "dotPct": 50.0
-        },
-        "Right-arm off-spin": {
-          "balls": 18,
-          "runs": 27,
-          "dismissals": 3,
-          "sr": 150.0,
-          "avg": 9.0,
-          "boundaryPct": 16.7,
-          "dotPct": 44.4
-        },
-        "Right-arm pace": {
-          "balls": 18,
-          "runs": 28,
-          "dismissals": 2,
-          "sr": 155.6,
-          "avg": 14.0,
-          "boundaryPct": 22.2,
-          "dotPct": 38.9
         },
         "Wrist-spin": {
           "balls": 15,
@@ -11956,15 +9418,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 22.6,
           "dotPct": 19.4
         },
-        "Left-arm pace": {
-          "balls": 4,
-          "runs": 8,
-          "dismissals": 0,
-          "sr": 200.0,
-          "avg": null,
-          "boundaryPct": 50.0,
-          "dotPct": 50.0
-        },
         "Leg-spin": {
           "balls": 28,
           "runs": 40,
@@ -12000,24 +9453,6 @@ const COMPARISON_DATA = {
           "avg": 8.0,
           "boundaryPct": 0.0,
           "dotPct": 41.7
-        },
-        "Right-arm off-spin": {
-          "balls": 39,
-          "runs": 34,
-          "dismissals": 1,
-          "sr": 87.2,
-          "avg": 34.0,
-          "boundaryPct": 5.1,
-          "dotPct": 43.6
-        },
-        "Right-arm pace": {
-          "balls": 16,
-          "runs": 33,
-          "dismissals": 1,
-          "sr": 206.2,
-          "avg": 33.0,
-          "boundaryPct": 37.5,
-          "dotPct": 31.2
         },
         "Wrist-spin": {
           "balls": 4,
@@ -12098,24 +9533,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 0.0,
           "dotPct": 50.0
         },
-        "Left-arm orthodox": {
-          "balls": 6,
-          "runs": 14,
-          "dismissals": 0,
-          "sr": 233.3,
-          "avg": null,
-          "boundaryPct": 50.0,
-          "dotPct": 50.0
-        },
-        "Left-arm pace": {
-          "balls": 9,
-          "runs": 14,
-          "dismissals": 0,
-          "sr": 155.6,
-          "avg": null,
-          "boundaryPct": 22.2,
-          "dotPct": 33.3
-        },
         "Leg-spin": {
           "balls": 28,
           "runs": 47,
@@ -12133,33 +9550,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 23.8,
           "dotPct": 33.3
-        },
-        "Right-arm leg-spin": {
-          "balls": 7,
-          "runs": 12,
-          "dismissals": 0,
-          "sr": 171.4,
-          "avg": null,
-          "boundaryPct": 28.6,
-          "dotPct": 42.9
-        },
-        "Right-arm off-spin": {
-          "balls": 17,
-          "runs": 13,
-          "dismissals": 1,
-          "sr": 76.5,
-          "avg": 13.0,
-          "boundaryPct": 11.8,
-          "dotPct": 58.8
-        },
-        "Right-arm pace": {
-          "balls": 23,
-          "runs": 29,
-          "dismissals": 0,
-          "sr": 126.1,
-          "avg": null,
-          "boundaryPct": 17.4,
-          "dotPct": 43.5
         },
         "Wrist-spin": {
           "balls": 5,
@@ -12252,15 +9642,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 11.8,
           "dotPct": 47.1
         },
-        "Left-arm pace": {
-          "balls": 7,
-          "runs": 16,
-          "dismissals": 2,
-          "sr": 228.6,
-          "avg": 8.0,
-          "boundaryPct": 28.6,
-          "dotPct": 28.6
-        },
         "Leg-spin": {
           "balls": 2,
           "runs": 3,
@@ -12278,33 +9659,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 62.5,
           "dotPct": 25.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 8,
-          "runs": 9,
-          "dismissals": 1,
-          "sr": 112.5,
-          "avg": 9.0,
-          "boundaryPct": 12.5,
-          "dotPct": 25.0
-        },
-        "Right-arm off-spin": {
-          "balls": 8,
-          "runs": 15,
-          "dismissals": 1,
-          "sr": 187.5,
-          "avg": 15.0,
-          "boundaryPct": 25.0,
-          "dotPct": 12.5
-        },
-        "Right-arm pace": {
-          "balls": 26,
-          "runs": 28,
-          "dismissals": 2,
-          "sr": 107.7,
-          "avg": 14.0,
-          "boundaryPct": 7.7,
-          "dotPct": 23.1
         },
         "Wrist-spin": {
           "balls": 13,
@@ -12406,15 +9760,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 34.4,
           "dotPct": 31.2
         },
-        "Left-arm pace": {
-          "balls": 4,
-          "runs": 2,
-          "dismissals": 0,
-          "sr": 50.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 50.0
-        },
         "Leg-spin": {
           "balls": 16,
           "runs": 7,
@@ -12450,24 +9795,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 29.4,
           "dotPct": 23.5
-        },
-        "Right-arm off-spin": {
-          "balls": 7,
-          "runs": 13,
-          "dismissals": 0,
-          "sr": 185.7,
-          "avg": null,
-          "boundaryPct": 28.6,
-          "dotPct": 28.6
-        },
-        "Right-arm pace": {
-          "balls": 22,
-          "runs": 38,
-          "dismissals": 0,
-          "sr": 172.7,
-          "avg": null,
-          "boundaryPct": 27.3,
-          "dotPct": 31.8
         },
         "Wrist-spin": {
           "balls": 1,
@@ -12558,22 +9885,13 @@ const COMPARISON_DATA = {
           "dotPct": 46.1
         },
         "Left-arm orthodox": {
-          "balls": 11,
-          "runs": 24,
+          "balls": 4,
+          "runs": 9,
           "dismissals": 0,
-          "sr": 218.2,
+          "sr": 225.0,
           "avg": null,
-          "boundaryPct": 36.4,
-          "dotPct": 9.1
-        },
-        "Left-arm pace": {
-          "balls": 6,
-          "runs": 7,
-          "dismissals": 0,
-          "sr": 116.7,
-          "avg": null,
-          "boundaryPct": 16.7,
-          "dotPct": 33.3
+          "boundaryPct": 25.0,
+          "dotPct": 0.0
         },
         "Leg-spin": {
           "balls": 21,
@@ -12592,33 +9910,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 6.7,
           "dotPct": 13.3
-        },
-        "Right-arm leg-spin": {
-          "balls": 9,
-          "runs": 6,
-          "dismissals": 1,
-          "sr": 66.7,
-          "avg": 6.0,
-          "boundaryPct": 0.0,
-          "dotPct": 33.3
-        },
-        "Right-arm off-spin": {
-          "balls": 16,
-          "runs": 14,
-          "dismissals": 0,
-          "sr": 87.5,
-          "avg": null,
-          "boundaryPct": 6.2,
-          "dotPct": 50.0
-        },
-        "Right-arm pace": {
-          "balls": 10,
-          "runs": 12,
-          "dismissals": 0,
-          "sr": 120.0,
-          "avg": null,
-          "boundaryPct": 20.0,
-          "dotPct": 40.0
         },
         "Wrist-spin": {
           "balls": 10,
@@ -12712,12 +10003,12 @@ const COMPARISON_DATA = {
           "dotPct": 52.0
         },
         "Left-arm orthodox": {
-          "balls": 13,
-          "runs": 36,
+          "balls": 3,
+          "runs": 8,
           "dismissals": 0,
-          "sr": 276.9,
+          "sr": 266.7,
           "avg": null,
-          "boundaryPct": 38.5,
+          "boundaryPct": 33.3,
           "dotPct": 0.0
         },
         "Leg-spin": {
@@ -12746,15 +10037,6 @@ const COMPARISON_DATA = {
           "avg": 1.0,
           "boundaryPct": 0.0,
           "dotPct": 75.0
-        },
-        "Right-arm pace": {
-          "balls": 24,
-          "runs": 34,
-          "dismissals": 2,
-          "sr": 141.7,
-          "avg": 17.0,
-          "boundaryPct": 16.7,
-          "dotPct": 45.8
         },
         "Wrist-spin": {
           "balls": 3,
@@ -12856,15 +10138,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 0.0,
           "dotPct": 31.2
         },
-        "Left-arm pace": {
-          "balls": 20,
-          "runs": 21,
-          "dismissals": 2,
-          "sr": 105.0,
-          "avg": 10.5,
-          "boundaryPct": 10.0,
-          "dotPct": 40.0
-        },
         "Leg-spin": {
           "balls": 21,
           "runs": 27,
@@ -12891,33 +10164,6 @@ const COMPARISON_DATA = {
           "avg": 0.0,
           "boundaryPct": 0.0,
           "dotPct": 100.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 16,
-          "runs": 17,
-          "dismissals": 1,
-          "sr": 106.2,
-          "avg": 17.0,
-          "boundaryPct": 6.2,
-          "dotPct": 25.0
-        },
-        "Right-arm off-spin": {
-          "balls": 15,
-          "runs": 12,
-          "dismissals": 3,
-          "sr": 80.0,
-          "avg": 4.0,
-          "boundaryPct": 6.7,
-          "dotPct": 40.0
-        },
-        "Right-arm pace": {
-          "balls": 15,
-          "runs": 17,
-          "dismissals": 1,
-          "sr": 113.3,
-          "avg": 17.0,
-          "boundaryPct": 6.7,
-          "dotPct": 13.3
         },
         "Wrist-spin": {
           "balls": 13,
@@ -13008,13 +10254,13 @@ const COMPARISON_DATA = {
           "dotPct": 27.3
         },
         "Left-arm orthodox": {
-          "balls": 15,
-          "runs": 18,
+          "balls": 7,
+          "runs": 15,
           "dismissals": 0,
-          "sr": 120.0,
+          "sr": 214.3,
           "avg": null,
-          "boundaryPct": 13.3,
-          "dotPct": 33.3
+          "boundaryPct": 28.6,
+          "dotPct": 0.0
         },
         "Leg-spin": {
           "balls": 17,
@@ -13042,24 +10288,6 @@ const COMPARISON_DATA = {
           "avg": 21.0,
           "boundaryPct": 15.4,
           "dotPct": 23.1
-        },
-        "Right-arm off-spin": {
-          "balls": 8,
-          "runs": 13,
-          "dismissals": 0,
-          "sr": 162.5,
-          "avg": null,
-          "boundaryPct": 25.0,
-          "dotPct": 12.5
-        },
-        "Right-arm pace": {
-          "balls": 46,
-          "runs": 66,
-          "dismissals": 1,
-          "sr": 143.5,
-          "avg": 66.0,
-          "boundaryPct": 13.0,
-          "dotPct": 23.9
         },
         "Wrist-spin": {
           "balls": 4,
@@ -13150,22 +10378,13 @@ const COMPARISON_DATA = {
           "dotPct": 20.0
         },
         "Left-arm orthodox": {
-          "balls": 7,
-          "runs": 16,
+          "balls": 4,
+          "runs": 7,
           "dismissals": 0,
-          "sr": 228.6,
+          "sr": 175.0,
           "avg": null,
-          "boundaryPct": 42.9,
+          "boundaryPct": 25.0,
           "dotPct": 0.0
-        },
-        "Left-arm pace": {
-          "balls": 2,
-          "runs": 1,
-          "dismissals": 0,
-          "sr": 50.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 50.0
         },
         "Leg-spin": {
           "balls": 19,
@@ -13184,24 +10403,6 @@ const COMPARISON_DATA = {
           "avg": 0.0,
           "boundaryPct": 0.0,
           "dotPct": 100.0
-        },
-        "Right-arm off-spin": {
-          "balls": 4,
-          "runs": 8,
-          "dismissals": 0,
-          "sr": 200.0,
-          "avg": null,
-          "boundaryPct": 25.0,
-          "dotPct": 0.0
-        },
-        "Right-arm pace": {
-          "balls": 27,
-          "runs": 64,
-          "dismissals": 0,
-          "sr": 237.0,
-          "avg": null,
-          "boundaryPct": 33.3,
-          "dotPct": 18.5
         },
         "Wrist-spin": {
           "balls": 3,
@@ -13303,15 +10504,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 4.3,
           "dotPct": 17.4
         },
-        "Left-arm pace": {
-          "balls": 6,
-          "runs": 14,
-          "dismissals": 1,
-          "sr": 233.3,
-          "avg": 14.0,
-          "boundaryPct": 50.0,
-          "dotPct": 16.7
-        },
         "Leg-spin": {
           "balls": 13,
           "runs": 9,
@@ -13338,33 +10530,6 @@ const COMPARISON_DATA = {
           "avg": 4.0,
           "boundaryPct": 9.1,
           "dotPct": 72.7
-        },
-        "Right-arm leg-spin": {
-          "balls": 6,
-          "runs": 6,
-          "dismissals": 0,
-          "sr": 100.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 16.7
-        },
-        "Right-arm off-spin": {
-          "balls": 25,
-          "runs": 35,
-          "dismissals": 1,
-          "sr": 140.0,
-          "avg": 35.0,
-          "boundaryPct": 12.0,
-          "dotPct": 32.0
-        },
-        "Right-arm pace": {
-          "balls": 22,
-          "runs": 32,
-          "dismissals": 1,
-          "sr": 145.4,
-          "avg": 32.0,
-          "boundaryPct": 18.2,
-          "dotPct": 31.8
         },
         "Wrist-spin": {
           "balls": 5,
@@ -13457,24 +10622,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 33.3,
           "dotPct": 16.7
         },
-        "Left-arm orthodox": {
-          "balls": 4,
-          "runs": 4,
-          "dismissals": 1,
-          "sr": 100.0,
-          "avg": 4.0,
-          "boundaryPct": 25.0,
-          "dotPct": 75.0
-        },
-        "Left-arm pace": {
-          "balls": 11,
-          "runs": 25,
-          "dismissals": 0,
-          "sr": 227.3,
-          "avg": null,
-          "boundaryPct": 45.5,
-          "dotPct": 9.1
-        },
         "Leg-spin": {
           "balls": 15,
           "runs": 22,
@@ -13492,33 +10639,6 @@ const COMPARISON_DATA = {
           "avg": 11.0,
           "boundaryPct": 41.7,
           "dotPct": 41.7
-        },
-        "Right-arm leg-spin": {
-          "balls": 4,
-          "runs": 15,
-          "dismissals": 0,
-          "sr": 375.0,
-          "avg": null,
-          "boundaryPct": 75.0,
-          "dotPct": 0.0
-        },
-        "Right-arm off-spin": {
-          "balls": 9,
-          "runs": 17,
-          "dismissals": 0,
-          "sr": 188.9,
-          "avg": null,
-          "boundaryPct": 22.2,
-          "dotPct": 11.1
-        },
-        "Right-arm pace": {
-          "balls": 33,
-          "runs": 46,
-          "dismissals": 3,
-          "sr": 139.4,
-          "avg": 15.3,
-          "boundaryPct": 24.2,
-          "dotPct": 42.4
         }
       },
       "recentForm": {
@@ -13611,15 +10731,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 0.0,
           "dotPct": 40.0
         },
-        "Left-arm pace": {
-          "balls": 5,
-          "runs": 11,
-          "dismissals": 0,
-          "sr": 220.0,
-          "avg": null,
-          "boundaryPct": 40.0,
-          "dotPct": 40.0
-        },
         "Leg-spin": {
           "balls": 44,
           "runs": 52,
@@ -13646,33 +10757,6 @@ const COMPARISON_DATA = {
           "avg": 4.0,
           "boundaryPct": 14.3,
           "dotPct": 28.6
-        },
-        "Right-arm leg-spin": {
-          "balls": 7,
-          "runs": 7,
-          "dismissals": 2,
-          "sr": 100.0,
-          "avg": 3.5,
-          "boundaryPct": 14.3,
-          "dotPct": 57.1
-        },
-        "Right-arm off-spin": {
-          "balls": 12,
-          "runs": 6,
-          "dismissals": 0,
-          "sr": 50.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 50.0
-        },
-        "Right-arm pace": {
-          "balls": 20,
-          "runs": 30,
-          "dismissals": 1,
-          "sr": 150.0,
-          "avg": 30.0,
-          "boundaryPct": 20.0,
-          "dotPct": 35.0
         },
         "Wrist-spin": {
           "balls": 13,
@@ -13770,33 +10854,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 85.7,
           "dotPct": 14.3
-        },
-        "Right-arm leg-spin": {
-          "balls": 6,
-          "runs": 12,
-          "dismissals": 1,
-          "sr": 200.0,
-          "avg": 12.0,
-          "boundaryPct": 33.3,
-          "dotPct": 33.3
-        },
-        "Right-arm off-spin": {
-          "balls": 1,
-          "runs": 0,
-          "dismissals": 1,
-          "sr": 0.0,
-          "avg": 0.0,
-          "boundaryPct": 0.0,
-          "dotPct": 100.0
-        },
-        "Right-arm pace": {
-          "balls": 26,
-          "runs": 48,
-          "dismissals": 3,
-          "sr": 184.6,
-          "avg": 16.0,
-          "boundaryPct": 34.6,
-          "dotPct": 46.1
         }
       },
       "recentForm": {},
@@ -13877,15 +10934,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 80.0,
           "dotPct": 20.0
         },
-        "Left-arm pace": {
-          "balls": 10,
-          "runs": 18,
-          "dismissals": 0,
-          "sr": 180.0,
-          "avg": null,
-          "boundaryPct": 30.0,
-          "dotPct": 30.0
-        },
         "Leg-spin": {
           "balls": 6,
           "runs": 6,
@@ -13903,24 +10951,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 50.0,
           "dotPct": 25.0
-        },
-        "Right-arm off-spin": {
-          "balls": 17,
-          "runs": 48,
-          "dismissals": 1,
-          "sr": 282.4,
-          "avg": 48.0,
-          "boundaryPct": 47.1,
-          "dotPct": 11.8
-        },
-        "Right-arm pace": {
-          "balls": 6,
-          "runs": 15,
-          "dismissals": 0,
-          "sr": 250.0,
-          "avg": null,
-          "boundaryPct": 50.0,
-          "dotPct": 33.3
         },
         "Wrist-spin": {
           "balls": 7,
@@ -14036,15 +11066,6 @@ const COMPARISON_DATA = {
           "avg": 38.0,
           "boundaryPct": 20.0,
           "dotPct": 36.0
-        },
-        "Right-arm pace": {
-          "balls": 26,
-          "runs": 46,
-          "dismissals": 3,
-          "sr": 176.9,
-          "avg": 15.3,
-          "boundaryPct": 23.1,
-          "dotPct": 23.1
         }
       },
       "recentForm": {
@@ -14173,24 +11194,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 50.0,
           "dotPct": 50.0
         },
-        "Right-arm off-spin": {
-          "balls": 2,
-          "runs": 7,
-          "dismissals": 0,
-          "sr": 350.0,
-          "avg": null,
-          "boundaryPct": 50.0,
-          "dotPct": 0.0
-        },
-        "Right-arm pace": {
-          "balls": 20,
-          "runs": 38,
-          "dismissals": 1,
-          "sr": 190.0,
-          "avg": 38.0,
-          "boundaryPct": 25.0,
-          "dotPct": 15.0
-        },
         "Wrist-spin": {
           "balls": 11,
           "runs": 17,
@@ -14291,15 +11294,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 40.0,
           "dotPct": 20.0
         },
-        "Left-arm pace": {
-          "balls": 1,
-          "runs": 2,
-          "dismissals": 0,
-          "sr": 200.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 0.0
-        },
         "Leg-spin": {
           "balls": 7,
           "runs": 3,
@@ -14308,33 +11302,6 @@ const COMPARISON_DATA = {
           "avg": 3.0,
           "boundaryPct": 0.0,
           "dotPct": 57.1
-        },
-        "Right-arm leg-spin": {
-          "balls": 13,
-          "runs": 23,
-          "dismissals": 1,
-          "sr": 176.9,
-          "avg": 23.0,
-          "boundaryPct": 23.1,
-          "dotPct": 30.8
-        },
-        "Right-arm off-spin": {
-          "balls": 8,
-          "runs": 10,
-          "dismissals": 0,
-          "sr": 125.0,
-          "avg": null,
-          "boundaryPct": 12.5,
-          "dotPct": 12.5
-        },
-        "Right-arm pace": {
-          "balls": 11,
-          "runs": 18,
-          "dismissals": 2,
-          "sr": 163.6,
-          "avg": 9.0,
-          "boundaryPct": 36.4,
-          "dotPct": 45.5
         },
         "Wrist-spin": {
           "balls": 8,
@@ -14424,15 +11391,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 20.5,
           "dotPct": 33.3
         },
-        "Left-arm pace": {
-          "balls": 5,
-          "runs": 12,
-          "dismissals": 0,
-          "sr": 240.0,
-          "avg": null,
-          "boundaryPct": 20.0,
-          "dotPct": 0.0
-        },
         "Leg-spin": {
           "balls": 12,
           "runs": 23,
@@ -14450,15 +11408,6 @@ const COMPARISON_DATA = {
           "avg": 4.0,
           "boundaryPct": 0.0,
           "dotPct": 66.7
-        },
-        "Right-arm pace": {
-          "balls": 6,
-          "runs": 7,
-          "dismissals": 0,
-          "sr": 116.7,
-          "avg": null,
-          "boundaryPct": 16.7,
-          "dotPct": 33.3
         }
       },
       "recentForm": {
@@ -14542,15 +11491,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 28.3,
           "dotPct": 34.8
         },
-        "Left-arm pace": {
-          "balls": 3,
-          "runs": 8,
-          "dismissals": 0,
-          "sr": 266.7,
-          "avg": null,
-          "boundaryPct": 33.3,
-          "dotPct": 0.0
-        },
         "Leg-spin": {
           "balls": 16,
           "runs": 31,
@@ -14568,33 +11508,6 @@ const COMPARISON_DATA = {
           "avg": 18.0,
           "boundaryPct": 29.4,
           "dotPct": 23.5
-        },
-        "Right-arm leg-spin": {
-          "balls": 4,
-          "runs": 1,
-          "dismissals": 2,
-          "sr": 25.0,
-          "avg": 0.5,
-          "boundaryPct": 0.0,
-          "dotPct": 75.0
-        },
-        "Right-arm off-spin": {
-          "balls": 10,
-          "runs": 10,
-          "dismissals": 0,
-          "sr": 100.0,
-          "avg": null,
-          "boundaryPct": 10.0,
-          "dotPct": 30.0
-        },
-        "Right-arm pace": {
-          "balls": 12,
-          "runs": 17,
-          "dismissals": 1,
-          "sr": 141.7,
-          "avg": 17.0,
-          "boundaryPct": 16.7,
-          "dotPct": 25.0
         },
         "Wrist-spin": {
           "balls": 14,
@@ -14684,15 +11597,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 3.9,
           "dotPct": 46.1
         },
-        "Left-arm pace": {
-          "balls": 4,
-          "runs": 4,
-          "dismissals": 0,
-          "sr": 100.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 25.0
-        },
         "Leg-spin": {
           "balls": 7,
           "runs": 4,
@@ -14710,24 +11614,6 @@ const COMPARISON_DATA = {
           "avg": 5.0,
           "boundaryPct": 20.0,
           "dotPct": 60.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 20,
-          "runs": 28,
-          "dismissals": 3,
-          "sr": 140.0,
-          "avg": 9.3,
-          "boundaryPct": 20.0,
-          "dotPct": 40.0
-        },
-        "Right-arm pace": {
-          "balls": 10,
-          "runs": 21,
-          "dismissals": 1,
-          "sr": 210.0,
-          "avg": 21.0,
-          "boundaryPct": 40.0,
-          "dotPct": 20.0
         },
         "Wrist-spin": {
           "balls": 19,
@@ -14808,15 +11694,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 8.3,
           "dotPct": 33.3
         },
-        "Left-arm pace": {
-          "balls": 6,
-          "runs": 13,
-          "dismissals": 1,
-          "sr": 216.7,
-          "avg": 13.0,
-          "boundaryPct": 33.3,
-          "dotPct": 33.3
-        },
         "Off-spin": {
           "balls": 4,
           "runs": 8,
@@ -14825,33 +11702,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 25.0,
           "dotPct": 0.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 13,
-          "runs": 32,
-          "dismissals": 0,
-          "sr": 246.2,
-          "avg": null,
-          "boundaryPct": 38.5,
-          "dotPct": 53.9
-        },
-        "Right-arm off-spin": {
-          "balls": 2,
-          "runs": 3,
-          "dismissals": 0,
-          "sr": 150.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 0.0
-        },
-        "Right-arm pace": {
-          "balls": 16,
-          "runs": 37,
-          "dismissals": 0,
-          "sr": 231.2,
-          "avg": null,
-          "boundaryPct": 37.5,
-          "dotPct": 12.5
         },
         "Wrist-spin": {
           "balls": 11,
@@ -14962,15 +11812,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 0.0,
           "dotPct": 100.0
         },
-        "Left-arm pace": {
-          "balls": 1,
-          "runs": 1,
-          "dismissals": 0,
-          "sr": 100.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 0.0
-        },
         "Leg-spin": {
           "balls": 17,
           "runs": 20,
@@ -14997,33 +11838,6 @@ const COMPARISON_DATA = {
           "avg": 5.0,
           "boundaryPct": 16.7,
           "dotPct": 66.7
-        },
-        "Right-arm leg-spin": {
-          "balls": 6,
-          "runs": 4,
-          "dismissals": 0,
-          "sr": 66.7,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 50.0
-        },
-        "Right-arm off-spin": {
-          "balls": 11,
-          "runs": 12,
-          "dismissals": 0,
-          "sr": 109.1,
-          "avg": null,
-          "boundaryPct": 9.1,
-          "dotPct": 36.4
-        },
-        "Right-arm pace": {
-          "balls": 11,
-          "runs": 13,
-          "dismissals": 1,
-          "sr": 118.2,
-          "avg": 13.0,
-          "boundaryPct": 9.1,
-          "dotPct": 27.3
         },
         "Wrist-spin": {
           "balls": 10,
@@ -15122,15 +11936,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 33.3,
           "dotPct": 33.3
         },
-        "Left-arm pace": {
-          "balls": 5,
-          "runs": 8,
-          "dismissals": 1,
-          "sr": 160.0,
-          "avg": 8.0,
-          "boundaryPct": 20.0,
-          "dotPct": 20.0
-        },
         "Leg-spin": {
           "balls": 17,
           "runs": 16,
@@ -15157,24 +11962,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 9.5,
           "dotPct": 19.1
-        },
-        "Right-arm off-spin": {
-          "balls": 3,
-          "runs": 5,
-          "dismissals": 0,
-          "sr": 166.7,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 0.0
-        },
-        "Right-arm pace": {
-          "balls": 24,
-          "runs": 38,
-          "dismissals": 1,
-          "sr": 158.3,
-          "avg": 38.0,
-          "boundaryPct": 25.0,
-          "dotPct": 41.7
         }
       },
       "recentForm": {},
@@ -15272,24 +12059,6 @@ const COMPARISON_DATA = {
           "avg": 29.0,
           "boundaryPct": 10.3,
           "dotPct": 44.8
-        },
-        "Right-arm leg-spin": {
-          "balls": 4,
-          "runs": 8,
-          "dismissals": 0,
-          "sr": 200.0,
-          "avg": null,
-          "boundaryPct": 25.0,
-          "dotPct": 25.0
-        },
-        "Right-arm pace": {
-          "balls": 19,
-          "runs": 28,
-          "dismissals": 2,
-          "sr": 147.4,
-          "avg": 14.0,
-          "boundaryPct": 15.8,
-          "dotPct": 26.3
         },
         "Wrist-spin": {
           "balls": 5,
@@ -15391,15 +12160,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 0.0,
           "dotPct": 27.3
         },
-        "Left-arm pace": {
-          "balls": 13,
-          "runs": 20,
-          "dismissals": 1,
-          "sr": 153.8,
-          "avg": 20.0,
-          "boundaryPct": 23.1,
-          "dotPct": 30.8
-        },
         "Leg-spin": {
           "balls": 15,
           "runs": 15,
@@ -15408,33 +12168,6 @@ const COMPARISON_DATA = {
           "avg": 15.0,
           "boundaryPct": 6.7,
           "dotPct": 33.3
-        },
-        "Right-arm leg-spin": {
-          "balls": 1,
-          "runs": 1,
-          "dismissals": 0,
-          "sr": 100.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 0.0
-        },
-        "Right-arm off-spin": {
-          "balls": 12,
-          "runs": 8,
-          "dismissals": 1,
-          "sr": 66.7,
-          "avg": 8.0,
-          "boundaryPct": 0.0,
-          "dotPct": 41.7
-        },
-        "Right-arm pace": {
-          "balls": 17,
-          "runs": 36,
-          "dismissals": 0,
-          "sr": 211.8,
-          "avg": null,
-          "boundaryPct": 29.4,
-          "dotPct": 23.5
         },
         "Wrist-spin": {
           "balls": 8,
@@ -15536,15 +12269,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 21.9,
           "dotPct": 34.4
         },
-        "Left-arm orthodox": {
-          "balls": 4,
-          "runs": 3,
-          "dismissals": 0,
-          "sr": 75.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 50.0
-        },
         "Leg-spin": {
           "balls": 18,
           "runs": 63,
@@ -15562,15 +12286,6 @@ const COMPARISON_DATA = {
           "avg": 6.0,
           "boundaryPct": 16.7,
           "dotPct": 50.0
-        },
-        "Right-arm pace": {
-          "balls": 7,
-          "runs": 13,
-          "dismissals": 0,
-          "sr": 185.7,
-          "avg": null,
-          "boundaryPct": 28.6,
-          "dotPct": 14.3
         },
         "Wrist-spin": {
           "balls": 12,
@@ -15672,15 +12387,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 0.0,
           "dotPct": 50.0
         },
-        "Left-arm pace": {
-          "balls": 4,
-          "runs": 9,
-          "dismissals": 1,
-          "sr": 225.0,
-          "avg": 9.0,
-          "boundaryPct": 50.0,
-          "dotPct": 25.0
-        },
         "Leg-spin": {
           "balls": 21,
           "runs": 17,
@@ -15707,33 +12413,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 0.0,
           "dotPct": 33.3
-        },
-        "Right-arm leg-spin": {
-          "balls": 10,
-          "runs": 7,
-          "dismissals": 1,
-          "sr": 70.0,
-          "avg": 7.0,
-          "boundaryPct": 0.0,
-          "dotPct": 30.0
-        },
-        "Right-arm off-spin": {
-          "balls": 3,
-          "runs": 3,
-          "dismissals": 0,
-          "sr": 100.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 0.0
-        },
-        "Right-arm pace": {
-          "balls": 17,
-          "runs": 27,
-          "dismissals": 2,
-          "sr": 158.8,
-          "avg": 13.5,
-          "boundaryPct": 29.4,
-          "dotPct": 52.9
         },
         "Wrist-spin": {
           "balls": 3,
@@ -15861,33 +12540,6 @@ const COMPARISON_DATA = {
           "avg": 4.0,
           "boundaryPct": 0.0,
           "dotPct": 42.9
-        },
-        "Right-arm leg-spin": {
-          "balls": 4,
-          "runs": 7,
-          "dismissals": 0,
-          "sr": 175.0,
-          "avg": null,
-          "boundaryPct": 25.0,
-          "dotPct": 0.0
-        },
-        "Right-arm off-spin": {
-          "balls": 15,
-          "runs": 19,
-          "dismissals": 1,
-          "sr": 126.7,
-          "avg": 19.0,
-          "boundaryPct": 13.3,
-          "dotPct": 46.7
-        },
-        "Right-arm pace": {
-          "balls": 18,
-          "runs": 23,
-          "dismissals": 1,
-          "sr": 127.8,
-          "avg": 23.0,
-          "boundaryPct": 11.1,
-          "dotPct": 33.3
         },
         "Wrist-spin": {
           "balls": 9,
@@ -16095,24 +12747,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 33.3,
           "dotPct": 16.7
         },
-        "Right-arm leg-spin": {
-          "balls": 1,
-          "runs": 0,
-          "dismissals": 0,
-          "sr": 0.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 100.0
-        },
-        "Right-arm pace": {
-          "balls": 2,
-          "runs": 0,
-          "dismissals": 1,
-          "sr": 0.0,
-          "avg": 0.0,
-          "boundaryPct": 0.0,
-          "dotPct": 100.0
-        },
         "Wrist-spin": {
           "balls": 3,
           "runs": 8,
@@ -16230,33 +12864,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 0.0,
           "dotPct": 0.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 5,
-          "runs": 9,
-          "dismissals": 0,
-          "sr": 180.0,
-          "avg": null,
-          "boundaryPct": 20.0,
-          "dotPct": 20.0
-        },
-        "Right-arm off-spin": {
-          "balls": 7,
-          "runs": 17,
-          "dismissals": 0,
-          "sr": 242.9,
-          "avg": null,
-          "boundaryPct": 28.6,
-          "dotPct": 0.0
-        },
-        "Right-arm pace": {
-          "balls": 11,
-          "runs": 19,
-          "dismissals": 1,
-          "sr": 172.7,
-          "avg": 19.0,
-          "boundaryPct": 27.3,
-          "dotPct": 45.5
         }
       },
       "recentForm": {},
@@ -16344,15 +12951,6 @@ const COMPARISON_DATA = {
           "sr": 225.0,
           "avg": 18.0,
           "boundaryPct": 37.5,
-          "dotPct": 37.5
-        },
-        "Right-arm off-spin": {
-          "balls": 8,
-          "runs": 5,
-          "dismissals": 1,
-          "sr": 62.5,
-          "avg": 5.0,
-          "boundaryPct": 0.0,
           "dotPct": 37.5
         },
         "Wrist-spin": {
@@ -16446,15 +13044,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 0.0,
           "dotPct": 0.0
         },
-        "Left-arm pace": {
-          "balls": 2,
-          "runs": 0,
-          "dismissals": 1,
-          "sr": 0.0,
-          "avg": 0.0,
-          "boundaryPct": 0.0,
-          "dotPct": 100.0
-        },
         "Leg-spin": {
           "balls": 7,
           "runs": 9,
@@ -16472,33 +13061,6 @@ const COMPARISON_DATA = {
           "avg": 2.0,
           "boundaryPct": 0.0,
           "dotPct": 60.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 6,
-          "runs": 14,
-          "dismissals": 0,
-          "sr": 233.3,
-          "avg": null,
-          "boundaryPct": 33.3,
-          "dotPct": 16.7
-        },
-        "Right-arm off-spin": {
-          "balls": 10,
-          "runs": 5,
-          "dismissals": 1,
-          "sr": 50.0,
-          "avg": 5.0,
-          "boundaryPct": 0.0,
-          "dotPct": 60.0
-        },
-        "Right-arm pace": {
-          "balls": 9,
-          "runs": 7,
-          "dismissals": 2,
-          "sr": 77.8,
-          "avg": 3.5,
-          "boundaryPct": 11.1,
-          "dotPct": 55.6
         },
         "Wrist-spin": {
           "balls": 4,
@@ -16617,15 +13179,6 @@ const COMPARISON_DATA = {
           "avg": 6.0,
           "boundaryPct": 33.3,
           "dotPct": 66.7
-        },
-        "Right-arm leg-spin": {
-          "balls": 7,
-          "runs": 18,
-          "dismissals": 0,
-          "sr": 257.1,
-          "avg": null,
-          "boundaryPct": 57.1,
-          "dotPct": 14.3
         }
       },
       "recentForm": {
@@ -16700,24 +13253,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 12.5,
           "dotPct": 12.5
         },
-        "Left-arm orthodox": {
-          "balls": 5,
-          "runs": 7,
-          "dismissals": 0,
-          "sr": 140.0,
-          "avg": null,
-          "boundaryPct": 20.0,
-          "dotPct": 40.0
-        },
-        "Left-arm pace": {
-          "balls": 12,
-          "runs": 14,
-          "dismissals": 1,
-          "sr": 116.7,
-          "avg": 14.0,
-          "boundaryPct": 16.7,
-          "dotPct": 41.7
-        },
         "Leg-spin": {
           "balls": 20,
           "runs": 20,
@@ -16735,33 +13270,6 @@ const COMPARISON_DATA = {
           "avg": 4.5,
           "boundaryPct": 12.5,
           "dotPct": 50.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 14,
-          "runs": 8,
-          "dismissals": 0,
-          "sr": 57.1,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 42.9
-        },
-        "Right-arm off-spin": {
-          "balls": 9,
-          "runs": 14,
-          "dismissals": 1,
-          "sr": 155.6,
-          "avg": 14.0,
-          "boundaryPct": 22.2,
-          "dotPct": 44.4
-        },
-        "Right-arm pace": {
-          "balls": 13,
-          "runs": 38,
-          "dismissals": 1,
-          "sr": 292.3,
-          "avg": 38.0,
-          "boundaryPct": 46.1,
-          "dotPct": 7.7
         },
         "Wrist-spin": {
           "balls": 3,
@@ -16842,15 +13350,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 37.5,
           "dotPct": 25.0
         },
-        "Left-arm pace": {
-          "balls": 7,
-          "runs": 19,
-          "dismissals": 1,
-          "sr": 271.4,
-          "avg": 19.0,
-          "boundaryPct": 42.9,
-          "dotPct": 14.3
-        },
         "Leg-spin": {
           "balls": 15,
           "runs": 12,
@@ -16868,24 +13367,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 0.0,
           "dotPct": 0.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 2,
-          "runs": 0,
-          "dismissals": 0,
-          "sr": 0.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 100.0
-        },
-        "Right-arm pace": {
-          "balls": 21,
-          "runs": 33,
-          "dismissals": 1,
-          "sr": 157.1,
-          "avg": 33.0,
-          "boundaryPct": 28.6,
-          "dotPct": 38.1
         },
         "Wrist-spin": {
           "balls": 1,
@@ -16978,24 +13459,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 100.0,
           "dotPct": 0.0
         },
-        "Left-arm orthodox": {
-          "balls": 3,
-          "runs": 4,
-          "dismissals": 1,
-          "sr": 133.3,
-          "avg": 4.0,
-          "boundaryPct": 33.3,
-          "dotPct": 66.7
-        },
-        "Left-arm pace": {
-          "balls": 1,
-          "runs": 0,
-          "dismissals": 1,
-          "sr": 0.0,
-          "avg": 0.0,
-          "boundaryPct": 0.0,
-          "dotPct": 100.0
-        },
         "Leg-spin": {
           "balls": 6,
           "runs": 3,
@@ -17022,24 +13485,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 33.3,
           "dotPct": 33.3
-        },
-        "Right-arm off-spin": {
-          "balls": 5,
-          "runs": 2,
-          "dismissals": 1,
-          "sr": 40.0,
-          "avg": 2.0,
-          "boundaryPct": 0.0,
-          "dotPct": 60.0
-        },
-        "Right-arm pace": {
-          "balls": 8,
-          "runs": 11,
-          "dismissals": 0,
-          "sr": 137.5,
-          "avg": null,
-          "boundaryPct": 25.0,
-          "dotPct": 50.0
         }
       },
       "recentForm": {
@@ -17123,15 +13568,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 25.0,
           "dotPct": 75.0
         },
-        "Left-arm pace": {
-          "balls": 1,
-          "runs": 1,
-          "dismissals": 0,
-          "sr": 100.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 0.0
-        },
         "Leg-spin": {
           "balls": 17,
           "runs": 12,
@@ -17158,24 +13594,6 @@ const COMPARISON_DATA = {
           "avg": 0.0,
           "boundaryPct": 0.0,
           "dotPct": 100.0
-        },
-        "Right-arm off-spin": {
-          "balls": 4,
-          "runs": 2,
-          "dismissals": 0,
-          "sr": 50.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 50.0
-        },
-        "Right-arm pace": {
-          "balls": 7,
-          "runs": 3,
-          "dismissals": 1,
-          "sr": 42.9,
-          "avg": 3.0,
-          "boundaryPct": 0.0,
-          "dotPct": 57.1
         },
         "Wrist-spin": {
           "balls": 8,
@@ -17277,15 +13695,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 0.0,
           "dotPct": 75.0
         },
-        "Left-arm pace": {
-          "balls": 14,
-          "runs": 18,
-          "dismissals": 0,
-          "sr": 128.6,
-          "avg": null,
-          "boundaryPct": 21.4,
-          "dotPct": 50.0
-        },
         "Leg-spin": {
           "balls": 27,
           "runs": 22,
@@ -17303,24 +13712,6 @@ const COMPARISON_DATA = {
           "avg": 2.0,
           "boundaryPct": 33.3,
           "dotPct": 66.7
-        },
-        "Right-arm off-spin": {
-          "balls": 2,
-          "runs": 2,
-          "dismissals": 0,
-          "sr": 100.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 0.0
-        },
-        "Right-arm pace": {
-          "balls": 11,
-          "runs": 24,
-          "dismissals": 0,
-          "sr": 218.2,
-          "avg": null,
-          "boundaryPct": 27.3,
-          "dotPct": 18.2
         },
         "Wrist-spin": {
           "balls": 14,
@@ -17413,24 +13804,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 25.0,
           "dotPct": 37.5
         },
-        "Left-arm orthodox": {
-          "balls": 5,
-          "runs": 4,
-          "dismissals": 1,
-          "sr": 80.0,
-          "avg": 4.0,
-          "boundaryPct": 0.0,
-          "dotPct": 40.0
-        },
-        "Left-arm pace": {
-          "balls": 4,
-          "runs": 5,
-          "dismissals": 0,
-          "sr": 125.0,
-          "avg": null,
-          "boundaryPct": 25.0,
-          "dotPct": 50.0
-        },
         "Leg-spin": {
           "balls": 12,
           "runs": 10,
@@ -17448,33 +13821,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 33.3,
           "dotPct": 16.7
-        },
-        "Right-arm leg-spin": {
-          "balls": 2,
-          "runs": 2,
-          "dismissals": 0,
-          "sr": 100.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 0.0
-        },
-        "Right-arm off-spin": {
-          "balls": 4,
-          "runs": 14,
-          "dismissals": 0,
-          "sr": 350.0,
-          "avg": null,
-          "boundaryPct": 50.0,
-          "dotPct": 0.0
-        },
-        "Right-arm pace": {
-          "balls": 7,
-          "runs": 5,
-          "dismissals": 0,
-          "sr": 71.4,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 28.6
         },
         "Wrist-spin": {
           "balls": 2,
@@ -17594,24 +13940,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 0.0,
           "dotPct": 33.3
         },
-        "Right-arm off-spin": {
-          "balls": 4,
-          "runs": 7,
-          "dismissals": 1,
-          "sr": 175.0,
-          "avg": 7.0,
-          "boundaryPct": 25.0,
-          "dotPct": 50.0
-        },
-        "Right-arm pace": {
-          "balls": 3,
-          "runs": 6,
-          "dismissals": 0,
-          "sr": 200.0,
-          "avg": null,
-          "boundaryPct": 33.3,
-          "dotPct": 0.0
-        },
         "Wrist-spin": {
           "balls": 4,
           "runs": 7,
@@ -17712,24 +14040,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 16.7,
           "dotPct": 25.0
         },
-        "Left-arm orthodox": {
-          "balls": 13,
-          "runs": 12,
-          "dismissals": 0,
-          "sr": 92.3,
-          "avg": null,
-          "boundaryPct": 7.7,
-          "dotPct": 46.1
-        },
-        "Left-arm pace": {
-          "balls": 5,
-          "runs": 7,
-          "dismissals": 0,
-          "sr": 140.0,
-          "avg": null,
-          "boundaryPct": 20.0,
-          "dotPct": 60.0
-        },
         "Leg-spin": {
           "balls": 6,
           "runs": 3,
@@ -17747,33 +14057,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 0.0,
           "dotPct": 25.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 2,
-          "runs": 1,
-          "dismissals": 0,
-          "sr": 50.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 50.0
-        },
-        "Right-arm off-spin": {
-          "balls": 3,
-          "runs": 2,
-          "dismissals": 0,
-          "sr": 66.7,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 33.3
-        },
-        "Right-arm pace": {
-          "balls": 14,
-          "runs": 12,
-          "dismissals": 1,
-          "sr": 85.7,
-          "avg": 12.0,
-          "boundaryPct": 7.1,
-          "dotPct": 42.9
         }
       },
       "recentForm": {},
@@ -17836,15 +14119,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 36.0,
           "dotPct": 44.0
         },
-        "Left-arm pace": {
-          "balls": 15,
-          "runs": 19,
-          "dismissals": 0,
-          "sr": 126.7,
-          "avg": null,
-          "boundaryPct": 20.0,
-          "dotPct": 53.3
-        },
         "Leg-spin": {
           "balls": 3,
           "runs": 1,
@@ -17853,33 +14127,6 @@ const COMPARISON_DATA = {
           "avg": 0.5,
           "boundaryPct": 0.0,
           "dotPct": 66.7
-        },
-        "Right-arm leg-spin": {
-          "balls": 13,
-          "runs": 7,
-          "dismissals": 1,
-          "sr": 53.9,
-          "avg": 7.0,
-          "boundaryPct": 0.0,
-          "dotPct": 46.1
-        },
-        "Right-arm off-spin": {
-          "balls": 5,
-          "runs": 7,
-          "dismissals": 1,
-          "sr": 140.0,
-          "avg": 7.0,
-          "boundaryPct": 20.0,
-          "dotPct": 60.0
-        },
-        "Right-arm pace": {
-          "balls": 13,
-          "runs": 17,
-          "dismissals": 0,
-          "sr": 130.8,
-          "avg": null,
-          "boundaryPct": 15.4,
-          "dotPct": 53.9
         }
       },
       "recentForm": {
@@ -17971,24 +14218,6 @@ const COMPARISON_DATA = {
           "avg": 1.0,
           "boundaryPct": 0.0,
           "dotPct": 66.7
-        },
-        "Right-arm off-spin": {
-          "balls": 3,
-          "runs": 7,
-          "dismissals": 0,
-          "sr": 233.3,
-          "avg": null,
-          "boundaryPct": 33.3,
-          "dotPct": 33.3
-        },
-        "Right-arm pace": {
-          "balls": 11,
-          "runs": 16,
-          "dismissals": 1,
-          "sr": 145.4,
-          "avg": 16.0,
-          "boundaryPct": 9.1,
-          "dotPct": 27.3
         },
         "Wrist-spin": {
           "balls": 16,
@@ -18089,33 +14318,6 @@ const COMPARISON_DATA = {
           "avg": 9.0,
           "boundaryPct": 12.5,
           "dotPct": 37.5
-        },
-        "Right-arm leg-spin": {
-          "balls": 11,
-          "runs": 13,
-          "dismissals": 1,
-          "sr": 118.2,
-          "avg": 13.0,
-          "boundaryPct": 18.2,
-          "dotPct": 54.5
-        },
-        "Right-arm off-spin": {
-          "balls": 4,
-          "runs": 6,
-          "dismissals": 0,
-          "sr": 150.0,
-          "avg": null,
-          "boundaryPct": 25.0,
-          "dotPct": 25.0
-        },
-        "Right-arm pace": {
-          "balls": 9,
-          "runs": 8,
-          "dismissals": 0,
-          "sr": 88.9,
-          "avg": null,
-          "boundaryPct": 11.1,
-          "dotPct": 44.4
         }
       },
       "recentForm": {},
@@ -18204,33 +14406,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 0.0,
           "dotPct": 42.9
-        },
-        "Right-arm leg-spin": {
-          "balls": 6,
-          "runs": 13,
-          "dismissals": 0,
-          "sr": 216.7,
-          "avg": null,
-          "boundaryPct": 33.3,
-          "dotPct": 16.7
-        },
-        "Right-arm off-spin": {
-          "balls": 3,
-          "runs": 2,
-          "dismissals": 0,
-          "sr": 66.7,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 33.3
-        },
-        "Right-arm pace": {
-          "balls": 5,
-          "runs": 9,
-          "dismissals": 0,
-          "sr": 180.0,
-          "avg": null,
-          "boundaryPct": 20.0,
-          "dotPct": 0.0
         },
         "Wrist-spin": {
           "balls": 2,
@@ -18338,33 +14513,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 30.0,
           "dotPct": 50.0
         },
-        "Right-arm leg-spin": {
-          "balls": 3,
-          "runs": 0,
-          "dismissals": 1,
-          "sr": 0.0,
-          "avg": 0.0,
-          "boundaryPct": 0.0,
-          "dotPct": 100.0
-        },
-        "Right-arm off-spin": {
-          "balls": 1,
-          "runs": 0,
-          "dismissals": 1,
-          "sr": 0.0,
-          "avg": 0.0,
-          "boundaryPct": 0.0,
-          "dotPct": 100.0
-        },
-        "Right-arm pace": {
-          "balls": 11,
-          "runs": 20,
-          "dismissals": 0,
-          "sr": 181.8,
-          "avg": null,
-          "boundaryPct": 27.3,
-          "dotPct": 36.4
-        },
         "Wrist-spin": {
           "balls": 2,
           "runs": 2,
@@ -18455,15 +14603,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 0.0,
           "dotPct": 0.0
-        },
-        "Left-arm pace": {
-          "balls": 18,
-          "runs": 20,
-          "dismissals": 1,
-          "sr": 111.1,
-          "avg": 20.0,
-          "boundaryPct": 22.2,
-          "dotPct": 55.6
         },
         "Leg-spin": {
           "balls": 13,
@@ -18563,12 +14702,12 @@ const COMPARISON_DATA = {
           "dotPct": 41.2
         },
         "Left-arm orthodox": {
-          "balls": 7,
-          "runs": 21,
+          "balls": 4,
+          "runs": 12,
           "dismissals": 0,
           "sr": 300.0,
           "avg": null,
-          "boundaryPct": 57.1,
+          "boundaryPct": 50.0,
           "dotPct": 0.0
         },
         "Leg-spin": {
@@ -18597,15 +14736,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 50.0,
           "dotPct": 12.5
-        },
-        "Right-arm pace": {
-          "balls": 4,
-          "runs": 8,
-          "dismissals": 1,
-          "sr": 200.0,
-          "avg": 8.0,
-          "boundaryPct": 50.0,
-          "dotPct": 50.0
         }
       },
       "recentForm": {
@@ -18689,15 +14819,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 5.9,
           "dotPct": 64.7
         },
-        "Left-arm pace": {
-          "balls": 1,
-          "runs": 1,
-          "dismissals": 0,
-          "sr": 100.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 0.0
-        },
         "Leg-spin": {
           "balls": 7,
           "runs": 16,
@@ -18724,24 +14845,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 50.0,
           "dotPct": 0.0
-        },
-        "Right-arm leg-spin": {
-          "balls": 4,
-          "runs": 10,
-          "dismissals": 0,
-          "sr": 250.0,
-          "avg": null,
-          "boundaryPct": 25.0,
-          "dotPct": 0.0
-        },
-        "Right-arm pace": {
-          "balls": 5,
-          "runs": 6,
-          "dismissals": 1,
-          "sr": 120.0,
-          "avg": 6.0,
-          "boundaryPct": 20.0,
-          "dotPct": 40.0
         },
         "Wrist-spin": {
           "balls": 4,
@@ -18843,15 +14946,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 25.0,
           "dotPct": 25.0
         },
-        "Left-arm pace": {
-          "balls": 10,
-          "runs": 16,
-          "dismissals": 1,
-          "sr": 160.0,
-          "avg": 16.0,
-          "boundaryPct": 30.0,
-          "dotPct": 30.0
-        },
         "Leg-spin": {
           "balls": 8,
           "runs": 16,
@@ -18869,15 +14963,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 25.0,
           "dotPct": 41.7
-        },
-        "Right-arm pace": {
-          "balls": 5,
-          "runs": 2,
-          "dismissals": 1,
-          "sr": 40.0,
-          "avg": 2.0,
-          "boundaryPct": 0.0,
-          "dotPct": 80.0
         }
       },
       "recentForm": {},
@@ -18949,15 +15034,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 25.0,
           "dotPct": 25.0
         },
-        "Left-arm pace": {
-          "balls": 2,
-          "runs": 2,
-          "dismissals": 0,
-          "sr": 100.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 0.0
-        },
         "Leg-spin": {
           "balls": 7,
           "runs": 11,
@@ -18975,33 +15051,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 0.0,
           "dotPct": 42.9
-        },
-        "Right-arm leg-spin": {
-          "balls": 2,
-          "runs": 1,
-          "dismissals": 1,
-          "sr": 50.0,
-          "avg": 1.0,
-          "boundaryPct": 0.0,
-          "dotPct": 50.0
-        },
-        "Right-arm off-spin": {
-          "balls": 7,
-          "runs": 4,
-          "dismissals": 1,
-          "sr": 57.1,
-          "avg": 4.0,
-          "boundaryPct": 0.0,
-          "dotPct": 57.1
-        },
-        "Right-arm pace": {
-          "balls": 7,
-          "runs": 10,
-          "dismissals": 1,
-          "sr": 142.9,
-          "avg": 10.0,
-          "boundaryPct": 14.3,
-          "dotPct": 28.6
         }
       },
       "recentForm": {},
@@ -19099,15 +15148,6 @@ const COMPARISON_DATA = {
           "avg": 6.0,
           "boundaryPct": 0.0,
           "dotPct": 37.5
-        },
-        "Right-arm pace": {
-          "balls": 4,
-          "runs": 17,
-          "dismissals": 0,
-          "sr": 425.0,
-          "avg": null,
-          "boundaryPct": 75.0,
-          "dotPct": 0.0
         },
         "Wrist-spin": {
           "balls": 8,
@@ -19279,15 +15319,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 0.0,
           "dotPct": 75.0
         },
-        "Left-arm pace": {
-          "balls": 4,
-          "runs": 3,
-          "dismissals": 0,
-          "sr": 75.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 25.0
-        },
         "Leg-spin": {
           "balls": 7,
           "runs": 3,
@@ -19305,15 +15336,6 @@ const COMPARISON_DATA = {
           "avg": null,
           "boundaryPct": 26.7,
           "dotPct": 40.0
-        },
-        "Right-arm pace": {
-          "balls": 23,
-          "runs": 21,
-          "dismissals": 2,
-          "sr": 91.3,
-          "avg": 10.5,
-          "boundaryPct": 4.3,
-          "dotPct": 34.8
         }
       },
       "recentForm": {},
@@ -19394,15 +15416,6 @@ const COMPARISON_DATA = {
           "boundaryPct": 0.0,
           "dotPct": 25.0
         },
-        "Left-arm pace": {
-          "balls": 4,
-          "runs": 4,
-          "dismissals": 0,
-          "sr": 100.0,
-          "avg": null,
-          "boundaryPct": 0.0,
-          "dotPct": 25.0
-        },
         "Leg-spin": {
           "balls": 13,
           "runs": 11,
@@ -19420,15 +15433,6 @@ const COMPARISON_DATA = {
           "avg": 0.0,
           "boundaryPct": 0.0,
           "dotPct": 100.0
-        },
-        "Right-arm pace": {
-          "balls": 11,
-          "runs": 4,
-          "dismissals": 1,
-          "sr": 36.4,
-          "avg": 4.0,
-          "boundaryPct": 0.0,
-          "dotPct": 72.7
         }
       },
       "recentForm": {
@@ -31968,7 +27972,7 @@ const COMPARISON_DATA = {
     "Harsh Dubey": "25228673"
   },
   "metadata": {
-    "generated": "2026-03-01T06:52:53Z",
+    "generated": "2026-03-09T10:37:25Z",
     "dataWindow": "IPL Since 2023",
     "batterQualification": "60+ balls faced",
     "bowlerQualification": "60+ balls bowled",

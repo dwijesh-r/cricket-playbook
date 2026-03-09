@@ -1526,7 +1526,158 @@
                 height: 20px;
             }
         }
-    </style>
+
+/* ==================== CHAT WIDGET ==================== */
+.chat-btn {
+    position: fixed;
+    bottom: 160px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    z-index: 90;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 12px rgba(139,92,246,0.4);
+}
+.chat-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 20px rgba(139,92,246,0.6);
+}
+.chat-btn.active { display: none; }
+.chat-panel {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 400px;
+    height: 520px;
+    background: #1a1a2e;
+    border: 1px solid rgba(139,92,246,0.3);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 40px rgba(139,92,246,0.1);
+    z-index: 300;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+.chat-panel.active { display: flex; }
+.chat-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.chat-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.chat-header-icon {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+    display: flex; align-items: center; justify-content: center;
+}
+.chat-header-icon svg { color: white; }
+.chat-header h4 {
+    font-size: 14px; font-weight: 700; color: #e2e8f0; margin: 0;
+}
+.chat-header p {
+    font-size: 11px; color: #94a3b8; margin: 0;
+}
+.chat-close {
+    width: 30px; height: 30px; background: #2a2a3e; border: none;
+    border-radius: 50%; color: #e2e8f0; font-size: 16px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.chat-close:hover { background: #8B5CF6; }
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.chat-msg {
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+.chat-msg.bot {
+    align-self: flex-start;
+    background: #2a2a3e;
+    color: #e2e8f0;
+    border-bottom-left-radius: 4px;
+}
+.chat-msg.user {
+    align-self: flex-end;
+    background: #6D28D9;
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+.chat-msg.bot .chat-sql {
+    font-size: 10px;
+    color: #64748b;
+    margin-top: 8px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-family: monospace;
+    word-break: break-all;
+}
+.chat-msg.typing {
+    align-self: flex-start;
+    background: #2a2a3e;
+    color: #94a3b8;
+    font-style: italic;
+}
+.chat-input-area {
+    padding: 12px 16px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    gap: 8px;
+}
+.chat-input {
+    flex: 1;
+    padding: 10px 14px;
+    background: #0f0f1a;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    color: #e2e8f0;
+    font-size: 13px;
+    outline: none;
+}
+.chat-input:focus { border-color: #8B5CF6; }
+.chat-input::placeholder { color: #64748b; }
+.chat-send {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+    border: none; border-radius: 50%;
+    color: white; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.3s ease;
+}
+.chat-send:hover { transform: scale(1.08); }
+.chat-send:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+@media (max-width: 768px) {
+    .chat-btn { bottom: 136px; right: 16px; width: 48px; height: 48px; }
+    .chat-panel {
+        bottom: 0; right: 0; left: 0;
+        width: 100%; height: 70vh;
+        border-radius: 16px 16px 0 0;
+    }
+}
+
+</style>
 </head>
 <body>
     <a href="#main-content" class="skip-nav">Skip to main content</a>
@@ -2295,5 +2446,104 @@
     function submitReport(){var f=document.getElementById('report-form');if(!f.reportValidity())return;var b=document.getElementById('report-submit-btn');b.disabled=true;b.textContent='Sending...';fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(f)}).then(function(r){return r.json()}).then(function(d){if(d.success){f.reset();f.style.display='none';document.querySelector('.report-close').style.display='none';document.querySelector('.report-header').style.display='none';document.getElementById('report-success').style.display='block';b.disabled=false;b.textContent='Submit Report'}else{b.disabled=false;b.textContent='Submit Report';alert('Something went wrong. Please try again.')}}).catch(function(){b.disabled=false;b.textContent='Submit Report';alert('Network error. Please try again.')});}
     function closeSuccessModal(){document.getElementById('report-overlay').classList.remove('active');document.getElementById('report-form').style.display='';document.querySelector('.report-close').style.display='';document.querySelector('.report-header').style.display='';document.getElementById('report-success').style.display='none';}
 </script>
+
+<!-- Chat Widget Button -->
+<button class="chat-btn" id="chat-btn" onclick="toggleChat()" title="Ask Richmond">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+</button>
+
+<!-- Chat Panel -->
+<div class="chat-panel" id="chat-panel">
+    <div class="chat-header">
+        <div class="chat-header-left">
+            <div class="chat-header-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+                <h4>Richmond</h4>
+                <p>Ask anything about IPL stats</p>
+            </div>
+        </div>
+        <button class="chat-close" onclick="toggleChat()">&#10005;</button>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+        <div class="chat-msg bot">Hey! I can help you explore IPL stats. Try asking:<br><br>&bull; "How does Kohli perform in death overs?"<br>&bull; "Top 5 wicket takers in powerplay"<br>&bull; "Bumrah vs Kohli head to head"</div>
+    </div>
+    <div class="chat-input-area">
+        <input type="text" class="chat-input" id="chat-input" placeholder="Ask about IPL stats..." onkeydown="if(event.key==='Enter')sendChat()">
+        <button class="chat-send" id="chat-send" onclick="sendChat()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+    </div>
+</div>
+
+
+<script>
+/* ==================== CHAT WIDGET ==================== */
+var CHAT_API = 'http://localhost:8642';
+var chatHistory = [];
+
+function toggleChat() {
+    var panel = document.getElementById('chat-panel');
+    var btn = document.getElementById('chat-btn');
+    panel.classList.toggle('active');
+    btn.classList.toggle('active');
+    if (panel.classList.contains('active')) {
+        document.getElementById('chat-input').focus();
+    }
+}
+
+function addChatMsg(text, role, sql) {
+    var messages = document.getElementById('chat-messages');
+    var div = document.createElement('div');
+    div.className = 'chat-msg ' + role;
+    div.textContent = text;
+    if (sql && role === 'bot') {
+        var sqlDiv = document.createElement('div');
+        sqlDiv.className = 'chat-sql';
+        sqlDiv.textContent = sql.length > 120 ? sql.substring(0, 120) + '...' : sql;
+        div.appendChild(sqlDiv);
+    }
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+    return div;
+}
+
+function sendChat() {
+    var input = document.getElementById('chat-input');
+    var question = input.value.trim();
+    if (!question) return;
+
+    var sendBtn = document.getElementById('chat-send');
+    sendBtn.disabled = true;
+    input.value = '';
+
+    addChatMsg(question, 'user');
+    chatHistory.push({ role: 'user', content: question });
+
+    var typing = addChatMsg('Thinking...', 'typing');
+
+    fetch(CHAT_API + '/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: question, history: chatHistory })
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+        typing.remove();
+        addChatMsg(data.answer, 'bot', data.sql);
+        chatHistory.push({ role: 'assistant', content: data.answer });
+        if (chatHistory.length > 20) chatHistory = chatHistory.slice(-20);
+        sendBtn.disabled = false;
+        document.getElementById('chat-input').focus();
+    })
+    .catch(function(err) {
+        typing.remove();
+        addChatMsg('Could not connect to Richmond. Make sure the API server is running.', 'bot');
+        sendBtn.disabled = false;
+    });
+}
+</script>
+
 </body>
 </html>

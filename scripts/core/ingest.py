@@ -694,6 +694,26 @@ class CricketIngester:
             conn.execute("CREATE INDEX idx_match_tournament ON dim_match(tournament_id)")
             conn.execute("CREATE INDEX idx_match_date ON dim_match(match_date)")
 
+            # Create dim_franchise_alias (IPL team name changes over the years)
+            logger.info("Creating dim_franchise_alias...")
+            conn.execute("""
+                CREATE TABLE dim_franchise_alias (
+                    team_name VARCHAR NOT NULL,
+                    canonical_name VARCHAR NOT NULL
+                )
+            """)
+            conn.execute("""
+                INSERT INTO dim_franchise_alias VALUES
+                ('Delhi Daredevils', 'Delhi Capitals'),
+                ('Deccan Chargers', 'Sunrisers Hyderabad'),
+                ('Kings XI Punjab', 'Punjab Kings'),
+                ('Rising Pune Supergiant', 'Rising Pune Supergiant'),
+                ('Rising Pune Supergiants', 'Rising Pune Supergiant'),
+                ('Gujarat Lions', 'Gujarat Lions'),
+                ('Kochi Tuskers Kerala', 'Kochi Tuskers Kerala'),
+                ('Pune Warriors India', 'Pune Warriors India')
+            """)
+
             conn.execute("COMMIT")
             logger.info("Transaction committed successfully")
 

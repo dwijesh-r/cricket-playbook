@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-03-09T16:06:40.252074",
+  "ticket": "TKT-095",
+  "batters": {
+    "n_players": 64,
+    "n_clusters": 5,
+    "silhouette_score": 0.2253,
+    "pca_components_for_50pct": 2,
+    "quality": "moderate"
+  },
+  "bowlers": {
+    "n_players": 79,
+    "n_clusters": 5,
+    "silhouette_score": 0.1577,
+    "pca_components_for_50pct": 2,
+    "quality": "moderate"
+  }
+}

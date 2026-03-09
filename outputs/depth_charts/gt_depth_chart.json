@@ -5,10 +5,9 @@
   "strongest_position": "Opener",
   "weakest_position": "Left-arm Wrist Spin",
   "vulnerabilities": [
-    "Middle Order #4-5: thin depth (rating 3.9)",
+    "Middle Order #4-5: thin depth (rating 3.7)",
     "Left-arm Pace: thin depth (rating 2.1)",
-    "Off Spin: thin depth (rating 4.7)",
-    "Left-arm Orthodox: thin depth (rating 4.0)",
+    "Left-arm Orthodox: thin depth (rating 3.5)",
     "Left-arm Wrist Spin: thin depth (rating 0.0)"
   ],
   "positions": {
@@ -104,17 +103,17 @@
     },
     "middle_order": {
       "name": "Middle Order #4-5",
-      "rating": 3.9,
+      "rating": 3.7,
       "what_works": "Jos buttler leads. glenn phillips as backup",
-      "what_doesnt": "Weak backup option. overseas mix (2 of 3)",
+      "what_doesnt": "Weak backup option. no standout performer",
       "overseas_count": 2,
       "players": [
         {
           "rank": 1,
           "name": "Jos Buttler",
           "player_id": "99b75528",
-          "score": 52.7,
-          "rationale": "Founder XII. Middle overs anchor. Excellent vs spin",
+          "score": 49.2,
+          "rationale": "Founder XII. Middle overs anchor. Pos penalty (opener)",
           "is_overseas": true,
           "price_cr": 15.75,
           "bowling_type": "Medium",
@@ -305,8 +304,8 @@
     },
     "off_spin": {
       "name": "Off Spin",
-      "rating": 4.7,
-      "what_works": "Washington sundar leads. jayant yadav as backup",
+      "rating": 5.2,
+      "what_works": "Strong #1 with washington sundar. jayant yadav as backup",
       "what_doesnt": "Room for improvement at the top",
       "overseas_count": 0,
       "players": [
@@ -314,7 +313,7 @@
           "rank": 1,
           "name": "Washington Sundar",
           "player_id": "f19ccfad",
-          "score": 53.0,
+          "score": 63.0,
           "rationale": "Founder XII. Lead spinner",
           "is_overseas": false,
           "price_cr": 3.2,
@@ -383,7 +382,7 @@
     },
     "left_arm_orthodox": {
       "name": "Left-arm Orthodox",
-      "rating": 4.0,
+      "rating": 3.5,
       "what_works": "Strong #1 with sai kishore. nishant sindhu as backup",
       "what_doesnt": "Weak backup option. big gap between #1 and #2",
       "overseas_count": 0,
@@ -392,7 +391,7 @@
           "rank": 1,
           "name": "Sai Kishore",
           "player_id": "c7a995d3",
-          "score": 73.0,
+          "score": 63.0,
           "rationale": "Founder XII. Wicket-taker (SR 14.3)",
           "is_overseas": false,
           "price_cr": 2.0,
@@ -526,8 +525,8 @@
     },
     "allrounder_bowling": {
       "name": "Allrounder (Bowling)",
-      "rating": 9.1,
-      "what_works": "Elite #1 in rashid khan. quality backup in rahul tewatia",
+      "rating": 9.2,
+      "what_works": "Elite #1 in rashid khan. quality backup in washington sundar",
       "what_doesnt": "Big gap between #1 and #2",
       "overseas_count": 1,
       "players": [
@@ -545,6 +544,18 @@
         },
         {
           "rank": 2,
+          "name": "Washington Sundar",
+          "player_id": "f19ccfad",
+          "score": 63.8,
+          "rationale": "Founder XII. Bowling specialist tag",
+          "is_overseas": false,
+          "price_cr": 3.2,
+          "bowling_type": "Off-spin",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
           "name": "Rahul Tewatia",
           "player_id": "39a2dfa8",
           "score": 62.9,
@@ -552,18 +563,6 @@
           "is_overseas": false,
           "price_cr": 4.0,
           "bowling_type": "Leg-spin",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
-          "name": "Washington Sundar",
-          "player_id": "f19ccfad",
-          "score": 58.8,
-          "rationale": "Founder XII. Bowling specialist tag",
-          "is_overseas": false,
-          "price_cr": 3.2,
-          "bowling_type": "Off-spin",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         }

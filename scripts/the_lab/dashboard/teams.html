@@ -6648,17 +6648,18 @@
     function closeReportModal(e) {
         if (e.target === e.currentTarget) toggleReportModal();
     }
-    document.getElementById('report-form').addEventListener('submit', function(e) {
-        e.preventDefault();
+    function submitReport() {
+        var form = document.getElementById('report-form');
+        if (!form.reportValidity()) return;
         var btn = document.getElementById('report-submit-btn');
         btn.disabled = true;
         btn.textContent = 'Sending...';
-        var formData = new FormData(this);
+        var formData = new FormData(form);
         fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
             .then(function(res) { return res.json(); })
             .then(function(data) {
                 if (data.success) {
-                    document.getElementById('report-form').reset();
+                    form.reset();
                     document.getElementById('report-success').style.display = 'block';
                     btn.style.display = 'none';
                     setTimeout(function() { toggleReportModal(); btn.style.display = ''; btn.disabled = false; btn.textContent = 'Submit Report'; document.getElementById('report-success').style.display = 'none'; }, 2500);
@@ -6673,7 +6674,7 @@
                 btn.textContent = 'Submit Report';
                 alert('Network error. Please try again.');
             });
-    });
+    }
 
 </script>
 
@@ -6721,7 +6722,7 @@
                     <label>Your Email (optional, for follow-up)</label>
                     <input type="email" name="email" placeholder="you@example.com">
                 </div>
-                <button type="submit" class="report-submit" id="report-submit-btn">Submit Report</button>
+                <button type="button" class="report-submit" id="report-submit-btn" onclick="submitReport()">Submit Report</button>
                 <div class="report-success" id="report-success" style="display:none;">
                     Thank you. Your report has been received.
                 </div>

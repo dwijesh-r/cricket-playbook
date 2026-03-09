@@ -1691,7 +1691,7 @@
                 <div class="report-field"><label>Description</label><textarea name="message" rows="4" required placeholder="Describe what you found..."></textarea></div>
                 <div class="report-field"><label>Expected vs Actual (optional)</label><textarea name="expected_vs_actual" rows="2" placeholder="e.g. SR shows 145.2 but should be 152.3"></textarea></div>
                 <div class="report-field"><label>Your Email (optional, for follow-up)</label><input type="email" name="email" placeholder="you@example.com"></div>
-                <button type="submit" class="report-submit" id="report-submit-btn">Submit Report</button>
+                <button type="button" class="report-submit" id="report-submit-btn" onclick="submitReport()">Submit Report</button>
                 <div class="report-success" id="report-success" style="display:none;">Thank you. Your report has been received.</div>
             </form>
         </div>
@@ -2293,7 +2293,7 @@
     }
     function toggleReportModal(){var o=document.getElementById('report-overlay');o.classList.toggle('active');if(o.classList.contains('active'))document.getElementById('report-page').value=window.location.pathname.split('/').pop()||'rankings.html';}
     function closeReportModal(e){if(e.target===e.currentTarget)toggleReportModal();}
-    document.getElementById('report-form').addEventListener('submit',function(e){e.preventDefault();var b=document.getElementById('report-submit-btn');b.disabled=true;b.textContent='Sending...';fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(this)}).then(function(r){return r.json()}).then(function(d){if(d.success){document.getElementById('report-form').reset();document.getElementById('report-success').style.display='block';b.style.display='none';setTimeout(function(){toggleReportModal();b.style.display='';b.disabled=false;b.textContent='Submit Report';document.getElementById('report-success').style.display='none'},2500)}else{b.disabled=false;b.textContent='Submit Report';alert('Something went wrong. Please try again.')}}).catch(function(){b.disabled=false;b.textContent='Submit Report';alert('Network error. Please try again.')});});
+    function submitReport(){var f=document.getElementById('report-form');if(!f.reportValidity())return;var b=document.getElementById('report-submit-btn');b.disabled=true;b.textContent='Sending...';fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(f)}).then(function(r){return r.json()}).then(function(d){if(d.success){f.reset();document.getElementById('report-success').style.display='block';b.style.display='none';setTimeout(function(){toggleReportModal();b.style.display='';b.disabled=false;b.textContent='Submit Report';document.getElementById('report-success').style.display='none'},2500)}else{b.disabled=false;b.textContent='Submit Report';alert('Something went wrong. Please try again.')}}).catch(function(){b.disabled=false;b.textContent='Submit Report';alert('Network error. Please try again.')});}
 </script>
 </body>
 </html>

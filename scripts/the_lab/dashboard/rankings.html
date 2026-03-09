@@ -2531,7 +2531,7 @@ function sendChat() {
     .then(function(res) { return res.json(); })
     .then(function(data) {
         typing.remove();
-        addChatMsg(data.answer, 'bot', data.sql);
+        addChatMsg(data.answer, 'bot');
         chatHistory.push({ role: 'assistant', content: data.answer });
         if (chatHistory.length > 20) chatHistory = chatHistory.slice(-20);
         sendBtn.disabled = false;

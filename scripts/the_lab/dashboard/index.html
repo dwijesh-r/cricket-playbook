@@ -1579,9 +1579,25 @@
         .report-submit:hover { background: #2563EB; }
         .report-submit:disabled { opacity: 0.6; cursor: not-allowed; }
         .report-success {
-            text-align: center; padding: 16px; color: var(--accent-green);
-            font-size: 14px; font-weight: 500; margin-top: 12px;
+            text-align: center; padding: 32px 16px; display: none;
         }
+        .report-success .success-icon {
+            width: 56px; height: 56px; border-radius: 50%; background: rgba(34,197,94,0.15);
+            display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
+        }
+        .report-success .success-icon svg { color: #22c55e; }
+        .report-success h4 {
+            font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;
+        }
+        .report-success p {
+            font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;
+        }
+        .report-success .success-close {
+            padding: 10px 32px; background: var(--accent); border: none; border-radius: var(--radius-md);
+            color: white; font-family: var(--font-body); font-size: 14px; font-weight: 600;
+            cursor: pointer; transition: background var(--transition-normal);
+        }
+        .report-success .success-close:hover { background: #2563eb; }
         @media (max-width: 768px) {
             .report-btn { bottom: 76px; right: 16px; width: 48px; height: 48px; }
             .report-modal { padding: var(--space-4) 16px; }
@@ -1712,10 +1728,13 @@
                     <input type="email" name="email" placeholder="you@example.com">
                 </div>
                 <button type="button" class="report-submit" id="report-submit-btn" onclick="submitReport()">Submit Report</button>
-                <div class="report-success" id="report-success" style="display:none;">
-                    Thank you. Your report has been received.
-                </div>
             </form>
+            <div class="report-success" id="report-success">
+                <div class="success-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <h4>Report Received</h4>
+                <p>Your feedback will be reviewed with priority. We appreciate you taking the time to help build Statsledge.</p>
+                <button class="success-close" onclick="closeSuccessModal()">Close</button>
+            </div>
         </div>
     </div>
 
@@ -2575,9 +2594,12 @@
             .then(function(data) {
                 if (data.success) {
                     form.reset();
+                    form.style.display = 'none';
+                    document.querySelector('.report-close').style.display = 'none';
+                    document.querySelector('.report-header').style.display = 'none';
                     document.getElementById('report-success').style.display = 'block';
-                    btn.style.display = 'none';
-                    setTimeout(function() { toggleReportModal(); btn.style.display = ''; btn.disabled = false; btn.textContent = 'Submit Report'; document.getElementById('report-success').style.display = 'none'; }, 2500);
+                    btn.disabled = false;
+                    btn.textContent = 'Submit Report';
                 } else {
                     btn.disabled = false;
                     btn.textContent = 'Submit Report';
@@ -2589,6 +2611,13 @@
                 btn.textContent = 'Submit Report';
                 alert('Network error. Please try again.');
             });
+    }
+    function closeSuccessModal() {
+        document.getElementById('report-overlay').classList.remove('active');
+        document.getElementById('report-form').style.display = '';
+        document.querySelector('.report-close').style.display = '';
+        document.querySelector('.report-header').style.display = '';
+        document.getElementById('report-success').style.display = 'none';
     }
 
 </script>

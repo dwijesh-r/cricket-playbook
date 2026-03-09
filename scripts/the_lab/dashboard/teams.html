@@ -6654,7 +6654,7 @@
         btn.disabled = true;
         btn.textContent = 'Sending...';
         var formData = new FormData(this);
-        fetch(this.action, { method: 'POST', body: formData })
+        fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
             .then(function(res) { return res.json(); })
             .then(function(data) {
                 if (data.success) {
@@ -6690,7 +6690,7 @@
                 <h3>Report an Issue</h3>
                 <p>Found a bug or data inconsistency? Let us know.</p>
             </div>
-            <form id="report-form" action="https://api.web3forms.com/submit" method="POST">
+            <form id="report-form" onsubmit="return false;">
                 <input type="hidden" name="access_key" value="b296c5b6-3635-4391-b75f-d65b7b25b4e8">
                 <input type="hidden" name="subject" value="Statsledge Bug Report">
                 <input type="hidden" name="from_name" value="Statsledge Report">

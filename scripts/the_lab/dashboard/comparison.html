@@ -926,7 +926,7 @@
             .heatmap-pill { white-space: nowrap; flex-shrink: 0; }
         }
         /* ==================== REPORT ISSUE ==================== */
-        .report-btn { position: fixed; bottom: 92px; right: 24px; width: 56px; height: 56px; background: #dc2626; border: none; border-radius: var(--radius-full); color: white; cursor: pointer; z-index: 90; transition: all var(--transition-normal); display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 12px rgba(220,38,38,0.4); }
+        .report-btn { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; background: #dc2626; border: none; border-radius: var(--radius-full); color: white; cursor: pointer; z-index: 90; transition: all var(--transition-normal); display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 12px rgba(220,38,38,0.4); }
         .report-btn:hover { background: #b91c1c; color: white; transform: scale(1.08); box-shadow: 0 4px 20px rgba(220,38,38,0.6); }
         .report-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); z-index: 200; display: none; align-items: center; justify-content: center; padding: var(--space-4); }
         .report-overlay.active { display: flex; }
@@ -945,12 +945,12 @@
         .report-submit:hover { background: #2563EB; }
         .report-submit:disabled { opacity: 0.6; cursor: not-allowed; }
         .report-success { text-align: center; padding: 32px 16px; display: none; } .report-success .success-icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(34,197,94,0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; } .report-success .success-icon svg { color: #22c55e; } .report-success h4 { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; } .report-success p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; } .report-success .success-close { padding: 10px 32px; background: var(--accent); border: none; border-radius: var(--radius-md); color: white; font-family: var(--font-body); font-size: 14px; font-weight: 600; cursor: pointer; transition: background var(--transition-normal); } .report-success .success-close:hover { background: #2563eb; }
-        @media (max-width: 768px) { .report-btn { bottom: 76px; right: 16px; width: 48px; height: 48px; } .report-modal { padding: var(--space-4) 16px; } }
+        @media (max-width: 768px) { .report-btn { bottom: 16px; right: 16px; width: 48px; height: 48px; } .report-modal { padding: var(--space-4) 16px; } }
 
 /* ==================== CHAT WIDGET ==================== */
 .chat-btn {
     position: fixed;
-    bottom: 160px;
+    bottom: 92px;
     right: 24px;
     width: 56px;
     height: 56px;
@@ -1118,7 +1118,7 @@
 .chat-send:hover { transform: scale(1.08); }
 .chat-send:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 @media (max-width: 768px) {
-    .chat-btn { bottom: 136px; right: 16px; width: 48px; height: 48px; }
+    .chat-btn { bottom: 76px; right: 16px; width: 48px; height: 48px; }
     .chat-panel {
         bottom: 0; right: 0; left: 0;
         width: 100%; height: 70vh;

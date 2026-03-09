@@ -2,20 +2,23 @@
 """
 StatSledge Chat API
 ===================
-Lightweight FastAPI server wrapping Qwen3 (Ollama) + DuckDB.
+FastAPI server wrapping Groq LLM API + DuckDB for the Richmond chatbot.
 
 Usage:
     uvicorn scripts.chatbot.api:app --port 8642 --reload
 
 Or:
     python scripts/chatbot/api.py
+
+Requires:
+    GROQ_API_KEY environment variable (free at console.groq.com)
 """
 
 import json
+import os
 import re
 from pathlib import Path
 
-import duckdb
 import requests
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -24,8 +27,11 @@ from pydantic import BaseModel
 PROJECT_ROOT = Path(__file__).parent.parent.parent
 DB_PATH = PROJECT_ROOT / "data" / "cricket_playbook.duckdb"
 
-OLLAMA_URL = "http://localhost:11434/api/chat"
-MODEL = "qwen3:8b"
+GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
+GROQ_MODEL = "llama-3.3-70b-versatile"
+
+# Database mode: "neon" (production) or "duckdb" (local)
+DB_MODE = os.environ.get("DB_MODE", "duckdb")
 
 app = FastAPI(title="StatSledge Chat API", version="1.0.0")
 
@@ -33,14 +39,37 @@ app = FastAPI(title="StatSledge Chat API", version="1.0.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_methods=["POST"],
+    allow_methods=["POST", "GET"],
     allow_headers=["*"],
 )
 
 
-# DuckDB connection (read-only, reconnect on each request for safety)
-def get_db():
-    return duckdb.connect(str(DB_PATH), read_only=True)
+def run_query(sql: str) -> tuple[list[str], list[tuple]]:
+    """Execute SQL and return (columns, rows). Works with both DuckDB and Neon."""
+    if DB_MODE == "neon":
+        import psycopg2
+
+        url = os.environ.get("NEON_DATABASE_URL", "")
+        conn = psycopg2.connect(url)
+        try:
+            cur = conn.cursor()
+            cur.execute(sql)
+            columns = [desc[0] for desc in cur.description]
+            rows = cur.fetchall()
+            return columns, rows
+        finally:
+            conn.close()
+    else:
+        import duckdb
+
+        conn = duckdb.connect(str(DB_PATH), read_only=True)
+        try:
+            result = conn.execute(sql)
+            columns = [desc[0] for desc in result.description]
+            rows = result.fetchall()
+            return columns, rows
+        finally:
+            conn.close()
 
 
 SCHEMA_CONTEXT = """
@@ -162,33 +191,39 @@ class ChatResponse(BaseModel):
     error: str | None = None
 
 
-def call_ollama(messages: list) -> str:
-    """Call Ollama API with thinking disabled for faster responses."""
-    # Append /no_think to the last user message to disable Qwen3's thinking mode
-    msgs = []
-    for m in messages:
-        msgs.append(dict(m))
-    if msgs and msgs[-1]["role"] == "user":
-        msgs[-1]["content"] = msgs[-1]["content"] + " /no_think"
+def get_groq_key() -> str:
+    """Get Groq API key from environment or .env file."""
+    key = os.environ.get("GROQ_API_KEY")
+    if key:
+        return key
+    env_path = PROJECT_ROOT / ".env"
+    if env_path.exists():
+        with open(env_path) as f:
+            for line in f:
+                line = line.strip()
+                if line.startswith("GROQ_API_KEY="):
+                    return line.split("=", 1)[1]
+    raise RuntimeError("GROQ_API_KEY not set. Add it to .env or export it.")
 
+
+def call_llm(messages: list) -> str:
+    """Call Groq API for fast LLM inference."""
     resp = requests.post(
-        OLLAMA_URL,
-        json={
-            "model": MODEL,
-            "messages": msgs,
-            "stream": False,
-            "options": {"temperature": 0.1, "num_predict": 1024},
+        GROQ_API_URL,
+        headers={
+            "Authorization": f"Bearer {get_groq_key()}",
+            "Content-Type": "application/json",
         },
-        timeout=180,
+        json={
+            "model": GROQ_MODEL,
+            "messages": messages,
+            "temperature": 0.1,
+            "max_tokens": 1024,
+        },
+        timeout=30,
     )
     resp.raise_for_status()
-    result = resp.json()["message"]["content"]
-    # If content is empty but thinking exists, use thinking as fallback
-    if not result.strip():
-        thinking = resp.json()["message"].get("thinking", "")
-        if thinking:
-            result = thinking
-    return result
+    return resp.json()["choices"][0]["message"]["content"]
 
 
 def extract_sql(response: str) -> str | None:
@@ -225,7 +260,7 @@ async def chat(req: ChatRequest):
 
     # Generate SQL
     try:
-        raw = call_ollama(messages)
+        raw = call_llm(messages)
     except Exception as e:
         return ChatResponse(
             answer="Sorry, the AI model is not responding. Please try again.", error=str(e)
@@ -238,12 +273,9 @@ async def chat(req: ChatRequest):
             error="no_sql_generated",
         )
 
-    # Execute against DuckDB
-    conn = get_db()
+    # Execute against database
     try:
-        result = conn.execute(sql)
-        columns = [desc[0] for desc in result.description]
-        rows = result.fetchall()
+        columns, rows = run_query(sql)
     except Exception as e:
         # Retry with error context
         messages.append({"role": "assistant", "content": raw})
@@ -254,25 +286,19 @@ async def chat(req: ChatRequest):
             }
         )
         try:
-            retry_raw = call_ollama(messages)
+            retry_raw = call_llm(messages)
             retry_sql = extract_sql(retry_raw)
             if retry_sql:
-                result = conn.execute(retry_sql)
-                columns = [desc[0] for desc in result.description]
-                rows = result.fetchall()
+                columns, rows = run_query(retry_sql)
                 sql = retry_sql
             else:
-                conn.close()
                 return ChatResponse(
                     answer="I had trouble querying that. Could you rephrase?", error=str(e)
                 )
         except Exception as e2:
-            conn.close()
             return ChatResponse(
                 answer="I had trouble querying that. Could you rephrase?", error=str(e2)
             )
-    finally:
-        conn.close()
 
     if not rows:
         return ChatResponse(
@@ -287,7 +313,7 @@ async def chat(req: ChatRequest):
         result_text += " | ".join(str(v) if v is not None else "" for v in row) + "\n"
 
     try:
-        answer_raw = call_ollama(
+        answer_raw = call_llm(
             [
                 {"role": "system", "content": ANSWER_SYSTEM},
                 {"role": "user", "content": f"Question: {question}\n\nData:\n{result_text}"},
@@ -305,10 +331,9 @@ async def chat(req: ChatRequest):
 async def health():
     """Health check."""
     try:
-        conn = get_db()
-        count = conn.execute("SELECT COUNT(*) FROM analytics_ipl_batting_career").fetchone()[0]
-        conn.close()
-        return {"status": "ok", "players": count, "model": MODEL}
+        _, rows = run_query("SELECT COUNT(*) FROM analytics_ipl_batting_career")
+        count = rows[0][0]
+        return {"status": "ok", "players": count, "model": GROQ_MODEL, "db": DB_MODE}
     except Exception as e:
         return {"status": "error", "detail": str(e)}
 

@@ -1,6 +1,6 @@
 # Sunrisers Hyderabad (SRH) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-14 18:41
+**Generated:** 2026-03-09 16:07
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -132,9 +132,9 @@
 
 **Top Wicket Takers by Season:**
 
-- **2023:** B Kumar (16w @ 8.13), M Markande (12w @ 7.83), M Jansen (10w @ 9.2)
+- **2023:** B Kumar (16w @ 8.13), M Markande (12w @ 7.83), T Natarajan (10w @ 9.04)
 - **2024:** T Natarajan (19w @ 8.48), PJ Cummins (18w @ 9.14), B Kumar (11w @ 9.33)
-- **2025:** PJ Cummins (16w @ 8.85), HV Patel (16w @ 9.1), E Malinga (13w @ 8.87)
+- **2025:** HV Patel (16w @ 9.1), PJ Cummins (16w @ 8.85), E Malinga (13w @ 8.87)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -243,7 +243,7 @@
 - **Avg Score (batting):** 185.6
 - **Highest/Lowest:** 286/131
 - **Pitch Type:** Pace-friendly
-- **Pace SR:** 19.4 | **Spin SR:** 26.5
+- **Pace SR:** 18.7 | **Spin SR:** 27.2
 
 ### Away Performance
 
@@ -251,10 +251,10 @@
 |-------|---------|------|------|-----------|
 | MA Chidambaram Stadium | 5 | 2 | 40.0% | 142.2 |
 | Narendra Modi Stadium | 4 | 0 | 0.0% | 165.3 |
-| Arun Jaitley Stadium | 3 | 3 | 100.0% | 247.0 |
-| Eden Gardens | 3 | 1 | 33.3% | 184.0 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 186.0 |
 | Wankhede Stadium | 3 | 0 | 0.0% | 178.3 |
+| Arun Jaitley Stadium | 3 | 3 | 100.0% | 247.0 |
+| Eden Gardens | 3 | 1 | 33.3% | 184.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -262,16 +262,16 @@
 
 | Venue | Matches | Pace SR | Spin SR | Bias |
 |-------|---------|---------|---------|------|
-| Narendra Modi Stadium | 26 | 18.2 | 22.3 | BALANCED |
-| MA Chidambaram Stadium | 24 | 17.7 | 20.1 | BALANCED |
-| Bharat Ratna Shri Atal Bihari  | 22 | 18.3 | 23.8 | PACE |
-| Wankhede Stadium | 21 | 18.8 | 21.0 | BALANCED |
-| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.5 | PACE |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.4 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Sawai Mansingh Stadium | 17 | 24.1 | 22.1 | BALANCED |
-| Maharaja Yadavindra Singh Inte | 10 | 15.8 | 16.8 | BALANCED |
+| Narendra Modi Stadium | 26 | 21.3 | 21.4 | BALANCED |
+| MA Chidambaram Stadium | 24 | 18.1 | 17.7 | BALANCED |
+| Bharat Ratna Shri Atal Bihari  | 22 | 19.0 | 24.6 | PACE |
+| Eden Gardens | 21 | 18.8 | 21.8 | BALANCED |
+| Wankhede Stadium | 21 | 18.8 | 19.9 | BALANCED |
+| Arun Jaitley Stadium | 19 | 16.4 | 19.9 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 18.7 | 27.2 | PACE |
+| M Chinnaswamy Stadium | 19 | 16.8 | 26.3 | PACE |
+| Sawai Mansingh Stadium | 17 | 20.8 | 23.6 | BALANCED |
+| Maharaja Yadavindra Singh Inte | 10 | 14.4 | 13.5 | BALANCED |
 
 ### Venue Specialists
 
@@ -318,9 +318,9 @@
 | Pat Cummins | All-rounder | 19 | 233 | 152 | 153.29 | 25.89 | 19.74 | 36.18 | 0 | 0 | MEDIUM |
 | Kamindu Mendis | All-rounder | 5 | 92 | 68 | 135.29 | 23.0 | 13.24 | 32.35 | 0 | 0 | LOW |
 | Brydon Carse | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
-| Shivam Mavi | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
-| Salil Arora | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Jack Edwards | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
+| Salil Arora | Wicketkeeper | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
+| Shivam Mavi | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Harsh Dubey | All-rounder | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 | Ravichandran Smaran | Batter | 0 | 0 | 0 | - | - | - | - | 0 | 0 | - |
 
@@ -408,11 +408,12 @@
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
 | Kolkata Knight Riders | 7 | 299 | 151 | 198.01 | 59.8 | 26.49 | 19.87 | 5 | HIGH |
 | Mumbai Indians | 6 | 242 | 137 | 176.64 | 48.4 | 25.55 | 27.01 | 5 | HIGH |
-| Royal Challengers Bengaluru | 4 | 201 | 97 | 207.22 | 50.25 | 28.87 | 21.65 | 4 | MEDIUM |
 | Rajasthan Royals | 4 | 152 | 79 | 192.41 | 50.67 | 25.32 | 22.78 | 3 | MEDIUM |
 | Gujarat Titans | 4 | 138 | 94 | 146.81 | 34.5 | 15.96 | 25.53 | 4 | MEDIUM |
 | Delhi Capitals | 4 | 127 | 70 | 181.43 | 42.33 | 22.86 | 18.57 | 3 | MEDIUM |
 | Lucknow Super Giants | 3 | 120 | 74 | 162.16 | 60.0 | 18.92 | 17.57 | 2 | MEDIUM |
+| Royal Challengers Bangalore | 1 | 104 | 51 | 203.92 | 104.0 | 27.45 | 13.73 | 1 | MEDIUM |
+| Royal Challengers Bengaluru | 3 | 97 | 46 | 210.87 | 32.33 | 30.43 | 30.43 | 3 | MEDIUM |
 | Punjab Kings | 3 | 72 | 49 | 146.94 | 36.0 | 18.37 | 28.57 | 2 | MEDIUM |
 | Chennai Super Kings | 4 | 54 | 56 | 96.43 | 18.0 | 7.14 | 33.93 | 3 | MEDIUM |
 
@@ -426,15 +427,15 @@
 | Mumbai Indians | 5 | 123 | 76 | 161.84 | 24.6 | 25.0 | 42.11 | 5 | MEDIUM |
 | Delhi Capitals | 4 | 119 | 54 | 220.37 | 39.67 | 38.89 | 27.78 | 3 | MEDIUM |
 | Kolkata Knight Riders | 7 | 112 | 77 | 145.45 | 16.0 | 23.38 | 44.16 | 7 | MEDIUM |
-| Royal Challengers Bengaluru | 4 | 110 | 65 | 169.23 | 27.5 | 26.15 | 35.38 | 4 | MEDIUM |
 | Rajasthan Royals | 5 | 103 | 63 | 163.49 | 20.6 | 23.81 | 30.16 | 5 | MEDIUM |
+| Royal Challengers Bengaluru | 3 | 99 | 51 | 194.12 | 33.0 | 29.41 | 27.45 | 3 | MEDIUM |
 | Chennai Super Kings | 4 | 80 | 48 | 166.67 | 20.0 | 25.0 | 33.33 | 4 | MEDIUM |
 
 ### Ishan Kishan
 
 | Opposition | Inn | Runs | Balls | SR | Avg | Bound% | Dot% | Outs | Sample |
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
-| Royal Challengers Bengaluru | 4 | 215 | 116 | 185.34 | 71.67 | 29.31 | 31.9 | 3 | HIGH |
+| Royal Challengers Bengaluru | 2 | 163 | 82 | 198.78 | 163.0 | 29.27 | 20.73 | 1 | MEDIUM |
 | Lucknow Super Giants | 6 | 154 | 130 | 118.46 | 25.67 | 16.15 | 39.23 | 6 | HIGH |
 | Rajasthan Royals | 4 | 150 | 87 | 172.41 | 50.0 | 27.59 | 31.03 | 3 | MEDIUM |
 | Kolkata Knight Riders | 5 | 142 | 79 | 179.75 | 28.4 | 30.38 | 37.97 | 5 | MEDIUM |
@@ -443,6 +444,7 @@
 | Delhi Capitals | 4 | 95 | 68 | 139.71 | 23.75 | 23.53 | 39.71 | 4 | MEDIUM |
 | Punjab Kings | 4 | 93 | 59 | 157.63 | 31.0 | 22.03 | 27.12 | 3 | MEDIUM |
 | Gujarat Titans | 5 | 74 | 76 | 97.37 | 14.8 | 10.53 | 46.05 | 5 | MEDIUM |
+| Royal Challengers Bangalore | 2 | 52 | 34 | 152.94 | 26.0 | 29.41 | 58.82 | 2 | MEDIUM |
 
 ### Travis Head
 
@@ -479,13 +481,13 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Chennai Super Kings | 4 | 74 | 81 | 8 | 6.57 | 10.13 | 9.25 | 40.54 | 10.81 | MEDIUM |
 | Rajasthan Royals | 4 | 84 | 112 | 8 | 8.0 | 14.0 | 10.5 | 27.38 | 13.1 | MEDIUM |
-| Gujarat Titans | 4 | 84 | 126 | 5 | 9.0 | 25.2 | 16.8 | 25.0 | 17.86 | MEDIUM |
-| Royal Challengers Bengaluru | 3 | 71 | 117 | 5 | 9.89 | 23.4 | 14.2 | 29.58 | 25.35 | MEDIUM |
-| Punjab Kings | 2 | 44 | 51 | 5 | 6.95 | 10.2 | 8.8 | 36.36 | 11.36 | MEDIUM |
-| Lucknow Super Giants | 5 | 107 | 170 | 5 | 9.53 | 34.0 | 21.4 | 27.1 | 23.36 | HIGH |
 | Mumbai Indians | 5 | 106 | 169 | 5 | 9.57 | 33.8 | 21.2 | 22.64 | 19.81 | HIGH |
-| Delhi Capitals | 5 | 102 | 161 | 5 | 9.47 | 32.2 | 20.4 | 30.39 | 21.57 | HIGH |
+| Lucknow Super Giants | 5 | 107 | 170 | 5 | 9.53 | 34.0 | 21.4 | 27.1 | 23.36 | HIGH |
+| Punjab Kings | 2 | 44 | 51 | 5 | 6.95 | 10.2 | 8.8 | 36.36 | 11.36 | MEDIUM |
+| Royal Challengers Bengaluru | 3 | 71 | 117 | 5 | 9.89 | 23.4 | 14.2 | 29.58 | 25.35 | MEDIUM |
+| Gujarat Titans | 4 | 84 | 126 | 5 | 9.0 | 25.2 | 16.8 | 25.0 | 17.86 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 72 | 104 | 5 | 8.67 | 20.8 | 14.4 | 25.0 | 19.44 | MEDIUM |
+| Delhi Capitals | 5 | 102 | 161 | 5 | 9.47 | 32.2 | 20.4 | 30.39 | 21.57 | HIGH |
 | Kolkata Knight Riders | 5 | 96 | 190 | 3 | 11.88 | 63.33 | 32.0 | 27.08 | 31.25 | MEDIUM |
 
 ### Pat Cummins
@@ -498,8 +500,8 @@
 | Lucknow Super Giants | 3 | 66 | 106 | 3 | 9.64 | 35.33 | 22.0 | 31.82 | 24.24 | MEDIUM |
 | Chennai Super Kings | 3 | 72 | 100 | 3 | 8.33 | 33.33 | 24.0 | 27.78 | 16.67 | MEDIUM |
 | Gujarat Titans | 3 | 70 | 92 | 3 | 7.89 | 30.67 | 23.33 | 30.0 | 15.71 | MEDIUM |
-| Delhi Capitals | 3 | 60 | 80 | 3 | 8.0 | 26.67 | 20.0 | 41.67 | 20.0 | MEDIUM |
 | Rajasthan Royals | 3 | 72 | 120 | 3 | 10.0 | 40.0 | 24.0 | 36.11 | 23.61 | MEDIUM |
+| Delhi Capitals | 3 | 60 | 80 | 3 | 8.0 | 26.67 | 20.0 | 41.67 | 20.0 | MEDIUM |
 | Punjab Kings | 3 | 72 | 97 | 2 | 8.08 | 48.5 | 36.0 | 36.11 | 19.44 | MEDIUM |
 
 ---
@@ -602,16 +604,16 @@
 
 | Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
 |--------|-----------|-----------|-----------|-----------|----------|
-| **H Klaasen** | 175 | 184 | 23.3 | 22.9 | Balanced |
-| **Ishan Kishan** | 161 | 131 | 25.3 | 18.8 | Pace Dominant |
-| **Abhishek Sharma** | 171 | 215 | 28.6 | 29.4 | Spin Dominant |
-| **TM Head** | 193 | 172 | 34.5 | 25 | Pace Dominant |
-| **Nithish Kumar Reddy** | 116 | 153 | 12.8 | 18.6 | Spin Dominant |
-| **LS Livingstone** | 209 | 126 | 31.5 | 12.3 | Pace Dominant |
-| **PJ Cummins** | 151 | 125 | 20.3 | 13.9 | Pace Dominant |
-| **Aniket Verma** | 156 | 257 | 21.9 | 39.3 | Spin Dominant |
+| **H Klaasen** | 182 | 187 | 25.8 | 23.1 | Balanced |
+| **Ishan Kishan** | 160 | 125 | 24.1 | 16.3 | Pace Dominant |
+| **Abhishek Sharma** | 163 | 235 | 27.7 | 34.4 | Spin Dominant |
+| **TM Head** | 177 | 178 | 30.9 | 26.5 | Balanced |
+| **Nithish Kumar Reddy** | 109 | 149 | 11.5 | 17.5 | Spin Dominant |
+| **LS Livingstone** | 208 | 164 | 30.7 | 17.9 | Pace Dominant |
+| **PJ Cummins** | 152 | 116 | 22.5 | 12.5 | Pace Dominant |
+| **Aniket Verma** | 150 | 288 | 20.6 | 45.8 | Spin Dominant |
 
-*Pace-hitting strength: **H Klaasen** (175 SR), **Ishan Kishan** (161 SR), **Abhishek Sharma** (171 SR), **TM Head** (193 SR), **LS Livingstone** (209 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+*Exploitable vs spin: **PJ Cummins** (116 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **H Klaasen** (182 SR), **Ishan Kishan** (160 SR), **Abhishek Sharma** (163 SR), **TM Head** (177 SR), **LS Livingstone** (208 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
 
 ### 10.3 Pace Attack Intelligence
 
@@ -806,17 +808,17 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 | Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|---------|----------|--------|---------|------------|-------|-------------|
-| Jack Edwards | All-rounder | 56 | 848 | 122 | 17.0 | HIGH | 51 | - |
-| Brydon Carse | All-rounder | 63 | 791 | 140 | 18.4 | HIGH | 50 | - |
-| Shivam Mavi | All-rounder | 16 | 85 | 94.4 | 6.1 | MEDIUM | 10 | - |
+| Jack Edwards | All-rounder | 57 | 853 | 122 | 16.7 | HIGH | 51 | - |
+| Brydon Carse | All-rounder | 63 | 837 | 139 | 17.4 | HIGH | 50 | - |
+| Shivam Mavi | All-rounder | 16 | 113 | 105 | 7.1 | MEDIUM | 10 | - |
 
 ### 12.2 T20 Bowling Profile
 
 | Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|-------------|----------|----------|---------|------------|-------|-------------|
-| Brydon Carse | Fast-Medium | 77 | 57 | 9.3 | 36.5 | HIGH | 50 | - |
-| Jack Edwards | Fast-Medium | 45 | 52 | 8.5 | 24.1 | HIGH | 50 | - |
-| Shivam Mavi | Fast-Medium | 46 | 45 | 8.8 | 29.5 | HIGH | 83 | - |
+| Brydon Carse | Fast-Medium | 77 | 77 | 9.3 | 32.5 | HIGH | 50 | - |
+| Shivam Mavi | Fast-Medium | 46 | 52 | 8.8 | 27.9 | HIGH | 83 | - |
+| Jack Edwards | Fast-Medium | 46 | 52 | 8.6 | 24.6 | HIGH | 50 | - |
 
 ### 12.3 Limited / No T20 Data
 
@@ -843,10 +845,10 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 | Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
 |--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
-| Kamindu Mendis | All-rounder | 68 | 122 | 24.6 | 3 | 743 | 45 | LPL (0.40, SR 122.5); IPL (0.87, SR 133.8); T20WC (0.50, SR 80.0) |
+| Kamindu Mendis | All-rounder | 68 | 119 | 22.1 | 3 | 893 | 46 | LPL (0.40, SR 122.5); T20WC (0.50, SR 102.1); IPL (0.87, SR 133.8) |
 | Jack Edwards | All-rounder | 0 | 122 | 17.8 | 2 | 693 | 51 | BBL (0.53, SR 120.1); MLC (0.42, SR 130.4) |
+| Pat Cummins | All-rounder | 152 | 149 | 21.6 | 4 | 665 | 72 | IPL (0.87, SR 151.8); BBL (0.53, SR 135.3); T20WC (0.50, SR 151.7) |
 | Harshal Patel | Bowler | 51 | 141 | 17.6 | 2 | 655 | 72 | SMAT (0.65, SR 157.7); IPL (0.87, SR 117.9) |
-| Pat Cummins | All-rounder | 152 | 148 | 21.5 | 4 | 578 | 76 | IPL (0.87, SR 151.8); BBL (0.53, SR 135.3); MLC (0.42, SR 110.0) |
 | Brydon Carse | All-rounder | 0 | 140 | 19.3 | 3 | 523 | 50 | Blast (0.50, SR 146.6); 100 (0.50, SR 123.9); SA20 (0.50, SR 114.0) |
 | Jaydev Unadkat | Bowler | 33 | 136 | 22.6 | 2 | 346 | 52 | SMAT (0.65, SR 156.7); IPL (0.87, SR 118.7) |
 | Shivang Kumar | Bowler | 24 | 129 | 28.2 | 2 | 334 | 44 | SMAT (0.65, SR 134.8); IPL (0.87, SR 75.0) |
@@ -858,14 +860,14 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 | Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
 |--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
-| Liam Livingstone | All-rounder | 168 | 8.3 | 19.2 | 8 | 2187 | 55 | Blast (0.50, Econ 8.0); IPL (0.87, Econ 8.9); 100 (0.50, Econ 8.7) |
+| Liam Livingstone | All-rounder | 168 | 8.0 | 18.8 | 8 | 2871 | 54 | Blast (0.50, Econ 8.0); T20WC (0.50, Econ 6.9); IPL (0.87, Econ 8.9) |
 | Brydon Carse | All-rounder | 0 | 8.8 | 28.2 | 3 | 1042 | 50 | Blast (0.50, Econ 8.4); 100 (0.50, Econ 10.5); SA20 (0.50, Econ 9.2) |
 | Jack Edwards | All-rounder | 0 | 8.2 | 15.2 | 2 | 882 | 50 | BBL (0.53, Econ 7.9); MLC (0.42, Econ 9.3) |
 | Shivam Mavi | All-rounder | 0 | 8.4 | 19.5 | 2 | 816 | 83 | IPL (0.87, Econ 8.4); SMAT (0.65, Econ 8.4) |
 | Abhishek Sharma | All-rounder | 180 | 7.9 | 24.8 | 2 | 720 | 75 | SMAT (0.65, Econ 6.8); IPL (0.87, Econ 8.9) |
 | Shivang Kumar | Bowler | 20 | 7.4 | 13.7 | 2 | 526 | 65 | SMAT (0.65, Econ 7.3); IPL (0.87, Econ 10.8) |
+| Kamindu Mendis | All-rounder | 42 | 8.4 | 21.9 | 4 | 438 | 40 | LPL (0.40, Econ 8.7); IPL (0.87, Econ 8.6); ILT20 (0.49, Econ 7.6) |
 | Travis Head | Batter | 10 | 8.8 | 18.3 | 3 | 418 | 48 | BBL (0.53, Econ 7.9); IPL (0.87, Econ 11.7); Blast (0.50, Econ 10.0) |
-| Kamindu Mendis | All-rounder | 42 | 8.5 | 24.6 | 3 | 414 | 38 | LPL (0.40, Econ 8.7); IPL (0.87, Econ 8.6); ILT20 (0.49, Econ 7.6) |
 | Eshan Malinga | Bowler | 160 | 8.9 | 11.5 | 2 | 232 | 35 | IPL (0.87, Econ 9.0); SA20 (0.50, Econ 8.5) |
 | Nitish Kumar Reddy | All-rounder | 139 | 10.4 | 19.9 | 1 | 139 | 24 | IPL (0.87, Econ 10.4) |
 | Harsh Dubey | All-rounder | 60 | 8.3 | 16.8 | 2 | 126 | 19 | SMAT (0.65, Econ 6.5); IPL (0.87, Econ 9.7) |

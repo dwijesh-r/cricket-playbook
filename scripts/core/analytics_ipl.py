@@ -83,6 +83,23 @@ def create_squad_tables(conn: duckdb.DuckDBPyConnection) -> None:
     else:
         print(f"  WARNING: {CONTRACTS_CSV} not found")
 
+    # Create dim_bowler_classification from squad bowling styles
+    # This gives analytics views bowling type info for IPL bowlers
+    conn.execute("DROP TABLE IF EXISTS dim_bowler_classification")
+    conn.execute("""
+        CREATE TABLE dim_bowler_classification AS
+        SELECT DISTINCT
+            dp.player_id,
+            dp.current_name AS player_name,
+            COALESCE(sq.bowling_style, sq.bowling_type) AS bowling_style
+        FROM dim_player dp
+        JOIN fact_ball fb ON dp.player_id = fb.bowler_id
+        LEFT JOIN ipl_2026_squads sq ON dp.player_id = sq.player_id
+        WHERE COALESCE(sq.bowling_style, sq.bowling_type) IS NOT NULL
+    """)
+    bc_count = conn.execute("SELECT COUNT(*) FROM dim_bowler_classification").fetchone()[0]
+    print(f"  - dim_bowler_classification created ({bc_count} bowlers classified)")
+
 
 def create_ipl_batting_views(conn: duckdb.DuckDBPyConnection) -> None:
     """Create IPL-specific batting analytics views."""

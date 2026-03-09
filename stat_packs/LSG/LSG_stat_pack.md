@@ -1,6 +1,6 @@
 # Lucknow Super Giants (LSG) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-14 18:41
+**Generated:** 2026-03-09 16:06
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -127,8 +127,8 @@
 **Top Wicket Takers by Season:**
 
 - **2023:** Ravi Bishnoi (16w @ 7.58), Yash Thakur (13w @ 8.61), MA Wood (11w @ 8.35)
-- **2024:** Naveen-ul-Haq (14w @ 9.7), Yash Thakur (11w @ 10.8), Mohsin Khan (10w @ 9.75)
-- **2025:** DS Rathi (14w @ 8.13), SN Thakur (13w @ 9.98), Avesh Khan (13w @ 9.94)
+- **2024:** Naveen-ul-Haq (14w @ 9.7), Yash Thakur (11w @ 10.8), Ravi Bishnoi (10w @ 8.53)
+- **2025:** DS Rathi (14w @ 8.13), Avesh Khan (13w @ 9.94), SN Thakur (13w @ 9.98)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -235,19 +235,19 @@
 - **Avg Score (batting):** 167.7
 - **Highest/Lowest:** 227/108
 - **Pitch Type:** Pace-friendly
-- **Pace SR:** 18.3 | **Spin SR:** 23.8
+- **Pace SR:** 19.0 | **Spin SR:** 24.6
 
 ### Away Performance
 
 | Venue | Matches | Wins | Win% | Avg Score |
 |-------|---------|------|------|-----------|
-| MA Chidambaram Stadium | 3 | 1 | 33.3% | 173.0 |
-| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 181.0 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 169.0 |
 | Eden Gardens | 3 | 2 | 66.7% | 191.7 |
-| Narendra Modi Stadium | 2 | 1 | 50.0% | 203.0 |
+| Rajiv Gandhi International Stadium | 3 | 2 | 66.7% | 181.0 |
+| MA Chidambaram Stadium | 3 | 1 | 33.3% | 173.0 |
 | M Chinnaswamy Stadium | 2 | 2 | 100.0% | 197.0 |
 | Wankhede Stadium | 2 | 1 | 50.0% | 187.5 |
+| Narendra Modi Stadium | 2 | 1 | 50.0% | 203.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -255,16 +255,16 @@
 
 | Venue | Matches | Pace SR | Spin SR | Bias |
 |-------|---------|---------|---------|------|
-| Narendra Modi Stadium | 26 | 18.2 | 22.3 | BALANCED |
-| MA Chidambaram Stadium | 24 | 17.7 | 20.1 | BALANCED |
-| Bharat Ratna Shri Atal Bihari  | 22 | 18.3 | 23.8 | PACE |
-| Wankhede Stadium | 21 | 18.8 | 21.0 | BALANCED |
-| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.4 | BALANCED |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.5 | PACE |
-| Sawai Mansingh Stadium | 17 | 24.1 | 22.1 | BALANCED |
-| Maharaja Yadavindra Singh Inte | 10 | 15.8 | 16.8 | BALANCED |
+| Narendra Modi Stadium | 26 | 21.3 | 21.4 | BALANCED |
+| MA Chidambaram Stadium | 24 | 18.1 | 17.7 | BALANCED |
+| Bharat Ratna Shri Atal Bihari  | 22 | 19.0 | 24.6 | PACE |
+| Wankhede Stadium | 21 | 18.8 | 19.9 | BALANCED |
+| Eden Gardens | 21 | 18.8 | 21.8 | BALANCED |
+| Arun Jaitley Stadium | 19 | 16.4 | 19.9 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 18.7 | 27.2 | PACE |
+| M Chinnaswamy Stadium | 19 | 16.8 | 26.3 | PACE |
+| Sawai Mansingh Stadium | 17 | 20.8 | 23.6 | BALANCED |
+| Maharaja Yadavindra Singh Inte | 10 | 14.4 | 13.5 | BALANCED |
 
 ### Venue Specialists
 
@@ -289,12 +289,12 @@
 |--------|-------|---------|------|------|-----|
 | Mohammed Shami | Narendra Modi Stadium | 10 | 17 | 7.76 | 13.06 |
 | Avesh Khan | Sawai Mansingh Stadium | 7 | 9 | 9.19 | 18.0 |
-| MR Marsh | Arun Jaitley Stadium | 5 | 7 | 8.43 | 11.29 |
 | Avesh Khan | Bharat Ratna Shri Atal Bi | 11 | 7 | 8.27 | 32.14 |
 | DS Rathi | Bharat Ratna Shri Atal Bi | 7 | 7 | 7.18 | 24.0 |
+| MR Marsh | Arun Jaitley Stadium | 5 | 7 | 8.43 | 11.29 |
 | Avesh Khan | Narendra Modi Stadium | 3 | 6 | 10.99 | 11.83 |
-| PWH de Silva | Barsapara Cricket Stadium | 2 | 5 | 10.0 | 8.4 |
 | PWH de Silva | M Chinnaswamy Stadium | 5 | 5 | 8.47 | 20.4 |
+| PWH de Silva | Barsapara Cricket Stadium | 2 | 5 | 10.0 | 8.4 |
 
 
 ---
@@ -423,9 +423,9 @@
 | Gujarat Titans | 5 | 152 | 95 | 160.0 | 50.67 | 21.05 | 40.0 | 3 | MEDIUM |
 | Punjab Kings | 5 | 137 | 76 | 180.26 | 27.4 | 28.95 | 28.95 | 5 | MEDIUM |
 | Mumbai Indians | 6 | 136 | 73 | 186.3 | 34.0 | 28.77 | 36.99 | 4 | MEDIUM |
-| Royal Challengers Bengaluru | 4 | 124 | 57 | 217.54 | 41.33 | 33.33 | 29.82 | 3 | MEDIUM |
 | Chennai Super Kings | 5 | 117 | 84 | 139.29 | 29.25 | 19.05 | 33.33 | 4 | MEDIUM |
 | Rajasthan Royals | 4 | 115 | 80 | 143.75 | 57.5 | 17.5 | 28.75 | 2 | MEDIUM |
+| Royal Challengers Bengaluru | 2 | 53 | 31 | 170.97 | 53.0 | 22.58 | 32.26 | 1 | MEDIUM |
 
 ### Aiden Markram
 
@@ -438,7 +438,6 @@
 | Delhi Capitals | 5 | 79 | 67 | 117.91 | 15.8 | 10.45 | 32.84 | 5 | MEDIUM |
 | Punjab Kings | 4 | 78 | 51 | 152.94 | 26.0 | 25.49 | 35.29 | 3 | MEDIUM |
 | Rajasthan Royals | 3 | 73 | 52 | 140.38 | 24.33 | 17.31 | 34.62 | 3 | MEDIUM |
-| Royal Challengers Bengaluru | 3 | 57 | 44 | 129.55 | 28.5 | 11.36 | 18.18 | 2 | MEDIUM |
 | Sunrisers Hyderabad | 2 | 56 | 41 | 136.59 | 28.0 | 17.07 | 31.71 | 2 | MEDIUM |
 
 ### Mitchell Marsh
@@ -449,8 +448,8 @@
 | Gujarat Titans | 2 | 121 | 68 | 177.94 | 60.5 | 27.94 | 33.82 | 2 | MEDIUM |
 | Delhi Capitals | 2 | 117 | 72 | 162.5 | 58.5 | 22.22 | 27.78 | 2 | MEDIUM |
 | Mumbai Indians | 2 | 94 | 54 | 174.07 | 47.0 | 29.63 | 35.19 | 2 | MEDIUM |
-| Royal Challengers Bengaluru | 3 | 93 | 57 | 163.16 | 31.0 | 22.81 | 31.58 | 3 | MEDIUM |
 | Kolkata Knight Riders | 3 | 83 | 59 | 140.68 | 27.67 | 18.64 | 42.37 | 3 | MEDIUM |
+| Royal Challengers Bengaluru | 1 | 67 | 36 | 186.11 | 67.0 | 25.0 | 22.22 | 1 | MEDIUM |
 | Chennai Super Kings | 3 | 53 | 41 | 129.27 | 26.5 | 19.51 | 43.9 | 2 | MEDIUM |
 
 ### Ayush Badoni
@@ -465,7 +464,7 @@
 | Rajasthan Royals | 4 | 70 | 56 | 125.0 | 23.33 | 12.5 | 30.36 | 3 | MEDIUM |
 | Kolkata Knight Riders | 3 | 69 | 60 | 115.0 | 23.0 | 11.67 | 33.33 | 3 | MEDIUM |
 | Sunrisers Hyderabad | 3 | 64 | 41 | 156.1 | 32.0 | 24.39 | 24.39 | 2 | MEDIUM |
-| Royal Challengers Bengaluru | 3 | 34 | 38 | 89.47 | 11.33 | 10.53 | 44.74 | 3 | MEDIUM |
+| Royal Challengers Bangalore | 2 | 34 | 35 | 97.14 | 17.0 | 11.43 | 40.0 | 2 | MEDIUM |
 
 ### Rishabh Pant
 
@@ -492,12 +491,12 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Sunrisers Hyderabad | 5 | 102 | 159 | 7 | 9.35 | 22.71 | 14.57 | 33.33 | 22.55 | HIGH |
 | Rajasthan Royals | 2 | 48 | 63 | 6 | 7.88 | 10.5 | 8.0 | 35.42 | 16.67 | MEDIUM |
-| Gujarat Titans | 5 | 113 | 185 | 5 | 9.82 | 37.0 | 22.6 | 23.01 | 21.24 | HIGH |
 | Mumbai Indians | 4 | 96 | 157 | 5 | 9.81 | 31.4 | 19.2 | 31.25 | 22.92 | MEDIUM |
-| Royal Challengers Bengaluru | 4 | 90 | 175 | 4 | 11.67 | 43.75 | 22.5 | 23.33 | 32.22 | MEDIUM |
+| Gujarat Titans | 5 | 113 | 185 | 5 | 9.82 | 37.0 | 22.6 | 23.01 | 21.24 | HIGH |
+| Royal Challengers Bengaluru | 3 | 66 | 120 | 4 | 10.91 | 30.0 | 16.5 | 21.21 | 30.3 | MEDIUM |
 | Punjab Kings | 6 | 119 | 198 | 4 | 9.98 | 49.5 | 29.75 | 27.73 | 22.69 | HIGH |
-| Chennai Super Kings | 3 | 51 | 76 | 3 | 8.94 | 25.33 | 17.0 | 25.49 | 21.57 | MEDIUM |
 | Delhi Capitals | 4 | 78 | 117 | 3 | 9.0 | 39.0 | 26.0 | 37.18 | 24.36 | MEDIUM |
+| Chennai Super Kings | 3 | 51 | 76 | 3 | 8.94 | 25.33 | 17.0 | 25.49 | 21.57 | MEDIUM |
 | Kolkata Knight Riders | 2 | 48 | 83 | 3 | 10.38 | 27.67 | 16.0 | 39.58 | 29.17 | MEDIUM |
 | Lucknow Super Giants | 2 | 42 | 54 | 1 | 7.71 | 54.0 | 42.0 | 23.81 | 9.52 | MEDIUM |
 
@@ -506,12 +505,12 @@
 | Opposition | Matches | Balls | Runs | Wkts | Econ | Avg | SR | Dot% | Bound% | Sample |
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Delhi Capitals | 3 | 66 | 76 | 7 | 6.91 | 10.86 | 9.43 | 60.61 | 18.18 | MEDIUM |
-| Kolkata Knight Riders | 3 | 72 | 94 | 5 | 7.83 | 18.8 | 14.4 | 43.06 | 16.67 | MEDIUM |
 | Rajasthan Royals | 3 | 66 | 82 | 5 | 7.45 | 16.4 | 13.2 | 57.58 | 19.7 | MEDIUM |
 | Chennai Super Kings | 4 | 85 | 115 | 5 | 8.12 | 23.0 | 17.0 | 38.82 | 18.82 | MEDIUM |
-| Gujarat Titans | 2 | 42 | 74 | 2 | 10.57 | 37.0 | 21.0 | 28.57 | 30.95 | MEDIUM |
+| Kolkata Knight Riders | 3 | 72 | 94 | 5 | 7.83 | 18.8 | 14.4 | 43.06 | 16.67 | MEDIUM |
 | Mumbai Indians | 4 | 84 | 142 | 2 | 10.14 | 71.0 | 42.0 | 39.29 | 26.19 | MEDIUM |
 | Lucknow Super Giants | 3 | 60 | 90 | 2 | 9.0 | 45.0 | 30.0 | 31.67 | 21.67 | MEDIUM |
+| Gujarat Titans | 2 | 42 | 74 | 2 | 10.57 | 37.0 | 21.0 | 28.57 | 30.95 | MEDIUM |
 | Punjab Kings | 2 | 48 | 118 | 1 | 14.75 | 118.0 | 48.0 | 25.0 | 43.75 | MEDIUM |
 
 ---
@@ -534,8 +533,8 @@
 | N Pooran | Eden Gardens, Kolkata | 3 | 190 | 98 | 193.88 | 95.0 | 30.61 | MEDIUM |
 | N Pooran | Rajiv Gandhi International Stadium,... | 3 | 162 | 65 | 249.23 | 162.0 | 40.0 | MEDIUM |
 | N Pooran | Sawai Mansingh Stadium, Jaipur | 3 | 104 | 69 | 150.72 | 104.0 | 18.84 | MEDIUM |
-| N Pooran | Wankhede Stadium, Mumbai | 2 | 102 | 44 | 231.82 | 51.0 | 38.64 | MEDIUM |
 | N Pooran | M Chinnaswamy Stadium, Bengaluru | 2 | 102 | 40 | 255.0 | 102.0 | 42.5 | MEDIUM |
+| N Pooran | Wankhede Stadium, Mumbai | 2 | 102 | 44 | 231.82 | 51.0 | 38.64 | MEDIUM |
 | RR Pant | Bharat Ratna Shri Atal Bihari Vajpa... | 8 | 254 | 171 | 148.54 | 36.29 | 22.22 | HIGH |
 | RR Pant | Arun Jaitley Stadium, Delhi | 5 | 209 | 133 | 157.14 | 52.25 | 21.8 | HIGH |
 | RR Pant | Dr. Y.S. Rajasekhara Reddy ACA-VDCA... | 3 | 106 | 63 | 168.25 | 35.33 | 25.4 | MEDIUM |
@@ -615,16 +614,16 @@
 
 | Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
 |--------|-----------|-----------|-----------|-----------|----------|
-| **N Pooran** | 189 | 173 | 29.3 | 23.4 | Pace Dominant |
-| **AK Markram** | 135 | 143 | 16.2 | 15.0 | Balanced |
-| **A Badoni** | 173 | 121 | 24.4 | 9.8 | Pace Dominant |
-| **MR Marsh** | 170 | 157 | 26.5 | 21.0 | Balanced |
-| **RR Pant** | 184 | 126 | 27.8 | 15.2 | Pace Dominant |
-| **Abdul Samad** | 182 | 121 | 26.1 | 12.9 | Pace Dominant |
-| **Shahbaz Ahmed** | 140 | 105 | 15.2 | 7.3 | Pace Dominant |
-| **JP Inglis** | 192 | 150 | 31.5 | 16.7 | Pace Dominant |
+| **N Pooran** | 181 | 194 | 26.6 | 27.1 | Balanced |
+| **AK Markram** | 130 | 140 | 15.7 | 15.6 | Balanced |
+| **A Badoni** | 177 | 111 | 24.6 | 9.1 | Pace Dominant |
+| **MR Marsh** | 176 | 166 | 27.3 | 22.9 | Balanced |
+| **RR Pant** | 177 | 134 | 26.9 | 17.2 | Pace Dominant |
+| **Abdul Samad** | 177 | 122 | 24.1 | 13.0 | Pace Dominant |
+| **Shahbaz Ahmed** | 130 | 70.8 | 10.9 | 4.2 | Pace Dominant |
+| **JP Inglis** | 215 | 150 | 36.3 | 16.7 | Pace Dominant |
 
-*Exploitable vs spin: **Shahbaz Ahmed** (105 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **N Pooran** (189 SR), **A Badoni** (173 SR), **MR Marsh** (170 SR), **RR Pant** (184 SR), **Abdul Samad** (182 SR), **JP Inglis** (192 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+*Exploitable vs spin: **A Badoni** (111 SR), **Shahbaz Ahmed** (71 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **N Pooran** (181 SR), **A Badoni** (177 SR), **MR Marsh** (176 SR), **RR Pant** (177 SR), **Abdul Samad** (177 SR), **JP Inglis** (215 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
 
 ### 10.3 Pace Attack Intelligence
 
@@ -857,13 +856,13 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 | Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
 |--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
-| Josh Inglis | Wicketkeeper | 171 | 147 | 31.8 | 5 | 2062 | 54 | BBL (0.53, SR 139.4); Blast (0.50, SR 177.3); IPL (0.87, SR 162.6) |
-| Matthew Breetzke | Wicketkeeper | 12 | 132 | 33.0 | 3 | 1464 | 47 | SA20 (0.50, SR 124.1); CSA (0.38, SR 132.2); Blast (0.50, SR 153.5) |
-| Wanindu Hasaranga | All-rounder | 43 | 145 | 16.6 | 5 | 874 | 49 | LPL (0.40, SR 176.0); ILT20 (0.49, SR 140.6); T20WC (0.50, SR 133.3) |
+| Josh Inglis | Wicketkeeper | 171 | 148 | 31.7 | 6 | 2111 | 54 | BBL (0.53, SR 139.4); Blast (0.50, SR 177.3); IPL (0.87, SR 162.6) |
+| Wanindu Hasaranga | All-rounder | 43 | 142 | 16.1 | 5 | 1245 | 49 | T20WC (0.50, SR 133.0); LPL (0.40, SR 176.0); ILT20 (0.49, SR 140.6) |
+| Matthew Breetzke | Wicketkeeper | 12 | 132 | 34.1 | 2 | 1057 | 50 | SA20 (0.50, SR 124.1); Blast (0.50, SR 153.5) |
 | Shahbaz Ahmed | All-rounder | 213 | 123 | 20.6 | 2 | 680 | 79 | IPL (0.87, SR 122.0); SMAT (0.65, SR 125.6) |
 | Himmat Singh | Batter | 0 | 127 | 35.2 | 1 | 472 | 61 | SMAT (0.65, SR 126.9) |
+| Anrich Nortje | Bowler | 37 | 98 | 7.9 | 3 | 114 | 15 | IPL (0.87, SR 100.0); T20WC (0.50, SR 80.0); CPL (0.50, SR 120.0) |
 | Mohammed Shami | Bowler | 16 | 105 | 8.2 | 2 | 111 | 18 | IPL (0.87, SR 94.4); SMAT (0.65, SR 163.6) |
-| Anrich Nortje | Bowler | 37 | 110 | 12.4 | 3 | 110 | 14 | IPL (0.87, SR 100.0); CSA (0.38, SR 130.6); CPL (0.50, SR 120.0) |
 | Mohsin Khan | Bowler | 8 | 124 | 22.1 | 2 | 75 | 11 | SMAT (0.65, SR 137.3); IPL (0.87, SR 104.2) |
 | Avesh Khan | Bowler | 18 | 138 | 13.5 | 2 | 62 | 10 | IPL (0.87, SR 167.6); SMAT (0.65, SR 80.0) |
 | Arjun Tendulkar | All-rounder | 9 | 69.0 | 5 | 1 | 29 | 4 | SMAT (0.65, SR 69.0) |
@@ -873,8 +872,8 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 | Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
 |--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
-| Mitchell Marsh | All-rounder | 169 | 8.4 | 17.2 | 3 | 1223 | 68 | BBL (0.53, Econ 8.8); IPL (0.87, Econ 8.2); T20WC (0.50, Econ 8.5) |
-| Aiden Markram | All-rounder | 127 | 7.6 | 25.1 | 4 | 709 | 59 | SA20 (0.50, Econ 7.0); IPL (0.87, Econ 8.7); T20WC (0.50, Econ 6.6) |
+| Mitchell Marsh | All-rounder | 169 | 8.5 | 18.3 | 3 | 1331 | 67 | BBL (0.53, Econ 8.8); IPL (0.87, Econ 8.2); T20WC (0.50, Econ 8.5) |
+| Aiden Markram | All-rounder | 127 | 7.3 | 27.7 | 3 | 1039 | 57 | T20WC (0.50, Econ 6.7); SA20 (0.50, Econ 7.0); IPL (0.87, Econ 8.7) |
 | Akash Singh | Bowler | 181 | 8.9 | 25.3 | 2 | 337 | 53 | IPL (0.87, Econ 9.5); SMAT (0.65, Econ 7.9) |
 | Arjun Tendulkar | All-rounder | 73 | 7.7 | 16.1 | 2 | 223 | 32 | SMAT (0.65, Econ 7.2); IPL (0.87, Econ 8.5) |
 | Manimaran Siddharth | Bowler | 97 | 6.5 | 12.6 | 2 | 205 | 31 | SMAT (0.65, Econ 4.7); IPL (0.87, Econ 8.0) |

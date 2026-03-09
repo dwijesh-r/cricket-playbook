@@ -116,8 +116,8 @@
     },
     "middle_order": {
       "name": "Middle Order #4-5",
-      "rating": 7.9,
-      "what_works": "Strong #1 with cameron green. quality backup in rinku singh",
+      "rating": 8.1,
+      "what_works": "Strong #1 with cameron green. quality backup in manish pandey",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
       "players": [
@@ -135,13 +135,13 @@
         },
         {
           "rank": 2,
-          "name": "Rinku Singh",
-          "player_id": "0a509d6b",
-          "score": 64.7,
-          "rationale": "Founder XII. Middle overs anchor",
+          "name": "Manish Pandey",
+          "player_id": "93b4fc78",
+          "score": 72.6,
+          "rationale": "Middle overs anchor",
           "is_overseas": false,
-          "price_cr": 13.0,
-          "bowling_type": "Off-spin",
+          "price_cr": 0.75,
+          "bowling_type": "Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         },

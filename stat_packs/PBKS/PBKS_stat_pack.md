@@ -1,6 +1,6 @@
 # Punjab Kings (PBKS) - IPL 2026 Stat Pack
 
-**Generated:** 2026-02-14 18:41
+**Generated:** 2026-03-09 16:07
 **Data Source:** Cricket Playbook Analytics Engine
 **Prepared by:** Tom Brady (PO), Stephen Curry (Analytics), Andy Flower (Cricket)
 
@@ -129,7 +129,7 @@
 
 - **2023:** Arshdeep Singh (17w @ 9.2), NT Ellis (13w @ 8.81), SM Curran (10w @ 9.97)
 - **2024:** HV Patel (24w @ 9.18), Arshdeep Singh (19w @ 9.46), SM Curran (16w @ 9.97)
-- **2025:** Arshdeep Singh (21w @ 8.62), YS Chahal (16w @ 9.34), M Jansen (16w @ 8.96)
+- **2025:** Arshdeep Singh (21w @ 8.62), M Jansen (16w @ 8.96), YS Chahal (16w @ 9.34)
 
 **Economy Rate Evolution (Key Bowlers):**
 
@@ -238,7 +238,7 @@
 - **Avg Score (batting):** 165.4
 - **Highest/Lowest:** 219/101
 - **Pitch Type:** Balanced
-- **Pace SR:** 16.4 | **Spin SR:** 19.1
+- **Pace SR:** 16.8 | **Spin SR:** 17.6
 
 ### Away Performance
 
@@ -247,12 +247,12 @@
 | Himachal Pradesh Cricket Associatio | 6 | 1 | 16.7% | 177.2 |
 | Narendra Modi Stadium | 4 | 3 | 75.0% | 208.5 |
 | Bharat Ratna Shri Atal Bihari Vajpa | 3 | 2 | 66.7% | 172.0 |
-| MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
-| Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
 | Eden Gardens | 3 | 1 | 33.3% | 214.0 |
 | Sawai Mansingh Stadium | 3 | 2 | 66.7% | 204.0 |
-| M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
+| MA Chidambaram Stadium | 3 | 3 | 100.0% | 186.0 |
+| Rajiv Gandhi International Stadium | 3 | 0 | 0.0% | 200.7 |
 | Barsapara Cricket Stadium | 2 | 2 | 100.0% | 171.0 |
+| M Chinnaswamy Stadium | 2 | 1 | 50.0% | 137.0 |
 
 ### Pitch Characteristics (All IPL Venues 2023+)
 
@@ -260,16 +260,16 @@
 
 | Venue | Matches | Pace SR | Spin SR | Bias |
 |-------|---------|---------|---------|------|
-| Narendra Modi Stadium | 26 | 18.2 | 22.3 | BALANCED |
-| MA Chidambaram Stadium | 24 | 17.7 | 20.1 | BALANCED |
-| Bharat Ratna Shri Atal Bihari  | 22 | 18.3 | 23.8 | PACE |
-| Eden Gardens | 21 | 18.4 | 21.0 | BALANCED |
-| Wankhede Stadium | 21 | 18.8 | 21.0 | BALANCED |
-| Arun Jaitley Stadium | 19 | 19.3 | 19.4 | BALANCED |
-| Rajiv Gandhi International Sta | 19 | 19.4 | 26.5 | PACE |
-| M Chinnaswamy Stadium | 19 | 17.6 | 22.8 | PACE |
-| Sawai Mansingh Stadium | 17 | 24.1 | 22.1 | BALANCED |
-| Maharaja Yadavindra Singh Inte | 10 | 15.8 | 16.8 | BALANCED |
+| Narendra Modi Stadium | 26 | 21.3 | 21.4 | BALANCED |
+| MA Chidambaram Stadium | 24 | 18.1 | 17.7 | BALANCED |
+| Bharat Ratna Shri Atal Bihari  | 22 | 19.0 | 24.6 | PACE |
+| Eden Gardens | 21 | 18.8 | 21.8 | BALANCED |
+| Wankhede Stadium | 21 | 18.8 | 19.9 | BALANCED |
+| M Chinnaswamy Stadium | 19 | 16.8 | 26.3 | PACE |
+| Arun Jaitley Stadium | 19 | 16.4 | 19.9 | BALANCED |
+| Rajiv Gandhi International Sta | 19 | 18.7 | 27.2 | PACE |
+| Sawai Mansingh Stadium | 17 | 20.8 | 23.6 | BALANCED |
+| Maharaja Yadavindra Singh Inte | 10 | 14.4 | 13.5 | BALANCED |
 
 ### Venue Specialists
 
@@ -298,8 +298,8 @@
 | Arshdeep Singh | Himachal Pradesh Cricket  | 5 | 7 | 9.0 | 14.57 |
 | Arshdeep Singh | Punjab Cricket Associatio | 5 | 7 | 10.78 | 16.14 |
 | YS Chahal | MA Chidambaram Stadium | 4 | 7 | 7.33 | 12.86 |
+| YS Chahal | Maharaja Yadavindra Singh | 5 | 6 | 8.0 | 16.0 |
 | YS Chahal | Barsapara Cricket Stadium | 3 | 6 | 8.75 | 12.0 |
-| M Jansen | Rajiv Gandhi Internationa | 6 | 6 | 9.94 | 18.0 |
 
 
 ---
@@ -417,12 +417,13 @@
 | Delhi Capitals | 5 | 228 | 146 | 156.16 | 57.0 | 25.34 | 37.67 | 4 | HIGH |
 | Kolkata Knight Riders | 5 | 202 | 103 | 196.12 | 50.5 | 32.04 | 34.95 | 4 | HIGH |
 | Lucknow Super Giants | 5 | 192 | 106 | 181.13 | 38.4 | 29.25 | 32.08 | 5 | HIGH |
-| Royal Challengers Bengaluru | 7 | 167 | 109 | 153.21 | 23.86 | 22.94 | 38.53 | 7 | HIGH |
 | Chennai Super Kings | 5 | 139 | 95 | 146.32 | 27.8 | 21.05 | 36.84 | 5 | MEDIUM |
+| Royal Challengers Bengaluru | 6 | 121 | 79 | 153.16 | 20.17 | 22.78 | 36.71 | 6 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 117 | 75 | 156.0 | 29.25 | 26.67 | 42.67 | 4 | MEDIUM |
 | Rajasthan Royals | 6 | 116 | 80 | 145.0 | 19.33 | 22.5 | 37.5 | 6 | MEDIUM |
 | Gujarat Titans | 4 | 69 | 54 | 127.78 | 17.25 | 22.22 | 53.7 | 4 | MEDIUM |
 | Mumbai Indians | 5 | 54 | 50 | 108.0 | 10.8 | 14.0 | 54.0 | 5 | MEDIUM |
+| Royal Challengers Bangalore | 1 | 46 | 30 | 153.33 | 46.0 | 23.33 | 43.33 | 1 | MEDIUM |
 
 ### Marcus Stoinis
 
@@ -430,11 +431,12 @@
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
 | Mumbai Indians | 5 | 221 | 143 | 154.55 | 73.67 | 22.38 | 34.27 | 3 | HIGH |
 | Chennai Super Kings | 5 | 155 | 97 | 159.79 | 51.67 | 20.62 | 25.77 | 3 | MEDIUM |
-| Royal Challengers Bengaluru | 7 | 142 | 87 | 163.22 | 23.67 | 24.14 | 40.23 | 6 | MEDIUM |
 | Punjab Kings | 3 | 106 | 63 | 168.25 | 35.33 | 23.81 | 36.51 | 3 | MEDIUM |
 | Sunrisers Hyderabad | 4 | 87 | 54 | 161.11 | 43.5 | 22.22 | 35.19 | 2 | MEDIUM |
 | Gujarat Titans | 4 | 82 | 68 | 120.59 | 20.5 | 13.24 | 41.18 | 4 | MEDIUM |
+| Royal Challengers Bangalore | 2 | 78 | 49 | 159.18 | 39.0 | 24.49 | 42.86 | 2 | MEDIUM |
 | Delhi Capitals | 4 | 69 | 42 | 164.29 | 23.0 | 23.81 | 33.33 | 3 | MEDIUM |
+| Royal Challengers Bengaluru | 5 | 64 | 38 | 168.42 | 16.0 | 23.68 | 36.84 | 4 | MEDIUM |
 | Rajasthan Royals | 4 | 25 | 31 | 80.65 | 6.25 | 6.45 | 45.16 | 4 | MEDIUM |
 
 ### Shreyas Iyer
@@ -456,8 +458,9 @@
 |------------|-----|------|-------|-----|-----|--------|------|------|--------|
 | Rajasthan Royals | 3 | 181 | 102 | 177.45 | 60.33 | 23.53 | 24.51 | 3 | HIGH |
 | Lucknow Super Giants | 6 | 145 | 110 | 131.82 | 29.0 | 20.0 | 47.27 | 5 | HIGH |
-| Royal Challengers Bengaluru | 6 | 134 | 99 | 135.35 | 44.67 | 18.18 | 43.43 | 3 | MEDIUM |
 | Chennai Super Kings | 3 | 77 | 60 | 128.33 | 25.67 | 18.33 | 36.67 | 3 | MEDIUM |
+| Royal Challengers Bangalore | 2 | 73 | 47 | 155.32 | 73.0 | 21.28 | 36.17 | 1 | MEDIUM |
+| Royal Challengers Bengaluru | 4 | 61 | 52 | 117.31 | 30.5 | 15.38 | 50.0 | 2 | MEDIUM |
 | Gujarat Titans | 3 | 59 | 31 | 190.32 | 19.67 | 29.03 | 29.03 | 3 | MEDIUM |
 | Mumbai Indians | 2 | 50 | 31 | 161.29 | 50.0 | 19.35 | 22.58 | 1 | MEDIUM |
 
@@ -483,8 +486,8 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Lucknow Super Giants | 5 | 108 | 158 | 10 | 8.78 | 15.8 | 10.8 | 34.26 | 23.15 | HIGH |
 | Sunrisers Hyderabad | 4 | 90 | 121 | 8 | 8.07 | 15.13 | 11.25 | 45.56 | 23.33 | MEDIUM |
-| Royal Challengers Bengaluru | 7 | 134 | 223 | 8 | 9.99 | 27.88 | 16.75 | 32.09 | 25.37 | HIGH |
 | Mumbai Indians | 5 | 113 | 196 | 7 | 10.41 | 28.0 | 16.14 | 30.97 | 29.2 | HIGH |
+| Royal Challengers Bengaluru | 6 | 110 | 189 | 7 | 10.31 | 27.0 | 15.71 | 32.73 | 26.36 | HIGH |
 | Kolkata Knight Riders | 4 | 84 | 112 | 6 | 8.0 | 18.67 | 14.0 | 46.43 | 20.24 | MEDIUM |
 | Chennai Super Kings | 5 | 116 | 180 | 6 | 9.31 | 30.0 | 19.33 | 34.48 | 25.0 | HIGH |
 | Rajasthan Royals | 6 | 143 | 247 | 6 | 10.36 | 41.17 | 23.83 | 40.56 | 27.97 | HIGH |
@@ -497,13 +500,14 @@
 |------------|---------|-------|------|------|------|-----|-----|------|--------|--------|
 | Kolkata Knight Riders | 3 | 72 | 105 | 9 | 8.75 | 11.67 | 8.0 | 40.28 | 19.44 | MEDIUM |
 | Sunrisers Hyderabad | 5 | 120 | 194 | 9 | 9.7 | 21.56 | 13.33 | 33.33 | 20.83 | HIGH |
-| Royal Challengers Bengaluru | 7 | 162 | 222 | 8 | 8.22 | 27.75 | 20.25 | 25.31 | 12.96 | HIGH |
+| Royal Challengers Bengaluru | 5 | 114 | 160 | 7 | 8.42 | 22.86 | 16.29 | 26.32 | 14.04 | HIGH |
 | Chennai Super Kings | 5 | 84 | 108 | 7 | 7.71 | 15.43 | 12.0 | 28.57 | 11.9 | MEDIUM |
 | Delhi Capitals | 3 | 66 | 93 | 6 | 8.45 | 15.5 | 11.0 | 28.79 | 15.15 | MEDIUM |
 | Mumbai Indians | 4 | 90 | 129 | 5 | 8.6 | 25.8 | 18.0 | 36.67 | 20.0 | MEDIUM |
 | Punjab Kings | 4 | 96 | 147 | 4 | 9.19 | 36.75 | 24.0 | 25.0 | 19.79 | MEDIUM |
 | Lucknow Super Giants | 5 | 114 | 189 | 3 | 9.95 | 63.0 | 38.0 | 25.44 | 21.05 | HIGH |
 | Gujarat Titans | 4 | 89 | 134 | 3 | 9.03 | 44.67 | 29.67 | 17.98 | 15.73 | MEDIUM |
+| Royal Challengers Bangalore | 2 | 48 | 62 | 1 | 7.75 | 62.0 | 48.0 | 22.92 | 10.42 | MEDIUM |
 | Rajasthan Royals | 2 | 42 | 57 | 0 | 8.14 | - | - | 23.81 | 14.29 | MEDIUM |
 
 ---
@@ -608,16 +612,16 @@
 
 | Batter | vs Pace SR | vs Spin SR | Pace Bdry% | Spin Bdry% | Tendency |
 |--------|-----------|-----------|-----------|-----------|----------|
-| **P Simran Singh** | 164 | 175 | 26.0 | 26.4 | Balanced |
-| **MP Stoinis** | 168 | 155 | 25.4 | 20 | Balanced |
-| **SS Iyer** | 166 | 173 | 24.1 | 22.1 | Balanced |
-| **N Wadhera** | 143 | 144 | 20.4 | 18.5 | Balanced |
-| **Shashank Singh** | 169 | 152 | 22.8 | 15.5 | Pace Dominant |
-| **Priyansh Arya** | 172 | 178 | 29.3 | 25 | Balanced |
-| **M Jansen** | 108 | 107 | 10.2 | 10.7 | Balanced |
-| **Harpreet Brar** | 133 | 79.0 | 19.3 | 5.3 | Pace Dominant |
+| **P Simran Singh** | 163 | 184 | 24.4 | 28.6 | Spin Dominant |
+| **MP Stoinis** | 157 | 139 | 24.2 | 15.7 | Pace Dominant |
+| **SS Iyer** | 167 | 177 | 25.1 | 24.2 | Balanced |
+| **N Wadhera** | 145 | 144 | 22.8 | 19.3 | Balanced |
+| **Shashank Singh** | 171 | 152 | 21.4 | 16.1 | Pace Dominant |
+| **Priyansh Arya** | 168 | 132 | 29.1 | 18.2 | Pace Dominant |
+| **M Jansen** | 119 | 91.7 | 10.4 | 8.3 | Pace Dominant |
+| **Harpreet Brar** | 82.8 | 88.2 | 6.9 | 5.9 | Balanced |
 
-*Exploitable vs spin: **M Jansen** (107 SR), **Harpreet Brar** (79 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **P Simran Singh** (164 SR), **MP Stoinis** (168 SR), **SS Iyer** (166 SR), **Shashank Singh** (169 SR), **Priyansh Arya** (172 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
+*Exploitable vs spin: **M Jansen** (92 SR), **Harpreet Brar** (88 SR) — all below the league average of ~137 SR. Opposition teams with quality wrist spinners should target these batters in the middle overs. Pace-hitting strength: **P Simran Singh** (163 SR), **SS Iyer** (167 SR), **Shashank Singh** (171 SR), **Priyansh Arya** (168 SR) thrive against pace (league avg 151 SR), making them dangerous against teams reliant on pace-heavy attacks.*
 
 ### 10.3 Pace Attack Intelligence
 
@@ -821,16 +825,16 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 
 | Player | Role | T20 Inn | T20 Runs | T20 SR | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|---------|----------|--------|---------|------------|-------|-------------|
-| Ben Dwarshuis | All-rounder | 106 | 1179 | 142 | 19.3 | HIGH | 52 | - |
-| Harnoor Singh | Batter | 110 | 1062 | 133 | 15.6 | HIGH | 84 | - |
-| Cooper Connolly | All-rounder | 40 | 855 | 135 | 28.5 | HIGH | 52 | - |
+| Ben Dwarshuis | All-rounder | 108 | 1242 | 136 | 18 | HIGH | 52 | - |
+| Harnoor Singh | Batter | 110 | 1170 | 132 | 15.4 | HIGH | 84 | - |
+| Cooper Connolly | All-rounder | 45 | 883 | 133 | 24.5 | HIGH | 52 | - |
 
 ### 12.2 T20 Bowling Profile
 
 | Player | Type | T20 Matches | T20 Wkts | T20 Econ | T20 Avg | Confidence | Trust | Tournaments |
 |--------|------|-------------|----------|----------|---------|------------|-------|-------------|
-| Ben Dwarshuis | Fast | 183 | 234 | 8.6 | 23.8 | HIGH | 52 | - |
-| Cooper Connolly | LA Orthodox | 32 | 28 | 7.3 | 20.9 | HIGH | 45 | - |
+| Ben Dwarshuis | Fast | 185 | 256 | 8.6 | 23.8 | HIGH | 52 | - |
+| Cooper Connolly | LA Orthodox | 37 | 31 | 7.8 | 26.3 | HIGH | 49 | - |
 
 ### 12.3 Limited / No T20 Data
 
@@ -852,7 +856,7 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | Player | Role | IPL Balls | Wt SR | Wt Avg | Tournaments | T20 Balls | Trust | Top Tournaments (weight, SR) |
 |--------|------|-----------|-------|--------|-------------|-----------|-------|-------------------------------|
 | Harnoor Singh | Batter | 0 | 134 | 17.4 | 2 | 714 | 84 | IPL (0.87, SR 137.6); SMAT (0.65, SR 105.2) |
-| Marco Jansen | All-rounder | 119 | 131 | 19.6 | 5 | 684 | 55 | SA20 (0.50, SR 142.2); IPL (0.87, SR 109.3); CSA (0.38, SR 144.0) |
+| Marco Jansen | All-rounder | 119 | 126 | 17.1 | 4 | 699 | 56 | SA20 (0.50, SR 142.2); T20WC (0.50, SR 97.0); IPL (0.87, SR 109.3) |
 | Ben Dwarshuis | All-rounder | 0 | 142 | 19.6 | 4 | 635 | 52 | BBL (0.53, SR 142.7); Blast (0.50, SR 105.3); PSL (0.51, SR 170.0) |
 | Cooper Connolly | All-rounder | 0 | 135 | 30.3 | 2 | 624 | 52 | BBL (0.53, SR 137.7); MLC (0.42, SR 103.7) |
 | Vishnu Vinod | Wicketkeeper | 30 | 139 | 32.7 | 2 | 584 | 67 | SMAT (0.65, SR 145.3); IPL (0.87, SR 98.2) |
@@ -861,8 +865,8 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | Azmatullah Omarzai | All-rounder | 74 | 148 | 20.5 | 3 | 296 | 34 | ILT20 (0.49, SR 137.1); IPL (0.87, SR 133.8); LPL (0.40, SR 236.5) |
 | Harpreet Brar | All-rounder | 108 | 119 | 20.5 | 2 | 283 | 46 | IPL (0.87, SR 120.2); SMAT (0.65, SR 113.8) |
 | Lockie Ferguson | Bowler | 2 | 139 | 21.4 | 3 | 152 | 16 | SS (0.36, SR 130.2); IPL (0.87, SR 147.8); 100 (0.50, SR 135.0) |
+| Arshdeep Singh | Bowler | 11 | 72.9 | 17.3 | 2 | 114 | 15 | T20WC (0.50, SR 79.4); IPL (0.87, SR 67.4) |
 | Yuzvendra Chahal | Bowler | 0 | 43.0 | 7.4 | 1 | 86 | 15 | IPL (0.87, SR 43.0) |
-| Arshdeep Singh | Bowler | 11 | 67.4 | 10.3 | 1 | 46 | 8 | IPL (0.87, SR 67.4) |
 | Yash Thakur | Bowler | 0 | 63.9 | 23 | 1 | 36 | 5 | SMAT (0.65, SR 63.9) |
 | Suryansh Shedge | All-rounder | 11 | 279 | - | 1 | 28 | 4 | SMAT (0.65, SR 278.6) |
 
@@ -871,9 +875,9 @@ The data suggests a well-rounded squad with no glaring tactical gaps. The coachi
 | Player | Role | IPL Balls | Wt Econ | Wt SR | Tournaments | T20 Balls | Trust | Top Tournaments (weight, Econ) |
 |--------|------|-----------|---------|-------|-------------|-----------|-------|--------------------------------|
 | Harnoor Singh | Batter | 0 | 7.0 | 21.5 | 2 | 3728 | 85 | IPL (0.87, Econ 7.0); SMAT (0.65, Econ 5.9) |
-| Ben Dwarshuis | All-rounder | 0 | 8.2 | 16.2 | 4 | 3303 | 52 | BBL (0.53, Econ 8.0); Blast (0.50, Econ 8.4); PSL (0.51, Econ 10.2) |
-| Xavier Bartlett | Bowler | 60 | 8.7 | 15.3 | 4 | 1655 | 52 | BBL (0.53, Econ 8.6); MLC (0.42, Econ 8.7); Blast (0.50, Econ 8.8) |
-| Cooper Connolly | All-rounder | 0 | 6.8 | 15.4 | 1 | 432 | 45 | BBL (0.53, Econ 6.8) |
+| Ben Dwarshuis | All-rounder | 0 | 8.2 | 16.3 | 5 | 3327 | 52 | BBL (0.53, Econ 8.0); Blast (0.50, Econ 8.4); PSL (0.51, Econ 10.2) |
+| Xavier Bartlett | Bowler | 60 | 8.7 | 15.3 | 5 | 1703 | 52 | BBL (0.53, Econ 8.6); MLC (0.42, Econ 8.7); Blast (0.50, Econ 8.8) |
+| Cooper Connolly | All-rounder | 0 | 6.9 | 16.6 | 2 | 468 | 49 | BBL (0.53, Econ 6.8); T20WC (0.50, Econ 8.8) |
 | Shashank Singh | All-rounder | 18 | 8.6 | 21.7 | 2 | 258 | 35 | SMAT (0.65, Econ 8.3); IPL (0.87, Econ 10.2) |
 | Suryansh Shedge | All-rounder | 18 | 10.5 | 12.1 | 2 | 66 | 9 | SMAT (0.65, Econ 9.6); IPL (0.87, Econ 12.3) |
 | Shreyas Iyer | Batter | 0 | 10.5 | 41 | 1 | 41 | 5 | SMAT (0.65, Econ 10.5) |

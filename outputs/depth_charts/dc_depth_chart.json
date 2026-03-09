@@ -1,7 +1,7 @@
 {
   "team": "DC",
   "team_name": "Delhi Capitals",
-  "overall_rating": 7.7,
+  "overall_rating": 7.6,
   "strongest_position": "Finisher #6-7",
   "weakest_position": "Leg Spin",
   "vulnerabilities": [
@@ -56,37 +56,13 @@
     },
     "number_3": {
       "name": "#3 Batter",
-      "rating": 9.3,
-      "what_works": "Elite #1 in kl rahul. quality backup in karun nair",
+      "rating": 7.9,
+      "what_works": "Strong #1 with david miller. quality backup in abhishek porel",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
       "players": [
         {
           "rank": 1,
-          "name": "KL Rahul",
-          "player_id": "b17e2f24",
-          "score": 92.2,
-          "rationale": "Founder XII. Elite top-order. Spin specialist",
-          "is_overseas": false,
-          "price_cr": 14.0,
-          "bowling_type": "Medium",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 2,
-          "name": "Karun Nair",
-          "player_id": "944533a5",
-          "score": 76.2,
-          "rationale": "Strong in PP. Middle overs accelerator",
-          "is_overseas": false,
-          "price_cr": 0.5,
-          "bowling_type": "Off-spin",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
           "name": "David Miller",
           "player_id": "d67d5f00",
           "score": 70.0,
@@ -96,15 +72,39 @@
           "bowling_type": "Off-spin",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
+        },
+        {
+          "rank": 2,
+          "name": "Abhishek Porel",
+          "player_id": "ad3b6e95",
+          "score": 70.0,
+          "rationale": "Strong in PP. Highly adaptable",
+          "is_overseas": false,
+          "price_cr": 4.0,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Nitish Rana",
+          "player_id": "fb2d1dda",
+          "score": 67.2,
+          "rationale": "Founder XII. Highly adaptable",
+          "is_overseas": false,
+          "price_cr": 0.5,
+          "bowling_type": "Off-spin",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
         }
       ]
     },
     "middle_order": {
       "name": "Middle Order #4-5",
-      "rating": 8.8,
+      "rating": 8.3,
       "what_works": "Elite #1 in david miller. quality backup in axar patel",
-      "what_doesnt": "Minimal concerns",
-      "overseas_count": 1,
+      "what_doesnt": "Overseas mix (2 of 3)",
+      "overseas_count": 2,
       "players": [
         {
           "rank": 1,
@@ -132,12 +132,12 @@
         },
         {
           "rank": 3,
-          "name": "Nitish Rana",
-          "player_id": "fb2d1dda",
-          "score": 68.4,
-          "rationale": "Founder XII. AR middle-overs SR (146)",
-          "is_overseas": false,
-          "price_cr": 0.5,
+          "name": "Tristan Stubbs",
+          "player_id": "85b3fab2",
+          "score": 45.8,
+          "rationale": "Founder XII. Middle order batter",
+          "is_overseas": true,
+          "price_cr": 10.0,
           "bowling_type": "Off-spin",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
@@ -488,7 +488,7 @@
           "rank": 1,
           "name": "Tristan Stubbs",
           "player_id": "85b3fab2",
-          "score": 100.0,
+          "score": 99.3,
           "rationale": "Founder XII. Strong finisher (96). Useful death bowling",
           "is_overseas": true,
           "price_cr": 10.0,
@@ -512,8 +512,8 @@
           "rank": 3,
           "name": "Nitish Rana",
           "player_id": "fb2d1dda",
-          "score": 82.4,
-          "rationale": "Founder XII. Strong finisher (71). Middle order capable (58)",
+          "score": 77.4,
+          "rationale": "Founder XII. Strong finisher (71). Bowls 4 overs",
           "is_overseas": false,
           "price_cr": 0.5,
           "bowling_type": "Off-spin",
@@ -524,8 +524,8 @@
     },
     "allrounder_bowling": {
       "name": "Allrounder (Bowling)",
-      "rating": 8.7,
-      "what_works": "Elite #1 in axar patel. quality backup in nitish rana",
+      "rating": 8.5,
+      "what_works": "Elite #1 in axar patel. quality backup in tristan stubbs",
       "what_doesnt": "Big gap between #1 and #2",
       "overseas_count": 1,
       "players": [
@@ -543,24 +543,24 @@
         },
         {
           "rank": 2,
-          "name": "Nitish Rana",
-          "player_id": "fb2d1dda",
-          "score": 57.3,
-          "rationale": "Founder XII. Unproven bowling. Handy bat (58)",
-          "is_overseas": false,
-          "price_cr": 0.5,
+          "name": "Tristan Stubbs",
+          "player_id": "85b3fab2",
+          "score": 52.6,
+          "rationale": "Founder XII. Unproven bowling. SR 165",
+          "is_overseas": true,
+          "price_cr": 10.0,
           "bowling_type": "Off-spin",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
         {
           "rank": 3,
-          "name": "Tristan Stubbs",
-          "player_id": "85b3fab2",
-          "score": 54.0,
-          "rationale": "Founder XII. Unproven bowling. Handy bat (41)",
-          "is_overseas": true,
-          "price_cr": 10.0,
+          "name": "Nitish Rana",
+          "player_id": "fb2d1dda",
+          "score": 51.1,
+          "rationale": "Founder XII. Unproven bowling",
+          "is_overseas": false,
+          "price_cr": 0.5,
           "bowling_type": "Off-spin",
           "bowling_arm": "Right-arm",
           "secondary_positions": []

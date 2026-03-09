@@ -1313,7 +1313,7 @@
             color: white;
         }
 
-        /* Depth Chart Panel — Tabular Redesign */
+        /* Depth Chart Panel : Tabular Redesign */
         .depth-section {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
@@ -2227,7 +2227,7 @@
         }
         .pp-meta-badge.price { color: var(--accent-green); border-color: rgba(48, 209, 88, 0.2); }
         .pp-meta-badge.captain { color: var(--accent-yellow); border-color: rgba(255, 214, 10, 0.2); }
-        /* Archetype hero badge — visually prominent */
+        /* Archetype hero badge : visually prominent */
         .pp-archetype-badge {
             display: inline-flex;
             align-items: center;
@@ -2242,7 +2242,7 @@
             letter-spacing: 0.3px;
             margin-top: var(--space-3);
         }
-        /* Tags hero strip — shown right after header */
+        /* Tags hero strip : shown right after header */
         .pp-tags-hero {
             display: flex;
             flex-wrap: wrap;
@@ -3912,9 +3912,9 @@
         label.textContent = 'Data: ' + dateStr;
         if (ageDays > DATA_FRESHNESS.staleness_threshold_days) {
             el.classList.add('stale');
-            el.setAttribute('data-tooltip', 'Data is ' + ageDays + ' days old — may be stale (v' + DATA_FRESHNESS.data_version + ')');
+            el.setAttribute('data-tooltip', 'Data is ' + ageDays + ' days old : may be stale (v' + DATA_FRESHNESS.data_version + ')');
         } else {
-            el.setAttribute('data-tooltip', 'Data ingested ' + dateStr + ' — ' + ageDays + 'd ago (v' + DATA_FRESHNESS.data_version + ')');
+            el.setAttribute('data-tooltip', 'Data ingested ' + dateStr + ' : ' + ageDays + 'd ago (v' + DATA_FRESHNESS.data_version + ')');
         }
     })();
     </script>
@@ -4683,7 +4683,7 @@
             // ===== Assemble Full Strategy Outlook =====
             balanceContent.innerHTML = section1HTML + section2HTML + section3HTML + section4HTML + section5HTML;
 
-            // Depth Chart — Tabular Redesign
+            // Depth Chart : Tabular Redesign
             const depthContent = document.getElementById('depth-content');
             const fullDepth = FULL_DEPTH_CHARTS[currentTeam];
 
@@ -4714,7 +4714,7 @@
                 });
                 const varietySummary = Object.entries(bowlTypeSummary).map(([k, v]) => `<span class="bowl-variety-badge">${k}: ${v}</span>`).join(' ');
 
-                // Build table rows helper — section='batting' hides bowling badges for pure batting positions
+                // Build table rows helper : section='batting' hides bowling badges for pure batting positions
                 const battingOnlyPositions = new Set(['Opener', '#3 Batter', 'Number 3', 'Middle Order', 'Middle Order #4-5', 'Finisher', 'Finisher #6-7', 'Wicketkeeper']);
                 const buildRows = (positions, globalOffset, section) => positions.map((pos, localIdx) => {
                     const posIdx = globalOffset + localIdx;
@@ -4737,7 +4737,7 @@
                             <div><span style="color:var(--accent-orange);">Concern:</span> ${pos.whatDoesnt}</div>
                         </div>
                         <div style="margin-top:var(--space-2); display:flex; gap:var(--space-3); flex-wrap:wrap;">
-                            ${pos.players.map(p => `<span style="font-size:var(--text-xs);"><strong>${p.name}</strong> ${p.score.toFixed(0)}% — ${p.rationale} (₹${p.price} Cr)</span>`).join(' | ')}
+                            ${pos.players.map(p => `<span style="font-size:var(--text-xs);"><strong>${p.name}</strong> ${p.score.toFixed(0)}% : ${p.rationale} (₹${p.price} Cr)</span>`).join(' | ')}
                         </div>
                     `;
 
@@ -5381,11 +5381,11 @@
                         <table class="pressure-glossary-table">
                             <thead><tr><th scope="col">Band</th><th scope="col">RRR Range</th><th scope="col">What It Means</th></tr></thead>
                             <tbody>
-                                <tr><td class="band-tag">COMFORTABLE</td><td>&lt; 8</td><td>Cruising — run rate is manageable, batters can play normally</td></tr>
-                                <tr><td class="band-tag">BUILDING</td><td>8 &ndash; 10</td><td>Above par — scoring needs to accelerate, risk-taking begins</td></tr>
-                                <tr><td class="band-tag">HIGH</td><td>10 &ndash; 12</td><td>Aggressive required — boundaries needed every 2-3 balls</td></tr>
-                                <tr><td class="band-tag">EXTREME</td><td>12 &ndash; 15</td><td>Six-hitting territory — almost every ball must score</td></tr>
-                                <tr><td class="band-tag">NEAR_IMPOSSIBLE</td><td>15+</td><td>Miracle needed — requires continuous boundaries to win</td></tr>
+                                <tr><td class="band-tag">COMFORTABLE</td><td>&lt; 8</td><td>Cruising : run rate is manageable, batters can play normally</td></tr>
+                                <tr><td class="band-tag">BUILDING</td><td>8 &ndash; 10</td><td>Above par : scoring needs to accelerate, risk-taking begins</td></tr>
+                                <tr><td class="band-tag">HIGH</td><td>10 &ndash; 12</td><td>Aggressive required : boundaries needed every 2-3 balls</td></tr>
+                                <tr><td class="band-tag">EXTREME</td><td>12 &ndash; 15</td><td>Six-hitting territory : almost every ball must score</td></tr>
+                                <tr><td class="band-tag">NEAR_IMPOSSIBLE</td><td>15+</td><td>Miracle needed : requires continuous boundaries to win</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -5406,10 +5406,10 @@
                         <table class="pressure-glossary-table">
                             <thead><tr><th scope="col">Context</th><th scope="col">Balls Before Pressure</th><th scope="col">Meaning</th></tr></thead>
                             <tbody>
-                                <tr><td class="band-tag">FRESH</td><td>&lt; 10</td><td>Walked in during pressure phase — facing it cold</td></tr>
-                                <tr><td class="band-tag">BUILDING</td><td>10 &ndash; 25</td><td>Getting set when pressure hit — partially established</td></tr>
+                                <tr><td class="band-tag">FRESH</td><td>&lt; 10</td><td>Walked in during pressure phase : facing it cold</td></tr>
+                                <tr><td class="band-tag">BUILDING</td><td>10 &ndash; 25</td><td>Getting set when pressure hit : partially established</td></tr>
                                 <tr><td class="band-tag">SET</td><td>25 &ndash; 40</td><td>Well established before pressure phase</td></tr>
-                                <tr><td class="band-tag">DEEP_SET</td><td>40+</td><td>Long innings before pressure — fully in rhythm</td></tr>
+                                <tr><td class="band-tag">DEEP_SET</td><td>40+</td><td>Long innings before pressure : fully in rhythm</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -5419,8 +5419,8 @@
                             <tbody>
                                 <tr><td class="band-tag" style="width: 140px;">Weighted Score</td><td>Composite metric combining SR delta with sample size (log&#8322; scaling) and death overs bonus (30% weight for overs 16-20 execution)</td></tr>
                                 <tr><td class="band-tag">SR Delta</td><td>Percentage change in strike rate between overall performance and pressure situations. Positive = better under pressure.</td></tr>
-                                <tr><td class="band-tag">Overs 15-17</td><td>Setup phase under pressure — where batting teams begin acceleration and bowlers set up their death plans</td></tr>
-                                <tr><td class="band-tag">Overs 18-20</td><td>Death execution phase — the highest-leverage balls of the innings where pressure performance matters most</td></tr>
+                                <tr><td class="band-tag">Overs 15-17</td><td>Setup phase under pressure : where batting teams begin acceleration and bowlers set up their death plans</td></tr>
+                                <tr><td class="band-tag">Overs 18-20</td><td>Death execution phase : the highest-leverage balls of the innings where pressure performance matters most</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -6005,7 +6005,7 @@
             });
             html += `</div>`;
 
-            // Category Ratings — grouped by phase/structure/overall
+            // Category Ratings : grouped by phase/structure/overall
             html += `<div class="preview-ratings">`;
             let lastGroup = '';
             const groupLabels = { phase: 'Phase Performance', structure: 'Squad Structure' };
@@ -6546,63 +6546,63 @@
         <div class="nav-guide-modal" onclick="event.stopPropagation()">
             <button class="nav-guide-close" onclick="toggleNavGuide()">✕</button>
             <div class="nav-guide-header">
-                <h3>🏏 The Playbook Rundown</h3>
-                <p>Your pre-game briefing from the coaching staff</p>
+                <h3>The Playbook Rundown</h3>
+                <p>Quick guide to each section</p>
             </div>
             <a href="index.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
-                <div class="nav-guide-icon">🏠</div>
+                <div class="nav-guide-icon"></div>
                 <div class="nav-guide-text">
-                    <h4>Home — "The Main Event"</h4>
-                    <p>Statsledge homepage. Your IPL 2026 analytics command center.</p>
+                    <h4>Home</h4>
+                    <p>Statsledge homepage. Start here for IPL 2026 analytics.</p>
                 </div>
             </a>
             <a href="teams.html" class="nav-guide-item nav-guide-start" style="text-decoration: none; color: inherit;">
-                <div class="nav-guide-icon">🏏</div>
+                <div class="nav-guide-icon"></div>
                 <div class="nav-guide-text">
-                    <h4>Team Breakdowns — "The Dugout"</h4>
-                    <p>📍 You Are Here. Projected line-ups, depth charts, and full rosters for all 10 franchises.</p>
+                    <h4>Teams</h4>
+                    <p>You Are Here. Projected line-ups, depth charts, and full rosters for all 10 franchises.</p>
                 </div>
             </a>
             <a href="artifacts.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
-                <div class="nav-guide-icon">📊</div>
+                <div class="nav-guide-icon"></div>
                 <div class="nav-guide-text">
-                    <h4>Artifacts — "The Trophy Cabinet"</h4>
-                    <p>All 10 franchise stat packs. Stephen Curry approved — clean data, no turnovers.</p>
+                    <h4>Artifacts</h4>
+                    <p>All 10 franchise stat packs. Clean, structured data ready for review.</p>
                 </div>
             </a>
             <a href="analysis.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
-                <div class="nav-guide-icon">🔬</div>
+                <div class="nav-guide-icon"></div>
                 <div class="nav-guide-text">
-                    <h4>Analysis — "Studying Film"</h4>
-                    <p>Tom Brady-level prep. Matchups, clustering, phase breakdowns.</p>
+                    <h4>Analysis</h4>
+                    <p>Matchup analysis, player clustering, and phase-by-phase breakdowns.</p>
                 </div>
             </a>
             <a href="research.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
-                <div class="nav-guide-icon">📚</div>
+                <div class="nav-guide-icon"></div>
                 <div class="nav-guide-text">
-                    <h4>Research — "Pep's Tactical Notebook"</h4>
+                    <h4>Research</h4>
                     <p>Methodology docs. How we grade players, explained.</p>
                 </div>
             </a>
             <a href="research-desk.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
-                <div class="nav-guide-icon">🎬</div>
+                <div class="nav-guide-icon"></div>
                 <div class="nav-guide-text">
-                    <h4>The Film Room — "Breaking Down Tape"</h4>
+                    <h4>The Film Room</h4>
                     <p>Pull up the tape on any player, team, or matchup. The full scouting database, coach-style.</p>
                 </div>
             </a>
             <a href="about.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
-                <div class="nav-guide-icon">🌹</div>
+                <div class="nav-guide-icon"></div>
                 <div class="nav-guide-text">
-                    <h4>About — "The Origin Story"</h4>
-                    <p>The story, the vision, the Founder. How Statsledge came to be.</p>
+                    <h4>About</h4>
+                    <p>Background, methodology, and the approach behind Statsledge.</p>
                 </div>
             </a>
             <a href="/boardroom/index.html" class="nav-guide-item" style="text-decoration: none; color: inherit;">
-                <div class="nav-guide-icon">📡</div>
+                <div class="nav-guide-icon"></div>
                 <div class="nav-guide-text">
-                    <h4>The Boardroom — "Front Office Moves"</h4>
-                    <p>Florentino's war room. Tickets, sprints, agent roster.</p>
+                    <h4>The Boardroom</h4>
+                    <p>Project tracking and sprint management.</p>
                 </div>
             </a>
         </div>

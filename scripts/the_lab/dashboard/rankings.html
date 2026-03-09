@@ -1485,7 +1485,7 @@
         .report-btn:hover { background: #b91c1c; color: white; transform: scale(1.08); box-shadow: 0 4px 20px rgba(220,38,38,0.6); }
         .report-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); z-index: 200; display: none; align-items: center; justify-content: center; padding: var(--space-4); }
         .report-overlay.active { display: flex; }
-        .report-modal { background: var(--bg-secondary); border-radius: var(--radius-xl); padding: var(--space-5); max-width: 480px; width: 100%; max-height: 85vh; overflow-y: auto; border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0,0,0,0.5); position: relative; }
+        .report-modal { background: var(--bg-secondary); border-radius: var(--radius-xl); padding: var(--space-5); max-width: 480px; width: 100%; max-height: 85vh; overflow-y: auto; border: 1px solid rgba(59,130,246,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 40px rgba(59,130,246,0.15); position: relative; }
         .report-header { text-align: center; margin-bottom: var(--space-4); }
         .report-header h3 { font-size: 20px; font-weight: 700; margin-bottom: var(--space-1); color: var(--text-primary); }
         .report-header p { color: var(--text-secondary); font-size: 13px; }
@@ -1693,7 +1693,7 @@
                 <div class="report-field"><label>Your Email (optional, for follow-up)</label><input type="email" name="email" placeholder="you@example.com"></div>
                 <button type="button" class="report-submit" id="report-submit-btn" onclick="submitReport()">Submit Report</button>
             </form>
-            <div class="report-success" id="report-success"><div class="success-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><h4>Report Received</h4><p>Your feedback will be reviewed with priority. We appreciate you taking the time to help build Statsledge.</p><button class="success-close" onclick="closeSuccessModal()">Close</button></div>
+            <div class="report-success" id="report-success"><div class="success-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><h4>Report Received</h4><p>Your feedback will be reviewed with priority. We appreciate you taking the time to help build StatSledge.</p><button class="success-close" onclick="closeSuccessModal()">Close</button></div>
         </div>
     </div>
 

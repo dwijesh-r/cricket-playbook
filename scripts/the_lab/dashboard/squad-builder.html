@@ -938,12 +938,12 @@
 
     // ==================== ROLE ICONS ====================
     function getRoleIcon(role) {
-        // Matching icons with teams page: bat, ball w/ seam, bat+ball, gloves
+        // Simple, clean icons at 12px — no fussy detail
         const icons = {
-            'Batter': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19L15 5"/><path d="M15 5l3 1.5"/><path d="M15 5l1.5 3"/></svg>',
-            'Bowler': '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8.5c2.5-1 5 1 7 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>',
-            'All-rounder': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20L12 8l2 1"/><circle cx="18" cy="8" r="3.5" stroke-width="1.8"/></svg>',
-            'Wicketkeeper': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 14a5 5 0 0110 0"/><path d="M5 14v-3a2 2 0 012-2"/><path d="M19 14v-3a2 2 0 00-2-2"/><path d="M5 14h14"/></svg>'
+            'Batter': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="6" y1="20" x2="17" y2="4"/><line x1="17" y1="4" x2="20" y2="7"/></svg>',
+            'Bowler': '<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg>',
+            'All-rounder': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="21" x2="13" y2="7"/><circle cx="18" cy="7" r="4" fill="currentColor" stroke="none"/></svg>',
+            'Wicketkeeper': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15c0-4 3-7 6-7s6 3 6 7"/><line x1="6" y1="15" x2="18" y2="15"/></svg>'
         };
         return icons[role] || '';
     }

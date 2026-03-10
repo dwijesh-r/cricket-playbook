@@ -1644,10 +1644,10 @@
         .role-badge svg {
             flex-shrink: 0;
         }
-        .role-batter { background: rgba(48, 209, 88, 0.15); color: var(--accent-green); }
-        .role-bowler { background: rgba(255, 69, 58, 0.15); color: var(--accent-red); }
-        .role-all-rounder { background: rgba(10, 132, 255, 0.15); color: var(--accent); }
-        .role-wicketkeeper { background: rgba(255, 214, 10, 0.15); color: var(--accent-yellow); }
+        .role-batter { background: rgba(59, 130, 246, 0.12); color: var(--accent); }
+        .role-bowler { background: rgba(34, 197, 94, 0.12); color: var(--accent-green); }
+        .role-all-rounder { background: rgba(168, 85, 247, 0.12); color: var(--accent-purple); }
+        .role-wicketkeeper { background: rgba(234, 179, 8, 0.12); color: var(--accent-yellow); }
 
         /* Nationality Flag */
         .nationality-badge {
@@ -6353,7 +6353,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <span class="role-badge ${getRoleClass(player.role)}">${getRoleIcon(player.role)} ${player.role.substring(0, 3).toUpperCase()}</span>
+                                    <span class="role-badge ${getRoleClass(player.role)}">${getRoleIcon(player.role)} ${player.role}</span>
                                 </td>
                                 <td class="compact-cell">
                                     <span class="hand-badge ${batHand === 'L' ? 'left-hand' : ''}">${batHand}</span>

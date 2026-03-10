@@ -850,13 +850,12 @@
         <section class="hero">
             <div class="hero-badge">Fantasy Prep Tool</div>
             <h1 class="hero-title">Squad Builder</h1>
-            <p class="hero-subtitle">Gauge player valuations and auction ceilings for your friend group draft. Composite rankings powered by IPL performance data, role value, and tag profiles.</p>
+            <p class="hero-subtitle">Fantasy auction rankings powered by Dream11-style scoring. Estimated fantasy points per match (FPPM) from IPL career stats — runs, strike rate, wickets, economy, milestones, and role bonuses.</p>
         </section>
 
         <!-- Tab Pills -->
         <div class="tab-pills" role="tablist" aria-label="Squad Builder sections">
-            <button class="tab-pill active" role="tab" aria-selected="true" data-tab="rankings" onclick="switchTab('rankings')">Draft Rankings</button>
-            <button class="tab-pill" role="tab" aria-selected="false" data-tab="simulator" onclick="switchTab('simulator')">Auction Simulator</button>
+            <button class="tab-pill active" role="tab" aria-selected="true" data-tab="rankings" onclick="switchTab('rankings')">Fantasy Auction Rankings</button>
         </div>
 
         <!-- Tab 1: Draft Rankings -->
@@ -893,7 +892,7 @@
                             <th data-col="name">Player <span class="sort-arrow"></span></th>
                             <th data-col="team">Team <span class="sort-arrow"></span></th>
                             <th data-col="role">Role <span class="sort-arrow"></span></th>
-                            <th class="col-numeric sorted-desc" data-col="value">Value <span class="sort-arrow"></span></th>
+                            <th class="col-numeric sorted-desc" data-col="value">FPPM <span class="sort-arrow"></span></th>
                             <th class="col-numeric" data-col="price">Price (Cr) <span class="sort-arrow"></span></th>
                             <th class="col-numeric" data-col="ceiling">Ceiling <span class="sort-arrow"></span></th>
                             <th class="col-numeric" data-col="matches">IPL M <span class="sort-arrow"></span></th>
@@ -908,110 +907,7 @@
             </div>
         </div>
 
-        <!-- Tab 2: Auction Simulator -->
-        <div class="tab-panel" id="panel-simulator" role="tabpanel" aria-label="Auction Simulator">
-            <div class="section-header">
-                <span class="section-badge">Auction Lab</span>
-                <h2 class="section-title">Auction Simulator</h2>
-            </div>
-
-            <!-- Sim Controls -->
-            <div class="sim-controls">
-                <select class="sim-select" id="simTeamSelect" aria-label="Select team for simulation" onchange="loadSimTeam()">
-                    <option value="">-- Select a Team --</option>
-                </select>
-                <button class="sim-btn danger" onclick="resetSimulation()" title="Reset to original squad">Reset Squad</button>
-            </div>
-
-            <!-- Budget Bar -->
-            <div class="budget-bar-container" id="budgetSection" style="display:none;">
-                <div class="budget-bar-header">
-                    <span class="budget-bar-label">Remaining Purse</span>
-                    <span class="budget-bar-value">
-                        <span class="remaining" id="budgetRemaining">0.00</span>
-                        <span class="total"> / 120.00 Cr</span>
-                    </span>
-                </div>
-                <div class="budget-bar-track">
-                    <div class="budget-bar-fill" id="budgetFill" style="width:100%"></div>
-                </div>
-            </div>
-
-            <!-- Constraints -->
-            <div class="constraints-grid" id="constraintsGrid" style="display:none;">
-                <div class="constraint-card">
-                    <div class="constraint-label">Squad Size</div>
-                    <div class="constraint-value" id="constraintSquadSize">--</div>
-                    <div class="constraint-limit">Min 18 / Max 25</div>
-                </div>
-                <div class="constraint-card">
-                    <div class="constraint-label">Overseas</div>
-                    <div class="constraint-value" id="constraintOverseas">--</div>
-                    <div class="constraint-limit">Max 8</div>
-                </div>
-                <div class="constraint-card">
-                    <div class="constraint-label">Total Spent</div>
-                    <div class="constraint-value" id="constraintSpent">--</div>
-                    <div class="constraint-limit">Cap: 120.00 Cr</div>
-                </div>
-                <div class="constraint-card">
-                    <div class="constraint-label">Slots Available</div>
-                    <div class="constraint-value" id="constraintSlots">--</div>
-                    <div class="constraint-limit">25 - current</div>
-                </div>
-            </div>
-
-            <!-- Composition Summary -->
-            <div class="comp-summary" id="compSummary" style="display:none;"></div>
-
-            <!-- Current Squad Table -->
-            <div class="data-table-wrapper" id="simSquadSection" style="display:none;">
-                <table class="data-table sim-squad-table" id="simSquadTable" aria-label="Current squad">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Player</th>
-                            <th>Role</th>
-                            <th class="col-numeric">Price (Cr)</th>
-                            <th>Nationality</th>
-                            <th style="text-align:center">Pred. XII</th>
-                            <th style="text-align:center">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="simSquadBody">
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Add Player Section -->
-            <div class="add-player-section" id="addPlayerSection" style="display:none;">
-                <div class="section-header">
-                    <span class="section-badge">Scout</span>
-                    <h3 class="section-title">Add Player from Another Team</h3>
-                </div>
-                <div class="add-player-search-row">
-                    <input type="text" class="filter-search" id="addPlayerSearch" placeholder="Search available players..." aria-label="Search available players" oninput="filterAvailablePlayers()">
-                    <select class="filter-select" id="addPlayerTeamFilter" aria-label="Filter by source team" onchange="filterAvailablePlayers()">
-                        <option value="">All Teams</option>
-                    </select>
-                    <select class="filter-select" id="addPlayerRoleFilter" aria-label="Filter by role" onchange="filterAvailablePlayers()">
-                        <option value="">All Roles</option>
-                        <option value="Batter">Batter</option>
-                        <option value="Bowler">Bowler</option>
-                        <option value="All-rounder">All-rounder</option>
-                        <option value="Wicketkeeper">Wicketkeeper</option>
-                    </select>
-                </div>
-                <div class="available-players-list" id="availablePlayersList">
-                </div>
-            </div>
-
-            <!-- Empty state when no team selected -->
-            <div class="no-results" id="simEmptyState">
-                <p style="font-size:var(--text-md);color:var(--text-secondary);margin-bottom:var(--space-2);">Select a team above to begin</p>
-                <p style="color:var(--text-tertiary);">Choose a franchise to explore their current squad, release players, and scout acquisitions from other teams.</p>
-            </div>
-        </div>
+        <!-- Auction Simulator: Backlog — coming during trade season -->
 
         <!-- Footer -->
         <footer class="footer" role="contentinfo">
@@ -1032,26 +928,13 @@
     <script src="data/predicted_xii.js"></script>
 
     <script>
-    // ==================== CONSTANTS ====================
-    // TEAM_ORDER is loaded from data/teams.js
-    const PURSE_CAP = 120;
-    const MAX_SQUAD = 25;
-    const MIN_SQUAD = 18;
-    const MAX_OVERSEAS = 8;
-
     // ==================== STATE ====================
+    // TEAM_ORDER is loaded from data/teams.js
     let allPlayers = [];
     let filteredPlayers = [];
-    let currentSort = { col: 'price', dir: 'desc' };
+    let currentSort = { col: 'value', dir: 'desc' };
     let currentRoleFilter = 'All';
     let currentTab = 'rankings';
-
-    // Simulator state
-    let simTeam = '';
-    let simSquad = [];          // current squad (working copy)
-    let simReleasedNames = [];  // names of released players
-    let simAddedPlayers = [];   // players added from other teams
-    let originalSquad = [];     // snapshot for reset
 
     // ==================== ROLE ICONS ====================
     function getRoleIcon(role) {
@@ -1079,106 +962,135 @@
         }
     }
 
-    // ==================== FANTASY VALUE SCORING ====================
+    // ==================== FANTASY POINTS SCORING (Dream11-inspired) ====================
+    // Reference: Dream11 IPL scoring system
+    // Batting: +1/run, +1/boundary, +2/six, milestones (+4 at 30, +8 at 50, +16 at 100), SR bonus/penalty
+    // Bowling: +25/wicket, +8 bonus/bowled/lbw, +4/3W, +8/4W, economy bonus (<7: +6, 7-8: +4, 8-9: +2)
+    // Fielding: ~+4 pts/match avg for WK (catches/stumpings)
+    // We estimate per-match fantasy points from available IPL career stats
+
     function calcFantasyValue(p) {
-        // Composite score (0-100) for fantasy auction valuation
-        // Weights: Performance 40%, Tags/Profile 25%, Price Signal 20%, Availability 15%
-
-        let score = 0;
-
-        // 1. PERFORMANCE (40 pts max)
-        // Batters: SR matters most, runs volume secondary
-        const sr = p.iplSR || 0;
-        const runs = p.iplRuns || 0;
         const matches = p.iplMatches || 0;
+        if (matches === 0 && !p.predictedXII) return 0;
+
+        const runs = p.iplRuns || 0;
+        const sr = p.iplSR || 0;
         const wkts = p.iplWickets || 0;
         const econ = p.iplEconomy || 0;
 
-        if (p.role === 'Batter' || p.role === 'Wicketkeeper') {
-            // SR score: 120=low, 140=good, 160+=elite
-            const srScore = Math.min(15, Math.max(0, (sr - 110) / 3.5));
-            // Volume: runs per match
-            const rpm = matches > 0 ? runs / matches : 0;
-            const volScore = Math.min(10, rpm / 4);
-            // Matches played (experience)
-            const expScore = Math.min(5, matches / 8);
-            score += srScore + volScore + expScore;
-            // WK bonus for dual value
-            if (p.role === 'Wicketkeeper') score += 3;
-        } else if (p.role === 'Bowler') {
-            // Economy: lower is better. 7.0=elite, 9.0=avg, 11+=bad
-            const econScore = econ > 0 ? Math.min(15, Math.max(0, (11 - econ) * 3.75)) : 0;
-            // Wickets per match
-            const wpm = matches > 0 ? wkts / matches : 0;
-            const wpmScore = Math.min(10, wpm * 7);
-            const expScore = Math.min(5, matches / 8);
-            score += econScore + wpmScore + expScore;
-        } else if (p.role === 'All-rounder') {
-            // Dual value: bat + bowl averaged
-            const srScore = Math.min(8, Math.max(0, (sr - 110) / 6));
-            const rpm = matches > 0 ? runs / matches : 0;
-            const volScore = Math.min(5, rpm / 5);
-            const econScore = econ > 0 ? Math.min(8, Math.max(0, (11 - econ) * 2)) : 0;
-            const wpm = matches > 0 ? wkts / matches : 0;
-            const wpmScore = Math.min(5, wpm * 5);
-            const expScore = Math.min(4, matches / 10);
-            score += srScore + volScore + econScore + wpmScore + expScore;
-            // AR premium for flexibility
-            score += 5;
+        let fppm = 0; // Fantasy Points Per Match
+
+        // ── BATTING POINTS ──
+        if (matches > 0 && runs > 0) {
+            const rpm = runs / matches;
+
+            // +1 per run
+            fppm += rpm;
+
+            // Boundary estimation: ~55% of runs from boundaries in T20
+            // Assume 12% sixes, 43% fours based on typical T20 distributions
+            const sixRuns = rpm * 0.12;  // runs from sixes
+            const fourRuns = rpm * 0.43; // runs from fours
+            const estimatedSixes = sixRuns / 6;
+            const estimatedFours = fourRuns / 4;
+
+            // +1 per four, +2 per six
+            fppm += estimatedFours * 1;
+            fppm += estimatedSixes * 2;
+
+            // Milestone bonuses (probability-weighted)
+            // If avg RPM > 35, likely gets 50+ in ~30% of innings
+            if (rpm >= 40) fppm += 16 * 0.10 + 8 * 0.35; // 100-bonus 10% + 50-bonus 35%
+            else if (rpm >= 30) fppm += 8 * 0.25 + 4 * 0.40; // 50-bonus 25% + 30-bonus 40%
+            else if (rpm >= 20) fppm += 8 * 0.10 + 4 * 0.30; // 50-bonus 10% + 30-bonus 30%
+            else if (rpm >= 10) fppm += 4 * 0.15; // 30-bonus 15%
+
+            // SR bonus/penalty (per match, for qualifying innings ~15+ balls)
+            if (sr >= 170) fppm += 6;
+            else if (sr >= 150) fppm += 4;
+            else if (sr >= 130) fppm += 2;
+            else if (sr < 100 && sr > 0) fppm -= 4; // SR penalty for very slow
+            else if (sr < 110 && sr > 0) fppm -= 2;
         }
 
-        // 2. TAGS & PROFILE (25 pts max)
-        const allTags = [...(p.batterTags || []), ...(p.bowlerTags || [])];
-        const eliteTags = allTags.filter(t => t.includes('ELITE') || t.includes('DOMINATOR') || t.includes('SPECIALIST'));
-        const valueTags = allTags.filter(t => t.includes('PROVEN') || t.includes('CONSISTENT') || t.includes('FINISHER'));
-        score += Math.min(10, eliteTags.length * 4);
-        score += Math.min(8, valueTags.length * 3);
-        score += Math.min(4, allTags.length * 0.8);
-        // Predicted XII = team trusts this player
-        if (p.predictedXII) score += 3;
+        // ── BOWLING POINTS ──
+        if (matches > 0 && (wkts > 0 || econ > 0)) {
+            const wpm = wkts / matches;
 
-        // 3. PRICE SIGNAL (20 pts max) — higher auction price = teams value them more
-        const price = p.price || 0;
-        if (price >= 16) score += 20;
-        else if (price >= 12) score += 17;
-        else if (price >= 8) score += 14;
-        else if (price >= 5) score += 10;
-        else if (price >= 2) score += 6;
-        else if (price >= 1) score += 3;
-        else score += 1;
+            // +25 per wicket
+            fppm += wpm * 25;
 
-        // 4. AVAILABILITY (15 pts max)
-        // Captain premium
-        if (p.isCaptain) score += 5;
-        // Uncapped penalty (high risk)
-        if (p.isUncapped) score -= 8;
-        // Overseas slight penalty (limited to 4 in XI)
-        if (p.overseas) score -= 2;
-        // Age sweet spot (23-31 peak)
-        const age = p.age || 25;
-        if (age >= 23 && age <= 31) score += 5;
-        else if (age >= 20 && age <= 35) score += 2;
+            // Bonus wickets (bowled/lbw ~40% of wickets): +8 each
+            fppm += wpm * 0.4 * 8;
 
-        return Math.max(0, Math.round(score * 10) / 10);
+            // Multi-wicket bonus (probability-weighted)
+            if (wpm >= 2.0) fppm += 8 * 0.25 + 4 * 0.40; // 4W bonus 25% + 3W bonus 40%
+            else if (wpm >= 1.5) fppm += 8 * 0.10 + 4 * 0.30;
+            else if (wpm >= 1.0) fppm += 4 * 0.20;
+
+            // Economy bonus (assumes ~3.5 overs bowled per match for main bowlers)
+            if (econ > 0) {
+                if (econ < 7.0) fppm += 6;
+                else if (econ < 8.0) fppm += 4;
+                else if (econ < 9.0) fppm += 2;
+                else if (econ > 11.0) fppm -= 4;
+                else if (econ > 10.0) fppm -= 2;
+            }
+        }
+
+        // ── ROLE BONUSES ──
+        // WK fielding bonus (~4 pts/match from catches/stumpings)
+        if (p.role === 'Wicketkeeper') fppm += 4;
+
+        // All-rounder dual contribution already captured above, but add selection flexibility premium
+        if (p.role === 'All-rounder' && runs > 0 && wkts > 0) fppm += 3;
+
+        // ── AVAILABILITY & SELECTION ──
+        // Predicted XII: player will actually play (critical for fantasy)
+        if (!p.predictedXII) fppm *= 0.5; // halve value if not in predicted XI
+
+        // Captain pick premium (1.5x-2x multiplier option in fantasy)
+        if (p.isCaptain) fppm *= 1.10;
+
+        // Experience reliability: more matches = more stable estimate
+        if (matches < 5) fppm *= 0.6; // very small sample
+        else if (matches < 10) fppm *= 0.8;
+
+        // Uncapped: high variance, low floor
+        if (p.isUncapped && matches === 0) fppm = 5; // base minimum for unknowns with predicted XII
+
+        return Math.max(0, Math.round(fppm * 10) / 10);
     }
 
     function calcCeiling(p) {
-        // Estimate auction ceiling price in Cr based on profile
-        const base = p.price || 0.3;
-        let multiplier = 1.0;
+        // Auction ceiling: estimated max a friend group should bid
+        // Based on FPPM-to-price ratio and profile upside
+        const fppm = p.fantasyValue || calcFantasyValue(p);
+        const matches = p.iplMatches || 0;
 
+        // Base ceiling from FPPM: higher FPPM = higher auction value
+        // Top fantasy performers (FPPM 60+) worth 15-25 Cr
+        // Mid-tier (FPPM 30-60) worth 5-15 Cr
+        // Low tier (FPPM < 30) worth 0.5-5 Cr
+        let ceiling;
+        if (fppm >= 80) ceiling = 20 + (fppm - 80) * 0.15;
+        else if (fppm >= 50) ceiling = 10 + (fppm - 50) * 0.33;
+        else if (fppm >= 30) ceiling = 4 + (fppm - 30) * 0.30;
+        else if (fppm >= 15) ceiling = 1.5 + (fppm - 15) * 0.17;
+        else ceiling = 0.5 + fppm * 0.07;
+
+        // Upside modifiers
         const allTags = [...(p.batterTags || []), ...(p.bowlerTags || [])];
-        if (allTags.some(t => t.includes('ELITE') || t.includes('DOMINATOR'))) multiplier += 0.4;
-        if (allTags.some(t => t.includes('SPECIALIST'))) multiplier += 0.2;
-        if (p.predictedXII) multiplier += 0.3;
-        if (p.isCaptain) multiplier += 0.3;
-        if (p.role === 'All-rounder') multiplier += 0.2;
-        if (p.iplSR > 150) multiplier += 0.3;
-        if (p.iplEconomy > 0 && p.iplEconomy < 8) multiplier += 0.3;
-        if (p.isUncapped) multiplier -= 0.3;
+        if (allTags.some(t => t.includes('ELITE') || t.includes('DOMINATOR'))) ceiling *= 1.15;
+        if (p.role === 'All-rounder') ceiling *= 1.10;
+        if (p.iplSR > 160) ceiling *= 1.10;
+        if (p.isCaptain) ceiling *= 1.10;
 
-        const ceiling = Math.min(25, base * multiplier * 1.3);
-        return Math.round(ceiling * 10) / 10;
+        // Discount for risk
+        if (p.isUncapped) ceiling *= 0.5;
+        if (matches > 0 && matches < 5) ceiling *= 0.7;
+
+        return Math.max(0.5, Math.min(25, Math.round(ceiling * 10) / 10));
     }
 
     // ==================== DATA LOADING ====================
@@ -1204,22 +1116,10 @@
 
     function populateTeamDropdowns() {
         const teamFilter = document.getElementById('teamFilter');
-        const simTeamSelect = document.getElementById('simTeamSelect');
-        const addTeamFilter = document.getElementById('addPlayerTeamFilter');
-
         TEAM_ORDER.forEach(abbrev => {
             const t = TEAMS[abbrev];
             if (!t) return;
-            const name = t.name;
-
-            const opt1 = new Option(name, abbrev);
-            teamFilter.add(opt1);
-
-            const opt2 = new Option(name, abbrev);
-            simTeamSelect.add(opt2);
-
-            const opt3 = new Option(name, abbrev);
-            addTeamFilter.add(opt3);
+            teamFilter.add(new Option(t.name, abbrev));
         });
     }
 
@@ -1362,9 +1262,9 @@
             const econDisplay = p.iplEconomy > 0 ? p.iplEconomy.toFixed(2) : '--';
             const matchesDisplay = p.iplMatches || '--';
 
-            // Value color: green for high, yellow for mid, red for low
+            // FPPM color: green for elite, yellow for solid, muted for low
             const val = p.fantasyValue || 0;
-            const valColor = val >= 60 ? 'var(--accent-green)' : val >= 35 ? 'var(--accent-yellow)' : 'var(--text-tertiary)';
+            const valColor = val >= 70 ? 'var(--accent-green)' : val >= 40 ? 'var(--accent-yellow)' : val >= 20 ? 'var(--text-secondary)' : 'var(--text-tertiary)';
             const ceilColor = p.ceiling >= p.price * 1.3 ? 'var(--accent-green)' : 'var(--text-secondary)';
 
             html += `<tr>
@@ -1391,325 +1291,7 @@
         return 'var(--text-primary)';
     }
 
-    // ==================== AUCTION SIMULATOR ====================
-    function loadSimTeam() {
-        const abbrev = document.getElementById('simTeamSelect').value;
-        if (!abbrev) {
-            hideSimUI();
-            return;
-        }
-
-        simTeam = abbrev;
-        simReleasedNames = [];
-        simAddedPlayers = [];
-
-        const squad = FULL_SQUADS[abbrev];
-        if (!squad) {
-            hideSimUI();
-            return;
-        }
-
-        // Deep copy original squad
-        originalSquad = squad.map(p => ({ ...p, teamAbbrev: abbrev }));
-        simSquad = squad.map(p => ({ ...p, teamAbbrev: abbrev, released: false }));
-
-        showSimUI();
-        renderSimulator();
-    }
-
-    function showSimUI() {
-        document.getElementById('budgetSection').style.display = '';
-        document.getElementById('constraintsGrid').style.display = '';
-        document.getElementById('compSummary').style.display = '';
-        document.getElementById('simSquadSection').style.display = '';
-        document.getElementById('addPlayerSection').style.display = '';
-        document.getElementById('simEmptyState').style.display = 'none';
-    }
-
-    function hideSimUI() {
-        document.getElementById('budgetSection').style.display = 'none';
-        document.getElementById('constraintsGrid').style.display = 'none';
-        document.getElementById('compSummary').style.display = 'none';
-        document.getElementById('simSquadSection').style.display = 'none';
-        document.getElementById('addPlayerSection').style.display = 'none';
-        document.getElementById('simEmptyState').style.display = '';
-        simTeam = '';
-    }
-
-    function getActiveSquad() {
-        return simSquad.filter(p => !p.released);
-    }
-
-    function getTotalSpent() {
-        return getActiveSquad().reduce((sum, p) => sum + (p.price || 0), 0);
-    }
-
-    function getRemaining() {
-        return PURSE_CAP - getTotalSpent();
-    }
-
-    function renderSimulator() {
-        renderBudgetBar();
-        renderConstraints();
-        renderComposition();
-        renderSimSquadTable();
-        filterAvailablePlayers();
-    }
-
-    function renderBudgetBar() {
-        const spent = getTotalSpent();
-        const remaining = getRemaining();
-        const pct = (spent / PURSE_CAP) * 100;
-
-        document.getElementById('budgetRemaining').textContent = remaining.toFixed(2);
-
-        const fill = document.getElementById('budgetFill');
-        fill.style.width = pct + '%';
-        fill.classList.remove('warning', 'danger');
-        if (pct > 90) fill.classList.add('danger');
-        else if (pct > 75) fill.classList.add('warning');
-    }
-
-    function renderConstraints() {
-        const active = getActiveSquad();
-        const squadSize = active.length;
-        const overseasCount = active.filter(p => p.overseas).length;
-        const spent = getTotalSpent();
-        const slotsAvailable = MAX_SQUAD - squadSize;
-
-        // Squad size
-        const sizeEl = document.getElementById('constraintSquadSize');
-        sizeEl.textContent = squadSize;
-        sizeEl.className = 'constraint-value';
-        if (squadSize < MIN_SQUAD) sizeEl.classList.add('warn');
-        else if (squadSize > MAX_SQUAD) sizeEl.classList.add('error');
-        else sizeEl.classList.add('ok');
-
-        // Overseas
-        const osEl = document.getElementById('constraintOverseas');
-        osEl.textContent = overseasCount;
-        osEl.className = 'constraint-value';
-        if (overseasCount > MAX_OVERSEAS) osEl.classList.add('error');
-        else if (overseasCount === MAX_OVERSEAS) osEl.classList.add('warn');
-        else osEl.classList.add('ok');
-
-        // Spent
-        const spentEl = document.getElementById('constraintSpent');
-        spentEl.textContent = spent.toFixed(1) + ' Cr';
-        spentEl.className = 'constraint-value';
-        if (spent > PURSE_CAP) spentEl.classList.add('error');
-        else if (spent > PURSE_CAP * 0.9) spentEl.classList.add('warn');
-        else spentEl.classList.add('ok');
-
-        // Slots
-        const slotsEl = document.getElementById('constraintSlots');
-        slotsEl.textContent = slotsAvailable;
-        slotsEl.className = 'constraint-value';
-        if (slotsAvailable <= 0) slotsEl.classList.add('error');
-        else if (slotsAvailable <= 3) slotsEl.classList.add('warn');
-        else slotsEl.classList.add('ok');
-    }
-
-    function renderComposition() {
-        const active = getActiveSquad();
-        const counts = { Batter: 0, Bowler: 0, 'All-rounder': 0, Wicketkeeper: 0 };
-        active.forEach(p => {
-            if (counts.hasOwnProperty(p.role)) counts[p.role]++;
-        });
-
-        const container = document.getElementById('compSummary');
-        const roleColors = {
-            Batter: 'var(--accent)',
-            Bowler: 'var(--accent-green)',
-            'All-rounder': 'var(--accent-purple)',
-            Wicketkeeper: 'var(--accent-yellow)'
-        };
-
-        let html = '';
-        Object.entries(counts).forEach(([role, count]) => {
-            html += `<div class="comp-item">
-                <span class="comp-item-count" style="color:${roleColors[role]}">${count}</span>
-                <span class="comp-item-label">${role}${count !== 1 ? 's' : ''}</span>
-            </div>`;
-        });
-        container.innerHTML = html;
-    }
-
-    function renderSimSquadTable() {
-        const tbody = document.getElementById('simSquadBody');
-        let html = '';
-
-        // Sort: active first, then released; within each group sort by price desc
-        const sorted = [...simSquad].sort((a, b) => {
-            if (a.released !== b.released) return a.released ? 1 : -1;
-            return (b.price || 0) - (a.price || 0);
-        });
-
-        sorted.forEach((p, idx) => {
-            const roleClass = getRoleCSSClass(p.role);
-            const roleIcon = getRoleIcon(p.role);
-            const rowClass = p.released ? 'released-row' : '';
-            const nat = p.overseas ? `<span class="overseas-badge">OS</span> ${p.nationality}` : p.nationality || 'IND';
-            const predictedXII = p.predictedXII
-                ? '<span class="predicted-check" title="Predicted XII">&#10003;</span>'
-                : '<span style="color:var(--text-tertiary)">--</span>';
-
-            let actionBtn = '';
-            if (p.released) {
-                actionBtn = `<button class="restore-btn" onclick="restorePlayer('${escapeStr(p.name)}')" title="Restore to squad">Restore</button>`;
-            } else if (p._added) {
-                actionBtn = `<button class="release-btn" onclick="removeAddedPlayer('${escapeStr(p.name)}')" title="Remove from squad">Remove</button>`;
-            } else {
-                actionBtn = `<button class="release-btn" onclick="releasePlayer('${escapeStr(p.name)}')" title="Release from squad">Release</button>`;
-            }
-
-            html += `<tr class="${rowClass}">
-                <td class="col-rank">${idx + 1}</td>
-                <td class="col-player">${p.name}${p.isCaptain ? '<span class="captain-badge">C</span>' : ''}</td>
-                <td><span class="role-badge ${roleClass}">${roleIcon} ${p.role}</span></td>
-                <td class="col-numeric price-cell">${(p.price || 0).toFixed(2)}</td>
-                <td>${nat}</td>
-                <td style="text-align:center">${predictedXII}</td>
-                <td style="text-align:center">${actionBtn}</td>
-            </tr>`;
-        });
-        tbody.innerHTML = html;
-    }
-
-    function releasePlayer(name) {
-        const player = simSquad.find(p => p.name === name && !p.released);
-        if (player) {
-            player.released = true;
-            simReleasedNames.push(name);
-            renderSimulator();
-        }
-    }
-
-    function restorePlayer(name) {
-        const player = simSquad.find(p => p.name === name && p.released);
-        if (player) {
-            player.released = false;
-            simReleasedNames = simReleasedNames.filter(n => n !== name);
-            renderSimulator();
-        }
-    }
-
-    function removeAddedPlayer(name) {
-        simSquad = simSquad.filter(p => !(p.name === name && p._added));
-        simAddedPlayers = simAddedPlayers.filter(n => n !== name);
-        renderSimulator();
-    }
-
-    function addPlayerToSquad(teamAbbrev, playerName) {
-        // Check constraints
-        const active = getActiveSquad();
-        if (active.length >= MAX_SQUAD) {
-            alert('Squad is at maximum capacity (' + MAX_SQUAD + ' players).');
-            return;
-        }
-
-        const sourceSquad = FULL_SQUADS[teamAbbrev];
-        if (!sourceSquad) return;
-        const player = sourceSquad.find(p => p.name === playerName);
-        if (!player) return;
-
-        if (player.overseas && active.filter(p => p.overseas).length >= MAX_OVERSEAS) {
-            alert('Cannot add: overseas limit reached (' + MAX_OVERSEAS + ' players).');
-            return;
-        }
-
-        const remaining = getRemaining();
-        if (player.price > remaining) {
-            alert('Insufficient purse. Remaining: ' + remaining.toFixed(2) + ' Cr, Player price: ' + player.price.toFixed(2) + ' Cr.');
-            return;
-        }
-
-        // Check if already in squad
-        if (simSquad.find(p => p.name === playerName && !p.released)) {
-            alert('Player is already in the squad.');
-            return;
-        }
-
-        const added = { ...player, teamAbbrev: teamAbbrev, _added: true, released: false };
-        simSquad.push(added);
-        simAddedPlayers.push(playerName);
-        renderSimulator();
-    }
-
-    function resetSimulation() {
-        if (!simTeam) return;
-        simReleasedNames = [];
-        simAddedPlayers = [];
-        simSquad = originalSquad.map(p => ({ ...p, released: false }));
-        renderSimulator();
-    }
-
-    // Available players for adding
-    function filterAvailablePlayers() {
-        if (!simTeam) return;
-
-        const search = document.getElementById('addPlayerSearch').value.toLowerCase().trim();
-        const teamFilter = document.getElementById('addPlayerTeamFilter').value;
-        const roleFilter = document.getElementById('addPlayerRoleFilter').value;
-
-        const container = document.getElementById('availablePlayersList');
-        const activeNames = getActiveSquad().map(p => p.name);
-
-        let available = [];
-        TEAM_ORDER.forEach(abbrev => {
-            if (abbrev === simTeam) return; // skip current team
-            if (teamFilter && abbrev !== teamFilter) return;
-
-            const squad = FULL_SQUADS[abbrev];
-            if (!squad) return;
-            squad.forEach(p => {
-                if (roleFilter && p.role !== roleFilter) return;
-                if (search && !p.name.toLowerCase().includes(search)) return;
-                if (activeNames.includes(p.name)) return; // already added
-                available.push({ ...p, teamAbbrev: abbrev });
-            });
-        });
-
-        // Sort by price desc
-        available.sort((a, b) => (b.price || 0) - (a.price || 0));
-
-        if (available.length === 0) {
-            container.innerHTML = '<div class="no-results">No available players match the filters.</div>';
-            return;
-        }
-
-        // Limit display to 50 for performance
-        const shown = available.slice(0, 50);
-        let html = '';
-        shown.forEach(p => {
-            const roleClass = getRoleCSSClass(p.role);
-            const roleIcon = getRoleIcon(p.role);
-            const overseas = p.overseas ? '<span class="overseas-badge">OS</span>' : '';
-            const remaining = getRemaining();
-            const canAfford = p.price <= remaining;
-            const active = getActiveSquad();
-            const overseasFull = p.overseas && active.filter(x => x.overseas).length >= MAX_OVERSEAS;
-            const squadFull = active.length >= MAX_SQUAD;
-            const disabled = !canAfford || overseasFull || squadFull;
-
-            html += `<div class="available-player-row">
-                <div class="available-player-info">
-                    <span class="team-abbrev" style="color:${getTeamColor(p.teamAbbrev)}">${p.teamAbbrev}</span>
-                    <span style="font-weight:600;font-size:var(--text-sm)">${p.name}</span>
-                    ${overseas}
-                    <span class="role-badge ${roleClass}" style="font-size:10px;padding:2px 6px;">${roleIcon} ${p.role}</span>
-                    <span class="price-cell" style="font-size:var(--text-xs);color:var(--text-secondary)">${p.price.toFixed(2)} Cr</span>
-                </div>
-                <button class="add-btn" onclick="addPlayerToSquad('${p.teamAbbrev}', '${escapeStr(p.name)}')" ${disabled ? 'disabled' : ''} title="${disabled ? 'Cannot add (constraint violation)' : 'Add to squad'}">Add</button>
-            </div>`;
-        });
-
-        if (available.length > 50) {
-            html += `<div class="no-results">Showing 50 of ${available.length} available players. Use search to narrow results.</div>`;
-        }
-
-        container.innerHTML = html;
-    }
+    // Auction Simulator: backlogged for trade season release
 
     // ==================== UTILITIES ====================
     function escapeStr(str) {

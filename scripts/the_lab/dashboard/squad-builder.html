@@ -980,26 +980,46 @@
     // Estimate bowling workload as fraction of full 4-over quota (0.0-1.0)
     // Uses WPM and economy to infer how much a player actually bowls.
     // Full-time bowler: ~1.0+ WPM, economy 7-10 → workload 1.0
-    // Part-timer: ~0.3-0.7 WPM, economy < 12 → workload 0.3-0.7
-    // Barely bowls: economy 12+ or near-zero WPM → workload 0.05-0.15
+    // Estimates what fraction of the full 4-over quota a player actually bowls.
+    // Key insight: economy in the 7-12 range means real bowling spells, even if
+    // WPM is low (expensive bowlers take fewer wickets per over, not fewer overs).
+    // Extreme economy (12+) signals tiny sample = barely bowls.
     function getBowlingWorkload(p) {
         const matches = p.iplMatches || 0;
         if (matches === 0) return 0;
         const wpm = (p.iplWickets || 0) / matches;
         const econ = p.iplEconomy || 0;
 
-        // Extreme economy = barely bowls (tiny overs sample inflates economy)
+        // Extreme economy = barely bowls (tiny overs inflate economy)
         if (econ > 15) return 0.05;
         if (econ > 12) return 0.15;
 
-        // WPM-based workload (1.0 WPM ≈ full-time bowler baseline)
-        let workload = Math.min(1.0, wpm / 1.0);
+        // Economy 7-12 = bowling real spells (3-4 overs)
+        // Even expensive bowlers (econ 10+) bowl proper spells — they just leak runs
+        // WPM alone undervalues them because wickets ≠ overs bowled
+        if (econ > 0 && econ <= 12) {
+            // Estimate overs bowled from economy bracket
+            // econ 7-9: likely bowling full 4 overs → workload 0.9-1.0
+            // econ 9-11: likely bowling 3-4 overs → workload 0.8-0.9
+            // econ 11-12: likely bowling 2-3 overs → workload 0.5-0.7
+            let econWorkload;
+            if (econ <= 9) econWorkload = 0.95;
+            else if (econ <= 10.5) econWorkload = 0.85;
+            else econWorkload = 0.6;
 
-        // Reasonable economy (< 11) with low WPM suggests they do bowl some overs
-        // but just don't take many wickets — give partial credit
-        if (econ > 0 && econ < 11 && workload < 0.4) workload = Math.max(workload, 0.35);
+            // WPM cross-check: very low WPM with borderline economy suggests
+            // inconsistent bowling (bowls some games, skips others)
+            // Blend econ-based and WPM-based estimates for accuracy
+            const wpmWorkload = Math.min(1.0, wpm / 1.0);
 
-        return workload;
+            // If WPM confirms regular bowling (0.6+), trust the economy estimate
+            // If WPM is low (< 0.6), blend the two — player bowls but not every game
+            if (wpm >= 0.6) return Math.max(econWorkload, wpmWorkload);
+            return (econWorkload * 0.6) + (wpmWorkload * 0.4);
+        }
+
+        // No economy data — fall back to WPM only
+        return Math.min(1.0, wpm / 1.0);
     }
 
     function calcStatsScore(p) {

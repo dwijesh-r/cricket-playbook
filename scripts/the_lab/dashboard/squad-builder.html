@@ -980,6 +980,31 @@
         'Holding Spinner': 7, 'Expensive Option': 3
     };
 
+    // Estimate bowling workload as fraction of full 4-over quota (0.0-1.0)
+    // Uses WPM and economy to infer how much a player actually bowls.
+    // Full-time bowler: ~1.0+ WPM, economy 7-10 → workload 1.0
+    // Part-timer: ~0.3-0.7 WPM, economy < 12 → workload 0.3-0.7
+    // Barely bowls: economy 12+ or near-zero WPM → workload 0.05-0.15
+    function getBowlingWorkload(p) {
+        const matches = p.iplMatches || 0;
+        if (matches === 0) return 0;
+        const wpm = (p.iplWickets || 0) / matches;
+        const econ = p.iplEconomy || 0;
+
+        // Extreme economy = barely bowls (tiny overs sample inflates economy)
+        if (econ > 15) return 0.05;
+        if (econ > 12) return 0.15;
+
+        // WPM-based workload (1.0 WPM ≈ full-time bowler baseline)
+        let workload = Math.min(1.0, wpm / 1.0);
+
+        // Reasonable economy (< 11) with low WPM suggests they do bowl some overs
+        // but just don't take many wickets — give partial credit
+        if (econ > 0 && econ < 11 && workload < 0.4) workload = Math.max(workload, 0.35);
+
+        return workload;
+    }
+
     function calcStatsScore(p) {
         // Dream11-style FPPM estimation from available IPL stats, normalized to 0-45
         const matches = p.iplMatches || 0;
@@ -1011,24 +1036,35 @@
             else if (sr > 0 && sr < 110) fppm -= 2;
         }
 
-        // ── Bowling (Dream11: +25/wicket, +8 bowled/lbw, multi-W bonus, econ bonus) ──
+        // ── Bowling (scaled by bowling workload) ──
+        // Raw bowling FPPM calculated then multiplied by workload fraction
+        // A part-timer who bowls 2/4 overs gets ~50% of full bowling credit
         if (wkts > 0 || econ > 0) {
             const wpm = wkts / matches;
-            fppm += wpm * 25; // wickets
-            fppm += wpm * 0.4 * 8; // bowled/lbw bonus (~40% of dismissals)
-            if (wpm >= 2.0) fppm += 8 * 0.25 + 4 * 0.40;
-            else if (wpm >= 1.5) fppm += 8 * 0.10 + 4 * 0.30;
-            else if (wpm >= 1.0) fppm += 4 * 0.20;
-            if (econ > 0 && econ < 7.0) fppm += 6;
-            else if (econ > 0 && econ < 8.0) fppm += 4;
-            else if (econ > 0 && econ < 9.0) fppm += 2;
-            else if (econ > 11.0) fppm -= 4;
-            else if (econ > 10.0) fppm -= 2;
+            const workload = getBowlingWorkload(p);
+
+            let bowlFppm = 0;
+            bowlFppm += wpm * 25; // +25/wicket
+            bowlFppm += wpm * 0.4 * 8; // bowled/lbw bonus (~40% of dismissals)
+            if (wpm >= 2.0) bowlFppm += 8 * 0.25 + 4 * 0.40;
+            else if (wpm >= 1.5) bowlFppm += 8 * 0.10 + 4 * 0.30;
+            else if (wpm >= 1.0) bowlFppm += 4 * 0.20;
+            // Economy bonus/penalty (only meaningful if bowling real overs)
+            if (workload >= 0.5) {
+                if (econ > 0 && econ < 7.0) bowlFppm += 6;
+                else if (econ > 0 && econ < 8.0) bowlFppm += 4;
+                else if (econ > 0 && econ < 9.0) bowlFppm += 2;
+                else if (econ > 11.0) bowlFppm -= 4;
+                else if (econ > 10.0) bowlFppm -= 2;
+            }
+
+            fppm += bowlFppm * workload;
         }
 
         // ── Role bonuses ──
         if (p.role === 'Wicketkeeper') fppm += 4; // fielding pts
-        if (p.role === 'All-rounder' && runs > 0 && wkts > 0) fppm += 3;
+        // AR dual bonus only if meaningfully bowling (workload > 0.3)
+        if (p.role === 'All-rounder' && runs > 0 && wkts > 0 && getBowlingWorkload(p) > 0.3) fppm += 3;
 
         // Normalize: top FPPM ~80-90 → maps to 45. Using divisor of 2.0.
         return Math.min(45, Math.max(0, fppm / 2.0));

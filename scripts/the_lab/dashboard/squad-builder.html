@@ -850,7 +850,7 @@
         <section class="hero">
             <div class="hero-badge">Fantasy Prep Tool</div>
             <h1 class="hero-title">Fantasy</h1>
-            <p class="hero-subtitle">Fantasy Value (FV) blends Dream11-style scoring from recent IPL stats with career profile signals — player class, performance tags, franchise valuation, and predicted XI status. Auction ceiling estimates max bid for your friend group draft.</p>
+            <p class="hero-subtitle">Fantasy Value (FV) blends Dream11-style scoring with career profile, batting position, matchup signals, and franchise valuation. Price Range estimates ideal bid window for your friend group draft. IPL stats (SR, economy) are from 2023–2025 seasons.</p>
         </section>
 
         <!-- Tab Pills -->
@@ -967,7 +967,8 @@
     // Stats data covers ~3 recent IPL seasons, so career-level signals (batterClass,
     // bowlerClass, tags, price) fill the gap for broader career context.
     //
-    // Fantasy Value (0-100) = Stats Score (45%) + Career Profile (35%) + Market Signal (20%)
+    // Fantasy Value (0-100) = Stats Score (45) + Career Profile (35) + Market Signal (22)
+    // Slight overflow above 100 is possible for absolute elite — capped in practice
 
     // ── Career class tier mappings ──
     const BATTER_CLASS_TIER = {
@@ -1098,30 +1099,46 @@
     }
 
     function calcMarketScore(p) {
-        // Market signal from price, predicted XII, captain, founderPos → 0-20
+        // Market signal: price, predicted XII, position/usage, venue matchups → 0-20
         let score = 0;
 
-        // Price tier (0-10): franchise investment reflects career-wide valuation
+        // Price tier (0-8): franchise investment reflects career-wide valuation
         const price = p.price || 0;
-        if (price >= 20) score += 10;
-        else if (price >= 16) score += 9;
-        else if (price >= 12) score += 8;
-        else if (price >= 8) score += 6.5;
-        else if (price >= 5) score += 5;
-        else if (price >= 3) score += 3.5;
-        else if (price >= 1.5) score += 2;
-        else if (price >= 0.5) score += 1;
+        if (price >= 20) score += 8;
+        else if (price >= 16) score += 7;
+        else if (price >= 12) score += 6;
+        else if (price >= 8) score += 5;
+        else if (price >= 5) score += 4;
+        else if (price >= 3) score += 2.5;
+        else if (price >= 1.5) score += 1.5;
+        else if (price >= 0.5) score += 0.5;
 
-        // Predicted XII: will actually play (critical for fantasy) (+5)
-        if (p.predictedXII) score += 5;
+        // Predicted XII: will actually play — critical for fantasy (+4)
+        if (p.predictedXII) score += 4;
 
-        // Captain: leadership + C/VC multiplier option (+3)
-        if (p.isCaptain) score += 3;
+        // Captain: C/VC multiplier option in fantasy (+2)
+        if (p.isCaptain) score += 2;
 
-        // founderPos: batting order 1-4 or key bowler position = premium fantasy slot (+2)
-        if (p.founderPos && p.founderPos <= 4) score += 2;
+        // Batting position / usage role (+0-4)
+        // Top-order (pos 1-3): face most balls, most opportunity for runs & milestones
+        // Middle-order finishers (pos 4-6): high-impact but fewer balls
+        // Key bowlers (pos 9-11): bowl full 4 overs = more wicket chances
+        const pos = p.founderPos;
+        if (pos) {
+            if (pos <= 3) score += 4;       // opener/top-order: most fantasy opportunity
+            else if (pos <= 6) score += 2.5; // middle-order: high SR impact
+            else if (pos >= 9) score += 2;   // frontline bowler: full bowling quota
+            else score += 1;                 // pos 7-8: floating role
+        }
 
-        return Math.min(20, score);
+        // Venue matchup signal from tags (home advantage, surface specialization)
+        const allTags = [...(p.batterTags || []), ...(p.bowlerTags || [])];
+        // Spin specialists benefit at spin-friendly venues (most Indian grounds)
+        if (allTags.some(t => t.includes('SPIN_SPECIALIST') || t.includes('MID_OVERS_ELITE'))) score += 1;
+        // Pace specialists benefit at pace-friendly venues (Wankhede, Chinnaswamy)
+        if (allTags.some(t => t.includes('PACE_SPECIALIST') || t.includes('PP_ELITE'))) score += 1;
+
+        return Math.min(22, score);
     }
 
     function calcFantasyValue(p) {

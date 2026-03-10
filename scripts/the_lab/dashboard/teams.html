@@ -714,55 +714,68 @@
         .panel { display: none; overflow-x: hidden; }
         .panel.active { display: block; }
 
-        /* Predicted XI Panel */
+        /* Predicted XI Panel - Clean List Format */
         .xi-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: var(--space-3);
+            display: flex;
+            flex-direction: column;
+            gap: 0;
         }
         .player-card {
             background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: var(--space-3);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 16px;
             display: flex;
             align-items: center;
             gap: var(--space-3);
-            transition: all var(--transition-slow);
+            transition: background var(--transition-normal);
+        }
+        .player-card:first-child {
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        }
+        .player-card:last-child {
+            border-bottom: none;
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
         }
         .player-card:hover {
-            border-color: var(--accent);
-            transform: translateX(4px);
+            background: var(--glass);
         }
         .player-position {
-            width: 40px;
-            height: 40px;
-            background: var(--accent);
-            border-radius: var(--radius-lg);
+            width: 28px;
+            height: 28px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            font-size: 12px;
             font-weight: 700;
-            color: white;
+            color: var(--text-secondary);
+            flex-shrink: 0;
         }
-        .player-info { flex: 1; }
+        .player-info { flex: 1; min-width: 0; }
         .player-name {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
-            margin-bottom: var(--space-1);
+            margin-bottom: 0;
         }
         .player-role {
             font-size: 12px;
             color: var(--text-tertiary);
+            display: inline;
         }
         .player-meta {
             text-align: right;
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            flex-shrink: 0;
         }
         .player-price {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
-            color: var(--accent-green);
+            color: var(--accent);
+            font-family: var(--font-mono);
         }
         .player-overseas {
             font-size: var(--text-xs);
@@ -801,75 +814,56 @@
             font-weight: 600;
         }
 
-        /* Phase Coverage Cards */
+        /* Phase Coverage Cards - Clean Tabular Style (matching Strategy Outlook) */
         .phase-coverage-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-3);
+            gap: 1px;
+            background: var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border);
         }
         .phase-card {
-            background: linear-gradient(135deg, var(--bg-elevated) 0%, rgba(10, 132, 255, 0.04) 100%);
-            border-radius: var(--radius-lg);
-            padding: var(--space-3);
-            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            padding: 16px;
             position: relative;
-            overflow: hidden;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+            transition: background var(--transition-normal);
         }
         .phase-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-        }
-        .phase-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-        }
-        .phase-card.strong::before { background: var(--accent-green); }
-        .phase-card.adequate::before { background: var(--accent-yellow); }
-        .phase-card.thin::before { background: var(--accent-red); }
-        .phase-card.thin {
-            animation: pulse-border 2s ease-in-out infinite;
-        }
-        @keyframes pulse-border {
-            0%, 100% { border-color: var(--border); }
-            50% { border-color: var(--accent-red); }
-        }
-        .phase-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: var(--space-2);
+            background: var(--glass);
         }
         .phase-card-label {
-            font-size: var(--text-xs);
+            font-size: 10px;
             text-transform: uppercase;
             font-weight: 700;
+            letter-spacing: 0.8px;
             color: var(--text-tertiary);
+            margin-bottom: 8px;
         }
         .phase-card-count {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 800;
+            font-family: var(--font-mono);
+            line-height: 1;
         }
         .phase-card-count.strong { color: var(--accent-green); }
         .phase-card-count.adequate { color: var(--accent-yellow); }
         .phase-card-count.thin { color: var(--accent-red); }
         .phase-card-status {
-            font-size: var(--text-xs);
-            font-weight: 600;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
         }
         .phase-card-status.strong { color: var(--accent-green); }
         .phase-card-status.adequate { color: var(--accent-yellow); }
         .phase-card-status.thin { color: var(--accent-red); }
         .phase-card-names {
-            font-size: var(--text-xs);
+            font-size: 11px;
             color: var(--text-tertiary);
-            margin-top: var(--space-1);
+            margin-top: 8px;
             line-height: 1.4;
         }
 
@@ -1344,30 +1338,31 @@
             width: 100%;
             min-width: 500px;
             border-collapse: collapse;
-            font-family: var(--font-mono);
+            font-family: var(--font-body);
             font-size: var(--text-sm);
         }
         .depth-matrix thead th {
             font-family: var(--font-body);
-            font-size: var(--text-xs);
-            font-weight: 600;
+            font-size: 10px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
             color: var(--text-tertiary);
-            padding: var(--space-2) var(--space-3);
+            padding: 10px var(--space-3);
             text-align: left;
-            border-bottom: 2px solid var(--border);
+            border-bottom: 2px solid var(--accent);
             white-space: nowrap;
+            background: var(--bg-tertiary);
         }
-        .depth-matrix tbody tr {
+        .depth-matrix tbody tr.depth-row {
             cursor: pointer;
             transition: background var(--transition-fast);
         }
-        .depth-matrix tbody tr:hover {
-            background: rgba(0, 240, 255, 0.04);
+        .depth-matrix tbody tr.depth-row:hover {
+            background: rgba(59, 130, 246, 0.04);
         }
         .depth-matrix td {
-            padding: var(--space-3);
+            padding: 10px var(--space-3);
             border-bottom: 1px solid var(--border);
             vertical-align: middle;
         }
@@ -1461,8 +1456,10 @@
             border-bottom: 1px solid var(--border);
         }
         .depth-detail-inner {
-            padding: var(--space-3);
-            background: var(--bg-elevated);
+            padding: 14px 16px;
+            background: rgba(30, 41, 59, 0.5);
+            border-left: 2px solid var(--accent);
+            margin-left: 12px;
             font-family: var(--font-body);
             font-size: var(--text-xs);
             line-height: 1.6;
@@ -1532,20 +1529,35 @@
         }
         .squad-stats {
             display: flex;
-            gap: var(--space-4);
+            gap: var(--space-2);
+            flex-wrap: wrap;
         }
         .squad-stat {
             text-align: center;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 12px 20px;
+            min-width: 90px;
+            transition: border-color var(--transition-normal), transform var(--transition-normal);
+        }
+        .squad-stat:hover {
+            border-color: var(--accent);
+            transform: translateY(-1px);
         }
         .squad-stat-value {
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 22px;
+            font-weight: 800;
             color: var(--accent);
+            font-family: var(--font-mono);
+            letter-spacing: -0.5px;
         }
         .squad-stat-label {
-            font-size: var(--text-xs);
+            font-size: 10px;
             color: var(--text-tertiary);
             text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
         }
 
         /* Phil Steele Roster Table */
@@ -1620,12 +1632,17 @@
 
         /* Role Badge */
         .role-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
             padding: var(--space-1) 10px;
             border-radius: var(--radius-md);
             font-size: var(--text-xs);
             font-weight: 600;
             text-transform: uppercase;
+        }
+        .role-badge svg {
+            flex-shrink: 0;
         }
         .role-batter { background: rgba(48, 209, 88, 0.15); color: var(--accent-green); }
         .role-bowler { background: rgba(255, 69, 58, 0.15); color: var(--accent-red); }
@@ -1946,41 +1963,88 @@
         }
 
         /* Compare Mode */
-        .compare-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-4);
-        }
-        .compare-team {
+        /* Unified Compare Layout */
+        .compare-unified {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: var(--radius-xl);
-            padding: var(--space-4);
+            overflow: hidden;
         }
-        .compare-team-header {
+        .compare-header-row {
             display: flex;
             align-items: center;
-            gap: var(--space-3);
-            margin-bottom: var(--space-3);
-            padding-bottom: var(--space-3);
-            border-bottom: 1px solid var(--border);
+            gap: 0;
+        }
+        .compare-header-team {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-3) var(--space-4);
+            background: var(--bg-tertiary);
+        }
+        .compare-header-vs {
+            padding: 0 var(--space-3);
+            font-weight: 800;
+            font-size: 14px;
+            color: var(--text-tertiary);
+            background: var(--bg-tertiary);
         }
         .compare-team-icon {
-            font-size: 32px;
+            font-size: 24px;
+            flex-shrink: 0;
         }
         .compare-team-name {
-            font-size: 18px;
+            font-size: 15px;
             font-weight: 700;
         }
-        .compare-team select {
-            margin-left: auto;
-            padding: var(--space-2) 12px;
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--border);
-            background: var(--bg-elevated);
-            color: var(--text-primary);
-            font-family: inherit;
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
         }
+        .compare-table thead th {
+            padding: 10px var(--space-3);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--border);
+        }
+        .compare-table thead th:first-child,
+        .compare-table thead th:last-child {
+            width: 30%;
+            text-align: center;
+        }
+        .compare-table thead th:nth-child(2) {
+            width: 40%;
+            text-align: center;
+            color: var(--text-tertiary);
+        }
+        .compare-table tbody td {
+            padding: 10px var(--space-3);
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            transition: background var(--transition-normal);
+        }
+        .compare-table tbody tr:hover td {
+            background: var(--glass);
+        }
+        .compare-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .compare-metric-label {
+            font-family: var(--font-body) !important;
+            font-weight: 600 !important;
+            font-size: 12px !important;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .compare-table .better { color: var(--accent-green); }
+        .compare-table .worse { color: var(--accent-red); opacity: 0.7; }
         .compare-stats {
             display: flex;
             flex-direction: column;
@@ -2550,8 +2614,9 @@
         }
         .nav-guide-text h4 { font-size: 14px; font-weight: 600; margin-bottom: var(--space-1); }
         .nav-guide-text p { font-size: 12px; color: var(--text-secondary); line-height: 1.4; }
-        .nav-guide-start { border: 2px solid var(--accent-green); }
-        .nav-guide-start .nav-guide-icon { background: rgba(48, 209, 88, 0.2); }
+        .nav-guide-start { border: 1px solid rgba(59, 130, 246, 0.3); background: rgba(59, 130, 246, 0.06); }
+        .nav-guide-start .nav-guide-icon { background: rgba(59, 130, 246, 0.15); color: var(--accent); }
+        .nav-guide-start .nav-guide-text h4 { color: var(--accent); }
         .nav-guide-close {
             position: absolute;
             top: 16px;
@@ -3098,11 +3163,16 @@
         .preview-hero-intro {
             font-size: 1.05rem;
             color: var(--text-secondary);
-            line-height: 1.75;
+            line-height: 1.85;
             text-align: justify;
             text-justify: inter-word;
             overflow-wrap: break-word;
             word-break: break-word;
+            font-family: 'DM Sans', var(--font-body);
+        }
+        .preview-hero-intro::first-line {
+            color: var(--text-primary);
+            font-weight: 600;
         }
         .preview-hero-meta {
             display: flex;
@@ -3146,34 +3216,53 @@
         }
         .preview-grade-card {
             text-align: center;
-            padding: var(--space-3) 20px;
+            padding: var(--space-3) 24px;
             border-radius: var(--radius-lg);
             flex: 1;
-            max-width: 140px;
+            max-width: 160px;
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            position: relative;
+            overflow: hidden;
         }
-        .preview-grade-card.projected {
+        .preview-grade-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+        .preview-grade-card.projected::before {
             background: var(--accent);
-            color: #fff;
         }
-        .preview-grade-card.ceiling {
+        .preview-grade-card.ceiling::before {
             background: var(--accent-green);
-            color: #000;
         }
-        .preview-grade-card.floor {
+        .preview-grade-card.floor::before {
             background: var(--accent-red);
-            color: #fff;
         }
         .preview-grade-label {
             font-size: 0.6rem;
             text-transform: uppercase;
             letter-spacing: 1.2px;
-            opacity: 0.85;
-            font-weight: 600;
+            color: var(--text-tertiary);
+            font-weight: 700;
         }
         .preview-grade-value {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-weight: 800;
             margin-top: var(--space-1);
+            color: var(--text-primary);
+        }
+        .preview-grade-card.projected .preview-grade-value {
+            color: var(--accent);
+        }
+        .preview-grade-card.ceiling .preview-grade-value {
+            color: var(--accent-green);
+        }
+        .preview-grade-card.floor .preview-grade-value {
+            color: var(--accent-red);
         }
 
         /* Key Stats Row */
@@ -4091,6 +4180,290 @@
     }
 }
 
+/* ==================== BUILD XI SCOUTING TOOL ==================== */
+.build-xi-container {
+    display: flex;
+    gap: 24px;
+    min-height: 520px;
+}
+.build-xi-pool {
+    flex: 1;
+    min-width: 0;
+}
+.build-xi-board {
+    width: 340px;
+    flex-shrink: 0;
+}
+.build-xi-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+.build-xi-header h3 {
+    font-size: var(--text-md);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+.build-xi-filters {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+.bxi-filter-btn {
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: var(--text-xs);
+    font-family: inherit;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+.bxi-filter-btn:hover { color: var(--text-primary); border-color: var(--text-tertiary); }
+.bxi-filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.build-xi-pool-list {
+    max-height: 480px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-right: 4px;
+}
+.pool-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: grab;
+    transition: var(--transition-fast);
+    user-select: none;
+}
+.pool-player:hover { border-color: var(--accent); background: var(--bg-tertiary); }
+.pool-player:active { cursor: grabbing; }
+.pool-player.placed { opacity: 0.3; pointer-events: none; }
+.pool-player-name {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.pool-player-role {
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    flex-shrink: 0;
+}
+.pool-player-role.bat { background: rgba(234, 179, 8, 0.15); color: #EAB308; }
+.pool-player-role.bowl { background: rgba(59, 130, 246, 0.15); color: #3B82F6; }
+.pool-player-role.ar { background: rgba(34, 197, 94, 0.15); color: #22C55E; }
+.pool-player-role.wk { background: rgba(168, 85, 247, 0.15); color: #A855F7; }
+.pool-player-price {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    font-family: var(--font-mono);
+    flex-shrink: 0;
+}
+.pool-player-overseas {
+    font-size: 10px;
+    padding: 1px 5px;
+    border-radius: var(--radius-full);
+    background: rgba(249, 115, 22, 0.15);
+    color: #F97316;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+.xi-slots {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.xi-slot {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 12px;
+    min-height: 44px;
+    background: var(--bg-secondary);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-sm);
+    transition: var(--transition-fast);
+}
+.xi-slot .slot-num {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--text-tertiary);
+    width: 22px;
+    text-align: center;
+    flex-shrink: 0;
+}
+.xi-slot .slot-label {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    font-style: italic;
+}
+.xi-slot.drag-over {
+    border-color: var(--accent);
+    background: rgba(59, 130, 246, 0.08);
+    border-style: solid;
+}
+.xi-slot.filled {
+    border-style: solid;
+    border-color: var(--border);
+    cursor: pointer;
+}
+.xi-slot.filled:hover { border-color: var(--accent-red); background: rgba(239, 68, 68, 0.06); }
+.xi-slot.filled .slot-label { display: none; }
+.xi-slot .slot-player-name {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.xi-slot .slot-player-role {
+    font-size: 10px;
+    padding: 1px 5px;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    flex-shrink: 0;
+}
+.xi-slot-impact {
+    border-color: var(--accent-purple);
+    border-style: dashed;
+    background: rgba(168, 85, 247, 0.04);
+}
+.xi-slot-impact .slot-num { color: var(--accent-purple); }
+.build-xi-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+.bxi-action-btn {
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-size: var(--text-xs);
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+.bxi-action-btn:hover { color: var(--text-primary); border-color: var(--text-tertiary); }
+.bxi-action-btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.bxi-action-btn.primary:hover { opacity: 0.9; }
+.constraint-panel {
+    margin-top: 16px;
+    padding: 14px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+}
+.constraint-panel h4 {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 10px;
+}
+.constraint-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+}
+.constraint-status {
+    font-weight: 700;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+}
+.constraint-status.pass { background: rgba(34, 197, 94, 0.15); color: #22C55E; }
+.constraint-status.warn { background: rgba(234, 179, 8, 0.15); color: #EAB308; }
+.constraint-status.fail { background: rgba(239, 68, 68, 0.15); color: #EF4444; }
+.match-score {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: rgba(59, 130, 246, 0.06);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+.match-score-value {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    color: var(--accent);
+}
+.match-score-label {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+.bxi-analysis {
+    margin-top: 14px;
+    padding: 14px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+}
+.bxi-analysis h4 {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 10px;
+}
+.bxi-analysis-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 0;
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+}
+.bxi-analysis-row span:last-child { color: var(--text-primary); font-weight: 600; }
+.bxi-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 24px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    z-index: 9999;
+    animation: bxiFadeIn 0.3s ease;
+}
+@keyframes bxiFadeIn { from { opacity: 0; transform: translateX(-50%) translateY(10px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+@media (max-width: 768px) {
+    .build-xi-container { flex-direction: column; }
+    .build-xi-board { width: 100%; }
+    .build-xi-pool-list { max-height: 300px; }
+}
+
 </style>
 </head>
 <body>
@@ -4110,6 +4483,7 @@
             <a href="rankings.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Rankings</a>
             <a href="comparison.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Compare</a>
             <a href="head-to-head.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
+            <a href="squad-builder.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Squad Builder</a>
             <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
         </nav>
         <div class="sidebar-footer">
@@ -4129,6 +4503,7 @@
         <a href="rankings.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Rankings</a>
         <a href="comparison.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Compare</a>
         <a href="head-to-head.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
+        <a href="squad-builder.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Squad Builder</a>
         <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
     </div>
 
@@ -4159,6 +4534,7 @@
             <button class="content-tab" data-tab="balance">Strategy Outlook</button>
             <button class="content-tab" data-tab="pressure">Pressure</button>
             <button class="content-tab" data-tab="compare">Compare</button>
+            <button class="content-tab" data-tab="buildxi">Build XI</button>
         </div>
 
         <!-- Content Panels -->
@@ -4184,6 +4560,9 @@
             </div>
             <div class="panel" id="panel-compare">
                 <div id="compare-content"></div>
+            </div>
+            <div class="panel" id="panel-buildxi">
+                <div id="buildxi-content"></div>
             </div>
         </div>
 
@@ -4440,6 +4819,12 @@
             if (typeof FULL_SQUADS !== 'undefined' && FULL_SQUADS[currentTeam]) {
                 FULL_SQUADS[currentTeam].forEach(p => { squadNatLookup[p.name] = p.nationality; });
             }
+            // XI List Header
+            const xiHeader = document.createElement('div');
+            xiHeader.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:12px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-tertiary);border-bottom:2px solid var(--accent);background:var(--bg-tertiary);border-radius:var(--radius-lg) var(--radius-lg) 0 0;';
+            xiHeader.innerHTML = '<span style="width:28px;text-align:center;">#</span><span style="flex:1;padding-left:var(--space-3);">Player</span><span style="width:80px;text-align:right;">Price</span><span style="width:50px;text-align:center;">Nat</span>';
+            xiGrid.appendChild(xiHeader);
+
             predicted.xi.forEach(player => {
                 const nat = squadNatLookup[player.name] || (player.overseas ? 'OS' : 'IND');
                 const card = document.createElement('div');
@@ -4447,12 +4832,12 @@
                 card.innerHTML = `
                     <div class="player-position">${player.position}</div>
                     <div class="player-info">
-                        <div class="player-name player-clickable" onclick="openPlayerProfile('${player.name.replace(/'/g, "\\\\'")}')">${player.name}</div>
-                        <div class="player-role">${player.role} • ${player.batting}</div>
+                        <span class="player-name player-clickable" onclick="openPlayerProfile('${player.name.replace(/'/g, "\\\\'")}')">${player.name}</span>
+                        <span class="player-role" style="margin-left:8px;opacity:0.6;">  ${player.role} · ${player.batting}</span>
                     </div>
                     <div class="player-meta">
-                        <div class="player-price">₹${player.price} Cr</div>
-                        ${player.overseas ? `<div class="player-overseas">${getFlag(nat)} ${nat}</div>` : ''}
+                        <span class="player-price">₹${player.price}Cr</span>
+                        <span style="width:50px;text-align:center;font-size:12px;">${player.overseas ? getFlag(nat) : '🇮🇳'}</span>
                     </div>
                 `;
                 xiGrid.appendChild(card);
@@ -5038,12 +5423,18 @@
                     };
 
                     const detailContent = `
-                        <div class="detail-grid">
-                            <div><span style="color:var(--accent-green);">Strength:</span> ${pos.whatWorks}</div>
-                            <div><span style="color:var(--accent-orange);">Concern:</span> ${pos.whatDoesnt}</div>
+                        <div style="display: flex; gap: 12px; margin-bottom: 10px;">
+                            <div style="flex: 1; padding: 8px 12px; border-radius: var(--radius-sm); border-left: 2px solid var(--accent-green); background: rgba(34, 197, 94, 0.03);">
+                                <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-green); font-weight: 600; margin-bottom: 3px;">Strength</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">${pos.whatWorks}</div>
+                            </div>
+                            <div style="flex: 1; padding: 8px 12px; border-radius: var(--radius-sm); border-left: 2px solid var(--accent-orange); background: rgba(249, 115, 22, 0.03);">
+                                <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-orange); font-weight: 600; margin-bottom: 3px;">Concern</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">${pos.whatDoesnt}</div>
+                            </div>
                         </div>
-                        <div style="margin-top:var(--space-2); display:flex; gap:var(--space-3); flex-wrap:wrap;">
-                            ${pos.players.map(p => `<span style="font-size:var(--text-xs);"><strong>${p.name}</strong> ${p.score.toFixed(0)}% : ${p.rationale} (₹${p.price} Cr)</span>`).join(' | ')}
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            ${pos.players.map(p => `<div style="font-size: 11px; padding: 4px 10px; border-radius: var(--radius-sm); background: var(--bg-tertiary); border: 1px solid var(--border);"><strong style="color: var(--text-primary);">${p.name}</strong> <span style="color: var(--text-tertiary);">${p.score.toFixed(0)}%</span> <span style="color: var(--text-secondary);">${p.rationale}</span> <span style="color: var(--accent);">₹${p.price}Cr</span></div>`).join('')}
                         </div>
                     `;
 
@@ -5082,36 +5473,44 @@
                 const bowlingRows = buildRows(bowlingPositions, battingPositions.length, 'bowling');
 
                 const vulnerabilitiesHtml = fullDepth.vulnerabilities && fullDepth.vulnerabilities.length > 0 ?
-                    `<div class="depth-section" style="border: 1px dashed var(--accent-orange); background: rgba(255, 159, 10, 0.05); margin-bottom: 16px;">
-                        <div class="depth-header">
-                            <div class="depth-position">Key Vulnerabilities</div>
+                    `<div class="strategy-section" style="margin-bottom: 20px;">
+                        <div class="strategy-section-header" style="border-left-color: var(--accent-orange);">
+                            <div class="strategy-section-title" style="font-size: 13px;">Key Vulnerabilities</div>
+                            <span class="strategy-section-badge" style="background: rgba(249, 115, 22, 0.15); color: var(--accent-orange);">${fullDepth.vulnerabilities.length} Found</span>
                         </div>
-                        <ul style="margin: 0; padding-left: 20px; color: var(--text-secondary);">
-                            ${fullDepth.vulnerabilities.map(v => `<li style="margin: 6px 0; font-size: 13px;">${v}</li>`).join('')}
-                        </ul>
+                        <div style="display: flex; flex-direction: column; gap: 6px;">
+                            ${fullDepth.vulnerabilities.map(v => `<div style="font-size: 13px; color: var(--text-secondary); padding: 6px 0 6px 14px; border-left: 2px solid rgba(249, 115, 22, 0.2);">${v}</div>`).join('')}
+                        </div>
                     </div>` : '';
 
                 depthContent.innerHTML = `
-                    <div class="depth-section" style="background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-elevated) 100%); margin-bottom: 24px;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <div>
-                                <div style="font-size: 24px; font-weight: 800;">Full Depth Chart</div>
-                                <div style="color: var(--text-tertiary); font-size: 13px;">Click any row for details</div>
-                            </div>
-                            <div style="text-align: right;">
-                                <div style="font-size: 36px; font-weight: 800; color: var(--accent);">${fullDepth.overall}</div>
-                                <div style="font-size: 12px; color: var(--text-tertiary);">Overall Rating</div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border);">
+                        <div>
+                            <div style="font-size: 18px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em;">Depth Chart</div>
+                            <div style="color: var(--text-tertiary); font-size: 12px; margin-top: 4px;">Click any row for player details &amp; rationale</div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 28px; font-weight: 800; color: var(--accent); line-height: 1;">${fullDepth.overall}</div>
+                                <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary); margin-top: 2px;">Overall</div>
                             </div>
                         </div>
-                        <div style="display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap;">
-                            <div><span style="color: var(--accent-green);">Strongest:</span> ${fullDepth.strongest}</div>
-                            <div><span style="color: var(--accent-orange);">Weakest:</span> ${fullDepth.weakest}</div>
+                    </div>
+                    <div style="display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 140px; padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid rgba(34, 197, 94, 0.15); background: rgba(34, 197, 94, 0.04);">
+                            <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-green); font-weight: 600; margin-bottom: 4px;">Strongest</div>
+                            <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">${fullDepth.strongest}</div>
+                        </div>
+                        <div style="flex: 1; min-width: 140px; padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid rgba(249, 115, 22, 0.15); background: rgba(249, 115, 22, 0.04);">
+                            <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-orange); font-weight: 600; margin-bottom: 4px;">Weakest</div>
+                            <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">${fullDepth.weakest}</div>
                         </div>
                     </div>
                     ${vulnerabilitiesHtml}
 
-                    <div class="depth-section-label" style="display:flex; align-items:center; gap:8px; margin-bottom:8px; border-left: 3px solid var(--accent); padding-left:10px;">
-                        <span style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Batting Depth</span>
+                    <div class="strategy-section-header" style="margin-bottom: 10px;">
+                        <div class="strategy-section-title" style="font-size: 13px;">Batting Depth</div>
+                        <span class="strategy-section-badge" style="background: rgba(59, 130, 246, 0.15); color: var(--accent);">${battingPositions.length} Positions</span>
                     </div>
                     <div class="table-wrap" style="margin-bottom:24px;">
                         <table class="depth-matrix">
@@ -5130,9 +5529,10 @@
                         </table>
                     </div>
 
-                    <div class="depth-section-label" style="display:flex; align-items:center; gap:8px; margin-bottom:8px; border-left: 3px solid var(--accent-green); padding-left:10px;">
-                        <span style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Bowling Depth</span>
-                        <span style="font-size:12px; color:var(--text-tertiary); margin-left:auto;">${varietySummary}</span>
+                    <div class="strategy-section-header" style="margin-bottom: 10px; border-left-color: var(--accent-green);">
+                        <div class="strategy-section-title" style="font-size: 13px;">Bowling Depth</div>
+                        <span class="strategy-section-badge" style="background: rgba(34, 197, 94, 0.15); color: var(--accent-green);">${bowlingPositions.length} Positions</span>
+                        <span style="font-size: 11px; color: var(--text-tertiary); margin-left: auto;">${varietySummary}</span>
                     </div>
                     <div class="table-wrap">
                         <table class="depth-matrix">
@@ -5788,6 +6188,17 @@
                 return classes[role] || '';
             };
 
+            // Role icon SVGs
+            const getRoleIcon = (role) => {
+                const icons = {
+                    'Batter': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="20" x2="18" y2="4"/><line x1="15" y1="3" x2="20" y2="3"/></svg>',
+                    'Bowler': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="7" x2="12" y2="3"/></svg>',
+                    'All-rounder': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="20" x2="14" y2="6"/><circle cx="18" cy="8" r="4"/></svg>',
+                    'Wicketkeeper': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 14c0-3 2-5 5-5s5 2 5 5"/><path d="M5 17c0-4 3-7 7-7s7 3 7 7"/></svg>'
+                };
+                return icons[role] || '';
+            };
+
             // Price class
             const getPriceClass = (price) => {
                 if (price >= 10) return 'price-high';
@@ -5870,7 +6281,7 @@
                             <th scope="col" class="has-tooltip" data-tooltip="Player archetype from clustering analysis (e.g., Power Hitter, Anchor, Finisher)">Archetype</th>
                             <th scope="col" class="has-tooltip" data-tooltip="Phase specialization split by batting (BAT) and bowling (BWL): PP (1-6), MID (7-15), DTH (16-20)">Phase</th>
                             <th scope="col" class="has-tooltip" data-tooltip="Player's current age">Age</th>
-                            <th scope="col" class="has-tooltip" data-tooltip="IPL matches played (max of batting innings or bowling matches since 2023). U = uncapped">IPL</th>
+                            <th scope="col" class="has-tooltip" data-tooltip="IPL matches played (2023-2025 window). U = uncapped. Career totals coming soon.">IPL</th>
                             <th scope="col" class="has-tooltip" data-tooltip="Nationality: Indian or Overseas (max 4 overseas per XI)">Nat</th>
                         </tr>
                     </thead>
@@ -5941,7 +6352,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <span class="role-badge ${getRoleClass(player.role)}">${player.role.substring(0, 3).toUpperCase()}</span>
+                                    <span class="role-badge ${getRoleClass(player.role)}">${getRoleIcon(player.role)} ${player.role.substring(0, 3).toUpperCase()}</span>
                                 </td>
                                 <td class="compact-cell">
                                     <span class="hand-badge ${batHand === 'L' ? 'left-hand' : ''}">${batHand}</span>
@@ -6210,39 +6621,40 @@
             };
 
             compareContent.innerHTML = `
-                <div class="compare-container">
-                    <div class="compare-team" style="border-top: 4px solid ${team1.primaryColor};">
-                        <div class="compare-team-header">
+                <div class="compare-unified">
+                    <div class="compare-header-row">
+                        <div class="compare-header-team" style="border-top: 3px solid ${team1.primaryColor};">
                             <span class="compare-team-icon">${pixelLogo1}</span>
                             <span class="compare-team-name">${team1.fullName}</span>
                         </div>
-                        <div class="compare-stats">
-                            ${metrics.map(m => `
-                                <div class="compare-stat-row">
-                                    <span class="compare-stat-label has-tooltip" data-tooltip="${m.tooltip}">${m.label}</span>
-                                    <span class="compare-stat-value ${getCompareClass(m, true)}">${m.val1}</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                    <div class="compare-team" style="border-top: 4px solid ${team2.primaryColor};">
-                        <div class="compare-team-header">
+                        <div class="compare-header-vs">VS</div>
+                        <div class="compare-header-team" style="border-top: 3px solid ${team2.primaryColor};">
                             <span class="compare-team-icon">${pixelLogo2}</span>
                             <span class="compare-team-name">${team2.fullName}</span>
-                            <select onchange="updateCompareTeam(this.value)">${teamOptions}</select>
-                        </div>
-                        <div class="compare-stats">
-                            ${metrics.map(m => `
-                                <div class="compare-stat-row">
-                                    <span class="compare-stat-label has-tooltip" data-tooltip="${m.tooltip}">${m.label}</span>
-                                    <span class="compare-stat-value ${getCompareClass(m, false)}">${m.val2}</span>
-                                </div>
-                            `).join('')}
+                            <select onchange="updateCompareTeam(this.value)" style="margin-left:auto;padding:6px 10px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--bg-elevated);color:var(--text-primary);font-family:inherit;font-size:12px;">${teamOptions}</select>
                         </div>
                     </div>
+                    <table class="compare-table">
+                        <thead>
+                            <tr>
+                                <th style="color:${team1.primaryColor};">${currentTeam}</th>
+                                <th>Metric</th>
+                                <th style="color:${team2.primaryColor};">${compareTeam}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${metrics.map(m => `
+                                <tr>
+                                    <td class="${getCompareClass(m, true)}">${m.val1}</td>
+                                    <td class="compare-metric-label has-tooltip" data-tooltip="${m.tooltip}">${m.label}</td>
+                                    <td class="${getCompareClass(m, false)}">${m.val2}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
                 </div>
-                <p style="text-align: center; color: var(--text-tertiary); font-size: 13px; margin-top: 24px;">
-                    💡 Green indicates a better value, red indicates a lower value for comparative metrics.
+                <p style="text-align: center; color: var(--text-tertiary); font-size: 12px; margin-top: 16px;">
+                    Green = advantage | Comparative metrics only
                 </p>
             `;
         }
@@ -6281,23 +6693,31 @@
                 </div>
             </div>`;
 
-            // Verdict Card
+            // Verdict Card - editorial presentation with reasoning
+            const verdictReasoning = {
+                projected: data.verdict.projectedReason || 'Based on squad balance, recent form, and structural analysis',
+                ceiling: data.verdict.ceilingReason || 'If key players peak and structural risks don\'t materialise',
+                floor: data.verdict.floorReason || 'If injuries hit or tactical vulnerabilities are exploited'
+            };
             html += `<div class="preview-verdict">
-                <div class="preview-verdict-text">${data.verdict.text}</div>
                 <div class="preview-verdict-grades">
                     <div class="preview-grade-card projected">
                         <div class="preview-grade-label">Projected</div>
                         <div class="preview-grade-value">${data.verdict.projected}</div>
+                        <div style="font-size:0.65rem;color:var(--text-tertiary);margin-top:6px;line-height:1.4;">${verdictReasoning.projected}</div>
                     </div>
                     <div class="preview-grade-card ceiling">
                         <div class="preview-grade-label">Ceiling</div>
                         <div class="preview-grade-value">${data.verdict.ceiling}</div>
+                        <div style="font-size:0.65rem;color:var(--text-tertiary);margin-top:6px;line-height:1.4;">${verdictReasoning.ceiling}</div>
                     </div>
                     <div class="preview-grade-card floor">
                         <div class="preview-grade-label">Floor</div>
                         <div class="preview-grade-value">${data.verdict.floor}</div>
+                        <div style="font-size:0.65rem;color:var(--text-tertiary);margin-top:6px;line-height:1.4;">${verdictReasoning.floor}</div>
                     </div>
                 </div>
+                <div class="preview-verdict-text" style="margin-top:var(--space-4);">${data.verdict.text}</div>
             </div>`;
 
             // By The Numbers
@@ -6389,13 +6809,12 @@
                 </div>`;
             }
 
-            // Expand All Button
-            html += `<div class="preview-expand-all">
-                <button class="preview-expand-all-btn" onclick="toggleAllPreviewSections()">Expand All Sections ▼</button>
-            </div>`;
-
-            // Collapsible Sections
+            // Collapsible Sections (with Expand All button only if sections exist)
             if (data.sections && data.sections.length) {
+                // Expand All Button
+                html += `<div class="preview-expand-all">
+                    <button class="preview-expand-all-btn" onclick="toggleAllPreviewSections()">Expand All Sections ▼</button>
+                </div>`;
                 data.sections.forEach(sec => {
                     html += `<div class="preview-section" id="preview-sec-${sec.id}">
                         <div class="preview-section-header" onclick="this.parentElement.classList.toggle('open')">
@@ -6491,6 +6910,292 @@
             btn.textContent = allOpen ? 'Expand All Sections ▼' : 'Collapse All Sections ▲';
         }
 
+        // ==================== BUILD XI SCOUTING TOOL ====================
+        var buildXIState = { slots: new Array(12).fill(null), filter: 'all' };
+
+        function renderBuildXI() {
+            const container = document.getElementById('buildxi-content');
+            if (!container) return;
+            const squad = (typeof FULL_SQUADS !== 'undefined' && FULL_SQUADS[currentTeam]) ? FULL_SQUADS[currentTeam] : [];
+            const predicted = (typeof PREDICTED_XII !== 'undefined' && PREDICTED_XII[currentTeam]) ? PREDICTED_XII[currentTeam] : null;
+            if (!squad.length) {
+                container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-tertiary);">Squad data not available for this team.</div>';
+                return;
+            }
+            // Reset state on team change
+            if (buildXIState._team !== currentTeam) {
+                buildXIState.slots = new Array(12).fill(null);
+                buildXIState.filter = 'all';
+                buildXIState._team = currentTeam;
+            }
+
+            const placedNames = new Set(buildXIState.slots.filter(Boolean).map(p => p.name));
+            const roleMap = { 'Batter': 'bat', 'Bowler': 'bowl', 'All-rounder': 'ar', 'Wicketkeeper': 'wk' };
+            const roleLabel = { 'Batter': 'BAT', 'Bowler': 'BOWL', 'All-rounder': 'AR', 'Wicketkeeper': 'WK' };
+
+            let filteredPool = squad;
+            if (buildXIState.filter !== 'all') {
+                filteredPool = squad.filter(p => p.role === buildXIState.filter);
+            }
+
+            const filterBtns = [
+                { key: 'all', label: 'All' },
+                { key: 'Batter', label: 'Batters' },
+                { key: 'Bowler', label: 'Bowlers' },
+                { key: 'All-rounder', label: 'All-rounders' },
+                { key: 'Wicketkeeper', label: 'Keepers' }
+            ];
+
+            let poolHTML = filteredPool.map(p => {
+                const placed = placedNames.has(p.name);
+                const rc = roleMap[p.role] || 'bat';
+                const rl = roleLabel[p.role] || p.role.toUpperCase().substring(0, 3);
+                return `<div class="pool-player${placed ? ' placed' : ''}" draggable="${placed ? 'false' : 'true'}" data-player="${encodeURIComponent(p.name)}">
+                    <span class="pool-player-role ${rc}">${rl}</span>
+                    <span class="pool-player-name">${p.name}${p.isCaptain ? ' (C)' : ''}</span>
+                    ${p.overseas ? '<span class="pool-player-overseas">OS</span>' : ''}
+                    <span class="pool-player-price">${p.price}Cr</span>
+                </div>`;
+            }).join('');
+
+            let slotsHTML = '';
+            for (let i = 0; i < 12; i++) {
+                const isImpact = (i === 11);
+                const slotPlayer = buildXIState.slots[i];
+                const slotClass = isImpact ? ' xi-slot-impact' : '';
+                const filledClass = slotPlayer ? ' filled' : '';
+                const num = isImpact ? 'IP' : (i + 1);
+                const label = isImpact ? 'Impact Player' : 'Drop player here';
+                if (slotPlayer) {
+                    const rc = roleMap[slotPlayer.role] || 'bat';
+                    const rl = roleLabel[slotPlayer.role] || slotPlayer.role.toUpperCase().substring(0, 3);
+                    const roleStyle = rc === 'bat' ? 'background:rgba(234,179,8,0.15);color:#EAB308;' :
+                                      rc === 'bowl' ? 'background:rgba(59,130,246,0.15);color:#3B82F6;' :
+                                      rc === 'ar' ? 'background:rgba(34,197,94,0.15);color:#22C55E;' :
+                                      'background:rgba(168,85,247,0.15);color:#A855F7;';
+                    slotsHTML += `<div class="xi-slot${slotClass}${filledClass}" data-slot="${i}" onclick="bxiRemovePlayer(${i})">
+                        <span class="slot-num">${num}</span>
+                        <span class="slot-player-name">${slotPlayer.name}</span>
+                        <span class="slot-player-role" style="${roleStyle}">${rl}</span>
+                        ${slotPlayer.overseas ? '<span class="pool-player-overseas">OS</span>' : ''}
+                    </div>`;
+                } else {
+                    slotsHTML += `<div class="xi-slot${slotClass}" data-slot="${i}">
+                        <span class="slot-num">${num}</span>
+                        <span class="slot-label">${label}</span>
+                    </div>`;
+                }
+            }
+
+            // Constraints
+            const xi11 = buildXIState.slots.slice(0, 11).filter(Boolean);
+            const allPlaced = buildXIState.slots.filter(Boolean);
+            const overseasCount = allPlaced.filter(p => p.overseas).length;
+            const wkCount = xi11.filter(p => p.role === 'Wicketkeeper').length;
+            const bowlingOptions = xi11.filter(p => p.role === 'Bowler' || p.role === 'All-rounder').length;
+            const spinners = xi11.filter(p => {
+                const bt = (p.bowlingType || '').toLowerCase();
+                return bt.includes('spin') || bt.includes('orthodox') || bt === 'off-spin' || bt === 'leg-spin' || bt === 'wrist-spin';
+            }).length;
+
+            const overseasOk = overseasCount <= 4;
+            const wkOk = wkCount >= 1;
+            const bowlOk = bowlingOptions >= 5;
+            const spinOk = spinners >= 1;
+
+            // Match score
+            let matchCount = 0;
+            if (predicted && predicted.xi) {
+                const predNames = new Set(predicted.xi.map(p => p.name));
+                matchCount = xi11.filter(p => predNames.has(p.name)).length;
+            }
+            const matchPct = xi11.length > 0 ? Math.round((matchCount / 11) * 100) : 0;
+
+            // Auto-analysis when XI is complete
+            let analysisHTML = '';
+            if (xi11.length === 11) {
+                const osc = xi11.filter(p => p.overseas).length;
+                const batCount = xi11.filter(p => p.role === 'Batter' || p.role === 'Wicketkeeper').length;
+                const bowlCount = xi11.filter(p => p.role === 'Bowler').length;
+                const arCount = xi11.filter(p => p.role === 'All-rounder').length;
+                const top6 = xi11.slice(0, 6);
+                const leftHand = top6.filter(p => (p.battingHand || '').toLowerCase().includes('left')).length;
+                const rightHand = top6.length - leftHand;
+                analysisHTML = `
+                    <div class="bxi-analysis">
+                        <h4>Squad Analysis</h4>
+                        <div class="bxi-analysis-row"><span>Overseas</span><span>${osc} / 4 max</span></div>
+                        <div class="bxi-analysis-row"><span>Bat / Bowl / AR</span><span>${batCount} / ${bowlCount} / ${arCount}</span></div>
+                        <div class="bxi-analysis-row"><span>Top 6 L-R Balance</span><span>${leftHand}L - ${rightHand}R</span></div>
+                        <div class="bxi-analysis-row"><span>Bowling Options</span><span>${bowlingOptions}</span></div>
+                        <div class="bxi-analysis-row"><span>Spinners</span><span>${spinners}</span></div>
+                    </div>`;
+            }
+
+            container.innerHTML = `
+                <div class="build-xi-container">
+                    <div class="build-xi-pool">
+                        <div class="build-xi-header">
+                            <h3>Available Squad</h3>
+                            <span style="font-size:var(--text-xs);color:var(--text-tertiary);">${squad.length} players</span>
+                        </div>
+                        <div class="build-xi-filters">
+                            ${filterBtns.map(f => `<button class="bxi-filter-btn${buildXIState.filter === f.key ? ' active' : ''}" onclick="bxiSetFilter('${f.key}')">${f.label}</button>`).join('')}
+                        </div>
+                        <div class="build-xi-pool-list" id="bxi-pool">
+                            ${poolHTML}
+                        </div>
+                    </div>
+                    <div class="build-xi-board">
+                        <div class="build-xi-header">
+                            <h3>Your XI</h3>
+                            <span style="font-size:var(--text-xs);color:var(--text-tertiary);">${xi11.length}/11 selected</span>
+                        </div>
+                        <div class="xi-slots" id="bxi-slots">
+                            ${slotsHTML}
+                        </div>
+                        <div class="build-xi-actions">
+                            <button class="bxi-action-btn primary" onclick="bxiAutoFill()">Auto-fill Lab XI</button>
+                            <button class="bxi-action-btn" onclick="bxiClearAll()">Clear All</button>
+                            <button class="bxi-action-btn" onclick="bxiExport()">Export</button>
+                        </div>
+                        <div class="constraint-panel">
+                            <h4>Constraint Check</h4>
+                            <div class="constraint-row"><span>Overseas (max 4)</span><span class="constraint-status ${overseasOk ? 'pass' : 'fail'}">${overseasCount} / 4${overseasOk ? '' : ' -- VIOLATION'}</span></div>
+                            <div class="constraint-row"><span>Wicketkeeper (min 1)</span><span class="constraint-status ${wkOk ? 'pass' : (xi11.length > 0 ? 'warn' : 'pass')}">${wkCount}</span></div>
+                            <div class="constraint-row"><span>Bowling Options (min 5)</span><span class="constraint-status ${bowlOk ? 'pass' : (xi11.length >= 5 ? 'warn' : 'pass')}">${bowlingOptions}</span></div>
+                            <div class="constraint-row"><span>Spinner (min 1)</span><span class="constraint-status ${spinOk ? 'pass' : (xi11.length >= 5 ? 'warn' : 'pass')}">${spinners}</span></div>
+                        </div>
+                        <div class="match-score">
+                            <div class="match-score-value">${matchCount}/11</div>
+                            <div class="match-score-label">${matchPct}% match with Lab's Predicted XI</div>
+                        </div>
+                        ${analysisHTML}
+                    </div>
+                </div>
+            `;
+
+            // Attach drag-and-drop handlers
+            bxiAttachDragHandlers();
+        }
+
+        function bxiAttachDragHandlers() {
+            // Pool players: dragstart
+            document.querySelectorAll('#bxi-pool .pool-player:not(.placed)').forEach(el => {
+                el.addEventListener('dragstart', function(e) {
+                    e.dataTransfer.setData('text/plain', el.dataset.player);
+                    e.dataTransfer.effectAllowed = 'move';
+                    el.style.opacity = '0.5';
+                });
+                el.addEventListener('dragend', function() {
+                    el.style.opacity = '';
+                });
+            });
+
+            // Slots: dragover and drop
+            document.querySelectorAll('#bxi-slots .xi-slot:not(.filled)').forEach(el => {
+                el.addEventListener('dragover', function(e) {
+                    e.preventDefault();
+                    e.dataTransfer.dropEffect = 'move';
+                    el.classList.add('drag-over');
+                });
+                el.addEventListener('dragleave', function() {
+                    el.classList.remove('drag-over');
+                });
+                el.addEventListener('drop', function(e) {
+                    e.preventDefault();
+                    el.classList.remove('drag-over');
+                    const playerName = decodeURIComponent(e.dataTransfer.getData('text/plain'));
+                    const slotIdx = parseInt(el.dataset.slot);
+                    const squad = FULL_SQUADS[currentTeam] || [];
+                    const player = squad.find(p => p.name === playerName);
+                    if (player && !buildXIState.slots.includes(player)) {
+                        buildXIState.slots[slotIdx] = player;
+                        renderBuildXI();
+                    }
+                });
+            });
+        }
+
+        function bxiRemovePlayer(slotIdx) {
+            buildXIState.slots[slotIdx] = null;
+            renderBuildXI();
+        }
+
+        function bxiSetFilter(filter) {
+            buildXIState.filter = filter;
+            renderBuildXI();
+        }
+
+        function bxiAutoFill() {
+            const predicted = (typeof PREDICTED_XII !== 'undefined' && PREDICTED_XII[currentTeam]) ? PREDICTED_XII[currentTeam] : null;
+            const squad = (typeof FULL_SQUADS !== 'undefined' && FULL_SQUADS[currentTeam]) ? FULL_SQUADS[currentTeam] : [];
+            if (!predicted || !predicted.xi) return;
+
+            buildXIState.slots = new Array(12).fill(null);
+            predicted.xi.forEach((predPlayer, i) => {
+                if (i < 11) {
+                    const squadPlayer = squad.find(p => p.name === predPlayer.name);
+                    buildXIState.slots[i] = squadPlayer || predPlayer;
+                }
+            });
+            // Impact player
+            if (predicted.impactPlayer) {
+                const ipName = typeof predicted.impactPlayer === 'string' ? predicted.impactPlayer : predicted.impactPlayer.name;
+                if (ipName) {
+                    const ipPlayer = squad.find(p => p.name === ipName);
+                    if (ipPlayer) buildXIState.slots[11] = ipPlayer;
+                }
+            }
+            renderBuildXI();
+        }
+
+        function bxiClearAll() {
+            buildXIState.slots = new Array(12).fill(null);
+            renderBuildXI();
+        }
+
+        function bxiExport() {
+            const xi11 = buildXIState.slots.slice(0, 11).filter(Boolean);
+            const ip = buildXIState.slots[11];
+            if (xi11.length === 0) return;
+
+            const teamData = TEAMS[currentTeam];
+            const teamName = teamData ? teamData.fullName : currentTeam;
+            let text = `${teamName} -- Custom XI (via Statsledge Scouting Tool)\n`;
+            text += '─'.repeat(44) + '\n';
+            xi11.forEach((p, i) => {
+                const os = p.overseas ? ' [OS]' : '';
+                text += `${String(i + 1).padStart(2)}. ${p.name} (${p.role})${os}\n`;
+            });
+            if (ip) {
+                text += `\nImpact Player: ${ip.name} (${ip.role})${ip.overseas ? ' [OS]' : ''}\n`;
+            }
+            const overseasCount = buildXIState.slots.filter(Boolean).filter(p => p.overseas).length;
+            text += `\nOverseas: ${overseasCount}/4`;
+
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.createElement('div');
+                toast.className = 'bxi-toast';
+                toast.textContent = 'XI copied to clipboard';
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 2000);
+            }).catch(() => {
+                // Fallback: select text
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                ta.remove();
+                const toast = document.createElement('div');
+                toast.className = 'bxi-toast';
+                toast.textContent = 'XI copied to clipboard';
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 2000);
+            });
+        }
+
         // Tab switching
         document.querySelectorAll('.content-tab').forEach(tab => {
             tab.addEventListener('click', () => {
@@ -6506,6 +7211,9 @@
                 }
                 if (tabId === 'preview') {
                     renderPreviewPanel();
+                }
+                if (tabId === 'buildxi') {
+                    renderBuildXI();
                 }
             });
         });

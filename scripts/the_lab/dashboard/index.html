@@ -1465,11 +1465,16 @@
             line-height: 1.4;
         }
         .nav-guide-start {
-            background: linear-gradient(135deg, var(--accent-green) 0%, #28cd41 100%);
-            color: white;
+            background: rgba(59, 130, 246, 0.06);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: inherit;
         }
         .nav-guide-start .nav-guide-icon {
-            background: rgba(255,255,255,0.2);
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--accent);
+        }
+        .nav-guide-start .nav-guide-text h4 {
+            color: var(--accent);
         }
         .nav-guide-close {
             position: absolute;
@@ -1835,6 +1840,7 @@
             <a href="rankings.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Rankings</a>
             <a href="comparison.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Compare</a>
             <a href="head-to-head.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
+            <a href="squad-builder.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Squad Builder</a>
             <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
         </nav>
         <div class="sidebar-footer">
@@ -1860,6 +1866,7 @@
         <a href="rankings.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Rankings</a>
         <a href="comparison.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Compare</a>
         <a href="head-to-head.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
+        <a href="squad-builder.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Squad Builder</a>
         <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
     </div>
 
@@ -2028,6 +2035,11 @@
                     <div class="nav-card-icon">⚔️</div>
                     <h3>Head to Head</h3>
                     <p>Batter vs bowler matchup data: career, phase, and over-level splits.</p>
+                </a>
+                <a href="squad-builder.html" class="nav-card">
+                    <div class="nav-card-icon">XI</div>
+                    <h3>Squad Builder</h3>
+                    <p>Draft rankings, auction simulator, and interactive XI builder for all 10 teams.</p>
                 </a>
                 <a href="about.html" class="nav-card">
                     <div class="nav-card-icon">📖</div>

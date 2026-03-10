@@ -1,7 +1,7 @@
 /**
  * Statsledge - Team Data
  * IPL 2026 Pre-Season Analytics
- * Auto-generated: 2026-03-10T17:52:24.366602
+ * Auto-generated: 2026-03-10T17:52:51.022049
  */
 
 const TEAMS = {
@@ -116,8 +116,8 @@ const TEAMS = {
         fullName: "Gujarat Titans",
         homeVenue: "Narendra Modi Stadium",
         venueBias: "neutral",
-        primaryColor: "#d5a239",
-        secondaryColor: "#1c1c1c",
+        primaryColor: "#1c1c1c",
+        secondaryColor: "#d5a239",
         titles: 1,
         captain: "Shubman Gill",
         coach: "Ashish Nehra",

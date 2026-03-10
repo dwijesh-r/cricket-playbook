@@ -894,7 +894,7 @@
                             <th data-col="role">Role <span class="sort-arrow"></span></th>
                             <th class="col-numeric sorted-desc" data-col="value">FV <span class="sort-arrow"></span></th>
                             <th class="col-numeric" data-col="price">Price (Cr) <span class="sort-arrow"></span></th>
-                            <th class="col-numeric" data-col="ceiling">Ceiling <span class="sort-arrow"></span></th>
+                            <th class="col-numeric" data-col="ceiling">Range (Cr) <span class="sort-arrow"></span></th>
                             <th class="col-numeric" data-col="matches">IPL M <span class="sort-arrow"></span></th>
                             <th class="col-numeric" data-col="sr">Bat SR <span class="sort-arrow"></span></th>
                             <th class="col-numeric" data-col="econ">Bowl Econ <span class="sort-arrow"></span></th>
@@ -1181,6 +1181,32 @@
         return Math.max(0.5, Math.min(25, Math.round(ceiling * 10) / 10));
     }
 
+    function calcFloor(p) {
+        // Auction floor: minimum you should expect to pay in a friend group auction
+        // Typically 50-65% of ceiling — higher floor for proven stars, lower for unknowns
+        const ceiling = p.ceiling || calcCeiling(p);
+        const fv = p.fantasyValue || 0;
+        const matches = p.iplMatches || 0;
+
+        // Floor ratio: proven players hold value better (higher floor:ceiling ratio)
+        let ratio;
+        if (fv >= 60 && matches >= 20) ratio = 0.65; // proven elite — bidding wars expected
+        else if (fv >= 40 && matches >= 10) ratio = 0.55; // solid — competitive
+        else if (fv >= 20) ratio = 0.45; // mid-tier — depends on auction dynamics
+        else ratio = 0.35; // low tier — might go near base price
+
+        let floor = ceiling * ratio;
+
+        // Floor can't be below IPL base price or 0.2 Cr
+        const basePrice = p.price >= 2 ? p.price * 0.3 : 0.2;
+        floor = Math.max(basePrice, floor);
+
+        // Floor can't exceed ceiling
+        floor = Math.min(floor, ceiling * 0.9);
+
+        return Math.max(0.2, Math.round(floor * 10) / 10);
+    }
+
     // ==================== DATA LOADING ====================
     function loadAllPlayers() {
         allPlayers = [];
@@ -1195,6 +1221,7 @@
                 };
                 player.fantasyValue = calcFantasyValue(player);
                 player.ceiling = calcCeiling(player);
+                player.floor = calcFloor(player);
                 allPlayers.push(player);
             });
         });
@@ -1353,7 +1380,10 @@
             // FV color: green for elite (60+), yellow for solid (40+), muted below
             const val = p.fantasyValue || 0;
             const valColor = val >= 60 ? 'var(--accent-green)' : val >= 40 ? 'var(--accent-yellow)' : val >= 20 ? 'var(--text-secondary)' : 'var(--text-tertiary)';
-            const ceilColor = p.ceiling >= p.price * 1.3 ? 'var(--accent-green)' : 'var(--text-secondary)';
+            // Range display: floor — ceiling
+            const floorVal = p.floor || 0.2;
+            const ceilVal = p.ceiling || 0.5;
+            const rangeColor = ceilVal >= p.price * 1.3 ? 'var(--accent-green)' : 'var(--text-secondary)';
 
             html += `<tr>
                 <td class="col-rank">${idx + 1}</td>
@@ -1362,7 +1392,7 @@
                 <td><span class="role-badge ${roleClass}">${roleIcon} ${p.role}</span></td>
                 <td class="col-numeric" style="color:${valColor};font-weight:700">${val.toFixed(1)}</td>
                 <td class="col-numeric price-cell">${p.price.toFixed(2)}</td>
-                <td class="col-numeric" style="color:${ceilColor}">${p.ceiling.toFixed(1)}</td>
+                <td class="col-numeric" style="color:${rangeColor};white-space:nowrap">${floorVal.toFixed(1)}<span style="color:var(--text-tertiary);margin:0 2px;">–</span>${ceilVal.toFixed(1)}</td>
                 <td class="col-numeric">${matchesDisplay}</td>
                 <td class="col-numeric">${srDisplay}</td>
                 <td class="col-numeric">${econDisplay}</td>

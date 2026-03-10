@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Squad Builder - Statsledge</title>
+    <title>Fantasy - Statsledge</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/favicon-32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/logo/apple-touch-icon.png">
@@ -821,7 +821,7 @@
             <a href="rankings.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Rankings</a>
             <a href="comparison.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Compare</a>
             <a href="head-to-head.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
-            <a href="squad-builder.html" class="sidebar-link active"><span class="sidebar-link-icon">&#9679;</span> Squad Builder</a>
+            <a href="squad-builder.html" class="sidebar-link active"><span class="sidebar-link-icon">&#9679;</span> Fantasy</a>
             <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
         </nav>
         <div class="sidebar-footer">
@@ -841,7 +841,7 @@
         <a href="rankings.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Rankings</a>
         <a href="comparison.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Compare</a>
         <a href="head-to-head.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
-        <a href="squad-builder.html" class="sidebar-link active"><span class="sidebar-link-icon">&#9679;</span> Squad Builder</a>
+        <a href="squad-builder.html" class="sidebar-link active"><span class="sidebar-link-icon">&#9679;</span> Fantasy</a>
         <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
     </div>
 
@@ -849,12 +849,12 @@
         <!-- Hero -->
         <section class="hero">
             <div class="hero-badge">Fantasy Prep Tool</div>
-            <h1 class="hero-title">Squad Builder</h1>
-            <p class="hero-subtitle">Fantasy auction rankings powered by Dream11-style scoring. Estimated fantasy points per match (FPPM) from IPL career stats — runs, strike rate, wickets, economy, milestones, and role bonuses.</p>
+            <h1 class="hero-title">Fantasy</h1>
+            <p class="hero-subtitle">Fantasy Value (FV) blends Dream11-style scoring from recent IPL stats with career profile signals — player class, performance tags, franchise valuation, and predicted XI status. Auction ceiling estimates max bid for your friend group draft.</p>
         </section>
 
         <!-- Tab Pills -->
-        <div class="tab-pills" role="tablist" aria-label="Squad Builder sections">
+        <div class="tab-pills" role="tablist" aria-label="Fantasy sections">
             <button class="tab-pill active" role="tab" aria-selected="true" data-tab="rankings" onclick="switchTab('rankings')">Fantasy Auction Rankings</button>
         </div>
 
@@ -892,7 +892,7 @@
                             <th data-col="name">Player <span class="sort-arrow"></span></th>
                             <th data-col="team">Team <span class="sort-arrow"></span></th>
                             <th data-col="role">Role <span class="sort-arrow"></span></th>
-                            <th class="col-numeric sorted-desc" data-col="value">FPPM <span class="sort-arrow"></span></th>
+                            <th class="col-numeric sorted-desc" data-col="value">FV <span class="sort-arrow"></span></th>
                             <th class="col-numeric" data-col="price">Price (Cr) <span class="sort-arrow"></span></th>
                             <th class="col-numeric" data-col="ceiling">Ceiling <span class="sort-arrow"></span></th>
                             <th class="col-numeric" data-col="matches">IPL M <span class="sort-arrow"></span></th>
@@ -917,7 +917,7 @@
                 <a href="about.html">About</a>
             </div>
             <p class="footer-text">
-                Statsledge &copy; 2026 | IPL 2026 Pre-Season Analytics | Squad Builder
+                Statsledge &copy; 2026 | IPL 2026 Pre-Season Analytics | Fantasy
             </p>
         </footer>
     </main>
@@ -962,132 +962,184 @@
         }
     }
 
-    // ==================== FANTASY POINTS SCORING (Dream11-inspired) ====================
-    // Reference: Dream11 IPL scoring system
-    // Batting: +1/run, +1/boundary, +2/six, milestones (+4 at 30, +8 at 50, +16 at 100), SR bonus/penalty
-    // Bowling: +25/wicket, +8 bonus/bowled/lbw, +4/3W, +8/4W, economy bonus (<7: +6, 7-8: +4, 8-9: +2)
-    // Fielding: ~+4 pts/match avg for WK (catches/stumpings)
-    // We estimate per-match fantasy points from available IPL career stats
+    // ==================== FANTASY VALUE SCORING ====================
+    // Blended scoring: Recent Stats (Dream11 FPPM) + Career Profile + Market Signal
+    // Stats data covers ~3 recent IPL seasons, so career-level signals (batterClass,
+    // bowlerClass, tags, price) fill the gap for broader career context.
+    //
+    // Fantasy Value (0-100) = Stats Score (45%) + Career Profile (35%) + Market Signal (20%)
 
-    function calcFantasyValue(p) {
+    // ── Career class tier mappings ──
+    const BATTER_CLASS_TIER = {
+        'Elite Top-Order': 12, 'Power Top-Order': 12, 'Power Finisher': 11,
+        'Explosive Opener': 10, 'Aggressive Opener': 10, 'All-Round Finisher': 9,
+        'Anchor Opener': 8, 'Anchor Top-Order': 7, 'Anchor': 5
+    };
+    const BOWLER_CLASS_TIER = {
+        'Powerplay Assassin': 12, 'Middle-Overs Spinner': 10, 'Workhorse Seamer': 9,
+        'Holding Spinner': 7, 'Expensive Option': 3
+    };
+
+    function calcStatsScore(p) {
+        // Dream11-style FPPM estimation from available IPL stats, normalized to 0-45
         const matches = p.iplMatches || 0;
-        if (matches === 0 && !p.predictedXII) return 0;
+        if (matches === 0) return 0;
 
         const runs = p.iplRuns || 0;
         const sr = p.iplSR || 0;
         const wkts = p.iplWickets || 0;
         const econ = p.iplEconomy || 0;
+        let fppm = 0;
 
-        let fppm = 0; // Fantasy Points Per Match
-
-        // ── BATTING POINTS ──
-        if (matches > 0 && runs > 0) {
+        // ── Batting (Dream11: +1/run, +1/four, +2/six, milestones, SR bonus) ──
+        if (runs > 0) {
             const rpm = runs / matches;
-
-            // +1 per run
-            fppm += rpm;
-
-            // Boundary estimation: ~55% of runs from boundaries in T20
-            // Assume 12% sixes, 43% fours based on typical T20 distributions
-            const sixRuns = rpm * 0.12;  // runs from sixes
-            const fourRuns = rpm * 0.43; // runs from fours
-            const estimatedSixes = sixRuns / 6;
-            const estimatedFours = fourRuns / 4;
-
-            // +1 per four, +2 per six
-            fppm += estimatedFours * 1;
-            fppm += estimatedSixes * 2;
-
-            // Milestone bonuses (probability-weighted)
-            // If avg RPM > 35, likely gets 50+ in ~30% of innings
-            if (rpm >= 40) fppm += 16 * 0.10 + 8 * 0.35; // 100-bonus 10% + 50-bonus 35%
-            else if (rpm >= 30) fppm += 8 * 0.25 + 4 * 0.40; // 50-bonus 25% + 30-bonus 40%
-            else if (rpm >= 20) fppm += 8 * 0.10 + 4 * 0.30; // 50-bonus 10% + 30-bonus 30%
-            else if (rpm >= 10) fppm += 4 * 0.15; // 30-bonus 15%
-
-            // SR bonus/penalty (per match, for qualifying innings ~15+ balls)
+            fppm += rpm; // +1 per run
+            // Boundary estimation: ~55% of runs from boundaries (12% sixes, 43% fours)
+            fppm += (rpm * 0.43 / 4) * 1; // fours bonus
+            fppm += (rpm * 0.12 / 6) * 2; // sixes bonus
+            // Milestones (probability-weighted)
+            if (rpm >= 40) fppm += 16 * 0.10 + 8 * 0.35;
+            else if (rpm >= 30) fppm += 8 * 0.25 + 4 * 0.40;
+            else if (rpm >= 20) fppm += 8 * 0.10 + 4 * 0.30;
+            else if (rpm >= 10) fppm += 4 * 0.15;
+            // SR bonus
             if (sr >= 170) fppm += 6;
             else if (sr >= 150) fppm += 4;
             else if (sr >= 130) fppm += 2;
-            else if (sr < 100 && sr > 0) fppm -= 4; // SR penalty for very slow
-            else if (sr < 110 && sr > 0) fppm -= 2;
+            else if (sr > 0 && sr < 100) fppm -= 4;
+            else if (sr > 0 && sr < 110) fppm -= 2;
         }
 
-        // ── BOWLING POINTS ──
-        if (matches > 0 && (wkts > 0 || econ > 0)) {
+        // ── Bowling (Dream11: +25/wicket, +8 bowled/lbw, multi-W bonus, econ bonus) ──
+        if (wkts > 0 || econ > 0) {
             const wpm = wkts / matches;
-
-            // +25 per wicket
-            fppm += wpm * 25;
-
-            // Bonus wickets (bowled/lbw ~40% of wickets): +8 each
-            fppm += wpm * 0.4 * 8;
-
-            // Multi-wicket bonus (probability-weighted)
-            if (wpm >= 2.0) fppm += 8 * 0.25 + 4 * 0.40; // 4W bonus 25% + 3W bonus 40%
+            fppm += wpm * 25; // wickets
+            fppm += wpm * 0.4 * 8; // bowled/lbw bonus (~40% of dismissals)
+            if (wpm >= 2.0) fppm += 8 * 0.25 + 4 * 0.40;
             else if (wpm >= 1.5) fppm += 8 * 0.10 + 4 * 0.30;
             else if (wpm >= 1.0) fppm += 4 * 0.20;
-
-            // Economy bonus (assumes ~3.5 overs bowled per match for main bowlers)
-            if (econ > 0) {
-                if (econ < 7.0) fppm += 6;
-                else if (econ < 8.0) fppm += 4;
-                else if (econ < 9.0) fppm += 2;
-                else if (econ > 11.0) fppm -= 4;
-                else if (econ > 10.0) fppm -= 2;
-            }
+            if (econ > 0 && econ < 7.0) fppm += 6;
+            else if (econ > 0 && econ < 8.0) fppm += 4;
+            else if (econ > 0 && econ < 9.0) fppm += 2;
+            else if (econ > 11.0) fppm -= 4;
+            else if (econ > 10.0) fppm -= 2;
         }
 
-        // ── ROLE BONUSES ──
-        // WK fielding bonus (~4 pts/match from catches/stumpings)
-        if (p.role === 'Wicketkeeper') fppm += 4;
-
-        // All-rounder dual contribution already captured above, but add selection flexibility premium
+        // ── Role bonuses ──
+        if (p.role === 'Wicketkeeper') fppm += 4; // fielding pts
         if (p.role === 'All-rounder' && runs > 0 && wkts > 0) fppm += 3;
 
-        // ── AVAILABILITY & SELECTION ──
-        // Predicted XII: player will actually play (critical for fantasy)
-        if (!p.predictedXII) fppm *= 0.5; // halve value if not in predicted XI
+        // Normalize: top FPPM ~80-90 → maps to 45. Using divisor of 2.0.
+        return Math.min(45, Math.max(0, fppm / 2.0));
+    }
 
-        // Captain pick premium (1.5x-2x multiplier option in fantasy)
-        if (p.isCaptain) fppm *= 1.10;
+    function calcProfileScore(p) {
+        // Career profile from batterClass, bowlerClass, and tags → 0-35
+        let score = 0;
 
-        // Experience reliability: more matches = more stable estimate
-        if (matches < 5) fppm *= 0.6; // very small sample
-        else if (matches < 10) fppm *= 0.8;
+        // batterClass tier (0-12)
+        score += BATTER_CLASS_TIER[p.batterClass] || 0;
 
-        // Uncapped: high variance, low floor
-        if (p.isUncapped && matches === 0) fppm = 5; // base minimum for unknowns with predicted XII
+        // bowlerClass tier (0-12)
+        score += BOWLER_CLASS_TIER[p.bowlerClass] || 0;
 
-        return Math.max(0, Math.round(fppm * 10) / 10);
+        // Tags quality (0-11)
+        const allTags = [...(p.batterTags || []), ...(p.bowlerTags || [])];
+        const premiumTags = allTags.filter(t =>
+            t.includes('ELITE') || t.includes('DOMINATOR') || t.includes('SPECIALIST') ||
+            t.includes('PP_DOMINATOR') || t.includes('PROVEN_WICKET_TAKER')
+        );
+        const solidTags = allTags.filter(t =>
+            t.includes('CONSISTENT') || t.includes('FINISHER') || t.includes('PLAYMAKER') ||
+            t.includes('SIX_HITTER') || t.includes('CONTROLLER')
+        );
+        score += Math.min(5, premiumTags.length * 2);
+        score += Math.min(4, solidTags.length * 1.5);
+        score += Math.min(2, allTags.length * 0.3);
+
+        return Math.min(35, score);
+    }
+
+    function calcMarketScore(p) {
+        // Market signal from price, predicted XII, captain, founderPos → 0-20
+        let score = 0;
+
+        // Price tier (0-10): franchise investment reflects career-wide valuation
+        const price = p.price || 0;
+        if (price >= 20) score += 10;
+        else if (price >= 16) score += 9;
+        else if (price >= 12) score += 8;
+        else if (price >= 8) score += 6.5;
+        else if (price >= 5) score += 5;
+        else if (price >= 3) score += 3.5;
+        else if (price >= 1.5) score += 2;
+        else if (price >= 0.5) score += 1;
+
+        // Predicted XII: will actually play (critical for fantasy) (+5)
+        if (p.predictedXII) score += 5;
+
+        // Captain: leadership + C/VC multiplier option (+3)
+        if (p.isCaptain) score += 3;
+
+        // founderPos: batting order 1-4 or key bowler position = premium fantasy slot (+2)
+        if (p.founderPos && p.founderPos <= 4) score += 2;
+
+        return Math.min(20, score);
+    }
+
+    function calcFantasyValue(p) {
+        let stats = calcStatsScore(p);
+        let profile = calcProfileScore(p);
+        let market = calcMarketScore(p);
+
+        // For players with no recent stats but strong profiles, lean on profile + market
+        const matches = p.iplMatches || 0;
+        if (matches === 0) {
+            // No stats available — rely entirely on profile + market, scaled up
+            stats = 0;
+            profile = profile * (45 + 35) / 35; // expand profile weight to fill stats gap
+        } else if (matches < 10) {
+            // Small sample: reduce stats confidence, boost profile
+            const confidence = matches / 10;
+            stats = stats * confidence;
+            profile = profile * (1 + (1 - confidence) * 0.3); // partial uplift
+        }
+
+        // Uncapped penalty: high risk, unknown floor
+        if (p.isUncapped && matches === 0) {
+            return Math.max(0, Math.round((profile * 0.4 + market) * 10) / 10);
+        }
+
+        // Not in predicted XI: significant fantasy discount (you can't score if you don't play)
+        let total = stats + profile + market;
+        if (!p.predictedXII) total *= 0.6;
+
+        return Math.max(0, Math.round(total * 10) / 10);
     }
 
     function calcCeiling(p) {
-        // Auction ceiling: estimated max a friend group should bid
-        // Based on FPPM-to-price ratio and profile upside
-        const fppm = p.fantasyValue || calcFantasyValue(p);
-        const matches = p.iplMatches || 0;
+        // Auction ceiling: estimated max bid for friend group auction
+        // Derived from fantasy value, career class, and upside signals
+        const fv = p.fantasyValue || calcFantasyValue(p);
 
-        // Base ceiling from FPPM: higher FPPM = higher auction value
-        // Top fantasy performers (FPPM 60+) worth 15-25 Cr
-        // Mid-tier (FPPM 30-60) worth 5-15 Cr
-        // Low tier (FPPM < 30) worth 0.5-5 Cr
+        // Base ceiling from fantasy value (0-100 → 0.5-25 Cr)
         let ceiling;
-        if (fppm >= 80) ceiling = 20 + (fppm - 80) * 0.15;
-        else if (fppm >= 50) ceiling = 10 + (fppm - 50) * 0.33;
-        else if (fppm >= 30) ceiling = 4 + (fppm - 30) * 0.30;
-        else if (fppm >= 15) ceiling = 1.5 + (fppm - 15) * 0.17;
-        else ceiling = 0.5 + fppm * 0.07;
+        if (fv >= 75) ceiling = 18 + (fv - 75) * 0.28;
+        else if (fv >= 55) ceiling = 10 + (fv - 55) * 0.40;
+        else if (fv >= 35) ceiling = 4 + (fv - 35) * 0.30;
+        else if (fv >= 20) ceiling = 1.5 + (fv - 20) * 0.17;
+        else ceiling = 0.5 + fv * 0.05;
 
-        // Upside modifiers
-        const allTags = [...(p.batterTags || []), ...(p.bowlerTags || [])];
-        if (allTags.some(t => t.includes('ELITE') || t.includes('DOMINATOR'))) ceiling *= 1.15;
-        if (p.role === 'All-rounder') ceiling *= 1.10;
-        if (p.iplSR > 160) ceiling *= 1.10;
+        // Upside modifiers from career class
+        if (BATTER_CLASS_TIER[p.batterClass] >= 10) ceiling *= 1.10;
+        if (BOWLER_CLASS_TIER[p.bowlerClass] >= 10) ceiling *= 1.10;
+        if (p.role === 'All-rounder' && p.batterClass && p.bowlerClass) ceiling *= 1.15;
         if (p.isCaptain) ceiling *= 1.10;
 
-        // Discount for risk
+        // Risk discounts
         if (p.isUncapped) ceiling *= 0.5;
+        const matches = p.iplMatches || 0;
         if (matches > 0 && matches < 5) ceiling *= 0.7;
 
         return Math.max(0.5, Math.min(25, Math.round(ceiling * 10) / 10));
@@ -1262,9 +1314,9 @@
             const econDisplay = p.iplEconomy > 0 ? p.iplEconomy.toFixed(2) : '--';
             const matchesDisplay = p.iplMatches || '--';
 
-            // FPPM color: green for elite, yellow for solid, muted for low
+            // FV color: green for elite (60+), yellow for solid (40+), muted below
             const val = p.fantasyValue || 0;
-            const valColor = val >= 70 ? 'var(--accent-green)' : val >= 40 ? 'var(--accent-yellow)' : val >= 20 ? 'var(--text-secondary)' : 'var(--text-tertiary)';
+            const valColor = val >= 60 ? 'var(--accent-green)' : val >= 40 ? 'var(--accent-yellow)' : val >= 20 ? 'var(--text-secondary)' : 'var(--text-tertiary)';
             const ceilColor = p.ceiling >= p.price * 1.3 ? 'var(--accent-green)' : 'var(--text-secondary)';
 
             html += `<tr>

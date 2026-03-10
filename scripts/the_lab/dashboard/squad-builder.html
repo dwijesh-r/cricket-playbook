@@ -1032,7 +1032,7 @@
 
     <script>
     // ==================== CONSTANTS ====================
-    const TEAM_ORDER = ['MI', 'CSK', 'RCB', 'DC', 'GT', 'KKR', 'LSG', 'PBKS', 'RR', 'SRH'];
+    // TEAM_ORDER is loaded from data/teams.js
     const PURSE_CAP = 120;
     const MAX_SQUAD = 25;
     const MIN_SQUAD = 18;
@@ -1185,7 +1185,7 @@
             case 'matches': return player.iplMatches || 0;
             case 'sr': return player.iplSR || 0;
             case 'econ': return player.iplEconomy || 0;
-            case 'tags': return (player.batterTags.length + player.bowlerTags.length);
+            case 'tags': return ((player.batterTags || []).length + (player.bowlerTags || []).length);
             case 'predicted': return player.predictedXII ? 1 : 0;
             default: return 0;
         }

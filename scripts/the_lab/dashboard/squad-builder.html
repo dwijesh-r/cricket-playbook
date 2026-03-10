@@ -1090,8 +1090,17 @@
         // batterClass tier (0-12)
         score += BATTER_CLASS_TIER[p.batterClass] || 0;
 
-        // bowlerClass tier (0-12)
-        score += BOWLER_CLASS_TIER[p.bowlerClass] || 0;
+        // bowlerClass tier (0-12), scaled by bowling workload
+        // Career labels like 'Workhorse Seamer' may not reflect recent IPL usage
+        let bowlTier = BOWLER_CLASS_TIER[p.bowlerClass] || 0;
+        const workload = getBowlingWorkload(p);
+        // Full-quota bowlers labelled 'Expensive Option' still deliver fantasy value
+        // (4 overs = 4 wicket chances + economy pts) — bump tier to reflect workload
+        if (p.bowlerClass === 'Expensive Option' && workload >= 0.7) bowlTier = 6;
+        // Full-time bowlers (workload >= 0.7) get full tier credit
+        // Part-timers get proportionally less — their bowlerClass overstates IPL contribution
+        const bowlTierScale = workload >= 0.7 ? 1.0 : workload >= 0.4 ? 0.6 : 0.3;
+        score += bowlTier * bowlTierScale;
 
         // Tags quality (0-11)
         const allTags = [...(p.batterTags || []), ...(p.bowlerTags || [])];
@@ -1207,10 +1216,16 @@
         const salaryAnchor = price * 0.85; // ~85% of IPL salary as friend-group anchor
         let ceiling = Math.max(fvCeiling, salaryAnchor);
 
-        // Upside modifiers from career class
+        // Upside modifiers from career class, gated by actual workload
+        const workload = getBowlingWorkload(p);
         if (BATTER_CLASS_TIER[p.batterClass] >= 10) ceiling *= 1.10;
-        if (BOWLER_CLASS_TIER[p.bowlerClass] >= 10) ceiling *= 1.10;
-        if (p.role === 'All-rounder' && p.batterClass && p.bowlerClass) ceiling *= 1.15;
+        // Bowler class ceiling bonus only if actually bowling regularly
+        if (BOWLER_CLASS_TIER[p.bowlerClass] >= 10 && workload >= 0.7) ceiling *= 1.10;
+        // AR ceiling bonus scaled by workload — genuine dual-role players get full bonus
+        if (p.role === 'All-rounder' && p.batterClass && p.bowlerClass) {
+            const arBonus = workload >= 0.7 ? 1.15 : workload >= 0.4 ? 1.08 : 1.03;
+            ceiling *= arBonus;
+        }
         if (p.isCaptain) ceiling *= 1.10;
 
         // Risk discounts

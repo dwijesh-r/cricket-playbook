@@ -5623,6 +5623,167 @@ def create_recent_form_views(conn: duckdb.DuckDBPyConnection) -> None:
             print(f"  ERROR verifying {vw}: {exc}")
 
 
+def create_t20_recent_form_views(conn: duckdb.DuckDBPyConnection) -> None:
+    """Create all-T20 recent form views (last 10 matches across ALL T20 formats).
+
+    Unlike the IPL-only recent form views, these cover IPL + T20I + BBL + PSL +
+    SA20 + CPL + The Hundred + domestic — giving a true 'current form' signal.
+    Used by the Fantasy auction rankings on Statsledge.
+    """
+
+    print("\nCreating All-T20 Recent Form views...")
+
+    # ── View 1: Batter Recent Form (All T20s) ──────────────────────────────
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_t20_batter_recent_form AS
+        WITH t20_balls AS (
+            SELECT
+                fb.batter_id,
+                fb.match_id,
+                dm.match_date,
+                fb.batter_runs,
+                fb.is_legal_ball,
+                fb.is_wicket,
+                fb.player_out_id
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+        ),
+        match_ranked AS (
+            SELECT
+                batter_id,
+                match_id,
+                DENSE_RANK() OVER (
+                    PARTITION BY batter_id
+                    ORDER BY MAX(match_date) DESC, match_id DESC
+                ) AS match_rank
+            FROM t20_balls
+            GROUP BY batter_id, match_id
+        ),
+        tagged AS (
+            SELECT
+                tb.*,
+                mr.match_rank
+            FROM t20_balls tb
+            JOIN match_ranked mr
+              ON tb.batter_id = mr.batter_id
+             AND tb.match_id  = mr.match_id
+        ),
+        agg AS (
+            SELECT
+                batter_id,
+                -- Last 10 T20 matches (any format)
+                COUNT(DISTINCT CASE WHEN match_rank <= 10 THEN match_id END)
+                    AS last10_innings,
+                SUM(CASE WHEN match_rank <= 10 THEN batter_runs ELSE 0 END)
+                    AS last10_runs,
+                SUM(CASE WHEN match_rank <= 10 AND is_legal_ball THEN 1 ELSE 0 END)
+                    AS last10_balls,
+                SUM(CASE WHEN match_rank <= 10 AND is_wicket
+                         AND player_out_id = batter_id THEN 1 ELSE 0 END)
+                    AS last10_dismissals
+            FROM tagged
+            GROUP BY batter_id
+        )
+        SELECT
+            sq.team_name,
+            dp.player_id   AS batter_id,
+            dp.current_name AS batter_name,
+            a.last10_innings,
+            a.last10_runs,
+            a.last10_balls,
+            ROUND(a.last10_runs * 100.0
+                  / NULLIF(a.last10_balls, 0), 2)          AS last10_sr
+        FROM agg a
+        JOIN dim_player dp ON a.batter_id = dp.player_id
+        JOIN ipl_2026_squads sq ON dp.player_id = sq.player_id
+        WHERE a.last10_innings > 0
+    """)
+    print("  - analytics_t20_batter_recent_form")
+
+    # ── View 2: Bowler Recent Form (All T20s) ──────────────────────────────
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_t20_bowler_recent_form AS
+        WITH t20_balls AS (
+            SELECT
+                fb.bowler_id,
+                fb.match_id,
+                dm.match_date,
+                fb.batter_runs,
+                fb.extra_runs,
+                fb.total_runs,
+                fb.is_legal_ball,
+                fb.is_wicket,
+                fb.wicket_type
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+        ),
+        match_ranked AS (
+            SELECT
+                bowler_id,
+                match_id,
+                DENSE_RANK() OVER (
+                    PARTITION BY bowler_id
+                    ORDER BY MAX(match_date) DESC, match_id DESC
+                ) AS match_rank
+            FROM t20_balls
+            GROUP BY bowler_id, match_id
+        ),
+        tagged AS (
+            SELECT
+                tb.*,
+                mr.match_rank
+            FROM t20_balls tb
+            JOIN match_ranked mr
+              ON tb.bowler_id = mr.bowler_id
+             AND tb.match_id  = mr.match_id
+        ),
+        agg AS (
+            SELECT
+                bowler_id,
+                -- Last 10 T20 matches bowled in (any format)
+                COUNT(DISTINCT CASE WHEN match_rank <= 10 THEN match_id END)
+                    AS last10_matches,
+                SUM(CASE WHEN match_rank <= 10 AND is_legal_ball THEN 1 ELSE 0 END)
+                    AS last10_balls,
+                SUM(CASE WHEN match_rank <= 10 THEN total_runs ELSE 0 END)
+                    AS last10_runs_conceded,
+                SUM(CASE WHEN match_rank <= 10 AND is_wicket
+                         AND wicket_type NOT IN (
+                             'run out', 'retired hurt',
+                             'retired out', 'obstructing the field')
+                         THEN 1 ELSE 0 END)
+                    AS last10_wickets
+            FROM tagged
+            GROUP BY bowler_id
+        )
+        SELECT
+            sq.team_name,
+            dp.player_id    AS bowler_id,
+            dp.current_name AS bowler_name,
+            a.last10_matches,
+            a.last10_balls,
+            a.last10_wickets,
+            ROUND(a.last10_runs_conceded * 6.0
+                  / NULLIF(a.last10_balls, 0), 2)          AS last10_economy
+        FROM agg a
+        JOIN dim_player dp ON a.bowler_id = dp.player_id
+        JOIN ipl_2026_squads sq ON dp.player_id = sq.player_id
+        WHERE a.last10_matches > 0
+    """)
+    print("  - analytics_t20_bowler_recent_form")
+
+    # Verify row counts
+    for vw in [
+        "analytics_t20_batter_recent_form",
+        "analytics_t20_bowler_recent_form",
+    ]:
+        try:
+            count = conn.execute(f"SELECT COUNT(*) FROM {vw}").fetchone()[0]
+            print(f"  - {vw}: {count} rows")
+        except Exception as exc:
+            print(f"  ERROR verifying {vw}: {exc}")
+
+
 def create_matchup_matrix_views(conn: duckdb.DuckDBPyConnection) -> None:
     """Create team-level and player-level matchup matrix views.
 
@@ -6129,6 +6290,7 @@ def main() -> int:
     create_weighted_composite_views(conn)
     create_team_phase_views(conn)
     create_recent_form_views(conn)
+    create_t20_recent_form_views(conn)
     create_innings_context_views(conn)
 
     # Verify

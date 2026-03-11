@@ -850,7 +850,7 @@
         <section class="hero">
             <div class="hero-badge">Fantasy Prep Tool</div>
             <h1 class="hero-title">Fantasy</h1>
-            <p class="hero-subtitle">Fantasy Value (FV) blends Dream11-style scoring with career profile, batting position, matchup signals, and franchise valuation. Price Range estimates ideal bid window for your friend group draft. IPL stats (SR, economy) are from 2023–2025 seasons.</p>
+            <p class="hero-subtitle">Fantasy Value (FV) blends Dream11-style scoring with career profile, batting position, matchup signals, and franchise valuation. Price Range estimates ideal bid window for your friend group draft. Stats blend IPL 2023–2025 career data with recent form from last 10 T20s across all formats.</p>
         </section>
 
         <!-- Tab Pills -->
@@ -1030,8 +1030,23 @@
         let fppm = 0;
 
         // ── Batting (Dream11: +1/run, +1/four, +2/six, milestones, SR bonus) ──
-        if (runs > 0) {
-            const rpm = runs / matches;
+        // Blend IPL career SR with recent all-T20 form SR (last 10 T20s any format)
+        const recentBatInnings = p.recentBatInnings || 0;
+        const recentBatSR = p.recentBatSR || 0;
+        const recentBatRuns = p.recentBatRuns || 0;
+        // Use blended SR: 60% IPL career + 40% recent form (if available)
+        const blendedSR = (recentBatInnings >= 5 && recentBatSR > 0)
+            ? sr * 0.6 + recentBatSR * 0.4
+            : sr;
+        // Use blended RPM: 60% IPL career + 40% recent form
+        const recentRPM = recentBatInnings > 0 ? recentBatRuns / recentBatInnings : 0;
+        const iplRPM = runs > 0 ? runs / matches : 0;
+        const blendedRPM = (recentBatInnings >= 5 && recentRPM > 0)
+            ? iplRPM * 0.6 + recentRPM * 0.4
+            : iplRPM;
+
+        if (runs > 0 || recentBatRuns > 0) {
+            const rpm = blendedRPM;
             fppm += rpm; // +1 per run
             // Boundary estimation: ~55% of runs from boundaries (12% sixes, 43% fours)
             fppm += (rpm * 0.43 / 4) * 1; // fours bonus
@@ -1041,19 +1056,31 @@
             else if (rpm >= 30) fppm += 8 * 0.25 + 4 * 0.40;
             else if (rpm >= 20) fppm += 8 * 0.10 + 4 * 0.30;
             else if (rpm >= 10) fppm += 4 * 0.15;
-            // SR bonus
-            if (sr >= 170) fppm += 6;
-            else if (sr >= 150) fppm += 4;
-            else if (sr >= 130) fppm += 2;
-            else if (sr > 0 && sr < 100) fppm -= 4;
-            else if (sr > 0 && sr < 110) fppm -= 2;
+            // SR bonus (using blended SR)
+            if (blendedSR >= 170) fppm += 6;
+            else if (blendedSR >= 150) fppm += 4;
+            else if (blendedSR >= 130) fppm += 2;
+            else if (blendedSR > 0 && blendedSR < 100) fppm -= 4;
+            else if (blendedSR > 0 && blendedSR < 110) fppm -= 2;
         }
 
         // ── Bowling (scaled by bowling workload) ──
-        // Raw bowling FPPM calculated then multiplied by workload fraction
-        // A part-timer who bowls 2/4 overs gets ~50% of full bowling credit
-        if (wkts > 0 || econ > 0) {
-            const wpm = wkts / matches;
+        // Blend IPL economy with recent all-T20 economy
+        const recentBowlMatches = p.recentBowlMatches || 0;
+        const recentBowlEcon = p.recentBowlEcon || 0;
+        const recentBowlWkts = p.recentBowlWickets || 0;
+        const blendedEcon = (recentBowlMatches >= 5 && recentBowlEcon > 0)
+            ? econ * 0.6 + recentBowlEcon * 0.4
+            : econ;
+        // Blend WPM with recent form
+        const iplWPM = matches > 0 ? wkts / matches : 0;
+        const recentWPM = recentBowlMatches > 0 ? recentBowlWkts / recentBowlMatches : 0;
+        const blendedWPM = (recentBowlMatches >= 5 && recentWPM > 0)
+            ? iplWPM * 0.6 + recentWPM * 0.4
+            : iplWPM;
+
+        if (wkts > 0 || econ > 0 || recentBowlWkts > 0) {
+            const wpm = blendedWPM;
             const workload = getBowlingWorkload(p);
 
             let bowlFppm = 0;
@@ -1062,13 +1089,13 @@
             if (wpm >= 2.0) bowlFppm += 8 * 0.25 + 4 * 0.40;
             else if (wpm >= 1.5) bowlFppm += 8 * 0.10 + 4 * 0.30;
             else if (wpm >= 1.0) bowlFppm += 4 * 0.20;
-            // Economy bonus/penalty (only meaningful if bowling real overs)
+            // Economy bonus/penalty (using blended economy)
             if (workload >= 0.5) {
-                if (econ > 0 && econ < 7.0) bowlFppm += 6;
-                else if (econ > 0 && econ < 8.0) bowlFppm += 4;
-                else if (econ > 0 && econ < 9.0) bowlFppm += 2;
-                else if (econ > 11.0) bowlFppm -= 4;
-                else if (econ > 10.0) bowlFppm -= 2;
+                if (blendedEcon > 0 && blendedEcon < 7.0) bowlFppm += 6;
+                else if (blendedEcon > 0 && blendedEcon < 8.0) bowlFppm += 4;
+                else if (blendedEcon > 0 && blendedEcon < 9.0) bowlFppm += 2;
+                else if (blendedEcon > 11.0) bowlFppm -= 4;
+                else if (blendedEcon > 10.0) bowlFppm -= 2;
             }
 
             fppm += bowlFppm * workload;
@@ -1077,7 +1104,7 @@
         // ── Role bonuses ──
         if (p.role === 'Wicketkeeper') fppm += 4; // fielding pts
         // AR dual bonus only if meaningfully bowling (workload > 0.3)
-        if (p.role === 'All-rounder' && runs > 0 && wkts > 0 && getBowlingWorkload(p) > 0.3) fppm += 3;
+        if (p.role === 'All-rounder' && (runs > 0 || recentBatRuns > 0) && (wkts > 0 || recentBowlWkts > 0) && getBowlingWorkload(p) > 0.3) fppm += 3;
 
         // Normalize: top FPPM ~80-90 → maps to 45. Using divisor of 2.0.
         return Math.min(45, Math.max(0, fppm / 2.0));

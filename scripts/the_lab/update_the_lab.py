@@ -453,6 +453,13 @@ def generate_full_squads_js():
                     "ipl_sr": round(float(row.get("ipl_batting_sr") or 0), 1),
                     "ipl_wickets": int(float(row.get("ipl_bowling_wickets") or 0)),
                     "ipl_economy": round(float(row.get("ipl_bowling_economy") or 0), 2),
+                    # Recent form: last 10 T20s across ALL formats
+                    "recent_bat_innings": int(float(row.get("recent_bat_innings") or 0)),
+                    "recent_bat_runs": int(float(row.get("recent_bat_runs") or 0)),
+                    "recent_bat_sr": round(float(row.get("recent_bat_sr") or 0), 1),
+                    "recent_bowl_matches": int(float(row.get("recent_bowl_matches") or 0)),
+                    "recent_bowl_wickets": int(float(row.get("recent_bowl_wickets") or 0)),
+                    "recent_bowl_economy": round(float(row.get("recent_bowl_economy") or 0), 2),
                 }
 
     # Load founder data for predicted XII
@@ -513,6 +520,12 @@ def generate_full_squads_js():
                     "ipl_sr": exp.get("ipl_sr", 0),
                     "ipl_wickets": exp.get("ipl_wickets", 0),
                     "ipl_economy": exp.get("ipl_economy", 0),
+                    "recent_bat_innings": exp.get("recent_bat_innings", 0),
+                    "recent_bat_runs": exp.get("recent_bat_runs", 0),
+                    "recent_bat_sr": exp.get("recent_bat_sr", 0),
+                    "recent_bowl_matches": exp.get("recent_bowl_matches", 0),
+                    "recent_bowl_wickets": exp.get("recent_bowl_wickets", 0),
+                    "recent_bowl_economy": exp.get("recent_bowl_economy", 0),
                     "is_predicted_xii": founder_pos is not None,
                     "founder_position": founder_pos,
                 }
@@ -565,7 +578,13 @@ const FULL_SQUADS = {{
                 f"founderPos: {fpos}, "
                 f"iplMatches: {p['ipl_matches']}, iplRuns: {p['ipl_runs']}, "
                 f"iplSR: {p['ipl_sr']}, iplWickets: {p['ipl_wickets']}, "
-                f"iplEconomy: {p['ipl_economy']} }}"
+                f"iplEconomy: {p['ipl_economy']}, "
+                f"recentBatInnings: {p['recent_bat_innings']}, "
+                f"recentBatRuns: {p['recent_bat_runs']}, "
+                f"recentBatSR: {p['recent_bat_sr']}, "
+                f"recentBowlMatches: {p['recent_bowl_matches']}, "
+                f"recentBowlWickets: {p['recent_bowl_wickets']}, "
+                f"recentBowlEcon: {p['recent_bowl_economy']} }}"
             )
         joined = ",\n".join(players_js)
         js += f"    {abbrev}: [\n{joined}\n    ],\n"

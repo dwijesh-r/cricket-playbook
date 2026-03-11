@@ -67,11 +67,34 @@ def generate_experience_csv():
         FROM analytics_ipl_bowling_career_since2023
     """).df()
 
+    # Get recent form across ALL T20 formats (last 10 matches)
+    recent_bat = conn.execute("""
+        SELECT
+            batter_id AS player_id,
+            last10_innings AS recent_bat_innings,
+            last10_runs AS recent_bat_runs,
+            last10_sr AS recent_bat_sr
+        FROM analytics_t20_batter_recent_form
+    """).df()
+
+    recent_bowl = conn.execute("""
+        SELECT
+            bowler_id AS player_id,
+            last10_matches AS recent_bowl_matches,
+            last10_wickets AS recent_bowl_wickets,
+            last10_economy AS recent_bowl_economy
+        FROM analytics_t20_bowler_recent_form
+    """).df()
+
     # Merge squad with batting stats
     result_df = squad_df.merge(batting_stats, on="player_id", how="left")
 
     # Merge with bowling stats
     result_df = result_df.merge(bowling_stats, on="player_id", how="left")
+
+    # Merge with recent form (all T20s)
+    result_df = result_df.merge(recent_bat, on="player_id", how="left")
+    result_df = result_df.merge(recent_bowl, on="player_id", how="left")
 
     # Define stat columns
     stat_columns = [
@@ -83,6 +106,12 @@ def generate_experience_csv():
         "ipl_bowling_balls",
         "ipl_bowling_wickets",
         "ipl_bowling_economy",
+        "recent_bat_innings",
+        "recent_bat_runs",
+        "recent_bat_sr",
+        "recent_bowl_matches",
+        "recent_bowl_wickets",
+        "recent_bowl_economy",
     ]
 
     # Fill NaN with 0 for stats
@@ -112,6 +141,12 @@ def generate_experience_csv():
             "ipl_bowling_balls",
             "ipl_bowling_wickets",
             "ipl_bowling_economy",
+            "recent_bat_innings",
+            "recent_bat_runs",
+            "recent_bat_sr",
+            "recent_bowl_matches",
+            "recent_bowl_wickets",
+            "recent_bowl_economy",
         ]
     ]
 

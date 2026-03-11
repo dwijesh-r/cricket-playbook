@@ -944,6 +944,7 @@
     <script src="data/full_squads.js"></script>
     <script src="data/predicted_xii.js"></script>
     <script src="data/schedule.js"></script>
+    <script src="data/injuries.js"></script>
 
     <script>
     // ==================== STATE ====================
@@ -1253,7 +1254,15 @@
         // Uses actual IPL 2026 fixtures to match player skills to confirmed venues
         score += calcScheduleBoost(p);
 
-        return Math.min(22, score);
+        // Availability penalty
+        if (typeof PLAYER_AVAILABILITY !== 'undefined' && PLAYER_AVAILABILITY[p.name]) {
+            const avail = PLAYER_AVAILABILITY[p.name];
+            if (avail.status === 'injured') score -= 8;
+            else if (avail.status === 'unavailable') score -= 6;
+            else if (avail.status === 'doubtful') score -= 3;
+        }
+
+        return Math.max(0, Math.min(22, score));
     }
 
     function calcFantasyValue(p) {
@@ -1546,7 +1555,16 @@
 
             html += `<tr>
                 <td class="col-rank">${idx + 1}</td>
-                <td class="col-player">${p.name}${captainBadge}${overseasBadge}</td>
+                <td class="col-player">${p.name}${captainBadge}${overseasBadge}${(() => {
+                    if (typeof PLAYER_AVAILABILITY !== 'undefined' && PLAYER_AVAILABILITY[p.name]) {
+                        const avail = PLAYER_AVAILABILITY[p.name];
+                        const cfg = avail.status === 'injured' ? {label:'INJ',bg:'rgba(239,68,68,0.15)',color:'#ef4444'}
+                                  : avail.status === 'unavailable' ? {label:'N/A',bg:'rgba(249,115,22,0.15)',color:'#f97316'}
+                                  : {label:'?',bg:'rgba(234,179,8,0.15)',color:'#eab308'};
+                        return `<span title="${avail.note || avail.status}" style="font-size:9px;padding:1px 5px;border-radius:9999px;font-weight:700;margin-left:4px;display:inline-block;background:${cfg.bg};color:${cfg.color}">${cfg.label}</span>`;
+                    }
+                    return '';
+                })()}</td>
                 <td><span class="team-abbrev" style="color:${getTeamColor(p.teamAbbrev)}">${p.teamAbbrev}</span></td>
                 <td><span class="role-badge ${roleClass}">${roleIcon} ${p.role}</span></td>
                 <td class="col-numeric" style="color:${valColor};font-weight:700">${val.toFixed(1)}</td>

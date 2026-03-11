@@ -4579,6 +4579,7 @@
     <script src="data/player_profiles.js"></script>
     <script src="data/season_previews.js"></script>
     <script src="data/schedule.js"></script>
+    <script src="data/injuries.js"></script>
 
     <!-- Data Freshness Indicator (TKT-249) -->
     <script>
@@ -4777,6 +4778,21 @@
             return flags[nat] || '🌍';
         };
 
+        function getInjuryBadge(playerName) {
+            if (typeof PLAYER_AVAILABILITY === 'undefined') return '';
+            const avail = PLAYER_AVAILABILITY[playerName];
+            if (!avail) return '';
+            const styles = {
+                injured:     'background:rgba(239,68,68,0.15);color:#ef4444;',
+                unavailable: 'background:rgba(249,115,22,0.15);color:#f97316;',
+                doubtful:    'background:rgba(234,179,8,0.15);color:#eab308;'
+            };
+            const labels = { injured: 'INJ', unavailable: 'N/A', doubtful: '?' };
+            const st = avail.status;
+            if (!styles[st]) return '';
+            return `<span title="${(avail.note || '').replace(/"/g, '&quot;')}" style="font-size:9px;padding:1px 5px;border-radius:9999px;font-weight:700;margin-left:6px;${styles[st]}">${labels[st]}</span>`;
+        }
+
         function renderTeam() {
             renderPreviewPanel();
             const team = TEAMS[currentTeam];
@@ -4822,6 +4838,26 @@
             xiHeader.innerHTML = '<span style="width:28px;text-align:center;">#</span><span style="flex:1;padding-left:var(--space-3);">Player</span><span style="width:80px;text-align:right;">Price</span><span style="width:50px;text-align:center;">Nat</span>';
             xiGrid.appendChild(xiHeader);
 
+            // Injury Watch notice
+            if (typeof PLAYER_AVAILABILITY !== 'undefined') {
+                const teamInjured = Object.entries(PLAYER_AVAILABILITY).filter(([name, info]) =>
+                    info.team === currentTeam && (info.status === 'injured' || info.status === 'unavailable')
+                );
+                if (teamInjured.length > 0) {
+                    const injuryWatch = document.createElement('div');
+                    const borderColor = teamInjured.some(([,i]) => i.status === 'injured') ? '#ef4444' : '#f97316';
+                    injuryWatch.style.cssText = `border-left:3px solid ${borderColor};background:var(--bg-tertiary);padding:8px 12px;margin:0;font-size:12px;color:var(--text-secondary);`;
+                    injuryWatch.innerHTML = `<div style="font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;color:${borderColor};">⚠ Injury Watch</div>` +
+                        teamInjured.map(([name, info]) => {
+                            const badge = info.status === 'injured'
+                                ? '<span style="font-size:9px;padding:1px 5px;border-radius:9999px;font-weight:700;background:rgba(239,68,68,0.15);color:#ef4444;">INJ</span>'
+                                : '<span style="font-size:9px;padding:1px 5px;border-radius:9999px;font-weight:700;background:rgba(249,115,22,0.15);color:#f97316;">N/A</span>';
+                            return `<div style="display:flex;align-items:center;gap:6px;margin-top:2px;">${badge} <span>${name}</span><span style="opacity:0.6;font-size:11px;">— ${info.note}</span></div>`;
+                        }).join('');
+                    xiGrid.appendChild(injuryWatch);
+                }
+            }
+
             predicted.xi.forEach(player => {
                 const nat = squadNatLookup[player.name] || (player.overseas ? 'OS' : 'IND');
                 const card = document.createElement('div');
@@ -4829,7 +4865,7 @@
                 card.innerHTML = `
                     <div class="player-position">${player.position}</div>
                     <div class="player-info">
-                        <span class="player-name player-clickable" onclick="openPlayerProfile('${player.name.replace(/'/g, "\\\\'")}')">${player.name}</span>
+                        <span class="player-name player-clickable" onclick="openPlayerProfile('${player.name.replace(/'/g, "\\\\'")}')">${player.name}</span>${getInjuryBadge(player.name)}
                         <span class="player-role" style="margin-left:8px;opacity:0.6;">  ${player.role} · ${player.batting}</span>
                     </div>
                     <div class="player-meta">
@@ -6346,7 +6382,7 @@
                                 </td>
                                 <td>
                                     <div class="player-name-cell">
-                                        <span class="player-name-text player-clickable" onclick="openPlayerProfile('${player.name.replace(/'/g, "\\\\'")}', '${player.playerId}')">${player.name}</span>
+                                        <span class="player-name-text player-clickable" onclick="openPlayerProfile('${player.name.replace(/'/g, "\\\\'")}', '${player.playerId}')">${player.name}</span>${getInjuryBadge(player.name)}
                                     </div>
                                 </td>
                                 <td>
@@ -6950,7 +6986,7 @@
                 const rl = roleLabel[p.role] || p.role.toUpperCase().substring(0, 3);
                 return `<div class="pool-player${placed ? ' placed' : ''}" draggable="${placed ? 'false' : 'true'}" data-player="${encodeURIComponent(p.name)}">
                     <span class="pool-player-role ${rc}">${rl}</span>
-                    <span class="pool-player-name">${p.name}${p.isCaptain ? ' (C)' : ''}</span>
+                    <span class="pool-player-name">${p.name}${p.isCaptain ? ' (C)' : ''}</span>${getInjuryBadge(p.name)}
                     ${p.overseas ? '<span class="pool-player-overseas">OS</span>' : ''}
                     <span class="pool-player-price">${p.price}Cr</span>
                 </div>`;

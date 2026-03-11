@@ -5680,7 +5680,18 @@ def create_t20_recent_form_views(conn: duckdb.DuckDBPyConnection) -> None:
                     AS last10_balls,
                 SUM(CASE WHEN match_rank <= 10 AND is_wicket
                          AND player_out_id = batter_id THEN 1 ELSE 0 END)
-                    AS last10_dismissals
+                    AS last10_dismissals,
+                SUM(CASE WHEN match_rank <= 10 AND batter_runs IN (4, 6)
+                         THEN 1 ELSE 0 END)
+                    AS last10_boundaries,
+                SUM(CASE WHEN match_rank <= 10 AND batter_runs = 0
+                         AND is_legal_ball THEN 1 ELSE 0 END)
+                    AS last10_dots,
+                -- Career (all T20s)
+                SUM(batter_runs) AS career_runs,
+                SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END) AS career_balls,
+                SUM(CASE WHEN is_wicket AND player_out_id = batter_id
+                         THEN 1 ELSE 0 END) AS career_dismissals
             FROM tagged
             GROUP BY batter_id
         )
@@ -5692,7 +5703,22 @@ def create_t20_recent_form_views(conn: duckdb.DuckDBPyConnection) -> None:
             a.last10_runs,
             a.last10_balls,
             ROUND(a.last10_runs * 100.0
-                  / NULLIF(a.last10_balls, 0), 2)          AS last10_sr
+                  / NULLIF(a.last10_balls, 0), 2)          AS last10_sr,
+            ROUND(a.last10_runs * 1.0
+                  / NULLIF(a.last10_dismissals, 0), 2)     AS last10_avg,
+            ROUND(a.last10_boundaries * 100.0
+                  / NULLIF(a.last10_balls, 0), 2)           AS last10_boundary_pct,
+            ROUND(a.last10_dots * 100.0
+                  / NULLIF(a.last10_balls, 0), 2)           AS last10_dot_pct,
+            -- Career baselines
+            ROUND(a.career_runs * 100.0
+                  / NULLIF(a.career_balls, 0), 2)           AS career_sr,
+            ROUND(a.career_runs * 1.0
+                  / NULLIF(a.career_dismissals, 0), 2)     AS career_avg,
+            -- Form delta
+            ROUND((a.last10_runs * 100.0 / NULLIF(a.last10_balls, 0))
+                - (a.career_runs * 100.0 / NULLIF(a.career_balls, 0)), 2)
+                                                            AS sr_delta_last10
         FROM agg a
         JOIN dim_player dp ON a.batter_id = dp.player_id
         JOIN ipl_2026_squads sq ON dp.player_id = sq.player_id
@@ -5752,7 +5778,20 @@ def create_t20_recent_form_views(conn: duckdb.DuckDBPyConnection) -> None:
                              'run out', 'retired hurt',
                              'retired out', 'obstructing the field')
                          THEN 1 ELSE 0 END)
-                    AS last10_wickets
+                    AS last10_wickets,
+                SUM(CASE WHEN match_rank <= 10 AND batter_runs = 0
+                         AND extra_runs = 0 THEN 1 ELSE 0 END)
+                    AS last10_dots,
+                -- Career (all T20s)
+                SUM(CASE WHEN is_legal_ball THEN 1 ELSE 0 END)
+                    AS career_balls,
+                SUM(total_runs) AS career_runs_conceded,
+                SUM(CASE WHEN is_wicket
+                         AND wicket_type NOT IN (
+                             'run out', 'retired hurt',
+                             'retired out', 'obstructing the field')
+                         THEN 1 ELSE 0 END)
+                    AS career_wickets
             FROM tagged
             GROUP BY bowler_id
         )
@@ -5761,10 +5800,23 @@ def create_t20_recent_form_views(conn: duckdb.DuckDBPyConnection) -> None:
             dp.player_id    AS bowler_id,
             dp.current_name AS bowler_name,
             a.last10_matches,
-            a.last10_balls,
+            ROUND(a.last10_balls / 6.0, 1)                 AS last10_overs,
             a.last10_wickets,
             ROUND(a.last10_runs_conceded * 6.0
-                  / NULLIF(a.last10_balls, 0), 2)          AS last10_economy
+                  / NULLIF(a.last10_balls, 0), 2)          AS last10_economy,
+            ROUND(a.last10_balls * 1.0
+                  / NULLIF(a.last10_wickets, 0), 2)        AS last10_sr,
+            ROUND(a.last10_dots * 100.0
+                  / NULLIF(a.last10_balls, 0), 2)          AS last10_dot_pct,
+            -- Career baselines
+            ROUND(a.career_runs_conceded * 6.0
+                  / NULLIF(a.career_balls, 0), 2)          AS career_economy,
+            ROUND(a.career_balls * 1.0
+                  / NULLIF(a.career_wickets, 0), 2)        AS career_sr,
+            -- Form delta
+            ROUND((a.last10_runs_conceded * 6.0 / NULLIF(a.last10_balls, 0))
+                - (a.career_runs_conceded * 6.0 / NULLIF(a.career_balls, 0)), 2)
+                                                            AS economy_delta_last10
         FROM agg a
         JOIN dim_player dp ON a.bowler_id = dp.player_id
         JOIN ipl_2026_squads sq ON dp.player_id = sq.player_id

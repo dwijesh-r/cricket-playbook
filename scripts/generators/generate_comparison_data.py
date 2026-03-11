@@ -226,7 +226,7 @@ def get_batter_vs_bowling_type(
 def get_batter_recent_form(
     conn: duckdb.DuckDBPyConnection, player_ids: List[str]
 ) -> Dict[str, Dict]:
-    """Get recent form data for batters."""
+    """Get recent form data for batters (all T20 formats, not just IPL)."""
     if not player_ids:
         return {}
 
@@ -237,7 +237,7 @@ def get_batter_recent_form(
             last10_innings, last10_runs, last10_balls, last10_sr, last10_avg,
             last10_boundary_pct, last10_dot_pct,
             career_sr, career_avg, sr_delta_last10
-        FROM analytics_ipl_batter_recent_form
+        FROM analytics_t20_batter_recent_form
         WHERE batter_id IN (SELECT UNNEST(?::VARCHAR[]))
         """,
         [player_ids],
@@ -415,7 +415,7 @@ def get_bowler_vs_handedness(
 def get_bowler_recent_form(
     conn: duckdb.DuckDBPyConnection, player_ids: List[str]
 ) -> Dict[str, Dict]:
-    """Get recent form data for bowlers."""
+    """Get recent form data for bowlers (all T20 formats, not just IPL)."""
     if not player_ids:
         return {}
 
@@ -426,7 +426,7 @@ def get_bowler_recent_form(
             last10_matches, last10_overs, last10_wickets,
             last10_economy, last10_sr, last10_dot_pct,
             career_economy, career_sr, economy_delta_last10
-        FROM analytics_ipl_bowler_recent_form
+        FROM analytics_t20_bowler_recent_form
         WHERE bowler_id IN (SELECT UNNEST(?::VARCHAR[]))
         """,
         [player_ids],

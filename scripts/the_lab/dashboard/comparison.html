@@ -2149,8 +2149,8 @@
         const typeLabel = legendType === 'batter' ? 'batters' : 'bowlers';
         const deltaLabel = legendType === 'batter' ? 'SR Delta' : 'Econ Delta';
         const deltaExplain = legendType === 'batter'
-            ? 'Difference between recent form (last 10 innings) and career average. Positive SR delta = improving.'
-            : 'Difference between recent form (last 10 matches) and career average. Negative economy delta = improving.';
+            ? 'Difference between recent form (last 10 T20s, all formats) and career average. Positive SR delta = improving.'
+            : 'Difference between recent form (last 10 T20s, all formats) and career average. Negative economy delta = improving.';
         html += '<div style="font-size: var(--text-xs); color: var(--text-tertiary); margin-top: var(--space-3); padding: var(--space-2) var(--space-3); background: var(--glass); border-radius: var(--radius-md);">';
         html += '<div style="margin-bottom: var(--space-1);"><strong>' + deltaLabel + ':</strong> ' + deltaExplain + '</div>';
         html += '<div style="margin-bottom: var(--space-1);"><strong>Composite:</strong> Weighted score combining key metrics (SR, Avg, Boundary%, Dot%) used for overall ranking.</div>';
@@ -2329,7 +2329,7 @@
 
         // 5. Form & Ranking
         html += '<div class="section">';
-        html += '<div class="section-title">Recent Form & Ranking</div>';
+        html += '<div class="section-title">Recent Form — Last 10 T20s (All Formats)</div>';
         html += buildFormSection(dataA, dataB);
         html += '</div>';
 

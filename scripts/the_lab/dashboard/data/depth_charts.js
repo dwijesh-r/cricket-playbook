@@ -1,7 +1,7 @@
 /**
  * Statsledge - Full Depth Charts Data
  * IPL 2026 Pre-Season Analytics
- * Auto-generated: 2026-03-11T15:24:45.307252
+ * Auto-generated: 2026-03-11T15:27:18.603750
  */
 
 const FULL_DEPTH_CHARTS = {

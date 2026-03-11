@@ -2239,15 +2239,15 @@
         }
         .player-profile-overlay.active { display: flex; }
         .player-profile-modal {
-            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            background: var(--bg-secondary);
             border-radius: var(--radius-xl);
-            padding: var(--space-5);
-            max-width: 640px;
+            padding: var(--space-4) var(--space-5);
+            max-width: 560px;
             width: 100%;
             max-height: 85vh;
             overflow-y: auto;
             border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
             position: relative;
         }
         .player-profile-close {
@@ -2270,26 +2270,26 @@
         }
         .player-profile-close:hover { background: var(--bg-elevated); color: var(--text-primary); transform: scale(1.05); }
         .pp-header {
-            margin-bottom: var(--space-4);
-            padding-bottom: var(--space-3);
+            margin-bottom: var(--space-3);
+            padding-bottom: var(--space-2);
             border-bottom: 1px solid var(--border);
         }
         .pp-name {
-            font-size: 26px;
+            font-size: 22px;
             font-weight: 800;
             color: var(--text-primary);
-            margin: 0 0 4px 0;
+            margin: 0 0 2px 0;
             letter-spacing: -0.3px;
         }
         .pp-subtitle {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-secondary);
             margin: 0;
         }
         .pp-meta {
             display: flex;
-            gap: var(--space-2);
-            margin-top: var(--space-3);
+            gap: 6px;
+            margin-top: var(--space-2);
             flex-wrap: wrap;
         }
         .pp-meta-badge {
@@ -2306,20 +2306,18 @@
         }
         .pp-meta-badge.price { color: var(--accent-green); border-color: rgba(48, 209, 88, 0.2); }
         .pp-meta-badge.captain { color: var(--accent-yellow); border-color: rgba(255, 214, 10, 0.2); }
-        /* Archetype hero badge : visually prominent */
         .pp-archetype-badge {
             display: inline-flex;
             align-items: center;
-            gap: var(--space-1);
-            padding: var(--space-2) 16px;
-            background: linear-gradient(135deg, rgba(10, 132, 255, 0.15) 0%, rgba(94, 92, 230, 0.12) 100%);
-            border: 1px solid rgba(10, 132, 255, 0.25);
-            border-radius: var(--radius-lg);
-            font-size: 14px;
+            padding: var(--space-1) 10px;
+            background: rgba(10, 132, 255, 0.1);
+            border: 1px solid rgba(10, 132, 255, 0.2);
+            border-radius: var(--radius-sm);
+            font-size: 12px;
             font-weight: 700;
             color: var(--accent);
             letter-spacing: 0.3px;
-            margin-top: var(--space-3);
+            margin-top: var(--space-2);
         }
         /* Tags hero strip : shown right after header */
         .pp-tags-hero {
@@ -2329,17 +2327,17 @@
             margin-top: var(--space-3);
         }
         .pp-section {
-            margin-bottom: var(--space-4);
+            margin-bottom: var(--space-3);
         }
         .pp-section-title {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
-            color: var(--text-secondary);
+            color: var(--text-tertiary);
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            margin-bottom: var(--space-3);
-            border-left: 3px solid var(--accent);
-            padding-left: var(--space-3);
+            margin-bottom: var(--space-2);
+            border-left: 2px solid var(--accent);
+            padding-left: var(--space-2);
         }
         .pp-section-title.bowling { border-left-color: var(--accent-green); }
         .pp-stat-grid {
@@ -2349,29 +2347,21 @@
             margin-bottom: var(--space-3);
         }
         .pp-stat-card {
-            background: linear-gradient(135deg, var(--bg-tertiary) 0%, rgba(255, 255, 255, 0.02) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: var(--radius-lg);
-            padding: var(--space-3) 10px;
+            padding: var(--space-2) 6px;
             text-align: center;
-            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-        }
-        .pp-stat-card:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
         .pp-stat-value {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--text-primary);
         }
         .pp-stat-label {
-            font-size: var(--text-xs);
+            font-size: 10px;
             font-weight: 600;
             color: var(--text-tertiary);
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-top: var(--space-1);
+            margin-top: 2px;
         }
         .pp-phase-grid {
             display: grid;
@@ -2379,14 +2369,11 @@
             gap: var(--space-3);
         }
         .pp-phase-card {
-            background: linear-gradient(135deg, var(--bg-tertiary) 0%, rgba(255, 255, 255, 0.02) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: var(--radius-lg);
-            padding: var(--space-3) 10px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--radius-md);
+            padding: var(--space-2) var(--space-2);
             text-align: center;
-            transition: transform var(--transition-fast);
         }
-        .pp-phase-card:hover { transform: translateY(-1px); }
         .pp-phase-label {
             font-size: var(--text-xs);
             font-weight: 700;
@@ -2436,24 +2423,24 @@
         .pp-tag.style { background: rgba(255, 255, 255, 0.04); color: var(--text-secondary); border-color: rgba(255, 255, 255, 0.06); }
         .pp-matchup-table {
             width: 100%;
-            font-size: 13px;
+            font-size: 12px;
             border-collapse: collapse;
         }
         .pp-matchup-table th {
             text-align: left;
-            padding: var(--space-2) 10px;
+            padding: 4px 8px;
             color: var(--text-tertiary);
             font-weight: 600;
-            font-size: var(--text-xs);
+            font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             border-bottom: 1px solid var(--border);
         }
         .pp-matchup-table td {
-            padding: var(--space-2) 10px;
+            padding: 4px 8px;
             color: var(--text-primary);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            font-size: 13px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            font-size: 12px;
         }
         .pp-matchup-table tbody tr:hover { background: rgba(255, 255, 255, 0.02); }
         .pp-matchup-table tr:last-child td { border-bottom: none; }
@@ -7351,18 +7338,16 @@
             if (bat && bat.career) {
                 const c = bat.career;
                 html += `<div class="pp-section">
-                    <div class="pp-section-title">Batting Career (${p.data_source === 'cross_tournament' ? 'T20 2023+' : 'IPL 2023+'})</div>
+                    <div class="pp-section-title">Batting (${p.data_source === 'cross_tournament' ? 'T20 2023+' : 'IPL 2023+'})</div>
                     <div class="pp-stat-grid">
                         <div class="pp-stat-card"><div class="pp-stat-value">${c.runs || 0}</div><div class="pp-stat-label">Runs</div></div>
-                        <div class="pp-stat-card"><div class="pp-stat-value">${c.innings || 0}</div><div class="pp-stat-label">Innings</div></div>
-                        <div class="pp-stat-card"><div class="pp-stat-value">${c.average != null ? c.average.toFixed(1) : '-'}</div><div class="pp-stat-label">Average</div></div>
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.innings || 0}</div><div class="pp-stat-label">Inn</div></div>
                         <div class="pp-stat-card"><div class="pp-stat-value">${c.strike_rate != null ? c.strike_rate.toFixed(1) : '-'}</div><div class="pp-stat-label">SR</div></div>
-                    </div>
-                    <div class="pp-stat-grid">
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.average != null ? c.average.toFixed(1) : '-'}</div><div class="pp-stat-label">Avg</div></div>
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.boundary_pct != null ? c.boundary_pct.toFixed(1) + '%' : '-'}</div><div class="pp-stat-label">Bound%</div></div>
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.dot_ball_pct != null ? c.dot_ball_pct.toFixed(1) + '%' : '-'}</div><div class="pp-stat-label">Dot%</div></div>
                         <div class="pp-stat-card"><div class="pp-stat-value">${c.fifties || 0}</div><div class="pp-stat-label">50s</div></div>
                         <div class="pp-stat-card"><div class="pp-stat-value">${c.hundreds || 0}</div><div class="pp-stat-label">100s</div></div>
-                        <div class="pp-stat-card"><div class="pp-stat-value">${c.boundary_pct != null ? c.boundary_pct.toFixed(1) + '%' : '-'}</div><div class="pp-stat-label">Boundary%</div></div>
-                        <div class="pp-stat-card"><div class="pp-stat-value">${c.dot_ball_pct != null ? c.dot_ball_pct.toFixed(1) + '%' : '-'}</div><div class="pp-stat-label">Dot%</div></div>
                     </div>
                     ${sampleBadge(c.sample_size)}
                 </div>`;
@@ -7449,18 +7434,16 @@
             if (bowl && bowl.career) {
                 const c = bowl.career;
                 html += `<div class="pp-section">
-                    <div class="pp-section-title bowling">Bowling Career (${p.data_source === 'cross_tournament' ? 'T20 2023+' : 'IPL 2023+'})</div>
+                    <div class="pp-section-title bowling">Bowling (${p.data_source === 'cross_tournament' ? 'T20 2023+' : 'IPL 2023+'})</div>
                     <div class="pp-stat-grid">
-                        <div class="pp-stat-card"><div class="pp-stat-value">${c.wickets || 0}</div><div class="pp-stat-label">Wickets</div></div>
-                        <div class="pp-stat-card"><div class="pp-stat-value">${c.overs || 0}</div><div class="pp-stat-label">Overs</div></div>
-                        <div class="pp-stat-card"><div class="pp-stat-value">${c.economy != null ? c.economy.toFixed(2) : '-'}</div><div class="pp-stat-label">Economy</div></div>
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.wickets || 0}</div><div class="pp-stat-label">Wkts</div></div>
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.matches || 0}</div><div class="pp-stat-label">Matches</div></div>
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.economy != null ? c.economy.toFixed(2) : '-'}</div><div class="pp-stat-label">Econ</div></div>
                         <div class="pp-stat-card"><div class="pp-stat-value">${c.strike_rate != null ? c.strike_rate.toFixed(1) : '-'}</div><div class="pp-stat-label">SR</div></div>
-                    </div>
-                    <div class="pp-stat-grid">
-                        <div class="pp-stat-card"><div class="pp-stat-value">${c.average != null ? c.average.toFixed(1) : '-'}</div><div class="pp-stat-label">Average</div></div>
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.average != null ? c.average.toFixed(1) : '-'}</div><div class="pp-stat-label">Avg</div></div>
                         <div class="pp-stat-card"><div class="pp-stat-value">${c.dot_ball_pct != null ? c.dot_ball_pct.toFixed(1) + '%' : '-'}</div><div class="pp-stat-label">Dot%</div></div>
                         <div class="pp-stat-card"><div class="pp-stat-value">${c.boundary_conceded_pct != null ? c.boundary_conceded_pct.toFixed(1) + '%' : '-'}</div><div class="pp-stat-label">Bound%</div></div>
-                        <div class="pp-stat-card"><div class="pp-stat-value">${c.matches || 0}</div><div class="pp-stat-label">Matches</div></div>
+                        <div class="pp-stat-card"><div class="pp-stat-value">${c.overs || 0}</div><div class="pp-stat-label">Overs</div></div>
                     </div>
                     ${sampleBadge(c.sample_size)}
                 </div>`;

@@ -4470,6 +4470,7 @@
             <a href="rankings.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Rankings</a>
             <a href="comparison.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Compare</a>
             <a href="head-to-head.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
+            <a href="schedule.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Schedule</a>
             <a href="squad-builder.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Fantasy</a>
             <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
         </nav>
@@ -4490,6 +4491,7 @@
         <a href="rankings.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Rankings</a>
         <a href="comparison.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Compare</a>
         <a href="head-to-head.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
+        <a href="schedule.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Schedule</a>
         <a href="squad-builder.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Fantasy</a>
         <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
     </div>
@@ -4521,6 +4523,7 @@
             <button class="content-tab" data-tab="balance">Strategy Outlook</button>
             <button class="content-tab" data-tab="pressure">Pressure</button>
             <button class="content-tab" data-tab="compare">Compare</button>
+            <button class="content-tab" data-tab="schedule">Schedule</button>
             <button class="content-tab" data-tab="buildxi">Build XI</button>
         </div>
 
@@ -4548,6 +4551,9 @@
             <div class="panel" id="panel-compare">
                 <div id="compare-content"></div>
             </div>
+            <div class="panel" id="panel-schedule">
+                <div id="schedule-content"></div>
+            </div>
             <div class="panel" id="panel-buildxi">
                 <div id="buildxi-content"></div>
             </div>
@@ -4569,6 +4575,7 @@
     <script src="data/momentum_insights.js"></script>
     <script src="data/player_profiles.js"></script>
     <script src="data/season_previews.js"></script>
+    <script src="data/schedule.js"></script>
 
     <!-- Data Freshness Indicator (TKT-249) -->
     <script>
@@ -7203,8 +7210,71 @@
                 if (tabId === 'buildxi') {
                     renderBuildXI();
                 }
+                if (tabId === 'schedule') {
+                    renderSchedulePanel();
+                }
             });
         });
+
+        function renderSchedulePanel() {
+            const container = document.getElementById('schedule-content');
+            if (!container) return;
+            if (typeof IPL_SCHEDULE === 'undefined') {
+                container.innerHTML = '<p style="color:var(--text-tertiary);padding:var(--space-4);">Schedule data not available.</p>';
+                return;
+            }
+
+            const team = currentTeam;
+            const matches = IPL_SCHEDULE.filter(m => m.home === team || m.away === team);
+
+            let html = `<div style="margin-bottom:var(--space-3);padding:var(--space-2) var(--space-3);background:rgba(234,179,8,0.08);border:1px solid rgba(234,179,8,0.2);border-radius:var(--radius-md);font-size:var(--text-sm);color:var(--accent-yellow);">
+                Only first 20 of 84 matches announced. Remaining fixtures pending due to state assembly elections.
+            </div>`;
+
+            if (matches.length === 0) {
+                html += '<p style="color:var(--text-tertiary);padding:var(--space-4);">No matches scheduled in announced fixtures.</p>';
+                container.innerHTML = html;
+                return;
+            }
+
+            html += `<div style="margin-bottom:var(--space-3);font-size:var(--text-sm);color:var(--text-secondary);">${matches.length} matches in announced schedule</div>`;
+            html += '<table style="width:100%;border-collapse:collapse;font-size:var(--text-sm);">';
+            html += '<thead><tr style="border-bottom:1px solid var(--border);">';
+            html += '<th style="padding:8px 10px;text-align:left;color:var(--text-tertiary);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;">#</th>';
+            html += '<th style="padding:8px 10px;text-align:left;color:var(--text-tertiary);font-size:10px;text-transform:uppercase;">Date</th>';
+            html += '<th style="padding:8px 10px;text-align:left;color:var(--text-tertiary);font-size:10px;text-transform:uppercase;">Match</th>';
+            html += '<th style="padding:8px 10px;text-align:left;color:var(--text-tertiary);font-size:10px;text-transform:uppercase;">Venue</th>';
+            html += '<th style="padding:8px 10px;text-align:center;color:var(--text-tertiary);font-size:10px;text-transform:uppercase;">H/A</th>';
+            html += '</tr></thead><tbody>';
+
+            const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            matches.forEach(m => {
+                const d = new Date(m.date);
+                const dateStr = `${months[d.getMonth()]} ${d.getDate()}`;
+                const isHome = m.home === team;
+                const opponent = isHome ? m.away : m.home;
+                const oppColor = TEAMS[opponent] ? TEAMS[opponent].primaryColor : 'var(--text-primary)';
+                const teamColor = TEAMS[team] ? TEAMS[team].primaryColor : 'var(--text-primary)';
+                const haTag = isHome
+                    ? '<span style="background:rgba(34,197,94,0.12);color:#22c55e;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;">H</span>'
+                    : '<span style="background:rgba(239,68,68,0.12);color:#ef4444;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;">A</span>';
+
+                html += `<tr style="border-bottom:1px solid rgba(255,255,255,0.03);">
+                    <td style="padding:8px 10px;color:var(--text-tertiary);">${m.match}</td>
+                    <td style="padding:8px 10px;white-space:nowrap;">${dateStr}, ${m.day}</td>
+                    <td style="padding:8px 10px;">
+                        <span style="color:${teamColor};font-weight:700;">${team}</span>
+                        <span style="color:var(--text-tertiary);margin:0 4px;">vs</span>
+                        <span style="color:${oppColor};font-weight:600;">${opponent}</span>
+                    </td>
+                    <td style="padding:8px 10px;color:var(--text-secondary);">${m.venue}, ${m.city}</td>
+                    <td style="padding:8px 10px;text-align:center;">${haTag}</td>
+                </tr>`;
+            });
+
+            html += '</tbody></table>';
+            container.innerHTML = html;
+        }
 
         // Timer - User's local timezone
         function updateTime() {

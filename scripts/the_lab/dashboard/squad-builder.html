@@ -834,6 +834,7 @@
             <a href="rankings.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Rankings</a>
             <a href="comparison.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Compare</a>
             <a href="head-to-head.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
+            <a href="schedule.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Schedule</a>
             <a href="squad-builder.html" class="sidebar-link active"><span class="sidebar-link-icon">&#9679;</span> Fantasy</a>
             <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
         </nav>
@@ -854,6 +855,7 @@
         <a href="rankings.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Rankings</a>
         <a href="comparison.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Compare</a>
         <a href="head-to-head.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
+        <a href="schedule.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Schedule</a>
         <a href="squad-builder.html" class="sidebar-link active"><span class="sidebar-link-icon">&#9679;</span> Fantasy</a>
         <a href="about.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> About</a>
     </div>
@@ -863,7 +865,7 @@
         <section class="hero">
             <div class="hero-badge">Fantasy Prep Tool</div>
             <h1 class="hero-title">Fantasy</h1>
-            <p class="hero-subtitle">Fantasy Value (FV) blends Dream11-style scoring with career profile, batting position, matchup signals, and franchise valuation. Price Range estimates ideal bid window for your friend group draft. Stats blend IPL 2023–2025 career data with recent form from last 10 T20s across all formats.</p>
+            <p class="hero-subtitle">Fantasy Value (FV) blends Dream11-style scoring with career profile, batting position, matchup signals, and franchise valuation. Rankings now factor in IPL 2026 schedule matchups for announced fixtures (matches 1–20). Price Range estimates ideal bid window for your friend group draft. Stats blend IPL 2023–2025 career data with recent form from last 10 T20s across all formats.</p>
         </section>
 
         <!-- Tab Pills -->
@@ -913,6 +915,7 @@
                             <th class="col-numeric" data-col="econ">Bowl Econ <span class="sort-arrow"></span></th>
                             <th data-col="form" style="text-align:center">Form <span class="sort-arrow"></span></th>
                             <th data-col="predicted" style="text-align:center">Pred. XII <span class="sort-arrow"></span></th>
+                            <th data-col="schedMatches" style="text-align:center" title="Known scheduled matches (of 20 announced)">Sched <span class="sort-arrow"></span></th>
                         </tr>
                     </thead>
                     <tbody id="rankingsBody">
@@ -927,7 +930,7 @@
         <footer class="footer" role="contentinfo">
             <div class="footer-links">
                 <a href="/boardroom/index.html">Mission Control</a>
-                <a href="https://github.com/dwijesh-r/cricket-playbook" target="_blank">GitHub</a>
+                <a href="about.html">Statsledge</a>
                 <a href="about.html">About</a>
             </div>
             <p class="footer-text">
@@ -940,6 +943,7 @@
     <script src="data/teams.js"></script>
     <script src="data/full_squads.js"></script>
     <script src="data/predicted_xii.js"></script>
+    <script src="data/schedule.js"></script>
 
     <script>
     // ==================== STATE ====================
@@ -1160,6 +1164,54 @@
         return Math.min(35, score);
     }
 
+    function calcScheduleBoost(player) {
+        // Schedule-aware venue-fit bonus based on announced IPL 2026 fixtures (0-5)
+        if (typeof IPL_SCHEDULE === 'undefined' || typeof SCHEDULE_VENUES === 'undefined') return 0;
+
+        const team = player.teamAbbrev;
+        if (!team) return 0;
+
+        const teamMatches = IPL_SCHEDULE.filter(m => m.home === team || m.away === team);
+        const numMatches = teamMatches.length;
+        if (numMatches === 0) return 0;
+
+        const bClass = (player.bowlerClass || '').toLowerCase();
+        const batClass = (player.batterClass || '').toLowerCase();
+        const isPace = bClass.includes('pace') || bClass.includes('seam');
+        const isSpin = bClass.includes('spin') || bClass.includes('mystery');
+        const isPower = batClass.includes('power') || batClass.includes('aggressor');
+        const isAnchor = batClass.includes('anchor') || batClass.includes('accumulator');
+
+        let totalScore = 0;
+        teamMatches.forEach(match => {
+            const venueInfo = SCHEDULE_VENUES[match.venue];
+            if (!venueInfo) { totalScore += 0.3; return; }
+
+            const bias = venueInfo.bias;
+            if (bias === 'pace') {
+                if (isPace) totalScore += 1;
+                else if (isPower) totalScore += 0.5;
+                else totalScore += 0.2;
+            } else if (bias === 'spin') {
+                if (isSpin) totalScore += 1;
+                else if (isAnchor) totalScore += 0.5;
+                else totalScore += 0.2;
+            } else {
+                totalScore += 0.3;
+            }
+        });
+
+        // Average per-match score, normalize to 0-5 range (max per-match is 1.0)
+        let avg = totalScore / numMatches;
+        let normalized = avg * 5;
+
+        // Teams with more scheduled matches get a slight certainty edge (+0.1 per match above 2)
+        const certaintyBonus = Math.min(0.5, Math.max(0, (numMatches - 2) * 0.1));
+        normalized += certaintyBonus;
+
+        return Math.min(5, Math.round(normalized * 100) / 100);
+    }
+
     function calcMarketScore(p) {
         // Market signal: salary, predicted XII, position/usage, venue matchups → 0-22
         let score = 0;
@@ -1197,12 +1249,9 @@
             else score += 1;                 // pos 7-8: floating role
         }
 
-        // Venue matchup signal from tags (home advantage, surface specialization)
-        const allTags = [...(p.batterTags || []), ...(p.bowlerTags || [])];
-        // Spin specialists benefit at spin-friendly venues (most Indian grounds)
-        if (allTags.some(t => t.includes('SPIN_SPECIALIST') || t.includes('MID_OVERS_ELITE'))) score += 1;
-        // Pace specialists benefit at pace-friendly venues (Wankhede, Chinnaswamy)
-        if (allTags.some(t => t.includes('PACE_SPECIALIST') || t.includes('PP_ELITE'))) score += 1;
+        // Schedule-aware venue matchup boost (0-5): replaces generic tag-based venue signal
+        // Uses actual IPL 2026 fixtures to match player skills to confirmed venues
+        score += calcScheduleBoost(p);
 
         return Math.min(22, score);
     }
@@ -1407,6 +1456,7 @@
             case 'econ': return player.iplEconomy || 0;
             case 'predicted': return player.predictedXII ? 1 : 0;
             case 'form': return player.formScore || 50;
+            case 'schedMatches': return (typeof IPL_SCHEDULE !== 'undefined') ? IPL_SCHEDULE.filter(m => m.home === player.teamAbbrev || m.away === player.teamAbbrev).length : 0;
             default: return 0;
         }
     }
@@ -1457,7 +1507,7 @@
         countEl.textContent = filteredPlayers.length + ' players';
 
         if (filteredPlayers.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="11" class="no-results">No players match the current filters.</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="13" class="no-results">No players match the current filters.</td></tr>';
             return;
         }
 
@@ -1486,6 +1536,14 @@
             // Recent form bar (last 10 T20s across all formats)
             const formHtml = getFormBar(p);
 
+            // Schedule: count known matches for this player's team
+            const schedCount = (typeof IPL_SCHEDULE !== 'undefined')
+                ? IPL_SCHEDULE.filter(m => m.home === p.teamAbbrev || m.away === p.teamAbbrev).length
+                : 0;
+            const schedDisplay = schedCount > 0
+                ? `<span title="${schedCount} of ${typeof SCHEDULE_META !== 'undefined' ? SCHEDULE_META.announcedMatches : 20} announced matches" style="color:var(--accent-teal);font-weight:600">${schedCount}</span>`
+                : '<span style="color:var(--text-tertiary)">--</span>';
+
             html += `<tr>
                 <td class="col-rank">${idx + 1}</td>
                 <td class="col-player">${p.name}${captainBadge}${overseasBadge}</td>
@@ -1499,6 +1557,7 @@
                 <td class="col-numeric">${econDisplay}</td>
                 <td style="text-align:center">${formHtml}</td>
                 <td style="text-align:center">${predictedXII}</td>
+                <td style="text-align:center">${schedDisplay}</td>
             </tr>`;
         });
         tbody.innerHTML = html;

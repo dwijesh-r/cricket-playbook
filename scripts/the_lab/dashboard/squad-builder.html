@@ -495,6 +495,19 @@
             letter-spacing: 0.06em; background: rgba(249, 115, 22, 0.12);
             color: var(--accent-orange); margin-left: 6px;
         }
+        .form-bar {
+            display: inline-flex; align-items: center; gap: 5px; width: 70px;
+        }
+        .form-bar-track {
+            flex: 1; height: 6px; border-radius: 3px;
+            background: rgba(255,255,255,0.08); overflow: hidden;
+        }
+        .form-bar-fill {
+            height: 100%; border-radius: 3px; transition: width 0.3s ease;
+        }
+        .form-label {
+            font-size: 10px; font-weight: 600; min-width: 14px; text-align: right;
+        }
         .captain-badge {
             display: inline-block; padding: 2px 6px; border-radius: var(--radius-sm);
             font-size: 10px; font-weight: 700; text-transform: uppercase;
@@ -898,6 +911,7 @@
                             <th class="col-numeric" data-col="matches">IPL M <span class="sort-arrow"></span></th>
                             <th class="col-numeric" data-col="sr">Bat SR <span class="sort-arrow"></span></th>
                             <th class="col-numeric" data-col="econ">Bowl Econ <span class="sort-arrow"></span></th>
+                            <th data-col="form" style="text-align:center">Form <span class="sort-arrow"></span></th>
                             <th data-col="predicted" style="text-align:center">Pred. XII <span class="sort-arrow"></span></th>
                         </tr>
                     </thead>
@@ -1304,6 +1318,7 @@
                 player.fantasyValue = calcFantasyValue(player);
                 player.ceiling = calcCeiling(player);
                 player.floor = calcFloor(player);
+                player.formScore = calcFormScore(player);
                 allPlayers.push(player);
             });
         });
@@ -1391,6 +1406,7 @@
             case 'sr': return player.iplSR || 0;
             case 'econ': return player.iplEconomy || 0;
             case 'predicted': return player.predictedXII ? 1 : 0;
+            case 'form': return player.formScore || 50;
             default: return 0;
         }
     }
@@ -1467,6 +1483,9 @@
             const ceilVal = p.ceiling || 0.5;
             const rangeColor = ceilVal >= p.price * 1.3 ? 'var(--accent-green)' : 'var(--text-secondary)';
 
+            // Recent form bar (last 10 T20s across all formats)
+            const formHtml = getFormBar(p);
+
             html += `<tr>
                 <td class="col-rank">${idx + 1}</td>
                 <td class="col-player">${p.name}${captainBadge}${overseasBadge}</td>
@@ -1478,10 +1497,76 @@
                 <td class="col-numeric">${matchesDisplay}</td>
                 <td class="col-numeric">${srDisplay}</td>
                 <td class="col-numeric">${econDisplay}</td>
+                <td style="text-align:center">${formHtml}</td>
                 <td style="text-align:center">${predictedXII}</td>
             </tr>`;
         });
         tbody.innerHTML = html;
+    }
+
+    function calcFormScore(p) {
+        // Compare last 10 T20s (all formats) to IPL career baseline → 0-100 score
+        const recentBatInnings = p.recentBatInnings || 0;
+        const recentBowlMatches = p.recentBowlMatches || 0;
+        if (recentBatInnings === 0 && recentBowlMatches === 0) return null;
+
+        let formScore = 50; // neutral baseline
+        let signals = 0;
+
+        // Batting SR delta
+        if (recentBatInnings >= 3 && p.iplSR > 0 && p.recentBatSR > 0) {
+            const srDelta = (p.recentBatSR - p.iplSR) / p.iplSR;
+            formScore += Math.max(-30, Math.min(30, srDelta * 300));
+            signals++;
+        }
+        // Batting RPM delta
+        if (recentBatInnings >= 3 && p.iplMatches > 0 && p.iplRuns > 0) {
+            const iplRPM = p.iplRuns / p.iplMatches;
+            const recentRPM = (p.recentBatRuns || 0) / recentBatInnings;
+            if (iplRPM > 0) {
+                formScore += Math.max(-20, Math.min(20, ((recentRPM - iplRPM) / iplRPM) * 200));
+                signals++;
+            }
+        }
+        // Bowling economy delta (lower = better, so invert)
+        if (recentBowlMatches >= 3 && p.iplEconomy > 0 && p.recentBowlEcon > 0) {
+            const econDelta = (p.iplEconomy - p.recentBowlEcon) / p.iplEconomy;
+            formScore += Math.max(-30, Math.min(30, econDelta * 300));
+            signals++;
+        }
+        // Bowling WPM delta
+        if (recentBowlMatches >= 3 && p.iplMatches > 0 && p.iplWickets > 0) {
+            const iplWPM = p.iplWickets / p.iplMatches;
+            const recentWPM = (p.recentBowlWickets || 0) / recentBowlMatches;
+            if (iplWPM > 0) {
+                formScore += Math.max(-20, Math.min(20, ((recentWPM - iplWPM) / iplWPM) * 200));
+                signals++;
+            }
+        }
+        // Dampen if limited data
+        if (signals <= 1) formScore = 50 + (formScore - 50) * 0.5;
+        return Math.max(0, Math.min(100, Math.round(formScore)));
+    }
+
+    function getFormBar(p) {
+        const score = p.formScore;
+        if (score === null || score === undefined) {
+            return '<span style="color:var(--text-tertiary);font-size:10px">--</span>';
+        }
+
+        let color;
+        if (score >= 65) color = '#22c55e';
+        else if (score >= 45) color = '#eab308';
+        else color = '#ef4444';
+
+        const tooltipParts = [];
+        if (p.recentBatInnings > 0) tooltipParts.push(`Bat: ${p.recentBatInnings} inn, SR ${p.recentBatSR || 0}`);
+        if (p.recentBowlMatches > 0) tooltipParts.push(`Bowl: ${p.recentBowlMatches}m, Econ ${p.recentBowlEcon || 0}`);
+        const tooltip = `Last 10 T20s — ${tooltipParts.join(' | ')}`;
+
+        return `<div class="form-bar" title="${tooltip}">
+            <div class="form-bar-track"><div class="form-bar-fill" style="width:${score}%;background:${color}"></div></div>
+        </div>`;
     }
 
     function getTeamColor(abbrev) {

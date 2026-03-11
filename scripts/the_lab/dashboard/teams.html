@@ -7226,9 +7226,52 @@
 
             const team = currentTeam;
             const matches = IPL_SCHEDULE.filter(m => m.home === team || m.away === team);
+            const teamColor = TEAMS[team] ? TEAMS[team].primaryColor : 'var(--accent)';
+            const homeCount = matches.filter(m => m.home === team).length;
+            const awayCount = matches.filter(m => m.away === team).length;
 
-            let html = `<div style="margin-bottom:var(--space-3);padding:var(--space-2) var(--space-3);background:rgba(234,179,8,0.08);border:1px solid rgba(234,179,8,0.2);border-radius:var(--radius-md);font-size:var(--text-sm);color:var(--accent-yellow);">
-                Only first 20 of 84 matches announced. Remaining fixtures pending due to state assembly elections.
+            // Team badge color map
+            const TEAM_BADGE = {
+                'CSK': { bg: '#FFC107', fg: '#1a1a2e' }, 'DC': { bg: '#004BA0', fg: '#fff' },
+                'GT': { bg: '#1C2C3B', fg: '#fff' }, 'KKR': { bg: '#3A225D', fg: '#fff' },
+                'LSG': { bg: '#004D8B', fg: '#fff' }, 'MI': { bg: '#004BA0', fg: '#fff' },
+                'PBKS': { bg: '#DC2626', fg: '#fff' }, 'RCB': { bg: '#CF0000', fg: '#fff' },
+                'RR': { bg: '#E73895', fg: '#fff' }, 'SRH': { bg: '#FF822A', fg: '#1a1a2e' }
+            };
+            function teamBadge(abbrev, bold) {
+                const c = TEAM_BADGE[abbrev] || { bg: 'var(--bg-tertiary)', fg: 'var(--text-primary)' };
+                return `<span style="display:inline-flex;align-items:center;justify-content:center;padding:3px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.06em;background:${c.bg};color:${c.fg};min-width:40px;${bold ? 'box-shadow:0 0 8px ' + c.bg + '40;' : 'opacity:0.85;'}">${abbrev}</span>`;
+            }
+
+            // Venue bias info
+            const VENUE_BIAS = typeof SCHEDULE_VENUES !== 'undefined' ? SCHEDULE_VENUES : {};
+            function biasDot(venue) {
+                const info = VENUE_BIAS[venue];
+                if (!info) return '';
+                const colors = { pace: '#22c55e', spin: '#f97316', neutral: '#64748b' };
+                const color = colors[info.bias] || colors.neutral;
+                return `<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${color};margin-right:6px;flex-shrink:0;" title="${info.bias}"></span>`;
+            }
+
+            // Summary stats bar
+            let html = `<div style="display:flex;flex-wrap:wrap;gap:var(--space-3);margin-bottom:var(--space-3);">
+                <div style="flex:1;min-width:120px;background:var(--bg-tertiary);border-radius:var(--radius-md);padding:var(--space-2) var(--space-3);text-align:center;">
+                    <div style="font-size:var(--text-2xl);font-weight:800;color:${teamColor};">${matches.length}</div>
+                    <div style="font-size:var(--text-xs);color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;">Matches</div>
+                </div>
+                <div style="flex:1;min-width:120px;background:var(--bg-tertiary);border-radius:var(--radius-md);padding:var(--space-2) var(--space-3);text-align:center;">
+                    <div style="font-size:var(--text-2xl);font-weight:800;color:#22c55e;">${homeCount}</div>
+                    <div style="font-size:var(--text-xs);color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;">Home</div>
+                </div>
+                <div style="flex:1;min-width:120px;background:var(--bg-tertiary);border-radius:var(--radius-md);padding:var(--space-2) var(--space-3);text-align:center;">
+                    <div style="font-size:var(--text-2xl);font-weight:800;color:#ef4444;">${awayCount}</div>
+                    <div style="font-size:var(--text-xs);color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;">Away</div>
+                </div>
+            </div>`;
+
+            // Notice banner
+            html += `<div style="margin-bottom:var(--space-3);padding:var(--space-2) var(--space-3);background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.15);border-radius:var(--radius-md);font-size:var(--text-xs);color:var(--accent-yellow);display:flex;align-items:center;gap:8px;">
+                <span style="font-size:14px;">&#9888;</span> First 20 of 84 matches announced. Remaining fixtures pending due to state assembly elections.
             </div>`;
 
             if (matches.length === 0) {
@@ -7237,42 +7280,50 @@
                 return;
             }
 
-            html += `<div style="margin-bottom:var(--space-3);font-size:var(--text-sm);color:var(--text-secondary);">${matches.length} matches in announced schedule</div>`;
-            html += '<table style="width:100%;border-collapse:collapse;font-size:var(--text-sm);">';
-            html += '<thead><tr style="border-bottom:1px solid var(--border);">';
-            html += '<th style="padding:8px 10px;text-align:left;color:var(--text-tertiary);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;">#</th>';
-            html += '<th style="padding:8px 10px;text-align:left;color:var(--text-tertiary);font-size:10px;text-transform:uppercase;">Date</th>';
-            html += '<th style="padding:8px 10px;text-align:left;color:var(--text-tertiary);font-size:10px;text-transform:uppercase;">Match</th>';
-            html += '<th style="padding:8px 10px;text-align:left;color:var(--text-tertiary);font-size:10px;text-transform:uppercase;">Venue</th>';
-            html += '<th style="padding:8px 10px;text-align:center;color:var(--text-tertiary);font-size:10px;text-transform:uppercase;">H/A</th>';
-            html += '</tr></thead><tbody>';
-
+            // Match cards
             const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            const days = { Mon: 'Monday', Tue: 'Tuesday', Wed: 'Wednesday', Thu: 'Thursday', Fri: 'Friday', Sat: 'Saturday', Sun: 'Sunday' };
+
+            html += '<div style="display:flex;flex-direction:column;gap:2px;">';
             matches.forEach(m => {
                 const d = new Date(m.date);
-                const dateStr = `${months[d.getMonth()]} ${d.getDate()}`;
+                const dateStr = `${m.day}, ${months[d.getMonth()]} ${d.getDate()}`;
                 const isHome = m.home === team;
                 const opponent = isHome ? m.away : m.home;
-                const oppColor = TEAMS[opponent] ? TEAMS[opponent].primaryColor : 'var(--text-primary)';
-                const teamColor = TEAMS[team] ? TEAMS[team].primaryColor : 'var(--text-primary)';
+                const isWeekend = m.day === 'Sat' || m.day === 'Sun';
+                const venueInfo = VENUE_BIAS[m.venue];
                 const haTag = isHome
-                    ? '<span style="background:rgba(34,197,94,0.12);color:#22c55e;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;">H</span>'
-                    : '<span style="background:rgba(239,68,68,0.12);color:#ef4444;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;">A</span>';
+                    ? '<span style="background:rgba(34,197,94,0.12);color:#22c55e;padding:2px 10px;border-radius:var(--radius-full);font-size:10px;font-weight:700;letter-spacing:0.06em;">HOME</span>'
+                    : '<span style="background:rgba(239,68,68,0.12);color:#ef4444;padding:2px 10px;border-radius:var(--radius-full);font-size:10px;font-weight:700;letter-spacing:0.06em;">AWAY</span>';
 
-                html += `<tr style="border-bottom:1px solid rgba(255,255,255,0.03);">
-                    <td style="padding:8px 10px;color:var(--text-tertiary);">${m.match}</td>
-                    <td style="padding:8px 10px;white-space:nowrap;">${dateStr}, ${m.day}</td>
-                    <td style="padding:8px 10px;">
-                        <span style="color:${teamColor};font-weight:700;">${team}</span>
-                        <span style="color:var(--text-tertiary);margin:0 4px;">vs</span>
-                        <span style="color:${oppColor};font-weight:600;">${opponent}</span>
-                    </td>
-                    <td style="padding:8px 10px;color:var(--text-secondary);">${m.venue}, ${m.city}</td>
-                    <td style="padding:8px 10px;text-align:center;">${haTag}</td>
-                </tr>`;
+                html += `<div style="display:flex;align-items:center;gap:var(--space-3);padding:12px var(--space-3);background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-md);transition:background 150ms ease;">
+                    <div style="min-width:28px;text-align:center;font-family:var(--font-mono);font-size:var(--text-xs);color:var(--text-tertiary);font-weight:600;">${m.match}</div>
+                    <div style="min-width:110px;">
+                        <div style="font-family:var(--font-mono);font-size:var(--text-sm);color:${isWeekend ? 'var(--accent-yellow)' : 'var(--text-primary)'};font-weight:500;">${dateStr}</div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:8px;min-width:140px;">
+                        ${teamBadge(team, isHome)}
+                        <span style="font-size:var(--text-xs);color:var(--text-tertiary);font-weight:600;">vs</span>
+                        ${teamBadge(opponent, !isHome)}
+                    </div>
+                    <div style="flex:1;display:flex;align-items:center;gap:6px;min-width:0;">
+                        ${biasDot(m.venue)}
+                        <span style="font-size:var(--text-xs);color:var(--text-secondary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${m.venue}</span>
+                        <span style="font-size:var(--text-xs);color:var(--text-tertiary);">&#183; ${m.city}</span>
+                    </div>
+                    <div style="min-width:50px;text-align:right;">${haTag}</div>
+                </div>`;
             });
+            html += '</div>';
 
-            html += '</tbody></table>';
+            // Venue bias legend
+            html += `<div style="display:flex;align-items:center;gap:var(--space-3);margin-top:var(--space-3);padding:var(--space-2) var(--space-3);font-size:var(--text-xs);color:var(--text-tertiary);">
+                <span style="font-weight:600;">Venue Bias:</span>
+                <span style="display:flex;align-items:center;gap:4px;"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#22c55e;"></span> Pace</span>
+                <span style="display:flex;align-items:center;gap:4px;"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#f97316;"></span> Spin</span>
+                <span style="display:flex;align-items:center;gap:4px;"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#64748b;"></span> Neutral</span>
+            </div>`;
+
             container.innerHTML = html;
         }
 

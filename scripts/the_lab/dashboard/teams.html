@@ -7252,20 +7252,104 @@
                 const color = colors[info.bias] || colors.neutral;
                 return `<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${color};margin-right:6px;flex-shrink:0;" title="${info.bias}"></span>`;
             }
+            function biasLabel(venue) {
+                const info = VENUE_BIAS[venue];
+                if (!info) return '';
+                const colors = { pace: '#22c55e', spin: '#f97316', neutral: '#64748b' };
+                const labels = { pace: 'Pace-friendly', spin: 'Spin-friendly', neutral: 'Balanced' };
+                return `<span style="font-size:10px;color:${colors[info.bias]};font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">${labels[info.bias]}</span>`;
+            }
+
+            // Get opponent key players (predicted XI only, sorted by relevance)
+            function getKeyPlayers(oppTeam, venueBias) {
+                const squad = typeof FULL_SQUADS !== 'undefined' ? FULL_SQUADS[oppTeam] : null;
+                if (!squad) return [];
+                const xi = squad.filter(p => p.predictedXII);
+                // Score each player for "threat level" at this venue
+                const scored = xi.map(p => {
+                    let threat = 0;
+                    const bType = (p.bowlingType || '').toLowerCase();
+                    const bClass = (p.bowlerClass || '').toLowerCase();
+                    const batClass = (p.batterClass || '').toLowerCase();
+                    // Base: runs and wickets
+                    if (p.iplRuns > 500) threat += 3;
+                    else if (p.iplRuns > 200) threat += 2;
+                    if (p.iplWickets > 30) threat += 3;
+                    else if (p.iplWickets > 15) threat += 2;
+                    if (p.iplSR > 150) threat += 1;
+                    if (p.iplEconomy > 0 && p.iplEconomy < 8) threat += 1;
+                    // Venue fit bonus
+                    if (venueBias === 'pace') {
+                        if (bType.includes('fast') || bClass.includes('pace') || bClass.includes('seam')) threat += 2;
+                        if (batClass.includes('power') || batClass.includes('explosive')) threat += 1;
+                    } else if (venueBias === 'spin') {
+                        if (bType.includes('spin') || bType.includes('orthodox') || bClass.includes('spin')) threat += 2;
+                        if (batClass.includes('anchor') || batClass.includes('accumulator')) threat += 1;
+                    }
+                    if (p.isCaptain) threat += 1;
+                    return { ...p, threat };
+                });
+                scored.sort((a, b) => b.threat - a.threat);
+                return scored.slice(0, 3);
+            }
+
+            // Venue analysis for this team
+            function getVenueInsight(venueBias, oppTeam) {
+                const mySquad = typeof FULL_SQUADS !== 'undefined' ? FULL_SQUADS[team] : null;
+                if (!mySquad) return '';
+                const xi = mySquad.filter(p => p.predictedXII);
+                const paceCount = xi.filter(p => {
+                    const bt = (p.bowlingType || '').toLowerCase();
+                    return bt.includes('fast') || bt.includes('medium');
+                }).length;
+                const spinCount = xi.filter(p => {
+                    const bt = (p.bowlingType || '').toLowerCase();
+                    return bt.includes('spin') || bt.includes('orthodox') || bt.includes('wrist');
+                }).length;
+                if (venueBias === 'pace' && paceCount >= 3) return 'Pace arsenal suits this venue';
+                if (venueBias === 'pace' && paceCount < 2) return 'Limited pace options for this venue';
+                if (venueBias === 'spin' && spinCount >= 2) return 'Spin depth is an advantage here';
+                if (venueBias === 'spin' && spinCount < 1) return 'May lack spin options for this surface';
+                return '';
+            }
+
+            // Role icon
+            function miniRole(p) {
+                if (p.role === 'All-rounder') return '<span style="color:var(--accent-purple);font-size:9px;" title="All-rounder">AR</span>';
+                if (p.role === 'Wicketkeeper') return '<span style="color:var(--accent-teal);font-size:9px;" title="Keeper">WK</span>';
+                if (p.role === 'Bowler') return '<span style="color:var(--accent-orange);font-size:9px;" title="Bowler">BWL</span>';
+                return '<span style="color:var(--accent-green);font-size:9px;" title="Batter">BAT</span>';
+            }
+
+            // Compute venue breakdown for summary
+            const venueBreakdown = { pace: 0, spin: 0, neutral: 0 };
+            matches.forEach(m => {
+                const info = VENUE_BIAS[m.venue];
+                if (info) venueBreakdown[info.bias] = (venueBreakdown[info.bias] || 0) + 1;
+                else venueBreakdown.neutral++;
+            });
 
             // Summary stats bar
-            let html = `<div style="display:flex;flex-wrap:wrap;gap:var(--space-3);margin-bottom:var(--space-3);">
-                <div style="flex:1;min-width:120px;background:var(--bg-tertiary);border-radius:var(--radius-md);padding:var(--space-2) var(--space-3);text-align:center;">
+            let html = `<div style="display:flex;flex-wrap:wrap;gap:var(--space-2);margin-bottom:var(--space-3);">
+                <div style="flex:1;min-width:90px;background:var(--bg-tertiary);border-radius:var(--radius-md);padding:var(--space-2) var(--space-3);text-align:center;">
                     <div style="font-size:var(--text-2xl);font-weight:800;color:${teamColor};">${matches.length}</div>
-                    <div style="font-size:var(--text-xs);color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;">Matches</div>
+                    <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;">Matches</div>
                 </div>
-                <div style="flex:1;min-width:120px;background:var(--bg-tertiary);border-radius:var(--radius-md);padding:var(--space-2) var(--space-3);text-align:center;">
+                <div style="flex:1;min-width:90px;background:var(--bg-tertiary);border-radius:var(--radius-md);padding:var(--space-2) var(--space-3);text-align:center;">
                     <div style="font-size:var(--text-2xl);font-weight:800;color:#22c55e;">${homeCount}</div>
-                    <div style="font-size:var(--text-xs);color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;">Home</div>
+                    <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;">Home</div>
                 </div>
-                <div style="flex:1;min-width:120px;background:var(--bg-tertiary);border-radius:var(--radius-md);padding:var(--space-2) var(--space-3);text-align:center;">
+                <div style="flex:1;min-width:90px;background:var(--bg-tertiary);border-radius:var(--radius-md);padding:var(--space-2) var(--space-3);text-align:center;">
                     <div style="font-size:var(--text-2xl);font-weight:800;color:#ef4444;">${awayCount}</div>
-                    <div style="font-size:var(--text-xs);color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;">Away</div>
+                    <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;">Away</div>
+                </div>
+                <div style="flex:1;min-width:90px;background:var(--bg-tertiary);border-radius:var(--radius-md);padding:var(--space-2) var(--space-3);text-align:center;">
+                    <div style="display:flex;justify-content:center;gap:6px;font-size:var(--text-sm);font-weight:700;">
+                        <span style="color:#22c55e;">${venueBreakdown.pace}</span>
+                        <span style="color:#f97316;">${venueBreakdown.spin}</span>
+                        <span style="color:#64748b;">${venueBreakdown.neutral}</span>
+                    </div>
+                    <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;">P / S / N</div>
                 </div>
             </div>`;
 
@@ -7280,38 +7364,82 @@
                 return;
             }
 
-            // Match cards
+            // Match cards with expandable analysis
             const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-            const days = { Mon: 'Monday', Tue: 'Tuesday', Wed: 'Wednesday', Thu: 'Thursday', Fri: 'Friday', Sat: 'Saturday', Sun: 'Sunday' };
 
-            html += '<div style="display:flex;flex-direction:column;gap:2px;">';
-            matches.forEach(m => {
+            html += '<div style="display:flex;flex-direction:column;gap:8px;">';
+            matches.forEach((m, idx) => {
                 const d = new Date(m.date);
                 const dateStr = `${m.day}, ${months[d.getMonth()]} ${d.getDate()}`;
                 const isHome = m.home === team;
                 const opponent = isHome ? m.away : m.home;
                 const isWeekend = m.day === 'Sat' || m.day === 'Sun';
                 const venueInfo = VENUE_BIAS[m.venue];
+                const venueBias = venueInfo ? venueInfo.bias : 'neutral';
                 const haTag = isHome
                     ? '<span style="background:rgba(34,197,94,0.12);color:#22c55e;padding:2px 10px;border-radius:var(--radius-full);font-size:10px;font-weight:700;letter-spacing:0.06em;">HOME</span>'
                     : '<span style="background:rgba(239,68,68,0.12);color:#ef4444;padding:2px 10px;border-radius:var(--radius-full);font-size:10px;font-weight:700;letter-spacing:0.06em;">AWAY</span>';
 
-                html += `<div style="display:flex;align-items:center;gap:var(--space-3);padding:12px var(--space-3);background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-md);transition:background 150ms ease;">
-                    <div style="min-width:28px;text-align:center;font-family:var(--font-mono);font-size:var(--text-xs);color:var(--text-tertiary);font-weight:600;">${m.match}</div>
-                    <div style="min-width:110px;">
-                        <div style="font-family:var(--font-mono);font-size:var(--text-sm);color:${isWeekend ? 'var(--accent-yellow)' : 'var(--text-primary)'};font-weight:500;">${dateStr}</div>
+                // Key opponent players
+                const keyPlayers = getKeyPlayers(opponent, venueBias);
+                const insight = getVenueInsight(venueBias, opponent);
+                const cardId = `sched-card-${idx}`;
+
+                html += `<div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:border-color 150ms ease;" onmouseenter="this.style.borderColor='rgba(59,130,246,0.2)'" onmouseleave="this.style.borderColor=''">
+                    <!-- Match header row (clickable) -->
+                    <div style="display:flex;align-items:center;gap:var(--space-3);padding:12px var(--space-3);cursor:pointer;" onclick="var el=document.getElementById('${cardId}');var arr=this.querySelector('.sched-arrow');if(el.style.display==='none'){el.style.display='block';arr.style.transform='rotate(90deg)';}else{el.style.display='none';arr.style.transform='rotate(0deg)';}">
+                        <div style="min-width:28px;text-align:center;font-family:var(--font-mono);font-size:var(--text-xs);color:var(--text-tertiary);font-weight:600;">${m.match}</div>
+                        <div style="min-width:100px;">
+                            <div style="font-family:var(--font-mono);font-size:var(--text-sm);color:${isWeekend ? 'var(--accent-yellow)' : 'var(--text-primary)'};font-weight:500;">${dateStr}</div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:8px;min-width:130px;">
+                            ${teamBadge(team, isHome)}
+                            <span style="font-size:var(--text-xs);color:var(--text-tertiary);font-weight:600;">vs</span>
+                            ${teamBadge(opponent, !isHome)}
+                        </div>
+                        <div style="flex:1;display:flex;align-items:center;gap:6px;min-width:0;">
+                            ${biasDot(m.venue)}
+                            <span style="font-size:var(--text-xs);color:var(--text-secondary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${m.venue}</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:8px;">
+                            ${haTag}
+                            <span class="sched-arrow" style="color:var(--text-tertiary);font-size:10px;transition:transform 150ms ease;display:inline-block;">&#9654;</span>
+                        </div>
                     </div>
-                    <div style="display:flex;align-items:center;gap:8px;min-width:140px;">
-                        ${teamBadge(team, isHome)}
-                        <span style="font-size:var(--text-xs);color:var(--text-tertiary);font-weight:600;">vs</span>
-                        ${teamBadge(opponent, !isHome)}
+                    <!-- Expandable analysis panel -->
+                    <div id="${cardId}" style="display:none;border-top:1px solid var(--border);padding:var(--space-3);background:var(--bg-tertiary);">
+                        <div style="display:flex;flex-wrap:wrap;gap:var(--space-3);">
+                            <!-- Venue Analysis -->
+                            <div style="flex:1;min-width:200px;">
+                                <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:8px;">Venue Analysis</div>
+                                <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                                    ${biasDot(m.venue)}
+                                    <span style="font-size:var(--text-sm);color:var(--text-primary);font-weight:600;">${m.venue}</span>
+                                </div>
+                                <div style="font-size:var(--text-xs);color:var(--text-tertiary);margin-bottom:4px;">${m.city} ${biasLabel(m.venue) ? '&#183; ' + biasLabel(m.venue) : ''}</div>
+                                ${insight ? `<div style="margin-top:8px;padding:6px 10px;background:rgba(59,130,246,0.06);border-radius:var(--radius-sm);font-size:var(--text-xs);color:var(--accent);border-left:2px solid var(--accent);">${insight}</div>` : ''}
+                            </div>
+                            <!-- Key Opposition Players -->
+                            <div style="flex:1.5;min-width:260px;">
+                                <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:8px;">Key ${opponent} Threats</div>
+                                ${keyPlayers.length > 0 ? keyPlayers.map(p => {
+                                    const statLine = [];
+                                    if (p.iplRuns > 0) statLine.push(`${p.iplRuns}r @ ${p.iplSR} SR`);
+                                    if (p.iplWickets > 0) statLine.push(`${p.iplWickets}w @ ${p.iplEconomy} econ`);
+                                    const venueFit = (venueBias === 'pace' && ((p.bowlingType||'').toLowerCase().includes('fast') || (p.bowlerClass||'').toLowerCase().includes('pace')))
+                                        || (venueBias === 'spin' && ((p.bowlingType||'').toLowerCase().includes('spin') || (p.bowlingType||'').toLowerCase().includes('orthodox')));
+                                    return `<div style="display:flex;align-items:center;gap:10px;padding:5px 0;${p !== keyPlayers[keyPlayers.length-1] ? 'border-bottom:1px solid rgba(255,255,255,0.04);' : ''}">
+                                        <div style="min-width:24px;text-align:center;">${miniRole(p)}</div>
+                                        <div style="flex:1;min-width:0;">
+                                            <div style="font-size:var(--text-sm);color:var(--text-primary);font-weight:600;">${p.name}${p.isCaptain ? ' <span style="font-size:9px;color:var(--accent-yellow);">(C)</span>' : ''}${p.overseas ? ' <span style="font-size:9px;color:var(--accent-purple);">OS</span>' : ''}</div>
+                                            <div style="font-size:10px;color:var(--text-tertiary);">${statLine.join(' &#183; ')}</div>
+                                        </div>
+                                        ${venueFit ? '<span style="font-size:9px;background:rgba(34,197,94,0.12);color:#22c55e;padding:1px 6px;border-radius:var(--radius-full);font-weight:600;">VENUE FIT</span>' : ''}
+                                    </div>`;
+                                }).join('') : '<div style="font-size:var(--text-xs);color:var(--text-tertiary);">Squad data unavailable</div>'}
+                            </div>
+                        </div>
                     </div>
-                    <div style="flex:1;display:flex;align-items:center;gap:6px;min-width:0;">
-                        ${biasDot(m.venue)}
-                        <span style="font-size:var(--text-xs);color:var(--text-secondary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${m.venue}</span>
-                        <span style="font-size:var(--text-xs);color:var(--text-tertiary);">&#183; ${m.city}</span>
-                    </div>
-                    <div style="min-width:50px;text-align:right;">${haTag}</div>
                 </div>`;
             });
             html += '</div>';
@@ -7322,6 +7450,7 @@
                 <span style="display:flex;align-items:center;gap:4px;"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#22c55e;"></span> Pace</span>
                 <span style="display:flex;align-items:center;gap:4px;"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#f97316;"></span> Spin</span>
                 <span style="display:flex;align-items:center;gap:4px;"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#64748b;"></span> Neutral</span>
+                <span style="margin-left:auto;font-style:italic;">Click any match to expand analysis</span>
             </div>`;
 
             container.innerHTML = html;

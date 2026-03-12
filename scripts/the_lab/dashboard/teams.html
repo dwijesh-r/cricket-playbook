@@ -7362,7 +7362,60 @@
                     return { ...p, threat };
                 });
                 scored.sort((a, b) => b.threat - a.threat);
-                return scored.slice(0, 3);
+                return scored.slice(0, 5);
+            }
+
+            // Get season preview data for a team abbreviation
+            function getSeasonPreview(abbrev) {
+                return (typeof SEASON_PREVIEWS !== 'undefined' && SEASON_PREVIEWS[abbrev] && SEASON_PREVIEWS[abbrev].available) ? SEASON_PREVIEWS[abbrev] : null;
+            }
+
+            // Get historic trends for a team abbreviation
+            function getHistoricRecords(abbrev) {
+                if (typeof HISTORIC_TRENDS === 'undefined' || !HISTORIC_TRENDS.seasonRecords) return null;
+                return HISTORIC_TRENDS.seasonRecords[abbrev] || null;
+            }
+
+            // Get momentum insights for a team abbreviation
+            function getMomentumData(abbrev) {
+                if (typeof MOMENTUM_INSIGHTS === 'undefined' || !MOMENTUM_INSIGHTS.teams) return null;
+                return MOMENTUM_INSIGHTS.teams[abbrev] || null;
+            }
+
+            // Format player tags as compact pills
+            function formatPlayerTags(p) {
+                const allTags = [...(p.batterTags || []), ...(p.bowlerTags || [])];
+                if (allTags.length === 0) return '';
+                const tagColors = {
+                    'DEATH_SPECIALIST': '#ef4444', 'DEATH_ELITE': '#ef4444',
+                    'PP_ELITE': '#22c55e', 'PP_DOMINATOR': '#22c55e', 'NEW_BALL_SPECIALIST': '#22c55e',
+                    'PRESSURE_BUILDER': '#f97316', 'PROVEN_WICKET_TAKER': '#f97316',
+                    'FINISHER': '#a855f7', 'SIX_HITTER': '#a855f7', 'EXPLOSIVE_OPENER': '#a855f7',
+                    'MIDDLE_OVERS_CONTROLLER': '#3b82f6', 'MID_OVERS_ELITE': '#3b82f6', 'MIDDLE_OVERS_ACCELERATOR': '#3b82f6',
+                    'CONSISTENT': '#14b8a6', 'ANCHOR': '#14b8a6', 'PLAYMAKER': '#14b8a6', 'ACCUMULATOR': '#14b8a6',
+                    'WORKHORSE': '#64748b', 'PART_TIMER': '#64748b',
+                    'PACE_SPECIALIST': '#06b6d4'
+                };
+                const top = allTags.slice(0, 2);
+                return top.map(t => {
+                    const c = tagColors[t] || '#64748b';
+                    const label = t.replace(/_/g, ' ');
+                    return `<span style="font-size:8px;padding:1px 5px;border-radius:var(--radius-full);background:${c}18;color:${c};font-weight:600;letter-spacing:0.04em;white-space:nowrap;">${label}</span>`;
+                }).join(' ');
+            }
+
+            // Render phase battle comparison bar
+            function phaseBar(label, myVal, oppVal, unit, isEcon) {
+                // For economy, lower is better; for SR, higher is better
+                const myBetter = isEcon ? (myVal <= oppVal) : (myVal >= oppVal);
+                const myColor = myBetter ? '#22c55e' : '#ef4444';
+                const oppColor = !myBetter ? '#22c55e' : '#ef4444';
+                return `<div style="display:flex;align-items:center;gap:6px;padding:3px 0;font-size:10px;">
+                    <span style="width:80px;color:var(--text-tertiary);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;font-size:9px;">${label}</span>
+                    <span style="font-family:var(--font-mono);color:${myColor};font-weight:700;min-width:50px;text-align:right;">${myVal}${unit}</span>
+                    <span style="color:var(--text-tertiary);font-size:9px;">vs</span>
+                    <span style="font-family:var(--font-mono);color:${oppColor};font-weight:700;min-width:50px;">${oppVal}${unit}</span>
+                </div>`;
             }
 
             // Venue analysis for this team
@@ -7487,50 +7540,160 @@
                             <span style="flex:1;height:1px;background:var(--border);"></span>
                             <span style="font-size:10px;color:var(--text-tertiary);">M${m.match} &middot; ${dateStr}</span>
                         </div>
-                        <div style="display:flex;flex-wrap:wrap;gap:var(--space-3);">
-                            <!-- Venue Analysis -->
-                            <div style="flex:1;min-width:200px;">
-                                <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:8px;">Venue Intel</div>
-                                <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-                                    ${biasDot(m.venue)}
-                                    <span style="font-size:var(--text-sm);color:var(--text-primary);font-weight:600;">${m.venue}</span>
-                                </div>
-                                <div style="font-size:var(--text-xs);color:var(--text-tertiary);margin-bottom:4px;">${m.city} ${biasLabel(m.venue) ? '&#183; ' + biasLabel(m.venue) : ''}</div>
-                                ${insight ? `<div style="margin-top:8px;padding:6px 10px;background:rgba(59,130,246,0.06);border-radius:var(--radius-sm);font-size:var(--text-xs);color:var(--accent);border-left:2px solid var(--accent);">${insight}</div>` : ''}
+                        ${(() => {
+                            const oppPreview = getSeasonPreview(opponent);
+                            const myPreview = getSeasonPreview(team);
+                            const oppHistory = getHistoricRecords(opponent);
+                            const myHistory = getHistoricRecords(team);
+                            const oppMomentum = getMomentumData(opponent);
+                            const myMomentum = getMomentumData(team);
+
+                            // Section header helper
+                            const sectionHdr = (title, accent) => `<div style="font-size:10px;color:${accent || 'var(--accent)'};text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px;">${title}<span style="flex:1;height:1px;background:var(--border);"></span></div>`;
+
+                            let packHtml = '<div style="display:flex;flex-wrap:wrap;gap:var(--space-3);">';
+
+                            // ── COL 1: Venue Intel + Quick Outlook ──
+                            packHtml += `<div style="flex:1;min-width:200px;">`;
+                            // Venue Intel
+                            packHtml += sectionHdr('Venue Intel', 'var(--accent)');
+                            packHtml += `<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                                ${biasDot(m.venue)}
+                                <span style="font-size:var(--text-sm);color:var(--text-primary);font-weight:600;">${m.venue}</span>
                             </div>
-                            <!-- Key Opposition Players -->
-                            <div style="flex:1.5;min-width:260px;">
-                                <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:8px;">Key ${opponent} Threats</div>
-                                ${keyPlayers.length > 0 ? keyPlayers.map(p => {
+                            <div style="font-size:var(--text-xs);color:var(--text-tertiary);margin-bottom:4px;">${m.city} ${biasLabel(m.venue) ? '&#183; ' + biasLabel(m.venue) : ''}</div>`;
+                            if (insight) {
+                                packHtml += `<div style="margin-top:8px;padding:6px 10px;background:rgba(59,130,246,0.06);border-radius:var(--radius-sm);font-size:var(--text-xs);color:var(--accent);border-left:2px solid var(--accent);">${insight}</div>`;
+                            }
+
+                            // Quick Outlook
+                            packHtml += `<div style="margin-top:16px;">`;
+                            packHtml += sectionHdr('Quick Outlook', 'var(--accent-yellow)');
+                            const notes = [];
+                            if (isHome) notes.push('<span style="color:#22c55e;">&#10003;</span> Home advantage');
+                            else notes.push('<span style="color:#ef4444;">&#10007;</span> Away fixture');
+                            if (venueBias === 'pace') notes.push('<span style="color:#22c55e;">&#9679;</span> Pace-friendly surface');
+                            else if (venueBias === 'spin') notes.push('<span style="color:#f97316;">&#9679;</span> Spin-friendly surface');
+                            if (isWeekend) notes.push('<span style="color:var(--accent-yellow);">&#9733;</span> Weekend fixture');
+                            // Add opposition verdict if available
+                            if (oppPreview && oppPreview.verdict) {
+                                notes.push(`<span style="color:var(--accent-purple);">&#9830;</span> ${opponent} projected: <strong>${oppPreview.verdict.projected}</strong>`);
+                            }
+                            packHtml += notes.map(n => '<div style="font-size:var(--text-xs);color:var(--text-secondary);padding:3px 0;">' + n + '</div>').join('');
+                            packHtml += `</div>`;
+
+                            // Previous Record
+                            if (myHistory && oppHistory) {
+                                packHtml += `<div style="margin-top:16px;">`;
+                                packHtml += sectionHdr('Recent Form (2023-25)', '#14b8a6');
+                                packHtml += `<div style="display:flex;gap:8px;margin-bottom:4px;">
+                                    <div style="flex:1;text-align:center;padding:6px 4px;background:var(--bg-secondary);border-radius:var(--radius-sm);">
+                                        <div style="font-size:10px;color:var(--text-tertiary);margin-bottom:2px;">${team}</div>
+                                        ${myHistory.map(s => `<div style="font-size:9px;color:var(--text-secondary);padding:1px 0;font-family:var(--font-mono);">'${String(s.season).slice(2)} <span style="color:${s.winPct >= 50 ? '#22c55e' : '#ef4444'};font-weight:700;">${s.winPct}%</span> <span style="color:var(--text-tertiary);">${s.position}</span></div>`).join('')}
+                                    </div>
+                                    <div style="flex:1;text-align:center;padding:6px 4px;background:var(--bg-secondary);border-radius:var(--radius-sm);">
+                                        <div style="font-size:10px;color:var(--text-tertiary);margin-bottom:2px;">${opponent}</div>
+                                        ${oppHistory.map(s => `<div style="font-size:9px;color:var(--text-secondary);padding:1px 0;font-family:var(--font-mono);">'${String(s.season).slice(2)} <span style="color:${s.winPct >= 50 ? '#22c55e' : '#ef4444'};font-weight:700;">${s.winPct}%</span> <span style="color:var(--text-tertiary);">${s.position}</span></div>`).join('')}
+                                    </div>
+                                </div>`;
+                                packHtml += `</div>`;
+                            }
+
+                            packHtml += `</div>`;
+
+                            // ── COL 2: Key Players to Watch ──
+                            packHtml += `<div style="flex:1.5;min-width:260px;">`;
+                            packHtml += sectionHdr(`Key ${opponent} Threats`, '#ef4444');
+                            if (keyPlayers.length > 0) {
+                                packHtml += keyPlayers.map(p => {
                                     const statLine = [];
                                     if (p.iplRuns > 0) statLine.push(`${p.iplRuns}r @ ${p.iplSR} SR`);
                                     if (p.iplWickets > 0) statLine.push(`${p.iplWickets}w @ ${p.iplEconomy} econ`);
+                                    if (p.iplMatches > 0) statLine.push(`${p.iplMatches} mts`);
                                     const venueFit = (venueBias === 'pace' && ((p.bowlingType||'').toLowerCase().includes('fast') || (p.bowlerClass||'').toLowerCase().includes('pace')))
                                         || (venueBias === 'spin' && ((p.bowlingType||'').toLowerCase().includes('spin') || (p.bowlingType||'').toLowerCase().includes('orthodox')));
-                                    return `<div style="display:flex;align-items:center;gap:10px;padding:5px 0;${p !== keyPlayers[keyPlayers.length-1] ? 'border-bottom:1px solid rgba(255,255,255,0.04);' : ''}">
-                                        <div style="min-width:24px;text-align:center;">${miniRole(p)}</div>
+                                    const tags = formatPlayerTags(p);
+                                    return `<div style="display:flex;align-items:flex-start;gap:10px;padding:5px 0;${p !== keyPlayers[keyPlayers.length-1] ? 'border-bottom:1px solid rgba(255,255,255,0.04);' : ''}">
+                                        <div style="min-width:24px;text-align:center;padding-top:2px;">${miniRole(p)}</div>
                                         <div style="flex:1;min-width:0;">
-                                            <div style="font-size:var(--text-sm);color:var(--text-primary);font-weight:600;">${p.name}${p.isCaptain ? ' <span style="font-size:9px;color:var(--accent-yellow);">(C)</span>' : ''}${p.overseas ? ' <span style="font-size:9px;color:var(--accent-purple);">OS</span>' : ''}</div>
+                                            <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                                                <span style="font-size:var(--text-sm);color:var(--text-primary);font-weight:600;">${p.name}${p.isCaptain ? ' <span style="font-size:9px;color:var(--accent-yellow);">(C)</span>' : ''}${p.overseas ? ' <span style="font-size:9px;color:var(--accent-purple);">OS</span>' : ''}</span>
+                                                ${venueFit ? '<span style="font-size:8px;background:rgba(34,197,94,0.12);color:#22c55e;padding:1px 5px;border-radius:var(--radius-full);font-weight:600;">VENUE FIT</span>' : ''}
+                                            </div>
                                             <div style="font-size:10px;color:var(--text-tertiary);">${statLine.join(' &#183; ')}</div>
+                                            ${tags ? `<div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:3px;">${tags}</div>` : ''}
                                         </div>
-                                        ${venueFit ? '<span style="font-size:9px;background:rgba(34,197,94,0.12);color:#22c55e;padding:1px 6px;border-radius:var(--radius-full);font-weight:600;">VENUE FIT</span>' : ''}
                                     </div>`;
-                                }).join('') : '<div style="font-size:var(--text-xs);color:var(--text-tertiary);">Squad data unavailable</div>'}
-                            </div>
-                            <!-- Quick Outlook -->
-                            <div style="flex:1;min-width:200px;">
-                                <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:8px;">Quick Outlook</div>
-                                ${(() => {
-                                    const notes = [];
-                                    if (isHome) notes.push('<span style="color:#22c55e;">&#10003;</span> Home advantage');
-                                    else notes.push('<span style="color:#ef4444;">&#10007;</span> Away fixture');
-                                    if (venueBias === 'pace') notes.push('<span style="color:#22c55e;">&#9679;</span> Pace-friendly surface');
-                                    else if (venueBias === 'spin') notes.push('<span style="color:#f97316;">&#9679;</span> Spin-friendly surface');
-                                    if (isWeekend) notes.push('<span style="color:var(--accent-yellow);">&#9733;</span> Weekend fixture — higher stakes');
-                                    return notes.map(n => '<div style="font-size:var(--text-xs);color:var(--text-secondary);padding:3px 0;">' + n + '</div>').join('');
-                                })()}
-                            </div>
-                        </div>
+                                }).join('');
+                            } else {
+                                packHtml += '<div style="font-size:var(--text-xs);color:var(--text-tertiary);">Squad data unavailable</div>';
+                            }
+
+                            // Momentum: bowling pressure rating
+                            if (oppMomentum) {
+                                packHtml += `<div style="margin-top:12px;padding:8px 10px;background:var(--bg-secondary);border-radius:var(--radius-sm);border-left:2px solid var(--accent-orange);">
+                                    <div style="font-size:9px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Opposition Pressure Profile</div>
+                                    <div style="display:flex;gap:12px;font-size:10px;">
+                                        <div><span style="color:var(--text-tertiary);">Bowl Pressure:</span> <span style="color:${oppMomentum.bowlingPressure.rating === 'Strong' ? '#22c55e' : oppMomentum.bowlingPressure.rating === 'Weak' ? '#ef4444' : '#f97316'};font-weight:700;">${oppMomentum.bowlingPressure.rating}</span></div>
+                                        <div><span style="color:var(--text-tertiary);">Bat Resilience:</span> <span style="color:${oppMomentum.battingResilience.rating === 'Strong' ? '#22c55e' : oppMomentum.battingResilience.rating === 'Weak' ? '#ef4444' : '#f97316'};font-weight:700;">${oppMomentum.battingResilience.rating}</span></div>
+                                    </div>
+                                </div>`;
+                            }
+                            packHtml += `</div>`;
+
+                            // ── COL 3: Scouting Intel (Vulnerabilities + Blueprint + Phase Battle) ──
+                            packHtml += `<div style="flex:1.3;min-width:220px;">`;
+
+                            // Team Vulnerabilities
+                            if (oppPreview && oppPreview.scoutingReport && oppPreview.scoutingReport.vulnerabilities) {
+                                packHtml += sectionHdr(`${opponent} Vulnerabilities`, '#f97316');
+                                const vulns = oppPreview.scoutingReport.vulnerabilities.slice(0, 4);
+                                packHtml += vulns.map(v => `<div style="font-size:var(--text-xs);color:var(--text-secondary);padding:3px 0;padding-left:10px;border-left:2px solid rgba(249,115,22,0.3);margin-bottom:2px;">${v}</div>`).join('');
+                            }
+
+                            // Matchup Edge (opposition blueprint)
+                            if (oppPreview && oppPreview.scoutingReport && oppPreview.scoutingReport.oppositionBlueprint) {
+                                packHtml += `<div style="margin-top:14px;">`;
+                                packHtml += sectionHdr('Matchup Edge', '#a855f7');
+                                packHtml += `<div style="font-size:var(--text-xs);color:var(--text-secondary);padding:8px 10px;background:rgba(168,85,247,0.06);border-radius:var(--radius-sm);border-left:2px solid rgba(168,85,247,0.4);line-height:1.5;">${oppPreview.scoutingReport.oppositionBlueprint}</div>`;
+                                packHtml += `</div>`;
+                            }
+
+                            // Phase Battle comparison
+                            if (myPreview && myPreview.categoryRatings && oppPreview && oppPreview.categoryRatings) {
+                                const myPhase = myPreview.categoryRatings.filter(r => r.group === 'phase');
+                                const oppPhase = oppPreview.categoryRatings.filter(r => r.group === 'phase');
+                                if (myPhase.length > 0 && oppPhase.length > 0) {
+                                    packHtml += `<div style="margin-top:14px;">`;
+                                    packHtml += sectionHdr('Phase Battle', '#3b82f6');
+                                    packHtml += `<div style="padding:6px 8px;background:var(--bg-secondary);border-radius:var(--radius-sm);">
+                                        <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;padding:0 2px;">
+                                            <span></span><span>${team}</span><span></span><span>${opponent}</span>
+                                        </div>`;
+                                    myPhase.forEach(mp => {
+                                        const op = oppPhase.find(o => o.cat === mp.cat);
+                                        if (op) {
+                                            const myR = mp.rating;
+                                            const opR = op.rating;
+                                            const myBetter = myR >= opR;
+                                            packHtml += `<div style="display:flex;align-items:center;gap:6px;padding:2px 0;font-size:10px;">
+                                                <span style="width:80px;color:var(--text-tertiary);font-size:9px;font-weight:600;">${mp.cat.replace('Batting, ', 'Bat ').replace('Bowling, ', 'Bowl ')}</span>
+                                                <span style="font-family:var(--font-mono);color:${myBetter ? '#22c55e' : '#ef4444'};font-weight:700;min-width:28px;text-align:right;">${myR}</span>
+                                                <span style="flex:1;height:3px;background:var(--border);border-radius:2px;position:relative;overflow:hidden;">
+                                                    <span style="position:absolute;left:0;top:0;height:100%;width:${(myR/10)*100}%;background:${myBetter ? 'rgba(34,197,94,0.5)' : 'rgba(239,68,68,0.3)'};border-radius:2px;"></span>
+                                                </span>
+                                                <span style="font-family:var(--font-mono);color:${!myBetter ? '#22c55e' : '#ef4444'};font-weight:700;min-width:28px;">${opR}</span>
+                                            </div>`;
+                                        }
+                                    });
+                                    packHtml += `</div></div>`;
+                                }
+                            }
+
+                            packHtml += `</div>`;
+                            packHtml += '</div>';
+                            return packHtml;
+                        })()}
                     </div>
                 </div>`;
             });

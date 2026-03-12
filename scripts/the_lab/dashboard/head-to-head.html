@@ -132,7 +132,7 @@
         .selection-row { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
         .player-slot { flex: 1; min-width: 200px; position: relative; }
         .player-slot-label { font-size: var(--text-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-tertiary); margin-bottom: var(--space-1); }
-        .search-input { width: 100%; padding: var(--space-2) var(--space-3); background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-body); font-size: var(--text-base); color: var(--text-primary); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' fill='none' stroke='%2394A3B8' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; }
+        .search-input { width: 100%; padding: var(--space-2) var(--space-3); background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-body); font-size: var(--text-base); color: var(--text-primary); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' fill='none' stroke='%2394A3B8' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; cursor: pointer; }
         .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--glow-accent); }
         .team-filter-select { width: 100%; padding: var(--space-1) var(--space-2); background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: var(--text-xs); color: var(--text-primary); margin-bottom: var(--space-1); }
         .dropdown { position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-md); max-height: 250px; overflow-y: auto; z-index: 50; display: none; box-shadow: var(--elevation-2); }
@@ -473,7 +473,7 @@
                     <select class="team-filter-select" id="teamFilterBatter" aria-label="Filter batter by team" onchange="handleTeamFilter('batter')">
                         <option value="">All Teams</option>
                     </select>
-                    <input type="text" class="search-input" id="searchBatter" placeholder="Search batter..." autocomplete="off" aria-label="Search batter">
+                    <input type="text" class="search-input" id="searchBatter" placeholder="Click to browse or type to search..." autocomplete="off" aria-label="Search batter">
                     <div class="dropdown" id="dropdownBatter" role="listbox" aria-label="Batter suggestions"></div>
                 </div>
                 <div class="vs-badge" aria-hidden="true">VS</div>
@@ -482,7 +482,7 @@
                     <select class="team-filter-select" id="teamFilterBowler" aria-label="Filter bowler by team" onchange="handleTeamFilter('bowler')">
                         <option value="">All Teams</option>
                     </select>
-                    <input type="text" class="search-input" id="searchBowler" placeholder="Search bowler..." autocomplete="off" aria-label="Search bowler">
+                    <input type="text" class="search-input" id="searchBowler" placeholder="Click to browse or type to search..." autocomplete="off" aria-label="Search bowler">
                     <div class="dropdown" id="dropdownBowler" role="listbox" aria-label="Bowler suggestions"></div>
                 </div>
             </div>
@@ -561,36 +561,14 @@
 
     window.handleTeamFilter = function(role) {
         const input = document.getElementById('search' + capitalize(role));
-        const dropdown = document.getElementById('dropdown' + capitalize(role));
-        const teamFilter = document.getElementById('teamFilter' + capitalize(role)).value;
-
-        // If there's text, re-filter with new team
-        if (input && input.value.trim().length > 0) {
-            handleSearchInput(role);
-            return;
-        }
-
-        // If a team is selected with empty search, show all players from that team
-        if (teamFilter) {
-            const players = getFilteredPlayers(role);
-            const sorted = players.sort((a, b) => a.name.localeCompare(b.name)).slice(0, 15);
-            if (sorted.length === 0) {
-                dropdown.innerHTML = '<div class="dropdown-item" style="color: var(--text-tertiary); cursor: default;">No players found</div>';
-            } else {
-                dropdown.innerHTML = sorted.map((p, i) =>
-                    '<div class="dropdown-item" data-id="' + escapeHtml(p.id) + '" data-name="' + escapeHtml(p.name) + '" data-role="' + role + '">' +
-                    '<span>' + escapeHtml(p.name) + '</span>' +
-                    '<span class="team-tag">' + (TEAM_ABBREVS[p.team] || p.team || '') + '</span></div>'
-                ).join('');
-                dropdown.querySelectorAll('.dropdown-item[data-id]').forEach(item => {
-                    item.addEventListener('click', function() {
-                        selectPlayer(role, this.dataset.id, this.dataset.name);
-                    });
-                });
+        // Re-run search with updated team filter - handleSearchInput now shows all players when query is empty
+        handleSearchInput(role);
+        // If the input isn't focused, still show the dropdown when a team is selected
+        if (document.activeElement !== input) {
+            const teamFilter = document.getElementById('teamFilter' + capitalize(role)).value;
+            if (teamFilter) {
+                document.getElementById('dropdown' + capitalize(role)).classList.add('open');
             }
-            dropdown.classList.add('open');
-        } else {
-            dropdown.classList.remove('open');
         }
     };
 
@@ -615,20 +593,21 @@
         const query = input.value.trim().toLowerCase();
         state.highlightedIdx[role] = -1;
 
-        if (query.length < 1) {
-            dropdown.classList.remove('open');
-            return;
-        }
-
         const players = getFilteredPlayers(role);
-        const matches = players
-            .filter(p => p.name.toLowerCase().includes(query))
-            .sort((a, b) => {
-                const aStarts = a.name.toLowerCase().startsWith(query) ? 0 : 1;
-                const bStarts = b.name.toLowerCase().startsWith(query) ? 0 : 1;
-                return aStarts - bStarts || a.name.localeCompare(b.name);
-            })
-            .slice(0, 15);
+        let matches;
+        if (query.length < 1) {
+            // Show all players (sorted alphabetically) when no query
+            matches = players.sort((a, b) => a.name.localeCompare(b.name)).slice(0, 25);
+        } else {
+            matches = players
+                .filter(p => p.name.toLowerCase().includes(query))
+                .sort((a, b) => {
+                    const aStarts = a.name.toLowerCase().startsWith(query) ? 0 : 1;
+                    const bStarts = b.name.toLowerCase().startsWith(query) ? 0 : 1;
+                    return aStarts - bStarts || a.name.localeCompare(b.name);
+                })
+                .slice(0, 15);
+        }
 
         if (matches.length === 0) {
             dropdown.innerHTML = '<div class="dropdown-item" style="color: var(--text-tertiary); cursor: default;">No players found</div>';
@@ -1026,6 +1005,7 @@
     function setupSearch(role) {
         const input = document.getElementById('search' + capitalize(role));
         input.addEventListener('input', function() { handleSearchInput(role); });
+        input.addEventListener('focus', function() { handleSearchInput(role); });
         input.addEventListener('keydown', function(e) {
             const dropdown = document.getElementById('dropdown' + capitalize(role));
             const items = dropdown.querySelectorAll('.dropdown-item[data-id]');

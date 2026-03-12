@@ -439,6 +439,7 @@
             font-family: var(--font-body);
             font-size: var(--text-base);
             transition: border-color var(--transition-normal);
+            cursor: pointer;
         }
         .search-input:focus {
             outline: none; border-color: var(--accent);
@@ -1217,7 +1218,7 @@
                         <option value="Royal Challengers Bengaluru">Royal Challengers Bengaluru</option>
                         <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
                     </select>
-                    <input type="text" class="search-input" id="searchA" placeholder="Search player..." autocomplete="off" aria-label="Search Player A">
+                    <input type="text" class="search-input" id="searchA" placeholder="Click to browse or type to search..." autocomplete="off" aria-label="Search Player A">
                     <div class="dropdown" id="dropdownA" role="listbox" aria-label="Player A suggestions"></div>
                 </div>
                 <div class="vs-badge" aria-hidden="true">VS</div>
@@ -1236,7 +1237,7 @@
                         <option value="Royal Challengers Bengaluru">Royal Challengers Bengaluru</option>
                         <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
                     </select>
-                    <input type="text" class="search-input" id="searchB" placeholder="Search player..." autocomplete="off" aria-label="Search Player B">
+                    <input type="text" class="search-input" id="searchB" placeholder="Click to browse or type to search..." autocomplete="off" aria-label="Search Player B">
                     <div class="dropdown" id="dropdownB" role="listbox" aria-label="Player B suggestions"></div>
                 </div>
                 <button class="add-player-btn" id="addPlayerBtn" onclick="addPlayerSlot()" title="Add another player to compare">+ Add Player</button>
@@ -2509,13 +2510,6 @@
         const dropdown = document.getElementById('dropdown' + side);
         const query = input.value.trim().toLowerCase();
 
-        if (query.length < 1) {
-            dropdown.classList.remove('open');
-            dropdown.innerHTML = '';
-            state.highlightedIdx[side] = -1;
-            return;
-        }
-
         const { index, pool } = getPlayerPool();
         const excludeIds = new Set();
         SIDES.forEach(s => {
@@ -2524,14 +2518,27 @@
 
         const teamFilterEl = document.getElementById('teamFilter' + side);
         const teamFilter = teamFilterEl ? teamFilterEl.value : '';
-        const matches = Object.entries(index)
-            .filter(([name, id]) => {
-                if (!name.toLowerCase().includes(query)) return false;
-                if (excludeIds.has(id)) return false;
-                if (teamFilter && (!pool[id] || !pool[id].recentForm || pool[id].recentForm.team !== teamFilter)) return false;
-                return true;
-            })
-            .slice(0, 8);
+        let matches;
+        if (query.length < 1) {
+            // Show all players (sorted alphabetically) when no query - acts as a dropdown
+            matches = Object.entries(index)
+                .filter(([name, id]) => {
+                    if (excludeIds.has(id)) return false;
+                    if (teamFilter && (!pool[id] || !pool[id].recentForm || pool[id].recentForm.team !== teamFilter)) return false;
+                    return true;
+                })
+                .sort(([a], [b]) => a.localeCompare(b))
+                .slice(0, 25);
+        } else {
+            matches = Object.entries(index)
+                .filter(([name, id]) => {
+                    if (!name.toLowerCase().includes(query)) return false;
+                    if (excludeIds.has(id)) return false;
+                    if (teamFilter && (!pool[id] || !pool[id].recentForm || pool[id].recentForm.team !== teamFilter)) return false;
+                    return true;
+                })
+                .slice(0, 15);
+        }
 
         if (matches.length === 0) {
             dropdown.innerHTML = '<div class="dropdown-item" style="color: var(--text-tertiary); cursor: default;">No players found</div>';
@@ -2617,7 +2624,7 @@
                 '<option value="Royal Challengers Bengaluru">Royal Challengers Bengaluru</option>' +
                 '<option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>' +
             '</select>' +
-            '<input type="text" class="search-input" id="search' + nextSide + '" placeholder="Search player..." autocomplete="off" aria-label="Search ' + SIDE_LABELS[nextSide] + '">' +
+            '<input type="text" class="search-input" id="search' + nextSide + '" placeholder="Click to browse or type to search..." autocomplete="off" aria-label="Search ' + SIDE_LABELS[nextSide] + '">' +
             '<div class="dropdown" id="dropdown' + nextSide + '" role="listbox" aria-label="' + SIDE_LABELS[nextSide] + ' suggestions"></div>';
 
         const addBtn = document.getElementById('addPlayerBtn');
@@ -2691,50 +2698,15 @@
     // ==================== TEAM FILTER ====================
     function handleSlotTeamFilterChange(side) {
         const input = document.getElementById('search' + side);
-        const dropdown = document.getElementById('dropdown' + side);
-        const teamFilterEl = document.getElementById('teamFilter' + side);
-        const teamFilter = teamFilterEl ? teamFilterEl.value : '';
-
-        // If there's text, re-filter with new team
-        if (input && input.style.display !== 'none' && input.value.trim().length > 0) {
-            handleSearchInput(side);
-            return;
-        }
-
-        // If a team is selected with empty search, show all players from that team
-        if (teamFilter) {
-            const { index, pool } = getPlayerPool();
-            const excludeIds = new Set();
-            SIDES.forEach(s => {
-                if (s !== side && state['player' + s]) excludeIds.add(state['player' + s].id);
-            });
-            const matches = Object.entries(index)
-                .filter(([name, id]) => {
-                    if (excludeIds.has(id)) return false;
-                    if (!pool[id] || !pool[id].recentForm || pool[id].recentForm.team !== teamFilter) return false;
-                    return true;
-                })
-                .sort(([a], [b]) => a.localeCompare(b))
-                .slice(0, 15);
-
-            if (matches.length === 0) {
-                dropdown.innerHTML = '<div class="dropdown-item" style="color: var(--text-tertiary); cursor: default;">No players found</div>';
-            } else {
-                dropdown.innerHTML = matches.map(([name, id], i) => {
-                    const pData = pool[id];
-                    const team = pData && pData.recentForm ? pData.recentForm.team : '';
-                    const teamAbbr = team ? team.split(' ').map(w => w[0]).join('') : '';
-                    return '<div class="dropdown-item" role="option" data-name="' + escapeHtml(name) + '" data-id="' + id + '" onclick="selectPlayer(\'' + side + '\', \'' + escapeHtml(name).replace(/'/g, "\\'") + '\', \'' + id + '\')">' +
-                        '<span>' + escapeHtml(name) + '</span>' +
-                        (teamAbbr ? '<span class="team-tag">' + escapeHtml(teamAbbr) + '</span>' : '') +
-                        '</div>';
-                }).join('');
+        // Re-run search with updated team filter - handleSearchInput now shows all players when query is empty
+        handleSearchInput(side);
+        // If the input isn't focused, still show the dropdown when a team is selected
+        if (document.activeElement !== input) {
+            const teamFilterEl = document.getElementById('teamFilter' + side);
+            const teamFilter = teamFilterEl ? teamFilterEl.value : '';
+            if (teamFilter) {
+                document.getElementById('dropdown' + side).classList.add('open');
             }
-            dropdown.classList.add('open');
-            state.highlightedIdx[side] = -1;
-        } else {
-            dropdown.classList.remove('open');
-            dropdown.innerHTML = '';
         }
     }
 

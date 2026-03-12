@@ -978,6 +978,15 @@
                 }
                 dateRendered[m.date] = true;
 
+                var packId = 'match-pack-' + m.match;
+                tr.style.cursor = 'pointer';
+                tr.onclick = (function(pid) {
+                    return function() {
+                        var el = document.getElementById(pid);
+                        if (el) el.style.display = el.style.display === 'none' ? 'table-row' : 'none';
+                    };
+                })(packId);
+
                 tr.innerHTML =
                     '<td>' + m.match + '</td>' +
                     '<td class="date-cell' + (isWeekend ? ' day-weekend' : '') + '">' + dateInfo.display + '</td>' +
@@ -985,9 +994,44 @@
                     '<td class="col-vs">vs</td>' +
                     '<td><span class="team-abbrev team-' + m.away + '">' + m.away + '</span></td>' +
                     '<td><div class="venue-cell-inner"><span class="venue-bias-dot ' + bias + '" title="' + capitalize(bias) + '-friendly"></span><span class="venue-name-text">' + m.venue + '</span></div></td>' +
-                    '<td class="city-cell">' + m.city + '</td>';
+                    '<td class="city-cell">' + m.city + ' <span style="color:var(--text-tertiary);font-size:10px;">&#9654;</span></td>';
 
                 tbody.appendChild(tr);
+
+                // Match Pack expandable row
+                var packTr = document.createElement('tr');
+                packTr.id = packId;
+                packTr.style.display = 'none';
+                var biasLabel = bias === 'pace' ? 'Pace-friendly' : bias === 'spin' ? 'Spin-friendly' : 'Neutral';
+                var biasColor = bias === 'pace' ? '#22c55e' : bias === 'spin' ? '#f97316' : '#64748b';
+                packTr.innerHTML = '<td colspan="7" style="padding:12px 16px;background:var(--bg-tertiary);border-left:3px solid ' + biasColor + ';">' +
+                    '<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">' +
+                        '<span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);">Match Pack</span>' +
+                        '<span style="flex:1;height:1px;background:var(--border);"></span>' +
+                    '</div>' +
+                    '<div style="display:flex;flex-wrap:wrap;gap:16px;font-size:12px;">' +
+                        '<div style="flex:1;min-width:140px;">' +
+                            '<div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;font-weight:700;margin-bottom:6px;">Venue</div>' +
+                            '<div style="color:var(--text-primary);font-weight:600;">' + m.venue + '</div>' +
+                            '<div style="color:' + biasColor + ';font-size:11px;margin-top:2px;">' + biasLabel + '</div>' +
+                        '</div>' +
+                        '<div style="flex:1;min-width:140px;">' +
+                            '<div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;font-weight:700;margin-bottom:6px;">Context</div>' +
+                            '<div style="color:var(--text-secondary);font-size:11px;line-height:1.5;">' +
+                                (isWeekend ? '<span style="color:var(--accent-yellow);">&#9733;</span> Weekend fixture<br>' : '') +
+                                (isDoubleHeader ? '<span style="color:var(--accent-purple);">&#9679;</span> Double header<br>' : '') +
+                                '<span class="team-abbrev team-' + m.home + '" style="font-size:10px;">' + m.home + '</span> at home' +
+                            '</div>' +
+                        '</div>' +
+                        '<div style="flex:1;min-width:140px;">' +
+                            '<div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;font-weight:700;margin-bottom:6px;">Watch For</div>' +
+                            '<div style="color:var(--text-secondary);font-size:11px;line-height:1.5;">' +
+                                (bias === 'pace' ? 'Pace bowlers in the ascendancy. Expect seam movement early.' : bias === 'spin' ? 'Spin will be key in the middle overs. Expect low-scoring phases.' : 'Balanced conditions. All-round squads favored.') +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</td>';
+                tbody.appendChild(packTr);
             });
 
             matchCountEl.innerHTML = 'Showing <strong>' + filtered.length + '</strong> of ' + IPL_SCHEDULE.length + ' matches';

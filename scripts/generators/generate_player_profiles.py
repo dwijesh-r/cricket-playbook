@@ -524,43 +524,37 @@ def _determine_player_type(role: str) -> str:
 
 
 def _build_batter_vs_teams(matchups: List[Dict]) -> Dict[str, List[Dict]]:
-    """Build best/worst vs teams for batters.
-
-    Best: top 3 by strike_rate descending (min 2 innings).
-    Worst: bottom 3 by strike_rate ascending (min 2 innings).
-    """
+    """Build all vs teams for batters, sorted by strike_rate descending."""
     qualified = [m for m in matchups if m.get("sr") is not None]
     if not qualified:
         return {"best": [], "worst": []}
 
     by_sr_desc = sorted(qualified, key=lambda x: x["sr"], reverse=True)
-    by_sr_asc = sorted(qualified, key=lambda x: x["sr"])
 
+    # Split into top half (best) and bottom half (worst)
+    mid = max(len(by_sr_desc) // 2, 1)
     best = [
         {"team": m["team"], "sr": m["sr"], "avg": m.get("avg"), "innings": m["innings"]}
-        for m in by_sr_desc[:3]
+        for m in by_sr_desc[:mid]
     ]
     worst = [
         {"team": m["team"], "sr": m["sr"], "avg": m.get("avg"), "innings": m["innings"]}
-        for m in by_sr_asc[:3]
+        for m in by_sr_desc[mid:]
     ]
 
     return {"best": best, "worst": worst}
 
 
 def _build_bowler_vs_teams(matchups: List[Dict]) -> Dict[str, List[Dict]]:
-    """Build best/worst vs teams for bowlers.
-
-    Best: top 3 by economy ascending (min 18 balls / 3 overs).
-    Worst: bottom 3 by economy descending (min 18 balls / 3 overs).
-    """
+    """Build all vs teams for bowlers, sorted by economy ascending."""
     qualified = [m for m in matchups if m.get("economy") is not None]
     if not qualified:
         return {"best": [], "worst": []}
 
     by_econ_asc = sorted(qualified, key=lambda x: x["economy"])
-    by_econ_desc = sorted(qualified, key=lambda x: x["economy"], reverse=True)
 
+    # Split into top half (best) and bottom half (worst)
+    mid = max(len(by_econ_asc) // 2, 1)
     best = [
         {
             "team": m["team"],
@@ -569,7 +563,7 @@ def _build_bowler_vs_teams(matchups: List[Dict]) -> Dict[str, List[Dict]]:
             "wickets": m.get("wickets"),
             "overs": m["overs"],
         }
-        for m in by_econ_asc[:3]
+        for m in by_econ_asc[:mid]
     ]
     worst = [
         {
@@ -579,7 +573,7 @@ def _build_bowler_vs_teams(matchups: List[Dict]) -> Dict[str, List[Dict]]:
             "wickets": m.get("wickets"),
             "overs": m["overs"],
         }
-        for m in by_econ_desc[:3]
+        for m in by_econ_asc[mid:]
     ]
 
     return {"best": best, "worst": worst}

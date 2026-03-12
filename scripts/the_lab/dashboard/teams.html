@@ -2319,6 +2319,32 @@
             letter-spacing: 0.3px;
             margin-top: var(--space-2);
         }
+        .pp-tabs {
+            display: flex;
+            gap: 0;
+            margin: 16px 0 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        .pp-tab {
+            flex: 1;
+            padding: 10px 16px;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: var(--text-tertiary);
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .pp-tab:hover { color: var(--text-secondary); }
+        .pp-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+        .pp-tab.bowling-tab.active { color: var(--accent-green); border-bottom-color: var(--accent-green); }
+        .pp-tab-content { display: none; }
+        .pp-tab-content.active { display: block; }
         /* Tags hero strip : shown right after header */
         .pp-tags-hero {
             display: flex;
@@ -7454,12 +7480,17 @@
                             <span class="sched-arrow" style="color:var(--text-tertiary);font-size:10px;transition:transform 150ms ease;display:inline-block;">&#9654;</span>
                         </div>
                     </div>
-                    <!-- Expandable analysis panel -->
+                    <!-- Expandable Match Pack -->
                     <div id="${cardId}" style="display:none;border-top:1px solid var(--border);padding:var(--space-3);background:var(--bg-tertiary);">
+                        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+                            <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);">Match Pack</span>
+                            <span style="flex:1;height:1px;background:var(--border);"></span>
+                            <span style="font-size:10px;color:var(--text-tertiary);">M${m.match} &middot; ${dateStr}</span>
+                        </div>
                         <div style="display:flex;flex-wrap:wrap;gap:var(--space-3);">
                             <!-- Venue Analysis -->
                             <div style="flex:1;min-width:200px;">
-                                <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:8px;">Venue Analysis</div>
+                                <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:8px;">Venue Intel</div>
                                 <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
                                     ${biasDot(m.venue)}
                                     <span style="font-size:var(--text-sm);color:var(--text-primary);font-weight:600;">${m.venue}</span>
@@ -7485,6 +7516,19 @@
                                         ${venueFit ? '<span style="font-size:9px;background:rgba(34,197,94,0.12);color:#22c55e;padding:1px 6px;border-radius:var(--radius-full);font-weight:600;">VENUE FIT</span>' : ''}
                                     </div>`;
                                 }).join('') : '<div style="font-size:var(--text-xs);color:var(--text-tertiary);">Squad data unavailable</div>'}
+                            </div>
+                            <!-- Quick Outlook -->
+                            <div style="flex:1;min-width:200px;">
+                                <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:8px;">Quick Outlook</div>
+                                ${(() => {
+                                    const notes = [];
+                                    if (isHome) notes.push('<span style="color:#22c55e;">&#10003;</span> Home advantage');
+                                    else notes.push('<span style="color:#ef4444;">&#10007;</span> Away fixture');
+                                    if (venueBias === 'pace') notes.push('<span style="color:#22c55e;">&#9679;</span> Pace-friendly surface');
+                                    else if (venueBias === 'spin') notes.push('<span style="color:#f97316;">&#9679;</span> Spin-friendly surface');
+                                    if (isWeekend) notes.push('<span style="color:var(--accent-yellow);">&#9733;</span> Weekend fixture — higher stakes');
+                                    return notes.map(n => '<div style="font-size:var(--text-xs);color:var(--text-secondary);padding:3px 0;">' + n + '</div>').join('');
+                                })()}
                             </div>
                         </div>
                     </div>
@@ -7631,9 +7675,22 @@
                 }
             }
 
+            // Tab logic
+            const hasBatting = p.batting && p.batting.career;
+            const hasBowling = p.bowling && p.bowling.career;
+            const showTabs = hasBatting && hasBowling;
+
+            if (showTabs) {
+                html += `<div class="pp-tabs">
+                    <button class="pp-tab active" onclick="switchProfileTab(this, 'batting')">Batting</button>
+                    <button class="pp-tab bowling-tab" onclick="switchProfileTab(this, 'bowling')">Bowling</button>
+                </div>`;
+            }
+
             // Batting Section
             const bat = p.batting;
             if (bat && bat.career) {
+                if (showTabs) html += `<div class="pp-tab-content active" data-tab="batting">`;
                 const c = bat.career;
                 html += `<div class="pp-section">
                     <div class="pp-section-title">Batting (${p.data_source === 'cross_tournament' ? 'T20 2023+' : 'IPL 2023+'})</div>
@@ -7725,11 +7782,13 @@
                     </div>`;
                 }
 
+                if (showTabs) html += `</div>`;
             }
 
             // Bowling Section
             const bowl = p.bowling;
             if (bowl && bowl.career) {
+                if (showTabs) html += `<div class="pp-tab-content" data-tab="bowling">`;
                 const c = bowl.career;
                 html += `<div class="pp-section">
                     <div class="pp-section-title bowling">Bowling (${p.data_source === 'cross_tournament' ? 'T20 2023+' : 'IPL 2023+'})</div>
@@ -7808,10 +7867,20 @@
                     }
                 }
 
+                if (showTabs) html += `</div>`;
             }
 
             return html;
         }
+
+        window.switchProfileTab = function(btn, tab) {
+            const modal = btn.closest('.player-profile-modal');
+            modal.querySelectorAll('.pp-tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            modal.querySelectorAll('.pp-tab-content').forEach(c => c.classList.remove('active'));
+            const target = modal.querySelector('.pp-tab-content[data-tab="' + tab + '"]');
+            if (target) target.classList.add('active');
+        };
 
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {

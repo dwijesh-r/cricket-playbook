@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-12T05:15:56.294453+00:00",
+  "generated_at": "2026-03-12T08:03:02.622693+00:00",
   "version": "1.0.0",
   "team": "SRH",
   "total_players": 25,
@@ -88,18 +88,6 @@
             "balls": 5,
             "sample_size": "LOW"
           },
-          "Fast-Medium": {
-            "sr": 176.09,
-            "avg": 27.0,
-            "balls": 46,
-            "sample_size": "LOW"
-          },
-          "Leg-spin": {
-            "sr": 266.67,
-            "avg": null,
-            "balls": 3,
-            "sample_size": "LOW"
-          },
           "Fast": {
             "sr": 136.36,
             "avg": 22.5,
@@ -110,6 +98,18 @@
             "sr": 233.33,
             "avg": null,
             "balls": 6,
+            "sample_size": "LOW"
+          },
+          "Fast-Medium": {
+            "sr": 176.09,
+            "avg": 27.0,
+            "balls": 46,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 266.67,
+            "avg": null,
+            "balls": 3,
             "sample_size": "LOW"
           }
         },
@@ -132,14 +132,32 @@
               "sr": 204.76,
               "avg": null,
               "innings": 3
+            },
+            {
+              "team": "MI",
+              "sr": 186.36,
+              "avg": 41.0,
+              "innings": 3
             }
           ],
           "worst": [
             {
-              "team": "DC",
-              "sr": 37.5,
-              "avg": 3.0,
+              "team": "KKR",
+              "sr": 115.25,
+              "avg": 22.67,
+              "innings": 4
+            },
+            {
+              "team": "RR",
+              "sr": 83.33,
+              "avg": null,
               "innings": 2
+            },
+            {
+              "team": "PBKS",
+              "sr": 75.0,
+              "avg": 3.0,
+              "innings": 1
             },
             {
               "team": "CSK",
@@ -148,10 +166,10 @@
               "innings": 1
             },
             {
-              "team": "PBKS",
-              "sr": 75.0,
+              "team": "DC",
+              "sr": 37.5,
               "avg": 3.0,
-              "innings": 1
+              "innings": 2
             }
           ]
         },
@@ -245,14 +263,35 @@
               "sr": 36.0,
               "wickets": 2,
               "overs": 12.0
+            },
+            {
+              "team": "MI",
+              "economy": 8.27,
+              "sr": 15.0,
+              "wickets": 6,
+              "overs": 15.0
             }
           ],
           "worst": [
             {
-              "team": "RCB",
-              "economy": 10.67,
-              "sr": 10.29,
-              "wickets": 7,
+              "team": "CSK",
+              "economy": 8.33,
+              "sr": 24.0,
+              "wickets": 3,
+              "overs": 12.0
+            },
+            {
+              "team": "LSG",
+              "economy": 9.64,
+              "sr": 22.0,
+              "wickets": 3,
+              "overs": 11.0
+            },
+            {
+              "team": "RR",
+              "economy": 10.0,
+              "sr": 24.0,
+              "wickets": 3,
               "overs": 12.0
             },
             {
@@ -263,10 +302,10 @@
               "overs": 15.0
             },
             {
-              "team": "RR",
-              "economy": 10.0,
-              "sr": 24.0,
-              "wickets": 3,
+              "team": "RCB",
+              "economy": 10.67,
+              "sr": 10.29,
+              "wickets": 7,
               "overs": 12.0
             }
           ]
@@ -381,15 +420,43 @@
               "sr": 10.5,
               "wickets": 8,
               "overs": 14.0
+            },
+            {
+              "team": "SRH",
+              "economy": 8.67,
+              "sr": 14.4,
+              "wickets": 5,
+              "overs": 12.0
+            },
+            {
+              "team": "GT",
+              "economy": 9.0,
+              "sr": 16.8,
+              "wickets": 5,
+              "overs": 14.0
             }
           ],
           "worst": [
             {
-              "team": "KKR",
-              "economy": 11.88,
-              "sr": 32.0,
-              "wickets": 3,
-              "overs": 16.0
+              "team": "DC",
+              "economy": 9.47,
+              "sr": 20.4,
+              "wickets": 5,
+              "overs": 17.0
+            },
+            {
+              "team": "LSG",
+              "economy": 9.53,
+              "sr": 21.4,
+              "wickets": 5,
+              "overs": 17.8
+            },
+            {
+              "team": "MI",
+              "economy": 9.57,
+              "sr": 21.2,
+              "wickets": 5,
+              "overs": 17.7
             },
             {
               "team": "RCB",
@@ -399,11 +466,11 @@
               "overs": 11.8
             },
             {
-              "team": "MI",
-              "economy": 9.57,
-              "sr": 21.2,
-              "wickets": 5,
-              "overs": 17.7
+              "team": "KKR",
+              "economy": 11.88,
+              "sr": 32.0,
+              "wickets": 3,
+              "overs": 16.0
             }
           ]
         },
@@ -476,6 +543,18 @@
             "balls": 21,
             "sample_size": "LOW"
           },
+          "Fast-Medium": {
+            "sr": 110.0,
+            "avg": 11.0,
+            "balls": 10,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 50.0,
+            "avg": null,
+            "balls": 4,
+            "sample_size": "LOW"
+          },
           "Fast": {
             "sr": 42.86,
             "avg": 3.0,
@@ -492,18 +571,6 @@
             "sr": 100.0,
             "avg": null,
             "balls": 1,
-            "sample_size": "LOW"
-          },
-          "Fast-Medium": {
-            "sr": 110.0,
-            "avg": 11.0,
-            "balls": 10,
-            "sample_size": "LOW"
-          },
-          "Leg-spin": {
-            "sr": 50.0,
-            "avg": null,
-            "balls": 4,
             "sample_size": "LOW"
           }
         },
@@ -530,10 +597,16 @@
           ],
           "worst": [
             {
-              "team": "GT",
-              "sr": 0.0,
-              "avg": 0.0,
-              "innings": 1
+              "team": "KKR",
+              "sr": 42.86,
+              "avg": 1.5,
+              "innings": 2
+            },
+            {
+              "team": "MI",
+              "sr": 40.0,
+              "avg": null,
+              "innings": 2
             },
             {
               "team": "RCB",
@@ -542,10 +615,10 @@
               "innings": 1
             },
             {
-              "team": "MI",
-              "sr": 40.0,
-              "avg": null,
-              "innings": 2
+              "team": "GT",
+              "sr": 0.0,
+              "avg": 0.0,
+              "innings": 1
             }
           ]
         },
@@ -656,15 +729,50 @@
               "sr": 16.25,
               "wickets": 4,
               "overs": 10.8
+            },
+            {
+              "team": "SRH",
+              "economy": 8.33,
+              "sr": null,
+              "wickets": 0,
+              "overs": 3.0
+            },
+            {
+              "team": "RR",
+              "economy": 8.33,
+              "sr": null,
+              "wickets": 0,
+              "overs": 3.0
             }
           ],
           "worst": [
             {
-              "team": "RCB",
-              "economy": 13.0,
+              "team": "GT",
+              "economy": 9.05,
+              "sr": 18.33,
+              "wickets": 3,
+              "overs": 9.2
+            },
+            {
+              "team": "LSG",
+              "economy": 9.5,
               "sr": null,
               "wickets": 0,
               "overs": 2.0
+            },
+            {
+              "team": "MI",
+              "economy": 10.0,
+              "sr": 14.0,
+              "wickets": 3,
+              "overs": 7.0
+            },
+            {
+              "team": "RCB",
+              "economy": 10.6,
+              "sr": 15.0,
+              "wickets": 4,
+              "overs": 10.0
             },
             {
               "team": "PBKS",
@@ -675,10 +783,10 @@
             },
             {
               "team": "RCB",
-              "economy": 10.6,
-              "sr": 15.0,
-              "wickets": 4,
-              "overs": 10.0
+              "economy": 13.0,
+              "sr": null,
+              "wickets": 0,
+              "overs": 2.0
             }
           ]
         },
@@ -737,6 +845,12 @@
           }
         },
         "vs_bowling_type": {
+          "Fast-Medium": {
+            "sr": 50.0,
+            "avg": null,
+            "balls": 14,
+            "sample_size": "LOW"
+          },
           "Unknown": {
             "sr": 75.0,
             "avg": 3.0,
@@ -747,12 +861,6 @@
             "sr": 60.0,
             "avg": 3.0,
             "balls": 5,
-            "sample_size": "LOW"
-          },
-          "Fast-Medium": {
-            "sr": 50.0,
-            "avg": null,
-            "balls": 14,
             "sample_size": "LOW"
           },
           "Fast": {
@@ -785,9 +893,9 @@
           ],
           "worst": [
             {
-              "team": "KKR",
-              "sr": 36.36,
-              "avg": 4.0,
+              "team": "RCB",
+              "sr": 80.0,
+              "avg": null,
               "innings": 1
             },
             {
@@ -797,9 +905,9 @@
               "innings": 1
             },
             {
-              "team": "RCB",
-              "sr": 80.0,
-              "avg": null,
+              "team": "KKR",
+              "sr": 36.36,
+              "avg": 4.0,
               "innings": 1
             }
           ]
@@ -938,18 +1046,6 @@
             "balls": 11,
             "sample_size": "LOW"
           },
-          "Fast": {
-            "sr": 177.44,
-            "avg": 36.38,
-            "balls": 164,
-            "sample_size": "MEDIUM"
-          },
-          "LA Orthodox": {
-            "sr": 100.0,
-            "avg": null,
-            "balls": 6,
-            "sample_size": "LOW"
-          },
           "Fast-Medium": {
             "sr": 181.41,
             "avg": 35.38,
@@ -960,6 +1056,18 @@
             "sr": 191.11,
             "avg": 86.0,
             "balls": 45,
+            "sample_size": "LOW"
+          },
+          "Fast": {
+            "sr": 177.44,
+            "avg": 36.38,
+            "balls": 164,
+            "sample_size": "MEDIUM"
+          },
+          "LA Orthodox": {
+            "sr": 100.0,
+            "avg": null,
+            "balls": 6,
             "sample_size": "LOW"
           },
           "Medium": {
@@ -1000,13 +1108,31 @@
               "sr": 222.22,
               "avg": 40.0,
               "innings": 3
+            },
+            {
+              "team": "KKR",
+              "sr": 177.78,
+              "avg": 20.0,
+              "innings": 4
             }
           ],
           "worst": [
             {
-              "team": "CSK",
-              "sr": 134.04,
-              "avg": 21.0,
+              "team": "PBKS",
+              "sr": 164.15,
+              "avg": 29.0,
+              "innings": 3
+            },
+            {
+              "team": "MI",
+              "sr": 159.52,
+              "avg": 33.5,
+              "innings": 4
+            },
+            {
+              "team": "RR",
+              "sr": 157.43,
+              "avg": 53.0,
               "innings": 3
             },
             {
@@ -1016,9 +1142,9 @@
               "innings": 3
             },
             {
-              "team": "RR",
-              "sr": 157.43,
-              "avg": 53.0,
+              "team": "CSK",
+              "sr": 134.04,
+              "avg": 21.0,
               "innings": 3
             }
           ]
@@ -1117,18 +1243,6 @@
             "balls": 16,
             "sample_size": "LOW"
           },
-          "Fast-Medium": {
-            "sr": 176.47,
-            "avg": 27.69,
-            "balls": 204,
-            "sample_size": "HIGH"
-          },
-          "Leg-spin": {
-            "sr": 251.02,
-            "avg": 123.0,
-            "balls": 49,
-            "sample_size": "LOW"
-          },
           "Wrist-spin": {
             "sr": 226.32,
             "avg": 21.5,
@@ -1152,6 +1266,18 @@
             "avg": 10.0,
             "balls": 6,
             "sample_size": "LOW"
+          },
+          "Fast-Medium": {
+            "sr": 176.47,
+            "avg": 27.69,
+            "balls": 204,
+            "sample_size": "HIGH"
+          },
+          "Leg-spin": {
+            "sr": 251.02,
+            "avg": 123.0,
+            "balls": 49,
+            "sample_size": "LOW"
           }
         },
         "vs_teams": {
@@ -1173,14 +1299,38 @@
               "sr": 220.37,
               "avg": 39.67,
               "innings": 4
+            },
+            {
+              "team": "RCB",
+              "sr": 194.12,
+              "avg": 33.0,
+              "innings": 3
+            },
+            {
+              "team": "CSK",
+              "sr": 166.67,
+              "avg": 20.0,
+              "innings": 4
             }
           ],
           "worst": [
             {
-              "team": "RCB",
-              "sr": 78.57,
-              "avg": 11.0,
-              "innings": 1
+              "team": "RR",
+              "sr": 163.49,
+              "avg": 20.6,
+              "innings": 5
+            },
+            {
+              "team": "MI",
+              "sr": 161.84,
+              "avg": 24.6,
+              "innings": 5
+            },
+            {
+              "team": "GT",
+              "sr": 153.66,
+              "avg": 31.5,
+              "innings": 4
             },
             {
               "team": "KKR",
@@ -1189,10 +1339,10 @@
               "innings": 7
             },
             {
-              "team": "GT",
-              "sr": 153.66,
-              "avg": 31.5,
-              "innings": 4
+              "team": "RCB",
+              "sr": 78.57,
+              "avg": 11.0,
+              "innings": 1
             }
           ]
         },
@@ -1290,19 +1440,19 @@
               "sr": 42.0,
               "wickets": 1,
               "overs": 7.0
+            },
+            {
+              "team": "RCB",
+              "economy": 9.67,
+              "sr": null,
+              "wickets": 0,
+              "overs": 3.0
             }
           ],
           "worst": [
             {
-              "team": "GT",
-              "economy": 14.5,
-              "sr": null,
-              "wickets": 0,
-              "overs": 2.0
-            },
-            {
-              "team": "KKR",
-              "economy": 13.0,
+              "team": "RCB",
+              "economy": 10.0,
               "sr": null,
               "wickets": 0,
               "overs": 2.0
@@ -1313,6 +1463,20 @@
               "sr": 30.0,
               "wickets": 1,
               "overs": 5.0
+            },
+            {
+              "team": "KKR",
+              "economy": 13.0,
+              "sr": null,
+              "wickets": 0,
+              "overs": 2.0
+            },
+            {
+              "team": "GT",
+              "economy": 14.5,
+              "sr": null,
+              "wickets": 0,
+              "overs": 2.0
             }
           ]
         },
@@ -1389,17 +1553,17 @@
           }
         },
         "vs_bowling_type": {
-          "Wrist-spin": {
-            "sr": 183.33,
-            "avg": 22.0,
-            "balls": 12,
-            "sample_size": "LOW"
+          "Fast": {
+            "sr": 159.51,
+            "avg": 32.7,
+            "balls": 205,
+            "sample_size": "HIGH"
           },
-          "Off-Spin/Leg-Spin": {
-            "sr": 50.0,
-            "avg": null,
-            "balls": 4,
-            "sample_size": "LOW"
+          "LA Orthodox": {
+            "sr": 148.0,
+            "avg": 55.5,
+            "balls": 75,
+            "sample_size": "MEDIUM"
           },
           "Fast-Medium": {
             "sr": 137.27,
@@ -1413,18 +1577,6 @@
             "balls": 76,
             "sample_size": "MEDIUM"
           },
-          "Fast": {
-            "sr": 159.51,
-            "avg": 32.7,
-            "balls": 205,
-            "sample_size": "HIGH"
-          },
-          "LA Orthodox": {
-            "sr": 148.0,
-            "avg": 55.5,
-            "balls": 75,
-            "sample_size": "MEDIUM"
-          },
           "Off-spin": {
             "sr": 133.33,
             "avg": 22.67,
@@ -1436,6 +1588,18 @@
             "avg": 53.75,
             "balls": 135,
             "sample_size": "MEDIUM"
+          },
+          "Wrist-spin": {
+            "sr": 183.33,
+            "avg": 22.0,
+            "balls": 12,
+            "sample_size": "LOW"
+          },
+          "Off-Spin/Leg-Spin": {
+            "sr": 50.0,
+            "avg": null,
+            "balls": 4,
+            "sample_size": "LOW"
           },
           "Left-arm orthodox": {
             "sr": 300.0,
@@ -1469,14 +1633,44 @@
               "sr": 172.41,
               "avg": 50.0,
               "innings": 4
+            },
+            {
+              "team": "PBKS",
+              "sr": 157.63,
+              "avg": 31.0,
+              "innings": 4
+            },
+            {
+              "team": "RCB",
+              "sr": 152.94,
+              "avg": 26.0,
+              "innings": 2
             }
           ],
           "worst": [
             {
-              "team": "MI",
-              "sr": 42.86,
-              "avg": 1.5,
-              "innings": 2
+              "team": "SRH",
+              "sr": 150.79,
+              "avg": 23.75,
+              "innings": 4
+            },
+            {
+              "team": "DC",
+              "sr": 139.71,
+              "avg": 23.75,
+              "innings": 4
+            },
+            {
+              "team": "CSK",
+              "sr": 134.18,
+              "avg": 26.5,
+              "innings": 4
+            },
+            {
+              "team": "LSG",
+              "sr": 118.46,
+              "avg": 25.67,
+              "innings": 6
             },
             {
               "team": "GT",
@@ -1485,10 +1679,10 @@
               "innings": 5
             },
             {
-              "team": "LSG",
-              "sr": 118.46,
-              "avg": 25.67,
-              "innings": 6
+              "team": "MI",
+              "sr": 42.86,
+              "avg": 1.5,
+              "innings": 2
             }
           ]
         },
@@ -1597,18 +1791,6 @@
             "balls": 29,
             "sample_size": "LOW"
           },
-          "Fast-Medium": {
-            "sr": 125.0,
-            "avg": 12.86,
-            "balls": 72,
-            "sample_size": "MEDIUM"
-          },
-          "Leg-spin": {
-            "sr": 170.27,
-            "avg": 63.0,
-            "balls": 37,
-            "sample_size": "LOW"
-          },
           "Fast": {
             "sr": 210.81,
             "avg": 156.0,
@@ -1619,6 +1801,18 @@
             "sr": 84.21,
             "avg": 32.0,
             "balls": 38,
+            "sample_size": "LOW"
+          },
+          "Fast-Medium": {
+            "sr": 125.0,
+            "avg": 12.86,
+            "balls": 72,
+            "sample_size": "MEDIUM"
+          },
+          "Leg-spin": {
+            "sr": 170.27,
+            "avg": 63.0,
+            "balls": 37,
             "sample_size": "LOW"
           }
         },
@@ -1641,14 +1835,38 @@
               "sr": 164.29,
               "avg": 46.0,
               "innings": 4
+            },
+            {
+              "team": "LSG",
+              "sr": 159.38,
+              "avg": 25.5,
+              "innings": 3
+            },
+            {
+              "team": "CSK",
+              "sr": 151.52,
+              "avg": 25.0,
+              "innings": 2
             }
           ],
           "worst": [
             {
+              "team": "PBKS",
+              "sr": 138.1,
+              "avg": 14.5,
+              "innings": 2
+            },
+            {
+              "team": "GT",
+              "sr": 122.45,
+              "avg": 30.0,
+              "innings": 2
+            },
+            {
               "team": "RCB",
-              "sr": 50.0,
-              "avg": 2.0,
-              "innings": 1
+              "sr": 113.33,
+              "avg": 8.5,
+              "innings": 2
             },
             {
               "team": "RR",
@@ -1658,9 +1876,9 @@
             },
             {
               "team": "RCB",
-              "sr": 113.33,
-              "avg": 8.5,
-              "innings": 2
+              "sr": 50.0,
+              "avg": 2.0,
+              "innings": 1
             }
           ]
         },
@@ -1758,15 +1976,36 @@
               "sr": 15.0,
               "wickets": 2,
               "overs": 5.0
+            },
+            {
+              "team": "RCB",
+              "economy": 9.0,
+              "sr": null,
+              "wickets": 0,
+              "overs": 1.0
             }
           ],
           "worst": [
             {
-              "team": "LSG",
-              "economy": 19.0,
-              "sr": 6.0,
+              "team": "RCB",
+              "economy": 9.0,
+              "sr": null,
+              "wickets": 0,
+              "overs": 3.0
+            },
+            {
+              "team": "MI",
+              "economy": 9.75,
+              "sr": 24.0,
               "wickets": 1,
-              "overs": 1.0
+              "overs": 4.0
+            },
+            {
+              "team": "KKR",
+              "economy": 10.25,
+              "sr": null,
+              "wickets": 0,
+              "overs": 4.0
             },
             {
               "team": "DC",
@@ -1776,11 +2015,11 @@
               "overs": 1.0
             },
             {
-              "team": "KKR",
-              "economy": 10.25,
-              "sr": null,
-              "wickets": 0,
-              "overs": 4.0
+              "team": "LSG",
+              "economy": 19.0,
+              "sr": 6.0,
+              "wickets": 1,
+              "overs": 1.0
             }
           ]
         },
@@ -1861,18 +2100,6 @@
           }
         },
         "vs_bowling_type": {
-          "Left-arm orthodox": {
-            "sr": 266.67,
-            "avg": null,
-            "balls": 12,
-            "sample_size": "LOW"
-          },
-          "Medium": {
-            "sr": 247.06,
-            "avg": null,
-            "balls": 17,
-            "sample_size": "LOW"
-          },
           "Off-spin": {
             "sr": 182.93,
             "avg": 150.0,
@@ -1883,6 +2110,18 @@
             "sr": 172.6,
             "avg": 63.0,
             "balls": 146,
+            "sample_size": "MEDIUM"
+          },
+          "Fast-Medium": {
+            "sr": 151.91,
+            "avg": 33.17,
+            "balls": 131,
+            "sample_size": "MEDIUM"
+          },
+          "Leg-spin": {
+            "sr": 180.43,
+            "avg": 55.33,
+            "balls": 92,
             "sample_size": "MEDIUM"
           },
           "LA Orthodox": {
@@ -1897,23 +2136,23 @@
             "balls": 204,
             "sample_size": "HIGH"
           },
+          "Left-arm orthodox": {
+            "sr": 266.67,
+            "avg": null,
+            "balls": 12,
+            "sample_size": "LOW"
+          },
+          "Medium": {
+            "sr": 247.06,
+            "avg": null,
+            "balls": 17,
+            "sample_size": "LOW"
+          },
           "Wrist-spin": {
             "sr": 244.44,
             "avg": null,
             "balls": 36,
             "sample_size": "LOW"
-          },
-          "Fast-Medium": {
-            "sr": 151.91,
-            "avg": 33.17,
-            "balls": 131,
-            "sample_size": "MEDIUM"
-          },
-          "Leg-spin": {
-            "sr": 180.43,
-            "avg": 55.33,
-            "balls": 92,
-            "sample_size": "MEDIUM"
           }
         },
         "vs_teams": {
@@ -1935,14 +2174,38 @@
               "sr": 198.01,
               "avg": 59.8,
               "innings": 7
+            },
+            {
+              "team": "RR",
+              "sr": 192.41,
+              "avg": 50.67,
+              "innings": 4
+            },
+            {
+              "team": "DC",
+              "sr": 181.43,
+              "avg": 42.33,
+              "innings": 4
             }
           ],
           "worst": [
             {
-              "team": "CSK",
-              "sr": 96.43,
-              "avg": 18.0,
-              "innings": 4
+              "team": "MI",
+              "sr": 176.64,
+              "avg": 48.4,
+              "innings": 6
+            },
+            {
+              "team": "LSG",
+              "sr": 162.16,
+              "avg": 60.0,
+              "innings": 3
+            },
+            {
+              "team": "PBKS",
+              "sr": 146.94,
+              "avg": 36.0,
+              "innings": 3
             },
             {
               "team": "GT",
@@ -1951,10 +2214,10 @@
               "innings": 4
             },
             {
-              "team": "PBKS",
-              "sr": 146.94,
-              "avg": 36.0,
-              "innings": 3
+              "team": "CSK",
+              "sr": 96.43,
+              "avg": 18.0,
+              "innings": 4
             }
           ]
         },
@@ -2044,18 +2307,6 @@
           }
         },
         "vs_bowling_type": {
-          "Off-spin": {
-            "sr": 66.67,
-            "avg": null,
-            "balls": 6,
-            "sample_size": "LOW"
-          },
-          "Unknown": {
-            "sr": 169.44,
-            "avg": 30.5,
-            "balls": 36,
-            "sample_size": "LOW"
-          },
           "Medium": {
             "sr": 50.0,
             "avg": 2.0,
@@ -2078,6 +2329,18 @@
             "sr": 162.5,
             "avg": 13.0,
             "balls": 8,
+            "sample_size": "LOW"
+          },
+          "Off-spin": {
+            "sr": 66.67,
+            "avg": null,
+            "balls": 6,
+            "sample_size": "LOW"
+          },
+          "Unknown": {
+            "sr": 169.44,
+            "avg": 30.5,
+            "balls": 36,
             "sample_size": "LOW"
           },
           "LA Orthodox": {
@@ -2112,14 +2375,32 @@
               "sr": 134.29,
               "avg": 47.0,
               "innings": 3
+            },
+            {
+              "team": "DC",
+              "sr": 127.59,
+              "avg": 18.5,
+              "innings": 2
             }
           ],
           "worst": [
             {
-              "team": "RCB",
-              "sr": 85.0,
-              "avg": 8.5,
+              "team": "LSG",
+              "sr": 123.33,
+              "avg": 37.0,
               "innings": 2
+            },
+            {
+              "team": "GT",
+              "sr": 118.18,
+              "avg": 52.0,
+              "innings": 2
+            },
+            {
+              "team": "KKR",
+              "sr": 117.14,
+              "avg": 13.67,
+              "innings": 3
             },
             {
               "team": "MI",
@@ -2128,10 +2409,10 @@
               "innings": 3
             },
             {
-              "team": "KKR",
-              "sr": 117.14,
-              "avg": 13.67,
-              "innings": 3
+              "team": "RCB",
+              "sr": 85.0,
+              "avg": 8.5,
+              "innings": 2
             }
           ]
         },
@@ -2227,15 +2508,36 @@
               "sr": null,
               "wickets": 0,
               "overs": 1.0
+            },
+            {
+              "team": "RCB",
+              "economy": 9.0,
+              "sr": null,
+              "wickets": 0,
+              "overs": 2.0
             }
           ],
           "worst": [
             {
-              "team": "PBKS",
-              "economy": 13.83,
-              "sr": 36.0,
-              "wickets": 1,
-              "overs": 6.0
+              "team": "KKR",
+              "economy": 9.0,
+              "sr": null,
+              "wickets": 0,
+              "overs": 2.0
+            },
+            {
+              "team": "RR",
+              "economy": 10.0,
+              "sr": null,
+              "wickets": 0,
+              "overs": 1.0
+            },
+            {
+              "team": "MI",
+              "economy": 10.2,
+              "sr": null,
+              "wickets": 0,
+              "overs": 5.0
             },
             {
               "team": "LSG",
@@ -2245,11 +2547,11 @@
               "overs": 2.0
             },
             {
-              "team": "MI",
-              "economy": 10.2,
-              "sr": null,
-              "wickets": 0,
-              "overs": 5.0
+              "team": "PBKS",
+              "economy": 13.83,
+              "sr": 36.0,
+              "wickets": 1,
+              "overs": 6.0
             }
           ]
         },
@@ -2445,18 +2747,6 @@
             "balls": 7,
             "sample_size": "LOW"
           },
-          "Fast-Medium": {
-            "sr": 73.68,
-            "avg": 7.0,
-            "balls": 19,
-            "sample_size": "LOW"
-          },
-          "Leg-spin": {
-            "sr": 212.5,
-            "avg": null,
-            "balls": 8,
-            "sample_size": "LOW"
-          },
           "Wrist-spin": {
             "sr": 162.5,
             "avg": null,
@@ -2474,6 +2764,18 @@
             "avg": null,
             "balls": 4,
             "sample_size": "LOW"
+          },
+          "Fast-Medium": {
+            "sr": 73.68,
+            "avg": 7.0,
+            "balls": 19,
+            "sample_size": "LOW"
+          },
+          "Leg-spin": {
+            "sr": 212.5,
+            "avg": null,
+            "balls": 8,
+            "sample_size": "LOW"
           }
         },
         "vs_teams": {
@@ -2489,32 +2791,20 @@
               "sr": 147.62,
               "avg": null,
               "innings": 1
-            },
+            }
+          ],
+          "worst": [
             {
               "team": "KKR",
               "sr": 135.0,
               "avg": 27.0,
               "innings": 1
-            }
-          ],
-          "worst": [
+            },
             {
               "team": "GT",
               "sr": 16.67,
               "avg": 0.5,
               "innings": 2
-            },
-            {
-              "team": "KKR",
-              "sr": 135.0,
-              "avg": 27.0,
-              "innings": 1
-            },
-            {
-              "team": "CSK",
-              "sr": 147.62,
-              "avg": null,
-              "innings": 1
             }
           ]
         },
@@ -2588,31 +2878,10 @@
               "sr": 6.0,
               "wickets": 1,
               "overs": 1.0
-            },
-            {
-              "team": "CSK",
-              "economy": 8.67,
-              "sr": 18.0,
-              "wickets": 1,
-              "overs": 3.0
-            },
-            {
-              "team": "GT",
-              "economy": 10.0,
-              "sr": null,
-              "wickets": 0,
-              "overs": 3.0
             }
           ],
           "worst": [
             {
-              "team": "GT",
-              "economy": 10.0,
-              "sr": null,
-              "wickets": 0,
-              "overs": 3.0
-            },
-            {
               "team": "CSK",
               "economy": 8.67,
               "sr": 18.0,
@@ -2620,11 +2889,11 @@
               "overs": 3.0
             },
             {
-              "team": "KKR",
-              "economy": 4.0,
-              "sr": 6.0,
-              "wickets": 1,
-              "overs": 1.0
+              "team": "GT",
+              "economy": 10.0,
+              "sr": null,
+              "wickets": 0,
+              "overs": 3.0
             }
           ]
         },
@@ -2737,11 +3006,11 @@
           ],
           "worst": [
             {
-              "team": "PBKS",
-              "economy": 11.0,
-              "sr": 12.0,
-              "wickets": 2,
-              "overs": 4.0
+              "team": "MI",
+              "economy": 9.57,
+              "sr": 14.0,
+              "wickets": 3,
+              "overs": 7.0
             },
             {
               "team": "RCB",
@@ -2751,11 +3020,11 @@
               "overs": 4.0
             },
             {
-              "team": "MI",
-              "economy": 9.57,
-              "sr": 14.0,
-              "wickets": 3,
-              "overs": 7.0
+              "team": "PBKS",
+              "economy": 11.0,
+              "sr": 12.0,
+              "wickets": 2,
+              "overs": 4.0
             }
           ]
         },
@@ -2871,11 +3140,18 @@
           ],
           "worst": [
             {
-              "team": "LSG",
-              "economy": 10.5,
+              "team": "PBKS",
+              "economy": 9.75,
               "sr": null,
               "wickets": 0,
-              "overs": 2.0
+              "overs": 4.0
+            },
+            {
+              "team": "MI",
+              "economy": 10.1,
+              "sr": 41.0,
+              "wickets": 1,
+              "overs": 6.8
             },
             {
               "team": "DC",
@@ -2885,11 +3161,11 @@
               "overs": 7.0
             },
             {
-              "team": "MI",
-              "economy": 10.1,
-              "sr": 41.0,
-              "wickets": 1,
-              "overs": 6.8
+              "team": "LSG",
+              "economy": 10.5,
+              "sr": null,
+              "wickets": 0,
+              "overs": 2.0
             }
           ]
         },
@@ -2973,18 +3249,6 @@
             "balls": 12,
             "sample_size": "LOW"
           },
-          "Fast": {
-            "sr": 150.0,
-            "avg": 51.0,
-            "balls": 34,
-            "sample_size": "LOW"
-          },
-          "LA Orthodox": {
-            "sr": 168.75,
-            "avg": 54.0,
-            "balls": 32,
-            "sample_size": "LOW"
-          },
           "Fast-Medium": {
             "sr": 120.69,
             "avg": 11.67,
@@ -2995,6 +3259,18 @@
             "sr": 350.0,
             "avg": 63.0,
             "balls": 18,
+            "sample_size": "LOW"
+          },
+          "Fast": {
+            "sr": 150.0,
+            "avg": 51.0,
+            "balls": 34,
+            "sample_size": "LOW"
+          },
+          "LA Orthodox": {
+            "sr": 168.75,
+            "avg": 54.0,
+            "balls": 32,
             "sample_size": "LOW"
           },
           "Unknown": {
@@ -3029,9 +3305,27 @@
               "sr": 233.33,
               "avg": 7.0,
               "innings": 1
+            },
+            {
+              "team": "DC",
+              "sr": 180.49,
+              "avg": 74.0,
+              "innings": 1
             }
           ],
           "worst": [
+            {
+              "team": "KKR",
+              "sr": 150.0,
+              "avg": 18.0,
+              "innings": 2
+            },
+            {
+              "team": "MI",
+              "sr": 136.36,
+              "avg": 30.0,
+              "innings": 2
+            },
             {
               "team": "GT",
               "sr": 100.0,
@@ -3043,12 +3337,6 @@
               "sr": 100.0,
               "avg": 19.0,
               "innings": 1
-            },
-            {
-              "team": "MI",
-              "sr": 136.36,
-              "avg": 30.0,
-              "innings": 2
             }
           ]
         },
@@ -3173,31 +3461,10 @@
               "sr": 8.0,
               "wickets": 3,
               "overs": 4.0
-            },
-            {
-              "team": "RCB",
-              "economy": 10.0,
-              "sr": 12.0,
-              "wickets": 1,
-              "overs": 2.0
-            },
-            {
-              "team": "LSG",
-              "economy": 10.75,
-              "sr": 24.0,
-              "wickets": 1,
-              "overs": 4.0
             }
           ],
           "worst": [
             {
-              "team": "LSG",
-              "economy": 10.75,
-              "sr": 24.0,
-              "wickets": 1,
-              "overs": 4.0
-            },
-            {
               "team": "RCB",
               "economy": 10.0,
               "sr": 12.0,
@@ -3205,10 +3472,10 @@
               "overs": 2.0
             },
             {
-              "team": "KKR",
-              "economy": 8.5,
-              "sr": 8.0,
-              "wickets": 3,
+              "team": "LSG",
+              "economy": 10.75,
+              "sr": 24.0,
+              "wickets": 1,
               "overs": 4.0
             }
           ]
@@ -3404,13 +3671,6 @@
               "sr": null,
               "wickets": 0,
               "overs": 2.0
-            },
-            {
-              "team": "PBKS",
-              "economy": 12.75,
-              "sr": null,
-              "wickets": 0,
-              "overs": 1.3
             }
           ],
           "worst": [
@@ -3420,13 +3680,6 @@
               "sr": null,
               "wickets": 0,
               "overs": 1.3
-            },
-            {
-              "team": "KKR",
-              "economy": 9.5,
-              "sr": null,
-              "wickets": 0,
-              "overs": 2.0
             }
           ]
         },
@@ -3486,12 +3739,6 @@
             "balls": 6,
             "sample_size": "LOW"
           },
-          "Fast": {
-            "sr": 50.0,
-            "avg": null,
-            "balls": 2,
-            "sample_size": "LOW"
-          },
           "Leg-spin": {
             "sr": 20.0,
             "avg": null,
@@ -3502,6 +3749,12 @@
             "sr": 20.0,
             "avg": 1.0,
             "balls": 5,
+            "sample_size": "LOW"
+          },
+          "Fast": {
+            "sr": 50.0,
+            "avg": null,
+            "balls": 2,
             "sample_size": "LOW"
           },
           "Off-spin": {
@@ -3518,37 +3771,19 @@
               "sr": 116.67,
               "avg": 7.0,
               "innings": 1
-            },
-            {
-              "team": "GT",
-              "sr": 100.0,
-              "avg": null,
-              "innings": 1
-            },
-            {
-              "team": "PBKS",
-              "sr": 22.22,
-              "avg": 2.0,
-              "innings": 1
             }
           ],
           "worst": [
             {
-              "team": "PBKS",
-              "sr": 22.22,
-              "avg": 2.0,
-              "innings": 1
-            },
-            {
               "team": "GT",
               "sr": 100.0,
               "avg": null,
               "innings": 1
             },
             {
-              "team": "KKR",
-              "sr": 116.67,
-              "avg": 7.0,
+              "team": "PBKS",
+              "sr": 22.22,
+              "avg": 2.0,
               "innings": 1
             }
           ]

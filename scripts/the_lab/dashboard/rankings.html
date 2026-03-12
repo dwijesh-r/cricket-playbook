@@ -754,14 +754,17 @@
 
         .category-pill {
             padding: var(--space-3) 20px;
+            min-height: 44px;
             border-radius: var(--radius-xl);
             font-size: 13px;
             font-weight: 600;
             color: var(--text-secondary);
             cursor: pointer;
             transition: all var(--transition-slow);
-            border: 1px solid var(--border);
-            background: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            background: var(--glass);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             font-family: inherit;
             white-space: nowrap;
         }
@@ -790,7 +793,8 @@
         }
 
         .subcategory-pill {
-            padding: var(--space-1) 14px;
+            padding: 8px 16px;
+            min-height: 36px;
             border-radius: var(--radius-xl);
             font-size: 12px;
             font-weight: 500;
@@ -980,15 +984,17 @@
         }
 
         .leaderboard-table thead th.sorted-asc::after {
-            content: ' \u25B2';
-            font-size: var(--text-xs);
+            content: ' ▲';
+            font-size: 9px;
             color: var(--accent);
+            font-family: 'Inter', Arial, sans-serif;
         }
 
         .leaderboard-table thead th.sorted-desc::after {
-            content: ' \u25BC';
-            font-size: var(--text-xs);
+            content: ' ▼';
+            font-size: 9px;
             color: var(--accent);
+            font-family: 'Inter', Arial, sans-serif;
         }
 
         .leaderboard-table thead th:first-child {
@@ -1772,6 +1778,9 @@
             </div>
         </div>
 
+        <!-- Breadcrumb (Zeigarnik) -->
+        <div id="rankingsBreadcrumb" style="font-size:11px;color:var(--text-tertiary);margin-bottom:8px;display:flex;align-items:center;gap:4px;"></div>
+
         <!-- Category Navigation -->
         <div class="category-nav" id="categoryNav"></div>
 
@@ -2031,7 +2040,12 @@
             '<span class="tier-strong" style="padding:2px 8px;border-radius:4px;background:rgba(59,130,246,0.12);">70-84 Strong</span>' +
             '<span class="tier-solid" style="padding:2px 8px;border-radius:4px;background:rgba(234,179,8,0.12);">55-69 Solid</span>' +
             '<span class="tier-average" style="padding:2px 8px;border-radius:4px;background:rgba(156,163,175,0.12);">&lt;55 Average</span></div>' : '';
-        descEl.innerHTML = '<p>' + escapeHtml(cat.description) + '</p>' + legendHtml;
+        // Add small sample hint for subcategories
+        const currentSub = cat.subcategories[state.currentSubcategory || 0];
+        const sampleHint = currentSub && currentSub.qualifiedCount && currentSub.qualifiedCount < 20
+            ? '<div style="margin-top:6px;font-size:11px;color:var(--text-tertiary);font-style:italic;">&#9432; Small pool (' + currentSub.qualifiedCount + ' qualified) — score ceiling may be lower than larger categories.</div>'
+            : '';
+        descEl.innerHTML = '<p>' + escapeHtml(cat.description) + '</p>' + legendHtml + sampleHint;
 
         // Render table
         renderCurrentView();
@@ -2065,11 +2079,44 @@
             pill.classList.toggle('active', i === index);
         });
 
+        // Update sample hint for new subcategory
+        const scopeData = getScopeData();
+        const cat = scopeData.categories[state.currentCategory];
+        const sub = cat.subcategories[index];
+        const descEl = document.getElementById('categoryDescription');
+        const existingHint = descEl.querySelector('[data-sample-hint]');
+        if (existingHint) existingHint.remove();
+        if (sub && sub.qualifiedCount && sub.qualifiedCount < 20) {
+            const hint = document.createElement('div');
+            hint.setAttribute('data-sample-hint', '1');
+            hint.style.cssText = 'margin-top:6px;font-size:11px;color:var(--text-tertiary);font-style:italic;';
+            hint.innerHTML = '&#9432; Small pool (' + sub.qualifiedCount + ' qualified) — score ceiling may be lower than larger categories.';
+            descEl.appendChild(hint);
+        }
+
         renderCurrentView();
     }
 
     // ==================== RENDER CURRENT VIEW ====================
+    function updateBreadcrumb() {
+        const bc = document.getElementById('rankingsBreadcrumb');
+        if (!bc) return;
+        const scopeData = getScopeData();
+        const cat = scopeData.categories[state.currentCategory];
+        const sub = cat.subcategories[state.currentSubcategory];
+        const scopeLabel = {'alltime':'All-Time','since2023':'Since 2023','2023':'2023','2024':'2024','2025':'2025'}[state.currentScope] || state.currentScope;
+        let html = '<span style="color:var(--accent);">' + scopeLabel + '</span>';
+        html += '<span style="color:var(--text-tertiary);">&rsaquo;</span>';
+        html += '<span>' + cat.title + '</span>';
+        if (cat.subcategories.length > 1) {
+            html += '<span style="color:var(--text-tertiary);">&rsaquo;</span>';
+            html += '<span style="color:var(--text-secondary);">' + sub.title + '</span>';
+        }
+        bc.innerHTML = html;
+    }
+
     function renderCurrentView() {
+        updateBreadcrumb();
         const scopeData = getScopeData();
         const cat = scopeData.categories[state.currentCategory];
         const sub = cat.subcategories[state.currentSubcategory];
@@ -2131,7 +2178,9 @@
             if (state.sortCol === i) {
                 sortClass = state.sortDir === 'asc' ? ' sorted-asc' : ' sorted-desc';
             }
-            headerHtml += '<th scope="col" class="' + sortClass + '" onclick="handleSort(' + i + ')">' + escapeHtml(h) + '</th>';
+            const tooltips = {'Raw Score': 'Composite percentile score (0-100) before sample-size adjustment', 'Weighted': 'Raw Score × sample-size factor — final ranking metric', 'Composite': 'Weighted composite score combining percentile metrics'};
+            const tip = tooltips[h] ? ' title="' + tooltips[h] + '"' : '';
+            headerHtml += '<th scope="col" class="' + sortClass + '"' + tip + ' onclick="handleSort(' + i + ')">' + escapeHtml(h) + '</th>';
         });
         headerHtml += '</tr>';
         thead.innerHTML = headerHtml;

@@ -596,7 +596,7 @@ def query_batter_vs_bowling_type(conn: duckdb.DuckDBPyConnection, suffix: str = 
         rows = conn.execute(
             f"""
             SELECT
-                vs_type_rank, player_name, balls, strike_rate,
+                vs_type_rank, player_name, runs, balls, strike_rate,
                 average, weighted_composite
             FROM {view}
             WHERE bowler_type = ?
@@ -612,15 +612,16 @@ def query_batter_vs_bowling_type(conn: duckdb.DuckDBPyConnection, suffix: str = 
             {
                 "id": btype.lower().replace(" ", "_").replace("-", "_"),
                 "title": f"vs {btype}",
-                "headers": ["Rank", "Player", "Balls", "SR", "Avg", "Composite"],
+                "headers": ["Rank", "Player", "Runs", "Balls", "SR", "Avg", "Composite"],
                 "rows": [
                     [
                         int(r[0]),
                         r[1],
                         int(r[2]),
-                        _format_num(r[3]),
+                        int(r[3]),
                         _format_num(r[4]),
                         _format_num(r[5]),
+                        _format_num(r[6]),
                     ]
                     for r in rows
                 ],
@@ -840,7 +841,7 @@ def query_bowler_composite_rankings(
     rows = conn.execute(
         f"""
         SELECT
-            overall_rank, player_name, matches_bowled, balls_bowled,
+            overall_rank, player_name, balls_bowled, matches_bowled,
             wickets, economy_rate, bowling_average, bowling_strike_rate,
             composite_score, weighted_composite
         FROM {view}
@@ -862,8 +863,8 @@ def query_bowler_composite_rankings(
             "headers": [
                 "Rank",
                 "Player",
-                "Matches",
                 "Balls",
+                "Matches",
                 "Wkts",
                 "Econ",
                 "Avg",

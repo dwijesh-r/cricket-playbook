@@ -1765,7 +1765,7 @@
         <!-- Hero -->
         <section class="hero">
             <h1 class="hero-title">Player Rankings</h1>
-            <p class="hero-subtitle">Composite performance rankings across every phase, bowling type, and matchup in IPL history. Weighted and sample-size adjusted. <span id="dataWindowLabel">(IPL 2023–2025)</span></p>
+            <p class="hero-subtitle">Performance rankings across every phase, bowling type, and matchup in IPL history. <span id="dataWindowLabel">(IPL 2023–2025)</span></p>
         </section>
 
         <!-- Scope Toggle -->
@@ -1823,7 +1823,7 @@
         <!-- Methodology Footnote -->
         <div class="methodology">
             <div class="methodology-card">
-                <div class="methodology-title">&#128202; Composite Methodology</div>
+                <div class="methodology-title">&#128202; Ranking Methodology</div>
                 <div class="methodology-grid">
                     <div class="methodology-item">
                         <h4>Batter Phase Rankings</h4>
@@ -1854,7 +1854,7 @@
                         <p>Career Econ+Avg (30%) + Phase Performance (30%) + Economy (20%) + Wicket-taking (10%) + Dot Ball% (10%). Min 300 balls.</p>
                     </div>
                 </div>
-                <p class="methodology-note">All composites are percentile-based (0-100 scale). Sample-size weighting adjusts raw scores toward group mean for small samples. Full methodology: see config/thresholds.yaml > rankings.</p>
+                <p class="methodology-note">Rankings are percentile-based with sample-size weighting. Full methodology: see config/thresholds.yaml > rankings.</p>
             </div>
         </div>
 
@@ -2036,12 +2036,7 @@
         const scopeData = getScopeData();
         const cat = scopeData.categories[index];
         const descEl = document.getElementById('categoryDescription');
-        const hasComposite = cat.subcategories.some(s => s.headers && (s.headers.includes('Composite') || s.headers.includes('Weighted')));
-        const legendHtml = hasComposite ? '<div style="display:flex;gap:12px;justify-content:center;margin-top:8px;flex-wrap:wrap;font-size:11px;font-weight:600;letter-spacing:0.3px;">' +
-            '<span class="tier-elite" style="padding:2px 8px;border-radius:4px;background:rgba(16,185,129,0.12);">85+ Elite</span>' +
-            '<span class="tier-strong" style="padding:2px 8px;border-radius:4px;background:rgba(59,130,246,0.12);">70-84 Strong</span>' +
-            '<span class="tier-solid" style="padding:2px 8px;border-radius:4px;background:rgba(234,179,8,0.12);">55-69 Solid</span>' +
-            '<span class="tier-average" style="padding:2px 8px;border-radius:4px;background:rgba(156,163,175,0.12);">&lt;55 Average</span></div>' : '';
+        const legendHtml = '';
         // Add small sample hint for subcategories
         const currentSub = cat.subcategories[state.currentSubcategory || 0];
         const sampleHint = currentSub && currentSub.qualifiedCount && currentSub.qualifiedCount < 20
@@ -2180,8 +2175,7 @@
             if (state.sortCol === i) {
                 sortClass = state.sortDir === 'asc' ? ' sorted-asc' : ' sorted-desc';
             }
-            const tooltips = {'Raw Score': 'Composite percentile score (0-100) before sample-size adjustment', 'Weighted': 'Raw Score × sample-size factor — final ranking metric', 'Composite': 'Weighted composite score combining percentile metrics'};
-            const tip = tooltips[h] ? ' title="' + tooltips[h] + '"' : '';
+            const tip = '';
             headerHtml += '<th scope="col" class="' + sortClass + '"' + tip + ' onclick="handleSort(' + i + ')">' + escapeHtml(h) + '</th>';
         });
         headerHtml += '</tr>';
@@ -2211,10 +2205,6 @@
                     bodyHtml += '<td><span class="player-name">' + escapeHtml(String(cell)) + '</span></td>';
                 } else if (header === 'Bowler' && isMatchup) {
                     bodyHtml += '<td><span class="player-secondary">' + escapeHtml(String(cell)) + '</span></td>';
-                } else if (header === 'Composite' || header === 'Weighted' || header === 'Raw Score') {
-                    bodyHtml += '<td>' + renderCompositeCell(cell) + '</td>';
-                } else if (header === 'Dominance') {
-                    bodyHtml += '<td>' + renderDominanceCell(cell) + '</td>';
                 } else {
                     bodyHtml += '<td>' + formatValue(cell, header) + '</td>';
                 }

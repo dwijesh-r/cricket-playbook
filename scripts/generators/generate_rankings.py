@@ -484,7 +484,7 @@ def query_batter_phase_rankings(conn: duckdb.DuckDBPyConnection, suffix: str = "
             f"""
             SELECT
                 phase_rank, player_name, runs, balls_faced, strike_rate,
-                batting_average, boundary_pct, dot_ball_pct, weighted_composite
+                batting_average, boundary_pct, dot_ball_pct
             FROM {view}
             WHERE match_phase = ?
             ORDER BY phase_rank
@@ -505,7 +505,6 @@ def query_batter_phase_rankings(conn: duckdb.DuckDBPyConnection, suffix: str = "
                     "Avg",
                     "Boundary%",
                     "Dot%",
-                    "Composite",
                 ],
                 "rows": [
                     [
@@ -517,7 +516,6 @@ def query_batter_phase_rankings(conn: duckdb.DuckDBPyConnection, suffix: str = "
                         _format_num(r[5]),
                         _format_num(r[6]),
                         _format_num(r[7]),
-                        _format_num(r[8]),
                     ]
                     for r in rows
                 ],
@@ -540,7 +538,7 @@ def query_bowler_phase_rankings(conn: duckdb.DuckDBPyConnection, suffix: str = "
             f"""
             SELECT
                 phase_rank, player_name, balls_bowled, economy_rate,
-                dot_ball_pct, weighted_composite
+                dot_ball_pct
             FROM {view}
             WHERE match_phase = ?
             ORDER BY phase_rank
@@ -552,7 +550,7 @@ def query_bowler_phase_rankings(conn: duckdb.DuckDBPyConnection, suffix: str = "
             {
                 "id": phase,
                 "title": PHASE_TITLES[phase],
-                "headers": ["Rank", "Player", "Balls", "Econ", "Dot%", "Composite"],
+                "headers": ["Rank", "Player", "Balls", "Econ", "Dot%"],
                 "rows": [
                     [
                         int(r[0]),
@@ -560,7 +558,6 @@ def query_bowler_phase_rankings(conn: duckdb.DuckDBPyConnection, suffix: str = "
                         int(r[2]),
                         _format_num(r[3], 2),
                         _format_num(r[4]),
-                        _format_num(r[5]),
                     ]
                     for r in rows
                 ],
@@ -597,7 +594,7 @@ def query_batter_vs_bowling_type(conn: duckdb.DuckDBPyConnection, suffix: str = 
             f"""
             SELECT
                 vs_type_rank, player_name, runs, balls, strike_rate,
-                average, weighted_composite
+                average
             FROM {view}
             WHERE bowler_type = ?
             ORDER BY vs_type_rank
@@ -612,7 +609,7 @@ def query_batter_vs_bowling_type(conn: duckdb.DuckDBPyConnection, suffix: str = 
             {
                 "id": btype.lower().replace(" ", "_").replace("-", "_"),
                 "title": f"vs {btype}",
-                "headers": ["Rank", "Player", "Runs", "Balls", "SR", "Avg", "Composite"],
+                "headers": ["Rank", "Player", "Runs", "Balls", "SR", "Avg"],
                 "rows": [
                     [
                         int(r[0]),
@@ -621,7 +618,6 @@ def query_batter_vs_bowling_type(conn: duckdb.DuckDBPyConnection, suffix: str = 
                         int(r[3]),
                         _format_num(r[4]),
                         _format_num(r[5]),
-                        _format_num(r[6]),
                     ]
                     for r in rows
                 ],
@@ -644,7 +640,7 @@ def query_bowler_vs_handedness(conn: duckdb.DuckDBPyConnection, suffix: str = ""
             f"""
             SELECT
                 vs_hand_rank, player_name, balls, wickets,
-                economy, weighted_composite
+                economy
             FROM {view}
             WHERE batting_hand = ?
             ORDER BY vs_hand_rank
@@ -662,7 +658,6 @@ def query_bowler_vs_handedness(conn: duckdb.DuckDBPyConnection, suffix: str = ""
                     "Balls",
                     "Wkts",
                     "Econ",
-                    "Composite",
                 ],
                 "rows": [
                     [
@@ -671,7 +666,6 @@ def query_bowler_vs_handedness(conn: duckdb.DuckDBPyConnection, suffix: str = ""
                         int(r[2]),
                         int(r[3]),
                         _format_num(r[4], 2),
-                        _format_num(r[5]),
                     ]
                     for r in rows
                 ],
@@ -725,7 +719,6 @@ def query_player_matchup_rankings(conn: duckdb.DuckDBPyConnection, suffix: str =
                 "Runs",
                 "Outs",
                 "SR",
-                "Dominance",
             ],
             "rows": [
                 [
@@ -736,7 +729,6 @@ def query_player_matchup_rankings(conn: duckdb.DuckDBPyConnection, suffix: str =
                     int(r[3]),
                     int(r[4]),
                     _format_num(r[5]),
-                    _format_num(r[7]),
                 ]
                 for i, r in enumerate(batter_rows)
             ],
@@ -754,7 +746,6 @@ def query_player_matchup_rankings(conn: duckdb.DuckDBPyConnection, suffix: str =
                 "Runs",
                 "Outs",
                 "SR",
-                "Dominance",
             ],
             "rows": [
                 [
@@ -765,7 +756,6 @@ def query_player_matchup_rankings(conn: duckdb.DuckDBPyConnection, suffix: str =
                     int(r[3]),
                     int(r[4]),
                     _format_num(r[5]),
-                    _format_num(r[7]),
                 ]
                 for i, r in enumerate(bowler_rows)
             ],
@@ -783,8 +773,7 @@ def query_batter_composite_rankings(
         f"""
         SELECT
             overall_rank, player_name, innings, runs, balls_faced,
-            strike_rate, batting_average, boundary_pct,
-            composite_score, weighted_composite
+            strike_rate, batting_average, boundary_pct
         FROM {view}
         ORDER BY overall_rank
         """,
@@ -810,8 +799,6 @@ def query_batter_composite_rankings(
                 "SR",
                 "Avg",
                 "Boundary%",
-                "Raw Score",
-                "Weighted",
             ],
             "rows": [
                 [
@@ -823,8 +810,6 @@ def query_batter_composite_rankings(
                     _format_num(r[5]),
                     _format_num(r[6]),
                     _format_num(r[7]),
-                    _format_num(r[8]),
-                    _format_num(r[9]),
                 ]
                 for r in rows
             ],
@@ -842,8 +827,7 @@ def query_bowler_composite_rankings(
         f"""
         SELECT
             overall_rank, player_name, balls_bowled, matches_bowled,
-            wickets, economy_rate, bowling_average, bowling_strike_rate,
-            composite_score, weighted_composite
+            wickets, economy_rate, bowling_average, bowling_strike_rate
         FROM {view}
         ORDER BY overall_rank
         """,
@@ -869,8 +853,6 @@ def query_bowler_composite_rankings(
                 "Econ",
                 "Avg",
                 "Bowl SR",
-                "Raw Score",
-                "Weighted",
             ],
             "rows": [
                 [
@@ -882,8 +864,6 @@ def query_bowler_composite_rankings(
                     _format_num(r[5], 2),
                     _format_num(r[6]),
                     _format_num(r[7]),
-                    _format_num(r[8]),
-                    _format_num(r[9]),
                 ]
                 for r in rows
             ],

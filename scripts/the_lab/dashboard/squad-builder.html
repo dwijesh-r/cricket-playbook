@@ -760,6 +760,85 @@
             color: var(--text-tertiary); font-size: var(--text-sm);
         }
 
+        /* ==================== DEPTH CHART INDICATORS ==================== */
+        .depth-rating {
+            display: inline-flex; align-items: center; gap: 4px;
+            font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+        }
+        .depth-rating-bar {
+            width: 32px; height: 6px; border-radius: 3px;
+            background: rgba(255,255,255,0.08); overflow: hidden; display: inline-block;
+            vertical-align: middle;
+        }
+        .depth-rating-fill {
+            height: 100%; border-radius: 3px; transition: width 0.3s ease;
+        }
+        .depth-rank-badge {
+            display: inline-block; padding: 1px 5px; border-radius: var(--radius-sm);
+            font-size: 9px; font-weight: 700; letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+        .depth-rank-badge.rank-1 { background: rgba(34, 197, 94, 0.15); color: var(--accent-green); }
+        .depth-rank-badge.rank-2 { background: rgba(234, 179, 8, 0.15); color: var(--accent-yellow); }
+        .depth-rank-badge.rank-3 { background: rgba(249, 115, 22, 0.15); color: var(--accent-orange); }
+        .depth-rank-badge.rank-other { background: rgba(148, 163, 184, 0.1); color: var(--text-tertiary); }
+
+        .role-label {
+            display: inline-block; padding: 2px 7px; border-radius: var(--radius-sm);
+            font-size: 10px; font-weight: 600; letter-spacing: 0.03em;
+            text-transform: uppercase; white-space: nowrap;
+        }
+        .role-label.opener { background: rgba(59, 130, 246, 0.1); color: var(--accent); }
+        .role-label.number3 { background: rgba(168, 85, 247, 0.1); color: var(--accent-purple); }
+        .role-label.middle-order { background: rgba(20, 184, 166, 0.1); color: var(--accent-teal); }
+        .role-label.finisher { background: rgba(236, 72, 153, 0.1); color: var(--accent-pink); }
+        .role-label.bowler-role { background: rgba(34, 197, 94, 0.1); color: var(--accent-green); }
+        .role-label.squad-only { background: rgba(148, 163, 184, 0.06); color: var(--text-tertiary); }
+
+        /* Position Intel expandable panel */
+        .player-row-expandable { cursor: pointer; }
+        .player-row-expandable:hover { background: rgba(59, 130, 246, 0.04); }
+        .position-intel-row { display: none; }
+        .position-intel-row.expanded { display: table-row; }
+        .position-intel-panel {
+            padding: 12px 16px;
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-md);
+            margin: 4px 8px;
+        }
+        .intel-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 12px; font-size: 12px;
+        }
+        @media (max-width: 768px) {
+            .intel-grid { grid-template-columns: 1fr; }
+        }
+        .intel-block-title {
+            font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.08em; color: var(--text-tertiary);
+            margin-bottom: 4px;
+        }
+        .intel-block-content {
+            color: var(--text-secondary); line-height: 1.5;
+        }
+        .intel-block-content strong { color: var(--text-primary); }
+        .intel-vuln {
+            display: inline-block; padding: 2px 6px; border-radius: var(--radius-sm);
+            font-size: 10px; font-weight: 600; background: rgba(239, 68, 68, 0.1);
+            color: var(--accent-red); margin: 2px 2px;
+        }
+        .intel-backup {
+            display: inline-flex; align-items: center; gap: 4px;
+            padding: 2px 6px; border-radius: var(--radius-sm);
+            font-size: 10px; background: rgba(148, 163, 184, 0.06);
+            color: var(--text-secondary); margin: 2px 0;
+        }
+        .expand-icon {
+            display: inline-block; font-size: 8px; color: var(--text-tertiary);
+            margin-right: 4px; transition: transform 150ms ease;
+        }
+        .expand-icon.open { transform: rotate(90deg); }
+
         /* ==================== FOOTER ==================== */
         .footer {
             text-align: center;
@@ -909,7 +988,9 @@
                             <th data-col="name">Player <span class="sort-arrow"></span></th>
                             <th data-col="team">Team <span class="sort-arrow"></span></th>
                             <th data-col="role">Role <span class="sort-arrow"></span></th>
+                            <th data-col="posRole" style="text-align:center" title="Positional role from depth chart & batting order">Pos Role <span class="sort-arrow"></span></th>
                             <th class="col-numeric sorted-desc" data-col="value">FV <span class="sort-arrow"></span></th>
+                            <th class="col-numeric" data-col="depthRating" title="Primary position depth rating (0-10)">Depth <span class="sort-arrow"></span></th>
                             <th class="col-numeric" data-col="price">Price (Cr) <span class="sort-arrow"></span></th>
                             <th class="col-numeric" data-col="ceiling">Range (Cr) <span class="sort-arrow"></span></th>
                             <th class="col-numeric" data-col="matches">IPL M <span class="sort-arrow"></span></th>
@@ -945,6 +1026,7 @@
     <script src="data/teams.js"></script>
     <script src="data/full_squads.js"></script>
     <script src="data/predicted_xii.js"></script>
+    <script src="data/depth_charts.js"></script>
     <script src="data/schedule.js"></script>
     <script src="data/injuries.js"></script>
 
@@ -997,6 +1079,177 @@
         'Powerplay Assassin': 12, 'Middle-Overs Spinner': 10, 'Workhorse Seamer': 9,
         'Holding Spinner': 7, 'Expensive Option': 3
     };
+
+    // ==================== DEPTH CHART HELPERS ====================
+    function getDepthChartInfo(playerName, teamAbbrev) {
+        // Returns array of { positionName, positionKey, rank, rating, rationale, players }
+        if (typeof FULL_DEPTH_CHARTS === 'undefined' || !FULL_DEPTH_CHARTS[teamAbbrev]) return [];
+        const positions = FULL_DEPTH_CHARTS[teamAbbrev].positions || [];
+        const results = [];
+        positions.forEach(pos => {
+            (pos.players || []).forEach(pl => {
+                if (pl.name === playerName) {
+                    results.push({
+                        positionName: pos.name,
+                        positionKey: pos.key,
+                        rank: pl.rank,
+                        rating: pos.rating,
+                        rationale: pl.rationale || '',
+                        score: pl.score || 0,
+                        whatWorks: pos.whatWorks || '',
+                        whatDoesnt: pos.whatDoesnt || '',
+                        allPlayers: pos.players || []
+                    });
+                }
+            });
+        });
+        return results;
+    }
+
+    function getPrimaryDepthInfo(playerName, teamAbbrev) {
+        // Returns the single most relevant depth chart entry for display
+        const entries = getDepthChartInfo(playerName, teamAbbrev);
+        if (entries.length === 0) return null;
+        // Prefer the position where the player has the best (lowest) rank
+        // Break ties by highest rating
+        entries.sort((a, b) => {
+            if (a.rank !== b.rank) return a.rank - b.rank;
+            return b.rating - a.rating;
+        });
+        return entries[0];
+    }
+
+    function getPositionalRoleLabel(player) {
+        // Map player to human-readable role label
+        if (!player.predictedXII) return { label: 'Squad', cssClass: 'squad-only' };
+        const pos = player.founderPos;
+        if (!pos) return { label: 'Squad', cssClass: 'squad-only' };
+
+        if (pos <= 2) return { label: 'Opener', cssClass: 'opener' };
+        if (pos === 3) return { label: '#3 Batter', cssClass: 'number3' };
+        if (pos <= 5) return { label: 'Middle Order', cssClass: 'middle-order' };
+        if (pos <= 7) return { label: 'Finisher', cssClass: 'finisher' };
+
+        // Pos 8-11: use bowling role from depth charts
+        const depthInfo = getPrimaryDepthInfo(player.name, player.teamAbbrev);
+        if (depthInfo) {
+            const key = depthInfo.positionKey || '';
+            if (key.includes('pace') || key.includes('right_arm_pace') || key.includes('left_arm_pace')) {
+                return { label: 'Pacer', cssClass: 'bowler-role' };
+            }
+            if (key.includes('spin') || key.includes('off_spin') || key.includes('leg_spin')) {
+                return { label: 'Spinner', cssClass: 'bowler-role' };
+            }
+            if (key.includes('allrounder')) {
+                return { label: 'AR (Bowl)', cssClass: 'bowler-role' };
+            }
+            if (key.includes('middle_overs')) {
+                return { label: 'Mid-Overs', cssClass: 'bowler-role' };
+            }
+            return { label: depthInfo.positionName, cssClass: 'bowler-role' };
+        }
+        // Fallback: use generic role
+        if (player.role === 'Bowler') return { label: 'Bowler', cssClass: 'bowler-role' };
+        return { label: 'Lower Order', cssClass: 'bowler-role' };
+    }
+
+    function getDepthRatingColor(rating) {
+        if (rating >= 7) return 'var(--accent-green)';
+        if (rating >= 5) return 'var(--accent-yellow)';
+        return 'var(--accent-red)';
+    }
+
+    function getDepthRankBadgeClass(rank) {
+        if (rank === 1) return 'rank-1';
+        if (rank === 2) return 'rank-2';
+        if (rank === 3) return 'rank-3';
+        return 'rank-other';
+    }
+
+    function calcDepthConfidenceFactor(player) {
+        // Depth confidence factor (0-3 points) based on position rank
+        const depthInfo = getPrimaryDepthInfo(player.name, player.teamAbbrev);
+        if (!depthInfo) return 0;
+        if (depthInfo.rank === 1) return 3;    // undisputed starter
+        if (depthInfo.rank === 2) return 1.5;  // rotation risk
+        return 0.5;                             // backup only
+    }
+
+    function calcThinDepthBonus(player) {
+        // Thin depth bonus (+1-2 points) if position is weak and player is starter
+        const depthInfo = getPrimaryDepthInfo(player.name, player.teamAbbrev);
+        if (!depthInfo) return 0;
+        if (depthInfo.rating < 5.0 && depthInfo.rank === 1) return 2;  // irreplaceable
+        if (depthInfo.rating < 5.0 && depthInfo.rank === 2) return 1;  // important backup
+        return 0;
+    }
+
+    function buildPositionIntelHTML(player) {
+        const entries = getDepthChartInfo(player.name, player.teamAbbrev);
+        if (entries.length === 0) return '<div class="intel-block-content" style="color:var(--text-tertiary)">No depth chart data available.</div>';
+
+        const primary = entries[0];
+        const teamData = FULL_DEPTH_CHARTS[player.teamAbbrev];
+        const vulns = teamData ? (teamData.vulnerabilities || []) : [];
+
+        // Determine which vulnerabilities involve this player's positions
+        const playerPosNames = entries.map(e => e.positionName.toLowerCase());
+        const relevantVulns = vulns.filter(v => {
+            const vLower = v.toLowerCase();
+            return playerPosNames.some(pn => vLower.includes(pn.split(' ')[0].toLowerCase()));
+        });
+
+        let html = '<div class="intel-grid">';
+
+        // Primary position
+        html += '<div>';
+        html += '<div class="intel-block-title">Primary Position</div>';
+        html += '<div class="intel-block-content">';
+        html += `<strong>${primary.positionName}</strong> — Rating: <strong style="color:${getDepthRatingColor(primary.rating)}">${primary.rating.toFixed(1)}</strong>/10<br>`;
+        html += `Rank: <span class="depth-rank-badge ${getDepthRankBadgeClass(primary.rank)}">#${primary.rank}</span>`;
+        html += ` (Score: ${primary.score.toFixed(0)})<br>`;
+        html += `<span style="color:var(--text-tertiary);font-size:11px">${primary.rationale}</span>`;
+        html += '</div></div>';
+
+        // Backups at position
+        html += '<div>';
+        html += '<div class="intel-block-title">Position Depth</div>';
+        html += '<div class="intel-block-content">';
+        primary.allPlayers.forEach(bp => {
+            const isCurrent = bp.name === player.name;
+            html += `<div class="intel-backup" style="${isCurrent ? 'border:1px solid var(--accent);background:rgba(59,130,246,0.08)' : ''}">`;
+            html += `<span class="depth-rank-badge ${getDepthRankBadgeClass(bp.rank)}">#${bp.rank}</span> `;
+            html += `${bp.name} (${bp.score.toFixed(0)})${bp.overseas ? ' <span style="color:var(--accent-orange);font-size:8px">OS</span>' : ''}`;
+            html += '</div>';
+        });
+        html += '</div></div>';
+
+        // Additional positions
+        if (entries.length > 1) {
+            html += '<div>';
+            html += '<div class="intel-block-title">Other Positions</div>';
+            html += '<div class="intel-block-content">';
+            entries.slice(1).forEach(e => {
+                html += `<span class="depth-rank-badge ${getDepthRankBadgeClass(e.rank)}">#${e.rank}</span> `;
+                html += `${e.positionName} (${e.rating.toFixed(1)}) — ${e.rationale}<br>`;
+            });
+            html += '</div></div>';
+        }
+
+        // Vulnerabilities
+        if (relevantVulns.length > 0) {
+            html += '<div>';
+            html += '<div class="intel-block-title">Team Vulnerabilities</div>';
+            html += '<div class="intel-block-content">';
+            relevantVulns.forEach(v => {
+                html += `<span class="intel-vuln">${v}</span>`;
+            });
+            html += '</div></div>';
+        }
+
+        html += '</div>';
+        return html;
+    }
 
     // Estimate bowling workload as fraction of full 4-over quota (0.0-1.0)
     // Uses WPM and economy to infer how much a player actually bowls.
@@ -1291,8 +1544,12 @@
             return Math.max(0, Math.round((profile * 0.4 + market) * 10) / 10);
         }
 
+        // Depth chart integration: confidence factor + thin depth bonus
+        const depthConfidence = calcDepthConfidenceFactor(p);
+        const thinDepthBonus = calcThinDepthBonus(p);
+
         // Not in predicted XI: significant fantasy discount (you can't score if you don't play)
-        let total = stats + profile + market;
+        let total = stats + profile + market + depthConfidence + thinDepthBonus;
         if (!p.predictedXII) total *= 0.6;
 
         return Math.max(0, Math.round(total * 10) / 10);
@@ -1462,6 +1719,11 @@
             case 'name': return player.name;
             case 'team': return player.teamAbbrev;
             case 'role': return player.role;
+            case 'posRole': return getPositionalRoleLabel(player).label;
+            case 'depthRating': {
+                const d = getPrimaryDepthInfo(player.name, player.teamAbbrev);
+                return d ? d.rating : 0;
+            }
             case 'price': return player.price || 0;
             case 'matches': return player.iplMatches || 0;
             case 'sr': return player.iplSR || 0;
@@ -1519,7 +1781,7 @@
         countEl.textContent = filteredPlayers.length + ' players';
 
         if (filteredPlayers.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="13" class="no-results">No players match the current filters.</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="15" class="no-results">No players match the current filters.</td></tr>';
             return;
         }
 
@@ -1556,8 +1818,30 @@
                 ? `<span title="${schedCount} of ${typeof SCHEDULE_META !== 'undefined' ? SCHEDULE_META.announcedMatches : 20} announced matches" style="color:var(--accent-teal);font-weight:600">${schedCount}</span>`
                 : '<span style="color:var(--text-tertiary)">--</span>';
 
-            html += `<tr>
-                <td class="col-rank">${idx + 1}</td>
+            // Positional role label
+            const posRole = getPositionalRoleLabel(p);
+            const posRoleHtml = `<span class="role-label ${posRole.cssClass}">${posRole.label}</span>`;
+
+            // Depth chart indicator
+            const depthInfo = getPrimaryDepthInfo(p.name, p.teamAbbrev);
+            let depthHtml = '';
+            if (depthInfo) {
+                const dColor = getDepthRatingColor(depthInfo.rating);
+                const fillPct = (depthInfo.rating / 10) * 100;
+                const rankClass = getDepthRankBadgeClass(depthInfo.rank);
+                depthHtml = `<span class="depth-rating">` +
+                    `<span class="depth-rating-bar"><span class="depth-rating-fill" style="width:${fillPct}%;background:${dColor}"></span></span>` +
+                    `<span style="color:${dColor}">${depthInfo.rating.toFixed(1)}</span>` +
+                    `<span class="depth-rank-badge ${rankClass}">#${depthInfo.rank}</span>` +
+                    `</span>`;
+            } else {
+                depthHtml = '<span style="color:var(--text-tertiary);font-size:10px">--</span>';
+            }
+
+            const rowId = 'player-' + idx;
+
+            html += `<tr class="player-row-expandable" onclick="togglePositionIntel('${rowId}')">
+                <td class="col-rank"><span class="expand-icon" id="icon-${rowId}">&#9654;</span>${idx + 1}</td>
                 <td class="col-player">${p.name}${captainBadge}${overseasBadge}${(() => {
                     if (typeof PLAYER_AVAILABILITY !== 'undefined' && PLAYER_AVAILABILITY[p.name]) {
                         const avail = PLAYER_AVAILABILITY[p.name];
@@ -1571,7 +1855,9 @@
                 })()}</td>
                 <td><span class="team-abbrev" style="color:${getTeamColor(p.teamAbbrev)}">${p.teamAbbrev}</span></td>
                 <td><span class="role-badge ${roleClass}">${roleIcon} ${p.role}</span></td>
+                <td style="text-align:center">${posRoleHtml}</td>
                 <td class="col-numeric" style="color:${valColor};font-weight:700">${val.toFixed(1)}</td>
+                <td class="col-numeric">${depthHtml}</td>
                 <td class="col-numeric price-cell">${p.price.toFixed(2)}</td>
                 <td class="col-numeric" style="color:${rangeColor};white-space:nowrap">${floorVal.toFixed(1)}<span style="color:var(--text-tertiary);margin:0 2px;">–</span>${ceilVal.toFixed(1)}</td>
                 <td class="col-numeric">${matchesDisplay}</td>
@@ -1580,6 +1866,13 @@
                 <td style="text-align:center">${formHtml}</td>
                 <td style="text-align:center">${predictedXII}</td>
                 <td style="text-align:center">${schedDisplay}</td>
+            </tr>
+            <tr class="position-intel-row" id="intel-${rowId}">
+                <td colspan="15" style="padding:0 8px 8px">
+                    <div class="position-intel-panel">
+                        ${buildPositionIntelHTML(p)}
+                    </div>
+                </td>
             </tr>`;
         });
         tbody.innerHTML = html;
@@ -1658,6 +1951,25 @@
     }
 
     // Auction Simulator: backlogged for trade season release
+
+    // ==================== POSITION INTEL TOGGLE ====================
+    function togglePositionIntel(rowId) {
+        const intelRow = document.getElementById('intel-' + rowId);
+        const icon = document.getElementById('icon-' + rowId);
+        if (!intelRow) return;
+        const isExpanded = intelRow.classList.contains('expanded');
+        // Close all other expanded rows
+        document.querySelectorAll('.position-intel-row.expanded').forEach(r => {
+            r.classList.remove('expanded');
+        });
+        document.querySelectorAll('.expand-icon.open').forEach(i => {
+            i.classList.remove('open');
+        });
+        if (!isExpanded) {
+            intelRow.classList.add('expanded');
+            if (icon) icon.classList.add('open');
+        }
+    }
 
     // ==================== UTILITIES ====================
     function escapeStr(str) {

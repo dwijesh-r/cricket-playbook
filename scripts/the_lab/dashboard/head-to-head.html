@@ -185,6 +185,13 @@
         .empty-state-text { font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-2); }
         .empty-state-hint { font-size: var(--text-sm); color: var(--text-secondary); }
 
+        /* Scope Toggle */
+        .scope-toggle-wrap { display: flex; justify-content: center; margin: 0 auto 20px; max-width: var(--container-max); padding: 0 24px; }
+        .scope-toggle { display: flex; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-full); padding: var(--space-1); gap: var(--space-1); }
+        .scope-btn { padding: var(--space-2) 20px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 600; color: var(--text-secondary); background: transparent; border: none; cursor: pointer; transition: all var(--transition-fast); font-family: var(--font-body); letter-spacing: 0.02em; white-space: nowrap; }
+        .scope-btn:hover { color: var(--text-primary); background: var(--bg-tertiary); }
+        .scope-btn.active { background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-teal) 100%); color: #000; }
+
         /* Career stats grid */
         .career-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); }
         @media (max-width: 600px) { .career-stats-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -466,6 +473,14 @@
             <p class="hero-subtitle">Batter-versus-bowler matchup profiles: career numbers, phase splits, and over-by-over data for direct scouting use.</p>
         </section>
 
+        <!-- Scope Toggle -->
+        <div class="scope-toggle-wrap">
+            <div class="scope-toggle" id="scopeToggle">
+                <button class="scope-btn active" data-scope="since2023" onclick="setH2HScope('since2023')">Since 2023</button>
+                <button class="scope-btn" data-scope="alltime" onclick="setH2HScope('alltime')">All-Time</button>
+            </div>
+        </div>
+
         <div class="selection-bar" role="search" aria-label="Player selection">
             <div class="selection-row">
                 <div class="player-slot" id="slotBatter">
@@ -514,6 +529,7 @@
     const state = {
         batterId: null,
         bowlerId: null,
+        currentScope: 'since2023',
         highlightedIdx: { batter: -1, bowler: -1 }
     };
 
@@ -541,6 +557,16 @@
         if (balls < 30) return 'MEDIUM';
         return 'HIGH';
     }
+
+    // ==================== SCOPE TOGGLE ====================
+    window.setH2HScope = function(scope) {
+        if (state.currentScope === scope) return;
+        state.currentScope = scope;
+        document.querySelectorAll('#scopeToggle .scope-btn').forEach(function(btn) {
+            btn.classList.toggle('active', btn.getAttribute('data-scope') === scope);
+        });
+        renderH2H();
+    };
 
     // ==================== TEAM FILTER ====================
     function populateTeamFilters() {
@@ -727,7 +753,21 @@
     }
 
     function buildCareerSummary(matchup) {
-        const c = matchup.career;
+        const isAlltime = state.currentScope === 'alltime';
+        const scopeData = isAlltime ? matchup.career : matchup.since2023;
+
+        if (!scopeData || Object.keys(scopeData).length === 0) {
+            let html = '<div class="section">';
+            html += '<div class="section-title">' + (isAlltime ? 'All-Time' : 'Since 2023') + ' Summary</div>';
+            html += '<div style="text-align: center; padding: var(--space-6) var(--space-4); color: var(--text-tertiary);">';
+            html += '<div style="font-size: 32px; margin-bottom: var(--space-2);">&#128202;</div>';
+            html += '<div style="font-size: var(--text-md); font-weight: 600; color: var(--text-secondary);">No data for this period</div>';
+            html += '<div style="font-size: var(--text-sm); margin-top: var(--space-1);">Try switching to ' + (isAlltime ? 'Since 2023' : 'All-Time') + ' scope.</div>';
+            html += '</div></div>';
+            return html;
+        }
+
+        const c = scopeData;
         const dom = matchup.dominance || {};
         const balls = c.balls || 0;
 
@@ -736,7 +776,7 @@
         else if (dom.verdict === 'Bowler-favored') verdictClass = 'bowler-favored';
 
         let html = '<div class="section">';
-        html += '<div class="section-title">Career Summary</div>';
+        html += '<div class="section-title">' + (isAlltime ? 'All-Time' : 'Since 2023') + ' Summary</div>';
 
         // Player names header
         html += '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-3);">';
@@ -834,7 +874,7 @@
 
         const phaseOrder = ['powerplay', 'middle', 'death'];
         const phaseLabels = { powerplay: 'Powerplay (0-5)', middle: 'Middle (6-14)', death: 'Death (15-19)' };
-        const career = matchup.career;
+        const career = (state.currentScope === 'alltime') ? matchup.career : (matchup.since2023 || matchup.career);
 
         let html = '<div class="section">';
         html += '<div class="section-title">Phase Breakdown</div>';
@@ -965,6 +1005,8 @@
     }
 
     function buildRecentForm(matchup) {
+        // Hide when since2023 is the active scope (already shown in summary)
+        if (state.currentScope === 'since2023') return '';
         const recent = matchup.since2023;
         if (!recent || Object.keys(recent).length === 0) return '';
 

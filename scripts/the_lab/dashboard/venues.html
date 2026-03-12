@@ -639,6 +639,45 @@
         /* Touch Target Minimum Sizes */
         .mobile-menu-btn { min-width: 44px; min-height: 44px; }
 
+        /* ==================== SCOPE TOGGLE ==================== */
+        .scope-toggle-wrap {
+            display: flex;
+            justify-content: center;
+            margin: 0 auto 20px;
+            max-width: 600px;
+            padding: 0 24px;
+        }
+        .scope-toggle {
+            display: flex;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: var(--space-1);
+            gap: var(--space-1);
+        }
+        .scope-btn {
+            padding: var(--space-2) 20px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            border: none;
+            background: transparent;
+            font-family: var(--font-body);
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+        }
+        .scope-btn:hover {
+            color: var(--text-primary);
+            background: var(--bg-tertiary);
+        }
+        .scope-btn.active {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-teal) 100%);
+            color: #fff;
+        }
+
         /* ==================== HIDDEN UTILITY ==================== */
         .hidden { display: none !important; }
     </style>
@@ -696,6 +735,14 @@
             <h1 class="hero-title">Venue Analysis</h1>
             <p class="hero-subtitle">Ground-specific insights across every IPL venue. Phase breakdowns, chase dynamics, and team records decoded for each pitch character.</p>
         </section>
+
+        <!-- Scope Toggle -->
+        <div class="scope-toggle-wrap">
+            <div class="scope-toggle" id="scopeToggle">
+                <button class="scope-btn active" data-scope="since2023" onclick="setScope('since2023')">Since 2023</button>
+                <button class="scope-btn" data-scope="alltime" onclick="setScope('alltime')">All-Time</button>
+            </div>
+        </div>
 
         <!-- View Tabs -->
         <div class="view-tabs">
@@ -762,6 +809,7 @@
     let currentView = 'grid';
     let currentSort = 'avgScore';
     let selectedVenueKey = null;
+    let currentScope = (VENUE_DATA.metadata && VENUE_DATA.metadata.defaultScope) || 'since2023';
 
     const TEAM_CODES = ['MI', 'CSK', 'RCB', 'KKR', 'DC', 'PBKS', 'RR', 'SRH', 'GT', 'LSG'];
 
@@ -772,8 +820,37 @@
         GT: 'Ahmedabad', LSG: 'Lucknow'
     };
 
+    /** Return the active scope data object ({ venueProfiles, teamVenueRecords }). */
+    function getScopeData() {
+        return VENUE_DATA[currentScope] || VENUE_DATA.since2023 || VENUE_DATA;
+    }
+
+    // ==================== SCOPE SWITCHING ====================
+    function setScope(scope) {
+        if (currentScope === scope) return;
+        if (!VENUE_DATA[scope]) return;
+        currentScope = scope;
+        updateScopeToggle();
+        // Re-render the current view
+        if (currentView === 'grid') {
+            renderVenueGrid();
+        } else if (currentView === 'detail' && selectedVenueKey) {
+            showVenueDetail(selectedVenueKey);
+        } else if (currentView === 'compare') {
+            populateComparisonSelectors();
+            updateComparison();
+        }
+    }
+
+    function updateScopeToggle() {
+        document.querySelectorAll('.scope-btn').forEach(function(btn) {
+            btn.classList.toggle('active', btn.getAttribute('data-scope') === currentScope);
+        });
+    }
+
     // ==================== INITIALIZATION ====================
     document.addEventListener('DOMContentLoaded', function() {
+        updateScopeToggle();
         renderVenueGrid();
         populateComparisonSelectors();
         updateTime();
@@ -802,9 +879,10 @@
 
     // ==================== VENUE GRID ====================
     function getVenueEntries() {
+        var scopeData = getScopeData();
         var entries = [];
         TEAM_CODES.forEach(function(code) {
-            var v = VENUE_DATA.venueProfiles[code];
+            var v = scopeData.venueProfiles[code];
             if (v) entries.push({ key: code, data: v });
         });
         return entries;
@@ -871,7 +949,8 @@
     // ==================== VENUE DETAIL ====================
     function showVenueDetail(key) {
         selectedVenueKey = key;
-        var v = VENUE_DATA.venueProfiles[key];
+        var scopeData = getScopeData();
+        var v = scopeData.venueProfiles[key];
         if (!v) return;
 
         // Switch to detail view
@@ -1002,9 +1081,10 @@
     }
 
     function findTeamRecordsForVenue(venueName, venueKey) {
+        var scopeData = getScopeData();
         var records = [];
         TEAM_CODES.forEach(function(teamCode) {
-            var teamData = VENUE_DATA.teamVenueRecords[teamCode];
+            var teamData = scopeData.teamVenueRecords[teamCode];
             if (!teamData) return;
             teamData.forEach(function(rec) {
                 // Match by venue name or city
@@ -1057,9 +1137,14 @@
     function populateComparisonSelectors() {
         var selA = document.getElementById('venue-a-select');
         var selB = document.getElementById('venue-b-select');
+        var scopeData = getScopeData();
+
+        // Clear existing options (keep placeholder)
+        selA.innerHTML = '<option value="">Select Venue A</option>';
+        selB.innerHTML = '<option value="">Select Venue B</option>';
 
         TEAM_CODES.forEach(function(code) {
-            var v = VENUE_DATA.venueProfiles[code];
+            var v = scopeData.venueProfiles[code];
             if (!v) return;
             var optA = document.createElement('option');
             optA.value = code;
@@ -1088,8 +1173,9 @@
             return;
         }
 
-        var a = VENUE_DATA.venueProfiles[keyA];
-        var b = VENUE_DATA.venueProfiles[keyB];
+        var scopeData = getScopeData();
+        var a = scopeData.venueProfiles[keyA];
+        var b = scopeData.venueProfiles[keyB];
 
         // Overview cards
         var chaseIconA = a.chaseFriendly ? '<span class="chase-indicator friendly">&#10003;</span>' : '<span class="chase-indicator not-friendly">&#10007;</span>';

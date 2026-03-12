@@ -7,7 +7,7 @@ Sprint: SPRINT-005
 Queries DuckDB analytics views and produces a JavaScript data file
 (comparison_data.js) for The Lab dashboard's player comparison feature.
 
-For every qualified player (batters: 500+ balls since 2023, bowlers: 300+ balls),
+For every qualified player (batters: 60+ balls, bowlers: 60+ balls),
 this generator extracts:
     1. Career summary (matches, innings, runs/wickets, avg, SR/economy)
     2. Phase breakdown (Powerplay / Middle / Death stats)
@@ -15,6 +15,8 @@ this generator extracts:
     4. vs handedness (bowlers): economy, SR vs LHB and RHB
     5. Recent form (last 10 innings weighted stats)
     6. Rankings position from composite views
+
+Dual-scope output: alltime + since2023 data for each player pool.
 
 Data Source: DuckDB views created by analytics_ipl.py.
 Output: scripts/the_lab/dashboard/data/comparison_data.js
@@ -45,7 +47,7 @@ OUTPUT_JS = PROJECT_DIR / "scripts" / "the_lab" / "dashboard" / "data" / "compar
 # CONSTANTS
 # =============================================================================
 
-# Qualification thresholds (since 2023)
+# Qualification thresholds
 BATTER_MIN_BALLS = 60
 BOWLER_MIN_BALLS = 60
 
@@ -70,6 +72,20 @@ BOWLING_TYPES = [
 
 # Handedness categories
 HANDEDNESS = ["Left-hand", "Right-hand"]
+
+# Scope definitions
+SCOPES = {
+    "since2023": {
+        "label": "IPL 2023-2025",
+        "suffix": "_since2023",
+    },
+    "alltime": {
+        "label": "IPL All-Time",
+        "suffix": "_alltime",
+    },
+}
+
+DEFAULT_SCOPE = "since2023"
 
 
 # =============================================================================
@@ -107,20 +123,21 @@ def _safe_int(val: Any) -> Optional[int]:
 
 
 # =============================================================================
-# BATTER DATA EXTRACTION
+# BATTER DATA EXTRACTION (parameterized by view suffix)
 # =============================================================================
 
 
-def get_qualified_batters(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
-    """Get list of qualified batters (500+ balls since 2023) with career summary."""
+def get_qualified_batters(conn: duckdb.DuckDBPyConnection, suffix: str) -> List[Dict]:
+    """Get list of qualified batters with career summary."""
+    view_name = f"analytics_ipl_batting_career{suffix}"
     rows = conn.execute(
-        """
+        f"""
         SELECT
             player_id, player_name, innings, runs, balls_faced,
             dismissals, highest_score, fifties, hundreds,
             fours, sixes, dot_balls,
             strike_rate, batting_average, boundary_pct, dot_ball_pct
-        FROM analytics_ipl_batting_career_since2023
+        FROM {view_name}
         WHERE balls_faced >= ?
         ORDER BY balls_faced DESC
         """,
@@ -150,17 +167,20 @@ def get_qualified_batters(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
     ]
 
 
-def get_batter_phases(conn: duckdb.DuckDBPyConnection, player_ids: List[str]) -> Dict[str, Dict]:
+def get_batter_phases(
+    conn: duckdb.DuckDBPyConnection, player_ids: List[str], suffix: str
+) -> Dict[str, Dict]:
     """Get phase breakdown for all qualified batters."""
     if not player_ids:
         return {}
 
+    view_name = f"analytics_ipl_batter_phase{suffix}"
     rows = conn.execute(
-        """
+        f"""
         SELECT
             player_id, match_phase, innings, runs, balls_faced,
             strike_rate, batting_average, boundary_pct, dot_ball_pct
-        FROM analytics_ipl_batter_phase_since2023
+        FROM {view_name}
         WHERE player_id IN (SELECT UNNEST(?::VARCHAR[]))
         ORDER BY player_id, match_phase
         """,
@@ -186,18 +206,19 @@ def get_batter_phases(conn: duckdb.DuckDBPyConnection, player_ids: List[str]) ->
 
 
 def get_batter_vs_bowling_type(
-    conn: duckdb.DuckDBPyConnection, player_ids: List[str]
+    conn: duckdb.DuckDBPyConnection, player_ids: List[str], suffix: str
 ) -> Dict[str, Dict]:
     """Get batter performance vs each bowling type."""
     if not player_ids:
         return {}
 
+    view_name = f"analytics_ipl_batter_vs_bowler_type{suffix}"
     rows = conn.execute(
-        """
+        f"""
         SELECT
             batter_id, bowler_type, balls, runs, dismissals,
             strike_rate, average, boundary_pct, dot_ball_pct
-        FROM analytics_ipl_batter_vs_bowler_type_since2023
+        FROM {view_name}
         WHERE batter_id IN (SELECT UNNEST(?::VARCHAR[]))
           AND bowler_type != 'Unknown'
         ORDER BY batter_id, bowler_type
@@ -226,7 +247,8 @@ def get_batter_vs_bowling_type(
 def get_batter_recent_form(
     conn: duckdb.DuckDBPyConnection, player_ids: List[str]
 ) -> Dict[str, Dict]:
-    """Get recent form data for batters (all T20 formats, not just IPL)."""
+    """Get recent form data for batters (all T20 formats, not just IPL).
+    Recent form is scope-independent (always from analytics_t20_batter_recent_form)."""
     if not player_ids:
         return {}
 
@@ -262,7 +284,8 @@ def get_batter_recent_form(
 
 
 def get_batter_rankings(conn: duckdb.DuckDBPyConnection, player_ids: List[str]) -> Dict[str, Dict]:
-    """Get composite ranking position for batters."""
+    """Get composite ranking position for batters.
+    Rankings are scope-independent (use the default non-scoped view)."""
     if not player_ids:
         return {}
 
@@ -289,14 +312,15 @@ def get_batter_rankings(conn: duckdb.DuckDBPyConnection, player_ids: List[str]) 
 
 
 # =============================================================================
-# BOWLER DATA EXTRACTION
+# BOWLER DATA EXTRACTION (parameterized by view suffix)
 # =============================================================================
 
 
-def get_qualified_bowlers(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
-    """Get list of qualified bowlers (300+ balls since 2023) with career summary."""
+def get_qualified_bowlers(conn: duckdb.DuckDBPyConnection, suffix: str) -> List[Dict]:
+    """Get list of qualified bowlers with career summary."""
+    view_name = f"analytics_ipl_bowling_career{suffix}"
     rows = conn.execute(
-        """
+        f"""
         SELECT
             player_id, player_name, matches_bowled, balls_bowled,
             overs_bowled, runs_conceded, wickets,
@@ -304,7 +328,7 @@ def get_qualified_bowlers(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
             dot_balls, fours_conceded, sixes_conceded,
             economy_rate, bowling_average, bowling_strike_rate,
             dot_ball_pct, boundary_conceded_pct
-        FROM analytics_ipl_bowling_career_since2023
+        FROM {view_name}
         WHERE balls_bowled >= ?
         ORDER BY balls_bowled DESC
         """,
@@ -335,19 +359,22 @@ def get_qualified_bowlers(conn: duckdb.DuckDBPyConnection) -> List[Dict]:
     ]
 
 
-def get_bowler_phases(conn: duckdb.DuckDBPyConnection, player_ids: List[str]) -> Dict[str, Dict]:
+def get_bowler_phases(
+    conn: duckdb.DuckDBPyConnection, player_ids: List[str], suffix: str
+) -> Dict[str, Dict]:
     """Get phase breakdown for all qualified bowlers."""
     if not player_ids:
         return {}
 
+    view_name = f"analytics_ipl_bowler_phase{suffix}"
     rows = conn.execute(
-        """
+        f"""
         SELECT
             player_id, match_phase, matches, balls_bowled, overs,
             runs_conceded, wickets, dot_balls,
             economy_rate, bowling_average, dot_ball_pct,
             boundary_conceded_pct
-        FROM analytics_ipl_bowler_phase_since2023
+        FROM {view_name}
         WHERE player_id IN (SELECT UNNEST(?::VARCHAR[]))
         ORDER BY player_id, match_phase
         """,
@@ -376,18 +403,19 @@ def get_bowler_phases(conn: duckdb.DuckDBPyConnection, player_ids: List[str]) ->
 
 
 def get_bowler_vs_handedness(
-    conn: duckdb.DuckDBPyConnection, player_ids: List[str]
+    conn: duckdb.DuckDBPyConnection, player_ids: List[str], suffix: str
 ) -> Dict[str, Dict]:
     """Get bowler performance vs LHB and RHB."""
     if not player_ids:
         return {}
 
+    view_name = f"analytics_ipl_bowler_vs_batter_handedness{suffix}"
     rows = conn.execute(
-        """
+        f"""
         SELECT
             bowler_id, batting_hand, balls, runs, wickets,
             economy, strike_rate, dot_pct, boundary_pct
-        FROM analytics_ipl_bowler_vs_batter_handedness_since2023
+        FROM {view_name}
         WHERE bowler_id IN (SELECT UNNEST(?::VARCHAR[]))
         ORDER BY bowler_id, batting_hand
         """,
@@ -415,7 +443,8 @@ def get_bowler_vs_handedness(
 def get_bowler_recent_form(
     conn: duckdb.DuckDBPyConnection, player_ids: List[str]
 ) -> Dict[str, Dict]:
-    """Get recent form data for bowlers (all T20 formats, not just IPL)."""
+    """Get recent form data for bowlers (all T20 formats, not just IPL).
+    Recent form is scope-independent."""
     if not player_ids:
         return {}
 
@@ -450,7 +479,8 @@ def get_bowler_recent_form(
 
 
 def get_bowler_rankings(conn: duckdb.DuckDBPyConnection, player_ids: List[str]) -> Dict[str, Dict]:
-    """Get composite ranking position for bowlers."""
+    """Get composite ranking position for bowlers.
+    Rankings are scope-independent."""
     if not player_ids:
         return {}
 
@@ -477,14 +507,110 @@ def get_bowler_rankings(conn: duckdb.DuckDBPyConnection, player_ids: List[str]) 
 
 
 # =============================================================================
+# SCOPE DATA GENERATION
+# =============================================================================
+
+
+def generate_scope_data(
+    conn: duckdb.DuckDBPyConnection, scope_key: str, suffix: str, label: str
+) -> Dict[str, Any]:
+    """Generate comparison data for a single scope (alltime or since2023)."""
+    print(f"\n{'=' * 60}")
+    print(f"  SCOPE: {label} (suffix: {suffix})")
+    print(f"{'=' * 60}")
+
+    # -----------------------------------------------------------------
+    # BATTERS
+    # -----------------------------------------------------------------
+    print("\n  [1/4] Fetching qualified batters (career summary)...")
+    batters_list = get_qualified_batters(conn, suffix)
+    batter_ids = [b["id"] for b in batters_list]
+    print(f"    {len(batters_list)} batters qualified ({BATTER_MIN_BALLS}+ balls)")
+
+    print("  [2/4] Fetching batter phases, vs bowling type, form, rankings...")
+    bat_phases = get_batter_phases(conn, batter_ids, suffix)
+    bat_vs_type = get_batter_vs_bowling_type(conn, batter_ids, suffix)
+    bat_form = get_batter_recent_form(conn, batter_ids)
+    bat_ranks = get_batter_rankings(conn, batter_ids)
+
+    # Assemble batter objects keyed by player_id
+    batters: Dict[str, Dict] = {}
+    for b in batters_list:
+        pid = b["id"]
+        batters[pid] = {
+            "career": {k: v for k, v in b.items() if k != "id"},
+            "phases": bat_phases.get(pid, {}),
+            "vsBowlingType": bat_vs_type.get(pid, {}),
+            "recentForm": bat_form.get(pid, {}),
+            "ranking": bat_ranks.get(pid, {}),
+        }
+
+    phase_count = sum(1 for pid in batter_ids if pid in bat_phases)
+    type_count = sum(1 for pid in batter_ids if pid in bat_vs_type)
+    form_count = sum(1 for pid in batter_ids if pid in bat_form)
+    rank_count = sum(1 for pid in batter_ids if pid in bat_ranks)
+    print(
+        f"    Phases: {phase_count}, VsType: {type_count}, "
+        f"Form: {form_count}, Rankings: {rank_count}"
+    )
+
+    # -----------------------------------------------------------------
+    # BOWLERS
+    # -----------------------------------------------------------------
+    print("\n  [3/4] Fetching qualified bowlers (career summary)...")
+    bowlers_list = get_qualified_bowlers(conn, suffix)
+    bowler_ids = [b["id"] for b in bowlers_list]
+    print(f"    {len(bowlers_list)} bowlers qualified ({BOWLER_MIN_BALLS}+ balls)")
+
+    print("  [4/4] Fetching bowler phases, vs handedness, form, rankings...")
+    bowl_phases = get_bowler_phases(conn, bowler_ids, suffix)
+    bowl_vs_hand = get_bowler_vs_handedness(conn, bowler_ids, suffix)
+    bowl_form = get_bowler_recent_form(conn, bowler_ids)
+    bowl_ranks = get_bowler_rankings(conn, bowler_ids)
+
+    # Assemble bowler objects keyed by player_id
+    bowlers: Dict[str, Dict] = {}
+    for b in bowlers_list:
+        pid = b["id"]
+        bowlers[pid] = {
+            "career": {k: v for k, v in b.items() if k != "id"},
+            "phases": bowl_phases.get(pid, {}),
+            "vsHandedness": bowl_vs_hand.get(pid, {}),
+            "recentForm": bowl_form.get(pid, {}),
+            "ranking": bowl_ranks.get(pid, {}),
+        }
+
+    phase_count = sum(1 for pid in bowler_ids if pid in bowl_phases)
+    hand_count = sum(1 for pid in bowler_ids if pid in bowl_vs_hand)
+    form_count = sum(1 for pid in bowler_ids if pid in bowl_form)
+    rank_count = sum(1 for pid in bowler_ids if pid in bowl_ranks)
+    print(
+        f"    Phases: {phase_count}, VsHand: {hand_count}, "
+        f"Form: {form_count}, Rankings: {rank_count}"
+    )
+
+    # Build name-to-id lookup for dashboard search
+    batter_index = {b["career"]["name"]: pid for pid, b in batters.items()}
+    bowler_index = {b["career"]["name"]: pid for pid, b in bowlers.items()}
+
+    return {
+        "batters": batters,
+        "bowlers": bowlers,
+        "batterIndex": batter_index,
+        "bowlerIndex": bowler_index,
+    }
+
+
+# =============================================================================
 # MAIN GENERATOR
 # =============================================================================
 
 
 def generate_comparison_data() -> Dict[str, Any]:
-    """Query all views and build the full comparison data structure."""
+    """Query all views and build the full dual-scope comparison data structure."""
     print("=" * 60)
     print("  COMPARISON DATA GENERATOR (TKT-216 / EPIC-020)")
+    print("  Dual-Scope: alltime + since2023")
     print("=" * 60)
 
     if not DB_PATH.exists():
@@ -494,93 +620,33 @@ def generate_comparison_data() -> Dict[str, Any]:
     conn = duckdb.connect(str(DB_PATH), read_only=True)
 
     try:
-        # -----------------------------------------------------------------
-        # BATTERS
-        # -----------------------------------------------------------------
-        print("\n[1/6] Fetching qualified batters (career summary)...")
-        batters_list = get_qualified_batters(conn)
-        batter_ids = [b["id"] for b in batters_list]
-        print(f"  {len(batters_list)} batters qualified ({BATTER_MIN_BALLS}+ balls)")
+        # Generate data for each scope
+        scope_data: Dict[str, Any] = {}
+        total_batters = 0
+        total_bowlers = 0
 
-        print("[2/6] Fetching batter phases, vs bowling type, form, rankings...")
-        bat_phases = get_batter_phases(conn, batter_ids)
-        bat_vs_type = get_batter_vs_bowling_type(conn, batter_ids)
-        bat_form = get_batter_recent_form(conn, batter_ids)
-        bat_ranks = get_batter_rankings(conn, batter_ids)
-
-        # Assemble batter objects keyed by player_id
-        batters: Dict[str, Dict] = {}
-        for b in batters_list:
-            pid = b["id"]
-            batters[pid] = {
-                "career": {k: v for k, v in b.items() if k != "id"},
-                "phases": bat_phases.get(pid, {}),
-                "vsBowlingType": bat_vs_type.get(pid, {}),
-                "recentForm": bat_form.get(pid, {}),
-                "ranking": bat_ranks.get(pid, {}),
-            }
-
-        phase_count = sum(1 for pid in batter_ids if pid in bat_phases)
-        type_count = sum(1 for pid in batter_ids if pid in bat_vs_type)
-        form_count = sum(1 for pid in batter_ids if pid in bat_form)
-        rank_count = sum(1 for pid in batter_ids if pid in bat_ranks)
-        print(
-            f"  Phases: {phase_count}, VsType: {type_count}, "
-            f"Form: {form_count}, Rankings: {rank_count}"
-        )
-
-        # -----------------------------------------------------------------
-        # BOWLERS
-        # -----------------------------------------------------------------
-        print("\n[3/6] Fetching qualified bowlers (career summary)...")
-        bowlers_list = get_qualified_bowlers(conn)
-        bowler_ids = [b["id"] for b in bowlers_list]
-        print(f"  {len(bowlers_list)} bowlers qualified ({BOWLER_MIN_BALLS}+ balls)")
-
-        print("[4/6] Fetching bowler phases, vs handedness, form, rankings...")
-        bowl_phases = get_bowler_phases(conn, bowler_ids)
-        bowl_vs_hand = get_bowler_vs_handedness(conn, bowler_ids)
-        bowl_form = get_bowler_recent_form(conn, bowler_ids)
-        bowl_ranks = get_bowler_rankings(conn, bowler_ids)
-
-        # Assemble bowler objects keyed by player_id
-        bowlers: Dict[str, Dict] = {}
-        for b in bowlers_list:
-            pid = b["id"]
-            bowlers[pid] = {
-                "career": {k: v for k, v in b.items() if k != "id"},
-                "phases": bowl_phases.get(pid, {}),
-                "vsHandedness": bowl_vs_hand.get(pid, {}),
-                "recentForm": bowl_form.get(pid, {}),
-                "ranking": bowl_ranks.get(pid, {}),
-            }
-
-        phase_count = sum(1 for pid in bowler_ids if pid in bowl_phases)
-        hand_count = sum(1 for pid in bowler_ids if pid in bowl_vs_hand)
-        form_count = sum(1 for pid in bowler_ids if pid in bowl_form)
-        rank_count = sum(1 for pid in bowler_ids if pid in bowl_ranks)
-        print(
-            f"  Phases: {phase_count}, VsHand: {hand_count}, "
-            f"Form: {form_count}, Rankings: {rank_count}"
-        )
+        for scope_key, scope_cfg in SCOPES.items():
+            scope_data[scope_key] = generate_scope_data(
+                conn, scope_key, scope_cfg["suffix"], scope_cfg["label"]
+            )
+            total_batters += len(scope_data[scope_key]["batters"])
+            total_bowlers += len(scope_data[scope_key]["bowlers"])
 
         # -----------------------------------------------------------------
         # METADATA
         # -----------------------------------------------------------------
-        print("\n[5/6] Building metadata...")
+        print("\n" + "=" * 60)
+        print("  Building metadata...")
         now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-
-        # Build name-to-id lookup for dashboard search
-        batter_index = {b["career"]["name"]: pid for pid, b in batters.items()}
-        bowler_index = {b["career"]["name"]: pid for pid, b in bowlers.items()}
 
         metadata = {
             "generated": now,
-            "dataWindow": "IPL Since 2023",
+            "scopes": {k: v["label"] for k, v in SCOPES.items()},
+            "defaultScope": DEFAULT_SCOPE,
             "batterQualification": f"{BATTER_MIN_BALLS}+ balls faced",
             "bowlerQualification": f"{BOWLER_MIN_BALLS}+ balls bowled",
-            "totalBatters": len(batters),
-            "totalBowlers": len(bowlers),
+            "totalBatters": {k: len(scope_data[k]["batters"]) for k in SCOPES},
+            "totalBowlers": {k: len(scope_data[k]["bowlers"]) for k in SCOPES},
             "phases": PHASE_ORDER,
             "bowlingTypes": BOWLING_TYPES,
             "handedness": HANDEDNESS,
@@ -589,16 +655,13 @@ def generate_comparison_data() -> Dict[str, Any]:
         }
 
         # -----------------------------------------------------------------
-        # FINAL ASSEMBLY
+        # FINAL ASSEMBLY (dual-scope structure)
         # -----------------------------------------------------------------
-        print("[6/6] Assembling comparison data structure...")
-        comparison_data = {
-            "batters": batters,
-            "bowlers": bowlers,
-            "batterIndex": batter_index,
-            "bowlerIndex": bowler_index,
-            "metadata": metadata,
-        }
+        print("  Assembling dual-scope comparison data structure...")
+        comparison_data = {}
+        for scope_key in SCOPES:
+            comparison_data[scope_key] = scope_data[scope_key]
+        comparison_data["metadata"] = metadata
 
         return comparison_data
 
@@ -612,18 +675,22 @@ def write_js_output(data: Dict[str, Any]) -> None:
 
     json_str = json.dumps(data, indent=2, ensure_ascii=False, default=str)
 
+    default_scope = data["metadata"]["defaultScope"]
+    total_bat_since = data["metadata"]["totalBatters"].get("since2023", 0)
+    total_bowl_since = data["metadata"]["totalBowlers"].get("since2023", 0)
+    total_bat_all = data["metadata"]["totalBatters"].get("alltime", 0)
+    total_bowl_all = data["metadata"]["totalBowlers"].get("alltime", 0)
+
     js_content = (
         "/**\n"
-        " * The Lab - Player Comparison Data\n"
+        " * The Lab - Player Comparison Data (Dual-Scope)\n"
         " * IPL Pre-Season Analytics (TKT-216 / EPIC-020)\n"
         f" * Auto-generated: {data['metadata']['generated']}\n"
         " * Generator: scripts/generators/generate_comparison_data.py\n"
         " *\n"
-        f" * Batters: {data['metadata']['totalBatters']} qualified"
-        f" ({data['metadata']['batterQualification']})\n"
-        f" * Bowlers: {data['metadata']['totalBowlers']} qualified"
-        f" ({data['metadata']['bowlerQualification']})\n"
-        " * Data window: IPL Since 2023\n"
+        f" * Since 2023: {total_bat_since} batters, {total_bowl_since} bowlers\n"
+        f" * All-Time:   {total_bat_all} batters, {total_bowl_all} bowlers\n"
+        f" * Default scope: {default_scope}\n"
         " */\n"
         "\n"
         f"const COMPARISON_DATA = {json_str};\n"
@@ -638,45 +705,49 @@ def write_js_output(data: Dict[str, Any]) -> None:
 def print_summary(data: Dict[str, Any]) -> None:
     """Print a summary of generated comparison data for verification."""
     print("\n" + "=" * 60)
-    print("  COMPARISON DATA SUMMARY")
+    print("  COMPARISON DATA SUMMARY (DUAL-SCOPE)")
     print("=" * 60)
 
-    print(f"\n  Batters: {data['metadata']['totalBatters']} qualified")
-    # Show top 5 batters by runs
-    top_batters = sorted(
-        data["batters"].items(),
-        key=lambda x: x[1]["career"].get("runs") or 0,
-        reverse=True,
-    )[:5]
-    for pid, b in top_batters:
-        career = b["career"]
-        rank_info = b.get("ranking", {})
-        rank_str = f"#{rank_info['rank']}" if rank_info.get("rank") else "N/R"
-        phases_count = len(b.get("phases", {}))
-        types_count = len(b.get("vsBowlingType", {}))
-        print(
-            f"    {career['name']}: {career['runs']} runs, "
-            f"SR {career['sr']}, Rank {rank_str}, "
-            f"{phases_count} phases, {types_count} bowling types"
-        )
+    for scope_key in SCOPES:
+        scope = data[scope_key]
+        label = SCOPES[scope_key]["label"]
+        print(f"\n  --- {label} ---")
 
-    print(f"\n  Bowlers: {data['metadata']['totalBowlers']} qualified")
-    top_bowlers = sorted(
-        data["bowlers"].items(),
-        key=lambda x: x[1]["career"].get("wickets") or 0,
-        reverse=True,
-    )[:5]
-    for pid, b in top_bowlers:
-        career = b["career"]
-        rank_info = b.get("ranking", {})
-        rank_str = f"#{rank_info['rank']}" if rank_info.get("rank") else "N/R"
-        phases_count = len(b.get("phases", {}))
-        hand_count = len(b.get("vsHandedness", {}))
-        print(
-            f"    {career['name']}: {career['wickets']} wkts, "
-            f"Econ {career['economy']}, Rank {rank_str}, "
-            f"{phases_count} phases, {hand_count} hand splits"
-        )
+        print(f"  Batters: {len(scope['batters'])} qualified")
+        top_batters = sorted(
+            scope["batters"].items(),
+            key=lambda x: x[1]["career"].get("runs") or 0,
+            reverse=True,
+        )[:5]
+        for pid, b in top_batters:
+            career = b["career"]
+            rank_info = b.get("ranking", {})
+            rank_str = f"#{rank_info['rank']}" if rank_info.get("rank") else "N/R"
+            phases_count = len(b.get("phases", {}))
+            types_count = len(b.get("vsBowlingType", {}))
+            print(
+                f"    {career['name']}: {career['runs']} runs, "
+                f"SR {career['sr']}, Rank {rank_str}, "
+                f"{phases_count} phases, {types_count} bowling types"
+            )
+
+        print(f"\n  Bowlers: {len(scope['bowlers'])} qualified")
+        top_bowlers = sorted(
+            scope["bowlers"].items(),
+            key=lambda x: x[1]["career"].get("wickets") or 0,
+            reverse=True,
+        )[:5]
+        for pid, b in top_bowlers:
+            career = b["career"]
+            rank_info = b.get("ranking", {})
+            rank_str = f"#{rank_info['rank']}" if rank_info.get("rank") else "N/R"
+            phases_count = len(b.get("phases", {}))
+            hand_count = len(b.get("vsHandedness", {}))
+            print(
+                f"    {career['name']}: {career['wickets']} wkts, "
+                f"Econ {career['economy']}, Rank {rank_str}, "
+                f"{phases_count} phases, {hand_count} hand splits"
+            )
 
     print(f"\n  Generated: {data['metadata']['generated']}")
     print("=" * 60)

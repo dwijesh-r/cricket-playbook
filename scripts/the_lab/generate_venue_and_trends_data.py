@@ -132,18 +132,21 @@ def js_value(v):
 # ---------------------------------------------------------------------------
 
 
-def get_venue_profiles(conn):
+def get_venue_profiles(conn, scope="since2023"):
     """
     Get phase-level venue profiles for each team's home venue.
     Aggregates across venue_ids if there are duplicates for the same venue_name.
     innings=1 → battingFirst, innings=2 → chasing
+
+    scope: 'since2023' or 'alltime' — selects which DB view to query.
     """
     profiles = {}
+    view_name = f"analytics_ipl_venue_profile_{scope}"
 
     for abbrev in TEAM_ORDER:
         venue_name = TEAM_HOME_VENUES[abbrev]
         rows = conn.execute(
-            """
+            f"""
             SELECT
                 innings,
                 match_phase,
@@ -152,7 +155,7 @@ def get_venue_profiles(conn):
                 ROUND(SUM(dot_ball_pct * total_balls) / NULLIF(SUM(total_balls), 0), 2) AS dot_pct,
                 ROUND(SUM(wickets_per_match * matches) / NULLIF(SUM(matches), 0), 2) AS wickets_per_match,
                 SUM(matches) AS total_matches
-            FROM analytics_ipl_venue_profile_since2023
+            FROM {view_name}
             WHERE venue_name = ?
             GROUP BY innings, match_phase
             ORDER BY innings, match_phase
@@ -180,12 +183,21 @@ def get_venue_profiles(conn):
     return profiles
 
 
-def classify_venue_character(profiles, conn):
+def classify_venue_character(profiles, conn, scope="since2023"):
     """
     Classify each venue as 'pace', 'spin', or 'balanced' based on
-    run_rate and boundary% patterns. Also compute avgFirstInningsScore
-    and chaseFriendly.
+    actual spin vs pace wicket split from the database. Also compute
+    avgFirstInningsScore and chaseFriendly.
+
+    scope: 'since2023' or 'alltime' — selects season filter and match_context view.
     """
+    match_context_view = f"analytics_ipl_match_context_{scope}"
+    # Season filter for the wicket-split query on raw fact tables
+    if scope == "alltime":
+        season_filter = ""
+    else:
+        season_filter = "AND dm.season IN ('2023', '2024', '2025')"
+
     for abbrev in TEAM_ORDER:
         venue_name = TEAM_HOME_VENUES[abbrev]
         p = profiles[abbrev]
@@ -204,38 +216,55 @@ def classify_venue_character(profiles, conn):
         # PP = 6 overs, middle = 8 overs, death = 6 overs
         avg_first = safe_round(pp_rr * 6 + mid_rr * 8 + death_rr * 6)
 
-        # Overall boundary% and run_rate across all phases (batting first)
-        total_bdry = 0
-        total_phases = 0
-        total_rr = 0
-        for phase_name in PHASE_ORDER:
-            bf = phases.get(phase_name, {}).get("battingFirst", {})
-            if bf.get("boundaryPct") is not None:
-                total_bdry += bf["boundaryPct"]
-                total_phases += 1
-            if bf.get("runRate") is not None:
-                total_rr += bf["runRate"]
+        # Query actual spin vs pace wicket split from the database
+        wicket_rows = conn.execute(
+            f"""
+            SELECT
+                bc.bowling_style,
+                COUNT(CASE WHEN fb.is_wicket = true THEN 1 END) as wickets
+            FROM fact_ball fb
+            JOIN dim_match dm ON fb.match_id = dm.match_id
+            JOIN dim_venue dv ON dm.venue_id = dv.venue_id
+            LEFT JOIN dim_bowler_classification bc ON fb.bowler_id = bc.player_id
+            WHERE dv.venue_name = ?
+              {season_filter}
+            GROUP BY bc.bowling_style
+            """,
+            [venue_name],
+        ).fetchall()
 
-        avg_bdry = total_bdry / total_phases if total_phases > 0 else 0
-        avg_rr_overall = total_rr / total_phases if total_phases > 0 else 0
+        pace_wickets = 0
+        spin_wickets = 0
+        for style, wkts in wicket_rows:
+            if style is None or (isinstance(style, str) and style.lower() == "unknown"):
+                continue
+            style_lower = style.lower()
+            if any(kw in style_lower for kw in ("pace", "fast", "medium")):
+                pace_wickets += wkts
+            elif any(kw in style_lower for kw in ("spin", "orthodox", "wrist", "leg", "off")):
+                spin_wickets += wkts
 
-        # High boundary% and high run rate → pace-friendly
-        # Low boundary%, lower run rate → spin-friendly
-        # Middle ground → balanced
-        if avg_bdry >= 21 and avg_rr_overall >= 9.5:
-            char_type = "pace"
-        elif avg_bdry < 18 or avg_rr_overall < 8.5:
+        total_classified = pace_wickets + spin_wickets
+        if total_classified > 0:
+            spin_wicket_pct = safe_round(spin_wickets / total_classified * 100, 1)
+        else:
+            spin_wicket_pct = None
+
+        # Classify based on spin wicket percentage
+        if spin_wicket_pct is not None and spin_wicket_pct >= 40:
             char_type = "spin"
+        elif spin_wicket_pct is not None and spin_wicket_pct <= 25:
+            char_type = "pace"
         else:
             char_type = "balanced"
 
         # Chase friendliness from match results at this venue
         chase_rows = conn.execute(
-            """
+            f"""
             SELECT
                 COUNT(*) AS total,
                 SUM(CASE WHEN chase_result = 'Won' THEN 1 ELSE 0 END) AS chases_won
-            FROM analytics_ipl_match_context_since2023
+            FROM {match_context_view}
             WHERE venue_name = ?
               AND chase_result IN ('Won', 'Lost')
         """,
@@ -248,6 +277,7 @@ def classify_venue_character(profiles, conn):
         chase_friendly = chase_pct >= 50
 
         p["character"] = char_type
+        p["spinWicketPct"] = spin_wicket_pct
         p["avgFirstInningsScore"] = avg_first
         p["chaseFriendly"] = chase_friendly
         p["chaseWinPct"] = safe_round(chase_pct, 1)
@@ -320,15 +350,16 @@ def get_team_venue_records_from_csv():
     return records
 
 
-def get_team_venue_records_from_db(conn):
+def get_team_venue_records_from_db(conn, scope="since2023"):
     """Derive team venue records from match context if CSV unavailable."""
-    rows = conn.execute("""
+    view_name = f"analytics_ipl_match_context_{scope}"
+    rows = conn.execute(f"""
         WITH team_matches AS (
             SELECT venue_name, city, team1_name AS team, winner_name
-            FROM analytics_ipl_match_context_since2023
+            FROM {view_name}
             UNION ALL
             SELECT venue_name, city, team2_name AS team, winner_name
-            FROM analytics_ipl_match_context_since2023
+            FROM {view_name}
         )
         SELECT team, venue_name, city,
             COUNT(*) AS matches,
@@ -389,37 +420,27 @@ def get_team_venue_records_from_db(conn):
     return records
 
 
-def generate_venue_js(profiles, venue_records):
-    """Generate venue_data.js content."""
-    timestamp = datetime.now(timezone.utc).isoformat()
-
-    lines = [
-        "/**",
-        " * Statsledge - Venue Analysis Data",
-        " * IPL 2026 Pre-Season Analytics",
-        f" * Auto-generated: {timestamp}",
-        " * Source: analytics_ipl_venue_profile_since2023,",
-        " *         analytics_ipl_match_context_since2023,",
-        " *         outputs/team_venue_records.csv",
-        " */",
-        "",
-        "var VENUE_DATA = {",
-        "    venueProfiles: {",
-    ]
+def _generate_scope_block(profiles, venue_records, indent="    "):
+    """Generate the venueProfiles + teamVenueRecords block for a single scope."""
+    lines = []
+    lines.append(f"{indent}venueProfiles: {{")
 
     for abbrev in TEAM_ORDER:
         p = profiles[abbrev]
-        lines.append(f'        "{abbrev}": {{')
-        lines.append(f"            venueName: {js_value(p['venueName'])},")
-        lines.append(f"            character: {js_value(p['character'])},")
-        lines.append(f"            avgFirstInningsScore: {js_value(p['avgFirstInningsScore'])},")
-        lines.append(f"            chaseFriendly: {js_value(p['chaseFriendly'])},")
-        lines.append(f"            chaseWinPct: {js_value(p['chaseWinPct'])},")
-        lines.append("            phases: {")
+        lines.append(f'{indent}    "{abbrev}": {{')
+        lines.append(f"{indent}        venueName: {js_value(p['venueName'])},")
+        lines.append(f"{indent}        character: {js_value(p['character'])},")
+        lines.append(f"{indent}        spinWicketPct: {js_value(p['spinWicketPct'])},")
+        lines.append(
+            f"{indent}        avgFirstInningsScore: {js_value(p['avgFirstInningsScore'])},"
+        )
+        lines.append(f"{indent}        chaseFriendly: {js_value(p['chaseFriendly'])},")
+        lines.append(f"{indent}        chaseWinPct: {js_value(p['chaseWinPct'])},")
+        lines.append(f"{indent}        phases: {{")
 
         for phase in PHASE_ORDER:
             phase_data = p["phases"].get(phase, {})
-            lines.append(f"                {phase}: {{")
+            lines.append(f"{indent}            {phase}: {{")
             for context in ["battingFirst", "chasing"]:
                 ctx_data = phase_data.get(context, {})
                 rr = js_value(ctx_data.get("runRate"))
@@ -428,26 +449,26 @@ def generate_venue_js(profiles, venue_records):
                 wpm = js_value(ctx_data.get("wicketsPerMatch"))
                 comma = "," if context == "battingFirst" else ""
                 lines.append(
-                    f"                    {context}: {{ runRate: {rr}, boundaryPct: {bdry}, "
+                    f"{indent}                {context}: {{ runRate: {rr}, boundaryPct: {bdry}, "
                     f"dotPct: {dot}, wicketsPerMatch: {wpm} }}{comma}"
                 )
             comma = "," if phase != "death" else ""
-            lines.append(f"                }}{comma}")
+            lines.append(f"{indent}            }}{comma}")
 
-        lines.append("            }")
+        lines.append(f"{indent}        }}")
         comma = "," if abbrev != TEAM_ORDER[-1] else ""
-        lines.append(f"        }}{comma}")
+        lines.append(f"{indent}    }}{comma}")
 
-    lines.append("    },")
-    lines.append("    teamVenueRecords: {")
+    lines.append(f"{indent}}},")
+    lines.append(f"{indent}teamVenueRecords: {{")
 
     for abbrev in TEAM_ORDER:
         team_recs = venue_records.get(abbrev, [])
-        lines.append(f'        "{abbrev}": [')
+        lines.append(f'{indent}    "{abbrev}": [')
         for i, rec in enumerate(team_recs):
             comma = "," if i < len(team_recs) - 1 else ""
             lines.append(
-                f"            {{ venue: {js_value(rec['venue'])}, "
+                f"{indent}        {{ venue: {js_value(rec['venue'])}, "
                 f"city: {js_value(rec['city'])}, "
                 f"matches: {rec['matches']}, "
                 f"wins: {rec['wins']}, "
@@ -456,8 +477,45 @@ def generate_venue_js(profiles, venue_records):
                 f"record: {js_value(rec['record'])} }}{comma}"
             )
         comma = "," if abbrev != TEAM_ORDER[-1] else ""
-        lines.append(f"        ]{comma}")
+        lines.append(f"{indent}    ]{comma}")
 
+    lines.append(f"{indent}}}")
+    return lines
+
+
+def generate_venue_js(scope_data):
+    """Generate dual-scope venue_data.js content.
+
+    scope_data: dict of {scope_name: (profiles, venue_records)} for each scope.
+    """
+    timestamp = datetime.now(timezone.utc).isoformat()
+
+    lines = [
+        "/**",
+        " * Statsledge - Venue Analysis Data (Dual-Scope)",
+        " * IPL 2026 Pre-Season Analytics",
+        f" * Auto-generated: {timestamp}",
+        " * Source: analytics_ipl_venue_profile_alltime / _since2023,",
+        " *         analytics_ipl_match_context_alltime / _since2023,",
+        " *         outputs/team_venue_records.csv",
+        " */",
+        "",
+        "var VENUE_DATA = {",
+    ]
+
+    # Emit each scope block
+    scope_names = ["since2023", "alltime"]
+    for scope_name in scope_names:
+        profiles, venue_records = scope_data[scope_name]
+        lines.append(f"    {scope_name}: {{")
+        scope_lines = _generate_scope_block(profiles, venue_records, indent="        ")
+        lines.extend(scope_lines)
+        lines.append("    },")
+
+    # Metadata
+    lines.append("    metadata: {")
+    lines.append('        scopes: { alltime: "IPL All-Time", since2023: "IPL 2023-2025" },')
+    lines.append('        defaultScope: "since2023"')
     lines.append("    }")
     lines.append("};")
     lines.append("")
@@ -688,31 +746,43 @@ def main():
     conn = duckdb.connect(str(DB_PATH), read_only=True)
 
     try:
-        # --- VENUE DATA ---
-        print("\n[1/5] Querying venue profiles...")
-        profiles = get_venue_profiles(conn)
-        print(f"       {len(profiles)} team home venue profiles loaded")
+        # --- VENUE DATA (DUAL-SCOPE) ---
+        scope_data = {}
+        for scope in ["since2023", "alltime"]:
+            scope_label = "Since 2023" if scope == "since2023" else "All-Time"
+            print(f"\n--- Venue scope: {scope_label} ---")
 
-        print("[2/5] Classifying venue characters...")
-        profiles = classify_venue_character(profiles, conn)
-        for abbrev in TEAM_ORDER:
-            p = profiles[abbrev]
-            print(
-                f"       {abbrev}: {p['character']} | "
-                f"avg1stInnings={p['avgFirstInningsScore']} | "
-                f"chaseFriendly={p['chaseFriendly']}"
-            )
+            print(f"  [1] Querying venue profiles ({scope})...")
+            profiles = get_venue_profiles(conn, scope=scope)
+            print(f"      {len(profiles)} team home venue profiles loaded")
 
-        print("[3/5] Loading team venue records...")
-        venue_records = get_team_venue_records_from_csv()
-        if venue_records is None:
-            print("       CSV not found, deriving from database...")
-            venue_records = get_team_venue_records_from_db(conn)
-        total_recs = sum(len(v) for v in venue_records.values())
-        print(f"       {total_recs} venue records across {len(venue_records)} teams")
+            print(f"  [2] Classifying venue characters ({scope})...")
+            profiles = classify_venue_character(profiles, conn, scope=scope)
+            for abbrev in TEAM_ORDER:
+                p = profiles[abbrev]
+                print(
+                    f"      {abbrev}: {p['character']} | "
+                    f"spinWicketPct={p['spinWicketPct']} | "
+                    f"avg1stInnings={p['avgFirstInningsScore']} | "
+                    f"chaseFriendly={p['chaseFriendly']}"
+                )
 
-        print("       Generating venue_data.js...")
-        venue_js = generate_venue_js(profiles, venue_records)
+            print(f"  [3] Loading team venue records ({scope})...")
+            if scope == "since2023":
+                venue_records = get_team_venue_records_from_csv()
+                if venue_records is None:
+                    print("      CSV not found, deriving from database...")
+                    venue_records = get_team_venue_records_from_db(conn, scope=scope)
+            else:
+                # alltime always from DB (CSV only has since2023 data)
+                venue_records = get_team_venue_records_from_db(conn, scope=scope)
+            total_recs = sum(len(v) for v in venue_records.values())
+            print(f"      {total_recs} venue records across {len(venue_records)} teams")
+
+            scope_data[scope] = (profiles, venue_records)
+
+        print("\n  Generating dual-scope venue_data.js...")
+        venue_js = generate_venue_js(scope_data)
         VENUE_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
         with open(VENUE_OUTPUT, "w") as f:
             f.write(venue_js)

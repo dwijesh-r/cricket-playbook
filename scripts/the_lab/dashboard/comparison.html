@@ -360,6 +360,48 @@
             letter-spacing: 0.01em;
         }
 
+        /* ==================== SCOPE TOGGLE ==================== */
+        .scope-toggle-wrap {
+            display: flex;
+            justify-content: center;
+            margin: 0 auto 20px;
+            max-width: 1100px;
+            padding: 0 24px;
+        }
+
+        .scope-toggle {
+            display: flex;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-1);
+            gap: var(--space-1);
+        }
+
+        .scope-btn {
+            padding: var(--space-2) 20px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            border: none;
+            background: none;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+
+        .scope-btn:hover {
+            color: var(--text-primary);
+            background: var(--bg-tertiary);
+        }
+
+        .scope-btn.active {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            color: #fff;
+        }
+
         /* ==================== SELECTION BAR ==================== */
         .selection-bar {
             max-width: 1100px; margin: 0 auto var(--space-5);
@@ -1195,6 +1237,14 @@
             <p class="hero-subtitle">Side-by-side player profiles: radar charts, phase heatmaps, and matchup splits across batting and bowling.</p>
         </section>
 
+        <!-- Scope Toggle -->
+        <div class="scope-toggle-wrap">
+            <div class="scope-toggle" id="scopeToggle">
+                <button class="scope-btn" data-scope="since2023" onclick="setScope('since2023')">Since 2023</button>
+                <button class="scope-btn" data-scope="alltime" onclick="setScope('alltime')">All-Time</button>
+            </div>
+        </div>
+
         <!-- Selection Bar -->
         <div class="selection-bar" role="search" aria-label="Player selection">
             <div class="type-toggle" role="tablist" aria-label="Player type">
@@ -1289,6 +1339,7 @@
     };
 
     const state = {
+        activeScope: (typeof COMPARISON_DATA !== 'undefined' && COMPARISON_DATA.metadata && COMPARISON_DATA.metadata.defaultScope) ? COMPARISON_DATA.metadata.defaultScope : 'since2023',
         playerType: 'all',
         playerA: null,  // { id, data }
         playerB: null,
@@ -1301,6 +1352,11 @@
         highlightedIdx: { A: -1, B: -1, C: -1, D: -1 },
         percentiles: { batter: null, bowler: null }
     };
+
+    /** Get the active scope data object from COMPARISON_DATA. */
+    function getScopeData() {
+        return COMPARISON_DATA[state.activeScope] || COMPARISON_DATA.since2023 || COMPARISON_DATA;
+    }
 
     function getSelectedPlayers() {
         // Returns array of { side, id, data } for all selected players
@@ -1328,7 +1384,8 @@
     }
 
     function computeTypePercentiles(type) {
-        const pool = type === 'batter' ? COMPARISON_DATA.batters : COMPARISON_DATA.bowlers;
+        const sd = getScopeData();
+        const pool = type === 'batter' ? sd.batters : sd.bowlers;
         const ids = Object.keys(pool);
         const result = {};
 
@@ -1834,7 +1891,8 @@
             ];
         }
 
-        const pool = type === 'batter' ? COMPARISON_DATA.batters : COMPARISON_DATA.bowlers;
+        const sd = getScopeData();
+        const pool = type === 'batter' ? sd.batters : sd.bowlers;
         const allVals = {};
         metrics.forEach(m => {
             allVals[m.key] = {};
@@ -2154,7 +2212,8 @@
 
         // Legend for Form section metrics
         const legendType = type || 'batter'; // fallback for mixed
-        const poolSize = legendType === 'batter' ? Object.keys(COMPARISON_DATA.batters).length : Object.keys(COMPARISON_DATA.bowlers).length;
+        const sdLegend = getScopeData();
+        const poolSize = legendType === 'batter' ? Object.keys(sdLegend.batters).length : Object.keys(sdLegend.bowlers).length;
         const typeLabel = legendType === 'batter' ? 'batters' : 'bowlers';
         const deltaLabel = legendType === 'batter' ? 'SR Delta' : 'Econ Delta';
         const deltaExplain = legendType === 'batter'
@@ -2318,9 +2377,10 @@
         html += '</div>';
         html += '</div>';
 
-        // 2. Stats (IPL 2023+)
+        // 2. Stats
+        const scopeLabel = (COMPARISON_DATA.metadata && COMPARISON_DATA.metadata.scopes) ? (COMPARISON_DATA.metadata.scopes[state.activeScope] || state.activeScope) : state.activeScope;
         html += '<div class="section">';
-        html += '<div class="section-title">Stats (IPL 2023+)</div>';
+        html += '<div class="section-title">Stats (' + escapeHtml(scopeLabel) + ')</div>';
         html += buildStatsTable(dataA, dataB);
         html += '</div>';
 
@@ -2353,21 +2413,23 @@
 
     // ==================== PLAYER SELECTION ====================
     function getPlayerPool() {
+        const sd = getScopeData();
         if (state.playerType === 'batter') {
-            return { index: COMPARISON_DATA.batterIndex, pool: COMPARISON_DATA.batters };
+            return { index: sd.batterIndex, pool: sd.batters };
         }
         if (state.playerType === 'bowler') {
-            return { index: COMPARISON_DATA.bowlerIndex, pool: COMPARISON_DATA.bowlers };
+            return { index: sd.bowlerIndex, pool: sd.bowlers };
         }
         // 'all' — merge both pools and indices
-        const mergedPool = Object.assign({}, COMPARISON_DATA.batters, COMPARISON_DATA.bowlers);
-        const mergedIndex = Object.assign({}, COMPARISON_DATA.batterIndex, COMPARISON_DATA.bowlerIndex);
+        const mergedPool = Object.assign({}, sd.batters, sd.bowlers);
+        const mergedIndex = Object.assign({}, sd.batterIndex, sd.bowlerIndex);
         return { index: mergedIndex, pool: mergedPool };
     }
 
     function detectPlayerType(playerId) {
-        if (COMPARISON_DATA.batters && COMPARISON_DATA.batters[playerId]) return 'batter';
-        if (COMPARISON_DATA.bowlers && COMPARISON_DATA.bowlers[playerId]) return 'bowler';
+        const sd = getScopeData();
+        if (sd.batters && sd.batters[playerId]) return 'batter';
+        if (sd.bowlers && sd.bowlers[playerId]) return 'bowler';
         return 'batter'; // fallback
     }
 
@@ -2385,6 +2447,56 @@
         if (players.length < 2) return false;
         const firstType = detectPlayerType(players[0].id);
         return players.some(p => detectPlayerType(p.id) !== firstType);
+    }
+
+    function setScope(scope) {
+        if (state.activeScope === scope) return;
+        if (!COMPARISON_DATA[scope]) return;
+        state.activeScope = scope;
+        updateScopeToggle();
+
+        // Clear selections - player IDs may not exist in the new scope
+        state.playerA = null;
+        state.playerB = null;
+        state.playerC = null;
+        state.playerD = null;
+        // Reset team color CSS variables
+        ['a', 'b', 'c', 'd'].forEach(s => {
+            document.documentElement.style.removeProperty('--player-' + s);
+            document.documentElement.style.removeProperty('--player-' + s + '-fill');
+        });
+        // Remove extra slots C/D
+        ['C', 'D'].forEach(s => {
+            const slot = document.getElementById('slot' + s);
+            if (slot) slot.remove();
+            const vsBadge = document.querySelector('.vs-badge-dynamic[data-before-side="' + s + '"]');
+            if (vsBadge) vsBadge.remove();
+        });
+        state.activeSides = ['A', 'B'];
+        updateAddPlayerBtn();
+        state.activePhase = 'powerplay';
+        state.activeHeatmapMetric = 'all';
+        state.activeMatchupType = 'overall';
+
+        // Reset per-slot team filters
+        state.activeSides.forEach(s => {
+            const tf = document.getElementById('teamFilter' + s);
+            if (tf) tf.value = '';
+        });
+
+        resetSlot('A');
+        resetSlot('B');
+
+        // Recompute percentiles for the new scope
+        computePercentiles();
+
+        renderComparison();
+    }
+
+    function updateScopeToggle() {
+        document.querySelectorAll('.scope-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-scope') === state.activeScope);
+        });
     }
 
     function setPlayerType(type) {
@@ -2445,7 +2557,8 @@
 
     function selectPlayer(side, name, id) {
         const { pool } = getPlayerPool();
-        const data = pool[id] || (COMPARISON_DATA.batters[id]) || (COMPARISON_DATA.bowlers[id]);
+        const sd = getScopeData();
+        const data = pool[id] || (sd.batters[id]) || (sd.bowlers[id]);
         if (!data) return;
 
         state['player' + side] = { id, data };
@@ -2750,6 +2863,9 @@
 
         // Pre-compute percentiles
         computePercentiles();
+
+        // Initialize scope toggle
+        updateScopeToggle();
 
         // Restore theme
         const savedTheme = localStorage.getItem('theme');

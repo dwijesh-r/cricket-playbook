@@ -1,7 +1,7 @@
 /**
- * The Lab - Historic Season Trends
+ * Statsledge - Historic Season Trends
  * IPL 2026 Pre-Season Analytics
- * Auto-generated: 2026-02-13T20:03:10.485435+00:00
+ * Auto-generated: 2026-03-12T14:32:58.437998+00:00
  * Source: analytics_ipl_match_context_since2023,
  *         analytics_ipl_team_phase_batting_since2023,
  *         analytics_ipl_team_phase_bowling_since2023

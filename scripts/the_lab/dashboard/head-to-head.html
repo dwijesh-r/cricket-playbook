@@ -428,6 +428,7 @@
         <nav class="sidebar-nav">
             <a href="index.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Home</a>
             <a href="teams.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Teams</a>
+            <a href="venues.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Venues</a>
             <a href="rankings.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Rankings</a>
             <a href="comparison.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Compare</a>
             <a href="head-to-head.html" class="sidebar-link active"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
@@ -448,7 +449,8 @@
     <div class="mobile-nav-menu" id="mobile-nav-menu">
         <a href="index.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Home</a>
         <a href="teams.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Teams</a>
-        <a href="rankings.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Rankings</a>
+        <a href="venues.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Venues</a>
+            <a href="rankings.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Rankings</a>
         <a href="comparison.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Compare</a>
         <a href="head-to-head.html" class="sidebar-link active"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
         <a href="schedule.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Schedule</a>
@@ -557,7 +559,37 @@
 
     window.handleTeamFilter = function(role) {
         const input = document.getElementById('search' + capitalize(role));
-        if (input && input.value.trim().length > 0) handleSearchInput(role);
+        const dropdown = document.getElementById('dropdown' + capitalize(role));
+        const teamFilter = document.getElementById('teamFilter' + capitalize(role)).value;
+
+        // If there's text, re-filter with new team
+        if (input && input.value.trim().length > 0) {
+            handleSearchInput(role);
+            return;
+        }
+
+        // If a team is selected with empty search, show all players from that team
+        if (teamFilter) {
+            const players = getFilteredPlayers(role);
+            const sorted = players.sort((a, b) => a.name.localeCompare(b.name)).slice(0, 15);
+            if (sorted.length === 0) {
+                dropdown.innerHTML = '<div class="dropdown-item" style="color: var(--text-tertiary); cursor: default;">No players found</div>';
+            } else {
+                dropdown.innerHTML = sorted.map((p, i) =>
+                    '<div class="dropdown-item" data-id="' + escapeHtml(p.id) + '" data-name="' + escapeHtml(p.name) + '" data-role="' + role + '">' +
+                    '<span>' + escapeHtml(p.name) + '</span>' +
+                    '<span class="team-tag">' + escapeHtml(p.team || '') + '<span style="font-size: 10px; padding: 1px 4px; border-radius: 3px; background: var(--glass); color: var(--text-tertiary); margin-left: 4px;">' + (p.type === 'bowler' ? 'BOWL' : p.type === 'batter' ? 'BAT' : 'AR') + '</span></span></div>'
+                ).join('');
+                dropdown.querySelectorAll('.dropdown-item[data-id]').forEach(item => {
+                    item.addEventListener('click', function() {
+                        selectPlayer(role, this.dataset.id, this.dataset.name);
+                    });
+                });
+            }
+            dropdown.classList.add('open');
+        } else {
+            dropdown.classList.remove('open');
+        }
     };
 
     function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }

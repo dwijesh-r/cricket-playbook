@@ -4470,6 +4470,7 @@
         <nav class="sidebar-nav">
             <a href="index.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Home</a>
             <a href="teams.html" class="sidebar-link active"><span class="sidebar-link-icon">&#9679;</span> Teams</a>
+            <a href="venues.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Venues</a>
             <a href="rankings.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Rankings</a>
             <a href="comparison.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Compare</a>
             <a href="head-to-head.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
@@ -4491,7 +4492,8 @@
     <div class="mobile-nav-menu" id="mobile-nav-menu">
         <a href="index.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Home</a>
         <a href="teams.html" class="sidebar-link active"><span class="sidebar-link-icon">&#9679;</span> Teams</a>
-        <a href="rankings.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Rankings</a>
+        <a href="venues.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Venues</a>
+            <a href="rankings.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Rankings</a>
         <a href="comparison.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Compare</a>
         <a href="head-to-head.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Head to Head</a>
         <a href="schedule.html" class="sidebar-link"><span class="sidebar-link-icon">&#9679;</span> Schedule</a>
@@ -4783,11 +4785,12 @@
             const avail = PLAYER_AVAILABILITY[playerName];
             if (!avail) return '';
             const styles = {
-                injured:     'background:rgba(239,68,68,0.15);color:#ef4444;',
-                unavailable: 'background:rgba(249,115,22,0.15);color:#f97316;',
-                doubtful:    'background:rgba(234,179,8,0.15);color:#eab308;'
+                injured:               'background:rgba(239,68,68,0.15);color:#ef4444;',
+                unavailable:           'background:rgba(249,115,22,0.15);color:#f97316;',
+                partially_available:   'background:rgba(249,115,22,0.15);color:#f97316;',
+                doubtful:              'background:rgba(234,179,8,0.15);color:#eab308;'
             };
-            const labels = { injured: 'INJ', unavailable: 'N/A', doubtful: '?' };
+            const labels = { injured: 'INJ', unavailable: 'N/A', partially_available: 'PA', doubtful: '?' };
             const st = avail.status;
             if (!styles[st]) return '';
             return `<span title="${(avail.note || '').replace(/"/g, '&quot;')}" style="font-size:9px;padding:1px 5px;border-radius:9999px;font-weight:700;margin-left:6px;${styles[st]}">${labels[st]}</span>`;
@@ -4841,7 +4844,7 @@
             // Injury Watch notice
             if (typeof PLAYER_AVAILABILITY !== 'undefined') {
                 const teamInjured = Object.entries(PLAYER_AVAILABILITY).filter(([name, info]) =>
-                    info.team === currentTeam && (info.status === 'injured' || info.status === 'unavailable')
+                    info.team === currentTeam && (info.status === 'injured' || info.status === 'unavailable' || info.status === 'partially_available')
                 );
                 if (teamInjured.length > 0) {
                     const injuryWatch = document.createElement('div');
@@ -4849,9 +4852,13 @@
                     injuryWatch.style.cssText = `border-left:3px solid ${borderColor};background:var(--bg-tertiary);padding:8px 12px;margin:0;font-size:12px;color:var(--text-secondary);`;
                     injuryWatch.innerHTML = `<div style="font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;color:${borderColor};">⚠ Injury Watch</div>` +
                         teamInjured.map(([name, info]) => {
-                            const badge = info.status === 'injured'
-                                ? '<span style="font-size:9px;padding:1px 5px;border-radius:9999px;font-weight:700;background:rgba(239,68,68,0.15);color:#ef4444;">INJ</span>'
-                                : '<span style="font-size:9px;padding:1px 5px;border-radius:9999px;font-weight:700;background:rgba(249,115,22,0.15);color:#f97316;">N/A</span>';
+                            const badgeLabels = { injured: 'INJ', unavailable: 'N/A', partially_available: 'PA' };
+                            const badgeColors = { injured: '#ef4444', unavailable: '#f97316', partially_available: '#f97316' };
+                            const badgeBgs = { injured: 'rgba(239,68,68,0.15)', unavailable: 'rgba(249,115,22,0.15)', partially_available: 'rgba(249,115,22,0.15)' };
+                            const label = badgeLabels[info.status] || '?';
+                            const color = badgeColors[info.status] || '#eab308';
+                            const bg = badgeBgs[info.status] || 'rgba(234,179,8,0.15)';
+                            const badge = `<span style="font-size:9px;padding:1px 5px;border-radius:9999px;font-weight:700;background:${bg};color:${color};">${label}</span>`;
                             return `<div style="display:flex;align-items:center;gap:6px;margin-top:2px;">${badge} <span>${name}</span><span style="opacity:0.6;font-size:11px;">— ${info.note}</span></div>`;
                         }).join('');
                     xiGrid.appendChild(injuryWatch);

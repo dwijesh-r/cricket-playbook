@@ -529,11 +529,7 @@ def _build_batter_vs_teams(matchups: List[Dict]) -> Dict[str, List[Dict]]:
     Best: top 3 by strike_rate descending (min 2 innings).
     Worst: bottom 3 by strike_rate ascending (min 2 innings).
     """
-    qualified = [
-        m
-        for m in matchups
-        if m.get("innings") is not None and m["innings"] >= 2 and m.get("sr") is not None
-    ]
+    qualified = [m for m in matchups if m.get("sr") is not None]
     if not qualified:
         return {"best": [], "worst": []}
 
@@ -558,11 +554,7 @@ def _build_bowler_vs_teams(matchups: List[Dict]) -> Dict[str, List[Dict]]:
     Best: top 3 by economy ascending (min 18 balls / 3 overs).
     Worst: bottom 3 by economy descending (min 18 balls / 3 overs).
     """
-    qualified = [
-        m
-        for m in matchups
-        if m.get("balls") is not None and m["balls"] >= 18 and m.get("economy") is not None
-    ]
+    qualified = [m for m in matchups if m.get("economy") is not None]
     if not qualified:
         return {"best": [], "worst": []}
 

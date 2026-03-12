@@ -5,13 +5,12 @@
 # Owner: Brad Stevens (Architecture & Performance)
 # Based on: Kevin de Bruyne's visualization work
 # Fixed: Ime Udoka - added permissions, lightweight deps, resilient verify
-# Fixed: Ime Udoka - switched to GitHub Actions Pages deployment to prevent
-#        cascading "pages build and deployment" cancellation emails
+# Switched to Netlify deployment via CLI
 #
 # This workflow:
 # 1. Runs after output generation completes
 # 2. Updates Statsledge dashboard data files
-# 3. Deploys directly to GitHub Pages (no auto-build needed)
+# 3. Deploys to Netlify
 
 name: Deploy Dashboard
 
@@ -22,7 +21,7 @@ on:
     types: [completed]
     branches: [main]
 
-  # Also run on direct pushes to main (replaces built-in Pages auto-deploy)
+  # Also run on direct pushes to main
   push:
     branches: [main]
 
@@ -35,15 +34,12 @@ on:
         default: "false"
         type: boolean
 
-# Required for Pages deployment + git push
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
-# Only one deploy at a time — cancels older runs, prevents cascading builds
+# Only one deploy at a time
 concurrency:
-  group: pages
+  group: deploy
   cancel-in-progress: true
 
 jobs:
@@ -53,8 +49,6 @@ jobs:
   update-the-lab:
     name: "Update Statsledge Dashboard"
     runs-on: ubuntu-latest
-    # For workflow_run: only if the triggering workflow succeeded
-    # For push/dispatch: always run
     if: >-
       github.event_name == 'push' ||
       github.event_name == 'workflow_dispatch' ||
@@ -68,10 +62,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
-      # update_the_lab.py only uses stdlib (json, datetime, pathlib).
-      # No pip install needed — avoids slow/fragile installs of heavy
-      # packages like great_expectations and scikit-learn.
 
       - name: Update Statsledge data files
         run: |
@@ -97,7 +87,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Add all dashboard data files
           git add scripts/the_lab/dashboard/data/
 
           git commit -m "chore(dashboard): Auto-update Statsledge data files [skip ci]
@@ -119,44 +108,27 @@ jobs:
           git push
 
   # ==========================================================================
-  # Deploy to GitHub Pages (replaces built-in "pages build and deployment")
+  # Deploy to Netlify
   # ==========================================================================
   deploy:
-    name: "Deploy to GitHub Pages"
+    name: "Deploy to Netlify"
     runs-on: ubuntu-latest
     needs: update-the-lab
     if: ${{ !cancelled() && (needs.update-the-lab.result == 'success' || needs.update-the-lab.result == 'skipped') }}
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with:
-          # Get latest commit (including any data updates from previous job)
           ref: main
 
       - name: Build site
         run: |
           mkdir -p _site
-          # Copy Lab dashboard to root (www.statsledge.com/ serves the dashboard)
           cp -r scripts/the_lab/dashboard/* _site/
-          # Copy CNAME for custom domain
-          cp CNAME _site/
-          # Copy Mission Control dashboard (accessible at /boardroom/)
           mkdir -p _site/boardroom
           cp -r scripts/mission_control/dashboard/* _site/boardroom/
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '_site'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Deploy to Netlify
+        run: npx netlify-cli deploy --prod --dir=_site --site=${{ secrets.NETLIFY_SITE_ID }} --auth=${{ secrets.NETLIFY_AUTH_TOKEN }}
 
       - name: Summary
         run: |
@@ -164,9 +136,7 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Statsledge Dashboard" >> $GITHUB_STEP_SUMMARY
           echo "- **URL:** https://www.statsledge.com" >> $GITHUB_STEP_SUMMARY
-          echo "- **Status:** Deployed via GitHub Actions" >> $GITHUB_STEP_SUMMARY
+          echo "- **Status:** Deployed via Netlify" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Mission Control Dashboard" >> $GITHUB_STEP_SUMMARY
           echo "- **URL:** https://www.statsledge.com/boardroom/" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "*Deployed by Brad Stevens' automation pipeline (Ime Udoka fix: Actions-based Pages)*" >> $GITHUB_STEP_SUMMARY

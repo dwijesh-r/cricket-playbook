@@ -2151,6 +2151,81 @@
         }
 
         /* Responsive */
+
+        /* --- Mobile < 640px: Compare table stacked layout --- */
+        @media (max-width: 640px) {
+            /* E. Compare table: stacked card layout instead of 30/40/30 columns */
+            .compare-table { display: block; }
+            .compare-table thead { display: none; }
+            .compare-table tbody { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-2); }
+            .compare-table tbody tr {
+                display: flex;
+                flex-direction: column;
+                background: var(--bg-tertiary);
+                border-radius: var(--radius-md);
+                border-bottom: none !important;
+                padding: var(--space-3);
+                gap: var(--space-1);
+            }
+            .compare-table tbody tr:hover td {
+                background: transparent;
+            }
+            /* Stat label in the middle becomes header on top */
+            .compare-table tbody td.compare-metric-label {
+                order: -1;
+                text-align: center;
+                font-size: 14px !important;
+                font-weight: 700 !important;
+                color: var(--text-secondary);
+                padding-bottom: var(--space-2);
+                border-bottom: 1px solid var(--border);
+                margin-bottom: var(--space-1);
+            }
+            .compare-table tbody td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 14px;
+                padding: var(--space-1) var(--space-2);
+                border-bottom: none;
+                width: 100%;
+                text-align: left;
+            }
+            /* Add team labels before values */
+            .compare-table tbody td:first-child::before,
+            .compare-table tbody td:last-child::before {
+                font-size: 11px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: var(--text-tertiary);
+                font-family: var(--font-body);
+            }
+
+            /* E. Compare header: stack team names full width */
+            .compare-header-row {
+                flex-direction: column;
+            }
+            .compare-header-team {
+                width: 100%;
+                padding: var(--space-3);
+            }
+            .compare-header-vs {
+                text-align: center;
+                padding: var(--space-2) 0;
+                width: 100%;
+                font-size: 16px;
+            }
+            .compare-team-name {
+                font-size: 14px;
+            }
+
+            /* F. Match Pack in schedule: stack columns */
+            [id^="sched-card-"] > div[style*="display:flex"][style*="flex-wrap:wrap"] {
+                flex-direction: column !important;
+            }
+        }
+
         @media (max-width: 768px) {
             .sidebar { display: none; }
             .mobile-topbar { display: flex; }
@@ -2174,8 +2249,50 @@
             .filter-group { width: 100%; justify-content: space-between; }
             .filter-select { flex: 1; min-width: 0; }
             .compare-container { grid-template-columns: 1fr; }
-            .content-tabs { overflow-x: auto; white-space: nowrap; padding-bottom: var(--space-2); }
-            .content-tab { flex-shrink: 0; }
+
+            /* F. Tab navigation: 44px tappable targets */
+            .content-tabs {
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: var(--space-2);
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            .content-tabs::-webkit-scrollbar { display: none; }
+            .content-tab {
+                flex-shrink: 0;
+                min-height: 44px;
+                min-width: 44px;
+                padding: var(--space-2) var(--space-3);
+                font-size: 13px;
+            }
+
+            /* E. Compare font sizes 14px minimum */
+            .compare-table tbody td {
+                font-size: 14px;
+            }
+            .compare-metric-label {
+                font-size: 13px !important;
+            }
+
+            /* F. Player profile modal: scrollable, no overflow */
+            .player-profile-modal {
+                -webkit-overflow-scrolling: touch;
+                overscroll-behavior: contain;
+            }
+
+            /* F. Match pack schedule header: stack on small screens */
+            [id^="sched-card-"] div[style*="display:flex"][style*="align-items:center"][style*="gap:var(--space-3)"] {
+                flex-wrap: wrap;
+            }
+
+            /* General touch targets */
+            button, a, [role="tab"], [role="button"], select,
+            input[type="checkbox"], input[type="radio"],
+            .clickable, .btn, .chip, .tag, .filter-btn {
+                min-height: 44px;
+                min-width: 44px;
+            }
         }
 
         /* 480px overrides */
@@ -2186,6 +2303,21 @@
             .compare-team select { width: 100%; margin-left: 0; }
             .content-panel { padding: 0 12px 40px; }
             .team-selector { padding: var(--space-2); }
+
+            /* E. Compare table: larger text on very small screens */
+            .compare-table tbody td {
+                font-size: 14px;
+            }
+            .compare-header-team {
+                padding: var(--space-2) var(--space-3);
+            }
+            .compare-header-team select {
+                width: 100%;
+                margin-left: 0;
+                margin-top: var(--space-2);
+                min-height: 44px;
+                font-size: 14px;
+            }
         }
 
         /* 1024px iPad landscape breakpoint */
@@ -2559,6 +2691,10 @@
                 border-radius: 0;
                 padding: var(--space-3);
                 font-size: 16px;
+                /* F. Ensure scrollable and no overflow */
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                overscroll-behavior: contain;
             }
             .player-profile-close {
                 width: 44px;
@@ -2566,15 +2702,24 @@
                 font-size: 20px;
                 top: 12px;
                 right: 12px;
+                /* Ensure close button stays visible */
+                position: sticky;
+                z-index: 10;
             }
             .pp-name { font-size: 20px; }
             .pp-stat-grid { grid-template-columns: repeat(2, 1fr); }
             .pp-phase-grid { grid-template-columns: 1fr; }
             .pp-stat-card { padding: var(--space-3); min-height: 44px; }
-            .pp-matchup-table td, .pp-matchup-table th { padding: var(--space-3) 8px; }
+            .pp-matchup-table td, .pp-matchup-table th { padding: var(--space-3) 8px; font-size: 14px; }
             .pp-tag { padding: var(--space-2) 12px; font-size: 12px; min-height: 44px; display: inline-flex; align-items: center; }
             .pp-meta-badge { padding: var(--space-2) 12px; min-height: 44px; display: inline-flex; align-items: center; }
             .pp-section-title { font-size: 14px; padding: var(--space-2) 10px; }
+            /* F. Batting/bowling tab toggles tappable */
+            .pp-tab {
+                min-height: 44px;
+                padding: var(--space-2) var(--space-3);
+                font-size: 14px;
+            }
         }
         .nav-guide-overlay {
             position: fixed;

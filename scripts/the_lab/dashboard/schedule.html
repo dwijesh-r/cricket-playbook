@@ -674,6 +674,169 @@
         }
         .footer-text { font-size: 12px; color: var(--text-tertiary); }
 
+        /* ==================== MATCH PACK CSS ==================== */
+        .match-pack {
+            padding: 16px 18px;
+            background: var(--bg-tertiary);
+            border-left: 3px solid var(--text-tertiary);
+        }
+        .match-pack.bias-pace { border-left-color: #22c55e; }
+        .match-pack.bias-spin { border-left-color: #f97316; }
+
+        .match-pack-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+        .match-pack-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+        }
+        .match-pack-number {
+            font-size: 10px;
+            color: var(--text-tertiary);
+        }
+        .match-pack-divider {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+        .match-pack-badge {
+            font-size: 9px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        .match-pack-badge.weekend {
+            background: rgba(234,179,8,0.1);
+            color: var(--accent-yellow);
+        }
+        .match-pack-badge.double-header {
+            background: rgba(168,85,247,0.1);
+            color: var(--accent-purple);
+        }
+
+        .mp-section-header {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 8px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mp-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            font-size: 12px;
+            margin-bottom: 14px;
+        }
+        .mp-row:last-child { margin-bottom: 0; }
+
+        .mp-section-venue { flex: 0 0 200px; min-width: 160px; }
+        .mp-section-players { flex: 1; min-width: 200px; }
+        .mp-section-matchups { flex: 1; min-width: 220px; }
+        .mp-section-profile { flex: 1; min-width: 200px; }
+        .mp-section-form { flex: 1; min-width: 200px; }
+        .mp-section-verdict { flex: 2; min-width: 260px; }
+
+        .mp-venue-name {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 13px;
+        }
+        .mp-venue-bias {
+            font-size: 11px;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+        .mp-venue-desc {
+            color: var(--text-secondary);
+            font-size: 11px;
+            margin-top: 4px;
+            line-height: 1.5;
+        }
+        .mp-venue-home {
+            color: var(--text-tertiary);
+            font-size: 10px;
+            margin-top: 4px;
+        }
+
+        .mp-player-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .mp-player-line {
+            line-height: 1.5;
+            font-size: 12px;
+        }
+        .mp-player-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .mp-player-stat {
+            color: var(--text-tertiary);
+            font-size: 10px;
+            margin-left: 4px;
+        }
+
+        .mp-matchup-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .mp-strength {
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .mp-projected {
+            color: var(--text-tertiary);
+            font-size: 10px;
+            margin-top: 4px;
+        }
+
+        .mp-trend-line {
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .mp-verdict-box {
+            color: var(--text-primary);
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 1.5;
+            padding: 8px 12px;
+            background: rgba(59,130,246,0.06);
+            border-radius: 4px;
+            border: 1px solid rgba(59,130,246,0.12);
+        }
+
+        /* Expand arrow on table rows */
+        .mp-expand-arrow {
+            color: var(--text-tertiary);
+            font-size: 12px;
+            transition: transform var(--transition-fast);
+            display: inline-block;
+            margin-left: 4px;
+        }
+        tr.mp-expanded .mp-expand-arrow {
+            transform: rotate(90deg);
+        }
+
+        /* ==================== SCHEDULE TABLE MOBILE COLUMNS ==================== */
+        .col-match-num, .col-venue, .col-city { /* default: visible */ }
+
         /* ==================== RESPONSIVE ==================== */
         @media (max-width: 768px) {
             .sidebar { display: none; }
@@ -692,18 +855,85 @@
             .filter-select { min-width: 100%; }
             .match-count { margin-left: 0; text-align: center; }
             .schedule-table-container { border-radius: var(--radius-md); }
-            .schedule-table { font-size: var(--text-xs); min-width: 640px; }
             .notice-banner { padding: var(--space-2) var(--space-3); font-size: var(--text-xs); }
             .venue-legend { gap: var(--space-3); }
+
+            /* Match Pack tablet adjustments */
+            .mp-section-venue { flex: 0 0 180px; }
+            .mp-section-verdict { flex: 1; min-width: 200px; }
+            .match-pack { padding: 14px 16px; }
+        }
+
+        @media (max-width: 640px) {
+            /* Schedule table: hide less critical columns, remove min-width for native layout */
+            .schedule-table { min-width: 0; font-size: var(--text-xs); }
+            .col-match-num { display: none; }
+            .col-venue { display: none; }
+
+            /* Tappable rows */
+            .schedule-table tbody td {
+                padding: 10px var(--space-2);
+                min-height: 44px;
+                vertical-align: middle;
+            }
+            .schedule-table thead th {
+                padding: 10px var(--space-2);
+            }
+
+            /* Match Pack: single-column stacked layout */
+            .match-pack {
+                padding: 12px;
+                font-size: 13px;
+            }
+            .mp-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .mp-section-venue,
+            .mp-section-players,
+            .mp-section-matchups,
+            .mp-section-profile,
+            .mp-section-form,
+            .mp-section-verdict {
+                flex: none;
+                width: 100%;
+                min-width: 0;
+            }
+            .mp-section-header {
+                font-size: 11px;
+                margin-bottom: 6px;
+                padding-bottom: 3px;
+            }
+            .mp-player-line { font-size: 13px; }
+            .mp-venue-name { font-size: 14px; }
+            .mp-venue-desc { font-size: 12px; }
+            .mp-venue-bias { font-size: 12px; }
+            .mp-matchup-list { font-size: 13px; }
+            .mp-strength { font-size: 13px; }
+            .mp-verdict-box { font-size: 13px; padding: 10px 12px; }
+            .mp-trend-line { font-size: 13px; }
+
+            /* Make expand arrow more visible on mobile */
+            .mp-expand-arrow { font-size: 14px; }
         }
 
         @media (max-width: 480px) {
             .main { padding-top: 64px; }
-            .container { padding: 0 var(--space-3); }
-            .page-header { padding: var(--space-7) 12px 24px; }
+            .container { padding: 0 var(--space-2); }
+            .page-header { padding: var(--space-7) 8px 24px; }
             .stats-bar { flex-direction: column; gap: var(--space-2); }
-            .schedule-table { min-width: 580px; }
             .mobile-menu-btn { width: 44px; height: 44px; }
+
+            /* Even more compact schedule table */
+            .schedule-table tbody td { padding: 8px var(--space-1); font-size: 11px; }
+            .schedule-table thead th { padding: 8px var(--space-1); font-size: 10px; }
+            .team-abbrev { padding: 3px 8px; font-size: 10px; min-width: 40px; }
+
+            /* Match Pack phone adjustments */
+            .match-pack { padding: 10px; }
+            .match-pack-header { margin-bottom: 10px; }
+            .mp-row { gap: 8px; margin-bottom: 10px; }
+            .mp-section-header { font-size: 10px; }
         }
     </style>
 </head>
@@ -830,12 +1060,12 @@
                     <table class="schedule-table" role="grid" aria-label="IPL 2026 match schedule">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col" class="col-match-num">#</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Home</th>
                                 <th scope="col" class="col-vs"></th>
                                 <th scope="col">Away</th>
-                                <th scope="col">Venue</th>
+                                <th scope="col" class="col-venue">Venue</th>
                                 <th scope="col">City</th>
                             </tr>
                         </thead>
@@ -1130,6 +1360,7 @@
             var biasLabel = bias === 'pace' ? 'Pace-friendly' : bias === 'spin' ? 'Spin-friendly' : 'Balanced';
             var biasColor = bias === 'pace' ? '#22c55e' : bias === 'spin' ? '#f97316' : '#64748b';
             var biasIcon = bias === 'pace' ? '&#9889;' : bias === 'spin' ? '&#10047;' : '&#9673;';
+            var biasClass = bias === 'pace' ? 'bias-pace' : bias === 'spin' ? 'bias-spin' : '';
             var venueData = SCHEDULE_VENUES[m.venue] || {};
 
             var homeTeam = m.home;
@@ -1154,116 +1385,114 @@
             var verdict = buildQuickVerdict(homeTeam, awayTeam, bias);
 
             var sectionHeader = function(title) {
-                return '<div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);margin-bottom:6px;margin-top:0;">' + title + '</div>';
+                return '<div class="mp-section-header">' + title + '</div>';
             };
 
-            var html = '<div style="padding:14px 16px;background:var(--bg-tertiary);border-left:3px solid ' + biasColor + ';">';
+            var html = '<div class="match-pack ' + biasClass + '">';
 
             // Header
-            html += '<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">' +
-                '<span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);">Match Pack</span>' +
-                '<span style="font-size:10px;color:var(--text-tertiary);">#' + m.match + '</span>' +
-                '<span style="flex:1;height:1px;background:var(--border);"></span>' +
-                (isWeekend ? '<span style="font-size:9px;padding:2px 6px;background:rgba(234,179,8,0.1);color:var(--accent-yellow);border-radius:3px;font-weight:600;">WEEKEND</span>' : '') +
-                (isDoubleHeader ? '<span style="font-size:9px;padding:2px 6px;background:rgba(168,85,247,0.1);color:var(--accent-purple);border-radius:3px;font-weight:600;">DOUBLE HEADER</span>' : '') +
+            html += '<div class="match-pack-header">' +
+                '<span class="match-pack-title">Match Pack</span>' +
+                '<span class="match-pack-number">#' + m.match + '</span>' +
+                '<span class="match-pack-divider"></span>' +
+                (isWeekend ? '<span class="match-pack-badge weekend">WEEKEND</span>' : '') +
+                (isDoubleHeader ? '<span class="match-pack-badge double-header">DOUBLE HEADER</span>' : '') +
             '</div>';
 
-            // Row 1: Venue Intel + Key Players
-            html += '<div style="display:flex;flex-wrap:wrap;gap:12px;font-size:11px;margin-bottom:12px;">';
+            // Row 1: Venue Intel + Key Players (Home) + Key Players (Away)
+            html += '<div class="mp-row">';
 
             // Venue Intel
-            html += '<div style="flex:0 0 180px;min-width:160px;">' +
+            html += '<div class="mp-section-venue">' +
                 sectionHeader(biasIcon + ' Venue Intel') +
-                '<div style="color:var(--text-primary);font-weight:600;font-size:12px;">' + m.venue + '</div>' +
-                '<div style="color:' + biasColor + ';font-size:10px;font-weight:600;margin-top:2px;">' + biasLabel + '</div>' +
-                '<div style="color:var(--text-secondary);font-size:10px;margin-top:3px;line-height:1.4;">' +
+                '<div class="mp-venue-name">' + m.venue + '</div>' +
+                '<div class="mp-venue-bias" style="color:' + biasColor + ';">' + biasLabel + '</div>' +
+                '<div class="mp-venue-desc">' +
                     (bias === 'pace' ? 'Seam movement early. Premium on fast bowling. Expect higher first-innings totals.' :
                      bias === 'spin' ? 'Turn from mid-innings. Spin-heavy attacks favored. Low-scoring middle overs likely.' :
                      'Even contest between bat and ball. All-round squads have the edge.') +
                 '</div>' +
-                '<div style="color:var(--text-tertiary);font-size:10px;margin-top:3px;"><span class="team-abbrev team-' + m.home + '" style="font-size:9px;">' + m.home + '</span> at home</div>' +
+                '<div class="mp-venue-home"><span class="team-abbrev team-' + m.home + '" style="font-size:9px;">' + m.home + '</span> at home</div>' +
             '</div>';
 
             // Home Key Players
-            html += '<div style="flex:1;min-width:180px;">' +
+            html += '<div class="mp-section-players">' +
                 sectionHeader('&#9733; ' + homeTeam + ' Key Players') +
-                '<div style="display:flex;flex-direction:column;gap:3px;">';
-            homePlayers.forEach(function(p) { html += '<div style="line-height:1.4;">' + formatPlayerLine(p) + '</div>'; });
+                '<div class="mp-player-list">';
+            homePlayers.forEach(function(p) { html += '<div class="mp-player-line">' + formatPlayerLine(p) + '</div>'; });
             html += '</div></div>';
 
             // Away Key Players
-            html += '<div style="flex:1;min-width:180px;">' +
+            html += '<div class="mp-section-players">' +
                 sectionHeader('&#9733; ' + awayTeam + ' Key Players') +
-                '<div style="display:flex;flex-direction:column;gap:3px;">';
-            awayPlayers.forEach(function(p) { html += '<div style="line-height:1.4;">' + formatPlayerLine(p) + '</div>'; });
+                '<div class="mp-player-list">';
+            awayPlayers.forEach(function(p) { html += '<div class="mp-player-line">' + formatPlayerLine(p) + '</div>'; });
             html += '</div></div>';
 
             html += '</div>'; // end row 1
 
-            // Row 2: Matchups + Strengths/Liabilities
-            html += '<div style="display:flex;flex-wrap:wrap;gap:12px;font-size:11px;margin-bottom:12px;">';
+            // Row 2: Matchups + Team Profiles
+            html += '<div class="mp-row">';
 
             // Matchups to Watch
-            html += '<div style="flex:1;min-width:200px;">' +
+            html += '<div class="mp-section-matchups">' +
                 sectionHeader('&#9876; Key Matchups') +
-                '<div style="display:flex;flex-direction:column;gap:3px;color:var(--text-secondary);line-height:1.5;">';
+                '<div class="mp-matchup-list">';
             matchups.forEach(function(ins) { html += '<div>' + ins + '</div>'; });
             html += '</div></div>';
 
-            // Home team strengths & liabilities
-            html += '<div style="flex:1;min-width:180px;">' +
+            // Home team profile
+            html += '<div class="mp-section-profile">' +
                 sectionHeader(homeTeam + ' Profile');
             if (homeInfo && homeInfo.strengths.length) {
                 html += '<div style="margin-bottom:4px;">';
                 homeInfo.strengths.forEach(function(s) {
-                    html += '<div style="color:var(--text-secondary);line-height:1.4;"><span style="color:var(--accent-green);font-size:9px;">&#9650;</span> ' + truncateStr(s, 100) + '</div>';
+                    html += '<div class="mp-strength"><span style="color:var(--accent-green);font-size:10px;">&#9650;</span> ' + truncateStr(s, 100) + '</div>';
                 });
                 html += '</div>';
             }
             if (homeInfo && homeInfo.vulnerabilities.length) {
                 homeInfo.vulnerabilities.forEach(function(v) {
-                    html += '<div style="color:var(--text-secondary);line-height:1.4;"><span style="color:var(--accent-red);font-size:9px;">&#9660;</span> ' + truncateStr(v, 100) + '</div>';
+                    html += '<div class="mp-strength"><span style="color:var(--accent-red);font-size:10px;">&#9660;</span> ' + truncateStr(v, 100) + '</div>';
                 });
             }
-            if (homeInfo && homeInfo.projected) html += '<div style="color:var(--text-tertiary);font-size:10px;margin-top:3px;">Projected: ' + homeInfo.projected + '</div>';
+            if (homeInfo && homeInfo.projected) html += '<div class="mp-projected">Projected: ' + homeInfo.projected + '</div>';
             html += '</div>';
 
-            // Away team strengths & liabilities
-            html += '<div style="flex:1;min-width:180px;">' +
+            // Away team profile
+            html += '<div class="mp-section-profile">' +
                 sectionHeader(awayTeam + ' Profile');
             if (awayInfo && awayInfo.strengths.length) {
                 html += '<div style="margin-bottom:4px;">';
                 awayInfo.strengths.forEach(function(s) {
-                    html += '<div style="color:var(--text-secondary);line-height:1.4;"><span style="color:var(--accent-green);font-size:9px;">&#9650;</span> ' + truncateStr(s, 100) + '</div>';
+                    html += '<div class="mp-strength"><span style="color:var(--accent-green);font-size:10px;">&#9650;</span> ' + truncateStr(s, 100) + '</div>';
                 });
                 html += '</div>';
             }
             if (awayInfo && awayInfo.vulnerabilities.length) {
                 awayInfo.vulnerabilities.forEach(function(v) {
-                    html += '<div style="color:var(--text-secondary);line-height:1.4;"><span style="color:var(--accent-red);font-size:9px;">&#9660;</span> ' + truncateStr(v, 100) + '</div>';
+                    html += '<div class="mp-strength"><span style="color:var(--accent-red);font-size:10px;">&#9660;</span> ' + truncateStr(v, 100) + '</div>';
                 });
             }
-            if (awayInfo && awayInfo.projected) html += '<div style="color:var(--text-tertiary);font-size:10px;margin-top:3px;">Projected: ' + awayInfo.projected + '</div>';
+            if (awayInfo && awayInfo.projected) html += '<div class="mp-projected">Projected: ' + awayInfo.projected + '</div>';
             html += '</div>';
 
             html += '</div>'; // end row 2
 
-            // Row 3: Trends + Quick Verdict
-            html += '<div style="display:flex;flex-wrap:wrap;gap:12px;font-size:11px;align-items:flex-start;">';
+            // Row 3: Season Form + Quick Verdict
+            html += '<div class="mp-row">';
 
             // Season trends
-            html += '<div style="flex:1;min-width:200px;">' +
+            html += '<div class="mp-section-form">' +
                 sectionHeader('&#9670; Season Form');
-            if (homeTrend) html += '<div style="color:var(--text-secondary);line-height:1.5;"><span class="team-abbrev team-' + homeTeam + '" style="font-size:9px;">' + homeTeam + '</span> ' + homeTrend + '</div>';
-            if (awayTrend) html += '<div style="color:var(--text-secondary);line-height:1.5;"><span class="team-abbrev team-' + awayTeam + '" style="font-size:9px;">' + awayTeam + '</span> ' + awayTrend + '</div>';
+            if (homeTrend) html += '<div class="mp-trend-line"><span class="team-abbrev team-' + homeTeam + '" style="font-size:9px;">' + homeTeam + '</span> ' + homeTrend + '</div>';
+            if (awayTrend) html += '<div class="mp-trend-line"><span class="team-abbrev team-' + awayTeam + '" style="font-size:9px;">' + awayTeam + '</span> ' + awayTrend + '</div>';
             html += '</div>';
 
             // Quick Verdict
-            html += '<div style="flex:2;min-width:240px;">' +
+            html += '<div class="mp-section-verdict">' +
                 sectionHeader('&#9881; Quick Verdict') +
-                '<div style="color:var(--text-primary);font-size:11px;font-weight:500;line-height:1.5;padding:6px 10px;background:rgba(59,130,246,0.06);border-radius:4px;border:1px solid rgba(59,130,246,0.12);">' +
-                    verdict +
-                '</div>' +
+                '<div class="mp-verdict-box">' + verdict + '</div>' +
             '</div>';
 
             html += '</div>'; // end row 3
@@ -1318,21 +1547,25 @@
 
                 var packId = 'match-pack-' + m.match;
                 tr.style.cursor = 'pointer';
-                tr.onclick = (function(pid) {
+                tr.onclick = (function(pid, triggerRow) {
                     return function() {
                         var el = document.getElementById(pid);
-                        if (el) el.style.display = el.style.display === 'none' ? 'table-row' : 'none';
+                        if (el) {
+                            var isOpen = el.style.display !== 'none';
+                            el.style.display = isOpen ? 'none' : 'table-row';
+                            triggerRow.classList.toggle('mp-expanded', !isOpen);
+                        }
                     };
-                })(packId);
+                })(packId, tr);
 
                 tr.innerHTML =
-                    '<td>' + m.match + '</td>' +
+                    '<td class="col-match-num">' + m.match + '</td>' +
                     '<td class="date-cell' + (isWeekend ? ' day-weekend' : '') + '">' + dateInfo.display + '</td>' +
                     '<td><span class="team-abbrev team-' + m.home + '">' + m.home + '</span></td>' +
                     '<td class="col-vs">vs</td>' +
                     '<td><span class="team-abbrev team-' + m.away + '">' + m.away + '</span></td>' +
-                    '<td><div class="venue-cell-inner"><span class="venue-bias-dot ' + bias + '" title="' + capitalize(bias) + '-friendly"></span><span class="venue-name-text">' + m.venue + '</span></div></td>' +
-                    '<td class="city-cell">' + m.city + ' <span style="color:var(--text-tertiary);font-size:10px;">&#9654;</span></td>';
+                    '<td class="col-venue"><div class="venue-cell-inner"><span class="venue-bias-dot ' + bias + '" title="' + capitalize(bias) + '-friendly"></span><span class="venue-name-text">' + m.venue + '</span></div></td>' +
+                    '<td class="city-cell">' + m.city + ' <span class="mp-expand-arrow">&#9654;</span></td>';
 
                 tbody.appendChild(tr);
 

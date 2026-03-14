@@ -8,10 +8,10 @@
 
 | Depth | Opener | Top Order | Middle Order | Finisher | All-rounder | Spinner | Pacer |
 |:-----:|:------:|:---------:|:------------:|:--------:|:-----------:|:-------:|:-----:|
-| **1st** | **Jos Buttler** 🧤 🌍 | **Shubman Gill ©** | **Washington Sundar** | Rahul Tewatia | **Kagiso Rabada** 🌍 | **Rashid Khan** 🌍 | **Mohammed Siraj** |
-| **2nd** | **Sai Sudharsan** | - | **Jayant Yadav** | Shahrukh Khan | **Washington Sundar** | **Jayant Yadav** | **Prasidh Krishna** |
-| **3rd** | - | - | Shahrukh Khan | - | **Glenn Phillips** 🌍 | Sai Kishore | **Kagiso Rabada** 🌍 |
-| **4th** | - | - | Anuj Rawat 🧤 | - | Rahul Tewatia | Manav Suthar | **Ishant Sharma** |
+| **1st** | **Shubman Gill ©** | **Jos Buttler** 🧤 🌍 | **Glenn Phillips** 🌍 | **Shahrukh Khan** | **Washington Sundar** | **Rashid Khan** 🌍 | **Kagiso Rabada** 🌍 |
+| **2nd** | **Sai Sudharsan** | - | **Washington Sundar** | Rahul Tewatia | **Glenn Phillips** 🌍 | **R Sai Kishore** | **Mohammed Siraj** |
+| **3rd** | - | - | Shahrukh Khan | - | **Rahul Tewatia** | Manav Suthar | **Prasidh Krishna** |
+| **4th** | - | - | Anuj Rawat 🧤 | - | - | - | **Ishant Sharma** |
 
 ---
 
@@ -19,17 +19,17 @@
 
 | # | Player | Role | Hand | Overseas |
 |:-:|:-------|:-----|:----:|:--------:|
-| 1 | Jos Buttler 🧤 | Wicketkeeper | Right | 🌍 |
-| 2 | Shubman Gill © | Opener | Right | |
-| 3 | Sai Sudharsan | Opener | Left | |
-| 4 | Washington Sundar | All-rounder | Left | |
-| 5 | Jayant Yadav | All-rounder | Right | |
-| 6 | Rashid Khan | Spinner | Right | 🌍 |
-| 7 | Mohammed Siraj | Pace Bowler | Right | |
-| 8 | Kagiso Rabada | All-rounder | Right | 🌍 |
-| 9 | Prasidh Krishna | Pace Bowler | Right | |
-| 10 | Glenn Phillips | All-rounder | Right | 🌍 |
-| 11 | Ishant Sharma | Pace Bowler | Right | |
+| 1 | Shubman Gill © | Batter | Right | |
+| 2 | Sai Sudharsan | Batter | Left | |
+| 3 | Jos Buttler 🧤 | Wicketkeeper | Right | 🌍 |
+| 4 | Glenn Phillips | All-rounder | Right | 🌍 |
+| 5 | Washington Sundar | All-rounder | Left | |
+| 6 | Shahrukh Khan | All-rounder | Right | |
+| 7 | Rahul Tewatia | All-rounder | Left | |
+| 8 | Rashid Khan | All-rounder | Right | 🌍 |
+| 9 | R Sai Kishore | Spinner | Left | |
+| 10 | Kagiso Rabada | Pace Bowler | Right | 🌍 |
+| 11 | Mohammed Siraj | Pace Bowler | Right | |
 
 **Impact Sub Options:** Prasidh Krishna ⚡ | Kumar Kushagra ⚡ | Ashok Sharma ⚡
 
@@ -39,11 +39,11 @@
 
 | Category | Count | Players |
 |:---------|:-----:|:--------|
-| Overseas in XI | 4/4 | Buttler, Rashid, Rabada, Phillips |
+| Overseas in XI | 4/4 | Buttler, Phillips, Rashid, Rabada |
 | Wicketkeepers | 3 | Buttler, Kushagra, Anuj Rawat |
-| Spinners | 5 | Rashid, Sundar, Jayant, Kishore, Suthar |
-| Pacers | 6 | Siraj, Rabada, Prasidh, Ishant, Arshad |
-| All-rounders | 6 | Sundar, Jayant, Phillips, Rabada, Tewatia, Sindhu |
+| Spinners | 7 | Rashid, Sundar, Sai Kishore, Phillips (part-time), Tewatia (part-time), Manav Suthar |
+| Pacers | 4 | Rabada, Siraj, Prasidh, Ishant |
+| All-rounders | 6 | Sundar, Phillips, Rashid, Tewatia, Shahrukh |
 
 ---
 
@@ -51,11 +51,11 @@
 
 | Player | Role | Price (Cr) | Status |
 |:-------|:-----|:----------:|:------:|
-| Jos Buttler | Keeper/Opener | 15.75 | **XI** |
-| Rashid Khan | Spinner | 18.0 | **XI** |
-| Kagiso Rabada | Pacer/AR | 10.75 | **XI** |
-| Glenn Phillips | AR | 2.0 | **XI** |
+| Jos Buttler | Wicketkeeper | 15.75 | **XI** |
+| Glenn Phillips | All-rounder | 2.0 | **XI** |
+| Rashid Khan | All-rounder | 18.0 | **XI** |
+| Kagiso Rabada | Pacer | 10.75 | **XI** |
 
 ---
 
-*Generated: 2026-02-04 | Data: predicted_xii_2026.json*
+*Generated: 2026-03-15 | Data: predicted_xii_2026.json*

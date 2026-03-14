@@ -1,14 +1,14 @@
-# 🏏 Kolkata Knight Riders
+# Kolkata Knight Riders
 
 <div align="center">
 
 ### IPL 2026 Predicted XI
 
-**🏟️ Home:** Eden Gardens | **📊 Venue Bias:** Spin-Friendly
+**Home:** Eden Gardens | **Venue Bias:** Spin-Friendly
 
 ---
 
-## 🎯 Starting XI Formation
+## Starting XI Formation
 
 ```
                     ╔═══════════════════════════════════════════╗
@@ -17,51 +17,51 @@
                     ╚═══════════════════════════════════════════╝
 
     ┌─────────────────────────────────────────────────────────────────┐
-    │                        🏏 BATTING ORDER                         │
+    │                        BATTING ORDER                           │
     └─────────────────────────────────────────────────────────────────┘
 
          ╭──────────────────╮    ╭──────────────────╮
-         │  1. S. NARINE    │    │   2. A. RAHANE   │
-         │   🌍 Opener      │    │    © Captain     │
-         │     ₹12.0 Cr     │    │     ₹1.5 Cr      │
+         │  1. F. ALLEN     │    │   2. A. RAHANE   │
+         │   Overseas Kpr   │    │    © Captain     │
+         │     ₹0.3 Cr      │    │     ₹1.5 Cr      │
          ╰──────────────────╯    ╰──────────────────╯
 
                     ╭──────────────────╮
-                    │  3. R. TRIPATHI  │
-                    │   Middle Order   │
-                    │     ₹2.0 Cr      │
+                    │  3. C. GREEN     │
+                    │   Overseas AR    │
+                    │    ₹25.2 Cr      │
                     ╰──────────────────╯
 
          ╭──────────────────╮    ╭──────────────────╮
-         │  4. F. ALLEN     │    │   5. C. GREEN    │
-         │   🌍🧤 Keeper    │    │   🌍 All-Rounder │
-         │     ₹0.3 Cr      │    │    ₹25.2 Cr      │
+         │  4. A. RAGHU     │    │   5. R. SINGH    │
+         │      Batter      │    │      Batter      │
+         │     ₹3.0 Cr      │    │    ₹13.0 Cr      │
          ╰──────────────────╯    ╰──────────────────╯
 
-                    ╭──────────────────╮
-                    │  6. M. PANDEY    │
-                    │   Middle Order   │
-                    │     ₹0.75 Cr     │
-                    ╰──────────────────╯
+         ╭──────────────────╮    ╭──────────────────╮
+         │  6. RAMANDEEP    │    │   7. A. ROY      │
+         │    All-Rounder   │    │    All-Rounder   │
+         │     ₹4.0 Cr      │    │     ₹0.4 Cr      │
+         ╰──────────────────╯    ╰──────────────────╯
 
     ┌─────────────────────────────────────────────────────────────────┐
-    │                       🎳 BOWLING ATTACK                         │
+    │                       BOWLING ATTACK                           │
     └─────────────────────────────────────────────────────────────────┘
 
     ╭──────────────────╮  ╭──────────────────╮  ╭──────────────────╮
-    │  7. R. SINGH     │  │  8. M. PATHIRANA │  │  9. V. CHAKRA    │
-    │     Finisher     │  │   🌍 Pacer       │  │     Spinner      │
-    │     ₹13.0 Cr     │  │    ₹18.0 Cr      │  │    ₹12.0 Cr      │
+    │  8. S. NARINE    │  │  9. H. RANA      │  │ 10. M. PATHIRANA │
+    │   Overseas AR    │  │      Pacer       │  │   Overseas Pacer │
+    │    ₹12.0 Cr      │  │     ₹4.0 Cr      │  │    ₹18.0 Cr      │
     ╰──────────────────╯  ╰──────────────────╯  ╰──────────────────╯
 
-         ╭──────────────────╮    ╭──────────────────╮
-         │  10. V. ARORA    │    │  11. A. ROY      │
-         │      Pacer       │    │    All-Rounder   │
-         │     ₹1.8 Cr      │    │     ₹0.8 Cr      │
-         ╰──────────────────╯    ╰──────────────────╯
+                    ╭──────────────────╮
+                    │  11. V. CHAKRA   │
+                    │     Spinner      │
+                    │    ₹12.0 Cr      │
+                    ╰──────────────────╯
 
                     ╭──────────────────────────╮
-                    │   ⚡ IMPACT SUB OPTIONS  │
+                    │   IMPACT SUB OPTIONS     │
                     │  Akash Deep | R. Tripathi│
                     │     | K. Tyagi           │
                     ╰──────────────────────────╯
@@ -69,76 +69,96 @@
 
 ---
 
-## 📊 Team Balance
+## Starting XI
 
-| Metric | Value | Status |
-|:-------|:-----:|:------:|
-| 🌍 Overseas | **4/4** | ✅ Optimal |
-| 🎳 Bowling Options | **7** | ✅ Strong |
-| 🔄 Spinners | **3** | ✅ Eden ready |
-| ⚡ Pacers | **8** | ✅ Excellent |
-| 🧤 Keepers | **3** | ✅ Covered |
+| # | Player | Role | Hand | Overseas |
+|:-:|:-------|:-----|:----:|:--------:|
+| 1 | Finn Allen | Wicketkeeper | Right | Overseas |
+| 2 | Ajinkya Rahane © | Batter | Right | |
+| 3 | Cameron Green | All-rounder | Right | Overseas |
+| 4 | Angkrish Raghuvanshi | Batter | Right | |
+| 5 | Rinku Singh | Batter | Left | |
+| 6 | Ramandeep Singh | All-rounder | Right | |
+| 7 | Anukul Roy | All-rounder | Left | |
+| 8 | Sunil Narine | All-rounder | Left | Overseas |
+| 9 | Harshit Rana | Pace Bowler | Right | |
+| 10 | Matheesha Pathirana | Pace Bowler | Right | Overseas |
+| 11 | Varun Chakravarthy | Spinner | Right | |
+
+**Impact Sub Options:** Akash Deep ⚡ | Rahul Tripathi ⚡ | Kartik Tyagi ⚡
 
 ---
 
-## 📋 Position Depth Chart
+## Team Balance
+
+| Metric | Value | Status |
+|:-------|:-----:|:------:|
+| Overseas | **4/4** | Optimal |
+| Bowling Options | **7** | Strong |
+| Spinners | **4** | Eden ready |
+| Pacers | **7** | Excellent |
+| Keepers | **1** | Finn Allen |
+
+---
+
+## Position Depth Chart
 
 ### Openers
 | Depth | Player | Notes |
 |:-----:|:-------|:------|
-| 1️⃣ | **Sunil Narine 🌍** | Powerplay aggressor |
-| 2️⃣ | **Ajinkya Rahane ©** | Captain, anchor |
-| 3️⃣ | Angkrish Raghuvanshi | Young talent |
+| 1 | **Finn Allen (Overseas)** | Explosive keeper |
+| 2 | **Ajinkya Rahane ©** | Captain, anchor |
+| 3 | Angkrish Raghuvanshi | Young talent |
 
 ### Top Order / Middle Order
 | Depth | Player | Notes |
 |:-----:|:-------|:------|
-| 1️⃣ | **Rahul Tripathi** | Elegant stroke-maker |
-| 2️⃣ | **Finn Allen 🌍🧤** | Explosive keeper |
-| 3️⃣ | **Manish Pandey** | Experienced hand |
-| 4️⃣ | Angkrish Raghuvanshi | Backup |
+| 1 | **Cameron Green (Overseas)** | ₹25.2 Cr marquee |
+| 2 | **Angkrish Raghuvanshi** | Young Indian batter |
+| 3 | **Rinku Singh** | ₹13 Cr - Mr. Clutch |
+| 4 | Rahul Tripathi | Impact sub option |
 
 ### Finishers
 | Depth | Player | Notes |
 |:-----:|:-------|:------|
-| 1️⃣ | **Rinku Singh** | ₹13 Cr - Mr. Clutch |
-| 2️⃣ | Rovman Powell 🌍 | Caribbean power |
-| 3️⃣ | Cameron Green 🌍 | All-round finisher |
+| 1 | **Rinku Singh** | ₹13 Cr - Mr. Clutch |
+| 2 | **Ramandeep Singh** | All-round finisher |
+| 3 | Cameron Green | All-round option |
 
 ### Spinners
 | Depth | Player | Notes |
 |:-----:|:-------|:------|
-| 1️⃣ | **Varun Chakravarthy** | Mystery spinner |
-| 2️⃣ | **Sunil Narine 🌍** | Legendary all-rounder |
-| 3️⃣ | Anukul Roy | Left-arm orthodox |
-| 4️⃣ | Prashant Solanki | Backup option |
+| 1 | **Varun Chakravarthy** | Mystery spinner |
+| 2 | **Sunil Narine (Overseas)** | Legendary all-rounder |
+| 3 | **Anukul Roy** | Left-arm orthodox |
+| 4 | Prashant Solanki | Backup option |
 
 ### Pacers
 | Depth | Player | Notes |
 |:-----:|:-------|:------|
-| 1️⃣ | **Matheesha Pathirana 🌍** | ₹18 Cr - Malinga 2.0 |
-| 2️⃣ | **Vaibhav Arora** | Swing specialist (starting XI) |
-| 3️⃣ | **Akash Deep** | Impact sub option |
-| 4️⃣ | Harshit Rana | ⚠️ Injured |
-| 5️⃣ | Umran Malik | Raw pace |
+| 1 | **Matheesha Pathirana (Overseas)** | ₹18 Cr - Malinga 2.0 |
+| 2 | **Harshit Rana** | Indian quick |
+| 3 | Akash Deep | Impact sub option |
+| 4 | Kartik Tyagi | Impact sub option |
+| 5 | Umran Malik | Raw pace |
 
 ---
 
-## 🌍 Overseas Roster
+## Overseas Roster
 
 | Player | Role | Price | XI Status |
 |:-------|:-----|------:|:---------:|
-| Sunil Narine | Opener/AR | ₹12.0 Cr | ✅ **Starting** |
-| Finn Allen | Keeper | ₹0.3 Cr | ✅ **Starting** |
-| Cameron Green | All-rounder | ₹25.2 Cr | ✅ **Starting** |
-| Matheesha Pathirana | Pacer | ₹18.0 Cr | ✅ **Starting** |
-| Rovman Powell | Finisher | ₹1.5 Cr | 📋 Bench |
-| Tim Seifert | Keeper | ₹0.3 Cr | 📋 Bench |
-| Rachin Ravindra | All-rounder | ₹4.0 Cr | 📋 Bench |
+| Finn Allen | Wicketkeeper | ₹0.3 Cr | **Starting** |
+| Cameron Green | All-rounder | ₹25.2 Cr | **Starting** |
+| Sunil Narine | All-rounder | ₹12.0 Cr | **Starting** |
+| Matheesha Pathirana | Pacer | ₹18.0 Cr | **Starting** |
+| Rovman Powell | Finisher | ₹1.5 Cr | Bench |
+| Tim Seifert | Keeper | ₹0.3 Cr | Bench |
+| Rachin Ravindra | All-rounder | ₹4.0 Cr | Bench |
 
 ---
 
-## 🔑 Key Insights
+## Key Insights
 
 > **Green Machine:** Cameron Green at ₹25.2 Cr is the marquee signing - providing batting depth and pace bowling options.
 
@@ -152,4 +172,4 @@
 
 </div>
 
-*Last Updated: 2026-02-04 | Algorithm: v2.0 (65% Competency / 35% Variety)*
+*Last Updated: 2026-03-15 | Algorithm: v3.1 (SUPER SELECTOR)*

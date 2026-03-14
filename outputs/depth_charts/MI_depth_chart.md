@@ -17,28 +17,28 @@
                           POWERPLAY ASSAULT
    +------------------+                      +------------------+
    |        1         |                      |        2         |
-   |   ROHIT SHARMA   |                      | QUINTON DE KOCK  |
-   |   Middle Order   |                      |   Wicketkeeper   |
-   |    Rs 16.3 Cr    |                      |    Rs 1.0 Cr     |
-   |                  |                      |                  |
+   | QUINTON DE KOCK  |                      |   ROHIT SHARMA   |
+   |   Wicketkeeper   |                      |      Batter      |
+   |    Rs 1.0 Cr     |                      |    Rs 16.3 Cr    |
+   |   [OVERSEAS]     |                      |                  |
    +------------------+                      +------------------+
 
                           MIDDLE OVERS ENGINE
              +--------------------+    +--------------------+
              |          3         |    |          4         |
-             |     WILL JACKS     |    |  SURYAKUMAR YADAV  |
-             |       Opener       |    |    Middle Order    |
-             |     Rs 5.25 Cr     |    |    Rs 16.35 Cr     |
+             |     TILAK VARMA    |    |  SURYAKUMAR YADAV  |
+             |       Batter      |    |       Batter       |
+             |     Rs 8.0 Cr      |    |    Rs 16.35 Cr     |
              |                    |    |                    |
              +--------------------+    +--------------------+
 
                              MIDDLE ORDER
              +--------------------+    +--------------------+
              |          5         |    |          6         |
-             |    TILAK VARMA     |    |   HARDIK PANDYA    |
-             |       Opener       |    |      Finisher      |
-             |     Rs 8.0 Cr      |    |    Rs 16.35 Cr     |
-             |                    |    |                    |
+             |   HARDIK PANDYA    |    |SHERFANE RUTHERFORD |
+             |    All-rounder     |    |    All-rounder     |
+             |    Rs 16.35 Cr     |    |     Rs 0.5 Cr      |
+             |     CAPTAIN        |    |    [OVERSEAS]      |
              +--------------------+    +--------------------+
 ```
 
@@ -49,20 +49,20 @@
 ```
                              PACE BATTERY
          +--------------+  +--------------+  +--------------+
-         |       7      |  |       8      |  |       9      |
-         |    BUMRAH    |  |  TRENT BOULT |  | DEEPAK CHAHAR|
+         |       9      |  |      10      |  |      11      |
+         | DEEPAK CHAHAR|  |  TRENT BOULT |  |    BUMRAH    |
          |  Pace Bowler |  |  Pace Bowler |  |  Pace Bowler |
-         |   Rs 18 Cr   |  |  Rs 12.5 Cr  |  |  Rs 9.25 Cr  |
-         |              |  |              |  |              |
+         |  Rs 9.25 Cr  |  |  Rs 12.5 Cr  |  |   Rs 18 Cr   |
+         |              |  |  [OVERSEAS]  |  |              |
          +--------------+  +--------------+  +--------------+
 
                            SPIN & SUPPORT
              +--------------------+    +--------------------+
-             |         10         |    |         11         |
-             |  MITCHELL SANTNER  |    |   MOHAMMED IZHAR   |
-             |     All-rounder    |    |     Pace Bowler    |
-             |      Rs 2.0 Cr     |    |      Rs 0.3 Cr     |
-             |                    |    |                    |
+             |          7         |    |          8         |
+             |     NAMAN DHIR     |    |  MITCHELL SANTNER  |
+             |     All-rounder    |    |     All-rounder    |
+             |      Rs 5.25 Cr    |    |      Rs 2.0 Cr     |
+             |                    |    |     [OVERSEAS]     |
              +--------------------+    +--------------------+
 ```
 
@@ -72,17 +72,17 @@
 
 | # | Player | Role | Hand | Price | Status |
 |:-:|:-------|:-----|:----:|------:|:------:|
-| 1 | Rohit Sharma | Middle Order | R | 16.3 Cr | |
-| 2 | Quinton de Kock | Wicketkeeper | L | 1.0 Cr | OVERSEAS KEEPER |
-| 3 | Will Jacks | Opener | R | 5.25 Cr | OVERSEAS |
-| 4 | Suryakumar Yadav | Middle Order | R | 16.35 Cr | |
-| 5 | Tilak Varma | Opener | L | 8.0 Cr | |
-| 6 | Hardik Pandya | Finisher | R | 16.35 Cr | CAPTAIN |
-| 7 | Jasprit Bumrah | Pace Bowler | R | 18.0 Cr | |
-| 8 | Trent Boult | Pace Bowler | L | 12.5 Cr | OVERSEAS |
+| 1 | Quinton de Kock | Wicketkeeper | L | 1.0 Cr | OVERSEAS KEEPER |
+| 2 | Rohit Sharma | Batter | R | 16.3 Cr | |
+| 3 | Tilak Varma | Batter | L | 8.0 Cr | |
+| 4 | Suryakumar Yadav | Batter | R | 16.35 Cr | |
+| 5 | Hardik Pandya | All-rounder | R | 16.35 Cr | CAPTAIN |
+| 6 | Sherfane Rutherford | All-rounder | L | 0.5 Cr | OVERSEAS |
+| 7 | Naman Dhir | All-rounder | R | 5.25 Cr | |
+| 8 | Mitchell Santner | All-rounder | L | 2.0 Cr | OVERSEAS |
 | 9 | Deepak Chahar | Pace Bowler | R | 9.25 Cr | |
-| 10 | Mitchell Santner | All-rounder | L | 2.0 Cr | OVERSEAS |
-| 11 | Mohammed Izhar | Pace Bowler | R | 0.3 Cr | |
+| 10 | Trent Boult | Pace Bowler | R | 12.5 Cr | OVERSEAS |
+| 11 | Jasprit Bumrah | Pace Bowler | R | 18.0 Cr | |
 | IP | **Impact Sub Options:** Shardul Thakur, Mayank Markande, Robin Minz | | | | IMPACT |
 
 ---
@@ -93,7 +93,7 @@
 +------------------+------------------+------------------+------------------+
 |    OVERSEAS      |  BOWLING OPTIONS |     SPINNERS     |      PACERS      |
 +------------------+------------------+------------------+------------------+
-|        4         |        10        |        5         |        6         |
+|        4         |        9         |        5         |        6         |
 +------------------+------------------+------------------+------------------+
 ```
 
@@ -104,21 +104,22 @@
 ### OPENERS
 | Priority | Player | Price | Notes |
 |:--------:|:-------|------:|:------|
-| 1 | Rohit Sharma | 16.3 Cr | Franchise cornerstone |
-| 2 | Quinton de Kock | 1.0 Cr | Explosive keeper-batter |
+| 1 | Quinton de Kock | 1.0 Cr | Explosive keeper-batter |
+| 2 | Rohit Sharma | 16.3 Cr | Franchise cornerstone |
 
 ### MIDDLE ORDER
 | Priority | Player | Price | Notes |
 |:--------:|:-------|------:|:------|
-| 1 | Suryakumar Yadav | 16.35 Cr | 360-degree batter |
-| 2 | Will Jacks | 5.25 Cr | Power-hitting option |
-| 3 | Tilak Varma | 8.0 Cr | Emerging star |
+| 1 | Tilak Varma | 8.0 Cr | Emerging star |
+| 2 | Suryakumar Yadav | 16.35 Cr | 360-degree batter |
+| 3 | Sherfane Rutherford | 0.5 Cr | Caribbean power hitter |
 
 ### FINISHERS
 | Priority | Player | Price | Notes |
 |:--------:|:-------|------:|:------|
 | 1 | Hardik Pandya | 16.35 Cr | All-round finisher |
-| 2 | Mitchell Santner | 2.0 Cr | Left-arm spin option |
+| 2 | Naman Dhir | 5.25 Cr | All-round depth |
+| 3 | Mitchell Santner | 2.0 Cr | Left-arm spin option |
 
 ### PACE ATTACK
 | Priority | Player | Price | Notes |
@@ -126,13 +127,13 @@
 | 1 | Jasprit Bumrah | 18.0 Cr | Death overs specialist |
 | 2 | Trent Boult | 12.5 Cr | Powerplay specialist |
 | 3 | Deepak Chahar | 9.25 Cr | Swing bowling |
-| 4 | Mohammed Izhar | 0.3 Cr | Backup pacer |
+| 4 | Shardul Thakur | 1.0 Cr | Impact sub option |
 
 ### SPINNERS
 | Priority | Player | Price | Notes |
 |:--------:|:-------|------:|:------|
 | 1 | Mitchell Santner | 2.0 Cr | Economy spinner |
-| 2 | Will Jacks | 5.25 Cr | Part-time off-spin |
+| 2 | Mayank Markande | 0.3 Cr | Impact sub spinner |
 
 ---
 
@@ -141,9 +142,9 @@
 | Player | Role | Price | Slot |
 |:-------|:-----|------:|:----:|
 | Quinton de Kock | Wicketkeeper | 1.0 Cr | 1 |
-| Will Jacks | Opener | 5.25 Cr | 2 |
-| Trent Boult | Pace Bowler | 12.5 Cr | 3 |
-| Mitchell Santner | All-rounder | 2.0 Cr | 4 |
+| Sherfane Rutherford | All-rounder | 0.5 Cr | 2 |
+| Mitchell Santner | All-rounder | 2.0 Cr | 3 |
+| Trent Boult | Pace Bowler | 12.5 Cr | 4 |
 
 ---
 
@@ -159,7 +160,7 @@
 
 ```
 ================================================================================
-              Cricket Playbook | IPL 2026 Analysis | Algorithm v3.0
+              Cricket Playbook | IPL 2026 Analysis | Algorithm v3.1
                        Generated by Kevin de Bruyne
 ================================================================================
 ```

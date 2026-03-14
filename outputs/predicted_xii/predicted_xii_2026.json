@@ -86,7 +86,7 @@
           "batting_hand": "Left-hand",
           "is_overseas": false,
           "price_cr": 14.2,
-          "rationale": "Founder's Selection \u2014 Uncapped IPL"
+          "rationale": "Founder's Selection — Uncapped IPL"
         },
         {
           "batting_position": 7,
@@ -148,6 +148,23 @@
         "price_cr": 3.4,
         "rationale": "Founder's Selection"
       },
+      "impact_subs": [
+        {
+          "player_name": "Anshul Kamboj",
+          "role": "Pace Bowler",
+          "price_cr": 3.4
+        },
+        {
+          "player_name": "Ravichandran Ashwin",
+          "role": "Spinner",
+          "price_cr": 0.3
+        },
+        {
+          "player_name": "Sarfaraz Khan",
+          "role": "Batter",
+          "price_cr": 0.3
+        }
+      ],
       "balance": {
         "overseas_count": 4,
         "bowling_options": 8,
@@ -158,7 +175,7 @@
       "constraints_satisfied": true,
       "constraint_violations": [],
       "generation_notes": [
-        "Founder Override \u2014 11 XI + impact"
+        "Founder Override — 11 XI + impact"
       ]
     },
     "MI": {
@@ -289,6 +306,23 @@
         "price_cr": 0.3,
         "rationale": "Founder's Selection"
       },
+      "impact_subs": [
+        {
+          "player_name": "Shardul Thakur",
+          "role": "Pace Bowler",
+          "price_cr": 1.0
+        },
+        {
+          "player_name": "Mayank Markande",
+          "role": "Spinner",
+          "price_cr": 0.3
+        },
+        {
+          "player_name": "Robin Minz",
+          "role": "Wicketkeeper",
+          "price_cr": 0.65
+        }
+      ],
       "balance": {
         "overseas_count": 4,
         "bowling_options": 9,
@@ -299,7 +333,7 @@
       "constraints_satisfied": true,
       "constraint_violations": [],
       "generation_notes": [
-        "Founder Override \u2014 11 XI + impact"
+        "Founder Override — 11 XI + impact"
       ]
     },
     "RCB": {
@@ -428,8 +462,25 @@
         "batting_hand": "Right-hand",
         "is_overseas": false,
         "price_cr": 5.0,
-        "rationale": "Founder's Selection \u2014 Status unknown right now (off-the-field issues)"
+        "rationale": "Founder's Selection — Status unknown right now (off-the-field issues)"
       },
+      "impact_subs": [
+        {
+          "player_name": "Yash Dayal",
+          "role": "Pace Bowler",
+          "price_cr": 5.0
+        },
+        {
+          "player_name": "Mayank Yadav",
+          "role": "Pace Bowler",
+          "price_cr": 0.3
+        },
+        {
+          "player_name": "Devdutt Padikkal",
+          "role": "Batter",
+          "price_cr": 0.3
+        }
+      ],
       "balance": {
         "overseas_count": 4,
         "bowling_options": 8,
@@ -440,7 +491,7 @@
       "constraints_satisfied": true,
       "constraint_violations": [],
       "generation_notes": [
-        "Founder Override \u2014 11 XI + impact"
+        "Founder Override — 11 XI + impact"
       ]
     },
     "KKR": {
@@ -459,7 +510,7 @@
           "batting_hand": "Right-hand",
           "is_overseas": true,
           "price_cr": 0.3,
-          "rationale": "Founder's Selection \u2014 Uncapped IPL, Opener"
+          "rationale": "Founder's Selection — Uncapped IPL, Opener"
         },
         {
           "batting_position": 2,
@@ -529,7 +580,7 @@
           "batting_hand": "Left-hand",
           "is_overseas": true,
           "price_cr": 12.0,
-          "rationale": "Founder's Selection \u2014 Can be used as an opener to pinch-hit"
+          "rationale": "Founder's Selection — Can be used as an opener to pinch-hit"
         },
         {
           "batting_position": 9,
@@ -571,6 +622,23 @@
         "price_cr": 1.8,
         "rationale": "Founder's Selection"
       },
+      "impact_subs": [
+        {
+          "player_name": "Akash Deep",
+          "role": "Pace Bowler",
+          "price_cr": 0.3
+        },
+        {
+          "player_name": "Rahul Tripathi",
+          "role": "Batter",
+          "price_cr": 0.3
+        },
+        {
+          "player_name": "Kartik Tyagi",
+          "role": "Pace Bowler",
+          "price_cr": 0.3
+        }
+      ],
       "balance": {
         "overseas_count": 4,
         "bowling_options": 7,
@@ -581,7 +649,7 @@
       "constraints_satisfied": true,
       "constraint_violations": [],
       "generation_notes": [
-        "Founder Override \u2014 11 XI + impact"
+        "Founder Override — 11 XI + impact"
       ]
     },
     "DC": {
@@ -600,7 +668,7 @@
           "batting_hand": "Left-hand",
           "is_overseas": true,
           "price_cr": 0.75,
-          "rationale": "Founder's Selection \u2014 Uncapped IPL"
+          "rationale": "Founder's Selection — Uncapped IPL"
         },
         {
           "batting_position": 2,
@@ -670,7 +738,7 @@
           "batting_hand": "Right-hand",
           "is_overseas": false,
           "price_cr": 0.0,
-          "rationale": "Founder's Selection \u2014 Uncapped IPL"
+          "rationale": "Founder's Selection — Uncapped IPL"
         },
         {
           "batting_position": 9,
@@ -712,6 +780,23 @@
         "price_cr": 10.75,
         "rationale": "Founder's Selection"
       },
+      "impact_subs": [
+        {
+          "player_name": "T Natarajan",
+          "role": "Pace Bowler",
+          "price_cr": 10.75
+        },
+        {
+          "player_name": "Vipraj Nigam",
+          "role": "Spinner",
+          "price_cr": 0.5
+        },
+        {
+          "player_name": "Ashutosh Sharma",
+          "role": "Batter",
+          "price_cr": 3.8
+        }
+      ],
       "balance": {
         "overseas_count": 4,
         "bowling_options": 9,
@@ -722,7 +807,7 @@
       "constraints_satisfied": true,
       "constraint_violations": [],
       "generation_notes": [
-        "Founder Override \u2014 11 XI + impact"
+        "Founder Override — 11 XI + impact"
       ]
     },
     "PBKS": {
@@ -853,6 +938,23 @@
         "price_cr": 1.5,
         "rationale": "Founder's Selection"
       },
+      "impact_subs": [
+        {
+          "player_name": "Harpreet Brar",
+          "role": "All-rounder",
+          "price_cr": 1.5
+        },
+        {
+          "player_name": "Musheer Khan",
+          "role": "Batter",
+          "price_cr": 0.3
+        },
+        {
+          "player_name": "Vyshak Vijaykumar",
+          "role": "Pace Bowler",
+          "price_cr": 0.3
+        }
+      ],
       "balance": {
         "overseas_count": 4,
         "bowling_options": 7,
@@ -863,7 +965,7 @@
       "constraints_satisfied": true,
       "constraint_violations": [],
       "generation_notes": [
-        "Founder Override \u2014 11 XI + impact"
+        "Founder Override — 11 XI + impact"
       ]
     },
     "RR": {
@@ -912,7 +1014,7 @@
           "batting_hand": "Right-hand",
           "is_overseas": false,
           "price_cr": 14.0,
-          "rationale": "Founder's Selection \u2014 Could also swap positions with Jurel."
+          "rationale": "Founder's Selection — Could also swap positions with Jurel."
         },
         {
           "batting_position": 5,
@@ -994,6 +1096,23 @@
         "price_cr": 6.5,
         "rationale": "Founder's Selection"
       },
+      "impact_subs": [
+        {
+          "player_name": "Ravi Singh",
+          "role": "All-rounder",
+          "price_cr": 0.3
+        },
+        {
+          "player_name": "Shubham Dubey",
+          "role": "Batter",
+          "price_cr": 0.3
+        },
+        {
+          "player_name": "Vignesh Puthur",
+          "role": "Pace Bowler",
+          "price_cr": 0.3
+        }
+      ],
       "balance": {
         "overseas_count": 4,
         "bowling_options": 9,
@@ -1004,7 +1123,7 @@
       "constraints_satisfied": true,
       "constraint_violations": [],
       "generation_notes": [
-        "Founder Override \u2014 11 XI + impact"
+        "Founder Override — 11 XI + impact"
       ]
     },
     "SRH": {
@@ -1063,7 +1182,7 @@
           "batting_hand": "Right-hand",
           "is_overseas": true,
           "price_cr": 13.0,
-          "rationale": "Founder's Selection \u2014 Bowls off-spin to left-handers, leg-spin to right-handers"
+          "rationale": "Founder's Selection — Bowls off-spin to left-handers, leg-spin to right-handers"
         },
         {
           "batting_position": 6,
@@ -1135,6 +1254,23 @@
         "price_cr": 0.3,
         "rationale": "Founder's Selection"
       },
+      "impact_subs": [
+        {
+          "player_name": "Harsh Dubey",
+          "role": "All-rounder",
+          "price_cr": 0.3
+        },
+        {
+          "player_name": "Krains Fuletra",
+          "role": "Batter",
+          "price_cr": 0.3
+        },
+        {
+          "player_name": "Smaran Ravichandran",
+          "role": "Batter",
+          "price_cr": 0.3
+        }
+      ],
       "balance": {
         "overseas_count": 4,
         "bowling_options": 9,
@@ -1145,7 +1281,7 @@
       "constraints_satisfied": true,
       "constraint_violations": [],
       "generation_notes": [
-        "Founder Override \u2014 11 XI + impact"
+        "Founder Override — 11 XI + impact"
       ]
     },
     "GT": {
@@ -1276,6 +1412,23 @@
         "price_cr": 9.5,
         "rationale": "Founder's Selection"
       },
+      "impact_subs": [
+        {
+          "player_name": "Prasidh Krishna",
+          "role": "Pace Bowler",
+          "price_cr": 9.5
+        },
+        {
+          "player_name": "Kumar Kushagra",
+          "role": "Wicketkeeper",
+          "price_cr": 0.65
+        },
+        {
+          "player_name": "Ashok Sharma",
+          "role": "Pace Bowler",
+          "price_cr": 0.3
+        }
+      ],
       "balance": {
         "overseas_count": 4,
         "bowling_options": 9,
@@ -1286,7 +1439,7 @@
       "constraints_satisfied": true,
       "constraint_violations": [],
       "generation_notes": [
-        "Founder Override \u2014 11 XI + impact"
+        "Founder Override — 11 XI + impact"
       ]
     },
     "LSG": {
@@ -1417,6 +1570,23 @@
         "price_cr": 11.0,
         "rationale": "Founder's Selection"
       },
+      "impact_subs": [
+        {
+          "player_name": "Mayank Yadav",
+          "role": "Pace Bowler",
+          "price_cr": 11.0
+        },
+        {
+          "player_name": "Manimaran Siddharth",
+          "role": "Spinner",
+          "price_cr": 0.75
+        },
+        {
+          "player_name": "Himmat Singh",
+          "role": "Batter",
+          "price_cr": 0.3
+        }
+      ],
       "balance": {
         "overseas_count": 4,
         "bowling_options": 8,
@@ -1427,7 +1597,7 @@
       "constraints_satisfied": true,
       "constraint_violations": [],
       "generation_notes": [
-        "Founder Override \u2014 11 XI + impact"
+        "Founder Override — 11 XI + impact"
       ]
     }
   }

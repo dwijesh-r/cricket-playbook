@@ -277,10 +277,26 @@ const PREDICTED_XII = {{
             )
 
         impact = team.get("impact_player", {})
+        impact_subs = team.get("impact_subs", [])
         balance = team.get("balance", {})
 
         # Join xi_players outside f-string for Python 3.9 compatibility
         xi_joined = ",\n".join(xi_players)
+
+        # Build impactSubs array JS
+        if impact_subs:
+            subs_entries = []
+            for s in impact_subs:
+                subs_entries.append(
+                    f'            {{ name: "{s.get("player_name", "")}", role: "{s.get("role", "")}", price: {s.get("price_cr", 0)} }}'
+                )
+            subs_joined = ",\n".join(subs_entries)
+            impact_subs_js = f"""[
+{subs_joined}
+        ]"""
+        else:
+            # Fallback: use impact_player as single entry
+            impact_subs_js = f'[{{ name: "{impact.get("player_name", "")}", role: "{impact.get("role", "")}", price: {impact.get("price_cr", 0)} }}]'
 
         js_content += f"""    {abbrev}: {{
         teamName: "{team.get("team_name", "")}",
@@ -293,6 +309,7 @@ const PREDICTED_XII = {{
 {xi_joined}
         ],
         impactPlayer: {{ name: "{impact.get("player_name", "")}", role: "{impact.get("role", "")}", price: {impact.get("price_cr", 0)} }},
+        impactSubs: {impact_subs_js},
         balance: {{ overseas: {balance.get("overseas_count", 0)}, bowlingOptions: {balance.get("bowling_options", 0)}, spinners: {balance.get("spinners", 0)}, pacers: {balance.get("pacers", 0)}, leftHandersTop6: {balance.get("left_handers_top6", 0)} }},
         constraintsSatisfied: {"true" if team.get("constraints_satisfied") else "false"}
     }},

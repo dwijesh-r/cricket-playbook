@@ -63,6 +63,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install dependencies
+        run: pip install duckdb
+
       - name: Update Statsledge data files
         run: |
           echo "Updating Statsledge dashboard data..."

@@ -23,6 +23,8 @@ import json
 from datetime import datetime
 from pathlib import Path
 
+import duckdb
+
 # Paths
 ROOT_DIR = Path(__file__).parent.parent.parent
 OUTPUTS_DIR = ROOT_DIR / "outputs"
@@ -449,6 +451,7 @@ def generate_full_squads_js():
                 bowl_m = float(row.get("ipl_bowling_matches") or 0)
                 experience[key] = {
                     "ipl_matches": int(max(bat_inn, bowl_m)),
+                    "ipl_innings": int(max(bat_inn, bowl_m)),
                     "ipl_runs": int(float(row.get("ipl_batting_runs") or 0)),
                     "ipl_sr": round(float(row.get("ipl_batting_sr") or 0), 1),
                     "ipl_wickets": int(float(row.get("ipl_bowling_wickets") or 0)),
@@ -461,6 +464,52 @@ def generate_full_squads_js():
                     "recent_bowl_wickets": int(float(row.get("recent_bowl_wickets") or 0)),
                     "recent_bowl_economy": round(float(row.get("recent_bowl_economy") or 0), 2),
                 }
+
+    # Load all-time stats from DuckDB
+    alltime_stats = {}
+    duckdb_path = ROOT_DIR / "data" / "cricket_playbook.duckdb"
+    if duckdb_path.exists():
+        con = duckdb.connect(str(duckdb_path), read_only=True)
+        # Batting all-time
+        bat_rows = con.execute(
+            "SELECT player_id, innings, runs, strike_rate FROM analytics_ipl_batting_career_alltime"
+        ).fetchall()
+        for pid, innings, runs, sr in bat_rows:
+            if pid:
+                alltime_stats[pid] = {
+                    "matches": int(innings or 0),
+                    "innings": int(innings or 0),
+                    "runs": int(runs or 0),
+                    "sr": round(float(sr or 0), 1),
+                    "wkts": 0,
+                    "econ": 0,
+                }
+        # Bowling all-time
+        bowl_rows = con.execute(
+            "SELECT player_id, matches_bowled, wickets, economy_rate FROM analytics_ipl_bowling_career_alltime"
+        ).fetchall()
+        for pid, matches_bowled, wickets, economy in bowl_rows:
+            if pid:
+                if pid in alltime_stats:
+                    alltime_stats[pid]["wkts"] = int(wickets or 0)
+                    alltime_stats[pid]["econ"] = round(float(economy or 0), 2)
+                    # Use max of batting innings and bowling matches for matches/innings
+                    alltime_stats[pid]["matches"] = max(
+                        alltime_stats[pid]["matches"], int(matches_bowled or 0)
+                    )
+                    alltime_stats[pid]["innings"] = max(
+                        alltime_stats[pid]["innings"], int(matches_bowled or 0)
+                    )
+                else:
+                    alltime_stats[pid] = {
+                        "matches": int(matches_bowled or 0),
+                        "innings": int(matches_bowled or 0),
+                        "runs": 0,
+                        "sr": 0,
+                        "wkts": int(wickets or 0),
+                        "econ": round(float(economy or 0), 2),
+                    }
+        con.close()
 
     # Load founder data for predicted XII
     founder_xii = {}
@@ -516,6 +565,7 @@ def generate_full_squads_js():
                     "price_cr": contract.get("price_cr", 0),
                     "acquisition_type": contract.get("acquisition_type", ""),
                     "ipl_matches": exp.get("ipl_matches", 0),
+                    "ipl_innings": exp.get("ipl_innings", 0),
                     "ipl_runs": exp.get("ipl_runs", 0),
                     "ipl_sr": exp.get("ipl_sr", 0),
                     "ipl_wickets": exp.get("ipl_wickets", 0),
@@ -558,6 +608,19 @@ const FULL_SQUADS = {{
             bowl_type_display = (
                 p["bowling_type"].replace("LA Orthodox", "Orthodox") if p["bowling_type"] else ""
             )
+            # Dual-scope stats: since2023 from experience CSV, alltime from DuckDB
+            pid = p.get("player_id", "")
+            at = alltime_stats.get(pid, {}) if pid else {}
+            since2023_js = (
+                f"{{ matches: {p['ipl_matches']}, runs: {p['ipl_runs']}, "
+                f"sr: {p['ipl_sr']}, wkts: {p['ipl_wickets']}, "
+                f"econ: {p['ipl_economy']}, innings: {p.get('ipl_innings', p['ipl_matches'])} }}"
+            )
+            alltime_js = (
+                f"{{ matches: {at.get('matches', 0)}, runs: {at.get('runs', 0)}, "
+                f"sr: {at.get('sr', 0)}, wkts: {at.get('wkts', 0)}, "
+                f"econ: {at.get('econ', 0)}, innings: {at.get('innings', 0)} }}"
+            )
             players_js.append(
                 f"        {{ name: '{name_esc}', role: '{role_esc}', "
                 f"battingHand: '{p['batting_hand']}', "
@@ -579,6 +642,7 @@ const FULL_SQUADS = {{
                 f"iplMatches: {p['ipl_matches']}, iplRuns: {p['ipl_runs']}, "
                 f"iplSR: {p['ipl_sr']}, iplWickets: {p['ipl_wickets']}, "
                 f"iplEconomy: {p['ipl_economy']}, "
+                f"stats: {{ since2023: {since2023_js}, alltime: {alltime_js} }}, "
                 f"recentBatInnings: {p['recent_bat_innings']}, "
                 f"recentBatRuns: {p['recent_bat_runs']}, "
                 f"recentBatSR: {p['recent_bat_sr']}, "

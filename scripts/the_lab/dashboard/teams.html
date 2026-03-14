@@ -1951,6 +1951,36 @@
             background: var(--accent);
             color: white;
         }
+        .scope-toggle-bar {
+            display: inline-flex;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            margin-left: auto;
+        }
+        .scope-btn {
+            padding: var(--space-2) 14px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all var(--transition-slow);
+            white-space: nowrap;
+        }
+        .scope-btn:not(:last-child) {
+            border-right: 1px solid var(--border);
+        }
+        .scope-btn[aria-selected="true"] {
+            background: var(--accent);
+            color: white;
+        }
+        .scope-btn:hover:not([aria-selected="true"]) {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
         .filter-count {
             padding: var(--space-1) 12px;
             background: var(--bg-tertiary);
@@ -4819,7 +4849,8 @@
                         price: p.price || 0,
                         retainedStatus: p.acquisition || (p.retained ? 'Retained' : 'Auction'),
                         iplMatches: p.iplMatches || 0,
-                        isUncapped: p.isUncapped || false
+                        isUncapped: p.isUncapped || false,
+                        stats: p.stats || null
                     }));
                     // Sort: Captain first, then by role, then alphabetically
                     players.sort((a, b) => {
@@ -4877,6 +4908,7 @@
         let currentTeam = 'MI';
         let compareTeam = 'CSK';
         let squadFilters = { search: '', role: '', nationality: '', ageGroup: '' };
+        let rosterScope = 'since2023';
         let pressureFilters = { phase: 'all', band: 'all', entry: 'all' };
 
         function toggleTheme() {
@@ -5126,7 +5158,7 @@
             const primePct = ((prime / totalAge) * 100).toFixed(0);
             const expPct = ((experienced / totalAge) * 100).toFixed(0);
             const vetPct = ((veteran / totalAge) * 100).toFixed(0);
-            const veterans50Plus = squad.filter(p => (p.iplMatches || 0) >= 50).length;
+            const veterans50Plus = squad.filter(p => ((p.stats && p.stats[rosterScope] ? p.stats[rosterScope].matches : p.iplMatches) || 0) >= 50).length;
             const uncappedCount = squad.filter(p => p.isUncapped).length;
 
             // --- Venue Alignment ---
@@ -6490,6 +6522,10 @@
                         <input type="text" id="squad-search" placeholder="Search players..." value="${squadFilters.search}" onkeyup="handleSquadSearch(event)">
                     </div>
                     <div class="filter-group">
+                        <div class="scope-toggle-bar" role="tablist" aria-label="Stats scope">
+                            <button class="scope-btn" role="tab" aria-selected="${rosterScope === 'since2023'}" onclick="setRosterScope('since2023')">Since 2023</button>
+                            <button class="scope-btn" role="tab" aria-selected="${rosterScope === 'alltime'}" onclick="setRosterScope('alltime')">All-Time IPL</button>
+                        </div>
                         <select class="filter-select" id="filter-role" onchange="handleFilterChange()">
                             <option value="">All Roles</option>
                             <option value="Batter" ${squadFilters.role === 'Batter' ? 'selected' : ''}>Batter</option>
@@ -6527,7 +6563,7 @@
                             <th scope="col" class="has-tooltip" data-tooltip="Player archetype from clustering analysis (e.g., Power Hitter, Anchor, Finisher)">Archetype</th>
                             <th scope="col" class="has-tooltip" data-tooltip="Phase specialization split by batting (BAT) and bowling (BWL): PP (1-6), MID (7-15), DTH (16-20)">Phase</th>
                             <th scope="col" class="has-tooltip" data-tooltip="Player's current age">Age</th>
-                            <th scope="col" class="has-tooltip" data-tooltip="IPL matches played (all-time). U = uncapped.">IPL</th>
+                            <th scope="col" class="has-tooltip" data-tooltip="IPL matches played (${rosterScope === 'since2023' ? 'since 2023' : 'all-time'}). U = uncapped.">IPL</th>
                             <th scope="col" class="has-tooltip" data-tooltip="Nationality: Indian or Overseas (max 4 overseas per XI)">Nat</th>
                         </tr>
                     </thead>
@@ -6616,7 +6652,7 @@
                                     <span class="age-cell ${getAgeClass(player.age)}">${player.age}</span>
                                 </td>
                                 <td class="compact-cell">
-                                    <span class="ipl-exp-badge ${player.isUncapped ? 'uncapped' : (player.iplMatches || 0) >= 30 ? 'veteran' : ''}">${player.isUncapped ? 'U' : (player.iplMatches || 0)}</span>
+                                    <span class="ipl-exp-badge ${player.isUncapped ? 'uncapped' : ((player.stats && player.stats[rosterScope] ? player.stats[rosterScope].matches : player.iplMatches) || 0) >= 30 ? 'veteran' : ''}">${player.isUncapped ? 'U' : ((player.stats && player.stats[rosterScope] ? player.stats[rosterScope].matches : player.iplMatches) || 0)}</span>
                                 </td>
                                 <td>
                                     <span class="nat-badge ${player.nationality !== 'IND' ? 'overseas' : ''}">
@@ -6720,12 +6756,13 @@
                         </div>
                     </div>
                     <div class="summary-card">
-                        <h4>IPL Experience</h4>
+                        <h4>IPL Experience${rosterScope === 'alltime' ? ' (All-Time)' : ' (Since 2023)'}</h4>
                         <div class="summary-breakdown">
                             ${(() => {
-                                const experienced = squad.filter(p => (p.iplMatches || 0) > 0).sort((a,b) => b.iplMatches - a.iplMatches);
+                                const getMatches = (p) => (p.stats && p.stats[rosterScope] ? p.stats[rosterScope].matches : p.iplMatches) || 0;
+                                const experienced = squad.filter(p => getMatches(p) > 0).sort((a,b) => getMatches(b) - getMatches(a));
                                 const uncapped = squad.filter(p => p.isUncapped).length;
-                                const totalMatches = squad.reduce((sum, p) => sum + (p.iplMatches || 0), 0);
+                                const totalMatches = squad.reduce((sum, p) => sum + getMatches(p), 0);
                                 const avgMatches = experienced.length > 0 ? Math.round(totalMatches / squad.length) : 0;
                                 const mostExp = experienced.length > 0 ? experienced[0] : null;
                                 return `
@@ -6739,11 +6776,11 @@
                                 </div>
                                 <div class="breakdown-row">
                                     <span class="breakdown-label">Most Experienced</span>
-                                    <span class="breakdown-value">${mostExp ? mostExp.name.split(' ').pop() + ' (' + mostExp.iplMatches + ')' : '-'}</span>
+                                    <span class="breakdown-value">${mostExp ? mostExp.name.split(' ').pop() + ' (' + getMatches(mostExp) + ')' : '-'}</span>
                                 </div>
                                 <div class="breakdown-row">
                                     <span class="breakdown-label">IPL Veterans (30+)</span>
-                                    <span class="breakdown-value">${squad.filter(p => (p.iplMatches || 0) >= 30).length}</span>
+                                    <span class="breakdown-value">${squad.filter(p => getMatches(p) >= 30).length}</span>
                                 </div>
                                 `;
                             })()}
@@ -6773,6 +6810,12 @@
         function toggleExtendedSquad() {
             const squadContent = document.getElementById('squad-content');
             squadContent.classList.toggle('squad-expanded');
+        }
+
+        // Scope toggle for roster stats (since2023 vs alltime)
+        function setRosterScope(scope) {
+            rosterScope = scope;
+            renderSquadTable(TEAMS[currentTeam], SQUADS[currentTeam]);
         }
 
         // Export squad to CSV

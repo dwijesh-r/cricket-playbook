@@ -12,5 +12,6 @@ const PLAYER_AVAILABILITY = {
     'Eshan Malinga':        { status: 'injured',              team: 'SRH',  note: 'Injury', returnDate: null },
     'Josh Hazlewood':       { status: 'doubtful',             team: 'RCB',  note: 'Right hamstring + Achilles injuries — awaiting medical clearance, doubtful for opener', returnDate: null },
     'Josh Inglis':          { status: 'partially_available',  team: 'LSG',  note: 'PA — marriage, expected to miss early matches', returnDate: null },
-    'Donovan Ferreira':     { status: 'doubtful',             team: 'RR',   note: 'Shoulder fracture (SA20, Jan 2026) — recovery timeline uncertain, IPL availability doubtful', returnDate: null }
+    'Donovan Ferreira':     { status: 'doubtful',             team: 'RR',   note: 'Shoulder fracture (SA20, Jan 2026) — recovery timeline uncertain, IPL availability doubtful', returnDate: null },
+    'Adam Milne':           { status: 'injured',              team: 'RR',   note: 'Torn left hamstring (SA20, Jan 2026) — ruled out of T20 World Cup, doubtful for early IPL matches', returnDate: null }
 };

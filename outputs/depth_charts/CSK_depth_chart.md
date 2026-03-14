@@ -61,9 +61,9 @@
          ╰──────────────────╯    ╰──────────────────╯
 
                     ╭──────────────────────────╮
-                    │   ⚡ IMPACT PLAYER       │
-                    │      K. SHARMA           │
-                    │       ₹14.2 Cr           │
+                    │   ⚡ IMPACT SUB OPTIONS  │
+                    │  A. Kamboj | R. Chahar   │
+                    │     | Sarfaraz Khan      │
                     ╰──────────────────────────╯
 ```
 

@@ -31,7 +31,7 @@
 | 10 | Marco Jansen | All-rounder | Left | 🌍 |
 | 11 | Lockie Ferguson | Pace Bowler | Right | 🌍 |
 
-**Impact Player:** Harpreet Brar ⚡
+**Impact Sub Options:** Harpreet Brar ⚡ | Musheer Khan ⚡ | Vyshak Vijaykumar ⚡
 
 ---
 

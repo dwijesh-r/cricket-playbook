@@ -31,7 +31,7 @@
 | 10 | Kuldeep Yadav | Spinner | Left | |
 | 11 | Lungi Ngidi | Pace Bowler | Right | 🌍 |
 
-**Impact Player:** Ashutosh Sharma ⚡
+**Impact Sub Options:** T Natarajan ⚡ | Vipraj Nigam ⚡ | Ashutosh Sharma ⚡
 
 ---
 

@@ -83,7 +83,7 @@
 | 9 | Deepak Chahar | Pace Bowler | R | 9.25 Cr | |
 | 10 | Mitchell Santner | All-rounder | L | 2.0 Cr | OVERSEAS |
 | 11 | Mohammed Izhar | Pace Bowler | R | 0.3 Cr | |
-| 12 | Robin Minz | Impact Player | R | 0.65 Cr | IMPACT |
+| IP | **Impact Sub Options:** Shardul Thakur, Mayank Markande, Robin Minz | | | | IMPACT |
 
 ---
 

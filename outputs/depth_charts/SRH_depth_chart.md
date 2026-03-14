@@ -31,7 +31,7 @@
 | 10 | Shivam Mavi | Pace Bowler | Right | |
 | 11 | Eshan Malinga | Pace Bowler | Right | |
 
-**Impact Player:** Aniket Verma ⚡
+**Impact Sub Options:** Harsh Dubey ⚡ | Krains Fuletra ⚡ | Smaran Ravichandran ⚡
 
 ---
 

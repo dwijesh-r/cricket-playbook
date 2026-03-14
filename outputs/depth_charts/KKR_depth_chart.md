@@ -55,15 +55,15 @@
     ╰──────────────────╯  ╰──────────────────╯  ╰──────────────────╯
 
          ╭──────────────────╮    ╭──────────────────╮
-         │  10. V. ARORA    │    │  11. H. RANA     │
-         │      Pacer       │    │      Pacer       │
-         │     ₹1.8 Cr      │    │     ₹4.0 Cr      │
+         │  10. V. ARORA    │    │  11. A. ROY      │
+         │      Pacer       │    │    All-Rounder   │
+         │     ₹1.8 Cr      │    │     ₹0.8 Cr      │
          ╰──────────────────╯    ╰──────────────────╯
 
                     ╭──────────────────────────╮
-                    │   ⚡ IMPACT PLAYER       │
-                    │      A. RAGHUVANSHI      │
-                    │       ₹3.0 Cr            │
+                    │   ⚡ IMPACT SUB OPTIONS  │
+                    │  Akash Deep | R. Tripathi│
+                    │     | K. Tyagi           │
                     ╰──────────────────────────╯
 ```
 
@@ -117,9 +117,10 @@
 | Depth | Player | Notes |
 |:-----:|:-------|:------|
 | 1️⃣ | **Matheesha Pathirana 🌍** | ₹18 Cr - Malinga 2.0 |
-| 2️⃣ | **Harshit Rana** | Young gun |
-| 3️⃣ | **Vaibhav Arora** | Swing specialist |
-| 4️⃣ | Umran Malik | Raw pace |
+| 2️⃣ | **Vaibhav Arora** | Swing specialist (starting XI) |
+| 3️⃣ | **Akash Deep** | Impact sub option |
+| 4️⃣ | Harshit Rana | ⚠️ Injured |
+| 5️⃣ | Umran Malik | Raw pace |
 
 ---
 

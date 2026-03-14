@@ -251,10 +251,10 @@
     },
     "right_arm_pace": {
       "name": "Right-arm Pace",
-      "rating": 8.4,
-      "what_works": "Elite #1 in matheesha pathirana. quality backup in harshit rana",
-      "what_doesnt": "Minimal concerns",
-      "overseas_count": 1,
+      "rating": 8.3,
+      "what_works": "Elite #1 in matheesha pathirana. quality backup in vaibhav arora",
+      "what_doesnt": "Overseas mix (2 of 3)",
+      "overseas_count": 2,
       "players": [
         {
           "rank": 1,
@@ -270,24 +270,36 @@
         },
         {
           "rank": 2,
-          "name": "Harshit Rana",
-          "player_id": "77b1aa15",
-          "score": 64.0,
-          "rationale": "Founder XII. Lead pacer",
-          "is_overseas": false,
-          "price_cr": 4.0,
-          "bowling_type": "Fast-Medium",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
           "name": "Vaibhav Arora",
           "player_id": "7c3b3b78",
           "score": 61.0,
           "rationale": "Founder XII. Lead pacer",
           "is_overseas": false,
           "price_cr": 1.8,
+          "bowling_type": "Fast-Medium",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Cameron Green",
+          "player_id": "eaa76d3c",
+          "score": 58.3,
+          "rationale": "Founder XII. Franchise lead pacer (25.2 Cr)",
+          "is_overseas": true,
+          "price_cr": 25.2,
+          "bowling_type": "Fast",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 4,
+          "name": "Harshit Rana",
+          "player_id": "77b1aa15",
+          "score": 54.0,
+          "rationale": "Lead pacer",
+          "is_overseas": false,
+          "price_cr": 4.0,
           "bowling_type": "Fast-Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []

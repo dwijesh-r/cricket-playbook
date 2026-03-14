@@ -19,19 +19,19 @@
 
 | # | Player | Role | Hand | Overseas |
 |:-:|:-------|:-----|:----:|:--------:|
-| 1 | Aiden Markram | Middle Order | Right | 🌍 |
-| 2 | Mitchell Marsh | Opener | Right | 🌍 |
+| 1 | Mitchell Marsh | Opener | Right | 🌍 |
+| 2 | Aiden Markram | Opener | Right | 🌍 |
 | 3 | Nicholas Pooran 🧤 | Wicketkeeper | Left | 🌍 |
 | 4 | Rishabh Pant © | Middle Order | Left | |
-| 5 | Abdul Samad | Finisher | Right | |
-| 6 | Himmat Singh | All-rounder | Right | |
-| 7 | Mohammed Shami | Pace Bowler | Right | |
-| 8 | Wanindu Hasaranga | All-rounder | Right | 🌍 |
+| 5 | Ayush Badoni | Middle Order | Right | |
+| 6 | Abdul Samad | Finisher | Right | |
+| 7 | Mukul Choudhary | Wicketkeeper | Right | |
+| 8 | Shahbaz Ahmed | All-rounder | Left | |
 | 9 | Avesh Khan | Pace Bowler | Right | |
-| 10 | Mohsin Khan | Pace Bowler | Left | |
+| 10 | Mohammed Shami | Pace Bowler | Right | |
 | 11 | Digvesh Rathi | Spinner | Right | |
 
-**Impact Player:** Ayush Badoni ⚡
+**Impact Sub Options:** Mayank Yadav ⚡ | Manimaran Siddharth ⚡ | Himmat Singh ⚡
 
 ---
 
@@ -39,8 +39,8 @@
 
 | Category | Count | Players |
 |:---------|:-----:|:--------|
-| Overseas in XI | 4/4 | Markram, Marsh, Pooran, Hasaranga |
-| Wicketkeepers | 2 | Pooran, Josh Inglis |
+| Overseas in XI | 3/4 | Marsh, Markram, Pooran |
+| Wicketkeepers | 3 | Pooran, Mukul Choudhary, Josh Inglis |
 | Spinners | 5 | Hasaranga, Digvesh, Siddharth, (Markram part-time) |
 | Pacers | 6 | Shami, Avesh, Mohsin, Mayank, Nortje, Akash Singh |
 | All-rounders | 5 | Marsh, Hasaranga, Himmat, Markram |
@@ -54,9 +54,9 @@
 | Nicholas Pooran | Keeper/Opener | 21.0 | **XI** |
 | Mitchell Marsh | Opener/AR | 3.4 | **XI** |
 | Aiden Markram | Top Order/AR | 2.0 | **XI** |
-| Wanindu Hasaranga | Spinner/AR | 7.0 | **XI** |
+| Wanindu Hasaranga | Spinner/AR | 7.0 | Bench (injured) |
 | Anrich Nortje | Pacer | 2.0 | Bench |
-| Josh Inglis | Keeper | 8.6 | Bench |
+| Josh Inglis | Keeper | 8.6 | Bench (PA) |
 | Matthew Breetzke | Batter | 0.75 | Bench |
 
 ---

@@ -31,7 +31,7 @@
 | 10 | Glenn Phillips | All-rounder | Right | 🌍 |
 | 11 | Ishant Sharma | Pace Bowler | Right | |
 
-**Impact Player:** Sai Kishore ⚡
+**Impact Sub Options:** Prasidh Krishna ⚡ | Kumar Kushagra ⚡ | Ashok Sharma ⚡
 
 ---
 

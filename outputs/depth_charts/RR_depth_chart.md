@@ -31,7 +31,7 @@
 | 10 | Ravi Bishnoi | Spinner | Right | |
 | 11 | Sandeep Sharma | Pace Bowler | Right | |
 
-**Impact Player:** Tushar Deshpande ⚡
+**Impact Sub Options:** Ravi Singh ⚡ | Shubham Dubey ⚡ | Vignesh Puthur ⚡
 
 ---
 

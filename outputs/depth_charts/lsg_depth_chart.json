@@ -194,8 +194,8 @@
     },
     "wicketkeeper": {
       "name": "Wicketkeeper",
-      "rating": 8.7,
-      "what_works": "Elite #1 in rishabh pant. quality backup in josh inglis",
+      "rating": 8.3,
+      "what_works": "Elite #1 in rishabh pant. quality backup in nicholas pooran",
       "what_doesnt": "Overseas mix (2 of 3)",
       "overseas_count": 2,
       "players": [
@@ -213,24 +213,24 @@
         },
         {
           "rank": 2,
-          "name": "Josh Inglis",
-          "player_id": "989889ff",
-          "score": 69.1,
-          "rationale": "Elite keeper (Founder XII). Experienced keeper",
-          "is_overseas": true,
-          "price_cr": 8.6,
-          "bowling_type": "Medium",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 3,
           "name": "Nicholas Pooran",
           "player_id": "3241e3fd",
           "score": 68.6,
           "rationale": "Elite keeper (Founder XII). Experienced keeper",
           "is_overseas": true,
           "price_cr": 21.0,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
+          "name": "Josh Inglis",
+          "player_id": "989889ff",
+          "score": 52.1,
+          "rationale": "Wicketkeeper",
+          "is_overseas": true,
+          "price_cr": 8.6,
           "bowling_type": "Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []

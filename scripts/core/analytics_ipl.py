@@ -1107,6 +1107,187 @@ def create_all_t20_career_views(conn: duckdb.DuckDBPyConnection) -> None:
     print("  - analytics_bowling_career")
 
 
+def create_all_t20_since2023_views(conn: duckdb.DuckDBPyConnection) -> None:
+    """Create _since2023 and _alltime variants for All-T20 views.
+
+    Mirrors the IPL dual-scope pattern: supports comparison between
+    recent (2023+) and all-time performance across all T20 formats
+    (international + domestic leagues).
+    """
+
+    print("\nCreating All T20 since-2023 views...")
+
+    # -- Alltime aliases (point to existing base views) --
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_batting_career_alltime AS
+        SELECT * FROM analytics_batting_career
+    """)
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_bowling_career_alltime AS
+        SELECT * FROM analytics_bowling_career
+    """)
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_t20_batter_phase_alltime AS
+        SELECT * FROM analytics_t20_batter_phase
+    """)
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_t20_bowler_phase_alltime AS
+        SELECT * FROM analytics_t20_bowler_phase
+    """)
+    conn.execute("""
+        CREATE OR REPLACE VIEW analytics_t20_batter_vs_bowler_type_alltime AS
+        SELECT * FROM analytics_t20_batter_vs_bowler_type
+    """)
+    print("  - 5 alltime alias views created")
+
+    # -- Since 2023 variants --
+
+    # All T20 Batting Career (since 2023)
+    conn.execute(f"""
+        CREATE OR REPLACE VIEW analytics_batting_career_since2023 AS
+        SELECT
+            dp.player_id,
+            dp.current_name as player_name,
+            COUNT(DISTINCT fb.match_id) as innings,
+            SUM(fb.batter_runs) as runs,
+            SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) as balls_faced,
+            SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) as dismissals,
+            ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) as strike_rate,
+            ROUND(SUM(fb.batter_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END), 0), 2) as batting_average,
+            CASE WHEN COUNT(DISTINCT fb.match_id) < 10 THEN 'LOW'
+                 WHEN COUNT(DISTINCT fb.match_id) < 30 THEN 'MEDIUM'
+                 ELSE 'HIGH' END as sample_size_innings
+        FROM fact_ball fb
+        JOIN dim_player dp ON fb.batter_id = dp.player_id
+        JOIN dim_match dm ON fb.match_id = dm.match_id
+        WHERE dm.match_date >= '{IPL_MIN_DATE}'
+        GROUP BY dp.player_id, dp.current_name
+    """)
+    print("  - analytics_batting_career_since2023")
+
+    # All T20 Bowling Career (since 2023)
+    conn.execute(f"""
+        CREATE OR REPLACE VIEW analytics_bowling_career_since2023 AS
+        SELECT
+            dp.player_id,
+            dp.current_name as player_name,
+            COUNT(DISTINCT fb.match_id) as matches_bowled,
+            SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) as balls_bowled,
+            ROUND(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) / 6.0, 1) as overs_bowled,
+            SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END) as wickets,
+            SUM(fb.total_runs) as runs_conceded,
+            ROUND(SUM(fb.total_runs) * 6.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) as economy_rate,
+            ROUND(SUM(fb.total_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END), 0), 2) as bowling_average,
+            CASE WHEN COUNT(DISTINCT fb.match_id) < 10 THEN 'LOW'
+                 WHEN COUNT(DISTINCT fb.match_id) < 30 THEN 'MEDIUM'
+                 ELSE 'HIGH' END as sample_size_matches
+        FROM fact_ball fb
+        JOIN dim_player dp ON fb.bowler_id = dp.player_id
+        JOIN dim_match dm ON fb.match_id = dm.match_id
+        WHERE dm.match_date >= '{IPL_MIN_DATE}'
+        GROUP BY dp.player_id, dp.current_name
+    """)
+    print("  - analytics_bowling_career_since2023")
+
+    # All T20 Batter Phase (since 2023)
+    conn.execute(f"""
+        CREATE OR REPLACE VIEW analytics_t20_batter_phase_since2023 AS
+        SELECT
+            dp.player_id,
+            dp.current_name as player_name,
+            fb.match_phase,
+            COUNT(DISTINCT fb.match_id) as innings,
+            SUM(fb.batter_runs) as runs,
+            SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) as balls_faced,
+            SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) as dismissals,
+            SUM(CASE WHEN fb.batter_runs = 4 THEN 1 ELSE 0 END) as fours,
+            SUM(CASE WHEN fb.batter_runs = 6 THEN 1 ELSE 0 END) as sixes,
+            SUM(CASE WHEN fb.batter_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) as dot_balls,
+            ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) as strike_rate,
+            ROUND(SUM(fb.batter_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END), 0), 2) as batting_average,
+            ROUND((SUM(CASE WHEN fb.batter_runs = 4 THEN 1 ELSE 0 END) + SUM(CASE WHEN fb.batter_runs = 6 THEN 1 ELSE 0 END)) * 100.0 /
+                  NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) as boundary_pct,
+            ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.is_legal_ball THEN 1 ELSE 0 END) * 100.0 /
+                  NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) as dot_ball_pct,
+            CASE WHEN SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) < 100 THEN 'LOW'
+                 WHEN SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) < 500 THEN 'MEDIUM'
+                 ELSE 'HIGH' END as sample_size
+        FROM fact_ball fb
+        JOIN dim_player dp ON fb.batter_id = dp.player_id
+        JOIN dim_match dm ON fb.match_id = dm.match_id
+        WHERE dm.match_date >= '{IPL_MIN_DATE}'
+        GROUP BY dp.player_id, dp.current_name, fb.match_phase
+    """)
+    print("  - analytics_t20_batter_phase_since2023")
+
+    # All T20 Bowler Phase (since 2023)
+    conn.execute(f"""
+        CREATE OR REPLACE VIEW analytics_t20_bowler_phase_since2023 AS
+        SELECT
+            dp.player_id,
+            dp.current_name as player_name,
+            fb.match_phase,
+            COUNT(DISTINCT fb.match_id) as matches,
+            SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) as balls_bowled,
+            ROUND(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) / 6.0, 1) as overs,
+            SUM(fb.total_runs) as runs_conceded,
+            SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END) as wickets,
+            SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 THEN 1 ELSE 0 END) as dot_balls,
+            SUM(CASE WHEN fb.batter_runs = 4 THEN 1 ELSE 0 END) as fours_conceded,
+            SUM(CASE WHEN fb.batter_runs = 6 THEN 1 ELSE 0 END) as sixes_conceded,
+            ROUND(SUM(fb.total_runs) * 6.0 / NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) as economy_rate,
+            ROUND(SUM(fb.total_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.wicket_type NOT IN ('run out', 'retired hurt', 'retired out') THEN 1 ELSE 0 END), 0), 2) as bowling_average,
+            ROUND(SUM(CASE WHEN fb.batter_runs = 0 AND fb.extra_runs = 0 THEN 1 ELSE 0 END) * 100.0 /
+                  NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) as dot_ball_pct,
+            ROUND((SUM(CASE WHEN fb.batter_runs = 4 THEN 1 ELSE 0 END) + SUM(CASE WHEN fb.batter_runs = 6 THEN 1 ELSE 0 END)) * 100.0 /
+                  NULLIF(SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END), 0), 2) as boundary_conceded_pct,
+            CASE WHEN SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) < 100 THEN 'LOW'
+                 WHEN SUM(CASE WHEN fb.is_legal_ball THEN 1 ELSE 0 END) < 500 THEN 'MEDIUM'
+                 ELSE 'HIGH' END as sample_size
+        FROM fact_ball fb
+        JOIN dim_player dp ON fb.bowler_id = dp.player_id
+        JOIN dim_match dm ON fb.match_id = dm.match_id
+        WHERE dm.match_date >= '{IPL_MIN_DATE}'
+        GROUP BY dp.player_id, dp.current_name, fb.match_phase
+    """)
+    print("  - analytics_t20_bowler_phase_since2023")
+
+    # All T20 Batter vs Bowler Type (since 2023)
+    conn.execute(f"""
+        CREATE OR REPLACE VIEW analytics_t20_batter_vs_bowler_type_since2023 AS
+        SELECT
+            dp_bat.player_id as batter_id,
+            dp_bat.current_name as batter_name,
+            COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown') as bowler_type,
+            COUNT(*) as balls,
+            SUM(fb.batter_runs) as runs,
+            SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END) as dismissals,
+            ROUND(SUM(fb.batter_runs) * 100.0 / NULLIF(COUNT(*), 0), 2) as strike_rate,
+            ROUND(SUM(fb.batter_runs) * 1.0 / NULLIF(SUM(CASE WHEN fb.is_wicket AND fb.player_out_id = fb.batter_id THEN 1 ELSE 0 END), 0), 2) as average,
+            SUM(CASE WHEN fb.batter_runs = 0 THEN 1 ELSE 0 END) as dot_balls,
+            SUM(CASE WHEN fb.batter_runs = 4 THEN 1 ELSE 0 END) as fours,
+            SUM(CASE WHEN fb.batter_runs = 6 THEN 1 ELSE 0 END) as sixes,
+            ROUND(SUM(CASE WHEN fb.batter_runs = 0 THEN 1 ELSE 0 END) * 100.0 / NULLIF(COUNT(*), 0), 2) as dot_ball_pct,
+            ROUND((SUM(CASE WHEN fb.batter_runs = 4 THEN 1 ELSE 0 END) + SUM(CASE WHEN fb.batter_runs = 6 THEN 1 ELSE 0 END)) * 100.0 /
+                  NULLIF(COUNT(*), 0), 2) as boundary_pct,
+            CASE WHEN COUNT(*) < 50 THEN 'LOW'
+                 WHEN COUNT(*) < 200 THEN 'MEDIUM'
+                 ELSE 'HIGH' END as sample_size
+        FROM fact_ball fb
+        JOIN dim_player dp_bat ON fb.batter_id = dp_bat.player_id
+        JOIN dim_player dp_bowl ON fb.bowler_id = dp_bowl.player_id
+        JOIN dim_match dm ON fb.match_id = dm.match_id
+        LEFT JOIN ipl_2026_squads sq ON dp_bowl.player_id = sq.player_id
+        LEFT JOIN dim_bowler_classification bc ON dp_bowl.player_id = bc.player_id
+        WHERE fb.is_legal_ball = TRUE
+          AND dm.match_date >= '{IPL_MIN_DATE}'
+        GROUP BY dp_bat.player_id, dp_bat.current_name, COALESCE(sq.bowling_type, bc.bowling_style, 'Unknown')
+    """)
+    print("  - analytics_t20_batter_vs_bowler_type_since2023")
+
+    print("  Total: 10 All T20 dual-scope views created")
+
+
 def create_squad_integration_views(conn: duckdb.DuckDBPyConnection) -> None:
     """Create views that integrate IPL 2026 squad data with analytics."""
 
@@ -6342,6 +6523,7 @@ def main() -> int:
     create_team_venue_views(conn)
     create_t20_comparison_views(conn)
     create_all_t20_career_views(conn)
+    create_all_t20_since2023_views(conn)
     create_percentile_views(conn)
     create_matchup_matrix_views(conn)
     create_benchmark_views(conn)
@@ -6363,7 +6545,7 @@ def main() -> int:
     # Count views
     result = conn.execute("""
         SELECT COUNT(*) FROM information_schema.tables
-        WHERE table_type = 'VIEW' AND (table_name LIKE 'analytics_ipl_%' OR table_name LIKE 'analytics_t20_%')
+        WHERE table_type = 'VIEW' AND (table_name LIKE 'analytics_ipl_%' OR table_name LIKE 'analytics_t20_%' OR table_name LIKE 'analytics_batting_%' OR table_name LIKE 'analytics_bowling_%')
     """).fetchone()
 
     tables = conn.execute("""

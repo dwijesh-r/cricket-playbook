@@ -7,7 +7,7 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/favicon-32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/logo/apple-touch-icon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         /* ==================== THEME SYSTEM ==================== */
         :root {
@@ -40,6 +40,9 @@
             --glow-purple: rgba(168, 85, 247, 0.08);
             --border-accent: rgba(59, 130, 246, 0.2);
             --scanline: transparent;
+            --bg-sidebar: #080D19;
+            --brand-stat-color: rgba(255, 255, 255, 0.5);
+            --brand-sledge-color: #FFFFFF;
 
             /* === SPACING (8px base) === */
             --space-1: 4px;
@@ -115,6 +118,9 @@
             --glow-purple: rgba(168, 85, 247, 0.08);
             --border-accent: rgba(59, 130, 246, 0.2);
             --scanline: transparent;
+            --bg-sidebar: #F8F9FC;
+            --brand-stat-color: rgba(0, 0, 0, 0.5);
+            --brand-sledge-color: #1a1a2e;
             /* Elevation system - light */
             --elevation-1: 0 1px 3px rgba(15, 23, 42, 0.06);
             --elevation-2: 0 4px 12px rgba(15, 23, 42, 0.08);
@@ -414,7 +420,7 @@
             left: 0;
             bottom: 0;
             width: 240px;
-            background: #080D19;
+            background: var(--bg-sidebar);
             border-right: 1px solid rgba(148, 163, 184, 0.08);
             display: flex;
             flex-direction: column;
@@ -454,12 +460,12 @@
         }
         .sidebar-title .brand-stat {
             font-weight: 300;
-            color: rgba(255, 255, 255, 0.5);
+            color: var(--brand-stat-color);
             letter-spacing: 0.08em;
         }
         .sidebar-title .brand-sledge {
             font-weight: 800;
-            color: #FFFFFF;
+            color: var(--brand-sledge-color);
         }
 
         .sidebar-section-label {
@@ -539,7 +545,7 @@
             left: 0;
             right: 0;
             height: 56px;
-            background: #080D19;
+            background: var(--bg-sidebar);
             border-bottom: 1px solid rgba(148, 163, 184, 0.08);
             align-items: center;
             justify-content: space-between;
@@ -1608,7 +1614,7 @@
             right: 24px;
             width: 56px;
             height: 56px;
-            background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple, #6D28D9) 100%);
             border: none;
             border-radius: var(--radius-full);
             color: white;
@@ -1655,7 +1661,7 @@
         }
         .chat-header-icon {
             width: 32px; height: 32px; border-radius: var(--radius-full);
-            background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple, #6D28D9) 100%);
             display: flex; align-items: center; justify-content: center;
         }
         .chat-header-icon svg { color: white; }
@@ -1764,7 +1770,7 @@
         .chat-input::placeholder { color: var(--text-muted); }
         .chat-send {
             width: 40px; height: 40px;
-            background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple, #6D28D9) 100%);
             border: none; border-radius: var(--radius-full);
             color: white; cursor: pointer;
             display: flex; align-items: center; justify-content: center;

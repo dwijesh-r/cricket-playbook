@@ -7,7 +7,7 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/favicon-32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/logo/apple-touch-icon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         /* ==================== THEME SYSTEM ==================== */
         :root {
@@ -40,6 +40,9 @@
             --glow-purple: rgba(168, 85, 247, 0.08);
             --border-accent: rgba(59, 130, 246, 0.2);
             --scanline: transparent;
+            --bg-sidebar: #080D19;
+            --brand-stat-color: rgba(255, 255, 255, 0.5);
+            --brand-sledge-color: #FFFFFF;
 
             /* === SPACING (8px base) === */
             --space-1: 4px;
@@ -122,6 +125,9 @@
             --glow-purple: rgba(147, 51, 234, 0.04);
             --border-accent: rgba(37, 99, 235, 0.12);
             --scanline: transparent;
+            --bg-sidebar: #F8F9FC;
+            --brand-stat-color: rgba(0, 0, 0, 0.5);
+            --brand-sledge-color: #1a1a2e;
             /* Elevation system - light */
             --elevation-1: 0 1px 3px rgba(15, 23, 42, 0.06);
             --elevation-2: 0 4px 12px rgba(15, 23, 42, 0.08);
@@ -504,15 +510,15 @@
         }
 
         /* Sidebar Navigation */
-        .sidebar { position: fixed; top: 0; left: 0; bottom: 0; width: 240px; background: #080D19; border-right: 1px solid rgba(148, 163, 184, 0.08); display: flex; flex-direction: column; z-index: 100; overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(148, 163, 184, 0.15) transparent; }
+        .sidebar { position: fixed; top: 0; left: 0; bottom: 0; width: 240px; background: var(--bg-sidebar); border-right: 1px solid rgba(148, 163, 184, 0.08); display: flex; flex-direction: column; z-index: 100; overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(148, 163, 184, 0.15) transparent; }
         .sidebar::-webkit-scrollbar { width: 4px; }
         .sidebar::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.15); border-radius: 4px; }
         .sidebar-brand { display: flex; align-items: center; gap: 12px; padding: 20px 20px 16px; border-bottom: 1px solid rgba(148, 163, 184, 0.06); margin-bottom: 8px; }
         .sidebar-logo { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .sidebar-logo svg { width: 100%; height: 100%; }
         .sidebar-title { font-family: var(--font-body); font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1; }
-        .sidebar-title .brand-stat { font-weight: 300; color: rgba(255, 255, 255, 0.5); letter-spacing: 0.08em; }
-        .sidebar-title .brand-sledge { font-weight: 800; color: #FFFFFF; }
+        .sidebar-title .brand-stat { font-weight: 300; color: var(--brand-stat-color); letter-spacing: 0.08em; }
+        .sidebar-title .brand-sledge { font-weight: 800; color: var(--brand-sledge-color); }
         .sidebar-section-label { font-family: var(--font-body); font-size: 11px; font-weight: 600; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.1em; padding: 16px 20px 8px; }
         .sidebar-nav { display: flex; flex-direction: column; gap: 2px; padding: 0 8px; flex: 1; }
         .sidebar-link { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: var(--radius-md); font-size: 13px; font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: all 150ms ease-in-out; border-left: 3px solid transparent; white-space: nowrap; }
@@ -522,7 +528,7 @@
         .sidebar-footer { padding: 12px 8px 16px; border-top: 1px solid rgba(148, 163, 184, 0.06); margin-top: auto; display: flex; flex-direction: column; gap: 8px; }
         .sidebar-footer .sidebar-link { font-size: 12px; }
         .sidebar-time { font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); font-variant-numeric: tabular-nums; padding: 6px 12px; text-align: center; }
-        .mobile-topbar { display: none; position: fixed; top: 0; left: 0; right: 0; height: 56px; background: #080D19; border-bottom: 1px solid rgba(148, 163, 184, 0.08); align-items: center; justify-content: space-between; padding: 0 16px; z-index: 100; }
+        .mobile-topbar { display: none; position: fixed; top: 0; left: 0; right: 0; height: 56px; background: var(--bg-sidebar); border-bottom: 1px solid rgba(148, 163, 184, 0.08); align-items: center; justify-content: space-between; padding: 0 16px; z-index: 100; }
         .mobile-topbar .sidebar-logo { width: 28px; height: 28px; }
         .mobile-topbar .sidebar-title { font-size: 14px; }
         .mobile-menu-btn { display: none; width: 40px; height: 40px; border-radius: var(--radius-md); background: transparent; border: 1px solid rgba(148, 163, 184, 0.12); color: var(--text-secondary); cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 8px; }
@@ -3357,7 +3363,7 @@
             text-justify: inter-word;
             overflow-wrap: break-word;
             word-break: break-word;
-            font-family: 'DM Sans', var(--font-body);
+            font-family: var(--font-body);
         }
         .preview-hero-intro::first-line {
             color: var(--text-primary);
@@ -4197,7 +4203,7 @@
     right: 24px;
     width: 56px;
     height: 56px;
-    background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple, #6D28D9) 100%);
     border: none;
     border-radius: 50%;
     color: white;
@@ -4220,7 +4226,7 @@
     right: 24px;
     width: 400px;
     height: 520px;
-    background: #1a1a2e;
+    background: var(--bg-secondary);
     border: 1px solid rgba(139,92,246,0.3);
     border-radius: 16px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 40px rgba(139,92,246,0.1);
@@ -4232,7 +4238,7 @@
 .chat-panel.active { display: flex; }
 .chat-header {
     padding: 16px 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -4244,22 +4250,22 @@
 }
 .chat-header-icon {
     width: 32px; height: 32px; border-radius: 50%;
-    background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple, #6D28D9) 100%);
     display: flex; align-items: center; justify-content: center;
 }
 .chat-header-icon svg { color: white; }
 .chat-header h4 {
-    font-size: 14px; font-weight: 700; color: #e2e8f0; margin: 0;
+    font-size: 14px; font-weight: 700; color: var(--text-primary); margin: 0;
 }
 .chat-header p {
-    font-size: 11px; color: #94a3b8; margin: 0;
+    font-size: 11px; color: var(--text-secondary); margin: 0;
 }
 .chat-close {
     width: 30px; height: 30px; background: #2a2a3e; border: none;
     border-radius: 50%; color: #e2e8f0; font-size: 16px;
     cursor: pointer; display: flex; align-items: center; justify-content: center;
 }
-.chat-close:hover { background: #8B5CF6; }
+.chat-close:hover { background: var(--accent); }
 .chat-messages {
     flex: 1;
     overflow-y: auto;
@@ -4352,7 +4358,7 @@
 .chat-input::placeholder { color: #64748b; }
 .chat-send {
     width: 40px; height: 40px;
-    background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple, #6D28D9) 100%);
     border: none; border-radius: 50%;
     color: white; cursor: pointer;
     display: flex; align-items: center; justify-content: center;
@@ -6467,12 +6473,15 @@
 
             // Role icon SVGs
             const getRoleIcon = (role) => {
-                // Simple, clean icons — no fussy detail at small sizes
                 const icons = {
-                    'Batter': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="6" y1="20" x2="17" y2="4"/><line x1="17" y1="4" x2="20" y2="7"/></svg>',
-                    'Bowler': '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg>',
-                    'All-rounder': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="21" x2="13" y2="7"/><circle cx="18" cy="7" r="4" fill="currentColor" stroke="none"/></svg>',
-                    'Wicketkeeper': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15c0-4 3-7 6-7s6 3 6 7"/><line x1="6" y1="15" x2="18" y2="15"/></svg>'
+                    // Cricket bat — blade with handle
+                    'Batter': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20l2-2"/><rect x="9" y="5" width="4" height="13" rx="1" transform="rotate(-30 12 12)" fill="currentColor" opacity="0.25" stroke="currentColor"/><line x1="7.5" y1="17.5" x2="4" y2="21"/></svg>',
+                    // Cricket ball — circle with seam line
+                    'Bowler': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="7"/><path d="M8 6.5c2 2.5 2 8.5 0 11" /><path d="M16 6.5c-2 2.5-2 8.5 0 11"/></svg>',
+                    // Bat + ball combined
+                    'All-rounder': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="3.5" height="11" rx="1" transform="rotate(-25 5 12)" fill="currentColor" opacity="0.25" stroke="currentColor"/><line x1="4" y1="17" x2="2" y2="20"/><circle cx="17" cy="8" r="5"/><path d="M14.5 4.5c1.2 1.5 1.2 5.5 0 7"/><path d="M19.5 4.5c-1.2 1.5-1.2 5.5 0 7"/></svg>',
+                    // WK glove + bat
+                    'Wicketkeeper': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14c0-3.5 2.5-6.5 5.5-6.5S15 10.5 15 14" fill="currentColor" opacity="0.15"/><path d="M4 14c0-3.5 2.5-6.5 5.5-6.5S15 10.5 15 14"/><line x1="4" y1="14" x2="15" y2="14"/><path d="M6 7.5l-1-2.5M9.5 6l0-3M13 7.5l1-2.5"/><rect x="18" y="8" width="2.5" height="10" rx="0.8" transform="rotate(-15 19 13)" fill="currentColor" opacity="0.25" stroke="currentColor"/><line x1="18.5" y1="18" x2="17.5" y2="21"/></svg>'
                 };
                 return icons[role] || '';
             };
@@ -8053,7 +8062,8 @@
                         <span><strong>No IPL data</strong> &mdash; T20 stats from ${tournamentNames}</span>
                     </div>`;
                 } else {
-                    const roleIcon = p.player_type === 'bowler' ? '\u{1F3AF}' : p.player_type === 'allrounder' ? '\u{1F4AA}' : '\u{1F3CF}';
+                    const roleMap = { 'bowler': 'Bowler', 'allrounder': 'All-rounder', 'batter': 'Batter', 'wicketkeeper': 'Wicketkeeper' };
+                    const roleIcon = getRoleIcon(roleMap[p.player_type] || 'Batter');
                     html += `<div class="pp-no-data">
                         <div class="pp-no-data-icon">${roleIcon}</div>
                         <div class="pp-no-data-title">One to Watch</div>

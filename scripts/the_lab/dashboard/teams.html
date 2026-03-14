@@ -441,19 +441,19 @@
         .phase-group {
             display: flex;
             flex-direction: column;
-            gap: var(--space-1);
+            gap: var(--space-2);
         }
         .phase-row {
             display: flex;
             align-items: center;
-            gap: var(--space-1);
+            gap: 6px;
         }
         .phase-label {
             font-size: var(--text-xs);
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.3px;
-            width: 20px;
+            width: 28px;
             color: var(--text-tertiary);
             flex-shrink: 0;
         }
@@ -2042,6 +2042,7 @@
             color: var(--text-secondary);
             text-transform: uppercase;
             letter-spacing: 0.3px;
+            white-space: nowrap;
         }
         .compare-table .better { color: var(--accent-green); }
         .compare-table .worse { color: var(--accent-red); opacity: 0.7; }
@@ -5040,11 +5041,12 @@
                 const nat = squadNatLookup[player.name] || (player.overseas ? 'OS' : 'IND');
                 const card = document.createElement('div');
                 card.className = 'player-card';
+                const xiRoleEmoji = {'Wicketkeeper': '\u{1F9E4}', 'Batter': '\u{1F3CF}', 'Bowler': '\u{1F3AF}', 'All-rounder': '\u{1F4AA}'}[player.role] || '';
                 card.innerHTML = `
                     <div class="player-position">${player.position}</div>
                     <div class="player-info">
                         <span class="player-name player-clickable" onclick="openPlayerProfile('${player.name.replace(/'/g, "\\\\'")}')">${player.name}</span>${getInjuryBadge(player.name)}
-                        <span class="player-role" style="margin-left:8px;opacity:0.6;">  ${player.role} · ${player.batting}</span>
+                        <span class="player-role" style="margin-left:8px;opacity:0.6;">${xiRoleEmoji} ${player.role}</span>
                     </div>
                     <div class="player-meta">
                         <span class="player-price">₹${player.price}Cr</span>
@@ -5062,7 +5064,7 @@
                 <div class="impact-badge">⚡ IMPACT</div>
                 <div class="player-info">
                     <div class="player-name player-clickable" onclick="openPlayerProfile('${predicted.impactPlayer.name.replace(/'/g, "\\\\'")}')">${predicted.impactPlayer.name}</div>
-                    <div class="player-role">${predicted.impactPlayer.role}</div>
+                    <div class="player-role">${{'Wicketkeeper': '\u{1F9E4}', 'Batter': '\u{1F3CF}', 'Bowler': '\u{1F3AF}', 'All-rounder': '\u{1F4AA}'}[predicted.impactPlayer.role] || ''} ${predicted.impactPlayer.role}</div>
                 </div>
                 <div class="player-meta">
                     <div class="player-price">₹${predicted.impactPlayer.price} Cr</div>
@@ -5332,6 +5334,17 @@
                                 <span class="venue-character ${charClass}">${venueCharacter}</span>
                                 <span style="font-size: 12px; color: var(--text-tertiary); margin-left: 8px;">${spinCount} spin &middot; ${paceCount} pace</span>
                             </div>
+                        </div>
+
+                        <div style="display: flex; gap: 12px; margin-bottom: 12px; flex-wrap: wrap;">
+                            ${homeVenue.avgFirstInningsScore ? `<div style="flex:1;min-width:100px;padding:8px 12px;border-radius:var(--radius-md);background:var(--bg-tertiary);text-align:center;">
+                                <div style="font-size:20px;font-weight:700;color:var(--text-primary);">${typeof homeVenue.avgFirstInningsScore === 'number' ? homeVenue.avgFirstInningsScore.toFixed(0) : homeVenue.avgFirstInningsScore}</div>
+                                <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-tertiary);margin-top:2px;">Avg 1st Inn</div>
+                            </div>` : ''}
+                            ${homeVenue.chaseWinPct ? `<div style="flex:1;min-width:100px;padding:8px 12px;border-radius:var(--radius-md);background:var(--bg-tertiary);text-align:center;">
+                                <div style="font-size:20px;font-weight:700;color:${homeVenue.chaseWinPct >= 50 ? 'var(--accent-green)' : 'var(--accent-red)'};">${typeof homeVenue.chaseWinPct === 'number' ? homeVenue.chaseWinPct.toFixed(0) : homeVenue.chaseWinPct}%</div>
+                                <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-tertiary);margin-top:2px;">Chase Win %</div>
+                            </div>` : ''}
                         </div>
 
                         <div class="venue-phase-grid">
@@ -5683,14 +5696,34 @@
                 const battingRows = buildRows(battingPositions, 0, 'batting');
                 const bowlingRows = buildRows(bowlingPositions, battingPositions.length, 'bowling');
 
-                const vulnerabilitiesHtml = fullDepth.vulnerabilities && fullDepth.vulnerabilities.length > 0 ?
+                // Derive key strengths from high-rated positions (8+)
+                const keyStrengths = fullDepth.positions
+                    .filter(pos => pos.rating >= 8)
+                    .sort((a, b) => b.rating - a.rating)
+                    .slice(0, 5)
+                    .map(pos => `${pos.name}: strong depth (rating ${pos.rating.toFixed(1)})`);
+
+                const strengthsHtml = keyStrengths.length > 0 ?
+                    `<div class="strategy-section" style="margin-bottom: 20px;">
+                        <div class="strategy-section-header" style="border-left-color: var(--accent-green);">
+                            <div class="strategy-section-title" style="font-size: 13px;">Key Strengths</div>
+                            <span class="strategy-section-badge" style="background: rgba(34, 197, 94, 0.15); color: var(--accent-green);">${keyStrengths.length} Found</span>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 6px;">
+                            ${keyStrengths.map(s => `<div style="font-size: 13px; color: var(--text-secondary); padding: 6px 0 6px 14px; border-left: 2px solid rgba(34, 197, 94, 0.2);">${s}</div>`).join('')}
+                        </div>
+                    </div>` : '';
+
+                // Filter out vulnerabilities for categories with 0.0 rating (no players exist in category, not a real weakness)
+                const filteredVulns = (fullDepth.vulnerabilities || []).filter(v => !v.includes('rating 0.0'));
+                const vulnerabilitiesHtml = filteredVulns.length > 0 ?
                     `<div class="strategy-section" style="margin-bottom: 20px;">
                         <div class="strategy-section-header" style="border-left-color: var(--accent-orange);">
                             <div class="strategy-section-title" style="font-size: 13px;">Key Vulnerabilities</div>
-                            <span class="strategy-section-badge" style="background: rgba(249, 115, 22, 0.15); color: var(--accent-orange);">${fullDepth.vulnerabilities.length} Found</span>
+                            <span class="strategy-section-badge" style="background: rgba(249, 115, 22, 0.15); color: var(--accent-orange);">${filteredVulns.length} Found</span>
                         </div>
                         <div style="display: flex; flex-direction: column; gap: 6px;">
-                            ${fullDepth.vulnerabilities.map(v => `<div style="font-size: 13px; color: var(--text-secondary); padding: 6px 0 6px 14px; border-left: 2px solid rgba(249, 115, 22, 0.2);">${v}</div>`).join('')}
+                            ${filteredVulns.map(v => `<div style="font-size: 13px; color: var(--text-secondary); padding: 6px 0 6px 14px; border-left: 2px solid rgba(249, 115, 22, 0.2);">${v}</div>`).join('')}
                         </div>
                     </div>` : '';
 
@@ -5717,6 +5750,7 @@
                             <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">${fullDepth.weakest}</div>
                         </div>
                     </div>
+                    ${strengthsHtml}
                     ${vulnerabilitiesHtml}
 
                     <div class="strategy-section-header" style="margin-bottom: 10px;">
@@ -6493,7 +6527,7 @@
                             <th scope="col" class="has-tooltip" data-tooltip="Player archetype from clustering analysis (e.g., Power Hitter, Anchor, Finisher)">Archetype</th>
                             <th scope="col" class="has-tooltip" data-tooltip="Phase specialization split by batting (BAT) and bowling (BWL): PP (1-6), MID (7-15), DTH (16-20)">Phase</th>
                             <th scope="col" class="has-tooltip" data-tooltip="Player's current age">Age</th>
-                            <th scope="col" class="has-tooltip" data-tooltip="IPL matches played (2023-2025 window). U = uncapped. Career totals coming soon.">IPL</th>
+                            <th scope="col" class="has-tooltip" data-tooltip="IPL matches played (all-time). U = uncapped.">IPL</th>
                             <th scope="col" class="has-tooltip" data-tooltip="Nationality: Indian or Overseas (max 4 overseas per XI)">Nat</th>
                         </tr>
                     </thead>

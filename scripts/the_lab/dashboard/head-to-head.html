@@ -187,7 +187,7 @@
 
         /* Scope Toggle */
         .scope-toggle-wrap { display: flex; justify-content: center; margin: 0 auto 20px; max-width: var(--container-max); padding: 0 24px; }
-        .scope-toggle { display: flex; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-full); padding: var(--space-1); gap: var(--space-1); }
+        .scope-toggle { display: inline-flex; align-items: center; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-full); padding: var(--space-1); gap: var(--space-1); }
         .scope-btn { padding: var(--space-2) 20px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 600; color: var(--text-secondary); background: transparent; border: none; cursor: pointer; transition: all var(--transition-fast); font-family: var(--font-body); letter-spacing: 0.02em; white-space: nowrap; }
         .scope-btn:hover { color: var(--text-primary); background: var(--bg-tertiary); }
         .scope-btn.active { background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-teal) 100%); color: #000; }
@@ -219,6 +219,80 @@
             .stats-table { font-size: var(--text-xs); }
             .stats-table th, .stats-table td { padding: var(--space-1) var(--space-2); }
         }
+        /* ==================== H2H HOVER & TOOLTIPS ==================== */
+        .h2h-stat-tooltip {
+            position: relative;
+            cursor: help;
+        }
+        .h2h-stat-tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+            border: 1px solid var(--border-accent);
+            border-radius: var(--radius-sm);
+            padding: 6px 10px;
+            font-size: 11px;
+            font-family: var(--font-body);
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: normal;
+            white-space: normal;
+            max-width: 240px;
+            z-index: 60;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 150ms ease-in-out;
+            box-shadow: var(--elevation-2);
+            line-height: 1.4;
+        }
+        .h2h-stat-tooltip:hover::after {
+            opacity: 1;
+        }
+
+        /* Selection bar hover polish */
+        .selection-bar {
+            transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+        }
+        .selection-bar:hover {
+            border-color: var(--border-accent);
+            box-shadow: 0 0 0 1px var(--glow-accent);
+        }
+
+        /* Player slot hover */
+        .player-slot .search-input:hover {
+            border-color: var(--accent);
+        }
+
+        /* Stats grid cards hover */
+        .career-stats-grid > div {
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+        .career-stats-grid > div:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--elevation-2);
+        }
+
+        /* Phase card hover */
+        .phase-card {
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+        .phase-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--elevation-2);
+        }
+
+        /* Verdict badge hover */
+        .verdict-badge {
+            transition: transform var(--transition-fast);
+        }
+        .verdict-badge:hover {
+            transform: scale(1.05);
+        }
+
         /* ==================== REPORT ISSUE ==================== */
         .report-btn { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; background: #dc2626; border: none; border-radius: var(--radius-full); color: white; cursor: pointer; z-index: 90; transition: all var(--transition-normal); display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 12px rgba(220,38,38,0.4); }
         .report-btn:hover { background: #b91c1c; color: white; transform: scale(1.08); box-shadow: 0 4px 20px rgba(220,38,38,0.6); }
@@ -789,6 +863,16 @@
         html += '</div>';
 
         // Stats grid
+        const H2H_TOOLTIPS = {
+            'Balls': 'Total balls faced in this matchup',
+            'Runs': 'Total runs scored off this bowler',
+            'Dismissals': 'Number of times the bowler got the batter out',
+            'Strike Rate': 'Runs scored per 100 balls (higher = batter dominant)',
+            'Average': 'Runs per dismissal (higher = batter dominant)',
+            'Boundary%': 'Percentage of balls hit for 4s or 6s',
+            'Dot%': 'Percentage of balls with zero runs (higher = bowler dominant)',
+            'Six%': 'Percentage of balls hit for sixes'
+        };
         const stats = [
             { label: 'Balls', value: c.balls },
             { label: 'Runs', value: c.runs },
@@ -802,8 +886,9 @@
 
         html += '<div class="career-stats-grid">';
         stats.forEach(s => {
+            var tipAttr = H2H_TOOLTIPS[s.label] ? ' class="h2h-stat-tooltip" data-tooltip="' + escapeHtml(H2H_TOOLTIPS[s.label]) + '"' : '';
             html += '<div style="text-align: center; padding: var(--space-2); background: var(--bg-tertiary); border-radius: var(--radius-md); border: 1px solid var(--border);">';
-            html += '<div style="font-size: var(--text-xs); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.08em;">' + s.label + '</div>';
+            html += '<div style="font-size: var(--text-xs); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.08em;"' + tipAttr + '>' + s.label + '</div>';
             html += '<div style="font-size: var(--text-xl); font-weight: 700; font-family: var(--font-mono); color: var(--text-primary); margin-top: 2px;">' + fmtVal(s.value) + '</div>';
             html += '</div>';
         });

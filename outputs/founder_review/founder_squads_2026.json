@@ -5164,7 +5164,7 @@
           "team_name": "Royal Challengers Bengaluru",
           "squad_number": 19,
           "player_name": "Rasikh Salam",
-          "player_id": null,
+          "player_id": "b8527c3d",
           "batting_hand": "Right-hand",
           "bowling_arm": "Right-arm",
           "bowling_type": "Fast-Medium",
@@ -5175,12 +5175,12 @@
           "notes": null,
           "is_predicted_xii": false,
           "batting_position": null,
-          "price_cr": 0.0,
-          "ipl_matches": 0,
-          "ipl_batting_runs": 0,
-          "ipl_batting_sr": 0.0,
-          "ipl_bowling_wickets": 0,
-          "ipl_bowling_economy": 0.0
+          "price_cr": 0.30,
+          "ipl_matches": 13,
+          "ipl_batting_runs": 23,
+          "ipl_batting_sr": 112.5,
+          "ipl_bowling_wickets": 10,
+          "ipl_bowling_economy": 11.21
         },
         {
           "team_abbrev": "RCB",

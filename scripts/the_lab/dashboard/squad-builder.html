@@ -1122,8 +1122,20 @@
     function getPositionalRoleLabel(player) {
         // Map player to human-readable role label
         if (!player.predictedXII) return { label: 'Squad', cssClass: 'squad-only' };
-        const pos = player.founderPos;
+        const pos = player.battingPos;
         if (!pos) return { label: 'Squad', cssClass: 'squad-only' };
+
+        // Detect top-order allrounders by batting class/tags regardless of listed position.
+        // Players like Sunil Narine have a high batting order position in the data (pos 8+)
+        // because they're classified by bowling role, but actually bat at the top of the order.
+        const batClass = (player.batterClass || '').toLowerCase();
+        const batTags = (player.batterTags || []).map(t => t.toUpperCase());
+        const isTopOrderBatter = batClass.includes('opener') || batClass.includes('aggressor') ||
+            batTags.includes('EXPLOSIVE_OPENER') || batTags.includes('PP_DOMINATOR');
+
+        if (isTopOrderBatter && pos >= 8 && player.role === 'All-rounder') {
+            return { label: 'AR (Bat)', cssClass: 'opener' };
+        }
 
         if (pos <= 2) return { label: 'Opener', cssClass: 'opener' };
         if (pos === 3) return { label: '#3 Batter', cssClass: 'number3' };
@@ -1141,6 +1153,10 @@
                 return { label: 'Spinner', cssClass: 'bowler-role' };
             }
             if (key.includes('allrounder')) {
+                // Distinguish batting vs bowling allrounders using batting class
+                if (batClass.includes('anchor') || batClass.includes('finisher') || batClass.includes('accumulator')) {
+                    return { label: 'AR (Bat)', cssClass: 'finisher' };
+                }
                 return { label: 'AR (Bowl)', cssClass: 'bowler-role' };
             }
             if (key.includes('middle_overs')) {
@@ -1497,12 +1513,20 @@
         // Top-order (pos 1-3): face most balls, most opportunity for runs & milestones
         // Middle-order finishers (pos 4-6): high-impact but fewer balls
         // Key bowlers (pos 9-11): bowl full 4 overs = more wicket chances
-        const pos = p.founderPos;
+        const pos = p.battingPos;
         if (pos) {
-            if (pos <= 3) score += 4;       // opener/top-order: most fantasy opportunity
-            else if (pos <= 6) score += 2.5; // middle-order: high SR impact
-            else if (pos >= 9) score += 2;   // frontline bowler: full bowling quota
-            else score += 1;                 // pos 7-8: floating role
+            // Detect top-order allrounders whose listed pos doesn't reflect actual batting usage
+            const bClass = (p.batterClass || '').toLowerCase();
+            const bTags = (p.batterTags || []).map(t => t.toUpperCase());
+            const isTopOrderAR = pos >= 8 && p.role === 'All-rounder' &&
+                (bClass.includes('opener') || bClass.includes('aggressor') ||
+                 bTags.includes('EXPLOSIVE_OPENER') || bTags.includes('PP_DOMINATOR'));
+
+            if (isTopOrderAR) score += 4;           // top-order AR: dual fantasy value
+            else if (pos <= 3) score += 4;           // opener/top-order: most fantasy opportunity
+            else if (pos <= 6) score += 2.5;         // middle-order: high SR impact
+            else if (pos >= 9) score += 2;           // frontline bowler: full bowling quota
+            else score += 1;                         // pos 7-8: floating role
         }
 
         // Schedule-aware venue matchup boost (0-5): replaces generic tag-based venue signal
@@ -1631,7 +1655,8 @@
                 const player = {
                     ...p,
                     teamAbbrev: abbrev,
-                    teamName: TEAMS[abbrev] ? TEAMS[abbrev].name : abbrev
+                    teamName: TEAMS[abbrev] ? TEAMS[abbrev].name : abbrev,
+                    battingPos: p.founderPos  // normalize legacy field name
                 };
                 player.fantasyValue = calcFantasyValue(player);
                 player.ceiling = calcCeiling(player);

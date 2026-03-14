@@ -678,6 +678,132 @@
             color: #fff;
         }
 
+        /* ==================== LIST VIEW ==================== */
+        .view-mode-toggle {
+            display: flex; justify-content: flex-end; align-items: center; gap: var(--space-2);
+            max-width: 1200px; margin: 0 auto; padding: 0 24px var(--space-3);
+        }
+        .view-mode-btn {
+            padding: var(--space-1) var(--space-2); border-radius: var(--radius-sm);
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            color: var(--text-tertiary); cursor: pointer; transition: all var(--transition-normal);
+            font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center;
+            width: 34px; height: 34px;
+        }
+        .view-mode-btn:hover { color: var(--text-primary); border-color: var(--accent); }
+        .view-mode-btn.active { color: var(--accent); border-color: var(--accent); background: rgba(59,130,246,0.08); }
+
+        .venue-list-table-wrapper {
+            overflow-x: auto; -webkit-overflow-scrolling: touch;
+            max-width: 1200px; margin: 0 auto var(--space-9); padding: 0 24px;
+        }
+        .venue-list-table {
+            width: 100%; border-collapse: collapse; min-width: 700px;
+        }
+        .venue-list-table thead th {
+            padding: var(--space-3); font-size: var(--text-xs); text-transform: uppercase;
+            letter-spacing: 0.08em; font-weight: 700; color: var(--text-tertiary);
+            text-align: left; border-bottom: 2px solid var(--border); background: var(--bg-secondary);
+            cursor: pointer; user-select: none; white-space: nowrap;
+            transition: color var(--transition-normal);
+        }
+        .venue-list-table thead th:hover { color: var(--accent); }
+        .venue-list-table thead th.sorted { color: var(--accent); }
+        .venue-list-table thead th .sort-arrow { font-size: 10px; margin-left: 4px; }
+        .venue-list-table tbody td {
+            padding: var(--space-3); font-size: var(--text-sm); color: var(--text-primary);
+            border-bottom: 1px solid var(--border); font-variant-numeric: tabular-nums;
+        }
+        .venue-list-table tbody tr {
+            cursor: pointer; transition: background var(--transition-fast);
+        }
+        .venue-list-table tbody tr:hover { background: rgba(59,130,246,0.06); }
+        .venue-list-name {
+            font-weight: 700; color: var(--text-primary);
+        }
+        .venue-list-city {
+            font-size: var(--text-xs); color: var(--text-tertiary); margin-top: 2px;
+        }
+
+        /* ==================== VENUE CARD HOVER TOOLTIP ==================== */
+        .venue-card {
+            position: relative;
+        }
+        .venue-card-tooltip {
+            position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+            background: var(--bg-elevated); border: 1px solid var(--accent);
+            border-radius: var(--radius-md); padding: var(--space-3);
+            min-width: 240px; max-width: 300px; z-index: 20;
+            box-shadow: var(--elevation-3); pointer-events: none;
+            opacity: 0; transition: opacity var(--transition-normal), transform var(--transition-normal);
+            font-size: var(--text-xs); line-height: 1.6;
+        }
+        .venue-card:hover .venue-card-tooltip {
+            opacity: 1; transform: translateX(-50%) translateY(-4px);
+        }
+        .venue-card-tooltip::after {
+            content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+            border: 6px solid transparent; border-top-color: var(--accent);
+        }
+        .tooltip-row {
+            display: flex; justify-content: space-between; padding: 2px 0;
+        }
+        .tooltip-label { color: var(--text-tertiary); }
+        .tooltip-value { font-weight: 700; color: var(--text-primary); }
+        .tooltip-title {
+            font-weight: 700; font-size: var(--text-sm); color: var(--accent);
+            margin-bottom: var(--space-1); border-bottom: 1px solid var(--border);
+            padding-bottom: var(--space-1);
+        }
+
+        /* ==================== COMPARE W-L SECTION ==================== */
+        .wl-records-section {
+            margin-top: var(--space-6);
+        }
+        .wl-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);
+            margin-bottom: var(--space-6);
+        }
+        .wl-card {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: var(--radius-lg); padding: var(--space-4);
+        }
+        .wl-card-title {
+            font-family: var(--font-display); font-size: var(--text-md); font-weight: 700;
+            margin-bottom: var(--space-3); text-align: center;
+        }
+        .wl-card-title.venue-a-color { color: var(--accent); }
+        .wl-card-title.venue-b-color { color: var(--accent-purple); }
+        .wl-stat-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: var(--space-2) 0; border-bottom: 1px solid var(--border);
+            font-size: var(--text-sm);
+        }
+        .wl-stat-row:last-child { border-bottom: none; }
+        .wl-stat-label { color: var(--text-tertiary); font-weight: 500; }
+        .wl-stat-value { font-weight: 700; font-variant-numeric: tabular-nums; }
+
+        @media (max-width: 768px) {
+            .wl-grid { grid-template-columns: 1fr; }
+            .venue-card-tooltip { display: none; }
+            .view-mode-toggle { padding: 0 16px var(--space-3); }
+            .venue-list-table-wrapper { padding: 0 16px; }
+        }
+
+        /* ==================== COMPARISON ALIGNMENT FIX ==================== */
+        .comparison-overview {
+            align-items: stretch;
+        }
+        .comparison-venue-card {
+            display: flex; flex-direction: column;
+        }
+        .comparison-venue-card .comparison-stat-row:last-child {
+            margin-top: auto;
+        }
+        .comparison-divider {
+            align-self: center;
+        }
+
         /* ==================== HIDDEN UTILITY ==================== */
         .hidden { display: none !important; }
     </style>
@@ -762,8 +888,31 @@
                 </select>
             </div>
 
+            <!-- View Mode Toggle (Grid / List) -->
+            <div class="view-mode-toggle">
+                <button class="view-mode-btn active" id="grid-mode-btn" onclick="setViewMode('grid')" title="Grid view" aria-label="Grid view">&#9638;&#9638;</button>
+                <button class="view-mode-btn" id="list-mode-btn" onclick="setViewMode('list')" title="List view" aria-label="List view">&#9776;</button>
+            </div>
+
             <!-- Venue Cards Grid -->
             <div class="venue-grid" id="venue-grid"></div>
+
+            <!-- Venue List Table -->
+            <div class="venue-list-table-wrapper hidden" id="venue-list">
+                <table class="venue-list-table">
+                    <thead>
+                        <tr>
+                            <th onclick="sortListBy('name')">Venue <span class="sort-arrow"></span></th>
+                            <th onclick="sortListBy('city')">City <span class="sort-arrow"></span></th>
+                            <th onclick="sortListBy('character')">Character <span class="sort-arrow"></span></th>
+                            <th onclick="sortListBy('avgScore')">Avg 1st Inn <span class="sort-arrow"></span></th>
+                            <th onclick="sortListBy('chaseWinPct')">Chase Win % <span class="sort-arrow"></span></th>
+                            <th onclick="sortListBy('chaseFriendly')">Chase Friendly <span class="sort-arrow"></span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="venue-list-body"></tbody>
+                </table>
+            </div>
         </div>
 
         <!-- ==================== VENUE DETAIL VIEW ==================== -->
@@ -808,6 +957,9 @@
     // ==================== STATE ====================
     let currentView = 'grid';
     let currentSort = 'avgScore';
+    let currentViewMode = 'grid'; // 'grid' or 'list'
+    let listSortCol = 'avgScore';
+    let listSortAsc = false;
     let selectedVenueKey = null;
     let currentScope = (VENUE_DATA.metadata && VENUE_DATA.metadata.defaultScope) || 'since2023';
 
@@ -834,6 +986,7 @@
         // Re-render the current view
         if (currentView === 'grid') {
             renderVenueGrid();
+            if (currentViewMode === 'list') renderVenueList();
         } else if (currentView === 'detail' && selectedVenueKey) {
             showVenueDetail(selectedVenueKey);
         } else if (currentView === 'compare') {
@@ -874,6 +1027,10 @@
         if (view === 'grid') {
             selectedVenueKey = null;
             renderVenueGrid();
+            if (currentViewMode === 'list') renderVenueList();
+            // Restore view mode toggle state
+            document.getElementById('venue-grid').classList.toggle('hidden', currentViewMode !== 'grid');
+            document.getElementById('venue-list').classList.toggle('hidden', currentViewMode !== 'list');
         }
     }
 
@@ -919,7 +1076,23 @@
                 ? '<span class="chase-indicator friendly">&#10003;</span>'
                 : '<span class="chase-indicator not-friendly">&#10007;</span>';
 
+            // Build tooltip phase data
+            var ppBF = (v.phases && v.phases.powerplay && v.phases.powerplay.battingFirst) || {};
+            var deathBF = (v.phases && v.phases.death && v.phases.death.battingFirst) || {};
+            var spinPct = v.spinWicketPct || '-';
+
+            var tooltipHtml =
+                '<div class="venue-card-tooltip">' +
+                    '<div class="tooltip-title">Quick Stats</div>' +
+                    '<div class="tooltip-row"><span class="tooltip-label">Spin Wicket %</span><span class="tooltip-value">' + spinPct + '%</span></div>' +
+                    '<div class="tooltip-row"><span class="tooltip-label">PP Run Rate</span><span class="tooltip-value">' + (ppBF.runRate || '-') + '</span></div>' +
+                    '<div class="tooltip-row"><span class="tooltip-label">PP Boundary %</span><span class="tooltip-value">' + (ppBF.boundaryPct ? ppBF.boundaryPct + '%' : '-') + '</span></div>' +
+                    '<div class="tooltip-row"><span class="tooltip-label">Death RR</span><span class="tooltip-value">' + (deathBF.runRate || '-') + '</span></div>' +
+                    '<div class="tooltip-row"><span class="tooltip-label">Death Wkts/Match</span><span class="tooltip-value">' + (deathBF.wicketsPerMatch || '-') + '</span></div>' +
+                '</div>';
+
             card.innerHTML =
+                tooltipHtml +
                 '<div class="venue-card-header">' +
                     '<div>' +
                         '<div class="venue-card-title">' + v.venueName + '</div>' +
@@ -943,6 +1116,73 @@
                 '</div>';
 
             grid.appendChild(card);
+        });
+    }
+
+    // ==================== VIEW MODE (GRID / LIST) ====================
+    function setViewMode(mode) {
+        currentViewMode = mode;
+        document.getElementById('grid-mode-btn').classList.toggle('active', mode === 'grid');
+        document.getElementById('list-mode-btn').classList.toggle('active', mode === 'list');
+        document.getElementById('venue-grid').classList.toggle('hidden', mode !== 'grid');
+        document.getElementById('venue-list').classList.toggle('hidden', mode !== 'list');
+        if (mode === 'list') renderVenueList();
+    }
+
+    function sortListBy(col) {
+        if (listSortCol === col) {
+            listSortAsc = !listSortAsc;
+        } else {
+            listSortCol = col;
+            listSortAsc = (col === 'name' || col === 'city' || col === 'character');
+        }
+        renderVenueList();
+    }
+
+    function renderVenueList() {
+        var entries = getVenueEntries();
+
+        // Sort
+        entries.sort(function(a, b) {
+            var va, vb;
+            switch (listSortCol) {
+                case 'name': va = a.data.venueName.toLowerCase(); vb = b.data.venueName.toLowerCase(); break;
+                case 'city': va = (TEAM_CITIES[a.key] || '').toLowerCase(); vb = (TEAM_CITIES[b.key] || '').toLowerCase(); break;
+                case 'character': va = a.data.character; vb = b.data.character; break;
+                case 'avgScore': va = a.data.avgFirstInningsScore; vb = b.data.avgFirstInningsScore; break;
+                case 'chaseWinPct': va = a.data.chaseWinPct; vb = b.data.chaseWinPct; break;
+                case 'chaseFriendly': va = a.data.chaseFriendly ? 1 : 0; vb = b.data.chaseFriendly ? 1 : 0; break;
+                default: va = a.data.avgFirstInningsScore; vb = b.data.avgFirstInningsScore;
+            }
+            if (va < vb) return listSortAsc ? -1 : 1;
+            if (va > vb) return listSortAsc ? 1 : -1;
+            return 0;
+        });
+
+        var tbody = document.getElementById('venue-list-body');
+        tbody.innerHTML = '';
+
+        // Update header sort indicators
+        document.querySelectorAll('.venue-list-table thead th').forEach(function(th) {
+            th.classList.remove('sorted');
+        });
+
+        entries.forEach(function(entry) {
+            var v = entry.data;
+            var chaseIcon = v.chaseFriendly
+                ? '<span class="chase-indicator friendly">&#10003;</span>'
+                : '<span class="chase-indicator not-friendly">&#10007;</span>';
+
+            var tr = document.createElement('tr');
+            tr.onclick = function() { showVenueDetail(entry.key); };
+            tr.innerHTML =
+                '<td><span class="venue-list-name">' + v.venueName + '</span></td>' +
+                '<td>' + (TEAM_CITIES[entry.key] || '') + '</td>' +
+                '<td><span class="character-badge ' + v.character + '">' + v.character + '</span></td>' +
+                '<td>' + v.avgFirstInningsScore + '</td>' +
+                '<td>' + v.chaseWinPct + '%</td>' +
+                '<td>' + chaseIcon + '</td>';
+            tbody.appendChild(tr);
         });
     }
 
@@ -1046,6 +1286,14 @@
                 '<div class="detail-overview-card">' +
                     '<div class="detail-overview-value" style="text-transform:capitalize;">' + v.character + '</div>' +
                     '<div class="detail-overview-label">Pitch Character</div>' +
+                '</div>' +
+                '<div class="detail-overview-card">' +
+                    '<div class="detail-overview-value">' + (v.spinWicketPct || '-') + '%</div>' +
+                    '<div class="detail-overview-label">Spin Wicket %</div>' +
+                '</div>' +
+                '<div class="detail-overview-card">' +
+                    '<div class="detail-overview-value">' + (100 - v.chaseWinPct).toFixed(1) + '%</div>' +
+                    '<div class="detail-overview-label">Bat First Win %</div>' +
                 '</div>' +
             '</div>' +
 
@@ -1289,7 +1537,47 @@
 
         tableHtml += '</tbody></table></div>';
 
-        container.innerHTML = overviewHtml + barChartHtml + tableHtml;
+        // Win-Loss Records Section (Bat First vs Chase)
+        var wlHtml = '<div class="wl-records-section">' +
+            '<h3 class="section-title">Win-Loss Records: Bat First vs Chase</h3>' +
+            '<div class="wl-grid">';
+
+        // Build W-L data for each venue
+        [{ key: keyA, venue: a, cssClass: 'venue-a-color', label: 'A' },
+         { key: keyB, venue: b, cssClass: 'venue-b-color', label: 'B' }].forEach(function(item) {
+            var v = item.venue;
+            var totalMatches = 0;
+            var batFirstWins = 0;
+            var chaseWins = 0;
+
+            // Derive bat-first vs chase wins from chase win %
+            // chaseWinPct gives us the split
+            // We can also aggregate from teamVenueRecords for total matches
+            var venueRecords = findTeamRecordsForVenue(v.venueName, item.key);
+            var totalW = 0, totalL = 0;
+            venueRecords.forEach(function(r) {
+                totalW += r.wins;
+                totalL += r.losses;
+            });
+            // Total matches = (totalW + totalL) / 2 since each match has 2 teams
+            var matchCount = Math.round((totalW + totalL) / 2);
+            var chaseW = matchCount > 0 ? Math.round(matchCount * v.chaseWinPct / 100) : 0;
+            var batFirstW = matchCount - chaseW;
+
+            wlHtml +=
+                '<div class="wl-card">' +
+                    '<div class="wl-card-title ' + item.cssClass + '">' + v.venueName + '</div>' +
+                    '<div class="wl-stat-row"><span class="wl-stat-label">Total Matches (est.)</span><span class="wl-stat-value">' + matchCount + '</span></div>' +
+                    '<div class="wl-stat-row"><span class="wl-stat-label">Bat First Wins</span><span class="wl-stat-value">' + batFirstW + '</span></div>' +
+                    '<div class="wl-stat-row"><span class="wl-stat-label">Chase Wins</span><span class="wl-stat-value">' + chaseW + '</span></div>' +
+                    '<div class="wl-stat-row"><span class="wl-stat-label">Chase Win %</span><span class="wl-stat-value">' + v.chaseWinPct + '%</span></div>' +
+                    '<div class="wl-stat-row"><span class="wl-stat-label">Bat First Win %</span><span class="wl-stat-value">' + (matchCount > 0 ? (100 - v.chaseWinPct).toFixed(1) : '-') + '%</span></div>' +
+                '</div>';
+        });
+
+        wlHtml += '</div></div>';
+
+        container.innerHTML = overviewHtml + barChartHtml + tableHtml + wlHtml;
 
         // Animate bars after render
         setTimeout(function() {

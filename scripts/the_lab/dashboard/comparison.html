@@ -370,7 +370,8 @@
         }
 
         .scope-toggle {
-            display: flex;
+            display: inline-flex;
+            align-items: center;
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
@@ -555,6 +556,73 @@
         .selected-chip.chip-b { border-left: 3px solid var(--player-b); }
         .selected-chip.chip-c { border-left: 3px solid var(--player-c); }
         .selected-chip.chip-d { border-left: 3px solid var(--player-d); }
+
+        /* ==================== COMPARE BUTTON ==================== */
+        .compare-btn-wrap {
+            display: flex;
+            justify-content: center;
+            margin-top: var(--space-3);
+        }
+        .compare-btn {
+            padding: var(--space-2) var(--space-5);
+            border-radius: var(--radius-md);
+            font-size: var(--text-base);
+            font-weight: 700;
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            cursor: pointer;
+            border: none;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+            color: #fff;
+            transition: all var(--transition-normal);
+            box-shadow: 0 2px 12px rgba(59, 130, 246, 0.3);
+        }
+        .compare-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+        .compare-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* ==================== METRIC TOOLTIPS ==================== */
+        .metric-tooltip {
+            position: relative;
+            cursor: help;
+        }
+        .metric-tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+            border: 1px solid var(--border-accent);
+            border-radius: var(--radius-sm);
+            padding: 6px 10px;
+            font-size: 11px;
+            font-family: var(--font-body);
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: normal;
+            white-space: nowrap;
+            max-width: 260px;
+            white-space: normal;
+            z-index: 60;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+            box-shadow: var(--elevation-2);
+            line-height: 1.4;
+        }
+        .metric-tooltip:hover::after {
+            opacity: 1;
+        }
 
         /* ==================== CONTENT SECTIONS ==================== */
         .comparison-content {
@@ -1507,6 +1575,9 @@
                 </div>
                 <button class="add-player-btn" id="addPlayerBtn" onclick="addPlayerSlot()" title="Add another player to compare">+ Add Player</button>
             </div>
+            <div class="compare-btn-wrap">
+                <button class="compare-btn" id="compareBtn" onclick="triggerCompare()" disabled title="Select at least two players to compare">Compare Players</button>
+            </div>
         </div>
 
         <!-- Comparison Content -->
@@ -1802,6 +1873,41 @@
     }
 
     // ==================== STATS TABLE ====================
+    // Metric tooltip descriptions
+    var METRIC_TOOLTIPS = {
+        'Innings': 'Number of innings batted',
+        'Runs': 'Total runs scored',
+        'Strike Rate': 'Runs scored per 100 balls faced',
+        'Average': 'Runs per dismissal (batting) or runs conceded per wicket (bowling)',
+        'Boundary%': 'Percentage of balls that went for 4s or 6s',
+        'Dot%': 'Percentage of balls with zero runs scored',
+        'Fifties': 'Number of 50+ scores',
+        'Hundreds': 'Number of 100+ scores',
+        'Highest Score': 'Best individual score in an innings',
+        'Matches': 'Number of matches played',
+        'Wickets': 'Total wickets taken',
+        'Economy': 'Runs conceded per over bowled (lower is better)',
+        'Best Figures': 'Best bowling performance in an innings',
+        'SR': 'Runs scored per 100 balls faced',
+        'Avg': 'Runs per dismissal',
+        'Econ': 'Runs conceded per over',
+        'Balls': 'Number of balls faced/bowled',
+        'Outs': 'Number of times dismissed',
+        'Wkts': 'Wickets taken',
+        'Boundary Conceded%': 'Percentage of deliveries hit for boundaries',
+        'Bndry Conc%': 'Percentage of deliveries hit for boundaries',
+        'Composite': 'Weighted score combining key metrics for overall ranking',
+        'Rank': 'Position among all qualified players in the pool',
+        'Phase Balance': 'How evenly a player performs across powerplay, middle, and death overs',
+        'Recent Form': 'Performance trend in the last 10 T20 matches vs career average',
+        'Dot% Discipline': 'Ability to minimize dot balls (inverted: lower dot% = higher score)'
+    };
+
+    function tooltipAttr(label) {
+        var tip = METRIC_TOOLTIPS[label];
+        return tip ? ' class="metric-tooltip" data-tooltip="' + escapeHtml(tip) + '"' : '';
+    }
+
     function getStatRows(type) {
         if (type === 'batter') {
             return [
@@ -1872,7 +1978,7 @@
                 }
             }
 
-            html += '<tr><td class="val-a ' + classA + '">' + fmtVal(valA) + '</td><td class="stat-label">' + row.label + '</td><td class="val-b ' + classB + '">' + fmtVal(valB) + '</td></tr>';
+            html += '<tr><td class="val-a ' + classA + '">' + fmtVal(valA) + '</td><td class="stat-label"' + tooltipAttr(row.label) + '>' + row.label + '</td><td class="val-b ' + classB + '">' + fmtVal(valB) + '</td></tr>';
         });
         html += '</table>';
         return html;
@@ -1921,7 +2027,7 @@
 
         rows.forEach(row => {
             html += '<tr>';
-            html += '<td>' + row.label + '</td>';
+            html += '<td' + tooltipAttr(row.label) + '>' + row.label + '</td>';
 
             const values = players.map(p => {
                 if (row.custom && row.label === 'Best Figures') {
@@ -2799,8 +2905,27 @@
         chip.innerHTML = '<span class="chip-name">' + escapeHtml(name) + '</span><span class="chip-team">' + escapeHtml(data.recentForm.team || '') + '</span><button class="chip-clear" onclick="clearPlayer(\'' + side + '\')" aria-label="Remove ' + escapeHtml(name) + '">&#10005;</button>';
         slot.appendChild(chip);
 
+        updateCompareBtn();
         if (getSelectedPlayers().length >= 2) {
             renderComparison();
+        }
+    }
+
+    function updateCompareBtn() {
+        var btn = document.getElementById('compareBtn');
+        if (btn) {
+            var count = getSelectedPlayers().length;
+            btn.disabled = count < 2;
+            btn.title = count < 2 ? 'Select at least two players to compare' : 'Click to compare ' + count + ' players';
+        }
+    }
+
+    function triggerCompare() {
+        if (getSelectedPlayers().length >= 2) {
+            renderComparison();
+            // Scroll to comparison content
+            var content = document.getElementById('comparisonContent');
+            if (content) content.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }
 
@@ -2815,6 +2940,7 @@
         } else {
             resetSlot(side);
         }
+        updateCompareBtn();
         renderComparison();
     }
 

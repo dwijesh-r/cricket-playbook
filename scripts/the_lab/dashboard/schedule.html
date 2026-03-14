@@ -834,6 +834,110 @@
             transform: rotate(90deg);
         }
 
+        /* ==================== TEAM FILTER TABS ==================== */
+        .team-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-1);
+            margin-bottom: var(--space-3);
+            padding: var(--space-2) 0;
+        }
+        .team-tab {
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            font-family: var(--font-mono);
+            font-size: var(--text-xs);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+            white-space: nowrap;
+        }
+        .team-tab:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+        .team-tab.active {
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .team-tab[data-team=""] { background: var(--accent); color: #fff; border-color: transparent; }
+        .team-tab[data-team=""].active { background: var(--accent); }
+        .team-tab[data-team="CSK"].active  { background: #FFC107; color: #1a1a2e; }
+        .team-tab[data-team="DC"].active   { background: #004BA0; }
+        .team-tab[data-team="GT"].active   { background: #1C2C3B; }
+        .team-tab[data-team="KKR"].active  { background: #3A225D; }
+        .team-tab[data-team="LSG"].active  { background: #004D8B; }
+        .team-tab[data-team="MI"].active   { background: #004BA0; }
+        .team-tab[data-team="PBKS"].active { background: #DC2626; }
+        .team-tab[data-team="RCB"].active  { background: #CF0000; }
+        .team-tab[data-team="RR"].active   { background: #E73895; }
+        .team-tab[data-team="SRH"].active  { background: #FF822A; color: #1a1a2e; }
+
+        /* ==================== MATCH CARD HOVER ==================== */
+        .schedule-table tbody tr[style*="cursor"] {
+            transition: background var(--transition-fast), transform var(--transition-fast);
+        }
+        .schedule-table tbody tr[style*="cursor"]:hover {
+            background: rgba(59, 130, 246, 0.06);
+        }
+        .schedule-table tbody tr.mp-expanded {
+            background: rgba(59, 130, 246, 0.04);
+        }
+
+        .match-pack {
+            transition: box-shadow var(--transition-normal);
+        }
+        .match-pack:hover {
+            box-shadow: inset 0 0 0 1px var(--border-accent);
+        }
+
+        /* Keys to Victory section */
+        .mp-section-keys { flex: 1; min-width: 220px; }
+        .mp-key-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 4px;
+        }
+        .mp-key-icon {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Matchup favor badge */
+        .mp-favor-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: var(--radius-sm);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            margin-top: 6px;
+        }
+        .mp-favor-badge.home-favor {
+            background: rgba(34, 197, 94, 0.12);
+            color: var(--accent-green);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+        .mp-favor-badge.away-favor {
+            background: rgba(239, 68, 68, 0.12);
+            color: var(--accent-red);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        .mp-favor-badge.even-matchup {
+            background: var(--glass);
+            color: var(--text-tertiary);
+            border: 1px solid var(--border);
+        }
+
         /* ==================== SCHEDULE TABLE MOBILE COLUMNS ==================== */
         .col-match-num, .col-venue, .col-city { /* default: visible */ }
 
@@ -865,6 +969,16 @@
         }
 
         @media (max-width: 640px) {
+            .team-tabs {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                padding-bottom: var(--space-1);
+            }
+            .team-tabs::-webkit-scrollbar { display: none; }
+            .team-tab { flex-shrink: 0; }
+
             /* Schedule table: hide less critical columns, remove min-width for native layout */
             .schedule-table { min-width: 0; font-size: var(--text-xs); }
             .col-match-num { display: none; }
@@ -1024,6 +1138,21 @@
                     <div class="stat-value" id="statDateRange">Mar 28 - Apr 12, 2026</div>
                     <div class="stat-label">Window</div>
                 </div>
+            </div>
+
+            <!-- Team Filter Tabs -->
+            <div class="team-tabs" id="teamTabs" aria-label="Filter by team">
+                <button class="team-tab active" data-team="" onclick="filterByTeamTab('')">All</button>
+                <button class="team-tab" data-team="CSK" onclick="filterByTeamTab('CSK')">CSK</button>
+                <button class="team-tab" data-team="DC" onclick="filterByTeamTab('DC')">DC</button>
+                <button class="team-tab" data-team="GT" onclick="filterByTeamTab('GT')">GT</button>
+                <button class="team-tab" data-team="KKR" onclick="filterByTeamTab('KKR')">KKR</button>
+                <button class="team-tab" data-team="LSG" onclick="filterByTeamTab('LSG')">LSG</button>
+                <button class="team-tab" data-team="MI" onclick="filterByTeamTab('MI')">MI</button>
+                <button class="team-tab" data-team="PBKS" onclick="filterByTeamTab('PBKS')">PBKS</button>
+                <button class="team-tab" data-team="RCB" onclick="filterByTeamTab('RCB')">RCB</button>
+                <button class="team-tab" data-team="RR" onclick="filterByTeamTab('RR')">RR</button>
+                <button class="team-tab" data-team="SRH" onclick="filterByTeamTab('SRH')">SRH</button>
             </div>
 
             <!-- Filter Bar -->
@@ -1477,6 +1606,16 @@
             if (awayInfo && awayInfo.projected) html += '<div class="mp-projected">Projected: ' + awayInfo.projected + '</div>';
             html += '</div>';
 
+            // Keys to Victory
+            var keysToVictory = buildKeysToVictory(homeTeam, awayTeam, bias);
+            html += '<div class="mp-section-keys">' +
+                sectionHeader('&#9881; Keys to Victory') +
+                '<div>';
+            keysToVictory.forEach(function(k) {
+                html += '<div class="mp-key-item"><span class="mp-key-icon">' + k.icon + '</span><span>' + k.text + '</span></div>';
+            });
+            html += '</div></div>';
+
             html += '</div>'; // end row 2
 
             // Row 3: Season Form + Quick Verdict
@@ -1489,16 +1628,68 @@
             if (awayTrend) html += '<div class="mp-trend-line"><span class="team-abbrev team-' + awayTeam + '" style="font-size:9px;">' + awayTeam + '</span> ' + awayTrend + '</div>';
             html += '</div>';
 
-            // Quick Verdict
+            // Quick Verdict + Matchup Favor Badge
+            var favor = getMatchupFavor(homeTeam, awayTeam, bias);
             html += '<div class="mp-section-verdict">' +
                 sectionHeader('&#9881; Quick Verdict') +
                 '<div class="mp-verdict-box">' + verdict + '</div>' +
+                '<div class="mp-favor-badge ' + favor.cls + '">' + favor.label + '</div>' +
             '</div>';
 
             html += '</div>'; // end row 3
 
             html += '</div>'; // end match pack container
             return html;
+        }
+
+        // ==================== KEYS TO VICTORY ====================
+        function buildKeysToVictory(homeTeam, awayTeam, bias) {
+            var keys = [];
+            var homeBowl = getTeamBowlingTypes(homeTeam);
+            var awayBowl = getTeamBowlingTypes(awayTeam);
+
+            // Venue-based keys
+            if (bias === 'pace') {
+                keys.push({ icon: '<span style="color:var(--accent-green);">&#9889;</span>', text: 'Win the new-ball battle - swing and seam in the first 6 overs will set the tone' });
+                keys.push({ icon: '<span style="color:var(--accent-green);">&#9889;</span>', text: 'Death bowling discipline - pace at the death critical on this deck' });
+            } else if (bias === 'spin') {
+                keys.push({ icon: '<span style="color:var(--accent-orange);">&#10047;</span>', text: 'Dominate the middle overs - spin control between overs 7-15 is decisive' });
+                keys.push({ icon: '<span style="color:var(--accent-orange);">&#10047;</span>', text: 'Counter spin proactively - rotating strike vs spin prevents pressure buildup' });
+            } else {
+                keys.push({ icon: '<span style="color:var(--text-tertiary);">&#9673;</span>', text: 'Adaptability is key - balanced conditions reward the more versatile attack' });
+            }
+
+            // Matchup-specific keys
+            if (homeBowl.paceCount >= 3 && bias === 'pace') {
+                keys.push({ icon: '<span style="color:var(--accent);">&#9733;</span>', text: awayTeam + ' must handle ' + homeTeam + '\'s pace trio - early wickets will be decisive' });
+            }
+            if (awayBowl.spinCount >= 3) {
+                keys.push({ icon: '<span style="color:var(--accent-purple);">&#9733;</span>', text: homeTeam + ' need a plan against ' + awayTeam + '\'s spin depth in middle overs' });
+            }
+
+            // General competitive keys
+            keys.push({ icon: '<span style="color:var(--accent-yellow);">&#9670;</span>', text: 'Powerplay aggression - team batting first needs 50+ in first 6 overs to set the pace' });
+
+            return keys.slice(0, 4);
+        }
+
+        function getMatchupFavor(homeTeam, awayTeam, bias) {
+            var homeTrend = (typeof HISTORIC_TRENDS !== 'undefined' && HISTORIC_TRENDS.seasonRecords && HISTORIC_TRENDS.seasonRecords[homeTeam]) ?
+                HISTORIC_TRENDS.seasonRecords[homeTeam] : [];
+            var awayTrend = (typeof HISTORIC_TRENDS !== 'undefined' && HISTORIC_TRENDS.seasonRecords && HISTORIC_TRENDS.seasonRecords[awayTeam]) ?
+                HISTORIC_TRENDS.seasonRecords[awayTeam] : [];
+            var homeWinPct = homeTrend.length ? homeTrend[homeTrend.length - 1].winPct : 50;
+            var awayWinPct = awayTrend.length ? awayTrend[awayTrend.length - 1].winPct : 50;
+
+            var homeBowl = getTeamBowlingTypes(homeTeam);
+            var homeAdj = 3; // home advantage
+            if (bias === 'pace' && homeBowl.paceCount >= 3) homeAdj += 3;
+            if (bias === 'spin' && homeBowl.spinCount >= 2) homeAdj += 3;
+
+            var diff = (homeWinPct + homeAdj) - awayWinPct;
+            if (diff > 10) return { label: homeTeam + ' favored', cls: 'home-favor' };
+            if (diff < -10) return { label: awayTeam + ' favored', cls: 'away-favor' };
+            return { label: 'Even matchup', cls: 'even-matchup' };
         }
 
         function renderSchedule() {
@@ -1583,12 +1774,23 @@
         }
 
         // ==================== EVENT LISTENERS ====================
-        teamFilter.addEventListener('change', renderSchedule);
+        teamFilter.addEventListener('change', function() {
+            // Sync team tabs with dropdown
+            var val = teamFilter.value;
+            document.querySelectorAll('.team-tab').forEach(function(tab) {
+                tab.classList.toggle('active', tab.getAttribute('data-team') === val);
+            });
+            renderSchedule();
+        });
         venueFilter.addEventListener('change', renderSchedule);
 
         document.getElementById('resetFilters').addEventListener('click', function() {
             teamFilter.value = '';
             venueFilter.value = '';
+            // Reset team tabs
+            document.querySelectorAll('.team-tab').forEach(function(tab) {
+                tab.classList.toggle('active', tab.getAttribute('data-team') === '');
+            });
             renderSchedule();
         });
 
@@ -1628,6 +1830,20 @@
         // ==================== INIT ====================
         renderSchedule();
     })();
+
+    // ==================== TEAM TAB FILTER ====================
+    function filterByTeamTab(team) {
+        // Update tab active states
+        document.querySelectorAll('.team-tab').forEach(function(tab) {
+            tab.classList.toggle('active', tab.getAttribute('data-team') === team);
+        });
+        // Sync the dropdown filter
+        var teamFilter = document.getElementById('filterTeam');
+        if (teamFilter) {
+            teamFilter.value = team;
+            teamFilter.dispatchEvent(new Event('change'));
+        }
+    }
 
     // ==================== MOBILE NAV ====================
     function toggleMobileMenu() {

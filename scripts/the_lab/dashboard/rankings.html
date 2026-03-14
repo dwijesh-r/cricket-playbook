@@ -964,6 +964,7 @@
         .leaderboard-table thead th {
             padding: var(--space-3) 16px;
             text-align: left;
+            vertical-align: middle;
             font-family: var(--font-display);
             font-size: var(--text-xs);
             font-weight: 700;
@@ -1004,11 +1005,17 @@
 
         .leaderboard-table tbody tr {
             border-bottom: 1px solid var(--glass-border);
-            transition: background var(--transition-fast);
+            transition: background var(--transition-fast), box-shadow var(--transition-fast);
+            position: relative;
         }
 
         .leaderboard-table tbody tr:hover {
-            background: var(--glass);
+            background: rgba(59, 130, 246, 0.06);
+            box-shadow: inset 3px 0 0 var(--accent);
+        }
+
+        [data-theme="light"] .leaderboard-table tbody tr:hover {
+            background: rgba(37, 99, 235, 0.04);
         }
 
         .leaderboard-table tbody tr:last-child {
@@ -1017,6 +1024,7 @@
 
         .leaderboard-table tbody td {
             padding: var(--space-3) 16px;
+            vertical-align: middle;
             font-variant-numeric: tabular-nums;
             white-space: nowrap;
         }
@@ -1024,6 +1032,7 @@
         .leaderboard-table tbody td:first-child {
             text-align: center;
             font-weight: 700;
+            width: 60px;
         }
 
         /* Player name column */
@@ -1032,10 +1041,39 @@
             color: var(--text-primary);
         }
 
+        .player-name-link {
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            cursor: pointer;
+            transition: color var(--transition-normal);
+            border-bottom: 1px solid transparent;
+        }
+
+        .player-name-link:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
         .player-secondary {
             font-weight: 500;
             color: var(--text-secondary);
             font-size: 13px;
+        }
+
+        .player-secondary-link {
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 13px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color var(--transition-normal);
+            border-bottom: 1px solid transparent;
+        }
+
+        .player-secondary-link:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
         }
 
         /* ==================== RANK BADGES ==================== */
@@ -1075,6 +1113,125 @@
             color: var(--text-secondary);
             font-size: 12px;
             font-weight: 600;
+        }
+
+        /* ==================== ROW TOOLTIP ==================== */
+        .row-tooltip {
+            position: fixed;
+            z-index: 1000;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 10px 14px;
+            box-shadow: 0 8px 24px var(--shadow);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 150ms ease;
+            max-width: 320px;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .row-tooltip.visible {
+            opacity: 1;
+        }
+
+        .row-tooltip-title {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            font-size: 13px;
+        }
+
+        .row-tooltip-team {
+            font-size: 11px;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+        }
+
+        .row-tooltip-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px 12px;
+        }
+
+        .row-tooltip-stat {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .row-tooltip-stat-label {
+            color: var(--text-tertiary);
+        }
+
+        .row-tooltip-stat-value {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ==================== SHOW ALL TOGGLE ==================== */
+        .show-all-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            font-family: inherit;
+            user-select: none;
+        }
+
+        .show-all-toggle:hover {
+            color: var(--text-primary);
+            border-color: var(--accent);
+        }
+
+        .show-all-toggle.active {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: rgba(59, 130, 246, 0.08);
+        }
+
+        .show-all-toggle-switch {
+            width: 32px;
+            height: 18px;
+            border-radius: 9px;
+            background: var(--bg-tertiary);
+            position: relative;
+            transition: background var(--transition-normal);
+            flex-shrink: 0;
+        }
+
+        .show-all-toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--text-tertiary);
+            transition: all var(--transition-normal);
+        }
+
+        .show-all-toggle.active .show-all-toggle-switch {
+            background: var(--accent);
+        }
+
+        .show-all-toggle.active .show-all-toggle-switch::after {
+            left: 17px;
+            background: white;
         }
 
         /* ==================== COMPOSITE SCORE BAR ==================== */
@@ -1421,6 +1578,10 @@
 
         .mobile-player-row:last-child {
             border-bottom: none;
+        }
+
+        .mobile-player-row:hover {
+            background: rgba(59, 130, 246, 0.04);
         }
 
         .mobile-player-row:active {
@@ -1881,6 +2042,10 @@
             <div class="filter-group" id="filterGroup">
                 <!-- Dynamic filters inserted here -->
             </div>
+            <button class="show-all-toggle" id="showAllToggle" onclick="toggleShowAll()" title="Show all players including those below qualification thresholds">
+                <span class="show-all-toggle-switch"></span>
+                Show All Players
+            </button>
             <div class="results-count" id="resultsCount">-- results</div>
         </div>
 
@@ -1978,8 +2143,12 @@
         </div>
     </div>
 
+    <!-- Row Tooltip (for hover stats) -->
+    <div class="row-tooltip" id="rowTooltip"></div>
+
     <!-- Rankings Data -->
     <script src="data/rankings.js"></script>
+    <script src="data/full_squads.js"></script>
 
     <script>
     // ==================== STATE ====================
@@ -1993,8 +2162,50 @@
         currentPage: 1,
         pageSize: 25,
         filteredRows: [],
-        headers: []
+        headers: [],
+        showAll: false
     };
+
+    // Build player -> team abbreviation map from FULL_SQUADS
+    // Rankings use abbreviated names (e.g. "V Kohli"), squads use full names (e.g. "Virat Kohli")
+    // We build maps for both full and abbreviated names
+    const PLAYER_TEAM_MAP = {};
+    function buildPlayerTeamMap() {
+        if (typeof FULL_SQUADS === 'undefined') return;
+        Object.keys(FULL_SQUADS).forEach(teamAbbrev => {
+            FULL_SQUADS[teamAbbrev].forEach(player => {
+                // Full name map
+                PLAYER_TEAM_MAP[player.name.toLowerCase()] = teamAbbrev;
+                // Also store abbreviated versions: "FirstInitial LastName" patterns
+                const parts = player.name.split(' ');
+                if (parts.length >= 2) {
+                    // Common cricket abbreviation: "V Kohli" from "Virat Kohli"
+                    const abbr1 = parts[0][0] + ' ' + parts.slice(1).join(' ');
+                    PLAYER_TEAM_MAP[abbr1.toLowerCase()] = teamAbbrev;
+                    // Also: "VK" pattern won't work well, but "Initials LastName" patterns
+                    // like "SA Yadav" from "Suryakumar Yadav" - try first two chars + surname
+                    if (parts[0].length > 1) {
+                        const abbr2 = parts[0].substring(0, 2).toUpperCase() + ' ' + parts.slice(1).join(' ');
+                        PLAYER_TEAM_MAP[abbr2.toLowerCase()] = teamAbbrev;
+                    }
+                }
+            });
+        });
+    }
+
+    function getPlayerTeam(playerName) {
+        if (!playerName) return null;
+        const key = String(playerName).toLowerCase().trim();
+        return PLAYER_TEAM_MAP[key] || null;
+    }
+
+    function getPlayerLink(playerName) {
+        const team = getPlayerTeam(playerName);
+        if (team) {
+            return 'teams.html?team=' + encodeURIComponent(team);
+        }
+        return null;
+    }
 
     /** Return the active scope data (categories, stats) from RANKINGS_DATA. */
     function getScopeData() {
@@ -2029,6 +2240,9 @@
                 '<div class="no-results"><div class="no-results-icon">&#9888;&#65039;</div><div class="no-results-text">Rankings data not loaded</div><div class="no-results-hint">Check that data/rankings.js is present.</div></div>';
             return;
         }
+
+        // Build player-to-team mapping
+        buildPlayerTeamMap();
 
         // Set default scope from metadata
         state.currentScope = (RANKINGS_DATA.metadata && RANKINGS_DATA.metadata.defaultScope) || 'since2023';
@@ -2187,9 +2401,15 @@
         const cat = scopeData.categories[state.currentCategory];
         const sub = cat.subcategories[state.currentSubcategory];
         const qCount = sub && sub.qualifiedCount ? sub.qualifiedCount : (sub ? sub.rows.length : 0);
+        const totalRows = sub ? sub.rows.length : 0;
         if (qCount > 0) {
-            let text = '<span class="sample-count">' + qCount + '</span> qualified player' + (qCount !== 1 ? 's' : '');
-            if (qCount < 20) {
+            let text = '';
+            if (state.showAll) {
+                text = '<span class="sample-count">' + totalRows + '</span> player' + (totalRows !== 1 ? 's' : '') + ' shown (all available)';
+            } else {
+                text = '<span class="sample-count">' + qCount + '</span> qualified player' + (qCount !== 1 ? 's' : '');
+            }
+            if (qCount < 20 && !state.showAll) {
                 text += ' &mdash; <span style="font-style:italic;color:var(--text-tertiary);">small pool, score ceiling may be lower</span>';
             }
             bar.innerHTML = text;
@@ -2294,8 +2514,22 @@
         let bodyHtml = '';
         const isMatchup = cat.id === 'player_matchups';
 
-        pageRows.forEach(row => {
-            bodyHtml += '<tr>';
+        pageRows.forEach((row, rowIdx) => {
+            // Build tooltip data for this row (all stats except Rank and Player name)
+            const tooltipParts = [];
+            const playerIdx = nameIdx;
+            const playerName = playerIdx >= 0 ? String(row[playerIdx]) : '';
+            const playerTeam = getPlayerTeam(playerName);
+            row.forEach((cell, i) => {
+                if (i === rankIdx || i === playerIdx) return;
+                if (cell !== null && cell !== undefined && String(cell) !== '') {
+                    tooltipParts.push(headers[i] + ': ' + formatValuePlain(cell, headers[i]));
+                }
+            });
+            const tooltipData = escapeHtml(tooltipParts.join(' | '));
+            const rowDataAttrs = ' data-row-idx="' + rowIdx + '" data-player="' + escapeHtml(playerName) + '"' + (playerTeam ? ' data-team="' + escapeHtml(playerTeam) + '"' : '');
+
+            bodyHtml += '<tr' + rowDataAttrs + ' data-tooltip-stats="' + tooltipData + '">';
             row.forEach((cell, i) => {
                 const header = headers[i];
                 const hideClass = keepSet.has(i) ? '' : ' class="col-hide-mobile"';
@@ -2303,9 +2537,19 @@
                 if (header === 'Rank') {
                     bodyHtml += '<td>' + renderRankBadge(cell) + '</td>';
                 } else if (header === 'Player' || header === 'Batter') {
-                    bodyHtml += '<td><span class="player-name">' + escapeHtml(String(cell)) + '</span></td>';
+                    const link = getPlayerLink(cell);
+                    if (link) {
+                        bodyHtml += '<td><a href="' + link + '" class="player-name-link" title="View ' + escapeHtml(String(cell)) + ' on Teams page">' + escapeHtml(String(cell)) + '</a></td>';
+                    } else {
+                        bodyHtml += '<td><span class="player-name">' + escapeHtml(String(cell)) + '</span></td>';
+                    }
                 } else if (header === 'Bowler' && isMatchup) {
-                    bodyHtml += '<td><span class="player-secondary">' + escapeHtml(String(cell)) + '</span></td>';
+                    const link = getPlayerLink(cell);
+                    if (link) {
+                        bodyHtml += '<td><a href="' + link + '" class="player-secondary-link" title="View ' + escapeHtml(String(cell)) + ' on Teams page">' + escapeHtml(String(cell)) + '</a></td>';
+                    } else {
+                        bodyHtml += '<td><span class="player-secondary">' + escapeHtml(String(cell)) + '</span></td>';
+                    }
                 } else {
                     bodyHtml += '<td' + hideClass + '>' + formatValue(cell, header) + '</td>';
                 }
@@ -2314,6 +2558,9 @@
         });
 
         tbody.innerHTML = bodyHtml;
+
+        // Attach hover tooltip listeners to rows
+        setupRowTooltips();
     }
 
     // ==================== RENDER MOBILE CARDS ====================
@@ -2371,9 +2618,14 @@
             // Rank badge
             html += '<span class="mobile-rank">' + renderRankBadge(rank) + '</span>';
 
-            // Player name + optional meta
+            // Player name + optional meta (clickable if team found)
+            const playerLink = getPlayerLink(name);
             html += '<span class="mobile-player-info">';
-            html += '<span class="mobile-player-name">' + escapeHtml(String(name)) + '</span>';
+            if (playerLink) {
+                html += '<a href="' + playerLink + '" class="mobile-player-name player-name-link" style="display:block;">' + escapeHtml(String(name)) + '</a>';
+            } else {
+                html += '<span class="mobile-player-name">' + escapeHtml(String(name)) + '</span>';
+            }
             if (meta) html += '<span class="mobile-player-meta">' + escapeHtml(meta) + '</span>';
             html += '</span>';
 
@@ -2470,6 +2722,97 @@
         const div = document.createElement('div');
         div.textContent = str;
         return div.innerHTML;
+    }
+
+    // ==================== FORMAT VALUE (PLAIN TEXT, FOR TOOLTIPS) ====================
+    function formatValuePlain(value, header) {
+        if (value === null || value === undefined) return '-';
+        if (typeof value === 'number') {
+            if (['Balls', 'Wkts', 'Runs', 'Inn', 'Matches', 'Outs'].includes(header)) {
+                return value.toLocaleString();
+            }
+            return value.toFixed(1);
+        }
+        return String(value);
+    }
+
+    // ==================== ROW TOOLTIP HOVER ====================
+    let _tooltipListenersAttached = false;
+    function setupRowTooltips() {
+        if (_tooltipListenersAttached) return;
+        _tooltipListenersAttached = true;
+
+        const tooltip = document.getElementById('rowTooltip');
+        if (!tooltip) return;
+
+        const tbody = document.getElementById('tableBody');
+        if (!tbody) return;
+
+        tbody.addEventListener('mouseover', function(e) {
+            const row = e.target.closest('tr[data-tooltip-stats]');
+            if (!row) return;
+
+            const playerName = row.getAttribute('data-player') || '';
+            const team = row.getAttribute('data-team') || '';
+            const statsStr = row.getAttribute('data-tooltip-stats') || '';
+            const statPairs = statsStr.split(' | ').filter(s => s.trim());
+
+            let html = '<div class="row-tooltip-title">' + escapeHtml(playerName) + '</div>';
+            if (team) {
+                html += '<div class="row-tooltip-team">' + escapeHtml(team) + '</div>';
+            }
+            if (statPairs.length > 0) {
+                html += '<div class="row-tooltip-stats">';
+                statPairs.forEach(pair => {
+                    const colonIdx = pair.indexOf(':');
+                    if (colonIdx > 0) {
+                        const label = pair.substring(0, colonIdx).trim();
+                        const val = pair.substring(colonIdx + 1).trim();
+                        html += '<div class="row-tooltip-stat"><span class="row-tooltip-stat-label">' + escapeHtml(label) + '</span><span class="row-tooltip-stat-value">' + escapeHtml(val) + '</span></div>';
+                    }
+                });
+                html += '</div>';
+            }
+
+            tooltip.innerHTML = html;
+            tooltip.classList.add('visible');
+        });
+
+        tbody.addEventListener('mousemove', function(e) {
+            const tooltip = document.getElementById('rowTooltip');
+            if (!tooltip.classList.contains('visible')) return;
+
+            const x = e.clientX + 16;
+            const y = e.clientY - 10;
+
+            // Keep tooltip within viewport
+            const rect = tooltip.getBoundingClientRect();
+            const maxX = window.innerWidth - (rect.width || 300) - 16;
+            const maxY = window.innerHeight - (rect.height || 100) - 16;
+
+            tooltip.style.left = Math.min(x, maxX) + 'px';
+            tooltip.style.top = Math.min(y, maxY) + 'px';
+        });
+
+        tbody.addEventListener('mouseout', function(e) {
+            const row = e.target.closest('tr[data-tooltip-stats]');
+            const relatedRow = e.relatedTarget ? e.relatedTarget.closest('tr[data-tooltip-stats]') : null;
+            if (row && row !== relatedRow) {
+                tooltip.classList.remove('visible');
+            }
+        });
+    }
+
+    // ==================== SHOW ALL PLAYERS TOGGLE ====================
+    function toggleShowAll() {
+        state.showAll = !state.showAll;
+        const btn = document.getElementById('showAllToggle');
+        btn.classList.toggle('active', state.showAll);
+        btn.title = state.showAll
+            ? 'Currently showing all players. Click to show qualified only.'
+            : 'Show all players including those below qualification thresholds';
+        state.currentPage = 1;
+        renderCurrentView();
     }
 
     // ==================== SORT ====================

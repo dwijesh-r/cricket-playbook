@@ -118,7 +118,8 @@
 | 1️⃣ | **Josh Hazlewood 🌍** | World-class seamer |
 | 2️⃣ | **Bhuvneshwar Kumar** | Swing maestro |
 | 3️⃣ | Yash Dayal | Left-arm quick |
-| 4️⃣ | Jacob Duffy 🌍 | Kiwi quick |
+| 4️⃣ | Rasikh Salam | Death specialist, workhorse |
+| 5️⃣ | Jacob Duffy 🌍 | Kiwi quick |
 
 ---
 

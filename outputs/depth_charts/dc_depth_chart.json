@@ -1,7 +1,7 @@
 {
   "team": "DC",
   "team_name": "Delhi Capitals",
-  "overall_rating": 7.6,
+  "overall_rating": 7.7,
   "strongest_position": "Finisher #6-7",
   "weakest_position": "Leg Spin",
   "vulnerabilities": [
@@ -11,8 +11,8 @@
   "positions": {
     "opener": {
       "name": "Opener",
-      "rating": 7.8,
-      "what_works": "Elite #1 in kl rahul. karun nair as backup",
+      "rating": 7.9,
+      "what_works": "Elite #1 in kl rahul. abhishek porel as backup",
       "what_doesnt": "Big gap between #1 and #2",
       "overseas_count": 0,
       "players": [
@@ -30,6 +30,18 @@
         },
         {
           "rank": 2,
+          "name": "Abhishek Porel",
+          "player_id": "ad3b6e95",
+          "score": 49.2,
+          "rationale": "Founder XII. Good SR (150.2). PP Dominator",
+          "is_overseas": false,
+          "price_cr": 4.0,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 3,
           "name": "Karun Nair",
           "player_id": "944533a5",
           "score": 48.5,
@@ -39,30 +51,30 @@
           "bowling_type": "Off-spin",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
-        },
-        {
-          "rank": 3,
-          "name": "Prithvi Shaw",
-          "player_id": "8b3e9c7c",
-          "score": 40.3,
-          "rationale": "PP Dominator",
-          "is_overseas": false,
-          "price_cr": 0.3,
-          "bowling_type": "Leg-spin",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
         }
       ]
     },
     "number_3": {
       "name": "#3 Batter",
-      "rating": 7.9,
-      "what_works": "Strong #1 with david miller. quality backup in abhishek porel",
+      "rating": 8.4,
+      "what_works": "Elite #1 in abhishek porel. quality backup in david miller",
       "what_doesnt": "Minimal concerns",
       "overseas_count": 1,
       "players": [
         {
           "rank": 1,
+          "name": "Abhishek Porel",
+          "player_id": "ad3b6e95",
+          "score": 80.0,
+          "rationale": "Founder XII. Strong in PP. Highly adaptable",
+          "is_overseas": false,
+          "price_cr": 4.0,
+          "bowling_type": "Medium",
+          "bowling_arm": "Right-arm",
+          "secondary_positions": []
+        },
+        {
+          "rank": 2,
           "name": "David Miller",
           "player_id": "d67d5f00",
           "score": 70.0,
@@ -70,18 +82,6 @@
           "is_overseas": true,
           "price_cr": 2.0,
           "bowling_type": "Off-spin",
-          "bowling_arm": "Right-arm",
-          "secondary_positions": []
-        },
-        {
-          "rank": 2,
-          "name": "Abhishek Porel",
-          "player_id": "ad3b6e95",
-          "score": 70.0,
-          "rationale": "Strong in PP. Highly adaptable",
-          "is_overseas": false,
-          "price_cr": 4.0,
-          "bowling_type": "Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
@@ -167,8 +167,8 @@
           "rank": 2,
           "name": "Ashutosh Sharma",
           "player_id": "84d9c311",
-          "score": 100.0,
-          "rationale": "Founder XII. Death specialist. Six-hitting ability",
+          "score": 99.0,
+          "rationale": "Death specialist. Six-hitting ability",
           "is_overseas": false,
           "price_cr": 3.8,
           "bowling_type": "Off-spin",
@@ -191,8 +191,8 @@
     },
     "wicketkeeper": {
       "name": "Wicketkeeper",
-      "rating": 7.4,
-      "what_works": "Elite #1 in kl rahul. quality backup in ben duckett",
+      "rating": 8.3,
+      "what_works": "Elite #1 in kl rahul. quality backup in abhishek porel",
       "what_doesnt": "Big gap between #1 and #2",
       "overseas_count": 1,
       "players": [
@@ -210,24 +210,24 @@
         },
         {
           "rank": 2,
-          "name": "Ben Duckett",
-          "player_id": "5f26f677",
-          "score": 50.0,
+          "name": "Abhishek Porel",
+          "player_id": "ad3b6e95",
+          "score": 51.5,
           "rationale": "Elite keeper (Founder XII). Experienced keeper",
-          "is_overseas": true,
-          "price_cr": 0.75,
+          "is_overseas": false,
+          "price_cr": 4.0,
           "bowling_type": "Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []
         },
         {
           "rank": 3,
-          "name": "Abhishek Porel",
-          "player_id": "ad3b6e95",
-          "score": 34.5,
-          "rationale": "Wicketkeeper",
-          "is_overseas": false,
-          "price_cr": 4.0,
+          "name": "Ben Duckett",
+          "player_id": "5f26f677",
+          "score": 50.0,
+          "rationale": "Elite keeper (Founder XII). Experienced keeper",
+          "is_overseas": true,
+          "price_cr": 0.75,
           "bowling_type": "Medium",
           "bowling_arm": "Right-arm",
           "secondary_positions": []

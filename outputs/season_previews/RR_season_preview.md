@@ -70,26 +70,26 @@ South African wicketkeeper-batter with minimal IPL data (14 balls, 64.3 SR, LOW)
 | # | Name | Role | Price (Cr) | Nat | Key Stat (IPL since 2023) | Founder Notes |
 |---|------|------|-----------|-----|--------------------------|---------------|
 | 1 | Yashasvi Jaiswal | Batter | 18.00 | IND | 160.5 SR (1,009 balls, HIGH) | |
-| 2 | Sam Curran | All-rounder | 10.00 | ENG | 132.0 SR / 10.45 econ (500 bat balls, 100.8 bowl overs, HIGH) | |
-| 3 | Ravindra Jadeja | All-rounder | 17.50 | IND | 140.1 SR / 7.95 econ (541 bat balls, 141.8 bowl overs, HIGH) | |
+| 2 | Vaibhav Suryavanshi | Batter | 1.10 | IND | 208.3 SR (121 balls, LOW); PP specialist | |
+| 3 | Dhruv Jurel | Wicketkeeper | 14.00 | IND | 153.9 SR (442 balls, HIGH); death SR 179.0 (229 balls, MEDIUM) | Promoted to #3 |
 | 4 | Riyan Parag (c) | All-rounder | 14.00 | IND | 152.9 SR (683 balls, HIGH); 8.61 bowl econ (23 overs, MEDIUM) | |
-| 5 | Ravi Singh | Batter | 0.30 | IND | Uncapped IPL; death specialist tag | |
-| 6 | Dhruv Jurel | Wicketkeeper | 14.00 | IND | 153.9 SR (442 balls, HIGH); death SR 179.0 (229 balls, MEDIUM) | |
-| 7 | Shimron Hetmyer | Batter | 11.00 | WI | 152.1 SR (428 balls, HIGH); death SR 174.7 (534 balls, HIGH) | |
-| 8 | Jofra Archer | Pace Bowler | 12.50 | ENG | 9.85 econ (65.7 overs, MEDIUM); PP econ 8.53 (34 overs, MEDIUM) | |
-| 9 | Ravi Bishnoi | Spinner | 7.20 | IND | 9.00 econ (131.2 overs, HIGH); mid econ 8.57 (106 overs, HIGH) | |
-| 10 | Sandeep Sharma | Pace Bowler | 4.00 | IND | 8.92 econ (120.5 overs, HIGH); PP econ 7.38 (52 overs, HIGH) | |
-| 11 | Nandre Burger | Pace Bowler | 3.50 | RSA | 8.94 econ (17 overs, LOW); 7 wkts in 5 matches | |
-| IP | Vaibhav Suryavanshi | Batter | 1.10 | IND | 208.3 SR (121 balls, LOW); PP specialist | |
+| 5 | Shimron Hetmyer | Batter | 11.00 | WI | 152.1 SR (428 balls, HIGH); death SR 174.7 (534 balls, HIGH) | |
+| 6 | Donovan Ferreira | WK/Batter | 0.75 | RSA | 64.3 SR (14 balls, LOW); 172 cross-tournament SR | Shoulder fracture (Jan 2026) — fitness TBD |
+| 7 | Ravindra Jadeja | All-rounder | 17.50 | IND | 140.1 SR / 7.95 econ (541 bat balls, 141.8 bowl overs, HIGH) | |
+| 8 | Sam Curran | All-rounder | 10.00 | ENG | 132.0 SR / 10.45 econ (500 bat balls, 100.8 bowl overs, HIGH) | |
+| 9 | Jofra Archer | Pace Bowler | 12.50 | ENG | 9.85 econ (65.7 overs, MEDIUM); PP econ 8.53 (34 overs, MEDIUM) | |
+| 10 | Ravi Bishnoi | Spinner | 7.20 | IND | 9.00 econ (131.2 overs, HIGH); mid econ 8.57 (106 overs, HIGH) | |
+| 11 | Sandeep Sharma | Pace Bowler | 4.00 | IND | 8.92 econ (120.5 overs, HIGH); PP econ 7.38 (52 overs, HIGH) | |
+| IP | Tushar Deshpande | Pace Bowler | 6.50 | IND | 9.91 econ (137 overs, HIGH); death wkt-taker | |
 
 ### Bench
 
 | # | Name | Role | Price (Cr) | Nat | Key Stat (IPL since 2023) | Founder Notes |
 |---|------|------|-----------|-----|--------------------------|---------------|
-| 13 | Tushar Deshpande | Pace Bowler | 6.50 | IND | 9.91 econ (137 overs, HIGH); death wkt-taker | |
+| 13 | Nandre Burger | Pace Bowler | 3.50 | RSA | 8.94 econ (17 overs, LOW); 7 wkts in 5 matches | |
 | 14 | Kwena Maphaka | Pace Bowler | 1.50 | RSA | 13.45 econ (11 overs, LOW); 19 years old | |
 | 15 | Shubham Dubey | Batter | 0.80 | IND | Uncapped IPL since 2023 | |
-| 16 | Donovan Ferreira | Wicketkeeper | 0.75 | RSA | 64.3 SR (14 balls, LOW); 172 cross-tournament SR | |
+| 16 | Ravi Singh | Batter | 0.30 | IND | Uncapped IPL; death specialist tag | |
 | 17 | Yudhvir Singh | Pace Bowler | 0.35 | IND | 11.09 econ (23.2 overs, LOW); PP specialist | |
 | 18 | Lhuan-dre Pretorius | Wicketkeeper | 0.30 | RSA | Uncapped IPL; 145 cross-tournament SR (551 T20 balls) | |
 | 19 | Kuldeep Sen | Pace Bowler | 0.30 | IND | 10.40 econ (15 overs, LOW) | |
@@ -100,7 +100,7 @@ South African wicketkeeper-batter with minimal IPL data (14 balls, 64.3 SR, LOW)
 | 24 | Sushant Mishra | Pace Bowler | 0.30 | IND | Uncapped IPL | |
 | 25 | Brijesh Sharma | Pace Bowler | 0.30 | IND | Uncapped IPL; 7.0 cross-tournament econ (882 T20 balls) | |
 
-**Total squad salary:** 125.40 Cr | **Overseas slots in XII:** 4 (Curran, Hetmyer, Archer, Burger)
+**Total squad salary:** 125.40 Cr | **Overseas slots in XII:** 4 (Hetmyer, Ferreira, Curran, Archer)
 
 ---
 

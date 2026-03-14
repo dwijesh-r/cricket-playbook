@@ -75,24 +75,23 @@ Kyle Jamieson (0.75 Cr) offers overseas pace all-rounder depth with 5 wickets at
 |---|------|------|-----------|-----|--------------------------|---------------|
 | 1 | KL Rahul (c) | Wicketkeeper/Batter | 14.00 | IND | 135.9 SR (981 balls, HIGH) | |
 | 2 | Prithvi Shaw | Batter | 0.30 | IND | 148.3 SR (205 balls, MEDIUM) | |
-| 3 | Axar Patel | All-rounder | 16.50 | IND | 142.8 SR (547 balls, HIGH); 7.86 econ (127 ov, HIGH) | |
-| 4 | Tristan Stubbs | Batter | 10.00 | RSA | 164.6 SR (427 balls, MEDIUM) | |
-| 5 | Ashutosh Sharma | Batter | 3.80 | IND | 166.5 SR (236 balls, MEDIUM) | |
+| 3 | Abhishek Porel | Batter/WK | 4.00 | IND | Uncapped IPL; explosive domestic profile | Young Indian anchor at #3 |
+| 4 | Nitish Rana | All-rounder | 0.50 | IND | 146.1 SR (460 balls, MEDIUM) | |
+| 5 | Tristan Stubbs | Batter | 10.00 | RSA | 164.6 SR (427 balls, MEDIUM) | |
 | 6 | David Miller | Batter | 2.00 | RSA | 139.1 SR (436 balls, MEDIUM); death 154.3 SR | |
-| 7 | Kuldeep Yadav | Bowler (LA Wrist-spin) | 13.25 | IND | 7.82 econ / 41 wkts (145 ov, HIGH) | |
+| 7 | Axar Patel | All-rounder | 16.50 | IND | 142.8 SR (547 balls, HIGH); 7.86 econ (127 ov, HIGH) | |
 | 8 | Mitchell Starc | Bowler | 11.75 | AUS | 10.67 econ / 31 wkts (79.8 ov, MEDIUM) | |
 | 9 | T Natarajan | Bowler | 10.75 | IND | 9.33 econ / 30 wkts (100.5 ov, MEDIUM) | |
-| 10 | Lungi Ngidi | Bowler | 1.00 | RSA | 10.13 econ / 4 wkts (8 ov, LOW) | |
-| 11 | Mukesh Kumar | Bowler | 8.00 | IND | 10.55 econ / 36 wkts (106 ov, HIGH) | |
+| 10 | Kuldeep Yadav | Bowler (LA Wrist-spin) | 13.25 | IND | 7.82 econ / 41 wkts (145 ov, HIGH) | |
+| 11 | Lungi Ngidi | Bowler | 1.00 | RSA | 10.13 econ / 4 wkts (8 ov, LOW) | |
+| IP | Ashutosh Sharma | Batter | 3.80 | IND | 166.5 SR (236 balls, MEDIUM) | Death overs impact sub |
 
 ### Bench
 
 | # | Name | Role | Price (Cr) | Nat | Key Stat (IPL since 2023) | Founder Notes |
 |---|------|------|-----------|-----|--------------------------|---------------|
-| 12 | Abhishek Porel | Wicketkeeper | 4.00 | IND | Uncapped IPL; explosive domestic profile | |
-| 13 | Nitish Rana | All-rounder | 0.50 | IND | 146.1 SR (460 balls, MEDIUM) | |
-| 14 | Karun Nair | Batter | 0.50 | IND | 172.2 SR (115 balls, LOW) | |
-| 15 | Sameer Rizvi | Batter | 0.95 | IND | 141.0 SR (122 balls, LOW) | |
+| 13 | Karun Nair | Batter | 0.50 | IND | 172.2 SR (115 balls, LOW) | |
+| 14 | Sameer Rizvi | Batter | 0.95 | IND | 141.0 SR (122 balls, LOW) | |
 | 16 | Pathum Nissanka | Batter | 3.20 | SL | Limited IPL data; SL international top-order | |
 | 17 | Ben Duckett | Wicketkeeper/Batter | 0.75 | ENG | Limited IPL data; ENG international LHB | |
 | 18 | Kyle Jamieson | All-rounder | 0.75 | NZ | 9.80 econ / 5 wkts (15 ov, LOW) | |
@@ -104,7 +103,7 @@ Kyle Jamieson (0.75 Cr) offers overseas pace all-rounder depth with 5 wickets at
 | 24 | Ajay Mandal | All-rounder | 0.30 | IND | Uncapped IPL; LA orthodox AR | |
 | 25 | Sahil Parakh | Batter | 0.30 | IND | Uncapped IPL; 18-year-old LHB | |
 
-**Total squad salary:** 112.95 Cr | **Overseas slots in XII:** 3 (Stubbs, Starc, Ngidi) with Miller as rotation option
+**Total squad salary:** 112.95 Cr | **Overseas slots in XII:** 4 (Stubbs, Miller, Starc, Ngidi)
 
 ---
 
